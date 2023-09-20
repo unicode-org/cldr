@@ -6,7 +6,7 @@ const _KeyboardData =
     "@_version": "1.0",
     "@_encoding": "UTF-8"
    },
-   "keyboard": {
+   "keyboard3": {
     "locales": {
      "locale": {
       "@_id": "en"
@@ -212,7 +212,7 @@ const _KeyboardData =
     "@_version": "1.0",
     "@_encoding": "UTF-8"
    },
-   "keyboard": {
+   "keyboard3": {
     "locales": {
      "locale": {
       "@_id": "pt"
@@ -386,7 +386,7 @@ const _KeyboardData =
     "@_version": "1.0",
     "@_encoding": "UTF-8"
    },
-   "keyboard": {
+   "keyboard3": {
     "locales": {
      "locale": {
       "@_id": "en"
@@ -597,7 +597,7 @@ const _KeyboardData =
     "@_version": "1.0",
     "@_encoding": "UTF-8"
    },
-   "keyboard": {
+   "keyboard3": {
     "locales": {
      "locale": {
       "@_id": "br"
@@ -972,77 +972,75 @@ const _KeyboardData =
       }
      ]
     },
-    "transforms": [
-     {
-      "transformGroup": [
-       {
-        "transform": [
-         {
-          "@_from": "${grave}($[vowel])",
-          "@_to": "$[1:graveVowel]"
-         },
-         {
-          "@_from": "${caret}($[vowel])",
-          "@_to": "$[1:caretVowel]"
-         },
-         {
-          "@_from": "${umlaut}($[vowel])",
-          "@_to": "$[1:umlautVowel]"
-         },
-         {
-          "@_from": "${umlaut}y",
-          "@_to": "ÿ"
-         },
-         {
-          "@_from": "${tilde}a",
-          "@_to": "ã"
-         },
-         {
-          "@_from": "${tilde}A",
-          "@_to": "Ã"
-         },
-         {
-          "@_from": "${tilde}n",
-          "@_to": "ñ"
-         },
-         {
-          "@_from": "${tilde}N",
-          "@_to": "Ñ"
-         },
-         {
-          "@_from": "${tilde}o",
-          "@_to": "õ"
-         },
-         {
-          "@_from": "${tilde}O",
-          "@_to": "Õ"
-         },
-         {
-          "@_from": "($[spacing_accent])",
-          "@_to": "$1"
-         }
-        ]
-       },
-       {
-        "reorder": [
-         {
-          "@_from": "\\u{1A60}",
-          "@_order": "127"
-         },
-         {
-          "@_from": "\\u{1A6B}",
-          "@_order": "42"
-         },
-         {
-          "@_from": "[\\u{1A75}-\\u{1A79}]",
-          "@_order": "55"
-         }
-        ]
-       }
-      ],
-      "@_type": "simple"
-     }
-    ],
+    "transforms": {
+     "transformGroup": [
+      {
+       "transform": [
+        {
+         "@_from": "${grave}($[vowel])",
+         "@_to": "$[1:graveVowel]"
+        },
+        {
+         "@_from": "${caret}($[vowel])",
+         "@_to": "$[1:caretVowel]"
+        },
+        {
+         "@_from": "${umlaut}($[vowel])",
+         "@_to": "$[1:umlautVowel]"
+        },
+        {
+         "@_from": "${umlaut}y",
+         "@_to": "ÿ"
+        },
+        {
+         "@_from": "${tilde}a",
+         "@_to": "ã"
+        },
+        {
+         "@_from": "${tilde}A",
+         "@_to": "Ã"
+        },
+        {
+         "@_from": "${tilde}n",
+         "@_to": "ñ"
+        },
+        {
+         "@_from": "${tilde}N",
+         "@_to": "Ñ"
+        },
+        {
+         "@_from": "${tilde}o",
+         "@_to": "õ"
+        },
+        {
+         "@_from": "${tilde}O",
+         "@_to": "Õ"
+        },
+        {
+         "@_from": "($[spacing_accent])",
+         "@_to": "$1"
+        }
+       ]
+      },
+      {
+       "reorder": [
+        {
+         "@_from": "\\u{1A60}",
+         "@_order": "127"
+        },
+        {
+         "@_from": "\\u{1A6B}",
+         "@_order": "42"
+        },
+        {
+         "@_from": "[\\u{1A75}-\\u{1A79}]",
+         "@_order": "55"
+        }
+       ]
+      }
+     ],
+     "@_type": "simple"
+    },
     "@_locale": "fr-t-k0-azerty",
     "@_conformsTo": "techpreview"
    }
@@ -1052,7 +1050,7 @@ const _KeyboardData =
     "@_version": "1.0",
     "@_encoding": "UTF-8"
    },
-   "keyboard": {
+   "keyboard3": {
     "locales": {
      "locale": {
       "@_id": "en"

@@ -784,7 +784,7 @@ status, the latest information, or to provide feedback.</p><h2 id="Parts"><a nam
 </ul>
 </li>
 <li><a href="#element-hierarchy">Element Hierarchy</a><ul>
-<li><a href="#Element_Keyboard">Element: keyboard</a></li>
+<li><a href="#Element_Keyboard">Element: keyboard3</a></li>
 <li><a href="#Element_locales">Element: locales</a></li>
 <li><a href="#Element_locale">Element: locale</a></li>
 <li><a href="#Element_version">Element: version</a></li>
@@ -921,15 +921,15 @@ If it becomes necessary in the future, the format could extend the ISO layout to
 </ul><p>Characters of general category of Combining Mark (M), Control characters (Cc), Format characters (Cf), and whitespace other than space should be encoded using one of the notation above as appropriate.</p><p>Attribute values escaped in this manner are annotated with the <code>&lt;!--@ALLOWS_UESC--&gt;</code> DTD annotation, see <a href="tr35.html#57-dtd-annotations">DTD Annotations</a></p><hr><h2 id="File_and_Dir_Structure"><a name="file-and-directory-structure" href="#File_and_Dir_Structure">File and Directory Structure</a></h2><ul>
 <li>New collection of layouts that are prescriptive, and define the common core for a keyboard that can be consumed as data for implementation on different platforms. This collection will be in a different location than the existing CLDR keyboard files under main/keyboards. We should remove the existing data files, but keep the old DTD in the same place for compatibility, and also so that conversion tools can use it to read older files.</li>
 <li>New layouts will have version metadata to indicate their spec compliance versi​​on number.  For this tech preview, the value used must be <code>techpreview</code>.</li>
-</ul><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard</span> <span class="hljs-attr">conformsTo</span>=<span class="hljs-string">"techpreview"</span>/&gt;</span>
+</ul><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span> <span class="hljs-attr">conformsTo</span>=<span class="hljs-string">"techpreview"</span>/&gt;</span>
 </code></pre><blockquote>
 <p><em>Note</em>: Unlike other LDML files, layouts are designed to be used outside of the CLDR source tree.  A new mechanism for referencing the DTD path should ideally be used, such as a URN or FPI. See <a href="https://unicode-org.atlassian.net/browse/CLDR-15505">https://unicode-org.atlassian.net/browse/CLDR-15505</a> for discussion. For this tech preview, a relative path to the dtd will continue to be used as below.  Future versions may give other recommendations.</p>
-</blockquote><pre><code class="language-xml"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">keyboard</span> <span class="hljs-keyword">SYSTEM</span> <span class="hljs-string">"../dtd/ldmlKeyboard.dtd"</span>&gt;</span>
+</blockquote><pre><code class="language-xml"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">keyboard3</span> <span class="hljs-keyword">SYSTEM</span> <span class="hljs-string">"../dtd/ldmlKeyboard3.dtd"</span>&gt;</span>
 </code></pre><ul>
 <li>The filename of a keyboard .xml file does not have to match the BCP47 primary locale ID, but it is recommended to do so. The CLDR repository may enforce filename consistency.</li>
-</ul><h3 id="Extensibility"><a name="extensibility" href="#Extensibility">Extensibility</a></h3><p>For extensibility, the <code>&lt;special&gt;</code> element will be allowed at every nearly every level.</p><p>See <a href="tr35.html#special">Element special</a> in Part 1.</p><hr><h2 id="element-hierarchy">Element Hierarchy</h2><p>This section describes the XML elements in a keyboard layout file, beginning with the top level element <code>&lt;keyboard&gt;</code>.</p><h3 id="Element_Keyboard"><a name="element-keyboard" href="#Element_Keyboard">Element: keyboard</a></h3><p>This is the top level element. All other elements defined below are under this element.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard</span> <span class="hljs-attr">locale</span>=<span class="hljs-string">"{locale ID}"</span>&gt;</span>
+</ul><h3 id="Extensibility"><a name="extensibility" href="#Extensibility">Extensibility</a></h3><p>For extensibility, the <code>&lt;special&gt;</code> element will be allowed at every nearly every level.</p><p>See <a href="tr35.html#special">Element special</a> in Part 1.</p><hr><h2 id="element-hierarchy">Element Hierarchy</h2><p>This section describes the XML elements in a keyboard layout file, beginning with the top level element <code>&lt;keyboard3&gt;</code>.</p><h3 id="Element_Keyboard"><a name="element-keyboard3" href="#Element_Keyboard">Element: keyboard3</a></h3><p>This is the top level element. All other elements defined below are under this element.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span> <span class="hljs-attr">locale</span>=<span class="hljs-string">"{locale ID}"</span>&gt;</span>
     {definition of the layout as described by the elements defined below}
-<span class="hljs-tag">&lt;/<span class="hljs-name">keyboard</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">keyboard3</span>&gt;</span>
 </code></pre><blockquote>
 <small>
 
@@ -938,13 +938,13 @@ If it becomes necessary in the future, the format could extend the ISO layout to
 <p>Occurrence: required, single</p>
 </small>
 </blockquote><p><em>Attribute:</em> <code>conformsTo</code> (required)</p><p>This attribute distinguishes the keyboard from prior versions,
-and it also specifies the minimum CLDR version required.</p><p>For purposes of this current draft spec, the value should always be <code>techpreview</code></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard</span> …&nbsp;<span class="hljs-attr">conformsTo</span>=<span class="hljs-string">"techpreview"</span>/&gt;</span>
-</code></pre><p><em>Attribute:</em> <code>locale</code> (required)</p><p>This attribute represents the primary locale of the keyboard using BCP 47 <a href="tr35.html#Canonical_Unicode_Locale_Identifiers">Unicode locale identifiers</a> - for example <code>"el"</code> for Greek. Sometimes, the locale may not specify the base language. For example, a Devanagari keyboard for many languages could be specified by BCP-47 code: <code>"mul-Deva"</code>. For further details, see <a href="#Keyboard_IDs">Keyboard IDs</a>.</p><p><strong>Example</strong> (for illustrative purposes only, not indicative of the real data)</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard</span> <span class="hljs-attr">locale</span>=<span class="hljs-string">"ka"</span>&gt;</span>
+and it also specifies the minimum CLDR version required.</p><p>For purposes of this current draft spec, the value should always be <code>techpreview</code></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span> …&nbsp;<span class="hljs-attr">conformsTo</span>=<span class="hljs-string">"techpreview"</span>/&gt;</span>
+</code></pre><p><em>Attribute:</em> <code>locale</code> (required)</p><p>This attribute represents the primary locale of the keyboard using BCP 47 <a href="tr35.html#Canonical_Unicode_Locale_Identifiers">Unicode locale identifiers</a> - for example <code>"el"</code> for Greek. Sometimes, the locale may not specify the base language. For example, a Devanagari keyboard for many languages could be specified by BCP-47 code: <code>"mul-Deva"</code>. For further details, see <a href="#Keyboard_IDs">Keyboard IDs</a>.</p><p><strong>Example</strong> (for illustrative purposes only, not indicative of the real data)</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span> <span class="hljs-attr">locale</span>=<span class="hljs-string">"ka"</span>&gt;</span>
   …
-<span class="hljs-tag">&lt;/<span class="hljs-name">keyboard</span>&gt;</span>
-</code></pre><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard</span> <span class="hljs-attr">locale</span>=<span class="hljs-string">"fr-CH-t-k0-azerty"</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">keyboard3</span>&gt;</span>
+</code></pre><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span> <span class="hljs-attr">locale</span>=<span class="hljs-string">"fr-CH-t-k0-azerty"</span>&gt;</span>
   …
-<span class="hljs-tag">&lt;/<span class="hljs-name">keyboard</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">keyboard3</span>&gt;</span>
 </code></pre><hr><h3 id="Element_locales"><a name="element-locales" href="#Element_locales">Element: locales</a></h3><p>The optional <code>&lt;locales&gt;</code> element allows specifying additional or alternate locales. Denotes intentional support for an extra language, not just that a keyboard incidentally supports a language’s orthography.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">locales</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">locale</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"…"</span>/&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">locale</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"…"</span>/&gt;</span>
@@ -952,7 +952,7 @@ and it also specifies the minimum CLDR version required.</p><p>For purposes of t
 </code></pre><blockquote>
 <small>
 
-<p>Parents: <a href="#Element_keyboard">keyboard</a></p>
+<p>Parents: <a href="#Element_keyboard">keyboard3</a></p>
 <p>Children: <a href="#Element_locale">locale</a></p>
 <p>Occurrence: optional, single</p>
 </small>
@@ -968,18 +968,18 @@ and it also specifies the minimum CLDR version required.</p><p>For purposes of t
 <p>The <a href="tr35.html#Canonical_Unicode_Locale_Identifiers">BCP 47</a> locale ID of an additional language supported by this keyboard.
 Do <em>not</em> include the <code>-k0-</code> subtag for this additional language.</p>
 </blockquote><p><strong>Example</strong></p><p>See <a href="#Principles_for_Keyboard_IDs">Principles for Keyboard IDs</a> for discussion and further examples.</p><pre><code class="language-xml"><span class="hljs-comment">&lt;!-- Pan Nigerian Keyboard--&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">keyboard</span> <span class="hljs-attr">locale</span>=<span class="hljs-string">"mul-Latn-NG-t-k0-panng"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span> <span class="hljs-attr">locale</span>=<span class="hljs-string">"mul-Latn-NG-t-k0-panng"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">locales</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">locale</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ha"</span>/&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">locale</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ig"</span>/&gt;</span>
     <span class="hljs-comment">&lt;!-- others … --&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">locales</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">keyboard</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">keyboard3</span>&gt;</span>
 </code></pre><hr><h3 id="Element_version"><a name="element-version" href="#Element_version">Element: version</a></h3><p>Element used to keep track of the source data version.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">version</span> <span class="hljs-attr">number</span>=<span class="hljs-string">".."</span>&gt;</span>
 </code></pre><blockquote>
 <small>
 
-<p>Parents: <a href="#Element_keyboard">keyboard</a></p>
+<p>Parents: <a href="#Element_keyboard">keyboard3</a></p>
 <p>Children: <em>none</em></p>
 <p>Occurrence: optional, single</p>
 </small>
@@ -987,11 +987,11 @@ Do <em>not</em> include the <code>-k0-</code> subtag for this additional languag
 <p>Must be a [<a href="https://semver.org">SEMVER</a>] compatible version number, such as <code>1.0.0</code></p>
 </blockquote><p><em>Attribute:</em> <code>cldrVersion</code> (fixed by DTD)</p><blockquote>
 <p>The CLDR specification version that is associated with this data file. This value is fixed and is inherited from the <a href="https://github.com/unicode-org/cldr/tree/main/keyboards/dtd">DTD file</a> and therefore does not show up directly in the XML file.</p>
-</blockquote><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard</span> <span class="hljs-attr">locale</span>=<span class="hljs-string">"tok"</span>&gt;</span>
+</blockquote><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span> <span class="hljs-attr">locale</span>=<span class="hljs-string">"tok"</span>&gt;</span>
     …
     <span class="hljs-tag">&lt;<span class="hljs-name">version</span> <span class="hljs-attr">number</span>=<span class="hljs-string">"1"</span>/&gt;</span>
     …
-<span class="hljs-tag">&lt;/<span class="hljs-name">keyboard</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">keyboard3</span>&gt;</span>
 </code></pre><hr><h3 id="Element_info"><a name="element-info" href="#Element_info">Element: info</a></h3><p>Element containing informative properties about the layout, for displaying in user interfaces etc.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">info</span> [<span class="hljs-attr">author</span>=<span class="hljs-string">"{author}"</span>]
       [<span class="hljs-attr">normalization</span>=<span class="hljs-string">"{form}"</span>]
       [<span class="hljs-attr">layout</span>=<span class="hljs-string">"{hint of the layout}"</span>]
@@ -999,7 +999,7 @@ Do <em>not</em> include the <code>-k0-</code> subtag for this additional languag
 </code></pre><blockquote>
 <small>
 
-<p>Parents: <a href="#Element_keyboard">keyboard</a></p>
+<p>Parents: <a href="#Element_keyboard">keyboard3</a></p>
 <p>Children: <em>none</em></p>
 <p>Occurrence: optional, single</p>
 </small>
@@ -1021,7 +1021,7 @@ Typically, this is shown on a UI element that allows switching keyboard layouts 
 </code></pre><blockquote>
 <small>
 
-<p>Parents: <a href="#Element_keyboard">keyboard</a></p>
+<p>Parents: <a href="#Element_keyboard">keyboard3</a></p>
 <p>Children: <a href="#Element_name">name</a>, <a href="tr35.html#special"><em>special</em></a></p>
 <p>Occurrence: required, single</p>
 </small>
@@ -1035,28 +1035,28 @@ Typically, this is shown on a UI element that allows switching keyboard layouts 
 </small>
 </blockquote><p><em>Attribute:</em> <code>value</code> (required)</p><blockquote>
 <p>The name of the layout.</p>
-</blockquote><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard</span> <span class="hljs-attr">locale</span>=<span class="hljs-string">"bg-t-k0-phonetic-trad"</span>&gt;</span>
+</blockquote><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span> <span class="hljs-attr">locale</span>=<span class="hljs-string">"bg-t-k0-phonetic-trad"</span>&gt;</span>
     …
     <span class="hljs-tag">&lt;<span class="hljs-name">names</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">name</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Bulgarian (Phonetic Traditional)"</span> /&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">names</span>&gt;</span>
     …
-<span class="hljs-tag">&lt;/<span class="hljs-name">keyboard</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">keyboard3</span>&gt;</span>
 </code></pre><hr><h3 id="Element_settings"><a name="element-settings" href="#Element_settings">Element: settings</a></h3><p>An element used to keep track of layout specific settings. This element may or may not show up on a layout. These settings reflect the normal practice by the implementation. However, an implementation using the data may customize the behavior.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">settings</span> [<span class="hljs-attr">fallback</span>=<span class="hljs-string">"omit"</span>] [<span class="hljs-attr">transformFailure</span>=<span class="hljs-string">"omit"</span>] [<span class="hljs-attr">transformPartial</span>=<span class="hljs-string">"hide"</span>] /&gt;</span>
 </code></pre><blockquote>
 <small>
 
-<p>Parents: <a href="#Element_keyboard">keyboard</a></p>
+<p>Parents: <a href="#Element_keyboard">keyboard3</a></p>
 <p>Children: <em>none</em></p>
 <p>Occurrence: optional, single</p>
 </small>
 </blockquote><p><em>Attribute:</em> <code>fallback="omit"</code></p><blockquote>
 <p>The presence of this attribute means that when a modifier key combination goes unmatched, no output is produced. The default behavior (when this attribute is not present) is to fall back to the base map when the modifier key combination goes unmatched.</p>
-</blockquote><p>If this attribute is present, it must have a value of omit.</p><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard</span> <span class="hljs-attr">locale</span>=<span class="hljs-string">"bg"</span>&gt;</span>
+</blockquote><p>If this attribute is present, it must have a value of omit.</p><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span> <span class="hljs-attr">locale</span>=<span class="hljs-string">"bg"</span>&gt;</span>
     …
     <span class="hljs-tag">&lt;<span class="hljs-name">settings</span> <span class="hljs-attr">fallback</span>=<span class="hljs-string">"omit"</span> /&gt;</span>
     …
-<span class="hljs-tag">&lt;/<span class="hljs-name">keyboard</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">keyboard3</span>&gt;</span>
 </code></pre><p>Indicates that:</p><ol>
 <li>When a modifier combination goes unmatched, do not output anything when a key is pressed.</li>
 <li>If a transform is escaped, output the contents of the buffer.</li>
@@ -1074,7 +1074,7 @@ There is only a single <code>&lt;keys&gt;</code> element in each layout.</p><p><
 </code></pre><p><code>key</code> and <code>flicks</code> elements may be interleaved in any order.</p><blockquote>
 <small>
 
-<p>Parents: <a href="#Element_keyboard">keyboard</a>
+<p>Parents: <a href="#Element_keyboard">keyboard3</a>
 Children: <a href="#Element_key">key</a>, <a href="#Element_flicks">flicks</a>
 Occurrence: optional, single</p>
 </small>
@@ -1196,11 +1196,11 @@ However, since there is <code>transform="no</code>" on <strong>X</strong>, if th
 <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"b"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"b"</span>/&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"c"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"c"</span>/&gt;</span>
 …
-</code></pre><p>These implied keys are available in a data file named <code>keyboards/import/keys-Latn-implied.xml</code> in the CLDR distribution for the convenience of implementations.</p><p>Thus, the implied keys behave as if the following import were present.</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard</span>&gt;</span>
+</code></pre><p>These implied keys are available in a data file named <code>keyboards/import/keys-Latn-implied.xml</code> in the CLDR distribution for the convenience of implementations.</p><p>Thus, the implied keys behave as if the following import were present.</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">keys</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">import</span> <span class="hljs-attr">base</span>=<span class="hljs-string">"cldr"</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"techpreview/keys-Latn-implied.xml"</span> /&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">keys</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">keyboard</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">keyboard3</span>&gt;</span>
 </code></pre><p><strong>Note:</strong> All implied keys may be overridden, as with all other imported data items. See the <a href="#Element_import"><code>import</code></a> element for more details.</p><hr><h4 id="Element_flicks"><a name="elements-flicks-flick" href="#Element_flicks">Elements: flicks, flick</a></h4><p>The <code>flicks</code> element is used to generate results from a "flick" of the finger on a mobile device.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"a"</span> <span class="hljs-attr">flicks</span>=<span class="hljs-string">"a-flicks"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"a"</span> /&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">flicks</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"a-flicks"</span>&gt;</span>
     {a set of flick elements}
@@ -1241,7 +1241,7 @@ If two identical elements are defined, the later element will take precedence, t
 </code></pre><blockquote>
 <small>
 
-<p>Parents: <a href="#Element_displays">displays</a>, <a href="#Element_keyboard">keyboard</a>, <a href="#Element_keys">keys</a>, <a href="#Element_layers">layers</a>, <a href="#Element_names">names</a>, <a href="#Element_reorders">reorders</a>, <a href="#Element_transformGroup">transformGroup</a>, <a href="#Element_transforms">transforms</a>, <a href="#Element_variables">variables</a>, <a href="#Element_vkeys">vkeys</a></p>
+<p>Parents: <a href="#Element_displays">displays</a>, <a href="#Element_keyboard">keyboard3</a>, <a href="#Element_keys">keys</a>, <a href="#Element_layers">layers</a>, <a href="#Element_names">names</a>, <a href="#Element_reorders">reorders</a>, <a href="#Element_transformGroup">transformGroup</a>, <a href="#Element_transforms">transforms</a>, <a href="#Element_variables">variables</a>, <a href="#Element_vkeys">vkeys</a></p>
 <p>Children: <em>none</em></p>
 <p>Occurrence: optional, multiple</p>
 </small>
@@ -1262,7 +1262,7 @@ If <code>base</code> is omitted, then <code>path</code> is an absolute or relati
 
 <span class="hljs-comment">&lt;!-- contents of transforms-example.xml --&gt;</span>
 <span class="hljs-meta">&lt;?xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"UTF-8"</span>?&gt;</span>
-<span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">transforms</span> <span class="hljs-keyword">SYSTEM</span> <span class="hljs-string">"../dtd/ldmlKeyboard.dtd"</span>&gt;</span>
+<span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">transforms</span> <span class="hljs-keyword">SYSTEM</span> <span class="hljs-string">"../dtd/ldmlKeyboard3.dtd"</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">transforms</span>&gt;</span>
     <span class="hljs-comment">&lt;!-- begin imported part--&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">transform</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"`a"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"à"</span> /&gt;</span>
@@ -1296,7 +1296,7 @@ See  <a href="#Element_displayOptions"><code>&lt;displayOptions baseCharacter=�
 </code></pre><p><strong>Note</strong>: There is currently no way to indicate a custom display for a key without output (i.e. without a <code>to=</code> attribute), nor is there a way to indicate that such a key has a standardized identity (e.g. that a key should be identified as a “Shift”). These may be addressed in future versions of this standard.</p><blockquote>
 <small>
 
-<p>Parents: <a href="#Element_keyboard">keyboard</a></p>
+<p>Parents: <a href="#Element_keyboard">keyboard3</a></p>
 <p>Children: <a href="#Element_display">display</a>, <a href="#Element_displayOptions">displayOptions</a>, <a href="tr35.html#special"><em>special</em></a></p>
 <p>Occurrence: optional, single</p>
 </small>
@@ -1317,7 +1317,7 @@ The <code>to</code> attribute may also contain the <code>\m{…}</code> syntax t
 <p>This attribute must match <code>[A-Za-z0-9][A-Za-z0-9-]*</code></p>
 </blockquote><p><em>Attribute:</em> <code>display</code> (required)</p><blockquote>
 <p>Required and specifies the character sequence that should be displayed on the keytop for any key that generates the <code>@to</code> sequence or has the <code>@id</code>. (It is an error if the value of the <code>display</code> attribute is the same as the value of the <code>to</code> attribute, this would be an extraneous entry.)</p>
-</blockquote><p>This attribute may be escaped with <code>\u</code> notation, see <a href="#Escaping">Escaping</a>.</p><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard</span>&gt;</span>
+</blockquote><p>This attribute may be escaped with <code>\u</code> notation, see <a href="#Escaping">Escaping</a>.</p><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">keys</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"a"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"a"</span> <span class="hljs-attr">longpress</span>=<span class="hljs-string">"\u{0301} \u{0300}"</span> /&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"shift"</span> <span class="hljs-attr">switch</span>=<span class="hljs-string">"shift"</span> /&gt;</span>
@@ -1328,7 +1328,7 @@ The <code>to</code> attribute may also contain the <code>\m{…}</code> syntax t
         <span class="hljs-tag">&lt;<span class="hljs-name">display</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"shift"</span>  <span class="hljs-attr">display</span>=<span class="hljs-string">"⇪"</span> /&gt;</span> <span class="hljs-comment">&lt;!-- U+21EA --&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">display</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"\m{grave}"</span> <span class="hljs-attr">display</span>=<span class="hljs-string">"`"</span> /&gt;</span> <span class="hljs-comment">&lt;!-- Display \m{grave} as ` --&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">displays</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">keyboard</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">keyboard3</span>&gt;</span>
 </code></pre><p>To allow <code>displays</code> elements to be shared across keyboards, there is no requirement that <code>@to</code> in a <code>display</code> element matches any <code>@to</code>/<code>@id</code> in any <code>keys/key</code> element in the keyboard description.</p><hr><h3 id="Element_displayOptions"><a name="element-displayoptions" href="#Element_displayOptions">Element: displayOptions</a></h3><p>The <code>displayOptions</code> is an optional singleton element providing additional settings on this <code>displays</code>.  It is structured so as to provide for future flexibility in such options.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">displays</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">display</span> …/&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">displayOptions</span> <span class="hljs-attr">baseCharacter</span>=<span class="hljs-string">"x"</span>/&gt;</span>
@@ -1350,7 +1350,7 @@ As a hint, the implementation may ignore this option.</p>
 </blockquote><p>This attribute may be escaped with <code>\u</code> notation, see <a href="#Escaping">Escaping</a>.</p><hr><h3 id="Element_forms"><a name="element-forms" href="#Element_forms">Element: forms</a></h3><p>This element represents a set of <code>form</code> elements which define the layout of a particular hardware form.</p><blockquote>
 <small>
 
-<p>Parents: <a href="#Element_keyboard">keyboard</a></p>
+<p>Parents: <a href="#Element_keyboard">keyboard3</a></p>
 <p>Children: <a href="#Element_import">import</a>, <a href="#Element_form">form</a>, <a href="tr35.html#special"><em>special</em></a></p>
 <p>Occurrence: optional, single</p>
 </small>
@@ -1382,11 +1382,11 @@ As a hint, the implementation may ignore this option.</p>
     <span class="hljs-tag">&lt;<span class="hljs-name">scanCodes</span> <span class="hljs-attr">codes</span>=<span class="hljs-string">"00 01 02"</span>/&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">scanCodes</span> <span class="hljs-attr">codes</span>=<span class="hljs-string">"03 04 05"</span>/&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
-</code></pre><h5 id="implied-form-values">Implied Form Values</h5><p>There is an implied set of <code>&lt;form&gt;</code> elements corresponding to the default forms, thus implementations must behave as if there was the following import statement:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard</span>&gt;</span>
+</code></pre><h5 id="implied-form-values">Implied Form Values</h5><p>There is an implied set of <code>&lt;form&gt;</code> elements corresponding to the default forms, thus implementations must behave as if there was the following import statement:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">forms</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">import</span> <span class="hljs-attr">base</span>=<span class="hljs-string">"cldr"</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"techpreview/scanCodes-implied.xml"</span> /&gt;</span> <span class="hljs-comment">&lt;!-- the version will match the current conformsTo of the file --&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">forms</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">keyboard</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">keyboard3</span>&gt;</span>
 </code></pre><p>Here is a summary of the implied form elements. Keyboards included in the CLDR Repository must only use these <code>form=</code> values and may not override the scanCodes.</p><blockquote>
 <ul>
 <li><code>touch</code> - Touch (non-hardware) layout.</li>
@@ -1411,7 +1411,7 @@ As a hint, the implementation may ignore this option.</p>
 hardware or touch layout.</p><blockquote>
 <small>
 
-<p>Parents: <a href="#Element_keyboard">keyboard</a></p>
+<p>Parents: <a href="#Element_keyboard">keyboard3</a></p>
 <p>Children: <a href="#Element_import">import</a>, <a href="#Element_layer">layer</a>, <a href="tr35.html#special"><em>special</em></a></p>
 <p>Occurrence: required, multiple</p>
 </small>
@@ -1440,7 +1440,7 @@ element, the hardware elements can be used for on-screen use.</p>
 </code></pre><blockquote>
 <small>
 
-<p>Parents: <a href="#Element_keyboard">keyboard</a></p>
+<p>Parents: <a href="#Element_keyboard">keyboard3</a></p>
 <p>Children: <a href="#Element_row">row</a>, <a href="tr35.html#special"><em>special</em></a></p>
 <p>Occurrence: optional, multiple</p>
 </small>
@@ -1490,7 +1490,7 @@ whereas <code>alt</code> indicates <em>either</em> left or right alt key.
 </code></pre><blockquote>
 <small>
 
-<p>Parents: <a href="#Element_keyboard">keyboard</a></p>
+<p>Parents: <a href="#Element_keyboard">keyboard3</a></p>
 <p>Children: <a href="#Element_import">import</a>, <a href="tr35.html#special"><em>special</em></a>, <a href="#Element_vkey">vkey</a></p>
 <p>Occurrence: optional, single</p>
 </small>
@@ -1506,18 +1506,18 @@ whereas <code>alt</code> indicates <em>either</em> left or right alt key.
 <p>The vkey being mapped from. See <a href="#CLDR_VKey_Enum">CLDR VKey Enum</a> for a reference table.</p>
 </blockquote><p><em>Attribute:</em> <code>to</code> (required)</p><blockquote>
 <p>The resultant vkey identifier. See <a href="#CLDR_VKey_Enum">CLDR VKey Enum</a> for a reference table.</p>
-</blockquote><p><strong>Example</strong></p><p>This example shows some of the mappings for a French keyboard layout:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard</span>&gt;</span>
+</blockquote><p><strong>Example</strong></p><p>This example shows some of the mappings for a French keyboard layout:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">vkeys</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">vkey</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"Q"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"A"</span> /&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">vkey</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"W"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"Z"</span> /&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">vkey</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"A"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"Q"</span> /&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">vkey</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"Z"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"W"</span> /&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">vkeys</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">keyboard</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">keyboard3</span>&gt;</span>
 </code></pre><hr><h3 id="Element_variables"><a name="element-variables" href="#Element_variables">Element: variables</a></h3><blockquote>
 <small>
 
-<p>Parents: <a href="#Element_keyboard">keyboard</a></p>
+<p>Parents: <a href="#Element_keyboard">keyboard3</a></p>
 <p>Children: <a href="#Element_import">import</a>, <a href="tr35.html#special"><em>special</em></a>, <a href="#element-string">string</a>, <a href="#element-set">set</a>, <a href="#element-unicodeSet">unicodeSet</a></p>
 </small><p><small>Occurrence: optional, single
 </small></p>
@@ -1627,7 +1627,7 @@ The <code>unicodeSet</code> element may not be referenced by <a href="#element-k
 </code></pre><blockquote>
 <small>
 
-<p>Parents: <a href="#Element_keyboard">keyboard</a></p>
+<p>Parents: <a href="#Element_keyboard">keyboard3</a></p>
 <p>Children: <a href="#Element_import">import</a>, <a href="tr35.html#special"><em>special</em></a>, <a href="#Element_transformGroup">transformGroup</a></p>
 <p>Occurrence: optional, multiple</p>
 </small>
@@ -2227,23 +2227,23 @@ TODO: Rewrite this? Probably push out to each element's section?
 <li>In some cases, there are multiple subtags, like <code>en-US-t-k0-chromeos-intl-altgr.xml</code></li>
 <li>Otherwise, platform names are used as a guide.</li>
 </ol><p><strong>Examples</strong></p><pre><code class="language-xml"><span class="hljs-comment">&lt;!-- Serbian Latin --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">keyboard</span> <span class="hljs-attr">locale</span>=<span class="hljs-string">"sr-Latn"</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span> <span class="hljs-attr">locale</span>=<span class="hljs-string">"sr-Latn"</span>/&gt;</span>
 </code></pre><pre><code class="language-xml"><span class="hljs-comment">&lt;!-- Serbian Cyrillic --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">keyboard</span> <span class="hljs-attr">locale</span>=<span class="hljs-string">"sr-Cyrl"</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span> <span class="hljs-attr">locale</span>=<span class="hljs-string">"sr-Cyrl"</span>/&gt;</span>
 </code></pre><pre><code class="language-xml"><span class="hljs-comment">&lt;!-- Pan Nigerian Keyboard--&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">keyboard</span> <span class="hljs-attr">locale</span>=<span class="hljs-string">"mul-Latn-NG-t-k0-panng"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span> <span class="hljs-attr">locale</span>=<span class="hljs-string">"mul-Latn-NG-t-k0-panng"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">locales</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">locale</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ha"</span>/&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">locale</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ig"</span>/&gt;</span>
     <span class="hljs-comment">&lt;!-- others … --&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">locales</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">keyboard</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">keyboard3</span>&gt;</span>
 </code></pre><pre><code class="language-xml"><span class="hljs-comment">&lt;!-- Finnish Keyboard including Skolt Sami --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">keyboard</span> <span class="hljs-attr">locale</span>=<span class="hljs-string">"fi-t-k0-smi"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span> <span class="hljs-attr">locale</span>=<span class="hljs-string">"fi-t-k0-smi"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">locales</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">locale</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"sms"</span>/&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">locales</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">keyboard</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">keyboard3</span>&gt;</span>
 </code></pre><hr><h2 id="Platform_Behaviors_in_Edge_Cases"><a name="platform-behaviors-in-edge-cases" href="#Platform_Behaviors_in_Edge_Cases">Platform Behaviors in Edge Cases</a></h2><table>
 <thead>
 <tr>
@@ -2582,18 +2582,18 @@ TODO: Rewrite this? Probably push out to each element's section?
 </tr>
 </tbody></table><p>Footnotes:</p><ul>
 <li><sup>1</sup> Hex value from Windows, web standards, Keyman, etc.</li>
-</ul><hr><h2 id="keyboard-test-data">Keyboard Test Data</h2><p>Keyboard Test Data allows the keyboard author to provide regression test data to validate the repertoire and behavior of a keyboard. Tooling can run these regression tests against an implementation, and can also be used as part of the development cycle to validate that keyboard changes do not deviate from expected behavior.  In the interest of complete coverage, tooling could also indicate whether all keys and gestures in a layout are exercised by the test data.</p><p>Test data files have a separate DTD, named <code>ldmlKeyboardTest.dtd</code>.  Note that multiple test data files can refer to the same keyboard. Test files should be named similarly to the keyboards which they test, such as <code>fr_test.xml</code> to test <code>fr.xml</code>.</p><p>Sample test data files are located in the <code>keyboards/test</code> subdirectory.</p><p>The following describes the structure of a keyboard test file.</p><h3 id="test-doctype">Test Doctype</h3><pre><code class="language-xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"UTF-8"</span>?&gt;</span>
-<span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">keyboardTest</span> <span class="hljs-keyword">SYSTEM</span> <span class="hljs-string">"../dtd/ldmlKeyboardTest.dtd"</span>&gt;</span>
+</ul><hr><h2 id="keyboard-test-data">Keyboard Test Data</h2><p>Keyboard Test Data allows the keyboard author to provide regression test data to validate the repertoire and behavior of a keyboard. Tooling can run these regression tests against an implementation, and can also be used as part of the development cycle to validate that keyboard changes do not deviate from expected behavior.  In the interest of complete coverage, tooling could also indicate whether all keys and gestures in a layout are exercised by the test data.</p><p>Test data files have a separate DTD, named <code>ldmlKeyboardTest3.dtd</code>.  Note that multiple test data files can refer to the same keyboard. Test files should be named similarly to the keyboards which they test, such as <code>fr_test.xml</code> to test <code>fr.xml</code>.</p><p>Sample test data files are located in the <code>keyboards/test</code> subdirectory.</p><p>The following describes the structure of a keyboard test file.</p><h3 id="test-doctype">Test Doctype</h3><pre><code class="language-xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"UTF-8"</span>?&gt;</span>
+<span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">keyboardTest3</span> <span class="hljs-keyword">SYSTEM</span> <span class="hljs-string">"../dtd/ldmlKeyboardTest3.dtd"</span>&gt;</span>
 </code></pre><p>The top level element is named <code>keyboardTest</code>.</p><h3 id="test-element-keyboardtest">Test Element: keyboardTest</h3><blockquote>
 <small>
 
 </small><p><small>Children: <a href="#test-element-info">info</a>, <a href="#test-element-repertoire">repertoire</a>, <a href="tr35.html#special"><em>special</em></a>, <a href="#test-element-tests">tests</a>
 </small></p>
-</blockquote><p>This is the top level element.</p><p><em>Attribute:</em> <code>conformsTo</code> (required)</p><p>The <code>conformsTo</code> attribute here is the same as on the <a href="#Element_Keyboard"><code>&lt;keyboard&gt;</code></a> element.</p><pre><code class="language-xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"UTF-8"</span>?&gt;</span>
-<span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">keyboardTest</span> <span class="hljs-keyword">SYSTEM</span> <span class="hljs-string">"../dtd/ldmlKeyboardTest.dtd"</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">keyboardTest</span> <span class="hljs-attr">conformsTo</span>=<span class="hljs-string">"techpreview"</span>&gt;</span>
+</blockquote><p>This is the top level element.</p><p><em>Attribute:</em> <code>conformsTo</code> (required)</p><p>The <code>conformsTo</code> attribute here is the same as on the <a href="#Element_Keyboard"><code>&lt;keyboard3&gt;</code></a> element.</p><pre><code class="language-xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"UTF-8"</span>?&gt;</span>
+<span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">keyboardTest3</span> <span class="hljs-keyword">SYSTEM</span> <span class="hljs-string">"../dtd/ldmlKeyboardTest3.dtd"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">keyboardTest3</span> <span class="hljs-attr">conformsTo</span>=<span class="hljs-string">"techpreview"</span>&gt;</span>
     …
-<span class="hljs-tag">&lt;/<span class="hljs-name">keyboardTest</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">keyboardTest3</span>&gt;</span>
 </code></pre><h3 id="test-element-info">Test Element: info</h3><blockquote>
 <small>
 

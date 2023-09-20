@@ -1409,6 +1409,8 @@ _Attribute:_ `modifier` (required for `hardware`)
 > For hardware layouts, the use of `@modifier` as an identifier for a layer is sufficient since it is always unique among the set of `layer` elements in a keyboard.
 >
 > The set of modifiers must match `(none|([A-Za-z0-9]+)( [A-Za-z0-9]+)*)`
+>
+> To share a layer between to modifier sets, the layer data must be duplicated.
 
 * * *
 

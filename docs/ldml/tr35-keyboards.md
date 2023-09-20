@@ -777,7 +777,7 @@ _Attribute:_ `to`
 
 _Attribute:_ `transform="no"` (optional)
 
-> The `transform` attribute is used to define a key that does not participate in a transform (until the next keystroke). This attribute value must be `no` if the attribute is present.
+> The `transform` attribute is used to define a key that does not participate in a transform (until the next keystroke). This attribute value must be `"no"` if the attribute is present.
 > This attribute is useful where it is desired to output where two different keys could output the same characters (with different key or modifier combinations) but only one of them is intended to participate in a transform.
 > When the next keystroke is pressed, the prior output may then combine using other transforms.
 >

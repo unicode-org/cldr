@@ -421,7 +421,7 @@ The optional `<locales>` element allows specifying additional or alternate local
 _Attribute:_ `id` (required)
 
 > The [BCP 47](tr35.md#Canonical_Unicode_Locale_Identifiers) locale ID of an additional language supported by this keyboard.
-> Do _not_ include the `-k0-` subtag for this additional language.
+> Must _not_ include the `-k0-` subtag for this additional language.
 
 **Example**
 

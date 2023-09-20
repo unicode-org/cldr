@@ -520,11 +520,15 @@ _Attribute:_ `normalization`
 _Attribute:_ `layout`
 
 > The `layout` attribute describes the layout pattern, such as QWERTY, DVORAK, INSCRIPT, etc. typically used to distinguish various layouts for the same language.
+>
+> This attribute is not localized, but is an informative identifier for implementation use.
 
 _Attribute:_ `indicator`
 
-> The `indicator` attribute describes a short string to be used in currently selected layout indicator, such as US, SI9 etc.
+> The `indicator` attribute describes a short string to be used in currently selected layout indicator, such as `US`, `SI9` etc.
 > Typically, this is shown on a UI element that allows switching keyboard layouts and/or input languages.
+>
+> This attribute is not localized.
 
 * * *
 

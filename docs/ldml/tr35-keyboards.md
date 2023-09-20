@@ -1389,8 +1389,8 @@ _Attribute:_ `modifier` (required for `hardware`)
 > To indicate that no modifiers apply, the reserved name of `none` is used.
 > The following modifier components can be used, separated by spaces.
 > Note that `L` or `R` indicates a left- or right- side modifier only (such as `altL`)
-> whereas `alt` indicates _either_ left or right alt key.
-> `shift` also indicates either shift key.
+> whereas `alt` indicates _either_ left or right alt key (that is, `altL` or `altR`). `ctrl` indicates either left or right ctrl key (that is, `ctrlL` or `ctrlR`).
+> `shift` also indicates either shift key. The left and right shift keys are not distinguishable in this specification.
 >
 > - `none` (no modifier, may not be combined with others)
 > - `alt`

@@ -2261,8 +2261,18 @@ public class VoteResolver<T> {
         String baileyValue = cldrFile.getBaileyValue(path, pathWhereFound, localeWhereFound);
         if (baileyValue != null
                 && (CldrUtility.INHERITANCE_MARKER.equals(value) || baileyValue.equals(value))) {
+            // TODO: decide whether to continue treating GlossonymConstructor.PSEUDO_PATH
+            // (constructed values) as lateral inheritance. This method originally did not
+            // take constructed values into account, so it implicitly treated constructed
+            // values as inherited, given that pathWhereFound doesn't equal path.
+            // This original behavior corresponds to CONSTRUCTED_PSEUDO_PATH_NOT_LATERAL = false.
+            // Reference: https://unicode-org.atlassian.net/browse/CLDR-16372
+            final boolean CONSTRUCTED_PSEUDO_PATH_NOT_LATERAL = false;
             value =
-                    pathWhereFound.value.equals(path)
+                    (pathWhereFound.value.equals(path)
+                                    || (CONSTRUCTED_PSEUDO_PATH_NOT_LATERAL
+                                            && GlossonymConstructor.PSEUDO_PATH.equals(
+                                                    pathWhereFound.value)))
                             ? CldrUtility.INHERITANCE_MARKER
                             : baileyValue;
         }

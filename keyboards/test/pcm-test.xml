@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE keyboardTest SYSTEM "../dtd/ldmlKeyboardTest.dtd">
-<keyboardTest conformsTo="techpreview">
+<!DOCTYPE keyboardTest3 SYSTEM "../dtd/ldmlKeyboardTest3.dtd">
+<keyboardTest3 conformsTo="techpreview">
   <info keyboard="pcm.xml" author="Team Keyboard" name="pcm-test" />
   <repertoire name="simple-repertoire" chars="[a b c d e ọ Ọ ẹ Ẹ ₦]" type="simple" />
   <tests name="key-tests">
@@ -18,4 +18,4 @@
       <check result="e\u{323}" />
     </test>
   </tests>
-</keyboardTest>
+</keyboardTest3>

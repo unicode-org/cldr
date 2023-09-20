@@ -536,7 +536,7 @@ _Attribute:_ `indicator`
 
 Element used to store any names given to the layout.
 
-These names are not currently localized.
+These names are not localized but are informative names for the keyboard. Localization of these names would be done as separate data items elsewhere in CLDR.
 
 **Syntax**
 

@@ -355,7 +355,9 @@ For purposes of this current draft specification, the value should always be `te
 
 _Attribute:_ `locale` (required)
 
-This attribute represents the primary locale of the keyboard using BCP 47 [Unicode locale identifiers](tr35.md#Canonical_Unicode_Locale_Identifiers) - for example `"el"` for Greek. Sometimes, the locale may not specify the base language. For example, a Devanagari keyboard for many languages could be specified by BCP-47 code: `"mul-Deva"`. For further details, see [Keyboard IDs](#Keyboard_IDs).
+This attribute represents the primary locale of the keyboard using BCP 47 [Unicode locale identifiers](tr35.md#Canonical_Unicode_Locale_Identifiers) - for example `"el"` for Greek. Sometimes, the locale may not specify the base language. For example, a Devanagari keyboard for many languages could be specified by BCP-47 code: `"und-Deva"`. However, it is better to list out the languages explicitly using the [`locales`](#element-locales) element.
+
+For further details about the choice of locale ID, see [Keyboard IDs](#Keyboard_IDs).
 
 **Example** (for illustrative purposes only, not indicative of the real data)
 

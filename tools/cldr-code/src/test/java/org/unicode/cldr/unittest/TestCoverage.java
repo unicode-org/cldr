@@ -1,13 +1,14 @@
 package org.unicode.cldr.unittest;
 
+import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
+import com.google.common.collect.TreeMultimap;
 import java.util.Collections;
 import java.util.EnumSet;
 import java.util.Set;
-import java.util.stream.Collectors;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -16,12 +17,9 @@ import org.unicode.cldr.util.CoreCoverageInfo;
 import org.unicode.cldr.util.CoreCoverageInfo.CoreItems;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
-import org.unicode.cldr.util.LocaleIDParser;
-import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.XMLSource;
 
 public class TestCoverage extends TestFmwkPlus {
     private static final boolean DEBUG = false;
@@ -91,54 +89,49 @@ public class TestCoverage extends TestFmwkPlus {
         }
     }
 
+    final ImmutableSet<CoreItems> nonCore =
+            ImmutableSet.copyOf(
+                    Sets.difference(
+                            CoreItems.ALL, Set.copyOf(CoreItems.LEVEL_TO_ITEMS.get(Level.CORE))));
+
     public void TestLocales() {
         long start = System.currentTimeMillis();
-        logln("Status\tLocale\tName\tLevel\tCount" + showColumn(all) + "\tError Messages");
-        Multimap<CoreItems, String> errors = LinkedHashMultimap.create();
 
         Factory fullCldrFactory = testInfo.getFullCldrFactory();
-        for (String locale : fullCldrFactory.getAvailable()) {
-            if (!XMLSource.ROOT_ID.equals(LocaleIDParser.getParent(locale))) {
-                continue;
-            }
-            Level level = sc.getLocaleCoverageLevel(Organization.cldr, locale);
-            if (level == Level.UNDETERMINED || level == Level.CORE) {
-                level = Level.BASIC;
-            }
-            final ImmutableSet<CoreItems> targetCoreItems =
-                    ImmutableSet.copyOf(CoreItems.LEVEL_TO_ITEMS.get(level));
+        CLDRFile testFile0 = fullCldrFactory.make("yi", true);
+        checkLocale(testFile0);
 
-            CLDRFile testFile = fullCldrFactory.make(locale, true);
-            errors.clear();
-            try {
-                CoreCoverageInfo.getCoreCoverageInfo(testFile, errors);
-            } catch (Exception e) {
-                errln("Failure for locale: " + getLocaleAndName(locale));
-                e.printStackTrace();
+        for (String locale : fullCldrFactory.getAvailable()) {
+            if (CLDRLocale.getInstance(locale).getParent() != CLDRLocale.ROOT) {
                 continue;
             }
-            final Set<CoreItems> coreMissing = Sets.intersection(errors.keySet(), targetCoreItems);
-            final String message =
-                    "\t"
-                            + getLocaleAndName(locale) //
-                            + "\t"
-                            + level //
-                            + "\t"
-                            + coreMissing.size() //
-                            + "\t"
-                            + coreMissing
-                            + "\t"
-                            + errors.entries().stream()
-                                    .filter(x -> coreMissing.contains(x.getKey()))
-                                    .collect(Collectors.toUnmodifiableSet());
-            if (!coreMissing.isEmpty()) {
-                warnln(message);
-            } else {
-                logln("OK" + message);
-            }
+            CLDRFile testFile = fullCldrFactory.make(locale, true);
+            checkLocale(testFile);
         }
         long end = System.currentTimeMillis();
         logln("Elapsed:\t" + (end - start));
+    }
+
+    public Multimap<CoreItems, String> checkLocale(CLDRFile testFile) {
+        Multimap<CoreItems, String> errors = TreeMultimap.create();
+        String locale = testFile.getLocaleID();
+
+        try {
+            CoreCoverageInfo.getCoreCoverageInfo(testFile, errors);
+        } catch (Exception e) {
+            errln(
+                    "Failure for locale: "
+                            + getLocaleAndName(locale)
+                            + ", can't access CoreCoverageInfo.getCoreCoverageInfo");
+            e.printStackTrace();
+            return errors;
+        }
+        // Tried errors.removeAll(nonCore), but doesn't remove all keys; rather all values for 1 key
+        for (CoreItems x : nonCore) {
+            errors.removeAll(x);
+        }
+        assertEquals("Core items " + getLocaleAndName(locale), ImmutableMultimap.of(), errors);
+        return errors;
     }
 
     private String getLocaleAndName(String locale) {

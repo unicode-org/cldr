@@ -45,8 +45,5 @@ public class GenerateAllCharts {
         VerifyZones.main(args);
         DateTimeFormats.main(args);
         new ChartPersonNames().writeChart(null);
-
-        // put this at the end, since it currently fails.
-        ShowKeyboards.main(args);
     }
 }

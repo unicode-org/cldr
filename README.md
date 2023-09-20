@@ -1,12 +1,24 @@
 # Unicode CLDR Project
 
-Latest Release: [v43.1](https://cldr.unicode.org/index/downloads/cldr-43) published 2023-06-15
+For current CLDR release information, see [cldr.unicode.org](https://cldr.unicode.org/index/downloads/).
 
-## Build Status
-
-GitHub:
+#### `main` branch:
 [![cldr-mvn](https://github.com/unicode-org/cldr/workflows/cldr-mvn/badge.svg)](https://github.com/unicode-org/cldr/actions?query=branch%3Amain+workflow%3A%22cldr-mvn%22)
 [![Ansible Lint](https://github.com/unicode-org/cldr/workflows/Ansible%20Lint/badge.svg)](https://github.com/unicode-org/cldr/actions?query=branch%3Amain+workflow%3A%22Ansible+Lint%22)
+[![Publish to gh-pages](https://github.com/unicode-org/cldr/actions/workflows/gh-pages.yml/badge.svg)](https://github.com/unicode-org/cldr/actions/workflows/gh-pages.yml)
+[![CodeQL](https://github.com/unicode-org/cldr/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/unicode-org/cldr/actions/workflows/codeql-analysis.yml)
+
+## Status
+
+Update: 2023-08-31
+
+<!-- [inapplicable lines are commented out.]-->
+<!--**Note:**  CLDR 44 is in development and not recommended for use at this stage.-->
+<!--**Note:**  This is the milestone 1 version of CLDR 44, intended for those wishing to do pre-release testing. It is not recommended for production use.-->
+> **Note:** This is a preliminary version of CLDR 44, intended for those wishing to do pre-release testing. It is not recommended for production use.</p>
+<!--**Note:**  This is a pre-release candidate version of CLDR 44, intended for testing.
+It is not recommended for production use.</p>-->
+<!--<p>This is the final release version of CLDR 44.</p>-->
 
 ### What is CLDR?
 The Unicode CLDR provides key building blocks for software to support the world's languages, with the largest and most extensive standard repository of locale data available. This data is used by a wide spectrum of companies for their software internationalization and localization, adapting software to the conventions of different languages for such common software tasks.

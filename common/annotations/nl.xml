@@ -583,7 +583,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="▮" type="tts">ingevulde verticale rechthoek</annotation>
 		<annotation cp="▰">ingevuld parallellogram</annotation>
 		<annotation cp="▰" type="tts">ingevuld parallellogram</annotation>
-		<annotation cp="▲">driehoek | gevuld | gevulde | omhoog wijzende driehoek | omhoog | pijl</annotation>
+		<annotation cp="▲">driehoek | gevuld | gevulde | gevulde, omhoog wijzende driehoek | omhoog | omhoog wijzende driehoek | pijl</annotation>
 		<annotation cp="▲" type="tts">gevulde, omhoog wijzende driehoek</annotation>
 		<annotation cp="△">holle driehoek die naar boven wijst</annotation>
 		<annotation cp="△" type="tts">holle driehoek die naar boven wijst</annotation>
@@ -601,7 +601,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="►" type="tts">ingevulde pijl die naar rechts wijst</annotation>
 		<annotation cp="▻">holle pijl die naar rechts wijst</annotation>
 		<annotation cp="▻" type="tts">holle pijl die naar rechts wijst</annotation>
-		<annotation cp="▼">driehoek | gevuld | gevulde | omlaag wijzende driehoek | omlaag | pijl</annotation>
+		<annotation cp="▼">driehoek | gevuld | gevulde | gevulde, omlaag wijzende driehoek | omlaag | omlaag wijzende driehoek | pijl</annotation>
 		<annotation cp="▼" type="tts">gevulde, omlaag wijzende driehoek</annotation>
 		<annotation cp="▽">holle pijl die omlaag wijst</annotation>
 		<annotation cp="▽" type="tts">holle pijl die omlaag wijst</annotation>
@@ -1431,7 +1431,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎅" type="tts">kerstman</annotation>
 		<annotation cp="🤶">kerstmis | kerstvrouw | moedertje kerst</annotation>
 		<annotation cp="🤶" type="tts">kerstvrouw</annotation>
-		<annotation cp="🧑‍🎄">Kerstman | kerst | kersttransgender</annotation>
+		<annotation cp="🧑‍🎄">kerst | Kerstman | kersttransgender</annotation>
 		<annotation cp="🧑‍🎄" type="tts">kersttransgender</annotation>
 		<annotation cp="🦸">goed | held | heldin | superheld | superkrachten</annotation>
 		<annotation cp="🦸" type="tts">superheld</annotation>
@@ -1685,13 +1685,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫂" type="tts">personen in een omhelzing</annotation>
 		<annotation cp="👪">gezin | kind | mensen | moeder | vader</annotation>
 		<annotation cp="👪" type="tts">gezin</annotation>
-		<annotation cp="🧑‍🧑‍🧒">gezin: volwassene | volwassene | kind</annotation>
+		<annotation cp="🧑‍🧑‍🧒">gezin: volwassene | gezin: volwassene, volwassene, kind | kind | volwassene</annotation>
 		<annotation cp="🧑‍🧑‍🧒" type="tts">gezin: volwassene, volwassene, kind</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒">gezin: volwassene | volwassene | kind | kind</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">gezin: volwassene | gezin: volwassene, volwassene, kind, kind | kind | volwassene</annotation>
 		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">gezin: volwassene, volwassene, kind, kind</annotation>
-		<annotation cp="🧑‍🧒">gezin: volwassene | kind</annotation>
+		<annotation cp="🧑‍🧒">gezin: volwassene | gezin: volwassene, kind | kind</annotation>
 		<annotation cp="🧑‍🧒" type="tts">gezin: volwassene, kind</annotation>
-		<annotation cp="🧑‍🧒‍🧒">gezin: volwassene | kind | kind</annotation>
+		<annotation cp="🧑‍🧒‍🧒">gezin: volwassene | gezin: volwassene, kind, kind | kind</annotation>
 		<annotation cp="🧑‍🧒‍🧒" type="tts">gezin: volwassene, kind, kind</annotation>
 		<annotation cp="👣">afdruk | kleding | voetafdruk | voetafdrukken</annotation>
 		<annotation cp="👣" type="tts">voetafdrukken</annotation>
@@ -3695,11 +3695,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔣" type="tts">symbolen</annotation>
 		<annotation cp="🔤">abc | alfabet | invoeren | Latijns | letters</annotation>
 		<annotation cp="🔤" type="tts">Latijns alfabet</annotation>
-		<annotation cp="🅰">a | bloedgroep | bloedgroep A</annotation>
+		<annotation cp="🅰">a | bloedgroep</annotation>
 		<annotation cp="🅰" type="tts">bloedgroep A</annotation>
-		<annotation cp="🆎">ab | bloedgroep | bloedgroep AB</annotation>
+		<annotation cp="🆎">ab | bloedgroep</annotation>
 		<annotation cp="🆎" type="tts">bloedgroep AB</annotation>
-		<annotation cp="🅱">b | bloedgroep | bloedgroep B</annotation>
+		<annotation cp="🅱">b | bloedgroep</annotation>
 		<annotation cp="🅱" type="tts">bloedgroep B</annotation>
 		<annotation cp="🆑">cl | CL-knop</annotation>
 		<annotation cp="🆑" type="tts">CL-knop</annotation>
@@ -3717,7 +3717,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🆕" type="tts">NEW-knop</annotation>
 		<annotation cp="🆖">ng | NG-knop</annotation>
 		<annotation cp="🆖" type="tts">NG-knop</annotation>
-		<annotation cp="🅾">bloedgroep | bloedgroep O | o</annotation>
+		<annotation cp="🅾">bloedgroep | o</annotation>
 		<annotation cp="🅾" type="tts">bloedgroep O</annotation>
 		<annotation cp="🆗">OK | OK-knop</annotation>
 		<annotation cp="🆗" type="tts">OK-knop</annotation>
@@ -3761,7 +3761,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="㊙" type="tts">Japans teken voor ‘geheim’</annotation>
 		<annotation cp="🈺">‘geopend’ | ideogram | Japans | Japans teken voor ‘geopend’ | 営</annotation>
 		<annotation cp="🈺" type="tts">Japans teken voor ‘geopend’</annotation>
-		<annotation cp="🈵">‘vol | geen plaats’ | ideogram | Japans | Japans teken voor ‘vol | geen plaats’ | 満</annotation>
+		<annotation cp="🈵">‘vol | geen plaats’ | ideogram | Japans | Japans teken voor ‘vol | Japans teken voor ‘vol, geen plaats’ | 満</annotation>
 		<annotation cp="🈵" type="tts">Japans teken voor ‘vol, geen plaats’</annotation>
 		<annotation cp="🔴">cirkel | geometrisch | rode cirkel | rood</annotation>
 		<annotation cp="🔴" type="tts">rode cirkel</annotation>

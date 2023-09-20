@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Note: The .xsd files are a Technology Preview. They are subject to change or removal in future CLDR versions.
+Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file validation, use the DTD and CLDR tools.
+-->
+
+<!--
+  Copyright © 1991-2023 Unicode, Inc.
+  For terms of use, see http://www.unicode.org/copyright.html
+  SPDX-License-Identifier: Unicode-DFS-2016
+  CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+--><!--
+  Important Note:
+  
+  The CLDR Keyboard Subcommittee is currently developing major changes to the CLDR keyboard specification.
+  Please view the subcommittee page for the most recent information.
+  <https://cldr.unicode.org/index/keyboard-workgroup>
+--><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="keyboard3">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="import"/>
+        <xs:element minOccurs="0" ref="locales"/>
+        <xs:element minOccurs="0" ref="version"/>
+        <xs:element minOccurs="0" ref="info"/>
+        <xs:element ref="names"/>
+        <xs:element minOccurs="0" ref="settings"/>
+        <xs:element minOccurs="0" ref="vkeys"/>
+        <xs:element minOccurs="0" ref="displays"/>
+        <xs:element minOccurs="0" ref="keys"/>
+        <xs:element minOccurs="0" ref="forms"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="layers"/>
+        <xs:element minOccurs="0" ref="variables"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="transforms"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="special"/>
+      </xs:sequence>
+      <xs:attribute name="locale" use="required"/>
+      <xs:attribute name="conformsTo" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="techpreview"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  
+  
+  
+  
+  <xs:element name="import">
+    <xs:complexType>
+      <xs:attribute name="path" use="required"/>
+      <xs:attribute name="base">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="cldr"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  
+  
+  <xs:element name="locales">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="locale"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="locale">
+    <xs:complexType>
+      <xs:attribute name="id" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  
+  
+  
+  <xs:element name="version">
+    <xs:complexType>
+      <xs:attribute name="number"/>
+      <xs:attribute default="techpreview" name="cldrVersion">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="techpreview"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  
+  
+  
+  <!-- Note: post techpreview, change cldrVersion to MATCH:version -->
+  
+  
+  <xs:element name="info">
+    <xs:complexType>
+      <xs:attribute name="author"/>
+      <xs:attribute name="normalization"/>
+      <xs:attribute name="layout"/>
+      <xs:attribute name="indicator"/>
+    </xs:complexType>
+  </xs:element>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <xs:element name="names">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="import"/>
+        <xs:element maxOccurs="unbounded" ref="name"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="special"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="name">
+    <xs:complexType>
+      <xs:attribute name="value" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  
+  
+  
+  
+  <xs:element name="special" type="any"/>
+  
+  <xs:element name="settings">
+    <xs:complexType>
+      <xs:attribute name="fallback">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="omit"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  
+  
+  
+  <xs:element name="vkeys">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="import"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="vkey"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="special"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="vkey">
+    <xs:complexType>
+      <xs:attribute name="from" use="required"/>
+      <xs:attribute name="to" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  
+  
+  
+  
+  <xs:element name="displays">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="import"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="display"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="displayOptions"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="special"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="display">
+    <xs:complexType>
+      <xs:attribute name="id" type="xs:NMTOKEN"/>
+      <xs:attribute name="to"/>
+      <xs:attribute name="display" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  
+  
+  
+  
+  
+  
+  
+  <xs:element name="displayOptions">
+    <xs:complexType>
+      <xs:attribute name="baseCharacter"/>
+    </xs:complexType>
+  </xs:element>
+  
+  
+  
+  
+  <xs:element name="keys">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="import"/>
+        <xs:choice maxOccurs="unbounded" minOccurs="0">
+          <xs:element ref="key"/>
+          <xs:element ref="flicks"/>
+        </xs:choice>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="special"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="key">
+    <xs:complexType>
+      <xs:attribute name="id" type="xs:NMTOKEN" use="required"/>
+      <xs:attribute name="flicks" type="xs:NMTOKEN"/>
+      <xs:attribute name="gap">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="true"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="to"/>
+      <xs:attribute name="longPress"/>
+      <xs:attribute name="longPressDefault"/>
+      <xs:attribute name="multiTap"/>
+      <xs:attribute name="stretch">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="true"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="switch" type="xs:NMTOKEN"/>
+      <xs:attribute name="transform">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="width"/>
+    </xs:complexType>
+  </xs:element>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <xs:element name="flicks">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="flick"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="special"/>
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:NMTOKEN" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  
+  
+  <xs:element name="flick">
+    <xs:complexType>
+      <xs:attribute name="directions" type="xs:NMTOKENS" use="required"/>
+      <xs:attribute name="to" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  
+  
+  
+  
+  
+  <xs:element name="forms">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="import"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="form"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="special"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="form">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="scanCodes"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="special"/>
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:NMTOKEN"/>
+    </xs:complexType>
+  </xs:element>
+  
+  
+  <xs:element name="scanCodes">
+    <xs:complexType>
+      <xs:attribute name="codes" type="xs:NMTOKENS" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  
+  
+  
+  <xs:element name="layers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="import"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="layer"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="special"/>
+      </xs:sequence>
+      <xs:attribute name="form" type="xs:NMTOKEN" use="required"/>
+      <xs:attribute name="minDeviceWidth"/>
+    </xs:complexType>
+  </xs:element>
+  
+  
+  
+  <xs:element name="layer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="row"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="special"/>
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:NMTOKEN"/>
+      <xs:attribute name="modifier" type="xs:NMTOKENS"/>
+    </xs:complexType>
+  </xs:element>
+  
+  
+  
+  <xs:element name="row">
+    <xs:complexType>
+      <xs:attribute name="keys" type="xs:NMTOKENS" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  
+  
+  
+  
+  <xs:element name="variables">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="import"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="string"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="set"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="unicodeSet"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="special"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="string">
+    <xs:complexType>
+      <xs:attribute name="id" type="xs:NMTOKEN" use="required"/>
+      <xs:attribute name="value" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  
+  
+  
+  
+  <xs:element name="set">
+    <xs:complexType>
+      <xs:attribute name="id" type="xs:NMTOKEN" use="required"/>
+      <xs:attribute name="value" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  
+  
+  
+  
+  <xs:element name="unicodeSet">
+    <xs:complexType>
+      <xs:attribute name="id" type="xs:NMTOKEN" use="required"/>
+      <xs:attribute name="value" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  
+  
+  
+  <xs:element name="transforms">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="import"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="transformGroup"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="special"/>
+      </xs:sequence>
+      <xs:attribute name="type" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="simple"/>
+            <xs:enumeration value="backspace"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  
+  
+  <xs:element name="transformGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="import"/>
+        <xs:choice>
+          <xs:element maxOccurs="unbounded" minOccurs="0" ref="transform"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" ref="reorder"/>
+        </xs:choice>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="special"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="transform">
+    <xs:complexType>
+      <xs:attribute name="from" use="required"/>
+      <xs:attribute name="to"/>
+    </xs:complexType>
+  </xs:element>
+  
+  
+  
+  
+  
+  
+  
+  <xs:element name="reorder">
+    <xs:complexType>
+      <xs:attribute name="before"/>
+      <xs:attribute name="from" use="required"/>
+      <xs:attribute name="order"/>
+      <xs:attribute name="tertiary"/>
+      <xs:attribute name="tertiaryBase"/>
+      <xs:attribute name="preBase"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType mixed="true" name="any">
+    <xs:sequence>
+      <xs:any maxOccurs="unbounded" minOccurs="0" processContents="strict"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

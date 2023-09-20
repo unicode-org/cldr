@@ -1271,8 +1271,8 @@ public class TestPathHeader extends TestFmwkPlus {
         for (DtdType dtdType : DtdType.values()) {
             if (dtdType == DtdType.ldml
                     || dtdType == DtdType.ldmlICU
-                    || dtdType == DtdType.keyboard
-                    || dtdType == DtdType.keyboardTest) {
+                    || dtdType == DtdType.keyboard3
+                    || dtdType == DtdType.keyboardTest3) {
                 continue;
             }
             DtdData dtdData = DtdData.getInstance(dtdType);

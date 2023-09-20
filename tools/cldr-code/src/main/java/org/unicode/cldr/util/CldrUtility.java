@@ -1781,4 +1781,14 @@ public class CldrUtility {
         value.addAll(toAdd);
         return value;
     }
+
+    public static <T, C extends Collection<T>> C removeAll(C fromCollection, Set<String> toRemove) {
+        for (Iterator<T> it = fromCollection.iterator(); it.hasNext(); ) {
+            T item = it.next();
+            if (toRemove.contains(item)) {
+                it.remove();
+            }
+        }
+        return fromCollection;
+    }
 }

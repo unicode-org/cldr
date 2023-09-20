@@ -1,6 +1,8 @@
 package org.unicode.cldr.unittest;
 
 import com.google.common.base.Joiner;
+import com.google.common.base.Objects;
+import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
@@ -790,6 +792,128 @@ public class LikelySubtagsTest extends TestFmwk {
                 //                    fieldToOrigin.put(value, origin == null ? "n/a" : origin);
                 //                }
                 warnln("Bad status=" + entry.getKey() + " for " + entry.getValue());
+            }
+        }
+    }
+
+    /**
+     * Test whether any of the mapping lines in likelySubtags.xml are superfluous. <br>
+     * For example, with the following mappings, #2 and #3 are superfluous, since they would be
+     * produced by the algorithm anyway.
+     *
+     * <ol>
+     *   <li>ll => ll_Sss1_R1
+     *   <li>ll_Sss2 => ll_Sss2_RR
+     *   <li>ll_R2 => ll_Ssss_R2
+     * </ol>
+     *
+     * On the other hand, the following are not:
+     *
+     * <ol>
+     *   <li>ll_Sss2 => ll_Sss2_R3
+     *   <li>ll_R2 => ll_Sss3_R2
+     * </ol>
+     */
+    public void testSuperfluous() {
+        Map<String, String> origins = SUPPLEMENTAL_DATA_INFO.getLikelyOrigins();
+
+        // collect all items with same language
+        LanguageTagParser ltp = new LanguageTagParser();
+        TreeMap<String, TreeMap<String, String>> langToLikelySubset = new TreeMap<>();
+        for (Entry<String, String> entry : likely.entrySet()) {
+            String lang = ltp.set(entry.getKey()).getLanguage();
+            if (lang.equals("und")) {
+                continue;
+            }
+            TreeMap<String, String> subtree = langToLikelySubset.get(lang);
+            if (subtree == null) {
+                langToLikelySubset.put(lang, subtree = new TreeMap<>());
+            }
+            subtree.put(entry.getKey(), entry.getValue());
+        }
+        boolean first = true;
+
+        for (Entry<String, TreeMap<String, String>> langAndMap : langToLikelySubset.entrySet()) {
+            String lang0 = langAndMap.getKey();
+            Map<String, String> goldenMap = ImmutableMap.copyOf(langAndMap.getValue());
+            if (goldenMap.size() == 1) {
+                continue;
+            }
+
+            // get test sets and build probe data
+
+            Set<String> scripts = new TreeSet<>();
+            scripts.add("Egyp");
+            scripts.add("");
+            Set<String> regions = new TreeSet<>();
+            regions.add("AQ");
+            regions.add("");
+            for (String key : Sets.union(goldenMap.keySet(), new TreeSet<>(goldenMap.values()))) {
+                scripts.add(ltp.set(key).getScript());
+                regions.add(ltp.getRegion());
+            }
+            scripts = ImmutableSet.copyOf(scripts);
+            regions = ImmutableSet.copyOf(regions);
+
+            TreeSet<String> probeData = new TreeSet<>();
+            ltp.setLanguage(lang0); // clear;
+            for (String script : scripts) {
+                ltp.setScript(script); // clear;
+                for (String region : regions) {
+                    ltp.setRegion(region);
+                    probeData.add(ltp.toString());
+                }
+            }
+
+            // see if the omission of a <key,value> makes no difference
+
+            String omittableKey = null;
+
+            for (String keyToTryOmitting : goldenMap.keySet()) {
+                if (!keyToTryOmitting.contains("_")) {
+                    continue;
+                }
+                TreeMap<String, String> mapWithOmittedKey = new TreeMap<>(goldenMap);
+                mapWithOmittedKey.remove(keyToTryOmitting);
+
+                boolean makesADifference = false;
+                for (String probe : probeData) {
+                    String expected = LikelySubtags.maximize(probe, goldenMap);
+                    String actual = LikelySubtags.maximize(probe, mapWithOmittedKey);
+                    if (!Objects.equal(expected, actual)) {
+                        makesADifference = true;
+                        break;
+                    }
+                }
+                if (!makesADifference) {
+                    omittableKey = keyToTryOmitting;
+                    break;
+                }
+            }
+
+            // show the value that doesn't make a difference
+            // NOTE: there may be more than one, but it is sufficient to find one.
+            if (omittableKey != null) {
+                final String origin = origins.get(omittableKey);
+                if (origin != null) { // only check the non-sil for now
+                    logKnownIssue("CLDR-17084", "Remove superfluous lines in likelySubtags.txt");
+                    continue;
+                }
+                if (first) {
+                    warnln("\tMaps\tKey to omit\tvalue\torigin");
+                    first = false;
+                }
+                assertFalse(
+                        "\t"
+                                + goldenMap
+                                + "\t"
+                                + omittableKey
+                                + "\t"
+                                + goldenMap.get(omittableKey)
+                                + "\t"
+                                + (origin == null ? "" : origin)
+                                + "\t",
+                        true);
             }
         }
     }

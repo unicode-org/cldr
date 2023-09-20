@@ -73,17 +73,17 @@ public class ElementAttributeInfo {
                                     canonicalCommonDirectory + "/bcp47/calendar.xml",
                                     DtdType.ldmlBCP47));
                     result.put(
-                            DtdType.keyboard,
+                            DtdType.keyboard3,
                             new ElementAttributeInfo(
                                     canonicalCommonDirectory
                                             + "/../keyboards/3.0/fr-t-k0-azerty.xml",
-                                    DtdType.keyboard));
+                                    DtdType.keyboard3));
                     result.put(
-                            DtdType.keyboardTest,
+                            DtdType.keyboardTest3,
                             new ElementAttributeInfo(
                                     canonicalCommonDirectory
                                             + "/../keyboards/test/fr-t-k0-azerty-test.xml",
-                                    DtdType.keyboardTest));
+                                    DtdType.keyboardTest3));
                     cache.put(commonDirectory, result);
                     cache.put(canonicalCommonDirectory, result);
                 }

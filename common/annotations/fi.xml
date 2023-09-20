@@ -647,9 +647,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="◒" type="tts">alapuoliskoltaan täytetty ympyrä</annotation>
 		<annotation cp="◓">yläpuoliskoltaan täytetty ympyrä</annotation>
 		<annotation cp="◓" type="tts">yläpuoliskoltaan täytetty ympyrä</annotation>
-		<annotation cp="◔">ympyrä | jonka oikea yläneljännes täytetty</annotation>
+		<annotation cp="◔">jonka oikea yläneljännes täytetty | ympyrä | ympyrä, jonka oikea yläneljännes täytetty</annotation>
 		<annotation cp="◔" type="tts">ympyrä, jonka oikea yläneljännes täytetty</annotation>
-		<annotation cp="◕">ympyrä | jonka muut neljännekset paitsi ylävasen täytetty</annotation>
+		<annotation cp="◕">jonka muut neljännekset paitsi ylävasen täytetty | ympyrä | ympyrä, jonka muut neljännekset paitsi ylävasen täytetty</annotation>
 		<annotation cp="◕" type="tts">ympyrä, jonka muut neljännekset paitsi ylävasen täytetty</annotation>
 		<annotation cp="◖">täytetyn ympyrän vasen puolisko</annotation>
 		<annotation cp="◖" type="tts">täytetyn ympyrän vasen puolisko</annotation>
@@ -701,11 +701,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⩣" type="tts">looginen tai kaksoisalaviiva</annotation>
 		<annotation cp="⩽">pienempi vino yhteneväisyys</annotation>
 		<annotation cp="⩽" type="tts">pienempi vino yhteneväisyys</annotation>
-		<annotation cp="⪍">pienempi kuin | alla vastaava yhtäsuuruus</annotation>
+		<annotation cp="⪍">alla vastaava yhtäsuuruus | pienempi kuin | pienempi kuin, alla vastaava yhtäsuuruus</annotation>
 		<annotation cp="⪍" type="tts">pienempi kuin, alla vastaava yhtäsuuruus</annotation>
 		<annotation cp="⪚">erisuuruus | kaksoisviivallinen yhtäsuuruus suurempi | matematiikka</annotation>
 		<annotation cp="⪚" type="tts">kaksoisviivallinen yhtäsuuruus suurempi</annotation>
-		<annotation cp="⪺">seuraa | jonka alla noin-merkin negaatio</annotation>
+		<annotation cp="⪺">jonka alla noin-merkin negaatio | seuraa | seuraa, jonka alla noin-merkin negaatio</annotation>
 		<annotation cp="⪺" type="tts">seuraa, jonka alla noin-merkin negaatio</annotation>
 		<annotation cp="♭">alennus | alennusmerkki | b-molli | musiikki | nuotti</annotation>
 		<annotation cp="♭" type="tts">alennusmerkki</annotation>
@@ -813,7 +813,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫨" type="tts">tärisevä</annotation>
 		<annotation cp="🙂‍↔">ei | pudistus | ravistaa päätä vaakasuunnassa</annotation>
 		<annotation cp="🙂‍↔" type="tts">ravistaa päätä vaakasuunnassa</annotation>
-		<annotation cp="🙂‍↕">nyökkäys | kyllä | ravistaa päätä pystysuunnassa</annotation>
+		<annotation cp="🙂‍↕">kyllä | nyökkäys | ravistaa päätä pystysuunnassa</annotation>
 		<annotation cp="🙂‍↕" type="tts">ravistaa päätä pystysuunnassa</annotation>
 		<annotation cp="😌">helpottunut | helpotus | naama</annotation>
 		<annotation cp="😌" type="tts">helpottunut</annotation>
@@ -1685,13 +1685,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫂" type="tts">halaus</annotation>
 		<annotation cp="👪">äiti | isä | lapsi | perhe</annotation>
 		<annotation cp="👪" type="tts">perhe</annotation>
-		<annotation cp="🧑‍🧑‍🧒">perhe: aikuinen | aikuinen | lapsi</annotation>
+		<annotation cp="🧑‍🧑‍🧒">aikuinen | lapsi | perhe: aikuinen | perhe: aikuinen, aikuinen, lapsi</annotation>
 		<annotation cp="🧑‍🧑‍🧒" type="tts">perhe: aikuinen, aikuinen, lapsi</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒">perhe: aikuinen | aikuinen | lapsi | lapsi</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">aikuinen | lapsi | perhe: aikuinen | perhe: aikuinen, aikuinen, lapsi, lapsi</annotation>
 		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">perhe: aikuinen, aikuinen, lapsi, lapsi</annotation>
-		<annotation cp="🧑‍🧒">perhe: aikuinen | lapsi</annotation>
+		<annotation cp="🧑‍🧒">lapsi | perhe: aikuinen | perhe: aikuinen, lapsi</annotation>
 		<annotation cp="🧑‍🧒" type="tts">perhe: aikuinen, lapsi</annotation>
-		<annotation cp="🧑‍🧒‍🧒">perhe: aikuinen | lapsi | lapsi</annotation>
+		<annotation cp="🧑‍🧒‍🧒">lapsi | perhe: aikuinen | perhe: aikuinen, lapsi, lapsi</annotation>
 		<annotation cp="🧑‍🧒‍🧒" type="tts">perhe: aikuinen, lapsi, lapsi</annotation>
 		<annotation cp="👣">jalanjäljet | jalanjäljki | jälki | vaatteet | vartalo</annotation>
 		<annotation cp="👣" type="tts">jalanjäljet</annotation>
@@ -1877,7 +1877,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐦‍⬛" type="tts">mustarastas</annotation>
 		<annotation cp="🪿">hanhen huuto | hanhi | hassu | lintu | siivekäs</annotation>
 		<annotation cp="🪿" type="tts">hanhi</annotation>
-		<annotation cp="🐦‍🔥">fantasia | tulenlintu | jälleensyntymä | reinkarnaatio | feeniks</annotation>
+		<annotation cp="🐦‍🔥">fantasia | feeniks | jälleensyntymä | reinkarnaatio | tulenlintu</annotation>
 		<annotation cp="🐦‍🔥" type="tts">feeniks</annotation>
 		<annotation cp="🐸">naama | sammakko | sammakon naama</annotation>
 		<annotation cp="🐸" type="tts">sammakko</annotation>
@@ -2019,7 +2019,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍊" type="tts">mandariini</annotation>
 		<annotation cp="🍋">hedelmä | kasvi | sitrus | sitruuna</annotation>
 		<annotation cp="🍋" type="tts">sitruuna</annotation>
-		<annotation cp="🍋‍🟩">limetti | sitrus | hedelmä | trooppinen</annotation>
+		<annotation cp="🍋‍🟩">hedelmä | limetti | sitrus | trooppinen</annotation>
 		<annotation cp="🍋‍🟩" type="tts">limetti</annotation>
 		<annotation cp="🍌">banaani | hedelmä | kasvi</annotation>
 		<annotation cp="🍌" type="tts">banaani</annotation>
@@ -2083,7 +2083,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫚" type="tts">inkivääri</annotation>
 		<annotation cp="🫛">edamame | herne | herneenpalko | palko | palkokasvi | pavut | vihannes</annotation>
 		<annotation cp="🫛" type="tts">herneenpalko</annotation>
-		<annotation cp="🍄‍🟫">ruskea herkkusieni | syötävä | sieni | luonto | kasvis</annotation>
+		<annotation cp="🍄‍🟫">kasvis | luonto | ruskea herkkusieni | sieni | syötävä</annotation>
 		<annotation cp="🍄‍🟫" type="tts">ruskea herkkusieni</annotation>
 		<annotation cp="🍞">leipä | pala</annotation>
 		<annotation cp="🍞" type="tts">leipä</annotation>
@@ -2267,7 +2267,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧊" type="tts">jääkuutio</annotation>
 		<annotation cp="🥢">aterimet | ruokailu | syömäpuikot</annotation>
 		<annotation cp="🥢" type="tts">syömäpuikot</annotation>
-		<annotation cp="🍽">aterimet | haarukka | haarukka | veitsi ja lautanen | lautanen | ruokailu | veitsi</annotation>
+		<annotation cp="🍽">aterimet | haarukka | haarukka, veitsi ja lautanen | lautanen | ruokailu | veitsi | veitsi ja lautanen</annotation>
 		<annotation cp="🍽" type="tts">haarukka, veitsi ja lautanen</annotation>
 		<annotation cp="🍴">aterimet | haarukka | haarukka ja veitsi | ruokailu | veitsi</annotation>
 		<annotation cp="🍴" type="tts">haarukka ja veitsi</annotation>
@@ -2969,7 +2969,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧢" type="tts">lippalakki</annotation>
 		<annotation cp="🪖">armeija | kypärä | sotilaallinen | sotilas | sotilaskypärä</annotation>
 		<annotation cp="🪖" type="tts">sotilaskypärä</annotation>
-		<annotation cp="⛑">apu | hattu | kypärä | kypärä | jossa valkoinen risti | naama | risti</annotation>
+		<annotation cp="⛑">apu | hattu | jossa valkoinen risti | kypärä | kypärä, jossa valkoinen risti | naama | risti</annotation>
 		<annotation cp="⛑" type="tts">kypärä, jossa valkoinen risti</annotation>
 		<annotation cp="📿">asuste | helmet | helminauha | rukous | rukoushelmet | uskonto</annotation>
 		<annotation cp="📿" type="tts">rukoushelmet</annotation>
@@ -3177,13 +3177,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📥" type="tts">saapuvat</annotation>
 		<annotation cp="📦">laatikko | lähetys | paketti | pakkaus</annotation>
 		<annotation cp="📦" type="tts">paketti</annotation>
-		<annotation cp="📫">lähtevä | postilaatikko | suljettu | suljettu postilaatikko | lippu ylhäällä</annotation>
+		<annotation cp="📫">lähtevä | lippu ylhäällä | postilaatikko | suljettu | suljettu postilaatikko, lippu ylhäällä</annotation>
 		<annotation cp="📫" type="tts">suljettu postilaatikko, lippu ylhäällä</annotation>
-		<annotation cp="📪">alhaalla | postilaatikko | suljettu | suljettu postilaatikko | lippu alhaalla</annotation>
+		<annotation cp="📪">alhaalla | lippu alhaalla | postilaatikko | suljettu | suljettu postilaatikko, lippu alhaalla</annotation>
 		<annotation cp="📪" type="tts">suljettu postilaatikko, lippu alhaalla</annotation>
-		<annotation cp="📬">auki | avoin postilaatikko | lippu ylhäällä | postilaatikko</annotation>
+		<annotation cp="📬">auki | avoin postilaatikko | avoin postilaatikko, lippu ylhäällä | lippu ylhäällä | postilaatikko</annotation>
 		<annotation cp="📬" type="tts">avoin postilaatikko, lippu ylhäällä</annotation>
-		<annotation cp="📭">alhaalla | auki | avoin postilaatikko | lippu alhaalla | postilaatikko</annotation>
+		<annotation cp="📭">alhaalla | auki | avoin postilaatikko | avoin postilaatikko, lippu alhaalla | lippu alhaalla | postilaatikko</annotation>
 		<annotation cp="📭" type="tts">avoin postilaatikko, lippu alhaalla</annotation>
 		<annotation cp="📮">posti | postilaatikko</annotation>
 		<annotation cp="📮" type="tts">postilaatikko</annotation>

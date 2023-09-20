@@ -2037,6 +2037,13 @@ public class PersonNameFormatter {
         return bestPattern.format(nameObject, nameFormatParameters, fallbackFormatter);
     }
 
+    public String formatWithoutSuperscripts(
+            NameObject nameObject, FormatParameters nameFormatParameters) {
+        return format(nameObject, nameFormatParameters)
+                .replace("ᵛ", "") // remove two special CLDR ST hacks
+                .replace("ᵍ", "");
+    }
+
     /**
      * For testing
      *

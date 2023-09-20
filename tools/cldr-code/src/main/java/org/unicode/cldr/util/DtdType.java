@@ -29,16 +29,22 @@ public enum DtdType {
             "transforms",
             "validity"),
     ldmlBCP47("common/dtd/ldmlBCP47.dtd", "1.7.2", null, "bcp47"),
-    // keyboard 3.0
-    keyboard("keyboards/dtd/ldmlKeyboard.dtd", "44.0", null, "../keyboards/3.0"),
-    keyboardTest("keyboards/dtd/ldmlKeyboardTest.dtd", "44.0", null, "../keyboards/test");
+    keyboard3("keyboards/dtd/ldmlKeyboard3.dtd", "44.0", null, "../keyboards/3.0"),
+    keyboardTest3("keyboards/dtd/ldmlKeyboardTest3.dtd", "44.0", null, "../keyboards/test");
+
     public static final Set<DtdType> STANDARD_SET =
-            ImmutableSet.of(ldmlBCP47, supplementalData, ldml, keyboard);
+            ImmutableSet.of(ldmlBCP47, supplementalData, ldml, keyboard3);
 
     static Pattern FIRST_ELEMENT = PatternCache.get("//([^/\\[]*)");
 
     public final String dtdPath;
+    /**
+     * The actual root type used with the DTD. Used for ldmlICU.dtd which is used with the <ldml>
+     * root type. This mechanism isn't used for keyboard2, which simply has a different element
+     * name, but is not used with the prior DTD.
+     */
     public final DtdType rootType;
+
     public final String firstVersion;
     public final Set<String> directories;
 
@@ -60,7 +66,14 @@ public enum DtdType {
     public static DtdType fromPath(String elementOrPath) {
         Matcher m = FIRST_ELEMENT.matcher(elementOrPath);
         m.lookingAt();
-        return DtdType.valueOf(m.group(1));
+        return fromElement(m.group(1));
+    }
+
+    /**
+     * @return the DtdType, given an element name
+     */
+    public static DtdType fromElement(String element) {
+        return DtdType.valueOf(element);
     }
 
     /**
@@ -89,7 +102,7 @@ public enum DtdType {
 
         return "<?xml version='1.0' encoding='UTF-8' ?>\n"
                 + "<!DOCTYPE "
-                + this
+                + rootElement()
                 + " SYSTEM '../../"
                 + dtdPath
                 + "'>\n" // "common/dtd/ldmlSupplemental.dtd"
@@ -98,8 +111,19 @@ public enum DtdType {
                 + gline
                 + " -->\n"
                 + "<"
-                + this
+                + rootElement()
                 + ">\n";
+    }
+
+    /**
+     * @return the root element for this DTD Type. Usually matches the DTD name.
+     */
+    public String rootElement() {
+        if (rootType != null) {
+            return rootType.name();
+        } else {
+            return name();
+        }
     }
 
     public String getXsdPath() {

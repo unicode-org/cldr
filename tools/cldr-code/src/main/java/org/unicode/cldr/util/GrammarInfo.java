@@ -747,6 +747,8 @@ public class GrammarInfo implements Freezable<GrammarInfo> {
 
     static final Set<String> EXCLUDE_GRAMMAR =
             Set.of(
+                    "point",
+                    "dunam",
                     "dot",
                     "astronomical-unit",
                     "nautical-mile",

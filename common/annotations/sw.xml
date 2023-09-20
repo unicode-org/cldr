@@ -63,7 +63,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="¿" type="tts">alama ya kuuliza iliyopinduliwa</annotation>
 		<annotation cp="؟">alama ya kuuliza | alama ya kuuliza ya kiarabu | kiarabu | swali</annotation>
 		<annotation cp="؟" type="tts">alama ya kuuliza ya kiarabu</annotation>
-		<annotation cp="‽" draft="contributed">balagha | kinaya</annotation>
+		<annotation cp="‽">balagha | kibalagha | kinaya</annotation>
 		<annotation cp="‽" type="tts" draft="contributed">kibalagha</annotation>
 		<annotation cp=".">alama ya kikomo | kikomo | nukta</annotation>
 		<annotation cp="." type="tts">kikomo</annotation>
@@ -241,9 +241,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↶" type="tts" draft="contributed">kishale nusu mviringo kinachoelekea kinyume saa</annotation>
 		<annotation cp="↷" draft="contributed">kishale nusu mviringo kinachoelekea kisaa</annotation>
 		<annotation cp="↷" type="tts" draft="contributed">kishale nusu mviringo kinachoelekea kisaa</annotation>
-		<annotation cp="↸" draft="contributed">kishale cha kaskazini magharibi kinachoegemea upao</annotation>
+		<annotation cp="↸">kishale cha kaskazini magharibi kinachoegemea upao | kishale cha upau wa kasakazini magharibi</annotation>
 		<annotation cp="↸" type="tts" draft="contributed">kishale cha upau wa kasakazini magharibi</annotation>
-		<annotation cp="↹" draft="contributed">kishale | kushoto | upao | vishale vya upau wa kushoto juu ya kulia</annotation>
+		<annotation cp="↹">kishale | kishale kinachoelekea kushoto juu ya kishale kinachoelekea kulia | kushoto | upao | vishale vya upau wa kushoto juu ya kulia</annotation>
 		<annotation cp="↹" type="tts" draft="contributed">kishale kinachoelekea kushoto juu ya kishale kinachoelekea kulia</annotation>
 		<annotation cp="↺" draft="contributed">kishale cha mviringo wazi kinachoelekea kinyume cha saa</annotation>
 		<annotation cp="↺" type="tts" draft="contributed">kishale cha mviringo wazi kinachoelekea kinyume cha saa</annotation>
@@ -255,7 +255,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↽" type="tts" draft="contributed">chusa chenye chembe inayoelekea chini kushoto</annotation>
 		<annotation cp="↾" draft="contributed">chembe | chusa kinachoelekea juu chenye chembe cha kulia</annotation>
 		<annotation cp="↾" type="tts" draft="contributed">chusa kinachoelekea juu chenye chembe cha kulia</annotation>
-		<annotation cp="↿" draft="contributed">chembe | chembe cha chusa kinachoelekea juu</annotation>
+		<annotation cp="↿">chembe | chembe cha chusa kinachoelekea juu | chusa kinachoelekea juu chenye chembe cha kushoto</annotation>
 		<annotation cp="↿" type="tts" draft="contributed">chusa kinachoelekea juu chenye chembe cha kushoto</annotation>
 		<annotation cp="⇀" draft="contributed">chembe | chusa chenye chembe inayoelekea juu kulia</annotation>
 		<annotation cp="⇀" type="tts" draft="contributed">chusa chenye chembe inayoelekea juu kulia</annotation>
@@ -403,7 +403,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="∕" type="tts" draft="contributed">deshi ya gawanya</annotation>
 		<annotation cp="⁄" draft="contributed">mkato wa sehemu | mkwaju</annotation>
 		<annotation cp="⁄" type="tts" draft="contributed">mkato wa sehemu</annotation>
-		<annotation cp="∗" draft="contributed">fomula ya kinyota | nyota</annotation>
+		<annotation cp="∗">fomula ya kinyota | kinyota cha kukokotoa | nyota</annotation>
 		<annotation cp="∗" type="tts" draft="contributed">kinyota cha kukokotoa</annotation>
 		<annotation cp="∘" draft="contributed">kiduara cha kukokotoa | kikokotoo | kivungo</annotation>
 		<annotation cp="∘" type="tts" draft="contributed">kiduara cha kukokotoa</annotation>
@@ -423,7 +423,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="∣" type="tts" draft="contributed">hugawanya</annotation>
 		<annotation cp="∥" draft="contributed">sambamba</annotation>
 		<annotation cp="∥" type="tts" draft="contributed">sambamba</annotation>
-		<annotation cp="∧" draft="contributed">kabari | mantiki</annotation>
+		<annotation cp="∧">kabari | mantiki | mantiki na</annotation>
 		<annotation cp="∧" type="tts" draft="contributed">mantiki na</annotation>
 		<annotation cp="∩">seti | ungano</annotation>
 		<annotation cp="∩" type="tts">ungano</annotation>
@@ -441,7 +441,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="∵" type="tts" draft="contributed">kwa sababu</annotation>
 		<annotation cp="∶" draft="contributed">uwiano</annotation>
 		<annotation cp="∶" type="tts" draft="contributed">uwiano</annotation>
-		<annotation cp="∷" draft="contributed">kadiri | uwianisho</annotation>
+		<annotation cp="∷">kadiri | kiwango | uwianisho</annotation>
 		<annotation cp="∷" type="tts" draft="contributed">kiwango</annotation>
 		<annotation cp="∼" draft="contributed">fomula | kiwimbi cha kikokotoo</annotation>
 		<annotation cp="∼" type="tts" draft="contributed">kiwimbi cha kikokotoo</annotation>
@@ -451,7 +451,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="∾" type="tts" draft="contributed">s iliyopindwa kulala</annotation>
 		<annotation cp="≃" draft="contributed">asimptoti | hesabu | usawa usopacha</annotation>
 		<annotation cp="≃" type="tts" draft="contributed">usawa usopacha</annotation>
-		<annotation cp="≅" draft="contributed">aisomofu | hesabu | karibu sawa na | usawa</annotation>
+		<annotation cp="≅">aisomofu | hesabu | karibia sawa na | karibu sawa na | usawa</annotation>
 		<annotation cp="≅" type="tts" draft="contributed">karibia sawa na</annotation>
 		<annotation cp="≈">kadirio | karibia | karibu inalingana</annotation>
 		<annotation cp="≈" type="tts">karibu inalingana</annotation>
@@ -463,7 +463,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="≖" type="tts" draft="contributed">usawa wa kujumlisha</annotation>
 		<annotation cp="≡">hasa | inafanana | inafanana na | mara tatu</annotation>
 		<annotation cp="≡" type="tts">inafanana na</annotation>
-		<annotation cp="≣" draft="contributed">hesabu | sawa kabisa | usawa</annotation>
+		<annotation cp="≣">hesabu | ni sawa kabisa | sawa kabisa | usawa</annotation>
 		<annotation cp="≣" type="tts" draft="contributed">ni sawa kabisa</annotation>
 		<annotation cp="≤">chini ya | chini ya au lingana | inalingana | kutokuwa sawa | lingana</annotation>
 		<annotation cp="≤" type="tts">chini ya au lingana</annotation>
@@ -551,7 +551,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⋮" type="tts" draft="contributed">nukta tatu zilizo wima</annotation>
 		<annotation cp="⋯" draft="contributed">nukta tatu katikati ya mstari | udondoshaji</annotation>
 		<annotation cp="⋯" type="tts" draft="contributed">nukta tatu katikati ya mstari</annotation>
-		<annotation cp="⋰" draft="contributed">hisabati | nukta tatu za kimshazari kulia | udondoshaji</annotation>
+		<annotation cp="⋰">hisabati | nukta tatu za kimshazari kulia | nukta tatu za kimshazari kulia juu | udondoshaji</annotation>
 		<annotation cp="⋰" type="tts" draft="contributed">nukta tatu za kimshazari kulia juu</annotation>
 		<annotation cp="⋱" draft="contributed">hisabati | nukta tatu za kimshazari kulia chini | udondoshaji</annotation>
 		<annotation cp="⋱" type="tts" draft="contributed">nukta tatu za kimshazari kulia chini</annotation>
@@ -1431,7 +1431,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎅" type="tts">baba krismasi</annotation>
 		<annotation cp="🤶">bibi | mkongwe | nyanya</annotation>
 		<annotation cp="🤶" type="tts">mkongwe</annotation>
-		<annotation cp="🧑‍🎄">kichimbakazi yeyote | kichimbakazi | krismasi</annotation>
+		<annotation cp="🧑‍🎄">kichimbakazi | kichimbakazi yeyote | krismasi</annotation>
 		<annotation cp="🧑‍🎄" type="tts">kichimbakazi yeyote</annotation>
 		<annotation cp="🦸">mzuri | nguvu zisizo za kawaida | shujaa | shujaa wa kike</annotation>
 		<annotation cp="🦸" type="tts">shujaa</annotation>
@@ -1685,13 +1685,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫂" type="tts">watu wanaokumbatiana</annotation>
 		<annotation cp="👪">baba | familia | mama | mtoto</annotation>
 		<annotation cp="👪" type="tts">familia</annotation>
-		<annotation cp="🧑‍🧑‍🧒" draft="contributed">familia: mtu mzima | mtu mzima | mtoto</annotation>
+		<annotation cp="🧑‍🧑‍🧒">familia: mtu mzima | familia: mtu mzima, mtu mzima, mtoto | mtoto | mtu mzima</annotation>
 		<annotation cp="🧑‍🧑‍🧒" type="tts" draft="contributed">familia: mtu mzima, mtu mzima, mtoto</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒" draft="contributed">familia: mtu mzima | mtu mzima | mtoto | mtoto</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">familia: mtu mzima | familia: mtu mzima, mtu mzima, mtoto, mtoto | mtoto | mtu mzima</annotation>
 		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts" draft="contributed">familia: mtu mzima, mtu mzima, mtoto, mtoto</annotation>
-		<annotation cp="🧑‍🧒" draft="contributed">familia: mtu mzima | mtoto</annotation>
+		<annotation cp="🧑‍🧒">familia: mtu mzima | familia: mtu mzima, mtoto | mtoto</annotation>
 		<annotation cp="🧑‍🧒" type="tts" draft="contributed">familia: mtu mzima, mtoto</annotation>
-		<annotation cp="🧑‍🧒‍🧒" draft="contributed">familia: mtu mzima | mtoto | mtoto</annotation>
+		<annotation cp="🧑‍🧒‍🧒">familia: mtu mzima | familia: mtu mzima, mtoto, mtoto | mtoto</annotation>
 		<annotation cp="🧑‍🧒‍🧒" type="tts" draft="contributed">familia: mtu mzima, mtoto, mtoto</annotation>
 		<annotation cp="👣">alama | mavazi | mwili | nyayo</annotation>
 		<annotation cp="👣" type="tts">nyayo</annotation>
@@ -2019,7 +2019,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍊" type="tts">chenza</annotation>
 		<annotation cp="🍋">limau | mmea | tunda</annotation>
 		<annotation cp="🍋" type="tts">limau</annotation>
-		<annotation cp="🍋‍🟩" draft="contributed">limau | ndimu, tunda, kitropiki</annotation>
+		<annotation cp="🍋‍🟩">limau | ndimu | ndimu, tunda, kitropiki</annotation>
 		<annotation cp="🍋‍🟩" type="tts" draft="contributed">ndimu</annotation>
 		<annotation cp="🍌">mmea | ndizi | tunda</annotation>
 		<annotation cp="🍌" type="tts">ndizi</annotation>
@@ -3301,7 +3301,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦯" type="tts">mkongojo wa vipofu</annotation>
 		<annotation cp="🔗">pete | pete ya mnyororo</annotation>
 		<annotation cp="🔗" type="tts">pete ya mnyororo</annotation>
-		<annotation cp="⛓‍💥" draft="contributed">kata, katika, myororo, pingu, uhuru | mnyororo uliokatika</annotation>
+		<annotation cp="⛓‍💥">kata, katika, myororo, pingu, uhuru | mnyororo uliokatika | myororo uliokatika</annotation>
 		<annotation cp="⛓‍💥" type="tts" draft="contributed">myororo uliokatika</annotation>
 		<annotation cp="⛓">minyororo | mnyororo</annotation>
 		<annotation cp="⛓" type="tts">minyororo</annotation>
@@ -3867,7 +3867,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="₩" type="tts">won</annotation>
 		<annotation cp="€">EUR | sarafu | yuro</annotation>
 		<annotation cp="€" type="tts">yuro</annotation>
-		<annotation cp="₰" draft="contributed">peni ya ujarumani | pfennig | sarafu</annotation>
+		<annotation cp="₰">peni ya ujarumani | peni ya ujerumani | pfennig | sarafu</annotation>
 		<annotation cp="₰" type="tts" draft="contributed">peni ya ujerumani</annotation>
 		<annotation cp="₱">peso</annotation>
 		<annotation cp="₱" type="tts">peso</annotation>

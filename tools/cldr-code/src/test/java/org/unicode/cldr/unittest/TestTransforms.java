@@ -131,11 +131,21 @@ public class TestTransforms extends TestFmwkPlus {
         for (String[] test : tests) {
             String cyrillic = test[0];
             String latin = test[1];
+
             String fromCyrillic = cyrillic_latin.transform(cyrillic);
-            assertEquals(++count + ") Cyrillic-Latin(" + cyrillic + ")", latin, fromCyrillic);
-            String fromLatin = latin_cyrillic.transform(cyrillic);
-            assertEquals(count + ") Latin-Cyrillic(" + cyrillic + ")", cyrillic, fromLatin);
+            assertEqualsShowHex(
+                    ++count + ") Cyrillic-Latin(" + cyrillic + ")", latin, fromCyrillic);
+
+            String fromLatin = latin_cyrillic.transform(latin);
+            assertEqualsShowHex(count + ") Latin-Cyrillic(" + latin + ")", cyrillic, fromLatin);
         }
+    }
+
+    static final Transliterator toHex =
+            Transliterator.getInstance("[[:^ASCII:][:cc:]] any-hex/perl");
+
+    private void assertEqualsShowHex(String message, String expected, String actual) {
+        assertEquals(toHex.transform(message), toHex.transform(expected), toHex.transform(actual));
     }
 
     public void TestUzbek() {
@@ -404,7 +414,8 @@ public class TestTransforms extends TestFmwkPlus {
         }
 
         Set<String> removedTransforms = new HashSet<>();
-        removedTransforms.add("ASCII-Latin"); // http://unicode.org/cldr/trac/ticket/9163
+        removedTransforms.add(
+                "und-t-d0-ascii"); // https://unicode-org.atlassian.net/browse/CLDR-10436
 
         Map<String, File> oldTransforms = getTransformIDs(CLDRPaths.LAST_TRANSFORMS_DIRECTORY);
         for (Map.Entry<String, File> entry : oldTransforms.entrySet()) {
@@ -505,8 +516,10 @@ public class TestTransforms extends TestFmwkPlus {
             return ("Zawgyi-my");
         } else if (id.equalsIgnoreCase("my-t-my-d0-zawgyi")) {
             return "my-Zawgyi";
-        } else if (id.equalsIgnoreCase("und-t-d0-ascii")) {
+        } else if (id.equalsIgnoreCase("und-t-und-latn-d0-ascii")) {
             return ("Latin-ASCII");
+        } else if (id.equalsIgnoreCase("und-latn-t-s0-ascii")) {
+            return ("ASCII-Latin");
         }
 
         Matcher rfc6497Matcher = rfc6497Pattern.matcher(id);

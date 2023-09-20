@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2015 Unicode, Inc.
+Copyright © 1991-2023 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
 <ldml>
 	<identity>
-		<version number="$Revision$"/>
+		<version number="$Revision: 13690 $"/>
 		<language type="root"/>
 	</identity>
 	<segmentations>
@@ -28,10 +28,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<variable id="$LV">\p{Grapheme_Cluster_Break=LV}</variable>
 				<variable id="$LVT">\p{Grapheme_Cluster_Break=LVT}</variable>
 				<!-- Note: The following may overlap with the above -->
-				<variable id="$Virama">[\p{Gujr}\p{sc=Telu}\p{sc=Mlym}\p{sc=Orya}\p{sc=Beng}\p{sc=Deva}&amp;\p{Indic_Syllabic_Category=Virama}]</variable>
-				<variable id="$LinkingConsonant">[\p{Gujr}\p{sc=Telu}\p{sc=Mlym}\p{sc=Orya}\p{sc=Beng}\p{sc=Deva}&amp;\p{Indic_Syllabic_Category=Consonant}]</variable>
+				<!-- Note: ConjunctLinkingScripts is not used anymore, instead that list exists in the derivation of Indic_Conjunct_Break. -->
+				<!-- It is kept here so that the diff of the generated test cases compared to the Unicode 15.1 β is minimal. -->
+				<!-- TODO(egg): Consider removing in Unicode 16.0. -->
+				<variable id="$ConjunctLinkingScripts">[\p{Gujr}\p{sc=Telu}\p{sc=Mlym}\p{sc=Orya}\p{sc=Beng}\p{sc=Deva}]</variable>
+				<variable id="$ConjunctLinker">\p{Indic_Conjunct_Break=Linker}</variable>
+				<variable id="$LinkingConsonant">\p{Indic_Conjunct_Break=Consonant}</variable>
 				<variable id="$ExtPict">\p{Extended_Pictographic}</variable>
-				<variable id="$ExtCccZwj">[[$Extend-\p{ccc=0}] $ZWJ]</variable>
+				<variable id="$ExtCccZwj">[\p{Indic_Conjunct_Break=Linker}\p{Indic_Conjunct_Break=Extend}]</variable>
 			</variables>
 			<segmentRules>
 				<!-- RULES -->
@@ -48,8 +52,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<!-- Only for extended grapheme clusters: Do not break before SpacingMarks, or after Prepend characters. -->
 				<rule id="9.1"> × $SpacingMark </rule>
 				<rule id="9.2"> $Prepend × </rule>
-				<rule id="9.3"> $LinkingConsonant $ExtCccZwj* $Virama $ExtCccZwj* × $LinkingConsonant </rule>
-				<!-- Do not break within emoji zwj sequences. -->
+				<rule id="9.3"> $LinkingConsonant $ExtCccZwj* $ConjunctLinker $ExtCccZwj* × $LinkingConsonant </rule>
 				<rule id="11"> $ExtPict $Extend* $ZWJ × $ExtPict </rule>
 				<!-- Do not break within emoji flag sequences. That is, do not break between regional indicator (RI) symbols if there is an odd number of RI characters before the break point. -->
 				<rule id="12"> ^ ($RI $RI)* $RI × $RI </rule>
@@ -61,7 +64,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<variables>
 				<!-- VARIABLES -->
 				<variable id="$AI">\p{Line_Break=Ambiguous}</variable>
+				<variable id="$AK">\p{Line_Break=Aksara}</variable>
 				<variable id="$AL">\p{Line_Break=Alphabetic}</variable>
+				<variable id="$AP">\p{Line_Break=Aksara_Prebase}</variable>
+				<variable id="$AS">\p{Line_Break=Aksara_Start}</variable>
 				<variable id="$B2">\p{Line_Break=Break_Both}</variable>
 				<variable id="$BA">\p{Line_Break=Break_After}</variable>
 				<variable id="$BB">\p{Line_Break=Break_Before}</variable>
@@ -69,7 +75,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<variable id="$CB">\p{Line_Break=Contingent_Break}</variable>
 				<variable id="$CL">\p{Line_Break=Close_Punctuation}</variable>
 				<variable id="$CP">\p{Line_Break=CP}</variable>
-				<variable id="$CP30">[$CP - [\p{ea=F}\p{ea=W}\p{ea=H}]]</variable>
 				<variable id="$CM1">\p{Line_Break=Combining_Mark}</variable>
 				<variable id="$CR">\p{Line_Break=Carriage_Return}</variable>
 				<variable id="$EX">\p{Line_Break=Exclamation}</variable>
@@ -89,7 +94,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<variable id="$NS">\p{Line_Break=Nonstarter}</variable>
 				<variable id="$NU">\p{Line_Break=Numeric}</variable>
 				<variable id="$OP">\p{Line_Break=Open_Punctuation}</variable>
-				<variable id="$OP30">[$OP - [\p{ea=F}\p{ea=W}\p{ea=H}]]</variable>
 				<variable id="$PO">\p{Line_Break=Postfix_Numeric}</variable>
 				<variable id="$PR">\p{Line_Break=Prefix_Numeric}</variable>
 				<variable id="$QU">\p{Line_Break=Quotation}</variable>
@@ -97,6 +101,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<variable id="$SG">\p{Line_Break=Surrogate}</variable>
 				<variable id="$SP">\p{Line_Break=Space}</variable>
 				<variable id="$SY">\p{Line_Break=Break_Symbols}</variable>
+				<variable id="$VF">\p{Line_Break=Virama_Final}</variable>
+				<variable id="$VI">\p{Line_Break=Virama}</variable>
 				<variable id="$WJ">\p{Line_Break=Word_Joiner}</variable>
 				<variable id="$XX">\p{Line_Break=Unknown}</variable>
 				<variable id="$ZW">\p{Line_Break=ZWSpace}</variable>
@@ -106,7 +112,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<variable id="$EM">\p{Line_Break=E_Modifier}</variable>
 				<variable id="$ZWJ_O">\p{Line_Break=ZWJ}</variable>
 				<variable id="$ZWJ">\p{Line_Break=ZWJ}</variable>
+				<variable id="$QU_Pi">[$QU &amp; \p{gc=Pi}]</variable>
+				<variable id="$QU_Pf">[$QU &amp; \p{gc=Pf}]</variable>
+				<variable id="$DottedCircle">◌</variable>
+				<variable id="$CP30">[$CP-[\p{ea=F}\p{ea=W}\p{ea=H}]]</variable>
+				<variable id="$OP30">[$OP-[\p{ea=F}\p{ea=W}\p{ea=H}]]</variable>
 				<variable id="$ExtPictUnassigned">[\p{Extended_Pictographic}&amp;\p{gc=Cn}]</variable>
+				<!-- Some rules refer to the start and end of text.  We could just use a literal ^ for sot, but naming -->
+				<!-- it as in the spec makes it easier to compare.  The parser will eat (and choke on) $, so we play a -->
+				<!-- stupid trick instead. -->
+				<variable id="$sot">^</variable>
+				<variable id="$eot">(?!.)</variable>
 				<!-- SPECIAL EXTENSIONS -->
 				<variable id="$CM">[$CM1 $ZWJ]</variable>
 				<!-- LB 1  Assign a line breaking class to each code point of the input. -->
@@ -124,16 +140,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<variable id="$Spec3a_">[^ $SP $BA $HY $CM]</variable>
 				<variable id="$Spec3b_">[^ $BA $HY $CM]</variable>
 				<variable id="$Spec4_">[^ $NU $CM]</variable>
-				<variable id="$Spec5_">[$BK $CB $CR $LF $NL $SP $ZW]</variable>
 				<variable id="$AI">($AI $X)</variable>
+				<variable id="$AK">($AK $X)</variable>
 				<variable id="$AL">($AL $X)</variable>
+				<variable id="$AP">($AP $X)</variable>
+				<variable id="$AS">($AS $X)</variable>
 				<variable id="$B2">($B2 $X)</variable>
 				<variable id="$BA">($BA $X)</variable>
 				<variable id="$BB">($BB $X)</variable>
 				<variable id="$CB">($CB $X)</variable>
 				<variable id="$CL">($CL $X)</variable>
 				<variable id="$CP">($CP $X)</variable>
-				<variable id="$CP30">($CP30 $X)</variable>
 				<variable id="$CM">($CM $X)</variable>
 				<variable id="$EX">($EX $X)</variable>
 				<variable id="$GL">($GL $X)</variable>
@@ -150,19 +167,25 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<variable id="$NS">($NS $X)</variable>
 				<variable id="$NU">($NU $X)</variable>
 				<variable id="$OP">($OP $X)</variable>
-				<variable id="$OP30">($OP30 $X)</variable>
 				<variable id="$PO">($PO $X)</variable>
 				<variable id="$PR">($PR $X)</variable>
 				<variable id="$QU">($QU $X)</variable>
 				<variable id="$SA">($SA $X)</variable>
 				<variable id="$SG">($SG $X)</variable>
 				<variable id="$SY">($SY $X)</variable>
+				<variable id="$VF">($VF $X)</variable>
+				<variable id="$VI">($VI $X)</variable>
 				<variable id="$WJ">($WJ $X)</variable>
 				<variable id="$XX">($XX $X)</variable>
 				<variable id="$RI">($RI $X)</variable>
 				<variable id="$EB">($EB $X)</variable>
 				<variable id="$EM">($EM $X)</variable>
 				<variable id="$ZWJ">($ZWJ $X)</variable>
+				<variable id="$QU_Pi">($QU_Pi $X)</variable>
+				<variable id="$QU_Pf">($QU_Pf $X)</variable>
+				<variable id="$DottedCircle">($DottedCircle $X)</variable>
+				<variable id="$CP30">($CP30 $X)</variable>
+				<variable id="$OP30">($OP30 $X)</variable>
 				<!-- OUT OF ORDER ON PURPOSE -->
 				<!-- LB 10  Treat any remaining combining mark as AL. -->
 				<variable id="$AL">($AL | ^ $CM | (?&lt;=$Spec1_) $CM)</variable>
@@ -188,7 +211,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<!-- LB 9  Do not break a combining character sequence; treat it as if it has the LB class of the base character -->
 				<!-- in all of the following rules. (Where X is any line break class except SP, BK, CR, LF, NL or ZW.) -->
 				<rule id="9"> $Spec2_ × $CM </rule>
-				<!-- LB 11  Do not break before or after WORD JOINER and related characters. -->
 				<rule id="11.01"> × $WJ </rule>
 				<rule id="11.02"> $WJ × </rule>
 				<!-- LB 12  Do not break after NBSP and related characters. -->
@@ -204,8 +226,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<rule id="13.04"> ^ $CM+ × ($CL | $CP | $IS | $SY) </rule>
 				<!-- LB 14  Do not break after \u2018[\u2019, even after spaces. -->
 				<rule id="14"> $OP $SP* × </rule>
-				<!-- LB 15  Do not break within \u2018\"[\u2019, even with intervening spaces. -->
-				<rule id="15"> $QU $SP* × $OP </rule>
+				<!-- LB 15a Do not break after an unresolved initial punctuation that lies at the start of the line, -->
+				<!-- after a space, after opening punctuation, or after an unresolved quotation mark, even after -->
+				<!-- spaces. -->
+				<rule id="15.11"> ( $sot | $BK | $CR | $LF | $NL | $OP | $QU | $GL | $SP | $ZW ) $QU_Pi $SP* × </rule>
+				<!-- LB 15b Do not break before an unresolved final punctuation that lies at the end of the line, before -->
+				<!-- a space, before a prohibited break, or before an unresolved quotation mark, even before spaces. -->
+				<rule id="15.21"> × $QU_Pf ( $SP | $GL | $WJ | $CL | $QU | $CP | $EX | $IS | $SY | $BK | $CR | $LF | $NL | $ZW | $eot ) </rule>
 				<!-- LB 16  Do not break between closing punctuation and a nonstarter (lb=NS), even with intervening spaces. -->
 				<rule id="16"> ($CL | $CP) $SP* × $NS </rule>
 				<!-- LB 17  Do not break within \u2018\u2014\u2014\u2019, even with intervening spaces. -->
@@ -218,11 +245,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<!-- LB 20  Break before and after unresolved CB. -->
 				<rule id="20.01"> ÷ $CB </rule>
 				<rule id="20.02"> $CB ÷ </rule>
-				<!-- LB 20.9  Don't break between Hyphens and Letters when there is a break preceding the hyphen. -->
-				<!-- Originally added as a Finnish tailoring, now promoted to default CLDR behavior. -->
-				<!-- Must be before LB 21. Note: this is not default UAX-14 behaviour. See ICU issue ICU-8151. -->
-				<!-- (Unlike in ICU, here we just check a limited set of known breaks, ignoring some cases like LB 14). -->
-				<rule id="20.09"> $Spec5_ $HY × $AL </rule>
 				<!-- LB 21  Do not break before hyphen-minus, other hyphens, fixed-width spaces, small kana and other non-starters, or after acute accents. -->
 				<rule id="21.01"> × $BA </rule>
 				<rule id="21.02"> × $HY </rule>
@@ -232,8 +254,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<rule id="21.1"> $HL ($HY | $BA) × </rule>
 				<!-- LB 21b Don’t break between Solidus and Hebrew letters. -->
 				<rule id="21.2"> $SY × $HL </rule>
-				<!-- LB 22  Do not break before ellipsis. -->
-				<rule id="22.01"> × $IN </rule>
+				<!-- LB 22  Do not break before ellipses. -->
+				<rule id="22"> × $IN </rule>
 				<!-- LB 23  Do not break between digits and letters. -->
 				<rule id="23.02"> ($AL | $HL) × $NU </rule>
 				<rule id="23.03"> $NU × ($AL | $HL) </rule>
@@ -256,18 +278,22 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<rule id="26.02"> $JV | $H2 × $JV | $JT </rule>
 				<rule id="26.03"> $JT | $H3 × $JT </rule>
 				<!-- LB 27 Treat a Korean Syllable Block the same as ID. -->
-				<rule id="27.01"> $JL | $JV | $JT | $H2 | $H3 × $IN </rule>
-				<rule id="27.02"> $JL | $JV | $JT | $H2 | $H3 × $PO </rule>
-				<rule id="27.03"> $PR × $JL | $JV | $JT | $H2 | $H3 </rule>
+				<rule id="27.01"> $JL | $JV | $JT | $H2 | $H3 × $PO </rule>
+				<rule id="27.02"> $PR × $JL | $JV | $JT | $H2 | $H3 </rule>
 				<!-- LB 28  Do not break between alphabetics (\"at\"). -->
 				<rule id="28"> ($AL | $HL) × ($AL | $HL) </rule>
+				<!-- LB28a Do not break inside the orthographic syllables of Brahmic scripts. -->
+				<rule id="28.11"> $AP × ($AK | $DottedCircle | $AS) </rule>
+				<rule id="28.12"> ($AK | $DottedCircle | $AS) × ($VF | $VI) </rule>
+				<rule id="28.13"> ($AK | $DottedCircle | $AS) $VI × ($AK | $DottedCircle) </rule>
+				<rule id="28.14"> ($AK | $DottedCircle | $AS) × ($AK | $DottedCircle | $AS) $VF </rule>
 				<!-- LB 29  Do not break between numeric punctuation and alphabetics (\"e.g.\"). -->
 				<rule id="29"> $IS × ($AL | $HL) </rule>
-				<!-- LB 30  Do not break between letters, numbers or ordinary symbols and non-East-Asian opening or closing punctuation. -->
+				<!-- LB 30  Do not break between letters, numbers or ordinary symbols and opening or closing punctuation. -->
 				<rule id="30.01"> ($AL | $HL | $NU) × $OP30 </rule>
 				<rule id="30.02"> $CP30 × ($AL | $HL | $NU) </rule>
 				<!-- LB 30a  Break between two Regional Indicators if and only if there is an even number of them before the point being considered. -->
-				<rule id="30.11"> ^ ($RI $RI)* $RI × $RI </rule>
+				<rule id="30.11"> $sot ($RI $RI)* $RI × $RI </rule>
 				<rule id="30.12"> [^$RI] ($RI $RI)* $RI × $RI </rule>
 				<rule id="30.13"> $RI ÷ $RI </rule>
 				<!-- LB 30b Do not break between an emoji base (or potential emoji) and an emoji modifier. -->
@@ -346,10 +372,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<variable id="$Newline">\p{Word_Break=Newline}</variable>
 				<variable id="$Extend">\p{Word_Break=Extend}</variable>
 				<!-- Now normal variables -->
-				<variable id="$Format">\p{Word_Break=Format}</variable>
+				<variable id="$Format">[\p{Word_Break=Format}]</variable>
 				<variable id="$Katakana">\p{Word_Break=Katakana}</variable>
 				<variable id="$ALetter">\p{Word_Break=ALetter}</variable>
-				<variable id="$MidLetter">[[\p{Word_Break=MidLetter}] - [\u003A \uFE55 \uFF1A]]</variable>
+				<variable id="$MidLetter">\p{Word_Break=MidLetter}</variable>
 				<variable id="$MidNum">\p{Word_Break=MidNum}</variable>
 				<variable id="$MidNumLet">\p{Word_Break=MidNumLet}</variable>
 				<variable id="$Numeric">\p{Word_Break=Numeric}</variable>

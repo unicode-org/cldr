@@ -813,7 +813,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫨" type="tts">sallanan yüz</annotation>
 		<annotation cp="🙂‍↔">hayır | sallama | yatay olarak sallanan yüz</annotation>
 		<annotation cp="🙂‍↔" type="tts">yatay olarak sallanan yüz</annotation>
-		<annotation cp="🙂‍↕">dikey olarak sallanan yüz | onay | evet</annotation>
+		<annotation cp="🙂‍↕">dikey olarak sallanan yüz | evet | onay</annotation>
 		<annotation cp="🙂‍↕" type="tts">dikey olarak sallanan yüz</annotation>
 		<annotation cp="😌">rahatlamış | yüz</annotation>
 		<annotation cp="😌" type="tts">rahatlamış yüz</annotation>
@@ -1429,7 +1429,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👼" type="tts">bebek melek</annotation>
 		<annotation cp="🎅">kutlama | noel | Noel Baba | santa claus</annotation>
 		<annotation cp="🎅" type="tts">Noel Baba</annotation>
-		<annotation cp="🤶">anne | noel | Noel Anne</annotation>
+		<annotation cp="🤶">anne | noel</annotation>
 		<annotation cp="🤶" type="tts">Noel Anne</annotation>
 		<annotation cp="🧑‍🎄">cinsiyet belirtmeyen noel karakteri | noel | Noel figürü</annotation>
 		<annotation cp="🧑‍🎄" type="tts">cinsiyet belirtmeyen noel karakteri</annotation>
@@ -1685,13 +1685,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫂" type="tts">kucaklaşan insanlar</annotation>
 		<annotation cp="👪">aile | anne | baba | çocuk | kişiler</annotation>
 		<annotation cp="👪" type="tts">aile</annotation>
-		<annotation cp="🧑‍🧑‍🧒">aile: yetişkin | yetişkin | çocuk</annotation>
+		<annotation cp="🧑‍🧑‍🧒">aile: yetişkin | aile: yetişkin, yetişkin, çocuk | çocuk | yetişkin</annotation>
 		<annotation cp="🧑‍🧑‍🧒" type="tts">aile: yetişkin, yetişkin, çocuk</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒">aile: yetişkin | yetişkin | çocuk | çocuk</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">aile: yetişkin | aile: yetişkin, yetişkin, çocuk, çocuk | çocuk | yetişkin</annotation>
 		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">aile: yetişkin, yetişkin, çocuk, çocuk</annotation>
-		<annotation cp="🧑‍🧒">aile: yetişkin | çocuk</annotation>
+		<annotation cp="🧑‍🧒">aile: yetişkin | aile: yetişkin, çocuk | çocuk</annotation>
 		<annotation cp="🧑‍🧒" type="tts">aile: yetişkin, çocuk</annotation>
-		<annotation cp="🧑‍🧒‍🧒">aile: yetişkin | çocuk | çocuk</annotation>
+		<annotation cp="🧑‍🧒‍🧒">aile: yetişkin | aile: yetişkin, çocuk, çocuk | çocuk</annotation>
 		<annotation cp="🧑‍🧒‍🧒" type="tts">aile: yetişkin, çocuk, çocuk</annotation>
 		<annotation cp="👣">ayak | ayak izi | gövde | iz</annotation>
 		<annotation cp="👣" type="tts">ayak izi</annotation>
@@ -1877,7 +1877,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐦‍⬛" type="tts">siyah kuş</annotation>
 		<annotation cp="🪿">kaz | kaz sesi | kümes hayvanı | kuş | şapşal</annotation>
 		<annotation cp="🪿" type="tts">kaz</annotation>
-		<annotation cp="🐦‍🔥">Anka | fantezi | ateş kuşu | yeniden doğuş | reenkarnasyon</annotation>
+		<annotation cp="🐦‍🔥">Anka | ateş kuşu | fantezi | reenkarnasyon | yeniden doğuş</annotation>
 		<annotation cp="🐦‍🔥" type="tts">Anka</annotation>
 		<annotation cp="🐸">kurbağa | yüz</annotation>
 		<annotation cp="🐸" type="tts">kurbağa</annotation>
@@ -2019,7 +2019,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍊" type="tts">mandalina</annotation>
 		<annotation cp="🍋">limon | meyve | narenciye</annotation>
 		<annotation cp="🍋" type="tts">limon</annotation>
-		<annotation cp="🍋‍🟩">misket limonu | narenciye | meyve | tropik</annotation>
+		<annotation cp="🍋‍🟩">meyve | misket limonu | narenciye | tropik</annotation>
 		<annotation cp="🍋‍🟩" type="tts">misket limonu</annotation>
 		<annotation cp="🍌">meyve | muz</annotation>
 		<annotation cp="🍌" type="tts">muz</annotation>
@@ -2083,7 +2083,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫚" type="tts">kök zencefil</annotation>
 		<annotation cp="🫛">baklagil | bezelye | edamame | fasulye | kabuklu bezelye | sebze</annotation>
 		<annotation cp="🫛" type="tts">kabuklu bezelye</annotation>
-		<annotation cp="🍄‍🟫">gıda | mantar | doğa | sebze | kahverengi mantar</annotation>
+		<annotation cp="🍄‍🟫">doğa | gıda | kahverengi mantar | mantar | sebze</annotation>
 		<annotation cp="🍄‍🟫" type="tts">kahverengi mantar</annotation>
 		<annotation cp="🍞">ekmek | ekmek dilimi | restoran</annotation>
 		<annotation cp="🍞" type="tts">ekmek</annotation>
@@ -3073,7 +3073,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💾" type="tts">disket</annotation>
 		<annotation cp="💿">CD | disk | DVD | optik disk</annotation>
 		<annotation cp="💿" type="tts">optik disk</annotation>
-		<annotation cp="📀">blu-ray | disk | dvd | DVD disk</annotation>
+		<annotation cp="📀">blu-ray | disk | dvd</annotation>
 		<annotation cp="📀" type="tts">dvd</annotation>
 		<annotation cp="🧮">abaküs | hesaplama</annotation>
 		<annotation cp="🧮" type="tts">abaküs</annotation>
@@ -3301,7 +3301,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦯" type="tts">görme engelli bastonu</annotation>
 		<annotation cp="🔗">bağlantı işareti | bağlantılar | iki halka</annotation>
 		<annotation cp="🔗" type="tts">bağlantı işareti</annotation>
-		<annotation cp="⛓‍💥">kırık zincir | zincirleri kırmak | zincirleri kırmak | kırmak | zincir | kırık zincir | patlama | zincirler | kelepçe | özgürlük</annotation>
+		<annotation cp="⛓‍💥">kelepçe | kırık zincir | kırmak | özgürlük | patlama | zincir | zincirler | zincirleri kırmak</annotation>
 		<annotation cp="⛓‍💥" type="tts">zincirleri kırmak</annotation>
 		<annotation cp="⛓">zincir</annotation>
 		<annotation cp="⛓" type="tts">zincir</annotation>

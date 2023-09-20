@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
+<!DOCTYPE keyboard3 SYSTEM "../dtd/ldmlKeyboard3.dtd">
 <!--
     This file is part of the CLDR Keyboard Technical Preview.
     This is a sample data file.
@@ -8,7 +8,7 @@
 
 	Also NOTE: this is really a test keyboard.  CLDR-12026 will be for the real new azerty keyboard
 -->
-<keyboard locale="fr-t-k0-azerty" conformsTo="techpreview">
+<keyboard3 locale="fr-t-k0-azerty" conformsTo="techpreview">
 	<locales>
 		<locale id="br" /> <!-- example of including Breton -->
 	</locales>
@@ -43,7 +43,7 @@
 		<!-- Note: displays is only used for keycap presentation -->
 		<!-- this example is not required for this keyboard as we use the spacing
 			modifiers -->
-		<display to="\u0300" display="${grave}" /> <!-- display combining grave as modifier letter grave ˋ -->
+		<display to="\u{0300}" display="${grave}" /> <!-- display combining grave as modifier letter grave ˋ -->
 		<!-- Note: We discussed why the existing displayMap was used for display.
 			rather than adding something closer to the key layout. 1. This way we can
 			tell the renderer what to do. Could be double diacritics, spacing issues,
@@ -89,9 +89,9 @@
 		<!-- test key -->
 		<key id="a" flicks="a" to="a" longPress="à â á ä ã å ā" />
 		<flicks id="a">
-			<flick directions="nw" to="\u1234" />
-			<flick directions="nw se" to="\uFFFF" />
-			<flick directions="e" to="\uFFF0" />
+			<flick directions="nw" to="\u{1234}" />
+			<flick directions="nw se" to="\u{FFFF}" />
+			<flick directions="e" to="\u{FFF0}" />
 		</flicks>
 
 		<!-- test key -->
@@ -99,9 +99,9 @@
 
 		<!-- test flick -->
 		<flicks id="b">
-			<flick directions="nw" to="\u4567" />
-			<flick directions="nw se" to="\uFFFF" />
-			<flick directions="e" to="\uFFF0" />
+			<flick directions="nw" to="\u{4567}" />
+			<flick directions="nw se" to="\u{FFFF}" />
+			<flick directions="e" to="\u{FFF0}" />
 		</flicks>
 
 		<!-- TODO: all additional maps, hardware and touch -->
@@ -203,10 +203,10 @@
 		<transformGroup>
 			<!-- this is a reorder group -->
 			<!-- nod-Lana partial example -->
-			<reorder from="\u1A60" order="127" />
-			<reorder from="\u1A6B" order="42" />
-			<reorder from="[\u1A75-\u1A79]" order="55" />
+			<reorder from="\u{1A60}" order="127" />
+			<reorder from="\u{1A6B}" order="42" />
+			<reorder from="[\u{1A75}-\u{1A79}]" order="55" />
 			<!-- ... partial example ... -->
 		</transformGroup>
 	</transforms>
-</keyboard>
+</keyboard3>

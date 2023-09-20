@@ -2,6 +2,7 @@ package org.unicode.cldr.tool;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
+import com.google.common.collect.Comparators;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
@@ -18,6 +19,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.EnumMap;
 import java.util.EnumSet;
 import java.util.Iterator;
@@ -108,7 +110,7 @@ public class ShowLocaleCoverage {
                     + "# https://cldr.unicode.org/index/cldr-spec/coverage-levels.\n"
                     + "\n";
     private static final String TSV_MISSING_BASIC_HEADER =
-            "#Locale\tProv.\tUnconf.\tMissing\tPath*";
+            "#Locale\tProv.\tUnconf.\tMissing\tPath*\tAttributes";
     private static final String TSV_MISSING_COUNTS_HEADER =
             "#Locale\tTargetLevel\t№ Found\t№ Unconfirmed\t№ Missing";
 
@@ -175,9 +177,12 @@ public class ShowLocaleCoverage {
         int missing;
         int provisional;
         int unconfirmed;
+        Set<List<String>> values =
+                new TreeSet<>(Comparators.lexicographical(Comparator.<String>naturalOrder()));
     }
 
     public static class StatusCounter {
+        private static final Set<String> ATTRS_TO_REMOVE = Set.of("standard");
         PathStarrer pathStarrer = new PathStarrer().setSubstitutionPattern("*");
         Map<String, StatusData> starredPathToData = new TreeMap<>();
         int missingTotal;
@@ -193,7 +198,7 @@ public class ShowLocaleCoverage {
             if (draftStatus == null) {
                 ++statusData.missing;
                 ++missingTotal;
-            } else
+            } else {
                 switch (draftStatus) {
                     case unconfirmed:
                         ++statusData.unconfirmed;
@@ -206,6 +211,13 @@ public class ShowLocaleCoverage {
                     default:
                         break;
                 }
+            }
+            final List<String> attributes =
+                    CldrUtility.removeAll(
+                            new ArrayList<>(pathStarrer.getAttributes()), ATTRS_TO_REMOVE);
+            if (!attributes.isEmpty()) {
+                statusData.values.add(attributes);
+            }
         }
     }
 
@@ -745,6 +757,11 @@ public class ShowLocaleCoverage {
                                 starredCounter.starredPathToData.entrySet()) {
                             String starredPath = starred.getKey();
                             StatusData statusData = starred.getValue();
+                            String valueString =
+                                    statusData.values.stream()
+                                            .map(x -> Joiner.on(", ").join(x))
+                                            .collect(Collectors.joining("; "));
+
                             tsv_missing_basic.println(
                                     specialFlag
                                             + locale //
@@ -755,7 +772,11 @@ public class ShowLocaleCoverage {
                                             + "\t"
                                             + statusData.unconfirmed //
                                             + "\t"
-                                            + starredPath.replace("\"*\"", "'*'"));
+                                            + starredPath.replace("\"*\"", "'*'")
+                                            + "\t"
+                                            + valueString
+                                    //
+                                    );
                         }
                         tsv_missing_basic.println(
                                 specialFlag
@@ -766,8 +787,8 @@ public class ShowLocaleCoverage {
                                         + starredCounter.provisionalTotal //
                                         + "\t"
                                         + starredCounter.unconfirmedTotal //
-                                        + "\tTotals");
-                        tsv_missing_basic.println("\t\t\t\t"); // for a proper table in github
+                                        + "\tTotals\t");
+                        tsv_missing_basic.println("\t\t\t\t\t"); // for a proper table in github
                     }
 
                     int sumFound = 0;

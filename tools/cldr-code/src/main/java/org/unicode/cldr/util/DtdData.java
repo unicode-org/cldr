@@ -438,7 +438,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
 
     private DtdData(DtdType type, String version) {
         this.dtdType = type;
-        this.ROOT = elementFrom(type.rootType.toString());
+        this.ROOT = elementFrom(type.rootElement());
         this.version = version;
     }
 
@@ -1850,7 +1850,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                                         "temperature-rankine",
                                         "duration-fortnight",
                                         "mass-slug",
-                                        "pressure-gasoline-equivalent",
+                                        "pressure-gasoline-energy-density",
                                         "length-rin",
                                         "length-sun",
                                         "length-shaku-length",

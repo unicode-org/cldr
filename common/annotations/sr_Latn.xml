@@ -810,9 +810,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤥" type="tts">lažljivac</annotation>
 		<annotation cp="🫨">drhteće lice | drhtenje | lice | šok | vibrira | zemljotres</annotation>
 		<annotation cp="🫨" type="tts">drhteće lice</annotation>
-		<annotation cp="🙂‍↔">glava trese horizontalno | ne, trese</annotation>
+		<annotation cp="🙂‍↔">glava trese horizontalno | ne | trese</annotation>
 		<annotation cp="🙂‍↔" type="tts">glava trese horizontalno</annotation>
-		<annotation cp="🙂‍↕">glava trese vertikalno | klima, da</annotation>
+		<annotation cp="🙂‍↕">da | glava trese vertikalno | klima</annotation>
 		<annotation cp="🙂‍↕" type="tts">glava trese vertikalno</annotation>
 		<annotation cp="😌">lice | olakšanje | spokojno lice</annotation>
 		<annotation cp="😌" type="tts">spokojno lice</annotation>
@@ -888,7 +888,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😧" type="tts">izbezumljeno lice</annotation>
 		<annotation cp="😨">lice | preplašenost | strah | uplašeno lice</annotation>
 		<annotation cp="😨" type="tts">uplašeno lice</annotation>
-		<annotation cp="😰">hladno | lice | lice sa otvorenim ustima | obliveno hladnim znojem | plavo | užurbano | znoj</annotation>
+		<annotation cp="😰">hladno | lice | lice sa otvorenim ustima | lice sa otvorenim ustima, obliveno hladnim znojem | obliveno hladnim znojem | plavo | užurbano | znoj</annotation>
 		<annotation cp="😰" type="tts">lice sa otvorenim ustima, obliveno hladnim znojem</annotation>
 		<annotation cp="😥">lice | olakšanje | razočaranje | razočarano lice kome je laknulo</annotation>
 		<annotation cp="😥" type="tts">razočarano lice kome je laknulo</annotation>
@@ -1428,9 +1428,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👼" type="tts">beba anđeo</annotation>
 		<annotation cp="🎅">bajka | božić | božić bata | deda mraz | Deda Mraz | proslava</annotation>
 		<annotation cp="🎅" type="tts">Deda Mraz</annotation>
-		<annotation cp="🤶">baka | baka Mraz | božić | mraz</annotation>
+		<annotation cp="🤶">baka | božić | mraz</annotation>
 		<annotation cp="🤶" type="tts">baka Mraz</annotation>
-		<annotation cp="🧑‍🎄">Mraz | Božić | osoba Mraz</annotation>
+		<annotation cp="🧑‍🎄">Božić | Mraz | osoba Mraz</annotation>
 		<annotation cp="🧑‍🎄" type="tts">osoba Mraz</annotation>
 		<annotation cp="🦸">dobro | heroj | super heroj | super moć</annotation>
 		<annotation cp="🦸" type="tts">super heroj</annotation>
@@ -1684,13 +1684,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫂" type="tts">ljudi se grle</annotation>
 		<annotation cp="👪">porodica</annotation>
 		<annotation cp="👪" type="tts">porodica</annotation>
-		<annotation cp="🧑‍🧑‍🧒">porodica: odrasla osoba, odrasla osoba, dete</annotation>
+		<annotation cp="🧑‍🧑‍🧒">dete | odrasla osoba | porodica: odrasla osoba | porodica: odrasla osoba, odrasla osoba, dete</annotation>
 		<annotation cp="🧑‍🧑‍🧒" type="tts">porodica: odrasla osoba, odrasla osoba, dete</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒">porodica: odrasla osoba, odrasla osoba, dete, dete</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">dete | odrasla osoba | porodica: odrasla osoba | porodica: odrasla osoba, odrasla osoba, dete, dete</annotation>
 		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">porodica: odrasla osoba, odrasla osoba, dete, dete</annotation>
-		<annotation cp="🧑‍🧒">porodica: odrasla osoba, dete</annotation>
+		<annotation cp="🧑‍🧒">dete | porodica: odrasla osoba | porodica: odrasla osoba, dete</annotation>
 		<annotation cp="🧑‍🧒" type="tts">porodica: odrasla osoba, dete</annotation>
-		<annotation cp="🧑‍🧒‍🧒">porodica: odrasla osoba, dete, dete</annotation>
+		<annotation cp="🧑‍🧒‍🧒">dete | porodica: odrasla osoba | porodica: odrasla osoba, dete, dete</annotation>
 		<annotation cp="🧑‍🧒‍🧒" type="tts">porodica: odrasla osoba, dete, dete</annotation>
 		<annotation cp="👣">noge | otisak | otisci stopala | stopala | telo</annotation>
 		<annotation cp="👣" type="tts">otisci stopala</annotation>
@@ -1876,7 +1876,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐦‍⬛" type="tts">crna ptica</annotation>
 		<annotation cp="🪿">blesav | graktanje | guska | ptica</annotation>
 		<annotation cp="🪿" type="tts">guska</annotation>
-		<annotation cp="🐦‍🔥">fantazija, vatrena ptica, ponovno rođenje, reinkarnacija | feniks</annotation>
+		<annotation cp="🐦‍🔥">fantazija | feniks | ponovno rođenje | reinkarnacija | vatrena ptica</annotation>
 		<annotation cp="🐦‍🔥" type="tts">feniks</annotation>
 		<annotation cp="🐸">lice | žaba</annotation>
 		<annotation cp="🐸" type="tts">žaba</annotation>
@@ -2018,7 +2018,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍊" type="tts">mandarina</annotation>
 		<annotation cp="🍋">biljka | limun | voće</annotation>
 		<annotation cp="🍋" type="tts">limun</annotation>
-		<annotation cp="🍋‍🟩">citrusi, voće, tropsko | limeta</annotation>
+		<annotation cp="🍋‍🟩">citrusi | limeta | tropsko | voće</annotation>
 		<annotation cp="🍋‍🟩" type="tts">limeta</annotation>
 		<annotation cp="🍌">banana | voće</annotation>
 		<annotation cp="🍌" type="tts">banana</annotation>
@@ -2082,7 +2082,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫚" type="tts">koren đumbira</annotation>
 		<annotation cp="🫛">edamame | grašak | mahuna | mahuna graška | mahunarka | povrće</annotation>
 		<annotation cp="🫛" type="tts">mahuna graška</annotation>
-		<annotation cp="🍄‍🟫">hrana, gljive, priroda, povrće | smeđa pečurka</annotation>
+		<annotation cp="🍄‍🟫">gljive | hrana | povrće | priroda | smeđa pečurka</annotation>
 		<annotation cp="🍄‍🟫" type="tts">smeđa pečurka</annotation>
 		<annotation cp="🍞">hleb | vekna</annotation>
 		<annotation cp="🍞" type="tts">hleb</annotation>
@@ -3300,7 +3300,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦯" type="tts">beli štap</annotation>
 		<annotation cp="🔗">karike</annotation>
 		<annotation cp="🔗" type="tts">karike</annotation>
-		<annotation cp="⛓‍💥">prekid, lomljenje, lanac, lisice, sloboda | prekinut lanac</annotation>
+		<annotation cp="⛓‍💥">lanac | lisice | lomljenje | prekid | prekinut lanac | sloboda</annotation>
 		<annotation cp="⛓‍💥" type="tts">prekinut lanac</annotation>
 		<annotation cp="⛓">lanac | lanci</annotation>
 		<annotation cp="⛓" type="tts">lanci</annotation>

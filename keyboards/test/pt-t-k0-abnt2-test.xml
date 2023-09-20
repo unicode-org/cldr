@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE keyboardTest SYSTEM "../dtd/ldmlKeyboardTest.dtd">
-<keyboardTest conformsTo="techpreview">
+<!DOCTYPE keyboardTest3 SYSTEM "../dtd/ldmlKeyboardTest3.dtd">
+<keyboardTest3 conformsTo="techpreview">
     <info keyboard="pt-t-k0-abnt2.xml" author="Team Keyboard" name="pt-test" />
     <repertoire name="latn-repertoire"
-        chars="[a-z A-Z 0-9 !\u0022#$%\u0026\[\]\{\}=\-|~_\u0020\u003c>,./?`@\+\*çÇ]"
+        chars="[a-z A-Z 0-9 !\u{0022}#$%\u{0026}\[\]\{\}=\-|~_\u{0020}\u{003c}>,./?`@\+\*çÇ]"
         type="simple" />
     <repertoire name="currency-and-symbols"
         chars="[₢ ° ¹²³ § ¬ ªº]" />
@@ -35,7 +35,7 @@
             <keystroke key="c-cedilla" />
             <keystroke key="8" />
             <keystroke key="ordinal-feminine" />
-            <check result="/;\u005cÇç8ª" />
+            <check result="/;\u{005c}Çç8ª" />
         </test>
     </tests>
-</keyboardTest>
+</keyboardTest3>

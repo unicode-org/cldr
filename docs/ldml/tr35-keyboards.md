@@ -85,6 +85,10 @@ The LDML specification is divided into the following parts:
   * [Element: displays](#Element_displays)
   * [Element: display](#Element_display)
   * [Element: displayOptions](#Element_displayOptions)
+  * [Element: forms](#Element_forms)
+  * [Element: form](#Element_form)
+    * [Implied Form Values](#implied-form-values)
+  * [Element: scanCodes](#Element_scanCodes)
   * [Element: layers](#Element_layers)
   * [Element: layer](#Element_layer)
   * [Element: row](#Element_row)
@@ -259,7 +263,11 @@ When explicitly specified, attribute values can contain escaped characters. This
 
 ### UnicodeSet Escaping
 
-The _UnicodeSet_ notation is described in [UTS #35 section 5.3.3](tr35.md#Unicode_Sets) and allows for comprehensive character matching, including by character range, properties, names, or codepoints. Currently, the following attribute values allow _UnicodeSet_ notation:
+The _UnicodeSet_ notation is described in [UTS #35 section 5.3.3](tr35.md#Unicode_Sets) and allows for comprehensive character matching, including by character range, properties, names, or codepoints.
+
+Note that the `\u1234` and `\x{C1}` format escaping is not supported, only the `\u{…}` format (using `bracketedHex`).
+
+Currently, the following attribute values allow _UnicodeSet_ notation:
 
 * `from` or `before` on the `<transform>` element
 * `from` or `before` on the `<reorder>` element
@@ -289,13 +297,13 @@ Attribute values escaped in this manner are annotated with the `<!--@ALLOWS_UESC
 * New layouts will have version metadata to indicate their spec compliance versi​​on number.  For this tech preview, the value used must be `techpreview`.
 
 ```xml
-<keyboard conformsTo="techpreview"/>
+<keyboard3 conformsTo="techpreview"/>
 ```
 
 > _Note_: Unlike other LDML files, layouts are designed to be used outside of the CLDR source tree.  A new mechanism for referencing the DTD path should ideally be used, such as a URN or FPI. See <https://unicode-org.atlassian.net/browse/CLDR-15505> for discussion. For this tech preview, a relative path to the dtd will continue to be used as below.  Future versions may give other recommendations.
 
 ```xml
-<!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
+<!DOCTYPE keyboard3 SYSTEM "../dtd/ldmlKeyboard3.dtd">
 ```
 
 * The filename of a keyboard .xml file does not have to match the BCP47 primary locale ID, but it is recommended to do so. The CLDR repository may enforce filename consistency.
@@ -310,18 +318,18 @@ See [Element special](tr35.md#special) in Part 1.
 
 ## Element Hierarchy
 
-This section describes the XML elements in a keyboard layout file, beginning with the top level element `<keyboard>`.
+This section describes the XML elements in a keyboard layout file, beginning with the top level element `<keyboard3>`.
 
-### <a name="Element_Keyboard" href="#Element_Keyboard">Element: keyboard</a>
+### <a name="Element_Keyboard" href="#Element_Keyboard">Element: keyboard3</a>
 
 This is the top level element. All other elements defined below are under this element.
 
 **Syntax**
 
 ```xml
-<keyboard locale="{locale ID}">
+<keyboard3 locale="{locale ID}">
     {definition of the layout as described by the elements defined below}
-</keyboard>
+</keyboard3>
 ```
 
 > <small>
@@ -342,7 +350,7 @@ and it also specifies the minimum CLDR version required.
 For purposes of this current draft spec, the value should always be `techpreview`
 
 ```xml
-<keyboard … conformsTo="techpreview"/>
+<keyboard3 … conformsTo="techpreview"/>
 ```
 
 _Attribute:_ `locale` (required)
@@ -352,15 +360,15 @@ This attribute represents the primary locale of the keyboard using BCP 47 [Unico
 **Example** (for illustrative purposes only, not indicative of the real data)
 
 ```xml
-<keyboard locale="ka">
+<keyboard3 locale="ka">
   …
-</keyboard>
+</keyboard3>
 ```
 
 ```xml
-<keyboard locale="fr-CH-t-k0-azerty">
+<keyboard3 locale="fr-CH-t-k0-azerty">
   …
-</keyboard>
+</keyboard3>
 ```
 
 * * *
@@ -380,7 +388,7 @@ The optional `<locales>` element allows specifying additional or alternate local
 
 > <small>
 >
-> Parents: [keyboard](#Element_keyboard)
+> Parents: [keyboard3](#Element_keyboard)
 >
 > Children: [locale](#Element_locale)
 >
@@ -419,13 +427,13 @@ See [Principles for Keyboard IDs](#Principles_for_Keyboard_IDs) for discussion a
 
 ```xml
 <!-- Pan Nigerian Keyboard-->
-<keyboard locale="mul-Latn-NG-t-k0-panng">
+<keyboard3 locale="mul-Latn-NG-t-k0-panng">
     <locales>
     <locale id="ha"/>
     <locale id="ig"/>
     <!-- others … -->
     </locales>
-</keyboard>
+</keyboard3>
 ```
 
 * * *
@@ -442,7 +450,7 @@ Element used to keep track of the source data version.
 
 > <small>
 >
-> Parents: [keyboard](#Element_keyboard)
+> Parents: [keyboard3](#Element_keyboard)
 >
 > Children: _none_
 >
@@ -461,11 +469,11 @@ _Attribute:_ `cldrVersion` (fixed by DTD)
 **Example**
 
 ```xml
-<keyboard locale="tok">
+<keyboard3 locale="tok">
     …
     <version number="1"/>
     …
-</keyboard>
+</keyboard3>
 ```
 
 * * *
@@ -485,7 +493,7 @@ Element containing informative properties about the layout, for displaying in us
 
 > <small>
 >
-> Parents: [keyboard](#Element_keyboard)
+> Parents: [keyboard3](#Element_keyboard)
 >
 > Children: _none_
 >
@@ -534,7 +542,7 @@ These names are not currently localized.
 
 > <small>
 >
-> Parents: [keyboard](#Element_keyboard)
+> Parents: [keyboard3](#Element_keyboard)
 >
 > Children: [name](#Element_name), [_special_](tr35.md#special)
 >
@@ -570,13 +578,13 @@ _Attribute:_ `value` (required)
 **Example**
 
 ```xml
-<keyboard locale="bg-t-k0-phonetic-trad">
+<keyboard3 locale="bg-t-k0-phonetic-trad">
     …
     <names>
         <name value="Bulgarian (Phonetic Traditional)" />
     </names>
     …
-</keyboard>
+</keyboard3>
 ```
 
 * * *
@@ -593,7 +601,7 @@ An element used to keep track of layout specific settings. This element may or m
 
 > <small>
 >
-> Parents: [keyboard](#Element_keyboard)
+> Parents: [keyboard3](#Element_keyboard)
 >
 > Children: _none_
 >
@@ -611,11 +619,11 @@ If this attribute is present, it must have a value of omit.
 **Example**
 
 ```xml
-<keyboard locale="bg">
+<keyboard3 locale="bg">
     …
     <settings fallback="omit" />
     …
-</keyboard>
+</keyboard3>
 ```
 
 Indicates that:
@@ -649,7 +657,7 @@ There is only a single `<keys>` element in each layout.
 
 > <small>
 >
-> Parents: [keyboard](#Element_keyboard)
+> Parents: [keyboard3](#Element_keyboard)
 > Children: [key](#Element_key), [flicks](#Element_flicks)
 > Occurrence: optional, single
 >
@@ -696,7 +704,9 @@ This element defines a mapping between an abstract key and its output. This elem
 
 _Attribute:_ `id`
 
-> The `id` attribute uniquely identifies the key. NMTOKEN, restricted to `[a-zA-Z0-9_.-]`. It can (but needn't be) the Latin key name for a Latn script keyboard (a, b, c, A, B, C, …), or any other valid token (e-acute, alef, alif, alpha, …)
+> The `id` attribute uniquely identifies the key. NMTOKEN. It can (but needn't be) the key name (a, b, c, A, B, C, …), or any other valid token (e-acute, alef, alif, alpha, …).
+>
+> In the future, this attribute’s definition is expected to be updated to align with [UAX#31](https://www.unicode.org/reports/tr31/). Please see [CLDR-17043](https://unicode-org.atlassian.net/browse/CLDR-17043) for more details.
 
 _Attribute:_ `flicks="flick-id"` (optional)
 
@@ -747,7 +757,9 @@ _Attribute:_ `switch="shift"` (optional)
 > Also note that `switch=` is ignored for hardware layouts: their shifting is controlled via
 > the modifier keys.
 >
-> This attribute is an NMTOKEN, restricted to `[a-zA-Z0-9-]`
+> This attribute is an NMTOKEN.
+>
+> In the future, this attribute’s definition is expected to be updated to align with [UAX#31](https://www.unicode.org/reports/tr31/). Please see [CLDR-17043](https://unicode-org.atlassian.net/browse/CLDR-17043) for more details.
 
 
 _Attribute:_ `to`
@@ -855,11 +867,11 @@ These implied keys are available in a data file named `keyboards/import/keys-Lat
 Thus, the implied keys behave as if the following import were present.
 
 ```xml
-<keyboard>
+<keyboard3>
     <keys>
         <import base="cldr" path="techpreview/keys-Latn-implied.xml" />
     </keys>
-</keyboard>
+</keyboard3>
 ```
 
 **Note:** All implied keys may be overridden, as with all other imported data items. See the [`import`](#Element_import) element for more details.
@@ -891,9 +903,13 @@ The `flicks` element is used to generate results from a "flick" of the finger on
 
 _Attribute:_ `id` (required)
 
-> The `id` attribute identifies the flicks. It can be any NMTOKEN matching `[A-Za-z0-9][A-Za-z0-9-]*`
+> The `id` attribute identifies the flicks. It can be any NMTOKEN.
+>
 > The `flicks` do not share a namespace with the `key`s, so it would also be allowed
 > to have `<key id="a" flicks="a"/><flicks id="a"/>`
+>
+> In the future, this attribute’s definition is expected to be updated to align with [UAX#31](https://www.unicode.org/reports/tr31/). Please see [CLDR-17043](https://unicode-org.atlassian.net/browse/CLDR-17043) for more details.
+
 
 **Syntax**
 
@@ -924,7 +940,7 @@ where a flick to the Northeast then South produces two code points.
 
 ```xml
 <flicks id="a">
-    <flick directions="ne s" to="\uABCD\uDCBA" />
+    <flick directions="ne s" to="\u{ABCD}\u{DCBA}" />
 </flicks>
 ```
 
@@ -948,7 +964,7 @@ If two identical elements are defined, the later element will take precedence, t
 ```
 > <small>
 >
-> Parents: [displays](#Element_displays), [keyboard](#Element_keyboard), [keys](#Element_keys), [layers](#Element_layers), [names](#Element_names), [reorders](#Element_reorders), [transformGroup](#Element_transformGroup), [transforms](#Element_transforms), [variables](#Element_variables), [vkeys](#Element_vkeys)
+> Parents: [displays](#Element_displays), [keyboard3](#Element_keyboard), [keys](#Element_keys), [layers](#Element_layers), [names](#Element_names), [reorders](#Element_reorders), [transformGroup](#Element_transformGroup), [transforms](#Element_transforms), [variables](#Element_variables), [vkeys](#Element_vkeys)
 >
 > Children: _none_
 >
@@ -983,7 +999,7 @@ _Attribute:_ `path` (required)
 
 <!-- contents of transforms-example.xml -->
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE transforms SYSTEM "../dtd/ldmlKeyboard.dtd">
+<!DOCTYPE transforms SYSTEM "../dtd/ldmlKeyboard3.dtd">
 <transforms>
     <!-- begin imported part-->
     <transform from="`a" to="à" />
@@ -1033,7 +1049,7 @@ For combining characters, U+25CC `◌` is used as a base. It is an error to use 
 For example, a key which outputs a combining tilde (U+0303) can be represented as follows:
 
 ```xml
-    <display to="\u0303" display="◌̃" />  <!-- \u25CC \u0303-->
+    <display to="\u{0303}" display="◌̃" />  <!-- \u{25CC} \u{0303}-->
 ```
 
 This way, a key which outputs a combining tilde (U+0303) will be represented as `◌̃` (a tilde on a dotted circle).
@@ -1053,7 +1069,7 @@ See  [`<displayOptions baseCharacter=…/>`](#Element_displayOptions).
 
 > <small>
 >
-> Parents: [keyboard](#Element_keyboard)
+> Parents: [keyboard3](#Element_keyboard)
 >
 > Children: [display](#Element_display), [displayOptions](#Element_displayOptions), [_special_](tr35.md#special)
 >
@@ -1106,18 +1122,18 @@ This attribute may be escaped with `\u` notation, see [Escaping](#Escaping).
 **Example**
 
 ```xml
-<keyboard>
+<keyboard3>
     <keys>
-        <key id="a" to="a" longpress="\u0301 \u0300" />
+        <key id="a" to="a" longpress="\u{0301} \u{0300}" />
         <key id="shift" switch="shift" />
     </keys>
     <displays>
-        <display to="\u0300" display="ˋ" /> <!-- \u02CB -->
-        <display to="\u0301" display="ˊ" /> <!-- \u02CA -->
+        <display to="\u{0300}" display="ˋ" /> <!-- \u{02CB} -->
+        <display to="\u{0301}" display="ˊ" /> <!-- \u{02CA} -->
         <display id="shift"  display="⇪" /> <!-- U+21EA -->
         <display to="\m{grave}" display="`" /> <!-- Display \m{grave} as ` -->
     </displays>
-</keyboard>
+</keyboard3>
 ```
 
 To allow `displays` elements to be shared across keyboards, there is no requirement that `@to` in a `display` element matches any `@to`/`@id` in any `keys/key` element in the keyboard description.
@@ -1163,6 +1179,119 @@ This attribute may be escaped with `\u` notation, see [Escaping](#Escaping).
 
 * * *
 
+### <a name="Element_forms" href="#Element_forms">Element: forms</a>
+
+This element represents a set of `form` elements which define the layout of a particular hardware form.
+
+
+> <small>
+>
+> Parents: [keyboard3](#Element_keyboard)
+>
+> Children: [import](#Element_import), [form](#Element_form), [_special_](tr35.md#special)
+>
+> Occurrence: optional, single
+>
+> </small>
+
+***Syntax***
+
+```xml
+<forms>
+    <form id="iso">
+        <!-- ... -->
+    </form>
+    <form id="us">
+        <!-- ... -->
+    </form>
+</forms>
+```
+
+* * *
+
+### <a name="Element_form" href="#Element_form">Element: form</a>
+
+This element represents a specific `form` element which defines the layout of a particular hardware form.
+
+> *Note:* Most keyboards will not need to use this element directly, and the CLDR repository will not accept keyboards which define a custom `form` element.  This element is provided for two reasons:
+
+1. To formally specify the standard hardware arrangements used with CLDR for implementations. Implementations can verify the arrangement, and validate keyboards against the number of rows and the number of keys per row.
+
+2. To allow a way to customize the scancode layout for keyboards not intended to be included in the common CLDR repository.
+
+See [Implied Form Values](#implied-form-values), below.
+
+> <small>
+>
+> Parents: [forms](#Element_forms)
+>
+> Children: [scanCodes](#Element_scanCodes), [_special_](tr35.md#special)
+>
+> Occurrence: optional, multiple
+>
+> </small>
+
+_Attribute:_ `id` (required)
+
+> This attribute specifies the form id. The value may not be `touch`.
+
+***Syntax***
+
+```xml
+<form id="us">
+    <scanCodes codes="00 01 02"/>
+    <scanCodes codes="03 04 05"/>
+</form>
+```
+
+##### Implied Form Values
+
+There is an implied set of `<form>` elements corresponding to the default forms, thus implementations must behave as if there was the following import statement:
+
+```xml
+<keyboard3>
+    <forms>
+        <import base="cldr" path="techpreview/scanCodes-implied.xml" /> <!-- the version will match the current conformsTo of the file -->
+    </forms>
+</keyboard3>
+```
+
+Here is a summary of the implied form elements. Keyboards included in the CLDR Repository must only use these `form=` values and may not override the scanCodes.
+
+> - `touch` - Touch (non-hardware) layout.
+> - `abnt2` - Brazilian 103 key ABNT2 layout (iso + extra key near right shift)
+> - `iso` - European 102 key layout (extra key near left shift)
+> - `jis` - Japanese 109 key layout
+> - `us` - ANSI 101 key layout
+
+* * *
+
+### <a name="Element_scanCodes" href="#Element_scanCodes">Element: scanCodes</a>
+
+This element represents a keyboard row, and defines the scan codes for the non-frame keys in that row.
+
+> <small>
+>
+> Parents: [form](#Element_form)
+>
+> Children: none
+>
+> Occurrence: required, multiple
+>
+> </small>
+
+> _Attribute:_ `codes` (required)
+
+> The `codes` attribute is a space-separated list of 2-digit hex bytes, each representing a scan code.
+
+**Syntax**
+
+```xml
+<scanCodes codes="29 02 03 04 05 06 07 08 09 0A 0B 0C 0D" />
+```
+
+* * *
+
 ### <a name="Element_layers" href="#Element_layers">Element: layers</a>
 
 This element represents a set of `layer` elements with a specific physical form factor, whether
@@ -1170,7 +1299,7 @@ hardware or touch layout.
 
 > <small>
 >
-> Parents: [keyboard](#Element_keyboard)
+> Parents: [keyboard3](#Element_keyboard)
 >
 > Children: [import](#Element_import), [layer](#Element_layer), [_special_](tr35.md#special)
 >
@@ -1201,13 +1330,8 @@ _Attribute:_ `form` (required)
 > When using an on-screen keyboard, if there is not a `<layers form="touch">`
 > element, the hardware elements can be used for on-screen use.
 >
-> The following values are allowed for the `form` attribute:
+> The value of the `form=` attribute may be `touch`, or correspond to a `form` element. See [`form`](#element-form).
 >
-> - `touch` - Touch (non-hardware) layout.
-> - `abnt2` - Brazilian 103 key ABNT2 layout (iso + extra key left of right shift)
-> - `iso` - European 102 key layout (extra key right of left shift)
-> - `jis` - Japanese 109 key layout
-> - `us` - ANSI 101 key layout
 
 _Attribute:_ `minDeviceWidth`
 
@@ -1229,7 +1353,7 @@ A `layer` element describes the configuration of keys on a particular layer of a
 
 > <small>
 >
-> Parents: [keyboard](#Element_keyboard)
+> Parents: [keyboard3](#Element_keyboard)
 >
 > Children: [row](#Element_row), [_special_](tr35.md#special)
 >
@@ -1301,6 +1425,8 @@ A `row` element describes the keys that are present in the row of a keyboard.
 _Attribute:_ `keys` (required)
 
 > This is a string that lists the id of [`key` elements](#Element_key) for each of the keys in a row, whether those are explicitly listed in the file or are implied.  See the `key` documentation for more detail.
+>
+> For non-`touch` forms, the number of keys in each row may not exceed the number of scan codes defined for that row, and the number of rows may not exceed the defined number of rows for that form. See [`scanCodes`](#Element_scanCodes);
 
 **Example**
 
@@ -1326,7 +1452,7 @@ On some architectures, applications may directly interact with keys before they 
 
 > <small>
 >
-> Parents: [keyboard](#Element_keyboard)
+> Parents: [keyboard3](#Element_keyboard)
 >
 > Children: [import](#Element_import), [_special_](tr35.md#special), [vkey](#Element_vkey)
 >
@@ -1373,14 +1499,14 @@ _Attribute:_ `to` (required)
 This example shows some of the mappings for a French keyboard layout:
 
 ```xml
-<keyboard>
+<keyboard3>
     <vkeys>
 		  <vkey from="Q" to="A" />
 		  <vkey from="W" to="Z" />
 		  <vkey from="A" to="Q" />
 		  <vkey from="Z" to="W" />
     </vkeys>
-</keyboard>
+</keyboard3>
 ```
 
 * * *
@@ -1389,7 +1515,7 @@ This example shows some of the mappings for a French keyboard layout:
 
 > <small>
 >
-> Parents: [keyboard](#Element_keyboard)
+> Parents: [keyboard3](#Element_keyboard)
 >
 > Children: [import](#Element_import), [_special_](tr35.md#special), [string](#element-string), [set](#element-set), [unicodeSet](#element-unicodeSet)
 >
@@ -1565,9 +1691,9 @@ _Attribute:_ `value` (required)
 ```xml
 <variables>
   <unicodeSet id="consonants" value="[कसतनमह]" /> <!-- unicode set range -->
-  <unicodeSet id="range" value="[a-z D E F G \u200A]" /> <!-- a through z, plus a few others -->
+  <unicodeSet id="range" value="[a-z D E F G \u{200A}]" /> <!-- a through z, plus a few others -->
   <unicodeSet id="newrange" value="[$[range]-[G]]" /> <!-- The above range, but not including G -->
-  <unicodeSet id="KhmrMn" value="[\u17B4\u17B5\u17B7-\u17BD\u17C6\u17C9-\u17D3\u17DD]"> <!--  [[:Khmr:][:Mn:]] as of Unicode 15.0-->
+  <unicodeSet id="KhmrMn" value="[\u{17B4}\u{17B5}\u{17B7}-\u{17BD}\u{17C6}\u{17C9}-\u{17D3}\u{17DD}]"> <!--  [[:Khmr:][:Mn:]] as of Unicode 15.0-->
 </variables>
 ```
 
@@ -1592,7 +1718,7 @@ There can be multiple `<transforms>` elements, but only one for each `type`.
 
 > <small>
 >
-> Parents: [keyboard](#Element_keyboard)
+> Parents: [keyboard3](#Element_keyboard)
 >
 > Children: [import](#Element_import), [_special_](tr35.md#special), [transformGroup](#Element_transformGroup)
 >
@@ -1613,6 +1739,8 @@ There are other keying behaviors that are needed particularly in handing complex
 #### Markers
 
 Markers are placeholders which record some state, but without producing normal visible text output.  They were designed particularly to support dead-keys.
+
+The marker ID is any valid `NMTOKEN` (But see [CLDR-17043](https://unicode-org.atlassian.net/browse/CLDR-17043) for future discussion.)
 
 Consider the following abbreviated example:
 
@@ -1660,7 +1788,7 @@ If the input context changes, such as if the cursor or mouse moves the insertion
 
 Ideally, markers are implemented entirely out-of-band from the normal text stream. However, implementations _may_ choose to map each marker to a [Unicode private-use character](https://www.unicode.org/glossary/#private_use_character) for use only within the implementation’s processing and temporary storage in the input context.
 
-For example, the first marker encountered could be represented as U+E000, the second by U+E001 and so on.  If a regex processing engine were used, then those PUA characters could be processed through the existing regex processing engine.  `[^\uE000-\uE009]` could be used as an expression to match a character that is not a marker, and `[Ee]\u{E000}` could match `E` or `e` followed by the first marker.
+For example, the first marker encountered could be represented as U+E000, the second by U+E001 and so on.  If a regex processing engine were used, then those PUA characters could be processed through the existing regex processing engine.  `[^\u{E000}-\u{E009}]` could be used as an expression to match a character that is not a marker, and `[Ee]\u{E000}` could match `E` or `e` followed by the first marker.
 
 Such implementations must take care to remove all such markers (see prior section) from the resultant text. As well, implementations must take care to avoid conflicts if applications themselves are using PUA characters, such as is often done with not-yet-encoded scripts or characters.
 
@@ -1758,7 +1886,7 @@ _Attribute:_ `from` (required)
 
 - **Unicode codepoint escapes**
 
-    `\u1234 \u012A`
+    `\u{1234} \u{012A}`
     `\u{22} \u{012a} \u{1234A}`
 
     The hex escaping is case insensitive. The value may not match a surrogate or illegal character, nor a marker character.
@@ -1770,13 +1898,13 @@ _Attribute:_ `from` (required)
 
     The value of these classes do not change with Unicode versions.
 
-    `\s` for example is exactly `[\f\n\r\t\v\u00a0\u1680\u2000-\u200a\u2028\u2029\u202f\u205f\u3000\ufeff]`
+    `\s` for example is exactly `[\f\n\r\t\v\u{00a0}\u{1680}\u{2000}-\u{200a}\u{2028}\u{2029}\u{202f}\u{205f}\u{3000}\u{feff}]`
 
     `\\` and `\$` evaluate to `\` and `$`, respectively.
 
 - **Character classes**
 
-    `[abc]` `[^def]` `[a-z]` `[ॲऄ-आइ-ऋ]` `[\u093F-\u0944\u0962\u0963]`
+    `[abc]` `[^def]` `[a-z]` `[ॲऄ-आइ-ऋ]` `[\u{093F}-\u{0944}\u{0962}\u{0963}]`
 
     - supported
     - no Unicode properties such as `\p{…}`
@@ -1879,7 +2007,7 @@ The following are additions to standard Regex syntax.
     Tooling may choose to suggest an expansion of properties, such as `\p{Mn}` to all non spacing marks for a certain Unicode version.  As well, a set of variables could be constructed in an `import`-able file matching particularly useful Unicode properties.
 
     ```xml
-    <unicodeSet id="Mn" value="[\u034F\u0591-\u05AF\u05BD\u05C4\u05C5\…]" /> <!-- 1,985 code points -->
+    <unicodeSet id="Mn" value="[\u{034F}\u{0591}-\u{05AF}\u{05BD}\u{05C4}\u{05C5}\…]" /> <!-- 1,985 code points -->
     ```
 
 - **Backreferences**
@@ -2009,7 +2137,7 @@ The reordering algorithm consists of four parts:
    * `run := preBase* (primary=0 && tertiary=0) ((primary≠0 || tertiary≠0) && !preBase)*`
 4. Sort the character order of each character in the run based on its sort key.
 
-The primary order of a character with the Unicode property Combining_Character_Class (ccc) of 0 may well not be 0. In addition, a character may receive a different primary order dependent on context. For example, in the Devanagari sequence ka halant ka, the first ka would have a primary order 0 while the halant ka sequence would give both halant and the second ka a primary order > 0, for example 2. Note that “base” character in this discussion is not a Unicode base character. It is instead a character with primary=0.
+The primary order of a character with the Unicode property `Canonical_Combining_Class` (ccc) of 0 may well not be 0. In addition, a character may receive a different primary order dependent on context. For example, in the Devanagari sequence ka halant ka, the first ka would have a primary order 0 while the halant ka sequence would give both halant and the second ka a primary order > 0, for example 2. Note that “base” character in this discussion is not a Unicode base character. It is instead a character with primary=0.
 
 In order to get the characters into the correct relative order, it is necessary not only to order combining marks relative to the base character, but also to order some combining marks in a subsequence following another combining mark. For example in Devanagari, a nukta may follow a consonant character, but it may also follow a conjunct consisting of consonant, halant, consonant. Notice that the second consonant is not, in this model, the start of a new run because some characters may need to be reordered to before the first base, for example repha. The repha would get primary < 0, and be sorted before the character with order = 0, which is, in the case of Devanagari, the initial consonant of the orthographic syllable.
 
@@ -2136,12 +2264,12 @@ Finally, the user might also type in the sequence with the tone _after_ the lowe
 We want all of these sequences to end up ordered as the first. To do this, we use the following rules:
 
 ```xml
-<reorder from="\u1A60" order="127" />      <!-- max possible order -->
-<reorder from="\u1A6B" order="42" />
-<reorder from="[\u1A75-\u1A79]" order="55" />
-<reorder before="\u1A6B" from="\u1A60\u1A45" order="10" />
-<reorder before="\u1A6B[\u1A75-\u1A79]" from="\u1A60\u1A45" order="10" />
-<reorder before="\u1A6B" from="\u1A60[\u1A75-\u1A79]\u1A45" order="10 55 10" />
+<reorder from="\u{1A60}" order="127" />      <!-- max possible order -->
+<reorder from="\u{1A6B}" order="42" />
+<reorder from="[\u{1A75}-\u{1A79}]" order="55" />
+<reorder before="\u{1A6B}" from="\u{1A60}\u{1A45}" order="10" />
+<reorder before="\u{1A6B}[\u{1A75}-\u{1A79}]" from="\u{1A60}\u{1A45}" order="10" />
+<reorder before="\u{1A6B}" from="\u{1A60}[\u{1A75}-\u{1A79}]\u{1A45}" order="10 55 10" />
 ```
 
 The first reorder is the default ordering for the _sakot_ which allows for it to be placed anywhere in a sequence, but moves any non-consonants that may immediately follow it, back before it in the sequence. The next two rules give the orders for the top vowel component and tone marks respectively. The next three rules give the _sakot_ and _wa_ characters a primary order that places them before the _o_. Notice particularly the final reorder rule where the _sakot_+_wa_ is split by the tone mark. This rule is necessary in case someone types into the middle of previously normalized text.
@@ -2177,21 +2305,21 @@ Consider this fragment from a shared reordering for the Myanmar script:
 <!-- File: "myanmar-reordering.xml" -->
 <transformGroup>
     <!-- medial-r -->
-    <reorder from="\u103C" order="20" />
+    <reorder from="\u{103C}" order="20" />
 
     <!-- [medial-wa or shan-medial-wa] -->
-    <reorder from="[\u103D\u1082]" order="25" />
+    <reorder from="[\u{103D}\u{1082}]" order="25" />
 
     <!-- [medial-ha or shan-medial-wa]+asat = Mon asat -->
-    <reorder from="[\u103E\u1082]\u103A" order="27" />
+    <reorder from="[\u{103E}\u{1082}]\u{103A}" order="27" />
 
     <!-- [medial-ha or mon-medial-wa] -->
-    <reorder from="[\u103E\u1060]" order="27" />
+    <reorder from="[\u{103E}\u{1060}]" order="27" />
 
     <!-- [e-vowel (U+1031) or shan-e-vowel (U+1084)] -->
-    <reorder from="[\u1031\u1084]" order="30" />
+    <reorder from="[\u{1031}\u{1084}]" order="30" />
 
-    <reorder from="[\u102D\u102E\u1033-\u1035\u1071-\u1074\u1085\u109D\uA9E5]" order="35" />
+    <reorder from="[\u{102D}\u{102E}\u{1033}-\u{1035}\u{1071}-\u{1074}\u{1085}\u{109D}\u{A9E5}]" order="35" />
 </transformGroup>
 ```
 
@@ -2201,17 +2329,17 @@ A particular Myanmar keyboard layout can have these `reorder` elements:
 <transformGroup>
     <import path="myanmar-reordering.xml"/> <!-- import the above transformGroup -->
     <!-- Kinzi -->
-    <reorder from="\u1004\u103A\u1039" order="-1" />
+    <reorder from="\u{1004}\u{103A}\u{1039}" order="-1" />
 
     <!-- e-vowel -->
-    <reorder from="\u1031" preBase="1" />
+    <reorder from="\u{1031}" preBase="1" />
 
     <!-- medial-r -->
-    <reorder from="\u103C" preBase="1" />
+    <reorder from="\u{103C}" preBase="1" />
 </transformGroup>
 ```
 
-The effect of this is that the _e-vowel_ will be identified as a prebase and will have an order of 30. Likewise a _medial-r_ will be identified as a prebase and will have an order of 20. Notice that a _shan-e-vowel_ (`\u1084`) will not be identified as a prebase (even if it should be!). The _kinzi_ is described in the layout since it moves something across a run boundary. By separating such movements (prebase or moving to in front of a base) from the shared ordering rules, the shared ordering rules become a self-contained combining order description that can be used in other keyboards or even in other contexts than keyboarding.
+The effect of this is that the _e-vowel_ will be identified as a prebase and will have an order of 30. Likewise a _medial-r_ will be identified as a prebase and will have an order of 20. Notice that a _shan-e-vowel_ (`\u{1084}`) will not be identified as a prebase (even if it should be!). The _kinzi_ is described in the layout since it moves something across a run boundary. By separating such movements (prebase or moving to in front of a base) from the shared ordering rules, the shared ordering rules become a self-contained combining order description that can be used in other keyboards or even in other contexts than keyboarding.
 
 #### Example Post-reorder transforms
 
@@ -2228,8 +2356,8 @@ First, a partial example from Khmer where split vowels are combined after reorde
     …
 </transformGroup>
 <transformGroup>
-    <transform from="\u17C1\u17B8" to="\u17BE" />
-    <transform from="\u17C1\u17B6" to="\u17C4" />
+    <transform from="\u{17C1}\u{17B8}" to="\u{17BE}" />
+    <transform from="\u{17C1}\u{17B6}" to="\u{17C4}" />
 </transformGroup>
 ```
 
@@ -2244,7 +2372,7 @@ Another partial example allows a keyboard implementation to prevent people typin
     …
 </transformGroup>
 <transformGroup>
-    <transform from="[\u102F\u1030\u1048\u1059][\u102F\u1030\u1048\u1059]"  />
+    <transform from="[\u{102F}\u{1030}\u{1048}\u{1059}][\u{102F}\u{1030}\u{1048}\u{1059}]"  />
 </transformGroup>
 ```
 
@@ -2287,7 +2415,7 @@ While this character is made up of three codepoints, the following rule causes a
 ```xml
 <transforms type="backspace">
     <transformGroup>
-        <transform from="\u0915\u094D\u0936"/>
+        <transform from="\u{0915}\u{094D}\u{0936}"/>
     </transformGroup>
 </transforms>
 ```
@@ -2300,35 +2428,35 @@ A more complex example comes from a Burmese visually ordered keyboard:
 <transforms type="backspace">
     <transformGroup>
         <!-- Kinzi -->
-        <transform from="[\u1004\u101B\u105A]\u103A\u1039" />
+        <transform from="[\u{1004}\u{101B}\u{105A}]\u{103A}\u{1039}" />
 
         <!-- subjoined consonant -->
-        <transform from="\u1039[\u1000-\u101C\u101E\u1020\u1021\u1050\u1051\u105A-\u105D]" />
+        <transform from="\u{1039}[\u{1000}-\u{101C}\u{101E}\u{1020}\u{1021}\u{1050}\u{1051}\u{105A}-\u{105D}]" />
 
         <!-- tone mark -->
-        <transform from="\u102B\u103A" />
+        <transform from="\u{102B}\u{103A}" />
 
         <!-- Handle prebases -->
         <!-- diacritics stored before e-vowel -->
-        <transform from="[\u103A-\u103F\u105E-\u1060\u1082]\u1031" to="\u1031" />
+        <transform from="[\u{103A}-\u{103F}\u{105E}-\u{1060}\u{1082}]\u{1031}" to="\u{1031}" />
 
         <!-- diacritics stored before medial r -->
-        <transform from="[\u103A-\u103B\u105E-\u105F]\u103C" to="\u103C" />
+        <transform from="[\u{103A}-\u{103B}\u{105E}-\u{105F}]\u{103C}" to="\u{103C}" />
 
         <!-- subjoined consonant before e-vowel -->
-        <transform from="\u1039[\u1000-\u101C\u101E\u1020\u1021]\u1031" to="\u1031" />
+        <transform from="\u{1039}[\u{1000}-\u{101C}\u{101E}\u{1020}\u{1021}]\u{1031}" to="\u{1031}" />
 
         <!-- base consonant before e-vowel -->
-        <transform from="[\u1000-\u102A\u103F-\u1049\u104E]\u1031" to="\m{prebase}\u1031" />
+        <transform from="[\u{1000}-\u{102A}\u{103F}-\u{1049}\u{104E}]\u{1031}" to="\m{prebase}\u{1031}" />
 
         <!-- subjoined consonant before medial r -->
-        <transform from="\u1039[\u1000-\u101C\u101E\u1020\u1021]\u103C" to="\u103C" />
+        <transform from="\u{1039}[\u{1000}-\u{101C}\u{101E}\u{1020}\u{1021}]\u{103C}" to="\u{103C}" />
 
         <!-- base consonant before medial r -->
-        <transform from="[\u1000-\u102A\u103F-\u1049\u104E]\u103C" to="\m{prebase}\u103C" />
+        <transform from="[\u{1000}-\u{102A}\u{103F}-\u{1049}\u{104E}]\u{103C}" to="\m{prebase}\u{103C}" />
 
         <!-- delete lone medial r or e-vowel -->
-        <transform from="\m{prebase}[\u1031\u103C]" />
+        <transform from="\m{prebase}[\u{1031}\u{103C}]" />
     </transformGroup>
 </transforms>
 ```
@@ -2350,8 +2478,8 @@ It is important that implementations do not by default delete more than one non-
 
     <!-- Final implicit backspace transform: Delete the final codepoint. -->
     <transformGroup>
-        <!-- (:?\m{*})*  - matches any number of contiguous markers -->
-        <transform from="(:?\m{*})*.(:?\m{*})*" /> <!-- deletes any number of markers directly on either side of the final pre-caret codepoint -->
+        <!-- (:?\m{.})*  - matches any number of contiguous markers -->
+        <transform from="(:?\m{.})*.(:?\m{.})*" /> <!-- deletes any number of markers directly on either side of the final pre-caret codepoint -->
     </transformGroup>
 </transforms>
 ```
@@ -2427,32 +2555,32 @@ The following are the design principles for the IDs.
 
 ```xml
 <!-- Serbian Latin -->
-<keyboard locale="sr-Latn"/>
+<keyboard3 locale="sr-Latn"/>
 ```
 
 ```xml
 <!-- Serbian Cyrillic -->
-<keyboard locale="sr-Cyrl"/>
+<keyboard3 locale="sr-Cyrl"/>
 ```
 
 ```xml
 <!-- Pan Nigerian Keyboard-->
-<keyboard locale="mul-Latn-NG-t-k0-panng">
+<keyboard3 locale="mul-Latn-NG-t-k0-panng">
     <locales>
     <locale id="ha"/>
     <locale id="ig"/>
     <!-- others … -->
     </locales>
-</keyboard>
+</keyboard3>
 ```
 
 ```xml
 <!-- Finnish Keyboard including Skolt Sami -->
-<keyboard locale="fi-t-k0-smi">
+<keyboard3 locale="fi-t-k0-smi">
     <locales>
     <locale id="sms"/>
     </locales>
-</keyboard>
+</keyboard3>
 ```
 
 * * *
@@ -2534,7 +2662,7 @@ Footnotes:
 
 Keyboard Test Data allows the keyboard author to provide regression test data to validate the repertoire and behavior of a keyboard. Tooling can run these regression tests against an implementation, and can also be used as part of the development cycle to validate that keyboard changes do not deviate from expected behavior.  In the interest of complete coverage, tooling could also indicate whether all keys and gestures in a layout are exercised by the test data.
 
-Test data files have a separate DTD, named `ldmlKeyboardTest.dtd`.  Note that multiple test data files can refer to the same keyboard. Test files should be named similarly to the keyboards which they test, such as `fr_test.xml` to test `fr.xml`.
+Test data files have a separate DTD, named `ldmlKeyboardTest3.dtd`.  Note that multiple test data files can refer to the same keyboard. Test files should be named similarly to the keyboards which they test, such as `fr_test.xml` to test `fr.xml`.
 
 Sample test data files are located in the `keyboards/test` subdirectory.
 
@@ -2544,7 +2672,7 @@ The following describes the structure of a keyboard test file.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE keyboardTest SYSTEM "../dtd/ldmlKeyboardTest.dtd">
+<!DOCTYPE keyboardTest3 SYSTEM "../dtd/ldmlKeyboardTest3.dtd">
 ```
 
 The top level element is named `keyboardTest`.
@@ -2560,14 +2688,14 @@ This is the top level element.
 
 _Attribute:_ `conformsTo` (required)
 
-The `conformsTo` attribute here is the same as on the [`<keyboard>`](#Element_Keyboard) element.
+The `conformsTo` attribute here is the same as on the [`<keyboard3>`](#Element_Keyboard) element.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE keyboardTest SYSTEM "../dtd/ldmlKeyboardTest.dtd">
-<keyboardTest conformsTo="techpreview">
+<!DOCTYPE keyboardTest3 SYSTEM "../dtd/ldmlKeyboardTest3.dtd">
+<keyboardTest3 conformsTo="techpreview">
     …
-</keyboardTest>
+</keyboardTest3>
 ```
 
 ### Test Element: info
@@ -2728,7 +2856,7 @@ Specifies the starting context. This text may be escaped with `\u` notation, see
 **Example**
 
 ```xml
-<startContext to="abc\u0022"/>
+<startContext to="abc\u{0022}"/>
 ```
 
 
@@ -2845,7 +2973,7 @@ This attribute specifies the expected resultant text in a document after process
 **Example**
 
 ```xml
-<check result="abc\u0022s\u0022•éÈ"/>
+<check result="abc\u{0022}s\u{0022}•éÈ"/>
 ```
 
 
@@ -2854,22 +2982,22 @@ This attribute specifies the expected resultant text in a document after process
 ```xml
 
 <test name="spec-sample">
-    <startContext to="abc\u0022"/>
+    <startContext to="abc\u{0022}"/>
     <!-- simple, key specified by to -->
     <emit to="s"/>
-    <check result="abc\u0022s"/>
+    <check result="abc\u{0022}s"/>
     <!-- simple, key specified by id -->
     <keystroke key="doublequote"/>
-    <check result="abc\u0022s\u0022"/>
+    <check result="abc\u{0022}s\u{0022}"/>
     <!-- flick -->
     <keystroke key="s" flick="nw se"/>
-    <check result="abc\u0022s\u0022•"/>
+    <check result="abc\u{0022}s\u{0022}•"/>
     <!-- longPress -->
     <keystroke key="e" longPress="1"/>
-    <check result="abc\u0022s\u0022•é"/>
+    <check result="abc\u{0022}s\u{0022}•é"/>
     <!-- multiTap -->
     <keystroke key="E" tapCount="2"/>
-    <check result="abc\u0022s\u0022•éÈ"/>
+    <check result="abc\u{0022}s\u{0022}•éÈ"/>
 </test>
 ```
 

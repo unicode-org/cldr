@@ -2531,9 +2531,10 @@ public class SupplementalDataInfo {
      * @param language language to search
      * @return default content, or null if none
      */
-    public String getDefaultContentLocale(String language) {
+    public String getDefaultContentLocale(String locale) {
+        CLDRLocale cLocale = CLDRLocale.getInstance(locale);
         for (String dc : defaultContentLocales) {
-            if (dc.startsWith(language + "_")) {
+            if (CLDRLocale.getInstance(dc).getParent() == cLocale) {
                 return dc;
             }
         }
@@ -4896,7 +4897,7 @@ public class SupplementalDataInfo {
             } else {
                 Set<DtdType> temp = EnumSet.noneOf(DtdType.class);
                 for (String s : WHITESPACE_SPLTTER.split(dtds)) {
-                    temp.add(DtdType.valueOf(s));
+                    temp.add(DtdType.fromElement(s));
                 }
                 this.dtds = Collections.unmodifiableSet(temp);
             }

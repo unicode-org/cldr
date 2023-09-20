@@ -150,6 +150,8 @@ The data can also be used in analysis of the capabilities of different keyboards
 
 For complete examples, see the XML files in the CLDR source repository.
 
+Attribute values should be evaluated considering the DTD and [DTD Annotations](#DTD_Annotations).
+
 * * *
 
 ## <a name="Goals_and_Nongoals" href="#Goals_and_Nongoals">Goals and Non-goals</a>
@@ -187,10 +189,9 @@ Note that in parts of this document, the format `@x` is used to indicate the _at
 
 ### <a name="Compatibility_Notice" href="#Compatibility_Notice">Compatibility Notice</a>
 
-> 👉 Note: CLDR-TC has agreed that the changes required were too extensive to maintain compatibility. For this reason, the DTD used here is _not_ compatible with DTDs from prior versions of CLDR such as v41 and prior.
+> 👉 Note: CLDR-TC has agreed that the changes required were too extensive to maintain compatibility. For this reason, the `ldmlKeyboard3.dtd` DTD used here is _not_ compatible with DTDs from prior versions of CLDR such as v43 and prior.
 >
-> To process earlier XML files, use the prior DTD and specification, such as v41 found at <https://www.unicode.org/reports/tr35/tr35-66/tr35.html>
->
+> To process earlier XML files, use the prior DTD and specification, such as v43.1 found at <https://www.unicode.org/reports/tr35/tr35-69/tr35.html>
 
 ### <a name="Accessibility" href="#Accessibility">Accessibility</a>
 
@@ -713,7 +714,7 @@ _Attribute:_ `id`
 >
 > In the future, this attribute’s definition is expected to be updated to align with [UAX#31](https://www.unicode.org/reports/tr31/). Please see [CLDR-17043](https://unicode-org.atlassian.net/browse/CLDR-17043) for more details.
 
-_Attribute:_ `flicks="flick-id"` (optional)
+_Attribute:_ `flicks="{flick id}"` (optional)
 
 > The `flicks` attribute indicates that this key makes use of a [`flicks`](#Element_flicks) set with the specified id.
 

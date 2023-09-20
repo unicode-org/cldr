@@ -487,10 +487,10 @@ Element containing informative properties about the layout, for displaying in us
 **Syntax**
 
 ```xml
-<info [author="{author}"]
-      [normalization="{form}"]
-      [layout="{hint of the layout}"]
-      [indicator="{short identifier}"] />
+<info author="{author}"
+      normalization="{form}"
+      layout="{hint of the layout}"
+      indicator="{short identifier}" />
 ```
 
 > <small>
@@ -598,7 +598,7 @@ An element used to keep track of layout specific settings. This element may or m
 **Syntax**
 
 ```xml
-<settings [fallback="omit"] [transformFailure="omit"] [transformPartial="hide"] />
+<settings fallback="omit" />
 ```
 
 > <small>
@@ -616,7 +616,6 @@ _Attribute:_ `fallback="omit"`
 > The presence of this attribute means that when a modifier key combination goes unmatched, no output is produced. The default behavior (when this attribute is not present) is to fall back to the base map when the modifier key combination goes unmatched.
 
 If this attribute is present, it must have a value of omit.
-
 
 **Example**
 
@@ -678,17 +677,17 @@ This element defines a mapping between an abstract key and its output. This elem
 ```xml
 <key
  id="{key id}"
- [flicks="{flicks identifier}"]
- [gap="true"]
- [longPress="{long press keys}"]
- [longPressDefault="{default longpress target}"]
- [multiTap="{the output on subsequent taps}"]
- [stretch="true"]
- [switch="{layer id}"]
- [to="{the output}"]
- [transform="no"]
- [width="{key width}"]
- /><!-- {Comment to improve readability (if needed)} -->
+ flicks="{flicks identifier}"
+ gap="true"
+ longPress="{long press keys}"
+ longPressDefault="{default longpress target}"
+ multiTap="{the output on subsequent taps}"
+ stretch="true"
+ switch="{layer id}"
+ to="{the output}"
+ transform="no"
+ width="{key width}"
+ />
 ```
 
 > <small>
@@ -2153,11 +2152,11 @@ The relative ordering of `<reorder>` elements is not significant.
 <transformGroup>
     <!-- one or more <import/> elements are allowed at this point -->
     <reorder from="{combination of characters}"
-    [before="{look-behind required match}"]
-    [order="{list of weights}"]
-    [tertiary="{list of weights}"]
-    [tertiaryBase="{list of true/false}"]
-    [preBase="{list of true/false}"] />
+    before="{look-behind required match}"
+    order="{list of weights}"
+    tertiary="{list of weights}"
+    tertiaryBase="{list of true/false}"
+    preBase="{list of true/false}" />
     <!-- other <reorder/> elements... -->
 </transformGroup>
 ```
@@ -2402,7 +2401,7 @@ In text editing mode, different keyboard layouts may behave differently in the s
 ```xml
 <transforms type="backspace">
     <transformGroup>
-        <transform from="{combination of characters}" [to="{output}"] />
+        <transform from="{combination of characters}" to="{output}" />
     </transformGroup>
 </transforms>
 ```

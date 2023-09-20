@@ -1386,7 +1386,7 @@ _Attribute:_ `modifier` (required for `hardware`)
 
 > This has two roles. It acts as an identifier for the `layer` element for hardware keyboards (in the absence of the id= element) and also provides the linkage from the hardware modifiers into the correct `layer`.
 >
-> To indicate that no modifiers apply, the reserved name of `none` can be used.
+> To indicate that no modifiers apply, the reserved name of `none` is used.
 > The following modifier components can be used, separated by spaces.
 > Note that `L` or `R` indicates a left- or right- side modifier only (such as `altL`)
 > whereas `alt` indicates _either_ left or right alt key.

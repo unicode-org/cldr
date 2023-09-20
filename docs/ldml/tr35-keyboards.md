@@ -597,7 +597,7 @@ _Attribute:_ `value` (required)
 
 ### <a name="Element_settings" href="#Element_settings">Element: settings</a>
 
-An element used to keep track of layout specific settings. This element may or may not show up on a layout. These settings reflect the normal practice by the implementation. However, an implementation using the data may customize the behavior.
+An element used to keep track of layout-specific settings. This element may or may not show up on a layout. These settings reflect the normal practice by the implementation. However, an implementation using the data may customize the behavior.
 
 **Syntax**
 
@@ -634,7 +634,7 @@ If this attribute is present, it must have a value of omit.
 Indicates that:
 
 1.  When a modifier combination goes unmatched, do not output anything when a key is pressed.
-2.  If a transform is escaped, output the contents of the buffer.
+2.  If a transform is terminated, output the contents of the buffer.
 3.  During a transform, hide the contents of the buffer as the user is typing.
 
 * * *

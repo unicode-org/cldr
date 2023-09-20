@@ -1402,7 +1402,7 @@ _Attribute:_ `modifier` (required for `hardware`)
 > - `ctrlR`
 > - `shift`
 >
-> Note that `alt` is sometimes referred to as _opt_ or _option_.
+> Note that `alt` in this specification is referred to on some platforms as "opt" or "option".
 >
 > Left- and right- side modifiers (such as `"altL ctrlR"` or `"altL altR"`) should not be used together in a single `modifier` attribute value.
 >

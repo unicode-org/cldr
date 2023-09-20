@@ -1324,10 +1324,17 @@ _Attribute:_ `form` (required)
 > This attribute specifies the physical layout of a hardware keyboard,
 > or that the form is a `touch` layout.
 >
-> It is recommended to always have at least one hardware (non-touch) form.
+> When using an on-screen keyboard, if there is not a `<layers form="touch">`
+> element, the hardware elements can be used for on-screen use. However, a `touch` keyboard
+> cannot be used with a hardware keyboard.
+>
 > If there is no `hardware` form, the implementation may need
 > to choose a different keyboard file, or use some other fallback behavior when using a
 > hardware keyboard.
+>
+> Because a hardware keyboard facilitates non-trivial amounts of text input,
+> it is recommended to always have at least one hardware (non-touch) form, unless a layout
+> will only be used in touch form.
 >
 > Multiple `<layers form="touch">` elements are allowed with distinct `minDeviceWidth` values.
 > At most one hardware (non-`touch`) `<layers>` element is allowed. If a different key arrangement is desired between, for example, `us` and `iso` formats, these should be separated into two different keyboards.
@@ -1336,9 +1343,6 @@ _Attribute:_ `form` (required)
 >
 > A mismatch between the hardware layout in the keyboard file, and the actual hardware used by the user could result in some keys being inaccessible to the user if their hardware cannot generate the scancodes corresponding to the layout specified by the `form=` attribute. Such keys could be accessed only via an on-screen keyboard utility. Conversely, a user with hardware keys that are not present in the specified `form=` will result in some hardware keys which have no function when pressed.
 >
->
-> When using an on-screen keyboard, if there is not a `<layers form="touch">`
-> element, the hardware elements can be used for on-screen use.
 >
 > The value of the `form=` attribute may be `touch`, or correspond to a `form` element. See [`form`](#element-form).
 >

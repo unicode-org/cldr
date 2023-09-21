@@ -1045,6 +1045,152 @@ const _KeyboardData =
     "@_conformsTo": "techpreview"
    }
   },
+  "pcm.xml": {
+   "?xml": {
+    "@_version": "1.0",
+    "@_encoding": "UTF-8"
+   },
+   "keyboard3": {
+    "version": {
+     "@_number": "1.0.0"
+    },
+    "names": {
+     "name": [
+      {
+       "@_value": "Nigerian Pidgin"
+      },
+      {
+       "@_value": "Naijíriá Píjin"
+      }
+     ]
+    },
+    "settings": {
+     "@_fallback": "omit"
+    },
+    "keys": {
+     "import": [
+      {
+       "@_base": "cldr",
+       "@_path": "techpreview/keys-Zyyy-punctuation.xml"
+      },
+      {
+       "@_base": "cldr",
+       "@_path": "techpreview/keys-Zyyy-currency.xml"
+      }
+     ],
+     "key": [
+      {
+       "@_id": "grave",
+       "@_to": "\\u{300}"
+      },
+      {
+       "@_id": "backquote",
+       "@_to": "`"
+      },
+      {
+       "@_id": "acute",
+       "@_to": "\\u{301}"
+      },
+      {
+       "@_id": "odot",
+       "@_to": "ọ"
+      },
+      {
+       "@_id": "Odot",
+       "@_to": "Ọ"
+      },
+      {
+       "@_id": "edot",
+       "@_to": "ẹ"
+      },
+      {
+       "@_id": "Edot",
+       "@_to": "Ẹ"
+      },
+      {
+       "@_id": "naira",
+       "@_to": "₦"
+      }
+     ]
+    },
+    "layers": {
+     "layer": [
+      {
+       "row": [
+        {
+         "@_keys": "grave 1 2 3 4 5 6 7 8 9 0 hyphen equal"
+        },
+        {
+         "@_keys": "acute w e r t y u i o p open-square close-square"
+        },
+        {
+         "@_keys": "a s d f g h j k l odot edot slash"
+        },
+        {
+         "@_keys": "slash z c v b n m comma period semi-colon apos"
+        },
+        {
+         "@_keys": "space"
+        }
+       ],
+       "@_modifier": "none"
+      },
+      {
+       "row": [
+        {
+         "@_keys": "grave bang at hash dollar naira percent amp asterisk open-paren close-paren underscore plus"
+        },
+        {
+         "@_keys": "A S D F G H J K L Odot Edot question"
+        },
+        {
+         "@_keys": "A S D F G H J K L Odot Edot"
+        },
+        {
+         "@_keys": "question Z C V B N M open-angle close-angle colon double-quote"
+        },
+        {
+         "@_keys": "space"
+        }
+       ],
+       "@_modifier": "shift"
+      },
+      {
+       "row": [
+        {
+         "@_keys": "backquote 1 2 3 4 5 6 7 8 9 0 hyphen equal"
+        },
+        {
+         "@_keys": "Q W E R T Y U I O P open-square close-square"
+        },
+        {
+         "@_keys": "A S D F G H J K L Odot Edot slash"
+        },
+        {
+         "@_keys": "slash Z C V B N M comma period semi-colon apos"
+        },
+        {
+         "@_keys": "space"
+        }
+       ],
+       "@_modifier": "caps"
+      }
+     ],
+     "@_form": "iso"
+    },
+    "transforms": {
+     "transformGroup": {
+      "transform": {
+       "@_from": "''",
+       "@_to": "\\u{323}"
+      }
+     },
+     "@_type": "simple"
+    },
+    "@_locale": "pcm",
+    "@_conformsTo": "techpreview"
+   }
+  },
   "ja-Latn.xml": {
    "?xml": {
     "@_version": "1.0",

@@ -2264,7 +2264,7 @@ public class VoteResolver<T> {
             // TODO: decide whether to continue treating GlossonymConstructor.PSEUDO_PATH
             // (constructed values) as lateral inheritance. This method originally did not
             // take constructed values into account, so it implicitly treated constructed
-            // values as inherited, given that pathWhereFound doesn't equal path.
+            // values as laterally inherited, given that pathWhereFound doesn't equal path.
             // This original behavior corresponds to CONSTRUCTED_PSEUDO_PATH_NOT_LATERAL = false.
             // Reference: https://unicode-org.atlassian.net/browse/CLDR-16372
             final boolean CONSTRUCTED_PSEUDO_PATH_NOT_LATERAL = false;

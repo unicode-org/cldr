@@ -1263,6 +1263,7 @@ Here is a summary of the implied form elements. Keyboards included in the CLDR R
 > - `iso` - European 102 key layout (extra key near left shift)
 > - `jis` - Japanese 109 key layout
 > - `us` - ANSI 101 key layout
+> - `ks` - Korean KS layout
 
 * * *
 

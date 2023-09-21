@@ -191,14 +191,14 @@ Note that in parts of this document, the format `@x` is used to indicate the _at
 
 > 👉 Note: CLDR-TC has agreed that the changes required were too extensive to maintain compatibility. For this reason, the `ldmlKeyboard3.dtd` DTD used here is _not_ compatible with DTDs from prior versions of CLDR such as v43 and prior.
 >
-> To process earlier XML files, use the prior DTD and specification, such as v43.1 found at <https://www.unicode.org/reports/tr35/tr35-69/tr35.html>
+> To process earlier XML files, use the data and specification from v43.1, found at <https://www.unicode.org/reports/tr35/tr35-69/tr35.html>
 
 ### <a name="Accessibility" href="#Accessibility">Accessibility</a>
 
 Keyboard use can be challenging for individuals with various types of disabilities. For this revision, the committee is not evaluating features or architectural designs for the purpose of improving accessibility. Such consideration could be fruitful for future revisions. However, some points on this topic should be made:
 
 1. Having an industry-wide standard format for keyboards will enable accessibility software to make use of keyboard data with a reduced dependence on platform-specific knowledge.
-2. Features which require certain levels of mobility or speed of entry should be considered for their accessibility impact. This impact could be mitigated by means of additional, accessible methods of generating the same output.
+2. Features which require certain levels of mobility or speed of entry should be considered for their impact on accessibility. This impact could be mitigated by means of additional, accessible methods of generating the same output.
 3. Public feedback is welcome on any aspects of this document which might hinder accessibility.
 
 ## <a name="Definitions" href="#Definitions">Definitions</a>
@@ -474,7 +474,7 @@ _Attribute:_ `cldrVersion` (fixed by DTD)
 ```xml
 <keyboard3 locale="tok">
     …
-    <version number="1"/>
+    <version numb  er="1"/>
     …
 </keyboard3>
 ```
@@ -598,7 +598,7 @@ _Attribute:_ `value` (required)
 
 ### <a name="Element_settings" href="#Element_settings">Element: settings</a>
 
-An element used to keep track of layout-specific settings. This element may or may not show up on a layout. These settings reflect the normal practice by the implementation. However, an implementation using the data may customize the behavior.
+An element used to keep track of layout-specific settings by implementations. This element may or may not show up on a layout. These settings reflect the normal practice by the implementation. However, an implementation using the data may customize the behavior.
 
 **Syntax**
 
@@ -988,7 +988,7 @@ _Attribute:_ `base`
 _Attribute:_ `path` (required)
 
 > If `base` is `cldr`, then the `path` must start with a CLDR version (such as `techpreview`) representing the CLDR version to pull imports from. The imports are located in the `keyboard/import` subdirectory of the CLDR source repository.
-> Implementations are not required to have all CLDR versions available to them, and an implementation may reject a keyboard file which references an unavailable CLDR version.
+> Implementations are not required to have any or all all CLDR versions available to them. An implementation may reject a keyboard file which references an unavailable CLDR version.
 >
 > If `base` is omitted, then `path` is an absolute or relative file path.
 
@@ -1326,7 +1326,7 @@ _Attribute:_ `form` (required)
 >
 > When using an on-screen keyboard, if there is not a `<layers form="touch">`
 > element, the hardware elements can be used for on-screen use. However, a `touch` keyboard
-> cannot be used with a hardware keyboard.
+> may not be used with a hardware keyboard.
 >
 > If there is no `hardware` form, the implementation may need
 > to choose a different keyboard file, or use some other fallback behavior when using a
@@ -1391,6 +1391,8 @@ _Attribute:_ `modifier` (required for `hardware`)
 > Note that `L` or `R` indicates a left- or right- side modifier only (such as `altL`)
 > whereas `alt` indicates _either_ left or right alt key (that is, `altL` or `altR`). `ctrl` indicates either left or right ctrl key (that is, `ctrlL` or `ctrlR`).
 > `shift` also indicates either shift key. The left and right shift keys are not distinguishable in this specification.
+>
+> If there is a layer with a modifier `alt`, there may not be another layer with `altL` or `altR`.  Similarly, if there is a layer with a modifier `ctrl`, there may not be a layer with `ctrlL` or `ctrlR`.
 >
 > - `none` (no modifier, may not be combined with others)
 > - `alt`

@@ -903,7 +903,8 @@ where a flick to the Northeast then South produces two code points.
 
 The `import` element is used to reference another xml file so that elements are imported from
 another file. The use case is to be able to import a standard set of vkeys, transforms, and similar
-from the CLDR repository or other external source.
+from the CLDR repository.  `<import>` is not recommended as a way for keyboard authors to
+split up their keyboard into multiple files, as the intent is for each single XML file to contain all that is needed for a keyboard layout.
 
 `<import>` can be used as a child of a number of elements (see the _Parents_ section immediately below). Multiple `<import>` elements may be used, however, `<import>` elements must come before any other sibling elements.
 If two identical elements are defined, the later element will take precedence, that is, override.

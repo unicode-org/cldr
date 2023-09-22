@@ -1325,9 +1325,7 @@ _Attribute:_ `form` (required)
 > or that the form is a `touch` layout.
 >
 > When using an on-screen keyboard, if there is not a `<layers form="touch">`
-> element, the hardware elements can be used for on-screen use. However, a `touch` keyboard
-> may not be used with a hardware keyboard.
->
+> element, the hardware elements can be used for on-screen use. 
 > If there is no `hardware` form, the implementation may need
 > to choose a different keyboard file, or use some other fallback behavior when using a
 > hardware keyboard.

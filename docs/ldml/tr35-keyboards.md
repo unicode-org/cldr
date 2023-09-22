@@ -202,7 +202,6 @@ Keyboard use can be challenging for individuals with various types of disabiliti
 
 **Base character:** The character emitted by a particular key when no modifiers are active. In ISO 9995-1:2009 terms, this is Group 1, Level 1.
 
-<!-- JAN: still relevant? -->
 **Base map:** A mapping from the positions to the base characters. There is only one base map per layout. The characters on this map can be output without the use of any modifier keys.
 
 **Core keys:** also known as “alphanumeric” section. The primary set of key values on a keyboard that are used for typing the target language of the keyboard. For example, the three rows of letters on a standard US QWERTY keyboard (QWERTYUIOP, ASDFGHJKL, ZXCVBNM) together with the most significant punctuation keys. Usually this equates to the minimal set of keys for a language as seen on mobile phone keyboards.
@@ -230,23 +229,18 @@ If it becomes necessary in the future, the format could extend the ISO layout to
 
 **Key:** A physical key on a hardware keyboard, or a virtual key on a touch keyboard.
 
-<!-- JAN: still relevant? -->
 **Key code:** The integer code sent to the application on pressing a key.
 
-<!-- JAN: still relevant? -->
 **Key map:** The basic mapping between hardware or on-screen positions and the output characters for each set of modifier combinations associated with a particular layout. There may be multiple key maps for each layout.
 
 **Keyboard:** A particular arrangement of keys for the inputting of text, such as a hardware keyboard or a touch keyboard.
 
 **Keyboard author:** The person or group of people designing and producing a particular keyboard layout designed to support one or more languages. In the context of this specification, that author may be editing the LDML XML file directly or by means of software tools.
 
-<!-- JAN: maps still relevant? -->
 **Keyboard layout:** A layout is the overall keyboard configuration for a particular locale. Within a keyboard layout, there is a single base map, one or more key maps and zero or more transforms.
 
-<!-- JAN: do we not use layers for modifiers on hardware keyboard? -->
 **Layer** is an arrangement of keys on a touch keyboard. A touch keyboard is made up of a set of layers. Each layer may have a different key layout, unlike with a hardware keyboard, and may not correspond directly to a hardware keyboard's modifier keys. A layer is accessed via a switch key. See also touch keyboard, modifier, switch.
 
-<!-- JAN: "top level key"/"secondary key" not defined -->
 **Long-press key:** also known as a “child key”. A secondary key that is invoked from a top level key on a touch keyboard. Secondary keys typically provide access to variants of the top level key, such as accented variants (a => á, à, ä, ã)
 
 **Modifier:** A key that is held to change the behavior of a hardware keyboard. For example, the "Shift" key allows access to upper-case characters on a US keyboard. Other modifier keys include but are not limited to: Ctrl, Alt, Option, Command and Caps Lock. On a touch keyboard, keys that appear to be modifier keys should be considered to be layer-switching keys.
@@ -589,8 +583,6 @@ _Attribute:_ `value` (required)
 
 ### <a name="Element_settings" href="#Element_settings">Element: settings</a>
 
-<!-- JAN: these should be implementation details in prescriptive LDML -->
-
 An element used to keep track of layout specific settings. This element may or may not show up on a layout. These settings reflect the normal practice by the implementation. However, an implementation using the data may customize the behavior.
 
 **Syntax**
@@ -632,8 +624,6 @@ Indicates that:
 2.  If a transform is escaped, output the contents of the buffer.
 3.  During a transform, hide the contents of the buffer as the user is typing.
 
-
-<!-- JAN: what about the other attributes? -->
 
 * * *
 
@@ -744,11 +734,7 @@ _Attribute:_ `multiTap` (optional) (discouraged, see [Accessibility])
 >
 > Control characters, combining marks and whitespace (which is intended to be a multiTap option) in this attribute are escaped using the `\u{...}` notation.
 
-<!-- JAN: "are" is unclear. Whitespace is probably "shall". Control characters I believe must be escaped in XML either way, and the combining marks are most likely "can". -->
-
 **Note**: Behavior past the end of the multiTap list is implementation specific.
-
-<!-- JAN: Why is this not done by width="*" it feels more like a layout thing than key thing -->
 
 _Attribute:_ `stretch="true"` (optional)
 
@@ -761,26 +747,19 @@ _Attribute:_ `switch="shift"` (optional)
 > Note that a key may have both a `switch=` and a `to=` attribute, indicating that the key outputs prior to switching layers.
 > Also note that `switch=` is ignored for hardware layouts: their shifting is controlled via
 > the modifier keys.
-<!-- JAN: again "is" is ambiguous. Either say "shall" or "might be" or just drop the note. If we add frame keys, switch="caps" might be valid for hardware keys.
-  My private plan: values in switch= are toggles (caps, numlock, etc.), we add modifiers= which are held only. Discuss what happens when switching the layer that is already on (might be to turn it off).
--->
 >
 > This attribute is an NMTOKEN, restricted to `[a-zA-Z0-9-]`
-
 
 
 _Attribute:_ `to`
 
 > The `to` attribute contains the output sequence of characters that is emitted when pressing this particular key. Control characters, whitespace (other than the regular space character) and combining marks in this attribute are escaped using the `\u{...}` notation. More than one key may output the same output.
-<!-- JAN: "are" -->
+>
 > The `to` attribute may also contain the `\m{…}` syntax to insert a marker. See the definition of [markers](#markers).
 
 _Attribute:_ `transform="no"` (optional)
 
 > The `transform` attribute is used to define a key that never participates in a transform but its output shows up as part of a transform. This attribute is necessary because two different keys could output the same characters (with different keys or modifier combinations) but only one of them is intended to be a dead-key and participate in a transform. This attribute value must be no if it is present.
->
-> Note that a more flexible way of solving this problem may be to use special markers which would inhibit matching.
-<!-- JAN: what is _this_ problem and what matching and would you want to inhibit it? -->
 >
 > For example, suppose there are the following keys, their output and one transform:
 
@@ -802,8 +781,6 @@ _Attribute:_ `transform="no"` (optional)
 > Without the `transform="no"` on the base key **X**, it would not be possible to
 > type the sequence `^e` (caret+e) as it would turn into `ê` per the transform.
 > However, since there is `transform="no`" on **X**, if the user types **X** + `e` the sequence remains `^e`.
-
-<!-- JAN: there are examples for how to do this with markers. I think there are insightful, but possibly should be referred to from here in the marker section rather than included. -->
 
 * **X** + `e` → `^e`
 
@@ -932,7 +909,6 @@ from the CLDR repository or other external source.
 If two identical elements are defined, the later element will take precedence, that is, override.
 
 **Note:** imported files do not have any indication of their normalization mode. For this reason, the keyboard author must verify that the imported file is of a compatible normalization mode. See the [`info` element](#Element_info) for further details.
-<!-- claimed/declared normalization mode? -->
 
 **Syntax**
 ```xml
@@ -1082,7 +1058,7 @@ _Attribute:_ `to` (optional)
 > Specifies the character or character sequence from the `keys/key` element that is to have a special display.
 > This attribute may be escaped with `\u` notation, see [Escaping](#Escaping).
 > The `to` attribute may also contain the `\m{…}` syntax to reference a marker. See [Markers](#markers). Implementations may highlight a displayed marker, such as with a lighter text color, or a yellow highlight.
-<!-- JAN: why? is there a picture demonstrating this? -->
+
 _Attribute:_ `id` (optional)
 
 > Specifies the `key` id. This is useful for keys which do not produce any output (no `to=` value), such as a shift key.
@@ -1113,7 +1089,7 @@ This attribute may be escaped with `\u` notation, see [Escaping](#Escaping).
 ```
 
 To allow `displays` elements to be shared across keyboards, there is no requirement that `@to` in a `display` element matches any `@to`/`@id` in any `keys/key` element in the keyboard description.
-<!-- JAN: is it expected to match substrings? if there is display for A and key that outpus BAF, does it apply? -->
+
 * * *
 
 ### <a name="Element_displayOptions" href="#Element_displayOptions">Element: displayOptions</a>
@@ -1148,11 +1124,11 @@ _Attribute:_ `baseCharacter` (optional)
 > Setting `baseCharacter="x"` (for example) is a _hint_ to the implementation which
 > requests U+25CC to be substituted with `x` on display.
 > As a hint, the implementation may ignore this option.
-<!-- Presumably this applies to display values only, not 25CC in output. This should be formalized. E.g. implementations that support baseCharacter option will behave as if all 25CC in dispaly/@display were said character. -->
 >
 > **Note** that not all base characters will be suitable as bases for combining marks.
 
 This attribute may be escaped with `\u` notation, see [Escaping](#Escaping).
+
 * * *
 
 ### <a name="Element_layers" href="#Element_layers">Element: layers</a>
@@ -1204,7 +1180,6 @@ _Attribute:_ `form` (required)
 _Attribute:_ `minDeviceWidth`
 
 > This attribute specifies the minimum required width, in millimeters (mm), of the touch surface.  The `layers` entry with the greatest matching width will be selected. This attribute is intended for `form="touch"`, but is supported for hardware forms.
-<!-- what does "is supported" mean? -->
 >
 > This must be a whole number between 1 and 999, inclusive.
 
@@ -1260,12 +1235,11 @@ _Attribute:_ `modifier` (required for `hardware`)
 > Note that `alt` is sometimes referred to as _opt_ or _option_.
 >
 > Left- and right- side modifiers (such as `"altL ctrlR"` or `"altL altR"`) should not be used together in a single `modifier` attribute value.
-<!-- JAN: what does "should not" mean? Also why? We can say that it might not be supporetd by implementations -->
+
 > For hardware layouts, the use of `@modifier` as an identifier for a layer is sufficient since it is always unique among the set of `layer` elements in a keyboard.
 >
 > The set of modifiers must match `(none|([A-Za-z0-9]+)( [A-Za-z0-9]+)*)`
-<!-- JAN: why? just do NMTOKENS, you can get invalid ones anyway -->
-<!-- also this was not enough in the descriptive layout, we hade ctrl+alt altR -->
+
 * * *
 
 ### <a name="Element_row" href="#Element_row">Element: row</a>
@@ -1307,7 +1281,7 @@ Here is an example of a `row` element:
 ### <a name="Element_vkeys" href="#Element_vkeys">Element: vkeys</a>
 
 On some architectures, applications may directly interact with keys before they are converted to characters. The keys are identified using a virtual key identifier or vkey. The mapping between a physical keyboard key and a vkey is keyboard-layout dependent. For example, a French keyboard would identify the top-left key as being an `A` with a vkey of `A` as opposed to `Q` on a US English keyboard. While vkeys are layout dependent, they are not modifier dependent. A shifted key always has the same vkey as its unshifted counterpart. In effect, a key may be identified by its vkey and the modifiers active at the time the key was pressed.
-<!-- JAN: this is not necessarily true for other keys, most notably on numpad etc. -->
+
 **Syntax**
 
 ```xml
@@ -1425,7 +1399,7 @@ _Attribute:_ `id` (required)
 > `id` must match `[0-9A-Za-z_]{1,32}`
 
 _Attribute:_ `value` (required)
-<!-- JAN: does required allow empty strings? -->
+
 > Strings may contain whitespaces. However, for clarity, it is recommended to escape spacing marks, even in strings.
 > This attribute may be escaped with `\u` notation, see [Escaping](#Escaping).
 > Variables may refer to other string variables if they have been previously defined, using `${string}` syntax.
@@ -1442,7 +1416,7 @@ _Attribute:_ `value` (required)
     <string id="zwnj_sp_acute" value="${zwnj}\u{0020}${acute}"  /> <!-- Combine two variables -->
 </variables>
 ```
-<!-- JAN: like we did with \u notation, we might want to have a list of attributes that accepte variables and/or markers at the front of the spec -->
+
 These may be then used in multiple contexts:
 
 ```xml
@@ -1477,9 +1451,9 @@ _Attribute:_ `id` (required)
 
 > Specifies the identifier (name) of this set.
 > All ids must be unique across all types of variables.
-<!-- JAN: if so, then why is there need to distinguish $[] from ${}? -->
 >
 > `id` must match `[0-9A-Za-z_]{1,32}`
+
 _Attribute:_ `value` (required)
 
 > The `value` attribute is always a set of strings separated by whitespace, even if there is only a single item in the set, such as `"A"`.
@@ -1513,8 +1487,8 @@ Map from upper to lower:
 ```xml
 <transform from="($[upper])" to="$[1:lower]" />
 ```
-<!-- JAN: this syntax has not been introduced anywhere. Should at least comment on it and refer to transforms. -->
-See [transform](#element-transform) for further details.
+
+See [transform](#element-transform) for further details and syntax.
 
 * * *
 
@@ -1605,9 +1579,9 @@ There are other keying behaviors that are needed particularly in handing complex
 #### Markers
 
 Markers are placeholders which record some state, but without producing normal visible text output.  They were designed particularly to support dead-keys.
-<!-- JAN: if we designed markers for dead-keys, why don't have some deadkey structure? -->
+
 Consider the following abbreviated example:
-<!-- JAN: why would a user do this rather than just normal characters, in this case ^ ? -->
+
 ```xml
     <display to="\m{circ_marker}" display="^" />
 …
@@ -1797,8 +1771,6 @@ _Attribute:_ `from` (required)
 
     Only the innermost group is allowed to be a capture group.
 
-<!-- JAN: Is this a MDN-REGEX limitation? If not, why - I see, it's below? -->
-
 - **Disjunctions**
 
     `abc|def`
@@ -1872,8 +1844,6 @@ The following are additions to standard Regex syntax.
     <unicodeSet id="Mn" value="[\u034F\u0591-\u05AF\u05BD\u05C4\u05C5\…]" /> <!-- 1,985 code points -->
     ```
 
-<!-- JAN: why do we not leave it to the author whether he wants fixed or up-to-date behavior? -->
-
 - **Backreferences**
 
     `([abc])-\1` `\k<something>`
@@ -1909,8 +1879,6 @@ The following are additions to standard Regex syntax.
     `$`
 
     The end marker can be thought of as being implicitly at the end of every `from=` pattern, matching the insertion point. Transforms do not match past the insertion point.
-
-<!-- JAN: why would anyone wnat that -->
 
 _Attribute:_ `to`
 
@@ -1959,7 +1927,7 @@ Used in the `to=`
     ```
 
     - The capture group on the `from=` side **must** contain exactly one set variable.  `from="Q($[upper])X"` can be used (other context before or after the capture group), but `from="(Q$[upper])"` may not be used with a mapped variable and is flagged as an error.
-<!-- JAN: Why? -->
+
     - The `from=` and `to=` sides of the pattern must both be using `set` variables. There is no way to insert a set literal on either side and avoid using a variable.
     A UnicodeSet may not be used directly, but must be defined as a `unicodeSet` variable.
 
@@ -2004,7 +1972,7 @@ The reordering algorithm consists of four parts:
 4. Sort the character order of each character in the run based on its sort key.
 
 The primary order of a character with the Unicode property Combining_Character_Class (ccc) of 0 may well not be 0. In addition, a character may receive a different primary order dependent on context. For example, in the Devanagari sequence ka halant ka, the first ka would have a primary order 0 while the halant ka sequence would give both halant and the second ka a primary order > 0, for example 2. Note that “base” character in this discussion is not a Unicode base character. It is instead a character with primary=0.
-<!-- JAN: this and the below needs example syntax and outcomes -->
+
 In order to get the characters into the correct relative order, it is necessary not only to order combining marks relative to the base character, but also to order some combining marks in a subsequence following another combining mark. For example in Devanagari, a nukta may follow a consonant character, but it may also follow a conjunct consisting of consonant, halant, consonant. Notice that the second consonant is not, in this model, the start of a new run because some characters may need to be reordered to before the first base, for example repha. The repha would get primary < 0, and be sorted before the character with order = 0, which is, in the case of Devanagari, the initial consonant of the orthographic syllable.
 
 The reorder transform consists of `<reorder>` elements encapsulated in a `<transformGroup>` element. Each element is a rule that matches against a string of characters with the action of setting the various ordering attributes (`primary`, `tertiary`, `tertiaryBase`, `preBase`) for the matched characters in the string.
@@ -2142,16 +2110,14 @@ The first reorder is the default ordering for the _sakot_ which allows for it to
 
 `<reorder>` elements are priority ordered based first on the length of string their `@from` attribute matches and then the sum of the lengths of the strings their `@before` attribute matches.
 
-<!-- JAN: this needs examples with tertiary, and also possibly more illustrative than those above -->
-
 #### Using `<import>` with `<reorder>` elements
+
 This section describes the impact of using [`import`](#element-import) elements with `<reorder>` elements.
 
 The @from string in a `<reorder>` element describes a set of strings that it matches. This also holds for the `@before` attribute. The **intersection** of any two `<reorder>` elements consists of the intersections of their `@from` and `@before` string sets. Tooling should warn users if the intersection between any two `<reorder>` elements in the same `<transformGroup>` element to be non empty prior to processing imports.
 
 If two `<reorder>` elements have a non empty intersection, then they are split and merged. They are split such that where there were two `<reorder>` elements, there are, in effect (but not actuality), three elements consisting of:
 
-<!-- JAN: this is really complicated, are we convinced we need it? Might need illustrative examples -->
 * `@from`, `@before` that match the intersection of the two rules. The other attributes are merged, as described below.
 * `@from`, `@before` that match the set of strings in the first rule not in the intersection with the other attributes from the first rule.
 * `@from`, `@before` that match the set of strings in the second rule not in the intersection, with the other attributes from the second rule.
@@ -2335,11 +2301,11 @@ The above example is simplified, and doesn't fully handle the interaction betwee
 > The character `\m{prebase}` does not represent a literal character, but is instead a special marker, used as a "filler string". When a keyboard implementation handles a user pressing a key that inserts a prebase character, it also has to insert a special filler string before the prebase to ensure that the prebase character does not combine with the previous cluster. See the reorder transform for details. See [markers](#markers) for the `\m` syntax.
 
 The first three transforms above delete various ligatures with a single keypress. The other transforms handle prebase characters. There are two in this Burmese keyboard. The transforms delete the characters preceding the prebase character up to base which gets replaced with the prebase filler string, which represents a null base. Finally the prebase filler string + prebase is deleted as a unit.
-<!-- JAN: not helpful -->
+
 If no specified transform among all `transformGroup`s under the `<transforms type="backspace">` element matches, a default will be used instead — an implied final transform that simply deletes the codepoint at the end of the input context. This implied transform is effectively similar to the following code sample, even though the `*` operator is not actually allowed in `from=`.  See the documentation for *Match a single Unicode codepoint* under [transform syntax](#regex-like-syntax) and [markers](#markers), above.
-                                          
+
 It is important that implementations do not by default delete more than one non-marker codepoint at a time, except in the case of emoji clusters. Note that implementations will vary in the emoji handling due to the iterative nature of successive Unicode releases. See [UTS#51 §2.4.2: Emoji Modifiers in Text](https://www.unicode.org/reports/tr51/#Emoji_Modifiers_in_Text)
-<!-- JAN: why would that not happen? -->
+
 ```xml
 <transforms type="backspace">
     <!-- Other explicit transforms -->

@@ -988,7 +988,7 @@ _Attribute:_ `base`
 _Attribute:_ `path` (required)
 
 > If `base` is `cldr`, then the `path` must start with a CLDR version (such as `techpreview`) representing the CLDR version to pull imports from. The imports are located in the `keyboard/import` subdirectory of the CLDR source repository.
-> Implementations are not required to have any or all all CLDR versions available to them. An implementation may reject a keyboard file which references an unavailable CLDR version.
+> Implementations are not required to have any or all all CLDR versions available to them.
 >
 > If `base` is omitted, then `path` is an absolute or relative file path.
 

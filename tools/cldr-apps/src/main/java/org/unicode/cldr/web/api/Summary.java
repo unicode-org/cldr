@@ -43,9 +43,9 @@ import org.unicode.cldr.web.VettingViewerQueue.LoadingPolicy;
 public class Summary {
 
     /** When to start a daily automatic snapshot */
-    private static final int AUTO_SNAP_HOUR_OF_DAY = 1;
+    private static final int AUTO_SNAP_HOUR_OF_DAY = 8;
 
-    private static final int AUTO_SNAP_MINUTE_OF_HOUR = 11; // 1:11 am
+    private static final int AUTO_SNAP_MINUTE_OF_HOUR = 0; // 8:00 am
     private static final int AUTO_SNAP_MINIMUM_START_MINUTES = 3;
     private static final String AUTO_SNAP_TIME_ZONE = "America/Los_Angeles";
     private static ScheduledFuture<?> autoSnapshotFuture = null;

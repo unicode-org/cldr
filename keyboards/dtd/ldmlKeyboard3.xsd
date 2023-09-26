@@ -25,7 +25,6 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
         <xs:element minOccurs="0" ref="info"/>
         <xs:element ref="names"/>
         <xs:element minOccurs="0" ref="settings"/>
-        <xs:element minOccurs="0" ref="vkeys"/>
         <xs:element minOccurs="0" ref="displays"/>
         <xs:element minOccurs="0" ref="keys"/>
         <xs:element minOccurs="0" ref="forms"/>
@@ -145,26 +144,6 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  <xs:element name="vkeys">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element maxOccurs="unbounded" minOccurs="0" ref="import"/>
-        <xs:element maxOccurs="unbounded" minOccurs="0" ref="vkey"/>
-        <xs:element maxOccurs="unbounded" minOccurs="0" ref="special"/>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  
-  <xs:element name="vkey">
-    <xs:complexType>
-      <xs:attribute name="from" use="required"/>
-      <xs:attribute name="to" use="required"/>
-    </xs:complexType>
-  </xs:element>
-  
   
   
   

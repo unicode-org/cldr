@@ -10,7 +10,7 @@ The CLDR Keyboard Subcommittee is currently developing major changes to the CLDR
 Please view the subcommittee page for the most recent information.
 <https://cldr.unicode.org/index/keyboard-workgroup> -->
 
-<!ELEMENT keyboard3 ( import*, locales?, version?, info?, names, settings?, vkeys?, displays?, keys?, forms?, layers*, variables?, transforms*, special* ) >
+<!ELEMENT keyboard3 ( import*, locales?, version?, info?, names, settings?, displays?, keys?, forms?, layers*, variables?, transforms*, special* ) >
     <!--@TECHPREVIEW-->
 <!ATTLIST keyboard3 locale CDATA #REQUIRED >
     <!--@MATCH:validity/bcp47-wellformed-->
@@ -75,17 +75,6 @@ Please view the subcommittee page for the most recent information.
     <!--@ORDERED-->
     <!--@TECHPREVIEW-->
 <!ATTLIST settings fallback (omit) #IMPLIED >
-    <!--@VALUE-->
-
-<!ELEMENT vkeys ( import*, vkey*, special* ) >
-    <!--@TECHPREVIEW-->
-
-<!ELEMENT vkey EMPTY >
-    <!--@TECHPREVIEW-->
-<!ATTLIST vkey from CDATA #REQUIRED >
-    <!--@MATCH:any-->
-<!ATTLIST vkey to CDATA #REQUIRED >
-    <!--@MATCH:any-->
     <!--@VALUE-->
 
 <!ELEMENT displays ( import*, display*, displayOptions*, special* ) >

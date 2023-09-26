@@ -79,6 +79,7 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 // import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
+import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.XPathParts.Comments;
@@ -2896,11 +2897,11 @@ public class CLDRModify {
 
                     @Override
                     public void handleStart() {
-                        // skip if the locale id's parent isn't root. That is, it must be at level-1
-                        // locale.
+                        // skip if the locale is root.
                         skip = getLocaleID().equals(XMLSource.ROOT_ID);
                         if (!skip) {
                             parentId = LocaleIDParser.getParent(getLocaleID());
+                            // This locale is "L1" (level one) if its parent is root.
                             isL1 = parentId.equals(XMLSource.ROOT_ID);
                             parentFile = null; // lazy evaluate
                         }
@@ -2951,14 +2952,19 @@ public class CLDRModify {
                                     parentFile = factory.make(parentId, true);
                                 }
                                 String parentValue = parentFile.getStringValueWithBailey(xpath);
-                                if (!parentValue.equals(baileyValue)) {
-                                    harden = true;
+                                if (!baileyValue.equals(parentValue)) {
+                                    harden = true; // true if parentValue == null, see comment below
                                 }
                                 message2 = "; L2+";
 
                                 // Problem case: the parent value is null (not inheritance marker)
                                 // but the child value is ^^^.
                                 // See if we need to fix that.
+                                // Currently harden is true if parentValue is null, which, as of
+                                // 2023-09-20, happens here for only two paths, both in locale
+                                // en_AU:
+                                // //ldml/dates/calendars/calendar[@type="islamic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yMEd"]
+                                // //ldml/dates/calendars/calendar[@type="islamic"]/dateTimeFormats/availableFormats/dateFormatItem[@id="yMd"]
                             }
                             if (harden) {
                                 String fullPath = cldrFileToFilter.getFullXPath(xpath);
@@ -3070,6 +3076,26 @@ public class CLDRModify {
                         final String value = cldrFileToFilter.getStringValue(xpath);
                         final String newPath = TARGET_STATUS.updateXPath(fullPath);
                         replace(fullPath, newPath, value, "Upgrade to " + TARGET_STATUS.name());
+                    }
+                });
+
+        fixList.add(
+                'Z',
+                "Zero lateral: convert inheritance marker to specific value if inheritance would be lateral/problematic",
+                new CLDRFilter() {
+                    @Override
+                    public void handlePath(String xpath) {
+                        String value = cldrFileToFilter.getStringValue(xpath);
+                        if (!CldrUtility.INHERITANCE_MARKER.equals(value)) {
+                            return;
+                        }
+                        String newValue =
+                                VoteResolver.reviseInheritanceAsNeeded(xpath, value, getResolved());
+                        if (value.equals(newValue)) {
+                            return;
+                        }
+                        String fullXPath = cldrFileToFilter.getFullXPath(xpath);
+                        replace(fullXPath, fullXPath, newValue);
                     }
                 });
     }

@@ -625,62 +625,6 @@ const _KeyboardData =
     "settings": {
      "@_fallback": "omit"
     },
-    "vkeys": {
-     "vkey": [
-      {
-       "@_from": "Q",
-       "@_to": "A"
-      },
-      {
-       "@_from": "W",
-       "@_to": "Z"
-      },
-      {
-       "@_from": "A",
-       "@_to": "Q"
-      },
-      {
-       "@_from": "Z",
-       "@_to": "W"
-      },
-      {
-       "@_from": "BKQUOTE",
-       "@_to": "QUOTE"
-      },
-      {
-       "@_from": "MINUS",
-       "@_to": "LBRKT"
-      },
-      {
-       "@_from": "LBRKT",
-       "@_to": "RBRKT"
-      },
-      {
-       "@_from": "COLON",
-       "@_to": "M"
-      },
-      {
-       "@_from": "QUOTE",
-       "@_to": "BKQUOTE"
-      },
-      {
-       "@_from": "M",
-       "@_to": "COMMA"
-      },
-      {
-       "@_from": "COMMA",
-       "@_to": "PERIOD"
-      },
-      {
-       "@_from": "PERIOD",
-       "@_to": "SLASH"
-      },
-      {
-       "@_from": "SLASH",
-       "@_to": "EXCLAMATION"
-      }
-     ]
-    },
     "displays": {
      "display": {
       "@_to": "\\u{0300}",

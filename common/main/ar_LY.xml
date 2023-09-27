@@ -46,6 +46,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<dayPeriod type="night1">↑↑↑</dayPeriod>
 							<dayPeriod type="night2">ل</dayPeriod>
 						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="night2">ل</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="night2">ل</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+					<dayPeriodContext type="stand-alone">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="night2">ل</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="night2">ل</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="night2">ل</dayPeriod>
+						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
 			</calendar>

@@ -76,13 +76,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<monthWidth type="abbreviated">
 							<month type="1">↑↑↑</month>
 							<month type="2">↑↑↑</month>
-							<month type="3" draft="contributed">↑↑↑</month>
+							<month type="3" draft="contributed">mart</month>
 							<month type="4">↑↑↑</month>
 							<month type="5" draft="contributed">↑↑↑</month>
 							<month type="6" draft="contributed">↑↑↑</month>
 							<month type="7" draft="contributed">↑↑↑</month>
 							<month type="8">↑↑↑</month>
-							<month type="9">↑↑↑</month>
+							<month type="9">sept</month>
 							<month type="10">↑↑↑</month>
 							<month type="11">↑↑↑</month>
 							<month type="12">↑↑↑</month>
@@ -127,9 +127,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<dayPeriod type="midnight" draft="contributed">↑↑↑</dayPeriod>
 							<dayPeriod type="noon" draft="contributed">↑↑↑</dayPeriod>
 							<dayPeriod type="morning1" draft="contributed">jutro</dayPeriod>
-							<dayPeriod type="afternoon1" draft="contributed">↑↑↑</dayPeriod>
+							<dayPeriod type="afternoon1" draft="contributed">po pod.</dayPeriod>
 							<dayPeriod type="evening1" draft="contributed">veče</dayPeriod>
 							<dayPeriod type="night1" draft="contributed">noć</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="morning1">jutro</dayPeriod>
+							<dayPeriod type="afternoon1">po pod.</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">

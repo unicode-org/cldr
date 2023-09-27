@@ -125,6 +125,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<dayPeriod type="am" draft="contributed">a. m.</dayPeriod>
 							<dayPeriod type="pm" draft="contributed">p. m.</dayPeriod>
 						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="am">a. m.</dayPeriod>
+							<dayPeriod type="pm">p. m.</dayPeriod>
+						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am" draft="contributed">a. m.</dayPeriod>
 							<dayPeriod type="pm" draft="contributed">p. m.</dayPeriod>
@@ -221,8 +225,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="1">↑↑↑</relative>
 				<relative type="2">↑↑↑</relative>
 			</field>
+			<field type="dayperiod-short">
+				<displayName>a. m./p. m.</displayName>
+			</field>
 			<field type="dayperiod">
 				<displayName draft="contributed">a. m./p. m.</displayName>
+			</field>
+			<field type="dayperiod-narrow">
+				<displayName>a. m./p. m.</displayName>
 			</field>
 		</fields>
 	</dates>
@@ -350,13 +360,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName draft="contributed">hora</displayName>
 			</unit>
 			<unit type="electric-volt">
-				<displayName>↑↑↑</displayName>
+				<displayName>voltios</displayName>
+			</unit>
+			<unit type="length-foot">
+				<displayName>pie</displayName>
 			</unit>
 			<unit type="power-watt">
-				<displayName>↑↑↑</displayName>
+				<displayName>vatios</displayName>
 			</unit>
 			<unit type="volume-acre-foot">
-				<displayName>↑↑↑</displayName>
+				<displayName>acre pie</displayName>
 			</unit>
 		</unitLength>
 	</units>

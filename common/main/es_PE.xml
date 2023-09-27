@@ -184,6 +184,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<dayPeriod type="am" draft="contributed">a. m.</dayPeriod>
 							<dayPeriod type="pm" draft="contributed">p. m.</dayPeriod>
 						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="am">a. m.</dayPeriod>
+							<dayPeriod type="pm">p. m.</dayPeriod>
+						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am" draft="contributed">a. m.</dayPeriod>
 							<dayPeriod type="pm" draft="contributed">p. m.</dayPeriod>
@@ -291,6 +295,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<currencyFormat type="standard">
 					<pattern>¤ #,##0.00</pattern>
 					<pattern alt="noCurrency" draft="provisional">↑↑↑</pattern>
+				</currencyFormat>
+				<currencyFormat type="accounting">
+					<pattern>¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyFormatLength type="short">

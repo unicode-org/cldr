@@ -26,8 +26,36 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<dateTimeFormats>
 					<intervalFormats>
 						<intervalFormatFallback>{0}至{1}</intervalFormatFallback>
+						<intervalFormatItem id="Hmv">
+							<greatestDifference id="H">vHH:mm–HH:mm</greatestDifference>
+							<greatestDifference id="m">vHH:mm–HH:mm</greatestDifference>
+						</intervalFormatItem>
 						<intervalFormatItem id="Hv">
 							<greatestDifference id="H">vHH–HH</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Md">
+							<greatestDifference id="d">M-d至M-d</greatestDifference>
+							<greatestDifference id="M">M-d至M-d</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MEd">
+							<greatestDifference id="d">M-dE至M-dE</greatestDifference>
+							<greatestDifference id="M">M-dE至M-dE</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMEd">
+							<greatestDifference id="d">M月d日E至M月d日E</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yM">
+							<greatestDifference id="M">y年M月至y年M月</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMd">
+							<greatestDifference id="d">d/M/y至d/M/y</greatestDifference>
+							<greatestDifference id="M">d/M/y至d/M/y</greatestDifference>
+							<greatestDifference id="y">d/M/y至d/M/y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMEd">
+							<greatestDifference id="d">d/M/yE至d/M/yE</greatestDifference>
+							<greatestDifference id="M">d/M/yE至d/M/yE</greatestDifference>
+							<greatestDifference id="y">d/M/yE至d/M/yE</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
@@ -192,6 +220,100 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
+			<calendar type="hebrew">
+				<dateFormats>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<datetimeSkeleton>GGGGGyyMMdd</datetimeSkeleton>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="Md">M-d</dateFormatItem>
+						<dateFormatItem id="MEd">M-dE</dateFormatItem>
+						<dateFormatItem id="yyyyMd">Gy年M月d日</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">Gy年M月d日，E</dateFormatItem>
+					</availableFormats>
+					<intervalFormats>
+						<intervalFormatItem id="Hmv">
+							<greatestDifference id="H">vHH:mm–HH:mm</greatestDifference>
+							<greatestDifference id="m">vHH:mm–HH:mm</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Md">
+							<greatestDifference id="d">M-d至M-d</greatestDifference>
+							<greatestDifference id="M">M-d至M-d</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MEd">
+							<greatestDifference id="d">M-dE至M-dE</greatestDifference>
+							<greatestDifference id="M">M-dE至M-dE</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMEd">
+							<greatestDifference id="d">M月d日E至M月d日E</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yM">
+							<greatestDifference id="M">y年M月至y年M月</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMd">
+							<greatestDifference id="d">d/M/y至d/M/y</greatestDifference>
+							<greatestDifference id="M">d/M/y至d/M/y</greatestDifference>
+							<greatestDifference id="y">d/M/y至d/M/y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMEd">
+							<greatestDifference id="d">d/M/yE至d/M/yE</greatestDifference>
+							<greatestDifference id="M">d/M/yE至d/M/yE</greatestDifference>
+							<greatestDifference id="y">d/M/yE至d/M/yE</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
+			</calendar>
+			<calendar type="indian">
+				<dateFormats>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<datetimeSkeleton>GGGGGyyMMdd</datetimeSkeleton>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="Md">M-d</dateFormatItem>
+						<dateFormatItem id="MEd">M-dE</dateFormatItem>
+						<dateFormatItem id="yyyyMd">Gy年M月d日</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">Gy年M月d日，E</dateFormatItem>
+					</availableFormats>
+					<intervalFormats>
+						<intervalFormatItem id="Hmv">
+							<greatestDifference id="H">vHH:mm–HH:mm</greatestDifference>
+							<greatestDifference id="m">vHH:mm–HH:mm</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Md">
+							<greatestDifference id="d">M-d至M-d</greatestDifference>
+							<greatestDifference id="M">M-d至M-d</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MEd">
+							<greatestDifference id="d">M-dE至M-dE</greatestDifference>
+							<greatestDifference id="M">M-dE至M-dE</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMEd">
+							<greatestDifference id="d">M月d日E至M月d日E</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yM">
+							<greatestDifference id="M">y年M月至y年M月</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMd">
+							<greatestDifference id="d">d/M/y至d/M/y</greatestDifference>
+							<greatestDifference id="M">d/M/y至d/M/y</greatestDifference>
+							<greatestDifference id="y">d/M/y至d/M/y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMEd">
+							<greatestDifference id="d">d/M/yE至d/M/yE</greatestDifference>
+							<greatestDifference id="M">d/M/yE至d/M/yE</greatestDifference>
+							<greatestDifference id="y">d/M/yE至d/M/yE</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
+			</calendar>
 			<calendar type="islamic">
 				<dateFormats>
 					<dateFormatLength type="short">
@@ -229,10 +351,40 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="Md" draft="contributed">↑↑↑</dateFormatItem>
-						<dateFormatItem id="MEd" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Md" draft="contributed">M-d</dateFormatItem>
+						<dateFormatItem id="MEd" draft="contributed">M-dE</dateFormatItem>
 						<dateFormatItem id="MMM" draft="contributed">M月</dateFormatItem>
 					</availableFormats>
+					<intervalFormats>
+						<intervalFormatItem id="Hmv">
+							<greatestDifference id="H">vHH:mm–HH:mm</greatestDifference>
+							<greatestDifference id="m">vHH:mm–HH:mm</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Md">
+							<greatestDifference id="d">M-d至M-d</greatestDifference>
+							<greatestDifference id="M">M-d至M-d</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MEd">
+							<greatestDifference id="d">M-dE至M-dE</greatestDifference>
+							<greatestDifference id="M">M-dE至M-dE</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMEd">
+							<greatestDifference id="d">M月d日E至M月d日E</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yM">
+							<greatestDifference id="M">y年M月至y年M月</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMd">
+							<greatestDifference id="d">d/M/y至d/M/y</greatestDifference>
+							<greatestDifference id="M">d/M/y至d/M/y</greatestDifference>
+							<greatestDifference id="y">d/M/y至d/M/y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMEd">
+							<greatestDifference id="d">d/M/yE至d/M/yE</greatestDifference>
+							<greatestDifference id="M">d/M/yE至d/M/yE</greatestDifference>
+							<greatestDifference id="y">d/M/yE至d/M/yE</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
@@ -316,8 +468,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 		</unitLength>
 		<unitLength type="narrow">
+			<unit type="acceleration-g-force">
+				<unitPattern count="other">{0}G力</unitPattern>
+			</unit>
 			<unit type="concentr-karat">
-				<displayName>↑↑↑</displayName>
+				<displayName>开</displayName>
 				<unitPattern count="other">{0}开</unitPattern>
 			</unit>
 			<unit type="length-picometer">
@@ -339,8 +494,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other" draft="unconfirmed">{0}光年</unitPattern>
 			</unit>
 			<unit type="temperature-kelvin">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>开氏度</displayName>
+				<unitPattern count="other">{0}°K</unitPattern>
 			</unit>
 		</unitLength>
 	</units>

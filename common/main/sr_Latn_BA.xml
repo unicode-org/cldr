@@ -1472,7 +1472,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<day type="sun">↑↑↑</day>
 							<day type="mon">↑↑↑</day>
 							<day type="tue">↑↑↑</day>
-							<day type="wed">↑↑↑</day>
+							<day type="wed">sri</day>
 							<day type="thu">↑↑↑</day>
 							<day type="fri">↑↑↑</day>
 							<day type="sat">↑↑↑</day>
@@ -1496,10 +1496,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<day type="sat">↑↑↑</day>
 						</dayWidth>
 						<dayWidth type="wide">
-							<day type="sun">↑↑↑</day>
-							<day type="mon">↑↑↑</day>
+							<day type="sun">nedjelja</day>
+							<day type="mon">ponedjeljak</day>
 							<day type="tue">↑↑↑</day>
-							<day type="wed">↑↑↑</day>
+							<day type="wed">srijeda</day>
 							<day type="thu">↑↑↑</day>
 							<day type="fri">↑↑↑</day>
 							<day type="sat">↑↑↑</day>
@@ -1562,9 +1562,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="midnight">↑↑↑</dayPeriod>
-							<dayPeriod type="am">↑↑↑</dayPeriod>
+							<dayPeriod type="am">prije podne</dayPeriod>
 							<dayPeriod type="noon">↑↑↑</dayPeriod>
-							<dayPeriod type="pm">↑↑↑</dayPeriod>
+							<dayPeriod type="pm">po podne</dayPeriod>
 							<dayPeriod type="morning1">ujutro</dayPeriod>
 							<dayPeriod type="afternoon1">↑↑↑</dayPeriod>
 							<dayPeriod type="evening1">↑↑↑</dayPeriod>
@@ -1584,9 +1584,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<dayPeriodContext type="stand-alone">
 						<dayPeriodWidth type="abbreviated">
 							<dayPeriod type="midnight">↑↑↑</dayPeriod>
-							<dayPeriod type="am">↑↑↑</dayPeriod>
+							<dayPeriod type="am">prije podne</dayPeriod>
 							<dayPeriod type="noon">↑↑↑</dayPeriod>
-							<dayPeriod type="pm">↑↑↑</dayPeriod>
+							<dayPeriod type="pm">po podne</dayPeriod>
 							<dayPeriod type="morning1">↑↑↑</dayPeriod>
 							<dayPeriod type="afternoon1">↑↑↑</dayPeriod>
 							<dayPeriod type="evening1">↑↑↑</dayPeriod>
@@ -2138,13 +2138,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="one">prije {0} kvartala</relativeTimePattern>
+					<relativeTimePattern count="few">prije {0} kvartala</relativeTimePattern>
 					<relativeTimePattern count="other">prije {0} kvartala</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="quarter-short">
 				<displayName>↑↑↑</displayName>
+				<relative type="1">sljedećeg kvartala</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
@@ -2158,15 +2159,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="quarter-narrow">
 				<displayName>↑↑↑</displayName>
+				<relative type="1">sljedećeg kvartala</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="one">prije {0} kv.</relativeTimePattern>
+					<relativeTimePattern count="few">prije {0} kv.</relativeTimePattern>
+					<relativeTimePattern count="other">prije {0} kv.</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="month">
@@ -2202,9 +2204,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="month-narrow">
-				<displayName>↑↑↑</displayName>
-				<relative type="-1">↑↑↑</relative>
-				<relative type="0">↑↑↑</relative>
+				<displayName>mjes.</displayName>
+				<relative type="-1">prošlog mjes.</relative>
+				<relative type="0">ovog mjes.</relative>
 				<relative type="1">sljedećeg m.</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
@@ -2249,10 +2251,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="few">prije {0} sedm.</relativeTimePattern>
 					<relativeTimePattern count="other">prije {0} sedm.</relativeTimePattern>
 				</relativeTime>
-				<relativePeriod>↑↑↑</relativePeriod>
+				<relativePeriod>sedmica koja počinje {0}.</relativePeriod>
 			</field>
 			<field type="week-narrow">
-				<displayName>↑↑↑</displayName>
+				<displayName>sedm.</displayName>
 				<relative type="-1">prošle s.</relative>
 				<relative type="0">ove s.</relative>
 				<relative type="1">sljedeće s.</relative>
@@ -2266,7 +2268,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="few">prije {0} s.</relativeTimePattern>
 					<relativeTimePattern count="other">prije {0} s.</relativeTimePattern>
 				</relativeTime>
-				<relativePeriod>↑↑↑</relativePeriod>
+				<relativePeriod>sedmica koja počinje {0}.</relativePeriod>
 			</field>
 			<field type="weekOfMonth">
 				<displayName>sedmica u mjesecu</displayName>
@@ -2275,7 +2277,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>sedm. u mjes.</displayName>
 			</field>
 			<field type="weekOfMonth-narrow">
-				<displayName>↑↑↑</displayName>
+				<displayName>sedm. u mjes.</displayName>
 			</field>
 			<field type="day">
 				<displayName>↑↑↑</displayName>
@@ -2290,8 +2292,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="one">prije {0} dana</relativeTimePattern>
+					<relativeTimePattern count="few">prije {0} dana</relativeTimePattern>
 					<relativeTimePattern count="other">prije {0} dana</relativeTimePattern>
 				</relativeTime>
 			</field>
@@ -2322,9 +2324,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="one">prije {0} d.</relativeTimePattern>
+					<relativeTimePattern count="few">prije {0} d.</relativeTimePattern>
+					<relativeTimePattern count="other">prije {0} d.</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="dayOfYear">
@@ -2343,16 +2345,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>dan u sedm.</displayName>
 			</field>
 			<field type="weekday-narrow">
-				<displayName>↑↑↑</displayName>
+				<displayName>dan u sedm.</displayName>
 			</field>
 			<field type="weekdayOfMonth">
 				<displayName>dan u mjesecu</displayName>
 			</field>
 			<field type="weekdayOfMonth-short">
-				<displayName>↑↑↑</displayName>
+				<displayName>dan u mjesecu</displayName>
 			</field>
 			<field type="weekdayOfMonth-narrow">
-				<displayName>↑↑↑</displayName>
+				<displayName>dan u mjesecu</displayName>
 			</field>
 			<field type="sun">
 				<relative type="-1">prošle nedjelje</relative>
@@ -2374,29 +2376,29 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">↑↑↑</relative>
 				<relative type="1">slj. ned.</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="one">za {0} nedjelju</relativeTimePattern>
+					<relativeTimePattern count="few">za {0} nedjelje</relativeTimePattern>
+					<relativeTimePattern count="other">za {0} nedjelja</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="one">prije {0} nedjelje</relativeTimePattern>
+					<relativeTimePattern count="few">prije {0} nedjelje</relativeTimePattern>
+					<relativeTimePattern count="other">prije {0} nedjelja</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="sun-narrow">
 				<relative type="-1">↑↑↑</relative>
 				<relative type="0">↑↑↑</relative>
-				<relative type="1">↑↑↑</relative>
+				<relative type="1">slj. ned.</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="one">za {0} nedjelju</relativeTimePattern>
+					<relativeTimePattern count="few">za {0} nedjelje</relativeTimePattern>
+					<relativeTimePattern count="other">za {0} nedjelja</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="one">prije {0} nedjelje</relativeTimePattern>
+					<relativeTimePattern count="few">prije {0} nedjelje</relativeTimePattern>
+					<relativeTimePattern count="other">prije {0} nedjelja</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="mon">
@@ -2419,29 +2421,29 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">↑↑↑</relative>
 				<relative type="1">sljedećeg pon</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="one">za {0} ponedjeljak</relativeTimePattern>
+					<relativeTimePattern count="few">za {0} ponedjeljka</relativeTimePattern>
+					<relativeTimePattern count="other">za {0} ponedjeljaka</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="one">prije {0} ponedjeljka</relativeTimePattern>
+					<relativeTimePattern count="few">prije {0} ponedjeljka</relativeTimePattern>
+					<relativeTimePattern count="other">prije {0} ponedjeljaka</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="mon-narrow">
 				<relative type="-1">↑↑↑</relative>
 				<relative type="0">↑↑↑</relative>
-				<relative type="1">↑↑↑</relative>
+				<relative type="1">sljedećeg pon</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="one">za {0} ponedjeljak</relativeTimePattern>
 					<relativeTimePattern count="few">za {0} ponedjeljka</relativeTimePattern>
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">za {0} ponedjeljaka</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="one">prije {0} ponedjeljka</relativeTimePattern>
+					<relativeTimePattern count="few">prije {0} ponedjeljka</relativeTimePattern>
+					<relativeTimePattern count="other">prije {0} ponedjeljaka</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="tue">
@@ -2469,24 +2471,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="one">prije {0} utorka</relativeTimePattern>
+					<relativeTimePattern count="few">prije {0} utorka</relativeTimePattern>
+					<relativeTimePattern count="other">prije {0} utoraka</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="tue-narrow">
 				<relative type="-1">↑↑↑</relative>
 				<relative type="0">↑↑↑</relative>
-				<relative type="1">↑↑↑</relative>
+				<relative type="1">sljedećeg uto</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="one">prije {0} utorka</relativeTimePattern>
+					<relativeTimePattern count="few">prije {0} utorka</relativeTimePattern>
+					<relativeTimePattern count="other">prije {0} utoraka</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="wed">
@@ -2509,29 +2511,29 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="0">u sri</relative>
 				<relative type="1">sljedeće sri</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="one">za {0} srijedu</relativeTimePattern>
+					<relativeTimePattern count="few">za {0} srijede</relativeTimePattern>
+					<relativeTimePattern count="other">za {0} srijeda</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="one">prije {0} srijede</relativeTimePattern>
+					<relativeTimePattern count="few">prije {0} srijede</relativeTimePattern>
+					<relativeTimePattern count="other">prije {0} srijeda</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="wed-narrow">
-				<relative type="-1">↑↑↑</relative>
-				<relative type="0">↑↑↑</relative>
-				<relative type="1">↑↑↑</relative>
+				<relative type="-1">prošle sri</relative>
+				<relative type="0">u sri</relative>
+				<relative type="1">sljedeće sri</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="one">za {0} srijedu</relativeTimePattern>
+					<relativeTimePattern count="few">za {0} srijede</relativeTimePattern>
+					<relativeTimePattern count="other">za {0} srijeda</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="one">prije {0} srijede</relativeTimePattern>
+					<relativeTimePattern count="few">prije {0} srijede</relativeTimePattern>
+					<relativeTimePattern count="other">prije {0} srijeda</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="thu">
@@ -2559,24 +2561,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="one">prije {0} četvrtka</relativeTimePattern>
+					<relativeTimePattern count="few">prije {0} četvrtka</relativeTimePattern>
+					<relativeTimePattern count="other">prije {0} četvrtaka</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="thu-narrow">
 				<relative type="-1">↑↑↑</relative>
 				<relative type="0">↑↑↑</relative>
-				<relative type="1">↑↑↑</relative>
+				<relative type="1">sljedećeg čet</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="one">prije {0} četvrtka</relativeTimePattern>
+					<relativeTimePattern count="few">prije {0} četvrtka</relativeTimePattern>
+					<relativeTimePattern count="other">prije {0} četvrtaka</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="fri">
@@ -2604,24 +2606,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="one">prije {0} petka</relativeTimePattern>
+					<relativeTimePattern count="few">prije {0} petka</relativeTimePattern>
+					<relativeTimePattern count="other">prije {0} petaka</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="fri-narrow">
 				<relative type="-1">↑↑↑</relative>
 				<relative type="0">↑↑↑</relative>
-				<relative type="1">↑↑↑</relative>
+				<relative type="1">sljedećeg pet</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="one">prije {0} petka</relativeTimePattern>
+					<relativeTimePattern count="few">prije {0} petka</relativeTimePattern>
+					<relativeTimePattern count="other">prije {0} petaka</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="sat">
@@ -2649,24 +2651,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="one">prije {0} subote</relativeTimePattern>
+					<relativeTimePattern count="few">prije {0} subote</relativeTimePattern>
+					<relativeTimePattern count="other">prije {0} subota</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="sat-narrow">
 				<relative type="-1">↑↑↑</relative>
 				<relative type="0">↑↑↑</relative>
-				<relative type="1">↑↑↑</relative>
+				<relative type="1">sljedeće sub</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="one">prije {0} subote</relativeTimePattern>
+					<relativeTimePattern count="few">prije {0} subote</relativeTimePattern>
+					<relativeTimePattern count="other">prije {0} subota</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="dayperiod-short">
@@ -2676,7 +2678,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>prije podne/po podne</displayName>
 			</field>
 			<field type="dayperiod-narrow">
-				<displayName>↑↑↑</displayName>
+				<displayName>prije podne/po podne</displayName>
 			</field>
 			<field type="hour">
 				<displayName>↑↑↑</displayName>
@@ -2713,9 +2715,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="one">prije {0} č.</relativeTimePattern>
+					<relativeTimePattern count="few">prije {0} č.</relativeTimePattern>
+					<relativeTimePattern count="other">prije {0} č.</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="minute">
@@ -2727,8 +2729,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="one">prije {0} minuta</relativeTimePattern>
+					<relativeTimePattern count="few">prije {0} minuta</relativeTimePattern>
 					<relativeTimePattern count="other">prije {0} minuta</relativeTimePattern>
 				</relativeTime>
 			</field>
@@ -2753,9 +2755,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
-					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="one">prije {0} min.</relativeTimePattern>
+					<relativeTimePattern count="few">prije {0} min.</relativeTimePattern>
+					<relativeTimePattern count="other">prije {0} min.</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="second">
@@ -6594,9 +6596,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
 				<unitPattern count="few">{0} G</unitPattern>
-				<unitPattern count="few" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="few" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="few" case="instrumental">↑↑↑</unitPattern>
+				<unitPattern count="few" case="accusative">{0} G</unitPattern>
+				<unitPattern count="few" case="genitive">{0} G</unitPattern>
+				<unitPattern count="few" case="instrumental">{0} G</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
 				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
@@ -7161,17 +7163,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<gender>↑↑↑</gender>
 				<displayName>vijekovi</displayName>
 				<unitPattern count="one">{0} vijek</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">{0} vijek</unitPattern>
 				<unitPattern count="one" case="genitive">{0} vijeka</unitPattern>
 				<unitPattern count="one" case="instrumental">{0} vijekom</unitPattern>
 				<unitPattern count="few">{0} vijeka</unitPattern>
-				<unitPattern count="few" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="few" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="few" case="instrumental">↑↑↑</unitPattern>
+				<unitPattern count="few" case="accusative">{0} vijeka</unitPattern>
+				<unitPattern count="few" case="genitive">{0} vijeka</unitPattern>
+				<unitPattern count="few" case="instrumental">{0} vijeka</unitPattern>
 				<unitPattern count="other">{0} vijekova</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">{0} vijekova</unitPattern>
+				<unitPattern count="other" case="genitive">{0} vijekova</unitPattern>
+				<unitPattern count="other" case="instrumental">{0} vijekova</unitPattern>
 			</unit>
 			<unit type="duration-decade">
 				<gender>↑↑↑</gender>
@@ -7225,19 +7227,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="duration-month">
 				<gender>↑↑↑</gender>
-				<displayName>↑↑↑</displayName>
+				<displayName>mjeseci</displayName>
 				<unitPattern count="one">{0} mjesec</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">{0} mjesec</unitPattern>
 				<unitPattern count="one" case="genitive">{0} mjeseca</unitPattern>
 				<unitPattern count="one" case="instrumental">{0} mjesecom</unitPattern>
 				<unitPattern count="few">{0} mjeseca</unitPattern>
-				<unitPattern count="few" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="few" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="few" case="instrumental">↑↑↑</unitPattern>
+				<unitPattern count="few" case="accusative">{0} mjeseca</unitPattern>
+				<unitPattern count="few" case="genitive">{0} mjeseca</unitPattern>
+				<unitPattern count="few" case="instrumental">{0} mjeseca</unitPattern>
 				<unitPattern count="other">{0} mjeseci</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">{0} mjeseci</unitPattern>
+				<unitPattern count="other" case="genitive">{0} mjeseci</unitPattern>
+				<unitPattern count="other" case="instrumental">{0} mjeseci</unitPattern>
 				<perUnitPattern>{0} mjesečno</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
@@ -7248,13 +7250,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one" case="genitive">{0} nedjelje</unitPattern>
 				<unitPattern count="one" case="instrumental">{0} nedjeljom</unitPattern>
 				<unitPattern count="few">{0} nedjelje</unitPattern>
-				<unitPattern count="few" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="few" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="few" case="instrumental">↑↑↑</unitPattern>
+				<unitPattern count="few" case="accusative">{0} nedjelje</unitPattern>
+				<unitPattern count="few" case="genitive">{0} nedjelje</unitPattern>
+				<unitPattern count="few" case="instrumental">{0} nedjelje</unitPattern>
 				<unitPattern count="other">{0} nedjelja</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other" case="instrumental">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">{0} nedjelja</unitPattern>
+				<unitPattern count="other" case="genitive">{0} nedjelja</unitPattern>
+				<unitPattern count="other" case="instrumental">{0} nedjelja</unitPattern>
 				<perUnitPattern>{0} nedjeljno</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
@@ -7397,9 +7399,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
 				<unitPattern count="few">{0} mA</unitPattern>
-				<unitPattern count="few" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="few" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="few" case="instrumental">↑↑↑</unitPattern>
+				<unitPattern count="few" case="accusative">{0} mA</unitPattern>
+				<unitPattern count="few" case="genitive">{0} mA</unitPattern>
+				<unitPattern count="few" case="instrumental">{0} mA</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
 				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
@@ -7473,9 +7475,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
 				<unitPattern count="few">{0} kJ</unitPattern>
-				<unitPattern count="few" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="few" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="few" case="instrumental">↑↑↑</unitPattern>
+				<unitPattern count="few" case="accusative">{0} kJ</unitPattern>
+				<unitPattern count="few" case="genitive">{0} kJ</unitPattern>
+				<unitPattern count="few" case="instrumental">{0} kJ</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
 				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
@@ -7625,9 +7627,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
 				<unitPattern count="few">{0} Hz</unitPattern>
-				<unitPattern count="few" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="few" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="few" case="instrumental">↑↑↑</unitPattern>
+				<unitPattern count="few" case="accusative">{0} Hz</unitPattern>
+				<unitPattern count="few" case="genitive">{0} Hz</unitPattern>
+				<unitPattern count="few" case="instrumental">{0} Hz</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
 				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
@@ -8151,7 +8153,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-grain">
-				<displayName>↑↑↑</displayName>
+				<displayName>gran</displayName>
 				<unitPattern count="one">{0} gran</unitPattern>
 				<unitPattern count="few">{0} grana</unitPattern>
 				<unitPattern count="other">{0} granova</unitPattern>
@@ -8284,9 +8286,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
 				<unitPattern count="one" case="instrumental">↑↑↑</unitPattern>
 				<unitPattern count="few">{0} mbar</unitPattern>
-				<unitPattern count="few" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="few" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="few" case="instrumental">↑↑↑</unitPattern>
+				<unitPattern count="few" case="accusative">{0} mbar</unitPattern>
+				<unitPattern count="few" case="genitive">{0} mbar</unitPattern>
+				<unitPattern count="few" case="instrumental">{0} mbar</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
 				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
@@ -9217,8 +9219,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="duration-month">
 				<displayName>mjeseci</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} mjes.</unitPattern>
+				<unitPattern count="few">{0} mjes.</unitPattern>
 				<unitPattern count="other">{0} mjes.</unitPattern>
 				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
@@ -10785,7 +10787,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-light-year">
-				<displayName>↑↑↑</displayName>
+				<displayName>svjetlosne god.</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="few">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -10945,10 +10947,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="mass-grain">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="few">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>gran</displayName>
+				<unitPattern count="one">{0} gran</unitPattern>
+				<unitPattern count="few">{0} grana</unitPattern>
+				<unitPattern count="other">{0} granova</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>↑↑↑</displayName>

@@ -44,6 +44,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<calendar type="persian">
 				<months>
 					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="2">گوڵان</month>
+							<month type="8">گەڵاڕێزان</month>
+							<month type="12">ڕەشەمە</month>
+						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="contributed">↑↑↑</month>
 							<month type="2" draft="contributed">گوڵان</month>
@@ -57,6 +62,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="10" draft="contributed">↑↑↑</month>
 							<month type="11" draft="contributed">↑↑↑</month>
 							<month type="12" draft="contributed">ڕەشەمە</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="2">گوڵان</month>
+							<month type="8">گەڵاڕێزان</month>
+							<month type="12">ڕەشەمە</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="2">گوڵان</month>
+							<month type="8">گەڵاڕێزان</month>
+							<month type="12">ڕەشەمە</month>
 						</monthWidth>
 					</monthContext>
 				</months>

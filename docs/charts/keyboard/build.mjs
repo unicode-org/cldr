@@ -24,9 +24,9 @@ async function xmlList(basepath) {
  * List of elements that are always arrays
  */
 const alwaysArray = [
-  "keyboard.transforms",
-  "keyboard.transforms.transformGroup",
-  "keyboard.transforms.transformGroup.transform",
+  "keyboard3.transforms",
+  "keyboard3.transforms.transformGroup",
+  "keyboard3.transforms.transformGroup.transform",
 ];
 
 /**

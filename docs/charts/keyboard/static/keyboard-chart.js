@@ -13,7 +13,7 @@ function unescapeStr(str) {
 }
 
 function getKeyboardLayers(id) {
-  let q = _KeyboardData.keyboards[id].keyboard.layers;
+  let q = _KeyboardData.keyboards[id].keyboard3.layers;
   if (!Array.isArray(q)) {
     q = [q];
   }
@@ -86,7 +86,7 @@ function mogrifyAttrs(o) {
 }
 
 function getKeyboardKeys(id) {
-  const keys = _KeyboardData.keyboards[id].keyboard.keys.key || [];
+  const keys = _KeyboardData.keyboards[id].keyboard3.keys.key || [];
   if (!keys) {
     throw Error(`No keys for ${id}`);
   }
@@ -96,7 +96,7 @@ function getKeyboardKeys(id) {
       "@_base": "cldr",
       "@_path": "techpreview/keys-Latn-implied.xml",
     },
-    ...(_KeyboardData.keyboards[id].keyboard.keys.import || []),
+    ...(_KeyboardData.keyboards[id].keyboard3.keys.import || []),
   ];
 
   const importedKeys = [];

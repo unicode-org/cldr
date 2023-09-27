@@ -329,7 +329,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</unitLength>
 		<unitLength type="short">
 			<unit type="concentr-karat">
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} ct</unitPattern>
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="electric-volt">
@@ -350,13 +350,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName draft="contributed">hora</displayName>
 			</unit>
 			<unit type="electric-volt">
-				<displayName>↑↑↑</displayName>
+				<displayName>voltios</displayName>
 			</unit>
 			<unit type="power-watt">
-				<displayName>↑↑↑</displayName>
+				<displayName>vatios</displayName>
 			</unit>
 			<unit type="volume-acre-foot">
-				<displayName>↑↑↑</displayName>
+				<displayName>acre pie</displayName>
 			</unit>
 		</unitLength>
 	</units>

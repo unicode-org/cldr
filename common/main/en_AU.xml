@@ -2746,25 +2746,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>EEEE, d MMMM y G</pattern>
-							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
+							<datetimeSkeleton>GyMMMMEEEEd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
 							<pattern>d MMMM y G</pattern>
-							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
+							<datetimeSkeleton>GyMMMMd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern>d MMM y G</pattern>
-							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
+							<datetimeSkeleton>GyMMMd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
 							<pattern>dd/MM/y GGGGG</pattern>
-							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
+							<datetimeSkeleton>GGGGGyMMdd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -2786,8 +2786,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
 						<dateFormatItem id="y">↑↑↑</dateFormatItem>
-						<dateFormatItem id="yMd">↑↑↑</dateFormatItem>
-						<dateFormatItem id="yMEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMd">dd/MM/y</dateFormatItem>
+						<dateFormatItem id="yMEd">E, dd/MM/y</dateFormatItem>
 						<dateFormatItem id="yyyy">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yyyyM">MM/y GGGGG</dateFormatItem>
 						<dateFormatItem id="yyyyMd">dd/MM/y GGGGG</dateFormatItem>
@@ -2997,28 +2997,28 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</eras>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="d" draft="contributed">↑↑↑</dateFormatItem>
-						<dateFormatItem id="Ed" draft="contributed">↑↑↑</dateFormatItem>
-						<dateFormatItem id="Gy" draft="contributed">↑↑↑</dateFormatItem>
-						<dateFormatItem id="GyMMM" draft="contributed">↑↑↑</dateFormatItem>
-						<dateFormatItem id="GyMMMd" draft="contributed">↑↑↑</dateFormatItem>
-						<dateFormatItem id="GyMMMEd" draft="contributed">↑↑↑</dateFormatItem>
-						<dateFormatItem id="M" draft="contributed">↑↑↑</dateFormatItem>
-						<dateFormatItem id="Md" draft="contributed">↑↑↑</dateFormatItem>
-						<dateFormatItem id="MMM" draft="contributed">↑↑↑</dateFormatItem>
-						<dateFormatItem id="MMMd" draft="contributed">↑↑↑</dateFormatItem>
-						<dateFormatItem id="MMMMd" draft="contributed">↑↑↑</dateFormatItem>
-						<dateFormatItem id="y" draft="contributed">↑↑↑</dateFormatItem>
-						<dateFormatItem id="yyyy" draft="contributed">↑↑↑</dateFormatItem>
-						<dateFormatItem id="yyyyM" draft="contributed">↑↑↑</dateFormatItem>
-						<dateFormatItem id="yyyyMd" draft="contributed">↑↑↑</dateFormatItem>
-						<dateFormatItem id="yyyyMEd" draft="contributed">↑↑↑</dateFormatItem>
-						<dateFormatItem id="yyyyMMM" draft="contributed">↑↑↑</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd" draft="contributed">↑↑↑</dateFormatItem>
-						<dateFormatItem id="yyyyMMMEd" draft="contributed">↑↑↑</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM" draft="contributed">↑↑↑</dateFormatItem>
-						<dateFormatItem id="yyyyQQQ" draft="contributed">↑↑↑</dateFormatItem>
-						<dateFormatItem id="yyyyQQQQ" draft="contributed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="d" draft="contributed">d</dateFormatItem>
+						<dateFormatItem id="Ed" draft="contributed">E d</dateFormatItem>
+						<dateFormatItem id="Gy" draft="contributed">y G</dateFormatItem>
+						<dateFormatItem id="GyMMM" draft="contributed">MMM y G</dateFormatItem>
+						<dateFormatItem id="GyMMMd" draft="contributed">d MMM y G</dateFormatItem>
+						<dateFormatItem id="GyMMMEd" draft="contributed">E, d MMM y G</dateFormatItem>
+						<dateFormatItem id="M" draft="contributed">LL</dateFormatItem>
+						<dateFormatItem id="Md" draft="contributed">dd/MM</dateFormatItem>
+						<dateFormatItem id="MMM" draft="contributed">LLL</dateFormatItem>
+						<dateFormatItem id="MMMd" draft="contributed">d MMM</dateFormatItem>
+						<dateFormatItem id="MMMMd" draft="contributed">d MMMM</dateFormatItem>
+						<dateFormatItem id="y" draft="contributed">y G</dateFormatItem>
+						<dateFormatItem id="yyyy" draft="contributed">y G</dateFormatItem>
+						<dateFormatItem id="yyyyM" draft="contributed">MM/y GGGGG</dateFormatItem>
+						<dateFormatItem id="yyyyMd" draft="contributed">dd/MM/y GGGGG</dateFormatItem>
+						<dateFormatItem id="yyyyMEd" draft="contributed">E, dd/MM/y GGGGG</dateFormatItem>
+						<dateFormatItem id="yyyyMMM" draft="contributed">MMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd" draft="contributed">d MMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd" draft="contributed">E, d MMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" draft="contributed">MMMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ" draft="contributed">QQQ y G</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ" draft="contributed">QQQQ y G</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -3105,9 +3105,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="quarter-narrow">
 				<displayName>↑↑↑</displayName>
-				<relative type="-1" draft="contributed">↑↑↑</relative>
-				<relative type="0" draft="contributed">↑↑↑</relative>
-				<relative type="1" draft="contributed">↑↑↑</relative>
+				<relative type="-1" draft="contributed">last qtr.</relative>
+				<relative type="0" draft="contributed">this qtr.</relative>
+				<relative type="1" draft="contributed">next qtr.</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
 					<relativeTimePattern count="other">in {0} qtrs</relativeTimePattern>
@@ -6248,7 +6248,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
 				<symbol>↑↑↑</symbol>
-				<symbol alt="narrow">↑↑↑</symbol>
+				<symbol alt="narrow">BYN</symbol>
 			</currency>
 			<currency type="BYR">
 				<displayName>↑↑↑</displayName>
@@ -9491,12 +9491,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
 			</compoundUnit>
 			<compoundUnit type="power2">
-				<compoundUnitPattern1>↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1>{0}²</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other">↑↑↑</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="power3">
-				<compoundUnitPattern1>↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1>{0}³</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other">↑↑↑</compoundUnitPattern1>
 			</compoundUnit>

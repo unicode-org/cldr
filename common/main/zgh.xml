@@ -367,18 +367,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="12">ⴷⵓⵊ</month>
 						</monthWidth>
 						<monthWidth type="narrow">
-							<month type="1">↑↑↑</month>
-							<month type="2">↑↑↑</month>
-							<month type="3">↑↑↑</month>
-							<month type="4">↑↑↑</month>
-							<month type="5">↑↑↑</month>
-							<month type="6">↑↑↑</month>
-							<month type="7">↑↑↑</month>
-							<month type="8">↑↑↑</month>
-							<month type="9">↑↑↑</month>
-							<month type="10">↑↑↑</month>
-							<month type="11">↑↑↑</month>
-							<month type="12">↑↑↑</month>
+							<month type="1">ⵉ</month>
+							<month type="2">ⴱ</month>
+							<month type="3">ⵎ</month>
+							<month type="4">ⵉ</month>
+							<month type="5">ⵎ</month>
+							<month type="6">ⵢ</month>
+							<month type="7">ⵢ</month>
+							<month type="8">ⵖ</month>
+							<month type="9">ⵛ</month>
+							<month type="10">ⴽ</month>
+							<month type="11">ⵏ</month>
+							<month type="12">ⴷ</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">ⵉⵏⵏⴰⵢⵔ</month>
@@ -397,18 +397,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="abbreviated">
-							<month type="1">↑↑↑</month>
-							<month type="2">↑↑↑</month>
-							<month type="3">↑↑↑</month>
-							<month type="4">↑↑↑</month>
-							<month type="5">↑↑↑</month>
-							<month type="6">↑↑↑</month>
-							<month type="7">↑↑↑</month>
-							<month type="8">↑↑↑</month>
-							<month type="9">↑↑↑</month>
-							<month type="10">↑↑↑</month>
-							<month type="11">↑↑↑</month>
-							<month type="12">↑↑↑</month>
+							<month type="1">ⵉⵏⵏ</month>
+							<month type="2">ⴱⵕⴰ</month>
+							<month type="3">ⵎⴰⵕ</month>
+							<month type="4">ⵉⴱⵔ</month>
+							<month type="5">ⵎⴰⵢ</month>
+							<month type="6">ⵢⵓⵏ</month>
+							<month type="7">ⵢⵓⵍ</month>
+							<month type="8">ⵖⵓⵛ</month>
+							<month type="9">ⵛⵓⵜ</month>
+							<month type="10">ⴽⵜⵓ</month>
+							<month type="11">ⵏⵓⵡ</month>
+							<month type="12">ⴷⵓⵊ</month>
 						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">ⵉ</month>
@@ -425,23 +425,61 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="12">ⴷ</month>
 						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1">↑↑↑</month>
-							<month type="2">↑↑↑</month>
-							<month type="3">↑↑↑</month>
-							<month type="4">↑↑↑</month>
-							<month type="5">↑↑↑</month>
-							<month type="6">↑↑↑</month>
-							<month type="7">↑↑↑</month>
-							<month type="8">↑↑↑</month>
-							<month type="9">↑↑↑</month>
-							<month type="10">↑↑↑</month>
-							<month type="11">↑↑↑</month>
-							<month type="12">↑↑↑</month>
+							<month type="1">ⵉⵏⵏⴰⵢⵔ</month>
+							<month type="2">ⴱⵕⴰⵢⵕ</month>
+							<month type="3">ⵎⴰⵕⵚ</month>
+							<month type="4">ⵉⴱⵔⵉⵔ</month>
+							<month type="5">ⵎⴰⵢⵢⵓ</month>
+							<month type="6">ⵢⵓⵏⵢⵓ</month>
+							<month type="7">ⵢⵓⵍⵢⵓⵣ</month>
+							<month type="8">ⵖⵓⵛⵜ</month>
+							<month type="9">ⵛⵓⵜⴰⵏⴱⵉⵔ</month>
+							<month type="10">ⴽⵜⵓⴱⵔ</month>
+							<month type="11">ⵏⵓⵡⴰⵏⴱⵉⵔ</month>
+							<month type="12">ⴷⵓⵊⴰⵏⴱⵉⵔ</month>
 						</monthWidth>
 					</monthContext>
 				</months>
 				<days>
 					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">ⴰⵙⴰ</day>
+							<day type="mon">ⴰⵢⵏ</day>
+							<day type="tue">ⴰⵙⵉ</day>
+							<day type="wed">ⴰⴽⵕ</day>
+							<day type="thu">ⴰⴽⵡ</day>
+							<day type="fri">ⴰⵙⵉⵎ</day>
+							<day type="sat">ⴰⵙⵉⴹ</day>
+						</dayWidth>
+						<dayWidth type="narrow">
+							<day type="sun">S</day>
+							<day type="mon">M</day>
+							<day type="tue">T</day>
+							<day type="wed">W</day>
+							<day type="thu">T</day>
+							<day type="fri">F</day>
+							<day type="sat">S</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun">ⴰⵙⴰ</day>
+							<day type="mon">ⴰⵢⵏ</day>
+							<day type="tue">ⴰⵙⵉ</day>
+							<day type="wed">ⴰⴽⵕ</day>
+							<day type="thu">ⴰⴽⵡ</day>
+							<day type="fri">ⴰⵙⵉⵎ</day>
+							<day type="sat">ⴰⵙⵉⴹ</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">ⴰⵙⴰⵎⴰⵙ</day>
+							<day type="mon">ⴰⵢⵏⴰⵙ</day>
+							<day type="tue">ⴰⵙⵉⵏⴰⵙ</day>
+							<day type="wed">ⴰⴽⵕⴰⵙ</day>
+							<day type="thu">ⴰⴽⵡⴰⵙ</day>
+							<day type="fri">ⴰⵙⵉⵎⵡⴰⵙ</day>
+							<day type="sat">ⴰⵙⵉⴹⵢⴰⵙ</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
 						<dayWidth type="abbreviated">
 							<day type="sun">ⴰⵙⴰ</day>
 							<day type="mon">ⴰⵢⵏ</day>
@@ -461,13 +499,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<day type="sat">↑↑↑</day>
 						</dayWidth>
 						<dayWidth type="short">
-							<day type="sun">↑↑↑</day>
-							<day type="mon">↑↑↑</day>
-							<day type="tue">↑↑↑</day>
-							<day type="wed">↑↑↑</day>
-							<day type="thu">↑↑↑</day>
-							<day type="fri">↑↑↑</day>
-							<day type="sat">↑↑↑</day>
+							<day type="sun">ⴰⵙⴰ</day>
+							<day type="mon">ⴰⵢⵏ</day>
+							<day type="tue">ⴰⵙⵉ</day>
+							<day type="wed">ⴰⴽⵕ</day>
+							<day type="thu">ⴰⴽⵡ</day>
+							<day type="fri">ⴰⵙⵉⵎ</day>
+							<day type="sat">ⴰⵙⵉⴹ</day>
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">ⴰⵙⴰⵎⴰⵙ</day>
@@ -479,47 +517,29 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<day type="sat">ⴰⵙⵉⴹⵢⴰⵙ</day>
 						</dayWidth>
 					</dayContext>
-					<dayContext type="stand-alone">
-						<dayWidth type="abbreviated">
-							<day type="sun">↑↑↑</day>
-							<day type="mon">↑↑↑</day>
-							<day type="tue">↑↑↑</day>
-							<day type="wed">↑↑↑</day>
-							<day type="thu">↑↑↑</day>
-							<day type="fri">↑↑↑</day>
-							<day type="sat">↑↑↑</day>
-						</dayWidth>
-						<dayWidth type="narrow">
-							<day type="sun">↑↑↑</day>
-							<day type="mon">↑↑↑</day>
-							<day type="tue">↑↑↑</day>
-							<day type="wed">↑↑↑</day>
-							<day type="thu">↑↑↑</day>
-							<day type="fri">↑↑↑</day>
-							<day type="sat">↑↑↑</day>
-						</dayWidth>
-						<dayWidth type="short">
-							<day type="sun">↑↑↑</day>
-							<day type="mon">↑↑↑</day>
-							<day type="tue">↑↑↑</day>
-							<day type="wed">↑↑↑</day>
-							<day type="thu">↑↑↑</day>
-							<day type="fri">↑↑↑</day>
-							<day type="sat">↑↑↑</day>
-						</dayWidth>
-						<dayWidth type="wide">
-							<day type="sun">↑↑↑</day>
-							<day type="mon">↑↑↑</day>
-							<day type="tue">↑↑↑</day>
-							<day type="wed">↑↑↑</day>
-							<day type="thu">↑↑↑</day>
-							<day type="fri">↑↑↑</day>
-							<day type="sat">↑↑↑</day>
-						</dayWidth>
-					</dayContext>
 				</days>
 				<quarters>
 					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">ⴰⴽ 1</quarter>
+							<quarter type="2">ⴰⴽ 2</quarter>
+							<quarter type="3">ⴰⴽ 3</quarter>
+							<quarter type="4">ⴰⴽ 4</quarter>
+						</quarterWidth>
+						<quarterWidth type="narrow">
+							<quarter type="1">1</quarter>
+							<quarter type="2">2</quarter>
+							<quarter type="3">3</quarter>
+							<quarter type="4">4</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">ⴰⴽⵕⴰⴹⵢⵓⵔ 1</quarter>
+							<quarter type="2">ⴰⴽⵕⴰⴹⵢⵓⵔ 2</quarter>
+							<quarter type="3">ⴰⴽⵕⴰⴹⵢⵓⵔ 3</quarter>
+							<quarter type="4">ⴰⴽⵕⴰⴹⵢⵓⵔ 4</quarter>
+						</quarterWidth>
+					</quarterContext>
+					<quarterContext type="stand-alone">
 						<quarterWidth type="abbreviated">
 							<quarter type="1">ⴰⴽ 1</quarter>
 							<quarter type="2">ⴰⴽ 2</quarter>
@@ -539,26 +559,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<quarter type="4">ⴰⴽⵕⴰⴹⵢⵓⵔ 4</quarter>
 						</quarterWidth>
 					</quarterContext>
-					<quarterContext type="stand-alone">
-						<quarterWidth type="abbreviated">
-							<quarter type="1">↑↑↑</quarter>
-							<quarter type="2">↑↑↑</quarter>
-							<quarter type="3">↑↑↑</quarter>
-							<quarter type="4">↑↑↑</quarter>
-						</quarterWidth>
-						<quarterWidth type="narrow">
-							<quarter type="1">↑↑↑</quarter>
-							<quarter type="2">↑↑↑</quarter>
-							<quarter type="3">↑↑↑</quarter>
-							<quarter type="4">↑↑↑</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1">↑↑↑</quarter>
-							<quarter type="2">↑↑↑</quarter>
-							<quarter type="3">↑↑↑</quarter>
-							<quarter type="4">↑↑↑</quarter>
-						</quarterWidth>
-					</quarterContext>
 				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
@@ -567,35 +567,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<dayPeriod type="pm">ⵜⴰⴷⴳⴳⵯⴰⵜ</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am">↑↑↑</dayPeriod>
-							<dayPeriod type="pm">↑↑↑</dayPeriod>
+							<dayPeriod type="am">ⵜⵉⴼⴰⵡⵜ</dayPeriod>
+							<dayPeriod type="pm">ⵜⴰⴷⴳⴳⵯⴰⵜ</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">↑↑↑</dayPeriod>
-							<dayPeriod type="pm">↑↑↑</dayPeriod>
+							<dayPeriod type="am">ⵜⵉⴼⴰⵡⵜ</dayPeriod>
+							<dayPeriod type="pm">ⵜⴰⴷⴳⴳⵯⴰⵜ</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
 						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am">↑↑↑</dayPeriod>
-							<dayPeriod type="pm">↑↑↑</dayPeriod>
+							<dayPeriod type="am">ⵜⵉⴼⴰⵡⵜ</dayPeriod>
+							<dayPeriod type="pm">ⵜⴰⴷⴳⴳⵯⴰⵜ</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am">↑↑↑</dayPeriod>
-							<dayPeriod type="pm">↑↑↑</dayPeriod>
+							<dayPeriod type="am">ⵜⵉⴼⴰⵡⵜ</dayPeriod>
+							<dayPeriod type="pm">ⵜⴰⴷⴳⴳⵯⴰⵜ</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">↑↑↑</dayPeriod>
-							<dayPeriod type="pm">↑↑↑</dayPeriod>
+							<dayPeriod type="am">ⵜⵉⴼⴰⵡⵜ</dayPeriod>
+							<dayPeriod type="pm">ⵜⴰⴷⴳⴳⵯⴰⵜ</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
 				<eras>
 					<eraNames>
 						<era type="0">ⴷⴰⵜ ⵏ ⵄⵉⵙⴰ</era>
-						<era type="0" alt="variant">↑↑↑</era>
+						<era type="0" alt="variant">BCE</era>
 						<era type="1">ⴷⴼⴼⵉⵔ ⵏ ⵄⵉⵙⴰ</era>
-						<era type="1" alt="variant">↑↑↑</era>
+						<era type="1" alt="variant">CE</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0">ⴷⴰⵄ</era>
@@ -911,9 +911,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<pattern alt="noCurrency" draft="provisional">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
-					<pattern>↑↑↑</pattern>
-					<pattern alt="alphaNextToNumber" draft="provisional">↑↑↑</pattern>
-					<pattern alt="noCurrency" draft="provisional">↑↑↑</pattern>
+					<pattern>#,##0.00¤</pattern>
+					<pattern alt="alphaNextToNumber" draft="provisional">#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency" draft="provisional">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyFormatLength type="short">

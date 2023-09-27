@@ -20,22 +20,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<month type="1">↑↑↑</month>
-							<month type="2">↑↑↑</month>
-							<month type="4">↑↑↑</month>
-							<month type="5">↑↑↑</month>
-							<month type="6">↑↑↑</month>
-							<month type="7">↑↑↑</month>
-							<month type="8">↑↑↑</month>
+							<month type="1">جانفي</month>
+							<month type="2">فيفري</month>
+							<month type="4">أفريل</month>
+							<month type="5">ماي</month>
+							<month type="6">جوان</month>
+							<month type="7">جويلية</month>
+							<month type="8">أوت</month>
 						</monthWidth>
 						<monthWidth type="narrow">
-							<month type="1" draft="contributed">↑↑↑</month>
-							<month type="5" draft="contributed">↑↑↑</month>
-							<month type="6" draft="contributed">↑↑↑</month>
-							<month type="7" draft="contributed">↑↑↑</month>
-							<month type="8" draft="contributed">↑↑↑</month>
-							<month type="10" draft="contributed">↑↑↑</month>
-							<month type="11" draft="contributed">↑↑↑</month>
+							<month type="1" draft="contributed">ج</month>
+							<month type="5" draft="contributed">م</month>
+							<month type="6" draft="contributed">ج</month>
+							<month type="7" draft="contributed">ج</month>
+							<month type="8" draft="contributed">أ</month>
+							<month type="10" draft="contributed">أ</month>
+							<month type="11" draft="contributed">ن</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">جانفي</month>
@@ -49,13 +49,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="abbreviated">
-							<month type="1">↑↑↑</month>
-							<month type="2">↑↑↑</month>
-							<month type="4">↑↑↑</month>
-							<month type="5">↑↑↑</month>
-							<month type="6">↑↑↑</month>
-							<month type="7">↑↑↑</month>
-							<month type="8">↑↑↑</month>
+							<month type="1">جانفي</month>
+							<month type="2">فيفري</month>
+							<month type="4">أفريل</month>
+							<month type="5">ماي</month>
+							<month type="6">جوان</month>
+							<month type="7">جويلية</month>
+							<month type="8">أوت</month>
 						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1" draft="contributed">ج</month>
@@ -67,13 +67,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="11" draft="contributed">ن</month>
 						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1">↑↑↑</month>
-							<month type="2">↑↑↑</month>
-							<month type="4">↑↑↑</month>
-							<month type="5">↑↑↑</month>
-							<month type="6">↑↑↑</month>
-							<month type="7">↑↑↑</month>
-							<month type="8">↑↑↑</month>
+							<month type="1">جانفي</month>
+							<month type="2">فيفري</month>
+							<month type="4">أفريل</month>
+							<month type="5">ماي</month>
+							<month type="6">جوان</month>
+							<month type="7">جويلية</month>
+							<month type="8">أوت</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -112,26 +112,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="torque-newton-meter">
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="zero" draft="contributed">{0} نيوتن متر</unitPattern>
 			</unit>
 		</unitLength>
 		<unitLength type="short">
 			<unit type="pressure-kilopascal">
 				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="zero" draft="contributed">{0} ك.باسكال</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} ك.باسكال</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ك.باسكال</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} ك.باسكال</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ك.باسكال</unitPattern>
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-megapascal">
 				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="zero" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="two" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="few" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="many" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="zero" draft="contributed">{0} م.باسكال</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} م.باسكال</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} م.باسكال</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} م.باسكال</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} م.باسكال</unitPattern>
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
 		</unitLength>

@@ -20,21 +20,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<languages>
 			<language type="bn">↑↑↑</language>
 			<language type="de">↑↑↑</language>
-			<language type="de_AT">↑↑↑</language>
-			<language type="de_CH">↑↑↑</language>
+			<language type="de_AT">জার্মান (অস্ট্রিয়া)</language>
+			<language type="de_CH">জার্মান (সুইজারল্যান্ড)</language>
 			<language type="en">↑↑↑</language>
-			<language type="en_AU">↑↑↑</language>
-			<language type="en_CA">↑↑↑</language>
-			<language type="en_GB">↑↑↑</language>
+			<language type="en_AU">ইংরেজি (অস্ট্রেলিয়া)</language>
+			<language type="en_CA">ইংরেজি (কানাডা)</language>
+			<language type="en_GB">ইংরেজি (যুক্তরাজ্য)</language>
 			<language type="en_GB" alt="short">↑↑↑</language>
 			<language type="en_US" alt="short">↑↑↑</language>
 			<language type="es">↑↑↑</language>
-			<language type="es_419">↑↑↑</language>
+			<language type="es_419">স্প্যানিশ (লাতিন আমেরিকা)</language>
 			<language type="es_ES">↑↑↑</language>
-			<language type="es_MX">↑↑↑</language>
+			<language type="es_MX">স্প্যানিশ (মেক্সিকো)</language>
 			<language type="fr">↑↑↑</language>
-			<language type="fr_CA">↑↑↑</language>
-			<language type="fr_CH">↑↑↑</language>
+			<language type="fr_CA">ফরাসি (কানাডা)</language>
+			<language type="fr_CH">ফরাসি (সুইজারল্যান্ড)</language>
 			<language type="hi">↑↑↑</language>
 			<language type="id">↑↑↑</language>
 			<language type="it">↑↑↑</language>
@@ -44,12 +44,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="nl_BE">↑↑↑</language>
 			<language type="pl">↑↑↑</language>
 			<language type="pt">↑↑↑</language>
-			<language type="pt_BR">↑↑↑</language>
+			<language type="pt_BR">পর্তুগীজ (ব্রাজিল)</language>
 			<language type="pt_PT">↑↑↑</language>
 			<language type="ru">↑↑↑</language>
 			<language type="zh">↑↑↑</language>
-			<language type="zh_Hans">↑↑↑</language>
-			<language type="zh_Hant">↑↑↑</language>
+			<language type="zh_Hans">চীনা (সরলীকৃত)</language>
+			<language type="zh_Hant">চীনা (ঐতিহ্যবাহী)</language>
 			<language type="zh_Hant" alt="long">↑↑↑</language>
 		</languages>
 		<territories>
@@ -125,7 +125,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="TV">↑↑↑</territory>
 			<territory type="UM">মার্কিন যুক্তরাষ্ট্রের দূরবর্তী দ্বীপপুঞ্জ</territory>
 			<territory type="UN">↑↑↑</territory>
-			<territory type="UN" alt="short">↑↑↑</territory>
+			<territory type="UN" alt="short">জাতিসংঘ</territory>
 			<territory type="VU">↑↑↑</territory>
 			<territory type="WF">↑↑↑</territory>
 			<territory type="WS">↑↑↑</territory>
@@ -185,10 +185,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<monthWidth type="abbreviated">
 							<month type="1">↑↑↑</month>
 							<month type="2">↑↑↑</month>
-							<month type="3">↑↑↑</month>
+							<month type="3">মার্চ</month>
 							<month type="4">↑↑↑</month>
-							<month type="5">↑↑↑</month>
-							<month type="6">↑↑↑</month>
+							<month type="5">মে</month>
+							<month type="6">জুন</month>
 							<month type="7">↑↑↑</month>
 							<month type="8">↑↑↑</month>
 							<month type="9">সেপ্টেঃ</month>
@@ -197,18 +197,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="12">ডিসেঃ</month>
 						</monthWidth>
 						<monthWidth type="narrow">
-							<month type="1">↑↑↑</month>
-							<month type="2">↑↑↑</month>
-							<month type="3">↑↑↑</month>
-							<month type="4">↑↑↑</month>
-							<month type="5">↑↑↑</month>
-							<month type="6">↑↑↑</month>
-							<month type="7">↑↑↑</month>
-							<month type="8">↑↑↑</month>
-							<month type="9">↑↑↑</month>
-							<month type="10">↑↑↑</month>
-							<month type="11">↑↑↑</month>
-							<month type="12">↑↑↑</month>
+							<month type="1">জা</month>
+							<month type="2">ফে</month>
+							<month type="3">মা</month>
+							<month type="4">এ</month>
+							<month type="5">মে</month>
+							<month type="6">জুন</month>
+							<month type="7">জুল</month>
+							<month type="8">আ</month>
+							<month type="9">সে</month>
+							<month type="10">অ</month>
+							<month type="11">ন</month>
+							<month type="12">ডি</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">↑↑↑</month>
@@ -227,12 +227,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="abbreviated">
-							<month type="1">↑↑↑</month>
-							<month type="2">↑↑↑</month>
-							<month type="3">↑↑↑</month>
+							<month type="1">জানু</month>
+							<month type="2">ফেব</month>
+							<month type="3">মার্চ</month>
 							<month type="4">↑↑↑</month>
-							<month type="5">↑↑↑</month>
-							<month type="6">↑↑↑</month>
+							<month type="5">মে</month>
+							<month type="6">জুন</month>
 							<month type="7">↑↑↑</month>
 							<month type="8">↑↑↑</month>
 							<month type="9">সেপ্টেঃ</month>
@@ -255,18 +255,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="12">↑↑↑</month>
 						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1">↑↑↑</month>
-							<month type="2">↑↑↑</month>
-							<month type="3">↑↑↑</month>
-							<month type="4">↑↑↑</month>
-							<month type="5">↑↑↑</month>
-							<month type="6">↑↑↑</month>
-							<month type="7">↑↑↑</month>
-							<month type="8">↑↑↑</month>
-							<month type="9">↑↑↑</month>
-							<month type="10">↑↑↑</month>
-							<month type="11">↑↑↑</month>
-							<month type="12">↑↑↑</month>
+							<month type="1">জানুয়ারী</month>
+							<month type="2">ফেব্রুয়ারী</month>
+							<month type="3">মার্চ</month>
+							<month type="4">এপ্রিল</month>
+							<month type="5">মে</month>
+							<month type="6">জুন</month>
+							<month type="7">জুলাই</month>
+							<month type="8">আগস্ট</month>
+							<month type="9">সেপ্টেম্বর</month>
+							<month type="10">অক্টোবর</month>
+							<month type="11">নভেম্বর</month>
+							<month type="12">ডিসেম্বর</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -302,38 +302,38 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</dayContext>
 					<dayContext type="stand-alone">
 						<dayWidth type="abbreviated">
-							<day type="sun">↑↑↑</day>
-							<day type="mon">↑↑↑</day>
-							<day type="tue">↑↑↑</day>
-							<day type="wed">↑↑↑</day>
-							<day type="thu">↑↑↑</day>
-							<day type="fri">↑↑↑</day>
-							<day type="sat">↑↑↑</day>
+							<day type="sun">রবি</day>
+							<day type="mon">সোম</day>
+							<day type="tue">মঙ্গল</day>
+							<day type="wed">বুধ</day>
+							<day type="thu">বৃহস্পতি</day>
+							<day type="fri">শুক্র</day>
+							<day type="sat">শনি</day>
 						</dayWidth>
 						<dayWidth type="wide">
-							<day type="sun">↑↑↑</day>
-							<day type="mon">↑↑↑</day>
-							<day type="tue">↑↑↑</day>
-							<day type="wed">↑↑↑</day>
-							<day type="thu">↑↑↑</day>
-							<day type="fri">↑↑↑</day>
-							<day type="sat">↑↑↑</day>
+							<day type="sun">রবিবার</day>
+							<day type="mon">সোমবার</day>
+							<day type="tue">মঙ্গলবার</day>
+							<day type="wed">বুধবার</day>
+							<day type="thu">বৃহস্পতিবার</day>
+							<day type="fri">শুক্রবার</day>
+							<day type="sat">শনিবার</day>
 						</dayWidth>
 					</dayContext>
 				</days>
 				<quarters>
 					<quarterContext type="format">
 						<quarterWidth type="abbreviated">
-							<quarter type="1">↑↑↑</quarter>
-							<quarter type="2">↑↑↑</quarter>
-							<quarter type="3">↑↑↑</quarter>
-							<quarter type="4">↑↑↑</quarter>
+							<quarter type="1">ত্রৈমাসিক</quarter>
+							<quarter type="2">দ্বিতীয় ত্রৈমাসিক</quarter>
+							<quarter type="3">তৃতীয় ত্রৈমাসিক</quarter>
+							<quarter type="4">চতুর্থ ত্রৈমাসিক</quarter>
 						</quarterWidth>
 						<quarterWidth type="narrow">
-							<quarter type="1">↑↑↑</quarter>
-							<quarter type="2">↑↑↑</quarter>
-							<quarter type="3">↑↑↑</quarter>
-							<quarter type="4">↑↑↑</quarter>
+							<quarter type="1">১</quarter>
+							<quarter type="2">২</quarter>
+							<quarter type="3">৩</quarter>
+							<quarter type="4">৪</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1">↑↑↑</quarter>
@@ -350,10 +350,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<quarter type="4">↑↑↑</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
-							<quarter type="1">↑↑↑</quarter>
-							<quarter type="2">↑↑↑</quarter>
-							<quarter type="3">↑↑↑</quarter>
-							<quarter type="4">↑↑↑</quarter>
+							<quarter type="1">ত্রৈমাসিক</quarter>
+							<quarter type="2">দ্বিতীয় ত্রৈমাসিক</quarter>
+							<quarter type="3">তৃতীয় ত্রৈমাসিক</quarter>
+							<quarter type="4">চতুর্থ ত্রৈমাসিক</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
@@ -370,53 +370,53 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<dayPeriod type="night1">↑↑↑</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am">↑↑↑</dayPeriod>
-							<dayPeriod type="pm">↑↑↑</dayPeriod>
+							<dayPeriod type="am">AM</dayPeriod>
+							<dayPeriod type="pm">PM</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">↑↑↑</dayPeriod>
-							<dayPeriod type="pm">↑↑↑</dayPeriod>
+							<dayPeriod type="am">AM</dayPeriod>
+							<dayPeriod type="pm">PM</dayPeriod>
 							<dayPeriod type="morning1">↑↑↑</dayPeriod>
 							<dayPeriod type="morning2">↑↑↑</dayPeriod>
 							<dayPeriod type="afternoon1">↑↑↑</dayPeriod>
-							<dayPeriod type="afternoon2">↑↑↑</dayPeriod>
+							<dayPeriod type="afternoon2">বিকাল</dayPeriod>
 							<dayPeriod type="evening1">↑↑↑</dayPeriod>
 							<dayPeriod type="night1">রাত্রি</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
 						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am">↑↑↑</dayPeriod>
-							<dayPeriod type="pm">↑↑↑</dayPeriod>
-							<dayPeriod type="morning1">↑↑↑</dayPeriod>
-							<dayPeriod type="morning2">↑↑↑</dayPeriod>
-							<dayPeriod type="afternoon1">↑↑↑</dayPeriod>
-							<dayPeriod type="afternoon2">↑↑↑</dayPeriod>
-							<dayPeriod type="evening1">↑↑↑</dayPeriod>
-							<dayPeriod type="night1">↑↑↑</dayPeriod>
+							<dayPeriod type="am">AM</dayPeriod>
+							<dayPeriod type="pm">PM</dayPeriod>
+							<dayPeriod type="morning1">ভোর</dayPeriod>
+							<dayPeriod type="morning2">সকাল</dayPeriod>
+							<dayPeriod type="afternoon1">দুপুর</dayPeriod>
+							<dayPeriod type="afternoon2">বিকাল</dayPeriod>
+							<dayPeriod type="evening1">সন্ধ্যা</dayPeriod>
+							<dayPeriod type="night1">রাত্রি</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am">↑↑↑</dayPeriod>
-							<dayPeriod type="pm">↑↑↑</dayPeriod>
+							<dayPeriod type="am">AM</dayPeriod>
+							<dayPeriod type="pm">PM</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">↑↑↑</dayPeriod>
-							<dayPeriod type="pm">↑↑↑</dayPeriod>
-							<dayPeriod type="morning1">↑↑↑</dayPeriod>
-							<dayPeriod type="morning2">↑↑↑</dayPeriod>
-							<dayPeriod type="afternoon1">↑↑↑</dayPeriod>
-							<dayPeriod type="afternoon2">↑↑↑</dayPeriod>
-							<dayPeriod type="evening1">↑↑↑</dayPeriod>
-							<dayPeriod type="night1">↑↑↑</dayPeriod>
+							<dayPeriod type="am">AM</dayPeriod>
+							<dayPeriod type="pm">PM</dayPeriod>
+							<dayPeriod type="morning1">ভোর</dayPeriod>
+							<dayPeriod type="morning2">সকাল</dayPeriod>
+							<dayPeriod type="afternoon1">দুপুর</dayPeriod>
+							<dayPeriod type="afternoon2">বিকাল</dayPeriod>
+							<dayPeriod type="evening1">সন্ধ্যা</dayPeriod>
+							<dayPeriod type="night1">রাত্রি</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
 				<eras>
 					<eraNames>
-						<era type="0">↑↑↑</era>
-						<era type="0" alt="variant">↑↑↑</era>
+						<era type="0">খ্রিঃপূঃ</era>
+						<era type="0" alt="variant">খ্রিষ্টপূর্বাব্দ</era>
 						<era type="1">খ্রিষ্টাব্দ</era>
-						<era type="1" alt="variant">↑↑↑</era>
+						<era type="1" alt="variant">খ্রিষ্টাব্দ</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0">খ্রিঃপূঃ</era>
@@ -427,7 +427,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</eras>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="MMMMW" count="one">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="one">MMMM এর W নম্বর সপ্তাহ</dateFormatItem>
 						<dateFormatItem id="MMMMW" count="other">MMMM এর W নম্বর সপ্তাহ</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
@@ -436,32 +436,32 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<months>
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
-							<month type="1">↑↑↑</month>
-							<month type="2">↑↑↑</month>
-							<month type="3">↑↑↑</month>
-							<month type="4">↑↑↑</month>
-							<month type="5">↑↑↑</month>
-							<month type="6">↑↑↑</month>
-							<month type="7">↑↑↑</month>
-							<month type="8">↑↑↑</month>
-							<month type="9">↑↑↑</month>
-							<month type="10">↑↑↑</month>
-							<month type="11">↑↑↑</month>
-							<month type="12">↑↑↑</month>
+							<month type="1">চৈত্র</month>
+							<month type="2">বৈশাখ</month>
+							<month type="3">জৈষ্ঠ্য</month>
+							<month type="4">আষাঢ়</month>
+							<month type="5">শ্রাবণ</month>
+							<month type="6">ভাদ্র</month>
+							<month type="7">আশ্বিন</month>
+							<month type="8">কার্তিক</month>
+							<month type="9">অগ্রহায়ণ</month>
+							<month type="10">পৌষ</month>
+							<month type="11">মাঘ</month>
+							<month type="12">ফাল্গুন</month>
 						</monthWidth>
 						<monthWidth type="narrow">
-							<month type="1">↑↑↑</month>
-							<month type="2">↑↑↑</month>
-							<month type="3">↑↑↑</month>
-							<month type="4">↑↑↑</month>
-							<month type="5">↑↑↑</month>
-							<month type="6">↑↑↑</month>
-							<month type="7">↑↑↑</month>
-							<month type="8">↑↑↑</month>
-							<month type="9">↑↑↑</month>
-							<month type="10">↑↑↑</month>
-							<month type="11">↑↑↑</month>
-							<month type="12">↑↑↑</month>
+							<month type="1">১</month>
+							<month type="2">২</month>
+							<month type="3">৩</month>
+							<month type="4">৪</month>
+							<month type="5">৫</month>
+							<month type="6">৬</month>
+							<month type="7">৭</month>
+							<month type="8">৮</month>
+							<month type="9">৯</month>
+							<month type="10">১০</month>
+							<month type="11">১১</month>
+							<month type="12">১২</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">↑↑↑</month>
@@ -480,18 +480,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="abbreviated">
-							<month type="1">↑↑↑</month>
-							<month type="2">↑↑↑</month>
-							<month type="3">↑↑↑</month>
-							<month type="4">↑↑↑</month>
-							<month type="5">↑↑↑</month>
-							<month type="6">↑↑↑</month>
-							<month type="7">↑↑↑</month>
-							<month type="8">↑↑↑</month>
-							<month type="9">↑↑↑</month>
-							<month type="10">↑↑↑</month>
-							<month type="11">↑↑↑</month>
-							<month type="12">↑↑↑</month>
+							<month type="1">চৈত্র</month>
+							<month type="2">বৈশাখ</month>
+							<month type="3">জৈষ্ঠ্য</month>
+							<month type="4">আষাঢ়</month>
+							<month type="5">শ্রাবণ</month>
+							<month type="6">ভাদ্র</month>
+							<month type="7">আশ্বিন</month>
+							<month type="8">কার্তিক</month>
+							<month type="9">অগ্রহায়ণ</month>
+							<month type="10">পৌষ</month>
+							<month type="11">মাঘ</month>
+							<month type="12">ফাল্গুন</month>
 						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">↑↑↑</month>
@@ -508,17 +508,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="12">↑↑↑</month>
 						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1">↑↑↑</month>
-							<month type="2">↑↑↑</month>
-							<month type="4">↑↑↑</month>
-							<month type="5">↑↑↑</month>
-							<month type="6">↑↑↑</month>
-							<month type="7">↑↑↑</month>
-							<month type="8">↑↑↑</month>
-							<month type="9">↑↑↑</month>
-							<month type="10">↑↑↑</month>
-							<month type="11">↑↑↑</month>
-							<month type="12">↑↑↑</month>
+							<month type="1">চৈত্র</month>
+							<month type="2">বৈশাখ</month>
+							<month type="4">আষাঢ়</month>
+							<month type="5">শ্রাবণ</month>
+							<month type="6">ভাদ্র</month>
+							<month type="7">আশ্বিন</month>
+							<month type="8">কার্তিক</month>
+							<month type="9">অগ্রহায়ণ</month>
+							<month type="10">পৌষ</month>
+							<month type="11">মাঘ</month>
+							<month type="12">ফাল্গুন</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -532,46 +532,46 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="year-short">
-				<displayName>↑↑↑</displayName>
+				<displayName>বছর</displayName>
 			</field>
 			<field type="year-narrow">
-				<displayName>↑↑↑</displayName>
+				<displayName>বছর</displayName>
 			</field>
 			<field type="quarter">
 				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="quarter-short">
-				<displayName>↑↑↑</displayName>
+				<displayName>ত্রৈমাসিক</displayName>
 			</field>
 			<field type="quarter-narrow">
-				<displayName>↑↑↑</displayName>
+				<displayName>ত্রৈমাসিক</displayName>
 			</field>
 			<field type="month">
 				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="month-short">
-				<displayName>↑↑↑</displayName>
+				<displayName>মাস</displayName>
 			</field>
 			<field type="month-narrow">
-				<displayName>↑↑↑</displayName>
+				<displayName>মাস</displayName>
 			</field>
 			<field type="week">
 				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="week-short">
-				<displayName>↑↑↑</displayName>
+				<displayName>সপ্তাহ</displayName>
 			</field>
 			<field type="week-narrow">
-				<displayName>↑↑↑</displayName>
+				<displayName>সপ্তাহ</displayName>
 			</field>
 			<field type="day">
 				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="day-short">
-				<displayName>↑↑↑</displayName>
+				<displayName>দিন</displayName>
 			</field>
 			<field type="day-narrow">
-				<displayName>↑↑↑</displayName>
+				<displayName>দিন</displayName>
 			</field>
 			<field type="weekday">
 				<displayName>↑↑↑</displayName>
@@ -589,11 +589,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	<numbers>
 		<minimumGroupingDigits draft="contributed">↑↑↑</minimumGroupingDigits>
 		<symbols numberSystem="beng">
-			<decimal>↑↑↑</decimal>
-			<group>↑↑↑</group>
-			<percentSign>↑↑↑</percentSign>
-			<plusSign>↑↑↑</plusSign>
-			<minusSign>↑↑↑</minusSign>
+			<decimal>.</decimal>
+			<group>,</group>
+			<percentSign>%</percentSign>
+			<plusSign>+</plusSign>
+			<minusSign>-</minusSign>
 		</symbols>
 		<symbols numberSystem="latn">
 			<decimal>↑↑↑</decimal>
@@ -611,7 +611,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<decimalFormats numberSystem="beng">
 			<decimalFormatLength>
 				<decimalFormat>
-					<pattern>↑↑↑</pattern>
+					<pattern>#,##,##0.###</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
@@ -625,7 +625,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<scientificFormats numberSystem="beng">
 			<scientificFormatLength>
 				<scientificFormat>
-					<pattern>↑↑↑</pattern>
+					<pattern>#E0</pattern>
 				</scientificFormat>
 			</scientificFormatLength>
 		</scientificFormats>
@@ -653,9 +653,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<currencyFormats numberSystem="beng">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
-					<pattern>↑↑↑</pattern>
+					<pattern>¤#,##,##0.00</pattern>
 					<pattern alt="alphaNextToNumber">¤ #,##,##0.00</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
+					<pattern alt="noCurrency">#,##,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
@@ -676,158 +676,158 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<currencies>
 			<currency type="ANG">
 				<displayName>নেদারল্যান্ডস অ্যান্টিলিয়ান গিল্ডার</displayName>
-				<displayName count="one">↑↑↑</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="one">নেদারল্যান্ডস অ্যান্টিলিয়ান গিল্ডার</displayName>
+				<displayName count="other">নেদারল্যান্ডস অ্যান্টিলিয়ান গিল্ডার</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="AWG">
 				<displayName>আরুবান গিল্ডার</displayName>
-				<displayName count="one">↑↑↑</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="one">আরুবান গিল্ডার</displayName>
+				<displayName count="other">আরুবান গিল্ডার</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="BBD">
 				<displayName>↑↑↑</displayName>
-				<displayName count="one">↑↑↑</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="one">বার্বেডোজ ডলার</displayName>
+				<displayName count="other">বার্বেডোজ ডলার</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="BMD">
 				<displayName>বারমুডান ডলার</displayName>
-				<displayName count="one">↑↑↑</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="one">বারমুডান ডলার</displayName>
+				<displayName count="other">বারমুডান ডলার</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="BSD">
 				<displayName>↑↑↑</displayName>
-				<displayName count="one">↑↑↑</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="one">বাহামিয়ান ডলার</displayName>
+				<displayName count="other">বাহামিয়ান ডলার</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="BZD">
 				<displayName>↑↑↑</displayName>
-				<displayName count="one">↑↑↑</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="one">বেলিজ ডলার</displayName>
+				<displayName count="other">বেলিজ ডলার</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="CAD">
 				<displayName>↑↑↑</displayName>
-				<displayName count="one">↑↑↑</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="one">কানাডিয়ান ডলার</displayName>
+				<displayName count="other">কানাডিয়ান ডলার</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="CRC">
 				<displayName>↑↑↑</displayName>
-				<displayName count="one">↑↑↑</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="one">কোস্টা রিকা কোলোন</displayName>
+				<displayName count="other">কোস্টা রিকা কোলোন</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="CUC">
 				<displayName>↑↑↑</displayName>
-				<displayName count="one">↑↑↑</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="one">কিউবান রূপান্তরযোগ্য পেসো</displayName>
+				<displayName count="other">কিউবান রূপান্তরযোগ্য পেসো</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="CUP">
 				<displayName>↑↑↑</displayName>
-				<displayName count="one">↑↑↑</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="one">কিউবান পেসো</displayName>
+				<displayName count="other">কিউবান পেসো</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="DOP">
 				<displayName>↑↑↑</displayName>
-				<displayName count="one">↑↑↑</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="one">ডোমিনিকান পেসো</displayName>
+				<displayName count="other">ডোমিনিকান পেসো</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName>↑↑↑</displayName>
-				<displayName count="one">↑↑↑</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="one">ইউরো</displayName>
+				<displayName count="other">ইউরো</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="GTQ">
 				<displayName>গুয়াতেমালান কেৎসাল</displayName>
-				<displayName count="one">↑↑↑</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="one">গুয়াতেমালান কেৎসাল</displayName>
+				<displayName count="other">গুয়াতেমালান কেৎসাল</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="HNL">
 				<displayName>হন্ডুরান লেম্পিরা</displayName>
-				<displayName count="one">↑↑↑</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="one">হন্ডুরান লেম্পিরা</displayName>
+				<displayName count="other">হন্ডুরান লেম্পিরা</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="HTG">
 				<displayName>হাইতিয়ান গুর্দ</displayName>
-				<displayName count="one">↑↑↑</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="one">হাইতিয়ান গুর্দ</displayName>
+				<displayName count="other">হাইতিয়ান গুর্দ</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="JMD">
 				<displayName>↑↑↑</displayName>
-				<displayName count="one">↑↑↑</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="one">জামাইকান ডলার</displayName>
+				<displayName count="other">জামাইকান ডলার</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="KYD">
 				<displayName>↑↑↑</displayName>
-				<displayName count="one">↑↑↑</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="one">কেম্যান দ্বীপপুঞ্জের ডলার</displayName>
+				<displayName count="other">কেম্যান দ্বীপপুঞ্জের ডলার</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="MXN">
 				<displayName>মেক্সিকান পেসো</displayName>
-				<displayName count="one">↑↑↑</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="one">মেক্সিকান পেসো</displayName>
+				<displayName count="other">মেক্সিকান পেসো</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="NIO">
 				<displayName>↑↑↑</displayName>
-				<displayName count="one">↑↑↑</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="one">নিকারাগুয়ান কর্ডোবা</displayName>
+				<displayName count="other">নিকারাগুয়ান কর্ডোবা</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="PAB">
 				<displayName>↑↑↑</displayName>
-				<displayName count="one">↑↑↑</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="one">পানামানিয়ান বালবোয়া</displayName>
+				<displayName count="other">পানামানিয়ান বালবোয়া</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="TTD">
 				<displayName>↑↑↑</displayName>
-				<displayName count="one">↑↑↑</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="one">ত্রিনিদাদ এবং টোবাগো ডলার</displayName>
+				<displayName count="other">ত্রিনিদাদ এবং টোবাগো ডলার</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="USD">
 				<displayName>↑↑↑</displayName>
-				<displayName count="one">↑↑↑</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="one">মার্কিন ডলার</displayName>
+				<displayName count="other">মার্কিন ডলার</displayName>
 				<symbol draft="contributed">$</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="XCD">
 				<displayName>পূর্ব ক্যারিবিয়ান ডলার</displayName>
-				<displayName count="one">↑↑↑</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="one">পূর্ব ক্যারিবিয়ান ডলার</displayName>
+				<displayName count="other">পূর্ব ক্যারিবিয়ান ডলার</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
@@ -881,14 +881,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</unitLength>
 		<unitLength type="narrow">
 			<compoundUnit type="per">
-				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
+				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<compoundUnit type="times">
-				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
+				<compoundUnitPattern>{0}⋅{1}</compoundUnitPattern>
 			</compoundUnit>
 			<coordinateUnit>
-				<displayName>↑↑↑</displayName>
-				<coordinateUnitPattern type="east">↑↑↑</coordinateUnitPattern>
+				<displayName>দিক</displayName>
+				<coordinateUnitPattern type="east">{0}পূ</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">↑↑↑</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">↑↑↑</coordinateUnitPattern>
 				<coordinateUnitPattern type="west">↑↑↑</coordinateUnitPattern>

@@ -48,9 +48,6 @@ Please view the subcommittee page for the most recent information.
 <!ATTLIST info author CDATA #IMPLIED >
     <!--@MATCH:any-->
     <!--@VALUE-->
-<!ATTLIST info normalization CDATA #IMPLIED >
-    <!--@MATCH:literal/NFC, NFD, other-->
-    <!--@VALUE-->
 <!ATTLIST info layout CDATA #IMPLIED >
     <!--@MATCH:any-->
     <!--@VALUE-->
@@ -76,6 +73,10 @@ Please view the subcommittee page for the most recent information.
     <!--@TECHPREVIEW-->
 <!ATTLIST settings fallback (omit) #IMPLIED >
     <!--@VALUE-->
+<!ATTLIST settings normalization CDATA #IMPLIED >
+    <!--@MATCH:literal/mixed-->
+    <!--@VALUE-->
+
 
 <!ELEMENT vkeys ( import*, vkey*, special* ) >
     <!--@TECHPREVIEW-->

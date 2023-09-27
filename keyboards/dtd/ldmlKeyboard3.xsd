@@ -99,13 +99,10 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
   <xs:element name="info">
     <xs:complexType>
       <xs:attribute name="author"/>
-      <xs:attribute name="normalization"/>
       <xs:attribute name="layout"/>
       <xs:attribute name="indicator"/>
     </xs:complexType>
   </xs:element>
-  
-  
   
   
   
@@ -143,8 +140,11 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
+      <xs:attribute name="normalization"/>
     </xs:complexType>
   </xs:element>
+  
+  
   
   
   

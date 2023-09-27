@@ -486,7 +486,6 @@ Element containing informative properties about the layout, for displaying in us
 
 ```xml
 <info [author="{author}"]
-      [normalization="{form}"]
       [layout="{hint of the layout}"]
       [indicator="{short identifier}"] />
 ```
@@ -504,16 +503,6 @@ Element containing informative properties about the layout, for displaying in us
 _Attribute:_ `author`
 
 > The `author` attribute contains the name of the author of the layout file.
-
-_Attribute:_ `normalization`
-
-> The `normalization` attribute describes the intended normalization form of the keyboard layout output. The valid values are `NFC`, `NFD` or `other`.
->
-> An example use case is aiding a user to choose among the two same layouts with one outputting characters in the normalization form C and one in the normalization form D.
->
-> All keyboards in the CLDR repository will be in `NFC` or `NFD` forms.  However, users and implementations may produce and consume other normalization forms or mixed output, use the `other` value to indicate this case.
->
-> When using `NFC` or `NFD`, tooling should verify that all possible keystrokes, gestures, and transforms on the keyboard only produce the specified normalization form, producing warnings if not.
 
 _Attribute:_ `layout`
 
@@ -596,7 +585,7 @@ An element used to keep track of layout specific settings. This element may or m
 **Syntax**
 
 ```xml
-<settings [fallback="omit"] [transformFailure="omit"] [transformPartial="hide"] />
+<settings fallback="omit" normalization="mixed" />
 ```
 
 > <small>
@@ -631,6 +620,26 @@ Indicates that:
 1.  When a modifier combination goes unmatched, do not output anything when a key is pressed.
 2.  If a transform is escaped, output the contents of the buffer.
 3.  During a transform, hide the contents of the buffer as the user is typing.
+
+_Attribute:_ `normalization`
+
+> Normalization will not typically be the responsibility of the keyboard author, rather this will be managed by the implementation.
+> Output from the keyboard, following application of all transform rules, will be normalized to implementation or application-requested form.
+>
+> However, it is recognized that there may be some keyboards which, for compatibility or legacy reasons, need to manage their own normalization. The implementation in that case will do no normalization at all. The keyboard author must make use of transforms in the keyboard to any required normalization.
+>
+> **Note**: while this attribute is allowed by the specification, its use is discouraged, and keyboards with `normalization="mixed"` would not be accepted into the ClDR repository.
+
+
+**Example**
+
+```xml
+<keyboard3 locale="bg">
+    …
+    <settings normalization="mixed" />
+    …
+</keyboard3>
+```
 
 * * *
 
@@ -957,7 +966,7 @@ split up their keyboard into multiple files, as the intent is for each single XM
 `<import>` can be used as a child of a number of elements (see the _Parents_ section immediately below). Multiple `<import>` elements may be used, however, `<import>` elements must come before any other sibling elements.
 If two identical elements are defined, the later element will take precedence, that is, override.
 
-**Note:** imported files do not have any indication of their normalization mode. For this reason, the keyboard author must verify that the imported file is of a compatible normalization mode. See the [`info` element](#Element_info) for further details.
+**Note:** imported files do not have any indication of their normalization mode. For this reason, the keyboard author must verify that the imported file is of a compatible normalization mode. See the [`settings` element](#element-settings) for further details.
 
 **Syntax**
 ```xml

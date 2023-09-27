@@ -624,6 +624,7 @@ Indicates that:
 _Attribute:_ `normalization`
 
 > Normalization will not typically be the responsibility of the keyboard author, rather this will be managed by the implementation.
+> The implementation will apply normalization as appropriate when matching transform rules and `<display>` value matching.
 > Output from the keyboard, following application of all transform rules, will be normalized to implementation or application-requested form.
 >
 > However, it is recognized that there may be some keyboards which, for compatibility or legacy reasons, need to manage their own normalization. The implementation in that case will do no normalization at all. The keyboard author must make use of transforms in the keyboard to any required normalization.

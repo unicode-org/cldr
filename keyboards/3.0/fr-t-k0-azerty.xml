@@ -23,22 +23,6 @@
 	</names>
 	<settings fallback="omit" />
 
-	<vkeys>
-		<vkey from="Q" to="A" />
-		<vkey from="W" to="Z" />
-		<vkey from="A" to="Q" />
-		<vkey from="Z" to="W" />
-		<vkey from="BKQUOTE" to="QUOTE" /> <!-- i.e., OEM_3 >>> OEM_7 -->
-		<vkey from="MINUS" to="LBRKT" />
-		<vkey from="LBRKT" to="RBRKT" />
-		<vkey from="COLON" to="M" />
-		<vkey from="QUOTE" to="BKQUOTE" />
-		<vkey from="M" to="COMMA" />
-		<vkey from="COMMA" to="PERIOD" />
-		<vkey from="PERIOD" to="SLASH" />
-		<vkey from="SLASH" to="EXCLAMATION" /> <!-- i.e., OEM_2 >>> OEM_8 -->
-	</vkeys>
-
 	<displays>
 		<!-- Note: displays is only used for keycap presentation -->
 		<!-- this example is not required for this keyboard as we use the spacing

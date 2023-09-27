@@ -69,7 +69,7 @@ The LDML specification is divided into the following parts:
 * [File and Directory Structure](#File_and_Dir_Structure)
   * [Extensibility](#Extensibility)
 * [Element Hierarchy](#element-hierarchy)
-  * [Element: keyboard](#Element_Keyboard)
+  * [Element: keyboard3](#Element_Keyboard)
   * [Element: locales](#Element_locales)
   * [Element: locale](#Element_locale)
   * [Element: version](#Element_version)
@@ -92,8 +92,6 @@ The LDML specification is divided into the following parts:
   * [Element: layers](#Element_layers)
   * [Element: layer](#Element_layer)
   * [Element: row](#Element_row)
-  * [Element: vkeys](#Element_vkeys)
-  * [Element: vkey](#Element_vkey)
   * [Element: variables](#Element_variables)
   * [Element: string](#element-string)
   * [Element: set](#element-set)
@@ -116,7 +114,6 @@ The LDML specification is divided into the following parts:
 * [Keyboard IDs](#Keyboard_IDs)
   * [Principles for Keyboard IDs](#Principles_for_Keyboard_IDs)
 * [Platform Behaviors in Edge Cases](#Platform_Behaviors_in_Edge_Cases)
-* [CLDR VKey Enum](#CLDR_VKey_Enum)
 * [Keyboard Test Data](#keyboard-test-data)
   * [Test Doctype](#test-doctype)
   * [Test Element: keyboardTest](#test-element-keyboardtest)
@@ -172,7 +169,7 @@ Some goals of this format are:
 Some non-goals (outside the scope of the format) currently are:
 
 1. Adaptation for screen scaling resolution. Instead, keyboards should define layouts based on physical size. Platforms may interpret physical size definitions and adapt for different physical screen sizes with different resolutions.
-2. Unification of platform-specific vkey and scan code mapping tables.
+2. Unification of platform-specific virtual key and scan code mapping tables.
 3. Unification of pre-existing platform layouts themselves (e.g. existing fr-azerty on platform a, b, c).
 4. Support for prior (pre 3.0) CLDR keyboard files. See [Compatibility Notice](#Compatibility_Notice).
 5. Run-time efficiency. [LDML is explicitly an interchange format](./tr35.md#Introduction), and so it is expected that data will be transformed to a more compact format for use by a keystroke processing engine.
@@ -336,7 +333,7 @@ This is the top level element. All other elements defined below are under this e
 >
 > Parents: _none_
 >
-> Children: [displays](#Element_displays), [import](#Element_import), [info](#Element_info), [keys](#Element_keys), [layers](#Element_layers), [locales](#Element_locales), [names](#Element_names), [settings](#Element_settings), [_special_](tr35.md#special), [transforms](#Element_transforms), [variables](#Element_variables), [version](#Element_version), [vkeys](#Element_vkeys)
+> Children: [displays](#Element_displays), [import](#Element_import), [info](#Element_info), [keys](#Element_keys), [layers](#Element_layers), [locales](#Element_locales), [names](#Element_names), [settings](#Element_settings), [_special_](tr35.md#special), [transforms](#Element_transforms), [variables](#Element_variables), [version](#Element_version)
 >
 > Occurrence: required, single
 >
@@ -950,7 +947,7 @@ where a flick to the Northeast then South produces two code points.
 ### <a name="Element_import" href="#Element_import">Element: import</a>
 
 The `import` element is used to reference another xml file so that elements are imported from
-another file. The use case is to be able to import a standard set of vkeys, transforms, and similar
+another file. The use case is to be able to import a standard set of transforms, and similar
 from the CLDR repository.  `<import>` is not recommended as a way for keyboard authors to
 split up their keyboard into multiple files, as the intent is for each single XML file to contain all that is needed for a keyboard layout.
 
@@ -965,8 +962,7 @@ If two identical elements are defined, the later element will take precedence, t
 ```
 > <small>
 >
-> Parents: [displays](#Element_displays), [keyboard3](#Element_keyboard), [keys](#Element_keys), [layers](#Element_layers), [names](#Element_names), [reorders](#Element_reorders), [transformGroup](#Element_transformGroup), [transforms](#Element_transforms), [variables](#Element_variables), [vkeys](#Element_vkeys)
->
+> Parents: [displays](#Element_displays), [keyboard3](#Element_keyboard), [keys](#Element_keys), [layers](#Element_layers), [names](#Element_names), [reorders](#Element_reorders), [transformGroup](#Element_transformGroup), [transforms](#Element_transforms), [variables](#Element_variables)
 > Children: _none_
 >
 > Occurrence: optional, multiple
@@ -1434,79 +1430,6 @@ Here is an example of a `row` element:
 
 ```xml
 <row keys="a z e r t y u i o p caret dollar" />
-```
-
-* * *
-
-### <a name="Element_vkeys" href="#Element_vkeys">Element: vkeys</a>
-
-On some architectures, applications may directly interact with keys before they are converted to characters. The keys are identified using a virtual key identifier or vkey. The mapping between a physical keyboard key and a vkey is keyboard-layout dependent. For example, a French keyboard would identify the top-left key as being an `A` with a vkey of `A` as opposed to `Q` on a US English keyboard. While vkeys are layout dependent, they are not modifier dependent. A shifted key always has the same vkey as its unshifted counterpart. In effect, a key may be identified by its vkey and the modifiers active at the time the key was pressed.
-
-**Syntax**
-
-```xml
-<vkeys>
-    {a set of vkey elements}
-</vkeys>
-```
-
-> <small>
->
-> Parents: [keyboard3](#Element_keyboard)
->
-> Children: [import](#Element_import), [_special_](tr35.md#special), [vkey](#Element_vkey)
->
-> Occurrence: optional, single
->
-> </small>
-
-There is at most a single vkeys element per keyboard.
-
-A `vkeys` element consists of a list of `vkey` elements.
-
-* * *
-
-### <a name="Element_vkey" href="#Element_vkey">Element: vkey</a>
-
-A `vkey` element describes a mapping between a key and a vkey.
-
-**Syntax**
-
-```xml
-<vkey from="{from}" to="{to}" />
-```
-
-> <small>
->
-> Parents: [vkeys](#Element_vkeys)
->
-> Children: _none_
->
-> Occurrence: required, multiple
->
-> </small>
-
-_Attribute:_ `from` (required)
-
-> The vkey being mapped from. See [CLDR VKey Enum](#CLDR_VKey_Enum) for a reference table.
-
-_Attribute:_ `to` (required)
-
-> The resultant vkey identifier. See [CLDR VKey Enum](#CLDR_VKey_Enum) for a reference table.
-
-**Example**
-
-This example shows some of the mappings for a French keyboard layout:
-
-```xml
-<keyboard3>
-    <vkeys>
-		  <vkey from="Q" to="A" />
-		  <vkey from="W" to="Z" />
-		  <vkey from="A" to="Q" />
-		  <vkey from="Z" to="W" />
-    </vkeys>
-</keyboard3>
 ```
 
 * * *
@@ -2592,69 +2515,6 @@ The following are the design principles for the IDs.
 | Chrome OS | Fall back to base | Fall back to character in a keyMap with same "level" of modifier combination. If this character does not exist, fall back to (n-1) level. (This is handled data-generation-side.) <br/> In the specification: No output | No output at all |
 | Mac OS X  | Fall back to base (unless combination is some sort of keyboard shortcut, e.g. cmd-c) | No output | Both keys are output separately |
 | Windows  | No output | No output | Both keys are output separately |
-
-* * *
-
-## <a name="CLDR_VKey_Enum" href="#CLDR_VKey_Enum">CLDR VKey Enum</a></a>
-
-In the following chart, “CLDR Name” indicates the value used with the `from` and `to` attributes of the [vkey](#Element_vkey) element.
-
-| CLDR Name | US English ISO | Hex<sup>1</sup> | Notes       |
-|-----------|----------------|-----------------|-------------|
-| SPACE     | A03            | 0x20            |
-| 0         | E10            | 0x30            |
-| 1         | E01            | 0x31            |
-| 2         | E02            | 0x32            |
-| 3         | E03            | 0x33            |
-| 4         | E04            | 0x34            |
-| 5         | E05            | 0x35            |
-| 6         | E06            | 0x36            |
-| 7         | E07            | 0x37            |
-| 8         | E08            | 0x38            |
-| 9         | E09            | 0x39            |
-| A         | C01            | 0x41            |
-| B         | B05            | 0x42            |
-| C         | B03            | 0x43            |
-| D         | C03            | 0x44            |
-| E         | D03            | 0x45            |
-| F         | C04            | 0x46            |
-| G         | C05            | 0x47            |
-| H         | C06            | 0x48            |
-| I         | D08            | 0x49            |
-| J         | C07            | 0x4A            |
-| K         | C08            | 0x4B            |
-| L         | C09            | 0x4C            |
-| M         | B07            | 0x4D            |
-| N         | B06            | 0x4E            |
-| O         | D09            | 0x4F            |
-| P         | D10            | 0x50            |
-| Q         | D01            | 0x51            |
-| R         | D04            | 0x52            |
-| S         | C02            | 0x53            |
-| T         | D05            | 0x54            |
-| U         | D07            | 0x55            |
-| V         | B05            | 0x56            |
-| W         | D02            | 0x57            |
-| X         | B02            | 0x58            |
-| Y         | D06            | 0x59            |
-| Z         | B01            | 0x5A            |
-| SEMICOLON | C10            | 0xBA            |
-| EQUAL     | E12            | 0xBB            |
-| COMMA     | B08            | 0xBC            |
-| HYPHEN    | E11            | 0xBD            |
-| PERIOD    | B09            | 0xBE            |
-| SLASH     | B10            | 0xBF            |
-| GRAVE     | E00            | 0xC0            |
-| LBRACKET  | D11            | 0xDB            |
-| BACKSLASH | D13            | 0xDC            |
-| RBRACKET  | D12            | 0xDD            |
-| QUOTE     | C11            | 0xDE            |
-| LESS-THAN | B00            | 0xE2            | 102nd key on European layouts, right of left shift.                  |
-| ABNT2     | B11            | 0xC1            | Extra key, left of right-shift, Brazilian Portuguese ABNT2 keyboards |
-
-Footnotes:
-
-* <sup>1</sup> Hex value from Windows, web standards, Keyman, etc.
 
 * * *
 

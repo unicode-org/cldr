@@ -474,7 +474,7 @@ _Attribute:_ `cldrVersion` (fixed by DTD)
 ```xml
 <keyboard3 locale="tok">
     …
-    <version numb  er="1"/>
+    <version number="1"/>
     …
 </keyboard3>
 ```
@@ -988,7 +988,7 @@ _Attribute:_ `base`
 _Attribute:_ `path` (required)
 
 > If `base` is `cldr`, then the `path` must start with a CLDR version (such as `techpreview`) representing the CLDR version to pull imports from. The imports are located in the `keyboard/import` subdirectory of the CLDR source repository.
-> Implementations are not required to have any or all all CLDR versions available to them.
+> Implementations are not required to have all CLDR versions available to them.
 >
 > If `base` is omitted, then `path` is an absolute or relative file path.
 
@@ -1324,15 +1324,15 @@ _Attribute:_ `form` (required)
 > This attribute specifies the physical layout of a hardware keyboard,
 > or that the form is a `touch` layout.
 >
-> When using an on-screen keyboard, if there is not a `<layers form="touch">`
-> element, the hardware elements can be used for on-screen use. 
+> When using an on-screen touch keyboard, if the keyboard does not specify a `<layers form="touch">`
+> element, a `<layers form="{hardware}">` element can be used as an fallback alternative.
 > If there is no `hardware` form, the implementation may need
 > to choose a different keyboard file, or use some other fallback behavior when using a
 > hardware keyboard.
 >
 > Because a hardware keyboard facilitates non-trivial amounts of text input,
-> it is recommended to always have at least one hardware (non-touch) form, unless a layout
-> will only be used in touch form.
+> and many touch devices can also be connected to a hardware keyboard, it
+> is recommended to always have at least one hardware (non-touch) form.
 >
 > Multiple `<layers form="touch">` elements are allowed with distinct `minDeviceWidth` values.
 > At most one hardware (non-`touch`) `<layers>` element is allowed. If a different key arrangement is desired between, for example, `us` and `iso` formats, these should be separated into two different keyboards.

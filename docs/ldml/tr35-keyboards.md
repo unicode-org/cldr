@@ -1406,7 +1406,7 @@ _Attribute:_ `modifier` (required for `hardware`)
 >
 > The set of modifiers must match `(none|([A-Za-z0-9]+)( [A-Za-z0-9]+)*)`
 >
-> To share a layer between to modifier sets, the layer data must be duplicated.
+> To share a layer between two modifier sets, the layer data must be duplicated.
 
 * * *
 

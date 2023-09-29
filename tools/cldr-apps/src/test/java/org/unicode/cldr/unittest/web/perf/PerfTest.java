@@ -6,7 +6,7 @@
  */
 package org.unicode.cldr.unittest.web.perf;
 
-import com.ibm.icu.dev.tool.UOption;
+import com.ibm.icu.dev.tool.shared.UOption;
 import com.ibm.icu.impl.LocaleUtility;
 import java.io.BufferedReader;
 import java.io.FileInputStream;

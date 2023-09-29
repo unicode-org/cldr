@@ -9,7 +9,7 @@
 
 package org.unicode.cldr.tool;
 
-import com.ibm.icu.dev.tool.UOption;
+import com.ibm.icu.dev.tool.shared.UOption;
 import com.ibm.icu.lang.UCharacter;
 import java.io.BufferedWriter;
 import java.io.FileWriter;

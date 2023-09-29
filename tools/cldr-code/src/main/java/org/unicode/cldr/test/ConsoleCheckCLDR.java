@@ -1,6 +1,6 @@
 package org.unicode.cldr.test;
 
-import com.ibm.icu.dev.tool.UOption;
+import com.ibm.icu.dev.tool.shared.UOption;
 import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;

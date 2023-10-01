@@ -1,18 +1,5 @@
 package org.unicode.cldr.unittest;
 
-import com.google.common.base.Joiner;
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.Sets;
-import com.ibm.icu.dev.util.UnicodeMap;
-import com.ibm.icu.impl.Utility;
-import com.ibm.icu.lang.UCharacter;
-import com.ibm.icu.lang.UCharacterEnums.ECharacterCategory;
-import com.ibm.icu.lang.UScript;
-import com.ibm.icu.text.Normalizer2;
-import com.ibm.icu.text.RuleBasedTransliterator;
-import com.ibm.icu.text.Transliterator;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.ULocale;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -32,6 +19,7 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.CLDRConfig;
@@ -49,6 +37,20 @@ import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.UnicodeRelation;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
+
+import com.google.common.base.Joiner;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Sets;
+import com.ibm.icu.dev.util.UnicodeMap;
+import com.ibm.icu.impl.Utility;
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.lang.UCharacterEnums.ECharacterCategory;
+import com.ibm.icu.lang.UScript;
+import com.ibm.icu.text.Normalizer2;
+import com.ibm.icu.text.RuleBasedTransliterator;
+import com.ibm.icu.text.Transliterator;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.ULocale;
 
 public class TestTransforms extends TestFmwkPlus {
     private static final String GENERATE_FILE =
@@ -116,16 +118,13 @@ public class TestTransforms extends TestFmwkPlus {
         Transliterator latin_cyrillic = cyrillic_latin.getInverse();
         checkSimpleRoundTrip(cyrillic_latin, latin_cyrillic, new UnicodeSet("[ӧӦ ӱӰӯӮ\\p{M}]"));
         String[][] tests = {
-            {"х", "kh"},
-            {"Ха", "Kha"},
-            {"Х", "KH"},
-            {"кһ", "k‧h"},
-            {"Кһа", "K‧ha"},
-            {"КҺ", "K‧H"},
+            {"х", "h"},
+            {"Ха", "Ha"},
+            {"Х", "H"},
             {"к", "k"},
             {"К", "K"},
-            {"һ", "h"},
-            {"Һ", "H"},
+            {"һ", "ḫ"},
+            {"Һ", "Ḫ"},
         };
         int count = 0;
         for (String[] test : tests) {

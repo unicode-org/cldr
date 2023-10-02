@@ -116,16 +116,13 @@ public class TestTransforms extends TestFmwkPlus {
         Transliterator latin_cyrillic = cyrillic_latin.getInverse();
         checkSimpleRoundTrip(cyrillic_latin, latin_cyrillic, new UnicodeSet("[ӧӦ ӱӰӯӮ\\p{M}]"));
         String[][] tests = {
-            {"х", "kh"},
-            {"Ха", "Kha"},
-            {"Х", "KH"},
-            {"кһ", "k‧h"},
-            {"Кһа", "K‧ha"},
-            {"КҺ", "K‧H"},
+            {"х", "h"},
+            {"Ха", "Ha"},
+            {"Х", "H"},
             {"к", "k"},
             {"К", "K"},
-            {"һ", "h"},
-            {"Һ", "H"},
+            {"һ", "ḫ"},
+            {"Һ", "Ḫ"},
         };
         int count = 0;
         for (String[] test : tests) {

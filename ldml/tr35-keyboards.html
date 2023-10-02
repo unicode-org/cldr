@@ -691,6 +691,8 @@
 
 
 
+
+
 <script src="./js/anchor.min.js"></script><div class="header"><table class="header" cellpadding="0" cellspacing="0" width="100%">
     <tbody>
         <tr>
@@ -835,7 +837,7 @@ status, the latest information, or to provide feedback.</p><h2 id="Parts"><a nam
 <p>“More and more language communities are determining that digitization is vital to their approach to language preservation and that engagement with Unicode is essential to becoming fully digitized. For many of these communities, however, getting new characters or a new script added to The Unicode Standard is not the end of their journey. The next, often more challenging stage is to get device makers, operating systems, apps and services to implement the script requirements that Unicode has just added to support their language. …</p>
 <p>“However, commensurate improvements to streamline new language support on the input side have been lacking. CLDR’s new Keyboard Subcommittee has been established to address this very gap.”
 <em>(Cornelius et. al, “Standardizing Keyboards with CLDR,” presented at the 45th Internationalization and Unicode Conference, Santa Clara, California, USA, October 2021)</em></p>
-</blockquote><p>The CLDR keyboard format seeks to address these challenges, by providing an interchange format for the communication of keyboard mapping data independent of vendors and platforms. Keyboard authors can then create a single mapping file for their language, which implementations can use to provide that language’s keyboard mapping on their own platform.</p><p>Additionally, the standardized identifier for keyboards can be used to communicate, internally or externally, a request for a particular keyboard mapping that is to be used to transform either text or keystrokes. The corresponding data can then be used to perform the requested actions.  For example, a remote screen-access application (such as used for customer service or server management) would be able to communicate and choose the same keyboard layout on the remote device as is used in front of the user, even if the two systems used different platforms.</p><p>The data can also be used in analysis of the capabilities of different keyboards. It also allows better interoperability by making it easier for keyboard designers to see which characters are generally supported on keyboards for given languages.</p><!-- To illustrate this specification, here is an abridged layout representing the English US 101 keyboard on the macOS operating system (with an inserted long-press example). --><p>For complete examples, see the XML files in the CLDR source repository.</p><hr><h2 id="Goals_and_Nongoals"><a name="goals-and-non-goals" href="#Goals_and_Nongoals">Goals and Non-goals</a></h2><p>Some goals of this format are:</p><ol>
+</blockquote><p>The CLDR keyboard format seeks to address these challenges, by providing an interchange format for the communication of keyboard mapping data independent of vendors and platforms. Keyboard authors can then create a single mapping file for their language, which implementations can use to provide that language’s keyboard mapping on their own platform.</p><p>Additionally, the standardized identifier for keyboards can be used to communicate, internally or externally, a request for a particular keyboard mapping that is to be used to transform either text or keystrokes. The corresponding data can then be used to perform the requested actions.  For example, a remote screen-access application (such as used for customer service or server management) would be able to communicate and choose the same keyboard layout on the remote device as is used in front of the user, even if the two systems used different platforms.</p><p>The data can also be used in analysis of the capabilities of different keyboards. It also allows better interoperability by making it easier for keyboard designers to see which characters are generally supported on keyboards for given languages.</p><!-- To illustrate this specification, here is an abridged layout representing the English US 101 keyboard on the macOS operating system (with an inserted long-press example). --><p>For complete examples, see the XML files in the CLDR source repository.</p><p>Attribute values should be evaluated considering the DTD and <a href="#DTD_Annotations">DTD Annotations</a>.</p><hr><h2 id="Goals_and_Nongoals"><a name="goals-and-non-goals" href="#Goals_and_Nongoals">Goals and Non-goals</a></h2><p>Some goals of this format are:</p><ol>
 <li>Physical and virtual keyboard layouts defined in a single file.</li>
 <li>Provide definitive platform-independent definitions for new keyboard layouts.<ul>
 <li>For example, a new French standard keyboard layout would have a single definition which would be usable across all implementations.</li>
@@ -859,11 +861,11 @@ status, the latest information, or to provide feedback.</p><h2 id="Parts"><a nam
 </ol><!-- 1. Display names or symbols for keycaps (eg, the German name for "Return"). If that were added to LDML, it would be in a different structure, outside the scope of this section.
 2. Advanced IME features, handwriting recognition, etc.
 3. Roundtrip mappings—the ability to recover precisely the same format as an original platform's representation. In particular, the internal structure may have no relation to the internal structure of external keyboard source data, the only goal is functional equivalence. --><!-- Note: During development of this section, it was considered whether the modifier RAlt (= AltGr) should be merged with Option. In the end, they were kept separate, but for comparison across platforms implementers may choose to unify them. --><p>Note that in parts of this document, the format <code>@x</code> is used to indicate the <em>attribute</em> <strong>x</strong>.</p><h3 id="Compatibility_Notice"><a name="compatibility-notice" href="#Compatibility_Notice">Compatibility Notice</a></h3><blockquote>
-<p>👉 Note: CLDR-TC has agreed that the changes required were too extensive to maintain compatibility. For this reason, the DTD used here is <em>not</em> compatible with DTDs from prior versions of CLDR such as v41 and prior.</p>
-<p>To process earlier XML files, use the prior DTD and specification, such as v41 found at <a href="https://www.unicode.org/reports/tr35/tr35-66/tr35.html">https://www.unicode.org/reports/tr35/tr35-66/tr35.html</a></p>
+<p>👉 Note: CLDR-TC has agreed that the changes required were too extensive to maintain compatibility. For this reason, the <code>ldmlKeyboard3.dtd</code> DTD used here is <em>not</em> compatible with DTDs from prior versions of CLDR such as v43 and prior.</p>
+<p>To process earlier XML files, use the data and specification from v43.1, found at <a href="https://www.unicode.org/reports/tr35/tr35-69/tr35.html">https://www.unicode.org/reports/tr35/tr35-69/tr35.html</a></p>
 </blockquote><h3 id="Accessibility"><a name="accessibility" href="#Accessibility">Accessibility</a></h3><p>Keyboard use can be challenging for individuals with various types of disabilities. For this revision, the committee is not evaluating features or architectural designs for the purpose of improving accessibility. Such consideration could be fruitful for future revisions. However, some points on this topic should be made:</p><ol>
 <li>Having an industry-wide standard format for keyboards will enable accessibility software to make use of keyboard data with a reduced dependence on platform-specific knowledge.</li>
-<li>Some features, such as multiTap and flicks, have the potential to reduce accessibility and thus should be discouraged. For example, multiTap requires pressing keys at a certain speed, and flicks require a more complex movement (press-and-flick) beyond a simple tap. Alternatively, inclusion of accessible methods of generating the same outputs (for example, simple keys on an additional layer), should be considered.</li>
+<li>Features which require certain levels of mobility or speed of entry should be considered for their impact on accessibility. This impact could be mitigated by means of additional, accessible methods of generating the same output.</li>
 <li>Public feedback is welcome on any aspects of this document which might hinder accessibility.</li>
 </ol><h2 id="Definitions"><a name="definitions" href="#Definitions">Definitions</a></h2><p><strong>Arrangement:</strong> The relative position of the rectangles that represent keys, either physically or virtually. A hardware keyboard has a static arrangement while a touch keyboard may have a dynamic arrangement that changes per language and/or layer. While the arrangement of keys on a keyboard may be fixed, the mapping of those keys may vary.</p><p><strong>Base character:</strong> The character emitted by a particular key when no modifiers are active. In ISO terms, this is group 1, level 1.</p><p><strong>Base character:</strong> The character emitted by a particular key when no modifiers are active. In ISO 9995-1:2009 terms, this is Group 1, Level 1.</p><p><strong>Core keys:</strong> also known as “alphanumeric” section. The primary set of key values on a keyboard that are used for typing the target language of the keyboard. For example, the three rows of letters on a standard US QWERTY keyboard (QWERTYUIOP, ASDFGHJKL, ZXCVBNM) together with the most significant punctuation keys. Usually this equates to the minimal set of keys for a language as seen on mobile phone keyboards.
 Distinguished from the <strong>frame keys</strong>.</p><p><strong>Dead keys:</strong> These are keys which do not emit normal characters by themselves. They are so named because to the user, they may appear to be “dead,” i.e., non-functional. However, they do produce a change to the input context. For example, in many Latin keyboards hitting the <code>^</code> dead-key followed by the <code>e</code> key produces <code>ê</code>. The <code>^</code> by itself may be invisible or presented in a special way by the platform.</p><p><strong>Frame keys:</strong> These are keys which are outside of the area of the <strong>core keys</strong> and typically do not emit characters. These keys include <strong>modifier</strong> keys, such as Shift or Ctrl, but also include platform specific keys: Fn, IME and layout-switching keys, cursor keys, insert emoji keys etc.</p><p><strong>Hardware keyboard:</strong> an input device which has individual keys that are pressed. Each key has a unique identifier and the arrangement doesn't change, even if the mapping of those keys does. Also known as a physical keyboard.</p><!-- **Hardware map:** A mapping between  and layout positions. --><p><strong>Input Method Editor (IME):</strong> a component or program that supports input of large character sets. Typically, IMEs employ contextual logic and candidate UI to identify the Unicode characters intended by the user.</p><!-- **ISO position:** The corresponding position of a key using the ISO layout convention where rows are identified by letters and columns are identified by numbers. For example, "D01" corresponds to the "Q" key on a US keyboard. For the purposes of this document, an ISO layout position is depicted by a one-letter row identifier followed by a two digit column number (like "B03", "E12" or "C00"). The following diagram depicts a typical US keyboard layout superimposed with the ISO layout indicators (it is important to note that the number of keys and their physical placement relative to each-other in this diagram is irrelevant, rather what is important is their logical placement using the ISO convention):
@@ -907,7 +909,7 @@ If it becomes necessary in the future, the format could extend the ISO layout to
 </small>
 </blockquote><p><em>Attribute:</em> <code>conformsTo</code> (required)</p><p>This attribute distinguishes the keyboard from prior versions,
 and it also specifies the minimum CLDR version required.</p><p>For purposes of this current draft specification, the value should always be <code>techpreview</code>.</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span> …&nbsp;<span class="hljs-attr">conformsTo</span>=<span class="hljs-string">"techpreview"</span>/&gt;</span>
-</code></pre><p><em>Attribute:</em> <code>locale</code> (required)</p><p>This attribute represents the primary locale of the keyboard using BCP 47 <a href="tr35.html#Canonical_Unicode_Locale_Identifiers">Unicode locale identifiers</a> - for example <code>"el"</code> for Greek. Sometimes, the locale may not specify the base language. For example, a Devanagari keyboard for many languages could be specified by BCP-47 code: <code>"mul-Deva"</code>. For further details, see <a href="#Keyboard_IDs">Keyboard IDs</a>.</p><p><strong>Example</strong> (for illustrative purposes only, not indicative of the real data)</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span> <span class="hljs-attr">locale</span>=<span class="hljs-string">"ka"</span>&gt;</span>
+</code></pre><p><em>Attribute:</em> <code>locale</code> (required)</p><p>This attribute represents the primary locale of the keyboard using BCP 47 <a href="tr35.html#Canonical_Unicode_Locale_Identifiers">Unicode locale identifiers</a> - for example <code>"el"</code> for Greek. Sometimes, the locale may not specify the base language. For example, a Devanagari keyboard for many languages could be specified by BCP-47 code: <code>"und-Deva"</code>. However, it is better to list out the languages explicitly using the <a href="#element-locales"><code>locales</code></a> element.</p><p>For further details about the choice of locale ID, see <a href="#Keyboard_IDs">Keyboard IDs</a>.</p><p><strong>Example</strong> (for illustrative purposes only, not indicative of the real data)</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span> <span class="hljs-attr">locale</span>=<span class="hljs-string">"ka"</span>&gt;</span>
   …
 <span class="hljs-tag">&lt;/<span class="hljs-name">keyboard3</span>&gt;</span>
 </code></pre><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span> <span class="hljs-attr">locale</span>=<span class="hljs-string">"fr-CH-t-k0-azerty"</span>&gt;</span>
@@ -934,7 +936,7 @@ and it also specifies the minimum CLDR version required.</p><p>For purposes of t
 </small>
 </blockquote><p><em>Attribute:</em> <code>id</code> (required)</p><blockquote>
 <p>The <a href="tr35.html#Canonical_Unicode_Locale_Identifiers">BCP 47</a> locale ID of an additional language supported by this keyboard.
-Do <em>not</em> include the <code>-k0-</code> subtag for this additional language.</p>
+Must <em>not</em> include the <code>-k0-</code> subtag for this additional language.</p>
 </blockquote><p><strong>Example</strong></p><p>See <a href="#Principles_for_Keyboard_IDs">Principles for Keyboard IDs</a> for discussion and further examples.</p><pre><code class="language-xml"><span class="hljs-comment">&lt;!-- Pan Nigerian Keyboard--&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span> <span class="hljs-attr">locale</span>=<span class="hljs-string">"mul-Latn-NG-t-k0-panng"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">locales</span>&gt;</span>
@@ -960,10 +962,10 @@ Do <em>not</em> include the <code>-k0-</code> subtag for this additional languag
     <span class="hljs-tag">&lt;<span class="hljs-name">version</span> <span class="hljs-attr">number</span>=<span class="hljs-string">"1"</span>/&gt;</span>
     …
 <span class="hljs-tag">&lt;/<span class="hljs-name">keyboard3</span>&gt;</span>
-</code></pre><hr><h3 id="Element_info"><a name="element-info" href="#Element_info">Element: info</a></h3><p>Element containing informative properties about the layout, for displaying in user interfaces etc.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">info</span> [<span class="hljs-attr">author</span>=<span class="hljs-string">"{author}"</span>]
-      [<span class="hljs-attr">normalization</span>=<span class="hljs-string">"{form}"</span>]
-      [<span class="hljs-attr">layout</span>=<span class="hljs-string">"{hint of the layout}"</span>]
-      [<span class="hljs-attr">indicator</span>=<span class="hljs-string">"{short identifier}"</span>] /&gt;</span>
+</code></pre><hr><h3 id="Element_info"><a name="element-info" href="#Element_info">Element: info</a></h3><p>Element containing informative properties about the layout, for displaying in user interfaces etc.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">info</span> <span class="hljs-attr">author</span>=<span class="hljs-string">"{author}"</span>
+      <span class="hljs-attr">normalization</span>=<span class="hljs-string">"{form}"</span>
+      <span class="hljs-attr">layout</span>=<span class="hljs-string">"{hint of the layout}"</span>
+      <span class="hljs-attr">indicator</span>=<span class="hljs-string">"{short identifier}"</span> /&gt;</span>
 </code></pre><blockquote>
 <small>
 
@@ -980,10 +982,12 @@ Do <em>not</em> include the <code>-k0-</code> subtag for this additional languag
 <p>When using <code>NFC</code> or <code>NFD</code>, tooling should verify that all possible keystrokes, gestures, and transforms on the keyboard only produce the specified normalization form, producing warnings if not.</p>
 </blockquote><p><em>Attribute:</em> <code>layout</code></p><blockquote>
 <p>The <code>layout</code> attribute describes the layout pattern, such as QWERTY, DVORAK, INSCRIPT, etc. typically used to distinguish various layouts for the same language.</p>
+<p>This attribute is not localized, but is an informative identifier for implementation use.</p>
 </blockquote><p><em>Attribute:</em> <code>indicator</code></p><blockquote>
-<p>The <code>indicator</code> attribute describes a short string to be used in currently selected layout indicator, such as US, SI9 etc.
+<p>The <code>indicator</code> attribute describes a short string to be used in currently selected layout indicator, such as <code>US</code>, <code>SI9</code> etc.
 Typically, this is shown on a UI element that allows switching keyboard layouts and/or input languages.</p>
-</blockquote><hr><h3 id="Element_names"><a name="element-names" href="#Element_names">Element: names</a></h3><p>Element used to store any names given to the layout.</p><p>These names are not currently localized.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">names</span>&gt;</span>
+<p>This attribute is not localized.</p>
+</blockquote><hr><h3 id="Element_names"><a name="element-names" href="#Element_names">Element: names</a></h3><p>Element used to store any names given to the layout.</p><p>These names are not localized but are informative names for the keyboard. Localization of these names would be done as separate data items elsewhere in CLDR.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">names</span>&gt;</span>
     {set of name elements}
 <span class="hljs-tag">&lt;/<span class="hljs-name">names</span>&gt;</span>
 </code></pre><blockquote>
@@ -1010,7 +1014,7 @@ Typically, this is shown on a UI element that allows switching keyboard layouts 
     <span class="hljs-tag">&lt;/<span class="hljs-name">names</span>&gt;</span>
     …
 <span class="hljs-tag">&lt;/<span class="hljs-name">keyboard3</span>&gt;</span>
-</code></pre><hr><h3 id="Element_settings"><a name="element-settings" href="#Element_settings">Element: settings</a></h3><p>An element used to keep track of layout specific settings. This element may or may not show up on a layout. These settings reflect the normal practice by the implementation. However, an implementation using the data may customize the behavior.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">settings</span> [<span class="hljs-attr">fallback</span>=<span class="hljs-string">"omit"</span>] [<span class="hljs-attr">transformFailure</span>=<span class="hljs-string">"omit"</span>] [<span class="hljs-attr">transformPartial</span>=<span class="hljs-string">"hide"</span>] /&gt;</span>
+</code></pre><hr><h3 id="Element_settings"><a name="element-settings" href="#Element_settings">Element: settings</a></h3><p>An element used to keep track of layout-specific settings by implementations. This element may or may not show up on a layout. These settings reflect the normal practice by the implementation. However, an implementation using the data may customize the behavior.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">settings</span> <span class="hljs-attr">fallback</span>=<span class="hljs-string">"omit"</span> /&gt;</span>
 </code></pre><blockquote>
 <small>
 
@@ -1027,7 +1031,7 @@ Typically, this is shown on a UI element that allows switching keyboard layouts 
 <span class="hljs-tag">&lt;/<span class="hljs-name">keyboard3</span>&gt;</span>
 </code></pre><p>Indicates that:</p><ol>
 <li>When a modifier combination goes unmatched, do not output anything when a key is pressed.</li>
-<li>If a transform is escaped, output the contents of the buffer.</li>
+<li>If a transform is terminated, output the contents of the buffer.</li>
 <li>During a transform, hide the contents of the buffer as the user is typing.</li>
 </ol><hr><h3 id="Element_keys"><a name="element-keys" href="#Element_keys">Element: keys</a></h3><p>This element defines the properties of all possible keys via <a href="#Element_key"><code>&lt;key&gt;</code> elements</a> used in all layouts.
 It is a “bag of keys” without specifying any ordering or relation between the keys.
@@ -1048,17 +1052,17 @@ Occurrence: optional, single</p>
 </small>
 </blockquote><hr><h3 id="Element_key"><a name="element-key" href="#Element_key">Element: key</a></h3><p>This element defines a mapping between an abstract key and its output. This element must have the <code>keys</code> element as its parent. The <code>key</code> element is referenced by the <code>keys=</code> attribute of the <a href="#Element_row"><code>row</code> element</a>.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">key</span>
  <span class="hljs-attr">id</span>=<span class="hljs-string">"{key id}"</span>
- [<span class="hljs-attr">flicks</span>=<span class="hljs-string">"{flicks identifier}"</span>]
- [<span class="hljs-attr">gap</span>=<span class="hljs-string">"true"</span>]
- [<span class="hljs-attr">longPress</span>=<span class="hljs-string">"{long press keys}"</span>]
- [<span class="hljs-attr">longPressDefault</span>=<span class="hljs-string">"{default longpress target}"</span>]
- [<span class="hljs-attr">multiTap</span>=<span class="hljs-string">"{the output on subsequent taps}"</span>]
- [<span class="hljs-attr">stretch</span>=<span class="hljs-string">"true"</span>]
- [<span class="hljs-attr">switch</span>=<span class="hljs-string">"{layer id}"</span>]
- [<span class="hljs-attr">to</span>=<span class="hljs-string">"{the output}"</span>]
- [<span class="hljs-attr">transform</span>=<span class="hljs-string">"no"</span>]
- [<span class="hljs-attr">width</span>=<span class="hljs-string">"{key width}"</span>]
- /&gt;</span><span class="hljs-comment">&lt;!-- {Comment to improve readability (if needed)} --&gt;</span>
+ <span class="hljs-attr">flicks</span>=<span class="hljs-string">"{flicks identifier}"</span>
+ <span class="hljs-attr">gap</span>=<span class="hljs-string">"true"</span>
+ <span class="hljs-attr">longPress</span>=<span class="hljs-string">"{long press keys}"</span>
+ <span class="hljs-attr">longPressDefault</span>=<span class="hljs-string">"{default longpress target}"</span>
+ <span class="hljs-attr">multiTap</span>=<span class="hljs-string">"{the output on subsequent taps}"</span>
+ <span class="hljs-attr">stretch</span>=<span class="hljs-string">"true"</span>
+ <span class="hljs-attr">switch</span>=<span class="hljs-string">"{layer id}"</span>
+ <span class="hljs-attr">to</span>=<span class="hljs-string">"{the output}"</span>
+ <span class="hljs-attr">transform</span>=<span class="hljs-string">"no"</span>
+ <span class="hljs-attr">width</span>=<span class="hljs-string">"{key width}"</span>
+ /&gt;</span>
 </code></pre><blockquote>
 <small>
 
@@ -1069,7 +1073,7 @@ Occurrence: optional, single</p>
 </blockquote><p><strong>Note</strong>: The <code>id</code> attribute is required.</p><p><strong>Note</strong>: <em>at least one of</em> <code>switch</code>, <code>gap</code>, or <code>to</code> are required.</p><p><em>Attribute:</em> <code>id</code></p><blockquote>
 <p>The <code>id</code> attribute uniquely identifies the key. NMTOKEN. It can (but needn't be) the key name (a, b, c, A, B, C, …), or any other valid token (e-acute, alef, alif, alpha, …).</p>
 <p>In the future, this attribute’s definition is expected to be updated to align with <a href="https://www.unicode.org/reports/tr31/">UAX#31</a>. Please see <a href="https://unicode-org.atlassian.net/browse/CLDR-17043">CLDR-17043</a> for more details.</p>
-</blockquote><p><em>Attribute:</em> <code>flicks="flick-id"</code> (optional)</p><blockquote>
+</blockquote><p><em>Attribute:</em> <code>flicks="{flick id}"</code> (optional)</p><blockquote>
 <p>The <code>flicks</code> attribute indicates that this key makes use of a <a href="#Element_flicks"><code>flicks</code></a> set with the specified id.</p>
 </blockquote><p><em>Attribute:</em> <code>gap="true"</code> (optional)</p><blockquote>
 <p>The <code>gap</code> attribute indicates that this key does not have any appearance, but represents a "gap" of the specified number of key widths. Can be used with <code>width</code> to set a width.</p>
@@ -1102,7 +1106,7 @@ the modifier keys.</p>
 <p>The <code>to</code> attribute contains the output sequence of characters that is emitted when pressing this particular key. Control characters, whitespace (other than the regular space character) and combining marks in this attribute are escaped using the <code>\u{...}</code> notation. More than one key may output the same output.</p>
 <p>The <code>to</code> attribute may also contain the <code>\m{…}</code> syntax to insert a marker. See the definition of <a href="#markers">markers</a>.</p>
 </blockquote><p><em>Attribute:</em> <code>transform="no"</code> (optional)</p><blockquote>
-<p>The <code>transform</code> attribute is used to define a key that does not participate in a transform (until the next keystroke). This attribute value must be <code>no</code> if the attribute is present.
+<p>The <code>transform</code> attribute is used to define a key that does not participate in a transform (until the next keystroke). This attribute value must be <code>"no"</code> if the attribute is present.
 This attribute is useful where it is desired to output where two different keys could output the same characters (with different key or modifier combinations) but only one of them is intended to participate in a transform.
 When the next keystroke is pressed, the prior output may then combine using other transforms.</p>
 <p>Note that a more flexible way of solving this problem may be to use special markers which would inhibit matching.</p>
@@ -1201,9 +1205,9 @@ where a flick to the Northeast then South produces two code points.</p><pre><cod
     <span class="hljs-tag">&lt;<span class="hljs-name">flick</span> <span class="hljs-attr">directions</span>=<span class="hljs-string">"ne s"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"\u{ABCD}\u{DCBA}"</span> /&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">flicks</span>&gt;</span>
 </code></pre><hr><h3 id="Element_import"><a name="element-import" href="#Element_import">Element: import</a></h3><p>The <code>import</code> element is used to reference another xml file so that elements are imported from
-another file. The use case is to be able to import a standard set of transforms, and similar
-from the CLDR repository.  <code>&lt;import&gt;</code> is not recommended as a way for keyboard authors to
-split up their keyboard into multiple files, as the intent is for each single XML file to contain all that is needed for a keyboard layout.</p><p><code>&lt;import&gt;</code> can be used as a child of a number of elements (see the <em>Parents</em> section immediately below). Multiple <code>&lt;import&gt;</code> elements may be used, however, <code>&lt;import&gt;</code> elements must come before any other sibling elements.
+another file. The use case is to be able to import a standard set of <code>transform</code>s and similar
+from the CLDR repository, especially to be able to share common information relevant to a particular script.
+The intent is for each single XML file to contain all that is needed for a keyboard layout, other than required standard import data from the CLDR repository.</p><p><code>&lt;import&gt;</code> can be used as a child of a number of elements (see the <em>Parents</em> section immediately below). Multiple <code>&lt;import&gt;</code> elements may be used, however, <code>&lt;import&gt;</code> elements must come before any other sibling elements.
 If two identical elements are defined, the later element will take precedence, that is, override.</p><p><strong>Note:</strong> imported files do not have any indication of their normalization mode. For this reason, the keyboard author must verify that the imported file is of a compatible normalization mode. See the <a href="#Element_info"><code>info</code> element</a> for further details.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">import</span> <span class="hljs-attr">base</span>=<span class="hljs-string">"cldr"</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"techpreview/keys-Zyyy-punctuation.xml"</span>/&gt;</span>
 </code></pre><blockquote>
 <small>
@@ -1216,7 +1220,8 @@ Children: <em>none</em></p>
 <p>The base may be omitted (indicating a local import) or have the value <code>"cldr"</code>.</p>
 </blockquote><p><strong>Note:</strong> <code>base="cldr"</code> is required for all <code>&lt;import&gt;</code> statements within keyboard files in the CLDR repository.</p><p><em>Attribute:</em> <code>path</code> (required)</p><blockquote>
 <p>If <code>base</code> is <code>cldr</code>, then the <code>path</code> must start with a CLDR version (such as <code>techpreview</code>) representing the CLDR version to pull imports from. The imports are located in the <code>keyboard/import</code> subdirectory of the CLDR source repository.
-If <code>base</code> is omitted, then <code>path</code> is an absolute or relative file path.</p>
+Implementations are not required to have all CLDR versions available to them.</p>
+<p>If <code>base</code> is omitted, then <code>path</code> is an absolute or relative file path.</p>
 </blockquote><p><strong>Further Examples</strong></p><pre><code class="language-xml"><span class="hljs-comment">&lt;!-- in a keyboard xml file--&gt;</span>
 …
 <span class="hljs-tag">&lt;<span class="hljs-name">transforms</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"simple"</span>&gt;</span>
@@ -1388,16 +1393,18 @@ hardware or touch layout.</p><blockquote>
 </ul><p><em>Attribute:</em> <code>form</code> (required)</p><blockquote>
 <p>This attribute specifies the physical layout of a hardware keyboard,
 or that the form is a <code>touch</code> layout.</p>
-<p>It is recommended to always have at least one hardware (non-touch) form.
+<p>When using an on-screen touch keyboard, if the keyboard does not specify a <code>&lt;layers form="touch"&gt;</code>
+element, a <code>&lt;layers form="{hardware}"&gt;</code> element can be used as an fallback alternative.
 If there is no <code>hardware</code> form, the implementation may need
 to choose a different keyboard file, or use some other fallback behavior when using a
 hardware keyboard.</p>
+<p>Because a hardware keyboard facilitates non-trivial amounts of text input,
+and many touch devices can also be connected to a hardware keyboard, it
+is recommended to always have at least one hardware (non-touch) form.</p>
 <p>Multiple <code>&lt;layers form="touch"&gt;</code> elements are allowed with distinct <code>minDeviceWidth</code> values.
 At most one hardware (non-<code>touch</code>) <code>&lt;layers&gt;</code> element is allowed. If a different key arrangement is desired between, for example, <code>us</code> and <code>iso</code> formats, these should be separated into two different keyboards.</p>
 <p>The typical keyboard author will be designing a keyboard based on their circumstances and the hardware that they are using. So, for example, if they are in South East Asia, they will almost certainly be using an 101 key hardware keyboard with US key caps. So we want them to be able to reference that (<code>&lt;layers form="us"&gt;</code>) in their design, rather than having to work with an unfamiliar form.</p>
 <p>A mismatch between the hardware layout in the keyboard file, and the actual hardware used by the user could result in some keys being inaccessible to the user if their hardware cannot generate the scancodes corresponding to the layout specified by the <code>form=</code> attribute. Such keys could be accessed only via an on-screen keyboard utility. Conversely, a user with hardware keys that are not present in the specified <code>form=</code> will result in some hardware keys which have no function when pressed.</p>
-<p>When using an on-screen keyboard, if there is not a <code>&lt;layers form="touch"&gt;</code>
-element, the hardware elements can be used for on-screen use.</p>
 <p>The value of the <code>form=</code> attribute may be <code>touch</code>, or correspond to a <code>form</code> element. See <a href="#element-form"><code>form</code></a>.</p>
 </blockquote><p><em>Attribute:</em> <code>minDeviceWidth</code></p><blockquote>
 <p>This attribute specifies the minimum required width, in millimeters (mm), of the touch surface.  The <code>layers</code> entry with the greatest matching width will be selected. This attribute is intended for <code>form="touch"</code>, but is supported for hardware forms.</p>
@@ -1418,11 +1425,12 @@ Touch layouts must have one <code>layer</code> with <code>id="base"</code> to se
 <p>Must match <code>[A-Za-z0-9][A-Za-z0-9-]*</code></p>
 </blockquote><p><em>Attribute:</em> <code>modifier</code> (required for <code>hardware</code>)</p><blockquote>
 <p>This has two roles. It acts as an identifier for the <code>layer</code> element for hardware keyboards (in the absence of the id= element) and also provides the linkage from the hardware modifiers into the correct <code>layer</code>.</p>
-<p>To indicate that no modifiers apply, the reserved name of <code>none</code> can be used.
+<p>To indicate that no modifiers apply, the reserved name of <code>none</code> is used.
 The following modifier components can be used, separated by spaces.
 Note that <code>L</code> or <code>R</code> indicates a left- or right- side modifier only (such as <code>altL</code>)
-whereas <code>alt</code> indicates <em>either</em> left or right alt key.
-<code>shift</code> also indicates either shift key.</p>
+whereas <code>alt</code> indicates <em>either</em> left or right alt key (that is, <code>altL</code> or <code>altR</code>). <code>ctrl</code> indicates either left or right ctrl key (that is, <code>ctrlL</code> or <code>ctrlR</code>).
+<code>shift</code> also indicates either shift key. The left and right shift keys are not distinguishable in this specification.</p>
+<p>If there is a layer with a modifier <code>alt</code>, there may not be another layer with <code>altL</code> or <code>altR</code>.  Similarly, if there is a layer with a modifier <code>ctrl</code>, there may not be a layer with <code>ctrlL</code> or <code>ctrlR</code>.</p>
 <ul>
 <li><code>none</code> (no modifier, may not be combined with others)</li>
 <li><code>alt</code></li>
@@ -1434,10 +1442,11 @@ whereas <code>alt</code> indicates <em>either</em> left or right alt key.
 <li><code>ctrlR</code></li>
 <li><code>shift</code></li>
 </ul>
-<p>Note that <code>alt</code> is sometimes referred to as <em>opt</em> or <em>option</em>.</p>
+<p>Note that <code>alt</code> in this specification is referred to on some platforms as "opt" or "option".</p>
 <p>Left- and right- side modifiers (such as <code>"altL ctrlR"</code> or <code>"altL altR"</code>) should not be used together in a single <code>modifier</code> attribute value.</p>
 <p>For hardware layouts, the use of <code>@modifier</code> as an identifier for a layer is sufficient since it is always unique among the set of <code>layer</code> elements in a keyboard.</p>
 <p>The set of modifiers must match <code>(none|([A-Za-z0-9]+)( [A-Za-z0-9]+)*)</code></p>
+<p>To share a layer between two modifier sets, the layer data must be duplicated.</p>
 </blockquote><hr><h3 id="Element_row"><a name="element-row" href="#Element_row">Element: row</a></h3><p>A <code>row</code> element describes the keys that are present in the row of a keyboard.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">row</span> <span class="hljs-attr">keys</span>=<span class="hljs-string">"{keyId} {keyId} …"</span> /&gt;</span>
 </code></pre><blockquote>
 <small>
@@ -1820,11 +1829,11 @@ Occurrence: required, multiple</p>
 </ol><p>The primary order of a character with the Unicode property <code>Canonical_Combining_Class</code> (ccc) of 0 may well not be 0. In addition, a character may receive a different primary order dependent on context. For example, in the Devanagari sequence ka halant ka, the first ka would have a primary order 0 while the halant ka sequence would give both halant and the second ka a primary order &gt; 0, for example 2. Note that “base” character in this discussion is not a Unicode base character. It is instead a character with primary=0.</p><p>In order to get the characters into the correct relative order, it is necessary not only to order combining marks relative to the base character, but also to order some combining marks in a subsequence following another combining mark. For example in Devanagari, a nukta may follow a consonant character, but it may also follow a conjunct consisting of consonant, halant, consonant. Notice that the second consonant is not, in this model, the start of a new run because some characters may need to be reordered to before the first base, for example repha. The repha would get primary &lt; 0, and be sorted before the character with order = 0, which is, in the case of Devanagari, the initial consonant of the orthographic syllable.</p><p>The reorder transform consists of <code>&lt;reorder&gt;</code> elements encapsulated in a <code>&lt;transformGroup&gt;</code> element. Each element is a rule that matches against a string of characters with the action of setting the various ordering attributes (<code>primary</code>, <code>tertiary</code>, <code>tertiaryBase</code>, <code>preBase</code>) for the matched characters in the string.</p><p>The relative ordering of <code>&lt;reorder&gt;</code> elements is not significant.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">transformGroup</span>&gt;</span>
     <span class="hljs-comment">&lt;!-- one or more &lt;import/&gt; elements are allowed at this point --&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">reorder</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"{combination of characters}"</span>
-    [<span class="hljs-attr">before</span>=<span class="hljs-string">"{look-behind required match}"</span>]
-    [<span class="hljs-attr">order</span>=<span class="hljs-string">"{list of weights}"</span>]
-    [<span class="hljs-attr">tertiary</span>=<span class="hljs-string">"{list of weights}"</span>]
-    [<span class="hljs-attr">tertiaryBase</span>=<span class="hljs-string">"{list of true/false}"</span>]
-    [<span class="hljs-attr">preBase</span>=<span class="hljs-string">"{list of true/false}"</span>] /&gt;</span>
+    <span class="hljs-attr">before</span>=<span class="hljs-string">"{look-behind required match}"</span>
+    <span class="hljs-attr">order</span>=<span class="hljs-string">"{list of weights}"</span>
+    <span class="hljs-attr">tertiary</span>=<span class="hljs-string">"{list of weights}"</span>
+    <span class="hljs-attr">tertiaryBase</span>=<span class="hljs-string">"{list of true/false}"</span>
+    <span class="hljs-attr">preBase</span>=<span class="hljs-string">"{list of true/false}"</span> /&gt;</span>
     <span class="hljs-comment">&lt;!-- other &lt;reorder/&gt; elements... --&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">transformGroup</span>&gt;</span>
 </code></pre><blockquote>
@@ -2054,7 +2063,7 @@ endif
 <p>text editing happens when a user moves the cursor into some previously entered text which may have been entered by someone else. As such, there is no way to know in which order things were typed, but a user will still want appropriate behaviour when they press backspace. This may involve deleting more than one character or replacing a sequence of characters with a different sequence.</p>
 </blockquote><p>In text editing mode, different keyboard layouts may behave differently in the same textual context. The backspace transform allows the keyboard layout to specify the effect of pressing backspace in a particular textual context. This is done by specifying a set of backspace rules that match a string before the cursor and replace it with another string. The rules are expressed within a <code>transforms type="backspace"</code> element.</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">transforms</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"backspace"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">transformGroup</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">transform</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"{combination of characters}"</span> [<span class="hljs-attr">to</span>=<span class="hljs-string">"{output}"</span>] /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">transform</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"{combination of characters}"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"{output}"</span> /&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">transformGroup</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">transforms</span>&gt;</span>
 </code></pre><p><strong>Example</strong></p><p>For example, consider deleting a Devanagari ksha क्श:</p><p>While this character is made up of three codepoints, the following rule causes all three to be deleted by a single press of the backspace.</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">transforms</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"backspace"</span>&gt;</span>

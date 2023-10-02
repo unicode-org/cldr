@@ -147,6 +147,8 @@ The data can also be used in analysis of the capabilities of different keyboards
 
 For complete examples, see the XML files in the CLDR source repository.
 
+Attribute values should be evaluated considering the DTD and [DTD Annotations](#DTD_Annotations).
+
 * * *
 
 ## <a name="Goals_and_Nongoals" href="#Goals_and_Nongoals">Goals and Non-goals</a>
@@ -184,17 +186,16 @@ Note that in parts of this document, the format `@x` is used to indicate the _at
 
 ### <a name="Compatibility_Notice" href="#Compatibility_Notice">Compatibility Notice</a>
 
-> 👉 Note: CLDR-TC has agreed that the changes required were too extensive to maintain compatibility. For this reason, the DTD used here is _not_ compatible with DTDs from prior versions of CLDR such as v41 and prior.
+> 👉 Note: CLDR-TC has agreed that the changes required were too extensive to maintain compatibility. For this reason, the `ldmlKeyboard3.dtd` DTD used here is _not_ compatible with DTDs from prior versions of CLDR such as v43 and prior.
 >
-> To process earlier XML files, use the prior DTD and specification, such as v41 found at <https://www.unicode.org/reports/tr35/tr35-66/tr35.html>
->
+> To process earlier XML files, use the data and specification from v43.1, found at <https://www.unicode.org/reports/tr35/tr35-69/tr35.html>
 
 ### <a name="Accessibility" href="#Accessibility">Accessibility</a>
 
 Keyboard use can be challenging for individuals with various types of disabilities. For this revision, the committee is not evaluating features or architectural designs for the purpose of improving accessibility. Such consideration could be fruitful for future revisions. However, some points on this topic should be made:
 
 1. Having an industry-wide standard format for keyboards will enable accessibility software to make use of keyboard data with a reduced dependence on platform-specific knowledge.
-2. Some features, such as multiTap and flicks, have the potential to reduce accessibility and thus should be discouraged. For example, multiTap requires pressing keys at a certain speed, and flicks require a more complex movement (press-and-flick) beyond a simple tap. Alternatively, inclusion of accessible methods of generating the same outputs (for example, simple keys on an additional layer), should be considered.
+2. Features which require certain levels of mobility or speed of entry should be considered for their impact on accessibility. This impact could be mitigated by means of additional, accessible methods of generating the same output.
 3. Public feedback is welcome on any aspects of this document which might hinder accessibility.
 
 ## <a name="Definitions" href="#Definitions">Definitions</a>
@@ -352,7 +353,9 @@ For purposes of this current draft specification, the value should always be `te
 
 _Attribute:_ `locale` (required)
 
-This attribute represents the primary locale of the keyboard using BCP 47 [Unicode locale identifiers](tr35.md#Canonical_Unicode_Locale_Identifiers) - for example `"el"` for Greek. Sometimes, the locale may not specify the base language. For example, a Devanagari keyboard for many languages could be specified by BCP-47 code: `"mul-Deva"`. For further details, see [Keyboard IDs](#Keyboard_IDs).
+This attribute represents the primary locale of the keyboard using BCP 47 [Unicode locale identifiers](tr35.md#Canonical_Unicode_Locale_Identifiers) - for example `"el"` for Greek. Sometimes, the locale may not specify the base language. For example, a Devanagari keyboard for many languages could be specified by BCP-47 code: `"und-Deva"`. However, it is better to list out the languages explicitly using the [`locales`](#element-locales) element.
+
+For further details about the choice of locale ID, see [Keyboard IDs](#Keyboard_IDs).
 
 **Example** (for illustrative purposes only, not indicative of the real data)
 
@@ -416,7 +419,7 @@ The optional `<locales>` element allows specifying additional or alternate local
 _Attribute:_ `id` (required)
 
 > The [BCP 47](tr35.md#Canonical_Unicode_Locale_Identifiers) locale ID of an additional language supported by this keyboard.
-> Do _not_ include the `-k0-` subtag for this additional language.
+> Must _not_ include the `-k0-` subtag for this additional language.
 
 **Example**
 
@@ -482,10 +485,10 @@ Element containing informative properties about the layout, for displaying in us
 **Syntax**
 
 ```xml
-<info [author="{author}"]
-      [normalization="{form}"]
-      [layout="{hint of the layout}"]
-      [indicator="{short identifier}"] />
+<info author="{author}"
+      normalization="{form}"
+      layout="{hint of the layout}"
+      indicator="{short identifier}" />
 ```
 
 > <small>
@@ -515,11 +518,15 @@ _Attribute:_ `normalization`
 _Attribute:_ `layout`
 
 > The `layout` attribute describes the layout pattern, such as QWERTY, DVORAK, INSCRIPT, etc. typically used to distinguish various layouts for the same language.
+>
+> This attribute is not localized, but is an informative identifier for implementation use.
 
 _Attribute:_ `indicator`
 
-> The `indicator` attribute describes a short string to be used in currently selected layout indicator, such as US, SI9 etc.
+> The `indicator` attribute describes a short string to be used in currently selected layout indicator, such as `US`, `SI9` etc.
 > Typically, this is shown on a UI element that allows switching keyboard layouts and/or input languages.
+>
+> This attribute is not localized.
 
 * * *
 
@@ -527,7 +534,7 @@ _Attribute:_ `indicator`
 
 Element used to store any names given to the layout.
 
-These names are not currently localized.
+These names are not localized but are informative names for the keyboard. Localization of these names would be done as separate data items elsewhere in CLDR.
 
 **Syntax**
 
@@ -588,12 +595,12 @@ _Attribute:_ `value` (required)
 
 ### <a name="Element_settings" href="#Element_settings">Element: settings</a>
 
-An element used to keep track of layout specific settings. This element may or may not show up on a layout. These settings reflect the normal practice by the implementation. However, an implementation using the data may customize the behavior.
+An element used to keep track of layout-specific settings by implementations. This element may or may not show up on a layout. These settings reflect the normal practice by the implementation. However, an implementation using the data may customize the behavior.
 
 **Syntax**
 
 ```xml
-<settings [fallback="omit"] [transformFailure="omit"] [transformPartial="hide"] />
+<settings fallback="omit" />
 ```
 
 > <small>
@@ -612,7 +619,6 @@ _Attribute:_ `fallback="omit"`
 
 If this attribute is present, it must have a value of omit.
 
-
 **Example**
 
 ```xml
@@ -626,7 +632,7 @@ If this attribute is present, it must have a value of omit.
 Indicates that:
 
 1.  When a modifier combination goes unmatched, do not output anything when a key is pressed.
-2.  If a transform is escaped, output the contents of the buffer.
+2.  If a transform is terminated, output the contents of the buffer.
 3.  During a transform, hide the contents of the buffer as the user is typing.
 
 * * *
@@ -673,17 +679,17 @@ This element defines a mapping between an abstract key and its output. This elem
 ```xml
 <key
  id="{key id}"
- [flicks="{flicks identifier}"]
- [gap="true"]
- [longPress="{long press keys}"]
- [longPressDefault="{default longpress target}"]
- [multiTap="{the output on subsequent taps}"]
- [stretch="true"]
- [switch="{layer id}"]
- [to="{the output}"]
- [transform="no"]
- [width="{key width}"]
- /><!-- {Comment to improve readability (if needed)} -->
+ flicks="{flicks identifier}"
+ gap="true"
+ longPress="{long press keys}"
+ longPressDefault="{default longpress target}"
+ multiTap="{the output on subsequent taps}"
+ stretch="true"
+ switch="{layer id}"
+ to="{the output}"
+ transform="no"
+ width="{key width}"
+ />
 ```
 
 > <small>
@@ -705,7 +711,7 @@ _Attribute:_ `id`
 >
 > In the future, this attribute’s definition is expected to be updated to align with [UAX#31](https://www.unicode.org/reports/tr31/). Please see [CLDR-17043](https://unicode-org.atlassian.net/browse/CLDR-17043) for more details.
 
-_Attribute:_ `flicks="flick-id"` (optional)
+_Attribute:_ `flicks="{flick id}"` (optional)
 
 > The `flicks` attribute indicates that this key makes use of a [`flicks`](#Element_flicks) set with the specified id.
 
@@ -768,7 +774,7 @@ _Attribute:_ `to`
 
 _Attribute:_ `transform="no"` (optional)
 
-> The `transform` attribute is used to define a key that does not participate in a transform (until the next keystroke). This attribute value must be `no` if the attribute is present.
+> The `transform` attribute is used to define a key that does not participate in a transform (until the next keystroke). This attribute value must be `"no"` if the attribute is present.
 > This attribute is useful where it is desired to output where two different keys could output the same characters (with different key or modifier combinations) but only one of them is intended to participate in a transform.
 > When the next keystroke is pressed, the prior output may then combine using other transforms.
 >
@@ -947,9 +953,9 @@ where a flick to the Northeast then South produces two code points.
 ### <a name="Element_import" href="#Element_import">Element: import</a>
 
 The `import` element is used to reference another xml file so that elements are imported from
-another file. The use case is to be able to import a standard set of transforms, and similar
-from the CLDR repository.  `<import>` is not recommended as a way for keyboard authors to
-split up their keyboard into multiple files, as the intent is for each single XML file to contain all that is needed for a keyboard layout.
+another file. The use case is to be able to import a standard set of `transform`s and similar
+from the CLDR repository, especially to be able to share common information relevant to a particular script.
+The intent is for each single XML file to contain all that is needed for a keyboard layout, other than required standard import data from the CLDR repository.
 
 `<import>` can be used as a child of a number of elements (see the _Parents_ section immediately below). Multiple `<import>` elements may be used, however, `<import>` elements must come before any other sibling elements.
 If two identical elements are defined, the later element will take precedence, that is, override.
@@ -978,6 +984,8 @@ _Attribute:_ `base`
 _Attribute:_ `path` (required)
 
 > If `base` is `cldr`, then the `path` must start with a CLDR version (such as `techpreview`) representing the CLDR version to pull imports from. The imports are located in the `keyboard/import` subdirectory of the CLDR source repository.
+> Implementations are not required to have all CLDR versions available to them.
+>
 > If `base` is omitted, then `path` is an absolute or relative file path.
 
 
@@ -1312,10 +1320,15 @@ _Attribute:_ `form` (required)
 > This attribute specifies the physical layout of a hardware keyboard,
 > or that the form is a `touch` layout.
 >
-> It is recommended to always have at least one hardware (non-touch) form.
+> When using an on-screen touch keyboard, if the keyboard does not specify a `<layers form="touch">`
+> element, a `<layers form="{hardware}">` element can be used as an fallback alternative.
 > If there is no `hardware` form, the implementation may need
 > to choose a different keyboard file, or use some other fallback behavior when using a
 > hardware keyboard.
+>
+> Because a hardware keyboard facilitates non-trivial amounts of text input,
+> and many touch devices can also be connected to a hardware keyboard, it
+> is recommended to always have at least one hardware (non-touch) form.
 >
 > Multiple `<layers form="touch">` elements are allowed with distinct `minDeviceWidth` values.
 > At most one hardware (non-`touch`) `<layers>` element is allowed. If a different key arrangement is desired between, for example, `us` and `iso` formats, these should be separated into two different keyboards.
@@ -1324,9 +1337,6 @@ _Attribute:_ `form` (required)
 >
 > A mismatch between the hardware layout in the keyboard file, and the actual hardware used by the user could result in some keys being inaccessible to the user if their hardware cannot generate the scancodes corresponding to the layout specified by the `form=` attribute. Such keys could be accessed only via an on-screen keyboard utility. Conversely, a user with hardware keys that are not present in the specified `form=` will result in some hardware keys which have no function when pressed.
 >
->
-> When using an on-screen keyboard, if there is not a `<layers form="touch">`
-> element, the hardware elements can be used for on-screen use.
 >
 > The value of the `form=` attribute may be `touch`, or correspond to a `form` element. See [`form`](#element-form).
 >
@@ -1370,11 +1380,13 @@ _Attribute:_ `modifier` (required for `hardware`)
 
 > This has two roles. It acts as an identifier for the `layer` element for hardware keyboards (in the absence of the id= element) and also provides the linkage from the hardware modifiers into the correct `layer`.
 >
-> To indicate that no modifiers apply, the reserved name of `none` can be used.
+> To indicate that no modifiers apply, the reserved name of `none` is used.
 > The following modifier components can be used, separated by spaces.
 > Note that `L` or `R` indicates a left- or right- side modifier only (such as `altL`)
-> whereas `alt` indicates _either_ left or right alt key.
-> `shift` also indicates either shift key.
+> whereas `alt` indicates _either_ left or right alt key (that is, `altL` or `altR`). `ctrl` indicates either left or right ctrl key (that is, `ctrlL` or `ctrlR`).
+> `shift` also indicates either shift key. The left and right shift keys are not distinguishable in this specification.
+>
+> If there is a layer with a modifier `alt`, there may not be another layer with `altL` or `altR`.  Similarly, if there is a layer with a modifier `ctrl`, there may not be a layer with `ctrlL` or `ctrlR`.
 >
 > - `none` (no modifier, may not be combined with others)
 > - `alt`
@@ -1386,13 +1398,15 @@ _Attribute:_ `modifier` (required for `hardware`)
 > - `ctrlR`
 > - `shift`
 >
-> Note that `alt` is sometimes referred to as _opt_ or _option_.
+> Note that `alt` in this specification is referred to on some platforms as "opt" or "option".
 >
 > Left- and right- side modifiers (such as `"altL ctrlR"` or `"altL altR"`) should not be used together in a single `modifier` attribute value.
 >
 > For hardware layouts, the use of `@modifier` as an identifier for a layer is sufficient since it is always unique among the set of `layer` elements in a keyboard.
 >
 > The set of modifiers must match `(none|([A-Za-z0-9]+)( [A-Za-z0-9]+)*)`
+>
+> To share a layer between two modifier sets, the layer data must be duplicated.
 
 * * *
 
@@ -2074,11 +2088,11 @@ The relative ordering of `<reorder>` elements is not significant.
 <transformGroup>
     <!-- one or more <import/> elements are allowed at this point -->
     <reorder from="{combination of characters}"
-    [before="{look-behind required match}"]
-    [order="{list of weights}"]
-    [tertiary="{list of weights}"]
-    [tertiaryBase="{list of true/false}"]
-    [preBase="{list of true/false}"] />
+    before="{look-behind required match}"
+    order="{list of weights}"
+    tertiary="{list of weights}"
+    tertiaryBase="{list of true/false}"
+    preBase="{list of true/false}" />
     <!-- other <reorder/> elements... -->
 </transformGroup>
 ```
@@ -2323,7 +2337,7 @@ In text editing mode, different keyboard layouts may behave differently in the s
 ```xml
 <transforms type="backspace">
     <transformGroup>
-        <transform from="{combination of characters}" [to="{output}"] />
+        <transform from="{combination of characters}" to="{output}" />
     </transformGroup>
 </transforms>
 ```

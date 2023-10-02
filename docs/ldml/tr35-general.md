@@ -996,7 +996,7 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 		</li></ul>
         <ul><li><em>Constraint:</em> must not have a prefix as an initial segment.</li>
 			<li><em>Constraint:</em> no two different base_components will share the first 8 letters. 
-				(<b>For more information, see <a href="#Unit_Identifier_Uniqueness">Unit Identifier Uniqueness</a>)</b>
+				(<b>For more information, see <a href="#Unit_Identifier_Uniqueness">Unit Identifier Uniqueness</a>.)</b>
 			</li></ul>
 	</td></tr>
 
@@ -1042,16 +1042,15 @@ For example:
 ### <a name="Unit_Identifier_Uniqueness" href="#Unit_Identifier_Uniqueness">Unit Identifier Uniqueness</a>
 CLDR Unit Identifiers can be used as values in locale identifiers. When that is done, the syntax is modified whenever a `prefixed_unit` would be longer than 8 characters. In such a case:
 
-* If there is no `prefix' the `prefixed_unit` is truncated to 8 characters.
+* If there is no `prefix` the `prefixed_unit` is truncated to 8 characters.
 * If there is a `prefix`, a hyphen is added between the `prefix` and the `base_component`. If that `base_component` is longer than 8 characters, it is truncated to 8 characters.
 
 _Example_
 | Unit identifer | BCP47 syntax example | Comment |
-| ---- | ---- | ---- |
-| kilogram | en-u-ux-kilogram | kilogram fits in 8 characters |
-| centilux | en-u-ux-centilux | centilux fixs in 8 characters |
-
-| steradian | en-u-ux-steradia  | steradian exceeds 8 characters |
+| ----      | ----               | ----                           |
+| kilogram  | en-u-ux-kilogram   | kilogram fits in 8 characters  |
+| centilux  | en-u-ux-centilux   | centilux fixs in 8 characters  |
+| steradian | en-u-ux-steradia   | steradian exceeds 8 characters |
 | centigram | en-u-ux-centi-gram | centigram exceeds 8 characters |
 | kilometer | en-u-ux-kilo-meter | kilometer exceeds 8 characters |
 | quectolux | en-u-ux-kilo-meter | kilometer exceeds 8 characters |

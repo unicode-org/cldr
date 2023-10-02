@@ -15,6 +15,7 @@ import com.ibm.icu.number.Precision;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.util.NoUnit;
 import com.ibm.icu.util.ULocale;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -28,6 +29,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Optional;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -237,7 +239,15 @@ public class Ldml2JsonConverter {
                             'M',
                             "(true|false)",
                             "true",
-                            "Whether to include the -modern tier");
+                            "Whether to include the -modern tier")
+                    // Primarily useful for non-Maven build systems where CldrUtility.LICENSE may
+                    // not be available as it is put in place by pom.xml
+                    .add(
+                            "license-file",
+                            null,
+                            ".*",
+                            "",
+                            "Override the license file included in the bundle");
 
     public static void main(String[] args) throws Exception {
         System.out.println(GEAR_ICON + " " + Ldml2JsonConverter.class.getName() + " options:");
@@ -288,7 +298,9 @@ public class Ldml2JsonConverter {
                         Boolean.parseBoolean(options.get("bcp47").getValue()),
                         Boolean.parseBoolean(options.get("bcp47-no-subtags").getValue()),
                         Boolean.parseBoolean(options.get("Modern").getValue()),
-                        Boolean.parseBoolean(options.get("Redundant").getValue()));
+                        Boolean.parseBoolean(options.get("Redundant").getValue()),
+                        Optional.ofNullable(options.get("license-file").getValue())
+                                .filter(s -> !s.isEmpty()));
 
         DraftStatus status = DraftStatus.valueOf(options.get("draftstatus").getValue());
         l2jc.processDirectory(runType, status);
@@ -331,6 +343,7 @@ public class Ldml2JsonConverter {
     private final String pkgVersion;
     private final boolean strictBcp47;
     private final boolean writeModernPackage;
+    private final Optional<String> licenseFile;
     private final boolean skipBcp47LocalesWithSubtags;
     private LdmlConfigFileReader configFileReader;
 
@@ -348,7 +361,8 @@ public class Ldml2JsonConverter {
             boolean strictBcp47,
             boolean skipBcp47LocalesWithSubtags,
             boolean writeModernPackage,
-            boolean includeRedundant) {
+            boolean includeRedundant,
+            Optional<String> licenseFile) {
         this.writeModernPackage = writeModernPackage;
         this.strictBcp47 = strictBcp47;
         this.skipBcp47LocalesWithSubtags = strictBcp47 && skipBcp47LocalesWithSubtags;
@@ -376,6 +390,7 @@ public class Ldml2JsonConverter {
         this.sections = configFileReader.getSections();
         this.packages = new TreeSet<>();
         this.includeRedundant = includeRedundant;
+        this.licenseFile = licenseFile;
     }
 
     /**
@@ -1232,7 +1247,13 @@ public class Ldml2JsonConverter {
         }
         try (PrintWriter outf =
                 FileUtilities.openUTF8Writer(outputDir + "/" + packageName, "LICENSE"); ) {
-            FileCopier.copy(CldrUtility.getUTF8Data(CldrUtility.LICENSE), outf);
+            if (licenseFile.isPresent()) {
+                try (BufferedReader br = FileUtilities.openUTF8Reader("", licenseFile.get()); ) {
+                    FileCopier.copy(br, outf);
+                }
+            } else {
+                FileCopier.copy(CldrUtility.getUTF8Data("unicode-license.txt"), outf);
+            }
         }
     }
 

@@ -69,6 +69,7 @@ The LDML specification is divided into the following parts:
   * [Unit Identifiers](#Unit_Identifiers)
     * [Nomenclature](#nomenclature)
     * [Syntax](#syntax)
+  * [Unit Identifier Uniqueness](#Unit_Identifier_Uniqueness)
   * [Example Units](#Example_Units)
   * [Compound Units](#compound-units)
     * [Precomposed Compound Units](#precomposed-compound-units)
@@ -868,7 +869,7 @@ The long unit identifers are used as a key in the translated unit names for loca
 | day          | duration-day |
 
 
-The list of valid CLDR simple unit identifiers is found in _Section Validity Data](tr35.md#Validity_Data)_.
+The list of valid CLDR simple unit identifiers is found in _[Section Validity Data](tr35.md#Validity_Data)_.
 These names should not be presented to end users, however: the translated names for different languages (or variants of English) are available in the CLDR localized data.
 All syntactically valid CLDR unit identifiers values that are not listed in the validity data are reserved by CLDR for additional future units.
 There is one exception: implementations that need to define their own unit identifiers can do so via _[Private-Use Units](#Private_Use_Units)_.
@@ -994,7 +995,10 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 			or &lt;unitIdComponent type=”and”&gt;<br>
 			or &lt;unitIdComponent type=”per”&gt;.
 		</li></ul>
-        <ul><li><em>Constraint:</em> must not have a prefix as an initial segment.</li></ul>
+        <ul><li><em>Constraint:</em> must not have a prefix as an initial segment.</li>
+			<li><em>Constraint:</em> no two different base_components will share the first 8 letters. 
+				(<b>For more information, see <a href="#Unit_Identifier_Uniqueness">Unit Identifier Uniqueness</a>.)</b>
+			</li></ul>
 	</td></tr>
 
 <tr><td>suffix_component</td><td>:=</td>
@@ -1036,11 +1040,31 @@ For example:
 * Similarly, when a base_component is encountered, one can collect any suffix components, and stop.
 * Encountering a suffix_component in any other circumstance is an error.
 
+### <a name="Unit_Identifier_Uniqueness" href="#Unit_Identifier_Uniqueness">Unit Identifier Uniqueness</a>
+CLDR Unit Identifiers can be used as values in locale identifiers. When that is done, the syntax is modified whenever a `prefixed_unit` would be longer than 8 characters. In such a case:
+
+* If there is no `prefix` the `prefixed_unit` is truncated to 8 characters.
+* If there is a `prefix`, a hyphen is added between the `prefix` and the `base_component`. If that `base_component` is longer than 8 characters, it is truncated to 8 characters.
+
+_Example_
+| Unit identifer | BCP47 syntax example | Comment |
+| ----      | ----               | ----                           |
+| kilogram  | en-u-ux-kilogram   | kilogram fits in 8 characters  |
+| centilux  | en-u-ux-centilux   | centilux fixs in 8 characters  |
+| steradian | en-u-ux-steradia   | steradian exceeds 8 characters |
+| centigram | en-u-ux-centi-gram | centigram exceeds 8 characters |
+| kilometer | en-u-ux-kilo-meter | kilometer exceeds 8 characters |
+| quectolux | en-u-ux-kilo-meter | kilometer exceeds 8 characters |
+
+This requires that each of the elements in base_components are unique to eight letters, that is: **no two different base_components will share the first 8 letters**.
+
+The reason that the `prefixed_unit` as a whole is not simply truncated to 8 characters is that would impose too strict a constraint. There  are 5 letter prefixes such as 'centi' and more recently 6 letter prefixes such as 'quecto'. That would cause prefixed `base_component` as short as 'gram' and 'gray' to be ambiguous when truncated to 8 letters: 'centigra'; and 'lumen' and 'lux' would fail with the 6 letter prefixes.
+
 ### <a name="Example_Units" href="#Example_Units">Example Units</a>
 
 The following table contains examples of groupings and units currently defined by CLDR.
 The units in CLDR are not comprehensive; it is anticipated that more will be added over time.
-The complete list of supported units is in the validity data: see _Section Validity Data](tr35.md#Validity_Data)_.
+The complete list of supported units is in the validity data: see _[Section Validity Data](tr35.md#Validity_Data)_.
 
 | Type           | Core Unit Identifier     | Compound? | Sample Format  |
 | -------------- | ------------------------ | --------- | -------------- |
@@ -1164,7 +1188,7 @@ There are three widths: **long**, **short**, and **narrow**. As usual, the narro
 
 Where the unit of measurement is one of the [International System of Units (SI)](https://physics.nist.gov/cuu/Units/units.html), the short and narrow forms will typically use the international symbols, such as “mm” for millimeter. They may, however, be different if that is customary for the language or locale. For example, in Russian it may be more typical to see the Cyrillic characters “мм”.
 
-Units are included for translation even where they are not typically used in a particular locale, such as kilometers in the US, or inches in Germany. This is to account for use by travelers and specialized domains, such as the German “Fernseher von 32 bis 55 Zoll (80 bis 140 cm)” for TV screen size in inches and centimeters.
+Units are sometimes included for translation even where they are not typically used in a particular locale, such as kilometers in the US, or inches in Germany. This is to account for use by travelers and specialized domains, such as the German “Fernseher von 32 bis 55 Zoll (80 bis 140 cm)” for TV screen size in inches and centimeters.
 
 For temperature, there is a special unit `<unit type="temperature-generic">`, which is used when it is clear from context whether Celcius or Fahrenheit is implied.
 

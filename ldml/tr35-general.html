@@ -674,6 +674,13 @@
 
 
 
+
+
+
+
+
+
+
 <script src="./js/anchor.min.js"></script><div class="header"><table class="header" cellpadding="0" cellspacing="0" width="100%">
     <tbody>
         <tr>
@@ -747,6 +754,7 @@ This is a stable document and may be used as reference material or cited as a no
 <li><a href="#syntax">Syntax</a></li>
 </ul>
 </li>
+<li><a href="#Unit_Identifier_Uniqueness">Unit Identifier Uniqueness</a></li>
 <li><a href="#Example_Units">Example Units</a></li>
 <li><a href="#compound-units">Compound Units</a><ul>
 <li><a href="#precomposed-compound-units">Precomposed Compound Units</a></li>
@@ -1281,7 +1289,7 @@ The long unit identifers are used as a key in the translated unit names for loca
 <td>day</td>
 <td>duration-day</td>
 </tr>
-</tbody></table><p>The list of valid CLDR simple unit identifiers is found in <em>Section Validity Data](tr35.md#Validity_Data)</em>.
+</tbody></table><p>The list of valid CLDR simple unit identifiers is found in <em><a href="tr35.html#Validity_Data">Section Validity Data</a></em>.
 These names should not be presented to end users, however: the translated names for different languages (or variants of English) are available in the CLDR localized data.
 All syntactically valid CLDR unit identifiers values that are not listed in the validity data are reserved by CLDR for additional future units.
 There is one exception: implementations that need to define their own unit identifiers can do so via <em><a href="#Private_Use_Units">Private-Use Units</a></em>.</p><p>A core unit identifier that is not a simple unit is called a <em>complex unit</em> (aka <em>compound unit</em>).
@@ -1391,7 +1399,10 @@ Some of the constraints reference data from the unitIdComponents in <a href="tr3
             or &lt;unitIdComponent type=”and”&gt;<br>
             or &lt;unitIdComponent type=”per”&gt;.
         </li></ul>
-        <ul><li><em>Constraint:</em> must not have a prefix as an initial segment.</li></ul>
+        <ul><li><em>Constraint:</em> must not have a prefix as an initial segment.</li>
+            <li><em>Constraint:</em> no two different base_components will share the first 8 letters. 
+                (<b>For more information, see <a href="#Unit_Identifier_Uniqueness">Unit Identifier Uniqueness</a>.)</b>
+            </li></ul>
     </td></tr>
 
 <tr><td>suffix_component</td><td>:=</td>
@@ -1426,9 +1437,50 @@ For example:</p><ul>
 <li>When a prefix_component is encountered, one can collect any other prefix-components, then one base_component, then any suffix components, and stop.</li>
 <li>Similarly, when a base_component is encountered, one can collect any suffix components, and stop.</li>
 <li>Encountering a suffix_component in any other circumstance is an error.</li>
-</ul><h3 id="Example_Units"><a name="example-units" href="#Example_Units">Example Units</a></h3><p>The following table contains examples of groupings and units currently defined by CLDR.
+</ul><h3 id="Unit_Identifier_Uniqueness"><a name="unit-identifier-uniqueness" href="#Unit_Identifier_Uniqueness">Unit Identifier Uniqueness</a></h3><p>CLDR Unit Identifiers can be used as values in locale identifiers. When that is done, the syntax is modified whenever a <code>prefixed_unit</code> would be longer than 8 characters. In such a case:</p><ul>
+<li>If there is no <code>prefix</code> the <code>prefixed_unit</code> is truncated to 8 characters.</li>
+<li>If there is a <code>prefix</code>, a hyphen is added between the <code>prefix</code> and the <code>base_component</code>. If that <code>base_component</code> is longer than 8 characters, it is truncated to 8 characters.</li>
+</ul><p><em>Example</em></p><table>
+<thead>
+<tr>
+<th>Unit identifer</th>
+<th>BCP47 syntax example</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>kilogram</td>
+<td>en-u-ux-kilogram</td>
+<td>kilogram fits in 8 characters</td>
+</tr>
+<tr>
+<td>centilux</td>
+<td>en-u-ux-centilux</td>
+<td>centilux fixs in 8 characters</td>
+</tr>
+<tr>
+<td>steradian</td>
+<td>en-u-ux-steradia</td>
+<td>steradian exceeds 8 characters</td>
+</tr>
+<tr>
+<td>centigram</td>
+<td>en-u-ux-centi-gram</td>
+<td>centigram exceeds 8 characters</td>
+</tr>
+<tr>
+<td>kilometer</td>
+<td>en-u-ux-kilo-meter</td>
+<td>kilometer exceeds 8 characters</td>
+</tr>
+<tr>
+<td>quectolux</td>
+<td>en-u-ux-kilo-meter</td>
+<td>kilometer exceeds 8 characters</td>
+</tr>
+</tbody></table><p>This requires that each of the elements in base_components are unique to eight letters, that is: <strong>no two different base_components will share the first 8 letters</strong>.</p><p>The reason that the <code>prefixed_unit</code> as a whole is not simply truncated to 8 characters is that would impose too strict a constraint. There  are 5 letter prefixes such as 'centi' and more recently 6 letter prefixes such as 'quecto'. That would cause prefixed <code>base_component</code> as short as 'gram' and 'gray' to be ambiguous when truncated to 8 letters: 'centigra'; and 'lumen' and 'lux' would fail with the 6 letter prefixes.</p><h3 id="Example_Units"><a name="example-units" href="#Example_Units">Example Units</a></h3><p>The following table contains examples of groupings and units currently defined by CLDR.
 The units in CLDR are not comprehensive; it is anticipated that more will be added over time.
-The complete list of supported units is in the validity data: see <em>Section Validity Data](tr35.md#Validity_Data)</em>.</p><table>
+The complete list of supported units is in the validity data: see <em><a href="tr35.html#Validity_Data">Section Validity Data</a></em>.</p><table>
 <thead>
 <tr>
 <th>Type</th>
@@ -2127,7 +2179,7 @@ The complete list of supported units is in the validity data: see <em>Section Va
 <td>simple</td>
 <td>{0} bbl</td>
 </tr>
-</tbody></table><p>There are three widths: <strong>long</strong>, <strong>short</strong>, and <strong>narrow</strong>. As usual, the narrow forms may not be unique: in English, 1′ could mean 1 minute of arc, or 1 foot. Thus narrow forms should only be used where the context makes the meaning clear.</p><p>Where the unit of measurement is one of the <a href="https://physics.nist.gov/cuu/Units/units.html">International System of Units (SI)</a>, the short and narrow forms will typically use the international symbols, such as “mm” for millimeter. They may, however, be different if that is customary for the language or locale. For example, in Russian it may be more typical to see the Cyrillic characters “мм”.</p><p>Units are included for translation even where they are not typically used in a particular locale, such as kilometers in the US, or inches in Germany. This is to account for use by travelers and specialized domains, such as the German “Fernseher von 32 bis 55 Zoll (80 bis 140 cm)” for TV screen size in inches and centimeters.</p><p>For temperature, there is a special unit <code>&lt;unit type="temperature-generic"&gt;</code>, which is used when it is clear from context whether Celcius or Fahrenheit is implied.</p><p>For duration, there are special units such as <code>&lt;unit type="duration-year-person"&gt;</code> and <code>&lt;unit type="duration-year-week"&gt;</code> for indicating the age of a person, which requires special forms in some languages. For example, in "zh", references to a person being 3 days old or 30 years old would use the forms “他3天大” and “他30岁” respectively.</p><p><a name="compoundUnitPattern"></a><a name="perUnitPatterns"></a></p><h3 id="compound-units"><a name="compound-units" href="#compound-units">Compound Units</a></h3><p>A common combination of units is X per Y, such as <em>miles per hour</em> or <em>liters per second</em> or <em>kilowatt-hours</em>.</p><p>There are different types of structure used to build the localized name of compound units. All of these follow the inheritance specified in <a href="tr35.html#Lateral_Inheritance">Part 1, Lateral Inheritance</a>.</p><p><strong>Prefixes</strong> are for powers of 10 and powers of 1024 (the latter only used with digital units of measure). These are invariant for case, gender, or plural (though those could be added in the future if needed by a language).</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">compoundUnit</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"10p9"</span>&gt;</span>
+</tbody></table><p>There are three widths: <strong>long</strong>, <strong>short</strong>, and <strong>narrow</strong>. As usual, the narrow forms may not be unique: in English, 1′ could mean 1 minute of arc, or 1 foot. Thus narrow forms should only be used where the context makes the meaning clear.</p><p>Where the unit of measurement is one of the <a href="https://physics.nist.gov/cuu/Units/units.html">International System of Units (SI)</a>, the short and narrow forms will typically use the international symbols, such as “mm” for millimeter. They may, however, be different if that is customary for the language or locale. For example, in Russian it may be more typical to see the Cyrillic characters “мм”.</p><p>Units are sometimes included for translation even where they are not typically used in a particular locale, such as kilometers in the US, or inches in Germany. This is to account for use by travelers and specialized domains, such as the German “Fernseher von 32 bis 55 Zoll (80 bis 140 cm)” for TV screen size in inches and centimeters.</p><p>For temperature, there is a special unit <code>&lt;unit type="temperature-generic"&gt;</code>, which is used when it is clear from context whether Celcius or Fahrenheit is implied.</p><p>For duration, there are special units such as <code>&lt;unit type="duration-year-person"&gt;</code> and <code>&lt;unit type="duration-year-week"&gt;</code> for indicating the age of a person, which requires special forms in some languages. For example, in "zh", references to a person being 3 days old or 30 years old would use the forms “他3天大” and “他30岁” respectively.</p><p><a name="compoundUnitPattern"></a><a name="perUnitPatterns"></a></p><h3 id="compound-units"><a name="compound-units" href="#compound-units">Compound Units</a></h3><p>A common combination of units is X per Y, such as <em>miles per hour</em> or <em>liters per second</em> or <em>kilowatt-hours</em>.</p><p>There are different types of structure used to build the localized name of compound units. All of these follow the inheritance specified in <a href="tr35.html#Lateral_Inheritance">Part 1, Lateral Inheritance</a>.</p><p><strong>Prefixes</strong> are for powers of 10 and powers of 1024 (the latter only used with digital units of measure). These are invariant for case, gender, or plural (though those could be added in the future if needed by a language).</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">compoundUnit</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"10p9"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">unitPrefixPattern</span>&gt;</span>Giga{0}<span class="hljs-tag">&lt;/<span class="hljs-name">unitPrefixPattern</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">compoundUnit</span>&gt;</span>
 

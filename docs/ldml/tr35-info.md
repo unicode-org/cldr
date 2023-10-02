@@ -895,21 +895,19 @@ The factor and offset can be simple expressions, just like the values in the uni
 
 Where a factor is not present, the value is 1; where an offset is not present, the value is 0.
 
-The `systems` attribute indicates the measurement system(s). Multiple values may be given; for example, _minute_ is marked as systems="metric ussystem uksystem"
-
 The `systems` attribute indicates the measurement system(s) or other characteristics of a set of unts. Multiple values may be given; for example, a unit could be marked as systems="`si_acceptable` `metric_adjacent` `prefixable`".
 
 The allowed attributes are the following:
 
 Attribute Value | Description
 ------------ | -------------
-`si` | the _International System of Units (SI)_ See [https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-4-two-classes-si-units-and-si-prefixes](NIST Guide to the SI, Chapter 4: The Two Classes of SI Units and the SI Prefixes). Examples: meter, ampere
-`si_acceptable` | units acceptable for use with the SI. See [https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-5-units-outside-si](NIST Guide to the SI, Chapter 5: Units Outside the SI). Examples: hour, liter, knot, hectare.
+`si` | the _International System of Units (SI)_ See [NIST Guide to the SI, Chapter 4: The Two Classes of SI Units and the SI Prefixes](https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-4-two-classes-si-units-and-si-prefixes). Examples: meter, ampere
+`si_acceptable` | units acceptable for use with the SI. See [NIST Guide to the SI, Chapter 5: Units Outside the SI](https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-5-units-outside-si). Examples: hour, liter, knot, hectare.
 `metric` | a superset of the _si_ units
 `metric_adjacent` | units commonly accepted in some countries that follow the metric system. Examples: month, arc-second, pound-metric (= ½ kilogram), mile-scandinavian
 `ussystem` | the inch-pound system as used in the US, also called _US Customary Units_
 `uksystem` | the inch-pound system as used in the UK, also called _British Imperial Units_, differing mostly in units of volume
-jpsystem | traditional units used in Japan
+`jpsystem` | traditional units used in Japan
 `astronomical` | additional units used in astronomy. Examples: parsec, light-year, earth-mass
 `person_age` | special units used for people’s ages in some languages. Except for translation, they have the same system as the associated regular units.
 `currency` | currency units, such as curr-usd = US dollar. These are constructed algorithmically from the Unicode currency identifiers, and do not occur in the child elements of `convertUnits`
@@ -935,6 +933,8 @@ systems(liter-per-hectare) = {si_acceptable metric} ∪ {si_acceptable metric} =
 systems(meter-per-hectare) = {si metric} ∪ {si_acceptable metric} = {si_acceptable metric}
 systems(mile-scandinavian-per-hour) = {metric_adjacent} ∪ {si_acceptable metric_adjacent} = {metric_adjacent}
 ```
+
+#### Conversion Mechanisms
 
 CLDR follows conversion values where possible from:
 * [NIST Special Publication 1038](https://www.govinfo.gov/content/pkg/GOVPUB-C13-f10c2ff9e7af2091314396a2d53213e4/pdf/GOVPUB-C13-f10c2ff9e7af2091314396a2d53213e4.pdf)

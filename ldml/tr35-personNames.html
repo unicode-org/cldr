@@ -330,6 +330,25 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script src="./js/anchor.min.js"></script><div class="header"><table class="header" cellpadding="0" cellspacing="0" width="100%">
     <tbody>
         <tr>
@@ -380,7 +399,9 @@ This is a stable document and may be used as reference material or cited as a no
 <li><a href="#personnames-element">personNames Element</a></li>
 <li><a href="#personname-element">personName Element</a></li>
 <li><a href="#nameorderlocales-element">nameOrderLocales Element</a></li>
+<li><a href="#parameterdefault-element">parameterDefault Element</a></li>
 <li><a href="#foreignspacereplacement-element">foreignSpaceReplacement Element</a></li>
+<li><a href="#nativespacereplacement-element">nativeSpaceReplacement Element</a></li>
 <li><a href="#initialpattern-element">initialPattern Element</a><ul>
 <li><a href="#syntax">Syntax</a></li>
 </ul>
@@ -397,7 +418,11 @@ This is a stable document and may be used as reference material or cited as a no
 </li>
 <li><a href="#namepattern-syntax">namePattern Syntax</a><ul>
 <li><a href="#fields">Fields</a></li>
-<li><a href="#modifiers">Modifiers</a></li>
+<li><a href="#modifiers">Modifiers</a><ul>
+<li><a href="#grammatical-modifiers-for-names">Grammatical Modifiers for Names</a></li>
+<li><a href="#future-modifiers">Future Modifiers</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#formatting-process">Formatting Process</a><ul>
@@ -488,7 +513,12 @@ This is a stable document and may be used as reference material or cited as a no
 </li>
 </ul>
 </li>
-</ul><h3 id="api-implementation">API Implementation</h3><p>A draft API for formatting personal names is included in ICU4J 73. (“Draft” means that the full functionality is present, but the API might be refined before it is stabilized.) The implementation can be found at <a href="https://github.com/unicode-org/icu/blob/main/icu4j/main/classes/core/src/com/ibm/icu/text/PersonNameFormatter.java">PersonNameFormatter.java</a> and <a href="https://github.com/unicode-org/icu/blob/main/icu4j/main/classes/core/src/com/ibm/icu/text/SimplePersonName.java">SimplePersonName.java</a>.</p><h3 id="person-name-formatting-overview">Person Name Formatting Overview</h3><p>Logically, the model used for applying the CLDR data is the following:</p><p><img src="images/personNamesFormatModel.png" alt="diagram showing relationship of components involved in person name formatting"></p><p>Conceptually, CLDR person name formatting depends on data supplied by a PersonName Data Interface. That could be a very thin interface that simply accesses a database record, or it could be a more sophisticated interface that can modify the raw data before presenting it to be formatted. For example, based on the formatting locale a PersonName data interface could transliterate names that are in another script, or supply equivalent titles in different languages.</p><p>The specification below will talk about a “PersonName object” as an entity that is logically accessed via such an interface. If multiple formatted names are needed, such as in different scripts or with alternate names, or pronunciations (eg kana), the presumption is that those are logically separate PersonName objects. See [<a href="#person-name-object">Person Name Object</a>].</p><p>The following summarizes the name data supplied via the PersonName Data Interface:</p><ul>
+</ul><h3 id="api-implementation">API Implementation</h3><p>A draft API for formatting personal names is included in ICU4J 73. (“Draft” means that the full functionality is present, but the API might be refined before it is stabilized.) The implementation can be found at <a href="https://github.com/unicode-org/icu/blob/main/icu4j/main/classes/core/src/com/ibm/icu/text/PersonNameFormatter.java">PersonNameFormatter.java</a> and <a href="https://github.com/unicode-org/icu/blob/main/icu4j/main/classes/core/src/com/ibm/icu/text/SimplePersonName.java">SimplePersonName.java</a>.</p><p>In addition to the settings in this document, it is recommended that implementations provide some additional features in their APIs to allow more control for clients, notably:</p><ol>
+<li>forceGivenFirst — no matter what the values are in nameOrderLocales or in the NameObject, display the name as givenFirst.</li>
+<li>forceSurnameFirst — no matter what the values are in nameOrderLocales or in the NameObject, display the name as surnameFirst.</li>
+<li>forceNativeOrdering — no matter what the values are in nameOrderLocales or in the NameObject, display the name with the same ordering as the native locale.</li>
+<li>surnameFirstAllCaps — display the surname and surname2 fields in all caps <strong>if</strong> not using native order. Thus where the foreign name ordering is surnameFirst, the name {given=Shinzo, surname=Abe} would display as “ABE Shinzo”.</li>
+</ol><h3 id="person-name-formatting-overview">Person Name Formatting Overview</h3><p>Logically, the model used for applying the CLDR data is the following:</p><p><img src="images/personNamesFormatModel.png" alt="diagram showing relationship of components involved in person name formatting"></p><p>Conceptually, CLDR person name formatting depends on data supplied by a PersonName Data Interface. That could be a very thin interface that simply accesses a database record, or it could be a more sophisticated interface that can modify the raw data before presenting it to be formatted. For example, based on the formatting locale a PersonName data interface could transliterate names that are in another script, or supply equivalent titles in different languages.</p><p>The specification below will talk about a “PersonName object” as an entity that is logically accessed via such an interface. If multiple formatted names are needed, such as in different scripts or with alternate names, or pronunciations (eg kana), the presumption is that those are logically separate PersonName objects. See [<a href="#person-name-object">Person Name Object</a>].</p><p>The following summarizes the name data supplied via the PersonName Data Interface:</p><ul>
 <li>Name data is composed of one or more name parts, which are categorized in this standard as<ul>
 <li><em>title</em> - a string that represents one or more honorifics or titles, such as “Mr.”, or “Herr Doctor”.</li>
 <li><em>given</em> - usually a name given to someone that is not passed to a person by way of parentage</li>
@@ -538,7 +568,7 @@ This is a stable document and may be used as reference material or cited as a no
 <p><code>{title} {given} {given2-initial} {surname}, {credentials}</code></p>
 </blockquote><p>Then the output is:</p><blockquote>
 <p>Robin F. Wang, Ph.D.</p>
-</blockquote><p>The <em>title</em> field is empty, so both it and the space that follows it in the formatting pattern are omitted from the output, the <em>given2</em> field is formatted as an initial, and a preceding comma is placed before the <em>credentials</em>.</p><p>Sections below specify the precise manner in which a pattern is selected, and how the pattern is modified for missing fields.</p><h2 id="xml-structure">XML Structure</h2><p>Person name formatting data is stored as LDML with schema defined as follows. Each element has a brief description of the usage, but the exact algorithms for using these elements are provided in <a href="#formatting-process">Formatting Process</a>.</p><h3 id="personnames-element">personNames Element</h3><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">personNames</span> ( <span class="hljs-keyword">nameOrderLocales</span>*, <span class="hljs-keyword">foreignSpaceReplacement</span>?, <span class="hljs-keyword">initialPattern</span>*, <span class="hljs-keyword">personName</span>+, <span class="hljs-keyword">sampleName</span>* ) &gt;</span>
+</blockquote><p>The <em>title</em> field is empty, so both it and the space that follows it in the formatting pattern are omitted from the output, the <em>given2</em> field is formatted as an initial, and a preceding comma is placed before the <em>credentials</em>.</p><p>Sections below specify the precise manner in which a pattern is selected, and how the pattern is modified for missing fields.</p><h2 id="xml-structure">XML Structure</h2><p>Person name formatting data is stored as LDML with schema defined as follows. Each element has a brief description of the usage, but the exact algorithms for using these elements are provided in <a href="#formatting-process">Formatting Process</a>.</p><h3 id="personnames-element">personNames Element</h3><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">personNames</span> ( <span class="hljs-keyword">nameOrderLocales</span>*, <span class="hljs-keyword">parameterDefault</span>*, <span class="hljs-keyword">nativeSpaceReplacement</span>*, <span class="hljs-keyword">foreignSpaceReplacement</span>*, <span class="hljs-keyword">initialPattern</span>*, <span class="hljs-keyword">personName</span>*, <span class="hljs-keyword">sampleName</span>* ) &gt;</span>
 </code></pre><p>The LDML top-level <code>&lt;personNames&gt;</code> element contains information regarding the formatting of person names, and the formatting of person names in specific contexts for a specific locale.</p><h3 id="personname-element">personName Element</h3><p>The <code>&lt;personName&gt;</code> element contains the format patterns, or <code>&lt;namePattern&gt;</code> elements, for a specific context and is described in [<a href="#namepattern-syntax">namePattern Syntax</a>]</p><p>The <code>&lt;namePattern&gt;</code> syntax is described in [<a href="#formatting-process">Person Name Format Patterns</a>].</p><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">personName</span> ( <span class="hljs-keyword">namePattern</span>+ ) &gt;</span>
 <span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">personName</span> <span class="hljs-keyword">order</span> <span class="hljs-keyword">NMTOKEN</span> <span class="hljs-keyword">#IMPLIED</span> &gt;</span>
 </code></pre><ul>
@@ -562,8 +592,15 @@ This is a stable document and may be used as reference material or cited as a no
 </ul><p>An example from English may look like the following</p><blockquote>
 <p><code>&lt;nameOrderLocales order="givenFirst"&gt;und en&lt;/nameOrderLocales&gt;</code><br>
 <code>&lt;nameOrderLocales order="surnameFirst"&gt;ko vi yue zh&lt;/nameOrderLocales&gt;</code></p>
-</blockquote><p>This would tell the formatting code, when handling person name data from an English locale, to use patterns with the <code>givenFirst</code> order attribute for all data except name data from Korean, Vietnamese, Cantonese, and Chinese locales, where the <code>surnameFirst</code> patterns should be used.</p><h3 id="foreignspacereplacement-element">foreignSpaceReplacement Element</h3><p>The <code>&lt;foreignSpaceReplacement&gt;</code> element is used to specify how spaces should be handled when the name language is different from the formatting language.</p><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">foreignSpaceReplacement</span> ( <span class="hljs-keyword">#PCDATA</span> ) &gt;</span>
+</blockquote><p>This would tell the formatting code, when handling person name data from an English locale, to use patterns with the <code>givenFirst</code> order attribute for all data except name data from Korean, Vietnamese, Cantonese, and Chinese locales, where the <code>surnameFirst</code> patterns should be used.</p><h3 id="parameterdefault-element">parameterDefault Element</h3><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">parameterDefault</span> ( <span class="hljs-keyword">#PCDATA</span> ) &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">parameterDefault</span> <span class="hljs-keyword">parameter</span> (<span class="hljs-keyword">length</span> | <span class="hljs-keyword">formality</span>) <span class="hljs-keyword">#REQUIRED</span> &gt;</span>
+</code></pre><p>Many clients of the person-names functionality don’t really care about formal versus informal; they just want whatever the “normal” formality level is for the user’s language. The same goes for the default length.</p><p>This parameter provides that information, so that APIs can allow users to use default values for the formality and length. The exact form that this takes depends on the API conventions, of course. </p><h3 id="foreignspacereplacement-element">foreignSpaceReplacement Element</h3><p>The <code>&lt;foreignSpaceReplacement&gt;</code> element is used to specify how spaces should be handled when the name language is <strong>different from</strong> the formatting language. It is used in languages that don't normally require spaces between words. For example, Japanese and Chinese have the value of a middle dot (‘·’ U+00B7 MIDDLE DOT or ‘・’ U+30FB KATAKANA MIDDLE DOT), so that it is used between words in a foreign name; most other languages have the value of SPACE. </p><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">foreignSpaceReplacement</span> ( <span class="hljs-keyword">#PCDATA</span> ) &gt;</span>
 <span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">foreignSpaceReplacement</span> <span class="hljs-keyword">xml</span>:space <span class="hljs-keyword">preserve</span> <span class="hljs-keyword">#REQUIRED</span> &gt;</span>
+</code></pre><ul>
+<li><code>xml:space</code> must be set to <code>'preserve'</code> so that actual spaces in the pattern are preserved. See <a href="https://www.w3.org/TR/xml/#sec-white-space">W3C XML White Space Handling</a>.</li>
+<li>The <code>#PCDATA </code>is the character sequence used to replace spaces when postprocessing a pattern.</li>
+</ul><h3 id="nativespacereplacement-element">nativeSpaceReplacement Element</h3><p>The <code>&lt;nativeSpaceReplacement&gt;</code> element is used to specify how spaces should be handled when the name language is <strong>the same as</strong> the formatting language. It is used in languages that don't normally require spaces between words, but may use spaces within names. For example, Japanese and Chinese have the value of an empty string between words in a native name; most other languages have the value of SPACE.</p><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">nativeSpaceReplacement</span> ( <span class="hljs-keyword">#PCDATA</span> ) &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">nativeSpaceReplacement</span> <span class="hljs-keyword">xml</span>:space <span class="hljs-keyword">preserve</span> <span class="hljs-keyword">#REQUIRED</span> &gt;</span>
 </code></pre><ul>
 <li><code>xml:space</code> must be set to <code>'preserve'</code> so that actual spaces in the pattern are preserved. See <a href="https://www.w3.org/TR/xml/#sec-white-space">W3C XML White Space Handling</a>.</li>
 <li>The <code>#PCDATA </code>is the character sequence used to replace spaces when postprocessing a pattern.</li>
@@ -837,9 +874,43 @@ This is a stable document and may be used as reference material or cited as a no
 <td>monogram</td>
 <td>Requests initial grapheme. Example: A name such as<br>{ given: “Landon”, given2: “Bainard Crawford”, surname: “Johnson” }<br>could be represented as<br>“{given-monogram-allCaps}{given2-monogram-allCaps}{surname-monogram-allCaps}”<br>or “<strong>LBJ</strong>”<br><br><em>The default implementation uses the first grapheme cluster of the value for the field; if the PersonName object has a locale, and CLDR supports a locale-specific grapheme cluster algorithm for that locale, then that algorithm is used. The PersonName object can override this, as detailed below. The difference between monogram an initial is that monogram only returns one element, not one element per word.</em><br><br>Only the <em>“-initial”</em> or the <em>“-monogram”</em> modifier may be used, but not both. They are mutually exclusive.</td>
 </tr>
-</tbody></table><p>There may be more modifiers in the future.</p><p>Examples:</p><ol>
+<tr>
+<td>retain</td>
+<td>This is needed in languages that preserve punctuation when forming initials. For example, normally the name {given=Anne-Marie} is converted into initials with {given-initialCaps} as “A. M.”. However, where a language preserves the hyphen, the pattern should use {given-initialCaps**-retain**} instead. In that case, the result is “A.-M.”. (The periods are added by the pattern-initialSequence.)</td>
+</tr>
+<tr>
+<td>genitive, vocative</td>
+<td>Patterns can use these modifiers so that better results can be obtained for inflected languages. However, see the details below.</td>
+</tr>
+</tbody></table><h4 id="grammatical-modifiers-for-names">Grammatical Modifiers for Names</h4><p>The CLDR person name formatting does not itself support grammatical inflection. 
+However, name sources (NameObject) can support inflections, either by having additional fields or by using an inflection engine that can handle personal name parts.</p><p>In the current release, the focus is on supporting <code>referring</code> and <code>addressing</code> forms. 
+Typically the <code>referring</code> forms will be in the most neutral (<em>nominative</em>) case, and the <code>addressing</code> forms will be in the <em>vocative</em> case.
+Some modifiers have been added to facilitate this, so that there can be patterns like: {given-vocative} {surname-vocative}.</p><p>Notice that some <strong>parts</strong> of the formatted name may be in different grammatical cases, so the cases may not be consistent across the whole name.
+For example:</p><table>
+<thead>
+<tr>
+<th>English Pattern</th>
+<th>Examples</th>
+<th>Latvian Pattern</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>{given} {surname}</td>
+<td>John Smith</td>
+<td>{given} {surname}</td>
+<td>Kārlis Ozoliņš</td>
+</tr>
+<tr>
+<td>{title} {surname}</td>
+<td>Mr Smith</td>
+<td>{surname} {title}</td>
+<td>Ozoliņa kungs</td>
+</tr>
+</tbody></table><p>Notice that the <code>surname</code> in Latvian needs to change to the genitive case with that pattern:</p><p>Ozoliņš ➡︎ <strong>Ozoliņa</strong></p><p>That is accomplished by changing the pattern to be {surname<b>-genitive</b>} {title}. In this case the {surname} should only be genitive if followed by the {title}.</p><h4 id="future-modifiers">Future Modifiers</h4><p>Additional modifiers may be added in future versions of CLDR.</p><p>Examples:</p><ol>
 <li>For the initial of the surname <strong><em>“de Souza”</em></strong>, in a language that treats the “de” as a tussenvoegsel, the PersonName object can automatically recast <code>{surname-initial}</code> to:<br><code>{surname-prefix-initial}{surname-core-initial-allCaps} </code>to get “dS” instead of “d”.</li>
 <li>If the locale expects a surname prefix to to be sorted after a surname, then both <code>{surname-core} </code>then <code>{surname-prefix}</code> would be used as in<br><code>{surname-core}, {given} {given2} {surname-prefix}</code></li>
+<li>Only the grammatical modifiers requested by translators for <code>referring</code> or <code>addressing</code> have been added as yet, but additional grammatical modifiers may be added in the future.</li>
 </ol><h2 id="formatting-process">Formatting Process</h2><p>The patterns are in <strong>personName</strong> elements, which are themselves in a <strong>personNames</strong> container element. The following describes how the formatter's locale interacts with the personName's locale, how the name patterns are chosen, and how they are processed.</p><p>The details of the XML structure behind the data referenced here are in <a href="#xml-structure">XML Structure</a>.</p><p>The formatting process may be refined in the future. In particular, additional data may be added to allow further customization.</p><p>The term <strong>maximal likely locale</strong> used below is the result of using the <a href="tr35.html#Likely_Subtags">Likely Subtags</a> data to map from a locale to a full representation that includes the base language, script, and region.</p><h3 id="derive-the-name-locale">Derive the name locale</h3><p>Construct the <strong>name script</strong> in the following way.</p><ol>
 <li>Iterate through the characters of the surname, then through the given name.<ol>
 <li>Find the script of that character using the Script property.</li>
@@ -1110,18 +1181,8 @@ If at least one of them doesn’t inherit their value from root, then the locale
 <li><a href="https://ja.wikipedia.org/wiki/%E3%82%A2%E3%83%AB%E3%83%99%E3%83%AB%E3%83%88%E3%83%BB%E3%82%A2%E3%82%A4%E3%83%B3%E3%82%B7%E3%83%A5%E3%82%BF%E3%82%A4%E3%83%B3">アルベルト<span style="background-color:aqua">・</span>アインシュタイン</a></li>
 <li><a href="https://zh.wikipedia.org/wiki/%E9%98%BF%E5%B0%94%E4%BC%AF%E7%89%B9%C2%B7%E7%88%B1%E5%9B%A0%E6%96%AF%E5%9D%A6">阿尔伯特<span style="background-color:aqua">·</span>爱因斯坦</a></li>
 </ul><h4 id="setting-the-spacereplacement">Setting the spaceReplacement</h4><ol>
-<li>The foreignSpaceReplacement is provided by the value for the <code>foreignSpaceReplacement</code> element; the default value is " ".</li>
-<li>The nativeSpaceReplacement is determined by the following algorithm, choosing between " " and "".<ol>
-<li>Get the script of the formatting locale</li>
-<li>If the likely script is Thai, let nativeSpaceReplacement = " " (space)</li>
-<li>Otherwise let nativeSpaceReplacement = "" (empty string) if either of the following applies:<ol>
-<li>The script is Jpan, Hant, or Hans</li>
-<li>The script has the script metadata property lbLetters = YES (this can also be algorithmically derived from the LineBreak property data).</li>
-</ol>
-</li>
-<li>Otherwise, let nativeSpaceReplacement = " " (space)</li>
-</ol>
-</li>
+<li>The foreignSpaceReplacement is provided by the value for the <code>foreignSpaceReplacement</code> element; the default value is a SPACE (" ").</li>
+<li>The nativeSpaceReplacement is provided by the value for the <code>nativeSpaceReplacement</code> element; the default value is SPACE (" ").</li>
 <li>If the formatter base language matches the name base language, then let spaceReplacement = nativeSpaceReplacement, otherwise let spaceReplacement = foreignSpaceReplacement.</li>
 <li>Replace all sequences of space in the formatted value string by the spaceReplacement.</li>
 </ol><p>For the purposes of this algorithm, two base languages are said to <strong>match</strong> when they are identical, or if both are in {ja, zh, yue}.</p><p><strong>Note:</strong> in the future the plan is to make the specific languages and scripts used in this algorithm be data-driven.</p><p>Remember that <strong>a name in a different script</strong> will use a different locale for formatting, as per <a href="#switch-the-formatting-locale-if-necessary">Switch the formatting locale if necessary</a>.
@@ -1161,6 +1222,7 @@ For example, when formatting a name for Japanese, if the name is in the Latin sc
 </tbody></table><p>Suppose the PersonNames formatting patterns for <code>ja_JP</code> and <code>de_CH</code> contained the following:</p><p><strong><code>ja_JP</code> formatting patterns</strong></p><pre>&lt;personNames&gt;
    &lt;nameOrderLocales order="givenFirst"&gt;und&lt;/nameOrderLocales&gt;
    &lt;<strong>nameOrderLocales</strong> order="<strong>surnameFirst</strong>"&gt;hu <strong>ja</strong> ko vi yue zh <strong>und_JP</strong>&lt;/nameOrderLocales&gt;
+   &lt;<strong>nativeSpaceReplacement</strong> xml:space="preserve"&gt;<span style="background-color:aqua"></span>&lt;/nativeSpaceReplacement&gt;
    &lt;<strong>foreignSpaceReplacement</strong> xml:space="preserve"&gt;<span style="background-color:aqua">・</span>&lt;/foreignSpaceReplacement&gt;
    . . .
    &lt;personName order="<strong>givenFirst</strong>" length="medium" usage="referring" formality="formal"&gt;

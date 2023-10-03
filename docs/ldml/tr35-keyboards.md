@@ -589,7 +589,7 @@ An element used to keep track of layout-specific settings by implementations. Th
 **Syntax**
 
 ```xml
-<settings fallback="omit" normalization="mixed" />
+<settings fallback="omit" />
 ```
 
 > <small>
@@ -632,7 +632,9 @@ _Attribute:_ `normalization`
 >
 > However, it is recognized that there may be some keyboards which, for compatibility or legacy reasons, need to manage their own normalization. The implementation in that case will do no normalization at all. The keyboard author must make use of transforms in the keyboard to any required normalization.
 >
-> **Note**: while this attribute is allowed by the specification, its use is discouraged, and keyboards with `normalization="mixed"` would not be accepted into the ClDR repository.
+> In this case, the attribute `normalization="disabled"` can be used to specify that normalization is not done.
+>
+> **Note**: while this attribute is allowed by the specification, its use is discouraged, and keyboards with `normalization="disabled"` would not be accepted into the ClDR repository.
 
 
 **Example**
@@ -640,7 +642,7 @@ _Attribute:_ `normalization`
 ```xml
 <keyboard3 locale="bg">
     …
-    <settings normalization="mixed" />
+    <settings normalization="disabled" />
     …
 </keyboard3>
 ```

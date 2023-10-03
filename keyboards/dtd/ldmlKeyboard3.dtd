@@ -73,8 +73,7 @@ Please view the subcommittee page for the most recent information.
     <!--@TECHPREVIEW-->
 <!ATTLIST settings fallback (omit) #IMPLIED >
     <!--@VALUE-->
-<!ATTLIST settings normalization CDATA #IMPLIED >
-    <!--@MATCH:literal/mixed-->
+<!ATTLIST settings normalization (disabled) #IMPLIED >
     <!--@VALUE-->
 
 

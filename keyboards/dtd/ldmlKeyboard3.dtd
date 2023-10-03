@@ -10,7 +10,7 @@ The CLDR Keyboard Subcommittee is currently developing major changes to the CLDR
 Please view the subcommittee page for the most recent information.
 <https://cldr.unicode.org/index/keyboard-workgroup> -->
 
-<!ELEMENT keyboard3 ( import*, locales?, version?, info?, names, settings?, displays?, keys?, forms?, layers*, variables?, transforms*, special* ) >
+<!ELEMENT keyboard3 ( import*, locales?, version?, info, settings?, displays?, keys?, forms?, layers*, variables?, transforms*, special* ) >
     <!--@TECHPREVIEW-->
 <!ATTLIST keyboard3 locale CDATA #REQUIRED >
     <!--@MATCH:validity/bcp47-wellformed-->
@@ -45,6 +45,9 @@ Please view the subcommittee page for the most recent information.
 
 <!ELEMENT info EMPTY >
     <!--@TECHPREVIEW-->
+<!ATTLIST info name CDATA #REQUIRED >
+    <!--@MATCH:any-->
+    <!--@VALUE-->
 <!ATTLIST info author CDATA #IMPLIED >
     <!--@MATCH:any-->
     <!--@VALUE-->
@@ -55,25 +58,11 @@ Please view the subcommittee page for the most recent information.
     <!--@MATCH:any-->
     <!--@VALUE-->
 
-<!ELEMENT names ( import*, name+, special* ) >
-    <!--@TECHPREVIEW-->
-
-<!ELEMENT name EMPTY >
-    <!--@ORDERED-->
-    <!--@TECHPREVIEW-->
-<!ATTLIST name value CDATA #REQUIRED >
-    <!--@MATCH:any-->
-    <!--@VALUE-->
-
-<!ELEMENT special ANY >
-    <!--@TECHPREVIEW-->
-
 <!ELEMENT settings EMPTY >
     <!--@ORDERED-->
     <!--@TECHPREVIEW-->
 <!ATTLIST settings normalization (disabled) #IMPLIED >
     <!--@VALUE-->
-
 
 <!ELEMENT displays ( import*, display*, displayOptions*, special* ) >
     <!--@TECHPREVIEW-->
@@ -96,6 +85,9 @@ Please view the subcommittee page for the most recent information.
     <!--@MATCH:any-->
     <!--@VALUE-->
     <!--@ALLOWS_UESC-->
+
+<!ELEMENT special ANY >
+    <!--@TECHPREVIEW-->
 
 <!ELEMENT keys ( import*, ( key | flicks )*, special* ) >
     <!--@TECHPREVIEW-->

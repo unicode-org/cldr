@@ -22,8 +22,7 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
         <xs:element maxOccurs="unbounded" minOccurs="0" ref="import"/>
         <xs:element minOccurs="0" ref="locales"/>
         <xs:element minOccurs="0" ref="version"/>
-        <xs:element minOccurs="0" ref="info"/>
-        <xs:element ref="names"/>
+        <xs:element ref="info"/>
         <xs:element minOccurs="0" ref="settings"/>
         <xs:element minOccurs="0" ref="displays"/>
         <xs:element minOccurs="0" ref="keys"/>
@@ -97,6 +96,7 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
   
   <xs:element name="info">
     <xs:complexType>
+      <xs:attribute name="name" use="required"/>
       <xs:attribute name="author"/>
       <xs:attribute name="layout"/>
       <xs:attribute name="indicator"/>
@@ -109,26 +109,7 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
   
   
   
-  <xs:element name="names">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element maxOccurs="unbounded" minOccurs="0" ref="import"/>
-        <xs:element maxOccurs="unbounded" ref="name"/>
-        <xs:element maxOccurs="unbounded" minOccurs="0" ref="special"/>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
   
-  <xs:element name="name">
-    <xs:complexType>
-      <xs:attribute name="value" use="required"/>
-    </xs:complexType>
-  </xs:element>
-  
-  
-  
-  
-  <xs:element name="special" type="any"/>
   
   <xs:element name="settings">
     <xs:complexType>
@@ -177,6 +158,8 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
   
   
   
+  
+  <xs:element name="special" type="any"/>
   
   <xs:element name="keys">
     <xs:complexType>

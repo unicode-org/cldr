@@ -74,8 +74,6 @@ The LDML specification is divided into the following parts:
   * [Element: locale](#Element_locale)
   * [Element: version](#Element_version)
   * [Element: info](#Element_info)
-  * [Element: names](#Element_names)
-  * [Element: name](#Element_name)
   * [Element: settings](#Element_settings)
   * [Element: keys](#Element_keys)
   * [Element: key](#Element_key)
@@ -334,7 +332,7 @@ This is the top level element. All other elements defined below are under this e
 >
 > Parents: _none_
 >
-> Children: [displays](#Element_displays), [import](#Element_import), [info](#Element_info), [keys](#Element_keys), [layers](#Element_layers), [locales](#Element_locales), [names](#Element_names), [settings](#Element_settings), [_special_](tr35.md#special), [transforms](#Element_transforms), [variables](#Element_variables), [version](#Element_version)
+> Children: [displays](#Element_displays), [import](#Element_import), [info](#Element_info), [keys](#Element_keys), [layers](#Element_layers), [locales](#Element_locales), [settings](#Element_settings), [_special_](tr35.md#special), [transforms](#Element_transforms), [variables](#Element_variables), [version](#Element_version)
 >
 > Occurrence: required, single
 >
@@ -485,7 +483,9 @@ Element containing informative properties about the layout, for displaying in us
 **Syntax**
 
 ```xml
-<info author="{author}"
+<info
+      name="{keyboard name}"
+      author="{author}"
       layout="{hint of the layout}"
       indicator="{short identifier}" />
 ```
@@ -496,9 +496,26 @@ Element containing informative properties about the layout, for displaying in us
 >
 > Children: _none_
 >
-> Occurrence: optional, single
+> Occurrence: required, single
 >
 > </small>
+
+_Attribute:_ `name` (required)
+
+> Note that this is the only required attribute for the `<info>` element.
+>
+> This attribute is an informative name for the keyboard.
+
+```xml
+<keyboard3 locale="bg-t-k0-phonetic-trad">
+    …
+    <info name="Bulgarian (Phonetic Traditional)" />
+    …
+</keyboard3>
+```
+
+* * *
+
 
 _Attribute:_ `author`
 
@@ -516,69 +533,6 @@ _Attribute:_ `indicator`
 > Typically, this is shown on a UI element that allows switching keyboard layouts and/or input languages.
 >
 > This attribute is not localized.
-
-* * *
-
-### <a name="Element_names" href="#Element_names">Element: names</a>
-
-Element used to store any names given to the layout.
-
-These names are not localized but are informative names for the keyboard. Localization of these names would be done as separate data items elsewhere in CLDR.
-
-**Syntax**
-
-```xml
-<names>
-    {set of name elements}
-</names>
-```
-
-> <small>
->
-> Parents: [keyboard3](#Element_keyboard)
->
-> Children: [name](#Element_name), [_special_](tr35.md#special)
->
-> Occurrence: required, single
->
-> </small>
-
-### <a name="Element_name" href="#Element_name">Element: name</a>
-
-A single name given to the layout.
-
-**Syntax**
-
-```xml
-<name value="..">
-```
-
-> <small>
->
-> Parents: [names](#Element_names)
->
-> Children: _none_
->
-> Occurrence: required, multiple
->
-> </small>
-
-_Attribute:_ `value` (required)
-
-> The name of the layout.
-
-
-**Example**
-
-```xml
-<keyboard3 locale="bg-t-k0-phonetic-trad">
-    …
-    <names>
-        <name value="Bulgarian (Phonetic Traditional)" />
-    </names>
-    …
-</keyboard3>
-```
 
 * * *
 

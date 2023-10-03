@@ -69,6 +69,7 @@ The LDML specification is divided into the following parts:
   * [Unit Identifiers](#Unit_Identifiers)
     * [Nomenclature](#nomenclature)
     * [Syntax](#syntax)
+  * [Unit Identifier Uniqueness](#Unit_Identifier_Uniqueness)
   * [Example Units](#Example_Units)
   * [Compound Units](#compound-units)
     * [Precomposed Compound Units](#precomposed-compound-units)

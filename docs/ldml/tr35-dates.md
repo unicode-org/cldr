@@ -1160,6 +1160,17 @@ Each `weekOfPreference` element provides, for its specified locales, an ordered 
 | weekOfDate     | the week of April 11, 2016        | \<field type="week"\>\<relativePeriod>the week of {0}\<…        | The date pattern that replaces {0} is determined separately and may use the first day or workday of the week, the range of the full week or work week, etc.   |
 | weekOfInterval | the week of April 11–15           | \<field type="week"\>\<relativePeriod>the week of {0}\<…    |  (same comment as above) |
 
+####First Day Overrides
+The calculation of the first day of the week depends on various fields in a locale_identifier, according to the following algorithm. The data in the `firstDay` elements is treated as a map from region to day, with any missing value using the value for 001.
+
+1. If there is a valid `-u-fw-` day value, return that day.
+2. Else if there is a valid `-u-rg-` region value, return that region's firstDay map value.
+3. Else if there is a valid `-u-ca-` calendar value, where that calendar specifies the first day, then return that first day. (Most calendars do not specify the first day.)
+4. Else if there is an explicit region subtag, then return that region's firstDay map value.
+5. Else if there is a valid `-u-sd-` subdivision value, return that region's firstDay map value.
+6. Else if the [Add Likely Subtags](tr35.html#Likely_Subtags) algorithm produces a region, return that region's firstDay map value.
+7. Else return the firstDay map value for 001.
+
 ### <a name="Time_Data" href="#Time_Data">Time Data</a>
 
 ```xml

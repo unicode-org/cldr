@@ -323,6 +323,14 @@
 
 
 
+
+
+
+
+
+
+
+
 <script src="./js/anchor.min.js"></script><div class="header"><table class="header" cellpadding="0" cellspacing="0" width="100%">
     <tbody>
         <tr>
@@ -402,6 +410,8 @@ This is a stable document and may be used as reference material or cited as a no
 <li><a href="#unit-parsing-data">Unit Parsing Data</a></li>
 <li><a href="#constants">Constants</a></li>
 <li><a href="#conversion-data">Conversion Data</a><ul>
+<li><a href="#derived-unit-system">Derived Unit System</a></li>
+<li><a href="#conversion-mechanisms">Conversion Mechanisms</a></li>
 <li><a href="#exceptional-cases">Exceptional Cases</a><ul>
 <li><a href="#identities">Identities</a></li>
 <li><a href="#aliases">Aliases</a></li>
@@ -926,7 +936,7 @@ For example the following values can be suffixes in a simple_unit identifier suc
 
 <span class="hljs-tag">&lt;<span class="hljs-name">convertUnit</span> <span class="hljs-attr">source</span>=<span class="hljs-string">'fahrenheit'</span> <span class="hljs-attr">baseUnit</span>=<span class="hljs-string">'kelvin'</span> <span class="hljs-attr">factor</span>=<span class="hljs-string">'5/9'</span> <span class="hljs-attr">offset</span>=<span class="hljs-string">'2298.35/9'</span> <span class="hljs-attr">systems</span>=<span class="hljs-string">"ussystem uksystem"</span>/&gt;</span>
 </code></pre><p>For example, to convert from 3 carats to kilograms, the factor 0.0002 is used, resulting in 0.0006. To convert between carats and ounces, first the carets are converted to kilograms, then the kilograms to ounces (by reversing the mapping).</p><p>The factor and offset use the same structure as in the value in unitConstant; in particular, * binds more tightly than /.</p><p>The conversion may also require an offset, such as the following:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">convertUnit</span> <span class="hljs-attr">source</span>=<span class="hljs-string">'fahrenheit'</span> <span class="hljs-attr">baseUnit</span>=<span class="hljs-string">'kelvin'</span> <span class="hljs-attr">factor</span>=<span class="hljs-string">'5/9'</span> <span class="hljs-attr">offset</span>=<span class="hljs-string">'2298.35/9'</span> <span class="hljs-attr">systems</span>=<span class="hljs-string">"ussystem uksystem"</span>/&gt;</span>
-</code></pre><p>The factor and offset can be simple expressions, just like the values in the unitConstants.</p><p>Where a factor is not present, the value is 1; where an offset is not present, the value is 0.</p><p>The <code>systems</code> attribute indicates the measurement system(s). Multiple values may be given; for example, <em>minute</em> is marked as systems="metric ussystem uksystem"</p><table>
+</code></pre><p>The factor and offset can be simple expressions, just like the values in the unitConstants.</p><p>Where a factor is not present, the value is 1; where an offset is not present, the value is 0.</p><p>The <code>systems</code> attribute indicates the measurement system(s) or other characteristics of a set of unts. Multiple values may be given; for example, a unit could be marked as systems="<code>si_acceptable</code> <code>metric_adjacent</code> <code>prefixable</code>".</p><p>The allowed attributes are the following:</p><table>
 <thead>
 <tr>
 <th>Attribute Value</th>
@@ -934,22 +944,74 @@ For example the following values can be suffixes in a simple_unit identifier suc
 </tr>
 </thead>
 <tbody><tr>
-<td><em>si</em></td>
-<td>the <em>International System of Units (SI)</em></td>
+<td><code>si</code></td>
+<td>The <em>International System of Units (SI)</em> See <a href="https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-4-two-classes-si-units-and-si-prefixes">NIST Guide to the SI, Chapter 4: The Two Classes of SI Units and the SI Prefixes</a>. Examples: meter, ampere.</td>
 </tr>
 <tr>
-<td><em>metric</em></td>
-<td>a superset of the <em>si</em> units, with some non-SI units accepted for use with the SI or simple multiples of metric units, such as pound-metric (= ½ kilogram)</td>
+<td><code>si_acceptable</code></td>
+<td>Units acceptable for use with the SI. See <a href="https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-5-units-outside-si">NIST Guide to the SI, Chapter 5: Units Outside the SI</a>. Examples: hour, liter, knot, hectare.</td>
 </tr>
 <tr>
-<td><em>ussystem</em></td>
-<td>the inch-pound system as used in the US, also called <em>US Customary Units</em></td>
+<td><code>metric</code></td>
+<td>A superset of the <em>si</em> units</td>
 </tr>
 <tr>
-<td><em>uksystem</em></td>
-<td>the inch-pound system as used in the UK, also called <em>British Imperial Units</em>, differing mostly in units of volume</td>
+<td><code>metric_adjacent</code></td>
+<td>Units commonly accepted in some countries that follow the metric system. Examples: month, arc-second, pound-metric (= ½ kilogram), mile-scandinavian.</td>
 </tr>
-</tbody></table><p>CLDR follows conversion values where possible from:</p><ul>
+<tr>
+<td><code>ussystem</code></td>
+<td>The inch-pound system as used in the US, also called <em>US Customary Units</em>.</td>
+</tr>
+<tr>
+<td><code>uksystem</code></td>
+<td>The inch-pound system as used in the UK, also called <em>British Imperial Units</em>, differing mostly in units of volume</td>
+</tr>
+<tr>
+<td><code>jpsystem</code></td>
+<td>Traditional units used in Japan. For examples, see <a href="https://en.wikipedia.org/wiki/Japanese_units_of_measurement">Japanese units of measurement</a>.</td>
+</tr>
+<tr>
+<td><code>astronomical</code></td>
+<td>Additional units used in astronomy. Examples: parsec, light-year, earth-mass</td>
+</tr>
+<tr>
+<td><code>person_age</code></td>
+<td>Special units used for people’s ages in some languages. Except for translation, they have the same system as the associated regular units.</td>
+</tr>
+<tr>
+<td><code>currency</code></td>
+<td>Currency units. These are constructed algorithmically from the Unicode currency identifiers, and do not occur in the child elements of <code>convertUnits</code>. Examples: curr-usd (US dollar), curr-eur (Euro).</td>
+</tr>
+<tr>
+<td><code>prefixable</code></td>
+<td>Those units that typically use SI prefixes or the <a href="https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-d-bibliography#05">IEC binary prefixes</a>. This can include measures like <code>parsec</code> that are not SI units. It allows implementations to group those units together, and to do sanity checks on the prefix+unit combinations, if they choose. However, implementations may choose to allow prefixes on other units, especially since there is a significant variance in usage: even a term like <code>megafoot</code> might be acceptable in some contexts.</td>
+</tr>
+</tbody></table><p>Over time, additional systems may be added, and the systems for a particular unit may be refined.</p><h4 id="derived-unit-system">Derived Unit System</h4><p>The systems attributes also apply to compound units, and are computed in the following way.</p><ol>
+<li>The <code>prefixable</code> system is only applicable to base_components, and is thus removed</li>
+<li>The <code>number_prefixes</code>, <code>dimensionality_prefix</code>, <code>si_prefix</code>, and <code>binary_prefix</code> are ignored<ul>
+<li>Example: systems(square-kilometer) = systems(meter)</li>
+</ul>
+</li>
+<li>Currency units have the <code>currency</code> system<ul>
+<li>Example: systems(curr-usd) = {currency}</li>
+</ul>
+</li>
+<li>Units linked by <code>-and-</code>, <code>-per-</code>, and <em>adjacency</em> are resolved using a modified intersection, where:<ol>
+<li>The intersection of {… si …} and {… si_acceptable … } is {… si_acceptable …}</li>
+<li>The intersection of {… metric …} and {… metric_adjacent … } is {… metric_adjacent …}</li>
+</ol>
+</li>
+</ol><p>Examples: </p><pre><code>systems(liter-per-hectare) 
+    = {si_acceptable metric} ∪ {si_acceptable metric}
+    = {si_acceptable metric}
+systems(meter-per-hectare)
+    = {si metric} ∩ {si_acceptable metric}
+    = {si_acceptable metric}
+systems(mile-scandinavian-per-hour)
+    = {metric_adjacent} ∩ {si_acceptable metric_adjacent}
+    = {metric_adjacent}
+</code></pre><h4 id="conversion-mechanisms">Conversion Mechanisms</h4><p>CLDR follows conversion values where possible from:</p><ul>
 <li><a href="https://www.govinfo.gov/content/pkg/GOVPUB-C13-f10c2ff9e7af2091314396a2d53213e4/pdf/GOVPUB-C13-f10c2ff9e7af2091314396a2d53213e4.pdf">NIST Special Publication 1038</a></li>
 <li><a href="https://arxiv.org/pdf/1510.07674.pdf">International Astronomical Union General Assembly</a></li>
 </ul><p>See also <a href="https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-4-two-classes-si-units-and-si-prefixes">NIST Guide to the SI, Chapter 4: The Two Classes of SI Units and the SI Prefixes</a></p><p>For complex units, such as <em>pound-force-per-square-inch</em>, the conversions are computed by combining the conversions of each of the simple units: <em>pound-force</em> and <em>inch</em>. Because the conversions in convertUnit are reversible, the computation can go from complex source unit to complex base unit to complex target units.</p><p>Here is an example:</p><blockquote>
@@ -1011,7 +1073,7 @@ For example the following values can be suffixes in a simple_unit identifier suc
 <span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">unitQuantity</span> <span class="hljs-keyword">description</span> <span class="hljs-keyword">CDATA</span> <span class="hljs-keyword">#IMPLIED</span> &gt;</span>
 </code></pre><p>Conversion is supported between comparable units. Those can be simple units, such as length, or more complex ‘derived’ units that are built up from <em>base units</em>. The <code>&lt;unitQuantities&gt;</code> element provides information on the base units used for conversion. It also supplies information about their <em>quantity</em>: mass, length, time, etc., and whether they are simple or not.</p><p>Examples:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">unitQuantity</span> <span class="hljs-attr">baseUnit</span>=<span class="hljs-string">'kilogram'</span> <span class="hljs-attr">quantity</span>=<span class="hljs-string">'mass'</span> <span class="hljs-attr">status</span>=<span class="hljs-string">'simple'</span>/&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">unitQuantity</span> <span class="hljs-attr">baseUnit</span>=<span class="hljs-string">'meter-per-second'</span> <span class="hljs-attr">quantity</span>=<span class="hljs-string">'speed'</span>/&gt;</span>
-</code></pre><p>The order of the elements in the file is significant, since it is used in <a href="#Unit_Identifier_Normalization">Unit_Identifier_Normalization</a>.</p><p>The quantity values themselves are informative. Therer mayreflecting that <em>force per area</em> can be referenced as either <em>pressure</em> or <em>stress</em>, for example). The quantity for a complex unit that has a reciprocal is formed by prepending “inverse-” to the quantity, such as <em>inverse-consumption.</em></p><p>The base units for the quantities and the quantities themselves are based on <a href="https://www.nist.gov/pml/special-publication-811">NIST Special Publication 811</a> and the earlier <a href="https://www.govinfo.gov/content/pkg/GOVPUB-C13-f10c2ff9e7af2091314396a2d53213e4/pdf/GOVPUB-C13-f10c2ff9e7af2091314396a2d53213e4.pdf">NIST Special Publication 1038</a>. In some cases, a different unit is chosen for the base. For example, a <em>revolution</em> (360°) is chosen for the base unit for angles instead of the SI <em>radian</em>, and <em>item</em> instead of the SI <em>mole</em>. Additional base units are added where necessary, such as <em>bit</em> and <em>pixel</em>.</p><p>This data is not necessary for conversion, but is needed for <a href="#Unit_Identifier_Normalization">Unit_Identifier_Normalization</a>. Some of the <code>unitQuantity</code> elements are not needed to convert CLDR units, but are included for completeness. Example:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">unitQuantity</span> <span class="hljs-attr">baseUnit</span>=<span class="hljs-string">'ampere-per-square-meter'</span> <span class="hljs-attr">quantity</span>=<span class="hljs-string">'current-density'</span>/&gt;</span>
+</code></pre><p>The order of the elements in the file is significant, since it is used in <a href="#Unit_Identifier_Normalization">Unit_Identifier_Normalization</a>.</p><p>The quantity values themselves are informative. For example, <em>force per area</em> can be referenced as either <em>pressure</em> or <em>stress</em>. The quantity for a complex unit that has a reciprocal is formed by prepending “inverse-” to the quantity, such as <em>inverse-consumption.</em></p><p>The base units for the quantities and the quantities themselves are based on <a href="https://www.nist.gov/pml/special-publication-811">NIST Special Publication 811</a> and the earlier <a href="https://www.govinfo.gov/content/pkg/GOVPUB-C13-f10c2ff9e7af2091314396a2d53213e4/pdf/GOVPUB-C13-f10c2ff9e7af2091314396a2d53213e4.pdf">NIST Special Publication 1038</a>. In some cases, a different unit is chosen for the base. For example, a <em>revolution</em> (360°) is chosen for the base unit for angles instead of the SI <em>radian</em>, and <em>item</em> instead of the SI <em>mole</em>. Additional base units are added where necessary, such as <em>bit</em> and <em>pixel</em>.</p><p>This data is not necessary for conversion, but is needed for <a href="#Unit_Identifier_Normalization">Unit_Identifier_Normalization</a>. Some of the <code>unitQuantity</code> elements are not needed to convert CLDR units, but are included for completeness. Example:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">unitQuantity</span> <span class="hljs-attr">baseUnit</span>=<span class="hljs-string">'ampere-per-square-meter'</span> <span class="hljs-attr">quantity</span>=<span class="hljs-string">'current-density'</span>/&gt;</span>
 </code></pre><h3 id="unittype-vs-quantity">UnitType vs Quantity</h3><p>The unitType (as in “length-meter”) is not the same as the quantity. It is often broader: for example, the unitType <em>electric</em> corresponds to the quantities <em>electric-current, electric-resistance,</em> and <em>voltage</em>. The unitType itself is also informative, and can be dropped from a long unit identifier to get a still-unique short unit identifier.</p><h3 id="Unit_Identifier_Normalization"><a name="unit-identifier-normalization" href="#Unit_Identifier_Normalization">Unit Identifier Normalization</a></h3><p>There are many possible ways to construct complex units. For comparison of unit identifiers, an implementation can normalize in the following way:</p><ol>
 <li>Convert all but the first -per- to simple multiplication. The result then has the format of /numerator ( -per- denominator)?/<ul>
 <li>foot-per-second-per-second ⇒ foot-per-second-second</li>

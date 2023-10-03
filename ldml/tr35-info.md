@@ -77,6 +77,8 @@ The LDML specification is divided into the following parts:
   * [Unit Parsing Data](#unit-parsing-data)
   * [Constants](#constants)
   * [Conversion Data](#conversion-data)
+    * [Derived Unit System](#derived-unit-system)
+    * [Conversion Mechanisms](#conversion-mechanisms)
     * [Exceptional Cases](#exceptional-cases)
       * [Identities](#identities)
       * [Aliases](#aliases)
@@ -895,14 +897,53 @@ The factor and offset can be simple expressions, just like the values in the uni
 
 Where a factor is not present, the value is 1; where an offset is not present, the value is 0.
 
-The `systems` attribute indicates the measurement system(s). Multiple values may be given; for example, _minute_ is marked as systems="metric ussystem uksystem"
+The `systems` attribute indicates the measurement system(s) or other characteristics of a set of unts. Multiple values may be given; for example, a unit could be marked as systems="`si_acceptable` `metric_adjacent` `prefixable`".
 
-Attribute Value | Description
------------- | -------------
-_si_ | the _International System of Units (SI)_
-_metric_ | a superset of the _si_ units, with some non-SI units accepted for use with the SI or simple multiples of metric units, such as pound-metric (= ½ kilogram)
-_ussystem_ | the inch-pound system as used in the US, also called _US Customary Units_
-_uksystem_ | the inch-pound system as used in the UK, also called _British Imperial Units_, differing mostly in units of volume
+The allowed attributes are the following:
+
+Attribute Value   | Description
+------------      | -------------
+`si`              | The _International System of Units (SI)_ See [NIST Guide to the SI, Chapter 4: The Two Classes of SI Units and the SI Prefixes](https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-4-two-classes-si-units-and-si-prefixes). Examples: meter, ampere.
+`si_acceptable`   | Units acceptable for use with the SI. See [NIST Guide to the SI, Chapter 5: Units Outside the SI](https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-5-units-outside-si). Examples: hour, liter, knot, hectare.
+`metric`          | A superset of the _si_ units
+`metric_adjacent` | Units commonly accepted in some countries that follow the metric system. Examples: month, arc-second, pound-metric (= ½ kilogram), mile-scandinavian.
+`ussystem`        | The inch-pound system as used in the US, also called _US Customary Units_.
+`uksystem`        | The inch-pound system as used in the UK, also called _British Imperial Units_, differing mostly in units of volume
+`jpsystem`        | Traditional units used in Japan. For examples, see [Japanese units of measurement](https://en.wikipedia.org/wiki/Japanese_units_of_measurement).
+`astronomical`    | Additional units used in astronomy. Examples: parsec, light-year, earth-mass
+`person_age`      | Special units used for people’s ages in some languages. Except for translation, they have the same system as the associated regular units.
+`currency`        | Currency units. These are constructed algorithmically from the Unicode currency identifiers, and do not occur in the child elements of `convertUnits`. Examples: curr-usd (US dollar), curr-eur (Euro).
+`prefixable`      | Those units that typically use SI prefixes or the [IEC binary prefixes](https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-d-bibliography#05). This can include measures like `parsec` that are not SI units. It allows implementations to group those units together, and to do sanity checks on the prefix+unit combinations, if they choose. However, implementations may choose to allow prefixes on other units, especially since there is a significant variance in usage: even a term like `megafoot` might be acceptable in some contexts.
+
+Over time, additional systems may be added, and the systems for a particular unit may be refined.
+
+#### Derived Unit System
+
+The systems attributes also apply to compound units, and are computed in the following way.
+
+1. The `prefixable` system is only applicable to base_components, and is thus removed
+2. The `number_prefixes`, `dimensionality_prefix`, `si_prefix`, and `binary_prefix` are ignored
+   * Example: systems(square-kilometer) = systems(meter)
+3. Currency units have the `currency` system
+   * Example: systems(curr-usd) = {currency}
+4. Units linked by `-and-`, `-per-`, and *adjacency* are resolved using a modified intersection, where:
+   1. The intersection of {… si …} and {… si_acceptable … } is {… si_acceptable …}
+   2. The intersection of {… metric …} and {… metric_adjacent … } is {… metric_adjacent …}
+
+Examples: 
+```
+systems(liter-per-hectare) 
+	= {si_acceptable metric} ∪ {si_acceptable metric}
+	= {si_acceptable metric}
+systems(meter-per-hectare)
+	= {si metric} ∩ {si_acceptable metric}
+	= {si_acceptable metric}
+systems(mile-scandinavian-per-hour)
+	= {metric_adjacent} ∩ {si_acceptable metric_adjacent}
+	= {metric_adjacent}
+```
+
+#### Conversion Mechanisms
 
 CLDR follows conversion values where possible from:
 * [NIST Special Publication 1038](https://www.govinfo.gov/content/pkg/GOVPUB-C13-f10c2ff9e7af2091314396a2d53213e4/pdf/GOVPUB-C13-f10c2ff9e7af2091314396a2d53213e4.pdf)
@@ -1023,7 +1064,7 @@ Examples:
 
 The order of the elements in the file is significant, since it is used in [Unit_Identifier_Normalization](#Unit_Identifier_Normalization).
 
-The quantity values themselves are informative. Therer mayreflecting that _force per area_ can be referenced as either _pressure_ or _stress_, for example). The quantity for a complex unit that has a reciprocal is formed by prepending “inverse-” to the quantity, such as _inverse-consumption._
+The quantity values themselves are informative. For example, _force per area_ can be referenced as either _pressure_ or _stress_. The quantity for a complex unit that has a reciprocal is formed by prepending “inverse-” to the quantity, such as _inverse-consumption._
 
 The base units for the quantities and the quantities themselves are based on [NIST Special Publication 811](https://www.nist.gov/pml/special-publication-811) and the earlier [NIST Special Publication 1038](https://www.govinfo.gov/content/pkg/GOVPUB-C13-f10c2ff9e7af2091314396a2d53213e4/pdf/GOVPUB-C13-f10c2ff9e7af2091314396a2d53213e4.pdf). In some cases, a different unit is chosen for the base. For example, a _revolution_ (360°) is chosen for the base unit for angles instead of the SI _radian_, and _item_ instead of the SI _mole_. Additional base units are added where necessary, such as _bit_ and _pixel_.
 

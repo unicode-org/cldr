@@ -920,7 +920,7 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
                 <li>per-second</li>
             </ul></li>
             <li><em>Note:</em> The normalized form will have only one "per"</li>
-	  <li><em>Note:</em>The token 'per' is the single value in &lt;unitIdComponent type=”per”&gt;</li>
+	  <li><em>Note:</em> The token 'per' is the single value in &lt;unitIdComponent type=”per”&gt;</li>
         </ul></td></tr>
 
 <tr><td>product_unit</td><td>:=</td>
@@ -955,7 +955,7 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
     <td>"square-"<p>| "cubic-"<p>| "pow" ([2-9]|1[0-5]) "-"
         <ul>
 			<li><em>Note:</em> "pow2-" and "pow3-" canonicalize to "square-" and "cubic-"</li>
-			<li><em>Note:</em>These are values in &lt;unitIdComponent type=”power”&gt;</li>
+			<li><em>Note:</em> These are values in &lt;unitIdComponent type=”power”&gt;</li>
 		</ul></td></tr>
 
 <tr><td>simple_unit</td><td>:=</td>
@@ -976,11 +976,11 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 
 <tr><td>si_prefix</td><td>:=</td>
     <td>"deka" | "hecto" | "kilo", …
-        <ul><li><em>Note: </em>See full list at <a href="https://www.nist.gov/pml/special-publication-811">NIST special publication 811</a></li></ul></td></tr>
+        <ul><li><em>Note:</em> See full list at <a href="https://www.nist.gov/pml/special-publication-811">NIST special publication 811</a></li></ul></td></tr>
 
 <tr><td>binary_prefix</td><td>:=</td>
     <td>"kibi", "mebi", …
-        <ul><li><em>Note: </em>See full list at <a href="https://physics.nist.gov/cuu/Units/binary.html">Prefixes for binary multiples</a></li></ul></td></tr>
+        <ul><li><em>Note:</em> See full list at <a href="https://physics.nist.gov/cuu/Units/binary.html">Prefixes for binary multiples</a></li></ul></td></tr>
 
 <tr><td>prefix_component</td><td>:=</td>
     <td>[a-z]{3,∞}
@@ -994,11 +994,12 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 			or &lt;unitIdComponent type=”power”&gt;<br>
 			or &lt;unitIdComponent type=”and”&gt;<br>
 			or &lt;unitIdComponent type=”per”&gt;.
-		</li></ul>
-        <ul><li><em>Constraint:</em> must not have a prefix as an initial segment.</li>
-			<li><em>Constraint:</em> no two different base_components will share the first 8 letters. 
+		</li>
+		<li><em>Constraint:</em> must not have a prefix as an initial segment.</li>
+		<li><em>Constraint:</em> no two different base_components will share the first 8 letters. 
 				(<b>For more information, see <a href="#Unit_Identifier_Uniqueness">Unit Identifier Uniqueness</a>.)</b>
-			</li></ul>
+			</li>
+		</ul>
 	</td></tr>
 
 <tr><td>suffix_component</td><td>:=</td>
@@ -1008,7 +1009,7 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 <tr><td>mixed_unit_identifier</td><td>:=</td>
     <td>(single_unit | pu_single_unit) ("-and-" (single_unit | pu_single_unit ))*
         <ul><li><em>Example: foot-and-inch</em></li>
-	       <li><em>Note:</em>The token 'and' is the single value in &lt;unitIdComponent type=”and”&gt;</li>
+	       <li><em>Note:</em> The token 'and' is the single value in &lt;unitIdComponent type=”and”&gt;</li>
 		</ul></td></tr>
 
 <tr><td>long_unit_identifier</td><td>:=</td>
@@ -1019,15 +1020,19 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 
 <tr><td>currency_unit</td><td>:=</td>
     <td>"curr-" [a-z]{3}
-        <ul><li><em>Constraints:</em>
-            <ul><li>The first part of the currency_unit is a standard prefix; the second part of the currency unit must be a valid <a href="tr35.md#UnicodeCurrencyIdentifier">Unicode currency identifier</a>. Note: CLDR does not provide conversions for currencies; this is only intended for formatting.</li>
-            </ul></li>
-            <li><em>Examples:</em> curr-eur-per-square-meter, or pound-per-curr-usd</li>
-        </ul></td></tr>
+        <ul>
+			<li><em>Constraint:</em> The first part of the currency_unit is a standard prefix; the second part of the currency unit must be a valid <a href="tr35.md#UnicodeCurrencyIdentifier">Unicode currency identifier</a>.</li>
+		</ul>
+		<ul>
+            <li><em>Examples:</em> <b>curr-eur</b>-per-square-meter, or pound-per-<b>curr-usd</b></li>
+			<li><em>Note:</em> CLDR does not provide conversions for currencies; this is only intended for formatting.
+				The locale data for currencies is supplied in the <code>currencies</code> element, not in the <code>units</code> element.</li>
+        </ul>
+	</td></tr>
 
 </tbody></table>
 
-Note that while the syntax allows for number_prefixes in multiple places, the typical use case is only one instances, and after a "-per-".
+Note that while the syntax allows for number_prefixes in multiple places, the typical use case is only one instance, after a "-per-".
 
 The simple_unit structure does not allow for any two simple_units to overlap.
 That is, there are no cases where simple_unit1 consists of X-Y and simple_unit2 consists of Y-Z.

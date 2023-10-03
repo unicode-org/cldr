@@ -1019,7 +1019,9 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 <tr><td>currency_unit</td><td>:=</td>
     <td>"curr-" [a-z]{3}
         <ul><li><em>Constraints:</em>
-            <ul><li>The first part of the currency_unit is a standard prefix; the second part of the currency unit must be a valid <a href="tr35.md#UnicodeCurrencyIdentifier">Unicode currency identifier</a>. Note: CLDR does not provide conversions for currencies; this is only intended for formatting.</li>
+            <ul><li>The first part of the currency_unit is a standard prefix; the second part of the currency unit must be a valid <a href="tr35.md#UnicodeCurrencyIdentifier">Unicode currency identifier</a>.
+				Note: CLDR does not provide conversions for currencies; this is only intended for formatting.
+				The locale data for currencies is supplied in the `currencies` element, not in the `units` element.</li>
             </ul></li>
             <li><em>Examples:</em> curr-eur-per-square-meter, or pound-per-curr-usd</li>
         </ul></td></tr>

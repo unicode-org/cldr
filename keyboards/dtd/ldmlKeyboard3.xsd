@@ -132,13 +132,6 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
   
   <xs:element name="settings">
     <xs:complexType>
-      <xs:attribute name="fallback">
-        <xs:simpleType>
-          <xs:restriction base="xs:token">
-            <xs:enumeration value="omit"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:attribute>
       <xs:attribute name="normalization">
         <xs:simpleType>
           <xs:restriction base="xs:token">
@@ -148,7 +141,6 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-  
   
   
   

@@ -589,7 +589,7 @@ An element used to keep track of layout-specific settings by implementations. Th
 **Syntax**
 
 ```xml
-<settings fallback="omit" />
+<settings normalization="disabled" />
 ```
 
 > <small>
@@ -602,29 +602,7 @@ An element used to keep track of layout-specific settings by implementations. Th
 >
 > </small>
 
-_Attribute:_ `fallback="omit"`
-
-> The presence of this attribute means that when a modifier key combination goes unmatched, no output is produced. The default behavior (when this attribute is not present) is to fall back to the base map when the modifier key combination goes unmatched.
-
-If this attribute is present, it must have a value of `omit`.
-
-**Example**
-
-```xml
-<keyboard3 locale="bg">
-    …
-    <settings fallback="omit" />
-    …
-</keyboard3>
-```
-
-Indicates that:
-
-1.  When a modifier combination goes unmatched, do not output anything when a key is pressed.
-2.  If a transform is terminated, output the contents of the buffer.
-3.  During a transform, hide the contents of the buffer as the user is typing.
-
-_Attribute:_ `normalization`
+_Attribute:_ `normalization="disabled"`
 
 > Normalization will not typically be the responsibility of the keyboard author, rather this will be managed by the implementation.
 > The implementation will apply normalization as appropriate when matching transform rules and `<display>` value matching.

@@ -373,6 +373,11 @@
 
 
 
+
+
+
+
+
  
 
 
@@ -472,6 +477,7 @@ This is a stable document and may be used as reference material or cited as a no
 <li><a href="#Calendar_Preference_Data">Calendar Preference Data</a></li>
 <li><a href="#Week_Data">Week Data</a><ul>
 <li>Table: <a href="#Week_Designation_Types">Week Designation Types</a></li>
+<li><a href="#first-day-overrides">First Day Overrides</a></li>
 </ul>
 </li>
 <li><a href="#Time_Data">Time Data</a></li>
@@ -1286,6 +1292,57 @@ MMMdHm/H → "MMM d 'at' H:mm – H:mm" → "Jan 3 at 9:00 – 11:00"</li>
 <td>the week of April 11–15</td>
 <td>&lt;field type="week"&gt;&lt;relativePeriod&gt;the week of {0}&lt;…</td>
 <td>(same comment as above)</td>
+</tr>
+</tbody></table><h4 id="first-day-overrides">First Day Overrides</h4><p>The calculation of the first day of the week depends on various fields in a locale_identifier, according to the following algorithm. The data in the <code>firstDay</code> elements is treated as a map from region to day, with any missing value using the value for 001.</p><ol>
+<li>If there is a valid <code>-u-fw-</code> day value, return that day.</li>
+<li>Else if there is a valid <code>-u-rg-</code> region value, return that region's firstDay map value.</li>
+<li>Else if there is a valid <code>-u-ca-</code> calendar value, where that calendar specifies the first day, then return that first day. (Most calendars do not specify the first day.)</li>
+<li>Else if there is an explicit region subtag, then return that region's firstDay map value.</li>
+<li>Else if there is a valid <code>-u-sd-</code> subdivision value, return that region's firstDay map value.</li>
+<li>Else if the <a href="tr35.html#Likely_Subtags">Add Likely Subtags</a> algorithm produces a region, return that region's firstDay map value.</li>
+<li>Else return the firstDay map value for 001.</li>
+</ol><p><em>Example:</em></p><table>
+<thead>
+<tr>
+<th>Locale Identifier</th>
+<th>"Winning" subtags</th>
+<th>Region</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>en-AU-u-ca-iso8601-fw-tue-rg-afzzzz-sd-cabc</td>
+<td>-fw-tue</td>
+<td>n/a, uses Tuesday</td>
+</tr>
+<tr>
+<td>en-AU-u-ca-iso8601-rg-afzzzz-sd-cabc</td>
+<td>-rg-afzzzz</td>
+<td>AF</td>
+</tr>
+<tr>
+<td>en-AU-u-ca-iso8601-sd-cabc</td>
+<td>-ca-iso8601</td>
+<td>n/a, uses Monday</td>
+</tr>
+<tr>
+<td>en-AU-u-sd-cabc</td>
+<td>-AU</td>
+<td>AU</td>
+</tr>
+<tr>
+<td>en-u-sd-cabc</td>
+<td>-sd-cabc</td>
+<td>CA</td>
+</tr>
+<tr>
+<td>en</td>
+<td></td>
+<td>US (from likely subtags)</td>
+</tr>
+<tr>
+<td>zxx</td>
+<td>001</td>
+<td>(fallback)</td>
 </tr>
 </tbody></table><h3 id="Time_Data"><a name="time-data" href="#Time_Data">Time Data</a></h3><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">timeData</span> ( <span class="hljs-keyword">hours</span>* ) &gt;</span>
 <span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">hours</span> <span class="hljs-keyword">EMPTY</span> &gt;</span>

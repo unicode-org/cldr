@@ -63,6 +63,7 @@ The LDML specification is divided into the following parts:
   * [Calendar Preference Data](#Calendar_Preference_Data)
   * [Week Data](#Week_Data)
     * Table: [Week Designation Types](#Week_Designation_Types)
+    * [First Day Overrides](#first-day-overrides)
   * [Time Data](#Time_Data)
   * [Day Period Rule Sets](#Day_Period_Rule_Sets)
     * [Day Period Rules](#Day_Period_Rules)
@@ -1159,6 +1160,30 @@ Each `weekOfPreference` element provides, for its specified locales, an ordered 
 | weekOfMonth    | week 2 of April 2nd week of April | \<dateFormatItem id='MMMMW'' count='one'\>'week' W 'of' MMM\<… |   (same comment as above) |
 | weekOfDate     | the week of April 11, 2016        | \<field type="week"\>\<relativePeriod>the week of {0}\<…        | The date pattern that replaces {0} is determined separately and may use the first day or workday of the week, the range of the full week or work week, etc.   |
 | weekOfInterval | the week of April 11–15           | \<field type="week"\>\<relativePeriod>the week of {0}\<…    |  (same comment as above) |
+
+#### First Day Overrides
+
+The calculation of the first day of the week depends on various fields in a locale_identifier, according to the following algorithm. The data in the `firstDay` elements is treated as a map from region to day, with any missing value using the value for 001.
+
+1. If there is a valid `-u-fw-` day value, return that day.
+2. Else if there is a valid `-u-rg-` region value, return that region's firstDay map value.
+3. Else if there is a valid `-u-ca-` calendar value, where that calendar specifies the first day, then return that first day. (Most calendars do not specify the first day.)
+4. Else if there is an explicit region subtag, then return that region's firstDay map value.
+5. Else if there is a valid `-u-sd-` subdivision value, return that region's firstDay map value.
+6. Else if the [Add Likely Subtags](tr35.md#Likely_Subtags) algorithm produces a region, return that region's firstDay map value.
+7. Else return the firstDay map value for 001.
+
+*Example:*
+
+| Locale Identifier | "Winning" subtags | Region |
+|----|----|----|
+|en-AU-u-ca-iso8601-fw-tue-rg-afzzzz-sd-cabc | -fw-tue | n/a, uses Tuesday |
+|en-AU-u-ca-iso8601-rg-afzzzz-sd-cabc | -rg-afzzzz | AF |
+|en-AU-u-ca-iso8601-sd-cabc | -ca-iso8601 | n/a, uses Monday |
+|en-AU-u-sd-cabc | -AU | AU |
+|en-u-sd-cabc | -sd-cabc | CA |
+|en | | US (from likely subtags) |
+|zxx | 001 | (fallback) |
 
 ### <a name="Time_Data" href="#Time_Data">Time Data</a>
 

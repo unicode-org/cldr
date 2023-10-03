@@ -910,7 +910,7 @@ Attribute Value | Description
 `jpsystem` | Traditional units used in Japan. For examples, see [Japanese units of measurement](https://en.wikipedia.org/wiki/Japanese_units_of_measurement).
 `astronomical` | Additional units used in astronomy. Examples: parsec, light-year, earth-mass
 `person_age` | Special units used for people’s ages in some languages. Except for translation, they have the same system as the associated regular units.
-`currency` | Surrency units. These are constructed algorithmically from the Unicode currency identifiers, and do not occur in the child elements of `convertUnits`. Examples: curr-usd (US dollar), curr-eur (Euro).
+`currency` | Currency units. These are constructed algorithmically from the Unicode currency identifiers, and do not occur in the child elements of `convertUnits`. Examples: curr-usd (US dollar), curr-eur (Euro).
 `prefixable` | Those units that typically use SI prefixes. This can include measures like `parsec` that are not SI units. It allows implementations to group those units together, and to do sanity checks on the prefix+unit combinations, if they choose. However, implementations may choose to allow prefixes on other units, especially since there is a significant variance in usage: even a term like `megafoot` might be acceptable in some contexts.
 
 Over time, additional systems may be added, and the systems for a particular unit may be refined.

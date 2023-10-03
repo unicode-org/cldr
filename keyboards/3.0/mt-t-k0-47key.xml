@@ -14,36 +14,36 @@
         <import base="cldr" path="techpreview/keys-Zyyy-currency.xml" />
 
         <!-- accent grave -->
-        <key id="a-grave" to="à" />
-        <key id="A-grave" to="À" />
-        <key id="e-grave" to="è" />
-        <key id="E-grave" to="È" />
-        <key id="i-grave" to="ì" />
-        <key id="I-grave" to="Ì" />
-        <key id="o-grave" to="ò" />
-        <key id="O-grave" to="Ò" />
-        <key id="u-grave" to="ù" />
-        <key id="U-grave" to="Ù" />
+        <key id="a-grave" output="à" />
+        <key id="A-grave" output="À" />
+        <key id="e-grave" output="è" />
+        <key id="E-grave" output="È" />
+        <key id="i-grave" output="ì" />
+        <key id="I-grave" output="Ì" />
+        <key id="o-grave" output="ò" />
+        <key id="O-grave" output="Ò" />
+        <key id="u-grave" output="ù" />
+        <key id="U-grave" output="Ù" />
 
         <!-- tikka and maqtugha -->
-        <key id="c-tikka" to="ċ" /> <!-- tikka is a dot -->
-        <key id="C-tikka" to="Ċ" />
-        <key id="g-tikka" to="ġ" />
-        <key id="G-tikka" to="Ġ" />
-        <key id="h-maqtugha" to="ħ" /> <!-- maqtugħa, i.e. cut -->
-        <key id="H-maqtugha" to="Ħ" /> <!-- maqtugħa, i.e. cut -->
-        <key id="z-tikka" to="ż" />
-        <key id="Z-tikka" to="Ż" />
+        <key id="c-tikka" output="ċ" /> <!-- tikka is a dot -->
+        <key id="C-tikka" output="Ċ" />
+        <key id="g-tikka" output="ġ" />
+        <key id="G-tikka" output="Ġ" />
+        <key id="h-maqtugha" output="ħ" /> <!-- maqtugħa, i.e. cut -->
+        <key id="H-maqtugha" output="Ħ" /> <!-- maqtugħa, i.e. cut -->
+        <key id="z-tikka" output="ż" />
+        <key id="Z-tikka" output="Ż" />
 
         <!-- Cedilla -->
-        <key id="c-cedilla" to="ç" />
+        <key id="c-cedilla" output="ç" />
 
         <!-- gaps -->
         <key id="gap" gap="true" width="1" />
     </keys>
 
     <!-- 47-key: MSA 100:2002, Appendix, figure A.1 -->
-    <layers form="us">
+    <layers formId="us">
         <layer modifier="none">
             <row keys="c-tikka 1 2 3 4 5 6 7 8 9 0 hyphen equal" />
             <row keys="q w e r t y u i o p g-tikka h-maqtugha z-tikka" />

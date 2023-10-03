@@ -274,11 +274,11 @@ Currently, the following attribute values allow _UnicodeSet_ notation:
 
 The `\u{...}` notation, a subset of hex notation, is described in [UTS #18 section 1.1](https://www.unicode.org/reports/tr18/#Hex_notation). It can refer to one or multiple individual codepoints. Currently, the following attribute values allow the `\u{...}` notation:
 
-* `to`, `longPress`, `multiTap`, and `longPressDefault` on the `<key>` element
-* `to` on the `<flickSegment>` element
+* `output`, `longPress`, `multiTap`, and `longPressDefault` on the `<key>` element
+* `output` on the `<flickSegment>` element
 * `from` or `to` on the `<transform>` element
 * `value` on the `<variable>` element
-* `to` and `display` on the `<display>` element
+* `output` and `display` on the `<display>` element
 * `baseCharacter` on the `<displayOptions>` element
 * Some attributes on [Keyboard Test Data](#keyboard-test-data) subelements
 
@@ -617,14 +617,14 @@ This element defines a mapping between an abstract key and its output. This elem
 ```xml
 <key
  id="{key id}"
- flicks="{flicks identifier}"
+ flickId="{flick identifier}"
  gap="true"
  longPress="{long press keys}"
  longPressDefault="{default longpress target}"
  multiTap="{the output on subsequent taps}"
  stretch="true"
- switch="{layer id}"
- to="{the output}"
+ layerId="{switch layer id}"
+ output="{the output}"
  transform="no"
  width="{key width}"
  />
@@ -641,7 +641,7 @@ This element defines a mapping between an abstract key and its output. This elem
 
 **Note**: The `id` attribute is required.
 
-**Note**: _at least one of_ `switch`, `gap`, or `to` are required.
+**Note**: _at least one of_ `layerId`, `gap`, or `output` are required.
 
 _Attribute:_ `id`
 
@@ -649,9 +649,9 @@ _Attribute:_ `id`
 >
 > In the future, this attribute’s definition is expected to be updated to align with [UAX#31](https://www.unicode.org/reports/tr31/). Please see [CLDR-17043](https://unicode-org.atlassian.net/browse/CLDR-17043) for more details.
 
-_Attribute:_ `flicks="{flick id}"` (optional)
+_Attribute:_ `flickId="{flick id}"` (optional)
 
-> The `flicks` attribute indicates that this key makes use of a [`flicks`](#Element_flicks) set with the specified id.
+> The `flickId` attribute indicates that this key makes use of a [`flick`](#Element_flick) set with the specified id.
 
 _Attribute:_ `gap="true"` (optional)
 
@@ -680,7 +680,7 @@ _Attribute:_ `multiTap` (optional)
 > _Example:_
 >
 > ```xml
-> <key id="a" to="a" multiTap="bb c d">
+> <key id="a" output="a" multiTap="bb c d">
 > ```
 >
 > Control characters, combining marks and whitespace (which is intended to be a multiTap option) in this attribute are escaped using the `\u{...}` notation.
@@ -692,11 +692,11 @@ _Attribute:_ `stretch="true"` (optional)
 > The `stretch` attribute indicates that a touch layout may stretch this key to fill available horizontal space on the row.
 > This is used, for example, on the spacebar. Note that `stretch=` is ignored for hardware layouts.
 
-_Attribute:_ `switch="shift"` (optional)
+_Attribute:_ `layerId="shift"` (optional)
 
-> The `switch` attribute indicates that this key switches to another `layer` with the specified id (such as `<layer id="shift"/>` in this example).
-> Note that a key may have both a `switch=` and a `to=` attribute, indicating that the key outputs prior to switching layers.
-> Also note that `switch=` is ignored for hardware layouts: their shifting is controlled via
+> The `layerId` attribute indicates that this key switches to another `layer` with the specified id (such as `<layer id="shift"/>` in this example).
+> Note that a key may have both a `layerId=` and a `output=` attribute, indicating that the key outputs _prior_ to switching layers.
+> Also note that `layerId=` is ignored for hardware layouts: their shifting is controlled via
 > the modifier keys.
 >
 > This attribute is an NMTOKEN.
@@ -704,11 +704,11 @@ _Attribute:_ `switch="shift"` (optional)
 > In the future, this attribute’s definition is expected to be updated to align with [UAX#31](https://www.unicode.org/reports/tr31/). Please see [CLDR-17043](https://unicode-org.atlassian.net/browse/CLDR-17043) for more details.
 
 
-_Attribute:_ `to`
+_Attribute:_ `output`
 
-> The `to` attribute contains the output sequence of characters that is emitted when pressing this particular key. Control characters, whitespace (other than the regular space character) and combining marks in this attribute are escaped using the `\u{...}` notation. More than one key may output the same output.
+> The `output` attribute contains the sequence of characters that is emitted when pressing this particular key. Control characters, whitespace (other than the regular space character) and combining marks in this attribute are escaped using the `\u{...}` notation. More than one key may output the same output.
 >
-> The `to` attribute may also contain the `\m{…}` syntax to insert a marker. See the definition of [markers](#markers).
+> The `output` attribute may also contain the `\m{…}` syntax to insert a marker. See the definition of [markers](#markers).
 
 _Attribute:_ `transform="no"` (optional)
 
@@ -722,8 +722,8 @@ _Attribute:_ `transform="no"` (optional)
 
 ```xml
 <keys>
-    <key id="X" to="^" transform="no"/>
-    <key id="OptX" to="^"/>
+    <key id="X" output="^" transform="no"/>
+    <key id="OptX" output="^"/>
 </keys>
 …
 <transforms …>
@@ -745,13 +745,13 @@ _Attribute:_ `transform="no"` (optional)
 
 ```xml
 <keys>
-    <key id="X" to="^\m{no_transform}"/>
-    <key id="OptX" to="^"/>
+    <key id="X" output="^\m{no_transform}"/>
+    <key id="OptX" output="^"/>
 </keys>
 …
 <transforms …>
     <!-- this wouldn't match the key X output because of the marker -->
-    <transform from="^e" to="ê"/>
+    <transform from="^e" output="ê"/>
 </transforms>
 ```
 
@@ -759,13 +759,13 @@ Even better is to use a marker to indicate where transforms are desired:
 
 ```xml
 <keys>
-    <key id="X" to="^"/>
-    <key id="OptX" to="^\m{transform}"/>
+    <key id="X" output="^"/>
+    <key id="OptX" output="^\m{transform}"/>
 </keys>
 …
 <transforms …>
     <!-- again, this wouldn't match the key X output because of the missing marker -->
-    <transform from="^\m{transform}e" to="ê"/>
+    <transform from="^\m{transform}e" output="ê"/>
 </transforms>
 ```
 
@@ -774,7 +774,7 @@ _Attribute:_ `width="1.2"` (optional, default "1.0")
 > The `width` attribute indicates that this key has a different width than other keys, by the specified number of key widths.
 
 ```xml
-<key id="wide-a" to="a" width="1.2"/>
+<key id="wide-a" output="a" width="1.2"/>
 <key id="wide-gap" gap="true" width="2.5"/>
 ```
 
@@ -784,23 +784,23 @@ Not all keys need to be listed explicitly.  The following two can be assumed to 
 
 ```xml
 <key id="gap" gap="true" width="1"/>
-<key id="space" to=" " stretch="true" width="1"/>
+<key id="space" output=" " stretch="true" width="1"/>
 ```
 
 In addition, these 62 keys, comprising 10 digit keys, 26 Latin lower-case keys, and 26 Latin upper-case keys, where the `id` is the same as the `to`, are assumed to exist:
 
 ```xml
-<key id="0" to="0"/>
-<key id="1" to="1"/>
-<key id="2" to="2"/>
+<key id="0" output="0"/>
+<key id="1" output="1"/>
+<key id="2" output="2"/>
 …
-<key id="A" to="A"/>
-<key id="B" to="B"/>
-<key id="C" to="C"/>
+<key id="A" output="A"/>
+<key id="B" output="B"/>
+<key id="C" output="C"/>
 …
-<key id="a" to="a"/>
-<key id="b" to="b"/>
-<key id="c" to="c"/>
+<key id="a" output="a"/>
+<key id="b" output="b"/>
+<key id="c" output="c"/>
 …
 ```
 
@@ -844,7 +844,7 @@ The `flick` element is used to generate results from a "flick" of the finger on 
 ```xml
 <keyboard3>
     <keys>
-        <key id="a" flicks="a-flicks" to="a" />
+        <key id="a" flicks="a-flicks" output="a" />
     </keys>
     <flicks>
         <flick id="a-flicks">
@@ -879,7 +879,7 @@ _Attribute:_ `id` (required)
 **Syntax**
 
 ```xml
-<flickSegment directions="{list of directions}" to="{the output}" />
+<flickSegment directions="{list of directions}" "{the output}" />
 ```
 
 > <small>
@@ -896,16 +896,16 @@ _Attribute:_ `directions` (required)
 
 > The `directions` attribute value is a space-delimited list of keywords, that describe a path, currently restricted to the cardinal and intercardinal directions `{n e s w ne nw se sw}`.
 
-_Attribute:_ `to` (required)
+_Attribute:_ `output` (required)
 
-> The to attribute value is the result of (one or more) flicks.
+> The `output` attribute value is the result of (one or more) flicks.
 
 **Example**
 where a flick to the Northeast then South produces two code points.
 
 ```xml
 <flick id="a">
-    <flickSegment directions="ne s" to="\u{ABCD}\u{DCBA}" />
+    <flickSegment directions="ne s" output="\u{ABCD}\u{DCBA}" />
 </flick>
 ```
 
@@ -1015,7 +1015,7 @@ For combining characters, U+25CC `◌` is used as a base. It is an error to use 
 For example, a key which outputs a combining tilde (U+0303) can be represented as follows:
 
 ```xml
-    <display to="\u{0303}" display="◌̃" />  <!-- \u{25CC} \u{0303}-->
+    <display output="\u{0303}" display="◌̃" />  <!-- \u{25CC} \u{0303}-->
 ```
 
 This way, a key which outputs a combining tilde (U+0303) will be represented as `◌̃` (a tilde on a dotted circle).
@@ -1052,7 +1052,7 @@ The `display` element describes how a character, that has come from a `keys/key`
 **Syntax**
 
 ```xml
-<display to="{the output}" display="{show as}" />
+<display output="{the output}" display="{show as}" />
 ```
 
 > <small>
@@ -1065,23 +1065,23 @@ The `display` element describes how a character, that has come from a `keys/key`
 >
 > </small>
 
-One of the `to` or `id` attributes is required.
+One of the `output` or `id` attributes is required.
 
-_Attribute:_ `to` (optional)
+_Attribute:_ `output` (optional)
 
 > Specifies the character or character sequence from the `keys/key` element that is to have a special display.
 > This attribute may be escaped with `\u` notation, see [Escaping](#Escaping).
-> The `to` attribute may also contain the `\m{…}` syntax to reference a marker. See [Markers](#markers). Implementations may highlight a displayed marker, such as with a lighter text color, or a yellow highlight.
+> The `output` attribute may also contain the `\m{…}` syntax to reference a marker. See [Markers](#markers). Implementations may highlight a displayed marker, such as with a lighter text color, or a yellow highlight.
 
 _Attribute:_ `id` (optional)
 
-> Specifies the `key` id. This is useful for keys which do not produce any output (no `to=` value), such as a shift key.
+> Specifies the `key` id. This is useful for keys which do not produce any output (no `output=` value), such as a shift key.
 >
 > This attribute must match `[A-Za-z0-9][A-Za-z0-9-]*`
 
 _Attribute:_ `display` (required)
 
-> Required and specifies the character sequence that should be displayed on the keytop for any key that generates the `@to` sequence or has the `@id`. (It is an error if the value of the `display` attribute is the same as the value of the `to` attribute, this would be an extraneous entry.)
+> Required and specifies the character sequence that should be displayed on the keytop for any key that generates the `@output` sequence or has the `@id`. (It is an error if the value of the `display` attribute is the same as the value of the `output` attribute, this would be an extraneous entry.)
 
 This attribute may be escaped with `\u` notation, see [Escaping](#Escaping).
 
@@ -1090,19 +1090,19 @@ This attribute may be escaped with `\u` notation, see [Escaping](#Escaping).
 ```xml
 <keyboard3>
     <keys>
-        <key id="a" to="a" longpress="\u{0301} \u{0300}" />
-        <key id="shift" switch="shift" />
+        <key id="a" output="a" longpress="\u{0301} \u{0300}" />
+        <key id="shift" layerId="shift" />
     </keys>
     <displays>
-        <display to="\u{0300}" display="ˋ" /> <!-- \u{02CB} -->
-        <display to="\u{0301}" display="ˊ" /> <!-- \u{02CA} -->
-        <display id="shift"  display="⇪" /> <!-- U+21EA -->
-        <display to="\m{grave}" display="`" /> <!-- Display \m{grave} as ` -->
+        <display output="\u{0300}" display="ˋ" /> <!-- \u{02CB} -->
+        <display output="\u{0301}" display="ˊ" /> <!-- \u{02CA} -->
+        <display keyId="shift"  display="⇪" /> <!-- U+21EA -->
+        <display output="\m{grave}" display="`" /> <!-- Display \m{grave} as ` -->
     </displays>
 </keyboard3>
 ```
 
-To allow `displays` elements to be shared across keyboards, there is no requirement that `@to` in a `display` element matches any `@to`/`@id` in any `keys/key` element in the keyboard description.
+To allow `displays` elements to be shared across keyboards, there is no requirement that `@output` in a `display` element matches any `@output`/`@id` in any `keys/key` element in the keyboard description.
 
 * * *
 
@@ -1483,11 +1483,11 @@ These may be then used in multiple contexts:
 <transform from="Y" to="${cluster_hi}" />
 …
 <!-- as part of a key bag  -->
-<key id="hi_key" to="${cluster_hi}" />
-<key id="acute_key" to="${acute}" />
+<key id="hi_key" output="${cluster_hi}" />
+<key id="acute_key" output="${acute}" />
 …
 <!-- Display ´ instead of the non-displayable marker -->
-<display to="${acute}" display="´" />
+<display output="${acute}" display="´" />
 ```
 
 * * *
@@ -1643,10 +1643,10 @@ The marker ID is any valid `NMTOKEN` (But see [CLDR-17043](https://unicode-org.a
 Consider the following abbreviated example:
 
 ```xml
-    <display to="\m{circ_marker}" display="^" />
+    <display output="\m{circ_marker}" display="^" />
 …
-    <key id="circ_key" to="\m{circ_marker}" />
-    <key id="e" to="e" />
+    <key id="circ_key" output="\m{circ_marker}" />
+    <key id="e" output="e" />
 …
     <transform from="\m{circ_marker}e" to="ê" />
 ```

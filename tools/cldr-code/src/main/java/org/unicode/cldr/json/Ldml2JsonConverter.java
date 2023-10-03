@@ -2168,7 +2168,7 @@ public class Ldml2JsonConverter {
      */
     private String escapeValue(String value) {
         Matcher match = escapePattern.matcher(value);
-        String ret = match.replaceAll("\\\\\\\\");
+        String ret = match.replaceAll("\\\\");
         return ret.replace("\n", " ").replace("\t", " ");
     }
 

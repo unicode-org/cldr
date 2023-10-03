@@ -26,6 +26,7 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
         <xs:element minOccurs="0" ref="settings"/>
         <xs:element minOccurs="0" ref="displays"/>
         <xs:element minOccurs="0" ref="keys"/>
+        <xs:element minOccurs="0" ref="flicks"/>
         <xs:element minOccurs="0" ref="forms"/>
         <xs:element maxOccurs="unbounded" minOccurs="0" ref="layers"/>
         <xs:element minOccurs="0" ref="variables"/>
@@ -165,10 +166,7 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
     <xs:complexType>
       <xs:sequence>
         <xs:element maxOccurs="unbounded" minOccurs="0" ref="import"/>
-        <xs:choice maxOccurs="unbounded" minOccurs="0">
-          <xs:element ref="key"/>
-          <xs:element ref="flicks"/>
-        </xs:choice>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="key"/>
         <xs:element maxOccurs="unbounded" minOccurs="0" ref="special"/>
       </xs:sequence>
     </xs:complexType>
@@ -231,7 +229,16 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
   <xs:element name="flicks">
     <xs:complexType>
       <xs:sequence>
-        <xs:element maxOccurs="unbounded" ref="flick"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="import"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="flick"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" ref="special"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="flick">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="flickSegment"/>
         <xs:element maxOccurs="unbounded" minOccurs="0" ref="special"/>
       </xs:sequence>
       <xs:attribute name="id" type="xs:NMTOKEN" use="required"/>
@@ -239,7 +246,7 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
   </xs:element>
   
   
-  <xs:element name="flick">
+  <xs:element name="flickSegment">
     <xs:complexType>
       <xs:attribute name="directions" type="xs:NMTOKENS" use="required"/>
       <xs:attribute name="to" use="required"/>

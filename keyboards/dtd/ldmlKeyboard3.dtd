@@ -10,7 +10,7 @@ The CLDR Keyboard Subcommittee is currently developing major changes to the CLDR
 Please view the subcommittee page for the most recent information.
 <https://cldr.unicode.org/index/keyboard-workgroup> -->
 
-<!ELEMENT keyboard3 ( import*, locales?, version?, info, settings?, displays?, keys?, forms?, layers*, variables?, transforms*, special* ) >
+<!ELEMENT keyboard3 ( import*, locales?, version?, info, settings?, displays?, keys?, flicks?, forms?, layers*, variables?, transforms*, special* ) >
     <!--@TECHPREVIEW-->
 <!ATTLIST keyboard3 locale CDATA #REQUIRED >
     <!--@MATCH:validity/bcp47-wellformed-->
@@ -89,7 +89,7 @@ Please view the subcommittee page for the most recent information.
 <!ELEMENT special ANY >
     <!--@TECHPREVIEW-->
 
-<!ELEMENT keys ( import*, ( key | flicks )*, special* ) >
+<!ELEMENT keys ( import*, key*, special* ) >
     <!--@TECHPREVIEW-->
 
 <!ELEMENT key EMPTY >
@@ -126,16 +126,18 @@ Please view the subcommittee page for the most recent information.
     <!--@MATCH:range/0.01~100.0-->
     <!--@VALUE-->
 
-<!ELEMENT flicks ( flick+, special* ) >
+<!ELEMENT flicks ( import*, flick*, special* ) >
+
+<!ELEMENT flick ( flickSegment+, special* ) >
     <!--@TECHPREVIEW-->
-<!ATTLIST flicks id NMTOKEN #REQUIRED >
+<!ATTLIST flick id NMTOKEN #REQUIRED >
     <!--@MATCH:any-->
 
-<!ELEMENT flick EMPTY >
+<!ELEMENT flickSegment EMPTY >
     <!--@TECHPREVIEW-->
-<!ATTLIST flick directions NMTOKENS #REQUIRED >
+<!ATTLIST flickSegment directions NMTOKENS #REQUIRED >
     <!--@MATCH:regex/(n|e|s|w|ne|nw|se|sw)([ ]+(n|e|s|w|ne|nw|se|sw))*-->
-<!ATTLIST flick to CDATA #REQUIRED >
+<!ATTLIST flickSegment to CDATA #REQUIRED >
     <!--@MATCH:any-->
     <!--@VALUE-->
     <!--@ALLOWS_UESC-->

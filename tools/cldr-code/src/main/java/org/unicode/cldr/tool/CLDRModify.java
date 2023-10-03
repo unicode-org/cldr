@@ -2118,7 +2118,8 @@ public class CLDRModify {
                             String type = parts.getAttributeValue(2, "type");
                             if (type == null) { // not type="tts"
                                 String cp = parts.getAttributeValue(2, "cp");
-                                keywordPaths.put(cp, xpath);
+                                keywordPaths.put(
+                                        cp, fullpath /* not xpath; preserve status="..." */);
                             }
                         }
                     }

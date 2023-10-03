@@ -496,7 +496,7 @@ The modifiers transform the input data as described in the following table:
 | initialCap | Request the element with the first grapheme capitalized, and remaining characters unchanged. This is used in cases where an element is usually in lower case but may need to be modified. For example in Dutch, the name<br/>{ title: “dhr.”, given: ”Johannes”, surname: “van den Berg” },<br/>when addressed formally, would need to be “dhr. Van den Berg”. This would be represented as<br/>“{title} {surname-initialCap}”<br/><br/>Only the _“-allCaps”_ or the _“-initalCap”_ modifier may be used, but not both. They are mutually exclusive. |
 | initial    | Requests the initial grapheme cluster of each word in a field. The `initialPattern` patterns for the locale are used to create the format and layout for lists of initials. For example, if the initialPattern types are<br/>`<initialPattern type="initial">{0}.</initialPattern>`<br/>`<initialPattern type="initialSequence">{0} {1}</initialPattern>`<br/>then a name such as<br/>{ given: “John”, given2: “Ronald Reuel”, surname: “Tolkien” }<br/>could be represented as<br/>“{given-initial-allCaps} {given2-initial-allCaps} {surname}”<br/>and will format to “**J. R. R. Tolkien**”<br/><br/>_The default implementation uses the first grapheme cluster of each word for the value for the field; if the PersonName object has a locale, and CLDR supports a locale-specific grapheme cluster algorithm for that locale, then that algorithm is used. The PersonName object can override this, as detailed below._<br/><br/>Only the _“-initial”_ or the _“-monogram”_ modifier may be used, but not both. They are mutually exclusive. |
 | monogram   | Requests initial grapheme. Example: A name such as<br/>{ given: “Landon”, given2: “Bainard Crawford”, surname: “Johnson” }<br/>could be represented as<br/>“{given-monogram-allCaps}{given2-monogram-allCaps}{surname-monogram-allCaps}”<br/>or “**LBJ**”<br/><br/>_The default implementation uses the first grapheme cluster of the value for the field; if the PersonName object has a locale, and CLDR supports a locale-specific grapheme cluster algorithm for that locale, then that algorithm is used. The PersonName object can override this, as detailed below. The difference between monogram an initial is that monogram only returns one element, not one element per word._<br/><br/>Only the _“-initial”_ or the _“-monogram”_ modifier may be used, but not both. They are mutually exclusive. |
-| retain | This is needed in languages that preserve punctuation when forming initials. For example, normally {given}=Anne-Marie is converted into initials with {given-initialCaps} as “A. M.”. However, where a language preserves the -, the pattern should use {given-initialCaps-retain} instead. In that case, the result is “A.-M.”. (The periods are added by the pattern-initialSequence.) |
+| retain | This is needed in languages that preserve punctuation when forming initials. For example, normally the name {given=Anne-Marie} is converted into initials with {given-initialCaps} as “A. M.”. However, where a language preserves the hyphen, the pattern should use {given-initialCaps**-retain**} instead. In that case, the result is “A.-M.”. (The periods are added by the pattern-initialSequence.) |
 | genitive, vocative | Patterns can use these modifiers so that better results can be obtained for inflected languages. However, see the details below. |
 
 #### Grammatical Modifiers for Names
@@ -518,9 +518,9 @@ For example:
 
 Notice that the `surname` in Latvian needs to change to the genitive case with that pattern:
 
-    Ozoliņš ➡︎ **Ozoliņa**
+Ozoliņš ➡︎ **Ozoliņa**
 	
-That is accomplished by changing the pattern to be {surname**-genitive**} {title}. In this case the {surname} should only be genitive if followed by the {title}.
+That is accomplished by changing the pattern to be {surname<b>-genitive</b>} {title}. In this case the {surname} should only be genitive if followed by the {title}.
 
 #### Future Modifiers
 

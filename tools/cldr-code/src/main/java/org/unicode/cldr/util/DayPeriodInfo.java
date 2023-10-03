@@ -431,6 +431,20 @@ public class DayPeriodInfo {
             return false;
         }
 
+        // Hack for French night1, CLDR-17132 for better fix
+        if ((dayPeriod1 == DayPeriod.night1
+                        && (dayPeriod2 == DayPeriod.morning1 || dayPeriod2 == DayPeriod.am))
+                || (dayPeriod2 == DayPeriod.night1
+                        && (dayPeriod1 == DayPeriod.morning1 || dayPeriod1 == DayPeriod.am))) {
+            if (dayPeriodsToSpans.get(DayPeriod.night1).size() == 1) {
+                for (Span s : dayPeriodsToSpans.get(DayPeriod.night1)) {
+                    if (s.start == MIDNIGHT) {
+                        return false;
+                    }
+                }
+            }
+        }
+
         // we use the more lenient if they are mixed types
         if (type2 == Type.format) {
             type1 = Type.format;

@@ -137,7 +137,11 @@ The following features are currently out of scope for Person Names formating:
 
 ### API Implementation
 
-A draft API for formatting personal names is included in ICU4J 73. (“Draft” means that the full functionality is present, but the API might be refined before it is stabilized.) The implementation can be found at [PersonNameFormatter.java](https://github.com/unicode-org/icu/blob/main/icu4j/main/classes/core/src/com/ibm/icu/text/PersonNameFormatter.java) and [SimplePersonName.java](https://github.com/unicode-org/icu/blob/main/icu4j/main/classes/core/src/com/ibm/icu/text/SimplePersonName.java).
+A draft API for formatting personal names was first included in ICU4J 73 and has been updated for ICU4J 74 to reflect updates in this specification and associated data. (“Draft” means that the full functionality is present, but the API might be refined before it is stabilized.) The implementation can be found at the following:
+
+* [PersonName.java](https://github.com/unicode-org/icu/blob/main/icu4j/main/core/src/main/java/com/ibm/icu/text/PersonName.java)
+* [PersonNameFormatter.java](https://github.com/unicode-org/icu/blob/main/icu4j/main/core/src/main/java/com/ibm/icu/text/PersonNameFormatter.java)
+* [SimplePersonName.java](https://github.com/unicode-org/icu/blob/main/icu4j/main/core/src/main/java/com/ibm/icu/text/SimplePersonName.java)
 
 In addition to the settings in this document, it is recommended that implementations provide some additional features in their APIs to allow more control for clients, notably:
 

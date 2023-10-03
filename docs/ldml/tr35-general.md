@@ -2657,7 +2657,9 @@ The following are character labels. Where the meaning of the label is fairly cle
 | limited_use                 | limited-use             | Not in common modern use. |
 | male                        | male                    | Indicates that a character is male or masculine in appearance. |
 | modifier                    | modifier                | A Unicode modifier letter or symbol. |
-| nonspacing                  | nonspacing              | Uses for characters that occupy no width by themselves, such as the ¨ over the a in ä. |
+| nonspacing                  | nonspacing              | Used for characters that occupy no width by themselves, such as the ¨ over the a in ä. |
+| facing-left                 | facing-left             | Characters that face to the left. Also used to construct names for emoji variants. |
+| facing-right                | facing-right            | Characters that face to the right. Also used to construct names for emoji variants. |
 
 ### <a name="Typographic_Names" href="#Typographic_Names">Typographic Names</a>
 

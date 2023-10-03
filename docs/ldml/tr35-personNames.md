@@ -496,13 +496,41 @@ The modifiers transform the input data as described in the following table:
 | initialCap | Request the element with the first grapheme capitalized, and remaining characters unchanged. This is used in cases where an element is usually in lower case but may need to be modified. For example in Dutch, the name<br/>{ title: “dhr.”, given: ”Johannes”, surname: “van den Berg” },<br/>when addressed formally, would need to be “dhr. Van den Berg”. This would be represented as<br/>“{title} {surname-initialCap}”<br/><br/>Only the _“-allCaps”_ or the _“-initalCap”_ modifier may be used, but not both. They are mutually exclusive. |
 | initial    | Requests the initial grapheme cluster of each word in a field. The `initialPattern` patterns for the locale are used to create the format and layout for lists of initials. For example, if the initialPattern types are<br/>`<initialPattern type="initial">{0}.</initialPattern>`<br/>`<initialPattern type="initialSequence">{0} {1}</initialPattern>`<br/>then a name such as<br/>{ given: “John”, given2: “Ronald Reuel”, surname: “Tolkien” }<br/>could be represented as<br/>“{given-initial-allCaps} {given2-initial-allCaps} {surname}”<br/>and will format to “**J. R. R. Tolkien**”<br/><br/>_The default implementation uses the first grapheme cluster of each word for the value for the field; if the PersonName object has a locale, and CLDR supports a locale-specific grapheme cluster algorithm for that locale, then that algorithm is used. The PersonName object can override this, as detailed below._<br/><br/>Only the _“-initial”_ or the _“-monogram”_ modifier may be used, but not both. They are mutually exclusive. |
 | monogram   | Requests initial grapheme. Example: A name such as<br/>{ given: “Landon”, given2: “Bainard Crawford”, surname: “Johnson” }<br/>could be represented as<br/>“{given-monogram-allCaps}{given2-monogram-allCaps}{surname-monogram-allCaps}”<br/>or “**LBJ**”<br/><br/>_The default implementation uses the first grapheme cluster of the value for the field; if the PersonName object has a locale, and CLDR supports a locale-specific grapheme cluster algorithm for that locale, then that algorithm is used. The PersonName object can override this, as detailed below. The difference between monogram an initial is that monogram only returns one element, not one element per word._<br/><br/>Only the _“-initial”_ or the _“-monogram”_ modifier may be used, but not both. They are mutually exclusive. |
+| retain | This is needed in languages that preserve punctuation when forming initials. For example, normally {given}=Anne-Marie is converted into initials with {given-initialCaps} as “A. M.”. However, where a language preserves the -, the pattern should use {given-initialCaps-retain} instead. In that case, the result is “A.-M.”. (The periods are added by the pattern-initialSequence.) |
+| genitive, vocative | Patterns can use these modifiers so that better results can be obtained for inflected languages. However, see the details below. |
 
-There may be more modifiers in the future.
+#### Grammatical Modifiers for Names
+
+The CLDR person name formatting does not itself support grammatical inflection. 
+However, name sources (NameObject) can support inflections, either by having additional fields or by using an inflection engine that can handle personal name parts.
+
+In the current release, the focus is on supporting `referring` and `addressing` forms. 
+Typically the `referring` forms will be in the most neutral (*nominative*) case, and the `addressing` forms will be in the *vocative* case.
+Some modifiers have been added to facilitate this, so that there can be patterns like: {given-vocative} {surname-vocative}.
+
+Notice that some **parts** of the formatted name may be in different grammatical cases, so the cases may not be consistent across the whole name.
+For example:
+
+| English Pattern | Examples | Latvian Pattern | Examples |
+| ---- | ---- | ---- | ---- |
+| {given} {surname} | John Smith | {given} {surname} | Kārlis Ozoliņš |
+| {title} {surname} | Mr Smith | {surname} {title} | Ozoliņa kungs |
+
+Notice that the `surname` in Latvian needs to change to the genitive case with that pattern:
+
+    Ozoliņš ➡︎ **Ozoliņa**
+	
+That is accomplished by changing the pattern to be {surname**-genitive**} {title}. In this case the {surname} should only be genitive if followed by the {title}.
+
+#### Future Modifiers
+
+Additional modifiers may be added in future versions of CLDR.
 
 Examples:
 
 1. For the initial of the surname **_“de Souza”_**, in a language that treats the “de” as a tussenvoegsel, the PersonName object can automatically recast `{surname-initial}` to:<br/>`{surname-prefix-initial}{surname-core-initial-allCaps} `to get “dS” instead of “d”.
 2. If the locale expects a surname prefix to to be sorted after a surname, then both `{surname-core} `then `{surname-prefix}` would be used as in<br/>`{surname-core}, {given} {given2} {surname-prefix}`
+3. Only the grammatical modifiers requested by translators for `referring` or `addressing` have been added as yet, but additional grammatical modifiers may be added in the future.
 
 ## Formatting Process
 

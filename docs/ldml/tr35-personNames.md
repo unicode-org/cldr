@@ -135,6 +135,13 @@ The following features are currently out of scope for Person Names formating:
 
 A draft API for formatting personal names is included in ICU4J 73. (“Draft” means that the full functionality is present, but the API might be refined before it is stabilized.) The implementation can be found at [PersonNameFormatter.java](https://github.com/unicode-org/icu/blob/main/icu4j/main/classes/core/src/com/ibm/icu/text/PersonNameFormatter.java) and [SimplePersonName.java](https://github.com/unicode-org/icu/blob/main/icu4j/main/classes/core/src/com/ibm/icu/text/SimplePersonName.java).
 
+In addition to the settings in this document, it is recommended that implementations provide some additional features in their APIs to allow more control for clients, notably:
+
+1. forceGivenFirst — no matter what the values are in nameOrderLocales or in the NameObject, display the name as givenFirst.
+2. forceSurnameFirst — no matter what the values are in nameOrderLocales or in the NameObject, display the name as surnameFirst.
+3. forceNativeOrdering — no matter what the values are in nameOrderLocales or in the NameObject, display the name with the same ordering as the native locale.
+4. surnameFirstAllCaps — display the surname and surname2 fields in all caps **if** not using native order. Thus where the foreign name ordering is surnameFirst, the name {given=Shinzo, surname=Abe} would display as “ABE Shinzo”.
+
 ### Person Name Formatting Overview
 
 Logically, the model used for applying the CLDR data is the following:
@@ -200,7 +207,7 @@ Person name formatting data is stored as LDML with schema defined as follows. Ea
 ### personNames Element
 
 ```xml
-<!ELEMENT personNames ( nameOrderLocales*, foreignSpaceReplacement?, initialPattern*, personName+, sampleName* ) >
+<!ELEMENT personNames ( nameOrderLocales*, parameterDefault*, nativeSpaceReplacement*, foreignSpaceReplacement*, initialPattern*, personName*, sampleName* ) >
 ```
 
 The LDML top-level `<personNames>` element contains information regarding the formatting of person names, and the formatting of person names in specific contexts for a specific locale.
@@ -268,13 +275,34 @@ An example from English may look like the following
 
 This would tell the formatting code, when handling person name data from an English locale, to use patterns with the `givenFirst` order attribute for all data except name data from Korean, Vietnamese, Cantonese, and Chinese locales, where the `surnameFirst` patterns should be used.
 
+### parameterDefault Element
+```xml
+<!ELEMENT parameterDefault ( #PCDATA ) >
+<!ATTLIST parameterDefault parameter (length | formality) #REQUIRED >
+```
+Many clients of the person-names functionality don’t really care about formal versus informal; they just want whatever the “normal” formality level is for the user’s language. The same goes for the default length.
+
+This parameter provides that information, so that APIs can allow users to use default values for the formality and length. The exact form that this takes depends on the API conventions, of course. 
+
 ### foreignSpaceReplacement Element
 
-The `<foreignSpaceReplacement>` element is used to specify how spaces should be handled when the name language is different from the formatting language.
+The `<foreignSpaceReplacement>` element is used to specify how spaces should be handled when the name language is **different from** the formatting language. It is used in languages that don't normally require spaces between words. For example, Japanese and Chinese have the value of a middle dot (‘·’ U+00B7 MIDDLE DOT or ‘・’ U+30FB KATAKANA MIDDLE DOT), so that it is used between words in a foreign name; most other languages have the value of SPACE. 
 
 ```xml
 <!ELEMENT foreignSpaceReplacement ( #PCDATA ) >
 <!ATTLIST foreignSpaceReplacement xml:space preserve #REQUIRED >
+```
+
+* `xml:space` must be set to `'preserve'` so that actual spaces in the pattern are preserved. See [W3C XML White Space Handling](https://www.w3.org/TR/xml/#sec-white-space).
+* The `#PCDATA `is the character sequence used to replace spaces when postprocessing a pattern.
+
+### nativeSpaceReplacement Element
+
+The `<nativeSpaceReplacement>` element is used to specify how spaces should be handled when the name language is **the same as** the formatting language. It is used in languages that don't normally require spaces between words, but may use spaces within names. For example, Japanese and Chinese have the value of an empty string between words in a native name; most other languages have the value of SPACE.
+
+```xml
+<!ELEMENT nativeSpaceReplacement ( #PCDATA ) >
+<!ATTLIST nativeSpaceReplacement xml:space preserve #REQUIRED >
 ```
 
 * `xml:space` must be set to `'preserve'` so that actual spaces in the pattern are preserved. See [W3C XML White Space Handling](https://www.w3.org/TR/xml/#sec-white-space).
@@ -710,14 +738,8 @@ Here are examples for Albert Einstein in Japanese and Chinese:
 
 #### Setting the spaceReplacement
 
-1. The foreignSpaceReplacement is provided by the value for the `foreignSpaceReplacement` element; the default value is " ".
-2. The nativeSpaceReplacement is determined by the following algorithm, choosing between " " and "".
-    1. Get the script of the formatting locale
-    2. If the likely script is Thai, let nativeSpaceReplacement = " " (space)
-    3. Otherwise let nativeSpaceReplacement = "" (empty string) if either of the following applies:
-        1. The script is Jpan, Hant, or Hans
-        2. The script has the script metadata property lbLetters = YES (this can also be algorithmically derived from the LineBreak property data).
-    4. Otherwise, let nativeSpaceReplacement = " " (space)
+1. The foreignSpaceReplacement is provided by the value for the `foreignSpaceReplacement` element; the default value is a SPACE (" ").
+2. The nativeSpaceReplacement is provided by the value for the `nativeSpaceReplacement` element; the default value is SPACE (" ").
 3. If the formatter base language matches the name base language, then let spaceReplacement = nativeSpaceReplacement, otherwise let spaceReplacement = foreignSpaceReplacement.
 4. Replace all sequences of space in the formatted value string by the spaceReplacement.
 
@@ -748,6 +770,7 @@ Suppose the PersonNames formatting patterns for `ja_JP` and `de_CH` contained th
 &lt;personNames&gt;
    &lt;nameOrderLocales order="givenFirst"&gt;und&lt;/nameOrderLocales&gt;
    &lt;<strong>nameOrderLocales</strong> order="<strong>surnameFirst</strong>"&gt;hu <strong>ja</strong> ko vi yue zh <strong>und_JP</strong>&lt;/nameOrderLocales&gt;
+   &lt;<strong>nativeSpaceReplacement</strong> xml:space="preserve"&gt;<span style="background-color:aqua"></span>&lt;/nativeSpaceReplacement&gt;
    &lt;<strong>foreignSpaceReplacement</strong> xml:space="preserve"&gt;<span style="background-color:aqua">・</span>&lt;/foreignSpaceReplacement&gt;
    . . .
    &lt;personName order="<strong>givenFirst</strong>" length="medium" usage="referring" formality="formal"&gt;

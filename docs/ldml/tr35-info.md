@@ -927,6 +927,7 @@ The systems attributes also apply to compound units, and are computed in the fol
 4. Units linked by `-and-`, `-per-`, and *adjacency* are resolved using a modified intersection, where:
    1. The intersection of {… si …} and {… si_acceptable … } is {… si_acceptable …}
    2. The intersection of {… metric …} and {… metric_adjacent … } is {… metric_adjacent …}
+
 Examples: 
 ```
 systems(liter-per-hectare) 

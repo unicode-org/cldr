@@ -1178,7 +1178,7 @@ The calculation of the first day of the week depends on various fields in a loca
 |----|----|----|
 |en-AU-u-ca-iso8601-fw-tue-rg-afzzzz-sd-cabc | -fw-tue | n/a, uses Tuesday |
 |en-AU-u-ca-iso8601-rg-afzzzz-sd-cabc | -rg-afzzzz | AF |
-|en-AU-u-ca-iso8601-sd-cabc | -ca-iso8601 | n/a, uses Sunday |
+|en-AU-u-ca-iso8601-sd-cabc | -ca-iso8601 | n/a, uses Monday |
 |en-AU-u-sd-cabc | -AU | AU |
 |en-u-sd-cabc | -sd-cabc | CA |
 |en | | US (from likely subtags) |

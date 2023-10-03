@@ -1172,6 +1172,18 @@ The calculation of the first day of the week depends on various fields in a loca
 6. Else if the [Add Likely Subtags](tr35.html#Likely_Subtags) algorithm produces a region, return that region's firstDay map value.
 7. Else return the firstDay map value for 001.
 
+*Example:*
+
+| Locale Identifier | "Winning" subtags | Region |
+|----|----|----|
+|en-AU-u-ca-iso8601-fw-tue-rg-afzzzz-sd-cabc | -fw-tue | n/a, uses Tuesday |
+|en-AU-u-ca-iso8601-rg-afzzzz-sd-cabc | -rg-afzzzz | AF |
+|en-AU-u-ca-iso8601-sd-cabc | -ca-iso8601 | n/a, uses Sunday |
+|en-AU-u-sd-cabc | -AU | AU |
+|en-u-sd-cabc | -sd-cabc | CA |
+|en | | US (from likely subtags) |
+|zxx | 001 | (fallback) |
+
 ### <a name="Time_Data" href="#Time_Data">Time Data</a>
 
 ```xml

@@ -899,19 +899,19 @@ The `systems` attribute indicates the measurement system(s) or other characteris
 
 The allowed attributes are the following:
 
-Attribute Value | Description
------------- | -------------
-`si` | The _International System of Units (SI)_ See [NIST Guide to the SI, Chapter 4: The Two Classes of SI Units and the SI Prefixes](https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-4-two-classes-si-units-and-si-prefixes). Examples: meter, ampere.
-`si_acceptable` | Units acceptable for use with the SI. See [NIST Guide to the SI, Chapter 5: Units Outside the SI](https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-5-units-outside-si). Examples: hour, liter, knot, hectare.
-`metric` | A superset of the _si_ units
-`metric_adjacent` | units commonly accepted in some countries that follow the metric system. Examples: month, arc-second, pound-metric (= ½ kilogram), mile-scandinavian.
-`ussystem` | The inch-pound system as used in the US, also called _US Customary Units_.
-`uksystem` | The inch-pound system as used in the UK, also called _British Imperial Units_, differing mostly in units of volume
-`jpsystem` | Traditional units used in Japan. For examples, see [Japanese units of measurement](https://en.wikipedia.org/wiki/Japanese_units_of_measurement).
-`astronomical` | Additional units used in astronomy. Examples: parsec, light-year, earth-mass
-`person_age` | Special units used for people’s ages in some languages. Except for translation, they have the same system as the associated regular units.
-`currency` | Currency units. These are constructed algorithmically from the Unicode currency identifiers, and do not occur in the child elements of `convertUnits`. Examples: curr-usd (US dollar), curr-eur (Euro).
-`prefixable` | Those units that typically use SI prefixes. This can include measures like `parsec` that are not SI units. It allows implementations to group those units together, and to do sanity checks on the prefix+unit combinations, if they choose. However, implementations may choose to allow prefixes on other units, especially since there is a significant variance in usage: even a term like `megafoot` might be acceptable in some contexts.
+Attribute Value   | Description
+------------      | -------------
+`si`              | The _International System of Units (SI)_ See [NIST Guide to the SI, Chapter 4: The Two Classes of SI Units and the SI Prefixes](https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-4-two-classes-si-units-and-si-prefixes). Examples: meter, ampere.
+`si_acceptable`   | Units acceptable for use with the SI. See [NIST Guide to the SI, Chapter 5: Units Outside the SI](https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-5-units-outside-si). Examples: hour, liter, knot, hectare.
+`metric`          | A superset of the _si_ units
+`metric_adjacent` | Units commonly accepted in some countries that follow the metric system. Examples: month, arc-second, pound-metric (= ½ kilogram), mile-scandinavian.
+`ussystem`        | The inch-pound system as used in the US, also called _US Customary Units_.
+`uksystem`        | The inch-pound system as used in the UK, also called _British Imperial Units_, differing mostly in units of volume
+`jpsystem`        | Traditional units used in Japan. For examples, see [Japanese units of measurement](https://en.wikipedia.org/wiki/Japanese_units_of_measurement).
+`astronomical`    | Additional units used in astronomy. Examples: parsec, light-year, earth-mass
+`person_age`      | Special units used for people’s ages in some languages. Except for translation, they have the same system as the associated regular units.
+`currency`        | Currency units. These are constructed algorithmically from the Unicode currency identifiers, and do not occur in the child elements of `convertUnits`. Examples: curr-usd (US dollar), curr-eur (Euro).
+`prefixable`      | Those units that typically use SI prefixes or the [IEC binary prefixes](https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-d-bibliography#05). This can include measures like `parsec` that are not SI units. It allows implementations to group those units together, and to do sanity checks on the prefix+unit combinations, if they choose. However, implementations may choose to allow prefixes on other units, especially since there is a significant variance in usage: even a term like `megafoot` might be acceptable in some contexts.
 
 Over time, additional systems may be added, and the systems for a particular unit may be refined.
 
@@ -929,9 +929,15 @@ The systems attributes also apply to compound units, and are computed in the fol
    2. The intersection of {… metric …} and {… metric_adjacent … } is {… metric_adjacent …}
 Examples: 
 ```
-systems(liter-per-hectare) = {si_acceptable metric} ∪ {si_acceptable metric} = {si_acceptable metric}
-systems(meter-per-hectare) = {si metric} ∩ {si_acceptable metric} = {si_acceptable metric}
-systems(mile-scandinavian-per-hour) = {metric_adjacent} ∩ {si_acceptable metric_adjacent} = {metric_adjacent}
+systems(liter-per-hectare) 
+	= {si_acceptable metric} ∪ {si_acceptable metric}
+	= {si_acceptable metric}
+systems(meter-per-hectare)
+	= {si metric} ∩ {si_acceptable metric}
+	= {si_acceptable metric}
+systems(mile-scandinavian-per-hour)
+	= {metric_adjacent} ∩ {si_acceptable metric_adjacent}
+	= {metric_adjacent}
 ```
 
 #### Conversion Mechanisms

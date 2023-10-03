@@ -1025,13 +1025,13 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 		<ul>
             <li><em>Examples:</em> <b>curr-eur</b>-per-square-meter, or pound-per-<b>curr-usd</b></li>
 			<li><em>Note:</em> CLDR does not provide conversions for currencies; this is only intended for formatting.
-				The locale data for currencies is supplied in the `currencies` element, not in the `units` element.</li>
+				The locale data for currencies is supplied in the <code>currencies</code> element, not in the <code>units</code> element.</li>
         </ul>
 	</td></tr>
 
 </tbody></table>
 
-Note that while the syntax allows for number_prefixes in multiple places, the typical use case is only one instances, and after a "-per-".
+Note that while the syntax allows for number_prefixes in multiple places, the typical use case is only one instance, after a "-per-".
 
 The simple_unit structure does not allow for any two simple_units to overlap.
 That is, there are no cases where simple_unit1 consists of X-Y and simple_unit2 consists of Y-Z.

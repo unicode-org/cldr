@@ -2268,12 +2268,12 @@ The following summarizes the syntax characters used in transforms.
 | ↔, \<\> | Transform from left to right (for forward) and right to left (for backward) | a ↔ b ; |
 | { | Mark the boundary between before_context and the text_to_replace | a {b} c → B ; |
 | } | Mark the boundary between the text_to_replace and after_context | a {b} c → B ; |
-| ' | Escape one or more characters, until the next '  | `'<> ' ` → x ; |
-| " | Escape one or more characters, until the next " | `"<> "` → x ; |
-| \\ | Escape the next character | `\<\> ` → x ; |
+| ' | Escape one or more characters, until the next '  | '\<\>' → x ; |
+| " | Escape one or more characters, until the next " | "\<\>" → x ; |
+| \\ | Escape the next character | \\\<\\\> → x ; |
 | # | Comment (until the end of a line) | a → ; # remove a |
-| \| | In the resulting_text, moves the cursor | a → A | b; |
-| @ | In the resulting_text, filler character used to move the cursor before the start or after the end of the result | a → Ab@|; |
+| \| | In the resulting_text, moves the cursor | a → A \| b; |
+| @ | In the resulting_text, filler character used to move the cursor before the start or after the end of the result | a → Ab@\|; |
 | (, ) | In text_to_replace, a capturing group | ([a-b]) > &hex($1); |
 | $ | In replacement_text, when followed by 1..9, is replaced by the contents of a capture group | ([a-b]) > &hex($1); |
 | ^ | In a before_context, by itself, equivalent to [$] **(deprecated)** | ... |

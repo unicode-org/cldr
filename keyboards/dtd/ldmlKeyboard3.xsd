@@ -304,7 +304,7 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
         <xs:element maxOccurs="unbounded" minOccurs="0" ref="special"/>
       </xs:sequence>
       <xs:attribute name="id" type="xs:NMTOKEN"/>
-      <xs:attribute name="modifier" type="xs:NMTOKENS"/>
+      <xs:attribute name="modifiers" type="xs:NMTOKENS"/>
     </xs:complexType>
   </xs:element>
   

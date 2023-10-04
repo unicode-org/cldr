@@ -204,8 +204,6 @@ Keyboard use can be challenging for individuals with various types of disabiliti
 
 **Arrangement:** The relative position of the rectangles that represent keys, either physically or virtually. A hardware keyboard has a static arrangement while a touch keyboard may have a dynamic arrangement that changes per language and/or layer. While the arrangement of keys on a keyboard may be fixed, the mapping of those keys may vary.
 
-**Base character:** The character emitted by a particular key when no modifiers are active. In ISO terms, this is group 1, level 1.
-
 **Base character:** The character emitted by a particular key when no modifiers are active. In ISO 9995-1:2009 terms, this is Group 1, Level 1.
 
 **Core keys:** also known as “alphanumeric” section. The primary set of key values on a keyboard that are used for typing the target language of the keyboard. For example, the three rows of letters on a standard US QWERTY keyboard (QWERTYUIOP, ASDFGHJKL, ZXCVBNM) together with the most significant punctuation keys. Usually this equates to the minimal set of keys for a language as seen on mobile phone keyboards.
@@ -1361,7 +1359,7 @@ A `layer` element describes the configuration of keys on a particular layer of a
 **Syntax**
 
 ```xml
-<layer id="layerId" modifier="{Set of Modifier Combinations}">
+<layer id="layerId" modifiers="{Set of Modifier Combinations}">
     ...
 </layer>
 ```
@@ -1383,11 +1381,11 @@ _Attribute_ `id` (required for `touch`)
 >
 > Must match `[A-Za-z0-9][A-Za-z0-9-]*`
 
-_Attribute:_ `modifier` (required for `hardware`)
+_Attribute:_ `modifiers` (required for `hardware`)
 
 > This has two roles. It acts as an identifier for the `layer` element for hardware keyboards (in the absence of the id= element) and also provides the linkage from the hardware modifiers into the correct `layer`.
 >
-> For hardware layouts, the use of `@modifier` as an identifier for a layer is sufficient since it is always unique among the set of `layer` elements in a keyboard.
+> For hardware layouts, the use of `@modifiers` as an identifier for a layer is sufficient since it is always unique among the set of `layer` elements in a keyboard.
 >
 > The set of modifiers must match `(none|([A-Za-z0-9]+)( [A-Za-z0-9]+)*)`
 >
@@ -1396,19 +1394,19 @@ _Attribute:_ `modifier` (required for `hardware`)
 **Syntax**
 
 ```xml
-<layer id="base"        modifier="none">
+<layer id="base"        modifiers="none">
     <row keys="a" />
 </layer>
 
-<layer id="upper"       modifier="shift">
+<layer id="upper"       modifiers="shift">
     <row keys="A" />
 </layer>
 
-<layer id="altgr"       modifier="altR">
+<layer id="altgr"       modifiers="altR">
     <row keys="a-umlaut" />
 </layer>
 
-<layer id="upper-altgr" modifier="altR shift">
+<layer id="upper-altgr" modifiers="altR shift">
     <row keys="A-umlaut" />
 </layer>
 ```

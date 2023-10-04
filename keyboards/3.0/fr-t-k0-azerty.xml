@@ -110,7 +110,7 @@
 
 	<layers formId="iso">
 		<!-- in DTD: required if conformsTo ≥ 41 -->
-		<layer modifier="none">
+		<layer modifiers="none">
 			<row
 				keys="super-2 amp e-grave double-quote apos open-paren hyphen e-acute underscore c-cedilla a-acute close-paren equal" />
 			<row keys="a z e r t y u i o p caret dollar" />
@@ -119,7 +119,7 @@
 			<row keys="space" />
 		</layer>
 
-		<layer modifier="shift">
+		<layer modifiers="shift">
 			<row keys="1 2 3 4 5 6 7 8 9 0 degree plus" />
 			<row keys="A Z E R T Y U I O P umlaut pound" />
 			<row keys="Q S D F G H J K L M percent micro" />

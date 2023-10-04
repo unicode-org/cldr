@@ -989,7 +989,7 @@
 </tr>
 <tr>
 <td>Date</td>
-<td>2023-06-13</td>
+<td>2023-10-03</td>
 </tr>
 <tr>
 <td>This Version</td>
@@ -5226,12 +5226,49 @@ See §3.8.2 <a href="#Legacy_Variants">Legacy Variants</a>.</p>
 <li>Alex Kolisnychenko for work on Person Names.</li>
 <li>Mike McKenna for work on Person Names.</li>
 </ul><p>Other contributors to CLDR are listed on the <a href="https://www.unicode.org/cldr/">CLDR Project Page</a>.</p><h2 id="Modifications"><a name="modifications" href="#Modifications">Modifications</a></h2><p><strong>Differences from LDML Version 43</strong></p><ul>
-<li><a href="tr35-personNames.html#Contents">Person Names</a><ul>
-<li>Fixed a problem in <a href="tr35-personNames.html#switch-the-formatting-locale-if-necessary">Switch the formatting locale if necessary</a>, where the full formatting locale wasn't being set correctly when the name object has a locale whose script is incompatibility with name script.</li>
+<li><p><a href="#Contents">Core</a></p>
+<ul>
+<li>In <a href="#Time_Zone_Identifiers">Time Zone Identifiers</a>, added information on the new <code>iana</code> attribute for stability; also see information on <code>iana</code> in the section <a href="#Unicode_Locale_Extension_Data_Files">U Extension Data Files</a>.</li>
+<li><a href="#Likely_Subtags">Likely Subtags</a>: There is a fix to how macroregions are handled by adding likely subtags, such as with <code>und_419</code></li>
+<li><a href="#Unicode_Sets">Unicode Sets</a>: New sections on the following, with additional clarifications:<ul>
+<li><a href="#unicodeset-syntax">UnicodeSet syntax</a></li>
+<li><a href="#Backslash_Escapes">Backslash Escapes</a></li>
+<li><a href="#Variables_in_UnicodeSets">Variables in UnicodeSets</a></li>
 </ul>
 </li>
-<li><a href="#Likely_Subtags">Likely Subtags</a><ul>
-<li>There is a fix to how macroregions are handled by adding likely subtags, such as with und_419</li>
+</ul>
+</li>
+<li><p><a href="tr35-general.html#Contents">General</a></p>
+<ul>
+<li>Added new section <a href="tr35-general.html#Unit_Identifier_Uniqueness">Unit Identifier Uniqueness</a>, and added a relevant constraint on base_component in the <a href="tr35-general.html#syntax">Syntax</a> section.</li>
+</ul>
+</li>
+<li><p><a href="tr35-dates.html#Contents">Dates</a></p>
+<ul>
+<li>New section <a href="tr35-dates.html#first-day-overrides">First Day Overrides</a>: Described the various locale ID elements that affect determination of the first day of the week (for week of year calculations), and the order in which they should be considered. Also noted in <a href="#Key_Type_Definitions">Key/Type Definitions</a> which keys can affect determination of first day.</li>
+</ul>
+</li>
+<li><p><a href="tr35-info.html#Contents">Supplemental</a></p>
+<ul>
+<li>In <a href="tr35-info.html#conversion-data">Conversion Data</a>, expanded the list of values for the convertUnit systems attribute.</li>
+<li>Added new section <a href="tr35-info.html#derived-unit-system">Derived Unit System</a></li>
+<li>Rewrote and clarified the material in <a href="tr35-info.html#Unit_Preferences_Data">Unit Preferences Overrides</a></li>
+</ul>
+</li>
+<li><p><a href="tr35-keyboards.html#Contents">Keyboards</a></p>
+<ul>
+<li>Complete revision, description TBS</li>
+</ul>
+</li>
+<li><p><a href="tr35-personNames.html#Contents">Person Names</a></p>
+<ul>
+<li>Added material in <a href="tr35-personNames.html#api-implementation">API Implementaion</a> on recommended implementation  API options.</li>
+<li>Describe new <a href="tr35-personNames.html#parameterdefault-element">parameterDefault Element</a> element that specifies default formality and length.</li>
+<li>Describe new <a href="tr35-personNames.html#nativespacereplacement-element">nativeSpaceReplacement Element</a> that specifies how spaces should be handled when the name language is the same as the formatting language.</li>
+<li>In <a href="tr35-personNames.html#modifiers">Modifiers</a> added the modifiers retain, genitive and vocative.</li>
+<li>Added sections on <a href="tr35-personNames.html#grammatical-modifiers-for-names">Grammatical Modifiers for Names</a> and <a href="tr35-personNames.html#future-modifiers">Future Modifiers</a>.</li>
+<li>Fixed a problem in <a href="tr35-personNames.html#switch-the-formatting-locale-if-necessary">Switch the formatting locale if necessary</a>, where the full formatting locale wasn't being set correctly when the name object has a locale whose script is incompatibility with name script.</li>
+<li>Rewrote the section on <a href="tr35-personNames.html#setting-the-spacereplacement">Setting the spaceReplacement</a>.</li>
 </ul>
 </li>
 </ul><p><strong>Differences from LDML Version 42</strong></p><ul>

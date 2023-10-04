@@ -681,6 +681,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
 <script src="./js/anchor.min.js"></script><div class="header"><table class="header" cellpadding="0" cellspacing="0" width="100%">
     <tbody>
         <tr>
@@ -794,6 +804,7 @@ This is a stable document and may be used as reference material or cited as a no
 <li><a href="#Inverse_Summary">Inverse Summary</a></li>
 </ul>
 </li>
+<li><a href="#transform-syntax-characters">Transform Syntax Characters</a></li>
 </ul>
 </li>
 <li><a href="#ListPatterns">List Patterns</a><ul>
@@ -2710,13 +2721,14 @@ overridden by rules in child locales. In addition, there are several locale keyw
   <span class="hljs-attr">direction</span>=<span class="hljs-string">"forward"</span>
   <span class="hljs-attr">draft</span>=<span class="hljs-string">"provisional"</span>
   <span class="hljs-attr">alias</span>=<span class="hljs-string">"Katakana-Latin/BGN ja-Latn-t-ja-hrkt-m0-bgn"</span>&gt;</span>
-</code></pre><p>The direction is either <code>forward</code> or <code>both</code> (<code>backward</code> is possible in theory, but not used). This indicates which directions the rules support.</p><p>If the direction is <code>forward</code>, then an ID is composed from <code>target + "-" + source + "/" + variant</code>. If the direction is <code>both</code>, then the inverse ID is also value: <code>source + "-" + target + "/" + variant</code>. The <code>alias</code> attribute contains a space-delimited list of alternant forward IDs, while the <code>backwardAlias</code> contains a space-delimited list of alternant backward IDs. The BCP47 versions of the IDs will be in the <code>alias</code> and/or <code>backwardAlias</code> attributes.</p><p>The <code>visibility</code> attribute indicates whether the IDs should be externally visible, or whether they are only used internally.</p><p>In previous versions, the rules were expressed as fine-grained XML. That was discarded in CLDR version 29, in favor of a simpler format where the separate rules are simply terminated with ";".</p><p>The transform rules are similar to regular-expression substitutions, but adapted to the specific domain of text transformations. The rules and comments in this discussion will be intermixed, with # marking the comments. The simplest rule is a conversion rule, which replaces one string of characters with another. The conversion rule takes the following form:</p><pre><code>xy → z ;
+</code></pre><p>The direction is either <code>forward</code> or <code>both</code> (<code>backward</code> is possible in theory, but not used). This indicates which directions the rules support.</p><p>If the direction is <code>forward</code>, then an ID is composed from <code>target + "-" + source + "/" + variant</code>. If the direction is <code>both</code>, then the inverse ID is also value: <code>source + "-" + target + "/" + variant</code>. The <code>alias</code> attribute contains a space-delimited list of alternant forward IDs, while the <code>backwardAlias</code> contains a space-delimited list of alternant backward IDs. The BCP47 versions of the IDs will be in the <code>alias</code> and/or <code>backwardAlias</code> attributes.</p><p>The <code>visibility</code> attribute indicates whether the IDs should be externally visible, or whether they are only used internally.</p><p>Note: In CLDR v28 and before, the rules were expressed as fine-grained XML. 
+That was discarded in CLDR version 29, in favor of a simpler format where the separate rules are simply terminated with ";".</p><p>The transform rules are similar to regular-expression substitutions, but adapted to the specific domain of text transformations. The rules and comments in this discussion will be intermixed, with # marking the comments. The simplest rule is a conversion rule, which replaces one string of characters with another. The conversion rule takes the following form:</p><pre><code>xy → z ;
 </code></pre><p>This converts any substring "xy" into "z". Rules are executed in order; consider the following rules:</p><pre><code>sch → sh ;
 ss → z ;
 </code></pre><p>This conversion rule transforms "bass school" into "baz shool". The transform walks through the string from start to finish. Thus given the rules above "bassch" will convert to "bazch", because the "ss" rule is found before the "sch" rule in the string (later, we'll see a way to override this behavior). If two rules can both apply at a given point in the string, then the transform applies the first rule in the list.</p><p>All of the ASCII characters except numbers and letters are reserved for use in the rule syntax, as are the characters <code>→</code>, <code>←</code>, <code>↔</code>. Normally, these characters do not need to be converted. However, to convert them use either a pair of single quotes or a slash. The pair of single quotes can be used to surround a whole string of text. The slash affects only the character immediately after it. For example, to convert from a U+2190 ( ← ) LEFTWARDS ARROW to the string "arrow sign" (with a space), use one of the following rules:</p><pre><code>\←    → arrow\ sign ;
 '←'   → 'arrow sign' ;
 '←'   → arrow' 'sign ;
-</code></pre><p>Spaces may be inserted anywhere without any effect on the rules. Use extra space to separate items out for clarity without worrying about the effects. This feature is particularly useful with combining marks; it is handy to put some spaces around it to separate it from the surrounding text. The following is an example:</p><pre><code>→ i ; # an iota-subscript diacritic turns into an i.
+</code></pre><p>Note: The characters <code>→</code>, <code>←</code>, <code>↔</code> are preferred, but can be represented by the ASCII character <code>&gt;</code>, <code>&lt;</code>, and <code>&lt;&gt;</code>, respectively.</p><p>Spaces may be inserted anywhere without any effect on the rules. Use extra space to separate items out for clarity without worrying about the effects. This feature is particularly useful with combining marks; it is handy to put some spaces around it to separate it from the surrounding text. The following is an example:</p><pre><code>→ i ; # an iota-subscript diacritic turns into an i.
 </code></pre><p>For a real space in the rules, place quotes around it. For a real backslash, either double it \\, or quote it '\'. For a real single quote, double it '', or place a backslash before it \'.</p><p>Any text that starts with a hash mark and concludes a line is a comment. Comments help document how the rules work. The following shows a comment in a rule:</p><pre><code>x → ks ; # change every x into ks
 </code></pre><p>The “\u” and “\x” hex notations can be used instead of any letter. For instance, instead of using the Greek π, one could write either of the following:</p><pre><code>\u03C0 → p ;
 \x{3C0} → p ;
@@ -2730,7 +2742,9 @@ $pi → p ;
 {$pi} ↔ {p} ;
 </code></pre><p>The context itself ([: <code>Lowercase</code> :]) is unaffected by the replacement; only the text within braces is changed.</p><p>Character classes (UnicodeSets) in the contexts can contain the special symbol $, which means “off either end of the string”. It is roughly similar to $ and ^ in regex. Unlike normal regex, however, it can occur in character classes. Thus the following rule removes hyphens that are after lowercase characters, <em>or</em> are at the start of a string.</p><pre><code>[[:Lowercase:]$] {'-' → ;
 </code></pre><p>Thus the negation of a UnicodeSet will normally also match before or after the end of a string. The following will remove hyphens that are not after lowercase characters, <em>including hyphens at the start of a string</em>.</p><pre><code>[^[:Lowercase:]] {'-' → ;
-</code></pre><p>It will thus convert “-B A-B a-b” to “B AB a-b”.</p><h4 id="Revisiting"><a name="revisiting" href="#Revisiting">Revisiting</a></h4><p>If the resulting text contains a vertical bar "|", then that means that processing will proceed from that point and that the transform will revisit part of the resulting text. Thus the | marks a "cursor" position. For example, if we have the following, then the string "xa" will convert to "w".</p><pre><code>x → y | z ;
+</code></pre><p>It will thus convert “-B A-B a-b” to “B AB a-b”.</p><h4 id="Revisiting"><a name="revisiting" href="#Revisiting">Revisiting</a></h4><p>If the resulting text contains a vertical bar "|", then that means that processing will proceed from that point and that the transform will revisit part of the resulting text.
+Thus the | marks a "cursor" position.
+For example, if we have the following, then the string "xa" will convert to "yw".</p><pre><code>x → y | z ;
 z a → w ;
 </code></pre><p>First, "xa" is converted to "yza". Then the processing will continue from after the character "y", pick up the "za", and convert it. Had we not had the "|", the result would have been simply "yza". The '@' character can be used as filler character to place the revisiting point off the start or end of the string. Thus the following causes x to be replaced, and the cursor to be backed up by two characters.</p><pre><code>x → |@@y;
 </code></pre><h4 id="Example"><a name="example" href="#Example">Example</a></h4><p>The following shows how these features are combined together in the Transliterator "Any-Publishing". This transform converts the ASCII typewriter conventions into text more suitable for desktop publishing (in English). It turns straight quotation marks or UNIX style quotation marks into curly quotation marks, fixes multiple spaces, and converts double-hyphens into a dash.</p><pre><code class="language-perl"><span class="hljs-comment"># Variables</span>
@@ -2806,7 +2820,8 @@ $space {$space} → ; # collapse multiple spaces
 <pre><code>a { b c } d → f | g  ;
 b | c  ←  e { f g } h ;
 </code></pre>
-</blockquote><h4 id="Intermixing_Transform_Rules_and_Conversion_Rules"><a name="intermixing-transform-rules-and-conversion-rules" href="#Intermixing_Transform_Rules_and_Conversion_Rules">Intermixing Transform Rules and Conversion Rules</a></h4><p>Transform rules and conversion rules may be freely intermixed. Inserting a transform rule into the middle of a set of conversion rules has an important side effect.</p><p>Normally, conversion rules are considered together as a group.  The only time their order in the rule set is important is when more than one rule matches at the same point in the string.  In that case, the one that occurs earlier in the rule set wins.  In all other situations, when multiple rules match overlapping parts of the string, the one that matches earlier wins.</p><p>Transform rules apply to the whole string.  If you have several transform rules in a row, the first one is applied to the whole string, then the second one is applied to the whole string, and so on.  To reconcile this behavior with the behavior of conversion rules, transform rules have the side effect of breaking a surrounding set of conversion rules into two groups: First all of the conversion rules before the transform rule are applied as a group to the whole string in the usual way, then the transform rule is applied to the whole string, and then the conversion rules after the transform rule are applied as a group to the whole string.  For example, consider the following rules:</p><pre><code>abc → xyz;
+</blockquote><p>The <code>completed_result</code> | <code>result_to_revisit</code> is also known as the <code>resulting_text</code>. Either or both of the values can be empty. For example, the following removes any a, b, or c. </p><pre><code>[a-c] → ;
+</code></pre><h4 id="Intermixing_Transform_Rules_and_Conversion_Rules"><a name="intermixing-transform-rules-and-conversion-rules" href="#Intermixing_Transform_Rules_and_Conversion_Rules">Intermixing Transform Rules and Conversion Rules</a></h4><p>Transform rules and conversion rules may be freely intermixed. Inserting a transform rule into the middle of a set of conversion rules has an important side effect.</p><p>Normally, conversion rules are considered together as a group.  The only time their order in the rule set is important is when more than one rule matches at the same point in the string.  In that case, the one that occurs earlier in the rule set wins.  In all other situations, when multiple rules match overlapping parts of the string, the one that matches earlier wins.</p><p>Transform rules apply to the whole string.  If you have several transform rules in a row, the first one is applied to the whole string, then the second one is applied to the whole string, and so on.  To reconcile this behavior with the behavior of conversion rules, transform rules have the side effect of breaking a surrounding set of conversion rules into two groups: First all of the conversion rules before the transform rule are applied as a group to the whole string in the usual way, then the transform rule is applied to the whole string, and then the conversion rules after the transform rule are applied as a group to the whole string.  For example, consider the following rules:</p><pre><code>abc → xyz;
 xyz → def;
 ::Upper;
 </code></pre><p>If you apply these rules to “abcxyz”, you get “XYZDEF”. If you move the “::Upper;” to the middle of the rule set and change the cases accordingly, then applying this to “abcxyz” produces “DEFDEF”.</p><pre><code>abc → xyz;
@@ -2869,7 +2884,179 @@ m → r ;
 :: japanese-greek ;
 :: greek-latin ;</code></pre></td>
 </tr>
-</tbody></table><p>Note how the irrelevant rules (the inverse filter rule and the rules containing ←) are omitted (ignored, actually) in the forward direction, and notice how things are reversed: the transform rules are inverted and happen in the opposite order, and the groups of conversion rules are also executed in the opposite relative order (although the rules within each group are executed in the same order).</p><h2 id="ListPatterns"><a name="list-patterns" href="#ListPatterns">List Patterns</a></h2><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">listPatterns</span> (<span class="hljs-keyword">alias</span> | (<span class="hljs-keyword">listPattern</span>*, <span class="hljs-keyword">special</span>*)) &gt;</span>
+</tbody></table><p>Note how the irrelevant rules (the inverse filter rule and the rules containing ←) are omitted (ignored, actually) in the forward direction, and notice how things are reversed: the transform rules are inverted and happen in the opposite order, and the groups of conversion rules are also executed in the opposite relative order (although the rules within each group are executed in the same order).</p><p>Because the order of rules matters, the following will not work as expected</p><pre><code>c → s;
+ch → kh;
+</code></pre><p>The second rule can never execute, because it is "masked" by the first. 
+To help prevent errors, implementations should try to alert readers when this occurs, eg:</p><pre><code>Rule {c &gt; s;} masks {ch &gt; kh;}
+</code></pre><h3 id="transform-syntax-characters">Transform Syntax Characters</h3><p>The following summarizes the syntax characters used in transforms.</p><table>
+<thead>
+<tr>
+<th>Character(s)</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>;</td>
+<td>End of a conversion rule, variable definition, or transform rule invocation</td>
+<td>a → b ;</td>
+</tr>
+<tr>
+<td>::</td>
+<td>Invoke a transform</td>
+<td>:: Null ;</td>
+</tr>
+<tr>
+<td>(, )</td>
+<td>In a transform rule invocation, marks the backwards transform</td>
+<td>:: Null (NFD);</td>
+</tr>
+<tr>
+<td>$</td>
+<td>Mark the start of a variable, when followed by an ASCII letter</td>
+<td>$abc</td>
+</tr>
+<tr>
+<td>=</td>
+<td>Used to define variables</td>
+<td>$a = abc ;</td>
+</tr>
+<tr>
+<td>→, &gt;</td>
+<td>Transform from left to right (only for forward conversion rules)</td>
+<td>a → b ;</td>
+</tr>
+<tr>
+<td>←, &lt;</td>
+<td>Transform from right to left (only for backward conversion rules)</td>
+<td>a ← b ;</td>
+</tr>
+<tr>
+<td>↔, &lt;&gt;</td>
+<td>Transform from left to right (for forward) and right to left (for backward)</td>
+<td>a ↔ b ;</td>
+</tr>
+<tr>
+<td>{</td>
+<td>Mark the boundary between before_context and the text_to_replace</td>
+<td>a {b} c → B ;</td>
+</tr>
+<tr>
+<td>}</td>
+<td>Mark the boundary between the text_to_replace and after_context</td>
+<td>a {b} c → B ;</td>
+</tr>
+<tr>
+<td>'</td>
+<td>Escape one or more characters, until the next '</td>
+<td>'&lt;&gt;' → x ;</td>
+</tr>
+<tr>
+<td>"</td>
+<td>Escape one or more characters, until the next "</td>
+<td>"&lt;&gt;" → x ;</td>
+</tr>
+<tr>
+<td>\</td>
+<td>Escape the next character</td>
+<td>\&lt;\&gt; → x ;</td>
+</tr>
+<tr>
+<td>#</td>
+<td>Comment (until the end of a line)</td>
+<td>a → ; # remove a</td>
+</tr>
+<tr>
+<td>|</td>
+<td>In the resulting_text, moves the cursor</td>
+<td>a → A | b;</td>
+</tr>
+<tr>
+<td>@</td>
+<td>In the resulting_text, filler character used to move the cursor before the start or after the end of the result</td>
+<td>a → Ab@|;</td>
+</tr>
+<tr>
+<td>(, )</td>
+<td>In text_to_replace, a capturing group</td>
+<td>([a-b]) &gt; &amp;hex($1);</td>
+</tr>
+<tr>
+<td>$</td>
+<td>In replacement_text, when followed by 1..9, is replaced by the contents of a capture group</td>
+<td>([a-b]) &gt; &amp;hex($1);</td>
+</tr>
+<tr>
+<td>^</td>
+<td>In a before_context, by itself, equivalent to [$] <strong>(deprecated)</strong></td>
+<td>...</td>
+</tr>
+<tr>
+<td>?</td>
+<td>In a before_context, after_context, or text_to_replace, a possessive quantifier for zero or one</td>
+<td>a?b → c ;</td>
+</tr>
+<tr>
+<td>+</td>
+<td>In a before_context, after_context, or text_to_replace, a possessive quantifier for one or more</td>
+<td>a+b → c ;</td>
+</tr>
+<tr>
+<td>*</td>
+<td>In a before_context, after_context, or text_to_replace, a possessive quantifier for zero or more</td>
+<td>a*b → c ;</td>
+</tr>
+<tr>
+<td>&amp;</td>
+<td>Invoke a function in the replacement_text</td>
+<td>([a-b]) &gt; &amp;hex($1);</td>
+</tr>
+<tr>
+<td>!, %, _, ~, -, ., /</td>
+<td>Reserved for future syntax</td>
+<td>...</td>
+</tr>
+<tr>
+<td>SPACE</td>
+<td>Ignored except when quoted</td>
+<td>a b # same as ab</td>
+</tr>
+<tr>
+<td>\uXXXX</td>
+<td>Hex notation: 4 Xs</td>
+<td>\u0061</td>
+</tr>
+<tr>
+<td>\x{XX...}</td>
+<td>Hex notation: 1-6 Xs</td>
+<td>\x{61}</td>
+</tr>
+<tr>
+<td>[, ]</td>
+<td>Marks a UnicodeSet</td>
+<td>[a-z]</td>
+</tr>
+<tr>
+<td>\p{...}</td>
+<td>Marks a UnicodeSet formed from a property</td>
+<td>\p{di}</td>
+</tr>
+<tr>
+<td>\P{...}</td>
+<td>Marks a negative UnicodeSet formed from a property</td>
+<td>\p{DI}</td>
+</tr>
+<tr>
+<td>$</td>
+<td>Within a UnicodeSet (not before ASCII letter), matches the start or end of the source text (but is not replaced)</td>
+<td>[$] b → c</td>
+</tr>
+<tr>
+<td>Other</td>
+<td>Many of these characters have special meanings inside a UnicodeSet</td>
+<td>...</td>
+</tr>
+</tbody></table><h2 id="ListPatterns"><a name="list-patterns" href="#ListPatterns">List Patterns</a></h2><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">listPatterns</span> (<span class="hljs-keyword">alias</span> | (<span class="hljs-keyword">listPattern</span>*, <span class="hljs-keyword">special</span>*)) &gt;</span>
 
 <span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">listPattern</span> (<span class="hljs-keyword">alias</span> | (<span class="hljs-keyword">listPatternPart</span>*, <span class="hljs-keyword">special</span>*)) &gt;</span>
 <span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">listPattern</span> <span class="hljs-keyword">type</span> (<span class="hljs-keyword">NMTOKEN</span>) <span class="hljs-keyword">#IMPLIED</span> &gt;</span>

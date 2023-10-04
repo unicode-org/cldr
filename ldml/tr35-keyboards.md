@@ -486,7 +486,6 @@ Element containing informative properties about the layout, for displaying in us
 
 ```xml
 <info author="{author}"
-      normalization="{form}"
       layout="{hint of the layout}"
       indicator="{short identifier}" />
 ```
@@ -504,16 +503,6 @@ Element containing informative properties about the layout, for displaying in us
 _Attribute:_ `author`
 
 > The `author` attribute contains the name of the author of the layout file.
-
-_Attribute:_ `normalization`
-
-> The `normalization` attribute describes the intended normalization form of the keyboard layout output. The valid values are `NFC`, `NFD` or `other`.
->
-> An example use case is aiding a user to choose among the two same layouts with one outputting characters in the normalization form C and one in the normalization form D.
->
-> All keyboards in the CLDR repository will be in `NFC` or `NFD` forms.  However, users and implementations may produce and consume other normalization forms or mixed output, use the `other` value to indicate this case.
->
-> When using `NFC` or `NFD`, tooling should verify that all possible keystrokes, gestures, and transforms on the keyboard only produce the specified normalization form, producing warnings if not.
 
 _Attribute:_ `layout`
 
@@ -617,7 +606,7 @@ _Attribute:_ `fallback="omit"`
 
 > The presence of this attribute means that when a modifier key combination goes unmatched, no output is produced. The default behavior (when this attribute is not present) is to fall back to the base map when the modifier key combination goes unmatched.
 
-If this attribute is present, it must have a value of omit.
+If this attribute is present, it must have a value of `omit`.
 
 **Example**
 
@@ -634,6 +623,27 @@ Indicates that:
 1.  When a modifier combination goes unmatched, do not output anything when a key is pressed.
 2.  If a transform is terminated, output the contents of the buffer.
 3.  During a transform, hide the contents of the buffer as the user is typing.
+
+_Attribute:_ `normalization`
+
+> Normalization will not typically be the responsibility of the keyboard author, rather this will be managed by the implementation.
+> The implementation will apply normalization as appropriate when matching transform rules and `<display>` value matching.
+> Output from the keyboard, following application of all transform rules, will be normalized to implementation or application-requested form.
+>
+> However, it is recognized that there may be some keyboards which, for compatibility or legacy reasons, need to manage their own normalization. The implementation in that case will do no normalization at all. The keyboard author must make use of transforms in the keyboard to any required normalization. In this case, the attribute value `normalization="disabled"` is used to indicate that no automatic normalization happens.
+>
+> **Note**: while this attribute is allowed by the specification, its use is discouraged, and keyboards with `normalization="disabled"` would not be accepted into the ClDR repository.
+
+
+**Example**
+
+```xml
+<keyboard3 locale="bg">
+    …
+    <settings normalization="disabled" />
+    …
+</keyboard3>
+```
 
 * * *
 
@@ -960,7 +970,7 @@ The intent is for each single XML file to contain all that is needed for a keybo
 `<import>` can be used as a child of a number of elements (see the _Parents_ section immediately below). Multiple `<import>` elements may be used, however, `<import>` elements must come before any other sibling elements.
 If two identical elements are defined, the later element will take precedence, that is, override.
 
-**Note:** imported files do not have any indication of their normalization mode. For this reason, the keyboard author must verify that the imported file is of a compatible normalization mode. See the [`info` element](#Element_info) for further details.
+**Note:** imported files do not have any indication of their normalization mode. For this reason, the keyboard author must verify that the imported file is of a compatible normalization mode. See the [`settings` element](#element-settings) for further details.
 
 **Syntax**
 ```xml

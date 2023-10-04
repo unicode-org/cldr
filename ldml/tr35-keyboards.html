@@ -693,6 +693,8 @@
 
 
 
+
+
 <script src="./js/anchor.min.js"></script><div class="header"><table class="header" cellpadding="0" cellspacing="0" width="100%">
     <tbody>
         <tr>
@@ -963,7 +965,6 @@ Must <em>not</em> include the <code>-k0-</code> subtag for this additional langu
     …
 <span class="hljs-tag">&lt;/<span class="hljs-name">keyboard3</span>&gt;</span>
 </code></pre><hr><h3 id="Element_info"><a name="element-info" href="#Element_info">Element: info</a></h3><p>Element containing informative properties about the layout, for displaying in user interfaces etc.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">info</span> <span class="hljs-attr">author</span>=<span class="hljs-string">"{author}"</span>
-      <span class="hljs-attr">normalization</span>=<span class="hljs-string">"{form}"</span>
       <span class="hljs-attr">layout</span>=<span class="hljs-string">"{hint of the layout}"</span>
       <span class="hljs-attr">indicator</span>=<span class="hljs-string">"{short identifier}"</span> /&gt;</span>
 </code></pre><blockquote>
@@ -975,11 +976,6 @@ Must <em>not</em> include the <code>-k0-</code> subtag for this additional langu
 </small>
 </blockquote><p><em>Attribute:</em> <code>author</code></p><blockquote>
 <p>The <code>author</code> attribute contains the name of the author of the layout file.</p>
-</blockquote><p><em>Attribute:</em> <code>normalization</code></p><blockquote>
-<p>The <code>normalization</code> attribute describes the intended normalization form of the keyboard layout output. The valid values are <code>NFC</code>, <code>NFD</code> or <code>other</code>.</p>
-<p>An example use case is aiding a user to choose among the two same layouts with one outputting characters in the normalization form C and one in the normalization form D.</p>
-<p>All keyboards in the CLDR repository will be in <code>NFC</code> or <code>NFD</code> forms.  However, users and implementations may produce and consume other normalization forms or mixed output, use the <code>other</code> value to indicate this case.</p>
-<p>When using <code>NFC</code> or <code>NFD</code>, tooling should verify that all possible keystrokes, gestures, and transforms on the keyboard only produce the specified normalization form, producing warnings if not.</p>
 </blockquote><p><em>Attribute:</em> <code>layout</code></p><blockquote>
 <p>The <code>layout</code> attribute describes the layout pattern, such as QWERTY, DVORAK, INSCRIPT, etc. typically used to distinguish various layouts for the same language.</p>
 <p>This attribute is not localized, but is an informative identifier for implementation use.</p>
@@ -1024,7 +1020,7 @@ Typically, this is shown on a UI element that allows switching keyboard layouts 
 </small>
 </blockquote><p><em>Attribute:</em> <code>fallback="omit"</code></p><blockquote>
 <p>The presence of this attribute means that when a modifier key combination goes unmatched, no output is produced. The default behavior (when this attribute is not present) is to fall back to the base map when the modifier key combination goes unmatched.</p>
-</blockquote><p>If this attribute is present, it must have a value of omit.</p><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span> <span class="hljs-attr">locale</span>=<span class="hljs-string">"bg"</span>&gt;</span>
+</blockquote><p>If this attribute is present, it must have a value of <code>omit</code>.</p><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span> <span class="hljs-attr">locale</span>=<span class="hljs-string">"bg"</span>&gt;</span>
     …
     <span class="hljs-tag">&lt;<span class="hljs-name">settings</span> <span class="hljs-attr">fallback</span>=<span class="hljs-string">"omit"</span> /&gt;</span>
     …
@@ -1033,7 +1029,18 @@ Typically, this is shown on a UI element that allows switching keyboard layouts 
 <li>When a modifier combination goes unmatched, do not output anything when a key is pressed.</li>
 <li>If a transform is terminated, output the contents of the buffer.</li>
 <li>During a transform, hide the contents of the buffer as the user is typing.</li>
-</ol><hr><h3 id="Element_keys"><a name="element-keys" href="#Element_keys">Element: keys</a></h3><p>This element defines the properties of all possible keys via <a href="#Element_key"><code>&lt;key&gt;</code> elements</a> used in all layouts.
+</ol><p><em>Attribute:</em> <code>normalization</code></p><blockquote>
+<p>Normalization will not typically be the responsibility of the keyboard author, rather this will be managed by the implementation.
+The implementation will apply normalization as appropriate when matching transform rules and <code>&lt;display&gt;</code> value matching.
+Output from the keyboard, following application of all transform rules, will be normalized to implementation or application-requested form.</p>
+<p>However, it is recognized that there may be some keyboards which, for compatibility or legacy reasons, need to manage their own normalization. The implementation in that case will do no normalization at all. The keyboard author must make use of transforms in the keyboard to any required normalization. In this case, the attribute value <code>normalization="disabled"</code> is used to indicate that no automatic normalization happens.</p>
+<p><strong>Note</strong>: while this attribute is allowed by the specification, its use is discouraged, and keyboards with <code>normalization="disabled"</code> would not be accepted into the ClDR repository.</p>
+</blockquote><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span> <span class="hljs-attr">locale</span>=<span class="hljs-string">"bg"</span>&gt;</span>
+    …
+    <span class="hljs-tag">&lt;<span class="hljs-name">settings</span> <span class="hljs-attr">normalization</span>=<span class="hljs-string">"disabled"</span> /&gt;</span>
+    …
+<span class="hljs-tag">&lt;/<span class="hljs-name">keyboard3</span>&gt;</span>
+</code></pre><hr><h3 id="Element_keys"><a name="element-keys" href="#Element_keys">Element: keys</a></h3><p>This element defines the properties of all possible keys via <a href="#Element_key"><code>&lt;key&gt;</code> elements</a> used in all layouts.
 It is a “bag of keys” without specifying any ordering or relation between the keys.
 There is only a single <code>&lt;keys&gt;</code> element in each layout.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keys</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">key</span> … /&gt;</span>
@@ -1208,7 +1215,7 @@ where a flick to the Northeast then South produces two code points.</p><pre><cod
 another file. The use case is to be able to import a standard set of <code>transform</code>s and similar
 from the CLDR repository, especially to be able to share common information relevant to a particular script.
 The intent is for each single XML file to contain all that is needed for a keyboard layout, other than required standard import data from the CLDR repository.</p><p><code>&lt;import&gt;</code> can be used as a child of a number of elements (see the <em>Parents</em> section immediately below). Multiple <code>&lt;import&gt;</code> elements may be used, however, <code>&lt;import&gt;</code> elements must come before any other sibling elements.
-If two identical elements are defined, the later element will take precedence, that is, override.</p><p><strong>Note:</strong> imported files do not have any indication of their normalization mode. For this reason, the keyboard author must verify that the imported file is of a compatible normalization mode. See the <a href="#Element_info"><code>info</code> element</a> for further details.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">import</span> <span class="hljs-attr">base</span>=<span class="hljs-string">"cldr"</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"techpreview/keys-Zyyy-punctuation.xml"</span>/&gt;</span>
+If two identical elements are defined, the later element will take precedence, that is, override.</p><p><strong>Note:</strong> imported files do not have any indication of their normalization mode. For this reason, the keyboard author must verify that the imported file is of a compatible normalization mode. See the <a href="#element-settings"><code>settings</code> element</a> for further details.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">import</span> <span class="hljs-attr">base</span>=<span class="hljs-string">"cldr"</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"techpreview/keys-Zyyy-punctuation.xml"</span>/&gt;</span>
 </code></pre><blockquote>
 <small>
 

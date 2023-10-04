@@ -423,7 +423,6 @@ const _KeyboardData =
     },
     "info": {
      "@_author": "Team Keyboard",
-     "@_normalization": "NFC",
      "@_layout": "AZERTY",
      "@_indicator": "FR"
     },
@@ -819,7 +818,6 @@ const _KeyboardData =
     },
     "info": {
      "@_author": "Steven R. Loomis",
-     "@_normalization": "NFC",
      "@_layout": "QWERTY",
      "@_indicator": "MT"
     },
@@ -1025,7 +1023,6 @@ const _KeyboardData =
     },
     "info": {
      "@_author": "Steven R. Loomis",
-     "@_normalization": "NFC",
      "@_layout": "QWERTY",
      "@_indicator": "MT"
     },

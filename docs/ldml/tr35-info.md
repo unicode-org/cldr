@@ -2,9 +2,9 @@
 
 # Unicode Locale Data Markup Language (LDML)<br/>Part 6: Supplemental
 
-|Version|43.1       |
+|Version|44 (draft) |
 |-------|-----------|
-|Editors|Steven R. Loomis (<a href="mailto:srloomis@unicode.org">srloomis@unicode.org</a>) and <a href="tr35.md#Acknowledgments">other CLDR committee members|
+|Editors|Steven Loomis (<a href="mailto:srloomis@unicode.org">srloomis@unicode.org</a>) and <a href="tr35.md#Acknowledgments">other CLDR committee members|
 
 For the full header, summary, and status, see [Part 1: Core](tr35.md).
 
@@ -21,8 +21,12 @@ See <https://cldr.unicode.org> for up-to-date CLDR release data.
 
 ### _Status_
 
-_This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium.
-This is a stable document and may be used as reference material or cited as a normative reference by other specifications._
+_This is a draft document which may be updated, replaced, or superseded by other documents at any time.
+Publication does not imply endorsement by the Unicode Consortium.
+This is not a stable document; it is inappropriate to cite this document as other than a work in progress._
+
+<!-- _This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium.
+This is a stable document and may be used as reference material or cited as a normative reference by other specifications._ -->
 
 > _**A Unicode Technical Standard (UTS)** is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS._
 
@@ -73,6 +77,8 @@ The LDML specification is divided into the following parts:
   * [Unit Parsing Data](#unit-parsing-data)
   * [Constants](#constants)
   * [Conversion Data](#conversion-data)
+    * [Derived Unit System](#derived-unit-system)
+    * [Conversion Mechanisms](#conversion-mechanisms)
     * [Exceptional Cases](#exceptional-cases)
       * [Identities](#identities)
       * [Aliases](#aliases)
@@ -891,14 +897,53 @@ The factor and offset can be simple expressions, just like the values in the uni
 
 Where a factor is not present, the value is 1; where an offset is not present, the value is 0.
 
-The `systems` attribute indicates the measurement system(s). Multiple values may be given; for example, _minute_ is marked as systems="metric ussystem uksystem"
+The `systems` attribute indicates the measurement system(s) or other characteristics of a set of unts. Multiple values may be given; for example, a unit could be marked as systems="`si_acceptable` `metric_adjacent` `prefixable`".
 
-Attribute Value | Description
------------- | -------------
-_si_ | the _International System of Units (SI)_
-_metric_ | a superset of the _si_ units, with some non-SI units accepted for use with the SI or simple multiples of metric units, such as pound-metric (= ½ kilogram)
-_ussystem_ | the inch-pound system as used in the US, also called _US Customary Units_
-_uksystem_ | the inch-pound system as used in the UK, also called _British Imperial Units_, differing mostly in units of volume
+The allowed attributes are the following:
+
+Attribute Value   | Description
+------------      | -------------
+`si`              | The _International System of Units (SI)_ See [NIST Guide to the SI, Chapter 4: The Two Classes of SI Units and the SI Prefixes](https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-4-two-classes-si-units-and-si-prefixes). Examples: meter, ampere.
+`si_acceptable`   | Units acceptable for use with the SI. See [NIST Guide to the SI, Chapter 5: Units Outside the SI](https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-5-units-outside-si). Examples: hour, liter, knot, hectare.
+`metric`          | A superset of the _si_ units
+`metric_adjacent` | Units commonly accepted in some countries that follow the metric system. Examples: month, arc-second, pound-metric (= ½ kilogram), mile-scandinavian.
+`ussystem`        | The inch-pound system as used in the US, also called _US Customary Units_.
+`uksystem`        | The inch-pound system as used in the UK, also called _British Imperial Units_, differing mostly in units of volume
+`jpsystem`        | Traditional units used in Japan. For examples, see [Japanese units of measurement](https://en.wikipedia.org/wiki/Japanese_units_of_measurement).
+`astronomical`    | Additional units used in astronomy. Examples: parsec, light-year, earth-mass
+`person_age`      | Special units used for people’s ages in some languages. Except for translation, they have the same system as the associated regular units.
+`currency`        | Currency units. These are constructed algorithmically from the Unicode currency identifiers, and do not occur in the child elements of `convertUnits`. Examples: curr-usd (US dollar), curr-eur (Euro).
+`prefixable`      | Those units that typically use SI prefixes or the [IEC binary prefixes](https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-d-bibliography#05). This can include measures like `parsec` that are not SI units. It allows implementations to group those units together, and to do sanity checks on the prefix+unit combinations, if they choose. However, implementations may choose to allow prefixes on other units, especially since there is a significant variance in usage: even a term like `megafoot` might be acceptable in some contexts.
+
+Over time, additional systems may be added, and the systems for a particular unit may be refined.
+
+#### Derived Unit System
+
+The systems attributes also apply to compound units, and are computed in the following way.
+
+1. The `prefixable` system is only applicable to base_components, and is thus removed
+2. The `number_prefixes`, `dimensionality_prefix`, `si_prefix`, and `binary_prefix` are ignored
+   * Example: systems(square-kilometer) = systems(meter)
+3. Currency units have the `currency` system
+   * Example: systems(curr-usd) = {currency}
+4. Units linked by `-and-`, `-per-`, and *adjacency* are resolved using a modified intersection, where:
+   1. The intersection of {… si …} and {… si_acceptable … } is {… si_acceptable …}
+   2. The intersection of {… metric …} and {… metric_adjacent … } is {… metric_adjacent …}
+
+Examples: 
+```
+systems(liter-per-hectare) 
+	= {si_acceptable metric} ∪ {si_acceptable metric}
+	= {si_acceptable metric}
+systems(meter-per-hectare)
+	= {si metric} ∩ {si_acceptable metric}
+	= {si_acceptable metric}
+systems(mile-scandinavian-per-hour)
+	= {metric_adjacent} ∩ {si_acceptable metric_adjacent}
+	= {metric_adjacent}
+```
+
+#### Conversion Mechanisms
 
 CLDR follows conversion values where possible from:
 * [NIST Special Publication 1038](https://www.govinfo.gov/content/pkg/GOVPUB-C13-f10c2ff9e7af2091314396a2d53213e4/pdf/GOVPUB-C13-f10c2ff9e7af2091314396a2d53213e4.pdf)
@@ -1019,7 +1064,7 @@ Examples:
 
 The order of the elements in the file is significant, since it is used in [Unit_Identifier_Normalization](#Unit_Identifier_Normalization).
 
-The quantity values themselves are informative. Therer mayreflecting that _force per area_ can be referenced as either _pressure_ or _stress_, for example). The quantity for a complex unit that has a reciprocal is formed by prepending “inverse-” to the quantity, such as _inverse-consumption._
+The quantity values themselves are informative. For example, _force per area_ can be referenced as either _pressure_ or _stress_. The quantity for a complex unit that has a reciprocal is formed by prepending “inverse-” to the quantity, such as _inverse-consumption._
 
 The base units for the quantities and the quantities themselves are based on [NIST Special Publication 811](https://www.nist.gov/pml/special-publication-811) and the earlier [NIST Special Publication 1038](https://www.govinfo.gov/content/pkg/GOVPUB-C13-f10c2ff9e7af2091314396a2d53213e4/pdf/GOVPUB-C13-f10c2ff9e7af2091314396a2d53213e4.pdf). In some cases, a different unit is chosen for the base. For example, a _revolution_ (360°) is chosen for the base unit for angles instead of the SI _radian_, and _item_ instead of the SI _mole_. Additional base units are added where necessary, such as _bit_ and _pixel_.
 
@@ -1087,21 +1132,45 @@ The strongest is the mu key, then the ms key, then the rg key. Beyond that the r
 | 3 | en-u-rg-dezzzz.                      | Celsius    | despite the likely region of US                                    |
 | 4 | en                                    | Fahrenheit | because the likely region for en with no region is US              |
 
-The ms value maps to a region according to the following table. That is then the input for the Unit Preferences Data below.
+The **ms** value is used in the following way.
 
-| Key-Value   | Region for Unit Preferences |
-|-------------|-----------------------------|
-| ms-metric   | 001                         |
-| ms-ussystem | US                          |
-| ms-uksystem | UK                          |
+1. Find the corresponding Key-Value row in the table below.
+2. Get the unit preferences for the **locale**, **category**, and **usage**.
+3. If any of the units in that set have a measurement system that doesn’t match the -u-ms- value, get unit preferences again, but using the fallback region instead of the locale's region.
 
-Thus _for the purposes of unit preferences_ the following behave identically:
+| Key-Value   | Unit Systems Match          | Fallback Region for Unit Preferences |
+|-------------|-----------------------------|--------------------------------------|
+| ms-metric   | metric OR metric_adjacent   | 001                                  |
+| ms-ussystem | ussystem                    | US                                   |
+| ms-uksystem | uksystem                    | UK                                   |
 
-| Locale            | Equivalents |
-|-------------------|------------|
-| en-GB-ms-ussystem | en-US, en |
-| en-US-ms-uksystem | en-GB      |
-| en-ms-uksystem    | en-GB      |
+**Example A: xx-SE-u-ms-metric, length, road**
+1. Fetch the data from `<unitPreferences category="length" usage="road">` for xx-SE
+```
+<unitPreference regions="SE">mile-scandinavian</unitPreference>
+<unitPreference regions="SE">kilometer</unitPreference>
+<unitPreference regions="SE" geq="300.0" skeleton="precision-increment/50">meter</unitPreference>
+<unitPreference regions="SE" geq="10" skeleton="precision-increment/10">meter</unitPreference>
+<unitPreference regions="SE" skeleton="precision-increment/1">meter</unitPreference>
+```
+2. Meter is **metric**, mile-scandinavian is **metric_adjacent** so they both match the key-value ms-**metric**, so no change is made.
+
+**Example B: xx-GB-u-ms-ussystem, volume, fluid**
+1. Fetch the data from `<unitPreferences category="volume" usage="fluid">` for xx-GB
+```
+<unitPreference regions="GB">gallon-imperial</unitPreference>
+<unitPreference regions="GB">fluid-ounce-imperial</unitPreference>
+```
+2. At least one of {gallon-imperial, fluid-ounce-imperial} does not match ms-**ussystem** so the locale is shifted to xx-**US**, and uses the following:
+```
+<unitPreference regions="US">gallon</unitPreference>
+<unitPreference regions="US">quart</unitPreference>
+<unitPreference regions="US">pint</unitPreference>
+<unitPreference regions="US">cup</unitPreference>
+<unitPreference regions="US">fluid-ounce</unitPreference>
+<unitPreference regions="US">tablespoon</unitPreference>
+<unitPreference regions="US">teaspoon</unitPreference>
+```
 
 APIs should clearly allow for both the use of unit preferences with the above process, and for the _invariant use_ of a unit measure.
 That is, while an application will usually want to obey the preferences for the locale or in the locale ID, there will definitely be instances where it will want to not use them.

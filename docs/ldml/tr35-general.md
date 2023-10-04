@@ -2,7 +2,7 @@
 
 # Unicode Locale Data Markup Language (LDML)<br/>Part 2: General
 
-|Version|43.1                 |
+|Version|44 (draft)           |
 |-------|---------------------|
 |Editors|Yoshito Umaoka (<a href="mailto:yoshito_umaoka@us.ibm.com">yoshito_umaoka@us.ibm.com</a>) and <a href="tr35.md#Acknowledgments">other CLDR committee members|
 
@@ -21,8 +21,12 @@ See <https://cldr.unicode.org> for up-to-date CLDR release data.
 
 ### _Status_
 
-_This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium.
-This is a stable document and may be used as reference material or cited as a normative reference by other specifications._
+_This is a draft document which may be updated, replaced, or superseded by other documents at any time.
+Publication does not imply endorsement by the Unicode Consortium.
+This is not a stable document; it is inappropriate to cite this document as other than a work in progress._
+
+<!-- _This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium.
+This is a stable document and may be used as reference material or cited as a normative reference by other specifications._ -->
 
 > _**A Unicode Technical Standard (UTS)** is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS._
 
@@ -65,6 +69,7 @@ The LDML specification is divided into the following parts:
   * [Unit Identifiers](#Unit_Identifiers)
     * [Nomenclature](#nomenclature)
     * [Syntax](#syntax)
+  * [Unit Identifier Uniqueness](#Unit_Identifier_Uniqueness)
   * [Example Units](#Example_Units)
   * [Compound Units](#compound-units)
     * [Precomposed Compound Units](#precomposed-compound-units)
@@ -864,7 +869,7 @@ The long unit identifers are used as a key in the translated unit names for loca
 | day          | duration-day |
 
 
-The list of valid CLDR simple unit identifiers is found in _Section Validity Data](tr35.md#Validity_Data)_.
+The list of valid CLDR simple unit identifiers is found in _[Section Validity Data](tr35.md#Validity_Data)_.
 These names should not be presented to end users, however: the translated names for different languages (or variants of English) are available in the CLDR localized data.
 All syntactically valid CLDR unit identifiers values that are not listed in the validity data are reserved by CLDR for additional future units.
 There is one exception: implementations that need to define their own unit identifiers can do so via _[Private-Use Units](#Private_Use_Units)_.
@@ -915,7 +920,7 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
                 <li>per-second</li>
             </ul></li>
             <li><em>Note:</em> The normalized form will have only one "per"</li>
-	  <li><em>Note:</em>The token 'per' is the single value in &lt;unitIdComponent type=”per”&gt;</li>
+	  <li><em>Note:</em> The token 'per' is the single value in &lt;unitIdComponent type=”per”&gt;</li>
         </ul></td></tr>
 
 <tr><td>product_unit</td><td>:=</td>
@@ -950,7 +955,7 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
     <td>"square-"<p>| "cubic-"<p>| "pow" ([2-9]|1[0-5]) "-"
         <ul>
 			<li><em>Note:</em> "pow2-" and "pow3-" canonicalize to "square-" and "cubic-"</li>
-			<li><em>Note:</em>These are values in &lt;unitIdComponent type=”power”&gt;</li>
+			<li><em>Note:</em> These are values in &lt;unitIdComponent type=”power”&gt;</li>
 		</ul></td></tr>
 
 <tr><td>simple_unit</td><td>:=</td>
@@ -971,11 +976,11 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 
 <tr><td>si_prefix</td><td>:=</td>
     <td>"deka" | "hecto" | "kilo", …
-        <ul><li><em>Note: </em>See full list at <a href="https://www.nist.gov/pml/special-publication-811">NIST special publication 811</a></li></ul></td></tr>
+        <ul><li><em>Note:</em> See full list at <a href="https://www.nist.gov/pml/special-publication-811">NIST special publication 811</a></li></ul></td></tr>
 
 <tr><td>binary_prefix</td><td>:=</td>
     <td>"kibi", "mebi", …
-        <ul><li><em>Note: </em>See full list at <a href="https://physics.nist.gov/cuu/Units/binary.html">Prefixes for binary multiples</a></li></ul></td></tr>
+        <ul><li><em>Note:</em> See full list at <a href="https://physics.nist.gov/cuu/Units/binary.html">Prefixes for binary multiples</a></li></ul></td></tr>
 
 <tr><td>prefix_component</td><td>:=</td>
     <td>[a-z]{3,∞}
@@ -989,8 +994,12 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 			or &lt;unitIdComponent type=”power”&gt;<br>
 			or &lt;unitIdComponent type=”and”&gt;<br>
 			or &lt;unitIdComponent type=”per”&gt;.
-		</li></ul>
-        <ul><li><em>Constraint:</em> must not have a prefix as an initial segment.</li></ul>
+		</li>
+		<li><em>Constraint:</em> must not have a prefix as an initial segment.</li>
+		<li><em>Constraint:</em> no two different base_components will share the first 8 letters. 
+				(<b>For more information, see <a href="#Unit_Identifier_Uniqueness">Unit Identifier Uniqueness</a>.)</b>
+			</li>
+		</ul>
 	</td></tr>
 
 <tr><td>suffix_component</td><td>:=</td>
@@ -1000,7 +1009,7 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 <tr><td>mixed_unit_identifier</td><td>:=</td>
     <td>(single_unit | pu_single_unit) ("-and-" (single_unit | pu_single_unit ))*
         <ul><li><em>Example: foot-and-inch</em></li>
-	       <li><em>Note:</em>The token 'and' is the single value in &lt;unitIdComponent type=”and”&gt;</li>
+	       <li><em>Note:</em> The token 'and' is the single value in &lt;unitIdComponent type=”and”&gt;</li>
 		</ul></td></tr>
 
 <tr><td>long_unit_identifier</td><td>:=</td>
@@ -1011,15 +1020,19 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 
 <tr><td>currency_unit</td><td>:=</td>
     <td>"curr-" [a-z]{3}
-        <ul><li><em>Constraints:</em>
-            <ul><li>The first part of the currency_unit is a standard prefix; the second part of the currency unit must be a valid <a href="tr35.md#UnicodeCurrencyIdentifier">Unicode currency identifier</a>. Note: CLDR does not provide conversions for currencies; this is only intended for formatting.</li>
-            </ul></li>
-            <li><em>Examples:</em> curr-eur-per-square-meter, or pound-per-curr-usd</li>
-        </ul></td></tr>
+        <ul>
+			<li><em>Constraint:</em> The first part of the currency_unit is a standard prefix; the second part of the currency unit must be a valid <a href="tr35.md#UnicodeCurrencyIdentifier">Unicode currency identifier</a>.</li>
+		</ul>
+		<ul>
+            <li><em>Examples:</em> <b>curr-eur</b>-per-square-meter, or pound-per-<b>curr-usd</b></li>
+			<li><em>Note:</em> CLDR does not provide conversions for currencies; this is only intended for formatting.
+				The locale data for currencies is supplied in the <code>currencies</code> element, not in the <code>units</code> element.</li>
+        </ul>
+	</td></tr>
 
 </tbody></table>
 
-Note that while the syntax allows for number_prefixes in multiple places, the typical use case is only one instances, and after a "-per-".
+Note that while the syntax allows for number_prefixes in multiple places, the typical use case is only one instance, after a "-per-".
 
 The simple_unit structure does not allow for any two simple_units to overlap.
 That is, there are no cases where simple_unit1 consists of X-Y and simple_unit2 consists of Y-Z.
@@ -1032,11 +1045,31 @@ For example:
 * Similarly, when a base_component is encountered, one can collect any suffix components, and stop.
 * Encountering a suffix_component in any other circumstance is an error.
 
+### <a name="Unit_Identifier_Uniqueness" href="#Unit_Identifier_Uniqueness">Unit Identifier Uniqueness</a>
+CLDR Unit Identifiers can be used as values in locale identifiers. When that is done, the syntax is modified whenever a `prefixed_unit` would be longer than 8 characters. In such a case:
+
+* If there is no `prefix` the `prefixed_unit` is truncated to 8 characters.
+* If there is a `prefix`, a hyphen is added between the `prefix` and the `base_component`. If that `base_component` is longer than 8 characters, it is truncated to 8 characters.
+
+_Example_
+| Unit identifer | BCP47 syntax example | Comment |
+| ----      | ----               | ----                           |
+| kilogram  | en-u-ux-kilogram   | kilogram fits in 8 characters  |
+| centilux  | en-u-ux-centilux   | centilux fixs in 8 characters  |
+| steradian | en-u-ux-steradia   | steradian exceeds 8 characters |
+| centigram | en-u-ux-centi-gram | centigram exceeds 8 characters |
+| kilometer | en-u-ux-kilo-meter | kilometer exceeds 8 characters |
+| quectolux | en-u-ux-kilo-meter | kilometer exceeds 8 characters |
+
+This requires that each of the elements in base_components are unique to eight letters, that is: **no two different base_components will share the first 8 letters**.
+
+The reason that the `prefixed_unit` as a whole is not simply truncated to 8 characters is that would impose too strict a constraint. There  are 5 letter prefixes such as 'centi' and more recently 6 letter prefixes such as 'quecto'. That would cause prefixed `base_component` as short as 'gram' and 'gray' to be ambiguous when truncated to 8 letters: 'centigra'; and 'lumen' and 'lux' would fail with the 6 letter prefixes.
+
 ### <a name="Example_Units" href="#Example_Units">Example Units</a>
 
 The following table contains examples of groupings and units currently defined by CLDR.
 The units in CLDR are not comprehensive; it is anticipated that more will be added over time.
-The complete list of supported units is in the validity data: see _Section Validity Data](tr35.md#Validity_Data)_.
+The complete list of supported units is in the validity data: see _[Section Validity Data](tr35.md#Validity_Data)_.
 
 | Type           | Core Unit Identifier     | Compound? | Sample Format  |
 | -------------- | ------------------------ | --------- | -------------- |
@@ -1160,7 +1193,7 @@ There are three widths: **long**, **short**, and **narrow**. As usual, the narro
 
 Where the unit of measurement is one of the [International System of Units (SI)](https://physics.nist.gov/cuu/Units/units.html), the short and narrow forms will typically use the international symbols, such as “mm” for millimeter. They may, however, be different if that is customary for the language or locale. For example, in Russian it may be more typical to see the Cyrillic characters “мм”.
 
-Units are included for translation even where they are not typically used in a particular locale, such as kilometers in the US, or inches in Germany. This is to account for use by travelers and specialized domains, such as the German “Fernseher von 32 bis 55 Zoll (80 bis 140 cm)” for TV screen size in inches and centimeters.
+Units are sometimes included for translation even where they are not typically used in a particular locale, such as kilometers in the US, or inches in Germany. This is to account for use by travelers and specialized domains, such as the German “Fernseher von 32 bis 55 Zoll (80 bis 140 cm)” for TV screen size in inches and centimeters.
 
 For temperature, there is a special unit `<unit type="temperature-generic">`, which is used when it is clear from context whether Celcius or Fahrenheit is implied.
 
@@ -2630,7 +2663,9 @@ The following are character labels. Where the meaning of the label is fairly cle
 | limited_use                 | limited-use             | Not in common modern use. |
 | male                        | male                    | Indicates that a character is male or masculine in appearance. |
 | modifier                    | modifier                | A Unicode modifier letter or symbol. |
-| nonspacing                  | nonspacing              | Uses for characters that occupy no width by themselves, such as the ¨ over the a in ä. |
+| nonspacing                  | nonspacing              | Used for characters that occupy no width by themselves, such as the ¨ over the a in ä. |
+| facing-left                 | facing-left             | Characters that face to the left. Also used to construct names for emoji variants. |
+| facing-right                | facing-right            | Characters that face to the right. Also used to construct names for emoji variants. |
 
 ### <a name="Typographic_Names" href="#Typographic_Names">Typographic Names</a>
 

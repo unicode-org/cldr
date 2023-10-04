@@ -2241,16 +2241,28 @@ m → r ;
 
 Note how the irrelevant rules (the inverse filter rule and the rules containing ←) are omitted (ignored, actually) in the forward direction, and notice how things are reversed: the transform rules are inverted and happen in the opposite order, and the groups of conversion rules are also executed in the opposite relative order (although the rules within each group are executed in the same order).
 
+Because the order of rules matters, the following will not work as expected
+```
+c → s;
+ch → kh;
+```
+The second rule can never execute, because it is "masked" by the first. 
+To help prevent errors, implementations should try to alert readers when this occurs, eg:
+```
+Rule {c > s;} masks {ch > kh;}
+```
+
 ### Transform Syntax Characters
 
 The following summarizes the syntax characters used in transforms.
 
 | Character(s) | Description | Example |
-| - | - | - |
+|  |  |  |
 | ;  | End of a conversion rule, variable definition, or transform rule invocation | a → b ; |
+| :: | Invoke a transform | :: Null ; |
+| (, ) | In a transform rule invocation, marks the backwards transform | :: Null (NFD); |
 | $ | Mark the start of a variable, when followed by an ASCII letter | $abc |
-
-| `=` | Used to define variables | $a = abc ; |
+| = | Used to define variables | $a = abc ; |
 | →, > | Transform from left to right (only for forward conversion rules) | a → b ; |
 | ←, < | Transform from right to left (only for backward conversion rules) | a ← b ; |
 | ↔, <> | Transform from left to right (for forward) and right to left (for backward) | a ↔ b ; |
@@ -2262,9 +2274,8 @@ The following summarizes the syntax characters used in transforms.
 | # | Comment (until the end of a line) | a → ; # remove a |
 | | | In the resulting_text, moves the cursor | a → A | b; |
 | @ | In the resulting_text, filler character used to move the cursor before the start or after the end of the result | a → Ab@|; |
-| :: | Invoke a transform | :: Null ; |
-| (, ) | In a transform rule invocation, marks the backwards transform | :: Null (NFD); |
 | (, ) | In text_to_replace, a capturing group | ([a-b]) > &hex($1); |
+| $ | In replacement_text, when followed by 1..9, is replaced by the contents of a capture group | ([a-b]) > &hex($1); |
 | ^ | In a before_context, by itself, equivalent to [$] **(deprecated)** | ... |
 | ? | In a before_context, after_context, or text_to_replace, a possessive quantifier for zero or one  | a?b → c ; |
 | + | In a before_context, after_context, or text_to_replace, a possessive quantifier for one or more  | a+b → c ; |

@@ -77,6 +77,8 @@ The LDML specification is divided into the following parts:
   * [Unit Parsing Data](#unit-parsing-data)
   * [Constants](#constants)
   * [Conversion Data](#conversion-data)
+    * [Derived Unit System](#derived-unit-system)
+    * [Conversion Mechanisms](#conversion-mechanisms)
     * [Exceptional Cases](#exceptional-cases)
       * [Identities](#identities)
       * [Aliases](#aliases)

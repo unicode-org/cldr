@@ -1415,7 +1415,7 @@ _Attribute:_ `modifiers` (required for `hardware`)
 
  The following modifier components can be used, separated by spaces.
 
- - `none` (no modifier, may not be combined with others)
+ - `none` (no modifier)
  - `alt`
  - `altL`
  - `altR`
@@ -1424,8 +1424,13 @@ _Attribute:_ `modifiers` (required for `hardware`)
  - `ctrlL`
  - `ctrlR`
  - `shift`
+ - `other` (matches if no other layers match)
 
-(`alt` in this specification is referred to on some platforms as "opt" or "option".)
+1. `alt` in this specification is referred to on some platforms as "opt" or "option".
+
+2. `none` and `other` may not be combined with any other components.
+
+3. Only one layer may have `none`, and only one layer may have `other` specified.
 
 #### Modifier Left- and Right- keys
 
@@ -1448,7 +1453,11 @@ Layers are matched exactly based on the modifier keys which are down. For exampl
 
 - `altL ctrl` as a modifier will only match if the left `alt` is down, either `ctrl` is down, *and* `shift` and `caps` are up.
 
-- To share a layer between two modifier sets, the layer data must be duplicated.
+- `other` as a modifier will match if no other layers match.
+
+Multiple modifier sets may be separated by commas.  For example, `none, shift caps` will match either no modifiers *or* shift and caps.  `ctrlL altL, altR` will match either  left-control and left-alt, *or* right-alt.
+
+Keystrokes where there isn’t an explicitly matching layer, and where there is no layer with `other` specified, are ignored.
 
 * * *
 

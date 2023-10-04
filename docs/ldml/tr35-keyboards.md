@@ -90,6 +90,9 @@ The LDML specification is divided into the following parts:
   * [Element: scanCodes](#Element_scanCodes)
   * [Element: layers](#Element_layers)
   * [Element: layer](#Element_layer)
+    * [Layer Modifier Components](#layer-modifier-components)
+    * [Modifier Left- and Right- keys](#modifier-left--and-right--keys)
+    * [Layer Modifier Matching](#layer-modifier-matching)
   * [Element: row](#Element_row)
   * [Element: variables](#Element_variables)
   * [Element: string](#element-string)
@@ -1384,41 +1387,76 @@ _Attribute:_ `modifier` (required for `hardware`)
 
 > This has two roles. It acts as an identifier for the `layer` element for hardware keyboards (in the absence of the id= element) and also provides the linkage from the hardware modifiers into the correct `layer`.
 >
-> To indicate that no modifiers apply, the reserved name of `none` is used.
-> The following modifier components can be used, separated by spaces.
-> Note that `L` or `R` indicates a left- or right- side modifier only (such as `altL`)
-> whereas `alt` indicates _either_ left or right alt key (that is, `altL` or `altR`). `ctrl` indicates either left or right ctrl key (that is, `ctrlL` or `ctrlR`).
-> `shift` also indicates either shift key. The left and right shift keys are not distinguishable in this specification.
->
-> If there is a layer with a modifier `alt`, there may not be another layer with `altL` or `altR`.  Similarly, if there is a layer with a modifier `ctrl`, there may not be a layer with `ctrlL` or `ctrlR`.
->
-> - `none` (no modifier, may not be combined with others)
-> - `alt`
-> - `altL`
-> - `altR`
-> - `caps`
-> - `ctrl`
-> - `ctrlL`
-> - `ctrlR`
-> - `shift`
->
-> Note that `alt` in this specification is referred to on some platforms as "opt" or "option".
->
-> Left- and right- side modifiers (such as `"altL ctrlR"` or `"altL altR"`) should not be used together in a single `modifier` attribute value.
->
 > For hardware layouts, the use of `@modifier` as an identifier for a layer is sufficient since it is always unique among the set of `layer` elements in a keyboard.
 >
 > The set of modifiers must match `(none|([A-Za-z0-9]+)( [A-Za-z0-9]+)*)`
 >
-> To share a layer between two modifier sets, the layer data must be duplicated.
+> To indicate that no modifiers apply, the reserved name of `none` is used.
+
+**Syntax**
+
+```xml
+<layer id="base"        modifier="none">
+    <row keys="a" />
+</layer>
+
+<layer id="upper"       modifier="shift">
+    <row keys="A" />
+</layer>
+
+<layer id="altgr"       modifier="altR">
+    <row keys="a-umlaut" />
+</layer>
+
+<layer id="upper-altgr" modifier="altR shift">
+    <row keys="A-umlaut" />
+</layer>
+```
+
+#### Layer Modifier Components
+
+ The following modifier components can be used, separated by spaces.
+
+ - `none` (no modifier, may not be combined with others)
+ - `alt`
+ - `altL`
+ - `altR`
+ - `caps`
+ - `ctrl`
+ - `ctrlL`
+ - `ctrlR`
+ - `shift`
+
+(`alt` in this specification is referred to on some platforms as "opt" or "option".)
+
+#### Modifier Left- and Right- keys
+
+1. `L` or `R` indicates a left- or right- side modifier only (such as `altL`)
+ whereas `alt` indicates _either_ left or right alt key (that is, `altL` or `altR`). `ctrl` indicates either left or right ctrl key (that is, `ctrlL` or `ctrlR`).
+
+2.  If there are any layers with a modifier `alt`, there may not also be another layer with `altL` or `altR`.  Similarly, if there is a layer with a modifier `ctrl`, there may not be a layer with `ctrlL` or `ctrlR`.
+
+3. Left- and right- side modifiers may not be mixed together in a single `modifier` attribute value, so neither `altL ctrlR"` nor `altL altR` are allowed.
+
+4. `shift` indicates either shift key. The left and right shift keys are not distinguishable in this specification.
+
+#### Layer Modifier Matching
+
+Layers are matched exactly based on the modifier keys which are down. For example:
+
+- `none` as a modifier will only match if *all* of the keys `caps`, `alt`, `ctrl` and `shift` are up.
+
+- `alt` as a modifier will only match if either `alt` is down, *and* `caps`, `ctrl`, and `shift` are up.
+
+- `altL ctrl` as a modifier will only match if the left `alt` is down, either `ctrl` is down, *and* `shift` and `caps` are up.
+
+- To share a layer between two modifier sets, the layer data must be duplicated.
 
 * * *
 
 ### <a name="Element_row" href="#Element_row">Element: row</a>
 
 A `row` element describes the keys that are present in the row of a keyboard.
-
-
 
 **Syntax**
 

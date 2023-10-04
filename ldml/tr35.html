@@ -1178,7 +1178,7 @@ This is a stable document and may be used as reference material or cited as a no
 <li><a href="#Date_Ranges">Date and Date Ranges</a></li>
 <li><a href="#Text_Directionality">Text Directionality</a></li>
 <li><a href="#Unicode_Sets">Unicode Sets</a><ul>
-<li><a href="#unicodeset-syntax-">UnicodeSet syntax #####</a><ul>
+<li><a href="#unicodeset-syntax">UnicodeSet syntax</a><ul>
 <li><a href="#syntax-special-case-examples">Syntax Special Case Examples</a></li>
 </ul>
 </li>
@@ -2216,7 +2216,7 @@ zh-Hant-HK
 </ol>
 </li>
 </ol><h4 id="Time_Zone_Identifiers"><a name="time-zone-identifiers" href="#Time_Zone_Identifiers">Time Zone Identifiers</a></h4><p>LDML inherits time zone IDs from the tz database [<a href="#Olson">Olson</a>]. Because these IDs from the tz database do not satisfy the BCP 47 language subtag syntax requirements, CLDR defines short identifiers for the use in the Unicode locale extension. The short identifiers are defined in the file <strong>common/bcp47/timezone.xml</strong>.</p><p>The short identifiers use UN/LOCODE [<a href="#LOCODE">LOCODE</a>] (excluding a space character) codes where possible. For example, the short identifier for "America/Los_Angeles" is "uslax" (the LOCODE for Los Angeles, US is "US LAX"). Identifiers of length not equal to 5 are used where there is no corresponding UN/LOCODE, such as "usnavajo" for "America/Shiprock", or "utcw01" for "Etc/GMT+1", so that they do not overlap with future UN/LOCODE.</p><p>Although the first two letters of a short identifier may match an ISO 3166 two-letter country code, a user should not assume that the time zone belongs to the country. The first two letters in an identifier of length not equal to 5 have no meaning. Also, the identifiers are stabilized, meaning that they will not change no matter what changes happen in the base standard. So if Hawaii leaves the US and joins Canada as a new province, the short time zone identifier "ushnl" would not change in CLDR even if the UN/LOCODE changes to "cahnl" or something else.</p><p>There is a special code "unk" for an Unknown or Invalid time zone. This can be expressed in the tz database style ID "Etc/Unknown", although it is not defined in the tz database.</p><p><strong>Stability of Time Zone Identifiers</strong></p><p>Although the short time zone identifiers are guaranteed to be stable, the preferred IDs in the tz database (as those found in <strong>zone.tab</strong> file) might be changed time to time. For example, "Asia/Culcutta" was replaced with "Asia/Kolkata" and moved to <strong>backward</strong> file in the tz database. CLDR contains locale data using a time zone ID from the tz database as the key, stability of the IDs is critical.</p><p>To maintain the stability of "long" IDs (for those inherited from the tz database), a special rule applied to the <code>alias</code> attribute in the <code>&lt;type&gt;</code> element for "tz" - the first "long" ID is the CLDR canonical "long" time zone ID. In addition to this, <code>iana</code> attribute specifies the preferred ID in the tz database if it's different from the CLDR canonical "long" ID.</p><p>For example:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">type</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"inccu"</span> <span class="hljs-attr">description</span>=<span class="hljs-string">"Kolkata, India"</span> <span class="hljs-attr">alias</span>=<span class="hljs-string">"Asia/Calcutta Asia/Kolkata"</span> <span class="hljs-attr">iana</span>=<span class="hljs-string">"Asia/Kolkata"</span>/&gt;</span>
-</code></pre><p>Above <code>&lt;type&gt;</code> element defines the short time zone ID "inccu" (for the use in the Unicode locale extension), corresponding <em>CLDR canonical "long" ID</em> "Asia/Culcutta", and an alias "Asia/Kolkata". In the tz database, the preferred ID for this time zone is "Asia/Kolkata". </p><p><strong>Links in the tz database</strong></p><p>Not all TZDB links are in CLDR aliases.
+</code></pre><p>Above <code>&lt;type&gt;</code> element defines the short time zone ID "inccu" (for the use in the Unicode locale extension), corresponding <em>CLDR canonical "long" ID</em> "Asia/Culcutta", and an alias "Asia/Kolkata". In the tz database, the preferred ID for this time zone is "Asia/Kolkata".</p><p><strong>Links in the tz database</strong></p><p>Not all TZDB links are in CLDR aliases.
 CLDR purposefully does not exactly match the Link structure in the TZDB.</p><ol>
 <li>The links are maintained in the TZDB, and it would duplicate information that could fall out of sync (especially because the TZDB can be updated many times in a single month).</li>
 <li>The TZDB went though a change a few years ago where it dropped the mappings to countries, whereas CLDR still maintains that distinction.</li>
@@ -3227,7 +3227,7 @@ For example, if und_AF ⇒ fa_Arab_AF, then:</p><ul>
 This allows for implementations that use those denormalized subtags to use the data with only minor changes to the operations.</li>
 <li>A macroregion (such as West Africa = 011) <em>may</em> change to a specific country (Nigeria = NG).</li>
 </ul><p><strong><em>Remove</em></strong> <em><strong>Likely Subtags:</strong> Given a locale, remove any fields that Add Likely Subtags would add.</em></p><p>The reverse operation removes fields that could be added by the first operation.</p><ol>
-<li>First get max = AddLikelySubtags(inputLocale). </li>
+<li>First get max = AddLikelySubtags(inputLocale).</li>
 <li>If an error is signaled in AddLikelySubtags, signal that same error and stop.</li>
 <li>Remove the variants and extensions from max.</li>
 <li>Get the components of the max (<em>languagemax</em>, <em>scriptmax</em>, <em>regionmax</em>).</li>
@@ -3237,14 +3237,14 @@ This allows for implementations that use those denormalized subtags to use the d
 </li>
 <li>If there is no match, return max + variants + extensions.</li>
 </ol><p>Example:</p><ul>
-<li>Input is zh_Hant or zh_TW. </li>
+<li>Input is zh_Hant or zh_TW.</li>
 <li>Maximize to get zh_Hant_TW.</li>
 <li>zh =&gt; zh_Hans_CN. No match, so continue.</li>
 <li>zh_TW =&gt; zh_Hant_TW. Matches, so return <strong>zh_TW</strong>.</li>
-</ul><p><strong><em>Remove</em></strong> <em><strong>Likely Subtags, favoring script:</strong> Given a locale, remove any fields that Add Likely Subtags would add, but favor script over region.</em></p><p>A variant of this favors the script over the region, thus using {language, language_script, language_region} in the step #4 above. 
-This variant much less commonly used, only when the script relationship is more significant to users. 
+</ul><p><strong><em>Remove</em></strong> <em><strong>Likely Subtags, favoring script:</strong> Given a locale, remove any fields that Add Likely Subtags would add, but favor script over region.</em></p><p>A variant of this favors the script over the region, thus using {language, language_script, language_region} in the step #4 above.
+This variant much less commonly used, only when the script relationship is more significant to users.
 Here is the difference:</p><p>Example:</p><ul>
-<li>Input is zh_Hant or zh_TW. </li>
+<li>Input is zh_Hant or zh_TW.</li>
 <li>Maximize to get zh_Hant_TW.</li>
 <li>zh =&gt; zh_Hans_CN. No match, so continue.</li>
 <li>zh_Hant =&gt; zh_Hant_TW. Matches, so return <strong>zh_Hant</strong>.</li>
@@ -3978,10 +3978,10 @@ or a difference of sets if they are both sets; but given the map <code>{ a =&gt;
 but also to parse the UnicodeSet syntax: if <strong>$a</strong> and <strong>$b</strong> were unknown, the parsing of <strong>[$a-$b]</strong> would be ambiguous.</p><p>Variables are replaced by value, that is, <strong>[a $minus z]</strong> with a variable map <code>{ minus =&gt; '-' }</code> is equivalent to <strong>[-az]</strong>, not <strong>[a-z]</strong> (i.e., cardinality of 3 instead of 26).
 The full <code>var</code> nonterminal is replaced, i.e., the variable name together with the prefixed $.</p><p>The variable syntax implements UAX31-R1-2 with XID_Start and XID_Continue. For more information, see [<a href="https://www.unicode.org/reports/tr41/#UAX31">UAX31</a>].
 Variables are equivalent normalized identifiers with Normalization Form C, implementing UAX31-R4. Furthermore, variables are case-sensitive.</p><p>Notes:</p><ol>
-<li>The 'type' of a variable value is not specified syntactically. 
+<li>The 'type' of a variable value is not specified syntactically.
 Thus [$a-$b] can resolve whether $a and $b are chars/strings (eg, $a=δ, $b=θ) or full UnicodeSets (eg, $a=\p{script=greek}, $b=\p{general_category=letter}).
 The only restriction is that the result be syntactic; thus ($a=w, $b=xy) would raise an error.</li>
-<li>Variable substitution is currently disallowed inside of property expressions. 
+<li>Variable substitution is currently disallowed inside of property expressions.
 Thus \p{gc=$blah} raises an error.</li>
 <li>'$' when followed by ']' is interpreted as \uFFFF, and is used to match before the start of a string or after the end.
 Thus [ab$] matches the string "xaby" in the locations (marked with '()'): "()xaby", "x(a)by", "xa(b)y", "xaby()".</li>

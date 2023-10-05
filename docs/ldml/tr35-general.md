@@ -1010,7 +1010,9 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 
 <tr><td>suffix_component</td><td>:=</td>
     <td>[a-z]{3,∞}
-        <ul><li><em>Constraint:</em> must be value in: &lt;unitIdComponent type="suffix"&gt;</li></ul></td></tr>
+        <ul>
+			<li><em>Constraint:</em> must be value in: &lt;unitIdComponent type="suffix"&gt;</li>
+		</ul></td></tr>
 
 <tr><td>mixed_unit_identifier</td><td>:=</td>
     <td>(single_unit | pu_single_unit) ("-" and "-" (single_unit | pu_single_unit ))*

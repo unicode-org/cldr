@@ -914,15 +914,20 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
         | long_unit_identifier</td></tr>
 
 <tr><td>core_unit_identifier</td><td>:=</td>
-    <td>product_unit ("-per-" product_unit)*<br/>
-        | "per-" product_unit ("-per-" product_unit)*
+    <td>product_unit ("-" per "-" product_unit)*<br/>
+        | per "-" product_unit ("-" per "-" product_unit)*
         <ul><li><em>Examples:</em>
             <ul><li>foot-per-second-per-second</li>
                 <li>per-second</li>
             </ul></li>
             <li><em>Note:</em> The normalized form will have only one "per"</li>
-	  <li><em>Note:</em> The token 'per' is the single value in &lt;unitIdComponent type=”per”&gt;</li>
         </ul></td></tr>
+
+<tr><td>per</td><td>:=</td>
+    <td>"per"
+        <ul>
+			<li><em>Constraint:</em> The token 'per' is the single value in &lt;unitIdComponent type="per"&gt;</li>
+		</ul></td></tr>
 
 <tr><td>product_unit</td><td>:=</td>
         <td>single_unit ("-" single_unit)* ("-" pu_single_unit)*<br/>
@@ -936,9 +941,9 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
         <ul><li><em>Examples: </em>square-meter, or 100-square-meter</li></ul></td></tr>
 
 <tr><td>pu_single_unit</td><td>:=</td>
-    <td>“xxx-” single_unit | “x-” single_unit
+    <td>"xxx-" single_unit | "x-" single_unit
     <ul><li><em>Example:</em> xxx-square-knuts (a Harry Potter unit)</li>
-        <li><em>Note:</em> “x-” is only for backwards compatibility</li>
+        <li><em>Note:</em> "x-" is only for backwards compatibility</li>
         <li>See <a href="#Private_Use_Units">Private-Use Units</a></li>
     </ul></td></tr>
 
@@ -955,18 +960,19 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 <tr><td>dimensionality_prefix</td><td>:=</td>
     <td>"square-"<p>| "cubic-"<p>| "pow" ([2-9]|1[0-5]) "-"
         <ul>
+			<li><em>Constraint:</em> must be value in: &lt;unitIdComponent type="power"&gt;.</li>
 			<li><em>Note:</em> "pow2-" and "pow3-" canonicalize to "square-" and "cubic-"</li>
-			<li><em>Note:</em> These are values in &lt;unitIdComponent type=”power”&gt;</li>
+			<li><em>Note:</em> These are values in &lt;unitIdComponent type="power"&gt;</li>
 		</ul></td></tr>
 
 <tr><td>simple_unit</td><td>:=</td>
     <td>(prefix_component "-")* (prefixed_unit | base_component) ("-" suffix_component)*<br/>
 		|  currency_unit<br/>
-		| “em” | “g” | “us” | “hg” | "of"
+		| "em" | "g" | "us" | "hg" | "of"
         <ul>
 		<li><em>Examples:</em> kilometer, meter, cup-metric, fluid-ounce, curr-chf, em</li>
-		<li><em>Note:</em> Three simple units are currently allowed as legacy usage, for tokens that wouldn’t otherwise be a base_component due to length (eg, “<strong>g</strong>-force”).
-			We will likely deprecate those and add conformant aliases in the future: the “hg” and “of” are already only in deprecated simple_units.</li>
+		<li><em>Note:</em> Three simple units are currently allowed as legacy usage, for tokens that wouldn’t otherwise be a base_component due to length (eg, "<strong>g</strong>-force").
+			We will likely deprecate those and add conformant aliases in the future: the "hg" and "of" are already only in deprecated simple_units.</li>
         </ul></td></tr>
 
 <tr><td>prefixed_unit</td><td></td>
@@ -985,16 +991,16 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 
 <tr><td>prefix_component</td><td>:=</td>
     <td>[a-z]{3,∞}
-        <ul><li><em>Constraint:</em> must be value in: &lt;unitIdComponent type=”prefix_component”&gt;.</li></ul></td></tr>
+        <ul><li><em>Constraint:</em> must be value in: &lt;unitIdComponent type="prefix"&gt;.</li></ul></td></tr>
 
 <tr><td>base_component</td><td>:=</td>
     <td>[a-z]{3,∞}
         <ul><li><em>Constraint:</em> must not be a value in any of the following:<br>
-			&lt;unitIdComponent type=”prefix_component”&gt;<br>
-			or &lt;unitIdComponent type=”suffix_component”&gt; <br>
-			or &lt;unitIdComponent type=”power”&gt;<br>
-			or &lt;unitIdComponent type=”and”&gt;<br>
-			or &lt;unitIdComponent type=”per”&gt;.
+			&lt;unitIdComponent type="prefix"&gt;<br>
+			or &lt;unitIdComponent type="suffix"&gt; <br>
+			or &lt;unitIdComponent type="power"&gt;<br>
+			or &lt;unitIdComponent type="and"&gt;<br>
+			or &lt;unitIdComponent type="per"&gt;.
 		</li>
 		<li><em>Constraint:</em> must not have a prefix as an initial segment.</li>
 		<li><em>Constraint:</em> no two different base_components will share the first 8 letters. 
@@ -1005,12 +1011,19 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 
 <tr><td>suffix_component</td><td>:=</td>
     <td>[a-z]{3,∞}
-        <ul><li><em>Constraint:</em> must be value in: &lt;unitIdComponent type=”suffix_component”&gt;</li></ul></td></tr>
+        <ul>
+			<li><em>Constraint:</em> must be value in: &lt;unitIdComponent type="suffix"&gt;</li>
+		</ul></td></tr>
 
 <tr><td>mixed_unit_identifier</td><td>:=</td>
-    <td>(single_unit | pu_single_unit) ("-and-" (single_unit | pu_single_unit ))*
+    <td>(single_unit | pu_single_unit) ("-" and "-" (single_unit | pu_single_unit ))*
         <ul><li><em>Example: foot-and-inch</em></li>
-	       <li><em>Note:</em> The token 'and' is the single value in &lt;unitIdComponent type=”and”&gt;</li>
+		</ul></td></tr>
+
+<tr><td>and</td><td>:=</td>
+    <td>"and"
+		<ul>
+			<li><em>Constraint:</em> The token 'and' is the single value in &lt;unitIdComponent type="and"&gt;</li>
 		</ul></td></tr>
 
 <tr><td>long_unit_identifier</td><td>:=</td>

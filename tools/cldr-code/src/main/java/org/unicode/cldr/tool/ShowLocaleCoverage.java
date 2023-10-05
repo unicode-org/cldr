@@ -67,7 +67,9 @@ import org.unicode.cldr.util.VettingViewer.MissingStatus;
 public class ShowLocaleCoverage {
 
     private static final String TSV_BASE =
-            "https://github.com/unicode-org/cldr-staging/blob/main/docs/charts/43/tsv/";
+            "https://github.com/unicode-org/cldr-staging/blob/main/docs/charts/"
+                    + ToolConstants.CHART_VI.getVersionString(1, 2)
+                    + "/tsv/";
     private static final Splitter LF_SPLITTER = Splitter.on('\n');
 
     // thresholds for measuring Level attainment

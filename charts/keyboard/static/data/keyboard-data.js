@@ -274,9 +274,6 @@ const _KeyboardData =
       }
      ]
     },
-    "settings": {
-     "@_fallback": "omit"
-    },
     "keys": {
      "import": [
       {
@@ -435,9 +432,6 @@ const _KeyboardData =
        "@_value": "French Test AZERTY"
       }
      ]
-    },
-    "settings": {
-     "@_fallback": "omit"
     },
     "displays": {
      "display": {

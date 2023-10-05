@@ -688,13 +688,6 @@
 
 
 
-
-
-
-
-
-
-
 <script src="./js/anchor.min.js"></script><div class="header"><table class="header" cellpadding="0" cellspacing="0" width="100%">
     <tbody>
         <tr>
@@ -1010,7 +1003,7 @@ Typically, this is shown on a UI element that allows switching keyboard layouts 
     <span class="hljs-tag">&lt;/<span class="hljs-name">names</span>&gt;</span>
     …
 <span class="hljs-tag">&lt;/<span class="hljs-name">keyboard3</span>&gt;</span>
-</code></pre><hr><h3 id="Element_settings"><a name="element-settings" href="#Element_settings">Element: settings</a></h3><p>An element used to keep track of layout-specific settings by implementations. This element may or may not show up on a layout. These settings reflect the normal practice by the implementation. However, an implementation using the data may customize the behavior.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">settings</span> <span class="hljs-attr">fallback</span>=<span class="hljs-string">"omit"</span> /&gt;</span>
+</code></pre><hr><h3 id="Element_settings"><a name="element-settings" href="#Element_settings">Element: settings</a></h3><p>An element used to keep track of layout-specific settings by implementations. This element may or may not show up on a layout. These settings reflect the normal practice by the implementation. However, an implementation using the data may customize the behavior.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">settings</span> <span class="hljs-attr">normalization</span>=<span class="hljs-string">"disabled"</span> /&gt;</span>
 </code></pre><blockquote>
 <small>
 
@@ -1018,18 +1011,7 @@ Typically, this is shown on a UI element that allows switching keyboard layouts 
 <p>Children: <em>none</em></p>
 <p>Occurrence: optional, single</p>
 </small>
-</blockquote><p><em>Attribute:</em> <code>fallback="omit"</code></p><blockquote>
-<p>The presence of this attribute means that when a modifier key combination goes unmatched, no output is produced. The default behavior (when this attribute is not present) is to fall back to the base map when the modifier key combination goes unmatched.</p>
-</blockquote><p>If this attribute is present, it must have a value of <code>omit</code>.</p><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span> <span class="hljs-attr">locale</span>=<span class="hljs-string">"bg"</span>&gt;</span>
-    …
-    <span class="hljs-tag">&lt;<span class="hljs-name">settings</span> <span class="hljs-attr">fallback</span>=<span class="hljs-string">"omit"</span> /&gt;</span>
-    …
-<span class="hljs-tag">&lt;/<span class="hljs-name">keyboard3</span>&gt;</span>
-</code></pre><p>Indicates that:</p><ol>
-<li>When a modifier combination goes unmatched, do not output anything when a key is pressed.</li>
-<li>If a transform is terminated, output the contents of the buffer.</li>
-<li>During a transform, hide the contents of the buffer as the user is typing.</li>
-</ol><p><em>Attribute:</em> <code>normalization</code></p><blockquote>
+</blockquote><p><em>Attribute:</em> <code>normalization="disabled"</code></p><blockquote>
 <p>Normalization will not typically be the responsibility of the keyboard author, rather this will be managed by the implementation.
 The implementation will apply normalization as appropriate when matching transform rules and <code>&lt;display&gt;</code> value matching.
 Output from the keyboard, following application of all transform rules, will be normalized to implementation or application-requested form.</p>

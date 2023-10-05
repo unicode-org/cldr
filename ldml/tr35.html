@@ -2041,8 +2041,9 @@ zh-Hant-HK
 <tr><td>"dx"</td>
     <td>Dictionary break script exclusions</td>
     <td><i><code><a href="#unicode_script_subtag">unicode_script_subtag</a></code> values</i></td>
-    <td><p>One or more items of type SCRIPT_CODE, which are valid <code><a href="#unicode_script_subtag">unicode_script_subtag</a></code> values.</p>
-        <p>The code Zyyy (Common) can be specified to exclude all scripts, in which case it should be the only SCRIPT_CODE value specified.</p></td></tr>
+    <td><p>One or more items of type SCRIPT_CODE (as usual, separated by hyphens), which are valid <code><a href="#unicode_script_subtag">unicode_script_subtag</a></code> values.</p>
+        <p>The code Zyyy (Common) can be specified to exclude all scripts, in which case it should be the only SCRIPT_CODE value specified.
+            If others are included mistakenly, they are ignored.</p></td></tr>
 
 <tr><td colspan="4"><b>A <a name="UnicodeEmojiPresentationStyleIdentifier" id="UnicodeEmojiPresentationStyleIdentifier" href="#UnicodeEmojiPresentationStyleIdentifier">Unicode Emoji Presentation Style Identifier</a> specifies a request for the preferred emoji presentation style. This can be used as part of the value for an HTML lang attribute, for example <code>&lt;html lang="sr-Latn-u-em-emoji"&gt;</code>. The valid values are those <i>name</i> attribute values in the <i>type</i> elements of key name="em" in bcp47/<a href="https://github.com/unicode-org/cldr/blob/main/common/bcp47/variant.xml" target="_blank">variant.xml</a></b>.</td></tr>
 <tr><td rowspan="3">"em"</td>

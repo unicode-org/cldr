@@ -1144,7 +1144,9 @@ These values provide territory-specific information needed for week-of-year and 
     …
 ```
 
-In order for a week to count as the first week of a new year for week-of-year calculations, it must include at least the number of days in the new year specified by the minDays value; otherwise the week will count as the last week of the previous year (and for week-of-month calculations, `minDays` also specifies the minimum number of days in the new month for a week to count as part of that month).
+In order for a week to count as the first week of a new year for week-of-year calculations, the week beginning with `firstDay` must include at least the number of days in the new year specified by the `minDays` value; otherwise the week will count as the last week of the previous year (and for week-of-month calculations, `minDays` also specifies the minimum number of days in the new month for a week to count as part of that month).
+
+> **Note:** For week-of-year calculations, Gregorian years may have 52 or 53 weeks. Changes in the value of `minDays` or `firstDay` can affect the year to which a date is assigned as well as the number of weeks in a given year; implementations that parse dates using week-of-year formats should be prepared to handle such cases. For example when parsing a date in week 53 of a year for which current values of `minDays` and `firstDay` no longer result in a 53-week year, that date should be treated as in the first week of the following year.
 
 The day indicated by `firstDay` is the one that should be shown as the first day of the week in a calendar view. This is not necessarily the same as the first day after the weekend (or the first work day of the week), which should be determined from the weekend information. Currently, day-of-week numbering is based on `firstDay` (that is, day 1 is the day specified by `firstDay`), but in the future we may add a way to specify this separately. The `firstDay` value determined from the region can be overridden by the locale keyword "fw", see [Unicode First Day Identifier](tr35.md#UnicodeFirstDayIdentifier).
 

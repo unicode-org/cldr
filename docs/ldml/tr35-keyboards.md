@@ -1072,6 +1072,7 @@ _Attribute:_ `output` (optional)
 > Specifies the character or character sequence from the `keys/key` element that is to have a special display.
 > This attribute may be escaped with `\u` notation, see [Escaping](#Escaping).
 > The `output` attribute may also contain the `\m{…}` syntax to reference a marker. See [Markers](#markers). Implementations may highlight a displayed marker, such as with a lighter text color, or a yellow highlight.
+> String variables may be substituted. See [String variables](#element-string)
 
 _Attribute:_ `id` (optional)
 
@@ -1082,6 +1083,8 @@ _Attribute:_ `id` (optional)
 _Attribute:_ `display` (required)
 
 > Required and specifies the character sequence that should be displayed on the keytop for any key that generates the `@output` sequence or has the `@id`. (It is an error if the value of the `display` attribute is the same as the value of the `output` attribute, this would be an extraneous entry.)
+
+> String variables may be substituted. See [String variables](#element-string)
 
 This attribute may be escaped with `\u` notation, see [Escaping](#Escaping).
 
@@ -1470,6 +1473,7 @@ _Attribute:_ `value` (required)
     <string id="cluster_hi" value="हि" /> <!-- a string -->
     <string id="zwnj" value="\u{200C}"/> <!-- single codepoint -->
     <string id="acute" value="\m{acute}"/> <!-- refer to a marker -->
+    <string id="backquote" value="`"/>
     <string id="zwnj_acute" value="${zwnj}${acute}"  /> <!-- Combine two variables -->
     <string id="zwnj_sp_acute" value="${zwnj}\u{0020}${acute}"  /> <!-- Combine two variables -->
 </variables>
@@ -1487,7 +1491,7 @@ These may be then used in multiple contexts:
 <key id="acute_key" output="${acute}" />
 …
 <!-- Display ´ instead of the non-displayable marker -->
-<display output="${acute}" display="´" />
+<display output="${acute}" display="${backquote}" />
 ```
 
 * * *

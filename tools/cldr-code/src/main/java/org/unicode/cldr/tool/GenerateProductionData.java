@@ -575,7 +575,7 @@ public class GenerateProductionData {
     }
 
     private static boolean localeIsSpecial(String localeId) {
-        return localeId.equals("ar") || localeId.startsWith("ar_");
+        return localeId.equals("ar") || (localeId.startsWith("ar_") && !"ar_001".equals(localeId));
     }
 
     private static final String[] SPECIAL_PATHS =

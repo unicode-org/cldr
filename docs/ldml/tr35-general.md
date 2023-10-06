@@ -913,15 +913,20 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
         | long_unit_identifier</td></tr>
 
 <tr><td>core_unit_identifier</td><td>:=</td>
-    <td>product_unit ("-per-" product_unit)*<br/>
-        | "per-" product_unit ("-per-" product_unit)*
+    <td>product_unit ("-" per "-" product_unit)*<br/>
+        | per "-" product_unit ("-" per "-" product_unit)*
         <ul><li><em>Examples:</em>
             <ul><li>foot-per-second-per-second</li>
                 <li>per-second</li>
             </ul></li>
             <li><em>Note:</em> The normalized form will have only one "per"</li>
-	  <li><em>Note:</em> The token 'per' is the single value in &lt;unitIdComponent type=”per”&gt;</li>
         </ul></td></tr>
+
+<tr><td>per</td><td>:=</td>
+    <td>"per"
+        <ul>
+			<li><em>Constraint:</em> The token 'per' is the single value in &lt;unitIdComponent type="per"&gt;</li>
+		</ul></td></tr>
 
 <tr><td>product_unit</td><td>:=</td>
         <td>single_unit ("-" single_unit)* ("-" pu_single_unit)*<br/>
@@ -935,9 +940,9 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
         <ul><li><em>Examples: </em>square-meter, or 100-square-meter</li></ul></td></tr>
 
 <tr><td>pu_single_unit</td><td>:=</td>
-    <td>“xxx-” single_unit | “x-” single_unit
+    <td>"xxx-" single_unit | "x-" single_unit
     <ul><li><em>Example:</em> xxx-square-knuts (a Harry Potter unit)</li>
-        <li><em>Note:</em> “x-” is only for backwards compatibility</li>
+        <li><em>Note:</em> "x-" is only for backwards compatibility</li>
         <li>See <a href="#Private_Use_Units">Private-Use Units</a></li>
     </ul></td></tr>
 
@@ -954,18 +959,19 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 <tr><td>dimensionality_prefix</td><td>:=</td>
     <td>"square-"<p>| "cubic-"<p>| "pow" ([2-9]|1[0-5]) "-"
         <ul>
+			<li><em>Constraint:</em> must be value in: &lt;unitIdComponent type="power"&gt;.</li>
 			<li><em>Note:</em> "pow2-" and "pow3-" canonicalize to "square-" and "cubic-"</li>
-			<li><em>Note:</em> These are values in &lt;unitIdComponent type=”power”&gt;</li>
+			<li><em>Note:</em> These are values in &lt;unitIdComponent type="power"&gt;</li>
 		</ul></td></tr>
 
 <tr><td>simple_unit</td><td>:=</td>
     <td>(prefix_component "-")* (prefixed_unit | base_component) ("-" suffix_component)*<br/>
 		|  currency_unit<br/>
-		| “em” | “g” | “us” | “hg” | "of"
+		| "em" | "g" | "us" | "hg" | "of"
         <ul>
 		<li><em>Examples:</em> kilometer, meter, cup-metric, fluid-ounce, curr-chf, em</li>
-		<li><em>Note:</em> Three simple units are currently allowed as legacy usage, for tokens that wouldn’t otherwise be a base_component due to length (eg, “<strong>g</strong>-force”).
-			We will likely deprecate those and add conformant aliases in the future: the “hg” and “of” are already only in deprecated simple_units.</li>
+		<li><em>Note:</em> Three simple units are currently allowed as legacy usage, for tokens that wouldn’t otherwise be a base_component due to length (eg, "<strong>g</strong>-force").
+			We will likely deprecate those and add conformant aliases in the future: the "hg" and "of" are already only in deprecated simple_units.</li>
         </ul></td></tr>
 
 <tr><td>prefixed_unit</td><td></td>
@@ -984,16 +990,16 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 
 <tr><td>prefix_component</td><td>:=</td>
     <td>[a-z]{3,∞}
-        <ul><li><em>Constraint:</em> must be value in: &lt;unitIdComponent type=”prefix_component”&gt;.</li></ul></td></tr>
+        <ul><li><em>Constraint:</em> must be value in: &lt;unitIdComponent type="prefix"&gt;.</li></ul></td></tr>
 
 <tr><td>base_component</td><td>:=</td>
     <td>[a-z]{3,∞}
         <ul><li><em>Constraint:</em> must not be a value in any of the following:<br>
-			&lt;unitIdComponent type=”prefix_component”&gt;<br>
-			or &lt;unitIdComponent type=”suffix_component”&gt; <br>
-			or &lt;unitIdComponent type=”power”&gt;<br>
-			or &lt;unitIdComponent type=”and”&gt;<br>
-			or &lt;unitIdComponent type=”per”&gt;.
+			&lt;unitIdComponent type="prefix"&gt;<br>
+			or &lt;unitIdComponent type="suffix"&gt; <br>
+			or &lt;unitIdComponent type="power"&gt;<br>
+			or &lt;unitIdComponent type="and"&gt;<br>
+			or &lt;unitIdComponent type="per"&gt;.
 		</li>
 		<li><em>Constraint:</em> must not have a prefix as an initial segment.</li>
 		<li><em>Constraint:</em> no two different base_components will share the first 8 letters. 
@@ -1004,12 +1010,19 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 
 <tr><td>suffix_component</td><td>:=</td>
     <td>[a-z]{3,∞}
-        <ul><li><em>Constraint:</em> must be value in: &lt;unitIdComponent type=”suffix_component”&gt;</li></ul></td></tr>
+        <ul>
+			<li><em>Constraint:</em> must be value in: &lt;unitIdComponent type="suffix"&gt;</li>
+		</ul></td></tr>
 
 <tr><td>mixed_unit_identifier</td><td>:=</td>
-    <td>(single_unit | pu_single_unit) ("-and-" (single_unit | pu_single_unit ))*
+    <td>(single_unit | pu_single_unit) ("-" and "-" (single_unit | pu_single_unit ))*
         <ul><li><em>Example: foot-and-inch</em></li>
-	       <li><em>Note:</em> The token 'and' is the single value in &lt;unitIdComponent type=”and”&gt;</li>
+		</ul></td></tr>
+
+<tr><td>and</td><td>:=</td>
+    <td>"and"
+		<ul>
+			<li><em>Constraint:</em> The token 'and' is the single value in &lt;unitIdComponent type="and"&gt;</li>
 		</ul></td></tr>
 
 <tr><td>long_unit_identifier</td><td>:=</td>
@@ -1834,7 +1847,8 @@ If the direction is `forward`, then an ID is composed from `target + "-" + sourc
 
 The `visibility` attribute indicates whether the IDs should be externally visible, or whether they are only used internally.
 
-In previous versions, the rules were expressed as fine-grained XML. That was discarded in CLDR version 29, in favor of a simpler format where the separate rules are simply terminated with ";".
+Note: In CLDR v28 and before, the rules were expressed as fine-grained XML. 
+That was discarded in CLDR version 29, in favor of a simpler format where the separate rules are simply terminated with ";".
 
 The transform rules are similar to regular-expression substitutions, but adapted to the specific domain of text transformations. The rules and comments in this discussion will be intermixed, with # marking the comments. The simplest rule is a conversion rule, which replaces one string of characters with another. The conversion rule takes the following form:
 
@@ -1858,6 +1872,8 @@ All of the ASCII characters except numbers and letters are reserved for use in t
 '←'   → 'arrow sign' ;
 '←'   → arrow' 'sign ;
 ```
+
+Note: The characters `→`, `←`, `↔` are preferred, but can be represented by the ASCII character `>`, `<`, and `<>`, respectively.
 
 Spaces may be inserted anywhere without any effect on the rules. Use extra space to separate items out for clarity without worrying about the effects. This feature is particularly useful with combining marks; it is handy to put some spaces around it to separate it from the surrounding text. The following is an example:
 
@@ -1940,7 +1956,9 @@ It will thus convert “-B A-B a-b” to “B AB a-b”.
 
 #### <a name="Revisiting" href="#Revisiting">Revisiting</a>
 
-If the resulting text contains a vertical bar "|", then that means that processing will proceed from that point and that the transform will revisit part of the resulting text. Thus the | marks a "cursor" position. For example, if we have the following, then the string "xa" will convert to "w".
+If the resulting text contains a vertical bar "|", then that means that processing will proceed from that point and that the transform will revisit part of the resulting text.
+Thus the | marks a "cursor" position.
+For example, if we have the following, then the string "xa" will convert to "yw".
 
 ```
 x → y | z ;
@@ -2108,6 +2126,12 @@ Conversion rules can be forward, backward, or double. The complete conversion ru
 > b | c  ←  e { f g } h ;
 > ```
 
+The `completed_result` | `result_to_revisit` is also known as the `resulting_text`. Either or both of the values can be empty. For example, the following removes any a, b, or c. 
+
+```
+[a-c] → ;
+```
+
 #### <a name="Intermixing_Transform_Rules_and_Conversion_Rules" href="#Intermixing_Transform_Rules_and_Conversion_Rules">Intermixing Transform Rules and Conversion Rules</a>
 
 Transform rules and conversion rules may be freely intermixed. Inserting a transform rule into the middle of a set of conversion rules has an important side effect.
@@ -2229,6 +2253,56 @@ m → r ;
 </table>
 
 Note how the irrelevant rules (the inverse filter rule and the rules containing ←) are omitted (ignored, actually) in the forward direction, and notice how things are reversed: the transform rules are inverted and happen in the opposite order, and the groups of conversion rules are also executed in the opposite relative order (although the rules within each group are executed in the same order).
+
+Because the order of rules matters, the following will not work as expected
+```
+c → s;
+ch → kh;
+```
+The second rule can never execute, because it is "masked" by the first. 
+To help prevent errors, implementations should try to alert readers when this occurs, eg:
+```
+Rule {c > s;} masks {ch > kh;}
+```
+
+### Transform Syntax Characters
+
+The following summarizes the syntax characters used in transforms.
+
+| Character(s) | Description | Example |
+| - | - | - |
+| ;  | End of a conversion rule, variable definition, or transform rule invocation | a → b ; |
+| \:\: | Invoke a transform | :: Null ; |
+| (, ) | In a transform rule invocation, marks the backwards transform | :: Null (NFD); |
+| $ | Mark the start of a variable, when followed by an ASCII letter | $abc |
+| = | Used to define variables | $a = abc ; |
+| →, \> | Transform from left to right (only for forward conversion rules) | a → b ; |
+| ←, \< | Transform from right to left (only for backward conversion rules) | a ← b ; |
+| ↔, \<\> | Transform from left to right (for forward) and right to left (for backward) | a ↔ b ; |
+| { | Mark the boundary between before_context and the text_to_replace | a {b} c → B ; |
+| } | Mark the boundary between the text_to_replace and after_context | a {b} c → B ; |
+| ' | Escape one or more characters, until the next '  | '\<\>' → x ; |
+| " | Escape one or more characters, until the next " | "\<\>" → x ; |
+| \\ | Escape the next character | \\\<\\\> → x ; |
+| # | Comment (until the end of a line) | a → ; # remove a |
+| \| | In the resulting_text, moves the cursor | a → A \| b; |
+| @ | In the resulting_text, filler character used to move the cursor before the start or after the end of the result | a → Ab@\|; |
+| (, ) | In text_to_replace, a capturing group | ([a-b]) > &hex($1); |
+| $ | In replacement_text, when followed by 1..9, is replaced by the contents of a capture group | ([a-b]) > &hex($1); |
+| ^ | In a before_context, by itself, equivalent to [$] **(deprecated)** | ... |
+| ? | In a before_context, after_context, or text_to_replace, a possessive quantifier for zero or one  | a?b → c ; |
+| + | In a before_context, after_context, or text_to_replace, a possessive quantifier for one or more  | a+b → c ; |
+| * | In a before_context, after_context, or text_to_replace, a possessive quantifier for zero or more  | a*b → c ; |
+| & | Invoke a function in the replacement_text | ([a-b]) > &hex($1); |
+| !, %, _, ~, -, ., / | Reserved for future syntax | ... |
+| SPACE | Ignored except when quoted | a b # same as ab |
+| \uXXXX | Hex notation: 4 Xs | \u0061 |
+| \x{XX...} | Hex notation: 1-6 Xs | \x{61} |
+| [, ] | Marks a UnicodeSet | [a-z] |
+| \p{...} | Marks a UnicodeSet formed from a property | \p{di} |
+| \P{...} | Marks a negative UnicodeSet formed from a property | \p{DI} |
+| $ | Within a UnicodeSet (not before ASCII letter), matches the start or end of the source text (but is not replaced) | [$] b → c |
+| Other | Many of these characters have special meanings inside a UnicodeSet | ... |
 
 ## <a name="ListPatterns" href="#ListPatterns">List Patterns</a>
 

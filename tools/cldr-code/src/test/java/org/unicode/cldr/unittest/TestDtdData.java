@@ -787,13 +787,12 @@ public class TestDtdData extends TestFmwk {
                         || elementName.equals("backspace") && attribute.equals("from")
                         || elementName.equals("backspace") && attribute.equals("after")
                         || elementName.equals("vkeys") && attribute.equals("type")
-                        || elementName.equals("flick") && attribute.equals("directions")
+                        || elementName.equals("flickSegment") && attribute.equals("directions")
                         // || elementName.equals("row") && attribute.equals("keys")
                         || elementName.equals("vkey") && attribute.equals("iso")
                         || elementName.equals("display") && attribute.equals("to")
                         || elementName.equals("display") && attribute.equals("id")
-                        || elementName.equals("flicks") && attribute.equals("id")
-                        || elementName.equals("flick") && attribute.equals("directions");
+                        || elementName.equals("flick") && attribute.equals("id");
             case keyboardTest3:
                 return elementName.equals("tests") && attribute.equals("name")
                         || elementName.equals("test") && attribute.equals("name")

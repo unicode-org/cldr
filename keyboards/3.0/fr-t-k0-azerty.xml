@@ -67,24 +67,23 @@
 
 		<!-- test key -->
 		<key id="a" flicks="a" to="a" longPress="à â á ä ã å ā" />
-		<flicks id="a">
-			<flick directions="nw" to="\u{1234}" />
-			<flick directions="nw se" to="\u{FFFF}" />
-			<flick directions="e" to="\u{FFF0}" />
-		</flicks>
-
 		<!-- test key -->
 		<key id="A" flicks="b" to="A" longPress="À Á Ä Ã Å Ā" />
-
-		<!-- test flick -->
-		<flicks id="b">
-			<flick directions="nw" to="\u{4567}" />
-			<flick directions="nw se" to="\u{FFFF}" />
-			<flick directions="e" to="\u{FFF0}" />
-		</flicks>
-
 		<!-- TODO: all additional maps, hardware and touch -->
 	</keys>
+
+	<flicks>
+		<flick id="a">
+			<flickSegment directions="nw" to="\u{1234}" />
+			<flickSegment directions="nw se" to="\u{FFFF}" />
+			<flickSegment directions="e" to="\u{FFF0}" />
+		</flick>
+		<flick id="b">
+			<flickSegment directions="nw" to="\u{4567}" />
+			<flickSegment directions="nw se" to="\u{FFFF}" />
+			<flickSegment directions="e" to="\u{FFF0}" />
+		</flick>
+	</flicks>
 
 	<layers form="iso">
 		<!-- in DTD: required if conformsTo ≥ 41 -->

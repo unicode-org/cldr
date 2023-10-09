@@ -625,7 +625,6 @@ This element defines a mapping between an abstract key and its output. This elem
  stretch="true"
  layerId="{switch layer id}"
  output="{the output}"
- transform="no"
  width="{key width}"
  />
 ```
@@ -740,65 +739,6 @@ _Attribute:_ `output`
 > The `output` attribute contains the sequence of characters that is emitted when pressing this particular key. Control characters, whitespace (other than the regular space character) and combining marks in this attribute are escaped using the `\u{...}` notation. More than one key may output the same output.
 >
 > The `output` attribute may also contain the `\m{…}` syntax to insert a marker. See the definition of [markers](#markers).
-
-_Attribute:_ `transform="no"` (optional)
-
-> The `transform` attribute is used to define a key that does not participate in a transform (until the next keystroke). This attribute value must be `"no"` if the attribute is present.
-> This attribute is useful where it is desired to output where two different keys could output the same characters (with different key or modifier combinations) but only one of them is intended to participate in a transform.
-> When the next keystroke is pressed, the prior output may then combine using other transforms.
->
-> Note that a more flexible way of solving this problem may be to use special markers which would inhibit matching.
->
-> For example, suppose there are the following keys, their output and one transform:
-
-```xml
-<keys>
-    <key id="X" output="^" transform="no"/>
-    <key id="OptX" output="^"/>
-</keys>
-…
-<transforms …>
-    <transform from="^e" to="ê"/>
-</transforms>
-```
-
-* **X** outputs `^` (caret)
-* Option-**X** outputs `^` but is intended to be the first part of a transform.
-* Option-**X** + `e` → `ê`
-
-> Without the `transform="no"` on the base key **X**, it would not be possible to
-> type the sequence `^e` (caret+e) as it would turn into `ê` per the transform.
-> However, since there is `transform="no`" on **X**, if the user types **X** + `e` the sequence remains `^e`.
-
-* **X** + `e` → `^e`
-
-> Using markers, the same results can be obtained without need of `transform="no"` using:
-
-```xml
-<keys>
-    <key id="X" output="^\m{no_transform}"/>
-    <key id="OptX" output="^"/>
-</keys>
-…
-<transforms …>
-    <!-- this wouldn't match the key X output because of the marker -->
-    <transform from="^e" output="ê"/>
-</transforms>
-```
-
-Even better is to use a marker to indicate where transforms are desired:
-
-```xml
-<keys>
-    <key id="X" output="^"/>
-    <key id="OptX" output="^\m{transform}"/>
-</keys>
-…
-<transforms …>
-    <!-- again, this wouldn't match the key X output because of the missing marker -->
-    <transform from="^\m{transform}e" output="ê"/>
-</transforms>
-```
 
 _Attribute:_ `width="1.2"` (optional, default "1.0")
 
@@ -1763,6 +1703,58 @@ Consider the following abbreviated example:
 
     - …
     - character `ê`
+
+**Using markers to inhibit other transforms**
+
+Sometimes it is desirable to prevent transforms from having an effect.
+Perhaps two different keys output the same characters, with different key or modifier combinations, but only one of them is intended to participate in a transform.
+
+Consider the following case, where pressing the keys `X`, `e` results in `^e`, which is transformed into `ê`.
+
+```xml
+<keys>
+    <key id="X" output="^"/>
+    <key id="e" output="e" />
+</keys>
+<transforms>
+    <transform from="^e" output="ê"/>
+</transforms>
+```
+
+However, what if the user wanted to produce `^e` without the transform taking effect?
+One strategy would be to use a marker, which won’t be visible in the output, but will inhibit the transform.
+
+```xml
+<keys>
+    <key id="caret" output="^\m{no_transform}"/>
+    <key id="X" output="^" />
+    <key id="e" output="e" />
+</keys>
+…
+<transforms>
+    <!-- this wouldn't match the key X output because of the marker -->
+    <transform from="^e" output="ê"/>
+</transforms>
+```
+
+Pressing `caret` `e` will result in `^e` (with an invisible _no_transform_ marker — note that any name could be used). The `^e` won’t have the transform applied, at least while the marker’s context remains valid.
+
+Another strategy might be to use a marker to indicate where transforms are desired, instead of where they aren't desired.
+
+```xml
+<keys>
+    <key id="caret" output="^"/>
+    <key id="X" output="^\m{transform}"/>
+    <key id="e" output="e" />
+</keys>
+…
+<transforms …>
+    <!-- Won't match ^e without marker. -->
+    <transform from="^\m{transform}e" output="ê"/>
+</transforms>
+```
+
+In this way, only the `X`, `e` keys will produce `^e` with a _transform_ marker (again, any name could be used) which will cause the transform to be applied. One benefit is that clicking or using the arrow key to navigate existing text with `^e` will never be affected by the transform, because the marker is not or no longer present.
 
 **Effect of markers on final text**
 

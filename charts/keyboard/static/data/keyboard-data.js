@@ -503,10 +503,12 @@ const _KeyboardData =
        "@_to": "A",
        "@_longPress": "À Á Ä Ã Å Ā"
       }
-     ],
-     "flicks": [
+     ]
+    },
+    "flicks": {
+     "flick": [
       {
-       "flick": [
+       "flickSegment": [
         {
          "@_directions": "nw",
          "@_to": "\\u{1234}"
@@ -523,7 +525,7 @@ const _KeyboardData =
        "@_id": "a"
       },
       {
-       "flick": [
+       "flickSegment": [
         {
          "@_directions": "nw",
          "@_to": "\\u{4567}"

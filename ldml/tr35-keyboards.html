@@ -676,6 +676,9 @@
 
 
 
+
+
+
 <script src="./js/anchor.min.js"></script><div class="header"><table class="header" cellpadding="0" cellspacing="0" width="100%">
     <tbody>
         <tr>
@@ -749,7 +752,8 @@ status, the latest information, or to provide feedback.</p><h2 id="Parts"><a nam
 <li><a href="#Element_keys">Element: keys</a></li>
 <li><a href="#Element_key">Element: key</a><ul>
 <li><a href="#implied-keys">Implied Keys</a></li>
-<li><a href="#Element_flicks">Elements: flicks, flick</a></li>
+<li><a href="#Element_flicks">Elements: flicks</a></li>
+<li><a href="#Element_flick">Elements: flick, flickSegment</a></li>
 </ul>
 </li>
 <li><a href="#Element_import">Element: import</a></li>
@@ -863,7 +867,7 @@ If it becomes necessary in the future, the format could extend the ISO layout to
 <li><code>chars</code> on the <a href="#test-element-repertoire"><code>&lt;repertoire&gt;</code></a> test element.</li>
 </ul><h3 id="uts18-escaping">UTS18 Escaping</h3><p>The <code>\u{...}</code> notation, a subset of hex notation, is described in <a href="https://www.unicode.org/reports/tr18/#Hex_notation">UTS #18 section 1.1</a>. It can refer to one or multiple individual codepoints. Currently, the following attribute values allow the <code>\u{...}</code> notation:</p><ul>
 <li><code>to</code>, <code>longPress</code>, <code>multiTap</code>, and <code>longPressDefault</code> on the <code>&lt;key&gt;</code> element</li>
-<li><code>to</code> on the <code>&lt;flick&gt;</code> element</li>
+<li><code>to</code> on the <code>&lt;flickSegment&gt;</code> element</li>
 <li><code>from</code> or <code>to</code> on the <code>&lt;transform&gt;</code> element</li>
 <li><code>value</code> on the <code>&lt;variable&gt;</code> element</li>
 <li><code>to</code> and <code>display</code> on the <code>&lt;display&gt;</code> element</li>
@@ -885,7 +889,7 @@ If it becomes necessary in the future, the format could extend the ISO layout to
 <small>
 
 <p>Parents: <em>none</em></p>
-<p>Children: <a href="#Element_displays">displays</a>, <a href="#Element_import">import</a>, <a href="#Element_info">info</a>, <a href="#Element_keys">keys</a>, <a href="#Element_layers">layers</a>, <a href="#Element_locales">locales</a>, <a href="#Element_settings">settings</a>, <a href="tr35.html#special"><em>special</em></a>, <a href="#Element_transforms">transforms</a>, <a href="#Element_variables">variables</a>, <a href="#Element_version">version</a></p>
+<p>Children: <a href="#Element_displays">displays</a>, <a href="#Element_import">import</a>, <a href="#Element_info">info</a>, <a href="#Element_keys">keys</a>, <a href="#Element_flicks">flicks</a>, <a href="#Element_layers">layers</a>, <a href="#Element_locales">locales</a>, <a href="#Element_settings">settings</a>, <a href="tr35.html#special"><em>special</em></a>, <a href="#Element_transforms">transforms</a>, <a href="#Element_variables">variables</a>, <a href="#Element_version">version</a></p>
 <p>Occurrence: required, single</p>
 </small>
 </blockquote><p><em>Attribute:</em> <code>conformsTo</code> (required)</p><p>This attribute distinguishes the keyboard from prior versions,
@@ -997,15 +1001,12 @@ There is only a single <code>&lt;keys&gt;</code> element in each layout.</p><p><
     <span class="hljs-tag">&lt;<span class="hljs-name">key</span> … /&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">key</span> … /&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">key</span> … /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">flicks</span> … /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">key</span> … /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">flicks</span> … /&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">keys</span>&gt;</span>
-</code></pre><p><code>key</code> and <code>flicks</code> elements may be interleaved in any order.</p><blockquote>
+</code></pre><blockquote>
 <small>
 
 <p>Parents: <a href="#Element_keyboard">keyboard3</a>
-Children: <a href="#Element_key">key</a>, <a href="#Element_flicks">flicks</a>
+Children: <a href="#Element_key">key</a>
 Occurrence: optional, single</p>
 </small>
 </blockquote><hr><h3 id="Element_key"><a name="element-key" href="#Element_key">Element: key</a></h3><p>This element defines a mapping between an abstract key and its output. This element must have the <code>keys</code> element as its parent. The <code>key</code> element is referenced by the <code>keys=</code> attribute of the <a href="#Element_row"><code>row</code> element</a>.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">key</span>
@@ -1130,27 +1131,42 @@ However, since there is <code>transform="no</code>" on <strong>X</strong>, if th
         <span class="hljs-tag">&lt;<span class="hljs-name">import</span> <span class="hljs-attr">base</span>=<span class="hljs-string">"cldr"</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"techpreview/keys-Latn-implied.xml"</span> /&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">keys</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">keyboard3</span>&gt;</span>
-</code></pre><p><strong>Note:</strong> All implied keys may be overridden, as with all other imported data items. See the <a href="#Element_import"><code>import</code></a> element for more details.</p><hr><h4 id="Element_flicks"><a name="elements-flicks-flick" href="#Element_flicks">Elements: flicks, flick</a></h4><p>The <code>flicks</code> element is used to generate results from a "flick" of the finger on a mobile device.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"a"</span> <span class="hljs-attr">flicks</span>=<span class="hljs-string">"a-flicks"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"a"</span> /&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">flicks</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"a-flicks"</span>&gt;</span>
-    {a set of flick elements}
-<span class="hljs-tag">&lt;/<span class="hljs-name">flicks</span>&gt;</span>
-</code></pre><blockquote>
+</code></pre><p><strong>Note:</strong> All implied keys may be overridden, as with all other imported data items. See the <a href="#Element_import"><code>import</code></a> element for more details.</p><hr><h4 id="Element_flicks"><a name="elements-flicks" href="#Element_flicks">Elements: flicks</a></h4><p>The <code>flicks</code> element is a collection of <code>flick</code> elements.</p><blockquote>
 <small>
 
-<p>Parents: <a href="#Element_keys">keys</a></p>
-<p>Children: <a href="#Element_flick">flick</a>, <a href="tr35.html#special"><em>special</em></a></p>
-<p>Occurrence: optional, multiple</p>
-</small>
-</blockquote><p><em>Attribute:</em> <code>id</code> (required)</p><blockquote>
-<p>The <code>id</code> attribute identifies the flicks. It can be any NMTOKEN.</p>
-<p>The <code>flicks</code> do not share a namespace with the <code>key</code>s, so it would also be allowed
-to have <code>&lt;key id="a" flicks="a"/&gt;&lt;flicks id="a"/&gt;</code></p>
-<p>In the future, this attribute’s definition is expected to be updated to align with <a href="https://www.unicode.org/reports/tr31/">UAX#31</a>. Please see <a href="https://unicode-org.atlassian.net/browse/CLDR-17043">CLDR-17043</a> for more details.</p>
-</blockquote><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">flick</span> <span class="hljs-attr">directions</span>=<span class="hljs-string">"{list of directions}"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"{the output}"</span> /&gt;</span>
+<p>Parents: <a href="#Element_keyboard3">keyboard3</a></p>
+<p>Children: <a href="#Element_flick">flick</a>, <a href="#Element_import">import</a>, <a href="tr35.html#special"><em>special</em></a></p>
+</small><p><small>Occurrence: optional, single
+</small></p>
+</blockquote><hr><h4 id="Element_flick"><a name="elements-flick-flicksegment" href="#Element_flick">Elements: flick, flickSegment</a></h4><p>The <code>flick</code> element is used to generate results from a "flick" of the finger on a mobile device.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">keys</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"a"</span> <span class="hljs-attr">flicks</span>=<span class="hljs-string">"a-flicks"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"a"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">keys</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">flicks</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">flick</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"a-flicks"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">flickSegment</span> … /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">flickSegment</span> … /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">flickSegment</span> … /&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">flick</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">flicks</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">keyboard3</span>&gt;</span>
 </code></pre><blockquote>
 <small>
 
 <p>Parents: <a href="#Element_flicks">flicks</a></p>
+<p>Children: <a href="#Element_flickSegment">flickSegment</a>, <a href="tr35.html#special"><em>special</em></a></p>
+<p>Occurrence: optional, multiple</p>
+</small>
+</blockquote><p><em>Attribute:</em> <code>id</code> (required)</p><blockquote>
+<p>The <code>id</code> attribute identifies the flicks. It can be any NMTOKEN.</p>
+<p>The <code>flick</code> elements do not share a namespace with the <code>key</code>s, so it would also be allowed
+to have <code>&lt;key id="a" flick="a"/&gt;</code></p>
+<p>In the future, this attribute’s definition is expected to be updated to align with <a href="https://www.unicode.org/reports/tr31/">UAX#31</a>. Please see <a href="https://unicode-org.atlassian.net/browse/CLDR-17043">CLDR-17043</a> for more details.</p>
+</blockquote><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">flickSegment</span> <span class="hljs-attr">directions</span>=<span class="hljs-string">"{list of directions}"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"{the output}"</span> /&gt;</span>
+</code></pre><blockquote>
+<small>
+
+<p>Parents: <a href="#Element_flick">flick</a></p>
 <p>Children: <em>none</em></p>
 <p>Occurrence: required, multiple</p>
 </small>
@@ -1159,9 +1175,9 @@ to have <code>&lt;key id="a" flicks="a"/&gt;&lt;flicks id="a"/&gt;</code></p>
 </blockquote><p><em>Attribute:</em> <code>to</code> (required)</p><blockquote>
 <p>The to attribute value is the result of (one or more) flicks.</p>
 </blockquote><p><strong>Example</strong>
-where a flick to the Northeast then South produces two code points.</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">flicks</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"a"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">flick</span> <span class="hljs-attr">directions</span>=<span class="hljs-string">"ne s"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"\u{ABCD}\u{DCBA}"</span> /&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">flicks</span>&gt;</span>
+where a flick to the Northeast then South produces two code points.</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">flick</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"a"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">flickSegment</span> <span class="hljs-attr">directions</span>=<span class="hljs-string">"ne s"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"\u{ABCD}\u{DCBA}"</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">flick</span>&gt;</span>
 </code></pre><hr><h3 id="Element_import"><a name="element-import" href="#Element_import">Element: import</a></h3><p>The <code>import</code> element is used to reference another xml file so that elements are imported from
 another file. The use case is to be able to import a standard set of <code>transform</code>s and similar
 from the CLDR repository, especially to be able to share common information relevant to a particular script.
@@ -1170,7 +1186,7 @@ If two identical elements are defined, the later element will take precedence, t
 </code></pre><blockquote>
 <small>
 
-<p>Parents: <a href="#Element_displays">displays</a>, <a href="#Element_keyboard">keyboard3</a>, <a href="#Element_keys">keys</a>, <a href="#Element_layers">layers</a>, <a href="#Element_names">names</a>, <a href="#Element_reorders">reorders</a>, <a href="#Element_transformGroup">transformGroup</a>, <a href="#Element_transforms">transforms</a>, <a href="#Element_variables">variables</a>
+<p>Parents: <a href="#Element_displays">displays</a>, <a href="#Element_keyboard">keyboard3</a>, <a href="#Element_keys">keys</a>, <a href="#Element_flicks">flicks</a>, <a href="#Element_layers">layers</a>, <a href="#Element_names">names</a>, <a href="#Element_reorders">reorders</a>, <a href="#Element_transformGroup">transformGroup</a>, <a href="#Element_transforms">transforms</a>, <a href="#Element_variables">variables</a>
 Children: <em>none</em></p>
 <p>Occurrence: optional, multiple</p>
 </small>
@@ -2288,7 +2304,7 @@ Note that the 'name' is arbitrary. --&gt;</span>
 <p>Children: <em>none</em></p>
 </small><p><small>Occurrence: Optional, Multiple
 </small></p>
-</blockquote><p>This element represents a single keystroke or other gesture event, identified by a particular key element.</p><p>Optionally, one of the gesture attributes, either <code>flick</code>, <code>longPress</code>, or <code>tapCount</code> may be specified. If none of the gesture attributes are specified, then a regular keypress is effected on the key.  It is an error to specify more than one gesture attribute.</p><p>If a key is not found, or a particular gesture has no definition, the output should be behave as if the user attempted to perform such an action.  For example, an unspecified <code>flick</code> would result in no output.</p><p>When a key is found, processing continues with the transform and other elements before updating the test output buffer.</p><p><em>Attribute:</em> <code>key</code> (required)</p><p>This attribute specifies a key by means of the key’s <code>id</code> attribute.</p><p><em>Attribute:</em> <code>flick</code></p><p>This attribute specifies a flick gesture to be performed on the specified key instead of a keypress, such as <code>e</code> or <code>nw se</code>. This value corresponds to the <code>directions</code> attribute of the <a href="#Element_flicks"><code>&lt;flick&gt;</code></a> element.</p><p><em>Attribute:</em> <code>longPress</code></p><p>This attribute specifies that a long press gesture should be performed on the specified key instead of a keypress. For example, <code>longPress="2"</code> indicates that the second character in a longpress series should be chosen. <code>longPress="0"</code> indicates that the <code>longPressDefault</code> value, if any, should be chosen. This corresponds to <code>longPress</code> and <code>longPressDefault</code> on <a href="#Element_key"><code>&lt;key&gt;</code></a>.</p><p><em>Attribute:</em> <code>tapCount</code></p><p>This attribute specifies that a multi-tap gesture should be performed on the specified key instead of a keypress. For example, <code>tapCount="3"</code> indicates that the key should be tapped three times in rapid succession. This corresponds to <code>multiTap</code> on <a href="#Element_key"><code>&lt;key&gt;</code></a>. The minimum tapCount is 2.</p><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keystroke</span> <span class="hljs-attr">key</span>=<span class="hljs-string">"q"</span>/&gt;</span>
+</blockquote><p>This element represents a single keystroke or other gesture event, identified by a particular key element.</p><p>Optionally, one of the gesture attributes, either <code>flick</code>, <code>longPress</code>, or <code>tapCount</code> may be specified. If none of the gesture attributes are specified, then a regular keypress is effected on the key.  It is an error to specify more than one gesture attribute.</p><p>If a key is not found, or a particular gesture has no definition, the output should be behave as if the user attempted to perform such an action.  For example, an unspecified <code>flick</code> would result in no output.</p><p>When a key is found, processing continues with the transform and other elements before updating the test output buffer.</p><p><em>Attribute:</em> <code>key</code> (required)</p><p>This attribute specifies a key by means of the key’s <code>id</code> attribute.</p><p><em>Attribute:</em> <code>flick</code></p><p>This attribute specifies a flick gesture to be performed on the specified key instead of a keypress, such as <code>e</code> or <code>nw se</code>. This value corresponds to the <code>directions</code> attribute of the <a href="#Element_flickSegment"><code>&lt;flickSegment&gt;</code></a> element.</p><p><em>Attribute:</em> <code>longPress</code></p><p>This attribute specifies that a long press gesture should be performed on the specified key instead of a keypress. For example, <code>longPress="2"</code> indicates that the second character in a longpress series should be chosen. <code>longPress="0"</code> indicates that the <code>longPressDefault</code> value, if any, should be chosen. This corresponds to <code>longPress</code> and <code>longPressDefault</code> on <a href="#Element_key"><code>&lt;key&gt;</code></a>.</p><p><em>Attribute:</em> <code>tapCount</code></p><p>This attribute specifies that a multi-tap gesture should be performed on the specified key instead of a keypress. For example, <code>tapCount="3"</code> indicates that the key should be tapped three times in rapid succession. This corresponds to <code>multiTap</code> on <a href="#Element_key"><code>&lt;key&gt;</code></a>. The minimum tapCount is 2.</p><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keystroke</span> <span class="hljs-attr">key</span>=<span class="hljs-string">"q"</span>/&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">keystroke</span> <span class="hljs-attr">key</span>=<span class="hljs-string">"doublequote"</span>/&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">keystroke</span> <span class="hljs-attr">key</span>=<span class="hljs-string">"s"</span> <span class="hljs-attr">flick</span>=<span class="hljs-string">"nw se"</span>/&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">keystroke</span> <span class="hljs-attr">key</span>=<span class="hljs-string">"e"</span> <span class="hljs-attr">longPress</span>=<span class="hljs-string">"1"</span>/&gt;</span>

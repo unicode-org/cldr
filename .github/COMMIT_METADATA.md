@@ -15,6 +15,7 @@
 - 7c8c8bb83ca253f499d4d5c08f968327611a6a70 CLDR-16437 v44 dep fix
 - f0324b82d27695306d1126c54a6de381cfbd9bcc CLDR-16564 v44 version number fix
 - b0a6207ff224a6cd8ca7f888c8a4740bacb83124 CLDR-16598 v44 Monitor SurveyTool server disk space
+- 2eef76b58182ee16e12897df33094eafd18a1833 CLDR-16883 v44 ST: hide sideways inheritance
 
 ### The following are items to skip for a certain CLDR version.
 ### Format: `# SKIP v00` followed by a list of commits to skip for that version (same structure as above)

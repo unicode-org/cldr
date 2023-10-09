@@ -676,18 +676,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 <script src="./js/anchor.min.js"></script><div class="header"><table class="header" cellpadding="0" cellspacing="0" width="100%">
     <tbody>
         <tr>
@@ -757,8 +745,6 @@ status, the latest information, or to provide feedback.</p><h2 id="Parts"><a nam
 <li><a href="#Element_locale">Element: locale</a></li>
 <li><a href="#Element_version">Element: version</a></li>
 <li><a href="#Element_info">Element: info</a></li>
-<li><a href="#Element_names">Element: names</a></li>
-<li><a href="#Element_name">Element: name</a></li>
 <li><a href="#Element_settings">Element: settings</a></li>
 <li><a href="#Element_keys">Element: keys</a></li>
 <li><a href="#Element_key">Element: key</a><ul>
@@ -899,7 +885,7 @@ If it becomes necessary in the future, the format could extend the ISO layout to
 <small>
 
 <p>Parents: <em>none</em></p>
-<p>Children: <a href="#Element_displays">displays</a>, <a href="#Element_import">import</a>, <a href="#Element_info">info</a>, <a href="#Element_keys">keys</a>, <a href="#Element_layers">layers</a>, <a href="#Element_locales">locales</a>, <a href="#Element_names">names</a>, <a href="#Element_settings">settings</a>, <a href="tr35.html#special"><em>special</em></a>, <a href="#Element_transforms">transforms</a>, <a href="#Element_variables">variables</a>, <a href="#Element_version">version</a></p>
+<p>Children: <a href="#Element_displays">displays</a>, <a href="#Element_import">import</a>, <a href="#Element_info">info</a>, <a href="#Element_keys">keys</a>, <a href="#Element_layers">layers</a>, <a href="#Element_locales">locales</a>, <a href="#Element_settings">settings</a>, <a href="tr35.html#special"><em>special</em></a>, <a href="#Element_transforms">transforms</a>, <a href="#Element_variables">variables</a>, <a href="#Element_version">version</a></p>
 <p>Occurrence: required, single</p>
 </small>
 </blockquote><p><em>Attribute:</em> <code>conformsTo</code> (required)</p><p>This attribute distinguishes the keyboard from prior versions,
@@ -957,7 +943,9 @@ Must <em>not</em> include the <code>-k0-</code> subtag for this additional langu
     <span class="hljs-tag">&lt;<span class="hljs-name">version</span> <span class="hljs-attr">number</span>=<span class="hljs-string">"1"</span>/&gt;</span>
     …
 <span class="hljs-tag">&lt;/<span class="hljs-name">keyboard3</span>&gt;</span>
-</code></pre><hr><h3 id="Element_info"><a name="element-info" href="#Element_info">Element: info</a></h3><p>Element containing informative properties about the layout, for displaying in user interfaces etc.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">info</span> <span class="hljs-attr">author</span>=<span class="hljs-string">"{author}"</span>
+</code></pre><hr><h3 id="Element_info"><a name="element-info" href="#Element_info">Element: info</a></h3><p>Element containing informative properties about the layout, for displaying in user interfaces etc.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">info</span>
+      <span class="hljs-attr">name</span>=<span class="hljs-string">"{keyboard name}"</span>
+      <span class="hljs-attr">author</span>=<span class="hljs-string">"{author}"</span>
       <span class="hljs-attr">layout</span>=<span class="hljs-string">"{hint of the layout}"</span>
       <span class="hljs-attr">indicator</span>=<span class="hljs-string">"{short identifier}"</span> /&gt;</span>
 </code></pre><blockquote>
@@ -965,9 +953,17 @@ Must <em>not</em> include the <code>-k0-</code> subtag for this additional langu
 
 <p>Parents: <a href="#Element_keyboard">keyboard3</a></p>
 <p>Children: <em>none</em></p>
-<p>Occurrence: optional, single</p>
+<p>Occurrence: required, single</p>
 </small>
-</blockquote><p><em>Attribute:</em> <code>author</code></p><blockquote>
+</blockquote><p><em>Attribute:</em> <code>name</code> (required)</p><blockquote>
+<p>Note that this is the only required attribute for the <code>&lt;info&gt;</code> element.</p>
+<p>This attribute is an informative name for the keyboard.</p>
+</blockquote><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span> <span class="hljs-attr">locale</span>=<span class="hljs-string">"bg-t-k0-phonetic-trad"</span>&gt;</span>
+    …
+    <span class="hljs-tag">&lt;<span class="hljs-name">info</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"Bulgarian (Phonetic Traditional)"</span> /&gt;</span>
+    …
+<span class="hljs-tag">&lt;/<span class="hljs-name">keyboard3</span>&gt;</span>
+</code></pre><hr><p><em>Attribute:</em> <code>author</code></p><blockquote>
 <p>The <code>author</code> attribute contains the name of the author of the layout file.</p>
 </blockquote><p><em>Attribute:</em> <code>layout</code></p><blockquote>
 <p>The <code>layout</code> attribute describes the layout pattern, such as QWERTY, DVORAK, INSCRIPT, etc. typically used to distinguish various layouts for the same language.</p>
@@ -976,34 +972,7 @@ Must <em>not</em> include the <code>-k0-</code> subtag for this additional langu
 <p>The <code>indicator</code> attribute describes a short string to be used in currently selected layout indicator, such as <code>US</code>, <code>SI9</code> etc.
 Typically, this is shown on a UI element that allows switching keyboard layouts and/or input languages.</p>
 <p>This attribute is not localized.</p>
-</blockquote><hr><h3 id="Element_names"><a name="element-names" href="#Element_names">Element: names</a></h3><p>Element used to store any names given to the layout.</p><p>These names are not localized but are informative names for the keyboard. Localization of these names would be done as separate data items elsewhere in CLDR.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">names</span>&gt;</span>
-    {set of name elements}
-<span class="hljs-tag">&lt;/<span class="hljs-name">names</span>&gt;</span>
-</code></pre><blockquote>
-<small>
-
-<p>Parents: <a href="#Element_keyboard">keyboard3</a></p>
-<p>Children: <a href="#Element_name">name</a>, <a href="tr35.html#special"><em>special</em></a></p>
-<p>Occurrence: required, single</p>
-</small>
-</blockquote><h3 id="Element_name"><a name="element-name" href="#Element_name">Element: name</a></h3><p>A single name given to the layout.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">name</span> <span class="hljs-attr">value</span>=<span class="hljs-string">".."</span>&gt;</span>
-</code></pre><blockquote>
-<small>
-
-<p>Parents: <a href="#Element_names">names</a></p>
-<p>Children: <em>none</em></p>
-<p>Occurrence: required, multiple</p>
-</small>
-</blockquote><p><em>Attribute:</em> <code>value</code> (required)</p><blockquote>
-<p>The name of the layout.</p>
-</blockquote><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span> <span class="hljs-attr">locale</span>=<span class="hljs-string">"bg-t-k0-phonetic-trad"</span>&gt;</span>
-    …
-    <span class="hljs-tag">&lt;<span class="hljs-name">names</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">name</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"Bulgarian (Phonetic Traditional)"</span> /&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">names</span>&gt;</span>
-    …
-<span class="hljs-tag">&lt;/<span class="hljs-name">keyboard3</span>&gt;</span>
-</code></pre><hr><h3 id="Element_settings"><a name="element-settings" href="#Element_settings">Element: settings</a></h3><p>An element used to keep track of layout-specific settings by implementations. This element may or may not show up on a layout. These settings reflect the normal practice by the implementation. However, an implementation using the data may customize the behavior.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">settings</span> <span class="hljs-attr">normalization</span>=<span class="hljs-string">"disabled"</span> /&gt;</span>
+</blockquote><hr><h3 id="Element_settings"><a name="element-settings" href="#Element_settings">Element: settings</a></h3><p>An element used to keep track of layout-specific settings by implementations. This element may or may not show up on a layout. These settings reflect the normal practice by the implementation. However, an implementation using the data may customize the behavior.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">settings</span> <span class="hljs-attr">normalization</span>=<span class="hljs-string">"disabled"</span> /&gt;</span>
 </code></pre><blockquote>
 <small>
 

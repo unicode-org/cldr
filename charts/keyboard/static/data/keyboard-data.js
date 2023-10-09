@@ -15,10 +15,8 @@ const _KeyboardData =
     "version": {
      "@_number": "0.0.0"
     },
-    "names": {
-     "name": {
-      "@_value": "Portuguese (Brazil) (ABNT2)"
-     }
+    "info": {
+     "@_name": "Portuguese (Brazil) (ABNT2)"
     },
     "displays": {
      "display": [
@@ -189,10 +187,8 @@ const _KeyboardData =
     "version": {
      "@_number": "0.0.0"
     },
-    "names": {
-     "name": {
-      "@_value": "Romaji (JIS)"
-     }
+    "info": {
+     "@_name": "Romaji (JIS)"
     },
     "keys": {
      "import": [
@@ -264,15 +260,8 @@ const _KeyboardData =
     "version": {
      "@_number": "1.0.0"
     },
-    "names": {
-     "name": [
-      {
-       "@_value": "Nigerian Pidgin"
-      },
-      {
-       "@_value": "Naijíriá Píjin"
-      }
-     ]
+    "info": {
+     "@_name": "Naijíriá Píjin"
     },
     "keys": {
      "import": [
@@ -419,19 +408,10 @@ const _KeyboardData =
      "@_number": "1.0.0"
     },
     "info": {
+     "@_name": "French Test AZERTY",
      "@_author": "Team Keyboard",
      "@_layout": "AZERTY",
      "@_indicator": "FR"
-    },
-    "names": {
-     "name": [
-      {
-       "@_value": "French Test"
-      },
-      {
-       "@_value": "French Test AZERTY"
-      }
-     ]
     },
     "displays": {
      "display": {
@@ -811,19 +791,10 @@ const _KeyboardData =
      }
     },
     "info": {
+     "@_name": "Maltese",
      "@_author": "Steven R. Loomis",
      "@_layout": "QWERTY",
      "@_indicator": "MT"
-    },
-    "names": {
-     "name": [
-      {
-       "@_value": "Maltese"
-      },
-      {
-       "@_value": "MSA 100:2002"
-      }
-     ]
     },
     "keys": {
      "import": [
@@ -1016,19 +987,10 @@ const _KeyboardData =
      }
     },
     "info": {
+     "@_name": "Maltese 47-key",
      "@_author": "Steven R. Loomis",
      "@_layout": "QWERTY",
      "@_indicator": "MT"
-    },
-    "names": {
-     "name": [
-      {
-       "@_value": "Maltese 47-key"
-      },
-      {
-       "@_value": "MSA 100:2002 47-key"
-      }
-     ]
     },
     "keys": {
      "import": [

@@ -10,7 +10,7 @@ The CLDR Keyboard Subcommittee is currently developing major changes to the CLDR
 Please view the subcommittee page for the most recent information.
 <https://cldr.unicode.org/index/keyboard-workgroup> -->
 
-<!ELEMENT keyboard3 ( import*, locales?, version?, info, settings?, displays?, keys?, flicks?, forms?, layers*, variables?, transforms*, special* ) >
+<!ELEMENT keyboard3 ( import*, locales?, version?, info, settings?, displays?, keys?, keyLists?, flicks?, forms?, layers*, variables?, transforms*, special* ) >
     <!--@TECHPREVIEW-->
 <!ATTLIST keyboard3 locale CDATA #REQUIRED >
     <!--@MATCH:validity/bcp47-wellformed-->
@@ -104,17 +104,12 @@ Please view the subcommittee page for the most recent information.
     <!--@MATCH:any-->
     <!--@VALUE-->
     <!--@ALLOWS_UESC-->
-<!ATTLIST key longPress CDATA #IMPLIED >
+<!ATTLIST key longPressKeyListId NMTOKEN #IMPLIED >
     <!--@MATCH:any-->
     <!--@VALUE-->
-    <!--@ALLOWS_UESC-->
-<!ATTLIST key longPressDefault CDATA #IMPLIED >
+<!ATTLIST key multiTapKeyListId NMTOKEN #IMPLIED >
     <!--@MATCH:any-->
     <!--@VALUE-->
-    <!--@ALLOWS_UESC-->
-<!ATTLIST key multiTap CDATA #IMPLIED >
-    <!--@VALUE-->
-    <!--@ALLOWS_UESC-->
 <!ATTLIST key stretch (true) #IMPLIED >
     <!--@VALUE-->
 <!ATTLIST key layerId NMTOKEN #IMPLIED >
@@ -124,6 +119,20 @@ Please view the subcommittee page for the most recent information.
     <!--@VALUE-->
 <!ATTLIST key width CDATA #IMPLIED >
     <!--@MATCH:range/0.01~100.0-->
+    <!--@VALUE-->
+
+<!ELEMENT keyLists ( import*, keyList*, special* ) >
+    <!--@TECHPREVIEW-->
+
+<!ELEMENT keyList EMPTY >
+    <!--@TECHPREVIEW-->
+<!ATTLIST keyList id NMTOKEN #REQUIRED >
+    <!--@MATCH:any-->
+<!ATTLIST keyList keyIds NMTOKENS #REQUIRED >
+    <!--@MATCH:any-->
+    <!--@VALUE-->
+<!ATTLIST keyList defaultKeyId NMTOKEN #IMPLIED >
+    <!--@MATCH:any-->
     <!--@VALUE-->
 
 <!ELEMENT flicks ( import*, flick*, special* ) >
@@ -137,10 +146,9 @@ Please view the subcommittee page for the most recent information.
     <!--@TECHPREVIEW-->
 <!ATTLIST flickSegment directions NMTOKENS #REQUIRED >
     <!--@MATCH:regex/(n|e|s|w|ne|nw|se|sw)([ ]+(n|e|s|w|ne|nw|se|sw))*-->
-<!ATTLIST flickSegment output CDATA #REQUIRED >
+<!ATTLIST flickSegment keyId NMTOKEN #REQUIRED >
     <!--@MATCH:any-->
     <!--@VALUE-->
-    <!--@ALLOWS_UESC-->
 
 <!ELEMENT forms ( import*, form*, special* ) >
     <!--@TECHPREVIEW-->

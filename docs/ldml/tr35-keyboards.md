@@ -274,8 +274,7 @@ Currently, the following attribute values allow _UnicodeSet_ notation:
 
 The `\u{...}` notation, a subset of hex notation, is described in [UTS #18 section 1.1](https://www.unicode.org/reports/tr18/#Hex_notation). It can refer to one or multiple individual codepoints. Currently, the following attribute values allow the `\u{...}` notation:
 
-* `output`, `longPress`, `multiTap`, and `longPressDefault` on the `<key>` element
-* `output` on the `<flickSegment>` element
+* `output` on the `<key>` element
 * `from` or `to` on the `<transform>` element
 * `value` on the `<variable>` element
 * `output` and `display` on the `<display>` element
@@ -333,7 +332,7 @@ This is the top level element. All other elements defined below are under this e
 >
 > Parents: _none_
 >
-> Children: [displays](#Element_displays), [import](#Element_import), [info](#Element_info), [keys](#Element_keys), [flicks](#Element_flicks), [layers](#Element_layers), [locales](#Element_locales), [settings](#Element_settings), [_special_](tr35.md#special), [transforms](#Element_transforms), [variables](#Element_variables), [version](#Element_version)
+> Children: [displays](#Element_displays), [import](#Element_import), [info](#Element_info), [keys](#Element_keys), [keyLists](#Element_keyLists), [flicks](#Element_flicks), [layers](#Element_layers), [locales](#Element_locales), [settings](#Element_settings), [_special_](tr35.md#special), [transforms](#Element_transforms), [variables](#Element_variables), [version](#Element_version)
 >
 > Occurrence: required, single
 >
@@ -619,9 +618,8 @@ This element defines a mapping between an abstract key and its output. This elem
  id="{key id}"
  flickId="{flick identifier}"
  gap="true"
- longPress="{long press keys}"
- longPressDefault="{default longpress target}"
- multiTap="{the output on subsequent taps}"
+ longPressKeyListId="{long press list id}"
+ multiTapKeyListId="{multi tap list id}"
  stretch="true"
  layerId="{switch layer id}"
  output="{the output}"
@@ -661,29 +659,57 @@ _Attribute:_ `gap="true"` (optional)
 <key id="mediumgap" gap="true" width="1.5"/>
 ```
 
-_Attribute:_ `longPress="a b c"` (optional)
+_Attribute:_ `longPressKeyListId="a b c"` (optional)
 
-> The `longPress` attribute contains any characters that can be emitted by "long-pressing" a key, this feature is prominent in mobile devices. The possible sequences of characters that can be emitted are whitespace delimited. Control characters, combining marks and whitespace (which is intended to be a long-press option) in this attribute are escaped using the `\u{...}` notation.
+> The id of a specific [keyList](#element-keylist) element, whose keys which can be emitted by "long-pressing" this key. This feature is prominent in mobile devices.
 >
-
-_Attribute:_ `longPressDefault` (optional)
-
-> Indicates which of the `longPress` target characters is the default long-press target, which could be different than the first element. Ignored if not in the `longPress` list. Characters in this attribute can be escaped using the `\u{...}` notation.
-> For example, if the `longPressDefault` is a key whose [display](#Element_displays) value is `{`, an implementation might render the key as follows:
+> The list’s `defaultKeyId` attribute specifies which of the keys in the list is the default long-press target, which could be different than the first element.
+>
+> For example, if the `defaultKeyId` is a key whose [display](#Element_displays) value is `{`, an implementation might render the key as follows:
 >
 > ![keycap hint](images/keycapHint.png)
-
-_Attribute:_ `multiTap` (optional)
-
-> A space-delimited list of strings, where each successive element of the list is produced by the corresponding number of quick taps. In the following example, three taps on the key will produce a “c” (first tap produces “a”, two taps produce “bb” etc.).
->>
+>
 > _Example:_
+> - pressing the `o` key will produce `o`
+> - holding down the key will produce a list `ó`, `{` (where `{` is the default and produces a marker)
 >
 > ```xml
-> <key id="a" output="a" multiTap="bb c d">
-> ```
+> <displays>
+>    <displays output="\m{marker}" display="{" />
+> </displays>
 >
-> Control characters, combining marks and whitespace (which is intended to be a multiTap option) in this attribute are escaped using the `\u{...}` notation.
+> <keys>
+>    <key id="o" output="o" longPressKeyListId="o-list">
+>    <key id="o-acute" output="ó"/>
+>    <key id="marker" display="{"/>
+> </key>
+>
+>
+> <keyLists>
+>    <keyList id="o-list" defaultKeyId="open" keyIds="o-acute marker"/>
+> </keyLists>
+> ```
+
+
+_Attribute:_ `multiTapKeyListId` (optional)
+
+> The id of a specific [keyList](#element-keylist) element, where each successive key in the list is produced by the corresponding number of quick taps.
+>
+> _Example:_
+> - first tap on the key will produce “a”
+> - two taps will produce “bb”
+> - three taps on the key will produce “c”
+> - four taps on the key will produce “d”
+>
+> ```xml
+> <keys>
+>    <key id="a" output="a" multiTapKeyListId="a-taps">
+> </key>
+>
+> <keyLists>
+>    <keyList id="a-list" keyIds="bb c d"/>
+> </keyLists>
+> ```
 
 **Note**: Behavior past the end of the multiTap list is implementation specific.
 
@@ -820,6 +846,58 @@ Thus, the implied keys behave as if the following import were present.
 
 * * *
 
+### <a name="Element_keyLists" href="#Element_keyLists">Element: keyLists</a>
+
+This element contains `keyList` elements, indicating an ordered list of keys.
+
+> <small>
+>
+> Parents: [keyboard3](#Element_keyboard3)
+>
+> Children: [import](#Element_import), [keyList](#Element_keyList), [_special_](tr35.md#special)
+>
+> Occurrence: optional, single
+> </small>
+
+* * *
+
+### <a name="Element_keyList" href="#Element_keyList">Element: keyList</a>
+
+> <small>
+>
+> Parents: [keyLists](#Element_keyLists)
+>
+> Children: _none_
+>
+> Occurrence: optional, multiple
+> </small>
+
+_Attribute:_ `id` (required)
+
+> The `id` attribute identifies the list. It can be any NMTOKEN.
+>
+> The `keyList` elements have their own id namespace.
+>
+> In the future, this attribute’s definition is expected to be updated to align with [UAX#31](https://www.unicode.org/reports/tr31/). Please see [CLDR-17043](https://unicode-org.atlassian.net/browse/CLDR-17043) for more details.
+
+_Attribute:_ `keyIds` (required)
+
+> This attribute specifies an ordered, space-separated list of `key` elements, by id.
+
+_Attribute:_ `defaultKeyId`
+
+> This attribute specifies a 'default' key for the list. The key id must be one of those present in the `keyIds` list. For long press gesture, this is used to specify the default key when performing a long press. This attribute is ignored for multi tap gestures.
+
+**Syntax**
+
+```xml
+<keyLists>
+    <keyList id="lower-a" defaultKeyId="a-grave" keyIds="a-grave a-caret a-acute" />
+</keyLists>
+```
+
+* * *
+
 #### <a name="Element_flicks" href="#Element_flicks">Elements: flicks</a>
 
 The `flicks` element is a collection of `flick` elements.
@@ -879,7 +957,7 @@ _Attribute:_ `id` (required)
 **Syntax**
 
 ```xml
-<flickSegment directions="{list of directions}" "{the output}" />
+<flickSegment directions="{list of directions}" keyId="{the output key id}" />
 ```
 
 > <small>
@@ -896,17 +974,24 @@ _Attribute:_ `directions` (required)
 
 > The `directions` attribute value is a space-delimited list of keywords, that describe a path, currently restricted to the cardinal and intercardinal directions `{n e s w ne nw se sw}`.
 
-_Attribute:_ `output` (required)
+_Attribute:_ `keyId` (required)
 
-> The `output` attribute value is the result of (one or more) flicks.
+> The `keyId` attribute value is the result of (one or more) flicks.
 
 **Example**
-where a flick to the Northeast then South produces two code points.
+where a flick to the Northeast then South produces `Å`.
 
 ```xml
-<flick id="a">
-    <flickSegment directions="ne s" output="\u{ABCD}\u{DCBA}" />
-</flick>
+<keys>
+    <key id="something" flickId="a" output="Something" />
+    <key id="A-ring" output="A-ring" />
+</keys>
+
+<flicks>
+    <flick id="a">
+        <flickSegment directions="ne s" keyId="A-ring" />
+    </flick>
+</flicks>
 ```
 
 * * *
@@ -1093,14 +1178,14 @@ This attribute may be escaped with `\u` notation, see [Escaping](#Escaping).
 ```xml
 <keyboard3>
     <keys>
-        <key id="a" output="a" longpress="\u{0301} \u{0300}" />
-        <key id="shift" layerId="shift" />
+        <key id="grave" output="\u{0300}" /> <!-- combining grave -->
+        <key id="marker" output="\m{acute}" /> <!-- generates a marker-->
+        <key id="numeric" layerId="numeric" /> <!-- changes layers-->
     </keys>
     <displays>
         <display output="\u{0300}" display="ˋ" /> <!-- \u{02CB} -->
-        <display output="\u{0301}" display="ˊ" /> <!-- \u{02CA} -->
-        <display keyId="shift"  display="⇪" /> <!-- U+21EA -->
-        <display output="\m{grave}" display="`" /> <!-- Display \m{grave} as ` -->
+        <display keyId="numeric"  display="#" /> <!-- display the layer shift key as # -->
+        <display output="\m{acute}" display="´" /> <!-- Display \m{acute} as ´ -->
     </displays>
 </keyboard3>
 ```

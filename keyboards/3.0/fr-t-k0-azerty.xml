@@ -61,30 +61,54 @@
 		<key id="e-grave" output="é" /> <!-- 2 -->
 		<key id="e-acute" output="è" /> <!-- 7 -->
 		<key id="c-cedilla" output="ç" /> <!-- 9 -->
-		<key id="a-acute" output="à" /> <!-- 0 -->
+		<key id="a-grave" output="à" /> <!-- 0 -->
+		<key id="a-acute" output="á" />
+		<key id="a-caret" output="â" />
+		<key id="a-umlaut" output="ä" />
+		<key id="a-tilde" output="ã" />
+		<key id="a-ring" output="å" />
+		<key id="a-caron" output="ā" />
+
+		<key id="A-grave" output="À" /> <!-- 0 -->
+		<key id="A-acute" output="Á" />
+		<key id="A-caret" output="Â" />
+		<key id="A-umlaut" output="Ä" />
+		<key id="A-tilde" output="Ã" />
+		<key id="A-ring" output="Å" />
+		<key id="A-caron" output="Ā" />
+
 
 		<!-- extra symbols -->
 		<key id="bullet" output="•" />
 		<key id="umlaut" output="¨" />
-		<key id="super-2" output="²" longPress="₂" />
+		<key id="super-2" output="²" longPressKeyListId="sub-2" multiTapKeyListId="list-2" />
+		<key id="sub-2" output="₂" />
 
 		<!-- test key -->
-		<key id="a" flickId="a" output="a" longPress="à â á ä ã å ā" />
+		<key id="a" flickId="a" output="a" longPressKeyListId="lower-a"  />
 		<!-- test key -->
-		<key id="A" flickId="b" output="A" longPress="À Á Ä Ã Å Ā" />
+		<key id="A" flickId="b" output="A" longPressKeyListId="upper-a" />
 		<!-- TODO: all additional maps, hardware and touch -->
 	</keys>
 
+	<keyLists>
+		<keyList id="sub-2" keyIds="sub-2" />
+		<keyList id="list-2" keyIds="2 super-2 sub-2" />
+		<keyList id="lower-a" defaultKeyId="a-grave" keyIds="a-grave a-caret a-acute a-umlaut a-tilde a-ring a-caron" />
+		<keyList id="upper-a" defaultKeyId="A-grave" keyIds="A-grave A-caret A-acute A-umlaut A-tilde A-ring A-caron" />
+	</keyLists>
+
 	<flicks>
 		<flick id="b">
-			<flickSegment directions="nw" output="\u{4567}" />
-			<flickSegment directions="nw se" output="\u{FFFF}" />
-			<flickSegment directions="e" output="\u{FFF0}" />
+			<flickSegment directions="nw" keyId="A-grave" />
+			<flickSegment directions="nw se" keyId="A-acute" />
+			<flickSegment directions="e" keyId="A-caron" />
+			<flickSegment directions="s" keyId="numeric" /> <!-- layer shifting flick-->
 		</flick>
 		<flick id="a">
-			<flickSegment directions="nw" output="\u{1234}" />
-			<flickSegment directions="nw se" output="\u{FFFF}" />
-			<flickSegment directions="e" output="\u{FFF0}" />
+			<flickSegment directions="nw" keyId="a-grave" />
+			<flickSegment directions="nw se" keyId="a-acute" />
+			<flickSegment directions="e" keyId="a-caron" />
 		</flick>
 	</flicks>
 

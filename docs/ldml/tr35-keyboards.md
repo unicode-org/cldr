@@ -332,7 +332,7 @@ This is the top level element. All other elements defined below are under this e
 >
 > Parents: _none_
 >
-> Children: [displays](#Element_displays), [import](#Element_import), [info](#Element_info), [keys](#Element_keys), [keyLists](#Element_keyLists), [flicks](#Element_flicks), [layers](#Element_layers), [locales](#Element_locales), [settings](#Element_settings), [_special_](tr35.md#special), [transforms](#Element_transforms), [variables](#Element_variables), [version](#Element_version)
+> Children: [displays](#Element_displays), [import](#Element_import), [info](#Element_info), [keys](#Element_keys), [flicks](#Element_flicks), [layers](#Element_layers), [locales](#Element_locales), [settings](#Element_settings), [_special_](tr35.md#special), [transforms](#Element_transforms), [variables](#Element_variables), [version](#Element_version)
 >
 > Occurrence: required, single
 >
@@ -618,8 +618,9 @@ This element defines a mapping between an abstract key and its output. This elem
  id="{key id}"
  flickId="{flick identifier}"
  gap="true"
- longPressKeyListId="{long press list id}"
- multiTapKeyListId="{multi tap list id}"
+ longPressKeyIds="{long press list id}"
+ longPressDefault="true"
+ multiTapKeyIds="{multi tap list id}"
  stretch="true"
  layerId="{switch layer id}"
  output="{the output}"
@@ -659,13 +660,13 @@ _Attribute:_ `gap="true"` (optional)
 <key id="mediumgap" gap="true" width="1.5"/>
 ```
 
-_Attribute:_ `longPressKeyListId="a b c"` (optional)
+_Attribute:_ `longPressKeyIds="a b c"` (optional)
 
-> The id of a specific [keyList](#element-keylist) element, whose keys which can be emitted by "long-pressing" this key. This feature is prominent in mobile devices.
+> A space-separated ordered list of `key` element ids, which keys which can be emitted by "long-pressing" this key. This feature is prominent in mobile devices.
 >
-> The list’s `defaultKeyId` attribute specifies which of the keys in the list is the default long-press target, which could be different than the first element.
+> In a list of keys specified by `longPressKeyIds`, the key with the `longPressDefault="true"` attribute specifies the default long-press target, which could be different than the first element. It is an error to specify more than one key which has `longPressDefault="true"`.
 >
-> For example, if the `defaultKeyId` is a key whose [display](#Element_displays) value is `{`, an implementation might render the key as follows:
+> For example, if the default key is a key whose [display](#Element_displays) value is `{`, an implementation might render the key as follows:
 >
 > ![keycap hint](images/keycapHint.png)
 >
@@ -679,21 +680,22 @@ _Attribute:_ `longPressKeyListId="a b c"` (optional)
 > </displays>
 >
 > <keys>
->    <key id="o" output="o" longPressKeyListId="o-list">
+>    <key id="o" output="o" longPressKeyIds="o-acute marker">
 >    <key id="o-acute" output="ó"/>
->    <key id="marker" display="{"/>
+>    <key id="marker" longPressDefault="true" display="{"/>
 > </key>
 >
->
-> <keyLists>
->    <keyList id="o-list" defaultKeyId="open" keyIds="o-acute marker"/>
-> </keyLists>
 > ```
 
+_Attribute:_ `longPressDefault="true"` (optional)
 
-_Attribute:_ `multiTapKeyListId` (optional)
+> Specifies the default key in a list of long-press keys. See the discussion of `LongPressKeyIds`, above.  If present, this attribute must have the value `"true"`.
 
-> The id of a specific [keyList](#element-keylist) element, where each successive key in the list is produced by the corresponding number of quick taps.
+
+_Attribute:_ `multiTapKeyIds` (optional)
+
+> A space-separated ordered list of `key` element ids, which keys, where each successive key in the list is produced by the corresponding number of quick taps.
+> It is an error for a key to referene itself in the `multiTapKeyIds` list.
 >
 > _Example:_
 > - first tap on the key will produce “a”
@@ -703,12 +705,11 @@ _Attribute:_ `multiTapKeyListId` (optional)
 >
 > ```xml
 > <keys>
->    <key id="a" output="a" multiTapKeyListId="a-taps">
+>    <key id="a" output="a" multiTapKeyIds="bb c d">
+>    <key id="bb" output="bb" />
+>    <key id="c" output="c" />
+>    <key id="d" output="d" />
 > </key>
->
-> <keyLists>
->    <keyList id="a-list" keyIds="bb c d"/>
-> </keyLists>
 > ```
 
 **Note**: Behavior past the end of the multiTap list is implementation specific.
@@ -843,58 +844,6 @@ Thus, the implied keys behave as if the following import were present.
 ```
 
 **Note:** All implied keys may be overridden, as with all other imported data items. See the [`import`](#Element_import) element for more details.
-
-* * *
-
-### <a name="Element_keyLists" href="#Element_keyLists">Element: keyLists</a>
-
-This element contains `keyList` elements, indicating an ordered list of keys.
-
-> <small>
->
-> Parents: [keyboard3](#Element_keyboard3)
->
-> Children: [import](#Element_import), [keyList](#Element_keyList), [_special_](tr35.md#special)
->
-> Occurrence: optional, single
-> </small>
-
-* * *
-
-### <a name="Element_keyList" href="#Element_keyList">Element: keyList</a>
-
-> <small>
->
-> Parents: [keyLists](#Element_keyLists)
->
-> Children: _none_
->
-> Occurrence: optional, multiple
-> </small>
-
-_Attribute:_ `id` (required)
-
-> The `id` attribute identifies the list. It can be any NMTOKEN.
->
-> The `keyList` elements have their own id namespace.
->
-> In the future, this attribute’s definition is expected to be updated to align with [UAX#31](https://www.unicode.org/reports/tr31/). Please see [CLDR-17043](https://unicode-org.atlassian.net/browse/CLDR-17043) for more details.
-
-_Attribute:_ `keyIds` (required)
-
-> This attribute specifies an ordered, space-separated list of `key` elements, by id.
-
-_Attribute:_ `defaultKeyId`
-
-> This attribute specifies a 'default' key for the list. The key id must be one of those present in the `keyIds` list. For long press gesture, this is used to specify the default key when performing a long press. This attribute is ignored for multi tap gestures.
-
-**Syntax**
-
-```xml
-<keyLists>
-    <keyList id="lower-a" defaultKeyId="a-grave" keyIds="a-grave a-caret a-acute" />
-</keyLists>
-```
 
 * * *
 

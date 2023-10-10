@@ -10,7 +10,7 @@ The CLDR Keyboard Subcommittee is currently developing major changes to the CLDR
 Please view the subcommittee page for the most recent information.
 <https://cldr.unicode.org/index/keyboard-workgroup> -->
 
-<!ELEMENT keyboard3 ( import*, locales?, version?, info, settings?, displays?, keys?, keyLists?, flicks?, forms?, layers*, variables?, transforms*, special* ) >
+<!ELEMENT keyboard3 ( import*, locales?, version?, info, settings?, displays?, keys?, flicks?, forms?, layers*, variables?, transforms*, special* ) >
     <!--@TECHPREVIEW-->
 <!ATTLIST keyboard3 locale CDATA #REQUIRED >
     <!--@MATCH:validity/bcp47-wellformed-->
@@ -104,10 +104,12 @@ Please view the subcommittee page for the most recent information.
     <!--@MATCH:any-->
     <!--@VALUE-->
     <!--@ALLOWS_UESC-->
-<!ATTLIST key longPressKeyListId NMTOKEN #IMPLIED >
+<!ATTLIST key longPressKeyIds NMTOKENS #IMPLIED >
     <!--@MATCH:any-->
     <!--@VALUE-->
-<!ATTLIST key multiTapKeyListId NMTOKEN #IMPLIED >
+<!ATTLIST key longPressDefault (true) #IMPLIED >
+    <!--@VALUE-->
+<!ATTLIST key multiTapKeyIds NMTOKENS #IMPLIED >
     <!--@MATCH:any-->
     <!--@VALUE-->
 <!ATTLIST key stretch (true) #IMPLIED >
@@ -119,20 +121,6 @@ Please view the subcommittee page for the most recent information.
     <!--@VALUE-->
 <!ATTLIST key width CDATA #IMPLIED >
     <!--@MATCH:range/0.01~100.0-->
-    <!--@VALUE-->
-
-<!ELEMENT keyLists ( import*, keyList*, special* ) >
-    <!--@TECHPREVIEW-->
-
-<!ELEMENT keyList EMPTY >
-    <!--@TECHPREVIEW-->
-<!ATTLIST keyList id NMTOKEN #REQUIRED >
-    <!--@MATCH:any-->
-<!ATTLIST keyList keyIds NMTOKENS #REQUIRED >
-    <!--@MATCH:any-->
-    <!--@VALUE-->
-<!ATTLIST keyList defaultKeyId NMTOKEN #IMPLIED >
-    <!--@MATCH:any-->
     <!--@VALUE-->
 
 <!ELEMENT flicks ( import*, flick*, special* ) >

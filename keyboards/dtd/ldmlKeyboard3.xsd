@@ -26,7 +26,6 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
         <xs:element minOccurs="0" ref="settings"/>
         <xs:element minOccurs="0" ref="displays"/>
         <xs:element minOccurs="0" ref="keys"/>
-        <xs:element minOccurs="0" ref="keyLists"/>
         <xs:element minOccurs="0" ref="flicks"/>
         <xs:element minOccurs="0" ref="forms"/>
         <xs:element maxOccurs="unbounded" minOccurs="0" ref="layers"/>
@@ -185,8 +184,15 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
         </xs:simpleType>
       </xs:attribute>
       <xs:attribute name="output"/>
-      <xs:attribute name="longPressKeyListId" type="xs:NMTOKEN"/>
-      <xs:attribute name="multiTapKeyListId" type="xs:NMTOKEN"/>
+      <xs:attribute name="longPressKeyIds" type="xs:NMTOKENS"/>
+      <xs:attribute name="longPressDefault">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="true"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="multiTapKeyIds" type="xs:NMTOKENS"/>
       <xs:attribute name="stretch">
         <xs:simpleType>
           <xs:restriction base="xs:token">
@@ -217,28 +223,6 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
   
   
   
-  
-  
-  
-  
-  
-  <xs:element name="keyLists">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element maxOccurs="unbounded" minOccurs="0" ref="import"/>
-        <xs:element maxOccurs="unbounded" minOccurs="0" ref="keyList"/>
-        <xs:element maxOccurs="unbounded" minOccurs="0" ref="special"/>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  
-  <xs:element name="keyList">
-    <xs:complexType>
-      <xs:attribute name="id" type="xs:NMTOKEN" use="required"/>
-      <xs:attribute name="keyIds" type="xs:NMTOKENS" use="required"/>
-      <xs:attribute name="defaultKeyId" type="xs:NMTOKEN"/>
-    </xs:complexType>
-  </xs:element>
   
   
   

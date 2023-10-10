@@ -624,6 +624,7 @@ This element defines a mapping between an abstract key and its output. This elem
  stretch="true"
  layerId="{switch layer id}"
  output="{the output}"
+ transform="no"
  width="{key width}"
  />
 ```
@@ -738,6 +739,18 @@ _Attribute:_ `output`
 > The `output` attribute contains the sequence of characters that is emitted when pressing this particular key. Control characters, whitespace (other than the regular space character) and combining marks in this attribute are escaped using the `\u{...}` notation. More than one key may output the same output.
 >
 > The `output` attribute may also contain the `\m{…}` syntax to insert a marker. See the definition of [markers](#markers).
+
+_Attribute:_ `transform="no"`
+
+> The `transform` attribute is used to define a key that does not participate in a transform.
+> Using this attribute causes the marker `\m{no_transform}` to be added after the key’s output.
+> In other words, the following produce identical results:
+> ```xml
+> <key id="caret" output="^" transform="no"  />
+> <key id="caret" output="^\m{no_transform}" />
+> ```
+>
+> See [Using markers to inhibit other transforms](#using-markers-to-inhibit-other-transforms) for more details about this approach.
 
 _Attribute:_ `width="1.2"` (optional, default "1.0")
 
@@ -1661,7 +1674,7 @@ Consider the following abbreviated example:
     - …
     - character `ê`
 
-**Using markers to inhibit other transforms**
+##### Using markers to inhibit other transforms
 
 Sometimes it is desirable to prevent transforms from having an effect.
 Perhaps two different keys output the same characters, with different key or modifier combinations, but only one of them is intended to participate in a transform.
@@ -1694,7 +1707,9 @@ One strategy would be to use a marker, which won’t be visible in the output, b
 </transforms>
 ```
 
-Pressing `caret` `e` will result in `^e` (with an invisible _no_transform_ marker — note that any name could be used). The `^e` won’t have the transform applied, at least while the marker’s context remains valid.
+Pressing `caret` `e` will result in `^e` (with an invisible _no_transform_ marker). The `^e` won’t have the transform applied, at least while the marker’s context remains valid.
+
+As a convenience, the above is exactly identical to: `<key id="caret" output="^" transform="no">`
 
 Another strategy might be to use a marker to indicate where transforms are desired, instead of where they aren't desired.
 

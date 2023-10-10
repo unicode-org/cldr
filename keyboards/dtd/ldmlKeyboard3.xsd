@@ -185,13 +185,7 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:attribute>
       <xs:attribute name="output"/>
       <xs:attribute name="longPressKeyIds" type="xs:NMTOKENS"/>
-      <xs:attribute name="longPressDefault">
-        <xs:simpleType>
-          <xs:restriction base="xs:token">
-            <xs:enumeration value="true"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:attribute>
+      <xs:attribute name="longPressDefaultKeyId" type="xs:NMTOKEN"/>
       <xs:attribute name="multiTapKeyIds" type="xs:NMTOKENS"/>
       <xs:attribute name="stretch">
         <xs:simpleType>
@@ -211,6 +205,7 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="width"/>
     </xs:complexType>
   </xs:element>
+  
   
   
   

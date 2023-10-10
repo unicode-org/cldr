@@ -619,7 +619,7 @@ This element defines a mapping between an abstract key and its output. This elem
  flickId="{flick identifier}"
  gap="true"
  longPressKeyIds="{long press list id}"
- longPressDefault="true"
+ longPressDefaultKeyId="{default longpress key}"
  multiTapKeyIds="{multi tap list id}"
  stretch="true"
  layerId="{switch layer id}"
@@ -660,11 +660,11 @@ _Attribute:_ `gap="true"` (optional)
 <key id="mediumgap" gap="true" width="1.5"/>
 ```
 
-_Attribute:_ `longPressKeyIds="a b c"` (optional)
+_Attribute:_ `longPressKeyIds="{list of key ids}"` (optional)
 
 > A space-separated ordered list of `key` element ids, which keys which can be emitted by "long-pressing" this key. This feature is prominent in mobile devices.
 >
-> In a list of keys specified by `longPressKeyIds`, the key with the `longPressDefault="true"` attribute specifies the default long-press target, which could be different than the first element. It is an error to specify more than one key which has `longPressDefault="true"`.
+> In a list of keys specified by `longPressKeyIds`, the key matching `longPressDefaultKeyId` attribute (if present) specifies the default long-press target, which could be different than the first element. It is an error if the `longPressDefaultKeyId` key is not in the `longPressKeyIds` list.
 >
 > For example, if the default key is a key whose [display](#Element_displays) value is `{`, an implementation might render the key as follows:
 >
@@ -680,22 +680,21 @@ _Attribute:_ `longPressKeyIds="a b c"` (optional)
 > </displays>
 >
 > <keys>
->    <key id="o" output="o" longPressKeyIds="o-acute marker">
+>    <key id="o" output="o" longPressKeyIds="o-acute marker" longPressDefaultKeyId="marker">
 >    <key id="o-acute" output="ó"/>
->    <key id="marker" longPressDefault="true" display="{"/>
+>    <key id="marker" display="{"/>
 > </key>
 >
 > ```
 
-_Attribute:_ `longPressDefault="true"` (optional)
+_Attribute:_ `longPressDefaultKeyId="{key-id}"` (optional)
 
-> Specifies the default key in a list of long-press keys. See the discussion of `LongPressKeyIds`, above.  If present, this attribute must have the value `"true"`.
-
+> Specifies the default key, by id, in a list of long-press keys. See the discussion of `LongPressKeyIds`, above.
 
 _Attribute:_ `multiTapKeyIds` (optional)
 
 > A space-separated ordered list of `key` element ids, which keys, where each successive key in the list is produced by the corresponding number of quick taps.
-> It is an error for a key to referene itself in the `multiTapKeyIds` list.
+> It is an error for a key to reference itself in the `multiTapKeyIds` list.
 >
 > _Example:_
 > - first tap on the key will produce “a”

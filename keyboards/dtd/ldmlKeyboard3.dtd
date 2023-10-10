@@ -107,7 +107,8 @@ Please view the subcommittee page for the most recent information.
 <!ATTLIST key longPressKeyIds NMTOKENS #IMPLIED >
     <!--@MATCH:any-->
     <!--@VALUE-->
-<!ATTLIST key longPressDefault (true) #IMPLIED >
+<!ATTLIST key longPressDefaultKeyId NMTOKEN #IMPLIED >
+    <!--@MATCH:any-->
     <!--@VALUE-->
 <!ATTLIST key multiTapKeyIds NMTOKENS #IMPLIED >
     <!--@MATCH:any-->

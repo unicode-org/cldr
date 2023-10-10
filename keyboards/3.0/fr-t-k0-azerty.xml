@@ -63,7 +63,7 @@
 		<key id="c-cedilla" output="ç" /> <!-- 9 -->
 		<key id="a-grave" output="à"  />
 		<key id="a-acute" output="á" />
-		<key id="a-caret" output="â" longPressDefault="true" />
+		<key id="a-caret" output="â" />
 		<key id="a-umlaut" output="ä" />
 		<key id="a-tilde" output="ã" />
 		<key id="a-ring" output="å" />
@@ -71,7 +71,7 @@
 
 		<key id="A-grave" output="À" /> <!-- 0 -->
 		<key id="A-acute" output="Á" />
-		<key id="A-caret" output="Â" longPressDefault="true" />
+		<key id="A-caret" output="Â" />
 		<key id="A-umlaut" output="Ä" />
 		<key id="A-tilde" output="Ã" />
 		<key id="A-ring" output="Å" />
@@ -85,9 +85,13 @@
 		<key id="sub-2" output="₂" />
 
 		<!-- note that a-caret is the default-->
-		<key id="a" flickId="a" output="a" longPressKeyIds="a-grave a-caret a-acute a-umlaut a-tilde a-ring a-caron"  />
+		<key id="a" flickId="a" output="a"
+			longPressKeyIds="a-grave a-caret a-acute a-umlaut a-tilde a-ring a-caron"
+			longPressDefaultKeyId="a-caret" />
 		<!-- note that A-caret is the default-->
-		<key id="A" flickId="b" output="A" longPressKeyIds="A-grave A-caret A-acute A-umlaut a-tilde A-ring A-caron" />
+		<key id="A" flickId="b" output="A"
+			longPressKeyIds="A-grave A-caret A-acute A-umlaut a-tilde A-ring A-caron"
+			longPressDefaultKeyId="A-caret" />
 	</keys>
 
 	<flicks>

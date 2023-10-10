@@ -16,6 +16,11 @@
 - f0324b82d27695306d1126c54a6de381cfbd9bcc CLDR-16564 v44 version number fix
 - b0a6207ff224a6cd8ca7f888c8a4740bacb83124 CLDR-16598 v44 Monitor SurveyTool server disk space
 - 2eef76b58182ee16e12897df33094eafd18a1833 CLDR-16883 v44 ST: hide sideways inheritance
+- 99038356323f9f74ab577b1eacb3499a436c5d5d CLDR-17062 v44 CLDRModify
+- f355414fb725b517df5281bafbad4cf704674cb2 CLDR-16969 v44 CLDRModify
+- cf63211ac313545dcd153a74e4d19d0be593db41 CLDR-16712 v44 CLDRModify
+- cbdd59767072c7ca154faae2d3b59ad6ad67dd1d CLDR-16650 v44 cherry-pick maint-43 to main
+- f534e312f9c5b6984e5a941746adff08eff66c50 CLDR-16577 v44 merge maint-43 to main
 
 ### The following are items to skip for a certain CLDR version.
 ### Format: `# SKIP v00` followed by a list of commits to skip for that version (same structure as above)
@@ -44,3 +49,7 @@
 - 5714fc0 CLDR-15956 was reverted in v43, landed in v42
 - 51b4b64 CLDR-15956 was reverted in v43, landed in v42
 
+# SKIP v44
+
+- 404635d8b37c222c9233318ae161b6b61e3a4b50 CLDR-15970 v43 dependency fix
+- ad04baabf773e8aae714c29fbdb5d9027c9e5c3d CLDR-15970 v43 dependency fix

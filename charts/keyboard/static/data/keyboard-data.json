@@ -20,23 +20,23 @@
     "displays": {
      "display": [
       {
-       "@_to": "\\m{acute}",
+       "@_output": "\\m{acute}",
        "@_display": "´"
       },
       {
-       "@_to": "\\m{grave}",
+       "@_output": "\\m{grave}",
        "@_display": "`"
       },
       {
-       "@_to": "\\m{umlaut}",
+       "@_output": "\\m{umlaut}",
        "@_display": "¨"
       },
       {
-       "@_to": "\\m{caret}",
+       "@_output": "\\m{caret}",
        "@_display": "^"
       },
       {
-       "@_to": "\\m{tilde}",
+       "@_output": "\\m{tilde}",
        "@_display": "~"
       }
      ]
@@ -55,51 +55,51 @@
      "key": [
       {
        "@_id": "d-acute",
-       "@_to": "\\m{acute}"
+       "@_output": "\\m{acute}"
       },
       {
        "@_id": "d-grave",
-       "@_to": "\\m{grave}"
+       "@_output": "\\m{grave}"
       },
       {
        "@_id": "d-umlaut",
-       "@_to": "\\m{umlaut}"
+       "@_output": "\\m{umlaut}"
       },
       {
        "@_id": "d-caret",
-       "@_to": "\\m{caret}"
+       "@_output": "\\m{caret}"
       },
       {
        "@_id": "d-tilde",
-       "@_to": "\\m{tilde}"
+       "@_output": "\\m{tilde}"
       },
       {
        "@_id": "c-cedilla",
-       "@_to": "ç"
+       "@_output": "ç"
       },
       {
        "@_id": "C-cedilla",
-       "@_to": "Ç"
+       "@_output": "Ç"
       },
       {
        "@_id": "super-1",
-       "@_to": "¹"
+       "@_output": "¹"
       },
       {
        "@_id": "super-2",
-       "@_to": "²"
+       "@_output": "²"
       },
       {
        "@_id": "super-3",
-       "@_to": "³"
+       "@_output": "³"
       },
       {
        "@_id": "ordinal-feminine",
-       "@_to": "ª"
+       "@_output": "ª"
       },
       {
        "@_id": "ordinal-masculine",
-       "@_to": "º"
+       "@_output": "º"
       }
      ]
     },
@@ -166,7 +166,7 @@
        "@_modifier": "altR"
       }
      ],
-     "@_form": "abnt2"
+     "@_formId": "abnt2"
     },
     "@_locale": "pt-t-k0-abnt2",
     "@_conformsTo": "techpreview"
@@ -244,7 +244,7 @@
        "@_modifier": "shift"
       }
      ],
-     "@_form": "jis"
+     "@_formId": "jis"
     },
     "@_locale": "ja-Latn",
     "@_conformsTo": "techpreview"
@@ -276,35 +276,35 @@
      "key": [
       {
        "@_id": "grave",
-       "@_to": "\\u{300}"
+       "@_output": "\\u{300}"
       },
       {
        "@_id": "backquote",
-       "@_to": "`"
+       "@_output": "`"
       },
       {
        "@_id": "acute",
-       "@_to": "\\u{301}"
+       "@_output": "\\u{301}"
       },
       {
        "@_id": "odot",
-       "@_to": "ọ"
+       "@_output": "ọ"
       },
       {
        "@_id": "Odot",
-       "@_to": "Ọ"
+       "@_output": "Ọ"
       },
       {
        "@_id": "edot",
-       "@_to": "ẹ"
+       "@_output": "ẹ"
       },
       {
        "@_id": "Edot",
-       "@_to": "Ẹ"
+       "@_output": "Ẹ"
       },
       {
        "@_id": "naira",
-       "@_to": "₦"
+       "@_output": "₦"
       }
      ]
     },
@@ -371,7 +371,7 @@
        "@_modifier": "caps"
       }
      ],
-     "@_form": "iso"
+     "@_formId": "iso"
     },
     "transforms": [
      {
@@ -413,10 +413,20 @@
      "@_indicator": "FR"
     },
     "displays": {
-     "display": {
-      "@_to": "\\u{0300}",
-      "@_display": "${grave}"
-     },
+     "display": [
+      {
+       "@_output": "\\u{0300}",
+       "@_display": "${grave}"
+      },
+      {
+       "@_keyId": "symbol",
+       "@_display": "@"
+      },
+      {
+       "@_keyId": "numeric",
+       "@_display": "123"
+      }
+     ],
      "displayOptions": {
       "@_baseCharacter": "x"
      }
@@ -435,19 +445,19 @@
      "key": [
       {
        "@_id": "shift",
-       "@_switch": "shift"
+       "@_layerId": "shift"
       },
       {
        "@_id": "numeric",
-       "@_switch": "numeric"
+       "@_layerId": "numeric"
       },
       {
        "@_id": "symbol",
-       "@_switch": "symbol"
+       "@_layerId": "symbol"
       },
       {
        "@_id": "base",
-       "@_switch": "base"
+       "@_layerId": "base"
       },
       {
        "@_id": "extra",
@@ -459,48 +469,106 @@
       },
       {
        "@_id": "u-grave",
-       "@_to": "ü"
+       "@_output": "ü"
       },
       {
        "@_id": "e-grave",
-       "@_to": "é"
+       "@_output": "é"
       },
       {
        "@_id": "e-acute",
-       "@_to": "è"
+       "@_output": "è"
       },
       {
        "@_id": "c-cedilla",
-       "@_to": "ç"
+       "@_output": "ç"
+      },
+      {
+       "@_id": "a-grave",
+       "@_output": "à"
       },
       {
        "@_id": "a-acute",
-       "@_to": "à"
+       "@_output": "á"
+      },
+      {
+       "@_id": "a-caret",
+       "@_output": "â"
+      },
+      {
+       "@_id": "a-umlaut",
+       "@_output": "ä"
+      },
+      {
+       "@_id": "a-tilde",
+       "@_output": "ã"
+      },
+      {
+       "@_id": "a-ring",
+       "@_output": "å"
+      },
+      {
+       "@_id": "a-caron",
+       "@_output": "ā"
+      },
+      {
+       "@_id": "A-grave",
+       "@_output": "À"
+      },
+      {
+       "@_id": "A-acute",
+       "@_output": "Á"
+      },
+      {
+       "@_id": "A-caret",
+       "@_output": "Â"
+      },
+      {
+       "@_id": "A-umlaut",
+       "@_output": "Ä"
+      },
+      {
+       "@_id": "A-tilde",
+       "@_output": "Ã"
+      },
+      {
+       "@_id": "A-ring",
+       "@_output": "Å"
+      },
+      {
+       "@_id": "A-caron",
+       "@_output": "Ā"
       },
       {
        "@_id": "bullet",
-       "@_to": "•"
+       "@_output": "•"
       },
       {
        "@_id": "umlaut",
-       "@_to": "¨"
+       "@_output": "¨"
       },
       {
        "@_id": "super-2",
-       "@_to": "²",
-       "@_longPress": "₂"
+       "@_output": "²",
+       "@_multiTapKeyIds": "sub-2 2"
+      },
+      {
+       "@_id": "sub-2",
+       "@_output": "₂"
       },
       {
        "@_id": "a",
-       "@_flicks": "a",
-       "@_to": "a",
-       "@_longPress": "à â á ä ã å ā"
+       "@_flickId": "a",
+       "@_output": "a",
+       "@_longPressKeyIds": "a-grave a-caret a-acute a-umlaut a-tilde a-ring a-caron",
+       "@_longPressDefaultKeyId": "a-caret"
       },
       {
        "@_id": "A",
-       "@_flicks": "b",
-       "@_to": "A",
-       "@_longPress": "À Á Ä Ã Å Ā"
+       "@_flickId": "b",
+       "@_output": "A",
+       "@_longPressKeyIds": "A-grave A-caret A-acute A-umlaut a-tilde A-ring A-caron",
+       "@_longPressDefaultKeyId": "A-caret"
       }
      ]
     },
@@ -510,35 +578,39 @@
        "flickSegment": [
         {
          "@_directions": "nw",
-         "@_to": "\\u{1234}"
+         "@_keyId": "A-grave"
         },
         {
          "@_directions": "nw se",
-         "@_to": "\\u{FFFF}"
+         "@_keyId": "A-acute"
         },
         {
          "@_directions": "e",
-         "@_to": "\\u{FFF0}"
+         "@_keyId": "A-caron"
+        },
+        {
+         "@_directions": "s",
+         "@_keyId": "numeric"
         }
        ],
-       "@_id": "a"
+       "@_id": "b"
       },
       {
        "flickSegment": [
         {
          "@_directions": "nw",
-         "@_to": "\\u{4567}"
+         "@_keyId": "a-grave"
         },
         {
          "@_directions": "nw se",
-         "@_to": "\\u{FFFF}"
+         "@_keyId": "a-acute"
         },
         {
          "@_directions": "e",
-         "@_to": "\\u{FFF0}"
+         "@_keyId": "a-caron"
         }
        ],
-       "@_id": "b"
+       "@_id": "a"
       }
      ]
     },
@@ -586,7 +658,7 @@
         "@_modifier": "shift"
        }
       ],
-      "@_form": "iso"
+      "@_formId": "iso"
      },
      {
       "layer": [
@@ -659,7 +731,7 @@
         "@_id": "symbol"
        }
       ],
-      "@_form": "touch",
+      "@_formId": "touch",
       "@_minDeviceWidth": "150"
      }
     ],
@@ -811,79 +883,79 @@
      "key": [
       {
        "@_id": "a-grave",
-       "@_to": "à"
+       "@_output": "à"
       },
       {
        "@_id": "A-grave",
-       "@_to": "À"
+       "@_output": "À"
       },
       {
        "@_id": "e-grave",
-       "@_to": "è"
+       "@_output": "è"
       },
       {
        "@_id": "E-grave",
-       "@_to": "È"
+       "@_output": "È"
       },
       {
        "@_id": "i-grave",
-       "@_to": "ì"
+       "@_output": "ì"
       },
       {
        "@_id": "I-grave",
-       "@_to": "Ì"
+       "@_output": "Ì"
       },
       {
        "@_id": "o-grave",
-       "@_to": "ò"
+       "@_output": "ò"
       },
       {
        "@_id": "O-grave",
-       "@_to": "Ò"
+       "@_output": "Ò"
       },
       {
        "@_id": "u-grave",
-       "@_to": "ù"
+       "@_output": "ù"
       },
       {
        "@_id": "U-grave",
-       "@_to": "Ù"
+       "@_output": "Ù"
       },
       {
        "@_id": "c-tikka",
-       "@_to": "ċ"
+       "@_output": "ċ"
       },
       {
        "@_id": "C-tikka",
-       "@_to": "Ċ"
+       "@_output": "Ċ"
       },
       {
        "@_id": "g-tikka",
-       "@_to": "ġ"
+       "@_output": "ġ"
       },
       {
        "@_id": "G-tikka",
-       "@_to": "Ġ"
+       "@_output": "Ġ"
       },
       {
        "@_id": "h-maqtugha",
-       "@_to": "ħ"
+       "@_output": "ħ"
       },
       {
        "@_id": "H-maqtugha",
-       "@_to": "Ħ"
+       "@_output": "Ħ"
       },
       {
        "@_id": "z-tikka",
-       "@_to": "ż"
+       "@_output": "ż"
       },
       {
        "@_id": "Z-tikka",
-       "@_to": "Ż"
+       "@_output": "Ż"
       },
       {
        "@_id": "c-cedilla",
-       "@_to": "ç"
+       "@_output": "ç"
       }
      ]
     },
@@ -970,7 +1042,7 @@
        "@_modifier": "altR shift"
       }
      ],
-     "@_form": "iso"
+     "@_formId": "iso"
     },
     "@_locale": "mt",
     "@_conformsTo": "techpreview"
@@ -1007,79 +1079,79 @@
      "key": [
       {
        "@_id": "a-grave",
-       "@_to": "à"
+       "@_output": "à"
       },
       {
        "@_id": "A-grave",
-       "@_to": "À"
+       "@_output": "À"
       },
       {
        "@_id": "e-grave",
-       "@_to": "è"
+       "@_output": "è"
       },
       {
        "@_id": "E-grave",
-       "@_to": "È"
+       "@_output": "È"
       },
       {
        "@_id": "i-grave",
-       "@_to": "ì"
+       "@_output": "ì"
       },
       {
        "@_id": "I-grave",
-       "@_to": "Ì"
+       "@_output": "Ì"
       },
       {
        "@_id": "o-grave",
-       "@_to": "ò"
+       "@_output": "ò"
       },
       {
        "@_id": "O-grave",
-       "@_to": "Ò"
+       "@_output": "Ò"
       },
       {
        "@_id": "u-grave",
-       "@_to": "ù"
+       "@_output": "ù"
       },
       {
        "@_id": "U-grave",
-       "@_to": "Ù"
+       "@_output": "Ù"
       },
       {
        "@_id": "c-tikka",
-       "@_to": "ċ"
+       "@_output": "ċ"
       },
       {
        "@_id": "C-tikka",
-       "@_to": "Ċ"
+       "@_output": "Ċ"
       },
       {
        "@_id": "g-tikka",
-       "@_to": "ġ"
+       "@_output": "ġ"
       },
       {
        "@_id": "G-tikka",
-       "@_to": "Ġ"
+       "@_output": "Ġ"
       },
       {
        "@_id": "h-maqtugha",
-       "@_to": "ħ"
+       "@_output": "ħ"
       },
       {
        "@_id": "H-maqtugha",
-       "@_to": "Ħ"
+       "@_output": "Ħ"
       },
       {
        "@_id": "z-tikka",
-       "@_to": "ż"
+       "@_output": "ż"
       },
       {
        "@_id": "Z-tikka",
-       "@_to": "Ż"
+       "@_output": "Ż"
       },
       {
        "@_id": "c-cedilla",
-       "@_to": "ç"
+       "@_output": "ç"
       },
       {
        "@_id": "gap",
@@ -1171,7 +1243,7 @@
        "@_modifier": "altR shift"
       }
      ],
-     "@_form": "us"
+     "@_formId": "us"
     },
     "@_locale": "mt-t-k0-47key",
     "@_conformsTo": "techpreview"
@@ -1188,143 +1260,143 @@
     "key": [
      {
       "@_id": "amp",
-      "@_to": "\\u{0026}"
+      "@_output": "\\u{0026}"
      },
      {
       "@_id": "apos",
-      "@_to": "'"
+      "@_output": "'"
      },
      {
       "@_id": "asterisk",
-      "@_to": "*"
+      "@_output": "*"
      },
      {
       "@_id": "at",
-      "@_to": "@"
+      "@_output": "@"
      },
      {
       "@_id": "backslash",
-      "@_to": "\\u{005C}"
+      "@_output": "\\u{005C}"
      },
      {
       "@_id": "bang",
-      "@_to": "!"
+      "@_output": "!"
      },
      {
       "@_id": "caret",
-      "@_to": "^"
+      "@_output": "^"
      },
      {
       "@_id": "close-angle",
-      "@_to": ">"
+      "@_output": ">"
      },
      {
       "@_id": "close-curly",
-      "@_to": "}"
+      "@_output": "}"
      },
      {
       "@_id": "close-paren",
-      "@_to": ")"
+      "@_output": ")"
      },
      {
       "@_id": "close-square",
-      "@_to": "]"
+      "@_output": "]"
      },
      {
       "@_id": "colon",
-      "@_to": ":"
+      "@_output": ":"
      },
      {
       "@_id": "comma",
-      "@_to": ","
+      "@_output": ","
      },
      {
       "@_id": "degree",
-      "@_to": "°"
+      "@_output": "°"
      },
      {
       "@_id": "double-quote",
-      "@_to": "\\u{0022}"
+      "@_output": "\\u{0022}"
      },
      {
       "@_id": "equal",
-      "@_to": "="
+      "@_output": "="
      },
      {
       "@_id": "grave",
-      "@_to": "`"
+      "@_output": "`"
      },
      {
       "@_id": "hash",
-      "@_to": "#"
+      "@_output": "#"
      },
      {
       "@_id": "hyphen",
-      "@_to": "-"
+      "@_output": "-"
      },
      {
       "@_id": "micro",
-      "@_to": "µ"
+      "@_output": "µ"
      },
      {
       "@_id": "not",
-      "@_to": "¬"
+      "@_output": "¬"
      },
      {
       "@_id": "open-angle",
-      "@_to": "\\u{003C}"
+      "@_output": "\\u{003C}"
      },
      {
       "@_id": "open-curly",
-      "@_to": "{"
+      "@_output": "{"
      },
      {
       "@_id": "open-paren",
-      "@_to": "("
+      "@_output": "("
      },
      {
       "@_id": "open-square",
-      "@_to": "["
+      "@_output": "["
      },
      {
       "@_id": "percent",
-      "@_to": "%"
+      "@_output": "%"
      },
      {
       "@_id": "period",
-      "@_to": "."
+      "@_output": "."
      },
      {
       "@_id": "pipe",
-      "@_to": "|"
+      "@_output": "|"
      },
      {
       "@_id": "plus",
-      "@_to": "+"
+      "@_output": "+"
      },
      {
       "@_id": "question",
-      "@_to": "?"
+      "@_output": "?"
      },
      {
       "@_id": "section",
-      "@_to": "§"
+      "@_output": "§"
      },
      {
       "@_id": "semi-colon",
-      "@_to": ";"
+      "@_output": ";"
      },
      {
       "@_id": "slash",
-      "@_to": "/"
+      "@_output": "/"
      },
      {
       "@_id": "tilde",
-      "@_to": "~"
+      "@_output": "~"
      },
      {
       "@_id": "underscore",
-      "@_to": "_"
+      "@_output": "_"
      }
     ]
    }
@@ -1343,257 +1415,257 @@
      },
      {
       "@_id": "space",
-      "@_to": "\\u{0020}",
+      "@_output": "\\u{0020}",
       "@_stretch": "true",
       "@_width": "1"
      },
      {
       "@_id": "0",
-      "@_to": "0"
+      "@_output": "0"
      },
      {
       "@_id": "1",
-      "@_to": "1"
+      "@_output": "1"
      },
      {
       "@_id": "2",
-      "@_to": "2"
+      "@_output": "2"
      },
      {
       "@_id": "3",
-      "@_to": "3"
+      "@_output": "3"
      },
      {
       "@_id": "4",
-      "@_to": "4"
+      "@_output": "4"
      },
      {
       "@_id": "5",
-      "@_to": "5"
+      "@_output": "5"
      },
      {
       "@_id": "6",
-      "@_to": "6"
+      "@_output": "6"
      },
      {
       "@_id": "7",
-      "@_to": "7"
+      "@_output": "7"
      },
      {
       "@_id": "8",
-      "@_to": "8"
+      "@_output": "8"
      },
      {
       "@_id": "9",
-      "@_to": "9"
+      "@_output": "9"
      },
      {
       "@_id": "A",
-      "@_to": "A"
+      "@_output": "A"
      },
      {
       "@_id": "B",
-      "@_to": "B"
+      "@_output": "B"
      },
      {
       "@_id": "C",
-      "@_to": "C"
+      "@_output": "C"
      },
      {
       "@_id": "D",
-      "@_to": "D"
+      "@_output": "D"
      },
      {
       "@_id": "E",
-      "@_to": "E"
+      "@_output": "E"
      },
      {
       "@_id": "F",
-      "@_to": "F"
+      "@_output": "F"
      },
      {
       "@_id": "G",
-      "@_to": "G"
+      "@_output": "G"
      },
      {
       "@_id": "H",
-      "@_to": "H"
+      "@_output": "H"
      },
      {
       "@_id": "I",
-      "@_to": "I"
+      "@_output": "I"
      },
      {
       "@_id": "J",
-      "@_to": "J"
+      "@_output": "J"
      },
      {
       "@_id": "K",
-      "@_to": "K"
+      "@_output": "K"
      },
      {
       "@_id": "L",
-      "@_to": "L"
+      "@_output": "L"
      },
      {
       "@_id": "M",
-      "@_to": "M"
+      "@_output": "M"
      },
      {
       "@_id": "N",
-      "@_to": "N"
+      "@_output": "N"
      },
      {
       "@_id": "O",
-      "@_to": "O"
+      "@_output": "O"
      },
      {
       "@_id": "P",
-      "@_to": "P"
+      "@_output": "P"
      },
      {
       "@_id": "Q",
-      "@_to": "Q"
+      "@_output": "Q"
      },
      {
       "@_id": "R",
-      "@_to": "R"
+      "@_output": "R"
      },
      {
       "@_id": "S",
-      "@_to": "S"
+      "@_output": "S"
      },
      {
       "@_id": "T",
-      "@_to": "T"
+      "@_output": "T"
      },
      {
       "@_id": "U",
-      "@_to": "U"
+      "@_output": "U"
      },
      {
       "@_id": "V",
-      "@_to": "V"
+      "@_output": "V"
      },
      {
       "@_id": "W",
-      "@_to": "W"
+      "@_output": "W"
      },
      {
       "@_id": "X",
-      "@_to": "X"
+      "@_output": "X"
      },
      {
       "@_id": "Y",
-      "@_to": "Y"
+      "@_output": "Y"
      },
      {
       "@_id": "Z",
-      "@_to": "Z"
+      "@_output": "Z"
      },
      {
       "@_id": "a",
-      "@_to": "a"
+      "@_output": "a"
      },
      {
       "@_id": "b",
-      "@_to": "b"
+      "@_output": "b"
      },
      {
       "@_id": "c",
-      "@_to": "c"
+      "@_output": "c"
      },
      {
       "@_id": "d",
-      "@_to": "d"
+      "@_output": "d"
      },
      {
       "@_id": "e",
-      "@_to": "e"
+      "@_output": "e"
      },
      {
       "@_id": "f",
-      "@_to": "f"
+      "@_output": "f"
      },
      {
       "@_id": "g",
-      "@_to": "g"
+      "@_output": "g"
      },
      {
       "@_id": "h",
-      "@_to": "h"
+      "@_output": "h"
      },
      {
       "@_id": "i",
-      "@_to": "i"
+      "@_output": "i"
      },
      {
       "@_id": "j",
-      "@_to": "j"
+      "@_output": "j"
      },
      {
       "@_id": "k",
-      "@_to": "k"
+      "@_output": "k"
      },
      {
       "@_id": "l",
-      "@_to": "l"
+      "@_output": "l"
      },
      {
       "@_id": "m",
-      "@_to": "m"
+      "@_output": "m"
      },
      {
       "@_id": "n",
-      "@_to": "n"
+      "@_output": "n"
      },
      {
       "@_id": "o",
-      "@_to": "o"
+      "@_output": "o"
      },
      {
       "@_id": "p",
-      "@_to": "p"
+      "@_output": "p"
      },
      {
       "@_id": "q",
-      "@_to": "q"
+      "@_output": "q"
      },
      {
       "@_id": "r",
-      "@_to": "r"
+      "@_output": "r"
      },
      {
       "@_id": "s",
-      "@_to": "s"
+      "@_output": "s"
      },
      {
       "@_id": "t",
-      "@_to": "t"
+      "@_output": "t"
      },
      {
       "@_id": "u",
-      "@_to": "u"
+      "@_output": "u"
      },
      {
       "@_id": "v",
-      "@_to": "v"
+      "@_output": "v"
      },
      {
       "@_id": "w",
-      "@_to": "w"
+      "@_output": "w"
      },
      {
       "@_id": "x",
-      "@_to": "x"
+      "@_output": "x"
      },
      {
       "@_id": "y",
-      "@_to": "y"
+      "@_output": "y"
      },
      {
       "@_id": "z",
-      "@_to": "z"
+      "@_output": "z"
      }
     ]
    }
@@ -1717,27 +1789,27 @@
     "key": [
      {
       "@_id": "dollar",
-      "@_to": "$"
+      "@_output": "$"
      },
      {
       "@_id": "euro",
-      "@_to": "€"
+      "@_output": "€"
      },
      {
       "@_id": "pound",
-      "@_to": "£"
+      "@_output": "£"
      },
      {
       "@_id": "yen",
-      "@_to": "¥"
+      "@_output": "¥"
      },
      {
       "@_id": "cruzeiro",
-      "@_to": "₢"
+      "@_output": "₢"
      },
      {
       "@_id": "cent",
-      "@_to": "¢"
+      "@_output": "¢"
      }
     ]
    }

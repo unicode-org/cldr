@@ -679,6 +679,7 @@
 
 
 
+
 <script src="./js/anchor.min.js"></script><div class="header"><table class="header" cellpadding="0" cellspacing="0" width="100%">
     <tbody>
         <tr>
@@ -866,11 +867,10 @@ If it becomes necessary in the future, the format could extend the ISO layout to
 <li><code>from</code> or <code>before</code> on the <code>&lt;reorder&gt;</code> element</li>
 <li><code>chars</code> on the <a href="#test-element-repertoire"><code>&lt;repertoire&gt;</code></a> test element.</li>
 </ul><h3 id="uts18-escaping">UTS18 Escaping</h3><p>The <code>\u{...}</code> notation, a subset of hex notation, is described in <a href="https://www.unicode.org/reports/tr18/#Hex_notation">UTS #18 section 1.1</a>. It can refer to one or multiple individual codepoints. Currently, the following attribute values allow the <code>\u{...}</code> notation:</p><ul>
-<li><code>to</code>, <code>longPress</code>, <code>multiTap</code>, and <code>longPressDefault</code> on the <code>&lt;key&gt;</code> element</li>
-<li><code>to</code> on the <code>&lt;flickSegment&gt;</code> element</li>
+<li><code>output</code> on the <code>&lt;key&gt;</code> element</li>
 <li><code>from</code> or <code>to</code> on the <code>&lt;transform&gt;</code> element</li>
 <li><code>value</code> on the <code>&lt;variable&gt;</code> element</li>
-<li><code>to</code> and <code>display</code> on the <code>&lt;display&gt;</code> element</li>
+<li><code>output</code> and <code>display</code> on the <code>&lt;display&gt;</code> element</li>
 <li><code>baseCharacter</code> on the <code>&lt;displayOptions&gt;</code> element</li>
 <li>Some attributes on <a href="#keyboard-test-data">Keyboard Test Data</a> subelements</li>
 </ul><p>Characters of general category of Mark (M), Control characters (Cc), Format characters (Cf), and whitespace other than space should be encoded using one of the notation above as appropriate.</p><p>Attribute values escaped in this manner are annotated with the <code>&lt;!--@ALLOWS_UESC--&gt;</code> DTD annotation, see <a href="tr35.html#57-dtd-annotations">DTD Annotations</a></p><hr><h2 id="File_and_Dir_Structure"><a name="file-and-directory-structure" href="#File_and_Dir_Structure">File and Directory Structure</a></h2><ul>
@@ -1011,14 +1011,14 @@ Occurrence: optional, single</p>
 </small>
 </blockquote><hr><h3 id="Element_key"><a name="element-key" href="#Element_key">Element: key</a></h3><p>This element defines a mapping between an abstract key and its output. This element must have the <code>keys</code> element as its parent. The <code>key</code> element is referenced by the <code>keys=</code> attribute of the <a href="#Element_row"><code>row</code> element</a>.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">key</span>
  <span class="hljs-attr">id</span>=<span class="hljs-string">"{key id}"</span>
- <span class="hljs-attr">flicks</span>=<span class="hljs-string">"{flicks identifier}"</span>
+ <span class="hljs-attr">flickId</span>=<span class="hljs-string">"{flick identifier}"</span>
  <span class="hljs-attr">gap</span>=<span class="hljs-string">"true"</span>
- <span class="hljs-attr">longPress</span>=<span class="hljs-string">"{long press keys}"</span>
- <span class="hljs-attr">longPressDefault</span>=<span class="hljs-string">"{default longpress target}"</span>
- <span class="hljs-attr">multiTap</span>=<span class="hljs-string">"{the output on subsequent taps}"</span>
+ <span class="hljs-attr">longPressKeyIds</span>=<span class="hljs-string">"{long press list id}"</span>
+ <span class="hljs-attr">longPressDefaultKeyId</span>=<span class="hljs-string">"{default longpress key}"</span>
+ <span class="hljs-attr">multiTapKeyIds</span>=<span class="hljs-string">"{multi tap list id}"</span>
  <span class="hljs-attr">stretch</span>=<span class="hljs-string">"true"</span>
- <span class="hljs-attr">switch</span>=<span class="hljs-string">"{layer id}"</span>
- <span class="hljs-attr">to</span>=<span class="hljs-string">"{the output}"</span>
+ <span class="hljs-attr">layerId</span>=<span class="hljs-string">"{switch layer id}"</span>
+ <span class="hljs-attr">output</span>=<span class="hljs-string">"{the output}"</span>
  <span class="hljs-attr">transform</span>=<span class="hljs-string">"no"</span>
  <span class="hljs-attr">width</span>=<span class="hljs-string">"{key width}"</span>
  /&gt;</span>
@@ -1029,41 +1029,68 @@ Occurrence: optional, single</p>
 <p>Children: <em>none</em></p>
 </small><p><small>Occurrence: optional, multiple
 </small></p>
-</blockquote><p><strong>Note</strong>: The <code>id</code> attribute is required.</p><p><strong>Note</strong>: <em>at least one of</em> <code>switch</code>, <code>gap</code>, or <code>to</code> are required.</p><p><em>Attribute:</em> <code>id</code></p><blockquote>
+</blockquote><p><strong>Note</strong>: The <code>id</code> attribute is required.</p><p><strong>Note</strong>: <em>at least one of</em> <code>layerId</code>, <code>gap</code>, or <code>output</code> are required.</p><p><em>Attribute:</em> <code>id</code></p><blockquote>
 <p>The <code>id</code> attribute uniquely identifies the key. NMTOKEN. It can (but needn't be) the key name (a, b, c, A, B, C, …), or any other valid token (e-acute, alef, alif, alpha, …).</p>
 <p>In the future, this attribute’s definition is expected to be updated to align with <a href="https://www.unicode.org/reports/tr31/">UAX#31</a>. Please see <a href="https://unicode-org.atlassian.net/browse/CLDR-17043">CLDR-17043</a> for more details.</p>
-</blockquote><p><em>Attribute:</em> <code>flicks="{flick id}"</code> (optional)</p><blockquote>
-<p>The <code>flicks</code> attribute indicates that this key makes use of a <a href="#Element_flicks"><code>flicks</code></a> set with the specified id.</p>
+</blockquote><p><em>Attribute:</em> <code>flickId="{flick id}"</code> (optional)</p><blockquote>
+<p>The <code>flickId</code> attribute indicates that this key makes use of a <a href="#Element_flick"><code>flick</code></a> set with the specified id.</p>
 </blockquote><p><em>Attribute:</em> <code>gap="true"</code> (optional)</p><blockquote>
 <p>The <code>gap</code> attribute indicates that this key does not have any appearance, but represents a "gap" of the specified number of key widths. Can be used with <code>width</code> to set a width.</p>
 </blockquote><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"mediumgap"</span> <span class="hljs-attr">gap</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"1.5"</span>/&gt;</span>
-</code></pre><p><em>Attribute:</em> <code>longPress="a b c"</code> (optional)</p><blockquote>
-<p>The <code>longPress</code> attribute contains any characters that can be emitted by "long-pressing" a key, this feature is prominent in mobile devices. The possible sequences of characters that can be emitted are whitespace delimited. Control characters, combining marks and whitespace (which is intended to be a long-press option) in this attribute are escaped using the <code>\u{...}</code> notation.</p>
-</blockquote><p><em>Attribute:</em> <code>longPressDefault</code> (optional)</p><blockquote>
-<p>Indicates which of the <code>longPress</code> target characters is the default long-press target, which could be different than the first element. Ignored if not in the <code>longPress</code> list. Characters in this attribute can be escaped using the <code>\u{...}</code> notation.
-For example, if the <code>longPressDefault</code> is a key whose <a href="#Element_displays">display</a> value is <code>{</code>, an implementation might render the key as follows:</p>
+</code></pre><p><em>Attribute:</em> <code>longPressKeyIds="{list of key ids}"</code> (optional)</p><blockquote>
+<p>A space-separated ordered list of <code>key</code> element ids, which keys which can be emitted by "long-pressing" this key. This feature is prominent in mobile devices.</p>
+<p>In a list of keys specified by <code>longPressKeyIds</code>, the key matching <code>longPressDefaultKeyId</code> attribute (if present) specifies the default long-press target, which could be different than the first element. It is an error if the <code>longPressDefaultKeyId</code> key is not in the <code>longPressKeyIds</code> list.</p>
+<p>Implementations shall ignore any gestures (such as flick, multiTap, longPress) defined on keys in the <code>longPressKeyIds</code> list.</p>
+<p>For example, if the default key is a key whose <a href="#Element_displays">display</a> value is <code>{</code>, an implementation might render the key as follows:</p>
 <p><img src="images/keycapHint.png" alt="keycap hint"></p>
-</blockquote><p><em>Attribute:</em> <code>multiTap</code> (optional)</p><blockquote>
-<p>A space-delimited list of strings, where each successive element of the list is produced by the corresponding number of quick taps. In the following example, three taps on the key will produce a “c” (first tap produces “a”, two taps produce “bb” etc.).</p>
-<blockquote>
-</blockquote>
 <p><em>Example:</em></p>
-<pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"a"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"a"</span> <span class="hljs-attr">multiTap</span>=<span class="hljs-string">"bb c d"</span>&gt;</span>
+<ul>
+<li>pressing the <code>o</code> key will produce <code>o</code></li>
+<li>holding down the key will produce a list <code>ó</code>, <code>{</code> (where <code>{</code> is the default and produces a marker)</li>
+</ul>
+<pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">displays</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">displays</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"\m{marker}"</span> <span class="hljs-attr">display</span>=<span class="hljs-string">"{"</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">displays</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">keys</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"o"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"o"</span> <span class="hljs-attr">longPressKeyIds</span>=<span class="hljs-string">"o-acute marker"</span> <span class="hljs-attr">longPressDefaultKeyId</span>=<span class="hljs-string">"marker"</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"o-acute"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"ó"</span>/&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"marker"</span> <span class="hljs-attr">display</span>=<span class="hljs-string">"{"</span>/&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span>
 </code></pre>
-<p>Control characters, combining marks and whitespace (which is intended to be a multiTap option) in this attribute are escaped using the <code>\u{...}</code> notation.</p>
+</blockquote><p><em>Attribute:</em> <code>longPressDefaultKeyId="{key-id}"</code> (optional)</p><blockquote>
+<p>Specifies the default key, by id, in a list of long-press keys. See the discussion of <code>LongPressKeyIds</code>, above.</p>
+</blockquote><p><em>Attribute:</em> <code>multiTapKeyIds</code> (optional)</p><blockquote>
+<p>A space-separated ordered list of <code>key</code> element ids, which keys, where each successive key in the list is produced by the corresponding number of quick taps.
+It is an error for a key to reference itself in the <code>multiTapKeyIds</code> list.</p>
+<p>Implementations shall ignore any gestures (such as flick, multiTap, longPress) defined on keys in the <code>multiTapKeyIds</code> list.</p>
+<p><em>Example:</em></p>
+<ul>
+<li>first tap on the key will produce “a”</li>
+<li>two taps will produce “bb”</li>
+<li>three taps on the key will produce “c”</li>
+<li>four taps on the key will produce “d”</li>
+</ul>
+<pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keys</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"a"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"a"</span> <span class="hljs-attr">multiTapKeyIds</span>=<span class="hljs-string">"bb c d"</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"bb"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"bb"</span> /&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"c"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"c"</span> /&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"d"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"d"</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span>
+</code></pre>
 </blockquote><p><strong>Note</strong>: Behavior past the end of the multiTap list is implementation specific.</p><p><em>Attribute:</em> <code>stretch="true"</code> (optional)</p><blockquote>
 <p>The <code>stretch</code> attribute indicates that a touch layout may stretch this key to fill available horizontal space on the row.
 This is used, for example, on the spacebar. Note that <code>stretch=</code> is ignored for hardware layouts.</p>
-</blockquote><p><em>Attribute:</em> <code>switch="shift"</code> (optional)</p><blockquote>
-<p>The <code>switch</code> attribute indicates that this key switches to another <code>layer</code> with the specified id (such as <code>&lt;layer id="shift"/&gt;</code> in this example).
-Note that a key may have both a <code>switch=</code> and a <code>to=</code> attribute, indicating that the key outputs prior to switching layers.
-Also note that <code>switch=</code> is ignored for hardware layouts: their shifting is controlled via
+</blockquote><p><em>Attribute:</em> <code>layerId="shift"</code> (optional)</p><blockquote>
+<p>The <code>layerId</code> attribute indicates that this key switches to another <code>layer</code> with the specified id (such as <code>&lt;layer id="shift"/&gt;</code> in this example).
+Note that a key may have both a <code>layerId=</code> and a <code>output=</code> attribute, indicating that the key outputs <em>prior</em> to switching layers.
+Also note that <code>layerId=</code> is ignored for hardware layouts: their shifting is controlled via
 the modifier keys.</p>
 <p>This attribute is an NMTOKEN.</p>
 <p>In the future, this attribute’s definition is expected to be updated to align with <a href="https://www.unicode.org/reports/tr31/">UAX#31</a>. Please see <a href="https://unicode-org.atlassian.net/browse/CLDR-17043">CLDR-17043</a> for more details.</p>
-</blockquote><p><em>Attribute:</em> <code>to</code></p><blockquote>
-<p>The <code>to</code> attribute contains the output sequence of characters that is emitted when pressing this particular key. Control characters, whitespace (other than the regular space character) and combining marks in this attribute are escaped using the <code>\u{...}</code> notation. More than one key may output the same output.</p>
-<p>The <code>to</code> attribute may also contain the <code>\m{…}</code> syntax to insert a marker. See the definition of <a href="#markers">markers</a>.</p>
+</blockquote><p><em>Attribute:</em> <code>output</code></p><blockquote>
+<p>The <code>output</code> attribute contains the sequence of characters that is emitted when pressing this particular key. Control characters, whitespace (other than the regular space character) and combining marks in this attribute are escaped using the <code>\u{...}</code> notation. More than one key may output the same output.</p>
+<p>The <code>output</code> attribute may also contain the <code>\m{…}</code> syntax to insert a marker. See the definition of <a href="#markers">markers</a>.</p>
 </blockquote><p><em>Attribute:</em> <code>transform="no"</code> (optional)</p><blockquote>
 <p>The <code>transform</code> attribute is used to define a key that does not participate in a transform (until the next keystroke). This attribute value must be <code>"no"</code> if the attribute is present.
 This attribute is useful where it is desired to output where two different keys could output the same characters (with different key or modifier combinations) but only one of them is intended to participate in a transform.
@@ -1071,8 +1098,8 @@ When the next keystroke is pressed, the prior output may then combine using othe
 <p>Note that a more flexible way of solving this problem may be to use special markers which would inhibit matching.</p>
 <p>For example, suppose there are the following keys, their output and one transform:</p>
 </blockquote><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keys</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"X"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"^"</span> <span class="hljs-attr">transform</span>=<span class="hljs-string">"no"</span>/&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"OptX"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"^"</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"X"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"^"</span> <span class="hljs-attr">transform</span>=<span class="hljs-string">"no"</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"OptX"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"^"</span>/&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">keys</span>&gt;</span>
 …
 <span class="hljs-tag">&lt;<span class="hljs-name">transforms</span> …&gt;</span>
@@ -1091,40 +1118,40 @@ However, since there is <code>transform="no</code>" on <strong>X</strong>, if th
 </ul><blockquote>
 <p>Using markers, the same results can be obtained without need of <code>transform="no"</code> using:</p>
 </blockquote><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keys</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"X"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"^\m{no_transform}"</span>/&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"OptX"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"^"</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"X"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"^\m{no_transform}"</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"OptX"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"^"</span>/&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">keys</span>&gt;</span>
 …
 <span class="hljs-tag">&lt;<span class="hljs-name">transforms</span> …&gt;</span>
     <span class="hljs-comment">&lt;!-- this wouldn't match the key X output because of the marker --&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">transform</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"^e"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"ê"</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">transform</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"^e"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"ê"</span>/&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">transforms</span>&gt;</span>
 </code></pre><p>Even better is to use a marker to indicate where transforms are desired:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keys</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"X"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"^"</span>/&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"OptX"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"^\m{transform}"</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"X"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"^"</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"OptX"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"^\m{transform}"</span>/&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">keys</span>&gt;</span>
 …
 <span class="hljs-tag">&lt;<span class="hljs-name">transforms</span> …&gt;</span>
     <span class="hljs-comment">&lt;!-- again, this wouldn't match the key X output because of the missing marker --&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">transform</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"^\m{transform}e"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"ê"</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">transform</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"^\m{transform}e"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"ê"</span>/&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">transforms</span>&gt;</span>
 </code></pre><p><em>Attribute:</em> <code>width="1.2"</code> (optional, default "1.0")</p><blockquote>
 <p>The <code>width</code> attribute indicates that this key has a different width than other keys, by the specified number of key widths.</p>
-</blockquote><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"wide-a"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"a"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"1.2"</span>/&gt;</span>
+</blockquote><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"wide-a"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"a"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"1.2"</span>/&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"wide-gap"</span> <span class="hljs-attr">gap</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"2.5"</span>/&gt;</span>
 </code></pre><h5 id="implied-keys">Implied Keys</h5><p>Not all keys need to be listed explicitly.  The following two can be assumed to already exist:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"gap"</span> <span class="hljs-attr">gap</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"1"</span>/&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"space"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">" "</span> <span class="hljs-attr">stretch</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"1"</span>/&gt;</span>
-</code></pre><p>In addition, these 62 keys, comprising 10 digit keys, 26 Latin lower-case keys, and 26 Latin upper-case keys, where the <code>id</code> is the same as the <code>to</code>, are assumed to exist:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"0"</span>/&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"1"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"1"</span>/&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"2"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"2"</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"space"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">" "</span> <span class="hljs-attr">stretch</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"1"</span>/&gt;</span>
+</code></pre><p>In addition, these 62 keys, comprising 10 digit keys, 26 Latin lower-case keys, and 26 Latin upper-case keys, where the <code>id</code> is the same as the <code>to</code>, are assumed to exist:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"0"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"0"</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"1"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"1"</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"2"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"2"</span>/&gt;</span>
 …
-<span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"A"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"A"</span>/&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"B"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"B"</span>/&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"C"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"C"</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"A"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"A"</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"B"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"B"</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"C"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"C"</span>/&gt;</span>
 …
-<span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"a"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"a"</span>/&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"b"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"b"</span>/&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"c"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"c"</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"a"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"a"</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"b"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"b"</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"c"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"c"</span>/&gt;</span>
 …
 </code></pre><p>These implied keys are available in a data file named <code>keyboards/import/keys-Latn-implied.xml</code> in the CLDR distribution for the convenience of implementations.</p><p>Thus, the implied keys behave as if the following import were present.</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">keys</span>&gt;</span>
@@ -1140,7 +1167,7 @@ However, since there is <code>transform="no</code>" on <strong>X</strong>, if th
 </small></p>
 </blockquote><hr><h4 id="Element_flick"><a name="elements-flick-flicksegment" href="#Element_flick">Elements: flick, flickSegment</a></h4><p>The <code>flick</code> element is used to generate results from a "flick" of the finger on a mobile device.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">keys</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"a"</span> <span class="hljs-attr">flicks</span>=<span class="hljs-string">"a-flicks"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"a"</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"a"</span> <span class="hljs-attr">flicks</span>=<span class="hljs-string">"a-flicks"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"a"</span> /&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">keys</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">flicks</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">flick</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"a-flicks"</span>&gt;</span>
@@ -1162,7 +1189,7 @@ However, since there is <code>transform="no</code>" on <strong>X</strong>, if th
 <p>The <code>flick</code> elements do not share a namespace with the <code>key</code>s, so it would also be allowed
 to have <code>&lt;key id="a" flick="a"/&gt;</code></p>
 <p>In the future, this attribute’s definition is expected to be updated to align with <a href="https://www.unicode.org/reports/tr31/">UAX#31</a>. Please see <a href="https://unicode-org.atlassian.net/browse/CLDR-17043">CLDR-17043</a> for more details.</p>
-</blockquote><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">flickSegment</span> <span class="hljs-attr">directions</span>=<span class="hljs-string">"{list of directions}"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"{the output}"</span> /&gt;</span>
+</blockquote><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">flickSegment</span> <span class="hljs-attr">directions</span>=<span class="hljs-string">"{list of directions}"</span> <span class="hljs-attr">keyId</span>=<span class="hljs-string">"{the output key id}"</span> /&gt;</span>
 </code></pre><blockquote>
 <small>
 
@@ -1172,12 +1199,20 @@ to have <code>&lt;key id="a" flick="a"/&gt;</code></p>
 </small>
 </blockquote><p><em>Attribute:</em> <code>directions</code> (required)</p><blockquote>
 <p>The <code>directions</code> attribute value is a space-delimited list of keywords, that describe a path, currently restricted to the cardinal and intercardinal directions <code>{n e s w ne nw se sw}</code>.</p>
-</blockquote><p><em>Attribute:</em> <code>to</code> (required)</p><blockquote>
-<p>The to attribute value is the result of (one or more) flicks.</p>
+</blockquote><p><em>Attribute:</em> <code>keyId</code> (required)</p><blockquote>
+<p>The <code>keyId</code> attribute value is the result of (one or more) flicks.</p>
+<p>Implementations shall ignore any gestures (such as flick, multiTap, longPress) defined on the key specified by <code>keyId</code>.</p>
 </blockquote><p><strong>Example</strong>
-where a flick to the Northeast then South produces two code points.</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">flick</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"a"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">flickSegment</span> <span class="hljs-attr">directions</span>=<span class="hljs-string">"ne s"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"\u{ABCD}\u{DCBA}"</span> /&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">flick</span>&gt;</span>
+where a flick to the Northeast then South produces <code>Å</code>.</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keys</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"something"</span> <span class="hljs-attr">flickId</span>=<span class="hljs-string">"a"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"Something"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"A-ring"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"A-ring"</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">keys</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">flicks</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">flick</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"a"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">flickSegment</span> <span class="hljs-attr">directions</span>=<span class="hljs-string">"ne s"</span> <span class="hljs-attr">keyId</span>=<span class="hljs-string">"A-ring"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">flick</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">flicks</span>&gt;</span>
 </code></pre><hr><h3 id="Element_import"><a name="element-import" href="#Element_import">Element: import</a></h3><p>The <code>import</code> element is used to reference another xml file so that elements are imported from
 another file. The use case is to be able to import a standard set of <code>transform</code>s and similar
 from the CLDR repository, especially to be able to share common information relevant to a particular script.
@@ -1234,7 +1269,7 @@ whose root element is different than the parent element of the <code>&lt;import/
     <span class="hljs-tag">&lt;<span class="hljs-name">transform</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"` "</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"`"</span> /&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">transforms</span>&gt;</span>
 </code></pre><hr><h3 id="Element_displays"><a name="element-displays" href="#Element_displays">Element: displays</a></h3><p>The displays can be used to describe what is to be displayed on the keytops for various keys. For the most part, such explicit information is unnecessary since the <code>@to</code> element from the <code>keys/key</code> element can be used. But there are some characters, such as diacritics, that do not display well on their own and so explicit overrides for such characters can help.
-Another useful scenario is where there are doubled diacritics, or multiple characters with spacing issues.</p><p>The <code>displays</code> consists of a list of display subelements.</p><p><code>displays</code> elements are designed to be shared across many different keyboard layout descriptions, and imported with <code>&lt;import&gt;</code> where needed.</p><p>For combining characters, U+25CC <code>◌</code> is used as a base. It is an error to use a combining character without a base in the <code>display</code> attribute.</p><p>For example, a key which outputs a combining tilde (U+0303) can be represented as follows:</p><pre><code class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">display</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"\u{0303}"</span> <span class="hljs-attr">display</span>=<span class="hljs-string">"◌̃"</span> /&gt;</span>  <span class="hljs-comment">&lt;!-- \u{25CC} \u{0303}--&gt;</span>
+Another useful scenario is where there are doubled diacritics, or multiple characters with spacing issues.</p><p>The <code>displays</code> consists of a list of display subelements.</p><p><code>displays</code> elements are designed to be shared across many different keyboard layout descriptions, and imported with <code>&lt;import&gt;</code> where needed.</p><p>For combining characters, U+25CC <code>◌</code> is used as a base. It is an error to use a combining character without a base in the <code>display</code> attribute.</p><p>For example, a key which outputs a combining tilde (U+0303) can be represented as follows:</p><pre><code class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">display</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"\u{0303}"</span> <span class="hljs-attr">display</span>=<span class="hljs-string">"◌̃"</span> /&gt;</span>  <span class="hljs-comment">&lt;!-- \u{25CC} \u{0303}--&gt;</span>
 </code></pre><p>This way, a key which outputs a combining tilde (U+0303) will be represented as <code>◌̃</code> (a tilde on a dotted circle).</p><p>Some scripts/languages may prefer a different base than U+25CC.
 See  <a href="#Element_displayOptions"><code>&lt;displayOptions baseCharacter=…/&gt;</code></a>.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">displays</span>&gt;</span>
     {a set of display elements}
@@ -1246,7 +1281,7 @@ See  <a href="#Element_displayOptions"><code>&lt;displayOptions baseCharacter=�
 <p>Children: <a href="#Element_display">display</a>, <a href="#Element_displayOptions">displayOptions</a>, <a href="tr35.html#special"><em>special</em></a></p>
 <p>Occurrence: optional, single</p>
 </small>
-</blockquote><hr><h3 id="Element_display"><a name="element-display" href="#Element_display">Element: display</a></h3><p>The <code>display</code> element describes how a character, that has come from a <code>keys/key</code> element, should be displayed on a keyboard layout where such display is possible.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">display</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"{the output}"</span> <span class="hljs-attr">display</span>=<span class="hljs-string">"{show as}"</span> /&gt;</span>
+</blockquote><hr><h3 id="Element_display"><a name="element-display" href="#Element_display">Element: display</a></h3><p>The <code>display</code> element describes how a character, that has come from a <code>keys/key</code> element, should be displayed on a keyboard layout where such display is possible.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">display</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"{the output}"</span> <span class="hljs-attr">display</span>=<span class="hljs-string">"{show as}"</span> /&gt;</span>
 </code></pre><blockquote>
 <small>
 
@@ -1254,28 +1289,31 @@ See  <a href="#Element_displayOptions"><code>&lt;displayOptions baseCharacter=�
 <p>Children: <em>none</em></p>
 <p>Occurrence: required, multiple</p>
 </small>
-</blockquote><p>One of the <code>to</code> or <code>id</code> attributes is required.</p><p><em>Attribute:</em> <code>to</code> (optional)</p><blockquote>
+</blockquote><p>One of the <code>output</code> or <code>id</code> attributes is required.</p><p><em>Attribute:</em> <code>output</code> (optional)</p><blockquote>
 <p>Specifies the character or character sequence from the <code>keys/key</code> element that is to have a special display.
 This attribute may be escaped with <code>\u</code> notation, see <a href="#Escaping">Escaping</a>.
-The <code>to</code> attribute may also contain the <code>\m{…}</code> syntax to reference a marker. See <a href="#markers">Markers</a>. Implementations may highlight a displayed marker, such as with a lighter text color, or a yellow highlight.</p>
+The <code>output</code> attribute may also contain the <code>\m{…}</code> syntax to reference a marker. See <a href="#markers">Markers</a>. Implementations may highlight a displayed marker, such as with a lighter text color, or a yellow highlight.
+String variables may be substituted. See <a href="#element-string">String variables</a></p>
 </blockquote><p><em>Attribute:</em> <code>id</code> (optional)</p><blockquote>
-<p>Specifies the <code>key</code> id. This is useful for keys which do not produce any output (no <code>to=</code> value), such as a shift key.</p>
+<p>Specifies the <code>key</code> id. This is useful for keys which do not produce any output (no <code>output=</code> value), such as a shift key.</p>
 <p>This attribute must match <code>[A-Za-z0-9][A-Za-z0-9-]*</code></p>
 </blockquote><p><em>Attribute:</em> <code>display</code> (required)</p><blockquote>
-<p>Required and specifies the character sequence that should be displayed on the keytop for any key that generates the <code>@to</code> sequence or has the <code>@id</code>. (It is an error if the value of the <code>display</code> attribute is the same as the value of the <code>to</code> attribute, this would be an extraneous entry.)</p>
+<p>Required and specifies the character sequence that should be displayed on the keytop for any key that generates the <code>@output</code> sequence or has the <code>@id</code>. (It is an error if the value of the <code>display</code> attribute is the same as the value of the <code>output</code> attribute, this would be an extraneous entry.)</p>
+</blockquote><blockquote>
+<p>String variables may be substituted. See <a href="#element-string">String variables</a></p>
 </blockquote><p>This attribute may be escaped with <code>\u</code> notation, see <a href="#Escaping">Escaping</a>.</p><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">keys</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"a"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"a"</span> <span class="hljs-attr">longpress</span>=<span class="hljs-string">"\u{0301} \u{0300}"</span> /&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"shift"</span> <span class="hljs-attr">switch</span>=<span class="hljs-string">"shift"</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"grave"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"\u{0300}"</span> /&gt;</span> <span class="hljs-comment">&lt;!-- combining grave --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"marker"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"\m{acute}"</span> /&gt;</span> <span class="hljs-comment">&lt;!-- generates a marker--&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"numeric"</span> <span class="hljs-attr">layerId</span>=<span class="hljs-string">"numeric"</span> /&gt;</span> <span class="hljs-comment">&lt;!-- changes layers--&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">keys</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">displays</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">display</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"\u{0300}"</span> <span class="hljs-attr">display</span>=<span class="hljs-string">"ˋ"</span> /&gt;</span> <span class="hljs-comment">&lt;!-- \u{02CB} --&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">display</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"\u{0301}"</span> <span class="hljs-attr">display</span>=<span class="hljs-string">"ˊ"</span> /&gt;</span> <span class="hljs-comment">&lt;!-- \u{02CA} --&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">display</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"shift"</span>  <span class="hljs-attr">display</span>=<span class="hljs-string">"⇪"</span> /&gt;</span> <span class="hljs-comment">&lt;!-- U+21EA --&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">display</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"\m{grave}"</span> <span class="hljs-attr">display</span>=<span class="hljs-string">"`"</span> /&gt;</span> <span class="hljs-comment">&lt;!-- Display \m{grave} as ` --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">display</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"\u{0300}"</span> <span class="hljs-attr">display</span>=<span class="hljs-string">"ˋ"</span> /&gt;</span> <span class="hljs-comment">&lt;!-- \u{02CB} --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">display</span> <span class="hljs-attr">keyId</span>=<span class="hljs-string">"numeric"</span>  <span class="hljs-attr">display</span>=<span class="hljs-string">"#"</span> /&gt;</span> <span class="hljs-comment">&lt;!-- display the layer shift key as # --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">display</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"\m{acute}"</span> <span class="hljs-attr">display</span>=<span class="hljs-string">"´"</span> /&gt;</span> <span class="hljs-comment">&lt;!-- Display \m{acute} as ´ --&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">displays</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">keyboard3</span>&gt;</span>
-</code></pre><p>To allow <code>displays</code> elements to be shared across keyboards, there is no requirement that <code>@to</code> in a <code>display</code> element matches any <code>@to</code>/<code>@id</code> in any <code>keys/key</code> element in the keyboard description.</p><hr><h3 id="Element_displayOptions"><a name="element-displayoptions" href="#Element_displayOptions">Element: displayOptions</a></h3><p>The <code>displayOptions</code> is an optional singleton element providing additional settings on this <code>displays</code>.  It is structured so as to provide for future flexibility in such options.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">displays</span>&gt;</span>
+</code></pre><p>To allow <code>displays</code> elements to be shared across keyboards, there is no requirement that <code>@output</code> in a <code>display</code> element matches any <code>@output</code>/<code>@id</code> in any <code>keys/key</code> element in the keyboard description.</p><hr><h3 id="Element_displayOptions"><a name="element-displayoptions" href="#Element_displayOptions">Element: displayOptions</a></h3><p>The <code>displayOptions</code> is an optional singleton element providing additional settings on this <code>displays</code>.  It is structured so as to provide for future flexibility in such options.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">displays</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">display</span> …/&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">displayOptions</span> <span class="hljs-attr">baseCharacter</span>=<span class="hljs-string">"x"</span>/&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">displays</span>&gt;</span>
@@ -1467,6 +1505,7 @@ Variables may refer to other string variables if they have been previously defin
     <span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"cluster_hi"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"हि"</span> /&gt;</span> <span class="hljs-comment">&lt;!-- a string --&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"zwnj"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"\u{200C}"</span>/&gt;</span> <span class="hljs-comment">&lt;!-- single codepoint --&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"acute"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"\m{acute}"</span>/&gt;</span> <span class="hljs-comment">&lt;!-- refer to a marker --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"backquote"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"`"</span>/&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"zwnj_acute"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"${zwnj}${acute}"</span>  /&gt;</span> <span class="hljs-comment">&lt;!-- Combine two variables --&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"zwnj_sp_acute"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"${zwnj}\u{0020}${acute}"</span>  /&gt;</span> <span class="hljs-comment">&lt;!-- Combine two variables --&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">variables</span>&gt;</span>
@@ -1475,11 +1514,11 @@ Variables may refer to other string variables if they have been previously defin
 <span class="hljs-tag">&lt;<span class="hljs-name">transform</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"Y"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"${cluster_hi}"</span> /&gt;</span>
 …
 <span class="hljs-comment">&lt;!-- as part of a key bag  --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"hi_key"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"${cluster_hi}"</span> /&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"acute_key"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"${acute}"</span> /&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"hi_key"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"${cluster_hi}"</span> /&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"acute_key"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"${acute}"</span> /&gt;</span>
 …
 <span class="hljs-comment">&lt;!-- Display ´ instead of the non-displayable marker --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-name">display</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"${acute}"</span> <span class="hljs-attr">display</span>=<span class="hljs-string">"´"</span> /&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">display</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"${acute}"</span> <span class="hljs-attr">display</span>=<span class="hljs-string">"${backquote}"</span> /&gt;</span>
 </code></pre><hr><h3 id="element-set">Element: set</h3><blockquote>
 <small>
 
@@ -1556,10 +1595,10 @@ The <code>unicodeSet</code> element may not be referenced by <a href="#element-k
 <li>Reordering combining marks. The order required for underlying storage may differ considerably from the desired typing order. In addition, a keyboard may want to allow for different typing orders.</li>
 <li>Error indication. Sometimes a keyboard layout will want to specify to the application that a particular keying sequence in a context is in error and that the application should indicate that that particular keypress is erroneous.</li>
 <li>Backspace handling. There are various approaches to handling the backspace key. An application may treat it as an undo of the last key input, or it may simply delete the last character in the currently output text, or it may use transform rules to tell it how much to delete.</li>
-</ul><h4 id="markers">Markers</h4><p>Markers are placeholders which record some state, but without producing normal visible text output.  They were designed particularly to support dead-keys.</p><p>The marker ID is any valid <code>NMTOKEN</code> (But see <a href="https://unicode-org.atlassian.net/browse/CLDR-17043">CLDR-17043</a> for future discussion.)</p><p>Consider the following abbreviated example:</p><pre><code class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">display</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"\m{circ_marker}"</span> <span class="hljs-attr">display</span>=<span class="hljs-string">"^"</span> /&gt;</span>
+</ul><h4 id="markers">Markers</h4><p>Markers are placeholders which record some state, but without producing normal visible text output.  They were designed particularly to support dead-keys.</p><p>The marker ID is any valid <code>NMTOKEN</code> (But see <a href="https://unicode-org.atlassian.net/browse/CLDR-17043">CLDR-17043</a> for future discussion.)</p><p>Consider the following abbreviated example:</p><pre><code class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">display</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"\m{circ_marker}"</span> <span class="hljs-attr">display</span>=<span class="hljs-string">"^"</span> /&gt;</span>
 …
-    <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"circ_key"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"\m{circ_marker}"</span> /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"e"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"e"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"circ_key"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"\m{circ_marker}"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"e"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"e"</span> /&gt;</span>
 …
     <span class="hljs-tag">&lt;<span class="hljs-name">transform</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"\m{circ_marker}e"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"ê"</span> /&gt;</span>
 </code></pre><ol>

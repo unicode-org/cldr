@@ -1385,7 +1385,7 @@ _Attribute:_ `modifiers` (required for `hardware`)
 
 > This has two roles. It acts as an identifier for the `layer` element for hardware keyboards (in the absence of the id= element) and also provides the linkage from the hardware modifiers into the correct `layer`.
 >
-> For hardware layouts, the use of `@modifiers` as an identifier for a layer is sufficient since it is always unique among the set of `layer` elements in a keyboard.
+> For hardware layouts, the use of `@modifiers` as an identifier for a layer is sufficient since it is always unique among the set of `layer` elements in each  `form`.
 >
 > The set of modifiers must match `(none|([A-Za-z0-9]+)( [A-Za-z0-9]+)*)`
 >

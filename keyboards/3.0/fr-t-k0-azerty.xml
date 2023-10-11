@@ -22,13 +22,17 @@
 		<!-- Note: displays is only used for keycap presentation -->
 		<!-- this example is not required for this keyboard as we use the spacing
 			modifiers -->
-		<display to="\u{0300}" display="${grave}" /> <!-- display combining grave as modifier letter grave ˋ -->
+		<display output="\u{0300}" display="${grave}" /> <!-- display combining grave as modifier letter grave ˋ -->
 		<!-- Note: We discussed why the existing displayMap was used for display.
 			rather than adding something closer to the key layout. 1. This way we can
 			tell the renderer what to do. Could be double diacritics, spacing issues,
 			etc. 2. We expect that keys have output. Otherwise the input content is malformed.
 			3. Don't Repeat Yourself : multiple keys (i.e. on different symbol layers)
 			may have the same display. -->
+
+		<!-- Example of a display mapping for a key by id -->
+		<display keyId="symbol" display="@" />
+		<display keyId="numeric" display="123" />
 		<displayOptions baseCharacter="x" />
 	</displays>
 
@@ -37,10 +41,10 @@
 		<import base="cldr" path="techpreview/keys-Zyyy-currency.xml" />
 
 		<!-- switch keys -->
-		<key id="shift" switch="shift" />
-		<key id="numeric" switch="numeric" />
-		<key id="symbol" switch="symbol" />
-		<key id="base" switch="base" />
+		<key id="shift" layerId="shift" />
+		<key id="numeric" layerId="numeric" />
+		<key id="symbol" layerId="symbol" />
+		<key id="base" layerId="base" />
 
 		<!--
 			TODO: need discussion
@@ -52,40 +56,59 @@
 		-->
 		<key id="enter" gap="true" />
 
-
 		<!-- extra keys -->
-		<key id="u-grave" to="ü" />
-		<key id="e-grave" to="é" /> <!-- 2 -->
-		<key id="e-acute" to="è" /> <!-- 7 -->
-		<key id="c-cedilla" to="ç" /> <!-- 9 -->
-		<key id="a-acute" to="à" /> <!-- 0 -->
+		<key id="u-grave" output="ü" />
+		<key id="e-grave" output="é" /> <!-- 2 -->
+		<key id="e-acute" output="è" /> <!-- 7 -->
+		<key id="c-cedilla" output="ç" /> <!-- 9 -->
+		<key id="a-grave" output="à"  />
+		<key id="a-acute" output="á" />
+		<key id="a-caret" output="â" />
+		<key id="a-umlaut" output="ä" />
+		<key id="a-tilde" output="ã" />
+		<key id="a-ring" output="å" />
+		<key id="a-caron" output="ā" />
+
+		<key id="A-grave" output="À" /> <!-- 0 -->
+		<key id="A-acute" output="Á" />
+		<key id="A-caret" output="Â" />
+		<key id="A-umlaut" output="Ä" />
+		<key id="A-tilde" output="Ã" />
+		<key id="A-ring" output="Å" />
+		<key id="A-caron" output="Ā" />
+
 
 		<!-- extra symbols -->
-		<key id="bullet" to="•" />
-		<key id="umlaut" to="¨" />
-		<key id="super-2" to="²" longPress="₂" />
+		<key id="bullet" output="•" />
+		<key id="umlaut" output="¨" />
+		<key id="super-2" output="²" multiTapKeyIds="sub-2 2" /> <!-- taps produce: ² ₂ 2 -->
+		<key id="sub-2" output="₂" />
 
-		<!-- test key -->
-		<key id="a" flicks="a" to="a" longPress="à â á ä ã å ā" />
-		<!-- test key -->
-		<key id="A" flicks="b" to="A" longPress="À Á Ä Ã Å Ā" />
-		<!-- TODO: all additional maps, hardware and touch -->
+		<!-- note that a-caret is the default-->
+		<key id="a" flickId="a" output="a"
+			longPressKeyIds="a-grave a-caret a-acute a-umlaut a-tilde a-ring a-caron"
+			longPressDefaultKeyId="a-caret" />
+		<!-- note that A-caret is the default-->
+		<key id="A" flickId="b" output="A"
+			longPressKeyIds="A-grave A-caret A-acute A-umlaut a-tilde A-ring A-caron"
+			longPressDefaultKeyId="A-caret" />
 	</keys>
 
 	<flicks>
-		<flick id="a">
-			<flickSegment directions="nw" to="\u{1234}" />
-			<flickSegment directions="nw se" to="\u{FFFF}" />
-			<flickSegment directions="e" to="\u{FFF0}" />
-		</flick>
 		<flick id="b">
-			<flickSegment directions="nw" to="\u{4567}" />
-			<flickSegment directions="nw se" to="\u{FFFF}" />
-			<flickSegment directions="e" to="\u{FFF0}" />
+			<flickSegment directions="nw" keyId="A-grave" />
+			<flickSegment directions="nw se" keyId="A-acute" />
+			<flickSegment directions="e" keyId="A-caron" />
+			<flickSegment directions="s" keyId="numeric" /> <!-- layer shifting flick-->
+		</flick>
+		<flick id="a">
+			<flickSegment directions="nw" keyId="a-grave" />
+			<flickSegment directions="nw se" keyId="a-acute" />
+			<flickSegment directions="e" keyId="a-caron" />
 		</flick>
 	</flicks>
 
-	<layers form="iso">
+	<layers formId="iso">
 		<!-- in DTD: required if conformsTo ≥ 41 -->
 		<layer modifier="none">
 			<row
@@ -105,7 +128,7 @@
 		</layer>
 	</layers>
 
-	<layers form="touch" minDeviceWidth="150">
+	<layers formId="touch" minDeviceWidth="150">
 		<!-- optional attribute for min physical device size -->
 		<layer id="base">
 			<row keys="a z e r t y u i o p" />

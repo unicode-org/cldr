@@ -6,21 +6,21 @@
   <keys>
     <import base="cldr" path="techpreview/keys-Zyyy-punctuation.xml" />
     <import base="cldr" path="techpreview/keys-Zyyy-currency.xml" />
-    <key id="grave" to="\u{300}" />
-    <key id="backquote" to="`" />
-    <key id="acute" to="\u{301}" />
+    <key id="grave" output="\u{300}" />
+    <key id="backquote" output="`" />
+    <key id="acute" output="\u{301}" />
 
     <!-- accented vowels -->
-    <key id="odot" to="ọ" />
-    <key id="Odot" to="Ọ" />
-    <key id="edot" to="ẹ" />
-    <key id="Edot" to="Ẹ" />
+    <key id="odot" output="ọ" />
+    <key id="Odot" output="Ọ" />
+    <key id="edot" output="ẹ" />
+    <key id="Edot" output="Ẹ" />
 
     <!-- currency -->
-    <key id="naira" to="₦" />
+    <key id="naira" output="₦" />
   </keys>
 
-  <layers form="iso">
+  <layers formId="iso">
     <layer modifier="none">
       <row keys="grave 1 2 3 4 5 6 7 8 9 0 hyphen equal" />
       <row keys="acute w e r t y u i o p open-square close-square" />

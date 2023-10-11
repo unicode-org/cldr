@@ -666,7 +666,7 @@ _Attribute:_ `longPressKeyIds="{list of key ids}"` (optional)
 >
 > In a list of keys specified by `longPressKeyIds`, the key matching `longPressDefaultKeyId` attribute (if present) specifies the default long-press target, which could be different than the first element. It is an error if the `longPressDefaultKeyId` key is not in the `longPressKeyIds` list.
 >
-> Gestures are not nested: other gestures (such as flick, multiTap, longPress) are ignored on the keys in the `longPressKeyIds` list.
+> Implementations shall ignore any gestures (such as flick, multiTap, longPress) defined on keys in the `longPressKeyIds` list.
 >
 > For example, if the default key is a key whose [display](#Element_displays) value is `{`, an implementation might render the key as follows:
 >
@@ -698,7 +698,7 @@ _Attribute:_ `multiTapKeyIds` (optional)
 > A space-separated ordered list of `key` element ids, which keys, where each successive key in the list is produced by the corresponding number of quick taps.
 > It is an error for a key to reference itself in the `multiTapKeyIds` list.
 >
-> Gestures are not nested: other gestures (such as flick, multiTap, longPress) are ignored on the keys in the `multiTapKeyIds` list.
+> Implementations shall ignore any gestures (such as flick, multiTap, longPress) defined on keys in the `multiTapKeyIds` list.
 >
 > _Example:_
 > - first tap on the key will produce “a”
@@ -930,7 +930,7 @@ _Attribute:_ `keyId` (required)
 
 > The `keyId` attribute value is the result of (one or more) flicks.
 >
-> Gestures are not nested: other gestures (such as flick, multiTap, longPress) are ignored on the key referenced by `keyId`.
+> Implementations shall ignore any gestures (such as flick, multiTap, longPress) defined on the key specified by `keyId`.
 
 
 **Example**

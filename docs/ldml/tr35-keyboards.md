@@ -743,8 +743,9 @@ _Attribute:_ `output`
 _Attribute:_ `transform="no"`
 
 > The `transform` attribute is used to define a key that does not participate in a transform.
-> Using this attribute causes the marker `\m{no_transform}` to be added after the key’s output.
-> In other words, the following produce identical results:
+> Using this attribute causes a marker to be added after the key’s output.
+> In other words, the following produce the same results, except that the `\m{no_transform}` marker can be used by other parts of the keyboard in the second case.
+
 > ```xml
 > <key id="caret" output="^" transform="no"  />
 > <key id="caret" output="^\m{no_transform}" />
@@ -1709,7 +1710,7 @@ One strategy would be to use a marker, which won’t be visible in the output, b
 
 Pressing `caret` `e` will result in `^e` (with an invisible _no_transform_ marker). The `^e` won’t have the transform applied, at least while the marker’s context remains valid.
 
-As a convenience, the above is exactly identical to: `<key id="caret" output="^" transform="no">`
+As a convenience, the above will behave identically to: `<key id="caret" output="^" transform="no">` (except that the marker used isn't otherwise usable)
 
 Another strategy might be to use a marker to indicate where transforms are desired, instead of where they aren't desired.
 

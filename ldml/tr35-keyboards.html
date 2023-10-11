@@ -680,6 +680,18 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 <script src="./js/anchor.min.js"></script><div class="header"><table class="header" cellpadding="0" cellspacing="0" width="100%">
     <tbody>
         <tr>
@@ -768,7 +780,12 @@ status, the latest information, or to provide feedback.</p><h2 id="Parts"><a nam
 </li>
 <li><a href="#Element_scanCodes">Element: scanCodes</a></li>
 <li><a href="#Element_layers">Element: layers</a></li>
-<li><a href="#Element_layer">Element: layer</a></li>
+<li><a href="#Element_layer">Element: layer</a><ul>
+<li><a href="#layer-modifier-components">Layer Modifier Components</a></li>
+<li><a href="#modifier-left--and-right--keys">Modifier Left- and Right- keys</a></li>
+<li><a href="#layer-modifier-matching">Layer Modifier Matching</a></li>
+</ul>
+</li>
 <li><a href="#Element_row">Element: row</a></li>
 <li><a href="#Element_variables">Element: variables</a></li>
 <li><a href="#element-string">Element: string</a></li>
@@ -853,7 +870,7 @@ status, the latest information, or to provide feedback.</p><h2 id="Parts"><a nam
 <li>Having an industry-wide standard format for keyboards will enable accessibility software to make use of keyboard data with a reduced dependence on platform-specific knowledge.</li>
 <li>Features which require certain levels of mobility or speed of entry should be considered for their impact on accessibility. This impact could be mitigated by means of additional, accessible methods of generating the same output.</li>
 <li>Public feedback is welcome on any aspects of this document which might hinder accessibility.</li>
-</ol><h2 id="Definitions"><a name="definitions" href="#Definitions">Definitions</a></h2><p><strong>Arrangement:</strong> The relative position of the rectangles that represent keys, either physically or virtually. A hardware keyboard has a static arrangement while a touch keyboard may have a dynamic arrangement that changes per language and/or layer. While the arrangement of keys on a keyboard may be fixed, the mapping of those keys may vary.</p><p><strong>Base character:</strong> The character emitted by a particular key when no modifiers are active. In ISO terms, this is group 1, level 1.</p><p><strong>Base character:</strong> The character emitted by a particular key when no modifiers are active. In ISO 9995-1:2009 terms, this is Group 1, Level 1.</p><p><strong>Core keys:</strong> also known as “alphanumeric” section. The primary set of key values on a keyboard that are used for typing the target language of the keyboard. For example, the three rows of letters on a standard US QWERTY keyboard (QWERTYUIOP, ASDFGHJKL, ZXCVBNM) together with the most significant punctuation keys. Usually this equates to the minimal set of keys for a language as seen on mobile phone keyboards.
+</ol><h2 id="Definitions"><a name="definitions" href="#Definitions">Definitions</a></h2><p><strong>Arrangement:</strong> The relative position of the rectangles that represent keys, either physically or virtually. A hardware keyboard has a static arrangement while a touch keyboard may have a dynamic arrangement that changes per language and/or layer. While the arrangement of keys on a keyboard may be fixed, the mapping of those keys may vary.</p><p><strong>Base character:</strong> The character emitted by a particular key when no modifiers are active. In ISO 9995-1:2009 terms, this is Group 1, Level 1.</p><p><strong>Core keys:</strong> also known as “alphanumeric” section. The primary set of key values on a keyboard that are used for typing the target language of the keyboard. For example, the three rows of letters on a standard US QWERTY keyboard (QWERTYUIOP, ASDFGHJKL, ZXCVBNM) together with the most significant punctuation keys. Usually this equates to the minimal set of keys for a language as seen on mobile phone keyboards.
 Distinguished from the <strong>frame keys</strong>.</p><p><strong>Dead keys:</strong> These are keys which do not emit normal characters by themselves. They are so named because to the user, they may appear to be “dead,” i.e., non-functional. However, they do produce a change to the input context. For example, in many Latin keyboards hitting the <code>^</code> dead-key followed by the <code>e</code> key produces <code>ê</code>. The <code>^</code> by itself may be invisible or presented in a special way by the platform.</p><p><strong>Frame keys:</strong> These are keys which are outside of the area of the <strong>core keys</strong> and typically do not emit characters. These keys include <strong>modifier</strong> keys, such as Shift or Ctrl, but also include platform specific keys: Fn, IME and layout-switching keys, cursor keys, insert emoji keys etc.</p><p><strong>Hardware keyboard:</strong> an input device which has individual keys that are pressed. Each key has a unique identifier and the arrangement doesn't change, even if the mapping of those keys does. Also known as a physical keyboard.</p><!-- **Hardware map:** A mapping between  and layout positions. --><p><strong>Input Method Editor (IME):</strong> a component or program that supports input of large character sets. Typically, IMEs employ contextual logic and candidate UI to identify the Unicode characters intended by the user.</p><!-- **ISO position:** The corresponding position of a key using the ISO layout convention where rows are identified by letters and columns are identified by numbers. For example, "D01" corresponds to the "Q" key on a US keyboard. For the purposes of this document, an ISO layout position is depicted by a one-letter row identifier followed by a two digit column number (like "B03", "E12" or "C00"). The following diagram depicts a typical US keyboard layout superimposed with the ISO layout indicators (it is important to note that the number of keys and their physical placement relative to each-other in this diagram is irrelevant, rather what is important is their logical placement using the ISO convention):
 
 ![keyboard layout example showing ISO key numbering](images/keyPositions.png)
@@ -1421,7 +1438,7 @@ At most one hardware (non-<code>touch</code>) <code>&lt;layers&gt;</code> elemen
 </blockquote><p><em>Attribute:</em> <code>minDeviceWidth</code></p><blockquote>
 <p>This attribute specifies the minimum required width, in millimeters (mm), of the touch surface.  The <code>layers</code> entry with the greatest matching width will be selected. This attribute is intended for <code>form="touch"</code>, but is supported for hardware forms.</p>
 <p>This must be a whole number between 1 and 999, inclusive.</p>
-</blockquote><h3 id="Element_layer"><a name="element-layer" href="#Element_layer">Element: layer</a></h3><p>A <code>layer</code> element describes the configuration of keys on a particular layer of a keyboard. It contains one or more <code>row</code> elements to describe which keys exist in each row.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">layer</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"layerId"</span> <span class="hljs-attr">modifier</span>=<span class="hljs-string">"{Set of Modifier Combinations}"</span>&gt;</span>
+</blockquote><h3 id="Element_layer"><a name="element-layer" href="#Element_layer">Element: layer</a></h3><p>A <code>layer</code> element describes the configuration of keys on a particular layer of a keyboard. It contains one or more <code>row</code> elements to describe which keys exist in each row.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">layer</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"layerId"</span> <span class="hljs-attr">modifiers</span>=<span class="hljs-string">"{Set of Modifier Combinations}"</span>&gt;</span>
     ...
 <span class="hljs-tag">&lt;/<span class="hljs-name">layer</span>&gt;</span>
 </code></pre><blockquote>
@@ -1435,16 +1452,28 @@ At most one hardware (non-<code>touch</code>) <code>&lt;layers&gt;</code> elemen
 <p>The <code>id</code> attribute identifies the layer for touch layouts.  This identifier specifies the layout as the target for layer switching, as specified by the <code>switch=</code> attribute on the <a href="#Element_key"><code>&lt;key&gt;</code></a> element.
 Touch layouts must have one <code>layer</code> with <code>id="base"</code> to serve as the base layer.</p>
 <p>Must match <code>[A-Za-z0-9][A-Za-z0-9-]*</code></p>
-</blockquote><p><em>Attribute:</em> <code>modifier</code> (required for <code>hardware</code>)</p><blockquote>
+</blockquote><p><em>Attribute:</em> <code>modifiers</code> (required for <code>hardware</code>)</p><blockquote>
 <p>This has two roles. It acts as an identifier for the <code>layer</code> element for hardware keyboards (in the absence of the id= element) and also provides the linkage from the hardware modifiers into the correct <code>layer</code>.</p>
-<p>To indicate that no modifiers apply, the reserved name of <code>none</code> is used.
-The following modifier components can be used, separated by spaces.
-Note that <code>L</code> or <code>R</code> indicates a left- or right- side modifier only (such as <code>altL</code>)
-whereas <code>alt</code> indicates <em>either</em> left or right alt key (that is, <code>altL</code> or <code>altR</code>). <code>ctrl</code> indicates either left or right ctrl key (that is, <code>ctrlL</code> or <code>ctrlR</code>).
-<code>shift</code> also indicates either shift key. The left and right shift keys are not distinguishable in this specification.</p>
-<p>If there is a layer with a modifier <code>alt</code>, there may not be another layer with <code>altL</code> or <code>altR</code>.  Similarly, if there is a layer with a modifier <code>ctrl</code>, there may not be a layer with <code>ctrlL</code> or <code>ctrlR</code>.</p>
-<ul>
-<li><code>none</code> (no modifier, may not be combined with others)</li>
+<p>For hardware layouts, the use of <code>@modifiers</code> as an identifier for a layer is sufficient since it is always unique among the set of <code>layer</code> elements in each  <code>form</code>.</p>
+<p>The set of modifiers must match <code>(none|([A-Za-z0-9]+)( [A-Za-z0-9]+)*)</code></p>
+<p>To indicate that no modifiers apply, the reserved name of <code>none</code> is used.</p>
+</blockquote><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">layer</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"base"</span>        <span class="hljs-attr">modifiers</span>=<span class="hljs-string">"none"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">row</span> <span class="hljs-attr">keys</span>=<span class="hljs-string">"a"</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">layer</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">layer</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"upper"</span>       <span class="hljs-attr">modifiers</span>=<span class="hljs-string">"shift"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">row</span> <span class="hljs-attr">keys</span>=<span class="hljs-string">"A"</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">layer</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">layer</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"altgr"</span>       <span class="hljs-attr">modifiers</span>=<span class="hljs-string">"altR"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">row</span> <span class="hljs-attr">keys</span>=<span class="hljs-string">"a-umlaut"</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">layer</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">layer</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"upper-altgr"</span> <span class="hljs-attr">modifiers</span>=<span class="hljs-string">"altR shift"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">row</span> <span class="hljs-attr">keys</span>=<span class="hljs-string">"A-umlaut"</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">layer</span>&gt;</span>
+</code></pre><h4 id="layer-modifier-components">Layer Modifier Components</h4><p> The following modifier components can be used, separated by spaces.</p><ul>
+<li><code>none</code> (no modifier)</li>
 <li><code>alt</code></li>
 <li><code>altL</code></li>
 <li><code>altR</code></li>
@@ -1453,13 +1482,32 @@ whereas <code>alt</code> indicates <em>either</em> left or right alt key (that i
 <li><code>ctrlL</code></li>
 <li><code>ctrlR</code></li>
 <li><code>shift</code></li>
-</ul>
-<p>Note that <code>alt</code> in this specification is referred to on some platforms as "opt" or "option".</p>
-<p>Left- and right- side modifiers (such as <code>"altL ctrlR"</code> or <code>"altL altR"</code>) should not be used together in a single <code>modifier</code> attribute value.</p>
-<p>For hardware layouts, the use of <code>@modifier</code> as an identifier for a layer is sufficient since it is always unique among the set of <code>layer</code> elements in a keyboard.</p>
-<p>The set of modifiers must match <code>(none|([A-Za-z0-9]+)( [A-Za-z0-9]+)*)</code></p>
-<p>To share a layer between two modifier sets, the layer data must be duplicated.</p>
-</blockquote><hr><h3 id="Element_row"><a name="element-row" href="#Element_row">Element: row</a></h3><p>A <code>row</code> element describes the keys that are present in the row of a keyboard.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">row</span> <span class="hljs-attr">keys</span>=<span class="hljs-string">"{keyId} {keyId} …"</span> /&gt;</span>
+<li><code>other</code> (matches if no other layers match)</li>
+</ul><ol>
+<li><p><code>alt</code> in this specification is referred to on some platforms as "opt" or "option".</p>
+</li>
+<li><p><code>none</code> and <code>other</code> may not be combined with any other components.</p>
+</li>
+</ol><h4 id="modifier-left--and-right--keys">Modifier Left- and Right- keys</h4><ol>
+<li><p><code>L</code> or <code>R</code> indicates a left- or right- side modifier only (such as <code>altL</code>)
+ whereas <code>alt</code> indicates <em>either</em> left or right alt key (that is, <code>altL</code> or <code>altR</code>). <code>ctrl</code> indicates either left or right ctrl key (that is, <code>ctrlL</code> or <code>ctrlR</code>).</p>
+</li>
+<li><p>If there are any layers (in the same <code>form=</code>) with a modifier <code>alt</code>, there may not also be another layer with <code>altL</code> or <code>altR</code>.  Similarly, if there is a layer with a modifier <code>ctrl</code>, there may not be a layer with <code>ctrlL</code> or <code>ctrlR</code>.</p>
+</li>
+<li><p>Left- and right- side modifiers may not be mixed together in a single <code>modifier</code> attribute value, so neither <code>altL ctrlR"</code> nor <code>altL altR</code> are allowed.</p>
+</li>
+<li><p><code>shift</code> indicates either shift key. The left and right shift keys are not distinguishable in this specification.</p>
+</li>
+</ol><h4 id="layer-modifier-matching">Layer Modifier Matching</h4><p>Layers are matched exactly based on the modifier keys which are down. For example:</p><ul>
+<li><p><code>none</code> as a modifier will only match if <em>all</em> of the keys <code>caps</code>, <code>alt</code>, <code>ctrl</code> and <code>shift</code> are up.</p>
+</li>
+<li><p><code>alt</code> as a modifier will only match if either <code>alt</code> is down, <em>and</em> <code>caps</code>, <code>ctrl</code>, and <code>shift</code> are up.</p>
+</li>
+<li><p><code>altL ctrl</code> as a modifier will only match if the left <code>alt</code> is down, either <code>ctrl</code> is down, <em>and</em> <code>shift</code> and <code>caps</code> are up.</p>
+</li>
+<li><p><code>other</code> as a modifier will match if no other layers match.</p>
+</li>
+</ul><p>Multiple modifier sets may be separated by commas.  For example, <code>none, shift caps</code> will match either no modifiers <em>or</em> shift and caps.  <code>ctrlL altL, altR</code> will match either  left-control and left-alt, <em>or</em> right-alt.</p><p>Keystrokes where there isn’t an explicitly matching layer, and where there is no layer with <code>other</code> specified, are ignored.</p><hr><h3 id="Element_row"><a name="element-row" href="#Element_row">Element: row</a></h3><p>A <code>row</code> element describes the keys that are present in the row of a keyboard.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">row</span> <span class="hljs-attr">keys</span>=<span class="hljs-string">"{keyId} {keyId} …"</span> /&gt;</span>
 </code></pre><blockquote>
 <small>
 

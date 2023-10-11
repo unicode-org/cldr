@@ -124,7 +124,7 @@ const _KeyboardData =
          "@_keys": "space"
         }
        ],
-       "@_modifier": "none"
+       "@_modifiers": "none"
       },
       {
        "row": [
@@ -144,7 +144,7 @@ const _KeyboardData =
          "@_keys": "space"
         }
        ],
-       "@_modifier": "shift"
+       "@_modifiers": "shift"
       },
       {
        "row": [
@@ -164,7 +164,7 @@ const _KeyboardData =
          "@_keys": "space"
         }
        ],
-       "@_modifier": "altR"
+       "@_modifiers": "altR"
       }
      ],
      "@_formId": "abnt2"
@@ -222,7 +222,7 @@ const _KeyboardData =
          "@_keys": "space"
         }
        ],
-       "@_modifier": "none"
+       "@_modifiers": "none"
       },
       {
        "row": [
@@ -242,7 +242,7 @@ const _KeyboardData =
          "@_keys": "space"
         }
        ],
-       "@_modifier": "shift"
+       "@_modifiers": "shift"
       }
      ],
      "@_formId": "jis"
@@ -329,7 +329,7 @@ const _KeyboardData =
          "@_keys": "space"
         }
        ],
-       "@_modifier": "none"
+       "@_modifiers": "none"
       },
       {
        "row": [
@@ -349,7 +349,7 @@ const _KeyboardData =
          "@_keys": "space"
         }
        ],
-       "@_modifier": "shift"
+       "@_modifiers": "shift"
       },
       {
        "row": [
@@ -369,7 +369,7 @@ const _KeyboardData =
          "@_keys": "space"
         }
        ],
-       "@_modifier": "caps"
+       "@_modifiers": "caps"
       }
      ],
      "@_formId": "iso"
@@ -636,7 +636,7 @@ const _KeyboardData =
           "@_keys": "space"
          }
         ],
-        "@_modifier": "none"
+        "@_modifiers": "none"
        },
        {
         "row": [
@@ -656,7 +656,7 @@ const _KeyboardData =
           "@_keys": "space"
          }
         ],
-        "@_modifier": "shift"
+        "@_modifiers": "shift"
        }
       ],
       "@_formId": "iso"
@@ -980,7 +980,7 @@ const _KeyboardData =
          "@_keys": "space"
         }
        ],
-       "@_modifier": "none"
+       "@_modifiers": "none"
       },
       {
        "row": [
@@ -1000,7 +1000,7 @@ const _KeyboardData =
          "@_keys": "space"
         }
        ],
-       "@_modifier": "shift"
+       "@_modifiers": "shift"
       },
       {
        "row": [
@@ -1020,7 +1020,7 @@ const _KeyboardData =
          "@_keys": "space"
         }
        ],
-       "@_modifier": "altR"
+       "@_modifiers": "altR"
       },
       {
        "row": [
@@ -1040,7 +1040,7 @@ const _KeyboardData =
          "@_keys": "space"
         }
        ],
-       "@_modifier": "altR shift"
+       "@_modifiers": "altR shift"
       }
      ],
      "@_formId": "iso"
@@ -1181,7 +1181,7 @@ const _KeyboardData =
          "@_keys": "space"
         }
        ],
-       "@_modifier": "none"
+       "@_modifiers": "none"
       },
       {
        "row": [
@@ -1201,7 +1201,7 @@ const _KeyboardData =
          "@_keys": "space"
         }
        ],
-       "@_modifier": "shift"
+       "@_modifiers": "shift"
       },
       {
        "row": [
@@ -1221,7 +1221,7 @@ const _KeyboardData =
          "@_keys": "space"
         }
        ],
-       "@_modifier": "altR"
+       "@_modifiers": "altR"
       },
       {
        "row": [
@@ -1241,7 +1241,7 @@ const _KeyboardData =
          "@_keys": "space"
         }
        ],
-       "@_modifier": "altR shift"
+       "@_modifiers": "altR shift"
       }
      ],
      "@_formId": "us"

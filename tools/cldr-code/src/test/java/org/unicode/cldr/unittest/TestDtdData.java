@@ -760,7 +760,7 @@ public class TestDtdData extends TestFmwk {
                 if (elementName.equals("keyboard3") && attribute.equals("locale")
                         || elementName.equals("layers") && attribute.equals("formId")
                         || elementName.equals("layers") && attribute.equals("minDeviceWidth")
-                        || elementName.equals("layer") && attribute.equals("modifier")
+                        || elementName.equals("layer") && attribute.equals("modifiers")
                         || elementName.equals("form") && attribute.equals("id")
                         || elementName.equals("key") && attribute.equals("id")
                         || elementName.equals("keyList") && attribute.equals("id")

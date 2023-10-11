@@ -195,17 +195,9 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
         </xs:simpleType>
       </xs:attribute>
       <xs:attribute name="layerId" type="xs:NMTOKEN"/>
-      <xs:attribute name="transform">
-        <xs:simpleType>
-          <xs:restriction base="xs:token">
-            <xs:enumeration value="no"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:attribute>
       <xs:attribute name="width"/>
     </xs:complexType>
   </xs:element>
-  
   
   
   

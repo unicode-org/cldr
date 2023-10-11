@@ -1036,7 +1036,6 @@ Occurrence: optional, single</p>
  <span class="hljs-attr">stretch</span>=<span class="hljs-string">"true"</span>
  <span class="hljs-attr">layerId</span>=<span class="hljs-string">"{switch layer id}"</span>
  <span class="hljs-attr">output</span>=<span class="hljs-string">"{the output}"</span>
- <span class="hljs-attr">transform</span>=<span class="hljs-string">"no"</span>
  <span class="hljs-attr">width</span>=<span class="hljs-string">"{key width}"</span>
  /&gt;</span>
 </code></pre><blockquote>
@@ -1108,51 +1107,7 @@ the modifier keys.</p>
 </blockquote><p><em>Attribute:</em> <code>output</code></p><blockquote>
 <p>The <code>output</code> attribute contains the sequence of characters that is emitted when pressing this particular key. Control characters, whitespace (other than the regular space character) and combining marks in this attribute are escaped using the <code>\u{...}</code> notation. More than one key may output the same output.</p>
 <p>The <code>output</code> attribute may also contain the <code>\m{…}</code> syntax to insert a marker. See the definition of <a href="#markers">markers</a>.</p>
-</blockquote><p><em>Attribute:</em> <code>transform="no"</code> (optional)</p><blockquote>
-<p>The <code>transform</code> attribute is used to define a key that does not participate in a transform (until the next keystroke). This attribute value must be <code>"no"</code> if the attribute is present.
-This attribute is useful where it is desired to output where two different keys could output the same characters (with different key or modifier combinations) but only one of them is intended to participate in a transform.
-When the next keystroke is pressed, the prior output may then combine using other transforms.</p>
-<p>Note that a more flexible way of solving this problem may be to use special markers which would inhibit matching.</p>
-<p>For example, suppose there are the following keys, their output and one transform:</p>
-</blockquote><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keys</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"X"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"^"</span> <span class="hljs-attr">transform</span>=<span class="hljs-string">"no"</span>/&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"OptX"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"^"</span>/&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">keys</span>&gt;</span>
-…
-<span class="hljs-tag">&lt;<span class="hljs-name">transforms</span> …&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">transform</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"^e"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"ê"</span>/&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">transforms</span>&gt;</span>
-</code></pre><ul>
-<li><strong>X</strong> outputs <code>^</code> (caret)</li>
-<li>Option-<strong>X</strong> outputs <code>^</code> but is intended to be the first part of a transform.</li>
-<li>Option-<strong>X</strong> + <code>e</code> → <code>ê</code></li>
-</ul><blockquote>
-<p>Without the <code>transform="no"</code> on the base key <strong>X</strong>, it would not be possible to
-type the sequence <code>^e</code> (caret+e) as it would turn into <code>ê</code> per the transform.
-However, since there is <code>transform="no</code>" on <strong>X</strong>, if the user types <strong>X</strong> + <code>e</code> the sequence remains <code>^e</code>.</p>
-</blockquote><ul>
-<li><strong>X</strong> + <code>e</code> → <code>^e</code></li>
-</ul><blockquote>
-<p>Using markers, the same results can be obtained without need of <code>transform="no"</code> using:</p>
-</blockquote><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keys</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"X"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"^\m{no_transform}"</span>/&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"OptX"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"^"</span>/&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">keys</span>&gt;</span>
-…
-<span class="hljs-tag">&lt;<span class="hljs-name">transforms</span> …&gt;</span>
-    <span class="hljs-comment">&lt;!-- this wouldn't match the key X output because of the marker --&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">transform</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"^e"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"ê"</span>/&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">transforms</span>&gt;</span>
-</code></pre><p>Even better is to use a marker to indicate where transforms are desired:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keys</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"X"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"^"</span>/&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"OptX"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"^\m{transform}"</span>/&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">keys</span>&gt;</span>
-…
-<span class="hljs-tag">&lt;<span class="hljs-name">transforms</span> …&gt;</span>
-    <span class="hljs-comment">&lt;!-- again, this wouldn't match the key X output because of the missing marker --&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">transform</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"^\m{transform}e"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"ê"</span>/&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">transforms</span>&gt;</span>
-</code></pre><p><em>Attribute:</em> <code>width="1.2"</code> (optional, default "1.0")</p><blockquote>
+</blockquote><p><em>Attribute:</em> <code>width="1.2"</code> (optional, default "1.0")</p><blockquote>
 <p>The <code>width</code> attribute indicates that this key has a different width than other keys, by the specified number of key widths.</p>
 </blockquote><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"wide-a"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"a"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"1.2"</span>/&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"wide-gap"</span> <span class="hljs-attr">gap</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"2.5"</span>/&gt;</span>
@@ -1676,7 +1631,36 @@ The <code>unicodeSet</code> element may not be referenced by <a href="#element-k
 <li>character <code>ê</code></li>
 </ul>
 </li>
-</ol><p><strong>Effect of markers on final text</strong></p><p>All markers must be removed before text is returned to the application from the input context.
+</ol><p><strong>Using markers to inhibit other transforms</strong></p><p>Sometimes it is desirable to prevent transforms from having an effect.
+Perhaps two different keys output the same characters, with different key or modifier combinations, but only one of them is intended to participate in a transform.</p><p>Consider the following case, where pressing the keys <code>X</code>, <code>e</code> results in <code>^e</code>, which is transformed into <code>ê</code>.</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keys</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"X"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"^"</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"e"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"e"</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">keys</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">transforms</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">transform</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"^e"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"ê"</span>/&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">transforms</span>&gt;</span>
+</code></pre><p>However, what if the user wanted to produce <code>^e</code> without the transform taking effect?
+One strategy would be to use a marker, which won’t be visible in the output, but will inhibit the transform.</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keys</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"caret"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"^\m{no_transform}"</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"X"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"^"</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"e"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"e"</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">keys</span>&gt;</span>
+…
+<span class="hljs-tag">&lt;<span class="hljs-name">transforms</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- this wouldn't match the key X output because of the marker --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">transform</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"^e"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"ê"</span>/&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">transforms</span>&gt;</span>
+</code></pre><p>Pressing <code>caret</code> <code>e</code> will result in <code>^e</code> (with an invisible <em>no_transform</em> marker — note that any name could be used). The <code>^e</code> won’t have the transform applied, at least while the marker’s context remains valid.</p><p>Another strategy might be to use a marker to indicate where transforms are desired, instead of where they aren't desired.</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keys</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"caret"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"^"</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"X"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"^\m{transform}"</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"e"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"e"</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">keys</span>&gt;</span>
+…
+<span class="hljs-tag">&lt;<span class="hljs-name">transforms</span> …&gt;</span>
+    <span class="hljs-comment">&lt;!-- Won't match ^e without marker. --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">transform</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"^\m{transform}e"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"ê"</span>/&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">transforms</span>&gt;</span>
+</code></pre><p>In this way, only the <code>X</code>, <code>e</code> keys will produce <code>^e</code> with a <em>transform</em> marker (again, any name could be used) which will cause the transform to be applied. One benefit is that clicking or using the arrow key to navigate existing text with <code>^e</code> will never be affected by the transform, because the marker is not or no longer present.</p><p><strong>Effect of markers on final text</strong></p><p>All markers must be removed before text is returned to the application from the input context.
 If the input context changes, such as if the cursor or mouse moves the insertion point somewhere else, all markers in the input context are removed.</p><p><strong>Implementation Notes</strong></p><p>Ideally, markers are implemented entirely out-of-band from the normal text stream. However, implementations <em>may</em> choose to map each marker to a <a href="https://www.unicode.org/glossary/#private_use_character">Unicode private-use character</a> for use only within the implementation’s processing and temporary storage in the input context.</p><p>For example, the first marker encountered could be represented as U+E000, the second by U+E001 and so on.  If a regex processing engine were used, then those PUA characters could be processed through the existing regex processing engine.  <code>[^\u{E000}-\u{E009}]</code> could be used as an expression to match a character that is not a marker, and <code>[Ee]\u{E000}</code> could match <code>E</code> or <code>e</code> followed by the first marker.</p><p>Such implementations must take care to remove all such markers (see prior section) from the resultant text. As well, implementations must take care to avoid conflicts if applications themselves are using PUA characters, such as is often done with not-yet-encoded scripts or characters.</p><hr><h3 id="Element_transformGroup"><a name="element-transformgroup" href="#Element_transformGroup">Element: transformGroup</a></h3><blockquote>
 <small>
 

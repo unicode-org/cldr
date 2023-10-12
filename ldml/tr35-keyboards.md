@@ -1732,7 +1732,7 @@ One strategy would be to use a marker, which won’t be visible in the output, b
 </keys>
 …
 <transforms>
-    <!-- this wouldn't match the key X output because of the marker -->
+    <!-- this wouldn't match the key caret output because of the marker -->
     <transform from="^e" output="ê"/>
 </transforms>
 ```
@@ -1754,7 +1754,7 @@ Another strategy might be to use a marker to indicate where transforms are desir
 </transforms>
 ```
 
-In this way, only the `X`, `e` keys will produce `^e` with a _transform_ marker (again, any name could be used) which will cause the transform to be applied. One benefit is that clicking or using the arrow key to navigate existing text with `^e` will never be affected by the transform, because the marker is not or no longer present.
+In this way, only the `X`, `e` keys will produce `^e` with a _transform_ marker (again, any name could be used) which will cause the transform to be applied. One benefit is that navigating to an existing `^` in a document and adding an `e` will result in `^e`, and this output will not be affected by the transform, because there will be no marker present there (remember that markers are not stored with the document but only recorded in memory temporarily during text input).
 
 **Effect of markers on final text**
 

@@ -99,6 +99,7 @@ The LDML specification is divided into the following parts:
     * [Conversion Rules](#Conversion_Rules)
     * [Intermixing Transform Rules and Conversion Rules](#Intermixing_Transform_Rules_and_Conversion_Rules)
     * [Inverse Summary](#Inverse_Summary)
+  * [Transform Syntax Characters](#transform-syntax-characters)
 * [List Patterns](#ListPatterns)
   * [Gender of Lists](#List_Gender)
 * [ContextTransform Elements](#Context_Transform_Elements)

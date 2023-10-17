@@ -53,3 +53,9 @@
 
 - 404635d8b37c222c9233318ae161b6b61e3a4b50 CLDR-15970 v43 dependency fix
 - ad04baabf773e8aae714c29fbdb5d9027c9e5c3d CLDR-15970 v43 dependency fix
+
+# SKIP v45
+
+- 1a52361654 CLDR-17141 kbd: drop transform=no (#3330) (cherry-picked to maint-44)
+- 286a10b2b2 CLDR-17140 kbd: specify modifier matching (#3314) (cherry-picked to maint-44)
+- 5f1d2981aa CLDR-17113 kbd: element/attr renaming (#3313) (cherry-picked to maint-44)

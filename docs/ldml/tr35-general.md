@@ -1966,11 +1966,42 @@ x → y | z ;
 z a → w ;
 ```
 
-First, "xa" is converted to "yza". Then the processing will continue from after the character "y", pick up the "za", and convert it. Had we not had the "|", the result would have been simply "yza". The '@' character can be used as filler character to place the revisiting point off the start or end of the string. Thus the following causes x to be replaced, and the cursor to be backed up by two characters.
+First, "xa" is converted to "yza". Then the processing will continue from after the character "y", pick up the "za", and convert it. Had we not had the "|", the result would have been simply "yza".
+
+The '@' character can be used as filler character to place the revisiting point off the start or end of the string — but only within the context. Consider the following rules, with the table afterwards showing how they work.
 
 ```
-x → |@@y;
+1. [a-z]{x > |@ab ;
+2. ab > J;
+3. ca > M;
 ```
+The ⸠ indicates the virtual cursor:
+
+| Current text | Matching rule |
+| - | - |
+| ⸠cx | no match, cursor advances one code point |
+| c⸠x | matches rule 1, so the text is replaced and cursor backs up. |
+| ⸠cab | matches rule 3, so the text is replaced, with cursor at the end. |
+| Mb⸠ | cursor is at the end, so we are done. |
+
+Notice that rule 2 did not have a chance to trigger.
+
+There is a current restriction that @ cannot back up before the before_context or after the after_context.
+Consider the rules if rule 1 is adjusted to have no before_context.
+
+```
+1'. x > |@ab ;
+2. ab > J ;
+3. ca > M;
+```
+
+In that case, the results are different.
+| Current text | Matching rule |
+| - | - |
+| ⸠cx | no match, cursor advances one code point |
+| c⸠x | matches rule 1, so the text is replaced and cursor backs up; but only to where  |
+| c⸠ab | matches **rule 2**, so the text is replaced, with cursor at the end. |
+| cJ⸠ | cursor is at the end, so we are done. |
 
 #### <a name="Example" href="#Example">Example</a>
 

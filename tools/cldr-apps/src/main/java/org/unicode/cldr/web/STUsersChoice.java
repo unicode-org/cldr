@@ -2,7 +2,7 @@ package org.unicode.cldr.web;
 
 import org.unicode.cldr.util.*;
 import org.unicode.cldr.util.VettingViewer.UsersChoice;
-import org.unicode.cldr.util.VettingViewer.VoteStatus;
+import org.unicode.cldr.util.VoteResolver.VoteStatus;
 import org.unicode.cldr.web.UserRegistry.User;
 
 public class STUsersChoice implements UsersChoice<Organization> {

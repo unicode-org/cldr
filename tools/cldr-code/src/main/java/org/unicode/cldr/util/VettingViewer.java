@@ -88,40 +88,6 @@ public class VettingViewer<T> {
     private static PathHeader.Factory pathTransform;
     private static final OutdatedPaths outdatedPaths = new OutdatedPaths();
 
-    /** See VoteResolver getStatusForOrganization to see how this is computed. */
-    public enum VoteStatus {
-        /**
-         * The value for the path is either contributed or approved, and the user's organization
-         * didn't vote. (see class def for null user)
-         */
-        ok_novotes,
-
-        /**
-         * The value for the path is either contributed or approved, and the user's organization
-         * chose the winning value. (see class def for null user)
-         */
-        ok,
-
-        /**
-         * The user's organization chose the winning value for the path, but that value is neither
-         * contributed nor approved. (see class def for null user)
-         */
-        provisionalOrWorse,
-
-        /**
-         * The user's organization's choice is not winning. There may be insufficient votes to
-         * overcome a previously approved value, or other organizations may be voting against it.
-         * (see class def for null user)
-         */
-        losing,
-
-        /**
-         * There is a dispute, meaning more than one item with votes, or the item with votes didn't
-         * win.
-         */
-        disputed
-    }
-
     /**
      * @author markdavis
      * @param <T>
@@ -139,7 +105,8 @@ public class VettingViewer<T> {
          * Return the vote status NOTE: if organization = null, then it must disregard the
          * organization and never return losing. See VoteStatus.
          */
-        VoteStatus getStatusForUsersOrganization(CLDRFile cldrFile, String path, T organization);
+        VoteResolver.VoteStatus getStatusForUsersOrganization(
+                CLDRFile cldrFile, String path, T organization);
 
         /**
          * Has the given user voted for the given path and locale?
@@ -530,9 +497,9 @@ public class VettingViewer<T> {
                 problems.add(NotificationCategory.inheritedChanged);
                 vc.problemCounter.increment(NotificationCategory.inheritedChanged);
             }
-            VoteStatus voteStatus =
+            VoteResolver.VoteStatus voteStatus =
                     userVoteStatus.getStatusForUsersOrganization(sourceFile, path, organization);
-            boolean itemsOkIfVoted = (voteStatus == VoteStatus.ok);
+            boolean itemsOkIfVoted = (voteStatus == VoteResolver.VoteStatus.ok);
             MissingStatus missingStatus =
                     onlyRecordErrors
                             ? null
@@ -695,7 +662,7 @@ public class VettingViewer<T> {
         }
 
         private void recordLosingDisputedEtc(
-                String path, VoteStatus voteStatus, MissingStatus missingStatus) {
+                String path, VoteResolver.VoteStatus voteStatus, MissingStatus missingStatus) {
             switch (voteStatus) {
                 case losing:
                     if (choices.contains(NotificationCategory.weLost)) {

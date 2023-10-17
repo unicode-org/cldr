@@ -8,7 +8,6 @@ import com.ibm.icu.util.Output;
 import java.util.Date;
 import org.junit.jupiter.api.Test;
 import org.unicode.cldr.unittest.TestUtilities;
-import org.unicode.cldr.util.VettingViewer.VoteStatus;
 import org.unicode.cldr.util.VoteResolver.Status;
 
 /**
@@ -43,7 +42,8 @@ public class TestVoteResolver {
                 () -> assertEquals("Illa Bouvet", vr.getWinningValue()),
                 () ->
                         assertEquals(
-                                VoteStatus.ok, vr.getStatusForOrganization(Organization.google)));
+                                VoteResolver.VoteStatus.ok,
+                                vr.getStatusForOrganization(Organization.google)));
     }
 
     @Test

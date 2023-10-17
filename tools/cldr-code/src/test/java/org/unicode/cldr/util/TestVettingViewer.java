@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 import org.unicode.cldr.test.OutdatedPaths;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
-import org.unicode.cldr.util.VettingViewer.VoteStatus;
+import org.unicode.cldr.util.VoteResolver.VoteStatus;
 
 /** Also see {@link org.unicode.cldr.unittest.TestUtilities} */
 class TestVettingViewer {
@@ -38,7 +38,7 @@ class TestVettingViewer {
                             @Override
                             public VoteStatus getStatusForUsersOrganization(
                                     CLDRFile cldrFile, String path, Organization user) {
-                                return VoteStatus.losing;
+                                return VoteResolver.VoteStatus.losing;
                             }
 
                             @Override

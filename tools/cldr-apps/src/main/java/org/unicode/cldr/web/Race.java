@@ -4,8 +4,8 @@ package org.unicode.cldr.web;
 
 import java.util.Map;
 import org.unicode.cldr.util.Organization;
-import org.unicode.cldr.util.VettingViewer.VoteStatus;
 import org.unicode.cldr.util.VoteResolver;
+import org.unicode.cldr.util.VoteResolver.VoteStatus;
 import org.unicode.cldr.web.UserRegistry.User;
 
 /**

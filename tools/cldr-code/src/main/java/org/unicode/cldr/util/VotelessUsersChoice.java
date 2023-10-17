@@ -13,7 +13,7 @@ public class VotelessUsersChoice implements VettingViewer.UsersChoice<Organizati
     }
 
     @Override
-    public VettingViewer.VoteStatus getStatusForUsersOrganization(
+    public VoteResolver.VoteStatus getStatusForUsersOrganization(
             CLDRFile cldrFile, String path, Organization org) {
         final CLDRLocale loc = CLDRLocale.getInstance(cldrFile.getLocaleID());
         return getVoteResolver(cldrFile, loc, path).getStatusForOrganization(org);

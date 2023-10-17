@@ -15,7 +15,6 @@ import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.Phase;
 import org.unicode.cldr.test.CheckWidths;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
-import org.unicode.cldr.util.VettingViewer.VoteStatus;
 
 /**
  * This class implements the vote resolution process agreed to by the CLDR committee. Here is an
@@ -433,6 +432,40 @@ public class VoteResolver<T> {
         public boolean canDeleteUsers() {
             return isAdmin();
         }
+    }
+
+    /** See VoteResolver getStatusForOrganization to see how this is computed. */
+    public enum VoteStatus {
+        /**
+         * The value for the path is either contributed or approved, and the user's organization
+         * didn't vote. (see class def for null user)
+         */
+        ok_novotes,
+
+        /**
+         * The value for the path is either contributed or approved, and the user's organization
+         * chose the winning value. (see class def for null user)
+         */
+        ok,
+
+        /**
+         * The user's organization chose the winning value for the path, but that value is neither
+         * contributed nor approved. (see class def for null user)
+         */
+        provisionalOrWorse,
+
+        /**
+         * The user's organization's choice is not winning. There may be insufficient votes to
+         * overcome a previously approved value, or other organizations may be voting against it.
+         * (see class def for null user)
+         */
+        losing,
+
+        /**
+         * There is a dispute, meaning more than one item with votes, or the item with votes didn't
+         * win.
+         */
+        disputed
     }
 
     /** Internal class for voter information. It is public for testing only */

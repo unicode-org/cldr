@@ -41,9 +41,9 @@ import org.unicode.cldr.util.*;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.VettingViewer.MissingStatus;
-import org.unicode.cldr.util.VettingViewer.VoteStatus;
 import org.unicode.cldr.util.VoteResolver.Level;
 import org.unicode.cldr.util.VoteResolver.Status;
+import org.unicode.cldr.util.VoteResolver.VoteStatus;
 import org.unicode.cldr.util.VoteResolver.VoterInfo;
 import org.unicode.cldr.util.props.ICUPropertyFactory;
 
@@ -400,9 +400,9 @@ public class TestUtilities extends TestFmwkPlus {
         resolver.add("fii", toVoterId("appleV"));
         VoteStatus voteStatus;
         voteStatus = resolver.getStatusForOrganization(Organization.google);
-        assertEquals("", VoteStatus.ok, voteStatus);
+        assertEquals("", VoteResolver.VoteStatus.ok, voteStatus);
         voteStatus = resolver.getStatusForOrganization(Organization.apple);
-        assertEquals("", VoteStatus.ok, voteStatus);
+        assertEquals("", VoteResolver.VoteStatus.ok, voteStatus);
 
         // make non-equal foo
         String s1 = "foo";
@@ -415,7 +415,7 @@ public class TestUtilities extends TestFmwkPlus {
         resolver.setBaseline(s1, Status.approved);
         resolver.add(s2, toVoterId("appleV"));
         voteStatus = resolver.getStatusForOrganization(Organization.apple);
-        assertEquals("", VoteStatus.ok, voteStatus);
+        assertEquals("", VoteResolver.VoteStatus.ok, voteStatus);
     }
 
     public void TestLosingStatus() {
@@ -432,7 +432,7 @@ public class TestUtilities extends TestFmwkPlus {
         resolver.setBaseline("BQ", Status.missing);
         resolver.setBaileyValue("bailey");
         VoteStatus status = resolver.getStatusForOrganization(Organization.openoffice_org);
-        assertEquals("", VoteStatus.provisionalOrWorse, status);
+        assertEquals("", VoteResolver.VoteStatus.provisionalOrWorse, status);
 
         // {lastRelease: {{0}: {1}, missing}, trunk: {null, null}, {orgToVotes:
         // pakistan={{0}: {1}=8}, totals: {{0}:
@@ -444,7 +444,7 @@ public class TestUtilities extends TestFmwkPlus {
         // resolver.setLastRelease("{0}: {1}", Status.missing);
         resolver.add("{0}: {1}", toVoterId("adobeE"));
         status = resolver.getStatusForOrganization(Organization.openoffice_org);
-        assertEquals("", VoteStatus.ok, status);
+        assertEquals("", VoteResolver.VoteStatus.ok, status);
 
         // {lastRelease: {Arabisch, approved}, trunk: {Arabisch, approved},
         // {orgToVotes: , totals: {}, conflicted: []},
@@ -455,7 +455,7 @@ public class TestUtilities extends TestFmwkPlus {
         // resolver.setLastRelease("Arabisch", Status.approved);
         resolver.setBaseline("Arabisch", Status.approved);
         status = resolver.getStatusForOrganization(Organization.openoffice_org);
-        assertEquals("", VoteStatus.ok_novotes, status);
+        assertEquals("", VoteResolver.VoteStatus.ok_novotes, status);
     }
 
     public void TestTotalVotesStatus() {

@@ -173,84 +173,6 @@ const _KeyboardData =
     "@_conformsTo": "techpreview"
    }
   },
-  "ja-Latn.xml": {
-   "?xml": {
-    "@_version": "1.0",
-    "@_encoding": "UTF-8"
-   },
-   "keyboard3": {
-    "locales": {
-     "locale": {
-      "@_id": "en"
-     }
-    },
-    "version": {
-     "@_number": "0.0.0"
-    },
-    "info": {
-     "@_name": "Romaji (JIS)"
-    },
-    "keys": {
-     "import": [
-      {
-       "@_base": "cldr",
-       "@_path": "techpreview/keys-Zyyy-punctuation.xml"
-      },
-      {
-       "@_base": "cldr",
-       "@_path": "techpreview/keys-Zyyy-currency.xml"
-      }
-     ]
-    },
-    "layers": {
-     "layer": [
-      {
-       "row": [
-        {
-         "@_keys": "1 2 3 4 5 6 7 8 9 0 hyphen caret yen"
-        },
-        {
-         "@_keys": "q w e r t y u i o p at open-square"
-        },
-        {
-         "@_keys": "a s d f g h j k l semi-colon colon close-square"
-        },
-        {
-         "@_keys": "z x c v b n m comma period slash underscore"
-        },
-        {
-         "@_keys": "space"
-        }
-       ],
-       "@_modifiers": "none"
-      },
-      {
-       "row": [
-        {
-         "@_keys": "bang double-quote hash dollar percent amp apos open-paren close-paren 0 equal tilde pipe"
-        },
-        {
-         "@_keys": "Q W E R T Y U I O P grave open-curly"
-        },
-        {
-         "@_keys": "A S D F G H J K L plus asterisk close-curly"
-        },
-        {
-         "@_keys": "Z X C V B N M open-angle close-angle question underscore"
-        },
-        {
-         "@_keys": "space"
-        }
-       ],
-       "@_modifiers": "shift"
-      }
-     ],
-     "@_formId": "jis"
-    },
-    "@_locale": "ja-Latn",
-    "@_conformsTo": "techpreview"
-   }
-  },
   "pcm.xml": {
    "?xml": {
     "@_version": "1.0",
@@ -1249,159 +1171,87 @@ const _KeyboardData =
     "@_locale": "mt-t-k0-47key",
     "@_conformsTo": "techpreview"
    }
-  }
- },
- "imports": {
-  "keys-Zyyy-punctuation.xml": {
+  },
+  "ja-Latn.xml": {
    "?xml": {
     "@_version": "1.0",
     "@_encoding": "UTF-8"
    },
-   "keys": {
-    "key": [
-     {
-      "@_id": "amp",
-      "@_output": "\\u{0026}"
-     },
-     {
-      "@_id": "apos",
-      "@_output": "'"
-     },
-     {
-      "@_id": "asterisk",
-      "@_output": "*"
-     },
-     {
-      "@_id": "at",
-      "@_output": "@"
-     },
-     {
-      "@_id": "backslash",
-      "@_output": "\\u{005C}"
-     },
-     {
-      "@_id": "bang",
-      "@_output": "!"
-     },
-     {
-      "@_id": "caret",
-      "@_output": "^"
-     },
-     {
-      "@_id": "close-angle",
-      "@_output": ">"
-     },
-     {
-      "@_id": "close-curly",
-      "@_output": "}"
-     },
-     {
-      "@_id": "close-paren",
-      "@_output": ")"
-     },
-     {
-      "@_id": "close-square",
-      "@_output": "]"
-     },
-     {
-      "@_id": "colon",
-      "@_output": ":"
-     },
-     {
-      "@_id": "comma",
-      "@_output": ","
-     },
-     {
-      "@_id": "degree",
-      "@_output": "°"
-     },
-     {
-      "@_id": "double-quote",
-      "@_output": "\\u{0022}"
-     },
-     {
-      "@_id": "equal",
-      "@_output": "="
-     },
-     {
-      "@_id": "grave",
-      "@_output": "`"
-     },
-     {
-      "@_id": "hash",
-      "@_output": "#"
-     },
-     {
-      "@_id": "hyphen",
-      "@_output": "-"
-     },
-     {
-      "@_id": "micro",
-      "@_output": "µ"
-     },
-     {
-      "@_id": "not",
-      "@_output": "¬"
-     },
-     {
-      "@_id": "open-angle",
-      "@_output": "\\u{003C}"
-     },
-     {
-      "@_id": "open-curly",
-      "@_output": "{"
-     },
-     {
-      "@_id": "open-paren",
-      "@_output": "("
-     },
-     {
-      "@_id": "open-square",
-      "@_output": "["
-     },
-     {
-      "@_id": "percent",
-      "@_output": "%"
-     },
-     {
-      "@_id": "period",
-      "@_output": "."
-     },
-     {
-      "@_id": "pipe",
-      "@_output": "|"
-     },
-     {
-      "@_id": "plus",
-      "@_output": "+"
-     },
-     {
-      "@_id": "question",
-      "@_output": "?"
-     },
-     {
-      "@_id": "section",
-      "@_output": "§"
-     },
-     {
-      "@_id": "semi-colon",
-      "@_output": ";"
-     },
-     {
-      "@_id": "slash",
-      "@_output": "/"
-     },
-     {
-      "@_id": "tilde",
-      "@_output": "~"
-     },
-     {
-      "@_id": "underscore",
-      "@_output": "_"
+   "keyboard3": {
+    "locales": {
+     "locale": {
+      "@_id": "en"
      }
-    ]
+    },
+    "version": {
+     "@_number": "0.0.0"
+    },
+    "info": {
+     "@_name": "Romaji (JIS)"
+    },
+    "keys": {
+     "import": [
+      {
+       "@_base": "cldr",
+       "@_path": "techpreview/keys-Zyyy-punctuation.xml"
+      },
+      {
+       "@_base": "cldr",
+       "@_path": "techpreview/keys-Zyyy-currency.xml"
+      }
+     ]
+    },
+    "layers": {
+     "layer": [
+      {
+       "row": [
+        {
+         "@_keys": "1 2 3 4 5 6 7 8 9 0 hyphen caret yen"
+        },
+        {
+         "@_keys": "q w e r t y u i o p at open-square"
+        },
+        {
+         "@_keys": "a s d f g h j k l semi-colon colon close-square"
+        },
+        {
+         "@_keys": "z x c v b n m comma period slash underscore"
+        },
+        {
+         "@_keys": "space"
+        }
+       ],
+       "@_modifiers": "none"
+      },
+      {
+       "row": [
+        {
+         "@_keys": "bang double-quote hash dollar percent amp apos open-paren close-paren 0 equal tilde pipe"
+        },
+        {
+         "@_keys": "Q W E R T Y U I O P grave open-curly"
+        },
+        {
+         "@_keys": "A S D F G H J K L plus asterisk close-curly"
+        },
+        {
+         "@_keys": "Z X C V B N M open-angle close-angle question underscore"
+        },
+        {
+         "@_keys": "space"
+        }
+       ],
+       "@_modifiers": "shift"
+      }
+     ],
+     "@_formId": "jis"
+    },
+    "@_locale": "ja-Latn",
+    "@_conformsTo": "techpreview"
    }
-  },
+  }
+ },
+ "imports": {
   "keys-Latn-implied.xml": {
    "?xml": {
     "@_version": "1.0",
@@ -1811,6 +1661,156 @@ const _KeyboardData =
      {
       "@_id": "cent",
       "@_output": "¢"
+     }
+    ]
+   }
+  },
+  "keys-Zyyy-punctuation.xml": {
+   "?xml": {
+    "@_version": "1.0",
+    "@_encoding": "UTF-8"
+   },
+   "keys": {
+    "key": [
+     {
+      "@_id": "amp",
+      "@_output": "\\u{0026}"
+     },
+     {
+      "@_id": "apos",
+      "@_output": "'"
+     },
+     {
+      "@_id": "asterisk",
+      "@_output": "*"
+     },
+     {
+      "@_id": "at",
+      "@_output": "@"
+     },
+     {
+      "@_id": "backslash",
+      "@_output": "\\u{005C}"
+     },
+     {
+      "@_id": "bang",
+      "@_output": "!"
+     },
+     {
+      "@_id": "caret",
+      "@_output": "^"
+     },
+     {
+      "@_id": "close-angle",
+      "@_output": ">"
+     },
+     {
+      "@_id": "close-curly",
+      "@_output": "}"
+     },
+     {
+      "@_id": "close-paren",
+      "@_output": ")"
+     },
+     {
+      "@_id": "close-square",
+      "@_output": "]"
+     },
+     {
+      "@_id": "colon",
+      "@_output": ":"
+     },
+     {
+      "@_id": "comma",
+      "@_output": ","
+     },
+     {
+      "@_id": "degree",
+      "@_output": "°"
+     },
+     {
+      "@_id": "double-quote",
+      "@_output": "\\u{0022}"
+     },
+     {
+      "@_id": "equal",
+      "@_output": "="
+     },
+     {
+      "@_id": "grave",
+      "@_output": "`"
+     },
+     {
+      "@_id": "hash",
+      "@_output": "#"
+     },
+     {
+      "@_id": "hyphen",
+      "@_output": "-"
+     },
+     {
+      "@_id": "micro",
+      "@_output": "µ"
+     },
+     {
+      "@_id": "not",
+      "@_output": "¬"
+     },
+     {
+      "@_id": "open-angle",
+      "@_output": "\\u{003C}"
+     },
+     {
+      "@_id": "open-curly",
+      "@_output": "{"
+     },
+     {
+      "@_id": "open-paren",
+      "@_output": "("
+     },
+     {
+      "@_id": "open-square",
+      "@_output": "["
+     },
+     {
+      "@_id": "percent",
+      "@_output": "%"
+     },
+     {
+      "@_id": "period",
+      "@_output": "."
+     },
+     {
+      "@_id": "pipe",
+      "@_output": "|"
+     },
+     {
+      "@_id": "plus",
+      "@_output": "+"
+     },
+     {
+      "@_id": "question",
+      "@_output": "?"
+     },
+     {
+      "@_id": "section",
+      "@_output": "§"
+     },
+     {
+      "@_id": "semi-colon",
+      "@_output": ";"
+     },
+     {
+      "@_id": "slash",
+      "@_output": "/"
+     },
+     {
+      "@_id": "tilde",
+      "@_output": "~"
+     },
+     {
+      "@_id": "underscore",
+      "@_output": "_"
      }
     ]
    }

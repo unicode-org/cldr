@@ -12,6 +12,7 @@ import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 import java.util.Random;
 import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.tool.ShowLocaleCoverage;
 
 /**
  * Simple utility to create a temporary file, write into it, then close it. If the file differs from
@@ -103,6 +104,25 @@ public class TempPrintWriter extends Writer {
 
     public void println() {
         tempPrintWriter.println();
+    }
+
+    /** Println with extra tabs on each line, as needed, to appear as table in github */
+    public void printlnWithTabs(int desiredCount, String textToPrint) {
+        StringBuilder result = new StringBuilder();
+        for (String line : ShowLocaleCoverage.LF_SPLITTER.split(textToPrint)) {
+            long count = desiredCount - line.chars().filter(ch -> ch == '\t').count();
+            if (count < 0) {
+                throw new IllegalArgumentException("Too many tabs in line.");
+            }
+            result.append(line);
+            if (count != 0) {
+                for (int i = 0; i < count; ++i) {
+                    result.append('\t');
+                }
+            }
+            result.append('\n');
+        }
+        print(result);
     }
 
     /**

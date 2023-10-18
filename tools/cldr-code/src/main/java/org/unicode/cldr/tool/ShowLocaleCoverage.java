@@ -70,7 +70,7 @@ public class ShowLocaleCoverage {
             "https://github.com/unicode-org/cldr-staging/blob/main/docs/charts/"
                     + ToolConstants.CHART_VI.getVersionString(1, 2)
                     + "/tsv/";
-    private static final Splitter LF_SPLITTER = Splitter.on('\n');
+    public static final Splitter LF_SPLITTER = Splitter.on('\n');
 
     // thresholds for measuring Level attainment
     private static final double BASIC_THRESHOLD = 1;
@@ -343,7 +343,7 @@ public class ShowLocaleCoverage {
             tsv_missing_counts.println(TSV_MISSING_COUNTS_HEADER);
 
             final int propertiesCoverageTabCount = 2;
-            printlnWithTabs(propertiesCoverage, propertiesCoverageTabCount, PROPERTIES_HEADER);
+            propertiesCoverage.printlnWithTabs(propertiesCoverageTabCount, PROPERTIES_HEADER);
 
             Set<String> checkModernLocales =
                     STANDARD_CODES.getLocaleCoverageLocales(
@@ -908,8 +908,7 @@ public class ShowLocaleCoverage {
                     // now write properties file line
 
                     if (computed != Level.UNDETERMINED) {
-                        printlnWithTabs(
-                                propertiesCoverage,
+                        propertiesCoverage.printlnWithTabs(
                                 propertiesCoverageTabCount,
                                 locale
                                         + " ;\t"
@@ -949,7 +948,7 @@ public class ShowLocaleCoverage {
                 }
             }
             String lineToPrint = "\n#EOF";
-            printlnWithTabs(propertiesCoverage, propertiesCoverageTabCount, lineToPrint);
+            propertiesCoverage.printlnWithTabs(propertiesCoverageTabCount, lineToPrint);
 
             pw.println("<h3><a name='main_table' href='#main_table'>Main Table</a></h3>");
             pw.println(tablePrinter.toTable());
@@ -1063,26 +1062,6 @@ public class ShowLocaleCoverage {
                             + " millis/locale");
             ShowPlurals.appendBlanksForScrolling(pw);
         }
-    }
-
-    /** Println with extra tabs to appear as table in github */
-    public static void printlnWithTabs(
-            TempPrintWriter printWriter, int desiredCount, String textToPrint) {
-        StringBuilder result = new StringBuilder();
-        for (String line : LF_SPLITTER.split(textToPrint)) {
-            long count = desiredCount - line.chars().filter(ch -> ch == '\t').count();
-            if (count < 0) {
-                throw new IllegalArgumentException("Too many tabs in line.");
-            }
-            result.append(line);
-            if (count != 0) {
-                for (int i = 0; i < count; ++i) {
-                    result.append('\t');
-                }
-            }
-            result.append('\n');
-        }
-        printWriter.print(result);
     }
 
     private static String linkTsv(String tsvFileName) {

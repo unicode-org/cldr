@@ -7,7 +7,6 @@ import com.ibm.icu.impl.Relation;
 import com.ibm.icu.util.VersionInfo;
 import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -21,7 +20,6 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.regex.Matcher;
-import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -32,13 +30,16 @@ import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Counter2;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleNames;
+import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.Factory;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.RegexLookup.LookupType;
 import org.unicode.cldr.util.SimpleFactory;
+import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.TempPrintWriter;
 import org.unicode.cldr.util.VettingViewer;
 import org.unicode.cldr.util.VettingViewer.MissingStatus;
 
@@ -51,6 +52,11 @@ public class ChartLocaleGrowth {
     private static CLDRConfig testInfo = ToolConfig.getToolInstance();
     private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO =
             testInfo.getSupplementalDataInfo();
+    static final Set<String> CldrModernLocales =
+            StandardCodes.make().getLocaleCoverageLocales(Organization.cldr, Set.of(Level.MODERN));
+    static final Set<String> SpecialLocales =
+            StandardCodes.make()
+                    .getLocaleCoverageLocales(Organization.special, Set.of(Level.MODERN));
 
     private static org.unicode.cldr.util.Factory factory =
             testInfo.getCommonAndSeedAndMainAndAnnotationsFactory();
@@ -79,7 +85,11 @@ public class ChartLocaleGrowth {
     static final Options myOptions = new Options();
 
     private enum MyOptions {
-        filter(".+", ".*", "Filter the information based on id, using a regex argument."),
+        filter(".+", ".*", "Filter the information based on locale, using a regex argument."),
+        Versions(
+                ".+",
+                ".*",
+                "Filter the information based on cldr version, using a regex argument."),
     //        draftStatus(".+", "unconfirmed", "Filter the information to a minimum draft status."),
     ;
 
@@ -95,25 +105,46 @@ public class ChartLocaleGrowth {
     public static void main(String[] args) throws IOException {
         myOptions.parse(MyOptions.filter, args, true);
 
-        Matcher matcher = PatternCache.get(MyOptions.filter.option.getValue()).matcher("");
+        Matcher localeMatcher = PatternCache.get(MyOptions.filter.option.getValue()).matcher("");
+        Matcher versionMatcher = PatternCache.get(MyOptions.Versions.option.getValue()).matcher("");
 
-        try (PrintWriter out =
-                FileUtilities.openUTF8Writer(
-                        CLDRPaths.CHART_DIRECTORY + "tsv/", "locale-growth.tsv")) {
-            doGrowth(matcher, out);
+        try (TempPrintWriter out =
+                        new TempPrintWriter(
+                                CLDRPaths.CHART_DIRECTORY + "tsv/", "locale-growth.tsv");
+                TempPrintWriter log =
+                        new TempPrintWriter(
+                                CLDRPaths.CHART_DIRECTORY + "tsv/", "locale-growth-log.tsv");
+                TempPrintWriter logPaths =
+                        new TempPrintWriter(
+                                CLDRPaths.CHART_DIRECTORY + "tsv/", "locale-growth-paths.tsv"); ) {
+            doGrowth(localeMatcher, versionMatcher, out, log, logPaths);
             return;
         }
     }
 
-    private static void doGrowth(Matcher matcher, PrintWriter out) {
+    private static void doGrowth(
+            Matcher localeMatcher,
+            Matcher versionMatcher,
+            TempPrintWriter out,
+            TempPrintWriter log,
+            TempPrintWriter logPaths) {
         TreeMap<String, List<Double>> growthData =
                 new TreeMap<>(Ordering.natural().reverse()); // sort by version, descending
         Map<String, FoundAndTotal> latestData = null;
+        ReleaseInfo last = versionToYear.get(0);
         for (ReleaseInfo versionNormalizedVersionAndYear : versionToYear) {
+            if (versionMatcher != null
+                    && !versionMatcher
+                            .reset(versionNormalizedVersionAndYear.version.getVersionString(1, 2))
+                            .matches()) {
+                continue;
+            }
             VersionInfo version = versionNormalizedVersionAndYear.version;
             int year = versionNormalizedVersionAndYear.year;
             String dir = ToolConstants.getBaseDirectory(version.getVersionString(2, 3));
-            Map<String, FoundAndTotal> currentData = addGrowth(factory, dir, matcher, false);
+            boolean showMissing = last == versionNormalizedVersionAndYear;
+            Map<String, FoundAndTotal> currentData =
+                    addGrowth(factory, dir, localeMatcher, showMissing, log, logPaths);
             long found = 0;
             long total = 0;
             for (Entry<String, FoundAndTotal> entry : currentData.entrySet()) {
@@ -169,7 +200,7 @@ public class ChartLocaleGrowth {
 
     static {
         Object[][] mapping = {
-            {VersionInfo.getInstance(43), 2023},
+            {VersionInfo.getInstance(44), 2023},
             {VersionInfo.getInstance(42), 2022},
             {VersionInfo.getInstance(40), 2021},
             {VersionInfo.getInstance(38), 2020},
@@ -258,8 +289,10 @@ public class ChartLocaleGrowth {
     private static Map<String, FoundAndTotal> addGrowth(
             org.unicode.cldr.util.Factory latestFactory,
             String dir,
-            Matcher matcher,
-            boolean showMissing) {
+            Matcher localeMatcher,
+            boolean showMissing,
+            TempPrintWriter log,
+            TempPrintWriter logPaths) {
         final File mainDir = new File(dir + "/common/main/");
         final File annotationDir = new File(dir + "/common/annotations/");
         File[] paths =
@@ -273,8 +306,9 @@ public class ChartLocaleGrowth {
         Map<String, FoundAndTotal> data = new HashMap<>();
         char c = 0;
         Set<String> latestAvailable = newFactory.getAvailableLanguages();
+        boolean firstShowMissing = true;
         for (String locale : newFactory.getAvailableLanguages()) {
-            if (!matcher.reset(locale).matches()) {
+            if (!localeMatcher.reset(locale).matches()) {
                 continue;
             }
             if (!latestAvailable.contains(locale)) {
@@ -334,6 +368,73 @@ public class ChartLocaleGrowth {
                     missingPaths,
                     unconfirmedPaths);
 
+            if (showMissing) {
+                if (CldrModernLocales.contains(locale)) {
+                    final boolean isSpecial = SpecialLocales.contains(locale);
+                    if (firstShowMissing) {
+                        firstShowMissing = false;
+                        log.printlnWithTabs(
+                                16,
+                                "Locale\tTC"
+                                        + "\tCore\tUnc\tMiss"
+                                        + "\tBasic\tUnc\tMiss"
+                                        + "\tModer\tUnc\tMiss"
+                                        + "\tModern\tUnc\tMiss"
+                                        + "\tTotal\tUnc\tMiss");
+                        logPaths.printlnWithTabs(3, "Locale\tLevel\tStatus\tPath");
+                    }
+                    log.printlnWithTabs(
+                            16,
+                            locale
+                                    + "\t"
+                                    + (isSpecial ? "" : "TC")
+                                    + show(
+                                            Level.CORE,
+                                            foundCounter,
+                                            unconfirmedCounter,
+                                            missingCounter)
+                                    + show(
+                                            Level.BASIC,
+                                            foundCounter,
+                                            unconfirmedCounter,
+                                            missingCounter)
+                                    + show(
+                                            Level.MODERATE,
+                                            foundCounter,
+                                            unconfirmedCounter,
+                                            missingCounter)
+                                    + show(
+                                            Level.MODERN,
+                                            foundCounter,
+                                            unconfirmedCounter,
+                                            missingCounter)
+                                    + show(
+                                            null, // total
+                                            foundCounter,
+                                            unconfirmedCounter,
+                                            missingCounter));
+                    if (!isSpecial) {
+                        long count = unconfirmedCounter.getTotal() + missingCounter.getTotal();
+                        for (Entry<MissingStatus, String> statusAndPath : missingPaths.entrySet()) {
+                            logPaths.printlnWithTabs(
+                                    3,
+                                    locale
+                                            + "\t"
+                                            + count
+                                            + "\t"
+                                            + statusAndPath.getKey()
+                                            + "\t"
+                                            + statusAndPath.getValue());
+                        }
+                        for (String path : unconfirmedPaths) {
+                            logPaths.printlnWithTabs(
+                                    3, locale + "\t" + count + "\tunconfirmed\t" + path);
+                        }
+                    }
+                    int line = 0;
+                }
+            }
+
             // HACK
             Set<Entry<MissingStatus, String>> missingRemovals = new HashSet<>();
             for (Entry<MissingStatus, String> e : missingPaths.keyValueSet()) {
@@ -355,7 +456,7 @@ public class ChartLocaleGrowth {
             }
             // END HACK
 
-            if (showMissing) {
+            if (false && showMissing) {
                 int count = 0;
                 for (String s : unconfirmedPaths) {
                     System.out.println(
@@ -381,5 +482,19 @@ public class ChartLocaleGrowth {
             data.put(locale, new FoundAndTotal(foundCounter, unconfirmedCounter, missingCounter));
         }
         return Collections.unmodifiableMap(data);
+    }
+
+    /** "\tCore\tUnc\tMiss" */
+    private static String show(
+            Level level,
+            Counter<Level> foundCounter,
+            Counter<Level> unconfirmedCounter,
+            Counter<Level> missingCounter) {
+        return "\t"
+                + (level != null ? foundCounter.get(level) : foundCounter.getTotal())
+                + "\t"
+                + (level != null ? unconfirmedCounter.get(level) : unconfirmedCounter.getTotal())
+                + "\t"
+                + (level != null ? missingCounter.get(level) : missingCounter.getTotal());
     }
 }

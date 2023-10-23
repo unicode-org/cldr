@@ -2264,9 +2264,16 @@ public class Ldml2JsonConverter {
             // out.name(objName);
             if (value.isEmpty()) {
                 if (valueIsSpacesepArray) {
+                    // empty value, output as empty space-sep array: []
                     out.getAsJsonObject().add(objName, new JsonArray());
                 } else {
-                    out.getAsJsonObject().add(objName, new JsonObject());
+                    // empty value.
+                    if (objName.endsWith("SpaceReplacement")) { // foreignSpaceReplacement or
+                        // nativeSpaceReplacement
+                        out.getAsJsonObject().addProperty(objName, "");
+                    } else {
+                        out.getAsJsonObject().add(objName, new JsonObject());
+                    }
                 }
             } else if (type == RunType.annotations || type == RunType.annotationsDerived) {
                 JsonArray a = new JsonArray();

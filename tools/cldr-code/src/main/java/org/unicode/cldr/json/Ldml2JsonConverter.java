@@ -42,8 +42,31 @@ import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.tool.Option.Options;
-import org.unicode.cldr.util.*;
+import org.unicode.cldr.util.Annotations;
+import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
+import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CLDRTool;
+import org.unicode.cldr.util.CLDRURLS;
+import org.unicode.cldr.util.CalculatedCoverageLevels;
+import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CoverageInfo;
+import org.unicode.cldr.util.DtdData;
+import org.unicode.cldr.util.DtdType;
+import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.FileCopier;
+import org.unicode.cldr.util.GlossonymConstructor;
+import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.Pair;
+import org.unicode.cldr.util.PatternCache;
+import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.Timer;
+import org.unicode.cldr.util.XMLSource;
+import org.unicode.cldr.util.XPathParts;
 
 /**
  * Utility methods to extract data from CLDR repository and export it in JSON format.
@@ -1246,13 +1269,14 @@ public class Ldml2JsonConverter {
             writeReadmeSection(outf);
         }
         try (PrintWriter outf =
-                FileUtilities.openUTF8Writer(outputDir + "/" + packageName, "LICENSE"); ) {
+                FileUtilities.openUTF8Writer(
+                        outputDir + "/" + packageName, CldrUtility.LICENSE); ) {
             if (licenseFile.isPresent()) {
                 try (BufferedReader br = FileUtilities.openUTF8Reader("", licenseFile.get()); ) {
                     FileCopier.copy(br, outf);
                 }
             } else {
-                FileCopier.copy(CldrUtility.getUTF8Data("unicode-license.txt"), outf);
+                FileCopier.copy(CldrUtility.getUTF8Data(CldrUtility.LICENSE), outf);
             }
         }
     }

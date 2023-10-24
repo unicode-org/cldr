@@ -1,10 +1,11 @@
 package org.unicode.cldr.util;
 
-import com.google.common.collect.ImmutableSet;
 import java.lang.annotation.Annotation;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import com.google.common.collect.ImmutableSet;
 
 public enum DtdType {
     ldml(
@@ -124,9 +125,5 @@ public enum DtdType {
         } else {
             return name();
         }
-    }
-
-    public String getXsdPath() {
-        return dtdPath.replaceAll("\\.dtd$", ".xsd");
     }
 }

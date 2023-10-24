@@ -1889,13 +1889,6 @@ public class LDMLUtilities {
         return parse(new InputSource(docURI), filename, ignoreError);
     }
 
-    public static Document parse(String filename, boolean ignoreError, boolean validating)
-            throws RuntimeException {
-        // Force filerefs to be URI's if needed: note this is independent of any other files
-        String docURI = filenameToURL(filename);
-        return parse(new InputSource(docURI), filename, ignoreError, validating);
-    }
-
     public static Document parseAndResolveAliases(
             String locale, String sourceDir, boolean ignoreError, boolean ignoreDraft) {
         try {
@@ -1993,15 +1986,10 @@ public class LDMLUtilities {
     }
 
     public static Document parse(InputSource docSrc, String filename, boolean ignoreError) {
-        return parse(docSrc, filename, ignoreError, true);
-    }
-
-    public static Document parse(
-            InputSource docSrc, String filename, boolean ignoreError, boolean validating) {
         Document doc = null;
         try {
             // First, attempt to parse as XML (preferred)...
-            DocumentBuilder docBuilder = newDocumentBuilder(validating);
+            DocumentBuilder docBuilder = newDocumentBuilder(true);
             docBuilder.setErrorHandler(getNullErrorHandler(filename, ignoreError));
             doc = docBuilder.parse(docSrc);
         } catch (Throwable se) {

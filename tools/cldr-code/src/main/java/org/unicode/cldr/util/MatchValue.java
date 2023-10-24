@@ -13,9 +13,6 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSet.SpanCondition;
 import com.ibm.icu.util.ULocale;
 import com.ibm.icu.util.VersionInfo;
-import com.vdurmont.semver4j.Semver;
-import com.vdurmont.semver4j.Semver.SemverType;
-import com.vdurmont.semver4j.SemverException;
 import java.text.ParseException;
 import java.util.Date;
 import java.util.EnumSet;
@@ -82,9 +79,6 @@ public abstract class MatchValue implements Predicate<String> {
                 case "regex":
                     result = RegexMatchValue.of(subargument);
                     break;
-                case "semver":
-                    result = SemverMatchValue.of(subargument);
-                    break;
                 case "metazone":
                     result = MetazoneMatchValue.of(subargument);
                     break;
@@ -111,42 +105,6 @@ public abstract class MatchValue implements Predicate<String> {
             return result;
         } catch (Exception e) {
             throw new IllegalArgumentException("Problem with: " + originalArg, e);
-        }
-    }
-
-    /** Check that a bcp47 locale ID is well-formed. Does not check validity. */
-    public static class BCP47LocaleWellFormedMatchValue extends MatchValue {
-        static final UnicodeSet basechars = new UnicodeSet("[A-Za-z0-9_]");
-
-        public BCP47LocaleWellFormedMatchValue() {}
-
-        @Override
-        public String getName() {
-            return "validity/bcp47-wellformed";
-        }
-
-        @Override
-        public boolean is(String item) {
-            if (item.equals("und")) return true; // special case because of the matcher
-            if (item.contains("_")) return false; // reject any underscores
-            try {
-                ULocale l = ULocale.forLanguageTag(item);
-                if (l == null || l.getBaseName().isEmpty()) {
-                    return false; // failed to parse
-                }
-
-                // check with lstr parser
-                LanguageTagParser ltp = new LanguageTagParser();
-                ltp.set(item);
-            } catch (Throwable t) {
-                return false; // string failed
-            }
-            return true;
-        }
-
-        @Override
-        public String getSample() {
-            return "de-u-nu-ethi";
         }
     }
 
@@ -324,9 +282,6 @@ public abstract class MatchValue implements Predicate<String> {
         public static MatchValue of(String typeName) {
             if (typeName.equals("locale")) {
                 return new LocaleMatchValue();
-            }
-            if (typeName.equals("bcp47-wellformed")) {
-                return new BCP47LocaleWellFormedMatchValue();
             }
             int slashPos = typeName.indexOf('/');
             Set<Status> statuses = null;
@@ -602,7 +557,7 @@ public abstract class MatchValue implements Predicate<String> {
             return "regex/" + pattern;
         }
 
-        protected RegexMatchValue(String key) {
+        private RegexMatchValue(String key) {
             pattern = Pattern.compile(key);
         }
 
@@ -613,34 +568,6 @@ public abstract class MatchValue implements Predicate<String> {
         @Override
         public boolean is(String item) {
             return pattern.matcher(item).matches();
-        }
-    }
-
-    public static class SemverMatchValue extends MatchValue {
-        @Override
-        public String getName() {
-            return "semver";
-        }
-
-        protected SemverMatchValue(String key) {
-            super();
-        }
-
-        public static SemverMatchValue of(String key) {
-            if (key != null) {
-                throw new IllegalArgumentException("No parameter allowed");
-            }
-            return new SemverMatchValue(key);
-        }
-
-        @Override
-        public boolean is(String item) {
-            try {
-                new Semver(item, SemverType.STRICT);
-                return true;
-            } catch (SemverException e) {
-                return false;
-            }
         }
     }
 

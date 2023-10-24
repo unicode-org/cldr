@@ -27,7 +27,7 @@ See <https://cldr.unicode.org> for up-to-date CLDR release data.
 
 ### _Status_
 
-This document is a draft of a _technical preview_ of the Keyboard standard.
+This document is a _technical preview_ of the Keyboard standard.
 This document has _not_ been approved for publication by the Unicode Consortium,
 and may be substantially altered before any publication. For the latest published version of UTS#35, see <https://www.unicode.org/reports/tr35/>
 

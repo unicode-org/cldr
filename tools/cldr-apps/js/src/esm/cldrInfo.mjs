@@ -18,6 +18,7 @@ import * as cldrVue from "./cldrVue.mjs";
 
 import InfoPanel from "../views/InfoPanel.vue";
 import InfoSelectedItem from "../views/InfoSelectedItem.vue";
+import InfoRegionalVariants from "../views/InfoRegionalVariants.vue";
 
 let containerId = null;
 let neighborId = null;
@@ -30,6 +31,7 @@ let unShow = null;
 let lastShown = null;
 
 let selectedItemWrapper = null;
+let regionalVariantsWrapper = null;
 
 const ITEM_INFO_ID = "itemInfo"; // must match redesign.css
 const ITEM_INFO_CLASS = "sidebyside-scrollable"; // must match redesign.css, cldrGui.mjs, DashboardWidget.vue
@@ -38,7 +40,10 @@ const HELP_HTML_ID = "info-panel-help";
 const PLACEHOLDER_HELP_ID = "info-panel-placeholder";
 const INFO_MESSAGE_ID = "info-panel-message";
 const SELECTED_ITEM_ID = "info-panel-selected";
-const INFO_REMAINDER_ID = "info-panel-remainder";
+const INFO_VOTE_TICKET_ID = "info-panel-vote-and-ticket";
+const INFO_REGIONAL_ID = "info-panel-regional";
+const INFO_FORUM_ID = "info-panel-forum";
+const INFO_XPATH_ID = "info-panel-xpath";
 
 /**
  * Initialize the Info Panel
@@ -63,6 +68,11 @@ function insertWidget() {
     insertLegacyElement(containerEl);
     const selectedItemEl = document.getElementById(SELECTED_ITEM_ID);
     selectedItemWrapper = cldrVue.mount(InfoSelectedItem, selectedItemEl);
+    const regionalVariantsEl = document.getElementById(INFO_REGIONAL_ID);
+    regionalVariantsWrapper = cldrVue.mount(
+      InfoRegionalVariants,
+      regionalVariantsEl
+    );
   } catch (e) {
     console.error("Error loading InfoPanel vue " + e.message + " / " + e.name);
     cldrNotify.exception(e, "while loading InfoPanel");
@@ -93,7 +103,10 @@ function insertLegacyElement(containerEl) {
   appendDiv(el, PLACEHOLDER_HELP_ID);
   appendDiv(el, INFO_MESSAGE_ID);
   appendDiv(el, SELECTED_ITEM_ID);
-  appendDiv(el, INFO_REMAINDER_ID);
+  appendDiv(el, INFO_VOTE_TICKET_ID);
+  appendDiv(el, INFO_REGIONAL_ID);
+  appendDiv(el, INFO_FORUM_ID);
+  appendDiv(el, INFO_XPATH_ID);
 }
 
 function appendDiv(el, id) {
@@ -240,19 +253,23 @@ function show(str, tr, hideIfLast, fn) {
     cldrLoad.updateCurrentId(tr.sethash);
   }
   setLastShown(hideIfLast);
-  if (tr?.theRow) {
-    addDeferredHelp(tr.theRow);
-    addPlaceholderHelp(tr.theRow);
-  }
+  addDeferredHelp(tr?.theRow); // if !tr.theRow, erase (as when click Next/Previous)
+  addPlaceholderHelp(tr?.theRow); // ditto
   addInfoMessage(str);
-  addRemainder(tr, fn);
-  addSelectedItem(tr?.theRow); // after addRemainder calls fn to set theRow.selectedItem
+  addVoteDivAndTicketLink(tr, fn);
+  addSelectedItem(tr?.theRow); // after addVoteDivAndTicketLink calls fn to set theRow.selectedItem
+  addRegionalSidewaysMenu(tr);
+  addForumPanel(tr);
+  addXpath(tr);
   addVoterInfoHover();
 }
 
 function addDeferredHelp(theRow) {
   const el = document.getElementById(HELP_HTML_ID);
-  if (el) {
+  if (!el) {
+    return;
+  }
+  if (theRow) {
     const { helpHtml, rdf, translationHint } = theRow;
     if (helpHtml || rdf || translationHint) {
       const fragment = document.createDocumentFragment();
@@ -262,15 +279,18 @@ function addDeferredHelp(theRow) {
       } else {
         el.appendChild(fragment);
       }
-    } else {
-      cldrDom.removeAllChildNodes(el);
+      return;
     }
   }
+  cldrDom.removeAllChildNodes(el);
 }
 
 function addPlaceholderHelp(theRow) {
   const el = document.getElementById(PLACEHOLDER_HELP_ID);
-  if (el) {
+  if (!el) {
+    return;
+  }
+  if (theRow) {
     const { placeholderStatus, placeholderInfo } = theRow;
     if (placeholderStatus !== "DISALLOWED") {
       const fragment = document.createDocumentFragment();
@@ -284,10 +304,10 @@ function addPlaceholderHelp(theRow) {
       } else {
         el.appendChild(fragment);
       }
-    } else {
-      cldrDom.removeAllChildNodes(el);
+      return;
     }
   }
+  cldrDom.removeAllChildNodes(el);
 }
 
 function addInfoMessage(html) {
@@ -399,10 +419,13 @@ function getLinkUrlAndText(theRow, item) {
   return { linkUrl, linkText };
 }
 
-function addRemainder(tr, fn) {
+function addVoteDivAndTicketLink(tr, fn) {
   const fragment = document.createDocumentFragment();
 
   // If a generator fn (common case), call it.
+  // Typically, fn is the function returned by showItemInfoFn.
+  // However, there is also "ourShowFn" in cldrVote.mjs...
+  // It's not clear why this is so indirect and complicated; tech debt; probably it could be more straightforward.
   if (fn) {
     unShow = fn(fragment);
   }
@@ -412,18 +435,43 @@ function addRemainder(tr, fn) {
   if (tr?.ticketLink) {
     fragment.appendChild(tr.ticketLink.cloneNode(true));
   }
-  if (tr) {
-    // TODO: Put a blank line around the sublocale menu, and give it a label. In context:
-    // Changes to this item require 20 votes.
-    // Regional Variants for German
-    // [ Germany (= German) ]
-    // Flag for Review (moved up)
-    // Reference: https://unicode-org.atlassian.net/browse/CLDR-7536
-    cldrSideways.loadMenu(fragment, tr.xpstrid); // regional variants (sibling locales)
+  const el = document.getElementById(INFO_VOTE_TICKET_ID);
+  if (!el) {
+    return;
   }
+  cldrDom.removeAllChildNodes(el);
+  el.appendChild(fragment);
+}
+
+// regional variants (sibling locales)
+function addRegionalSidewaysMenu(tr) {
+  if (!regionalVariantsWrapper) {
+    return;
+  }
+  cldrSideways.loadMenu(regionalVariantsWrapper, tr?.xpstrid);
+}
+
+function addForumPanel(tr) {
+  const el = document.getElementById(INFO_FORUM_ID);
+  if (!el) {
+    return;
+  }
+  const fragment = document.createDocumentFragment();
   if (tr?.theRow && !cldrStatus.isVisitor()) {
     cldrForumPanel.loadInfo(fragment, tr, tr.theRow);
   }
+  cldrDom.removeAllChildNodes(el);
+  if (tr) {
+    el.appendChild(fragment);
+  }
+}
+
+function addXpath(tr) {
+  const el = document.getElementById(INFO_XPATH_ID);
+  if (!el) {
+    return;
+  }
+  const fragment = document.createDocumentFragment();
   if (tr?.theRow?.xpath) {
     fragment.appendChild(
       cldrDom.clickToSelect(
@@ -431,22 +479,9 @@ function addRemainder(tr, fn) {
       )
     );
   }
-  const remainderElement = document.getElementById(INFO_REMAINDER_ID);
-  if (!remainderElement) {
-    console.log("remainderElement not found in show!");
-    return;
-  }
-
-  // Now, copy or append the 'fragment' to the
-  // appropriate spot. This depends on how we were called.
+  cldrDom.removeAllChildNodes(el);
   if (tr) {
-    cldrDom.removeAllChildNodes(remainderElement);
-    remainderElement.appendChild(fragment);
-  } else {
-    // show, for example, dataPageInitialGuidance in Info Panel
-    const clone = fragment.cloneNode(true);
-    cldrDom.removeAllChildNodes(remainderElement);
-    remainderElement.appendChild(clone);
+    el.appendChild(fragment);
   }
 }
 

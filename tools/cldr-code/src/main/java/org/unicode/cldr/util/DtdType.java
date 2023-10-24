@@ -1,11 +1,10 @@
 package org.unicode.cldr.util;
 
+import com.google.common.collect.ImmutableSet;
 import java.lang.annotation.Annotation;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import com.google.common.collect.ImmutableSet;
 
 public enum DtdType {
     ldml(

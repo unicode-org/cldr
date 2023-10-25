@@ -331,7 +331,7 @@ public class LikelySubtagsTest extends TestFmwk {
     }
 
     public void TestMissingInfoForLanguage() {
-        CLDRFile english = CLDR_CONFIG.getEnglish();
+        CLDRFile english = CLDR_CONFIG.getEnglish().getUnresolved();
 
         CalculatedCoverageLevels ccl = CalculatedCoverageLevels.getInstance();
 
@@ -357,7 +357,7 @@ public class LikelySubtagsTest extends TestFmwk {
                         continue; // skip error
                     }
                 }
-                errln("Missing English translation for: " + language);
+                errln("Missing English translation for: " + language + " which is at " + covLevel);
             }
         }
     }

@@ -12,7 +12,7 @@ For the full header, summary, and status, see [Part 1: Core](tr35.md).
 
 > This is a technical preview of a future version of the LDML Part 7. See [_Status_](#status), below.
 >
-> There are breaking changes, see [Compatibility Notice](#Compatibility_Notice)
+> There are breaking changes, see [Compatibility Notice](#compatibility-notice)
 
 ### _Summary_
 
@@ -173,7 +173,7 @@ Some non-goals (outside the scope of the format) currently are:
 2. Unification of platform-specific virtual key and scan code mapping tables.
 3. Unification of pre-existing platform layouts themselves (e.g. existing fr-azerty on platform a, b, c).
 4. Support for prior (pre 3.0) CLDR keyboard files. See [Compatibility Notice](#compatibility-notice).
-5. Run-time efficiency. [LDML is explicitly an interchange format](./tr35.md#Introduction), and so it is expected that data will be transformed to a more compact format for use by a keystroke processing engine.
+5. Run-time efficiency. [LDML is explicitly an interchange format](tr35.md#Introduction), and so it is expected that data will be transformed to a more compact format for use by a keystroke processing engine.
 
 <!-- 1. Display names or symbols for keycaps (eg, the German name for "Return"). If that were added to LDML, it would be in a different structure, outside the scope of this section.
 2. Advanced IME features, handwriting recognition, etc.

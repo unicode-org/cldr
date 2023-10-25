@@ -1292,7 +1292,7 @@ The `pluralRanges` element provides information allowing an implementation to de
 
 The data has been gathered presuming that in any usage, the start value is strictly less than the end value, and that no values are negative. Results for any cases that do not meet these criteria are undefined.
 
-For the formatting of number ranges, see <a name="Number_Range_Formatting" href="#Number_Range_Formatting">Number Range Formatting</a>.
+For the formatting of number ranges, see <a href="#Number_Range_Formatting">Number Range Formatting</a>.
 
 ## <a name="Rule-Based_Number_Formatting" href="#Rule-Based_Number_Formatting">Rule-Based Number Formatting</a>
 

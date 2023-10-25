@@ -2,7 +2,7 @@
 
 # Unicode Locale Data Markup Language (LDML)<br/>Part 2: General
 
-|Version|44 (draft)           |
+|Version|44                   |
 |-------|---------------------|
 |Editors|Yoshito Umaoka (<a href="mailto:yoshito_umaoka@us.ibm.com">yoshito_umaoka@us.ibm.com</a>) and <a href="tr35.md#Acknowledgments">other CLDR committee members|
 
@@ -21,12 +21,12 @@ See <https://cldr.unicode.org> for up-to-date CLDR release data.
 
 ### _Status_
 
-_This is a draft document which may be updated, replaced, or superseded by other documents at any time.
+<!-- _This is a draft document which may be updated, replaced, or superseded by other documents at any time.
 Publication does not imply endorsement by the Unicode Consortium.
-This is not a stable document; it is inappropriate to cite this document as other than a work in progress._
+This is not a stable document; it is inappropriate to cite this document as other than a work in progress._ -->
 
-<!-- _This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium.
-This is a stable document and may be used as reference material or cited as a normative reference by other specifications._ -->
+_This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium.
+This is a stable document and may be used as reference material or cited as a normative reference by other specifications._
 
 > _**A Unicode Technical Standard (UTS)** is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS._
 
@@ -1003,7 +1003,7 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 			or &lt;unitIdComponent type="per"&gt;.
 		</li>
 		<li><em>Constraint:</em> must not have a prefix as an initial segment.</li>
-		<li><em>Constraint:</em> no two different base_components will share the first 8 letters. 
+		<li><em>Constraint:</em> no two different base_components will share the first 8 letters.
 				(<b>For more information, see <a href="#Unit_Identifier_Uniqueness">Unit Identifier Uniqueness</a>.)</b>
 			</li>
 		</ul>
@@ -1848,7 +1848,7 @@ If the direction is `forward`, then an ID is composed from `target + "-" + sourc
 
 The `visibility` attribute indicates whether the IDs should be externally visible, or whether they are only used internally.
 
-Note: In CLDR v28 and before, the rules were expressed as fine-grained XML. 
+Note: In CLDR v28 and before, the rules were expressed as fine-grained XML.
 That was discarded in CLDR version 29, in favor of a simpler format where the separate rules are simply terminated with ";".
 
 The transform rules are similar to regular-expression substitutions, but adapted to the specific domain of text transformations. The rules and comments in this discussion will be intermixed, with # marking the comments. The simplest rule is a conversion rule, which replaces one string of characters with another. The conversion rule takes the following form:
@@ -2158,7 +2158,7 @@ Conversion rules can be forward, backward, or double. The complete conversion ru
 > b | c  ←  e { f g } h ;
 > ```
 
-The `completed_result` | `result_to_revisit` is also known as the `resulting_text`. Either or both of the values can be empty. For example, the following removes any a, b, or c. 
+The `completed_result` | `result_to_revisit` is also known as the `resulting_text`. Either or both of the values can be empty. For example, the following removes any a, b, or c.
 
 ```
 [a-c] → ;
@@ -2291,7 +2291,7 @@ Because the order of rules matters, the following will not work as expected
 c → s;
 ch → kh;
 ```
-The second rule can never execute, because it is "masked" by the first. 
+The second rule can never execute, because it is "masked" by the first.
 To help prevent errors, implementations should try to alert readers when this occurs, eg:
 ```
 Rule {c > s;} masks {ch > kh;}

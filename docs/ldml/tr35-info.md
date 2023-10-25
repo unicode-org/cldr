@@ -2,7 +2,7 @@
 
 # Unicode Locale Data Markup Language (LDML)<br/>Part 6: Supplemental
 
-|Version|44 (draft) |
+|Version|44         |
 |-------|-----------|
 |Editors|Steven Loomis (<a href="mailto:srloomis@unicode.org">srloomis@unicode.org</a>) and <a href="tr35.md#Acknowledgments">other CLDR committee members|
 
@@ -21,12 +21,12 @@ See <https://cldr.unicode.org> for up-to-date CLDR release data.
 
 ### _Status_
 
-_This is a draft document which may be updated, replaced, or superseded by other documents at any time.
+<!-- _This is a draft document which may be updated, replaced, or superseded by other documents at any time.
 Publication does not imply endorsement by the Unicode Consortium.
-This is not a stable document; it is inappropriate to cite this document as other than a work in progress._
+This is not a stable document; it is inappropriate to cite this document as other than a work in progress._ -->
 
-<!-- _This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium.
-This is a stable document and may be used as reference material or cited as a normative reference by other specifications._ -->
+_This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium.
+This is a stable document and may be used as reference material or cited as a normative reference by other specifications._
 
 > _**A Unicode Technical Standard (UTS)** is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS._
 
@@ -930,9 +930,9 @@ The systems attributes also apply to compound units, and are computed in the fol
    1. The intersection of {… si …} and {… si_acceptable … } is {… si_acceptable …}
    2. The intersection of {… metric …} and {… metric_adjacent … } is {… metric_adjacent …}
 
-Examples: 
+Examples:
 ```
-systems(liter-per-hectare) 
+systems(liter-per-hectare)
 	= {si_acceptable metric} ∪ {si_acceptable metric}
 	= {si_acceptable metric}
 systems(meter-per-hectare)

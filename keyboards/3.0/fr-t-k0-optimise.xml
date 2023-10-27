@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE keyboard3 SYSTEM "../dtd/ldmlKeyboard3.dtd">
+<!--
+  New French
+-->
+<keyboard3 locale="fr-t-k0-optimise" conformsTo="techpreview">
+	<version number="1.0.0" />
+	<info author="Team Keyboard" name="French AZERTY optimisé" layout="AZERTY" indicator="FR" />
+
+	<displays>
+    <display output="\u0300" display="${grave}" />
+    <display output="\m{acute}" display="´" />
+    <display output="\m{grave}" display="`" />
+    <display output="\m{umlaut}" display="¨" />
+    <display output="\m{caret}" display="^" />
+    <display output="\m{tilde}" display="~" />
+  </displays>
+
+	<keys>
+		<import base="cldr" path="techpreview/keys-Zyyy-punctuation.xml" />
+		<import base="cldr" path="techpreview/keys-Zyyy-currency.xml" />
+
+		<!-- deadkeys -->
+		<key id="mark-acute" output="\m{acute}" />
+		<key id="mark-breve" output="\m{breve}" />
+		<key id="mark-caret" output="\m{caret}" />
+		<key id="mark-caron" output="\m{caron}" />
+		<key id="mark-cedilla" output="\m{cedilla}" />
+		<key id="mark-circumflex" output="\m{circumflex}" />
+		<key id="mark-comma" output="\m{comma}" />
+		<key id="mark-currency" output="\m{currency}" />
+		<key id="mark-dotabove" output="\m{dotabove}" />
+		<key id="mark-dotbelow" output="\m{dotbelow}" />
+		<key id="mark-doubleacute" output="\m{doubleacute}" />
+		<key id="mark-doublegrave" output="\m{doublegrave}" />
+		<key id="mark-euro" output="\m{euro}" />
+		<key id="mark-grave" output="\m{grave}" />
+		<key id="mark-macron" output="\m{macron}" />
+		<key id="mark-ogonek" output="\m{ogonek}" />
+		<key id="mark-ring" output="\m{ring}" />
+		<key id="mark-scientific" output="\m{scientific}" />
+		<key id="mark-solidus" output="\m{solidus}" />
+		<key id="mark-stroke" output="\m{stroke}" />
+		<key id="mark-submacron" output="\m{submacron}" />
+		<key id="mark-tilde" output="\m{tilde}" />
+		<key id="mark-umlaut" output="\m{umlaut}" />
+
+
+		<!-- extra keys -->
+		<key id="e-grave" output="è" />
+		<key id="e-acute" output="é" />
+		<key id="c-cedilla" output="ç" />
+		<key id="a-acute" output="á" />
+		<key id="a-grave" output="à" />
+		<key id="e-caret" output="ê" />
+
+		<!-- extra symbols -->
+		<key id="bullet" output="•" />
+		<key id="umlaut" output="¨" />
+		<key id="sub-2" output="₂" />
+		<key id="super-2" output="²" longPressKeyIds="sub-2" />
+		<key id="en-dash" output="–" />
+		<key id="plus-minus" output="±" />
+		<key id="vulgar-half" output="½" />
+		<key id="vulgar-quarter" output="¼" />
+		<key id="ellipsis" output="…" />
+		<key id="open-apos" output="‘" />
+		<key id="close-apos" output="’" />
+		<key id="open-g" output="«" />
+		<key id="close-g" output="»" />
+
+		<key id="theta" output="θ" /> <!-- "for Romani" -->
+		<key id="Theta" output="ϴ" /> <!-- "for Romani" -->
+		<key id="tm" output="™" />
+		<key id="open-double" output="“" />
+		<key id="close-double" output="’" />
+		<key id="oe" output="œ" />
+		<key id="Oe" output="Œ" />
+		<key id="registered" output="®" />
+		<key id="minus-sign" output="−" />
+		<key id="ss" output="ß" />
+		<key id="ininity" output="∞" />
+		<key id="division" output="÷" />
+		<key id="less-equal" output="≤" />
+		<key id="greater-equal" output="≥" />
+		<key id="copy" output="©" />
+		<key id="inverse-question" output="¿" />
+		<key id="inverse-bang" output="¡" />
+		<key id="middle-dot" output="•" />
+		<key id="A-grave" output="À" />
+		<key id="E-acute" output="É" />
+		<key id="E-caret" output="Ê" />
+		<key id="em-dash" output="—" />
+		<key id="open-single" output="’" />
+		<key id="close-single" output="’" />
+		<key id="u-grave" output="Ù" />
+		<key id="radix" output="√" />
+		<key id="C-cedilla" output="Ç" />
+		<key id="not-equal" output="±" />
+
+		<key id="infinity" output="∞" />
+		<key id="E-grave" output="È" />
+		<key id="U-grave" output="Ù" />
+		<key id="nb-hyphen" output="‑" />
+		<key id="multiplication" output="×" />
+		<key id="ezh" output="ʒ" />
+		<key id="Ezh" output="Ʒ" />
+		<key id="ae" output="æ" />
+		<key id="Ae" output="Æ" />
+		<key id="permille" output="‰" />
+		<key id="dbl-dagger" output="‡" />
+		<key id="dagger" output="†" />
+		<key id="asym-equal" output="≃" />
+		<key id="Ss" output="ẞ" />
+	</keys>
+
+	<layers formId="iso">
+		<layer modifiers="none">
+      <row keys="at a-grave e-acute e-grave e-caret open-paren close-paren open-apos close-apos open-g close-g apos mark-caret" />
+			<row keys="a z e r t y u i o p hyphen plus" />
+			<row keys="q s d f g h j k l m slash asterisk" />
+			<row keys="open-angle w x c v b n period comma colon semi-colon" />
+			<row keys="space" />
+		</layer>
+
+		<layer modifiers="shift">
+			<row keys="hash 1 2 3 4 5 6 7 8 9 0 double-quote mark-umlaut" />
+			<row keys="A Z E R T Y U I O P en-dash plus-minus" />
+			<row keys="Q S D F G H J K L M backslash vulgar-half" />
+			<row keys="close-angle W X C V B N question bang ellipsis equal" />
+			<row keys="space" />
+		</layer>
+
+		<layer modifiers="alt">
+			<row keys="mark-breve section mark-acute mark-grave amp open-square close-square mark-macron underscore open-double close-double degree mark-caron"/>
+			<row keys="ae pound euro registered open-curly close-curly u-grave mark-dotabove oe percent minus-sign dagger"/>
+			<row keys="theta ss dollar mark-currency mark-scientific mark-euro gap mark-solidus pipe infinity division multiplication"/>
+			<row keys="less-equal ezh copy c-cedilla mark-cedilla mark-stroke mark-tilde inverse-question inverse-bang middle-dot asym-equal"/>
+			<row keys="space" />
+		</layer>
+
+		<layer modifiers="alt shift">
+			<row keys="mark-circumflex A-grave E-acute E-grave E-caret mark-doubleacute mark-doublegrave gap em-dash open-single close-single mark-ring gap"/>
+			<row keys="Ae gap gap gap tm gap U-grave mark-dotbelow Oe permille nb-hyphen dbl-dagger"/>
+			<row keys="Theta Ss gap gap gap mark-submacron gap gap gap gap radix vulgar-quarter"/>
+			<row keys="greater-equal Ezh gap C-cedilla mark-ogonek gap gap gap mark-comma gap not-equal"/>
+			<row keys="space" />
+		</layer>
+	</layers>
+
+	<variables>
+		<!-- spacing accents as string variables -->
+		<string id="grave"  value="`" />
+		<string id="caret"  value="^" />
+		<string id="umlaut" value="¨" />
+		<string id="tilde"  value="~" />
+
+		<!-- sets representing vowels and accented vowels.  -->
+		<!-- There's an extra space between the lower and upper case for visual separation -->
+		<!-- but, there are only 10 items in the following four sets -->
+		<set id="vowel"       value="a e i o u  A E I O U" />
+		<set id="graveVowel"  value="à è ì ò ù  À È Ì Ò Ù" />
+		<set id="caretVowel"  value="â ê î ô û  Â Ê Î Ô Û" />
+		<set id="umlautVowel" value="ä ë ï ö ü  Ä Ë Ï Ö Ü" />
+
+		<!-- a set containing all spacing accents -->
+		<set id="spacing_accent" value="${grave} ${caret} ${umlaut} ${tilde}" />
+	</variables>
+
+	<transforms type="simple">
+		<transformGroup>
+			<!-- use sets for those that fit neatly into sets -->
+			<transform from="${grave}($[vowel])"  to="$[1:graveVowel]" />
+			<transform from="${caret}($[vowel])"  to="$[1:caretVowel]" />
+			<transform from="${umlaut}($[vowel])" to="$[1:umlautVowel]" />
+
+			<!-- y also takes umlaut (in this sample) -->
+			<transform from="${umlaut}y" to="ÿ" />
+
+			<!-- tilde is on a subset, not all vowels, + n -->
+			<transform from="${tilde}a" to="ã" />
+			<transform from="${tilde}A" to="Ã" />
+			<transform from="${tilde}n" to="ñ" />
+			<transform from="${tilde}N" to="Ñ" />
+			<transform from="${tilde}o" to="õ" />
+			<transform from="${tilde}O" to="Õ" />
+
+			<!-- accent + space = spacing accent -->
+			<transform from="($[spacing_accent]) " to="$1" />
+		</transformGroup>
+		<transformGroup>
+			<!-- this is a reorder group -->
+			<!-- nod-Lana partial example -->
+			<reorder from="\u1A60" order="127" />
+			<reorder from="\u1A6B" order="42" />
+			<reorder from="[\u1A75-\u1A79]" order="55" />
+			<!-- ... partial example ... -->
+		</transformGroup>
+	</transforms>
+</keyboard3>

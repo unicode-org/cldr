@@ -86,11 +86,7 @@ class ExampleCache {
                     result = valueMap.get(value);
                 }
             }
-            if (cacheOnly && result == NONE) {
-                throw new InternalError(
-                        "getExampleHtml cacheOnly not found: " + xpath + ", " + value);
-            }
-            return (result == NONE) ? null : result;
+            return NONE.equals(result) ? null : result;
         }
 
         void putExample(String result) {
@@ -172,17 +168,6 @@ class ExampleCache {
 
     void setCachingEnabled(boolean enabled) {
         cachingIsEnabled = enabled;
-    }
-
-    /**
-     * For testing, we can switch some ExampleCaches into a special "cache only" mode, where they
-     * will throw an exception if queried for a path+value that isn't already in the cache. See
-     * TestExampleGeneratorDependencies.
-     */
-    private boolean cacheOnly = false;
-
-    void setCacheOnly(boolean only) {
-        this.cacheOnly = only;
     }
 
     /**

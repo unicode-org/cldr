@@ -224,10 +224,7 @@ public class ExampleGenerator {
 
     public void setCachingEnabled(boolean enabled) {
         exCache.setCachingEnabled(enabled);
-    }
-
-    public void setCacheOnly(boolean cacheOnly) {
-        exCache.setCacheOnly(cacheOnly);
+        icuServiceBuilder.setCachingEnabled(enabled);
     }
 
     /**
@@ -291,6 +288,9 @@ public class ExampleGenerator {
      */
     public void updateCache(String xpath) {
         exCache.update(xpath);
+        if (ICUServiceBuilder.ISB_CAN_CLEAR_CACHE) {
+            icuServiceBuilder.clearCache();
+        }
     }
 
     /**
@@ -1159,6 +1159,9 @@ public class ExampleGenerator {
     }
 
     private String getOtherGender(String gender) {
+        if (gender == null) {
+            return null;
+        }
         Collection<String> unitGenders =
                 grammarInfo.get(
                         GrammaticalTarget.nominal,
@@ -1173,6 +1176,9 @@ public class ExampleGenerator {
     }
 
     private String getOtherCase(String sample) {
+        if (sample == null) {
+            return null;
+        }
         Collection<String> unitCases =
                 grammarInfo.get(
                         GrammaticalTarget.nominal,
@@ -1183,7 +1189,7 @@ public class ExampleGenerator {
             String sampleBad =
                     bestMinimalPairSamples.getBestUnitWithCase(
                             otherCase, output); // Pick a unit that exhibits the most variation
-            if (!sampleBad.equals(sample)) {
+            if (!sample.equals(sampleBad)) { // caution: sampleBad may be null
                 return sampleBad;
             }
         }

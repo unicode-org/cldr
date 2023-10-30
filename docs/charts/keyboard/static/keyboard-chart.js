@@ -60,9 +60,9 @@ function mogrifyKeys(keys) {
   return keys.reduce((p, v) => {
     // TODO: any other swapping
     mogrifyAttrs(v);
-    const { id, to } = v;
-    if (to) {
-      v.to = unescapeStr(to);
+    const { id, output } = v;
+    if (output) {
+      v.output = unescapeStr(output);
     }
     p[id] = v;
     return p;

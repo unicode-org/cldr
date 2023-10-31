@@ -381,9 +381,6 @@ const strings = {
   sidewaysArea_desc: "view of what the votes are in other, sister locales",
   sideways_loading0: " ",
   sideways_loading1: "Comparing to other locales...",
-  sideways_same: "Other locales have the same value.",
-  sideways_diff: "Other locales have different values!",
-  sideways_noValue: "(no value)",
 
   ari_message: "Problem with the SurveyTool",
   ari_sessiondisconnect_message: "Your session has been disconnected.",

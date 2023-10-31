@@ -4,15 +4,17 @@
  * such as: aa = Afar, aa_DJ = Afar (Djibouti), and aa_ER = Afar (Eritrea)
  */
 import * as cldrCache from "./cldrCache.mjs";
-import * as cldrDom from "./cldrDom.mjs";
-import * as cldrEvent from "./cldrEvent.mjs";
 import * as cldrLoad from "./cldrLoad.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
 import * as cldrSurvey from "./cldrSurvey.mjs";
-import * as cldrText from "./cldrText.mjs";
+
+const SIDEWAYS_DEBUG = true;
+
+const escape = "\u00A0\u00A0\u00A0"; // non-breaking spaces
+const unequalSign = "\u2260\u00A0"; // U+2260 = "≠"
 
 /**
- * Array storing all only-1 sublocale
+ * Array storing all only-1 sublocales
  */
 const oneLocales = [];
 
@@ -23,47 +25,56 @@ let sidewaysShowTimeout = -1;
 
 const sidewaysCache = new cldrCache.LRU();
 
-const SIDEWAYS_AREA_CLASS = "sidewaysArea";
-
-function loadMenu(frag, xpstrid) {
+function loadMenu(regionalVariantsWrapper, xpstrid) {
   const curLocale = cldrStatus.getCurrentLocale();
-  if (!curLocale || oneLocales[curLocale]) {
+  if (!curLocale || oneLocales[curLocale] || !xpstrid) {
+    regionalVariantsWrapper.setData(null);
+    if (SIDEWAYS_DEBUG) {
+      console.log("cldrSideways.loadMenu, nothing to display");
+    }
     return;
   }
-  const cachedData = sidewaysCache.get(makeCacheKey(curLocale, xpstrid));
+  const cacheKey = makeCacheKey(curLocale, xpstrid);
+  const cachedData = sidewaysCache.get(cacheKey);
   if (cachedData) {
-    const sidewaysControl = document.createElement("div");
-    sidewaysControl.className = SIDEWAYS_AREA_CLASS;
-    frag.appendChild(sidewaysControl);
-    setMenuFromData(sidewaysControl, cachedData);
+    if (SIDEWAYS_DEBUG) {
+      console.log("cldrSideways.loadMenu, using cached data");
+    }
+    regionalVariantsWrapper.setData(cachedData);
   } else {
-    fetchAndLoadMenu(frag, curLocale, xpstrid);
+    if (SIDEWAYS_DEBUG) {
+      console.log("cldrSideways.loadMenu, fetching new data");
+    }
+    fetchAndLoadMenu(regionalVariantsWrapper, curLocale, xpstrid, cacheKey);
   }
 }
 
-function fetchAndLoadMenu(frag, curLocale, xpstrid) {
-  const sidewaysControl = cldrDom.createChunk(
-    cldrText.get("sideways_loading0"),
-    "div",
-    SIDEWAYS_AREA_CLASS
-  );
-  frag.appendChild(sidewaysControl);
+function fetchAndLoadMenu(
+  regionalVariantsWrapper,
+  curLocale,
+  xpstrid,
+  cacheKey
+) {
   clearMyTimeout();
+  regionalVariantsWrapper.setLoading();
   sidewaysShowTimeout = window.setTimeout(function () {
     clearMyTimeout();
     if (
       curLocale !== cldrStatus.getCurrentLocale() ||
       xpstrid !== cldrStatus.getCurrentId()
     ) {
+      if (SIDEWAYS_DEBUG) {
+        console.log(
+          "cldrSideways.fetchAndLoadMenu, locale or path changed, skipping"
+        );
+      }
       return;
     }
-    cldrDom.updateIf(sidewaysControl, cldrText.get("sideways_loading1"));
     cldrLoad.myLoad(
       getSidewaysUrl(curLocale, xpstrid),
       "sidewaysView",
       function (json) {
-        sidewaysCache.set(makeCacheKey(curLocale, xpstrid), json);
-        setMenuFromData(sidewaysControl, json);
+        setMenuFromData(regionalVariantsWrapper, json, cacheKey);
       }
     );
   }, 2000); // wait 2 seconds before loading this.
@@ -90,37 +101,43 @@ function getSidewaysUrl(curLocale, xpstrid) {
   );
 }
 
-function setMenuFromData(sidewaysControl, json) {
+/**
+ * Construct the data needed for the menu, using the json data received from the server,
+ * and update the menu
+ *
+ * @param {Object} regionalVariantsWrapper the menu GUI component
+ * @param {Object} json the data received from the serer
+ * @param {String} cacheKey the key for caching the data
+ */
+function setMenuFromData(regionalVariantsWrapper, json, cacheKey) {
   /*
    * Count the number of unique locales in json.others and json.novalue.
    */
-  var relatedLocales = json.novalue.slice();
-  for (var s in json.others) {
-    for (var t in json.others[s]) {
+  const relatedLocales = json.novalue.slice();
+  for (let s in json.others) {
+    for (let t in json.others[s]) {
       relatedLocales[json.others[s][t]] = true;
     }
   }
-  // if there is 1 sublocale (+ 1 default), we do nothing
+  // if there is 1 sublocale (+ 1 default), show nothing
   if (Object.keys(relatedLocales).length <= 2) {
     oneLocales[cldrStatus.getCurrentLocale()] = true;
-    cldrDom.updateIf(sidewaysControl, "");
+    regionalVariantsWrapper.setData(null);
   } else {
     if (!json.others) {
-      cldrDom.updateIf(sidewaysControl, ""); // no sibling locales (or all null?)
+      regionalVariantsWrapper.setData(null);
     } else {
-      cldrDom.updateIf(sidewaysControl, ""); // remove string
-
-      var topLocale = json.topLocale;
+      const topLocale = json.topLocale;
       const locmap = cldrLoad.getTheLocaleMap();
-      var curLocale = locmap.getRegionAndOrVariantName(topLocale);
-      var readLocale = null;
+      const curLocaleName = locmap.getRegionAndOrVariantName(topLocale);
+      let readLocale = null;
 
       // merge the read-only sublocale to base locale
       var mergeReadBase = function mergeReadBase(list) {
-        var baseValue = null;
+        let baseValue = null;
         // find the base locale, remove it and store its value
-        for (var l = 0; l < list.length; l++) {
-          var loc = list[l][0];
+        for (let l = 0; l < list.length; l++) {
+          const loc = list[l][0];
           if (loc === topLocale) {
             baseValue = list[l][1];
             list.splice(l, 1);
@@ -129,9 +146,9 @@ function setMenuFromData(sidewaysControl, json) {
         }
 
         // replace the default locale(read-only) with base locale, store its name for label
-        for (var l = 0; l < list.length; l++) {
-          var loc = list[l][0];
-          var bund = locmap.getLocaleInfo(loc);
+        for (let l = 0; l < list.length; l++) {
+          const loc = list[l][0];
+          const bund = locmap.getLocaleInfo(loc);
           if (bund && bund.readonly) {
             readLocale = locmap.getRegionAndOrVariantName(loc);
             list[l][0] = topLocale;
@@ -142,53 +159,38 @@ function setMenuFromData(sidewaysControl, json) {
       };
 
       // compare all sublocale values
-      var appendLocaleList = function appendLocaleList(list, curValue) {
-        var group = document.createElement("optGroup");
-        var br = document.createElement("optGroup");
-        group.appendChild(br);
+      function appendLocaleList(list, curValue) {
+        popupSelect.label = "Regional Variants for " + curLocaleName;
 
-        group.setAttribute("label", "Regional Variants for " + curLocale);
-        group.setAttribute("title", "Regional Variants for " + curLocale);
-
-        var escape = "\u00A0\u00A0\u00A0";
-        var unequalSign = "\u2260\u00A0";
-
-        for (var l = 0; l < list.length; l++) {
-          var loc = list[l][0];
-          var title = list[l][1];
-          var item = document.createElement("option");
-          item.setAttribute("value", loc);
-          if (title == null) {
-            item.setAttribute("title", "undefined");
-          } else {
-            item.setAttribute("title", title);
-          }
-
-          var str = locmap.getRegionAndOrVariantName(loc);
+        for (let l = 0; l < list.length; l++) {
+          const loc = list[l][0];
+          const title = list[l][1];
+          const item = { value: loc };
+          let str = locmap.getRegionAndOrVariantName(loc);
           if (loc === topLocale) {
-            str = str + " (= " + readLocale + ")";
+            str += " (= " + readLocale + ")";
           }
 
           if (loc === cldrStatus.getCurrentLocale()) {
             str = escape + str;
-            item.setAttribute("selected", "selected");
-            item.setAttribute("disabled", "disabled");
+            item.disabled = true;
           } else if (title != curValue) {
             str = unequalSign + str;
+            item.disabled = false;
           } else {
             str = escape + str;
+            item.disabled = false;
           }
-          item.appendChild(document.createTextNode(str));
-          group.appendChild(item);
+          item.str = str;
+          popupSelect.items.push(item);
         }
-        popupSelect.appendChild(group);
-      };
+      }
 
-      var dataList = [];
-
-      var popupSelect = document.createElement("select");
-      for (var s in json.others) {
-        for (var t in json.others[s]) {
+      const dataList = [];
+      const popupSelect = {};
+      popupSelect.items = [];
+      for (let s in json.others) {
+        for (let t in json.others[s]) {
           dataList.push([json.others[s][t], s]);
         }
       }
@@ -196,9 +198,9 @@ function setMenuFromData(sidewaysControl, json) {
       /*
        * Set curValue = the value for cldrStatus.getCurrentLocale()
        */
-      var curValue = null;
+      let curValue = null;
       for (let l = 0; l < dataList.length; l++) {
-        var loc = dataList[l][0];
+        const loc = dataList[l][0];
         if (loc === cldrStatus.getCurrentLocale()) {
           curValue = dataList[l][1];
           break;
@@ -210,34 +212,22 @@ function setMenuFromData(sidewaysControl, json) {
        */
       if (json.novalue) {
         const differentValue = curValue === "A" ? "B" : "A"; // anything different from curValue
-        for (s in json.novalue) {
+        for (let s in json.novalue) {
           dataList.push([json.novalue[s], differentValue]);
         }
       }
       mergeReadBase(dataList);
 
       // then sort by sublocale name
-      dataList = dataList.sort(function (a, b) {
+      const sortedDataList = dataList.sort(function (a, b) {
         return (
           locmap.getRegionAndOrVariantName(a[0]) >
           locmap.getRegionAndOrVariantName(b[0])
         );
       });
-      appendLocaleList(dataList, curValue);
-
-      var group = document.createElement("optGroup");
-      popupSelect.appendChild(group);
-
-      cldrDom.listenFor(popupSelect, "change", function (e) {
-        var newLoc = popupSelect.value;
-        if (newLoc !== cldrStatus.getCurrentLocale()) {
-          cldrStatus.setCurrentLocale(newLoc);
-          cldrLoad.reloadV();
-        }
-        return cldrEvent.stopPropagation(e);
-      });
-
-      sidewaysControl.appendChild(popupSelect);
+      appendLocaleList(sortedDataList, curValue);
+      sidewaysCache.set(cacheKey, popupSelect);
+      regionalVariantsWrapper.setData(popupSelect);
     }
   }
 }

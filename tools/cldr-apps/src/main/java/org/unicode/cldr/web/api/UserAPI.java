@@ -63,7 +63,7 @@ public class UserAPI {
                                 @Content(
                                         mediaType = "application/json",
                                         schema = @Schema(implementation = UserInfo.class))),
-                @APIResponse(responseCode = "404")
+                @APIResponse(responseCode = "404", description = "Session not found"),
             })
     @Path("/info/{uid}")
     public Response getUserInfo(

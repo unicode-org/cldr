@@ -22,7 +22,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import java.util.regex.Matcher;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 import org.unicode.cldr.util.SupplementalDataInfo.CurrencyNumberInfo;
@@ -46,7 +45,6 @@ public class ICUServiceBuilder {
     }
 
     public static String isoDateFormat(long value) {
-        // TODO Auto-generated method stub
         return iso.format(new Date(value));
     }
 
@@ -60,46 +58,49 @@ public class ICUServiceBuilder {
     private Map<String, DecimalFormatSymbols> cacheDecimalFormatSymbols = new HashMap<>();
     private Map<String, RuleBasedCollator> cacheRuleBasedCollators = new HashMap<>();
 
-    private SupplementalDataInfo supplementalData;
+    /**
+     * Caching can be disabled for some ICUServiceBuilder instances while still enabled for others.
+     */
+    private boolean cachingIsEnabled = true;
 
-    // private Factory cldrFactory;
-    // public ICUServiceBuilder setCLDRFactory(Factory cldrFactory) {
-    // this.cldrFactory = cldrFactory;
-    // dateFormatCache.clear();
-    // return this; // for chaining
-    // }
+    public void setCachingEnabled(boolean enabled) {
+        cachingIsEnabled = enabled;
+    }
+
+    /**
+     * TODO: the ability to clear the cache(s) is temporarily useful for debugging, and may or may
+     * not be useful in the long run. In the meantime, this should be false except while debugging.
+     * Reference: https://unicode-org.atlassian.net/browse/CLDR-13970
+     */
+    public static final boolean ISB_CAN_CLEAR_CACHE = false;
+
+    public void clearCache() {
+        if (ISB_CAN_CLEAR_CACHE) {
+            cacheDateFormats.clear();
+            cacheDateFormatSymbols.clear();
+            cacheNumberFormats.clear();
+            cacheDecimalFormatSymbols.clear();
+            cacheRuleBasedCollators.clear();
+        }
+    }
+
+    private SupplementalDataInfo supplementalData;
 
     private static int[] DateFormatValues = {
         -1, DateFormat.SHORT, DateFormat.MEDIUM, DateFormat.LONG, DateFormat.FULL
     };
     private static String[] DateFormatNames = {"none", "short", "medium", "long", "full"};
 
-    public static String getDateNames(int i) {
-        return DateFormatNames[i];
-    }
-
-    public static int LIMIT_DATE_FORMAT_INDEX = DateFormatValues.length;
-
     private static final String[] Days = {"sun", "mon", "tue", "wed", "thu", "fri", "sat"};
-
-    // public SimpleDateFormat getDateFormat(CLDRFile cldrFile, int dateIndex, int timeIndex) {
-    // //CLDRFile cldrFile = cldrFactory.make(localeID.toString(), true);
-    // return getDateFormat(dateIndex, timeIndex);
-    // }
 
     public CLDRFile getCldrFile() {
         return cldrFile;
-    }
-
-    public CLDRFile getCollationFile() {
-        return collationFile;
     }
 
     public ICUServiceBuilder setCldrFile(CLDRFile cldrFile) {
         if (!cldrFile.isResolved()) throw new IllegalArgumentException("CLDRFile must be resolved");
         this.cldrFile = cldrFile;
         supplementalData = CLDRConfig.getInstance().getSupplementalDataInfo();
-        // SupplementalDataInfo.getInstance(this.cldrFile.getSupplementalDirectory());
         cacheDateFormats.clear();
         cacheNumberFormats.clear();
         cacheDateFormatSymbols.clear();
@@ -142,10 +143,12 @@ public class ICUServiceBuilder {
     }
 
     public RuleBasedCollator getRuleBasedCollator(String type) throws Exception {
-        RuleBasedCollator col = cacheRuleBasedCollators.get(type);
+        RuleBasedCollator col = cachingIsEnabled ? cacheRuleBasedCollators.get(type) : null;
         if (col == null) {
             col = _getRuleBasedCollator(type);
-            cacheRuleBasedCollators.put(type, col);
+            if (cachingIsEnabled) {
+                cacheRuleBasedCollators.put(type, col);
+            }
         }
         return (RuleBasedCollator) col.clone();
     }
@@ -198,13 +201,15 @@ public class ICUServiceBuilder {
     public SimpleDateFormat getDateFormat(
             String calendar, int dateIndex, int timeIndex, String numbersOverride) {
         String key = cldrFile.getLocaleID() + "," + calendar + "," + dateIndex + "," + timeIndex;
-        SimpleDateFormat result = cacheDateFormats.get(key);
+        SimpleDateFormat result = cachingIsEnabled ? cacheDateFormats.get(key) : null;
         if (result != null) return (SimpleDateFormat) result.clone();
 
         String pattern = getPattern(calendar, dateIndex, timeIndex);
 
         result = getFullFormat(calendar, pattern, numbersOverride);
-        cacheDateFormats.put(key, result);
+        if (cachingIsEnabled) {
+            cacheDateFormats.put(key, result);
+        }
         // System.out.println("created " + key);
         return (SimpleDateFormat) result.clone();
     }
@@ -212,10 +217,12 @@ public class ICUServiceBuilder {
     public SimpleDateFormat getDateFormat(String calendar, String pattern, String numbersOverride) {
         String key =
                 cldrFile.getLocaleID() + "," + calendar + ",," + pattern + ",,," + numbersOverride;
-        SimpleDateFormat result = cacheDateFormats.get(key);
+        SimpleDateFormat result = cachingIsEnabled ? cacheDateFormats.get(key) : null;
         if (result != null) return (SimpleDateFormat) result.clone();
         result = getFullFormat(calendar, pattern, numbersOverride);
-        cacheDateFormats.put(key, result);
+        if (cachingIsEnabled) {
+            cacheDateFormats.put(key, result);
+        }
         // System.out.println("created " + key);
         return (SimpleDateFormat) result.clone();
     }
@@ -281,7 +288,7 @@ public class ICUServiceBuilder {
 
     private DateFormatSymbols _getDateFormatSymbols(String calendar) {
         String key = cldrFile.getLocaleID() + "," + calendar;
-        DateFormatSymbols result = cacheDateFormatSymbols.get(key);
+        DateFormatSymbols result = cachingIsEnabled ? cacheDateFormatSymbols.get(key) : null;
         if (result != null) return (DateFormatSymbols) result.clone();
 
         String[] last;
@@ -414,7 +421,9 @@ public class ICUServiceBuilder {
                 DateFormatSymbols.STANDALONE,
                 DateFormatSymbols.NARROW);
 
-        cacheDateFormatSymbols.put(key, formatData);
+        if (cachingIsEnabled) {
+            cacheDateFormatSymbols.put(key, formatData);
+        }
         return (DateFormatSymbols) formatData.clone();
     }
 
@@ -436,7 +445,7 @@ public class ICUServiceBuilder {
     }
 
     private String[] getArrayOfWinningValues(String[] xpaths) {
-        String result[] = new String[xpaths.length];
+        String[] result = new String[xpaths.length];
         for (int i = 0; i < xpaths.length; i++) {
             result[i] = cldrFile.getWinningValueWithBailey(xpaths[i]);
         }
@@ -532,9 +541,6 @@ public class ICUServiceBuilder {
         return result;
     }
 
-    static final Matcher gregorianMonthsMatcher =
-            PatternCache.get(".*gregorian.*months.*").matcher("");
-
     private List<String> getArray(
             String prefix, int firstIndex, String[] itemNames, String postfix, int minimumSize) {
         List<String> result = new ArrayList<>();
@@ -572,12 +578,6 @@ public class ICUServiceBuilder {
     private static String[] NumberNames = {
         "integer", "decimal", "percent", "scientific"
     }; // // "standard", , "INR",
-
-    public String getNumberNames(int i) {
-        return NumberNames[i];
-    }
-
-    public static int LIMIT_NUMBER_INDEX = NumberNames.length;
 
     private static class MyCurrency extends Currency {
         String symbol;
@@ -681,11 +681,6 @@ public class ICUServiceBuilder {
         return _getNumberFormat(currency, CURRENCY, currencySymbol, numberSystem);
     }
 
-    public DecimalFormat getLongCurrencyFormat(String currency) {
-        // CLDRFile cldrFile = cldrFactory.make(localeID, true);
-        return _getNumberFormat(currency, CURRENCY, null, null);
-    }
-
     public DecimalFormat getNumberFormat(int index) {
         // CLDRFile cldrFile = cldrFactory.make(localeID, true);
         return _getNumberFormat(NumberNames[index], OTHER_KEY, null, null);
@@ -698,11 +693,16 @@ public class ICUServiceBuilder {
 
     public NumberFormat getGenericNumberFormat(String ns) {
         // CLDRFile cldrFile = cldrFactory.make(localeID, true);
-        NumberFormat result = cacheNumberFormats.get(cldrFile.getLocaleID() + "@numbers=" + ns);
+        NumberFormat result =
+                cachingIsEnabled
+                        ? cacheNumberFormats.get(cldrFile.getLocaleID() + "@numbers=" + ns)
+                        : null;
         if (result == null) {
             ULocale ulocale = new ULocale(cldrFile.getLocaleID() + "@numbers=" + ns);
             result = NumberFormat.getInstance(ulocale);
-            cacheNumberFormats.put(cldrFile.getLocaleID() + "@numbers=" + ns, result);
+            if (cachingIsEnabled) {
+                cacheNumberFormats.put(cldrFile.getLocaleID() + "@numbers=" + ns, result);
+            }
         }
         return (NumberFormat) result.clone();
     }
@@ -728,7 +728,8 @@ public class ICUServiceBuilder {
                 (currencySymbol == null)
                         ? ulocale + "/" + key1 + "/" + kind
                         : ulocale + "/" + key1 + "/" + kind + "/" + currencySymbol;
-        DecimalFormat result = (DecimalFormat) cacheNumberFormats.get(key);
+        DecimalFormat result =
+                cachingIsEnabled ? (DecimalFormat) cacheNumberFormats.get(key) : null;
         if (result != null) {
             return (DecimalFormat) result.clone();
         }
@@ -843,7 +844,9 @@ public class ICUServiceBuilder {
             result.setDecimalSeparatorAlwaysShown(false);
             result.setParseIntegerOnly(true);
         }
-        cacheNumberFormats.put(key, result);
+        if (cachingIsEnabled) {
+            cacheNumberFormats.put(key, result);
+        }
         return (DecimalFormat) result.clone();
     }
 
@@ -890,7 +893,7 @@ public class ICUServiceBuilder {
                 (numberSystem == null)
                         ? cldrFile.getLocaleID()
                         : cldrFile.getLocaleID() + "@numbers=" + numberSystem;
-        DecimalFormatSymbols symbols = cacheDecimalFormatSymbols.get(key);
+        DecimalFormatSymbols symbols = cachingIsEnabled ? cacheDecimalFormatSymbols.get(key) : null;
         if (symbols != null) {
             return (DecimalFormatSymbols) symbols.clone();
         }
@@ -952,7 +955,9 @@ public class ICUServiceBuilder {
                         .freeze();
         afterInsertBetween = cldrFile.getWinningValueWithBailey(prefix + "insertBetween");
 
-        cacheDecimalFormatSymbols.put(key, symbols);
+        if (cachingIsEnabled) {
+            cacheDecimalFormatSymbols.put(key, symbols);
+        }
 
         return (DecimalFormatSymbols) symbols.clone();
     }
@@ -960,20 +965,6 @@ public class ICUServiceBuilder {
     private char getSymbolCharacter(String key, String numsys) {
         // numsys should not be null (previously resolved to defaultNumberingSystem if necessary)
         return getSymbolString(key, numsys).charAt(0);
-    }
-
-    // TODO no longer used now that http://bugs.icu-project.org/trac/ticket/10368 is done.
-    private char getHackSymbolCharacter(String key, String numsys) {
-        String minusString = getSymbolString(key, numsys);
-        char minusSign =
-                (minusString.length() > 1 && isBidiMark(minusString.charAt(0)))
-                        ? minusString.charAt(1)
-                        : minusString.charAt(0);
-        return minusSign;
-    }
-
-    private static boolean isBidiMark(char c) {
-        return (c == '\u200E' || c == '\u200F' || c == '\u061C');
     }
 
     private String getSymbolString(String key, String numsys) {
@@ -1043,13 +1034,7 @@ public class ICUServiceBuilder {
         }
     }
 
-    /**
-     * Format a dayPeriod string. The dayPeriodOverride, if null, will be fetched from the file.
-     *
-     * @param timeInDay
-     * @param dayPeriodString
-     * @return
-     */
+    /** Format a dayPeriod string. The dayPeriodOverride, if null, will be fetched from the file. */
     public String formatDayPeriod(int timeInDay, Context context, Width width) {
         DayPeriodInfo dayPeriodInfo =
                 supplementalData.getDayPeriods(DayPeriodInfo.Type.format, cldrFile.getLocaleID());
@@ -1086,8 +1071,6 @@ public class ICUServiceBuilder {
         return path;
     }
 
-    static final String SHORT_PATH =
-            "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/timeFormats/timeFormatLength[@type=\"short\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
     static final String HM_PATH =
             "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"hm\"]";
     static final String BHM_PATH =
@@ -1137,9 +1120,5 @@ public class ICUServiceBuilder {
         String formatted = df.format(timeInDay);
         String result = formatted.replace("\uE000", dayPeriodFormatString);
         return result;
-    }
-
-    public String getMinusSign(String numberSystem) {
-        return _getDecimalFormatSymbols(numberSystem).getMinusSignString();
     }
 }

@@ -11,7 +11,7 @@
       <br />
       <select
         id="regional-variants-menu"
-        v-model="locale"
+        v-model="chosenLocale"
         :title="label"
         @:change="goToLocale()"
       >
@@ -29,18 +29,18 @@
 </template>
 
 <script>
-import * as cldrLoad from "../esm/cldrLoad.mjs";
-import * as cldrStatus from "../esm/cldrStatus.mjs";
+import * as cldrSideways from "../esm/cldrSideways.mjs";
 import * as cldrText from "../esm/cldrText.mjs";
 
 export default {
   data() {
     return {
+      chosenLocale: null,
+      curLocale: null,
       items: null,
       label: null,
       loading: false,
       loadingMessage: null,
-      locale: null,
     };
   },
 
@@ -50,20 +50,19 @@ export default {
         this.loadingMessage = cldrText.get("sideways_loading1");
       }
       this.loading = true;
-      this.label = this.items = this.locale = null;
+      this.label = this.items = this.chosenLocale = this.curLocale = null;
     },
 
-    setData(d) {
+    setData(localeId, d) {
+      this.chosenLocale = this.curLocale = localeId;
       this.label = d?.label || null;
       this.items = d?.items || null;
-      this.locale = cldrStatus.getCurrentLocale();
       this.loading = false;
     },
 
     goToLocale() {
-      if (this.locale !== cldrStatus.getCurrentLocale()) {
-        cldrStatus.setCurrentLocale(this.locale);
-        cldrLoad.reloadV();
+      if (this.chosenLocale !== this.curLocale) {
+        cldrSideways.goToLocale(this.chosenLocale);
       }
     },
   },

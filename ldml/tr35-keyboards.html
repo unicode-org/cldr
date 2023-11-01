@@ -691,7 +691,6 @@
 
 
 
-
 <script src="./js/anchor.min.js"></script><div class="header"><table class="header" cellpadding="0" cellspacing="0" width="100%">
     <tbody>
         <tr>
@@ -715,16 +714,14 @@
 </tr>
 </tbody></table><p>For the full header, summary, and status, see <a href="tr35.html">Part 1: Core</a>.</p><h4 id="important-note"><em>Important Note</em></h4><blockquote>
 <p>This is a technical preview of a future version of the LDML Part 7. See <a href="#status"><em>Status</em></a>, below.</p>
-<p>There are breaking changes, see <a href="#Compatibility_Notice">Compatibility Notice</a></p>
-</blockquote><h3 id="summary"><em>Summary</em></h3><p>This document describes parts of an XML format (<em>vocabulary</em>) for the exchange of structured locale data. This format is used in the <a href="https://www.unicode.org/cldr/">Unicode Common Locale Data Repository</a>.</p><p>This is a partial document, describing keyboard mappings. For the other parts of the LDML see the <a href="tr35.html">main LDML document</a> and the links above.</p><p><em>Note:</em>
+<p>There are breaking changes, see <a href="#compatibility-notice">Compatibility Notice</a></p>
+</blockquote><h3 id="summary"><em>Summary</em></h3><p>This document describes parts of an XML format (<em>vocabulary</em>) for the exchange of structured locale data. This format is used in the <a href="https://www.unicode.org/cldr/">Unicode Common Locale Data Repository</a>.</p><p>This is a partial document, describing keyboards. For the other parts of the LDML see the <a href="tr35.html">main LDML document</a> and the links above.</p><p><em>Note:</em>
 Some links may lead to in-development or older
 versions of the data files.
-See <a href="https://cldr.unicode.org">https://cldr.unicode.org</a> for up-to-date CLDR release data.</p><h3 id="status"><em>Status</em></h3><p>This document is a draft of a <em>technical preview</em> of the Keyboard standard.
+See <a href="https://cldr.unicode.org">https://cldr.unicode.org</a> for up-to-date CLDR release data.</p><h3 id="status"><em>Status</em></h3><p>This document is a <em>technical preview</em> of the Keyboard standard.
 This document has <em>not</em> been approved for publication by the Unicode Consortium,
-and may be substantially altered before any publication. For the latest published version of UTS#35, see <a href="https://www.unicode.org/reports/tr35/">https://www.unicode.org/reports/tr35/</a></p><p>In particular, Element and attribute names are expected to change pending further review.</p><p>The CLDR <a href="https://cldr.unicode.org/index/keyboard-workgroup">Keyboard Workgroup</a> is currently
-developing major changes to the CLDR keyboard specification.
-For this draft, please see <a href="https://unicode-org.atlassian.net/browse/CLDR-15034">CLDR-15034</a> for
-status, the latest information, or to provide feedback.</p><h2 id="Parts"><a name="parts" href="#Parts">Parts</a></h2><p>The LDML specification is divided into the following parts:</p><ul>
+and may be substantially altered before any publication. For the latest published version of UTS#35, see <a href="https://www.unicode.org/reports/tr35/">https://www.unicode.org/reports/tr35/</a></p><p>The CLDR <a href="https://cldr.unicode.org/index/keyboard-workgroup">Keyboard Workgroup</a> is currently
+developing this technical preview to the CLDR keyboard specification.</p><h2 id="Parts"><a name="parts" href="#Parts">Parts</a></h2><p>The LDML specification is divided into the following parts:</p><ul>
 <li>Part 1: <a href="tr35.html#Contents">Core</a> (languages, locales, basic structure)</li>
 <li>Part 2: <a href="tr35-general.html#Contents">General</a> (display names &amp; transforms, etc.)</li>
 <li>Part 3: <a href="tr35-numbers.html#Contents">Numbers</a> (number &amp; currency formatting)</li>
@@ -739,88 +736,89 @@ status, the latest information, or to provide feedback.</p><h2 id="Parts"><a nam
 <li><a href="#status"><em>Status</em></a></li>
 <li><a href="#Parts">Parts</a></li>
 <li><a href="#Contents">Contents of Part 7, Keyboards</a></li>
-<li><a href="#Introduction">Keyboards</a></li>
-<li><a href="#Goals_and_Nongoals">Goals and Non-goals</a><ul>
-<li><a href="#Compatibility_Notice">Compatibility Notice</a></li>
-<li><a href="#Accessibility">Accessibility</a></li>
+<li><a href="#keyboards">Keyboards</a></li>
+<li><a href="#goals-and-non-goals">Goals and Non-goals</a><ul>
+<li><a href="#compatibility-notice">Compatibility Notice</a></li>
+<li><a href="#accessibility">Accessibility</a></li>
 </ul>
 </li>
-<li><a href="#Definitions">Definitions</a><ul>
-<li><a href="#Escaping">Escaping</a></li>
+<li><a href="#definitions">Definitions</a><ul>
+<li><a href="#escaping">Escaping</a></li>
 <li><a href="#unicodeset-escaping">UnicodeSet Escaping</a></li>
 <li><a href="#uts18-escaping">UTS18 Escaping</a></li>
 </ul>
 </li>
-<li><a href="#File_and_Dir_Structure">File and Directory Structure</a><ul>
-<li><a href="#Extensibility">Extensibility</a></li>
+<li><a href="#file-and-directory-structure">File and Directory Structure</a><ul>
+<li><a href="#extensibility">Extensibility</a></li>
 </ul>
 </li>
 <li><a href="#element-hierarchy">Element Hierarchy</a><ul>
-<li><a href="#Element_Keyboard">Element: keyboard3</a></li>
-<li><a href="#Element_locales">Element: locales</a></li>
-<li><a href="#Element_locale">Element: locale</a></li>
-<li><a href="#Element_version">Element: version</a></li>
-<li><a href="#Element_info">Element: info</a></li>
-<li><a href="#Element_settings">Element: settings</a></li>
-<li><a href="#Element_keys">Element: keys</a></li>
-<li><a href="#Element_key">Element: key</a><ul>
+<li><a href="#element-keyboard3">Element: keyboard3</a></li>
+<li><a href="#element-locales">Element: locales</a></li>
+<li><a href="#element-locale">Element: locale</a></li>
+<li><a href="#element-version">Element: version</a></li>
+<li><a href="#element-info">Element: info</a></li>
+<li><a href="#element-settings">Element: settings</a></li>
+<li><a href="#element-keys">Element: keys</a></li>
+<li><a href="#element-key">Element: key</a><ul>
 <li><a href="#implied-keys">Implied Keys</a></li>
-<li><a href="#Element_flicks">Elements: flicks</a></li>
-<li><a href="#Element_flick">Elements: flick, flickSegment</a></li>
+<li><a href="#element-flicks">Element: flicks</a></li>
+<li><a href="#element-flick">Element: flick</a></li>
+<li><a href="#element-flicksegment">Element: flickSegment</a></li>
 </ul>
 </li>
-<li><a href="#Element_import">Element: import</a></li>
-<li><a href="#Element_displays">Element: displays</a></li>
-<li><a href="#Element_display">Element: display</a></li>
-<li><a href="#Element_displayOptions">Element: displayOptions</a></li>
-<li><a href="#Element_forms">Element: forms</a></li>
-<li><a href="#Element_form">Element: form</a><ul>
+<li><a href="#element-import">Element: import</a></li>
+<li><a href="#element-displays">Element: displays</a></li>
+<li><a href="#element-display">Element: display</a></li>
+<li><a href="#element-displayoptions">Element: displayOptions</a></li>
+<li><a href="#element-forms">Element: forms</a></li>
+<li><a href="#element-form">Element: form</a><ul>
 <li><a href="#implied-form-values">Implied Form Values</a></li>
 </ul>
 </li>
-<li><a href="#Element_scanCodes">Element: scanCodes</a></li>
-<li><a href="#Element_layers">Element: layers</a></li>
-<li><a href="#Element_layer">Element: layer</a><ul>
+<li><a href="#element-scancodes">Element: scanCodes</a></li>
+<li><a href="#element-layers">Element: layers</a></li>
+<li><a href="#element-layer">Element: layer</a><ul>
 <li><a href="#layer-modifier-components">Layer Modifier Components</a></li>
 <li><a href="#modifier-left--and-right--keys">Modifier Left- and Right- keys</a></li>
 <li><a href="#layer-modifier-matching">Layer Modifier Matching</a></li>
 </ul>
 </li>
-<li><a href="#Element_row">Element: row</a></li>
-<li><a href="#Element_variables">Element: variables</a></li>
+<li><a href="#element-row">Element: row</a></li>
+<li><a href="#element-variables">Element: variables</a></li>
 <li><a href="#element-string">Element: string</a></li>
 <li><a href="#element-set">Element: set</a></li>
 <li><a href="#element-unicodeset">Element: unicodeSet</a></li>
-<li><a href="#Element_transforms">Element: transforms</a><ul>
+<li><a href="#element-transforms">Element: transforms</a><ul>
 <li><a href="#markers">Markers</a></li>
 </ul>
 </li>
-<li><a href="#Element_transformGroup">Element: transformGroup</a><ul>
+<li><a href="#element-transformgroup">Element: transformGroup</a><ul>
 <li><a href="#example-transformgroup-with-transform-elements">Example: <code>transformGroup</code> with <code>transform</code> elements</a></li>
 <li><a href="#example-transformgroup-with-reorder-elements">Example: <code>transformGroup</code> with <code>reorder</code> elements</a></li>
 </ul>
 </li>
-<li><a href="#Element_transform">Element: transform</a><ul>
+<li><a href="#element-transform">Element: transform</a><ul>
 <li><a href="#regex-like-syntax">Regex-like Syntax</a></li>
 <li><a href="#additional-features">Additional Features</a></li>
 <li><a href="#disallowed-regex-features">Disallowed Regex Features</a></li>
 <li><a href="#replacement-syntax">Replacement syntax</a></li>
 </ul>
 </li>
-<li><a href="#Element_reorder">Element: reorder</a><ul>
+<li><a href="#element-reorder">Element: reorder</a><ul>
 <li><a href="#using-import-with-reorder-elements">Using <code>&lt;import&gt;</code> with <code>&lt;reorder&gt;</code> elements</a></li>
 <li><a href="#example-post-reorder-transforms">Example Post-reorder transforms</a></li>
 </ul>
 </li>
-<li><a href="#Element_backspaces">transform type="backspace"</a></li>
+<li><a href="#backspace-transforms">Backspace Transforms</a></li>
 </ul>
 </li>
-<li><a href="#Invariants">Invariants</a></li>
-<li><a href="#Keyboard_IDs">Keyboard IDs</a><ul>
-<li><a href="#Principles_for_Keyboard_IDs">Principles for Keyboard IDs</a></li>
+<li><a href="#invariants">Invariants</a></li>
+<li><a href="#keyboard-ids">Keyboard IDs</a><ul>
+<li><a href="#principles-for-keyboard-ids">Principles for Keyboard IDs</a></li>
 </ul>
 </li>
-<li><a href="#Platform_Behaviors_in_Edge_Cases">Platform Behaviors in Edge Cases</a></li>
+<li><a href="#platform-behaviors-in-edge-cases">Platform Behaviors in Edge Cases</a></li>
 <li><a href="#keyboard-test-data">Keyboard Test Data</a><ul>
 <li><a href="#test-doctype">Test Doctype</a></li>
 <li><a href="#test-element-keyboardtest">Test Element: keyboardTest</a></li>
@@ -836,11 +834,11 @@ status, the latest information, or to provide feedback.</p><h2 id="Parts"><a nam
 <li><a href="#test-examples">Test Examples</a></li>
 </ul>
 </li>
-</ul><h2 id="Introduction"><a name="keyboards" href="#Introduction">Keyboards</a></h2><p>The Unicode Standard and related technologies such as CLDR have dramatically improved the path to language support. However, keyboard support remains platform and vendor specific, causing inconsistencies in implementation as well as timeline.</p><blockquote>
+</ul><h2 id="keyboards">Keyboards</h2><p>The Unicode Standard and related technologies such as CLDR have dramatically improved the path to language support. However, keyboard support remains platform and vendor specific, causing inconsistencies in implementation as well as timeline.</p><blockquote>
 <p>“More and more language communities are determining that digitization is vital to their approach to language preservation and that engagement with Unicode is essential to becoming fully digitized. For many of these communities, however, getting new characters or a new script added to The Unicode Standard is not the end of their journey. The next, often more challenging stage is to get device makers, operating systems, apps and services to implement the script requirements that Unicode has just added to support their language. …</p>
 <p>“However, commensurate improvements to streamline new language support on the input side have been lacking. CLDR’s new Keyboard Subcommittee has been established to address this very gap.”
 <em>(Cornelius et. al, “Standardizing Keyboards with CLDR,” presented at the 45th Internationalization and Unicode Conference, Santa Clara, California, USA, October 2021)</em></p>
-</blockquote><p>The CLDR keyboard format seeks to address these challenges, by providing an interchange format for the communication of keyboard mapping data independent of vendors and platforms. Keyboard authors can then create a single mapping file for their language, which implementations can use to provide that language’s keyboard mapping on their own platform.</p><p>Additionally, the standardized identifier for keyboards can be used to communicate, internally or externally, a request for a particular keyboard mapping that is to be used to transform either text or keystrokes. The corresponding data can then be used to perform the requested actions.  For example, a remote screen-access application (such as used for customer service or server management) would be able to communicate and choose the same keyboard layout on the remote device as is used in front of the user, even if the two systems used different platforms.</p><p>The data can also be used in analysis of the capabilities of different keyboards. It also allows better interoperability by making it easier for keyboard designers to see which characters are generally supported on keyboards for given languages.</p><!-- To illustrate this specification, here is an abridged layout representing the English US 101 keyboard on the macOS operating system (with an inserted long-press example). --><p>For complete examples, see the XML files in the CLDR source repository.</p><p>Attribute values should be evaluated considering the DTD and <a href="#DTD_Annotations">DTD Annotations</a>.</p><hr><h2 id="Goals_and_Nongoals"><a name="goals-and-non-goals" href="#Goals_and_Nongoals">Goals and Non-goals</a></h2><p>Some goals of this format are:</p><ol>
+</blockquote><p>The CLDR keyboard format seeks to address these challenges, by providing an interchange format for the communication of keyboard mapping data independent of vendors and platforms. Keyboard authors can then create a single mapping file for their language, which implementations can use to provide that language’s keyboard mapping on their own platform.</p><p>Additionally, the standardized identifier for keyboards can be used to communicate, internally or externally, a request for a particular keyboard mapping that is to be used to transform either text or keystrokes. The corresponding data can then be used to perform the requested actions.  For example, a remote screen-access application (such as used for customer service or server management) would be able to communicate and choose the same keyboard layout on the remote device as is used in front of the user, even if the two systems used different platforms.</p><p>The data can also be used in analysis of the capabilities of different keyboards. It also allows better interoperability by making it easier for keyboard designers to see which characters are generally supported on keyboards for given languages.</p><!-- To illustrate this specification, here is an abridged layout representing the English US 101 keyboard on the macOS operating system (with an inserted long-press example). --><p>For complete examples, see the XML files in the CLDR source repository.</p><p>Attribute values should be evaluated considering the DTD and <a href="tr35.html#dtd-annotations">DTD Annotations</a>.</p><hr><h2 id="goals-and-non-goals">Goals and Non-goals</h2><p>Some goals of this format are:</p><ol>
 <li>Physical and virtual keyboard layouts defined in a single file.</li>
 <li>Provide definitive platform-independent definitions for new keyboard layouts.<ul>
 <li>For example, a new French standard keyboard layout would have a single definition which would be usable across all implementations.</li>
@@ -859,18 +857,18 @@ status, the latest information, or to provide feedback.</p><h2 id="Parts"><a nam
 <li>Adaptation for screen scaling resolution. Instead, keyboards should define layouts based on physical size. Platforms may interpret physical size definitions and adapt for different physical screen sizes with different resolutions.</li>
 <li>Unification of platform-specific virtual key and scan code mapping tables.</li>
 <li>Unification of pre-existing platform layouts themselves (e.g. existing fr-azerty on platform a, b, c).</li>
-<li>Support for prior (pre 3.0) CLDR keyboard files. See <a href="#Compatibility_Notice">Compatibility Notice</a>.</li>
-<li>Run-time efficiency. <a href="./tr35.html#Introduction">LDML is explicitly an interchange format</a>, and so it is expected that data will be transformed to a more compact format for use by a keystroke processing engine.</li>
+<li>Support for prior (pre 3.0) CLDR keyboard files. See <a href="#compatibility-notice">Compatibility Notice</a>.</li>
+<li>Run-time efficiency. <a href="tr35.html#Introduction">LDML is explicitly an interchange format</a>, and so it is expected that data will be transformed to a more compact format for use by a keystroke processing engine.</li>
 </ol><!-- 1. Display names or symbols for keycaps (eg, the German name for "Return"). If that were added to LDML, it would be in a different structure, outside the scope of this section.
 2. Advanced IME features, handwriting recognition, etc.
-3. Roundtrip mappings—the ability to recover precisely the same format as an original platform's representation. In particular, the internal structure may have no relation to the internal structure of external keyboard source data, the only goal is functional equivalence. --><!-- Note: During development of this section, it was considered whether the modifier RAlt (= AltGr) should be merged with Option. In the end, they were kept separate, but for comparison across platforms implementers may choose to unify them. --><p>Note that in parts of this document, the format <code>@x</code> is used to indicate the <em>attribute</em> <strong>x</strong>.</p><h3 id="Compatibility_Notice"><a name="compatibility-notice" href="#Compatibility_Notice">Compatibility Notice</a></h3><blockquote>
+3. Roundtrip mappings—the ability to recover precisely the same format as an original platform's representation. In particular, the internal structure may have no relation to the internal structure of external keyboard source data, the only goal is functional equivalence. --><!-- Note: During development of this section, it was considered whether the modifier RAlt (= AltGr) should be merged with Option. In the end, they were kept separate, but for comparison across platforms implementers may choose to unify them. --><p>Note that in parts of this document, the format <code>@x</code> is used to indicate the <em>attribute</em> <strong>x</strong>.</p><h3 id="compatibility-notice">Compatibility Notice</h3><blockquote>
 <p>👉 Note: CLDR-TC has agreed that the changes required were too extensive to maintain compatibility. For this reason, the <code>ldmlKeyboard3.dtd</code> DTD used here is <em>not</em> compatible with DTDs from prior versions of CLDR such as v43 and prior.</p>
 <p>To process earlier XML files, use the data and specification from v43.1, found at <a href="https://www.unicode.org/reports/tr35/tr35-69/tr35.html">https://www.unicode.org/reports/tr35/tr35-69/tr35.html</a></p>
-</blockquote><h3 id="Accessibility"><a name="accessibility" href="#Accessibility">Accessibility</a></h3><p>Keyboard use can be challenging for individuals with various types of disabilities. For this revision, the committee is not evaluating features or architectural designs for the purpose of improving accessibility. Such consideration could be fruitful for future revisions. However, some points on this topic should be made:</p><ol>
+</blockquote><h3 id="accessibility">Accessibility</h3><p>Keyboard use can be challenging for individuals with various types of disabilities. For this revision, the committee is not evaluating features or architectural designs for the purpose of improving accessibility. Such consideration could be fruitful for future revisions. However, some points on this topic should be made:</p><ol>
 <li>Having an industry-wide standard format for keyboards will enable accessibility software to make use of keyboard data with a reduced dependence on platform-specific knowledge.</li>
 <li>Features which require certain levels of mobility or speed of entry should be considered for their impact on accessibility. This impact could be mitigated by means of additional, accessible methods of generating the same output.</li>
 <li>Public feedback is welcome on any aspects of this document which might hinder accessibility.</li>
-</ol><h2 id="Definitions"><a name="definitions" href="#Definitions">Definitions</a></h2><p><strong>Arrangement:</strong> The relative position of the rectangles that represent keys, either physically or virtually. A hardware keyboard has a static arrangement while a touch keyboard may have a dynamic arrangement that changes per language and/or layer. While the arrangement of keys on a keyboard may be fixed, the mapping of those keys may vary.</p><p><strong>Base character:</strong> The character emitted by a particular key when no modifiers are active. In ISO 9995-1:2009 terms, this is Group 1, Level 1.</p><p><strong>Core keys:</strong> also known as “alphanumeric” section. The primary set of key values on a keyboard that are used for typing the target language of the keyboard. For example, the three rows of letters on a standard US QWERTY keyboard (QWERTYUIOP, ASDFGHJKL, ZXCVBNM) together with the most significant punctuation keys. Usually this equates to the minimal set of keys for a language as seen on mobile phone keyboards.
+</ol><h2 id="definitions">Definitions</h2><p><strong>Arrangement:</strong> The relative position of the rectangles that represent keys, either physically or virtually. A hardware keyboard has a static arrangement while a touch keyboard may have a dynamic arrangement that changes per language and/or layer. While the arrangement of keys on a keyboard may be fixed, the mapping of those keys may vary.</p><p><strong>Base character:</strong> The character emitted by a particular key when no modifiers are active. In ISO 9995-1:2009 terms, this is Group 1, Level 1.</p><p><strong>Core keys:</strong> also known as “alphanumeric” section. The primary set of key values on a keyboard that are used for typing the target language of the keyboard. For example, the three rows of letters on a standard US QWERTY keyboard (QWERTYUIOP, ASDFGHJKL, ZXCVBNM) together with the most significant punctuation keys. Usually this equates to the minimal set of keys for a language as seen on mobile phone keyboards.
 Distinguished from the <strong>frame keys</strong>.</p><p><strong>Dead keys:</strong> These are keys which do not emit normal characters by themselves. They are so named because to the user, they may appear to be “dead,” i.e., non-functional. However, they do produce a change to the input context. For example, in many Latin keyboards hitting the <code>^</code> dead-key followed by the <code>e</code> key produces <code>ê</code>. The <code>^</code> by itself may be invisible or presented in a special way by the platform.</p><p><strong>Frame keys:</strong> These are keys which are outside of the area of the <strong>core keys</strong> and typically do not emit characters. These keys include <strong>modifier</strong> keys, such as Shift or Ctrl, but also include platform specific keys: Fn, IME and layout-switching keys, cursor keys, insert emoji keys etc.</p><p><strong>Hardware keyboard:</strong> an input device which has individual keys that are pressed. Each key has a unique identifier and the arrangement doesn't change, even if the mapping of those keys does. Also known as a physical keyboard.</p><!-- **Hardware map:** A mapping between  and layout positions. --><p><strong>Input Method Editor (IME):</strong> a component or program that supports input of large character sets. Typically, IMEs employ contextual logic and candidate UI to identify the Unicode characters intended by the user.</p><!-- **ISO position:** The corresponding position of a key using the ISO layout convention where rows are identified by letters and columns are identified by numbers. For example, "D01" corresponds to the "Q" key on a US keyboard. For the purposes of this document, an ISO layout position is depicted by a one-letter row identifier followed by a two digit column number (like "B03", "E12" or "C00"). The following diagram depicts a typical US keyboard layout superimposed with the ISO layout indicators (it is important to note that the number of keys and their physical placement relative to each-other in this diagram is irrelevant, rather what is important is their logical placement using the ISO convention):
 
 ![keyboard layout example showing ISO key numbering](images/keyPositions.png)
@@ -879,7 +877,7 @@ One may also extend the notion of the ISO layout to support keys that don't map 
 
 ![keyboard layout example showing extension of ISO key numbering](images/androidKeyboard.png)
 
-If it becomes necessary in the future, the format could extend the ISO layout to support keys that are located to the left of the "00" column by using negative column numbers "-01", "-02" and so on, or 100's complement "99", "98",... --><p><strong>Key:</strong> A physical key on a hardware keyboard, or a virtual key on a touch keyboard.</p><p><strong>Key code:</strong> The integer code sent to the application on pressing a key.</p><p><strong>Key map:</strong> The basic mapping between hardware or on-screen positions and the output characters for each set of modifier combinations associated with a particular layout. There may be multiple key maps for each layout.</p><p><strong>Keyboard:</strong> A particular arrangement of keys for the inputting of text, such as a hardware keyboard or a touch keyboard.</p><p><strong>Keyboard author:</strong> The person or group of people designing and producing a particular keyboard layout designed to support one or more languages. In the context of this specification, that author may be editing the LDML XML file directly or by means of software tools.</p><p><strong>Keyboard layout:</strong> A layout is the overall keyboard configuration for a particular locale. Within a keyboard layout, there is a single base map, one or more key maps and zero or more transforms.</p><p><strong>Layer</strong> is an arrangement of keys on a touch keyboard. A touch keyboard is made up of a set of layers. Each layer may have a different key layout, unlike with a hardware keyboard, and may not correspond directly to a hardware keyboard's modifier keys. A layer is accessed via a switch key. See also touch keyboard, modifier, switch.</p><p><strong>Long-press key:</strong> also known as a “child key”. A secondary key that is invoked from a top level key on a touch keyboard. Secondary keys typically provide access to variants of the top level key, such as accented variants (a =&gt; á, à, ä, ã)</p><p><strong>Modifier:</strong> A key that is held to change the behavior of a hardware keyboard. For example, the "Shift" key allows access to upper-case characters on a US keyboard. Other modifier keys include but are not limited to: Ctrl, Alt, Option, Command and Caps Lock. On a touch keyboard, keys that appear to be modifier keys should be considered to be layer-switching keys.</p><p><strong>Physical keyboard:</strong> see <strong>Hardware keyboard</strong></p><p><strong>Touch keyboard:</strong> A keyboard that is rendered on a, typically, touch surface. It has a dynamic arrangement and contrasts with a hardware keyboard. This term has many synonyms: software keyboard, SIP (Software Input Panel), virtual keyboard. This contrasts with other uses of the term virtual keyboard as an on-screen keyboard for reference or accessibility data entry.</p><p><strong>Transform:</strong> A transform is an element that specifies a set of conversions from sequences of code points into one (or more) other code points. Transforms may reorder or replace text. They may be used to implement “dead key” behaviors, simple orthographic corrections, visual (typewriter) type input etc.</p><p><strong>Virtual keyboard:</strong> see <strong>Touch keyboard</strong></p><h3 id="Escaping"><a name="escaping" href="#Escaping">Escaping</a></h3><p>When explicitly specified, attribute values can contain escaped characters. This specification uses two methods of escaping, the <em>UnicodeSet</em> notation and the <code>\u{...}</code> notation.</p><h3 id="unicodeset-escaping">UnicodeSet Escaping</h3><p>The <em>UnicodeSet</em> notation is described in <a href="tr35.html#Unicode_Sets">UTS #35 section 5.3.3</a> and allows for comprehensive character matching, including by character range, properties, names, or codepoints.</p><p>Note that the <code>\u1234</code> and <code>\x{C1}</code> format escaping is not supported, only the <code>\u{…}</code> format (using <code>bracketedHex</code>).</p><p>Currently, the following attribute values allow <em>UnicodeSet</em> notation:</p><ul>
+If it becomes necessary in the future, the format could extend the ISO layout to support keys that are located to the left of the "00" column by using negative column numbers "-01", "-02" and so on, or 100's complement "99", "98",... --><p><strong>Key:</strong> A physical key on a hardware keyboard, or a virtual key on a touch keyboard.</p><p><strong>Key code:</strong> The integer code sent to the application on pressing a key.</p><p><strong>Key map:</strong> The basic mapping between hardware or on-screen positions and the output characters for each set of modifier combinations associated with a particular layout. There may be multiple key maps for each layout.</p><p><strong>Keyboard:</strong> A particular arrangement of keys for the inputting of text, such as a hardware keyboard or a touch keyboard.</p><p><strong>Keyboard author:</strong> The person or group of people designing and producing a particular keyboard layout designed to support one or more languages. In the context of this specification, that author may be editing the LDML XML file directly or by means of software tools.</p><p><strong>Keyboard layout:</strong> A layout is the overall keyboard configuration for a particular locale. Within a keyboard layout, there is a single base map, one or more key maps and zero or more transforms.</p><p><strong>Layer</strong> is an arrangement of keys on a touch keyboard. A touch keyboard is made up of a set of layers. Each layer may have a different key layout, unlike with a hardware keyboard, and may not correspond directly to a hardware keyboard's modifier keys. A layer is accessed via a switch key. See also touch keyboard, modifier, switch.</p><p><strong>Long-press key:</strong> also known as a “child key”. A secondary key that is invoked from a top level key on a touch keyboard. Secondary keys typically provide access to variants of the top level key, such as accented variants (a =&gt; á, à, ä, ã)</p><p><strong>Modifier:</strong> A key that is held to change the behavior of a hardware keyboard. For example, the "Shift" key allows access to upper-case characters on a US keyboard. Other modifier keys include but are not limited to: Ctrl, Alt, Option, Command and Caps Lock. On a touch keyboard, keys that appear to be modifier keys should be considered to be layer-switching keys.</p><p><strong>Physical keyboard:</strong> see <strong>Hardware keyboard</strong></p><p><strong>Touch keyboard:</strong> A keyboard that is rendered on a, typically, touch surface. It has a dynamic arrangement and contrasts with a hardware keyboard. This term has many synonyms: software keyboard, SIP (Software Input Panel), virtual keyboard. This contrasts with other uses of the term virtual keyboard as an on-screen keyboard for reference or accessibility data entry.</p><p><strong>Transform:</strong> A transform is an element that specifies a set of conversions from sequences of code points into one (or more) other code points. Transforms may reorder or replace text. They may be used to implement “dead key” behaviors, simple orthographic corrections, visual (typewriter) type input etc.</p><p><strong>Virtual keyboard:</strong> see <strong>Touch keyboard</strong></p><h3 id="escaping">Escaping</h3><p>When explicitly specified, attribute values can contain escaped characters. This specification uses two methods of escaping, the <em>UnicodeSet</em> notation and the <code>\u{...}</code> notation.</p><h3 id="unicodeset-escaping">UnicodeSet Escaping</h3><p>The <em>UnicodeSet</em> notation is described in <a href="tr35.html#Unicode_Sets">UTS #35 section 5.3.3</a> and allows for comprehensive character matching, including by character range, properties, names, or codepoints.</p><p>Note that the <code>\u1234</code> and <code>\x{C1}</code> format escaping is not supported, only the <code>\u{…}</code> format (using <code>bracketedHex</code>).</p><p>Currently, the following attribute values allow <em>UnicodeSet</em> notation:</p><ul>
 <li><code>from</code> or <code>before</code> on the <code>&lt;transform&gt;</code> element</li>
 <li><code>from</code> or <code>before</code> on the <code>&lt;reorder&gt;</code> element</li>
 <li><code>chars</code> on the <a href="#test-element-repertoire"><code>&lt;repertoire&gt;</code></a> test element.</li>
@@ -890,7 +888,7 @@ If it becomes necessary in the future, the format could extend the ISO layout to
 <li><code>output</code> and <code>display</code> on the <code>&lt;display&gt;</code> element</li>
 <li><code>baseCharacter</code> on the <code>&lt;displayOptions&gt;</code> element</li>
 <li>Some attributes on <a href="#keyboard-test-data">Keyboard Test Data</a> subelements</li>
-</ul><p>Characters of general category of Mark (M), Control characters (Cc), Format characters (Cf), and whitespace other than space should be encoded using one of the notation above as appropriate.</p><p>Attribute values escaped in this manner are annotated with the <code>&lt;!--@ALLOWS_UESC--&gt;</code> DTD annotation, see <a href="tr35.html#57-dtd-annotations">DTD Annotations</a></p><hr><h2 id="File_and_Dir_Structure"><a name="file-and-directory-structure" href="#File_and_Dir_Structure">File and Directory Structure</a></h2><ul>
+</ul><p>Characters of general category of Mark (M), Control characters (Cc), Format characters (Cf), and whitespace other than space should be encoded using one of the notation above as appropriate.</p><p>Attribute values escaped in this manner are annotated with the <code>&lt;!--@ALLOWS_UESC--&gt;</code> DTD annotation, see <a href="tr35.html#dtd-annotations">DTD Annotations</a></p><hr><h2 id="file-and-directory-structure">File and Directory Structure</h2><ul>
 <li>New collection of layouts that are prescriptive, and define the common core for a keyboard that can be consumed as data for implementation on different platforms will be included in the CLDR repository. This collection will be in a different location than the existing CLDR keyboard files under main/keyboards. We should remove the existing data files, but keep the old DTD in the same place for compatibility, and also so that conversion tools can use it to read older files.</li>
 <li>New layouts will have version metadata to indicate their specification compliance versi​​on number. For this tech preview, the value used must be <code>techpreview</code>.</li>
 </ul><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span> <span class="hljs-attr">conformsTo</span>=<span class="hljs-string">"techpreview"</span>/&gt;</span>
@@ -899,47 +897,47 @@ If it becomes necessary in the future, the format could extend the ISO layout to
 </blockquote><pre><code class="language-xml"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">keyboard3</span> <span class="hljs-keyword">SYSTEM</span> <span class="hljs-string">"../dtd/ldmlKeyboard3.dtd"</span>&gt;</span>
 </code></pre><ul>
 <li>The filename of a keyboard .xml file does not have to match the BCP47 primary locale ID, but it is recommended to do so. The CLDR repository may enforce filename consistency.</li>
-</ul><h3 id="Extensibility"><a name="extensibility" href="#Extensibility">Extensibility</a></h3><p>For extensibility, the <code>&lt;special&gt;</code> element will be allowed at nearly every level.</p><p>See <a href="tr35.html#special">Element special</a> in Part 1.</p><hr><h2 id="element-hierarchy">Element Hierarchy</h2><p>This section describes the XML elements in a keyboard layout file, beginning with the top level element <code>&lt;keyboard3&gt;</code>.</p><h3 id="Element_Keyboard"><a name="element-keyboard3" href="#Element_Keyboard">Element: keyboard3</a></h3><p>This is the top level element. All other elements defined below are under this element.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span> <span class="hljs-attr">locale</span>=<span class="hljs-string">"{locale ID}"</span>&gt;</span>
+</ul><h3 id="extensibility">Extensibility</h3><p>For extensibility, the <code>&lt;special&gt;</code> element will be allowed at nearly every level.</p><p>See <a href="tr35.html#special">Element special</a> in Part 1.</p><hr><h2 id="element-hierarchy">Element Hierarchy</h2><p>This section describes the XML elements in a keyboard layout file, beginning with the top level element <code>&lt;keyboard3&gt;</code>.</p><h3 id="element-keyboard3">Element: keyboard3</h3><p>This is the top level element. All other elements defined below are under this element.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span> <span class="hljs-attr">locale</span>=<span class="hljs-string">"{locale ID}"</span>&gt;</span>
     {definition of the layout as described by the elements defined below}
 <span class="hljs-tag">&lt;/<span class="hljs-name">keyboard3</span>&gt;</span>
 </code></pre><blockquote>
 <small>
 
 <p>Parents: <em>none</em></p>
-<p>Children: <a href="#Element_displays">displays</a>, <a href="#Element_import">import</a>, <a href="#Element_info">info</a>, <a href="#Element_keys">keys</a>, <a href="#Element_flicks">flicks</a>, <a href="#Element_layers">layers</a>, <a href="#Element_locales">locales</a>, <a href="#Element_settings">settings</a>, <a href="tr35.html#special"><em>special</em></a>, <a href="#Element_transforms">transforms</a>, <a href="#Element_variables">variables</a>, <a href="#Element_version">version</a></p>
+<p>Children: <a href="#element-displays">displays</a>, <a href="#element-import">import</a>, <a href="#element-info">info</a>, <a href="#element-keys">keys</a>, <a href="#element-flicks">flicks</a>, <a href="#element-layers">layers</a>, <a href="#element-locales">locales</a>, <a href="#element-settings">settings</a>, <a href="tr35.html#special"><em>special</em></a>, <a href="#element-transforms">transforms</a>, <a href="#element-variables">variables</a>, <a href="#element-version">version</a></p>
 <p>Occurrence: required, single</p>
 </small>
 </blockquote><p><em>Attribute:</em> <code>conformsTo</code> (required)</p><p>This attribute distinguishes the keyboard from prior versions,
 and it also specifies the minimum CLDR version required.</p><p>For purposes of this current draft specification, the value should always be <code>techpreview</code>.</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span> …&nbsp;<span class="hljs-attr">conformsTo</span>=<span class="hljs-string">"techpreview"</span>/&gt;</span>
-</code></pre><p><em>Attribute:</em> <code>locale</code> (required)</p><p>This attribute represents the primary locale of the keyboard using BCP 47 <a href="tr35.html#Canonical_Unicode_Locale_Identifiers">Unicode locale identifiers</a> - for example <code>"el"</code> for Greek. Sometimes, the locale may not specify the base language. For example, a Devanagari keyboard for many languages could be specified by BCP-47 code: <code>"und-Deva"</code>. However, it is better to list out the languages explicitly using the <a href="#element-locales"><code>locales</code></a> element.</p><p>For further details about the choice of locale ID, see <a href="#Keyboard_IDs">Keyboard IDs</a>.</p><p><strong>Example</strong> (for illustrative purposes only, not indicative of the real data)</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span> <span class="hljs-attr">locale</span>=<span class="hljs-string">"ka"</span>&gt;</span>
+</code></pre><p><em>Attribute:</em> <code>locale</code> (required)</p><p>This attribute represents the primary locale of the keyboard using BCP 47 <a href="tr35.html#Canonical_Unicode_Locale_Identifiers">Unicode locale identifiers</a> - for example <code>"el"</code> for Greek. Sometimes, the locale may not specify the base language. For example, a Devanagari keyboard for many languages could be specified by BCP-47 code: <code>"und-Deva"</code>. However, it is better to list out the languages explicitly using the <a href="#element-locales"><code>locales</code></a> element.</p><p>For further details about the choice of locale ID, see <a href="#keyboard-ids">Keyboard IDs</a>.</p><p><strong>Example</strong> (for illustrative purposes only, not indicative of the real data)</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span> <span class="hljs-attr">locale</span>=<span class="hljs-string">"ka"</span>&gt;</span>
   …
 <span class="hljs-tag">&lt;/<span class="hljs-name">keyboard3</span>&gt;</span>
 </code></pre><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span> <span class="hljs-attr">locale</span>=<span class="hljs-string">"fr-CH-t-k0-azerty"</span>&gt;</span>
   …
 <span class="hljs-tag">&lt;/<span class="hljs-name">keyboard3</span>&gt;</span>
-</code></pre><hr><h3 id="Element_locales"><a name="element-locales" href="#Element_locales">Element: locales</a></h3><p>The optional <code>&lt;locales&gt;</code> element allows specifying additional or alternate locales. Denotes intentional support for an extra language, not just that a keyboard incidentally supports a language’s orthography.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">locales</span>&gt;</span>
+</code></pre><hr><h3 id="element-locales">Element: locales</h3><p>The optional <code>&lt;locales&gt;</code> element allows specifying additional or alternate locales. Denotes intentional support for an extra language, not just that a keyboard incidentally supports a language’s orthography.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">locales</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">locale</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"…"</span>/&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">locale</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"…"</span>/&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">locales</span>&gt;</span>
 </code></pre><blockquote>
 <small>
 
-<p>Parents: <a href="#Element_keyboard">keyboard3</a></p>
-<p>Children: <a href="#Element_locale">locale</a></p>
+<p>Parents: <a href="#element-keyboard3">keyboard3</a></p>
+<p>Children: <a href="#element-locale">locale</a></p>
 <p>Occurrence: optional, single</p>
 </small>
-</blockquote><h3 id="Element_locale"><a name="element-locale" href="#Element_locale">Element: locale</a></h3><p>The optional <code>&lt;locales&gt;</code> element allows specifying additional or alternate locales. Denotes intentional support for an extra language, not just that a keyboard incidentally supports a language’s orthography.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">locale</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"{id}"</span>/&gt;</span>
+</blockquote><h3 id="element-locale">Element: locale</h3><p>The optional <code>&lt;locales&gt;</code> element allows specifying additional or alternate locales. Denotes intentional support for an extra language, not just that a keyboard incidentally supports a language’s orthography.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">locale</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"{id}"</span>/&gt;</span>
 </code></pre><blockquote>
 <small>
 
-<p>Parents: <a href="#Element_locales">locales</a></p>
+<p>Parents: <a href="#element-locales">locales</a></p>
 <p>Children: <em>none</em></p>
 <p>Occurrence: optional, multiple</p>
 </small>
 </blockquote><p><em>Attribute:</em> <code>id</code> (required)</p><blockquote>
 <p>The <a href="tr35.html#Canonical_Unicode_Locale_Identifiers">BCP 47</a> locale ID of an additional language supported by this keyboard.
 Must <em>not</em> include the <code>-k0-</code> subtag for this additional language.</p>
-</blockquote><p><strong>Example</strong></p><p>See <a href="#Principles_for_Keyboard_IDs">Principles for Keyboard IDs</a> for discussion and further examples.</p><pre><code class="language-xml"><span class="hljs-comment">&lt;!-- Pan Nigerian Keyboard--&gt;</span>
+</blockquote><p><strong>Example</strong></p><p>See <a href="#principles-for-keyboard-ids">Principles for Keyboard IDs</a> for discussion and further examples.</p><pre><code class="language-xml"><span class="hljs-comment">&lt;!-- Pan Nigerian Keyboard--&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span> <span class="hljs-attr">locale</span>=<span class="hljs-string">"mul-Latn-NG-t-k0-panng"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">locales</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">locale</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"ha"</span>/&gt;</span>
@@ -947,11 +945,11 @@ Must <em>not</em> include the <code>-k0-</code> subtag for this additional langu
         <span class="hljs-comment">&lt;!-- others … --&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">locales</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">keyboard3</span>&gt;</span>
-</code></pre><hr><h3 id="Element_version"><a name="element-version" href="#Element_version">Element: version</a></h3><p>Element used to keep track of the source data version.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">version</span> <span class="hljs-attr">number</span>=<span class="hljs-string">".."</span>&gt;</span>
+</code></pre><hr><h3 id="element-version">Element: version</h3><p>Element used to keep track of the source data version.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">version</span> <span class="hljs-attr">number</span>=<span class="hljs-string">".."</span>&gt;</span>
 </code></pre><blockquote>
 <small>
 
-<p>Parents: <a href="#Element_keyboard">keyboard3</a></p>
+<p>Parents: <a href="#element-keyboard3">keyboard3</a></p>
 <p>Children: <em>none</em></p>
 <p>Occurrence: optional, single</p>
 </small>
@@ -964,7 +962,7 @@ Must <em>not</em> include the <code>-k0-</code> subtag for this additional langu
     <span class="hljs-tag">&lt;<span class="hljs-name">version</span> <span class="hljs-attr">number</span>=<span class="hljs-string">"1"</span>/&gt;</span>
     …
 <span class="hljs-tag">&lt;/<span class="hljs-name">keyboard3</span>&gt;</span>
-</code></pre><hr><h3 id="Element_info"><a name="element-info" href="#Element_info">Element: info</a></h3><p>Element containing informative properties about the layout, for displaying in user interfaces etc.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">info</span>
+</code></pre><hr><h3 id="element-info">Element: info</h3><p>Element containing informative properties about the layout, for displaying in user interfaces etc.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">info</span>
       <span class="hljs-attr">name</span>=<span class="hljs-string">"{keyboard name}"</span>
       <span class="hljs-attr">author</span>=<span class="hljs-string">"{author}"</span>
       <span class="hljs-attr">layout</span>=<span class="hljs-string">"{hint of the layout}"</span>
@@ -972,7 +970,7 @@ Must <em>not</em> include the <code>-k0-</code> subtag for this additional langu
 </code></pre><blockquote>
 <small>
 
-<p>Parents: <a href="#Element_keyboard">keyboard3</a></p>
+<p>Parents: <a href="#element-keyboard3">keyboard3</a></p>
 <p>Children: <em>none</em></p>
 <p>Occurrence: required, single</p>
 </small>
@@ -993,11 +991,11 @@ Must <em>not</em> include the <code>-k0-</code> subtag for this additional langu
 <p>The <code>indicator</code> attribute describes a short string to be used in currently selected layout indicator, such as <code>US</code>, <code>SI9</code> etc.
 Typically, this is shown on a UI element that allows switching keyboard layouts and/or input languages.</p>
 <p>This attribute is not localized.</p>
-</blockquote><hr><h3 id="Element_settings"><a name="element-settings" href="#Element_settings">Element: settings</a></h3><p>An element used to keep track of layout-specific settings by implementations. This element may or may not show up on a layout. These settings reflect the normal practice by the implementation. However, an implementation using the data may customize the behavior.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">settings</span> <span class="hljs-attr">normalization</span>=<span class="hljs-string">"disabled"</span> /&gt;</span>
+</blockquote><hr><h3 id="element-settings">Element: settings</h3><p>An element used to keep track of layout-specific settings by implementations. This element may or may not show up on a layout. These settings reflect the normal practice by the implementation. However, an implementation using the data may customize the behavior.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">settings</span> <span class="hljs-attr">normalization</span>=<span class="hljs-string">"disabled"</span> /&gt;</span>
 </code></pre><blockquote>
 <small>
 
-<p>Parents: <a href="#Element_keyboard">keyboard3</a></p>
+<p>Parents: <a href="#element-keyboard3">keyboard3</a></p>
 <p>Children: <em>none</em></p>
 <p>Occurrence: optional, single</p>
 </small>
@@ -1012,7 +1010,7 @@ Output from the keyboard, following application of all transform rules, will be 
     <span class="hljs-tag">&lt;<span class="hljs-name">settings</span> <span class="hljs-attr">normalization</span>=<span class="hljs-string">"disabled"</span> /&gt;</span>
     …
 <span class="hljs-tag">&lt;/<span class="hljs-name">keyboard3</span>&gt;</span>
-</code></pre><hr><h3 id="Element_keys"><a name="element-keys" href="#Element_keys">Element: keys</a></h3><p>This element defines the properties of all possible keys via <a href="#Element_key"><code>&lt;key&gt;</code> elements</a> used in all layouts.
+</code></pre><hr><h3 id="element-keys">Element: keys</h3><p>This element defines the properties of all possible keys via <a href="#element-key"><code>&lt;key&gt;</code> elements</a> used in all layouts.
 It is a “bag of keys” without specifying any ordering or relation between the keys.
 There is only a single <code>&lt;keys&gt;</code> element in each layout.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keys</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">key</span> … /&gt;</span>
@@ -1022,11 +1020,11 @@ There is only a single <code>&lt;keys&gt;</code> element in each layout.</p><p><
 </code></pre><blockquote>
 <small>
 
-<p>Parents: <a href="#Element_keyboard">keyboard3</a>
-Children: <a href="#Element_key">key</a>
+<p>Parents: <a href="#element-keyboard3">keyboard3</a>
+Children: <a href="#element-key">key</a>
 Occurrence: optional, single</p>
 </small>
-</blockquote><hr><h3 id="Element_key"><a name="element-key" href="#Element_key">Element: key</a></h3><p>This element defines a mapping between an abstract key and its output. This element must have the <code>keys</code> element as its parent. The <code>key</code> element is referenced by the <code>keys=</code> attribute of the <a href="#Element_row"><code>row</code> element</a>.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">key</span>
+</blockquote><hr><h3 id="element-key">Element: key</h3><p>This element defines a mapping between an abstract key and its output. This element must have the <code>keys</code> element as its parent. The <code>key</code> element is referenced by the <code>keys=</code> attribute of the <a href="#element-row"><code>row</code> element</a>.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">key</span>
  <span class="hljs-attr">id</span>=<span class="hljs-string">"{key id}"</span>
  <span class="hljs-attr">flickId</span>=<span class="hljs-string">"{flick identifier}"</span>
  <span class="hljs-attr">gap</span>=<span class="hljs-string">"true"</span>
@@ -1041,7 +1039,7 @@ Occurrence: optional, single</p>
 </code></pre><blockquote>
 <small>
 
-<p>Parents: <a href="#Element_keys">keys</a></p>
+<p>Parents: <a href="#element-keys">keys</a></p>
 <p>Children: <em>none</em></p>
 </small><p><small>Occurrence: optional, multiple
 </small></p>
@@ -1049,7 +1047,7 @@ Occurrence: optional, single</p>
 <p>The <code>id</code> attribute uniquely identifies the key. NMTOKEN. It can (but needn't be) the key name (a, b, c, A, B, C, …), or any other valid token (e-acute, alef, alif, alpha, …).</p>
 <p>In the future, this attribute’s definition is expected to be updated to align with <a href="https://www.unicode.org/reports/tr31/">UAX#31</a>. Please see <a href="https://unicode-org.atlassian.net/browse/CLDR-17043">CLDR-17043</a> for more details.</p>
 </blockquote><p><em>Attribute:</em> <code>flickId="{flick id}"</code> (optional)</p><blockquote>
-<p>The <code>flickId</code> attribute indicates that this key makes use of a <a href="#Element_flick"><code>flick</code></a> set with the specified id.</p>
+<p>The <code>flickId</code> attribute indicates that this key makes use of a <a href="#element-flick"><code>flick</code></a> set with the specified id.</p>
 </blockquote><p><em>Attribute:</em> <code>gap="true"</code> (optional)</p><blockquote>
 <p>The <code>gap</code> attribute indicates that this key does not have any appearance, but represents a "gap" of the specified number of key widths. Can be used with <code>width</code> to set a width.</p>
 </blockquote><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"mediumgap"</span> <span class="hljs-attr">gap</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"1.5"</span>/&gt;</span>
@@ -1057,7 +1055,7 @@ Occurrence: optional, single</p>
 <p>A space-separated ordered list of <code>key</code> element ids, which keys which can be emitted by "long-pressing" this key. This feature is prominent in mobile devices.</p>
 <p>In a list of keys specified by <code>longPressKeyIds</code>, the key matching <code>longPressDefaultKeyId</code> attribute (if present) specifies the default long-press target, which could be different than the first element. It is an error if the <code>longPressDefaultKeyId</code> key is not in the <code>longPressKeyIds</code> list.</p>
 <p>Implementations shall ignore any gestures (such as flick, multiTap, longPress) defined on keys in the <code>longPressKeyIds</code> list.</p>
-<p>For example, if the default key is a key whose <a href="#Element_displays">display</a> value is <code>{</code>, an implementation might render the key as follows:</p>
+<p>For example, if the default key is a key whose <a href="#element-displays">display</a> value is <code>{</code>, an implementation might render the key as follows:</p>
 <p><img src="images/keycapHint.png" alt="keycap hint"></p>
 <p><em>Example:</em></p>
 <ul>
@@ -1130,14 +1128,14 @@ the modifier keys.</p>
         <span class="hljs-tag">&lt;<span class="hljs-name">import</span> <span class="hljs-attr">base</span>=<span class="hljs-string">"cldr"</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"techpreview/keys-Latn-implied.xml"</span> /&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">keys</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">keyboard3</span>&gt;</span>
-</code></pre><p><strong>Note:</strong> All implied keys may be overridden, as with all other imported data items. See the <a href="#Element_import"><code>import</code></a> element for more details.</p><hr><h4 id="Element_flicks"><a name="elements-flicks" href="#Element_flicks">Elements: flicks</a></h4><p>The <code>flicks</code> element is a collection of <code>flick</code> elements.</p><blockquote>
+</code></pre><p><strong>Note:</strong> All implied keys may be overridden, as with all other imported data items. See the <a href="#element-import"><code>import</code></a> element for more details.</p><hr><h4 id="element-flicks">Element: flicks</h4><p>The <code>flicks</code> element is a collection of <code>flick</code> elements.</p><blockquote>
 <small>
 
-<p>Parents: <a href="#Element_keyboard3">keyboard3</a></p>
-<p>Children: <a href="#Element_flick">flick</a>, <a href="#Element_import">import</a>, <a href="tr35.html#special"><em>special</em></a></p>
+<p>Parents: <a href="#element-keyboard3">keyboard3</a></p>
+<p>Children: <a href="#element-flick">flick</a>, <a href="#element-import">import</a>, <a href="tr35.html#special"><em>special</em></a></p>
 </small><p><small>Occurrence: optional, single
 </small></p>
-</blockquote><hr><h4 id="Element_flick"><a name="elements-flick-flicksegment" href="#Element_flick">Elements: flick, flickSegment</a></h4><p>The <code>flick</code> element is used to generate results from a "flick" of the finger on a mobile device.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span>&gt;</span>
+</blockquote><hr><h4 id="element-flick">Element: flick</h4><p>The <code>flick</code> element is used to generate results from a "flick" of the finger on a mobile device.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">keys</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"a"</span> <span class="hljs-attr">flicks</span>=<span class="hljs-string">"a-flicks"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"a"</span> /&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">keys</span>&gt;</span>
@@ -1152,8 +1150,8 @@ the modifier keys.</p>
 </code></pre><blockquote>
 <small>
 
-<p>Parents: <a href="#Element_flicks">flicks</a></p>
-<p>Children: <a href="#Element_flickSegment">flickSegment</a>, <a href="tr35.html#special"><em>special</em></a></p>
+<p>Parents: <a href="#element-flicks">flicks</a></p>
+<p>Children: <a href="#element-flicksegment">flickSegment</a>, <a href="tr35.html#special"><em>special</em></a></p>
 <p>Occurrence: optional, multiple</p>
 </small>
 </blockquote><p><em>Attribute:</em> <code>id</code> (required)</p><blockquote>
@@ -1161,11 +1159,10 @@ the modifier keys.</p>
 <p>The <code>flick</code> elements do not share a namespace with the <code>key</code>s, so it would also be allowed
 to have <code>&lt;key id="a" flick="a"/&gt;</code></p>
 <p>In the future, this attribute’s definition is expected to be updated to align with <a href="https://www.unicode.org/reports/tr31/">UAX#31</a>. Please see <a href="https://unicode-org.atlassian.net/browse/CLDR-17043">CLDR-17043</a> for more details.</p>
-</blockquote><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">flickSegment</span> <span class="hljs-attr">directions</span>=<span class="hljs-string">"{list of directions}"</span> <span class="hljs-attr">keyId</span>=<span class="hljs-string">"{the output key id}"</span> /&gt;</span>
-</code></pre><blockquote>
+</blockquote><hr><h4 id="element-flicksegment">Element: flickSegment</h4><blockquote>
 <small>
 
-<p>Parents: <a href="#Element_flick">flick</a></p>
+<p>Parents: <a href="#element-flick">flick</a></p>
 <p>Children: <em>none</em></p>
 <p>Occurrence: required, multiple</p>
 </small>
@@ -1185,7 +1182,7 @@ where a flick to the Northeast then South produces <code>Å</code>.</p><pre><cod
         <span class="hljs-tag">&lt;<span class="hljs-name">flickSegment</span> <span class="hljs-attr">directions</span>=<span class="hljs-string">"ne s"</span> <span class="hljs-attr">keyId</span>=<span class="hljs-string">"A-ring"</span> /&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">flick</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">flicks</span>&gt;</span>
-</code></pre><hr><h3 id="Element_import"><a name="element-import" href="#Element_import">Element: import</a></h3><p>The <code>import</code> element is used to reference another xml file so that elements are imported from
+</code></pre><hr><h3 id="element-import">Element: import</h3><p>The <code>import</code> element is used to reference another xml file so that elements are imported from
 another file. The use case is to be able to import a standard set of <code>transform</code>s and similar
 from the CLDR repository, especially to be able to share common information relevant to a particular script.
 The intent is for each single XML file to contain all that is needed for a keyboard layout, other than required standard import data from the CLDR repository.</p><p><code>&lt;import&gt;</code> can be used as a child of a number of elements (see the <em>Parents</em> section immediately below). Multiple <code>&lt;import&gt;</code> elements may be used, however, <code>&lt;import&gt;</code> elements must come before any other sibling elements.
@@ -1193,7 +1190,7 @@ If two identical elements are defined, the later element will take precedence, t
 </code></pre><blockquote>
 <small>
 
-<p>Parents: <a href="#Element_displays">displays</a>, <a href="#Element_keyboard">keyboard3</a>, <a href="#Element_keys">keys</a>, <a href="#Element_flicks">flicks</a>, <a href="#Element_layers">layers</a>, <a href="#Element_names">names</a>, <a href="#Element_reorders">reorders</a>, <a href="#Element_transformGroup">transformGroup</a>, <a href="#Element_transforms">transforms</a>, <a href="#Element_variables">variables</a>
+<p>Parents: <a href="#element-displays">displays</a>, <a href="#element-keyboard3">keyboard3</a>, <a href="#element-keys">keys</a>, <a href="#element-flicks">flicks</a>, <a href="#element-layers">layers</a>, <a href="#element-transformgroup">transformGroup</a>, <a href="#element-transforms">transforms</a>, <a href="#element-variables">variables</a>
 Children: <em>none</em></p>
 <p>Occurrence: optional, multiple</p>
 </small>
@@ -1240,30 +1237,30 @@ whose root element is different than the parent element of the <code>&lt;import/
     <span class="hljs-tag">&lt;<span class="hljs-name">transform</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"^ "</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"^"</span> /&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">transform</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"` "</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"`"</span> /&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">transforms</span>&gt;</span>
-</code></pre><hr><h3 id="Element_displays"><a name="element-displays" href="#Element_displays">Element: displays</a></h3><p>The displays can be used to describe what is to be displayed on the keytops for various keys. For the most part, such explicit information is unnecessary since the <code>@to</code> element from the <code>keys/key</code> element can be used. But there are some characters, such as diacritics, that do not display well on their own and so explicit overrides for such characters can help.
+</code></pre><hr><h3 id="element-displays">Element: displays</h3><p>The displays can be used to describe what is to be displayed on the keytops for various keys. For the most part, such explicit information is unnecessary since the <code>@to</code> element from the <code>keys/key</code> element can be used. But there are some characters, such as diacritics, that do not display well on their own and so explicit overrides for such characters can help.
 Another useful scenario is where there are doubled diacritics, or multiple characters with spacing issues.</p><p>The <code>displays</code> consists of a list of display subelements.</p><p><code>displays</code> elements are designed to be shared across many different keyboard layout descriptions, and imported with <code>&lt;import&gt;</code> where needed.</p><p>For combining characters, U+25CC <code>◌</code> is used as a base. It is an error to use a combining character without a base in the <code>display</code> attribute.</p><p>For example, a key which outputs a combining tilde (U+0303) can be represented as follows:</p><pre><code class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">display</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"\u{0303}"</span> <span class="hljs-attr">display</span>=<span class="hljs-string">"◌̃"</span> /&gt;</span>  <span class="hljs-comment">&lt;!-- \u{25CC} \u{0303}--&gt;</span>
 </code></pre><p>This way, a key which outputs a combining tilde (U+0303) will be represented as <code>◌̃</code> (a tilde on a dotted circle).</p><p>Some scripts/languages may prefer a different base than U+25CC.
-See  <a href="#Element_displayOptions"><code>&lt;displayOptions baseCharacter=…/&gt;</code></a>.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">displays</span>&gt;</span>
+See  <a href="#element-displayoptions"><code>&lt;displayOptions baseCharacter=…/&gt;</code></a>.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">displays</span>&gt;</span>
     {a set of display elements}
 <span class="hljs-tag">&lt;/<span class="hljs-name">displays</span>&gt;</span>
 </code></pre><p><strong>Note</strong>: There is currently no way to indicate a custom display for a key without output (i.e. without a <code>to=</code> attribute), nor is there a way to indicate that such a key has a standardized identity (e.g. that a key should be identified as a “Shift”). These may be addressed in future versions of this standard.</p><blockquote>
 <small>
 
-<p>Parents: <a href="#Element_keyboard">keyboard3</a></p>
-<p>Children: <a href="#Element_display">display</a>, <a href="#Element_displayOptions">displayOptions</a>, <a href="tr35.html#special"><em>special</em></a></p>
+<p>Parents: <a href="#element-keyboard3">keyboard3</a></p>
+<p>Children: <a href="#element-display">display</a>, <a href="#element-displayoptions">displayOptions</a>, <a href="tr35.html#special"><em>special</em></a></p>
 <p>Occurrence: optional, single</p>
 </small>
-</blockquote><hr><h3 id="Element_display"><a name="element-display" href="#Element_display">Element: display</a></h3><p>The <code>display</code> element describes how a character, that has come from a <code>keys/key</code> element, should be displayed on a keyboard layout where such display is possible.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">display</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"{the output}"</span> <span class="hljs-attr">display</span>=<span class="hljs-string">"{show as}"</span> /&gt;</span>
+</blockquote><hr><h3 id="element-display">Element: display</h3><p>The <code>display</code> element describes how a character, that has come from a <code>keys/key</code> element, should be displayed on a keyboard layout where such display is possible.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">display</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"{the output}"</span> <span class="hljs-attr">display</span>=<span class="hljs-string">"{show as}"</span> /&gt;</span>
 </code></pre><blockquote>
 <small>
 
-<p>Parents: <a href="#Element_displays">displays</a></p>
+<p>Parents: <a href="#element-displays">displays</a></p>
 <p>Children: <em>none</em></p>
 <p>Occurrence: required, multiple</p>
 </small>
 </blockquote><p>One of the <code>output</code> or <code>id</code> attributes is required.</p><p><em>Attribute:</em> <code>output</code> (optional)</p><blockquote>
 <p>Specifies the character or character sequence from the <code>keys/key</code> element that is to have a special display.
-This attribute may be escaped with <code>\u</code> notation, see <a href="#Escaping">Escaping</a>.
+This attribute may be escaped with <code>\u</code> notation, see <a href="#escaping">Escaping</a>.
 The <code>output</code> attribute may also contain the <code>\m{…}</code> syntax to reference a marker. See <a href="#markers">Markers</a>. Implementations may highlight a displayed marker, such as with a lighter text color, or a yellow highlight.
 String variables may be substituted. See <a href="#element-string">String variables</a></p>
 </blockquote><p><em>Attribute:</em> <code>id</code> (optional)</p><blockquote>
@@ -1273,7 +1270,7 @@ String variables may be substituted. See <a href="#element-string">String variab
 <p>Required and specifies the character sequence that should be displayed on the keytop for any key that generates the <code>@output</code> sequence or has the <code>@id</code>. (It is an error if the value of the <code>display</code> attribute is the same as the value of the <code>output</code> attribute, this would be an extraneous entry.)</p>
 </blockquote><blockquote>
 <p>String variables may be substituted. See <a href="#element-string">String variables</a></p>
-</blockquote><p>This attribute may be escaped with <code>\u</code> notation, see <a href="#Escaping">Escaping</a>.</p><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span>&gt;</span>
+</blockquote><p>This attribute may be escaped with <code>\u</code> notation, see <a href="#escaping">Escaping</a>.</p><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">keys</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"grave"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"\u{0300}"</span> /&gt;</span> <span class="hljs-comment">&lt;!-- combining grave --&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">key</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"marker"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"\m{acute}"</span> /&gt;</span> <span class="hljs-comment">&lt;!-- generates a marker--&gt;</span>
@@ -1285,14 +1282,14 @@ String variables may be substituted. See <a href="#element-string">String variab
         <span class="hljs-tag">&lt;<span class="hljs-name">display</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"\m{acute}"</span> <span class="hljs-attr">display</span>=<span class="hljs-string">"´"</span> /&gt;</span> <span class="hljs-comment">&lt;!-- Display \m{acute} as ´ --&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">displays</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">keyboard3</span>&gt;</span>
-</code></pre><p>To allow <code>displays</code> elements to be shared across keyboards, there is no requirement that <code>@output</code> in a <code>display</code> element matches any <code>@output</code>/<code>@id</code> in any <code>keys/key</code> element in the keyboard description.</p><hr><h3 id="Element_displayOptions"><a name="element-displayoptions" href="#Element_displayOptions">Element: displayOptions</a></h3><p>The <code>displayOptions</code> is an optional singleton element providing additional settings on this <code>displays</code>.  It is structured so as to provide for future flexibility in such options.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">displays</span>&gt;</span>
+</code></pre><p>To allow <code>displays</code> elements to be shared across keyboards, there is no requirement that <code>@output</code> in a <code>display</code> element matches any <code>@output</code>/<code>@id</code> in any <code>keys/key</code> element in the keyboard description.</p><hr><h3 id="element-displayoptions">Element: displayOptions</h3><p>The <code>displayOptions</code> is an optional singleton element providing additional settings on this <code>displays</code>.  It is structured so as to provide for future flexibility in such options.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">displays</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">display</span> …/&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">displayOptions</span> <span class="hljs-attr">baseCharacter</span>=<span class="hljs-string">"x"</span>/&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">displays</span>&gt;</span>
 </code></pre><blockquote>
 <small>
 
-<p>Parents: <a href="#Element_displays">displays</a></p>
+<p>Parents: <a href="#element-displays">displays</a></p>
 <p>Children: <em>none</em></p>
 <p>Occurrence: optional, single</p>
 </small>
@@ -1303,11 +1300,11 @@ Setting <code>baseCharacter="x"</code> (for example) is a <em>hint</em> to the i
 requests U+25CC to be substituted with <code>x</code> on display.
 As a hint, the implementation may ignore this option.</p>
 <p><strong>Note</strong> that not all base characters will be suitable as bases for combining marks.</p>
-</blockquote><p>This attribute may be escaped with <code>\u</code> notation, see <a href="#Escaping">Escaping</a>.</p><hr><h3 id="Element_forms"><a name="element-forms" href="#Element_forms">Element: forms</a></h3><p>This element represents a set of <code>form</code> elements which define the layout of a particular hardware form.</p><blockquote>
+</blockquote><p>This attribute may be escaped with <code>\u</code> notation, see <a href="#escaping">Escaping</a>.</p><hr><h3 id="element-forms">Element: forms</h3><p>This element represents a set of <code>form</code> elements which define the layout of a particular hardware form.</p><blockquote>
 <small>
 
-<p>Parents: <a href="#Element_keyboard">keyboard3</a></p>
-<p>Children: <a href="#Element_import">import</a>, <a href="#Element_form">form</a>, <a href="tr35.html#special"><em>special</em></a></p>
+<p>Parents: <a href="#element-keyboard3">keyboard3</a></p>
+<p>Children: <a href="#element-import">import</a>, <a href="#element-form">form</a>, <a href="tr35.html#special"><em>special</em></a></p>
 <p>Occurrence: optional, single</p>
 </small>
 </blockquote><p><em><strong>Syntax</strong></em></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">forms</span>&gt;</span>
@@ -1318,7 +1315,7 @@ As a hint, the implementation may ignore this option.</p>
         <span class="hljs-comment">&lt;!-- ... --&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">forms</span>&gt;</span>
-</code></pre><hr><h3 id="Element_form"><a name="element-form" href="#Element_form">Element: form</a></h3><p>This element represents a specific <code>form</code> element which defines the layout of a particular hardware form.</p><blockquote>
+</code></pre><hr><h3 id="element-form">Element: form</h3><p>This element represents a specific <code>form</code> element which defines the layout of a particular hardware form.</p><blockquote>
 <p><em>Note:</em> Most keyboards will not need to use this element directly, and the CLDR repository will not accept keyboards which define a custom <code>form</code> element.  This element is provided for two reasons:</p>
 </blockquote><ol>
 <li><p>To formally specify the standard hardware arrangements used with CLDR for implementations. Implementations can verify the arrangement, and validate keyboards against the number of rows and the number of keys per row.</p>
@@ -1328,8 +1325,8 @@ As a hint, the implementation may ignore this option.</p>
 </ol><p>See <a href="#implied-form-values">Implied Form Values</a>, below.</p><blockquote>
 <small>
 
-<p>Parents: <a href="#Element_forms">forms</a></p>
-<p>Children: <a href="#Element_scanCodes">scanCodes</a>, <a href="tr35.html#special"><em>special</em></a></p>
+<p>Parents: <a href="#element-forms">forms</a></p>
+<p>Children: <a href="#element-scancodes">scanCodes</a>, <a href="tr35.html#special"><em>special</em></a></p>
 <p>Occurrence: optional, multiple</p>
 </small>
 </blockquote><p><em>Attribute:</em> <code>id</code> (required)</p><blockquote>
@@ -1352,10 +1349,10 @@ As a hint, the implementation may ignore this option.</p>
 <li><code>us</code> - ANSI 101 key layout</li>
 <li><code>ks</code> - Korean KS layout</li>
 </ul>
-</blockquote><hr><h3 id="Element_scanCodes"><a name="element-scancodes" href="#Element_scanCodes">Element: scanCodes</a></h3><p>This element represents a keyboard row, and defines the scan codes for the non-frame keys in that row.</p><blockquote>
+</blockquote><hr><h3 id="element-scancodes">Element: scanCodes</h3><p>This element represents a keyboard row, and defines the scan codes for the non-frame keys in that row.</p><blockquote>
 <small>
 
-<p>Parents: <a href="#Element_form">form</a></p>
+<p>Parents: <a href="#element-form">form</a></p>
 <p>Children: none</p>
 <p>Occurrence: required, multiple</p>
 </small>
@@ -1364,12 +1361,12 @@ As a hint, the implementation may ignore this option.</p>
 </blockquote><blockquote>
 <p>The <code>codes</code> attribute is a space-separated list of 2-digit hex bytes, each representing a scan code.</p>
 </blockquote><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">scanCodes</span> <span class="hljs-attr">codes</span>=<span class="hljs-string">"29 02 03 04 05 06 07 08 09 0A 0B 0C 0D"</span> /&gt;</span>
-</code></pre><hr><h3 id="Element_layers"><a name="element-layers" href="#Element_layers">Element: layers</a></h3><p>This element represents a set of <code>layer</code> elements with a specific physical form factor, whether
+</code></pre><hr><h3 id="element-layers">Element: layers</h3><p>This element represents a set of <code>layer</code> elements with a specific physical form factor, whether
 hardware or touch layout.</p><blockquote>
 <small>
 
-<p>Parents: <a href="#Element_keyboard">keyboard3</a></p>
-<p>Children: <a href="#Element_import">import</a>, <a href="#Element_layer">layer</a>, <a href="tr35.html#special"><em>special</em></a></p>
+<p>Parents: <a href="#element-keyboard3">keyboard3</a></p>
+<p>Children: <a href="#element-import">import</a>, <a href="#element-layer">layer</a>, <a href="tr35.html#special"><em>special</em></a></p>
 <p>Occurrence: required, multiple</p>
 </small>
 </blockquote><ul>
@@ -1393,18 +1390,18 @@ At most one hardware (non-<code>touch</code>) <code>&lt;layers&gt;</code> elemen
 </blockquote><p><em>Attribute:</em> <code>minDeviceWidth</code></p><blockquote>
 <p>This attribute specifies the minimum required width, in millimeters (mm), of the touch surface.  The <code>layers</code> entry with the greatest matching width will be selected. This attribute is intended for <code>form="touch"</code>, but is supported for hardware forms.</p>
 <p>This must be a whole number between 1 and 999, inclusive.</p>
-</blockquote><h3 id="Element_layer"><a name="element-layer" href="#Element_layer">Element: layer</a></h3><p>A <code>layer</code> element describes the configuration of keys on a particular layer of a keyboard. It contains one or more <code>row</code> elements to describe which keys exist in each row.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">layer</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"layerId"</span> <span class="hljs-attr">modifiers</span>=<span class="hljs-string">"{Set of Modifier Combinations}"</span>&gt;</span>
+</blockquote><h3 id="element-layer">Element: layer</h3><p>A <code>layer</code> element describes the configuration of keys on a particular layer of a keyboard. It contains one or more <code>row</code> elements to describe which keys exist in each row.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">layer</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"layerId"</span> <span class="hljs-attr">modifiers</span>=<span class="hljs-string">"{Set of Modifier Combinations}"</span>&gt;</span>
     ...
 <span class="hljs-tag">&lt;/<span class="hljs-name">layer</span>&gt;</span>
 </code></pre><blockquote>
 <small>
 
-<p>Parents: <a href="#Element_keyboard">keyboard3</a></p>
-<p>Children: <a href="#Element_row">row</a>, <a href="tr35.html#special"><em>special</em></a></p>
+<p>Parents: <a href="#element-keyboard3">keyboard3</a></p>
+<p>Children: <a href="#element-row">row</a>, <a href="tr35.html#special"><em>special</em></a></p>
 <p>Occurrence: optional, multiple</p>
 </small>
 </blockquote><p><em>Attribute</em> <code>id</code> (required for <code>touch</code>)</p><blockquote>
-<p>The <code>id</code> attribute identifies the layer for touch layouts.  This identifier specifies the layout as the target for layer switching, as specified by the <code>switch=</code> attribute on the <a href="#Element_key"><code>&lt;key&gt;</code></a> element.
+<p>The <code>id</code> attribute identifies the layer for touch layouts.  This identifier specifies the layout as the target for layer switching, as specified by the <code>switch=</code> attribute on the <a href="#element-key"><code>&lt;key&gt;</code></a> element.
 Touch layouts must have one <code>layer</code> with <code>id="base"</code> to serve as the base layer.</p>
 <p>Must match <code>[A-Za-z0-9][A-Za-z0-9-]*</code></p>
 </blockquote><p><em>Attribute:</em> <code>modifiers</code> (required for <code>hardware</code>)</p><blockquote>
@@ -1462,23 +1459,23 @@ Touch layouts must have one <code>layer</code> with <code>id="base"</code> to se
 </li>
 <li><p><code>other</code> as a modifier will match if no other layers match.</p>
 </li>
-</ul><p>Multiple modifier sets may be separated by commas.  For example, <code>none, shift caps</code> will match either no modifiers <em>or</em> shift and caps.  <code>ctrlL altL, altR</code> will match either  left-control and left-alt, <em>or</em> right-alt.</p><p>Keystrokes where there isn’t an explicitly matching layer, and where there is no layer with <code>other</code> specified, are ignored.</p><hr><h3 id="Element_row"><a name="element-row" href="#Element_row">Element: row</a></h3><p>A <code>row</code> element describes the keys that are present in the row of a keyboard.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">row</span> <span class="hljs-attr">keys</span>=<span class="hljs-string">"{keyId} {keyId} …"</span> /&gt;</span>
+</ul><p>Multiple modifier sets may be separated by commas.  For example, <code>none, shift caps</code> will match either no modifiers <em>or</em> shift and caps.  <code>ctrlL altL, altR</code> will match either  left-control and left-alt, <em>or</em> right-alt.</p><p>Keystrokes where there isn’t an explicitly matching layer, and where there is no layer with <code>other</code> specified, are ignored.</p><hr><h3 id="element-row">Element: row</h3><p>A <code>row</code> element describes the keys that are present in the row of a keyboard.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">row</span> <span class="hljs-attr">keys</span>=<span class="hljs-string">"{keyId} {keyId} …"</span> /&gt;</span>
 </code></pre><blockquote>
 <small>
 
-<p>Parents: <a href="#Element_layer">layer</a></p>
+<p>Parents: <a href="#element-layer">layer</a></p>
 <p>Children: <em>none</em></p>
 <p>Occurrence: required, multiple</p>
 </small>
 </blockquote><p><em>Attribute:</em> <code>keys</code> (required)</p><blockquote>
-<p>This is a string that lists the id of <a href="#Element_key"><code>key</code> elements</a> for each of the keys in a row, whether those are explicitly listed in the file or are implied.  See the <code>key</code> documentation for more detail.</p>
-<p>For non-<code>touch</code> forms, the number of keys in each row may not exceed the number of scan codes defined for that row, and the number of rows may not exceed the defined number of rows for that form. See <a href="#Element_scanCodes"><code>scanCodes</code></a>;</p>
+<p>This is a string that lists the id of <a href="#element-key"><code>key</code> elements</a> for each of the keys in a row, whether those are explicitly listed in the file or are implied.  See the <code>key</code> documentation for more detail.</p>
+<p>For non-<code>touch</code> forms, the number of keys in each row may not exceed the number of scan codes defined for that row, and the number of rows may not exceed the defined number of rows for that form. See <a href="#element-scancodes"><code>scanCodes</code></a>;</p>
 </blockquote><p><strong>Example</strong></p><p>Here is an example of a <code>row</code> element:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">row</span> <span class="hljs-attr">keys</span>=<span class="hljs-string">"a z e r t y u i o p caret dollar"</span> /&gt;</span>
-</code></pre><hr><h3 id="Element_variables"><a name="element-variables" href="#Element_variables">Element: variables</a></h3><blockquote>
+</code></pre><hr><h3 id="element-variables">Element: variables</h3><blockquote>
 <small>
 
-<p>Parents: <a href="#Element_keyboard">keyboard3</a></p>
-<p>Children: <a href="#Element_import">import</a>, <a href="tr35.html#special"><em>special</em></a>, <a href="#element-string">string</a>, <a href="#element-set">set</a>, <a href="#element-unicodeSet">unicodeSet</a></p>
+<p>Parents: <a href="#element-keyboard3">keyboard3</a></p>
+<p>Children: <a href="#element-import">import</a>, <a href="tr35.html#special"><em>special</em></a>, <a href="#element-string">string</a>, <a href="#element-set">set</a>, <a href="#element-unicodeset">unicodeSet</a></p>
 </small><p><small>Occurrence: optional, single
 </small></p>
 </blockquote><p>This is a container for variables to be used with <a href="#element-transform">transform</a>, <a href="#element-display">display</a> and <a href="#element-key">key</a> elements.</p><p>Note that the <code>id=</code> attribute must be unique across all children of the <code>variables</code> element.</p><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">variables</span>&gt;</span>
@@ -1489,7 +1486,7 @@ Touch layouts must have one <code>layer</code> with <code>id="base"</code> to se
 </code></pre><hr><h3 id="element-string">Element: string</h3><blockquote>
 <small>
 
-<p>Parents: <a href="#Element_variables">variables</a></p>
+<p>Parents: <a href="#element-variables">variables</a></p>
 <p>Children: <em>none</em></p>
 </small><p><small>Occurrence: optional, multiple
 </small></p>
@@ -1501,7 +1498,7 @@ All ids must be unique across all types of variables.</p>
 <p><code>id</code> must match <code>[0-9A-Za-z_]{1,32}</code></p>
 </blockquote><p><em>Attribute:</em> <code>value</code> (required)</p><blockquote>
 <p>Strings may contain whitespaces. However, for clarity, it is recommended to escape spacing marks, even in strings.
-This attribute may be escaped with <code>\u</code> notation, see <a href="#Escaping">Escaping</a>.
+This attribute may be escaped with <code>\u</code> notation, see <a href="#escaping">Escaping</a>.
 Variables may refer to other string variables if they have been previously defined, using <code>${string}</code> syntax.
 <a href="#markers">Markers</a> may be included with the <code>\m{…}</code> notation.</p>
 </blockquote><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">variables</span>&gt;</span>
@@ -1525,7 +1522,7 @@ Variables may refer to other string variables if they have been previously defin
 </code></pre><hr><h3 id="element-set">Element: set</h3><blockquote>
 <small>
 
-<p>Parents: <a href="#Element_variables">variables</a></p>
+<p>Parents: <a href="#element-variables">variables</a></p>
 <p>Children: <em>none</em></p>
 </small><p><small>Occurrence: optional, multiple
 </small></p>
@@ -1538,7 +1535,7 @@ All ids must be unique across all types of variables.</p>
 </blockquote><p><em>Attribute:</em> <code>value</code> (required)</p><blockquote>
 <p>The <code>value</code> attribute is always a set of strings separated by whitespace, even if there is only a single item in the set, such as <code>"A"</code>.
 Leading and trailing whitespace is ignored.
-This attribute may be escaped with <code>\u</code> notation, see <a href="#Escaping">Escaping</a>.
+This attribute may be escaped with <code>\u</code> notation, see <a href="#escaping">Escaping</a>.
 Sets may refer to other string variables if they have been previously defined, using <code>${string}</code> syntax, or to other previously-defined sets using <code>$[set]</code> syntax.
 Set references must be separated by whitespace: <code>$[set1]$[set2]</code> is an error; instead use <code>$[set1] $[set2]</code>.
 <a href="#markers">Markers</a> may be included with the <code>\m{…}</code> notation.</p>
@@ -1555,7 +1552,7 @@ Set references must be separated by whitespace: <code>$[set1]$[set2]</code> is a
 </code></pre><p>See <a href="#element-transform">transform</a> for further details and syntax.</p><hr><h3 id="element-unicodeset">Element: unicodeSet</h3><blockquote>
 <small>
 
-<p>Parents: <a href="#Element_variables">variables</a></p>
+<p>Parents: <a href="#element-variables">variables</a></p>
 <p>Children: <em>none</em></p>
 </small><p><small>Occurrence: optional, multiple
 </small></p>
@@ -1582,14 +1579,14 @@ Variables may refer to other string variables if they have been previously defin
   <span class="hljs-tag">&lt;<span class="hljs-name">unicodeSet</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"KhmrMn"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"[\u{17B4}\u{17B5}\u{17B7}-\u{17BD}\u{17C6}\u{17C9}-\u{17D3}\u{17DD}]"</span>&gt;</span> <span class="hljs-comment">&lt;!--  [[:Khmr:][:Mn:]] as of Unicode 15.0--&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">variables</span>&gt;</span>
 </code></pre><p>The <code>unicodeSet</code> element may not be used as the source or target for mapping operations (<code>$[1:variable]</code> syntax).
-The <code>unicodeSet</code> element may not be referenced by <a href="#element-key"><code>key</code></a> and <a href="#element-display"><code>display</code></a> elements.</p><hr><h3 id="Element_transforms"><a name="element-transforms" href="#Element_transforms">Element: transforms</a></h3><p>This element defines a group of one or more <code>transform</code> elements associated with this keyboard layout. This is used to support features such as dead-keys, character reordering, backspace behavior, etc. using a straightforward structure that works for all the keyboards tested, and that results in readable source data.</p><p>There can be multiple <code>&lt;transforms&gt;</code> elements, but only one for each <code>type</code>.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">transforms</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"..."</span>&gt;</span>
+The <code>unicodeSet</code> element may not be referenced by <a href="#element-key"><code>key</code></a> and <a href="#element-display"><code>display</code></a> elements.</p><hr><h3 id="element-transforms">Element: transforms</h3><p>This element defines a group of one or more <code>transform</code> elements associated with this keyboard layout. This is used to support features such as dead-keys, character reordering, backspace behavior, etc. using a straightforward structure that works for all the keyboards tested, and that results in readable source data.</p><p>There can be multiple <code>&lt;transforms&gt;</code> elements, but only one for each <code>type</code>.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">transforms</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"..."</span>&gt;</span>
     {a set of transform groups}
 <span class="hljs-tag">&lt;/<span class="hljs-name">transforms</span>&gt;</span>
 </code></pre><blockquote>
 <small>
 
-<p>Parents: <a href="#Element_keyboard">keyboard3</a></p>
-<p>Children: <a href="#Element_import">import</a>, <a href="tr35.html#special"><em>special</em></a>, <a href="#Element_transformGroup">transformGroup</a></p>
+<p>Parents: <a href="#element-keyboard3">keyboard3</a></p>
+<p>Children: <a href="#element-import">import</a>, <a href="tr35.html#special"><em>special</em></a>, <a href="#element-transformgroup">transformGroup</a></p>
 <p>Occurrence: optional, multiple</p>
 </small>
 </blockquote><p><em>Attribute:</em> <code>type</code> (required)</p><blockquote>
@@ -1661,14 +1658,14 @@ One strategy would be to use a marker, which won’t be visible in the output, b
     <span class="hljs-tag">&lt;<span class="hljs-name">transform</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"^\m{transform}e"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"ê"</span>/&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">transforms</span>&gt;</span>
 </code></pre><p>In this way, only the <code>X</code>, <code>e</code> keys will produce <code>^e</code> with a <em>transform</em> marker (again, any name could be used) which will cause the transform to be applied. One benefit is that navigating to an existing <code>^</code> in a document and adding an <code>e</code> will result in <code>^e</code>, and this output will not be affected by the transform, because there will be no marker present there (remember that markers are not stored with the document but only recorded in memory temporarily during text input).</p><p><strong>Effect of markers on final text</strong></p><p>All markers must be removed before text is returned to the application from the input context.
-If the input context changes, such as if the cursor or mouse moves the insertion point somewhere else, all markers in the input context are removed.</p><p><strong>Implementation Notes</strong></p><p>Ideally, markers are implemented entirely out-of-band from the normal text stream. However, implementations <em>may</em> choose to map each marker to a <a href="https://www.unicode.org/glossary/#private_use_character">Unicode private-use character</a> for use only within the implementation’s processing and temporary storage in the input context.</p><p>For example, the first marker encountered could be represented as U+E000, the second by U+E001 and so on.  If a regex processing engine were used, then those PUA characters could be processed through the existing regex processing engine.  <code>[^\u{E000}-\u{E009}]</code> could be used as an expression to match a character that is not a marker, and <code>[Ee]\u{E000}</code> could match <code>E</code> or <code>e</code> followed by the first marker.</p><p>Such implementations must take care to remove all such markers (see prior section) from the resultant text. As well, implementations must take care to avoid conflicts if applications themselves are using PUA characters, such as is often done with not-yet-encoded scripts or characters.</p><hr><h3 id="Element_transformGroup"><a name="element-transformgroup" href="#Element_transformGroup">Element: transformGroup</a></h3><blockquote>
+If the input context changes, such as if the cursor or mouse moves the insertion point somewhere else, all markers in the input context are removed.</p><p><strong>Implementation Notes</strong></p><p>Ideally, markers are implemented entirely out-of-band from the normal text stream. However, implementations <em>may</em> choose to map each marker to a <a href="https://www.unicode.org/glossary/#private_use_character">Unicode private-use character</a> for use only within the implementation’s processing and temporary storage in the input context.</p><p>For example, the first marker encountered could be represented as U+E000, the second by U+E001 and so on.  If a regex processing engine were used, then those PUA characters could be processed through the existing regex processing engine.  <code>[^\u{E000}-\u{E009}]</code> could be used as an expression to match a character that is not a marker, and <code>[Ee]\u{E000}</code> could match <code>E</code> or <code>e</code> followed by the first marker.</p><p>Such implementations must take care to remove all such markers (see prior section) from the resultant text. As well, implementations must take care to avoid conflicts if applications themselves are using PUA characters, such as is often done with not-yet-encoded scripts or characters.</p><hr><h3 id="element-transformgroup">Element: transformGroup</h3><blockquote>
 <small>
 
-<p>Parents: <a href="#Element_transforms">transforms</a></p>
-<p>Children: <a href="#Element_import">import</a>, <a href="#Element_reorder">reorder</a>, <a href="tr35.html#special"><em>special</em></a>, <a href="#Element_transform">transform</a></p>
+<p>Parents: <a href="#element-transforms">transforms</a></p>
+<p>Children: <a href="#element-import">import</a>, <a href="#element-reorder">reorder</a>, <a href="tr35.html#special"><em>special</em></a>, <a href="#element-transform">transform</a></p>
 </small><p><small>Occurrence: optional, multiple
 </small></p>
-</blockquote><p>A <code>transformGroup</code> represents a set of transform elements or reorder elements.</p><p>Each <code>transformGroup</code> is processed entirely before proceeding to the next one.</p><p>Each <code>transformGroup</code> element, after imports are processed, must have either <a href="#Element_reorder">reorder</a> elements or <a href="#Element_transform">transform</a> elements, but not both. The <code>&lt;transformGroup&gt;</code> element may not be empty.</p><p><strong>Examples</strong></p><h4 id="example-transformgroup-with-transform-elements">Example: <code>transformGroup</code> with <code>transform</code> elements</h4><p>This is a <code>transformGroup</code> that consists of one or more <a href="#element-transform"><code>transform</code></a> elements, prefaced by one or more <code>import</code> elements. See the discussion of those elements for details. <code>import</code> elements in this group may not import <code>reorder</code> elements.</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">transformGroup</span>&gt;</span>
+</blockquote><p>A <code>transformGroup</code> represents a set of transform elements or reorder elements.</p><p>Each <code>transformGroup</code> is processed entirely before proceeding to the next one.</p><p>Each <code>transformGroup</code> element, after imports are processed, must have either <a href="#element-reorder">reorder</a> elements or <a href="#element-transform">transform</a> elements, but not both. The <code>&lt;transformGroup&gt;</code> element may not be empty.</p><p><strong>Examples</strong></p><h4 id="example-transformgroup-with-transform-elements">Example: <code>transformGroup</code> with <code>transform</code> elements</h4><p>This is a <code>transformGroup</code> that consists of one or more <a href="#element-transform"><code>transform</code></a> elements, prefaced by one or more <code>import</code> elements. See the discussion of those elements for details. <code>import</code> elements in this group may not import <code>reorder</code> elements.</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">transformGroup</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">import</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"..."</span>/&gt;</span> <span class="hljs-comment">&lt;!-- optional import elements--&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">transform</span> /&gt;</span>
     <span class="hljs-comment">&lt;!-- other &lt;transform/&gt; elements --&gt;</span>
@@ -1678,11 +1675,11 @@ If the input context changes, such as if the cursor or mouse moves the insertion
     <span class="hljs-tag">&lt;<span class="hljs-name">reorder</span> <span class="hljs-attr">...</span> /&gt;</span>
     <span class="hljs-comment">&lt;!-- other &lt;reorder&gt; elements --&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">transformGroup</span>&gt;</span>
-</code></pre><hr><h3 id="Element_transform"><a name="element-transform" href="#Element_transform">Element: transform</a></h3><p>This element represents a single transform that may be performed using the keyboard layout. A transform is an element that specifies a set of conversions from sequences of code points into (one or more) other code points. For example, in most French keyboards hitting the <code>^</code> dead-key followed by the <code>e</code> key produces <code>ê</code>.</p><p>Matches are processed against the "input context", a temporary buffer containing all relevant text up to the insertion point. If the user moves the insertion point, the input context is discarded and recreated from the application’s text buffer.  Implementations may discard the input context at any time.</p><p>The input context may contain, besides regular text, any <a href="#markers">Markers</a> as a result of keys or transforms, since the insertion point was moved.</p><p>Using regular expression terminology, matches are done as if there was an implicit <code>$</code> (match end of buffer) at the end of each pattern. In other words, <code>&lt;transform from="ke" …&gt;</code> will not match an input context ending with <code>…keyboard</code>, but it will match the last two codepoints of an input context ending with <code>…awake</code>.</p><p>All of the <code>transform</code> elements in a <code>transformGroup</code> are tested for a match, in order, until a match is found. Then, the matching element is processed, and then processing proceeds to the <strong>next</strong> <code>transformGroup</code>. If none of the <code>transform</code> elements match, processing proceeds without modification to the buffer to the <strong>next</strong> <code>transformGroup</code>.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">transform</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"{input rule}"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"{output pattern}"</span>/&gt;</span>
+</code></pre><hr><h3 id="element-transform">Element: transform</h3><p>This element represents a single transform that may be performed using the keyboard layout. A transform is an element that specifies a set of conversions from sequences of code points into (one or more) other code points. For example, in most French keyboards hitting the <code>^</code> dead-key followed by the <code>e</code> key produces <code>ê</code>.</p><p>Matches are processed against the "input context", a temporary buffer containing all relevant text up to the insertion point. If the user moves the insertion point, the input context is discarded and recreated from the application’s text buffer.  Implementations may discard the input context at any time.</p><p>The input context may contain, besides regular text, any <a href="#markers">Markers</a> as a result of keys or transforms, since the insertion point was moved.</p><p>Using regular expression terminology, matches are done as if there was an implicit <code>$</code> (match end of buffer) at the end of each pattern. In other words, <code>&lt;transform from="ke" …&gt;</code> will not match an input context ending with <code>…keyboard</code>, but it will match the last two codepoints of an input context ending with <code>…awake</code>.</p><p>All of the <code>transform</code> elements in a <code>transformGroup</code> are tested for a match, in order, until a match is found. Then, the matching element is processed, and then processing proceeds to the <strong>next</strong> <code>transformGroup</code>. If none of the <code>transform</code> elements match, processing proceeds without modification to the buffer to the <strong>next</strong> <code>transformGroup</code>.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">transform</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"{input rule}"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"{output pattern}"</span>/&gt;</span>
 </code></pre><blockquote>
 <small>
 
-<p>Parents: <a href="#Element_transformGroup">transformGroup</a>
+<p>Parents: <a href="#element-transformgroup">transformGroup</a>
 Children: <em>none</em>
 Occurrence: required, multiple</p>
 </small>
@@ -1710,7 +1707,7 @@ Occurrence: required, multiple</p>
 <ul>
 <li>supported</li>
 <li>no Unicode properties such as <code>\p{…}</code></li>
-<li>Warning: Character classes look superficially similar to UnicodeSets as defined in <a href="#element-unicodeSet"><code>unicodeSet</code></a> elements, but they are different. UnicodeSets must be defined with a <code>unicodeSet</code> element, and referenced with the <code>$[unicodeSet]</code> notation in transforms. UnicodeSets cannot be used directly in a transform.</li>
+<li>Warning: Character classes look superficially similar to UnicodeSets as defined in <a href="#element-unicodeset"><code>unicodeSet</code></a> elements, but they are different. UnicodeSets must be defined with a <code>unicodeSet</code> element, and referenced with the <code>$[unicodeSet]</code> notation in transforms. UnicodeSets cannot be used directly in a transform.</li>
 </ul>
 </li>
 <li><p><strong>Bounded quantifier</strong></p>
@@ -1857,7 +1854,7 @@ Occurrence: required, multiple</p>
 <p>  <code>\m{Some_marker}</code></p>
 <p>  Emits the named mark. Also see <a href="#markers">Markers</a>.</p>
 </li>
-</ul><hr><h3 id="Element_reorder"><a name="element-reorder" href="#Element_reorder">Element: reorder</a></h3><p>The reorder transform consists of a <a href="#element-transformgroup"><code>&lt;transformGroup&gt;</code></a> element containing <code>&lt;reorder&gt;</code> elements.  Multiple such <code>&lt;transformGroup&gt;</code> elements may be contained in an enclosing <code>&lt;transforms&gt;</code> element.</p><p>One or more <a href="#element-import"><code>&lt;import&gt;</code></a> elements are allowed to precede the <code>&lt;reorder&gt;</code> elements.</p><p>This transform has the job of reordering sequences of characters that have been typed, from their typed order to the desired output order. The primary concern in this transform is to sort combining marks into their correct relative order after a base, as described in this section. The reorder transforms can be quite complex, keyboard layouts will almost always import them.</p><p>The reordering algorithm consists of four parts:</p><ol>
+</ul><hr><h3 id="element-reorder">Element: reorder</h3><p>The reorder transform consists of a <a href="#element-transformgroup"><code>&lt;transformGroup&gt;</code></a> element containing <code>&lt;reorder&gt;</code> elements.  Multiple such <code>&lt;transformGroup&gt;</code> elements may be contained in an enclosing <code>&lt;transforms&gt;</code> element.</p><p>One or more <a href="#element-import"><code>&lt;import&gt;</code></a> elements are allowed to precede the <code>&lt;reorder&gt;</code> elements.</p><p>This transform has the job of reordering sequences of characters that have been typed, from their typed order to the desired output order. The primary concern in this transform is to sort combining marks into their correct relative order after a base, as described in this section. The reorder transforms can be quite complex, keyboard layouts will almost always import them.</p><p>The reordering algorithm consists of four parts:</p><ol>
 <li>Create a sort key for each character in the input string. A sort key has 4 parts (primary, index, tertiary, quaternary):<ul>
 <li>The <strong>primary weight</strong> is the primary order value.</li>
 <li>The <strong>secondary weight</strong> is the index, a position in the input string, usually of the character itself, but it may be of a character earlier in the string.</li>
@@ -1884,7 +1881,7 @@ Occurrence: required, multiple</p>
 </code></pre><blockquote>
 <small>
 
-<p>Parents: <a href="#Element_transformGroup">transformGroup</a>
+<p>Parents: <a href="#element-transformgroup">transformGroup</a>
 Children: <em>none</em>
 Occurrence: optional, multiple</p>
 </small>
@@ -2102,7 +2099,7 @@ endif
 <span class="hljs-tag">&lt;<span class="hljs-name">transformGroup</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">transform</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"[\u{102F}\u{1030}\u{1048}\u{1059}][\u{102F}\u{1030}\u{1048}\u{1059}]"</span>  /&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">transformGroup</span>&gt;</span>
-</code></pre><hr><h3 id="Element_backspaces"><a name="transform-typebackspace" href="#Element_backspaces">transform type="backspace"</a></h3><p>The <code>&lt;transforms type="backspace"&gt;</code> describe an optional transform that is not applied on input of normal characters, but is only used to perform extra backspace modifications to previously committed text.</p><p>When the backspace key is pressed, the <code>&lt;transforms type="backspace"&gt;</code> element (if present) is processed, and then the <code>&lt;transforms type="simple"&gt;</code> element (if processed) as with any other key.</p><p>Keyboarding applications typically work, but are not required to, in one of two modes:</p><p><strong><em>text entry</em></strong></p><blockquote>
+</code></pre><hr><h3 id="backspace-transforms">Backspace Transforms</h3><p>The <code>&lt;transforms type="backspace"&gt;</code> describe an optional transform that is not applied on input of normal characters, but is only used to perform extra backspace modifications to previously committed text.</p><p>When the backspace key is pressed, the <code>&lt;transforms type="backspace"&gt;</code> element (if present) is processed, and then the <code>&lt;transforms type="simple"&gt;</code> element (if processed) as with any other key.</p><p>Keyboarding applications typically work, but are not required to, in one of two modes:</p><p><strong><em>text entry</em></strong></p><blockquote>
 <p>text entry happens while a user is typing new text. A user typically wants the backspace key to undo whatever they last typed, whether or not they typed things in the 'right' order.</p>
 </blockquote><p><strong><em>text editing</em></strong></p><blockquote>
 <p>text editing happens when a user moves the cursor into some previously entered text which may have been entered by someone else. As such, there is no way to know in which order things were typed, but a user will still want appropriate behaviour when they press backspace. This may involve deleting more than one character or replacing a sequence of characters with a different sequence.</p>
@@ -2161,7 +2158,7 @@ endif
         <span class="hljs-tag">&lt;<span class="hljs-name">transform</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"(:?\m{.})*.(:?\m{.})*"</span> /&gt;</span> <span class="hljs-comment">&lt;!-- deletes any number of markers directly on either side of the final pre-caret codepoint --&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">transformGroup</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">transforms</span>&gt;</span>
-</code></pre><hr><h2 id="Invariants"><a name="invariants" href="#Invariants">Invariants</a></h2><p>Beyond what the DTD imposes, certain other restrictions on the data are imposed on the data.
+</code></pre><hr><h2 id="invariants">Invariants</h2><p>Beyond what the DTD imposes, certain other restrictions on the data are imposed on the data.
 Please note the constraints given under each element section above.
 DTD validation alone is not sufficient to verify a keyboard file.</p><!--
 TODO: Rewrite this? Probably push out to each element's section?
@@ -2196,7 +2193,7 @@ TODO: Rewrite this? Probably push out to each element's section?
 | xY? ⋁ x ⇒ xY?                              |                                              |
 | xLY? ⋁ x ⇒ xLY?                            |                                              |
 | xLY ⋁ x ⇒ xLY?                             |                                              |
---><hr><h2 id="Keyboard_IDs"><a name="keyboard-ids" href="#Keyboard_IDs">Keyboard IDs</a></h2><p>There is a set of subtags that help identify the keyboards. Each of these are used after the <code>"t-k0"</code> subtags to help identify the keyboards. The first tag appended is a mandatory platform tag followed by zero or more tags that help differentiate the keyboard from others with the same locale code.</p><h3 id="Principles_for_Keyboard_IDs"><a name="principles-for-keyboard-ids" href="#Principles_for_Keyboard_IDs">Principles for Keyboard IDs</a></h3><p>The following are the design principles for the IDs.</p><ol>
+--><hr><h2 id="keyboard-ids">Keyboard IDs</h2><p>There is a set of subtags that help identify the keyboards. Each of these are used after the <code>"t-k0"</code> subtags to help identify the keyboards. The first tag appended is a mandatory platform tag followed by zero or more tags that help differentiate the keyboard from others with the same locale code.</p><h3 id="principles-for-keyboard-ids">Principles for Keyboard IDs</h3><p>The following are the design principles for the IDs.</p><ol>
 <li>BCP47 compliant.<ol>
 <li>Eg, <code>en</code>, <code>sr-Cyrl</code>, or <code>en-t-k0-extended</code>.</li>
 </ol>
@@ -2211,7 +2208,7 @@ TODO: Rewrite this? Probably push out to each element's section?
 <li>In order to get to 8 letters, abbreviations are reused that are already in <a href="https://github.com/unicode-org/cldr/blob/main/common/bcp47/">bcp47</a> -u/-t extensions and in <a href="https://www.iana.org/assignments/language-subtag-registry">language-subtag-registry</a> variants, eg for Traditional use <code>-trad</code> or <code>-traditio</code> (both exist in <a href="https://github.com/unicode-org/cldr/blob/main/common/bcp47/">bcp47</a>).</li>
 <li>Multiple languages cannot be indicated in the locale id, so the predominant target is used.<ol>
 <li>For Finnish + Sami, use <code>fi-t-k0-smi</code> or <code>extended-smi</code></li>
-<li>The <a href="#Element_locales"><code>&lt;locales&gt;</code></a> element may be used to identify additional languages.</li>
+<li>The <a href="#element-locales"><code>&lt;locales&gt;</code></a> element may be used to identify additional languages.</li>
 </ol>
 </li>
 <li>In some cases, there are multiple subtags, like <code>en-US-t-k0-chromeos-intl-altgr.xml</code></li>
@@ -2234,7 +2231,7 @@ TODO: Rewrite this? Probably push out to each element's section?
     <span class="hljs-tag">&lt;<span class="hljs-name">locale</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"sms"</span>/&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">locales</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">keyboard3</span>&gt;</span>
-</code></pre><hr><h2 id="Platform_Behaviors_in_Edge_Cases"><a name="platform-behaviors-in-edge-cases" href="#Platform_Behaviors_in_Edge_Cases">Platform Behaviors in Edge Cases</a></h2><table>
+</code></pre><hr><h2 id="platform-behaviors-in-edge-cases">Platform Behaviors in Edge Cases</h2><table>
 <thead>
 <tr>
 <th>Platform</th>
@@ -2268,7 +2265,7 @@ TODO: Rewrite this? Probably push out to each element's section?
 
 </small><p><small>Children: <a href="#test-element-info">info</a>, <a href="#test-element-repertoire">repertoire</a>, <a href="tr35.html#special"><em>special</em></a>, <a href="#test-element-tests">tests</a>
 </small></p>
-</blockquote><p>This is the top level element.</p><p><em>Attribute:</em> <code>conformsTo</code> (required)</p><p>The <code>conformsTo</code> attribute here is the same as on the <a href="#Element_Keyboard"><code>&lt;keyboard3&gt;</code></a> element.</p><pre><code class="language-xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"UTF-8"</span>?&gt;</span>
+</blockquote><p>This is the top level element.</p><p><em>Attribute:</em> <code>conformsTo</code> (required)</p><p>The <code>conformsTo</code> attribute here is the same as on the <a href="#element-keyboard3"><code>&lt;keyboard3&gt;</code></a> element.</p><pre><code class="language-xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"UTF-8"</span>?&gt;</span>
 <span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">keyboardTest3</span> <span class="hljs-keyword">SYSTEM</span> <span class="hljs-string">"../dtd/ldmlKeyboardTest3.dtd"</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">keyboardTest3</span> <span class="hljs-attr">conformsTo</span>=<span class="hljs-string">"techpreview"</span>&gt;</span>
     …
@@ -2356,18 +2353,18 @@ Note that the 'name' is arbitrary. --&gt;</span>
 <small>
 
 <p>Parents: <a href="#test-element-tests">tests</a></p>
-<p>Children: <a href="#test-element-startContext">startContext</a>, <a href="#test-element-emit">emit</a>, <a href="#test-element-keystroke">keystroke</a>, <a href="#test-element-backspace">backspace</a>, <a href="#test-element-check">check</a>, <a href="tr35.html#special"><em>special</em></a></p>
+<p>Children: <a href="#test-element-startcontext">startContext</a>, <a href="#test-element-emit">emit</a>, <a href="#test-element-keystroke">keystroke</a>, <a href="#test-element-backspace">backspace</a>, <a href="#test-element-check">check</a>, <a href="tr35.html#special"><em>special</em></a></p>
 </small><p><small>Occurrence: Required, Multiple
 </small></p>
 </blockquote><p>This attribute specifies a specific isolated regression test. Multiple test elements do not interact with each other.</p><p>The order of child elements is significant, with cumulative effects: they must be processed from first to last.</p><p><em>Attribute:</em> <code>name</code> (required)</p><p>This attribute specifies a unique name for this particular test. These names could be output to the user during test execution, used to summarize success and failure, or used to select or deselect test components.</p><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">info</span> <span class="hljs-attr">keyboard</span>=<span class="hljs-string">"fr-t-k0-azerty.xml"</span> <span class="hljs-attr">author</span>=<span class="hljs-string">"Team Keyboard"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"fr-test"</span> /&gt;</span>
 </code></pre><h3 id="test-element-startcontext">Test Element: startContext</h3><p>This element specifies pre-existing text in a document, as if prior to the user’s insertion point. This is useful for testing transforms and reordering. If not specified, the startContext can be considered to be the empty string ("").</p><blockquote>
 <small>
 
-<p>Parents: <a href="#Element_test">test</a></p>
+<p>Parents: <a href="#test-element-test">test</a></p>
 <p>Children: <em>none</em></p>
 </small><p><small>Occurrence: Optional, Single
 </small></p>
-</blockquote><p><em>Attribute:</em> <code>to</code> (required)</p><p>Specifies the starting context. This text may be escaped with <code>\u</code> notation, see <a href="#Escaping">Escaping</a>.</p><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">startContext</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"abc\u{0022}"</span>/&gt;</span>
+</blockquote><p><em>Attribute:</em> <code>to</code> (required)</p><p>Specifies the starting context. This text may be escaped with <code>\u</code> notation, see <a href="#escaping">Escaping</a>.</p><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">startContext</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"abc\u{0022}"</span>/&gt;</span>
 </code></pre><h3 id="test-element-keystroke">Test Element: keystroke</h3><blockquote>
 <small>
 
@@ -2375,7 +2372,7 @@ Note that the 'name' is arbitrary. --&gt;</span>
 <p>Children: <em>none</em></p>
 </small><p><small>Occurrence: Optional, Multiple
 </small></p>
-</blockquote><p>This element represents a single keystroke or other gesture event, identified by a particular key element.</p><p>Optionally, one of the gesture attributes, either <code>flick</code>, <code>longPress</code>, or <code>tapCount</code> may be specified. If none of the gesture attributes are specified, then a regular keypress is effected on the key.  It is an error to specify more than one gesture attribute.</p><p>If a key is not found, or a particular gesture has no definition, the output should be behave as if the user attempted to perform such an action.  For example, an unspecified <code>flick</code> would result in no output.</p><p>When a key is found, processing continues with the transform and other elements before updating the test output buffer.</p><p><em>Attribute:</em> <code>key</code> (required)</p><p>This attribute specifies a key by means of the key’s <code>id</code> attribute.</p><p><em>Attribute:</em> <code>flick</code></p><p>This attribute specifies a flick gesture to be performed on the specified key instead of a keypress, such as <code>e</code> or <code>nw se</code>. This value corresponds to the <code>directions</code> attribute of the <a href="#Element_flickSegment"><code>&lt;flickSegment&gt;</code></a> element.</p><p><em>Attribute:</em> <code>longPress</code></p><p>This attribute specifies that a long press gesture should be performed on the specified key instead of a keypress. For example, <code>longPress="2"</code> indicates that the second character in a longpress series should be chosen. <code>longPress="0"</code> indicates that the <code>longPressDefault</code> value, if any, should be chosen. This corresponds to <code>longPress</code> and <code>longPressDefault</code> on <a href="#Element_key"><code>&lt;key&gt;</code></a>.</p><p><em>Attribute:</em> <code>tapCount</code></p><p>This attribute specifies that a multi-tap gesture should be performed on the specified key instead of a keypress. For example, <code>tapCount="3"</code> indicates that the key should be tapped three times in rapid succession. This corresponds to <code>multiTap</code> on <a href="#Element_key"><code>&lt;key&gt;</code></a>. The minimum tapCount is 2.</p><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keystroke</span> <span class="hljs-attr">key</span>=<span class="hljs-string">"q"</span>/&gt;</span>
+</blockquote><p>This element represents a single keystroke or other gesture event, identified by a particular key element.</p><p>Optionally, one of the gesture attributes, either <code>flick</code>, <code>longPress</code>, or <code>tapCount</code> may be specified. If none of the gesture attributes are specified, then a regular keypress is effected on the key.  It is an error to specify more than one gesture attribute.</p><p>If a key is not found, or a particular gesture has no definition, the output should be behave as if the user attempted to perform such an action.  For example, an unspecified <code>flick</code> would result in no output.</p><p>When a key is found, processing continues with the transform and other elements before updating the test output buffer.</p><p><em>Attribute:</em> <code>key</code> (required)</p><p>This attribute specifies a key by means of the key’s <code>id</code> attribute.</p><p><em>Attribute:</em> <code>flick</code></p><p>This attribute specifies a flick gesture to be performed on the specified key instead of a keypress, such as <code>e</code> or <code>nw se</code>. This value corresponds to the <code>directions</code> attribute of the <a href="#element-flicksegment"><code>&lt;flickSegment&gt;</code></a> element.</p><p><em>Attribute:</em> <code>longPress</code></p><p>This attribute specifies that a long press gesture should be performed on the specified key instead of a keypress. For example, <code>longPress="2"</code> indicates that the second character in a longpress series should be chosen. <code>longPress="0"</code> indicates that the <code>longPressDefault</code> value, if any, should be chosen. This corresponds to <code>longPress</code> and <code>longPressDefault</code> on <a href="#element-key"><code>&lt;key&gt;</code></a>.</p><p><em>Attribute:</em> <code>tapCount</code></p><p>This attribute specifies that a multi-tap gesture should be performed on the specified key instead of a keypress. For example, <code>tapCount="3"</code> indicates that the key should be tapped three times in rapid succession. This corresponds to <code>multiTap</code> on <a href="#element-key"><code>&lt;key&gt;</code></a>. The minimum tapCount is 2.</p><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keystroke</span> <span class="hljs-attr">key</span>=<span class="hljs-string">"q"</span>/&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">keystroke</span> <span class="hljs-attr">key</span>=<span class="hljs-string">"doublequote"</span>/&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">keystroke</span> <span class="hljs-attr">key</span>=<span class="hljs-string">"s"</span> <span class="hljs-attr">flick</span>=<span class="hljs-string">"nw se"</span>/&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">keystroke</span> <span class="hljs-attr">key</span>=<span class="hljs-string">"e"</span> <span class="hljs-attr">longPress</span>=<span class="hljs-string">"1"</span>/&gt;</span>
@@ -2388,7 +2385,7 @@ Note that the 'name' is arbitrary. --&gt;</span>
 </small><p><small>Occurrence: Optional, Multiple
 </small></p>
 </blockquote><p>This element also represents an input event, except that the input is specified in terms of textual value rather than key or gesture identity. This element is particularly useful for testing transforms.</p><p>Processing of the specified text continues with the transform and other elements before updating the test output buffer.</p><p><em>Attribute:</em> <code>to</code> (required)</p><p>This attribute specifies a string of output text representing a single keystroke or gesture. This string is intended to match the output of a <code>key</code>, <code>flick</code>, <code>longPress</code> or <code>multiTap</code> element or attribute.
-Tooling should give a hint if this attribute does not match at least one keystroke or gesture. Note that the specified text is not injected directly into the output buffer.</p><p>This attribute may be escaped with <code>\u</code> notation, see <a href="#Escaping">Escaping</a>.</p><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">emit</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"s"</span>/&gt;</span>
+Tooling should give a hint if this attribute does not match at least one keystroke or gesture. Note that the specified text is not injected directly into the output buffer.</p><p>This attribute may be escaped with <code>\u</code> notation, see <a href="#escaping">Escaping</a>.</p><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">emit</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"s"</span>/&gt;</span>
 </code></pre><h3 id="test-element-backspace">Test Element: backspace</h3><blockquote>
 <small>
 
@@ -2404,7 +2401,7 @@ Tooling should give a hint if this attribute does not match at least one keystro
 <p>Children: <em>none</em></p>
 </small><p><small>Occurrence: Optional, Multiple
 </small></p>
-</blockquote><p>This element represents a check on the current output buffer.</p><p><em>Attribute:</em> <code>result</code> (required)</p><p>This attribute specifies the expected resultant text in a document after processing this event and all prior events, and including any <code>startContext</code> text.  This text may be escaped with <code>\u</code> notation, see <a href="#Escaping">Escaping</a>.</p><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">check</span> <span class="hljs-attr">result</span>=<span class="hljs-string">"abc\u{0022}s\u{0022}•éÈ"</span>/&gt;</span>
+</blockquote><p>This element represents a check on the current output buffer.</p><p><em>Attribute:</em> <code>result</code> (required)</p><p>This attribute specifies the expected resultant text in a document after processing this event and all prior events, and including any <code>startContext</code> text.  This text may be escaped with <code>\u</code> notation, see <a href="#escaping">Escaping</a>.</p><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">check</span> <span class="hljs-attr">result</span>=<span class="hljs-string">"abc\u{0022}s\u{0022}•éÈ"</span>/&gt;</span>
 </code></pre><h3 id="test-examples">Test Examples</h3><pre><code class="language-xml">
 <span class="hljs-tag">&lt;<span class="hljs-name">test</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"spec-sample"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">startContext</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"abc\u{0022}"</span>/&gt;</span>

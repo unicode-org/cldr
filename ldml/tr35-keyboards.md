@@ -12,13 +12,13 @@ For the full header, summary, and status, see [Part 1: Core](tr35.md).
 
 > This is a technical preview of a future version of the LDML Part 7. See [_Status_](#status), below.
 >
-> There are breaking changes, see [Compatibility Notice](#Compatibility_Notice)
+> There are breaking changes, see [Compatibility Notice](#compatibility-notice)
 
 ### _Summary_
 
 This document describes parts of an XML format (_vocabulary_) for the exchange of structured locale data. This format is used in the [Unicode Common Locale Data Repository](https://www.unicode.org/cldr/).
 
-This is a partial document, describing keyboard mappings. For the other parts of the LDML see the [main LDML document](tr35.md) and the links above.
+This is a partial document, describing keyboards. For the other parts of the LDML see the [main LDML document](tr35.md) and the links above.
 
 _Note:_
 Some links may lead to in-development or older
@@ -27,16 +27,12 @@ See <https://cldr.unicode.org> for up-to-date CLDR release data.
 
 ### _Status_
 
-This document is a draft of a _technical preview_ of the Keyboard standard.
+This document is a _technical preview_ of the Keyboard standard.
 This document has _not_ been approved for publication by the Unicode Consortium,
 and may be substantially altered before any publication. For the latest published version of UTS#35, see <https://www.unicode.org/reports/tr35/>
 
-In particular, Element and attribute names are expected to change pending further review.
-
 The CLDR [Keyboard Workgroup](https://cldr.unicode.org/index/keyboard-workgroup) is currently
-developing major changes to the CLDR keyboard specification.
-For this draft, please see [CLDR-15034](https://unicode-org.atlassian.net/browse/CLDR-15034) for
-status, the latest information, or to provide feedback.
+developing this technical preview to the CLDR keyboard specification.
 
 ## <a name="Parts" href="#Parts">Parts</a>
 
@@ -58,64 +54,65 @@ The LDML specification is divided into the following parts:
   * [_Status_](#status)
 * [Parts](#Parts)
 * [Contents of Part 7, Keyboards](#Contents)
-* [Keyboards](#Introduction)
-* [Goals and Non-goals](#Goals_and_Nongoals)
-  * [Compatibility Notice](#Compatibility_Notice)
-  * [Accessibility](#Accessibility)
-* [Definitions](#Definitions)
-  * [Escaping](#Escaping)
+* [Keyboards](#keyboards)
+* [Goals and Non-goals](#goals-and-non-goals)
+  * [Compatibility Notice](#compatibility-notice)
+  * [Accessibility](#accessibility)
+* [Definitions](#definitions)
+  * [Escaping](#escaping)
   * [UnicodeSet Escaping](#unicodeset-escaping)
   * [UTS18 Escaping](#uts18-escaping)
-* [File and Directory Structure](#File_and_Dir_Structure)
-  * [Extensibility](#Extensibility)
+* [File and Directory Structure](#file-and-directory-structure)
+  * [Extensibility](#extensibility)
 * [Element Hierarchy](#element-hierarchy)
-  * [Element: keyboard3](#Element_Keyboard)
-  * [Element: locales](#Element_locales)
-  * [Element: locale](#Element_locale)
-  * [Element: version](#Element_version)
-  * [Element: info](#Element_info)
-  * [Element: settings](#Element_settings)
-  * [Element: keys](#Element_keys)
-  * [Element: key](#Element_key)
+  * [Element: keyboard3](#element-keyboard3)
+  * [Element: locales](#element-locales)
+  * [Element: locale](#element-locale)
+  * [Element: version](#element-version)
+  * [Element: info](#element-info)
+  * [Element: settings](#element-settings)
+  * [Element: keys](#element-keys)
+  * [Element: key](#element-key)
     * [Implied Keys](#implied-keys)
-    * [Elements: flicks](#Element_flicks)
-    * [Elements: flick, flickSegment](#Element_flick)
-  * [Element: import](#Element_import)
-  * [Element: displays](#Element_displays)
-  * [Element: display](#Element_display)
-  * [Element: displayOptions](#Element_displayOptions)
-  * [Element: forms](#Element_forms)
-  * [Element: form](#Element_form)
+    * [Element: flicks](#element-flicks)
+    * [Element: flick](#element-flick)
+    * [Element: flickSegment](#element-flicksegment)
+  * [Element: import](#element-import)
+  * [Element: displays](#element-displays)
+  * [Element: display](#element-display)
+  * [Element: displayOptions](#element-displayoptions)
+  * [Element: forms](#element-forms)
+  * [Element: form](#element-form)
     * [Implied Form Values](#implied-form-values)
-  * [Element: scanCodes](#Element_scanCodes)
-  * [Element: layers](#Element_layers)
-  * [Element: layer](#Element_layer)
+  * [Element: scanCodes](#element-scancodes)
+  * [Element: layers](#element-layers)
+  * [Element: layer](#element-layer)
     * [Layer Modifier Components](#layer-modifier-components)
     * [Modifier Left- and Right- keys](#modifier-left--and-right--keys)
     * [Layer Modifier Matching](#layer-modifier-matching)
-  * [Element: row](#Element_row)
-  * [Element: variables](#Element_variables)
+  * [Element: row](#element-row)
+  * [Element: variables](#element-variables)
   * [Element: string](#element-string)
   * [Element: set](#element-set)
   * [Element: unicodeSet](#element-unicodeset)
-  * [Element: transforms](#Element_transforms)
+  * [Element: transforms](#element-transforms)
     * [Markers](#markers)
-  * [Element: transformGroup](#Element_transformGroup)
+  * [Element: transformGroup](#element-transformgroup)
     * [Example: `transformGroup` with `transform` elements](#example-transformgroup-with-transform-elements)
     * [Example: `transformGroup` with `reorder` elements](#example-transformgroup-with-reorder-elements)
-  * [Element: transform](#Element_transform)
+  * [Element: transform](#element-transform)
     * [Regex-like Syntax](#regex-like-syntax)
     * [Additional Features](#additional-features)
     * [Disallowed Regex Features](#disallowed-regex-features)
     * [Replacement syntax](#replacement-syntax)
-  * [Element: reorder](#Element_reorder)
+  * [Element: reorder](#element-reorder)
     * [Using `<import>` with `<reorder>` elements](#using-import-with-reorder-elements)
     * [Example Post-reorder transforms](#example-post-reorder-transforms)
-  * [transform type="backspace"](#Element_backspaces)
-* [Invariants](#Invariants)
-* [Keyboard IDs](#Keyboard_IDs)
-  * [Principles for Keyboard IDs](#Principles_for_Keyboard_IDs)
-* [Platform Behaviors in Edge Cases](#Platform_Behaviors_in_Edge_Cases)
+  * [Backspace Transforms](#backspace-transforms)
+* [Invariants](#invariants)
+* [Keyboard IDs](#keyboard-ids)
+  * [Principles for Keyboard IDs](#principles-for-keyboard-ids)
+* [Platform Behaviors in Edge Cases](#platform-behaviors-in-edge-cases)
 * [Keyboard Test Data](#keyboard-test-data)
   * [Test Doctype](#test-doctype)
   * [Test Element: keyboardTest](#test-element-keyboardtest)
@@ -130,7 +127,7 @@ The LDML specification is divided into the following parts:
   * [Test Element: check](#test-element-check)
   * [Test Examples](#test-examples)
 
-## <a name="Introduction" href="#Introduction">Keyboards</a>
+## Keyboards
 
 The Unicode Standard and related technologies such as CLDR have dramatically improved the path to language support. However, keyboard support remains platform and vendor specific, causing inconsistencies in implementation as well as timeline.
 
@@ -149,11 +146,11 @@ The data can also be used in analysis of the capabilities of different keyboards
 
 For complete examples, see the XML files in the CLDR source repository.
 
-Attribute values should be evaluated considering the DTD and [DTD Annotations](#DTD_Annotations).
+Attribute values should be evaluated considering the DTD and [DTD Annotations](tr35.md#dtd-annotations).
 
 * * *
 
-## <a name="Goals_and_Nongoals" href="#Goals_and_Nongoals">Goals and Non-goals</a>
+## Goals and Non-goals
 
 Some goals of this format are:
 
@@ -175,8 +172,8 @@ Some non-goals (outside the scope of the format) currently are:
 1. Adaptation for screen scaling resolution. Instead, keyboards should define layouts based on physical size. Platforms may interpret physical size definitions and adapt for different physical screen sizes with different resolutions.
 2. Unification of platform-specific virtual key and scan code mapping tables.
 3. Unification of pre-existing platform layouts themselves (e.g. existing fr-azerty on platform a, b, c).
-4. Support for prior (pre 3.0) CLDR keyboard files. See [Compatibility Notice](#Compatibility_Notice).
-5. Run-time efficiency. [LDML is explicitly an interchange format](./tr35.md#Introduction), and so it is expected that data will be transformed to a more compact format for use by a keystroke processing engine.
+4. Support for prior (pre 3.0) CLDR keyboard files. See [Compatibility Notice](#compatibility-notice).
+5. Run-time efficiency. [LDML is explicitly an interchange format](tr35.md#Introduction), and so it is expected that data will be transformed to a more compact format for use by a keystroke processing engine.
 
 <!-- 1. Display names or symbols for keycaps (eg, the German name for "Return"). If that were added to LDML, it would be in a different structure, outside the scope of this section.
 2. Advanced IME features, handwriting recognition, etc.
@@ -186,13 +183,13 @@ Some non-goals (outside the scope of the format) currently are:
 
 Note that in parts of this document, the format `@x` is used to indicate the _attribute_ **x**.
 
-### <a name="Compatibility_Notice" href="#Compatibility_Notice">Compatibility Notice</a>
+### Compatibility Notice
 
 > 👉 Note: CLDR-TC has agreed that the changes required were too extensive to maintain compatibility. For this reason, the `ldmlKeyboard3.dtd` DTD used here is _not_ compatible with DTDs from prior versions of CLDR such as v43 and prior.
 >
 > To process earlier XML files, use the data and specification from v43.1, found at <https://www.unicode.org/reports/tr35/tr35-69/tr35.html>
 
-### <a name="Accessibility" href="#Accessibility">Accessibility</a>
+### Accessibility
 
 Keyboard use can be challenging for individuals with various types of disabilities. For this revision, the committee is not evaluating features or architectural designs for the purpose of improving accessibility. Such consideration could be fruitful for future revisions. However, some points on this topic should be made:
 
@@ -200,7 +197,7 @@ Keyboard use can be challenging for individuals with various types of disabiliti
 2. Features which require certain levels of mobility or speed of entry should be considered for their impact on accessibility. This impact could be mitigated by means of additional, accessible methods of generating the same output.
 3. Public feedback is welcome on any aspects of this document which might hinder accessibility.
 
-## <a name="Definitions" href="#Definitions">Definitions</a>
+## Definitions
 
 **Arrangement:** The relative position of the rectangles that represent keys, either physically or virtually. A hardware keyboard has a static arrangement while a touch keyboard may have a dynamic arrangement that changes per language and/or layer. While the arrangement of keys on a keyboard may be fixed, the mapping of those keys may vary.
 
@@ -255,7 +252,7 @@ If it becomes necessary in the future, the format could extend the ISO layout to
 
 **Virtual keyboard:** see **Touch keyboard**
 
-### <a name="Escaping" href="#Escaping">Escaping</a>
+### Escaping
 
 When explicitly specified, attribute values can contain escaped characters. This specification uses two methods of escaping, the _UnicodeSet_ notation and the `\u{...}` notation.
 
@@ -284,11 +281,11 @@ The `\u{...}` notation, a subset of hex notation, is described in [UTS #18 secti
 
 Characters of general category of Mark (M), Control characters (Cc), Format characters (Cf), and whitespace other than space should be encoded using one of the notation above as appropriate.
 
-Attribute values escaped in this manner are annotated with the `<!--@ALLOWS_UESC-->` DTD annotation, see [DTD Annotations](tr35.md#57-dtd-annotations)
+Attribute values escaped in this manner are annotated with the `<!--@ALLOWS_UESC-->` DTD annotation, see [DTD Annotations](tr35.md#dtd-annotations)
 
 * * *
 
-## <a name="File_and_Dir_Structure" href="#File_and_Dir_Structure">File and Directory Structure</a>
+## File and Directory Structure
 
 * New collection of layouts that are prescriptive, and define the common core for a keyboard that can be consumed as data for implementation on different platforms will be included in the CLDR repository. This collection will be in a different location than the existing CLDR keyboard files under main/keyboards. We should remove the existing data files, but keep the old DTD in the same place for compatibility, and also so that conversion tools can use it to read older files.
 * New layouts will have version metadata to indicate their specification compliance versi​​on number. For this tech preview, the value used must be `techpreview`.
@@ -305,7 +302,7 @@ Attribute values escaped in this manner are annotated with the `<!--@ALLOWS_UESC
 
 * The filename of a keyboard .xml file does not have to match the BCP47 primary locale ID, but it is recommended to do so. The CLDR repository may enforce filename consistency.
 
-### <a name="Extensibility" href="#Extensibility">Extensibility</a>
+### Extensibility
 
 For extensibility, the `<special>` element will be allowed at nearly every level.
 
@@ -317,7 +314,7 @@ See [Element special](tr35.md#special) in Part 1.
 
 This section describes the XML elements in a keyboard layout file, beginning with the top level element `<keyboard3>`.
 
-### <a name="Element_Keyboard" href="#Element_Keyboard">Element: keyboard3</a>
+### Element: keyboard3
 
 This is the top level element. All other elements defined below are under this element.
 
@@ -333,7 +330,7 @@ This is the top level element. All other elements defined below are under this e
 >
 > Parents: _none_
 >
-> Children: [displays](#Element_displays), [import](#Element_import), [info](#Element_info), [keys](#Element_keys), [flicks](#Element_flicks), [layers](#Element_layers), [locales](#Element_locales), [settings](#Element_settings), [_special_](tr35.md#special), [transforms](#Element_transforms), [variables](#Element_variables), [version](#Element_version)
+> Children: [displays](#element-displays), [import](#element-import), [info](#element-info), [keys](#element-keys), [flicks](#element-flicks), [layers](#element-layers), [locales](#element-locales), [settings](#element-settings), [_special_](tr35.md#special), [transforms](#element-transforms), [variables](#element-variables), [version](#element-version)
 >
 > Occurrence: required, single
 >
@@ -354,7 +351,7 @@ _Attribute:_ `locale` (required)
 
 This attribute represents the primary locale of the keyboard using BCP 47 [Unicode locale identifiers](tr35.md#Canonical_Unicode_Locale_Identifiers) - for example `"el"` for Greek. Sometimes, the locale may not specify the base language. For example, a Devanagari keyboard for many languages could be specified by BCP-47 code: `"und-Deva"`. However, it is better to list out the languages explicitly using the [`locales`](#element-locales) element.
 
-For further details about the choice of locale ID, see [Keyboard IDs](#Keyboard_IDs).
+For further details about the choice of locale ID, see [Keyboard IDs](#keyboard-ids).
 
 **Example** (for illustrative purposes only, not indicative of the real data)
 
@@ -372,7 +369,7 @@ For further details about the choice of locale ID, see [Keyboard IDs](#Keyboard_
 
 * * *
 
-### <a name="Element_locales" href="#Element_locales">Element: locales</a>
+### Element: locales
 
 The optional `<locales>` element allows specifying additional or alternate locales. Denotes intentional support for an extra language, not just that a keyboard incidentally supports a language’s orthography.
 
@@ -387,15 +384,15 @@ The optional `<locales>` element allows specifying additional or alternate local
 
 > <small>
 >
-> Parents: [keyboard3](#Element_keyboard)
+> Parents: [keyboard3](#element-keyboard3)
 >
-> Children: [locale](#Element_locale)
+> Children: [locale](#element-locale)
 >
 > Occurrence: optional, single
 >
 > </small>
 
-### <a name="Element_locale" href="#Element_locale">Element: locale</a>
+### Element: locale
 
 The optional `<locales>` element allows specifying additional or alternate locales. Denotes intentional support for an extra language, not just that a keyboard incidentally supports a language’s orthography.
 
@@ -407,7 +404,7 @@ The optional `<locales>` element allows specifying additional or alternate local
 
 > <small>
 >
-> Parents: [locales](#Element_locales)
+> Parents: [locales](#element-locales)
 >
 > Children: _none_
 >
@@ -422,7 +419,7 @@ _Attribute:_ `id` (required)
 
 **Example**
 
-See [Principles for Keyboard IDs](#Principles_for_Keyboard_IDs) for discussion and further examples.
+See [Principles for Keyboard IDs](#principles-for-keyboard-ids) for discussion and further examples.
 
 ```xml
 <!-- Pan Nigerian Keyboard-->
@@ -437,7 +434,7 @@ See [Principles for Keyboard IDs](#Principles_for_Keyboard_IDs) for discussion a
 
 * * *
 
-### <a name="Element_version" href="#Element_version">Element: version</a>
+### Element: version
 
 Element used to keep track of the source data version.
 
@@ -449,7 +446,7 @@ Element used to keep track of the source data version.
 
 > <small>
 >
-> Parents: [keyboard3](#Element_keyboard)
+> Parents: [keyboard3](#element-keyboard3)
 >
 > Children: _none_
 >
@@ -477,7 +474,7 @@ _Attribute:_ `cldrVersion` (fixed by DTD)
 
 * * *
 
-### <a name="Element_info" href="#Element_info">Element: info</a>
+### Element: info
 
 Element containing informative properties about the layout, for displaying in user interfaces etc.
 
@@ -493,7 +490,7 @@ Element containing informative properties about the layout, for displaying in us
 
 > <small>
 >
-> Parents: [keyboard3](#Element_keyboard)
+> Parents: [keyboard3](#element-keyboard3)
 >
 > Children: _none_
 >
@@ -537,7 +534,7 @@ _Attribute:_ `indicator`
 
 * * *
 
-### <a name="Element_settings" href="#Element_settings">Element: settings</a>
+### Element: settings
 
 An element used to keep track of layout-specific settings by implementations. This element may or may not show up on a layout. These settings reflect the normal practice by the implementation. However, an implementation using the data may customize the behavior.
 
@@ -549,7 +546,7 @@ An element used to keep track of layout-specific settings by implementations. Th
 
 > <small>
 >
-> Parents: [keyboard3](#Element_keyboard)
+> Parents: [keyboard3](#element-keyboard3)
 >
 > Children: _none_
 >
@@ -580,9 +577,9 @@ _Attribute:_ `normalization="disabled"`
 
 * * *
 
-### <a name="Element_keys" href="#Element_keys">Element: keys</a>
+### Element: keys
 
-This element defines the properties of all possible keys via [`<key>` elements](#Element_key) used in all layouts.
+This element defines the properties of all possible keys via [`<key>` elements](#element-key) used in all layouts.
 It is a “bag of keys” without specifying any ordering or relation between the keys.
 There is only a single `<keys>` element in each layout.
 
@@ -598,8 +595,8 @@ There is only a single `<keys>` element in each layout.
 
 > <small>
 >
-> Parents: [keyboard3](#Element_keyboard)
-> Children: [key](#Element_key)
+> Parents: [keyboard3](#element-keyboard3)
+> Children: [key](#element-key)
 > Occurrence: optional, single
 >
 > </small>
@@ -608,9 +605,9 @@ There is only a single `<keys>` element in each layout.
 
 * * *
 
-### <a name="Element_key" href="#Element_key">Element: key</a>
+### Element: key
 
-This element defines a mapping between an abstract key and its output. This element must have the `keys` element as its parent. The `key` element is referenced by the `keys=` attribute of the [`row` element](#Element_row).
+This element defines a mapping between an abstract key and its output. This element must have the `keys` element as its parent. The `key` element is referenced by the `keys=` attribute of the [`row` element](#element-row).
 
 **Syntax**
 
@@ -631,7 +628,7 @@ This element defines a mapping between an abstract key and its output. This elem
 
 > <small>
 >
-> Parents: [keys](#Element_keys)
+> Parents: [keys](#element-keys)
 >
 > Children: _none_
 >
@@ -650,7 +647,7 @@ _Attribute:_ `id`
 
 _Attribute:_ `flickId="{flick id}"` (optional)
 
-> The `flickId` attribute indicates that this key makes use of a [`flick`](#Element_flick) set with the specified id.
+> The `flickId` attribute indicates that this key makes use of a [`flick`](#element-flick) set with the specified id.
 
 _Attribute:_ `gap="true"` (optional)
 
@@ -668,7 +665,7 @@ _Attribute:_ `longPressKeyIds="{list of key ids}"` (optional)
 >
 > Implementations shall ignore any gestures (such as flick, multiTap, longPress) defined on keys in the `longPressKeyIds` list.
 >
-> For example, if the default key is a key whose [display](#Element_displays) value is `{`, an implementation might render the key as follows:
+> For example, if the default key is a key whose [display](#element-displays) value is `{`, an implementation might render the key as follows:
 >
 > ![keycap hint](images/keycapHint.png)
 >
@@ -787,26 +784,26 @@ Thus, the implied keys behave as if the following import were present.
 </keyboard3>
 ```
 
-**Note:** All implied keys may be overridden, as with all other imported data items. See the [`import`](#Element_import) element for more details.
+**Note:** All implied keys may be overridden, as with all other imported data items. See the [`import`](#element-import) element for more details.
 
 * * *
 
-#### <a name="Element_flicks" href="#Element_flicks">Elements: flicks</a>
+#### Element: flicks
 
 The `flicks` element is a collection of `flick` elements.
 
 > <small>
 >
-> Parents: [keyboard3](#Element_keyboard3)
+> Parents: [keyboard3](#element-keyboard3)
 >
-> Children: [flick](#Element_flick), [import](#Element_import), [_special_](tr35.md#special)
+> Children: [flick](#element-flick), [import](#element-import), [_special_](tr35.md#special)
 >
 > Occurrence: optional, single
 > </small>
 
 * * *
 
-#### <a name="Element_flick" href="#Element_flick">Elements: flick, flickSegment</a>
+#### Element: flick
 
 The `flick` element is used to generate results from a "flick" of the finger on a mobile device.
 
@@ -829,9 +826,9 @@ The `flick` element is used to generate results from a "flick" of the finger on 
 
 > <small>
 >
-> Parents: [flicks](#Element_flicks)
+> Parents: [flicks](#element-flicks)
 >
-> Children: [flickSegment](#Element_flickSegment), [_special_](tr35.md#special)
+> Children: [flickSegment](#element-flicksegment), [_special_](tr35.md#special)
 >
 > Occurrence: optional, multiple
 >
@@ -846,16 +843,13 @@ _Attribute:_ `id` (required)
 >
 > In the future, this attribute’s definition is expected to be updated to align with [UAX#31](https://www.unicode.org/reports/tr31/). Please see [CLDR-17043](https://unicode-org.atlassian.net/browse/CLDR-17043) for more details.
 
+* * *
 
-**Syntax**
-
-```xml
-<flickSegment directions="{list of directions}" keyId="{the output key id}" />
-```
+#### Element: flickSegment
 
 > <small>
 >
-> Parents: [flick](#Element_flick)
+> Parents: [flick](#element-flick)
 >
 > Children: _none_
 >
@@ -892,7 +886,7 @@ where a flick to the Northeast then South produces `Å`.
 
 * * *
 
-### <a name="Element_import" href="#Element_import">Element: import</a>
+### Element: import
 
 The `import` element is used to reference another xml file so that elements are imported from
 another file. The use case is to be able to import a standard set of `transform`s and similar
@@ -910,7 +904,7 @@ If two identical elements are defined, the later element will take precedence, t
 ```
 > <small>
 >
-> Parents: [displays](#Element_displays), [keyboard3](#Element_keyboard), [keys](#Element_keys), [flicks](#Element_flicks), [layers](#Element_layers), [names](#Element_names), [reorders](#Element_reorders), [transformGroup](#Element_transformGroup), [transforms](#Element_transforms), [variables](#Element_variables)
+> Parents: [displays](#element-displays), [keyboard3](#element-keyboard3), [keys](#element-keys), [flicks](#element-flicks), [layers](#element-layers), [transformGroup](#element-transformgroup), [transforms](#element-transforms), [variables](#element-variables)
 > Children: _none_
 >
 > Occurrence: optional, multiple
@@ -982,7 +976,7 @@ After loading, the above example will be the equivalent of the following.
 
 * * *
 
-### <a name="Element_displays" href="#Element_displays">Element: displays</a>
+### Element: displays
 
 The displays can be used to describe what is to be displayed on the keytops for various keys. For the most part, such explicit information is unnecessary since the `@to` element from the `keys/key` element can be used. But there are some characters, such as diacritics, that do not display well on their own and so explicit overrides for such characters can help.
 Another useful scenario is where there are doubled diacritics, or multiple characters with spacing issues.
@@ -1002,7 +996,7 @@ For example, a key which outputs a combining tilde (U+0303) can be represented a
 This way, a key which outputs a combining tilde (U+0303) will be represented as `◌̃` (a tilde on a dotted circle).
 
 Some scripts/languages may prefer a different base than U+25CC.
-See  [`<displayOptions baseCharacter=…/>`](#Element_displayOptions).
+See  [`<displayOptions baseCharacter=…/>`](#element-displayoptions).
 
 **Syntax**
 
@@ -1016,9 +1010,9 @@ See  [`<displayOptions baseCharacter=…/>`](#Element_displayOptions).
 
 > <small>
 >
-> Parents: [keyboard3](#Element_keyboard)
+> Parents: [keyboard3](#element-keyboard3)
 >
-> Children: [display](#Element_display), [displayOptions](#Element_displayOptions), [_special_](tr35.md#special)
+> Children: [display](#element-display), [displayOptions](#element-displayoptions), [_special_](tr35.md#special)
 >
 > Occurrence: optional, single
 >
@@ -1026,7 +1020,7 @@ See  [`<displayOptions baseCharacter=…/>`](#Element_displayOptions).
 
 * * *
 
-### <a name="Element_display" href="#Element_display">Element: display</a>
+### Element: display
 
 The `display` element describes how a character, that has come from a `keys/key` element, should be displayed on a keyboard layout where such display is possible.
 
@@ -1038,7 +1032,7 @@ The `display` element describes how a character, that has come from a `keys/key`
 
 > <small>
 >
-> Parents: [displays](#Element_displays)
+> Parents: [displays](#element-displays)
 >
 > Children: _none_
 >
@@ -1051,7 +1045,7 @@ One of the `output` or `id` attributes is required.
 _Attribute:_ `output` (optional)
 
 > Specifies the character or character sequence from the `keys/key` element that is to have a special display.
-> This attribute may be escaped with `\u` notation, see [Escaping](#Escaping).
+> This attribute may be escaped with `\u` notation, see [Escaping](#escaping).
 > The `output` attribute may also contain the `\m{…}` syntax to reference a marker. See [Markers](#markers). Implementations may highlight a displayed marker, such as with a lighter text color, or a yellow highlight.
 > String variables may be substituted. See [String variables](#element-string)
 
@@ -1067,7 +1061,7 @@ _Attribute:_ `display` (required)
 
 > String variables may be substituted. See [String variables](#element-string)
 
-This attribute may be escaped with `\u` notation, see [Escaping](#Escaping).
+This attribute may be escaped with `\u` notation, see [Escaping](#escaping).
 
 **Example**
 
@@ -1090,7 +1084,7 @@ To allow `displays` elements to be shared across keyboards, there is no requirem
 
 * * *
 
-### <a name="Element_displayOptions" href="#Element_displayOptions">Element: displayOptions</a>
+### Element: displayOptions
 
 The `displayOptions` is an optional singleton element providing additional settings on this `displays`.  It is structured so as to provide for future flexibility in such options.
 
@@ -1105,7 +1099,7 @@ The `displayOptions` is an optional singleton element providing additional setti
 
 > <small>
 >
-> Parents: [displays](#Element_displays)
+> Parents: [displays](#element-displays)
 >
 > Children: _none_
 >
@@ -1125,20 +1119,20 @@ _Attribute:_ `baseCharacter` (optional)
 >
 > **Note** that not all base characters will be suitable as bases for combining marks.
 
-This attribute may be escaped with `\u` notation, see [Escaping](#Escaping).
+This attribute may be escaped with `\u` notation, see [Escaping](#escaping).
 
 * * *
 
-### <a name="Element_forms" href="#Element_forms">Element: forms</a>
+### Element: forms
 
 This element represents a set of `form` elements which define the layout of a particular hardware form.
 
 
 > <small>
 >
-> Parents: [keyboard3](#Element_keyboard)
+> Parents: [keyboard3](#element-keyboard3)
 >
-> Children: [import](#Element_import), [form](#Element_form), [_special_](tr35.md#special)
+> Children: [import](#element-import), [form](#element-form), [_special_](tr35.md#special)
 >
 > Occurrence: optional, single
 >
@@ -1159,7 +1153,7 @@ This element represents a set of `form` elements which define the layout of a pa
 
 * * *
 
-### <a name="Element_form" href="#Element_form">Element: form</a>
+### Element: form
 
 This element represents a specific `form` element which defines the layout of a particular hardware form.
 
@@ -1173,9 +1167,9 @@ See [Implied Form Values](#implied-form-values), below.
 
 > <small>
 >
-> Parents: [forms](#Element_forms)
+> Parents: [forms](#element-forms)
 >
-> Children: [scanCodes](#Element_scanCodes), [_special_](tr35.md#special)
+> Children: [scanCodes](#element-scancodes), [_special_](tr35.md#special)
 >
 > Occurrence: optional, multiple
 >
@@ -1217,13 +1211,13 @@ Here is a summary of the implied form elements. Keyboards included in the CLDR R
 
 * * *
 
-### <a name="Element_scanCodes" href="#Element_scanCodes">Element: scanCodes</a>
+### Element: scanCodes
 
 This element represents a keyboard row, and defines the scan codes for the non-frame keys in that row.
 
 > <small>
 >
-> Parents: [form](#Element_form)
+> Parents: [form](#element-form)
 >
 > Children: none
 >
@@ -1243,16 +1237,16 @@ This element represents a keyboard row, and defines the scan codes for the non-f
 
 * * *
 
-### <a name="Element_layers" href="#Element_layers">Element: layers</a>
+### Element: layers
 
 This element represents a set of `layer` elements with a specific physical form factor, whether
 hardware or touch layout.
 
 > <small>
 >
-> Parents: [keyboard3](#Element_keyboard)
+> Parents: [keyboard3](#element-keyboard3)
 >
-> Children: [import](#Element_import), [layer](#Element_layer), [_special_](tr35.md#special)
+> Children: [import](#element-import), [layer](#element-layer), [_special_](tr35.md#special)
 >
 > Occurrence: required, multiple
 >
@@ -1292,7 +1286,7 @@ _Attribute:_ `minDeviceWidth`
 >
 > This must be a whole number between 1 and 999, inclusive.
 
-### <a name="Element_layer" href="#Element_layer">Element: layer</a>
+### Element: layer
 
 A `layer` element describes the configuration of keys on a particular layer of a keyboard. It contains one or more `row` elements to describe which keys exist in each row.
 
@@ -1306,9 +1300,9 @@ A `layer` element describes the configuration of keys on a particular layer of a
 
 > <small>
 >
-> Parents: [keyboard3](#Element_keyboard)
+> Parents: [keyboard3](#element-keyboard3)
 >
-> Children: [row](#Element_row), [_special_](tr35.md#special)
+> Children: [row](#element-row), [_special_](tr35.md#special)
 >
 > Occurrence: optional, multiple
 >
@@ -1316,7 +1310,7 @@ A `layer` element describes the configuration of keys on a particular layer of a
 
 _Attribute_ `id` (required for `touch`)
 
-> The `id` attribute identifies the layer for touch layouts.  This identifier specifies the layout as the target for layer switching, as specified by the `switch=` attribute on the [`<key>`](#Element_key) element.
+> The `id` attribute identifies the layer for touch layouts.  This identifier specifies the layout as the target for layer switching, as specified by the `switch=` attribute on the [`<key>`](#element-key) element.
 > Touch layouts must have one `layer` with `id="base"` to serve as the base layer.
 >
 > Must match `[A-Za-z0-9][A-Za-z0-9-]*`
@@ -1399,7 +1393,7 @@ Keystrokes where there isn’t an explicitly matching layer, and where there is 
 
 * * *
 
-### <a name="Element_row" href="#Element_row">Element: row</a>
+### Element: row
 
 A `row` element describes the keys that are present in the row of a keyboard.
 
@@ -1411,7 +1405,7 @@ A `row` element describes the keys that are present in the row of a keyboard.
 
 > <small>
 >
-> Parents: [layer](#Element_layer)
+> Parents: [layer](#element-layer)
 >
 > Children: _none_
 >
@@ -1421,9 +1415,9 @@ A `row` element describes the keys that are present in the row of a keyboard.
 
 _Attribute:_ `keys` (required)
 
-> This is a string that lists the id of [`key` elements](#Element_key) for each of the keys in a row, whether those are explicitly listed in the file or are implied.  See the `key` documentation for more detail.
+> This is a string that lists the id of [`key` elements](#element-key) for each of the keys in a row, whether those are explicitly listed in the file or are implied.  See the `key` documentation for more detail.
 >
-> For non-`touch` forms, the number of keys in each row may not exceed the number of scan codes defined for that row, and the number of rows may not exceed the defined number of rows for that form. See [`scanCodes`](#Element_scanCodes);
+> For non-`touch` forms, the number of keys in each row may not exceed the number of scan codes defined for that row, and the number of rows may not exceed the defined number of rows for that form. See [`scanCodes`](#element-scancodes);
 
 **Example**
 
@@ -1435,13 +1429,13 @@ Here is an example of a `row` element:
 
 * * *
 
-### <a name="Element_variables" href="#Element_variables">Element: variables</a>
+### Element: variables
 
 > <small>
 >
-> Parents: [keyboard3](#Element_keyboard)
+> Parents: [keyboard3](#element-keyboard3)
 >
-> Children: [import](#Element_import), [_special_](tr35.md#special), [string](#element-string), [set](#element-set), [unicodeSet](#element-unicodeSet)
+> Children: [import](#element-import), [_special_](tr35.md#special), [string](#element-string), [set](#element-set), [unicodeSet](#element-unicodeset)
 >
 > Occurrence: optional, single
 > </small>
@@ -1466,7 +1460,7 @@ Note that the `id=` attribute must be unique across all children of the `variabl
 
 > <small>
 >
-> Parents: [variables](#Element_variables)
+> Parents: [variables](#element-variables)
 >
 > Children: _none_
 >
@@ -1485,7 +1479,7 @@ _Attribute:_ `id` (required)
 _Attribute:_ `value` (required)
 
 > Strings may contain whitespaces. However, for clarity, it is recommended to escape spacing marks, even in strings.
-> This attribute may be escaped with `\u` notation, see [Escaping](#Escaping).
+> This attribute may be escaped with `\u` notation, see [Escaping](#escaping).
 > Variables may refer to other string variables if they have been previously defined, using `${string}` syntax.
 > [Markers](#markers) may be included with the `\m{…}` notation.
 
@@ -1523,7 +1517,7 @@ These may be then used in multiple contexts:
 
 > <small>
 >
-> Parents: [variables](#Element_variables)
+> Parents: [variables](#element-variables)
 >
 > Children: _none_
 >
@@ -1543,7 +1537,7 @@ _Attribute:_ `value` (required)
 
 > The `value` attribute is always a set of strings separated by whitespace, even if there is only a single item in the set, such as `"A"`.
 > Leading and trailing whitespace is ignored.
-> This attribute may be escaped with `\u` notation, see [Escaping](#Escaping).
+> This attribute may be escaped with `\u` notation, see [Escaping](#escaping).
 > Sets may refer to other string variables if they have been previously defined, using `${string}` syntax, or to other previously-defined sets using `$[set]` syntax.
 > Set references must be separated by whitespace: `$[set1]$[set2]` is an error; instead use `$[set1] $[set2]`.
 > [Markers](#markers) may be included with the `\m{…}` notation.
@@ -1581,7 +1575,7 @@ See [transform](#element-transform) for further details and syntax.
 
 > <small>
 >
-> Parents: [variables](#Element_variables)
+> Parents: [variables](#element-variables)
 >
 > Children: _none_
 >
@@ -1627,7 +1621,7 @@ The `unicodeSet` element may not be referenced by [`key`](#element-key) and [`di
 
 * * *
 
-### <a name="Element_transforms" href="#Element_transforms">Element: transforms</a>
+### Element: transforms
 
 This element defines a group of one or more `transform` elements associated with this keyboard layout. This is used to support features such as dead-keys, character reordering, backspace behavior, etc. using a straightforward structure that works for all the keyboards tested, and that results in readable source data.
 
@@ -1643,9 +1637,9 @@ There can be multiple `<transforms>` elements, but only one for each `type`.
 
 > <small>
 >
-> Parents: [keyboard3](#Element_keyboard)
+> Parents: [keyboard3](#element-keyboard3)
 >
-> Children: [import](#Element_import), [_special_](tr35.md#special), [transformGroup](#Element_transformGroup)
+> Children: [import](#element-import), [_special_](tr35.md#special), [transformGroup](#element-transformgroup)
 >
 > Occurrence: optional, multiple
 >
@@ -1771,13 +1765,13 @@ Such implementations must take care to remove all such markers (see prior sectio
 
 * * *
 
-### <a name="Element_transformGroup" href="#Element_transformGroup">Element: transformGroup</a>
+### Element: transformGroup
 
 > <small>
 >
-> Parents: [transforms](#Element_transforms)
+> Parents: [transforms](#element-transforms)
 >
-> Children: [import](#Element_import), [reorder](#Element_reorder), [_special_](tr35.md#special), [transform](#Element_transform)
+> Children: [import](#element-import), [reorder](#element-reorder), [_special_](tr35.md#special), [transform](#element-transform)
 >
 > Occurrence: optional, multiple
 > </small>
@@ -1787,7 +1781,7 @@ A `transformGroup` represents a set of transform elements or reorder elements.
 Each `transformGroup` is processed entirely before proceeding to the next one.
 
 
-Each `transformGroup` element, after imports are processed, must have either [reorder](#Element_reorder) elements or [transform](#Element_transform) elements, but not both. The `<transformGroup>` element may not be empty.
+Each `transformGroup` element, after imports are processed, must have either [reorder](#element-reorder) elements or [transform](#element-transform) elements, but not both. The `<transformGroup>` element may not be empty.
 
 **Examples**
 
@@ -1822,7 +1816,7 @@ This is a `transformGroup` that consists of one or more [`transform`](#element-t
 
 * * *
 
-### <a name="Element_transform" href="#Element_transform">Element: transform</a>
+### Element: transform
 
 This element represents a single transform that may be performed using the keyboard layout. A transform is an element that specifies a set of conversions from sequences of code points into (one or more) other code points. For example, in most French keyboards hitting the `^` dead-key followed by the `e` key produces `ê`.
 
@@ -1842,7 +1836,7 @@ All of the `transform` elements in a `transformGroup` are tested for a match, in
 
 > <small>
 >
-> Parents: [transformGroup](#Element_transformGroup)
+> Parents: [transformGroup](#element-transformgroup)
 > Children: _none_
 > Occurrence: required, multiple
 >
@@ -1885,7 +1879,7 @@ _Attribute:_ `from` (required)
 
     - supported
     - no Unicode properties such as `\p{…}`
-    - Warning: Character classes look superficially similar to UnicodeSets as defined in [`unicodeSet`](#element-unicodeSet) elements, but they are different. UnicodeSets must be defined with a `unicodeSet` element, and referenced with the `$[unicodeSet]` notation in transforms. UnicodeSets cannot be used directly in a transform.
+    - Warning: Character classes look superficially similar to UnicodeSets as defined in [`unicodeSet`](#element-unicodeset) elements, but they are different. UnicodeSets must be defined with a `unicodeSet` element, and referenced with the `$[unicodeSet]` notation in transforms. UnicodeSets cannot be used directly in a transform.
 
 - **Bounded quantifier**
 
@@ -2094,7 +2088,7 @@ Used in the `to=`
 
 * * *
 
-### <a name="Element_reorder" href="#Element_reorder">Element: reorder</a>
+### Element: reorder
 
 The reorder transform consists of a [`<transformGroup>`](#element-transformgroup) element containing `<reorder>` elements.  Multiple such `<transformGroup>` elements may be contained in an enclosing `<transforms>` element.
 
@@ -2139,7 +2133,7 @@ The relative ordering of `<reorder>` elements is not significant.
 
 > <small>
 >
-> Parents: [transformGroup](#Element_transformGroup)
+> Parents: [transformGroup](#element-transformgroup)
 > Children: _none_
 > Occurrence: optional, multiple
 >
@@ -2355,7 +2349,7 @@ Another partial example allows a keyboard implementation to prevent people typin
 
 * * *
 
-### <a name="Element_backspaces" href="#Element_backspaces">transform type="backspace"</a>
+### Backspace Transforms
 
 The `<transforms type="backspace">` describe an optional transform that is not applied on input of normal characters, but is only used to perform extra backspace modifications to previously committed text.
 
@@ -2463,7 +2457,7 @@ It is important that implementations do not by default delete more than one non-
 
 * * *
 
-## <a name="Invariants" href="#Invariants">Invariants</a>
+## Invariants
 
 Beyond what the DTD imposes, certain other restrictions on the data are imposed on the data.
 Please note the constraints given under each element section above.
@@ -2506,11 +2500,11 @@ TODO: Rewrite this? Probably push out to each element's section?
 
 * * *
 
-## <a name="Keyboard_IDs" href="#Keyboard_IDs">Keyboard IDs</a>
+## Keyboard IDs
 
 There is a set of subtags that help identify the keyboards. Each of these are used after the `"t-k0"` subtags to help identify the keyboards. The first tag appended is a mandatory platform tag followed by zero or more tags that help differentiate the keyboard from others with the same locale code.
 
-### <a name="Principles_for_Keyboard_IDs" href="#Principles_for_Keyboard_IDs">Principles for Keyboard IDs</a>
+### Principles for Keyboard IDs
 
 The following are the design principles for the IDs.
 
@@ -2524,7 +2518,7 @@ The following are the design principles for the IDs.
 5. In order to get to 8 letters, abbreviations are reused that are already in [bcp47](https://github.com/unicode-org/cldr/blob/main/common/bcp47/) -u/-t extensions and in [language-subtag-registry](https://www.iana.org/assignments/language-subtag-registry) variants, eg for Traditional use `-trad` or `-traditio` (both exist in [bcp47](https://github.com/unicode-org/cldr/blob/main/common/bcp47/)).
 6. Multiple languages cannot be indicated in the locale id, so the predominant target is used.
    1. For Finnish + Sami, use `fi-t-k0-smi` or `extended-smi`
-   2. The [`<locales>`](#Element_locales) element may be used to identify additional languages.
+   2. The [`<locales>`](#element-locales) element may be used to identify additional languages.
 7. In some cases, there are multiple subtags, like `en-US-t-k0-chromeos-intl-altgr.xml`
 8. Otherwise, platform names are used as a guide.
 
@@ -2562,7 +2556,7 @@ The following are the design principles for the IDs.
 
 * * *
 
-## <a name="Platform_Behaviors_in_Edge_Cases" href="#Platform_Behaviors_in_Edge_Cases">Platform Behaviors in Edge Cases</a>
+## Platform Behaviors in Edge Cases
 
 | Platform | No modifier combination match is available | No map match is available for key position | Transform fails (i.e. if \^d is pressed when that transform does not exist) |
 |----------|--------------------------------------------|--------------------------------------------|---------------------------------------------------------------------------|
@@ -2602,7 +2596,7 @@ This is the top level element.
 
 _Attribute:_ `conformsTo` (required)
 
-The `conformsTo` attribute here is the same as on the [`<keyboard3>`](#Element_Keyboard) element.
+The `conformsTo` attribute here is the same as on the [`<keyboard3>`](#element-keyboard3) element.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -2731,7 +2725,7 @@ This attribute specifies a unique name for this suite of tests. These names coul
 >
 > Parents: [tests](#test-element-tests)
 >
-> Children: [startContext](#test-element-startContext), [emit](#test-element-emit), [keystroke](#test-element-keystroke), [backspace](#test-element-backspace), [check](#test-element-check), [_special_](tr35.md#special)
+> Children: [startContext](#test-element-startcontext), [emit](#test-element-emit), [keystroke](#test-element-keystroke), [backspace](#test-element-backspace), [check](#test-element-check), [_special_](tr35.md#special)
 >
 > Occurrence: Required, Multiple
 > </small>
@@ -2756,7 +2750,7 @@ This element specifies pre-existing text in a document, as if prior to the user�
 
 > <small>
 >
-> Parents: [test](#Element_test)
+> Parents: [test](#test-element-test)
 >
 > Children: _none_
 >
@@ -2765,7 +2759,7 @@ This element specifies pre-existing text in a document, as if prior to the user�
 
 _Attribute:_ `to` (required)
 
-Specifies the starting context. This text may be escaped with `\u` notation, see [Escaping](#Escaping).
+Specifies the starting context. This text may be escaped with `\u` notation, see [Escaping](#escaping).
 
 **Example**
 
@@ -2799,15 +2793,15 @@ This attribute specifies a key by means of the key’s `id` attribute.
 
 _Attribute:_ `flick`
 
-This attribute specifies a flick gesture to be performed on the specified key instead of a keypress, such as `e` or `nw se`. This value corresponds to the `directions` attribute of the [`<flickSegment>`](#Element_flickSegment) element.
+This attribute specifies a flick gesture to be performed on the specified key instead of a keypress, such as `e` or `nw se`. This value corresponds to the `directions` attribute of the [`<flickSegment>`](#element-flicksegment) element.
 
 _Attribute:_ `longPress`
 
-This attribute specifies that a long press gesture should be performed on the specified key instead of a keypress. For example, `longPress="2"` indicates that the second character in a longpress series should be chosen. `longPress="0"` indicates that the `longPressDefault` value, if any, should be chosen. This corresponds to `longPress` and `longPressDefault` on [`<key>`](#Element_key).
+This attribute specifies that a long press gesture should be performed on the specified key instead of a keypress. For example, `longPress="2"` indicates that the second character in a longpress series should be chosen. `longPress="0"` indicates that the `longPressDefault` value, if any, should be chosen. This corresponds to `longPress` and `longPressDefault` on [`<key>`](#element-key).
 
 _Attribute:_ `tapCount`
 
-This attribute specifies that a multi-tap gesture should be performed on the specified key instead of a keypress. For example, `tapCount="3"` indicates that the key should be tapped three times in rapid succession. This corresponds to `multiTap` on [`<key>`](#Element_key). The minimum tapCount is 2.
+This attribute specifies that a multi-tap gesture should be performed on the specified key instead of a keypress. For example, `tapCount="3"` indicates that the key should be tapped three times in rapid succession. This corresponds to `multiTap` on [`<key>`](#element-key). The minimum tapCount is 2.
 
 **Example**
 
@@ -2839,7 +2833,7 @@ _Attribute:_ `to` (required)
 This attribute specifies a string of output text representing a single keystroke or gesture. This string is intended to match the output of a `key`, `flick`, `longPress` or `multiTap` element or attribute.
 Tooling should give a hint if this attribute does not match at least one keystroke or gesture. Note that the specified text is not injected directly into the output buffer.
 
-This attribute may be escaped with `\u` notation, see [Escaping](#Escaping).
+This attribute may be escaped with `\u` notation, see [Escaping](#escaping).
 
 **Example**
 
@@ -2882,7 +2876,7 @@ This element represents a check on the current output buffer.
 
 _Attribute:_ `result` (required)
 
-This attribute specifies the expected resultant text in a document after processing this event and all prior events, and including any `startContext` text.  This text may be escaped with `\u` notation, see [Escaping](#Escaping).
+This attribute specifies the expected resultant text in a document after processing this event and all prior events, and including any `startContext` text.  This text may be escaped with `\u` notation, see [Escaping](#escaping).
 
 **Example**
 

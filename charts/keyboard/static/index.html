@@ -51,8 +51,8 @@
       <i
         >Note: This is a very preliminary chart. For feedback on this chart or
         contents, please comment on:
-        <a href="https://unicode-org.atlassian.net/browse/CLDR-16655"
-          >https://unicode-org.atlassian.net/browse/CLDR-16655</a
+        <a href="https://unicode-org.atlassian.net/browse/CLDR-17205"
+          >https://unicode-org.atlassian.net/browse/CLDR-17205</a
         ></i
       >
       <!-- {{ message }} -->
@@ -68,14 +68,14 @@
           <h2 :id="file"><code>{{file}}</code></h2>
           <ul>
             <li v-for="layers of getLayers(file)">
-              <h3 v-if="layers.form">Form: {{ layers.form }}</h3>
+              <h3 v-if="layers.formId">Form: {{ layers.formId }}</h3>
               <h3 v-if="layers.id">ID: {{ layers.id }}</h3>
               <h4 v-if="layers.minDeviceWidth">
                 minDeviceWidth: {{ layers.minDeviceWidth }}mm
               </h4>
               <ul>
                 <li v-for="layer of layers.layer">
-                  <h4 v-if="layer.modifier">Modifier: {{ layer.modifier }}</h4>
+                  <h4 v-if="layer.modifiers">Modifier: {{ layer.modifiers }}</h4>
                   <h4 v-if="layer.id">{{ layer.id }}</h4>
                   <div class="rows">
                     <div class="row" v-for="row of layer.row">
@@ -84,8 +84,8 @@
                         :class="getKeyClass(key)"
                         v-for="key of row.keys"
                       >
-                        {{key.to}}
-                        <b title="Switch" v-if="key.switch">☞ {{key.switch}}</b>
+                        {{key.output}}
+                        <b title="Switch" v-if="key.layerId">☞ {{key.layerId}}</b>
                       </span>
                     </div>
                   </div>

@@ -1003,7 +1003,7 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 			or &lt;unitIdComponent type="per"&gt;.
 		</li>
 		<li><em>Constraint:</em> must not have a prefix as an initial segment.</li>
-		<li><em>Constraint:</em> no two different base_components will share the first 8 letters. 
+		<li><em>Constraint:</em> no two different base_components will share the first 8 letters.
 				(<b>For more information, see <a href="#Unit_Identifier_Uniqueness">Unit Identifier Uniqueness</a>.)</b>
 			</li>
 		</ul>
@@ -1214,7 +1214,8 @@ For temperature, there is a special unit `<unit type="temperature-generic">`, wh
 For duration, there are special units such as `<unit type="duration-year-person">` and `<unit type="duration-year-week">` for indicating the age of a person, which requires special forms in some languages. For example, in "zh", references to a person being 3 days old or 30 years old would use the forms “他3天大” and “他30岁” respectively.
 
 <a name="compoundUnitPattern"></a><a name="perUnitPatterns"></a>
-### <a name="compound-units" href="#compound-units">Compound Units</a>
+
+### Compound Units
 
 A common combination of units is X per Y, such as _miles per hour_ or _liters per second_ or _kilowatt-hours_.
 
@@ -1848,7 +1849,7 @@ If the direction is `forward`, then an ID is composed from `target + "-" + sourc
 
 The `visibility` attribute indicates whether the IDs should be externally visible, or whether they are only used internally.
 
-Note: In CLDR v28 and before, the rules were expressed as fine-grained XML. 
+Note: In CLDR v28 and before, the rules were expressed as fine-grained XML.
 That was discarded in CLDR version 29, in favor of a simpler format where the separate rules are simply terminated with ";".
 
 The transform rules are similar to regular-expression substitutions, but adapted to the specific domain of text transformations. The rules and comments in this discussion will be intermixed, with # marking the comments. The simplest rule is a conversion rule, which replaces one string of characters with another. The conversion rule takes the following form:
@@ -1966,11 +1967,42 @@ x → y | z ;
 z a → w ;
 ```
 
-First, "xa" is converted to "yza". Then the processing will continue from after the character "y", pick up the "za", and convert it. Had we not had the "|", the result would have been simply "yza". The '@' character can be used as filler character to place the revisiting point off the start or end of the string. Thus the following causes x to be replaced, and the cursor to be backed up by two characters.
+First, "xa" is converted to "yza". Then the processing will continue from after the character "y", pick up the "za", and convert it. Had we not had the "|", the result would have been simply "yza".
+
+The '@' character can be used as filler character to place the revisiting point off the start or end of the string — but only within the context. Consider the following rules, with the table afterwards showing how they work.
 
 ```
-x → |@@y;
+1. [a-z]{x > |@ab ;
+2. ab > J;
+3. ca > M;
 ```
+The ⸠ indicates the virtual cursor:
+
+| Current text | Matching rule |
+| - | - |
+| ⸠cx | no match, cursor advances one code point |
+| c⸠x | matches rule 1, so the text is replaced and cursor backs up. |
+| ⸠cab | matches rule 3, so the text is replaced, with cursor at the end. |
+| Mb⸠ | cursor is at the end, so we are done. |
+
+Notice that rule 2 did not have a chance to trigger.
+
+There is a current restriction that @ cannot back up before the before_context or after the after_context.
+Consider the rules if rule 1 is adjusted to have no before_context.
+
+```
+1'. x > |@ab ;
+2. ab > J ;
+3. ca > M;
+```
+
+In that case, the results are different.
+| Current text | Matching rule |
+| - | - |
+| ⸠cx | no match, cursor advances one code point |
+| c⸠x | matches rule 1, so the text is replaced and cursor backs up; but only to where  |
+| c⸠ab | matches **rule 2**, so the text is replaced, with cursor at the end. |
+| cJ⸠ | cursor is at the end, so we are done. |
 
 #### <a name="Example" href="#Example">Example</a>
 
@@ -2127,7 +2159,7 @@ Conversion rules can be forward, backward, or double. The complete conversion ru
 > b | c  ←  e { f g } h ;
 > ```
 
-The `completed_result` | `result_to_revisit` is also known as the `resulting_text`. Either or both of the values can be empty. For example, the following removes any a, b, or c. 
+The `completed_result` | `result_to_revisit` is also known as the `resulting_text`. Either or both of the values can be empty. For example, the following removes any a, b, or c.
 
 ```
 [a-c] → ;
@@ -2260,7 +2292,7 @@ Because the order of rules matters, the following will not work as expected
 c → s;
 ch → kh;
 ```
-The second rule can never execute, because it is "masked" by the first. 
+The second rule can never execute, because it is "masked" by the first.
 To help prevent errors, implementations should try to alert readers when this occurs, eg:
 ```
 Rule {c > s;} masks {ch > kh;}

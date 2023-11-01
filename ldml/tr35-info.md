@@ -91,7 +91,7 @@ The LDML specification is divided into the following parts:
 * [Mixed Units](#mixed-units)
 * [Testing](#testing)
 * [Unit Preferences](#Unit_Preferences)
-  * [Unit Preferences Overrides](#Unit_Preferences_Data)
+  * [Unit Preferences Overrides](#Unit_Preferences_Overrides)
   * [Unit Preferences Data](#Unit_Preferences_Data)
   * [Constraints](#constraints)
   * [Caveats](#caveats)
@@ -930,9 +930,9 @@ The systems attributes also apply to compound units, and are computed in the fol
    1. The intersection of {… si …} and {… si_acceptable … } is {… si_acceptable …}
    2. The intersection of {… metric …} and {… metric_adjacent … } is {… metric_adjacent …}
 
-Examples: 
+Examples:
 ```
-systems(liter-per-hectare) 
+systems(liter-per-hectare)
 	= {si_acceptable metric} ∪ {si_acceptable metric}
 	= {si_acceptable metric}
 systems(meter-per-hectare)
@@ -1119,7 +1119,7 @@ The [unitsTest.txt](https://github.com/unicode-org/cldr/blob/main/common/testDat
 
 Different locales have different preferences for which unit or combination of units is used for a particular usage, such as measuring a person’s height. This is more fine-grained than merely a preference for metric versus US or UK measurement systems. For example, one locale may use meters alone, while another may use centimeters alone or a combination of meters and centimeters; a third may use inches alone, or (informally) a combination of feet and inches.
 
-### <a name="Unit_Preferences_Data" href="#Unit_Preferences_Data">Unit Preferences Overrides</a>
+### <a name="Unit_Preferences_Overrides" href="#Unit_Preferences_Overrides">Unit Preferences Overrides</a>
 
 The determination of preferred units depends on the locale identifer: the keys mu, ms, rg, their values, the base locale (language, script, region) and the user preferences data.
 

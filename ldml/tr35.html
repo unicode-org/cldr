@@ -995,7 +995,7 @@
 </tr>
 <tr>
 <td>Date</td>
-<td>2023-10-04</td>
+<td>2023-10-23</td>
 </tr>
 <tr>
 <td>This Version</td>
@@ -1994,7 +1994,7 @@ zh-Hant-HK
         in bcp47/<a href="https://github.com/unicode-org/cldr/blob/main/common/bcp47/calendar.xml" target="_blank">calendar.xml</a></b>.<br>
         This selects calendar-specific data within a locale used for formatting and parsing, such as date/time symbols and patterns; it also selects supplemental
         calendarData used for calendrical calculations.
-        The value can affect the computation of the first day of the week: see <a href="tr35-dates.html#first_day_overrides">First Day Overrides</a>.
+        The value can affect the computation of the first day of the week: see <a href="tr35-dates.html#first-day-overrides">First Day Overrides</a>.
         </td></tr>
 <tr><td rowspan="10">"ca"<br>(calendar)</td>
     <td rowspan="10">Calendar algorithm<br><br><i>(For information on the calendar algorithms associated with the data used with these, see [<a href="#Calendars">Calendars</a>].)</i></td>
@@ -2075,7 +2075,7 @@ zh-Hant-HK
         week data for the region (see Part 4 Dates, <a href="tr35-dates.html#Week_Data">Week Data</a>).
         The valid values are those <i>name</i> attribute values in the <i>type</i> elements
         of key name="fw" in bcp47/<a href="https://github.com/unicode-org/cldr/blob/main/common/bcp47/calendar.xml" target="_blank">calendar.xml</a>.
-        The value can affect the computation of the first day of the week: see <a href="tr35-dates.html#first_day_overrides">First Day Overrides</a>.
+        The value can affect the computation of the first day of the week: see <a href="tr35-dates.html#first-day-overrides">First Day Overrides</a>.
         </b></td></tr>
 <tr><td rowspan="4">"fw"</td>
     <td rowspan="4">First day of week</td>
@@ -2189,7 +2189,7 @@ zh-Hant-HK
 <tr><td rowspan="2">"rg"</td>
     <td rowspan="2">Region Override</td><td>"uszzzz"<br><br></td><td rowspan="2">The value is a <a href="#unicode_subdivision_id">unicode_subdivision_id</a> of type “unknown” or “regular”; this consists of a <a href="#unicode_region_subtag">unicode_region_subtag</a> for a regular region (not a macroregion), suffixed either by “zzzz” (case is not significant) to designate the region as a whole, or by a unicode_subdivision_suffix to provide more specificity. For example, “en-GB-u-rg-uszzzz” represents a locale for British English but with region-specific defaults set to US for items such as default currency, default calendar and week data, default time cycle, and default measurement system and unit preferences.
     The determination of preferred units depends on the locale identifer: the keys ms, mu, rg, the base locale (language, script, region) and the user preferences.
-    The value can affect the computation of the first day of the week: see <a href="tr35-dates.html#first_day_overrides">First Day Overrides</a>.
+    The value can affect the computation of the first day of the week: see <a href="tr35-dates.html#first-day-overrides">First Day Overrides</a>.
 <i>For information about preferred units and unit conversion, see <a href="tr35-info.html#Unit_Conversion">Unit Conversion</a> and <a href="tr35-info.html#Unit_Preferences">Unit Preferences</a>.</i>
     </td></tr>
         <tr><td>…</td></tr>
@@ -2199,7 +2199,7 @@ zh-Hant-HK
     <td rowspan="2">Regional Subdivision</td>
             <td>"gbsct"</td>
             <td rowspan="2">A <a href="#unicode_subdivision_id">unicode_subdivision_id</a>, which is a <a href="#unicode_region_subtag">unicode_region_subtag</a> concatenated with a unicode_subdivision_suffix.<br>For example, <i>gbsct</i> is “gb”+“sct” (where sct represents the subdivision code for Scotland). Thus “en-GB-u-sd-gbsct” represents the language variant “English as used in Scotland”. And both “en-u-sd-usca” and “en-US-u-sd-usca” represent “English as used in California”. See <b><i><a href="#Unicode_Subdivision_Codes">3.6.5 Subdivision Codes</a></i></b>.
-            The value can affect the computation of the first day of the week: see <a href="tr35-dates.html#first_day_overrides">First Day Overrides</a>.
+            The value can affect the computation of the first day of the week: see <a href="tr35-dates.html#first-day-overrides">First Day Overrides</a>.
         </td></tr>
         <tr><td>…</td></tr>
 
@@ -3988,7 +3988,7 @@ Notably:</p><ol>
 <li>To invert a set, place a '^' immediately after the opening '['. For example, <strong>[^a-z]</strong>. In any other location, the '^' does not have a special meaning. The inversion [^X] is equivalent to [[\x{0}-\x{10FFFF}]-[X]]. Thus multi-code point strings are discarded.</li>
 <li>Symmetric difference (~) is not supported.</li>
 </ul><p>The binary operators '&amp;', '-', and the implicit union have equal precedence and bind left-to-right. Thus <strong>[[:letter:]-[a-z]-[\u0100-\u01FF]]</strong> is equal to <strong>[[[:letter:]-[a-z]]-[\u0100-\u01FF]]</strong>. Another example is the set <strong>[[ace][bdf] - [abc][def]]</strong>, which is not the empty set, but instead equal to <strong>[[[[ace] [bdf]] - [abc]] [def]]</strong>, which equals <strong>[[[abcdef] - [abc]] [def]]</strong>, which equals <strong>[[def] [def]]</strong>, which equals <strong>[def]</strong>.</p><p><strong>One caution:</strong> the '&amp;' and '-' operators operate between sets. That is, they must be immediately preceded and immediately followed by a set. For example, the pattern <strong>[[:Lu:]-A]</strong> is illegal, since it is interpreted as the set <strong>[:Lu:]</strong> followed by the incomplete range <strong>-A</strong>. To specify the set of upper case letters except for 'A', enclose the 'A' in brackets: <strong>[[:Lu:]-[A]]</strong>.</p><h5 id="Variables_in_UnicodeSets"><a name="variables-in-unicodesets" href="#Variables_in_UnicodeSets">Variables in UnicodeSets</a></h5><p>Support for variable identifiers (var) is optional.
-They are used in certain contexts such as in <a href="Transforms">https://cldr-smoke.unicode.org/spec/main/ldml/tr35-general.html#Transforms</a>.
+They are used in certain contexts such as in <a href="tr35-general.html#Transforms">Transforms</a>.
 When they are used, they are defined as follows:</p><p>UnicodeSets may contain variables (<code>$my_char</code>, <code>$the_set</code>, ...) in place of full UnicodeSets and strings/characters. If variable support is enabled, variables must be defined (out-of-scope for UnicodeSets). In particular, referring to undefined variables is an error.</p><p>Not all variable maps are valid for a given expression in UnicodeSet syntax.
 For instance, consider <strong>[$a-$b]</strong>; this may be a range of characters if both <strong>$a</strong> and <strong>$b</strong> are characters,
 or a difference of sets if they are both sets; but given the map <code>{ a =&gt; '0', b =&gt; [:L:] }</code>, it is invalid.</p><p><strong>Note:</strong> In particular, the variable map is needed not just to compute the actual set of characters and strings represented by the UnicodeSet,
@@ -4736,102 +4736,7 @@ For example, here is a code snippet:</p><pre><code>private static final Suppleme
 <td>P.3 <a href="tr35-info.html#Default_Content">Default Content</a></td>
 <td>9.3 <a href="tr35-info.html#Default_Content">Default Content</a></td>
 </tr>
-</tbody></table><table><caption id="table-part-7-links-keyboards-keyboard-mappings">Table: <a name="Part_7_Links" href="#Part_7_Links">Part 7 Links</a>: <a href="tr35-keyboards.html">Keyboards</a> (keyboard mappings)</caption>
-<thead>
-<tr>
-<th>Old section</th>
-<th>Section in new part</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>S <a name="Keyboards" href="#Keyboards">Keyboards</a></td>
-<td>1 <a href="tr35-keyboards.html#Introduction">Introduction</a></td>
-</tr>
-<tr>
-<td>S <a name="Goals_and_Nongoals" href="#Goals_and_Nongoals">Goals and Nongoals</a></td>
-<td><a href="tr35-keyboards.html#Goals_and_Nongoals">Goals and Nongoals</a></td>
-</tr>
-<tr>
-<td>S <a name="File_and_Dir_Structure" href="#File_and_Dir_Structure">File and Directory Structure</a></td>
-<td><a href="tr35-keyboards.html#File_and_Dir_Structure">File and Directory Structure</a></td>
-</tr>
-<tr>
-<td>S <a name="Element_Heirarchy_Layout_File" href="#Element_Heirarchy_Layout_File">Element Hierarchy - Layout File</a></td>
-<td><a href="tr35-keyboards.html#Element_Heirarchy_Layout_File">Element Hierarchy - Layout File</a></td>
-</tr>
-<tr>
-<td>S <a name="Element_Heirarchy_Platform_File" href="#Element_Heirarchy_Platform_File">Element Hierarchy - Platform File</a></td>
-<td><a href="tr35-keyboards.html#Element_Heirarchy_Platform_File">Element Hierarchy - Platform File</a></td>
-</tr>
-<tr>
-<td>S <a name="Invariants" href="#Invariants">Invariants</a></td>
-<td><a href="tr35-keyboards.html#Invariants">Invariants</a></td>
-</tr>
-<tr>
-<td>S <a name="Data_Sources" href="#Data_Sources">Data Sources</a></td>
-<td><a href="tr35-keyboards.html#Data_Sources">Data Sources</a></td>
-</tr>
-<tr>
-<td>S <a name="Keyboard_IDs" href="#Keyboard_IDs">Keyboard IDs</a></td>
-<td><a href="tr35-keyboards.html#Keyboard_IDs">Keyboard IDs</a></td>
-</tr>
-<tr>
-<td>S <a name="Platform_Behaviors_in_Edge_Cases" href="#Platform_Behaviors_in_Edge_Cases">Platform Behaviors in Edge Cases</a></td>
-<td><a href="tr35-keyboards.html#Platform_Behaviors_in_Edge_Cases">Platform Behaviors in Edge Cases</a></td>
-</tr>
-<tr>
-<td>S <a name="Element_Keyboard" href="#Element_Keyboard">Element: keyboard</a></td>
-<td><a href="tr35-keyboards.html#Element_Keyboard">Element: keyboard</a></td>
-</tr>
-<tr>
-<td>S <a name="Element_version" href="#Element_version">Element: version</a></td>
-<td><a href="tr35-keyboards.html#Element_version">Element: version</a></td>
-</tr>
-<tr>
-<td>S <a name="Element_generation" href="#Element_generation">Element: generation</a></td>
-<td><a href="tr35-keyboards.html#Element_generation">Element: generation</a></td>
-</tr>
-<tr>
-<td>S <a name="Element_names" href="#Element_names">Element: names</a></td>
-<td><a href="tr35-keyboards.html#Element_names">Element: names</a></td>
-</tr>
-<tr>
-<td>S <a name="Element_name" href="#Element_name">Element: name</a></td>
-<td><a href="tr35-keyboards.html#Element_name">Element: name</a></td>
-</tr>
-<tr>
-<td>S <a name="Element_settings" href="#Element_settings">Element: settings</a></td>
-<td><a href="tr35-keyboards.html#Element_settings">Element: settings</a></td>
-</tr>
-<tr>
-<td>S <a name="Element_keyMap" href="#Element_keyMap">Element: keyMap</a></td>
-<td><a href="tr35-keyboards.html#Element_keyMap">Element: keyMap</a></td>
-</tr>
-<tr>
-<td>S <a name="Element_map" href="#Element_map">Element: map</a></td>
-<td><a href="tr35-keyboards.html#Element_map">Element: map</a></td>
-</tr>
-<tr>
-<td>S <a name="Element_transforms" href="#Element_transforms">Element: transforms</a></td>
-<td><a href="tr35-keyboards.html#Element_transforms">Element: transforms</a></td>
-</tr>
-<tr>
-<td>S <a name="Element_transform" href="#Element_transform">Element: transform</a></td>
-<td><a href="tr35-keyboards.html#Element_transform">Element: transform</a></td>
-</tr>
-<tr>
-<td>S <a name="Element_platform" href="#Element_platform">Element: platform</a></td>
-<td><a href="tr35-keyboards.html#Element_platform">Element: platform</a></td>
-</tr>
-<tr>
-<td>S <a name="Element_hardwareMap" href="#Element_hardwareMap">Element: hardwareMap</a></td>
-<td><a href="tr35-keyboards.html#Element_hardwareMap">Element: hardwareMap</a></td>
-</tr>
-<tr>
-<td>S <a name="Principles_for_Keyboard_Ids" href="#Principles_for_Keyboard_Ids">Principles for Keyboard Ids</a></td>
-<td><a href="tr35-keyboards.html#Principles_for_Keyboard_Ids">Principles for Keyboard Ids</a></td>
-</tr>
-</tbody></table><hr><h2 id="LocaleId_Canonicalization"><a name="annex-c-localeid-canonicalization" href="#LocaleId_Canonicalization">Annex C. LocaleId Canonicalization</a></h2><p>The <code>languageAlias</code>, <code>scriptAlias</code>, <code>territoryAlias</code>, and <code>variantAlias</code> elements are used as rules to transform an input <em>source localeId</em>. The first step is to transform the <em>languageId</em> portion of the localeId.</p><blockquote>
+</tbody></table><h6 id="table-part-7-links-keyboards-keyboard-mappings">Table: <a name="Part_7_Links" href="#Part_7_Links">Part 7 Links</a>: <a href="tr35-keyboards.html">Keyboards</a> (keyboard mappings)</h6><p><a href="tr35-keyboards.html">Part 7</a> has been extensively rewritten. The prior link anchors within this file are no longer valid.</p><hr><h2 id="LocaleId_Canonicalization"><a name="annex-c-localeid-canonicalization" href="#LocaleId_Canonicalization">Annex C. LocaleId Canonicalization</a></h2><p>The <code>languageAlias</code>, <code>scriptAlias</code>, <code>territoryAlias</code>, and <code>variantAlias</code> elements are used as rules to transform an input <em>source localeId</em>. The first step is to transform the <em>languageId</em> portion of the localeId.</p><blockquote>
 <p>Note: in the following discussion, the separator '-' is used. That is also used in examples of XML alias data, even though for compatibility reasons that alias data actually uses '_' as a separator. The processing can also be applied to syntax while maintaining the separator '_', <em>mutatis mutandis</em>. CLDR also uses “territory” and “region” interchangeably.</p>
 </blockquote><blockquote>
 <p>Also note that the discussion of canonicalization assumes BCP 47
@@ -4896,7 +4801,7 @@ See §3.8.2 <a href="#Legacy_Variants">Legacy Variants</a>.</p>
 <p>rule  ="&lt;languageAlias type="und-hepburn-heploc"</p>
 <p>replacement="und-alalc97"&gt;"</p>
 <p>result="ja-Latn-alalc97-fonipa" // note that CLDR canonical order of variants is alphabetical</p>
-</blockquote><h5 id="territory-exception"><a name="territory-exception" href="#territory-exception">Territory Exception</a></h5><p>If the field = territory, and the replacement.field has more than one value, then look up the most likely territory for the base language code (and script, if there is one). If that likely territory is in the list of replacements, use it. Otherwise, use the first territory in the list.</p><h4 id="5.-canonicalizing-syntax"><a name="5-canonicalizing-syntax" href="#5.-canonicalizing-syntax">5. Canonicalizing Syntax</a></h4><p>To canonicalize the syntax of <em>source</em>:</p><ul>
+</blockquote><h5 id="territory-exception">Territory Exception</h5><p>If the field = territory, and the replacement.field has more than one value, then look up the most likely territory for the base language code (and script, if there is one). If that likely territory is in the list of replacements, use it. Otherwise, use the first territory in the list.</p><h4 id="5.-canonicalizing-syntax"><a name="5-canonicalizing-syntax" href="#5.-canonicalizing-syntax">5. Canonicalizing Syntax</a></h4><p>To canonicalize the syntax of <em>source</em>:</p><ul>
 <li>Initial Script Subtag<ul>
 <li>If the first subtag has 4 letters, prepend the source with "und-"</li>
 <li>Note: These are only for specialized use.</li>
@@ -5253,6 +5158,9 @@ See §3.8.2 <a href="#Legacy_Variants">Legacy Variants</a>.</p>
 <li><a href="#Variables_in_UnicodeSets">Variables in UnicodeSets</a></li>
 </ul>
 </li>
+<li><a href="#unicode-language-identifier">Unicode Language Identifier</a>: clarified constraint on duplicate subtags.</li>
+<li><a href="#key-and-type-definitions">Key/Type Definitions</a>: clarified definition of <code>-dx</code></li>
+<li><a href="#ebnf">EBNF</a>: Clarified use of EBNF in LDML</li>
 </ul>
 </li>
 <li><p><a href="tr35-general.html#Contents">General</a></p>
@@ -5275,7 +5183,7 @@ See §3.8.2 <a href="#Legacy_Variants">Legacy Variants</a>.</p>
 </li>
 <li><p><a href="tr35-keyboards.html#Contents">Keyboards</a></p>
 <ul>
-<li>Complete rewrite of the specification by the Keyboard Subcommittee. Available a technical preview in CLDR version 44. See <a href="tr35-keyboards.html#status">Part 7: Status</a>.</li>
+<li>Complete rewrite of the specification by the Keyboard Subcommittee. Available as a technical preview in CLDR version 44. See <a href="tr35-keyboards.html#status">Part 7: Status</a>.</li>
 </ul>
 </li>
 <li><p><a href="tr35-personNames.html#Contents">Person Names</a></p>

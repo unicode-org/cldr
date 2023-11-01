@@ -691,6 +691,14 @@
 
 
 
+
+
+
+
+
+
+
+
 <script src="./js/anchor.min.js"></script><div class="header"><table class="header" cellpadding="0" cellspacing="0" width="100%">
     <tbody>
         <tr>
@@ -1417,7 +1425,7 @@ Some of the constraints reference data from the unitIdComponents in <a href="tr3
             or &lt;unitIdComponent type="per"&gt;.
         </li>
         <li><em>Constraint:</em> must not have a prefix as an initial segment.</li>
-        <li><em>Constraint:</em> no two different base_components will share the first 8 letters. 
+        <li><em>Constraint:</em> no two different base_components will share the first 8 letters.
                 (<b>For more information, see <a href="#Unit_Identifier_Uniqueness">Unit Identifier Uniqueness</a>.)</b>
             </li>
         </ul>
@@ -2208,7 +2216,7 @@ The complete list of supported units is in the validity data: see <em><a href="t
 <td>simple</td>
 <td>{0} bbl</td>
 </tr>
-</tbody></table><p>There are three widths: <strong>long</strong>, <strong>short</strong>, and <strong>narrow</strong>. As usual, the narrow forms may not be unique: in English, 1′ could mean 1 minute of arc, or 1 foot. Thus narrow forms should only be used where the context makes the meaning clear.</p><p>Where the unit of measurement is one of the <a href="https://physics.nist.gov/cuu/Units/units.html">International System of Units (SI)</a>, the short and narrow forms will typically use the international symbols, such as “mm” for millimeter. They may, however, be different if that is customary for the language or locale. For example, in Russian it may be more typical to see the Cyrillic characters “мм”.</p><p>Units are sometimes included for translation even where they are not typically used in a particular locale, such as kilometers in the US, or inches in Germany. This is to account for use by travelers and specialized domains, such as the German “Fernseher von 32 bis 55 Zoll (80 bis 140 cm)” for TV screen size in inches and centimeters.</p><p>For temperature, there is a special unit <code>&lt;unit type="temperature-generic"&gt;</code>, which is used when it is clear from context whether Celcius or Fahrenheit is implied.</p><p>For duration, there are special units such as <code>&lt;unit type="duration-year-person"&gt;</code> and <code>&lt;unit type="duration-year-week"&gt;</code> for indicating the age of a person, which requires special forms in some languages. For example, in "zh", references to a person being 3 days old or 30 years old would use the forms “他3天大” and “他30岁” respectively.</p><p><a name="compoundUnitPattern"></a><a name="perUnitPatterns"></a></p><h3 id="compound-units"><a name="compound-units" href="#compound-units">Compound Units</a></h3><p>A common combination of units is X per Y, such as <em>miles per hour</em> or <em>liters per second</em> or <em>kilowatt-hours</em>.</p><p>There are different types of structure used to build the localized name of compound units. All of these follow the inheritance specified in <a href="tr35.html#Lateral_Inheritance">Part 1, Lateral Inheritance</a>.</p><p><strong>Prefixes</strong> are for powers of 10 and powers of 1024 (the latter only used with digital units of measure). These are invariant for case, gender, or plural (though those could be added in the future if needed by a language).</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">compoundUnit</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"10p9"</span>&gt;</span>
+</tbody></table><p>There are three widths: <strong>long</strong>, <strong>short</strong>, and <strong>narrow</strong>. As usual, the narrow forms may not be unique: in English, 1′ could mean 1 minute of arc, or 1 foot. Thus narrow forms should only be used where the context makes the meaning clear.</p><p>Where the unit of measurement is one of the <a href="https://physics.nist.gov/cuu/Units/units.html">International System of Units (SI)</a>, the short and narrow forms will typically use the international symbols, such as “mm” for millimeter. They may, however, be different if that is customary for the language or locale. For example, in Russian it may be more typical to see the Cyrillic characters “мм”.</p><p>Units are sometimes included for translation even where they are not typically used in a particular locale, such as kilometers in the US, or inches in Germany. This is to account for use by travelers and specialized domains, such as the German “Fernseher von 32 bis 55 Zoll (80 bis 140 cm)” for TV screen size in inches and centimeters.</p><p>For temperature, there is a special unit <code>&lt;unit type="temperature-generic"&gt;</code>, which is used when it is clear from context whether Celcius or Fahrenheit is implied.</p><p>For duration, there are special units such as <code>&lt;unit type="duration-year-person"&gt;</code> and <code>&lt;unit type="duration-year-week"&gt;</code> for indicating the age of a person, which requires special forms in some languages. For example, in "zh", references to a person being 3 days old or 30 years old would use the forms “他3天大” and “他30岁” respectively.</p><p><a name="compoundUnitPattern"></a><a name="perUnitPatterns"></a></p><h3 id="compound-units">Compound Units</h3><p>A common combination of units is X per Y, such as <em>miles per hour</em> or <em>liters per second</em> or <em>kilowatt-hours</em>.</p><p>There are different types of structure used to build the localized name of compound units. All of these follow the inheritance specified in <a href="tr35.html#Lateral_Inheritance">Part 1, Lateral Inheritance</a>.</p><p><strong>Prefixes</strong> are for powers of 10 and powers of 1024 (the latter only used with digital units of measure). These are invariant for case, gender, or plural (though those could be added in the future if needed by a language).</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">compoundUnit</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"10p9"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">unitPrefixPattern</span>&gt;</span>Giga{0}<span class="hljs-tag">&lt;/<span class="hljs-name">unitPrefixPattern</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">compoundUnit</span>&gt;</span>
 
@@ -2734,7 +2742,7 @@ overridden by rules in child locales. In addition, there are several locale keyw
   <span class="hljs-attr">direction</span>=<span class="hljs-string">"forward"</span>
   <span class="hljs-attr">draft</span>=<span class="hljs-string">"provisional"</span>
   <span class="hljs-attr">alias</span>=<span class="hljs-string">"Katakana-Latin/BGN ja-Latn-t-ja-hrkt-m0-bgn"</span>&gt;</span>
-</code></pre><p>The direction is either <code>forward</code> or <code>both</code> (<code>backward</code> is possible in theory, but not used). This indicates which directions the rules support.</p><p>If the direction is <code>forward</code>, then an ID is composed from <code>target + "-" + source + "/" + variant</code>. If the direction is <code>both</code>, then the inverse ID is also value: <code>source + "-" + target + "/" + variant</code>. The <code>alias</code> attribute contains a space-delimited list of alternant forward IDs, while the <code>backwardAlias</code> contains a space-delimited list of alternant backward IDs. The BCP47 versions of the IDs will be in the <code>alias</code> and/or <code>backwardAlias</code> attributes.</p><p>The <code>visibility</code> attribute indicates whether the IDs should be externally visible, or whether they are only used internally.</p><p>Note: In CLDR v28 and before, the rules were expressed as fine-grained XML. 
+</code></pre><p>The direction is either <code>forward</code> or <code>both</code> (<code>backward</code> is possible in theory, but not used). This indicates which directions the rules support.</p><p>If the direction is <code>forward</code>, then an ID is composed from <code>target + "-" + source + "/" + variant</code>. If the direction is <code>both</code>, then the inverse ID is also value: <code>source + "-" + target + "/" + variant</code>. The <code>alias</code> attribute contains a space-delimited list of alternant forward IDs, while the <code>backwardAlias</code> contains a space-delimited list of alternant backward IDs. The BCP47 versions of the IDs will be in the <code>alias</code> and/or <code>backwardAlias</code> attributes.</p><p>The <code>visibility</code> attribute indicates whether the IDs should be externally visible, or whether they are only used internally.</p><p>Note: In CLDR v28 and before, the rules were expressed as fine-grained XML.
 That was discarded in CLDR version 29, in favor of a simpler format where the separate rules are simply terminated with ";".</p><p>The transform rules are similar to regular-expression substitutions, but adapted to the specific domain of text transformations. The rules and comments in this discussion will be intermixed, with # marking the comments. The simplest rule is a conversion rule, which replaces one string of characters with another. The conversion rule takes the following form:</p><pre><code>xy → z ;
 </code></pre><p>This converts any substring "xy" into "z". Rules are executed in order; consider the following rules:</p><pre><code>sch → sh ;
 ss → z ;
@@ -2759,8 +2767,60 @@ $pi → p ;
 Thus the | marks a "cursor" position.
 For example, if we have the following, then the string "xa" will convert to "yw".</p><pre><code>x → y | z ;
 z a → w ;
-</code></pre><p>First, "xa" is converted to "yza". Then the processing will continue from after the character "y", pick up the "za", and convert it. Had we not had the "|", the result would have been simply "yza". The '@' character can be used as filler character to place the revisiting point off the start or end of the string. Thus the following causes x to be replaced, and the cursor to be backed up by two characters.</p><pre><code>x → |@@y;
-</code></pre><h4 id="Example"><a name="example" href="#Example">Example</a></h4><p>The following shows how these features are combined together in the Transliterator "Any-Publishing". This transform converts the ASCII typewriter conventions into text more suitable for desktop publishing (in English). It turns straight quotation marks or UNIX style quotation marks into curly quotation marks, fixes multiple spaces, and converts double-hyphens into a dash.</p><pre><code class="language-perl"><span class="hljs-comment"># Variables</span>
+</code></pre><p>First, "xa" is converted to "yza". Then the processing will continue from after the character "y", pick up the "za", and convert it. Had we not had the "|", the result would have been simply "yza".</p><p>The '@' character can be used as filler character to place the revisiting point off the start or end of the string — but only within the context. Consider the following rules, with the table afterwards showing how they work.</p><pre><code>1. [a-z]{x &gt; |@ab ;
+2. ab &gt; J;
+3. ca &gt; M;
+</code></pre><p>The ⸠ indicates the virtual cursor:</p><table>
+<thead>
+<tr>
+<th>Current text</th>
+<th>Matching rule</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>⸠cx</td>
+<td>no match, cursor advances one code point</td>
+</tr>
+<tr>
+<td>c⸠x</td>
+<td>matches rule 1, so the text is replaced and cursor backs up.</td>
+</tr>
+<tr>
+<td>⸠cab</td>
+<td>matches rule 3, so the text is replaced, with cursor at the end.</td>
+</tr>
+<tr>
+<td>Mb⸠</td>
+<td>cursor is at the end, so we are done.</td>
+</tr>
+</tbody></table><p>Notice that rule 2 did not have a chance to trigger.</p><p>There is a current restriction that @ cannot back up before the before_context or after the after_context.
+Consider the rules if rule 1 is adjusted to have no before_context.</p><pre><code>1'. x &gt; |@ab ;
+2. ab &gt; J ;
+3. ca &gt; M;
+</code></pre><p>In that case, the results are different.</p><table>
+<thead>
+<tr>
+<th>Current text</th>
+<th>Matching rule</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>⸠cx</td>
+<td>no match, cursor advances one code point</td>
+</tr>
+<tr>
+<td>c⸠x</td>
+<td>matches rule 1, so the text is replaced and cursor backs up; but only to where</td>
+</tr>
+<tr>
+<td>c⸠ab</td>
+<td>matches <strong>rule 2</strong>, so the text is replaced, with cursor at the end.</td>
+</tr>
+<tr>
+<td>cJ⸠</td>
+<td>cursor is at the end, so we are done.</td>
+</tr>
+</tbody></table><h4 id="Example"><a name="example" href="#Example">Example</a></h4><p>The following shows how these features are combined together in the Transliterator "Any-Publishing". This transform converts the ASCII typewriter conventions into text more suitable for desktop publishing (in English). It turns straight quotation marks or UNIX style quotation marks into curly quotation marks, fixes multiple spaces, and converts double-hyphens into a dash.</p><pre><code class="language-perl"><span class="hljs-comment"># Variables</span>
 
 $single = \<span class="hljs-string">' ;
 $space = '</span> <span class="hljs-string">' ;
@@ -2833,7 +2893,7 @@ $space {$space} → ; # collapse multiple spaces
 <pre><code>a { b c } d → f | g  ;
 b | c  ←  e { f g } h ;
 </code></pre>
-</blockquote><p>The <code>completed_result</code> | <code>result_to_revisit</code> is also known as the <code>resulting_text</code>. Either or both of the values can be empty. For example, the following removes any a, b, or c. </p><pre><code>[a-c] → ;
+</blockquote><p>The <code>completed_result</code> | <code>result_to_revisit</code> is also known as the <code>resulting_text</code>. Either or both of the values can be empty. For example, the following removes any a, b, or c.</p><pre><code>[a-c] → ;
 </code></pre><h4 id="Intermixing_Transform_Rules_and_Conversion_Rules"><a name="intermixing-transform-rules-and-conversion-rules" href="#Intermixing_Transform_Rules_and_Conversion_Rules">Intermixing Transform Rules and Conversion Rules</a></h4><p>Transform rules and conversion rules may be freely intermixed. Inserting a transform rule into the middle of a set of conversion rules has an important side effect.</p><p>Normally, conversion rules are considered together as a group.  The only time their order in the rule set is important is when more than one rule matches at the same point in the string.  In that case, the one that occurs earlier in the rule set wins.  In all other situations, when multiple rules match overlapping parts of the string, the one that matches earlier wins.</p><p>Transform rules apply to the whole string.  If you have several transform rules in a row, the first one is applied to the whole string, then the second one is applied to the whole string, and so on.  To reconcile this behavior with the behavior of conversion rules, transform rules have the side effect of breaking a surrounding set of conversion rules into two groups: First all of the conversion rules before the transform rule are applied as a group to the whole string in the usual way, then the transform rule is applied to the whole string, and then the conversion rules after the transform rule are applied as a group to the whole string.  For example, consider the following rules:</p><pre><code>abc → xyz;
 xyz → def;
 ::Upper;
@@ -2899,7 +2959,7 @@ m → r ;
 </tr>
 </tbody></table><p>Note how the irrelevant rules (the inverse filter rule and the rules containing ←) are omitted (ignored, actually) in the forward direction, and notice how things are reversed: the transform rules are inverted and happen in the opposite order, and the groups of conversion rules are also executed in the opposite relative order (although the rules within each group are executed in the same order).</p><p>Because the order of rules matters, the following will not work as expected</p><pre><code>c → s;
 ch → kh;
-</code></pre><p>The second rule can never execute, because it is "masked" by the first. 
+</code></pre><p>The second rule can never execute, because it is "masked" by the first.
 To help prevent errors, implementations should try to alert readers when this occurs, eg:</p><pre><code>Rule {c &gt; s;} masks {ch &gt; kh;}
 </code></pre><h3 id="transform-syntax-characters">Transform Syntax Characters</h3><p>The following summarizes the syntax characters used in transforms.</p><table>
 <thead>

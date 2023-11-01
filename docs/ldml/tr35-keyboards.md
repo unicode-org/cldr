@@ -2,7 +2,7 @@
 
 # Unicode Locale Data Markup Language (LDML)<br/>Part 7: Keyboards
 
-|Version|44 (draft)   |
+|Version|45 (draft)   |
 |-------|-------------|
 |Editors|Steven Loomis (<a href="mailto:srloomis@unicode.org">srloomis@unicode.org</a>) and <a href="tr35.md#Acknowledgments">other CLDR committee members</a>|
 
@@ -28,8 +28,8 @@ See <https://cldr.unicode.org> for up-to-date CLDR release data.
 ### _Status_
 
 This document is a _technical preview_ of the Keyboard standard.
-This document has _not_ been approved for publication by the Unicode Consortium,
-and may be substantially altered before any publication. For the latest published version of UTS#35, see <https://www.unicode.org/reports/tr35/>
+
+To process earlier XML files, use the data and specification from v43.1, found at <https://www.unicode.org/reports/tr35/tr35-69/tr35.html>
 
 The CLDR [Keyboard Workgroup](https://cldr.unicode.org/index/keyboard-workgroup) is currently
 developing this technical preview to the CLDR keyboard specification.

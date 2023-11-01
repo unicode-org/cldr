@@ -2,7 +2,7 @@
 
 # Unicode Locale Data Markup Language (LDML)<br/>Part 5: Collation
 
-|Version|44 (draft)      |
+|Version|45 (draft)      |
 |-------|----------------|
 |Editors|Markus Scherer (<a href="mailto:markus.icu@gmail.com">markus.icu@gmail.com</a>) and <a href="tr35.md#Acknowledgments">other CLDR committee members</a>|
 

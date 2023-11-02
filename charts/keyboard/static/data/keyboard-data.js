@@ -1,795 +1,6 @@
 const _KeyboardData = 
 {
  "keyboards": {
-  "ja-Latn.xml": {
-   "?xml": {
-    "@_version": "1.0",
-    "@_encoding": "UTF-8"
-   },
-   "keyboard3": {
-    "locales": {
-     "locale": {
-      "@_id": "en"
-     }
-    },
-    "version": {
-     "@_number": "0.0.0"
-    },
-    "info": {
-     "@_name": "Romaji (JIS)"
-    },
-    "keys": {
-     "import": [
-      {
-       "@_base": "cldr",
-       "@_path": "techpreview/keys-Zyyy-punctuation.xml"
-      },
-      {
-       "@_base": "cldr",
-       "@_path": "techpreview/keys-Zyyy-currency.xml"
-      }
-     ]
-    },
-    "layers": {
-     "layer": [
-      {
-       "row": [
-        {
-         "@_keys": "1 2 3 4 5 6 7 8 9 0 hyphen caret yen"
-        },
-        {
-         "@_keys": "q w e r t y u i o p at open-square"
-        },
-        {
-         "@_keys": "a s d f g h j k l semi-colon colon close-square"
-        },
-        {
-         "@_keys": "z x c v b n m comma period slash underscore"
-        },
-        {
-         "@_keys": "space"
-        }
-       ],
-       "@_modifiers": "none"
-      },
-      {
-       "row": [
-        {
-         "@_keys": "bang double-quote hash dollar percent amp apos open-paren close-paren 0 equal tilde pipe"
-        },
-        {
-         "@_keys": "Q W E R T Y U I O P grave open-curly"
-        },
-        {
-         "@_keys": "A S D F G H J K L plus asterisk close-curly"
-        },
-        {
-         "@_keys": "Z X C V B N M open-angle close-angle question underscore"
-        },
-        {
-         "@_keys": "space"
-        }
-       ],
-       "@_modifiers": "shift"
-      }
-     ],
-     "@_formId": "jis"
-    },
-    "@_locale": "ja-Latn",
-    "@_conformsTo": "techpreview"
-   }
-  },
-  "mt.xml": {
-   "?xml": {
-    "@_version": "1.0",
-    "@_encoding": "UTF-8"
-   },
-   "keyboard3": {
-    "locales": {
-     "locale": {
-      "@_id": "en"
-     }
-    },
-    "info": {
-     "@_name": "Maltese",
-     "@_author": "Steven R. Loomis",
-     "@_layout": "QWERTY",
-     "@_indicator": "MT"
-    },
-    "keys": {
-     "import": [
-      {
-       "@_base": "cldr",
-       "@_path": "techpreview/keys-Zyyy-punctuation.xml"
-      },
-      {
-       "@_base": "cldr",
-       "@_path": "techpreview/keys-Zyyy-currency.xml"
-      }
-     ],
-     "key": [
-      {
-       "@_id": "a-grave",
-       "@_output": "à"
-      },
-      {
-       "@_id": "A-grave",
-       "@_output": "À"
-      },
-      {
-       "@_id": "e-grave",
-       "@_output": "è"
-      },
-      {
-       "@_id": "E-grave",
-       "@_output": "È"
-      },
-      {
-       "@_id": "i-grave",
-       "@_output": "ì"
-      },
-      {
-       "@_id": "I-grave",
-       "@_output": "Ì"
-      },
-      {
-       "@_id": "o-grave",
-       "@_output": "ò"
-      },
-      {
-       "@_id": "O-grave",
-       "@_output": "Ò"
-      },
-      {
-       "@_id": "u-grave",
-       "@_output": "ù"
-      },
-      {
-       "@_id": "U-grave",
-       "@_output": "Ù"
-      },
-      {
-       "@_id": "c-tikka",
-       "@_output": "ċ"
-      },
-      {
-       "@_id": "C-tikka",
-       "@_output": "Ċ"
-      },
-      {
-       "@_id": "g-tikka",
-       "@_output": "ġ"
-      },
-      {
-       "@_id": "G-tikka",
-       "@_output": "Ġ"
-      },
-      {
-       "@_id": "h-maqtugha",
-       "@_output": "ħ"
-      },
-      {
-       "@_id": "H-maqtugha",
-       "@_output": "Ħ"
-      },
-      {
-       "@_id": "z-tikka",
-       "@_output": "ż"
-      },
-      {
-       "@_id": "Z-tikka",
-       "@_output": "Ż"
-      },
-      {
-       "@_id": "c-cedilla",
-       "@_output": "ç"
-      }
-     ]
-    },
-    "layers": {
-     "layer": [
-      {
-       "row": [
-        {
-         "@_keys": "c-tikka 1 2 3 4 5 6 7 8 9 0 hyphen equal"
-        },
-        {
-         "@_keys": "q w e r t y u i o p g-tikka h-maqtugha"
-        },
-        {
-         "@_keys": "a s d f g h j k l semi-colon hash"
-        },
-        {
-         "@_keys": "z-tikka z x c v b n m comma period slash"
-        },
-        {
-         "@_keys": "space"
-        }
-       ],
-       "@_modifiers": "none"
-      },
-      {
-       "row": [
-        {
-         "@_keys": "C-tikka bang double-quote euro dollar percent caret amp open-paren close-paren underscore plus"
-        },
-        {
-         "@_keys": "Q W E R T Y U I O P G-tikka H-maqtugha"
-        },
-        {
-         "@_keys": "A S D F G H J K L colon at tilde"
-        },
-        {
-         "@_keys": "Z-tikka Z X C V B N M open-angle close-angle question"
-        },
-        {
-         "@_keys": "space"
-        }
-       ],
-       "@_modifiers": "shift"
-      },
-      {
-       "row": [
-        {
-         "@_keys": "grave gap gap pound gap gap gap gap gap gap gap gap gap"
-        },
-        {
-         "@_keys": "gap gap e-grave gap gap gap u-grave i-grave o-grave gap open-square close-square"
-        },
-        {
-         "@_keys": "a-grave gap gap gap gap gap gap gap gap gap gap gap"
-        },
-        {
-         "@_keys": "backslash gap gap gap gap gap gap gap gap gap gap"
-        },
-        {
-         "@_keys": "space"
-        }
-       ],
-       "@_modifiers": "altR"
-      },
-      {
-       "row": [
-        {
-         "@_keys": "not gap gap gap gap gap gap gap gap gap gap gap gap"
-        },
-        {
-         "@_keys": "gap gap E-grave gap gap gap U-grave I-grave O-grave gap open-curly close-curly"
-        },
-        {
-         "@_keys": "A-grave gap gap gap gap gap gap gap gap gap gap gap"
-        },
-        {
-         "@_keys": "pipe gap gap gap gap gap gap gap gap gap gap"
-        },
-        {
-         "@_keys": "space"
-        }
-       ],
-       "@_modifiers": "altR shift"
-      }
-     ],
-     "@_formId": "iso"
-    },
-    "@_locale": "mt",
-    "@_conformsTo": "techpreview"
-   }
-  },
-  "pt-t-k0-abnt2.xml": {
-   "?xml": {
-    "@_version": "1.0",
-    "@_encoding": "UTF-8"
-   },
-   "keyboard3": {
-    "locales": {
-     "locale": {
-      "@_id": "pt"
-     }
-    },
-    "version": {
-     "@_number": "0.0.0"
-    },
-    "info": {
-     "@_name": "Portuguese (Brazil) (ABNT2)"
-    },
-    "displays": {
-     "display": [
-      {
-       "@_output": "\\m{acute}",
-       "@_display": "´"
-      },
-      {
-       "@_output": "\\m{grave}",
-       "@_display": "`"
-      },
-      {
-       "@_output": "\\m{umlaut}",
-       "@_display": "¨"
-      },
-      {
-       "@_output": "\\m{caret}",
-       "@_display": "^"
-      },
-      {
-       "@_output": "\\m{tilde}",
-       "@_display": "~"
-      }
-     ]
-    },
-    "keys": {
-     "import": [
-      {
-       "@_base": "cldr",
-       "@_path": "techpreview/keys-Zyyy-punctuation.xml"
-      },
-      {
-       "@_base": "cldr",
-       "@_path": "techpreview/keys-Zyyy-currency.xml"
-      }
-     ],
-     "key": [
-      {
-       "@_id": "d-acute",
-       "@_output": "\\m{acute}"
-      },
-      {
-       "@_id": "d-grave",
-       "@_output": "\\m{grave}"
-      },
-      {
-       "@_id": "d-umlaut",
-       "@_output": "\\m{umlaut}"
-      },
-      {
-       "@_id": "d-caret",
-       "@_output": "\\m{caret}"
-      },
-      {
-       "@_id": "d-tilde",
-       "@_output": "\\m{tilde}"
-      },
-      {
-       "@_id": "c-cedilla",
-       "@_output": "ç"
-      },
-      {
-       "@_id": "C-cedilla",
-       "@_output": "Ç"
-      },
-      {
-       "@_id": "super-1",
-       "@_output": "¹"
-      },
-      {
-       "@_id": "super-2",
-       "@_output": "²"
-      },
-      {
-       "@_id": "super-3",
-       "@_output": "³"
-      },
-      {
-       "@_id": "ordinal-feminine",
-       "@_output": "ª"
-      },
-      {
-       "@_id": "ordinal-masculine",
-       "@_output": "º"
-      }
-     ]
-    },
-    "layers": {
-     "layer": [
-      {
-       "row": [
-        {
-         "@_keys": "apos 1 2 3 4 5 6 7 8 9 0 hyphen equal"
-        },
-        {
-         "@_keys": "q w e r t y u i o p d-acute open-square"
-        },
-        {
-         "@_keys": "a s d f g h j k l c-cedilla d-tilde close-square"
-        },
-        {
-         "@_keys": "backslash z x c v b n m comma period semi-colon slash"
-        },
-        {
-         "@_keys": "space"
-        }
-       ],
-       "@_modifiers": "none"
-      },
-      {
-       "row": [
-        {
-         "@_keys": "double-quote bang at hash dollar percent d-umlaut amp asterisk open-paren close-paren underscore plus"
-        },
-        {
-         "@_keys": "Q W E R T Y U I O P d-grave open-curly"
-        },
-        {
-         "@_keys": "A S D F G H J K L C-cedilla d-caret close-curly"
-        },
-        {
-         "@_keys": "pipe Z X C V B N M open-angle close-angle colon question"
-        },
-        {
-         "@_keys": "space"
-        }
-       ],
-       "@_modifiers": "shift"
-      },
-      {
-       "row": [
-        {
-         "@_keys": "gap super-1 super-2 super-3 pound cent not gap gap gap gap gap section"
-        },
-        {
-         "@_keys": "slash question degree gap gap gap gap gap gap gap gap ordinal-feminine"
-        },
-        {
-         "@_keys": "gap gap gap gap gap gap gap gap gap gap gap ordinal-masculine"
-        },
-        {
-         "@_keys": "gap gap gap cruzeiro gap gap gap gap gap gap gap degree"
-        },
-        {
-         "@_keys": "space"
-        }
-       ],
-       "@_modifiers": "altR"
-      }
-     ],
-     "@_formId": "abnt2"
-    },
-    "@_locale": "pt-t-k0-abnt2",
-    "@_conformsTo": "techpreview"
-   }
-  },
-  "pcm.xml": {
-   "?xml": {
-    "@_version": "1.0",
-    "@_encoding": "UTF-8"
-   },
-   "keyboard3": {
-    "version": {
-     "@_number": "1.0.0"
-    },
-    "info": {
-     "@_name": "Naijíriá Píjin"
-    },
-    "keys": {
-     "import": [
-      {
-       "@_base": "cldr",
-       "@_path": "techpreview/keys-Zyyy-punctuation.xml"
-      },
-      {
-       "@_base": "cldr",
-       "@_path": "techpreview/keys-Zyyy-currency.xml"
-      }
-     ],
-     "key": [
-      {
-       "@_id": "grave",
-       "@_output": "\\u{300}"
-      },
-      {
-       "@_id": "backquote",
-       "@_output": "`"
-      },
-      {
-       "@_id": "acute",
-       "@_output": "\\u{301}"
-      },
-      {
-       "@_id": "odot",
-       "@_output": "ọ"
-      },
-      {
-       "@_id": "Odot",
-       "@_output": "Ọ"
-      },
-      {
-       "@_id": "edot",
-       "@_output": "ẹ"
-      },
-      {
-       "@_id": "Edot",
-       "@_output": "Ẹ"
-      },
-      {
-       "@_id": "naira",
-       "@_output": "₦"
-      }
-     ]
-    },
-    "layers": {
-     "layer": [
-      {
-       "row": [
-        {
-         "@_keys": "grave 1 2 3 4 5 6 7 8 9 0 hyphen equal"
-        },
-        {
-         "@_keys": "acute w e r t y u i o p open-square close-square"
-        },
-        {
-         "@_keys": "a s d f g h j k l odot edot slash"
-        },
-        {
-         "@_keys": "slash z c v b n m comma period semi-colon apos"
-        },
-        {
-         "@_keys": "space"
-        }
-       ],
-       "@_modifiers": "none"
-      },
-      {
-       "row": [
-        {
-         "@_keys": "grave bang at hash dollar naira percent amp asterisk open-paren close-paren underscore plus"
-        },
-        {
-         "@_keys": "A S D F G H J K L Odot Edot question"
-        },
-        {
-         "@_keys": "A S D F G H J K L Odot Edot"
-        },
-        {
-         "@_keys": "question Z C V B N M open-angle close-angle colon double-quote"
-        },
-        {
-         "@_keys": "space"
-        }
-       ],
-       "@_modifiers": "shift"
-      },
-      {
-       "row": [
-        {
-         "@_keys": "backquote 1 2 3 4 5 6 7 8 9 0 hyphen equal"
-        },
-        {
-         "@_keys": "Q W E R T Y U I O P open-square close-square"
-        },
-        {
-         "@_keys": "A S D F G H J K L Odot Edot slash"
-        },
-        {
-         "@_keys": "slash Z C V B N M comma period semi-colon apos"
-        },
-        {
-         "@_keys": "space"
-        }
-       ],
-       "@_modifiers": "caps"
-      }
-     ],
-     "@_formId": "iso"
-    },
-    "transforms": [
-     {
-      "transformGroup": [
-       {
-        "transform": [
-         {
-          "@_from": "''",
-          "@_to": "\\u{323}"
-         }
-        ]
-       }
-      ],
-      "@_type": "simple"
-     }
-    ],
-    "@_locale": "pcm",
-    "@_conformsTo": "techpreview"
-   }
-  },
-  "mt-t-k0-47key.xml": {
-   "?xml": {
-    "@_version": "1.0",
-    "@_encoding": "UTF-8"
-   },
-   "keyboard3": {
-    "locales": {
-     "locale": {
-      "@_id": "en"
-     }
-    },
-    "info": {
-     "@_name": "Maltese 47-key",
-     "@_author": "Steven R. Loomis",
-     "@_layout": "QWERTY",
-     "@_indicator": "MT"
-    },
-    "keys": {
-     "import": [
-      {
-       "@_base": "cldr",
-       "@_path": "techpreview/keys-Zyyy-punctuation.xml"
-      },
-      {
-       "@_base": "cldr",
-       "@_path": "techpreview/keys-Zyyy-currency.xml"
-      }
-     ],
-     "key": [
-      {
-       "@_id": "a-grave",
-       "@_output": "à"
-      },
-      {
-       "@_id": "A-grave",
-       "@_output": "À"
-      },
-      {
-       "@_id": "e-grave",
-       "@_output": "è"
-      },
-      {
-       "@_id": "E-grave",
-       "@_output": "È"
-      },
-      {
-       "@_id": "i-grave",
-       "@_output": "ì"
-      },
-      {
-       "@_id": "I-grave",
-       "@_output": "Ì"
-      },
-      {
-       "@_id": "o-grave",
-       "@_output": "ò"
-      },
-      {
-       "@_id": "O-grave",
-       "@_output": "Ò"
-      },
-      {
-       "@_id": "u-grave",
-       "@_output": "ù"
-      },
-      {
-       "@_id": "U-grave",
-       "@_output": "Ù"
-      },
-      {
-       "@_id": "c-tikka",
-       "@_output": "ċ"
-      },
-      {
-       "@_id": "C-tikka",
-       "@_output": "Ċ"
-      },
-      {
-       "@_id": "g-tikka",
-       "@_output": "ġ"
-      },
-      {
-       "@_id": "G-tikka",
-       "@_output": "Ġ"
-      },
-      {
-       "@_id": "h-maqtugha",
-       "@_output": "ħ"
-      },
-      {
-       "@_id": "H-maqtugha",
-       "@_output": "Ħ"
-      },
-      {
-       "@_id": "z-tikka",
-       "@_output": "ż"
-      },
-      {
-       "@_id": "Z-tikka",
-       "@_output": "Ż"
-      },
-      {
-       "@_id": "c-cedilla",
-       "@_output": "ç"
-      },
-      {
-       "@_id": "gap",
-       "@_gap": "true",
-       "@_width": "1"
-      }
-     ]
-    },
-    "layers": {
-     "layer": [
-      {
-       "row": [
-        {
-         "@_keys": "c-tikka 1 2 3 4 5 6 7 8 9 0 hyphen equal"
-        },
-        {
-         "@_keys": "q w e r t y u i o p g-tikka h-maqtugha z-tikka"
-        },
-        {
-         "@_keys": "a s d f g h j k l semi-colon apos"
-        },
-        {
-         "@_keys": "z x c v b n m comma period slash"
-        },
-        {
-         "@_keys": "space"
-        }
-       ],
-       "@_modifiers": "none"
-      },
-      {
-       "row": [
-        {
-         "@_keys": "C-tikka bang at euro dollar percent caret amp asterisk open-paren close-paren underscore plus"
-        },
-        {
-         "@_keys": "Q W E R T Y U I O P G-tikka H-maqtugha Z-tikka"
-        },
-        {
-         "@_keys": "A S D F G H J K L colon double-quote"
-        },
-        {
-         "@_keys": "Z X C V B N M open-angle close-angle question"
-        },
-        {
-         "@_keys": "space"
-        }
-       ],
-       "@_modifiers": "shift"
-      },
-      {
-       "row": [
-        {
-         "@_keys": "grave gap gap pound gap gap gap gap gap gap gap gap gap"
-        },
-        {
-         "@_keys": "gap gap e-grave gap gap gap u-grave i-grave o-grave gap open-square close-square backslash"
-        },
-        {
-         "@_keys": "a-grave gap gap gap gap gap gap gap gap gap gap"
-        },
-        {
-         "@_keys": "gap gap gap gap gap gap gap gap gap gap"
-        },
-        {
-         "@_keys": "space"
-        }
-       ],
-       "@_modifiers": "altR"
-      },
-      {
-       "row": [
-        {
-         "@_keys": "tilde gap gap gap gap gap gap gap gap gap gap gap gap"
-        },
-        {
-         "@_keys": "gap gap E-grave gap gap gap U-grave I-grave O-grave gap open-curly close-curly pipe"
-        },
-        {
-         "@_keys": "A-grave gap gap gap gap gap gap gap gap gap gap"
-        },
-        {
-         "@_keys": "gap gap gap gap gap gap gap gap gap gap"
-        },
-        {
-         "@_keys": "space"
-        }
-       ],
-       "@_modifiers": "altR shift"
-      }
-     ],
-     "@_formId": "us"
-    },
-    "@_locale": "mt-t-k0-47key",
-    "@_conformsTo": "techpreview"
-   }
-  },
   "fr-t-k0-azerty.xml": {
    "?xml": {
     "@_version": "1.0",
@@ -1249,159 +460,798 @@ const _KeyboardData =
     "@_locale": "fr-t-k0-azerty",
     "@_conformsTo": "techpreview"
    }
-  }
- },
- "imports": {
-  "keys-Zyyy-punctuation.xml": {
+  },
+  "ja-Latn.xml": {
    "?xml": {
     "@_version": "1.0",
     "@_encoding": "UTF-8"
    },
-   "keys": {
-    "key": [
-     {
-      "@_id": "amp",
-      "@_output": "\\u{0026}"
-     },
-     {
-      "@_id": "apos",
-      "@_output": "'"
-     },
-     {
-      "@_id": "asterisk",
-      "@_output": "*"
-     },
-     {
-      "@_id": "at",
-      "@_output": "@"
-     },
-     {
-      "@_id": "backslash",
-      "@_output": "\\u{005C}"
-     },
-     {
-      "@_id": "bang",
-      "@_output": "!"
-     },
-     {
-      "@_id": "caret",
-      "@_output": "^"
-     },
-     {
-      "@_id": "close-angle",
-      "@_output": ">"
-     },
-     {
-      "@_id": "close-curly",
-      "@_output": "}"
-     },
-     {
-      "@_id": "close-paren",
-      "@_output": ")"
-     },
-     {
-      "@_id": "close-square",
-      "@_output": "]"
-     },
-     {
-      "@_id": "colon",
-      "@_output": ":"
-     },
-     {
-      "@_id": "comma",
-      "@_output": ","
-     },
-     {
-      "@_id": "degree",
-      "@_output": "°"
-     },
-     {
-      "@_id": "double-quote",
-      "@_output": "\\u{0022}"
-     },
-     {
-      "@_id": "equal",
-      "@_output": "="
-     },
-     {
-      "@_id": "grave",
-      "@_output": "`"
-     },
-     {
-      "@_id": "hash",
-      "@_output": "#"
-     },
-     {
-      "@_id": "hyphen",
-      "@_output": "-"
-     },
-     {
-      "@_id": "micro",
-      "@_output": "µ"
-     },
-     {
-      "@_id": "not",
-      "@_output": "¬"
-     },
-     {
-      "@_id": "open-angle",
-      "@_output": "\\u{003C}"
-     },
-     {
-      "@_id": "open-curly",
-      "@_output": "{"
-     },
-     {
-      "@_id": "open-paren",
-      "@_output": "("
-     },
-     {
-      "@_id": "open-square",
-      "@_output": "["
-     },
-     {
-      "@_id": "percent",
-      "@_output": "%"
-     },
-     {
-      "@_id": "period",
-      "@_output": "."
-     },
-     {
-      "@_id": "pipe",
-      "@_output": "|"
-     },
-     {
-      "@_id": "plus",
-      "@_output": "+"
-     },
-     {
-      "@_id": "question",
-      "@_output": "?"
-     },
-     {
-      "@_id": "section",
-      "@_output": "§"
-     },
-     {
-      "@_id": "semi-colon",
-      "@_output": ";"
-     },
-     {
-      "@_id": "slash",
-      "@_output": "/"
-     },
-     {
-      "@_id": "tilde",
-      "@_output": "~"
-     },
-     {
-      "@_id": "underscore",
-      "@_output": "_"
+   "keyboard3": {
+    "locales": {
+     "locale": {
+      "@_id": "en"
      }
-    ]
+    },
+    "version": {
+     "@_number": "0.0.0"
+    },
+    "info": {
+     "@_name": "Romaji (JIS)"
+    },
+    "keys": {
+     "import": [
+      {
+       "@_base": "cldr",
+       "@_path": "techpreview/keys-Zyyy-punctuation.xml"
+      },
+      {
+       "@_base": "cldr",
+       "@_path": "techpreview/keys-Zyyy-currency.xml"
+      }
+     ]
+    },
+    "layers": {
+     "layer": [
+      {
+       "row": [
+        {
+         "@_keys": "1 2 3 4 5 6 7 8 9 0 hyphen caret yen"
+        },
+        {
+         "@_keys": "q w e r t y u i o p at open-square"
+        },
+        {
+         "@_keys": "a s d f g h j k l semi-colon colon close-square"
+        },
+        {
+         "@_keys": "z x c v b n m comma period slash underscore"
+        },
+        {
+         "@_keys": "space"
+        }
+       ],
+       "@_modifiers": "none"
+      },
+      {
+       "row": [
+        {
+         "@_keys": "bang double-quote hash dollar percent amp apos open-paren close-paren 0 equal tilde pipe"
+        },
+        {
+         "@_keys": "Q W E R T Y U I O P grave open-curly"
+        },
+        {
+         "@_keys": "A S D F G H J K L plus asterisk close-curly"
+        },
+        {
+         "@_keys": "Z X C V B N M open-angle close-angle question underscore"
+        },
+        {
+         "@_keys": "space"
+        }
+       ],
+       "@_modifiers": "shift"
+      }
+     ],
+     "@_formId": "jis"
+    },
+    "@_locale": "ja-Latn",
+    "@_conformsTo": "techpreview"
    }
   },
+  "pcm.xml": {
+   "?xml": {
+    "@_version": "1.0",
+    "@_encoding": "UTF-8"
+   },
+   "keyboard3": {
+    "version": {
+     "@_number": "1.0.0"
+    },
+    "info": {
+     "@_name": "Naijíriá Píjin"
+    },
+    "keys": {
+     "import": [
+      {
+       "@_base": "cldr",
+       "@_path": "techpreview/keys-Zyyy-punctuation.xml"
+      },
+      {
+       "@_base": "cldr",
+       "@_path": "techpreview/keys-Zyyy-currency.xml"
+      }
+     ],
+     "key": [
+      {
+       "@_id": "grave",
+       "@_output": "\\u{300}"
+      },
+      {
+       "@_id": "backquote",
+       "@_output": "`"
+      },
+      {
+       "@_id": "acute",
+       "@_output": "\\u{301}"
+      },
+      {
+       "@_id": "odot",
+       "@_output": "ọ"
+      },
+      {
+       "@_id": "Odot",
+       "@_output": "Ọ"
+      },
+      {
+       "@_id": "edot",
+       "@_output": "ẹ"
+      },
+      {
+       "@_id": "Edot",
+       "@_output": "Ẹ"
+      },
+      {
+       "@_id": "naira",
+       "@_output": "₦"
+      }
+     ]
+    },
+    "layers": {
+     "layer": [
+      {
+       "row": [
+        {
+         "@_keys": "grave 1 2 3 4 5 6 7 8 9 0 hyphen equal"
+        },
+        {
+         "@_keys": "acute w e r t y u i o p open-square close-square"
+        },
+        {
+         "@_keys": "a s d f g h j k l odot edot slash"
+        },
+        {
+         "@_keys": "slash z c v b n m comma period semi-colon apos"
+        },
+        {
+         "@_keys": "space"
+        }
+       ],
+       "@_modifiers": "none"
+      },
+      {
+       "row": [
+        {
+         "@_keys": "grave bang at hash dollar naira percent amp asterisk open-paren close-paren underscore plus"
+        },
+        {
+         "@_keys": "A S D F G H J K L Odot Edot question"
+        },
+        {
+         "@_keys": "A S D F G H J K L Odot Edot"
+        },
+        {
+         "@_keys": "question Z C V B N M open-angle close-angle colon double-quote"
+        },
+        {
+         "@_keys": "space"
+        }
+       ],
+       "@_modifiers": "shift"
+      },
+      {
+       "row": [
+        {
+         "@_keys": "backquote 1 2 3 4 5 6 7 8 9 0 hyphen equal"
+        },
+        {
+         "@_keys": "Q W E R T Y U I O P open-square close-square"
+        },
+        {
+         "@_keys": "A S D F G H J K L Odot Edot slash"
+        },
+        {
+         "@_keys": "slash Z C V B N M comma period semi-colon apos"
+        },
+        {
+         "@_keys": "space"
+        }
+       ],
+       "@_modifiers": "caps"
+      }
+     ],
+     "@_formId": "iso"
+    },
+    "transforms": [
+     {
+      "transformGroup": [
+       {
+        "transform": [
+         {
+          "@_from": "''",
+          "@_to": "\\u{323}"
+         }
+        ]
+       }
+      ],
+      "@_type": "simple"
+     }
+    ],
+    "@_locale": "pcm",
+    "@_conformsTo": "techpreview"
+   }
+  },
+  "pt-t-k0-abnt2.xml": {
+   "?xml": {
+    "@_version": "1.0",
+    "@_encoding": "UTF-8"
+   },
+   "keyboard3": {
+    "locales": {
+     "locale": {
+      "@_id": "pt"
+     }
+    },
+    "version": {
+     "@_number": "0.0.0"
+    },
+    "info": {
+     "@_name": "Portuguese (Brazil) (ABNT2)"
+    },
+    "displays": {
+     "display": [
+      {
+       "@_output": "\\m{acute}",
+       "@_display": "´"
+      },
+      {
+       "@_output": "\\m{grave}",
+       "@_display": "`"
+      },
+      {
+       "@_output": "\\m{umlaut}",
+       "@_display": "¨"
+      },
+      {
+       "@_output": "\\m{caret}",
+       "@_display": "^"
+      },
+      {
+       "@_output": "\\m{tilde}",
+       "@_display": "~"
+      }
+     ]
+    },
+    "keys": {
+     "import": [
+      {
+       "@_base": "cldr",
+       "@_path": "techpreview/keys-Zyyy-punctuation.xml"
+      },
+      {
+       "@_base": "cldr",
+       "@_path": "techpreview/keys-Zyyy-currency.xml"
+      }
+     ],
+     "key": [
+      {
+       "@_id": "d-acute",
+       "@_output": "\\m{acute}"
+      },
+      {
+       "@_id": "d-grave",
+       "@_output": "\\m{grave}"
+      },
+      {
+       "@_id": "d-umlaut",
+       "@_output": "\\m{umlaut}"
+      },
+      {
+       "@_id": "d-caret",
+       "@_output": "\\m{caret}"
+      },
+      {
+       "@_id": "d-tilde",
+       "@_output": "\\m{tilde}"
+      },
+      {
+       "@_id": "c-cedilla",
+       "@_output": "ç"
+      },
+      {
+       "@_id": "C-cedilla",
+       "@_output": "Ç"
+      },
+      {
+       "@_id": "super-1",
+       "@_output": "¹"
+      },
+      {
+       "@_id": "super-2",
+       "@_output": "²"
+      },
+      {
+       "@_id": "super-3",
+       "@_output": "³"
+      },
+      {
+       "@_id": "ordinal-feminine",
+       "@_output": "ª"
+      },
+      {
+       "@_id": "ordinal-masculine",
+       "@_output": "º"
+      }
+     ]
+    },
+    "layers": {
+     "layer": [
+      {
+       "row": [
+        {
+         "@_keys": "apos 1 2 3 4 5 6 7 8 9 0 hyphen equal"
+        },
+        {
+         "@_keys": "q w e r t y u i o p d-acute open-square"
+        },
+        {
+         "@_keys": "a s d f g h j k l c-cedilla d-tilde close-square"
+        },
+        {
+         "@_keys": "backslash z x c v b n m comma period semi-colon slash"
+        },
+        {
+         "@_keys": "space"
+        }
+       ],
+       "@_modifiers": "none"
+      },
+      {
+       "row": [
+        {
+         "@_keys": "double-quote bang at hash dollar percent d-umlaut amp asterisk open-paren close-paren underscore plus"
+        },
+        {
+         "@_keys": "Q W E R T Y U I O P d-grave open-curly"
+        },
+        {
+         "@_keys": "A S D F G H J K L C-cedilla d-caret close-curly"
+        },
+        {
+         "@_keys": "pipe Z X C V B N M open-angle close-angle colon question"
+        },
+        {
+         "@_keys": "space"
+        }
+       ],
+       "@_modifiers": "shift"
+      },
+      {
+       "row": [
+        {
+         "@_keys": "gap super-1 super-2 super-3 pound cent not gap gap gap gap gap section"
+        },
+        {
+         "@_keys": "slash question degree gap gap gap gap gap gap gap gap ordinal-feminine"
+        },
+        {
+         "@_keys": "gap gap gap gap gap gap gap gap gap gap gap ordinal-masculine"
+        },
+        {
+         "@_keys": "gap gap gap cruzeiro gap gap gap gap gap gap gap degree"
+        },
+        {
+         "@_keys": "space"
+        }
+       ],
+       "@_modifiers": "altR"
+      }
+     ],
+     "@_formId": "abnt2"
+    },
+    "@_locale": "pt-t-k0-abnt2",
+    "@_conformsTo": "techpreview"
+   }
+  },
+  "mt.xml": {
+   "?xml": {
+    "@_version": "1.0",
+    "@_encoding": "UTF-8"
+   },
+   "keyboard3": {
+    "locales": {
+     "locale": {
+      "@_id": "en"
+     }
+    },
+    "info": {
+     "@_name": "Maltese",
+     "@_author": "Steven R. Loomis",
+     "@_layout": "QWERTY",
+     "@_indicator": "MT"
+    },
+    "keys": {
+     "import": [
+      {
+       "@_base": "cldr",
+       "@_path": "techpreview/keys-Zyyy-punctuation.xml"
+      },
+      {
+       "@_base": "cldr",
+       "@_path": "techpreview/keys-Zyyy-currency.xml"
+      }
+     ],
+     "key": [
+      {
+       "@_id": "a-grave",
+       "@_output": "à"
+      },
+      {
+       "@_id": "A-grave",
+       "@_output": "À"
+      },
+      {
+       "@_id": "e-grave",
+       "@_output": "è"
+      },
+      {
+       "@_id": "E-grave",
+       "@_output": "È"
+      },
+      {
+       "@_id": "i-grave",
+       "@_output": "ì"
+      },
+      {
+       "@_id": "I-grave",
+       "@_output": "Ì"
+      },
+      {
+       "@_id": "o-grave",
+       "@_output": "ò"
+      },
+      {
+       "@_id": "O-grave",
+       "@_output": "Ò"
+      },
+      {
+       "@_id": "u-grave",
+       "@_output": "ù"
+      },
+      {
+       "@_id": "U-grave",
+       "@_output": "Ù"
+      },
+      {
+       "@_id": "c-tikka",
+       "@_output": "ċ"
+      },
+      {
+       "@_id": "C-tikka",
+       "@_output": "Ċ"
+      },
+      {
+       "@_id": "g-tikka",
+       "@_output": "ġ"
+      },
+      {
+       "@_id": "G-tikka",
+       "@_output": "Ġ"
+      },
+      {
+       "@_id": "h-maqtugha",
+       "@_output": "ħ"
+      },
+      {
+       "@_id": "H-maqtugha",
+       "@_output": "Ħ"
+      },
+      {
+       "@_id": "z-tikka",
+       "@_output": "ż"
+      },
+      {
+       "@_id": "Z-tikka",
+       "@_output": "Ż"
+      },
+      {
+       "@_id": "c-cedilla",
+       "@_output": "ç"
+      }
+     ]
+    },
+    "layers": {
+     "layer": [
+      {
+       "row": [
+        {
+         "@_keys": "c-tikka 1 2 3 4 5 6 7 8 9 0 hyphen equal"
+        },
+        {
+         "@_keys": "q w e r t y u i o p g-tikka h-maqtugha"
+        },
+        {
+         "@_keys": "a s d f g h j k l semi-colon hash"
+        },
+        {
+         "@_keys": "z-tikka z x c v b n m comma period slash"
+        },
+        {
+         "@_keys": "space"
+        }
+       ],
+       "@_modifiers": "none"
+      },
+      {
+       "row": [
+        {
+         "@_keys": "C-tikka bang double-quote euro dollar percent caret amp open-paren close-paren underscore plus"
+        },
+        {
+         "@_keys": "Q W E R T Y U I O P G-tikka H-maqtugha"
+        },
+        {
+         "@_keys": "A S D F G H J K L colon at tilde"
+        },
+        {
+         "@_keys": "Z-tikka Z X C V B N M open-angle close-angle question"
+        },
+        {
+         "@_keys": "space"
+        }
+       ],
+       "@_modifiers": "shift"
+      },
+      {
+       "row": [
+        {
+         "@_keys": "grave gap gap pound gap gap gap gap gap gap gap gap gap"
+        },
+        {
+         "@_keys": "gap gap e-grave gap gap gap u-grave i-grave o-grave gap open-square close-square"
+        },
+        {
+         "@_keys": "a-grave gap gap gap gap gap gap gap gap gap gap gap"
+        },
+        {
+         "@_keys": "backslash gap gap gap gap gap gap gap gap gap gap"
+        },
+        {
+         "@_keys": "space"
+        }
+       ],
+       "@_modifiers": "altR"
+      },
+      {
+       "row": [
+        {
+         "@_keys": "not gap gap gap gap gap gap gap gap gap gap gap gap"
+        },
+        {
+         "@_keys": "gap gap E-grave gap gap gap U-grave I-grave O-grave gap open-curly close-curly"
+        },
+        {
+         "@_keys": "A-grave gap gap gap gap gap gap gap gap gap gap gap"
+        },
+        {
+         "@_keys": "pipe gap gap gap gap gap gap gap gap gap gap"
+        },
+        {
+         "@_keys": "space"
+        }
+       ],
+       "@_modifiers": "altR shift"
+      }
+     ],
+     "@_formId": "iso"
+    },
+    "@_locale": "mt",
+    "@_conformsTo": "techpreview"
+   }
+  },
+  "mt-t-k0-47key.xml": {
+   "?xml": {
+    "@_version": "1.0",
+    "@_encoding": "UTF-8"
+   },
+   "keyboard3": {
+    "locales": {
+     "locale": {
+      "@_id": "en"
+     }
+    },
+    "info": {
+     "@_name": "Maltese 47-key",
+     "@_author": "Steven R. Loomis",
+     "@_layout": "QWERTY",
+     "@_indicator": "MT"
+    },
+    "keys": {
+     "import": [
+      {
+       "@_base": "cldr",
+       "@_path": "techpreview/keys-Zyyy-punctuation.xml"
+      },
+      {
+       "@_base": "cldr",
+       "@_path": "techpreview/keys-Zyyy-currency.xml"
+      }
+     ],
+     "key": [
+      {
+       "@_id": "a-grave",
+       "@_output": "à"
+      },
+      {
+       "@_id": "A-grave",
+       "@_output": "À"
+      },
+      {
+       "@_id": "e-grave",
+       "@_output": "è"
+      },
+      {
+       "@_id": "E-grave",
+       "@_output": "È"
+      },
+      {
+       "@_id": "i-grave",
+       "@_output": "ì"
+      },
+      {
+       "@_id": "I-grave",
+       "@_output": "Ì"
+      },
+      {
+       "@_id": "o-grave",
+       "@_output": "ò"
+      },
+      {
+       "@_id": "O-grave",
+       "@_output": "Ò"
+      },
+      {
+       "@_id": "u-grave",
+       "@_output": "ù"
+      },
+      {
+       "@_id": "U-grave",
+       "@_output": "Ù"
+      },
+      {
+       "@_id": "c-tikka",
+       "@_output": "ċ"
+      },
+      {
+       "@_id": "C-tikka",
+       "@_output": "Ċ"
+      },
+      {
+       "@_id": "g-tikka",
+       "@_output": "ġ"
+      },
+      {
+       "@_id": "G-tikka",
+       "@_output": "Ġ"
+      },
+      {
+       "@_id": "h-maqtugha",
+       "@_output": "ħ"
+      },
+      {
+       "@_id": "H-maqtugha",
+       "@_output": "Ħ"
+      },
+      {
+       "@_id": "z-tikka",
+       "@_output": "ż"
+      },
+      {
+       "@_id": "Z-tikka",
+       "@_output": "Ż"
+      },
+      {
+       "@_id": "c-cedilla",
+       "@_output": "ç"
+      },
+      {
+       "@_id": "gap",
+       "@_gap": "true",
+       "@_width": "1"
+      }
+     ]
+    },
+    "layers": {
+     "layer": [
+      {
+       "row": [
+        {
+         "@_keys": "c-tikka 1 2 3 4 5 6 7 8 9 0 hyphen equal"
+        },
+        {
+         "@_keys": "q w e r t y u i o p g-tikka h-maqtugha z-tikka"
+        },
+        {
+         "@_keys": "a s d f g h j k l semi-colon apos"
+        },
+        {
+         "@_keys": "z x c v b n m comma period slash"
+        },
+        {
+         "@_keys": "space"
+        }
+       ],
+       "@_modifiers": "none"
+      },
+      {
+       "row": [
+        {
+         "@_keys": "C-tikka bang at euro dollar percent caret amp asterisk open-paren close-paren underscore plus"
+        },
+        {
+         "@_keys": "Q W E R T Y U I O P G-tikka H-maqtugha Z-tikka"
+        },
+        {
+         "@_keys": "A S D F G H J K L colon double-quote"
+        },
+        {
+         "@_keys": "Z X C V B N M open-angle close-angle question"
+        },
+        {
+         "@_keys": "space"
+        }
+       ],
+       "@_modifiers": "shift"
+      },
+      {
+       "row": [
+        {
+         "@_keys": "grave gap gap pound gap gap gap gap gap gap gap gap gap"
+        },
+        {
+         "@_keys": "gap gap e-grave gap gap gap u-grave i-grave o-grave gap open-square close-square backslash"
+        },
+        {
+         "@_keys": "a-grave gap gap gap gap gap gap gap gap gap gap"
+        },
+        {
+         "@_keys": "gap gap gap gap gap gap gap gap gap gap"
+        },
+        {
+         "@_keys": "space"
+        }
+       ],
+       "@_modifiers": "altR"
+      },
+      {
+       "row": [
+        {
+         "@_keys": "tilde gap gap gap gap gap gap gap gap gap gap gap gap"
+        },
+        {
+         "@_keys": "gap gap E-grave gap gap gap U-grave I-grave O-grave gap open-curly close-curly pipe"
+        },
+        {
+         "@_keys": "A-grave gap gap gap gap gap gap gap gap gap gap"
+        },
+        {
+         "@_keys": "gap gap gap gap gap gap gap gap gap gap"
+        },
+        {
+         "@_keys": "space"
+        }
+       ],
+       "@_modifiers": "altR shift"
+      }
+     ],
+     "@_formId": "us"
+    },
+    "@_locale": "mt-t-k0-47key",
+    "@_conformsTo": "techpreview"
+   }
+  }
+ },
+ "imports": {
   "keys-Latn-implied.xml": {
    "?xml": {
     "@_version": "1.0",
@@ -1811,6 +1661,156 @@ const _KeyboardData =
        }
       ],
       "@_id": "ks"
+     }
+    ]
+   }
+  },
+  "keys-Zyyy-punctuation.xml": {
+   "?xml": {
+    "@_version": "1.0",
+    "@_encoding": "UTF-8"
+   },
+   "keys": {
+    "key": [
+     {
+      "@_id": "amp",
+      "@_output": "\\u{0026}"
+     },
+     {
+      "@_id": "apos",
+      "@_output": "'"
+     },
+     {
+      "@_id": "asterisk",
+      "@_output": "*"
+     },
+     {
+      "@_id": "at",
+      "@_output": "@"
+     },
+     {
+      "@_id": "backslash",
+      "@_output": "\\u{005C}"
+     },
+     {
+      "@_id": "bang",
+      "@_output": "!"
+     },
+     {
+      "@_id": "caret",
+      "@_output": "^"
+     },
+     {
+      "@_id": "close-angle",
+      "@_output": ">"
+     },
+     {
+      "@_id": "close-curly",
+      "@_output": "}"
+     },
+     {
+      "@_id": "close-paren",
+      "@_output": ")"
+     },
+     {
+      "@_id": "close-square",
+      "@_output": "]"
+     },
+     {
+      "@_id": "colon",
+      "@_output": ":"
+     },
+     {
+      "@_id": "comma",
+      "@_output": ","
+     },
+     {
+      "@_id": "degree",
+      "@_output": "°"
+     },
+     {
+      "@_id": "double-quote",
+      "@_output": "\\u{0022}"
+     },
+     {
+      "@_id": "equal",
+      "@_output": "="
+     },
+     {
+      "@_id": "grave",
+      "@_output": "`"
+     },
+     {
+      "@_id": "hash",
+      "@_output": "#"
+     },
+     {
+      "@_id": "hyphen",
+      "@_output": "-"
+     },
+     {
+      "@_id": "micro",
+      "@_output": "µ"
+     },
+     {
+      "@_id": "not",
+      "@_output": "¬"
+     },
+     {
+      "@_id": "open-angle",
+      "@_output": "\\u{003C}"
+     },
+     {
+      "@_id": "open-curly",
+      "@_output": "{"
+     },
+     {
+      "@_id": "open-paren",
+      "@_output": "("
+     },
+     {
+      "@_id": "open-square",
+      "@_output": "["
+     },
+     {
+      "@_id": "percent",
+      "@_output": "%"
+     },
+     {
+      "@_id": "period",
+      "@_output": "."
+     },
+     {
+      "@_id": "pipe",
+      "@_output": "|"
+     },
+     {
+      "@_id": "plus",
+      "@_output": "+"
+     },
+     {
+      "@_id": "question",
+      "@_output": "?"
+     },
+     {
+      "@_id": "section",
+      "@_output": "§"
+     },
+     {
+      "@_id": "semi-colon",
+      "@_output": ";"
+     },
+     {
+      "@_id": "slash",
+      "@_output": "/"
+     },
+     {
+      "@_id": "tilde",
+      "@_output": "~"
+     },
+     {
+      "@_id": "underscore",
+      "@_output": "_"
      }
     ]
    }

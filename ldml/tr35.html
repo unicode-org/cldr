@@ -986,7 +986,7 @@
 <thead>
 <tr>
 <th>Version</th>
-<th>44 (draft)</th>
+<th>45 (draft)</th>
 </tr>
 </thead>
 <tbody><tr>
@@ -995,15 +995,15 @@
 </tr>
 <tr>
 <td>Date</td>
-<td>2023-10-23</td>
+<td>2023-11-01</td>
 </tr>
 <tr>
 <td>This Version</td>
-<td><a href="https://www.unicode.org/reports/tr35/tr35-69/tr35.html">https://www.unicode.org/reports/tr35/tr35-68/tr35.html</a></td>
+<td><a href="https://www.unicode.org/reports/tr35/tr35-71/tr35.html">https://www.unicode.org/reports/tr35/tr35-71/tr35.html</a></td>
 </tr>
 <tr>
 <td>Previous Version</td>
-<td><a href="https://www.unicode.org/reports/tr35/tr35-68/tr35.html">https://www.unicode.org/reports/tr35/tr35-67/tr35.html</a></td>
+<td><a href="https://www.unicode.org/reports/tr35/tr35-70/tr35.html">https://www.unicode.org/reports/tr35/tr35-70/tr35.html</a></td>
 </tr>
 <tr>
 <td>Latest Version</td>
@@ -1023,11 +1023,11 @@
 </tr>
 <tr>
 <td>DTDs</td>
-<td><a href="https://www.unicode.org/cldr/dtd/43/">https://www.unicode.org/cldr/dtd/43/</a></td>
+<td><a href="https://www.unicode.org/cldr/dtd/45/">https://www.unicode.org/cldr/dtd/45/</a></td>
 </tr>
 <tr>
 <td>Revision</td>
-<td><a href="#Modifications">69</a></td>
+<td><a href="#Modifications">71</a></td>
 </tr>
 </tbody></table><h3 id="summary"><em>Summary</em></h3><p>This document describes an XML format (<em>vocabulary</em>) for the exchange of structured locale data. This format is used in the <a href="https://www.unicode.org/cldr/">Unicode Common Locale Data Repository</a>.</p><p><em>Note:</em>
 Some links may lead to in-development or older
@@ -5147,7 +5147,7 @@ See §3.8.2 <a href="#Legacy_Variants">Legacy Variants</a>.</p>
 <li>Rich Gillam for work on Person Names.</li>
 <li>Alex Kolisnychenko for work on Person Names.</li>
 <li>Mike McKenna for work on Person Names.</li>
-</ul><p>Other contributors to CLDR are listed on the <a href="https://www.unicode.org/cldr/">CLDR Project Page</a>.</p><h2 id="Modifications"><a name="modifications" href="#Modifications">Modifications</a></h2><p><strong>Differences from LDML Version 43</strong></p><ul>
+</ul><p>Other contributors to CLDR are listed on the <a href="https://www.unicode.org/cldr/">CLDR Project Page</a>.</p><h2 id="Modifications"><a name="modifications" href="#Modifications">Modifications</a></h2><p><strong>Differences from LDML Version 44</strong></p><p>(TBD)</p><p><strong>Differences from LDML Version 43 to 44</strong></p><ul>
 <li><p><a href="#Contents">Core</a></p>
 <ul>
 <li>In <a href="#Time_Zone_Identifiers">Time Zone Identifiers</a>, added information on the new <code>iana</code> attribute for stability; also see information on <code>iana</code> in the section <a href="#Unicode_Locale_Extension_Data_Files">U Extension Data Files</a>.</li>
@@ -5195,53 +5195,6 @@ See §3.8.2 <a href="#Legacy_Variants">Legacy Variants</a>.</p>
 <li>Added sections on <a href="tr35-personNames.html#grammatical-modifiers-for-names">Grammatical Modifiers for Names</a> and <a href="tr35-personNames.html#future-modifiers">Future Modifiers</a>.</li>
 <li>Fixed a problem in <a href="tr35-personNames.html#switch-the-formatting-locale-if-necessary">Switch the formatting locale if necessary</a>, where the full formatting locale wasn't being set correctly when the name object has a locale whose script is incompatibility with name script.</li>
 <li>Rewrote the section on <a href="tr35-personNames.html#setting-the-spacereplacement">Setting the spaceReplacement</a>.</li>
-</ul>
-</li>
-</ul><p><strong>Differences from LDML Version 42</strong></p><ul>
-<li>Removed numbering from sections, to allow for more flexible reorganization of the specification in the future</li>
-<li><a href="tr35-personNames.html#Contents">Person Names</a><ul>
-<li>Brought Person Name Formatting out of tech preview</li>
-<li>Described the changes from the fields <em>prefix</em> and <em>suffix</em> to the fields <em>title</em>, <em>generation</em>, and <em>credentials</em>.
-The problem was that ‘prefix’ and ‘suffix’ are positional terms, whereas the contents may need to change position based on the locale.</li>
-<li>Provided much more detailed algorithms for the whole <a href="tr35-personNames.html#formatting-process">Formatting Process</a>,
-including additional processing steps such as <a href="tr35-personNames.html#handle-missing-surname">Handle missing surname</a></li>
-<li>Documented changes in the <a href="tr35-personNames.html#sample-name">Sample Name</a> structure (whose primary use is internal to CLDR data collection)</li>
-<li>For more background, the <a href="https://docs.google.com/document/d/1mjxIHsb97Og8ub6BKWxOihcHz7zjU4GdFkIxWHGAtes/edit#heading=h.4u6bqbd313a5">Person Names Guide</a> may be helpful,
-although it is primarily targeted at CLDR data submitters.</li>
-</ul>
-</li>
-<li><strong>Locales</strong><ul>
-<li>Fixed formatting errors in <a href="#likely-subtags">Likely Subtags</a></li>
-<li>Improved the specification information about the effect of locale keywords<ul>
-<li>"fw" keyword for first day of the week in <a href="tr35-dates.html#Week_Data">Week Data</a></li>
-<li>"hc" keyword for hour cycle in <a href="tr35-dates.html#Time_Data">Time Data</a></li>
-<li>"dx", "lb", "lw", "ss" keywords related to line wrapping in <a href="tr35-general.html#segmentations">Segmentations</a></li>
-<li>"cf" keyword in <a href="tr35-numbers.html#Currency_Formats">Currency Formats</a></li>
-<li>"ca", "cf", "dx", "fw", "hc", "lb", "lw", "ms", "mu", "rg" keyword updates in <a href="#Key_And_Type_Definitions_">Key And Type Definitions</a></li>
-</ul>
-</li>
-<li><a href="#Parent_Locales">Parent Locales</a><ul>
-<li>Documented the new <code>component</code> attribute, which provides for different inheritance behavior for different components (such as segmentation or collation)</li>
-</ul>
-</li>
-<li><a href="#Region_Priority_Inheritance">Region-Priority Inheritance</a><ul>
-<li>Documented the differences in inheritance for rgScope data, which inherits primarily by region rather than primarily by language.</li>
-<li>Includes small changes in <a href="tr35-info.html#rgScope"><code>&lt;rgScope&gt;</code>: Scope of the “rg” Locale Key</a>, in <a href="#lookup">Lookup</a>,
-and in <a href="#Bundle_vs_Item_Lookup">Bundle vs Item Lookup</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="tr35-dates.html#calendar-data">Calendar Data</a><ul>
-<li>Documents new optional <code>code</code> and <code>aliases</code> attributes to eras, which allow string IDs for eras instead of just numbers</li>
-</ul>
-</li>
-<li><a href="#Data_Size">Data Size Reduction</a><ul>
-<li>Added new section with guidance on how to reduce CLDR data size where necessary</li>
-</ul>
-</li>
-<li><a href="tr35-info.html#Telephone_Code_Data">Telephone Code Data</a><ul>
-<li>Added pointer to the recommended open-source library <a href="https://github.com/google/libphonenumber#what-is-it">libphonenumber</a></li>
 </ul>
 </li>
 </ul><p>Note that small changes such as typos and link fixes are not listed above.

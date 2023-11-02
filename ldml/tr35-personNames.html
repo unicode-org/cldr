@@ -364,7 +364,7 @@
 <thead>
 <tr>
 <th>Version</th>
-<th>44 (draft)</th>
+<th>45 (draft)</th>
 </tr>
 </thead>
 <tbody><tr>
@@ -599,7 +599,7 @@ This is a stable document and may be used as reference material or cited as a no
 <code>&lt;nameOrderLocales order="surnameFirst"&gt;ko vi yue zh&lt;/nameOrderLocales&gt;</code></p>
 </blockquote><p>This would tell the formatting code, when handling person name data from an English locale, to use patterns with the <code>givenFirst</code> order attribute for all data except name data from Korean, Vietnamese, Cantonese, and Chinese locales, where the <code>surnameFirst</code> patterns should be used.</p><h3 id="parameterdefault-element">parameterDefault Element</h3><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">parameterDefault</span> ( <span class="hljs-keyword">#PCDATA</span> ) &gt;</span>
 <span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">parameterDefault</span> <span class="hljs-keyword">parameter</span> (<span class="hljs-keyword">length</span> | <span class="hljs-keyword">formality</span>) <span class="hljs-keyword">#REQUIRED</span> &gt;</span>
-</code></pre><p>Many clients of the person-names functionality don’t really care about formal versus informal; they just want whatever the “normal” formality level is for the user’s language. The same goes for the default length.</p><p>This parameter provides that information, so that APIs can allow users to use default values for the formality and length. The exact form that this takes depends on the API conventions, of course. </p><h3 id="foreignspacereplacement-element">foreignSpaceReplacement Element</h3><p>The <code>&lt;foreignSpaceReplacement&gt;</code> element is used to specify how spaces should be handled when the name language is <strong>different from</strong> the formatting language. It is used in languages that don't normally require spaces between words. For example, Japanese and Chinese have the value of a middle dot (‘·’ U+00B7 MIDDLE DOT or ‘・’ U+30FB KATAKANA MIDDLE DOT), so that it is used between words in a foreign name; most other languages have the value of SPACE. </p><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">foreignSpaceReplacement</span> ( <span class="hljs-keyword">#PCDATA</span> ) &gt;</span>
+</code></pre><p>Many clients of the person-names functionality don’t really care about formal versus informal; they just want whatever the “normal” formality level is for the user’s language. The same goes for the default length.</p><p>This parameter provides that information, so that APIs can allow users to use default values for the formality and length. The exact form that this takes depends on the API conventions, of course.</p><h3 id="foreignspacereplacement-element">foreignSpaceReplacement Element</h3><p>The <code>&lt;foreignSpaceReplacement&gt;</code> element is used to specify how spaces should be handled when the name language is <strong>different from</strong> the formatting language. It is used in languages that don't normally require spaces between words. For example, Japanese and Chinese have the value of a middle dot (‘·’ U+00B7 MIDDLE DOT or ‘・’ U+30FB KATAKANA MIDDLE DOT), so that it is used between words in a foreign name; most other languages have the value of SPACE.</p><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">foreignSpaceReplacement</span> ( <span class="hljs-keyword">#PCDATA</span> ) &gt;</span>
 <span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">foreignSpaceReplacement</span> <span class="hljs-keyword">xml</span>:space <span class="hljs-keyword">preserve</span> <span class="hljs-keyword">#REQUIRED</span> &gt;</span>
 </code></pre><ul>
 <li><code>xml:space</code> must be set to <code>'preserve'</code> so that actual spaces in the pattern are preserved. See <a href="https://www.w3.org/TR/xml/#sec-white-space">W3C XML White Space Handling</a>.</li>
@@ -887,8 +887,8 @@ This is a stable document and may be used as reference material or cited as a no
 <td>genitive, vocative</td>
 <td>Patterns can use these modifiers so that better results can be obtained for inflected languages. However, see the details below.</td>
 </tr>
-</tbody></table><h4 id="grammatical-modifiers-for-names">Grammatical Modifiers for Names</h4><p>The CLDR person name formatting does not itself support grammatical inflection. 
-However, name sources (NameObject) can support inflections, either by having additional fields or by using an inflection engine that can handle personal name parts.</p><p>In the current release, the focus is on supporting <code>referring</code> and <code>addressing</code> forms. 
+</tbody></table><h4 id="grammatical-modifiers-for-names">Grammatical Modifiers for Names</h4><p>The CLDR person name formatting does not itself support grammatical inflection.
+However, name sources (NameObject) can support inflections, either by having additional fields or by using an inflection engine that can handle personal name parts.</p><p>In the current release, the focus is on supporting <code>referring</code> and <code>addressing</code> forms.
 Typically the <code>referring</code> forms will be in the most neutral (<em>nominative</em>) case, and the <code>addressing</code> forms will be in the <em>vocative</em> case.
 Some modifiers have been added to facilitate this, so that there can be patterns like: {given-vocative} {surname-vocative}.</p><p>Notice that some <strong>parts</strong> of the formatted name may be in different grammatical cases, so the cases may not be consistent across the whole name.
 For example:</p><table>
@@ -933,7 +933,7 @@ For example:</p><table>
 <li>If the PersonName object can provide a name locale, return it.</li>
 <li>Otherwise, return the maximal likely locale for “und-” + name script.</li>
 </ol><h3 id="derive-the-formatting-locale">Derive the formatting locale</h3><p>Let the <strong>full formatting locale</strong> be the maximal likely locale for the formatter's locale. The <strong>formatting base language</strong> is the base language (first subtag) of the full formatting locale, and the <strong>formatting script</strong> is the script code of the full formatting locale.</p><h4 id="switch-the-formatting-locale-if-necessary">Switch the formatting locale if necessary</h4><p>A few script values represent a set of scripts, such as Jpan = {Hani, Kana, Hira}. Two script codes are said to <em>match</em> when they are either identical, or one represents a set which contains the other, or they both represent sets which intersect. For example, Hani and Jpan match, because {Hani, Kana, Hira} contains Hani.</p><p>If the <strong>name script</strong> doesn't match the <strong>formatting script</strong>:</p><ol>
-<li>If the name locale has name formatting data, then set the formatting locale to the name locale. </li>
+<li>If the name locale has name formatting data, then set the formatting locale to the name locale.</li>
 <li>Otherwise, set the formatting locale to the maximal likely locale for the the locale formed from und, plus the name script plus the region of the nameLocale.</li>
 </ol><p>For example, when a Hindi (Devanagari) formatter is called upon to format a name object that has the locale Ukrainian (Cyrillic):</p><ul>
 <li>If the name is written with Cyrillic letters, under the covers a Ukrainian (Cyrillic) formatter should be instantiated and used to format that name.&nbsp;</li>

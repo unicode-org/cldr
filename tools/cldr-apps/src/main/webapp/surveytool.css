@@ -5,6 +5,7 @@
 /* TODO: should load this locally via webpack, see https://unicode-org.atlassian.net/browse/CLDR-9195 */
 @import url("//fonts.googleapis.com/css?family=Noto+Sans:400italic,700italic,400,700");
 @import url("//fonts.googleapis.com/css?family=Noto+Sans+Symbols:400italic,700italic,400,700");
+@import url("//fonts.googleapis.com/css?family=Noto+Nastaliq+Urdu");
 
 span.age  {
 	font-weight: bold;
@@ -1683,7 +1684,7 @@ table#voteinfo thead th:first-child {
 */
 .cldrValue {
 	white-space: pre-wrap;
-	/* See the top of this file for language specific CSS, including specific
+	/* See the the section below this one for language specific CSS, including specific
 		font overrides. */
 	font-family: "Noto Sans",
 					"Noto Sans Symbols",
@@ -1701,6 +1702,13 @@ The the following can work here:
 }
 
 */
+
+/* Kashmiri and Urdu are typically in Nastaliq. Kashmiri in particular uses a letter that is 
+   not rendered correctly in Noto Naskh (see CLDR-16595) */
+
+:lang(ks), :lang(ur) {
+	font-family: "Noto Nastaliq Urdu";
+}
 
 /* The following is directly includeable as per https://github.com/saturngod/mmwebfonts/issues/4 */
 @font-face {

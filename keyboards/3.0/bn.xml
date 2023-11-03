@@ -85,7 +85,7 @@
         <key id="au" output="\u{09CC}" />
         <key id="pha" output="ফ" />
 
-        <key id="lengthener" output="\m{A}" />
+        <key id="au-lenghtener" output="\m{A}" />
         <key id="sha" output="ষ" />
         <key id="dha" output="ধ" />
         <key id="ṭha" output="ঠ" />
@@ -105,9 +105,13 @@
         <!-- less-than -->
         <key id="nukta" output="\u{09BC}" />
         <!-- question -->
-
-
     </keys>
+
+    <displays>
+        <display keyId="au-lengthener" display="ৗ" />
+        <display keyId="vis-hasant" display="্" /> <!-- TODO: distinguish from regular hasant? -->
+        <display keyId="more" display="…" />
+    </displays>
     <layers formId="us">
         <layer modifiers="none">
             <row keys="candrabindu 1 2 3 4 5 6 7 8 9 0 hyphen equal" />
@@ -120,7 +124,7 @@
             <row
                 keys="ṃ bang at hash dollar percent caret amp asterisk open-paren close-paren underscore plus" />
             <row keys="gap ña ai ṛ tha ẏa ū ī au pha open-curly close-curly pipe" />
-            <row keys="lengthener sha dha ṭha gha gap jha kha gap colon double-quote" />
+            <row keys="au-lenghtener sha dha ṭha gha gap jha kha gap colon double-quote" />
             <row keys="gap vis-hasant cha ḍha bha ṇa ṅa open-angle nukta question" />
             <row keys="space" />
         </layer>
@@ -128,8 +132,8 @@
 
     <transforms type="simple">
         <transformGroup>
-            <transform from="\u{09C7}\m{A}" to="\u{09CC}" /> <!-- E + lengthener = AU -->
-            <!-- <transform from="\u{09C7}\u{09BE}" to="\u09CB" /> --> <!-- E + O = O This is handled by normalization. -->
+            <transform from="\u{09C7}\m{A}" to="\u{09CC}" /> <!-- E + au-lenghtener = AU -->
+            <!-- <transform from="\u{09C7}\u{09BE}" to="\u09CB" /> --> <!-- E + A = O This is handled by normalization. -->
 
             <!-- these suport the 'q' key -->
             <transform from="\m{q}:" to="\u{0983}" />

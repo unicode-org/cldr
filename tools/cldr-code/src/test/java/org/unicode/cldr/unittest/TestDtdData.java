@@ -766,6 +766,7 @@ public class TestDtdData extends TestFmwk {
                         || elementName.equals("keyList") && attribute.equals("id")
                         || elementName.equals("flick") && attribute.equals("id")
                         || elementName.equals("import") && attribute.equals("path")
+                        || elementName.equals("locale") && attribute.equals("id")
                         || elementName.equals("import") && attribute.equals("base")
                         || elementName.equals("layer") && attribute.equals("id")
                         || elementName.equals("string") && attribute.equals("id")

@@ -1,5 +1,8 @@
 package org.unicode.cldr.tool;
 
+import java.io.File;
+import java.io.IOException;
+
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.DateTimeFormats;
 import org.unicode.cldr.util.FileCopier;
@@ -16,6 +19,13 @@ import org.unicode.cldr.util.VerifyZones;
  */
 public class GenerateAllCharts {
     public static void main(String[] args) throws Exception {
+        final File mainDir = new File(CLDRPaths.CHART_DIRECTORY);
+        if (mainDir.mkdirs()) {
+            System.err.println("Created: " + mainDir);
+        }
+        if (!mainDir.isDirectory()) {
+            throw new IOException("Main dir doesn't exist: " + mainDir);
+        }
         FileCopier.copy(GenerateAllCharts.class, "index.css", CLDRPaths.CHART_DIRECTORY);
         FileCopier.copy(
                 GenerateAllCharts.class,

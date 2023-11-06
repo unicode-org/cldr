@@ -2,7 +2,6 @@ package org.unicode.cldr.tool;
 
 import java.io.File;
 import java.io.IOException;
-
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.DateTimeFormats;
 import org.unicode.cldr.util.FileCopier;

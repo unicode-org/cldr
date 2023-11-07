@@ -17,10 +17,7 @@ import org.unicode.cldr.util.VoteResolver;
 
 public class AdminPanel {
     public void getJson(
-            SurveyJSONWrapper r,
-            HttpServletRequest request,
-            HttpServletResponse response,
-            SurveyMain sm)
+            SurveyJSONWrapper r, HttpServletRequest request, HttpServletResponse response)
             throws JSONException, IOException {
         /*
          * Assume caller has already confirmed UserRegistry.userIsAdmin
@@ -43,7 +40,7 @@ public class AdminPanel {
         } else if (action.equals("settings_set")) {
             setSettings(r, request);
         } else if (action.equals("create_login")) {
-            createAndLogin(r, request, response, sm);
+            createAndLogin(r, request, response);
         } else {
             r.put("err", "Unknown action: " + action);
         }
@@ -99,10 +96,10 @@ public class AdminPanel {
     private void showThreads(SurveyJSONWrapper r) throws JSONException {
         JSONObject threads = new JSONObject();
         ThreadMXBean threadBean = ManagementFactory.getThreadMXBean();
-        long deadlockedThreads[] = threadBean.findDeadlockedThreads();
+        long[] deadlockedThreads = threadBean.findDeadlockedThreads();
         if (deadlockedThreads != null) {
             JSONArray dead = new JSONArray();
-            ThreadInfo deadThreadInfo[] = threadBean.getThreadInfo(deadlockedThreads, true, true);
+            ThreadInfo[] deadThreadInfo = threadBean.getThreadInfo(deadlockedThreads, true, true);
             for (ThreadInfo deadThread : deadThreadInfo) {
                 dead.put(
                         new JSONObject()
@@ -132,9 +129,9 @@ public class AdminPanel {
         JSONObject exceptions = new JSONObject();
         ChunkyReader cr = SurveyLog.getChunkyReader();
         exceptions.put("lastTime", cr.getLastTime());
-        ChunkyReader.Entry e = null;
+        ChunkyReader.Entry e;
         if (request.getParameter("before") != null) {
-            Long before = Long.parseLong(request.getParameter("before"));
+            long before = Long.parseLong(request.getParameter("before"));
             e = cr.getEntryBelow(before);
         } else {
             e = cr.getLastEntry();
@@ -178,17 +175,11 @@ public class AdminPanel {
      * @param r
      * @param request
      * @param response
-     * @param sm
-     *     <p>Earlier version was in createAndLogin.jsp
-     * @throws JSONException
      */
     private void createAndLogin(
-            SurveyJSONWrapper r,
-            HttpServletRequest request,
-            HttpServletResponse response,
-            SurveyMain sm)
+            SurveyJSONWrapper r, HttpServletRequest request, HttpServletResponse response)
             throws JSONException {
-        if (SurveyMain.isSetup == false) {
+        if (!SurveyMain.isSetup) {
             r.put("isSetup", false);
             return;
         }
@@ -197,7 +188,7 @@ public class AdminPanel {
         WebContext.clearCookie(request, response, SurveyMain.QUERY_PASSWORD);
         WebContext.clearCookie(request, response, SurveyMain.COOKIE_SAVELOGIN);
 
-        String orgs[] = UserRegistry.getOrgList();
+        String[] orgs = UserRegistry.getOrgList();
         String myorg = orgs[(int) Math.rint(Math.random() * (orgs.length - 1))];
         JSONObject levels = new JSONObject();
         for (final VoteResolver.Level l : VoteResolver.Level.values()) { // like 999
@@ -216,7 +207,7 @@ public class AdminPanel {
         r.put("defaultLevel", UserRegistry.TC);
     }
 
-    static final String allNames[] = {
+    static final String[] allNames = {
         // http://en.wikipedia.org/wiki/List_of_most_popular_given_names (Greenland)
         "Ivaana", "Pipaluk", "Nivi", "Paninnguaq", "Ivalu", "Naasunnguaq", "Julie", "Ane",
                 "Isabella", "Kimmernaq",
@@ -226,15 +217,13 @@ public class AdminPanel {
 
     private String randomName() {
         // generate random name
-        StringBuilder genname = new StringBuilder();
 
-        genname.append(choose(allNames));
-        genname.append(' ');
-        genname.append((char) ('A' + new Random().nextInt(26)));
-        genname.append('.');
-        genname.append(' ');
-        genname.append(
-                choose(
+        return choose(allNames)
+                + ' '
+                + (char) ('A' + new Random().nextInt(26))
+                + '.'
+                + ' '
+                + choose(
                         "Vetter",
                         "Linguist",
                         "User",
@@ -244,8 +233,7 @@ public class AdminPanel {
                         "Person",
                         "Account",
                         "Login",
-                        "CLDR"));
-        return genname.toString();
+                        "CLDR");
     }
 
     private String choose(String... option) {

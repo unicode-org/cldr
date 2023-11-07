@@ -139,7 +139,7 @@ public class DefaultDataSubmissionResultHandler implements DataSubmissionResultH
         ctx.print("<tt class='codebox'>" + p.getDisplayName() + "</tt>: ");
         ctx.print("&nbsp;&nbsp; Value: <b>" + choice_v + "</b>  ");
         String cls = SurveyMain.shortClassName(status.getCause());
-        ctx.printHelpLink("/" + cls, "<!-- help with -->" + cls, true);
+        ctx.printHelpLink("/" + cls, "<!-- help with -->" + cls);
         if (status.getType().equals(CheckStatus.errorType)) {
             ctx.print(ctx.iconHtml("stop", cls));
         } else {

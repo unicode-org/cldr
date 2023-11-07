@@ -8,10 +8,10 @@ import * as cldrLoad from "./cldrLoad.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
 import * as cldrSurvey from "./cldrSurvey.mjs";
 
-const SIDEWAYS_DEBUG = true;
+const SIDEWAYS_DEBUG = false;
 
-const escape = "\u00A0\u00A0\u00A0"; // non-breaking spaces
-const unequalSign = "\u2260\u00A0"; // U+2260 = "≠"
+const NON_BREAKING_SPACES = "\u00A0\u00A0\u00A0"; // non-breaking spaces
+const UNEQUALS_SIGN = "\u2260\u00A0"; // U+2260 = "≠"
 
 /**
  * Array storing all only-1 sublocales
@@ -19,16 +19,37 @@ const unequalSign = "\u2260\u00A0"; // U+2260 = "≠"
 const oneLocales = [];
 
 /**
- * Timeout for showing sideways view
+ * Ordinarily, wait a couple seconds before fetching the data for the menu.
+ * One reason for this delay is that the Info Panel is often shown for a given
+ * row only briefly before the user moves on to the next row, and there's a
+ * performance penalty if the data is fetched unnecessarily. At the end of the
+ * delay, if the current row has changed, the fetch will be cancelled.
+ * However, when the user chooses a related locale from the menu, there
+ * should be no delay.
  */
-let sidewaysShowTimeout = -1;
+const USUAL_DELAY_MILLISECONDS = 2000;
+const ZERO_DELAY_MILLISECONDS = 0;
+
+let fetchDelayMilliseconds = USUAL_DELAY_MILLISECONDS;
+
+/**
+ * Timeout ID for fetching and showing the menu
+ */
+let sidewaysShowTimeoutId = -1;
 
 const sidewaysCache = new cldrCache.LRU();
 
+let locmap = null;
+
+let curLocale = null;
+
 function loadMenu(regionalVariantsWrapper, xpstrid) {
-  const curLocale = cldrStatus.getCurrentLocale();
+  if (!locmap) {
+    locmap = cldrLoad.getTheLocaleMap();
+  }
+  curLocale = cldrStatus.getCurrentLocale();
   if (!curLocale || oneLocales[curLocale] || !xpstrid) {
-    regionalVariantsWrapper.setData(null);
+    regionalVariantsWrapper.setData(null, null);
     if (SIDEWAYS_DEBUG) {
       console.log("cldrSideways.loadMenu, nothing to display");
     }
@@ -40,24 +61,19 @@ function loadMenu(regionalVariantsWrapper, xpstrid) {
     if (SIDEWAYS_DEBUG) {
       console.log("cldrSideways.loadMenu, using cached data");
     }
-    regionalVariantsWrapper.setData(cachedData);
+    regionalVariantsWrapper.setData(curLocale, cachedData);
   } else {
     if (SIDEWAYS_DEBUG) {
       console.log("cldrSideways.loadMenu, fetching new data");
     }
-    fetchAndLoadMenu(regionalVariantsWrapper, curLocale, xpstrid, cacheKey);
+    fetchAndLoadMenu(regionalVariantsWrapper, xpstrid, cacheKey);
   }
 }
 
-function fetchAndLoadMenu(
-  regionalVariantsWrapper,
-  curLocale,
-  xpstrid,
-  cacheKey
-) {
+function fetchAndLoadMenu(regionalVariantsWrapper, xpstrid, cacheKey) {
   clearMyTimeout();
   regionalVariantsWrapper.setLoading();
-  sidewaysShowTimeout = window.setTimeout(function () {
+  sidewaysShowTimeoutId = window.setTimeout(function () {
     clearMyTimeout();
     if (
       curLocale !== cldrStatus.getCurrentLocale() ||
@@ -77,14 +93,15 @@ function fetchAndLoadMenu(
         setMenuFromData(regionalVariantsWrapper, json, cacheKey);
       }
     );
-  }, 2000); // wait 2 seconds before loading this.
+  }, fetchDelayMilliseconds);
+  fetchDelayMilliseconds = USUAL_DELAY_MILLISECONDS;
 }
 
 function clearMyTimeout() {
-  if (sidewaysShowTimeout != -1) {
+  if (sidewaysShowTimeoutId != -1) {
     // https://www.w3schools.com/jsref/met_win_clearinterval.asp
-    window.clearInterval(sidewaysShowTimeout);
-    sidewaysShowTimeout = -1;
+    window.clearInterval(sidewaysShowTimeoutId);
+    sidewaysShowTimeoutId = -1;
   }
 }
 
@@ -121,115 +138,131 @@ function setMenuFromData(regionalVariantsWrapper, json, cacheKey) {
   }
   // if there is 1 sublocale (+ 1 default), show nothing
   if (Object.keys(relatedLocales).length <= 2) {
-    oneLocales[cldrStatus.getCurrentLocale()] = true;
-    regionalVariantsWrapper.setData(null);
+    oneLocales[curLocale] = true;
+    regionalVariantsWrapper.setData(null, null);
   } else {
     if (!json.others) {
-      regionalVariantsWrapper.setData(null);
+      regionalVariantsWrapper.setData(null, null);
     } else {
-      const topLocale = json.topLocale;
-      const locmap = cldrLoad.getTheLocaleMap();
-      const curLocaleName = locmap.getRegionAndOrVariantName(topLocale);
-      let readLocale = null;
-
-      // merge the read-only sublocale to base locale
-      var mergeReadBase = function mergeReadBase(list) {
-        let baseValue = null;
-        // find the base locale, remove it and store its value
-        for (let l = 0; l < list.length; l++) {
-          const loc = list[l][0];
-          if (loc === topLocale) {
-            baseValue = list[l][1];
-            list.splice(l, 1);
-            break;
-          }
-        }
-
-        // replace the default locale(read-only) with base locale, store its name for label
-        for (let l = 0; l < list.length; l++) {
-          const loc = list[l][0];
-          const bund = locmap.getLocaleInfo(loc);
-          if (bund && bund.readonly) {
-            readLocale = locmap.getRegionAndOrVariantName(loc);
-            list[l][0] = topLocale;
-            list[l][1] = baseValue;
-            break;
-          }
-        }
-      };
-
-      // compare all sublocale values
-      function appendLocaleList(list, curValue) {
-        popupSelect.label = "Regional Variants for " + curLocaleName;
-
-        for (let l = 0; l < list.length; l++) {
-          const loc = list[l][0];
-          const title = list[l][1];
-          const item = { value: loc };
-          let str = locmap.getRegionAndOrVariantName(loc);
-          if (loc === topLocale) {
-            str += " (= " + readLocale + ")";
-          }
-
-          if (loc === cldrStatus.getCurrentLocale()) {
-            str = escape + str;
-            item.disabled = true;
-          } else if (title != curValue) {
-            str = unequalSign + str;
-            item.disabled = false;
-          } else {
-            str = escape + str;
-            item.disabled = false;
-          }
-          item.str = str;
-          popupSelect.items.push(item);
-        }
-      }
-
-      const dataList = [];
-      const popupSelect = {};
-      popupSelect.items = [];
-      for (let s in json.others) {
-        for (let t in json.others[s]) {
-          dataList.push([json.others[s][t], s]);
-        }
-      }
-
-      /*
-       * Set curValue = the value for cldrStatus.getCurrentLocale()
-       */
-      let curValue = null;
-      for (let l = 0; l < dataList.length; l++) {
-        const loc = dataList[l][0];
-        if (loc === cldrStatus.getCurrentLocale()) {
-          curValue = dataList[l][1];
-          break;
-        }
-      }
-      /*
-       * Force the use of unequalSign in the regional comparison pop-up for locales in
-       * json.novalue, by assigning a value that's different from curValue.
-       */
-      if (json.novalue) {
-        const differentValue = curValue === "A" ? "B" : "A"; // anything different from curValue
-        for (let s in json.novalue) {
-          dataList.push([json.novalue[s], differentValue]);
-        }
-      }
-      mergeReadBase(dataList);
-
-      // then sort by sublocale name
-      const sortedDataList = dataList.sort(function (a, b) {
-        return (
-          locmap.getRegionAndOrVariantName(a[0]) >
-          locmap.getRegionAndOrVariantName(b[0])
-        );
-      });
-      appendLocaleList(sortedDataList, curValue);
-      sidewaysCache.set(cacheKey, popupSelect);
-      regionalVariantsWrapper.setData(popupSelect);
+      setMenuFromNontrivialData(regionalVariantsWrapper, json, cacheKey);
     }
   }
+}
+
+function setMenuFromNontrivialData(regionalVariantsWrapper, json, cacheKey) {
+  const dataList = initializeDataList(json.others);
+  const curValue = getCurrentValue(dataList);
+
+  /*
+   * Force the use of unequalSign in the regional comparison pop-up for locales in
+   * json.novalue, by assigning a value that's different from curValue.
+   */
+  if (json.novalue) {
+    const differentValue = curValue === "A" ? "B" : "A"; // anything different from curValue
+    for (let s in json.novalue) {
+      dataList.push([json.novalue[s], differentValue]);
+    }
+  }
+  const readLocale = mergeReadBase(dataList, json.topLocale);
+
+  // then sort by sublocale name
+  const sortedDataList = dataList.sort(function (a, b) {
+    return (
+      locmap.getRegionAndOrVariantName(a[0]) >
+      locmap.getRegionAndOrVariantName(b[0])
+    );
+  });
+  const popupSelect = appendLocaleList(
+    sortedDataList,
+    curValue,
+    json.topLocale,
+    readLocale
+  );
+  sidewaysCache.set(cacheKey, popupSelect);
+  regionalVariantsWrapper.setData(curLocale, popupSelect);
+}
+
+function initializeDataList(others) {
+  const dataList = [];
+  for (let s in others) {
+    for (let t in others[s]) {
+      dataList.push([others[s][t], s]);
+    }
+  }
+  return dataList;
+}
+
+/**
+ * Get the value for the current locale
+ */
+function getCurrentValue(dataList) {
+  for (let l = 0; l < dataList.length; l++) {
+    const loc = dataList[l][0];
+    if (loc === curLocale) {
+      return dataList[l][1];
+    }
+  }
+  return null;
+}
+
+// merge the read-only sublocale to base locale
+function mergeReadBase(list, topLocale) {
+  let readLocale = null;
+  let baseValue = null;
+  // find the base locale, remove it and store its value
+  for (let l = 0; l < list.length; l++) {
+    const loc = list[l][0];
+    if (loc === topLocale) {
+      baseValue = list[l][1];
+      list.splice(l, 1);
+      break;
+    }
+  }
+
+  // replace the default locale(read-only) with base locale, store its name for label
+  for (let l = 0; l < list.length; l++) {
+    const loc = list[l][0];
+    const bund = locmap.getLocaleInfo(loc);
+    if (bund && bund.readonly) {
+      readLocale = locmap.getRegionAndOrVariantName(loc);
+      list[l][0] = topLocale;
+      list[l][1] = baseValue;
+      break;
+    }
+  }
+  return readLocale;
+}
+
+function appendLocaleList(list, curValue, topLocale, readLocale) {
+  const popupSelect = {
+    items: [],
+    label:
+      "Regional Variants for " + locmap.getRegionAndOrVariantName(topLocale),
+  };
+  // compare all sublocale values
+  for (let l = 0; l < list.length; l++) {
+    const loc = list[l][0];
+    const title = list[l][1];
+    const item = { value: loc };
+    let str = locmap.getRegionAndOrVariantName(loc);
+    if (loc === topLocale) {
+      str += " (= " + readLocale + ")";
+    }
+
+    if (loc === curLocale) {
+      str = NON_BREAKING_SPACES + str;
+      item.disabled = true;
+    } else if (title != curValue) {
+      str = UNEQUALS_SIGN + str;
+      item.disabled = false;
+    } else {
+      str = NON_BREAKING_SPACES + str;
+      item.disabled = false;
+    }
+    item.str = str;
+    popupSelect.items.push(item);
+  }
+  return popupSelect;
 }
 
 function makeCacheKey(curLocale, xpstrid) {
@@ -240,4 +273,10 @@ function clearCache() {
   sidewaysCache.clear();
 }
 
-export { clearCache, loadMenu };
+function goToLocale(localeId) {
+  cldrStatus.setCurrentLocale(localeId);
+  cldrLoad.reloadV();
+  fetchDelayMilliseconds = ZERO_DELAY_MILLISECONDS;
+}
+
+export { clearCache, goToLocale, loadMenu };

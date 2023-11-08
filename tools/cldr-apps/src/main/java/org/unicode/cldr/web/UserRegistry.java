@@ -99,9 +99,6 @@ public class UserRegistry {
     /** Anonymous user - special for imported old losing votes */
     public static final int ANONYMOUS = VoteResolver.Level.anonymous.getSTLevel();
 
-    /** min level */
-    public static final int NO_LEVEL = -1;
-
     /** special "IP" value referring to a user being added */
     public static final String FOR_ADDING = "(for adding)";
 
@@ -278,6 +275,7 @@ public class UserRegistry {
             }
         }
 
+        // WARNING: this is accessed by admin-usersWithOldVotes.jsp
         public String toHtml() {
             return "<a href='mailto:"
                     + email
@@ -306,11 +304,6 @@ public class UserRegistry {
         @Override
         public int hashCode() {
             return id;
-        }
-
-        /** is the user interested in this locale? */
-        public boolean interestedIn(CLDRLocale locale) {
-            return getInterestLocales().contains(locale);
         }
 
         /**
@@ -485,12 +478,6 @@ public class UserRegistry {
         // @JsonbProperty("votecount")
         public int getVoteCount() {
             return getLevel().getVotes(getOrganization());
-        }
-
-        @Schema(description = "how much this user’s vote counts for")
-        // @JsonbProperty("voteCountMenu")
-        public Integer[] getVoteCountMenu() {
-            return getLevel().getVoteCountMenu(getOrganization()).toArray(new Integer[0]);
         }
 
         /** This one is hidden because it uses JSONObject and can't be serialized */
@@ -930,10 +917,10 @@ public class UserRegistry {
      */
     public UserRegistry.User get(String pass, String email, String ip, boolean letmein)
             throws LogoutException {
-        if ((email == null) || (email.length() <= 0)) {
+        if ((email == null) || (email.length() == 0)) {
             return null; // nothing to do
         }
-        if (((pass != null && pass.length() <= 0)) && !letmein) {
+        if (((pass != null && pass.length() == 0)) && !letmein) {
             return null; // nothing to do
         }
 
@@ -1082,15 +1069,6 @@ public class UserRegistry {
             ps.setString(1, organization);
             return ps;
         }
-    }
-
-    public java.sql.ResultSet listPass(Connection conn) throws SQLException {
-        final String ORDER = " ORDER BY id ";
-        Statement s = conn.createStatement();
-        return s.executeQuery(
-                "SELECT id,userlevel,name,email,org,locales,intlocs, password FROM "
-                        + CLDR_USERS
-                        + ORDER);
     }
 
     private void setupIntLocs() throws SQLException {
@@ -1422,10 +1400,6 @@ public class UserRegistry {
                 return null;
             }
         }
-
-        public String toAction() {
-            return CHANGE + name();
-        }
     }
 
     String updateInfo(WebContext ctx, int theirId, String theirEmail, InfoType type, String value) {
@@ -1493,6 +1467,7 @@ public class UserRegistry {
         return msg;
     }
 
+    // WARNING: this is accessed by reset.jsp
     public String resetPassword(String forEmail, String ip) {
         String msg = "";
         String newPassword = CookieSession.newId();
@@ -1985,12 +1960,9 @@ public class UserRegistry {
         if (userIsAdmin(u) || userIsTC(u)) return null;
 
         // Otherwise, if closed, deny
-        if (SurveyMain.isPhaseClosed()) return ModifyDenial.DENY_PHASE_CLOSED;
+        if (SurveyMain.isPhaseVettingClosed()) return ModifyDenial.DENY_PHASE_CLOSED;
         if (SurveyMain.isPhaseReadonly()) return ModifyDenial.DENY_PHASE_READONLY;
 
-        if (SurveyMain.isPhaseFinalTesting()) {
-            return ModifyDenial.DENY_PHASE_FINAL_TESTING;
-        }
         return null;
     }
 

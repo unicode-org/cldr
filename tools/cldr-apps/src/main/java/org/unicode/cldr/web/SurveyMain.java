@@ -72,13 +72,10 @@ import org.unicode.cldr.util.CLDRURLS;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CoverageInfo;
 import org.unicode.cldr.util.Factory;
-import org.unicode.cldr.util.Factory.DirectoryType;
-import org.unicode.cldr.util.Factory.SourceTreeType;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.LocaleNormalizer;
 import org.unicode.cldr.util.LocaleSet;
 import org.unicode.cldr.util.Organization;
-import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
@@ -118,6 +115,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     private static final UnicodeSet supportedNameSet = new UnicodeSet("[a-zA-Z]").freeze();
     static final int TWELVE_WEEKS = 3600 * 24 * 7 * 12;
 
+    // WARNING: this is used by generalinfo.jsp
     public static final String DEFAULT_CONTENT_LINK =
             "<i><a target='CLDR-ST-DOCS' href='https://cldr.unicode.org/translation/translation-guide-general/default-content'>default content locale</a></i>";
 
@@ -145,30 +143,14 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
          * TC/Admin may make changes, but the SurveyTool is locked to any lower levels.
          */
         VETTING_CLOSED("Vetting Closed", CheckCLDR.Phase.FINAL_TESTING),
-        /**
-         * DEPRECATED: use VETTING_CLOSED
-         *
-         * @see #VETTING_CLOSED
-         * @deprecated
-         */
-        @Deprecated
-        CLOSED("Closed", CheckCLDR.Phase.FINAL_TESTING),
-        /**
-         * DEPRECATED: Not to be used in the SurveyTool.
-         *
-         * @see #VETTING_CLOSED
-         * @deprecated
-         */
-        @Deprecated
-        FINAL_TESTING("Final Testing", CheckCLDR.Phase.FINAL_TESTING),
+
         /** The SurveyTool is not open for any changes. */
         READONLY("Read-Only", CheckCLDR.Phase.FINAL_TESTING),
+
         /**
-         * Do not use.
-         *
-         * @deprecated
+         * Survey Tool is in Beta mode. Votes, announcements, etc., will be stored in special
+         * database tables with the "_beta" suffix, and will be used only for testing.
          */
-        @Deprecated
         BETA("Beta", CheckCLDR.Phase.SUBMISSION);
 
         private final String what;
@@ -211,17 +193,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             return url;
         }
 
+        // WARNING: this is used by menu_top.jsp
         public String urlQuery() {
             return SurveyMain.QUERY_SECTION + "=" + url;
-        }
-
-        /**
-         * @param base
-         * @param locale
-         * @return Called from menu_top.jsp only
-         */
-        public String urlFull(String base, String locale) {
-            return base + "?_=" + locale + "&" + urlQuery();
         }
 
         public String display() {
@@ -269,8 +243,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     // ===== Special bug numbers.
     private static final String URL_HOST = "http://www.unicode.org/";
     public static final String URL_CLDR = URL_HOST + "cldr/";
-
-    public static final String BUG_URL_BASE = CLDRURLS.CLDR_NEWTICKET_URL;
 
     // caution: GENERAL_HELP_URL and GENERAL_HELP_NAME may be used by jsp
     public static final String GENERAL_HELP_URL = CLDRURLS.GENERAL_HELP_URL;
@@ -470,7 +442,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     /** output MIME header, build context, and run code.. */
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws IOException, ServletException {
+            throws IOException {
         doGet(request, response);
     }
 
@@ -482,8 +454,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     public static String fileBaseASeed;
 
     @Override
-    public void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws IOException, ServletException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         if (respondToBogusRequest(request, response)) {
             return;
         }
@@ -1476,7 +1447,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     /**
      * Get the current source revision, as HTML
      *
-     * @return Called from jsp files as well as locally
+     * <p>WARNING: this is accessed by index.jsp and st_footer.jsp
      */
     public static String getCurrev() {
         return getCurrev(true);
@@ -1709,7 +1680,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      * @param ctx
      * @param pref which preference
      * @param what description of preference
-     *     <p>Called from debug_jsp.jspf as well as locally
+     *     <p>Called from debug_jsp.jspf
      */
     public boolean showTogglePref(WebContext ctx, String pref, String what) {
         boolean val = ctx.prefBool(pref);
@@ -2127,7 +2098,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         if (ctx.getLocale() != null) {
             locale = ctx.getLocale().toString();
         }
-        if ((locale == null) || (locale.length() <= 0)) {
+        if ((locale == null) || (locale.length() == 0)) {
             ctx.redirect(ctx.vurl());
             return;
         } else {
@@ -2144,7 +2115,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      * @param menu the ID of the current item
      * @param title the Title of this menu
      * @param key the URL field to use (such as 'x')
-     *     <p>Called by doList and WebContext.showCoverageLevel, and from jsp
+     *     <p>WARNING: accessed by usermenu.jsp
      */
     public static void printMenu(
             WebContext ctx, String which, String menu, String title, String key) {
@@ -2233,8 +2204,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                         + "As a reminder, please do not re-use this password on other web sites.\n\n";
         MailSender.getInstance().queue(fromId, u.id, subject, body);
     }
-
-    public static final String CHECKCLDR = "CheckCLDR_"; // key for CheckCLDR objects by locale
 
     /**
      * @param ctx
@@ -2509,7 +2478,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             return (use == 0);
         }
 
-        public UserLocaleStuff(CLDRLocale locale) {
+        public UserLocaleStuff() {
             synchronized (allUserLocaleStuffs) {
                 allUserLocaleStuffs.add(this);
             }
@@ -2520,12 +2489,11 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      * Return the UserLocaleStuff for the current context. Any user of this should be within session
      * sync and must be balanced with calls to close();
      *
-     * @param locale
      * @see UserLocaleStuff#close()
      * @see WebContext#getUserFile()
      */
-    public UserLocaleStuff getUserFile(CLDRLocale locale) {
-        UserLocaleStuff uf = new UserLocaleStuff(locale); // always open a new
+    public UserLocaleStuff getUserFile() {
+        UserLocaleStuff uf = new UserLocaleStuff(); // always open a new
         uf.open(); // incr count.
         return uf;
     }
@@ -2641,8 +2609,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                                         d, "//ldml/layout/orientation/characterOrder");
                         if (directionalityItem != null) {
                             direction = LDMLUtilities.getNodeValue(directionalityItem);
-                            if (direction != null && direction.length() > 0) {
-                            } else {
+                            if (direction == null || direction.length() == 0) {
                                 direction = null;
                             }
                         }
@@ -3111,81 +3078,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         return _vetdir;
     }
 
-    public File makeDataDir(String kind) throws IOException {
-        File vetdir = getVetdir();
-        if (vetdir == null) {
-            throw new InternalError("vetdir is null.");
-        }
-        File dataDir = new File(vetdir, kind);
-        if (!dataDir.exists()) {
-            if (!dataDir.mkdirs()) {
-                throw new IOException("Couldn't create " + dataDir.getAbsolutePath());
-            }
-        }
-        return dataDir;
-    }
-
-    private File makeDataDir(String kind, CLDRLocale loc) throws IOException {
-        File dataDir = makeDataDir(kind); // get the parent dir.
-
-        // rest of this function is just to determine which subdir (common or
-        // seed)
-
-        Factory f = getDiskFactory();
-        File sourceDir = f.getSourceDirectoryForLocale(loc.getBaseName());
-
-        SourceTreeType sourceType = Factory.getSourceTreeType(sourceDir);
-        DirectoryType dirType = Factory.getDirectoryType(sourceDir);
-        File subDir = new File(dataDir, sourceType.name());
-        if (!subDir.exists()) {
-            if (!subDir.mkdirs()) {
-                throw new IOException("Couldn't create " + subDir.getAbsolutePath());
-            }
-        }
-        File subSubDir = new File(subDir, dirType.name());
-        if (!subSubDir.exists()) {
-            if (!subSubDir.mkdirs()) {
-                throw new IOException("Couldn't create " + subSubDir.getAbsolutePath());
-            }
-        }
-        return subSubDir;
-    }
-
-    /**
-     * @param kind
-     * @param loc
-     * @return
-     * @throws IOException
-     *     <p>Called from output-status.jsp
-     */
-    public File getDataDir(String kind, CLDRLocale loc) throws IOException {
-        return getDataFile(kind, loc).getParentFile();
-    }
-
-    private final Map<Pair<String, CLDRLocale>, File> dirToFile = new HashMap<>();
-
-    /**
-     * Just get the File. Don't write it.
-     *
-     * @param kind
-     * @param loc
-     * @return
-     * @throws IOException
-     */
-    public synchronized File getDataFile(String kind, CLDRLocale loc) throws IOException {
-        Pair<String, CLDRLocale> k = new Pair<>(kind, loc);
-        File f = dirToFile.get(k);
-        if (f == null) {
-            f = makeDataFile(kind, loc);
-            dirToFile.put(k, f);
-        }
-        return f;
-    }
-
-    private File makeDataFile(String kind, CLDRLocale loc) throws IOException {
-        return new File(makeDataDir(kind, loc), loc + ".xml");
-    }
-
     private OutputFileManager outputFileManager = null;
 
     public synchronized OutputFileManager getOutputFileManager() {
@@ -3262,12 +3154,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         // get the list of input XML files
         FileFilter myFilter = getXmlFileFilter();
         return baseDir.listFiles(myFilter);
-    }
-
-    protected static CLDRLocale getLocaleOf(String localeName) {
-        int dot = localeName.indexOf('.');
-        String theLocale = localeName.substring(0, dot);
-        return CLDRLocale.getInstance(theLocale);
     }
 
     private static Set<CLDRLocale> localeListSet = null;
@@ -3379,16 +3265,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         } else {
             busted(what, t, getThrowableStack(t));
         }
-    }
-
-    /**
-     * mark as busted, with no special logging. This is called by the SurveyLog to make sure an out
-     * of memory marks things as down.
-     *
-     * @param t
-     */
-    public static void markBusted(Throwable t) {
-        markBusted(t.toString(), t, StackTracker.stackToString(t.getStackTrace(), 0));
     }
 
     /**
@@ -3659,16 +3535,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     // ============= Following have to do with phases
 
-    public static boolean isPhaseVetting() {
-        return phase() == Phase.VETTING;
-    }
-
     public static boolean isPhaseVettingClosed() {
         return phase() == Phase.VETTING_CLOSED;
-    }
-
-    public static boolean isPhaseClosed() {
-        return (phase() == Phase.CLOSED) || (phase() == Phase.VETTING_CLOSED);
     }
 
     public static boolean isPhaseReadonly() {
@@ -3677,10 +3545,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     public static boolean isPhaseBeta() {
         return phase() == Phase.BETA;
-    }
-
-    public static boolean isPhaseFinalTesting() {
-        return phase() == Phase.FINAL_TESTING;
     }
 
     public static Phase phase() {
@@ -3714,12 +3578,12 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     @Override
-    public void readExternal(ObjectInput arg0) throws IOException, ClassNotFoundException {
+    public void readExternal(ObjectInput arg0) {
         STFactory.unimp(); // do not call
     }
 
     @Override
-    public void writeExternal(ObjectOutput arg0) throws IOException {
+    public void writeExternal(ObjectOutput arg0) {
         STFactory.unimp(); // do not call
     }
 
@@ -3746,29 +3610,29 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      * fields without care. See CLDR-15040
      */
     private class StatusForFrontEnd implements JSONString {
-        private String contextPath;
-        private int dbopen = DBUtils.db_number_open;
-        private int dbused = DBUtils.db_number_used;
-        private int observers = CookieSession.getObserverCount();
-        private String isBusted = SurveyMain.isBusted;
-        private boolean isPhaseBeta = isPhaseBeta();
-        private boolean isSetup = SurveyMain.isSetup;
-        private boolean isUnofficial = SurveyMain.isUnofficial();
-        private String newVersion = SurveyMain.newVersion;
+        private final boolean isPhaseBeta = isPhaseBeta();
+        private final String contextPath;
+        private final int dbopen = DBUtils.db_number_open;
+        private final int dbused = DBUtils.db_number_used;
+        private final int observers = CookieSession.getObserverCount();
+        private final String isBusted = SurveyMain.isBusted;
+        private final boolean isSetup = SurveyMain.isSetup;
+        private final boolean isUnofficial = SurveyMain.isUnofficial();
+        private final String newVersion = SurveyMain.newVersion;
         private String organizationName = null;
-        private int pages = SurveyMain.pages;
+        private final int pages = SurveyMain.pages;
         private Object permissions = null;
-        private Phase phase = phase();
+        private final Phase phase = phase();
         private String sessionId = null;
-        private String specialHeader = getSpecialHeaderText();
-        private long surveyRunningStamp = SurveyMain.surveyRunningStamp.current();
-        private double sysload = osmxbean.getSystemLoadAverage();
-        private ElapsedTimer uptime = SurveyMain.uptime;
+        private final String specialHeader = getSpecialHeaderText();
+        private final long surveyRunningStamp = SurveyMain.surveyRunningStamp.current();
+        private final double sysload = osmxbean.getSystemLoadAverage();
+        private final ElapsedTimer uptime = SurveyMain.uptime;
         private User user = null;
-        private int users = CookieSession.getUserCount();
+        private final int users = CookieSession.getUserCount();
         private String sessionMessage = null;
 
-        private Runtime r = Runtime.getRuntime();
+        private final Runtime r = Runtime.getRuntime();
         double memtotal = r.totalMemory() / 1024000.0;
         double memfree = r.freeMemory() / 1024000.0;
 

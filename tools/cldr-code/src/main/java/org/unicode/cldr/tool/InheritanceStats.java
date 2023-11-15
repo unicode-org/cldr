@@ -1,5 +1,14 @@
 package org.unicode.cldr.tool;
 
+import com.google.common.base.Joiner;
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableSortedSet;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.TreeMultimap;
+import com.ibm.icu.util.Output;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
@@ -10,7 +19,6 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
-
 import org.unicode.cldr.test.SubmissionLocales;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -29,16 +37,6 @@ import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XPathParts;
 
-import com.google.common.base.Joiner;
-import com.google.common.collect.HashMultimap;
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableSortedSet;
-import com.google.common.collect.Lists;
-import com.google.common.collect.Multimap;
-import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.util.Output;
-
 public class InheritanceStats {
     private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
     private static final Factory CLDR_FACTORY = CLDR_CONFIG.getCldrFactory();
@@ -51,20 +49,29 @@ public class InheritanceStats {
     static final char ZWSP = '\u200B';
     static final char TSP = '\u2009';
 
-
-
     public static void main(String[] args) {
         if (args.length == 0) {
-            args = new String[]{"dtd"};
+            args = new String[] {"dtd"};
         }
         for (String arg : args) {
-            switch(arg) {
-            case "stats": showLocaleStats(); break;
-            case "inherit": testInheritance(); break;
-            case "dtd": checkDtdData(); break;
-            case "attr": showAttributeValues(); break;
-            case "vxml": compareVxml(); break;
-            default: throw new IllegalArgumentException("bad argument");
+            switch (arg) {
+                case "stats":
+                    showLocaleStats();
+                    break;
+                case "inherit":
+                    testInheritance();
+                    break;
+                case "dtd":
+                    checkDtdData();
+                    break;
+                case "attr":
+                    showAttributeValues();
+                    break;
+                case "vxml":
+                    compareVxml();
+                    break;
+                default:
+                    throw new IllegalArgumentException("bad argument");
             }
         }
     }
@@ -77,7 +84,8 @@ public class InheritanceStats {
         diffPath,
         diffLocale;
 
-        static Set<Status> getSet(boolean isNullb, boolean isMarkerb, boolean bailey, boolean path, boolean locale) {
+        static Set<Status> getSet(
+                boolean isNullb, boolean isMarkerb, boolean bailey, boolean path, boolean locale) {
             Set<Status> s = EnumSet.noneOf(Status.class);
             if (isNullb) s.add(isNull);
             if (isMarkerb) s.add(isMarker);
@@ -93,7 +101,9 @@ public class InheritanceStats {
             }
             return result;
         }
+
         static final Map<Set<Status>, Set<Status>> intern;
+
         static {
             Map<Set<Status>, Set<Status>> _intern = new LinkedHashMap<>();
             add(_intern, Status.diffBailey);
@@ -109,6 +119,7 @@ public class InheritanceStats {
             add(_intern, Status.isNull, Status.diffPath);
             intern = ImmutableMap.copyOf(_intern);
         }
+
         static void add(Map<Set<Status>, Set<Status>> _intern, Status... set) {
             ImmutableSortedSet<Status> s = ImmutableSortedSet.copyOf(set);
             _intern.put(s, s);
@@ -162,14 +173,24 @@ public class InheritanceStats {
 
         // individual test cases
         String[][] tests = {
-            {"en", "path", "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power3\"]/compoundUnitPattern1[@count=\"other\"][@gender=\"feminine\"]",
+            {
+                "en",
+                "path",
+                "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power3\"]/compoundUnitPattern1[@count=\"other\"][@gender=\"feminine\"]",
                 "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power3\"]/compoundUnitPattern1[@count=\"other\"]"
             },
-            {"en", "path", "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"graphics-dot\"]/unitPattern[@count=\"one\"][@alt=\"variant\"]",
+            {
+                "en",
+                "path",
+                "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"graphics-dot\"]/unitPattern[@count=\"one\"][@alt=\"variant\"]",
                 "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"graphics-dot\"]/unitPattern[@count=\"one\"]"
             },
-            {"de", "path", "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@gender=\"feminine\"][@case=\"accusative\"][@alt=\"variant\"]",
-            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1"},
+            {
+                "de",
+                "path",
+                "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1[@count=\"one\"][@gender=\"feminine\"][@case=\"accusative\"][@alt=\"variant\"]",
+                "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"power2\"]/compoundUnitPattern1"
+            },
         };
         boolean allOk = true;
         for (String[] row : tests) {
@@ -177,11 +198,17 @@ public class InheritanceStats {
             String type = row[1];
             String path = row[2];
             String expected = row[3];
-            String testValue = inheritance.getBaileyValue(locale, path, testPathWhereFound, testLocaleWhereFound);
+            String testValue =
+                    inheritance.getBaileyValue(
+                            locale, path, testPathWhereFound, testLocaleWhereFound);
             String actual = null;
-            switch(type) {
-            case "path": actual = testPathWhereFound.value; break;
-            case "locale": actual = testLocaleWhereFound.value; break;
+            switch (type) {
+                case "path":
+                    actual = testPathWhereFound.value;
+                    break;
+                case "locale":
+                    actual = testLocaleWhereFound.value;
+                    break;
             }
 
             boolean success = assertEquals(path, expected, actual);
@@ -189,10 +216,8 @@ public class InheritanceStats {
                 inheritance.getBaileyValue(locale, path, testPathWhereFound, testLocaleWhereFound);
                 allOk = false;
             } else {
-                System.out.println("\n" + locale
-                    + "\t" + path
-                    + "\nOK:      \t" + actual
-                    + "\t" + testValue);
+                System.out.println(
+                        "\n" + locale + "\t" + path + "\nOK:      \t" + actual + "\t" + testValue);
             }
         }
 
@@ -206,37 +231,47 @@ public class InheritanceStats {
                     if (resolvedCldrFile.getStringValue(path) == null) {
                         continue;
                     }
-//                String unresolvedValue = verticalChain.get(0).getStringValue(path);
-//                if (isHardValue(unresolvedValue)) {
-//                    continue; // we have a value in the unresolved case, don't worry about it now
-//                }
-                    String value = resolvedCldrFile.getStringValueWithBailey(path, pathWhereFound, localeWhereFound);
-                    if ("code-fallback".equals(localeWhereFound.value) || "constructed".equals(pathWhereFound.value)) {
+                    //                String unresolvedValue =
+                    // verticalChain.get(0).getStringValue(path);
+                    //                if (isHardValue(unresolvedValue)) {
+                    //                    continue; // we have a value in the unresolved case, don't
+                    // worry about it now
+                    //                }
+                    String value =
+                            resolvedCldrFile.getStringValueWithBailey(
+                                    path, pathWhereFound, localeWhereFound);
+                    if ("code-fallback".equals(localeWhereFound.value)
+                            || "constructed".equals(pathWhereFound.value)) {
                         continue;
                     }
                     if (path.equals(pathWhereFound.value)) {
                         continue; // ignore locale differences for now.
                     }
-                    String testValue = inheritance.getBaileyValue(locale, path, testPathWhereFound, testLocaleWhereFound);
+                    String testValue =
+                            inheritance.getBaileyValue(
+                                    locale, path, testPathWhereFound, testLocaleWhereFound);
                     boolean success = true;
                     success &= assertEquals(path, pathWhereFound.value, testPathWhereFound.value);
-                    // success &= assertEquals(path, localeWhereFound.value, testLocaleWhereFound.value);
+                    // success &= assertEquals(path, localeWhereFound.value,
+                    // testLocaleWhereFound.value);
                     if (!success) {
                         // for debugging
                         inheritance.getBaileyValue(locale, path, pathWhereFound, localeWhereFound);
                     } else {
-                        //System.out.println("\nSource:  \t" + path + "\nOK:      \t" + pathWhereFound.value);
+                        // System.out.println("\nSource:  \t" + path + "\nOK:      \t" +
+                        // pathWhereFound.value);
                     }
                 }
             }
         }
-//        AliasMapper aliasMapper = inheritance.aliasMapper;
-//        System.out.println("nonInitials: " + aliasMapper.nonInitials.size());
-//
-//        Set<String> chain = inheritance.getInheritanceChain("en", "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"graphics-dot\"]/unitPattern[@count=\"one\"][@alt=\"variant\"]");
-//        for (String s : chain) {
-//            System.out.println(s);
-//        }
+        //        AliasMapper aliasMapper = inheritance.aliasMapper;
+        //        System.out.println("nonInitials: " + aliasMapper.nonInitials.size());
+        //
+        //        Set<String> chain = inheritance.getInheritanceChain("en",
+        // "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"graphics-dot\"]/unitPattern[@count=\"one\"][@alt=\"variant\"]");
+        //        for (String s : chain) {
+        //            System.out.println(s);
+        //        }
     }
 
     public static boolean assertEquals(String message, String expected, String actual) {
@@ -265,36 +300,52 @@ public class InheritanceStats {
                 }
                 String aName = a.name;
                 if (Inheritance.LATERAL_ATTRIBUTES.containsKey(aName)) {
-                    System.out.println(aName
-                        + "\t" + e
-                        + "\t" + a.getMatchString()
-                        + "\t" + a.getMode()
-                        + "\t" + children);
+                    System.out.println(
+                            aName
+                                    + "\t"
+                                    + e
+                                    + "\t"
+                                    + a.getMatchString()
+                                    + "\t"
+                                    + a.getMode()
+                                    + "\t"
+                                    + children);
                 }
             }
         }
         System.out.println("\nAttribute\tElement\tPossible Values");
         lines.forEach(x -> System.out.println(x));
         System.out.println("\nParents\tChild");
-        childToParents.asMap().entrySet().forEach(x -> {
-            Element child = x.getKey();
-            Collection<Element> parents = x.getValue();
-            final Set<Element> fromElement = new HashSet<>();
-            child.getParents().forEach(
-                y -> {if (!y.isDeprecated()) fromElement.add(y);}
-                );
-            if (!fromElement.equals(parents)) {
-                throw new IllegalArgumentException("Bad parents in element");
-            }
-            if (x.getValue().size() > 1) {
-                System.out.println(COMMA_JOINER.join(x.getValue()) + "\t" + x.getKey());
-            }
-        });
+        childToParents
+                .asMap()
+                .entrySet()
+                .forEach(
+                        x -> {
+                            Element child = x.getKey();
+                            Collection<Element> parents = x.getValue();
+                            final Set<Element> fromElement = new HashSet<>();
+                            child.getParents()
+                                    .forEach(
+                                            y -> {
+                                                if (!y.isDeprecated()) fromElement.add(y);
+                                            });
+                            if (!fromElement.equals(parents)) {
+                                throw new IllegalArgumentException("Bad parents in element");
+                            }
+                            if (x.getValue().size() > 1) {
+                                System.out.println(
+                                        COMMA_JOINER.join(x.getValue()) + "\t" + x.getKey());
+                            }
+                        });
     }
 
     public static void showAttributeValues() {
 
-        final Set<String> locales = StandardCodes.make().getLocaleCoverageLocales(Organization.cldr, ImmutableSortedSet.of(Level.MODERN, Level.MODERATE));
+        final Set<String> locales =
+                StandardCodes.make()
+                        .getLocaleCoverageLocales(
+                                Organization.cldr,
+                                ImmutableSortedSet.of(Level.MODERN, Level.MODERATE));
         AttributeData attributeData = new AttributeData();
 
         Set<String> attributes = Inheritance.LATERAL_ATTRIBUTES.keySet();
@@ -323,7 +374,11 @@ public class InheritanceStats {
         }
     }
 
-    public static void processLocales(final Set<String> locales, AttributeData attributeData, Set<String> attributes, Factory factory) {
+    public static void processLocales(
+            final Set<String> locales,
+            AttributeData attributeData,
+            Set<String> attributes,
+            Factory factory) {
         char lastChar = 0;
         for (String locale : locales) {
             CLDRFile cldrFile;
@@ -346,10 +401,15 @@ public class InheritanceStats {
 
         public void showAlts() {
             System.out.println("\nP. Element\tElement\tAlt value\tStarred Path");
-            dataToAlts.asMap().entrySet().forEach(x -> {
-                String element = x.getKey();
-                System.out.println(element + "\t" + COMMA_JOINER.join(x.getValue()));
-            });
+            dataToAlts
+                    .asMap()
+                    .entrySet()
+                    .forEach(
+                            x -> {
+                                String element = x.getKey();
+                                System.out.println(
+                                        element + "\t" + COMMA_JOINER.join(x.getValue()));
+                            });
         }
 
         public void getAttributePaths(CLDRFile file, Set<String> attributes) {
@@ -375,11 +435,12 @@ public class InheritanceStats {
                         }
                         if (altValue != null) {
                             final String eName = parts.getElement(elementNumber);
-                            String eName0 = parts.getElement(elementNumber-1);
+                            String eName0 = parts.getElement(elementNumber - 1);
                             dataToAlts.put(
-                                eName0 + "\t" + eName + "\t" + attribute,
-//                        pathStarrer.set(path) + "\t" + COMMA_JOINER.join(elementNameMap.get(eName).getChildren().keySet())),
-                                altValue);
+                                    eName0 + "\t" + eName + "\t" + attribute,
+                                    //                        pathStarrer.set(path) + "\t" +
+                                    // COMMA_JOINER.join(elementNameMap.get(eName).getChildren().keySet())),
+                                    altValue);
                         }
                     }
                 }
@@ -394,26 +455,26 @@ public class InheritanceStats {
         for (String ldmlDirectory : DtdType.ldml.directories) {
             System.out.println("\n––––––––––\n" + ldmlDirectory + "\n––––––––––");
 
-            final Factory mainFactory = SimpleFactory.make(CLDRPaths.COMMON_DIRECTORY + ldmlDirectory, ".*");
-            final Factory dropFalse = SimpleFactory.make("/Users/markdavis/github/btangmu/common/" + ldmlDirectory, ".*");
-            final Factory dropTrue = SimpleFactory.make("/Users/markdavis/github/common_true/common/" + ldmlDirectory, ".*");
+            final Factory mainFactory =
+                    SimpleFactory.make(CLDRPaths.COMMON_DIRECTORY + ldmlDirectory, ".*");
+            final Factory dropFalse =
+                    SimpleFactory.make(
+                            "/Users/markdavis/github/btangmu/common/" + ldmlDirectory, ".*");
+            final Factory dropTrue =
+                    SimpleFactory.make(
+                            "/Users/markdavis/github/common_true/common/" + ldmlDirectory, ".*");
 
-            System.out.println("locale"
-                + "\t" + "path"
-                + "\t" + "valueT"
-                + "\t" + "valueF"
-                + "\t" + "valueM"
-                + "\t" + "rawVT"
-                + "\t" + "rawVF"
-                + "\t" + "rawVM"
-                );
+            System.out.println(
+                    "locale" + "\t" + "path" + "\t" + "valueT" + "\t" + "valueF" + "\t" + "valueM"
+                            + "\t" + "rawVT" + "\t" + "rawVF" + "\t" + "rawVM");
             Set<String> seen = new HashSet<>();
 
             for (String locale : mainFactory.getAvailable()) {
                 if (SubmissionLocales.ALLOW_ALL_PATHS_BASIC.contains(locale)) {
                     continue;
                 }
-                Level targetCoverageLevel = StandardCodes.make().getLocaleCoverageLevel(Organization.cldr, locale);
+                Level targetCoverageLevel =
+                        StandardCodes.make().getLocaleCoverageLevel(Organization.cldr, locale);
 
                 CLDRFile cldrFileMain = mainFactory.make(locale, true);
                 CLDRFile cldrFileFalse = dropFalse.make(locale, true);
@@ -424,11 +485,12 @@ public class InheritanceStats {
                 final CLDRFile unresolvedFalse = cldrFileFalse.getUnresolved();
 
                 // just in case there are differences in the paths, include all
-                Set<String> sortedPaths = ImmutableSortedSet.<String>naturalOrder()
-                    .addAll(cldrFileMain)
-                    .addAll(cldrFileFalse)
-                    .addAll(cldrFileTrue)
-                    .build();
+                Set<String> sortedPaths =
+                        ImmutableSortedSet.<String>naturalOrder()
+                                .addAll(cldrFileMain)
+                                .addAll(cldrFileFalse)
+                                .addAll(cldrFileTrue)
+                                .build();
 
                 for (String path : sortedPaths) {
                     Level coverageLevel = SDI.getCoverageLevel(path, locale);
@@ -436,7 +498,7 @@ public class InheritanceStats {
                         continue; // skip levels higher than the target
                     }
                     if (skipAllowedChanges
-                        && SubmissionLocales.allowEvenIfLimited(locale, path, false, false)) {
+                            && SubmissionLocales.allowEvenIfLimited(locale, path, false, false)) {
                         continue;
                     }
                     // we care about resolved differences.
@@ -455,14 +517,21 @@ public class InheritanceStats {
                         }
                     }
 
-                    String details = "\t" + path
-                        + "\t" + valueTrue
-                        + "\t" + valueFalse
-                        + "\t" + valueMain
-
-                        + "\t" + unresolvedTrue.getStringValue(path)
-                        + "\t" + unresolvedFalse.getStringValue(path)
-                        + "\t" + unresolvedMain.getStringValue(path);
+                    String details =
+                            "\t"
+                                    + path
+                                    + "\t"
+                                    + valueTrue
+                                    + "\t"
+                                    + valueFalse
+                                    + "\t"
+                                    + valueMain
+                                    + "\t"
+                                    + unresolvedTrue.getStringValue(path)
+                                    + "\t"
+                                    + unresolvedFalse.getStringValue(path)
+                                    + "\t"
+                                    + unresolvedMain.getStringValue(path);
 
                     // skip details that we have already seen
 
@@ -474,6 +543,5 @@ public class InheritanceStats {
                 }
             }
         }
-
     }
 }

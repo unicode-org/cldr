@@ -1330,10 +1330,18 @@ public class WebContext implements Cloneable, Appendable {
             if (jwt != null && !jwt.isBlank()) {
                 final String jwtId = CookieSession.sm.klm.getSubject(jwt);
                 if (jwtId != null && !jwtId.isBlank()) {
-                    User jwtInfo = CookieSession.sm.reg.getInfo(Integer.parseInt(jwtId));
-                    if (jwtInfo != null) {
-                        user = jwtInfo;
-                        logger.fine("Logged in " + jwtInfo + " #" + jwtId + " using JWT");
+                    if (!email.isEmpty() && !password.isEmpty()) {
+                        // If the user was already logged in as Admin/TC/Manager, then used a URL
+                        // with explicit email/password to log in as a different user, the old
+                        // cookies (especially JWT) must be removed to prevent staying logged
+                        // in as the first user
+                        removeLoginCookies(request, response);
+                    } else {
+                        User jwtInfo = CookieSession.sm.reg.getInfo(Integer.parseInt(jwtId));
+                        if (jwtInfo != null) {
+                            user = jwtInfo;
+                            logger.fine("Logged in " + jwtInfo + " #" + jwtId + " using JWT");
+                        }
                     }
                 }
             }

@@ -380,8 +380,7 @@ public class UserRegistry {
             return password;
         }
 
-        /** here to allow one JSP to get at the password, but otherwise keep the field hidden */
-        @Deprecated
+        /* Accessed by admin-usersWithOldVotes.jsp as well as by Auth.java */
         public String internalGetPassword() {
             return getPassword();
         }

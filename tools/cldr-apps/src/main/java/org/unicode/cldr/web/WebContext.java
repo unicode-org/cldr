@@ -28,6 +28,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader;
@@ -719,12 +720,37 @@ public class WebContext implements Cloneable, Appendable {
      */
     void redirect(String where) {
         try {
-            response.sendRedirect(where);
+            String port = getRedirectPort();
+            if (port != null) {
+                String url =
+                        request.getScheme() + "://" + request.getServerName() + ":" + port + where;
+                response.sendRedirect(url);
+            } else {
+                response.sendRedirect(where);
+            }
             out.close();
             close();
         } catch (IOException ioe) {
             throw new RuntimeException(ioe + " while redirecting to " + where);
         }
+    }
+
+    private static final String PORT_NUMBER_NOT_INITIALIZED = "?";
+
+    /**
+     * On first access, this becomes either null (for default port number 80) or a port number such
+     * as "8888". Ordinarily Survey Tool uses nginx as a load-balancing server, running on the
+     * default port (80). For development it may be useful to have it on a different port. This can
+     * be enabled by a line such as this in cldr.properties: CLDR_REDIRECT_PORT=8888
+     */
+    private static String webContextRedirectPort = PORT_NUMBER_NOT_INITIALIZED;
+
+    private String getRedirectPort() {
+        if (PORT_NUMBER_NOT_INITIALIZED.equals(webContextRedirectPort)) {
+            webContextRedirectPort =
+                    CLDRConfig.getInstance().getProperty("CLDR_REDIRECT_PORT", null);
+        }
+        return webContextRedirectPort; // default null
     }
 
     /** Close the stream. Normally not called directly, except in outermost processor. */

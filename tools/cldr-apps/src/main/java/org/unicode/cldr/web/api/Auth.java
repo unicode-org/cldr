@@ -56,17 +56,12 @@ public class Auth {
             @Context HttpServletRequest hreq,
             @Context HttpServletResponse hresp,
             @QueryParam("remember")
-                    @Schema(
-                            required = false,
-                            defaultValue = "false",
-                            description = "If true, remember login")
+                    @Schema(defaultValue = "false", description = "If true, remember login")
                     boolean remember,
             LoginRequest request) {
 
         // If there's no user/pass, try to fill one in from cookies.
         if (request.isEmpty()) {
-            // No option to ignore the cookies.
-            // If you want to logout, use the /logout endpoint first.
             // Also compare WebContext.setSession()
             final String jwt = WebContext.getCookieValue(hreq, SurveyMain.COOKIE_SAVELOGIN);
             if (jwt != null && !jwt.isBlank()) {
@@ -96,7 +91,7 @@ public class Auth {
                 if (session == null) {
                     session = CookieSession.newSession(user, userIP);
                 }
-                if (remember == true && user != null) {
+                if (remember) {
                     WebContext.loginRemember(hresp, user);
                 }
             } else {
@@ -155,8 +150,8 @@ public class Auth {
      * Create a LoginResponse, given a session. Put this here and not in LoginResponse because of
      * serialization
      *
-     * @param session
-     * @return
+     * @param session the cookie session
+     * @return the response
      */
     private LoginResponse createLoginResponse(CookieSession session) {
         LoginResponse resp = new LoginResponse();
@@ -212,7 +207,6 @@ public class Auth {
                     final String session,
             @QueryParam("touch")
                     @Schema(
-                            required = false,
                             defaultValue = "false",
                             description = "Whether to mark the session as updated")
                     final boolean touch) {
@@ -294,7 +288,7 @@ public class Auth {
     /**
      * Extract a CookieSession from a session string
      *
-     * @param session
+     * @param session the session string, or null
      * @return session or null
      */
     public static CookieSession getSession(String session) {
@@ -306,7 +300,7 @@ public class Auth {
     /**
      * Convenience function for returning the response when there's no session
      *
-     * @return
+     * @return the response
      */
     public static Response noSessionResponse() {
         return Response.status(Status.UNAUTHORIZED).build();

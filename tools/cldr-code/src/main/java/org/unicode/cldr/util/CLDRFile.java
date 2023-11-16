@@ -45,6 +45,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -59,6 +60,7 @@ import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
+import org.unicode.cldr.util.LocaleInheritanceInfo.Reason;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
@@ -98,6 +100,13 @@ import org.xml.sax.helpers.XMLReaderFactory;
 
 public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleStringProvider {
 
+    private static final String GETNAME_LOCALE_SEPARATOR =
+            "//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator";
+    private static final String GETNAME_LOCALE_PATTERN =
+            "//ldml/localeDisplayNames/localeDisplayPattern/localePattern";
+    private static final String GETNAME_LOCALE_KEY_TYPE_PATTERN =
+            "//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern";
+
     private static final ImmutableSet<String> casesNominativeOnly =
             ImmutableSet.of(GrammaticalFeature.grammaticalCase.getDefault(null));
     /**
@@ -124,7 +133,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
     public static final String SUPPLEMENTAL_NAME = "supplementalData";
     public static final String SUPPLEMENTAL_METADATA = "supplementalMetadata";
     public static final String SUPPLEMENTAL_PREFIX = "supplemental";
-    public static final String GEN_VERSION = "43";
+    public static final String GEN_VERSION = "45";
     public static final List<String> SUPPLEMENTAL_NAMES =
             Arrays.asList(
                     "characters",
@@ -158,6 +167,50 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
 
     private File supplementalDirectory;
 
+    /**
+     * Does the value in question either match or inherent the current value?
+     *
+     * <p>To match, the value in question and the current value must be non-null and equal.
+     *
+     * <p>To inherit the current value, the value in question must be INHERITANCE_MARKER and the
+     * current value must equal the bailey value.
+     *
+     * <p>This CLDRFile is only used here for getBaileyValue, not to get curValue
+     *
+     * @param value the value in question
+     * @param curValue the current value, that is, XMLSource.getValueAtDPath(xpathString)
+     * @param xpathString the path identifier
+     * @return true if it matches or inherits, else false
+     */
+    public boolean equalsOrInheritsCurrentValue(String value, String curValue, String xpathString) {
+        if (value == null || curValue == null) {
+            return false;
+        }
+        if (value.equals(curValue)) {
+            return true;
+        }
+        if (value.equals(CldrUtility.INHERITANCE_MARKER)) {
+            String baileyValue = getBaileyValue(xpathString, null, null);
+            if (baileyValue == null) {
+                /* This may happen for Invalid XPath; InvalidXPathException may be thrown. */
+                return false;
+            }
+            if (curValue.equals(baileyValue)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public XMLSource getResolvingDataSource() {
+        if (!isResolved()) {
+            throw new IllegalArgumentException(
+                    "CLDRFile must be resolved for getResolvingDataSource");
+        }
+        // dataSource instanceof XMLSource.ResolvingSource
+        return dataSource;
+    }
+
     public enum DraftStatus {
         unconfirmed,
         provisional,
@@ -189,6 +242,21 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
             } else {
                 return "[@draft=\"" + name() + "\"]";
             }
+        }
+
+        /** update this XPath with this draft status */
+        public String updateXPath(final String fullXpath) {
+            final XPathParts xpp = XPathParts.getFrozenInstance(fullXpath).cloneAsThawed();
+            final String oldDraft = xpp.getAttributeValue(-1, "draft");
+            if (forString(oldDraft) == this) {
+                return fullXpath; // no change;
+            }
+            if (this == approved) {
+                xpp.removeAttribute(-1, "draft");
+            } else {
+                xpp.setAttribute(-1, "draft", this.name());
+            }
+            return xpp.toString();
         }
     }
 
@@ -333,7 +401,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
                                 PathUtilities.getNormalizedPathString(f),
                                 localeName,
                                 fis,
-                                minimalDraftStatus);
+                                minimalDraftStatus,
+                                false);
                     }
                 }
                 return cldrFile;
@@ -385,7 +454,40 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
             DraftStatus minimalDraftStatus,
             XMLSource source) {
         CLDRFile cldrFile = new CLDRFile(source);
-        return cldrFile.loadFromInputStream(fileName, localeName, fis, minimalDraftStatus);
+        return cldrFile.loadFromInputStream(fileName, localeName, fis, minimalDraftStatus, false);
+    }
+
+    /**
+     * Load a CLDRFile from a file input stream.
+     *
+     * @param localeName
+     * @param fis
+     */
+    private static CLDRFile load(
+            String fileName,
+            String localeName,
+            InputStream fis,
+            DraftStatus minimalDraftStatus,
+            XMLSource source,
+            boolean leniency) {
+        CLDRFile cldrFile = new CLDRFile(source);
+        return cldrFile.loadFromInputStream(
+                fileName, localeName, fis, minimalDraftStatus, leniency);
+    }
+
+    static CLDRFile load(
+            String fileName,
+            String localeName,
+            InputStream fis,
+            DraftStatus minimalDraftStatus,
+            boolean leniency) {
+        return load(
+                fileName,
+                localeName,
+                fis,
+                minimalDraftStatus,
+                new SimpleXMLSource(localeName),
+                leniency);
     }
 
     /**
@@ -395,13 +497,18 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      * @param localeName
      * @param fis
      * @param minimalDraftStatus
+     * @param leniency if true, skip dtd validation
      * @return
      */
     public CLDRFile loadFromInputStream(
-            String fileName, String localeName, InputStream fis, DraftStatus minimalDraftStatus) {
+            String fileName,
+            String localeName,
+            InputStream fis,
+            DraftStatus minimalDraftStatus,
+            boolean leniency) {
         CLDRFile cldrFile = this;
         MyDeclHandler DEFAULT_DECLHANDLER = new MyDeclHandler(cldrFile, minimalDraftStatus);
-        XMLFileReader.read(fileName, fis, -1, true, DEFAULT_DECLHANDLER);
+        XMLFileReader.read(fileName, fis, -1, !leniency, DEFAULT_DECLHANDLER);
         if (DEFAULT_DECLHANDLER.isSupplemental < 0) {
             throw new IllegalArgumentException(
                     "root of file must be either ldml or supplementalData");
@@ -544,6 +651,50 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         return result;
     }
 
+    /**
+     * Return a list of all paths which contributed to the value, as well as all bailey values. This
+     * is used to explain inheritance and bailey values. The list must be interpreted in order. When
+     * {@link LocaleInheritanceInfo.Reason#isTerminal()} return true, that indicates a successful
+     * lookup and partitions values from subsequent bailey values.
+     *
+     * @see #getBaileyValue(String, Output, Output)
+     * @see #getSourceLocaleIdExtended(String, Status, boolean)
+     */
+    public List<LocaleInheritanceInfo> getPathsWhereFound(String xpath) {
+        if (!isResolved()) {
+            throw new IllegalArgumentException(
+                    "getPathsWhereFound() is only valid on a resolved CLDRFile");
+        }
+        LinkedList<LocaleInheritanceInfo> list = new LinkedList<>();
+        // first, call getSourceLocaleIdExtended to populate the list
+        Status status = new Status();
+        getSourceLocaleIdExtended(xpath, status, false, list);
+        final String path1 = status.pathWhereFound;
+        // For now, the only special case is Glossonym
+        if (path1.equals(GlossonymConstructor.PSEUDO_PATH)) {
+            // it's a Glossonym, so as the GlossonymConstructor what the paths are.  Sort paths in
+            // reverse order.
+            final Set<String> xpaths =
+                    new GlossonymConstructor(this)
+                            .getPathsWhereFound(
+                                    xpath, new TreeSet<String>(Comparator.reverseOrder()));
+            for (final String subpath : xpaths) {
+                final String locale2 = getSourceLocaleIdExtended(subpath, status, true);
+                final String path2 = status.pathWhereFound;
+                // Paths are in reverse order (c-b-a) so we insert them at the top of our list.
+                list.addFirst(new LocaleInheritanceInfo(locale2, path2, Reason.constructed));
+            }
+
+            // now the list contains:
+            // constructed: a
+            // constructed: b
+            // constructed: c
+            // (none) - this is where the glossonym was
+            // (bailey value(s))
+        }
+        return list;
+    }
+
     static final class SimpleAltPicker implements Transform<String, String> {
         public final String alt;
 
@@ -618,8 +769,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
     }
 
     /**
-     * Find out where the value was found (for resolving locales). Returns code-fallback as the
-     * location if nothing is found
+     * Find out where the value was found (for resolving locales). Returns {@link
+     * XMLSource#CODE_FALLBACK_ID} as the location if nothing is found
      *
      * @param distinguishedXPath path (must be distinguished!)
      * @param status the distinguished path where the item was found. Pass in null if you don't
@@ -632,8 +783,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
     }
 
     /**
-     * Find out where the value was found (for resolving locales). Returns code-fallback as the
-     * location if nothing is found
+     * Find out where the value was found (for resolving locales). Returns {@link
+     * XMLSource#CODE_FALLBACK_ID} as the location if nothing is found
      *
      * @param distinguishedXPath path (must be distinguished!)
      * @param status the distinguished path where the item was found. Pass in null if you don't
@@ -643,15 +794,28 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      */
     public String getSourceLocaleIdExtended(
             String distinguishedXPath, CLDRFile.Status status, boolean skipInheritanceMarker) {
+        return getSourceLocaleIdExtended(distinguishedXPath, status, skipInheritanceMarker, null);
+    }
+
+    public String getSourceLocaleIdExtended(
+            String distinguishedXPath,
+            CLDRFile.Status status,
+            boolean skipInheritanceMarker,
+            List<LocaleInheritanceInfo> list) {
         String result =
                 dataSource.getSourceLocaleIdExtended(
-                        distinguishedXPath, status, skipInheritanceMarker);
+                        distinguishedXPath, status, skipInheritanceMarker, list);
         if (result == XMLSource.CODE_FALLBACK_ID && dataSource.isResolving()) {
             final String fallbackPath = getFallbackPath(distinguishedXPath, false, true);
             if (fallbackPath != null && !fallbackPath.equals(distinguishedXPath)) {
+                if (list != null) {
+                    list.add(
+                            new LocaleInheritanceInfo(
+                                    getLocaleID(), distinguishedXPath, Reason.fallback, null));
+                }
                 result =
                         dataSource.getSourceLocaleIdExtended(
-                                fallbackPath, status, skipInheritanceMarker);
+                                fallbackPath, status, skipInheritanceMarker, list);
             }
             if (result == XMLSource.CODE_FALLBACK_ID
                     && getConstructedValue(distinguishedXPath) != null) {
@@ -1527,8 +1691,10 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
                     // <!ATTLIST version number CDATA #REQUIRED >
                     // <!ATTLIST version cldrVersion CDATA #FIXED "24" >
                     if (attribute.equals("cldrVersion") && (qName.equals("version"))) {
-                        ((SimpleXMLSource) target.dataSource)
-                                .setDtdVersionInfo(VersionInfo.getInstance(value));
+                        if (!value.equals("techpreview")) { // TODO: Keyboard techpreview
+                            ((SimpleXMLSource) target.dataSource)
+                                    .setDtdVersionInfo(VersionInfo.getInstance(value));
+                        }
                     } else {
                         putAndFixDeprecatedAttribute(qName, attribute, value);
                     }
@@ -1854,7 +2020,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
                             + ", systemId: "
                             + systemId);
             commentStack++;
-            target.dtdType = DtdType.valueOf(name);
+            target.dtdType = DtdType.fromElement(name);
             target.dtdData = dtdData = DtdData.getInstance(target.dtdType);
         }
 
@@ -2154,7 +2320,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
     }
 
     /**
-     * @return the key used to access data of a given type
+     * @return the xpath used to access data of a given type
      */
     public static String getKey(int type, String code) {
         switch (type) {
@@ -2399,6 +2565,18 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
     }
 
     public UnicodeSet getExemplarSet(ExemplarType type, WinningChoice winningChoice, int option) {
+        UnicodeSet result = getRawExemplarSet(type, winningChoice);
+        if (result.isEmpty()) {
+            return result.cloneAsThawed();
+        }
+        UnicodeSet toNuke = new UnicodeSet(HACK_CASE_CLOSURE_SET).removeAll(result);
+        result.closeOver(UnicodeSet.CASE);
+        result.removeAll(toNuke);
+        result.remove(0x20);
+        return result;
+    }
+
+    public UnicodeSet getRawExemplarSet(ExemplarType type, WinningChoice winningChoice) {
         String path = getExemplarPath(type);
         if (winningChoice == WinningChoice.WINNING) {
             path = getWinningPath(path);
@@ -2407,11 +2585,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         if (v == null) {
             return UnicodeSet.EMPTY;
         }
-        UnicodeSet result = new UnicodeSet(v);
-        UnicodeSet toNuke = new UnicodeSet(HACK_CASE_CLOSURE_SET).removeAll(result);
-        result.closeOver(UnicodeSet.CASE);
-        result.removeAll(toNuke);
-        result.remove(0x20);
+        UnicodeSet result = SimpleUnicodeSetFormatter.parseLenient(v);
         return result;
     }
 
@@ -2632,7 +2806,14 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         }
     }
 
+    /** Fillin value for {@link CLDRFile#getSourceLocaleID(String, Status)} */
     public static class Status {
+        /**
+         * XPath where originally found. May be {@link GlossonymConstructor#PSEUDO_PATH} if the
+         * value was constructed.
+         *
+         * @see GlossonymnConstructor
+         */
         public String pathWhereFound;
 
         @Override
@@ -2755,8 +2936,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
     }
 
     /**
-     * Shortcut for getting the string value for the winning path. If the winning value is an
-     * INHERITANCE_MARKER (used in survey tool), then the Bailey value is returned.
+     * Shortcut for getting the string value for the winning path. If the winning value is an {@link
+     * CldrUtility#INHERITANCE_MARKER} (used in survey tool), then the Bailey value is returned.
      *
      * @param path
      * @return the winning value
@@ -2767,8 +2948,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
     }
 
     /**
-     * Shortcut for getting the string value for a path. If the string value is an
-     * INHERITANCE_MARKER (used in survey tool), then the Bailey value is returned.
+     * Shortcut for getting the string value for a path. If the string value is an {@link
+     * CldrUtility#INHERITANCE_MARKER} (used in survey tool), then the Bailey value is returned.
      *
      * @param path
      * @return the string value
@@ -2778,14 +2959,14 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
     }
 
     /**
-     * Shortcut for getting the string value for a path. If the string value is an
-     * INHERITANCE_MARKER (used in survey tool), then the Bailey value is returned.
+     * Shortcut for getting the string value for a path. If the string value is an {@link
+     * CldrUtility#INHERITANCE_MARKER} (used in survey tool), then the Bailey value is returned.
      *
      * @param path the given xpath
      * @param pathWhereFound if not null, to be filled in with the path where the value is actually
-     *     found
+     *     found. May be {@link GlossonymConstructor#PSEUDO_PATH} if constructed.
      * @param localeWhereFound if not null, to be filled in with the locale where the value is
-     *     actually found
+     *     actually found. May be {@link XMLSource#CODE_FALLBACK_ID} if not in root.
      * @return the string value
      */
     public String getStringValueWithBailey(
@@ -3446,15 +3627,6 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         this.dtdType = dtdType;
     }
 
-    /** Used only for TestExampleGenerator. */
-    public void valueChanged(String xpath) {
-        if (isResolved()) {
-            ResolvingSource resSource = (ResolvingSource) dataSource;
-            resSource.valueChanged(xpath, resSource);
-        }
-    }
-
-    /** Used only for TestExampleGenerator. */
     public void disableCaching() {
         dataSource.disableCaching();
     }
@@ -3592,7 +3764,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      * versions of getName and their subroutines and data -- to a new class in a separate file,
      * and enable tracking similar to existing "pathWhereFound/localeWhereFound" but more general.
      *
-     * Reference: https://unicode-org.atlassian.net/browse/CLDR-13263
+     * Reference: https://unicode-org.atlassian.net/browse/CLDR-15830
      *******************************************************************************************
      */
 
@@ -3605,7 +3777,15 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
     }
 
     public String getName(int type, String code) {
-        return getName(type, code, null);
+        return getName(type, code, null, null);
+    }
+
+    public String getName(int type, String code, Set<String> paths) {
+        return getName(type, code, null, paths);
+    }
+
+    public String getName(int type, String code, Transform<String, String> altPicker) {
+        return getName(type, code, altPicker, null);
     }
 
     /**
@@ -3623,16 +3803,25 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
             LanguageTagParser lparser,
             boolean onlyConstructCompound,
             Transform<String, String> altPicker) {
+        return getName(lparser, onlyConstructCompound, altPicker, null);
+    }
+
+    /**
+     * @param paths if non-null, will contain contributory paths on return
+     */
+    public String getName(
+            LanguageTagParser lparser,
+            boolean onlyConstructCompound,
+            Transform<String, String> altPicker,
+            Set<String> paths) {
         return getName(
                 lparser,
                 onlyConstructCompound,
                 altPicker,
-                getWinningValueWithBailey(
-                        "//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern"),
-                getWinningValueWithBailey(
-                        "//ldml/localeDisplayNames/localeDisplayPattern/localePattern"),
-                getWinningValueWithBailey(
-                        "//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator"));
+                getWinningValueWithBailey(GETNAME_LOCALE_KEY_TYPE_PATTERN),
+                getWinningValueWithBailey(GETNAME_LOCALE_PATTERN),
+                getWinningValueWithBailey(GETNAME_LOCALE_SEPARATOR),
+                paths);
     }
 
     public synchronized String getName(
@@ -3647,6 +3836,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
                 localeKeyTypePattern,
                 localePattern,
                 localeSeparator,
+                null,
                 null);
     }
 
@@ -3677,16 +3867,33 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
             String localeOrTZID,
             boolean onlyConstructCompound,
             Transform<String, String> altPicker) {
+        return getName(localeOrTZID, onlyConstructCompound, altPicker, null);
+    }
+
+    /**
+     * Returns the name of the given bcp47 identifier. Note that extensions must be specified using
+     * the old "\@key=type" syntax.
+     *
+     * @param localeOrTZID the locale or timezone ID
+     * @param onlyConstructCompound if true, returns "English (United Kingdom)" instead of "British
+     *     English"
+     * @param altPicker Used to select particular alts. For example, SHORT_ALTS can be used to get
+     *     "English (U.K.)" instead of "English (United Kingdom)"
+     * @return
+     */
+    public synchronized String getName(
+            String localeOrTZID,
+            boolean onlyConstructCompound,
+            Transform<String, String> altPicker,
+            Set<String> paths) {
         return getName(
                 localeOrTZID,
                 onlyConstructCompound,
-                getWinningValueWithBailey(
-                        "//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern"),
-                getWinningValueWithBailey(
-                        "//ldml/localeDisplayNames/localeDisplayPattern/localePattern"),
-                getWinningValueWithBailey(
-                        "//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator"),
-                altPicker);
+                getWinningValueWithBailey(GETNAME_LOCALE_KEY_TYPE_PATTERN),
+                getWinningValueWithBailey(GETNAME_LOCALE_PATTERN),
+                getWinningValueWithBailey(GETNAME_LOCALE_SEPARATOR),
+                altPicker,
+                paths);
     }
 
     /**
@@ -3698,6 +3905,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      * @param localeKeyTypePattern the pattern used to format key-type pairs
      * @param localePattern the pattern used to format primary/secondary subtags
      * @param localeSeparator the list separator for secondary subtags
+     * @param paths if non-null, fillin with contributory paths
      * @return
      */
     public synchronized String getName(
@@ -3706,7 +3914,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
             String localeKeyTypePattern,
             String localePattern,
             String localeSeparator,
-            Transform<String, String> altPicker) {
+            Transform<String, String> altPicker,
+            Set<String> paths) {
         // Hack for seed
         if (localePattern == null) {
             localePattern = "{0} ({1})";
@@ -3715,11 +3924,11 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         String name =
                 isCompound && onlyConstructCompound
                         ? null
-                        : getName(LANGUAGE_NAME, localeOrTZID, altPicker);
+                        : getName(LANGUAGE_NAME, localeOrTZID, altPicker, paths);
 
         // TODO - handle arbitrary combinations
         if (name != null && !name.contains("_") && !name.contains("-")) {
-            name = name.replace('(', '[').replace(')', ']').replace('（', '［').replace('）', '］');
+            name = replaceBracketsForName(name);
             return name;
         }
         LanguageTagParser lparser = new LanguageTagParser().set(localeOrTZID);
@@ -3729,7 +3938,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
                 altPicker,
                 localeKeyTypePattern,
                 localePattern,
-                localeSeparator);
+                localeSeparator,
+                paths);
     }
 
     public String getName(
@@ -3738,7 +3948,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
             Transform<String, String> altPicker,
             String localeKeyTypePattern,
             String localePattern,
-            String localeSeparator) {
+            String localeSeparator,
+            Set<String> paths) {
         String name;
         String original = null;
 
@@ -3747,11 +3958,11 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         boolean haveRegion = false;
         // try lang+script
         if (onlyConstructCompound) {
-            name = getName(LANGUAGE_NAME, original = lparser.getLanguage(), altPicker);
+            name = getName(LANGUAGE_NAME, original = lparser.getLanguage(), altPicker, paths);
             if (name == null) name = original;
         } else {
             String x = lparser.toString(LanguageTagParser.LANGUAGE_SCRIPT_REGION);
-            name = getName(LANGUAGE_NAME, x, altPicker);
+            name = getName(LANGUAGE_NAME, x, altPicker, paths);
             if (name != null) {
                 haveScript = haveRegion = true;
             } else {
@@ -3759,7 +3970,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
                         getName(
                                 LANGUAGE_NAME,
                                 lparser.toString(LanguageTagParser.LANGUAGE_SCRIPT),
-                                altPicker);
+                                altPicker,
+                                paths);
                 if (name != null) {
                     haveScript = true;
                 } else {
@@ -3767,11 +3979,17 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
                             getName(
                                     LANGUAGE_NAME,
                                     lparser.toString(LanguageTagParser.LANGUAGE_REGION),
-                                    altPicker);
+                                    altPicker,
+                                    paths);
                     if (name != null) {
                         haveRegion = true;
                     } else {
-                        name = getName(LANGUAGE_NAME, original = lparser.getLanguage(), altPicker);
+                        name =
+                                getName(
+                                        LANGUAGE_NAME,
+                                        original = lparser.getLanguage(),
+                                        altPicker,
+                                        paths);
                         if (name == null) {
                             name = original;
                         }
@@ -3779,12 +3997,17 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
                 }
             }
         }
-        name = name.replace('(', '[').replace(')', ']').replace('（', '［').replace('）', '］');
+        name = replaceBracketsForName(name);
         String extras = "";
         if (!haveScript) {
             extras =
                     addDisplayName(
-                            lparser.getScript(), SCRIPT_NAME, localeSeparator, extras, altPicker);
+                            lparser.getScript(),
+                            SCRIPT_NAME,
+                            localeSeparator,
+                            extras,
+                            altPicker,
+                            paths);
         }
         if (!haveRegion) {
             extras =
@@ -3793,11 +4016,12 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
                             TERRITORY_NAME,
                             localeSeparator,
                             extras,
-                            altPicker);
+                            altPicker,
+                            paths);
         }
         List<String> variants = lparser.getVariants();
         for (String orig : variants) {
-            extras = addDisplayName(orig, VARIANT_NAME, localeSeparator, extras, altPicker);
+            extras = addDisplayName(orig, VARIANT_NAME, localeSeparator, extras, altPicker, paths);
         }
 
         // Look for key-type pairs.
@@ -3815,11 +4039,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
             // Check if key/type pairs exist in the CLDRFile first.
             String value = getKeyValueName(key, oldFormatType);
             if (value != null) {
-                value =
-                        value.replace('(', '[')
-                                .replace(')', ']')
-                                .replace('（', '［')
-                                .replace('）', '］');
+                value = replaceBracketsForName(value);
             } else {
                 // if we fail, then we construct from the key name and the value
                 String kname = getKeyName(key);
@@ -3838,17 +4058,26 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
                         continue main;
                     case "cu":
                         oldFormatType =
-                                getName(CURRENCY_SYMBOL, oldFormatType.toUpperCase(Locale.ROOT));
+                                getName(
+                                        CURRENCY_SYMBOL,
+                                        oldFormatType.toUpperCase(Locale.ROOT),
+                                        paths);
                         break;
                     case "tz":
-                        oldFormatType = getTZName(oldFormatType, "VVVV");
+                        if (paths != null) {
+                            throw new IllegalArgumentException(
+                                    "Error: getName(…) with paths doesn't handle timezones.");
+                        }
+                        oldFormatType =
+                                getTZName(
+                                        oldFormatType, "VVVV"); // TODO: paths not handled here, yet
                         break;
                     case "kr":
-                        oldFormatType = getReorderName(localeSeparator, keyValue);
+                        oldFormatType = getReorderName(localeSeparator, keyValue, paths);
                         break;
                     case "rg":
                     case "sd":
-                        oldFormatType = getName(SUBDIVISION_NAME, oldFormatType);
+                        oldFormatType = getName(SUBDIVISION_NAME, oldFormatType, paths);
                         break;
                     default:
                         oldFormatType = JOIN_HYPHEN.join(keyValue);
@@ -3856,11 +4085,13 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
                 value =
                         MessageFormat.format(
                                 localeKeyTypePattern, new Object[] {kname, oldFormatType});
-                value =
-                        value.replace('(', '[')
-                                .replace(')', ']')
-                                .replace('（', '［')
-                                .replace('）', '］');
+                if (paths != null) {
+                    paths.add(GETNAME_LOCALE_KEY_TYPE_PATTERN);
+                }
+                value = replaceBracketsForName(value);
+            }
+            if (paths != null && !extras.isEmpty()) {
+                paths.add(GETNAME_LOCALE_SEPARATOR);
             }
             extras =
                     extras.isEmpty()
@@ -3876,6 +4107,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
                             new Object[] {
                                 extension.getKey(), JOIN_HYPHEN.join(extension.getValue())
                             });
+            if (paths != null) {
+                paths.add(GETNAME_LOCALE_KEY_TYPE_PATTERN);
+            }
             extras =
                     extras.isEmpty()
                             ? value
@@ -3885,7 +4119,15 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         if (extras.length() == 0) {
             return name;
         }
+        if (paths != null) {
+            paths.add(GETNAME_LOCALE_PATTERN);
+        }
         return MessageFormat.format(localePattern, new Object[] {name, extras});
+    }
+
+    private static final String replaceBracketsForName(String value) {
+        value = value.replace('(', '[').replace(')', ']').replace('（', '［').replace('）', '］');
+        return value;
     }
 
     /**
@@ -3897,9 +4139,11 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      *     is used for an alt value. If the alt path has a value it is used, otherwise the normal
      *     one is used. For example, the transform could return "short" for PS or HK or MO, but not
      *     US or GB.
+     * @param paths if non-null, will have contributory paths on return
      * @return
      */
-    public String getName(int type, String code, Transform<String, String> codeToAlt) {
+    public String getName(
+            int type, String code, Transform<String, String> codeToAlt, Set<String> paths) {
         String path = getKey(type, code);
         String result = null;
         if (codeToAlt != null) {
@@ -3907,10 +4151,16 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
             if (alt != null) {
                 String altPath = path + "[@alt=\"" + alt + "\"]";
                 result = getStringValueWithBaileyNotConstructed(altPath);
+                if (paths != null && result != null) {
+                    paths.add(altPath);
+                }
             }
         }
         if (result == null) {
             result = getStringValueWithBaileyNotConstructed(path);
+            if (paths != null && result != null) {
+                paths.add(path);
+            }
         }
         if (getLocaleID().equals("en")) {
             CLDRFile.Status status = new CLDRFile.Status();
@@ -3928,9 +4178,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
                         result = info.get("Description");
                     }
                 } else if (type == TERRITORY_NAME) {
-                    result = getLstrFallback("region", code);
+                    result = getLstrFallback("region", code, paths);
                 } else if (type == SCRIPT_NAME) {
-                    result = getLstrFallback("script", code);
+                    result = getLstrFallback("script", code, paths);
                 }
             }
         }
@@ -3940,7 +4190,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
     static final Pattern CLEAN_DESCRIPTION = Pattern.compile("([^\\(\\[]*)[\\(\\[].*");
     static final Splitter DESCRIPTION_SEP = Splitter.on('▪');
 
-    private String getLstrFallback(String codeType, String code) {
+    private String getLstrFallback(String codeType, String code, Set<String> paths) {
         Map<String, String> info = StandardCodes.getLStreg().get(codeType).get(code);
         if (info != null) {
             String temp = info.get("Description");
@@ -3949,7 +4199,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
                 temp = temp2.get(0);
                 final Matcher matcher = CLEAN_DESCRIPTION.matcher(temp);
                 if (matcher.lookingAt()) {
-                    return matcher.group(1).trim();
+                    temp = matcher.group(1).trim();
                 }
                 return temp;
             }
@@ -3972,13 +4222,15 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         return tzf.getFormattedZone(longid, format, 0);
     }
 
-    private String getReorderName(String localeSeparator, List<String> keyValues) {
+    private String getReorderName(
+            String localeSeparator, List<String> keyValues, Set<String> paths) {
         String result = null;
         for (String value : keyValues) {
             String name =
                     getName(
                             SCRIPT_NAME,
-                            Character.toUpperCase(value.charAt(0)) + value.substring(1));
+                            Character.toUpperCase(value.charAt(0)) + value.substring(1),
+                            paths);
             if (name == null) {
                 name = getKeyValueName("kr", value);
                 if (name == null) {
@@ -4008,15 +4260,16 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
             int type,
             String separatorPattern,
             String extras,
-            Transform<String, String> altPicker) {
+            Transform<String, String> altPicker,
+            Set<String> paths) {
         if (subtag.length() == 0) {
             return extras;
         }
-        String sname = getName(type, subtag, altPicker);
+        String sname = getName(type, subtag, altPicker, paths);
         if (sname == null) {
             sname = subtag;
         }
-        sname = sname.replace('(', '[').replace(')', ']').replace('（', '［').replace('）', '］');
+        sname = replaceBracketsForName(sname);
 
         if (extras.length() == 0) {
             extras += sname;

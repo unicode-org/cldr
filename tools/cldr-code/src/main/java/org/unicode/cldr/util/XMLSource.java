@@ -31,6 +31,7 @@ import java.util.WeakHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
+import org.unicode.cldr.util.LocaleInheritanceInfo.Reason;
 import org.unicode.cldr.util.XPathParts.Comments;
 import org.xml.sax.Locator;
 
@@ -314,13 +315,6 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             return new Alias(pos, oldPath, newPath, aliasParts);
         }
 
-        /**
-         * @param newLocaleID
-         * @param oldPath
-         * @param aliasParts
-         * @param newPath
-         * @param pathsEqual
-         */
         private Alias(int pos, String oldPath, String newPath, String aliasParts) {
             Matcher matcher = aliasPattern.matcher(aliasParts);
             if (!matcher.matches()) {
@@ -416,11 +410,6 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
         /**
          * This function is called on the full path, when we know the distinguishing path matches
          * the oldPath. So we just want to modify the base of the path
-         *
-         * @param oldPath
-         * @param newPath
-         * @param result
-         * @return
          */
         public String changeNewToOld(String fullPath, String newPath, String oldPath) {
             // do common case quickly
@@ -586,8 +575,22 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
     public String getSourceLocaleIdExtended(
             String path,
             CLDRFile.Status status,
-            @SuppressWarnings("unused") boolean skipInheritanceMarker) {
-        return getSourceLocaleID(path, status);
+            @SuppressWarnings("unused") boolean skipInheritanceMarker,
+            List<LocaleInheritanceInfo> list) {
+        final String locale = getSourceLocaleID(path, status);
+        if (list != null) {
+            if (hasValueAtDPath(path)) {
+                list.add(
+                        new LocaleInheritanceInfo(
+                                locale, path, LocaleInheritanceInfo.Reason.value));
+                // Since we’re not resolving, there’s no way to look for a Bailey value here.
+            } else {
+                list.add(
+                        new LocaleInheritanceInfo(
+                                locale, path, LocaleInheritanceInfo.Reason.none)); // not found
+            }
+        }
+        return locale;
     }
 
     /**
@@ -817,7 +820,8 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                                 + "\t*locale: "
                                 + currentSource.getLocaleID());
             String result = null;
-            AliasLocation fullStatus = getCachedFullStatus(xpath, true /* skipInheritanceMarker */);
+            AliasLocation fullStatus =
+                    getCachedFullStatus(xpath, true /* skipInheritanceMarker */, null);
             if (fullStatus != null) {
                 if (TRACE_VALUE) {
                     System.out.println("\t*pathWhereFound: " + fullStatus.pathWhereFound);
@@ -834,7 +838,8 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             SourceLocation result = null;
             final String dPath = CLDRFile.getDistinguishingXPath(xpath, null);
             // getCachedFullStatus wants a dPath
-            AliasLocation fullStatus = getCachedFullStatus(dPath, true /* skipInheritanceMarker */);
+            AliasLocation fullStatus =
+                    getCachedFullStatus(dPath, true /* skipInheritanceMarker */, null);
             if (fullStatus != null) {
                 result =
                         getSource(fullStatus)
@@ -859,7 +864,8 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             // This is tricky. We need to find the alias location's path and full path.
             // then we need to the the non-distinguishing elements from them,
             // and add them into the requested path.
-            AliasLocation fullStatus = getCachedFullStatus(xpath, true /* skipInheritanceMarker */);
+            AliasLocation fullStatus =
+                    getCachedFullStatus(xpath, true /* skipInheritanceMarker */, null);
             if (fullStatus != null) {
                 String fullPathWhereFound =
                         getSource(fullStatus).getFullPathAtDPath(fullStatus.pathWhereFound);
@@ -880,7 +886,8 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             if (result != null) {
                 return result;
             }
-            AliasLocation fullStatus = getCachedFullStatus(xpath, true /* skipInheritanceMarker */);
+            AliasLocation fullStatus =
+                    getCachedFullStatus(xpath, true /* skipInheritanceMarker */, null);
             if (fullStatus != null) {
                 result = getSource(fullStatus).getChangeDateAtDPath(fullStatus.pathWhereFound);
             }
@@ -942,7 +949,8 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
         public String getBaileyValue(
                 String xpath, Output<String> pathWhereFound, Output<String> localeWhereFound) {
             AliasLocation fullStatus =
-                    getPathLocation(xpath, true /* skipFirst */, true /* skipInheritanceMarker */);
+                    getPathLocation(
+                            xpath, true /* skipFirst */, true /* skipInheritanceMarker */, null);
             if (localeWhereFound != null) {
                 localeWhereFound.value = fullStatus.localeWhereFound;
             }
@@ -960,7 +968,8 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
          * @param skipInheritanceMarker if true, skip sources in which value is INHERITANCE_MARKER
          * @return the AliasLocation
          */
-        private AliasLocation getCachedFullStatus(String xpath, boolean skipInheritanceMarker) {
+        private AliasLocation getCachedFullStatus(
+                String xpath, boolean skipInheritanceMarker, List<LocaleInheritanceInfo> list) {
             /*
              * Skip the cache in the special and relatively rare cases where skipInheritanceMarker is false.
              *
@@ -971,19 +980,18 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
              *
              * There is no caching problem with skipFirst, since that is always false here -- though
              * getBaileyValue could use a cache if there was one for skipFirst true.
+             *
+             * Also skip caching if the list is non-null, for tracing.
              */
-            if (!skipInheritanceMarker || !cachingIsEnabled) {
-                return getPathLocation(xpath, false /* skipFirst */, skipInheritanceMarker);
+            if (!skipInheritanceMarker || !cachingIsEnabled || (list != null)) {
+                return getPathLocation(xpath, false /* skipFirst */, skipInheritanceMarker, list);
             }
             synchronized (getSourceLocaleIDCache) {
                 AliasLocation fullStatus = getSourceLocaleIDCache.get(xpath);
                 if (fullStatus == null) {
-                    //                    if
-                    // (xpath.equals("//ldml/localeDisplayNames/languages/language[@type=\"ug\"][@alt=\"variant\"]")) {
-                    //                        int debug = 0;
-                    //                    }
                     fullStatus =
-                            getPathLocation(xpath, false /* skipFirst */, skipInheritanceMarker);
+                            getPathLocation(
+                                    xpath, false /* skipFirst */, skipInheritanceMarker, null);
                     getSourceLocaleIDCache.put(xpath, fullStatus); // cache copy
                 }
                 return fullStatus;
@@ -994,7 +1002,8 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
         public String getWinningPath(String xpath) {
             String result = currentSource.getWinningPath(xpath);
             if (result != null) return result;
-            AliasLocation fullStatus = getCachedFullStatus(xpath, true /* skipInheritanceMarker */);
+            AliasLocation fullStatus =
+                    getCachedFullStatus(xpath, true /* skipInheritanceMarker */, null);
             if (fullStatus != null) {
                 result = getSource(fullStatus).getWinningPath(fullStatus.pathWhereFound);
             } else {
@@ -1015,7 +1024,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
         @Override
         public String getSourceLocaleID(String distinguishedXPath, CLDRFile.Status status) {
             return getSourceLocaleIdExtended(
-                    distinguishedXPath, status, true /* skipInheritanceMarker */);
+                    distinguishedXPath, status, true /* skipInheritanceMarker */, null);
         }
 
         /**
@@ -1029,9 +1038,12 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
          */
         @Override
         public String getSourceLocaleIdExtended(
-                String distinguishedXPath, CLDRFile.Status status, boolean skipInheritanceMarker) {
+                String distinguishedXPath,
+                CLDRFile.Status status,
+                boolean skipInheritanceMarker,
+                List<LocaleInheritanceInfo> list) {
             AliasLocation fullStatus =
-                    getCachedFullStatus(distinguishedXPath, skipInheritanceMarker);
+                    getCachedFullStatus(distinguishedXPath, skipInheritanceMarker, list);
             if (status != null) {
                 status.pathWhereFound = fullStatus.pathWhereFound;
             }
@@ -1067,27 +1079,61 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
          *     https://unicode.org/cldr/trac/ticket/11720 https://unicode.org/cldr/trac/ticket/11103
          */
         private AliasLocation getPathLocation(
-                String xpath, boolean skipFirst, boolean skipInheritanceMarker) {
-            boolean debugPath = DEBUG_PATH != null && DEBUG_PATH.matcher(xpath).matches();
+                String xpath,
+                boolean skipFirst,
+                boolean skipInheritanceMarker,
+                List<LocaleInheritanceInfo> list) {
+
+            //   When calculating the Bailey values, we track the final
+            //   return value as firstValue. If non-null, this will become
+            //   the function's ultimate return value.
+            AliasLocation firstValue = null;
             for (XMLSource source : sources.values()) {
                 if (skipFirst) {
                     skipFirst = false;
                     continue;
                 }
                 String value = source.getValueAtDPath(xpath);
+                String localeID = source.getLocaleID();
                 if (value != null) {
                     if (skipInheritanceMarker && CldrUtility.INHERITANCE_MARKER.equals(value)) {
-                        continue;
+                        if (list != null) {
+                            list.add(
+                                    new LocaleInheritanceInfo(
+                                            localeID, xpath, Reason.inheritanceMarker));
+                        }
+                        // skip the inheritance marker and keep going
+                    } else {
+                        // We have a “hard” value.
+                        if (list == null) {
+                            return new AliasLocation(xpath, localeID);
+                        }
+                        if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
+                            list.add(
+                                    new LocaleInheritanceInfo(
+                                            localeID, xpath, Reason.inheritanceMarker));
+                        } else {
+                            list.add(new LocaleInheritanceInfo(localeID, xpath, Reason.value));
+                        }
+                        // Now, keep looping to add additional Bailey values.
+                        // Note that we will typically exit the recursion (terminal state)
+                        // with Reason.codeFallback or Reason.none
+                        if (firstValue == null) {
+                            // Save this, this will eventually be the function return.
+                            firstValue = new AliasLocation(xpath, localeID);
+                            // Everything else is only for Bailey.
+                        } // else: we’re already looping.
                     }
-                    if (debugPath) {
-                        System.out.println(
-                                "found: " + source.getLocaleID() + " " + xpath + " " + value);
-                    }
-                    return new AliasLocation(xpath, source.getLocaleID());
+                } else if (list != null) {
+                    // No value, but we do have a list to update
+                    // Note that the path wasn't found in this locale
+                    // This also gives a trace of the locale inheritance
+                    list.add(new LocaleInheritanceInfo(localeID, xpath, Reason.none));
                 }
             }
             // Path not found, check if an alias exists
-            TreeMap<String, String> aliases = sources.get("root").getAliases();
+            final String rootAliasLocale = XMLSource.ROOT_ID; // Locale ID for aliases
+            TreeMap<String, String> aliases = sources.get(rootAliasLocale).getAliases();
             String aliasedPath = aliases.get(xpath);
 
             if (aliasedPath == null) {
@@ -1104,16 +1150,32 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                     aliasedPath =
                             aliases.get(possibleSubpath)
                                     + xpath.substring(possibleSubpath.length());
+                    if (list != null) {
+                        // It's an explicit alias, just at a parent element (subset xpath)
+                        list.add(
+                                new LocaleInheritanceInfo(
+                                        rootAliasLocale, aliasedPath, Reason.alias));
+                    }
                     //                        xpath = aliasedPath;
                     //                    } else {
                     //                        break;
                     //                    }
+                }
+            } else {
+                if (list != null) {
+                    // explicit, exact alias at this location
+                    list.add(new LocaleInheritanceInfo(rootAliasLocale, aliasedPath, Reason.alias));
                 }
             }
 
             // alts are special; they act like there is a root alias to the path without the alt.
             if (aliasedPath == null && xpath.contains("[@alt=")) {
                 aliasedPath = XPathParts.getPathWithoutAlt(xpath);
+                if (list != null) {
+                    list.add(
+                            new LocaleInheritanceInfo(
+                                    null, aliasedPath, Reason.removedAttribute, "alt"));
+                }
             }
 
             // counts are special; they act like there is a root alias to 'other'
@@ -1129,18 +1191,42 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                             throw new RuntimeException("Internal error");
                         }
                     } else {
+                        // the replacement failed, do not alias
                         aliasedPath = null;
                     }
+                }
+                if (list != null && aliasedPath != null) {
+                    // two different paths above reach here
+                    list.add(
+                            new LocaleInheritanceInfo(
+                                    null, aliasedPath, Reason.changedAttribute, "count"));
                 }
             }
 
             if (aliasedPath != null) {
                 // Call getCachedFullStatus recursively to avoid recalculating cached aliases.
-                return getCachedFullStatus(aliasedPath, skipInheritanceMarker);
+                AliasLocation cachedFullStatus =
+                        getCachedFullStatus(aliasedPath, skipInheritanceMarker, list);
+                // We call the above first, to update the list (if needed)
+                if (firstValue == null) {
+                    // not looping due to Bailey - return the cached status.
+                    return cachedFullStatus;
+                } else {
+                    // Bailey loop. Return the first value.
+                    return firstValue;
+                }
             }
 
             // Fallback location.
-            return new AliasLocation(xpath, CODE_FALLBACK_ID);
+            if (list != null) {
+                // Not using CODE_FALLBACK_ID as it is implicit in the reason
+                list.add(new LocaleInheritanceInfo(null, xpath, Reason.codeFallback));
+            }
+            if (firstValue == null) {
+                return new AliasLocation(xpath, CODE_FALLBACK_ID);
+            } else {
+                return firstValue;
+            }
         }
 
         /**
@@ -1568,6 +1654,8 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             addFallbackCode(CLDRFile.TERRITORY_NAME, "FK", "FK", "variant");
             addFallbackCode(CLDRFile.TERRITORY_NAME, "TL", "TL", "variant");
             addFallbackCode(CLDRFile.TERRITORY_NAME, "SZ", "SZ", "variant");
+            addFallbackCode(CLDRFile.TERRITORY_NAME, "IO", "IO", "biot");
+            addFallbackCode(CLDRFile.TERRITORY_NAME, "IO", "IO", "chagos");
 
             // new alternate name
 

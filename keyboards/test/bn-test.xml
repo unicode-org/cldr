@@ -4,14 +4,12 @@
     <info keyboard="bn.xml" author="Team Keyboard" name="bn-test" />
     <tests name="tests">
         <test name="au">
-            <startContext to=""/>
             <keystroke key="ka"/>
             <keystroke key="e"/>
             <keystroke key="au-lengthener"/>
             <check result="কৌ" /> <!-- ka + AU -->
         </test>
         <test name="greetings">
-          <startContext to="" />
           <keystroke key="śa"/>
           <keystroke key="u"/>
           <keystroke key="bha"/>

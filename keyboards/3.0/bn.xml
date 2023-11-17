@@ -23,11 +23,6 @@
         <import base="cldr" path="techpreview/keys-Zyyy-punctuation.xml" />
         <import base="cldr" path="techpreview/keys-Zyyy-currency.xml" />
 
-        <!-- key names based on https://www.loc.gov/catdir/cpso/romanization/bengali.pdf + Assamese for /wa/ -->
-
-        <!-- UNSHIFTED KEYS -->
-        <!-- E: (top) row -->
-        <key id="candrabindu" output="\u{0981}" /> <!-- n̐  -->
         <key id="1" output="১" />
         <key id="2" output="২" />
         <key id="3" output="৩" />
@@ -38,79 +33,62 @@
         <key id="8" output="৮" />
         <key id="9" output="৯" />
         <key id="0" output="০" />
-        <!-- hyphen -->
-        <!-- equal -->
 
-        <!-- D: -->
+        <!-- special keys and marks -->
+        <key id="au-lenghtener" output="\m{A}" />
+        <key id="candrabindu" output="\u{0981}" /> <!-- n̐  -->
+        <key id="hasant" output="\u{09CD}" />
         <key id="more" output="\m{q}" /> <!-- 'additional characters' -->
-        <key id="wa" output="ৱ" /> <!-- Assamese-->
+        <key id="nukta" output="\u{09BC}" />
+        <key id="vis-hasant" output="\m{X}" />
+
+        <!-- key names based on https://www.loc.gov/catdir/cpso/romanization/bengali.pdf + Assamese for /wa/ -->
+        <key id="ā" output="\u{09BE}" />
+        <key id="ai" output="\u{09C8}" />
+        <key id="au" output="\u{09CC}" />
+        <key id="ba" output="ব" />
+        <key id="bha" output="ভ" />
+        <key id="ca" output="চ" />
+        <key id="cha" output="ছ" />
+        <key id="ḍa" output="ড" />
+        <key id="da" output="দ" />
+        <key id="dahri" output="।" />
+        <key id="ḍha" output="ঢ" />
+        <key id="dha" output="ধ" />
         <key id="e" output="\u{09C7}" />
-        <key id="ra" output="র" />
-        <key id="ta" output="ত" />
-        <key id="sha" output="য" />
-        <key id="u" output="\u{09C1}" />
+        <key id="ga" output="গ" />
+        <key id="gha" output="ঘ" />
+        <key id="ha" output="হ" />
         <key id="i" output="\u{09BF}" />
+        <key id="ī" output="\u{09C0}" />
+        <key id="ja" output="জ" />
+        <key id="jha" output="ঝ" />
+        <key id="ka" output="ক" />
+        <key id="kha" output="খ" />
+        <key id="la" output="ল" />
+        <key id="ṃ" output="\u{0982}" />
+        <key id="ma" output="ম" />
+        <key id="ṅa" output="ঙ" />
+        <key id="ña" output="ঞ" />
+        <key id="ṇa" output="ণ" />
+        <key id="na" output="ন" />
         <key id="o" output="\u{09CB}" />
         <key id="pa" output="প" />
-
-        <!-- C: -->
-        <key id="ā" output="\u{09BE}" />
-        <key id="sa" output="স" />
-        <key id="da" output="দ" />
-        <key id="ṭa" output="ট" />
-        <key id="ga" output="গ" />
-        <key id="ha" output="হ" />
-        <key id="ja" output="জ" />
-        <key id="ka" output="ক" />
-        <key id="la" output="ল" />
-
-        <!-- B: -->
-        <key id="śa" output="শ" />
-        <key id="hasant" output="\u{09CD}" />
-        <key id="ca" output="চ" />
-        <key id="ḍa" output="ড" />
-        <key id="ba" output="ব" />
-        <key id="na" output="ন" />
-        <key id="ma" output="ম" />
-        <!-- comma -->
-        <key id="dahri" output="।" />
-
-
-        <!-- SHIFTED KEYS -->
-        <key id="ṃ" output="\u{0982}" />
-        <!-- exclam, etc -->
-
-        <!-- gap -->
-        <key id="ña" output="ঞ" />
-        <key id="ai" output="\u{09C8}" />
-        <key id="ṛ" output="\u{09C3}" />
-        <key id="tha" output="থ" />
-        <key id="ẏa" output="য়" /> <!-- Missing in Keyman version of file-->
-        <key id="ū" output="\u{09C2}" />
-        <key id="ī" output="\u{09C0}" />
-        <key id="au" output="\u{09CC}" />
         <key id="pha" output="ফ" />
-
-        <key id="au-lenghtener" output="\m{A}" />
+        <key id="ṛ" output="\u{09C3}" />
+        <key id="ra" output="র" />
+        <key id="śa" output="শ" />
+        <key id="sa" output="স" />
+        <key id="sha" output="য" />
         <key id="sha" output="ষ" />
-        <key id="dha" output="ধ" />
+        <key id="ṭa" output="ট" />
+        <key id="ta" output="ত" />
         <key id="ṭha" output="ঠ" />
-        <key id="gha" output="ঘ" />
-        <!-- gap -->
-        <key id="jha" output="ঝ" />
-        <key id="kha" output="খ" />
-        <!-- gap -->
-
-        <!-- gap -->
-        <key id="vis-hasant" output="\m{X}" />
-        <key id="cha" output="ছ" />
-        <key id="ḍha" output="ঢ" />
-        <key id="bha" output="ভ" />
-        <key id="ṇa" output="ণ" />
-        <key id="ṅa" output="ঙ" />
-        <!-- less-than -->
-        <key id="nukta" output="\u{09BC}" />
-        <!-- question -->
+        <key id="tha" output="থ" />
+        <key id="u" output="\u{09C1}" />
+        <key id="ū" output="\u{09C2}" />
+        <key id="wa" output="ৱ" /> <!-- Assamese transliteration -->
+        <key id="ẏa" output="য়" /> <!-- Missing in Keyman version of file-->
     </keys>
     <layers formId="us">
         <layer modifiers="none">

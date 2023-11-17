@@ -13,6 +13,12 @@
     <version number="1.3.0" />
     <info name="SIL Bengali-Assamese Phonetic" indicator="bn" layout="QWERTY" />
 
+    <displays>
+        <display keyId="au-lengthener" display="ৗ" />
+        <display keyId="vis-hasant" display="্" /> <!-- TODO: distinguish from regular hasant? -->
+        <display keyId="more" display="…" />
+    </displays>
+
     <keys>
         <import base="cldr" path="techpreview/keys-Zyyy-punctuation.xml" />
         <import base="cldr" path="techpreview/keys-Zyyy-currency.xml" />
@@ -106,12 +112,6 @@
         <key id="nukta" output="\u{09BC}" />
         <!-- question -->
     </keys>
-
-    <displays>
-        <display keyId="au-lengthener" display="ৗ" />
-        <display keyId="vis-hasant" display="্" /> <!-- TODO: distinguish from regular hasant? -->
-        <display keyId="more" display="…" />
-    </displays>
     <layers formId="us">
         <layer modifiers="none">
             <row keys="candrabindu 1 2 3 4 5 6 7 8 9 0 hyphen equal" />

@@ -687,6 +687,17 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
                     "//ldml/units/unitLength[@type=\"short\"]unit[@type=\"mass-gram\"]/unitPattern[@count=\"other\"]",
                     "g {0}",
                     "g\u00A0{0}"),
+            // tests for CLDR-17233
+            new PathSpaceAdjustData(
+                    "es",
+                    "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"abbreviated\"]/dayPeriod[@type=\"am\"]",
+                    "a. \u202Fm.",
+                    "a.\u202Fm."),
+            new PathSpaceAdjustData(
+                    "vi",
+                    "//ldml/dates/calendars/calendar[@type=\"generic\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"MMM\"]/greatestDifference[@id=\"M\"]",
+                    "MMM\u2009 – \u2009MMM",
+                    "MMM\u2009–\u2009MMM"),
         };
 
         for (PathSpaceAdjustData testItem : testItems) {

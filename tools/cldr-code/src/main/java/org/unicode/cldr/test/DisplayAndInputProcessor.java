@@ -155,6 +155,16 @@ public class DisplayAndInputProcessor {
     // private static final Pattern SPACE_PLUS_NBSP_TO_NORMALIZE =
     // PatternCache.get("\\u0020+[\\u00A0\\u202F]+");
 
+    // NNBSP 202F among other horizontal spaces (includes 0020, 00A0, 2009, 202F, etc.)
+    private static final Pattern NNBSP_AMONG_OTHER_SPACES =
+            PatternCache.get("[\\h&&[^\\u202F]]+\\u202F\\h*|\\u202F\\h+");
+    // NBSP 00A0 among other horizontal spaces
+    private static final Pattern NBSP_AMONG_OTHER_SPACES =
+            PatternCache.get("[\\h&&[^\\u00A0]]+\\u00A0\\h*|\\u00A0\\h+");
+    // THIN SPACE 2009 among other horizontal spaces
+    private static final Pattern THIN_SPACE_AMONG_OTHER_SPACES =
+            PatternCache.get("[\\h&&[^\\u2009]]+\\u2009\\h*|\\u2009\\h+");
+
     private static final Pattern INITIAL_NBSP = PatternCache.get("^[\\u00A0\\u202F]+");
     private static final Pattern FINAL_NBSP = PatternCache.get("[\\u00A0\\u202F]+$");
 
@@ -1288,6 +1298,14 @@ public class DisplayAndInputProcessor {
             value = PLACEHOLDER_SPACE_AFTER.matcher(value).replaceAll("}\u00A0"); // Regular NBSP
             value = PLACEHOLDER_SPACE_BEFORE.matcher(value).replaceAll("\u00A0{");
         }
+
+        // Finally, replace remaining space combinations with most restrictive type CLDR-17233
+        // If we have NNBSP U+202F in combination with other spaces, keep just it
+        value = NNBSP_AMONG_OTHER_SPACES.matcher(value).replaceAll("\u202F");
+        // Else if we have NBSP U+00A0 in combination with other spaces, keep just it
+        value = NBSP_AMONG_OTHER_SPACES.matcher(value).replaceAll("\u00A0");
+        // Else if we have THIN SPACE U+2009 in combination with other spaces, keep just it
+        value = THIN_SPACE_AMONG_OTHER_SPACES.matcher(value).replaceAll("\u2009");
 
         return value;
     }

@@ -93,23 +93,21 @@ public class ElementAttributeInfo {
         result = new HashMap<>();
         // pick short files that are in repository
         // Add to this when a DTD is added
-        addElementAttributeInfo(result,
-            DtdType.ldml,
-            canonicalCommonDirectory + "/main/root.xml");
-        addElementAttributeInfo(result,
-            DtdType.supplementalData,
-            canonicalCommonDirectory + "/supplemental/plurals.xml");
-        addElementAttributeInfo(result,
-            DtdType.ldmlBCP47,
-            canonicalCommonDirectory + "/bcp47/calendar.xml");
-        addElementAttributeInfo(result,
-            DtdType.keyboard3,
-            canonicalCommonDirectory
-                + "/../keyboards/3.0/fr-t-k0-azerty.xml");
-        addElementAttributeInfo(result,
-            DtdType.keyboardTest3,
-            canonicalCommonDirectory
-                + "/../keyboards/test/fr-t-k0-azerty-test.xml");
+        addElementAttributeInfo(result, DtdType.ldml, canonicalCommonDirectory + "/main/root.xml");
+        addElementAttributeInfo(
+                result,
+                DtdType.supplementalData,
+                canonicalCommonDirectory + "/supplemental/plurals.xml");
+        addElementAttributeInfo(
+                result, DtdType.ldmlBCP47, canonicalCommonDirectory + "/bcp47/calendar.xml");
+        addElementAttributeInfo(
+                result,
+                DtdType.keyboard3,
+                canonicalCommonDirectory + "/../keyboards/3.0/fr-t-k0-azerty.xml");
+        addElementAttributeInfo(
+                result,
+                DtdType.keyboardTest3,
+                canonicalCommonDirectory + "/../keyboards/test/fr-t-k0-azerty-test.xml");
         return result;
     }
 

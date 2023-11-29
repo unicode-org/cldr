@@ -68,7 +68,9 @@ public enum CldrVersion {
     v42_0,
     v43_0,
     v44_0,
-    /** @see CLDRFile#GEN_VERSION */
+    /**
+     * @see CLDRFile#GEN_VERSION
+     */
     baseline;
 
     private final String baseDirectory;

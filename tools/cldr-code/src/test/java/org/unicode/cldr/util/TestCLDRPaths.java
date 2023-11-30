@@ -7,13 +7,17 @@ import java.io.File;
 import org.junit.jupiter.api.Test;
 
 public class TestCLDRPaths {
+    public static String HAS_CLDR_ARCHIVE = "HAS_CLDR_ARCHIVE";
 
     @Test
     void TestCanUseArchiveDirectory() {
         if (!canUseArchiveDirectory()) {
-            // We print this warning as part of the unit tests.
+            // We print this warning once as part of the unit tests.
             System.err.println(
-                    "WARNING: skipping using cldr-archive. Ideally, -DNO_CLDR_ARCHIVE=false and see <https://cldr.unicode.org/development/creating-the-archive>");
+                    String.format(
+                            "WARNING: -D%s=false, so skipping tests which use cldr-archive\n" +
+                            "See <%s>",
+                            HAS_CLDR_ARCHIVE, CLDRURLS.CLDR_ARCHIVE));
         }
     }
 
@@ -21,8 +25,8 @@ public class TestCLDRPaths {
      * @return true if it's OK to read CLDRPaths.ARCHIVE_DIRECTORY, false to skip.
      */
     public static final boolean canUseArchiveDirectory() {
-        if (CLDRConfig.getInstance().getProperty("NO_CLDR_ARCHIVE", false)) {
-            return false; // skip, NO_CLDR_ARCHIVE is set.
+        if (!CLDRConfig.getInstance().getProperty("HAS_CLDR_ARCHIVE", true)) {
+            return false; // skip due to property
         }
 
         final File archiveDir = new File(CLDRPaths.ARCHIVE_DIRECTORY);
@@ -31,16 +35,18 @@ public class TestCLDRPaths {
                     String.format(
                             "Could not read archive directory %s. "
                                     + "Please: "
-                                    + "1) setup the archive, <https://cldr.unicode.org/development/creating-the-archive>, "
+                                    + "1) setup the archive, <%s>, "
                                     + "2) set the -DARCHIVE= property to the correct archive location, or "
-                                    + "3) inhibit reading of cldr-archive with -DNO_CLDR_ARCHIVE=true",
-                            archiveDir.getAbsolutePath()));
+                                    + "3) inhibit reading of cldr-archive with -D%s=false",
+                            archiveDir.getAbsolutePath(), CLDRURLS.CLDR_ARCHIVE, HAS_CLDR_ARCHIVE));
         }
         return true; // OK to use
     }
 
     @Test
     void TestReadPrevSDI() {
+        // This is also an example of a test that's skipped (by the next line) if
+        // cldr-archive isn't available.
         assumeTrue(canUseArchiveDirectory());
         SupplementalDataInfo SDI_LAST =
                 SupplementalDataInfo.getInstance(

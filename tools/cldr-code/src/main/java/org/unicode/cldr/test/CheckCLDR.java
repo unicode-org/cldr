@@ -63,6 +63,11 @@ import org.unicode.cldr.util.VoteResolver.Status;
  */
 public abstract class CheckCLDR implements CheckAccessor {
 
+    /** serialize CheckCLDR as just its class name */
+    public String toString() {
+        return getClass().getSimpleName();
+    }
+
     public static final boolean LIMITED_SUBMISSION =
             false; // TODO: CLDR-13337: represent differently
 

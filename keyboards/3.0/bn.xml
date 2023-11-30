@@ -79,7 +79,6 @@
         <key id="ra" output="র" />
         <key id="śa" output="শ" />
         <key id="sa" output="স" />
-        <key id="sha" output="য" />
         <key id="sha" output="ষ" />
         <key id="ṭa" output="ট" />
         <key id="ta" output="ত" />
@@ -88,12 +87,13 @@
         <key id="u" output="\u{09C1}" />
         <key id="ū" output="\u{09C2}" />
         <key id="wa" output="ৱ" /> <!-- Assamese transliteration -->
+        <key id="ya" output="য" />
         <key id="ẏa" output="য়" /> <!-- Missing in Keyman version of file-->
     </keys>
     <layers formId="us">
         <layer modifiers="none">
             <row keys="candrabindu 1 2 3 4 5 6 7 8 9 0 hyphen equal" />
-            <row keys="more wa e ra ta sha u i o pa open-square close-square backslash" />
+            <row keys="more wa e ra ta ya u i o pa open-square close-square backslash" />
             <row keys="ā sa da ṭa ga ha ja ka la semi-colon apos" />
             <row keys="śa hasant ca ḍa ba na ma comma dahri slash" />
             <row keys="space" />

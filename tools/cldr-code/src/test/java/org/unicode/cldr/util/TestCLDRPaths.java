@@ -33,11 +33,8 @@ public class TestCLDRPaths {
         if (!archiveDir.isDirectory()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "Could not read archive directory %s. "
-                                    + "Please: "
-                                    + "1) setup the archive, <%s>, "
-                                    + "2) set the -DARCHIVE= property to the correct archive location, or "
-                                    + "3) inhibit reading of cldr-archive with -D%s=false",
+                            "Could not read archive directory -DARCHIVE=%s … You must either: 1) follow instructions at <%s>, "
+                                    + "or 2) skip cldr-archive tests by setting -D%s=false",
                             archiveDir.getAbsolutePath(), CLDRURLS.CLDR_ARCHIVE, HAS_CLDR_ARCHIVE));
         }
         return true; // OK to use

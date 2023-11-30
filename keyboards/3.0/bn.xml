@@ -137,16 +137,33 @@
             <transform from="\m{q}\m{X}" to="\u{09CD}\u{200C}" /> <!-- virama + zwnj-->
         </transformGroup>
         <transformGroup>
-            <!-- TODO: document these -->
+            <!-- Nukta is tertiary, that is, it follows a tertiaryBase sequence -->
             <reorder from="\u{09BC}" tertiary="3"/>
+            <!--
+                virama (hasant) followed by any other spacing chars has order 10, because this sequence goes after the consonant to which the virama pertains.
+                For example:
+
+                U+099A U+09CD U+099B
+                 CA    virama   CHA
+                  0      10      10
+             -->
             <reorder from="\u{09CD}[\u{0980}\u{0985}-\u{098C}\u{098F}\u{0990}\u{0993}-\u{09A8}\u{09AA}-\u{09B0}\u{09B2}\u{09B6}-\u{09B9}\u{09BD}\u{09DC}\u{09DD}\u{09DF}-\u{09E1}\u{09E6}-\u{09F1}\u{09FC}]" order="10" tertiaryBase="true"/>
+            <!-- 10: virama  + zwj/zwnj + spacing mark is also 10-->
             <reorder from="\u{09CD}[\u{200C}\u{200D}][\u{0980}\u{0985}-\u{098C}\u{098F}\u{0990}\u{0993}-\u{09A8}\u{09AA}-\u{09B0}\u{09B2}\u{09B6}-\u{09B9}\u{09BD}\u{09DC}\u{09DD}\u{09DF}-\u{09E1}\u{09E6}-\u{09F1}\u{09FC}]" order="10" tertiaryBase="true"/>
+            <!-- 120: A virama not followed by a spacing mark goes further to the right (past the sandhi mark, below) -->
             <reorder from="\u{09CD}" order="120" tertiaryBase="true"/>
+            <!-- The next three rules make sure the DVs are in the correct order-->
+            <!-- 60: left side dependent vowels -->
             <reorder from="[\u{09BF}\u{09C7}\u{09C8}]" order="60"/>
+            <!-- 70: lower dependent vowels -->
             <reorder from="[\u{09C1}-\u{09C4}\u{09E2}\u{09E3}]" order="70"/>
+            <!-- 75: right side dependent vowels -->
             <reorder from="[\u{09BE}\u{09C0}\u{09CB}\u{09CC}]" order="75"/>
+            <!-- 85: candrabindu -->
             <reorder from="\u{0981}" order="85"/>
+            <!-- 95: anusvara and visarga -->
             <reorder from="[\u{0982}\u{0983}]" order="95"/>
+            <!-- 117: sandhi mark -->
             <reorder from="\u{09FE}" order="117"/>
         </transformGroup>
     </transforms>

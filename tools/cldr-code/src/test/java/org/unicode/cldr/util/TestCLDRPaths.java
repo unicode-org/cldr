@@ -15,8 +15,8 @@ public class TestCLDRPaths {
             // We print this warning once as part of the unit tests.
             System.err.println(
                     String.format(
-                            "WARNING: -D%s=false, so skipping tests which use cldr-archive\n" +
-                            "See <%s>",
+                            "WARNING: -D%s=false, so skipping tests which use cldr-archive\n"
+                                    + "See <%s>",
                             HAS_CLDR_ARCHIVE, CLDRURLS.CLDR_ARCHIVE));
         }
     }

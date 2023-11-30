@@ -161,6 +161,8 @@ public abstract class CLDRURLS {
     public static final String UPDATING_CURRENCY_CODES =
             "https://cldr.unicode.org/development/updating-codes/update-currency-codes";
 
+    public static final String CLDR_ARCHIVE = "https://cldr.unicode.org/development/creating-the-archive";
+
     /**
      * Get the relative base URL for the SurveyTool. This may be "/cldr-apps", for example.
      *

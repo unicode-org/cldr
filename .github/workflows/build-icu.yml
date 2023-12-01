@@ -33,7 +33,7 @@ jobs:
           lfs: false
           repository: ${{ github.event.inputs.cldr-repo }}
       - name: Set up JDK
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           java-version: 11
           distribution: 'temurin'
@@ -88,7 +88,7 @@ jobs:
           name: cldr-code
           path: cldr-code
       - name: Set up JDK
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           java-version: 11
           distribution: 'temurin'
@@ -230,7 +230,7 @@ jobs:
         run: cd icu4c/source && rm -rf data && unzip -o ../../icu-data.zip
       - name: Generate ICU4J data
         run: cd icu4c/source && ./runConfigureICU Linux && make -j2 && make -C data icu4j-data-install ICU4J_ROOT=$(cd ../../icu4j ; pwd)
-      - uses: actions/setup-java@v3
+      - uses: actions/setup-java@v4
         with:
           java-version: '16' # For ICU4J
           distribution: 'temurin'

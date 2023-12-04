@@ -230,7 +230,7 @@ function handleVoteErr(tr, message, button) {
  * @returns the sanitized string
  */
 function makeSafe(s) {
-  return s.replace(/[<>&]/g, '');
+  return s.replace(/[<>&]/g, "");
 }
 
 function logVote(rowHash, vHash, value) {

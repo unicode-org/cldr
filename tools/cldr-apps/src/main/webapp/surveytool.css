@@ -2,6 +2,10 @@
 /* Made with CSSEdit and Espresso2 */
 @charset "UTF-8";
 
+/* TODO: should load this locally via webpack, see https://unicode-org.atlassian.net/browse/CLDR-9195 */
+@import url("//fonts.googleapis.com/css?family=Noto+Sans:400italic,700italic,400,700");
+@import url("//fonts.googleapis.com/css?family=Noto+Sans+Symbols:400italic,700italic,400,700");
+
 span.age  {
 	font-weight: bold;
 	font-style: italic;
@@ -1685,10 +1689,6 @@ table#voteinfo thead th:first-child {
 					"Noto Sans Symbols",
 					sans-serif;
 }
-
-/* TODO: should load this locally via webpack, see https://unicode-org.atlassian.net/browse/CLDR-9195 */
-@import url("//fonts.googleapis.com/css?family=Noto+Sans:400italic,700italic,400,700");
-@import url("//fonts.googleapis.com/css?family=Noto+Sans+Symbols:400italic,700italic,400,700");
 
 /* lang specific CSS */
 

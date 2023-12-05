@@ -177,7 +177,7 @@ function updateOpenPanelButtons() {
 // Currently this method is called as follows:
 // cldrTable.mjs:    cldrInfo.listen("", tr, cell, null);
 // cldrTable.mjs:    cldrInfo.listen(JSON.stringify(theRow), tr, js, null);
-// cldrTable.mjs:    cldrInfo.listen(xpathStr, tr, cell, null);
+// cldrTable.mjs:    cldrInfo.listen("", tr, cell, null);
 // cldrTable.mjs:    cldrInfo.listen(null, tr, cell, null);
 // cldrTable.mjs:    cldrInfo.listen(null, tr, cell, cell.showFn);
 // cldrTable.mjs:    cldrInfo.listen(null, tr, cell);

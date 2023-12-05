@@ -12,6 +12,31 @@ import "ant-design-vue/dist/antd.min.css";
 import * as cldrGui from "./esm/cldrGui.mjs";
 import * as cldrVue from "./esm/cldrVue.mjs";
 
+import { datadogRum } from '@datadog/browser-rum';
+
+datadogRum.init({
+    applicationId: 'c58441d9-21fd-4195-b958-9840483630fb',
+    clientToken: 'pub0596cc2553803e176da42558924f0318',
+    site: 'us5.datadoghq.com',
+    service: 'surveytool',
+    env: 'staging',
+    // Specify a version number to identify the deployed version of your application in Datadog
+    // version: '1.0.0',
+    sessionSampleRate: 100,
+    sessionReplaySampleRate: 20,
+    trackUserInteractions: true,
+    trackResources: true,
+    trackLongTasks: true,
+    defaultPrivacyLevel: 'allow',
+    allowedTracingUrls: [
+      {
+        match: /https:\/\/.*\.unicode\.org/,
+        propagatorTypes: ["tracecontext"]
+      },
+    ],
+});
+
+
 /**
  * This is called as cldrBundle.runGui by way of JavaScript embedded in HTML
  * embedded in Java code! See SurveyTool.java

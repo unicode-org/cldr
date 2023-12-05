@@ -27,7 +27,6 @@ const HEADER_ID_PREFIX = "header_";
 const ROW_ID_PREFIX = "row_"; // formerly "r@"
 
 const CLDR_TABLE_DEBUG = true;
-const CLDR_TABLE_DEBUG_ZOOM = false; // First column gets "zoom{JSON}" links -- what are they for??
 
 /*
  * NO_WINNING_VALUE indicates the server delivered path data without a valid winning value.
@@ -735,36 +734,8 @@ function updateRowCodeCell(tr, theRow, cell) {
   ) {
     cldrSurvey.appendExtraAttributes(cell, theRow);
   }
-  if (CLDR_TABLE_DEBUG_ZOOM) {
-    const anch = document.createElement("i");
-    anch.className = "anch";
-    anch.id = theRow.xpathId;
-    cell.appendChild(anch);
-    anch.appendChild(document.createTextNode("#"));
-    const go = document.createElement("a");
-    go.className = "anch-go";
-    go.appendChild(document.createTextNode("zoom"));
-    go.href =
-      window.location.pathname +
-      "?_=" +
-      cldrStatus.getCurrentLocale() +
-      "&x=r_rxt&xp=" +
-      theRow.xpathId;
-    cell.appendChild(go);
-    const js = document.createElement("a");
-    js.className = "anch-go";
-    js.appendChild(document.createTextNode("{JSON}"));
-    js.popParent = tr;
-    cldrInfo.listen(JSON.stringify(theRow), tr, js, null);
-    cell.appendChild(js);
-    cell.appendChild(cldrDom.createChunk(" c=" + theRow.coverageValue));
-  }
   if (!cell.isSetup) {
-    let xpathStr = "";
-    if (CLDR_TABLE_DEBUG) {
-      xpathStr = "XPath: " + theRow.xpath;
-    }
-    cldrInfo.listen(xpathStr, tr, cell, null);
+    cldrInfo.listen("", tr, cell, null);
     cell.isSetup = true;
   }
 }

@@ -611,6 +611,11 @@ function specialLoad(itemLoadInfo, curSpecial, theDiv) {
     cldrInfo.closePanel();
     // Most special.load() functions do not use a parameter; an exception is
     // cldrGenericVue.load() which expects the special name as a parameter
+    if (CLDR_LOAD_DEBUG) {
+      console.log(
+        "cldrLoad.specialLoad: running special.load(" + curSpecial + ")"
+      );
+    }
     special.load(curSpecial);
   } else if (curSpecial !== "general") {
     // Avoid recursion.
@@ -628,10 +633,16 @@ function unspecialLoad(itemLoadInfo, theDiv) {
     const curPage = cldrStatus.getCurrentPage();
     const curId = cldrStatus.getCurrentId();
     if (!curPage && !curId) {
+      if (CLDR_LOAD_DEBUG) {
+        console.log("cldrLoad.unspecialLoad: running specialLoad(general)");
+      }
       cldrStatus.setCurrentSpecial("general");
       specialLoad(itemLoadInfo, "general", theDiv);
     } else if (curId === "!") {
       // TODO: clarify when and why this would happen
+      if (CLDR_LOAD_DEBUG) {
+        console.log("cldrLoad.unspecialLoad: running loadExclamationPoint");
+      }
       loadExclamationPoint();
     } else {
       if (!cldrSurvey.isInputBusy()) {
@@ -639,10 +650,20 @@ function unspecialLoad(itemLoadInfo, theDiv) {
          * Make “all rows” requests only when !isInputBusy, to avoid wasted requests
          * if the user leaves the input box open for an extended time.
          */
+        if (CLDR_LOAD_DEBUG) {
+          console.log("cldrLoad.unspecialLoad: running loadAllRows");
+        }
         loadAllRows(itemLoadInfo, theDiv);
+      } else if (CLDR_LOAD_DEBUG) {
+        console.log(
+          "cldrLoad.unspecialLoad: skipping loadAllRows because input is busy"
+        );
       }
     }
   } else if (curSpecial) {
+    if (CLDR_LOAD_DEBUG) {
+      console.log("cldrLoad.unspecialLoad: calling handleMissingSpecial");
+    }
     handleMissingSpecial(curSpecial);
   }
 }
@@ -774,6 +795,10 @@ function loadAllRows(itemLoadInfo, theDiv) {
   );
   const url = cldrTable.getPageUrl(curLocale, curPage, curId);
   $("#nav-page").show(); // make top "Prev/Next" buttons visible while loading, cf. '#nav-page-footer' below
+
+  if (CLDR_LOAD_DEBUG) {
+    console.log("cldrLoad.loadAllRows sending request");
+  }
   cldrAjax
     .doFetch(url)
     .then((response) => response.json())
@@ -786,6 +811,9 @@ function loadAllRows(itemLoadInfo, theDiv) {
 }
 
 function loadAllRowsFromJson(json, theDiv) {
+  if (CLDR_LOAD_DEBUG) {
+    console.log("cldrLoad.loadAllRowsFromJson got response");
+  }
   isLoading = false;
   cldrSurvey.showLoader(cldrText.get("loading2"));
   if (json.err) {
@@ -826,6 +854,9 @@ function loadAllRowsFromJson(json, theDiv) {
     } else {
       cldrStatus.setCurrentPage("");
     }
+    if (CLDR_LOAD_DEBUG) {
+      console.log("cldrLoad.loadAllRowsFromJson got json.page.nocontent");
+    }
     cldrSurvey.showLoader(null);
     updateHashAndMenus(); // find out why there's no content. (locmap)
   } else if (!json.page.rows) {
@@ -846,6 +877,9 @@ function loadAllRowsFromJson(json, theDiv) {
     updateHashAndMenus(); // now that we have a pageid
     if (!cldrSurvey.isInputBusy()) {
       cldrSurvey.showLoader(cldrText.get("loading3"));
+      if (CLDR_LOAD_DEBUG) {
+        console.log("cldrLoad.loadAllRowsFromJson calling insertRows");
+      }
       cldrTable.insertRows(
         theDiv,
         json.pageId,
@@ -860,6 +894,10 @@ function loadAllRowsFromJson(json, theDiv) {
       if (!cldrStatus.getCurrentId()) {
         cldrInfo.showMessage(getGuidanceMessage(json.canModify));
       }
+    } else if (CLDR_LOAD_DEBUG) {
+      console.log(
+        "cldrLoad.loadAllRowsFromJson skipping insertRows because isInputBusy"
+      );
     }
   }
 }

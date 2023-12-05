@@ -5,6 +5,15 @@
 import * as cldrAjax from "./cldrAjax.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
 
+/**
+ * This should be false for production. It can be made true during debugging, which
+ * may be useful for performance testing. Also, there is a bug where "announce" requests
+ * (as well as "completion" requests) are not only made too often (every 15 seconds synced
+ * with status requests), but are made in pairs where one "announce" request immediately follows
+ * another, see https://unicode-org.atlassian.net/browse/CLDR-16900
+ */
+const DISABLE_ANNOUNCEMENTS = false;
+
 let thePosts = null;
 
 let callbackSetData = null;
@@ -16,6 +25,9 @@ async function getUnreadCount(setUnreadCount) {
 }
 
 async function refresh(viewCallbackSetData) {
+  if (DISABLE_ANNOUNCEMENTS) {
+    return;
+  }
   if (!cldrStatus.getSurveyUser()) {
     if (viewCallbackSetData) {
       viewCallbackSetData(null);

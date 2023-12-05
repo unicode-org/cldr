@@ -26,7 +26,8 @@ import * as cldrXPathUtils from "./cldrXpathUtils.mjs";
 const HEADER_ID_PREFIX = "header_";
 const ROW_ID_PREFIX = "row_"; // formerly "r@"
 
-const CLDR_TABLE_DEBUG = false;
+const CLDR_TABLE_DEBUG = true;
+const CLDR_TABLE_DEBUG_ZOOM = false; // First column gets "zoom{JSON}" links -- what are they for??
 
 /*
  * NO_WINNING_VALUE indicates the server delivered path data without a valid winning value.
@@ -315,17 +316,41 @@ function refreshSingleRow(tr, theRow, onSuccess, onFailure) {
 }
 
 function singleRowLoadHandler(json, tr, theRow, onSuccess, onFailure) {
+  if (CLDR_TABLE_DEBUG) {
+    console.log("singleRowLoadHandler start time = " + Date.now());
+  }
   try {
     if (json.page.rows[tr.rowHash]) {
       theRow = json.page.rows[tr.rowHash];
       tr.theTable.json.page.rows[tr.rowHash] = theRow;
       updateRow(tr, theRow);
+      if (CLDR_TABLE_DEBUG) {
+        console.log(
+          "singleRowLoadHandler after updateRow time = " + Date.now()
+        );
+      }
       cldrSurvey.hideLoader();
       onSuccess(theRow);
+      if (CLDR_TABLE_DEBUG) {
+        console.log(
+          "singleRowLoadHandler after onSuccess time = " + Date.now()
+        );
+      }
       cldrGui.updateDashboardRow(json);
       cldrInfo.showRowObjFunc(tr, tr.proposedcell, tr.proposedcell.showFn);
+      if (CLDR_TABLE_DEBUG) {
+        console.log(
+          "singleRowLoadHandler after showRowObjFunc time = " + Date.now()
+        );
+      }
       cldrProgress.updateCompletionOneVote(theRow.hasVoted);
       cldrGui.refreshCounterVetting();
+      if (CLDR_TABLE_DEBUG) {
+        console.log(
+          "singleRowLoadHandler after refreshCounterVetting time = " +
+            Date.now()
+        );
+      }
     } else {
       tr.className = "ferrbox";
       console.log("could not find " + tr.rowHash + " in " + json);
@@ -338,6 +363,9 @@ function singleRowLoadHandler(json, tr, theRow, onSuccess, onFailure) {
     }
   } catch (e) {
     console.log("Error in ajax post [refreshSingleRow] ", e.message);
+  }
+  if (CLDR_TABLE_DEBUG) {
+    console.log("singleRowLoadHandler end time = " + Date.now());
   }
 }
 
@@ -707,7 +735,7 @@ function updateRowCodeCell(tr, theRow, cell) {
   ) {
     cldrSurvey.appendExtraAttributes(cell, theRow);
   }
-  if (CLDR_TABLE_DEBUG) {
+  if (CLDR_TABLE_DEBUG_ZOOM) {
     const anch = document.createElement("i");
     anch.className = "anch";
     anch.id = theRow.xpathId;
@@ -854,6 +882,7 @@ function updateRowOthersCell(tr, theRow, cell, protoButton, formAdd) {
     const input = document.createElement("input");
     let popup;
     input.className = "form-control input-add";
+    input.id = "input-add-translation";
     cldrSurvey.setLang(input);
     input.placeholder = "Add a translation";
     const copyWinning = document.createElement("button");

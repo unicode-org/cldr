@@ -176,11 +176,20 @@ function handleVoteOk(json, tr, theRow, button, valToShow) {
 }
 
 function handleVoteSubmitted(json, tr, theRow, button, valToShow) {
+  if (CLDR_VOTE_DEBUG) {
+    console.log("handleVoteSubmitted start time = " + Date.now());
+  }
   tr.className = "tr_checking2";
   cldrTable.refreshSingleRow(
     tr,
     theRow,
     function (theRow) {
+      if (CLDR_VOTE_DEBUG) {
+        console.log(
+          "handleVoteSubmitted anonymous callback for refreshSingleRow start time = " +
+            Date.now()
+        );
+      }
       // submit went through. Now show the pop.
       button.className = "ichoice-o";
       button.checked = false;
@@ -189,11 +198,20 @@ function handleVoteSubmitted(json, tr, theRow, button, valToShow) {
         // tried to submit, have errs or warnings.
         showProposedItem(tr.inputTd, tr, theRow, valToShow, json.testResults);
       }
+      if (CLDR_VOTE_DEBUG) {
+        console.log(
+          "handleVoteSubmitted anonymous callback for refreshSingleRow end time = " +
+            Date.now()
+        );
+      }
     },
     function (err) {
       cldrRetry.handleDisconnect(err, json);
     }
   );
+  if (CLDR_VOTE_DEBUG) {
+    console.log("handleVoteSubmitted end time = " + Date.now());
+  }
 }
 
 function handleVoteNotSubmitted(json, tr, theRow, button, valToShow) {
@@ -230,7 +248,7 @@ function handleVoteErr(tr, message, button) {
  * @returns the sanitized string
  */
 function makeSafe(s) {
-  return s.replace(/[<>&]/g, '');
+  return s.replace(/[<>&]/g, "");
 }
 
 function logVote(rowHash, vHash, value) {

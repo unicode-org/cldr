@@ -30,10 +30,10 @@ public class ICUServiceBuilder {
     public static Currency NO_CURRENCY = Currency.getInstance("XXX");
     private CLDRFile cldrFile;
     private CLDRFile collationFile;
-    private static Map<CLDRLocale, ICUServiceBuilder> ISBMap = new HashMap<>();
+    private static final Map<CLDRLocale, ICUServiceBuilder> ISBMap = new HashMap<>();
 
-    private static TimeZone utc = TimeZone.getTimeZone("GMT");
-    private static DateFormat iso =
+    private static final TimeZone utc = TimeZone.getTimeZone("GMT");
+    private static final DateFormat iso =
             new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", ULocale.ENGLISH);
 
     static {
@@ -52,11 +52,11 @@ public class ICUServiceBuilder {
         return iso.parse(date);
     }
 
-    private Map<String, SimpleDateFormat> cacheDateFormats = new HashMap<>();
-    private Map<String, DateFormatSymbols> cacheDateFormatSymbols = new HashMap<>();
-    private Map<String, NumberFormat> cacheNumberFormats = new HashMap<>();
-    private Map<String, DecimalFormatSymbols> cacheDecimalFormatSymbols = new HashMap<>();
-    private Map<String, RuleBasedCollator> cacheRuleBasedCollators = new HashMap<>();
+    private final Map<String, SimpleDateFormat> cacheDateFormats = new HashMap<>();
+    private final Map<String, DateFormatSymbols> cacheDateFormatSymbols = new HashMap<>();
+    private final Map<String, NumberFormat> cacheNumberFormats = new HashMap<>();
+    private final Map<String, DecimalFormatSymbols> cacheDecimalFormatSymbols = new HashMap<>();
+    private final Map<String, RuleBasedCollator> cacheRuleBasedCollators = new HashMap<>();
 
     /**
      * Caching can be disabled for some ICUServiceBuilder instances while still enabled for others.
@@ -70,9 +70,9 @@ public class ICUServiceBuilder {
     /**
      * TODO: the ability to clear the cache(s) is temporarily useful for debugging, and may or may
      * not be useful in the long run. In the meantime, this should be false except while debugging.
-     * Reference: https://unicode-org.atlassian.net/browse/CLDR-13970
+     * Reference: <a href="https://unicode-org.atlassian.net/browse/CLDR-13970">CLDR-13970</a>
      */
-    public static final boolean ISB_CAN_CLEAR_CACHE = false;
+    public static final boolean ISB_CAN_CLEAR_CACHE = true;
 
     public void clearCache() {
         if (ISB_CAN_CLEAR_CACHE) {
@@ -86,10 +86,10 @@ public class ICUServiceBuilder {
 
     private SupplementalDataInfo supplementalData;
 
-    private static int[] DateFormatValues = {
+    private static final int[] DateFormatValues = {
         -1, DateFormat.SHORT, DateFormat.MEDIUM, DateFormat.LONG, DateFormat.FULL
     };
-    private static String[] DateFormatNames = {"none", "short", "medium", "long", "full"};
+    private static final String[] DateFormatNames = {"none", "short", "medium", "long", "full"};
 
     private static final String[] Days = {"sun", "mon", "tue", "wed", "thu", "fri", "sat"};
 
@@ -118,10 +118,10 @@ public class ICUServiceBuilder {
 
             if (locale != null) {
                 // CAUTION: this fails for files in seed, when called for DAIP, for CLDRModify,
-                // since
-                // CLDRPaths.MAIN_DIRECTORY is "common/main" NOT "seed/main"
-                // Fortunately it will be fixed soon (Oct 2022) for
-                // https://unicode-org.atlassian.net/browse/CLDR-6396
+                // since CLDRPaths.MAIN_DIRECTORY is "common/main" NOT "seed/main".
+                // Fortunately CLDR no longer uses the "seed" directory -- as of 2023 it is empty
+                // except for README files. If CLDR ever uses "seed" again, however, this will
+                // become a problem again.
                 result.cldrFile =
                         Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*")
                                 .make(locale.getBaseName(), true);
@@ -261,7 +261,7 @@ public class ICUServiceBuilder {
         result.setNumberFormat((NumberFormat) numberFormat.clone());
         // Need to put the field specific number format override formatters back in place, since
         // the previous result.setNumberFormat above nukes them.
-        if (numbersOverride != null && numbersOverride.indexOf("=") != -1) {
+        if (numbersOverride != null && numbersOverride.contains("=")) {
             String[] overrides = numbersOverride.split(",");
             for (String override : overrides) {
                 String[] fields = override.split("=", 2);
@@ -312,28 +312,16 @@ public class ICUServiceBuilder {
                                     getDayPeriods(prefix, "format", "wide", "pm")
                                 }));
         checkFound(last);
-        // if (last[0] == null && notGregorian) {
-        // if (gregorianBackup == null) gregorianBackup = _getDateFormatSymbols("gregorian");
-        // formatData.setAmPmStrings(last = gregorianBackup.getAmPmStrings());
-        // }
 
         int minEras = (calendar.equals("chinese") || calendar.equals("dangi")) ? 0 : 1;
 
         List<String> temp = getArray(prefix + "eras/eraAbbr/era[@type=\"", 0, null, "\"]", minEras);
         formatData.setEras(last = temp.toArray(new String[temp.size()]));
         if (minEras != 0) checkFound(last);
-        // if (temp.size() < 2 && notGregorian) {
-        // if (gregorianBackup == null) gregorianBackup = _getDateFormatSymbols("gregorian");
-        // formatData.setEras(last = gregorianBackup.getEras());
-        // }
 
         temp = getArray(prefix + "eras/eraNames/era[@type=\"", 0, null, "\"]", minEras);
         formatData.setEraNames(last = temp.toArray(new String[temp.size()]));
         if (minEras != 0) checkFound(last);
-        // if (temp.size() < 2 && notGregorian) {
-        // if (gregorianBackup == null) gregorianBackup = _getDateFormatSymbols("gregorian");
-        // formatData.setEraNames(last = gregorianBackup.getEraNames());
-        // }
 
         formatData.setMonths(
                 getArray(prefix, "month", "format", "wide"),
@@ -360,13 +348,6 @@ public class ICUServiceBuilder {
                 getArray(prefix, "month", "stand-alone", "narrow"),
                 DateFormatSymbols.STANDALONE,
                 DateFormatSymbols.NARROW);
-
-        // formatData.setWeekdays(getArray(prefix, "day", "format", "wide"));
-        // if (last == null && notGregorian) {
-        // if (gregorianBackup == null) gregorianBackup = _getDateFormatSymbols("gregorian");
-        // formatData.setWeekdays(gregorianBackup.getWeekdays());
-        // }
-
         formatData.setWeekdays(
                 getArray(prefix, "day", "format", "wide"),
                 DateFormatSymbols.FORMAT,
@@ -666,33 +647,27 @@ public class ICUServiceBuilder {
     static int CURRENCY = 0, OTHER_KEY = 1, PATTERN = 2;
 
     public DecimalFormat getCurrencyFormat(String currency) {
-        // CLDRFile cldrFile = cldrFactory.make(localeID, true);
         return _getNumberFormat(currency, CURRENCY, null, null);
     }
 
     public DecimalFormat getCurrencyFormat(String currency, String currencySymbol) {
-        // CLDRFile cldrFile = cldrFactory.make(localeID, true);
         return _getNumberFormat(currency, CURRENCY, currencySymbol, null);
     }
 
     public DecimalFormat getCurrencyFormat(
             String currency, String currencySymbol, String numberSystem) {
-        // CLDRFile cldrFile = cldrFactory.make(localeID, true);
         return _getNumberFormat(currency, CURRENCY, currencySymbol, numberSystem);
     }
 
     public DecimalFormat getNumberFormat(int index) {
-        // CLDRFile cldrFile = cldrFactory.make(localeID, true);
         return _getNumberFormat(NumberNames[index], OTHER_KEY, null, null);
     }
 
     public DecimalFormat getNumberFormat(int index, String numberSystem) {
-        // CLDRFile cldrFile = cldrFactory.make(localeID, true);
         return _getNumberFormat(NumberNames[index], OTHER_KEY, null, numberSystem);
     }
 
     public NumberFormat getGenericNumberFormat(String ns) {
-        // CLDRFile cldrFile = cldrFactory.make(localeID, true);
         NumberFormat result =
                 cachingIsEnabled
                         ? cacheNumberFormats.get(cldrFile.getLocaleID() + "@numbers=" + ns)
@@ -708,12 +683,10 @@ public class ICUServiceBuilder {
     }
 
     public DecimalFormat getNumberFormat(String pattern) {
-        // CLDRFile cldrFile = cldrFactory.make(localeID, true);
         return _getNumberFormat(pattern, PATTERN, null, null);
     }
 
     public DecimalFormat getNumberFormat(String pattern, String numberSystem) {
-        // CLDRFile cldrFile = cldrFactory.make(localeID, true);
         return _getNumberFormat(pattern, PATTERN, null, numberSystem);
     }
 
@@ -804,16 +777,6 @@ public class ICUServiceBuilder {
                             currencySymbol,
                             cldrFile.getWinningValueWithBailey(prefix + "displayName"),
                             info);
-
-            // String possible = null;
-            // possible = cldrFile.getWinningValueWithBailey(prefix + "decimal");
-            // symbols.setMonetaryDecimalSeparator(possible != null ? possible.charAt(0) :
-            // symbols.getDecimalSeparator());
-            // if ((possible = cldrFile.getWinningValueWithBailey(prefix + "pattern")) != null)
-            // pattern = possible;
-            // if ((possible = cldrFile.getWinningValueWithBailey(prefix + "group")) != null)
-            // symbols.setGroupingSeparator(possible.charAt(0));
-            // ;
         }
         result = new DecimalFormat(pattern, symbols);
         if (mc != null) {

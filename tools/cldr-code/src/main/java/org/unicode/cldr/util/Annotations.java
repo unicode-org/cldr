@@ -1,5 +1,18 @@
 package org.unicode.cldr.util;
 
+import com.google.common.base.Joiner;
+import com.google.common.base.Objects;
+import com.google.common.base.Splitter;
+import com.google.common.collect.ImmutableSet;
+import com.ibm.icu.dev.util.UnicodeMap;
+import com.ibm.icu.impl.Utility;
+import com.ibm.icu.lang.CharSequences;
+import com.ibm.icu.text.SimpleFormatter;
+import com.ibm.icu.text.Transform;
+import com.ibm.icu.text.UTF16;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.text.UnicodeSet.SpanCondition;
+import com.ibm.icu.text.UnicodeSetSpanner;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,25 +27,10 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.tool.ChartAnnotations;
 import org.unicode.cldr.tool.SubdivisionNames;
 import org.unicode.cldr.util.Factory.SourceTreeType;
 import org.unicode.cldr.util.XMLFileReader.SimpleHandler;
-
-import com.google.common.base.Joiner;
-import com.google.common.base.Objects;
-import com.google.common.base.Splitter;
-import com.google.common.collect.ImmutableSet;
-import com.ibm.icu.dev.util.UnicodeMap;
-import com.ibm.icu.impl.Utility;
-import com.ibm.icu.lang.CharSequences;
-import com.ibm.icu.text.SimpleFormatter;
-import com.ibm.icu.text.Transform;
-import com.ibm.icu.text.UTF16;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.text.UnicodeSet.SpanCondition;
-import com.ibm.icu.text.UnicodeSetSpanner;
 
 public class Annotations {
     private static final boolean DEBUG = false;
@@ -285,12 +283,16 @@ public class Annotations {
                     getStringValue(
                             "//ldml/characterLabels/characterLabelPattern[@type=\"category-list\"]");
             initialPattern = SimpleFormatter.compile(initialPatternString);
-            //      <characterLabelPattern type="facing-right">{0} facing right</characterLabelPattern>
+            //      <characterLabelPattern type="facing-right">{0} facing
+            // right</characterLabelPattern>
             final String facingRightPatternString =
-                getStringValue(
-                        "//ldml/characterLabels/characterLabelPattern[@type=\"facing-right\"]");
+                    getStringValue(
+                            "//ldml/characterLabels/characterLabelPattern[@type=\"facing-right\"]");
 
-            rightwardsArrowPattern = facingRightPatternString == null ? null : SimpleFormatter.compile(facingRightPatternString);
+            rightwardsArrowPattern =
+                    facingRightPatternString == null
+                            ? null
+                            : SimpleFormatter.compile(facingRightPatternString);
             final String regexPattern =
                     ("\\Q"
                                     + initialPatternString
@@ -469,18 +471,22 @@ public class Annotations {
             }
             if (code.contains(EmojiConstants.JOINER_STRING)) {
                 if (code.contains(BLACK_RIGHTWARDS_ARROW)) {
-                    String code2 = code.replace(EmojiConstants.JOINER_STRING + BLACK_RIGHTWARDS_ARROW, "");
+                    String code2 =
+                            code.replace(EmojiConstants.JOINER_STRING + BLACK_RIGHTWARDS_ARROW, "");
                     if (!Objects.equal(code2, code)) {
                         Set<String> keywords = getKeywords(code2);
                         String baseName = getShortName(code2);
-                        if (baseName == null || keywords == null || rightwardsArrowPattern == null) {
+                        if (baseName == null
+                                || keywords == null
+                                || rightwardsArrowPattern == null) {
                             return null;
                         }
                         shortName = rightwardsArrowPattern.format(baseName);
                         return new Annotations(keywords, shortName);
                     }
                 } else if (code.contains(BLACK_LEFTWARDS_ARROW)) {
-                    throw new UnsupportedOperationException("Implement if leftwards emoji are added");
+                    throw new UnsupportedOperationException(
+                            "Implement if leftwards emoji are added");
                 }
                 //                if (code.endsWith(EmojiConstants.JOINER_MALE_SIGN)){
                 //                    if (matchesInitialPattern(code)) { // "👮🏼‍♂️","police

@@ -1,5 +1,11 @@
 package org.unicode.cldr.tool;
 
+import com.google.common.base.Joiner;
+import com.google.common.base.Splitter;
+import com.google.common.collect.ImmutableSortedSet;
+import com.ibm.icu.impl.Utility;
+import com.ibm.icu.impl.locale.XCldrStub.ImmutableMap;
+import com.ibm.icu.text.UnicodeSet;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,7 +18,6 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.tool.Option.Options;
@@ -32,17 +37,13 @@ import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.XPathParts.Comments.CommentType;
 
-import com.google.common.base.Joiner;
-import com.google.common.base.Splitter;
-import com.google.common.collect.ImmutableSortedSet;
-import com.ibm.icu.impl.Utility;
-import com.ibm.icu.impl.locale.XCldrStub.ImmutableMap;
-import com.ibm.icu.text.UnicodeSet;
-
 public class GenerateDerivedAnnotations {
     // The guts for derived names is in Annotations.synthesize
-    // Run CLDRModify afterwards: see https://docs.google.com/document/d/1h4xeKyEwCFnFvfN_szExBJcHaHQ8-tgoJTNMPQEpg8Q/edit for example
-    // Then run https://sites.google.com/site/cldr/internal-development/cldr-development-site/generate-algorithmic-locales
+    // Run CLDRModify afterwards: see
+    // https://docs.google.com/document/d/1h4xeKyEwCFnFvfN_szExBJcHaHQ8-tgoJTNMPQEpg8Q/edit for
+    // example
+    // Then run
+    // https://sites.google.com/site/cldr/internal-development/cldr-development-site/generate-algorithmic-locales
 
     private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
 

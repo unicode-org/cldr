@@ -290,7 +290,7 @@ public class Annotations {
                 getStringValue(
                         "//ldml/characterLabels/characterLabelPattern[@type=\"facing-right\"]");
 
-            rightwardsArrowPattern = SimpleFormatter.compile(facingRightPatternString);
+            rightwardsArrowPattern = facingRightPatternString == null ? null : SimpleFormatter.compile(facingRightPatternString);
             final String regexPattern =
                     ("\\Q"
                                     + initialPatternString
@@ -473,6 +473,9 @@ public class Annotations {
                     if (!Objects.equal(code2, code)) {
                         Set<String> keywords = getKeywords(code2);
                         String baseName = getShortName(code2);
+                        if (baseName == null || keywords == null || rightwardsArrowPattern == null) {
+                            return null;
+                        }
                         shortName = rightwardsArrowPattern.format(baseName);
                         return new Annotations(keywords, shortName);
                     }

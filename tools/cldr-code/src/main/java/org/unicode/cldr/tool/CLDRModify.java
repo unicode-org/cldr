@@ -2091,12 +2091,8 @@ public class CLDRModify {
                     Set<String> available = Annotations.getAllAvailable();
                     TreeSet<String> sorted = new TreeSet<>(Collator.getInstance(ULocale.ROOT));
                     CLDRFile resolved;
-                    /**
-                     * All keyword paths (annotations without type tts), indexed by code point (cp);
-                     * filled in on first pass (handleStart); retrieved during second pass when
-                     * handling each corresponding tts path (handlePath)
-                     */
-                    final Map<String, String> keywordPaths = new HashMap<>();
+                    Set<String> handledCharacters = new HashSet<>();
+                    boolean isTop;
 
                     @Override
                     public void handleStart() {
@@ -2106,22 +2102,8 @@ public class CLDRModify {
                                     "no annotations available, probably wrong directory");
                         }
                         resolved = factory.make(localeID, true);
-                        for (String xpath : cldrFileToFilter) {
-                            rememberKeywordPaths(xpath);
-                        }
-                    }
-
-                    private void rememberKeywordPaths(String xpath) {
-                        if (xpath.contains("/annotation")) {
-                            String fullpath = cldrFileToFilter.getFullXPath(xpath);
-                            XPathParts parts = XPathParts.getFrozenInstance(fullpath);
-                            String type = parts.getAttributeValue(2, "type");
-                            if (type == null) { // not type="tts"
-                                String cp = parts.getAttributeValue(2, "cp");
-                                keywordPaths.put(
-                                        cp, fullpath /* not xpath; preserve status="..." */);
-                            }
-                        }
+                        CLDRLocale parent = CLDRLocale.getInstance(localeID).getParent();
+                        isTop = CLDRLocale.ROOT.equals(parent);
                     }
 
                     @Override
@@ -2135,12 +2117,31 @@ public class CLDRModify {
                         //      we will copy honderd punte into the list of keywords.
                         String fullpath = cldrFileToFilter.getFullXPath(xpath);
                         XPathParts parts = XPathParts.getFrozenInstance(fullpath);
-                        String type = parts.getAttributeValue(2, "type");
-                        if (type == null) {
-                            return; // no TTS, so keywords, skip
-                        }
                         String cp = parts.getAttributeValue(2, "cp");
-                        String keywordPath = keywordPaths.get(cp);
+                        String type = parts.getAttributeValue(2, "type");
+                        if (!isTop) {
+                            // If we run into the keyword first (or only the keywords)
+                            // we construct the tts version for consistent processing
+                            // and mark it as handled. We only do this for non-top locales,
+                            // because if the top locales don't have a tts we're not going to add
+                            // anyway.
+                            if (handledCharacters.contains(cp)) {
+                                return; // already handled
+                            }
+                            // repeat the above, but for the tts path
+                            xpath = parts.cloneAsThawed().setAttribute(2, "type", "tts").toString();
+                            fullpath = cldrFileToFilter.getFullXPath(xpath);
+                            parts = XPathParts.getFrozenInstance(fullpath);
+                            type = parts.getAttributeValue(2, "type");
+                            // mark the character as seen
+                            handledCharacters.add(cp);
+                        } else if (type == null) {
+                            return; // no TTS, and top level, so skip
+                        }
+                        String keywordPath =
+                                parts.cloneAsThawed()
+                                        .removeAttribute(2, "type")
+                                        .toString(); // construct the path without tts
                         String distinguishingKeywordPath =
                                 CLDRFile.getDistinguishingXPath(keywordPath, null);
                         String rawKeywordValue = cldrFileToFilter.getStringValue(keywordPath);
@@ -2174,6 +2175,7 @@ public class CLDRModify {
                             items = Annotations.splitter.splitToList(keywordValue);
                             sorted.addAll(items);
                         }
+
                         DisplayAndInputProcessor.filterCoveredKeywords(sorted);
                         DisplayAndInputProcessor.filterKeywordsDifferingOnlyInCase(sorted);
                         String newKeywordValue = Joiner.on(" | ").join(sorted);

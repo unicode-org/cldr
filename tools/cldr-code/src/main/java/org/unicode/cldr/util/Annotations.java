@@ -57,7 +57,7 @@ public class Annotations {
     static {
         ANNOTATIONS_FACTORY = CLDRConfig.getInstance().getAnnotationsFactory();
         ALL_LOCALES = ANNOTATIONS_FACTORY.getAvailable();
-        final Set<String> commonList = new HashSet<String>();
+        final Set<String> commonList = new HashSet<>();
         // calculate those in common
         for (final String loc : ALL_LOCALES) {
             final File f = getDirForLocale(loc);
@@ -243,6 +243,9 @@ public class Annotations {
         static final CLDRFile ENGLISH_ANNOTATIONS = null;
         static final SubdivisionNames englishSubdivisionIdToName =
                 new SubdivisionNames("en", "main");
+
+        private static final String BLACK_RIGHTWARDS_ARROW = "\u27A1";
+        private static final String BLACK_LEFTWARDS_ARROW = "\u2B05";
         // CLDRConfig.getInstance().getAnnotationsFactory().make("en", false);
 
         private final String locale;
@@ -251,6 +254,7 @@ public class Annotations {
         private final CLDRFile cldrFile;
         private final SubdivisionNames subdivisionIdToName;
         private final SimpleFormatter initialPattern;
+        private final SimpleFormatter rightwardsArrowPattern;
         private final Pattern initialRegexPattern;
         private final XListFormatter listPattern;
         private final Set<String> flagLabelSet;
@@ -279,6 +283,16 @@ public class Annotations {
                     getStringValue(
                             "//ldml/characterLabels/characterLabelPattern[@type=\"category-list\"]");
             initialPattern = SimpleFormatter.compile(initialPatternString);
+            //      <characterLabelPattern type="facing-right">{0} facing
+            // right</characterLabelPattern>
+            final String facingRightPatternString =
+                    getStringValue(
+                            "//ldml/characterLabels/characterLabelPattern[@type=\"facing-right\"]");
+
+            rightwardsArrowPattern =
+                    facingRightPatternString == null
+                            ? null
+                            : SimpleFormatter.compile(facingRightPatternString);
             final String regexPattern =
                     ("\\Q"
                                     + initialPatternString
@@ -456,6 +470,24 @@ public class Annotations {
                 }
             }
             if (code.contains(EmojiConstants.JOINER_STRING)) {
+                if (code.contains(BLACK_RIGHTWARDS_ARROW)) {
+                    String code2 =
+                            code.replace(EmojiConstants.JOINER_STRING + BLACK_RIGHTWARDS_ARROW, "");
+                    if (!Objects.equal(code2, code)) {
+                        Set<String> keywords = getKeywords(code2);
+                        String baseName = getShortName(code2);
+                        if (baseName == null
+                                || keywords == null
+                                || rightwardsArrowPattern == null) {
+                            return null;
+                        }
+                        shortName = rightwardsArrowPattern.format(baseName);
+                        return new Annotations(keywords, shortName);
+                    }
+                } else if (code.contains(BLACK_LEFTWARDS_ARROW)) {
+                    throw new UnsupportedOperationException(
+                            "Implement if leftwards emoji are added");
+                }
                 //                if (code.endsWith(EmojiConstants.JOINER_MALE_SIGN)){
                 //                    if (matchesInitialPattern(code)) { // "👮🏼‍♂️","police
                 // officer: man, medium-light skin tone"

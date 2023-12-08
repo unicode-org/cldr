@@ -3458,6 +3458,7 @@ so this algorithm can be used to write into append-only sinks. Both the back-to-
 <li>If <strong>sequence</strong> is an <strong>emoji flag sequence</strong>, look up the territory name in CLDR for the corresponding ASCII characters and return as the short name. For example, the regional indicator symbols P+F would map to “Französisch-Polynesien” in German.</li>
 <li>If <strong>sequence</strong> is an <strong>emoji tag sequence</strong>, look up the subdivision name in CLDR for the corresponding ASCII characters and return as the short name. For example, the TAG characters gbsct would map to “Schottland” in German.</li>
 <li>If <strong>sequence</strong> is a keycap sequence or 🔟, use the characterLabel for "keycap" as the <strong>prefixName</strong> and set the <strong>suffix</strong> to be the sequence (or "10" in the case of 🔟), then go to step 8.</li>
+<li>If the <strong>sequence</strong> ends with the string ZWJ + ➡️, look up the name of that sequence with that string removed. Embed that name into the "facing-right" characterLabelPattern and return it. </li>
 <li>Let <strong>suffix</strong> and <strong>prefixName</strong> be "".</li>
 <li>If <strong>sequence</strong> contains any emoji modifiers, move them (in order) into <strong>suffix</strong>, removing them from <strong>sequence</strong>.</li>
 <li>If <strong>sequence</strong> is a "KISS", "HEART", "FAMILY", or "HOLDING HANDS" emoji ZWJ sequence, move the characters in <strong>sequence</strong> to the front of <strong>suffix</strong>, and set the <strong>sequence</strong> to be "💏", "💑", or "👪" respectively, and go to step 7.<ol>
@@ -3474,6 +3475,7 @@ so this algorithm can be used to write into append-only sinks. Both the back-to-
 </ol><p>The synthesized keywords can follow a similar process.</p><ol>
 <li>For an <strong>emoji flag sequence</strong> or <strong>emoji tag sequence</strong> representing a subdivision, use "flag".</li>
 <li>For keycap sequences, use "keycap".</li>
+<li>For sequences with ZWJ + ➡️, use the keywords for the sequence without the ZWJ + ➡️.</li>
 <li>For other sequences, add the keywords for the subsequences used to get the short names for <strong>prefixName</strong>, and the short names used for <strong>suffixName</strong>.</li>
 </ol><p>Some examples for English data (v30) are given in the following table.</p><table><caption id="table-synthesized-emoji-sequence-names">Table: Synthesized Emoji Sequence Names</caption>
 <thead>

@@ -1027,7 +1027,7 @@
 </tr>
 <tr>
 <td>Revision</td>
-<td><a href="#Modifications">71</a></td>
+<td><a href="#Modifications">72</a></td>
 </tr>
 </tbody></table><h3 id="summary"><em>Summary</em></h3><p>This document describes an XML format (<em>vocabulary</em>) for the exchange of structured locale data. This format is used in the <a href="https://www.unicode.org/cldr/">Unicode Common Locale Data Repository</a>.</p><p><em>Note:</em>
 Some links may lead to in-development or older
@@ -2057,9 +2057,12 @@ zh-Hant-HK
 <tr><td>"dx"</td>
     <td>Dictionary break script exclusions</td>
     <td><i><code><a href="#unicode_script_subtag">unicode_script_subtag</a></code> values</i></td>
-    <td><p>One or more items of type SCRIPT_CODE (as usual, separated by hyphens), which are valid <code><a href="#unicode_script_subtag">unicode_script_subtag</a></code> values.</p>
-        <p>The code Zyyy (Common) can be specified to exclude all scripts, in which case it should be the only SCRIPT_CODE value specified.
-            If others are included mistakenly, they are ignored.</p></td></tr>
+    <td><ul><li>One or more items of type SCRIPT_CODE (as usual, separated by hyphens), which are valid <code><a href="#unicode_script_subtag">unicode_script_subtag</a></code> values.</li>
+        <li>Each of the values for the DX key must be a short script property value in the UCD, or one of the compound script values like jpan. The compound script values are expanded when interpreted, eg, -dx-jpan = -dx-hani-hira-kata</li>
+        <li>The values may be in any order, eg, -dx-thai-hani = dx-hani-thai. However, the canonical order for the bcp47 subtag is alphabetical, eg, dx-hani-thai</li>
+        <li>Dictionary-based break iterators will ignore each character whose Script_Extension value set intersects with the DX value set.</li>
+        <li>The code Zyyy (Common) can be specified to exclude all scripts, if and only if it is the only SCRIPT_CODE value specified. If it is not the only script code, Zyyy has the normal meaning: excluding Script_Extension=Common.</li></ul>
+        </td></tr>
 
 <tr><td colspan="4"><b>A <a name="UnicodeEmojiPresentationStyleIdentifier" id="UnicodeEmojiPresentationStyleIdentifier" href="#UnicodeEmojiPresentationStyleIdentifier">Unicode Emoji Presentation Style Identifier</a> specifies a request for the preferred emoji presentation style. This can be used as part of the value for an HTML lang attribute, for example <code>&lt;html lang="sr-Latn-u-em-emoji"&gt;</code>. The valid values are those <i>name</i> attribute values in the <i>type</i> elements of key name="em" in bcp47/<a href="https://github.com/unicode-org/cldr/blob/main/common/bcp47/variant.xml" target="_blank">variant.xml</a></b>.</td></tr>
 <tr><td rowspan="3">"em"</td>
@@ -5161,12 +5164,14 @@ See §3.8.2 <a href="#Legacy_Variants">Legacy Variants</a>.</p>
 <li><a href="#unicode-language-identifier">Unicode Language Identifier</a>: clarified constraint on duplicate subtags.</li>
 <li><a href="#key-and-type-definitions">Key/Type Definitions</a>: clarified definition of <code>-dx</code></li>
 <li><a href="#ebnf">EBNF</a>: Clarified use of EBNF in LDML</li>
+<li>(44.1)<a href="#key-and-type-definitions">Key/Type Definitions</a>: further clarified the definition of <code>-dx</code></li>
 </ul>
 </li>
 <li><p><a href="tr35-general.html#Contents">General</a></p>
 <ul>
 <li>Added new section <a href="tr35-general.html#Unit_Identifier_Uniqueness">Unit Identifier Uniqueness</a>, and added a relevant constraint on base_component in the <a href="tr35-general.html#syntax">Syntax</a> section.</li>
 <li>Several clarifications were added in <a href="tr35-general.html#Transform_Rules_Syntax">Transform Rules Syntax</a>, and a new section <a href="tr35-general.html#transform-syntax-characters">Transform Syntax Characters</a> was added with a table of the characters.</li>
+<li>(44.1) <a href="tr35-general.html#SynthesizingNames">Synthesizing Sequence Names</a> Added handling of derived emoji names and keywords for emoji facing-right sequences.</li>
 </ul>
 </li>
 <li><p><a href="tr35-dates.html#Contents">Dates</a></p>

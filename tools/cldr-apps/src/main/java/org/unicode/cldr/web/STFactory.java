@@ -115,6 +115,10 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         /** Voting information for each XPath */
         private final Map<String, PerXPathData> xpathToData = new HashMap<>();
 
+        public void nextStamp() {
+            stamp.next();
+        }
+
         /** Per-xpath data. There's one of these per xpath- voting data, etc. */
         final class PerXPathData {
             /**
@@ -354,7 +358,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                         dataBackedSource =
                                 new BallotBoxXMLSource<User>(diskData.cloneAsThawed(), this);
                 loadVoteValues(dataBackedSource, VoteLoadingContext.ORDINARY_LOAD_VOTES);
-                stamp.next();
+                nextStamp();
                 dataBackedSource.addListener(gTestCache);
                 XMLSource resolvedXmlsource = makeResolvingSource();
                 rFile =
@@ -1135,7 +1139,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             makeSureInPathsForFile(distinguishingXpath, user, value);
             getXPathData(distinguishingXpath)
                     .setVoteForValue(user, value, voteOverride, when, voteType);
-            stamp.next();
+            nextStamp();
         }
 
         @Override
@@ -1334,7 +1338,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                             });
 
     private final Map<CLDRLocale, MutableStamp> localeStamps =
-            new ConcurrentHashMap<>(SurveyMain.getLocales().length);
+            new ConcurrentHashMap<>(SurveyMain.getLocalesSet().size());
 
     /**
      * Return changetime.
@@ -1349,16 +1353,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             localeStamps.put(locale, s);
         }
         return s;
-    }
-
-    /**
-     * Get the locale stamp, loading the locale if not loaded.
-     *
-     * @param loc
-     * @return
-     */
-    public Stamp getLocaleStamp(CLDRLocale loc) {
-        return get(loc).getStamp();
     }
 
     /**

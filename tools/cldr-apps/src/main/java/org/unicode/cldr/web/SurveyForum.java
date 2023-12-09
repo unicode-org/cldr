@@ -1301,6 +1301,8 @@ public class SurveyForum {
         if (postInfo.getSendEmail()) {
             emailNotify(postInfo, postId);
         }
+        CLDRLocale locale = postInfo.getLocale();
+        sm.getSTFactory().get(locale).nextStamp();
         return postId;
     }
 

@@ -15,6 +15,8 @@ import com.ibm.icu.number.Precision;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.util.NoUnit;
 import com.ibm.icu.util.ULocale;
+import com.vdurmont.semver4j.Semver;
+import com.vdurmont.semver4j.Semver.SemverType;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -405,7 +407,20 @@ public class Ldml2JsonConverter {
         this.coverageValue = Level.get(coverage).getLevel();
         this.pkgVersion = pkgVersion;
 
-        LdmlConvertRules.addVersionHandler(pkgVersion.split("\\.")[0]);
+        System.out.println("pkgVersion: " + pkgVersion);
+        final Semver ver = new Semver(pkgVersion, SemverType.STRICT);
+
+        if (ver.getPatch() != 0) {
+            System.err.println(
+                    WARN_ICON + " WARNING: ignoring non-zero patch version in " + pkgVersion);
+        }
+
+        if (ver.getMinor() == 0) {
+            LdmlConvertRules.addVersionHandler(ver.getMajor().toString());
+        } else {
+            LdmlConvertRules.addVersionHandler(
+                    ver.getMajor().toString() + "." + ver.getMinor().toString());
+        }
 
         configFileReader = new LdmlConfigFileReader();
         configFileReader.read(configFile, type);

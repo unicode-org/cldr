@@ -451,6 +451,11 @@ public class TestSTFactory extends TestFmwk {
         runDataDrivenTest(TestSTFactory.class.getSimpleName()); // TestSTFactory.xml
     }
 
+    public void TestVotePerf() throws SQLException, IOException {
+        if (TestAll.skipIfNoDb()) return;
+        runDataDrivenTest("TestVotePerf"); // TestSTFactory.xml
+    }
+
     public void TestUserRegistry() throws SQLException, IOException {
         if (TestAll.skipIfNoDb()) return;
         runDataDrivenTest("TestUserRegistry");

@@ -261,6 +261,15 @@ public class CookieSession {
         }
     }
 
+    /** only for tests. */
+    public static CookieSession getTestSession(User user) {
+        final CookieSession extant = retrieveUser(user);
+        if (extant != null) {
+            return extant;
+        }
+        return newSession(user, "TEST.TEST.TEST.TEST");
+    }
+
     /**
      * Retrieve the session for a user
      *

@@ -160,6 +160,11 @@ public abstract class CheckCLDR implements CheckAccessor {
             return result != null ? result : Phase.valueOf(value);
         }
 
+        /** true if it's a 'unit test' phase. */
+        public boolean isUnitTest() {
+            return this == BUILD || this == FINAL_TESTING;
+        }
+
         /**
          * Return whether or not to show a row, and if so, how.
          *
@@ -199,7 +204,7 @@ public abstract class CheckCLDR implements CheckAccessor {
             }
 
             // always forbid bulk import except in data submission.
-            if (inputMethod == InputMethod.BULK && this != Phase.SUBMISSION) {
+            if (inputMethod == InputMethod.BULK && (this != Phase.SUBMISSION && isUnitTest())) {
                 return StatusAction.FORBID_UNLESS_DATA_SUBMISSION;
             }
 
@@ -222,7 +227,7 @@ public abstract class CheckCLDR implements CheckAccessor {
                 }
             }
 
-            if (this == Phase.SUBMISSION) {
+            if (this == Phase.SUBMISSION || isUnitTest()) {
                 return (ph.canReadAndWrite())
                         ? StatusAction.ALLOW
                         : StatusAction.ALLOW_VOTING_AND_TICKET;
@@ -288,7 +293,7 @@ public abstract class CheckCLDR implements CheckAccessor {
             }
 
             // Allow items if submission
-            if (this == Phase.SUBMISSION) {
+            if (this == Phase.SUBMISSION || isUnitTest()) {
                 return StatusAction.ALLOW;
             }
 

@@ -10,8 +10,13 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.util.Map;
 import java.util.TreeMap;
+
+import javax.ws.rs.core.Response;
+
 import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.unittest.web.TestAll.WebTestInfo;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRLocale;
@@ -28,6 +33,7 @@ import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.web.BallotBox;
 import org.unicode.cldr.web.BallotBox.InvalidXPathException;
 import org.unicode.cldr.web.BallotBox.VoteNotAcceptedException;
+import org.unicode.cldr.web.SurveyMain.Phase;
 import org.unicode.cldr.web.CookieSession;
 import org.unicode.cldr.web.DBUtils;
 import org.unicode.cldr.web.STFactory;
@@ -36,6 +42,8 @@ import org.unicode.cldr.web.SurveyMain;
 import org.unicode.cldr.web.UserRegistry;
 import org.unicode.cldr.web.UserRegistry.LogoutException;
 import org.unicode.cldr.web.UserRegistry.User;
+import org.unicode.cldr.web.api.VoteAPI;
+import org.unicode.cldr.web.api.VoteAPIHelper;
 import org.unicode.cldr.web.XPathTable;
 
 public class TestSTFactory extends TestFmwk {
@@ -453,6 +461,8 @@ public class TestSTFactory extends TestFmwk {
 
     public void TestVotePerf() throws SQLException, IOException {
         if (TestAll.skipIfNoDb()) return;
+        final CheckCLDR.Phase p = CLDRConfig.getInstance().getPhase();
+        assertTrue("phase " + p + ".isUnitTest()", p.isUnitTest());
         runDataDrivenTest("TestVotePerf"); // TestSTFactory.xml
     }
 
@@ -550,6 +560,36 @@ public class TestSTFactory extends TestFmwk {
                                                     + xpath);
                                 }
                                 break;
+                            case "apivote":
+                            case "apiunvote":
+                                {
+                                    UserRegistry.User u = getUserFromAttrs(attrs, "name");
+                                    CLDRLocale locale = CLDRLocale.getInstance(attrs.get("locale"));
+                                    boolean needException =
+                                            getBooleanAttr(attrs, "exception", false);
+                                    if (elem.equals("apiunvote")) {
+                                        value = null;
+                                    }
+                                    final CookieSession mySession = CookieSession.newSession(u, "999.999.999.999");
+                                    try {
+                                        final VoteAPI.VoteResponse r = VoteAPIHelper.getHandleVoteResponse(locale.getBaseName(), xpath, value, 0, mySession, false);
+                                        final boolean isOk = r.didVote;
+                                        final boolean asExpected = (isOk == !needException);
+                                        if (!asExpected) {
+                                            errln("exception=" + needException + " but got status " + r.didNotSubmit + " - " + r.toString());
+                                        } else {
+                                            logln(" status = " + r.didNotSubmit);
+                                        }
+                                    } catch(Throwable iae) {
+                                        if (needException == true) {
+                                            logln("Caught expected: " + iae);
+                                        } else {
+                                            iae.printStackTrace();
+                                            errln("Unexpected exception: " + iae);
+                                        }
+                                    }
+                                }
+                                break;
                             case "vote":
                             case "unvote":
                                 {
@@ -592,6 +632,7 @@ public class TestSTFactory extends TestFmwk {
                                     logln(u + " " + elem + "d for " + xpath + " = " + value);
                                 }
                                 break;
+                            case "apiverify": // TODO
                             case "verify":
                                 {
                                     value = value.trim();

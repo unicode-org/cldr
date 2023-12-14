@@ -372,18 +372,33 @@ public class VoteAPIHelper {
     // separated from
     // the HTTP response concerns, so that VoteAPI and XPathAlt can share code without the
     // awkwardness of forbiddenIsOk.
-    static Response handleVote(
+    public static Response handleVote(
             String loc,
             String xp,
             String value,
             int voteLevelChanged,
             final CookieSession mySession,
             boolean forbiddenIsOk) {
+        // translate this call into jax-rs Response
+        try {
+            final VoteResponse r = getHandleVoteResponse(loc, xp, value, voteLevelChanged, mySession, forbiddenIsOk);
+            return Response.ok(r).build();
+        } catch (Throwable se) {
+            return new STError(se).build();
+        }
+    }
+    /** this function is the implementation of handleVote() but does not use any jax-rs, for unit tests */
+    public static VoteResponse getHandleVoteResponse(String loc,
+            String xp,
+            String value,
+            int voteLevelChanged,
+            final CookieSession mySession,
+            boolean forbiddenIsOk) throws SurveyException {
         VoteResponse r = new VoteResponse();
         mySession.userDidAction();
         CLDRLocale locale = CLDRLocale.getInstance(loc);
         if (!UserRegistry.userCanModifyLocale(mySession.user, locale)) {
-            return Response.status(Status.FORBIDDEN).build();
+           throw new SurveyException(ErrorCode.E_NO_PERMISSION, "Not allowed to modify " + locale);
         }
         loc = locale.getBaseName(); // sanitized
         final SurveyMain sm = CookieSession.sm;
@@ -445,15 +460,13 @@ public class VoteAPIHelper {
                 }
             } catch (Throwable t) {
                 SurveyLog.logException(logger, t, "Processing submission " + locale + ":" + xp);
-                return (new STError(t).build());
+                throw new SurveyException(ErrorCode.E_INTERNAL, "Processing submission " + locale + ":" + xp);
             }
         }
         if (!forbiddenIsOk && r.statusAction.isForbidden()) {
-            return Response.status(Response.Status.NOT_ACCEPTABLE)
-                    .entity(new STError("Status action is forbidden: " + r.statusAction))
-                    .build();
+            throw new SurveyException(ErrorCode.E_VOTE_NOT_ACCEPTED, "Status action is forbidden: " + r.statusAction);
         }
-        return Response.ok(r).build();
+        return r;
     }
 
     private static void normalizedToZeroLengthError(VoteResponse r, List<CheckStatus> result) {

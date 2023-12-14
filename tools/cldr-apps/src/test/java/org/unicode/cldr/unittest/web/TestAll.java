@@ -3,6 +3,8 @@
 
 package org.unicode.cldr.unittest.web;
 
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
+
 import com.ibm.icu.dev.test.TestFmwk.TestGroup;
 import com.ibm.icu.dev.test.TestLog;
 import com.ibm.icu.text.Collator;
@@ -100,7 +102,7 @@ public class TestAll extends TestGroup {
     public static String[] doResetDb(String[] args) {
         if (CLDRConfig.getInstance().getEnvironment() != Environment.UNITTEST) {
             throw new InternalError(
-                    "Error: the CLDRConfig Environment is not UNITTEST. Please set -DCLDR_ENVIRONMENT=UNITTESTS");
+                    "Error: the CLDRConfig Environment is not UNITTEST. Please set -DCLDR_ENVIRONMENT=UNITTEST");
         }
         return args;
     }
@@ -113,7 +115,6 @@ public class TestAll extends TestGroup {
                     TestIntHash.class.getName(),
                     TestXPathTable.class.getName(),
                     TestMisc.class.getName(),
-                    TestSTFactory.class.getName(),
                     TestUserSettingsData.class.getName(),
                     TestAnnotationVotes.class.getName(),
                     TestUserRegistry.class.getName(),
@@ -333,15 +334,6 @@ public class TestAll extends TestGroup {
         };
     }
 
-    /**
-     * Fetch data from jar
-     *
-     * @param name name of thing to load (org.unicode.cldr.unittest.web.data.name)
-     */
-    public static BufferedReader getUTF8Data(String name) throws java.io.IOException {
-        return FileReaders.openFile(TestAll.class, "data/" + name);
-    }
-
     public static final boolean skipIfNoDb() {
         if (!HAVE_TEST_DB) {
             System.err.println(
@@ -351,5 +343,16 @@ public class TestAll extends TestGroup {
             return true;
         }
         return false;
+    }
+
+    /**
+     * @see #skipIfNoDb() - same but for JUnit
+     */
+    public static void assumeHaveDb() {
+        assumeTrue(
+                HAVE_TEST_DB,
+                String.format(
+                        "DB tests skipped because -D%s was not set to a MySQL URL.",
+                        CLDR_TEST_JDBC));
     }
 }

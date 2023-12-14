@@ -5,7 +5,6 @@ import java.util.*;
 import java.util.logging.Logger;
 import javax.json.bind.spi.JsonbProvider;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.Response.Status;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
@@ -62,11 +61,11 @@ public class VoteAPIHelper {
 
     static final Logger logger = SurveyLog.forClass(VoteAPIHelper.class);
 
-    private static class ArgsForGet {
+    public static class ArgsForGet {
         String localeId;
         String sessionId;
         String page = null;
-        String xpstrid = null;
+        public String xpstrid = null;
         Boolean getDashboard = false;
 
         public ArgsForGet(String loc, String session) {
@@ -119,79 +118,85 @@ public class VoteAPIHelper {
             /** if true, hide emails. TODO: CLDR-16829 remove this parameter */
             final boolean redacted =
                     ((mySession.user == null) || (!mySession.user.getLevel().isGuest()));
-            final RowResponse r = new RowResponse();
-            XPathMatcher matcher = null;
-            PageId pageId = null;
-            String xp = null;
-
-            if (args.xpstrid == null && args.page != null) {
-                try {
-                    pageId = PageId.valueOf(args.page);
-                } catch (IllegalArgumentException iae) {
-                    return Response.status(404)
-                            .entity(new STError(ErrorCode.E_BAD_SECTION))
-                            .build();
-                }
-                if (pageId.getSectionId() == org.unicode.cldr.util.PathHeader.SectionId.Special) {
-                    return new STError(
-                                    ErrorCode.E_SPECIAL_SECTION,
-                                    "Items not visible - page "
-                                            + pageId
-                                            + " section "
-                                            + pageId.getSectionId())
-                            .build();
-                }
-                r.pageId = pageId.name();
-            } else if (args.xpstrid != null && args.page == null) {
-                xp = sm.xpt.getByStringID(args.xpstrid);
-                if (xp == null) {
-                    return Response.status(404).entity(new STError(ErrorCode.E_BAD_XPATH)).build();
-                }
-                matcher = XPathMatcher.exactMatcherForString(xp);
-            } else {
-                // Should not get here.
-                return new STError(
-                                ErrorCode.E_INTERNAL,
-                                "handleGetRows: need xpstrid or page, but not both")
-                        .build();
-            }
-            final DataPage pageData = DataPage.make(pageId, mySession, locale, xp, matcher);
-            pageData.setUserForVotelist(mySession.user);
-            r.page = new RowResponse.Page();
-            if (args.xpstrid != null) {
-                r.setOneRowPath(args.xpstrid);
-            }
-
-            // don't return default content
-            CLDRLocale dcParent =
-                    SupplementalDataInfo.getInstance().getBaseFromDefaultContent(locale);
-            if (dcParent != null) {
-                r.dcParent = dcParent.getBaseName();
-                r.page.nocontent = true;
-            } else {
-                r.canModify = UserRegistry.userCanModifyLocale(mySession.user, locale);
-                r.localeDisplayName = locale.getDisplayName();
-                r.page.nocontent = false;
-                Collection<DataRow> dataRows = pageData.getAll();
-                r.page.rows = makePageRows(dataRows, redacted);
-                if (args.page != null) {
-                    r.displaySets = makeDisplaySets(dataRows);
-                }
-            }
-            if (args.getDashboard) {
-                r.notifications =
-                        getOnePathDash(XPathTable.xpathToBaseXpath(xp), locale, mySession);
-            }
-            if (DEBUG_SERIALIZATION) {
-                debugSerialization(r, args);
-            }
+            final RowResponse r = getRowsResponse(args, sm, locale, mySession, redacted);
             return Response.ok(r).build();
         } catch (Throwable t) {
             t.printStackTrace();
-            SurveyLog.logException(
-                    logger, t, "Trying to load " + args.localeId + " / " + args.xpstrid);
-            return new STError(t).build(); // 500
+            if (!(t instanceof SurveyException
+                    && ((SurveyException) t).getErrCode() != ErrorCode.E_INTERNAL)) {
+                // log unknown or internal errs
+                SurveyLog.logException(
+                        logger, t, "Trying to load " + args.localeId + " / " + args.xpstrid);
+            }
+            return new STError(t).build();
         }
+    }
+
+    public static RowResponse getRowsResponse(
+            ArgsForGet args,
+            final SurveyMain sm,
+            final CLDRLocale locale,
+            final CookieSession mySession,
+            final boolean redacted)
+            throws SurveyException {
+        final RowResponse r = new RowResponse();
+        XPathMatcher matcher = null;
+        PageId pageId = null;
+        String xp = null;
+
+        if (args.xpstrid == null && args.page != null) {
+            try {
+                pageId = PageId.valueOf(args.page);
+            } catch (IllegalArgumentException iae) {
+                throw new SurveyException(ErrorCode.E_BAD_SECTION);
+            }
+            if (pageId.getSectionId() == org.unicode.cldr.util.PathHeader.SectionId.Special) {
+                throw new SurveyException(
+                        ErrorCode.E_SPECIAL_SECTION,
+                        "Items not visible - page " + pageId + " section " + pageId.getSectionId());
+            }
+            r.pageId = pageId.name();
+        } else if (args.xpstrid != null && args.page == null) {
+            xp = sm.xpt.getByStringID(args.xpstrid);
+            if (xp == null) {
+                throw new SurveyException(ErrorCode.E_BAD_XPATH);
+            }
+            matcher = XPathMatcher.exactMatcherForString(xp);
+        } else {
+            // Should not get here. but could be a 'not acceptable'
+            throw new SurveyException(
+                    ErrorCode.E_INTERNAL, // or E_BAD_XPATH?
+                    "handleGetRows: need xpstrid or page, but not both");
+        }
+        final DataPage pageData = DataPage.make(pageId, mySession, locale, xp, matcher);
+        pageData.setUserForVotelist(mySession.user);
+        r.page = new RowResponse.Page();
+        if (args.xpstrid != null) {
+            r.setOneRowPath(args.xpstrid);
+        }
+
+        // don't return default content
+        CLDRLocale dcParent = SupplementalDataInfo.getInstance().getBaseFromDefaultContent(locale);
+        if (dcParent != null) {
+            r.dcParent = dcParent.getBaseName();
+            r.page.nocontent = true;
+        } else {
+            r.canModify = UserRegistry.userCanModifyLocale(mySession.user, locale);
+            r.localeDisplayName = locale.getDisplayName();
+            r.page.nocontent = false;
+            Collection<DataRow> dataRows = pageData.getAll();
+            r.page.rows = makePageRows(dataRows, redacted);
+            if (args.page != null) {
+                r.displaySets = makeDisplaySets(dataRows);
+            }
+        }
+        if (args.getDashboard) {
+            r.notifications = getOnePathDash(XPathTable.xpathToBaseXpath(xp), locale, mySession);
+        }
+        if (DEBUG_SERIALIZATION) {
+            debugSerialization(r, args);
+        }
+        return r;
     }
 
     private static void debugSerialization(RowResponse r, ArgsForGet args) {
@@ -381,24 +386,31 @@ public class VoteAPIHelper {
             boolean forbiddenIsOk) {
         // translate this call into jax-rs Response
         try {
-            final VoteResponse r = getHandleVoteResponse(loc, xp, value, voteLevelChanged, mySession, forbiddenIsOk);
+            final VoteResponse r =
+                    getHandleVoteResponse(
+                            loc, xp, value, voteLevelChanged, mySession, forbiddenIsOk);
             return Response.ok(r).build();
         } catch (Throwable se) {
             return new STError(se).build();
         }
     }
-    /** this function is the implementation of handleVote() but does not use any jax-rs, for unit tests */
-    public static VoteResponse getHandleVoteResponse(String loc,
+    /**
+     * this function is the implementation of handleVote() but does not use any jax-rs, for unit
+     * tests
+     */
+    public static VoteResponse getHandleVoteResponse(
+            String loc,
             String xp,
             String value,
             int voteLevelChanged,
             final CookieSession mySession,
-            boolean forbiddenIsOk) throws SurveyException {
+            boolean forbiddenIsOk)
+            throws SurveyException {
         VoteResponse r = new VoteResponse();
         mySession.userDidAction();
         CLDRLocale locale = CLDRLocale.getInstance(loc);
         if (!UserRegistry.userCanModifyLocale(mySession.user, locale)) {
-           throw new SurveyException(ErrorCode.E_NO_PERMISSION, "Not allowed to modify " + locale);
+            throw new SurveyException(ErrorCode.E_NO_PERMISSION, "Not allowed to modify " + locale);
         }
         loc = locale.getBaseName(); // sanitized
         final SurveyMain sm = CookieSession.sm;
@@ -460,11 +472,13 @@ public class VoteAPIHelper {
                 }
             } catch (Throwable t) {
                 SurveyLog.logException(logger, t, "Processing submission " + locale + ":" + xp);
-                throw new SurveyException(ErrorCode.E_INTERNAL, "Processing submission " + locale + ":" + xp);
+                throw new SurveyException(
+                        ErrorCode.E_INTERNAL, "Processing submission " + locale + ":" + xp);
             }
         }
         if (!forbiddenIsOk && r.statusAction.isForbidden()) {
-            throw new SurveyException(ErrorCode.E_VOTE_NOT_ACCEPTED, "Status action is forbidden: " + r.statusAction);
+            throw new SurveyException(
+                    ErrorCode.E_VOTE_NOT_ACCEPTED, "Status action is forbidden: " + r.statusAction);
         }
         return r;
     }

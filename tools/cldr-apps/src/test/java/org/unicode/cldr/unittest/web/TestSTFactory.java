@@ -10,9 +10,6 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.util.Map;
 import java.util.TreeMap;
-
-import javax.ws.rs.core.Response;
-
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.unittest.web.TestAll.WebTestInfo;
@@ -33,7 +30,6 @@ import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.web.BallotBox;
 import org.unicode.cldr.web.BallotBox.InvalidXPathException;
 import org.unicode.cldr.web.BallotBox.VoteNotAcceptedException;
-import org.unicode.cldr.web.SurveyMain.Phase;
 import org.unicode.cldr.web.CookieSession;
 import org.unicode.cldr.web.DBUtils;
 import org.unicode.cldr.web.STFactory;
@@ -42,9 +38,12 @@ import org.unicode.cldr.web.SurveyMain;
 import org.unicode.cldr.web.UserRegistry;
 import org.unicode.cldr.web.UserRegistry.LogoutException;
 import org.unicode.cldr.web.UserRegistry.User;
-import org.unicode.cldr.web.api.VoteAPI;
-import org.unicode.cldr.web.api.VoteAPIHelper;
 import org.unicode.cldr.web.XPathTable;
+import org.unicode.cldr.web.api.VoteAPI;
+import org.unicode.cldr.web.api.VoteAPI.RowResponse;
+import org.unicode.cldr.web.api.VoteAPI.RowResponse.Row;
+import org.unicode.cldr.web.api.VoteAPIHelper;
+import org.unicode.cldr.web.api.VoteAPIHelper.ArgsForGet;
 
 public class TestSTFactory extends TestFmwk {
 
@@ -463,7 +462,7 @@ public class TestSTFactory extends TestFmwk {
         if (TestAll.skipIfNoDb()) return;
         final CheckCLDR.Phase p = CLDRConfig.getInstance().getPhase();
         assertTrue("phase " + p + ".isUnitTest()", p.isUnitTest());
-        runDataDrivenTest("TestVotePerf"); // TestSTFactory.xml
+        runDataDrivenTest("TestVotePerf");
     }
 
     public void TestUserRegistry() throws SQLException, IOException {
@@ -570,17 +569,30 @@ public class TestSTFactory extends TestFmwk {
                                     if (elem.equals("apiunvote")) {
                                         value = null;
                                     }
-                                    final CookieSession mySession = CookieSession.newSession(u, "999.999.999.999");
+                                    final CookieSession mySession = CookieSession.getTestSession(u);
                                     try {
-                                        final VoteAPI.VoteResponse r = VoteAPIHelper.getHandleVoteResponse(locale.getBaseName(), xpath, value, 0, mySession, false);
+                                        final VoteAPI.VoteResponse r =
+                                                VoteAPIHelper.getHandleVoteResponse(
+                                                        locale.getBaseName(),
+                                                        xpath,
+                                                        value,
+                                                        0,
+                                                        mySession,
+                                                        false);
                                         final boolean isOk = r.didVote;
                                         final boolean asExpected = (isOk == !needException);
                                         if (!asExpected) {
-                                            errln("exception=" + needException + " but got status " + r.didNotSubmit + " - " + r.toString());
+                                            errln(
+                                                    "exception="
+                                                            + needException
+                                                            + " but got status "
+                                                            + r.didNotSubmit
+                                                            + " - "
+                                                            + r.toString());
                                         } else {
                                             logln(" status = " + r.didNotSubmit);
                                         }
-                                    } catch(Throwable iae) {
+                                    } catch (Throwable iae) {
                                         if (needException == true) {
                                             logln("Caught expected: " + iae);
                                         } else {
@@ -632,7 +644,40 @@ public class TestSTFactory extends TestFmwk {
                                     logln(u + " " + elem + "d for " + xpath + " = " + value);
                                 }
                                 break;
-                            case "apiverify": // TODO
+                            case "apiverify":
+                                {
+                                    // like verify, but via API
+                                    value = value.trim();
+                                    if (value.isEmpty()) value = null;
+                                    UserRegistry.User u = getUserFromAttrs(attrs, "name");
+                                    CLDRLocale locale = CLDRLocale.getInstance(attrs.get("locale"));
+                                    final CookieSession mySession = CookieSession.getTestSession(u);
+
+                                    ArgsForGet args =
+                                            new ArgsForGet(locale.getBaseName(), mySession.id);
+                                    args.xpstrid = XPathTable.getStringIDString(xpath);
+                                    // args.getDashboard = false;
+                                    try {
+                                        final RowResponse r =
+                                                VoteAPIHelper.getRowsResponse(
+                                                        args,
+                                                        CookieSession.sm,
+                                                        locale,
+                                                        mySession,
+                                                        false);
+                                        assertEquals("xpstrid", args.xpstrid, r.xpstrid);
+                                        assertEquals("row count", 1, r.page.rows.size());
+                                        final Row firstRow = r.page.rows.values().iterator().next();
+                                        assertEquals("rxpath", firstRow.xpath, xpath);
+                                        assertEquals(
+                                                "value for " + args.xpstrid,
+                                                value,
+                                                firstRow.winningValue);
+                                    } catch (Throwable t) {
+                                        assertNull("did not expect an exception", t);
+                                    }
+                                }
+                                break;
                             case "verify":
                                 {
                                     value = value.trim();

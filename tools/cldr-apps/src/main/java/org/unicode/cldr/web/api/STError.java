@@ -2,7 +2,6 @@ package org.unicode.cldr.web.api;
 
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
-
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.unicode.cldr.web.SurveyException;
 import org.unicode.cldr.web.SurveyException.ErrorCode;
@@ -71,7 +70,7 @@ public class STError {
 
     /** the error as a Status */
     public Status getStatus() {
-        switch(code) {
+        switch (code) {
             case E_BAD_LOCALE:
             case E_BAD_SECTION:
             case E_BAD_XPATH:

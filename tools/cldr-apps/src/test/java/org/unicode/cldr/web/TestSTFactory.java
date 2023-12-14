@@ -7,9 +7,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
 import com.ibm.icu.dev.util.ElapsedTimer;
-
-import net.jcip.annotations.NotThreadSafe;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -19,6 +16,7 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.util.Map;
 import java.util.TreeMap;
+import net.jcip.annotations.NotThreadSafe;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.unicode.cldr.draft.FileUtilities;
@@ -111,7 +109,9 @@ public class TestSTFactory {
         if (currentWinner == null) currentWinner = NULL;
 
         if (expectString != ANY && !expectString.equals(currentWinner)) {
-            throw new IllegalArgumentException(
+            assertEquals(
+                    expectString,
+                    currentWinner,
                     "ERR:"
                             + where
                             + "Expected '"
@@ -126,7 +126,9 @@ public class TestSTFactory {
                             + votedToString(didVote)
                             + box.getResolver(path));
         } else if (expectVoted != didVote) {
-            throw new IllegalArgumentException(
+            assertEquals(
+                    expectVoted,
+                    didVote,
                     "ERR:"
                             + where
                             + "Expected VOTING="
@@ -221,7 +223,6 @@ public class TestSTFactory {
             {
                 Date modDate = mt.getLastModifiedDate(somePath);
                 assertNotNull(modDate, "@2: mod date was null!");
-                System.out.println("@2: mod date " + modDate);
             }
             CLDRFile mt2 = fac.make(locale, true);
             {
@@ -238,8 +239,7 @@ public class TestSTFactory {
             CLDRFile mtMTb = fac.make(localeSub, false);
             {
                 Date modDate = mtMTb.getLastModifiedDate(somePath);
-                assertNotNull(modDate, "@2c: mod date was null!");
-                System.out.println("@2c: mod date " + modDate);
+                assertNull(modDate, "@2c: mod date should be null (unresolved source)!");
             }
             // unvote
             box.voteForValue(getMyUser(), somePath, null);
@@ -247,8 +247,7 @@ public class TestSTFactory {
             expect(somePath, originalValue, false, mt, box);
             {
                 Date modDate = mt.getLastModifiedDate(somePath);
-                assertNotNull(modDate, "@3: mod date was null!");
-                System.out.println("@3: mod date " + modDate);
+                assertNull(modDate, "@3: mod date was null!");
             }
         }
         fac = resetFactory();
@@ -891,7 +890,7 @@ public class TestSTFactory {
                             final RowResponse r =
                                     VoteAPIHelper.getRowsResponse(
                                             args, CookieSession.sm, locale, mySession, false);
-                            assertEquals( args.xpstrid, r.xpstrid, "xpstrid");
+                            assertEquals(args.xpstrid, r.xpstrid, "xpstrid");
                             assertEquals(1, r.page.rows.size(), "row count");
                             final Row firstRow = r.page.rows.values().iterator().next();
                             assertEquals(firstRow.xpath, xpath, "rxpath");

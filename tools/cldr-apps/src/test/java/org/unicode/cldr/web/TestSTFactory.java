@@ -1,7 +1,16 @@
-package org.unicode.cldr.unittest.web;
+package org.unicode.cldr.web;
 
-import com.ibm.icu.dev.test.TestFmwk;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
+
 import com.ibm.icu.dev.util.ElapsedTimer;
+
+import net.jcip.annotations.NotThreadSafe;
+
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,15 +19,20 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.util.Map;
 import java.util.TreeMap;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.CheckCLDR;
+import org.unicode.cldr.unittest.web.TestAll;
 import org.unicode.cldr.unittest.web.TestAll.WebTestInfo;
 import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRConfig.Environment;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.FileReaders;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.SpecialLocales;
 import org.unicode.cldr.util.StackTracker;
@@ -27,37 +41,39 @@ import org.unicode.cldr.util.VoteResolver.Level;
 import org.unicode.cldr.util.VoteResolver.Status;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
-import org.unicode.cldr.web.BallotBox;
 import org.unicode.cldr.web.BallotBox.InvalidXPathException;
 import org.unicode.cldr.web.BallotBox.VoteNotAcceptedException;
-import org.unicode.cldr.web.CookieSession;
-import org.unicode.cldr.web.DBUtils;
-import org.unicode.cldr.web.STFactory;
-import org.unicode.cldr.web.SurveyException;
-import org.unicode.cldr.web.SurveyMain;
-import org.unicode.cldr.web.UserRegistry;
 import org.unicode.cldr.web.UserRegistry.LogoutException;
 import org.unicode.cldr.web.UserRegistry.User;
-import org.unicode.cldr.web.XPathTable;
 import org.unicode.cldr.web.api.VoteAPI;
 import org.unicode.cldr.web.api.VoteAPI.RowResponse;
 import org.unicode.cldr.web.api.VoteAPI.RowResponse.Row;
 import org.unicode.cldr.web.api.VoteAPIHelper;
 import org.unicode.cldr.web.api.VoteAPIHelper.ArgsForGet;
 
-public class TestSTFactory extends TestFmwk {
+@NotThreadSafe
+public class TestSTFactory {
 
     TestAll.WebTestInfo testInfo = WebTestInfo.getInstance();
 
     STFactory gFac = null;
     UserRegistry.User gUser = null;
 
-    public static void main(String[] args) {
-        new TestSTFactory().run(TestAll.doResetDb(args));
+    /** validate the phase and mode */
+    @BeforeEach
+    public void validatePhase() {
+        CLDRConfig c = CLDRConfig.getInstance();
+        assertNotNull(c);
+        assertTrue(
+                c.getPhase().isUnitTest(),
+                () -> String.format("Phase %s returned false for isUnitTest()", c.getPhase()));
+        assertEquals(
+                Environment.UNITTEST, c.getEnvironment(), "Please set -DCLDR_ENVIRONMENT=UNITTEST");
+        TestAll.assumeHaveDb();
     }
 
+    @Test
     public void TestBasicFactory() throws SQLException {
-        if (TestAll.skipIfNoDb()) return;
         CLDRLocale locale = CLDRLocale.getInstance("aa");
         STFactory fac = getFactory();
         CLDRFile mt = fac.make(locale, false);
@@ -67,8 +83,8 @@ public class TestSTFactory extends TestFmwk {
         box.getValues(somePath);
     }
 
+    @Test
     public void TestReadonlyLocales() throws SQLException {
-        if (TestAll.skipIfNoDb()) return;
         STFactory fac = getFactory();
 
         verifyReadOnly(fac.make("root", false));
@@ -83,7 +99,8 @@ public class TestSTFactory extends TestFmwk {
             String expectString,
             boolean expectVoted,
             CLDRFile file,
-            BallotBox<User> box) {
+            BallotBox<User> box)
+            throws LogoutException, SQLException {
         CLDRLocale locale = CLDRLocale.getInstance(file.getLocaleID());
         String currentWinner = file.getStringValue(path);
         boolean didVote = box.userDidVote(getMyUser(), path);
@@ -94,7 +111,7 @@ public class TestSTFactory extends TestFmwk {
         if (currentWinner == null) currentWinner = NULL;
 
         if (expectString != ANY && !expectString.equals(currentWinner)) {
-            errln(
+            throw new IllegalArgumentException(
                     "ERR:"
                             + where
                             + "Expected '"
@@ -109,7 +126,7 @@ public class TestSTFactory extends TestFmwk {
                             + votedToString(didVote)
                             + box.getResolver(path));
         } else if (expectVoted != didVote) {
-            errln(
+            throw new IllegalArgumentException(
                     "ERR:"
                             + where
                             + "Expected VOTING="
@@ -124,8 +141,9 @@ public class TestSTFactory extends TestFmwk {
                             + votedToString(didVote)
                             + box.getResolver(path));
         } else {
-            logln(
+            System.out.println(
                     where
+                            + ":"
                             + locale
                             + ":"
                             + path
@@ -146,9 +164,10 @@ public class TestSTFactory extends TestFmwk {
         return didVote ? "(I VOTED)" : "( did NOT VOTE) ";
     }
 
+    @Test
     public void TestBasicVote()
-            throws SQLException, IOException, InvalidXPathException, VoteNotAcceptedException {
-        if (TestAll.skipIfNoDb()) return;
+            throws SQLException, IOException, InvalidXPathException, VoteNotAcceptedException,
+                    LogoutException {
         STFactory fac = getFactory();
 
         final String somePath = "//ldml/localeDisplayNames/keys/key[@type=\"collation\"]";
@@ -168,7 +187,7 @@ public class TestSTFactory extends TestFmwk {
             // ticket:2260
 
             if (originalValue.equals(changedTo)) {
-                errln(
+                fail(
                         "for "
                                 + locale
                                 + " value "
@@ -187,11 +206,8 @@ public class TestSTFactory extends TestFmwk {
             expect(somePath, changedTo, true, mt, box);
 
             Date modDate = mt.getLastModifiedDate(somePath);
-            if (modDate == null) {
-                errln("@1: mod date was null!");
-            } else {
-                logln("@1: mod date " + modDate);
-            }
+            assertNotNull(modDate, "@1: mod date was null!");
+            System.out.println("@1: mod date " + modDate);
         }
 
         // Restart STFactory.
@@ -204,38 +220,26 @@ public class TestSTFactory extends TestFmwk {
 
             {
                 Date modDate = mt.getLastModifiedDate(somePath);
-                if (modDate == null) {
-                    errln("@2: mod date was null!");
-                } else {
-                    logln("@2: mod date " + modDate);
-                }
+                assertNotNull(modDate, "@2: mod date was null!");
+                System.out.println("@2: mod date " + modDate);
             }
             CLDRFile mt2 = fac.make(locale, true);
             {
                 Date modDate = mt2.getLastModifiedDate(somePath);
-                if (modDate == null) {
-                    errln("@2a: mod date was null!");
-                } else {
-                    logln("@2a: mod date " + modDate);
-                }
+                assertNotNull(modDate, "@2a: mod date was null!");
+                System.out.println("@2a: mod date " + modDate);
             }
             CLDRFile mtMT = fac.make(localeSub, true);
             {
                 Date modDate = mtMT.getLastModifiedDate(somePath);
-                if (modDate == null) {
-                    errln("@2b: mod date was null!");
-                } else {
-                    logln("@2b: mod date " + modDate);
-                }
+                assertNotNull(modDate, "@2b: mod date was null!");
+                System.out.println("@2b: mod date " + modDate);
             }
             CLDRFile mtMTb = fac.make(localeSub, false);
             {
                 Date modDate = mtMTb.getLastModifiedDate(somePath);
-                if (modDate != null) {
-                    errln("@2c: mod date was " + modDate);
-                } else {
-                    logln("@2c: mod date was " + modDate);
-                }
+                assertNotNull(modDate, "@2c: mod date was null!");
+                System.out.println("@2c: mod date " + modDate);
             }
             // unvote
             box.voteForValue(getMyUser(), somePath, null);
@@ -243,11 +247,8 @@ public class TestSTFactory extends TestFmwk {
             expect(somePath, originalValue, false, mt, box);
             {
                 Date modDate = mt.getLastModifiedDate(somePath);
-                if (modDate != null) {
-                    errln("@3: mod date was not null! " + modDate);
-                } else {
-                    logln("@3: mod date " + modDate);
-                }
+                assertNotNull(modDate, "@3: mod date was null!");
+                System.out.println("@3: mod date " + modDate);
             }
         }
         fac = resetFactory();
@@ -260,12 +261,12 @@ public class TestSTFactory extends TestFmwk {
             // vote for ____2
             changedTo = changedTo + "2";
 
-            logln("VoteFor: " + changedTo);
+            System.out.println("VoteFor: " + changedTo);
             box.voteForValue(getMyUser(), somePath, changedTo);
 
             expect(somePath, changedTo, true, mt, box);
 
-            logln("Write out..");
+            System.out.println("Write out..");
             File targDir = TestAll.getEmptyDir(TestSTFactory.class.getName() + "_output");
             File outFile = new File(targDir, locale.getBaseName() + ".xml");
             PrintWriter pw =
@@ -274,22 +275,21 @@ public class TestSTFactory extends TestFmwk {
             mt.write(pw, noDtdPlease);
             pw.close();
 
-            logln("Read back..");
+            System.out.println("Read back..");
             CLDRFile readBack = null;
-            try {
-                readBack =
-                        CLDRFile.loadFromFile(
-                                outFile, locale.getBaseName(), DraftStatus.unconfirmed);
-            } catch (IllegalArgumentException iae) {
-                iae.getCause().printStackTrace();
-                System.err.println(iae.getCause().toString());
-                handleException(iae);
-            }
+            readBack =
+                    CLDRFile.loadFromFile(outFile, locale.getBaseName(), DraftStatus.unconfirmed);
             String reRead = readBack.getStringValue(somePath);
 
-            logln("reread:  " + outFile.getAbsolutePath() + " value " + somePath + " = " + reRead);
+            System.out.println(
+                    "reread:  "
+                            + outFile.getAbsolutePath()
+                            + " value "
+                            + somePath
+                            + " = "
+                            + reRead);
             if (!changedTo.equals(reRead)) {
-                logln(
+                System.out.println(
                         "reread:  "
                                 + outFile.getAbsolutePath()
                                 + " value "
@@ -302,8 +302,8 @@ public class TestSTFactory extends TestFmwk {
         }
     }
 
+    @Test
     public void TestDenyVote() throws SQLException, IOException {
-        if (TestAll.skipIfNoDb()) return;
         STFactory fac = getFactory();
         final String somePath2 = "//ldml/localeDisplayNames/keys/key[@type=\"numbers\"]";
         // String originalValue2 = null;
@@ -316,9 +316,10 @@ public class TestSTFactory extends TestFmwk {
 
             try {
                 box.voteForValue(getMyUser(), somePath2, changedTo2);
-                errln("Error! should have failed to vote for " + locale2);
+                fail("Error! should have failed to vote for " + locale2);
             } catch (Throwable t) {
-                logln("Good - caught " + t.toString() + " as this locale is a default content.");
+                System.out.println(
+                        "Good - caught " + t.toString() + " as this locale is a default content.");
             }
         }
         {
@@ -328,9 +329,10 @@ public class TestSTFactory extends TestFmwk {
 
             try {
                 box.voteForValue(getMyUser(), somePath2, changedTo2);
-                errln("Error! should have failed to vote for " + locale2);
+                fail("Error! should have failed to vote for " + locale2);
             } catch (Throwable t) {
-                logln("Good - caught " + t.toString() + " as this locale is readonly english.");
+                System.out.println(
+                        "Good - caught " + t.toString() + " as this locale is readonly english.");
             }
         }
         {
@@ -342,9 +344,9 @@ public class TestSTFactory extends TestFmwk {
 
             try {
                 box.voteForValue(getMyUser(), bad_xpath, "{0} Murrays"); // bogus
-                errln("Error! should have failed to vote for " + locale2 + " xpath " + bad_xpath);
+                fail("Error! should have failed to vote for " + locale2 + " xpath " + bad_xpath);
             } catch (Throwable t) {
-                logln(
+                System.out.println(
                         "Good - caught "
                                 + t.toString()
                                 + " voting for "
@@ -354,9 +356,10 @@ public class TestSTFactory extends TestFmwk {
         }
     }
 
+    @Test
     public void TestSparseVote()
-            throws SQLException, IOException, InvalidXPathException, SurveyException {
-        if (TestAll.skipIfNoDb()) return;
+            throws SQLException, IOException, InvalidXPathException, SurveyException,
+                    LogoutException {
         STFactory fac = getFactory();
 
         final String somePath2 = "//ldml/localeDisplayNames/keys/key[@type=\"calendar\"]";
@@ -379,7 +382,7 @@ public class TestSTFactory extends TestFmwk {
             changedTo2 = "The alternate pump fixing screws with the incorrect strength class";
 
             if (originalValue2.equals(changedTo2)) {
-                errln(
+                fail(
                         "for "
                                 + locale2
                                 + " value "
@@ -418,12 +421,12 @@ public class TestSTFactory extends TestFmwk {
             // vote for ____2
             changedTo2 = changedTo2 + "2";
 
-            logln("VoteFor: " + changedTo2);
+            System.out.println("VoteFor: " + changedTo2);
             box.voteForValue(getMyUser(), somePath2, changedTo2);
 
             expect(somePath2, changedTo2, true, cldrFile, box);
 
-            logln("Write out..");
+            System.out.println("Write out..");
             File targDir = TestAll.getEmptyDir(TestSTFactory.class.getName() + "_output");
             File outFile = new File(targDir, locale2.getBaseName() + ".xml");
             PrintWriter pw =
@@ -432,15 +435,21 @@ public class TestSTFactory extends TestFmwk {
             cldrFile.write(pw, noDtdPlease);
             pw.close();
 
-            logln("Read back..");
+            System.out.println("Read back..");
             CLDRFile readBack =
                     CLDRFile.loadFromFile(outFile, locale2.getBaseName(), DraftStatus.unconfirmed);
 
             String reRead = readBack.getStringValue(somePath2);
 
-            logln("reread:  " + outFile.getAbsolutePath() + " value " + somePath2 + " = " + reRead);
+            System.out.println(
+                    "reread:  "
+                            + outFile.getAbsolutePath()
+                            + " value "
+                            + somePath2
+                            + " = "
+                            + reRead);
             if (!changedTo2.equals(reRead)) {
-                logln(
+                System.out.println(
                         "reread:  "
                                 + outFile.getAbsolutePath()
                                 + " value "
@@ -453,20 +462,19 @@ public class TestSTFactory extends TestFmwk {
         }
     }
 
+    @Test
     public void TestVettingDataDriven() throws SQLException, IOException {
-        if (TestAll.skipIfNoDb()) return;
         runDataDrivenTest(TestSTFactory.class.getSimpleName()); // TestSTFactory.xml
     }
 
+    @Test
     public void TestVotePerf() throws SQLException, IOException {
-        if (TestAll.skipIfNoDb()) return;
         final CheckCLDR.Phase p = CLDRConfig.getInstance().getPhase();
-        assertTrue("phase " + p + ".isUnitTest()", p.isUnitTest());
+        assertTrue(p.isUnitTest(), "phase " + p + ".isUnitTest()");
         runDataDrivenTest("TestVotePerf");
     }
 
     public void TestUserRegistry() throws SQLException, IOException {
-        if (TestAll.skipIfNoDb()) return;
         runDataDrivenTest("TestUserRegistry");
     }
 
@@ -474,7 +482,6 @@ public class TestSTFactory extends TestFmwk {
      * TODO: shorten this function, over 300 lines; use subroutines
      */
     private void runDataDrivenTest(final String fileBasename) throws SQLException, IOException {
-        if (TestAll.skipIfNoDb()) return;
         final STFactory fac = getFactory();
         final File targDir = TestAll.getEmptyDir(TestSTFactory.class.getName() + "_output");
 
@@ -492,7 +499,7 @@ public class TestSTFactory extends TestFmwk {
                         if (value != null && value.startsWith("$")) {
                             String varName = value.substring(1);
                             value = vars.get(varName);
-                            logln(" $" + varName + " == '" + value + "'");
+                            System.out.println(" $" + varName + " == '" + value + "'");
                         }
 
                         XPathParts xpp = XPathParts.getFrozenInstance(path);
@@ -506,7 +513,7 @@ public class TestSTFactory extends TestFmwk {
 
                         String elem = xpp.getElement(-1);
                         if (false)
-                            logln(
+                            System.out.println(
                                     "* <"
                                             + elem
                                             + " "
@@ -539,7 +546,11 @@ public class TestSTFactory extends TestFmwk {
                                 handleElementApiverify(attrs, value, xpath);
                                 break;
                             case "verify":
-                                handleElementVerify(fac, attrs, value, elem, xpath);
+                                try {
+                                    handleElementVerify(fac, attrs, value, elem, xpath);
+                                } catch (IOException e) {
+                                    fail(e);
+                                }
                                 break;
                             case "verifyUser":
                                 handleElementVerifyUser(attrs);
@@ -559,7 +570,8 @@ public class TestSTFactory extends TestFmwk {
                             Map<String, String> attrs,
                             String value,
                             String elem,
-                            String xpath) {
+                            String xpath)
+                            throws IOException {
                         value = value.trim();
                         if (value.isEmpty()) value = null;
                         CLDRLocale locale = CLDRLocale.getInstance(attrs.get("locale"));
@@ -567,11 +579,11 @@ public class TestSTFactory extends TestFmwk {
                         CLDRFile cf = fac.make(locale, true);
                         String stringValue = cf.getStringValue(xpath);
                         String fullXpath = cf.getFullXPath(xpath);
-                        // logln("V"+ xpath + " = " + stringValue + ", " +
+                        // System.out.println("V"+ xpath + " = " + stringValue + ", " +
                         // fullXpath);
-                        // logln("Resolver=" + box.getResolver(xpath));
+                        // System.out.println("Resolver=" + box.getResolver(xpath));
                         if (value == null && stringValue != null) {
-                            errln(
+                            fail(
                                     pathCount
                                             + "a Expected null value at "
                                             + locale
@@ -580,7 +592,7 @@ public class TestSTFactory extends TestFmwk {
                                             + " got "
                                             + stringValue);
                         } else if (value != null && !value.equals(stringValue)) {
-                            errln(
+                            fail(
                                     pathCount
                                             + "b Expected "
                                             + value
@@ -591,14 +603,14 @@ public class TestSTFactory extends TestFmwk {
                                             + " got "
                                             + stringValue);
                         } else {
-                            logln("OK: " + locale + ":" + xpath + " = " + value);
+                            System.out.println("OK: " + locale + ":" + xpath + " = " + value);
                         }
                         Status expStatus = Status.fromString(attrs.get("status"));
 
                         VoteResolver<String> r = box.getResolver(xpath);
                         Status winStatus = r.getWinningStatus();
                         if (winStatus == expStatus) {
-                            logln(
+                            System.out.println(
                                     "OK: Status="
                                             + winStatus
                                             + " "
@@ -608,12 +620,12 @@ public class TestSTFactory extends TestFmwk {
                                             + " Resolver="
                                             + box.getResolver(xpath));
                         } else if (pathCount == 49 && !VoteResolver.DROP_HARD_INHERITANCE) {
-                            logln(
+                            System.out.println(
                                     "Ignoring status mismatch for "
                                             + pathCount
                                             + "c, test assumes DROP_HARD_INHERITANCE is true");
                         } else {
-                            errln(
+                            fail(
                                     pathCount
                                             + "c Expected: Status="
                                             + expStatus
@@ -639,7 +651,7 @@ public class TestSTFactory extends TestFmwk {
                                         && !newPath.pathWhereFound.equals(xpath);
                         final boolean itMoved = localeChanged || pathChanged;
                         if (localeChanged && pathChanged) {
-                            logln(
+                            System.out.println(
                                     "Aliased(locale+path): "
                                             + locale
                                             + "->"
@@ -649,9 +661,10 @@ public class TestSTFactory extends TestFmwk {
                                             + "->"
                                             + newPath.pathWhereFound);
                         } else if (localeChanged) {
-                            logln("Aliased(locale): " + locale + "->" + newLocale);
+                            System.out.println("Aliased(locale): " + locale + "->" + newLocale);
                         } else if (pathChanged) {
-                            logln("Aliased(path): " + xpath + "->" + newPath.pathWhereFound);
+                            System.out.println(
+                                    "Aliased(path): " + xpath + "->" + newPath.pathWhereFound);
                         }
                         if ((fullXpath == null) || itMoved) {
                             xpathStatus = Status.missing;
@@ -665,7 +678,7 @@ public class TestSTFactory extends TestFmwk {
                             xpathStatus = Status.fromString(statusFromXpath);
                         }
                         if (xpathStatus != winStatus) {
-                            logln(
+                            System.out.println(
                                     "Warning: Winning Status="
                                             + winStatus
                                             + " but xpath status is "
@@ -677,7 +690,7 @@ public class TestSTFactory extends TestFmwk {
                                             + " Resolver="
                                             + box.getResolver(xpath));
                         } else if (xpathStatus == expStatus) {
-                            logln(
+                            System.out.println(
                                     "OK from fullxpath: Status="
                                             + xpathStatus
                                             + " "
@@ -687,7 +700,7 @@ public class TestSTFactory extends TestFmwk {
                                             + " Resolver="
                                             + box.getResolver(xpath));
                         } else {
-                            errln(
+                            fail(
                                     pathCount
                                             + "d Expected from fullxpath: Status="
                                             + expStatus
@@ -704,32 +717,18 @@ public class TestSTFactory extends TestFmwk {
                         // Verify from XML
                         File outFile = new File(targDir, locale.getBaseName() + ".xml");
                         if (outFile.exists()) outFile.delete();
-                        try {
-                            PrintWriter pw;
-                            pw =
-                                    FileUtilities.openUTF8Writer(
-                                            targDir.getAbsolutePath(),
-                                            locale.getBaseName() + ".xml");
-                            cf.write(pw, noDtdPlease);
-                            pw.close();
-                        } catch (IOException e) {
-                            // TODO Auto-generated catch block
-                            e.printStackTrace();
-                            handleException(e);
-                            return;
-                        }
+                        PrintWriter pw;
+                        pw =
+                                FileUtilities.openUTF8Writer(
+                                        targDir.getAbsolutePath(), locale.getBaseName() + ".xml");
+                        cf.write(pw, noDtdPlease);
+                        pw.close();
 
-                        // logln("Read back..");
+                        // System.out.println("Read back..");
                         CLDRFile readBack = null;
-                        try {
-                            readBack =
-                                    CLDRFile.loadFromFile(
-                                            outFile, locale.getBaseName(), DraftStatus.unconfirmed);
-                        } catch (IllegalArgumentException iae) {
-                            iae.getCause().printStackTrace();
-                            System.err.println(iae.getCause().toString());
-                            handleException(iae);
-                        }
+                        readBack =
+                                CLDRFile.loadFromFile(
+                                        outFile, locale.getBaseName(), DraftStatus.unconfirmed);
                         String reRead = readBack.getStringValue(xpath);
                         String fullXpathBack = readBack.getFullXPath(xpath);
                         Status xpathStatusBack;
@@ -747,7 +746,7 @@ public class TestSTFactory extends TestFmwk {
                         }
 
                         if (value == null && reRead != null) {
-                            errln(
+                            fail(
                                     pathCount
                                             + "e Expected null value from XML at "
                                             + locale
@@ -756,7 +755,7 @@ public class TestSTFactory extends TestFmwk {
                                             + " got "
                                             + reRead);
                         } else if (value != null && !value.equals(reRead)) {
-                            errln(
+                            fail(
                                     pathCount
                                             + "f Expected from XML "
                                             + value
@@ -767,11 +766,12 @@ public class TestSTFactory extends TestFmwk {
                                             + " got "
                                             + reRead);
                         } else {
-                            logln("OK from XML: " + locale + ":" + xpath + " = " + reRead);
+                            System.out.println(
+                                    "OK from XML: " + locale + ":" + xpath + " = " + reRead);
                         }
 
                         if (xpathStatusBack == expStatus) {
-                            logln(
+                            System.out.println(
                                     "OK from XML: Status="
                                             + xpathStatusBack
                                             + " "
@@ -781,7 +781,7 @@ public class TestSTFactory extends TestFmwk {
                                             + " Resolver="
                                             + box.getResolver(xpath));
                         } else if (xpathStatusBack != winStatus) {
-                            logln(
+                            System.out.println(
                                     "Warning: Problem from XML: Winning Status="
                                             + winStatus
                                             + " got "
@@ -793,7 +793,7 @@ public class TestSTFactory extends TestFmwk {
                                             + " Resolver="
                                             + box.getResolver(xpath));
                         } else {
-                            errln(
+                            fail(
                                     pathCount
                                             + "g Expected from XML: Status="
                                             + expStatus
@@ -811,9 +811,9 @@ public class TestSTFactory extends TestFmwk {
 
                     private void handleElementEcho(String value, String elem) {
                         if (value == null) {
-                            logln("*** " + elem + "  \"" + "null" + "\"");
+                            System.out.println("*** " + elem + "  \"" + "null" + "\"");
                         } else {
-                            logln("*** " + elem + "  \"" + value.trim() + "\"");
+                            System.out.println("*** " + elem + "  \"" + value.trim() + "\"");
                         }
                     }
 
@@ -850,19 +850,21 @@ public class TestSTFactory extends TestFmwk {
                                                             onLevel,
                                                             onUser.getOrganization());
                                     assertEquals(
+                                            newTest,
+                                            oldTest,
                                             "New(ex) vs old(got) manage test: "
                                                     + uLevel
                                                     + "/"
-                                                    + onLevel,
-                                            newTest,
-                                            oldTest);
+                                                    + onLevel);
                                     actualResult = actualResult && newTest;
                                 }
                                 break;
                             default:
-                                errln("Unhandled action: " + action);
+                                fail("Unhandled action: " + action);
                         }
                         assertEquals(
+                                allowed,
+                                actualResult,
                                 u.org
                                         + ":"
                                         + uLevel
@@ -871,9 +873,7 @@ public class TestSTFactory extends TestFmwk {
                                         + " "
                                         + onUser.org
                                         + ":"
-                                        + onLevel,
-                                allowed,
-                                actualResult);
+                                        + onLevel);
                     }
 
                     private void handleElementApiverify(
@@ -892,12 +892,12 @@ public class TestSTFactory extends TestFmwk {
                                     VoteAPIHelper.getRowsResponse(
                                             args, CookieSession.sm, locale, mySession, false);
                             assertEquals("xpstrid", args.xpstrid, r.xpstrid);
-                            assertEquals("row count", 1, r.page.rows.size());
+                            assertEquals(1, r.page.rows.size(), "row count");
                             final Row firstRow = r.page.rows.values().iterator().next();
                             assertEquals("rxpath", firstRow.xpath, xpath);
                             assertEquals("value for " + args.xpstrid, value, firstRow.winningValue);
                         } catch (Throwable t) {
-                            assertNull("did not expect an exception", t);
+                            assertNull(t, "did not expect an exception");
                         }
                     }
 
@@ -918,7 +918,7 @@ public class TestSTFactory extends TestFmwk {
                         try {
                             box.voteForValue(u, xpath, value);
                             if (needException) {
-                                errln(
+                                fail(
                                         "ERR: path #"
                                                 + pathCount
                                                 + ", xpath="
@@ -928,16 +928,16 @@ public class TestSTFactory extends TestFmwk {
                                                 + ": expected exception, didn't get one");
                             }
                         } catch (InvalidXPathException e) {
-                            errln("Error: invalid xpath exception " + xpath + " : " + e);
+                            fail("Error: invalid xpath exception " + xpath + " : " + e);
                         } catch (VoteNotAcceptedException iae) {
                             if (needException == true) {
-                                logln("Caught expected: " + iae);
+                                System.out.println("Caught expected: " + iae);
                             } else {
                                 iae.printStackTrace();
-                                errln("Unexpected exception: " + iae);
+                                fail("Unexpected exception: " + iae);
                             }
                         }
-                        logln(u + " " + elem + "d for " + xpath + " = " + value);
+                        System.out.println(u + " " + elem + "d for " + xpath + " = " + value);
                     }
 
                     private void handleElementApivote(
@@ -964,7 +964,7 @@ public class TestSTFactory extends TestFmwk {
                             final boolean isOk = r.didVote;
                             final boolean asExpected = (isOk == !needException);
                             if (!asExpected) {
-                                errln(
+                                fail(
                                         "exception="
                                                 + needException
                                                 + " but got status "
@@ -972,14 +972,14 @@ public class TestSTFactory extends TestFmwk {
                                                 + " - "
                                                 + r.toString());
                             } else {
-                                logln(" status = " + r.didNotSubmit);
+                                System.out.println(" status = " + r.didNotSubmit);
                             }
                         } catch (Throwable iae) {
                             if (needException == true) {
-                                logln("Caught expected: " + iae);
+                                System.out.println("Caught expected: " + iae);
                             } else {
                                 iae.printStackTrace();
-                                errln("Unexpected exception: " + iae);
+                                fail("Unexpected exception: " + iae);
                             }
                         }
                     }
@@ -993,7 +993,8 @@ public class TestSTFactory extends TestFmwk {
                         final CLDRLocale locale = CLDRLocale.getInstance(attrs.get("locale"));
                         final String xvalue = fac.make(locale, true).getStringValue(xpath);
                         vars.put(id, xvalue);
-                        logln("$" + id + " = '" + xvalue + "' from " + locale + ":" + xpath);
+                        System.out.println(
+                                "$" + id + " = '" + xvalue + "' from " + locale + ":" + xpath);
                     }
 
                     private void handleElementUser(
@@ -1012,7 +1013,7 @@ public class TestSTFactory extends TestFmwk {
                         if (u == null) {
                             throw new InternalError("Couldn't find/register user " + name);
                         } else {
-                            logln(name + " = " + u);
+                            System.out.println(name + " = " + u);
                             users.put(name, u);
                         }
                     }
@@ -1034,7 +1035,7 @@ public class TestSTFactory extends TestFmwk {
                             final String actualOrgStatus =
                                     r.getStatusForOrganization(org).toString();
                             if (!expOrgStatus.equals(actualOrgStatus)) {
-                                errln(
+                                fail(
                                         "Error: expected + "
                                                 + expOrgStatus
                                                 + " got "
@@ -1092,13 +1093,24 @@ public class TestSTFactory extends TestFmwk {
                 TestSTFactory.class
                         .getResource("data/" + fileName)
                         .toString(), // for DTD resolution
-                TestAll.getUTF8Data(fileName),
+                getUTF8Data(fileName),
                 -1,
                 true);
     }
 
+    /**
+     * Fetch data from jar
+     *
+     * @param name name of thing to load (org.unicode.cldr.web.data.name)
+     */
+    public static BufferedReader getUTF8Data(String name) throws java.io.IOException {
+        return FileReaders.openFile(STFactory.class, "data/" + name);
+    }
+
+    @Test
     public void TestVettingWithNonDistinguishing()
-            throws SQLException, IOException, InvalidXPathException, SurveyException {
+            throws SQLException, IOException, InvalidXPathException, SurveyException,
+                    LogoutException {
         if (TestAll.skipIfNoDb()) return;
         STFactory fac = getFactory();
 
@@ -1115,9 +1127,9 @@ public class TestSTFactory extends TestFmwk {
             originalValue2 = expect(somePath2, ANY, false, mt_MT, box);
 
             fullPath = mt_MT.getFullXPath(somePath2);
-            logln("locale " + locale2 + " path " + somePath2 + " full = " + fullPath);
+            System.out.println("locale " + locale2 + " path " + somePath2 + " full = " + fullPath);
             if (!fullPath.contains("numbers=")) {
-                logln(
+                System.out.println(
                         "Warning: "
                                 + locale2
                                 + ":"
@@ -1130,7 +1142,7 @@ public class TestSTFactory extends TestFmwk {
             changedTo2 = "EEEE, d _MMMM y";
 
             if (originalValue2.equals(changedTo2)) {
-                errln(
+                fail(
                         "for "
                                 + locale2
                                 + " value "
@@ -1162,7 +1174,7 @@ public class TestSTFactory extends TestFmwk {
 
             String fullPath2 = mt_MT.getFullXPath(somePath2);
             if (!fullPath2.contains("numbers=")) {
-                errln("Error - voted, but full path lost numbers= - " + fullPath2);
+                fail("Error - voted, but full path lost numbers= - " + fullPath2);
             }
         }
         fac = resetFactory();
@@ -1177,12 +1189,12 @@ public class TestSTFactory extends TestFmwk {
             // vote for ____2
             changedTo2 = changedTo2 + "__";
 
-            logln("VoteFor: " + changedTo2);
+            System.out.println("VoteFor: " + changedTo2);
             box.voteForValue(getMyUser(), somePath2, changedTo2);
 
             expect(somePath2, changedTo2, true, mt_MT, box);
 
-            logln("Write out..");
+            System.out.println("Write out..");
             File targDir = TestAll.getEmptyDir(TestSTFactory.class.getName() + "_output");
             File outFile = new File(targDir, locale2.getBaseName() + ".xml");
             PrintWriter pw =
@@ -1191,15 +1203,21 @@ public class TestSTFactory extends TestFmwk {
             mt_MT.write(pw, noDtdPlease);
             pw.close();
 
-            logln("Read back..");
+            System.out.println("Read back..");
             CLDRFile readBack =
                     CLDRFile.loadFromFile(outFile, locale2.getBaseName(), DraftStatus.unconfirmed);
 
             String reRead = readBack.getStringValue(somePath2);
 
-            logln("reread:  " + outFile.getAbsolutePath() + " value " + somePath2 + " = " + reRead);
+            System.out.println(
+                    "reread:  "
+                            + outFile.getAbsolutePath()
+                            + " value "
+                            + somePath2
+                            + " = "
+                            + reRead);
             if (!changedTo2.equals(reRead)) {
-                logln(
+                System.out.println(
                         "reread:  "
                                 + outFile.getAbsolutePath()
                                 + " value "
@@ -1211,7 +1229,7 @@ public class TestSTFactory extends TestFmwk {
             }
             String fullPath2 = readBack.getFullXPath(somePath2);
             if (!fullPath2.contains("numbers=")) {
-                errln("Error - readBack's full path lost numbers= - " + fullPath2);
+                fail("Error - readBack's full path lost numbers= - " + fullPath2);
             }
         }
     }
@@ -1220,21 +1238,15 @@ public class TestSTFactory extends TestFmwk {
         String loc = f.getLocaleID();
         try {
             f.add("//ldml/foo", "bar");
-            errln("Error: " + loc + " is supposed to be readonly.");
+            fail("Error: " + loc + " is supposed to be readonly.");
         } catch (Throwable t) {
-            logln("Pass: " + loc + " is readonly, caught " + t.toString());
+            System.out.println("Pass: " + loc + " is readonly, caught " + t.toString());
         }
     }
 
-    public UserRegistry.User getMyUser() {
+    public UserRegistry.User getMyUser() throws LogoutException, SQLException {
         if (gUser == null) {
-            try {
-                gUser = getFactory().sm.reg.get(null, UserRegistry.ADMIN_EMAIL, "[::1]", true);
-            } catch (SQLException e) {
-                handleException(e);
-            } catch (LogoutException e) {
-                handleException(e);
-            }
+            gUser = getFactory().sm.reg.get(null, UserRegistry.ADMIN_EMAIL, "[::1]", true);
         }
         return gUser;
     }
@@ -1248,10 +1260,10 @@ public class TestSTFactory extends TestFmwk {
 
     private STFactory resetFactory() throws SQLException {
         if (gFac == null) {
-            logln("STFactory wasn't loaded - not resetting.");
+            System.out.println("STFactory wasn't loaded - not resetting.");
             return getFactory();
         } else {
-            logln("--- resetting STFactory() ----- [simulate reload] ------------");
+            System.out.println("--- resetting STFactory() ----- [simulate reload] ------------");
             return gFac = getFactory().TESTING_shutdownAndRestart();
         }
     }
@@ -1307,12 +1319,5 @@ public class TestSTFactory extends TestFmwk {
     static {
         noDtdPlease.put(
                 "DTD_DIR", CLDRPaths.COMMON_DIRECTORY + File.separator + "dtd" + File.separator);
-    }
-
-    // This is just here to note a log known issue if you ran without setting the DB URL
-    public void TestLogDbIssue() {
-        if (TestAll.skipIfNoDb()) {
-            logKnownIssue("CLDR-14213", "Skipping DB tests because no MySQL URL has been set.");
-        }
     }
 }

@@ -522,508 +522,498 @@ public class TestSTFactory extends TestFmwk {
                         }
                         switch (elem) {
                             case "user":
-                                {
-                                    String name = attrs.get("name");
-                                    String org = attrs.get("org");
-                                    String locales = attrs.get("locales");
-                                    VoteResolver.Level level =
-                                            VoteResolver.Level.valueOf(
-                                                    attrs.get("level").toLowerCase());
-
-                                    String email = name + "@" + org + ".example.com";
-                                    UserRegistry.User u = fac.sm.reg.get(email);
-                                    if (u == null) {
-                                        u =
-                                                fac.sm.reg.createTestUser(
-                                                        name, org, locales, level, email);
-                                    }
-                                    if (u == null) {
-                                        throw new InternalError(
-                                                "Couldn't find/register user " + name);
-                                    } else {
-                                        logln(name + " = " + u);
-                                        users.put(name, u);
-                                    }
-                                }
+                                handleElementUser(fac, attrs);
                                 break;
                             case "setvar":
-                                {
-                                    final String id = attrs.get("id");
-                                    final CLDRLocale locale =
-                                            CLDRLocale.getInstance(attrs.get("locale"));
-                                    final String xvalue =
-                                            fac.make(locale, true).getStringValue(xpath);
-                                    vars.put(id, xvalue);
-                                    logln(
-                                            "$" + id + " = '" + xvalue + "' from " + locale + ":"
-                                                    + xpath);
-                                }
+                                handleElementSetvar(fac, attrs, vars, xpath);
                                 break;
                             case "apivote":
                             case "apiunvote":
-                                {
-                                    UserRegistry.User u = getUserFromAttrs(attrs, "name");
-                                    CLDRLocale locale = CLDRLocale.getInstance(attrs.get("locale"));
-                                    boolean needException =
-                                            getBooleanAttr(attrs, "exception", false);
-                                    if (elem.equals("apiunvote")) {
-                                        value = null;
-                                    }
-                                    final CookieSession mySession = CookieSession.getTestSession(u);
-                                    try {
-                                        final VoteAPI.VoteResponse r =
-                                                VoteAPIHelper.getHandleVoteResponse(
-                                                        locale.getBaseName(),
-                                                        xpath,
-                                                        value,
-                                                        0,
-                                                        mySession,
-                                                        false);
-                                        final boolean isOk = r.didVote;
-                                        final boolean asExpected = (isOk == !needException);
-                                        if (!asExpected) {
-                                            errln(
-                                                    "exception="
-                                                            + needException
-                                                            + " but got status "
-                                                            + r.didNotSubmit
-                                                            + " - "
-                                                            + r.toString());
-                                        } else {
-                                            logln(" status = " + r.didNotSubmit);
-                                        }
-                                    } catch (Throwable iae) {
-                                        if (needException == true) {
-                                            logln("Caught expected: " + iae);
-                                        } else {
-                                            iae.printStackTrace();
-                                            errln("Unexpected exception: " + iae);
-                                        }
-                                    }
-                                }
+                                handleElementApivote(attrs, value, elem, xpath);
                                 break;
                             case "vote":
                             case "unvote":
-                                {
-                                    UserRegistry.User u = getUserFromAttrs(attrs, "name");
-
-                                    CLDRLocale locale = CLDRLocale.getInstance(attrs.get("locale"));
-                                    BallotBox<User> box = fac.ballotBoxForLocale(locale);
-                                    value = value.trim();
-                                    boolean needException =
-                                            getBooleanAttr(attrs, "exception", false);
-                                    if (elem.equals("unvote")) {
-                                        value = null;
-                                    }
-                                    try {
-                                        box.voteForValue(u, xpath, value);
-                                        if (needException) {
-                                            errln(
-                                                    "ERR: path #"
-                                                            + pathCount
-                                                            + ", xpath="
-                                                            + xpath
-                                                            + ", locale="
-                                                            + locale
-                                                            + ": expected exception, didn't get one");
-                                        }
-                                    } catch (InvalidXPathException e) {
-                                        errln(
-                                                "Error: invalid xpath exception "
-                                                        + xpath
-                                                        + " : "
-                                                        + e);
-                                    } catch (VoteNotAcceptedException iae) {
-                                        if (needException == true) {
-                                            logln("Caught expected: " + iae);
-                                        } else {
-                                            iae.printStackTrace();
-                                            errln("Unexpected exception: " + iae);
-                                        }
-                                    }
-                                    logln(u + " " + elem + "d for " + xpath + " = " + value);
-                                }
+                                handleElementVote(fac, attrs, value, elem, xpath);
                                 break;
                             case "apiverify":
-                                {
-                                    // like verify, but via API
-                                    value = value.trim();
-                                    if (value.isEmpty()) value = null;
-                                    UserRegistry.User u = getUserFromAttrs(attrs, "name");
-                                    CLDRLocale locale = CLDRLocale.getInstance(attrs.get("locale"));
-                                    final CookieSession mySession = CookieSession.getTestSession(u);
-
-                                    ArgsForGet args =
-                                            new ArgsForGet(locale.getBaseName(), mySession.id);
-                                    args.xpstrid = XPathTable.getStringIDString(xpath);
-                                    // args.getDashboard = false;
-                                    try {
-                                        final RowResponse r =
-                                                VoteAPIHelper.getRowsResponse(
-                                                        args,
-                                                        CookieSession.sm,
-                                                        locale,
-                                                        mySession,
-                                                        false);
-                                        assertEquals("xpstrid", args.xpstrid, r.xpstrid);
-                                        assertEquals("row count", 1, r.page.rows.size());
-                                        final Row firstRow = r.page.rows.values().iterator().next();
-                                        assertEquals("rxpath", firstRow.xpath, xpath);
-                                        assertEquals(
-                                                "value for " + args.xpstrid,
-                                                value,
-                                                firstRow.winningValue);
-                                    } catch (Throwable t) {
-                                        assertNull("did not expect an exception", t);
-                                    }
-                                }
+                                handleElementApiverify(attrs, value, xpath);
                                 break;
                             case "verify":
-                                {
-                                    value = value.trim();
-                                    if (value.isEmpty()) value = null;
-                                    CLDRLocale locale = CLDRLocale.getInstance(attrs.get("locale"));
-                                    BallotBox<User> box = fac.ballotBoxForLocale(locale);
-                                    CLDRFile cf = fac.make(locale, true);
-                                    String stringValue = cf.getStringValue(xpath);
-                                    String fullXpath = cf.getFullXPath(xpath);
-                                    // logln("V"+ xpath + " = " + stringValue + ", " +
-                                    // fullXpath);
-                                    // logln("Resolver=" + box.getResolver(xpath));
-                                    if (value == null && stringValue != null) {
-                                        errln(
-                                                pathCount
-                                                        + "a Expected null value at "
-                                                        + locale
-                                                        + ":"
-                                                        + xpath
-                                                        + " got "
-                                                        + stringValue);
-                                    } else if (value != null && !value.equals(stringValue)) {
-                                        errln(
-                                                pathCount
-                                                        + "b Expected "
-                                                        + value
-                                                        + " at "
-                                                        + locale
-                                                        + ":"
-                                                        + xpath
-                                                        + " got "
-                                                        + stringValue);
-                                    } else {
-                                        logln("OK: " + locale + ":" + xpath + " = " + value);
-                                    }
-                                    Status expStatus = Status.fromString(attrs.get("status"));
-
-                                    VoteResolver<String> r = box.getResolver(xpath);
-                                    Status winStatus = r.getWinningStatus();
-                                    if (winStatus == expStatus) {
-                                        logln(
-                                                "OK: Status="
-                                                        + winStatus
-                                                        + " "
-                                                        + locale
-                                                        + ":"
-                                                        + xpath
-                                                        + " Resolver="
-                                                        + box.getResolver(xpath));
-                                    } else if (pathCount == 49
-                                            && !VoteResolver.DROP_HARD_INHERITANCE) {
-                                        logln(
-                                                "Ignoring status mismatch for "
-                                                        + pathCount
-                                                        + "c, test assumes DROP_HARD_INHERITANCE is true");
-                                    } else {
-                                        errln(
-                                                pathCount
-                                                        + "c Expected: Status="
-                                                        + expStatus
-                                                        + " got "
-                                                        + winStatus
-                                                        + " "
-                                                        + locale
-                                                        + ":"
-                                                        + xpath
-                                                        + " Resolver="
-                                                        + box.getResolver(xpath));
-                                    }
-
-                                    Status xpathStatus;
-                                    CLDRFile.Status newPath = new CLDRFile.Status();
-                                    CLDRLocale newLocale =
-                                            CLDRLocale.getInstance(
-                                                    cf.getSourceLocaleIdExtended(
-                                                            fullXpath, newPath, false));
-                                    final boolean localeChanged =
-                                            newLocale != null && !newLocale.equals(locale);
-                                    final boolean pathChanged =
-                                            newPath.pathWhereFound != null
-                                                    && !newPath.pathWhereFound.equals(xpath);
-                                    final boolean itMoved = localeChanged || pathChanged;
-                                    if (localeChanged && pathChanged) {
-                                        logln(
-                                                "Aliased(locale+path): "
-                                                        + locale
-                                                        + "->"
-                                                        + newLocale
-                                                        + " and "
-                                                        + xpath
-                                                        + "->"
-                                                        + newPath.pathWhereFound);
-                                    } else if (localeChanged) {
-                                        logln("Aliased(locale): " + locale + "->" + newLocale);
-                                    } else if (pathChanged) {
-                                        logln(
-                                                "Aliased(path): "
-                                                        + xpath
-                                                        + "->"
-                                                        + newPath.pathWhereFound);
-                                    }
-                                    if ((fullXpath == null) || itMoved) {
-                                        xpathStatus = Status.missing;
-                                    } else {
-                                        XPathParts xpp2 = XPathParts.getFrozenInstance(fullXpath);
-                                        String statusFromXpath =
-                                                xpp2.getAttributeValue(-1, "draft");
-
-                                        if (statusFromXpath == null) {
-                                            statusFromXpath = "approved"; // no draft = approved
-                                        }
-                                        xpathStatus = Status.fromString(statusFromXpath);
-                                    }
-                                    if (xpathStatus != winStatus) {
-                                        logln(
-                                                "Warning: Winning Status="
-                                                        + winStatus
-                                                        + " but xpath status is "
-                                                        + xpathStatus
-                                                        + " "
-                                                        + locale
-                                                        + ":"
-                                                        + fullXpath
-                                                        + " Resolver="
-                                                        + box.getResolver(xpath));
-                                    } else if (xpathStatus == expStatus) {
-                                        logln(
-                                                "OK from fullxpath: Status="
-                                                        + xpathStatus
-                                                        + " "
-                                                        + locale
-                                                        + ":"
-                                                        + fullXpath
-                                                        + " Resolver="
-                                                        + box.getResolver(xpath));
-                                    } else {
-                                        errln(
-                                                pathCount
-                                                        + "d Expected from fullxpath: Status="
-                                                        + expStatus
-                                                        + " got "
-                                                        + xpathStatus
-                                                        + " "
-                                                        + locale
-                                                        + ":"
-                                                        + fullXpath
-                                                        + " Resolver="
-                                                        + box.getResolver(xpath));
-                                    }
-
-                                    // Verify from XML
-                                    File outFile = new File(targDir, locale.getBaseName() + ".xml");
-                                    if (outFile.exists()) outFile.delete();
-                                    try {
-                                        PrintWriter pw;
-                                        pw =
-                                                FileUtilities.openUTF8Writer(
-                                                        targDir.getAbsolutePath(),
-                                                        locale.getBaseName() + ".xml");
-                                        cf.write(pw, noDtdPlease);
-                                        pw.close();
-                                    } catch (IOException e) {
-                                        // TODO Auto-generated catch block
-                                        e.printStackTrace();
-                                        handleException(e);
-                                        return;
-                                    }
-
-                                    // logln("Read back..");
-                                    CLDRFile readBack = null;
-                                    try {
-                                        readBack =
-                                                CLDRFile.loadFromFile(
-                                                        outFile,
-                                                        locale.getBaseName(),
-                                                        DraftStatus.unconfirmed);
-                                    } catch (IllegalArgumentException iae) {
-                                        iae.getCause().printStackTrace();
-                                        System.err.println(iae.getCause().toString());
-                                        handleException(iae);
-                                    }
-                                    String reRead = readBack.getStringValue(xpath);
-                                    String fullXpathBack = readBack.getFullXPath(xpath);
-                                    Status xpathStatusBack;
-                                    if (fullXpathBack == null || itMoved) {
-                                        xpathStatusBack = Status.missing;
-                                    } else {
-                                        XPathParts xpp2 =
-                                                XPathParts.getFrozenInstance(fullXpathBack);
-                                        String statusFromXpathBack =
-                                                xpp2.getAttributeValue(-1, "draft");
-
-                                        if (statusFromXpathBack == null) {
-                                            statusFromXpathBack = "approved"; // no draft =
-                                            // approved
-                                        }
-                                        xpathStatusBack = Status.fromString(statusFromXpathBack);
-                                    }
-
-                                    if (value == null && reRead != null) {
-                                        errln(
-                                                pathCount
-                                                        + "e Expected null value from XML at "
-                                                        + locale
-                                                        + ":"
-                                                        + xpath
-                                                        + " got "
-                                                        + reRead);
-                                    } else if (value != null && !value.equals(reRead)) {
-                                        errln(
-                                                pathCount
-                                                        + "f Expected from XML "
-                                                        + value
-                                                        + " at "
-                                                        + locale
-                                                        + ":"
-                                                        + xpath
-                                                        + " got "
-                                                        + reRead);
-                                    } else {
-                                        logln(
-                                                "OK from XML: "
-                                                        + locale
-                                                        + ":"
-                                                        + xpath
-                                                        + " = "
-                                                        + reRead);
-                                    }
-
-                                    if (xpathStatusBack == expStatus) {
-                                        logln(
-                                                "OK from XML: Status="
-                                                        + xpathStatusBack
-                                                        + " "
-                                                        + locale
-                                                        + ":"
-                                                        + fullXpathBack
-                                                        + " Resolver="
-                                                        + box.getResolver(xpath));
-                                    } else if (xpathStatusBack != winStatus) {
-                                        logln(
-                                                "Warning: Problem from XML: Winning Status="
-                                                        + winStatus
-                                                        + " got "
-                                                        + xpathStatusBack
-                                                        + " "
-                                                        + locale
-                                                        + ":"
-                                                        + fullXpathBack
-                                                        + " Resolver="
-                                                        + box.getResolver(xpath));
-                                    } else {
-                                        errln(
-                                                pathCount
-                                                        + "g Expected from XML: Status="
-                                                        + expStatus
-                                                        + " got "
-                                                        + xpathStatusBack
-                                                        + " "
-                                                        + locale
-                                                        + ":"
-                                                        + fullXpathBack
-                                                        + " Resolver="
-                                                        + box.getResolver(xpath));
-                                    }
-                                    verifyOrgStatus(r, attrs);
-                                }
+                                handleElementVerify(fac, attrs, value, elem, xpath);
                                 break;
                             case "verifyUser":
-                                {
-                                    final User u = getUserFromAttrs(attrs, "name");
-                                    final User onUser = getUserFromAttrs(attrs, "onUser");
-
-                                    final String action = attrs.get("action");
-                                    final boolean allowed = getBooleanAttr(attrs, "allowed", true);
-
-                                    boolean actualResult = true;
-
-                                    //                    <!ATTLIST verifyUser action ( create |
-                                    // delete | modify | list ) #REQUIRED>
-                                    final Level uLevel = u.getLevel();
-                                    final Level onLevel = onUser.getLevel();
-                                    switch (action) {
-                                        case "create":
-                                            actualResult =
-                                                    actualResult
-                                                            && UserRegistry.userCanCreateUsers(u);
-                                            if (!u.isSameOrg(onUser)) {
-                                                actualResult =
-                                                        actualResult
-                                                                && UserRegistry.userCreateOtherOrgs(
-                                                                        u); // if of different org
-                                            }
-                                            actualResult =
-                                                    actualResult
-                                                            && uLevel.canCreateOrSetLevelTo(
-                                                                    onLevel);
-                                            break;
-                                        case "delete": // assume same perms for now (?)
-                                        case "modify":
-                                            {
-                                                final boolean oldTest = u.isAdminFor(onUser);
-                                                final boolean newTest =
-                                                        uLevel.canManageSomeUsers()
-                                                                && uLevel.isManagerFor(
-                                                                        u.getOrganization(),
-                                                                        onLevel,
-                                                                        onUser.getOrganization());
-                                                assertEquals(
-                                                        "New(ex) vs old(got) manage test: "
-                                                                + uLevel
-                                                                + "/"
-                                                                + onLevel,
-                                                        newTest,
-                                                        oldTest);
-                                                actualResult = actualResult && newTest;
-                                            }
-                                            break;
-                                        default:
-                                            errln("Unhandled action: " + action);
-                                    }
-                                    assertEquals(
-                                            u.org
-                                                    + ":"
-                                                    + uLevel
-                                                    + " "
-                                                    + action
-                                                    + " "
-                                                    + onUser.org
-                                                    + ":"
-                                                    + onLevel,
-                                            allowed,
-                                            actualResult);
-                                }
+                                handleElementVerifyUser(attrs);
                                 break;
                             case "echo":
                             case "warn":
-                                if (value == null) {
-                                    logln("*** " + elem + "  \"" + "null" + "\"");
-                                } else {
-                                    logln("*** " + elem + "  \"" + value.trim() + "\"");
-                                }
+                                handleElementEcho(value, elem);
                                 break;
                             default:
                                 throw new IllegalArgumentException(
                                         "Unknown test element type " + elem);
+                        }
+                    }
+
+                    private void handleElementVerify(
+                            STFactory fac,
+                            Map<String, String> attrs,
+                            String value,
+                            String elem,
+                            String xpath) {
+                        value = value.trim();
+                        if (value.isEmpty()) value = null;
+                        CLDRLocale locale = CLDRLocale.getInstance(attrs.get("locale"));
+                        BallotBox<User> box = fac.ballotBoxForLocale(locale);
+                        CLDRFile cf = fac.make(locale, true);
+                        String stringValue = cf.getStringValue(xpath);
+                        String fullXpath = cf.getFullXPath(xpath);
+                        // logln("V"+ xpath + " = " + stringValue + ", " +
+                        // fullXpath);
+                        // logln("Resolver=" + box.getResolver(xpath));
+                        if (value == null && stringValue != null) {
+                            errln(
+                                    pathCount
+                                            + "a Expected null value at "
+                                            + locale
+                                            + ":"
+                                            + xpath
+                                            + " got "
+                                            + stringValue);
+                        } else if (value != null && !value.equals(stringValue)) {
+                            errln(
+                                    pathCount
+                                            + "b Expected "
+                                            + value
+                                            + " at "
+                                            + locale
+                                            + ":"
+                                            + xpath
+                                            + " got "
+                                            + stringValue);
+                        } else {
+                            logln("OK: " + locale + ":" + xpath + " = " + value);
+                        }
+                        Status expStatus = Status.fromString(attrs.get("status"));
+
+                        VoteResolver<String> r = box.getResolver(xpath);
+                        Status winStatus = r.getWinningStatus();
+                        if (winStatus == expStatus) {
+                            logln(
+                                    "OK: Status="
+                                            + winStatus
+                                            + " "
+                                            + locale
+                                            + ":"
+                                            + xpath
+                                            + " Resolver="
+                                            + box.getResolver(xpath));
+                        } else if (pathCount == 49 && !VoteResolver.DROP_HARD_INHERITANCE) {
+                            logln(
+                                    "Ignoring status mismatch for "
+                                            + pathCount
+                                            + "c, test assumes DROP_HARD_INHERITANCE is true");
+                        } else {
+                            errln(
+                                    pathCount
+                                            + "c Expected: Status="
+                                            + expStatus
+                                            + " got "
+                                            + winStatus
+                                            + " "
+                                            + locale
+                                            + ":"
+                                            + xpath
+                                            + " Resolver="
+                                            + box.getResolver(xpath));
+                        }
+
+                        Status xpathStatus;
+                        CLDRFile.Status newPath = new CLDRFile.Status();
+                        CLDRLocale newLocale =
+                                CLDRLocale.getInstance(
+                                        cf.getSourceLocaleIdExtended(fullXpath, newPath, false));
+                        final boolean localeChanged =
+                                newLocale != null && !newLocale.equals(locale);
+                        final boolean pathChanged =
+                                newPath.pathWhereFound != null
+                                        && !newPath.pathWhereFound.equals(xpath);
+                        final boolean itMoved = localeChanged || pathChanged;
+                        if (localeChanged && pathChanged) {
+                            logln(
+                                    "Aliased(locale+path): "
+                                            + locale
+                                            + "->"
+                                            + newLocale
+                                            + " and "
+                                            + xpath
+                                            + "->"
+                                            + newPath.pathWhereFound);
+                        } else if (localeChanged) {
+                            logln("Aliased(locale): " + locale + "->" + newLocale);
+                        } else if (pathChanged) {
+                            logln("Aliased(path): " + xpath + "->" + newPath.pathWhereFound);
+                        }
+                        if ((fullXpath == null) || itMoved) {
+                            xpathStatus = Status.missing;
+                        } else {
+                            XPathParts xpp2 = XPathParts.getFrozenInstance(fullXpath);
+                            String statusFromXpath = xpp2.getAttributeValue(-1, "draft");
+
+                            if (statusFromXpath == null) {
+                                statusFromXpath = "approved"; // no draft = approved
+                            }
+                            xpathStatus = Status.fromString(statusFromXpath);
+                        }
+                        if (xpathStatus != winStatus) {
+                            logln(
+                                    "Warning: Winning Status="
+                                            + winStatus
+                                            + " but xpath status is "
+                                            + xpathStatus
+                                            + " "
+                                            + locale
+                                            + ":"
+                                            + fullXpath
+                                            + " Resolver="
+                                            + box.getResolver(xpath));
+                        } else if (xpathStatus == expStatus) {
+                            logln(
+                                    "OK from fullxpath: Status="
+                                            + xpathStatus
+                                            + " "
+                                            + locale
+                                            + ":"
+                                            + fullXpath
+                                            + " Resolver="
+                                            + box.getResolver(xpath));
+                        } else {
+                            errln(
+                                    pathCount
+                                            + "d Expected from fullxpath: Status="
+                                            + expStatus
+                                            + " got "
+                                            + xpathStatus
+                                            + " "
+                                            + locale
+                                            + ":"
+                                            + fullXpath
+                                            + " Resolver="
+                                            + box.getResolver(xpath));
+                        }
+
+                        // Verify from XML
+                        File outFile = new File(targDir, locale.getBaseName() + ".xml");
+                        if (outFile.exists()) outFile.delete();
+                        try {
+                            PrintWriter pw;
+                            pw =
+                                    FileUtilities.openUTF8Writer(
+                                            targDir.getAbsolutePath(),
+                                            locale.getBaseName() + ".xml");
+                            cf.write(pw, noDtdPlease);
+                            pw.close();
+                        } catch (IOException e) {
+                            // TODO Auto-generated catch block
+                            e.printStackTrace();
+                            handleException(e);
+                            return;
+                        }
+
+                        // logln("Read back..");
+                        CLDRFile readBack = null;
+                        try {
+                            readBack =
+                                    CLDRFile.loadFromFile(
+                                            outFile, locale.getBaseName(), DraftStatus.unconfirmed);
+                        } catch (IllegalArgumentException iae) {
+                            iae.getCause().printStackTrace();
+                            System.err.println(iae.getCause().toString());
+                            handleException(iae);
+                        }
+                        String reRead = readBack.getStringValue(xpath);
+                        String fullXpathBack = readBack.getFullXPath(xpath);
+                        Status xpathStatusBack;
+                        if (fullXpathBack == null || itMoved) {
+                            xpathStatusBack = Status.missing;
+                        } else {
+                            XPathParts xpp2 = XPathParts.getFrozenInstance(fullXpathBack);
+                            String statusFromXpathBack = xpp2.getAttributeValue(-1, "draft");
+
+                            if (statusFromXpathBack == null) {
+                                statusFromXpathBack = "approved"; // no draft =
+                                // approved
+                            }
+                            xpathStatusBack = Status.fromString(statusFromXpathBack);
+                        }
+
+                        if (value == null && reRead != null) {
+                            errln(
+                                    pathCount
+                                            + "e Expected null value from XML at "
+                                            + locale
+                                            + ":"
+                                            + xpath
+                                            + " got "
+                                            + reRead);
+                        } else if (value != null && !value.equals(reRead)) {
+                            errln(
+                                    pathCount
+                                            + "f Expected from XML "
+                                            + value
+                                            + " at "
+                                            + locale
+                                            + ":"
+                                            + xpath
+                                            + " got "
+                                            + reRead);
+                        } else {
+                            logln("OK from XML: " + locale + ":" + xpath + " = " + reRead);
+                        }
+
+                        if (xpathStatusBack == expStatus) {
+                            logln(
+                                    "OK from XML: Status="
+                                            + xpathStatusBack
+                                            + " "
+                                            + locale
+                                            + ":"
+                                            + fullXpathBack
+                                            + " Resolver="
+                                            + box.getResolver(xpath));
+                        } else if (xpathStatusBack != winStatus) {
+                            logln(
+                                    "Warning: Problem from XML: Winning Status="
+                                            + winStatus
+                                            + " got "
+                                            + xpathStatusBack
+                                            + " "
+                                            + locale
+                                            + ":"
+                                            + fullXpathBack
+                                            + " Resolver="
+                                            + box.getResolver(xpath));
+                        } else {
+                            errln(
+                                    pathCount
+                                            + "g Expected from XML: Status="
+                                            + expStatus
+                                            + " got "
+                                            + xpathStatusBack
+                                            + " "
+                                            + locale
+                                            + ":"
+                                            + fullXpathBack
+                                            + " Resolver="
+                                            + box.getResolver(xpath));
+                        }
+                        verifyOrgStatus(r, attrs);
+                    }
+
+                    private void handleElementEcho(String value, String elem) {
+                        if (value == null) {
+                            logln("*** " + elem + "  \"" + "null" + "\"");
+                        } else {
+                            logln("*** " + elem + "  \"" + value.trim() + "\"");
+                        }
+                    }
+
+                    private void handleElementVerifyUser(final Map<String, String> attrs) {
+                        final User u = getUserFromAttrs(attrs, "name");
+                        final User onUser = getUserFromAttrs(attrs, "onUser");
+                        final String action = attrs.get("action");
+                        final boolean allowed = getBooleanAttr(attrs, "allowed", true);
+                        boolean actualResult = true;
+                        //                    <!ATTLIST verifyUser action ( create |
+                        // delete | modify | list ) #REQUIRED>
+                        final Level uLevel = u.getLevel();
+                        final Level onLevel = onUser.getLevel();
+                        switch (action) {
+                            case "create":
+                                actualResult = actualResult && UserRegistry.userCanCreateUsers(u);
+                                if (!u.isSameOrg(onUser)) {
+                                    actualResult =
+                                            actualResult
+                                                    && UserRegistry.userCreateOtherOrgs(
+                                                            u); // if of different org
+                                }
+                                actualResult =
+                                        actualResult && uLevel.canCreateOrSetLevelTo(onLevel);
+                                break;
+                            case "delete": // assume same perms for now (?)
+                            case "modify":
+                                {
+                                    final boolean oldTest = u.isAdminFor(onUser);
+                                    final boolean newTest =
+                                            uLevel.canManageSomeUsers()
+                                                    && uLevel.isManagerFor(
+                                                            u.getOrganization(),
+                                                            onLevel,
+                                                            onUser.getOrganization());
+                                    assertEquals(
+                                            "New(ex) vs old(got) manage test: "
+                                                    + uLevel
+                                                    + "/"
+                                                    + onLevel,
+                                            newTest,
+                                            oldTest);
+                                    actualResult = actualResult && newTest;
+                                }
+                                break;
+                            default:
+                                errln("Unhandled action: " + action);
+                        }
+                        assertEquals(
+                                u.org
+                                        + ":"
+                                        + uLevel
+                                        + " "
+                                        + action
+                                        + " "
+                                        + onUser.org
+                                        + ":"
+                                        + onLevel,
+                                allowed,
+                                actualResult);
+                    }
+
+                    private void handleElementApiverify(
+                            final Map<String, String> attrs, String value, String xpath) {
+                        // like verify, but via API
+                        value = value.trim();
+                        if (value.isEmpty()) value = null;
+                        UserRegistry.User u = getUserFromAttrs(attrs, "name");
+                        CLDRLocale locale = CLDRLocale.getInstance(attrs.get("locale"));
+                        final CookieSession mySession = CookieSession.getTestSession(u);
+                        ArgsForGet args = new ArgsForGet(locale.getBaseName(), mySession.id);
+                        args.xpstrid = XPathTable.getStringIDString(xpath);
+                        // args.getDashboard = false;
+                        try {
+                            final RowResponse r =
+                                    VoteAPIHelper.getRowsResponse(
+                                            args, CookieSession.sm, locale, mySession, false);
+                            assertEquals("xpstrid", args.xpstrid, r.xpstrid);
+                            assertEquals("row count", 1, r.page.rows.size());
+                            final Row firstRow = r.page.rows.values().iterator().next();
+                            assertEquals("rxpath", firstRow.xpath, xpath);
+                            assertEquals("value for " + args.xpstrid, value, firstRow.winningValue);
+                        } catch (Throwable t) {
+                            assertNull("did not expect an exception", t);
+                        }
+                    }
+
+                    private void handleElementVote(
+                            final STFactory fac,
+                            final Map<String, String> attrs,
+                            String value,
+                            String elem,
+                            String xpath) {
+                        UserRegistry.User u = getUserFromAttrs(attrs, "name");
+                        CLDRLocale locale = CLDRLocale.getInstance(attrs.get("locale"));
+                        BallotBox<User> box = fac.ballotBoxForLocale(locale);
+                        value = value.trim();
+                        boolean needException = getBooleanAttr(attrs, "exception", false);
+                        if (elem.equals("unvote")) {
+                            value = null;
+                        }
+                        try {
+                            box.voteForValue(u, xpath, value);
+                            if (needException) {
+                                errln(
+                                        "ERR: path #"
+                                                + pathCount
+                                                + ", xpath="
+                                                + xpath
+                                                + ", locale="
+                                                + locale
+                                                + ": expected exception, didn't get one");
+                            }
+                        } catch (InvalidXPathException e) {
+                            errln("Error: invalid xpath exception " + xpath + " : " + e);
+                        } catch (VoteNotAcceptedException iae) {
+                            if (needException == true) {
+                                logln("Caught expected: " + iae);
+                            } else {
+                                iae.printStackTrace();
+                                errln("Unexpected exception: " + iae);
+                            }
+                        }
+                        logln(u + " " + elem + "d for " + xpath + " = " + value);
+                    }
+
+                    private void handleElementApivote(
+                            final Map<String, String> attrs,
+                            String value,
+                            String elem,
+                            String xpath) {
+                        UserRegistry.User u = getUserFromAttrs(attrs, "name");
+                        CLDRLocale locale = CLDRLocale.getInstance(attrs.get("locale"));
+                        boolean needException = getBooleanAttr(attrs, "exception", false);
+                        if (elem.equals("apiunvote")) {
+                            value = null;
+                        }
+                        final CookieSession mySession = CookieSession.getTestSession(u);
+                        try {
+                            final VoteAPI.VoteResponse r =
+                                    VoteAPIHelper.getHandleVoteResponse(
+                                            locale.getBaseName(),
+                                            xpath,
+                                            value,
+                                            0,
+                                            mySession,
+                                            false);
+                            final boolean isOk = r.didVote;
+                            final boolean asExpected = (isOk == !needException);
+                            if (!asExpected) {
+                                errln(
+                                        "exception="
+                                                + needException
+                                                + " but got status "
+                                                + r.didNotSubmit
+                                                + " - "
+                                                + r.toString());
+                            } else {
+                                logln(" status = " + r.didNotSubmit);
+                            }
+                        } catch (Throwable iae) {
+                            if (needException == true) {
+                                logln("Caught expected: " + iae);
+                            } else {
+                                iae.printStackTrace();
+                                errln("Unexpected exception: " + iae);
+                            }
+                        }
+                    }
+
+                    private void handleElementSetvar(
+                            final STFactory fac,
+                            final Map<String, String> attrs,
+                            final Map<String, String> vars,
+                            String xpath) {
+                        final String id = attrs.get("id");
+                        final CLDRLocale locale = CLDRLocale.getInstance(attrs.get("locale"));
+                        final String xvalue = fac.make(locale, true).getStringValue(xpath);
+                        vars.put(id, xvalue);
+                        logln("$" + id + " = '" + xvalue + "' from " + locale + ":" + xpath);
+                    }
+
+                    private void handleElementUser(
+                            final STFactory fac, final Map<String, String> attrs)
+                            throws InternalError {
+                        String name = attrs.get("name");
+                        String org = attrs.get("org");
+                        String locales = attrs.get("locales");
+                        VoteResolver.Level level =
+                                VoteResolver.Level.valueOf(attrs.get("level").toLowerCase());
+                        String email = name + "@" + org + ".example.com";
+                        UserRegistry.User u = fac.sm.reg.get(email);
+                        if (u == null) {
+                            u = fac.sm.reg.createTestUser(name, org, locales, level, email);
+                        }
+                        if (u == null) {
+                            throw new InternalError("Couldn't find/register user " + name);
+                        } else {
+                            logln(name + " = " + u);
+                            users.put(name, u);
                         }
                     }
 

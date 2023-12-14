@@ -8,7 +8,7 @@ THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
 Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to promote the sale, use or other dealings in these Data Files or Software without prior written authorization of the copyright holder.
 -->
 
-<!ELEMENT TestSTFactory ((user | vote | unvote | verify | echo | warn | setvar | verifyUser)*) >
+<!ELEMENT TestSTFactory ((user | vote | unvote | verify | echo | warn | setvar | verifyUser | apivote | apiunvote | apiverify)*) >
 <!-- <!ATTLIST TestSTFactory version CDATA #REQUIRED> -->
 
 <!ELEMENT user EMPTY >
@@ -23,6 +23,20 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST vote name NMTOKEN #REQUIRED>
 <!ATTLIST vote exception ( true | false ) #IMPLIED>
 
+<!-- vote with API -->
+<!ELEMENT apivote (#PCDATA) >
+<!ATTLIST apivote locale CDATA #REQUIRED>
+<!ATTLIST apivote xpath CDATA #REQUIRED>
+<!ATTLIST apivote name NMTOKEN #REQUIRED>
+<!ATTLIST apivote exception ( true | false ) #IMPLIED>
+
+<!-- unvote with API -->
+<!ELEMENT apiunvote EMPTY >
+<!ATTLIST apiunvote locale CDATA #REQUIRED>
+<!ATTLIST apiunvote xpath CDATA #REQUIRED>
+<!ATTLIST apiunvote name NMTOKEN #REQUIRED>
+<!ATTLIST apiunvote exception ( true | false ) #IMPLIED>
+
 <!ELEMENT unvote EMPTY >
 <!ATTLIST unvote locale CDATA #REQUIRED>
 <!ATTLIST unvote xpath CDATA #REQUIRED>
@@ -34,6 +48,13 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST verify status NMTOKEN #REQUIRED>
 <!ATTLIST verify orgStatus CDATA #IMPLIED>
 <!ATTLIST verify statusOrg CDATA #IMPLIED>
+
+<!-- verify but with API -->
+<!ELEMENT apiverify (#PCDATA) >
+<!ATTLIST apiverify locale CDATA #REQUIRED>
+<!ATTLIST apiverify xpath CDATA #REQUIRED>
+<!ATTLIST apiverify status NMTOKEN #REQUIRED>
+<!ATTLIST apiverify name NMTOKEN #REQUIRED>
 
 <!ELEMENT setvar EMPTY >
 <!ATTLIST setvar locale CDATA #REQUIRED>

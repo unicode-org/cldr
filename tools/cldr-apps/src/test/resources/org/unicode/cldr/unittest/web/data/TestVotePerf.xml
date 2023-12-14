@@ -7,39 +7,69 @@
     <user name="v_mul_only" org="Surveytool" level="vetter" locales="mul"/>
 
     <!-- bunch of vote s-->
-    <vote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='001']">Territory-001</vote>
-    <vote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='002']">Territory-002</vote>
-    <vote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='003']">Territory-003</vote>
-    <vote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='005']">Territory-005</vote>
-    <vote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='009']">Territory-009</vote>
-    <vote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='011']">Territory-011</vote>
-    <vote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='013']">Territory-013</vote>
-    <vote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='014']">Territory-014</vote>
-    <vote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='015']">Territory-015</vote>
-    <vote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='017']">Territory-017</vote>
-    <vote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='018']">Territory-018</vote>
-    <vote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='019']">Territory-019</vote>
-    <vote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='021']">Territory-021</vote>
-    <vote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='029']">Territory-029</vote>
-    <vote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='030']">Territory-030</vote>
-    <vote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='034']">Territory-034</vote>
-    <vote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='035']">Territory-035</vote>
-    <vote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='039']">Territory-039</vote>
-    <vote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='053']">Territory-053</vote>
-    <vote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='054']">Territory-054</vote>
-    <vote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='057']">Territory-057</vote>
-    <vote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='061']">Territory-061</vote>
-    <vote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='142']">Territory-142</vote>
-    <vote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='143']">Territory-143</vote>
-    <vote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='145']">Territory-145</vote>
-    <vote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='150']">Territory-150</vote>
-    <vote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='151']">Territory-151</vote>
-    <vote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='154']">Territory-154</vote>
-    <vote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='155']">Territory-155</vote>
-    <vote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='202']">Territory-202</vote>
-    <vote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='419']">Territory-419</vote>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='001']">Territory-001</apivote>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='002']">Territory-002</apivote>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='003']">Territory-003</apivote>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='005']">Territory-005</apivote>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='009']">Territory-009</apivote>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='011']">Territory-011</apivote>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='013']">Territory-013</apivote>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='014']">Territory-014</apivote>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='015']">Territory-015</apivote>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='017']">Territory-017</apivote>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='018']">Territory-018</apivote>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='019']">Territory-019</apivote>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='021']">Territory-021</apivote>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='029']">Territory-029</apivote>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='030']">Territory-030</apivote>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='034']">Territory-034</apivote>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='035']">Territory-035</apivote>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='039']">Territory-039</apivote>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='053']">Territory-053</apivote>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='054']">Territory-054</apivote>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='057']">Territory-057</apivote>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='061']">Territory-061</apivote>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='142']">Territory-142</apivote>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='143']">Territory-143</apivote>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='145']">Territory-145</apivote>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='150']">Territory-150</apivote>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='151']">Territory-151</apivote>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='154']">Territory-154</apivote>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='155']">Territory-155</apivote>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='202']">Territory-202</apivote>
+    <apivote name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='419']">Territory-419</apivote>
 
-    <echo>verify something</echo>
-    <verify status="approved" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='001']">Territory-001</verify>
+    <echo>verify them</echo>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='001']">Territory-001</apiverify>
+    <!-- <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='002']">Territory-002</apiverify>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='003']">Territory-003</apiverify>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='005']">Territory-005</apiverify>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='009']">Territory-009</apiverify>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='011']">Territory-011</apiverify>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='013']">Territory-013</apiverify>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='014']">Territory-014</apiverify>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='015']">Territory-015</apiverify>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='017']">Territory-017</apiverify>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='018']">Territory-018</apiverify>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='019']">Territory-019</apiverify>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='021']">Territory-021</apiverify>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='029']">Territory-029</apiverify>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='030']">Territory-030</apiverify>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='034']">Territory-034</apiverify>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='035']">Territory-035</apiverify>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='039']">Territory-039</apiverify>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='053']">Territory-053</apiverify>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='054']">Territory-054</apiverify>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='057']">Territory-057</apiverify>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='061']">Territory-061</apiverify>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='142']">Territory-142</apiverify>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='143']">Territory-143</apiverify>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='145']">Territory-145</apiverify>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='150']">Territory-150</apiverify>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='151']">Territory-151</apiverify>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='154']">Territory-154</apiverify>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='155']">Territory-155</apiverify>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='202']">Territory-202</apiverify>
+    <apiverify status="approved" name="v_mul_only" locale="mul" xpath="//ldml/localeDisplayNames/territories/territory[@type='419']">Territory-419</apiverify> -->
 
 </TestSTFactory>

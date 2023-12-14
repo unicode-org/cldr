@@ -891,12 +891,12 @@ public class TestSTFactory {
                             final RowResponse r =
                                     VoteAPIHelper.getRowsResponse(
                                             args, CookieSession.sm, locale, mySession, false);
-                            assertEquals("xpstrid", args.xpstrid, r.xpstrid);
+                            assertEquals( args.xpstrid, r.xpstrid, "xpstrid");
                             assertEquals(1, r.page.rows.size(), "row count");
                             final Row firstRow = r.page.rows.values().iterator().next();
-                            assertEquals("rxpath", firstRow.xpath, xpath);
-                            assertEquals("value for " + args.xpstrid, value, firstRow.winningValue);
-                        } catch (Throwable t) {
+                            assertEquals(firstRow.xpath, xpath, "rxpath");
+                            assertEquals(value, firstRow.winningValue, "value for " + args.xpstrid);
+                        } catch (SurveyException t) {
                             assertNull(t, "did not expect an exception");
                         }
                     }

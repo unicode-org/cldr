@@ -49,7 +49,7 @@ public class TestSTFactory {
     UserRegistry.User gUser = null;
 
     @BeforeAll
-    public void setup() {
+    public static void setup() {
         TestAll.setupTestDb();
     }
 

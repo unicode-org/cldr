@@ -17,6 +17,7 @@ import java.util.Date;
 import java.util.Map;
 import java.util.TreeMap;
 import net.jcip.annotations.NotThreadSafe;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.unicode.cldr.draft.FileUtilities;
@@ -44,8 +45,13 @@ public class TestSTFactory {
 
     TestAll.WebTestInfo testInfo = WebTestInfo.getInstance();
 
-    STFactory gFac = null;
+    static STFactory gFac = null;
     UserRegistry.User gUser = null;
+
+    @BeforeAll
+    public void setup() {
+        TestAll.setupTestDb();
+    }
 
     /** validate the phase and mode */
     @BeforeEach
@@ -641,7 +647,7 @@ public class TestSTFactory {
         return gUser;
     }
 
-    private STFactory getFactory() throws SQLException {
+    public static synchronized STFactory getFactory() throws SQLException {
         if (gFac == null) {
             gFac = createFactory();
         }

@@ -3,6 +3,7 @@ package org.unicode.cldr.unittest.web;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.PrintWriter;
+import net.jcip.annotations.NotThreadSafe;
 import org.junit.jupiter.api.Test;
 import org.unicode.cldr.util.TestShimUtils;
 
@@ -10,6 +11,7 @@ import org.unicode.cldr.util.TestShimUtils;
 // Ignore them.
 
 /** a JUnit test that calls TestAll. */
+@NotThreadSafe
 class TestShim {
     @Test
     public void TestAll() {

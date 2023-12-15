@@ -473,9 +473,6 @@ public class TestSTFactory {
         runDataDrivenTest("TestUserRegistry");
     }
 
-    /*
-     * TODO: shorten this function, over 300 lines; use subroutines
-     */
     private void runDataDrivenTest(final String fileBasename) throws SQLException, IOException {
         final STFactory fac = getFactory();
         final File targDir = TestAll.getEmptyDir(TestSTFactory.class.getName() + "_output");

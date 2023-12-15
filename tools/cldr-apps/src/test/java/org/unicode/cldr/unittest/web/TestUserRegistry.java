@@ -1,9 +1,11 @@
 package org.unicode.cldr.unittest.web;
 
 import com.ibm.icu.dev.test.TestFmwk;
+import java.sql.SQLException;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.web.CookieSession;
+import org.unicode.cldr.web.TestSTFactory;
 import org.unicode.cldr.web.UserRegistry;
 import org.unicode.cldr.web.UserRegistry.User;
 
@@ -21,9 +23,13 @@ public class TestUserRegistry extends TestFmwk {
      * Test the ability of a user to change another user's level, especially the aspects of
      * canSetUserLevel that depend on org.unicode.cldr.web.UserRegistry for info that isn't
      * available to org.unicode.cldr.unittest.TestUtilities.TestCanCreateOrSetLevelTo()
+     *
+     * @throws SQLException
      */
-    public void TestCanSetUserLevel() {
+    public void TestCanSetUserLevel() throws SQLException {
         if (TestAll.skipIfNoDb()) return;
+        TestSTFactory.getFactory(); // to setup the User Regitry.
+
         UserRegistry reg = CookieSession.sm.reg;
         int id = 2468;
 
@@ -64,8 +70,11 @@ public class TestUserRegistry extends TestFmwk {
     /**
      * Test whether all organizations in UserRegistry.getOrgList are recognized by
      * Organization.fromString
+     *
+     * @throws SQLException
      */
-    public void TestOrgList() {
+    public void TestOrgList() throws SQLException {
+        TestSTFactory.getFactory(); // to setup the User Regitry.
         for (String name : UserRegistry.getOrgList()) {
             try {
                 if (Organization.fromString(name) == null) {
@@ -77,11 +86,16 @@ public class TestUserRegistry extends TestFmwk {
         }
     }
 
-    /** Test the ability of a user to vote in a locale */
-    public void TestUserLocaleAuthorization() {
+    /**
+     * Test the ability of a user to vote in a locale
+     *
+     * @throws SQLException
+     */
+    public void TestUserLocaleAuthorization() throws SQLException {
         if (TestAll.skipIfNoDb()) {
             return;
         }
+        TestSTFactory.getFactory(); // to setup the User Regitry.
         UserRegistry reg = CookieSession.sm.reg;
         int id = 3579;
         CLDRLocale locA = CLDRLocale.getInstance("aa");

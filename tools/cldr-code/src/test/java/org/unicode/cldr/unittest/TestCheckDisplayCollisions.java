@@ -239,13 +239,14 @@ public class TestCheckDisplayCollisions extends TestFmwkPlus {
         cdc.setEnglishFile(CLDRConfig.getInstance().getEnglish());
 
         List<CheckStatus> possibleErrors = new ArrayList<>();
-        cdc.setCldrFileToCheck(factory.make(locale, true), ImmutableMap.of(), possibleErrors);
+        cdc.setCldrFileToCheck(
+                factory.make(locale, true), new Options(ImmutableMap.of()), possibleErrors);
         for (Entry<String, String> entry : pathValuePairs.entrySet()) {
             cdc.check(
                     entry.getKey(),
                     entry.getKey(),
                     entry.getValue(),
-                    ImmutableMap.of(),
+                    new Options(ImmutableMap.of()),
                     possibleErrors);
             assertEquals(entry.toString(), Collections.emptyList(), possibleErrors);
         }

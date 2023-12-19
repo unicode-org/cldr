@@ -1126,33 +1126,6 @@ public abstract class CheckCLDR implements CheckAccessor {
     }
 
     /**
-     * Wraps the options in an Options and delegates.
-     *
-     * @param path Must be a distinguished path, such as what comes out of CLDRFile.iterator()
-     * @param fullPath Must be the full path
-     * @param value the value associated with the path
-     * @param options A set of test-specific options. Set these with code of the form:<br>
-     *     options.put("CoverageLevel.localeType", "G0")<br>
-     *     That is, the key is of the form <testname>.<optiontype>, and the value is of the form
-     *     <optionvalue>.<br>
-     *     There is one general option; the following will select only the tests that should be run
-     *     during this phase.<br>
-     *     options.put("phase", Phase.<something>); It can be used for new data entry.
-     * @param result
-     * @return
-     * @deprecated use CheckCLDR#check(String, String, String, Options, List)
-     */
-    @Deprecated
-    public final CheckCLDR check(
-            String path,
-            String fullPath,
-            String value,
-            Map<String, String> options,
-            List<CheckStatus> result) {
-        return check(path, fullPath, value, new Options(options), result);
-    }
-
-    /**
      * Checks the path/value in the cldrFileToCheck for correctness, according to some criterion. If
      * the path is relevant to the check, there is an alert or warning, then a CheckStatus is added
      * to List.

@@ -1421,7 +1421,7 @@ public abstract class CheckCLDR implements CheckAccessor {
                                     "Test setup time for " + item.getClass().toString() + ": {0}");
                 try {
                     item.setPhase(getPhase());
-                    item.handleSetCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
+                    item.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
                     if (SHOW_TIMES) {
                         if (item.isSkipTest()) {
                             System.out.println("Disabled : " + testTime);

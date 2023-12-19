@@ -36,6 +36,7 @@ public class CheckNew extends FactoryCheckCLDR {
         CLDRFile cldrFileToCheck = getCldrFileToCheck();
         // don't check inherited values
         // first see if the value is inherited or not
+        if (!accept(result)) return this;
         if (!isRoot
                 && value != null
                 && AnnotationUtil.pathIsAnnotation(path)

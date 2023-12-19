@@ -89,6 +89,7 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
             String path, String fullPath, String value, Options options, List<CheckStatus> result) {
         // it helps performance to have a quick reject of most paths
         if (fullPath == null) return this; // skip paths that we don't have
+        if (!accept(result)) return this; // causes hasCasingInfo to be calculated
         if (!hasCasingInfo) return this;
 
         String locale2 = getCldrFileToCheck().getSourceLocaleID(path, null);

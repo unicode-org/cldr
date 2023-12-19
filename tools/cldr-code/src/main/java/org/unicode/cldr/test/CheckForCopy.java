@@ -87,6 +87,7 @@ public class CheckForCopy extends FactoryCheckCLDR {
         if (fullPath == null || path == null || value == null) {
             return this; // skip root, and paths that we don't have
         }
+        if (!accept(result)) return this;
         Failure failure =
                 sameAsCodeOrEnglish(value, path, unresolvedFile, getCldrFileToCheck(), false);
         addFailure(result, failure);

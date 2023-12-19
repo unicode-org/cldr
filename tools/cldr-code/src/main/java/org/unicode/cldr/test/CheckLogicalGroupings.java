@@ -61,6 +61,7 @@ public class CheckLogicalGroupings extends FactoryCheckCLDR {
         if (LogicalGrouping.isOptional(getCldrFileToCheck(), path)) {
             return this;
         }
+        if (!accept(result)) return this;
         new LogicalGroupChecker(this, path, value, result).run();
         return this;
     }

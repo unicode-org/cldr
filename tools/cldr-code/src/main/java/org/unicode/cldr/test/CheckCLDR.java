@@ -439,6 +439,7 @@ public abstract class CheckCLDR implements CheckAccessor {
         public Options(Options options2) {
             this.options = Arrays.copyOf(options2.options, options2.options.length);
             this.key = options2.key;
+            this.locale = options2.locale;
         }
 
         public Options(
@@ -650,17 +651,39 @@ public abstract class CheckCLDR implements CheckAccessor {
     }
 
     /**
-     * Set the CLDRFile. Must be done before calling check. If null is called, just skip Often
-     * subclassed for initializing. If so, make the first 2 lines: if (cldrFileToCheck == null)
-     * return this; super.handleSetCldrFileToCheck(cldrFileToCheck); do stuff
+     * Often subclassed for initializing. If so, make the first 2 lines: if (cldrFileToCheck ==
+     * null) return this; super.handleSetCldrFileToCheck(cldrFileToCheck); do stuff
+     *
+     * <p>Called late via accept().
      *
      * @param cldrFileToCheck
-     * @param options (not currently used)
-     * @param possibleErrors TODO
+     * @param options
+     * @param possibleErrors any deferred possibleErrors can be set here. They will be appended to
+     *     every handleCheck() call.
+     * @return
      */
     public CheckCLDR handleSetCldrFileToCheck(
             CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
+
+        // nothing by default
+        return this;
+    }
+
+    /**
+     * Set the CLDRFile. Must be done before calling check.
+     *
+     * @param cldrFileToCheck
+     * @param options (not currently used)
+     * @param possibleErrors
+     */
+    public CheckCLDR setCldrFileToCheck(
+            CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
         this.cldrFileToCheck = cldrFileToCheck;
+        initted = false;
+        // clear the *cached* possible Errors. Not counting any set immediately by subclasses.
+        cachedPossibleErrors.clear();
+        cachedOptions = new Options(options);
+        // we must load filters here, as they are used by check()
 
         // Shortlist error filters for this locale.
         loadFilters();
@@ -675,13 +698,51 @@ public abstract class CheckCLDR implements CheckAccessor {
             }
             xpaths.add(filter.get2());
         }
+
+        // hook for checks that want to set possibleErrors early
+        handleCheckPossibleErrors(cldrFileToCheck, options, possibleErrors);
+
         return this;
     }
 
-    public CheckCLDR setCldrFileToCheck(
+    protected void handleCheckPossibleErrors(
             CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
-        return handleSetCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
+        // nothing by default.
     }
+
+    /**
+     * Subclasses must call this, after any skip calculation to indicate that an xpath is relevant
+     * to them.
+     *
+     * @param result out-parameter to contain any deferred errors
+     * @return false if test is skipped and should exit
+     */
+    protected boolean accept(List<CheckStatus> result) {
+        if (!initted) {
+            if (this.cldrFileToCheck == null) {
+                throw new NullPointerException("accept() was called before setCldrFileToCheck()");
+            }
+            // clear this again.
+            cachedPossibleErrors.clear();
+            // call into the subclass
+            handleSetCldrFileToCheck(this.cldrFileToCheck, cachedOptions, cachedPossibleErrors);
+            initted = true;
+        }
+        // unconditionally append all cached possible errors
+        result.addAll(cachedPossibleErrors);
+        if (isSkipTest()) {
+            return false;
+        }
+        return true;
+    }
+
+    /** has accept() been called since setCldrFileToCheck() was called? */
+    boolean initted = false;
+
+    /** cache of possible errors, for handleSetCldrFileToCheck */
+    List<CheckStatus> cachedPossibleErrors = new ArrayList<>();
+
+    Options cachedOptions = null;
 
     /** Status value returned from check */
     public static class CheckStatus {
@@ -1212,9 +1273,10 @@ public abstract class CheckCLDR implements CheckAccessor {
     }
 
     /**
-     * This is what the subclasses override. If they ever use pathParts or fullPathParts, they need
-     * to call initialize() with the respective path. Otherwise they must NOT change pathParts or
-     * fullPathParts.
+     * This is what the subclasses override.
+     *
+     * <p>If a path is not applicable, exit early with <code>return this;</code> Once a path is
+     * applicable, call <code>accept(result);</code> to add deferred possible problems.
      *
      * <p>If something is found, a CheckStatus is added to result. This can be done multiple times
      * in one call, if multiple errors or warnings are found. The CheckStatus may return warnings,
@@ -1227,8 +1289,6 @@ public abstract class CheckCLDR implements CheckAccessor {
      *     .setType(CheckStatus.errorType)
      *     .setMessage(&quot;Value should be {0}&quot;, new Object[] { pattern }));
      * </pre>
-     *
-     * @param options TODO
      */
     public abstract CheckCLDR handleCheck(
             String path, String fullPath, String value, Options options, List<CheckStatus> result);
@@ -1267,6 +1327,9 @@ public abstract class CheckCLDR implements CheckAccessor {
                 Options options,
                 List<CheckStatus> result) {
             result.clear();
+
+            if (!accept(result)) return this;
+
             // If we're being asked to run tests for an inheritance marker, then we need to change
             // it
             // to the "real" value first before running tests. Testing the value
@@ -1339,15 +1402,15 @@ public abstract class CheckCLDR implements CheckAccessor {
         }
 
         @Override
-        public CheckCLDR handleSetCldrFileToCheck(
+        public void handleCheckPossibleErrors(
                 CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
             ElapsedTimer testTime = null, testOverallTime = null;
-            if (cldrFileToCheck == null) return this;
+            if (cldrFileToCheck == null) return;
             boolean SHOW_TIMES = options.contains(Options.Option.SHOW_TIMES);
             setPhase(Phase.forString(options.get(Options.Option.phase)));
             if (SHOW_TIMES)
                 testOverallTime = new ElapsedTimer("Test setup time for setCldrFileToCheck: {0}");
-            super.handleSetCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
+            super.handleCheckPossibleErrors(cldrFileToCheck, options, possibleErrors);
             possibleErrors.clear();
 
             for (Iterator<CheckCLDR> it = filteredCheckList.iterator(); it.hasNext(); ) {
@@ -1372,7 +1435,6 @@ public abstract class CheckCLDR implements CheckAccessor {
                 }
             }
             if (SHOW_TIMES) System.out.println("Overall: " + testOverallTime + ": {0}");
-            return this;
         }
 
         public Matcher getFilter() {

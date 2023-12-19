@@ -85,6 +85,8 @@ public class CheckPlaceHolders extends CheckCLDR {
         if (value == null || path.endsWith("/alias") || SKIP_PATH_LIST.matcher(path).matches()) {
             return this;
         }
+        // TODO: more skips here
+        if (!accept(result)) return this;
 
         if (path.contains("/personNames")) {
             XPathParts parts = XPathParts.getFrozenInstance(path);

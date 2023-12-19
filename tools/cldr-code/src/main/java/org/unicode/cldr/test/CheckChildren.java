@@ -23,14 +23,13 @@ public class CheckChildren extends FactoryCheckCLDR {
     public CheckCLDR handleCheck(
             String path, String fullPath, String value, Options options, List<CheckStatus> result) {
         if (immediateChildren == null) return this; // skip - test isn't even relevant
-        if (isSkipTest()) return this; // disabled
         if (fullPath == null) return this; // skip paths that we don't have
         if (value == null) return this; // skip null values
         String winningValue = this.getCldrFileToCheck().getWinningValue(fullPath);
         if (!value.equals(winningValue)) {
             return this; // only run this test against winning values.
         }
-
+        if (!accept(result)) return this;
         // String current = getResolvedCldrFileToCheck().getStringValue(path);
         tempSet.clear();
         for (int i = 0; i < immediateChildren.length; ++i) {

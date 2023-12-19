@@ -12,6 +12,7 @@ public class CheckForInheritanceMarkers extends CheckCLDR {
         if (value == null) {
             return this;
         }
+        if (!accept(result)) return this;
 
         if (value.contains(CldrUtility.INHERITANCE_MARKER)) {
             result.add(

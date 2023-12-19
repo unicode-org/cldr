@@ -93,6 +93,7 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
         if (!getCldrFileToCheck().getLocaleID().equals(locale)) {
             return this;
         }
+        if (!accept(result)) return this;
         XPathParts parts = XPathParts.getFrozenInstance(fullPath);
         for (int i = 0; i < parts.size(); ++i) {
             if (parts.getAttributeCount(i) == 0) {

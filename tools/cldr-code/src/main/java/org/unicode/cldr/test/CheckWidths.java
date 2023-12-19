@@ -497,6 +497,7 @@ public class CheckWidths extends CheckCLDR {
         if (value == null) {
             return this; // skip
         }
+        if (!accept(result)) return this;
         //        String testPrefix = "//ldml/units/unitLength[@type=\"narrow\"]";
         //        if (path.startsWith(testPrefix)) {
         //            int i = 0;

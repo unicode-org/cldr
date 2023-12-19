@@ -60,10 +60,9 @@ public class CheckZones extends FactoryCheckCLDR {
             String path, String fullPath, String value, Options options, List<CheckStatus> result) {
         if (fullPath == null) return this; // skip paths that we don't have
         if (path.indexOf("timeZoneNames") < 0 || path.indexOf("usesMetazone") < 0) return this;
+        if (!accept(result)) return this;
         if (timezoneFormatter == null) {
-            if (true) return this;
-            throw new InternalCldrException(
-                    "This should not occur: setCldrFileToCheck must create a TimezoneFormatter.");
+            return this; // error thrown above
         }
         XPathParts parts = XPathParts.getFrozenInstance(path);
 

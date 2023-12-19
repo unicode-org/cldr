@@ -50,6 +50,7 @@ public class CheckUnits extends CheckCLDR {
         if (value == null || !path.startsWith("//ldml/units")) {
             return this;
         }
+        if (!accept(result)) return this;
         final XPathParts parts = XPathParts.getFrozenInstance(path);
         String finalElement = parts.getElement(-1);
 

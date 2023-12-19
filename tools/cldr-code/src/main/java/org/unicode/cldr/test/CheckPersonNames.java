@@ -98,6 +98,7 @@ public class CheckPersonNames extends CheckCLDR {
         if (isRoot || !path.startsWith("//ldml/personNames/")) {
             return this;
         }
+        if (!accept(result)) return this;
 
         XPathParts parts = XPathParts.getFrozenInstance(path);
         switch (parts.getElement(2)) {

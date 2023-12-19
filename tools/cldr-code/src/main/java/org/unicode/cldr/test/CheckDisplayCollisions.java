@@ -334,6 +334,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                 || value.equals(CldrUtility.INHERITANCE_MARKER)) {
             return this;
         }
+        if (!accept(result)) return this;
 
         // find my type; bail if I don't have one.
         Type myType = Type.getType(path);

@@ -252,7 +252,7 @@ public class SearchCLDR {
                     int debug = 0;
                 }
                 result.clear();
-                checkCldr.setCldrFileToCheck(resolvedFile, options, result);
+                checkCldr.setCldrFileToCheck(resolvedFile, new CheckCLDR.Options(options), result);
             }
 
             if (cldrDiffFactory != null) {

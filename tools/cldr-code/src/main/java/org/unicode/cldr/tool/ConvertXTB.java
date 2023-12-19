@@ -469,7 +469,7 @@ public class ConvertXTB {
         }
         Map<String, String> options = new HashMap<>();
         List<CheckStatus> possibleErrors = new ArrayList<>();
-        checkCldr.setCldrFileToCheck(cldrFile, options, possibleErrors);
+        checkCldr.setCldrFileToCheck(cldrFile, new CheckCLDR.Options(options), possibleErrors);
         for (CheckStatus status : possibleErrors) {
             System.out.println(locale + "\tLOCALE ERROR\t" + status.getMessage());
         }

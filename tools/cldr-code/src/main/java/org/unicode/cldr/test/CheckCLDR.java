@@ -650,25 +650,6 @@ public abstract class CheckCLDR implements CheckAccessor {
     }
 
     /**
-     * Don't override this, use the other setCldrFileToCheck which takes an Options instead of a
-     * Map<>
-     *
-     * @param cldrFileToCheck
-     * @param options
-     * @param possibleErrors
-     * @return
-     * @see #setCldrFileToCheck(CLDRFile, Options, List)
-     * @deprecated
-     */
-    @Deprecated
-    public final CheckCLDR setCldrFileToCheck(
-            CLDRFile cldrFileToCheck,
-            Map<String, String> options,
-            List<CheckStatus> possibleErrors) {
-        return setCldrFileToCheck(cldrFileToCheck, new Options(options), possibleErrors);
-    }
-
-    /**
      * Set the CLDRFile. Must be done before calling check. If null is called, just skip Often
      * subclassed for initializing. If so, make the first 2 lines: if (cldrFileToCheck == null)
      * return this; super.setCldrFileToCheck(cldrFileToCheck); do stuff

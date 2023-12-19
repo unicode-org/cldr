@@ -24,9 +24,9 @@ public class CheckUnits extends CheckCLDR {
     private Collection<String> genders = null;
 
     @Override
-    public CheckCLDR setCldrFileToCheck(
+    public CheckCLDR handleSetCldrFileToCheck(
             CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
-        super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
+        super.handleSetCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
 
         GrammarInfo grammarInfo =
                 CLDRConfig.getInstance()

@@ -652,13 +652,13 @@ public abstract class CheckCLDR implements CheckAccessor {
     /**
      * Set the CLDRFile. Must be done before calling check. If null is called, just skip Often
      * subclassed for initializing. If so, make the first 2 lines: if (cldrFileToCheck == null)
-     * return this; super.setCldrFileToCheck(cldrFileToCheck); do stuff
+     * return this; super.handleSetCldrFileToCheck(cldrFileToCheck); do stuff
      *
      * @param cldrFileToCheck
      * @param options (not currently used)
      * @param possibleErrors TODO
      */
-    public CheckCLDR setCldrFileToCheck(
+    public CheckCLDR handleSetCldrFileToCheck(
             CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
         this.cldrFileToCheck = cldrFileToCheck;
 
@@ -676,6 +676,11 @@ public abstract class CheckCLDR implements CheckAccessor {
             xpaths.add(filter.get2());
         }
         return this;
+    }
+
+    public CheckCLDR setCldrFileToCheck(
+            CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
+        return handleSetCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
     }
 
     /** Status value returned from check */
@@ -1361,7 +1366,7 @@ public abstract class CheckCLDR implements CheckAccessor {
         }
 
         @Override
-        public CheckCLDR setCldrFileToCheck(
+        public CheckCLDR handleSetCldrFileToCheck(
                 CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
             ElapsedTimer testTime = null, testOverallTime = null;
             if (cldrFileToCheck == null) return this;
@@ -1369,7 +1374,7 @@ public abstract class CheckCLDR implements CheckAccessor {
             setPhase(Phase.forString(options.get(Options.Option.phase)));
             if (SHOW_TIMES)
                 testOverallTime = new ElapsedTimer("Test setup time for setCldrFileToCheck: {0}");
-            super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
+            super.handleSetCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
             possibleErrors.clear();
 
             for (Iterator<CheckCLDR> it = filteredCheckList.iterator(); it.hasNext(); ) {
@@ -1380,7 +1385,7 @@ public abstract class CheckCLDR implements CheckAccessor {
                                     "Test setup time for " + item.getClass().toString() + ": {0}");
                 try {
                     item.setPhase(getPhase());
-                    item.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
+                    item.handleSetCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
                     if (SHOW_TIMES) {
                         if (item.isSkipTest()) {
                             System.out.println("Disabled : " + testTime);
@@ -1408,7 +1413,7 @@ public abstract class CheckCLDR implements CheckAccessor {
                 CheckCLDR item = it.next();
                 if (filter == null || filter.reset(item.getClass().getName()).matches()) {
                     filteredCheckList.add(item);
-                    item.setCldrFileToCheck(getCldrFileToCheck(), (Options) null, null);
+                    item.handleSetCldrFileToCheck(getCldrFileToCheck(), (Options) null, null);
                 }
             }
             return this;

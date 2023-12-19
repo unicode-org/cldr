@@ -173,7 +173,7 @@ public class VettingViewer<T> {
             options = new HashMap<>();
             result = new ArrayList<>();
             checkCldr = CheckCLDR.getCheckAll(factory, ".*");
-            checkCldr.setCldrFileToCheck(cldrFile, new Options(options), result);
+            checkCldr.handleSetCldrFileToCheck(cldrFile, new Options(options), result);
             return Status.ok;
         }
 

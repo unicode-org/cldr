@@ -124,7 +124,7 @@ public class CheckCoverage extends FactoryCheckCLDR {
     }
 
     @Override
-    public CheckCLDR setCldrFileToCheck(
+    public CheckCLDR handleSetCldrFileToCheck(
             CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
         setSkipTest(true);
@@ -148,7 +148,7 @@ public class CheckCoverage extends FactoryCheckCLDR {
         }
 
         if (options != null && options.get(Options.Option.CheckCoverage_skip) != null) return this;
-        super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
+        super.handleSetCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         if (localeID.equals(LocaleNames.ROOT)) return this;
 
         requiredLevel = options.getRequiredLevel(localeID);

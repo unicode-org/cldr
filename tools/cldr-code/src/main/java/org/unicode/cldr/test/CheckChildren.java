@@ -63,7 +63,7 @@ public class CheckChildren extends FactoryCheckCLDR {
     }
 
     @Override
-    public CheckCLDR setCldrFileToCheck(
+    public CheckCLDR handleSetCldrFileToCheck(
             CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
         if (cldrFileToCheck.getLocaleID().equals("root"))
@@ -78,7 +78,7 @@ public class CheckChildren extends FactoryCheckCLDR {
         }
 
         List<CLDRFile> iChildren = new ArrayList<>();
-        super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
+        super.handleSetCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         CLDRLocale myLocale = CLDRLocale.getInstance(cldrFileToCheck.getLocaleID());
         if (myLocale.getCountry() != null && myLocale.getCountry().length() == 2) {
             immediateChildren = null;

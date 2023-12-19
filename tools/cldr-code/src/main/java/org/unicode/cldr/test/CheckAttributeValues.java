@@ -280,7 +280,7 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
     LocaleIDParser localeIDParser = new LocaleIDParser();
 
     @Override
-    public CheckCLDR setCldrFileToCheck(
+    public CheckCLDR handleSetCldrFileToCheck(
             CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
         if (Phase.FINAL_TESTING == getPhase() || Phase.BUILD == getPhase()) {
@@ -292,7 +292,7 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
 
         pluralInfo =
                 supplementalData.getPlurals(PluralType.cardinal, cldrFileToCheck.getLocaleID());
-        super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
+        super.handleSetCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         isEnglish = "en".equals(localeIDParser.set(cldrFileToCheck.getLocaleID()).getLanguage());
         synchronized (elementOrder) {
             if (!initialized) {

@@ -29,10 +29,10 @@ public class CheckCasing extends CheckCLDR {
     BreakIterator breaker = null;
 
     @Override
-    public CheckCLDR setCldrFileToCheck(
+    public CheckCLDR handleSetCldrFileToCheck(
             CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
-        super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
+        super.handleSetCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         uLocale = new ULocale(cldrFileToCheck.getLocaleID());
         breaker = BreakIterator.getWordInstance(uLocale);
         return this;

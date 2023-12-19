@@ -72,9 +72,9 @@ public class CheckPlaceHolders extends CheckCLDR {
     private Set<Modifier> allowedModifiers = null;
 
     @Override
-    public CheckCLDR setCldrFileToCheck(
+    public CheckCLDR handleSetCldrFileToCheck(
             CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
-        super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
+        super.handleSetCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         allowedModifiers = Modifier.getAllowedModifiers(cldrFileToCheck.getLocaleID());
         return this;
     }

@@ -290,7 +290,7 @@ public class CheckForCopy extends FactoryCheckCLDR {
     }
 
     @Override
-    public CheckCLDR setCldrFileToCheck(
+    public CheckCLDR handleSetCldrFileToCheck(
             CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
 
         if (cldrFileToCheck == null) {
@@ -316,7 +316,7 @@ public class CheckForCopy extends FactoryCheckCLDR {
             return this;
         }
 
-        super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
+        super.handleSetCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         return this;
     }
 }

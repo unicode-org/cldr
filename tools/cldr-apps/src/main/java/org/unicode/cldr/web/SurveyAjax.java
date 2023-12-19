@@ -2669,7 +2669,7 @@ public class SurveyAjax extends HttpServlet {
                     checkResult.clear();
                     cc.check(base, checkResult, val0);
 
-                    DataPage page = DataPage.make(null, cs, loc, base, null);
+                    DataPage page = DataPage.make(null, cs, loc, base, null, null);
                     page.setUserForVotelist(cs.user);
 
                     DataPage.DataRow pvi = page.getDataRow(base);

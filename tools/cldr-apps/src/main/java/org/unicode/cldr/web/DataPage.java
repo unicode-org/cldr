@@ -1346,7 +1346,8 @@ public class DataPage {
             CookieSession session,
             CLDRLocale locale,
             String prefix,
-            XPathMatcher matcher) {
+            XPathMatcher matcher,
+            TestResultBundle checkCldr) {
 
         SurveyMain sm =
                 CookieSession
@@ -1370,8 +1371,9 @@ public class DataPage {
             throw new InternalError("?!! ourSrc hsa no supplemental dir!");
         }
         synchronized (session) {
-            TestResultBundle checkCldr =
-                    sm.getSTFactory().getTestResult(locale, getOptions(session, locale));
+            if (checkCldr == null) {
+                checkCldr = sm.getSTFactory().getTestResult(locale, getSimpleOptions(locale));
+            }
             if (checkCldr == null) {
                 throw new InternalError("checkCldr == null");
             }
@@ -1410,8 +1412,22 @@ public class DataPage {
 
         final String org = session.getEffectiveCoverageLevel(locale.toString());
 
-        options = new Options(locale, SurveyMain.getTestPhase(), def, org);
+        options = getOptions(locale, def, org);
         return options;
+    }
+
+    private static CheckCLDR.Options getOptions(
+            CLDRLocale locale, final String defaultLevel, final String org) {
+        return new Options(locale, SurveyMain.getTestPhase(), defaultLevel, org);
+    }
+
+    /** Get options, but don't try to check user preferences */
+    public static CheckCLDR.Options getSimpleOptions(CLDRLocale locale) {
+        return new Options(
+                locale,
+                SurveyMain.getTestPhase(),
+                Level.COMPREHENSIVE.name(), /* localeType is not used?! */
+                "NOT USED");
     }
 
     private final BallotBox<User> ballotBox;

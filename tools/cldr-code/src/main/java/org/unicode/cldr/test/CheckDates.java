@@ -339,6 +339,8 @@ public class CheckDates extends FactoryCheckCLDR {
             return this;
         }
 
+        if (!accept(result)) return this;
+
         String sourceLocale = getCldrFileToCheck().getSourceLocaleID(path, status);
 
         if (!path.equals(status.pathWhereFound)

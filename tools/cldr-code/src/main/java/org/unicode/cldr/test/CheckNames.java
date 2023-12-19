@@ -20,6 +20,7 @@ public class CheckNames extends CheckCLDR {
         if (!YEARS_NOT_ALLOWED.matcher(path).matches() || !getCldrFileToCheck().isNotRoot(path)) {
             return this;
         }
+        if (!accept(result)) return this;
         Matcher matcher = RegexUtilities.PATTERN_3_OR_4_DIGITS.matcher(value);
         if (matcher.find()) {
             // If same as the code-fallback value (territories) then no error

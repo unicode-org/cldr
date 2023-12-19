@@ -295,6 +295,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
             String path, String fullPath, String value, Options options, List<CheckStatus> result) {
         if (fullPath == null) return this; // skip paths that we don't have
         if (value == null) return this; // skip values that we don't have ?
+        if (!accept(result)) return this;
         if (skip) return this;
         if (path == null) {
             throw new InternalCldrException("Empty path!");

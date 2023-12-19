@@ -53,9 +53,7 @@ public class CheckCoverage extends FactoryCheckCLDR {
     public CheckCLDR handleCheck(
             String path, String fullPath, String value, Options options, List<CheckStatus> result) {
 
-        if (isSkipTest()) {
-            return this;
-        }
+        if (!accept(result)) return this;
 
         CLDRFile resolvedCldrFileToCheck = getResolvedCldrFileToCheck();
 

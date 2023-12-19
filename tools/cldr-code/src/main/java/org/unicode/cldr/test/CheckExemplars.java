@@ -173,6 +173,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
             }
             return this;
         }
+        if (!accept(result)) return this;
         XPathParts oparts = XPathParts.getFrozenInstance(path);
         final String exemplarString = oparts.findAttributeValue("exemplarCharacters", "type");
         ExemplarType type =

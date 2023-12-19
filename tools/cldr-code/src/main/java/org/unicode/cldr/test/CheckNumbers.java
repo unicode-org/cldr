@@ -130,6 +130,9 @@ public class CheckNumbers extends FactoryCheckCLDR {
 
         if (fullPath == null || value == null) return this; // skip paths that we don't have
 
+        // TODO: could exclude more paths
+        if (!accept(result)) return this;
+
         // Do a quick check on the currencyMatch, to make sure that it is a proper UnicodeSet
         if (path.indexOf("/currencyMatch") >= 0) {
             try {

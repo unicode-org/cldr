@@ -18,6 +18,7 @@ public class CheckAnnotations extends CheckCLDR {
                 || !getCldrFileToCheck().isNotRoot(path)) {
             return this;
         }
+        if (!accept(result)) return this;
         final String ecode = hasAnnotationECode(value);
 
         if (ecode != null) {

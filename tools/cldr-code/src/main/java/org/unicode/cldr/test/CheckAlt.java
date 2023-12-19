@@ -26,6 +26,8 @@ public class CheckAlt extends CheckCLDR {
             return this;
         }
 
+        if (!accept(result)) return this;
+
         String strippedPath = CLDRFile.getNondraftNonaltXPath(path);
         if (strippedPath.equals(path)) {
             return this; // paths equal, skip

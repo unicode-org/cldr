@@ -47,10 +47,10 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
     }
 
     @Override
-    public CheckCLDR setCldrFileToCheck(
+    public CheckCLDR handleSetCldrFileToCheck(
             CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
-        super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
+        super.handleSetCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         locale = cldrFileToCheck.getLocaleID();
         // get info about casing; note that this is done in two steps since
         // ScriptMetadata.getInfo() returns null, in some instances.

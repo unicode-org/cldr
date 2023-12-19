@@ -48,7 +48,7 @@ public class CheckAlt extends CheckCLDR {
     }
 
     @Override
-    public CheckCLDR setCldrFileToCheck(
+    public CheckCLDR handleSetCldrFileToCheck(
             CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
         // Skip if the phase is not final testing
@@ -59,7 +59,7 @@ public class CheckAlt extends CheckCLDR {
             return this;
         }
 
-        super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
+        super.handleSetCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         seenSoFar.clear();
         return this;
     }

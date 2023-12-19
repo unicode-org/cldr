@@ -27,7 +27,7 @@ public class CheckZones extends FactoryCheckCLDR {
     }
 
     @Override
-    public CheckCLDR setCldrFileToCheck(
+    public CheckCLDR handleSetCldrFileToCheck(
             CLDRFile cldrFile, Options options, List<CheckStatus> possibleErrors) {
         if (cldrFile == null) return this;
         //        if (Phase.FINAL_TESTING == getPhase()) {
@@ -37,7 +37,7 @@ public class CheckZones extends FactoryCheckCLDR {
         //            return this;
         //        }
 
-        super.setCldrFileToCheck(cldrFile, options, possibleErrors);
+        super.handleSetCldrFileToCheck(cldrFile, options, possibleErrors);
         try {
             timezoneFormatter = new TimezoneFormatter(getResolvedCldrFileToCheck());
         } catch (RuntimeException e) {

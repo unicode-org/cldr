@@ -679,7 +679,7 @@ public abstract class CheckCLDR implements CheckAccessor {
     public CheckCLDR setCldrFileToCheck(
             CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
         this.cldrFileToCheck = cldrFileToCheck;
-        initted = false;
+        reset();
         // clear the *cached* possible Errors. Not counting any set immediately by subclasses.
         cachedPossibleErrors.clear();
         cachedOptions = new Options(options);
@@ -705,9 +705,15 @@ public abstract class CheckCLDR implements CheckAccessor {
         return this;
     }
 
+    /** override this if you want to return errors immediately when setCldrFileToCheck is called */
     protected void handleCheckPossibleErrors(
             CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
         // nothing by default.
+    }
+
+    /** override this if you want to reset state immediately when setCldrFileToCheck is called */
+    protected void reset() {
+        initted = false;
     }
 
     /**

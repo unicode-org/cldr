@@ -11,7 +11,7 @@ import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 
-public class CheckChildren extends FactoryCheckCLDR {
+public class CheckChildren<resolvedCldrFileToCheck> extends FactoryCheckCLDR {
     CLDRFile[] immediateChildren;
     Map<String, String> tempSet = new HashMap<>();
 
@@ -59,6 +59,13 @@ public class CheckChildren extends FactoryCheckCLDR {
         result.add(item);
         tempSet.clear(); // free for gc
         return this;
+    }
+
+    @Override
+    public void reset() {
+        super.reset();
+        immediateChildren = null; // reset this beforehand
+        tempSet.clear();
     }
 
     @Override

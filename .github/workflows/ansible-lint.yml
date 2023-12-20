@@ -25,7 +25,7 @@ jobs:
         override-deps: |
           rich>=9.5.1,<11.0.0
   testprovision:
-    runs-on: macos-10.15  # see https://github.com/actions/virtual-environments/issues/4060
+    runs-on: macos-latest
     steps:
     - uses: actions/checkout@v3
       with:
@@ -34,5 +34,5 @@ jobs:
       run: brew install ansible
     - name: Prepare the provision
       run: (cd tools/scripts/ansible && ansible-galaxy install -r requirements.yml && ln -sv test-local-vars local-vars && vagrant validate)
-    - name: Try the provision (ignored, see CLDR-14757)
-      run: (cd tools/scripts/ansible && vagrant up) || ( echo Failing But Not Blocking CLDR-14757 ; true)
+    - name: Try the provision
+      run: (cd tools/scripts/ansible && vagrant up)

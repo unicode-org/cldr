@@ -8,11 +8,10 @@ on:
     tags:
       - "release-*"
     # Only run if docs change.
-    ## TODO CLDR-15464 reenable this!!
-    # paths:
-    #   - "tools/scripts/tr-archive/**"
-    #   - "docs/**"
-    #   - '.github/workflows/gh-pages.yml'
+    paths:
+      - "tools/scripts/tr-archive/**"
+      - "docs/**"
+      - '.github/workflows/gh-pages.yml'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -38,7 +37,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: tr35-spec
-          path: tools/scripts/tr-archiver/tr35.zip
+          path: tools/scripts/tr-archive/tr35.zip
       - name: 'Run TR link extractor (experimental)'
         # Note: see CLDR-16526 for making this an error
         run: 'cd tools/scripts/tr-archive/ && npm run extract-link-targets || (echo Warning, please fix these ; true)'
@@ -49,7 +48,7 @@ jobs:
         run: git status ; git diff
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.7
+          ruby-version: 3.2
           bundler-cache: true
       - name: Build Jekyll part of the site
         run: |
@@ -88,4 +87,7 @@ jobs:
           echo "::endgroup::"
           echo "Now go to https://cldr-smoke.unicode.org/spec/"$(basename ${GITHUB_REF_NAME})
 
-# zero change
+# only run one of these at a time
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true

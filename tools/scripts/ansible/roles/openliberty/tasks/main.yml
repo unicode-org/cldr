@@ -4,7 +4,7 @@
 - name: Install OpenLiberty GPG key
   become: true
   ansible.builtin.apt_key:
-    url: http://public.dhe.ibm.com/ibmdl/export/pub/software/openliberty/runtime/os-native-packages/public.key
+    url: https://public.dhe.ibm.com/ibmdl/export/pub/software/openliberty/runtime/os-native-packages/public.key
     state: present
   when:
     - ansible_distribution == "Ubuntu"
@@ -18,4 +18,5 @@
   become: true
   ansible.builtin.apt:
     pkg:
+      - openliberty
       - openliberty

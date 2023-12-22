@@ -7,7 +7,7 @@ Vagrant.configure("2") do |config|
   end
   # increase the boot timeout
   config.vm.boot_timeout = 600
-  config.vm.box = "ubuntu/bionic64"
+  config.vm.box = "hashicorp/bionic64";
   config.vm.define "surveytool"
   config.vm.hostname = "surveytool"
   # forward http and https

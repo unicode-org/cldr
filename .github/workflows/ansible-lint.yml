@@ -36,3 +36,10 @@ jobs:
       run: (cd tools/scripts/ansible && ansible-galaxy install -r requirements.yml && ln -sv test-local-vars local-vars && vagrant validate)
     - name: Try the provision
       run: (cd tools/scripts/ansible && vagrant up)
+      env:
+        VAGRANT_DISABLE_VBOXSYMLINKCREATE: 1
+
+# one at a time please
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true

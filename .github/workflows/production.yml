@@ -67,7 +67,7 @@ jobs:
           name: cldr-apps-server
           path: tools/cldr-apps/target/cldr-apps.zip
       - name: Create Release for Production
-        uses: ncipollo/release-action@v1.12.0
+        uses: ncipollo/release-action@v1.13.0
         with:
           commit: ${{ github.event.inputs.git-ref }}
           prerelease: true

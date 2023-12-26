@@ -14,7 +14,7 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         lfs: false # not needed for this job, as we don’t currently do a Java build
     - name: Lint Ansible Playbook
@@ -27,7 +27,7 @@ jobs:
   testprovision:
     runs-on: macos-10.15  # see https://github.com/actions/virtual-environments/issues/4060
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         lfs: false # not needed for this job, as we don’t currently do a Java build
     - name: Install Vagrant and Ansible

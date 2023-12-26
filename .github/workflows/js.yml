@@ -16,7 +16,7 @@ jobs:
   fetest:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         lfs: false # not needed for this job, as we don’t currently do a Java build
     - uses: nodenv/actions/node-version@v3 # setup using .node-version

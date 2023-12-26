@@ -27,7 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Clone CLDR
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: ${{ github.event.inputs.cldr-ref }}
           lfs: false
@@ -113,14 +113,14 @@ jobs:
         run: mkdir -p cldr cldr-prod && cd cldr-prod && unzip ../cldr-prod.zip
       # Don't actually need CLDR
       # - name: Clone CLDR
-      #   uses: actions/checkout@v3
+      #   uses: actions/checkout@v4
       #   with:
       #     ref: ${{ github.event.inputs.cldr-ref }}
       #     lfs: false
       #     repository: ${{ github.event.inputs.cldr-repo }}
       #     path: cldr
       - name: Clone ICU
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           repository: ${{ github.event.inputs.icu-repo }}
           ref: ${{ github.event.inputs.icu-ref }}
@@ -170,7 +170,7 @@ jobs:
     needs: genicudata
     steps:
       - name: Clone ICU
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           repository: ${{ github.event.inputs.icu-repo }}
           ref: ${{ github.event.inputs.icu-ref }}
@@ -214,7 +214,7 @@ jobs:
     needs: genicudata
     steps:
       - name: Clone ICU
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           repository: ${{ github.event.inputs.icu-repo }}
           ref: ${{ github.event.inputs.icu-ref }}

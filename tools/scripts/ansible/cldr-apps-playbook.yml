@@ -47,7 +47,6 @@
       notify: Restart OpenLiberty
     - name: Checkout CLDR trunk
       become: yes
-      become_user: "{{ cldr_surveytool_user }}"
       git:
         repo: https://github.com/unicode-org/cldr.git
         dest: "{{ cldr_trunk_path }}"
@@ -57,6 +56,10 @@
         # this is a deep clone because we will need to keep updating
         # it with history. It does not include LFS as that
         # is not needed for the surveytool.
+    - name: Fix CLDR trunk perms
+      file:
+        path: "{{ cldr_trunk_path }}"
+        owner: "{{ cldr_surveytool_user }}"
   handlers:
     - name: Restart OpenLiberty
       service:

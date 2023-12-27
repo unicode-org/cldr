@@ -13,6 +13,16 @@ import * as cldrGui from "./esm/cldrGui.mjs";
 import * as cldrVue from "./esm/cldrVue.mjs";
 
 import { datadogRum } from '@datadog/browser-rum';
+import { datadogLogs } from '@datadog/browser-logs';
+
+
+datadogLogs.init({
+  clientToken: 'pub0596cc2553803e176da42558924f0318',
+  site: 'us5.datadoghq.com',
+  forwardErrorsToLogs: true,
+  sessionSampleRate: 100
+});
+
 
 datadogRum.init({
     applicationId: 'c58441d9-21fd-4195-b958-9840483630fb',

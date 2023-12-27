@@ -68,6 +68,7 @@ public enum CldrVersion {
     v42_0,
     v43_0,
     v44_0,
+    v44_1,
     /**
      * @see CLDRFile#GEN_VERSION
      */

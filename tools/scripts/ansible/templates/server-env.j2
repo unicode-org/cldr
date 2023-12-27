@@ -5,3 +5,7 @@ MYSQL_PASSWORD={{ mysql_users[0].password }}
 MYSQL_DB=cldrdb
 WLP_SKIP_MAXPERMSIZE=true
 LOG_DIR=/var/log/openliberty/cldr
+
+# DataDog params. Will be updated by the deploy script.
+DD_GIT_COMMIT_SHA=0000000
+DD_GIT_REPOSITORY_URL=github.com/unicode-org/cldr

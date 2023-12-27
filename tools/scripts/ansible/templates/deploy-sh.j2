@@ -4,9 +4,11 @@
 if [[ ${1} = "--repo" ]];
 then
     shift
-    GIT_PREFETCH=https://github.com/$(echo -n "${1}" | tr -c 'A-Za-z0-9_.-/' '-').git
+    GITHUB_REPO=$(echo -n "${1}" | tr -c 'A-Za-z0-9_.-/' '-')
+    GIT_PREFETCH=https://github.com/${GITHUB_REPO}.git
     shift
 else
+    GITHUB_REPO=unicode-org/cldr
     GIT_PREFETCH=origin
 fi
 
@@ -73,7 +75,7 @@ sudo -u root /usr/sbin/service ${SERVICE} stop
 if [[ -d /srv/st/config/.cache ]];
 then
    echo "Deleting cache /srv/config/.cache"
-   rm -rf /srv/st/config/.cache
+   sudo /usr/bin/rm -rf /srv/st/config/.cache
 fi
 rm -fv ${WORKDIR}/cldr-apps.zip ${WORKDIR}/deploystatus
 # copy cldr-apps.zip from action runner to server
@@ -95,4 +97,6 @@ fi
 # exclude these two files
 rsync -r --exclude server.env --exclude workarea --exclude bootstrap.properties -v \
       --delete ./wlp/usr/servers/cldr/* /var/lib/openliberty/usr/servers/cldr/ || exit 1
+# update datadog
+sed -i.old -e "s/DD_GIT_COMMIT_SHA.*/DD_GIT_COMMIT_SHA=${GITHUB_SHA}/g" -e "s%DD_GIT_REPOSITORY_URL.*%DD_GIT_REPOSITORY_URL=github.com/${GITHUB_REPO}%g" /var/lib/openliberty/usr/servers/{{ cldr_openliberty_server }}/server.env
 sudo -u root /usr/sbin/service ${SERVICE} start || exit 1

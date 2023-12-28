@@ -222,6 +222,7 @@ public class SurveyTool extends HttpServlet {
 
     private static final String DD_CLIENT_TOKEN = System.getenv("DD_CLIENT_TOKEN");
     private static final String DD_CLIENT_APPID = System.getenv("DD_CLIENT_APPID");
+    private static final String DD_GIT_COMMIT_SHA = System.getenv("DD_GIT_COMMIT_SHA");
     private static final String DD_ENV = System.getProperty("dd.env", "");
 
     /** if DD_CLIENT_TOKEN is set, set these variables so index.js can pick them up. */
@@ -233,8 +234,9 @@ public class SurveyTool extends HttpServlet {
                                     + "window.dataDogClientToken='%s';\n"
                                     + "window.dataDogAppId='%s';\n"
                                     + "window.dataDogEnv='%s';\n"
+                                    + "window.dataDogSha='%s';\n"
                                     + "</script>\n",
-                            DD_CLIENT_TOKEN, DD_CLIENT_APPID, DD_ENV));
+                            DD_CLIENT_TOKEN, DD_CLIENT_APPID, DD_ENV, DD_GIT_COMMIT_SHA));
         } else {
             out.write("<script>window.dataDogClientToken='';</script>\n");
         }

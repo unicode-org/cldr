@@ -29,8 +29,7 @@ if (window.dataDogClientToken) {
     site: "us5.datadoghq.com",
     service: "surveytool",
     env: window.dataDogEnv,
-    // Specify a version number to identify the deployed version of your application in Datadog
-    // version: '1.0.0',
+    version: "r" + window.dataDogSha,
     sessionSampleRate: 100,
     sessionReplaySampleRate: 20,
     trackUserInteractions: true,

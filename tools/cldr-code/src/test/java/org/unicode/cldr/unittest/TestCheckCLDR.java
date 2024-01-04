@@ -138,8 +138,8 @@ public class TestCheckCLDR extends TestFmwk {
         CLDRLocale locale = CLDRLocale.getInstance(localeString);
         CheckCLDR.Options checkCldrOptions =
                 new Options(locale, Phase.SUBMISSION, "default", "basic");
-        TestCache testCache = new TestCache();
-        testCache.setFactory(testInfo.getCldrFactory(), ".*");
+        TestCache testCache = testInfo.getCldrFactory().getTestCache();
+        testCache.setNameMatcher(".*"); // will clear the cache
         TestResultBundle bundle = testCache.getBundle(checkCldrOptions);
         final CLDRFile cldrFile = testInfo.getCLDRFile(localeString, true);
         /*

@@ -675,7 +675,7 @@ public class SimpleFactory extends Factory {
     }
 
     /**
-     * Create a CLDRFile for the given localename.
+     * Create a CLDRFile for the given supplemental data
      *
      * @param localeName
      */

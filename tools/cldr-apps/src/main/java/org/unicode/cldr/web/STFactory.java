@@ -32,7 +32,6 @@ import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.TestCache;
-import org.unicode.cldr.test.TestCache.TestResultBundle;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
@@ -357,9 +356,9 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 xmlsource =
                         dataBackedSource =
                                 new BallotBoxXMLSource<User>(diskData.cloneAsThawed(), this);
+                registerXmlSource(dataBackedSource);
                 loadVoteValues(dataBackedSource, VoteLoadingContext.ORDINARY_LOAD_VOTES);
                 nextStamp();
-                dataBackedSource.addListener(gTestCache);
                 XMLSource resolvedXmlsource = makeResolvingSource();
                 rFile =
                         new CLDRFile(resolvedXmlsource)
@@ -379,7 +378,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                                     + sourceList.stream()
                                             .map(l -> l.getLocaleID())
                                             .collect(Collectors.joining("»")));
-            return new XMLSource.ResolvingSource(sourceList);
+            return registerXmlSource(new XMLSource.ResolvingSource(sourceList));
         }
 
         void addXMLSources(List<XMLSource> sourceList) {
@@ -1164,12 +1163,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             return voteType;
         }
 
-        public TestResultBundle getTestResultData(CheckCLDR.Options options) {
-            synchronized (gTestCache) {
-                return gTestCache.getBundle(options);
-            }
-        }
-
         public Set<String> getPathsForFile() {
             return pathsForFile;
         }
@@ -1239,11 +1232,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
     boolean dbIsSetup = false;
 
-    /** Test cache against (this) */
-    TestCache gTestCache = new TestCache();
-    /** Test cache against disk. For rejecting items. */
-    TestCache gDiskTestCache = new TestCache();
-
     /** The infamous back-pointer. */
     public SurveyMain sm;
 
@@ -1264,9 +1252,9 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             }
 
             progress.update("setup test cache");
-            gTestCache.setFactory(this, "(?!.*(CheckCoverage).*).*");
+            getTestCache().setNameMatcher("(?!.*(CheckCoverage).*).*");
             progress.update("setup disk test cache");
-            gDiskTestCache.setFactory(sm.getDiskFactory(), "(?!.*(CheckCoverage).*).*");
+            sm.getDiskFactory().getTestCache().setNameMatcher("(?!.*(CheckCoverage).*).*");
             progress.update("reload all users");
             sm.reg.getVoterInfoList();
             progress.update("setup pathheader factory");
@@ -1285,15 +1273,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 good++;
             }
         }
-        sb.append(
-                good
-                        + "/"
-                        + locales.size()
-                        + " locales. TestCache:"
-                        + gTestCache
-                        + ", diskTestCache:"
-                        + gDiskTestCache
-                        + "}");
+        sb.append(good + "/" + locales.size() + " locales. }");
         return sb.toString();
     }
 
@@ -1386,7 +1366,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     }
 
     public TestCache.TestResultBundle getTestResult(CLDRLocale loc, CheckCLDR.Options options) {
-        return get(loc).getTestResultData(options);
+        return getTestCache().getBundle(options);
     }
 
     /*

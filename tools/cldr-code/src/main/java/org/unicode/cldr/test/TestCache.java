@@ -88,9 +88,9 @@ public class TestCache implements XMLSource.Listener {
                     .softValues()
                     .build();
 
-    private Factory factory = null;
+    private final Factory factory;
 
-    private String nameMatcher = null;
+    private String nameMatcher = ".*";
 
     /** Get the bundle for this test */
     public TestResultBundle getBundle(CheckCLDR.Options options) {
@@ -114,19 +114,15 @@ public class TestCache implements XMLSource.Listener {
         return factory;
     }
 
-    /**
-     * Set up the basic info needed for tests
-     *
-     * @param factory
-     * @param nameMatcher
-     * @param displayInformation
-     */
-    public void setFactory(Factory factory, String nameMatcher) {
-        if (this.factory != null) {
-            throw new InternalError("setFactory() can only be called once.");
-        }
-        this.factory = factory;
+    /** construct a new TestCache with this factory. Intended for use from within Factory. */
+    public TestCache(Factory f) {
+        this.factory = f;
+    }
+
+    /** Change which checks are run. Invalidates all caches. */
+    public void setNameMatcher(String nameMatcher) {
         this.nameMatcher = nameMatcher;
+        invalidateAllCached();
     }
 
     /**
@@ -312,7 +308,7 @@ public class TestCache implements XMLSource.Listener {
         }
     }
 
-    /** For tests. Invalidate cache. */
+    /** Public for tests. Invalidate cache. */
     public void invalidateAllCached() {
         testResultCache.invalidateAll();
         exampleGeneratorCache.invalidateAll();

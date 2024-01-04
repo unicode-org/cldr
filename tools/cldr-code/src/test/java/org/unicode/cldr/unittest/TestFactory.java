@@ -16,12 +16,13 @@ public class TestFactory extends Factory {
     private Map<String, CLDRFile> unresolved = new TreeMap<>();
 
     {
-        XMLSource mySource = new SimpleXMLSource("root");
+        XMLSource mySource = registerXmlSource(new SimpleXMLSource("root"));
         CLDRFile testFile = new CLDRFile(mySource);
         addFile(testFile);
     }
 
     public void addFile(CLDRFile testFile) {
+        registerXmlSource(testFile);
         final String localeID = testFile.getLocaleID();
         unresolved.put(localeID, testFile);
         org.unicode.cldr.util.XMLSource.ResolvingSource rs =

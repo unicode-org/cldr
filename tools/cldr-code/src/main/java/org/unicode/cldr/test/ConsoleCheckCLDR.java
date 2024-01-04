@@ -479,8 +479,8 @@ public class ConsoleCheckCLDR {
         Factory cldrFactory =
                 SimpleFactory.make(sourceDirectories, factoryFilter)
                         .setSupplementalDirectory(new File(CLDRPaths.SUPPLEMENTAL_DIRECTORY));
-        TestCache testCache = new TestCache(); // for parallelism
-        testCache.setFactory(cldrFactory, checkFilter);
+        final TestCache testCache = cldrFactory.getTestCache();
+        testCache.setNameMatcher(checkFilter);
 
         {
             // we create an extraneous CompoundCheckCLDR here just to check the filters

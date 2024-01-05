@@ -1253,10 +1253,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 throw new NullPointerException("getSupplementalDirectory() == null!");
             }
 
-            progress.update("setup test cache");
-            getTestCache().setNameMatcher("(?!.*(CheckCoverage).*).*");
-            progress.update("setup disk test cache");
-            sm.getDiskFactory().getTestCache().setNameMatcher("(?!.*(CheckCoverage).*).*");
             progress.update("reload all users");
             sm.reg.getVoterInfoList();
             progress.update("setup pathheader factory");

@@ -16,6 +16,10 @@
 
 // Reference: https://www.antdv.com/components/notification
 import { notification } from "ant-design-vue";
+import { datadogLogs } from "@datadog/browser-logs";
+
+/** if falsy, let sleeping dogs lie */
+const hasDataDog = !!window.dataDogClientToken;
 
 /**
  * For warnings and general notifications, automatically close after this many seconds
@@ -48,6 +52,9 @@ function open(message, description) {
  * @param {String} description the more detailed description
  */
 function warning(message, description) {
+  if (hasDataDog) {
+    datadogLogs.logger.warn(message, { description });
+  }
   notification.warning({
     message: message,
     description: description,
@@ -62,6 +69,9 @@ function warning(message, description) {
  * @param {String} description the more detailed description
  */
 function error(message, description) {
+  if (hasDataDog) {
+    datadogLogs.logger.error(message, { description });
+  }
   notification.error({
     message: message,
     description: description,
@@ -73,6 +83,9 @@ function error(message, description) {
  * Display an error notification, and when the user closes it, call the callback function
  */
 function errorWithCallback(message, description, callback) {
+  if (hasDataDog) {
+    datadogLogs.logger.error(message, { description });
+  }
   notification.error({
     message: message,
     description: description,
@@ -93,6 +106,9 @@ function exception(e, context) {
       name: "",
       message: e,
     };
+  }
+  if (hasDataDog) {
+    datadogLogs.logger.error(context, {}, e);
   }
   notification.error({
     message: "Internal error: " + e.name + " " + context,

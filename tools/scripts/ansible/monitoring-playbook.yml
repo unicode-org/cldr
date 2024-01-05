@@ -1,0 +1,14 @@
+- hosts: cldr-staging.unicode.org
+  become: yes
+  vars_files:
+    - vars/main.yml
+    - local-vars/local.yml
+  tasks:
+    - name: Import the Datadog Agent role from the Datadog collection
+      import_role:
+        name: datadog.dd.agent
+  vars:
+    datadog_api_key: "{{ dd_key }}"
+    datadog_site: "{{ dd_site }}"
+    datadog_apm_instrumentation_enabled: "host"  # docker not installed else 'all'
+

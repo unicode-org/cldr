@@ -21,6 +21,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.test.*;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
+import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.test.CheckCLDR.InputMethod;
 import org.unicode.cldr.test.CheckCLDR.Options;
 import org.unicode.cldr.test.CheckCLDR.StatusAction;
@@ -307,30 +308,22 @@ public class DataPage {
              */
             private boolean setTests(List<CheckStatus> testList) {
                 tests = ImmutableList.copyOf(testList);
-                // only consider non-example tests as notable.
+                // remove coverage level errors from payload
+                tests.removeIf((status) -> status.getSubtype() == Subtype.coverageLevel);
+
                 boolean weHaveTests = false;
                 int errorCount = 0;
                 int warningCount = 0;
-                for (CheckStatus status : tests) {
-                    if (!status.getType().equals(CheckStatus.exampleType)) {
-                        // skip codefallback exemplar complaints (i.e. 'JPY'
-                        // isn't in exemplars).. they'll show up in missing
-                        if (DEBUG)
-                            System.err.println(
-                                    "err: "
-                                            + status.getMessage()
-                                            + ", test: "
-                                            + status.getClass()
-                                            + ", cause: "
-                                            + status.getCause()
-                                            + " on "
-                                            + xpath);
-                        weHaveTests = true;
-                        if (status.getType().equals(CheckStatus.errorType)) {
-                            errorCount++;
-                        } else if (status.getType().equals(CheckStatus.warningType)) {
-                            warningCount++;
-                        }
+                for (final CheckStatus status : tests) {
+                    logger.finest(() -> status + " on " + xpath);
+                    if (status.getType() == CheckStatus.exampleType) {
+                        continue; // does not count as an error or warning but included in payload
+                    }
+                    weHaveTests = true;
+                    if (status.getType().equals(CheckStatus.errorType)) {
+                        errorCount++;
+                    } else if (status.getType().equals(CheckStatus.warningType)) {
+                        warningCount++;
                     }
                 }
                 if (weHaveTests) {

@@ -35,7 +35,7 @@ jobs:
     - name: Prepare the provision
       run: (cd tools/scripts/ansible && ansible-galaxy install -r requirements.yml && ln -sv test-local-vars local-vars && vagrant validate)
     - name: Try the provision
-      run: (cd tools/scripts/ansible && vagrant up || (echo 'ERROR this usually fails but we are ignoring the failure. Try it manually.' ; true))
+      run: (cd tools/scripts/ansible && vagrant up || ( ( echo "# WARNING vagrant failed—we are ignoring the failure until https://unicode-org.atlassian.net/browse/CLDR-17297 … Try it manually." | tee -a $GITHUB_STEP_SUMMARY)  ; true ) )
       env:
         VAGRANT_DISABLE_VBOXSYMLINKCREATE: 1
 

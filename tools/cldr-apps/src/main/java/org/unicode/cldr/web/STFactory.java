@@ -885,6 +885,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             }
 
             String oldVal = dataBackedSource.getValueAtDPath(distinguishingXpath);
+            String oldFullPath = dataBackedSource.getFullPathAtDPath(distinguishingXpath);
 
             // sanity check, should have been caught before
             if (readonly) {
@@ -911,7 +912,8 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             }
 
             String newVal = dataBackedSource.getValueAtDPath(distinguishingXpath);
-            if (newVal != null && !newVal.equals(oldVal)) {
+            String newFullPath = dataBackedSource.getFullPathAtDPath(distinguishingXpath);
+            if (newVal != null && (!newVal.equals(oldVal) || !oldFullPath.equals(newFullPath))) {
                 dataBackedSource.notifyListeners(distinguishingXpath);
             }
         }

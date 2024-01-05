@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.json.JSONException;
+import org.unicode.cldr.util.CLDRURLS;
 import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.VettingViewer;
 
 public class SurveyTool extends HttpServlet {
     static final Logger logger = SurveyLog.forClass(SurveyTool.class);
@@ -95,7 +95,7 @@ public class SurveyTool extends HttpServlet {
         out.write("<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>\n");
         out.write("<title>CLDR Survey Tool | Starting</title>\n");
         includeCss(request, out);
-        out.write(VettingViewer.getHeaderStyles() + "\n");
+        out.write(CLDRURLS.getVettingViewerHeaderStyles() + "\n");
         try {
             includeJavaScript(request, out);
         } catch (JSONException e) {
@@ -173,7 +173,7 @@ public class SurveyTool extends HttpServlet {
         out.write("<meta name='gigabot' content='nofollow'>\n");
         out.write(FAVICON_LINK);
         includeCss(request, out);
-        out.write(VettingViewer.getHeaderStyles() + "\n");
+        out.write(CLDRURLS.getVettingViewerHeaderStyles() + "\n");
         try {
             includeJavaScript(request, out);
         } catch (JSONException e) {

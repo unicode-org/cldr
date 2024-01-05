@@ -1084,8 +1084,17 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             // excluded.
             if (sm.fora != null
                     && (voteType != VoteType.AUTO_IMPORT && voteType != VoteType.MANUAL_IMPORT)) {
-                sm.fora.doForumAfterVote(
-                        locale, user, distinguishingXpath, xpathId, value, didClearFlag);
+                final boolean clearFlag = didClearFlag;
+                SurveyThreadManager.getExecutorService()
+                        .submit(
+                                () ->
+                                        sm.fora.doForumAfterVote(
+                                                locale,
+                                                user,
+                                                distinguishingXpath,
+                                                xpathId,
+                                                value,
+                                                clearFlag));
             }
         }
 

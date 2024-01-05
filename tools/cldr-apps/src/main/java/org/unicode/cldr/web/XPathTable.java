@@ -140,7 +140,6 @@ public class XPathTable {
             sql = null;
             s.close();
             s = null;
-            ourConn.commit();
         } finally {
             DBUtils.close(s);
             if (sql != null) {

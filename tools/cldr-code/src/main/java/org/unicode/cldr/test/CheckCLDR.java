@@ -447,6 +447,15 @@ public abstract class CheckCLDR implements CheckAccessor {
             this.locale = options2.locale;
         }
 
+        public Options(CLDRLocale locale) {
+            this.locale = locale;
+            options = new String[Option.values().length];
+            set(Option.locale, locale.getBaseName());
+            StringBuilder sb = new StringBuilder();
+            sb.append(locale.getBaseName()).append('/');
+            key = sb.toString().intern();
+        }
+
         public Options(
                 CLDRLocale locale,
                 CheckCLDR.Phase testPhase,

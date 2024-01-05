@@ -53,14 +53,14 @@ public class CheckCoverage extends FactoryCheckCLDR {
     public CheckCLDR handleCheck(
             String path, String fullPath, String value, Options options, List<CheckStatus> result) {
 
-        if (!accept(result)) return this;
-
         CLDRFile resolvedCldrFileToCheck = getResolvedCldrFileToCheck();
 
         // skip if we are not the winning path
         if (!resolvedCldrFileToCheck.isWinningPath(path)) {
             return this;
         }
+
+        if (!accept(result)) return this;
 
         Status status = new Status();
 

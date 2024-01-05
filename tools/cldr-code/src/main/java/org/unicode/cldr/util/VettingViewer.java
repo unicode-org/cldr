@@ -1566,26 +1566,6 @@ public class VettingViewer<T> {
     }
 
     /**
-     * Provide the styles for inclusion into the ST &lt;head&gt; element.
-     *
-     * @return
-     */
-    public static String getHeaderStyles() {
-        return "<style>\n"
-                + ".hide {display:none}\n"
-                + ".vve {}\n"
-                + ".vvn {}\n"
-                + ".vvp {}\n"
-                + ".vvl {}\n"
-                + ".vvm {}\n"
-                + ".vvu {}\n"
-                + ".vvw {}\n"
-                + ".vvd {}\n"
-                + ".vvo {}\n"
-                + "</style>";
-    }
-
-    /**
      * Find the status of all the paths in the input file. See the full getStatus for more
      * information.
      *

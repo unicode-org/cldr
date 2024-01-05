@@ -396,4 +396,24 @@ public abstract class CLDRURLS {
     public static final String toHTML(String url) {
         return "<a href=\"" + url + "\">" + url + "</a>";
     }
+
+    /**
+     * Provide the styles for inclusion into the ST &lt;head&gt; element.
+     *
+     * @return
+     */
+    public static String getVettingViewerHeaderStyles() {
+        return "<style>\n"
+                + ".hide {display:none}\n"
+                + ".vve {}\n"
+                + ".vvn {}\n"
+                + ".vvp {}\n"
+                + ".vvl {}\n"
+                + ".vvm {}\n"
+                + ".vvu {}\n"
+                + ".vvw {}\n"
+                + ".vvd {}\n"
+                + ".vvo {}\n"
+                + "</style>";
+    }
 }

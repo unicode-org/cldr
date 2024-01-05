@@ -31,6 +31,8 @@ import java.util.concurrent.ExecutionException;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import org.unicode.cldr.test.CheckCLDR;
+import org.unicode.cldr.test.CheckCLDR.CheckStatus;
+import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.test.TestCache;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -2031,5 +2033,11 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         }
 
         return true; // OK.
+    }
+
+    /** remove tests excluded by SurveyTool */
+    public static List<CheckStatus> removeExcludedChecks(List<CheckStatus> tests) {
+        tests.removeIf((status) -> status.getSubtype() == Subtype.coverageLevel);
+        return tests;
     }
 }

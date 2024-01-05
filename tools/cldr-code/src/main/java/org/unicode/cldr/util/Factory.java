@@ -1,5 +1,6 @@
 package org.unicode.cldr.util;
 
+import com.google.common.base.Suppliers;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -7,6 +8,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.function.Supplier;
 import org.unicode.cldr.test.TestCache;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRLocale.SublocaleProvider;
@@ -338,16 +340,15 @@ public abstract class Factory implements SublocaleProvider {
      */
     public abstract List<File> getSourceDirectoriesForLocale(String localeName);
 
-    private final TestCache testCache;
+    /** thread-safe lazy load of TestCache */
+    private Supplier<TestCache> testCache = Suppliers.memoize(() -> new TestCache(this));
 
     /** subclass contructor */
-    protected Factory() {
-        testCache = new TestCache(this);
-    }
+    protected Factory() {}
 
     /** get the TestCache owned by this Factory */
     public final TestCache getTestCache() {
-        return testCache;
+        return testCache.get();
     }
 
     /**

@@ -308,9 +308,6 @@ public class DataPage {
              */
             private boolean setTests(List<CheckStatus> testList) {
                 tests = ImmutableList.copyOf(testList);
-                // remove coverage level errors from payload
-                tests.removeIf((status) -> status.getSubtype() == Subtype.coverageLevel);
-
                 boolean weHaveTests = false;
                 int errorCount = 0;
                 int warningCount = 0;
@@ -752,6 +749,7 @@ public class DataPage {
                 CandidateItem shimItem = new CandidateItem(null);
                 List<CheckStatus> iTests = new ArrayList<>();
                 checkCldr.check(base_xpath_string, iTests, null);
+                STFactory.removeExcludedChecks(iTests);
                 if (!iTests.isEmpty()) {
                     // Got a bite.
                     if (shimItem.setTests(iTests)) {
@@ -868,6 +866,7 @@ public class DataPage {
                 List<CheckStatus> iTests = new ArrayList<>();
 
                 checkCldr.check(xpath, iTests, inheritedValue);
+                STFactory.removeExcludedChecks(iTests);
 
                 if (TRACE_TIME) {
                     System.err.println("@@6:" + (System.currentTimeMillis() - lastTime));
@@ -1928,6 +1927,7 @@ public class DataPage {
         List<CheckStatus> examplesResult = new ArrayList<>();
         if (checkCldr != null) {
             checkCldr.check(xpath, checkCldrResult, isExtraPath ? null : ourValue);
+            STFactory.removeExcludedChecks(checkCldrResult);
             checkCldr.getExamples(xpath, isExtraPath ? null : ourValue, examplesResult);
         }
         if (ourValue != null && ourValue.length() > 0) {
@@ -1959,6 +1959,7 @@ public class DataPage {
             if (avalue != null && checkCldr != null) {
                 List<CheckStatus> item2Result = new ArrayList<>();
                 checkCldr.check(xpath, item2Result, avalue);
+                STFactory.removeExcludedChecks(item2Result);
                 if (!item2Result.isEmpty()) {
                     item2.setTests(item2Result);
                 }

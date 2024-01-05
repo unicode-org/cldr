@@ -394,6 +394,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             SurveyThreadManager.getExecutorService().submit(this::doStartup);
             klm = new KeepLoggedInManager(null);
         } catch (Throwable t) {
+            t.printStackTrace();
             SurveyLog.logException(logger, t, "Initializing SurveyTool");
             SurveyMain.busted("Error initializing SurveyTool.", t);
         }

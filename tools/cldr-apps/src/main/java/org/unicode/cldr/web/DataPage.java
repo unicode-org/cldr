@@ -21,7 +21,6 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.test.*;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
-import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.test.CheckCLDR.InputMethod;
 import org.unicode.cldr.test.CheckCLDR.Options;
 import org.unicode.cldr.test.CheckCLDR.StatusAction;

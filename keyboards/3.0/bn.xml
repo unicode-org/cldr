@@ -157,8 +157,8 @@
             <reorder from="[\u{09BF}\u{09C7}\u{09C8}]" order="60"/>
             <!-- 70: lower dependent vowels -->
             <reorder from="[\u{09C1}-\u{09C4}\u{09E2}\u{09E3}]" order="70"/>
-            <!-- 75: right side dependent vowels -->
-            <reorder from="[\u{09BE}\u{09C0}\u{09CB}\u{09CC}]" order="75"/>
+            <!-- 75: right side dependent vowels. Note U+09D7 AU LENGTH MARK is included due to NFD -->
+            <reorder from="[\u{09BE}\u{09C0}\u{09CB}\u{09CC}\u{09D7}]" order="75"/>
             <!-- 85: candrabindu -->
             <reorder from="\u{0981}" order="85"/>
             <!-- 95: anusvara and visarga -->

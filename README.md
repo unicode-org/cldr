@@ -10,7 +10,7 @@ For current CLDR release information, see [cldr.unicode.org](https://cldr.unicod
 
 ## Status
 
-Update: 2023-11-01
+Update: 2024-01-08
 
 <!-- [inapplicable lines are commented out.]-->
 **Note:**  CLDR 45 is in development and not recommended for use at this stage.
@@ -45,7 +45,7 @@ A source formatter is now used, please see [spotless](./tools/README.md#spotless
 
 ### Copyright & Licenses
 
-Copyright © 2004-2023 Unicode, Inc. Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the United States and other countries.
+Copyright © 2004-2024 Unicode, Inc. Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the United States and other countries.
 
 The project is released under [LICENSE](./LICENSE).
 

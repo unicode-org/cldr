@@ -29,7 +29,6 @@ import java.util.concurrent.RecursiveAction;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
-import org.unicode.cldr.test.CheckCLDR.Options;
 import org.unicode.cldr.test.CheckCoverage;
 import org.unicode.cldr.test.CheckNew;
 import org.unicode.cldr.test.CoverageLevel2;
@@ -158,7 +157,7 @@ public class VettingViewer<T> {
     private static class DefaultErrorStatus implements ErrorChecker {
 
         private CheckCLDR checkCldr;
-        private HashMap<String, String> options = new HashMap<>();
+        private CheckCLDR.Options options = null;
         private ArrayList<CheckStatus> result = new ArrayList<>();
         private CLDRFile cldrFile;
         private final Factory factory;
@@ -170,18 +169,16 @@ public class VettingViewer<T> {
         @Override
         public Status initErrorStatus(CLDRFile cldrFile) {
             this.cldrFile = cldrFile;
-            options = new HashMap<>();
+            options = new CheckCLDR.Options(CLDRLocale.getInstance(cldrFile.getLocaleID()));
             result = new ArrayList<>();
-            checkCldr = CheckCLDR.getCheckAll(factory, ".*");
-            checkCldr.setCldrFileToCheck(cldrFile, new Options(options), result);
+            // test initialization is handled by TestCache
             return Status.ok;
         }
 
         @Override
         public List<CheckStatus> getErrorCheckStatus(String path, String value) {
-            String fullPath = cldrFile.getFullXPath(path);
             ArrayList<CheckStatus> result2 = new ArrayList<>();
-            checkCldr.check(path, fullPath, value, new CheckCLDR.Options(options), result2);
+            factory.getTestCache().getBundle(options).check(path, result2, value);
             return result2;
         }
 
@@ -198,8 +195,7 @@ public class VettingViewer<T> {
                 EnumSet<Subtype> outputSubtypes) {
             Status result0 = Status.ok;
             StringBuilder errorMessage = new StringBuilder();
-            String fullPath = cldrFile.getFullXPath(path);
-            checkCldr.check(path, fullPath, value, new CheckCLDR.Options(options), result);
+            factory.getTestCache().getBundle(options).check(path, result, value);
             for (CheckStatus checkStatus : result) {
                 final CheckCLDR cause = checkStatus.getCause();
                 /*
@@ -1563,26 +1559,6 @@ public class VettingViewer<T> {
     public VettingViewer<T> setProgressCallback(ProgressCallback newCallback) {
         progressCallback = newCallback;
         return this;
-    }
-
-    /**
-     * Provide the styles for inclusion into the ST &lt;head&gt; element.
-     *
-     * @return
-     */
-    public static String getHeaderStyles() {
-        return "<style>\n"
-                + ".hide {display:none}\n"
-                + ".vve {}\n"
-                + ".vvn {}\n"
-                + ".vvp {}\n"
-                + ".vvl {}\n"
-                + ".vvm {}\n"
-                + ".vvu {}\n"
-                + ".vvw {}\n"
-                + ".vvd {}\n"
-                + ".vvo {}\n"
-                + "</style>";
     }
 
     /**

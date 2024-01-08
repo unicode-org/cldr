@@ -497,6 +497,7 @@ public class CheckWidths extends CheckCLDR {
         if (value == null) {
             return this; // skip
         }
+        if (!accept(result)) return this;
         //        String testPrefix = "//ldml/units/unitLength[@type=\"narrow\"]";
         //        if (path.startsWith(testPrefix)) {
         //            int i = 0;
@@ -533,14 +534,14 @@ public class CheckWidths extends CheckCLDR {
     }
 
     @Override
-    public CheckCLDR setCldrFileToCheck(
+    public CheckCLDR handleSetCldrFileToCheck(
             CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
         final String localeID = cldrFileToCheck.getLocaleID();
         supplementalData =
                 SupplementalDataInfo.getInstance(cldrFileToCheck.getSupplementalDirectory());
         coverageLevel = CoverageLevel2.getInstance(supplementalData, localeID);
 
-        super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
+        super.handleSetCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         return this;
     }
 

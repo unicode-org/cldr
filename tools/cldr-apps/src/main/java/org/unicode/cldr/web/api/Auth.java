@@ -18,6 +18,7 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
+import org.unicode.cldr.web.AuthSurveyDriver;
 import org.unicode.cldr.web.CookieSession;
 import org.unicode.cldr.web.SurveyLog;
 import org.unicode.cldr.web.SurveyMain;
@@ -82,10 +83,17 @@ public class Auth {
             String userIP = WebContext.userIP(hreq);
             CookieSession session = null;
             if (!request.isEmpty()) {
-                UserRegistry.User user =
-                        CookieSession.sm.reg.get(request.password, request.email, userIP);
+                UserRegistry.User user;
+                try {
+                    user = CookieSession.sm.reg.get(request.password, request.email, userIP);
+                } catch (LogoutException e) {
+                    user = null;
+                }
                 if (user == null) {
-                    return Response.status(403, "Login failed").build();
+                    user = AuthSurveyDriver.createTestUser(request.password, request.email);
+                }
+                if (user == null) {
+                    throw new LogoutException();
                 }
                 session = CookieSession.retrieveUser(user);
                 if (session == null) {

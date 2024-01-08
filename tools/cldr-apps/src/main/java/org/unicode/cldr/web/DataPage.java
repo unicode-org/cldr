@@ -307,30 +307,19 @@ public class DataPage {
              */
             private boolean setTests(List<CheckStatus> testList) {
                 tests = ImmutableList.copyOf(testList);
-                // only consider non-example tests as notable.
                 boolean weHaveTests = false;
                 int errorCount = 0;
                 int warningCount = 0;
-                for (CheckStatus status : tests) {
-                    if (!status.getType().equals(CheckStatus.exampleType)) {
-                        // skip codefallback exemplar complaints (i.e. 'JPY'
-                        // isn't in exemplars).. they'll show up in missing
-                        if (DEBUG)
-                            System.err.println(
-                                    "err: "
-                                            + status.getMessage()
-                                            + ", test: "
-                                            + status.getClass()
-                                            + ", cause: "
-                                            + status.getCause()
-                                            + " on "
-                                            + xpath);
-                        weHaveTests = true;
-                        if (status.getType().equals(CheckStatus.errorType)) {
-                            errorCount++;
-                        } else if (status.getType().equals(CheckStatus.warningType)) {
-                            warningCount++;
-                        }
+                for (final CheckStatus status : tests) {
+                    logger.finest(() -> status + " on " + xpath);
+                    if (status.getType() == CheckStatus.exampleType) {
+                        continue; // does not count as an error or warning but included in payload
+                    }
+                    weHaveTests = true;
+                    if (status.getType().equals(CheckStatus.errorType)) {
+                        errorCount++;
+                    } else if (status.getType().equals(CheckStatus.warningType)) {
+                        warningCount++;
                     }
                 }
                 if (weHaveTests) {
@@ -759,6 +748,7 @@ public class DataPage {
                 CandidateItem shimItem = new CandidateItem(null);
                 List<CheckStatus> iTests = new ArrayList<>();
                 checkCldr.check(base_xpath_string, iTests, null);
+                STFactory.removeExcludedChecks(iTests);
                 if (!iTests.isEmpty()) {
                     // Got a bite.
                     if (shimItem.setTests(iTests)) {
@@ -875,6 +865,7 @@ public class DataPage {
                 List<CheckStatus> iTests = new ArrayList<>();
 
                 checkCldr.check(xpath, iTests, inheritedValue);
+                STFactory.removeExcludedChecks(iTests);
 
                 if (TRACE_TIME) {
                     System.err.println("@@6:" + (System.currentTimeMillis() - lastTime));
@@ -1935,6 +1926,7 @@ public class DataPage {
         List<CheckStatus> examplesResult = new ArrayList<>();
         if (checkCldr != null) {
             checkCldr.check(xpath, checkCldrResult, isExtraPath ? null : ourValue);
+            STFactory.removeExcludedChecks(checkCldrResult);
             checkCldr.getExamples(xpath, isExtraPath ? null : ourValue, examplesResult);
         }
         if (ourValue != null && ourValue.length() > 0) {
@@ -1966,6 +1958,7 @@ public class DataPage {
             if (avalue != null && checkCldr != null) {
                 List<CheckStatus> item2Result = new ArrayList<>();
                 checkCldr.check(xpath, item2Result, avalue);
+                STFactory.removeExcludedChecks(item2Result);
                 if (!item2Result.isEmpty()) {
                     item2.setTests(item2Result);
                 }

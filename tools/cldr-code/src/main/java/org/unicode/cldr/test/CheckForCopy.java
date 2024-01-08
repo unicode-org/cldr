@@ -87,6 +87,7 @@ public class CheckForCopy extends FactoryCheckCLDR {
         if (fullPath == null || path == null || value == null) {
             return this; // skip root, and paths that we don't have
         }
+        if (!accept(result)) return this;
         Failure failure =
                 sameAsCodeOrEnglish(value, path, unresolvedFile, getCldrFileToCheck(), false);
         addFailure(result, failure);
@@ -290,7 +291,7 @@ public class CheckForCopy extends FactoryCheckCLDR {
     }
 
     @Override
-    public CheckCLDR setCldrFileToCheck(
+    public CheckCLDR handleSetCldrFileToCheck(
             CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
 
         if (cldrFileToCheck == null) {
@@ -316,7 +317,7 @@ public class CheckForCopy extends FactoryCheckCLDR {
             return this;
         }
 
-        super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
+        super.handleSetCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         return this;
     }
 }

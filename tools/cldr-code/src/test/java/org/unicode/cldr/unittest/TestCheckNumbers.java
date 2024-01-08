@@ -3,7 +3,7 @@ package org.unicode.cldr.unittest;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Map;
+import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Type;
@@ -51,7 +51,7 @@ public class TestCheckNumbers extends TestFmwkPlus {
         xmlSource.setLocaleID(locale);
         CLDRFile cldrFileToCheck = new CLDRFile(xmlSource);
 
-        Map<String, String> options = Collections.emptyMap();
+        final CheckCLDR.Options options = new CheckCLDR.Options(Collections.emptyMap());
         List<CheckStatus> possibleErrors = new ArrayList<>();
         checkNumbers.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         assertEquals("setCldrFileToCheck", Collections.EMPTY_LIST, possibleErrors);

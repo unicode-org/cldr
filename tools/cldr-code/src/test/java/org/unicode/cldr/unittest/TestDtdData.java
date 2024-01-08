@@ -187,6 +187,9 @@ public class TestDtdData extends TestFmwk {
     public void TestValueAttributesWithChildren() {
         Multimap<String, String> m = TreeMultimap.create();
         for (DtdType type : DtdType.values()) {
+            if (type.getStatus() != DtdType.DtdStatus.active) {
+                continue;
+            }
             if (type == DtdType.ldmlICU) {
                 continue;
             }
@@ -355,6 +358,9 @@ public class TestDtdData extends TestFmwk {
 
     public void TestNewDtdData() {
         for (DtdType type : DtdType.values()) {
+            if (type.getStatus() != DtdType.DtdStatus.active) {
+                continue;
+            }
             if (type == DtdType.ldmlICU) {
                 continue;
             }

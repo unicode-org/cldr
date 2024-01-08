@@ -21,6 +21,9 @@ import { XpathMap } from "./cldrXpathMap.mjs";
  */
 const INHERITANCE_MARKER = "↑↑↑";
 
+const DEBUG_SHOWER = false;
+const DEBUG_LOCALE_STAMP = false;
+
 let xpathMap = null;
 
 let wasBusted = false;
@@ -30,7 +33,7 @@ let loadOnOk = null; // TODO: SurveyMain.java writes scripts that try to referen
 
 let clickContinue = null; // TODO: SurveyMain.java writes scripts that try to reference clickContinue
 
-let surveyNextLocaleStamp = 0;
+let surveyNextLocaleStamp = NaN;
 
 let showers = {};
 
@@ -107,9 +110,6 @@ function getXpathMap() {
  * "popover-content" identifies the little input window, created using bootstrap, that appears when the
  * user clicks an add ("+") button. Added "popover-content" per https://unicode.org/cldr/trac/ticket/11265.
  *
- * TODO: clarify dependence on "dijitInp"; is that still used here, and if so, when?
- * Add automated regression testing to anticipate future changes to bootstrap/dojo/dijit/etc.
- *
  * Called only from CldrSurveyVettingLoader.js
  */
 function isInputBusy() {
@@ -118,9 +118,6 @@ function isInputBusy() {
   }
   var sel = window.getSelection();
   if (sel && sel.anchorNode && sel.anchorNode.className) {
-    if (sel.anchorNode.className.indexOf("dijitInp") != -1) {
-      return true;
-    }
     if (sel.anchorNode.className.indexOf("popover-content") != -1) {
       return true;
     }
@@ -162,16 +159,34 @@ function unbust() {
 }
 
 /**
- * Process that the locale has changed under us.
+ * Process that the locale may have changed, which is indicated by receiving a timestamp
+ * from the server different than was previously recorded as surveyNextLocaleStamp
  *
- * @param {String} stamp timestamp
+ * The special case where surveyNextLocaleStamp is NaN is handled the same as the case
+ * where stamp != surveyNextLocaleStamp. The server response is assumed not to have NaN.
+ *
+ * The rare case where stamp < surveyNextLocaleStamp (presumably due to wrap-around or
+ * server restart) is handled the same as the case where stamp > surveyNextLocaleStamp.
+ *
+ * @param {String} stamp the timestamp received from the server
  * @param {String} name locale name
  */
 function handleChangedLocaleStamp(stamp, name) {
-  if (cldrStatus.isDisconnected()) {
+  if (stamp == surveyNextLocaleStamp) {
+    if (DEBUG_LOCALE_STAMP) {
+      console.log(
+        "cldrSurvey.handleChangedLocaleStamp: surveyNextLocaleStamp is unchanged from " +
+          surveyNextLocaleStamp
+      );
+    }
     return;
   }
-  if (stamp <= surveyNextLocaleStamp) {
+  if (cldrStatus.isDisconnected()) {
+    if (DEBUG_LOCALE_STAMP) {
+      console.log(
+        "cldrSurvey.handleChangedLocaleStamp: returning early since cldrStatus.isDisconnected"
+      );
+    }
     return;
   }
   /*
@@ -179,6 +194,11 @@ function handleChangedLocaleStamp(stamp, name) {
    * requests (e.g., vote or single-row WHAT_GETROW requests) are pending.
    */
   if (cldrVote.isBusy()) {
+    if (DEBUG_LOCALE_STAMP) {
+      console.log(
+        "cldrSurvey.handleChangedLocaleStamp: returning early since cldrVote.isBusy"
+      );
+    }
     return;
   }
   if (Object.keys(showers).length == 0) {
@@ -186,6 +206,9 @@ function handleChangedLocaleStamp(stamp, name) {
      * TODO: explain this code. When, if ever, is it executed, and why?
      * Typically Object.keys(showers).length != 0.
      */
+    if (DEBUG_SHOWER || DEBUG_LOCALE_STAMP) {
+      console.log("cldrSurvey.handleChangedLocaleStamp: no showers!");
+    }
     cldrDom.updateIf("stchanged_loc", name);
     var locDiv = document.getElementById("stchanged");
     if (locDiv) {
@@ -195,9 +218,20 @@ function handleChangedLocaleStamp(stamp, name) {
     for (let i in showers) {
       const fn = showers[i];
       if (fn) {
+        if (DEBUG_SHOWER || DEBUG_LOCALE_STAMP) {
+          console.log(
+            "cldrSurvey.handleChangedLocaleStamp: running showers[" + i + "]"
+          );
+        }
         fn();
       }
     }
+  }
+  if (DEBUG_LOCALE_STAMP) {
+    console.log(
+      "cldrSurvey.handleChangedLocaleStamp: setting surveyNextLocaleStamp = " +
+        stamp
+    );
   }
   surveyNextLocaleStamp = stamp;
 }
@@ -554,15 +588,8 @@ function updateStatusLoadHandler(json) {
     }
   }
   updateStatusBox(json);
-
   if (json.localeStamp) {
-    if (surveyNextLocaleStamp == 0) {
-      surveyNextLocaleStamp = json.localeStamp;
-    } else {
-      if (json.localeStamp > surveyNextLocaleStamp) {
-        handleChangedLocaleStamp(json.localeStamp, json.localeStampName);
-      }
-    }
+    handleChangedLocaleStamp(json.localeStamp, json.localeStampName);
   }
   if (wasBusted == false && json.status.isSetup && loadOnOk != null) {
     window.location.replace(loadOnOk);

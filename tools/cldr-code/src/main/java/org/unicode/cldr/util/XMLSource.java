@@ -1390,6 +1390,11 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
         }
 
         @Override
+        public boolean isFrozen() {
+            return true; // ResolvingSource is already read-only.
+        }
+
+        @Override
         public void valueChanged(String xpath, XMLSource nonResolvingSource) {
             if (!cachingIsEnabled) {
                 return;

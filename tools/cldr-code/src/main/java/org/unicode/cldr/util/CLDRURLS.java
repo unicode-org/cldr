@@ -161,6 +161,9 @@ public abstract class CLDRURLS {
     public static final String UPDATING_CURRENCY_CODES =
             "https://cldr.unicode.org/development/updating-codes/update-currency-codes";
 
+    public static final String CLDR_ARCHIVE =
+            "https://cldr.unicode.org/development/creating-the-archive";
+
     /**
      * Get the relative base URL for the SurveyTool. This may be "/cldr-apps", for example.
      *
@@ -392,5 +395,25 @@ public abstract class CLDRURLS {
      */
     public static final String toHTML(String url) {
         return "<a href=\"" + url + "\">" + url + "</a>";
+    }
+
+    /**
+     * Provide the styles for inclusion into the ST &lt;head&gt; element.
+     *
+     * @return
+     */
+    public static String getVettingViewerHeaderStyles() {
+        return "<style>\n"
+                + ".hide {display:none}\n"
+                + ".vve {}\n"
+                + ".vvn {}\n"
+                + ".vvp {}\n"
+                + ".vvl {}\n"
+                + ".vvm {}\n"
+                + ".vvu {}\n"
+                + ".vvw {}\n"
+                + ".vvd {}\n"
+                + ".vvo {}\n"
+                + "</style>";
     }
 }

@@ -11,7 +11,7 @@ import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 
-public class CheckChildren extends FactoryCheckCLDR {
+public class CheckChildren<resolvedCldrFileToCheck> extends FactoryCheckCLDR {
     CLDRFile[] immediateChildren;
     Map<String, String> tempSet = new HashMap<>();
 
@@ -22,15 +22,14 @@ public class CheckChildren extends FactoryCheckCLDR {
     @Override
     public CheckCLDR handleCheck(
             String path, String fullPath, String value, Options options, List<CheckStatus> result) {
-        if (immediateChildren == null) return this; // skip - test isn't even relevant
-        if (isSkipTest()) return this; // disabled
         if (fullPath == null) return this; // skip paths that we don't have
         if (value == null) return this; // skip null values
+        if (!accept(result)) return this;
+        if (immediateChildren == null) return this; // skip - test isn't even relevant
         String winningValue = this.getCldrFileToCheck().getWinningValue(fullPath);
         if (!value.equals(winningValue)) {
             return this; // only run this test against winning values.
         }
-
         // String current = getResolvedCldrFileToCheck().getStringValue(path);
         tempSet.clear();
         for (int i = 0; i < immediateChildren.length; ++i) {
@@ -63,7 +62,14 @@ public class CheckChildren extends FactoryCheckCLDR {
     }
 
     @Override
-    public CheckCLDR setCldrFileToCheck(
+    public void reset() {
+        super.reset();
+        immediateChildren = null; // reset this beforehand
+        tempSet.clear();
+    }
+
+    @Override
+    public CheckCLDR handleSetCldrFileToCheck(
             CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
         if (cldrFileToCheck.getLocaleID().equals("root"))
@@ -78,7 +84,7 @@ public class CheckChildren extends FactoryCheckCLDR {
         }
 
         List<CLDRFile> iChildren = new ArrayList<>();
-        super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
+        super.handleSetCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         CLDRLocale myLocale = CLDRLocale.getInstance(cldrFileToCheck.getLocaleID());
         if (myLocale.getCountry() != null && myLocale.getCountry().length() == 2) {
             immediateChildren = null;

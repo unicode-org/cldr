@@ -134,6 +134,7 @@ public class ShowStarredCoverage {
             System.out.println("№\tLevel\tStarredPath\tPH Status\t?\tAttributes");
         }
         for (DtdType dtdType : DtdType.values()) {
+            if (dtdType.getStatus() != DtdType.DtdStatus.active) continue;
             if (dtdTypes != null && !dtdTypes.contains(dtdType)) {
                 continue;
             }

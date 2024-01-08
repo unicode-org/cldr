@@ -21,7 +21,9 @@ public class GenerateDtd {
         final DTD2Markdown dtd2md = new DTD2Markdown();
         // System.setProperty("show_all", "true");
         for (DtdType type : DtdType.values()) {
-            if (type == DtdType.ldmlICU) {
+            if (type.getStatus() != DtdType.DtdStatus.active) {
+                continue;
+            } else if (type == DtdType.ldmlICU) {
                 continue;
             }
             DtdData data = DtdData.getInstance(type);

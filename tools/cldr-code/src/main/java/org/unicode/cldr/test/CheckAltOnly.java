@@ -40,6 +40,7 @@ public class CheckAltOnly extends FactoryCheckCLDR {
         if (file.getConstructedValue(nonAltPath) != null) {
             return this;
         }
+        if (!accept(result)) return this;
         /*
          * If the source locale is not code-fallback, it's not an error.
          * getSourceLocaleIdExtended with skipInheritanceMarker = false means that if the

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.logging.Logger;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.Options;
 import org.unicode.cldr.util.CLDRConfig;
@@ -25,6 +26,8 @@ import org.unicode.cldr.util.XMLSource;
  * @see XMLSource#addListener(org.unicode.cldr.util.XMLSource.Listener)
  */
 public class TestCache implements XMLSource.Listener {
+    private static final Logger logger = Logger.getLogger(TestCache.class.getSimpleName());
+
     public class TestResultBundle {
         private final CheckCLDR cc = CheckCLDR.getCheckAll(getFactory(), nameMatcher);
         final CLDRFile file;
@@ -88,18 +91,15 @@ public class TestCache implements XMLSource.Listener {
                     .softValues()
                     .build();
 
-    private Factory factory = null;
+    private final Factory factory;
 
-    private String nameMatcher = null;
+    private String nameMatcher = ".*";
 
     /** Get the bundle for this test */
     public TestResultBundle getBundle(CheckCLDR.Options options) {
         TestResultBundle b = testResultCache.getIfPresent(options);
-        if (DEBUG) {
-            if (b != null) {
-                System.err.println("Bundle refvalid: " + options + " -> " + (b != null));
-            }
-            System.err.println("Bundle " + b + " for " + options + " in " + this.toString());
+        if (b != null) {
+            logger.finest(() -> this + " Bundle refvalid: " + options);
         }
         if (b == null) {
             // ElapsedTimer et = new ElapsedTimer("New test bundle " + locale + " opt " + options);
@@ -114,19 +114,17 @@ public class TestCache implements XMLSource.Listener {
         return factory;
     }
 
-    /**
-     * Set up the basic info needed for tests
-     *
-     * @param factory
-     * @param nameMatcher
-     * @param displayInformation
-     */
-    public void setFactory(Factory factory, String nameMatcher) {
-        if (this.factory != null) {
-            throw new InternalError("setFactory() can only be called once.");
-        }
-        this.factory = factory;
+    /** construct a new TestCache with this factory. Intended for use from within Factory. */
+    public TestCache(Factory f) {
+        this.factory = f;
+        logger.fine(() -> toString() + " - init(" + f + ")");
+    }
+
+    /** Change which checks are run. Invalidates all caches. */
+    public void setNameMatcher(String nameMatcher) {
+        logger.finest(() -> toString() + " - setNameMatcher(" + nameMatcher + ")");
         this.nameMatcher = nameMatcher;
+        invalidateAllCached();
     }
 
     /**
@@ -141,6 +139,8 @@ public class TestCache implements XMLSource.Listener {
                 "{"
                         + this.getClass().getSimpleName()
                         + super.toString()
+                        + " F="
+                        + factory.getClass().getSimpleName()
                         + " Size: "
                         + testResultCache.size()
                         + " (");
@@ -183,9 +183,7 @@ public class TestCache implements XMLSource.Listener {
      * @param locale the CLDRLocale
      */
     private void valueChangedInvalidateRecursively(String xpath, final CLDRLocale locale) {
-        if (DEBUG) {
-            System.err.println("BundDelLoc " + locale + " @ " + xpath);
-        }
+        logger.finer(() -> "BundDelLoc " + locale + " @ " + xpath);
         /*
          * Call self recursively for all sub-locales
          */
@@ -312,8 +310,9 @@ public class TestCache implements XMLSource.Listener {
         }
     }
 
-    /** For tests. Invalidate cache. */
+    /** Public for tests. Invalidate cache. */
     public void invalidateAllCached() {
+        logger.fine(() -> toString() + " - invalidateAllCached()");
         testResultCache.invalidateAll();
         exampleGeneratorCache.invalidateAll();
     }

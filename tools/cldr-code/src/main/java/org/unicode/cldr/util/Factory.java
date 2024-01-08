@@ -1,5 +1,6 @@
 package org.unicode.cldr.util;
 
+import com.google.common.base.Suppliers;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -7,6 +8,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.function.Supplier;
+import org.unicode.cldr.test.TestCache;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRLocale.SublocaleProvider;
 import org.unicode.cldr.util.XMLSource.ResolvingSource;
@@ -192,6 +195,7 @@ public abstract class Factory implements SublocaleProvider {
                         this + ".handleMake returned a null CLDRFile for " + curLocale);
             }
             XMLSource source = file.dataSource;
+            registerXmlSource(source);
             sourceList.add(source);
             curLocale = LocaleIDParser.getParent(curLocale, ignoreExplicitParentLocale);
         }
@@ -335,4 +339,34 @@ public abstract class Factory implements SublocaleProvider {
      * @return
      */
     public abstract List<File> getSourceDirectoriesForLocale(String localeName);
+
+    /** thread-safe lazy load of TestCache */
+    private Supplier<TestCache> testCache = Suppliers.memoize(() -> new TestCache(this));
+
+    /** subclass contructor */
+    protected Factory() {}
+
+    /** get the TestCache owned by this Factory */
+    public final TestCache getTestCache() {
+        return testCache.get();
+    }
+
+    /**
+     * Subclasses must call this on every actual XMLSource created so that the TestCache can listen
+     * for changes
+     */
+    protected final XMLSource registerXmlSource(XMLSource x) {
+        if (!x.isFrozen()) {
+            x.addListener(getTestCache());
+        }
+        return x;
+    }
+
+    /** register the XMLSource inside this file */
+    protected CLDRFile registerXmlSource(CLDRFile rawFile) {
+        if (!rawFile.isFrozen()) {
+            registerXmlSource(rawFile.dataSource);
+        }
+        return rawFile;
+    }
 }

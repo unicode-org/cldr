@@ -49,6 +49,9 @@ public class TestComparisonBuilder extends TestFmwk {
         // unless FindDtdOrder also checks attributes.
         Builder<String> builder = new Builder<String>(Ordering.NATURAL);
         for (DtdType dtd : DtdType.values()) {
+            if (dtd.getStatus() != DtdType.DtdStatus.active) {
+                continue;
+            }
             Relation<String, String> eaInfo =
                     ElementAttributeInfo.getInstance(dtd).getElement2Attributes();
             for (String element : eaInfo.keySet()) {
@@ -68,6 +71,9 @@ public class TestComparisonBuilder extends TestFmwk {
 
         logln("Attribute Ordering:\t" + comp.getOrdering().toString());
         for (DtdType dtd : DtdType.values()) {
+            if (dtd.getStatus() != DtdType.DtdStatus.active) {
+                continue;
+            }
             // check that the ordering is right
             Relation<String, String> eaInfo =
                     ElementAttributeInfo.getInstance(dtd).getElement2Attributes();
@@ -82,6 +88,9 @@ public class TestComparisonBuilder extends TestFmwk {
         Set<String> specials =
                 new HashSet<String>(Arrays.asList(new String[] {"EMPTY", "PCDATA", "ANY"}));
         for (DtdType dtd : DtdType.values()) {
+            if (dtd.getStatus() != DtdType.DtdStatus.active) {
+                continue;
+            }
             if (dtd.rootType != dtd) {
                 continue;
             }

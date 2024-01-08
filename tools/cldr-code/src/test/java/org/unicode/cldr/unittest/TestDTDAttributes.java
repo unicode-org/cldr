@@ -96,6 +96,9 @@ public class TestDTDAttributes extends TestFmwkPlus {
 
     public void TestDistinguishing() {
         for (DtdType type : DtdType.values()) {
+            if (type.getStatus() != DtdType.DtdStatus.active) {
+                continue;
+            }
             if (type == DtdType.ldmlICU) {
                 continue;
             }

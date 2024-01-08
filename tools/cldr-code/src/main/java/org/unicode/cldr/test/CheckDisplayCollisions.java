@@ -334,6 +334,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                 || value.equals(CldrUtility.INHERITANCE_MARKER)) {
             return this;
         }
+        if (!accept(result)) return this;
 
         // find my type; bail if I don't have one.
         Type myType = Type.getType(path);
@@ -804,10 +805,10 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
     //    private Map<String,String> nameToSubdivisionId = Collections.emptyMap();
 
     @Override
-    public CheckCLDR setCldrFileToCheck(
+    public CheckCLDR handleSetCldrFileToCheck(
             CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
-        super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
+        super.handleSetCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         // pick up the 3 subdivisions
         //        nameToSubdivisionId =
         // EmojiSubdivisionNames.getNameToSubdivisionPath(cldrFileToCheck.getLocaleID());

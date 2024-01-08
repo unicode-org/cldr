@@ -174,7 +174,7 @@ const leftSidebar =
   "    <div id='locale-info'>\n" +
   "      <div class='input-group input-group-sm'>\n" +
   "        <span class='input-group-addon  refresh-search'><span class='glyphicon glyphicon-search'></span></span>\n" +
-  "        <input type='text' class='form-control local-search' placeholder='Locale' />\n" +
+  "        <input id='locale-search-input' type='text' class='form-control local-search' placeholder='Locale' />\n" +
   "      </div>\n" +
   "      <span id='locale-clear' class='refresh-search'>x</span>\n" +
   "      \n" +

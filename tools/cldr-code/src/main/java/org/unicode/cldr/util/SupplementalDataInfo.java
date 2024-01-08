@@ -68,6 +68,7 @@ import org.unicode.cldr.tool.SubdivisionNames;
 import org.unicode.cldr.util.Builder.CBuilder;
 import org.unicode.cldr.util.CldrUtility.VariableReplacer;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
+import org.unicode.cldr.util.DtdType.DtdStatus;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
@@ -4572,6 +4573,10 @@ public class SupplementalDataInfo {
     }
 
     public boolean isDeprecated(DtdType type, String element, String attribute, String value) {
+        if (type.getStatus() == DtdStatus.removed) {
+            // if the DTD was removed, skip
+            return true;
+        }
         return DtdData.getInstance(type).isDeprecated(element, attribute, value);
     }
 

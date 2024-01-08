@@ -252,7 +252,7 @@ public class SearchCLDR {
                     int debug = 0;
                 }
                 result.clear();
-                checkCldr.setCldrFileToCheck(resolvedFile, options, result);
+                checkCldr.setCldrFileToCheck(resolvedFile, new CheckCLDR.Options(options), result);
             }
 
             if (cldrDiffFactory != null) {
@@ -331,7 +331,12 @@ public class SearchCLDR {
                     }
                     result.clear();
 
-                    checkCldr.check(path, file.getFullXPath(path), value, options, result);
+                    checkCldr.check(
+                            path,
+                            file.getFullXPath(path),
+                            value,
+                            new CheckCLDR.Options(options),
+                            result);
                     if (result.isEmpty()) {
                         continue;
                     }
@@ -346,7 +351,12 @@ public class SearchCLDR {
                     }
                     // for debugging
                     int debug = 0;
-                    checkCldr.check(path, file.getFullXPath(path), value, options, result);
+                    checkCldr.check(
+                            path,
+                            file.getFullXPath(path),
+                            value,
+                            new CheckCLDR.Options(options),
+                            result);
                 }
 
                 // made it through the sieve

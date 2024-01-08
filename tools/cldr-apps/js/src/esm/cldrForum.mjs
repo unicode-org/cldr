@@ -872,13 +872,18 @@ function makeOneNewPostButton(
   code,
   value
 ) {
-  const buttonClass = couldFlag
+  // A "new post" button has type cldrForumType.REQUEST or cldrForumType.DISCUSS.
+  // REQUEST is only enabled if there is a non-null value (which the user voted for).
+  const disabled = postType === cldrForumType.REQUEST && value === null;
+  // Only an enabled REQUEST button can really cause a path to be flagged.
+  const reallyCanFlag =
+    couldFlag && postType === cldrForumType.REQUEST && !disabled;
+  const buttonClass = reallyCanFlag
     ? "addPostButton forumNewPostFlagButton btn btn-default btn-sm"
     : "addPostButton forumNewButton btn btn-default btn-sm";
 
   const newButton = forumCreateChunk(label, "button", buttonClass);
-  // a "new post" button has type cldrForumType.REQUEST or cldrForumType.DISCUSS
-  if (postType === cldrForumType.REQUEST && value === null) {
+  if (disabled) {
     newButton.disabled = true;
   } else {
     cldrDom.listenFor(newButton, "click", function (e) {
@@ -892,7 +897,7 @@ function makeOneNewPostButton(
           if (o.result && o.result.ph) {
             subj = xpathMap.formatPathHeader(o.result.ph);
           }
-          if (couldFlag) {
+          if (reallyCanFlag) {
             subj += " (Flag for review)";
           }
           openPostOrReply({

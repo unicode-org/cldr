@@ -2643,22 +2643,24 @@ Many emoji are represented by sequences of characters. When there are no `annota
 1.  If **sequence** is an **emoji flag sequence**, look up the territory name in CLDR for the corresponding ASCII characters and return as the short name. For example, the regional indicator symbols P+F would map to “Französisch-Polynesien” in German.
 2.  If **sequence** is an **emoji tag sequence**, look up the subdivision name in CLDR for the corresponding ASCII characters and return as the short name. For example, the TAG characters gbsct would map to “Schottland” in German.
 3.  If **sequence** is a keycap sequence or 🔟, use the characterLabel for "keycap" as the **prefixName** and set the **suffix** to be the sequence (or "10" in the case of 🔟), then go to step 8.
-4.  Let **suffix** and **prefixName** be "".
-5.  If **sequence** contains any emoji modifiers, move them (in order) into **suffix**, removing them from **sequence**.
-6.  If **sequence** is a "KISS", "HEART", "FAMILY", or "HOLDING HANDS" emoji ZWJ sequence, move the characters in **sequence** to the front of **suffix**, and set the **sequence** to be "💏", "💑", or "👪" respectively, and go to step 7.
+4.  If the **sequence** ends with the string ZWJ + ➡️, look up the name of that sequence with that string removed. Embed that name into the "facing-right" characterLabelPattern and return it. 
+5.  Let **suffix** and **prefixName** be "".
+6.  If **sequence** contains any emoji modifiers, move them (in order) into **suffix**, removing them from **sequence**.
+7.  If **sequence** is a "KISS", "HEART", "FAMILY", or "HOLDING HANDS" emoji ZWJ sequence, move the characters in **sequence** to the front of **suffix**, and set the **sequence** to be "💏", "💑", or "👪" respectively, and go to step 7.
     1. A KISS sequence contains ZWJ, "💋", and "❤", which are skipped in moving to **suffix**.
     2. A HEART sequence contains ZWJ and "❤", which are skipped in moving to **suffix**.
     3. A HOLDING HANDS sequence contains ZWJ+🤝+ZWJ, which are skipped in moving to **suffix**.
     4. A FAMILY sequence contains only characters from the set {👦, 👧, 👨, 👩, 👴, 👵, 👶}. Nothing is skipped in moving to **suffix**, except ZWJ.
-7.  If **sequence** ends with ♂ or ♀, and does not have a name, remove the ♂ or ♀ and move the name for "👨" or "👩" respectively to the start of **prefixName**.
-8.  Transform **sequence** and append to **prefixName**, by successively getting names for the longest subsequences, skipping any singleton ZWJ characters. If there is more than one name, use the listPattern for unit-short, type=2 to link them.
-9.  Transform **suffix** into **suffixName** in the same manner.
-10. If both the **prefixName** and **suffixName** are non-empty, form the name by joining them with the "category-list" characterLabelPattern and return it. Otherwise return whichever of them is non-empty.
+8.  If **sequence** ends with ♂ or ♀, and does not have a name, remove the ♂ or ♀ and move the name for "👨" or "👩" respectively to the start of **prefixName**.
+9.  Transform **sequence** and append to **prefixName**, by successively getting names for the longest subsequences, skipping any singleton ZWJ characters. If there is more than one name, use the listPattern for unit-short, type=2 to link them.
+10.  Transform **suffix** into **suffixName** in the same manner.
+11. If both the **prefixName** and **suffixName** are non-empty, form the name by joining them with the "category-list" characterLabelPattern and return it. Otherwise return whichever of them is non-empty.
 
 The synthesized keywords can follow a similar process.
 
 1.  For an **emoji flag sequence** or **emoji tag sequence** representing a subdivision, use "flag".
 2.  For keycap sequences, use "keycap".
+3.  For sequences with ZWJ + ➡️, use the keywords for the sequence without the ZWJ + ➡️.
 3.  For other sequences, add the keywords for the subsequences used to get the short names for **prefixName**, and the short names used for **suffixName**.
 
 Some examples for English data (v30) are given in the following table.
@@ -3079,6 +3081,6 @@ For example, for gram-per-meter, the first line above means:
 
 * * *
 
-Copyright © 2001–2023 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use of the information or programs contained or accompanying this technical report. The Unicode [Terms of Use](https://www.unicode.org/copyright.html) apply.
+Copyright © 2001–2024 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use of the information or programs contained or accompanying this technical report. The Unicode [Terms of Use](https://www.unicode.org/copyright.html) apply.
 
 Unicode and the Unicode logo are trademarks of Unicode, Inc., and are registered in some jurisdictions.

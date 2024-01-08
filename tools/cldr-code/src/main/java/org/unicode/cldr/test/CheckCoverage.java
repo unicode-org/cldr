@@ -53,16 +53,14 @@ public class CheckCoverage extends FactoryCheckCLDR {
     public CheckCLDR handleCheck(
             String path, String fullPath, String value, Options options, List<CheckStatus> result) {
 
-        if (isSkipTest()) {
-            return this;
-        }
-
         CLDRFile resolvedCldrFileToCheck = getResolvedCldrFileToCheck();
 
         // skip if we are not the winning path
         if (!resolvedCldrFileToCheck.isWinningPath(path)) {
             return this;
         }
+
+        if (!accept(result)) return this;
 
         Status status = new Status();
 
@@ -124,7 +122,7 @@ public class CheckCoverage extends FactoryCheckCLDR {
     }
 
     @Override
-    public CheckCLDR setCldrFileToCheck(
+    public CheckCLDR handleSetCldrFileToCheck(
             CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
         setSkipTest(true);
@@ -148,7 +146,7 @@ public class CheckCoverage extends FactoryCheckCLDR {
         }
 
         if (options != null && options.get(Options.Option.CheckCoverage_skip) != null) return this;
-        super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
+        super.handleSetCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         if (localeID.equals(LocaleNames.ROOT)) return this;
 
         requiredLevel = options.getRequiredLevel(localeID);

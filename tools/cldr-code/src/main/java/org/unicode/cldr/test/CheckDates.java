@@ -168,10 +168,10 @@ public class CheckDates extends FactoryCheckCLDR {
     }
 
     @Override
-    public CheckCLDR setCldrFileToCheck(
+    public CheckCLDR handleSetCldrFileToCheck(
             CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
-        super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
+        super.handleSetCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
 
         icuServiceBuilder.setCldrFile(getResolvedCldrFileToCheck());
         // the following is a hack to work around a bug in ICU4J (the snapshot, not the released
@@ -338,6 +338,8 @@ public class CheckDates extends FactoryCheckCLDR {
         if (path.indexOf("/dates") < 0 || path.endsWith("/default") || path.endsWith("/alias")) {
             return this;
         }
+
+        if (!accept(result)) return this;
 
         String sourceLocale = getCldrFileToCheck().getSourceLocaleID(path, status);
 

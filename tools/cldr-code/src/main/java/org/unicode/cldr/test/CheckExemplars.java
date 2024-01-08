@@ -132,10 +132,10 @@ public class CheckExemplars extends FactoryCheckCLDR {
     // Allowed[:script=common:][:script=inherited:][:alphabetic=false:]
 
     @Override
-    public CheckCLDR setCldrFileToCheck(
+    public CheckCLDR handleSetCldrFileToCheck(
             CLDRFile cldrFileToCheck, Options options, List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
-        super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
+        super.handleSetCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         String locale = cldrFileToCheck.getLocaleID();
         isRoot = cldrFileToCheck.getLocaleID().equals("root");
         col = ComparatorUtilities.getIcuCollator(new ULocale(locale), Collator.IDENTICAL);
@@ -173,6 +173,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
             }
             return this;
         }
+        if (!accept(result)) return this;
         XPathParts oparts = XPathParts.getFrozenInstance(path);
         final String exemplarString = oparts.findAttributeValue("exemplarCharacters", "type");
         ExemplarType type =

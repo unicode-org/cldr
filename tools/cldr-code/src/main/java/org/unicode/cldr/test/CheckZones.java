@@ -27,7 +27,7 @@ public class CheckZones extends FactoryCheckCLDR {
     }
 
     @Override
-    public CheckCLDR setCldrFileToCheck(
+    public CheckCLDR handleSetCldrFileToCheck(
             CLDRFile cldrFile, Options options, List<CheckStatus> possibleErrors) {
         if (cldrFile == null) return this;
         //        if (Phase.FINAL_TESTING == getPhase()) {
@@ -37,7 +37,7 @@ public class CheckZones extends FactoryCheckCLDR {
         //            return this;
         //        }
 
-        super.setCldrFileToCheck(cldrFile, options, possibleErrors);
+        super.handleSetCldrFileToCheck(cldrFile, options, possibleErrors);
         try {
             timezoneFormatter = new TimezoneFormatter(getResolvedCldrFileToCheck());
         } catch (RuntimeException e) {
@@ -60,10 +60,9 @@ public class CheckZones extends FactoryCheckCLDR {
             String path, String fullPath, String value, Options options, List<CheckStatus> result) {
         if (fullPath == null) return this; // skip paths that we don't have
         if (path.indexOf("timeZoneNames") < 0 || path.indexOf("usesMetazone") < 0) return this;
+        if (!accept(result)) return this;
         if (timezoneFormatter == null) {
-            if (true) return this;
-            throw new InternalCldrException(
-                    "This should not occur: setCldrFileToCheck must create a TimezoneFormatter.");
+            return this; // error thrown above
         }
         XPathParts parts = XPathParts.getFrozenInstance(path);
 

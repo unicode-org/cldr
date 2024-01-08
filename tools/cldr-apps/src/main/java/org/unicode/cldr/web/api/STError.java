@@ -1,6 +1,7 @@
 package org.unicode.cldr.web.api;
 
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.unicode.cldr.web.SurveyException;
 import org.unicode.cldr.web.SurveyException.ErrorCode;
@@ -64,7 +65,27 @@ public class STError {
      * @return
      */
     public Response build() {
-        return Response.serverError().entity(this).build();
+        return Response.status(getStatus()).entity(this).build();
+    }
+
+    /** the error as a Status */
+    public Status getStatus() {
+        switch (code) {
+            case E_BAD_LOCALE:
+            case E_BAD_SECTION:
+            case E_BAD_XPATH:
+                return Response.Status.NOT_FOUND;
+            case E_NO_PERMISSION:
+                return Response.Status.FORBIDDEN;
+            case E_BAD_VALUE:
+            case E_VOTE_NOT_ACCEPTED:
+                return Response.Status.NOT_ACCEPTABLE;
+            case E_SESSION_DISCONNECTED:
+            case E_NOT_LOGGED_IN:
+                return Response.Status.UNAUTHORIZED;
+            default:
+                return Response.Status.INTERNAL_SERVER_ERROR;
+        }
     }
 
     public static Response surveyNotQuiteReady() {

@@ -3,11 +3,12 @@
 
 package org.unicode.cldr.unittest.web;
 
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
+
 import com.ibm.icu.dev.test.TestFmwk.TestGroup;
 import com.ibm.icu.dev.test.TestLog;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.RuleBasedCollator;
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -19,7 +20,6 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
-import org.unicode.cldr.util.FileReaders;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.web.CLDRProgressIndicator;
@@ -100,7 +100,7 @@ public class TestAll extends TestGroup {
     public static String[] doResetDb(String[] args) {
         if (CLDRConfig.getInstance().getEnvironment() != Environment.UNITTEST) {
             throw new InternalError(
-                    "Error: the CLDRConfig Environment is not UNITTEST. Please set -DCLDR_ENVIRONMENT=UNITTESTS");
+                    "Error: the CLDRConfig Environment is not UNITTEST. Please set -DCLDR_ENVIRONMENT=UNITTEST");
         }
         return args;
     }
@@ -113,7 +113,6 @@ public class TestAll extends TestGroup {
                     TestIntHash.class.getName(),
                     TestXPathTable.class.getName(),
                     TestMisc.class.getName(),
-                    TestSTFactory.class.getName(),
                     TestUserSettingsData.class.getName(),
                     TestAnnotationVotes.class.getName(),
                     TestUserRegistry.class.getName(),
@@ -333,15 +332,6 @@ public class TestAll extends TestGroup {
         };
     }
 
-    /**
-     * Fetch data from jar
-     *
-     * @param name name of thing to load (org.unicode.cldr.unittest.web.data.name)
-     */
-    public static BufferedReader getUTF8Data(String name) throws java.io.IOException {
-        return FileReaders.openFile(TestAll.class, "data/" + name);
-    }
-
     public static final boolean skipIfNoDb() {
         if (!HAVE_TEST_DB) {
             System.err.println(
@@ -351,5 +341,16 @@ public class TestAll extends TestGroup {
             return true;
         }
         return false;
+    }
+
+    /**
+     * @see #skipIfNoDb() - same but for JUnit
+     */
+    public static void assumeHaveDb() {
+        assumeTrue(
+                HAVE_TEST_DB,
+                String.format(
+                        "DB tests skipped because -D%s was not set to a MySQL URL.",
+                        CLDR_TEST_JDBC));
     }
 }

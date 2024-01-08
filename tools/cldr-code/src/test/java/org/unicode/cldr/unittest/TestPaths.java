@@ -377,6 +377,9 @@ public class TestPaths extends TestFmwkPlus {
 
         public void show(int inclusion) {
             for (DtdType dtdType : DtdType.values()) {
+                if (dtdType.getStatus() != DtdType.DtdStatus.active) {
+                    continue;
+                }
                 if (dtdType == DtdType.ldmlICU) {
                     continue;
                 }

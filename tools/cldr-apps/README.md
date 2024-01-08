@@ -6,17 +6,49 @@ The `cldr-apps` subproject builds `cldr-apps.war` which contains the Survey Tool
 packaged for deployment. The Survey Tool is used to collect and confirm translations
 for CLDR.
 
+
+## DB setup
+
+- Setup MySQL or MariaDB
+- Create a database (schema), named `cldrdb` with codepage `latin1` and collation `latin1_bin` (Yes, ironic)
+
+```sql
+CREATE SCHEMA `cldrdb` DEFAULT CHARACTER SET latin1 COLLATE latin1_bin ;
+```
+
+- Create a user `surveytool`
+
+```sql
+create user 'surveytool'@'localhost' IDENTIFIED BY 'your_strong_password';
+```
+
+- Grant the user `surveytool` “all” privileges
+
+```sql
+GRANT ALL PRIVILEGES ON cldrdb.* TO 'surveytool'@'localhost';
+```
+
 ## Building and Running the Survey Tool
 
 Please use the parent [CLDR/tools/pom.xml](../pom.xml) with maven to build and run.
 
 - Copy `src/main/liberty/config/server.env.sample` to `src/main/liberty/config/server.env`
-- Edit that `server.env` file to contain the MySQL credentials for the ST database
-- Use `mvn --file=tools/pom.xml -pl cldr-apps liberty:dev` to run a development
-web server, listening on port 9080
+- Edit that `server.env` file to contain the MySQL credentials for the ST database (from above).
+
+```ini
+MYSQL_USER=surveytool
+MYSQL_PASSWORD=your_strong_password
+MYSQL_DB=cldrdb
+```
+
+- Use `mvn --file=tools/pom.xml -DskipTests=true -pl cldr-apps liberty:dev` to run a development
+web server, listening on port 9080. Hit control-C to cancel the server.
+
 - Navigate to http://localhost:9080/cldr-apps to view the app
 
-See <https://cldr.unicode.org/development/running-survey-tool> for further information
+- See [Configuration](#configuration) below. You will need to restart the server after edit.
+
+See <https://cldr.unicode.org/development/running-survey-tool> for out of date information
 about the Survey Tool.
 
 ## Using Logging
@@ -65,7 +97,7 @@ docker run --rm -p 8025:8025 -p 1025:1025 mailhog/mailhog
 
 Then browse to http://localhost:8025 to watch mail flow in.
 
-Then, setup SurveyTool with these `cldr.properties`:
+Then, setup SurveyTool with these `cldr.properties` (see [Configuration](#configuration))
 
 ```properties
 CLDR_SENDMAIL=true
@@ -89,18 +121,34 @@ mail.smtp.port=1025
 #CLDR_MAIL_BATCHSIZE=0
 ## How long to wait between each mail in the batch.
 CLDR_MAIL_DELAY_BATCH_ITEM=0
-
 ```
+
+### Configuration
+
+SurveyTool is configured with a `cldr.properties` file which is created on first startup. It must be edited before
+SurveyTool can start working, to remove the `CLDR_MAINTENANCE=true` line.
+
+You will also likely want to change the `CLDR_DIR` property in that file to point to your CLDR root, otherwise a new CLDR root will be checked out.
+
+Search for this file in your Java workspace after launching - it may be in a random place. See [Advanced Configuration](#advanced-configuration) below for how to move this directory. On one system the cldr directory was in `tools/cldr-apps/target/liberty/wlp/usr/servers/cldr/cldr`.  On the production and staging servers, the location is `/srv/st/config`
+
+
+#### Advanced Configuration
+
+- There is the file `tools/cldr-apps/src/main/liberty/config/jvm.options` which supplies the default memory settings for SurveyTool, this file is checked in.
+
+- The 'CLDR Home' directory as mentioned above is normally in a random location determined by the server. To fix its location, create a file `tools/cldr-apps/src/main/liberty/config/bootstrap.properties` with the following:
+
+```ini
+org.unicode.cldr.util.CLDRConfigImpl.cldrHome=/Users/srl295/src/cldr-st/config
+```
+
+You will also want to make sure this directory exists and is writeable. You can move the existing `cldr.properties` and other files to that directory.
 
 ### Licenses
 
-- Usage of CLDR data and software is governed by the [Unicode Terms of Use](https://www.unicode.org/copyright.html)
-a copy of which is included as [LICENSE](../../LICENSE).
-
-For more details, see the main [README.md](../../README.md).
+See the main [README.md](../../README.md).
 
 ### Copyright
 
-Copyright &copy; 1991-2021 Unicode, Inc.
-All rights reserved.
-[Terms of use](https://www.unicode.org/copyright.html)
+Copyright © 2004-2024 Unicode, Inc. Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the United States and other countries.

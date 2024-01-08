@@ -151,4 +151,4 @@ See the main [README.md](../../README.md).
 
 ### Copyright
 
-Copyright © 2004-2023 Unicode, Inc. Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the United States and other countries.
+Copyright © 2004-2024 Unicode, Inc. Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the United States and other countries.

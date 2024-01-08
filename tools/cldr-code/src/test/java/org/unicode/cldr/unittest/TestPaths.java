@@ -207,7 +207,6 @@ public class TestPaths extends TestFmwkPlus {
 
     final ImmutableSet<String> ALLOWED_NULL =
             ImmutableSet.of(
-                    "//ldml/dates/timeZoneNames/zone[@type=\"Australia/Currie\"]/exemplarCity",
                     "//ldml/dates/timeZoneNames/zone[@type=\"Pacific/Enderbury\"]/exemplarCity");
 
     /** Is the path allowed to have a null value? */

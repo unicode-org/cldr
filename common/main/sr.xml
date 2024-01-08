@@ -3413,9 +3413,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<regionFormat type="daylight">{0}, летње време</regionFormat>
 			<regionFormat type="standard">{0}, стандардно време</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
-			<zone type="America/Santa_Isabel">
-				<exemplarCity>Санта Изабел</exemplarCity>
-			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>Координисано универзално време</standard>
@@ -3537,9 +3534,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Australia/Melbourne">
 				<exemplarCity>Мелбурн</exemplarCity>
-			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity>Кари</exemplarCity>
 			</zone>
 			<zone type="Australia/Hobart">
 				<exemplarCity>Хобарт</exemplarCity>
@@ -3694,9 +3688,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Creston">
 				<exemplarCity>Крестон</exemplarCity>
 			</zone>
-			<zone type="America/Yellowknife">
-				<exemplarCity>Јелоунајф</exemplarCity>
-			</zone>
 			<zone type="America/Edmonton">
 				<exemplarCity>Едмонтон</exemplarCity>
 			</zone>
@@ -3715,29 +3706,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Resolute">
 				<exemplarCity>Ресолут</exemplarCity>
 			</zone>
-			<zone type="America/Rainy_River">
-				<exemplarCity>Рејни Ривер</exemplarCity>
-			</zone>
 			<zone type="America/Rankin_Inlet">
 				<exemplarCity>Ранкин Инлет</exemplarCity>
 			</zone>
 			<zone type="America/Coral_Harbour">
 				<exemplarCity>Корал Харбур</exemplarCity>
 			</zone>
-			<zone type="America/Thunder_Bay">
-				<exemplarCity>Тандер Беј</exemplarCity>
-			</zone>
-			<zone type="America/Nipigon">
-				<exemplarCity>Нипигон</exemplarCity>
-			</zone>
 			<zone type="America/Toronto">
 				<exemplarCity>Торонто</exemplarCity>
 			</zone>
 			<zone type="America/Iqaluit">
 				<exemplarCity>Иквалуит</exemplarCity>
-			</zone>
-			<zone type="America/Pangnirtung">
-				<exemplarCity>Пангниртунг</exemplarCity>
 			</zone>
 			<zone type="America/Moncton">
 				<exemplarCity>Монктон</exemplarCity>
@@ -4552,17 +4531,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Africa/Dar_es_Salaam">
 				<exemplarCity>Дар-ес-Салам</exemplarCity>
 			</zone>
-			<zone type="Europe/Uzhgorod">
-				<exemplarCity>Ужгород</exemplarCity>
-			</zone>
 			<zone type="Europe/Kiev">
 				<exemplarCity>Кијев</exemplarCity>
 			</zone>
 			<zone type="Europe/Simferopol">
 				<exemplarCity>Симферопољ</exemplarCity>
-			</zone>
-			<zone type="Europe/Zaporozhye">
-				<exemplarCity>Запорожје</exemplarCity>
 			</zone>
 			<zone type="Africa/Kampala">
 				<exemplarCity>Кампала</exemplarCity>
@@ -4581,9 +4554,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Pacific/Honolulu">
 				<exemplarCity>Хонолулу</exemplarCity>
-			</zone>
-			<zone type="Pacific/Johnston">
-				<exemplarCity>Џонстон</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>Енкориџ</exemplarCity>
@@ -5339,13 +5309,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<metazone type="Mawson">
 				<long>
 					<standard>Мосон време</standard>
-				</long>
-			</metazone>
-			<metazone type="Mexico_Northwest">
-				<long>
-					<generic>Северозападни Мексико</generic>
-					<standard>Северозападни Мексико, стандардно време</standard>
-					<daylight>Северозападни Мексико, летње време</daylight>
 				</long>
 			</metazone>
 			<metazone type="Mexico_Pacific">

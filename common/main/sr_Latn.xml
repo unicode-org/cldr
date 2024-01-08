@@ -3412,9 +3412,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="daylight">{0}, letnje vreme</regionFormat>
 			<regionFormat type="standard">{0}, standardno vreme</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
-			<zone type="America/Santa_Isabel">
-				<exemplarCity>Santa Izabel</exemplarCity>
-			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>Koordinisano univerzalno vreme</standard>
@@ -3536,9 +3533,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Australia/Melbourne">
 				<exemplarCity>Melburn</exemplarCity>
-			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity>Kari</exemplarCity>
 			</zone>
 			<zone type="Australia/Hobart">
 				<exemplarCity>Hobart</exemplarCity>
@@ -3693,9 +3687,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/Creston">
 				<exemplarCity>Kreston</exemplarCity>
 			</zone>
-			<zone type="America/Yellowknife">
-				<exemplarCity>Jelounajf</exemplarCity>
-			</zone>
 			<zone type="America/Edmonton">
 				<exemplarCity>Edmonton</exemplarCity>
 			</zone>
@@ -3714,29 +3705,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/Resolute">
 				<exemplarCity>Resolut</exemplarCity>
 			</zone>
-			<zone type="America/Rainy_River">
-				<exemplarCity>Rejni River</exemplarCity>
-			</zone>
 			<zone type="America/Rankin_Inlet">
 				<exemplarCity>Rankin Inlet</exemplarCity>
 			</zone>
 			<zone type="America/Coral_Harbour">
 				<exemplarCity>Koral Harbur</exemplarCity>
 			</zone>
-			<zone type="America/Thunder_Bay">
-				<exemplarCity>Tander Bej</exemplarCity>
-			</zone>
-			<zone type="America/Nipigon">
-				<exemplarCity>Nipigon</exemplarCity>
-			</zone>
 			<zone type="America/Toronto">
 				<exemplarCity>Toronto</exemplarCity>
 			</zone>
 			<zone type="America/Iqaluit">
 				<exemplarCity>Ikvaluit</exemplarCity>
-			</zone>
-			<zone type="America/Pangnirtung">
-				<exemplarCity>Pangnirtung</exemplarCity>
 			</zone>
 			<zone type="America/Moncton">
 				<exemplarCity>Monkton</exemplarCity>
@@ -4551,17 +4530,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Africa/Dar_es_Salaam">
 				<exemplarCity>Dar-es-Salam</exemplarCity>
 			</zone>
-			<zone type="Europe/Uzhgorod">
-				<exemplarCity>Užgorod</exemplarCity>
-			</zone>
 			<zone type="Europe/Kiev">
 				<exemplarCity>Kijev</exemplarCity>
 			</zone>
 			<zone type="Europe/Simferopol">
 				<exemplarCity>Simferopolj</exemplarCity>
-			</zone>
-			<zone type="Europe/Zaporozhye">
-				<exemplarCity>Zaporožje</exemplarCity>
 			</zone>
 			<zone type="Africa/Kampala">
 				<exemplarCity>Kampala</exemplarCity>
@@ -4580,9 +4553,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Pacific/Honolulu">
 				<exemplarCity>Honolulu</exemplarCity>
-			</zone>
-			<zone type="Pacific/Johnston">
-				<exemplarCity>Džonston</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>Enkoridž</exemplarCity>
@@ -5338,13 +5308,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<metazone type="Mawson">
 				<long>
 					<standard>Moson vreme</standard>
-				</long>
-			</metazone>
-			<metazone type="Mexico_Northwest">
-				<long>
-					<generic>Severozapadni Meksiko</generic>
-					<standard>Severozapadni Meksiko, standardno vreme</standard>
-					<daylight>Severozapadni Meksiko, letnje vreme</daylight>
 				</long>
 			</metazone>
 			<metazone type="Mexico_Pacific">

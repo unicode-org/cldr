@@ -3920,9 +3920,6 @@ annotations.
 			<zone type="Asia/Qostanay">
 				<exemplarCity>Kostanay</exemplarCity>
 			</zone>
-			<zone type="Europe/Uzhgorod">
-				<exemplarCity>Uzhhorod</exemplarCity>
-			</zone>
 			<zone type="Pacific/Honolulu">
 				<short>
 					<generic>HST</generic>
@@ -4363,6 +4360,13 @@ annotations.
 					<standard>GMT</standard>
 				</short>
 			</metazone>
+			<metazone type="Greenland">
+				<long>
+					<generic>Greenland Time</generic>
+					<standard>Greenland Standard Time</standard>
+					<daylight>Greenland Summer Time</daylight>
+				</long>
+			</metazone>
 			<metazone type="Greenland_Eastern">
 				<long>
 					<generic>East Greenland Time</generic>
@@ -4583,13 +4587,6 @@ annotations.
 			<metazone type="Mawson">
 				<long>
 					<standard>Mawson Time</standard>
-				</long>
-			</metazone>
-			<metazone type="Mexico_Northwest">
-				<long>
-					<generic>Northwest Mexico Time</generic>
-					<standard>Northwest Mexico Standard Time</standard>
-					<daylight>Northwest Mexico Daylight Time</daylight>
 				</long>
 			</metazone>
 			<metazone type="Mexico_Pacific">

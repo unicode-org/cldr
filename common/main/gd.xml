@@ -4407,9 +4407,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="daylight">Tìde samhraidh: {0}</regionFormat>
 			<regionFormat type="standard">Bun-àm: {0}</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
-			<zone type="America/Santa_Isabel">
-				<exemplarCity>Santa Isabel</exemplarCity>
-			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>Àm Uile-choitcheann Co-òrdanaichte</standard>
@@ -4534,9 +4531,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="Australia/Melbourne">
 				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity>Currie</exemplarCity>
 			</zone>
 			<zone type="Australia/Hobart">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -4691,9 +4685,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/Creston">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
-			<zone type="America/Yellowknife">
-				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
 			<zone type="America/Edmonton">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
@@ -4712,19 +4703,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="America/Resolute">
 				<exemplarCity>Qausuittuq</exemplarCity>
 			</zone>
-			<zone type="America/Rainy_River">
-				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
 			<zone type="America/Rankin_Inlet">
 				<exemplarCity>Kangiqliniq</exemplarCity>
 			</zone>
 			<zone type="America/Coral_Harbour">
-				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
-			<zone type="America/Thunder_Bay">
-				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
-			<zone type="America/Nipigon">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Toronto">
@@ -4732,9 +4714,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="America/Iqaluit">
 				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
-			<zone type="America/Pangnirtung">
-				<exemplarCity>Pangniqtuuq</exemplarCity>
 			</zone>
 			<zone type="America/Moncton">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -5555,16 +5534,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<zone type="Africa/Dar_es_Salaam">
 				<exemplarCity>Dàr as-Salàm</exemplarCity>
 			</zone>
-			<zone type="Europe/Uzhgorod">
-				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
 			<zone type="Europe/Kiev">
 				<exemplarCity>Kiev</exemplarCity>
 			</zone>
 			<zone type="Europe/Simferopol">
-				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
-			<zone type="Europe/Zaporozhye">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Africa/Kampala">
@@ -5589,9 +5562,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>HDT</daylight>
 				</short>
 				<exemplarCity>Honolulu</exemplarCity>
-			</zone>
-			<zone type="Pacific/Johnston">
-				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -6387,13 +6357,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<metazone type="Mawson">
 				<long>
 					<standard>Àm Mhawson</standard>
-				</long>
-			</metazone>
-			<metazone type="Mexico_Northwest">
-				<long>
-					<generic>Àm Mheagsago an Iar-thuath</generic>
-					<standard>Bun-àm Mheagsago an Iar-thuath</standard>
-					<daylight>Tìde samhraidh Mheagsago an Iar-thuath</daylight>
 				</long>
 			</metazone>
 			<metazone type="Mexico_Pacific">

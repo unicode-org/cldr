@@ -68,6 +68,7 @@ public class LogicalGrouping {
                     "Falkland",
                     "Fiji",
                     "Georgia",
+                    "Greenland",
                     "Greenland_Eastern",
                     "Greenland_Western",
                     "Hawaii_Aleutian",

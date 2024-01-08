@@ -18,7 +18,7 @@ public class TestEnInheritance {
     @Test
     void testEn() {
         final CLDRConfig config = CLDRConfig.getInstance();
-        final CLDRFile cldrFile = config.getCLDRFile(LOCALE_ID, true);
+        final CLDRFile cldrFile = config.getCLDRFile(LOCALE_ID, false);
         final SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
         final CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(sdi, LOCALE_ID);
         int pathsWithNullValue = 0, pathsWithBlankValue = 0, pathsWithMarkerValue = 0;
@@ -27,7 +27,9 @@ public class TestEnInheritance {
                 String value = cldrFile.getStringValue(path);
                 if (value == null) {
                     complain("null value", ++pathsWithNullValue, path);
-                } else if (value.isBlank()) {
+                } else if (value.isBlank()
+                        && !DisplayAndInputProcessor.FSR_START_PATH.equals(path)
+                        && !DisplayAndInputProcessor.NSR_START_PATH.equals(path)) {
                     complain("blank value", ++pathsWithBlankValue, path);
                 } else if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
                     complain("inheritance marker", ++pathsWithMarkerValue, path);

@@ -14,6 +14,6 @@ CLDR main page: [https://www.unicode.org/cldr](unicode.org/cldr)
 
 ##### Copyright
 
-Copyright &copy; 1991-2023 Unicode, Inc.
+Copyright &copy; 1991-2024 Unicode, Inc.
 All rights reserved.
 [Terms of use](https://www.unicode.org/copyright.html)

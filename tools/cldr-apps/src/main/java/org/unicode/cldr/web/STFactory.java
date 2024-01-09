@@ -1926,14 +1926,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     /*
      * votes sometime table
      *
-     * DERBY create table cldr_v22submission ( xpath integer not null, locale
-     * varchar(20) ); create unique index cldr_v22submission_uq on
-     * cldr_v22submission ( xpath, locale );
-     *
-     * insert into cldr_v22submission select distinct
-     * cldr_votevalue.xpath,cldr_votevalue.locale from cldr_votevalue where
-     * cldr_votevalue.value is not null;
-     *
      *
      * MYSQL drop table if exists cldr_v22submission; create table
      * cldr_v22submission ( primary key(xpath,locale),key(locale) ) select
@@ -1943,7 +1935,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     public CLDRFile makeProposedFile(CLDRLocale locale) {
 
         Connection conn = null;
-        PreparedStatement ps = null; // all for mysql, or 1st step for derby
+        PreparedStatement ps = null; // all for mysql
         ResultSet rs = null;
         SimpleXMLSource sxs = new SimpleXMLSource(locale.getBaseName());
         try {

@@ -633,7 +633,7 @@ public class UserRegistry {
                 if (!hadUserTable) {
                     createUserTable(conn);
                     conn.commit();
-                } else if (!DBUtils.db_Derby) {
+                } else {
                     /* update table to DATETIME instead of TIMESTAMP */
                     Statement s = conn.createStatement();
                     sql = "alter table cldr_users change lastlogin lastlogin DATETIME";

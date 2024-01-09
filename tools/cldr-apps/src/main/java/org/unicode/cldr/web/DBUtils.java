@@ -78,30 +78,25 @@ public class DBUtils {
     }
 
     // === DB workarounds
-    public static String DB_SQL_IDENTITY = "GENERATED ALWAYS AS IDENTITY";
-    public static String DB_SQL_VARCHARXPATH = "varchar(1024)";
-    public static String DB_SQL_WITHDEFAULT = "WITH DEFAULT";
-    public static String DB_SQL_TIMESTAMP0 = "TIMESTAMP";
-    public static String DB_SQL_CURRENT_TIMESTAMP0 = "CURRENT_TIMESTAMP";
-    public static String DB_SQL_MIDTEXT = "VARCHAR(1024)";
-    public static String DB_SQL_BIGTEXT = "VARCHAR(16384)";
-    public static String DB_SQL_UNICODE = "VARCHAR(16384)"; // unicode type
+    public static final String DB_SQL_IDENTITY = "AUTO_INCREMENT PRIMARY KEY";
+    public static final String DB_SQL_VARCHARXPATH = "TEXT(1000)";
+    public static final String DB_SQL_WITHDEFAULT = "DEFAULT";
+    public static final String DB_SQL_TIMESTAMP0 = "DATETIME";
+    public static final String DB_SQL_CURRENT_TIMESTAMP0 = "'1999-12-31 23:59:59'"; // NOW?
+    public static final String DB_SQL_MIDTEXT = "TEXT(1024)";
+    public static final String DB_SQL_BIGTEXT = "TEXT(16384)";
+    public static final String DB_SQL_UNICODE = "BLOB";
     // string
-    public static String DB_SQL_LAST_MOD_TYPE = "TIMESTAMP";
-    public static String DB_SQL_LAST_MOD =
-            " last_mod TIMESTAMP NOT NULL WITH DEFAULT CURRENT_TIMESTAMP  ";
-    public static String DB_SQL_ALLTABLES =
-            "select tablename from SYS.SYSTABLES where tabletype='T'";
-    public static String DB_SQL_BINCOLLATE = "";
-    public static String DB_SQL_ENGINE_INNO = "";
-    public static String DB_SQL_MB4 = "";
+    public static final String DB_SQL_LAST_MOD_TYPE = "TIMESTAMP";
+    public static final String DB_SQL_LAST_MOD =
+            " last_mod TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP ";
+    public static final String DB_SQL_ALLTABLES = "show tables";
+    public static final String DB_SQL_BINCOLLATE = " COLLATE latin1_bin ";
+    public static final String DB_SQL_ENGINE_INNO = "ENGINE=InnoDB";
+    public static final String DB_SQL_MB4 = " CHARACTER SET utf8mb4 COLLATE utf8mb4_bin";
     public static int db_number_open = 0;
     public static int db_number_used = 0;
-    private static int db_UnicodeType = java.sql.Types.VARCHAR; /*
-                                                                * for setNull -
-                                                                * see
-                                                                * java.sql.Types
-                                                                */
+    private static final int db_UnicodeType = java.sql.Types.BLOB;
     /** the StackTracker can track unclosed connections */
     private static final StackTracker tracker = DEBUG ? new StackTracker() : null;
 
@@ -492,7 +487,6 @@ public class DBUtils {
                                     + dmd.getDriverName()
                                     + " ver "
                                     + dmd.getDriverVersion();
-                    setupSqlForServerType();
                     SurveyLog.debug("Metadata: " + dbInfo);
                 }
             } catch (SQLException t) {
@@ -541,13 +535,11 @@ public class DBUtils {
                 c = getDBConnection();
                 DatabaseMetaData dmd = c.getMetaData();
                 dbInfo = dmd.getDatabaseProductName() + " v" + dmd.getDatabaseProductVersion();
-                setupSqlForServerType();
             } else {
                 throw new NullPointerException("DBUtils(): DataSource and URL are both null/empty");
             }
             DatabaseMetaData dmd = c.getMetaData();
             dbInfo = dmd.getDatabaseProductName() + " v" + dmd.getDatabaseProductVersion();
-            setupSqlForServerType();
             c.setAutoCommit(false);
             boolean autoCommit = c.getAutoCommit();
             if (autoCommit) {
@@ -576,29 +568,6 @@ public class DBUtils {
                     tt.printStackTrace();
                 }
         }
-    }
-
-    private void setupSqlForServerType() {
-        SurveyLog.debug("setting up SQL for MySQL");
-        logger.info("setting up SQL for MySQL mode");
-        // db_Mysql = true;
-        DB_SQL_IDENTITY = "AUTO_INCREMENT PRIMARY KEY";
-        DB_SQL_BINCOLLATE = " COLLATE latin1_bin ";
-        DB_SQL_MB4 = " CHARACTER SET utf8mb4 COLLATE utf8mb4_bin";
-        DB_SQL_VARCHARXPATH = "TEXT(1000)";
-        DB_SQL_WITHDEFAULT = "DEFAULT";
-        DB_SQL_TIMESTAMP0 = "DATETIME";
-        DB_SQL_LAST_MOD_TYPE = "TIMESTAMP";
-        DB_SQL_LAST_MOD =
-                " last_mod TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP ";
-        DB_SQL_CURRENT_TIMESTAMP0 = "'1999-12-31 23:59:59'"; // NOW?
-        DB_SQL_MIDTEXT = "TEXT(1024)";
-        DB_SQL_BIGTEXT = "TEXT(16384)";
-        DB_SQL_UNICODE = "BLOB";
-        db_UnicodeType = java.sql.Types.BLOB;
-        DB_SQL_ALLTABLES = "show tables";
-
-        DB_SQL_ENGINE_INNO = "ENGINE=InnoDB";
     }
 
     public void doShutdown() throws SQLException {

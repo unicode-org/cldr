@@ -1023,7 +1023,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         String q = ctx.field("q");
         boolean tblsel = false;
         printAdminMenu(ctx);
-        ctx.println("<h1>SQL Console (" + DBUtils.getDBKind() + ")</h1>");
+        ctx.println("<h1>SQL Console</h1>");
 
         ctx.println(
                 "<i style='font-size: small; color: silver;'>"

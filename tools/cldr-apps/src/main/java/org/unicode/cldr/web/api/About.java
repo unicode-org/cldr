@@ -19,7 +19,6 @@ import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.unicode.cldr.util.CLDRConfigImpl;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.web.CookieSession;
-import org.unicode.cldr.web.DBUtils;
 import org.unicode.cldr.web.SurveyMain;
 
 @Path("/about")
@@ -96,7 +95,7 @@ public class About {
             org.unicode.cldr.web.DBUtils d = org.unicode.cldr.web.DBUtils.getInstance();
             if (d != null) {
                 r.put("hasDataSource", Boolean.toString(d.hasDataSource()));
-                r.put("dbKind", DBUtils.getDBKind());
+                r.put("dbKind", "MySQL");
                 r.put("dbInfo", d.getDBInfo());
             }
         }

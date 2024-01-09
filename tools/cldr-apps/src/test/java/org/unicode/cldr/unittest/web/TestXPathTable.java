@@ -29,7 +29,7 @@ public class TestXPathTable extends TestFmwk {
     public void TestPutGet() throws SQLException {
         if (TestAll.skipIfNoDb()) return;
         logln("Testing " + TEST_COUNT + " xpaths");
-        Connection conn = DBUtils.getInstance().getDBConnection();
+        Connection conn = DBUtils.getInstance().getAConnection();
         XPathTable xpt = XPathTable.createTable(conn);
         DBUtils.closeDBConnection(conn);
         HashMap<Integer, String> s = new HashMap<>();
@@ -111,7 +111,7 @@ public class TestXPathTable extends TestFmwk {
 
     public void TestNonDistinguishing() throws SQLException {
         if (TestAll.skipIfNoDb()) return;
-        Connection conn = DBUtils.getInstance().getDBConnection();
+        Connection conn = DBUtils.getInstance().getAConnection();
         XPathTable xpt = XPathTable.createTable(conn);
         DBUtils.closeDBConnection(conn);
 

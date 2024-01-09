@@ -684,7 +684,7 @@ public class TestSTFactory {
                 new File(CLDRPaths.BASE_DIRECTORY, "seed/annotations/").getAbsolutePath();
 
         et0 = new ElapsedTimer("setup DB");
-        Connection conn = DBUtils.getInstance().getDBConnection();
+        Connection conn = DBUtils.getInstance().getAConnection();
         System.err.println(et0.toString());
 
         et0 = new ElapsedTimer("setup Registry");

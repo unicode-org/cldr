@@ -308,6 +308,47 @@ For extensibility, the `<special>` element will be allowed at nearly every level
 
 See [Element special](tr35.md#special) in Part 1.
 
+## Normalization
+
+Normalization will not typically be the responsibility of the keyboard author, rather this will be managed by the implementation.
+The implementation will apply normalization as appropriate when matching transform rules and `<display>` value matching.
+Output from the keyboard, following application of all transform rules, will be normalized to implementation- or application-requested form.
+
+The attribute value `normalization="disabled"` can be used to indicate that no automatic normalization happens.
+Using this setting is not recommended. See [`<settings>`](#element-settings) for details.
+
+Input source files may be in any normalization format, however, authors should be aware of two areas where normalization affects keyboard operation: that of transform matching, and that of output.
+
+### Normalization and Transform Matching
+
+Regardless of the normalization form in the keyboard source file or in the edit buffer context, transform matching will be performed using **NFD**. For example, all of the following transforms will match the input strings `è̠`, whether the input is U+00E8 U+0320, U+0065 U+0320 U+0300, or U+0065 U+0300 U+0320.
+
+```xml
+<transform from="e\u{0300}\u{0320}" /> <!-- Non-NFD but will match -->
+<transform from="e\u{0320}\u{0300}" />
+<transform from="\u{00E8}\u{0320}" /> <!-- è + U+0320 -->
+```
+
+#### Normalization and Markers
+
+A special issue occurs when markers are involved. The markers may be reordered along with characters.
+
+For example, the string `e\u{0300}\u{0320}` will be reordered in NFD to `e\u{0320}\u{0300}`.
+
+If a marker is included, then `e\u{0300}\m{marker}\u{0320}` will be reordered to `e\m{marker}\u{0320}\u{0300}`. The principle is that the marker stays glued to the following character, in this case the U+0320.
+
+TODO
+
+- If the marker is at the end of the string.
+
+- Normalization is done within grapheme boundaries.
+
+
+### Normalization and Output
+
+On output, text will be normalized into the form requested by that implementation, or possibly specifically requested by a particular application.
+For example, many platforms may request NFC as the output format. In other words, all text emitted via the keyboard will be transformed into NFC.
+
 * * *
 
 ## Element Hierarchy
@@ -561,6 +602,8 @@ _Attribute:_ `normalization="disabled"`
 > Output from the keyboard, following application of all transform rules, will be normalized to implementation or application-requested form.
 >
 > However, it is recognized that there may be some keyboards which, for compatibility or legacy reasons, need to manage their own normalization. The implementation in that case will do no normalization at all. The keyboard author must make use of transforms in the keyboard to any required normalization. In this case, the attribute value `normalization="disabled"` is used to indicate that no automatic normalization happens.
+>
+> See [Normalization](#normalization) for additional details.
 >
 > **Note**: while this attribute is allowed by the specification, its use is discouraged, and keyboards with `normalization="disabled"` would not be accepted into the ClDR repository.
 

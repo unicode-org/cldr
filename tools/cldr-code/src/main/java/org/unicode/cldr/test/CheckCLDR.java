@@ -22,6 +22,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
@@ -62,6 +63,14 @@ import org.unicode.cldr.util.VoteResolver.Status;
  * @author davis
  */
 public abstract class CheckCLDR implements CheckAccessor {
+
+    /** protected so subclasses can use it */
+    protected static Logger logger = Logger.getLogger(CheckCLDR.class.getSimpleName());
+
+    /** set the internal logger level. For ConsoleCheck. */
+    public static void setLoggerLevel(java.util.logging.Level newLevel) {
+        logger.setLevel(newLevel);
+    }
 
     /** serialize CheckCLDR as just its class name */
     public String toString() {
@@ -964,13 +973,15 @@ public abstract class CheckCLDR implements CheckAccessor {
                     }
                 } catch (Exception e) {
                     message = messageFormat;
-                    System.err.println(
+                    final String failMsg =
                             "MessageFormat Failure: "
                                     + subtype
                                     + "; "
                                     + messageFormat
                                     + "; "
-                                    + (parameters == null ? null : Arrays.asList(parameters)));
+                                    + (parameters == null ? null : Arrays.asList(parameters));
+                    logger.log(java.util.logging.Level.SEVERE, e, () -> failMsg);
+                    System.err.println(failMsg);
                     // throw new IllegalArgumentException(subtype + "; " + messageFormat + "; "
                     // + (parameters == null ? null : Arrays.asList(parameters)), e);
                 }
@@ -1406,6 +1417,19 @@ public abstract class CheckCLDR implements CheckAccessor {
         }
 
         private void addError(List<CheckStatus> result, CheckCLDR item, Exception e) {
+            // send to java.util.logging, useful for servers
+            logger.log(
+                    java.util.logging.Level.SEVERE,
+                    e,
+                    () -> {
+                        String locale = "(unknown)";
+                        if (item.cldrFileToCheck != null) {
+                            locale = item.cldrFileToCheck.getLocaleID();
+                        }
+                        return String.format(
+                                "Internal error: %s in %s", item.getClass().getName(), locale);
+                    });
+            // also add as a check
             result.add(
                     new CheckStatus()
                             .setCause(this)

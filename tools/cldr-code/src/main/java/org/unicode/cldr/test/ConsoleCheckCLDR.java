@@ -344,6 +344,8 @@ public class ConsoleCheckCLDR {
      * @throws Throwable
      */
     public static void main(String[] args) throws Throwable {
+        // turn off logging to not mess up html and other output.
+        CheckCLDR.setLoggerLevel(java.util.logging.Level.OFF);
         MyOptions.parse(args, true);
         ElapsedTimer totalTimer = new ElapsedTimer();
         UOption.parseArgs(args, options);

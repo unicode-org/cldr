@@ -11,39 +11,10 @@ import "ant-design-vue/dist/antd.min.css";
 
 import * as cldrGui from "./esm/cldrGui.mjs";
 import * as cldrVue from "./esm/cldrVue.mjs";
+import * as cldrMonitoring from "./esm/cldrMonitoring.mjs";
 
-import { datadogRum } from "@datadog/browser-rum";
-import { datadogLogs } from "@datadog/browser-logs";
-
-if (window.dataDogClientToken) {
-  datadogLogs.init({
-    clientToken: window.dataDogClientToken,
-    site: "us5.datadoghq.com",
-    forwardErrorsToLogs: true,
-    sessionSampleRate: 100,
-  });
-
-  datadogRum.init({
-    applicationId: window.dataDogAppId,
-    clientToken: window.dataDogClientToken,
-    site: "us5.datadoghq.com",
-    service: "surveytool",
-    env: window.dataDogEnv,
-    version: "r" + window.dataDogSha,
-    sessionSampleRate: 100,
-    sessionReplaySampleRate: 20,
-    trackUserInteractions: true,
-    trackResources: true,
-    trackLongTasks: true,
-    defaultPrivacyLevel: "allow",
-    allowedTracingUrls: [
-      {
-        match: /https:\/\/.*\.unicode\.org/,
-        propagatorTypes: ["tracecontext"],
-      },
-    ],
-  });
-}
+// kick off the top level monitoring
+cldrMonitoring.init();
 
 /**
  * This is called as cldrBundle.runGui by way of JavaScript embedded in HTML

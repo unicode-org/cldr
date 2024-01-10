@@ -226,7 +226,7 @@ public class SurveyTool extends HttpServlet {
     private static final String DD_ENV = System.getProperty("dd.env", "");
 
     /** if DD_CLIENT_TOKEN is set, set these variables so index.js can pick them up. */
-    public static void includeDatadog(Writer out) throws IOException {
+    public static void includeMonitoring(Writer out) throws IOException {
         if (DD_CLIENT_TOKEN != null && !DD_CLIENT_TOKEN.isEmpty()) {
             out.write(
                     String.format(
@@ -252,7 +252,7 @@ public class SurveyTool extends HttpServlet {
      */
     public static void includeJavaScript(HttpServletRequest request, Writer out)
             throws IOException, JSONException {
-        includeDatadog(out);
+        includeMonitoring(out);
         // Load the big bundle
         out.write(
                 "<script src=\"dist/bundle"

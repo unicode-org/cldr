@@ -2,7 +2,6 @@ package org.unicode.cldr.test;
 
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
-import com.google.common.collect.ImmutableList;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map.Entry;
@@ -62,11 +61,19 @@ public class TestCache implements XMLSource.Listener {
              */
             result.clear();
             Pair<String, String> key = new Pair<>(path, value);
-            List<CheckStatus> cachedResult = pathCache.computeIfAbsent(key, (Pair<String, String> k) -> {
-                List<CheckStatus> l = new ArrayList<CheckStatus>();
-                cc.check(k.getFirst(), file.getFullXPath(k.getFirst()), k.getSecond(), options, l);
-                return l;
-            });
+            List<CheckStatus> cachedResult =
+                    pathCache.computeIfAbsent(
+                            key,
+                            (Pair<String, String> k) -> {
+                                List<CheckStatus> l = new ArrayList<CheckStatus>();
+                                cc.check(
+                                        k.getFirst(),
+                                        file.getFullXPath(k.getFirst()),
+                                        k.getSecond(),
+                                        options,
+                                        l);
+                                return l;
+                            });
             if (cachedResult != null) {
                 result.addAll(cachedResult);
             }
@@ -91,6 +98,7 @@ public class TestCache implements XMLSource.Listener {
     private Cache<CheckCLDR.Options, TestResultBundle> testResultCache =
             CacheBuilder.newBuilder()
                     .maximumSize(CLDRConfig.getInstance().getProperty("CLDR_TESTCACHE_SIZE", 12))
+                    .concurrencyLevel(1)
                     .softValues()
                     .build();
 

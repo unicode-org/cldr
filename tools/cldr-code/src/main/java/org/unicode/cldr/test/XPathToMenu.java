@@ -318,6 +318,7 @@ final class XPathToMenu {
         "Amazon", "America",
         "Long_Shu", "Asia",
         "Samara", "Europe",
+        "Greenland", "America",
     };
 
     private XPathToMenu() {}

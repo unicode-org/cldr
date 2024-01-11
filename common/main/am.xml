@@ -3571,9 +3571,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<regionFormat type="daylight">{0} የቀን ብርሃን ሰዓት</regionFormat>
 			<regionFormat type="standard">{0} መደበኛ ሰዓት</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
-			<zone type="America/Santa_Isabel">
-				<exemplarCity>ሳንታ ኢዛቤል</exemplarCity>
-			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>የተቀነባበረ ሁለገብ ሰዓት</standard>
@@ -3695,9 +3692,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Australia/Melbourne">
 				<exemplarCity>ሜልቦርን</exemplarCity>
-			</zone>
-			<zone type="Australia/Currie">
-				<exemplarCity>ከሪ</exemplarCity>
 			</zone>
 			<zone type="Australia/Hobart">
 				<exemplarCity>ሆባርት</exemplarCity>
@@ -3852,9 +3846,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Creston">
 				<exemplarCity>ክረስተን</exemplarCity>
 			</zone>
-			<zone type="America/Yellowknife">
-				<exemplarCity>የሎውናይፍ</exemplarCity>
-			</zone>
 			<zone type="America/Edmonton">
 				<exemplarCity>ኤድመንተን</exemplarCity>
 			</zone>
@@ -3873,29 +3864,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="America/Resolute">
 				<exemplarCity>ሪዞሊዩት</exemplarCity>
 			</zone>
-			<zone type="America/Rainy_River">
-				<exemplarCity>ሬኒ ሪቨር</exemplarCity>
-			</zone>
 			<zone type="America/Rankin_Inlet">
 				<exemplarCity>ራንኪን ኢንሌት</exemplarCity>
 			</zone>
 			<zone type="America/Coral_Harbour">
 				<exemplarCity>አቲኮካን</exemplarCity>
 			</zone>
-			<zone type="America/Thunder_Bay">
-				<exemplarCity>ተንደር ቤይ</exemplarCity>
-			</zone>
-			<zone type="America/Nipigon">
-				<exemplarCity>ኒፒጎን</exemplarCity>
-			</zone>
 			<zone type="America/Toronto">
 				<exemplarCity>ቶሮንቶ</exemplarCity>
 			</zone>
 			<zone type="America/Iqaluit">
 				<exemplarCity>ኢኳሊውት</exemplarCity>
-			</zone>
-			<zone type="America/Pangnirtung">
-				<exemplarCity>ፓንግኒርተንግ</exemplarCity>
 			</zone>
 			<zone type="America/Moncton">
 				<exemplarCity>ሞንክቶን</exemplarCity>
@@ -4710,17 +4689,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Africa/Dar_es_Salaam">
 				<exemplarCity>ዳሬ ሰላም</exemplarCity>
 			</zone>
-			<zone type="Europe/Uzhgorod">
-				<exemplarCity>ኡዝጎሮድ</exemplarCity>
-			</zone>
 			<zone type="Europe/Kiev">
 				<exemplarCity>ኪየቭ</exemplarCity>
 			</zone>
 			<zone type="Europe/Simferopol">
 				<exemplarCity>ሲምፈሮፖል</exemplarCity>
-			</zone>
-			<zone type="Europe/Zaporozhye">
-				<exemplarCity>ዛፖሮዚይ</exemplarCity>
 			</zone>
 			<zone type="Africa/Kampala">
 				<exemplarCity>ካምፓላ</exemplarCity>
@@ -4739,9 +4712,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="Pacific/Honolulu">
 				<exemplarCity>ሆኖሉሉ</exemplarCity>
-			</zone>
-			<zone type="Pacific/Johnston">
-				<exemplarCity>ጆንስተን</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>አንኮራጅ</exemplarCity>
@@ -5434,13 +5404,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<metazone type="Mawson">
 				<long>
 					<standard>የማውሰን ሰዓት</standard>
-				</long>
-			</metazone>
-			<metazone type="Mexico_Northwest">
-				<long>
-					<generic>ሰሜናዊ ምእራብ የሜክሲኮ ሰዓት አቆጣጠር</generic>
-					<standard>ሰሜናዊ ምእራብ የሜክሲኮ መደበኛ ሰዓት አቆጣጠር</standard>
-					<daylight>ሰሜናዊ ምእራብ የሜክሲኮ የቀን ሰዓት አቆጣጠር</daylight>
 				</long>
 			</metazone>
 			<metazone type="Mexico_Pacific">

@@ -471,9 +471,15 @@
 //supplementalData/currencyData/fractions/info[@iso4217="%A"]/_%E			; Supplemental ; Currency ; $1 ; Fractions-$2 ; HIDE
 //supplementalData/codeMappings/currencyCodes[@type="%A"]/_numeric			; Supplemental ; Currency ; $1 ; NumericCode ; HIDE
 
-//supplementalData/currencyData/region[@iso3166="%A"]/currency[@from="%A"][@to="%A"][@iso4217="%A"]/_tender			; Supplemental ; Currency ; $1 ; $4–$2–$3 ; HIDE
-//supplementalData/currencyData/region[@iso3166="%A"]/currency[@to="%A"][@iso4217="%A"]/_tender			; Supplemental ; Currency ; $1 ; $3–-∞..$2 ; HIDE
-//supplementalData/currencyData/region[@iso3166="%A"]/currency[@from="%A"][@iso4217="%A"]/_tender			; Supplemental ; Currency ; $1 ; $3–$2..∞ ; HIDE
+//supplementalData/currencyData/region[@iso3166="%A"]/currency[@iso4217="%A"][@from="%A"][@to="%A"]/_tender			; Supplemental ; Currency ; $1 ; $2–$3–$4 ; HIDE
+//supplementalData/currencyData/region[@iso3166="%A"]/currency[@iso4217="%A"][@from="%A"][@to="%A"]/_tz				; Supplemental ; Currency ; $1 ; $2–$3–$4 ; HIDE
+//supplementalData/currencyData/region[@iso3166="%A"]/currency[@iso4217="%A"][@from="%A"][@to="%A"]/_to-tz			; Supplemental ; Currency ; $1 ; $2–$3–$4 ; HIDE
+//supplementalData/currencyData/region[@iso3166="%A"]/currency[@iso4217="%A"][@to="%A"]/_tender			; Supplemental ; Currency ; $1 ; $2–-∞..$3 ; HIDE
+//supplementalData/currencyData/region[@iso3166="%A"]/currency[@iso4217="%A"][@to="%A"]/_tz				; Supplemental ; Currency ; $1 ; $2–-∞..$3 ; HIDE
+//supplementalData/currencyData/region[@iso3166="%A"]/currency[@iso4217="%A"][@to="%A"]/_to-tz			; Supplemental ; Currency ; $1 ; $2–-∞..$3 ; HIDE
+//supplementalData/currencyData/region[@iso3166="%A"]/currency[@iso4217="%A"][@from="%A"]/_tender			; Supplemental ; Currency ; $1 ; $2–$3..∞ ; HIDE
+//supplementalData/currencyData/region[@iso3166="%A"]/currency[@iso4217="%A"][@from="%A"]/_tz				; Supplemental ; Currency ; $1 ; $2–$3..∞ ; HIDE
+//supplementalData/currencyData/region[@iso3166="%A"]/currency[@iso4217="%A"][@from="%A"]/_to-tz			; Supplemental ; Currency ; $1 ; $2–$3..∞ ; HIDE
 //supplementalData/currencyData/region[@iso3166="%A"]/currency[@iso4217="%A"]/_tender			; Supplemental ; Currency ; $1 ; $2–-∞..∞; HIDE
 
 //supplementalData/calendarData/calendar[@type="%A"]/eras/era[@type="%A"]/_%E			; Supplemental ; Calendar ; $1 ; $2-$3 ; HIDE

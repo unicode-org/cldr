@@ -75,12 +75,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
     <!-- use from and to instead. -->
     <!--@VALUE-->
     <!--@DEPRECATED-->
+<!ATTLIST currency iso4217 NMTOKEN #REQUIRED >
+    <!--@MATCH:validity/currency-->
 <!ATTLIST currency from NMTOKEN #IMPLIED >
     <!--@MATCH:time/yyyy-MM-dd-->
 <!ATTLIST currency to NMTOKEN #IMPLIED >
     <!--@MATCH:time/yyyy-MM-dd-->
-<!ATTLIST currency iso4217 NMTOKEN #REQUIRED >
-    <!--@MATCH:validity/currency-->
+<!ATTLIST currency tz CDATA #IMPLIED >
+    <!--@MATCH:bcp47/tz-->
+    <!--@VALUE-->
+<!ATTLIST currency to-tz CDATA #IMPLIED >
+    <!--@MATCH:bcp47/tz-->
+    <!--@VALUE-->
 <!ATTLIST currency digits NMTOKEN #IMPLIED >
     <!--@VALUE-->
 <!ATTLIST currency rounding NMTOKEN #IMPLIED >

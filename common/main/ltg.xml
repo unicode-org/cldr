@@ -1,0 +1,1042 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2023 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="ltg"/>
+	</identity>
+	<localeDisplayNames>
+		<localeDisplayPattern>
+			<localePattern>↑↑↑</localePattern>
+			<localeSeparator>↑↑↑</localeSeparator>
+			<localeKeyTypePattern>↑↑↑</localeKeyTypePattern>
+		</localeDisplayPattern>
+		<languages>
+			<language type="en">angļu</language>
+			<language type="ltg">latgalīšu</language>
+			<language type="lv">latvīšu</language>
+		</languages>
+		<territories>
+			<territory type="LV">Latveja</territory>
+		</territories>
+		<codePatterns>
+			<codePattern type="language">Volūda: {0}</codePattern>
+			<codePattern type="script">Raksteiba: {0}</codePattern>
+			<codePattern type="territory">Regions: {0}</codePattern>
+		</codePatterns>
+	</localeDisplayNames>
+	<characters>
+		<exemplarCharacters>[aā b c č d eē f g ģ h iyī j k ķ l ļ m n ņ oō p r s š t uū v z ž]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[q ŗ w x]</exemplarCharacters>
+		<exemplarCharacters type="index">[AĀ B C Č D EĒ F G Ģ H IYĪ J K Ķ L Ļ M N Ņ OŌ P Q R S Š T UŪ V W X Z Ž]</exemplarCharacters>
+		<exemplarCharacters type="punctuation">[\- ‐‑ – — , ; \: ! ? . … '‘’‚ &quot;“”„ ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
+	</characters>
+	<dates>
+		<calendars>
+			<calendar type="generic">
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>EEEE, y. 'goda' d. MMMM G</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>y. 'goda' d. MMMM G</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>y. 'goda' d. MMM G</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>dd.MM.y. GGGGG</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength type="full">
+						<dateTimeFormat>
+							<pattern>{1}, {0}</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="atTime">
+							<pattern>{1} 'pļkst'. {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="long">
+						<dateTimeFormat>
+							<pattern>{1}, {0}</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="atTime">
+							<pattern>{1} 'pļkst'. {0}</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="medium">
+						<dateTimeFormat>
+							<pattern>{1}, {0}</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="short">
+						<dateTimeFormat>
+							<pattern>{1}, {0}</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<availableFormats>
+						<dateFormatItem id="Bh">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Bhm">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Bhms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="d">↑↑↑</dateFormatItem>
+						<dateFormatItem id="E">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EBhm">E, h:mm B</dateFormatItem>
+						<dateFormatItem id="EBhms">E, h:mm:ss B</dateFormatItem>
+						<dateFormatItem id="Ed">E, d.</dateFormatItem>
+						<dateFormatItem id="Ehm">E, h:mm a</dateFormatItem>
+						<dateFormatItem id="EHm">E, HH:mm</dateFormatItem>
+						<dateFormatItem id="Ehms">E, h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="EHms">E, HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="Gy">y. 'g'. G</dateFormatItem>
+						<dateFormatItem id="GyMd">dd-MM-y GGGGG</dateFormatItem>
+						<dateFormatItem id="GyMMM">y. 'g'. MMM G</dateFormatItem>
+						<dateFormatItem id="GyMMMd">y. 'g'. d. MMM G</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">E, y. 'g'. d. MMM G</dateFormatItem>
+						<dateFormatItem id="h">h a</dateFormatItem>
+						<dateFormatItem id="H">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hm">h:mm a</dateFormatItem>
+						<dateFormatItem id="Hm">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="Hms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="M">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Md">dd.MM.</dateFormatItem>
+						<dateFormatItem id="MEd">E, dd.MM.</dateFormatItem>
+						<dateFormatItem id="MMM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMd">d. MMM</dateFormatItem>
+						<dateFormatItem id="MMMEd">E, d. MMM</dateFormatItem>
+						<dateFormatItem id="MMMMd">d. MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMEd">E, d. MMMM</dateFormatItem>
+						<dateFormatItem id="ms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="y">y. 'g'. G</dateFormatItem>
+						<dateFormatItem id="yyyy">y. 'g'. G</dateFormatItem>
+						<dateFormatItem id="yyyyM">MM.y. G</dateFormatItem>
+						<dateFormatItem id="yyyyMd">d.MM.y. G</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">E, d.M.y. G</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">y. 'g'. MMM G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">y. 'g'. d. MMM G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">E, y. 'g'. d. MMM G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">y. 'g'. MMMM G</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ">y. 'g'. QQQ G</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ">y. 'gada' QQQQ G</dateFormatItem>
+					</availableFormats>
+					<intervalFormats>
+						<intervalFormatFallback>{0}–{1}</intervalFormatFallback>
+						<intervalFormatItem id="Bh">
+							<greatestDifference id="B">↑↑↑</greatestDifference>
+							<greatestDifference id="h">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Bhm">
+							<greatestDifference id="B">↑↑↑</greatestDifference>
+							<greatestDifference id="h">↑↑↑</greatestDifference>
+							<greatestDifference id="m">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="d">
+							<greatestDifference id="d">d.–d.</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Gy">
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyM">
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMEd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMM">
+							<greatestDifference id="G">G y. 'goda' MMM – G y 'goda' MMM</greatestDifference>
+							<greatestDifference id="M">G y. 'goda' MMM–MMM</greatestDifference>
+							<greatestDifference id="y">G y. 'goda' MMM – y. 'goda' MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMd">
+							<greatestDifference id="d">G y. 'goda' d.–d. MMM</greatestDifference>
+							<greatestDifference id="G">G y. 'goda' d. MMM – G y. 'goda' d. MMM</greatestDifference>
+							<greatestDifference id="M">G y. 'goda' d. MMM – d. MMM</greatestDifference>
+							<greatestDifference id="y">G y. 'goda' d. MMM – y. 'goda' d. MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMEd">
+							<greatestDifference id="d">G y. 'goda' d. MMM, E – d. MMM, E</greatestDifference>
+							<greatestDifference id="G">G y. 'goda' d. MMM, E – G y. 'goda' d. MMM, E</greatestDifference>
+							<greatestDifference id="M">G y. 'goda' d. MMM, E – d. MMM, E</greatestDifference>
+							<greatestDifference id="y">G y. 'goda' d. MMM, E – y. 'goda' d. MMM, E</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="H">
+							<greatestDifference id="H" draft="contributed">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hm">
+							<greatestDifference id="H" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="m" draft="contributed">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hmv">
+							<greatestDifference id="H" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="m" draft="contributed">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hv">
+							<greatestDifference id="H" draft="contributed">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="M">
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Md">
+							<greatestDifference id="d">dd.MM.–dd.MM.</greatestDifference>
+							<greatestDifference id="M">dd.MM.–dd.MM.</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MEd">
+							<greatestDifference id="d">E, dd.MM.–E, dd.MM.</greatestDifference>
+							<greatestDifference id="M">E, dd.MM.–E, dd.MM.</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMM">
+							<greatestDifference id="M">MMM–MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMd">
+							<greatestDifference id="d">d.–d. MMM</greatestDifference>
+							<greatestDifference id="M">d. MMM–d. MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMEd">
+							<greatestDifference id="d">E, d. MMM–E, d. MMM</greatestDifference>
+							<greatestDifference id="M">E, d. MMM–E, d. MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="y">
+							<greatestDifference id="y">y.–y. G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yM">
+							<greatestDifference id="M">MM.y.–MM.y. GGGGG</greatestDifference>
+							<greatestDifference id="y">MM.y.–MM.y. GGGGG</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMd">
+							<greatestDifference id="d">dd.MM.y.–dd.MM.y. GGGGG</greatestDifference>
+							<greatestDifference id="M">dd.MM.y.–dd.MM.y. GGGGG</greatestDifference>
+							<greatestDifference id="y">dd.MM.y.–dd.MM.y. GGGGG</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMEd">
+							<greatestDifference id="d">E, dd.MM.y.–E, dd.MM.y. GGGGG</greatestDifference>
+							<greatestDifference id="M">E, dd.MM.y.–E, dd.MM.y. GGGGG</greatestDifference>
+							<greatestDifference id="y">E, dd.MM.y.–E, dd.MM.y. GGGGG</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMM">
+							<greatestDifference id="M">y. 'goda' MMM–MMM G</greatestDifference>
+							<greatestDifference id="y">y. 'goda' MMM–y. 'goda' MMM G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMd">
+							<greatestDifference id="d">y. 'goda' d.–d. MMM G</greatestDifference>
+							<greatestDifference id="M">y. 'goda' d. MMM–d. MMM G</greatestDifference>
+							<greatestDifference id="y">y. 'goda' d. MMM–y. 'goda' d. MMM G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMEd">
+							<greatestDifference id="d">E, y. 'goda' d. MMM–E, y. 'goda' d. MMM G</greatestDifference>
+							<greatestDifference id="M">E, y. 'goda' d. MMM–E, y. 'goda' d. MMM G</greatestDifference>
+							<greatestDifference id="y">E, y. 'goda' d. MMM–E, y. 'goda' d. MMM G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMM">
+							<greatestDifference id="M">y. 'goda' MMMM–MMMM G</greatestDifference>
+							<greatestDifference id="y">y. 'goda' MMMM–y. 'goda' MMMM G</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
+			</calendar>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">janv.</month>
+							<month type="2">febr.</month>
+							<month type="3">↑↑↑</month>
+							<month type="4">apr.</month>
+							<month type="5">↑↑↑</month>
+							<month type="6">↑↑↑</month>
+							<month type="7">↑↑↑</month>
+							<month type="8">aug.</month>
+							<month type="9">sept.</month>
+							<month type="10">okt.</month>
+							<month type="11">nov.</month>
+							<month type="12">dec.</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1">jan</month>
+							<month type="2">feb</month>
+							<month type="3">mar</month>
+							<month type="4">apr</month>
+							<month type="5">maj</month>
+							<month type="6">jun</month>
+							<month type="7">juļ</month>
+							<month type="8">aug</month>
+							<month type="9">sep</month>
+							<month type="10">okt</month>
+							<month type="11">nov</month>
+							<month type="12">dec</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">janvars</month>
+							<month type="2">februars</month>
+							<month type="3">marts</month>
+							<month type="4">apreļs</month>
+							<month type="5">majs</month>
+							<month type="6">juņs</month>
+							<month type="7">juļs</month>
+							<month type="8">augusts</month>
+							<month type="9">septembris</month>
+							<month type="10">oktobris</month>
+							<month type="11">novembris</month>
+							<month type="12">decembris</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1">↑↑↑</month>
+							<month type="2">↑↑↑</month>
+							<month type="3">↑↑↑</month>
+							<month type="4">↑↑↑</month>
+							<month type="5">↑↑↑</month>
+							<month type="6">↑↑↑</month>
+							<month type="7">↑↑↑</month>
+							<month type="8">↑↑↑</month>
+							<month type="9">↑↑↑</month>
+							<month type="10">↑↑↑</month>
+							<month type="11">↑↑↑</month>
+							<month type="12">↑↑↑</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1">J</month>
+							<month type="2">F</month>
+							<month type="3">M</month>
+							<month type="4">A</month>
+							<month type="5">M</month>
+							<month type="6">J</month>
+							<month type="7">J</month>
+							<month type="8">A</month>
+							<month type="9">S</month>
+							<month type="10">O</month>
+							<month type="11">N</month>
+							<month type="12">D</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">↑↑↑</month>
+							<month type="2">↑↑↑</month>
+							<month type="3">↑↑↑</month>
+							<month type="4">↑↑↑</month>
+							<month type="5">↑↑↑</month>
+							<month type="6">↑↑↑</month>
+							<month type="7">↑↑↑</month>
+							<month type="8">↑↑↑</month>
+							<month type="9">↑↑↑</month>
+							<month type="10">↑↑↑</month>
+							<month type="11">↑↑↑</month>
+							<month type="12">↑↑↑</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">svātd.</day>
+							<day type="mon">pyrmūd.</day>
+							<day type="tue">ūtard.</day>
+							<day type="wed">trešd.</day>
+							<day type="thu">catūrtd.</day>
+							<day type="fri">pīktd.</day>
+							<day type="sat">sastd.</day>
+						</dayWidth>
+						<dayWidth type="narrow">
+							<day type="sun">↑↑↑</day>
+							<day type="mon">↑↑↑</day>
+							<day type="tue">↑↑↑</day>
+							<day type="wed">↑↑↑</day>
+							<day type="thu">↑↑↑</day>
+							<day type="fri">↑↑↑</day>
+							<day type="sat">↑↑↑</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun">Sv</day>
+							<day type="mon">Pr</day>
+							<day type="tue">Ūt</day>
+							<day type="wed">Tr</day>
+							<day type="thu">Ca</day>
+							<day type="fri">Pk</day>
+							<day type="sat">Sa</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">svātdīne</day>
+							<day type="mon">pyrmūdīne</day>
+							<day type="tue">ūtardīne</day>
+							<day type="wed">trešdīne</day>
+							<day type="thu">catūrtdīne</day>
+							<day type="fri">pīktdīne</day>
+							<day type="sat">sastdīne</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="abbreviated">
+							<day type="sun">Svātd.</day>
+							<day type="mon">Pyrmūd.</day>
+							<day type="tue">Ūtard.</day>
+							<day type="wed">Trešd.</day>
+							<day type="thu">Catūrtd.</day>
+							<day type="fri">Pīktd.</day>
+							<day type="sat">Sastd.</day>
+						</dayWidth>
+						<dayWidth type="narrow">
+							<day type="sun">↑↑↑</day>
+							<day type="mon">P</day>
+							<day type="tue">O</day>
+							<day type="wed">T</day>
+							<day type="thu">C</day>
+							<day type="fri">P</day>
+							<day type="sat">↑↑↑</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun">↑↑↑</day>
+							<day type="mon">↑↑↑</day>
+							<day type="tue">↑↑↑</day>
+							<day type="wed">↑↑↑</day>
+							<day type="thu">↑↑↑</day>
+							<day type="fri">↑↑↑</day>
+							<day type="sat">↑↑↑</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">Svātdīne</day>
+							<day type="mon">Pyrmūdīne</day>
+							<day type="tue">Ūtardīne</day>
+							<day type="wed">Trešdīne</day>
+							<day type="thu">Catūrtdīne</day>
+							<day type="fri">Pīktdīne</day>
+							<day type="sat">Sastdīne</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">1. cat.</quarter>
+							<quarter type="2">2. cat.</quarter>
+							<quarter type="3">3. cat.</quarter>
+							<quarter type="4">4. cat.</quarter>
+						</quarterWidth>
+						<quarterWidth type="narrow">
+							<quarter type="1">↑↑↑</quarter>
+							<quarter type="2">↑↑↑</quarter>
+							<quarter type="3">↑↑↑</quarter>
+							<quarter type="4">↑↑↑</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">1. catūrksnis</quarter>
+							<quarter type="2">2. catūrksnis</quarter>
+							<quarter type="3">3. catūrksnis</quarter>
+							<quarter type="4">4. catūrksnis</quarter>
+						</quarterWidth>
+					</quarterContext>
+					<quarterContext type="stand-alone">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">↑↑↑</quarter>
+							<quarter type="2">↑↑↑</quarter>
+							<quarter type="3">↑↑↑</quarter>
+							<quarter type="4">↑↑↑</quarter>
+						</quarterWidth>
+						<quarterWidth type="narrow">
+							<quarter type="1">1.</quarter>
+							<quarter type="2">2.</quarter>
+							<quarter type="3">3.</quarter>
+							<quarter type="4">4.</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">↑↑↑</quarter>
+							<quarter type="2">↑↑↑</quarter>
+							<quarter type="3">↑↑↑</quarter>
+							<quarter type="4">↑↑↑</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="midnight">pušnaktī</dayPeriod>
+							<dayPeriod type="am">prīškp.</dayPeriod>
+							<dayPeriod type="noon">dīnav.</dayPeriod>
+							<dayPeriod type="pm">piecp.</dayPeriod>
+							<dayPeriod type="morning1">nu reita</dayPeriod>
+							<dayPeriod type="afternoon1">piecpušd.</dayPeriod>
+							<dayPeriod type="evening1">vokorā</dayPeriod>
+							<dayPeriod type="night1">naktī</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="midnight">↑↑↑</dayPeriod>
+							<dayPeriod type="am">↑↑↑</dayPeriod>
+							<dayPeriod type="noon">↑↑↑</dayPeriod>
+							<dayPeriod type="pm">↑↑↑</dayPeriod>
+							<dayPeriod type="morning1">↑↑↑</dayPeriod>
+							<dayPeriod type="afternoon1">↑↑↑</dayPeriod>
+							<dayPeriod type="evening1">↑↑↑</dayPeriod>
+							<dayPeriod type="night1">↑↑↑</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="midnight">↑↑↑</dayPeriod>
+							<dayPeriod type="am">prīškpušdīnē</dayPeriod>
+							<dayPeriod type="noon">dīnavydā</dayPeriod>
+							<dayPeriod type="pm">piecpušdīnē</dayPeriod>
+							<dayPeriod type="morning1">↑↑↑</dayPeriod>
+							<dayPeriod type="afternoon1">piecpušdīnē</dayPeriod>
+							<dayPeriod type="evening1">↑↑↑</dayPeriod>
+							<dayPeriod type="night1">↑↑↑</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+					<dayPeriodContext type="stand-alone">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="midnight">pušnakts</dayPeriod>
+							<dayPeriod type="am">↑↑↑</dayPeriod>
+							<dayPeriod type="noon">↑↑↑</dayPeriod>
+							<dayPeriod type="pm">piecpušd.</dayPeriod>
+							<dayPeriod type="morning1">reits</dayPeriod>
+							<dayPeriod type="afternoon1">↑↑↑</dayPeriod>
+							<dayPeriod type="evening1">vokors</dayPeriod>
+							<dayPeriod type="night1">nakts</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="midnight">↑↑↑</dayPeriod>
+							<dayPeriod type="am">↑↑↑</dayPeriod>
+							<dayPeriod type="noon">↑↑↑</dayPeriod>
+							<dayPeriod type="pm">↑↑↑</dayPeriod>
+							<dayPeriod type="morning1">↑↑↑</dayPeriod>
+							<dayPeriod type="afternoon1">↑↑↑</dayPeriod>
+							<dayPeriod type="evening1">↑↑↑</dayPeriod>
+							<dayPeriod type="night1">↑↑↑</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="midnight">↑↑↑</dayPeriod>
+							<dayPeriod type="am">prīškpušdīne</dayPeriod>
+							<dayPeriod type="noon">dīnavyds</dayPeriod>
+							<dayPeriod type="pm">piecpušdīne</dayPeriod>
+							<dayPeriod type="morning1">↑↑↑</dayPeriod>
+							<dayPeriod type="afternoon1">piecpušdīne</dayPeriod>
+							<dayPeriod type="evening1">↑↑↑</dayPeriod>
+							<dayPeriod type="night1">↑↑↑</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
+				<eras>
+					<eraNames>
+						<era type="0">pyrma myusu erys</era>
+						<era type="0" alt="variant">pyrma myusu erys</era>
+						<era type="1">myusu erā</era>
+						<era type="1" alt="variant">myusu erā</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0">p.m.e.</era>
+						<era type="0" alt="variant">↑↑↑</era>
+						<era type="1">m.e.</era>
+						<era type="1" alt="variant">↑↑↑</era>
+					</eraAbbr>
+					<eraNarrow>
+						<era type="0">↑↑↑</era>
+						<era type="0" alt="variant" draft="unconfirmed">pme</era>
+						<era type="1">↑↑↑</era>
+						<era type="1" alt="variant" draft="unconfirmed">me</era>
+					</eraNarrow>
+				</eras>
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>EEEE, y. 'goda' d. MMMM</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>y. 'goda' d. MMMM</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>y. 'goda' d. MMM</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>dd.MM.yy</pattern>
+							<datetimeSkeleton>yyMMdd</datetimeSkeleton>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<timeFormats>
+					<timeFormatLength type="full">
+						<timeFormat>
+							<pattern>↑↑↑</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="long">
+						<timeFormat>
+							<pattern>↑↑↑</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="medium">
+						<timeFormat>
+							<pattern>↑↑↑</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="short">
+						<timeFormat>
+							<pattern>↑↑↑</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
+						</timeFormat>
+					</timeFormatLength>
+				</timeFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength type="full">
+						<dateTimeFormat>
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="long">
+						<dateTimeFormat>
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="medium">
+						<dateTimeFormat>
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="short">
+						<dateTimeFormat>
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<availableFormats>
+						<dateFormatItem id="Bh">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Bhm">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Bhms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="d">↑↑↑</dateFormatItem>
+						<dateFormatItem id="E">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EBhm">E, h:mm B</dateFormatItem>
+						<dateFormatItem id="EBhms">E, h:mm:ss B</dateFormatItem>
+						<dateFormatItem id="Ed">E, d.</dateFormatItem>
+						<dateFormatItem id="Ehm">E, h:mm a</dateFormatItem>
+						<dateFormatItem id="EHm">E, HH:mm</dateFormatItem>
+						<dateFormatItem id="Ehms">E, h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="EHms">E, HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="Gy">G y. 'g'.</dateFormatItem>
+						<dateFormatItem id="GyMd">GGGGG dd-MM-y</dateFormatItem>
+						<dateFormatItem id="GyMMM">G y. 'g'. MMM</dateFormatItem>
+						<dateFormatItem id="GyMMMd">G y. 'g'. d. MMM</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">E, G y. 'g'. d. MMM</dateFormatItem>
+						<dateFormatItem id="h">h a</dateFormatItem>
+						<dateFormatItem id="H">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hm">h:mm a</dateFormatItem>
+						<dateFormatItem id="Hm">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="Hms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hmsv">h:mm:ss a v</dateFormatItem>
+						<dateFormatItem id="Hmsv">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hmv">h:mm a v</dateFormatItem>
+						<dateFormatItem id="Hmv">↑↑↑</dateFormatItem>
+						<dateFormatItem id="M">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Md">dd.MM.</dateFormatItem>
+						<dateFormatItem id="MEd">E, dd.MM.</dateFormatItem>
+						<dateFormatItem id="MMM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMd">d. MMM</dateFormatItem>
+						<dateFormatItem id="MMMEd">E, d. MMM</dateFormatItem>
+						<dateFormatItem id="MMMMd">d. MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMEd">E, d. MMMM</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="zero">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="one">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="other">MMMM, W. 'nedeļa'</dateFormatItem>
+						<dateFormatItem id="mmss">mm:ss</dateFormatItem>
+						<dateFormatItem id="ms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="y">y. 'g'.</dateFormatItem>
+						<dateFormatItem id="yM">MM.y.</dateFormatItem>
+						<dateFormatItem id="yMd">d.MM.y.</dateFormatItem>
+						<dateFormatItem id="yMEd">E, d.MM.y.</dateFormatItem>
+						<dateFormatItem id="yMMM">y. 'g'. MMM</dateFormatItem>
+						<dateFormatItem id="yMMMd">y. 'g'. d. MMM</dateFormatItem>
+						<dateFormatItem id="yMMMEd">E, y. 'g'. d. MMM</dateFormatItem>
+						<dateFormatItem id="yMMMM">y. 'g'. MMMM</dateFormatItem>
+						<dateFormatItem id="yQQQ">y. 'g'. QQQ</dateFormatItem>
+						<dateFormatItem id="yQQQQ">y. 'g'. QQQQ</dateFormatItem>
+						<dateFormatItem id="yw" count="zero">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yw" count="one">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yw" count="other">Y. 'g'. w. 'nedeļa'</dateFormatItem>
+					</availableFormats>
+					<appendItems>
+						<appendItem request="Timezone">↑↑↑</appendItem>
+					</appendItems>
+					<intervalFormats>
+						<intervalFormatFallback>↑↑↑</intervalFormatFallback>
+						<intervalFormatItem id="Bh">
+							<greatestDifference id="B">↑↑↑</greatestDifference>
+							<greatestDifference id="h">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Bhm">
+							<greatestDifference id="B">↑↑↑</greatestDifference>
+							<greatestDifference id="h">↑↑↑</greatestDifference>
+							<greatestDifference id="m">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="d">
+							<greatestDifference id="d">d.–d.</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Gy">
+							<greatestDifference id="G">G y. – G y.</greatestDifference>
+							<greatestDifference id="y">G y.–y.</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyM">
+							<greatestDifference id="G">GGGGG MM-y. – GGGGG MM-y.</greatestDifference>
+							<greatestDifference id="M">GGGGG MM-y. – MM-y.</greatestDifference>
+							<greatestDifference id="y">GGGGG MM-y. – MM-y.</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMd">
+							<greatestDifference id="d">GGGGG dd-MM-y. – dd-MM-y.</greatestDifference>
+							<greatestDifference id="G">GGGGG dd-MM-y. – GGGGG dd-MM-y.</greatestDifference>
+							<greatestDifference id="M">GGGGG dd-MM-y. – dd-MM-y.</greatestDifference>
+							<greatestDifference id="y">GGGGG dd-MM-y. – dd-MM-y.</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMEd">
+							<greatestDifference id="d">GGGGG dd-MM-y., E – dd-MM-y., E</greatestDifference>
+							<greatestDifference id="G">GGGGG dd-MM-y., E – GGGGG dd-MM-y., E</greatestDifference>
+							<greatestDifference id="M">GGGGG dd-MM-y., E – dd-MM-y., E</greatestDifference>
+							<greatestDifference id="y">GGGGG dd-MM-y., E – dd-MM-y., E</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMM">
+							<greatestDifference id="G">G y. 'goda' MMM – G y. 'goda' MMM</greatestDifference>
+							<greatestDifference id="M">G y. 'goda' MMM–MMM</greatestDifference>
+							<greatestDifference id="y">G y. 'goda' MMM – y. 'goda' MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMd">
+							<greatestDifference id="d">G y. 'goda' d.–d. MMM</greatestDifference>
+							<greatestDifference id="G">G y. 'goda' d. MMM – G y. 'goda' d. MMM</greatestDifference>
+							<greatestDifference id="M">G y. 'goda' d. MMM – d. MMM</greatestDifference>
+							<greatestDifference id="y">G y. 'goda' d. MMM – y. 'goda' d. MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMEd">
+							<greatestDifference id="d">G y. 'goda' d. MMM, E – d. MMM, E</greatestDifference>
+							<greatestDifference id="G">G y. 'goda' d. MMM, E – G y. 'goda' d. MMM, E</greatestDifference>
+							<greatestDifference id="M">G y. 'goda' d. MMM, E – d. MMM, E</greatestDifference>
+							<greatestDifference id="y">G y. 'goda' d. MMM, E – y. 'goda' d. MMM, E</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="h">
+							<greatestDifference id="a">h a – h a</greatestDifference>
+							<greatestDifference id="h">h–h a</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="H">
+							<greatestDifference id="H">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hm">
+							<greatestDifference id="a">h:mm a – h:mm a</greatestDifference>
+							<greatestDifference id="h">h:mm–h:mm a</greatestDifference>
+							<greatestDifference id="m">h:mm–h:mm a</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hm">
+							<greatestDifference id="H">↑↑↑</greatestDifference>
+							<greatestDifference id="m">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hmv">
+							<greatestDifference id="a">h:mm a – h:mm a v</greatestDifference>
+							<greatestDifference id="h">h:mm–h:mm a v</greatestDifference>
+							<greatestDifference id="m">h:mm–h:mm a, v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hmv">
+							<greatestDifference id="H">↑↑↑</greatestDifference>
+							<greatestDifference id="m">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hv">
+							<greatestDifference id="a">h a – h a v</greatestDifference>
+							<greatestDifference id="h">h–h a v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hv">
+							<greatestDifference id="H">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="M">
+							<greatestDifference id="M">MM.–MM.</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Md">
+							<greatestDifference id="d">dd.MM.–dd.MM.</greatestDifference>
+							<greatestDifference id="M">dd.MM.–dd.MM.</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MEd">
+							<greatestDifference id="d">E, dd.MM. – E, dd.MM.</greatestDifference>
+							<greatestDifference id="M">E, dd.MM. – E, dd.MM.</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMM">
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMd">
+							<greatestDifference id="d">d.–d. MMM</greatestDifference>
+							<greatestDifference id="M">d. MMM – d. MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMEd">
+							<greatestDifference id="d">E, d. MMM – E, d. MMM</greatestDifference>
+							<greatestDifference id="M">E, d. MMM – E, d. MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="y">
+							<greatestDifference id="y">y.–y.</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yM">
+							<greatestDifference id="M">MM.y.–MM.y.</greatestDifference>
+							<greatestDifference id="y">MM.y.–MM.y.</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMd">
+							<greatestDifference id="d">dd.MM.y.–dd.MM.y.</greatestDifference>
+							<greatestDifference id="M">dd.MM.y.–dd.MM.y.</greatestDifference>
+							<greatestDifference id="y">dd.MM.y.–dd.MM.y.</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMEd">
+							<greatestDifference id="d">E, dd.MM.y. – E, dd.MM.y.</greatestDifference>
+							<greatestDifference id="M">E, dd.MM.y. – E, dd.MM.y.</greatestDifference>
+							<greatestDifference id="y">E, dd.MM.y. – E, dd.MM.y.</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMM">
+							<greatestDifference id="M">y. 'gada' MMM–MMM</greatestDifference>
+							<greatestDifference id="y">y. 'gada' MMM – y. 'gada' MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMd">
+							<greatestDifference id="d">y. 'goda' d.–d. MMM</greatestDifference>
+							<greatestDifference id="M">y. 'goda' d. MMM – d. MMM</greatestDifference>
+							<greatestDifference id="y">y. 'goda' d. MMM – y. 'goda' d. MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMEd">
+							<greatestDifference id="d">E, y. 'goda' d. MMM – E, y. 'goda' d. MMM</greatestDifference>
+							<greatestDifference id="M">E, y. 'goda' d. MMM – E, y. 'goda' d. MMM</greatestDifference>
+							<greatestDifference id="y">E, y. 'goda' d. MMM – E, y. 'goda' d. MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMM">
+							<greatestDifference id="M">y. 'goda' MMMM – MMMM</greatestDifference>
+							<greatestDifference id="y">y. 'goda' MMMM – y. 'goda' MMMM</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+		<timeZoneNames>
+			<hourFormat>↑↑↑</hourFormat>
+			<gmtFormat>↑↑↑</gmtFormat>
+			<gmtZeroFormat>↑↑↑</gmtZeroFormat>
+			<regionFormat>Laika jūsla: {0}</regionFormat>
+			<regionFormat type="daylight">{0}: vosorys laiks</regionFormat>
+			<regionFormat type="standard">{0}: standarta laiks</regionFormat>
+			<fallbackFormat>{0} ({1})</fallbackFormat>
+			<zone type="Etc/UTC">
+				<long>
+					<standard>Universalais koordinātais laiks</standard>
+				</long>
+			</zone>
+			<zone type="Etc/Unknown">
+				<exemplarCity>nazynoma piļsāta</exemplarCity>
+			</zone>
+			<metazone type="GMT">
+				<long>
+					<standard>Griničys laiks</standard>
+				</long>
+			</metazone>
+		</timeZoneNames>
+	</dates>
+	<numbers>
+		<defaultNumberingSystem>↑↑↑</defaultNumberingSystem>
+		<otherNumberingSystems>
+			<native>↑↑↑</native>
+		</otherNumberingSystems>
+		<minimumGroupingDigits>2</minimumGroupingDigits>
+		<symbols numberSystem="arab">
+			<timeSeparator>↑↑↑</timeSeparator>
+		</symbols>
+		<symbols numberSystem="latn">
+			<decimal>,</decimal>
+			<group> </group>
+			<list draft="contributed">↑↑↑</list>
+			<percentSign>↑↑↑</percentSign>
+			<plusSign>↑↑↑</plusSign>
+			<minusSign>↑↑↑</minusSign>
+			<approximatelySign>↑↑↑</approximatelySign>
+			<exponential>↑↑↑</exponential>
+			<superscriptingExponent>↑↑↑</superscriptingExponent>
+			<perMille>↑↑↑</perMille>
+			<infinity>↑↑↑</infinity>
+			<nan>NS</nan>
+			<timeSeparator>↑↑↑</timeSeparator>
+		</symbols>
+		<decimalFormats numberSystem="latn">
+			<decimalFormatLength>
+				<decimalFormat>
+					<pattern>↑↑↑</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" count="zero">↑↑↑</pattern>
+					<pattern type="1000" count="one">↑↑↑</pattern>
+					<pattern type="1000" count="other">0 tyukst'.'</pattern>
+					<pattern type="10000" count="zero">↑↑↑</pattern>
+					<pattern type="10000" count="one">↑↑↑</pattern>
+					<pattern type="10000" count="other">00 tyukst'.'</pattern>
+					<pattern type="100000" count="zero">↑↑↑</pattern>
+					<pattern type="100000" count="one">↑↑↑</pattern>
+					<pattern type="100000" count="other">000 tyukst'.'</pattern>
+					<pattern type="1000000" count="zero">↑↑↑</pattern>
+					<pattern type="1000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000" count="other">0 miļj'.'</pattern>
+					<pattern type="10000000" count="zero">↑↑↑</pattern>
+					<pattern type="10000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000" count="other">00 miļj'.'</pattern>
+					<pattern type="100000000" count="zero">↑↑↑</pattern>
+					<pattern type="100000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000" count="other">000 miļj'.'</pattern>
+					<pattern type="1000000000" count="zero">↑↑↑</pattern>
+					<pattern type="1000000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000000" count="other">0 mļjrd'.'</pattern>
+					<pattern type="10000000000" count="zero">↑↑↑</pattern>
+					<pattern type="10000000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000000" count="other">00 mļjrd'.'</pattern>
+					<pattern type="100000000000" count="zero">↑↑↑</pattern>
+					<pattern type="100000000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000000" count="other">000 mļjrd'.'</pattern>
+					<pattern type="1000000000000" count="zero">↑↑↑</pattern>
+					<pattern type="1000000000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000000000" count="other">0 triļj'.'</pattern>
+					<pattern type="10000000000000" count="zero">↑↑↑</pattern>
+					<pattern type="10000000000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000000000" count="other">00 triļj'.'</pattern>
+					<pattern type="100000000000000" count="zero">↑↑↑</pattern>
+					<pattern type="100000000000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000000000" count="other">000 triļj'.'</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<scientificFormats numberSystem="latn">
+			<scientificFormatLength>
+				<scientificFormat>
+					<pattern>↑↑↑</pattern>
+				</scientificFormat>
+			</scientificFormatLength>
+		</scientificFormats>
+		<percentFormats numberSystem="latn">
+			<percentFormatLength>
+				<percentFormat>
+					<pattern>↑↑↑</pattern>
+				</percentFormat>
+			</percentFormatLength>
+		</percentFormats>
+		<currencyFormats numberSystem="latn">
+			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern>#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency" draft="contributed">↑↑↑</pattern>
+				</currencyFormat>
+				<currencyFormat type="accounting">
+					<pattern>↑↑↑</pattern>
+					<pattern alt="noCurrency">↑↑↑</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+			<currencyFormatLength type="short">
+				<currencyFormat type="standard">
+					<pattern type="1000" count="zero">↑↑↑</pattern>
+					<pattern type="1000" count="one">↑↑↑</pattern>
+					<pattern type="1000" count="other">0 tyukst'.' ¤</pattern>
+					<pattern type="10000" count="zero">↑↑↑</pattern>
+					<pattern type="10000" count="one">↑↑↑</pattern>
+					<pattern type="10000" count="other">00 tyukst'.' ¤</pattern>
+					<pattern type="100000" count="zero">↑↑↑</pattern>
+					<pattern type="100000" count="one">↑↑↑</pattern>
+					<pattern type="100000" count="other">000 tyukst'.' ¤</pattern>
+					<pattern type="1000000" count="zero">↑↑↑</pattern>
+					<pattern type="1000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000" count="other">0 miļj'.' ¤</pattern>
+					<pattern type="10000000" count="zero">↑↑↑</pattern>
+					<pattern type="10000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000" count="other">00 miļj'.' ¤</pattern>
+					<pattern type="100000000" count="zero">↑↑↑</pattern>
+					<pattern type="100000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000" count="other">000 miļj'.' ¤</pattern>
+					<pattern type="1000000000" count="zero">↑↑↑</pattern>
+					<pattern type="1000000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000000" count="other">0 mļjrd'.' ¤</pattern>
+					<pattern type="10000000000" count="zero">↑↑↑</pattern>
+					<pattern type="10000000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000000" count="other">00 mļjrd'.' ¤</pattern>
+					<pattern type="100000000000" count="zero">↑↑↑</pattern>
+					<pattern type="100000000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000000" count="other">000 mļjrd'.' ¤</pattern>
+					<pattern type="1000000000000" count="zero">↑↑↑</pattern>
+					<pattern type="1000000000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000000000" count="other">0 triļj'.' ¤</pattern>
+					<pattern type="10000000000000" count="zero">↑↑↑</pattern>
+					<pattern type="10000000000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000000000" count="other">00 triļj'.' ¤</pattern>
+					<pattern type="100000000000000" count="zero">↑↑↑</pattern>
+					<pattern type="100000000000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000000000" count="other">000 triļj'.' ¤</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
+			<unitPattern count="zero">{0} {1}</unitPattern>
+			<unitPattern count="one">{0} {1}</unitPattern>
+			<unitPattern count="other">{0} {1}</unitPattern>
+		</currencyFormats>
+		<currencies>
+			<currency type="EUR">
+				<displayName>eiro</displayName>
+				<displayName count="zero">↑↑↑</displayName>
+				<displayName count="one">↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
+			</currency>
+			<currency type="LVL">
+				<displayName>Latvejis lats</displayName>
+				<displayName count="zero">↑↑↑</displayName>
+				<displayName count="one">Latvejis lats</displayName>
+				<displayName count="other">Latvejis lati</displayName>
+				<symbol>Ls</symbol>
+			</currency>
+			<currency type="LVR">
+				<displayName>Latvejis rublis</displayName>
+			</currency>
+		</currencies>
+	</numbers>
+</ldml>

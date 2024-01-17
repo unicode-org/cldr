@@ -20,6 +20,9 @@ public class AuthSurveyDriver {
     private static final int INVALID_USER_INDEX = -1;
     private static final int FIRST_VALID_USER_INDEX = 0;
 
+    public static final java.util.logging.Logger logger =
+            SurveyLog.forClass(AuthSurveyDriver.class);
+
     private static boolean isInitialized = false;
     private static boolean isEnabled = false;
     private static String realPassword = null;
@@ -46,12 +49,19 @@ public class AuthSurveyDriver {
     }
 
     private static void initialize() {
+        String status;
         if (SurveyMain.isUnofficial()) {
             realPassword = CLDRConfig.getInstance().getProperty("CLDR_WEBDRIVER_PASSWORD", "");
             if (realPassword != null && !realPassword.isBlank()) {
                 isEnabled = true;
+                status = "enabled";
+            } else {
+                status = "disabled, no property";
             }
+        } else {
+            status = "disabled, official";
         }
+        logger.info("Webdriver simulated users are " + status);
         isInitialized = true;
     }
 
@@ -87,8 +97,10 @@ public class AuthSurveyDriver {
         u.setPassword(password);
         User registeredUser = reg.newUser(null, u);
         if (registeredUser == null || registeredUser.id <= 0) {
+            logger.severe("Failed to add webdriver simulated user " + email);
             return null;
         }
+        logger.info("Added webdriver simulated user " + email);
         return registeredUser;
     }
 }

@@ -6,6 +6,7 @@
  */
 package org.unicode.cldr.web;
 
+import com.google.common.base.Suppliers;
 import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.ListFormatter;
@@ -44,6 +45,7 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.function.Supplier;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
 import javax.inject.Inject;
@@ -2314,13 +2316,12 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     private static ExampleGenerator gComparisonValuesExample = null;
 
-    private Factory gFactory = null;
+    private Supplier<Factory> gSupplementalDiskFactory =
+            Suppliers.memoize(() -> SimpleFactory.make(getCommonMainFileBase(), ".*"));
 
-    /**
-     * @return a Factory (not a singleton) just for use with supplemental data
-     */
-    public Factory getSupplementalDiskFactory() {
-        return SimpleFactory.make(getCommonMainFileBase(), ".*");
+    /** Factory for use with disk data. Singleton */
+    public final Factory getSupplementalDiskFactory() {
+        return gSupplementalDiskFactory.get();
     }
 
     /**
@@ -2328,27 +2329,30 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      *
      * @return
      */
-    public synchronized Factory getDiskFactory() {
-        if (gFactory == null) {
-            final File[] list = getFileBases();
-            CLDRConfig config = CLDRConfig.getInstance();
-            // may fail at server startup time- should do this through setup mode
-            ensureOrCheckout(config.getCldrBaseDirectory());
-            // verify readable
-            File root = new File(config.getCldrBaseDirectory(), "common/main");
-            if (!root.isDirectory()) {
-                throw new InternalError(
-                        "Not a dir:  "
-                                + root.getAbsolutePath()
-                                + " - check the value of "
-                                + CldrUtility.DIR_KEY
-                                + " in cldr.properties.");
-            }
-
-            gFactory = SimpleFactory.make(list, ".*");
-        }
-        return gFactory;
+    public final Factory getDiskFactory() {
+        return gFactory.get();
     }
+
+    private Supplier<Factory> gFactory =
+            Suppliers.memoize(
+                    () -> {
+                        final File[] list = getFileBases();
+                        CLDRConfig config = CLDRConfig.getInstance();
+                        // may fail at server startup time- should do this through setup mode
+                        ensureOrCheckout(config.getCldrBaseDirectory());
+                        // verify readable
+                        File root = new File(config.getCldrBaseDirectory(), "common/main");
+                        if (!root.isDirectory()) {
+                            throw new InternalError(
+                                    "Not a dir:  "
+                                            + root.getAbsolutePath()
+                                            + " - check the value of "
+                                            + CldrUtility.DIR_KEY
+                                            + " in cldr.properties.");
+                        }
+
+                        return SimpleFactory.make(list, ".*");
+                    });
 
     private void ensureOrCheckout(final File dir) {
         if (dir == null) {
@@ -2363,23 +2367,25 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         }
     }
 
-    private STFactory gSTFactory = null;
-
     /**
      * Get the factory corresponding to the current snapshot.
      *
      * @return
      */
-    public final synchronized STFactory getSTFactory() {
-        if (gSTFactory == null) {
-            gSTFactory = new STFactory(this);
-        }
-        return gSTFactory;
+    public final STFactory getSTFactory() {
+        return gSTFactory.get();
     }
+
+    private Supplier<STFactory> newSTFactorySupplier() {
+        return Suppliers.memoize(() -> new STFactory(this));
+    }
+
+    private Supplier<STFactory> gSTFactory = newSTFactorySupplier();
 
     /** destroy the ST Factory - testing use only! */
     public final synchronized void TESTING_removeSTFactory() {
-        gSTFactory = null;
+        // resets the factory
+        gSTFactory = newSTFactorySupplier();
     }
 
     private final Set<UserLocaleStuff> allUserLocaleStuffs = new HashSet<>();

@@ -141,6 +141,12 @@ public class SupplementalDataInfo {
             this.base = base;
             this.power = power;
         }
+
+        @Override
+        public String toString() {
+            return String.format(
+                    "%s\t%s", abbreviation, String.valueOf(base) + "^" + String.valueOf(power));
+        }
     }
 
     /** Official status of languages */
@@ -1402,7 +1408,7 @@ public class SupplementalDataInfo {
                     if (handleUnitUnitIdComponents(parts)) {
                         return;
                     }
-                } else if (level1.equals("unitPrefix")) {
+                } else if (level1.equals("unitPrefixes")) {
                     if (handleUnitPrefix(parts)) {
                         return;
                     }

@@ -2,6 +2,8 @@ package org.unicode.cldr.test;
 
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
+import com.google.common.cache.CacheLoader;
+import com.google.common.cache.LoadingCache;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map.Entry;
@@ -95,12 +97,18 @@ public class TestCache implements XMLSource.Listener {
      * evaluate why the fallback 12 for CLDR_TESTCACHE_SIZE is appropriate or too small. Consider not
      * using maximumSize() at all, depending on softValues() instead to garbage collect only when needed.
      */
-    private Cache<CheckCLDR.Options, TestResultBundle> testResultCache =
+    private LoadingCache<CheckCLDR.Options, TestResultBundle> testResultCache =
             CacheBuilder.newBuilder()
                     .maximumSize(CLDRConfig.getInstance().getProperty("CLDR_TESTCACHE_SIZE", 12))
-                    .concurrencyLevel(1)
                     .softValues()
-                    .build();
+                    .build(
+                            new CacheLoader<CheckCLDR.Options, TestResultBundle>() {
+
+                                @Override
+                                public TestResultBundle load(Options key) throws Exception {
+                                    return new TestResultBundle(key);
+                                }
+                            });
 
     private final Factory factory;
 
@@ -110,7 +118,7 @@ public class TestCache implements XMLSource.Listener {
     public TestResultBundle getBundle(final CheckCLDR.Options options) {
         TestResultBundle b;
         try {
-            b = testResultCache.get(options, () -> new TestResultBundle(options));
+            b = testResultCache.get(options);
         } catch (ExecutionException e) {
             logger.log(Level.SEVERE, e, () -> "Failed to load " + options);
             throw new RuntimeException(e);

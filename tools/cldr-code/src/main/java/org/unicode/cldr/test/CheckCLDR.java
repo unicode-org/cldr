@@ -67,9 +67,17 @@ public abstract class CheckCLDR implements CheckAccessor {
     /** protected so subclasses can use it */
     protected static Logger logger = Logger.getLogger(CheckCLDR.class.getSimpleName());
 
-    /** set the internal logger level. For ConsoleCheck. */
-    public static void setLoggerLevel(java.util.logging.Level newLevel) {
+    /**
+     * set the internal logger level. For ConsoleCheck.
+     *
+     * @returns the previous level
+     */
+    public static java.util.logging.Level setLoggerLevel(java.util.logging.Level newLevel) {
+        // NB: we use the full package name here, to avoid conflict with other CLDR classes named
+        // Level
+        java.util.logging.Level oldLevel = logger.getLevel();
         logger.setLevel(newLevel);
+        return oldLevel;
     }
 
     /** serialize CheckCLDR as just its class name */

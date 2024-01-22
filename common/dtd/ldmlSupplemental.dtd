@@ -396,9 +396,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<unitPrefix type='kibi' symbol='Ki' power2='10'>
 -->
 <!ATTLIST unitPrefix type NMTOKEN #REQUIRED >
-    <!--@MATCH:regex/[A-Za-z]{4,6}-->
+    <!--@MATCH:regex/[A-Za-z]{3,6}-->
 <!ATTLIST unitPrefix symbol NMTOKEN #REQUIRED >
-    <!--@MATCH:regex/[a-zA-Z]{1,2}-->
+    <!--@MATCH:regex/[a-zA-Zμ]{1,2}-->
     <!--@VALUE-->
 <!ATTLIST unitPrefix power10 NMTOKEN #IMPLIED >
     <!--@MATCH:regex/-?[0-9]{1,2}-->

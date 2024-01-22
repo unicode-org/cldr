@@ -398,13 +398,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!ATTLIST unitPrefix type NMTOKEN #REQUIRED >
     <!--@MATCH:regex/[A-Za-z]{4,6}-->
 <!ATTLIST unitPrefix symbol NMTOKEN #REQUIRED >
-    <!--@MATCH:set/regex/[a-zA-Z]{1,2}-->
+    <!--@MATCH:regex/[a-zA-Z]{1,2}-->
     <!--@VALUE-->
 <!ATTLIST unitPrefix power10 NMTOKEN #IMPLIED >
-    <!--@MATCH:set/regex/-?[0-9]{1,2}-->
+    <!--@MATCH:regex/-?[0-9]{1,2}-->
     <!--@VALUE-->
 <!ATTLIST unitPrefix power2 NMTOKEN #IMPLIED >
-    <!--@MATCH:set/regex/[0-9]0-->
+    <!--@MATCH:regex/[0-9]0-->
     <!--@VALUE-->
 
 <!ELEMENT unitConstants ( unitConstant* ) >

@@ -319,6 +319,8 @@ Using this setting is not recommended. See [`<settings>`](#element-settings) for
 
 Input source files may be in any normalization format, however, authors should be aware of two areas where normalization affects keyboard operation: that of transform matching, and that of output.
 
+Normalization can be applied within segments defined by Grapheme Cluster Boundaries as defined by [UAX #29](https://www.unicode.org/reports/tr29/#Grapheme_Cluster_Boundaries). This segmentation is pertinent where markers are involved, see below.
+
 ### Normalization and Transform Matching
 
 Regardless of the normalization form in the keyboard source file or in the edit buffer context, transform matching will be performed using **NFD**. For example, all of the following transforms will match the input strings `è̠`, whether the input is U+00E8 U+0320, U+0065 U+0320 U+0300, or U+0065 U+0300 U+0320.
@@ -333,16 +335,44 @@ Regardless of the normalization form in the keyboard source file or in the edit 
 
 A special issue occurs when markers are involved. The markers may be reordered along with characters.
 
-For example, the string `e\u{0300}\u{0320}` will be reordered in NFD to `e\u{0320}\u{0300}`.
+**Example 1**
 
-If a marker is included, then `e\u{0300}\m{marker}\u{0320}` will be reordered to `e\m{marker}\u{0320}\u{0300}`. The principle is that the marker stays glued to the following character, in this case the U+0320.
+Consider this example, without markers:
 
-TODO
+- `e\u{0300}\u{0320}` (original)
+- `e\u{0320}\u{0300}` (NFD)
 
-- If the marker is at the end of the string.
+If we add markers:
 
-- Normalization is done within grapheme boundaries.
+- `e\u{0300}\m{marker}\u{0320}` (original)
+- `e\m{marker}\u{0320}\u{0300}` (NFD)
 
+The principle is that the marker stays 'glued' to the following character, in this case the `\u{0320}`. If a marker occurs at the end of input or at the end of a segment (a grapheme cluster boundary), the marker is 'glued' to the end of that segment during the course of normalization. As another example:
+
+**Example 2**
+
+- `e\m{marker0}\u{0300}\m{marker1}\u{0320}\m{marker2}` (original)
+- `e\m{marker1}\u{0320}\m{marker0}\u{0300}\m{marker2}` (NFD)
+
+Here `\m{marker2}` is 'glued' to the end of the segment. However, if additional text is added such as by a subsequent keystroke (which may add an additional combining character, for example), this marker may be 'glued' to that following text.
+
+As noted above, normalization is applied within grapheme cluster boundaries. This is significant so that markers remain in the same grapheme cluster during normalization. Consider:
+
+**Example 3**
+
+- `e\u{0300}\m{marker1}\u{0320}a\u{0300}\m{marker2}\u{0320}` (original)
+- `e\m{marker1}\u{0320}\u{0300}a\m{marker2}\u{0320}\u{0300}` (NFD)
+
+There are two grapheme clusters here:
+
+1. `e\u{0300}\m{marker1}\u{0320}`
+2. `a\u{0300}\m{marker2}\u{0320}`
+
+Normalization (and marker rearranging) occurs within each segment.  While `\m{marker1}` is 'glued' to the `\u{0320}`, it is glued within the first segment and has no effect on the second segment.
+
+#### Normalization and Ranges
+
+If pre-composed characters are used in ranges, such as `[á-é]`, these will need to be expanded. The above range would expand to: `(á|â|ã|ä|å|æ|ç|è|é)` (The expansion of U+00E1…U+00E9).  Implementations may want to warn users when ranges include non-NFD characters as they may be unexpected.
 
 ### Normalization and Output
 
@@ -1794,6 +1824,8 @@ Another strategy might be to use a marker to indicate where transforms are desir
 
 In this way, only the `X`, `e` keys will produce `^e` with a _transform_ marker (again, any name could be used) which will cause the transform to be applied. One benefit is that navigating to an existing `^` in a document and adding an `e` will result in `^e`, and this output will not be affected by the transform, because there will be no marker present there (remember that markers are not stored with the document but only recorded in memory temporarily during text input).
 
+Please note important considerations for [Normalization and Markers](#normalization-and-markers).
+
 **Effect of markers on final text**
 
 All markers must be removed before text is returned to the application from the input context.
@@ -1924,6 +1956,7 @@ _Attribute:_ `from` (required)
     - supported
     - no Unicode properties such as `\p{…}`
     - Warning: Character classes look superficially similar to [`uset`](#element-uset) elements, but they are distinct and referenced with the `$[...usetId]` notation in transforms. The `uset` notation cannot be embedded directly in a transform.
+    - See [Normalization and Ranges](#normalization-and-ranges) for more details about the impact of normalization on ranges.
 
 - **Bounded quantifier**
 

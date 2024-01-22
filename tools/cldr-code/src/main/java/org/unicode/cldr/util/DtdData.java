@@ -55,7 +55,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     private MapComparator<String> elementComparator;
     private MapComparator<String> attributeComparator;
 
-    // TODO Make this data driven
+    // TODO Make this data driven. See https://unicode-org.atlassian.net/browse/CLDR-17321
     public static final Multimap<DtdType, String> HACK_PCDATA_ALLOWS_EMPTY =
             ImmutableMultimap.<DtdType, String>builder()
                     .putAll(

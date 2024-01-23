@@ -314,21 +314,19 @@ Normalization will not typically be the responsibility of the keyboard author, r
 The implementation will apply normalization as appropriate when matching transform rules and `<display>` value matching.
 Output from the keyboard, following application of all transform rules, will be normalized to implementation- or application-requested form.
 
-The attribute value `normalization="disabled"` can be used to indicate that no automatic normalization happens.
-Using this setting is not recommended. See [`<settings>`](#element-settings) for details.
+The attribute value `normalization="disabled"` can be used to indicate that no automatic normalization happens in input, matching, or output.  Using this setting should be done with caution. See [`<settings>`](#element-settings).
 
 Input source files may be in any normalization format, however, authors should be aware of two areas where normalization affects keyboard operation: that of transform matching, and that of output.
 
-Normalization can be applied within segments defined by Grapheme Cluster Boundaries as defined by [UAX #29](https://www.unicode.org/reports/tr29/#Grapheme_Cluster_Boundaries). This segmentation is pertinent where markers are involved, see below.
 
 ### Normalization and Transform Matching
 
 Regardless of the normalization form in the keyboard source file or in the edit buffer context, transform matching will be performed using **NFD**. For example, all of the following transforms will match the input strings `è̠`, whether the input is U+00E8 U+0320, U+0065 U+0320 U+0300, or U+0065 U+0300 U+0320.
 
 ```xml
-<transform from="e\u{0300}\u{0320}" /> <!-- Non-NFD but will match -->
-<transform from="e\u{0320}\u{0300}" />
-<transform from="\u{00E8}\u{0320}" /> <!-- è + U+0320 -->
+<transform from="e\u{0320}\u{0300}" /> <!-- NFD -->
+<transform from="\u{00E8}\u{0320}"  /> <!-- NFC: è + U+0320 -->
+<transform from="e\u{0300}\u{0320}" /> <!-- Unnormalized -->
 ```
 
 #### Normalization and Markers
@@ -372,12 +370,14 @@ Normalization (and marker rearranging) occurs within each segment.  While `\m{ma
 
 #### Normalization and Ranges
 
-If pre-composed characters are used in ranges, such as `[á-é]`, these will need to be expanded. The above range would expand to: `(á|â|ã|ä|å|æ|ç|è|é)` (The expansion of U+00E1…U+00E9).  Implementations may want to warn users when ranges include non-NFD characters as they may be unexpected.
+If pre-composed characters are used in ranges, such as `[á-é]`, these will need to be expanded. The above range would expand to: `(á|â|ã|ä|å|æ|ç|è|é)` (The NFD expansion of U+00E1…U+00E9).  Implementations may want to warn users when ranges include non-NFD characters as they may be unexpected.
 
 ### Normalization and Output
 
 On output, text will be normalized into the form requested by that implementation, or possibly specifically requested by a particular application.
-For example, many platforms may request NFC as the output format. In other words, all text emitted via the keyboard will be transformed into NFC.
+For example, many platforms may request NFC as the output format. In such a case, all text emitted via the keyboard will be transformed into NFC.
+
+Existing text in a document will only have normalization applied within a normalization-safe boundary distance from the caret, within segments defined by Grapheme Cluster Boundaries as defined by [UAX #29](https://www.unicode.org/reports/tr29/#Grapheme_Cluster_Boundaries).
 
 * * *
 
@@ -627,15 +627,10 @@ An element used to keep track of layout-specific settings by implementations. Th
 
 _Attribute:_ `normalization="disabled"`
 
-> Normalization will not typically be the responsibility of the keyboard author, rather this will be managed by the implementation.
-> The implementation will apply normalization as appropriate when matching transform rules and `<display>` value matching.
-> Output from the keyboard, following application of all transform rules, will be normalized to implementation or application-requested form.
->
-> However, it is recognized that there may be some keyboards which, for compatibility or legacy reasons, need to manage their own normalization. The implementation in that case will do no normalization at all. The keyboard author must make use of transforms in the keyboard to any required normalization. In this case, the attribute value `normalization="disabled"` is used to indicate that no automatic normalization happens.
->
+> The presence of this attrinbute indicates that normalization will not be applied to input text, matching, or output.
 > See [Normalization](#normalization) for additional details.
 >
-> **Note**: while this attribute is allowed by the specification, its use is discouraged, and keyboards with `normalization="disabled"` would not be accepted into the ClDR repository.
+> **Note**: while this attribute is allowed by the specification, it should be used with caution, and keyboards with `normalization="disabled"` would not be accepted into the ClDR repository.
 
 
 **Example**

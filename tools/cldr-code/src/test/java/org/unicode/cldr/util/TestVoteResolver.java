@@ -7,6 +7,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import com.ibm.icu.util.Output;
 import java.util.Date;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.unicode.cldr.unittest.TestUtilities;
 import org.unicode.cldr.util.VoteResolver.Status;
 
@@ -44,6 +46,37 @@ public class TestVoteResolver {
                         assertEquals(
                                 VoteResolver.VoteStatus.ok,
                                 vr.getStatusForOrganization(Organization.google)));
+    }
+
+    @ParameterizedTest
+    @ValueSource(booleans = {false, true})
+    public void testPerf(boolean doGet) {
+        final VoteResolver<String> vr = getStringResolver();
+        vr.enableTranscript();
+
+        for (int i = 0; i < 100; i++) {
+            vr.clear();
+            vr.setLocale(
+                    CLDRLocale.getInstance("fr"), null); // NB: pathHeader is needed for annotations
+            vr.setBaseline("bafut", Status.unconfirmed);
+            vr.setBaileyValue("bfd");
+            vr.add("bambara", TestUtilities.TestUser.appleV.voterId);
+            vr.add("bafia", TestUtilities.TestUser.googleV.voterId);
+            vr.add("bassa", TestUtilities.TestUser.googleV2.voterId);
+            vr.add("bafut", TestUtilities.TestUser.unaffiliatedS.voterId);
+
+            assertAll(
+                    "Verify the outcome",
+                    () -> assertEquals("bambara", vr.getWinningValue()),
+                    () -> assertEquals(Status.provisional, vr.getWinningStatus()));
+
+            // about 10x faster without calling get()
+            if (doGet) {
+                assertTrue(
+                        vr.getTranscript().contains("earlier than 'bassa'"),
+                        () -> "Transcript did not match expectations:\n" + vr.getTranscript());
+            }
+        }
     }
 
     @Test

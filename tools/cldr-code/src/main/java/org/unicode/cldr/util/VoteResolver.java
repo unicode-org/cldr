@@ -64,19 +64,23 @@ public class VoteResolver<T> {
     private static final boolean DEBUG = false;
 
     /** This enables a prose discussion of the voting process. */
-    private StringBuilder transcript = null;
+    private DeferredTranscript transcript = null;
 
     public void enableTranscript() {
         if (transcript == null) {
-            transcript = new StringBuilder();
+            transcript = new DeferredTranscript();
         }
+    }
+
+    public void disableTranscript() {
+        transcript = null;
     }
 
     public String getTranscript() {
         if (transcript == null) {
             return null;
         } else {
-            return transcript.toString();
+            return transcript.get();
         }
     }
 
@@ -86,14 +90,10 @@ public class VoteResolver<T> {
      * @param fmt
      * @param args
      */
-    private void annotateTranscript(String fmt, Object... args) {
-        if (DEBUG) {
-            System.out.println("Transcript: " + String.format(fmt, args));
+    private final void annotateTranscript(String fmt, Object... args) {
+        if (transcript != null) {
+            transcript.add(fmt, args);
         }
-        if (transcript == null) {
-            return;
-        }
-        transcript.append(String.format(fmt, args)).append("\n");
     }
 
     /**
@@ -617,7 +617,8 @@ public class VoteResolver<T> {
             baileyValue = null;
             baileySet = false;
             if (transcript != null) {
-                transcript = new StringBuilder();
+                // there was a transcript before, so retain it
+                transcript = new DeferredTranscript();
             }
         }
 
@@ -996,7 +997,7 @@ public class VoteResolver<T> {
         nValue = null;
 
         if (transcript != null) {
-            transcript.setLength(0);
+            transcript.clear();
         }
     }
 

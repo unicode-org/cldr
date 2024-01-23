@@ -34,7 +34,7 @@ public final class StringId {
      * @return a value from 0 to 0x7FFFFFFFFFFFFFFFL.
      */
     public static long getId(CharSequence charSequence) {
-        String string = charSequence.toString().intern();
+        String string = charSequence.toString();
         Long resultLong = STRING_TO_ID.get(string);
         if (resultLong != null) {
             return resultLong;

@@ -1,31 +1,10 @@
 package org.unicode.cldr.util;
 
-import java.util.Iterator;
+import java.util.Collection;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class CharUtilities {
-    /** intern everything in the src iterable */
-    public static Iterable<String> internAll(final Iterable<String> src) {
-        return new Iterable<String>() {
-            @Override
-            public Iterator<String> iterator() {
-                return CharUtilities.internAll(src.iterator());
-            }
-        };
-    }
-    /** intern everything in the src iterator */
-    protected static Iterator<String> internAll(final Iterator<String> iterator) {
-        return new Iterator<String>() {
-            @Override
-            public boolean hasNext() {
-                return iterator.hasNext();
-            }
-
-            @Override
-            public String next() {
-                return iterator.next().intern();
-            }
-        };
-    }
     /**
      * Simple wrapper for CharSequence
      *
@@ -167,5 +146,10 @@ public class CharUtilities {
                 return (cp1 + utf16Fixup[cp1 >> 11]) - (cp2 + utf16Fixup[cp2 >> 11]);
             }
         }
+    }
+
+    /** intern each element in the string and return a new unmodifiable Set */
+    public static Set<String> internImmutableSet(Collection<String> s) {
+        return s.stream().map(String::intern).collect(Collectors.toUnmodifiableSet());
     }
 }

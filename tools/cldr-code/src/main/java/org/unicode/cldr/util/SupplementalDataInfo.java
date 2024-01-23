@@ -131,6 +131,24 @@ public class SupplementalDataInfo {
         }
     }
 
+    public class UnitPrefixInfo {
+        final String abbreviation;
+        final int base;
+        final int power;
+
+        public UnitPrefixInfo(String abbreviation, int base, int power) {
+            this.abbreviation = abbreviation;
+            this.base = base;
+            this.power = power;
+        }
+
+        @Override
+        public String toString() {
+            return String.format(
+                    "%s\t%s", abbreviation, String.valueOf(base) + "^" + String.valueOf(power));
+        }
+    }
+
     /** Official status of languages */
     public enum OfficialStatus {
         unknown("U", 1),
@@ -977,6 +995,8 @@ public class SupplementalDataInfo {
 
     private Map<String, UnitIdComponentType> unitIdComponentType = new TreeMap<>();
 
+    private Map<String, UnitPrefixInfo> unitPrefixInfo = new TreeMap<>();
+
     public Map<String, GrammarInfo> grammarLocaleToTargetToFeatureToValues = new TreeMap<>();
     public Map<String, GrammarDerivation> localeToGrammarDerivation = new TreeMap<>();
 
@@ -1233,6 +1253,8 @@ public class SupplementalDataInfo {
 
         unitIdComponentType = CldrUtility.protectCollection(unitIdComponentType);
 
+        unitPrefixInfo = CldrUtility.protectCollection(unitPrefixInfo);
+
         timeData = CldrUtility.protectCollection(timeData);
 
         validityInfo = CldrUtility.protectCollection(validityInfo);
@@ -1386,6 +1408,10 @@ public class SupplementalDataInfo {
                     if (handleUnitUnitIdComponents(parts)) {
                         return;
                     }
+                } else if (level1.equals("unitPrefixes")) {
+                    if (handleUnitPrefix(parts)) {
+                        return;
+                    }
                 } else if (level1.equals("unitConstants")) {
                     if (handleUnitConstants(parts)) {
                         return;
@@ -1437,6 +1463,22 @@ public class SupplementalDataInfo {
                                                 + value)
                                 .initCause(e);
             }
+        }
+
+        private boolean handleUnitPrefix(XPathParts parts) {
+            //      <unitPrefix type='quecto' symbol='q' power10='-30'/>
+            String power10 = parts.getAttributeValue(-1, "power10");
+            String power2 = parts.getAttributeValue(-1, "power2");
+            if ((power10 != null) == (power2 != null)) {
+                throw new IllegalArgumentException("Must have exactly one @power2 or @power10");
+            }
+            unitPrefixInfo.put(
+                    parts.getAttributeValue(-1, "type"),
+                    new UnitPrefixInfo(
+                            parts.getAttributeValue(-1, "symbol"),
+                            power10 != null ? 10 : 2,
+                            Integer.parseInt(power10 != null ? power10 : power2)));
+            return true;
         }
 
         private boolean handlePersonNamesDefaults(String value, XPathParts parts) {
@@ -5052,5 +5094,13 @@ public class SupplementalDataInfo {
 
     public Multimap<Order, String> getPersonNameOrder() {
         return personNameOrder;
+    }
+
+    public UnitPrefixInfo getUnitPrefixInfo(String prefix) {
+        return unitPrefixInfo.get(prefix);
+    }
+
+    public Set<String> getUnitPrefixes() {
+        return unitPrefixInfo.keySet();
     }
 }

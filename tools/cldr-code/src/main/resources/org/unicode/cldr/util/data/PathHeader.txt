@@ -524,6 +524,9 @@
 
 
 //supplementalData/unitIdComponents/unitIdComponent[@type="%A"]/_values	; Supplemental ; Units ; IdComponent ; $1-values ; HIDE
+//supplementalData/unitPrefixes/unitPrefix[@type="%A"]/_symbol	; Supplemental ; Units ; Prefix ; $1-symbol ; HIDE
+//supplementalData/unitPrefixes/unitPrefix[@type="%A"]/_power10	; Supplemental ; Units ; Prefix ; $1-power10 ; HIDE
+//supplementalData/unitPrefixes/unitPrefix[@type="%A"]/_power2	; Supplemental ; Units ; Prefix ; $1-power2 ; HIDE
 //supplementalData/unitConstants/unitConstant[@constant="%A"]/_value	; Supplemental ; Units ; Constant ; $1-value ; HIDE
 //supplementalData/unitConstants/unitConstant[@constant="%A"]/_status	; Supplemental ; Units ; Constant ; $1-status ; HIDE
 //supplementalData/unitQuantities/unitQuantity[@baseUnit="%A"]/_quantity	; Supplemental ; Units ; Quantity ; $1-value ; HIDE

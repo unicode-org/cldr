@@ -269,6 +269,7 @@ public class XPathTable {
      * @return the xpath's id (as an Integer)
      */
     private synchronized Integer addXpath(String xpath, boolean addIfNotFound, Connection inConn) {
+        xpath = xpath.intern();
         Integer nid = stringToId.get(xpath); // double check
         if (nid != null) {
             return nid;
@@ -372,6 +373,7 @@ public class XPathTable {
      *     //ldml/dates/timeZoneNames/zone[@type="America/Guadeloupe"]/short/daylight
      */
     public final void setById(int id, String xpath) {
+        xpath = xpath.intern();
         stringToId.put(idToString_put(id, xpath), id);
         sidToString.put(getStringID(xpath), xpath);
     }
@@ -383,6 +385,7 @@ public class XPathTable {
      * @return the id, like 692804, for the specified path
      */
     public final int getByXpath(String xpath) {
+        xpath = xpath.intern();
         Integer nid = stringToId.get(xpath);
         if (nid != null) {
             return nid.intValue();

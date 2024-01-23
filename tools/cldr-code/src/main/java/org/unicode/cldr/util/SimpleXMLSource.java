@@ -108,11 +108,12 @@ public class SimpleXMLSource extends XMLSource {
 
     @Override
     public void putFullPathAtDPath(String distinguishingXPath, String fullxpath) {
-        xpath_fullXPath.put(distinguishingXPath, fullxpath);
+        xpath_fullXPath.put(distinguishingXPath.intern(), fullxpath.intern());
     }
 
     @Override
     public void putValueAtDPath(String distinguishingXPath, String value) {
+        distinguishingXPath = distinguishingXPath.intern();
         String oldValue = xpath_value.get(distinguishingXPath);
         xpath_value.put(distinguishingXPath, value);
         updateValuePathMapping(distinguishingXPath, oldValue, value);

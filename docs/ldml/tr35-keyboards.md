@@ -368,9 +368,13 @@ There are two grapheme clusters here:
 
 Normalization (and marker rearranging) occurs within each segment.  While `\m{marker1}` is 'glued' to the `\u{0320}`, it is glued within the first segment and has no effect on the second segment.
 
-#### Normalization and Ranges
+#### Normalization and Character Classes
 
-If pre-composed characters are used in ranges, such as `[á-é]`, these will need to be expanded. The above range would expand to: `(á|â|ã|ä|å|æ|ç|è|é)` (The NFD expansion of U+00E1…U+00E9).  Implementations may want to warn users when ranges include non-NFD characters as they may be unexpected.
+If pre-composed (non-NFD) characters are used in [character classes](#regex-like-syntax), such as `[á-é]` or `[\u{00e1}-\u{00e9}]`, these may not match as keyboard authors expect, as the U+00E1 character will not occur in NFD form.
+
+The above could be written instead as a  `(á|â|ã|ä|å|æ|ç|è|é)`, or as a set variable `<set id="Ex" value="á â ã ä å æ ç è é"/>` and matched as `$[Ex]`.
+
+Implementations may want to warn users when character classes include non-NFD characters.
 
 ### Normalization and Output
 
@@ -1951,7 +1955,7 @@ _Attribute:_ `from` (required)
     - supported
     - no Unicode properties such as `\p{…}`
     - Warning: Character classes look superficially similar to [`uset`](#element-uset) elements, but they are distinct and referenced with the `$[...usetId]` notation in transforms. The `uset` notation cannot be embedded directly in a transform.
-    - See [Normalization and Ranges](#normalization-and-ranges) for more details about the impact of normalization on ranges.
+    - See [Normalization and Character Classes](#normalization-and-character-classes) for more details about the impact of normalization on ranges.
 
 - **Bounded quantifier**
 

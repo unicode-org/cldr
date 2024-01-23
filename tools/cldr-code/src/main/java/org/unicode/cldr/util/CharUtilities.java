@@ -1,7 +1,31 @@
 package org.unicode.cldr.util;
 
-public class CharUtilities {
+import java.util.Iterator;
 
+public class CharUtilities {
+    /** intern everything in the src iterable */
+    public static Iterable<String> internAll(final Iterable<String> src) {
+        return new Iterable<String>() {
+            @Override
+            public Iterator<String> iterator() {
+                return CharUtilities.internAll(src.iterator());
+            }
+        };
+    }
+    /** intern everything in the src iterator */
+    protected static Iterator<String> internAll(final Iterator<String> iterator) {
+        return new Iterator<String>() {
+            @Override
+            public boolean hasNext() {
+                return iterator.hasNext();
+            }
+
+            @Override
+            public String next() {
+                return iterator.next().intern();
+            }
+        };
+    }
     /**
      * Simple wrapper for CharSequence
      *

@@ -352,4 +352,24 @@ public class TestCLDRFile {
                                     .getPathsWhereFound(GERMAN_IN_SWITZERLAND));
         }
     }
+
+    @Test
+    public void TestInternedPaths() {
+        {
+            final CLDRFile en = CLDRConfig.getInstance().getCLDRFile("en", false);
+            for (final String s : en.fullIterable()) {
+                final String s0 = new String(s);
+                assertTrue(s != s0);
+                assertTrue(s == s0.intern(), () -> "in unresolved en was not interned: " + s);
+            }
+        }
+        {
+            final CLDRFile en = CLDRConfig.getInstance().getCLDRFile("en", true);
+            for (final String s : en.fullIterable()) {
+                final String s0 = new String(s);
+                assertTrue(s != s0);
+                assertTrue(s == s0.intern(), () -> "in resolved en was not interned: " + s);
+            }
+        }
+    }
 }

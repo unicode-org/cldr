@@ -261,6 +261,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
      * @param value
      */
     public String putValueAtPath(String xpath, String value) {
+        xpath = xpath.intern();
         if (locked) {
             throw new UnsupportedOperationException("Attempt to modify locked object");
         }
@@ -493,7 +494,8 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             if (!Alias.isAliasPath(path)) {
                 continue;
             }
-            String fullPath = getFullPathAtDPath(path);
+            path = path.intern();
+            String fullPath = getFullPathAtDPath(path).intern();
             Alias temp = Alias.make(fullPath);
             if (temp == null) {
                 continue;
@@ -892,6 +894,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
         private String getFullPath(
                 String xpath, AliasLocation fullStatus, String fullPathWhereFound) {
             String result = null;
+            xpath = xpath.intern();
             if (this.cachingIsEnabled) {
                 result = getFullPathAtDPathCache.get(xpath);
             }
@@ -1078,6 +1081,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                 boolean skipFirst,
                 boolean skipInheritanceMarker,
                 List<LocaleInheritanceInfo> list) {
+            xpath = xpath.intern();
 
             //   When calculating the Bailey values, we track the final
             //   return value as firstValue. If non-null, this will become
@@ -1145,6 +1149,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                     aliasedPath =
                             aliases.get(possibleSubpath)
                                     + xpath.substring(possibleSubpath.length());
+                    aliasedPath = aliasedPath.intern();
                     if (list != null) {
                         // It's an explicit alias, just at a parent element (subset xpath)
                         list.add(
@@ -1165,7 +1170,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
 
             // alts are special; they act like there is a root alias to the path without the alt.
             if (aliasedPath == null && xpath.contains("[@alt=")) {
-                aliasedPath = XPathParts.getPathWithoutAlt(xpath);
+                aliasedPath = XPathParts.getPathWithoutAlt(xpath).intern();
                 if (list != null) {
                     list.add(
                             new LocaleInheritanceInfo(
@@ -1178,10 +1183,10 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             // //ldml/numbers/currencies/currency[@type="BRZ"]/displayName[@count="other"] =>
             // //ldml/numbers/currencies/currency[@type="BRZ"]/displayName
             if (aliasedPath == null && xpath.contains("[@count=")) {
-                aliasedPath = COUNT_EQUALS.matcher(xpath).replaceAll("[@count=\"other\"]");
+                aliasedPath = COUNT_EQUALS.matcher(xpath).replaceAll("[@count=\"other\"]").intern();
                 if (aliasedPath.equals(xpath)) {
                     if (xpath.contains("/displayName")) {
-                        aliasedPath = COUNT_EQUALS.matcher(xpath).replaceAll("");
+                        aliasedPath = COUNT_EQUALS.matcher(xpath).replaceAll("").intern();
                         if (aliasedPath.equals(xpath)) {
                             throw new RuntimeException("Internal error");
                         }
@@ -1290,7 +1295,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             // others
             for (XMLSource curSource : sourceList) {
                 for (String xpath : curSource) {
-                    paths.add(xpath);
+                    paths.add(xpath.intern());
                 }
             }
             return paths;
@@ -1328,7 +1333,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                     String suffix = xpath.substring(suffixStart);
                     for (String reverseAlias : list) {
                         String reversePath = reverseAlias + suffix;
-                        newPaths.add(reversePath);
+                        newPaths.add(reversePath.intern());
                     }
                     endIndex++;
                 }
@@ -1967,7 +1972,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                 LOG_PROGRESS,
                 "ADDING: \t" + currentFullXPath + " \t" + value + "\t" + currentFullXPath);
         try {
-            this.putValueAtPath(currentFullXPath, value);
+            this.putValueAtPath(currentFullXPath.intern(), value);
         } catch (RuntimeException e) {
             throw new IllegalArgumentException(
                     "failed adding " + currentFullXPath + ",\t" + value, e);

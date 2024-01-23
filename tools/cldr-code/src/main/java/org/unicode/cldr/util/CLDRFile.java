@@ -3156,8 +3156,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         if (extraPaths == null) {
             extraPaths =
                     ImmutableSet.<String>builder()
-                            .addAll(getRawExtraPathsPrivate())
-                            .addAll(CONST_EXTRA_PATHS)
+                            .addAll(CharUtilities.internAll(getRawExtraPathsPrivate()))
+                            .addAll(CharUtilities.internAll(CONST_EXTRA_PATHS))
                             .build();
             if (DEBUG) {
                 System.out.println(getLocaleID() + "\textras: " + extraPaths.size());

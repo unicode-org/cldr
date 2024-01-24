@@ -318,7 +318,6 @@ The attribute value `normalization="disabled"` can be used to indicate that no a
 
 Input source files may be in any normalization format, however, authors should be aware of two areas where normalization affects keyboard operation: that of transform matching, and that of output.
 
-
 ### Normalization and Transform Matching
 
 Regardless of the normalization form in the keyboard source file or in the edit buffer context, transform matching will be performed using **NFD**. For example, all of the following transforms will match the input strings `è̠`, whether the input is U+00E8 U+0320, U+0065 U+0320 U+0300, or U+0065 U+0300 U+0320.
@@ -329,7 +328,7 @@ Regardless of the normalization form in the keyboard source file or in the edit 
 <transform from="e\u{0300}\u{0320}" /> <!-- Unnormalized -->
 ```
 
-#### Normalization and Markers
+### Normalization and Markers
 
 A special issue occurs when markers are involved. The markers may be reordered along with characters.
 
@@ -345,7 +344,7 @@ If we add markers:
 - `e\u{0300}\m{marker}\u{0320}` (original)
 - `e\m{marker}\u{0320}\u{0300}` (NFD)
 
-The principle is that the marker stays 'glued' to the following character, in this case the `\u{0320}`. If a marker occurs at the end of input or at the end of a segment (a grapheme cluster boundary), the marker is 'glued' to the end of that segment during the course of normalization for the current keystroke. As another example:
+The principle is that the marker stays 'glued' to the following character, in this case the `\u{0320}`. If a marker occurs at the end of input or at the end of a normalization-safe segment, the marker is 'glued' to the end of that segment during the course of normalization for the current keystroke. As another example:
 
 **Example 2**
 
@@ -354,21 +353,21 @@ The principle is that the marker stays 'glued' to the following character, in th
 
 Here `\m{marker2}` is 'glued' to the end of the segment. However, if additional text is added such as by a subsequent keystroke (which may add an additional combining character, for example), this marker may be 'glued' to that following text.
 
-As noted above, normalization is applied within grapheme cluster boundaries. This is significant so that markers remain in the same grapheme cluster during normalization. Consider:
+Markers remain in the same normalization-safe segment during normalization. Consider:
 
 **Example 3**
 
 - `e\u{0300}\m{marker1}\u{0320}a\u{0300}\m{marker2}\u{0320}` (original)
 - `e\m{marker1}\u{0320}\u{0300}a\m{marker2}\u{0320}\u{0300}` (NFD)
 
-There are two grapheme clusters here:
+There are two normalization-safe segments here:
 
 1. `e\u{0300}\m{marker1}\u{0320}`
 2. `a\u{0300}\m{marker2}\u{0320}`
 
 Normalization (and marker rearranging) occurs within each segment.  While `\m{marker1}` is 'glued' to the `\u{0320}`, it is glued within the first segment and has no effect on the second segment.
 
-#### Normalization and Character Classes
+### Normalization and Character Classes
 
 If pre-composed (non-NFD) characters are used in [character classes](#regex-like-syntax), such as `[á-é]` or `[\u{00e1}-\u{00e9}]`, these may not match as keyboard authors expect, as the U+00E1 character will not occur in NFD form.
 
@@ -381,7 +380,12 @@ Implementations may want to warn users when character classes include non-NFD ch
 On output, text will be normalized into the form requested by that implementation, or possibly specifically requested by a particular application.
 For example, many platforms may request NFC as the output format. In such a case, all text emitted via the keyboard will be transformed into NFC.
 
-Existing text in a document will only have normalization applied within a normalization-safe boundary distance from the caret, within segments defined by Grapheme Cluster Boundaries as defined by [UAX #29](https://www.unicode.org/reports/tr29/#Grapheme_Cluster_Boundaries).
+Existing text in a document will only have normalization applied within a single normalization-safe segment from the caret.
+
+### Normalization-safe Segments
+
+For purposes of the above discussion, "normalization-safe segments" are defined as a string of codepoints which are (1) already in [NFD](https://www.unicode.org/reports/tr15/#Norm_Forms), and (2) begin with a character with [Canonical Combining Class](https://www.unicode.org/reports/tr44/#Canonical_Combining_Class_Values) of `0`. See [UAX #15 Section 9.1: Stable Code Points](https://www.unicode.org/reports/tr15/#Stable_Code_Points) for related discussion.  Text under consideration can be segmented by locating such characters.
+
 
 * * *
 

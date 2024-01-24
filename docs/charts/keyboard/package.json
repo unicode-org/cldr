@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "npx serve static",
-    "build": "node build.mjs"
+    "build": "node build.mjs",
+    "lint": "echo no linter yet",
+    "postinstall": "node build.mjs"
   },
   "keywords": [],
   "author": "Steven R. Loomis <srl295@gmail.com>",

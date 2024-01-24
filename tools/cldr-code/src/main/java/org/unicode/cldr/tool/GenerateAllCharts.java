@@ -26,6 +26,7 @@ public class GenerateAllCharts {
             throw new IOException("Main dir doesn't exist: " + mainDir);
         }
         FileCopier.copy(GenerateAllCharts.class, "index.css", CLDRPaths.CHART_DIRECTORY);
+
         FileCopier.copy(
                 GenerateAllCharts.class,
                 "main-index.html",
@@ -54,5 +55,7 @@ public class GenerateAllCharts {
         VerifyZones.main(args);
         DateTimeFormats.main(args);
         new ChartPersonNames().writeChart(null);
+
+        GenerateKeyboardCharts.main(args);
     }
 }

@@ -330,7 +330,8 @@ Regardless of the normalization form in the keyboard source file or in the edit 
 
 ### Normalization and Markers
 
-A special issue occurs when markers are involved. The markers may be reordered along with characters.
+A special issue occurs when markers are involved. Markers are not text, and so are themselves affected by the normalization algorithm.
+However, the markers must be reordered by the implementation along with their surrounding characters.
 
 **Example 1**
 
@@ -344,7 +345,11 @@ If we add markers:
 - `e\u{0300}\m{marker}\u{0320}` (original)
 - `e\m{marker}\u{0320}\u{0300}` (NFD)
 
-The principle is that the marker stays 'glued' to the following character, in this case the `\u{0320}`. If a marker occurs at the end of input or at the end of a normalization-safe segment, the marker is 'glued' to the end of that segment during the course of normalization for the current keystroke. As another example:
+During a processing step, such as appending a keystroke or one stage of applying a transform, the marker is 'glued' to the _following_ character. In the above example, `\m{marker}` was 'glued' to the `\u{0320}`. If a marker occured at the end of input or at the end of a normalization-safe segment, the marker is 'glued' to the end of that segment during that normalization step.
+
+The 'gluing' is only applicable during one particular processing step. It does not persist or affect further processing steps or future keystrokes.
+
+A second example:
 
 **Example 2**
 
@@ -366,6 +371,12 @@ There are two normalization-safe segments here:
 2. `a\u{0300}\m{marker2}\u{0320}`
 
 Normalization (and marker rearranging) occurs within each segment.  While `\m{marker1}` is 'glued' to the `\u{0320}`, it is glued within the first segment and has no effect on the second segment.
+
+#### Rationale for 'gluing' markers
+
+It is recognized that the processing described here seems to be an innovation among Unicode normalization implementations.
+
+This specification has markers 'glued' (remaining with) the following character so that if a context ends with a marker, that marker would be guaranteed to remain at the end after processing.  Authors can keep a marker together with a character of interest by emitting the marker just before the character of interest, that is, `output="\m{marker}X"` instead of `output="X\m{marker}"`.
 
 ### Normalization and Character Classes
 

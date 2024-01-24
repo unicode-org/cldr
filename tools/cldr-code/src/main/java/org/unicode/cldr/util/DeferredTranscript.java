@@ -7,8 +7,15 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * lazily-calculates the transcript. Thread safe to call get() multiple times once commit() is
- * called and before clear() is called.
+ * A deferred list of formatted strings, one per line. The formatting is deferred until when (and
+ * if) get() is called. It's thread safe to call get() multiple times, but add() should be called
+ * from a single thread.
+ *
+ * <p>Once get() is called, the contents are 'resolved' into a string, and subsequent get() calls
+ * will return the same string (even if add() was called). To re-use the object, call clear() and
+ * then new content can be added with add().
+ *
+ * <p>In testing, there was a significant speed-up for the use case where get() might not be called.
  */
 public class DeferredTranscript implements Supplier<String> {
 
@@ -16,11 +23,13 @@ public class DeferredTranscript implements Supplier<String> {
         public final CharSequence fmt;
         public final Object[] args;
 
+        /** Add a new FormatEntry as a deferred format */
         public FormatEntry(String fmt, Object[] args) {
             this.fmt = fmt;
             this.args = args;
         }
 
+        /** Output this entry as a CharSequence, performing any formatting needed. */
         public final CharSequence format() {
             if (args == null || args.length == 0) {
                 return fmt;
@@ -30,14 +39,18 @@ public class DeferredTranscript implements Supplier<String> {
         }
     }
 
+    /** clear the DeferredTranscript on startup */
     public DeferredTranscript() {
         clear();
     }
 
+    /** The first time this is read, it will calculate the entire string. */
     private Supplier<String> delegate = null;
+
+    /** cached formats */
     private List<FormatEntry> formats;
 
-    /** reset this transcript so it can be used again. */
+    /** reset this transcript so it can be added to again. */
     public void clear() {
         // the delegate only calculates the value once, the first time it is accessed.
         delegate =
@@ -60,7 +73,8 @@ public class DeferredTranscript implements Supplier<String> {
     }
 
     /**
-     * Add a formatted entry. Will be ignored if get() has been called since clear()
+     * Add a formatted entry. Will have no effect if get() has been called since clear() or object
+     * construction.
      *
      * @param fmt the string or pattern string
      * @param args if non-null, arguments to String.format()

@@ -345,7 +345,7 @@ If we add markers:
 - `e\u{0300}\m{marker}\u{0320}` (original)
 - `e\m{marker}\u{0320}\u{0300}` (NFD)
 
-The principle is that the marker stays 'glued' to the following character, in this case the `\u{0320}`. If a marker occurs at the end of input or at the end of a segment (a grapheme cluster boundary), the marker is 'glued' to the end of that segment during the course of normalization. As another example:
+The principle is that the marker stays 'glued' to the following character, in this case the `\u{0320}`. If a marker occurs at the end of input or at the end of a segment (a grapheme cluster boundary), the marker is 'glued' to the end of that segment during the course of normalization for the current keystroke. As another example:
 
 **Example 2**
 

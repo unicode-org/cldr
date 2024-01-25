@@ -316,11 +316,46 @@ Output from the keyboard, following application of all transform rules, will be 
 
 The attribute value `normalization="disabled"` can be used to indicate that no automatic normalization happens in input, matching, or output.  Using this setting should be done with caution. See [`<settings>`](#element-settings).
 
-Input source files may be in any normalization format, however, authors should be aware of two areas where normalization affects keyboard operation: that of transform matching, and that of output.
+Input source files may be in any normalization format, however, authors should be aware of areas where normalization affects keyboard operation.
+
+There are four stages where normalization occurs. These are briefly outlined here, and then detailed below.
+
+1. **From the keyboard source `.xml`**
+
+    Example: `<key output=`, and `<transform from= to=` attribute contents
+    - From any form to NFD: full normalization (decompose+reorder)
+    - Markers must be processed
+    - Regex rules must be handled carefully
+
+2. **From the input context**
+
+    Input context must be normalized for purposes of matching.
+
+    Example: Input context might contain U+00E8 (`è`).  User clicks the cursor after the character. User types `<key ... output="\u{0300}"/>`.
+    The implementation must normalize this to `e\u{0320}\u{0300}` ( è̠  ) before matching.
+
+    - From any form to NFD: full normalization (decompose+reorder)
+    - Markers in the cached context must be preserved.
+
+3. **Before each `transformGroup`**
+
+    Text must be normalized before processing by the next `transformGroup`.
+
+    - To NFD: no decomposition should be needed, because all of the input text (including transform rules) was already in NFD form.
+    However, marker reordering may be needed if transforms insert segments out of order.
+    - Markers must be preserved.
+
+4. **Before output to the platform/application**
+
+    Text must be normalized into the output form requested by the platform or application.
+
+    - For example, to NFC: full normalization (reorder+composition).
+    - No markers are present in this text, they are removed prior to output but retained in the implementation's input context for subsequent keystrokes. See [markers](#markers).
+
 
 ### Normalization and Transform Matching
 
-Regardless of the normalization form in the keyboard source file or in the edit buffer context, transform matching will be performed using **NFD**. For example, all of the following transforms will match the input strings `è̠`, whether the input is U+00E8 U+0320, U+0065 U+0320 U+0300, or U+0065 U+0300 U+0320.
+Regardless of the normalization form in the keyboard source file or in the edit buffer context, transform matching will be performed using **NFD**. For example, all of the following transforms will match the input strings è̠, whether the input is U+00E8 U+0320, U+0065 U+0320 U+0300, or U+0065 U+0300 U+0320.
 
 ```xml
 <transform from="e\u{0320}\u{0300}" /> <!-- NFD -->

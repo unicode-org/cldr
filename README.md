@@ -10,7 +10,7 @@ For current CLDR release information, see [cldr.unicode.org](https://cldr.unicod
 
 ## Status
 
-Update: 2024-01-08
+Update: 2024-01-25
 
 <!-- [inapplicable lines are commented out.]-->
 **Note:**  CLDR 45 is in development and not recommended for use at this stage.

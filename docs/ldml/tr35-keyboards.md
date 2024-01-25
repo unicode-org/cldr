@@ -376,7 +376,7 @@ Normalization (and marker rearranging) occurs within each segment.  While `\m{ma
 
 It is recognized that the processing described here seems to be an innovation among Unicode normalization implementations.
 
-This specification has markers 'glued' (remaining with) the following character so that if a context ends with a marker, that marker would be guaranteed to remain at the end after processing.  Authors can keep a marker together with a character of interest by emitting the marker just before the character of interest, that is, `output="\m{marker}X"` instead of `output="X\m{marker}"`.
+This specification has markers 'glued' (remaining with) the following character so that if a context ends with a marker, that marker would be guaranteed to remain at the end after processing, consistently located with respect to the next keystroke to be input.  Alternatively, authors can keep a marker together with a character of interest by emitting the marker just previous to the character of interest, that is, `output="\m{marker}X"` instead of `output="X\m{marker}"`.
 
 ### Normalization and Character Classes
 
@@ -386,12 +386,21 @@ The above could be written instead as a  `(á|â|ã|ä|å|æ|ç|è|é)`, or as a
 
 Implementations may want to warn users when character classes include non-NFD characters.
 
+### Normalization and Reorders
+
+[`reorder`](#element-reorder) elements operate on NFD codepoints.
+
+The reorders do not themselves interact with markers, that is, markers may not be matched by a `reorder` element. However, if a character preceded by one or more markers is reordered due to a `reorder` element, those markers will also move with the characters as with the `transform` elements.
+
+
 ### Normalization and Output
 
 On output, text will be normalized into the form requested by that implementation, or possibly specifically requested by a particular application.
 For example, many platforms may request NFC as the output format. In such a case, all text emitted via the keyboard will be transformed into NFC.
 
-Existing text in a document will only have normalization applied within a single normalization-safe segment from the caret.
+Existing text in a document will only have normalization applied within a single normalization-safe segment from the caret.  Output normalization to NFC, when appropriate, is unaffected by any markers embedded within the segment.
+
+For example, the sequence `e\m{marker}\u{300}` would be output in NFC as `è`. The marker is removed and has no effect on output.
 
 ### Normalization-safe Segments
 
@@ -649,7 +658,7 @@ _Attribute:_ `normalization="disabled"`
 > The presence of this attrinbute indicates that normalization will not be applied to input text, matching, or output.
 > See [Normalization](#normalization) for additional details.
 >
-> **Note**: while this attribute is allowed by the specification, it should be used with caution, and keyboards with `normalization="disabled"` would not be accepted into the ClDR repository.
+> **Note**: while this attribute is allowed by the specification, it should be used with caution.
 
 
 **Example**

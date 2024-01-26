@@ -884,7 +884,7 @@ An element used to keep track of layout-specific settings by implementations. Th
 
 _Attribute:_ `normalization="disabled"`
 
-> The presence of this attrinbute indicates that normalization will not be applied to input text, matching, or output.
+> The presence of this attribute indicates that normalization will not be applied to input text, matching, or output.
 > See [Normalization](#normalization) for additional details.
 >
 > **Note**: while this attribute is allowed by the specification, it should be used with caution.

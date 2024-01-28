@@ -860,6 +860,8 @@ An implementation need not use rationals directly for conversion; it could use d
 
 <!ATTLIST convertUnit factor CDATA #IMPLIED >
 
+<!ATTLIST convertUnit exponent CDATA #IMPLIED >
+
 <!ATTLIST convertUnit offset CDATA #IMPLIED >
 
 <!ATTLIST convertUnit description CDATA #IMPLIED >
@@ -869,7 +871,7 @@ An implementation need not use rationals directly for conversion; it could use d
 
 The conversion data provides the data for converting all of the cldr unit identifiers to base units, and back. That allows conversion between any two convertible units, such as two units of length. For any two convertible units (such as acre and dunum) the first can be converted to the base unit (square-meter), then that base unit can be converted to the second unit.
 
-The data is expressed as conversions to the base unit. The information can also be used for the conversion back.
+The data is expressed as conversions to the base unit from the source unit. The information can also be used for the conversion back.
 
 Examples:
 
@@ -885,17 +887,20 @@ Examples:
 
 For example, to convert from 3 carats to kilograms, the factor 0.0002 is used, resulting in 0.0006. To convert between carats and ounces, first the carets are converted to kilograms, then the kilograms to ounces (by reversing the mapping).
 
-The factor and offset use the same structure as in the value in unitConstant; in particular, * binds more tightly than /.
-
-The conversion may also require an offset, such as the following:
+The conversion may also require an offset or exponent, such as the following:
 
 ```xml
 <convertUnit source='fahrenheit' baseUnit='kelvin' factor='5/9' offset='2298.35/9' systems="ussystem uksystem"/>
+
+<convertUnit source='beaufort' baseUnit='meter-per-second' factor='0.836' exponent='3/2' systems="metric_adjacent"/>
 ```
 
-The factor and offset can be simple expressions, just like the values in the unitConstants.
+The complete expression for conversion from sourceUnit to baseUnit is `baseUnit = factor * sourceUnit^exponent + offset`.
+The inverse conversion is thus `sourceUnit = ((baseUnit - offset)/factor)^(1/exponent)`.
 
-Where a factor is not present, the value is 1; where an offset is not present, the value is 0.
+The factor, exponent and offset can be simple expressions, just like the values in the unitConstants. These use the same structure as in the value in unitConstant; in particular, * binds more tightly than /.
+
+Where a factor or exponent is not present, the value is 1; where an offset is not present, the value is 0. No current conversions specify both an exponent and and offset.
 
 The `systems` attribute indicates the measurement system(s) or other characteristics of a set of unts. Multiple values may be given; for example, a unit could be marked as systems="`si_acceptable` `metric_adjacent` `prefixable`".
 

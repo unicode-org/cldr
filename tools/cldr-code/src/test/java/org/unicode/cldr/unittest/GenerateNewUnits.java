@@ -239,6 +239,7 @@ public class GenerateNewUnits {
                 bestSymbol,
                 bestTarget,
                 bestFactor,
+                Rational.ONE,
                 Rational.ZERO,
                 null,
                 null,

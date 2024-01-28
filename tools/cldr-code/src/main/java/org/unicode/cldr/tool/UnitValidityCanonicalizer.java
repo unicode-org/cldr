@@ -94,6 +94,11 @@ public class UnitValidityCanonicalizer {
                         return comp;
                     }
 
+                    comp = ci1.exponent.compareTo(ci2.exponent);
+                    if (comp != 0) {
+                        return comp;
+                    }
+
                     comp = ci2.offset.compareTo(ci2.offset);
                     if (comp != 0) {
                         return comp;

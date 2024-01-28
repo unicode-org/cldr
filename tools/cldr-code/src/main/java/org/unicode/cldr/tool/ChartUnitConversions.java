@@ -139,6 +139,7 @@ public class ChartUnitConversions extends Chart {
             all.add(sortKey);
 
             // get some formatted strings
+            // TODO: handle exponent here - how?
 
             final String repeatingFactor =
                     targetInfo.unitInfo.factor.toString(FormatStyle.repeating);

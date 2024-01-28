@@ -273,6 +273,15 @@ public final class Rational implements Comparable<Rational> {
         return new Rational(numerator.pow(i), denominator.pow(i));
     }
 
+    public Rational pow(Rational exponent) {
+        if (exponent.equals(Rational.ONE)) {
+            return this;
+        }
+        // Temporary quick implementation
+        double resultDouble = Math.pow(this.doubleValue(), exponent.doubleValue());
+        return Rational.of(new BigDecimal(resultDouble));
+    }
+
     public static Rational pow10(int i) {
         return i > 0 ? TEN.pow(i) : TENTH.pow(-i);
     }

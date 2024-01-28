@@ -454,6 +454,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!ATTLIST convertUnit factor CDATA #IMPLIED >
     <!--@MATCH:regex/[-+*/\._ 0-9a-zA-Z]+-->
     <!--@VALUE-->
+<!ATTLIST convertUnit exponent CDATA #IMPLIED >
+    <!--@MATCH:regex/[-+*/\._ 0-9a-zA-Z]+-->
+    <!--@VALUE-->
 <!ATTLIST convertUnit offset CDATA #IMPLIED >
     <!--@MATCH:regex/[-+*/\._ 0-9a-zA-Z]+-->
     <!--@VALUE-->

@@ -212,6 +212,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
             String source = entry.getKey();
             TargetInfo targetInfo = entry.getValue();
             if (targetInfo.unitInfo.factor.equals(Rational.ONE)
+                    && targetInfo.unitInfo.exponent.equals(Rational.ONE)
                     && targetInfo.unitInfo.offset.equals(Rational.ZERO)) {
                 final String target = targetInfo.target;
                 String old = unitToStandard.get(target);
@@ -240,28 +241,42 @@ public class UnitConverter implements Freezable<UnitConverter> {
 
     public static final class ConversionInfo implements Comparable<ConversionInfo> {
         public final Rational factor;
+        public final Rational exponent;
         public final Rational offset;
 
-        static final ConversionInfo IDENTITY = new ConversionInfo(Rational.ONE, Rational.ZERO);
+        static final ConversionInfo IDENTITY =
+                new ConversionInfo(Rational.ONE, Rational.ONE, Rational.ZERO);
 
-        public ConversionInfo(Rational factor, Rational offset) {
+        public ConversionInfo(Rational factor, Rational exponent, Rational offset) {
             this.factor = factor;
+            this.exponent = exponent;
             this.offset = offset;
         }
 
         public Rational convert(Rational source) {
-            return source.multiply(factor).add(offset);
+            return source.pow(exponent).multiply(factor).add(offset);
         }
 
         public Rational convertBackwards(Rational source) {
-            return source.subtract(offset).divide(factor);
+            return source.subtract(offset).divide(factor).pow(exponent.reciprocal());
         }
 
         public ConversionInfo invert() {
-            Rational factor2 = factor.reciprocal();
-            Rational offset2 =
-                    offset.equals(Rational.ZERO) ? Rational.ZERO : offset.divide(factor).negate();
-            return new ConversionInfo(factor2, offset2);
+            if (exponent.equals(Rational.ONE)) {
+                Rational factor2 = factor.reciprocal();
+                Rational offset2 =
+                        offset.equals(Rational.ZERO)
+                                ? Rational.ZERO
+                                : offset.divide(factor).negate();
+                return new ConversionInfo(factor2, Rational.ONE, offset2);
+            } else if (offset.equals(Rational.ZERO)) {
+                Rational exponent2 = exponent.reciprocal();
+                Rational factor2 = Rational.ONE.divide(factor.pow(exponent2));
+                return new ConversionInfo(factor2, exponent2, Rational.ZERO);
+            } else {
+                throw new UnsupportedOperationException(
+                        "cannot invert simply with both exponent and offset");
+            }
             // TODO fix reciprocal
         }
 
@@ -274,9 +289,12 @@ public class UnitConverter implements Freezable<UnitConverter> {
             return factor.toString(FormatStyle.formatted)
                     + " * "
                     + unit
+                    + (exponent.equals(Rational.ONE)
+                            ? ""
+                            : " ^ " + exponent.toString(FormatStyle.formatted))
                     + (offset.equals(Rational.ZERO)
                             ? ""
-                            : (offset.compareTo(Rational.ZERO) < 0 ? " - " : " - ")
+                            : (offset.compareTo(Rational.ZERO) < 0 ? " - " : " + ")
                                     + offset.abs().toString(FormatStyle.formatted));
         }
 
@@ -288,9 +306,12 @@ public class UnitConverter implements Freezable<UnitConverter> {
             return factor.toBigDecimal(MathContext.DECIMAL64)
                     + " * "
                     + unit
+                    + (exponent.equals(Rational.ONE)
+                            ? ""
+                            : " ^ " + exponent.toBigDecimal(MathContext.DECIMAL64))
                     + (offset.equals(Rational.ZERO)
                             ? ""
-                            : (offset.compareTo(Rational.ZERO) < 0 ? " - " : " - ")
+                            : (offset.compareTo(Rational.ZERO) < 0 ? " - " : " + ")
                                     + offset.toBigDecimal(MathContext.DECIMAL64).abs());
         }
 
@@ -298,6 +319,9 @@ public class UnitConverter implements Freezable<UnitConverter> {
         public int compareTo(ConversionInfo o) {
             int diff;
             if (0 != (diff = factor.compareTo(o.factor))) {
+                return diff;
+            }
+            if (0 != (diff = exponent.compareTo(o.exponent))) {
                 return diff;
             }
             return offset.compareTo(o.offset);
@@ -310,7 +334,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
 
         @Override
         public int hashCode() {
-            return Objects.hash(factor, offset);
+            return Objects.hash(factor, exponent, offset);
         }
     }
 
@@ -423,14 +447,24 @@ public class UnitConverter implements Freezable<UnitConverter> {
         //        SHORT_TO_LONG_ID = ImmutableBiMap.copyOf(_SHORT_TO_LONG_ID);
     }
 
-    public void addRaw(String source, String target, String factor, String offset, String systems) {
+    public void addRaw(
+            String source,
+            String target,
+            String factor,
+            String exponent,
+            String offset,
+            String systems) {
         ConversionInfo info =
                 new ConversionInfo(
                         factor == null ? Rational.ONE : rationalParser.parse(factor),
+                        exponent == null ? Rational.ONE : rationalParser.parse(exponent),
                         offset == null ? Rational.ZERO : rationalParser.parse(offset));
         Map<String, String> args = new LinkedHashMap<>();
         if (factor != null) {
             args.put("factor", factor);
+        }
+        if (exponent != null) {
+            args.put("exponent", exponent);
         }
         if (offset != null) {
             args.put("offset", offset);
@@ -749,7 +783,9 @@ public class UnitConverter implements Freezable<UnitConverter> {
                     }
                     String baseUnit = info.target;
 
-                    value = info.unitInfo.factor.multiply(value);
+                    Rational factor = info.unitInfo.factor;
+                    Rational exponent = info.unitInfo.exponent;
+                    value = value.pow(exponent).multiply(factor);
                     // if (showYourWork && !info.unitInfo.factor.equals(Rational.ONE))
                     // System.out.println(showRational("\tfactor: ", info.unitInfo.factor,
                     // baseUnit));
@@ -788,11 +824,15 @@ public class UnitConverter implements Freezable<UnitConverter> {
             }
         }
         metricUnit.value = outputUnit.toString();
-        return new ConversionInfo(numerator.divide(denominator), offset);
+        return new ConversionInfo(
+                numerator.divide(denominator),
+                Rational.ONE,
+                offset); // TODO: handle exponent here - how?
     }
 
     /** Only for use for simple base unit comparison */
     private class UnitComparator implements Comparator<String> {
+        // TODO: handle exponent here - how?
         // TODO, use order in units.xml
 
         @Override
@@ -1997,7 +2037,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
         Output<String> sourceBase = new Output<>();
         ConversionInfo sourceConversionInfo = parseUnitId(inputUnit, sourceBase, false);
         String baseUnit = sourceBase.value;
-        Rational baseUnitToInput = sourceConversionInfo.factor;
+        Rational baseUnitToInput = sourceConversionInfo.factor; // TODO: handle exponent here - how?
 
         putIfInRange(result, baseUnit, baseUnitToInput);
 
@@ -2030,7 +2070,9 @@ public class UnitConverter implements Freezable<UnitConverter> {
 
                 sourceConversionInfo = parseUnitId(other, sourceBase, false);
                 Rational otherValue =
-                        baseUnitToInput.multiply(sourceConversionInfo.factor.reciprocal());
+                        baseUnitToInput.multiply(
+                                sourceConversionInfo.factor
+                                        .reciprocal()); // TODO: handle exponent here - how?
 
                 if (otherValue.compareTo(Rational.ONE) < 0) {
                     if (otherValue.compareTo(closestLessValue) > 0) {

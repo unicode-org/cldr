@@ -143,6 +143,7 @@ final class NistUnits {
                             "kilogram",
                             Rational.of("1.660538782E-27"),
                             null,
+                            null,
                             Set.of(UnitSystem.si_acceptable),
                             "HACK",
                             "hack"));
@@ -153,6 +154,7 @@ final class NistUnits {
                             "g",
                             "kilogram",
                             Rational.of("1E-3"),
+                            null,
                             null,
                             Set.of(UnitSystem.si),
                             "HACK",
@@ -185,6 +187,7 @@ final class NistUnits {
                                                 null,
                                                 parts.get(1),
                                                 factor,
+                                                null,
                                                 null,
                                                 _siAcceptable,
                                                 NIST_CONVERSIONS,
@@ -222,6 +225,7 @@ final class NistUnits {
                                                 symbol,
                                                 name, //
                                                 Rational.ONE, //
+                                                null, //
                                                 null, //
                                                 _siAcceptable, //
                                                 NIST_BASE_UNITS,
@@ -273,7 +277,8 @@ final class NistUnits {
                                 name,
                                 new TargetInfo(
                                         targetUnit,
-                                        new ConversionInfo(Rational.ONE, Rational.ZERO),
+                                        new ConversionInfo(
+                                                Rational.ONE, Rational.ONE, Rational.ZERO),
                                         Collections.emptyMap()));
 
                         ExternalUnitConversionData data =
@@ -283,6 +288,7 @@ final class NistUnits {
                                         symbol,
                                         targetUnit, //
                                         Rational.ONE, //
+                                        null, //
                                         null, //
                                         _siAcceptable, //
                                         NIST_DERIVED_UNITS,
@@ -374,6 +380,7 @@ final class NistUnits {
             String symbolRaw,
             String targetRaw,
             Rational factor,
+            Rational exponent,
             Rational offset,
             Set<String> acceptable,
             String from,
@@ -404,7 +411,7 @@ final class NistUnits {
                 break;
         }
         return new ExternalUnitConversionData(
-                quantity, source, symbol, target, factor, offset, systems, from, line);
+                quantity, source, symbol, target, factor, exponent, offset, systems, from, line);
     }
 
     private static String extractUnit(

@@ -1644,9 +1644,10 @@ public class SupplementalDataInfo {
             // itself " + parts);
             //            }
             String factor = parts.getAttributeValue(-1, "factor");
+            String exponent = parts.getAttributeValue(-1, "exponent");
             String offset = parts.getAttributeValue(-1, "offset");
             String systems = parts.getAttributeValue(-1, "systems");
-            unitConverter.addRaw(source, target, factor, offset, systems);
+            unitConverter.addRaw(source, target, factor, exponent, offset, systems);
             return true;
         }
 

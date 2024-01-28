@@ -25,6 +25,7 @@ final class ExternalUnitConversionData implements Comparable<ExternalUnitConvers
             String symbol,
             String target,
             Rational factor,
+            Rational exponent,
             Rational offset,
             Set<UnitSystem> systems,
             String from,
@@ -34,7 +35,11 @@ final class ExternalUnitConversionData implements Comparable<ExternalUnitConvers
         this.source = source;
         this.symbol = symbol;
         this.target = target;
-        this.info = new ConversionInfo(factor, offset == null ? Rational.ZERO : offset);
+        this.info =
+                new ConversionInfo(
+                        factor,
+                        exponent == null ? Rational.ONE : exponent,
+                        offset == null ? Rational.ZERO : offset);
         this.systems = systems == null ? ImmutableSet.of() : ImmutableSet.copyOf(systems);
         this.from = from;
         this.line = line;

@@ -440,8 +440,10 @@ For example, the sequence `e\m{marker}\u{300}` would be output in NFC as `è`. T
 ### Normalization-safe Segments
 
 For purposes of the above discussion, "normalization-safe segments" are defined as a string of codepoints which are
-(1) already in [NFD](https://www.unicode.org/reports/tr15/#Norm_Forms), and
-(2) begin with a character with [Canonical Combining Class](https://www.unicode.org/reports/tr44/#Canonical_Combining_Class_Values) of `0`.
+
+1. already in [NFD](https://www.unicode.org/reports/tr15/#Norm_Forms), and
+2. begin with a character with [Canonical Combining Class](https://www.unicode.org/reports/tr44/#Canonical_Combining_Class_Values) of `0`.
+
 See [UAX #15 Section 9.1: Stable Code Points](https://www.unicode.org/reports/tr15/#Stable_Code_Points) for related discussion.
 Text under consideration can be segmented by locating such characters.
 
@@ -491,7 +493,7 @@ export function nfdMarkers(input /* string with markers */) {
     do {
         const haveMarker = markerAt(i); // true if there is a marker here
         if (i === input.end) {
-            segmentEnd = i; // end of input - end of segmetn
+            segmentEnd = i; // end of input - end of segment
         } else if(hasNFDBoundaryBefore(i) && !have_marker) {
             segmentEnd = i; // end of segment
             i++; // move past the NFD char
@@ -560,10 +562,10 @@ function parseMarkers(s: string): MarkerEntry[] {
             // (in order)
             // use first char of decomposed string
             const glue = normalizeNFD(i).codePointAt(0);
-            for (m of markers) {
-                map.add({marker: m, glue: glue});
+            for (m of lastMarkers) {
+                outputMap.add({marker: m, glue: glue});
             }
-            markers.clear();
+            lastMarkers.clear();
 
             i++; // move to next codepoint
         }
@@ -571,9 +573,9 @@ function parseMarkers(s: string): MarkerEntry[] {
 
     // ran out of codepoints.
     // any remaining markers are EOT
-    for (m of markers) {
-        map.add({marker: m, eot: true});
-    }
+    for (m of lastMarkers) {
+        outputMap.add({marker: m, eot: true});
+    } 
 }
 
 /**

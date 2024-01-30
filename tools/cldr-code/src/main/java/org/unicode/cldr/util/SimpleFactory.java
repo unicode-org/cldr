@@ -2,6 +2,8 @@ package org.unicode.cldr.util;
 
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
+import com.google.common.cache.CacheLoader;
+import com.google.common.cache.LoadingCache;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableList.Builder;
 import com.google.common.collect.ImmutableSet;
@@ -306,7 +308,7 @@ public class SimpleFactory extends Factory {
     }
 
     // private volatile CLDRFile result; // used in handleMake
-    private File sourceDirectories[];
+    private final File sourceDirectories[];
     private Set<String> localeList = new TreeSet<>();
     private Cache<CLDRCacheKey, CLDRFile> combinedCache = null;
     // private   Map<CLDRCacheKey,CLDRFile> combinedCache=  null;
@@ -330,7 +332,9 @@ public class SimpleFactory extends Factory {
     // LockSupportMap<>();
     private static Cache<SimpleFactoryLookupKey, SimpleFactoryCacheKey> factoryLookupMap = null;
 
-    private SimpleFactory() {}
+    private SimpleFactory() {
+        sourceDirectories = new File[0];
+    }
 
     @Override
     public DraftStatus getMinimalDraftStatus() {
@@ -775,33 +779,55 @@ public class SimpleFactory extends Factory {
         return sourceDirectories;
     }
 
+    LoadingCache<String, List<File>> sourceDirCache =
+            CacheBuilder.newBuilder()
+                    .build(
+                            new CacheLoader<>() {
+                                @Override
+                                public List<File> load(String localeName) throws Exception {
+                                    Builder<File> result = null;
+                                    boolean isSupplemental =
+                                            CLDRFile.isSupplementalName(localeName);
+                                    for (File sourceDirectory : sourceDirectories) {
+                                        if (isSupplemental) {
+                                            sourceDirectory =
+                                                    new File(
+                                                            sourceDirectory
+                                                                    .getAbsolutePath()
+                                                                    .replace(
+                                                                            "incoming"
+                                                                                    + File.separator
+                                                                                    + "vetted"
+                                                                                    + File
+                                                                                            .separator,
+                                                                            "common"
+                                                                                    + File
+                                                                                            .separator));
+                                        }
+                                        final File dir =
+                                                isSupplemental
+                                                        ? new File(
+                                                                sourceDirectory, "../supplemental")
+                                                        : sourceDirectory;
+                                        final File xmlFile = makeFileName(localeName, dir);
+                                        if (xmlFile.canRead()) {
+                                            if (result == null) {
+                                                result = ImmutableList.<File>builder();
+                                            }
+                                            result.add(dir);
+                                        }
+                                    }
+                                    return result == null ? ImmutableList.of() : result.build();
+                                }
+                            });
+
     @Override
     public List<File> getSourceDirectoriesForLocale(String localeName) {
-        Builder<File> result = null;
-        boolean isSupplemental = CLDRFile.isSupplementalName(localeName);
-        for (File sourceDirectory : this.sourceDirectories) {
-            if (isSupplemental) {
-                sourceDirectory =
-                        new File(
-                                sourceDirectory
-                                        .getAbsolutePath()
-                                        .replace(
-                                                "incoming"
-                                                        + File.separator
-                                                        + "vetted"
-                                                        + File.separator,
-                                                "common" + File.separator));
-            }
-            final File dir =
-                    isSupplemental ? new File(sourceDirectory, "../supplemental") : sourceDirectory;
-            final File xmlFile = makeFileName(localeName, dir);
-            if (xmlFile.canRead()) {
-                if (result == null) {
-                    result = ImmutableList.<File>builder();
-                }
-                result.add(dir);
-            }
+        final List<File> cache = sourceDirCache.getUnchecked(localeName);
+        if (cache.isEmpty()) {
+            return null;
+        } else {
+            return cache;
         }
-        return result == null ? null : result.build();
     }
 }

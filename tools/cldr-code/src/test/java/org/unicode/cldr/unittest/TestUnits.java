@@ -297,7 +297,8 @@ public class TestUnits extends TestFmwk {
                 if (simpleUnit.equals(baseUnit)) {
                     continue;
                 }
-                System.out.println( // TODO: handle exponent
+                System.out.println( // TODO: handle exponent, CLDR-16329 additional PR or follow-on
+                        // ticket
                         ++count
                                 + ")\t"
                                 + simpleUnit

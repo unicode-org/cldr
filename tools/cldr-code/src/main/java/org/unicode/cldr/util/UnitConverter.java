@@ -286,12 +286,21 @@ public class UnitConverter implements Freezable<UnitConverter> {
         }
 
         public String toString(String unit) {
+            String exponentStart = "";
+            String exponentEnd = "";
+            if (exponent.denominator.compareTo(BigInteger.ONE) != 0) {
+                exponentStart = " ( ";
+                exponentEnd = " ) ";
+            }
             return factor.toString(FormatStyle.formatted)
                     + " * "
                     + unit
                     + (exponent.equals(Rational.ONE)
                             ? ""
-                            : " ^ " + exponent.toString(FormatStyle.formatted))
+                            : " ^ "
+                                    + exponentStart
+                                    + exponent.toString(FormatStyle.formatted)
+                                    + exponentEnd)
                     + (offset.equals(Rational.ZERO)
                             ? ""
                             : (offset.compareTo(Rational.ZERO) < 0 ? " - " : " + ")
@@ -303,12 +312,21 @@ public class UnitConverter implements Freezable<UnitConverter> {
         }
 
         public String toDecimal(String unit) {
+            String exponentStart = "";
+            String exponentEnd = "";
+            if (exponent.denominator.compareTo(BigInteger.ONE) != 0) {
+                exponentStart = " ( ";
+                exponentEnd = " ) ";
+            }
             return factor.toBigDecimal(MathContext.DECIMAL64)
                     + " * "
                     + unit
                     + (exponent.equals(Rational.ONE)
                             ? ""
-                            : " ^ " + exponent.toBigDecimal(MathContext.DECIMAL64))
+                            : " ^ "
+                                    + exponentStart
+                                    + exponent.toBigDecimal(MathContext.DECIMAL64)
+                                    + exponentEnd)
                     + (offset.equals(Rational.ZERO)
                             ? ""
                             : (offset.compareTo(Rational.ZERO) < 0 ? " - " : " + ")
@@ -827,12 +845,13 @@ public class UnitConverter implements Freezable<UnitConverter> {
         return new ConversionInfo(
                 numerator.divide(denominator),
                 Rational.ONE,
-                offset); // TODO: handle exponent here - how?
+                offset); // TODO: handle exponent here - how? CLDR-16329 additional PR or follow-on
+        // ticket
     }
 
     /** Only for use for simple base unit comparison */
     private class UnitComparator implements Comparator<String> {
-        // TODO: handle exponent here - how?
+        // TODO: handle exponent here - how? CLDR-16329 additional PR or follow-on ticket
         // TODO, use order in units.xml
 
         @Override
@@ -2037,7 +2056,10 @@ public class UnitConverter implements Freezable<UnitConverter> {
         Output<String> sourceBase = new Output<>();
         ConversionInfo sourceConversionInfo = parseUnitId(inputUnit, sourceBase, false);
         String baseUnit = sourceBase.value;
-        Rational baseUnitToInput = sourceConversionInfo.factor; // TODO: handle exponent here - how?
+        Rational baseUnitToInput =
+                sourceConversionInfo
+                        .factor; // TODO: handle exponent here - how? CLDR-16329 additional PR or
+        // follow-on ticket
 
         putIfInRange(result, baseUnit, baseUnitToInput);
 
@@ -2073,6 +2095,8 @@ public class UnitConverter implements Freezable<UnitConverter> {
                         baseUnitToInput.multiply(
                                 sourceConversionInfo.factor
                                         .reciprocal()); // TODO: handle exponent here - how?
+                // CLDR-16329 additional PR or follow-on
+                // ticket
 
                 if (otherValue.compareTo(Rational.ONE) < 0) {
                     if (otherValue.compareTo(closestLessValue) > 0) {

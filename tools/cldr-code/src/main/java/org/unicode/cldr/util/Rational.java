@@ -277,7 +277,7 @@ public final class Rational implements Comparable<Rational> {
         if (exponent.equals(Rational.ONE)) {
             return this;
         }
-        // Temporary quick implementation
+        // TODO Temporary implementation, improve per CLDR-16329 additional PR or follow-on ticket
         double resultDouble = Math.pow(this.doubleValue(), exponent.doubleValue());
         return Rational.of(new BigDecimal(resultDouble));
     }

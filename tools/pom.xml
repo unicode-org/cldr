@@ -218,6 +218,7 @@
                         <ratchetFrom>NONE</ratchetFrom>
                         <!-- define a language-specific format -->
                         <java>
+                            <toggleOffOn />
                             <!-- no need to specify files, inferred automatically, but you can if you want -->
                             <!-- apply a specific flavor of google-java-format and reflow long strings -->
                             <googleJavaFormat>

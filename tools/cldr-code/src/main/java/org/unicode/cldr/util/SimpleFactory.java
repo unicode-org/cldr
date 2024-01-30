@@ -779,7 +779,7 @@ public class SimpleFactory extends Factory {
         return sourceDirectories;
     }
 
-    LoadingCache<String, List<File>> sourceDirCache =
+    private LoadingCache<String, List<File>> sourceDirCache =
             CacheBuilder.newBuilder()
                     .build(
                             new CacheLoader<>() {

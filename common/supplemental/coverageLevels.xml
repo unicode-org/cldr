@@ -54,9 +54,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageVariable key="%CJK_Languages" value="(ja|ko|zh)"/>
 		<coverageVariable key="%chineseCalendarTerritories" value="(CN|CX|HK|MO|SG|TW)"/>
 		<coverageVariable key="%collationType80" value="(ducet|search)"/>
-		<coverageVariable key="%collationType80ForTopLangs" value="(big5han|compat|dictionary|gb2312han|phonebook|phonetic|pinyin|reformed|stroke|traditional|unihan|zhuyin)"/>
+		<coverageVariable key="%collationType80ForTopLangs" value="(big5han|compat|dictionary|gb2312han|phonebook|phonetic|pinyin|stroke|traditional|unihan|zhuyin)"/>
 		<coverageVariable key="%collationType80TopLangs" value="(ar|bg|ca|cs|da|de|el|en|es|fi|fr|he|hi|hr|hu|id|it|ja|ko|ms|nl|no|pl|pt|ro|ru|sk|sl|sr|sv|th|tr|uk|vi|zh)"/>
-		<coverageVariable key="%collationType100" value="(big5han|compat|dictionary|emoji|eor|gb2312han|phonebook|phonetic|pinyin|reformed|searchjl|stroke|traditional|unihan|zhuyin)"/>
+		<coverageVariable key="%collationType100" value="(big5han|compat|dictionary|emoji|eor|gb2312han|phonebook|phonetic|pinyin|searchjl|stroke|traditional|unihan|zhuyin)"/>
 		<coverageVariable key="%collationAlternateValues" value="(non-ignorable|shifted)"/>
 		<coverageVariable key="%collationCases" value="(upper|lower)"/>
 		<coverageVariable key="%collationStrengths" value="(primary|secondary|tertiary|quaternary|identical)"/>
@@ -262,7 +262,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel	value="moderate"	inLanguage="zh"	match="localeDisplayNames/types/type[@key='collation'][@type='(big5han|gb2312han|pinyin|stroke|zhuyin)']"/>
 		<coverageLevel	value="moderate"	inLanguage="si"	match="localeDisplayNames/types/type[@key='collation'][@type='dictionary']"/>
 		<coverageLevel	value="moderate"	inLanguage="%phonebookCollationLanguages"	match="localeDisplayNames/types/type[@key='collation'][@type='phonebook']"/>
-		<coverageLevel	value="moderate"	inLanguage="sv"	match="localeDisplayNames/types/type[@key='collation'][@type='reformed']"/>
 		<coverageLevel	value="moderate"	 	match="localeDisplayNames/types/type[@key='collation'][@type='standard']"/>
 		<coverageLevel	value="moderate"	inLanguage="%traditionalCollationLanguages"	match="localeDisplayNames/types/type[@key='collation'][@type='traditional']"/>
 		<coverageLevel	value="moderate"	inLanguage="%CJK_Languages"	match="localeDisplayNames/types/type[@key='collation'][@type='unihan']"/>

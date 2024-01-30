@@ -16,6 +16,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.EnumSource;
@@ -24,6 +25,7 @@ import org.unicode.cldr.test.CheckMetazones;
 import org.unicode.cldr.tool.PathInfo;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.LocaleInheritanceInfo.Reason;
+import org.unicode.cldr.util.SimpleFactory.NoSourceDirectoryException;
 
 /**
  * This contains additional tests in JUnit.
@@ -370,6 +372,21 @@ public class TestCLDRFile {
                 assertTrue(s != s0);
                 assertTrue(s == s0.intern(), () -> "in resolved en was not interned: " + s);
             }
+        }
+    }
+
+    @Test
+    @Disabled
+    /** enable manually - for testing performance */
+    public void TestSimpleFactoryPerf() {
+        for (int i = 0; i < 10000; i++) {
+            Factory baselineFactory =
+                    CLDRConfig.getInstance().getCommonAndSeedAndMainAndAnnotationsFactory();
+            baselineFactory.make("en_BE".toString(), true);
+            assertThrows(
+                    NoSourceDirectoryException.class,
+                    () -> baselineFactory.make("de_RU".toString(), true));
+            baselineFactory.make("es_MX".toString(), true);
         }
     }
 }

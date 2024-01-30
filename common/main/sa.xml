@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2023 Unicode, Inc.
+<!-- Copyright © 1991-2024 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -275,18 +275,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="abbreviated">
-							<month type="1">↑↑↑</month>
-							<month type="2">↑↑↑</month>
-							<month type="3">↑↑↑</month>
-							<month type="4">↑↑↑</month>
-							<month type="5">↑↑↑</month>
-							<month type="6">↑↑↑</month>
-							<month type="7">↑↑↑</month>
-							<month type="8">↑↑↑</month>
-							<month type="9">↑↑↑</month>
-							<month type="10">↑↑↑</month>
-							<month type="11">↑↑↑</month>
-							<month type="12">↑↑↑</month>
+							<month type="1">जनवरी:</month>
+							<month type="2">फरवरी:</month>
+							<month type="3">मार्च:</month>
+							<month type="4">अप्रैल:</month>
+							<month type="5">मई</month>
+							<month type="6">जून:</month>
+							<month type="7">जुलाई:</month>
+							<month type="8">अगस्त:</month>
+							<month type="9">सितंबर:</month>
+							<month type="10">अक्तूबर:</month>
+							<month type="11">नवंबर:</month>
+							<month type="12">दिसंबर:</month>
 						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">↑↑↑</month>
@@ -303,18 +303,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="12">↑↑↑</month>
 						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1">↑↑↑</month>
-							<month type="2">↑↑↑</month>
-							<month type="3">↑↑↑</month>
-							<month type="4">↑↑↑</month>
-							<month type="5">↑↑↑</month>
-							<month type="6">↑↑↑</month>
-							<month type="7">↑↑↑</month>
-							<month type="8">↑↑↑</month>
-							<month type="9">↑↑↑</month>
-							<month type="10">↑↑↑</month>
-							<month type="11">↑↑↑</month>
-							<month type="12">↑↑↑</month>
+							<month type="1">जनवरीमासः</month>
+							<month type="2">फरवरीमासः</month>
+							<month type="3">मार्चमासः</month>
+							<month type="4">अप्रैलमासः</month>
+							<month type="5">मईमासः</month>
+							<month type="6">जूनमासः</month>
+							<month type="7">जुलाईमासः</month>
+							<month type="8">अगस्तमासः</month>
+							<month type="9">सितंबरमासः</month>
+							<month type="10">अक्तूबरमासः</month>
+							<month type="11">नवंबरमासः</month>
+							<month type="12">दिसंबरमासः</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -330,13 +330,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<day type="sat">शनि</day>
 						</dayWidth>
 						<dayWidth type="narrow">
-							<day type="sun">↑↑↑</day>
-							<day type="mon">↑↑↑</day>
-							<day type="tue">↑↑↑</day>
-							<day type="wed">↑↑↑</day>
-							<day type="thu">↑↑↑</day>
-							<day type="fri">↑↑↑</day>
-							<day type="sat">↑↑↑</day>
+							<day type="sun">र</day>
+							<day type="mon">सो</day>
+							<day type="tue">मं</day>
+							<day type="wed">बु</day>
+							<day type="thu">गु</day>
+							<day type="fri">शु</day>
+							<day type="sat">श</day>
 						</dayWidth>
 						<dayWidth type="short">
 							<day type="sun">Sun</day>
@@ -359,13 +359,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</dayContext>
 					<dayContext type="stand-alone">
 						<dayWidth type="abbreviated">
-							<day type="sun">↑↑↑</day>
-							<day type="mon">↑↑↑</day>
-							<day type="tue">↑↑↑</day>
-							<day type="wed">↑↑↑</day>
-							<day type="thu">↑↑↑</day>
-							<day type="fri">↑↑↑</day>
-							<day type="sat">↑↑↑</day>
+							<day type="sun">रवि</day>
+							<day type="mon">सोम</day>
+							<day type="tue">मंगल</day>
+							<day type="wed">बुध</day>
+							<day type="thu">गुरु</day>
+							<day type="fri">शुक्र</day>
+							<day type="sat">शनि</day>
 						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun">र</day>
@@ -377,27 +377,47 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<day type="sat">श</day>
 						</dayWidth>
 						<dayWidth type="short">
-							<day type="sun">↑↑↑</day>
-							<day type="mon">↑↑↑</day>
-							<day type="tue">↑↑↑</day>
-							<day type="wed">↑↑↑</day>
-							<day type="thu">↑↑↑</day>
-							<day type="fri">↑↑↑</day>
-							<day type="sat">↑↑↑</day>
+							<day type="sun">Sun</day>
+							<day type="mon">Mon</day>
+							<day type="tue">Tue</day>
+							<day type="wed">Wed</day>
+							<day type="thu">Thu</day>
+							<day type="fri">Fri</day>
+							<day type="sat">Sat</day>
 						</dayWidth>
 						<dayWidth type="wide">
-							<day type="sun">↑↑↑</day>
-							<day type="mon">↑↑↑</day>
-							<day type="tue">↑↑↑</day>
-							<day type="wed">↑↑↑</day>
-							<day type="thu">↑↑↑</day>
-							<day type="fri">↑↑↑</day>
-							<day type="sat">↑↑↑</day>
+							<day type="sun">रविवासरः</day>
+							<day type="mon">सोमवासरः</day>
+							<day type="tue">मंगलवासरः</day>
+							<day type="wed">बुधवासरः</day>
+							<day type="thu">गुरुवासर:</day>
+							<day type="fri">शुक्रवासरः</day>
+							<day type="sat">शनिवासरः</day>
 						</dayWidth>
 					</dayContext>
 				</days>
 				<quarters>
 					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">त्रैमासिक1</quarter>
+							<quarter type="2">त्रैमासिक2</quarter>
+							<quarter type="3">त्रैमासिक3</quarter>
+							<quarter type="4">त्रैमासिक4</quarter>
+						</quarterWidth>
+						<quarterWidth type="narrow">
+							<quarter type="1">1</quarter>
+							<quarter type="2">2</quarter>
+							<quarter type="3">3</quarter>
+							<quarter type="4">4</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">प्रथम त्रैमासिक</quarter>
+							<quarter type="2">द्वितीय त्रैमासिक</quarter>
+							<quarter type="3">तृतीय त्रैमासिक</quarter>
+							<quarter type="4">चतुर्थ त्रैमासिक</quarter>
+						</quarterWidth>
+					</quarterContext>
+					<quarterContext type="stand-alone">
 						<quarterWidth type="abbreviated">
 							<quarter type="1">त्रैमासिक1</quarter>
 							<quarter type="2">त्रैमासिक2</quarter>
@@ -417,26 +437,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<quarter type="4">चतुर्थ त्रैमासिक</quarter>
 						</quarterWidth>
 					</quarterContext>
-					<quarterContext type="stand-alone">
-						<quarterWidth type="abbreviated">
-							<quarter type="1">↑↑↑</quarter>
-							<quarter type="2">↑↑↑</quarter>
-							<quarter type="3">↑↑↑</quarter>
-							<quarter type="4">↑↑↑</quarter>
-						</quarterWidth>
-						<quarterWidth type="narrow">
-							<quarter type="1">↑↑↑</quarter>
-							<quarter type="2">↑↑↑</quarter>
-							<quarter type="3">↑↑↑</quarter>
-							<quarter type="4">↑↑↑</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1">↑↑↑</quarter>
-							<quarter type="2">↑↑↑</quarter>
-							<quarter type="3">↑↑↑</quarter>
-							<quarter type="4">↑↑↑</quarter>
-						</quarterWidth>
-					</quarterContext>
 				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
@@ -445,8 +445,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<dayPeriod type="pm">↑↑↑</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am">↑↑↑</dayPeriod>
-							<dayPeriod type="pm">↑↑↑</dayPeriod>
+							<dayPeriod type="am">AM</dayPeriod>
+							<dayPeriod type="pm">PM</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">पूर्वाह्न</dayPeriod>
@@ -455,23 +455,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
 						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am">↑↑↑</dayPeriod>
-							<dayPeriod type="pm">↑↑↑</dayPeriod>
+							<dayPeriod type="am">AM</dayPeriod>
+							<dayPeriod type="pm">PM</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am">↑↑↑</dayPeriod>
-							<dayPeriod type="pm">↑↑↑</dayPeriod>
+							<dayPeriod type="am">AM</dayPeriod>
+							<dayPeriod type="pm">PM</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">↑↑↑</dayPeriod>
-							<dayPeriod type="pm">↑↑↑</dayPeriod>
+							<dayPeriod type="am">AM</dayPeriod>
+							<dayPeriod type="pm">PM</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
 				<eras>
 					<eraNames>
-						<era type="0">↑↑↑</era>
-						<era type="1">↑↑↑</era>
+						<era type="0">BCE</era>
+						<era type="1">CE</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0">↑↑↑</era>
@@ -717,7 +717,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>वर्ष:</displayName>
 			</field>
 			<field type="year-short">
-				<displayName>↑↑↑</displayName>
+				<displayName>वर्ष:</displayName>
 			</field>
 			<field type="year-narrow">
 				<displayName>वर्ष</displayName>
@@ -726,10 +726,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>त्रेमासिक</displayName>
 			</field>
 			<field type="quarter-short">
-				<displayName>↑↑↑</displayName>
+				<displayName>त्रेमासिक</displayName>
 			</field>
 			<field type="quarter-narrow">
-				<displayName>↑↑↑</displayName>
+				<displayName>त्रेमासिक</displayName>
 			</field>
 			<field type="month">
 				<displayName>मास:</displayName>
@@ -738,7 +738,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>मास</displayName>
 			</field>
 			<field type="month-narrow">
-				<displayName>↑↑↑</displayName>
+				<displayName>मास</displayName>
 			</field>
 			<field type="week">
 				<displayName>सप्ताह:</displayName>
@@ -747,7 +747,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>सप्ताह</displayName>
 			</field>
 			<field type="week-narrow">
-				<displayName>↑↑↑</displayName>
+				<displayName>सप्ताह</displayName>
 			</field>
 			<field type="day">
 				<displayName>वासर:</displayName>
@@ -756,16 +756,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="1">श्वः</relative>
 			</field>
 			<field type="day-short">
-				<displayName>↑↑↑</displayName>
+				<displayName>वासर:</displayName>
 				<relative type="-1">ह्यः</relative>
-				<relative type="0">↑↑↑</relative>
-				<relative type="1">↑↑↑</relative>
+				<relative type="0">अद्य</relative>
+				<relative type="1">श्वः</relative>
 			</field>
 			<field type="day-narrow">
 				<displayName>दिनम्</displayName>
-				<relative type="-1">↑↑↑</relative>
-				<relative type="0">↑↑↑</relative>
-				<relative type="1">↑↑↑</relative>
+				<relative type="-1">ह्यः</relative>
+				<relative type="0">अद्य</relative>
+				<relative type="1">श्वः</relative>
 			</field>
 			<field type="weekday">
 				<displayName>सप्ताहस्य दिनं</displayName>
@@ -777,19 +777,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>होरा</displayName>
 			</field>
 			<field type="hour-short">
-				<displayName>↑↑↑</displayName>
+				<displayName>होरा</displayName>
 			</field>
 			<field type="hour-narrow">
-				<displayName>↑↑↑</displayName>
+				<displayName>होरा</displayName>
 			</field>
 			<field type="minute">
 				<displayName>निमेष</displayName>
 			</field>
 			<field type="minute-short">
-				<displayName>↑↑↑</displayName>
+				<displayName>निमेष</displayName>
 			</field>
 			<field type="minute-narrow">
-				<displayName>↑↑↑</displayName>
+				<displayName>निमेष</displayName>
 			</field>
 			<field type="second">
 				<displayName>क्षण</displayName>
@@ -798,7 +798,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>पल</displayName>
 			</field>
 			<field type="second-narrow">
-				<displayName>↑↑↑</displayName>
+				<displayName>पल</displayName>
 			</field>
 			<field type="zone">
 				<displayName>समय मण्डल</displayName>
@@ -904,7 +904,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<decimalFormats>
 			<decimalFormatLength>
 				<decimalFormat>
-					<pattern draft="unconfirmed">↑↑↑</pattern>
+					<pattern draft="unconfirmed">#,##,##0.###</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
@@ -925,7 +925,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<percentFormats>
 			<percentFormatLength>
 				<percentFormat>
-					<pattern draft="unconfirmed">↑↑↑</pattern>
+					<pattern draft="unconfirmed">#,##,##0%</pattern>
 				</percentFormat>
 			</percentFormatLength>
 		</percentFormats>
@@ -939,7 +939,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<currencyFormats>
 			<currencyFormatLength>
 				<currencyFormat type="standard">
-					<pattern draft="unconfirmed">↑↑↑</pattern>
+					<pattern draft="unconfirmed">¤#,##,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
@@ -959,43 +959,43 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<currencies>
 			<currency type="BRL">
 				<displayName>ब्राजीली रियाल</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="other">ब्राजीली रियाल</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="CNY">
 				<displayName>चीनी युआन</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="other">चीनी युआन</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName>फिरङ्गिन् मुद्रा</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="other">फिरङ्गिन् मुद्रा</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="GBP">
 				<displayName>आङ्ग्लदेशीयः पाउंड</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="other">आङ्ग्लदेशीयः पाउंड</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="INR">
 				<displayName>भारतीय रूप्यकम्</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="other">भारतीय रूप्यकम्</displayName>
 				<symbol>↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="JPY">
 				<displayName>जापानी येन</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="other">जापानी येन</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="RUB">
 				<displayName>रष्यदेशीय रूबल</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="other">रष्यदेशीय रूबल</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>

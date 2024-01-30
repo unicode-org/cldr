@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2023 Unicode, Inc.
+<!-- Copyright © 1991-2024 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -313,7 +313,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="TN">ṭunisiaa</territory>
 			<territory type="TO">ṭonga</territory>
 			<territory type="TR">turkī</territory>
-			<territory type="TR" alt="variant">↑↑↑</territory>
+			<territory type="TR" alt="variant">turkī</territory>
 			<territory type="TT">ṭriniḍaḍ aḍe ṭobego</territory>
 			<territory type="TV">tuvala</territory>
 			<territory type="TW">taivan</territory>
@@ -420,7 +420,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<pattern>{1}, {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>↑↑↑</pattern>
+							<pattern>{1}, {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
@@ -428,7 +428,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<pattern>{1}, {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>↑↑↑</pattern>
+							<pattern>{1}, {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
@@ -557,18 +557,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="12">pande</month>
 						</monthWidth>
 						<monthWidth type="narrow">
-							<month type="1">↑↑↑</month>
-							<month type="2">↑↑↑</month>
-							<month type="3">↑↑↑</month>
-							<month type="4">↑↑↑</month>
-							<month type="5">↑↑↑</month>
-							<month type="6">↑↑↑</month>
-							<month type="7">↑↑↑</month>
-							<month type="8">↑↑↑</month>
-							<month type="9">↑↑↑</month>
-							<month type="10">↑↑↑</month>
-							<month type="11">↑↑↑</month>
-							<month type="12">↑↑↑</month>
+							<month type="1">pu</month>
+							<month type="2">ma</month>
+							<month type="3">pa</month>
+							<month type="4">hi</month>
+							<month type="5">be</month>
+							<month type="6">ja</month>
+							<month type="7">aa</month>
+							<month type="8">sra</month>
+							<month type="9">b</month>
+							<month type="10">da</month>
+							<month type="11">di</month>
+							<month type="12">pa</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">pusu lenju</month>
@@ -587,18 +587,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="abbreviated">
-							<month type="1">↑↑↑</month>
-							<month type="2">↑↑↑</month>
-							<month type="3">↑↑↑</month>
-							<month type="4">↑↑↑</month>
-							<month type="5">↑↑↑</month>
-							<month type="6">↑↑↑</month>
-							<month type="7">↑↑↑</month>
-							<month type="8">↑↑↑</month>
-							<month type="9">↑↑↑</month>
-							<month type="10">↑↑↑</month>
-							<month type="11">↑↑↑</month>
-							<month type="12">↑↑↑</month>
+							<month type="1">pusu</month>
+							<month type="2">maha</month>
+							<month type="3">pagu</month>
+							<month type="4">hire</month>
+							<month type="5">bese</month>
+							<month type="6">jaṭṭa</month>
+							<month type="7">aasaḍi</month>
+							<month type="8">srabĩ</month>
+							<month type="9">bado</month>
+							<month type="10">dasara</month>
+							<month type="11">divi</month>
+							<month type="12">pande</month>
 						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">pu</month>
@@ -615,18 +615,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="12">pa</month>
 						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1">↑↑↑</month>
-							<month type="2">↑↑↑</month>
-							<month type="3">↑↑↑</month>
-							<month type="4">↑↑↑</month>
-							<month type="5">↑↑↑</month>
-							<month type="6">↑↑↑</month>
-							<month type="7">↑↑↑</month>
-							<month type="8">↑↑↑</month>
-							<month type="9">↑↑↑</month>
-							<month type="10">↑↑↑</month>
-							<month type="11">↑↑↑</month>
-							<month type="12">↑↑↑</month>
+							<month type="1">pusu lenju</month>
+							<month type="2">maha lenju</month>
+							<month type="3">pagu lenju</month>
+							<month type="4">hire lenju</month>
+							<month type="5">bese lenju</month>
+							<month type="6">jaṭṭa lenju</month>
+							<month type="7">aasaḍi lenju</month>
+							<month type="8">srabĩ lenju</month>
+							<month type="9">bado lenju</month>
+							<month type="10">dasara lenju</month>
+							<month type="11">divi lenju</month>
+							<month type="12">pande lenju</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -642,20 +642,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<day type="sat">sani</day>
 						</dayWidth>
 						<dayWidth type="narrow">
-							<day type="sun">↑↑↑</day>
-							<day type="mon">↑↑↑</day>
-							<day type="tue">↑↑↑</day>
-							<day type="wed">↑↑↑</day>
-							<day type="thu">↑↑↑</day>
-							<day type="fri">↑↑↑</day>
-							<day type="sat">↑↑↑</day>
+							<day type="sun">aa</day>
+							<day type="mon">s</day>
+							<day type="tue">ma</day>
+							<day type="wed">pu</day>
+							<day type="thu">la</day>
+							<day type="fri">su</day>
+							<day type="sat">sa</day>
 						</dayWidth>
 						<dayWidth type="short">
 							<day type="sun">aa</day>
 							<day type="mon">s</day>
 							<day type="tue">ma</day>
 							<day type="wed">pu</day>
-							<day type="thu">↑↑↑</day>
+							<day type="thu">laki</day>
 							<day type="fri">su</day>
 							<day type="sat">sa</day>
 						</dayWidth>
@@ -671,13 +671,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</dayContext>
 					<dayContext type="stand-alone">
 						<dayWidth type="abbreviated">
-							<day type="sun">↑↑↑</day>
-							<day type="mon">↑↑↑</day>
-							<day type="tue">↑↑↑</day>
-							<day type="wed">↑↑↑</day>
-							<day type="thu">↑↑↑</day>
-							<day type="fri">↑↑↑</day>
-							<day type="sat">↑↑↑</day>
+							<day type="sun">aadi</day>
+							<day type="mon">smba</day>
+							<day type="tue">manga</day>
+							<day type="wed">puda</day>
+							<day type="thu">laki</day>
+							<day type="fri">sukru</day>
+							<day type="sat">sani</day>
 						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun">aa</day>
@@ -689,22 +689,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<day type="sat">sa</day>
 						</dayWidth>
 						<dayWidth type="short">
-							<day type="sun">↑↑↑</day>
-							<day type="mon">↑↑↑</day>
-							<day type="tue">↑↑↑</day>
-							<day type="wed">↑↑↑</day>
-							<day type="thu">↑↑↑</day>
-							<day type="fri">↑↑↑</day>
-							<day type="sat">↑↑↑</day>
+							<day type="sun">aa</day>
+							<day type="mon">s</day>
+							<day type="tue">ma</day>
+							<day type="wed">pu</day>
+							<day type="thu">laki</day>
+							<day type="fri">su</day>
+							<day type="sat">sa</day>
 						</dayWidth>
 						<dayWidth type="wide">
-							<day type="sun">↑↑↑</day>
-							<day type="mon">↑↑↑</day>
-							<day type="tue">↑↑↑</day>
-							<day type="wed">↑↑↑</day>
-							<day type="thu">↑↑↑</day>
-							<day type="fri">↑↑↑</day>
-							<day type="sat">↑↑↑</day>
+							<day type="sun">aadi vara</day>
+							<day type="mon">smbara</day>
+							<day type="tue">mangaḍa</day>
+							<day type="wed">pudara</day>
+							<day type="thu">laki vara</day>
+							<day type="fri">sukru vara</day>
+							<day type="sat">sani vara</day>
 						</dayWidth>
 					</dayContext>
 				</days>
@@ -717,10 +717,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<quarter type="4">Q4</quarter>
 						</quarterWidth>
 						<quarterWidth type="narrow">
-							<quarter type="1">↑↑↑</quarter>
-							<quarter type="2">↑↑↑</quarter>
-							<quarter type="3">↑↑↑</quarter>
-							<quarter type="4">↑↑↑</quarter>
+							<quarter type="1">1</quarter>
+							<quarter type="2">2</quarter>
+							<quarter type="3">3</quarter>
+							<quarter type="4">4</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1">1sṭ kuarṭr</quarter>
@@ -743,10 +743,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<quarter type="4">↑↑↑</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
-							<quarter type="1">↑↑↑</quarter>
-							<quarter type="2">↑↑↑</quarter>
-							<quarter type="3">↑↑↑</quarter>
-							<quarter type="4">↑↑↑</quarter>
+							<quarter type="1">1sṭ kuarṭr</quarter>
+							<quarter type="2">2nḍ kuarṭr</quarter>
+							<quarter type="3">3rḍ kuarṭr</quarter>
+							<quarter type="4">4th kuarṭr</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
@@ -761,8 +761,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<dayPeriod type="pm">p</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">↑↑↑</dayPeriod>
-							<dayPeriod type="pm">↑↑↑</dayPeriod>
+							<dayPeriod type="am">am</dayPeriod>
+							<dayPeriod type="pm">pm</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
@@ -771,8 +771,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<dayPeriod type="pm">p</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">↑↑↑</dayPeriod>
-							<dayPeriod type="pm">↑↑↑</dayPeriod>
+							<dayPeriod type="am">am</dayPeriod>
+							<dayPeriod type="pm">pm</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
@@ -856,7 +856,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<pattern>{1}, {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>↑↑↑</pattern>
+							<pattern>{1}, {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
@@ -864,7 +864,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<pattern>{1}, {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>↑↑↑</pattern>
+							<pattern>{1}, {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
@@ -3274,41 +3274,41 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<currencies>
 			<currency type="BRL">
 				<displayName>brājil ti riel</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="other">brājil ti riel</displayName>
 			</currency>
 			<currency type="CNY">
 				<displayName>cin ti yuān</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="other">cin ti yuān</displayName>
 			</currency>
 			<currency type="EUR">
 				<displayName>yuro</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="other">yuro</displayName>
 			</currency>
 			<currency type="GBP">
 				<displayName>briṭis pāunḍ</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="other">briṭis pāunḍ</displayName>
 			</currency>
 			<currency type="INR">
 				<displayName>bārat ti ṭnkā</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="other">bārat ti ṭnkā</displayName>
 			</currency>
 			<currency type="JPY">
 				<displayName>jāpān ti yēn</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="other">jāpān ti yēn</displayName>
 			</currency>
 			<currency type="RUB">
 				<displayName>rūs ti rūbel</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="other">rūs ti rūbel</displayName>
 			</currency>
 			<currency type="USD">
 				<displayName>iūes ḍalār</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="other">iūes ḍalār</displayName>
 				<symbol>↑↑↑</symbol>
 				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="XXX">
 				<displayName>puṇātī lēmbū</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="other">puṇātī lēmbū</displayName>
 			</currency>
 		</currencies>
 	</numbers>
@@ -3337,14 +3337,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<listPatternPart type="2">{0} aaḍẽ {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="standard-short">
-			<listPatternPart type="start">↑↑↑</listPatternPart>
-			<listPatternPart type="middle">↑↑↑</listPatternPart>
-			<listPatternPart type="end">↑↑↑</listPatternPart>
-			<listPatternPart type="2">↑↑↑</listPatternPart>
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="end">{0}, aḍe {1}</listPatternPart>
+			<listPatternPart type="2">{0} aḍe {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="unit">
-			<listPatternPart type="start">↑↑↑</listPatternPart>
-			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
 			<listPatternPart type="end">{0}, {1}</listPatternPart>
 			<listPatternPart type="2">{0}, {1}</listPatternPart>
 		</listPattern>
@@ -3355,8 +3355,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<listPatternPart type="2">{0} {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="unit-short">
-			<listPatternPart type="start">↑↑↑</listPatternPart>
-			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
 			<listPatternPart type="end">{0}, {1}</listPatternPart>
 			<listPatternPart type="2">{0}, {1}</listPatternPart>
 		</listPattern>

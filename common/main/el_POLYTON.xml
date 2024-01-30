@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2023 Unicode, Inc.
+<!-- Copyright © 1991-2024 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -101,6 +101,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="IL">Ἰσραήλ</territory>
 			<territory type="IN">Ἰνδία</territory>
 			<territory type="IO" draft="provisional">Βρετανικὰ Ἐδάφη Ἰνδικοῦ Ὠκεανοῦ</territory>
+			<territory type="IO" alt="biot">Βρετανικὰ Ἐδάφη Ἰνδικοῦ Ὠκεανοῦ</territory>
 			<territory type="IQ">Ἰράκ</territory>
 			<territory type="IR">Ἰράν, Ἰσλαμικὴ Δημοκρατία τοῦ</territory>
 			<territory type="IS">Ἰσλανδία</territory>
@@ -210,6 +211,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="10">Ὀκτ</month>
+						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">↑↑↑</month>
 							<month type="2">↑↑↑</month>

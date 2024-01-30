@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2023 Unicode, Inc.
+<!-- Copyright © 1991-2024 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -1595,13 +1595,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<day type="sat">↑↑↑</day>
 						</dayWidth>
 						<dayWidth type="short">
-							<day type="sun">↑↑↑</day>
-							<day type="mon">↑↑↑</day>
-							<day type="tue">↑↑↑</day>
-							<day type="wed">↑↑↑</day>
-							<day type="thu">↑↑↑</day>
-							<day type="fri">↑↑↑</day>
-							<day type="sat">↑↑↑</day>
+							<day type="sun">So</day>
+							<day type="mon">Mo</day>
+							<day type="tue">Di</day>
+							<day type="wed">Mi</day>
+							<day type="thu">Do</day>
+							<day type="fri">Fr</day>
+							<day type="sat">Sa</day>
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">↑↑↑</day>
@@ -4937,7 +4937,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<pattern>¤ #,##0.00;¤-#,##0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
-					<pattern>↑↑↑</pattern>
+					<pattern>¤ #,##0.00;¤-#,##0.00</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -6390,13 +6390,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<gender>↑↑↑</gender>
 				<displayName>Quadratfuss</displayName>
 				<unitPattern count="one">{0} Quadratfuss</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">{0} Quadratfuss</unitPattern>
+				<unitPattern count="one" case="dative">{0} Quadratfuss</unitPattern>
 				<unitPattern count="one" case="genitive">{0} Quadratfusses</unitPattern>
 				<unitPattern count="other">{0} Quadratfuss</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">{0} Quadratfuss</unitPattern>
+				<unitPattern count="other" case="dative">{0} Quadratfuss</unitPattern>
+				<unitPattern count="other" case="genitive">{0} Quadratfuss</unitPattern>
 			</unit>
 			<unit type="area-square-inch">
 				<displayName>↑↑↑</displayName>
@@ -7275,15 +7275,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="length-foot">
 				<gender>↑↑↑</gender>
-				<displayName>↑↑↑</displayName>
+				<displayName>Fuss</displayName>
 				<unitPattern count="one">{0} Fuss</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="accusative">{0} Fuss</unitPattern>
+				<unitPattern count="one" case="dative">{0} Fuss</unitPattern>
 				<unitPattern count="one" case="genitive">{0} Fusses</unitPattern>
 				<unitPattern count="other">{0} Fuss</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="accusative">{0} Fuss</unitPattern>
+				<unitPattern count="other" case="dative">{0} Fuss</unitPattern>
+				<unitPattern count="other" case="genitive">{0} Fuss</unitPattern>
 				<perUnitPattern>{0} pro Fuss</perUnitPattern>
 			</unit>
 			<unit type="length-inch">
@@ -8195,15 +8195,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="volume-jigger">
 				<gender>↑↑↑</gender>
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="one" case="dative">↑↑↑</unitPattern>
+				<displayName>Schuss</displayName>
+				<unitPattern count="one">Schuss</unitPattern>
+				<unitPattern count="one" case="accusative">Schuss</unitPattern>
+				<unitPattern count="one" case="dative">Schuss</unitPattern>
 				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
-				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="dative">↑↑↑</unitPattern>
-				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} Schuss</unitPattern>
+				<unitPattern count="other" case="accusative">{0} Schuss</unitPattern>
+				<unitPattern count="other" case="dative">{0} Schuss</unitPattern>
+				<unitPattern count="other" case="genitive">{0} Schuss</unitPattern>
 			</unit>
 			<unit type="volume-pinch">
 				<gender>↑↑↑</gender>
@@ -9087,7 +9087,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="speed-beaufort">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} Bft</unitPattern>
 				<unitPattern count="other">{0} Bft</unitPattern>
 			</unit>
 			<unit type="temperature-generic">
@@ -9277,7 +9277,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="volume-dram">
 				<displayName>Dram</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} dr.</unitPattern>
 				<unitPattern count="other">{0} dr.</unitPattern>
 			</unit>
 			<unit type="volume-jigger">
@@ -9287,7 +9287,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="volume-pinch">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} Prise</unitPattern>
 				<unitPattern count="other">{0} Prise</unitPattern>
 			</unit>
 			<unit type="volume-quart-imperial">
@@ -10153,8 +10153,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="speed-beaufort">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} Bft</unitPattern>
+				<unitPattern count="other">{0} Bft</unitPattern>
 			</unit>
 			<unit type="temperature-generic">
 				<displayName draft="contributed">↑↑↑</displayName>
@@ -10347,9 +10347,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-jigger">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>Schuss</displayName>
+				<unitPattern count="one">Schuss</unitPattern>
+				<unitPattern count="other">{0} Schuss</unitPattern>
 			</unit>
 			<unit type="volume-pinch">
 				<displayName>↑↑↑</displayName>

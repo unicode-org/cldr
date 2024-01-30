@@ -2971,6 +2971,20 @@ public class CLDRModify {
                             }
                             if (harden) {
                                 String fullPath = cldrFileToFilter.getFullXPath(xpath);
+                                if (onlyValues == null) { // called by handleEnd
+                                    if (!fullPath.contains("@draft")
+                                            && pathWhereFound.value.contains("@draft")) {
+                                        final CLDRFile.DraftStatus draftStatus =
+                                                CLDRFile.DraftStatus.forXpath(pathWhereFound.value);
+                                        XPathParts parts =
+                                                XPathParts.getFrozenInstance(fullPath)
+                                                        .cloneAsThawed();
+                                        parts.addAttribute("draft", draftStatus.toString());
+                                        fullPath = parts.toString();
+                                        // Note: with current data (2024-01-30) this never happens
+                                        System.out.println("Added draft " + draftStatus.toString());
+                                    }
+                                }
                                 replace(fullPath, fullPath, baileyValue, message + message2);
                             }
                         }

@@ -1,6 +1,8 @@
 /** */
 package org.unicode.cldr.web;
 
+import com.google.common.base.Supplier;
+import com.google.common.base.Suppliers;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
@@ -97,10 +99,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         private final boolean readonly;
         /** Stamp that tracks if this locale has been modified (by a vote) */
         private final MutableStamp stamp;
-        /** unresolved XMLSource for on-disk data. */
-        private final XMLSource diskData;
-        /** resolved CLDRFile backed by disk data */
-        private final CLDRFile diskFile;
         /** unresolved XMLSource backed by the DB, or null for readonly */
         private final BallotBoxXMLSource<User> dataBackedSource;
         /** unresolved XMLSource: == dataBackedSource, or for readonly == diskData */
@@ -109,7 +107,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         private final CLDRFile file;
         /** Resolved CLDRFile backed by {@link #xmlsource} */
         private final CLDRFile rFile;
-        /** List of all XPaths present */
+        /** List of all XPaths present. Only mutated by makeSureInPathsForFile */
         private Set<String> pathsForFile;
         /** which XPaths had votes? */
         BitSet votesSometimeThisRelease = null;
@@ -327,6 +325,8 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             }
         }
 
+        final DiskDataCache.DiskDataEntry diskDataEntry;
+
         /**
          * Constructor is called from the 'locales' cache, and in turn by STFactory.get() All parent
          * locales have already been initialized.
@@ -341,23 +341,22 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         PerLocaleData(CLDRLocale locale) {
             logger.info("Load: " + locale);
             this.locale = locale;
+            diskDataEntry = diskDataCache.get(locale);
+            sm.xpt.loadXPaths(diskDataEntry.diskData);
             readonly = isReadOnlyLocale(locale);
-            diskData = sm.getDiskFactory().makeSource(locale.getBaseName()).freeze();
-            sm.xpt.loadXPaths(diskData);
-            diskFile = sm.getDiskFactory().make(locale.getBaseName(), true).freeze();
-            pathsForFile = phf.pathsForFile(diskFile);
             stamp = mintLocaleStamp(locale);
 
             if (readonly) {
-                rFile = diskFile;
-                xmlsource = diskData;
+                rFile = diskDataEntry.diskFile;
+                xmlsource = diskDataEntry.diskData;
 
                 // null for readonly
                 dataBackedSource = null;
             } else {
                 xmlsource =
                         dataBackedSource =
-                                new BallotBoxXMLSource<User>(diskData.cloneAsThawed(), this);
+                                new BallotBoxXMLSource<User>(
+                                        diskDataEntry.diskData.cloneAsThawed(), this);
                 registerXmlSource(dataBackedSource);
                 loadVoteValues(dataBackedSource, VoteLoadingContext.ORDINARY_LOAD_VOTES);
                 nextStamp();
@@ -571,7 +570,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             Set<String> xpathSet;
             if (voteLoadingContext == VoteLoadingContext.VXML_GENERATION) {
                 xpathSet = new HashSet<>(allPXDPaths());
-                for (String xp : diskData) {
+                for (String xp : diskDataEntry.diskData) {
                     xpathSet.add(xp);
                 }
             } else { // voteLoadingContext == VoteLoadingContext.ORDINARY_LOAD_VOTES
@@ -642,13 +641,13 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             r.setLocale(locale, getPathHeader(path));
 
             // set current Trunk (baseline) value (if present)
-            final String currentValue = diskData.getValueAtDPath(path);
-            final Status currentStatus = VoteResolver.calculateStatus(diskFile, path);
+            final String currentValue = diskDataEntry.diskData.getValueAtDPath(path);
+            final Status currentStatus = VoteResolver.calculateStatus(diskDataEntry.diskFile, path);
             r.setBaseline(currentValue, currentStatus);
             r.add(currentValue);
 
             /** Note that rFile may not have all votes filled in yet as we're in startup phase */
-            final CLDRFile baseFile = (rFile != null) ? rFile : diskFile;
+            final CLDRFile baseFile = (rFile != null) ? rFile : diskDataEntry.diskFile;
             r.setBaileyValue(baseFile.getBaileyValue(path, null, null));
 
             // add each vote
@@ -721,7 +720,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 }
             }
             // include the on-disk value, if not present.
-            String fbValue = diskData.getValueAtDPath(xpath);
+            String fbValue = diskDataEntry.diskData.getValueAtDPath(xpath);
             if (fbValue != null) {
                 ts.add(fbValue);
             }
@@ -789,7 +788,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
          */
         private synchronized XMLSource makeVettedSource() {
             BallotBoxXMLSource<User> vxmlSource =
-                    new BallotBoxXMLSource<User>(diskData.cloneAsThawed(), this);
+                    new BallotBoxXMLSource<User>(diskDataEntry.diskData.cloneAsThawed(), this);
             if (!readonly) {
                 loadVoteValues(vxmlSource, VoteLoadingContext.VXML_GENERATION);
             }
@@ -1248,7 +1247,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     /** The infamous back-pointer. */
     public SurveyMain sm;
 
-    private final org.unicode.cldr.util.PathHeader.Factory phf;
+    private final DiskDataCache diskDataCache;
 
     /** Construct one. */
     public STFactory(SurveyMain sm) {
@@ -1267,7 +1266,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             progress.update("reload all users");
             sm.reg.getVoterInfoList();
             progress.update("setup pathheader factory");
-            phf = PathHeader.getFactory(sm.getEnglishFile());
+            diskDataCache = new DiskDataCache(sm.getDiskFactory(), sm.getEnglishFile());
         }
     }
 
@@ -1876,25 +1875,26 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
     public final PathHeader getPathHeader(String xpath) {
         try {
-            return phf.fromPath(xpath);
+            return getPathHeaderFactory().fromPath(xpath);
         } catch (Throwable t) {
             SurveyLog.warnOnce(logger, "PH for path " + xpath + t);
             return null;
         }
     }
 
-    private SurveyMenus surveyMenus = null;
+    private Supplier<SurveyMenus> surveyMenus =
+            Suppliers.memoize(
+                    () -> {
+                        try (CLDRProgressTask progress =
+                                sm.openProgress("STFactory: setup surveymenus")) {
+                            progress.update("setup surveymenus");
+                            return new SurveyMenus(this, getPathHeaderFactory());
+                        }
+                    });
 
-    public final synchronized SurveyMenus getSurveyMenus() {
-        if (surveyMenus == null) {
-            try (CLDRProgressTask progress = sm.openProgress("STFactory: setup surveymenus")) {
-                progress.update("setup surveymenus");
-                surveyMenus = new SurveyMenus(this, phf);
-            }
-        }
-        return surveyMenus;
+    public SurveyMenus getSurveyMenus() {
+        return surveyMenus.get();
     }
-
     /**
      * Resolving disk file, or null if none.
      *
@@ -1903,6 +1903,10 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
      */
     public CLDRFile getDiskFile(CLDRLocale locale) {
         return sm.getDiskFactory().make(locale.getBaseName(), true);
+    }
+
+    private final PathHeader.Factory getPathHeaderFactory() {
+        return diskDataCache.getPathHeaderFactory();
     }
 
     /**

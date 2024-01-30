@@ -561,7 +561,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
         final Pattern collation100 =
                 PatternCache.get(
                         "("
-                                + "big5han|compat|dictionary|emoji|eor|gb2312han|phonebook|phonetic|pinyin|reformed|searchjl|stroke|traditional|unihan|zhuyin)");
+                                + "big5han|compat|dictionary|emoji|eor|gb2312han|phonebook|phonetic|pinyin|searchjl|stroke|traditional|unihan|zhuyin)");
 
         SupplementalDataInfo sdi = testInfo.getSupplementalDataInfo();
         CLDRFile english = testInfo.getEnglish();

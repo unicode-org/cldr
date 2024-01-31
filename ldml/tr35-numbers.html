@@ -1228,8 +1228,11 @@ Most locales will not need to override the pattern provided in root, shown in th
 <li><strong>iso4217:</strong> the ISO 4217 code for the currency in question. Note that some additional codes that were in widespread usage are included, others such as GHP are not included because they were never used.</li>
 <li><strong>from:</strong> the currency was valid from the datetime indicated by the value. See the main document <em><a href="tr35.html#Date_Ranges">Dates and Date Ranges</a></em>.</li>
 <li><strong>to:</strong> the currency was valid up to the datetime indicated by the value. See the main document <em><a href="tr35.html#Date_Ranges">Dates and Date Ranges</a></em>.</li>
-<li><strong>tz:</strong> the IANA timezone associated with the <code>from</code> transition datetime. If no <code>to-tz</code> attribute is specified, it also applies to the <code>to</code> transition datetime.</li>
-<li><strong>to-tz:</strong> the IANA timezone associated with the <code>to</code> transition datetime. This timezone applies to the <code>to</code> value, and need only be specified if it is different from any timezone specified by a <code>tz</code> attribute.</li>
+<li><strong>tz:</strong> the timezone associated with the <code>from</code> transition datetime. If no <code>to-tz</code> attribute is specified, it also applies to the <code>to</code> transition datetime.<ul>
+<li>Timezones for the <code>tz</code> and <code>to-tz</code> attribute are specified using the CLDR canonical “long” time zone ID as described under <strong>Stability of Time Zone Identifiers</strong> in <a href="tr35.html#Time_Zone_Identifiers">Time Zone Identifiers</a>.</li>
+</ul>
+</li>
+<li><strong>to-tz:</strong> the timezone associated with the <code>to</code> transition datetime. This timezone applies to the <code>to</code> value, and need only be specified if it is different from any timezone specified by a <code>tz</code> attribute.</li>
 <li><strong>tender:</strong> indicates whether or not the ISO currency code represents a currency that was or is legal tender in some country. The default is "true". Certain ISO codes represent things like financial instruments or precious metals, and do not represent normally interchanged currencies.</li>
 </ul><blockquote>
 <p><strong>Note on converting transition datetimes for implementation use:</strong> The fact that CLDR stores the timezone separately from the transition datetime is for ease of CLDR maintenance. Implementations that use CLDR data may want to convert the combination into something like a single UTC timestamp for internal use.</p>

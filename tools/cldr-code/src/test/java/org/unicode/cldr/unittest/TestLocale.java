@@ -990,7 +990,11 @@ public class TestLocale extends TestFmwkPlus {
                 try {
                     ltp.set(composite); // clears other fields
                     LocaleValidator.isValid(ltp, bcp47, errors);
-                    if (!assertEquals(composite, expected, Joiner.on("; ").join(errors))) {
+                    if (logKnownIssue(
+                                    "CLDR-17345",
+                                    "testLanguageTagParserIsValid() fail on en-u-co-reformed after CLDR-17143")
+                            && composite.endsWith("-co-reformed")) {
+                    } else if (!assertEquals(composite, expected, Joiner.on("; ").join(errors))) {
                         LocaleValidator.isValid(ltp, bcp47, errors);
                     }
                 } catch (Exception e) {

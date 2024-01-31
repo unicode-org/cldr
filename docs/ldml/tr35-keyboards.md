@@ -377,6 +377,22 @@ This section gives an algorithm for implementing normalization on a text stream 
 
 _Note:_ The algorithm may be performed on a plain text stream which doesn't include markers, but implementations may opt to skip the removing/re-adding steps 1 and 3 if no markers are involved.
 
+#### Rationale for 'gluing' markers
+
+It is recognized that the processing described here describes an extension to Unicode normalization.
+
+The algorithm described considers markers 'glued' (remaining with) the following character. If a context ends with a marker, that marker would be guaranteed to remain at the end after processing, consistently located with respect to the next keystroke to be input.
+
+1. Keyboard authors can keep a marker together with a character of interest by emitting the marker just previous to that character.
+
+For example, given a key `output="\m{marker}X"`, the marker will proceed `X` regardless of any normalization. (If `output="X\m{marker}"` were used, and `X` were to reorder with other characters, the marker would no longer be adjacent to the X.)
+
+2. Markers which are at the end of input remain at the end of input during normalization.
+
+For example, given input context which ends with a marker, such as `...ABCDX\m{marker}`, the marker will remain at the end of the input context regardless of any normalization.
+
+The 'gluing' is only applicable during one particular processing step. It does not persist or affect further processing steps or future keystrokes.
+
 #### Data Model: `Marker`
 
 For purposes of discussion, a `Marker` is an opaque data type which has one property, its ID. See [Markers](#markers) for a discussion of of the marker ID.
@@ -401,7 +417,7 @@ Each `MarkerEntry` element has the following properties:
 - `processed?` (true/false, defaults to false)
 - `marker` (the `Marker` object)
 
-#### Algorithm Overview
+#### Marker Algorithm Overview
 
 This algorithm has three main phases to it.
 
@@ -414,7 +430,7 @@ This algorithm has three main phases to it.
 
     This phase is performed on the plain text string, such as NFD normalization.
 
-3. **Adding Markers**
+3. **Re-Adding Markers**
 
     Finally, markers are re-added to the plain text string using the `MarkerEntry` metadata from step 1.
     This phase results in a string which contains both codepoints and markers.
@@ -448,39 +464,58 @@ The array _e_ will be used in Phase 3.
 
 #### Phase 2: Plain Text Processing
 
- See [UAX #15](https://www.unicode.org/reports/tr15/#Description_Norm) for an overview of the process.  An existing Unicode-compliant API can be used here.
+See [UAX #15](https://www.unicode.org/reports/tr15/#Description_Norm) for an overview of the process.  An existing Unicode-compliant API can be used here.
 
 #### Phase 3: Adding Markers
 
-    * TBD
+1. Initialize an empty output string _o_
+2. Loop through the elements _p_ of the array _e_ from end to beginning (backwards)
+    1. If _p_.glue isn't `END`:
+        1. break out of the loop
+    2. If _p_.divider? == false:
+        1. Prepend marker _p_.marker to the output string _o_
+    3. Set _p_.processed?=true (so we don't process this again)
+2. Loop through each codepoint _i_ ( in the plain text input string ) from end to beginning (backwards)
+    1. Prepend _i_ to output _o_
+    2. Loop through the elements _p_ of the array _e_ from end to beginning (backwards)
+        1. If _p_.processed? == true:
+            1. Continue the inner loop  (was already processed)
+        2. If _p_.glue isn't _i_
+            1. Continue the inner loop  (wrong glue, not applicable)
+        3. If _p_.divider? == true:
+            1. Break out of the inner loop  (reached end of this 'glue' char)
+        4. Prepend marer _p_.marker to the output string _o_
+        5. Set _p_.processed?=true (so we don't process this again)
+3. _o_ is now the output string including markers.
 
-
-### TBD: Old Examples
+#### Example Normalization with Markers
 
 **Example 1**
 
 Consider this example, without markers:
 
-- `e\u{0300}\u{0320}` (original)
+- `e\u{0300}\u{0320}` (input)
 - `e\u{0320}\u{0300}` (NFD)
 
-If we add markers:
-
-- `e\u{0300}\m{marker}\u{0320}` (original)
-- `e\m{marker}\u{0320}\u{0300}` (NFD)
-
-During a processing step, such as appending a keystroke or one stage of applying a transform, the marker is 'glued' to the _following_ character. In the above example, `\m{marker}` was 'glued' to the `\u{0320}`. If a marker occured at the end of input or at the end of a normalization-safe segment, the marker is 'glued' to the end of that segment during that normalization step.
-
-The 'gluing' is only applicable during one particular processing step. It does not persist or affect further processing steps or future keystrokes.
-
-A second example:
+The combining marks are reordered.
 
 **Example 2**
 
-- `e\m{marker0}\u{0300}\m{marker1}\u{0320}\m{marker2}` (original)
+If we add markers:
+
+- `e\u{0300}\m{marker}\u{0320}` (input)
+- `e\m{marker}\u{0320}\u{0300}` (NFD)
+
+Note that the marker is 'glued' to the _following_ character. In the above example, `\m{marker}` was 'glued' to the `\u{0320}`.
+
+**Example 2**
+
+A second example:
+
+- `e\m{marker0}\u{0300}\m{marker1}\u{0320}\m{marker2}` (input)
 - `e\m{marker1}\u{0320}\m{marker0}\u{0300}\m{marker2}` (NFD)
 
-Here `\m{marker2}` is 'glued' to the end of the segment. However, if additional text is added such as by a subsequent keystroke (which may add an additional combining character, for example), this marker may be 'glued' to that following text.
+Here `\m{marker2}` is 'glued' to the end of the string. However, if additional text is added such as by a subsequent keystroke (which may add an additional combining character, for example), this marker may be 'glued' to that following text.
 
 Markers remain in the same normalization-safe segment during normalization. Consider:
 
@@ -494,13 +529,7 @@ There are two normalization-safe segments here:
 1. `e\u{0300}\m{marker1}\u{0320}`
 2. `a\u{0300}\m{marker2}\u{0320}`
 
-Normalization (and marker rearranging) occurs within each segment.  While `\m{marker1}` is 'glued' to the `\u{0320}`, it is glued within the first segment and has no effect on the second segment.
-
-#### Rationale for 'gluing' markers
-
-It is recognized that the processing described here seems to be an innovation among Unicode normalization implementations.
-
-This specification has markers 'glued' (remaining with) the following character so that if a context ends with a marker, that marker would be guaranteed to remain at the end after processing, consistently located with respect to the next keystroke to be input.  Alternatively, authors can keep a marker together with a character of interest by emitting the marker just previous to the character of interest, that is, `output="\m{marker}X"` instead of `output="X\m{marker}"`.
+Normalization (and marker rearranging) effectively occurs within each segment.  While `\m{marker1}` is 'glued' to the `\u{0320}`, it is glued within the first segment and has no effect on the second segment.
 
 ### Normalization and Character Classes
 
@@ -513,9 +542,6 @@ Implementations should warn users if possible when character classes include non
 ### Normalization and Reorders
 
 [`reorder`](#element-reorder) elements operate on NFD codepoints.
-
-The reorders do not themselves interact with markers, that is, markers may not be matched by a `reorder` element. However, if a character preceded by one or more markers is reordered due to a `reorder` element, those markers will also move with the characters as with the `transform` elements.
-
 
 ### Normalization and Output
 
@@ -2575,6 +2601,21 @@ Another partial example allows a keyboard implementation to prevent people typin
     <transform from="[\u{102F}\u{1030}\u{1048}\u{1059}][\u{102F}\u{1030}\u{1048}\u{1059}]"  />
 </transformGroup>
 ```
+
+#### Reorder and Markers
+
+The reorders do not themselves interact with markers, that is, markers may not be matched by a `reorder` element. However, if a character preceded by one or more markers is reordered due to a `reorder` element, those markers will also move with the characters as with the `transform` elements.
+
+Keyboard implementations need to process reorders as following.
+Note that steps 1 and 3 are identical to those steps used for normalization using markers in the [Marker Algorithm Overview](#marker-algorithm-overview).
+
+Given an input string from context or from a previous `transformGroup`:
+
+1. Parsing/Removing Markers
+
+2. Perform reordering (as in this section)
+
+3. Re-Adding Markers
 
 * * *
 

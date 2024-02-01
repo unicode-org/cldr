@@ -139,6 +139,7 @@ public class ChartUnitConversions extends Chart {
             all.add(sortKey);
 
             // get some formatted strings
+            // TODO: handle specials here, CLDR-16329 additional PR or follow-on ticket
 
             final String repeatingFactor =
                     targetInfo.unitInfo.factor.toString(FormatStyle.repeating);

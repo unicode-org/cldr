@@ -89,12 +89,7 @@ public class UnitValidityCanonicalizer {
                     Output<String> metricUnit2 = new Output<>();
                     ConversionInfo ci2 = uc.parseUnitId(tc2.core, metricUnit2, false);
 
-                    comp = ci1.factor.compareTo(ci2.factor);
-                    if (comp != 0) {
-                        return comp;
-                    }
-
-                    comp = ci2.offset.compareTo(ci2.offset);
+                    comp = ci1.compareTo(ci2);
                     if (comp != 0) {
                         return comp;
                     }

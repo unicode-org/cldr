@@ -1645,8 +1645,9 @@ public class SupplementalDataInfo {
             //            }
             String factor = parts.getAttributeValue(-1, "factor");
             String offset = parts.getAttributeValue(-1, "offset");
+            String special = parts.getAttributeValue(-1, "special");
             String systems = parts.getAttributeValue(-1, "systems");
-            unitConverter.addRaw(source, target, factor, offset, systems);
+            unitConverter.addRaw(source, target, factor, offset, special, systems);
             return true;
         }
 

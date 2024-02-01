@@ -537,7 +537,7 @@ If pre-composed (non-NFD) characters are used in [character classes](#regex-like
 
 The above could be written instead as a  `(á|â|ã|ä|å|æ|ç|è|é)`, or as a set variable `<set id="Ex" value="á â ã ä å æ ç è é"/>` and matched as `$[Ex]`.
 
-Implementations should warn users if possible when character classes include non-NFD characters
+Parsing of keyboard data must emit an error when character classes include non-NFD characters.
 
 ### Normalization and Reorders
 

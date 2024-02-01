@@ -51,15 +51,35 @@ import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.tool.PluralMinimalPairs;
 import org.unicode.cldr.tool.PluralRulesFactory;
-import org.unicode.cldr.util.*;
+import org.unicode.cldr.util.Builder;
+import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
+import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CLDRURLS;
+import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.DateConstants;
+import org.unicode.cldr.util.GrammarInfo;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
+import org.unicode.cldr.util.Iso3166Data;
+import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.Iso639Data.Scope;
+import org.unicode.cldr.util.IsoCurrencyParser;
+import org.unicode.cldr.util.LanguageTagCanonicalizer;
+import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.LocaleNames;
+import org.unicode.cldr.util.Organization;
+import org.unicode.cldr.util.Pair;
+import org.unicode.cldr.util.PluralRanges;
+import org.unicode.cldr.util.PreferredAndAllowedHour;
 import org.unicode.cldr.util.PreferredAndAllowedHour.HourStyle;
+import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.CodeType;
 import org.unicode.cldr.util.StandardCodes.LstrType;
+import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
 import org.unicode.cldr.util.SupplementalDataInfo.ContainmentStyle;
@@ -73,6 +93,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 import org.unicode.cldr.util.SupplementalDataInfo.SampleList;
+import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
 
 public class TestSupplementalInfo extends TestFmwkPlus {
@@ -1453,6 +1474,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
     public void TestSupplementalCurrency() {
         IsoCurrencyParser isoCodes = IsoCurrencyParser.getInstance();
         Set<String> currencyCodes = STANDARD_CODES.getGoodAvailableCodes("currency");
+        Set<String> oncomingCurrencyCodes = STANDARD_CODES.getOncomingCurrencies();
         Relation<String, Pair<String, CurrencyDateInfo>> nonModernCurrencyCodes =
                 Relation.of(
                         new TreeMap<String, Set<Pair<String, CurrencyDateInfo>>>(), TreeSet.class);
@@ -1529,6 +1551,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         logln("Modern Codes: " + modernCurrencyCodes.size() + "\t" + modernCurrencyCodes);
         Set<String> missing = new TreeSet<>(isoCurrenciesToCountries.keySet());
         missing.removeAll(modernCurrencyCodes.keySet());
+        missing.removeAll(oncomingCurrencyCodes);
         Set<String> recentMissing = new TreeSet<>(missing);
         recentMissing.retainAll(recentModernCurrencyCodes.keySet());
         if (recentMissing.size() != 0) {
@@ -1544,7 +1567,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         if (missing.size() != 0) {
             errln(
                     "Codes in ISO 4217 but not current tender in CLDR "
-                            + "(may need to update "
+                            + "(may need to update as per"
                             + CLDRURLS.UPDATING_CURRENCY_CODES
                             + " ): "
                             + currencyDateRelationToString(nonModernCurrencyCodes, missing));

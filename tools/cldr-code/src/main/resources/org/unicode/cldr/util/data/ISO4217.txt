@@ -6,6 +6,7 @@
 # = I for intermediate (introduced and obsoleted after ISO 4217:2001(E/F))
 # = O for obsolete in 2001 (Table A.3 of ISO 4217:2001(E/F))
 # = X for non-ISO in 2001 (Table A.3 of ISO 4217:2001(E/F), with *)
+# = P for codes that will be in current, customary use, but the 'from' date is in the future.
 currency	|	XAG	|	Silver	|	ZZ	|	(no country)	|	C
 currency	|	XAU	|	Gold	|	ZZ	|	(no country)	|	C
 currency	|	XBA	|	Bond Markets Units European Composite Unit (EURCO)	|	ZZ	|	(no country)	|	C
@@ -402,3 +403,5 @@ currency	|	STD	|	Dobra	|	ST	|	SÃO TOME AND PRINCIPE	|	O
 currency	|	VEF	|	Bolivar Fuerte	|	VE	|	VENEZUELA	|	O
 currency	|	UYW	|	Uruguayan Nominal Wage Index Unit	|	UY	|	URUGUAY	|	F
 currency    |   VED |   Bolívar Soberano    |  VE   |  VENEZUALA   | F
+currency    |   XCG |   Caribbean Guilder    |  CW   |   CURAÇAO  | P
+currency    |   XCG |   Caribbean Guilder    |  SX   |   SINT MAARTEN  | P

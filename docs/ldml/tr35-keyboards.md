@@ -533,11 +533,13 @@ Normalization (and marker rearranging) effectively occurs within each segment.  
 
 ### Normalization and Character Classes
 
-If pre-composed (non-NFD) characters are used in [character classes](#regex-like-syntax), such as `[á-é]` or `[\u{00e1}-\u{00e9}]`, these may not match as keyboard authors expect, as the U+00E1 character will not occur in NFD form.
+If pre-composed (non-NFD) characters are used in [character classes](#regex-like-syntax), such as `[á-é]`, these may not match as keyboard authors expect, as the U+00E1 character will not occur in NFD form. Thus this may be masking serious errors in the data.
 
-The above could be written instead as a  `(á|â|ã|ä|å|æ|ç|è|é)`, or as a set variable `<set id="Ex" value="á â ã ä å æ ç è é"/>` and matched as `$[Ex]`.
+By default, tools that process the keyboard data should raise an error when character classes include non-NFD characters.
 
-Parsing of keyboard data must emit an error when character classes include non-NFD characters.
+The above should be written instead as a regex `(á|â|ã|ä|å|æ|ç|è|é)`, or as a set variable `<set id="Example" value="á â ã ä å æ ç è é"/>` and matched as `$[Example]`.
+
+There is another case where there is no explicit mention of a non-NFD character, but the character class could include non-NFD characters, such as the range `[\u{0020}-\u{01FF}]`. For these, the tools should raise a warning by default.
 
 ### Normalization and Reorders
 

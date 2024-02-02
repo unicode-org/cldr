@@ -22,7 +22,8 @@ For terms of use, see http://www.unicode.org/copyright.html
             <ruleset type="spellout-cardinal">
                 <rbnfrule value="-x">negatif →→;</rbnfrule>
                 <rbnfrule value="x.x">←← titik →→;</rbnfrule>
-                <rbnfrule value="0">kosong;</rbnfrule>
+                <rbnfrule value="x,x">←← koma →→;</rbnfrule>
+                <rbnfrule value="0">nol;</rbnfrule>
                 <rbnfrule value="1">satu;</rbnfrule>
                 <rbnfrule value="2">dua;</rbnfrule>
                 <rbnfrule value="3">tiga;</rbnfrule>
@@ -50,6 +51,8 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="-x">negatif →→;</rbnfrule>
                 <rbnfrule value="x.x">=#,##0.#=;</rbnfrule>
                 <rbnfrule value="0">ke=%spellout-cardinal=;</rbnfrule>
+                <rbnfrule value="1">pertama</rbnfrule>
+                <rbnfrule value="2">ke=%spellout-cardinal=;</rbnfrule>
             </ruleset>
         </rulesetGrouping>
         <rulesetGrouping type="OrdinalRules">

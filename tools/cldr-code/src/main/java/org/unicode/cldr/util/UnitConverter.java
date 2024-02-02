@@ -242,7 +242,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
         public final Rational factor;
         public final Rational offset;
         public String special;
-        public boolean inverse; // only used with special
+        public boolean specialInverse; // only used with special
 
         static final ConversionInfo IDENTITY = new ConversionInfo(Rational.ONE, Rational.ZERO);
 
@@ -250,20 +250,22 @@ public class UnitConverter implements Freezable<UnitConverter> {
             this.factor = factor;
             this.offset = offset;
             this.special = null;
-            this.inverse = false;
+            this.specialInverse = false;
         }
 
         public ConversionInfo(String special, boolean inverse) {
             this.factor = Rational.ZERO; // if ONE it will be treated as a base unit
             this.offset = Rational.ZERO;
             this.special = special;
-            this.inverse = inverse;
+            this.specialInverse = inverse;
         }
 
         public Rational convert(Rational source) {
             if (special != null) {
                 if (special.equals("beaufort")) {
-                    return (inverse) ? baseToBeaufort(source) : beaufortToBase(source);
+                    return (specialInverse)
+                            ? baseToScale(source, minMetersPerSecForBeaufort)
+                            : scaleToBase(source, minMetersPerSecForBeaufort);
                 }
                 return source;
             }
@@ -273,39 +275,19 @@ public class UnitConverter implements Freezable<UnitConverter> {
         public Rational convertBackwards(Rational source) {
             if (special != null) {
                 if (special.equals("beaufort")) {
-                    return (inverse) ? beaufortToBase(source) : baseToBeaufort(source);
+                    return (specialInverse)
+                            ? scaleToBase(source, minMetersPerSecForBeaufort)
+                            : baseToScale(source, minMetersPerSecForBeaufort);
                 }
                 return source;
             }
             return source.subtract(offset).divide(factor);
         }
 
-        private static final BigInteger BEAUFORT_MAX = BigInteger.valueOf(17);
-        private static final Rational[] beaufortToMetersPerSec = {
-            // midRange m/s values to use for different Bft values
-            // mostly from m/s = 0.836*(B^1.5) but adjust value for Bft 0
-            Rational.of("0.1"), // 0 Bft
-            Rational.of("0.8"), // 1
-            Rational.of("2.4"), // 2
-            Rational.of("4.3"), // 3
-            Rational.of("6.7"), // 4
-            Rational.of("9.3"), // 5
-            Rational.of("12.3"), // 6
-            Rational.of("15.5"), // 7
-            Rational.of("18.9"), // 8
-            Rational.of("22.6"), // 9
-            Rational.of("26.4"), // 10
-            Rational.of("30.5"), // 11
-            Rational.of("34.8"), // 12
-            Rational.of("39.2"), // 13
-            Rational.of("43.8"), // 14
-            Rational.of("48.6"), // 15
-            Rational.of("53.5"), // 16
-            Rational.of("58.6") // 17
-        };
         private static final Rational[] minMetersPerSecForBeaufort = {
-            // minimum m/s values for each Bft values
-            // from table in Wikipedia
+            // minimum m/s values for each Bft value, plus an extra artificial value
+            // from table in Wikipedia, except for artificial value
+            // since 0 based, max Beaufort value is thus array dimension minus 2
             Rational.of("0.0"), // 0 Bft
             Rational.of("0.3"), // 1
             Rational.of("1.6"), // 2
@@ -323,30 +305,40 @@ public class UnitConverter implements Freezable<UnitConverter> {
             Rational.of("41.4"), // 14
             Rational.of("46.1"), // 15
             Rational.of("51.1"), // 16
-            Rational.of("55.8") // 17
+            Rational.of("55.8"), // 17
+            Rational.of("61.4"), // artificial end of range 17 to give reasonable midpoint
         };
 
-        private Rational beaufortToBase(Rational beaufort) {
-            BigInteger beaufortRound = beaufort.abs().add(Rational.of(1, 2)).floor();
-            if (beaufortRound.compareTo(BEAUFORT_MAX) > 0) {
-                beaufortRound = BEAUFORT_MAX;
+        private Rational scaleToBase(Rational scaleValue, Rational[] minBaseForScaleValues) {
+            BigInteger scaleRound = scaleValue.abs().add(Rational.of(1, 2)).floor();
+            BigInteger scaleMax = BigInteger.valueOf(minBaseForScaleValues.length - 2);
+            if (scaleRound.compareTo(scaleMax) > 0) {
+                scaleRound = scaleMax;
             }
-            int beaufortIndex = beaufortRound.intValue();
-            return beaufortToMetersPerSec[beaufortIndex];
+            int scaleIndex = scaleRound.intValue();
+            // Return midpont of range (the final range uses an articial end to produce reasonable
+            // midpoint)
+            return minBaseForScaleValues[scaleIndex]
+                    .add(minBaseForScaleValues[scaleIndex + 1])
+                    .divide(Rational.TWO);
         }
 
-        private Rational baseToBeaufort(Rational base) {
-            base = base.abs();
-            int beaufortIndex = BEAUFORT_MAX.intValue();
-            while (base.compareTo(minMetersPerSecForBeaufort[beaufortIndex]) < 0) {
-                beaufortIndex--;
+        private Rational baseToScale(Rational baseValue, Rational[] minBaseForScaleValues) {
+            int scaleIndex = Arrays.binarySearch(minBaseForScaleValues, baseValue.abs());
+            if (scaleIndex < 0) {
+                // since out first array entry is 0, this value will always be -2 or less
+                scaleIndex = -scaleIndex - 2;
             }
-            return Rational.of(beaufortIndex);
+            int scaleMax = minBaseForScaleValues.length - 2;
+            if (scaleIndex > scaleMax) {
+                scaleIndex = scaleMax;
+            }
+            return Rational.of(scaleIndex);
         }
 
         public ConversionInfo invert() {
             if (special != null) {
-                return new ConversionInfo(special, !inverse);
+                return new ConversionInfo(special, !specialInverse);
             }
             Rational factor2 = factor.reciprocal();
             Rational offset2 =
@@ -362,7 +354,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
 
         public String toString(String unit) {
             if (special != null) {
-                return "special" + (inverse ? "inv" : "") + ":" + special + "(" + unit + ")";
+                return "special" + (specialInverse ? "inv" : "") + ":" + special + "(" + unit + ")";
             }
             return factor.toString(FormatStyle.formatted)
                     + " * "
@@ -379,7 +371,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
 
         public String toDecimal(String unit) {
             if (special != null) {
-                return "special" + (inverse ? "inv" : "") + ":" + special + "(" + unit + ")";
+                return "special" + (specialInverse ? "inv" : "") + ":" + special + "(" + unit + ")";
             }
             return factor.toBigDecimal(MathContext.DECIMAL64)
                     + " * "
@@ -403,8 +395,8 @@ public class UnitConverter implements Freezable<UnitConverter> {
                     return diff;
                 }
                 // Among specials with the same name, inverses sort later
-                if (inverse != o.inverse) {
-                    return (inverse) ? 1 : -1;
+                if (specialInverse != o.specialInverse) {
+                    return (specialInverse) ? 1 : -1;
                 }
                 return 0;
             }

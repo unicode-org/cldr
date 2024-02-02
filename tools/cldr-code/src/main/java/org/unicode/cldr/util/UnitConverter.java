@@ -241,23 +241,105 @@ public class UnitConverter implements Freezable<UnitConverter> {
     public static final class ConversionInfo implements Comparable<ConversionInfo> {
         public final Rational factor;
         public final Rational offset;
+        public String special;
+        public boolean specialInverse; // only used with special
 
         static final ConversionInfo IDENTITY = new ConversionInfo(Rational.ONE, Rational.ZERO);
 
         public ConversionInfo(Rational factor, Rational offset) {
             this.factor = factor;
             this.offset = offset;
+            this.special = null;
+            this.specialInverse = false;
+        }
+
+        public ConversionInfo(String special, boolean inverse) {
+            this.factor = Rational.ZERO; // if ONE it will be treated as a base unit
+            this.offset = Rational.ZERO;
+            this.special = special;
+            this.specialInverse = inverse;
         }
 
         public Rational convert(Rational source) {
+            if (special != null) {
+                if (special.equals("beaufort")) {
+                    return (specialInverse)
+                            ? baseToScale(source, minMetersPerSecForBeaufort)
+                            : scaleToBase(source, minMetersPerSecForBeaufort);
+                }
+                return source;
+            }
             return source.multiply(factor).add(offset);
         }
 
         public Rational convertBackwards(Rational source) {
+            if (special != null) {
+                if (special.equals("beaufort")) {
+                    return (specialInverse)
+                            ? scaleToBase(source, minMetersPerSecForBeaufort)
+                            : baseToScale(source, minMetersPerSecForBeaufort);
+                }
+                return source;
+            }
             return source.subtract(offset).divide(factor);
         }
 
+        private static final Rational[] minMetersPerSecForBeaufort = {
+            // minimum m/s values for each Bft value, plus an extra artificial value
+            // from table in Wikipedia, except for artificial value
+            // since 0 based, max Beaufort value is thus array dimension minus 2
+            Rational.of("0.0"), // 0 Bft
+            Rational.of("0.3"), // 1
+            Rational.of("1.6"), // 2
+            Rational.of("3.4"), // 3
+            Rational.of("5.5"), // 4
+            Rational.of("8.0"), // 5
+            Rational.of("10.8"), // 6
+            Rational.of("13.9"), // 7
+            Rational.of("17.2"), // 8
+            Rational.of("20.8"), // 9
+            Rational.of("24.5"), // 10
+            Rational.of("28.5"), // 11
+            Rational.of("32.7"), // 12
+            Rational.of("36.9"), // 13
+            Rational.of("41.4"), // 14
+            Rational.of("46.1"), // 15
+            Rational.of("51.1"), // 16
+            Rational.of("55.8"), // 17
+            Rational.of("61.4"), // artificial end of range 17 to give reasonable midpoint
+        };
+
+        private Rational scaleToBase(Rational scaleValue, Rational[] minBaseForScaleValues) {
+            BigInteger scaleRound = scaleValue.abs().add(Rational.of(1, 2)).floor();
+            BigInteger scaleMax = BigInteger.valueOf(minBaseForScaleValues.length - 2);
+            if (scaleRound.compareTo(scaleMax) > 0) {
+                scaleRound = scaleMax;
+            }
+            int scaleIndex = scaleRound.intValue();
+            // Return midpont of range (the final range uses an articial end to produce reasonable
+            // midpoint)
+            return minBaseForScaleValues[scaleIndex]
+                    .add(minBaseForScaleValues[scaleIndex + 1])
+                    .divide(Rational.TWO);
+        }
+
+        private Rational baseToScale(Rational baseValue, Rational[] minBaseForScaleValues) {
+            int scaleIndex = Arrays.binarySearch(minBaseForScaleValues, baseValue.abs());
+            if (scaleIndex < 0) {
+                // since out first array entry is 0, this value will always be -2 or less
+                scaleIndex = -scaleIndex - 2;
+            }
+            int scaleMax = minBaseForScaleValues.length - 2;
+            if (scaleIndex > scaleMax) {
+                scaleIndex = scaleMax;
+            }
+            return Rational.of(scaleIndex);
+        }
+
         public ConversionInfo invert() {
+            if (special != null) {
+                return new ConversionInfo(special, !specialInverse);
+            }
             Rational factor2 = factor.reciprocal();
             Rational offset2 =
                     offset.equals(Rational.ZERO) ? Rational.ZERO : offset.divide(factor).negate();
@@ -271,12 +353,15 @@ public class UnitConverter implements Freezable<UnitConverter> {
         }
 
         public String toString(String unit) {
+            if (special != null) {
+                return "special" + (specialInverse ? "inv" : "") + ":" + special + "(" + unit + ")";
+            }
             return factor.toString(FormatStyle.formatted)
                     + " * "
                     + unit
                     + (offset.equals(Rational.ZERO)
                             ? ""
-                            : (offset.compareTo(Rational.ZERO) < 0 ? " - " : " - ")
+                            : (offset.compareTo(Rational.ZERO) < 0 ? " - " : " + ")
                                     + offset.abs().toString(FormatStyle.formatted));
         }
 
@@ -285,18 +370,40 @@ public class UnitConverter implements Freezable<UnitConverter> {
         }
 
         public String toDecimal(String unit) {
+            if (special != null) {
+                return "special" + (specialInverse ? "inv" : "") + ":" + special + "(" + unit + ")";
+            }
             return factor.toBigDecimal(MathContext.DECIMAL64)
                     + " * "
                     + unit
                     + (offset.equals(Rational.ZERO)
                             ? ""
-                            : (offset.compareTo(Rational.ZERO) < 0 ? " - " : " - ")
+                            : (offset.compareTo(Rational.ZERO) < 0 ? " - " : " + ")
                                     + offset.toBigDecimal(MathContext.DECIMAL64).abs());
         }
 
         @Override
         public int compareTo(ConversionInfo o) {
+            // All specials sort at the end
             int diff;
+            if (special != null) {
+                if (o.special == null) {
+                    return 1; // This is special, other is not
+                }
+                // Both are special check names
+                if (0 != (diff = special.compareTo(o.special))) {
+                    return diff;
+                }
+                // Among specials with the same name, inverses sort later
+                if (specialInverse != o.specialInverse) {
+                    return (specialInverse) ? 1 : -1;
+                }
+                return 0;
+            }
+            if (o.special != null) {
+                return -1; // This is not special, other is
+            }
+            // Neither this nor other is special
             if (0 != (diff = factor.compareTo(o.factor))) {
                 return diff;
             }
@@ -310,7 +417,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
 
         @Override
         public int hashCode() {
-            return Objects.hash(factor, offset);
+            return Objects.hash(factor, offset, (special == null) ? "" : special);
         }
     }
 
@@ -423,17 +530,35 @@ public class UnitConverter implements Freezable<UnitConverter> {
         //        SHORT_TO_LONG_ID = ImmutableBiMap.copyOf(_SHORT_TO_LONG_ID);
     }
 
-    public void addRaw(String source, String target, String factor, String offset, String systems) {
-        ConversionInfo info =
-                new ConversionInfo(
-                        factor == null ? Rational.ONE : rationalParser.parse(factor),
-                        offset == null ? Rational.ZERO : rationalParser.parse(offset));
+    public void addRaw(
+            String source,
+            String target,
+            String factor,
+            String offset,
+            String special,
+            String systems) {
+        ConversionInfo info;
+        if (special != null) {
+            info = new ConversionInfo(special, false);
+            if (factor != null || offset != null) {
+                throw new IllegalArgumentException(
+                        "Cannot have factor or offset with special=" + special);
+            }
+        } else {
+            info =
+                    new ConversionInfo(
+                            factor == null ? Rational.ONE : rationalParser.parse(factor),
+                            offset == null ? Rational.ZERO : rationalParser.parse(offset));
+        }
         Map<String, String> args = new LinkedHashMap<>();
         if (factor != null) {
             args.put("factor", factor);
         }
         if (offset != null) {
             args.put("offset", offset);
+        }
+        if (special != null) {
+            args.put("special", special);
         }
 
         addToSourceToTarget(source, target, info, args, systems);
@@ -749,7 +874,10 @@ public class UnitConverter implements Freezable<UnitConverter> {
                     }
                     String baseUnit = info.target;
 
-                    value = info.unitInfo.factor.multiply(value);
+                    value =
+                            (info.unitInfo.special == null)
+                                    ? info.unitInfo.factor.multiply(value)
+                                    : info.unitInfo.convert(value);
                     // if (showYourWork && !info.unitInfo.factor.equals(Rational.ONE))
                     // System.out.println(showRational("\tfactor: ", info.unitInfo.factor,
                     // baseUnit));
@@ -763,6 +891,8 @@ public class UnitConverter implements Freezable<UnitConverter> {
                     unit = baseUnit;
                 }
                 for (int p = 1; p <= power; ++p) {
+                    // TODO CLDR-16329 additional PR or follow-on ticket, how to handle special
+                    // here?
                     String title = "";
                     if (value.equals(Rational.ONE)) {
                         if (showYourWork) System.out.println("\t(already base unit)");
@@ -783,15 +913,18 @@ public class UnitConverter implements Freezable<UnitConverter> {
                                         + numerator.divide(denominator).doubleValue());
                 }
                 // create cleaned up target unitid
+                // TODO CLDR-16329 additional PR or follow-on ticket, how to handle special here?
                 outputUnit.add(continuations, unit, inNumerator, power);
                 power = 1;
             }
         }
+        // TODO CLDR-16329 additional PR or follow-on ticket, how to handle special here?
         metricUnit.value = outputUnit.toString();
         return new ConversionInfo(numerator.divide(denominator), offset);
     }
 
     /** Only for use for simple base unit comparison */
+    // Thus we do not need to handle specials here
     private class UnitComparator implements Comparator<String> {
         // TODO, use order in units.xml
 
@@ -826,6 +959,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
     Comparator<String> UNIT_COMPARATOR = new UnitComparator();
 
     /** Only handles the canonical units; no kilo-, only normalized, etc. */
+    // Thus we do not need to handle specials here
     // TODO: optimize
     // • the comparators don't have to be fields in this class;
     //   it is not a static class, so they can be on the converter.
@@ -1989,7 +2123,8 @@ public class UnitConverter implements Freezable<UnitConverter> {
                         "foodcalorie",
                         "nautical-mile",
                         "mile-scandinavian",
-                        "knot"));
+                        "knot",
+                        "beaufort"));
 
         Map<Rational, String> result = new TreeMap<>(Comparator.reverseOrder());
 

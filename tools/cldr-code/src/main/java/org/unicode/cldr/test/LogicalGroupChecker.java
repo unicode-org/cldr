@@ -161,6 +161,10 @@ public class LogicalGroupChecker {
             if (optionalPaths.contains(apath)) {
                 continue;
             }
+            if (apath.contains("beaufort")) {
+                // TODO CLDR-17352 Missing grammatical inflections for unit Beaufort in many locales
+                continue;
+            }
             if (presentPaths.contains(apath)) {
                 groupHasOneOrMorePresentRequiredPaths = true;
             } else {

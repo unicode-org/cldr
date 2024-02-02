@@ -537,7 +537,7 @@ If pre-composed (non-NFD) characters are used in [character classes](#regex-like
 
 By default, tools that process the keyboard data should raise an error when character classes include non-NFD characters.
 
-The above should be written instead as a regex `(á|â|ã|ä|å|æ|ç|è|é)`, or as a set variable `<set id="Example" value="á â ã ä å æ ç è é"/>` and matched as `$[Example]`.
+The above should be written instead as a regex `(á|â|ã|ä|å|æ|ç|è|é)`. Alternatively, it could be written as a set variable `<set id="Example" value="á â ã ä å æ ç è é"/>` and matched as `$[Example]`.
 
 There is another case where there is no explicit mention of a non-NFD character, but the character class could include non-NFD characters, such as the range `[\u{0020}-\u{01FF}]`. For these, the tools should raise a warning by default.
 

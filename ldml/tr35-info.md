@@ -862,14 +862,16 @@ An implementation need not use rationals directly for conversion; it could use d
 
 <!ATTLIST convertUnit offset CDATA #IMPLIED >
 
-<!ATTLIST convertUnit description CDATA #IMPLIED >
+<!ATTLIST convertUnit special NMTOKEN #IMPLIED >
 
 <!ATTLIST convertUnit systems NMTOKENS #IMPLIED >
+
+<!ATTLIST convertUnit description CDATA #IMPLIED >
 ```
 
 The conversion data provides the data for converting all of the cldr unit identifiers to base units, and back. That allows conversion between any two convertible units, such as two units of length. For any two convertible units (such as acre and dunum) the first can be converted to the base unit (square-meter), then that base unit can be converted to the second unit.
 
-The data is expressed as conversions to the base unit. The information can also be used for the conversion back.
+The data is expressed as conversions to the base unit from the source unit. The information can also be used for the conversion back.
 
 Examples:
 
@@ -896,6 +898,14 @@ The conversion may also require an offset, such as the following:
 The factor and offset can be simple expressions, just like the values in the unitConstants.
 
 Where a factor is not present, the value is 1; where an offset is not present, the value is 0.
+
+Instead of using `factor` and possibly `offset`, the `convertUnit` element can specify a `special` conversion that cannot be described by factor and offset (and this attribute cannot be used in conunction with factor and offset). For example:
+
+```xml
+<convertUnit source='beaufort' baseUnit='meter-per-second' special='beaufort' systems="metric_adjacent"/>
+```
+
+The only `special` conversion currently supported is for beaufort.
 
 The `systems` attribute indicates the measurement system(s) or other characteristics of a set of unts. Multiple values may be given; for example, a unit could be marked as systems="`si_acceptable` `metric_adjacent` `prefixable`".
 

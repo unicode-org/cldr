@@ -1,5 +1,7 @@
 package org.unicode.cldr.web;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -7,7 +9,6 @@ import java.io.PrintWriter;
 import java.io.Reader;
 import java.io.Writer;
 import java.nio.charset.StandardCharsets;
-import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletConfig;
@@ -18,9 +19,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONException;
 import org.unicode.cldr.util.CLDRURLS;
 import org.unicode.cldr.util.CldrUtility;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 public class SurveyTool extends HttpServlet {
     static final Logger logger = SurveyLog.forClass(SurveyTool.class);
@@ -250,7 +248,7 @@ public class SurveyTool extends HttpServlet {
         }
     }
 
-    static private final Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    private static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
     private final class STManifest {
         public String jsfiles[];
@@ -271,18 +269,22 @@ public class SurveyTool extends HttpServlet {
         // use WebPack-built manifest.json to include all chunks.
         // ideally this would all come from a static .html file built by WebPack.
         // TODO https://unicode-org.atlassian.net/browse/CLDR-17353
-        try (final InputStream is = request.getServletContext().getResourceAsStream("dist/manifest.json");
-            final Reader r = new InputStreamReader(is, StandardCharsets.UTF_8);) {
-                for(final String f : gson.fromJson(r, STManifest.class).jsfiles) {
-                    out.write("<script src=\"" + request.getContextPath() + "/dist/" + f.toString() + "\"></script>\n");
-                }
+        try (final InputStream is =
+                        request.getServletContext().getResourceAsStream("dist/manifest.json");
+                final Reader r = new InputStreamReader(is, StandardCharsets.UTF_8); ) {
+            for (final String f : gson.fromJson(r, STManifest.class).jsfiles) {
+                out.write(
+                        "<script src=\""
+                                + request.getContextPath()
+                                + "/dist/"
+                                + f.toString()
+                                + "\"></script>\n");
+            }
         }
 
         includeJqueryJavaScript(request, out);
         includeCldrJavaScript(request, out);
     }
-
-
 
     private static void includeJqueryJavaScript(HttpServletRequest request, Writer out)
             throws IOException {

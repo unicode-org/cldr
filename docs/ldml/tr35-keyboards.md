@@ -484,7 +484,7 @@ See [UAX #15](https://www.unicode.org/reports/tr15/#Description_Norm) for an ove
             1. Continue the inner loop  (wrong glue, not applicable)
         3. If _p_.divider? == true:
             1. Break out of the inner loop  (reached end of this 'glue' char)
-        4. Prepend marer _p_.marker to the output string _o_
+        4. Prepend marker _p_.marker to the output string _o_
         5. Set _p_.processed?=true (so we don't process this again)
 3. _o_ is now the output string including markers.
 
@@ -533,7 +533,7 @@ Normalization (and marker rearranging) effectively occurs within each segment.  
 
 ### Normalization and Character Classes
 
-If pre-composed (non-NFD) characters are used in [character classes](#regex-like-syntax), such as `[á-é]`, these may not match as keyboard authors expect, as the U+00E1 character will not occur in NFD form. Thus this may be masking serious errors in the data.
+If pre-composed (non-NFD) characters are used in [character classes](#regex-like-syntax), such as `[á-é]`, these may not match as keyboard authors expect, as the U+00E1 character (á) will not occur in NFD form. Thus this may be masking serious errors in the data.
 
 By default, tools that process the keyboard data should raise an error when character classes include non-NFD characters.
 

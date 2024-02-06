@@ -345,6 +345,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             sm.xpt.loadXPaths(diskDataEntry.diskData);
             readonly = isReadOnlyLocale(locale);
             stamp = mintLocaleStamp(locale);
+            pathsForFile = diskDataEntry.pathsForFile;
 
             if (readonly) {
                 rFile = diskDataEntry.diskFile;

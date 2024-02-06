@@ -312,9 +312,15 @@ See [Element special](tr35.md#special) in Part 1.
 
 Normalization will not typically be the responsibility of the keyboard author, rather this will be managed by the keyboard implementation.
 The keyboard implementation will apply normalization as appropriate when matching transform rules and `<display>` value matching.
-Output from the keyboard, following application of all transform rules, will be normalized to implementation- or application-requested form.
+Output from the keyboard, following application of all transform rules, will be normalized to the appropriate form for the keyboard implementation.
 
-The attribute value `normalization="disabled"` can be used to indicate that no automatic normalization is to be applied in input, matching, or output.  Using this setting should be done with caution. See [`<settings>`](#element-settings).
+The attribute value `normalization="disabled"` can be used to indicate that no automatic normalization is to be applied in input, matching, or output. Using this setting should be done with caution:
+
+* When this attribute value is used, all matching and output uses only the exact codepoints provided by the keyboard author.
+* Input context from the application may not be normalized, which means that the keyboard author should consider all possible combinations, including NFC, NFD, and mixed normalization in `<transform from=` attributes.
+* See [`<settings>`](#element-settings) for further details.
+
+The remainder of this section only applies when `normalization="disabled"` is not used.
 
 Keyboard source files may be in any normalization format, because they are processed in NFD for purposes of matching. However, authors should be aware of areas where normalization affects keyboard operation.
 
@@ -331,8 +337,8 @@ There are four stages where normalization occurs. These are briefly outlined her
 
     Input context must be normalized for purposes of matching.
 
-    Example: Input context might contain U+00E8 (`è`).  User clicks the cursor after the character. User types `<key ... output="\u{0300}"/>`.
-    The implementation must normalize this to `e\u{0320}\u{0300}` ( è̠  ) before matching.
+    Example: Input context might contain U+00E8 (`è`).  User clicks the cursor after the character. User types `<key ... output="\u{0320}"/>`.
+    The implementation must normalize this to `e\u{0320}\u{0300}` (`è̠`) before matching.
 
     - From any form to NFD: full normalization (decompose+reorder)
     - Markers in the cached context must be preserved.
@@ -370,7 +376,7 @@ A special issue occurs when markers are involved.
 Existing Normalization APIs typically operate on plain text, and so those APIs can not be used with content containing markers.
 
 However, the markers must be retained and processed by keyboard implementations in a manner which will be both consistent across implementations and predictable to keyboard authors.
-Inconsistencies would result in different user experiences- specifically, different or incorrect text output- on some implementations and not another.
+Inconsistencies would result in different user experiences -- specifically, different or incorrect text output -- on some implementations and not another.
 Unpredictability would make it challenging for the keyboard author to create a keyboard with expected behavior.
 
 This section gives an algorithm for implementing normalization on a text stream including markers.

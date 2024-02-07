@@ -663,7 +663,7 @@ For purposes of this current draft specification, the value should always be `te
 
 _Attribute:_ `locale` (required)
 
-This attribute represents the primary locale of the keyboard using BCP 47 [Unicode locale identifiers](tr35.md#Canonical_Unicode_Locale_Identifiers) - for example `"el"` for Greek. Sometimes, the locale may not specify the base language. For example, a Devanagari keyboard for many languages could be specified by BCP-47 code: `"und-Deva"`. However, it is better to list out the languages explicitly using the [`locales`](#element-locales) element.
+This attribute contains the primary locale of the keyboard using BCP 47 [Unicode locale identifiers](tr35.md#Canonical_Unicode_Locale_Identifiers) - for example `"el"` for Greek. Sometimes, the locale may not specify the base language. For example, a Devanagari keyboard for many languages could be specified by BCP-47 code: `"und-Deva"`. However, it is better to list out the languages explicitly using the [`locales`](#element-locales) element.
 
 For further details about the choice of locale ID, see [Keyboard IDs](#keyboard-ids).
 
@@ -962,7 +962,7 @@ _Attribute:_ `flickId="…flickId"` (optional)
 
 _Attribute:_ `gap="true"` (optional)
 
-> The `gap` attribute indicates that this key does not have any appearance, but represents a "gap" of the specified number of key widths. Can be used with `width` to set a width.
+> The `gap` attribute indicates that this key does not have any appearance, but causes a "gap" of the specified number of key widths. Can be used with `width` to set a width.
 
 ```xml
 <key id="mediumgap" gap="true" width="1.5"/>
@@ -1441,7 +1441,7 @@ This attribute may be escaped with `\u` notation, see [Escaping](#escaping).
 
 ### Element: forms
 
-This element represents a set of `form` elements which define the layout of a particular hardware form.
+This element contains a set of `form` elements which define the layout of a particular hardware form.
 
 
 > <small>
@@ -1471,7 +1471,7 @@ This element represents a set of `form` elements which define the layout of a pa
 
 ### Element: form
 
-This element represents a specific `form` element which defines the layout of a particular hardware form.
+This element contains a specific `form` element which defines the layout of a particular hardware form.
 
 > *Note:* Most keyboards will not need to use this element directly, and the CLDR repository will not accept keyboards which define a custom `form` element.  This element is provided for two reasons:
 
@@ -1529,7 +1529,7 @@ Here is a summary of the implied form elements. Keyboards included in the CLDR R
 
 ### Element: scanCodes
 
-This element represents a keyboard row, and defines the scan codes for the non-frame keys in that row.
+This element contains a keyboard row, and defines the scan codes for the non-frame keys in that row.
 
 > <small>
 >
@@ -1555,7 +1555,7 @@ This element represents a keyboard row, and defines the scan codes for the non-f
 
 ### Element: layers
 
-This element represents a set of `layer` elements with a specific physical form factor, whether
+This element contains a set of `layer` elements with a specific physical form factor, whether
 hardware or touch layout.
 
 > <small>
@@ -1804,7 +1804,7 @@ Note that the `id=` attribute value must be unique across all children of the `v
 > Occurrence: optional, multiple
 > </small>
 
-> This element represents a single string which is used by the [transform](#element-transform) elements for string matching and substitution, as well as by the [key](#element-key) and [display](#element-display) elements.
+> This element contains a single string which is used by the [transform](#element-transform) elements for string matching and substitution, as well as by the [key](#element-key) and [display](#element-display) elements.
 
 _Attribute:_ `id` (required)
 
@@ -1861,7 +1861,7 @@ These may be then used in multiple contexts:
 > Occurrence: optional, multiple
 > </small>
 
-> This element represents a set of strings used by the [transform](#element-transform) elements for string matching and substitution.
+> This element contains a set of strings used by the [transform](#element-transform) elements for string matching and substitution.
 
 _Attribute:_ `id` (required)
 
@@ -1919,7 +1919,7 @@ See [transform](#element-transform) for further details and syntax.
 > Occurrence: optional, multiple
 > </small>
 
-> This element represents a set, using a subset of the [UnicodeSet](tr35.md#Unicode_Sets) format, used by the [`transform`](#element-transform) elements for string matching and substitution.
+> This element contains a set, using a subset of the [UnicodeSet](tr35.md#Unicode_Sets) format, used by the [`transform`](#element-transform) elements for string matching and substitution.
 > Note important restrictions on the syntax below.
 
 _Attribute:_ `id` (required)
@@ -2116,7 +2116,7 @@ Such implementations must take care to remove all such markers (see prior sectio
 > Occurrence: optional, multiple
 > </small>
 
-A `transformGroup` represents a set of transform elements or reorder elements.
+A `transformGroup` contains a set of transform elements or reorder elements.
 
 Each `transformGroup` is processed entirely before proceeding to the next one.
 
@@ -2158,7 +2158,7 @@ This is a `transformGroup` that consists of one or more [`transform`](#element-t
 
 ### Element: transform
 
-This element represents a single transform that may be performed using the keyboard layout. A transform is an element that specifies a set of conversions from sequences of code points into (one or more) other code points. For example, in most French keyboards hitting the `^` dead-key followed by the `e` key produces `ê`.
+This element contains a single transform that may be performed using the keyboard layout. A transform is an element that specifies a set of conversions from sequences of code points into (one or more) other code points. For example, in most French keyboards hitting the `^` dead-key followed by the `e` key produces `ê`.
 
 Matches are processed against the "input context", a temporary buffer containing all relevant text up to the insertion point. If the user moves the insertion point, the input context is discarded and recreated from the application’s text buffer.  Implementations may discard the input context at any time.
 
@@ -2999,7 +2999,7 @@ This attribute value specifies a name for this overall test file. These names co
 > Occurrence: Optional, Multiple
 > </small>
 
-This element represents a repertoire test, to validate the available characters and their reachability. This test ensures that each of the specified characters is somehow typeable on the keyboard, after transforms have been applied. The characters in the repertoire will be matched against the complete set of possible generated outputs, post-transform, of all keys on the keyboard.
+This element contains a repertoire test, to validate the available characters and their reachability. This test ensures that each of the specified characters is somehow typeable on the keyboard, after transforms have been applied. The characters in the repertoire will be matched against the complete set of possible generated outputs, post-transform, of all keys on the keyboard.
 
 _Attribute:_ `name` (required)
 
@@ -3134,7 +3134,7 @@ Specifies the starting context. This text may be escaped with `\u` notation, see
 > Occurrence: Optional, Multiple
 > </small>
 
-This element represents a single keystroke or other gesture event, identified by a particular key element.
+This element contains a single keystroke or other gesture event, identified by a particular key element.
 
 Optionally, one of the gesture attributes, either `flick`, `longPress`, or `tapCount` may be specified. If none of the gesture attribute values are specified, then a regular keypress is effected on the key.  It is an error to specify more than one gesture attribute.
 
@@ -3179,7 +3179,7 @@ This attribute value specifies that a multi-tap gesture should be performed on t
 > Occurrence: Optional, Multiple
 > </small>
 
-This element also represents an input event, except that the input is specified in terms of textual value rather than key or gesture identity. This element is particularly useful for testing transforms.
+This element also contains an input event, except that the input is specified in terms of textual value rather than key or gesture identity. This element is particularly useful for testing transforms.
 
 Processing of the specified text continues with the transform and other elements before updating the test output buffer.
 
@@ -3208,7 +3208,7 @@ This attribute value may be escaped with `\u` notation, see [Escaping](#escaping
 > Occurrence: Optional, Multiple
 > </small>
 
-This element represents a backspace action, as if the user typed the backspace key
+This element contains a backspace action, as if the user typed the backspace key
 
 **Example**
 
@@ -3227,7 +3227,7 @@ This element represents a backspace action, as if the user typed the backspace k
 > Occurrence: Optional, Multiple
 > </small>
 
-This element represents a check on the current output buffer.
+This element contains a check on the current output buffer.
 
 _Attribute:_ `result` (required)
 

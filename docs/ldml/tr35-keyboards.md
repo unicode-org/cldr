@@ -1570,7 +1570,6 @@ _Attribute:_ `form` (required)
 >
 > A mismatch between the hardware layout in the keyboard file, and the actual hardware used by the user could result in some keys being inaccessible to the user if their hardware cannot generate the scancodes corresponding to the layout specified by the `form=` attribute. Such keys could be accessed only via an on-screen keyboard utility. Conversely, a user with hardware keys that are not present in the specified `form=` will result in some hardware keys which have no function when pressed.
 >
->
 > The value of the `form=` attribute may be `touch`, or correspond to a `form` element. See [`form`](#element-form).
 >
 
@@ -1587,7 +1586,7 @@ A `layer` element describes the configuration of keys on a particular layer of a
 **Syntax**
 
 ```xml
-<layer id="layerId" modifiers="{Set of Modifier Combinations}">
+<layer id="layerId" modifiers="...modifier modifier, ...modifier modifier, ...">
     ...
 </layer>
 ```
@@ -1615,7 +1614,9 @@ _Attribute:_ `modifiers` (required for `hardware`)
 >
 > For hardware layouts, the use of `@modifiers` as an identifier for a layer is sufficient since it is always unique among the set of `layer` elements in each  `form`.
 >
-> The set of modifiers must match `(none|([A-Za-z0-9]+)( [A-Za-z0-9]+)*)`
+> This attribute is a list of lists. It is a comma-separated (`,`) list of modifier sets, and each modifier set is a space-separated list of modifier components.
+>
+> The set of modifiers must match `(none|([A-Za-z0-9]+)( [A-Za-z0-9]+)*)(,[ ]?([A-Za-z0-9]+)( [A-Za-z0-9]+)*)*`
 >
 > To indicate that no modifiers apply, the reserved name of `none` is used.
 
@@ -1639,9 +1640,19 @@ _Attribute:_ `modifiers` (required for `hardware`)
 </layer>
 ```
 
+#### Layer Modifier Sets
+
+The `@modifiers` attribute contains one or more Layer Modifier Sets, separated by commas.
+For example, in the element `<layer ... modifiers="ctrlL altL, altR" ...` the attribute consists of two sets:
+
+- `ctrlL altL` (two components)
+- `altR` (one component)
+
+The order of the sets and the order of the components within each set is not significant.
+
 #### Layer Modifier Components
 
- The following modifier components can be used, separated by spaces.
+Within a Layer Modifier Set, the following modifier components can be used, separated by spaces.
 
  - `none` (no modifier)
  - `alt`
@@ -1663,7 +1674,7 @@ _Attribute:_ `modifiers` (required for `hardware`)
 1. `L` or `R` indicates a left- or right- side modifier only (such as `altL`)
  whereas `alt` indicates _either_ left or right alt key (that is, `altL` or `altR`). `ctrl` indicates either left or right ctrl key (that is, `ctrlL` or `ctrlR`).
 
-2.  If there are any layers (in the same `form=`) with a modifier `alt`, there may not also be another layer with `altL` or `altR`.  Similarly, if there is a layer with a modifier `ctrl`, there may not be a layer with `ctrlL` or `ctrlR`.
+2. Keyboard authors will be warned if a keyboard mixes `alt` with `altL`/`altR`, or `ctrl` with `ctrlL`/`ctrlR`.
 
 3. Left- and right- side modifiers may not be mixed together in a single `modifier` attribute value, so neither `altL ctrlR"` nor `altL altR` are allowed.
 
@@ -1681,9 +1692,15 @@ Layers are matched exactly based on the modifier keys which are down. For exampl
 
 - `other` as a modifier will match if no other layers match.
 
-Multiple modifier sets may be separated by commas.  For example, `none, shift caps` will match either no modifiers *or* shift and caps.  `ctrlL altL, altR` will match either  left-control and left-alt, *or* right-alt.
+Multiple modifier sets are separated by commas.  For example, `none, shift caps` will match either no modifiers *or* shift and caps.  `ctrlL altL, altR` will match either  left-control and left-alt, *or* right-alt.
 
-Keystrokes where there isn’t an explicitly matching layer, and where there is no layer with `other` specified, are ignored.
+Keystrokes processed where there isn’t an explicitly matching layer, and where there is no layer with `other` specified, are ignored.
+
+Layers are not allowed to overlap in their matching.  For example, the keyboard author will receive an error if one layer specifies `alt shift` and another layer specifies `altR shift`.
+
+The order of `<layer>` elements is not significant.
+
+> Note: The modifier syntax may be enhanced in the future. but will remain backwards compatible with the syntax described here.
 
 * * *
 

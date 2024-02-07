@@ -1586,8 +1586,10 @@ A `layer` element describes the configuration of keys on a particular layer of a
 **Syntax**
 
 ```xml
-<layer id="layerId" modifiers="...modifier modifier, ...modifier modifier, ...">
-    ...
+<layer id="layerId" modifiers="…modifier modifier, …modifier modifier, …">
+    <row …/>
+    <row …/>
+    …
 </layer>
 ```
 
@@ -1643,7 +1645,7 @@ _Attribute:_ `modifiers` (required for `hardware`)
 #### Layer Modifier Sets
 
 The `@modifiers` attribute contains one or more Layer Modifier Sets, separated by commas.
-For example, in the element `<layer ... modifiers="ctrlL altL, altR" ...` the attribute consists of two sets:
+For example, in the element `<layer … modifiers="ctrlL altL, altR" …` the attribute consists of two sets:
 
 - `ctrlL altL` (two components)
 - `altR` (one component)

@@ -310,23 +310,24 @@ See [Element special](tr35.md#special) in Part 1.
 
 ## Normalization
 
-Normalization will not typically be the responsibility of the keyboard author, rather this will be managed by the keyboard implementation.
-The keyboard implementation will apply normalization as appropriate when matching transform rules and `<display>` value matching.
-Output from the keyboard, following application of all transform rules, will be normalized to the appropriate form for the keyboard implementation.
+Unicode Normalization, as described in [The Unicode Standard](https://www.unicode.org/reports/tr41/#Unicode/), is a process by which Unicode text is processed to eliminate unwanted distinctions.
 
-The attribute value `normalization="disabled"` can be used to indicate that no automatic normalization is to be applied in input, matching, or output. Using this setting should be done with caution:
+This section discusses how conformant keyboards are affected by normalization, and the impact of normalization on keyboard authors and keyboard implmentations.
 
-* When this attribute value is used, all matching and output uses only the exact codepoints provided by the keyboard author.
-* Input context from the application may not be normalized, which means that the keyboard author should consider all possible combinations, including NFC, NFD, and mixed normalization in `<transform from=` attributes.
-* See [`<settings>`](#element-settings) for further details.
+Keyboard implementation will usually apply normalization as appropriate when matching transform rules and `<display>` value matching.
+Output from the keyboard, following application of all transform rules, will be normalized to the appropriate form by the keyboard implementation.
 
-The remainder of this section only applies when `normalization="disabled"` is not used.
+> Note: There are many existing software libraries which perform Unicode Normalization, including [ICU](https://icu.unicode.org), [ICU4X](https://icu4x.unicode.org), and JavaScript's [String.prototype.normalize()](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String/normalize).
 
-Keyboard source files may be in any normalization format, because they are processed in NFD for purposes of matching. However, authors should be aware of areas where normalization affects keyboard operation.
+Keyboard authors will not typically need to perform normalization as part of the keyboard layout.  However, authors should be aware of areas where normalization affects keyboard operation so that they may achieve their desired results.
 
-There are four stages where normalization occurs. These are briefly outlined here, and then detailed below.
+### Where Normalization Occurs
+
+There are four stages where normalization occurs.
 
 1. **From the keyboard source `.xml`**
+
+    Keyboard source .xml files may be in any normalization form.
 
     Example: `<key output=`, and `<transform from= to=` attribute contents
     - From any form to NFD: full normalization (decompose+reorder)
@@ -570,6 +571,15 @@ For purposes of the above discussion, "normalization-safe segments" are defined 
 See [UAX #15 Section 9.1: Stable Code Points](https://www.unicode.org/reports/tr15/#Stable_Code_Points) for related discussion.
 Text under consideration can be segmented by locating such characters.
 
+### Disabling Normalization
+
+The attribute value `normalization="disabled"` can be used to indicate that no automatic normalization is to be applied in input, matching, or output. Using this setting should be done with caution:
+
+- When this attribute value is used, all matching and output uses only the exact codepoints provided by the keyboard author.
+- Input context from the application may not be normalized, which means that the keyboard author should consider all possible combinations, including NFC, NFD, and mixed normalization in `<transform from=` attributes.
+- See [`<settings>`](#element-settings) for further details.
+
+The majority of the above section only applies when `normalization="disabled"` is not used.
 
 * * *
 

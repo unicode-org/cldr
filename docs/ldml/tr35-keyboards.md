@@ -152,7 +152,7 @@ The Unicode Standard and related technologies such as CLDR have dramatically imp
 
 More and more language communities are determining that digitization is vital to their approach to language preservation and that engagement with Unicode is essential to becoming fully digitized. For many of these communities, however, getting new characters or a new script added to The Unicode Standard is not the end of their journey. The next, often more challenging stage is to get device makers, operating systems, apps and services to implement the script requirements that Unicode has just added to support their language.
 
-However, commensurate improvements to streamline new language support on the input side have been lacking. CLDR’s new Keyboard Subcommittee has been established to address this very gap.
+However, commensurate improvements to streamline new language support on the input side have been lacking. CLDR’s Keyboard specification has been updated in an attempt to address this gap.
 
 This document describes an interchange format for the communication of keyboard mapping data independent of vendors and platforms. Keyboard authors can then create a single mapping file for their language, which implementations can use to provide that language’s keyboard mapping on their own platform.
 
@@ -209,7 +209,7 @@ Note that in parts of this document, the format `@x` is used to indicate the _at
 
 ### Accessibility
 
-Keyboard use can be challenging for individuals with various types of disabilities. For this revision, the committee is not evaluating features or architectural designs for the purpose of improving accessibility. Such consideration could be fruitful for future revisions. However, some points on this topic should be made:
+Keyboard use can be challenging for individuals with various types of disabilities. For this revision, features or architectural designs for the purpose of improving accessibility are not being considered. Such consideration could be fruitful for future revisions. However, some points on this topic should be made:
 
 1. Having an industry-wide standard format for keyboards will enable accessibility software to make use of keyboard data with a reduced dependence on platform-specific knowledge.
 2. Features which require certain levels of mobility or speed of entry should be considered for their impact on accessibility. This impact could be mitigated by means of additional, accessible methods of generating the same output.
@@ -303,7 +303,7 @@ Currently, the following attribute values allow _UnicodeSet_ notation:
 
 ### UTS18 Escaping
 
-The `\u{…}` notation, a subset of hex notation, is described in [UTS #18 section 1.1](https://www.unicode.org/reports/tr18/#Hex_notation). It can refer to one or multiple individual codepoints. Currently, the following attribute values allow the `\u{…}` notation:
+The `\u{…usv}` notation, a subset of hex notation, is described in [UTS #18 section 1.1](https://www.unicode.org/reports/tr18/#Hex_notation). It can refer to one or multiple individual codepoints. Currently, the following attribute values allow the `\u{…}` notation:
 
 * `output` on the `<key>` element
 * `from` or `to` on the `<transform>` element

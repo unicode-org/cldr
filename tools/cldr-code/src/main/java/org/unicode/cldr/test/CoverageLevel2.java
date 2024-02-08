@@ -22,7 +22,6 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility.VariableReplacer;
-import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PatternCache;
@@ -153,13 +152,13 @@ public class CoverageLevel2 {
     }
 
     private CoverageLevel2(SupplementalDataInfo sdi, String locale) {
-        myInfo.targetLanguage = new LanguageTagParser().set(locale).getLanguage();
+        myInfo.targetLanguage = CLDRLocale.getInstance(locale).getLanguage();
         myInfo.cvi = sdi.getCoverageVariableInfo(myInfo.targetLanguage);
         lookup = sdi.getCoverageLookup();
     }
 
     private CoverageLevel2(SupplementalDataInfo sdi, String locale, String ruleFile) {
-        myInfo.targetLanguage = new LanguageTagParser().set(locale).getLanguage();
+        myInfo.targetLanguage = CLDRLocale.getInstance(locale).getLanguage();
         myInfo.cvi = sdi.getCoverageVariableInfo(myInfo.targetLanguage);
         RawCoverageFile rcf = new RawCoverageFile();
         lookup = rcf.load(ruleFile);

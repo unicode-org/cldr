@@ -1696,7 +1696,7 @@ Layers are matched exactly based on the modifier keys which are down. For exampl
 
 Multiple modifier sets are separated by commas.  For example, `none, shift caps` will match either no modifiers *or* shift and caps.  `ctrlL altL, altR` will match either  left-control and left-alt, *or* right-alt.
 
-Keystrokes processed where there isn’t an explicitly matching layer, and where there is no layer with `other` specified, are ignored.
+Keystrokes processed where there isn’t an explicitly matching layer, and where there is no layer with `other` specified, are ignored. Example: If there is a `ctrl` and `shift` layer, but no `ctrl shift` nor `other` layer, no output will result from `ctrl shift X`.
 
 Layers are not allowed to overlap in their matching.  For example, the keyboard author will receive an error if one layer specifies `alt shift` and another layer specifies `altR shift`.
 

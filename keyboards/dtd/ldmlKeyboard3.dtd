@@ -171,7 +171,7 @@ Please view the subcommittee page for the most recent information.
     <!--@MATCH:any-->
     <!--@VALUE-->
 
-<!ELEMENT variables ( import*, string*, set*, unicodeSet*, special* ) >
+<!ELEMENT variables ( import*, string*, set*, uset*, special* ) >
     <!--@TECHPREVIEW-->
 
 <!ELEMENT string EMPTY >
@@ -190,10 +190,10 @@ Please view the subcommittee page for the most recent information.
     <!--@VALUE-->
     <!--@ALLOWS_UESC-->
 
-<!ELEMENT unicodeSet EMPTY >
-<!ATTLIST unicodeSet id NMTOKEN #REQUIRED >
+<!ELEMENT uset EMPTY >
+<!ATTLIST uset id NMTOKEN #REQUIRED >
     <!--@MATCH:regex/[0-9A-Za-z_]{1,32}-->
-<!ATTLIST unicodeSet value CDATA #REQUIRED >
+<!ATTLIST uset value CDATA #REQUIRED >
     <!--@MATCH:any-->
     <!--@VALUE-->
 

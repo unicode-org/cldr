@@ -94,7 +94,7 @@ The LDML specification is divided into the following parts:
   * [Element: variables](#element-variables)
   * [Element: string](#element-string)
   * [Element: set](#element-set)
-  * [Element: unicodeSet](#element-unicodeset)
+  * [Element: uset](#element-uset)
   * [Element: transforms](#element-transforms)
     * [Markers](#markers)
   * [Element: transformGroup](#element-transformgroup)
@@ -1435,7 +1435,7 @@ Here is an example of a `row` element:
 >
 > Parents: [keyboard3](#element-keyboard3)
 >
-> Children: [import](#element-import), [_special_](tr35.md#special), [string](#element-string), [set](#element-set), [unicodeSet](#element-unicodeset)
+> Children: [import](#element-import), [_special_](tr35.md#special), [string](#element-string), [set](#element-set), [uset](#element-uset)
 >
 > Occurrence: optional, single
 > </small>
@@ -1450,7 +1450,7 @@ Note that the `id=` attribute must be unique across all children of the `variabl
 <variables>
     <string id="y" value="yes" /> <!-- a simple string-->
     <set id="upper" value="A B C D E FF" /> <!-- a set with 6 items -->
-    <unicodeSet id="consonants" value="[कसतनमह]" /> <!-- a UnicodeSet -->
+    <uset id="consonants" value="[कसतनमह]" /> <!-- a UnicodeSet -->
 </variables>
 ```
 
@@ -1571,7 +1571,7 @@ See [transform](#element-transform) for further details and syntax.
 
 * * *
 
-### Element: unicodeSet
+### Element: uset
 
 > <small>
 >
@@ -1587,37 +1587,38 @@ See [transform](#element-transform) for further details and syntax.
 
 _Attribute:_ `id` (required)
 
-> Specifies the identifier (name) of this unicodeSet.
+> Specifies the identifier (name) of this uset.
 > All ids must be unique across all types of variables.
 >
 > `id` must match `[0-9A-Za-z_]{1,32}`
 
 _Attribute:_ `value` (required)
 
-> String value in [UnicodeSet](tr35.md#Unicode_Sets) format.
+> String value in a subset of [UnicodeSet](tr35.md#Unicode_Sets) format.
 > Leading and trailing whitespace is ignored.
-> Variables may refer to other string variables if they have been previously defined, using `${string}` syntax, or to other previously-defined UnicodeSets (not sets) using `$[unicodeSet]` syntax.
+> Variables may refer to other string variables if they have been previously defined, using `${string}` syntax, or to other previously-defined `uset` elements (not `set` elements) using `$[...usetId]` syntax.
 
-**Syntax Note**
 
-- Warning: UnicodeSets look superficially similar to regex character classes as used in [`transform`](#element-transform) elements, but they are different. UnicodeSets must be defined with a `unicodeSet` element, and referenced with the `$[unicodeSet]` notation in transforms. UnicodeSets cannot be specified inline in a transform, and can only be used indirectly by reference to the corresponding `unicodeSet` element.
+- Warning: `uset` elements look superficially similar to regex character classes as used in [`transform`](#element-transform) elements, but they are different. `uset`s must be defined with a `uset` element, and referenced with the `$[...usetId]` notation in transforms. `uset`s cannot be specified inline in a transform, and can only be used indirectly by reference to the corresponding `uset` element.
 - Multi-character strings (`{}`) are not supported, such as `[żġħ{ie}{għ}]`.
-- UnicodeSet property notation (`\p{…}` or `[:…:]`) may **NOT** be used, because that would make implementations dependent on a particular version of Unicode. However, implementations and tools may wish to pre-calculate the value of a particular UnicodeSet, and "freeze" it as explicit code points.  The example below of `$[KhmrMn]` matches all nonspacing marks in the `Khmr` script.
-- UnicodeSets may represent a very large number of codepoints. A limit may be set on how many unique range entries may be matched.
+- UnicodeSet property notation (`\p{…}` or `[:…:]`) may **NOT** be used.
+
+> **Rationale**: allowing property notation would make keyboard implementations dependent on a particular version of Unicode. However, implementations and tools may wish to pre-calculate the value of a particular uset, and "freeze" it as explicit code points.  The example below of `$[KhmrMn]` matches nonspacing marks in the `Khmr` script.
+
+- `uset` elements may represent a very large number of codepoints. Keyboard implementations may set a limit on how many unique range entries may be matched.
+- The `uset` element may not be used as the source or target for mapping operations (`$[1:variable]` syntax).
+- The `uset` element may not be referenced by [`key`](#element-key) or [`display`](#element-display) elements.
 
 **Examples**
 
 ```xml
 <variables>
-  <unicodeSet id="consonants" value="[कसतनमह]" /> <!-- unicode set range -->
-  <unicodeSet id="range" value="[a-z D E F G \u{200A}]" /> <!-- a through z, plus a few others -->
-  <unicodeSet id="newrange" value="[$[range]-[G]]" /> <!-- The above range, but not including G -->
-  <unicodeSet id="KhmrMn" value="[\u{17B4}\u{17B5}\u{17B7}-\u{17BD}\u{17C6}\u{17C9}-\u{17D3}\u{17DD}]"> <!--  [[:Khmr:][:Mn:]] as of Unicode 15.0-->
+  <uset id="consonants" value="[कसतनमह]" /> <!-- unicode set range -->
+  <uset id="range" value="[a-z D E F G \u{200A}]" /> <!-- a through z, plus a few others -->
+  <uset id="newrange" value="[$[range]-[G]]" /> <!-- The above range, but not including G -->
+  <uset id="KhmrMn" value="[\u{17B4}\u{17B5}\u{17B7}-\u{17BD}\u{17C6}\u{17C9}-\u{17D3}\u{17DD}]"> <!--  [[:Khmr:][:Mn:]] as of Unicode 15.0-->
 </variables>
 ```
-
-The `unicodeSet` element may not be used as the source or target for mapping operations (`$[1:variable]` syntax).
-The `unicodeSet` element may not be referenced by [`key`](#element-key) and [`display`](#element-display) elements.
 
 * * *
 
@@ -1879,7 +1880,7 @@ _Attribute:_ `from` (required)
 
     - supported
     - no Unicode properties such as `\p{…}`
-    - Warning: Character classes look superficially similar to UnicodeSets as defined in [`unicodeSet`](#element-unicodeset) elements, but they are different. UnicodeSets must be defined with a `unicodeSet` element, and referenced with the `$[unicodeSet]` notation in transforms. UnicodeSets cannot be used directly in a transform.
+    - Warning: Character classes look superficially similar to [`uset`](#element-uset) elements, but they are distinct and referenced with the `$[...usetId]` notation in transforms. The `uset` notation cannot be embedded directly in a transform.
 
 - **Bounded quantifier**
 
@@ -1953,11 +1954,11 @@ The following are additions to standard Regex syntax.
 
     In this usage, the variable with `id="zwnj"` will be substituted in at this point in the expression. The variable can contain a range, a character, or any other portion of a pattern. If `zwnj` is a simple string, the pattern will match that string at this point.
 
-- **Set and UnicodeSet variables**
+- **`set` or `uset` variables**
 
     `$[upper]`
 
-    Given a space-separated variable, this syntax will match _any_ of the substrings. This expression may be thought of  (and implemented) as if it were a _non-capturing group_. It may, however, be enclosed within a capturing group. For example, the following definition of `$[upper]` will match as if it were written `(?:A|B|CC|D|E|FF)`.
+    Given a space-separated `set` or `uset` variable, this syntax will match _any_ of the substrings. This expression may be thought of  (and implemented) as if it were a _non-capturing group_. It may, however, be enclosed within a capturing group. For example, the following definition of `$[upper]` will match as if it were written `(?:A|B|CC|D|E|FF)`.
 
     ```xml
     <variables>
@@ -1978,7 +1979,7 @@ The following are additions to standard Regex syntax.
     Tooling may choose to suggest an expansion of properties, such as `\p{Mn}` to all non spacing marks for a certain Unicode version.  As well, a set of variables could be constructed in an `import`-able file matching particularly useful Unicode properties.
 
     ```xml
-    <unicodeSet id="Mn" value="[\u{034F}\u{0591}-\u{05AF}\u{05BD}\u{05C4}\u{05C5}\…]" /> <!-- 1,985 code points -->
+    <uset id="Mn" value="[\u{034F}\u{0591}-\u{05AF}\u{05BD}\u{05C4}\u{05C5}\…]" /> <!-- 1,985 code points -->
     ```
 
 - **Backreferences**
@@ -2066,7 +2067,6 @@ Used in the `to=`
     - The capture group on the `from=` side **must** contain exactly one set variable.  `from="Q($[upper])X"` can be used (other context before or after the capture group), but `from="(Q$[upper])"` may not be used with a mapped variable and is flagged as an error.
 
     - The `from=` and `to=` sides of the pattern must both be using `set` variables. There is no way to insert a set literal on either side and avoid using a variable.
-    A UnicodeSet may not be used directly, but must be defined as a `unicodeSet` variable.
 
     - The two variables (here `upper` and `lower`) must have exactly the same number of whitespace-separated items. Leading and trailing space (such as at the end of `lower`) is ignored. A variable without any spaces is considered to be a set variable of exactly one item.
 

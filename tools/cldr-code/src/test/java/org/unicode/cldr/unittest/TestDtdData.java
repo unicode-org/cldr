@@ -777,7 +777,7 @@ public class TestDtdData extends TestFmwk {
                         || elementName.equals("layer") && attribute.equals("id")
                         || elementName.equals("string") && attribute.equals("id")
                         || elementName.equals("set") && attribute.equals("id")
-                        || elementName.equals("unicodeSet") && attribute.equals("id")) {
+                        || elementName.equals("uset") && attribute.equals("id")) {
                     return true;
                 }
                 // fall through to old keyboard

@@ -787,7 +787,7 @@ developing this technical preview to the CLDR keyboard specification.</p><h2 id=
 <li><a href="#element-variables">Element: variables</a></li>
 <li><a href="#element-string">Element: string</a></li>
 <li><a href="#element-set">Element: set</a></li>
-<li><a href="#element-unicodeset">Element: unicodeSet</a></li>
+<li><a href="#element-uset">Element: uset</a></li>
 <li><a href="#element-transforms">Element: transforms</a><ul>
 <li><a href="#markers">Markers</a></li>
 </ul>
@@ -1474,13 +1474,13 @@ Touch layouts must have one <code>layer</code> with <code>id="base"</code> to se
 <small>
 
 <p>Parents: <a href="#element-keyboard3">keyboard3</a></p>
-<p>Children: <a href="#element-import">import</a>, <a href="tr35.html#special"><em>special</em></a>, <a href="#element-string">string</a>, <a href="#element-set">set</a>, <a href="#element-unicodeset">unicodeSet</a></p>
+<p>Children: <a href="#element-import">import</a>, <a href="tr35.html#special"><em>special</em></a>, <a href="#element-string">string</a>, <a href="#element-set">set</a>, <a href="#element-uset">uset</a></p>
 </small><p><small>Occurrence: optional, single
 </small></p>
 </blockquote><p>This is a container for variables to be used with <a href="#element-transform">transform</a>, <a href="#element-display">display</a> and <a href="#element-key">key</a> elements.</p><p>Note that the <code>id=</code> attribute must be unique across all children of the <code>variables</code> element.</p><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">variables</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"y"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"yes"</span> /&gt;</span> <span class="hljs-comment">&lt;!-- a simple string--&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">set</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"upper"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"A B C D E FF"</span> /&gt;</span> <span class="hljs-comment">&lt;!-- a set with 6 items --&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">unicodeSet</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"consonants"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"[कसतनमह]"</span> /&gt;</span> <span class="hljs-comment">&lt;!-- a UnicodeSet --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">uset</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"consonants"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"[कसतनमह]"</span> /&gt;</span> <span class="hljs-comment">&lt;!-- a UnicodeSet --&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">variables</span>&gt;</span>
 </code></pre><hr><h3 id="element-string">Element: string</h3><blockquote>
 <small>
@@ -1548,7 +1548,7 @@ Set references must be separated by whitespace: <code>$[set1]$[set2]</code> is a
 <span class="hljs-tag">&lt;/<span class="hljs-name">variables</span>&gt;</span>
 </code></pre><p>Match "X" followed by any uppercase letter:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">transform</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"X$[upper]"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"…"</span> /&gt;</span>
 </code></pre><p>Map from upper to lower:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">transform</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"($[upper])"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"$[1:lower]"</span> /&gt;</span>
-</code></pre><p>See <a href="#element-transform">transform</a> for further details and syntax.</p><hr><h3 id="element-unicodeset">Element: unicodeSet</h3><blockquote>
+</code></pre><p>See <a href="#element-transform">transform</a> for further details and syntax.</p><hr><h3 id="element-uset">Element: uset</h3><blockquote>
 <small>
 
 <p>Parents: <a href="#element-variables">variables</a></p>
@@ -1559,26 +1559,30 @@ Set references must be separated by whitespace: <code>$[set1]$[set2]</code> is a
 <p>This element represents a set, using a subset of the <a href="tr35.html#Unicode_Sets">UnicodeSet</a> format, used by the <a href="#element-transform"><code>transform</code></a> elements for string matching and substitution.
 Note important restrictions on the syntax below.</p>
 </blockquote><p><em>Attribute:</em> <code>id</code> (required)</p><blockquote>
-<p>Specifies the identifier (name) of this unicodeSet.
+<p>Specifies the identifier (name) of this uset.
 All ids must be unique across all types of variables.</p>
 <p><code>id</code> must match <code>[0-9A-Za-z_]{1,32}</code></p>
 </blockquote><p><em>Attribute:</em> <code>value</code> (required)</p><blockquote>
-<p>String value in <a href="tr35.html#Unicode_Sets">UnicodeSet</a> format.
+<p>String value in a subset of <a href="tr35.html#Unicode_Sets">UnicodeSet</a> format.
 Leading and trailing whitespace is ignored.
-Variables may refer to other string variables if they have been previously defined, using <code>${string}</code> syntax, or to other previously-defined UnicodeSets (not sets) using <code>$[unicodeSet]</code> syntax.</p>
-</blockquote><p><strong>Syntax Note</strong></p><ul>
-<li>Warning: UnicodeSets look superficially similar to regex character classes as used in <a href="#element-transform"><code>transform</code></a> elements, but they are different. UnicodeSets must be defined with a <code>unicodeSet</code> element, and referenced with the <code>$[unicodeSet]</code> notation in transforms. UnicodeSets cannot be specified inline in a transform, and can only be used indirectly by reference to the corresponding <code>unicodeSet</code> element.</li>
+Variables may refer to other string variables if they have been previously defined, using <code>${string}</code> syntax, or to other previously-defined <code>uset</code> elements (not <code>set</code> elements) using <code>$[...usetId]</code> syntax.</p>
+</blockquote><ul>
+<li>Warning: <code>uset</code> elements look superficially similar to regex character classes as used in <a href="#element-transform"><code>transform</code></a> elements, but they are different. <code>uset</code>s must be defined with a <code>uset</code> element, and referenced with the <code>$[...usetId]</code> notation in transforms. <code>uset</code>s cannot be specified inline in a transform, and can only be used indirectly by reference to the corresponding <code>uset</code> element.</li>
 <li>Multi-character strings (<code>{}</code>) are not supported, such as <code>[żġħ{ie}{għ}]</code>.</li>
-<li>UnicodeSet property notation (<code>\p{…}</code> or <code>[:…:]</code>) may <strong>NOT</strong> be used, because that would make implementations dependent on a particular version of Unicode. However, implementations and tools may wish to pre-calculate the value of a particular UnicodeSet, and "freeze" it as explicit code points.  The example below of <code>$[KhmrMn]</code> matches all nonspacing marks in the <code>Khmr</code> script.</li>
-<li>UnicodeSets may represent a very large number of codepoints. A limit may be set on how many unique range entries may be matched.</li>
+<li>UnicodeSet property notation (<code>\p{…}</code> or <code>[:…:]</code>) may <strong>NOT</strong> be used.</li>
+</ul><blockquote>
+<p><strong>Rationale</strong>: allowing property notation would make keyboard implementations dependent on a particular version of Unicode. However, implementations and tools may wish to pre-calculate the value of a particular uset, and "freeze" it as explicit code points.  The example below of <code>$[KhmrMn]</code> matches nonspacing marks in the <code>Khmr</code> script.</p>
+</blockquote><ul>
+<li><code>uset</code> elements may represent a very large number of codepoints. Keyboard implementations may set a limit on how many unique range entries may be matched.</li>
+<li>The <code>uset</code> element may not be used as the source or target for mapping operations (<code>$[1:variable]</code> syntax).</li>
+<li>The <code>uset</code> element may not be referenced by <a href="#element-key"><code>key</code></a> or <a href="#element-display"><code>display</code></a> elements.</li>
 </ul><p><strong>Examples</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">variables</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">unicodeSet</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"consonants"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"[कसतनमह]"</span> /&gt;</span> <span class="hljs-comment">&lt;!-- unicode set range --&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">unicodeSet</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"range"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"[a-z D E F G \u{200A}]"</span> /&gt;</span> <span class="hljs-comment">&lt;!-- a through z, plus a few others --&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">unicodeSet</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"newrange"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"[$[range]-[G]]"</span> /&gt;</span> <span class="hljs-comment">&lt;!-- The above range, but not including G --&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">unicodeSet</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"KhmrMn"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"[\u{17B4}\u{17B5}\u{17B7}-\u{17BD}\u{17C6}\u{17C9}-\u{17D3}\u{17DD}]"</span>&gt;</span> <span class="hljs-comment">&lt;!--  [[:Khmr:][:Mn:]] as of Unicode 15.0--&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">uset</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"consonants"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"[कसतनमह]"</span> /&gt;</span> <span class="hljs-comment">&lt;!-- unicode set range --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">uset</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"range"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"[a-z D E F G \u{200A}]"</span> /&gt;</span> <span class="hljs-comment">&lt;!-- a through z, plus a few others --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">uset</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"newrange"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"[$[range]-[G]]"</span> /&gt;</span> <span class="hljs-comment">&lt;!-- The above range, but not including G --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">uset</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"KhmrMn"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"[\u{17B4}\u{17B5}\u{17B7}-\u{17BD}\u{17C6}\u{17C9}-\u{17D3}\u{17DD}]"</span>&gt;</span> <span class="hljs-comment">&lt;!--  [[:Khmr:][:Mn:]] as of Unicode 15.0--&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">variables</span>&gt;</span>
-</code></pre><p>The <code>unicodeSet</code> element may not be used as the source or target for mapping operations (<code>$[1:variable]</code> syntax).
-The <code>unicodeSet</code> element may not be referenced by <a href="#element-key"><code>key</code></a> and <a href="#element-display"><code>display</code></a> elements.</p><hr><h3 id="element-transforms">Element: transforms</h3><p>This element defines a group of one or more <code>transform</code> elements associated with this keyboard layout. This is used to support features such as dead-keys, character reordering, backspace behavior, etc. using a straightforward structure that works for all the keyboards tested, and that results in readable source data.</p><p>There can be multiple <code>&lt;transforms&gt;</code> elements, but only one for each <code>type</code>.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">transforms</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"..."</span>&gt;</span>
+</code></pre><hr><h3 id="element-transforms">Element: transforms</h3><p>This element defines a group of one or more <code>transform</code> elements associated with this keyboard layout. This is used to support features such as dead-keys, character reordering, backspace behavior, etc. using a straightforward structure that works for all the keyboards tested, and that results in readable source data.</p><p>There can be multiple <code>&lt;transforms&gt;</code> elements, but only one for each <code>type</code>.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">transforms</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"..."</span>&gt;</span>
     {a set of transform groups}
 <span class="hljs-tag">&lt;/<span class="hljs-name">transforms</span>&gt;</span>
 </code></pre><blockquote>
@@ -1706,7 +1710,7 @@ Occurrence: required, multiple</p>
 <ul>
 <li>supported</li>
 <li>no Unicode properties such as <code>\p{…}</code></li>
-<li>Warning: Character classes look superficially similar to UnicodeSets as defined in <a href="#element-unicodeset"><code>unicodeSet</code></a> elements, but they are different. UnicodeSets must be defined with a <code>unicodeSet</code> element, and referenced with the <code>$[unicodeSet]</code> notation in transforms. UnicodeSets cannot be used directly in a transform.</li>
+<li>Warning: Character classes look superficially similar to <a href="#element-uset"><code>uset</code></a> elements, but they are distinct and referenced with the <code>$[...usetId]</code> notation in transforms. The <code>uset</code> notation cannot be embedded directly in a transform.</li>
 </ul>
 </li>
 <li><p><strong>Bounded quantifier</strong></p>
@@ -1758,9 +1762,9 @@ Occurrence: required, multiple</p>
 <p>  <code>${zwnj}</code></p>
 <p>  In this usage, the variable with <code>id="zwnj"</code> will be substituted in at this point in the expression. The variable can contain a range, a character, or any other portion of a pattern. If <code>zwnj</code> is a simple string, the pattern will match that string at this point.</p>
 </li>
-<li><p><strong>Set and UnicodeSet variables</strong></p>
+<li><p><strong><code>set</code> or <code>uset</code> variables</strong></p>
 <p>  <code>$[upper]</code></p>
-<p>  Given a space-separated variable, this syntax will match <em>any</em> of the substrings. This expression may be thought of  (and implemented) as if it were a <em>non-capturing group</em>. It may, however, be enclosed within a capturing group. For example, the following definition of <code>$[upper]</code> will match as if it were written <code>(?:A|B|CC|D|E|FF)</code>.</p>
+<p>  Given a space-separated <code>set</code> or <code>uset</code> variable, this syntax will match <em>any</em> of the substrings. This expression may be thought of  (and implemented) as if it were a <em>non-capturing group</em>. It may, however, be enclosed within a capturing group. For example, the following definition of <code>$[upper]</code> will match as if it were written <code>(?:A|B|CC|D|E|FF)</code>.</p>
 <pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">variables</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">set</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"upper"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">" A B CC  D E  FF "</span> /&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">variables</span>&gt;</span>
@@ -1772,7 +1776,7 @@ Occurrence: required, multiple</p>
 <p>  <code>\p{property}</code> <code>\P{property}</code></p>
 <p>  <strong>Rationale:</strong> The behavior of this feature varies by Unicode version, and so would not have predictable results.</p>
 <p>  Tooling may choose to suggest an expansion of properties, such as <code>\p{Mn}</code> to all non spacing marks for a certain Unicode version.  As well, a set of variables could be constructed in an <code>import</code>-able file matching particularly useful Unicode properties.</p>
-<pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">unicodeSet</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"Mn"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"[\u{034F}\u{0591}-\u{05AF}\u{05BD}\u{05C4}\u{05C5}\…]"</span> /&gt;</span> <span class="hljs-comment">&lt;!-- 1,985 code points --&gt;</span>
+<pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">uset</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"Mn"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"[\u{034F}\u{0591}-\u{05AF}\u{05BD}\u{05C4}\u{05C5}\…]"</span> /&gt;</span> <span class="hljs-comment">&lt;!-- 1,985 code points --&gt;</span>
 </code></pre>
 </li>
 <li><p><strong>Backreferences</strong></p>
@@ -1830,8 +1834,7 @@ Occurrence: required, multiple</p>
 <ul>
 <li><p>The capture group on the <code>from=</code> side <strong>must</strong> contain exactly one set variable.  <code>from="Q($[upper])X"</code> can be used (other context before or after the capture group), but <code>from="(Q$[upper])"</code> may not be used with a mapped variable and is flagged as an error.</p>
 </li>
-<li><p>The <code>from=</code> and <code>to=</code> sides of the pattern must both be using <code>set</code> variables. There is no way to insert a set literal on either side and avoid using a variable.
-  A UnicodeSet may not be used directly, but must be defined as a <code>unicodeSet</code> variable.</p>
+<li><p>The <code>from=</code> and <code>to=</code> sides of the pattern must both be using <code>set</code> variables. There is no way to insert a set literal on either side and avoid using a variable.</p>
 </li>
 <li><p>The two variables (here <code>upper</code> and <code>lower</code>) must have exactly the same number of whitespace-separated items. Leading and trailing space (such as at the end of <code>lower</code>) is ignored. A variable without any spaces is considered to be a set variable of exactly one item.</p>
 </li>

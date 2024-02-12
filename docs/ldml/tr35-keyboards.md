@@ -402,7 +402,7 @@ The 'gluing' is only applicable during one particular processing step. It does n
 
 #### Data Model: `Marker`
 
-For purposes of discussion, a `Marker` is an opaque data type which has one property, its ID. See [Markers](#markers) for a discussion of of the marker ID.
+For purposes of discussion, a `Marker` is an opaque data type which has one property, its ID. See [Markers](#markers) for a discussion of the marker ID.
 
 #### Data Model: string
 

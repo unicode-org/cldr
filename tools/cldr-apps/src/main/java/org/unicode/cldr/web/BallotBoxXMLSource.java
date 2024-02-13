@@ -54,9 +54,6 @@ public class BallotBoxXMLSource<T> extends DelegateXMLSource {
          *
          * Do not skip vote resolution if VoteLoadingContext.SINGLE_VOTE, even for empty xpd. Otherwise an Abstain can
          * result in "no votes", "skip vote resolution", failure to get the right winning value, possibly inherited.
-         *
-         * Do not skip vote resolution if VoteLoadingContext.VXML_GENERATION, even for empty xpd. We may need to call
-         * getWinningValue for vote resolution for a larger set of paths to get baseline, etc.
          */
 
         /**
@@ -98,7 +95,6 @@ public class BallotBoxXMLSource<T> extends DelegateXMLSource {
         /*
          * Catch Status.missing, or it will trigger an exception in draftStatusFromWinningStatus
          * since there is no "missing" in DraftStatus.
-         * This may happen especially for VoteLoadingContext.VXML_GENERATION.
          *
          * Status.missing can also occur for VoteLoadingContext.SINGLE_VOTE, when a user abstains
          * after submitting a new value. Then, delegate.removeValueAtDPath and/or delegate.putValueAtPath

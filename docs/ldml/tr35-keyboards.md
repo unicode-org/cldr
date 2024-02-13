@@ -1586,7 +1586,7 @@ A `layer` element describes the configuration of keys on a particular layer of a
 **Syntax**
 
 ```xml
-<layer id="layerId" modifiers="…modifier modifier, …modifier modifier, …">
+<layer id="…layerId" modifiers="…modifier modifier, …modifier modifier, …">
     <row …/>
     <row …/>
     …
@@ -1618,7 +1618,7 @@ _Attribute:_ `modifiers` (required for `hardware`)
 >
 > This attribute is a list of lists. It is a comma-separated (`,`) list of modifier sets, and each modifier set is a space-separated list of modifier components.
 >
-> The set of modifiers must match `(none|([A-Za-z0-9]+)( [A-Za-z0-9]+)*)(,[ ]?([A-Za-z0-9]+)( [A-Za-z0-9]+)*)*`
+> Each modifier component must mach `[A-Za-z0-9]+`. Extra whitespace is ignored.
 >
 > To indicate that no modifiers apply, the reserved name of `none` is used.
 

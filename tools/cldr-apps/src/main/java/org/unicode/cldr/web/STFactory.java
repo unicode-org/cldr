@@ -70,11 +70,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         ORDINARY_LOAD_VOTES,
 
         /**
-         * The special context when loadVoteValues is called by makeVettedSource for generating VXML
-         */
-        VXML_GENERATION,
-
-        /**
          * The context when a voting (or abstaining) event occurs and setValueFromResolver is called
          * by voteForValue (not used for loadVoteValues)
          */
@@ -359,7 +354,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                                 new BallotBoxXMLSource<User>(
                                         diskDataEntry.diskData.cloneAsThawed(), this);
                 registerXmlSource(dataBackedSource);
-                loadVoteValues(dataBackedSource, VoteLoadingContext.ORDINARY_LOAD_VOTES);
+                loadVoteValues();
                 nextStamp();
                 XMLSource resolvedXmlsource = makeResolvingSource();
                 rFile =
@@ -428,18 +423,10 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         }
 
         /**
-         * Load internal data (votes, etc.) for this PerLocaleData, and push it into the given
-         * DataBackedSource.
-         *
-         * @param targetXmlSource the DataBackedSource which might or might not equal
-         *     this.xmlsource; for makeVettedSource, it is a different (uncached) DataBackedSource.
-         * @param voteLoadingContext VoteLoadingContext.ORDINARY_LOAD_VOTES or
-         *     VoteLoadingContext.VXML_GENERATION (not VoteLoadingContext.SINGLE_VOTE)
-         *     <p>Called by PerLocaleData.makeSource (with VoteLoadingContext.ORDINARY_LOAD_VOTES)
-         *     and by PerLocaleData.makeVettedSource (with VoteLoadingContext.VXML_GENERATION).
+         * Load internal data (votes, etc.) for this PerLocaleData, and push it into
+         * dataBackedSource
          */
-        private void loadVoteValues(
-                BallotBoxXMLSource<User> targetXmlSource, VoteLoadingContext voteLoadingContext) {
+        private void loadVoteValues() {
             VoteResolver<String> resolver = null; // save recalculating this.
             ElapsedTimer et =
                     (SurveyLog.DEBUG) ? new ElapsedTimer("Loading PLD for " + locale) : null;
@@ -554,35 +541,17 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                             : null;
             /*
              * Now that we've loaded all the votes, resolve the votes for each path.
-             *
-             * For VoteLoadingContext.VXML_GENERATION we use all paths in diskData (trunk) in
-             * addition to allPXDPaths(); otherwise, vxml produced by OutputFileManager is missing some paths.
-             * allPXDPaths() may return an empty array if there are no votes in current votes table.
-             * (However, we assume that last-release value soon won't be used anymore for vote resolution.
-             * If we did need paths from last-release, or any paths missing from trunk and current votes table,
-             * we could loop through sm.getSTFactory().getPathsForFile(locale); however, that would generally
-             * include more paths than are wanted for vxml.)
-             * Reference: https://unicode-org.atlassian.net/browse/CLDR-11909
-             *
-             * TODO: revisit whether this difference for VoteLoadingContext.VXML_GENERATION is still necessary; when added
-             * cases where last-release value made a difference to vote resolution; now that "baseline" = trunk not
-             * last-release it's possible that vote resolution isn't needed for items without current votes.
              */
-            Set<String> xpathSet;
-            if (voteLoadingContext == VoteLoadingContext.VXML_GENERATION) {
-                xpathSet = new HashSet<>(allPXDPaths());
-                for (String xp : diskDataEntry.diskData) {
-                    xpathSet.add(xp);
-                }
-            } else { // voteLoadingContext == VoteLoadingContext.ORDINARY_LOAD_VOTES
-                xpathSet = allPXDPaths();
-            }
+            Set<String> xpathSet = allPXDPaths();
             int j = 0;
             for (String xp : xpathSet) {
                 try {
                     resolver =
-                            targetXmlSource.setValueFromResolver(
-                                    xp, resolver, voteLoadingContext, peekXpathData(xp));
+                            dataBackedSource.setValueFromResolver(
+                                    xp,
+                                    resolver,
+                                    VoteLoadingContext.ORDINARY_LOAD_VOTES,
+                                    peekXpathData(xp));
                 } catch (Exception e) {
                     e.printStackTrace();
                     SurveyLog.logException(logger, e, "In setValueFromResolver, xp = " + xp);
@@ -777,23 +746,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             } else {
                 return null;
             }
-        }
-
-        /**
-         * Make a vetted source for this PerLocaleData, suitable for producing vxml with
-         * vote-resolution done on more paths.
-         *
-         * <p>This function is similar to makeSource, but with VoteLoadingContext.VXML_GENERATION.
-         *
-         * @return the DataBackedSource (NOT the same as PerLocaleData.xmlsource)
-         */
-        private synchronized XMLSource makeVettedSource() {
-            BallotBoxXMLSource<User> vxmlSource =
-                    new BallotBoxXMLSource<User>(diskDataEntry.diskData.cloneAsThawed(), this);
-            if (!readonly) {
-                loadVoteValues(vxmlSource, VoteLoadingContext.VXML_GENERATION);
-            }
-            return vxmlSource;
         }
 
         @Override
@@ -1454,26 +1406,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
     public CLDRFile make(CLDRLocale loc, boolean resolved) {
         return make(loc.getBaseName(), resolved);
-    }
-
-    /**
-     * Make a "vetted" CLDRFile with more paths resolved, for generating VXML (vetted XML).
-     *
-     * <p>See loadVoteValues for what exactly "more paths" means.
-     *
-     * <p>This kind of CLDRFile should not be confused with ordinary (not-fully-vetted) files, or
-     * re-used for anything other than vxml. Avoid mixing data for the two kinds of CLDRFile in
-     * caches (such as rLocales).
-     *
-     * @param loc the CLDRLocale
-     * @return the vetted CLDRFile with more paths resolved
-     */
-    public CLDRFile makeVettedFile(CLDRLocale loc) {
-        PerLocaleData pld = get(loc.getBaseName());
-        XMLSource xmlSource = pld.makeVettedSource();
-        CLDRFile cldrFile = new CLDRFile(xmlSource);
-        cldrFile.setSupplementalDirectory(getSupplementalDirectory());
-        return cldrFile;
     }
 
     /**

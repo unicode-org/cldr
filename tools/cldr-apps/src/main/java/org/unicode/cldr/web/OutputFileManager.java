@@ -337,7 +337,7 @@ public class OutputFileManager {
         long st = System.currentTimeMillis();
         CLDRFile cldrFile;
         if (kind == Kind.vxml) {
-            cldrFile = sm.getSTFactory().makeVettedFile(loc);
+            cldrFile = sm.getSTFactory().make(loc.getBaseName(), false);
         } else if (kind == Kind.pxml) {
             cldrFile = sm.getSTFactory().makeProposedFile(loc);
         } else {

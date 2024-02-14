@@ -940,7 +940,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!-- # Parent locales -->
 
 <!ELEMENT parentLocales ( parentLocale* ) >
-<!ATTLIST parentLocales component NMTOKEN #IMPLIED >
+<!ATTLIST parentLocales component NMTOKENS #IMPLIED >
     <!--@MATCH:literal/segmentations, collations-->
 
 <!ELEMENT parentLocale EMPTY >

@@ -18,6 +18,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
+import org.unicode.cldr.util.SupplementalDataInfo.ParentLocaleComponent;
 
 public class LocaleIDParser {
     /**
@@ -117,8 +118,8 @@ public class LocaleIDParser {
      * somehow related to SUMMARY_LOCALE. Note that CLDRLocale.process() changes "__" to "_" before
      * this function is called. Reference: https://unicode-org.atlassian.net/browse/CLDR-13133
      */
-    public static final String getParent(String localeName) {
-        return getParent(localeName, false);
+    public static final String getParent(String localeId) {
+        return getParent(localeId, false);
     }
 
     /**
@@ -135,13 +136,16 @@ public class LocaleIDParser {
      * @param ignoreParentLocale true of the parentLocale and default script behavior should be
      *     ignored (such as with collation)
      */
-    public static String getParent(String localeName, boolean ignoreParentLocale) {
+    public static String getParent(String localeId, boolean ignoreParentLocale) {
+        return getParent(localeId, ParentLocaleComponent.collations);
+    }
+
+    public static String getParent(String localeName, ParentLocaleComponent component) {
+
         SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
-        if (!ignoreParentLocale) {
-            String explicitParent = sdi.getExplicitParentLocale(localeName);
-            if (explicitParent != null) {
-                return explicitParent;
-            }
+        String explicitParent = sdi.getExplicitParentLocale(localeName, component);
+        if (explicitParent != null) {
+            return explicitParent;
         }
         int pos = localeName.lastIndexOf('_');
         if (pos >= 0) {
@@ -149,7 +153,8 @@ public class LocaleIDParser {
             // if the final item is a script, and it is not the default content, then go directly to
             // root
             int pos2 = getScriptPosition(localeName);
-            if (pos2 > 0 && !ignoreParentLocale) {
+            boolean skipNonLikely = sdi.parentLocalesSkipNonLikely(component);
+            if (pos2 > 0 && skipNonLikely) {
                 String script = localeName.substring(pos + 1);
                 String defaultScript = sdi.getDefaultScript(truncated);
                 if (!script.equals(defaultScript)) {

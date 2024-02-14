@@ -329,8 +329,8 @@ public class CLDRModify {
             System.out.println(HELP_TEXT1 + fixList.showHelp() + HELP_TEXT2);
             return;
         }
-        checkSuboptions(options[FIX], fixList.getOptions());
-        checkSuboptions(options[JOIN_ARGS], allMergeOptions);
+        checkSuboptions(FIX, fixList.getOptions());
+        checkSuboptions(JOIN_ARGS, allMergeOptions);
         String recurseOnDirectories = options[ALL_DIRS].value;
         boolean makeResolved = options[RESOLVE].doesOccur; // Utility.COMMON_DIRECTORY + "main/";
 
@@ -638,7 +638,8 @@ public class CLDRModify {
             Splitter.on(Pattern.compile("[,;|]")).trimResults().omitEmptyStrings();
     protected static final boolean NUMBER_SYSTEM_HACK = true;
 
-    private static void checkSuboptions(UOption givenOptions, UnicodeSet allowedOptions) {
+    private static void checkSuboptions(int i, UnicodeSet allowedOptions) {
+        UOption givenOptions = options[i];
         if (givenOptions.doesOccur && !allowedOptions.containsAll(givenOptions.value)) {
             throw new IllegalArgumentException(
                     "Illegal sub-options for "
@@ -647,6 +648,15 @@ public class CLDRModify {
                             + new UnicodeSet().addAll(givenOptions.value).removeAll(allowedOptions)
                             + CldrUtility.LINE_SEPARATOR
                             + "Use -? for help.");
+        }
+        if (i == FIX) {
+            final UnicodeSet allowedFilters = new UnicodeSet().add('P').add('Q').add('V');
+            for (char c : givenOptions.value.toCharArray()) {
+                if (!allowedFilters.contains(c)) {
+                    throw new IllegalArgumentException(
+                            "The filter " + c + " is currently disabled, see CLDR-17144");
+                }
+            }
         }
     }
 

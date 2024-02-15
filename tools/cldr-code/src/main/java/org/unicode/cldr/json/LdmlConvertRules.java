@@ -311,7 +311,8 @@ class LdmlConvertRules {
 
     /**
      * There are a handful of attribute values that are more properly represented as an array of
-     * strings rather than as a single string.
+     * strings rather than as a single string. These are not locked to a specific element, may need
+     * to change the matching algorithm if there are conflicts.
      */
     public static final Set<String> ATTRVALUE_AS_ARRAY_SET =
             Builder.with(new HashSet<String>())
@@ -320,6 +321,7 @@ class LdmlConvertRules {
                     .add("contains")
                     .add("systems")
                     .add("origin")
+                    .add("component") // for parentLocales - may need to be more specific here
                     .add("values") // for unitIdComponents - may need to be more specific here
                     .freeze();
 
@@ -380,8 +382,13 @@ class LdmlConvertRules {
     /** These objects values should be output as arrays. */
     public static final Pattern VALUE_IS_SPACESEP_ARRAY =
             PatternCache.get(
-                    "(grammaticalCase|grammaticalGender|grammaticalDefiniteness|nameOrderLocales)");
+                    "(grammaticalCase|grammaticalGender|grammaticalDefiniteness|nameOrderLocales|component)");
 
+    /**
+     * Indicates that the child value of this element needs to be separated into array items. For
+     * example: {@code <weekOfPreference ordering="weekOfDate weekOfMonth" locales="en bn ja ka"/>}
+     * becomes {@code {"en":["weekOfDate","weekOfMonth"],"bn":["weekOfDate","weekOfMonth"]} }
+     */
     public static final Set<String> CHILD_VALUE_IS_SPACESEP_ARRAY =
             ImmutableSet.of("weekOfPreference", "calendarPreferenceData");
 

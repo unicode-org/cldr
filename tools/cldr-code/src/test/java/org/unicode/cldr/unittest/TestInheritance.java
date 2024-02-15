@@ -304,21 +304,29 @@ public class TestInheritance extends TestFmwk {
     public void TestParentLocaleRelationships() {
         // Testing invariant relationships between locales - See
         // http://unicode.org/cldr/trac/ticket/5758
+
+        /* Examples:
+        <parentLocale parent="no" locales="nb nn no_NO"/>
+        default content locales distinguish the child locale that has identical content, such as:
+        ebu_KE ee_GH el_GR en_Dsrt_US en_Shaw_GB en_US eo_001 es_ES et_EE eu_ES ewo_CM
+         */
         Matcher langScript = PatternCache.get("^[a-z]{2,3}_[A-Z][a-z]{3}$").matcher("");
-        for (String loc : availableLocales) {
+        for (final String loc : availableLocales) {
+            // we only check locales of the form: lang_script
             if (langScript.reset(loc).matches()) {
                 if (ALLOW_DIFFERENT_PARENT_LOCALE.contains(loc)) {
                     // Skip any in that list
                     continue;
                 }
-                String expectedParent = loc.split("_")[0];
+                String languageSubtag = loc.split("_")[0];
+                String expectedParent = languageSubtag;
                 if (!defaultContents.contains(loc)) {
                     expectedParent = "root";
                 }
-                String actualParent = dataInfo.getExplicitParentLocale(loc);
-                if (actualParent == null) {
-                    actualParent = loc.split("_")[0];
-                }
+                String truncationParent = LocaleIDParser.getSimpleParent(loc);
+                String actualParent = LocaleIDParser.getParent(loc);
+                boolean hasExplicitParent = !actualParent.equals(truncationParent);
+
                 if (!actualParent.equals(expectedParent)) {
                     errln(
                             "Unexpected parent locale for locale "
@@ -331,8 +339,7 @@ public class TestInheritance extends TestFmwk {
                                     + ALLOW_DIFFERENT_PARENT_LOCALE_MESSAGE);
                 }
 
-                if (dataInfo.getExplicitParentLocale(loc) != null
-                        && defaultContents.contains(loc)) {
+                if (hasExplicitParent && defaultContents.contains(loc)) {
                     errln(
                             "Locale "
                                     + loc
@@ -360,39 +367,52 @@ public class TestInheritance extends TestFmwk {
     public void TestParentLocaleInvariants() {
         // Testing invariant relationships in parent locales - See
         // http://unicode.org/cldr/trac/ticket/7887
-        LocaleIDParser lp = new LocaleIDParser();
+        CLDRLocale cldrRoot = CLDRLocale.getInstance("root");
+        LikelySubtags likely = new LikelySubtags();
         for (String loc : availableLocales) {
-            String parentLocale = dataInfo.getExplicitParentLocale(loc);
-            if (parentLocale != null) {
-                if (!"root".equals(parentLocale)
+            CLDRLocale cldrLoc = CLDRLocale.getInstance(loc);
+            CLDRLocale cldrParent = cldrLoc.getParent();
+            if (cldrParent != null) {
+                CLDRLocale locLikely = CLDRLocale.getInstance(likely.maximize(loc));
+                CLDRLocale parentLikely =
+                        CLDRLocale.getInstance(likely.maximize(cldrParent.toString()));
+                final String locLang = cldrLoc.getLanguage();
+                final String locScript = cldrLoc.getScript();
+                final String locRegion = cldrLoc.getCountry();
+                final String parentLang = cldrParent.getLanguage();
+                final boolean parentIsRoot = cldrRoot.equals(cldrParent);
+                if (!parentIsRoot
                         && !ALLOW_DIFFERENT_PARENT_LOCALE.contains(loc)
-                        && !lp.set(loc).getLanguage().equals(lp.set(parentLocale).getLanguage())) {
+                        && !locLang.equals(parentLang)) {
                     errln(
                             "Parent locale ["
-                                    + parentLocale
+                                    + cldrParent
                                     + "] for locale ["
                                     + loc
                                     + "] cannot be a different language code. "
                                     + ALLOW_DIFFERENT_PARENT_LOCALE_MESSAGE);
                 }
-                if (!"root".equals(parentLocale)
-                        && !ALLOW_DIFFERENT_PARENT_LOCALE.contains(loc)
-                        && !lp.set(loc).getScript().equals(lp.set(parentLocale).getScript())) {
+                if (!parentIsRoot && !locLikely.getScript().equals(parentLikely.getScript())) {
                     errln(
                             "Parent locale ["
-                                    + parentLocale
+                                    + cldrParent
                                     + "] for locale ["
                                     + loc
-                                    + "] cannot be a different script code.");
+                                    + "] cannot have a different script code.");
                 }
-                lp.set(loc);
-                if (lp.getScript().length() == 0
-                        && lp.getRegion().length() == 0
+                String cldrTruncationParent = LocaleIDParser.getSimpleParent(loc);
+                boolean hasExplicitParent = !cldrTruncationParent.equals(cldrParent.toString());
+                if (hasExplicitParent
+                        && parentIsRoot
+                        && locScript.length() == 0
+                        && locRegion.length() == 0
                         && !ALLOW_DIFFERENT_PARENT_LOCALE.contains(loc)) {
                     errln(
                             "Base language locale ["
                                     + loc
-                                    + "] cannot have an explicit parent. "
+                                    + "] cannot have an explicit parent ("
+                                    + cldrParent
+                                    + ") "
                                     + ALLOW_DIFFERENT_PARENT_LOCALE_MESSAGE);
                 }
             }

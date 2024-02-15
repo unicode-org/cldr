@@ -940,14 +940,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!-- # Parent locales -->
 
 <!ELEMENT parentLocales ( parentLocale* ) >
-<!ATTLIST parentLocales component NMTOKEN #IMPLIED >
-    <!--@MATCH:literal/segmentations, collations-->
+<!ATTLIST parentLocales component NMTOKENS #IMPLIED >
+    <!--@MATCH:set/literal/segmentations, collations, plurals, grammaticalFeatures-->
 
 <!ELEMENT parentLocale EMPTY >
 <!ATTLIST parentLocale parent NMTOKEN #REQUIRED >
     <!--@MATCH:validity/locale-->
 <!ATTLIST parentLocale locales NMTOKENS #REQUIRED >
-    <!--@MATCH:set/validity/locale-->
+    <!--@MATCH:or/set/validity/locale||literal/nonlikelyScript-->
     <!--@VALUE-->
 
 <!ELEMENT personNamesDefaults ( alias | ( nameOrderLocalesDefault* ) ) >

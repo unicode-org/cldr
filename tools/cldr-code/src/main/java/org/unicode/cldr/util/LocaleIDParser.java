@@ -18,6 +18,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
+import org.unicode.cldr.util.SupplementalDataInfo.ParentLocaleComponent;
 
 public class LocaleIDParser {
     /**
@@ -117,40 +118,35 @@ public class LocaleIDParser {
      * somehow related to SUMMARY_LOCALE. Note that CLDRLocale.process() changes "__" to "_" before
      * this function is called. Reference: https://unicode-org.atlassian.net/browse/CLDR-13133
      */
-    public static final String getParent(String localeName) {
-        return getParent(localeName, false);
+    public static final String getParent(String localeId) {
+        return getParent(localeId, ParentLocaleComponent.main);
     }
 
     /**
      * Get the parent of a locale. If the input is "root", then return null. For example, if
-     * localeName is "fr_CA", return "fr".
+     * localeId is "fr_CA", return "fr". There is a different inheritance chain for certain
+     * supplemental data elements.
      *
-     * <p>Only works on canonical locale names (right casing, etc.)!
-     *
-     * <p>Formerly this function returned an empty string when localeName was "_VETTING". Now it
-     * returns "root" where it would have returned an empty string. TODO: explain "__VETTING",
-     * somehow related to SUMMARY_LOCALE. Note that CLDRLocale.process() changes "__" to "_" before
-     * this function is called. Reference: https://unicode-org.atlassian.net/browse/CLDR-13133
-     *
-     * @param ignoreParentLocale true of the parentLocale and default script behavior should be
-     *     ignored (such as with collation)
+     * @param localeId Only works on canonical locale names (right casing, etc.)!
+     * @param component picks the component that indicates the inheritance chain. Is either the
+     *     standard ('main') used for all ldml-dtd items, or is one of the particular elements in
+     *     supplemental data that has a different inheritance, such as collations or plurals
      */
-    public static String getParent(String localeName, boolean ignoreParentLocale) {
+    public static String getParent(String localeId, ParentLocaleComponent component) {
         SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
-        if (!ignoreParentLocale) {
-            String explicitParent = sdi.getExplicitParentLocale(localeName);
-            if (explicitParent != null) {
-                return explicitParent;
-            }
+        String explicitParent = sdi.getExplicitParentLocale(localeId, component);
+        if (explicitParent != null) {
+            return explicitParent;
         }
-        int pos = localeName.lastIndexOf('_');
+        int pos = localeId.lastIndexOf('_');
         if (pos >= 0) {
-            String truncated = localeName.substring(0, pos);
+            String truncated = localeId.substring(0, pos);
             // if the final item is a script, and it is not the default content, then go directly to
             // root
-            int pos2 = getScriptPosition(localeName);
-            if (pos2 > 0 && !ignoreParentLocale) {
-                String script = localeName.substring(pos + 1);
+            int pos2 = getScriptPosition(localeId);
+            boolean skipNonLikely = sdi.parentLocalesSkipNonLikely(component);
+            if (pos2 > 0 && skipNonLikely) {
+                String script = localeId.substring(pos + 1);
                 String defaultScript = sdi.getDefaultScript(truncated);
                 if (!script.equals(defaultScript)) {
                     return "root";
@@ -161,7 +157,7 @@ public class LocaleIDParser {
             }
             return truncated;
         }
-        if (localeName.equals("root")) {
+        if (localeId.equals("root")) {
             return null;
         }
         return "root";

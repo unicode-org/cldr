@@ -287,7 +287,6 @@ class LdmlConvertRules {
                 "measurementSystem-category-temperature", "territories", "type"),
         new SplittableAttributeSpec("paperSize", "territories", "type"),
         new SplittableAttributeSpec("parentLocale", "locales", "parent"),
-        new SplittableAttributeSpec("parentLocale", "component", null),
         new SplittableAttributeSpec(
                 "collations", "locales", "parent"), // parentLocale component=collations
         new SplittableAttributeSpec(
@@ -381,7 +380,7 @@ class LdmlConvertRules {
     /** These objects values should be output as arrays. */
     public static final Pattern VALUE_IS_SPACESEP_ARRAY =
             PatternCache.get(
-                    "(grammaticalCase|grammaticalGender|grammaticalDefiniteness|nameOrderLocales)");
+                    "(grammaticalCase|grammaticalGender|grammaticalDefiniteness|nameOrderLocales|component)");
 
     public static final Set<String> CHILD_VALUE_IS_SPACESEP_ARRAY =
             ImmutableSet.of("weekOfPreference", "calendarPreferenceData");

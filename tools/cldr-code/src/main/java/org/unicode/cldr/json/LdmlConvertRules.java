@@ -287,6 +287,7 @@ class LdmlConvertRules {
                 "measurementSystem-category-temperature", "territories", "type"),
         new SplittableAttributeSpec("paperSize", "territories", "type"),
         new SplittableAttributeSpec("parentLocale", "locales", "parent"),
+        new SplittableAttributeSpec("parentLocale", "component", null),
         new SplittableAttributeSpec(
                 "collations", "locales", "parent"), // parentLocale component=collations
         new SplittableAttributeSpec(

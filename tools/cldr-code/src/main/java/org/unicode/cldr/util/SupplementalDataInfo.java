@@ -3164,16 +3164,18 @@ public class SupplementalDataInfo {
         return parentLocalesSkipNonLikely.contains(component);
     }
 
-    public String getExplicitParentLocale(String loc) {
-        return getExplicitParentLocale(loc, ParentLocaleComponent.main);
-    }
-
     public String getExplicitParentLocale(String loc, ParentLocaleComponent component) {
         return parentLocales.get(component).get(loc);
     }
 
-    //  These are not used by the current code.
+    //  These are not (now) used by the current code.
     //  They should not be used, because the answer is incorrect for parentLocalesSkipNonLikely
+    //
+    //    public String getExplicitParentLocale(String loc) {
+    //        return getExplicitParentLocale(loc, ParentLocaleComponent.main);
+    //    }
+    //
+
     //
     //    public Set<String> getExplicitChildren() {
     //        return getExplicitChildren(ParentLocaleComponent.main);

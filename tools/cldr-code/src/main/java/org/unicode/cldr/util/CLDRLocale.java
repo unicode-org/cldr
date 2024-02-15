@@ -396,7 +396,8 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
     private static ConcurrentHashMap<String, CLDRLocale> stringToLoc = new ConcurrentHashMap<>();
 
     /**
-     * Return the parent locale of this item. Null if no parent (root has no parent)
+     * Return the parent locale of this item, using component=main. Null if no parent (root has no
+     * parent)
      *
      * @return the parent locale, or null
      *     <p>Use lazy initialization for parentLocale, since getInstance calling itself recursively
@@ -422,7 +423,10 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
         return result;
     }
 
-    /** Returns true if other is equal to or is an ancestor of this, false otherwise */
+    /**
+     * Returns true if other is equal to or is an ancestor of this, using component=main, false
+     * otherwise
+     */
     public boolean childOf(CLDRLocale other) {
         if (other == null) return false;
         if (other == this) return true;
@@ -432,7 +436,8 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
     }
 
     /**
-     * Return an iterator that will iterate over locale, parent, parent etc, finally reaching root.
+     * Return an iterator that will iterate over locale, parent, parent etc, using component=main,
+     * finally reaching root.
      *
      * @return
      */

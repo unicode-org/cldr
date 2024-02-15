@@ -73,6 +73,7 @@ public class TestSupplementalDataInfo {
             {"main", "ru_Cyrl_RU", "ru_Cyrl", "ru", "root"},
             {"main", "ru_Latn_RU", "ru_Latn", "root"},
             {"main", "sr_Cyrl_ME", "sr_Cyrl", "sr", "root"},
+            {"main", "hi_Latn", "en_IN", "en_001", "en", "root"},
             {"plurals", "ru_Cyrl_RU", "ru_Cyrl", "ru", "root"},
             {"plurals", "ru_Latn_RU", "ru_Latn", "ru", "root"},
             {"plurals", "zh_Hant_MO", "zh_Hant", "zh", "root"},

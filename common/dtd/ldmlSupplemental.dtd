@@ -941,13 +941,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 
 <!ELEMENT parentLocales ( parentLocale* ) >
 <!ATTLIST parentLocales component NMTOKENS #IMPLIED >
-    <!--@MATCH:literal/segmentations, collations-->
+    <!--@MATCH:set/literal/segmentations, collations, plurals, grammaticalFeatures-->
 
 <!ELEMENT parentLocale EMPTY >
 <!ATTLIST parentLocale parent NMTOKEN #REQUIRED >
     <!--@MATCH:validity/locale-->
 <!ATTLIST parentLocale locales NMTOKENS #REQUIRED >
-    <!--@MATCH:set/validity/locale-->
+    <!--@MATCH:or/set/validity/locale||literal/nonlikelyScript-->
     <!--@VALUE-->
 
 <!ELEMENT personNamesDefaults ( alias | ( nameOrderLocalesDefault* ) ) >

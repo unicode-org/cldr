@@ -38,6 +38,7 @@ import org.unicode.cldr.util.Iso639Data.Type;
 import org.unicode.cldr.util.LanguageTagCanonicalizer;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LanguageTagParser.Format;
+import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.LocaleValidator;
 import org.unicode.cldr.util.LocaleValidator.AllowedMatch;
 import org.unicode.cldr.util.LocaleValidator.AllowedValid;
@@ -336,8 +337,7 @@ public class TestLocale extends TestFmwkPlus {
             // ROOT_PARENT_DEFAULT_CONTENT_EXCEPTIONS.
 
             if (hasScript && !hasRegion) {
-                boolean parentIsRoot =
-                        "root".equals(supplementalDataInfo.getExplicitParentLocale(locale));
+                boolean parentIsRoot = "root".equals(LocaleIDParser.getParent(locale));
                 if (parentIsRoot == isDefaultContent
                         && !ROOT_PARENT_DEFAULT_CONTENT_EXCEPTIONS.contains(locale)) {
                     errln(

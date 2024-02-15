@@ -12,6 +12,7 @@ import java.util.function.Supplier;
 import org.unicode.cldr.test.TestCache;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRLocale.SublocaleProvider;
+import org.unicode.cldr.util.SupplementalDataInfo.ParentLocaleComponent;
 import org.unicode.cldr.util.XMLSource.ResolvingSource;
 
 /**
@@ -150,7 +151,12 @@ public abstract class Factory implements SublocaleProvider {
         String currentLocaleID = localeID;
         Set<String> availableLocales = this.getAvailable();
         while (!availableLocales.contains(currentLocaleID) && !"root".equals(currentLocaleID)) {
-            currentLocaleID = LocaleIDParser.getParent(currentLocaleID, ignoreExplicitParentLocale);
+            currentLocaleID =
+                    LocaleIDParser.getParent(
+                            currentLocaleID,
+                            ignoreExplicitParentLocale
+                                    ? ParentLocaleComponent.collations
+                                    : ParentLocaleComponent.main);
         }
         return make(currentLocaleID, true, madeWithMinimalDraftStatus);
     }
@@ -197,7 +203,12 @@ public abstract class Factory implements SublocaleProvider {
             XMLSource source = file.dataSource;
             registerXmlSource(source);
             sourceList.add(source);
-            curLocale = LocaleIDParser.getParent(curLocale, ignoreExplicitParentLocale);
+            curLocale =
+                    LocaleIDParser.getParent(
+                            curLocale,
+                            ignoreExplicitParentLocale
+                                    ? ParentLocaleComponent.collations
+                                    : ParentLocaleComponent.main);
         }
         return new ResolvingSource(sourceList);
     }

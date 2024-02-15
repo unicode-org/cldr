@@ -40,6 +40,7 @@ import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.LogicalGrouping;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.SupplementalDataInfo.ParentLocaleComponent;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
@@ -806,7 +807,8 @@ public class GenerateProductionData {
                 parent2child.put(parent, locale);
             }
             if (isAnnotationsDir) {
-                String simpleParent = LocaleIDParser.getParent(locale, true);
+                String simpleParent =
+                        LocaleIDParser.getParent(locale, ParentLocaleComponent.collations);
                 if (simpleParent != null && (parent == null || simpleParent != parent)) {
                     parent2child.put(simpleParent, locale);
                 }

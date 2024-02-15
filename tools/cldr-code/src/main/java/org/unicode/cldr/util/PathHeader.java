@@ -309,12 +309,14 @@ public class PathHeader implements Comparable<PathHeader> {
         // Symbols, Flags]
         Smileys(SectionId.Characters, "Smileys & Emotion"),
         People(SectionId.Characters, "People & Body"),
+        People2(SectionId.Characters, "People & Body 2"),
         Animals_Nature(SectionId.Characters, "Animals & Nature"),
         Food_Drink(SectionId.Characters, "Food & Drink"),
         Travel_Places(SectionId.Characters, "Travel & Places"),
         Activities(SectionId.Characters),
         Objects(SectionId.Characters),
         Symbols2(SectionId.Characters),
+        Symbols3(SectionId.Characters),
         Flags(SectionId.Characters),
         Component(SectionId.Characters),
         Typography(SectionId.Characters),
@@ -2197,28 +2199,7 @@ public class PathHeader implements Comparable<PathHeader> {
                     new Transform<String, String>() {
                         @Override
                         public String transform(String source) {
-                            String major = Emoji.getMajorCategory(source);
-                            // check that result is reasonable by running through PageId.
-                            switch (major) {
-                                default:
-                                    PageId pageId2 = PageId.forString(major);
-                                    if (pageId2.getSectionId() != SectionId.Characters) {
-                                        if (pageId2 == PageId.Symbols) {
-                                            pageId2 = PageId.Symbols2;
-                                        }
-                                    }
-                                    return pageId2.toString();
-                                case "Smileys & People":
-                                    String minorCat = Emoji.getMinorCategory(source);
-                                    if (minorCat.equals("skin-tone")
-                                            || minorCat.equals("hair-style")) {
-                                        return PageId.Component.toString();
-                                    } else if (!minorCat.contains("face")) {
-                                        return PageId.People.toString();
-                                    } else {
-                                        return PageId.Smileys.toString();
-                                    }
-                            }
+                            return Emoji.getPageId(source).toString();
                         }
                     });
             functionMap.put(

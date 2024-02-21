@@ -64,6 +64,24 @@ The LDML specification is divided into the following parts:
   * [UTS18 Escaping](#uts18-escaping)
 * [File and Directory Structure](#file-and-directory-structure)
   * [Extensibility](#extensibility)
+* [Normalization](#normalization)
+  * [Where Normalization Occurs](#where-normalization-occurs)
+  * [Normalization and Transform Matching](#normalization-and-transform-matching)
+  * [Normalization and Markers](#normalization-and-markers)
+    * [Rationale for 'gluing' markers](#rationale-for-gluing-markers)
+    * [Data Model: `Marker`](#data-model-marker)
+    * [Data Model: string](#data-model-string)
+    * [Data Model: `MarkerEntry`](#data-model-markerentry)
+    * [Marker Algorithm Overview](#marker-algorithm-overview)
+    * [Phase 1: Parsing/Removing Markers](#phase-1-parsingremoving-markers)
+    * [Phase 2: Plain Text Processing](#phase-2-plain-text-processing)
+    * [Phase 3: Adding Markers](#phase-3-adding-markers)
+    * [Example Normalization with Markers](#example-normalization-with-markers)
+  * [Normalization and Character Classes](#normalization-and-character-classes)
+  * [Normalization and Reorders](#normalization-and-reorders)
+  * [Normalization and Output](#normalization-and-output)
+  * [Normalization-safe Segments](#normalization-safe-segments)
+  * [Disabling Normalization](#disabling-normalization)
 * [Element Hierarchy](#element-hierarchy)
   * [Element: keyboard3](#element-keyboard3)
   * [Element: locales](#element-locales)
@@ -108,6 +126,7 @@ The LDML specification is divided into the following parts:
   * [Element: reorder](#element-reorder)
     * [Using `<import>` with `<reorder>` elements](#using-import-with-reorder-elements)
     * [Example Post-reorder transforms](#example-post-reorder-transforms)
+    * [Reorder and Markers](#reorder-and-markers)
   * [Backspace Transforms](#backspace-transforms)
 * [Invariants](#invariants)
 * [Keyboard IDs](#keyboard-ids)
@@ -382,7 +401,7 @@ A special issue occurs when markers are involved.
 Existing Normalization APIs typically operate on plain text, and so those APIs can not be used with content containing markers.
 
 However, the markers must be retained and processed by keyboard implementations in a manner which will be both consistent across implementations and predictable to keyboard authors.
-Inconsistencies would result in different user experiences -- specifically, different or incorrect text output -- on some implementations and not another.
+Inconsistencies would result in different user experiences — specifically, different or incorrect text output — on some implementations and not another.
 Unpredictability would make it challenging for the keyboard author to create a keyboard with expected behavior.
 
 This section gives an algorithm for implementing normalization on a text stream including markers.

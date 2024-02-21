@@ -1356,7 +1356,7 @@ For example, in the element `<layer … modifiers="ctrlL altL, altR" …` the at
 - `ctrlL altL` (two components)
 - `altR` (one component)
 
-The order of the sets and the order of the components within each set is not significant.
+The order of the sets and the order of the components within each set is not significant. However, for clarity in reading, the canonical order within a set is in the order listed in Layout Modifier Components; the canonical order for the sets should be first by the cardinality of the sets (least first), then alphabetical.
 
 #### Layer Modifier Components
 
@@ -1382,7 +1382,7 @@ Within a Layer Modifier Set, the following modifier components can be used, sepa
 1. `L` or `R` indicates a left- or right- side modifier only (such as `altL`)
  whereas `alt` indicates _either_ left or right alt key (that is, `altL` or `altR`). `ctrl` indicates either left or right ctrl key (that is, `ctrlL` or `ctrlR`).
 
-2. Keyboard implementations must warn keyboard authors if a keyboard mixes `alt` with `altL`/`altR`, or `ctrl` with `ctrlL`/`ctrlR`.
+2. Mixing `alt` with `altL`/`altR`, or `ctrl` with `ctrlL`/`ctrlR`, is strongly discouraged. Keyboard implementations detect and should warn keyboard authors if this occurs.
 
 3. Left- and right- side modifiers may not be mixed together in a single `modifier` attribute value, so neither `altL ctrlR"` nor `altL altR` are allowed.
 
@@ -1405,12 +1405,11 @@ Multiple modifier sets are separated by commas.  For example, `none, shift caps`
 Keystrokes must be ignored where there isn’t a layer that explicitly matches nor a layer with `other`. Example: If there is a `ctrl` and `shift` layer, but no `ctrl shift` nor `other` layer, no output will result from `ctrl shift X`.
 
 Layers are not allowed to overlap in their matching.  For example, the keyboard author will receive an error if one layer specifies `alt shift` and another layer specifies `altR shift`.
-
 There is one special case:  the `other` layer matches if and only if no other layer matches. Thus logically the `other` layer is matched after all other layers have been checked.
 
 Because there is no overlap allowed between layers, the order of `<layer>` elements is not significant.
 
-> Note: The modifier syntax may be enhanced in the future. but will remain backwards compatible with the syntax described here.
+> Note: The modifier syntax may be enhanced in the future, but will remain backwards compatible with the syntax described here.
 
 * * *
 

@@ -323,27 +323,28 @@ Keyboard authors will not typically need to perform normalization as part of the
 
 ### Where Normalization Occurs
 
-There are four stages where normalization occurs.
+There are four stages where normalization must be performed by keyboard implementations.
 
 1. **From the keyboard source `.xml`**
 
     Keyboard source .xml files may be in any normalization form.
     However, in processing they are converted to NFD.
 
-    Example: `<key output=`, and `<transform from= to=` attribute contents
     - From any form to NFD: full normalization (decompose+reorder)
-    - Markers must be processed
-    - Regex rules must be handled carefully
+    - Markers must be processed as described [below](#marker-algorithm-overview).
+    - Regex patterns must be processed so that matching is performed in NFD.
+
+    Example: `<key output=`, and `<transform from= to=` attribute contents will be normalized to NFD.
 
 2. **From the input context**
 
-    Input context must be normalized for purposes of matching.
-
-    Example: The input context contains U+00E8 (`è`).  The user clicks the cursor after the character, then types `<key ... output="\u{0320}"/>`.
-    The implementation must normalize this to `e\u{0320}\u{0300}` (`è̠`) before matching.
+    The input context must be normalized for purposes of matching.
 
     - From any form to NFD: full normalization (decompose+reorder)
     - Markers in the cached context must be preserved.
+
+    Example: The input context contains U+00E8 (`è`).  The user clicks the cursor after the character, then presses a key which produces U+0320 (`<key output="\u{0320}"/>`).
+    The implementation must normalize the context buffer to `e\u{0320}\u{0300}` (`è̠`) before matching.
 
 3. **Before each `transformGroup`**
 
@@ -353,13 +354,16 @@ There are four stages where normalization occurs.
     However, marker reordering may be needed if transforms insert segments out of order.
     - Markers must be preserved.
 
+    Example: The input context contains U+00E8 (`è`).  The user clicks the cursor after this character, then presses a key producing `x`. A transform rule `<transform from='x' to='\u{0320}'/>` matches. The implementation must normalize the intermediate buffer to `e\u{0320}\u{0300}` (`è̠`) before proceeding to the next `transformGroup`.
+
 4. **Before output to the platform/application**
 
     Text must be normalized into the output form requested by the platform or application. This will typically be NFC, but may not be.
 
-    - For example, to NFC: full normalization (reorder+composition).
+    - If normalizing to NFC, full normalization (reorder+composition) will be required.
     - No markers are present in this text, they are removed prior to output but retained in the implementation's input context for subsequent keystrokes. See [markers](#markers).
 
+    Example: The result of keystrokes and transform processing produces the string `e\u{0300}`. The keyboard implementation normalizes this to a single NFC codepoint U+00E8 (`è`), which is returned to the application.
 
 ### Normalization and Transform Matching
 
@@ -395,7 +399,7 @@ The algorithm described considers markers 'glued' (remaining with) the following
 
 For example, given a key `output="\m{marker}X"`, the marker will proceed `X` regardless of any normalization. (If `output="X\m{marker}"` were used, and `X` were to reorder with other characters, the marker would no longer be adjacent to the X.)
 
-2. Markers which are at the end of input remain at the end of input during normalization.
+2. Markers which are at the end of the input remain at the end of input during normalization.
 
 For example, given input context which ends with a marker, such as `...ABCDX\m{marker}`, the marker will remain at the end of the input context regardless of any normalization.
 
@@ -558,9 +562,9 @@ There is another case where there is no explicit mention of a non-NFD character,
 On output, text will be normalized into a specified normalization form. That form will typically be NFC, but an implementation may allow a calling application to override the choice of normalization form.
 For example, many platforms may request NFC as the output format. In such a case, all text emitted via the keyboard will be transformed into NFC.
 
-Existing text in a document will only have normalization applied within a single normalization-safe segment from the caret.  Output will not contain any markers, thus any normalization is unaffected by any markers embedded within the segment.
+Existing text in a document will only have normalization applied within a single normalization-safe segment from the caret.  The output will not contain any markers, thus any normalization is unaffected by any markers embedded within the segment.
 
-For example, the sequence `e\m{marker}\u{300}` would be output in NFC as `è`. The marker is removed and has no effect on output.
+For example, the sequence `e\m{marker}\u{300}` would be output in NFC as `è`. The marker is removed and has no effect on the output.
 
 ### Normalization-safe Segments
 
@@ -577,7 +581,7 @@ Text under consideration can be segmented by locating such characters.
 The attribute value `normalization="disabled"` can be used to indicate that no automatic normalization is to be applied in input, matching, or output. Using this setting should be done with caution:
 
 - When this attribute value is used, all matching and output uses only the exact codepoints provided by the keyboard author.
-- Input context from the application may not be normalized, which means that the keyboard author should consider all possible combinations, including NFC, NFD, and mixed normalization in `<transform from=` attributes.
+- The input context from the application may not be normalized, which means that the keyboard author should consider all possible combinations, including NFC, NFD, and mixed normalization in `<transform from=` attributes.
 - See [`<settings>`](#element-settings) for further details.
 
 The majority of the above section only applies when `normalization="disabled"` is not used.
@@ -830,7 +834,7 @@ An element used to keep track of layout-specific settings by implementations. Th
 
 _Attribute:_ `normalization="disabled"`
 
-> The presence of this attribute indicates that normalization will not be applied to input text, matching, or output.
+> The presence of this attribute indicates that normalization will not be applied to the input text, matching, or the output.
 > See [Normalization](#normalization) for additional details.
 >
 > **Note**: while this attribute is allowed by the specification, it should be used with caution.
@@ -1946,7 +1950,7 @@ Consider the following abbreviated example:
 
 1. The user presses the `circ_key` key. The key can be shown with the keycap `^` due to the `<display>` element.
 
-2. The special marker, `circ_marker`, is added to the end of input context.
+2. The special marker, `circ_marker`, is added to the end of the input context.
 
     The input context does not match any transforms.
 

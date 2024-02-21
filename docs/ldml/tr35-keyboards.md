@@ -313,7 +313,7 @@ Attribute values escaped in this manner are annotated with the `<!--@ALLOWS_UESC
 * Layouts have version metadata to indicate their specification compliance versi​​on number. For this tech preview, the value used must be `techpreview`. When the the specification is out of tech preview, a specific CLDR version number will be used. See [`cldrVersion`](tr35-info.md#version-information).
 
 ```xml
-<keyboard3 conformsTo="techpreview"/>
+<keyboard3 xmlns="https://schemas.unicode.org/cldr/45/keyboard3" conformsTo="techpreview"/>
 ```
 
 > _Note_: Unlike other LDML files, layouts are designed to be used outside of the CLDR source tree.  As such, they do not contain DOCTYPE entries.

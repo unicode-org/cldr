@@ -2646,10 +2646,11 @@ Another partial example allows a keyboard implementation to prevent people typin
 
 #### Reorder and Markers
 
-The reorders do not themselves interact with markers, that is, markers may not be matched by a `reorder` element. However, if a character preceded by one or more markers is reordered due to a `reorder` element, those markers will also move with the characters as with the `transform` elements.
+Markers are not matched by `reorder` elements. However, if a character preceded by one or more markers is reordered due to a `reorder` element, those markers will be reordered with the characters, maintaining the same relative order.  This is a similar process to the algorithm used to normalize strings processed by `transform` elements.
 
-Keyboard implementations need to process reorders as following.
-Note that steps 1 and 3 are identical to those steps used for normalization using markers in the [Marker Algorithm Overview](#marker-algorithm-overview).
+Keyboard implementations must process reorders using the following algorithm.
+
+Note that steps 1 and 3 are identical to the steps used for normalization using markers in the [Marker Algorithm Overview](#marker-algorithm-overview).
 
 Given an input string from context or from a previous `transformGroup`:
 

@@ -430,7 +430,7 @@ For purposes of this algorithm, a `Marker` is an opaque data type which has one 
 
 #### Data Model: string
 
-For purposes of discussion in this section, a string is an array of elements, where each element is either a codepoint or a `Marker`. For example, a [`key`](#element-key) in the XML such as `<key id="sha" output="𐓯\m{mymarker}x" />` would produce a string with three elements:
+For purposes of this algorithm, a string is an array of elements, where each element is either a codepoint or a `Marker`. For example, a [`key`](#element-key) in the XML such as `<key id="sha" output="𐓯\m{mymarker}x" />` would produce a string with three elements:
 
 1. The codepoint U+104EF
 2. The `Marker` named `mymarker`
@@ -576,6 +576,16 @@ There is another case where there is no explicit mention of a non-NFD character,
 
 [`reorder`](#element-reorder) elements operate on NFD codepoints.
 
+### Normalization-safe Segments
+
+For purposes of this algorithm, "normalization-safe segments" are defined as a string of codepoints which are
+
+1. already in [NFD](https://www.unicode.org/reports/tr15/#Norm_Forms), and
+2. begin with a character with [Canonical Combining Class](https://www.unicode.org/reports/tr44/#Canonical_Combining_Class_Values) of `0`.
+
+See [UAX #15 Section 9.1: Stable Code Points](https://www.unicode.org/reports/tr15/#Stable_Code_Points) for related discussion.
+Text under consideration can be segmented by locating such characters.
+
 ### Normalization and Output
 
 On output, text will be normalized into a specified normalization form. That form will typically be NFC, but an implementation may allow a calling application to override the choice of normalization form.
@@ -584,16 +594,6 @@ For example, many platforms may request NFC as the output format. In such a case
 Existing text in a document will only have normalization applied within a single normalization-safe segment from the caret.  The output will not contain any markers, thus any normalization is unaffected by any markers embedded within the segment.
 
 For example, the sequence `e\m{marker}\u{300}` would be output in NFC as `è`. The marker is removed and has no effect on the output.
-
-### Normalization-safe Segments
-
-For purposes of the above discussion, "normalization-safe segments" are defined as a string of codepoints which are
-
-1. already in [NFD](https://www.unicode.org/reports/tr15/#Norm_Forms), and
-2. begin with a character with [Canonical Combining Class](https://www.unicode.org/reports/tr44/#Canonical_Combining_Class_Values) of `0`.
-
-See [UAX #15 Section 9.1: Stable Code Points](https://www.unicode.org/reports/tr15/#Stable_Code_Points) for related discussion.
-Text under consideration can be segmented by locating such characters.
 
 ### Disabling Normalization
 

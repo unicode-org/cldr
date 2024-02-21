@@ -55,6 +55,13 @@ public class XMLFileReader {
     private SimpleHandler simpleHandler;
 
     public static class SimpleHandler {
+        /** called when every new element is encountered, with the full path to the element (including attributes).
+         * Called on leaf and non-leaf elements.
+         * @param path
+         */
+        public void handleElement(CharSequence path) {}
+
+        /** Called with an "xpath" of each leaf element */
         public void handlePathValue(String path, String value) {}
 
         public void handleComment(String path, String comment) {}
@@ -416,6 +423,7 @@ public class XMLFileReader {
             startElements.push(tempPath.toString());
             chars.setLength(0); // clear garbage
             lastIsStart = true;
+            simpleHandler.handleElement(tempPath);
         }
 
         @Override

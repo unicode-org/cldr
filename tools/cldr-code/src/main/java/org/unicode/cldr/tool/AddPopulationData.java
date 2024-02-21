@@ -1,9 +1,5 @@
 package org.unicode.cldr.tool;
 
-import com.ibm.icu.text.ListFormat;
-import com.ibm.icu.text.NumberFormat;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.ULocale;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -11,15 +7,22 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CldrUtility.LineHandler;
 import org.unicode.cldr.util.Counter2;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.StandardCodes;
+
+import com.ibm.icu.text.ListFormat;
+import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.ULocale;
 
 public class AddPopulationData {
     static boolean ADD_POP = CldrUtility.getProperty("ADD_POP", false);
@@ -476,45 +479,36 @@ public class AddPopulationData {
                 });
     }
 
-    private static void loadUnLiteracy() throws IOException {
-        CldrUtility.handleFile(
-                "external/un_literacy.csv",
-                new CldrUtility.LineHandler() {
-                    @Override
-                    public boolean handle(String line) {
-                        // Afghanistan,2000, ,28,43,13,,34,51,18
-                        // "Country or area","Year",,"Adult (15+) literacy rate",,,,,,"
-                        // Youth (15-24) literacy rate",,,,
-                        // ,,,Total,Men,Women,,Total,Men,Women
-                        // "Albania",2008,,96,,97,,95,,99,,99,,99
-                        String[] pieces = splitCommaSeparated(line);
-                        if (pieces.length != 14
-                                || pieces[1].length() == 0
-                                || !DIGITS.containsAll(pieces[1])) {
-                            return false;
-                        }
-                        String code =
-                                CountryCodeConverter.getCodeFromName(pieces[0], true, missing);
-                        if (code == null) {
-                            return false;
-                        }
-                        if (!StandardCodes.isCountry(code)) {
-                            if (ADD_POP) {
-                                System.out.println("Skipping UN info for: " + code);
-                            }
-                            return false;
-                        }
-                        String totalLiteracy = pieces[3];
-                        if (totalLiteracy.equals("�")
-                                || totalLiteracy.equals("…")
-                                || totalLiteracy.isEmpty()) {
-                            return true;
-                        }
-                        double percent = Double.parseDouble(totalLiteracy);
-                        un_literacy.add(code, percent);
-                        return true;
-                    }
-                });
+    static void loadUnLiteracy() throws IOException {
+        UnLiteracyParser ulp;
+        try {
+            ulp = new UnLiteracyParser().read();
+        } catch(Throwable t) {
+            throw new IOException("Could not read UN data " + UnLiteracyParser.UN_LITERACY, t);
+        }
+
+        for (final Map.Entry<String, UnLiteracyParser.PerCountry> e : ulp.perCountry.entrySet()) {
+            final String country = e.getKey();
+            final String latest = e.getValue().latest();
+            final UnLiteracyParser.PerYear py = e.getValue().perYear.get(latest);
+
+            Long literate = py.total(UnLiteracyParser.LITERATE);
+            Long illiterate = py.total(UnLiteracyParser.ILLITERATE);
+
+            String code = CountryCodeConverter.getCodeFromName(country, true, missing);
+            if (code == null) {
+                continue;
+            }
+            if (!StandardCodes.isCountry(code)) {
+                if (ADD_POP) {
+                    System.out.println("Skipping UN info for: " + code);
+                }
+                continue;
+            }
+            double total = literate + illiterate;
+            double percent = ((double) literate) / total;
+            un_literacy.add(code, percent);
+        }
     }
 
     static {

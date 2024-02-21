@@ -314,7 +314,7 @@ Unicode Normalization, as described in [The Unicode Standard](https://www.unicod
 
 This section discusses how conformant keyboards are affected by normalization, and the impact of normalization on keyboard authors and keyboard implmentations.
 
-Keyboard implementation will usually apply normalization as appropriate when matching transform rules and `<display>` value matching.
+Keyboard implementations will usually apply normalization as appropriate when matching transform rules and `<display>` value matching.
 Output from the keyboard, following application of all transform rules, will be normalized to the appropriate form by the keyboard implementation.
 
 > Note: There are many existing software libraries which perform Unicode Normalization, including [ICU](https://icu.unicode.org), [ICU4X](https://icu4x.unicode.org), and JavaScript's [String.prototype.normalize()](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String/normalize).
@@ -328,6 +328,7 @@ There are four stages where normalization occurs.
 1. **From the keyboard source `.xml`**
 
     Keyboard source .xml files may be in any normalization form.
+    However, in processing they are converted to NFD.
 
     Example: `<key output=`, and `<transform from= to=` attribute contents
     - From any form to NFD: full normalization (decompose+reorder)
@@ -338,7 +339,7 @@ There are four stages where normalization occurs.
 
     Input context must be normalized for purposes of matching.
 
-    Example: Input context might contain U+00E8 (`è`).  User clicks the cursor after the character. User types `<key ... output="\u{0320}"/>`.
+    Example: The input context contains U+00E8 (`è`).  The user clicks the cursor after the character, then types `<key ... output="\u{0320}"/>`.
     The implementation must normalize this to `e\u{0320}\u{0300}` (`è̠`) before matching.
 
     - From any form to NFD: full normalization (decompose+reorder)
@@ -382,11 +383,11 @@ Unpredictability would make it challenging for the keyboard author to create a k
 
 This section gives an algorithm for implementing normalization on a text stream including markers.
 
-_Note:_ The algorithm may be performed on a plain text stream which doesn't include markers, but implementations may opt to skip the removing/re-adding steps 1 and 3 if no markers are involved.
+_Note:_ When the algorithm is performed on a plain text stream that doesn't include markers, implementations may skip the removing/re-adding steps 1 and 3 because no markers are involved.
 
 #### Rationale for 'gluing' markers
 
-It is recognized that the processing described here describes an extension to Unicode normalization.
+The processing described here describes an extension to Unicode normalization to account for the desired behavior of markers.
 
 The algorithm described considers markers 'glued' (remaining with) the following character. If a context ends with a marker, that marker would be guaranteed to remain at the end after processing, consistently located with respect to the next keystroke to be input.
 
@@ -402,7 +403,7 @@ The 'gluing' is only applicable during one particular processing step. It does n
 
 #### Data Model: `Marker`
 
-For purposes of discussion, a `Marker` is an opaque data type which has one property, its ID. See [Markers](#markers) for a discussion of the marker ID.
+For purposes of this algorithm, a `Marker` is an opaque data type which has one property, its ID. See [Markers](#markers) for a discussion of the marker ID.
 
 #### Data Model: string
 
@@ -542,7 +543,7 @@ Normalization (and marker rearranging) effectively occurs within each segment.  
 
 If pre-composed (non-NFD) characters are used in [character classes](#regex-like-syntax), such as `[á-é]`, these may not match as keyboard authors expect, as the U+00E1 character (á) will not occur in NFD form. Thus this may be masking serious errors in the data.
 
-By default, tools that process the keyboard data should raise an error when character classes include non-NFD characters.
+Tools that process keyboard data must reject the data when character classes include non-NFD characters.
 
 The above should be written instead as a regex `(á|â|ã|ä|å|æ|ç|è|é)`. Alternatively, it could be written as a set variable `<set id="Example" value="á â ã ä å æ ç è é"/>` and matched as `$[Example]`.
 
@@ -554,7 +555,7 @@ There is another case where there is no explicit mention of a non-NFD character,
 
 ### Normalization and Output
 
-On output, text will be normalized into the form requested by that implementation, or possibly specifically requested by a particular application.
+On output, text will be normalized into a specified normalization form. That form will typically be NFC, but an implementation may allow a calling application to override the choice of normalization form.
 For example, many platforms may request NFC as the output format. In such a case, all text emitted via the keyboard will be transformed into NFC.
 
 Existing text in a document will only have normalization applied within a single normalization-safe segment from the caret.  Output will not contain any markers, thus any normalization is unaffected by any markers embedded within the segment.

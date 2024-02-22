@@ -78,9 +78,9 @@ The LDML specification is divided into the following parts:
     * [Phase 3: Adding Markers](#phase-3-adding-markers)
     * [Example Normalization with Markers](#example-normalization-with-markers)
   * [Normalization and Character Classes](#normalization-and-character-classes)
-  * [Normalization and Reorders](#normalization-and-reorders)
-  * [Normalization and Output](#normalization-and-output)
+  * [Normalization and Reorder elements](#normalization-and-reorder-elements)
   * [Normalization-safe Segments](#normalization-safe-segments)
+  * [Normalization and Output](#normalization-and-output)
   * [Disabling Normalization](#disabling-normalization)
 * [Element Hierarchy](#element-hierarchy)
   * [Element: keyboard3](#element-keyboard3)
@@ -572,7 +572,7 @@ The above should be written instead as a regex `(á|â|ã|ä|å|æ|ç|è|é)`. A
 
 There is another case where there is no explicit mention of a non-NFD character, but the character class could include non-NFD characters, such as the range `[\u{0020}-\u{01FF}]`. For these, the tools should raise a warning by default.
 
-### Normalization and Reorders
+### Normalization and Reorder elements
 
 [`reorder`](#element-reorder) elements operate on NFD codepoints.
 
@@ -2611,7 +2611,7 @@ The effect of this is that the _e-vowel_ will be identified as a prebase and wil
 
 #### Example Post-reorder transforms
 
-It may be desired to perform additional processing following reorder operations.  This may be aaccomplished by adding an additional `<transformGroup>` element after the reorders.
+It may be desired to perform additional processing following reorder operations.  This may be aaccomplished by adding an additional `<transformGroup>` element after the group containing `<reorder>` elements.
 
 First, a partial example from Khmer where split vowels are combined after reordering.
 
@@ -2648,7 +2648,7 @@ Another partial example allows a keyboard implementation to prevent people typin
 
 Markers are not matched by `reorder` elements. However, if a character preceded by one or more markers is reordered due to a `reorder` element, those markers will be reordered with the characters, maintaining the same relative order.  This is a similar process to the algorithm used to normalize strings processed by `transform` elements.
 
-Keyboard implementations must process reorders using the following algorithm.
+Keyboard implementations must process `reorder` elements using the following algorithm.
 
 Note that steps 1 and 3 are identical to the steps used for normalization using markers in the [Marker Algorithm Overview](#marker-algorithm-overview).
 

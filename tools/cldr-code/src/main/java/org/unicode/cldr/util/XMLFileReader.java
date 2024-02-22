@@ -55,8 +55,10 @@ public class XMLFileReader {
     private SimpleHandler simpleHandler;
 
     public static class SimpleHandler {
-        /** called when every new element is encountered, with the full path to the element (including attributes).
-         * Called on leaf and non-leaf elements.
+        /**
+         * called when every new element is encountered, with the full path to the element
+         * (including attributes). Called on leaf and non-leaf elements.
+         *
          * @param path
          */
         public void handleElement(CharSequence path) {}

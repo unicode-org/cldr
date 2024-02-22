@@ -1,0 +1,75 @@
+- hosts: redactdb
+  vars_files:
+    - vars/main.yml
+    - local-vars/local.yml
+  tasks:
+    - name: set up /home/cldradmin/.ssh/config to fetch db backup
+      template:
+        src: templates/cldrbackup/config.j2
+        dest: /home/cldradmin/.ssh/config
+        owner: cldradmin
+        group: cldradmin
+        mode: '0640'
+    - name: set up /home/cldradmin/.ssh/id_rsa
+      no_log: true
+      copy:
+        src: local-vars/cldrbackup/id_rsa
+        dest: /home/cldradmin/.ssh/id_rsa
+        owner: cldradmin
+        group: cldradmin
+        mode: '0600'
+    - name: set up /home/cldradmin/.ssh/id_rsa.pub
+      copy:
+        src: local-vars/cldrbackup/id_rsa.pub
+        dest: /home/cldradmin/.ssh/id_rsa.pub
+        owner: cldradmin
+        group: cldradmin
+        mode: '0640'
+    - name: set up /home/cldradmin/.ssh/known_hosts
+      copy:
+        src: local-vars/cldrbackup/known_hosts
+        dest: /home/cldradmin/.ssh/known_hosts
+        owner: cldradmin
+        group: cldradmin
+        mode: '0640'
+    - name: set up /home/cldradmin/redact-db.sql
+      copy:
+        src: templates/cldrbackup/redact-db.sql
+        dest: /home/cldradmin/redact-db.sql
+        owner: cldradmin
+        group: cldradmin
+        mode: '0640'
+    - name: set up /home/cldradmin/fetch-db.sh
+      template:
+        src: templates/cldrbackup/fetch_db_sh.j2
+        dest: /home/cldradmin/fetch-db.sh
+        owner: cldradmin
+        group: cldradmin
+        mode: '0640'
+    - name: set up /home/cldradmin/redact-db.sh
+      template:
+        src: templates/cldrbackup/redact_db_sh.j2
+        dest: /home/cldradmin/redact-db.sh
+        owner: cldradmin
+        group: cldradmin
+        mode: '0640'
+    - name: fetch and unzip db
+      # This playbook is intended to always make a change.
+      command: bash /home/cldradmin/fetch-db.sh # noqa 301
+      become: yes
+      become_user: cldradmin
+    - name: stop openliberty
+      become: true
+      service:
+        name: "{{ cldr_openliberty_service }}"
+        state: stopped
+    - name: redact db
+      # This playbook is intended to always make a change.
+      command: bash /home/cldradmin/redact-db.sh # noqa 301
+      become: yes
+      become_user: cldradmin
+    - name: restart openliberty
+      become: true
+      service:
+        name: "{{ cldr_openliberty_service }}"
+        state: restarted

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
@@ -13,6 +13,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<language type="ta"/>
 	</identity>
 	<annotations>
+		<annotation cp="{">அடைப்புக்குறி | சுருள் அடைப்புக்குறி | சுருள் பிரேஸ் | திறந்த சுருள் அடைப்புக்குறி | பிரேஸ்</annotation>
+		<annotation cp="{" type="tts">திறந்த சுருள் அடைப்புக்குறி</annotation>
 		<annotation cp="🏻">தோலின் நிறம் | வகை 1–2</annotation>
 		<annotation cp="🏻" type="tts">வகை 1–2</annotation>
 		<annotation cp="🏼">தோலின் நிறம் | வகை 3</annotation>
@@ -23,188 +25,692 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">வகை 5</annotation>
 		<annotation cp="🏿">தோலின் நிறம் | வகை 6</annotation>
 		<annotation cp="🏿" type="tts">வகை 6</annotation>
+		<annotation cp="‾" draft="contributed">மேல்கோடு</annotation>
+		<annotation cp="‾" type="tts">மேல்கோடு</annotation>
+		<annotation cp="_">அடிக்கோடு | கீழ் கோடு | கோடு</annotation>
+		<annotation cp="_" type="tts">கீழ் கோடு</annotation>
+		<annotation cp="-">ஒட்டுக்குறி-கழித்தல் குறி | கழித்தல் | கோடு | ஹைஃபன்</annotation>
+		<annotation cp="-" type="tts">ஒட்டுக்குறி-கழித்தல் குறி</annotation>
+		<annotation cp="‐">ஒட்டுக்குறி | சிறுகோடு | ஹைஃபன்</annotation>
+		<annotation cp="‐" type="tts">ஒட்டுக்குறி</annotation>
 		<annotation cp="–">கோடு | நடு | நடு அரைக்கோடு</annotation>
 		<annotation cp="–" type="tts">நடு அரைக்கோடு</annotation>
 		<annotation cp="—">கோடு | நடு முழுக்கோடு</annotation>
 		<annotation cp="—" type="tts">நடு முழுக்கோடு</annotation>
+		<annotation cp="―">கிடைமட்ட கோடு | கோடு | சிறுகோடு | பார்</annotation>
+		<annotation cp="―" type="tts">கிடைமட்ட கோடு</annotation>
+		<annotation cp="・">கட்டகனா | கட்டகனா நடுப் புள்ளி | நடுப் புள்ளி | புள்ளிகள்</annotation>
+		<annotation cp="・" type="tts">கட்டகனா நடுப் புள்ளி</annotation>
+		<annotation cp=",">கமா | கால்புள்ளி | காற்புள்ளி</annotation>
+		<annotation cp="," type="tts">காற்புள்ளி</annotation>
+		<annotation cp="،">அரபு | அரேபியக் காற்புள்ளி | காற்புள்ளி</annotation>
+		<annotation cp="،" type="tts">அரேபியக் காற்புள்ளி</annotation>
+		<annotation cp="、">ஐடியாகிராஃபிக் | காற்புள்ளி</annotation>
+		<annotation cp="、" type="tts">ஐடியாகிராஃபிக் காற்புள்ளி</annotation>
+		<annotation cp=";">அரைப்புள்ளி</annotation>
+		<annotation cp=";" type="tts">அரைப்புள்ளி</annotation>
+		<annotation cp="؛">அரபு | அரேபிய அரைப்புள்ளி | அரைப்புள்ளி</annotation>
+		<annotation cp="؛" type="tts">அரேபிய அரைப்புள்ளி</annotation>
+		<annotation cp=":">முக்கால்புள்ளி | முக்காற்புள்ளி</annotation>
+		<annotation cp=":" type="tts">முக்காற்புள்ளி</annotation>
+		<annotation cp="!">ஆச்சரியக்குறி | ஆச்சரியம் | பேரொலி</annotation>
+		<annotation cp="!" type="tts">ஆச்சரியக்குறி</annotation>
+		<annotation cp="¡">ஆச்சரியம் | தலைகீழ் | தலைகீழ் ஆச்சரியக்குறி | பேரொலி</annotation>
+		<annotation cp="¡" type="tts">தலைகீழ் ஆச்சரியக்குறி</annotation>
+		<annotation cp="?">கேள்வி | கேள்விக் குறி</annotation>
+		<annotation cp="?" type="tts">கேள்விக் குறி</annotation>
+		<annotation cp="¿">கேள்வி | தலைகீழ் | தலைகீழ் கேள்விக் குறி</annotation>
+		<annotation cp="¿" type="tts">தலைகீழ் கேள்விக் குறி</annotation>
+		<annotation cp="؟">அரபு | அரேபியக் கேள்விக் குறி | கேள்வி | கேள்விக் குறி</annotation>
+		<annotation cp="؟" type="tts">அரேபியக் கேள்விக் குறி</annotation>
+		<annotation cp="‽" draft="contributed">இண்டரோபேங்</annotation>
+		<annotation cp="‽" type="tts">இண்டரோபேங்</annotation>
+		<annotation cp=".">புள்ளி | முழு நிறுத்தம் | முற்றுப்புள்ளி</annotation>
+		<annotation cp="." type="tts">முற்றுப்புள்ளி</annotation>
+		<annotation cp="…">புள்ளிகள் | புறக்கணிப்பு | முப்புள்ளி</annotation>
+		<annotation cp="…" type="tts">முப்புள்ளி</annotation>
+		<annotation cp="。">ஐடியாகிராஃபிக் | முழு நிறுத்தம் | முற்றுப்புள்ளி</annotation>
+		<annotation cp="。" type="tts">ஐடியாகிராஃபிக் முற்றுப்புள்ளி</annotation>
 		<annotation cp="·">நடுப்புள்ளி | புள்ளி | மையப் புள்ளி | மையம்</annotation>
 		<annotation cp="·" type="tts">மையப் புள்ளி</annotation>
+		<annotation cp="'">எழுத்தெச்சக்குறி | ஒற்றை மேற்கோள் | தட்டச்சுப்பொறி எழுத்தெச்சக்குறி | மேற்கோள்</annotation>
+		<annotation cp="'" type="tts">தட்டச்சுப்பொறி எழுத்தெச்சக்குறி</annotation>
+		<annotation cp="‘">அப்போஸ்ட்ரோஃபி | இடது எழுத்தெச்சக்குறி | எழுத்தெச்சக்குறி | ஒற்றை மேற்கோள் | மேற்கோள் | ஸ்மார்ட் மேற்கோள்</annotation>
+		<annotation cp="‘" type="tts">இடது எழுத்தெச்சக்குறி</annotation>
+		<annotation cp="’">அப்போஸ்ட்ரோஃபி | எழுத்தெச்சக்குறி | ஒற்றை மேற்கோள் | மேற்கோள் | வலது எழுத்தெச்சக்குறி | ஸ்மார்ட் மேற்கோள்</annotation>
+		<annotation cp="’" type="tts">வலது எழுத்தெச்சக்குறி</annotation>
+		<annotation cp="‚">எழுத்தெச்சக்குறி | கீழ் மேற்கோள் | கீழ் வலது எழுத்தெச்சக்குறி | மேற்கோள்</annotation>
+		<annotation cp="‚" type="tts">கீழ் வலது எழுத்தெச்சக்குறி</annotation>
+		<annotation cp="“">இடது மேற்கோள் குறி | இரட்டை மேற்கோள் | மேற்கோட்குறி | மேற்கோள் | ஸ்மார்ட் மேற்கோள்</annotation>
+		<annotation cp="“" type="tts">இடது மேற்கோள் குறி</annotation>
+		<annotation cp="”">இரட்டை மேற்கோள் | மேற்கோட்குறி | மேற்கோள் | வலது மேற்கோள் குறி | ஸ்மார்ட் மேற்கோள்</annotation>
+		<annotation cp="”" type="tts">வலது மேற்கோள் குறி</annotation>
+		<annotation cp="„">இரட்டை மேற்கோள் | கீழ் மேற்கோள் குறி | கீழ் வலது மேற்கோள் குறி | மேற்கோட்குறி | மேற்கோள் | ஸ்மார்ட் மேற்கோள்</annotation>
+		<annotation cp="„" type="tts">கீழ் வலது மேற்கோள் குறி</annotation>
 		<annotation cp="«">அடைப்புக்குறிகள் | இடது | இடது மேற்கோட்குறி | காரட்கள் | கோணம் | செவ்ரான் | மேற்கோள் குறி</annotation>
 		<annotation cp="«" type="tts">இடது மேற்கோட்குறி</annotation>
 		<annotation cp="»">அடைப்புக்குறிகள் | காரட்கள் | கோணம் | செவ்ரான் | மேற்கோள் குறி | வலது | வலது மேற்கோட்குறி</annotation>
 		<annotation cp="»" type="tts">வலது மேற்கோட்குறி</annotation>
+		<annotation cp=")">அடைப்புக்குறி | அடைப்புக்குறியீடு | சுற்று அடைப்புக்குறி | மூடிய அடைப்புக்குறி | வளை அடைப்புக்குறி</annotation>
+		<annotation cp=")" type="tts">மூடிய அடைப்புக்குறி</annotation>
+		<annotation cp="[">அடைப்புக்குறி | க்ரோட்செட் | சதுர அடைப்புக்குறி | திறந்த சதுர அடைப்புக்குறி</annotation>
+		<annotation cp="[" type="tts">திறந்த சதுர அடைப்புக்குறி</annotation>
+		<annotation cp="]">அடைப்புக்குறி | க்ரோட்செட் | சதுர அடைப்புக்குறி | மூடிய சதுர அடைப்புக்குறி</annotation>
+		<annotation cp="]" type="tts">மூடிய சதுர அடைப்புக்குறி</annotation>
+		<annotation cp="}">அடைப்புக்குறி | சுருள் அடைப்புக்குறி | சுருள் பிரேஸ் | பிரேஸ் | மூடிய சுருள் அடைப்புக்குறி</annotation>
+		<annotation cp="}" type="tts">மூடிய சுருள் அடைப்புக்குறி</annotation>
+		<annotation cp="〈">அடைப்புக்குறி | கோண அடைப்புக்குறி | சுட்டிக்காட்டி அடைப்புக்குறி | செவ்ரான் | திறந்த கோண அடைப்புக்குறி | வைர அடைப்புக்குறிகள்</annotation>
+		<annotation cp="〈" type="tts">திறந்த கோண அடைப்புக்குறி</annotation>
+		<annotation cp="〉">அடைப்புக்குறி | கோண அடைப்புக்குறி | சுட்டிக்காட்டி அடைப்புக்குறி | செவ்ரான் | மூடிய கோண அடைப்புக்குறி | வைர அடைப்புக்குறிகள்</annotation>
+		<annotation cp="〉" type="tts">மூடிய கோண அடைப்புக்குறி</annotation>
+		<annotation cp="《">அடைப்புக்குறி | இரட்டை கோண அடைப்புக்குறி | திறந்த இரட்டை கோண அடைப்புக்குறி</annotation>
+		<annotation cp="《" type="tts">திறந்த இரட்டை கோண அடைப்புக்குறி</annotation>
+		<annotation cp="》">அடைப்புக்குறி | இரட்டை கோண அடைப்புக்குறி | மூடிய இரட்டை கோண அடைப்புக்குறி</annotation>
+		<annotation cp="》" type="tts">மூடிய இரட்டை கோண அடைப்புக்குறி</annotation>
+		<annotation cp="「">அடைப்புக்குறி | திறந்த மூலை அடைப்புக்குறி | மூலை அடைப்புக்குறி</annotation>
+		<annotation cp="「" type="tts">திறந்த மூலை அடைப்புக்குறி</annotation>
+		<annotation cp="」">அடைப்புக்குறி | மூடிய மூலை அடைப்புக்குறி | மூலை அடைப்புக்குறி</annotation>
+		<annotation cp="」" type="tts">மூடிய மூலை அடைப்புக்குறி</annotation>
+		<annotation cp="『">அடைப்புக்குறி | திறந்த வெற்று மூலை அடைப்புக்குறி | வெற்று மூலை அடைப்புக்குறி</annotation>
+		<annotation cp="『" type="tts">திறந்த வெற்று மூலை அடைப்புக்குறி</annotation>
+		<annotation cp="』">அடைப்புக்குறி | மூடிய வெற்று மூலை அடைப்புக்குறி | வெற்று மூலை அடைப்புக்குறி</annotation>
+		<annotation cp="』" type="tts">மூடிய வெற்று மூலை அடைப்புக்குறி</annotation>
+		<annotation cp="【">அடைப்புக்குறி | திறந்த கருப்பு லென்ஸ் அடைப்புக்குறி | லெண்டிகுலர் அடைப்புக்குறி | லென்ஸ் அடைப்புக்குறி</annotation>
+		<annotation cp="【" type="tts">திறந்த கருப்பு லென்ஸ் அடைப்புக்குறி</annotation>
+		<annotation cp="】">அடைப்புக்குறி | மூடிய கருப்பு லென்ஸ் அடைப்புக்குறி | லெண்டிகுலர் அடைப்புக்குறி | லென்ஸ் அடைப்புக்குறி</annotation>
+		<annotation cp="】" type="tts">மூடிய கருப்பு லென்ஸ் அடைப்புக்குறி</annotation>
+		<annotation cp="〔">அடைப்புக்குறி | ஆமை ஓட்டு அடைப்புக்குறி | ஓட்டு அடைப்புக்குறி | திறந்த ஆமை ஓட்டு அடைப்புக்குறி</annotation>
+		<annotation cp="〔" type="tts">திறந்த ஆமை ஓட்டு அடைப்புக்குறி</annotation>
+		<annotation cp="〕">அடைப்புக்குறி | ஆமை ஓட்டு அடைப்புக்குறி | ஓட்டு அடைப்புக்குறி | மூடிய ஆமை ஓட்டு அடைப்புக்குறி</annotation>
+		<annotation cp="〕" type="tts">மூடிய ஆமை ஓட்டு அடைப்புக்குறி</annotation>
+		<annotation cp="〖">அடைப்புக்குறி | திறந்த வெற்று லென்ஸ் அடைப்புக்குறி | வெற்று லெண்டிகுலர் அடைப்புக்குறி | வெற்று லென்ஸ் அடைப்புக்குறி</annotation>
+		<annotation cp="〖" type="tts">திறந்த வெற்று லென்ஸ் அடைப்புக்குறி</annotation>
+		<annotation cp="〗">அடைப்புக்குறி | மூடிய வெற்று லென்ஸ் அடைப்புக்குறி | வெற்று லெண்டிகுலர் அடைப்புக்குறி | வெற்று லென்ஸ் அடைப்புக்குறி</annotation>
+		<annotation cp="〗" type="tts">மூடிய வெற்று லென்ஸ் அடைப்புக்குறி</annotation>
 		<annotation cp="§">சில்க்ரோ | பகுதி | பத்தி | பிரிவு</annotation>
 		<annotation cp="§" type="tts">பிரிவு</annotation>
+		<annotation cp="¶">அலினியா | பத்தி | பத்திக் குறி | பில்க்ரோ</annotation>
+		<annotation cp="¶" type="tts">பத்திக் குறி</annotation>
+		<annotation cp="@">அட் குறி | வணிகரீதியான வீதக் குறி | வீதக் குறி | வீதக் குறியீடு</annotation>
+		<annotation cp="@" type="tts">வீதக் குறி</annotation>
+		<annotation cp="*">உடுக்குறி | உடுக்குறியீடு | நட்சத்திரக் குறி | நட்சத்திரம் | வைல்டு கார்டு</annotation>
+		<annotation cp="*" type="tts">உடுக்குறி</annotation>
+		<annotation cp="/">கோடு | சாய்கோடு | சாய்ந்த | சாய்வுக்கோடு</annotation>
+		<annotation cp="/" type="tts">சாய்கோடு</annotation>
+		<annotation cp="\">பின் சாய்கோடு | பின் சாய்வுக்கோடு | பின்சாய்வு</annotation>
+		<annotation cp="\" type="tts">பின் சாய்கோடு</annotation>
+		<annotation cp="&amp;">உம்மைக் குறி | மற்றும்</annotation>
+		<annotation cp="&amp;" type="tts">உம்மைக் குறி</annotation>
+		<annotation cp="#">எண் | எண் குறியீடு | எல்பி | பவுண்டு | ஹேஷ் | ஹேஷ்டேக்</annotation>
+		<annotation cp="#" type="tts">எண் குறியீடு</annotation>
+		<annotation cp="%">சதவிகிதம் | சதவீதம்</annotation>
+		<annotation cp="%" type="tts">சதவீதம்</annotation>
+		<annotation cp="‰">ஆயிர வீதம் | ஆயிரத்திற்கு | ஆயிரவீதம்</annotation>
+		<annotation cp="‰" type="tts">ஆயிர வீதம்</annotation>
 		<annotation cp="†">சதுரத்தூபி | சிலுவை | சிலுவைக் குறி | வகுத்தற்குறி</annotation>
 		<annotation cp="†" type="tts">சிலுவைக் குறி</annotation>
 		<annotation cp="‡">இரட்டை | இரட்டை சிலுவைக் குறி | சதுரத்தூபி | சிலுவை | வகுத்தற்குறி</annotation>
 		<annotation cp="‡" type="tts">இரட்டை சிலுவைக் குறி</annotation>
 		<annotation cp="•">புள்ளி | பொட்டுக்குறி</annotation>
 		<annotation cp="•" type="tts">பொட்டுக்குறி</annotation>
+		<annotation cp="‧">டேஷ் | புள்ளி | ஹைஃபனேஷன் புள்ளி | ஹைஃபன்</annotation>
+		<annotation cp="‧" type="tts">ஹைஃபனேஷன் புள்ளி</annotation>
+		<annotation cp="′">தனி மேற்கோள் குறி | மேற்கோள் குறி</annotation>
+		<annotation cp="′" type="tts">மேற்கோள் குறி</annotation>
+		<annotation cp="″">அளவுக் குறி | இரட்டை மேற்கோள் குறி</annotation>
+		<annotation cp="″" type="tts">இரட்டை மேற்கோள் குறி</annotation>
+		<annotation cp="‴">அளவுக் குறி | மூன்று மேற்கோள் குறி</annotation>
+		<annotation cp="‴" type="tts">மூன்று மேற்கோள் குறி</annotation>
+		<annotation cp="‸">கேரெட்</annotation>
+		<annotation cp="‸" type="tts">கேரெட்</annotation>
+		<annotation cp="※">குறிப்பு | குறிப்புக் குறி</annotation>
+		<annotation cp="※" type="tts">குறிப்புக் குறி</annotation>
+		<annotation cp="⁂">ஆஸ்டரிஸம் | நட்சத்திரங்கள்</annotation>
+		<annotation cp="⁂" type="tts">ஆஸ்டரிஸம்</annotation>
+		<annotation cp="`">உச்சரிப்பு | கூரழுத்தக்குறி | தொனி</annotation>
+		<annotation cp="`" type="tts">கூரழுத்தக்குறி</annotation>
+		<annotation cp="´">உச்சரிப்பு | உச்சரிப்புக் குறி | கூர்ந்த | தொனி</annotation>
+		<annotation cp="´" type="tts">உச்சரிப்புக் குறி</annotation>
+		<annotation cp="^">ஆப்பு | உச்சரிப்பு | காரட் | சுட்டிக்காட்டி | செவ்ரான் | பவர் | வளைவுக்குறி</annotation>
+		<annotation cp="^" type="tts">வளைவுக்குறி</annotation>
+		<annotation cp="¨">டையாரேசிஸ்</annotation>
+		<annotation cp="¨" type="tts">டையாரேசிஸ்</annotation>
 		<annotation cp="°">டிகிரி | பாகை | மணிநேரம்</annotation>
 		<annotation cp="°" type="tts">டிகிரி</annotation>
 		<annotation cp="℗">ஒலி | ஒலிப்பதிவு பதிப்புரிமை | பதிப்புரிமை | பதிவு</annotation>
 		<annotation cp="℗" type="tts">ஒலிப்பதிவு பதிப்புரிமை</annotation>
 		<annotation cp="←">அம்பு | இடது | இடதுபுறம் நோக்கிய அம்பு</annotation>
 		<annotation cp="←" type="tts">இடதுபுறம் நோக்கிய அம்பு</annotation>
+		<annotation cp="↚">இடதுபுறம் நோக்கிய அம்புக்கோடு</annotation>
+		<annotation cp="↚" type="tts">இடதுபுறம் நோக்கிய அம்புக்கோடு</annotation>
 		<annotation cp="→">அம்பு | வலது | வலதுபுறம் நோக்கிய அம்பு</annotation>
 		<annotation cp="→" type="tts">வலதுபுறம் நோக்கிய அம்பு</annotation>
+		<annotation cp="↛">வலதுபுறம் நோக்கிய அம்புக்கோடு</annotation>
+		<annotation cp="↛" type="tts">வலதுபுறம் நோக்கிய அம்புக்கோடு</annotation>
 		<annotation cp="↑">அம்பு | மேல் | மேல் நோக்கிய அம்பு</annotation>
 		<annotation cp="↑" type="tts">மேல் நோக்கிய அம்பு</annotation>
 		<annotation cp="↓">அம்பு | கீழ் | கீழ் நோக்கிய அம்பு</annotation>
 		<annotation cp="↓" type="tts">கீழ் நோக்கிய அம்பு</annotation>
+		<annotation cp="↜">இடதுபுறம் நோக்கிய வளைவான அம்புக்குறி</annotation>
+		<annotation cp="↜" type="tts">இடதுபுறம் நோக்கிய வளைவான அம்புக்குறி</annotation>
+		<annotation cp="↝">வலதுபுறம் நோக்கிய வளைவான அம்புக்குறி</annotation>
+		<annotation cp="↝" type="tts">வலதுபுறம் நோக்கிய வளைவான அம்புக்குறி</annotation>
+		<annotation cp="↞">இடதுபுறம் நோக்கிய இருதலையுள்ள அம்புக்குறி</annotation>
+		<annotation cp="↞" type="tts">இடதுபுறம் நோக்கிய இருதலையுள்ள அம்புக்குறி</annotation>
+		<annotation cp="↟">மேல் நோக்கிய இருதலையுள்ள அம்புக்குறி</annotation>
+		<annotation cp="↟" type="tts">மேல் நோக்கிய இருதலையுள்ள அம்புக்குறி</annotation>
+		<annotation cp="↠">வலதுபுறம் நோக்கிய இருதலையுள்ள அம்புக்குறி</annotation>
+		<annotation cp="↠" type="tts">வலதுபுறம் நோக்கிய இருதலையுள்ள அம்புக்குறி</annotation>
+		<annotation cp="↡">கீழ் நோக்கிய இருதலையுள்ள அம்புக்குறி</annotation>
+		<annotation cp="↡" type="tts">கீழ் நோக்கிய இருதலையுள்ள அம்புக்குறி</annotation>
+		<annotation cp="↢">இடதுபுறம் நோக்கிய அம்பு வால்</annotation>
+		<annotation cp="↢" type="tts">இடதுபுறம் நோக்கிய அம்பு வால்</annotation>
+		<annotation cp="↣">வலதுபுறம் நோக்கிய அம்பு வால்</annotation>
+		<annotation cp="↣" type="tts">வலதுபுறம் நோக்கிய அம்பு வால்</annotation>
+		<annotation cp="↤">இடதுபுறம் நோக்கிய பார் அம்பு</annotation>
+		<annotation cp="↤" type="tts">இடதுபுறம் நோக்கிய பார் அம்பு</annotation>
+		<annotation cp="↥">மேல் நோக்கிய பார் அம்பு</annotation>
+		<annotation cp="↥" type="tts">மேல் நோக்கிய பார் அம்பு</annotation>
+		<annotation cp="↦">வலதுபுறம் நோக்கிய பார் அம்பு</annotation>
+		<annotation cp="↦" type="tts">வலதுபுறம் நோக்கிய பார் அம்பு</annotation>
+		<annotation cp="↧">கீழ் நோக்கிய பார் அம்பு</annotation>
+		<annotation cp="↧" type="tts">கீழ் நோக்கிய பார் அம்பு</annotation>
+		<annotation cp="↨">அடிப்பகுதியுடன் மேலும் கீழும் நோக்கிய அம்புக்குறி</annotation>
+		<annotation cp="↨" type="tts">அடிப்பகுதியுடன் மேலும் கீழும் நோக்கிய அம்புக்குறி</annotation>
+		<annotation cp="↫">இடதுபுறம் நோக்கிய அம்புச்சுருள்</annotation>
+		<annotation cp="↫" type="tts">இடதுபுறம் நோக்கிய அம்புச்சுருள்</annotation>
+		<annotation cp="↬">வலதுபுறம் நோக்கிய அம்புச்சுருள்</annotation>
+		<annotation cp="↬" type="tts">வலதுபுறம் நோக்கிய அம்புச்சுருள்</annotation>
+		<annotation cp="↭" draft="contributed">இடது மற்றும் வலது[புறம் நோக்கிய வளைந்த அம்புக்குறி</annotation>
+		<annotation cp="↭" type="tts" draft="contributed">இடது மற்றும் வலது[புறம் நோக்கிய வளைந்த அம்புக்குறி</annotation>
+		<annotation cp="↯">கீழ் நோக்கிய ஜிக்ஜாக் அம்புக்குறி | ஜிக்ஜாக்</annotation>
+		<annotation cp="↯" type="tts">கீழ் நோக்கிய ஜிக்ஜாக் அம்புக்குறி</annotation>
+		<annotation cp="↰">இடதுபுற முனையுடைய மேல் நோக்கிய அம்புக்குறி</annotation>
+		<annotation cp="↰" type="tts">இடதுபுற முனையுடைய மேல் நோக்கிய அம்புக்குறி</annotation>
+		<annotation cp="↱">வலதுபுற முனையுடைய மேல் நோக்கிய அம்புக்குறி</annotation>
+		<annotation cp="↱" type="tts">வலதுபுற முனையுடைய மேல் நோக்கிய அம்புக்குறி</annotation>
+		<annotation cp="↲">இடதுபுற முனையுடைய கீழ் நோக்கிய அம்புக்குறி</annotation>
+		<annotation cp="↲" type="tts">இடதுபுற முனையுடைய கீழ் நோக்கிய அம்புக்குறி</annotation>
+		<annotation cp="↳">வலதுபுற முனையுடைய கீழ் நோக்கிய அம்புக்குறி</annotation>
+		<annotation cp="↳" type="tts">வலதுபுற முனையுடைய கீழ் நோக்கிய அம்புக்குறி</annotation>
+		<annotation cp="↴">கீழ் நோக்கிய முனையுடைய வலதுபக்க அம்புக்குறி</annotation>
+		<annotation cp="↴" type="tts">கீழ் நோக்கிய முனையுடைய வலதுபக்க அம்புக்குறி</annotation>
+		<annotation cp="↵">இடதுபக்க முனையுடைய கீழ் நோக்கிய அம்புக்குறி</annotation>
+		<annotation cp="↵" type="tts">இடதுபக்க முனையுடைய கீழ் நோக்கிய அம்புக்குறி</annotation>
+		<annotation cp="↶">இடஞ்சுழியான மேல் அரைவட்ட அம்புக்குறி</annotation>
+		<annotation cp="↶" type="tts">இடஞ்சுழியான மேல் அரைவட்ட அம்புக்குறி</annotation>
+		<annotation cp="↷">வலஞ்சுழியான மேல் அரைவட்ட அம்புக்குறி</annotation>
+		<annotation cp="↷" type="tts">வலஞ்சுழியான மேல் அரைவட்ட அம்புக்குறி</annotation>
+		<annotation cp="↸">வடமேற்கு அம்புக்குறியுடன் நீண்ட மேல்கோடு</annotation>
+		<annotation cp="↸" type="tts">வடமேற்கு அம்புக்குறியுடன் நீண்ட மேல்கோடு</annotation>
+		<annotation cp="↹">வலதுபுற அம்புக்குறி பாருக்கு மேல் இடதுபுற அம்புக்குறி</annotation>
+		<annotation cp="↹" type="tts">வலதுபுற அம்புக்குறி பாருக்கு மேல் இடதுபுற அம்புக்குறி</annotation>
+		<annotation cp="↺">திறந்த வட்ட இடஞ்சுழி அம்புக்குறி</annotation>
+		<annotation cp="↺" type="tts">திறந்த வட்ட இடஞ்சுழி அம்புக்குறி</annotation>
+		<annotation cp="↻">திறந்த வட்ட வலஞ்சுழி அம்புக்குறி</annotation>
+		<annotation cp="↻" type="tts">திறந்த வட்ட வலஞ்சுழி அம்புக்குறி</annotation>
+		<annotation cp="↼" draft="contributed">இடதுபுற ஹார்பூன் மேல்நோக்கிய பார்ப்</annotation>
+		<annotation cp="↼" type="tts">இடதுபுற ஹார்பூன் மேல்நோக்கிய பார்ப்</annotation>
+		<annotation cp="↽">இடதுபுற ஹார்பூன் கீழ்நோக்கிய பார்ப்</annotation>
+		<annotation cp="↽" type="tts">இடதுபுற ஹார்பூன் கீழ்நோக்கிய பார்ப்</annotation>
+		<annotation cp="↾">இடதுபுற ஹார்பூன் வலதுநோக்கிய பார்ப் | பார்ப் | மேல்நோக்கிய ஹார்பூன் வலதுபுற பார்ப்</annotation>
+		<annotation cp="↾" type="tts" draft="contributed">இடதுபுற ஹார்பூன் வலதுநோக்கிய பார்ப்</annotation>
+		<annotation cp="↿">பார்ப் | மேல்நோக்கிய ஹார்பூன் இடதுபுற பார்ப் | மேல்நோக்கிய ஹார்பூன் வலதுபுற பார்ப்</annotation>
+		<annotation cp="↿" type="tts" draft="contributed">மேல்நோக்கிய ஹார்பூன் வலதுபுற பார்ப்</annotation>
+		<annotation cp="⇀">பார்ப் | வலதுபுற ஹார்பூன் மேல்நோக்கிய பார்ப்</annotation>
+		<annotation cp="⇀" type="tts">வலதுபுற ஹார்பூன் மேல்நோக்கிய பார்ப்</annotation>
+		<annotation cp="⇁" draft="contributed">வலதுபுற ஹார்பூன் கீழ்நோக்கிய பார்ப்</annotation>
+		<annotation cp="⇁" type="tts">வலதுபுற ஹார்பூன் கீழ்நோக்கிய பார்ப்</annotation>
+		<annotation cp="⇂" draft="contributed">கீழ்புற ஹார்பூன் வலதுபுறம் நோக்கிய பார்ப்</annotation>
+		<annotation cp="⇂" type="tts">கீழ்புற ஹார்பூன் வலதுபுறம் நோக்கிய பார்ப்</annotation>
+		<annotation cp="⇃" draft="contributed">கீழ்நோக்கிய ஹார்பூன் இடதுபுறம் நோக்கிய பார்ப்</annotation>
+		<annotation cp="⇃" type="tts">கீழ்நோக்கிய ஹார்பூன் இடதுபுறம் நோக்கிய பார்ப்</annotation>
+		<annotation cp="⇄">இடதுபுற அம்புக்குறிக்கு மேல் வலதுபுற அம்புக்குறி</annotation>
+		<annotation cp="⇄" type="tts">இடதுபுற அம்புக்குறிக்கு மேல் வலதுபுற அம்புக்குறி</annotation>
 		<annotation cp="⇅">அம்பு | கீழ் | மேல் | மேல் நோக்கிய மற்றும் கீழ் நோக்கிய அம்புகள்</annotation>
 		<annotation cp="⇅" type="tts">மேல் நோக்கிய மற்றும் கீழ் நோக்கிய அம்புகள்</annotation>
 		<annotation cp="⇆">அம்பு | இடது | வலது | வலது மற்றும் இடது நோக்கிய அம்புகள் | வலதுபுறம் நோக்கிய அம்பிற்கு மேல் இடதுபுறம் நோக்கிய அம்பு</annotation>
 		<annotation cp="⇆" type="tts">வலது மற்றும் இடது நோக்கிய அம்புகள்</annotation>
+		<annotation cp="⇇">இடதுபுறம் நோக்கிய இணை அம்புக்குறிகள்</annotation>
+		<annotation cp="⇇" type="tts">இடதுபுறம் நோக்கிய இணை அம்புக்குறிகள்</annotation>
+		<annotation cp="⇈">மேல் நோக்கிய இணை அம்புக்குறிகள்</annotation>
+		<annotation cp="⇈" type="tts">மேல் நோக்கிய இணை அம்புக்குறிகள்</annotation>
+		<annotation cp="⇉">வலதுபுறம் நோக்கிய இணை அம்புக்குறிகள்</annotation>
+		<annotation cp="⇉" type="tts">வலதுபுறம் நோக்கிய இணை அம்புக்குறிகள்</annotation>
+		<annotation cp="⇊">கீழ் நோக்கிய இணை அம்புக்குறிகள்</annotation>
+		<annotation cp="⇊" type="tts">கீழ் நோக்கிய இணை அம்புக்குறிகள்</annotation>
+		<annotation cp="⇋">வலதுபுற ஹார்பூனுக்கு மேல் இடதுபுற ஹார்பூன்</annotation>
+		<annotation cp="⇋" type="tts">வலதுபுற ஹார்பூனுக்கு மேல் இடதுபுற ஹார்பூன்</annotation>
+		<annotation cp="⇌">இடதுபுற ஹார்பூனுக்கு மேல் வலதுபுற ஹார்பூன்</annotation>
+		<annotation cp="⇌" type="tts">இடதுபுற ஹார்பூனுக்கு மேல் வலதுபுற ஹார்பூன்</annotation>
+		<annotation cp="⇐">இடதுபுறம் நோக்கிய இரட்டை அம்புக்குறி</annotation>
+		<annotation cp="⇐" type="tts">இடதுபுறம் நோக்கிய இரட்டை அம்புக்குறி</annotation>
+		<annotation cp="⇍">இடதுபுறம் நோக்கிய அடிக்கப்பட்ட இரட்டை அம்புக்குறி</annotation>
+		<annotation cp="⇍" type="tts">இடதுபுறம் நோக்கிய அடிக்கப்பட்ட இரட்டை அம்புக்குறி</annotation>
+		<annotation cp="⇑">மேல் நோக்கிய இரட்டை அம்புக்குறி</annotation>
+		<annotation cp="⇑" type="tts">மேல் நோக்கிய இரட்டை அம்புக்குறி</annotation>
+		<annotation cp="⇒">வலதுபுறம் நோக்கிய இரட்டை அம்புக்குறி</annotation>
+		<annotation cp="⇒" type="tts">வலதுபுறம் நோக்கிய இரட்டை அம்புக்குறி</annotation>
+		<annotation cp="⇏">வலதுபுறம் நோக்கிய அடிக்கப்பட்ட இரட்டை அம்புக்குறி</annotation>
+		<annotation cp="⇏" type="tts">வலதுபுறம் நோக்கிய அடிக்கப்பட்ட இரட்டை அம்புக்குறி</annotation>
+		<annotation cp="⇓">கீழ் நோக்கிய இரட்டை அம்புக்குறி</annotation>
+		<annotation cp="⇓" type="tts">கீழ் நோக்கிய இரட்டை அம்புக்குறி</annotation>
+		<annotation cp="⇔">இடது வலது இரட்டை அம்புக்குறி</annotation>
+		<annotation cp="⇔" type="tts">இடது வலது இரட்டை அம்புக்குறி</annotation>
+		<annotation cp="⇎">இடது வலது அடிக்கப்பட்ட இரட்டை அம்புக்குறி</annotation>
+		<annotation cp="⇎" type="tts">இடது வலது அடிக்கப்பட்ட இரட்டை அம்புக்குறி</annotation>
+		<annotation cp="⇖">வடமேற்கு இரட்டை அம்புக்குறி</annotation>
+		<annotation cp="⇖" type="tts">வடமேற்கு இரட்டை அம்புக்குறி</annotation>
+		<annotation cp="⇗">வடகிழக்கு இரட்டை அம்புக்குறி</annotation>
+		<annotation cp="⇗" type="tts">வடகிழக்கு இரட்டை அம்புக்குறி</annotation>
+		<annotation cp="⇘">தென்கிழக்கு இரட்டை அம்புக்குறி</annotation>
+		<annotation cp="⇘" type="tts">தென்கிழக்கு இரட்டை அம்புக்குறி</annotation>
+		<annotation cp="⇙">தென்மேற்கு இரட்டை அம்புக்குறி</annotation>
+		<annotation cp="⇙" type="tts">தென்மேற்கு இரட்டை அம்புக்குறி</annotation>
+		<annotation cp="⇚">இடதுபுறம் நோக்கிய மூன்று சேர்ந்த அம்புக்குறி</annotation>
+		<annotation cp="⇚" type="tts">இடதுபுறம் நோக்கிய மூன்று சேர்ந்த அம்புக்குறி</annotation>
+		<annotation cp="⇛">வலதுபுறம் நோக்கிய மூன்று சேர்ந்த அம்புக்குறி</annotation>
+		<annotation cp="⇛" type="tts">வலதுபுறம் நோக்கிய மூன்று சேர்ந்த அம்புக்குறி</annotation>
+		<annotation cp="⇜">இடதுபுறம் நோக்கிய நெளிந்த அம்புக்குறி</annotation>
+		<annotation cp="⇜" type="tts">இடதுபுறம் நோக்கிய நெளிந்த அம்புக்குறி</annotation>
+		<annotation cp="⇝">வலதுபுறம் நோக்கிய நெளிந்த அம்புக்குறி</annotation>
+		<annotation cp="⇝" type="tts">வலதுபுறம் நோக்கிய நெளிந்த அம்புக்குறி</annotation>
+		<annotation cp="⇞">மேல் நோக்கிய அம்புக்குறியில் இரு குறுக்குக்கோடு</annotation>
+		<annotation cp="⇞" type="tts">மேல் நோக்கிய அம்புக்குறியில் இரு குறுக்குக்கோடு</annotation>
+		<annotation cp="⇟">கீழ் நோக்கிய அம்புக்குறியில் இரு குறுக்குக்கோடு</annotation>
+		<annotation cp="⇟" type="tts">கீழ் நோக்கிய அம்புக்குறியில் இரு குறுக்குக்கோடு</annotation>
+		<annotation cp="⇠">தொடர்ச்சியற்ற இடதுபுற அம்புக்குறி</annotation>
+		<annotation cp="⇠" type="tts">தொடர்ச்சியற்ற இடதுபுற அம்புக்குறி</annotation>
+		<annotation cp="⇡">தொடர்ச்சியற்ற மேல் நோக்கிய அம்புக்குறி</annotation>
+		<annotation cp="⇡" type="tts">தொடர்ச்சியற்ற மேல் நோக்கிய அம்புக்குறி</annotation>
+		<annotation cp="⇢">தொடர்ச்சியற்ற வலதுபுற அம்புக்குறி</annotation>
+		<annotation cp="⇢" type="tts">தொடர்ச்சியற்ற வலதுபுற அம்புக்குறி</annotation>
+		<annotation cp="⇣">தொடர்ச்சியற்ற கீழ் நோக்கிய அம்புக்குறி</annotation>
+		<annotation cp="⇣" type="tts">தொடர்ச்சியற்ற கீழ் நோக்கிய அம்புக்குறி</annotation>
+		<annotation cp="⇤">இடதுபுற அடைப்பு அம்புக்குறி</annotation>
+		<annotation cp="⇤" type="tts">இடதுபுற அடைப்பு அம்புக்குறி</annotation>
+		<annotation cp="⇥">வலதுபுற அடைப்பு அம்புக்குறி</annotation>
+		<annotation cp="⇥" type="tts">வலதுபுற அடைப்பு அம்புக்குறி</annotation>
+		<annotation cp="⇦">இடதுபுற வெற்று அம்புக்குறி</annotation>
+		<annotation cp="⇦" type="tts">இடதுபுற வெற்று அம்புக்குறி</annotation>
+		<annotation cp="⇧">மேல் நோக்கிய வெற்று அம்புக்குறி</annotation>
+		<annotation cp="⇧" type="tts">மேல் நோக்கிய வெற்று அம்புக்குறி</annotation>
+		<annotation cp="⇨">வலதுபுற வெற்று அம்புக்குறி</annotation>
+		<annotation cp="⇨" type="tts">வலதுபுற வெற்று அம்புக்குறி</annotation>
+		<annotation cp="⇩">கீழ் நோக்கிய வெற்று அம்புக்குறி</annotation>
+		<annotation cp="⇩" type="tts">கீழ் நோக்கிய வெற்று அம்புக்குறி</annotation>
+		<annotation cp="⇪">பட்டியிலிருந்து மேல்நோக்கிய வெற்று அம்பு</annotation>
+		<annotation cp="⇪" type="tts">பட்டியிலிருந்து மேல்நோக்கிய வெற்று அம்பு</annotation>
+		<annotation cp="⇵">கீழ்நோக்கிய அம்புக்குறி இடதுபுறம் மேல்நோக்கிய அம்புக்குறி</annotation>
+		<annotation cp="⇵" type="tts">கீழ்நோக்கிய அம்புக்குறி இடதுபுறம் மேல்நோக்கிய அம்புக்குறி</annotation>
+		<annotation cp="∀">அனைத்திற்கும் | அனைத்தும் | உலகளாவிய | ஏதேனும் | கொடுக்கப்பட்ட</annotation>
+		<annotation cp="∀" type="tts">அனைத்திற்கும்</annotation>
+		<annotation cp="∂">பகுதியளவிலான வேறுபாடு | வேறுபாடு</annotation>
+		<annotation cp="∂" type="tts">பகுதியளவிலான வேறுபாடு</annotation>
+		<annotation cp="∃">இருத்தலியல்</annotation>
+		<annotation cp="∃" type="tts">இருத்தலியல்</annotation>
+		<annotation cp="∅">கணிதம் | செட் ஆப்பரேட்டர் | வெற்று கணம்</annotation>
+		<annotation cp="∅" type="tts">வெற்று கணம்</annotation>
 		<annotation cp="∆">அதிகரிப்பு | முக்கோணம்</annotation>
 		<annotation cp="∆" type="tts">அதிகரிப்பு</annotation>
 		<annotation cp="∇">நாப்லா | முக்கோணம்</annotation>
 		<annotation cp="∇" type="tts">நாப்லா</annotation>
 		<annotation cp="∈">இதன் உறுப்பு | உள்ளடக்கியது | உறுப்பு | உறுப்புரிமை | தொகுப்பு</annotation>
 		<annotation cp="∈" type="tts">இதன் உறுப்பு</annotation>
+		<annotation cp="∉">உறுப்பின்மை | உறுப்பு</annotation>
+		<annotation cp="∉" type="tts">உறுப்பின்மை</annotation>
+		<annotation cp="∋" draft="contributed">உறுப்பினராக இருத்தல்</annotation>
+		<annotation cp="∋" type="tts">உறுப்பினராக இருத்தல்</annotation>
+		<annotation cp="∎">இறுதி ஆதாரம் | கல்லறை | ஹால்மோஸ்</annotation>
+		<annotation cp="∎" type="tts">இறுதி ஆதாரம்</annotation>
+		<annotation cp="∏">தயாரிப்பு | தர்க்கம் | பல்லுறுப்பு குறுக்குவெட்டு தயாரிப்பு</annotation>
+		<annotation cp="∏" type="tts">பல்லுறுப்பு குறுக்குவெட்டு தயாரிப்பு</annotation>
+		<annotation cp="∑">கணிதம் | சுருக்கம் | பல்லுறுப்பு சுருக்கம்</annotation>
+		<annotation cp="∑" type="tts">பல்லுறுப்பு சுருக்கம்</annotation>
+		<annotation cp="+">கூட்டல் | கூட்டல் குறி | சேர்</annotation>
+		<annotation cp="+" type="tts">கூட்டல் குறி</annotation>
+		<annotation cp="±">கூட்டல் கழித்தல் | கூட்டல் குறிக்கு கீழ் கழித்தல் குறி</annotation>
+		<annotation cp="±" type="tts">கூட்டல் கழித்தல்</annotation>
 		<annotation cp="÷">ஓபலஸ் | வகு | வகுத்தல் | வகுத்தல் குறி</annotation>
 		<annotation cp="÷" type="tts">வகுத்தல் குறி</annotation>
 		<annotation cp="×">பெருக்கல் | பெருக்கல் குறி | பெருக்கல் குறியீடு | பெருக்கு | மடங்குகள்</annotation>
 		<annotation cp="×" type="tts">பெருக்கல் குறியீடு</annotation>
+		<annotation cp="&lt;">இதைவிடக் குறைவாக | குறிச்சொல் | திறந்த குறிச்சொல்</annotation>
+		<annotation cp="&lt;" type="tts">இதைவிடக் குறைவாக</annotation>
+		<annotation cp="≮">கணிதம் | குறைவாக இல்லை | சமமின்மை</annotation>
+		<annotation cp="≮" type="tts">குறைவாக இல்லை</annotation>
+		<annotation cp="=">சமம் | சமன்</annotation>
+		<annotation cp="=" type="tts">சமம்</annotation>
+		<annotation cp="≠">சமமின்மை | சமம் அல்ல | சமனின்மை</annotation>
+		<annotation cp="≠" type="tts">சமம் அல்ல</annotation>
+		<annotation cp="&gt;">இதைவிட அதிகமாக | குறிச்சொல் | மூடிய குறிச்சொல்</annotation>
+		<annotation cp="&gt;" type="tts">இதைவிட அதிகமாக</annotation>
+		<annotation cp="≯">அதிகமாக இல்லை | கணிதம் | சமமின்மை</annotation>
+		<annotation cp="≯" type="tts">அதிகமாக இல்லை</annotation>
+		<annotation cp="¬">இல்லை | மறுப்பு</annotation>
+		<annotation cp="¬" type="tts">மறுப்பு</annotation>
+		<annotation cp="|">கீரல் | கோடு | செங்குத்து பார் | செங்குத்துக் கோடு | பார் | பைப் | ஸ்டைக்</annotation>
+		<annotation cp="|" type="tts">செங்குத்துக் கோடு</annotation>
+		<annotation cp="~">அலைக்குறி | டில்டு</annotation>
+		<annotation cp="~" type="tts">அலைக்குறி</annotation>
+		<annotation cp="−">கழித்தல் | கழித்தல் குறி | கழித்தல் குறியீடு</annotation>
+		<annotation cp="−" type="tts">கழித்தல் குறியீடு</annotation>
 		<annotation cp="⁻">கழித்தல் | மேல் ஒட்டு | மேல் ஒட்டு கழித்தல் குறி</annotation>
 		<annotation cp="⁻" type="tts">மேல் ஒட்டு கழித்தல் குறி</annotation>
+		<annotation cp="∓">கழித்தல்-அல்லது-கூட்டல் | கூட்டல்-கழித்தல்</annotation>
+		<annotation cp="∓" type="tts">கழித்தல்-அல்லது-கூட்டல்</annotation>
+		<annotation cp="∕">கோடு | சாய்வுக்கோடு | வகுத்தல் சாய்வுக்கோடு</annotation>
+		<annotation cp="∕" type="tts">வகுத்தல் சாய்வுக்கோடு</annotation>
+		<annotation cp="⁄">கோடு | பின்னச் சாய்வுக்கோடு | ஸ்ட்ரோக்</annotation>
+		<annotation cp="⁄" type="tts">பின்னச் சாய்வுக்கோடு</annotation>
+		<annotation cp="∗">உடுக்குறி ஆப்பரேட்டர் | நட்சத்திரம்</annotation>
+		<annotation cp="∗" type="tts">உடுக்குறி ஆப்பரேட்டர்</annotation>
+		<annotation cp="∘">ஆப்பரேட்டர் | சேர்மம் | வளையச் செயல்</annotation>
+		<annotation cp="∘" type="tts">வளையச் செயல்</annotation>
+		<annotation cp="∙">ஆப்பரேட்டர் | புல்லட் ஆப்பரேட்டர்</annotation>
+		<annotation cp="∙" type="tts">புல்லட் ஆப்பரேட்டர்</annotation>
 		<annotation cp="√">அடிமானம் | இரண்டாம் படி மூலம் | படி | வர்க்க மூலம் | வர்க்கம் | விகிதமுறா மூலம்</annotation>
 		<annotation cp="√" type="tts">வர்க்க மூலம்</annotation>
+		<annotation cp="∝">விகிதசமம் | விகிதாசாரத்தன்மை</annotation>
+		<annotation cp="∝" type="tts">விகிதசமம்</annotation>
 		<annotation cp="∞">முடிவிலி | முடிவிலிக் குறி</annotation>
 		<annotation cp="∞" type="tts">முடிவிலிக் குறி</annotation>
+		<annotation cp="∟">கணிதம் | வலது கோணம்</annotation>
+		<annotation cp="∟" type="tts">வலது கோணம்</annotation>
+		<annotation cp="∠" draft="contributed">கோணம்</annotation>
+		<annotation cp="∠" type="tts">கோணம்</annotation>
+		<annotation cp="∣" draft="contributed">வகுத்தல்</annotation>
+		<annotation cp="∣" type="tts">வகுத்தல்</annotation>
+		<annotation cp="∥">இணை</annotation>
+		<annotation cp="∥" type="tts">இணை</annotation>
+		<annotation cp="∧">ஆப்பு | ஏசி | தர்க்கம் மற்றும்</annotation>
+		<annotation cp="∧" type="tts">தர்க்கம் மற்றும்</annotation>
 		<annotation cp="∩">குறுக்குவெட்டு | தொகுப்பு</annotation>
 		<annotation cp="∩" type="tts">குறுக்குவெட்டு</annotation>
 		<annotation cp="∪">இணைப்பு | சேகரிப்பு | தொகுப்பு</annotation>
 		<annotation cp="∪" type="tts">இணைப்பு</annotation>
+		<annotation cp="∫">கால்குலஸ் | தொகையம்</annotation>
+		<annotation cp="∫" type="tts">தொகையம்</annotation>
+		<annotation cp="∬">இரட்டைத் தொகையம் | கால்குலஸ்</annotation>
+		<annotation cp="∬" type="tts">இரட்டைத் தொகையம்</annotation>
+		<annotation cp="∮">எதிர் தொகையம்</annotation>
+		<annotation cp="∮" type="tts">எதிர் தொகையம்</annotation>
+		<annotation cp="∴" draft="contributed">ஆகையால்</annotation>
+		<annotation cp="∴" type="tts">ஆகையால்</annotation>
+		<annotation cp="∵" draft="contributed">ஏனெனில்</annotation>
+		<annotation cp="∵" type="tts">ஏனெனில்</annotation>
+		<annotation cp="∶">விகிதம்</annotation>
+		<annotation cp="∶" type="tts">விகிதம்</annotation>
+		<annotation cp="∷">விகிதப் பொருத்தம் | விகிதாசாரத்தன்மை</annotation>
+		<annotation cp="∷" type="tts">விகிதப் பொருத்தம்</annotation>
+		<annotation cp="∼">ஆப்பரேட்டர் | டில்டே ஆப்பரேட்டர்</annotation>
+		<annotation cp="∼" type="tts">டில்டே ஆப்பரேட்டர்</annotation>
+		<annotation cp="∽">எதிர் அலைக்குறி | டில்டே</annotation>
+		<annotation cp="∽" type="tts">எதிர் அலைக்குறி</annotation>
+		<annotation cp="∾">தலைகீழான லேஸி எஸ்</annotation>
+		<annotation cp="∾" type="tts">தலைகீழான லேஸி எஸ்</annotation>
+		<annotation cp="≃">அறிகுறியற்ற சமம் | அறிகுறியற்றது | கணிதம்</annotation>
+		<annotation cp="≃" type="tts">அறிகுறியற்ற சமம்</annotation>
+		<annotation cp="≅">ஏறக்குறைய சமம் | கணிதம் | சமம் | சமவடிவுடைமை | சர்வ சமம்</annotation>
+		<annotation cp="≅" type="tts">ஏறக்குறைய சமம்</annotation>
+		<annotation cp="≈">கிட்டத்தட்ட சமம் | தோராயமாக்கல் | தோராயமான</annotation>
+		<annotation cp="≈" type="tts">கிட்டத்தட்ட சமம்</annotation>
+		<annotation cp="≌">அனைத்தும் சமம் | அனைவரும் சமம் | கணிதம் | சமம்</annotation>
+		<annotation cp="≌" type="tts">அனைத்தும் சமம்</annotation>
+		<annotation cp="≒">தோராயமாகப் படத்திற்குச் சமம்</annotation>
+		<annotation cp="≒" type="tts">தோராயமாகப் படத்திற்குச் சமம்</annotation>
+		<annotation cp="≖">கணிதம் | சமம் | சமான வளையம்</annotation>
+		<annotation cp="≖" type="tts">சமான வளையம்</annotation>
 		<annotation cp="≡">இதற்கு ஒத்தது | ஒரே மாதிரியான | பொருத்தமான | மூன்று மடங்கு</annotation>
 		<annotation cp="≡" type="tts">இதற்கு ஒத்தது</annotation>
+		<annotation cp="≣">உறுதியான சமானம் | கணிதம் | சமம்</annotation>
+		<annotation cp="≣" type="tts">உறுதியான சமானம்</annotation>
+		<annotation cp="≤">இதைவிடக் குறைவாக | இதைவிடக் குறைவாக அல்லது சமம் | சமம் | சமனின்மை | சமன்</annotation>
+		<annotation cp="≤" type="tts">இதைவிடக் குறைவாக அல்லது சமம்</annotation>
+		<annotation cp="≥">இதைவிட அதிகமாக | இதைவிட அதிகமாக அல்லது சமம் | சமம் | சமனின்மை | சமன்</annotation>
+		<annotation cp="≥" type="tts">இதைவிட அதிகமாக அல்லது சமம்</annotation>
+		<annotation cp="≦">கணிதம் | சமமானதை விடக் குறைவாக | சமமின்மை</annotation>
+		<annotation cp="≦" type="tts">சமமானதை விடக் குறைவாக</annotation>
+		<annotation cp="≧">கணிதம் | சமமானதை விட அதிகமாக | சமமின்மை</annotation>
+		<annotation cp="≧" type="tts">சமமானதை விட அதிகமாக</annotation>
+		<annotation cp="≪">கணிதம் | சமமின்மை | மிகவும் குறைவாக</annotation>
+		<annotation cp="≪" type="tts">மிகவும் குறைவாக</annotation>
+		<annotation cp="≫">கணிதம் | சமமின்மை | மிகவும் அதிகமாக</annotation>
+		<annotation cp="≫" type="tts">மிகவும் அதிகமாக</annotation>
+		<annotation cp="≬">இடைப்பட்ட</annotation>
+		<annotation cp="≬" type="tts">இடைப்பட்ட</annotation>
+		<annotation cp="≳">கணிதம் | சமமின்மை | சமானத்தை விட அதிகம்</annotation>
+		<annotation cp="≳" type="tts">சமானத்தை விட அதிகம்</annotation>
+		<annotation cp="≺">கணிதம் | செட் ஆப்பரேட்டர் | முந்தையது</annotation>
+		<annotation cp="≺" type="tts">முந்தையது</annotation>
+		<annotation cp="≻">கணிதம் | செட் ஆப்பரேட்டர் | வெற்றி பெறுதல்</annotation>
+		<annotation cp="≻" type="tts">வெற்றி பெறுதல்</annotation>
+		<annotation cp="⊁">கணிதம் | செட் ஆப்பரேட்டர் | வெற்றி பெறாமை</annotation>
+		<annotation cp="⊁" type="tts">வெற்றி பெறாமை</annotation>
 		<annotation cp="⊂">இதன் துணைக்குழு | துணைக்குழு | தொகுப்பு</annotation>
 		<annotation cp="⊂" type="tts">இதன் துணைக்குழு</annotation>
+		<annotation cp="⊃">கணிதம் | சூப்பர்செட் | செட் ஆப்பரேட்டர்</annotation>
+		<annotation cp="⊃" type="tts">சூப்பர்செட்</annotation>
+		<annotation cp="⊆">துணைக்குழு சமன்</annotation>
+		<annotation cp="⊆" type="tts">துணைக்குழு சமன்</annotation>
+		<annotation cp="⊇">கணிதம் | சமம் | சூப்பர்செட் சமன்</annotation>
+		<annotation cp="⊇" type="tts">சூப்பர்செட் சமன்</annotation>
+		<annotation cp="⊕">கூட்டல்குறி | வட்டமிட்ட கூட்டல்குறி</annotation>
+		<annotation cp="⊕" type="tts">வட்டமிட்ட கூட்டல்குறி</annotation>
+		<annotation cp="⊖">அரிமானம் | சமச்சீர் வேறுபாடு | வட்டமிட்ட கழித்தல்</annotation>
+		<annotation cp="⊖" type="tts">வட்டமிட்ட கழித்தல்</annotation>
+		<annotation cp="⊗">டென்சர் | தயாரிப்பு | வட்டத்தைப் பிரிக்கும் பெருக்கல் குறி</annotation>
+		<annotation cp="⊗" type="tts">வட்டத்தைப் பிரிக்கும் பெருக்கல் குறி</annotation>
+		<annotation cp="⊘">கணிதம் | பிரிப்பது போன்றது | வட்டத்தைப் பிரிக்கும் சாய்வுக்கோடு</annotation>
+		<annotation cp="⊘" type="tts">வட்டத்தைப் பிரிக்கும் சாய்வுக்கோடு</annotation>
+		<annotation cp="⊙">ஆப்பரேட்டர் | வட்டத்தின் நடுவில் இருக்கும் புள்ளி</annotation>
+		<annotation cp="⊙" type="tts">வட்டத்தின் நடுவில் இருக்கும் புள்ளி</annotation>
+		<annotation cp="⊚">வளைய புள்ளி ஆப்பரேட்டர்</annotation>
+		<annotation cp="⊚" type="tts">வளைய புள்ளி ஆப்பரேட்டர்</annotation>
+		<annotation cp="⊛">ஆப்பரேட்டர் | நட்சத்திரம் | வட்டமிட்ட நட்சத்திரக் குறியீடு</annotation>
+		<annotation cp="⊛" type="tts">வட்டமிட்ட நட்சத்திரக் குறியீடு</annotation>
+		<annotation cp="⊞">கணிதம் | கூட்டல் போன்றது | சதுரத்தினுள் அடைபட்ட கூட்டல் குறி</annotation>
+		<annotation cp="⊞" type="tts">சதுரத்தினுள் அடைபட்ட கூட்டல் குறி</annotation>
+		<annotation cp="⊟">கணிதம் | கழித்தல் போன்றது | சதுரத்தினுள் அடைபட்ட கழித்தல் குறி</annotation>
+		<annotation cp="⊟" type="tts">சதுரத்தினுள் அடைபட்ட கழித்தல் குறி</annotation>
+		<annotation cp="⊥" draft="contributed">மேல்நோக்கிய கோடு</annotation>
+		<annotation cp="⊥" type="tts">மேல்நோக்கிய கோடு</annotation>
+		<annotation cp="⊮">கட்டாயப்படுத்தாது</annotation>
+		<annotation cp="⊮" type="tts">கட்டாயப்படுத்தாது</annotation>
+		<annotation cp="⊰">உறவின் கீழ் முன்னிறுத்தல் | கணிதம் | செட் ஆப்பரேட்டர்</annotation>
+		<annotation cp="⊰" type="tts">உறவின் கீழ் முன்னிறுத்தல்</annotation>
+		<annotation cp="⊱">உறவின் கீழ் வெற்றிபெறுதல் | கணிதம் | செட் ஆப்பரேட்டர்</annotation>
+		<annotation cp="⊱" type="tts">உறவின் கீழ் வெற்றிபெறுதல்</annotation>
+		<annotation cp="⋭">கணிதம் | குழு கோட்பாடு | சாதாரணத் துணைக்குழுச் சமமின்மை</annotation>
+		<annotation cp="⋭" type="tts">சாதாரணத் துணைக்குழுச் சமமின்மை</annotation>
+		<annotation cp="⊶">அசல்</annotation>
+		<annotation cp="⊶" type="tts">அசல்</annotation>
+		<annotation cp="⊹">கணிதம் | சதுர அணி | சுய-இணைந்த அணி | ஹெர்மிஷியன் கான்ஜுகேட் மேட்ரிக்ஸ் | ஹெர்மைட் இணை அணி</annotation>
+		<annotation cp="⊹" type="tts" draft="contributed">ஹெர்மைட் இணை அணி</annotation>
+		<annotation cp="⊿">கணிதம் | வலது முக்கோணம் | வலதுபுற முக்கோணம்</annotation>
+		<annotation cp="⊿" type="tts">வலதுபுற முக்கோணம்</annotation>
+		<annotation cp="⋁">உறுப்புத் தர்க்கம் அல்லது | தர்க்கம் | பிரித்தல்</annotation>
+		<annotation cp="⋁" type="tts">உறுப்புத் தர்க்கம் அல்லது</annotation>
+		<annotation cp="⋂">கணிதம் | குறுக்குவெட்டு | செட் ஆப்பரேட்டர் | பல்லுறுப்பு குறுக்குவெட்டு</annotation>
+		<annotation cp="⋂" type="tts">பல்லுறுப்பு குறுக்குவெட்டு</annotation>
+		<annotation cp="⋃">கணிதம் | செட் ஆப்பரேட்டர் | சேர்ப்பு | பல்லுருப்புச் சேர்ப்பு</annotation>
+		<annotation cp="⋃" type="tts">பல்லுருப்புச் சேர்ப்பு</annotation>
+		<annotation cp="⋅">ஆப்பரேட்டர் | புள்ளிச் செயற்குறி</annotation>
+		<annotation cp="⋅" type="tts">புள்ளிச் செயற்குறி</annotation>
+		<annotation cp="⋆">ஆப்பரேட்டர் | நட்சத்திரப் புள்ளி</annotation>
+		<annotation cp="⋆" type="tts">நட்சத்திரப் புள்ளி</annotation>
+		<annotation cp="⋈">இயல்பான சேர்ப்பி | பைனரி ஆப்பரேட்டர்</annotation>
+		<annotation cp="⋈" type="tts">இயல்பான சேர்ப்பி</annotation>
+		<annotation cp="⋒">இரட்டை குறுக்குவெட்டு | கணிதம் | குறுக்குவெட்டு | செட் ஆப்பரேட்டர்</annotation>
+		<annotation cp="⋒" type="tts">இரட்டை குறுக்குவெட்டு</annotation>
+		<annotation cp="⋘">கணிதம் | சமமின்மை | மிகுந்த குறைவாக</annotation>
+		<annotation cp="⋘" type="tts">மிகுந்த குறைவாக</annotation>
+		<annotation cp="⋙">கணிதம் | சமமின்மை | மிகுந்த அதிகமாக</annotation>
+		<annotation cp="⋙" type="tts">மிகுந்த அதிகமாக</annotation>
+		<annotation cp="⋮">கணிதம் | செங்குத்து நீள்வட்டங்கள் | நீள்வட்டம்</annotation>
+		<annotation cp="⋮" type="tts">செங்குத்து நீள்வட்டங்கள்</annotation>
+		<annotation cp="⋯">நீள்வட்டம் | மிட்லைன் கிடைமட்ட நீள்வட்டம்</annotation>
+		<annotation cp="⋯" type="tts">மிட்லைன் கிடைமட்ட நீள்வட்டம்</annotation>
+		<annotation cp="⋰">கணிதம் | நீள்வட்டம் | மேல் வலது மூலைவிட்ட நீள்வட்டம்</annotation>
+		<annotation cp="⋰" type="tts">மேல் வலது மூலைவிட்ட நீள்வட்டம்</annotation>
+		<annotation cp="⋱">கணிதம் | கீழ் வலது மூலைவிட்ட நீள்வட்டம் | நீள்வட்டம்</annotation>
+		<annotation cp="⋱" type="tts">கீழ் வலது மூலைவிட்ட நீள்வட்டம்</annotation>
+		<annotation cp="■">நிரப்பப்பட்ட சதுரம்</annotation>
+		<annotation cp="■" type="tts">நிரப்பப்பட்ட சதுரம்</annotation>
+		<annotation cp="□">வெற்றுச் சதுரம்</annotation>
+		<annotation cp="□" type="tts">வெற்றுச் சதுரம்</annotation>
+		<annotation cp="▢" draft="contributed">வளைந்த மூலைகளுடன் கூடிய வெற்று சதுரம்</annotation>
+		<annotation cp="▢" type="tts">வளைந்த மூலைகளுடன் கூடிய வெற்று சதுரம்</annotation>
+		<annotation cp="▣">நிரப்பப்பட்ட சதுரத்தைக் கொண்ட வெற்று சதுரம்</annotation>
+		<annotation cp="▣" type="tts">நிரப்பப்பட்ட சதுரத்தைக் கொண்ட வெற்று சதுரம்</annotation>
+		<annotation cp="▤">கிடைமட்ட நிரப்புதலுடன் கூடிய சதுரம்</annotation>
+		<annotation cp="▤" type="tts">கிடைமட்ட நிரப்புதலுடன் கூடிய சதுரம்</annotation>
+		<annotation cp="▥">செங்குத்துக் கோடு நிரப்புதலுடன் கூடிய சதுரம்</annotation>
+		<annotation cp="▥" type="tts">செங்குத்துக் கோடு நிரப்புதலுடன் கூடிய சதுரம்</annotation>
+		<annotation cp="▦">சதுர ஆர்த்தோகனல் கிராஸ்ஹாட்ச் நிரப்பு</annotation>
+		<annotation cp="▦" type="tts">சதுர ஆர்த்தோகனல் கிராஸ்ஹாட்ச் நிரப்பு</annotation>
+		<annotation cp="▧">சதுர மேல் இடது கீழ்பகுதி வலதுபுற நிரப்பு</annotation>
+		<annotation cp="▧" type="tts">சதுர மேல் இடது கீழ்பகுதி வலதுபுற நிரப்பு</annotation>
+		<annotation cp="▨">சதுர மேல் வலது கீழ்பகுதி இடதுபுற நிரப்பு</annotation>
+		<annotation cp="▨" type="tts">சதுர மேல் வலது கீழ்பகுதி இடதுபுற நிரப்பு</annotation>
+		<annotation cp="▩">சதுர மூலைவிட்ட குறுக்குவழி நிரப்பு</annotation>
+		<annotation cp="▩" type="tts">சதுர மூலைவிட்ட குறுக்குவழி நிரப்பு</annotation>
+		<annotation cp="▬">நிரப்பப்பட்ட செவ்வகம்</annotation>
+		<annotation cp="▬" type="tts">நிரப்பப்பட்ட செவ்வகம்</annotation>
+		<annotation cp="▭">வெற்று செவ்வகம்</annotation>
+		<annotation cp="▭" type="tts">வெற்று செவ்வகம்</annotation>
+		<annotation cp="▮">நிரப்பப்பட்ட செங்குத்து செவ்வகம்</annotation>
+		<annotation cp="▮" type="tts">நிரப்பப்பட்ட செங்குத்து செவ்வகம்</annotation>
+		<annotation cp="▰">நிரப்பட்ட இணைகரம்</annotation>
+		<annotation cp="▰" type="tts">நிரப்பட்ட இணைகரம்</annotation>
 		<annotation cp="▲">அம்புக்குறி | நிரப்பட்ட மேல்நோக்கிய முக்கோண வடிவம் | நிரப்பப்பட்டது | நிரப்பிய மேல்நோக்கிய முக்கோணம் | முக்கோணம் | மேல்நோக்கியது</annotation>
 		<annotation cp="▲" type="tts">நிரப்பட்ட மேல்நோக்கிய முக்கோண வடிவம்</annotation>
+		<annotation cp="△" draft="contributed">வெற்று மேல் சுட்டிக்காட்டி முக்கோணம்</annotation>
+		<annotation cp="△" type="tts">வெற்று மேல் சுட்டிக்காட்டி முக்கோணம்</annotation>
+		<annotation cp="▴">நிரப்பப்பட்ட மேல்நோக்கிய சிறிய முக்கோணம்</annotation>
+		<annotation cp="▴" type="tts">நிரப்பப்பட்ட மேல்நோக்கிய சிறிய முக்கோணம்</annotation>
+		<annotation cp="▵" draft="contributed">வெற்று மேல்நோக்கிய சுட்டிக்காட்டும் சிறிய முக்கோணம்</annotation>
+		<annotation cp="▵" type="tts">வெற்று மேல்நோக்கிய சுட்டிக்காட்டும் சிறிய முக்கோணம்</annotation>
+		<annotation cp="▷">வெற்று வலதுபுற-சுட்டிக்காட்டும் முக்கோணம்</annotation>
+		<annotation cp="▷" type="tts">வெற்று வலதுபுற-சுட்டிக்காட்டும் முக்கோணம்</annotation>
+		<annotation cp="▸">வலதுபுறம்-சுட்டிக்காட்டும் நிரப்பப்பட்ட சிறிய முக்கோணம்</annotation>
+		<annotation cp="▸" type="tts">வலதுபுறம்-சுட்டிக்காட்டும் நிரப்பப்பட்ட சிறிய முக்கோணம்</annotation>
+		<annotation cp="▹">வலதுபுறம்-சுட்டிக்காட்டும் வெற்று சிறிய முக்கோணம்</annotation>
+		<annotation cp="▹" type="tts">வலதுபுறம்-சுட்டிக்காட்டும் வெற்று சிறிய முக்கோணம்</annotation>
+		<annotation cp="►">வலதுபுறம் நோக்கிய-நிரப்பப்பட்ட சுட்டிக்காட்டி</annotation>
+		<annotation cp="►" type="tts">வலதுபுறம் நோக்கிய-நிரப்பப்பட்ட சுட்டிக்காட்டி</annotation>
+		<annotation cp="▻">வெற்று வலதுபுற சுட்டிக்காட்டி</annotation>
+		<annotation cp="▻" type="tts">வெற்று வலதுபுற சுட்டிக்காட்டி</annotation>
 		<annotation cp="▼">அம்புக்குறி | கீழ்நோக்கியது | நிரப்பட்ட கீழ்நோக்கிய முக்கோண வடிவம் | நிரப்பப்பட்டது | நிரப்பிய கீழ்நோக்கிய முக்கோணம் | முக்கோணம்</annotation>
 		<annotation cp="▼" type="tts">நிரப்பட்ட கீழ்நோக்கிய முக்கோண வடிவம்</annotation>
+		<annotation cp="▽">கீழ்நோக்கி சுட்டிக்காட்டும் வெற்று முக்கோணம்</annotation>
+		<annotation cp="▽" type="tts">கீழ்நோக்கி சுட்டிக்காட்டும் வெற்று முக்கோணம்</annotation>
+		<annotation cp="▾">கீழ்நோக்கி சுட்டிக்காட்டும் நிரப்பப்பட்ட சிறிய முக்கோணம்</annotation>
+		<annotation cp="▾" type="tts">கீழ்நோக்கி சுட்டிக்காட்டும் நிரப்பப்பட்ட சிறிய முக்கோணம்</annotation>
+		<annotation cp="▿">கீழே சுட்டிக்காட்டும் சிறிய வெற்று முக்கோணம்</annotation>
+		<annotation cp="▿" type="tts">கீழே சுட்டிக்காட்டும் சிறிய வெற்று முக்கோணம்</annotation>
+		<annotation cp="◁">இடதுபுறம் சுட்டிக்காட்டும் வெற்று முக்கோணம்</annotation>
+		<annotation cp="◁" type="tts">இடதுபுறம் சுட்டிக்காட்டும் வெற்று முக்கோணம்</annotation>
+		<annotation cp="◂">இடதுபுறம் சுட்டிக்காட்டி சிறிய நிரப்பப்பட்ட முக்கோணம்</annotation>
+		<annotation cp="◂" type="tts">இடதுபுறம் சுட்டிக்காட்டி சிறிய நிரப்பப்பட்ட முக்கோணம்</annotation>
+		<annotation cp="◃">இடதுபுறத்தில் சுட்டிக்காட்டும் வெற்று சிறிய முக்கோணம்</annotation>
+		<annotation cp="◃" type="tts">இடதுபுறத்தில் சுட்டிக்காட்டும் வெற்று சிறிய முக்கோணம்</annotation>
+		<annotation cp="◄">இடதுபுறத்தில் நிரப்பப்பட்ட சுட்டிக்காட்டி</annotation>
+		<annotation cp="◄" type="tts">இடதுபுறத்தில் நிரப்பப்பட்ட சுட்டிக்காட்டி</annotation>
+		<annotation cp="◅" draft="contributed">இடதுபுறத்தில் வெற்று சுட்டிக்காட்டி</annotation>
+		<annotation cp="◅" type="tts">இடதுபுறத்தில் வெற்று சுட்டிக்காட்டி</annotation>
+		<annotation cp="◆">நிரப்பப்பட்ட வைர வடிவம்</annotation>
+		<annotation cp="◆" type="tts">நிரப்பப்பட்ட வைர வடிவம்</annotation>
+		<annotation cp="◇">வெற்று வைர வடிவம்</annotation>
+		<annotation cp="◇" type="tts">வெற்று வைர வடிவம்</annotation>
+		<annotation cp="◈">நிரப்பப்பட்ட வைரத்தைக் கொண்ட வெற்று வைரம்</annotation>
+		<annotation cp="◈" type="tts">நிரப்பப்பட்ட வைரத்தைக் கொண்ட வெற்று வைரம்</annotation>
+		<annotation cp="◉">நிரப்பப்பட்ட செறிவான வட்டங்கள் | நிரப்பப்பட்ட வட்டத்தைக் கொண்ட வெற்று வட்டம் | மீன்கண் | வட்டமிடப்பட்ட புள்ளி</annotation>
+		<annotation cp="◉" type="tts">நிரப்பப்பட்ட வட்டத்தைக் கொண்ட வெற்று வட்டம்</annotation>
 		<annotation cp="◊">செவ்வகம் | நாற்கரம் | வைரம்</annotation>
 		<annotation cp="◊" type="tts">செவ்வகம்</annotation>
 		<annotation cp="○">நிரப்பப்படாத வட்டம் | வட்டம் | வளையம்</annotation>
 		<annotation cp="○" type="tts">நிரப்பப்படாத வட்டம்</annotation>
+		<annotation cp="◌">புள்ளியிட்ட வட்டம்</annotation>
+		<annotation cp="◌" type="tts">புள்ளியிட்ட வட்டம்</annotation>
+		<annotation cp="◍" draft="contributed">செங்குத்து நிரப்புதலுடன் கூடிய வட்டம்</annotation>
+		<annotation cp="◍" type="tts">செங்குத்து நிரப்புதலுடன் கூடிய வட்டம்</annotation>
+		<annotation cp="◎" draft="contributed">செறிவுமிகுந்த வட்டங்கள்</annotation>
+		<annotation cp="◎" type="tts">செறிவுமிகுந்த வட்டங்கள்</annotation>
 		<annotation cp="●">நிரப்பப்பட்ட வட்டம் | வட்டம்</annotation>
 		<annotation cp="●" type="tts">நிரப்பப்பட்ட வட்டம்</annotation>
+		<annotation cp="◐">இடது பாதி நிரப்பப்பட்ட வட்டம்</annotation>
+		<annotation cp="◐" type="tts">இடது பாதி நிரப்பப்பட்ட வட்டம்</annotation>
+		<annotation cp="◑">வலது பாதி நிரப்பப்பட்ட வட்டம்</annotation>
+		<annotation cp="◑" type="tts">வலது பாதி நிரப்பப்பட்ட வட்டம்</annotation>
+		<annotation cp="◒">கீழ் பாதி நிரப்பப்பட்ட வட்டம்</annotation>
+		<annotation cp="◒" type="tts">கீழ் பாதி நிரப்பப்பட்ட வட்டம்</annotation>
+		<annotation cp="◓">மேல் பாதி நிரப்பப்பட்ட வட்டம்</annotation>
+		<annotation cp="◓" type="tts">மேல் பாதி நிரப்பப்பட்ட வட்டம்</annotation>
+		<annotation cp="◔">வட்டத்தின் நான்கில் ஒரு பங்கில் மேல் வலது மூலை நிரப்பப்படுதல்</annotation>
+		<annotation cp="◔" type="tts">வட்டத்தின் நான்கில் ஒரு பங்கில் மேல் வலது மூலை நிரப்பப்படுதல்</annotation>
+		<annotation cp="◕" draft="contributed">முழுவதும் நிரப்பப்பட்ட ஆனால் மேல் இடது மூலை நிரப்பாது இருத்தல்</annotation>
+		<annotation cp="◕" type="tts">முழுவதும் நிரப்பப்பட்ட ஆனால் மேல் இடது மூலை நிரப்பாது இருத்தல்</annotation>
+		<annotation cp="◖">இடது பாதி நிரப்பிய வட்டம்</annotation>
+		<annotation cp="◖" type="tts">இடது பாதி நிரப்பிய வட்டம்</annotation>
+		<annotation cp="◗" draft="contributed">வலது பாதி நிரப்பிய வட்டம்</annotation>
+		<annotation cp="◗" type="tts">வலது பாதி நிரப்பிய வட்டம்</annotation>
+		<annotation cp="◘">தலைகீழ் புல்லட்</annotation>
+		<annotation cp="◘" type="tts">தலைகீழ் புல்லட்</annotation>
+		<annotation cp="◙">தலைகீழ் வெற்று வட்டம் | வெற்று வட்டத்தைக் கொண்ட நிரப்பப்பட்ட சதுரம்</annotation>
+		<annotation cp="◙" type="tts">வெற்று வட்டத்தைக் கொண்ட நிரப்பப்பட்ட சதுரம்</annotation>
+		<annotation cp="◜">மேல் இடதுபக்க நாற்புறத்தின் ஒரு பகுதியைக் கொண்ட வட்ட வளைவு</annotation>
+		<annotation cp="◜" type="tts">மேல் இடதுபக்க நாற்புறத்தின் ஒரு பகுதியைக் கொண்ட வட்ட வளைவு</annotation>
+		<annotation cp="◝">மேல் வலதுபக்க நாற்புறத்தின் ஒரு பகுதியைக் கொண்ட வட்ட வளைவு</annotation>
+		<annotation cp="◝" type="tts">மேல் வலதுபக்க நாற்புறத்தின் ஒரு பகுதியைக் கொண்ட வட்ட வளைவு</annotation>
+		<annotation cp="◞">கீழ் வலதுபக்க நாற்புறத்தின் ஒரு பகுதியைக் கொண்ட வட்ட வளைவு</annotation>
+		<annotation cp="◞" type="tts">கீழ் வலதுபக்க நாற்புறத்தின் ஒரு பகுதியைக் கொண்ட வட்ட வளைவு</annotation>
+		<annotation cp="◟" draft="contributed">கீழ் இடதுபக்க நாற்புறத்தின் ஒரு பகுதியைக் கொண்ட வட்ட வளைவு</annotation>
+		<annotation cp="◟" type="tts">கீழ் இடதுபக்க நாற்புறத்தின் ஒரு பகுதியைக் கொண்ட வட்ட வளைவு</annotation>
+		<annotation cp="◠">மேல் அரை வட்டம்</annotation>
+		<annotation cp="◠" type="tts">மேல் அரை வட்டம்</annotation>
+		<annotation cp="◡" draft="contributed">கீழ் அரை வட்டம்</annotation>
+		<annotation cp="◡" type="tts">கீழ் அரை வட்டம்</annotation>
+		<annotation cp="◢">கீழ் வலதுபக்கத்தில் நிரப்பப்பட்ட முக்கோணம்</annotation>
+		<annotation cp="◢" type="tts">கீழ் வலதுபக்கத்தில் நிரப்பப்பட்ட முக்கோணம்</annotation>
+		<annotation cp="◣" draft="contributed">கீழ் இடதுபக்கத்தில் நிரப்பப்பட்ட முக்கோணம்</annotation>
+		<annotation cp="◣" type="tts">கீழ் இடதுபக்கத்தில் நிரப்பப்பட்ட முக்கோணம்</annotation>
+		<annotation cp="◤">மேல் இடதுபக்கத்தில் நிரப்பப்பட்ட முக்கோணம்</annotation>
+		<annotation cp="◤" type="tts">மேல் இடதுபக்கத்தில் நிரப்பப்பட்ட முக்கோணம்</annotation>
+		<annotation cp="◥">மேல் வலதுபக்கத்தில் நிரப்பப்பட்ட முக்கோணம்</annotation>
+		<annotation cp="◥" type="tts">மேல் வலதுபக்கத்தில் நிரப்பப்பட்ட முக்கோணம்</annotation>
+		<annotation cp="◦">வெற்று புல்லட்</annotation>
+		<annotation cp="◦" type="tts">வெற்று புல்லட்</annotation>
 		<annotation cp="◯">பெரிய நிரப்பப்படாத வட்டம் | வட்டம் | வளையம்</annotation>
 		<annotation cp="◯" type="tts">பெரிய நிரப்பப்படாத வட்டம்</annotation>
-		<annotation cp="⚧">திருநங்கை | திருநங்கைக்கான குறியீடு</annotation>
-		<annotation cp="⚧" type="tts">திருநங்கைக்கான குறியீடு</annotation>
-		<annotation cp="🤌">கிண்டலான | கிள்ளியது | கை சைகை | பிணைக்கப்பட்ட விரல்கள் | விரல்கள்</annotation>
-		<annotation cp="🤌" type="tts">பிணைக்கப்பட்ட விரல்கள்</annotation>
-		<annotation cp="🥲">ஆனந்த கண்ணீருடன் சிரிக்கும் முகம் | உள்ளம் கவர்ந்தது | கண்ணீர் | நன்றியுடன் | நிம்மதியடைந்த | புன்னகை | பெருமை</annotation>
-		<annotation cp="🥲" type="tts">ஆனந்த கண்ணீருடன் சிரிக்கும் முகம்</annotation>
-		<annotation cp="🥷">நிஞ்சா | போராளி | மறைமுகமானவன்</annotation>
-		<annotation cp="🥷" type="tts">நிஞ்சா</annotation>
-		<annotation cp="🥸">கண்ணாடிகள் | மாறுவேடம் | முகமூடி முகம் | முகம் | மூக்கு</annotation>
-		<annotation cp="🥸" type="tts">முகமூடி முகம்</annotation>
-		<annotation cp="🦣">அழிதல் | தந்தம் | பெரிய யானை | பெரியது</annotation>
-		<annotation cp="🦣" type="tts">பெரிய யானை</annotation>
-		<annotation cp="🦤">அழிவு | டோடோ | பெரிய | மொரிஷியஸ்</annotation>
-		<annotation cp="🦤" type="tts">டோடோ</annotation>
-		<annotation cp="🦫">அணை | பீவர்</annotation>
-		<annotation cp="🦫" type="tts">பீவர்</annotation>
-		<annotation cp="🦬">எருமை | காட்டெருமை | மந்தை</annotation>
-		<annotation cp="🦬" type="tts">காட்டெருமை</annotation>
-		<annotation cp="🦭" draft="contributed">கடல் சிங்கம் | கடல்நாய்</annotation>
-		<annotation cp="🦭" type="tts">கடல் சிங்கம்</annotation>
-		<annotation cp="🧋">குமிழி | குமிழித் தேநீர் | தேநீர் | பால் | முத்து</annotation>
-		<annotation cp="🧋" type="tts">குமிழித் தேநீர்</annotation>
-		<annotation cp="🩴">செருப்புகள் | சோரி | தாங் செருப்பு | தாங் செருப்புகள் | பீச் செருப்பு</annotation>
-		<annotation cp="🩴" type="tts">தாங் செருப்பு</annotation>
-		<annotation cp="🪃">ஆஸ்திரேலியா | திரும்பி வருதல் | பூமராங்க் | ரீபவுன்ட்</annotation>
-		<annotation cp="🪃" type="tts">பூமராங்க்</annotation>
-		<annotation cp="🪄">சூனியக்காரி | மந்திரக் கோல் | மந்திரம் | மந்திரவாதி</annotation>
-		<annotation cp="🪄" type="tts">மந்திரக் கோல்</annotation>
-		<annotation cp="🪅">கொண்டாட்டம் | பார்ட்டி | பினாட்டா</annotation>
-		<annotation cp="🪅" type="tts">பினாட்டா</annotation>
-		<annotation cp="🪆">அம்மா | அம்மா பொம்மைகள் | பொம்மை | ரஷியா</annotation>
-		<annotation cp="🪆" type="tts">அம்மா பொம்மைகள்</annotation>
-		<annotation cp="🪖">தலைக்கவசம் | போர் வீரர் | ராணுவ வீரர் | ராணுவத் தலைக்கவசம் | ராணுவம்</annotation>
-		<annotation cp="🪖" type="tts">ராணுவத் தலைக்கவசம்</annotation>
-		<annotation cp="🪗">அக்கார்டியன் | அழுத்தும் இசைப் பெட்டி | கான்செர்டினா</annotation>
-		<annotation cp="🪗" type="tts">அக்கார்டியன்</annotation>
-		<annotation cp="🪘">கோங்கா | தாளம் | நீண்ட மத்தளம் | மத்தளம் | ரிதம்</annotation>
-		<annotation cp="🪘" type="tts">நீண்ட மத்தளம்</annotation>
-		<annotation cp="🪙">உலோகம் | தங்கம் | நாணயம் | பணம் | புதையல் | வெள்ளி</annotation>
-		<annotation cp="🪙" type="tts">நாணயம்</annotation>
-		<annotation cp="🪚">கருவி | தச்சர் | ரம்பம் | லம்பர்</annotation>
-		<annotation cp="🪚" type="tts">ரம்பம்</annotation>
-		<annotation cp="🪛">கருவி | திருப்புளி</annotation>
-		<annotation cp="🪛" type="tts">திருப்புளி</annotation>
-		<annotation cp="🪜">ஏணி | ஏறுதல் | ஏனிப்படி | படி</annotation>
-		<annotation cp="🪜" type="tts">ஏணி</annotation>
-		<annotation cp="🪝">கொக்கி | பிடித்தல் | மாட்டி | வளைவு | விறபனை இடம்</annotation>
-		<annotation cp="🪝" type="tts">கொக்கி</annotation>
-		<annotation cp="🪞">கண்ணாடி | பிரதிபலிப்பான் | பிரதிபலிப்பு | மெருகேற்றப்பட்ட உலோகம்</annotation>
-		<annotation cp="🪞" type="tts">கண்ணாடி</annotation>
-		<annotation cp="🪟">ஒளிப்புகும் தன்மை | காட்சி | சட்டம் | திறப்பு | தூய்மையான காற்று | ஜன்னல்</annotation>
-		<annotation cp="🪟" type="tts">ஜன்னல்</annotation>
-		<annotation cp="🪠">உறிஞ்சுதல் | உறியும் கப் | கழிவறை | ப்ளங்கர் | ப்ளம்பர்</annotation>
-		<annotation cp="🪠" type="tts">ப்ளங்கர்</annotation>
-		<annotation cp="🪡">ஊசி | எம்பிராய்டரி | டெய்லரிங் | தைத்தல் | தையல்</annotation>
-		<annotation cp="🪡" type="tts">தையல் ஊசி</annotation>
-		<annotation cp="🪢">கட்டு | கயிறு | சிக்கல் | நூல் | முடிச்சு | முறுக்கு</annotation>
-		<annotation cp="🪢" type="tts">முடிச்சு</annotation>
-		<annotation cp="🪣">பக்கெட் | பீப்பாய் | வாளி</annotation>
-		<annotation cp="🪣" type="tts">வாளி</annotation>
-		<annotation cp="🪤">எலிப்பொறி | தூண்டில் | பொறி | வலை</annotation>
-		<annotation cp="🪤" type="tts">எலிப்பொறி</annotation>
-		<annotation cp="🪥">குளியலறை | சுகாதாரம் | சுத்தம் | டூத்பிரஷ் | டெண்ட்டல் | பற்கள் | பிரஷ்</annotation>
-		<annotation cp="🪥" type="tts">டூத்பிரஷ்</annotation>
-		<annotation cp="🪦">கல்லறை | கல்லறைக்கல் | சமாதி | மயானம்</annotation>
-		<annotation cp="🪦" type="tts">கல்லறை</annotation>
-		<annotation cp="🪧">ஆர்பாட்டம் | குறியீடு | பதாகை | போராட்டம் | மறியல்</annotation>
-		<annotation cp="🪧" type="tts">பதாகை</annotation>
-		<annotation cp="🪨">கல் | கனம் | திடம் | பாறாங்கல் | பாறை</annotation>
-		<annotation cp="🪨" type="tts">பாறை</annotation>
-		<annotation cp="🪰">அழுகுதல் | ஈ | நோய் | புழு | பூச்சி</annotation>
-		<annotation cp="🪰" type="tts">ஈ</annotation>
-		<annotation cp="🪱">ஒட்டுண்ணி | புழு | மண்புழு</annotation>
-		<annotation cp="🪱" type="tts">புழு</annotation>
-		<annotation cp="🪲">பூச்சி | வண்டு</annotation>
-		<annotation cp="🪲" type="tts">வண்டு</annotation>
-		<annotation cp="🪳">கரப்பான் பூச்சி | பூச்சி</annotation>
-		<annotation cp="🪳" type="tts">கரப்பான் பூச்சி</annotation>
-		<annotation cp="🪴">ஆலை | பயனற்றது | பூந்தொட்டியில் உள்ள தாவரம் | போரிங் | வளர் | வளர்க்கிறது | வீடு</annotation>
-		<annotation cp="🪴" type="tts">பூந்தொட்டியில் உள்ள தாவரம்</annotation>
-		<annotation cp="🪵">கட்டை | துண்டு கட்டை | மரக்கட்டை | மரத் துண்டு</annotation>
-		<annotation cp="🪵" type="tts">கட்டை</annotation>
-		<annotation cp="🪶">இறகு | தோகை | பறவை</annotation>
-		<annotation cp="🪶" type="tts">இறகு</annotation>
-		<annotation cp="🫀">இதய உறுப்பு | இதயத்துடிப்பு | இதயவியல் | உறுப்பு | துடிப்பு | மையம்</annotation>
-		<annotation cp="🫀" type="tts">இதய உறுப்பு</annotation>
-		<annotation cp="🫁">உள்ளிழுக்கும் | உறுப்பு | சுவாசம் | நுரையீரல் | மூச்சு | வெளியேற்றம்</annotation>
-		<annotation cp="🫁" type="tts">நுரையீரல்</annotation>
-		<annotation cp="🫂">கட்டிப்பிடி | கட்டிப்பிடித்தல் | குட்பை | நன்றி | வணக்கம்</annotation>
-		<annotation cp="🫂" type="tts">கட்டிப்பிடித்தல்</annotation>
-		<annotation cp="🫐">பில்பெர்ரி | பெர்ரி | ப்ளூ | ப்ளூபெர்ரி | ப்ளூபெர்ரிகள்</annotation>
-		<annotation cp="🫐" type="tts">ப்ளூபெர்ரிகள்</annotation>
-		<annotation cp="🫑">காய் | குடை மிளகாய் | பெல் பெப்பர் | மிளகாய்</annotation>
-		<annotation cp="🫑" type="tts">பெல் பெப்பர்</annotation>
-		<annotation cp="🫒">ஆலிவ் | உணவு</annotation>
-		<annotation cp="🫒" type="tts">ஆலிவ்</annotation>
-		<annotation cp="🫓">அரேபா | ஃபிளாட் பிரட் | நான் | பிடா | லாவாஷ்</annotation>
-		<annotation cp="🫓" type="tts">ஃபிளாட் பிரட்</annotation>
-		<annotation cp="🫔">சுற்றப்பட்டது | தமாலே | மெக்சிகன்</annotation>
-		<annotation cp="🫔" type="tts">தமாலே</annotation>
-		<annotation cp="🫕">உருகியது | ஃபாண்டூ | குவளை | சாக்கலேட் | சுவிஸ் | பாலாடைக்கட்டி</annotation>
-		<annotation cp="🫕" type="tts">ஃபாண்டூ</annotation>
-		<annotation cp="🫖">குவளை | தேநீர் | தேநீர்க் குவளை | பானம்</annotation>
-		<annotation cp="🫖" type="tts">தேநீர்க் குவளை</annotation>
-		<annotation cp="🛖">குடிசை | கூடாரம் | டெண்ட் | யர்ட் | ரவுண்ட்ஹவுஸ் | வீடு</annotation>
-		<annotation cp="🛖" type="tts">குடிசை</annotation>
-		<annotation cp="🛗">அணுகல்தன்மை | எலவேட்டர் | ஏற்றுதல் | மின்தூக்கி</annotation>
-		<annotation cp="🛗" type="tts">எலவேட்டர்</annotation>
-		<annotation cp="🛻">பிக்அப் | பிக்கப் | லாரி</annotation>
-		<annotation cp="🛻" type="tts">பிக்கப் லாரி</annotation>
-		<annotation cp="🛼">ரோலர் | ஸ்கேட்</annotation>
-		<annotation cp="🛼" type="tts">ரோலர் ஸ்கேட்</annotation>
+		<annotation cp="◳">மேல் வலதுபுறத்தில் நாற்புறத்தின் ஒரு பகுதியைக் கொண்ட வெற்று சதுரம்</annotation>
+		<annotation cp="◳" type="tts">மேல் வலதுபுறத்தில் நாற்புறத்தின் ஒரு பகுதியைக் கொண்ட வெற்று சதுரம்</annotation>
+		<annotation cp="◷">மேல் வலதுபுறத்தில் நாற்புறத்தின் ஒரு பகுதியைக் கொண்ட வெற்று வட்டம்</annotation>
+		<annotation cp="◷" type="tts">மேல் வலதுபுறத்தில் நாற்புறத்தின் ஒரு பகுதியைக் கொண்ட வெற்று வட்டம்</annotation>
+		<annotation cp="◿" draft="contributed">கீழ் வலதுபுற முக்கோணம்</annotation>
+		<annotation cp="◿" type="tts">கீழ் வலதுபுற முக்கோணம்</annotation>
+		<annotation cp="♪">இசை | இசைக்குறி | எட்டாம் இசைக்குறி | எட்டாவது</annotation>
+		<annotation cp="♪" type="tts">எட்டாம் இசைக்குறி</annotation>
+		<annotation cp="⨧">கூட்டல் சின்னத்தின் கீழ்பகுதியில் உள்ள இரண்டு</annotation>
+		<annotation cp="⨧" type="tts">கூட்டல் சின்னத்தின் கீழ்பகுதியில் உள்ள இரண்டு</annotation>
+		<annotation cp="⨯">வெக்டார் குறுக்கு கோடு</annotation>
+		<annotation cp="⨯" type="tts">வெக்டார் குறுக்கு கோடு</annotation>
+		<annotation cp="⨼">உட்பக்க கோடு</annotation>
+		<annotation cp="⨼" type="tts">உட்பக்க கோடு</annotation>
+		<annotation cp="⩣">தருக்கம் அல்லது இரட்டை கீழ்பட்டி</annotation>
+		<annotation cp="⩣" type="tts">தருக்கம் அல்லது இரட்டை கீழ்பட்டி</annotation>
+		<annotation cp="⩽">குறைவைக் குறிப்பிடும் சாய்வான சமக் குறியீடு</annotation>
+		<annotation cp="⩽" type="tts">குறைவைக் குறிப்பிடும் சாய்வான சமக் குறியீடு</annotation>
+		<annotation cp="⪍">ஒத்த சாமனத்திற்கு மேலே குறைவைக் குறிப்பிடும் குறியீடு</annotation>
+		<annotation cp="⪍" type="tts">ஒத்த சாமனத்திற்கு மேலே குறைவைக் குறிப்பிடும் குறியீடு</annotation>
+		<annotation cp="⪚">இரட்டை கோடு சமம் பெரியது | கணிதம் | சமமின்மை</annotation>
+		<annotation cp="⪚" type="tts">இரட்டை கோடு சமம் பெரியது</annotation>
+		<annotation cp="⪺">கிட்டத்தட்ட சமமின்மை மேற்புறத்தில் வெற்றி சின்னம்</annotation>
+		<annotation cp="⪺" type="tts">கிட்டத்தட்ட சமமின்மை மேற்புறத்தில் வெற்றி சின்னம்</annotation>
+		<annotation cp="♭">இசை | இசைக்குறி | ஃபிளாட்</annotation>
+		<annotation cp="♭" type="tts">ஃபிளாட்</annotation>
+		<annotation cp="♯">இசை | இசைக்குறி | ஷார்ப்</annotation>
+		<annotation cp="♯" type="tts">ஷார்ப்</annotation>
 		<annotation cp="😀">சிரிக்கும் முகம் | சிரிப்பு | புன்னகை | புன்னகைக்கும் முகம் | முகம்</annotation>
 		<annotation cp="😀" type="tts">புன்னகைக்கும் முகம்</annotation>
 		<annotation cp="😃">கண்களை விரித்து சிரிக்கும் முகம் | சிரிப்பு | புன்னகை | முகம் | வாய்</annotation>
@@ -215,7 +721,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😁" type="tts">சிரித்த கண்களுடன் ஒளி வீசும் முகம்</annotation>
 		<annotation cp="😆">கண்மண் தெரியாமல் சிரித்தல் | சிரிப்பு | திருப்தி | முகம் | வாய் | வாய் நிறைய சிரிப்புடன் கண்களை இறுக்கமாக மூடிக்கொண்ட முகம்</annotation>
 		<annotation cp="😆" type="tts">வாய் நிறைய சிரிப்புடன் கண்களை இறுக்கமாக மூடிக்கொண்ட முகம்</annotation>
-		<annotation cp="😅">குளிர் | சிரிப்பு | வாய் நிறைய சிரிப்புடன், வியர்வை சொட்டும் முகம் | வாய் நிறையச் சிரித்தல் | வியர்வை | வியர்வை வரச் சிரித்தல்</annotation>
+		<annotation cp="😅">குளிர் | சிரிப்பு | வாய் நிறைய சிரிப்புடன் | வாய் நிறைய சிரிப்புடன், வியர்வை சொட்டும் முகம் | வாய் நிறையச் சிரித்தல் | வியர்வை | வியர்வை சொட்டும் முகம் | வியர்வை வரச் சிரித்தல்</annotation>
 		<annotation cp="😅" type="tts">வாய் நிறைய சிரிப்புடன், வியர்வை சொட்டும் முகம்</annotation>
 		<annotation cp="🤣">காமெடி | சிரிப்பு | முகம் | விழுந்து விழுந்து சிரிப்பது</annotation>
 		<annotation cp="🤣" type="tts">விழுந்து விழுந்து சிரிப்பது</annotation>
@@ -225,6 +731,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙂" type="tts">லேசாகச் சிரித்த முகம்</annotation>
 		<annotation cp="🙃">தலைகீழ் | முகம்</annotation>
 		<annotation cp="🙃" type="tts">தலைகீழ் முகம்</annotation>
+		<annotation cp="🫠">உருகுதல் | உருகும் முகம் | கரைதல் | திரவம் | மறைந்துவிடுதல்</annotation>
+		<annotation cp="🫠" type="tts">உருகும் முகம்</annotation>
 		<annotation cp="😉">கண்ணடிக்கும் முகம் | கண்ணடித்தல் | கிண்டல் | புன்னகை | முகம்</annotation>
 		<annotation cp="😉" type="tts">கண்ணடிக்கும் முகம்</annotation>
 		<annotation cp="😊">கண் | சிரிக்கும் கண்களுடன் சிரித்த முகம் | புன்னகை | முகம் | வெட்கப் புன்னகை</annotation>
@@ -247,6 +755,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😚" type="tts">கண்களை மூடிக்கொண்டு முத்தமிடும் முகம்</annotation>
 		<annotation cp="😙">சிரித்த கண்களுடன் முத்தமிடும் முகம் | சிரித்த கண்கள் | சிரிப்புடன் முத்தம்</annotation>
 		<annotation cp="😙" type="tts">சிரித்த கண்களுடன் முத்தமிடும் முகம்</annotation>
+		<annotation cp="🥲">ஆனந்த கண்ணீருடன் சிரிக்கும் முகம் | உள்ளம் கவர்ந்தது | கண்ணீர் | நன்றியுடன் | நிம்மதியடைந்த | புன்னகை | பெருமை</annotation>
+		<annotation cp="🥲" type="tts">ஆனந்த கண்ணீருடன் சிரிக்கும் முகம்</annotation>
 		<annotation cp="😋">அருமை | அறுசுவை | சுவைக்கும் முகம் | புன்னகை | முகம் | ருசியான உணவு சுவைக்கும் முகம்</annotation>
 		<annotation cp="😋" type="tts">ருசியான உணவு சுவைக்கும் முகம்</annotation>
 		<annotation cp="😛">நாக்கை வெளித்தள்ளி கேலி செய்யும் முகம் | நாக்கைக் காட்டும் முகம் | நையாண்டி | பழிப்பு</annotation>
@@ -263,10 +773,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤗" type="tts">அணைக்கும் முகம்</annotation>
 		<annotation cp="🤭">அடடா | கிண்டல் | நக்கல் | நமுட்டுச் சிரிப்பு | வாய் பொத்திச் சிரிக்கும் முகம்</annotation>
 		<annotation cp="🤭" type="tts">வாய் பொத்திச் சிரிக்கும் முகம்</annotation>
+		<annotation cp="🫢">அவநம்பிக்கை | ஆச்சரியம் | சங்கடம் | திகைப்பு | திறந்த கண்களுடன் கையால் வாயை மூடிய முகம் | பயம் | பிரமிப்பு</annotation>
+		<annotation cp="🫢" type="tts">திறந்த கண்களுடன் கையால் வாயை மூடிய முகம்</annotation>
+		<annotation cp="🫣">எட்டிப்பார்த்தல் | ஒரு கண்ணால் எட்டிப்பார்க்கும் முகம் | முறைத்துப் பார்த்தல் | வசீகரிக்கப்பட்டது</annotation>
+		<annotation cp="🫣" type="tts">ஒரு கண்ணால் எட்டிப்பார்க்கும் முகம்</annotation>
 		<annotation cp="🤫">அமைதி | அமைதியாக இருக்கச் சொல்லும் முகம் | வாயை மூடு | ஷ்ஷ்ஷ்</annotation>
 		<annotation cp="🤫" type="tts">அமைதியாக இருக்கச் சொல்லும் முகம்</annotation>
 		<annotation cp="🤔">சிந்திக்கும் முகம் | சிந்தித்தல் | ம்ம்ம் | யோசனை</annotation>
 		<annotation cp="🤔" type="tts">சிந்திக்கும் முகம்</annotation>
+		<annotation cp="🫡">ஆம் | சரி | படைகள் | வணக்கம் | வணக்கம் தெரிவிக்கும் முகம் | வெய்யிலாக உள்ளது</annotation>
+		<annotation cp="🫡" type="tts">வணக்கம் தெரிவிக்கும் முகம்</annotation>
 		<annotation cp="🤐">மூடிய வாய் | வாயை மூடு | வாய் மூடப்பட்டுள்ள முகம் | வாய் மூடிய முகம்</annotation>
 		<annotation cp="🤐" type="tts">வாய் மூடப்பட்டுள்ள முகம்</annotation>
 		<annotation cp="🤨">அவநம்பிக்கை | சந்தேகம் | புருவத்தை உயர்த்தும் முகம்</annotation>
@@ -277,6 +793,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😑" type="tts">உணர்ச்சியற்ற முகம்</annotation>
 		<annotation cp="😶">முகம் | வாய் இல்லாத முகம் | வாய் இல்லாதது</annotation>
 		<annotation cp="😶" type="tts">வாய் இல்லாத முகம்</annotation>
+		<annotation cp="🫥">அகமுகம் | புள்ளியிடப்பட்ட வட்ட வரி முகம் | மறைதல் | மறைந்துவிடுதல் | மறைந்துள்ளது | மனச்சோர்வடைந்தது</annotation>
+		<annotation cp="🫥" type="tts">புள்ளியிடப்பட்ட வட்ட வரி முகம்</annotation>
+		<annotation cp="😶‍🌫">நினைவிழந்த நிலை | மூடுபனியில் முகம் | மேகங்களில் தலை | மேகங்களில் முகம்</annotation>
+		<annotation cp="😶‍🌫" type="tts">மேகங்களில் முகம்</annotation>
 		<annotation cp="😏">இளிப்பு | பகட்டாகச் சிரிக்கும் முகம் | பகட்டு | பகட்டுச் சிரிப்பு</annotation>
 		<annotation cp="😏" type="tts">பகட்டாகச் சிரிக்கும் முகம்</annotation>
 		<annotation cp="😒">அதிருப்தி முகம் | ஆச்சரியமில்லை | ஒன்றுமில்லை | வருத்தம்</annotation>
@@ -285,8 +805,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">கண்களை உருட்டும் முகம்</annotation>
 		<annotation cp="😬">ஈஈஈஈஈஈ! | நக்கல் | பற்களைக் கடிக்கும் முகம் | பற்களைக் கடித்தல்</annotation>
 		<annotation cp="😬" type="tts">பற்களைக் கடிக்கும் முகம்</annotation>
+		<annotation cp="😮‍💨">ஆசுவாசம் | ஊதல் | குசுகுசுப்பு | பெருமூச்சு | மூச்சுத்திணறல் | மூச்சுவிடுதல் | மூச்சுவிடும் முகம்</annotation>
+		<annotation cp="😮‍💨" type="tts">மூச்சுவிடும் முகம்</annotation>
 		<annotation cp="🤥">ஏமாற்றுவேலை | பொய் | பொய் கூறும் முகம் | முகம்</annotation>
 		<annotation cp="🤥" type="tts">பொய் கூறும் முகம்</annotation>
+		<annotation cp="🫨">அதிர்ச்சி | அதிர்வு | நடுங்குதல் | நடுங்கும் முகம் | நிலநடுக்கம் | முகம்</annotation>
+		<annotation cp="🫨" type="tts">நடுங்கும் முகம்</annotation>
+		<annotation cp="🙂‍↔">அசைத்தல் இல்லை | கிடைமட்டமாக தலை அசைத்தல்</annotation>
+		<annotation cp="🙂‍↔" type="tts">கிடைமட்டமாக தலை அசைத்தல்</annotation>
+		<annotation cp="🙂‍↕">அசைத்தல் | ஆம் | மேலிருந்து கீழாக தலை அசைத்தல்</annotation>
+		<annotation cp="🙂‍↕" type="tts">மேலிருந்து கீழாக தலை அசைத்தல்</annotation>
 		<annotation cp="😌">அமைதி | அமைதி முகம் | நிம்மதி | நிம்மதியான முகம் | மன அமைதி</annotation>
 		<annotation cp="😌" type="tts">நிம்மதியான முகம்</annotation>
 		<annotation cp="😔">ஆழ்ந்த கவலையில் இருக்கும் முகம் | ஆழ்ந்த சிந்தனை | ஏமாற்றம் | கவலை | முகம் | விரக்தி</annotation>
@@ -317,12 +845,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥴" type="tts">குழப்பமான முகம்</annotation>
 		<annotation cp="😵">கிறுகிறுப்பு | தலைச்சுற்றல் | தலைச்சுற்றும் முகம் | தலைச்சுற்றுவது போன்ற உணர்வு | மயக்கம்</annotation>
 		<annotation cp="😵" type="tts">தலைச்சுற்றும் முகம்</annotation>
+		<annotation cp="😵‍💫">சிக்கல் | சுழல் | சுழல் கண்கள் கொண்ட முகம் | துயிலூட்டுதல் | நில் | மயக்கம்</annotation>
+		<annotation cp="😵‍💫" type="tts">சுழல் கண்கள் கொண்ட முகம்</annotation>
 		<annotation cp="🤯">அதிர்ச்சி | அதிர்ச்சி அடைந்துவிட்டேன் | வெடிக்கும் தலை</annotation>
 		<annotation cp="🤯" type="tts">வெடிக்கும் தலை</annotation>
 		<annotation cp="🤠">தொப்பி | முகம் | வேட்டை | வேட்டைக்காரன்</annotation>
 		<annotation cp="🤠" type="tts">வேட்டைக்காரன்</annotation>
 		<annotation cp="🥳">கொண்டாட்டம் | கொம்பு | தொப்பி | பார்ட்டி | பார்ட்டி முகம்</annotation>
 		<annotation cp="🥳" type="tts">பார்ட்டி முகம்</annotation>
+		<annotation cp="🥸">கண்ணாடிகள் | மாறுவேடம் | முகமூடி முகம் | முகம் | மூக்கு</annotation>
+		<annotation cp="🥸" type="tts">முகமூடி முகம்</annotation>
 		<annotation cp="😎">கண் கூசும் வெளிச்சம் | கூலிங்கிளாஸ் | கூல் | சன்கிளாஸ் அணிந்த சிரித்த முகம் | புன்னகை | முகம்</annotation>
 		<annotation cp="😎" type="tts">சன்கிளாஸ் அணிந்த சிரித்த முகம்</annotation>
 		<annotation cp="🤓">அழகற்ற முகம் | கண்ணாடி | கோமாளி | வேடிக்கையான முகம்</annotation>
@@ -331,6 +863,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧐" type="tts">ஒற்றைக் கண்ணாடி அணிந்த முகம்</annotation>
 		<annotation cp="😕">குழப்பமான முகம் | குழப்பம் | குழம்பிய முகம்</annotation>
 		<annotation cp="😕" type="tts">குழம்பிய முகம்</annotation>
+		<annotation cp="🫤">உறுதியாகத் தெரியவில்லை | ஏமாற்றம் | குறுக்காக உள்ள வாயுடன் கூடிய முகம் | சந்தேகம் | பரவாயில்லை</annotation>
+		<annotation cp="🫤" type="tts">குறுக்காக உள்ள வாயுடன் கூடிய முகம்</annotation>
 		<annotation cp="😟">கவலை | கவலை தோய்ந்த முகம் | கவலைப்படுகிறேன் | கவலையாக உள்ளது</annotation>
 		<annotation cp="😟" type="tts">கவலை தோய்ந்த முகம்</annotation>
 		<annotation cp="🙁">லேசாக வருத்தமாக இருக்கும் முகம் | லேசான வருத்தம் | வருத்தமான முகம்</annotation>
@@ -347,6 +881,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😳" type="tts">திகைப்பைக் காட்டு முகம்</annotation>
 		<annotation cp="🥺">இரஞ்சும் | கருணை | கெஞ்சும் கண்கள் | கெஞ்சும் முகம்</annotation>
 		<annotation cp="🥺" type="tts">கெஞ்சும் முகம்</annotation>
+		<annotation cp="🥹">அழகை | எதிர்ப்பு | கண்ணீரைத் தேக்கி வைத்துள்ள முகம் | கோபம் | சோகம் | பெருமை</annotation>
+		<annotation cp="🥹" type="tts">கண்ணீரைத் தேக்கி வைத்துள்ள முகம்</annotation>
 		<annotation cp="😦">இல்லை | கண்களும் வாயும் திறந்த நிலையில் இருக்கும் முகம் | கண்களும் வாயும் திறந்துள்ள முகம் | சிடுசிடுப்பு | வேண்டாம்</annotation>
 		<annotation cp="😦" type="tts">கண்களும் வாயும் திறந்த நிலையில் இருக்கும் முகம்</annotation>
 		<annotation cp="😧">அதிர்ச்சி | அதிர்ச்சியான முகம் | மன உளைச்சல் | முகம் | வேதனை</annotation>
@@ -369,7 +905,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😣" type="tts">உதவியில்லாமல் இருப்பதை வெளிப்படுத்தும் முகம்</annotation>
 		<annotation cp="😞">ஏமாற்றமடைந்த முகம் | ஏமாற்றமடைந்தேன் | ஏமாற்றம் | ஏமாற்றம் ஏற்பட்டது</annotation>
 		<annotation cp="😞" type="tts">ஏமாற்றமடைந்த முகம்</annotation>
-		<annotation cp="😓">அவசரம் | களைப்பு | படபடப்பு முகம் | வாட்டமுற்ற, வியர்வைச் சொட்டும் முகம்</annotation>
+		<annotation cp="😓">அவசரம் | களைப்பு | படபடப்பு முகம் | வாட்டமுற்ற | வாட்டமுற்ற, வியர்வைச் சொட்டும் முகம் | வியர்வைச் சொட்டும் முகம்</annotation>
 		<annotation cp="😓" type="tts">வாட்டமுற்ற, வியர்வைச் சொட்டும் முகம்</annotation>
 		<annotation cp="😩">களைத்த முகம் | களைப்பு | சோர்வு | மிகவும் பயந்த முகம் | முகம்</annotation>
 		<annotation cp="😩" type="tts">மிகவும் பயந்த முகம்</annotation>
@@ -433,8 +969,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙉" type="tts">தீயவற்றைக் கேட்கக்கூடாது என்பதை உணர்த்தும் குரங்கு</annotation>
 		<annotation cp="🙊">குரங்கு | தீயவற்றைப் பேசக்கூடாது | தீயவற்றைப் பேசக்கூடாது என்பதை உணர்த்தும் குரங்கு | வாயை மூடிக்கொண்ட குரங்கு</annotation>
 		<annotation cp="🙊" type="tts">தீயவற்றைப் பேசக்கூடாது என்பதை உணர்த்தும் குரங்கு</annotation>
-		<annotation cp="💋">உதடுகள் | காதல் | முத்தச் சின்னம் | முத்தம்</annotation>
-		<annotation cp="💋" type="tts">முத்தம்</annotation>
 		<annotation cp="💌">இதயம் | கடிதம் | காதல் | காதல் தூது</annotation>
 		<annotation cp="💌" type="tts">காதல் கடிதம்</annotation>
 		<annotation cp="💘">அம்புக்குறி துளைத்த இதயம் | இதயம் | இதயம் துளைக்கும் அம்பு | காதல் | காதல் அம்பு</annotation>
@@ -457,8 +991,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">அளவுக்கதிகமான காதல்</annotation>
 		<annotation cp="💔">இதயம் | உடைந்த இதயம் | பிரேக் அப்</annotation>
 		<annotation cp="💔" type="tts">உடைந்த இதயம்</annotation>
+		<annotation cp="❤‍🔥">அன்பு | இதயம் | எரிதல் | எரியும் இதயம் | காமம் | புனிதமான இதயம்</annotation>
+		<annotation cp="❤‍🔥" type="tts">எரியும் இதயம்</annotation>
+		<annotation cp="❤‍🩹">ஆரோக்கியமாதல் | ஒட்டுத்தையலிடப்பட்ட இதயம் | ஒட்டுத்தையலிடப்பட்டது | குணமடைதல் | தேறிவருதல் | நன்றாகுதல் | முன்னேற்றம் அடைதல்</annotation>
+		<annotation cp="❤‍🩹" type="tts">ஒட்டுத்தையலிடப்பட்ட இதயம்</annotation>
 		<annotation cp="❤">இதயம் | சிவப்பு | சிவப்புநிற இதயம்</annotation>
 		<annotation cp="❤" type="tts">சிவப்புநிற இதயம்</annotation>
+		<annotation cp="🩷">அழகு | இதயம் | இளஞ்சிவப்பு | காதல் | விருப்பம்</annotation>
+		<annotation cp="🩷" type="tts">இளஞ்சிவப்பு இதயம்</annotation>
 		<annotation cp="🧡">ஆரஞ்சு | ஆரஞ்சு நிற இதயம் | இதயம்</annotation>
 		<annotation cp="🧡" type="tts">ஆரஞ்சு நிற இதயம்</annotation>
 		<annotation cp="💛">இதயம் | மஞ்சள் | மஞ்சள் நிற இதயம்</annotation>
@@ -467,14 +1007,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💚" type="tts">பச்சை நிற இதயம்</annotation>
 		<annotation cp="💙">இதயம் | நீல நிற இதயம் | நீலம்</annotation>
 		<annotation cp="💙" type="tts">நீல நிற இதயம்</annotation>
+		<annotation cp="🩵">இதயம் | சியான் | டீல் | வெளிர் நீல இதயம் | வெளிர் நீலம்</annotation>
+		<annotation cp="🩵" type="tts">வெளிர் நீல இதயம்</annotation>
 		<annotation cp="💜">இதயம் | ஊதா | ஊதா நிற இதயம் | பர்பிள் நிற இதயம்</annotation>
 		<annotation cp="💜" type="tts">பர்பிள் நிற இதயம்</annotation>
 		<annotation cp="🤎">இதயம் | பழுப்பு | பழுப்பு நிற இதயம்</annotation>
 		<annotation cp="🤎" type="tts">பழுப்பு நிற இதயம்</annotation>
 		<annotation cp="🖤">கருப்பு | கருப்பு நிற இதயம் | கெட்ட | கோபம் | தீய</annotation>
 		<annotation cp="🖤" type="tts">கருப்பு நிற இதயம்</annotation>
+		<annotation cp="🩶">இதயம் | சாம்பல் நிற இதயம் | சாம்பல் நிறம் | சில்வர் | ஸ்லேட்</annotation>
+		<annotation cp="🩶" type="tts">சாம்பல் நிற இதயம்</annotation>
 		<annotation cp="🤍">இதயம் | வெள்ளை | வெள்ளை நிற இதயம்</annotation>
 		<annotation cp="🤍" type="tts">வெள்ளை நிற இதயம்</annotation>
+		<annotation cp="💋">உதடுகள் | காதல் | முத்தச் சின்னம் | முத்தம்</annotation>
+		<annotation cp="💋" type="tts">முத்தம்</annotation>
 		<annotation cp="💯">100 | நூற்றுக்கு நூறு | முழு மதிப்பெண் | முழு ஸ்கோர்</annotation>
 		<annotation cp="💯" type="tts">நூற்றுக்கு நூறு</annotation>
 		<annotation cp="💢">ஆவேசம் | கோபம் | சினம் | சீற்றம்</annotation>
@@ -489,11 +1035,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💨" type="tts">காற்றடிக்கும் சின்னம்</annotation>
 		<annotation cp="🕳">குழி | பள்ளம்</annotation>
 		<annotation cp="🕳" type="tts">குழி</annotation>
-		<annotation cp="💣">குண்டு | குண்டுவெடிப்பு | வெடிகுண்டு | வெடிபொருள்</annotation>
-		<annotation cp="💣" type="tts">வெடிபொருள்</annotation>
 		<annotation cp="💬">உரையாடல் | குமிழ் | பேச்சு | பேச்சு வடிவ பலூன் | பேச்சுக்குமிழ்</annotation>
 		<annotation cp="💬" type="tts">பேச்சு வடிவ பலூன்</annotation>
-		<annotation cp="👁‍🗨">பேச்சுக் குமிழி, கண் | பேச்சுவடிவக் குமிழியில் கண்</annotation>
+		<annotation cp="👁‍🗨">கண் | பேச்சுக் குமிழி | பேச்சுவடிவக் குமிழியில் கண்</annotation>
 		<annotation cp="👁‍🗨" type="tts">பேச்சுவடிவக் குமிழியில் கண்</annotation>
 		<annotation cp="🗨">இடது புற பேச்சுவடிவக் குமிழ் | பேச்சுவடிவக் குமிழ்</annotation>
 		<annotation cp="🗨" type="tts">இடது புற பேச்சுவடிவக் குமிழ்</annotation>
@@ -503,7 +1047,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💭" type="tts">சிந்தனை பலூன்</annotation>
 		<annotation cp="💤">உறக்கம் | குறட்டை | குறட்டை விட்டுத் தூங்குதல் | கொர்ர்ர் | தூக்கம்</annotation>
 		<annotation cp="💤" type="tts">தூக்கம்</annotation>
-		<annotation cp="👋">கை | கையசைக்கும் சின்னம் | கையசைத்தல் | சின்னம் | டாட்டா</annotation>
+		<annotation cp="👋">கை | கையசைக்கும் சின்னம் | கையசைத்தல் | சின்னம்</annotation>
 		<annotation cp="👋" type="tts">கையசைத்தல்</annotation>
 		<annotation cp="🤚">உயர்த்திய கை | உயர்த்துதல் | கை</annotation>
 		<annotation cp="🤚" type="tts">உயர்த்திய கை</annotation>
@@ -513,14 +1057,30 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="✋" type="tts">கையை உயர்த்தி காட்டுதல்</annotation>
 		<annotation cp="🖖">உல்கேன் சல்யூட் | சல்யூட்</annotation>
 		<annotation cp="🖖" type="tts">உல்கேன் சல்யூட்</annotation>
+		<annotation cp="🫱">கை | வலது | வலது புறத்தைக் காட்டும் கை | வலதுபுறம்</annotation>
+		<annotation cp="🫱" type="tts">வலது புறத்தைக் காட்டும் கை</annotation>
+		<annotation cp="🫲">இடது | இடது புறத்தைக் காட்டும் கை | இடதுபுறம் | கை</annotation>
+		<annotation cp="🫲" type="tts">இடது புறத்தைக் காட்டும் கை</annotation>
+		<annotation cp="🫳">உள்ளங்கையைக் கீழே காட்டிய கை | ஓய்வு | கலைப்பு | வீழ்ச்சி</annotation>
+		<annotation cp="🫳" type="tts">உள்ளங்கையைக் கீழே காட்டிய கை</annotation>
+		<annotation cp="🫴">உள்ளங்கையை மேலே காட்டிய கை | சைகை செய்தல் | பிடி என்பது | வழங்குதல் | வா என்பது</annotation>
+		<annotation cp="🫴" type="tts">உள்ளங்கையை மேலே காட்டிய கை</annotation>
+		<annotation cp="🫷">இடதுபுறமாகத் தள்ளும் கை | இடதுபுறம் | காத்திரு | தள்ளு | நிறுத்து | மறு | ஹை ஃபைவ்</annotation>
+		<annotation cp="🫷" type="tts">இடதுபுறமாகத் தள்ளும் கை</annotation>
+		<annotation cp="🫸">காத்திரு | தள்ளு | நிறுத்து | மறு | வலதுபுறமாகத் தள்ளும் கை | வலதுபுறம் | ஹை ஃபைவ்</annotation>
+		<annotation cp="🫸" type="tts">வலதுபுறமாகத் தள்ளும் கை</annotation>
 		<annotation cp="👌">அருமை | ஓகே | கை | சரி சின்னம் | சூப்பர்</annotation>
 		<annotation cp="👌" type="tts">சரி சின்னம்</annotation>
+		<annotation cp="🤌">கிண்டலான | கிள்ளியது | கை சைகை | பிணைக்கப்பட்ட விரல்கள் | விரல்கள்</annotation>
+		<annotation cp="🤌" type="tts">பிணைக்கப்பட்ட விரல்கள்</annotation>
 		<annotation cp="🤏">கிள்ளு | கிள்ளுதல் | லேசாக கிள்ளுதல்</annotation>
 		<annotation cp="🤏" type="tts">கிள்ளுதல்</annotation>
 		<annotation cp="✌">அடையாளம் | சைகை | வெற்றி | வெற்றி சின்னம் | வெற்றிச் சின்னம்</annotation>
 		<annotation cp="✌" type="tts">வெற்றிச் சின்னம்</annotation>
 		<annotation cp="🤞">அதிர்ஷ்டம் | கை | விரல்</annotation>
 		<annotation cp="🤞" type="tts">அதிர்ஷ்டம்</annotation>
+		<annotation cp="🫰">அன்பு | ஆள்காட்டி விரலுடன் கட்டைவிரல் குறுக்கிட்ட கை | இதயம் | சுடக்கு | பணம் | விலையுயர்ந்தது</annotation>
+		<annotation cp="🫰" type="tts">ஆள்காட்டி விரலுடன் கட்டைவிரல் குறுக்கிட்ட கை</annotation>
 		<annotation cp="🤟">ஐ லவ் யூ | கை | சைகை | லவ்-யூ சைகை</annotation>
 		<annotation cp="🤟" type="tts">லவ்-யூ சைகை</annotation>
 		<annotation cp="🤘">அசத்திடீங்க | அசத்திவிட்டீர்கள் என்பதைக் குறிக்கும் சின்னம் | கொம்பு போன்ற சைகை</annotation>
@@ -539,6 +1099,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👇" type="tts">கீழ் நோக்கி காட்டும் விரலின் பின்பக்கம்</annotation>
 		<annotation cp="☝">மேலே | மேல் நோக்கி காட்டும் விரல் | மேல்நோக்கிய விரல் | விரல்</annotation>
 		<annotation cp="☝" type="tts">மேல் நோக்கி காட்டும் விரல்</annotation>
+		<annotation cp="🫵">சுட்டிக்காட்டுதல் | நீங்கள் | பார்வையாளரைச் சுட்டிக்காட்டும் ஆள்காட்டி விரல்</annotation>
+		<annotation cp="🫵" type="tts">பார்வையாளரைச் சுட்டிக்காட்டும் ஆள்காட்டி விரல்</annotation>
 		<annotation cp="👍">சின்னம் | சூப்பர் | பெருவிரல் | முடிந்தது | வெற்றி</annotation>
 		<annotation cp="👍" type="tts">சூப்பர்</annotation>
 		<annotation cp="👎">சின்னம் | தோல்வி | நன்றாக இல்லை | பிடிக்கவில்லை | பெருவிரல்</annotation>
@@ -555,6 +1117,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👏" type="tts">கைதட்டல்</annotation>
 		<annotation cp="🙌">மகிழ்ச்சி சின்னம் | மகிழ்ச்சியில் இரண்டு கைகளை உயர்த்துபவர்</annotation>
 		<annotation cp="🙌" type="tts">மகிழ்ச்சியில் இரண்டு கைகளை உயர்த்துபவர்</annotation>
+		<annotation cp="🫶">அன்பு | இதய வடிவத்தைக் காட்டும் கைகள்</annotation>
+		<annotation cp="🫶" type="tts">இதய வடிவத்தைக் காட்டும் கைகள்</annotation>
 		<annotation cp="👐">கைகளை விரித்தல் | கைகள் | திறந்த கைகள் | விரித்த கைகள்</annotation>
 		<annotation cp="👐" type="tts">கைகளை விரித்தல்</annotation>
 		<annotation cp="🤲">இறைஞ்சும் கைகள் | கடவுள் | கைகள் | தொழுதல் | பிரார்த்தனை</annotation>
@@ -587,6 +1151,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👃" type="tts">மூக்கு</annotation>
 		<annotation cp="🧠">அறிவு | புத்திசாலித்தனம் | மூளை</annotation>
 		<annotation cp="🧠" type="tts">மூளை</annotation>
+		<annotation cp="🫀">இதய உறுப்பு | இதயத்துடிப்பு | இதயவியல் | உறுப்பு | துடிப்பு | மையம்</annotation>
+		<annotation cp="🫀" type="tts">இதய உறுப்பு</annotation>
+		<annotation cp="🫁">உள்ளிழுக்கும் | உறுப்பு | சுவாசம் | நுரையீரல் | மூச்சு | வெளியேற்றம்</annotation>
+		<annotation cp="🫁" type="tts">நுரையீரல்</annotation>
 		<annotation cp="🦷">பல் | பல் மருத்துவர்</annotation>
 		<annotation cp="🦷" type="tts">பல்</annotation>
 		<annotation cp="🦴">எலும்புக்கூடு | எலும்புத்துண்டு</annotation>
@@ -599,6 +1167,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👅" type="tts">நாக்கு</annotation>
 		<annotation cp="👄">உதடுகள் | வாய்</annotation>
 		<annotation cp="👄" type="tts">வாய்</annotation>
+		<annotation cp="🫦">அசௌகரியம் | உதட்டைக் கடித்தல் | உல்லாசமாக இருத்தல் | ஏக்கம் | கவலை | பதட்டம் | பயம்</annotation>
+		<annotation cp="🫦" type="tts">உதட்டைக் கடித்தல்</annotation>
 		<annotation cp="👶">குட்டிப்பாப்பா | குட்டிப்பையன் | குழந்தை | பாப்பா | மக்கள்</annotation>
 		<annotation cp="👶" type="tts">குழந்தை</annotation>
 		<annotation cp="🧒">குழந்தை | சிறு குழந்தை | மழலை</annotation>
@@ -611,24 +1181,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">வயது வந்தவர்</annotation>
 		<annotation cp="👱">பொன் நிறத்தில் முடி கொண்டவர் | பொன் நிறம் | மக்கள் | மஞ்சள் நிறம் | முடி</annotation>
 		<annotation cp="👱" type="tts">பொன் நிறத்தில் முடி கொண்டவர்</annotation>
-		<annotation cp="🧑‍🍼">குழந்தை | குழந்தைக்கு பாலூட்டும் நபர் | நபர் | பராமரிப்பு | பாலூட்டுதல்</annotation>
-		<annotation cp="🧑‍🍼" type="tts">குழந்தைக்கு பாலூட்டும் நபர்</annotation>
-		<annotation cp="🧑‍🎄">க்ளாஸ், கிறிஸ்துமஸ் | மேக்ஸ் க்ளாஸ்</annotation>
-		<annotation cp="🧑‍🎄" type="tts">மேக்ஸ் க்ளாஸ்</annotation>
 		<annotation cp="👨">ஆண் | ஆண்மகன் | மக்கள்</annotation>
 		<annotation cp="👨" type="tts">ஆண்</annotation>
 		<annotation cp="🧔">ஆண் | தாடி | தாடி வைத்தவர்</annotation>
 		<annotation cp="🧔" type="tts">தாடி வைத்தவர்</annotation>
+		<annotation cp="🧔‍♂">ஆண் | தாடி | தாடி வைத்த ஆண்</annotation>
+		<annotation cp="🧔‍♂" type="tts">தாடி வைத்த ஆண்</annotation>
 		<annotation cp="👱‍♂">ஆண் | பொன்னிற முடி கொண்ட ஆண் | பொன்னினிறம் | மஞ்சள் | முடி</annotation>
 		<annotation cp="👱‍♂" type="tts">பொன்னிற முடி கொண்ட ஆண்</annotation>
-		<annotation cp="👨‍🍼">ஆண் | குழந்தை | குழந்தைக்கு பாலூட்டும் ஆண் | பராமரிப்பு | பாலூட்டுதல்</annotation>
-		<annotation cp="👨‍🍼" type="tts">குழந்தைக்கு பாலூட்டும் ஆண்</annotation>
 		<annotation cp="👩">பெண் | மகளிர் | மக்கள்</annotation>
 		<annotation cp="👩" type="tts">பெண்</annotation>
+		<annotation cp="🧔‍♀">தாடி | தாடி வைத்த பெண் | பெண்</annotation>
+		<annotation cp="🧔‍♀" type="tts">தாடி வைத்த பெண்</annotation>
 		<annotation cp="👱‍♀">பெண் | பொன்னிற முடி கொண்ட பெண் | பொன்னிறம் | மஞ்சள் | முடி</annotation>
 		<annotation cp="👱‍♀" type="tts">பொன்னிற முடி கொண்ட பெண்</annotation>
-		<annotation cp="👩‍🍼">குழந்தை | குழந்தைக்கு பாலூட்டும் பெண் | பராமரிப்பு | பாலூட்டுதல் | பெண்</annotation>
-		<annotation cp="👩‍🍼" type="tts">குழந்தைக்கு பாலூட்டும் பெண்</annotation>
 		<annotation cp="🧓">ஆண் | பெண் | மக்கள் | வயதானவர்</annotation>
 		<annotation cp="🧓" type="tts">வயதானவர்</annotation>
 		<annotation cp="👴">தாத்தா | பெரியவர் | மக்கள் | வயதான ஆண் | வயதானவர்</annotation>
@@ -809,12 +1375,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💂‍♂" type="tts">ஆண் பாதுகாவலர்</annotation>
 		<annotation cp="💂‍♀">பாதுகாவலர் | பெண்</annotation>
 		<annotation cp="💂‍♀" type="tts">பெண் பாதுகாவலர்</annotation>
+		<annotation cp="🥷">நிஞ்சா | போராளி | மறைமுகமானவன்</annotation>
+		<annotation cp="🥷" type="tts">நிஞ்சா</annotation>
 		<annotation cp="👷">கட்டுமான தொழிலாளி | கட்டுமானம் | தொழிலாளி | பணியாளர் | மக்கள்</annotation>
 		<annotation cp="👷" type="tts">கட்டுமான தொழிலாளி</annotation>
 		<annotation cp="👷‍♂">ஆண் | ஆண் கட்டுமானத் தொழிலாளி | கட்டுமானம் | தொழிலாளர் | தொழிலாளி</annotation>
 		<annotation cp="👷‍♂" type="tts">ஆண் கட்டுமானத் தொழிலாளி</annotation>
 		<annotation cp="👷‍♀">கட்டுமானம் | தொழிலாளர் | தொழிலாளி | பெண் | பெண் கட்டுமானத் தொழிலாளி</annotation>
 		<annotation cp="👷‍♀" type="tts">பெண் கட்டுமானத் தொழிலாளி</annotation>
+		<annotation cp="🫅">அரசர்க்குரியவர் | அரசன் | அரசு பதவி | மகுடம் அணிந்த நபர் | மேன்மையானவர்</annotation>
+		<annotation cp="🫅" type="tts">மகுடம் அணிந்த நபர்</annotation>
 		<annotation cp="🤴">இளவரசன் | இளவரசி</annotation>
 		<annotation cp="🤴" type="tts">இளவரசன்</annotation>
 		<annotation cp="👸">இளவரசி | தேவதை | தேவதைக் கதைகள் | பெண் | மக்கள்</annotation>
@@ -831,26 +1401,38 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧕" type="tts">தலையில் ஸ்கார்ஃப் அணிந்த பெண்</annotation>
 		<annotation cp="🤵">கோட்டு | கோட்டு சூட்டு அணிந்தவர் | சூட்டு | மாப்பிள்ளை</annotation>
 		<annotation cp="🤵" type="tts">கோட்டு சூட்டு அணிந்தவர்</annotation>
-		<annotation cp="🤵‍♀">கோட்டு சூட்டு | கோட்டு சூட்டு அணிந்த பெண் | பெண்</annotation>
-		<annotation cp="🤵‍♀" type="tts">கோட்டு சூட்டு அணிந்த பெண்</annotation>
 		<annotation cp="🤵‍♂">ஆண் | கோட்டு சூட்டு | கோட்டு சூட்டு அணிந்த ஆண்</annotation>
 		<annotation cp="🤵‍♂" type="tts">கோட்டு சூட்டு அணிந்த ஆண்</annotation>
+		<annotation cp="🤵‍♀">கோட்டு சூட்டு | கோட்டு சூட்டு அணிந்த பெண் | பெண்</annotation>
+		<annotation cp="🤵‍♀" type="tts">கோட்டு சூட்டு அணிந்த பெண்</annotation>
 		<annotation cp="👰">திருமணம் | நபர் | மணப்பெண் | முக்காடு | முக்காடு அணிந்த நபர்</annotation>
 		<annotation cp="👰" type="tts">முக்காடு அணிந்த நபர்</annotation>
-		<annotation cp="👰‍♀">பெண் | முக்காடு | முக்காடு அணிந்த பெண்</annotation>
-		<annotation cp="👰‍♀" type="tts">முக்காடு அணிந்த பெண்</annotation>
 		<annotation cp="👰‍♂">ஆண் | முக்காடு | முக்காடு அணிந்த ஆண்</annotation>
 		<annotation cp="👰‍♂" type="tts">முக்காடு அணிந்த ஆண்</annotation>
+		<annotation cp="👰‍♀">பெண் | முக்காடு | முக்காடு அணிந்த பெண்</annotation>
+		<annotation cp="👰‍♀" type="tts">முக்காடு அணிந்த பெண்</annotation>
 		<annotation cp="🤰">கருத்தரித்துள்ள பெண் | கருத்தரிப்பு | பெண்</annotation>
 		<annotation cp="🤰" type="tts">கருத்தரித்துள்ள பெண்</annotation>
+		<annotation cp="🫃">கருத்தரித்துள்ள ஆண் | கருத்தரிப்பு | தொப்பை | நிரம்பிய வயிறு | வீங்கிய வயிறு</annotation>
+		<annotation cp="🫃" type="tts">கருத்தரித்துள்ள ஆண்</annotation>
+		<annotation cp="🫄">கருத்தரித்துள்ள நபர் | கருத்தரிப்பு | தொப்பை | நிரம்பிய வயிறு | வீங்கிய வயிறு</annotation>
+		<annotation cp="🫄" type="tts">கருத்தரித்துள்ள நபர்</annotation>
 		<annotation cp="🤱">குழந்தை | பராமரிப்பு | பாலூட்டும் பெண் | பால் | பெண்</annotation>
 		<annotation cp="🤱" type="tts">பாலூட்டும் பெண்</annotation>
+		<annotation cp="👩‍🍼">குழந்தை | குழந்தைக்கு பாலூட்டும் பெண் | பாலூட்டுதல் | பெண்</annotation>
+		<annotation cp="👩‍🍼" type="tts">குழந்தைக்கு பாலூட்டும் பெண்</annotation>
+		<annotation cp="👨‍🍼">ஆண் | குழந்தை | குழந்தைக்கு பாலூட்டும் ஆண் | பாலூட்டுதல்</annotation>
+		<annotation cp="👨‍🍼" type="tts">குழந்தைக்கு பாலூட்டும் ஆண்</annotation>
+		<annotation cp="🧑‍🍼">குழந்தை | குழந்தைக்கு பாலூட்டும் நபர் | நபர் | பாலூட்டுதல்</annotation>
+		<annotation cp="🧑‍🍼" type="tts">குழந்தைக்கு பாலூட்டும் நபர்</annotation>
 		<annotation cp="👼">ஏஞ்சல் | குழந்தை ஏஞ்சல் | தேவதை | தேவதைக் கதை | முகம்</annotation>
 		<annotation cp="👼" type="tts">குழந்தை ஏஞ்சல்</annotation>
 		<annotation cp="🎅">கிறிஸ்துமஸ் | கொண்டாட்டம் | தாத்தா | பரிசு</annotation>
 		<annotation cp="🎅" type="tts">கிறிஸ்துமஸ் தாத்தா</annotation>
 		<annotation cp="🤶">கிறிஸ்துமஸ் | சான்டா | தாத்தா | பாட்டி</annotation>
 		<annotation cp="🤶" type="tts">கிறிஸ்துமஸ் பாட்டி</annotation>
+		<annotation cp="🧑‍🎄">கிறிஸ்துமஸ் | க்ளாஸ் | மேக்ஸ் க்ளாஸ்</annotation>
+		<annotation cp="🧑‍🎄" type="tts">மேக்ஸ் க்ளாஸ்</annotation>
 		<annotation cp="🦸">சூப்பர்பவர் | சூப்பர்ஹீரோ | நல்லவர் | ஹீரோ | ஹீரோயின்</annotation>
 		<annotation cp="🦸" type="tts">சூப்பர்ஹீரோ</annotation>
 		<annotation cp="🦸‍♂">ஆண் | ஆண் சூப்பர் ஹீரோ | சூப்பர்பவர் | நல்லவர் | ஹீரோ</annotation>
@@ -905,6 +1487,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧟‍♂" type="tts">ஆண் ஜோம்பி</annotation>
 		<annotation cp="🧟‍♀">சாகாவரம் பெற்றது | பெண் ஜோம்பி</annotation>
 		<annotation cp="🧟‍♀" type="tts">பெண் ஜோம்பி</annotation>
+		<annotation cp="🧌">அசுரன் | கற்பனை | பூதம் | விசித்திரக் கதை</annotation>
+		<annotation cp="🧌" type="tts">பூதம்</annotation>
 		<annotation cp="💆">அழகு | சலூன் | மசாஜ் | மசாஜ் செய்துகொள்பவர் | முக மசாஜ் | முகம்</annotation>
 		<annotation cp="💆" type="tts">மசாஜ் செய்துகொள்பவர்</annotation>
 		<annotation cp="💆‍♂">ஆண் | சலூன் | தலை | தலையில் மசாஜ் செய்து கொள்ளும் ஆண் | மசாஜ்</annotation>
@@ -941,13 +1525,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨‍🦯" type="tts">கைத்தடியுடன் நடக்கும் ஆண்</annotation>
 		<annotation cp="👩‍🦯">கைத்தடியுடன் நடக்கும் பெண் | பார்வையற்றோர் | பெண்</annotation>
 		<annotation cp="👩‍🦯" type="tts">கைத்தடியுடன் நடக்கும் பெண்</annotation>
-		<annotation cp="🧑‍🦼">மோட்டார் சக்கர நாற்காலி | மோட்டார் சக்கர நாற்காலியில் இருக்கும் நபர்</annotation>
+		<annotation cp="🧑‍🦼">அணுகல்தன்மை | மோட்டார் சக்கர நாற்காலி | மோட்டார் சக்கர நாற்காலியில் இருக்கும் நபர்</annotation>
 		<annotation cp="🧑‍🦼" type="tts">மோட்டார் சக்கர நாற்காலியில் இருக்கும் நபர்</annotation>
 		<annotation cp="👨‍🦼">ஆண் | சக்கர நாற்காலி | மின்னாற்றலில் இயங்கும் சக்கர நாற்காலியில் அமர்ந்திருக்கும் ஆண்</annotation>
 		<annotation cp="👨‍🦼" type="tts">மின்னாற்றலில் இயங்கும் சக்கர நாற்காலியில் அமர்ந்திருக்கும் ஆண்</annotation>
 		<annotation cp="👩‍🦼">சக்கர நாற்காலியில் அமர்ந்திருக்கும் பெண் | மின்னாற்றலில் இயங்கும் சக்கர நாற்காலியில் அமர்ந்திருக்கும் பெண்</annotation>
 		<annotation cp="👩‍🦼" type="tts">மின்னாற்றலில் இயங்கும் சக்கர நாற்காலியில் அமர்ந்திருக்கும் பெண்</annotation>
-		<annotation cp="🧑‍🦽">கையால் உந்தப்படும் சக்கர நாற்காலியில் இருக்கும் நபர் | சக்கர நாற்காலி</annotation>
+		<annotation cp="🧑‍🦽">அணுகல்தன்மை | கையால் உந்தப்படும் சக்கர நாற்காலியில் இருக்கும் நபர் | சக்கர நாற்காலி</annotation>
 		<annotation cp="🧑‍🦽" type="tts">கையால் உந்தப்படும் சக்கர நாற்காலியில் இருக்கும் நபர்</annotation>
 		<annotation cp="👨‍🦽">ஆண் | சக்கர நாற்காலி | நடக்க இயலாதவர் | மனித ஆற்றலில் இயங்கும் சக்கர நாற்காலியில் அமர்ந்திருக்கும் ஆண்</annotation>
 		<annotation cp="👨‍🦽" type="tts">மனித ஆற்றலில் இயங்கும் சக்கர நாற்காலியில் அமர்ந்திருக்கும் ஆண்</annotation>
@@ -1091,14 +1675,24 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💏" type="tts">முத்தமிடுதல்</annotation>
 		<annotation cp="💑">இதயம் | காதலர்கள் | காதல் | ஜோடி</annotation>
 		<annotation cp="💑" type="tts">காதலர்கள்</annotation>
-		<annotation cp="👪">குடும்பம்</annotation>
-		<annotation cp="👪" type="tts">குடும்பம்</annotation>
 		<annotation cp="🗣">தலை | தலைமைப் பேச்சாளர் | நிழல் உருவம் | பேச்சாளர் | பேச்சு | முகம்</annotation>
 		<annotation cp="🗣" type="tts">தலைமைப் பேச்சாளர்</annotation>
 		<annotation cp="👤">நிழல் படம் | மக்கள் | மார்பளவு வரை நிழல் | மார்பளவு வரை நிழல் படம் | மார்பு</annotation>
 		<annotation cp="👤" type="tts">மார்பளவு வரை நிழல்</annotation>
 		<annotation cp="👥">நிழல்படம் | மக்கள் | மார்பளவு வரை நிழல்கள் | மார்பு</annotation>
 		<annotation cp="👥" type="tts">மார்பளவு வரை நிழல்கள்</annotation>
+		<annotation cp="🫂">கட்டிப்பிடி | கட்டிப்பிடித்தல் | குட்பை | நன்றி | வணக்கம்</annotation>
+		<annotation cp="🫂" type="tts">கட்டிப்பிடித்தல்</annotation>
+		<annotation cp="👪">குடும்பம்</annotation>
+		<annotation cp="👪" type="tts">குடும்பம்</annotation>
+		<annotation cp="🧑‍🧑‍🧒">குடும்பம்: பெரியவர் | குடும்பம்: பெரியவர், பெரியவர், குழந்தை | குழந்தை | பெரியவர்</annotation>
+		<annotation cp="🧑‍🧑‍🧒" type="tts" draft="contributed">குடும்பம்: பெரியவர், பெரியவர், குழந்தை</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">குடும்பம்: பெரியவர் | குடும்பம்: பெரியவர், பெரியவர், குழந்தை, குழந்தை | குழந்தை | பெரியவர்</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">குடும்பம்: பெரியவர், பெரியவர், குழந்தை, குழந்தை</annotation>
+		<annotation cp="🧑‍🧒">குடும்பம்: பெரியவர் | குடும்பம்: பெரியவர், குழந்தை | குழந்தை</annotation>
+		<annotation cp="🧑‍🧒" type="tts" draft="contributed">குடும்பம்: பெரியவர், குழந்தை</annotation>
+		<annotation cp="🧑‍🧒‍🧒">குடும்பம்: பெரியவர் | குடும்பம்: பெரியவர், குழந்தை, குழந்தை | குழந்தை</annotation>
+		<annotation cp="🧑‍🧒‍🧒" type="tts" draft="contributed">குடும்பம்: பெரியவர், குழந்தை, குழந்தை</annotation>
 		<annotation cp="👣">அச்சு | உடை | காலடித் தடங்கள் | காலடித் தடம்</annotation>
 		<annotation cp="👣" type="tts">காலடித் தடம்</annotation>
 		<annotation cp="🦰">சிவப்பு தலை | சிவப்பு முடி | ஜிஞ்சர்</annotation>
@@ -1149,6 +1743,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐆" type="tts">சிறுத்தை</annotation>
 		<annotation cp="🐴">குதிரை | குதிரை முகம் | விலங்கு | விலங்கு முகம்</annotation>
 		<annotation cp="🐴" type="tts">குதிரை முகம்</annotation>
+		<annotation cp="🫎">எல்க் | கடமான் | கொம்புகள் | பாலூட்டி | விலங்கு</annotation>
+		<annotation cp="🫎" type="tts">கடமான்</annotation>
+		<annotation cp="🫏">கழுதை | கோவேறிக்கழுதை | சிறு கழுதை | பாலூட்டி | பிடிவாதமானது | விலங்கு</annotation>
+		<annotation cp="🫏" type="tts">கழுதை</annotation>
 		<annotation cp="🐎">குதிரை | விலங்கு</annotation>
 		<annotation cp="🐎" type="tts">குதிரை</annotation>
 		<annotation cp="🦄">ஒற்றைக் கொம்பு குதிரை | ஒற்றைக் கொம்பு குதிரை முகம் | குதிரை முகம்</annotation>
@@ -1157,6 +1755,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦓" type="tts">வரிக்குதிரை</annotation>
 		<annotation cp="🦌">மான் | விலங்கு</annotation>
 		<annotation cp="🦌" type="tts">மான்</annotation>
+		<annotation cp="🦬">எருமை | காட்டெருமை | மந்தை</annotation>
+		<annotation cp="🦬" type="tts">காட்டெருமை</annotation>
 		<annotation cp="🐮">பசு | பசு மாடு முகம் | முகம் | விலங்கு</annotation>
 		<annotation cp="🐮" type="tts">பசு முகம்</annotation>
 		<annotation cp="🐂">எருது | விலங்கு</annotation>
@@ -1189,6 +1789,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦒" type="tts">ஒட்டகச்சிவிங்கி</annotation>
 		<annotation cp="🐘">யானை | யானைகுட்டி | விலங்கு</annotation>
 		<annotation cp="🐘" type="tts">யானை</annotation>
+		<annotation cp="🦣">அழிதல் | தந்தம் | பெரிய யானை | பெரியது</annotation>
+		<annotation cp="🦣" type="tts">பெரிய யானை</annotation>
 		<annotation cp="🦏">காண்டாமிருகம் | விலங்கு</annotation>
 		<annotation cp="🦏" type="tts">காண்டாமிருகம்</annotation>
 		<annotation cp="🦛">நீர்யானை</annotation>
@@ -1207,6 +1809,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐇" type="tts">முயல்</annotation>
 		<annotation cp="🐿">அணில் | சிப்மங்க் | சிப்மங்க்ஸ்</annotation>
 		<annotation cp="🐿" type="tts">சிப்மங்க்</annotation>
+		<annotation cp="🦫">அணை | பீவர்</annotation>
+		<annotation cp="🦫" type="tts">பீவர்</annotation>
 		<annotation cp="🦔">எலி | செல்லப்பிராணி | முள்ளெலி</annotation>
 		<annotation cp="🦔" type="tts">முள்ளெலி</annotation>
 		<annotation cp="🦇">விலங்கு | வௌவால்</annotation>
@@ -1257,12 +1861,24 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦢" type="tts">அன்னம்</annotation>
 		<annotation cp="🦉">ஆந்தை | பறவை</annotation>
 		<annotation cp="🦉" type="tts">ஆந்தை</annotation>
+		<annotation cp="🦤">அழிவு | டோடோ | பெரிய | மொரிஷியஸ்</annotation>
+		<annotation cp="🦤" type="tts">டோடோ</annotation>
+		<annotation cp="🪶">இறகு | தோகை | பறத்தல் | பறவை | லேசான</annotation>
+		<annotation cp="🪶" type="tts">இறகு</annotation>
 		<annotation cp="🦩">நளினம் | பூநாரை | வெப்பமண்டலம்</annotation>
 		<annotation cp="🦩" type="tts">பூநாரை</annotation>
 		<annotation cp="🦚">பறவை | பெண் மயில் | பெருமை | மயில் | வியக்கத்தக்க</annotation>
 		<annotation cp="🦚" type="tts">மயில்</annotation>
 		<annotation cp="🦜">கிளி | கொள்ளை | பறவை | பேச்சு</annotation>
 		<annotation cp="🦜" type="tts">கிளி</annotation>
+		<annotation cp="🪽">இறக்கை | தேவதை | தொன்மவியல் | பறப்பது | பறப்பியல் | பறவை</annotation>
+		<annotation cp="🪽" type="tts">இறக்கை</annotation>
+		<annotation cp="🐦‍⬛" draft="contributed">அண்டங்காக்கை | கருப்பு | காகம் | காக்கைவகை | பறவை</annotation>
+		<annotation cp="🐦‍⬛" type="tts" draft="contributed">கருப்பு பறவை</annotation>
+		<annotation cp="🪿">பறவை | பெரிய வாத்து | மடமை | வளர்ப்புப் பறவை | வாத்தின் கூச்சல்</annotation>
+		<annotation cp="🪿" type="tts">பெரிய வாத்து</annotation>
+		<annotation cp="🐦‍🔥" draft="contributed">ஃபீனிக்ஸ் | கற்பனை, தீப்பறவை, மறுபிறப்பு, மறுபிறவி</annotation>
+		<annotation cp="🐦‍🔥" type="tts" draft="contributed">ஃபீனிக்ஸ்</annotation>
 		<annotation cp="🐸">தவளை | முகம் | விலங்கு</annotation>
 		<annotation cp="🐸" type="tts">தவளை முகம்</annotation>
 		<annotation cp="🐊">ஊர்வது | முதலை | விலங்கு</annotation>
@@ -1287,6 +1903,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐋" type="tts">திமிங்கலம்</annotation>
 		<annotation cp="🐬">டால்பின் | பாலூட்டி | விலங்கினம்</annotation>
 		<annotation cp="🐬" type="tts">டால்பின்</annotation>
+		<annotation cp="🦭">கடல் சிங்கம் | கடல்நாய்</annotation>
+		<annotation cp="🦭" type="tts">கடல் சிங்கம்</annotation>
 		<annotation cp="🐟">நீர்வாழ் உயிரினம் | மீன் | விலங்கினம்</annotation>
 		<annotation cp="🐟" type="tts">மீன்</annotation>
 		<annotation cp="🐠">நன்னீர் மீன் | நீர்வாழ் உயிரினம் | மீன் | விலங்கினம் | வெப்பமண்டல மீன்</annotation>
@@ -1299,6 +1917,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐙" type="tts">ஆக்டோபஸ்</annotation>
 		<annotation cp="🐚">சிப்பி | விலங்கு</annotation>
 		<annotation cp="🐚" type="tts">சிப்பி</annotation>
+		<annotation cp="🪸">கடல் | நீரடித்திட்டு | பவளம்</annotation>
+		<annotation cp="🪸" type="tts">பவளம்</annotation>
+		<annotation cp="🪼">அடடா | எரிதல் | கடல் சார்ந்தது | கொட்டுவது | முதுகெலும்பில்லாதது | ஜெல்லி | ஜெல்லிமீன்</annotation>
+		<annotation cp="🪼" type="tts">ஜெல்லிமீன்</annotation>
 		<annotation cp="🐌">நத்தை | விலங்கு</annotation>
 		<annotation cp="🐌" type="tts">நத்தை</annotation>
 		<annotation cp="🦋">பட்டாம்பூச்சி | பூச்சி | வண்ணம்</annotation>
@@ -1309,10 +1931,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐜" type="tts">எறும்பு</annotation>
 		<annotation cp="🐝">தேனீ | பூச்சி | விலங்கினம்</annotation>
 		<annotation cp="🐝" type="tts">தேனீ</annotation>
+		<annotation cp="🪲">பூச்சி | வண்டு</annotation>
+		<annotation cp="🪲" type="tts">வண்டு</annotation>
 		<annotation cp="🐞">குளவி | பூச்சி | பெண் வண்டு | வண்டு | விலங்கினம்</annotation>
 		<annotation cp="🐞" type="tts">பெண் வண்டு</annotation>
 		<annotation cp="🦗">இராக்கோழி | பூச்சி | வெட்டுக்கிளி</annotation>
 		<annotation cp="🦗" type="tts">இராக்கோழி</annotation>
+		<annotation cp="🪳">கரப்பான் பூச்சி | பூச்சி</annotation>
+		<annotation cp="🪳" type="tts">கரப்பான் பூச்சி</annotation>
 		<annotation cp="🕷">சிலந்தி | பூச்சி</annotation>
 		<annotation cp="🕷" type="tts">சிலந்தி</annotation>
 		<annotation cp="🕸">சிலந்தி | சிலந்தி வலை | சிலந்தி வீடு</annotation>
@@ -1321,6 +1947,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦂" type="tts">தேள்</annotation>
 		<annotation cp="🦟">காய்ச்சல் | கொசு | நோய் | பூச்சி | மலேரியா | வைரஸ்</annotation>
 		<annotation cp="🦟" type="tts">கொசு</annotation>
+		<annotation cp="🪰">அழுகுதல் | ஈ | நோய் | புழு | பூச்சி</annotation>
+		<annotation cp="🪰" type="tts">ஈ</annotation>
+		<annotation cp="🪱">ஒட்டுண்ணி | புழு | மண்புழு</annotation>
+		<annotation cp="🪱" type="tts">புழு</annotation>
 		<annotation cp="🦠">அமீபா | நுண்ணுயிரி | பாக்டீரியா | வைரஸ்</annotation>
 		<annotation cp="🦠" type="tts">நுண்ணுயிரி</annotation>
 		<annotation cp="💐">காதல் | பூங்கொத்து | மலர்கள் | மலர்க்கொத்து | ரொமான்ஸ்</annotation>
@@ -1329,6 +1959,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌸" type="tts">செர்ரி பிலாஸம்</annotation>
 		<annotation cp="💮">அருமை என்பதைக் குறிக்கும் முத்திரை | மலர் | முத்திரை | வெள்ளை | வெள்ளைநிறப் பூ</annotation>
 		<annotation cp="💮" type="tts">வெள்ளைநிறப் பூ</annotation>
+		<annotation cp="🪷">இந்தியா | இந்து மதம் | தாமரை | தூய்மை | பௌத்தம் | மலர் | வியட்நாம்</annotation>
+		<annotation cp="🪷" type="tts">தாமரை</annotation>
 		<annotation cp="🏵">பூ | மலர் | வட்ட மலர் | வட்டப் பூ | வட்டவடிவப் பூ</annotation>
 		<annotation cp="🏵" type="tts">வட்டவடிவப் பூ</annotation>
 		<annotation cp="🌹">காதல் | சிவப்பு ரோஜா | மலர் | ரோஜா</annotation>
@@ -1343,8 +1975,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌼" type="tts">மஞ்சள் மலர்</annotation>
 		<annotation cp="🌷">இலைகள் | செடி | ட்யுலிப் | பூவரசு | மலர்</annotation>
 		<annotation cp="🌷" type="tts">பூவரசு</annotation>
+		<annotation cp="🪻">பதுமராகம் | புளூபானெட் | மலர் | லாவெண்டர் | லூபின் | ஸ்னாப்டிராகன்</annotation>
+		<annotation cp="🪻" type="tts">பதுமராகம்</annotation>
 		<annotation cp="🌱">புதிய தொடக்கம் | முளைக்கும் செடி | வளர்ச்சி</annotation>
 		<annotation cp="🌱" type="tts">முளைக்கும் செடி</annotation>
+		<annotation cp="🪴">செடி | துளைத்தல் | பயனற்றது | பூந்தொட்டியில் உள்ள தாவரம் | வளர் | வளர்ப்பது | வீடு</annotation>
+		<annotation cp="🪴" type="tts">பூந்தொட்டியில் உள்ள தாவரம்</annotation>
 		<annotation cp="🌲">கிறிஸ்துமஸ் காலம் | கிறிஸ்துமஸ் மரம் | பசுமை | மரம்</annotation>
 		<annotation cp="🌲" type="tts">பசுமை மரம்</annotation>
 		<annotation cp="🌳">இலையுதிர் மரம் | பசுமை | மரம்</annotation>
@@ -1367,6 +2003,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍂" type="tts">உதிரும் இலைகள்</annotation>
 		<annotation cp="🍃">இலைகள் | இலையுதிர்காலம் | உதிரும் இலைகள் | காற்றில் ஆடும் இலைகள் | பசுமை</annotation>
 		<annotation cp="🍃" type="tts">காற்றில் ஆடும் இலைகள்</annotation>
+		<annotation cp="🪹">காலியான கூடு | கூடு கட்டுதல்</annotation>
+		<annotation cp="🪹" type="tts">காலியான கூடு</annotation>
+		<annotation cp="🪺">கூடு கட்டுதல் | முட்டைகள் உள்ள கூடு</annotation>
+		<annotation cp="🪺" type="tts">முட்டைகள் உள்ள கூடு</annotation>
+		<annotation cp="🍄">உணவு | காளான் | சூப்பர் மாரியோ | மஷ்ரூம்</annotation>
+		<annotation cp="🍄" type="tts">காளான்</annotation>
 		<annotation cp="🍇">ஒயின் | திராட்சை | பழம்</annotation>
 		<annotation cp="🍇" type="tts">திராட்சை</annotation>
 		<annotation cp="🍈">தாகம் | பழம் | மெலன்</annotation>
@@ -1377,6 +2019,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍊" type="tts">ஆரஞ்சு</annotation>
 		<annotation cp="🍋">எலுமிச்சை | பழம் | புளிப்பு | மஞ்சள் வண்ணம்</annotation>
 		<annotation cp="🍋" type="tts">எலுமிச்சை</annotation>
+		<annotation cp="🍋‍🟩" draft="contributed">சாத்துக்குடி | சிட்ரஸ், பழம், வெப்பமண்டலம்</annotation>
+		<annotation cp="🍋‍🟩" type="tts" draft="contributed">சாத்துக்குடி</annotation>
 		<annotation cp="🍌">உடல்நலம் | உணவு | பழம் | வாழைப்பழம்</annotation>
 		<annotation cp="🍌" type="tts">வாழைப்பழம்</annotation>
 		<annotation cp="🍍">அன்னாசிப்பழம் | உடல்நலம் | உணவு | பழம்</annotation>
@@ -1395,10 +2039,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍒" type="tts">செர்ரி பழம்</annotation>
 		<annotation cp="🍓">உணவு | பழம் | ஸ்ட்ராபெர்ரி</annotation>
 		<annotation cp="🍓" type="tts">ஸ்ட்ராபெர்ரி</annotation>
+		<annotation cp="🫐">பில்பெர்ரி | பெர்ரி | ப்ளூ | ப்ளூபெர்ரி | ப்ளூபெர்ரிகள்</annotation>
+		<annotation cp="🫐" type="tts">ப்ளூபெர்ரிகள்</annotation>
 		<annotation cp="🥝">உணவு | கிவி | கிவிப்பழம் | பழம்</annotation>
 		<annotation cp="🥝" type="tts">கிவிப்பழம்</annotation>
 		<annotation cp="🍅">உணவு | காய்கறி | தக்காளி</annotation>
 		<annotation cp="🍅" type="tts">தக்காளி</annotation>
+		<annotation cp="🫒">ஆலிவ் | உணவு</annotation>
+		<annotation cp="🫒" type="tts">ஆலிவ்</annotation>
 		<annotation cp="🥥">தென்னை | தேங்காய் | பனை | மரம்</annotation>
 		<annotation cp="🥥" type="tts">தேங்காய்</annotation>
 		<annotation cp="🥑">உணவு | பழம் | வெண்ணைப் பழம் | வெண்ணைப்பழம்</annotation>
@@ -1413,6 +2061,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌽" type="tts">சோளக்கதிர்</annotation>
 		<annotation cp="🌶">காரம் | சிவப்பு மிளகாய் | பெப்பர் | மிளகாய்</annotation>
 		<annotation cp="🌶" type="tts">மிளகாய் பெப்பர்</annotation>
+		<annotation cp="🫑">காய் | குடை மிளகாய் | பெல் பெப்பர் | மிளகாய்</annotation>
+		<annotation cp="🫑" type="tts">பெல் பெப்பர்</annotation>
 		<annotation cp="🥒">உணவு | காய்கறி | வெள்ளரி</annotation>
 		<annotation cp="🥒" type="tts">வெள்ளரி</annotation>
 		<annotation cp="🥬">கேபேஜ் | பச்சை காய்கறி | போக் சோய் | முட்டைகோஸ் | லெட்யூஸ்</annotation>
@@ -1423,18 +2073,26 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧄" type="tts">பூண்டு</annotation>
 		<annotation cp="🧅">சுவை | வெங்காயம்</annotation>
 		<annotation cp="🧅" type="tts">வெங்காயம்</annotation>
-		<annotation cp="🍄">உணவு | காளான் | சூப்பர் மாரியோ | மஷ்ரூம்</annotation>
-		<annotation cp="🍄" type="tts">காளான்</annotation>
 		<annotation cp="🥜">உணவு | கடலை | காய்கறி | வேர்க்கடலை</annotation>
 		<annotation cp="🥜" type="tts">வேர்க்கடலை</annotation>
+		<annotation cp="🫘">உணவு | சிறுநீரகம் | பயறுவகை | பீன்ஸ்</annotation>
+		<annotation cp="🫘" type="tts">பீன்ஸ்</annotation>
 		<annotation cp="🌰">செஸ்ட்நட் | வறுத்த செஸ்ட்நட்</annotation>
 		<annotation cp="🌰" type="tts">செஸ்ட்நட்</annotation>
+		<annotation cp="🫚">இஞ்சி வேர் | பீர் | மசாலா | வேர்</annotation>
+		<annotation cp="🫚" type="tts">இஞ்சி வேர்</annotation>
+		<annotation cp="🫛">எடமாம் | காய் | காய்கறி | பட்டாணி | பருப்பு வகை | பீன்ஸ்</annotation>
+		<annotation cp="🫛" type="tts">பட்டாணி காய்</annotation>
+		<annotation cp="🍄‍🟫" draft="contributed">உணவு, பூஞ்சை, இயற்கை, காய்கறி | பழுப்பு நிற காளான்</annotation>
+		<annotation cp="🍄‍🟫" type="tts" draft="contributed">பழுப்பு நிற காளான்</annotation>
 		<annotation cp="🍞">உணவகம் | உணவு | பிரெட் | ரொட்டி</annotation>
 		<annotation cp="🍞" type="tts">பிரெட்</annotation>
 		<annotation cp="🥐">உணவு | மாவுப் பண்டம் | மாவுப்பண்டம்</annotation>
 		<annotation cp="🥐" type="tts">மாவுப்பண்டம்</annotation>
 		<annotation cp="🥖">உணவு | ரொட்டி</annotation>
 		<annotation cp="🥖" type="tts">ரொட்டி உணவு</annotation>
+		<annotation cp="🫓">அரேபா | ஃபிளாட் பிரட் | நான் | பிடா | லாவாஷ்</annotation>
+		<annotation cp="🫓" type="tts">ஃபிளாட் பிரட்</annotation>
 		<annotation cp="🥨">ப்ரெஸெல் | முறுக்கு</annotation>
 		<annotation cp="🥨" type="tts">ப்ரெஸெல்</annotation>
 		<annotation cp="🥯">பேகல் | பேக்கரி | ஸ்மியர்</annotation>
@@ -1467,6 +2125,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌮" type="tts">டாகோ</annotation>
 		<annotation cp="🌯">உணவு | புரிட்டோ | மெக்சிகன் உணவு</annotation>
 		<annotation cp="🌯" type="tts">புரிட்டோ</annotation>
+		<annotation cp="🫔">சுற்றப்பட்டது | தமாலே | மெக்சிகன்</annotation>
+		<annotation cp="🫔" type="tts">தமாலே</annotation>
 		<annotation cp="🥙">உணவு | ரொட்டி | ரொட்டி வகை உணவு</annotation>
 		<annotation cp="🥙" type="tts">ரொட்டி வகை உணவு</annotation>
 		<annotation cp="🧆">கறி உருண்டை | கொண்டைக்கடலை | வறுத்த கொண்டைக்கடலை உருண்டை</annotation>
@@ -1479,6 +2139,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥘" type="tts">கடாய் உணவு</annotation>
 		<annotation cp="🍲">உணவகம் | உணவு | சூடான உணவு | பாத்திரத்தில் உணவு | பாத்திரம் நிறைய உணவு</annotation>
 		<annotation cp="🍲" type="tts">பாத்திரம் நிறைய உணவு</annotation>
+		<annotation cp="🫕">உருகியது | ஃபாண்டூ | குவளை | சாக்கலேட் | சுவிஸ் | பாலாடைக்கட்டி</annotation>
+		<annotation cp="🫕" type="tts">ஃபாண்டூ</annotation>
 		<annotation cp="🥣">காலை உணவு | ப்ரேக்ஃபாஸ்ட் | ஸ்பூன் உள்ள பாத்திரம்</annotation>
 		<annotation cp="🥣" type="tts">ஸ்பூன் உள்ள பாத்திரம்</annotation>
 		<annotation cp="🥗">உணவு | சாலட்</annotation>
@@ -1569,6 +2231,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥛" type="tts">பால்</annotation>
 		<annotation cp="☕">சூடான காபி | சூடான பானம் | டீ | பானம்</annotation>
 		<annotation cp="☕" type="tts">சூடான பானம்</annotation>
+		<annotation cp="🫖">குவளை | தேநீர் | தேநீர்க் குவளை | பானம்</annotation>
+		<annotation cp="🫖" type="tts">தேநீர்க் குவளை</annotation>
 		<annotation cp="🍵">கைப்பிடி இல்லாத தேனீர் கோப்பை | டீ | தேனீர் | தேனீர்க்கோப்பை | பானம்</annotation>
 		<annotation cp="🍵" type="tts">கைப்பிடி இல்லாத தேனீர் கோப்பை</annotation>
 		<annotation cp="🍶">உணவகம் | சேக் | சேக் பாட்டிலும் கோப்பையும் | மது பாட்டிலும் கோப்பையும் | மதுபானம்</annotation>
@@ -1589,8 +2253,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥂" type="tts">சியர்ஸ்</annotation>
 		<annotation cp="🥃">மது | விஸ்கி | விஸ்கி கிளாஸ்</annotation>
 		<annotation cp="🥃" type="tts">விஸ்கி கிளாஸ்</annotation>
+		<annotation cp="🫗">கண்ணாடி குவளை | காலி | சிந்துதல் | திரவத்தை ஊற்றுதல் | பானம்</annotation>
+		<annotation cp="🫗" type="tts">திரவத்தை ஊற்றுதல்</annotation>
 		<annotation cp="🥤">சோடா | பழச்சாறு | ஜூஸ் | ஸ்ட்ரா உள்ள கோப்பை</annotation>
 		<annotation cp="🥤" type="tts">ஸ்ட்ரா உள்ள கோப்பை</annotation>
+		<annotation cp="🧋">குமிழி | குமிழித் தேநீர் | தேநீர் | பால் | முத்து</annotation>
+		<annotation cp="🧋" type="tts">குமிழித் தேநீர்</annotation>
 		<annotation cp="🧃">குடிபானப் பெட்டி | ஜூஸ் டப்பா | ஜூஸ் பாக்ஸ் | ஜூஸ் பெட்டி</annotation>
 		<annotation cp="🧃" type="tts">குடிபானப் பெட்டி</annotation>
 		<annotation cp="🧉">குளிர்பானம் | பானம் | மேட் | ஜூஸ்</annotation>
@@ -1607,6 +2275,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥄" type="tts">கரண்டி</annotation>
 		<annotation cp="🔪">கத்தி | காய்கறி வெட்டுதல் | சமையல் கத்தி | வெட்டு கத்தி</annotation>
 		<annotation cp="🔪" type="tts">சமையல் கத்தி</annotation>
+		<annotation cp="🫙">ஊறுகாய் | களஞ்சியம் | காலி | கொள்கலன் | சாஸ் | ஜாடி</annotation>
+		<annotation cp="🫙" type="tts">ஜாடி</annotation>
 		<annotation cp="🏺">கும்ப ராசி | கும்பம் | பானம் | வீட்டு அலங்கார பொருள் | ஜாடி</annotation>
 		<annotation cp="🏺" type="tts">கும்பம்</annotation>
 		<annotation cp="🌍">ஆப்பிரிக்கா | உலக உருண்டை | ஐரோப்பா | ஐரோப்பா-ஆப்பிரிக்கா | பூமி</annotation>
@@ -1649,6 +2319,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏗" type="tts">கட்டிடம் கட்டுதல்</annotation>
 		<annotation cp="🧱">களிமண் | காரை | சுவர் | செங்கல் | செங்கல்கள்</annotation>
 		<annotation cp="🧱" type="tts">செங்கல்</annotation>
+		<annotation cp="🪨">கல் | கனம் | திடம் | பாறாங்கல் | பாறை</annotation>
+		<annotation cp="🪨" type="tts">பாறை</annotation>
+		<annotation cp="🪵">கட்டை | துண்டு கட்டை | மரக்கட்டை | மரத் துண்டு</annotation>
+		<annotation cp="🪵" type="tts">கட்டை</annotation>
+		<annotation cp="🛖">குடிசை | கூடாரம் | யர்ட் | ரவுண்ட்ஹவுஸ் | வீடு</annotation>
+		<annotation cp="🛖" type="tts">குடிசை</annotation>
 		<annotation cp="🏘">கட்டிடங்கள் | வீடு | வீடுகள்</annotation>
 		<annotation cp="🏘" type="tts">வீடுகள்</annotation>
 		<annotation cp="🏚">பாழடைந்த வீடு | மோசமான நிலையில் உள்ள வீடு | யாரும் இல்லாமல் மோசமான நிலையில் இருக்கும் வீடு | வீடு</annotation>
@@ -1725,6 +2401,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="♨" type="tts">ஹாட் ஸ்பிரிங்க்ஸ்</annotation>
 		<annotation cp="🎠">இராட்டினம் | குதிரை | கேராசூல் | பொழுதுபோக்கு</annotation>
 		<annotation cp="🎠" type="tts">கேராசூல் குதிரை</annotation>
+		<annotation cp="🛝">சறுக்கு விளையாட்டு | பொழுதுபோக்கு பூங்கா | விளையாட்டு</annotation>
+		<annotation cp="🛝" type="tts">சறுக்கு விளையாட்டு</annotation>
 		<annotation cp="🎡">ஃபெர்ரிஸ் | சக்கரம் | பூங்கா | பொழுதுபோக்கு</annotation>
 		<annotation cp="🎡" type="tts">ஃபெர்ரிஸ் சக்கரம்</annotation>
 		<annotation cp="🎢">கோஸ்டர் | பூங்கா | பொழுதுபோக்கு | பொழுதுபோக்குப் பூங்கா | ரோலர்</annotation>
@@ -1783,6 +2461,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚘" type="tts">வந்துகொண்டிருக்கும் கார்</annotation>
 		<annotation cp="🚙">நவீன வசதிகள் கொண்ட பேருந்து | நவீன வசதிகள் கொண்ட வாகனம்</annotation>
 		<annotation cp="🚙" type="tts">நவீன வசதிகள் கொண்ட வாகனம்</annotation>
+		<annotation cp="🛻">பிக்அப் | பிக்கப் | லாரி</annotation>
+		<annotation cp="🛻" type="tts">பிக்கப் லாரி</annotation>
 		<annotation cp="🚚">சரக்கு லாரி | சரக்கு வண்டி | டிரக்</annotation>
 		<annotation cp="🚚" type="tts">சரக்கு வண்டி</annotation>
 		<annotation cp="🚛">கனரக லாரி | கனரக வாகனம் | லாரி</annotation>
@@ -1807,6 +2487,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛴" type="tts">கிக் ஸ்கூட்டர்</annotation>
 		<annotation cp="🛹">போர்டு | ஸ்கேட்போர்டு</annotation>
 		<annotation cp="🛹" type="tts">ஸ்கேட்போர்டு</annotation>
+		<annotation cp="🛼">ரோலர் | ஸ்கேட்</annotation>
+		<annotation cp="🛼" type="tts">ரோலர் ஸ்கேட்</annotation>
 		<annotation cp="🚏">பஸ் ஸ்டாப் | பேருந்து நிறுத்தம்</annotation>
 		<annotation cp="🚏" type="tts">பேருந்து நிறுத்தம்</annotation>
 		<annotation cp="🛣">சாலை | நெடுஞ்சாலை</annotation>
@@ -1817,6 +2499,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛢" type="tts">எண்ணெய் டிரம்</annotation>
 		<annotation cp="⛽">எரிபொருள் | எரிவாயு | எரிவாயு நிலையம்</annotation>
 		<annotation cp="⛽" type="tts">எரிவாயு நிலையம்</annotation>
+		<annotation cp="🛞">சக்கரம் | டயர் | திருப்புதல் | வட்டம்</annotation>
+		<annotation cp="🛞" type="tts">சக்கரம்</annotation>
 		<annotation cp="🚨">போலீஸ் காரின் சுழலும் விளக்கு | போலீஸ் கார்களில் சுழலும் விளக்கு | போலீஸ் வண்டி விளக்கு</annotation>
 		<annotation cp="🚨" type="tts">போலீஸ் காரின் சுழலும் விளக்கு</annotation>
 		<annotation cp="🚥">கிடைமட்ட ட்ராஃபிக் லைட்டுகள் | ட்ராஃபிக் சிக்னல்கள் | ட்ராஃபிக் லைட்டுகள் | ட்ராஃபிக் விளக்குகள்</annotation>
@@ -1829,6 +2513,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚧" type="tts">கட்டுமான பணி</annotation>
 		<annotation cp="⚓">ஆங்கர் | கருவி | நங்கூரம்</annotation>
 		<annotation cp="⚓" type="tts">நங்கூரம்</annotation>
+		<annotation cp="🛟">உயிர் காப்பான் | பாதுகாப்பு | மிதவை | மீட்பு | வட்ட மிதவை</annotation>
+		<annotation cp="🛟" type="tts">வட்ட மிதவை</annotation>
 		<annotation cp="⛵">உலாப் படகு | கடல் பயணம் | சுற்றுலா | ரிசார்ட்</annotation>
 		<annotation cp="⛵" type="tts">உலாப் படகு</annotation>
 		<annotation cp="🛶">படகு</annotation>
@@ -2143,12 +2829,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪀" type="tts">யோ யோ</annotation>
 		<annotation cp="🪁">உயரப்பறத்தல் | பட்டம் | பறப்பது</annotation>
 		<annotation cp="🪁" type="tts">பட்டம்</annotation>
+		<annotation cp="🔫">தண்ணீர் பிஸ்டல் | துப்பாக்கி | பிஸ்டல் | ரிவால்வர்</annotation>
+		<annotation cp="🔫" type="tts">தண்ணீர் பிஸ்டல்</annotation>
 		<annotation cp="🎱">உள்ளரங்க விளையாட்டு | எட்டு பந்து | பில்லியர்ட்ஸ் | விளையாட்டு</annotation>
 		<annotation cp="🎱" type="tts">பில்லியர்ட்ஸ்</annotation>
 		<annotation cp="🔮">கண்ணாடி பந்து | கிறிஸ்டல் பால் | பந்து</annotation>
 		<annotation cp="🔮" type="tts">கண்ணாடி பந்து</annotation>
-		<annotation cp="🧿">அழகு | தயாத்து | தீய கண் | நாசர் | நாஜர் ஆமுலட் | மணி</annotation>
-		<annotation cp="🧿" type="tts">நாஜர் ஆமுலட்</annotation>
+		<annotation cp="🪄">சூனியக்காரி | மந்திரக் கோல் | மந்திரம் | மந்திரவாதி</annotation>
+		<annotation cp="🪄" type="tts">மந்திரக் கோல்</annotation>
 		<annotation cp="🎮">கன்ட்ரோலர் | கேம் | சாதனம் | வீடியோ கேம்</annotation>
 		<annotation cp="🎮" type="tts">வீடியோ கேம்</annotation>
 		<annotation cp="🕹">கேம் | வீடியோ கேம் | ஜாய் ஸ்டிக்</annotation>
@@ -2161,6 +2849,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧩" type="tts">ஜிக்ஸா</annotation>
 		<annotation cp="🧸">டெடிபியர் | பஞ்சு | பட்டு | பொம்மை | விளையாட்டுப்பொருள்</annotation>
 		<annotation cp="🧸" type="tts">டெடிபியர்</annotation>
+		<annotation cp="🪅">கொண்டாட்டம் | பார்ட்டி | பினாட்டா</annotation>
+		<annotation cp="🪅" type="tts">பினாட்டா</annotation>
+		<annotation cp="🪩">கண்ணாடி உருண்டை | கொண்டாட்டம் | டிஸ்கோ | நடனம் | மினுமினுப்பு</annotation>
+		<annotation cp="🪩" type="tts">கண்ணாடி உருண்டை</annotation>
+		<annotation cp="🪆">அம்மா | அம்மா பொம்மைகள் | பொம்மை | ரஷியா</annotation>
+		<annotation cp="🪆" type="tts">அம்மா பொம்மைகள்</annotation>
 		<annotation cp="♠">சீட்டு விளையாடுதல் | ஸ்பேட் கார்டு</annotation>
 		<annotation cp="♠" type="tts">ஸ்பேட் கார்டு</annotation>
 		<annotation cp="♥">சீட்டு விளையாடுதல் | ஹார்ட் கார்டு</annotation>
@@ -2185,8 +2879,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎨" type="tts">வண்ணத் தட்டு</annotation>
 		<annotation cp="🧵">ஊசி | சரம் | தையல் | நூல் | ஸ்பூல்</annotation>
 		<annotation cp="🧵" type="tts">நூல்</annotation>
+		<annotation cp="🪡">ஊசி | எம்பிராய்டரி | டெய்லரிங் | தைத்தல் | தையல்</annotation>
+		<annotation cp="🪡" type="tts">தையல் ஊசி</annotation>
 		<annotation cp="🧶">கொக்கிப்பின்னல் | நூல்கண்டு | பந்து | பின்னல்</annotation>
 		<annotation cp="🧶" type="tts">நூல்கண்டு</annotation>
+		<annotation cp="🪢">கட்டு | கயிறு | சிக்கல் | நூல் | முடிச்சு | முறுக்கு</annotation>
+		<annotation cp="🪢" type="tts">முடிச்சு</annotation>
 		<annotation cp="👓">ஆடை அணிகலன் | கண்ணாடி | கண்ணாடிகள் | மூக்குக் கண்ணாடி | மூக்குக் கண்ணாடிகள்</annotation>
 		<annotation cp="👓" type="tts">மூக்குக் கண்ணாடிகள்</annotation>
 		<annotation cp="🕶">கருப்புக் கண்ணாடி | சன்கிளாசஸ் | சன்கிளாஸ்கள்</annotation>
@@ -2227,6 +2925,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👙" type="tts">நீச்சலாடை</annotation>
 		<annotation cp="👚">ஆடை அணிகலன் | ஆடைகள் | உடைகள் | பெண்களின் ஆடைகள் | பெண்கள்</annotation>
 		<annotation cp="👚" type="tts">பெண்களின் ஆடைகள்</annotation>
+		<annotation cp="🪭">குளிர்ச்சி | சிறகடிப்பு | நடனம் | மடிப்பு கை விசிறி | விசிறி | வெட்கம் | வெப்பம்</annotation>
+		<annotation cp="🪭" type="tts">மடிப்பு கை விசிறி</annotation>
 		<annotation cp="👛">ஆடை அணிகலன் | பணப்பை | பர்ஸ் | மணி பர்ஸ்</annotation>
 		<annotation cp="👛" type="tts">பர்ஸ்</annotation>
 		<annotation cp="👜">ஆடை அணிகலன் | கைப்பை | பேக் | பை | ஹேண்ட் பேக்</annotation>
@@ -2237,6 +2937,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛍" type="tts">ஷாப்பிங் பேக்ஸ்</annotation>
 		<annotation cp="🎒">பள்ளிக்கூட பை | பள்ளிக்கூடம் | பை | மாணவர்கள்</annotation>
 		<annotation cp="🎒" type="tts">பள்ளிக்கூட பை</annotation>
+		<annotation cp="🩴">செருப்புகள் | சோரி | தாங் செருப்பு | தாங் செருப்புகள் | தாங்குகள் | பீச் செருப்பு</annotation>
+		<annotation cp="🩴" type="tts">தாங் செருப்பு</annotation>
 		<annotation cp="👞">ஆடை அணிகலன் | ஆண்களுக்கான ஷூ | ஆண்கள் | ஷூ</annotation>
 		<annotation cp="👞" type="tts">ஆண்களுக்கான ஷூ</annotation>
 		<annotation cp="👟">ஆடை அணிகலன் | தடகள வீரர்களுக்கான ஷூ | மிருதுவான ஷூ | ஷூ</annotation>
@@ -2253,6 +2955,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🩰" type="tts">பாலே காலணிகள்</annotation>
 		<annotation cp="👢">ஆடை அணிகலன் | பூட் | பெண்கள்</annotation>
 		<annotation cp="👢" type="tts">பெண்கள் பூட்</annotation>
+		<annotation cp="🪮">ஆஃப்ரோ | சீப்பு | பிக் | முடி | ஹேர் பிக்</annotation>
+		<annotation cp="🪮" type="tts">ஹேர் பிக்</annotation>
 		<annotation cp="👑">ஆடை அணிகலன் | கிரீடம் | மகுடம்</annotation>
 		<annotation cp="👑" type="tts">கிரீடம்</annotation>
 		<annotation cp="👒">ஆடை அணிகலன் | தொப்பி | பெண்கள் தொப்பி</annotation>
@@ -2263,6 +2967,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎓" type="tts">பட்டமளிப்புத் தொப்பி</annotation>
 		<annotation cp="🧢">சின்னமுள்ள தொப்பி | பேஸ்பால் தொப்பி</annotation>
 		<annotation cp="🧢" type="tts">சின்னமுள்ள தொப்பி</annotation>
+		<annotation cp="🪖">தலைக்கவசம் | போர் வீரர் | ராணுவ வீரர் | ராணுவத் தலைக்கவசம் | ராணுவம்</annotation>
+		<annotation cp="🪖" type="tts">ராணுவத் தலைக்கவசம்</annotation>
 		<annotation cp="⛑">வெள்ளை நிற கிராஸ் உள்ள ஹெல்மெட் | வெள்ளை நிற கிராஸ் வரையப்பட்ட ஹெல்மெட்</annotation>
 		<annotation cp="⛑" type="tts">வெள்ளை நிற கிராஸ் வரையப்பட்ட ஹெல்மெட்</annotation>
 		<annotation cp="📿">அணிகலன் | பிரார்த்தனைக்கான மணிகள் | வழிபடுவதற்குப் பயன்படும் பாசிமணிகள்</annotation>
@@ -2311,6 +3017,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📻" type="tts">ரேடியோ</annotation>
 		<annotation cp="🎷">இசை | இசைக்கருவி | சாக்ஸபோன்</annotation>
 		<annotation cp="🎷" type="tts">சாக்ஸபோன்</annotation>
+		<annotation cp="🪗">அக்கார்டியன் | அழுத்தும் இசைப் பெட்டி | கான்செர்டினா</annotation>
+		<annotation cp="🪗" type="tts">அக்கார்டியன்</annotation>
 		<annotation cp="🎸">இசை | இசைக்கருவி | கிட்டார்</annotation>
 		<annotation cp="🎸" type="tts">கிட்டார்</annotation>
 		<annotation cp="🎹">இசைக்கருவி | பியானோ | மியூசிக் கீபோர்ட்</annotation>
@@ -2323,6 +3031,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪕" type="tts">பாஞ்சோ</annotation>
 		<annotation cp="🥁">இசை | மேளம்</annotation>
 		<annotation cp="🥁" type="tts">மேளம்</annotation>
+		<annotation cp="🪘">கோங்கா | தாளம் | நீண்ட மத்தளம் | மத்தளம் | ரிதம்</annotation>
+		<annotation cp="🪘" type="tts">நீண்ட மத்தளம்</annotation>
+		<annotation cp="🪇">இசை | கருவி | கிலுகிலுப்பை | குலுக்கல் | தாள வாத்தியம் | மரக்காஸ்</annotation>
+		<annotation cp="🪇" type="tts">மரக்காஸ்</annotation>
+		<annotation cp="🪈">இசை | ஃபைஃப் | குழாய் | புல்லாங்குழல் | மரக்காற்று | ரெக்கார்டர்</annotation>
+		<annotation cp="🪈" type="tts">புல்லாங்குழல்</annotation>
 		<annotation cp="📱">செல்பேசி | செல்போன் | மொபைல்</annotation>
 		<annotation cp="📱" type="tts">மொபைல்</annotation>
 		<annotation cp="📲">அம்புக்குறி | அம்புக்குறியுடன் செல்போன் | ஃபோன் | செல்ஃபோன் | பெறுதல் | மொபைல்</annotation>
@@ -2337,6 +3051,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📠" type="tts">பேக்ஸ்</annotation>
 		<annotation cp="🔋">பேட்டரி | மின்கலம்</annotation>
 		<annotation cp="🔋" type="tts">பேட்டரி</annotation>
+		<annotation cp="🪫">குறைந்த ஆற்றல் | குறைந்த பேட்டரி | மின்னணு</annotation>
+		<annotation cp="🪫" type="tts">குறைந்த பேட்டரி</annotation>
 		<annotation cp="🔌">பிளக் | பிளக் பாயின்ட்</annotation>
 		<annotation cp="🔌" type="tts">பிளக்</annotation>
 		<annotation cp="💻">கணிப்பொறி | கணினி | தனிநபர் கணினி | லேப்டாப் கணினி</annotation>
@@ -2429,6 +3145,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏷" type="tts">லேபிள்</annotation>
 		<annotation cp="💰">டாலர் | பணப்பை | பணம்</annotation>
 		<annotation cp="💰" type="tts">பணப்பை</annotation>
+		<annotation cp="🪙">உலோகம் | தங்கம் | நாணயம் | பணம் | புதையல் | வெள்ளி</annotation>
+		<annotation cp="🪙" type="tts">நாணயம்</annotation>
 		<annotation cp="💴">பணம் | யென் | யென் நோட்டு | ரூபாய் நோட்டு | ரூபாய் நோட்டுக் கட்டு | ஜப்பான்</annotation>
 		<annotation cp="💴" type="tts">யென் நோட்டு</annotation>
 		<annotation cp="💵">அமெரிக்கா | டாலர் | டாலர் நோட்டு | பணம் | ரூபாய் நோட்டு | ரூபாய் நோட்டுக் கட்டு</annotation>
@@ -2445,10 +3163,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧾" type="tts">ரசீது</annotation>
 		<annotation cp="💹">சந்தை வளர்ச்சி | வளரும் சந்தை | வளரும் பங்குச்சந்தை</annotation>
 		<annotation cp="💹" type="tts">வளரும் பங்குச்சந்தை</annotation>
-		<annotation cp="💱">நாணயப் பரிமாற்றம் | பணப் பரிமாற்றம் | பணம் | வங்கி</annotation>
-		<annotation cp="💱" type="tts">நாணயப் பரிமாற்றம்</annotation>
-		<annotation cp="💲">டாலர் | டாலர் சின்னம் | தடிமனான டாலர் சின்னம் | நாணயம் | பணம்</annotation>
-		<annotation cp="💲" type="tts">தடிமனான டாலர் சின்னம்</annotation>
 		<annotation cp="✉">என்வெலப் | என்வெலப் கவர் | கடித உறை</annotation>
 		<annotation cp="✉" type="tts">கடித உறை</annotation>
 		<annotation cp="📧">இமெயில் சின்னம் | ஈமெயில் | ஈமெயில் சிம்பல் | மின் அஞ்சல் | மின்னஞ்சல்</annotation>
@@ -2561,14 +3275,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🗡" type="tts">பட்டாக் கத்தி</annotation>
 		<annotation cp="⚔">ஆயுதம் | குறுக்காக வைக்கப்பட்ட வாள்கள் | குறுக்கான வாள்கள் | குறுக்கானது</annotation>
 		<annotation cp="⚔" type="tts">குறுக்காக வைக்கப்பட்ட வாள்கள்</annotation>
-		<annotation cp="🔫">துப்பாக்கி | பிஸ்டல் | ரிவால்வர்</annotation>
-		<annotation cp="🔫" type="tts">துப்பாக்கி</annotation>
+		<annotation cp="💣">குண்டு | குண்டுவெடிப்பு | வெடிகுண்டு | வெடிபொருள்</annotation>
+		<annotation cp="💣" type="tts">வெடிபொருள்</annotation>
+		<annotation cp="🪃">ஆஸ்திரேலியா | திரும்பி வருதல் | பூமராங்க் | ரீபவுன்ட்</annotation>
+		<annotation cp="🪃" type="tts">பூமராங்க்</annotation>
 		<annotation cp="🏹">ஆயுதம் | தனுசு | தனுசு ராசி | யுத்தம் | வில்லும் அம்பும்</annotation>
 		<annotation cp="🏹" type="tts">வில்லும் அம்பும்</annotation>
 		<annotation cp="🛡">கேடயம் | பாதுகாப்பு ஆயுதம் | யுத்தம்</annotation>
 		<annotation cp="🛡" type="tts">கேடயம்</annotation>
+		<annotation cp="🪚">கருவி | தச்சர் | ரம்பம் | லம்பர்</annotation>
+		<annotation cp="🪚" type="tts">ரம்பம்</annotation>
 		<annotation cp="🔧">இடுக்கி | கருவி | டூல்</annotation>
 		<annotation cp="🔧" type="tts">இடுக்கி</annotation>
+		<annotation cp="🪛">கருவி | திருப்புளி</annotation>
+		<annotation cp="🪛" type="tts">திருப்புளி</annotation>
 		<annotation cp="🔩">கருவி | நட்டு | நட்டு மற்றும் போல்ட் | போல்ட் | போல்ட்டும் நட்டும்</annotation>
 		<annotation cp="🔩" type="tts">நட்டு மற்றும் போல்ட்</annotation>
 		<annotation cp="⚙">இயந்திரம் | கருவி | கியர் | பொறியியல்</annotation>
@@ -2581,12 +3301,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦯" type="tts">கைத்தடி</annotation>
 		<annotation cp="🔗">இணை | இரு வளையங்கள் | கட்டு | சேர்</annotation>
 		<annotation cp="🔗" type="tts">இரு வளையங்கள்</annotation>
+		<annotation cp="⛓‍💥" draft="contributed">உடைந்த சங்கிலி | உடைப்பு, உடைத்தல், சங்கிலி, கஃப்ஸ், சுதந்திரம்</annotation>
+		<annotation cp="⛓‍💥" type="tts" draft="contributed">உடைந்த சங்கிலி</annotation>
 		<annotation cp="⛓">சங்கிலி | சங்கிலிகள் | செயின்</annotation>
 		<annotation cp="⛓" type="tts">சங்கிலிகள்</annotation>
+		<annotation cp="🪝">கொக்கி | பிடித்தல் | மாட்டி | வளைவு | விறபனை இடம்</annotation>
+		<annotation cp="🪝" type="tts">கொக்கி</annotation>
 		<annotation cp="🧰">டூல் | டூல்பாக்ஸ் | மார்பு | மெக்கானிக்</annotation>
 		<annotation cp="🧰" type="tts">டூல்பாக்ஸ்</annotation>
 		<annotation cp="🧲">ஈர்ப்பு | காந்தம் | குதிரைலாடம்</annotation>
 		<annotation cp="🧲" type="tts">காந்தம்</annotation>
+		<annotation cp="🪜">ஏணி | ஏறுதல் | ஏனிப்படி | படி</annotation>
+		<annotation cp="🪜" type="tts">ஏணி</annotation>
 		<annotation cp="⚗">அலெம்பிக் | கருவி | வடிகலன் | வேதியியல்</annotation>
 		<annotation cp="⚗" type="tts">அலெம்பிக்</annotation>
 		<annotation cp="🧪">அறிவியல் | ஆய்வுக்கூடம் | சோதனைக் குழாய் | பரிசோதனை | வேதியியலர் | வேதியியல்</annotation>
@@ -2609,10 +3335,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💊" type="tts">மாத்திரை</annotation>
 		<annotation cp="🩹">ஒட்டக்கூடிய பேண்டேஜ் | காயம் | பேண்டேஜ்</annotation>
 		<annotation cp="🩹" type="tts">ஒட்டக்கூடிய பேண்டேஜ்</annotation>
+		<annotation cp="🩼">இயலாமை | ஊன்றுகோல் | காயம் | குச்சி | நகர்வதற்கான உதவி | பிரம்பு</annotation>
+		<annotation cp="🩼" type="tts">ஊன்றுகோல்</annotation>
 		<annotation cp="🩺">இதயத்துடிப்பு | இதயம் | மருத்துவம் | மருத்துவர் | ஸ்டெதாஸ்கோப்</annotation>
 		<annotation cp="🩺" type="tts">ஸ்டெதாஸ்கோப்</annotation>
+		<annotation cp="🩻">எக்ஸ்ரே | எலும்புகள் | எலும்புக்கூடு | மருத்துவம் | மருத்துவர்</annotation>
+		<annotation cp="🩻" type="tts">எக்ஸ்ரே</annotation>
 		<annotation cp="🚪">கதவு | மரப்பொருள் | முடிந்தது</annotation>
 		<annotation cp="🚪" type="tts">கதவு</annotation>
+		<annotation cp="🛗">அணுகல்தன்மை | எலவேட்டர் | ஏற்றுதல் | மின்தூக்கி</annotation>
+		<annotation cp="🛗" type="tts">எலவேட்டர்</annotation>
+		<annotation cp="🪞">கண்ணாடி | பிரதிபலிப்பான் | பிரதிபலிப்பு | மெருகேற்றப்பட்ட உலோகம்</annotation>
+		<annotation cp="🪞" type="tts">கண்ணாடி</annotation>
+		<annotation cp="🪟">ஒளிப்புகும் தன்மை | காட்சி | சட்டம் | திறப்பு | தூய்மையான காற்று | ஜன்னல்</annotation>
+		<annotation cp="🪟" type="tts">ஜன்னல்</annotation>
 		<annotation cp="🛏">தூக்கம் | படுக்கை | விடுதி</annotation>
 		<annotation cp="🛏" type="tts">படுக்கை</annotation>
 		<annotation cp="🛋">படுக்கை | மின்விளக்கு | மின்விளக்குடன் படுக்கை | மின்விளக்கும் படுக்கையும்</annotation>
@@ -2621,10 +3357,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪑" type="tts">மர நாற்காலி</annotation>
 		<annotation cp="🚽">கழிப்பறை | டாய்லட்</annotation>
 		<annotation cp="🚽" type="tts">கழிப்பறை</annotation>
+		<annotation cp="🪠">உறிஞ்சுதல் | உறியும் கப் | கழிவறை | ப்ளங்கர் | ப்ளம்பர்</annotation>
+		<annotation cp="🪠" type="tts">ப்ளங்கர்</annotation>
 		<annotation cp="🚿">ஷவர் | ஷவர் குளியல்</annotation>
 		<annotation cp="🚿" type="tts">ஷவர்</annotation>
 		<annotation cp="🛁">குளியலறை | குளியல் தொட்டி | தொட்டி</annotation>
 		<annotation cp="🛁" type="tts">குளியல் தொட்டி</annotation>
+		<annotation cp="🪤">எலிப்பொறி | தூண்டில் | பொறி | வலை</annotation>
+		<annotation cp="🪤" type="tts">எலிப்பொறி</annotation>
 		<annotation cp="🪒">கூர்மென்கத்தி | சவரக்கத்தி | ரேஸர்</annotation>
 		<annotation cp="🪒" type="tts">ரேஸர்</annotation>
 		<annotation cp="🧴">சன்ஸ்கிரீன் | மாய்ஸ்சரைசர் | லோஷன் | லோஷன் பாட்டில் | ஷாம்பு</annotation>
@@ -2637,8 +3377,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧺" type="tts">கூடை</annotation>
 		<annotation cp="🧻">டாய்லெட் பேப்பர் | பேப்பர் டவல் | பேப்பர் ரோல்</annotation>
 		<annotation cp="🧻" type="tts">பேப்பர் ரோல்</annotation>
+		<annotation cp="🪣">பக்கெட் | பீப்பாய் | வாளி</annotation>
+		<annotation cp="🪣" type="tts">வாளி</annotation>
 		<annotation cp="🧼">குளியல் | சுத்தம் | சோப் | சோப்பு | சோப்பு டப்பா | நுரை</annotation>
 		<annotation cp="🧼" type="tts">சோப்பு</annotation>
+		<annotation cp="🫧">குமிழ்கள் | சுத்தம் | சோப்பு | நீருக்கடியில்</annotation>
+		<annotation cp="🫧" type="tts">குமிழ்கள்</annotation>
+		<annotation cp="🪥">குளியலறை | சுகாதாரம் | சுத்தம் | டூத்பிரஷ் | டெண்ட்டல் | பற்கள் | பிரஷ்</annotation>
+		<annotation cp="🪥" type="tts">டூத்பிரஷ்</annotation>
 		<annotation cp="🧽">உறிஞ்சுதல் | சுத்தம் | துளைகள் | ஸ்பான்ஞ்</annotation>
 		<annotation cp="🧽" type="tts">ஸ்பான்ஞ்</annotation>
 		<annotation cp="🧯">அணைத்தல் | தணித்தல் | தீ | தீ அணைப்பான்</annotation>
@@ -2649,10 +3395,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚬" type="tts">புகைச் சின்னம்</annotation>
 		<annotation cp="⚰">அடக்கம் | இறப்பு | சவப்பெட்டி | துக்கம் | பிணப்பெட்டி</annotation>
 		<annotation cp="⚰" type="tts">பிணப்பெட்டி</annotation>
+		<annotation cp="🪦">கல்லறை | கல்லறைக்கல் | சமாதி | மயானம்</annotation>
+		<annotation cp="🪦" type="tts">கல்லறை</annotation>
 		<annotation cp="⚱">அடக்கம் | இறுதிச்சடங்கு | இறுதிச்சடங்கு ஜாடி</annotation>
 		<annotation cp="⚱" type="tts">இறுதிச்சடங்கு ஜாடி</annotation>
+		<annotation cp="🧿">அழகு | தயாத்து | தீய கண் | நாசர் | நாஜர் ஆமுலட் | மணி</annotation>
+		<annotation cp="🧿" type="tts">நாஜர் ஆமுலட்</annotation>
+		<annotation cp="🪬">கை | தாயத்து | பாதுகாப்பு | பாத்திமா | மிரியம் | மேரி | ஹம்சா</annotation>
+		<annotation cp="🪬" type="tts">ஹம்சா</annotation>
 		<annotation cp="🗿">சிலை | மோயை மனித முகம்</annotation>
 		<annotation cp="🗿" type="tts">மோயை மனித முகம்</annotation>
+		<annotation cp="🪧">ஆர்பாட்டம் | குறியீடு | பதாகை | போராட்டம் | மறியல்</annotation>
+		<annotation cp="🪧" type="tts">பதாகை</annotation>
+		<annotation cp="🪪">அடையாள அட்டை | உரிமம் | ஐடி | சான்றுகள் | பாதுகாப்பு</annotation>
+		<annotation cp="🪪" type="tts">அடையாள அட்டை</annotation>
 		<annotation cp="🏧">ஏடிஎம் | தானியங்கி இயந்திரம் | வங்கி</annotation>
 		<annotation cp="🏧" type="tts">ஏடிஎம்</annotation>
 		<annotation cp="🚮">குப்பையை உரிய இடத்தில் போடவும் | குப்பையை உரிய இடத்தில் போடும் சின்னம்</annotation>
@@ -2725,6 +3481,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↕" type="tts">மேல்-கீழ் நோக்கிய அம்புக்குறி</annotation>
 		<annotation cp="↔">அம்புக்குறி | இடது-வலது நோக்கிய அம்புக்குறி</annotation>
 		<annotation cp="↔" type="tts">இடது-வலது நோக்கிய அம்புக்குறி</annotation>
+		<annotation cp="↮">இடது மற்றும் வலதுபுறம் நோக்கிய அம்புக்கோடு</annotation>
+		<annotation cp="↮" type="tts">இடது மற்றும் வலதுபுறம் நோக்கிய அம்புக்கோடு</annotation>
 		<annotation cp="↩">அம்புக்குறி | இடப்பக்கம் வளைந்த வலது அம்புக்குறி | இடப்பக்கம் வளைந்திருக்கும் வலது அம்புக்குறி</annotation>
 		<annotation cp="↩" type="tts">இடப்பக்கம் வளைந்திருக்கும் வலது அம்புக்குறி</annotation>
 		<annotation cp="↪">அம்புக்குறி | வலப்பக்கம் வளைந்த இடது அம்புக்குறி | வலப்பக்கம் வளைந்திருக்கும் இடது அம்புக்குறி</annotation>
@@ -2771,6 +3529,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🕎" type="tts">மெழுகுவர்த்தி ஸ்டிக்</annotation>
 		<annotation cp="🔯">ஆறு முனை நட்சத்திரம் | நட்சத்திரம் | ஸ்டார்</annotation>
 		<annotation cp="🔯" type="tts">ஆறு முனை நட்சத்திரம்</annotation>
+		<annotation cp="🪯">காண்டா | சீக்கியம் | மதம்</annotation>
+		<annotation cp="🪯" type="tts">காண்டா</annotation>
 		<annotation cp="♈">இராசி | நட்சத்திரம் | மேஷம் | ராசி</annotation>
 		<annotation cp="♈" type="tts">மேஷம்</annotation>
 		<annotation cp="♉">இராசி | நட்சத்திரம் | ராசி | ரிஷபம்</annotation>
@@ -2841,6 +3601,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔆" type="tts">ஒளி அதிகரிக்கும் பட்டன்</annotation>
 		<annotation cp="📶">கவரேஜ் | சிக்னல்கள் | டவர் | மொபைல்</annotation>
 		<annotation cp="📶" type="tts">சிக்னல்கள்</annotation>
+		<annotation cp="🛜">இணையம் | கணினி | பிணையம் | வயர்லெஸ்</annotation>
+		<annotation cp="🛜" type="tts">வயர்லெஸ்</annotation>
 		<annotation cp="📳">அதிரும் செல்போன் | அதிர்வு</annotation>
 		<annotation cp="📳" type="tts">அதிர்வு</annotation>
 		<annotation cp="📴">அணைத்த செல் | ஆஃப் | மொபைல்</annotation>
@@ -2849,10 +3611,40 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="♀" type="tts">பெண்களைக் குறிக்கும் சின்னம்</annotation>
 		<annotation cp="♂">ஆடவர் | ஆண் | ஆண்களைக் குறிக்கும் சின்னம் | சின்னம்</annotation>
 		<annotation cp="♂" type="tts">ஆண்களைக் குறிக்கும் சின்னம்</annotation>
-		<annotation cp="⚕">டாக்டர் | மருத்துவச் சின்னம் | மருத்துவர்</annotation>
-		<annotation cp="⚕" type="tts">மருத்துவச் சின்னம்</annotation>
+		<annotation cp="⚧">திருநங்கை | திருநங்கைக்கான குறியீடு</annotation>
+		<annotation cp="⚧" type="tts">திருநங்கைக்கான குறியீடு</annotation>
+		<annotation cp="✖">குறியீடு | பெருக்கல் | பெருக்கல் குறி | பெருக்கல் சின்னம் | ரத்து செய்தல்</annotation>
+		<annotation cp="✖" type="tts">பெருக்கல் சின்னம்</annotation>
+		<annotation cp="➕">கணக்கு | குறியீடு | கூட்டல் | கூட்டல் குறி | கூட்டற்குறி</annotation>
+		<annotation cp="➕" type="tts">கூட்டற்குறி</annotation>
+		<annotation cp="➖">கணக்கு | கழித்தல் | கழித்தல் குறி | குறியீடு</annotation>
+		<annotation cp="➖" type="tts">கழித்தல் குறி</annotation>
+		<annotation cp="➗">கணக்கு | குறியீடு | வகுத்தல் | வகுத்தற்குறி</annotation>
+		<annotation cp="➗" type="tts">வகுத்தற்குறி</annotation>
+		<annotation cp="🟰">கணிதம் | கனமான சமன் அடையாளம் | சமம்</annotation>
+		<annotation cp="🟰" type="tts">கனமான சமன் அடையாளம்</annotation>
 		<annotation cp="♾">உலகளாவியது | முடிவற்றது | முடிவிலி | வரம்பற்றது</annotation>
 		<annotation cp="♾" type="tts">முடிவிலி</annotation>
+		<annotation cp="‼">ஆச்சர்யம் | இரட்டை ஆச்சர்யக் குறி | குறி | நிறுத்தற்குறி</annotation>
+		<annotation cp="‼" type="tts">இரட்டை ஆச்சர்யக் குறி</annotation>
+		<annotation cp="⁉">ஆச்சரியக் குறியும் கேள்விக்குறியும் | ஆச்சரியக்குறி | ஆச்சரியம் | ஆச்சர்யக் குறியும் கேள்விக்குறியும் | கேள்விக்குறி | நிறுத்தற்குறி</annotation>
+		<annotation cp="⁉" type="tts">ஆச்சர்யக் குறியும் கேள்விக்குறியும்</annotation>
+		<annotation cp="❓">அடர் நிற கேள்விக் குறி | அடர் நிறக் கேள்விக் குறி | குறி | கேள்விக் குறி | கேள்விக் குறி, அடர் நிறக் கேள்விக் குறி | நிறுத்தற்குறி</annotation>
+		<annotation cp="❓" type="tts">கேள்விக் குறி, அடர் நிறக் கேள்விக் குறி</annotation>
+		<annotation cp="❔">குறி | கேள்விக் குறி | நிறுத்தற்குறி | வெளிர் நிறக் கேள்விக் குறி | வெள்ளை நிறக் கேள்விக்குறி</annotation>
+		<annotation cp="❔" type="tts">வெள்ளை நிறக் கேள்விக்குறி</annotation>
+		<annotation cp="❕">ஆச்சரியக்குறி | குறி | நிறுத்தற்குறி | வெள்ளை நிறக் ஆச்சரியக்குறி</annotation>
+		<annotation cp="❕" type="tts">வெள்ளை நிறக் ஆச்சரியக்குறி</annotation>
+		<annotation cp="❗">ஆச்சரியக்குறி | ஆச்சர்யக் குறி | குறி | சிவப்பு நிற ஆச்சரியக்குறி | நிறுத்தற்குறி</annotation>
+		<annotation cp="❗" type="tts">ஆச்சர்யக் குறி</annotation>
+		<annotation cp="〰">அலை | அலை ஓசை | அலை சத்தம் | இரைச்சல் சத்தம்</annotation>
+		<annotation cp="〰" type="tts">அலை</annotation>
+		<annotation cp="💱">நாணயப் பரிமாற்றம் | பணப் பரிமாற்றம் | பணம் | வங்கி</annotation>
+		<annotation cp="💱" type="tts">நாணயப் பரிமாற்றம்</annotation>
+		<annotation cp="💲">டாலர் | டாலர் சின்னம் | தடிமனான டாலர் சின்னம் | நாணயம் | பணம்</annotation>
+		<annotation cp="💲" type="tts">தடிமனான டாலர் சின்னம்</annotation>
+		<annotation cp="⚕">டாக்டர் | மருத்துவச் சின்னம் | மருத்துவர்</annotation>
+		<annotation cp="⚕" type="tts">மருத்துவச் சின்னம்</annotation>
 		<annotation cp="♻">சின்னம் | மறுசுழற்சி</annotation>
 		<annotation cp="♻" type="tts">மறுசுழற்சி</annotation>
 		<annotation cp="⚜">பூ</annotation>
@@ -2871,18 +3663,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☑" type="tts">டிக் செய்த வாக்குப் பெட்டி</annotation>
 		<annotation cp="✔">கருப்பு நிற டிக் | கருப்பு நிற டிக் சின்னம் | சரி | டிக் மார்க்</annotation>
 		<annotation cp="✔" type="tts">கருப்பு நிற டிக் சின்னம்</annotation>
-		<annotation cp="✖">குறியீடு | பெருக்கல் | பெருக்கல் குறி | பெருக்கல் சின்னம் | ரத்து செய்தல்</annotation>
-		<annotation cp="✖" type="tts">பெருக்கல் சின்னம்</annotation>
 		<annotation cp="❌">கணக்கு | சின்னம் | பெருக்கல் குறி</annotation>
 		<annotation cp="❌" type="tts">பெருக்கல் குறி</annotation>
 		<annotation cp="❎">கணக்கு | சதுரத்திற்குள் பெருக்கல் குறி | சின்னம்</annotation>
 		<annotation cp="❎" type="tts">சதுரத்திற்குள் பெருக்கல் குறி</annotation>
-		<annotation cp="➕">கணக்கு | குறியீடு | கூட்டல் | கூட்டல் குறி | கூட்டற்குறி</annotation>
-		<annotation cp="➕" type="tts">கூட்டற்குறி</annotation>
-		<annotation cp="➖">கணக்கு | கழித்தல் | கழித்தல் குறி | குறியீடு</annotation>
-		<annotation cp="➖" type="tts">கழித்தல் குறி</annotation>
-		<annotation cp="➗">கணக்கு | குறியீடு | வகுத்தல் | வகுத்தற்குறி</annotation>
-		<annotation cp="➗" type="tts">வகுத்தற்குறி</annotation>
 		<annotation cp="➰">சுருள் | சுருள் வளைவு</annotation>
 		<annotation cp="➰" type="tts">சுருள் வளைவு</annotation>
 		<annotation cp="➿">இரட்டை சுருள் | இரட்டை சுருள் வளைவு</annotation>
@@ -2895,20 +3679,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="✴" type="tts">எட்டு முனை நட்சத்திரம்</annotation>
 		<annotation cp="❇">திடீர் வெளிச்சம் | ஸ்பார்கில்</annotation>
 		<annotation cp="❇" type="tts">ஸ்பார்கில்</annotation>
-		<annotation cp="‼">ஆச்சர்யம் | இரட்டை ஆச்சர்யக் குறி | குறி | நிறுத்தற்குறி</annotation>
-		<annotation cp="‼" type="tts">இரட்டை ஆச்சர்யக் குறி</annotation>
-		<annotation cp="⁉">ஆச்சரியக் குறியும் கேள்விக்குறியும் | ஆச்சரியக்குறி | ஆச்சரியம் | ஆச்சர்யக் குறியும் கேள்விக்குறியும் | கேள்விக்குறி | நிறுத்தற்குறி</annotation>
-		<annotation cp="⁉" type="tts">ஆச்சர்யக் குறியும் கேள்விக்குறியும்</annotation>
-		<annotation cp="❓">அடர் நிற கேள்விக் குறி | குறி | கேள்விக் குறி | கேள்விக் குறி, அடர் நிறக் கேள்விக் குறி | நிறுத்தற்குறி</annotation>
-		<annotation cp="❓" type="tts">கேள்விக் குறி, அடர் நிறக் கேள்விக் குறி</annotation>
-		<annotation cp="❔">குறி | கேள்விக் குறி | நிறுத்தற்குறி | வெளிர் நிறக் கேள்விக் குறி | வெள்ளை நிறக் கேள்விக்குறி</annotation>
-		<annotation cp="❔" type="tts">வெள்ளை நிறக் கேள்விக்குறி</annotation>
-		<annotation cp="❕">ஆச்சரியக்குறி | குறி | நிறுத்தற்குறி | வெள்ளை நிறக் ஆச்சரியக்குறி</annotation>
-		<annotation cp="❕" type="tts">வெள்ளை நிறக் ஆச்சரியக்குறி</annotation>
-		<annotation cp="❗">ஆச்சரியக்குறி | ஆச்சர்யக் குறி | குறி | சிவப்பு நிற ஆச்சரியக்குறி | நிறுத்தற்குறி</annotation>
-		<annotation cp="❗" type="tts">ஆச்சர்யக் குறி</annotation>
-		<annotation cp="〰">அலை | அலை ஓசை | அலை சத்தம் | இரைச்சல் சத்தம்</annotation>
-		<annotation cp="〰" type="tts">அலை</annotation>
 		<annotation cp="©">பதிப்புரிமை | பதிப்புரிமைச் சின்னம்</annotation>
 		<annotation cp="©" type="tts">பதிப்புரிமைச் சின்னம்</annotation>
 		<annotation cp="®">பதிவு சின்னம் | பதிவுசெய்த சின்னம் | பதிவுசெய்யப்பட்டது</annotation>
@@ -3071,22 +3841,52 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏴" type="tts">அசைக்கும் கருப்புக் கொடி</annotation>
 		<annotation cp="🏳">அசைக்கும் வெள்ளைக் கொடி | கொடி | சமாதானம் | பறக்கும் கொடி | வெள்ளைக் கொடி</annotation>
 		<annotation cp="🏳" type="tts">அசைக்கும் வெள்ளைக் கொடி</annotation>
-		<annotation cp="🏳‍⚧">கொடி | திருநங்கை | திருநங்கைக் கொடி | திருநம்பி</annotation>
-		<annotation cp="🏳‍⚧" type="tts">திருநங்கைக் கொடி</annotation>
 		<annotation cp="🏳‍🌈">கொடி | வானவில்</annotation>
 		<annotation cp="🏳‍🌈" type="tts">வானவில் கொடி</annotation>
+		<annotation cp="🏳‍⚧">இளஞ்சிவப்பு | கொடி | திருநங்கை | திருநங்கைக் கொடி | வெளிர் நீலம் | வெள்ளை</annotation>
+		<annotation cp="🏳‍⚧" type="tts">திருநங்கைக் கொடி</annotation>
 		<annotation cp="🏴‍☠">கடற்கொள்ளையர் | கடற்கொள்ளையர் கொடி | கொள்ளை புதையல் | ஜாலி ரோஜர்</annotation>
 		<annotation cp="🏴‍☠" type="tts">கடற்கொள்ளையர் கொடி</annotation>
+		<annotation cp="¢">சென்ட்</annotation>
+		<annotation cp="¢" type="tts">சென்ட்</annotation>
+		<annotation cp="$">அமெரிக்க டாலர் | டாலர் | பணம் | பேசோ | யூ.எஸ்.டி</annotation>
+		<annotation cp="$" type="tts">டாலர்</annotation>
 		<annotation cp="£">ஈ.ஜி.பி | நாணயம் | பவுண்ட் | ஜி.பி.பி</annotation>
 		<annotation cp="£" type="tts">பவுண்ட்</annotation>
 		<annotation cp="¥">சி.என்.ஒய் | நாணயம் | யுவான் | யென் | ஜே.பி. ஒய்</annotation>
 		<annotation cp="¥" type="tts">யென்</annotation>
+		<annotation cp="₢">கரன்சி | குரூசிரோ | நாணயம்</annotation>
+		<annotation cp="₢" type="tts">குரூசிரோ</annotation>
+		<annotation cp="₣">நாணயம் | பிரான்க் | பிரெஞ்ச் பிரான்க்</annotation>
+		<annotation cp="₣" type="tts">பிரெஞ்ச் பிரான்க்</annotation>
+		<annotation cp="₤">நாணயம் | லிரா</annotation>
+		<annotation cp="₤" type="tts">லிரா</annotation>
+		<annotation cp="₥">மில்</annotation>
+		<annotation cp="₥" type="tts">மில்</annotation>
+		<annotation cp="₩">கே.ஆர்.டபிள்யூ | கே.பி.டபிள்யூ | வொன்</annotation>
+		<annotation cp="₩" type="tts">வொன்</annotation>
 		<annotation cp="€">ஈ.யூ.ஆர் | நாணயம் | யூரோ</annotation>
 		<annotation cp="€" type="tts">யூரோ</annotation>
+		<annotation cp="₰">கரன்சி | நாணயம் | ஜெர்மன் பென்னி</annotation>
+		<annotation cp="₰" type="tts">ஜெர்மன் பென்னி</annotation>
+		<annotation cp="₱">பேசோ</annotation>
+		<annotation cp="₱" type="tts">பேசோ</annotation>
+		<annotation cp="₳">ஆஸ்ட்ரால் | கரன்சி | நாணயம்</annotation>
+		<annotation cp="₳" type="tts">ஆஸ்ட்ரால்</annotation>
+		<annotation cp="₶">நாணயம் | லிவர் டோர்னொவா</annotation>
+		<annotation cp="₶" type="tts">லிவர் டோர்னொவா</annotation>
+		<annotation cp="₷">நாணயம் | ஸ்பெஸ்மில்லோ</annotation>
+		<annotation cp="₷" type="tts">ஸ்பெஸ்மில்லோ</annotation>
 		<annotation cp="₹">இந்திய ரூபாய் | நாணயம் | ரூபாய்</annotation>
 		<annotation cp="₹" type="tts">இந்திய ரூபாய்</annotation>
 		<annotation cp="₽">நாணயம் | ரூபிள்</annotation>
 		<annotation cp="₽" type="tts">ரூபிள்</annotation>
+		<annotation cp="₿">பி.டி.சி | பிட்காயின்</annotation>
+		<annotation cp="₿" type="tts">பிட்காயின்</annotation>
+		<annotation cp="₨">நாணயம் | ரூபாய்</annotation>
+		<annotation cp="₨" type="tts">ரூபாய்</annotation>
+		<annotation cp="﷼">நாணயம் | ரியல்</annotation>
+		<annotation cp="﷼" type="tts">ரியல்</annotation>
 		<annotation cp="¹">ஒன்று | மேல் ஒட்டு | மேல் ஒட்டு எண் ஒன்று</annotation>
 		<annotation cp="¹" type="tts">மேல் ஒட்டு எண் ஒன்று</annotation>
 		<annotation cp="²">இரண்டு | மேல் ஒட்டு | மேல் ஒட்டு எண் இரண்டு | வர்க்கம்</annotation>

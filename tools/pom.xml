@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.unicode.cldr</groupId>
+	<artifactId>cldr-all</artifactId>
+	<version>45.0-SNAPSHOT</version>
+	<name>CLDR All Tools</name>
+	<packaging>pom</packaging>
+	<licenses>
+		<license>
+			<name>Unicode-DFS-2016</name>
+		</license>
+	</licenses>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
+		<!-- Note: see https://github.com/unicode-org/icu/packages/1954682/versions
+			for the icu4j.version tag to use. In general we should just use the latest
+			SNAPSHOT for the ICU version that we want, so this should only need updating
+			when the ICU version changes e.g. from 74.0.1, to 74.1, then to 75.0.1 -->
+		<icu4j.version>75.0.1-SNAPSHOT</icu4j.version>
+		<junit.jupiter.version>5.8.2</junit.jupiter.version>
+		<maven-surefire-plugin-version>3.1.0</maven-surefire-plugin-version>
+		<assertj-version>3.11.1</assertj-version>
+		<httpcomponents-version>5.2.1</httpcomponents-version>
+		<!--  web-specific properties are under cldr-apps -->
+		<mysql.version>8.0.30</mysql.version>
+		<!-- jsonwebtoken.io -->
+		<jjwt.version>0.11.5</jjwt.version>
+        <spotless.version>2.35.0</spotless.version>
+		<google-java-style.version>1.15.0</google-java-style.version>
+	</properties>
+
+	<modules>
+		<module>cldr-code</module>
+		<module>cldr-apps</module>
+		<module>cldr-rdf</module>
+		<module>../docs/charts/keyboard</module>
+	</modules>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- CLDR -->
+			<dependency>
+				<groupId>org.unicode.cldr</groupId>
+				<artifactId>cldr-code</artifactId>
+				<version>${project.version}</version> <!-- this seems to work -->
+			</dependency>
+			<dependency>
+				<groupId>org.unicode.cldr</groupId>
+				<artifactId>cldr-rdf</artifactId>
+				<version>${project.version}</version> <!-- this seems to work -->
+			</dependency>
+
+			<!-- ICU -->
+			<dependency>
+				<groupId>com.ibm.icu</groupId>
+				<artifactId>icu4j</artifactId>
+				<version>${icu4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.ibm.icu</groupId>
+				<artifactId>utilities-for-cldr</artifactId>
+				<version>${icu4j.version}</version>
+			</dependency>
+
+			<!-- Misc Libs -->
+			<dependency>
+				<groupId>com.google.code.gson</groupId>
+				<artifactId>gson</artifactId>
+				<version>2.10.1</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava</artifactId>
+				<version>32.1.1-jre</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.ant</groupId>
+				<artifactId>ant</artifactId>
+				<version>1.10.11</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.google.myanmartools</groupId>
+				<artifactId>myanmar-tools</artifactId>
+				<version>1.1.1</version>
+			</dependency>
+			<!-- codec/util -->
+			<dependency>
+				<groupId>commons-codec</groupId>
+				<artifactId>commons-codec</artifactId>
+				<version>1.15</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-fileupload</groupId>
+				<artifactId>commons-fileupload</artifactId>
+				<version>1.5</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-io</groupId>
+				<artifactId>commons-io</artifactId>
+				<version>2.11.0</version>
+			</dependency>
+
+			<!-- mail / rss -->
+
+			<dependency>
+				<groupId>javax.mail</groupId>
+				<artifactId>mail</artifactId>
+				<version>1.5.0-b01</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.sun.activation</groupId>
+				<artifactId>javax.activation</artifactId>
+				<version>1.2.0</version>
+			</dependency>
+
+			<!-- https://mvnrepository.com/artifact/org.json/json -->
+			<dependency>
+				<groupId>org.json</groupId>
+				<artifactId>json</artifactId>
+				<version>20231013</version>
+			</dependency>
+
+			<!-- HTTP client -->
+			<dependency>
+				<groupId>org.apache.httpcomponents.client5</groupId>
+				<artifactId>httpclient5</artifactId>
+				<version>${httpcomponents-version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.jsoup</groupId>
+				<artifactId>jsoup</artifactId>
+				<version>1.16.1</version>
+			</dependency>
+
+			<!-- db connectors -->
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>${mysql.version}</version>
+			</dependency>
+
+			<!-- test -->
+			<dependency>
+				<groupId>org.junit.jupiter</groupId>
+				<artifactId>junit-jupiter</artifactId>
+				<version>${junit.jupiter.version}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.mybatis</groupId>
+				<artifactId>mybatis</artifactId>
+				<version>3.5.6</version>
+			</dependency>
+
+
+			<!-- XSD generation -->
+			<dependency>
+				<groupId>org.relaxng</groupId>
+				<artifactId>trang</artifactId>
+				<version>20220510</version>
+			</dependency>
+			<!-- jwt -->
+			<dependency>
+				<groupId>io.jsonwebtoken</groupId>
+				<artifactId>jjwt-api</artifactId>
+				<version>${jjwt.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.jsonwebtoken</groupId>
+				<artifactId>jjwt-impl</artifactId>
+				<version>${jjwt.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.jsonwebtoken</groupId>
+				<artifactId>jjwt-gson</artifactId>
+				<version>${jjwt.version}</version>
+			</dependency>
+
+			<!-- for semver -->
+			<dependency>
+				<groupId>com.vdurmont</groupId>
+				<artifactId>semver4j</artifactId>
+				<version>3.1.0</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<repositories>
+		<repository>
+			<id>githubicu</id>
+			<name>GitHub unicode-org/icu Apache Maven Packages</name>
+			<url>https://maven.pkg.github.com/unicode-org/icu</url>
+		</repository>
+	</repositories>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+                <plugin>
+                    <groupId>com.diffplug.spotless</groupId>
+                    <artifactId>spotless-maven-plugin</artifactId>
+                    <version>${spotless.version}</version>
+                    <configuration>
+                        <!-- optional: limit format enforcement to just the files changed by this feature branch -->
+                        <!-- You can explicitly disable ratchet functionality by providing the value 'NONE': -->
+                        <ratchetFrom>NONE</ratchetFrom>
+                        <!-- define a language-specific format -->
+                        <java>
+                            <toggleOffOn />
+                            <!-- no need to specify files, inferred automatically, but you can if you want -->
+                            <!-- apply a specific flavor of google-java-format and reflow long strings -->
+                            <googleJavaFormat>
+                                <!-- version of google-java-style -->
+                                <version>${google-java-style.version}</version>
+                                <style>AOSP</style>
+                                <reflowLongStrings>false</reflowLongStrings>
+                            </googleJavaFormat>
+                        </java>
+                    </configuration>
+                </plugin>
+				<!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
+				<plugin>
+					<artifactId>maven-clean-plugin</artifactId>
+					<version>3.2.0</version>
+				</plugin>
+				<!-- default lifecycle, jar packaging: see https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
+				<plugin>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>3.3.1</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.11.0</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>${maven-surefire-plugin-version}</version>
+					<configuration>
+						<systemPropertyVariables>
+							<CLDR_DIR>${project.basedir}/../../</CLDR_DIR> <!-- this is valid for tools/java and tools/cldr-apps -->
+							<CLDR_ENVIRONMENT>UNITTEST</CLDR_ENVIRONMENT>
+							<java.awt.headless>true</java.awt.headless>
+						</systemPropertyVariables>
+						<argLine>-Xmx6g -enableassertions</argLine>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>io.openliberty.tools</groupId>
+					<artifactId>liberty-maven-plugin</artifactId>
+					<version>3.7.1</version>
+				</plugin>
+				<plugin>
+					<groupId>com.github.eirslett</groupId>
+					<artifactId>frontend-maven-plugin</artifactId>
+					<version>1.12.1</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-failsafe-plugin</artifactId>
+					<version>3.2.2</version>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>properties-maven-plugin</artifactId>
+					<version>1.1.0</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>3.3.0</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-install-plugin</artifactId>
+					<version>3.0.1</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-antrun-plugin</artifactId>
+					<version>3.1.0</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-war-plugin</artifactId>
+					<groupId>org.apache.maven.plugins</groupId>
+					<version>3.3.2</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-deploy-plugin</artifactId>
+					<version>2.8.2</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-assembly-plugin</artifactId>
+					<version>3.6.0</version>
+				</plugin>
+				<plugin>
+			        <groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-shade-plugin</artifactId>
+					<version>3.2.4</version>
+				</plugin>
+				<!-- site lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle -->
+				<plugin>
+					<artifactId>maven-site-plugin</artifactId>
+					<version>3.7.1</version>
+				</plugin>
+				<plugin>
+					<artifactId>maven-project-info-reports-plugin</artifactId>
+					<version>3.4.1</version>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>buildnumber-maven-plugin</artifactId>
+					<version>1.4</version>
+					<executions>
+						<execution>
+							<phase>validate</phase>
+							<goals>
+								<goal>create</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<getRevisionOnlyOnce>true</getRevisionOnlyOnce>
+						<attach>true</attach>
+						<addOutputDirectoryToResources>true</addOutputDirectoryToResources>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>license-maven-plugin</artifactId>
+					<version>2.2.0</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+	<distributionManagement>
+		<repository>
+			<id>githubcldr</id>
+			<name>Maven@unicode-org/cldr</name>
+			<url>https://maven.pkg.github.com/unicode-org/cldr</url>
+		</repository>
+	</distributionManagement>
+</project>

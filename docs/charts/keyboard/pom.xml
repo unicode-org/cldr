@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>cldr-keyboard-charts</artifactId>
+	<packaging>pom</packaging>
+	<name>CLDR Keyboard Charts</name>
+
+	<url>https://unicode.org/cldr</url>
+
+	<scm>
+		<connection>scm:git:https://github.com/unicode-org/cldr.git</connection>
+	</scm>
+
+
+	<parent>
+		<groupId>org.unicode.cldr</groupId>
+		<artifactId>cldr-all</artifactId>
+		<version>45.0-SNAPSHOT</version>
+        <relativePath>../../../tools/pom.xml</relativePath>
+	</parent>
+
+    <build>
+		<plugins>
+			<plugin>
+            <!-- to get the node version-->
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>initialize</phase>
+						<configuration>
+							<target>
+								<concat append="no" destfile="${project.basedir}/target/node-version.properties">node.version=</concat>
+								<concat append="yes" destfile="${project.basedir}/target/node-version.properties">
+									<fileset dir="${project.basedir}/../../..">
+										<include name=".node-version" />
+									</fileset>
+								</concat>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>properties-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>initialize</phase>
+						<goals>
+							<goal>read-project-properties</goal>
+						</goals>
+						<configuration>
+							<files>
+								<file>${project.basedir}/target/node-version.properties</file>
+							</files>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>com.github.eirslett</groupId>
+				<artifactId>frontend-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>install node and npm</id>
+						<goals>
+							<goal>install-node-and-npm</goal>
+						</goals>
+                        <phase>integration-test</phase>
+					</execution>
+					<execution>
+						<id>npm install</id>
+						<goals>
+							<goal>npm</goal>
+						</goals>
+                        <phase>integration-test</phase>
+					</execution>
+					<execution>
+						<id>npm run build</id>
+						<goals>
+							<goal>npm</goal>
+						</goals>
+						<configuration>
+							<arguments>run build</arguments>
+						</configuration>
+                        <phase>integration-test</phase>
+					</execution>
+				</executions>
+				<configuration>
+					<nodeVersion>${node.version}</nodeVersion>
+					<!-- run in project sourcedir -->
+					<workingDirectory>${project.basedir}</workingDirectory>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+
+    <profiles>
+        <profile>
+        <id>build-keyboard-charts</id>
+        </profile>
+    </profiles>
+
+</project>

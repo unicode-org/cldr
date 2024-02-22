@@ -1,0 +1,102 @@
+#!/bin/bash
+# Note: this is managed by Ansible, as deploy-sh.j2
+# Don't modify this file unless its name is deploy-sh.j2
+if [[ ${1} = "--repo" ]];
+then
+    shift
+    GITHUB_REPO=$(echo -n "${1}" | tr -c 'A-Za-z0-9_.-/' '-')
+    GIT_PREFETCH=https://github.com/${GITHUB_REPO}.git
+    shift
+else
+    GITHUB_REPO=unicode-org/cldr
+    GIT_PREFETCH=origin
+fi
+
+GITHUB_SHA=$1
+UNLOCK=$2
+WORKDIR=${TMPDIR-/tmp} # keep all random files here
+SERVICE="{{ cldr_openliberty_service }}"
+
+# TODO: "dogit" could be split out as a separate script
+dogit() {
+    git config --global advice.detachedHead false
+    rm -f ${WORKDIR}/git-list.txt
+    if [[ ${GITHUB_SHA} = "main" ]];
+    then
+        echo "changing ${GITHUB_SHA} to 'origin/main' to get the latest"
+        GITHUB_SHA=origin/main
+    fi
+    # There's some risk that if we fetch something that has been rebased,
+    # we might get stuck here
+    # TODO: add a reset mechanism, if fetch fails we should reset the repo and check out again.
+
+    echo "Git fetch: ${GIT_PREFETCH} @ ${GITHUB_SHA}"
+    git fetch -p "${GIT_PREFETCH}" "${GITHUB_SHA}" || exit 1
+    git clean -f -d || echo 'warning: err on cleanup'
+    # what are we deploying?
+
+    echo    "cldr-trunk was at  :" $(git rev-parse --short HEAD)
+    echo -n "you want to move to:"
+    git rev-parse --short "${GITHUB_SHA}" || exit 1 # fail on err
+    if [[ $(git rev-parse --short HEAD) = $(git rev-parse --short "${GITHUB_SHA}") ]];
+    then
+        echo "No checkout needed. Continuing with redeploy."
+    else
+        echo "Deploy will include these new items:"
+        echo "---"
+        (git log --oneline HEAD..${GITHUB_SHA} | tee ${WORKDIR}/git-list.txt) || exit 1
+        echo "---"
+        if [[ ! -s ${WORKDIR}/git-list.txt ]]; # if empty..
+        then
+            echo "Note, ${GITHUB_SHA} is not ahead of HEAD"  $(git rev-parse --short HEAD)
+            echo "Checking for items that would be REVERTED if we proceed:"
+            echo "---"
+            git log --oneline ${GITHUB_SHA}..HEAD
+            echo "---"
+            if [[ "${UNLOCK}" = "--override" ]];
+            then
+                echo ".. continuing anyway! due to " "${UNLOCK}"
+            else
+                echo "STOP. Check the override box if you really want to do this"
+                exit 1
+            fi
+        fi
+        git checkout -f ${GITHUB_SHA}
+        echo "HEAD is now at" $(git rev-parse --short HEAD) "!"
+     fi
+}
+
+# Check git first, before undeploying. Want to exit early
+(cd  {{ cldr_trunk_path }} && dogit ) || exit 1
+#
+# stop server
+sudo -u root /usr/sbin/service ${SERVICE} stop
+# clear cache
+if [[ -d /srv/st/config/.cache ]];
+then
+   echo "Deleting cache /srv/config/.cache"
+   sudo /usr/bin/rm -rf /srv/st/config/.cache
+fi
+rm -fv ${WORKDIR}/cldr-apps.zip ${WORKDIR}/deploystatus
+# copy cldr-apps.zip from action runner to server
+dd bs=1024000 status=progress of=${WORKDIR}/cldr-apps.zip
+# this counts the # of files to make sure it's not too short, but also verifies that unzip is OK
+echo ; echo -n 'Unzip check, # of files in cldr-apps.zip: '
+(unzip -l ${WORKDIR}/cldr-apps.zip | wc -l ) || exit 1
+cd ${WORKDIR} || exit 1
+rm -rf ./deploy || exit 1
+mkdir ./deploy
+cd ./deploy
+unzip ${WORKDIR}/cldr-apps.zip
+if [[ ! -d ./wlp ]];
+then
+    echo "Error, did not get a ./wlp dir from this zip.. stop"
+    exit 1
+fi
+# Now, do the deployment!
+# exclude these two files
+rsync -r --exclude server.env --exclude workarea --exclude bootstrap.properties -v \
+      --delete ./wlp/usr/servers/cldr/* /var/lib/openliberty/usr/servers/cldr/ || exit 1
+# update datadog
+sed -i.old -e "s/DD_GIT_COMMIT_SHA.*/DD_GIT_COMMIT_SHA=${GITHUB_SHA}/g" -e "s%DD_GIT_REPOSITORY_URL.*%DD_GIT_REPOSITORY_URL=github.com/${GITHUB_REPO}%g" /var/lib/openliberty/usr/servers/{{ cldr_openliberty_server }}/server.env
+sudo -u root /usr/sbin/service ${SERVICE} start || exit 1

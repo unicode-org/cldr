@@ -1,0 +1,24 @@
+{
+  "name": "tr-archive",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@not-dalia/gfm-toc": "github:not-dalia/gfm-toc",
+    "anchor-js": "^5.0.0",
+    "highlight.js": "^11.7.0",
+    "jsdom": "^22.1.0",
+    "marked": "^4.3.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "fix-tocs": "node fix-tocs.js",
+    "build": "bash copy-local-assets.sh && bash make-tr-archive.sh",
+    "serve": "npm run build && npx serve .",
+    "extract-link-targets": "node extract-link-targets.js"
+  },
+  "keywords": [],
+  "author": "Steven R. Loomis <srl295@gmail.com>",
+  "license": "Unicode-DFS-2016",
+  "private": true
+}

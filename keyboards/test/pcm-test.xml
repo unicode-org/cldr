@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE keyboardTest3 SYSTEM "../dtd/ldmlKeyboardTest3.dtd">
+<keyboardTest3 conformsTo="techpreview">
+  <info keyboard="pcm.xml" author="Team Keyboard" name="pcm-test" />
+  <repertoire name="simple-repertoire" chars="[a b c d e ọ Ọ ẹ Ẹ ₦]" type="simple" />
+  <tests name="key-tests">
+    <test name="abc-test">
+      <startContext to="abc" />
+      <keystroke key="d" />
+      <check result="abcd" />
+    </test>
+    <test name="dot-below-test">
+      <startContext to="" />
+      <keystroke key="e" />
+      <keystroke key="apos" />
+      <check result="e'" />
+      <keystroke key="apos" />
+      <check result="e\u{323}" />
+    </test>
+  </tests>
+</keyboardTest3>

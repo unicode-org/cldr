@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
@@ -31,7 +31,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<territories>
 			<territory type="BA" draft="contributed">Bosnia y Herzegovina</territory>
 			<territory type="GB" alt="short" draft="contributed">RU</territory>
-			<territory type="TA" draft="contributed">Tristán de Acuña</territory>
+			<territory type="TA" draft="contributed">↑↑↑</territory>
 			<territory type="TL" draft="contributed">Timor-Leste</territory>
 			<territory type="UM" draft="contributed">Islas menores alejadas de EE. UU.</territory>
 		</territories>
@@ -43,6 +43,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern draft="contributed">dd/MM/y G</pattern>
+							<datetimeSkeleton draft="contributed">GyMMdd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -51,13 +52,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<days>
 					<dayContext type="format">
 						<dayWidth type="narrow">
-							<day type="sun" draft="contributed">D</day>
-							<day type="mon" draft="contributed">L</day>
-							<day type="tue" draft="contributed">M</day>
-							<day type="wed" draft="contributed">M</day>
-							<day type="thu" draft="contributed">J</day>
-							<day type="fri" draft="contributed">V</day>
-							<day type="sat" draft="contributed">S</day>
+							<day type="sun" draft="contributed">↑↑↑</day>
+							<day type="mon" draft="contributed">↑↑↑</day>
+							<day type="tue" draft="contributed">↑↑↑</day>
+							<day type="wed" draft="contributed">↑↑↑</day>
+							<day type="thu" draft="contributed">↑↑↑</day>
+							<day type="fri" draft="contributed">↑↑↑</day>
+							<day type="sat" draft="contributed">↑↑↑</day>
 						</dayWidth>
 					</dayContext>
 				</days>
@@ -72,18 +73,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</quarterContext>
 					<quarterContext type="stand-alone">
 						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="contributed">Q1</quarter>
-							<quarter type="2" draft="contributed">Q2</quarter>
-							<quarter type="3" draft="contributed">Q3</quarter>
-							<quarter type="4" draft="contributed">Q4</quarter>
+							<quarter type="1" draft="contributed">↑↑↑</quarter>
+							<quarter type="2" draft="contributed">↑↑↑</quarter>
+							<quarter type="3" draft="contributed">↑↑↑</quarter>
+							<quarter type="4" draft="contributed">↑↑↑</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am" draft="contributed">a. m.</dayPeriod>
-							<dayPeriod type="pm" draft="contributed">p. m.</dayPeriod>
+							<dayPeriod type="am" draft="contributed">a. m.</dayPeriod>
+							<dayPeriod type="pm" draft="contributed">p. m.</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="noon" draft="contributed">mediodía</dayPeriod>
@@ -99,13 +100,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
 						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am" draft="contributed">a. m.</dayPeriod>
-							<dayPeriod type="pm" draft="contributed">p. m.</dayPeriod>
+							<dayPeriod type="am" draft="contributed">a. m.</dayPeriod>
+							<dayPeriod type="pm" draft="contributed">p. m.</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am" draft="contributed">a. m.</dayPeriod>
+							<dayPeriod type="am" draft="contributed">a. m.</dayPeriod>
 							<dayPeriod type="noon" draft="contributed">m.</dayPeriod>
-							<dayPeriod type="pm" draft="contributed">p. m.</dayPeriod>
+							<dayPeriod type="pm" draft="contributed">p. m.</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am" draft="contributed">a. m.</dayPeriod>
@@ -119,28 +120,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<era type="1" alt="variant" draft="contributed">Era Común</era>
 					</eraNames>
 				</eras>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern draft="contributed">h:mm:ss a zzzz</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern draft="contributed">h:mm:ss a z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern draft="contributed">h:mm:ss a</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern draft="contributed">h:mm a</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="yMMMd" draft="contributed">d MMM 'de' y</dateFormatItem>
@@ -215,8 +194,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">{0} ohmios</unitPattern>
 			</unit>
 			<unit type="electric-volt">
-				<unitPattern count="one">{0} voltio</unitPattern>
-				<unitPattern count="other">{0} voltios</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 		</unitLength>
 		<unitLength type="short">
@@ -225,7 +204,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="duration-second">
 				<displayName draft="contributed">seg.</displayName>
-				<unitPattern count="one" draft="contributed">{0} seg.</unitPattern>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} seg.</unitPattern>
 			</unit>
 			<unit type="electric-volt">
@@ -237,12 +216,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</unitLength>
 		<unitLength type="narrow">
 			<unit type="duration-month">
-				<unitPattern count="one" draft="contributed">{0}m.</unitPattern>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}m.</unitPattern>
 			</unit>
 			<unit type="duration-day">
-				<unitPattern count="one" draft="contributed">{0}d.</unitPattern>
+				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}d.</unitPattern>
+			</unit>
+			<unit type="electric-volt">
+				<displayName>↑↑↑</displayName>
+			</unit>
+			<unit type="power-watt">
+				<displayName>↑↑↑</displayName>
 			</unit>
 		</unitLength>
 	</units>

@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<supplementalData>
+	<version number="$Revision$"/>
+	<transforms>
+		<transform source="gz_Ethi" target="Sarb" direction="both" draft="contributed" alias="Geez-Musnad und-Sarb-t-gz-ethi" backwardAlias="Geez-Ethiopic gz-Ethi-t-und-sarb">
+		<!-- The transform described in prose:
+		  This is a conversion from Ethiopic script (Unicode 3.0 level) to Old South Arabian script, and the reversal.
+		-->
+			<tRule><![CDATA[
+########################################################################
+# Ethiopic to/from Musnad (Old South Arabian) Transliteration
+#
+# Prepared by Daniel Yacob <yacob@geez.org>
+#
+########################################################################
+#
+# MINIMAL FILTER: Ethiopic-Musnad
+#
+:: [:Ethiopic:] ;
+#
+########################################################################
+
+########################################################################
+#
+# Define All Transformation Variables
+#
+########################################################################
+#
+# Use this $wordBoundary until bug 2034 is fixed in ICU:
+# http://bugs.icu-project.org/trac/ticket/2034
+#
+$wordBoundary = [^[:L:][:M:][:N:]] ;
+#
+########################################################################
+#
+# ETHIOPIC SYLLABLE MA - OLD SOUTH ARABIAN LETTER HE
+#
+[ሀ-ሆ] → 𐩠;
+ሀ ← 𐩠;
+
+#
+# ETHIOPIC SYLLABLE LA - OLD SOUTH ARABIAN LETTER LAMEDH
+#
+[ለ-ሏ] → 𐩡; 
+ለ ← 𐩡; 
+
+#
+# ETHIOPIC SYLLABLE HHA - OLD SOUTH ARABIAN LETTER HETH
+#
+[ሐ-ሗ] → 𐩢; 
+ሐ ← 𐩢;
+
+#
+# ETHIOPIC SYLLABLE MA - OLD SOUTH ARABIAN LETTER MEM
+#
+[መ-ሟ] → 𐩣;
+መ ← 𐩣;
+
+#
+# ETHIOPIC SYLLABLE SZA - OLD SOUTH ARABIAN LETTER SHIN
+#
+[ሠ-ሧ] → 𐩦;
+ሠ ← 𐩦;
+
+#
+# ETHIOPIC SYLLABLE MA - OLD SOUTH ARABIAN LETTER BETH
+#
+[ረ-ሯ] → 𐩧;
+ረ ← 𐩧;
+
+#
+# ETHIOPIC SYLLABLE SA - OLD SOUTH ARABIAN LETTER SAT
+#
+[ሰ-ሷ] → 𐩪;
+ሰ ← 𐩪;
+
+#
+# ETHIOPIC SYLLABLE QA - OLD SOUTH ARABIAN LETTER QOPH
+#
+[ቀ-ቍ] → 𐩤;
+ቀ ← 𐩤;
+
+#
+# ETHIOPIC SYLLABLE BA - OLD SOUTH ARABIAN LETTER RESH
+#
+[በ-ቧ] → 𐩨;
+በ ← 𐩨;
+
+#
+# ETHIOPIC SYLLABLE TA - OLD SOUTH ARABIAN LETTER TAW
+#
+[ተ-ቷ] → 𐩩;
+ተ ← 𐩩;
+
+#
+# ETHIOPIC SYLLABLE XA - OLD SOUTH ARABIAN LETTER KHETH
+#
+[ኀ-ኍ] → 𐩭;
+ኍ ← 𐩭;
+
+#
+# ETHIOPIC SYLLABLE NA - OLD SOUTH ARABIAN LETTER NUN
+#
+[ነ-ኗ] → 𐩬;
+ነ ← 𐩬;
+
+#
+# ETHIOPIC SYLLABLE GLOTTAL A - OLD SOUTH ARABIAN LETTER ALEF
+#
+[አ-ኧ] → 𐩱;
+አ ← 𐩱;
+
+#
+# ETHIOPIC SYLLABLE KA - OLD SOUTH ARABIAN LETTER KAPH
+#
+[ከ-ኵ] → 𐩫;
+ከ ← 𐩫;
+
+#
+# ETHIOPIC SYLLABLE WA - OLD SOUTH ARABIAN LETTER WAW
+#
+[ወ-ዎ] → 𐩥;
+ወ ← 𐩥;
+
+#
+# ETHIOPIC SYLLABLE PHARYNGEAL A - OLD SOUTH ARABIAN LETTER AYN
+#
+[ዐ-ዖ] → 𐩲;
+ዐ ← 𐩲;
+
+#
+# ETHIOPIC SYLLABLE ZA - OLD SOUTH ARABIAN LETTER MEM
+#
+[ዘ-ዟ] → 𐩸;
+ዘ ← 𐩸;
+ዘ ← 𐩹;
+
+#
+# ETHIOPIC SYLLABLE YA - OLD SOUTH ARABIAN LETTER YODH
+#
+[የ-ዮ] → 𐩺;
+የ ← 𐩺;
+
+#
+# ETHIOPIC SYLLABLE DA - OLD SOUTH ARABIAN LETTER DALETH
+#
+[ደ-ዷ] → 𐩵;
+ደ ← 𐩵;
+
+#
+# ETHIOPIC SYLLABLE GA - OLD SOUTH ARABIAN LETTER GIMEL
+#
+[ገ-ጕ] → 𐩴;
+ገ ← 𐩴;
+
+#
+# ETHIOPIC SYLLABLE THA - OLD SOUTH ARABIAN LETTER TETH
+#
+[ጠ-ጧ] → 𐩷;
+ጠ ← 𐩷;
+
+#
+# ETHIOPIC SYLLABLE TSA - OLD SOUTH ARABIAN LETTER SADHE
+#
+[ጸ-ጿ] → 𐩮;
+ጸ ← 𐩮;
+
+#
+# ETHIOPIC SYLLABLE TZA - OLD SOUTH ARABIAN LETTER DHADHE
+#
+[ፀ-ፆ] → 𐩳;
+ፀ ← 𐩳;
+
+#
+# ETHIOPIC SYLLABLE FA - OLD SOUTH ARABIAN LETTER FE
+#
+[ፈ-ፏ] → 𐩰;
+ፈ ← 𐩰;
+
+########################################################################
+# Start of Numeric Transformations
+########################################################################
+
+፲፻ ↔ | 𐩿𐩱𐩿 ; # ETHIOPIC NUMBER HUNDRED 
+፩ ↔ | 𐩿𐩽𐩿 ; # ETHIOPIC DIGIT ONE
+፪ ↔ | 𐩿𐩽𐩽𐩿 ; # ETHIOPIC DIGIT TWO
+፫ ↔ | 𐩿𐩽𐩽𐩽𐩿 ; # ETHIOPIC DIGIT THREE
+፬ ↔ | 𐩿𐩽𐩽𐩽𐩽𐩿 ; # ETHIOPIC DIGIT FOUR
+፭ ↔ | 𐩿𐩭𐩿 ; # ETHIOPIC DIGIT FIVE
+፮ ↔ | 𐩿𐩽𐩭𐩿 ; # ETHIOPIC DIGIT SIX
+፯ ↔ | 𐩿𐩽𐩽𐩭𐩿 ; # ETHIOPIC DIGIT SEVEN
+፰ ↔ | 𐩿𐩽𐩽𐩽𐩭𐩿 ; # ETHIOPIC DIGIT EIGHT
+፱ ↔ | 𐩿𐩽𐩽𐩽𐩽𐩭𐩿 ; # ETHIOPIC DIGIT NINE
+፲ ↔ | 𐩿𐩲𐩿 ; # ETHIOPIC NUMBER TEN
+፳ ↔ | 𐩿𐩲𐩲𐩿 ; # ETHIOPIC NUMBER TWENTY
+፴ ↔ | 𐩿𐩲𐩲𐩲𐩿 ; # ETHIOPIC NUMBER THIRTY
+፵ ↔ | 𐩿𐩲𐩲𐩲𐩲𐩿 ; # ETHIOPIC NUMBER FORTY
+፶ ↔ | 𐩿𐩾𐩿 ; # ETHIOPIC NUMBER FIFTY
+፷ ↔ | 𐩿𐩲𐩾𐩿 ; # ETHIOPIC NUMBER SIXTY
+፸ ↔ | 𐩿𐩲𐩲𐩾𐩿 ; # ETHIOPIC NUMBER SEVENTY
+፹ ↔ | 𐩿𐩲𐩲𐩲𐩾𐩿 ; # ETHIOPIC NUMBER EIGHTY
+፺ ↔ | 𐩿𐩲𐩲𐩲𐩲𐩾𐩿 ; # ETHIOPIC NUMBER NINETY
+፻ ↔ | 𐩿𐩣𐩿 ; # ETHIOPIC NUMBER HUNDRED 
+፼ ↔ | 𐩿𐩲𐩱𐩿 ; # ETHIOPIC NUMBER TEN HUNDRED
+
+::Null ;
+𐩿𐩿 → ;
+
+########################################################################
+# Inverse Fiter : Musnad-Ethiopic
+########################################################################
+#
+:: ([:Old_South_Arabian:]) ;
+#
+########################################################################
+			]]></tRule>
+		</transform>
+	</transforms>
+</supplementalData>

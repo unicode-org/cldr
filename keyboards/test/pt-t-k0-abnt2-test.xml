@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE keyboardTest3 SYSTEM "../dtd/ldmlKeyboardTest3.dtd">
+<keyboardTest3 conformsTo="techpreview">
+    <info keyboard="pt-t-k0-abnt2.xml" author="Team Keyboard" name="pt-test" />
+    <repertoire name="latn-repertoire"
+        chars="[a-z A-Z 0-9 !\u{0022}#$%\u{0026}\[\]\{\}=\-|~_\u{0020}\u{003c}>,./?`@\+\*çÇ]"
+        type="simple" />
+    <repertoire name="currency-and-symbols"
+        chars="[₢ ° ¹²³ § ¬ ªº]" />
+    <tests name="tests">
+        <test name="test1">
+            <startContext to="" /> <!-- empty startContext -->
+            <keystroke key="n" />
+            <keystroke key="m" />
+            <keystroke key="comma" />
+            <keystroke key="period" />
+            <keystroke key="slash" />
+            <check result="nm,./" />
+        </test>
+        <test name="test2">
+            <startContext to="" /> <!-- empty startContext -->
+            <keystroke key="open-square" />
+            <keystroke key="8" />
+            <keystroke key="9" />
+            <keystroke key="0" />
+            <keystroke key="pipe" />
+            <check result="[890|" />
+        </test>
+        <test name="test3">
+            <startContext to="" /> <!-- empty startContext -->
+            <keystroke key="slash" />
+            <keystroke key="semi-colon" />
+            <keystroke key="backslash" />
+            <keystroke key="C-cedilla" />
+            <keystroke key="c-cedilla" />
+            <keystroke key="8" />
+            <keystroke key="ordinal-feminine" />
+            <check result="/;\u{005c}Çç8ª" />
+        </test>
+    </tests>
+</keyboardTest3>

@@ -26,41 +26,73 @@ $IPA_CONSONANT = [ m n p b t d k ɡ ʔ f v s z ʃ ʒ ʁ ɢ h χ {t͡ʃ} {d͡ʒ} 
 
 # Vowels
 یّ → jj;
-($VOWEL)ّ → ّ | $1;
+وّ → vv;
+([ َ ِ  ُ])ّ → ّ | $1;
 َیْ → æj;
-ِیْ → ej;
+ِی → ej;
 
-َوْ → ov;
-ِی → iː;
+یوْ → iːv;
+{یو} ه $BOUNDARY → iːv;
+{یو} هٔ $BOUNDARY → iːv;
+یو → juː;
+َوْ → av;
 
-َه → æ;
+# Hamza forms
+ء → ʔ;
+ا َ ٔ → ʔæ; # Needed because NFD reorders fatha before hamza
+ا ٔ → ʔ;
+و ٔ → ʔ;
+ی ْ ٔ → ʔ; # Needed because NFD reorders sukun before hamza
+ی ِ ٔ → ʔe; # Needed because NFD reorders kasra before hamza
+ی ٔ → ʔ;
+
+{ َ ه} $BOUNDARY → æ;
+[^ːeoæ] {هٔ} $BOUNDARY → eje;
+[e] {هٔ} $BOUNDARY → je;
 [^ːeoæ] {ه} $BOUNDARY → e;
 [e] {ه} $BOUNDARY → ;
 اَ → æ;
 اً $BOUNDARY → æn;
 َ → æ;
 یه → je;
-{هٔ} $BOUNDARY → jæ;
 یٰ → ɒː;
+$IPA_CONSONANT {وی} $VOWEL → uːj;
+# If yeh is preceded by a consonant and followed by a vowel,
+# it's pronounced /iːj/, but a sukun breaks that and makes it
+# be pronounced just as /j/.
+$IPA_CONSONANT {\u0652 یو} → juː;
+$IPA_CONSONANT {\u0652 ی} $VOWEL → j;
+$IPA_CONSONANT {ی} $VOWEL → iːj;
 {ی} $VOWEL → j;
+ی ْ → j;
 ی → iː;
 
 $BOUNDARY {ای} → iː;
 ا\u0653 → ɒː;
 آ → ɒː;
 اِ → e;
+$BOUNDARY {اُو} → o;
 اُ → o;
-او → uː;
+$BOUNDARY {او} → uː;
+او → ɒːv;
 ا → ɒː; # Probably [^$BOUNDARY]
 ِ → e;
-هِ → e;
+ه ِ ّ → hhe; # Needed because NFD moves kasra before shadda
+هِ → he;
 
+خوا → χɒː;
+خوی → χiː;
 {و} $VOWEL → v;
+{و} ه $BOUNDARY → v;
+{و} هٔ $BOUNDARY → v;
 $IPA_CONSONANT {و} → uː;
+$IPA_CONSONANT \u0651 {و} → uː; # shadda after a consonant
 ُ{و} $IPA_CONSONANT → uː;
 
 $BOUNDARY {و} $BOUNDARY → va;
-و → ;
+{ ُو} $VOWEL → ov;
+ُ و ٔ → oʔ;
+ ُو → o;
 ُ → o;
 
 # Consonants
@@ -70,7 +102,7 @@ $BOUNDARY {و} $BOUNDARY → va;
 د → d;
 ک → k;
 گ → ɡ;
-[ع ء] → ʔ;
+ع → ʔ;
 چ → t͡ʃ;
 ج → d͡ʒ;
 ف → f;

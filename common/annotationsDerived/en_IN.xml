@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
@@ -14,30 +14,30 @@ Derived short names and annotations, using GenerateDerivedAnnotations.java. See 
 		<territory type="IN"/>
 	</identity>
 	<annotations>
-		<annotation cp="👫🏻">couple | hand | hold | light skin tone | man | man and woman holding hands | woman | woman and man holding hands</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏼">couple | hand | hold | light skin tone | man | man and woman holding hands | medium-light skin tone | woman | woman and man holding hands</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏽">couple | hand | hold | light skin tone | man | man and woman holding hands | medium skin tone | woman | woman and man holding hands</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏾">couple | hand | hold | light skin tone | man | man and woman holding hands | medium-dark skin tone | woman | woman and man holding hands</annotation>
-		<annotation cp="👩🏻‍🤝‍👨🏿">couple | dark skin tone | hand | hold | light skin tone | man | man and woman holding hands | woman | woman and man holding hands</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏻">couple | hand | hold | light skin tone | man | man and woman holding hands | medium-light skin tone | woman | woman and man holding hands</annotation>
-		<annotation cp="👫🏼">couple | hand | hold | man | man and woman holding hands | medium-light skin tone | woman | woman and man holding hands</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏽">couple | hand | hold | man | man and woman holding hands | medium skin tone | medium-light skin tone | woman | woman and man holding hands</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏾">couple | hand | hold | man | man and woman holding hands | medium-dark skin tone | medium-light skin tone | woman | woman and man holding hands</annotation>
-		<annotation cp="👩🏼‍🤝‍👨🏿">couple | dark skin tone | hand | hold | man | man and woman holding hands | medium-light skin tone | woman | woman and man holding hands</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏻">couple | hand | hold | light skin tone | man | man and woman holding hands | medium skin tone | woman | woman and man holding hands</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏼">couple | hand | hold | man | man and woman holding hands | medium skin tone | medium-light skin tone | woman | woman and man holding hands</annotation>
-		<annotation cp="👫🏽">couple | hand | hold | man | man and woman holding hands | medium skin tone | woman | woman and man holding hands</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏾">couple | hand | hold | man | man and woman holding hands | medium skin tone | medium-dark skin tone | woman | woman and man holding hands</annotation>
-		<annotation cp="👩🏽‍🤝‍👨🏿">couple | dark skin tone | hand | hold | man | man and woman holding hands | medium skin tone | woman | woman and man holding hands</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏻">couple | hand | hold | light skin tone | man | man and woman holding hands | medium-dark skin tone | woman | woman and man holding hands</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏼">couple | hand | hold | man | man and woman holding hands | medium-dark skin tone | medium-light skin tone | woman | woman and man holding hands</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏽">couple | hand | hold | man | man and woman holding hands | medium skin tone | medium-dark skin tone | woman | woman and man holding hands</annotation>
-		<annotation cp="👫🏾">couple | hand | hold | man | man and woman holding hands | medium-dark skin tone | woman | woman and man holding hands</annotation>
-		<annotation cp="👩🏾‍🤝‍👨🏿">couple | dark skin tone | hand | hold | man | man and woman holding hands | medium-dark skin tone | woman | woman and man holding hands</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏻">couple | dark skin tone | hand | hold | light skin tone | man | man and woman holding hands | woman | woman and man holding hands</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏼">couple | dark skin tone | hand | hold | man | man and woman holding hands | medium-light skin tone | woman | woman and man holding hands</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏽">couple | dark skin tone | hand | hold | man | man and woman holding hands | medium skin tone | woman | woman and man holding hands</annotation>
-		<annotation cp="👩🏿‍🤝‍👨🏾">couple | dark skin tone | hand | hold | man | man and woman holding hands | medium-dark skin tone | woman | woman and man holding hands</annotation>
-		<annotation cp="👫🏿">couple | dark skin tone | hand | hold | man | man and woman holding hands | woman | woman and man holding hands</annotation>
+		<annotation cp="👫🏻">couple | hand | hold | light skin tone | man | man and woman holding hands | woman | woman and man holding hands | woman and man holding hands: light skin tone</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏼">couple | hand | hold | light skin tone | man | man and woman holding hands | medium-light skin tone | woman | woman and man holding hands | woman and man holding hands: light skin tone, medium-light skin tone</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏽">couple | hand | hold | light skin tone | man | man and woman holding hands | medium skin tone | woman | woman and man holding hands | woman and man holding hands: light skin tone, medium skin tone</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏾">couple | hand | hold | light skin tone | man | man and woman holding hands | medium-dark skin tone | woman | woman and man holding hands | woman and man holding hands: light skin tone, medium-dark skin tone</annotation>
+		<annotation cp="👩🏻‍🤝‍👨🏿">couple | dark skin tone | hand | hold | light skin tone | man | man and woman holding hands | woman | woman and man holding hands | woman and man holding hands: light skin tone, dark skin tone</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏻">couple | hand | hold | light skin tone | man | man and woman holding hands | medium-light skin tone | woman | woman and man holding hands | woman and man holding hands: medium-light skin tone, light skin tone</annotation>
+		<annotation cp="👫🏼">couple | hand | hold | man | man and woman holding hands | medium-light skin tone | woman | woman and man holding hands | woman and man holding hands: medium-light skin tone</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏽">couple | hand | hold | man | man and woman holding hands | medium skin tone | medium-light skin tone | woman | woman and man holding hands | woman and man holding hands: medium-light skin tone, medium skin tone</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏾">couple | hand | hold | man | man and woman holding hands | medium-dark skin tone | medium-light skin tone | woman | woman and man holding hands | woman and man holding hands: medium-light skin tone, medium-dark skin tone</annotation>
+		<annotation cp="👩🏼‍🤝‍👨🏿">couple | dark skin tone | hand | hold | man | man and woman holding hands | medium-light skin tone | woman | woman and man holding hands | woman and man holding hands: medium-light skin tone, dark skin tone</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏻">couple | hand | hold | light skin tone | man | man and woman holding hands | medium skin tone | woman | woman and man holding hands | woman and man holding hands: medium skin tone, light skin tone</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏼">couple | hand | hold | man | man and woman holding hands | medium skin tone | medium-light skin tone | woman | woman and man holding hands | woman and man holding hands: medium skin tone, medium-light skin tone</annotation>
+		<annotation cp="👫🏽">couple | hand | hold | man | man and woman holding hands | medium skin tone | woman | woman and man holding hands | woman and man holding hands: medium skin tone</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏾">couple | hand | hold | man | man and woman holding hands | medium skin tone | medium-dark skin tone | woman | woman and man holding hands | woman and man holding hands: medium skin tone, medium-dark skin tone</annotation>
+		<annotation cp="👩🏽‍🤝‍👨🏿">couple | dark skin tone | hand | hold | man | man and woman holding hands | medium skin tone | woman | woman and man holding hands | woman and man holding hands: medium skin tone, dark skin tone</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏻">couple | hand | hold | light skin tone | man | man and woman holding hands | medium-dark skin tone | woman | woman and man holding hands | woman and man holding hands: medium-dark skin tone, light skin tone</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏼">couple | hand | hold | man | man and woman holding hands | medium-dark skin tone | medium-light skin tone | woman | woman and man holding hands | woman and man holding hands: medium-dark skin tone, medium-light skin tone</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏽">couple | hand | hold | man | man and woman holding hands | medium skin tone | medium-dark skin tone | woman | woman and man holding hands | woman and man holding hands: medium-dark skin tone, medium skin tone</annotation>
+		<annotation cp="👫🏾">couple | hand | hold | man | man and woman holding hands | medium-dark skin tone | woman | woman and man holding hands | woman and man holding hands: medium-dark skin tone</annotation>
+		<annotation cp="👩🏾‍🤝‍👨🏿">couple | dark skin tone | hand | hold | man | man and woman holding hands | medium-dark skin tone | woman | woman and man holding hands | woman and man holding hands: medium-dark skin tone, dark skin tone</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏻">couple | dark skin tone | hand | hold | light skin tone | man | man and woman holding hands | woman | woman and man holding hands | woman and man holding hands: dark skin tone, light skin tone</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏼">couple | dark skin tone | hand | hold | man | man and woman holding hands | medium-light skin tone | woman | woman and man holding hands | woman and man holding hands: dark skin tone, medium-light skin tone</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏽">couple | dark skin tone | hand | hold | man | man and woman holding hands | medium skin tone | woman | woman and man holding hands | woman and man holding hands: dark skin tone, medium skin tone</annotation>
+		<annotation cp="👩🏿‍🤝‍👨🏾">couple | dark skin tone | hand | hold | man | man and woman holding hands | medium-dark skin tone | woman | woman and man holding hands | woman and man holding hands: dark skin tone, medium-dark skin tone</annotation>
+		<annotation cp="👫🏿">couple | dark skin tone | hand | hold | man | man and woman holding hands | woman | woman and man holding hands | woman and man holding hands: dark skin tone</annotation>
 	</annotations>
 </ldml>

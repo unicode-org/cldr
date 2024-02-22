@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE keyboard3 SYSTEM "../dtd/ldmlKeyboard3.dtd">
+<keyboard3 locale="bn" conformsTo="techpreview">
+    <!--
+        History:
+          Based on
+    https://github.com/keymanapp/ldml-keyboards-dev/blob/master/keyboards/sil-bengali/bn-t-k0-cldr-phonetic.ldml
+     -->
+    <locales>
+        <locale id="as" />
+        <locale id="syl" />
+    </locales>
+    <version number="1.3.0" />
+    <info name="SIL Bengali-Assamese Phonetic" indicator="bn" layout="QWERTY" />
+
+    <displays>
+        <display keyId="au-lengthener" display="ৗ" />
+        <display keyId="vis-hasant" display="্" /> <!-- TODO: distinguish from regular hasant? -->
+        <display keyId="more" display="…" />
+    </displays>
+
+    <keys>
+        <import base="cldr" path="techpreview/keys-Zyyy-punctuation.xml" />
+        <import base="cldr" path="techpreview/keys-Zyyy-currency.xml" />
+
+        <key id="1" output="১" />
+        <key id="2" output="২" />
+        <key id="3" output="৩" />
+        <key id="4" output="৪" />
+        <key id="5" output="৫" />
+        <key id="6" output="৬" />
+        <key id="7" output="৭" />
+        <key id="8" output="৮" />
+        <key id="9" output="৯" />
+        <key id="0" output="০" />
+
+        <!-- special keys and marks -->
+        <key id="au-lenghtener" output="\m{A}" />
+        <key id="candrabindu" output="\u{0981}" /> <!-- n̐  -->
+        <key id="hasant" output="\u{09CD}" />
+        <key id="more" output="\m{q}" /> <!-- 'additional characters' -->
+        <key id="nukta" output="\u{09BC}" />
+        <key id="vis-hasant" output="\m{X}" />
+
+        <!-- key names based on https://www.loc.gov/catdir/cpso/romanization/bengali.pdf + Assamese for /wa/ -->
+        <key id="ā" output="\u{09BE}" />
+        <key id="ai" output="\u{09C8}" />
+        <key id="au" output="\u{09CC}" />
+        <key id="ba" output="ব" />
+        <key id="bha" output="ভ" />
+        <key id="ca" output="চ" />
+        <key id="cha" output="ছ" />
+        <key id="ḍa" output="ড" />
+        <key id="da" output="দ" />
+        <key id="dahri" output="।" />
+        <key id="ḍha" output="ঢ" />
+        <key id="dha" output="ধ" />
+        <key id="e" output="\u{09C7}" />
+        <key id="ga" output="গ" />
+        <key id="gha" output="ঘ" />
+        <key id="ha" output="হ" />
+        <key id="i" output="\u{09BF}" />
+        <key id="ī" output="\u{09C0}" />
+        <key id="ja" output="জ" />
+        <key id="jha" output="ঝ" />
+        <key id="ka" output="ক" />
+        <key id="kha" output="খ" />
+        <key id="la" output="ল" />
+        <key id="ṃ" output="\u{0982}" />
+        <key id="ma" output="ম" />
+        <key id="ṅa" output="ঙ" />
+        <key id="ña" output="ঞ" />
+        <key id="ṇa" output="ণ" />
+        <key id="na" output="ন" />
+        <key id="o" output="\u{09CB}" />
+        <key id="pa" output="প" />
+        <key id="pha" output="ফ" />
+        <key id="ṛ" output="\u{09C3}" />
+        <key id="ra" output="র" />
+        <key id="śa" output="শ" />
+        <key id="sa" output="স" />
+        <key id="sha" output="ষ" />
+        <key id="ṭa" output="ট" />
+        <key id="ta" output="ত" />
+        <key id="ṭha" output="ঠ" />
+        <key id="tha" output="থ" />
+        <key id="u" output="\u{09C1}" />
+        <key id="ū" output="\u{09C2}" />
+        <key id="wa" output="ৱ" /> <!-- Assamese transliteration -->
+        <key id="ya" output="য" />
+        <key id="ẏa" output="য়" /> <!-- Missing in Keyman version of file-->
+    </keys>
+    <layers formId="us">
+        <layer modifiers="none">
+            <row keys="candrabindu 1 2 3 4 5 6 7 8 9 0 hyphen equal" />
+            <row keys="more wa e ra ta ya u i o pa open-square close-square backslash" />
+            <row keys="ā sa da ṭa ga ha ja ka la semi-colon apos" />
+            <row keys="śa hasant ca ḍa ba na ma comma dahri slash" />
+            <row keys="space" />
+        </layer>
+        <layer modifiers="shift">
+            <row
+                keys="ṃ bang at hash dollar percent caret amp asterisk open-paren close-paren underscore plus" />
+            <row keys="gap ña ai ṛ tha ẏa ū ī au pha open-curly close-curly pipe" />
+            <row keys="au-lenghtener sha dha ṭha gha gap jha kha gap colon double-quote" />
+            <row keys="gap vis-hasant cha ḍha bha ṇa ṅa open-angle nukta question" />
+            <row keys="space" />
+        </layer>
+    </layers>
+
+    <transforms type="simple">
+        <transformGroup>
+            <transform from="\u{09C7}\m{A}" to="\u{09CC}" /> <!-- E + au-lenghtener = AU -->
+            <!-- <transform from="\u{09C7}\u{09BE}" to="\u09CB" /> --> <!-- E + A = O This is handled by normalization. -->
+
+            <!-- these suport the 'q' key -->
+            <transform from="\m{q}:" to="\u{0983}" />
+            <transform from="\m{q}L" to="ৡ" />
+            <transform from="\m{q}।" to="॥" />
+            <transform from="\m{q}ড" to="ড়" />
+            <transform from="\m{q}ঢ" to="ঢ়" />
+            <transform from="\m{q}ত" to="ৎ" />
+            <transform from="\m{q}য" to="য়" />
+            <transform from="\m{q}র" to="ৰ" />
+            <transform from="\m{q}ল" to="ঌ" />
+            <transform from="\m{q}\u{09BE}" to="অ" />
+            <transform from="\m{q}\u{09BF}" to="ই" />
+            <transform from="\m{q}\u{09C0}" to="ঈ" />
+            <transform from="\m{q}\u{09C1}" to="উ" />
+            <transform from="\m{q}\u{09C2}" to="ঊ" />
+            <transform from="\m{q}\u{09C3}" to="ৠ" />
+            <transform from="\m{q}\u{09C7}" to="এ" />
+            <transform from="\m{q}\u{09C8}" to="ঐ" />
+            <transform from="\m{q}\u{09CB}" to="ও" />
+            <transform from="\m{q}\u{09CC}" to="ঔ" />
+            <transform from="\m{q}\m{A}" to="আ" />
+            <transform from="\m{q}\m{X}" to="\u{09CD}\u{200C}" /> <!-- virama + zwnj-->
+        </transformGroup>
+        <transformGroup>
+            <!-- Nukta is tertiary, that is, it follows a tertiaryBase sequence -->
+            <reorder from="\u{09BC}" tertiary="3"/>
+            <!--
+                virama (hasant) followed by any other spacing chars has order 10, because this sequence goes after the consonant to which the virama pertains.
+                For example:
+
+                U+099A U+09CD U+099B
+                 CA    virama   CHA
+                  0      10      10
+             -->
+            <reorder from="\u{09CD}[\u{0980}\u{0985}-\u{098C}\u{098F}\u{0990}\u{0993}-\u{09A8}\u{09AA}-\u{09B0}\u{09B2}\u{09B6}-\u{09B9}\u{09BD}\u{09DC}\u{09DD}\u{09DF}-\u{09E1}\u{09E6}-\u{09F1}\u{09FC}]" order="10" tertiaryBase="true"/>
+            <!-- 10: virama  + zwj/zwnj + spacing mark is also 10-->
+            <reorder from="\u{09CD}[\u{200C}\u{200D}][\u{0980}\u{0985}-\u{098C}\u{098F}\u{0990}\u{0993}-\u{09A8}\u{09AA}-\u{09B0}\u{09B2}\u{09B6}-\u{09B9}\u{09BD}\u{09DC}\u{09DD}\u{09DF}-\u{09E1}\u{09E6}-\u{09F1}\u{09FC}]" order="10" tertiaryBase="true"/>
+            <!-- 120: A virama not followed by a spacing mark goes further to the right (past the sandhi mark, below) -->
+            <reorder from="\u{09CD}" order="120" tertiaryBase="true"/>
+            <!-- The next three rules make sure the DVs are in the correct order-->
+            <!-- 60: left side dependent vowels -->
+            <reorder from="[\u{09BF}\u{09C7}\u{09C8}]" order="60"/>
+            <!-- 70: lower dependent vowels -->
+            <reorder from="[\u{09C1}-\u{09C4}\u{09E2}\u{09E3}]" order="70"/>
+            <!-- 75: right side dependent vowels. Note U+09D7 AU LENGTH MARK is included due to NFD -->
+            <reorder from="[\u{09BE}\u{09C0}\u{09CB}\u{09CC}\u{09D7}]" order="75"/>
+            <!-- 85: candrabindu -->
+            <reorder from="\u{0981}" order="85"/>
+            <!-- 95: anusvara and visarga -->
+            <reorder from="[\u{0982}\u{0983}]" order="95"/>
+            <!-- 117: sandhi mark -->
+            <reorder from="\u{09FE}" order="117"/>
+        </transformGroup>
+    </transforms>
+</keyboard3>

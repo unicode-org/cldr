@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2023 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+SPDX-License-Identifier: Unicode-DFS-2016
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+
+Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="ti"/>
+	</identity>
+	<annotations>
+		<annotation cp="🧑‍🦰">ሰብ | ሰብ: ቀይሕ ጸጉሪ | ቀይሕ ጸጉሪ | በጽሒ ሰብ | ዝሁም ጾታ | ጾታ-ገለልተኛ</annotation>
+		<annotation cp="🧑‍🦰" type="tts">ሰብ: ቀይሕ ጸጉሪ</annotation>
+		<annotation cp="🧑‍🦳">ሰብ | ሰብ: ጻዕዳ ጸጉሪ | በጽሒ ሰብ | ዝሁም ጾታ | ጻዕዳ ጸጉሪ | ጾታ-ገለልተኛ</annotation>
+		<annotation cp="🧑‍🦳" type="tts">ሰብ: ጻዕዳ ጸጉሪ</annotation>
+		<annotation cp="🧑‍🦲">ሰብ | ሰብ: በራሕ | በራሕ | በጽሒ ሰብ | ዝሁም ጾታ | ጾታ-ገለልተኛ</annotation>
+		<annotation cp="🧑‍🦲" type="tts">ሰብ: በራሕ</annotation>
+		<annotation cp="👨‍🦰">ሰብኣይ | ሰብኣይ: ቀይሕ ጸጉሪ | ቀይሕ ጸጉሪ | በጽሒ ሰብ</annotation>
+		<annotation cp="👨‍🦰" type="tts">ሰብኣይ: ቀይሕ ጸጉሪ</annotation>
+		<annotation cp="👨‍🦳">ሰብኣይ | ሰብኣይ: ጻዕዳ ጸጉሪ | በጽሒ ሰብ | ጻዕዳ ጸጉሪ</annotation>
+		<annotation cp="👨‍🦳" type="tts">ሰብኣይ: ጻዕዳ ጸጉሪ</annotation>
+		<annotation cp="👨‍🦲">ሰብኣይ | ሰብኣይ: በራሕ | በራሕ | በጽሒ ሰብ</annotation>
+		<annotation cp="👨‍🦲" type="tts">ሰብኣይ: በራሕ</annotation>
+		<annotation cp="👩‍🦰">ሰበይቲ | ሰበይቲ: ቀይሕ ጸጉሪ | ቀይሕ ጸጉሪ | በጽሒት ሰበይቲ | ኣንስተይቲ</annotation>
+		<annotation cp="👩‍🦰" type="tts">ሰበይቲ: ቀይሕ ጸጉሪ</annotation>
+		<annotation cp="👩‍🦳">ሰበይቲ | ሰበይቲ: ጻዕዳ ጸጉሪ | በጽሒት ሰበይቲ | ኣንስተይቲ | ጻዕዳ ጸጉሪ</annotation>
+		<annotation cp="👩‍🦳" type="tts">ሰበይቲ: ጻዕዳ ጸጉሪ</annotation>
+		<annotation cp="👩‍🦲">ሰበይቲ | ሰበይቲ: በራሕ | በራሕ | በጽሒት ሰበይቲ | ኣንስተይቲ</annotation>
+		<annotation cp="👩‍🦲" type="tts">ሰበይቲ: በራሕ</annotation>
+		<annotation cp="👩‍❤‍💋‍👨">ሰበይቲ | ሰብኣይ | ስዕመት | ስዕመት: ሰበይቲን ሰብኣይን</annotation>
+		<annotation cp="👩‍❤‍💋‍👨" type="tts">ስዕመት: ሰበይቲን ሰብኣይን</annotation>
+		<annotation cp="👨‍❤‍💋‍👨">ሰብኣይ | ስዕመት | ስዕመት: ሰብኣይን ሰብኣይን</annotation>
+		<annotation cp="👨‍❤‍💋‍👨" type="tts">ስዕመት: ሰብኣይን ሰብኣይን</annotation>
+		<annotation cp="👩‍❤‍💋‍👩">ሰበይቲ | ስዕመት | ስዕመት: ሰበይቲን ሰበይቲን</annotation>
+		<annotation cp="👩‍❤‍💋‍👩" type="tts">ስዕመት: ሰበይቲን ሰበይቲን</annotation>
+		<annotation cp="👨‍👩‍👦">ሰበይቲ | ሰብኣይ | ስድራ | ስድራ: ሰብኣይ፣ ሰበይቲ፣ ወዲ | ወዲ</annotation>
+		<annotation cp="👨‍👩‍👦" type="tts">ስድራ: ሰብኣይ፣ ሰበይቲ፣ ወዲ</annotation>
+		<annotation cp="👨‍👩‍👧">ሰበይቲ | ሰብኣይ | ስድራ | ስድራ: ሰብኣይ፣ ሰበይቲ፣ ጓል | ጓል</annotation>
+		<annotation cp="👨‍👩‍👧" type="tts">ስድራ: ሰብኣይ፣ ሰበይቲ፣ ጓል</annotation>
+		<annotation cp="👨‍👩‍👧‍👦">ሰበይቲ | ሰብኣይ | ስድራ | ስድራ: ሰብኣይ፣ ሰበይቲ፣ ጓል፣ ወዲ | ወዲ | ጓል</annotation>
+		<annotation cp="👨‍👩‍👧‍👦" type="tts">ስድራ: ሰብኣይ፣ ሰበይቲ፣ ጓል፣ ወዲ</annotation>
+		<annotation cp="👨‍👩‍👦‍👦">ሰበይቲ | ሰብኣይ | ስድራ | ስድራ: ሰብኣይ፣ ሰበይቲ፣ ወዲ፣ ወዲ | ወዲ</annotation>
+		<annotation cp="👨‍👩‍👦‍👦" type="tts">ስድራ: ሰብኣይ፣ ሰበይቲ፣ ወዲ፣ ወዲ</annotation>
+		<annotation cp="👨‍👩‍👧‍👧">ሰበይቲ | ሰብኣይ | ስድራ | ስድራ: ሰብኣይ፣ ሰበይቲ፣ ጓል፣ ጓል | ጓል</annotation>
+		<annotation cp="👨‍👩‍👧‍👧" type="tts">ስድራ: ሰብኣይ፣ ሰበይቲ፣ ጓል፣ ጓል</annotation>
+		<annotation cp="👨‍👨‍👦">ሰብኣይ | ስድራ | ስድራ: ሰብኣይ፣ ሰብኣይ፣ ወዲ | ወዲ</annotation>
+		<annotation cp="👨‍👨‍👦" type="tts">ስድራ: ሰብኣይ፣ ሰብኣይ፣ ወዲ</annotation>
+		<annotation cp="👨‍👨‍👧">ሰብኣይ | ስድራ | ስድራ: ሰብኣይ፣ ሰብኣይ፣ ጓል | ጓል</annotation>
+		<annotation cp="👨‍👨‍👧" type="tts">ስድራ: ሰብኣይ፣ ሰብኣይ፣ ጓል</annotation>
+		<annotation cp="👨‍👨‍👧‍👦">ሰብኣይ | ስድራ | ስድራ: ሰብኣይ፣ ሰብኣይ፣ ጓል፣ ወዲ | ወዲ | ጓል</annotation>
+		<annotation cp="👨‍👨‍👧‍👦" type="tts">ስድራ: ሰብኣይ፣ ሰብኣይ፣ ጓል፣ ወዲ</annotation>
+		<annotation cp="👨‍👨‍👦‍👦">ሰብኣይ | ስድራ | ስድራ: ሰብኣይ፣ ሰብኣይ፣ ወዲ፣ ወዲ | ወዲ</annotation>
+		<annotation cp="👨‍👨‍👦‍👦" type="tts">ስድራ: ሰብኣይ፣ ሰብኣይ፣ ወዲ፣ ወዲ</annotation>
+		<annotation cp="👨‍👨‍👧‍👧">ሰብኣይ | ስድራ | ስድራ: ሰብኣይ፣ ሰብኣይ፣ ጓል፣ ጓል | ጓል</annotation>
+		<annotation cp="👨‍👨‍👧‍👧" type="tts">ስድራ: ሰብኣይ፣ ሰብኣይ፣ ጓል፣ ጓል</annotation>
+		<annotation cp="👩‍👩‍👦">ሰበይቲ | ስድራ | ስድራ: ሰበይቲ፣ ሰበይቲ፣ ወዲ | ወዲ</annotation>
+		<annotation cp="👩‍👩‍👦" type="tts">ስድራ: ሰበይቲ፣ ሰበይቲ፣ ወዲ</annotation>
+		<annotation cp="👩‍👩‍👧">ሰበይቲ | ስድራ | ስድራ: ሰበይቲ፣ ሰበይቲ፣ ጓል | ጓል</annotation>
+		<annotation cp="👩‍👩‍👧" type="tts">ስድራ: ሰበይቲ፣ ሰበይቲ፣ ጓል</annotation>
+		<annotation cp="👩‍👩‍👧‍👦">ሰበይቲ | ስድራ | ስድራ: ሰበይቲ፣ ሰበይቲ፣ ጓል፣ ወዲ | ወዲ | ጓል</annotation>
+		<annotation cp="👩‍👩‍👧‍👦" type="tts">ስድራ: ሰበይቲ፣ ሰበይቲ፣ ጓል፣ ወዲ</annotation>
+		<annotation cp="👩‍👩‍👦‍👦">ሰበይቲ | ስድራ | ስድራ: ሰበይቲ፣ ሰበይቲ፣ ወዲ፣ ወዲ | ወዲ</annotation>
+		<annotation cp="👩‍👩‍👦‍👦" type="tts">ስድራ: ሰበይቲ፣ ሰበይቲ፣ ወዲ፣ ወዲ</annotation>
+		<annotation cp="👩‍👩‍👧‍👧">ሰበይቲ | ስድራ | ስድራ: ሰበይቲ፣ ሰበይቲ፣ ጓል፣ ጓል | ጓል</annotation>
+		<annotation cp="👩‍👩‍👧‍👧" type="tts">ስድራ: ሰበይቲ፣ ሰበይቲ፣ ጓል፣ ጓል</annotation>
+		<annotation cp="👨‍👦">ሰብኣይ | ስድራ | ስድራ: ሰብኣይን ወዲን | ወዲ</annotation>
+		<annotation cp="👨‍👦" type="tts">ስድራ: ሰብኣይን ወዲን</annotation>
+		<annotation cp="👨‍👦‍👦">ሰብኣይ | ስድራ | ስድራ: ሰብኣይ፣ ወዲ፣ ወዲ | ወዲ</annotation>
+		<annotation cp="👨‍👦‍👦" type="tts">ስድራ: ሰብኣይ፣ ወዲ፣ ወዲ</annotation>
+		<annotation cp="👨‍👧">ሰብኣይ | ስድራ | ስድራ: ሰብኣይን ጓልን | ጓል</annotation>
+		<annotation cp="👨‍👧" type="tts">ስድራ: ሰብኣይን ጓልን</annotation>
+		<annotation cp="👨‍👧‍👦">ሰብኣይ | ስድራ | ስድራ: ሰብኣይ፣ ጓል፣ ወዲ | ወዲ | ጓል</annotation>
+		<annotation cp="👨‍👧‍👦" type="tts">ስድራ: ሰብኣይ፣ ጓል፣ ወዲ</annotation>
+		<annotation cp="👨‍👧‍👧">ሰብኣይ | ስድራ | ስድራ: ሰብኣይ፣ ጓል፣ ጓል | ጓል</annotation>
+		<annotation cp="👨‍👧‍👧" type="tts">ስድራ: ሰብኣይ፣ ጓል፣ ጓል</annotation>
+		<annotation cp="👩‍👦">ሰበይቲ | ስድራ | ስድራ: ሰበይቲን ወዲን | ወዲ</annotation>
+		<annotation cp="👩‍👦" type="tts">ስድራ: ሰበይቲን ወዲን</annotation>
+		<annotation cp="👩‍👦‍👦">ሰበይቲ | ስድራ | ስድራ: ሰበይቲ፣ ወዲ፣ ወዲ | ወዲ</annotation>
+		<annotation cp="👩‍👦‍👦" type="tts">ስድራ: ሰበይቲ፣ ወዲ፣ ወዲ</annotation>
+		<annotation cp="👩‍👧">ሰበይቲ | ስድራ | ስድራ: ሰበይቲን ጓልን | ጓል</annotation>
+		<annotation cp="👩‍👧" type="tts">ስድራ: ሰበይቲን ጓልን</annotation>
+		<annotation cp="👩‍👧‍👦">ሰበይቲ | ስድራ | ስድራ: ሰበይቲ፣ ጓል፣ ወዲ | ወዲ | ጓል</annotation>
+		<annotation cp="👩‍👧‍👦" type="tts">ስድራ: ሰበይቲ፣ ጓል፣ ወዲ</annotation>
+		<annotation cp="👩‍👧‍👧">ሰበይቲ | ስድራ | ስድራ: ሰበይቲ፣ ጓል፣ ጓል | ጓል</annotation>
+		<annotation cp="👩‍👧‍👧" type="tts">ስድራ: ሰበይቲ፣ ጓል፣ ጓል</annotation>
+		<annotation cp="🇦🇨">ባንዴራ | ባንዴራ: ደሴት ኣሰንስዮን</annotation>
+		<annotation cp="🇦🇨" type="tts">ባንዴራ: ደሴት ኣሰንስዮን</annotation>
+		<annotation cp="🇦🇩">ባንዴራ | ባንዴራ: ኣንዶራ</annotation>
+		<annotation cp="🇦🇩" type="tts">ባንዴራ: ኣንዶራ</annotation>
+		<annotation cp="🇦🇪">ባንዴራ | ባንዴራ: ሕቡራት ኢማራት ዓረብ</annotation>
+		<annotation cp="🇦🇪" type="tts">ባንዴራ: ሕቡራት ኢማራት ዓረብ</annotation>
+		<annotation cp="🇦🇫">ባንዴራ | ባንዴራ: ኣፍጋኒስታን</annotation>
+		<annotation cp="🇦🇫" type="tts">ባንዴራ: ኣፍጋኒስታን</annotation>
+		<annotation cp="🇦🇬">ባንዴራ | ባንዴራ: ኣንቲጓን ባርቡዳን</annotation>
+		<annotation cp="🇦🇬" type="tts">ባንዴራ: ኣንቲጓን ባርቡዳን</annotation>
+		<annotation cp="🇦🇮">ባንዴራ | ባንዴራ: ኣንጒላ</annotation>
+		<annotation cp="🇦🇮" type="tts">ባንዴራ: ኣንጒላ</annotation>
+		<annotation cp="🇦🇱">ባንዴራ | ባንዴራ: ኣልባንያ</annotation>
+		<annotation cp="🇦🇱" type="tts">ባንዴራ: ኣልባንያ</annotation>
+		<annotation cp="🇦🇲">ባንዴራ | ባንዴራ: ኣርሜንያ</annotation>
+		<annotation cp="🇦🇲" type="tts">ባንዴራ: ኣርሜንያ</annotation>
+		<annotation cp="🇦🇴">ባንዴራ | ባንዴራ: ኣንጎላ</annotation>
+		<annotation cp="🇦🇴" type="tts">ባንዴራ: ኣንጎላ</annotation>
+		<annotation cp="🇦🇶">ባንዴራ | ባንዴራ: ኣንታርክቲካ</annotation>
+		<annotation cp="🇦🇶" type="tts">ባንዴራ: ኣንታርክቲካ</annotation>
+		<annotation cp="🇦🇷">ባንዴራ | ባንዴራ: ኣርጀንቲና</annotation>
+		<annotation cp="🇦🇷" type="tts">ባንዴራ: ኣርጀንቲና</annotation>
+		<annotation cp="🇦🇸">ባንዴራ | ባንዴራ: ኣመሪካዊት ሳሞኣ</annotation>
+		<annotation cp="🇦🇸" type="tts">ባንዴራ: ኣመሪካዊት ሳሞኣ</annotation>
+		<annotation cp="🇦🇹">ባንዴራ | ባንዴራ: ኦስትርያ</annotation>
+		<annotation cp="🇦🇹" type="tts">ባንዴራ: ኦስትርያ</annotation>
+		<annotation cp="🇦🇺">ባንዴራ | ባንዴራ: ኣውስትራልያ</annotation>
+		<annotation cp="🇦🇺" type="tts">ባንዴራ: ኣውስትራልያ</annotation>
+		<annotation cp="🇦🇼">ባንዴራ | ባንዴራ: ኣሩባ</annotation>
+		<annotation cp="🇦🇼" type="tts">ባንዴራ: ኣሩባ</annotation>
+		<annotation cp="🇦🇽">ባንዴራ | ባንዴራ: ደሴታት ኣላንድ</annotation>
+		<annotation cp="🇦🇽" type="tts">ባንዴራ: ደሴታት ኣላንድ</annotation>
+		<annotation cp="🇦🇿">ባንዴራ | ባንዴራ: ኣዘርባጃን</annotation>
+		<annotation cp="🇦🇿" type="tts">ባንዴራ: ኣዘርባጃን</annotation>
+		<annotation cp="🇧🇦">ባንዴራ | ባንዴራ: ቦዝንያን ሄርዘጎቪናን</annotation>
+		<annotation cp="🇧🇦" type="tts">ባንዴራ: ቦዝንያን ሄርዘጎቪናን</annotation>
+		<annotation cp="🇧🇧">ባንዴራ | ባንዴራ: ባርባዶስ</annotation>
+		<annotation cp="🇧🇧" type="tts">ባንዴራ: ባርባዶስ</annotation>
+		<annotation cp="🇧🇩">ባንዴራ | ባንዴራ: ባንግላደሽ</annotation>
+		<annotation cp="🇧🇩" type="tts">ባንዴራ: ባንግላደሽ</annotation>
+		<annotation cp="🇧🇪">ባንዴራ | ባንዴራ: ቤልጅዩም</annotation>
+		<annotation cp="🇧🇪" type="tts">ባንዴራ: ቤልጅዩም</annotation>
+		<annotation cp="🇧🇫">ባንዴራ | ባንዴራ: ቡርኪና ፋሶ</annotation>
+		<annotation cp="🇧🇫" type="tts">ባንዴራ: ቡርኪና ፋሶ</annotation>
+		<annotation cp="🇧🇬">ባንዴራ | ባንዴራ: ቡልጋርያ</annotation>
+		<annotation cp="🇧🇬" type="tts">ባንዴራ: ቡልጋርያ</annotation>
+		<annotation cp="🇧🇭">ባንዴራ | ባንዴራ: ባሕሬን</annotation>
+		<annotation cp="🇧🇭" type="tts">ባንዴራ: ባሕሬን</annotation>
+		<annotation cp="🇧🇮">ባንዴራ | ባንዴራ: ብሩንዲ</annotation>
+		<annotation cp="🇧🇮" type="tts">ባንዴራ: ብሩንዲ</annotation>
+		<annotation cp="🇧🇯">ባንዴራ | ባንዴራ: ቤኒን</annotation>
+		<annotation cp="🇧🇯" type="tts">ባንዴራ: ቤኒን</annotation>
+		<annotation cp="🇧🇱">ባንዴራ | ባንዴራ: ቅዱስ ባርተለሚ</annotation>
+		<annotation cp="🇧🇱" type="tts">ባንዴራ: ቅዱስ ባርተለሚ</annotation>
+		<annotation cp="🇧🇲">ባንዴራ | ባንዴራ: በርሙዳ</annotation>
+		<annotation cp="🇧🇲" type="tts">ባንዴራ: በርሙዳ</annotation>
+		<annotation cp="🇧🇳">ባንዴራ | ባንዴራ: ብሩነይ</annotation>
+		<annotation cp="🇧🇳" type="tts">ባንዴራ: ብሩነይ</annotation>
+		<annotation cp="🇧🇴">ባንዴራ | ባንዴራ: ቦሊቭያ</annotation>
+		<annotation cp="🇧🇴" type="tts">ባንዴራ: ቦሊቭያ</annotation>
+		<annotation cp="🇧🇶">ባንዴራ | ባንዴራ: ካሪብያን ኔዘርላንድ</annotation>
+		<annotation cp="🇧🇶" type="tts">ባንዴራ: ካሪብያን ኔዘርላንድ</annotation>
+		<annotation cp="🇧🇷">ባንዴራ | ባንዴራ: ብራዚል</annotation>
+		<annotation cp="🇧🇷" type="tts">ባንዴራ: ብራዚል</annotation>
+		<annotation cp="🇧🇸">ባንዴራ | ባንዴራ: ባሃማስ</annotation>
+		<annotation cp="🇧🇸" type="tts">ባንዴራ: ባሃማስ</annotation>
+		<annotation cp="🇧🇹">ባንዴራ | ባንዴራ: ቡታን</annotation>
+		<annotation cp="🇧🇹" type="tts">ባንዴራ: ቡታን</annotation>
+		<annotation cp="🇧🇻">ባንዴራ | ባንዴራ: ደሴት ቡቨት</annotation>
+		<annotation cp="🇧🇻" type="tts">ባንዴራ: ደሴት ቡቨት</annotation>
+		<annotation cp="🇧🇼">ባንዴራ | ባንዴራ: ቦትስዋና</annotation>
+		<annotation cp="🇧🇼" type="tts">ባንዴራ: ቦትስዋና</annotation>
+		<annotation cp="🇧🇾">ባንዴራ | ባንዴራ: ቤላሩስ</annotation>
+		<annotation cp="🇧🇾" type="tts">ባንዴራ: ቤላሩስ</annotation>
+		<annotation cp="🇧🇿">ባንዴራ | ባንዴራ: በሊዝ</annotation>
+		<annotation cp="🇧🇿" type="tts">ባንዴራ: በሊዝ</annotation>
+		<annotation cp="🇨🇦">ባንዴራ | ባንዴራ: ካናዳ</annotation>
+		<annotation cp="🇨🇦" type="tts">ባንዴራ: ካናዳ</annotation>
+		<annotation cp="🇨🇨">ባንዴራ | ባንዴራ: ደሴታት ኮኮስ</annotation>
+		<annotation cp="🇨🇨" type="tts">ባንዴራ: ደሴታት ኮኮስ</annotation>
+		<annotation cp="🇨🇩">ባንዴራ | ባንዴራ: ደሞክራስያዊት ሪፓብሊክ ኮንጎ</annotation>
+		<annotation cp="🇨🇩" type="tts">ባንዴራ: ደሞክራስያዊት ሪፓብሊክ ኮንጎ</annotation>
+		<annotation cp="🇨🇫">ባንዴራ | ባንዴራ: ሪፓብሊክ ማእከላይ ኣፍሪቃ</annotation>
+		<annotation cp="🇨🇫" type="tts">ባንዴራ: ሪፓብሊክ ማእከላይ ኣፍሪቃ</annotation>
+		<annotation cp="🇨🇬">ባንዴራ | ባንዴራ: ኮንጎ</annotation>
+		<annotation cp="🇨🇬" type="tts">ባንዴራ: ኮንጎ</annotation>
+		<annotation cp="🇨🇭">ባንዴራ | ባንዴራ: ስዊዘርላንድ</annotation>
+		<annotation cp="🇨🇭" type="tts">ባንዴራ: ስዊዘርላንድ</annotation>
+		<annotation cp="🇨🇮">ባንዴራ | ባንዴራ: ኮት ዲቭዋር</annotation>
+		<annotation cp="🇨🇮" type="tts">ባንዴራ: ኮት ዲቭዋር</annotation>
+		<annotation cp="🇨🇰">ባንዴራ | ባንዴራ: ደሴታት ኩክ</annotation>
+		<annotation cp="🇨🇰" type="tts">ባንዴራ: ደሴታት ኩክ</annotation>
+		<annotation cp="🇨🇱">ባንዴራ | ባንዴራ: ቺሌ</annotation>
+		<annotation cp="🇨🇱" type="tts">ባንዴራ: ቺሌ</annotation>
+		<annotation cp="🇨🇲">ባንዴራ | ባንዴራ: ካሜሩን</annotation>
+		<annotation cp="🇨🇲" type="tts">ባንዴራ: ካሜሩን</annotation>
+		<annotation cp="🇨🇳">ባንዴራ | ባንዴራ: ቻይና</annotation>
+		<annotation cp="🇨🇳" type="tts">ባንዴራ: ቻይና</annotation>
+		<annotation cp="🇨🇴">ባንዴራ | ባንዴራ: ኮሎምብያ</annotation>
+		<annotation cp="🇨🇴" type="tts">ባንዴራ: ኮሎምብያ</annotation>
+		<annotation cp="🇨🇵">ባንዴራ | ባንዴራ: ደሴት ክሊፐርቶን</annotation>
+		<annotation cp="🇨🇵" type="tts">ባንዴራ: ደሴት ክሊፐርቶን</annotation>
+		<annotation cp="🇨🇷">ባንዴራ | ባንዴራ: ኮስታ ሪካ</annotation>
+		<annotation cp="🇨🇷" type="tts">ባንዴራ: ኮስታ ሪካ</annotation>
+		<annotation cp="🇨🇺">ባንዴራ | ባንዴራ: ኩባ</annotation>
+		<annotation cp="🇨🇺" type="tts">ባንዴራ: ኩባ</annotation>
+		<annotation cp="🇨🇻">ባንዴራ | ባንዴራ: ኬፕ ቨርደ</annotation>
+		<annotation cp="🇨🇻" type="tts">ባንዴራ: ኬፕ ቨርደ</annotation>
+		<annotation cp="🇨🇼">ባንዴራ | ባንዴራ: ኩራሳው</annotation>
+		<annotation cp="🇨🇼" type="tts">ባንዴራ: ኩራሳው</annotation>
+		<annotation cp="🇨🇽">ባንዴራ | ባንዴራ: ደሴት ክሪስማስ</annotation>
+		<annotation cp="🇨🇽" type="tts">ባንዴራ: ደሴት ክሪስማስ</annotation>
+		<annotation cp="🇨🇾">ባንዴራ | ባንዴራ: ቆጵሮስ</annotation>
+		<annotation cp="🇨🇾" type="tts">ባንዴራ: ቆጵሮስ</annotation>
+		<annotation cp="🇨🇿">ባንዴራ | ባንዴራ: ቸክያ</annotation>
+		<annotation cp="🇨🇿" type="tts">ባንዴራ: ቸክያ</annotation>
+		<annotation cp="🇩🇪">ባንዴራ | ባንዴራ: ጀርመን</annotation>
+		<annotation cp="🇩🇪" type="tts">ባንዴራ: ጀርመን</annotation>
+		<annotation cp="🇩🇬">ባንዴራ | ባንዴራ: ድየጎ ጋርስያ</annotation>
+		<annotation cp="🇩🇬" type="tts">ባንዴራ: ድየጎ ጋርስያ</annotation>
+		<annotation cp="🇩🇯">ባንዴራ | ባንዴራ: ጅቡቲ</annotation>
+		<annotation cp="🇩🇯" type="tts">ባንዴራ: ጅቡቲ</annotation>
+		<annotation cp="🇩🇰">ባንዴራ | ባንዴራ: ደንማርክ</annotation>
+		<annotation cp="🇩🇰" type="tts">ባንዴራ: ደንማርክ</annotation>
+		<annotation cp="🇩🇲">ባንዴራ | ባንዴራ: ዶሚኒካ</annotation>
+		<annotation cp="🇩🇲" type="tts">ባንዴራ: ዶሚኒካ</annotation>
+		<annotation cp="🇩🇴">ባንዴራ | ባንዴራ: ዶሚኒካዊት ሪፓብሊክ</annotation>
+		<annotation cp="🇩🇴" type="tts">ባንዴራ: ዶሚኒካዊት ሪፓብሊክ</annotation>
+		<annotation cp="🇩🇿">ባንዴራ | ባንዴራ: ኣልጀርያ</annotation>
+		<annotation cp="🇩🇿" type="tts">ባንዴራ: ኣልጀርያ</annotation>
+		<annotation cp="🇪🇦">ባንዴራ | ባንዴራ: ሴውታን መሊላን</annotation>
+		<annotation cp="🇪🇦" type="tts">ባንዴራ: ሴውታን መሊላን</annotation>
+		<annotation cp="🇪🇨">ባንዴራ | ባንዴራ: ኤኳዶር</annotation>
+		<annotation cp="🇪🇨" type="tts">ባንዴራ: ኤኳዶር</annotation>
+		<annotation cp="🇪🇪">ባንዴራ | ባንዴራ: ኤስቶንያ</annotation>
+		<annotation cp="🇪🇪" type="tts">ባንዴራ: ኤስቶንያ</annotation>
+		<annotation cp="🇪🇬">ባንዴራ | ባንዴራ: ግብጺ</annotation>
+		<annotation cp="🇪🇬" type="tts">ባንዴራ: ግብጺ</annotation>
+		<annotation cp="🇪🇭">ባንዴራ | ባንዴራ: ምዕራባዊ ሰሃራ</annotation>
+		<annotation cp="🇪🇭" type="tts">ባንዴራ: ምዕራባዊ ሰሃራ</annotation>
+		<annotation cp="🇪🇷">ባንዴራ | ባንዴራ: ኤርትራ</annotation>
+		<annotation cp="🇪🇷" type="tts">ባንዴራ: ኤርትራ</annotation>
+		<annotation cp="🇪🇸">ባንዴራ | ባንዴራ: ስጳኛ</annotation>
+		<annotation cp="🇪🇸" type="tts">ባንዴራ: ስጳኛ</annotation>
+		<annotation cp="🇪🇹">ባንዴራ | ባንዴራ: ኢትዮጵያ</annotation>
+		<annotation cp="🇪🇹" type="tts">ባንዴራ: ኢትዮጵያ</annotation>
+		<annotation cp="🇪🇺">ባንዴራ | ባንዴራ: ኤውሮጳዊ ሕብረት</annotation>
+		<annotation cp="🇪🇺" type="tts">ባንዴራ: ኤውሮጳዊ ሕብረት</annotation>
+		<annotation cp="🇫🇮">ባንዴራ | ባንዴራ: ፊንላንድ</annotation>
+		<annotation cp="🇫🇮" type="tts">ባንዴራ: ፊንላንድ</annotation>
+		<annotation cp="🇫🇯">ባንዴራ | ባንዴራ: ፊጂ</annotation>
+		<annotation cp="🇫🇯" type="tts">ባንዴራ: ፊጂ</annotation>
+		<annotation cp="🇫🇰">ባንዴራ | ባንዴራ: ደሴታት ፎክላንድ</annotation>
+		<annotation cp="🇫🇰" type="tts">ባንዴራ: ደሴታት ፎክላንድ</annotation>
+		<annotation cp="🇫🇲">ባንዴራ | ባንዴራ: ማይክሮነዥያ</annotation>
+		<annotation cp="🇫🇲" type="tts">ባንዴራ: ማይክሮነዥያ</annotation>
+		<annotation cp="🇫🇴">ባንዴራ | ባንዴራ: ደሴታት ፋሮ</annotation>
+		<annotation cp="🇫🇴" type="tts">ባንዴራ: ደሴታት ፋሮ</annotation>
+		<annotation cp="🇫🇷">ባንዴራ | ባንዴራ: ፈረንሳ</annotation>
+		<annotation cp="🇫🇷" type="tts">ባንዴራ: ፈረንሳ</annotation>
+		<annotation cp="🇬🇦">ባንዴራ | ባንዴራ: ጋቦን</annotation>
+		<annotation cp="🇬🇦" type="tts">ባንዴራ: ጋቦን</annotation>
+		<annotation cp="🇬🇧">ባንዴራ | ባንዴራ: ብሪጣንያ</annotation>
+		<annotation cp="🇬🇧" type="tts">ባንዴራ: ብሪጣንያ</annotation>
+		<annotation cp="🇬🇩">ባንዴራ | ባንዴራ: ግረናዳ</annotation>
+		<annotation cp="🇬🇩" type="tts">ባንዴራ: ግረናዳ</annotation>
+		<annotation cp="🇬🇪">ባንዴራ | ባንዴራ: ጆርጅያ</annotation>
+		<annotation cp="🇬🇪" type="tts">ባንዴራ: ጆርጅያ</annotation>
+		<annotation cp="🇬🇫">ባንዴራ | ባንዴራ: ፈረንሳዊት ጊያና</annotation>
+		<annotation cp="🇬🇫" type="tts">ባንዴራ: ፈረንሳዊት ጊያና</annotation>
+		<annotation cp="🇬🇬">ባንዴራ | ባንዴራ: ገርንዚ</annotation>
+		<annotation cp="🇬🇬" type="tts">ባንዴራ: ገርንዚ</annotation>
+		<annotation cp="🇬🇭">ባንዴራ | ባንዴራ: ጋና</annotation>
+		<annotation cp="🇬🇭" type="tts">ባንዴራ: ጋና</annotation>
+		<annotation cp="🇬🇮">ባንዴራ | ባንዴራ: ጂብራልታር</annotation>
+		<annotation cp="🇬🇮" type="tts">ባንዴራ: ጂብራልታር</annotation>
+		<annotation cp="🇬🇱">ባንዴራ | ባንዴራ: ግሪንላንድ</annotation>
+		<annotation cp="🇬🇱" type="tts">ባንዴራ: ግሪንላንድ</annotation>
+		<annotation cp="🇬🇲">ባንዴራ | ባንዴራ: ጋምብያ</annotation>
+		<annotation cp="🇬🇲" type="tts">ባንዴራ: ጋምብያ</annotation>
+		<annotation cp="🇬🇳">ባንዴራ | ባንዴራ: ጊኒ</annotation>
+		<annotation cp="🇬🇳" type="tts">ባንዴራ: ጊኒ</annotation>
+		<annotation cp="🇬🇵">ባንዴራ | ባንዴራ: ጓደሉፕ</annotation>
+		<annotation cp="🇬🇵" type="tts">ባንዴራ: ጓደሉፕ</annotation>
+		<annotation cp="🇬🇶">ባንዴራ | ባንዴራ: ኢኳቶርያል ጊኒ</annotation>
+		<annotation cp="🇬🇶" type="tts">ባንዴራ: ኢኳቶርያል ጊኒ</annotation>
+		<annotation cp="🇬🇷">ባንዴራ | ባንዴራ: ግሪኽ</annotation>
+		<annotation cp="🇬🇷" type="tts">ባንዴራ: ግሪኽ</annotation>
+		<annotation cp="🇬🇸">ባንዴራ | ባንዴራ: ደሴታት ደቡብ ጆርጅያን ደቡብ ሳንድዊችን</annotation>
+		<annotation cp="🇬🇸" type="tts">ባንዴራ: ደሴታት ደቡብ ጆርጅያን ደቡብ ሳንድዊችን</annotation>
+		<annotation cp="🇬🇹">ባንዴራ | ባንዴራ: ጓቲማላ</annotation>
+		<annotation cp="🇬🇹" type="tts">ባንዴራ: ጓቲማላ</annotation>
+		<annotation cp="🇬🇺">ባንዴራ | ባንዴራ: ጓም</annotation>
+		<annotation cp="🇬🇺" type="tts">ባንዴራ: ጓም</annotation>
+		<annotation cp="🇬🇼">ባንዴራ | ባንዴራ: ጊኒ-ቢሳው</annotation>
+		<annotation cp="🇬🇼" type="tts">ባንዴራ: ጊኒ-ቢሳው</annotation>
+		<annotation cp="🇬🇾">ባንዴራ | ባንዴራ: ጉያና</annotation>
+		<annotation cp="🇬🇾" type="tts">ባንዴራ: ጉያና</annotation>
+		<annotation cp="🇭🇰">ባንዴራ | ባንዴራ: ፍሉይ ምምሕዳራዊ ዞባ ሆንግ ኮንግ (ቻይና)</annotation>
+		<annotation cp="🇭🇰" type="tts">ባንዴራ: ፍሉይ ምምሕዳራዊ ዞባ ሆንግ ኮንግ (ቻይና)</annotation>
+		<annotation cp="🇭🇲">ባንዴራ | ባንዴራ: ደሴታት ሄርድን ማክዶናልድን</annotation>
+		<annotation cp="🇭🇲" type="tts">ባንዴራ: ደሴታት ሄርድን ማክዶናልድን</annotation>
+		<annotation cp="🇭🇳">ባንዴራ | ባንዴራ: ሆንዱራስ</annotation>
+		<annotation cp="🇭🇳" type="tts">ባንዴራ: ሆንዱራስ</annotation>
+		<annotation cp="🇭🇷">ባንዴራ | ባንዴራ: ክሮኤሽያ</annotation>
+		<annotation cp="🇭🇷" type="tts">ባንዴራ: ክሮኤሽያ</annotation>
+		<annotation cp="🇭🇹">ባንዴራ | ባንዴራ: ሃይቲ</annotation>
+		<annotation cp="🇭🇹" type="tts">ባንዴራ: ሃይቲ</annotation>
+		<annotation cp="🇭🇺">ባንዴራ | ባንዴራ: ሃንጋሪ</annotation>
+		<annotation cp="🇭🇺" type="tts">ባንዴራ: ሃንጋሪ</annotation>
+		<annotation cp="🇮🇨">ባንዴራ | ባንዴራ: ደሴታት ካናሪ</annotation>
+		<annotation cp="🇮🇨" type="tts">ባንዴራ: ደሴታት ካናሪ</annotation>
+		<annotation cp="🇮🇩">ባንዴራ | ባንዴራ: ኢንዶነዥያ</annotation>
+		<annotation cp="🇮🇩" type="tts">ባንዴራ: ኢንዶነዥያ</annotation>
+		<annotation cp="🇮🇪">ባንዴራ | ባንዴራ: ኣየርላንድ</annotation>
+		<annotation cp="🇮🇪" type="tts">ባንዴራ: ኣየርላንድ</annotation>
+		<annotation cp="🇮🇱">ባንዴራ | ባንዴራ: እስራኤል</annotation>
+		<annotation cp="🇮🇱" type="tts">ባንዴራ: እስራኤል</annotation>
+		<annotation cp="🇮🇲">ባንዴራ | ባንዴራ: ኣይል ኦፍ ማን</annotation>
+		<annotation cp="🇮🇲" type="tts">ባንዴራ: ኣይል ኦፍ ማን</annotation>
+		<annotation cp="🇮🇳">ባንዴራ | ባንዴራ: ህንዲ</annotation>
+		<annotation cp="🇮🇳" type="tts">ባንዴራ: ህንዲ</annotation>
+		<annotation cp="🇮🇴">ባንዴራ | ባንዴራ: ብሪጣንያዊ ህንዳዊ ውቅያኖስ ግዝኣት</annotation>
+		<annotation cp="🇮🇴" type="tts">ባንዴራ: ብሪጣንያዊ ህንዳዊ ውቅያኖስ ግዝኣት</annotation>
+		<annotation cp="🇮🇶">ባንዴራ | ባንዴራ: ዒራቕ</annotation>
+		<annotation cp="🇮🇶" type="tts">ባንዴራ: ዒራቕ</annotation>
+		<annotation cp="🇮🇷">ባንዴራ | ባንዴራ: ኢራን</annotation>
+		<annotation cp="🇮🇷" type="tts">ባንዴራ: ኢራን</annotation>
+		<annotation cp="🇮🇸">ባንዴራ | ባንዴራ: ኣይስላንድ</annotation>
+		<annotation cp="🇮🇸" type="tts">ባንዴራ: ኣይስላንድ</annotation>
+		<annotation cp="🇮🇹">ባንዴራ | ባንዴራ: ኢጣልያ</annotation>
+		<annotation cp="🇮🇹" type="tts">ባንዴራ: ኢጣልያ</annotation>
+		<annotation cp="🇯🇪">ባንዴራ | ባንዴራ: ጀርዚ</annotation>
+		<annotation cp="🇯🇪" type="tts">ባንዴራ: ጀርዚ</annotation>
+		<annotation cp="🇯🇲">ባንዴራ | ባንዴራ: ጃማይካ</annotation>
+		<annotation cp="🇯🇲" type="tts">ባንዴራ: ጃማይካ</annotation>
+		<annotation cp="🇯🇴">ባንዴራ | ባንዴራ: ዮርዳኖስ</annotation>
+		<annotation cp="🇯🇴" type="tts">ባንዴራ: ዮርዳኖስ</annotation>
+		<annotation cp="🇯🇵">ባንዴራ | ባንዴራ: ጃፓን</annotation>
+		<annotation cp="🇯🇵" type="tts">ባንዴራ: ጃፓን</annotation>
+		<annotation cp="🇰🇪">ባንዴራ | ባንዴራ: ኬንያ</annotation>
+		<annotation cp="🇰🇪" type="tts">ባንዴራ: ኬንያ</annotation>
+		<annotation cp="🇰🇬">ባንዴራ | ባንዴራ: ኪርጊዝስታን</annotation>
+		<annotation cp="🇰🇬" type="tts">ባንዴራ: ኪርጊዝስታን</annotation>
+		<annotation cp="🇰🇭">ባንዴራ | ባንዴራ: ካምቦድያ</annotation>
+		<annotation cp="🇰🇭" type="tts">ባንዴራ: ካምቦድያ</annotation>
+		<annotation cp="🇰🇮">ባንዴራ | ባንዴራ: ኪሪባቲ</annotation>
+		<annotation cp="🇰🇮" type="tts">ባንዴራ: ኪሪባቲ</annotation>
+		<annotation cp="🇰🇲">ባንዴራ | ባንዴራ: ኮሞሮስ</annotation>
+		<annotation cp="🇰🇲" type="tts">ባንዴራ: ኮሞሮስ</annotation>
+		<annotation cp="🇰🇳">ባንዴራ | ባንዴራ: ቅዱስ ኪትስን ኔቪስን</annotation>
+		<annotation cp="🇰🇳" type="tts">ባንዴራ: ቅዱስ ኪትስን ኔቪስን</annotation>
+		<annotation cp="🇰🇵">ባንዴራ | ባንዴራ: ሰሜን ኮርያ</annotation>
+		<annotation cp="🇰🇵" type="tts">ባንዴራ: ሰሜን ኮርያ</annotation>
+		<annotation cp="🇰🇷">ባንዴራ | ባንዴራ: ደቡብ ኮርያ</annotation>
+		<annotation cp="🇰🇷" type="tts">ባንዴራ: ደቡብ ኮርያ</annotation>
+		<annotation cp="🇰🇼">ባንዴራ | ባንዴራ: ኩዌት</annotation>
+		<annotation cp="🇰🇼" type="tts">ባንዴራ: ኩዌት</annotation>
+		<annotation cp="🇰🇾">ባንዴራ | ባንዴራ: ደሴታት ካይማን</annotation>
+		<annotation cp="🇰🇾" type="tts">ባንዴራ: ደሴታት ካይማን</annotation>
+		<annotation cp="🇰🇿">ባንዴራ | ባንዴራ: ካዛኪስታን</annotation>
+		<annotation cp="🇰🇿" type="tts">ባንዴራ: ካዛኪስታን</annotation>
+		<annotation cp="🇱🇦">ባንዴራ | ባንዴራ: ላኦስ</annotation>
+		<annotation cp="🇱🇦" type="tts">ባንዴራ: ላኦስ</annotation>
+		<annotation cp="🇱🇧">ባንዴራ | ባንዴራ: ሊባኖስ</annotation>
+		<annotation cp="🇱🇧" type="tts">ባንዴራ: ሊባኖስ</annotation>
+		<annotation cp="🇱🇨">ባንዴራ | ባንዴራ: ቅድስቲ ሉስያ</annotation>
+		<annotation cp="🇱🇨" type="tts">ባንዴራ: ቅድስቲ ሉስያ</annotation>
+		<annotation cp="🇱🇮">ባንዴራ | ባንዴራ: ሊኽተንሽታይን</annotation>
+		<annotation cp="🇱🇮" type="tts">ባንዴራ: ሊኽተንሽታይን</annotation>
+		<annotation cp="🇱🇰">ባንዴራ | ባንዴራ: ስሪ ላንካ</annotation>
+		<annotation cp="🇱🇰" type="tts">ባንዴራ: ስሪ ላንካ</annotation>
+		<annotation cp="🇱🇷">ባንዴራ | ባንዴራ: ላይበርያ</annotation>
+		<annotation cp="🇱🇷" type="tts">ባንዴራ: ላይበርያ</annotation>
+		<annotation cp="🇱🇸">ባንዴራ | ባንዴራ: ሌሶቶ</annotation>
+		<annotation cp="🇱🇸" type="tts">ባንዴራ: ሌሶቶ</annotation>
+		<annotation cp="🇱🇹">ባንዴራ | ባንዴራ: ሊትዌንያ</annotation>
+		<annotation cp="🇱🇹" type="tts">ባንዴራ: ሊትዌንያ</annotation>
+		<annotation cp="🇱🇺">ባንዴራ | ባንዴራ: ሉክሰምበርግ</annotation>
+		<annotation cp="🇱🇺" type="tts">ባንዴራ: ሉክሰምበርግ</annotation>
+		<annotation cp="🇱🇻">ባንዴራ | ባንዴራ: ላትቭያ</annotation>
+		<annotation cp="🇱🇻" type="tts">ባንዴራ: ላትቭያ</annotation>
+		<annotation cp="🇱🇾">ባንዴራ | ባንዴራ: ሊብያ</annotation>
+		<annotation cp="🇱🇾" type="tts">ባንዴራ: ሊብያ</annotation>
+		<annotation cp="🇲🇦">ባንዴራ | ባንዴራ: ሞሮኮ</annotation>
+		<annotation cp="🇲🇦" type="tts">ባንዴራ: ሞሮኮ</annotation>
+		<annotation cp="🇲🇨">ባንዴራ | ባንዴራ: ሞናኮ</annotation>
+		<annotation cp="🇲🇨" type="tts">ባንዴራ: ሞናኮ</annotation>
+		<annotation cp="🇲🇩">ባንዴራ | ባንዴራ: ሞልዶቫ</annotation>
+		<annotation cp="🇲🇩" type="tts">ባንዴራ: ሞልዶቫ</annotation>
+		<annotation cp="🇲🇪">ባንዴራ | ባንዴራ: ሞንተኔግሮ</annotation>
+		<annotation cp="🇲🇪" type="tts">ባንዴራ: ሞንተኔግሮ</annotation>
+		<annotation cp="🇲🇫">ባንዴራ | ባንዴራ: ቅዱስ ማርቲን</annotation>
+		<annotation cp="🇲🇫" type="tts">ባንዴራ: ቅዱስ ማርቲን</annotation>
+		<annotation cp="🇲🇬">ባንዴራ | ባንዴራ: ማዳጋስካር</annotation>
+		<annotation cp="🇲🇬" type="tts">ባንዴራ: ማዳጋስካር</annotation>
+		<annotation cp="🇲🇭">ባንዴራ | ባንዴራ: ደሴታት ማርሻል</annotation>
+		<annotation cp="🇲🇭" type="tts">ባንዴራ: ደሴታት ማርሻል</annotation>
+		<annotation cp="🇲🇰">ባንዴራ | ባንዴራ: ሰሜን መቄዶንያ</annotation>
+		<annotation cp="🇲🇰" type="tts">ባንዴራ: ሰሜን መቄዶንያ</annotation>
+		<annotation cp="🇲🇱">ባንዴራ | ባንዴራ: ማሊ</annotation>
+		<annotation cp="🇲🇱" type="tts">ባንዴራ: ማሊ</annotation>
+		<annotation cp="🇲🇲">ባንዴራ | ባንዴራ: ሚያንማር (በርማ)</annotation>
+		<annotation cp="🇲🇲" type="tts">ባንዴራ: ሚያንማር (በርማ)</annotation>
+		<annotation cp="🇲🇳">ባንዴራ | ባንዴራ: ሞንጎልያ</annotation>
+		<annotation cp="🇲🇳" type="tts">ባንዴራ: ሞንጎልያ</annotation>
+		<annotation cp="🇲🇴">ባንዴራ | ባንዴራ: ፍሉይ ምምሕዳራዊ ዞባ ማካው (ቻይና)</annotation>
+		<annotation cp="🇲🇴" type="tts">ባንዴራ: ፍሉይ ምምሕዳራዊ ዞባ ማካው (ቻይና)</annotation>
+		<annotation cp="🇲🇵">ባንዴራ | ባንዴራ: ሰሜናዊ ደሴታት ማርያና</annotation>
+		<annotation cp="🇲🇵" type="tts">ባንዴራ: ሰሜናዊ ደሴታት ማርያና</annotation>
+		<annotation cp="🇲🇶">ባንዴራ | ባንዴራ: ማርቲኒክ</annotation>
+		<annotation cp="🇲🇶" type="tts">ባንዴራ: ማርቲኒክ</annotation>
+		<annotation cp="🇲🇷">ባንዴራ | ባንዴራ: ማውሪታንያ</annotation>
+		<annotation cp="🇲🇷" type="tts">ባንዴራ: ማውሪታንያ</annotation>
+		<annotation cp="🇲🇸">ባንዴራ | ባንዴራ: ሞንትሰራት</annotation>
+		<annotation cp="🇲🇸" type="tts">ባንዴራ: ሞንትሰራት</annotation>
+		<annotation cp="🇲🇹">ባንዴራ | ባንዴራ: ማልታ</annotation>
+		<annotation cp="🇲🇹" type="tts">ባንዴራ: ማልታ</annotation>
+		<annotation cp="🇲🇺">ባንዴራ | ባንዴራ: ማውሪሸስ</annotation>
+		<annotation cp="🇲🇺" type="tts">ባንዴራ: ማውሪሸስ</annotation>
+		<annotation cp="🇲🇻">ባንዴራ | ባንዴራ: ማልዲቭስ</annotation>
+		<annotation cp="🇲🇻" type="tts">ባንዴራ: ማልዲቭስ</annotation>
+		<annotation cp="🇲🇼">ባንዴራ | ባንዴራ: ማላዊ</annotation>
+		<annotation cp="🇲🇼" type="tts">ባንዴራ: ማላዊ</annotation>
+		<annotation cp="🇲🇽">ባንዴራ | ባንዴራ: ሜክሲኮ</annotation>
+		<annotation cp="🇲🇽" type="tts">ባንዴራ: ሜክሲኮ</annotation>
+		<annotation cp="🇲🇾">ባንዴራ | ባንዴራ: ማለዥያ</annotation>
+		<annotation cp="🇲🇾" type="tts">ባንዴራ: ማለዥያ</annotation>
+		<annotation cp="🇲🇿">ባንዴራ | ባንዴራ: ሞዛምቢክ</annotation>
+		<annotation cp="🇲🇿" type="tts">ባንዴራ: ሞዛምቢክ</annotation>
+		<annotation cp="🇳🇦">ባንዴራ | ባንዴራ: ናሚብያ</annotation>
+		<annotation cp="🇳🇦" type="tts">ባንዴራ: ናሚብያ</annotation>
+		<annotation cp="🇳🇨">ባንዴራ | ባንዴራ: ኒው ካለዶንያ</annotation>
+		<annotation cp="🇳🇨" type="tts">ባንዴራ: ኒው ካለዶንያ</annotation>
+		<annotation cp="🇳🇪">ባንዴራ | ባንዴራ: ኒጀር</annotation>
+		<annotation cp="🇳🇪" type="tts">ባንዴራ: ኒጀር</annotation>
+		<annotation cp="🇳🇫">ባንዴራ | ባንዴራ: ደሴት ኖርፎልክ</annotation>
+		<annotation cp="🇳🇫" type="tts">ባንዴራ: ደሴት ኖርፎልክ</annotation>
+		<annotation cp="🇳🇬">ባንዴራ | ባንዴራ: ናይጀርያ</annotation>
+		<annotation cp="🇳🇬" type="tts">ባንዴራ: ናይጀርያ</annotation>
+		<annotation cp="🇳🇮">ባንዴራ | ባንዴራ: ኒካራጓ</annotation>
+		<annotation cp="🇳🇮" type="tts">ባንዴራ: ኒካራጓ</annotation>
+		<annotation cp="🇳🇱">ባንዴራ | ባንዴራ: ኔዘርላንድ</annotation>
+		<annotation cp="🇳🇱" type="tts">ባንዴራ: ኔዘርላንድ</annotation>
+		<annotation cp="🇳🇴">ባንዴራ | ባንዴራ: ኖርወይ</annotation>
+		<annotation cp="🇳🇴" type="tts">ባንዴራ: ኖርወይ</annotation>
+		<annotation cp="🇳🇵">ባንዴራ | ባንዴራ: ኔፓል</annotation>
+		<annotation cp="🇳🇵" type="tts">ባንዴራ: ኔፓል</annotation>
+		<annotation cp="🇳🇷">ባንዴራ | ባንዴራ: ናውሩ</annotation>
+		<annotation cp="🇳🇷" type="tts">ባንዴራ: ናውሩ</annotation>
+		<annotation cp="🇳🇺">ባንዴራ | ባንዴራ: ኒዩ</annotation>
+		<annotation cp="🇳🇺" type="tts">ባንዴራ: ኒዩ</annotation>
+		<annotation cp="🇳🇿">ባንዴራ | ባንዴራ: ኒው ዚላንድ</annotation>
+		<annotation cp="🇳🇿" type="tts">ባንዴራ: ኒው ዚላንድ</annotation>
+		<annotation cp="🇴🇲">ባንዴራ | ባንዴራ: ዖማን</annotation>
+		<annotation cp="🇴🇲" type="tts">ባንዴራ: ዖማን</annotation>
+		<annotation cp="🇵🇦">ባንዴራ | ባንዴራ: ፓናማ</annotation>
+		<annotation cp="🇵🇦" type="tts">ባንዴራ: ፓናማ</annotation>
+		<annotation cp="🇵🇪">ባንዴራ | ባንዴራ: ፔሩ</annotation>
+		<annotation cp="🇵🇪" type="tts">ባንዴራ: ፔሩ</annotation>
+		<annotation cp="🇵🇫">ባንዴራ | ባንዴራ: ፈረንሳዊት ፖሊነዥያ</annotation>
+		<annotation cp="🇵🇫" type="tts">ባንዴራ: ፈረንሳዊት ፖሊነዥያ</annotation>
+		<annotation cp="🇵🇬">ባንዴራ | ባንዴራ: ፓፕዋ ኒው ጊኒ</annotation>
+		<annotation cp="🇵🇬" type="tts">ባንዴራ: ፓፕዋ ኒው ጊኒ</annotation>
+		<annotation cp="🇵🇭">ባንዴራ | ባንዴራ: ፊሊፒንስ</annotation>
+		<annotation cp="🇵🇭" type="tts">ባንዴራ: ፊሊፒንስ</annotation>
+		<annotation cp="🇵🇰">ባንዴራ | ባንዴራ: ፓኪስታን</annotation>
+		<annotation cp="🇵🇰" type="tts">ባንዴራ: ፓኪስታን</annotation>
+		<annotation cp="🇵🇱">ባንዴራ | ባንዴራ: ፖላንድ</annotation>
+		<annotation cp="🇵🇱" type="tts">ባንዴራ: ፖላንድ</annotation>
+		<annotation cp="🇵🇲">ባንዴራ | ባንዴራ: ቅዱስ ፕየርን ሚከሎንን</annotation>
+		<annotation cp="🇵🇲" type="tts">ባንዴራ: ቅዱስ ፕየርን ሚከሎንን</annotation>
+		<annotation cp="🇵🇳">ባንዴራ | ባንዴራ: ደሴታት ፒትካርን</annotation>
+		<annotation cp="🇵🇳" type="tts">ባንዴራ: ደሴታት ፒትካርን</annotation>
+		<annotation cp="🇵🇷">ባንዴራ | ባንዴራ: ፖርቶ ሪኮ</annotation>
+		<annotation cp="🇵🇷" type="tts">ባንዴራ: ፖርቶ ሪኮ</annotation>
+		<annotation cp="🇵🇸">ባንዴራ | ባንዴራ: ግዝኣታት ፍልስጤም</annotation>
+		<annotation cp="🇵🇸" type="tts">ባንዴራ: ግዝኣታት ፍልስጤም</annotation>
+		<annotation cp="🇵🇹">ባንዴራ | ባንዴራ: ፖርቱጋል</annotation>
+		<annotation cp="🇵🇹" type="tts">ባንዴራ: ፖርቱጋል</annotation>
+		<annotation cp="🇵🇼">ባንዴራ | ባንዴራ: ፓላው</annotation>
+		<annotation cp="🇵🇼" type="tts">ባንዴራ: ፓላው</annotation>
+		<annotation cp="🇵🇾">ባንዴራ | ባንዴራ: ፓራጓይ</annotation>
+		<annotation cp="🇵🇾" type="tts">ባንዴራ: ፓራጓይ</annotation>
+		<annotation cp="🇶🇦">ባንዴራ | ባንዴራ: ቐጠር</annotation>
+		<annotation cp="🇶🇦" type="tts">ባንዴራ: ቐጠር</annotation>
+		<annotation cp="🇷🇪">ባንዴራ | ባንዴራ: ርዩንየን</annotation>
+		<annotation cp="🇷🇪" type="tts">ባንዴራ: ርዩንየን</annotation>
+		<annotation cp="🇷🇴">ባንዴራ | ባንዴራ: ሩማንያ</annotation>
+		<annotation cp="🇷🇴" type="tts">ባንዴራ: ሩማንያ</annotation>
+		<annotation cp="🇷🇸">ባንዴራ | ባንዴራ: ሰርብያ</annotation>
+		<annotation cp="🇷🇸" type="tts">ባንዴራ: ሰርብያ</annotation>
+		<annotation cp="🇷🇺">ባንዴራ | ባንዴራ: ሩስያ</annotation>
+		<annotation cp="🇷🇺" type="tts">ባንዴራ: ሩስያ</annotation>
+		<annotation cp="🇷🇼">ባንዴራ | ባንዴራ: ርዋንዳ</annotation>
+		<annotation cp="🇷🇼" type="tts">ባንዴራ: ርዋንዳ</annotation>
+		<annotation cp="🇸🇦">ባንዴራ | ባንዴራ: ስዑዲ ዓረብ</annotation>
+		<annotation cp="🇸🇦" type="tts">ባንዴራ: ስዑዲ ዓረብ</annotation>
+		<annotation cp="🇸🇧">ባንዴራ | ባንዴራ: ደሴታት ሰሎሞን</annotation>
+		<annotation cp="🇸🇧" type="tts">ባንዴራ: ደሴታት ሰሎሞን</annotation>
+		<annotation cp="🇸🇨">ባንዴራ | ባንዴራ: ሲሸልስ</annotation>
+		<annotation cp="🇸🇨" type="tts">ባንዴራ: ሲሸልስ</annotation>
+		<annotation cp="🇸🇩">ባንዴራ | ባንዴራ: ሱዳን</annotation>
+		<annotation cp="🇸🇩" type="tts">ባንዴራ: ሱዳን</annotation>
+		<annotation cp="🇸🇪">ባንዴራ | ባንዴራ: ሽወደን</annotation>
+		<annotation cp="🇸🇪" type="tts">ባንዴራ: ሽወደን</annotation>
+		<annotation cp="🇸🇬">ባንዴራ | ባንዴራ: ሲንጋፖር</annotation>
+		<annotation cp="🇸🇬" type="tts">ባንዴራ: ሲንጋፖር</annotation>
+		<annotation cp="🇸🇭">ባንዴራ | ባንዴራ: ቅድስቲ ሄለና</annotation>
+		<annotation cp="🇸🇭" type="tts">ባንዴራ: ቅድስቲ ሄለና</annotation>
+		<annotation cp="🇸🇮">ባንዴራ | ባንዴራ: ስሎቬንያ</annotation>
+		<annotation cp="🇸🇮" type="tts">ባንዴራ: ስሎቬንያ</annotation>
+		<annotation cp="🇸🇯">ባንዴራ | ባንዴራ: ስቫልባርድን ጃን ማየንን</annotation>
+		<annotation cp="🇸🇯" type="tts">ባንዴራ: ስቫልባርድን ጃን ማየንን</annotation>
+		<annotation cp="🇸🇰">ባንዴራ | ባንዴራ: ስሎቫክያ</annotation>
+		<annotation cp="🇸🇰" type="tts">ባንዴራ: ስሎቫክያ</annotation>
+		<annotation cp="🇸🇱">ባንዴራ | ባንዴራ: ሴራ ልዮን</annotation>
+		<annotation cp="🇸🇱" type="tts">ባንዴራ: ሴራ ልዮን</annotation>
+		<annotation cp="🇸🇲">ባንዴራ | ባንዴራ: ሳን ማሪኖ</annotation>
+		<annotation cp="🇸🇲" type="tts">ባንዴራ: ሳን ማሪኖ</annotation>
+		<annotation cp="🇸🇳">ባንዴራ | ባንዴራ: ሰነጋል</annotation>
+		<annotation cp="🇸🇳" type="tts">ባንዴራ: ሰነጋል</annotation>
+		<annotation cp="🇸🇴">ባንዴራ | ባንዴራ: ሶማልያ</annotation>
+		<annotation cp="🇸🇴" type="tts">ባንዴራ: ሶማልያ</annotation>
+		<annotation cp="🇸🇷">ባንዴራ | ባንዴራ: ሱሪናም</annotation>
+		<annotation cp="🇸🇷" type="tts">ባንዴራ: ሱሪናም</annotation>
+		<annotation cp="🇸🇸">ባንዴራ | ባንዴራ: ደቡብ ሱዳን</annotation>
+		<annotation cp="🇸🇸" type="tts">ባንዴራ: ደቡብ ሱዳን</annotation>
+		<annotation cp="🇸🇹">ባንዴራ | ባንዴራ: ሳኦ ቶመን ፕሪንሲፐን</annotation>
+		<annotation cp="🇸🇹" type="tts">ባንዴራ: ሳኦ ቶመን ፕሪንሲፐን</annotation>
+		<annotation cp="🇸🇻">ባንዴራ | ባንዴራ: ኤል ሳልቫዶር</annotation>
+		<annotation cp="🇸🇻" type="tts">ባንዴራ: ኤል ሳልቫዶር</annotation>
+		<annotation cp="🇸🇽">ባንዴራ | ባንዴራ: ሲንት ማርተን</annotation>
+		<annotation cp="🇸🇽" type="tts">ባንዴራ: ሲንት ማርተን</annotation>
+		<annotation cp="🇸🇾">ባንዴራ | ባንዴራ: ሶርያ</annotation>
+		<annotation cp="🇸🇾" type="tts">ባንዴራ: ሶርያ</annotation>
+		<annotation cp="🇸🇿">ባንዴራ | ባንዴራ: ኤስዋቲኒ</annotation>
+		<annotation cp="🇸🇿" type="tts">ባንዴራ: ኤስዋቲኒ</annotation>
+		<annotation cp="🇹🇦">ባንዴራ | ባንዴራ: ትሪስታን ዳ ኩንያ</annotation>
+		<annotation cp="🇹🇦" type="tts">ባንዴራ: ትሪስታን ዳ ኩንያ</annotation>
+		<annotation cp="🇹🇨">ባንዴራ | ባንዴራ: ደሴታት ቱርካትን ካይኮስን</annotation>
+		<annotation cp="🇹🇨" type="tts">ባንዴራ: ደሴታት ቱርካትን ካይኮስን</annotation>
+		<annotation cp="🇹🇩">ባንዴራ | ባንዴራ: ጫድ</annotation>
+		<annotation cp="🇹🇩" type="tts">ባንዴራ: ጫድ</annotation>
+		<annotation cp="🇹🇫">ባንዴራ | ባንዴራ: ፈረንሳዊ ደቡባዊ ግዝኣታት</annotation>
+		<annotation cp="🇹🇫" type="tts">ባንዴራ: ፈረንሳዊ ደቡባዊ ግዝኣታት</annotation>
+		<annotation cp="🇹🇬">ባንዴራ | ባንዴራ: ቶጎ</annotation>
+		<annotation cp="🇹🇬" type="tts">ባንዴራ: ቶጎ</annotation>
+		<annotation cp="🇹🇭">ባንዴራ | ባንዴራ: ታይላንድ</annotation>
+		<annotation cp="🇹🇭" type="tts">ባንዴራ: ታይላንድ</annotation>
+		<annotation cp="🇹🇯">ባንዴራ | ባንዴራ: ታጂኪስታን</annotation>
+		<annotation cp="🇹🇯" type="tts">ባንዴራ: ታጂኪስታን</annotation>
+		<annotation cp="🇹🇰">ባንዴራ | ባንዴራ: ቶከላው</annotation>
+		<annotation cp="🇹🇰" type="tts">ባንዴራ: ቶከላው</annotation>
+		<annotation cp="🇹🇱">ባንዴራ | ባንዴራ: ቲሞር-ለስተ</annotation>
+		<annotation cp="🇹🇱" type="tts">ባንዴራ: ቲሞር-ለስተ</annotation>
+		<annotation cp="🇹🇲">ባንዴራ | ባንዴራ: ቱርክመኒስታን</annotation>
+		<annotation cp="🇹🇲" type="tts">ባንዴራ: ቱርክመኒስታን</annotation>
+		<annotation cp="🇹🇳">ባንዴራ | ባንዴራ: ቱኒዝያ</annotation>
+		<annotation cp="🇹🇳" type="tts">ባንዴራ: ቱኒዝያ</annotation>
+		<annotation cp="🇹🇴">ባንዴራ | ባንዴራ: ቶንጋ</annotation>
+		<annotation cp="🇹🇴" type="tts">ባንዴራ: ቶንጋ</annotation>
+		<annotation cp="🇹🇷">ባንዴራ | ባንዴራ: ቱርኪ</annotation>
+		<annotation cp="🇹🇷" type="tts">ባንዴራ: ቱርኪ</annotation>
+		<annotation cp="🇹🇹">ባንዴራ | ባንዴራ: ትሪኒዳድን ቶባጎን</annotation>
+		<annotation cp="🇹🇹" type="tts">ባንዴራ: ትሪኒዳድን ቶባጎን</annotation>
+		<annotation cp="🇹🇻">ባንዴራ | ባንዴራ: ቱቫሉ</annotation>
+		<annotation cp="🇹🇻" type="tts">ባንዴራ: ቱቫሉ</annotation>
+		<annotation cp="🇹🇼">ባንዴራ | ባንዴራ: ታይዋን</annotation>
+		<annotation cp="🇹🇼" type="tts">ባንዴራ: ታይዋን</annotation>
+		<annotation cp="🇹🇿">ባንዴራ | ባንዴራ: ታንዛንያ</annotation>
+		<annotation cp="🇹🇿" type="tts">ባንዴራ: ታንዛንያ</annotation>
+		<annotation cp="🇺🇦">ባንዴራ | ባንዴራ: ዩክሬን</annotation>
+		<annotation cp="🇺🇦" type="tts">ባንዴራ: ዩክሬን</annotation>
+		<annotation cp="🇺🇬">ባንዴራ | ባንዴራ: ኡጋንዳ</annotation>
+		<annotation cp="🇺🇬" type="tts">ባንዴራ: ኡጋንዳ</annotation>
+		<annotation cp="🇺🇲">ባንዴራ | ባንዴራ: ካብ ኣመሪካ ርሒቐን ንኣሽቱ ደሴታት</annotation>
+		<annotation cp="🇺🇲" type="tts">ባንዴራ: ካብ ኣመሪካ ርሒቐን ንኣሽቱ ደሴታት</annotation>
+		<annotation cp="🇺🇳">ባንዴራ | ባንዴራ: ሕቡራት ሃገራት</annotation>
+		<annotation cp="🇺🇳" type="tts">ባንዴራ: ሕቡራት ሃገራት</annotation>
+		<annotation cp="🇺🇸">ባንዴራ | ባንዴራ: ኣመሪካ</annotation>
+		<annotation cp="🇺🇸" type="tts">ባንዴራ: ኣመሪካ</annotation>
+		<annotation cp="🇺🇾">ባንዴራ | ባንዴራ: ኡራጓይ</annotation>
+		<annotation cp="🇺🇾" type="tts">ባንዴራ: ኡራጓይ</annotation>
+		<annotation cp="🇺🇿">ባንዴራ | ባንዴራ: ኡዝበኪስታን</annotation>
+		<annotation cp="🇺🇿" type="tts">ባንዴራ: ኡዝበኪስታን</annotation>
+		<annotation cp="🇻🇦">ባንዴራ | ባንዴራ: ከተማ ቫቲካን</annotation>
+		<annotation cp="🇻🇦" type="tts">ባንዴራ: ከተማ ቫቲካን</annotation>
+		<annotation cp="🇻🇨">ባንዴራ | ባንዴራ: ቅዱስ ቪንሰንትን ግረነዲነዝን</annotation>
+		<annotation cp="🇻🇨" type="tts">ባንዴራ: ቅዱስ ቪንሰንትን ግረነዲነዝን</annotation>
+		<annotation cp="🇻🇪">ባንዴራ | ባንዴራ: ቬኔዝዌላ</annotation>
+		<annotation cp="🇻🇪" type="tts">ባንዴራ: ቬኔዝዌላ</annotation>
+		<annotation cp="🇻🇬">ባንዴራ | ባንዴራ: ደሴታት ደናግል ብሪጣንያ</annotation>
+		<annotation cp="🇻🇬" type="tts">ባንዴራ: ደሴታት ደናግል ብሪጣንያ</annotation>
+		<annotation cp="🇻🇮">ባንዴራ | ባንዴራ: ደሴታት ደናግል ኣመሪካ</annotation>
+		<annotation cp="🇻🇮" type="tts">ባንዴራ: ደሴታት ደናግል ኣመሪካ</annotation>
+		<annotation cp="🇻🇳">ባንዴራ | ባንዴራ: ቬትናም</annotation>
+		<annotation cp="🇻🇳" type="tts">ባንዴራ: ቬትናም</annotation>
+		<annotation cp="🇻🇺">ባንዴራ | ባንዴራ: ቫንዋቱ</annotation>
+		<annotation cp="🇻🇺" type="tts">ባንዴራ: ቫንዋቱ</annotation>
+		<annotation cp="🇼🇫">ባንዴራ | ባንዴራ: ዋሊስን ፉቱናን</annotation>
+		<annotation cp="🇼🇫" type="tts">ባንዴራ: ዋሊስን ፉቱናን</annotation>
+		<annotation cp="🇼🇸">ባንዴራ | ባንዴራ: ሳሞኣ</annotation>
+		<annotation cp="🇼🇸" type="tts">ባንዴራ: ሳሞኣ</annotation>
+		<annotation cp="🇽🇰">ባንዴራ | ባንዴራ: ኮሶቮ</annotation>
+		<annotation cp="🇽🇰" type="tts">ባንዴራ: ኮሶቮ</annotation>
+		<annotation cp="🇾🇪">ባንዴራ | ባንዴራ: የመን</annotation>
+		<annotation cp="🇾🇪" type="tts">ባንዴራ: የመን</annotation>
+		<annotation cp="🇾🇹">ባንዴራ | ባንዴራ: ማዮት</annotation>
+		<annotation cp="🇾🇹" type="tts">ባንዴራ: ማዮት</annotation>
+		<annotation cp="🇿🇦">ባንዴራ | ባንዴራ: ደቡብ ኣፍሪቃ</annotation>
+		<annotation cp="🇿🇦" type="tts">ባንዴራ: ደቡብ ኣፍሪቃ</annotation>
+		<annotation cp="🇿🇲">ባንዴራ | ባንዴራ: ዛምብያ</annotation>
+		<annotation cp="🇿🇲" type="tts">ባንዴራ: ዛምብያ</annotation>
+		<annotation cp="🇿🇼">ባንዴራ | ባንዴራ: ዚምባብዌ</annotation>
+		<annotation cp="🇿🇼" type="tts">ባንዴራ: ዚምባብዌ</annotation>
+		<annotation cp="¤">ዘይተፈልጠ ባጤራ</annotation>
+		<annotation cp="¤" type="tts">ዘይተፈልጠ ባጤራ</annotation>
+	</annotations>
+</ldml>

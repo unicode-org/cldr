@@ -1,0 +1,16 @@
+- hosts: surveytool
+  become: yes
+  vars_files:
+    - vars/main.yml
+    - vars/mysql.yml
+    - local-vars/local.yml
+  roles:
+    - { role: geerlingguy.mysql }
+  tasks:
+    - name: Setup /home/cldradmin/.my.cnf
+      template:
+        src: templates/mycnf.j2
+        dest: /home/cldradmin/.my.cnf
+        owner: cldradmin
+        group: cldradmin
+        mode: '0640'

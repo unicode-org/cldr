@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
@@ -13,198 +13,704 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<language type="tr"/>
 	</identity>
 	<annotations>
-		<annotation cp="🏻">açık cilt tonu | açık ten rengi | deri | emoji değiştirici | ton</annotation>
+		<annotation cp="{">açık süslü ayraç | martı kanat | süslü ayraç | süslü parantez</annotation>
+		<annotation cp="{" type="tts">açık süslü ayraç</annotation>
+		<annotation cp="🏻">açık cilt tonu | cilt tonu | tip 1–2</annotation>
 		<annotation cp="🏻" type="tts">açık cilt tonu</annotation>
-		<annotation cp="🏼">deri | emoji değiştirici | orta açık cilt tonu | orta açık ten rengi | ton</annotation>
+		<annotation cp="🏼">cilt tonu | orta açık cilt tonu | tip 3</annotation>
 		<annotation cp="🏼" type="tts">orta açık cilt tonu</annotation>
-		<annotation cp="🏽">deri | emoji değiştirici | orta cilt tonu | orta ten rengi | ton</annotation>
+		<annotation cp="🏽">cilt tonu | orta cilt tonu | tip 4</annotation>
 		<annotation cp="🏽" type="tts">orta cilt tonu</annotation>
-		<annotation cp="🏾">deri | emoji değiştirici | orta koyu cilt tonu | ton</annotation>
+		<annotation cp="🏾">cilt tonu | orta koyu cilt tonu | tip 5</annotation>
 		<annotation cp="🏾" type="tts">orta koyu cilt tonu</annotation>
-		<annotation cp="🏿">deri | emoji değiştirici | koyu cilt tonu | koyu ten rengi | ton</annotation>
+		<annotation cp="🏿">cilt tonu | koyu cilt tonu | tip 6</annotation>
 		<annotation cp="🏿" type="tts">koyu cilt tonu</annotation>
+		<annotation cp="‾">üst çizgi</annotation>
+		<annotation cp="‾" type="tts">üst çizgi</annotation>
+		<annotation cp="_">alt çizgi | alt satır | alt tire</annotation>
+		<annotation cp="_" type="tts">alt çizgi</annotation>
+		<annotation cp="-">çizgi | eksi | tire | tire-eksi</annotation>
+		<annotation cp="-" type="tts">tire-eksi</annotation>
+		<annotation cp="‐">çizgi | tire | tire işareti</annotation>
+		<annotation cp="‐" type="tts">tire işareti</annotation>
 		<annotation cp="–">çizgi | tire</annotation>
 		<annotation cp="–" type="tts">tire</annotation>
 		<annotation cp="—">tire | uzun</annotation>
 		<annotation cp="—" type="tts">uzun tire</annotation>
+		<annotation cp="―">çizgi | çubuk | yatay çizgi</annotation>
+		<annotation cp="―" type="tts">yatay çizgi</annotation>
+		<annotation cp="・">katakana | katakana orta nokta | orta nokta</annotation>
+		<annotation cp="・" type="tts">katakana orta nokta</annotation>
+		<annotation cp=",">virgül</annotation>
+		<annotation cp="," type="tts">virgül</annotation>
+		<annotation cp="،">arapça | virgül</annotation>
+		<annotation cp="،" type="tts">arapça virgül</annotation>
+		<annotation cp="、">ideografik | virgül</annotation>
+		<annotation cp="、" type="tts">ideografik virgül</annotation>
+		<annotation cp=";">noktalı virgül</annotation>
+		<annotation cp=";" type="tts">noktalı virgül</annotation>
+		<annotation cp="؛">arapça | arapça noktalı virgül | noktalı virgül</annotation>
+		<annotation cp="؛" type="tts">arapça noktalı virgül</annotation>
+		<annotation cp=":">iki nokta</annotation>
+		<annotation cp=":" type="tts">iki nokta</annotation>
+		<annotation cp="!">ünlem | ünlem işareti</annotation>
+		<annotation cp="!" type="tts">ünlem işareti</annotation>
+		<annotation cp="¡">ters | ters ünlem işareti | ünlem | ünlem işareti</annotation>
+		<annotation cp="¡" type="tts">ters ünlem işareti</annotation>
+		<annotation cp="?">soru | soru işareti</annotation>
+		<annotation cp="?" type="tts">soru işareti</annotation>
+		<annotation cp="¿">soru | soru işareti | ters | ters soru işareti</annotation>
+		<annotation cp="¿" type="tts">ters soru işareti</annotation>
+		<annotation cp="؟">arapça | arapça soru işareti | soru | soru işareti</annotation>
+		<annotation cp="؟" type="tts">arapça soru işareti</annotation>
+		<annotation cp="‽">soru ve ünlem işareti</annotation>
+		<annotation cp="‽" type="tts">soru ve ünlem işareti</annotation>
+		<annotation cp=".">nokta | tam durak</annotation>
+		<annotation cp="." type="tts">nokta</annotation>
+		<annotation cp="…">eksilti | eksiltme | üç nokta</annotation>
+		<annotation cp="…" type="tts">üç nokta</annotation>
+		<annotation cp="。">ideografik | nokta | tam durak</annotation>
+		<annotation cp="。" type="tts">ideografik nokta</annotation>
 		<annotation cp="·">nokta | orta | ortaya konan nokta</annotation>
 		<annotation cp="·" type="tts">orta nokta</annotation>
+		<annotation cp="'">daktilo kesme işareti | kesme | tek kesme | tek tırnak | tırnak</annotation>
+		<annotation cp="'" type="tts">daktilo kesme işareti</annotation>
+		<annotation cp="‘">akıllı tırnak | kesme işareti | sol kesme işareti | tek kesme | tırnak</annotation>
+		<annotation cp="‘" type="tts">sol kesme işareti</annotation>
+		<annotation cp="’">akıllı tırnak | kesme işareti | sağ kesme işareti | tek kesme | tırnak</annotation>
+		<annotation cp="’" type="tts">sağ kesme işareti</annotation>
+		<annotation cp="‚">alt tırnak | kesme | sağ alt kesme işareti | tırnak</annotation>
+		<annotation cp="‚" type="tts">sağ alt kesme işareti</annotation>
+		<annotation cp="“">akıllı tırnak | çift tırnak | sol tırnak işareti | tırnak</annotation>
+		<annotation cp="“" type="tts">sol tırnak işareti</annotation>
+		<annotation cp="”">akıllı tırnak | çift tırnak | sağ tırnak işareti | tırnak</annotation>
+		<annotation cp="”" type="tts">sağ tırnak işareti</annotation>
+		<annotation cp="„">akıllı tırnak | çift tırnak | sağ alt tırnak işareti | tırnak</annotation>
+		<annotation cp="„" type="tts">sağ alt tırnak işareti</annotation>
 		<annotation cp="«">açılı | düzeltme işareti | köşeli çift ayraç | parantezler | sol | sola bakan köşeli tırnak işareti | tırnak işareti</annotation>
 		<annotation cp="«" type="tts">sola bakan köşeli tırnak işareti</annotation>
 		<annotation cp="»">açılı | düzeltme işareti | köşeli çift ayraç | parantezler | sağ | sağa bakan köşeli tırnak işareti | tırnak işareti</annotation>
 		<annotation cp="»" type="tts">sağa bakan köşeli tırnak işareti</annotation>
+		<annotation cp=")">ayraç | kapalı parantez | parantez | yuvarlak ayraç | yuvarlak parantez</annotation>
+		<annotation cp=")" type="tts">kapalı parantez</annotation>
+		<annotation cp="[">açık kare parantez | kare parantez | parantez</annotation>
+		<annotation cp="[" type="tts">açık kare parantez</annotation>
+		<annotation cp="]">kapalı kare parantez | kare parantez | parantez</annotation>
+		<annotation cp="]" type="tts">kapalı kare parantez</annotation>
+		<annotation cp="}">kapalı süslü ayraç | martı kanat | süslü ayraç | süslü parantez</annotation>
+		<annotation cp="}" type="tts">kapalı süslü ayraç</annotation>
+		<annotation cp="〈">açık açılı ayraç | açılı ayraç | açılı parantez | sivri ayraç</annotation>
+		<annotation cp="〈" type="tts">açık açılı ayraç</annotation>
+		<annotation cp="〉">açılı ayraç | açılı parantez | kapalı açılı ayraç | sivri ayraç</annotation>
+		<annotation cp="〉" type="tts">kapalı açılı ayraç</annotation>
+		<annotation cp="《">açık çift açılı ayraç | ayraç | çift açılı ayraç</annotation>
+		<annotation cp="《" type="tts">açık çift açılı ayraç</annotation>
+		<annotation cp="》">ayraç | çift açılı ayraç | kapalı çift açılı ayraç</annotation>
+		<annotation cp="》" type="tts">kapalı çift açılı ayraç</annotation>
+		<annotation cp="「">açık köşeli ayraç | ayraç | köşeli ayraç</annotation>
+		<annotation cp="「" type="tts">açık köşeli ayraç</annotation>
+		<annotation cp="」">ayraç | kapalı köşeli ayraç | köşeli ayraç</annotation>
+		<annotation cp="」" type="tts">kapalı köşeli ayraç</annotation>
+		<annotation cp="『">açık köşeli oyuk ayraç | ayraç | köşeli oyuk ayraç</annotation>
+		<annotation cp="『" type="tts">açık köşeli oyuk ayraç</annotation>
+		<annotation cp="』">ayraç | kapalı köşeli oyuk ayraç | kapalı oyuk köşeli ayraç | oyuk köşeli ayraç</annotation>
+		<annotation cp="』" type="tts">kapalı köşeli oyuk ayraç</annotation>
+		<annotation cp="【">açık siyah lens ayraç | ayraç | lens ayraç | merceksel ayraç</annotation>
+		<annotation cp="【" type="tts">açık siyah lens ayraç</annotation>
+		<annotation cp="】">ayraç | kapalı siyah lens ayraç | lens ayraç | merceksel ayraç</annotation>
+		<annotation cp="】" type="tts">kapalı siyah lens ayraç</annotation>
+		<annotation cp="〔">açık kaplumbağa kabuğu şeklinde ayraç | ayraç | kabuk ayraç | kaplumbağa kabuğu şeklinde ayraç</annotation>
+		<annotation cp="〔" type="tts">açık kaplumbağa kabuğu şeklinde ayraç</annotation>
+		<annotation cp="〕">ayraç | kabuk ayraç | kapalı kaplumbağa kabuğu şeklinde ayraç | kaplumbağa kabuğu şeklinde ayraç</annotation>
+		<annotation cp="〕" type="tts">kapalı kaplumbağa kabuğu şeklinde ayraç</annotation>
+		<annotation cp="〖">açık oyuk mercek ayraç | ayraç | oyuk mercek ayraç | oyuklu merceksel ayraç</annotation>
+		<annotation cp="〖" type="tts">açık oyuk mercek ayraç</annotation>
+		<annotation cp="〗">ayraç | kapalı oyuk lens ayraç | oyuk lens ayraç | oyuklu merceksel ayraç</annotation>
+		<annotation cp="〗" type="tts">kapalı oyuk lens ayraç</annotation>
 		<annotation cp="§">bölüm | bölüm işareti | paragraf | parça</annotation>
 		<annotation cp="§" type="tts">bölüm</annotation>
+		<annotation cp="¶">paragraf | paragraf işareti | pilcrow</annotation>
+		<annotation cp="¶" type="tts">paragraf işareti</annotation>
+		<annotation cp="@">ampersat | bahsetme | konum | kuyruklu a</annotation>
+		<annotation cp="@" type="tts">kuyruklu a</annotation>
+		<annotation cp="*">asterisk | joker | yıldız</annotation>
+		<annotation cp="*" type="tts">asterisk</annotation>
+		<annotation cp="/">eğik | eğik çizgi | yatık çizgi</annotation>
+		<annotation cp="/" type="tts">eğik çizgi</annotation>
+		<annotation cp="\">ters eğik çizgi | ters yatık çizgi</annotation>
+		<annotation cp="\" type="tts">ters eğik çizgi</annotation>
+		<annotation cp="&amp;">ampersan | ve</annotation>
+		<annotation cp="&amp;" type="tts">ampersan</annotation>
+		<annotation cp="#">etiket | hashtag | kare | karma | sayı | sayı işareti</annotation>
+		<annotation cp="#" type="tts">sayı işareti</annotation>
+		<annotation cp="%">yüzde</annotation>
+		<annotation cp="%" type="tts">yüzde</annotation>
+		<annotation cp="‰">binde | binde bir</annotation>
+		<annotation cp="‰" type="tts">binde</annotation>
 		<annotation cp="†">dikili taş | kama | kama işareti | obelus</annotation>
 		<annotation cp="†" type="tts">kama işareti</annotation>
 		<annotation cp="‡">çift | çift kama işareti | dikili taş | kama | obelus</annotation>
 		<annotation cp="‡" type="tts">çift kama işareti</annotation>
 		<annotation cp="•">madde imi | nokta</annotation>
 		<annotation cp="•" type="tts">madde imi</annotation>
+		<annotation cp="‧">çizgi | nokta | tire | tireleme noktası</annotation>
+		<annotation cp="‧" type="tts">tireleme noktası</annotation>
+		<annotation cp="′">üssü</annotation>
+		<annotation cp="′" type="tts">üssü</annotation>
+		<annotation cp="″">iki üssü | üssü</annotation>
+		<annotation cp="″" type="tts">iki üssü</annotation>
+		<annotation cp="‴">üç üssü | üssü</annotation>
+		<annotation cp="‴" type="tts">üç üssü</annotation>
+		<annotation cp="‸">düzeltme işareti</annotation>
+		<annotation cp="‸" type="tts">düzeltme işareti</annotation>
+		<annotation cp="※">referans işareti</annotation>
+		<annotation cp="※" type="tts">referans işareti</annotation>
+		<annotation cp="⁂">üç yıldız işareti</annotation>
+		<annotation cp="⁂" type="tts">üç yıldız işareti</annotation>
+		<annotation cp="`">aksan | aksan işareti | işaret | ton | vurgu</annotation>
+		<annotation cp="`" type="tts">aksan işareti</annotation>
+		<annotation cp="´">aksan | tiz aksan | tiz vurgu</annotation>
+		<annotation cp="´" type="tts">tiz aksan</annotation>
+		<annotation cp="^">aksan | inceltme | inceltme işareti | şapka işareti | xor | zikzak çıta</annotation>
+		<annotation cp="^" type="tts">inceltme işareti</annotation>
+		<annotation cp="¨">çift nokta | ikilenme | umlaut</annotation>
+		<annotation cp="¨" type="tts">ikilenme</annotation>
 		<annotation cp="°">derece | kanıt | saat</annotation>
 		<annotation cp="°" type="tts">derece</annotation>
 		<annotation cp="℗">kayıt | ses | ses kaydı telif hakkı | telif hakkı</annotation>
 		<annotation cp="℗" type="tts">ses kaydı telif hakkı</annotation>
 		<annotation cp="←">ok | sol | solu gösteren ok</annotation>
 		<annotation cp="←" type="tts">solu gösteren ok</annotation>
+		<annotation cp="↚">sola doğru çizgili ok</annotation>
+		<annotation cp="↚" type="tts">sola doğru çizgili ok</annotation>
 		<annotation cp="→">ok | sağ | sağı gösteren ok</annotation>
 		<annotation cp="→" type="tts">sağı gösteren ok</annotation>
+		<annotation cp="↛">sağa doğru çizgili ok</annotation>
+		<annotation cp="↛" type="tts">sağa doğru çizgili ok</annotation>
 		<annotation cp="↑">ok | yukarı | yukarı gösteren ok</annotation>
 		<annotation cp="↑" type="tts">yukarı gösteren ok</annotation>
 		<annotation cp="↓">aşağı | aşağı gösteren ok | ok</annotation>
 		<annotation cp="↓" type="tts">aşağı gösteren ok</annotation>
+		<annotation cp="↜">sola doğru dalgalı ok</annotation>
+		<annotation cp="↜" type="tts">sola doğru dalgalı ok</annotation>
+		<annotation cp="↝">sağa doğru dalgalı ok</annotation>
+		<annotation cp="↝" type="tts">sağa doğru dalgalı ok</annotation>
+		<annotation cp="↞">sola doğru çift başlı ok</annotation>
+		<annotation cp="↞" type="tts">sola doğru çift başlı ok</annotation>
+		<annotation cp="↟">yukarı doğru çift başlı ok</annotation>
+		<annotation cp="↟" type="tts">yukarı doğru çift başlı ok</annotation>
+		<annotation cp="↠">sağa doğru çift başlı ok</annotation>
+		<annotation cp="↠" type="tts">sağa doğru çift başlı ok</annotation>
+		<annotation cp="↡">aşağı doğru çift başlı ok</annotation>
+		<annotation cp="↡" type="tts">aşağı doğru çift başlı ok</annotation>
+		<annotation cp="↢">sola doğru kuyruklu ok</annotation>
+		<annotation cp="↢" type="tts">sola doğru kuyruklu ok</annotation>
+		<annotation cp="↣">sağa doğru kuyruklu ok</annotation>
+		<annotation cp="↣" type="tts">sağa doğru kuyruklu ok</annotation>
+		<annotation cp="↤">sola doğru çubuktan ok</annotation>
+		<annotation cp="↤" type="tts">sola doğru çubuktan ok</annotation>
+		<annotation cp="↥">yukarı doğru çubuktan ok</annotation>
+		<annotation cp="↥" type="tts">yukarı doğru çubuktan ok</annotation>
+		<annotation cp="↦">sağa doğru çubuktan ok</annotation>
+		<annotation cp="↦" type="tts">sağa doğru çubuktan ok</annotation>
+		<annotation cp="↧">aşağı doğru çubuktan ok</annotation>
+		<annotation cp="↧" type="tts">aşağı doğru çubuktan ok</annotation>
+		<annotation cp="↨">yukarı aşağı tabanlı ok</annotation>
+		<annotation cp="↨" type="tts">yukarı aşağı tabanlı ok</annotation>
+		<annotation cp="↫">sola döngülü ok</annotation>
+		<annotation cp="↫" type="tts">sola döngülü ok</annotation>
+		<annotation cp="↬">sağa döngülü ok</annotation>
+		<annotation cp="↬" type="tts">sağa döngülü ok</annotation>
+		<annotation cp="↭">sol sağ dalgalı ok</annotation>
+		<annotation cp="↭" type="tts">sol sağ dalgalı ok</annotation>
+		<annotation cp="↯">aşağı yönlü zikzak ok</annotation>
+		<annotation cp="↯" type="tts">aşağı yönlü zikzak ok</annotation>
+		<annotation cp="↰">solda ipucu ile yukarı ok</annotation>
+		<annotation cp="↰" type="tts">solda ipucu ile yukarı ok</annotation>
+		<annotation cp="↱">sağda ipucu ile yukarı ok</annotation>
+		<annotation cp="↱" type="tts">sağda ipucu ile yukarı ok</annotation>
+		<annotation cp="↲">solda ipucu ile aşağı ok</annotation>
+		<annotation cp="↲" type="tts">solda ipucu ile aşağı ok</annotation>
+		<annotation cp="↳">sağda ipucu ile aşağı ok</annotation>
+		<annotation cp="↳" type="tts">sağda ipucu ile aşağı ok</annotation>
+		<annotation cp="↴">aşağı doğru köşesi olan sağ ok</annotation>
+		<annotation cp="↴" type="tts">aşağı doğru köşesi olan sağ ok</annotation>
+		<annotation cp="↵">sola doğru köşesi olan aşağı ok</annotation>
+		<annotation cp="↵" type="tts">sola doğru köşesi olan aşağı ok</annotation>
+		<annotation cp="↶">saat yönünün tersinde üst yarım daireli ok</annotation>
+		<annotation cp="↶" type="tts">saat yönünün tersinde üst yarım daireli ok</annotation>
+		<annotation cp="↷">saat yönünde üst yarım daireli ok</annotation>
+		<annotation cp="↷" type="tts">saat yönünde üst yarım daireli ok</annotation>
+		<annotation cp="↸">kuzeybatı yönlü uzun çubuklu ok</annotation>
+		<annotation cp="↸" type="tts">kuzeybatı yönlü uzun çubuklu ok</annotation>
+		<annotation cp="↹">sağ ok çubuğu üstünde sol ok çubuğu</annotation>
+		<annotation cp="↹" type="tts">sağ ok çubuğu üstünde sol ok çubuğu</annotation>
+		<annotation cp="↺">saat yönünün tersinde açık daireli ok</annotation>
+		<annotation cp="↺" type="tts">saat yönünün tersinde açık daireli ok</annotation>
+		<annotation cp="↻">saat yönünde açık daireli ok</annotation>
+		<annotation cp="↻" type="tts">saat yönünde açık daireli ok</annotation>
+		<annotation cp="↼">yukarı kancalı sol yönlü zıpkın</annotation>
+		<annotation cp="↼" type="tts">yukarı kancalı sol yönlü zıpkın</annotation>
+		<annotation cp="↽">aşağı kancalı sol yönlü zıpkın</annotation>
+		<annotation cp="↽" type="tts">aşağı kancalı sol yönlü zıpkın</annotation>
+		<annotation cp="↾">sağ kancalı yukarı yönlü zıpkın</annotation>
+		<annotation cp="↾" type="tts">sağ kancalı yukarı yönlü zıpkın</annotation>
+		<annotation cp="↿">sol kancalı yukarı yönlü zıpkın</annotation>
+		<annotation cp="↿" type="tts">sol kancalı yukarı yönlü zıpkın</annotation>
+		<annotation cp="⇀">yukarı kancalı sağ yönlü zıpkın</annotation>
+		<annotation cp="⇀" type="tts">yukarı kancalı sağ yönlü zıpkın</annotation>
+		<annotation cp="⇁">aşağı kancalı sağ yönlü zıpkın</annotation>
+		<annotation cp="⇁" type="tts">aşağı kancalı sağ yönlü zıpkın</annotation>
+		<annotation cp="⇂">sağ kancalı aşağı yönlü zıpkın</annotation>
+		<annotation cp="⇂" type="tts">sağ kancalı aşağı yönlü zıpkın</annotation>
+		<annotation cp="⇃">sol kancalı aşağı yönlü zıpkın</annotation>
+		<annotation cp="⇃" type="tts">sol kancalı aşağı yönlü zıpkın</annotation>
+		<annotation cp="⇄">sol ok üzerinde sağ ok</annotation>
+		<annotation cp="⇄" type="tts">sol ok üzerinde sağ ok</annotation>
 		<annotation cp="⇅">aşağı | ok | yukarı | yukarı ve aşağı bakan oklar</annotation>
 		<annotation cp="⇅" type="tts">yukarı ve aşağı bakan oklar</annotation>
 		<annotation cp="⇆">altta sağa üstte sola bakan oklar | ok | sağ | sol</annotation>
 		<annotation cp="⇆" type="tts">altta sağa üstte sola bakan oklar</annotation>
+		<annotation cp="⇇">sola eşleştirilmiş oklar</annotation>
+		<annotation cp="⇇" type="tts">sola eşleştirilmiş oklar</annotation>
+		<annotation cp="⇈">yukarı eşleştirilmiş oklar</annotation>
+		<annotation cp="⇈" type="tts">yukarı eşleştirilmiş oklar</annotation>
+		<annotation cp="⇉">aşağı doğru eşleştirilmiş oklar</annotation>
+		<annotation cp="⇉" type="tts">aşağı doğru eşleştirilmiş oklar</annotation>
+		<annotation cp="⇊">aşağı eşleştirilmiş oklar</annotation>
+		<annotation cp="⇊" type="tts">aşağı eşleştirilmiş oklar</annotation>
+		<annotation cp="⇋">sağ zıpkın üstünde sol zıpkın</annotation>
+		<annotation cp="⇋" type="tts">sağ zıpkın üstünde sol zıpkın</annotation>
+		<annotation cp="⇌">sol zıpkın üstünde sağ zıpkın</annotation>
+		<annotation cp="⇌" type="tts">sol zıpkın üstünde sağ zıpkın</annotation>
+		<annotation cp="⇐">sola çift ok</annotation>
+		<annotation cp="⇐" type="tts">sola çift ok</annotation>
+		<annotation cp="⇍">sola çizgili çift ok</annotation>
+		<annotation cp="⇍" type="tts">sola çizgili çift ok</annotation>
+		<annotation cp="⇑">yukarı çift ok</annotation>
+		<annotation cp="⇑" type="tts">yukarı çift ok</annotation>
+		<annotation cp="⇒">sağa çift ok</annotation>
+		<annotation cp="⇒" type="tts">sağa çift ok</annotation>
+		<annotation cp="⇏">sağa çizgili çift ok</annotation>
+		<annotation cp="⇏" type="tts">sağa çizgili çift ok</annotation>
+		<annotation cp="⇓">aşağı çift ok</annotation>
+		<annotation cp="⇓" type="tts">aşağı çift ok</annotation>
+		<annotation cp="⇔">sol sağ çift ok</annotation>
+		<annotation cp="⇔" type="tts">sol sağ çift ok</annotation>
+		<annotation cp="⇎">sol sağ çizgili çift ok</annotation>
+		<annotation cp="⇎" type="tts">sol sağ çizgili çift ok</annotation>
+		<annotation cp="⇖">kuzeybatı yönlü çift ok</annotation>
+		<annotation cp="⇖" type="tts">kuzeybatı yönlü çift ok</annotation>
+		<annotation cp="⇗">kuzeydoğu yönlü çift ok</annotation>
+		<annotation cp="⇗" type="tts">kuzeydoğu yönlü çift ok</annotation>
+		<annotation cp="⇘">güneydoğu yönlü çift ok</annotation>
+		<annotation cp="⇘" type="tts">güneydoğu yönlü çift ok</annotation>
+		<annotation cp="⇙">güneybatı yönlü çift ok</annotation>
+		<annotation cp="⇙" type="tts">güneybatı yönlü çift ok</annotation>
+		<annotation cp="⇚">sola üçlü ok</annotation>
+		<annotation cp="⇚" type="tts">sola üçlü ok</annotation>
+		<annotation cp="⇛">sağa üçlü ok</annotation>
+		<annotation cp="⇛" type="tts">sağa üçlü ok</annotation>
+		<annotation cp="⇜">sola eğri ok</annotation>
+		<annotation cp="⇜" type="tts">sola eğri ok</annotation>
+		<annotation cp="⇝">sağa eğri ok</annotation>
+		<annotation cp="⇝" type="tts">sağa eğri ok</annotation>
+		<annotation cp="⇞">çift çizgili yukarı ok</annotation>
+		<annotation cp="⇞" type="tts">çift çizgili yukarı ok</annotation>
+		<annotation cp="⇟">çift çizgili aşağı ok</annotation>
+		<annotation cp="⇟" type="tts">çift çizgili aşağı ok</annotation>
+		<annotation cp="⇠">sola çizgili ok</annotation>
+		<annotation cp="⇠" type="tts">sola çizgili ok</annotation>
+		<annotation cp="⇡">yukarı çizgili ok</annotation>
+		<annotation cp="⇡" type="tts">yukarı çizgili ok</annotation>
+		<annotation cp="⇢">sağa çizgili ok</annotation>
+		<annotation cp="⇢" type="tts">sağa çizgili ok</annotation>
+		<annotation cp="⇣">aşağı çizgili ok</annotation>
+		<annotation cp="⇣" type="tts">aşağı çizgili ok</annotation>
+		<annotation cp="⇤">sol ok çubuğu</annotation>
+		<annotation cp="⇤" type="tts">sol ok çubuğu</annotation>
+		<annotation cp="⇥">sağ ok çubuğu</annotation>
+		<annotation cp="⇥" type="tts">sağ ok çubuğu</annotation>
+		<annotation cp="⇦">sola boş ok</annotation>
+		<annotation cp="⇦" type="tts">sola boş ok</annotation>
+		<annotation cp="⇧">yukarı boş ok</annotation>
+		<annotation cp="⇧" type="tts">yukarı boş ok</annotation>
+		<annotation cp="⇨">sağa boş ok</annotation>
+		<annotation cp="⇨" type="tts">sağa boş ok</annotation>
+		<annotation cp="⇩">aşağı boş ok</annotation>
+		<annotation cp="⇩" type="tts">aşağı boş ok</annotation>
+		<annotation cp="⇪">çubuktan yukarı boş ok</annotation>
+		<annotation cp="⇪" type="tts">çubuktan yukarı boş ok</annotation>
+		<annotation cp="⇵">aşağı ok sol yukarı ok</annotation>
+		<annotation cp="⇵" type="tts">aşağı ok sol yukarı ok</annotation>
+		<annotation cp="∀">tümü için</annotation>
+		<annotation cp="∀" type="tts">tümü için</annotation>
+		<annotation cp="∂">kısmi fark</annotation>
+		<annotation cp="∂" type="tts">kısmi fark</annotation>
+		<annotation cp="∃">vardır</annotation>
+		<annotation cp="∃" type="tts">vardır</annotation>
+		<annotation cp="∅">boş küme</annotation>
+		<annotation cp="∅" type="tts">boş küme</annotation>
 		<annotation cp="∆">artım | üçgen</annotation>
 		<annotation cp="∆" type="tts">artım</annotation>
 		<annotation cp="∇">nabla | üçgen</annotation>
 		<annotation cp="∇" type="tts">nabla</annotation>
 		<annotation cp="∈">eleman | elemanıdır | içerir | küme | üyelik</annotation>
 		<annotation cp="∈" type="tts">elemanıdır</annotation>
+		<annotation cp="∉">elemanı değildir</annotation>
+		<annotation cp="∉" type="tts">elemanı değildir</annotation>
+		<annotation cp="∋">eleman olarak kapsar</annotation>
+		<annotation cp="∋" type="tts">eleman olarak kapsar</annotation>
+		<annotation cp="∎">silinmiş öğe</annotation>
+		<annotation cp="∎" type="tts">silinmiş öğe</annotation>
+		<annotation cp="∏">n öğeli çarpım</annotation>
+		<annotation cp="∏" type="tts">n öğeli çarpım</annotation>
+		<annotation cp="∑">n öğeli toplama</annotation>
+		<annotation cp="∑" type="tts">n öğeli toplama</annotation>
+		<annotation cp="+">artı | artı işareti | ekle</annotation>
+		<annotation cp="+" type="tts">artı işareti</annotation>
+		<annotation cp="±">artı-eksi</annotation>
+		<annotation cp="±" type="tts">artı-eksi</annotation>
 		<annotation cp="÷">bölme | bölme işareti | bölüm | obelus</annotation>
 		<annotation cp="÷" type="tts">bölme işareti</annotation>
 		<annotation cp="×">çarpım | çarpma | çarpma işareti</annotation>
 		<annotation cp="×" type="tts">çarpma işareti</annotation>
-		<annotation cp="⁻">eksi | üst eksi simgesi | üst simge</annotation>
-		<annotation cp="⁻" type="tts">üst eksi simgesi</annotation>
+		<annotation cp="&lt;">açık etiket | açılış etiketi | etiket | küçüktür</annotation>
+		<annotation cp="&lt;" type="tts">küçüktür</annotation>
+		<annotation cp="≮">eşitsizlik | küçük değildir | matematik</annotation>
+		<annotation cp="≮" type="tts">küçük değildir</annotation>
+		<annotation cp="=">eşit | eşittir</annotation>
+		<annotation cp="=" type="tts">eşittir</annotation>
+		<annotation cp="≠">denksizlik | eşit değildir | eşitsizlik</annotation>
+		<annotation cp="≠" type="tts">eşit değildir</annotation>
+		<annotation cp="&gt;">büyüktür | etiket | kapalı etiket | kapanış etiketi</annotation>
+		<annotation cp="&gt;" type="tts">büyüktür</annotation>
+		<annotation cp="≯">büyük değildir | eşitsizlik | matematik</annotation>
+		<annotation cp="≯" type="tts">büyük değildir</annotation>
+		<annotation cp="¬">olumsuzlama | olumsuzluk</annotation>
+		<annotation cp="¬" type="tts">olumsuzlama</annotation>
+		<annotation cp="|">çizgi | çubuk | dikey | Sheffer inme</annotation>
+		<annotation cp="|" type="tts">dikey çizgi</annotation>
+		<annotation cp="~">yaklaşık</annotation>
+		<annotation cp="~" type="tts">yaklaşık</annotation>
+		<annotation cp="−">çıkarma | eksi | eksi işareti</annotation>
+		<annotation cp="−" type="tts">eksi işareti</annotation>
+		<annotation cp="⁻">eksi | üs | üst eksi simgesi | üst simge</annotation>
+		<annotation cp="⁻" type="tts">üs eksi</annotation>
+		<annotation cp="∓">artı eksi | artı veya eksi | eksi artı | eksi veya artı</annotation>
+		<annotation cp="∓" type="tts">artı veya eksi</annotation>
+		<annotation cp="∕">bölme çizgisi</annotation>
+		<annotation cp="∕" type="tts">bölme çizgisi</annotation>
+		<annotation cp="⁄">kesir bölme işareti</annotation>
+		<annotation cp="⁄" type="tts">kesir bölme işareti</annotation>
+		<annotation cp="∗">yıldız işareti işleci</annotation>
+		<annotation cp="∗" type="tts">yıldız işareti işleci</annotation>
+		<annotation cp="∘">döngü işleci</annotation>
+		<annotation cp="∘" type="tts">döngü işleci</annotation>
+		<annotation cp="∙">madde işareti işleci</annotation>
+		<annotation cp="∙" type="tts">madde işareti işleci</annotation>
 		<annotation cp="√">kare | karekök | kök | radikal | radikal ifade | taban</annotation>
 		<annotation cp="√" type="tts">karekök</annotation>
+		<annotation cp="∝">orantılı</annotation>
+		<annotation cp="∝" type="tts">orantılı</annotation>
 		<annotation cp="∞">sonsuzluk | sonsuzluk işareti</annotation>
 		<annotation cp="∞" type="tts">sonsuzluk işareti</annotation>
+		<annotation cp="∟">dik açı | matematik</annotation>
+		<annotation cp="∟" type="tts">dik açı</annotation>
+		<annotation cp="∠">açı | dar açı</annotation>
+		<annotation cp="∠" type="tts">açı</annotation>
+		<annotation cp="∣">bölen</annotation>
+		<annotation cp="∣" type="tts">bölen</annotation>
+		<annotation cp="∥">paralel</annotation>
+		<annotation cp="∥" type="tts">paralel</annotation>
+		<annotation cp="∧">mantıksal ve</annotation>
+		<annotation cp="∧" type="tts">mantıksal ve</annotation>
 		<annotation cp="∩">kesişim | küme</annotation>
 		<annotation cp="∩" type="tts">kesişim</annotation>
 		<annotation cp="∪">birleşim | küme | toplam</annotation>
 		<annotation cp="∪" type="tts">birleşim</annotation>
+		<annotation cp="∫">entegral</annotation>
+		<annotation cp="∫" type="tts">entegral</annotation>
+		<annotation cp="∬">çift entegral</annotation>
+		<annotation cp="∬" type="tts">çift entegral</annotation>
+		<annotation cp="∮">çevre entegrali</annotation>
+		<annotation cp="∮" type="tts">çevre entegrali</annotation>
+		<annotation cp="∴">öyleyse</annotation>
+		<annotation cp="∴" type="tts">öyleyse</annotation>
+		<annotation cp="∵">çünkü</annotation>
+		<annotation cp="∵" type="tts">çünkü</annotation>
+		<annotation cp="∶">oran</annotation>
+		<annotation cp="∶" type="tts">oran</annotation>
+		<annotation cp="∷">orantı</annotation>
+		<annotation cp="∷" type="tts">orantı</annotation>
+		<annotation cp="∼">tilde işleci</annotation>
+		<annotation cp="∼" type="tts">tilde işleci</annotation>
+		<annotation cp="∽">ters tilde</annotation>
+		<annotation cp="∽" type="tts">ters tilde</annotation>
+		<annotation cp="∾">ters çevrilmiş yavaş s</annotation>
+		<annotation cp="∾" type="tts">ters çevrilmiş yavaş s</annotation>
+		<annotation cp="≃">asimptotik olarak eşit</annotation>
+		<annotation cp="≃" type="tts">asimptotik olarak eşit</annotation>
+		<annotation cp="≅">yaklaşık olarak eşit</annotation>
+		<annotation cp="≅" type="tts">yaklaşık olarak eşit</annotation>
+		<annotation cp="≈">neredeyse eşit | yaklaşık | yaklaştırma</annotation>
+		<annotation cp="≈" type="tts">neredeyse eşit</annotation>
+		<annotation cp="≌">tamamen eşit</annotation>
+		<annotation cp="≌" type="tts">tamamen eşit</annotation>
+		<annotation cp="≒">yaklaşık olarak eşit veya sanalı</annotation>
+		<annotation cp="≒" type="tts">yaklaşık olarak eşit veya sanalı</annotation>
+		<annotation cp="≖">eşitlikte döngü</annotation>
+		<annotation cp="≖" type="tts">eşitlikte döngü</annotation>
 		<annotation cp="≡">aynı | denk | denktir | üçlü</annotation>
 		<annotation cp="≡" type="tts">denktir</annotation>
-		<annotation cp="⊂">alt küme | alt kümesidir | alt kümesidr | küme</annotation>
+		<annotation cp="≣">tamamen eşdeğeri</annotation>
+		<annotation cp="≣" type="tts">tamamen eşdeğeri</annotation>
+		<annotation cp="≤">eşitsizlik | eşittir | küçük eşit | küçüktür</annotation>
+		<annotation cp="≤" type="tts">küçük eşit</annotation>
+		<annotation cp="≥">büyük eşit | büyüktür | eşit | eşitsizlik</annotation>
+		<annotation cp="≥" type="tts">büyük eşit</annotation>
+		<annotation cp="≦">eşitsizlik | küçük eşittirden büyük | matematik</annotation>
+		<annotation cp="≦" type="tts">küçük eşittirden büyük</annotation>
+		<annotation cp="≧">büyük eşittirden küçük | eşitsizlik | matematik</annotation>
+		<annotation cp="≧" type="tts">büyük eşittirden küçük</annotation>
+		<annotation cp="≪">çok daha küçüktür | eşitsizlik | matematik</annotation>
+		<annotation cp="≪" type="tts">çok daha küçüktür</annotation>
+		<annotation cp="≫">çok daha büyüktür | eşizliklik | matematik</annotation>
+		<annotation cp="≫" type="tts">çok daha büyüktür</annotation>
+		<annotation cp="≬">arasında</annotation>
+		<annotation cp="≬" type="tts">arasında</annotation>
+		<annotation cp="≳">büyük veya eşdeğer</annotation>
+		<annotation cp="≳" type="tts">büyük veya eşdeğer</annotation>
+		<annotation cp="≺">önce gelir</annotation>
+		<annotation cp="≺" type="tts">önce gelir</annotation>
+		<annotation cp="≻">sonra gelir</annotation>
+		<annotation cp="≻" type="tts">sonra gelir</annotation>
+		<annotation cp="⊁">sonra gelmez</annotation>
+		<annotation cp="⊁" type="tts">sonra gelmez</annotation>
+		<annotation cp="⊂">alt küme | alt kümesi | alt kümesidir | küme</annotation>
 		<annotation cp="⊂" type="tts">alt kümesidir</annotation>
+		<annotation cp="⊃">küme işlemi | matematik | üst küme</annotation>
+		<annotation cp="⊃" type="tts">üst küme</annotation>
+		<annotation cp="⊆">alt küme eşittir</annotation>
+		<annotation cp="⊆" type="tts">alt küme eşittir</annotation>
+		<annotation cp="⊇">eşitlik | matematik | üst küme eşittir</annotation>
+		<annotation cp="⊇" type="tts">üst küme eşittir</annotation>
+		<annotation cp="⊕">artı | daire içinde artı</annotation>
+		<annotation cp="⊕" type="tts">daire içinde artı</annotation>
+		<annotation cp="⊖">daire içinde eksi</annotation>
+		<annotation cp="⊖" type="tts">daire içinde eksi</annotation>
+		<annotation cp="⊗">daire içinde çarpı</annotation>
+		<annotation cp="⊗" type="tts">daire içinde çarpı</annotation>
+		<annotation cp="⊘">daire içinde bölme işareti</annotation>
+		<annotation cp="⊘" type="tts">daire içinde bölme işareti</annotation>
+		<annotation cp="⊙">daire içinde nokta işleci</annotation>
+		<annotation cp="⊙" type="tts">daire içinde nokta işleci</annotation>
+		<annotation cp="⊚">daire içinde döngü işleci</annotation>
+		<annotation cp="⊚" type="tts">daire içinde döngü işleci</annotation>
+		<annotation cp="⊛">daire içinde yıldız işareti işleci</annotation>
+		<annotation cp="⊛" type="tts">daire içinde yıldız işareti işleci</annotation>
+		<annotation cp="⊞">kare içinde artı</annotation>
+		<annotation cp="⊞" type="tts">kare içinde artı</annotation>
+		<annotation cp="⊟">kare içinde eksi</annotation>
+		<annotation cp="⊟" type="tts">kare içinde eksi</annotation>
+		<annotation cp="⊥">üst iğne</annotation>
+		<annotation cp="⊥" type="tts">üst iğne</annotation>
+		<annotation cp="⊮">gerektirmez</annotation>
+		<annotation cp="⊮" type="tts">gerektirmez</annotation>
+		<annotation cp="⊰">bağıntıya göre önce gelir</annotation>
+		<annotation cp="⊰" type="tts">bağıntıya göre önce gelir</annotation>
+		<annotation cp="⊱">bağıntıya göre sonra gelir</annotation>
+		<annotation cp="⊱" type="tts">bağıntıya göre sonra gelir</annotation>
+		<annotation cp="⋭">normal alt grup olarak kapsamaz</annotation>
+		<annotation cp="⋭" type="tts">normal alt grup olarak kapsamaz</annotation>
+		<annotation cp="⊶">orijinal</annotation>
+		<annotation cp="⊶" type="tts">orijinal</annotation>
+		<annotation cp="⊹">hermit eşleniği matrisi</annotation>
+		<annotation cp="⊹" type="tts">hermit eşleniği matrisi</annotation>
+		<annotation cp="⊿">dik açılı üçgen | dik üçgen | matematik</annotation>
+		<annotation cp="⊿" type="tts">dik üçgen</annotation>
+		<annotation cp="⋁">n öğeli mantıksal veya</annotation>
+		<annotation cp="⋁" type="tts">n öğeli mantıksal veya</annotation>
+		<annotation cp="⋂">n öğeli kesişim</annotation>
+		<annotation cp="⋂" type="tts">n öğeli kesişim</annotation>
+		<annotation cp="⋃">n öğeli birleşim</annotation>
+		<annotation cp="⋃" type="tts">n öğeli birleşim</annotation>
+		<annotation cp="⋅">nokta işleci</annotation>
+		<annotation cp="⋅" type="tts">nokta işleci</annotation>
+		<annotation cp="⋆">yıldız işleci</annotation>
+		<annotation cp="⋆" type="tts">yıldız işleci</annotation>
+		<annotation cp="⋈">doğal birleşim</annotation>
+		<annotation cp="⋈" type="tts">doğal birleşim</annotation>
+		<annotation cp="⋒">çift kesişim | kesişim | matematik</annotation>
+		<annotation cp="⋒" type="tts">çift kesişim</annotation>
+		<annotation cp="⋘">çok fazla küçüktür | eşitsizlik | matematik</annotation>
+		<annotation cp="⋘" type="tts">çok fazla küçüktür</annotation>
+		<annotation cp="⋙">çok fazla büyüktür | eşitsizlik | matematik</annotation>
+		<annotation cp="⋙" type="tts">çok fazla büyüktür</annotation>
+		<annotation cp="⋮">dikey üç nokta</annotation>
+		<annotation cp="⋮" type="tts">dikey üç nokta</annotation>
+		<annotation cp="⋯">orta çizgi yatay üç nokta</annotation>
+		<annotation cp="⋯" type="tts">orta çizgi yatay üç nokta</annotation>
+		<annotation cp="⋰">yukarı sağa çapraz üç nokta</annotation>
+		<annotation cp="⋰" type="tts">yukarı sağa çapraz üç nokta</annotation>
+		<annotation cp="⋱">aşağı sağa çapraz üç nokta</annotation>
+		<annotation cp="⋱" type="tts">aşağı sağa çapraz üç nokta</annotation>
+		<annotation cp="■">dolu kare</annotation>
+		<annotation cp="■" type="tts">dolu kare</annotation>
+		<annotation cp="□">boş kare</annotation>
+		<annotation cp="□" type="tts">boş kare</annotation>
+		<annotation cp="▢">yuvarlak köşeli boş kare</annotation>
+		<annotation cp="▢" type="tts">yuvarlak köşeli boş kare</annotation>
+		<annotation cp="▣">dolu kareli boş kare</annotation>
+		<annotation cp="▣" type="tts">dolu kareli boş kare</annotation>
+		<annotation cp="▤">yatay doldurulan kare</annotation>
+		<annotation cp="▤" type="tts">yatay doldurulan kare</annotation>
+		<annotation cp="▥">dikey doldurulan kare</annotation>
+		<annotation cp="▥" type="tts">dikey doldurulan kare</annotation>
+		<annotation cp="▦">dikgen çapraz çizgi ile doldurulan kare</annotation>
+		<annotation cp="▦" type="tts">dikgen çapraz çizgi ile doldurulan kare</annotation>
+		<annotation cp="▧">sol üstten sağ alta doğru doldurulan kare</annotation>
+		<annotation cp="▧" type="tts">sol üstten sağ alta doğru doldurulan kare</annotation>
+		<annotation cp="▨">sağ üstten sol alta doğru doldurulan kare</annotation>
+		<annotation cp="▨" type="tts">sağ üstten sol alta doğru doldurulan kare</annotation>
+		<annotation cp="▩">köşegen çapraz çizgi ile doldurulan kare</annotation>
+		<annotation cp="▩" type="tts">köşegen çapraz çizgi ile doldurulan kare</annotation>
+		<annotation cp="▬">dolu dikdörtgen</annotation>
+		<annotation cp="▬" type="tts">dolu dikdörtgen</annotation>
+		<annotation cp="▭">boş dikdörtgen</annotation>
+		<annotation cp="▭" type="tts">boş dikdörtgen</annotation>
+		<annotation cp="▮">dolu dikey dikdörtgen</annotation>
+		<annotation cp="▮" type="tts">dolu dikey dikdörtgen</annotation>
+		<annotation cp="▰">dolu paralelkenar</annotation>
+		<annotation cp="▰" type="tts">dolu paralelkenar</annotation>
 		<annotation cp="▲">içi dolu | ok | üçgen | yukarı | yukarı bakan içi dolu üçgen</annotation>
 		<annotation cp="▲" type="tts">yukarı bakan içi dolu üçgen</annotation>
+		<annotation cp="△">içi boş yukarıyı gösteren üçgen</annotation>
+		<annotation cp="△" type="tts">içi boş yukarıyı gösteren üçgen</annotation>
+		<annotation cp="▴">içi dolu yukarıyı gösteren küçük üçgen</annotation>
+		<annotation cp="▴" type="tts">içi dolu yukarıyı gösteren küçük üçgen</annotation>
+		<annotation cp="▵">içi boş yukarıyı gösteren küçük üçgen</annotation>
+		<annotation cp="▵" type="tts">içi boş yukarıyı gösteren küçük üçgen</annotation>
+		<annotation cp="▷">içi boş sağı gösteren üçgen</annotation>
+		<annotation cp="▷" type="tts">içi boş sağı gösteren üçgen</annotation>
+		<annotation cp="▸">içi dolu sağı gösteren küçük üçgen</annotation>
+		<annotation cp="▸" type="tts">içi dolu sağı gösteren küçük üçgen</annotation>
+		<annotation cp="▹">içi boş sağı gösteren küçük üçgen</annotation>
+		<annotation cp="▹" type="tts">içi boş sağı gösteren küçük üçgen</annotation>
+		<annotation cp="►">içi dolu sağ işaretçi</annotation>
+		<annotation cp="►" type="tts">içi dolu sağ işaretçi</annotation>
+		<annotation cp="▻">içi boş sağ işaretçi</annotation>
+		<annotation cp="▻" type="tts">içi boş sağ işaretçi</annotation>
 		<annotation cp="▼">aşağı | aşağı bakan içi dolu üçgen | içi dolu | ok | üçgen</annotation>
 		<annotation cp="▼" type="tts">aşağı bakan içi dolu üçgen</annotation>
+		<annotation cp="▽">içi boş aşağıyı gösteren üçgen</annotation>
+		<annotation cp="▽" type="tts">içi boş aşağıyı gösteren üçgen</annotation>
+		<annotation cp="▾">içi dolu aşağıyı gösteren küçük üçgen</annotation>
+		<annotation cp="▾" type="tts">içi dolu aşağıyı gösteren küçük üçgen</annotation>
+		<annotation cp="▿">içi boş aşağıyı gösteren küçük üçgen</annotation>
+		<annotation cp="▿" type="tts">içi boş aşağıyı gösteren küçük üçgen</annotation>
+		<annotation cp="◁">içi boş sol üçgen</annotation>
+		<annotation cp="◁" type="tts">içi boş sol üçgen</annotation>
+		<annotation cp="◂">içi dolu solu gösteren küçük üçgen</annotation>
+		<annotation cp="◂" type="tts">içi dolu solu gösteren küçük üçgen</annotation>
+		<annotation cp="◃">içi boş solu gösteren küçük üçgen</annotation>
+		<annotation cp="◃" type="tts">içi boş solu gösteren küçük üçgen</annotation>
+		<annotation cp="◄">içi dolu sol işaretçi</annotation>
+		<annotation cp="◄" type="tts">içi dolu sol işaretçi</annotation>
+		<annotation cp="◅">içi boş sol işaretçi</annotation>
+		<annotation cp="◅" type="tts">içi boş sol işaretçi</annotation>
+		<annotation cp="◆">dolu baklava</annotation>
+		<annotation cp="◆" type="tts">dolu baklava</annotation>
+		<annotation cp="◇">boş baklava</annotation>
+		<annotation cp="◇" type="tts">boş baklava</annotation>
+		<annotation cp="◈">dolu baklavalı boş baklava</annotation>
+		<annotation cp="◈" type="tts">dolu baklavalı boş baklava</annotation>
+		<annotation cp="◉">dolu daireli boş daire</annotation>
+		<annotation cp="◉" type="tts">dolu daireli boş daire</annotation>
 		<annotation cp="◊">baklava | elmas | eşkenar dörtgen</annotation>
 		<annotation cp="◊" type="tts">eşkenar dörtgen</annotation>
 		<annotation cp="○">boş daire | daire | halka</annotation>
 		<annotation cp="○" type="tts">boş daire</annotation>
+		<annotation cp="◌">noktalı daire</annotation>
+		<annotation cp="◌" type="tts">noktalı daire</annotation>
+		<annotation cp="◍">dikey doldurulan daire</annotation>
+		<annotation cp="◍" type="tts">dikey doldurulan daire</annotation>
+		<annotation cp="◎">hedef merkezi</annotation>
+		<annotation cp="◎" type="tts">hedef merkezi</annotation>
 		<annotation cp="●">çember | içi dolu çember</annotation>
 		<annotation cp="●" type="tts">içi dolu çember</annotation>
+		<annotation cp="◐">sol yarısı dolu daire</annotation>
+		<annotation cp="◐" type="tts">sol yarısı dolu daire</annotation>
+		<annotation cp="◑">sağ yarısı dolu daire</annotation>
+		<annotation cp="◑" type="tts">sağ yarısı dolu daire</annotation>
+		<annotation cp="◒">alt yarısı dolu daire</annotation>
+		<annotation cp="◒" type="tts">alt yarısı dolu daire</annotation>
+		<annotation cp="◓">üst yarısı dolu daire</annotation>
+		<annotation cp="◓" type="tts">üst yarısı dolu daire</annotation>
+		<annotation cp="◔">sağ üst karesi dolu daire</annotation>
+		<annotation cp="◔" type="tts">sağ üst karesi dolu daire</annotation>
+		<annotation cp="◕">sol üst karesi dolu olmayan daire</annotation>
+		<annotation cp="◕" type="tts">sol üst karesi dolu olmayan daire</annotation>
+		<annotation cp="◖">sol yarı dolu daire</annotation>
+		<annotation cp="◖" type="tts">sol yarı dolu daire</annotation>
+		<annotation cp="◗">sağ yarı dolu daire</annotation>
+		<annotation cp="◗" type="tts">sağ yarı dolu daire</annotation>
+		<annotation cp="◘">ters madde işareti</annotation>
+		<annotation cp="◘" type="tts">ters madde işareti</annotation>
+		<annotation cp="◙">içi boş daireli dolu kare</annotation>
+		<annotation cp="◙" type="tts">içi boş daireli dolu kare</annotation>
+		<annotation cp="◜">sol üst çeyrek dairesi dairesel olan yay</annotation>
+		<annotation cp="◜" type="tts">sol üst çeyrek dairesi dairesel olan yay</annotation>
+		<annotation cp="◝">sağ üst çeyrek dairesi dairesel olan yay</annotation>
+		<annotation cp="◝" type="tts">sağ üst çeyrek dairesi dairesel olan yay</annotation>
+		<annotation cp="◞">sağ alt çeyrek dairesi dairesel olan yay</annotation>
+		<annotation cp="◞" type="tts">sağ alt çeyrek dairesi dairesel olan yay</annotation>
+		<annotation cp="◟">sol alt çeyrek dairesi dairesel olan yay</annotation>
+		<annotation cp="◟" type="tts">sol alt çeyrek dairesi dairesel olan yay</annotation>
+		<annotation cp="◠">üst yarım daire</annotation>
+		<annotation cp="◠" type="tts">üst yarım daire</annotation>
+		<annotation cp="◡">alt yarım daire</annotation>
+		<annotation cp="◡" type="tts">alt yarım daire</annotation>
+		<annotation cp="◢">içi dolu sağ alt üçgen</annotation>
+		<annotation cp="◢" type="tts">içi dolu sağ alt üçgen</annotation>
+		<annotation cp="◣">içi dolu sol alt üçgen</annotation>
+		<annotation cp="◣" type="tts">içi dolu sol alt üçgen</annotation>
+		<annotation cp="◤">içi dolu sol üst üçgen</annotation>
+		<annotation cp="◤" type="tts">içi dolu sol üst üçgen</annotation>
+		<annotation cp="◥">içi dolu sağ üst üçgen</annotation>
+		<annotation cp="◥" type="tts">içi dolu sağ üst üçgen</annotation>
+		<annotation cp="◦">içi boş madde işareti</annotation>
+		<annotation cp="◦" type="tts">içi boş madde işareti</annotation>
 		<annotation cp="◯">büyük boş daire | daire | halka</annotation>
 		<annotation cp="◯" type="tts">büyük boş daire</annotation>
-		<annotation cp="⚧">transgender | transgender sembolü | transseksüel</annotation>
-		<annotation cp="⚧" type="tts">transgender sembolü</annotation>
-		<annotation cp="🤌">bravo | çok güzel | harika | kıstırma hareketi yapan parmaklar | lezzetli | parmaklar</annotation>
-		<annotation cp="🤌" type="tts">kıstırma hareketi yapan parmaklar</annotation>
-		<annotation cp="🥲">duygulanmış | gözü yaşlı gülümseyen yüz | gözyaşı | gülümseme | gururlu | hislenmiş | minnettar | rahatlamış</annotation>
-		<annotation cp="🥲" type="tts">gözü yaşlı gülümseyen yüz</annotation>
-		<annotation cp="🥷">dövüşçü | gizli | ninja | saklı</annotation>
-		<annotation cp="🥷" type="tts">ninja</annotation>
-		<annotation cp="🥸">burun | gizlenmek | gizlenmiş yüz | gizli | gözlük | kimliğini gizleyen | maskeli | takma ad | yüz</annotation>
-		<annotation cp="🥸" type="tts">gizlenmiş yüz</annotation>
-		<annotation cp="🦣">büyük | fil dişi | mamut | nesli tükenen | soyu tükenen</annotation>
-		<annotation cp="🦣" type="tts">mamut</annotation>
-		<annotation cp="🦤">büyük | dodo kuşu | Mauritius | nesli tükenmiş | soyu tükenmiş</annotation>
-		<annotation cp="🦤" type="tts">dodo kuşu</annotation>
-		<annotation cp="🦫">baraj | kunduz</annotation>
-		<annotation cp="🦫" type="tts">kunduz</annotation>
-		<annotation cp="🦬">bizon | bufalo | sürü</annotation>
-		<annotation cp="🦬" type="tts">bizon</annotation>
-		<annotation cp="🦭">ayı balığı | denizaslanı | fok | fok balığı</annotation>
-		<annotation cp="🦭" type="tts">fok</annotation>
-		<annotation cp="🧋">baloncuk | bubble tea | çay | inci | inci çayı | süt</annotation>
-		<annotation cp="🧋" type="tts">bubble tea</annotation>
-		<annotation cp="🩴">deniz terliği | kumsal terliği | parmak arası | parmak arası terlik | sandalet</annotation>
-		<annotation cp="🩴" type="tts">parmak arası terlik</annotation>
-		<annotation cp="🪃">avustralya | bumerang | geri tepme | sekme | tepki</annotation>
-		<annotation cp="🪃" type="tts">bumerang</annotation>
-		<annotation cp="🪄">büyücü | cadı | sihir | sihirli asa</annotation>
-		<annotation cp="🪄" type="tts">sihirli asa</annotation>
-		<annotation cp="🪅">kutlama | parti | pinyata</annotation>
-		<annotation cp="🪅" type="tts">pinyata</annotation>
-		<annotation cp="🪆">bebek | iç içe | matruşka | Rusya</annotation>
-		<annotation cp="🪆" type="tts">matruşka</annotation>
-		<annotation cp="🪖">asker | asker kaskı | askerlik | kask | ordu | savaşçı</annotation>
-		<annotation cp="🪖" type="tts">asker kaskı</annotation>
-		<annotation cp="🪗">akordeon | akordiyon</annotation>
-		<annotation cp="🪗" type="tts">akordiyon</annotation>
-		<annotation cp="🪘">conga | davul | ritm | tempo | uzun davul | vuruş</annotation>
-		<annotation cp="🪘" type="tts">uzun davul</annotation>
-		<annotation cp="🪙">altın | bozuk para | gümüş | hazine | jeton | metal | para | sikke</annotation>
-		<annotation cp="🪙" type="tts">bozuk para</annotation>
-		<annotation cp="🪚">alet | kereste | marangoz | testere</annotation>
-		<annotation cp="🪚" type="tts">testere</annotation>
-		<annotation cp="🪛">alet | sıkma | tornavida | vida</annotation>
-		<annotation cp="🪛" type="tts">tornavida</annotation>
-		<annotation cp="🪜">adım | basamak | merdiven | tırmanış</annotation>
-		<annotation cp="🪜" type="tts">merdiven</annotation>
-		<annotation cp="🪝">askı | çengel | eğri | kanca</annotation>
-		<annotation cp="🪝" type="tts">çengel</annotation>
-		<annotation cp="🪞">ayna | reflektör | spekulum | yansıma | yansıtıcı</annotation>
-		<annotation cp="🪞" type="tts">ayna</annotation>
-		<annotation cp="🪟">açılım | çerçeve | manzara | pencere | saydam | şeffaf | temiz hava</annotation>
-		<annotation cp="🪟" type="tts">pencere</annotation>
-		<annotation cp="🪠">açıcı | çekme | lavabo açıcı | lavabo pompası | tuvalet</annotation>
-		<annotation cp="🪠" type="tts">lavabo pompası</annotation>
-		<annotation cp="🪡">dikiş | dikiş iğnesi | dikme | iğne | nakış | sökük | terzi</annotation>
-		<annotation cp="🪡" type="tts">dikiş iğnesi</annotation>
-		<annotation cp="🪢">bağlı | denizci düğümü | dolaşık | düğüm | halat | sicim</annotation>
-		<annotation cp="🪢" type="tts">denizci düğümü</annotation>
-		<annotation cp="🪣">fıçı | kap | kepçe | kova</annotation>
-		<annotation cp="🪣" type="tts">kova</annotation>
-		<annotation cp="🪤">fare kapanı | kapan | kıskaç | tuzak</annotation>
-		<annotation cp="🪤" type="tts">fare kapanı</annotation>
-		<annotation cp="🪥">banyo | dental | diş | diş fırçası | fırça | hijyen | lavabo</annotation>
-		<annotation cp="🪥" type="tts">diş fırçası</annotation>
-		<annotation cp="🪦">defin | mezar | mezar taşı | mezarlık</annotation>
-		<annotation cp="🪦" type="tts">mezar taşı</annotation>
-		<annotation cp="🪧">gösteri | işaret | protesto | tabela</annotation>
-		<annotation cp="🪧" type="tts">tabela</annotation>
-		<annotation cp="🪨">ağır | katı | kaya | kayalık | sert | taş</annotation>
-		<annotation cp="🪨" type="tts">kaya</annotation>
-		<annotation cp="🪰">böcek | çürüme | hastalık | karasinek | larva | sinek</annotation>
-		<annotation cp="🪰" type="tts">karasinek</annotation>
-		<annotation cp="🪱">kurt | kurtçuk | parazit | solucan</annotation>
-		<annotation cp="🪱" type="tts">solucan</annotation>
-		<annotation cp="🪲">böcek | haşere</annotation>
-		<annotation cp="🪲" type="tts">böcek</annotation>
-		<annotation cp="🪳">böcek | hamam böceği | haşere | karafatma</annotation>
-		<annotation cp="🪳" type="tts">hamam böceği</annotation>
-		<annotation cp="🪴">bitki | ev | ev bitkisi | saksı | saksı bitkisi | yetiştirme</annotation>
-		<annotation cp="🪴" type="tts">saksı bitkisi</annotation>
-		<annotation cp="🪵">ağaç | ahşap | kereste | kütük | tomruk</annotation>
-		<annotation cp="🪵" type="tts">kütük</annotation>
-		<annotation cp="🪶">hafif | kuş | kuş tüyü | tüylü | uçma</annotation>
-		<annotation cp="🪶" type="tts">kuş tüyü</annotation>
-		<annotation cp="🫀">kalp | kalp atışı | kardiyoloji | merkez | nabız | organ</annotation>
-		<annotation cp="🫀" type="tts">kalp</annotation>
-		<annotation cp="🫁">akciğer | nefes | organ | soluk | solunum</annotation>
-		<annotation cp="🫁" type="tts">akciğer</annotation>
-		<annotation cp="🫂">güle güle | hoşçakal | hoşçakalın | kucaklaşan insanlar | merhaba | sağol | sağolun | selam | teşekkür | teşekkürler</annotation>
-		<annotation cp="🫂" type="tts">kucaklaşan insanlar</annotation>
-		<annotation cp="🫐">dağ mersini | mavi | mersin | yaban mersini</annotation>
-		<annotation cp="🫐" type="tts">yaban mersini</annotation>
-		<annotation cp="🫑">biber | dolma biber | dolmalık biber | sebze</annotation>
-		<annotation cp="🫑" type="tts">dolma biber</annotation>
-		<annotation cp="🫒">yiyecek | zeytin</annotation>
-		<annotation cp="🫒" type="tts">zeytin</annotation>
-		<annotation cp="🫓">bazlama | lavaş | naan | pide | pita | yassı ekmek</annotation>
-		<annotation cp="🫓" type="tts">yassı ekmek</annotation>
-		<annotation cp="🫔">dürüm | Meksika yemeği | tamale</annotation>
-		<annotation cp="🫔" type="tts">tamale</annotation>
-		<annotation cp="🫕">çikolata | erimiş | fondü | İsviçre | kap | peynir</annotation>
-		<annotation cp="🫕" type="tts">fondü</annotation>
-		<annotation cp="🫖">çay | çaydanlık | demlik | içecek</annotation>
-		<annotation cp="🫖" type="tts">demlik</annotation>
-		<annotation cp="🛖">ev | kulübe | yurt</annotation>
-		<annotation cp="🛖" type="tts">kulübe</annotation>
-		<annotation cp="🛗">asansör | erişilebilirlik | lift</annotation>
-		<annotation cp="🛗" type="tts">asansör</annotation>
-		<annotation cp="🛻">kamyon | kamyonet | pikap</annotation>
-		<annotation cp="🛻" type="tts">pikap</annotation>
-		<annotation cp="🛼">paten | tekerlek | tekerlekli paten</annotation>
-		<annotation cp="🛼" type="tts">paten</annotation>
+		<annotation cp="◳">sağ üst çeyrek kareli boş kare</annotation>
+		<annotation cp="◳" type="tts">sağ üst çeyrek kareli boş kare</annotation>
+		<annotation cp="◷">sağ üst çeyrek daireli boş daire</annotation>
+		<annotation cp="◷" type="tts">sağ üst çeyrek daireli boş daire</annotation>
+		<annotation cp="◿">sağ alt üçgen</annotation>
+		<annotation cp="◿" type="tts">sağ alt üçgen</annotation>
+		<annotation cp="♪">müzik | nota | sekizinci</annotation>
+		<annotation cp="♪" type="tts">sekizinci nota</annotation>
+		<annotation cp="⨧">altı iki olan artı simgesi</annotation>
+		<annotation cp="⨧" type="tts">altı iki olan artı simgesi</annotation>
+		<annotation cp="⨯">vektör çapraz çarpım</annotation>
+		<annotation cp="⨯" type="tts">vektör çapraz çarpım</annotation>
+		<annotation cp="⨼">iç çarpım</annotation>
+		<annotation cp="⨼" type="tts">iç çarpım</annotation>
+		<annotation cp="⩣">mantıksal veya çift alt çubuklu</annotation>
+		<annotation cp="⩣" type="tts">mantıksal veya çift alt çubuklu</annotation>
+		<annotation cp="⩽">küçüktür veya eğimli eşittir</annotation>
+		<annotation cp="⩽" type="tts">küçüktür veya eğimli eşittir</annotation>
+		<annotation cp="⪍">benzer veya eşittir üstündeki küçüktür</annotation>
+		<annotation cp="⪍" type="tts">benzer veya eşittir üstündeki küçüktür</annotation>
+		<annotation cp="⪚">çift çizgili eşittir veya büyüktür</annotation>
+		<annotation cp="⪚" type="tts">çift çizgili eşittir veya büyüktür</annotation>
+		<annotation cp="⪺">hemen hemen eşit değil üstünde sonra gelir</annotation>
+		<annotation cp="⪺" type="tts">hemen hemen eşit değil üstünde sonra gelir</annotation>
+		<annotation cp="♭">bemol | düz | müzik | nota</annotation>
+		<annotation cp="♭" type="tts">düz</annotation>
+		<annotation cp="♯">diyez | müzik | nota</annotation>
+		<annotation cp="♯" type="tts">diyez</annotation>
 		<annotation cp="😀">gülen yüz | gülme | lol | neşeli | sırıtan yüz | yüz</annotation>
 		<annotation cp="😀" type="tts">sırıtan yüz</annotation>
 		<annotation cp="😃">ağzı açık gülen yüz | ağzı açık sırıtma | gülen yüz | gülme | gülümseme | lol | neşeli | yüz</annotation>
@@ -225,6 +731,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙂" type="tts">hafifçe gülümseyen yüz</annotation>
 		<annotation cp="🙃">ters yüz | yüz</annotation>
 		<annotation cp="🙃" type="tts">ters yüz</annotation>
+		<annotation cp="🫠">çözülme | erime | eriyen yüz | kaybolma | sıvılaşma</annotation>
+		<annotation cp="🫠" type="tts">eriyen yüz</annotation>
 		<annotation cp="😉">göz kırpan yüz | göz kırpma | yüz</annotation>
 		<annotation cp="😉" type="tts">göz kırpan yüz</annotation>
 		<annotation cp="😊">ağzı açık gülme | gülümseyen gözler | gülümseyen yüz | gülümseyen yüz ve gözler | yüz</annotation>
@@ -247,6 +755,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😚" type="tts">kapalı gözlerle öpen yüz</annotation>
 		<annotation cp="😙">gülen gözlerle öpen yüz | gülümseme | gülümseyen gözler | gülümseyerek öpen yüz | yüz</annotation>
 		<annotation cp="😙" type="tts">gülen gözlerle öpen yüz</annotation>
+		<annotation cp="🥲">duygulanmış | gözü yaşlı gülümseyen yüz | gözyaşı | gülümseme | gururlu | hislenmiş | minnettar | rahatlamış</annotation>
+		<annotation cp="🥲" type="tts">gözü yaşlı gülümseyen yüz</annotation>
 		<annotation cp="😋">gülümseyen yüz | harika yemek | lezzetli | lezzetli yiyecek beğenen yüz | oh oh harika | yüz</annotation>
 		<annotation cp="😋" type="tts">lezzetli yiyecek beğenen yüz</annotation>
 		<annotation cp="😛">dil çıkarmış yüz | dil dışarıda | dil dışarıda kalmış | yüz</annotation>
@@ -263,10 +773,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤗" type="tts">kucaklayarak gülümseme</annotation>
 		<annotation cp="🤭">eliyle ağzını kapatan yüz | tüh</annotation>
 		<annotation cp="🤭" type="tts">eliyle ağzını kapatan yüz</annotation>
+		<annotation cp="🫢">gözleri açık ve eliyle ağzını kapatan yüz | hayret | inanamama | korku | şaşkınlık | sürpriz | utanma</annotation>
+		<annotation cp="🫢" type="tts">gözleri açık ve eliyle ağzını kapatan yüz</annotation>
+		<annotation cp="🫣">dikizleme | gizlice bakan yüz | gizlice bakma | gözetleme</annotation>
+		<annotation cp="🫣" type="tts">gizlice bakan yüz</annotation>
 		<annotation cp="🤫">sessiz | şişt | sus işareti yapan yüz</annotation>
 		<annotation cp="🤫" type="tts">sus işareti yapan yüz</annotation>
 		<annotation cp="🤔">düşünen yüz | düşünme | yüz</annotation>
 		<annotation cp="🤔" type="tts">düşünen yüz</annotation>
+		<annotation cp="🫡">asker | başüstüne | güneşli | onay | selam | selamlayan yüz</annotation>
+		<annotation cp="🫡" type="tts">selamlayan yüz</annotation>
 		<annotation cp="🤐">ağız | ağzı fermuarlı yüz | fermuar | yüz</annotation>
 		<annotation cp="🤐" type="tts">ağzı fermuarlı yüz</annotation>
 		<annotation cp="🤨">güvenmeyen | şüpheci | tek kaşı çatık yüz</annotation>
@@ -277,6 +793,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😑" type="tts">ifadesiz yüz</annotation>
 		<annotation cp="😶">ağız | ağzı olmayan yüz | sakin | sessiz | yüz</annotation>
 		<annotation cp="😶" type="tts">ağzı olmayan yüz</annotation>
+		<annotation cp="🫥">depresif | gizlenme | görünmez | içe dönük | kaybolma | noktalı çizgili yüz</annotation>
+		<annotation cp="🫥" type="tts">noktalı çizgili yüz</annotation>
+		<annotation cp="😶‍🌫">bulutlardaki kafa | bulutlardaki yüz | dalgın | sisler arasındaki yüz</annotation>
+		<annotation cp="😶‍🌫" type="tts">bulutlardaki yüz</annotation>
 		<annotation cp="😏">imalı gülümseme | yapmacık gülümseyen | yapmacık gülümseyen yüz | yüz</annotation>
 		<annotation cp="😏" type="tts">imalı gülümseme</annotation>
 		<annotation cp="😒">keyifsiz yüz | mutsuz | yüz</annotation>
@@ -285,8 +805,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">gözlerini deviren yüz</annotation>
 		<annotation cp="😬">dişlerini gösteren yüz | yüz</annotation>
 		<annotation cp="😬" type="tts">dişlerini gösteren yüz</annotation>
+		<annotation cp="😮‍💨">fısıldama | ıslık | nefes veren yüz | nefes verme | rahatlama | sızlanma</annotation>
+		<annotation cp="😮‍💨" type="tts">nefes veren yüz</annotation>
 		<annotation cp="🤥">pinokyo | yalan söyleme | yalan söyleyen yüz | yüz</annotation>
 		<annotation cp="🤥" type="tts">yalan söyleyen yüz</annotation>
+		<annotation cp="🫨">deprem | sallanan yüz | sallanma | şok | titreme | yüz</annotation>
+		<annotation cp="🫨" type="tts">sallanan yüz</annotation>
+		<annotation cp="🙂‍↔">hayır | sallama | yatay olarak sallanan yüz</annotation>
+		<annotation cp="🙂‍↔" type="tts">yatay olarak sallanan yüz</annotation>
+		<annotation cp="🙂‍↕">dikey olarak sallanan yüz | evet | onay</annotation>
+		<annotation cp="🙂‍↕" type="tts">dikey olarak sallanan yüz</annotation>
 		<annotation cp="😌">rahatlamış | yüz</annotation>
 		<annotation cp="😌" type="tts">rahatlamış yüz</annotation>
 		<annotation cp="😔">düşünceli | karamsar | yüz</annotation>
@@ -317,12 +845,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥴" type="tts">sarhoş yüz</annotation>
 		<annotation cp="😵">sersemlemiş yüz | yüz</annotation>
 		<annotation cp="😵" type="tts">sersemlemiş yüz</annotation>
+		<annotation cp="😵‍💫">hipnotize | kafası bulanık | sarmal | sarmal gözlü yüz | sersem | sıkıntı</annotation>
+		<annotation cp="😵‍💫" type="tts">sarmal gözlü yüz</annotation>
 		<annotation cp="🤯">patlayan kafa | şoke</annotation>
 		<annotation cp="🤯" type="tts">patlayan kafa</annotation>
 		<annotation cp="🤠">kadın kovboy | kovboy | kovboy şapkalı yüz | şapka | yüz</annotation>
 		<annotation cp="🤠" type="tts">kovboy şapkalı yüz</annotation>
 		<annotation cp="🥳">kutlama | parti | parti düdüğü | partide eğlenen yüz | şapka</annotation>
 		<annotation cp="🥳" type="tts">partide eğlenen yüz</annotation>
+		<annotation cp="🥸">burun | gizlenmiş yüz | gizli | gözlük | kimliğini gizleyen | maskeli | yüz</annotation>
+		<annotation cp="🥸" type="tts">gizlenmiş yüz</annotation>
 		<annotation cp="😎">gülümseme | güneş gözlükleri | güneş gözlükleriyle gülümseme | güneş gözlüklü gülümseme | soğukkanlı Jane | soğukkanlı Joe | yüz</annotation>
 		<annotation cp="😎" type="tts">güneş gözlüklü gülümseme</annotation>
 		<annotation cp="🤓">bilgili | inek öğrenci | ukala | yüz</annotation>
@@ -331,6 +863,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧐" type="tts">tek cam gözlüklü yüz</annotation>
 		<annotation cp="😕">kafası karışık yüz | kafası karışmış | yüz</annotation>
 		<annotation cp="😕" type="tts">kafası karışık yüz</annotation>
+		<annotation cp="🫤">hayal kırıklığına uğramış | hüsran | kırgın | şüpheli | şüpheli yüz | yamuk ağızlı yüz</annotation>
+		<annotation cp="🫤" type="tts">yamuk ağızlı yüz</annotation>
 		<annotation cp="😟">endişeli yüz | yüz</annotation>
 		<annotation cp="😟" type="tts">endişeli yüz</annotation>
 		<annotation cp="🙁">asık surat | biraz asık surat | yüz</annotation>
@@ -347,6 +881,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😳" type="tts">kızarmış ve şaşkın yüz</annotation>
 		<annotation cp="🥺">acıklı bakışlar | merhamet | yalvaran yüz | yalvarma</annotation>
 		<annotation cp="🥺" type="tts">yalvaran yüz</annotation>
+		<annotation cp="🥹">ağlamaklı | direnme | gözleri dolmuş yüz | gözyaşlarını tutan yüz | gurur | kızgın | üzgün</annotation>
+		<annotation cp="🥹" type="tts">gözleri dolmuş yüz</annotation>
 		<annotation cp="😦">açık ağızlı hoşnutsuz yüz | ağzı açık | hoşnutsuz | yüz</annotation>
 		<annotation cp="😦" type="tts">hoşnutsuz yüz</annotation>
 		<annotation cp="😧">acı çeken | kederli yüz | yüz</annotation>
@@ -433,8 +969,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙉" type="tts">duymadım</annotation>
 		<annotation cp="🙊">bilmiyorum | maymun | söylemeyen maymun</annotation>
 		<annotation cp="🙊" type="tts">bilmiyorum</annotation>
-		<annotation cp="💋">dudaklar | öpücük | öpücük izi | romantizm</annotation>
-		<annotation cp="💋" type="tts">öpücük izi</annotation>
 		<annotation cp="💌">aşk mektubu | kalp | kalpli mektup | mektup | romantizm</annotation>
 		<annotation cp="💌" type="tts">aşk mektubu</annotation>
 		<annotation cp="💘">aşk | duygu | kalp | ok | ok saplanmış kalp</annotation>
@@ -457,8 +991,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">kalp şeklinde ünlem işareti</annotation>
 		<annotation cp="💔">duygu | kalp | kırık kalp | kırılmış | kırma</annotation>
 		<annotation cp="💔" type="tts">kırık kalp</annotation>
+		<annotation cp="❤‍🔥">alev | arzu | aşk | ateşli kalp | kalp | kutsal kalp | tutku</annotation>
+		<annotation cp="❤‍🔥" type="tts">ateşli kalp</annotation>
+		<annotation cp="❤‍🩹">daha sağlıklı | iyi | iyileşen | iyileşen kalp | onarılan</annotation>
+		<annotation cp="❤‍🩹" type="tts">iyileşen kalp</annotation>
 		<annotation cp="❤">kalp | kırmızı kalp</annotation>
 		<annotation cp="❤" type="tts">kırmızı kalp</annotation>
+		<annotation cp="🩷">aşk | beğen | kalp | pembe | şirin</annotation>
+		<annotation cp="🩷" type="tts">pembe kalp</annotation>
 		<annotation cp="🧡">portakal | turuncu kalp</annotation>
 		<annotation cp="🧡" type="tts">turuncu kalp</annotation>
 		<annotation cp="💛">duygu | kalp | sarı</annotation>
@@ -467,14 +1007,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💚" type="tts">yeşil kalp</annotation>
 		<annotation cp="💙">duygu | kalp | mavi</annotation>
 		<annotation cp="💙" type="tts">mavi kalp</annotation>
+		<annotation cp="🩵">açık mavi | açık mavi kalp | camgöbeği | deniz mavisi | kalp</annotation>
+		<annotation cp="🩵" type="tts">açık mavi kalp</annotation>
 		<annotation cp="💜">duygu | kalp | mor</annotation>
 		<annotation cp="💜" type="tts">mor kalp</annotation>
 		<annotation cp="🤎">kahverengi | kalp</annotation>
 		<annotation cp="🤎" type="tts">kahverengi kalp</annotation>
 		<annotation cp="🖤">fena | kalp | kötü | siyah</annotation>
 		<annotation cp="🖤" type="tts">siyah kalp</annotation>
+		<annotation cp="🩶">gri | gümüş | kalp | kurşun | taş</annotation>
+		<annotation cp="🩶" type="tts">gri kalp</annotation>
 		<annotation cp="🤍">beyaz | kalp</annotation>
 		<annotation cp="🤍" type="tts">beyaz kalp</annotation>
+		<annotation cp="💋">dudaklar | öpücük | öpücük izi | romantizm</annotation>
+		<annotation cp="💋" type="tts">öpücük izi</annotation>
 		<annotation cp="💯">100 | 100 puan | skor | yüz puan</annotation>
 		<annotation cp="💯" type="tts">yüz puan</annotation>
 		<annotation cp="💢">çizgi roman | duygu | öfke işareti | öfke simgesi | öfkeli</annotation>
@@ -489,8 +1035,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💨" type="tts">hızla fırlama</annotation>
 		<annotation cp="🕳">delik</annotation>
 		<annotation cp="🕳" type="tts">delik</annotation>
-		<annotation cp="💣">bomba | çizgi roman | duygu</annotation>
-		<annotation cp="💣" type="tts">bomba</annotation>
 		<annotation cp="💬">balon | çizgi roman | iletişim | iletişim balonu | konuşma balonu</annotation>
 		<annotation cp="💬" type="tts">konuşma balonu</annotation>
 		<annotation cp="👁‍🗨">göz | konuşma balonu | konuşma balonunda göz | tanıklık</annotation>
@@ -501,7 +1045,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🗯" type="tts">sağ öfke balonu</annotation>
 		<annotation cp="💭">balon | çizgi roman | düşünce | düşünce balonu</annotation>
 		<annotation cp="💭" type="tts">düşünce balonu</annotation>
-		<annotation cp="💤">çizgi roman | duygu | horlama | uyuma | zzz | Zzz</annotation>
+		<annotation cp="💤">çizgi roman | duygu | horlama | uyuma | Zzz</annotation>
 		<annotation cp="💤" type="tts">zzz</annotation>
 		<annotation cp="👋">el | sallama</annotation>
 		<annotation cp="👋" type="tts">el sallama</annotation>
@@ -513,14 +1057,30 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="✋" type="tts">el kaldırma</annotation>
 		<annotation cp="🖖">beden | el | parmak | spock | vulcan selamı | vulkan | Vulkan selamı</annotation>
 		<annotation cp="🖖" type="tts">Vulkan selamı</annotation>
+		<annotation cp="🫱">el | sağ | sağa bakan el</annotation>
+		<annotation cp="🫱" type="tts">sağa bakan el</annotation>
+		<annotation cp="🫲">el | sol | sola bakan el</annotation>
+		<annotation cp="🫲" type="tts">sola bakan el</annotation>
+		<annotation cp="🫳">atmak | avuç içi aşağı bakan el | düşürmek | kışkışlamak</annotation>
+		<annotation cp="🫳" type="tts">avuç içi aşağı bakan el</annotation>
+		<annotation cp="🫴">avuç içi yukarı bakan el | çağırmak | el etmek | gel | sunmak | yakalamak</annotation>
+		<annotation cp="🫴" type="tts">avuç içi yukarı bakan el</annotation>
+		<annotation cp="🫷">bekletme | çak | durdurma | itme | reddetme | sola | sola iten el</annotation>
+		<annotation cp="🫷" type="tts">sola iten el</annotation>
+		<annotation cp="🫸">bekletme | çak | durdurma | itme | reddetme | sağa | sağa iten el</annotation>
+		<annotation cp="🫸" type="tts">sağa iten el</annotation>
 		<annotation cp="👌">el | işaret | Tamam | Tamam el işareti | tamam işareti</annotation>
 		<annotation cp="👌" type="tts">tamam işareti</annotation>
+		<annotation cp="🤌">bravo | çok güzel | harika | kıstırma hareketi yapan parmaklar | lezzetli | parmaklar</annotation>
+		<annotation cp="🤌" type="tts">kıstırma hareketi yapan parmaklar</annotation>
 		<annotation cp="🤏">azıcık | bir tutam | kıstırma hareketi yapan el</annotation>
 		<annotation cp="🤏" type="tts">kıstırma hareketi yapan el</annotation>
 		<annotation cp="✌">oleey | zafer | zafer eli | zafer işareti</annotation>
 		<annotation cp="✌" type="tts">zafer işareti</annotation>
 		<annotation cp="🤞">çapraz | el | parmak | şans | şans dileme</annotation>
 		<annotation cp="🤞" type="tts">şans dileme</annotation>
+		<annotation cp="🫰">aşk | işaret parmağı ve baş parmak birbirine geçmiş el | kalp | pahalı | para</annotation>
+		<annotation cp="🫰" type="tts">işaret parmağı ve baş parmak birbirine geçmiş el</annotation>
 		<annotation cp="🤟">el | seni seviyorum işareti | SS</annotation>
 		<annotation cp="🤟" type="tts">seni seviyorum işareti</annotation>
 		<annotation cp="🤘">beden | boynuz | boynuz işareti | el | parmak | rock</annotation>
@@ -539,6 +1099,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👇" type="tts">elinin tersiyle aşağıyı gösteren işaret parmağı</annotation>
 		<annotation cp="☝">beden | el | gösterme | işaret parmağı | parmak | yukarı | yukarıyı gösteren işaret parmağı</annotation>
 		<annotation cp="☝" type="tts">yukarıyı gösteren işaret parmağı</annotation>
+		<annotation cp="🫵">işaret | karşıyı işaret eden işaret parmağı | sen</annotation>
+		<annotation cp="🫵" type="tts">karşıyı işaret eden işaret parmağı</annotation>
 		<annotation cp="👍">baş parmak | baş parmak yukarıda | el | işaret | yukarı</annotation>
 		<annotation cp="👍" type="tts">baş parmak yukarıda</annotation>
 		<annotation cp="👎">aşağı | baş parmak | baş parmak aşağıda | el | işaret</annotation>
@@ -555,6 +1117,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👏" type="tts">el çırpma</annotation>
 		<annotation cp="🙌">eller havaya | her iki el | kutlama | kutlamak için iki eli birden kaldırma</annotation>
 		<annotation cp="🙌" type="tts">eller havaya</annotation>
+		<annotation cp="🫶">aşk | kalp | kalp oluşturan eller | sevgi</annotation>
+		<annotation cp="🫶" type="tts">kalp oluşturan eller</annotation>
 		<annotation cp="👐">açık | el | eller açık | eller açık işareti | işaret</annotation>
 		<annotation cp="👐" type="tts">eller açık</annotation>
 		<annotation cp="🤲">dua eden eller | iki avuç açık</annotation>
@@ -587,6 +1151,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👃" type="tts">burun</annotation>
 		<annotation cp="🧠">beyin | zeki</annotation>
 		<annotation cp="🧠" type="tts">beyin</annotation>
+		<annotation cp="🫀">kalp | kalp atışı | kardiyoloji | merkez | nabız | organ</annotation>
+		<annotation cp="🫀" type="tts">kalp</annotation>
+		<annotation cp="🫁">akciğer | nefes | organ | soluk | solunum</annotation>
+		<annotation cp="🫁" type="tts">akciğer</annotation>
 		<annotation cp="🦷">diş | diş hekimi | dişçi</annotation>
 		<annotation cp="🦷" type="tts">diş</annotation>
 		<annotation cp="🦴">iskelet | kemik</annotation>
@@ -599,36 +1167,34 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👅" type="tts">dil</annotation>
 		<annotation cp="👄">ağız | dudaklar | gövde | yüz</annotation>
 		<annotation cp="👄" type="tts">ağız</annotation>
+		<annotation cp="🫦">davetkâr | endişeli | flört | gergin | ısırılan dudak | korku | rahatsız</annotation>
+		<annotation cp="🫦" type="tts">ısırılan dudak</annotation>
 		<annotation cp="👶">bebek | kişiler</annotation>
 		<annotation cp="👶" type="tts">bebek</annotation>
 		<annotation cp="🧒">çocuk | genç | kişi</annotation>
 		<annotation cp="🧒" type="tts">çocuk</annotation>
 		<annotation cp="👦">erkek çocuk | kişiler</annotation>
 		<annotation cp="👦" type="tts">erkek çocuk</annotation>
-		<annotation cp="👧">kişiler | kız çocuk</annotation>
+		<annotation cp="👧">genç | kişiler | kız çocuk</annotation>
 		<annotation cp="👧" type="tts">kız çocuk</annotation>
 		<annotation cp="🧑">kişi | yetişkin</annotation>
 		<annotation cp="🧑" type="tts">yetişkin</annotation>
 		<annotation cp="👱">saç | sarı saçlı kişi | sarışın | sarışın kişi</annotation>
 		<annotation cp="👱" type="tts">sarışın kişi</annotation>
-		<annotation cp="🧑‍🍼">bakıcılık | bebek | bebek emziren kişi | emzirme | kişi</annotation>
-		<annotation cp="🧑‍🍼" type="tts">bebek emziren kişi</annotation>
-		<annotation cp="🧑‍🎄">cinsiyet belirtmeyen noel karakteri | noel | Noel figürü</annotation>
-		<annotation cp="🧑‍🎄" type="tts">cinsiyet belirtmeyen noel karakteri</annotation>
 		<annotation cp="👨">erkek | kişiler</annotation>
 		<annotation cp="👨" type="tts">erkek</annotation>
 		<annotation cp="🧔">sakal | sakallı kişi</annotation>
 		<annotation cp="🧔" type="tts">sakallı kişi</annotation>
+		<annotation cp="🧔‍♂">erkek | erkek: sakal | sakal</annotation>
+		<annotation cp="🧔‍♂" type="tts">erkek: sakal</annotation>
 		<annotation cp="👱‍♂">adam | erkek | sarışın</annotation>
 		<annotation cp="👱‍♂" type="tts">sarışın erkek</annotation>
-		<annotation cp="👨‍🍼">bakıcılık | bebek | bebek emziren erkek | emzirme | erkek</annotation>
-		<annotation cp="👨‍🍼" type="tts">bebek emziren erkek</annotation>
 		<annotation cp="👩">kadın | kişiler</annotation>
 		<annotation cp="👩" type="tts">kadın</annotation>
+		<annotation cp="🧔‍♀">kadın | kadın: sakal | sakal</annotation>
+		<annotation cp="🧔‍♀" type="tts">kadın: sakal</annotation>
 		<annotation cp="👱‍♀">bayan | kadın | sarışın</annotation>
 		<annotation cp="👱‍♀" type="tts">sarışın kadın</annotation>
-		<annotation cp="👩‍🍼">bakım | bebek | bebek emziren kadın | emzirme | kadın</annotation>
-		<annotation cp="👩‍🍼" type="tts">bebek emziren kadın</annotation>
 		<annotation cp="🧓">kişi | yaşlı | yaşlı yetişkin</annotation>
 		<annotation cp="🧓" type="tts">yaşlı yetişkin</annotation>
 		<annotation cp="👴">erkek | kişiler | yaşlı</annotation>
@@ -649,7 +1215,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙎‍♀" type="tts">darılan kadın</annotation>
 		<annotation cp="🙅">hareket | hayır | hayır hareketi | iyi değil | yasak | yüz</annotation>
 		<annotation cp="🙅" type="tts">hayır hareketi</annotation>
-		<annotation cp="🙅‍♂">erkek | hareket | hayır | hayır hareketi yapan erkek | jest | yasak</annotation>
+		<annotation cp="🙅‍♂">el | erkek | hareket | hayır | hayır hareketi yapan erkek | iyi değil | yasak</annotation>
 		<annotation cp="🙅‍♂" type="tts">hayır hareketi yapan erkek</annotation>
 		<annotation cp="🙅‍♀">bayan | el | hareket | hayır | hayır hareketi yapan kadın | iyi değil | kadın | yasak</annotation>
 		<annotation cp="🙅‍♀" type="tts">hayır hareketi yapan kadın</annotation>
@@ -809,12 +1375,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💂‍♂" type="tts">erkek muhafız</annotation>
 		<annotation cp="💂‍♀">bayan | kadın | muhafız</annotation>
 		<annotation cp="💂‍♀" type="tts">kadın muhafız</annotation>
+		<annotation cp="🥷">dövüşçü | gizli | ninja | saklı</annotation>
+		<annotation cp="🥷" type="tts">ninja</annotation>
 		<annotation cp="👷">inşaat | inşaat işçisi | işçi | kişiler</annotation>
 		<annotation cp="👷" type="tts">inşaat işçisi</annotation>
 		<annotation cp="👷‍♂">adam | erkek | erkek inşaat işçisi | inşaat | işçi</annotation>
 		<annotation cp="👷‍♂" type="tts">erkek inşaat işçisi</annotation>
 		<annotation cp="👷‍♀">bayan | inşaat | işçi | kadın | kadın inşaat işçisi</annotation>
 		<annotation cp="👷‍♀" type="tts">kadın inşaat işçisi</annotation>
+		<annotation cp="🫅">kral | kraliyet | soylu | taç takmış insan</annotation>
+		<annotation cp="🫅" type="tts">taç takmış insan</annotation>
 		<annotation cp="🤴">prens</annotation>
 		<annotation cp="🤴" type="tts">prens</annotation>
 		<annotation cp="👸">kişiler | peri masalı | prenses</annotation>
@@ -831,26 +1401,38 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧕" type="tts">başörtülü kadın</annotation>
 		<annotation cp="🤵">damat | kişi | smokin | smokinli kişi</annotation>
 		<annotation cp="🤵" type="tts">smokinli kişi</annotation>
-		<annotation cp="🤵‍♀">kadın | smokin | smokinli kadın</annotation>
-		<annotation cp="🤵‍♀" type="tts">smokinli kadın</annotation>
 		<annotation cp="🤵‍♂">adam | smokin | smokinli adam | smokinli erkek</annotation>
 		<annotation cp="🤵‍♂" type="tts">smokinli erkek</annotation>
+		<annotation cp="🤵‍♀">kadın | smokin | smokinli kadın</annotation>
+		<annotation cp="🤵‍♀" type="tts">smokinli kadın</annotation>
 		<annotation cp="👰">duvak | duvaklı gelin | evlilik | kişiler</annotation>
 		<annotation cp="👰" type="tts">duvaklı gelin</annotation>
-		<annotation cp="👰‍♀">duvak | duvaklı kadın | kadın</annotation>
-		<annotation cp="👰‍♀" type="tts">duvaklı kadın</annotation>
 		<annotation cp="👰‍♂">adam | duvak | duvaklı adam | duvaklı erkek</annotation>
 		<annotation cp="👰‍♂" type="tts">duvaklı erkek</annotation>
+		<annotation cp="👰‍♀">duvak | duvaklı kadın | kadın</annotation>
+		<annotation cp="👰‍♀" type="tts">duvaklı kadın</annotation>
 		<annotation cp="🤰">hamile | kadın</annotation>
 		<annotation cp="🤰" type="tts">hamile kadın</annotation>
+		<annotation cp="🫃">göbekli | hamile | hamile adam | şişmiş</annotation>
+		<annotation cp="🫃" type="tts">hamile adam</annotation>
+		<annotation cp="🫄">göbekli | hamile | hamile kişi | şişmiş</annotation>
+		<annotation cp="🫄" type="tts">hamile kişi</annotation>
 		<annotation cp="🤱">bebek | emziren kadın | emzirme | göğüs</annotation>
 		<annotation cp="🤱" type="tts">emziren kadın</annotation>
+		<annotation cp="👩‍🍼">bakım | bebek | bebek emziren kadın | emzirme | kadın</annotation>
+		<annotation cp="👩‍🍼" type="tts">bebek emziren kadın</annotation>
+		<annotation cp="👨‍🍼">bakıcılık | bebek | bebek emziren erkek | emzirme | erkek</annotation>
+		<annotation cp="👨‍🍼" type="tts">bebek emziren erkek</annotation>
+		<annotation cp="🧑‍🍼">bakıcılık | bebek | bebek emziren kişi | emzirme | kişi</annotation>
+		<annotation cp="🧑‍🍼" type="tts">bebek emziren kişi</annotation>
 		<annotation cp="👼">bebek melek | melek | peri masalı | yüz</annotation>
 		<annotation cp="👼" type="tts">bebek melek</annotation>
 		<annotation cp="🎅">kutlama | noel | Noel Baba | santa claus</annotation>
 		<annotation cp="🎅" type="tts">Noel Baba</annotation>
-		<annotation cp="🤶">anne | noel | Noel Anne</annotation>
+		<annotation cp="🤶">anne | noel</annotation>
 		<annotation cp="🤶" type="tts">Noel Anne</annotation>
+		<annotation cp="🧑‍🎄">cinsiyet belirtmeyen noel karakteri | noel | Noel figürü</annotation>
+		<annotation cp="🧑‍🎄" type="tts">cinsiyet belirtmeyen noel karakteri</annotation>
 		<annotation cp="🦸">iyi | kadın kahraman | kahraman | süper güç | süper kahraman</annotation>
 		<annotation cp="🦸" type="tts">süper kahraman</annotation>
 		<annotation cp="🦸‍♂">erkek | erkek süper kahraman | iyi | kahraman | süper güç</annotation>
@@ -905,6 +1487,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧟‍♂" type="tts">erkek zombi</annotation>
 		<annotation cp="🧟‍♀">hortlak | kadın zombi | yürüyen ölü</annotation>
 		<annotation cp="🧟‍♀" type="tts">kadın zombi</annotation>
+		<annotation cp="🧌">fantezi | peri masalı | trol | yaratık</annotation>
+		<annotation cp="🧌" type="tts">trol</annotation>
 		<annotation cp="💆">masaj | salon | yüz masajı</annotation>
 		<annotation cp="💆" type="tts">yüz masajı</annotation>
 		<annotation cp="💆‍♂">adam | erkek | masaj | yüz | yüz masajı yaptıran erkek</annotation>
@@ -1091,14 +1675,24 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💏" type="tts">öpücük</annotation>
 		<annotation cp="💑">kalp | kalpli çift | kişiler | romantizm</annotation>
 		<annotation cp="💑" type="tts">kalpli çift</annotation>
-		<annotation cp="👪">aile | anne | baba | çocuk | kişiler</annotation>
-		<annotation cp="👪" type="tts">aile</annotation>
 		<annotation cp="🗣">bağırma | kafa | konuşan kişi | konuşma | profil | siluet | yüz</annotation>
 		<annotation cp="🗣" type="tts">konuşan kişi</annotation>
 		<annotation cp="👤">büst | kişiler | siluet</annotation>
 		<annotation cp="👤" type="tts">siluet büst</annotation>
 		<annotation cp="👥">büst | kişiler | siluet | siluet büstler</annotation>
 		<annotation cp="👥" type="tts">siluet büstler</annotation>
+		<annotation cp="🫂">güle güle | hoşçakal | hoşçakalın | kucaklaşan insanlar | merhaba | sağol | sağolun | selam | teşekkür | teşekkürler</annotation>
+		<annotation cp="🫂" type="tts">kucaklaşan insanlar</annotation>
+		<annotation cp="👪">aile | anne | baba | çocuk | kişiler</annotation>
+		<annotation cp="👪" type="tts">aile</annotation>
+		<annotation cp="🧑‍🧑‍🧒">aile: yetişkin | aile: yetişkin, yetişkin, çocuk | çocuk | yetişkin</annotation>
+		<annotation cp="🧑‍🧑‍🧒" type="tts">aile: yetişkin, yetişkin, çocuk</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">aile: yetişkin | aile: yetişkin, yetişkin, çocuk, çocuk | çocuk | yetişkin</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">aile: yetişkin, yetişkin, çocuk, çocuk</annotation>
+		<annotation cp="🧑‍🧒">aile: yetişkin | aile: yetişkin, çocuk | çocuk</annotation>
+		<annotation cp="🧑‍🧒" type="tts">aile: yetişkin, çocuk</annotation>
+		<annotation cp="🧑‍🧒‍🧒">aile: yetişkin | aile: yetişkin, çocuk, çocuk | çocuk</annotation>
+		<annotation cp="🧑‍🧒‍🧒" type="tts">aile: yetişkin, çocuk, çocuk</annotation>
 		<annotation cp="👣">ayak | ayak izi | gövde | iz</annotation>
 		<annotation cp="👣" type="tts">ayak izi</annotation>
 		<annotation cp="🦰">kırmızı | kızıl | kızıl saç</annotation>
@@ -1149,6 +1743,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐆" type="tts">leopar</annotation>
 		<annotation cp="🐴">at | at yüzü | hayvan | yüz</annotation>
 		<annotation cp="🐴" type="tts">at yüzü</annotation>
+		<annotation cp="🫎">elk | geyik boynuzları | hayvan | memeli | sığın</annotation>
+		<annotation cp="🫎" type="tts">sığın</annotation>
+		<annotation cp="🫏">eşek | hayvan | inatçı | katır | memeli | merkep</annotation>
+		<annotation cp="🫏" type="tts">eşek</annotation>
 		<annotation cp="🐎">at | yarış | yarış atı</annotation>
 		<annotation cp="🐎" type="tts">at</annotation>
 		<annotation cp="🦄">tek boynuzlu at | unicorn | yüz</annotation>
@@ -1157,6 +1755,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦓" type="tts">zebra</annotation>
 		<annotation cp="🦌">geyik | hayvan</annotation>
 		<annotation cp="🦌" type="tts">geyik</annotation>
+		<annotation cp="🦬">bizon | bufalo | sürü</annotation>
+		<annotation cp="🦬" type="tts">bizon</annotation>
 		<annotation cp="🐮">hayvan | inek | inek yüzü | yüz</annotation>
 		<annotation cp="🐮" type="tts">inek yüzü</annotation>
 		<annotation cp="🐂">boğa | boğa burcu | burçlar | öküz</annotation>
@@ -1189,6 +1789,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦒" type="tts">zürafa</annotation>
 		<annotation cp="🐘">fil</annotation>
 		<annotation cp="🐘" type="tts">fil</annotation>
+		<annotation cp="🦣">büyük | fil dişi | mamut | nesli tükenen | soyu tükenen</annotation>
+		<annotation cp="🦣" type="tts">mamut</annotation>
 		<annotation cp="🦏">gergedan | hayvan</annotation>
 		<annotation cp="🦏" type="tts">gergedan</annotation>
 		<annotation cp="🦛">hipo | hipopotam | su aygırı</annotation>
@@ -1199,7 +1801,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐁" type="tts">fare</annotation>
 		<annotation cp="🐀">sıçan</annotation>
 		<annotation cp="🐀" type="tts">sıçan</annotation>
-		<annotation cp="🐹">hamster | hayvan | yüz</annotation>
+		<annotation cp="🐹">evcil hayvan | hamster | yüz</annotation>
 		<annotation cp="🐹" type="tts">hamster</annotation>
 		<annotation cp="🐰">hayvan | tavşan | tavşan yüzü | yüz</annotation>
 		<annotation cp="🐰" type="tts">tavşan yüzü</annotation>
@@ -1207,6 +1809,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐇" type="tts">tavşan</annotation>
 		<annotation cp="🐿">sincap</annotation>
 		<annotation cp="🐿" type="tts">sincap</annotation>
+		<annotation cp="🦫">baraj | kunduz</annotation>
+		<annotation cp="🦫" type="tts">kunduz</annotation>
 		<annotation cp="🦔">dikenli | kirpi</annotation>
 		<annotation cp="🦔" type="tts">kirpi</annotation>
 		<annotation cp="🦇">hayvan | vampir | yarasa</annotation>
@@ -1257,12 +1861,24 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦢" type="tts">kuğu</annotation>
 		<annotation cp="🦉">baykuş | bilge | kuş</annotation>
 		<annotation cp="🦉" type="tts">baykuş</annotation>
+		<annotation cp="🦤">büyük | dodo kuşu | Mauritius | nesli tükenmiş | soyu tükenmiş</annotation>
+		<annotation cp="🦤" type="tts">dodo kuşu</annotation>
+		<annotation cp="🪶">hafif | kuş | kuş tüyü | tüylü | uçma</annotation>
+		<annotation cp="🪶" type="tts">kuş tüyü</annotation>
 		<annotation cp="🦩">flamingo | gösterişli | tropikal</annotation>
 		<annotation cp="🦩" type="tts">flamingo</annotation>
 		<annotation cp="🦚">dişi tavus kuşu | gösterişli | gururlu | kuş | tavus kuşu</annotation>
 		<annotation cp="🦚" type="tts">tavus kuşu</annotation>
 		<annotation cp="🦜">konuşma | korsan | kuş | papağan</annotation>
 		<annotation cp="🦜" type="tts">papağan</annotation>
+		<annotation cp="🪽">kanat | kuş | melek gibi | mitoloji | uçma | uçuş</annotation>
+		<annotation cp="🪽" type="tts">kanat</annotation>
+		<annotation cp="🐦‍⬛">kara | karga | kuş | kuzgun | siyah</annotation>
+		<annotation cp="🐦‍⬛" type="tts">siyah kuş</annotation>
+		<annotation cp="🪿">kaz | kaz sesi | kümes hayvanı | kuş | şapşal</annotation>
+		<annotation cp="🪿" type="tts">kaz</annotation>
+		<annotation cp="🐦‍🔥">Anka | ateş kuşu | fantezi | reenkarnasyon | yeniden doğuş</annotation>
+		<annotation cp="🐦‍🔥" type="tts">Anka</annotation>
 		<annotation cp="🐸">kurbağa | yüz</annotation>
 		<annotation cp="🐸" type="tts">kurbağa</annotation>
 		<annotation cp="🐊">hayvan | timsah</annotation>
@@ -1287,6 +1903,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐋" type="tts">balina</annotation>
 		<annotation cp="🐬">hayvan | yunus</annotation>
 		<annotation cp="🐬" type="tts">yunus</annotation>
+		<annotation cp="🦭">ayı balığı | denizaslanı | fok | fok balığı</annotation>
+		<annotation cp="🦭" type="tts">fok</annotation>
 		<annotation cp="🐟">balık | hayvan</annotation>
 		<annotation cp="🐟" type="tts">balık</annotation>
 		<annotation cp="🐠">balık | hayvan | tropikal balık</annotation>
@@ -1299,6 +1917,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐙" type="tts">ahtapot</annotation>
 		<annotation cp="🐚">deniz kabuğu | hayvan | spiral deniz kabuğu</annotation>
 		<annotation cp="🐚" type="tts">deniz kabuğu</annotation>
+		<annotation cp="🪸">mercan | okyanus | resif</annotation>
+		<annotation cp="🪸" type="tts">mercan</annotation>
+		<annotation cp="🪼">ahh | deniz | denizanası | iğne | medüz | omurgasız | yanma</annotation>
+		<annotation cp="🪼" type="tts">denizanası</annotation>
 		<annotation cp="🐌">salyangoz</annotation>
 		<annotation cp="🐌" type="tts">salyangoz</annotation>
 		<annotation cp="🦋">böcek | kelebek | şirin</annotation>
@@ -1309,10 +1931,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐜" type="tts">karınca</annotation>
 		<annotation cp="🐝">arı | bal arısı | hayvan</annotation>
 		<annotation cp="🐝" type="tts">bal arısı</annotation>
+		<annotation cp="🪲">böcek | haşere</annotation>
+		<annotation cp="🪲" type="tts">böcek</annotation>
 		<annotation cp="🐞">böcek | hanım | hanımböceği | hayvan | uğur böceği</annotation>
 		<annotation cp="🐞" type="tts">uğur böceği</annotation>
 		<annotation cp="🦗">çekirge | cırcır böceği</annotation>
 		<annotation cp="🦗" type="tts">cırcır böceği</annotation>
+		<annotation cp="🪳">böcek | hamam böceği | haşere | karafatma</annotation>
+		<annotation cp="🪳" type="tts">hamam böceği</annotation>
 		<annotation cp="🕷">böcek | örümcek</annotation>
 		<annotation cp="🕷" type="tts">örümcek</annotation>
 		<annotation cp="🕸">örümcek | örümcek ağı</annotation>
@@ -1321,6 +1947,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦂" type="tts">akrep</annotation>
 		<annotation cp="🦟">ateş | böcek | hastalık | sivrisinek | sıtma | virüs</annotation>
 		<annotation cp="🦟" type="tts">sivrisinek</annotation>
+		<annotation cp="🪰">böcek | çürüme | hastalık | karasinek | larva | sinek</annotation>
+		<annotation cp="🪰" type="tts">karasinek</annotation>
+		<annotation cp="🪱">kurt | kurtçuk | parazit | solucan</annotation>
+		<annotation cp="🪱" type="tts">solucan</annotation>
 		<annotation cp="🦠">amip | bakteri | mikrop | virüs</annotation>
 		<annotation cp="🦠" type="tts">mikrop</annotation>
 		<annotation cp="💐">buket | çiçek | romantizm</annotation>
@@ -1329,6 +1959,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌸" type="tts">kiraz çiçeği</annotation>
 		<annotation cp="💮">beyaz çiçek | çiçek | damga | iyi çalışma damgası</annotation>
 		<annotation cp="💮" type="tts">beyaz çiçek</annotation>
+		<annotation cp="🪷">Budizm | çiçek | Hindistan | Hinduizm | nilüfer | saflık | Vietnam</annotation>
+		<annotation cp="🪷" type="tts">nilüfer</annotation>
 		<annotation cp="🏵">bitki | çiçek rozet | gülce</annotation>
 		<annotation cp="🏵" type="tts">çiçek rozet</annotation>
 		<annotation cp="🌹">bitki | çiçek | gül</annotation>
@@ -1343,8 +1975,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌼" type="tts">çiçek açma</annotation>
 		<annotation cp="🌷">bitki | çiçek | lale</annotation>
 		<annotation cp="🌷" type="tts">lale</annotation>
+		<annotation cp="🪻">acı bakla | aslanağzı | çiçek | lavanta | lupin | sümbül</annotation>
+		<annotation cp="🪻" type="tts">sümbül</annotation>
 		<annotation cp="🌱">fide | filizlenme | genç</annotation>
 		<annotation cp="🌱" type="tts">filizlenme</annotation>
+		<annotation cp="🪴">bitki | ev | ev bitkisi | saksı | saksı bitkisi | yetiştirme</annotation>
+		<annotation cp="🪴" type="tts">saksı bitkisi</annotation>
 		<annotation cp="🌲">ağaç | yaprak dökmeyen | yaprak dökmeyen ağaç</annotation>
 		<annotation cp="🌲" type="tts">yaprak dökmeyen ağaç</annotation>
 		<annotation cp="🌳">ağaç | yaprak döken | yaprak döken ağaç</annotation>
@@ -1367,6 +2003,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍂" type="tts">düşen yapraklar</annotation>
 		<annotation cp="🍃">esen | rüzgar | rüzgardaki yaprak | yaprak</annotation>
 		<annotation cp="🍃" type="tts">rüzgardaki yaprak</annotation>
+		<annotation cp="🪹">boş yuva | yuva</annotation>
+		<annotation cp="🪹" type="tts">boş yuva</annotation>
+		<annotation cp="🪺">yumurta bulunan yuva | yuva</annotation>
+		<annotation cp="🪺" type="tts">yumurta bulunan yuva</annotation>
+		<annotation cp="🍄">bitki | mantar</annotation>
+		<annotation cp="🍄" type="tts">mantar</annotation>
 		<annotation cp="🍇">meyve | üzüm</annotation>
 		<annotation cp="🍇" type="tts">üzüm</annotation>
 		<annotation cp="🍈">kavun | meyve</annotation>
@@ -1377,6 +2019,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍊" type="tts">mandalina</annotation>
 		<annotation cp="🍋">limon | meyve | narenciye</annotation>
 		<annotation cp="🍋" type="tts">limon</annotation>
+		<annotation cp="🍋‍🟩">meyve | misket limonu | narenciye | tropik</annotation>
+		<annotation cp="🍋‍🟩" type="tts">misket limonu</annotation>
 		<annotation cp="🍌">meyve | muz</annotation>
 		<annotation cp="🍌" type="tts">muz</annotation>
 		<annotation cp="🍍">ananas | meyve</annotation>
@@ -1395,10 +2039,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍒" type="tts">kiraz</annotation>
 		<annotation cp="🍓">çilek | meyve | yumuşak meyve</annotation>
 		<annotation cp="🍓" type="tts">çilek</annotation>
+		<annotation cp="🫐">dağ mersini | mavi | mersin | yaban mersini</annotation>
+		<annotation cp="🫐" type="tts">yaban mersini</annotation>
 		<annotation cp="🥝">kivi | meyve | yiyecek</annotation>
 		<annotation cp="🥝" type="tts">kivi</annotation>
-		<annotation cp="🍅">domates | sebze</annotation>
+		<annotation cp="🍅">domates | meyve | sebze</annotation>
 		<annotation cp="🍅" type="tts">domates</annotation>
+		<annotation cp="🫒">yiyecek | zeytin</annotation>
+		<annotation cp="🫒" type="tts">zeytin</annotation>
 		<annotation cp="🥥">Hindistan cevizi | palmiye | pina colada</annotation>
 		<annotation cp="🥥" type="tts">Hindistan cevizi</annotation>
 		<annotation cp="🥑">avokado | meyve | yiyecek</annotation>
@@ -1413,6 +2061,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌽" type="tts">mısır koçanı</annotation>
 		<annotation cp="🌶">acı | biber | bitki</annotation>
 		<annotation cp="🌶" type="tts">acı biber</annotation>
+		<annotation cp="🫑">biber | dolma biber | dolmalık biber | sebze</annotation>
+		<annotation cp="🫑" type="tts">dolma biber</annotation>
 		<annotation cp="🥒">salatalık | sebze | turşu | yiyecek</annotation>
 		<annotation cp="🥒" type="tts">salatalık</annotation>
 		<annotation cp="🥬">çin lahanası | karalahana | lahana | marul | yeşil yapraklı sebze</annotation>
@@ -1423,18 +2073,26 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧄" type="tts">sarımsak</annotation>
 		<annotation cp="🧅">baharat | soğan</annotation>
 		<annotation cp="🧅" type="tts">soğan</annotation>
-		<annotation cp="🍄">bitki | mantar</annotation>
-		<annotation cp="🍄" type="tts">mantar</annotation>
 		<annotation cp="🥜">fındık | fıstık | sebze | yer fıstığı | yiyecek</annotation>
 		<annotation cp="🥜" type="tts">yer fıstığı</annotation>
+		<annotation cp="🫘">baklagil | barbunya | fasulye | gıda</annotation>
+		<annotation cp="🫘" type="tts">fasulye</annotation>
 		<annotation cp="🌰">bitki | kestane</annotation>
 		<annotation cp="🌰" type="tts">kestane</annotation>
+		<annotation cp="🫚">baharat | bira | kök | kök zencefil | yumru</annotation>
+		<annotation cp="🫚" type="tts">kök zencefil</annotation>
+		<annotation cp="🫛">baklagil | bezelye | edamame | fasulye | kabuklu bezelye | sebze</annotation>
+		<annotation cp="🫛" type="tts">kabuklu bezelye</annotation>
+		<annotation cp="🍄‍🟫">doğa | gıda | kahverengi mantar | mantar | sebze</annotation>
+		<annotation cp="🍄‍🟫" type="tts">kahverengi mantar</annotation>
 		<annotation cp="🍞">ekmek | ekmek dilimi | restoran</annotation>
 		<annotation cp="🍞" type="tts">ekmek</annotation>
 		<annotation cp="🥐">ay çöreği | ekmek | fransız | kruvasan | yiyecek</annotation>
 		<annotation cp="🥐" type="tts">kruvasan</annotation>
 		<annotation cp="🥖">baget | ekmek | fransız | yiyecek</annotation>
 		<annotation cp="🥖" type="tts">baget ekmek</annotation>
+		<annotation cp="🫓">bazlama | lavaş | naan | pide | pita | yassı ekmek</annotation>
+		<annotation cp="🫓" type="tts">yassı ekmek</annotation>
 		<annotation cp="🥨">burgu | pretzel</annotation>
 		<annotation cp="🥨" type="tts">pretzel</annotation>
 		<annotation cp="🥯">bagel | fırın | simit | sürme peynir</annotation>
@@ -1467,6 +2125,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌮" type="tts">tako</annotation>
 		<annotation cp="🌯">burito | Meksika dürümü</annotation>
 		<annotation cp="🌯" type="tts">burito</annotation>
+		<annotation cp="🫔">dürüm | Meksika yemeği | tamale</annotation>
+		<annotation cp="🫔" type="tts">tamale</annotation>
 		<annotation cp="🥙">döner | dürüm | falafel | kebap | pide | sarma | yiyecek</annotation>
 		<annotation cp="🥙" type="tts">dürüm</annotation>
 		<annotation cp="🧆">falafel | köfte | nohut</annotation>
@@ -1479,6 +2139,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥘" type="tts">sahanda yemek</annotation>
 		<annotation cp="🍲">restoran | tencere yemeği | yemek tenceresi</annotation>
 		<annotation cp="🍲" type="tts">yemek tenceresi</annotation>
+		<annotation cp="🫕">çikolata | erimiş | fondü | İsviçre | kap | peynir</annotation>
+		<annotation cp="🫕" type="tts">fondü</annotation>
 		<annotation cp="🥣">kahvaltı | kaşıklı kase | pirinç lapası | tahıl gevreği</annotation>
 		<annotation cp="🥣" type="tts">kaşıklı kase</annotation>
 		<annotation cp="🥗">salata | yeşil | yiyecek</annotation>
@@ -1517,7 +2179,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍥" type="tts">balık köftesi</annotation>
 		<annotation cp="🥮">ay pastası | festival | sonbahar | yuèbǐng</annotation>
 		<annotation cp="🥮" type="tts">ay pastası</annotation>
-		<annotation cp="🍡">çubukta pirinç tatlısı topları | dango | pirinç tatlısı | pirinç tatlısı topları | restoran</annotation>
+		<annotation cp="🍡">çubukta pirinç tatlısı topları | dango | Japon pirinç tatlısı | pirinç tatlısı | pirinç tatlısı topları | restoran</annotation>
 		<annotation cp="🍡" type="tts">pirinç tatlısı</annotation>
 		<annotation cp="🥟">empanada | gyōza | jiaozi | mantı | pierogi | potsticker</annotation>
 		<annotation cp="🥟" type="tts">mantı</annotation>
@@ -1569,6 +2231,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥛" type="tts">süt bardağı</annotation>
 		<annotation cp="☕">çay | dumanı tüten | içecek | kahve | sıcak</annotation>
 		<annotation cp="☕" type="tts">sıcak içecek</annotation>
+		<annotation cp="🫖">çay | çaydanlık | demlik | içecek</annotation>
+		<annotation cp="🫖" type="tts">demlik</annotation>
 		<annotation cp="🍵">çay | çay fincanı | içecek</annotation>
 		<annotation cp="🍵" type="tts">çay fincanı</annotation>
 		<annotation cp="🍶">bar | fincan | içecek | restoran | sake | sake şişesi ve fincanı | şişe</annotation>
@@ -1589,8 +2253,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥂" type="tts">kadeh tokuşturma</annotation>
 		<annotation cp="🥃">bardak | kısa ve geniş | kısa ve geniş bardak | likör | tek içki | viski</annotation>
 		<annotation cp="🥃" type="tts">kısa ve geniş bardak</annotation>
+		<annotation cp="🫗">bardak | boş | dökme | dökülen sıvı | içecek | sıvı</annotation>
+		<annotation cp="🫗" type="tts">dökülen sıvı</annotation>
 		<annotation cp="🥤">pipetli bardak</annotation>
 		<annotation cp="🥤" type="tts">pipetli bardak</annotation>
+		<annotation cp="🧋">baloncuk | bubble tea | çay | inci | inci çayı | süt</annotation>
+		<annotation cp="🧋" type="tts">bubble tea</annotation>
 		<annotation cp="🧃">içecek kutusu | kutu meyve suyu</annotation>
 		<annotation cp="🧃" type="tts">içecek kutusu</annotation>
 		<annotation cp="🧉">içecek | mate çayı</annotation>
@@ -1607,6 +2275,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥄" type="tts">kaşık</annotation>
 		<annotation cp="🔪">bıçak | mutfak bıçağı</annotation>
 		<annotation cp="🔪" type="tts">mutfak bıçağı</annotation>
+		<annotation cp="🫙">baharatlık | boş | kavanoz | saklama kabı | sos</annotation>
+		<annotation cp="🫙" type="tts">kavanoz</annotation>
 		<annotation cp="🏺">alet | amfora | antika | içecek | kap | silah</annotation>
 		<annotation cp="🏺" type="tts">amfora</annotation>
 		<annotation cp="🌍">Afrika | Avrupa | dünya | yerkürede Avrupa-Afrika</annotation>
@@ -1621,7 +2291,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🗺" type="tts">dünya haritası</annotation>
 		<annotation cp="🗾">harita | Japonya | Japonya haritası</annotation>
 		<annotation cp="🗾" type="tts">Japonya haritası</annotation>
-		<annotation cp="🧭">manyetik | navigasyon | orienteering | pusula</annotation>
+		<annotation cp="🧭">hedef bulma | manyetik | navigasyon | oryantiring | pusula | yön bulma</annotation>
 		<annotation cp="🧭" type="tts">pusula</annotation>
 		<annotation cp="🏔">dağ | kar | karla kaplı dağ | soğuk</annotation>
 		<annotation cp="🏔" type="tts">karla kaplı dağ</annotation>
@@ -1649,6 +2319,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏗" type="tts">bina inşaatı</annotation>
 		<annotation cp="🧱">duvar | harç | kil | tuğla | tuğlalar</annotation>
 		<annotation cp="🧱" type="tts">tuğla</annotation>
+		<annotation cp="🪨">ağır | katı | kaya | kayalık | sert | taş</annotation>
+		<annotation cp="🪨" type="tts">kaya</annotation>
+		<annotation cp="🪵">ağaç | ahşap | kereste | kütük | tomruk</annotation>
+		<annotation cp="🪵" type="tts">kütük</annotation>
+		<annotation cp="🛖">ev | kulübe | yurt</annotation>
+		<annotation cp="🛖" type="tts">kulübe</annotation>
 		<annotation cp="🏘">bina | ev | evler</annotation>
 		<annotation cp="🏘" type="tts">evler</annotation>
 		<annotation cp="🏚">bina | ev | harabe | terkedilmiş ev</annotation>
@@ -1713,7 +2389,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏙" type="tts">şehir manzarası</annotation>
 		<annotation cp="🌄">dağ | dağların arasından güneşin doğuşu | dağların ardında güneş | sabah güneşi</annotation>
 		<annotation cp="🌄" type="tts">dağların arasından güneşin doğuşu</annotation>
-		<annotation cp="🌅">güneşin doğuşu | sabah güneşi</annotation>
+		<annotation cp="🌅">gün doğumu | güneş | güneşin doğuşu | sabah | sabah güneşi | şafak</annotation>
 		<annotation cp="🌅" type="tts">güneşin doğuşu</annotation>
 		<annotation cp="🌆">akşam | alacakaranlık | bina | gün batımı | manzara | şehir | şehirde alacakaranlık</annotation>
 		<annotation cp="🌆" type="tts">şehirde alacakaranlık</annotation>
@@ -1725,6 +2401,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="♨" type="tts">kaplıca</annotation>
 		<annotation cp="🎠">at | atlıkarınca | atlıkarınca atı | eğlence</annotation>
 		<annotation cp="🎠" type="tts">atlıkarınca</annotation>
+		<annotation cp="🛝">eğlence parkı | kaydırak | oyun</annotation>
+		<annotation cp="🛝" type="tts">kaydırak</annotation>
 		<annotation cp="🎡">dolap | dönme | eğlence | eğlence parkı</annotation>
 		<annotation cp="🎡" type="tts">dönme dolap</annotation>
 		<annotation cp="🎢">eğlence | eğlence parkı | hız | hız treni | tren</annotation>
@@ -1735,7 +2413,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎪" type="tts">sirk çadırı</annotation>
 		<annotation cp="🚂">buharlı lokomotif | lokomotif | taşıt | tren</annotation>
 		<annotation cp="🚂" type="tts">buharlı lokomotif</annotation>
-		<annotation cp="🚃">demiryolu | elektrik | elektrikli tren | taşıt | tramvay | vagon</annotation>
+		<annotation cp="🚃">demir yolu | elektrik | elektrikli tren | taşıt | tramvay | vagon</annotation>
 		<annotation cp="🚃" type="tts">vagon</annotation>
 		<annotation cp="🚄">shinkansen | taşıt | tren | yüksek hızlı tren</annotation>
 		<annotation cp="🚄" type="tts">yüksek hızlı tren</annotation>
@@ -1783,6 +2461,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚘" type="tts">yaklaşan araba</annotation>
 		<annotation cp="🚙">araba | cip | eğlence taşıtı | taşıt</annotation>
 		<annotation cp="🚙" type="tts">cip</annotation>
+		<annotation cp="🛻">kamyon | kamyonet | pikap</annotation>
+		<annotation cp="🛻" type="tts">pikap</annotation>
 		<annotation cp="🚚">kamyon | nakliye kamyonu | taşıt</annotation>
 		<annotation cp="🚚" type="tts">nakliye kamyonu</annotation>
 		<annotation cp="🚛">çekici | çekici kamyon | taşıt | tır | treyler</annotation>
@@ -1807,6 +2487,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛴" type="tts">ayakla sürülen skuter</annotation>
 		<annotation cp="🛹">kaykay | tahta</annotation>
 		<annotation cp="🛹" type="tts">kaykay</annotation>
+		<annotation cp="🛼">paten | tekerlek | tekerlekli paten</annotation>
+		<annotation cp="🛼" type="tts">paten</annotation>
 		<annotation cp="🚏">durak | otobüs | otobüs durağı</annotation>
 		<annotation cp="🚏" type="tts">otobüs durağı</annotation>
 		<annotation cp="🛣">anayol | cadde | otoban</annotation>
@@ -1817,6 +2499,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛢" type="tts">petrol varili</annotation>
 		<annotation cp="⛽">akaryakıt istasyonu | benzin | istasyon | yakıt | yakıt pompası</annotation>
 		<annotation cp="⛽" type="tts">akaryakıt istasyonu</annotation>
+		<annotation cp="🛞">çark | dönüş | lastik | tekerlek</annotation>
+		<annotation cp="🛞" type="tts">tekerlek</annotation>
 		<annotation cp="🚨">polis arabası | polis lambası | polis tepe lambası</annotation>
 		<annotation cp="🚨" type="tts">polis lambası</annotation>
 		<annotation cp="🚥">ışık | trafik | trafik sinyalleri | yatay trafik ışığı | yatay trafik ışıkları</annotation>
@@ -1829,6 +2513,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚧" type="tts">inşaat</annotation>
 		<annotation cp="⚓">çıpa | gemi | işaret</annotation>
 		<annotation cp="⚓" type="tts">çıpa</annotation>
+		<annotation cp="🛟">can simidi | cankurtaran | cankurtaran simidi | güvenlik | hayat kurtaran | yüzme</annotation>
+		<annotation cp="🛟" type="tts">cankurtaran simidi</annotation>
 		<annotation cp="⛵">deniz tatil yeri | tatil yeri | tekne | yat | yelkenli tekne</annotation>
 		<annotation cp="⛵" type="tts">yelkenli tekne</annotation>
 		<annotation cp="🛶">bot | kano</annotation>
@@ -2029,7 +2715,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💧" type="tts">damlacık</annotation>
 		<annotation cp="🌊">dalga | okyanus dalgası | su dalgası</annotation>
 		<annotation cp="🌊" type="tts">dalga</annotation>
-		<annotation cp="🎃">fener | Halloween | jack | kabak | kutlama</annotation>
+		<annotation cp="🎃">cadılar bayramı | fener | halloween | jack | kabak | kutlama</annotation>
 		<annotation cp="🎃" type="tts">kabak fener</annotation>
 		<annotation cp="🎄">ağaç | kutlama | Noel ağacı</annotation>
 		<annotation cp="🎄" type="tts">Noel ağacı</annotation>
@@ -2069,7 +2755,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎗" type="tts">anma kurdelesi</annotation>
 		<annotation cp="🎟">bilet | giriş | giriş bileti</annotation>
 		<annotation cp="🎟" type="tts">giriş bileti</annotation>
-		<annotation cp="🎫">bilet | eğlence</annotation>
+		<annotation cp="🎫">bilet | giriş</annotation>
 		<annotation cp="🎫" type="tts">bilet</annotation>
 		<annotation cp="🎖">askeri | kutlama | madalya</annotation>
 		<annotation cp="🎖" type="tts">askeri madalya</annotation>
@@ -2093,7 +2779,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏀" type="tts">basketbol</annotation>
 		<annotation cp="🏐">maç | top | voleybol</annotation>
 		<annotation cp="🏐" type="tts">voleybol</annotation>
-		<annotation cp="🏈">Amerikan | amerikan futbolu | spor | top</annotation>
+		<annotation cp="🏈">amerikan | amerikan futbolu | spor | top</annotation>
 		<annotation cp="🏈" type="tts">amerikan futbolu</annotation>
 		<annotation cp="🏉">futbol topu | ragbi | spor | top</annotation>
 		<annotation cp="🏉" type="tts">ragbi</annotation>
@@ -2143,12 +2829,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪀" type="tts">yoyo</annotation>
 		<annotation cp="🪁">süzülme | uçma | uçurtma</annotation>
 		<annotation cp="🪁" type="tts">uçurtma</annotation>
+		<annotation cp="🔫">revolver | silah | su tabancası | tabanca</annotation>
+		<annotation cp="🔫" type="tts">su tabancası</annotation>
 		<annotation cp="🎱">bilardo | oyun | sekiz top</annotation>
 		<annotation cp="🎱" type="tts">bilardo</annotation>
 		<annotation cp="🔮">fal | fal bakma | kristal | küre</annotation>
 		<annotation cp="🔮" type="tts">kristal küre</annotation>
-		<annotation cp="🧿">boncuk | kem göz | mavi boncuk | muska | nazar | nazarlık | tılsım</annotation>
-		<annotation cp="🧿" type="tts">nazarlık</annotation>
+		<annotation cp="🪄">büyücü | cadı | sihir | sihirli asa</annotation>
+		<annotation cp="🪄" type="tts">sihirli asa</annotation>
 		<annotation cp="🎮">kontrol cihazı | oyun | oyun kontrol cihazı | video oyunu</annotation>
 		<annotation cp="🎮" type="tts">video oyunu</annotation>
 		<annotation cp="🕹">oyun | oyun çubuğu | video oyunu</annotation>
@@ -2161,6 +2849,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧩" type="tts">yapboz parçası</annotation>
 		<annotation cp="🧸">dolgu | oyun | oyuncak | oyuncak ayı | pelüş</annotation>
 		<annotation cp="🧸" type="tts">oyuncak ayı</annotation>
+		<annotation cp="🪅">kutlama | parti | pinyata</annotation>
+		<annotation cp="🪅" type="tts">pinyata</annotation>
+		<annotation cp="🪩">aynalı küre | dans | disko | parlak | parti</annotation>
+		<annotation cp="🪩" type="tts">aynalı küre</annotation>
+		<annotation cp="🪆">bebek | iç içe | matruşka | Rusya</annotation>
+		<annotation cp="🪆" type="tts">matruşka</annotation>
 		<annotation cp="♠">iskambil | kart | maça | pik</annotation>
 		<annotation cp="♠" type="tts">maça</annotation>
 		<annotation cp="♥">iskambil | kart | kör | kupa</annotation>
@@ -2185,8 +2879,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎨" type="tts">boya paleti</annotation>
 		<annotation cp="🧵">dikiş | iğne | iplik | makara</annotation>
 		<annotation cp="🧵" type="tts">iplik</annotation>
+		<annotation cp="🪡">dikiş | dikiş iğnesi | dikme | iğne | nakış | sökük | terzi</annotation>
+		<annotation cp="🪡" type="tts">dikiş iğnesi</annotation>
 		<annotation cp="🧶">iplik yumağı | kroşe | top | yumak</annotation>
 		<annotation cp="🧶" type="tts">iplik yumağı</annotation>
+		<annotation cp="🪢">bağlı | denizci düğümü | dolaşık | düğüm | halat | sicim</annotation>
+		<annotation cp="🪢" type="tts">denizci düğümü</annotation>
 		<annotation cp="👓">giyim | gözlük</annotation>
 		<annotation cp="👓" type="tts">gözlük</annotation>
 		<annotation cp="🕶">göz | gözlük | güneş gözlüğü | kara</annotation>
@@ -2227,6 +2925,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👙" type="tts">bikini</annotation>
 		<annotation cp="👚">giyim | giysiler | kadın giysisi</annotation>
 		<annotation cp="👚" type="tts">kadın giysisi</annotation>
+		<annotation cp="🪭">dans | heyecan | serinletme | sıcak | utangaç | yelpaze</annotation>
+		<annotation cp="🪭" type="tts">yelpaze</annotation>
 		<annotation cp="👛">bozuk para | bozuk para çantası | cüzdan | giyim</annotation>
 		<annotation cp="👛" type="tts">cüzdan</annotation>
 		<annotation cp="👜">çanta | el çantası | giyim</annotation>
@@ -2237,6 +2937,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛍" type="tts">alışveriş çantası</annotation>
 		<annotation cp="🎒">okul | okul çantası | okul sırt çantası | sırt çantası</annotation>
 		<annotation cp="🎒" type="tts">okul çantası</annotation>
+		<annotation cp="🩴">deniz terliği | kumsal terliği | parmak arası | parmak arası terlik | sandalet</annotation>
+		<annotation cp="🩴" type="tts">parmak arası terlik</annotation>
 		<annotation cp="👞">ayakkabı | erkek ayakkabısı | giyim</annotation>
 		<annotation cp="👞" type="tts">erkek ayakkabısı</annotation>
 		<annotation cp="👟">ayakkabı | bez ayakkabı | giyim | koşu ayakkabısı</annotation>
@@ -2253,6 +2955,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🩰" type="tts">bale ayakkabıları</annotation>
 		<annotation cp="👢">bot | giyim | kadın | kadın botu</annotation>
 		<annotation cp="👢" type="tts">kadın botu</annotation>
+		<annotation cp="🪮">Afro saç | kıvırcık saç | perma tarağı | saç | seçme | tarak</annotation>
+		<annotation cp="🪮" type="tts">perma tarağı</annotation>
 		<annotation cp="👑">giyim | taç</annotation>
 		<annotation cp="👑" type="tts">taç</annotation>
 		<annotation cp="👒">giyim | kadın şapkası | şapka</annotation>
@@ -2263,6 +2967,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎓" type="tts">mezuniyet kepi</annotation>
 		<annotation cp="🧢">beyzbol şapkası | siperli şapka</annotation>
 		<annotation cp="🧢" type="tts">siperli şapka</annotation>
+		<annotation cp="🪖">asker | asker kaskı | askerlik | kask | ordu | savaşçı</annotation>
+		<annotation cp="🪖" type="tts">asker kaskı</annotation>
 		<annotation cp="⛑">haç | kask | şapka | yardım | yardım ekibi kaskı | yüz</annotation>
 		<annotation cp="⛑" type="tts">yardım ekibi kaskı</annotation>
 		<annotation cp="📿">boncuk | din | dua | giyim | kolye | tesbih | tespih</annotation>
@@ -2311,6 +3017,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📻" type="tts">radyo</annotation>
 		<annotation cp="🎷">alet | müzik | müzik aleti | saksafon</annotation>
 		<annotation cp="🎷" type="tts">saksafon</annotation>
+		<annotation cp="🪗">akordeon | akordiyon</annotation>
+		<annotation cp="🪗" type="tts">akordiyon</annotation>
 		<annotation cp="🎸">alet | gitar | müzik | müzik aleti</annotation>
 		<annotation cp="🎸" type="tts">gitar</annotation>
 		<annotation cp="🎹">alet | klavye | müzik | müzik aleti | müzik klavyesi</annotation>
@@ -2323,6 +3031,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪕" type="tts">banjo</annotation>
 		<annotation cp="🥁">davul | müzik | tokmak</annotation>
 		<annotation cp="🥁" type="tts">davul</annotation>
+		<annotation cp="🪘">conga | davul | ritm | tempo | uzun davul | vuruş</annotation>
+		<annotation cp="🪘" type="tts">uzun davul</annotation>
+		<annotation cp="🪇">alet | çıngırak | marakas | müzik | müzik aleti | perküsyon | sallama | vurmalı</annotation>
+		<annotation cp="🪇" type="tts">marakas</annotation>
+		<annotation cp="🪈">ahşap üflemeli | boru | fife | flüt | kaval | müzik | nefesli | recorder</annotation>
+		<annotation cp="🪈" type="tts">flüt</annotation>
 		<annotation cp="📱">cep telefonu | mobil telefon | telefon</annotation>
 		<annotation cp="📱" type="tts">cep telefonu</annotation>
 		<annotation cp="📲">çağrı yapmak | mobil telefon | ok işaretli cep telefonu | telefon</annotation>
@@ -2337,6 +3051,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📠" type="tts">faks makinesi</annotation>
 		<annotation cp="🔋">pil</annotation>
 		<annotation cp="🔋" type="tts">pil</annotation>
+		<annotation cp="🪫">düşük enerji | düşük pil | elektronik</annotation>
+		<annotation cp="🪫" type="tts">düşük pil</annotation>
 		<annotation cp="🔌">elektrik | elektrik fişi</annotation>
 		<annotation cp="🔌" type="tts">elektrik fişi</annotation>
 		<annotation cp="💻">bilgisayar | dizüstü bilgisayar | kişisel</annotation>
@@ -2357,7 +3073,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💾" type="tts">disket</annotation>
 		<annotation cp="💿">CD | disk | DVD | optik disk</annotation>
 		<annotation cp="💿" type="tts">optik disk</annotation>
-		<annotation cp="📀">blu-ray | disk | dvd | DVD disk</annotation>
+		<annotation cp="📀">blu-ray | disk | dvd</annotation>
 		<annotation cp="📀" type="tts">dvd</annotation>
 		<annotation cp="🧮">abaküs | hesaplama</annotation>
 		<annotation cp="🧮" type="tts">abaküs</annotation>
@@ -2429,6 +3145,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏷" type="tts">etiket</annotation>
 		<annotation cp="💰">çanta | dolar çantası | para | para torbası</annotation>
 		<annotation cp="💰" type="tts">para torbası</annotation>
+		<annotation cp="🪙">altın | bozuk para | gümüş | hazine | jeton | metal | para | sikke</annotation>
+		<annotation cp="🪙" type="tts">bozuk para</annotation>
 		<annotation cp="💴">banknot | döviz | para | yen</annotation>
 		<annotation cp="💴" type="tts">yen banknot</annotation>
 		<annotation cp="💵">banknot | dolar | döviz | para</annotation>
@@ -2445,10 +3163,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧾" type="tts">makbuz</annotation>
 		<annotation cp="💹">grafik | piyasa | yen simgeli artış grafiği | yukarı giden grafik | yukarı yönlü</annotation>
 		<annotation cp="💹" type="tts">yen simgeli artış grafiği</annotation>
-		<annotation cp="💱">bozdurma | döviz | kambiyo | para</annotation>
-		<annotation cp="💱" type="tts">kambiyo</annotation>
-		<annotation cp="💲">dolar | dolar işareti | koyu renk dolar işareti | para</annotation>
-		<annotation cp="💲" type="tts">dolar işareti</annotation>
 		<annotation cp="✉">e-mail | e-posta | mektup | zarf</annotation>
 		<annotation cp="✉" type="tts">zarf</annotation>
 		<annotation cp="📧">e-posta | ileti | iletişim | mektup | posta</annotation>
@@ -2561,14 +3275,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🗡" type="tts">hançer</annotation>
 		<annotation cp="⚔">çapraz | çapraz kılıçlar | çarpı | çatma | kılıç | silah</annotation>
 		<annotation cp="⚔" type="tts">çapraz kılıçlar</annotation>
-		<annotation cp="🔫">revolver | silah | tabanca</annotation>
-		<annotation cp="🔫" type="tts">tabanca</annotation>
+		<annotation cp="💣">bomba | çizgi roman | duygu</annotation>
+		<annotation cp="💣" type="tts">bomba</annotation>
+		<annotation cp="🪃">avustralya | bumerang | geri tepme | sekme | tepki</annotation>
+		<annotation cp="🪃" type="tts">bumerang</annotation>
 		<annotation cp="🏹">araç | burç | ok | ok ve yay | okçu | silah | yay</annotation>
 		<annotation cp="🏹" type="tts">ok ve yay</annotation>
 		<annotation cp="🛡">kalkan | silah</annotation>
 		<annotation cp="🛡" type="tts">kalkan</annotation>
+		<annotation cp="🪚">alet | kereste | marangoz | testere</annotation>
+		<annotation cp="🪚" type="tts">testere</annotation>
 		<annotation cp="🔧">araç | ingiliz anahtarı | somun anahtarı</annotation>
 		<annotation cp="🔧" type="tts">somun anahtarı</annotation>
+		<annotation cp="🪛">alet | sıkma | tornavida | vida</annotation>
+		<annotation cp="🪛" type="tts">tornavida</annotation>
 		<annotation cp="🔩">araç | somun | somun ve vida | vida</annotation>
 		<annotation cp="🔩" type="tts">somun ve vida</annotation>
 		<annotation cp="⚙">alet | dişli</annotation>
@@ -2581,12 +3301,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦯" type="tts">görme engelli bastonu</annotation>
 		<annotation cp="🔗">bağlantı işareti | bağlantılar | iki halka</annotation>
 		<annotation cp="🔗" type="tts">bağlantı işareti</annotation>
+		<annotation cp="⛓‍💥">kelepçe | kırık zincir | kırmak | özgürlük | patlama | zincir | zincirler | zincirleri kırmak</annotation>
+		<annotation cp="⛓‍💥" type="tts">zincirleri kırmak</annotation>
 		<annotation cp="⛓">zincir</annotation>
 		<annotation cp="⛓" type="tts">zincir</annotation>
+		<annotation cp="🪝">askı | çengel | eğri | kanca</annotation>
+		<annotation cp="🪝" type="tts">çengel</annotation>
 		<annotation cp="🧰">alet | alet çantası | sandık | tamirci</annotation>
 		<annotation cp="🧰" type="tts">alet çantası</annotation>
 		<annotation cp="🧲">at nalı | çekim | manyetik | mıknatıs</annotation>
 		<annotation cp="🧲" type="tts">mıknatıs</annotation>
+		<annotation cp="🪜">adım | basamak | merdiven | tırmanış</annotation>
+		<annotation cp="🪜" type="tts">merdiven</annotation>
 		<annotation cp="⚗">alet | damıtıcı | imbik | kimya</annotation>
 		<annotation cp="⚗" type="tts">imbik</annotation>
 		<annotation cp="🧪">bilim | deney | deney tüpü | kimya | kimyacı | laboratuvar</annotation>
@@ -2609,10 +3335,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💊" type="tts">hap</annotation>
 		<annotation cp="🩹">bandaj | bant | yapışkanlı bandaj | yara bandı</annotation>
 		<annotation cp="🩹" type="tts">yara bandı</annotation>
+		<annotation cp="🩼">baston | değnek | engelli | engellilik | koltuk değneği | yürüme yardımı</annotation>
+		<annotation cp="🩼" type="tts">koltuk değneği</annotation>
 		<annotation cp="🩺">doktor | kalp | stetoskop | tıp</annotation>
 		<annotation cp="🩺" type="tts">stetoskop</annotation>
+		<annotation cp="🩻">doktor | iskelet | kemik | röntgen | tıbbi | x ışını</annotation>
+		<annotation cp="🩻" type="tts">x ışını</annotation>
 		<annotation cp="🚪">kapı</annotation>
 		<annotation cp="🚪" type="tts">kapı</annotation>
+		<annotation cp="🛗">asansör | erişilebilirlik | lift</annotation>
+		<annotation cp="🛗" type="tts">asansör</annotation>
+		<annotation cp="🪞">ayna | reflektör | spekulum | yansıma | yansıtıcı</annotation>
+		<annotation cp="🪞" type="tts">ayna</annotation>
+		<annotation cp="🪟">açılım | çerçeve | manzara | pencere | saydam | şeffaf | temiz hava</annotation>
+		<annotation cp="🪟" type="tts">pencere</annotation>
 		<annotation cp="🛏">otel | uyuma | yatak</annotation>
 		<annotation cp="🛏" type="tts">yatak</annotation>
 		<annotation cp="🛋">kanepe | kanepe ve lamba | lamba | otel</annotation>
@@ -2621,10 +3357,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪑" type="tts">sandalye</annotation>
 		<annotation cp="🚽">klozet | tuvalet | WC</annotation>
 		<annotation cp="🚽" type="tts">klozet</annotation>
+		<annotation cp="🪠">açıcı | çekme | lavabo açıcı | lavabo pompası | tuvalet</annotation>
+		<annotation cp="🪠" type="tts">lavabo pompası</annotation>
 		<annotation cp="🚿">duş | su</annotation>
 		<annotation cp="🚿" type="tts">duş</annotation>
 		<annotation cp="🛁">banyo | banyo küveti</annotation>
 		<annotation cp="🛁" type="tts">banyo küveti</annotation>
+		<annotation cp="🪤">fare kapanı | kapan | kıskaç | tuzak</annotation>
+		<annotation cp="🪤" type="tts">fare kapanı</annotation>
 		<annotation cp="🪒">keskin | tıraş | ustura</annotation>
 		<annotation cp="🪒" type="tts">ustura</annotation>
 		<annotation cp="🧴">güneş kremi | losyon | losyon şişesi | nemlendirici | şampuan</annotation>
@@ -2637,8 +3377,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧺" type="tts">sepet</annotation>
 		<annotation cp="🧻">kağıt havlu | kağıt rulosu | tuvalet kağıdı</annotation>
 		<annotation cp="🧻" type="tts">kağıt rulosu</annotation>
+		<annotation cp="🪣">fıçı | kap | kepçe | kova</annotation>
+		<annotation cp="🪣" type="tts">kova</annotation>
 		<annotation cp="🧼">banyo | kalıp | köpük | sabun | sabunluk | temizlik</annotation>
 		<annotation cp="🧼" type="tts">sabun</annotation>
+		<annotation cp="🫧">baloncuk | kabarcık | sabun | su altı | temiz</annotation>
+		<annotation cp="🫧" type="tts">baloncuk</annotation>
+		<annotation cp="🪥">banyo | dental | diş | diş fırçası | fırça | hijyen | lavabo</annotation>
+		<annotation cp="🪥" type="tts">diş fırçası</annotation>
 		<annotation cp="🧽">emici | gözenekli | sünger | temizlik</annotation>
 		<annotation cp="🧽" type="tts">sünger</annotation>
 		<annotation cp="🧯">ateş | söndürme | yangın | yangın söndürücü</annotation>
@@ -2649,10 +3395,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚬" type="tts">sigara</annotation>
 		<annotation cp="⚰">cenaze | ölüm | tabut</annotation>
 		<annotation cp="⚰" type="tts">tabut</annotation>
+		<annotation cp="🪦">defin | mezar | mezar taşı | mezarlık</annotation>
+		<annotation cp="🪦" type="tts">mezar taşı</annotation>
 		<annotation cp="⚱">cenaze | kül | kül kavanozu | ölüm | vazo</annotation>
 		<annotation cp="⚱" type="tts">kül kavanozu</annotation>
+		<annotation cp="🧿">boncuk | kem göz | mavi boncuk | muska | nazar | nazarlık | tılsım</annotation>
+		<annotation cp="🧿" type="tts">nazarlık</annotation>
+		<annotation cp="🪬">Fatıma | Fatıma’nın Eli | Fatma Ana’nın Eli | Fatma’nın Eli | Meryem | muska | nazarlık</annotation>
+		<annotation cp="🪬" type="tts">Fatıma’nın Eli</annotation>
 		<annotation cp="🗿">heykel | Moyai | moyai heykeli</annotation>
 		<annotation cp="🗿" type="tts">moyai heykeli</annotation>
+		<annotation cp="🪧">gösteri | işaret | protesto | tabela</annotation>
+		<annotation cp="🪧" type="tts">tabela</annotation>
+		<annotation cp="🪪">güvenlik | kimlik | kimlik bilgisi | kimlik kartı | lisans</annotation>
+		<annotation cp="🪪" type="tts">kimlik kartı</annotation>
 		<annotation cp="🏧">ATM işareti | otomatik | vezne</annotation>
 		<annotation cp="🏧" type="tts">ATM işareti</annotation>
 		<annotation cp="🚮">çöp kutusu | çöp kutusu işareti | çöpü yerine atın | işaret</annotation>
@@ -2669,7 +3425,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚻" type="tts">tuvalet</annotation>
 		<annotation cp="🚼">bebek | bebek alt değiştirme yeri | bebek işareti | bebek teknede</annotation>
 		<annotation cp="🚼" type="tts">bebek işareti</annotation>
-		<annotation cp="🚾">lavabo | wc | WC</annotation>
+		<annotation cp="🚾">lavabo | tuvalet | WC</annotation>
 		<annotation cp="🚾" type="tts">wc</annotation>
 		<annotation cp="🛂">kontrol | pasaport | pasaport kontrolü</annotation>
 		<annotation cp="🛂" type="tts">pasaport kontrolü</annotation>
@@ -2683,7 +3439,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⚠" type="tts">uyarı işareti</annotation>
 		<annotation cp="🚸">çocuklar | işaret | karşıya geçen çocuklar | karşıya geçiş</annotation>
 		<annotation cp="🚸" type="tts">karşıya geçen çocuklar</annotation>
-		<annotation cp="⛔">girilmez | Girilmez | hayır | işaret | yasak</annotation>
+		<annotation cp="⛔">Girilmez | hayır | işaret | yasak</annotation>
 		<annotation cp="⛔" type="tts">girilmez</annotation>
 		<annotation cp="🚫">Girilmez | girmek yasak | işaret</annotation>
 		<annotation cp="🚫" type="tts">girmek yasak</annotation>
@@ -2725,6 +3481,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↕" type="tts">yukarı ve aşağı ok</annotation>
 		<annotation cp="↔">ok | sol ve sağ ok</annotation>
 		<annotation cp="↔" type="tts">sol ve sağ ok</annotation>
+		<annotation cp="↮">sol sağ çizgili ok</annotation>
+		<annotation cp="↮" type="tts">sol sağ çizgili ok</annotation>
 		<annotation cp="↩">ok | sola kıvrımlı sağ ok</annotation>
 		<annotation cp="↩" type="tts">sola kıvrımlı sağ ok</annotation>
 		<annotation cp="↪">ok | sağa kıvrımlı sol ok</annotation>
@@ -2745,7 +3503,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔛" type="tts">açık oku</annotation>
 		<annotation cp="🔜">ok | sağ okla Yakında | Yakında | yakında işareti</annotation>
 		<annotation cp="🔜" type="tts">yakında işareti</annotation>
-		<annotation cp="🔝">yukarı | Yukarı | yukarı ok | yukarı okla Yukarı | yukarı oku</annotation>
+		<annotation cp="🔝">Yukarı | yukarı ok | yukarı okla Yukarı | yukarı oku</annotation>
 		<annotation cp="🔝" type="tts">yukarı oku</annotation>
 		<annotation cp="🛐">din | ibadethane | tapınma</annotation>
 		<annotation cp="🛐" type="tts">ibadethane</annotation>
@@ -2771,6 +3529,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🕎" type="tts">Yahudi şamdanı</annotation>
 		<annotation cp="🔯">altı köşeli | altı köşeli yıldız | fal | fal bakma | yıldız</annotation>
 		<annotation cp="🔯" type="tts">altı köşeli yıldız</annotation>
+		<annotation cp="🪯">din | khanda | Sih</annotation>
+		<annotation cp="🪯" type="tts">khanda</annotation>
 		<annotation cp="♈">burçlar | koç burcu</annotation>
 		<annotation cp="♈" type="tts">koç burcu</annotation>
 		<annotation cp="♉">boğa burcu | burçlar</annotation>
@@ -2841,6 +3601,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔆" type="tts">yüksek parlaklık</annotation>
 		<annotation cp="📶">anten | çubuk işaretli anten | mobil | sinyal | sinyal gücü | telefon</annotation>
 		<annotation cp="📶" type="tts">sinyal gücü</annotation>
+		<annotation cp="🛜">ağ | bilgisayar | internet | kablosuz</annotation>
+		<annotation cp="🛜" type="tts">kablosuz</annotation>
 		<annotation cp="📳">cep telefonu | mobil | mod | telefon | titreşim modu</annotation>
 		<annotation cp="📳" type="tts">titreşim modu</annotation>
 		<annotation cp="📴">cep telefonu | cep telefonu kapalı | kapalı | mobil | telefon</annotation>
@@ -2849,10 +3611,40 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="♀" type="tts">kadın sembolü</annotation>
 		<annotation cp="♂">adam | erkek | erkek sembolü</annotation>
 		<annotation cp="♂" type="tts">erkek sembolü</annotation>
-		<annotation cp="⚕">Asklepios | medikal sembol | tıbbi sembol | tıp | tıp çalışanı | tıp sembolü</annotation>
-		<annotation cp="⚕" type="tts">tıp sembolü</annotation>
+		<annotation cp="⚧">transgender | transgender sembolü | transseksüel</annotation>
+		<annotation cp="⚧" type="tts">transgender sembolü</annotation>
+		<annotation cp="✖">× | çarpım | çarpım işareti | çarpma | iptal | işaret | x</annotation>
+		<annotation cp="✖" type="tts">çarpım işareti</annotation>
+		<annotation cp="➕">+ | artı | artı işareti | işaret | matematik</annotation>
+		<annotation cp="➕" type="tts">artı</annotation>
+		<annotation cp="➖">- | − | eksi | eksi işareti | işaret | matematik</annotation>
+		<annotation cp="➖" type="tts">eksi</annotation>
+		<annotation cp="➗">÷ | bölü | bölü işareti | işaret | matematik</annotation>
+		<annotation cp="➗" type="tts">bölü işareti</annotation>
+		<annotation cp="🟰">eşitlik | kalın eşittir işareti | matematik</annotation>
+		<annotation cp="🟰" type="tts">kalın eşittir işareti</annotation>
 		<annotation cp="♾">evrensel | sınırsız | sonsuz | sonsuzluk</annotation>
 		<annotation cp="♾" type="tts">sonsuz</annotation>
+		<annotation cp="‼">! | !! | çift ünlem | işaret | noktalama | ünlem</annotation>
+		<annotation cp="‼" type="tts">çift ünlem</annotation>
+		<annotation cp="⁉">! | !? | ? | işaret | noktalama | soru | ünlem | ünlemli soru işareti</annotation>
+		<annotation cp="⁉" type="tts">ünlemli soru işareti</annotation>
+		<annotation cp="❓">? | işaret | kırmızı soru işareti | noktalama | soru | soru işareti</annotation>
+		<annotation cp="❓" type="tts">kırmızı soru işareti</annotation>
+		<annotation cp="❔">? | beyaz soru işareti | işaret | noktalama | soru</annotation>
+		<annotation cp="❔" type="tts">beyaz soru işareti</annotation>
+		<annotation cp="❕">! | beyaz ünlem işareti | işaret | noktalama | ünlem</annotation>
+		<annotation cp="❕" type="tts">beyaz ünlem işareti</annotation>
+		<annotation cp="❗">! | kırmızı ünlem işareti | noktalama | ünlem | ünlem işareti</annotation>
+		<annotation cp="❗" type="tts">kırmızı ünlem işareti</annotation>
+		<annotation cp="〰">çizgi | dalgalı | uzun ses işareti</annotation>
+		<annotation cp="〰" type="tts">dalgalı çizgi</annotation>
+		<annotation cp="💱">bozdurma | döviz | kambiyo | para</annotation>
+		<annotation cp="💱" type="tts">kambiyo</annotation>
+		<annotation cp="💲">dolar | dolar işareti | koyu renk dolar işareti | para</annotation>
+		<annotation cp="💲" type="tts">dolar işareti</annotation>
+		<annotation cp="⚕">Asklepios | medikal sembol | tıbbi sembol | tıp | tıp çalışanı | tıp sembolü</annotation>
+		<annotation cp="⚕" type="tts">tıp sembolü</annotation>
 		<annotation cp="♻">evrensel | geri dönüşüm | geri dönüşüm simgesi | işaret | koyu renk evrensel geri dönüşüm simgesi</annotation>
 		<annotation cp="♻" type="tts">geri dönüşüm simgesi</annotation>
 		<annotation cp="⚜">fleur-de-lis | zambak</annotation>
@@ -2871,18 +3663,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☑" type="tts">seçilmiş onay kutusu</annotation>
 		<annotation cp="✔">✓ | işaret | onay | onay işareti</annotation>
 		<annotation cp="✔" type="tts">onay işareti</annotation>
-		<annotation cp="✖">× | çarpım | çarpım işareti | çarpma | iptal | işaret | x</annotation>
-		<annotation cp="✖" type="tts">çarpım işareti</annotation>
 		<annotation cp="❌">× | çarpı | çarpı işareti | çarpma | iptal | işaret | x</annotation>
 		<annotation cp="❌" type="tts">çarpı işareti</annotation>
 		<annotation cp="❎">× | çarpı işareti düğmesi | kare | x</annotation>
 		<annotation cp="❎" type="tts">çarpı işareti düğmesi</annotation>
-		<annotation cp="➕">+ | artı | artı işareti | işaret | matematik</annotation>
-		<annotation cp="➕" type="tts">artı işareti</annotation>
-		<annotation cp="➖">- | − | eksi | eksi işareti | işaret | matematik</annotation>
-		<annotation cp="➖" type="tts">eksi işareti</annotation>
-		<annotation cp="➗">÷ | bölü | bölü işareti | işaret | matematik</annotation>
-		<annotation cp="➗" type="tts">bölü işareti</annotation>
 		<annotation cp="➰">döngü | dönüş | kıvrık döngü</annotation>
 		<annotation cp="➰" type="tts">kıvrık döngü</annotation>
 		<annotation cp="➿">çift kıvrık döngü | Japonya | kıvrık döngü | ücretsiz numara</annotation>
@@ -2895,20 +3679,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="✴" type="tts">sekiz noktalı yıldız</annotation>
 		<annotation cp="❇">* | parlama</annotation>
 		<annotation cp="❇" type="tts">parlama</annotation>
-		<annotation cp="‼">! | !! | çift ünlem | işaret | noktalama | ünlem</annotation>
-		<annotation cp="‼" type="tts">çift ünlem</annotation>
-		<annotation cp="⁉">! | !? | ? | işaret | noktalama | soru | ünlem | ünlemli soru işareti</annotation>
-		<annotation cp="⁉" type="tts">ünlemli soru işareti</annotation>
-		<annotation cp="❓">? | işaret | noktalama | soru | soru işareti</annotation>
-		<annotation cp="❓" type="tts">soru işareti</annotation>
-		<annotation cp="❔">? | beyaz soru işareti | işaret | noktalama | soru</annotation>
-		<annotation cp="❔" type="tts">beyaz soru işareti</annotation>
-		<annotation cp="❕">! | beyaz ünlem işareti | işaret | noktalama | ünlem</annotation>
-		<annotation cp="❕" type="tts">beyaz ünlem işareti</annotation>
-		<annotation cp="❗">! | noktalama | ünlem | ünlem işareti</annotation>
-		<annotation cp="❗" type="tts">ünlem işareti</annotation>
-		<annotation cp="〰">çizgi | dalgalı | uzun ses işareti</annotation>
-		<annotation cp="〰" type="tts">dalgalı çizgi</annotation>
 		<annotation cp="©">c | telif hakkı | telif hakkı işareti</annotation>
 		<annotation cp="©" type="tts">telif hakkı işareti</annotation>
 		<annotation cp="®">r | tescil işareti | tescilli | tescilli işareti</annotation>
@@ -2951,7 +3721,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🅾" type="tts">0 düğmesi (kan grubu)</annotation>
 		<annotation cp="🆗">OK düğmesi | OK işareti | tamam | tamam işareti</annotation>
 		<annotation cp="🆗" type="tts">OK düğmesi</annotation>
-		<annotation cp="🅿">p düğmesi | P düğmesi | park yeri</annotation>
+		<annotation cp="🅿">P düğmesi | park yeri</annotation>
 		<annotation cp="🅿" type="tts">P düğmesi</annotation>
 		<annotation cp="🆘">işaret | SOS | SOS düğmesi | SOS işareti | Yardım</annotation>
 		<annotation cp="🆘" type="tts">SOS düğmesi</annotation>
@@ -3071,28 +3841,58 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏴" type="tts">siyah bayrak</annotation>
 		<annotation cp="🏳">bayrak | beyaz bayrak</annotation>
 		<annotation cp="🏳" type="tts">beyaz bayrak</annotation>
-		<annotation cp="🏳‍⚧">açık mavi | bayrak | beyaz | pembe | transgender | transgender bayrağı</annotation>
-		<annotation cp="🏳‍⚧" type="tts">transgender bayrağı</annotation>
 		<annotation cp="🏳‍🌈">bayrak | gökkuşağı | gökkuşağı bayrağı</annotation>
 		<annotation cp="🏳‍🌈" type="tts">gökkuşağı bayrağı</annotation>
+		<annotation cp="🏳‍⚧">açık mavi | bayrak | beyaz | pembe | transgender | transgender bayrağı</annotation>
+		<annotation cp="🏳‍⚧" type="tts">transgender bayrağı</annotation>
 		<annotation cp="🏴‍☠">hazine | Jolly Roger | korsan | korsan bayrağı | yağmacı</annotation>
 		<annotation cp="🏴‍☠" type="tts">korsan bayrağı</annotation>
+		<annotation cp="¢">sent</annotation>
+		<annotation cp="¢" type="tts">sent</annotation>
+		<annotation cp="$">ABD | dolar | para | pezo</annotation>
+		<annotation cp="$" type="tts">dolar</annotation>
 		<annotation cp="£">EGP | GBP | para birimi | sterlin</annotation>
 		<annotation cp="£" type="tts">sterlin</annotation>
 		<annotation cp="¥">CNY | JPY | para birimi | yen | yuan</annotation>
 		<annotation cp="¥" type="tts">yen</annotation>
+		<annotation cp="₢">cruzeiro</annotation>
+		<annotation cp="₢" type="tts">cruzeiro</annotation>
+		<annotation cp="₣">fransız frangı</annotation>
+		<annotation cp="₣" type="tts">fransız frangı</annotation>
+		<annotation cp="₤">lira</annotation>
+		<annotation cp="₤" type="tts">lira</annotation>
+		<annotation cp="₥">mil | mill</annotation>
+		<annotation cp="₥" type="tts">mill</annotation>
+		<annotation cp="₩">KPW | KRW | won</annotation>
+		<annotation cp="₩" type="tts">won</annotation>
 		<annotation cp="€">avro | EUR | para birimi</annotation>
 		<annotation cp="€" type="tts">avro</annotation>
+		<annotation cp="₰">alman senti</annotation>
+		<annotation cp="₰" type="tts">alman senti</annotation>
+		<annotation cp="₱">pezo</annotation>
+		<annotation cp="₱" type="tts">pezo</annotation>
+		<annotation cp="₳">austral</annotation>
+		<annotation cp="₳" type="tts">austral</annotation>
+		<annotation cp="₶">livre tournois</annotation>
+		<annotation cp="₶" type="tts">livre tournois</annotation>
+		<annotation cp="₷">spesmilo</annotation>
+		<annotation cp="₷" type="tts">spesmilo</annotation>
 		<annotation cp="₹">hint rupisi | para birimi | rupi</annotation>
 		<annotation cp="₹" type="tts">hint rupisi</annotation>
 		<annotation cp="₽">para birimi | ruble</annotation>
 		<annotation cp="₽" type="tts">ruble</annotation>
-		<annotation cp="¹">bir | üst bir simgesi | üst simge</annotation>
-		<annotation cp="¹" type="tts">üst bir simgesi</annotation>
-		<annotation cp="²">iki | karesi alınmış | üst iki simgesi | üst simge</annotation>
-		<annotation cp="²" type="tts">üst iki simgesi</annotation>
-		<annotation cp="³">küpü alınmış | üç | üst simge | üst üç simgesi</annotation>
-		<annotation cp="³" type="tts">üst üç simgesi</annotation>
+		<annotation cp="₿">bitcoin | BTC</annotation>
+		<annotation cp="₿" type="tts">bitcoin</annotation>
+		<annotation cp="₨">rupi</annotation>
+		<annotation cp="₨" type="tts">rupi</annotation>
+		<annotation cp="﷼">riyal</annotation>
+		<annotation cp="﷼" type="tts">riyal</annotation>
+		<annotation cp="¹">bir | üs bir | üst bir simgesi | üst simge</annotation>
+		<annotation cp="¹" type="tts">üs bir</annotation>
+		<annotation cp="²">iki | karesi alınmış | üs iki | üst iki simgesi | üst simge</annotation>
+		<annotation cp="²" type="tts">üs iki</annotation>
+		<annotation cp="³">küpü alınmış | üç | üs üç | üst simge | üst üç simgesi</annotation>
+		<annotation cp="³" type="tts">üs üç</annotation>
 		<annotation cp="µ">mikro işareti | ölçüm</annotation>
 		<annotation cp="µ" type="tts">mikro işareti</annotation>
 	</annotations>

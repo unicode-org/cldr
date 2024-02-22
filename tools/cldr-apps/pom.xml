@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>cldr-apps</artifactId>
+	<packaging>war</packaging>
+	<name>CLDR Survey Tool</name>
+
+	<url>https://unicode.org/cldr</url>
+
+	<scm>
+		<connection>scm:git:https://github.com/unicode-org/cldr.git</connection>
+	</scm>
+
+	<properties>
+		<!-- openliberty -->
+		<jakarta-version>8.0.0</jakarta-version>
+		<microprofile-version>3.3</microprofile-version>
+		<default.http.port>9080</default.http.port>
+		<default.https.port>9443</default.https.port>
+	</properties>
+
+	<parent>
+		<groupId>org.unicode.cldr</groupId>
+		<artifactId>cldr-all</artifactId>
+		<version>45.0-SNAPSHOT</version>
+	</parent>
+
+	<dependencies>
+		<!-- Provided dependencies -->
+		<dependency>
+			<groupId>jakarta.platform</groupId>
+			<artifactId>jakarta.jakartaee-api</artifactId>
+			<version>${jakarta-version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.microprofile</groupId>
+			<artifactId>microprofile</artifactId>
+			<version>${microprofile-version}</version>
+			<type>pom</type>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- For rendering JSON. Avoids error about an insecure Stax XML processor -->
+		<dependency>
+			<groupId>org.codehaus.woodstox</groupId>
+			<artifactId>woodstox-core-asl</artifactId>
+			<version>4.4.1</version>
+		</dependency>
+
+		<!-- test -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- icu -->
+		<dependency>
+			<groupId>com.ibm.icu</groupId>
+			<artifactId>icu4j</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.ibm.icu</groupId>
+			<artifactId>utilities-for-cldr</artifactId>
+		</dependency>
+		<!-- cldr -->
+		<dependency>
+			<groupId>org.unicode.cldr</groupId>
+			<artifactId>cldr-code</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.unicode.cldr</groupId>
+			<artifactId>cldr-rdf</artifactId>
+		</dependency>
+
+		<!-- 'test' scope because it's only used for test code -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>4.0.1</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.github.stephenc.jcip</groupId>
+			<artifactId>jcip-annotations</artifactId>
+			<version>1.0-1</version>
+			<scope>test</scope>
+		  </dependency>
+
+		<!-- mail / rss -->
+
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+		</dependency>
+
+
+		<dependency>
+			<groupId>com.sun.activation</groupId>
+			<artifactId>javax.activation</artifactId>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.json/json -->
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.jsoup/jsoup -->
+		<dependency>
+			<groupId>org.jsoup</groupId>
+			<artifactId>jsoup</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents.client5</groupId>
+			<artifactId>httpclient5</artifactId>
+		</dependency>
+
+		<!-- codec/util -->
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+		</dependency>
+		<!-- jwt -->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-impl</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-gson</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+	</dependencies>
+	<build>
+		<finalName>${project.artifactId}</finalName>
+		<plugins>
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>initialize</phase>
+						<configuration>
+							<target>
+								<concat append="no" destfile="${project.basedir}/target/node-version.properties">node.version=</concat>
+								<concat append="yes" destfile="${project.basedir}/target/node-version.properties">
+									<fileset dir="${project.basedir}/../..">
+										<include name=".node-version" />
+									</fileset>
+								</concat>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>properties-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>initialize</phase>
+						<goals>
+							<goal>read-project-properties</goal>
+						</goals>
+						<configuration>
+							<files>
+								<file>${project.basedir}/target/node-version.properties</file>
+							</files>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-clean-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<includes>
+						<include>org/**/*.java</include>
+					</includes>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<groupId>org.apache.maven.plugins</groupId>
+				<configuration>
+					<archive>
+						<manifestEntries>
+							<Built-By>${user.name}</Built-By>
+							<Build-Time>${maven.build.timestamp}</Build-Time>
+							<CLDR-Apps-Git-Commit>${buildNumber}</CLDR-Apps-Git-Commit>
+							<CLDR-Apps-Git-Branch>${scmBranch}</CLDR-Apps-Git-Branch>
+						</manifestEntries>
+					</archive>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>io.openliberty.tools</groupId>
+				<artifactId>liberty-maven-plugin</artifactId>
+				<configuration>
+					<serverName>cldr</serverName>
+					<copyDependencies>
+						<location>jdbc</location>
+						<dependency>
+							<groupId>mysql</groupId>
+							<artifactId>mysql-connector-java</artifactId>
+							<version>${mysql.version}</version>
+						</dependency>
+					</copyDependencies>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<executions>
+				<execution>
+					<id>copy-resources</id>
+					<phase>validate</phase>
+					<goals>
+					<goal>copy-resources</goal>
+					</goals>
+					<configuration>
+					<outputDirectory>${basedir}/target/liberty/wlp/usr/servers/cldr/apps/cldr-root</outputDirectory>
+					<resources>
+						<resource>
+							<directory>src/cldr-root</directory>
+							<filtering>true</filtering>
+						</resource>
+					</resources>
+					</configuration>
+				</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<configuration>
+					<systemPropertyVariables>
+						<http.port>${default.http.port}</http.port>
+						<https.port>${default.https.port}</https.port>
+						<war.name>${project.artifactId}</war.name>
+					</systemPropertyVariables>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>buildnumber-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>validate</phase>
+						<goals>
+							<goal>create</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<getRevisionOnlyOnce>true</getRevisionOnlyOnce>
+					<attach>true</attach>
+					<addOutputDirectoryToResources>true</addOutputDirectoryToResources>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.github.eirslett</groupId>
+				<artifactId>frontend-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>install node and npm</id>
+						<goals>
+							<goal>install-node-and-npm</goal>
+						</goals>
+						<phase>generate-resources</phase>
+					</execution>
+					<execution>
+						<id>npm install</id>
+						<goals>
+							<goal>npm</goal>
+						</goals>
+						<phase>generate-resources</phase>
+					</execution>
+					<execution>
+						<id>npm run build</id>
+						<goals>
+							<goal>npm</goal>
+						</goals>
+						<configuration>
+							<arguments>run build</arguments>
+						</configuration>
+					</execution>
+					<execution>
+						<id>npm run lint</id>
+						<goals>
+							<goal>npm</goal>
+						</goals>
+						<configuration>
+							<arguments>run lint</arguments>
+						</configuration>
+					</execution>
+				</executions>
+				<configuration>
+					<nodeVersion>${node.version}</nodeVersion>
+					<!-- run in project sourcedir -->
+					<workingDirectory>${project.basedir}/js</workingDirectory>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+DATABASE_NAME={{ cldr_database_name }}
+FNAME={{ cldr_database_name }}-DUMP-`date +%Y-%m-%d`
+
+mysql ${DATABASE_NAME} --show-warnings --default-character-set=utf8mb4 < ${FNAME}.sql
+mysql ${DATABASE_NAME} --show-warnings --default-character-set=utf8mb4 < redact-db.sql
+rm ${FNAME}.sql

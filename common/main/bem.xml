@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
@@ -68,10 +68,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<exemplarCharacters type="index">[A B C E F G I J K L M N O P S {SH} T U W Y]</exemplarCharacters>
 	</characters>
 	<delimiters>
-		<quotationStart>“</quotationStart>
-		<quotationEnd>”</quotationEnd>
-		<alternateQuotationStart>‘</alternateQuotationStart>
-		<alternateQuotationEnd>’</alternateQuotationEnd>
+		<quotationStart>↑↑↑</quotationStart>
+		<quotationEnd>↑↑↑</quotationEnd>
+		<alternateQuotationStart>↑↑↑</alternateQuotationStart>
+		<alternateQuotationEnd>↑↑↑</alternateQuotationEnd>
 	</delimiters>
 	<dates>
 		<calendars>
@@ -80,39 +80,43 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>EEEE, d MMMM y G</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
 							<pattern>d MMMM y G</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern>d MMM y G</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
 							<pattern>dd/MM/y GGGGG</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="d">d</dateFormatItem>
-						<dateFormatItem id="hm">h:mm a</dateFormatItem>
-						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
-						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="M">L</dateFormatItem>
+						<dateFormatItem id="d">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hm">h:mm a</dateFormatItem>
+						<dateFormatItem id="Hm">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Hms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="M">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Md">M/d</dateFormatItem>
 						<dateFormatItem id="MEd">E, M/d</dateFormatItem>
-						<dateFormatItem id="MMM">LLL</dateFormatItem>
-						<dateFormatItem id="MMMd">MMM d</dateFormatItem>
+						<dateFormatItem id="MMM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, MMM d</dateFormatItem>
-						<dateFormatItem id="MMMMd">MMMM d</dateFormatItem>
+						<dateFormatItem id="MMMMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMMEd">E, MMMM d</dateFormatItem>
-						<dateFormatItem id="ms">mm:ss</dateFormatItem>
+						<dateFormatItem id="ms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="y">y</dateFormatItem>
 						<dateFormatItem id="yM">M/y</dateFormatItem>
 						<dateFormatItem id="yMd">d/M/y</dateFormatItem>
@@ -134,7 +138,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="2">Feb</month>
 							<month type="3">Mac</month>
 							<month type="4">Epr</month>
-							<month type="5">Mei</month>
+							<month type="5">↑↑↑</month>
 							<month type="6">Jun</month>
 							<month type="7">Jul</month>
 							<month type="8">Oga</month>
@@ -195,8 +199,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<dayPeriod type="pm">akasuba</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">uluchelo</dayPeriod>
-							<dayPeriod type="pm">akasuba</dayPeriod>
+							<dayPeriod type="am">↑↑↑</dayPeriod>
+							<dayPeriod type="pm">↑↑↑</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
@@ -214,62 +218,70 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>EEEE, d MMMM y</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
 							<pattern>d MMMM y</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern>d MMM y</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
 							<pattern>dd/MM/y</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern>h:mm:ss a zzzz</pattern>
+							<pattern>h:mm:ss a zzzz</pattern>
+							<datetimeSkeleton>ahmmsszzzz</datetimeSkeleton>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern>h:mm:ss a z</pattern>
+							<pattern>h:mm:ss a z</pattern>
+							<datetimeSkeleton>ahmmssz</datetimeSkeleton>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
-							<pattern>h:mm:ss a</pattern>
+							<pattern>h:mm:ss a</pattern>
+							<datetimeSkeleton>ahmmss</datetimeSkeleton>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
-							<pattern>h:mm a</pattern>
+							<pattern>h:mm a</pattern>
+							<datetimeSkeleton>ahmm</datetimeSkeleton>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="d">d</dateFormatItem>
-						<dateFormatItem id="hm">h:mm a</dateFormatItem>
-						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
-						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
-						<dateFormatItem id="M">L</dateFormatItem>
+						<dateFormatItem id="d">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hm">h:mm a</dateFormatItem>
+						<dateFormatItem id="Hm">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Hms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="M">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Md">M/d</dateFormatItem>
 						<dateFormatItem id="MEd">E, M/d</dateFormatItem>
-						<dateFormatItem id="MMM">LLL</dateFormatItem>
-						<dateFormatItem id="MMMd">MMM d</dateFormatItem>
+						<dateFormatItem id="MMM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, MMM d</dateFormatItem>
-						<dateFormatItem id="MMMMd">MMMM d</dateFormatItem>
+						<dateFormatItem id="MMMMd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMMEd">E, MMMM d</dateFormatItem>
-						<dateFormatItem id="ms">mm:ss</dateFormatItem>
-						<dateFormatItem id="y">y</dateFormatItem>
+						<dateFormatItem id="ms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="y">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yM">M/y</dateFormatItem>
 						<dateFormatItem id="yMd">d/M/y</dateFormatItem>
 						<dateFormatItem id="yMEd">E, M/d/y</dateFormatItem>
@@ -298,9 +310,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="day">
 				<displayName>Ubushiku</displayName>
-				<relative type="-1">yesterday</relative>
+				<relative type="-1">↑↑↑</relative>
 				<relative type="0">Lelo</relative>
-				<relative type="1">tomorrow</relative>
+				<relative type="1">↑↑↑</relative>
 			</field>
 			<field type="dayperiod">
 				<displayName>Akasuba</displayName>
@@ -321,37 +333,65 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>¤#,##0.00</pattern>
+					<pattern alt="alphaNextToNumber" draft="provisional">¤ #,##0.00</pattern>
+					<pattern alt="noCurrency" draft="provisional">↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>¤#,##0.00;(¤#,##0.00)</pattern>
+					<pattern alt="alphaNextToNumber" draft="provisional">¤ #,##0.00;(¤ #,##0.00)</pattern>
+					<pattern alt="noCurrency" draft="provisional">#,##0.00;(#,##0.00)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
 				<currencyFormat type="standard">
-					<pattern type="1000" count="one" draft="provisional">¤0K</pattern>
+					<pattern type="1000" count="one" draft="provisional">↑↑↑</pattern>
+					<pattern type="1000" count="one" alt="alphaNextToNumber" draft="provisional">¤ 0K</pattern>
 					<pattern type="1000" count="other" draft="provisional">¤0K</pattern>
-					<pattern type="10000" count="one" draft="provisional">¤00K</pattern>
+					<pattern type="1000" count="other" alt="alphaNextToNumber" draft="provisional">¤ 0K</pattern>
+					<pattern type="10000" count="one" draft="provisional">↑↑↑</pattern>
+					<pattern type="10000" count="one" alt="alphaNextToNumber" draft="provisional">¤ 00K</pattern>
 					<pattern type="10000" count="other" draft="provisional">¤00K</pattern>
-					<pattern type="100000" count="one" draft="provisional">¤000K</pattern>
+					<pattern type="10000" count="other" alt="alphaNextToNumber" draft="provisional">¤ 00K</pattern>
+					<pattern type="100000" count="one" draft="provisional">↑↑↑</pattern>
+					<pattern type="100000" count="one" alt="alphaNextToNumber" draft="provisional">¤ 000K</pattern>
 					<pattern type="100000" count="other" draft="provisional">¤000K</pattern>
-					<pattern type="1000000" count="one" draft="provisional">¤0M</pattern>
+					<pattern type="100000" count="other" alt="alphaNextToNumber" draft="provisional">¤ 000K</pattern>
+					<pattern type="1000000" count="one" draft="provisional">↑↑↑</pattern>
+					<pattern type="1000000" count="one" alt="alphaNextToNumber" draft="provisional">¤ 0M</pattern>
 					<pattern type="1000000" count="other" draft="provisional">¤0M</pattern>
-					<pattern type="10000000" count="one" draft="provisional">¤00M</pattern>
+					<pattern type="1000000" count="other" alt="alphaNextToNumber" draft="provisional">¤ 0M</pattern>
+					<pattern type="10000000" count="one" draft="provisional">↑↑↑</pattern>
+					<pattern type="10000000" count="one" alt="alphaNextToNumber" draft="provisional">¤ 00M</pattern>
 					<pattern type="10000000" count="other" draft="provisional">¤00M</pattern>
-					<pattern type="100000000" count="one" draft="provisional">¤000M</pattern>
+					<pattern type="10000000" count="other" alt="alphaNextToNumber" draft="provisional">¤ 00M</pattern>
+					<pattern type="100000000" count="one" draft="provisional">↑↑↑</pattern>
+					<pattern type="100000000" count="one" alt="alphaNextToNumber" draft="provisional">¤ 000M</pattern>
 					<pattern type="100000000" count="other" draft="provisional">¤000M</pattern>
-					<pattern type="1000000000" count="one" draft="provisional">¤0G</pattern>
+					<pattern type="100000000" count="other" alt="alphaNextToNumber" draft="provisional">¤ 000M</pattern>
+					<pattern type="1000000000" count="one" draft="provisional">↑↑↑</pattern>
+					<pattern type="1000000000" count="one" alt="alphaNextToNumber" draft="provisional">¤ 0G</pattern>
 					<pattern type="1000000000" count="other" draft="provisional">¤0G</pattern>
-					<pattern type="10000000000" count="one" draft="provisional">¤00G</pattern>
+					<pattern type="1000000000" count="other" alt="alphaNextToNumber" draft="provisional">¤ 0G</pattern>
+					<pattern type="10000000000" count="one" draft="provisional">↑↑↑</pattern>
+					<pattern type="10000000000" count="one" alt="alphaNextToNumber" draft="provisional">¤ 00G</pattern>
 					<pattern type="10000000000" count="other" draft="provisional">¤00G</pattern>
-					<pattern type="100000000000" count="one" draft="provisional">¤000G</pattern>
+					<pattern type="10000000000" count="other" alt="alphaNextToNumber" draft="provisional">¤ 00G</pattern>
+					<pattern type="100000000000" count="one" draft="provisional">↑↑↑</pattern>
+					<pattern type="100000000000" count="one" alt="alphaNextToNumber" draft="provisional">¤ 000G</pattern>
 					<pattern type="100000000000" count="other" draft="provisional">¤000G</pattern>
-					<pattern type="1000000000000" count="one" draft="provisional">¤0T</pattern>
+					<pattern type="100000000000" count="other" alt="alphaNextToNumber" draft="provisional">¤ 000G</pattern>
+					<pattern type="1000000000000" count="one" draft="provisional">↑↑↑</pattern>
+					<pattern type="1000000000000" count="one" alt="alphaNextToNumber" draft="provisional">¤ 0T</pattern>
 					<pattern type="1000000000000" count="other" draft="provisional">¤0T</pattern>
-					<pattern type="10000000000000" count="one" draft="provisional">¤00T</pattern>
+					<pattern type="1000000000000" count="other" alt="alphaNextToNumber" draft="provisional">¤ 0T</pattern>
+					<pattern type="10000000000000" count="one" draft="provisional">↑↑↑</pattern>
+					<pattern type="10000000000000" count="one" alt="alphaNextToNumber" draft="provisional">¤ 00T</pattern>
 					<pattern type="10000000000000" count="other" draft="provisional">¤00T</pattern>
-					<pattern type="100000000000000" count="one" draft="provisional">¤000T</pattern>
+					<pattern type="10000000000000" count="other" alt="alphaNextToNumber" draft="provisional">¤ 00T</pattern>
+					<pattern type="100000000000000" count="one" draft="provisional">↑↑↑</pattern>
+					<pattern type="100000000000000" count="one" alt="alphaNextToNumber" draft="provisional">¤ 000T</pattern>
 					<pattern type="100000000000000" count="other" draft="provisional">¤000T</pattern>
+					<pattern type="100000000000000" count="other" alt="alphaNextToNumber" draft="provisional">¤ 000T</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>

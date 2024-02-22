@@ -1,0 +1,45 @@
+name: Ansible Lint
+
+on:
+  push:
+    paths:
+      - 'tools/scripts/ansible/**'
+      - '.github/workflows/ansible-lint.yml'
+  pull_request:
+    paths:
+      - 'tools/scripts/ansible/**'
+      - '.github/workflows/ansible-lint.yml'
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        lfs: false # not needed for this job, as we don’t currently do a Java build
+    - name: Lint Ansible Playbook
+      # the hash here is a specific version of that repo
+      uses: ansible/ansible-lint-action@c00ea1b2ac047eaf7318275ac83a0cb846cea71a
+      with:
+        targets: tools/scripts/ansible/*-playbook.yml
+        override-deps: |
+          rich>=9.5.1,<11.0.0
+  testprovision:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        lfs: false # not needed for this job, as we don’t currently do a Java build
+    - name: Install Vagrant and Ansible
+      run: brew install ansible
+    - name: Prepare the provision
+      run: (cd tools/scripts/ansible && ansible-galaxy install -r requirements.yml && ln -sv test-local-vars local-vars && vagrant validate)
+    - name: Try the provision
+      run: (cd tools/scripts/ansible && vagrant up || ( ( echo "# WARNING vagrant failed—we are ignoring the failure until https://unicode-org.atlassian.net/browse/CLDR-17297 … Try it manually." | tee -a $GITHUB_STEP_SUMMARY)  ; true ) )
+      env:
+        VAGRANT_DISABLE_VBOXSYMLINKCREATE: 1
+
+# one at a time please
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
@@ -149,7 +149,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="IE">Irlannda</territory>
 			<territory type="IL">Israa’iila</territory>
 			<territory type="IN">Enndo</territory>
-			<territory type="IO">Keeriindi britaani to maayo enndo</territory>
+			<territory type="IO" draft="provisional">Keeriindi britaani to maayo enndo</territory>
 			<territory type="IQ">Iraak</territory>
 			<territory type="IR">Iraan</territory>
 			<territory type="IS">Islannda</territory>
@@ -285,16 +285,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</territories>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters>[a b ɓ c d ɗ e f g h i j k l m n ñ ŋ o p r s t u w y ƴ]</exemplarCharacters>
+		<exemplarCharacters>[a b ɓ c d ɗ e f g h i j k l m nñ ŋ o p r s t u w y ƴ]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[q v x z]</exemplarCharacters>
-		<exemplarCharacters type="index">[A B Ɓ C D Ɗ E F G H I J K L M N Ñ Ŋ O P R S T U W Y Ƴ]</exemplarCharacters>
+		<exemplarCharacters type="index">[A B Ɓ C D Ɗ E F G H I J K L M NÑ Ŋ O P R S T U W Y Ƴ]</exemplarCharacters>
 		<exemplarCharacters type="numbers">[  \- ‑ , % ‰ + 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
 	</characters>
 	<delimiters>
 		<quotationStart>„</quotationStart>
-		<quotationEnd>”</quotationEnd>
+		<quotationEnd>↑↑↑</quotationEnd>
 		<alternateQuotationStart>‚</alternateQuotationStart>
-		<alternateQuotationEnd>’</alternateQuotationEnd>
+		<alternateQuotationEnd>↑↑↑</alternateQuotationEnd>
 	</delimiters>
 	<dates>
 		<calendars>
@@ -303,21 +303,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>EEEE d MMMM y G</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
 							<pattern>d MMMM y G</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern>d MMM, y G</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
 							<pattern>d/M/y GGGGG</pattern>
+							<datetimeSkeleton>GGGGGyMd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -451,8 +455,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<dayPeriod type="pm">kikiiɗe</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">subaka</dayPeriod>
-							<dayPeriod type="pm">kikiiɗe</dayPeriod>
+							<dayPeriod type="am">↑↑↑</dayPeriod>
+							<dayPeriod type="pm">↑↑↑</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
@@ -470,43 +474,51 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>EEEE d MMMM y</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
 							<pattern>d MMMM y</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern>d MMM, y</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
 							<pattern>d/M/y</pattern>
+							<datetimeSkeleton>yMd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
-							<pattern>HH:mm:ss zzzz</pattern>
+							<pattern>↑↑↑</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="long">
 						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
+							<pattern>↑↑↑</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="medium">
 						<timeFormat>
-							<pattern>HH:mm:ss</pattern>
+							<pattern>↑↑↑</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</timeFormat>
 					</timeFormatLength>
 					<timeFormatLength type="short">
 						<timeFormat>
-							<pattern>HH:mm</pattern>
+							<pattern>↑↑↑</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</timeFormat>
 					</timeFormatLength>
 				</timeFormats>
@@ -522,7 +534,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
 						<dateFormatItem id="MMMMEd">E d MMMM</dateFormatItem>
 						<dateFormatItem id="ms">m:ss</dateFormatItem>
-						<dateFormatItem id="y">y</dateFormatItem>
+						<dateFormatItem id="y">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yM">M/y</dateFormatItem>
 						<dateFormatItem id="yMEd">E d/M/y</dateFormatItem>
 						<dateFormatItem id="yMM">MM/y</dateFormatItem>
@@ -534,17 +546,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
 					</availableFormats>
 					<appendItems>
-						<appendItem request="Day">{0} ({2}: {1})</appendItem>
-						<appendItem request="Day-Of-Week">{0} {1}</appendItem>
-						<appendItem request="Era">{1} {0}</appendItem>
-						<appendItem request="Hour">{0} ({2}: {1})</appendItem>
-						<appendItem request="Minute">{0} ({2}: {1})</appendItem>
-						<appendItem request="Month">{0} ({2}: {1})</appendItem>
-						<appendItem request="Quarter">{0} ({2}: {1})</appendItem>
-						<appendItem request="Second">{0} ({2}: {1})</appendItem>
-						<appendItem request="Timezone">{0} {1}</appendItem>
-						<appendItem request="Week">{0} ({2}: {1})</appendItem>
-						<appendItem request="Year">{1} {0}</appendItem>
+						<appendItem request="Day">↑↑↑</appendItem>
+						<appendItem request="Day-Of-Week">↑↑↑</appendItem>
+						<appendItem request="Era">↑↑↑</appendItem>
+						<appendItem request="Hour">↑↑↑</appendItem>
+						<appendItem request="Minute">↑↑↑</appendItem>
+						<appendItem request="Month">↑↑↑</appendItem>
+						<appendItem request="Quarter">↑↑↑</appendItem>
+						<appendItem request="Second">↑↑↑</appendItem>
+						<appendItem request="Timezone">↑↑↑</appendItem>
+						<appendItem request="Week">↑↑↑</appendItem>
+						<appendItem request="Year">↑↑↑</appendItem>
 					</appendItems>
 				</dateTimeFormats>
 			</calendar>
@@ -597,33 +609,34 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency" draft="provisional">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
 				<currencyFormat type="standard">
-					<pattern type="1000" count="one" draft="provisional">0K ¤</pattern>
+					<pattern type="1000" count="one" draft="provisional">↑↑↑</pattern>
 					<pattern type="1000" count="other" draft="provisional">0K ¤</pattern>
-					<pattern type="10000" count="one" draft="provisional">00K ¤</pattern>
+					<pattern type="10000" count="one" draft="provisional">↑↑↑</pattern>
 					<pattern type="10000" count="other" draft="provisional">00K ¤</pattern>
-					<pattern type="100000" count="one" draft="provisional">000K ¤</pattern>
+					<pattern type="100000" count="one" draft="provisional">↑↑↑</pattern>
 					<pattern type="100000" count="other" draft="provisional">000K ¤</pattern>
-					<pattern type="1000000" count="one" draft="provisional">0M ¤</pattern>
+					<pattern type="1000000" count="one" draft="provisional">↑↑↑</pattern>
 					<pattern type="1000000" count="other" draft="provisional">0M ¤</pattern>
-					<pattern type="10000000" count="one" draft="provisional">00M ¤</pattern>
+					<pattern type="10000000" count="one" draft="provisional">↑↑↑</pattern>
 					<pattern type="10000000" count="other" draft="provisional">00M ¤</pattern>
-					<pattern type="100000000" count="one" draft="provisional">000M ¤</pattern>
+					<pattern type="100000000" count="one" draft="provisional">↑↑↑</pattern>
 					<pattern type="100000000" count="other" draft="provisional">000M ¤</pattern>
-					<pattern type="1000000000" count="one" draft="provisional">0G ¤</pattern>
+					<pattern type="1000000000" count="one" draft="provisional">↑↑↑</pattern>
 					<pattern type="1000000000" count="other" draft="provisional">0G ¤</pattern>
-					<pattern type="10000000000" count="one" draft="provisional">00G ¤</pattern>
+					<pattern type="10000000000" count="one" draft="provisional">↑↑↑</pattern>
 					<pattern type="10000000000" count="other" draft="provisional">00G ¤</pattern>
-					<pattern type="100000000000" count="one" draft="provisional">000G ¤</pattern>
+					<pattern type="100000000000" count="one" draft="provisional">↑↑↑</pattern>
 					<pattern type="100000000000" count="other" draft="provisional">000G ¤</pattern>
-					<pattern type="1000000000000" count="one" draft="provisional">0T ¤</pattern>
+					<pattern type="1000000000000" count="one" draft="provisional">↑↑↑</pattern>
 					<pattern type="1000000000000" count="other" draft="provisional">0T ¤</pattern>
-					<pattern type="10000000000000" count="one" draft="provisional">00T ¤</pattern>
+					<pattern type="10000000000000" count="one" draft="provisional">↑↑↑</pattern>
 					<pattern type="10000000000000" count="other" draft="provisional">00T ¤</pattern>
-					<pattern type="100000000000000" count="one" draft="provisional">000T ¤</pattern>
+					<pattern type="100000000000000" count="one" draft="provisional">↑↑↑</pattern>
 					<pattern type="100000000000000" count="other" draft="provisional">000T ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -755,8 +768,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="SHP">
 				<displayName>Liibar Sent Helen</displayName>
 			</currency>
-			<currency type="SLL">
+			<currency type="SLE">
 				<displayName>Lewoon Seraa Liyon</displayName>
+			</currency>
+			<currency type="SLL">
+				<displayName>Lewoon Seraa Liyon (1964—2022)</displayName>
 			</currency>
 			<currency type="SOS">
 				<displayName>Siling Soomali</displayName>
@@ -808,4 +824,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<nostr>Alaa:A</nostr>
 		</messages>
 	</posix>
+	<personNames>
+		<nameOrderLocales order="givenFirst">und ff</nameOrderLocales>
+		<nameOrderLocales order="surnameFirst">ko vi yue zh</nameOrderLocales>
+	</personNames>
 </ldml>

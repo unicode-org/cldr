@@ -1,0 +1,7 @@
+- hosts: prod
+  become: yes
+  tasks:
+    - name: Set the hostname
+      # for sending email from st.unicode.org through corp.unicode.org
+      hostname:
+         name: "{{ inventory_hostname }}"

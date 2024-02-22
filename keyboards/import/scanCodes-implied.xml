@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<forms>
+    <!--
+        These are the implied form values for hardware layouts.
+        Per the spec, this file is assumed to be imported into
+        every keyboard file.
+
+        Each row is a separate scanCodes element.
+        Values are space separated hex bytes.
+        Frame keys are not included.
+    -->
+
+    <form id="us">
+        <scanCodes codes="29 02 03 04 05 06 07 08 09 0A 0B 0C 0D" /> <!-- 13 keys, ` to = -->
+        <scanCodes codes="10 11 12 13 14 15 16 17 18 19 1A 1B 2B" /> <!-- 13 keys, Q to \ -->
+        <scanCodes codes="1E 1F 20 21 22 23 24 25 26 27 28" />  <!-- 11 keys, A to ' -->
+        <scanCodes codes="2C 2D 2E 2F 30 31 32 33 34 35" /> <!-- 10 keys, Z to / -->
+        <scanCodes codes="39" /> <!-- 1 key, spacebar -->
+    </form>
+    <form id="iso">
+        <scanCodes codes="29 02 03 04 05 06 07 08 09 0A 0B 0C 0D" /> <!-- 13 keys -->
+        <scanCodes codes="10 11 12 13 14 15 16 17 18 19 1A 1B" />    <!-- 12 keys -->
+        <scanCodes codes="1E 1F 20 21 22 23 24 25 26 27 28 2B" />    <!-- 12 keys -->
+        <scanCodes codes="56 2C 2D 2E 2F 30 31 32 33 34 35" />       <!-- 11 keys-->
+        <scanCodes codes="39" /> <!-- 1 key, spacebar -->
+    </form>
+    <form id="abnt2">
+        <scanCodes codes="29 02 03 04 05 06 07 08 09 0A 0B 0C 0D" /> <!-- 13 keys -->
+        <scanCodes codes="10 11 12 13 14 15 16 17 18 19 1A 1B" />    <!-- 12 keys -->
+        <scanCodes codes="1E 1F 20 21 22 23 24 25 26 27 28 2B" />    <!-- 12 keys -->
+        <scanCodes codes="56 2C 2D 2E 2F 30 31 32 33 34 35 73" />    <!-- 12 keys-->
+        <scanCodes codes="39" /> <!-- 1 key, spacebar -->
+    </form>
+    <form id="jis">
+        <scanCodes codes="29 02 03 04 05 06 07 08 09 0A 0B 0C 0D 7D" /> <!-- 14 keys -->
+        <scanCodes codes="10 11 12 13 14 15 16 17 18 19 1A 1B" />    <!-- 12 keys -->
+        <scanCodes codes="1E 1F 20 21 22 23 24 25 26 27 28 2B" />    <!-- 12 keys -->
+        <scanCodes codes="2C 2D 2E 2F 30 31 32 33 34 35 73" />       <!-- 11 keys-->
+        <scanCodes codes="39" /> <!-- 1 key, spacebar -->
+    </form>
+    <form id="ks">
+        <scanCodes codes="29 02 03 04 05 06 07 08 09 0A 0B 0C 0D 2B" /> <!-- 14 keys -->
+        <scanCodes codes="10 11 12 13 14 15 16 17 18 19 1A 1B" />    <!-- 12 keys -->
+        <scanCodes codes="1E 1F 20 21 22 23 24 25 26 27 28" />    <!-- 11 keys -->
+        <scanCodes codes="2C 2D 2E 2F 30 31 32 33 34 35" /> <!-- 10 keys, Z to / -->
+        <scanCodes codes="39" /> <!-- 1 key, spacebar -->
+    </form>
+
+    <!--
+        "touch" is not a hardware layout form, and so is not defined here.
+        <form id="touch"/>
+    -->
+</forms>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
@@ -13,6 +13,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<language type="ro"/>
 	</identity>
 	<annotations>
+		<annotation cp="{">acoladă | deschisă | paranteză</annotation>
+		<annotation cp="{" type="tts">acoladă deschisă</annotation>
 		<annotation cp="🏻">nuanță | piele | tipul 1–2 | ton deschis al pielii</annotation>
 		<annotation cp="🏻" type="tts">ton deschis al pielii</annotation>
 		<annotation cp="🏼">nuanță | piele | tipul 3 | ton semi‑deschis al pielii</annotation>
@@ -23,188 +25,692 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">ton semi‑închis al pielii</annotation>
 		<annotation cp="🏿">nuanță | piele | tipul 6 | ton închis al pielii</annotation>
 		<annotation cp="🏿" type="tts">ton închis al pielii</annotation>
+		<annotation cp="‾">bară deasupra | bară superioară | linie deasupra | linie superioară | supralinie</annotation>
+		<annotation cp="‾" type="tts">supralinie</annotation>
+		<annotation cp="_">linie | linie joasă | linie subliniere | liniuță jos | underscore</annotation>
+		<annotation cp="_" type="tts">underscore</annotation>
+		<annotation cp="-">cratimă | cratimă-minus | liniuță | minus</annotation>
+		<annotation cp="-" type="tts">cratimă-minus</annotation>
+		<annotation cp="‐">cratimă | liniuță</annotation>
+		<annotation cp="‐" type="tts">cratimă</annotation>
 		<annotation cp="–">linie | linie de pauză | pauză</annotation>
 		<annotation cp="–" type="tts">linie de pauză</annotation>
 		<annotation cp="—">dialog | linie | linie de dialog</annotation>
 		<annotation cp="—" type="tts">linie de dialog</annotation>
+		<annotation cp="―">bară | linie | linie orizontală | liniuță</annotation>
+		<annotation cp="―" type="tts">linie orizontală</annotation>
+		<annotation cp="・">interpunct | katakana | median | punct</annotation>
+		<annotation cp="・" type="tts">punct median katakana</annotation>
+		<annotation cp=",">virgulă</annotation>
+		<annotation cp="," type="tts">virgulă</annotation>
+		<annotation cp="،">arabă | virgulă</annotation>
+		<annotation cp="،" type="tts">virgulă arabă</annotation>
+		<annotation cp="、">ideografică | virgulă</annotation>
+		<annotation cp="、" type="tts">virgulă ideografică</annotation>
+		<annotation cp=";">punct și virgulă</annotation>
+		<annotation cp=";" type="tts">punct și virgulă</annotation>
+		<annotation cp="؛">arabe | punct și virgulă | punct și virgulă arabe</annotation>
+		<annotation cp="؛" type="tts">punct și virgulă arabe</annotation>
+		<annotation cp=":">două puncte</annotation>
+		<annotation cp=":" type="tts">două puncte</annotation>
+		<annotation cp="!">exclamare | semn de exclamare | semn de exclamație | semnul exclamării | semnul mirării</annotation>
+		<annotation cp="!" type="tts">semn de exclamare</annotation>
+		<annotation cp="¡">exclamare | întors | semn de exclamare | semn de exclamație | semnul exclamării | semnul exclamării întors | semnul mirării</annotation>
+		<annotation cp="¡" type="tts">semnul exclamării întors</annotation>
+		<annotation cp="?">întrebare | semn de întrebare | semnul întrebării</annotation>
+		<annotation cp="?" type="tts">semn de întrebare</annotation>
+		<annotation cp="¿">întors | întrebare | semn de întrebare | semnul întrebării întors</annotation>
+		<annotation cp="¿" type="tts">semnul întrebării întors</annotation>
+		<annotation cp="؟">arab | întrebare | semnul întrebării | semnul întrebării arab</annotation>
+		<annotation cp="؟" type="tts">semnul întrebării arab</annotation>
+		<annotation cp="‽">semnul exclamării și întrebării</annotation>
+		<annotation cp="‽" type="tts">semnul exclamării și întrebării</annotation>
+		<annotation cp=".">final | propoziție | punct</annotation>
+		<annotation cp="." type="tts">punct</annotation>
+		<annotation cp="…">omisiune | puncte de suspensie | trei puncte</annotation>
+		<annotation cp="…" type="tts">puncte de suspensie</annotation>
+		<annotation cp="。">final | ideografic | propoziție | punct</annotation>
+		<annotation cp="。" type="tts">punct ideografic</annotation>
 		<annotation cp="·">interpunct | mijloc | punct | punct de mijloc | punct la mijloc | punct median</annotation>
 		<annotation cp="·" type="tts">punct la mijloc</annotation>
+		<annotation cp="'">apostrof | apostrof mașină de scris | citat | ghilimele simple</annotation>
+		<annotation cp="'" type="tts">apostrof mașină de scris</annotation>
+		<annotation cp="‘">apostrof | apostrof stânga | citat | ghilimele simple</annotation>
+		<annotation cp="‘" type="tts">apostrof stânga</annotation>
+		<annotation cp="’">apostrof | apostrof dreapta | citat | ghilimele simple</annotation>
+		<annotation cp="’" type="tts">apostrof dreapta</annotation>
+		<annotation cp="‚">apostrof | apostrof dreapta jos | citat | citat jos</annotation>
+		<annotation cp="‚" type="tts">apostrof dreapta jos</annotation>
+		<annotation cp="“">citat | citat inteligent | ghilimele duble | ghilimele stânga</annotation>
+		<annotation cp="“" type="tts">ghilimele stânga</annotation>
+		<annotation cp="”">citat | citat inteligent | ghilimele dreapta | ghilimele duble</annotation>
+		<annotation cp="”" type="tts">ghilimele dreapta</annotation>
+		<annotation cp="„">citat | citat inteligent | ghilimele dreapta jos | ghilimele duble | ghilimele jos</annotation>
+		<annotation cp="„" type="tts">ghilimele dreapta jos</annotation>
 		<annotation cp="«">accente circumflexe | ascuțite | ghilimele ascuțite stânga | ghilimele unghiulare | paranteze | semnele citării | stânga</annotation>
 		<annotation cp="«" type="tts">ghilimele ascuțite stânga</annotation>
 		<annotation cp="»">accente circumflexe | ascuțite | dreapta | ghilimele ascuțite dreapta | ghilimele unghiulare | paranteze | semnele citării</annotation>
 		<annotation cp="»" type="tts">ghilimele ascuțite dreapta</annotation>
+		<annotation cp=")">închisă | paranteză | rotundă</annotation>
+		<annotation cp=")" type="tts">paranteză închisă</annotation>
+		<annotation cp="[">croșetă | paranteză | paranteză pătrată | paranteză pătrată deschisă</annotation>
+		<annotation cp="[" type="tts">paranteză pătrată deschisă</annotation>
+		<annotation cp="]">croșetă | paranteză | paranteză pătrată | paranteză pătrată închisă</annotation>
+		<annotation cp="]" type="tts">paranteză pătrată închisă</annotation>
+		<annotation cp="}">acoladă | închisă | paranteză</annotation>
+		<annotation cp="}" type="tts">acoladă închisă</annotation>
+		<annotation cp="〈">chevron | deschisă | paranteză ascuțită | paranteză ascuțită deschisă | paranteză unghiulară | șevron</annotation>
+		<annotation cp="〈" type="tts">paranteză ascuțită deschisă</annotation>
+		<annotation cp="〉">chevron | închisă | paranteză ascuțită | paranteză ascuțită închisă</annotation>
+		<annotation cp="〉" type="tts">paranteză ascuțită închisă</annotation>
+		<annotation cp="《">paranteză | paranteză ascuțită dublă | paranteză ascuțită dublă deschisă | paranteză unghiulară dublă</annotation>
+		<annotation cp="《" type="tts">paranteză ascuțită dublă deschisă</annotation>
+		<annotation cp="》">paranteză | paranteză ascuțită dublă | paranteză ascuțită dublă închisă | paranteză unghiulară dublă</annotation>
+		<annotation cp="》" type="tts">paranteză ascuțită dublă închisă</annotation>
+		<annotation cp="「">paranteză | paranteză colț | paranteză colț deschisă</annotation>
+		<annotation cp="「" type="tts">paranteză colț deschisă</annotation>
+		<annotation cp="」">paranteză | paranteză colț | paranteză colț închisă</annotation>
+		<annotation cp="」" type="tts">paranteză colț închisă</annotation>
+		<annotation cp="『">paranteză | paranteză colț goală | paranteză colț goală deschisă</annotation>
+		<annotation cp="『" type="tts">paranteză colț goală deschisă</annotation>
+		<annotation cp="』">paranteză | paranteză colț goală | paranteză colț goală închisă</annotation>
+		<annotation cp="』" type="tts">paranteză colț goală închisă</annotation>
+		<annotation cp="【">paranteză | paranteză lentilă | paranteză lentilă neagră deschisă</annotation>
+		<annotation cp="【" type="tts">paranteză lentilă neagră deschisă</annotation>
+		<annotation cp="】">paranteză | paranteză lentilă | paranteză lentilă neagră închisă</annotation>
+		<annotation cp="】" type="tts">paranteză lentilă neagră închisă</annotation>
+		<annotation cp="〔">paranteză | paranteză tortoise shell | paranteză tortoise shell deschisă</annotation>
+		<annotation cp="〔" type="tts">paranteză tortoise shell deschisă</annotation>
+		<annotation cp="〕">paranteză | paranteză tortoise shell | paranteză tortoise shell închisă</annotation>
+		<annotation cp="〕" type="tts">paranteză tortoise shell închisă</annotation>
+		<annotation cp="〖">paranteză | paranteză lentilă goală | paranteză lentilă goală deschisă</annotation>
+		<annotation cp="〖" type="tts">paranteză lentilă goală deschisă</annotation>
+		<annotation cp="〗">paranteză | paranteză lentilă goală | paranteză lentilă goală închisă</annotation>
+		<annotation cp="〗" type="tts">paranteză lentilă goală închisă</annotation>
 		<annotation cp="§">paragraf | parte | secțiune | semnul secțiune</annotation>
 		<annotation cp="§" type="tts">secțiune</annotation>
+		<annotation cp="¶">alineat | paragraf | semn de paragraf</annotation>
+		<annotation cp="¶" type="tts">semn de paragraf</annotation>
+		<annotation cp="@">a rond | coadă de maimuță | la | semn adresă</annotation>
+		<annotation cp="@" type="tts">a rond</annotation>
+		<annotation cp="*">asterisc | metacaracter | steluță | wildcard</annotation>
+		<annotation cp="*" type="tts">asterisc</annotation>
+		<annotation cp="/">bară | dreapta | linie | oblică | slash</annotation>
+		<annotation cp="/" type="tts">bară oblică</annotation>
+		<annotation cp="\">bară | inversă | oblică | stânga</annotation>
+		<annotation cp="\" type="tts">bară oblică inversă</annotation>
+		<annotation cp="&amp;">ampersand | et | și</annotation>
+		<annotation cp="&amp;" type="tts">ampersand</annotation>
+		<annotation cp="#">cifră | diez | hashtag | tastă</annotation>
+		<annotation cp="#" type="tts">hashtag</annotation>
+		<annotation cp="%">la sută | procent</annotation>
+		<annotation cp="%" type="tts">procent</annotation>
+		<annotation cp="‰">la mie | miime | promilă</annotation>
+		<annotation cp="‰" type="tts">promilă</annotation>
 		<annotation cp="†">cruciuliță | obelisc | semn cruciuliță</annotation>
 		<annotation cp="†" type="tts">semn cruciuliță</annotation>
 		<annotation cp="‡">cruciuliță | dublă | obelisc | semn cruciuliță dublă</annotation>
 		<annotation cp="‡" type="tts">semn cruciuliță dublă</annotation>
 		<annotation cp="•">marcator | punct</annotation>
 		<annotation cp="•" type="tts">marcator</annotation>
+		<annotation cp="‧">cratimă | liniuță | punct | punct de despărțire</annotation>
+		<annotation cp="‧" type="tts">punct de despărțire</annotation>
+		<annotation cp="′">prim</annotation>
+		<annotation cp="′" type="tts">prim</annotation>
+		<annotation cp="″">secund</annotation>
+		<annotation cp="″" type="tts">secund</annotation>
+		<annotation cp="‴">terț</annotation>
+		<annotation cp="‴" type="tts">terț</annotation>
+		<annotation cp="‸">semn de omisiune</annotation>
+		<annotation cp="‸" type="tts">semn de omisiune</annotation>
+		<annotation cp="※">semn de referință</annotation>
+		<annotation cp="※" type="tts">semn de referință</annotation>
+		<annotation cp="⁂">asterism | stele</annotation>
+		<annotation cp="⁂" type="tts">asterism</annotation>
+		<annotation cp="`">accent | grav | ton</annotation>
+		<annotation cp="`" type="tts">accent grav</annotation>
+		<annotation cp="´">accent | ascuțit | ton</annotation>
+		<annotation cp="´" type="tts">accent ascuțit</annotation>
+		<annotation cp="^">accent | căciuliță | circumflex | indicator | putere</annotation>
+		<annotation cp="^" type="tts">accent circumflex</annotation>
+		<annotation cp="¨">tremă | umlaut</annotation>
+		<annotation cp="¨" type="tts">tremă</annotation>
 		<annotation cp="°">grad | oră</annotation>
 		<annotation cp="°" type="tts">grad</annotation>
 		<annotation cp="℗">audio | copyright | drepturi de autor | drepturi de autor pentru înregistrare audio | înregistrare</annotation>
 		<annotation cp="℗" type="tts">drepturi de autor pentru înregistrare audio</annotation>
 		<annotation cp="←">săgeată | săgeată spre stânga | stânga</annotation>
 		<annotation cp="←" type="tts">săgeată spre stânga</annotation>
+		<annotation cp="↚" draft="contributed">săgeată spre stânga cu bară oblică</annotation>
+		<annotation cp="↚" type="tts">săgeată spre stânga cu bară oblică</annotation>
 		<annotation cp="→">dreapta | săgeată | săgeată spre dreapta</annotation>
 		<annotation cp="→" type="tts">săgeată spre dreapta</annotation>
+		<annotation cp="↛" draft="contributed">săgeată spre dreapta cu bară oblică</annotation>
+		<annotation cp="↛" type="tts">săgeată spre dreapta cu bară oblică</annotation>
 		<annotation cp="↑">săgeată | săgeată în sus | sus</annotation>
 		<annotation cp="↑" type="tts">săgeată în sus</annotation>
 		<annotation cp="↓">jos | săgeată | săgeată în jos</annotation>
 		<annotation cp="↓" type="tts">săgeată în jos</annotation>
+		<annotation cp="↜">săgeată ondulată spre stânga</annotation>
+		<annotation cp="↜" type="tts">săgeată ondulată spre stânga</annotation>
+		<annotation cp="↝">săgeată ondulată spre dreapta</annotation>
+		<annotation cp="↝" type="tts">săgeată ondulată spre dreapta</annotation>
+		<annotation cp="↞">săgeată cu două vârfuri spre stânga | săgeată cu vârf dublu spre stânga</annotation>
+		<annotation cp="↞" type="tts">săgeată cu două vârfuri spre stânga</annotation>
+		<annotation cp="↟">săgeată cu două vârfuri în sus | săgeată cu vârf dublu în sus</annotation>
+		<annotation cp="↟" type="tts">săgeată cu două vârfuri în sus</annotation>
+		<annotation cp="↠">săgeată cu două vârfuri spre dreapta | săgeată cu vârf dublu spre dreapta</annotation>
+		<annotation cp="↠" type="tts">săgeată cu două vârfuri spre dreapta</annotation>
+		<annotation cp="↡">săgeată cu două vârfuri în jos | săgeată cu vârf dublu în jos</annotation>
+		<annotation cp="↡" type="tts">săgeată cu două vârfuri în jos</annotation>
+		<annotation cp="↢">săgeată spre stânga cu coadă</annotation>
+		<annotation cp="↢" type="tts">săgeată spre stânga cu coadă</annotation>
+		<annotation cp="↣">săgeată spre dreapta cu coadă</annotation>
+		<annotation cp="↣" type="tts">săgeată spre dreapta cu coadă</annotation>
+		<annotation cp="↤">săgeată spre stânga dinspre bară</annotation>
+		<annotation cp="↤" type="tts">săgeată spre stânga dinspre bară</annotation>
+		<annotation cp="↥">săgeată în sus dinspre bară</annotation>
+		<annotation cp="↥" type="tts">săgeată în sus dinspre bară</annotation>
+		<annotation cp="↦">săgeată spre dreapta dinspre bară</annotation>
+		<annotation cp="↦" type="tts">săgeată spre dreapta dinspre bară</annotation>
+		<annotation cp="↧">săgeată în jos dinspre bară</annotation>
+		<annotation cp="↧" type="tts">săgeată în jos dinspre bară</annotation>
+		<annotation cp="↨">săgeată sus-jos cu bază</annotation>
+		<annotation cp="↨" type="tts">săgeată sus-jos cu bază</annotation>
+		<annotation cp="↫">săgeată spre stânga cu buclă</annotation>
+		<annotation cp="↫" type="tts">săgeată spre stânga cu buclă</annotation>
+		<annotation cp="↬">săgeată spre dreapta cu buclă</annotation>
+		<annotation cp="↬" type="tts">săgeată spre dreapta cu buclă</annotation>
+		<annotation cp="↭">săgeată ondulată bidirecțională</annotation>
+		<annotation cp="↭" type="tts">săgeată ondulată bidirecțională</annotation>
+		<annotation cp="↯">săgeată în zigzag în jos</annotation>
+		<annotation cp="↯" type="tts">săgeată în zigzag în jos</annotation>
+		<annotation cp="↰">săgeată în sus cu vârf spre stânga</annotation>
+		<annotation cp="↰" type="tts">săgeată în sus cu vârf spre stânga</annotation>
+		<annotation cp="↱">săgeată în sus cu vârf spre dreapta</annotation>
+		<annotation cp="↱" type="tts">săgeată în sus cu vârf spre dreapta</annotation>
+		<annotation cp="↲">săgeată în jos cu vârf spre stânga</annotation>
+		<annotation cp="↲" type="tts">săgeată în jos cu vârf spre stânga</annotation>
+		<annotation cp="↳">săgeată în jos cu vârf spre dreapta</annotation>
+		<annotation cp="↳" type="tts">săgeată în jos cu vârf spre dreapta</annotation>
+		<annotation cp="↴">săgeată spre dreapta cu colțul în jos</annotation>
+		<annotation cp="↴" type="tts">săgeată spre dreapta cu colțul în jos</annotation>
+		<annotation cp="↵">săgeată spre stânga cu colțul în jos</annotation>
+		<annotation cp="↵" type="tts">săgeată spre stânga cu colțul în jos</annotation>
+		<annotation cp="↶">săgeată în semicerc în sus în sens antiorar</annotation>
+		<annotation cp="↶" type="tts">săgeată în semicerc în sus în sens antiorar</annotation>
+		<annotation cp="↷">săgeată în semicerc în sus în sens orar</annotation>
+		<annotation cp="↷" type="tts">săgeată în semicerc în sus în sens orar</annotation>
+		<annotation cp="↸">săgeată spre nord-vest către bară lungă</annotation>
+		<annotation cp="↸" type="tts">săgeată spre nord-vest către bară lungă</annotation>
+		<annotation cp="↹">bară | săgeată | săgeată spre stânga către bară peste săgeată spre dreapta către bară | săgeată spre stânga peste săgeată spre dreapta cu bare | spre dreapta | spre stânga</annotation>
+		<annotation cp="↹" type="tts">săgeată spre stânga către bară peste săgeată spre dreapta către bară</annotation>
+		<annotation cp="↺">săgeată cerc deschis în sens antiorar</annotation>
+		<annotation cp="↺" type="tts">săgeată cerc deschis în sens antiorar</annotation>
+		<annotation cp="↻">săgeată cerc deschis în sens orar</annotation>
+		<annotation cp="↻" type="tts">săgeată cerc deschis în sens orar</annotation>
+		<annotation cp="↼">harpon spre stânga cu vârful în sus | vârf</annotation>
+		<annotation cp="↼" type="tts">harpon spre stânga cu vârful în sus</annotation>
+		<annotation cp="↽">harpon spre stânga cu vârful în jos</annotation>
+		<annotation cp="↽" type="tts">harpon spre stânga cu vârful în jos</annotation>
+		<annotation cp="↾">harpon în sus cu vârful spre dreapta | vârf</annotation>
+		<annotation cp="↾" type="tts">harpon în sus cu vârful spre dreapta</annotation>
+		<annotation cp="↿">harpon în sus cu vârful spre stânga | vârf</annotation>
+		<annotation cp="↿" type="tts">harpon în sus cu vârful spre stânga</annotation>
+		<annotation cp="⇀">harpon spre dreapta cu vârful în sus | vârf</annotation>
+		<annotation cp="⇀" type="tts">harpon spre dreapta cu vârful în sus</annotation>
+		<annotation cp="⇁">harpon spre dreapta cu vârful în jos | vârf</annotation>
+		<annotation cp="⇁" type="tts">harpon spre dreapta cu vârful în jos</annotation>
+		<annotation cp="⇂">harpon în jos cu vârful spre dreapta | vârf</annotation>
+		<annotation cp="⇂" type="tts">harpon în jos cu vârful spre dreapta</annotation>
+		<annotation cp="⇃">barb | harpon în jos cu vârful spre stânga</annotation>
+		<annotation cp="⇃" type="tts">harpon în jos cu vârful spre stânga</annotation>
+		<annotation cp="⇄">săgeată spre dreapta peste săgeată spre stânga</annotation>
+		<annotation cp="⇄" type="tts">săgeată spre dreapta peste săgeată spre stânga</annotation>
 		<annotation cp="⇅">jos | săgeată | săgeată în sus și săgeată în jos | sus</annotation>
 		<annotation cp="⇅" type="tts">săgeată în sus și săgeată în jos</annotation>
 		<annotation cp="⇆">dreapta | săgeată | săgeată la stânga pe săgeată la dreapta | săgeată spre stânga peste săgeata spre dreapta | stânga</annotation>
 		<annotation cp="⇆" type="tts">săgeată la stânga pe săgeată la dreapta</annotation>
+		<annotation cp="⇇">două săgeți spre stânga</annotation>
+		<annotation cp="⇇" type="tts">două săgeți spre stânga</annotation>
+		<annotation cp="⇈">două săgeți în sus</annotation>
+		<annotation cp="⇈" type="tts">două săgeți în sus</annotation>
+		<annotation cp="⇉">două săgeți spre dreapta</annotation>
+		<annotation cp="⇉" type="tts">două săgeți spre dreapta</annotation>
+		<annotation cp="⇊">două săgeți în jos</annotation>
+		<annotation cp="⇊" type="tts">două săgeți în jos</annotation>
+		<annotation cp="⇋">harpon spre stânga peste harpon spre dreapta</annotation>
+		<annotation cp="⇋" type="tts">harpon spre stânga peste harpon spre dreapta</annotation>
+		<annotation cp="⇌">harpon spre dreapta peste harpon spre stânga</annotation>
+		<annotation cp="⇌" type="tts">harpon spre dreapta peste harpon spre stânga</annotation>
+		<annotation cp="⇐">săgeată dublă spre stânga</annotation>
+		<annotation cp="⇐" type="tts">săgeată dublă spre stânga</annotation>
+		<annotation cp="⇍">săgeată dublă spre stânga barată</annotation>
+		<annotation cp="⇍" type="tts">săgeată dublă spre stânga barată</annotation>
+		<annotation cp="⇑">săgeată dublă în sus</annotation>
+		<annotation cp="⇑" type="tts">săgeată dublă în sus</annotation>
+		<annotation cp="⇒">săgeată dublă spre dreapta</annotation>
+		<annotation cp="⇒" type="tts">săgeată dublă spre dreapta</annotation>
+		<annotation cp="⇏">săgeată dublă spre dreapta barată</annotation>
+		<annotation cp="⇏" type="tts">săgeată dublă spre dreapta barată</annotation>
+		<annotation cp="⇓">săgeată dublă în jos</annotation>
+		<annotation cp="⇓" type="tts">săgeată dublă în jos</annotation>
+		<annotation cp="⇔">săgeată dublă bidirecțională</annotation>
+		<annotation cp="⇔" type="tts">săgeată dublă bidirecțională</annotation>
+		<annotation cp="⇎">săgeată dublă bidirecțională barată</annotation>
+		<annotation cp="⇎" type="tts">săgeată dublă bidirecțională barată</annotation>
+		<annotation cp="⇖">săgeată dublă spre nord-vest</annotation>
+		<annotation cp="⇖" type="tts">săgeată dublă spre nord-vest</annotation>
+		<annotation cp="⇗">săgeată dublă spre nord-est</annotation>
+		<annotation cp="⇗" type="tts">săgeată dublă spre nord-est</annotation>
+		<annotation cp="⇘">săgeată dublă spre sud-est</annotation>
+		<annotation cp="⇘" type="tts">săgeată dublă spre sud-est</annotation>
+		<annotation cp="⇙">săgeată dublă spre sud-vest</annotation>
+		<annotation cp="⇙" type="tts">săgeată dublă spre sud-vest</annotation>
+		<annotation cp="⇚">săgeată triplă spre stânga</annotation>
+		<annotation cp="⇚" type="tts">săgeată triplă spre stânga</annotation>
+		<annotation cp="⇛">săgeată triplă spre dreapta</annotation>
+		<annotation cp="⇛" type="tts">săgeată triplă spre dreapta</annotation>
+		<annotation cp="⇜">săgeată zigzagată spre stânga</annotation>
+		<annotation cp="⇜" type="tts">săgeată zigzagată spre stânga</annotation>
+		<annotation cp="⇝">săgeată zigzagată spre dreapta</annotation>
+		<annotation cp="⇝" type="tts">săgeată zigzagată spre dreapta</annotation>
+		<annotation cp="⇞">săgeată în sus cu două bare orizontale</annotation>
+		<annotation cp="⇞" type="tts">săgeată în sus cu două bare orizontale</annotation>
+		<annotation cp="⇟">săgeată în jos cu două bare orizontale</annotation>
+		<annotation cp="⇟" type="tts">săgeată în jos cu două bare orizontale</annotation>
+		<annotation cp="⇠">săgeată cu linie întreruptă spre stânga</annotation>
+		<annotation cp="⇠" type="tts">săgeată cu linie întreruptă spre stânga</annotation>
+		<annotation cp="⇡">săgeată cu linie întreruptă în sus</annotation>
+		<annotation cp="⇡" type="tts">săgeată cu linie întreruptă în sus</annotation>
+		<annotation cp="⇢">săgeată cu linie întreruptă spre dreapta</annotation>
+		<annotation cp="⇢" type="tts">săgeată cu linie întreruptă spre dreapta</annotation>
+		<annotation cp="⇣">săgeată cu linie întreruptă în jos</annotation>
+		<annotation cp="⇣" type="tts">săgeată cu linie întreruptă în jos</annotation>
+		<annotation cp="⇤">săgeată spre stânga către bară</annotation>
+		<annotation cp="⇤" type="tts">săgeată spre stânga către bară</annotation>
+		<annotation cp="⇥">săgeată spre dreapta către bară</annotation>
+		<annotation cp="⇥" type="tts">săgeată spre dreapta către bară</annotation>
+		<annotation cp="⇦">săgeată goală spre stânga</annotation>
+		<annotation cp="⇦" type="tts">săgeată goală spre stânga</annotation>
+		<annotation cp="⇧">săgeată goală în sus</annotation>
+		<annotation cp="⇧" type="tts">săgeată goală în sus</annotation>
+		<annotation cp="⇨">săgeată goală spre dreapta</annotation>
+		<annotation cp="⇨" type="tts">săgeată goală spre dreapta</annotation>
+		<annotation cp="⇩">săgeată goală în jos</annotation>
+		<annotation cp="⇩" type="tts">săgeată goală în jos</annotation>
+		<annotation cp="⇪">săgeată goală în sus dinspre bară</annotation>
+		<annotation cp="⇪" type="tts">săgeată goală în sus dinspre bară</annotation>
+		<annotation cp="⇵">săgeată în jos lângă săgeată în sus</annotation>
+		<annotation cp="⇵" type="tts">săgeată în jos lângă săgeată în sus</annotation>
+		<annotation cp="∀">cuantificator universal | oricare ar fi | orice | pentru orice | pentru toate | toate | universal</annotation>
+		<annotation cp="∀" type="tts">cuantificator universal</annotation>
+		<annotation cp="∂">derivată | derivată parțială</annotation>
+		<annotation cp="∂" type="tts">derivată parțială</annotation>
+		<annotation cp="∃">cuantificator existențial | există</annotation>
+		<annotation cp="∃" type="tts">cuantificator existențial</annotation>
+		<annotation cp="∅">matematică | mulțimea vidă | operator pe mulțimi</annotation>
+		<annotation cp="∅" type="tts">mulțimea vidă</annotation>
 		<annotation cp="∆">creștere | increment | triunghi</annotation>
 		<annotation cp="∆" type="tts">creștere</annotation>
 		<annotation cp="∇">nabla | triunghi</annotation>
 		<annotation cp="∇" type="tts">nabla</annotation>
 		<annotation cp="∈">apartenență | aparține | conține | element | element al | mulțime</annotation>
 		<annotation cp="∈" type="tts">element al</annotation>
+		<annotation cp="∉">element | nu aparține lui | nu este un element al</annotation>
+		<annotation cp="∉" type="tts">nu aparține lui</annotation>
+		<annotation cp="∋">conține ca element | element | include</annotation>
+		<annotation cp="∋" type="tts">include</annotation>
+		<annotation cp="∎">ceea ce era de demonstrat | q.e.d. | sfârșitul demonstrației</annotation>
+		<annotation cp="∎" type="tts">sfârșitul demonstrației</annotation>
+		<annotation cp="∏">logică | produs | produs cartezian | produs n-ar</annotation>
+		<annotation cp="∏" type="tts">produs cartezian</annotation>
+		<annotation cp="∑">adunare | matematică | sumă | sumă n-ară | sumă peste</annotation>
+		<annotation cp="∑" type="tts">sumă peste</annotation>
+		<annotation cp="+">adunare | plus | semnul plus</annotation>
+		<annotation cp="+" type="tts">semnul plus</annotation>
+		<annotation cp="±">plus-minus</annotation>
+		<annotation cp="±" type="tts">plus-minus</annotation>
 		<annotation cp="÷">împărți | împărțire | semnul împărțirii</annotation>
 		<annotation cp="÷" type="tts">semnul împărțirii</annotation>
 		<annotation cp="×">înmulți | înmulțire | ori | semnul înmulțirii</annotation>
 		<annotation cp="×" type="tts">semnul înmulțirii</annotation>
+		<annotation cp="&lt;">deschidere tag | mai mic decât | tag</annotation>
+		<annotation cp="&lt;" type="tts">mai mic decât</annotation>
+		<annotation cp="≮">inegalitate | matematică | nu mai mic decât</annotation>
+		<annotation cp="≮" type="tts">nu mai mic decât</annotation>
+		<annotation cp="=">egal | egalitate</annotation>
+		<annotation cp="=" type="tts">egal</annotation>
+		<annotation cp="≠">inecuație | inegalitate | nu este egal</annotation>
+		<annotation cp="≠" type="tts">nu este egal</annotation>
+		<annotation cp="&gt;">etichetă | etichetă de închidere | mai mare decât</annotation>
+		<annotation cp="&gt;" type="tts">mai mare decât</annotation>
+		<annotation cp="≯">inegalitate | matematică | nu mai mare decât</annotation>
+		<annotation cp="≯" type="tts">nu mai mare decât</annotation>
+		<annotation cp="¬">negare | nu</annotation>
+		<annotation cp="¬" type="tts">negare</annotation>
+		<annotation cp="|">băț | lance | linie | linie verticală | suliță | țeavă</annotation>
+		<annotation cp="|" type="tts">linie verticală</annotation>
+		<annotation cp="~">tildă</annotation>
+		<annotation cp="~" type="tts">tildă</annotation>
+		<annotation cp="−">minus | scădere | semnul minus</annotation>
+		<annotation cp="−" type="tts">semnul minus</annotation>
 		<annotation cp="⁻">exponent | minus</annotation>
 		<annotation cp="⁻" type="tts">exponent minus</annotation>
+		<annotation cp="∓">minus sau plus | plus-minus</annotation>
+		<annotation cp="∓" type="tts">minus sau plus</annotation>
+		<annotation cp="∕">bară oblică de împărțire | slash</annotation>
+		<annotation cp="∕" type="tts">bară oblică de împărțire</annotation>
+		<annotation cp="⁄" draft="contributed">bară oblică de fracție</annotation>
+		<annotation cp="⁄" type="tts">bară oblică de fracție</annotation>
+		<annotation cp="∗">operator asterisc | steluță</annotation>
+		<annotation cp="∗" type="tts">operator asterisc</annotation>
+		<annotation cp="∘">compunere | funcții compuse | operator | operator inel</annotation>
+		<annotation cp="∘" type="tts">operator inel</annotation>
+		<annotation cp="∙" draft="contributed">operator punct</annotation>
+		<annotation cp="∙" type="tts">operator punct</annotation>
 		<annotation cp="√">număr irațional | pătrat | rădăcină | rădăcină pătrată | radical</annotation>
 		<annotation cp="√" type="tts">rădăcină pătrată</annotation>
+		<annotation cp="∝">este proporțional cu | proporțional | proporționalitate</annotation>
+		<annotation cp="∝" type="tts">proporțional</annotation>
 		<annotation cp="∞">infinit | semnul infinit</annotation>
 		<annotation cp="∞" type="tts">semnul infinit</annotation>
+		<annotation cp="∟">matematică | unghi de 90 de grade | unghi drept</annotation>
+		<annotation cp="∟" type="tts">unghi drept</annotation>
+		<annotation cp="∠">ascuțit | unghi</annotation>
+		<annotation cp="∠" type="tts">unghi</annotation>
+		<annotation cp="∣">divide | divizor</annotation>
+		<annotation cp="∣" type="tts">divide</annotation>
+		<annotation cp="∥">paralel cu</annotation>
+		<annotation cp="∥" type="tts">paralel cu</annotation>
+		<annotation cp="∧" draft="contributed">și logic</annotation>
+		<annotation cp="∧" type="tts">și logic</annotation>
 		<annotation cp="∩">intersecție | mulțime</annotation>
 		<annotation cp="∩" type="tts">intersecție</annotation>
 		<annotation cp="∪">colecție | mulțime | reuniune</annotation>
 		<annotation cp="∪" type="tts">reuniune</annotation>
+		<annotation cp="∫">analiză matematică | integrală</annotation>
+		<annotation cp="∫" type="tts">integrală</annotation>
+		<annotation cp="∬">analiză matematică | integrală dublă</annotation>
+		<annotation cp="∬" type="tts">integrală dublă</annotation>
+		<annotation cp="∮">integrală pe contur</annotation>
+		<annotation cp="∮" type="tts">integrală pe contur</annotation>
+		<annotation cp="∴">logică | prin urmare</annotation>
+		<annotation cp="∴" type="tts">prin urmare</annotation>
+		<annotation cp="∵">deoarece | logică</annotation>
+		<annotation cp="∵" type="tts">deoarece</annotation>
+		<annotation cp="∶">raport</annotation>
+		<annotation cp="∶" type="tts">raport</annotation>
+		<annotation cp="∷">proporție | proporționalitate</annotation>
+		<annotation cp="∷" type="tts">proporție</annotation>
+		<annotation cp="∼">operator | operator tildă</annotation>
+		<annotation cp="∼" type="tts">operator tildă</annotation>
+		<annotation cp="∽">tildă | tildă inversată</annotation>
+		<annotation cp="∽" type="tts">tildă inversată</annotation>
+		<annotation cp="∾">s orizontal inversat</annotation>
+		<annotation cp="∾" type="tts">s orizontal inversat</annotation>
+		<annotation cp="≃">asimptotă | asimptotic egal cu | matematică</annotation>
+		<annotation cp="≃" type="tts">asimptotic egal cu</annotation>
+		<annotation cp="≅">aproximativ egal cu | congruență | egalitate | izomorfism | matematică</annotation>
+		<annotation cp="≅" type="tts">aproximativ egal cu</annotation>
+		<annotation cp="≈">aproape egal | aproximare | aproximativ</annotation>
+		<annotation cp="≈" type="tts">aproape egal</annotation>
+		<annotation cp="≌">egalitate | matematică | toate egale cu</annotation>
+		<annotation cp="≌" type="tts">toate egale cu</annotation>
+		<annotation cp="≒">aproximativ egal cu imaginea</annotation>
+		<annotation cp="≒" type="tts">aproximativ egal cu imaginea</annotation>
+		<annotation cp="≖">egalitate | inel în egal cu | matematică</annotation>
+		<annotation cp="≖" type="tts">inel în egal cu</annotation>
 		<annotation cp="≡">congruent | exact | identic | identic cu | triplu</annotation>
 		<annotation cp="≡" type="tts">identic cu</annotation>
+		<annotation cp="≣" draft="contributed">strict echivalent cu</annotation>
+		<annotation cp="≣" type="tts">strict echivalent cu</annotation>
+		<annotation cp="≤">egal | egalitate | inegalitate | mai mic decât | mai mic sau egal cu</annotation>
+		<annotation cp="≤" type="tts">mai mic sau egal cu</annotation>
+		<annotation cp="≥">egal | egalitate | inegalitate | mai mare decât | mai mare sau egal cu</annotation>
+		<annotation cp="≥" type="tts">mai mare sau egal cu</annotation>
+		<annotation cp="≦">inegalitate | mai mic decât peste egal cu | matematică</annotation>
+		<annotation cp="≦" type="tts">mai mic decât peste egal cu</annotation>
+		<annotation cp="≧">inegalitate | mai mare decât peste egal cu | matematică</annotation>
+		<annotation cp="≧" type="tts">mai mare decât peste egal cu</annotation>
+		<annotation cp="≪">inegalitate | matematică | mult mai mic decât</annotation>
+		<annotation cp="≪" type="tts">mult mai mic decât</annotation>
+		<annotation cp="≫">inegalitate | matematică | mult mai mare decât</annotation>
+		<annotation cp="≫" type="tts">mult mai mare decât</annotation>
+		<annotation cp="≬">între</annotation>
+		<annotation cp="≬" type="tts">între</annotation>
+		<annotation cp="≳">inegalitate | mai mare decât sau echivalent cu | matematică</annotation>
+		<annotation cp="≳" type="tts">mai mare decât sau echivalent cu</annotation>
+		<annotation cp="≺">matematică | operator de mulțimi | precedă</annotation>
+		<annotation cp="≺" type="tts">precedă</annotation>
+		<annotation cp="≻">matematică | operator de mulțimi | succedă</annotation>
+		<annotation cp="≻" type="tts">succedă</annotation>
+		<annotation cp="⊁">matematică | nu succedă | operator de mulțimi</annotation>
+		<annotation cp="⊁" type="tts">nu succedă</annotation>
 		<annotation cp="⊂">mulțime | submulțime | submulțime a</annotation>
 		<annotation cp="⊂" type="tts">submulțime a</annotation>
+		<annotation cp="⊃">este o supramulțime pentru</annotation>
+		<annotation cp="⊃" type="tts">este o supramulțime pentru</annotation>
+		<annotation cp="⊆">este o submulțime egală cu</annotation>
+		<annotation cp="⊆" type="tts">este o submulțime egală cu</annotation>
+		<annotation cp="⊇">este o supramulțime egală cu</annotation>
+		<annotation cp="⊇" type="tts">este o supramulțime egală cu</annotation>
+		<annotation cp="⊕">dilatare binară | plus | plus încercuit</annotation>
+		<annotation cp="⊕" type="tts">plus încercuit</annotation>
+		<annotation cp="⊖">diferență simetrică | eroziune binară | minus încercuit</annotation>
+		<annotation cp="⊖" type="tts">minus încercuit</annotation>
+		<annotation cp="⊗">ori încercuit | produs | produs tensorial | tensor</annotation>
+		<annotation cp="⊗" type="tts">ori încercuit</annotation>
+		<annotation cp="⊘">bară împărțire încercuită | matematică | similar împărțirii</annotation>
+		<annotation cp="⊘" type="tts">bară împărțire încercuită</annotation>
+		<annotation cp="⊙">NOR exclusiv | operator | operator punct încercuit | XNOR</annotation>
+		<annotation cp="⊙" type="tts">operator punct încercuit</annotation>
+		<annotation cp="⊚">operator inel încercuit</annotation>
+		<annotation cp="⊚" type="tts">operator inel încercuit</annotation>
+		<annotation cp="⊛">asterisc | operator | operator asterisc încercuit</annotation>
+		<annotation cp="⊛" type="tts">operator asterisc încercuit</annotation>
+		<annotation cp="⊞">matematică | plus în pătrat | similar adunării</annotation>
+		<annotation cp="⊞" type="tts">plus în pătrat</annotation>
+		<annotation cp="⊟">matematică | minus în pătrat | similar scăderii</annotation>
+		<annotation cp="⊟" type="tts">minus în pătrat</annotation>
+		<annotation cp="⊥">e perpendicular pe | fals | perpendicular</annotation>
+		<annotation cp="⊥" type="tts">e perpendicular pe</annotation>
+		<annotation cp="⊮">nu forțează</annotation>
+		<annotation cp="⊮" type="tts">nu forțează</annotation>
+		<annotation cp="⊰">matematică | operator de mulțimi | precedă sub relație</annotation>
+		<annotation cp="⊰" type="tts">precedă sub relație</annotation>
+		<annotation cp="⊱">matematică | operator de mulțimi | succedă sub relație</annotation>
+		<annotation cp="⊱" type="tts">succedă sub relație</annotation>
+		<annotation cp="⋭">matematică | nu conține ca submulțime normală pe sau este egală cu | teoria grupurilor</annotation>
+		<annotation cp="⋭" type="tts">nu conține ca submulțime normală pe sau este egală cu</annotation>
+		<annotation cp="⊶">original</annotation>
+		<annotation cp="⊶" type="tts">original</annotation>
+		<annotation cp="⊹">matematică | matrice autoadjunctă | matrice hermiteană conjugată | matrice hermitic conjugată</annotation>
+		<annotation cp="⊹" type="tts">matrice hermiteană conjugată</annotation>
+		<annotation cp="⊿">matematică | triunghi dreptunghic</annotation>
+		<annotation cp="⊿" type="tts">triunghi dreptunghic</annotation>
+		<annotation cp="⋁">disjuncție | logică | sau logic n-ar</annotation>
+		<annotation cp="⋁" type="tts">sau logic n-ar</annotation>
+		<annotation cp="⋂">intersecție | intersecție n-ară | matematică | operator de mulțimi</annotation>
+		<annotation cp="⋂" type="tts">intersecție n-ară</annotation>
+		<annotation cp="⋃">matematică | operator de mulțimi | reuniune | reuniune n-ară</annotation>
+		<annotation cp="⋃" type="tts">reuniune n-ară</annotation>
+		<annotation cp="⋅">operator | operator punct de înmulțire</annotation>
+		<annotation cp="⋅" type="tts">operator punct de înmulțire</annotation>
+		<annotation cp="⋆">operator | operator stea</annotation>
+		<annotation cp="⋆" type="tts">operator stea</annotation>
+		<annotation cp="⋈">joncțiune naturală | operator binar | papion</annotation>
+		<annotation cp="⋈" type="tts">joncțiune naturală</annotation>
+		<annotation cp="⋒">intersecție | intersecție dublă | matematică | operator de mulțimi</annotation>
+		<annotation cp="⋒" type="tts">intersecție dublă</annotation>
+		<annotation cp="⋘">foarte mult mai mic decât | inegalitate | matematică</annotation>
+		<annotation cp="⋘" type="tts">foarte mult mai mic decât</annotation>
+		<annotation cp="⋙">foarte mult mai mare decât | inegalitate | matematică</annotation>
+		<annotation cp="⋙" type="tts">foarte mult mai mare decât</annotation>
+		<annotation cp="⋮">este divizibil cu | matematică | puncte de suspensie | puncte de suspensie verticale</annotation>
+		<annotation cp="⋮" type="tts">puncte de suspensie verticale</annotation>
+		<annotation cp="⋯">puncte de suspensie | puncte de suspensie orizontale pe linia mediană</annotation>
+		<annotation cp="⋯" type="tts">puncte de suspensie orizontale pe linia mediană</annotation>
+		<annotation cp="⋰">matematică | puncte de suspensie | puncte de suspensie diagonale dreapta sus</annotation>
+		<annotation cp="⋰" type="tts">puncte de suspensie diagonale dreapta sus</annotation>
+		<annotation cp="⋱">matematică | puncte de suspensie | puncte de suspensie diagonale dreapta jos</annotation>
+		<annotation cp="⋱" type="tts">puncte de suspensie diagonale dreapta jos</annotation>
+		<annotation cp="■">pătrat umplut</annotation>
+		<annotation cp="■" type="tts">pătrat umplut</annotation>
+		<annotation cp="□">pătrat gol</annotation>
+		<annotation cp="□" type="tts">pătrat gol</annotation>
+		<annotation cp="▢">pătrat gol cu colțuri rotunjite</annotation>
+		<annotation cp="▢" type="tts">pătrat gol cu colțuri rotunjite</annotation>
+		<annotation cp="▣">pătrat gol cu un pătrat umplut înăuntru</annotation>
+		<annotation cp="▣" type="tts">pătrat gol cu un pătrat umplut înăuntru</annotation>
+		<annotation cp="▤">pătrat umplut cu linii orizontale</annotation>
+		<annotation cp="▤" type="tts">pătrat umplut cu linii orizontale</annotation>
+		<annotation cp="▥">pătrat umplut cu linii verticale</annotation>
+		<annotation cp="▥" type="tts">pătrat umplut cu linii verticale</annotation>
+		<annotation cp="▦">pătrat umplut cu hașură dreaptă</annotation>
+		<annotation cp="▦" type="tts">pătrat umplut cu hașură dreaptă</annotation>
+		<annotation cp="▧">pătrat umplut cu dungi diagonale din stânga sus în dreapta jos</annotation>
+		<annotation cp="▧" type="tts">pătrat umplut cu dungi diagonale din stânga sus în dreapta jos</annotation>
+		<annotation cp="▨">pătrat umplut cu dungi diagonale din dreapta sus în stânga jos</annotation>
+		<annotation cp="▨" type="tts">pătrat umplut cu dungi diagonale din dreapta sus în stânga jos</annotation>
+		<annotation cp="▩">pătrat umplut cu hașură oblică</annotation>
+		<annotation cp="▩" type="tts">pătrat umplut cu hașură oblică</annotation>
+		<annotation cp="▬">dreptunghi umplut</annotation>
+		<annotation cp="▬" type="tts">dreptunghi umplut</annotation>
+		<annotation cp="▭">dreptunghi gol</annotation>
+		<annotation cp="▭" type="tts">dreptunghi gol</annotation>
+		<annotation cp="▮">dreptunghi vertical umplut</annotation>
+		<annotation cp="▮" type="tts">dreptunghi vertical umplut</annotation>
+		<annotation cp="▰">paralelogram umplut</annotation>
+		<annotation cp="▰" type="tts">paralelogram umplut</annotation>
 		<annotation cp="▲">plină | săgeată | sus | triunghi | triunghi cu vârful în sus | triunghi plin cu vârful în sus</annotation>
 		<annotation cp="▲" type="tts">triunghi plin cu vârful în sus</annotation>
+		<annotation cp="△">triunghi gol cu vârful în sus</annotation>
+		<annotation cp="△" type="tts">triunghi gol cu vârful în sus</annotation>
+		<annotation cp="▴">triunghi mic umplut cu vârful în sus</annotation>
+		<annotation cp="▴" type="tts">triunghi mic umplut cu vârful în sus</annotation>
+		<annotation cp="▵">triunghi mic gol cu vârful în sus</annotation>
+		<annotation cp="▵" type="tts">triunghi mic gol cu vârful în sus</annotation>
+		<annotation cp="▷">triunghi gol cu vârful în dreapta</annotation>
+		<annotation cp="▷" type="tts">triunghi gol cu vârful în dreapta</annotation>
+		<annotation cp="▸">triunghi mic umplut cu vârful în dreapta</annotation>
+		<annotation cp="▸" type="tts">triunghi mic umplut cu vârful în dreapta</annotation>
+		<annotation cp="▹">triunghi mic gol cu vârful în dreapta</annotation>
+		<annotation cp="▹" type="tts">triunghi mic gol cu vârful în dreapta</annotation>
+		<annotation cp="►">săgeată umplută cu vârful în dreapta</annotation>
+		<annotation cp="►" type="tts">săgeată umplută cu vârful în dreapta</annotation>
+		<annotation cp="▻">săgeată goală cu vârful în dreapta</annotation>
+		<annotation cp="▻" type="tts">săgeată goală cu vârful în dreapta</annotation>
 		<annotation cp="▼">jos | plin | săgeată | triunghi | triunghi plin cu vârful în jos</annotation>
 		<annotation cp="▼" type="tts">triunghi plin cu vârful în jos</annotation>
+		<annotation cp="▽">triunghi gol cu vârful în jos</annotation>
+		<annotation cp="▽" type="tts">triunghi gol cu vârful în jos</annotation>
+		<annotation cp="▾">triunghi mic umplut cu vârful în jos</annotation>
+		<annotation cp="▾" type="tts">triunghi mic umplut cu vârful în jos</annotation>
+		<annotation cp="▿">triunghi mic gol cu vârful în jos</annotation>
+		<annotation cp="▿" type="tts">triunghi mic gol cu vârful în jos</annotation>
+		<annotation cp="◁">triunghi gol cu vârful în stânga</annotation>
+		<annotation cp="◁" type="tts">triunghi gol cu vârful în stânga</annotation>
+		<annotation cp="◂">triunghi mic umplut cu vârful în stânga</annotation>
+		<annotation cp="◂" type="tts">triunghi mic umplut cu vârful în stânga</annotation>
+		<annotation cp="◃">triunghi mic gol cu vârful în stânga</annotation>
+		<annotation cp="◃" type="tts">triunghi mic gol cu vârful în stânga</annotation>
+		<annotation cp="◄">săgeată umplută cu vârful în stânga</annotation>
+		<annotation cp="◄" type="tts">săgeată umplută cu vârful în stânga</annotation>
+		<annotation cp="◅">săgeată goală cu vârful în stânga</annotation>
+		<annotation cp="◅" type="tts">săgeată goală cu vârful în stânga</annotation>
+		<annotation cp="◆">romb umplut</annotation>
+		<annotation cp="◆" type="tts">romb umplut</annotation>
+		<annotation cp="◇">romb gol</annotation>
+		<annotation cp="◇" type="tts">romb gol</annotation>
+		<annotation cp="◈">romb gol cu un romb umplut înăuntru</annotation>
+		<annotation cp="◈" type="tts">romb gol cu un romb umplut înăuntru</annotation>
+		<annotation cp="◉">cerc gol cu un cerc umplut înăuntru</annotation>
+		<annotation cp="◉" type="tts">cerc gol cu un cerc umplut înăuntru</annotation>
 		<annotation cp="◊">caro | romb</annotation>
 		<annotation cp="◊" type="tts">romb</annotation>
 		<annotation cp="○">cerc | cerc gol | inel</annotation>
 		<annotation cp="○" type="tts">cerc gol</annotation>
+		<annotation cp="◌">cerc punctat</annotation>
+		<annotation cp="◌" type="tts">cerc punctat</annotation>
+		<annotation cp="◍">cerc umplut cu dungi verticale</annotation>
+		<annotation cp="◍" type="tts">cerc umplut cu dungi verticale</annotation>
+		<annotation cp="◎">cerc dublu | cercuri concentrice | țintă</annotation>
+		<annotation cp="◎" type="tts">cercuri concentrice</annotation>
 		<annotation cp="●">cerc | cerc plin</annotation>
 		<annotation cp="●" type="tts">cerc plin</annotation>
+		<annotation cp="◐">cerc umplut pe jumătatea stângă</annotation>
+		<annotation cp="◐" type="tts">cerc umplut pe jumătatea stângă</annotation>
+		<annotation cp="◑">cerc umplut pe jumătatea dreaptă</annotation>
+		<annotation cp="◑" type="tts">cerc umplut pe jumătatea dreaptă</annotation>
+		<annotation cp="◒">cerc umplut pe jumătatea inferioară</annotation>
+		<annotation cp="◒" type="tts">cerc umplut pe jumătatea inferioară</annotation>
+		<annotation cp="◓">cerc umplut pe jumătatea superioară</annotation>
+		<annotation cp="◓" type="tts">cerc umplut pe jumătatea superioară</annotation>
+		<annotation cp="◔">cerc umplut în sfertul din dreapta sus</annotation>
+		<annotation cp="◔" type="tts">cerc umplut în sfertul din dreapta sus</annotation>
+		<annotation cp="◕">cerc umplut în toate sferturile mai puțin cel din stânga sus</annotation>
+		<annotation cp="◕" type="tts">cerc umplut în toate sferturile mai puțin cel din stânga sus</annotation>
+		<annotation cp="◖">jumătate de cerc umplut în stânga</annotation>
+		<annotation cp="◖" type="tts">jumătate de cerc umplut în stânga</annotation>
+		<annotation cp="◗">jumătate de cerc umplut în dreapta</annotation>
+		<annotation cp="◗" type="tts">jumătate de cerc umplut în dreapta</annotation>
+		<annotation cp="◘">marcator invers</annotation>
+		<annotation cp="◘" type="tts">marcator invers</annotation>
+		<annotation cp="◙">pătrat umplut cu un cerc gol înăuntru</annotation>
+		<annotation cp="◙" type="tts">pătrat umplut cu un cerc gol înăuntru</annotation>
+		<annotation cp="◜">arc de cerc în sfertul din stânga sus</annotation>
+		<annotation cp="◜" type="tts">arc de cerc în sfertul din stânga sus</annotation>
+		<annotation cp="◝">arc de cerc în sfertul din dreapta sus</annotation>
+		<annotation cp="◝" type="tts">arc de cerc în sfertul din dreapta sus</annotation>
+		<annotation cp="◞">arc de cerc în sfertul din dreapta jos</annotation>
+		<annotation cp="◞" type="tts">arc de cerc în sfertul din dreapta jos</annotation>
+		<annotation cp="◟">arc de cerc în sfertul din stânga jos</annotation>
+		<annotation cp="◟" type="tts">arc de cerc în sfertul din stânga jos</annotation>
+		<annotation cp="◠">semicerc superior</annotation>
+		<annotation cp="◠" type="tts">semicerc superior</annotation>
+		<annotation cp="◡">semicerc inferior</annotation>
+		<annotation cp="◡" type="tts">semicerc inferior</annotation>
+		<annotation cp="◢">triunghi umplut cu unghi drept în dreapta jos</annotation>
+		<annotation cp="◢" type="tts">triunghi umplut cu unghi drept în dreapta jos</annotation>
+		<annotation cp="◣">triunghi umplut cu unghi drept în stânga jos</annotation>
+		<annotation cp="◣" type="tts">triunghi umplut cu unghi drept în stânga jos</annotation>
+		<annotation cp="◤" draft="contributed">triunghi umplut stânga sus</annotation>
+		<annotation cp="◤" type="tts" draft="contributed">triunghi umplut stânga sus</annotation>
+		<annotation cp="◥">triunghi umplut cu unghi drept în dreapta sus</annotation>
+		<annotation cp="◥" type="tts">triunghi umplut cu unghi drept în dreapta sus</annotation>
+		<annotation cp="◦">marcator gol</annotation>
+		<annotation cp="◦" type="tts">marcator gol</annotation>
 		<annotation cp="◯">cerc | cerc gol mare | inel</annotation>
 		<annotation cp="◯" type="tts">cerc gol mare</annotation>
-		<annotation cp="⚧" draft="contributed">transgender</annotation>
-		<annotation cp="⚧" type="tts" draft="contributed">transgender</annotation>
-		<annotation cp="🤌">degete | degete strânse | gest cu mâna | interogație | sarcastic</annotation>
-		<annotation cp="🤌" type="tts">degete strânse</annotation>
-		<annotation cp="🥲">atins | față zâmbind cu lacrimă | lacrimă | mândru | recunoscător | ușurat | zâmbind ușor</annotation>
-		<annotation cp="🥲" type="tts">față zâmbind cu lacrimă</annotation>
-		<annotation cp="🥷">ascuns | invizibil | luptător | ninja</annotation>
-		<annotation cp="🥷" type="tts">ninja</annotation>
-		<annotation cp="🥸">deghizare | față | față deghizată | incognito | nas | ochelari</annotation>
-		<annotation cp="🥸" type="tts">față deghizată</annotation>
-		<annotation cp="🦣">colți | dispariție | extincție | lânos | mamut | mare</annotation>
-		<annotation cp="🦣" type="tts">mamut</annotation>
-		<annotation cp="🦤">dispariție | dodo | extincție | mare | Mauritius</annotation>
-		<annotation cp="🦤" type="tts">dodo</annotation>
-		<annotation cp="🦫">baraj | castor</annotation>
-		<annotation cp="🦫" type="tts">castor</annotation>
-		<annotation cp="🦬">bizon | bour | bufal | cireadă | zimbru</annotation>
-		<annotation cp="🦬" type="tts">bizon</annotation>
-		<annotation cp="🦭">focă | leu de mare</annotation>
-		<annotation cp="🦭" type="tts">focă</annotation>
-		<annotation cp="🧋">ceai | ceai cu perle | lapte | perle</annotation>
-		<annotation cp="🧋" type="tts">ceai cu perle</annotation>
-		<annotation cp="🩴" draft="contributed">șlap</annotation>
-		<annotation cp="🩴" type="tts" draft="contributed">șlap</annotation>
-		<annotation cp="🪃" draft="contributed">bumerang</annotation>
-		<annotation cp="🪃" type="tts" draft="contributed">bumerang</annotation>
-		<annotation cp="🪄">baghetă magică | magie | vrajă | vrăjitoare | vrăjitor | vrăjitorie</annotation>
-		<annotation cp="🪄" type="tts">baghetă magică</annotation>
-		<annotation cp="🪅" draft="contributed">piñata</annotation>
-		<annotation cp="🪅" type="tts" draft="contributed">piñata</annotation>
-		<annotation cp="🪆" draft="contributed">matrioșka</annotation>
-		<annotation cp="🪆" type="tts" draft="contributed">matrioșka</annotation>
-		<annotation cp="🪖" draft="contributed">cască militară</annotation>
-		<annotation cp="🪖" type="tts" draft="contributed">cască militară</annotation>
-		<annotation cp="🪗" draft="contributed">acordeon</annotation>
-		<annotation cp="🪗" type="tts" draft="contributed">acordeon</annotation>
-		<annotation cp="🪘" draft="contributed">tobă înaltă</annotation>
-		<annotation cp="🪘" type="tts" draft="contributed">tobă înaltă</annotation>
-		<annotation cp="🪙">argint | aur | bani | comoară | metal | monedă</annotation>
-		<annotation cp="🪙" type="tts">monedă</annotation>
-		<annotation cp="🪚" draft="contributed">fierăstrău pentru tămplărie</annotation>
-		<annotation cp="🪚" type="tts" draft="contributed">fierăstrău pentru tămplărie</annotation>
-		<annotation cp="🪛">instrument | sculă | șurub | șurubelniță | unealtă</annotation>
-		<annotation cp="🪛" type="tts">șurubelniță</annotation>
-		<annotation cp="🪜">scară | treaptă | urca</annotation>
-		<annotation cp="🪜" type="tts">scară</annotation>
-		<annotation cp="🪝">argument de vânzare | captură | cârlig | escroc | momeală</annotation>
-		<annotation cp="🪝" type="tts">cârlig</annotation>
-		<annotation cp="🪞">oglindă | reflexie</annotation>
-		<annotation cp="🪞" type="tts">oglindă</annotation>
-		<annotation cp="🪟">aer proaspăt | deschidere | fereastră | geam | ramă | transparent | vedere</annotation>
-		<annotation cp="🪟" type="tts">fereastră</annotation>
-		<annotation cp="🪠" draft="contributed">pompă de aspirare</annotation>
-		<annotation cp="🪠" type="tts" draft="contributed">pompă de aspirare</annotation>
-		<annotation cp="🪡">ac | ac de cusut | broderie | croitorie | cusut</annotation>
-		<annotation cp="🪡" type="tts">ac de cusut</annotation>
-		<annotation cp="🪢">frânghie | încurcătură | lega | nod | sfoară</annotation>
-		<annotation cp="🪢" type="tts">nod</annotation>
-		<annotation cp="🪣" draft="contributed">găleată</annotation>
-		<annotation cp="🪣" type="tts" draft="contributed">găleată</annotation>
-		<annotation cp="🪤">ademeni | capcană de șoareci | cursă de șoareci | momeală</annotation>
-		<annotation cp="🪤" type="tts">cursă de șoareci</annotation>
-		<annotation cp="🪥">baie | curățare | dantură | dentară | dinte | igienă | periaj | periere | periuță de dinți</annotation>
-		<annotation cp="🪥" type="tts">periuță de dinți</annotation>
-		<annotation cp="🪦" draft="contributed">piatră funerară</annotation>
-		<annotation cp="🪦" type="tts" draft="contributed">piatră funerară</annotation>
-		<annotation cp="🪧" draft="contributed">plancardă</annotation>
-		<annotation cp="🪧" type="tts" draft="contributed">plancardă</annotation>
-		<annotation cp="🪨" draft="contributed">piatră</annotation>
-		<annotation cp="🪨" type="tts" draft="contributed">piatră</annotation>
-		<annotation cp="🪰">boală | dăunător | descompunere | muscă | putrezire</annotation>
-		<annotation cp="🪰" type="tts">muscă</annotation>
-		<annotation cp="🪱">anelid | parazit | râmă | vierme</annotation>
-		<annotation cp="🪱" type="tts">vierme</annotation>
-		<annotation cp="🪲">cărăbuș | gândac | insectă</annotation>
-		<annotation cp="🪲" type="tts">cărăbuș</annotation>
-		<annotation cp="🪳">gândac de bucătărie | insectă | parazit</annotation>
-		<annotation cp="🪳" type="tts">gândac de bucătărie</annotation>
-		<annotation cp="🪴">casă | crește | cultiva | ghiveci | plantă | plantă în ghiveci</annotation>
-		<annotation cp="🪴" type="tts">plantă în ghiveci</annotation>
-		<annotation cp="🪵" draft="contributed">lemn</annotation>
-		<annotation cp="🪵" type="tts" draft="contributed">lemn</annotation>
-		<annotation cp="🪶">pană | pasăre | penaj | ușor | zbor</annotation>
-		<annotation cp="🪶" type="tts">pană</annotation>
-		<annotation cp="🫀">bătăile inimii | cord | inimă | organ | puls</annotation>
-		<annotation cp="🫀" type="tts">inimă</annotation>
-		<annotation cp="🫁">expirare | inhalare | inspirare | organ | plămâni | respirare | respirație</annotation>
-		<annotation cp="🫁" type="tts">plămâni</annotation>
-		<annotation cp="🫂">adio | îmbrățișare | la revedere | mulțumesc | persoane îmbrățișate | salut</annotation>
-		<annotation cp="🫂" type="tts">persoane îmbrățișate</annotation>
-		<annotation cp="🫐" draft="contributed">afine</annotation>
-		<annotation cp="🫐" type="tts" draft="contributed">afine</annotation>
-		<annotation cp="🫑" draft="contributed">ardei gras</annotation>
-		<annotation cp="🫑" type="tts" draft="contributed">ardei gras</annotation>
-		<annotation cp="🫒">mâncare | măslină</annotation>
-		<annotation cp="🫒" type="tts">măslină</annotation>
-		<annotation cp="🫓" draft="contributed">pită</annotation>
-		<annotation cp="🫓" type="tts" draft="contributed">pită</annotation>
-		<annotation cp="🫔" draft="contributed">tamale</annotation>
-		<annotation cp="🫔" type="tts" draft="contributed">tamale</annotation>
-		<annotation cp="🫕" draft="contributed">fondue</annotation>
-		<annotation cp="🫕" type="tts" draft="contributed">fondue</annotation>
-		<annotation cp="🫖">băutură | ceai | ceainic</annotation>
-		<annotation cp="🫖" type="tts">ceainic</annotation>
-		<annotation cp="🛖" draft="contributed">colibă</annotation>
-		<annotation cp="🛖" type="tts" draft="contributed">colibă</annotation>
-		<annotation cp="🛗">accesibilitate | ascensor | elevator | lift</annotation>
-		<annotation cp="🛗" type="tts">lift</annotation>
-		<annotation cp="🛻" draft="contributed">camionetă</annotation>
-		<annotation cp="🛻" type="tts" draft="contributed">camionetă</annotation>
-		<annotation cp="🛼" draft="contributed">patină cu rotile</annotation>
-		<annotation cp="🛼" type="tts" draft="contributed">patină cu rotile</annotation>
+		<annotation cp="◳">pătrat gol cu sfertul din dreapta sus gol</annotation>
+		<annotation cp="◳" type="tts">pătrat gol cu sfertul din dreapta sus gol</annotation>
+		<annotation cp="◷">cerc gol cu sfertul din dreapta sus gol</annotation>
+		<annotation cp="◷" type="tts">cerc gol cu sfertul din dreapta sus gol</annotation>
+		<annotation cp="◿">triunghi cu unghi drept în dreapta jos</annotation>
+		<annotation cp="◿" type="tts">triunghi cu unghi drept în dreapta jos</annotation>
+		<annotation cp="♪">muzică | muzicală | notă | optime</annotation>
+		<annotation cp="♪" type="tts">optime</annotation>
+		<annotation cp="⨧">plus indice doi</annotation>
+		<annotation cp="⨧" type="tts">plus indice doi</annotation>
+		<annotation cp="⨯">produs vectorial</annotation>
+		<annotation cp="⨯" type="tts">produs vectorial</annotation>
+		<annotation cp="⨼">produs interior</annotation>
+		<annotation cp="⨼" type="tts">produs interior</annotation>
+		<annotation cp="⩣">disjuncție logică cu bară dublă</annotation>
+		<annotation cp="⩣" type="tts">disjuncție logică cu bară dublă</annotation>
+		<annotation cp="⩽">mai mic sau egal</annotation>
+		<annotation cp="⩽" type="tts">mai mic sau egal</annotation>
+		<annotation cp="⪍">mai mic peste aproximativ egal</annotation>
+		<annotation cp="⪍" type="tts">mai mic peste aproximativ egal</annotation>
+		<annotation cp="⪚">inegalitate | mai mare sau egal cu două linii | matematică</annotation>
+		<annotation cp="⪚" type="tts">mai mare sau egal cu două linii</annotation>
+		<annotation cp="⪺">succedă peste nu aproape egal</annotation>
+		<annotation cp="⪺" type="tts">succedă peste nu aproape egal</annotation>
+		<annotation cp="♭">bemol | muzică | notă</annotation>
+		<annotation cp="♭" type="tts">bemol</annotation>
+		<annotation cp="♯">diez | muzică | notă</annotation>
+		<annotation cp="♯" type="tts">diez</annotation>
 		<annotation cp="😀">față | față încântată | încântare</annotation>
 		<annotation cp="😀" type="tts">față încântată</annotation>
 		<annotation cp="😃">deschisă | față | față încântată cu ochii mari | gură | zâmbet</annotation>
@@ -225,6 +731,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙂" type="tts">față ușor zâmbitoare</annotation>
 		<annotation cp="🙃">față | față cu susul în jos | întors | răsturnat</annotation>
 		<annotation cp="🙃" type="tts">față cu susul în jos</annotation>
+		<annotation cp="🫠">dispariție | dizolvare | față care se topește | lichid | topire</annotation>
+		<annotation cp="🫠" type="tts">față care se topește</annotation>
 		<annotation cp="😉">față | față care face cu ochiul | semn cu ochiul</annotation>
 		<annotation cp="😉" type="tts">față care face cu ochiul</annotation>
 		<annotation cp="😊">față zâmbitoare cu ochi zâmbitori | îmbujorare | ochi | privire | zâmbet</annotation>
@@ -247,11 +755,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😚" type="tts">față pupăcioasă cu ochi închiși</annotation>
 		<annotation cp="😙">față | față pupăcioasă cu ochi zâmbitori | ochi | pupic | zâmbet</annotation>
 		<annotation cp="😙" type="tts">față pupăcioasă cu ochi zâmbitori</annotation>
+		<annotation cp="🥲">atins | față zâmbind cu lacrimă | lacrimă | mândru | recunoscător | ușurat | zâmbind ușor</annotation>
+		<annotation cp="🥲" type="tts">față zâmbind cu lacrimă</annotation>
 		<annotation cp="😋">delicios | față | față savurând mâncare delicioasă | savurând | zâmbet</annotation>
 		<annotation cp="😋" type="tts">față savurând mâncare delicioasă</annotation>
 		<annotation cp="😛">față | față cu limba scoasă | limbă</annotation>
 		<annotation cp="😛" type="tts">față cu limba scoasă</annotation>
-		<annotation cp="😜">față | față cu limba scoasă, făcând cu ochiul | glumă | limbă | ochi | semn cu ochiul</annotation>
+		<annotation cp="😜">făcând cu ochiul | față | față cu limba scoasă | față cu limba scoasă, făcând cu ochiul | glumă | limbă | ochi | semn cu ochiul</annotation>
 		<annotation cp="😜" type="tts">față cu limba scoasă, făcând cu ochiul</annotation>
 		<annotation cp="🤪">față nebună | ochi mare | ochi mic</annotation>
 		<annotation cp="🤪" type="tts">față nebună</annotation>
@@ -263,10 +773,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤗" type="tts">față cu gest de îmbrățișare</annotation>
 		<annotation cp="🤭">față cu mâna peste gură | ups</annotation>
 		<annotation cp="🤭" type="tts">față cu mâna peste gură</annotation>
+		<annotation cp="🫢">față cu ochii deschiși și palma la gură | sperietură | stânjeneală | stupefacție | surpriză | uimire | uluire</annotation>
+		<annotation cp="🫢" type="tts">față cu ochii deschiși și palma la gură</annotation>
+		<annotation cp="🫣">captivat | cu coada ochiului | față care trage cu ochiul | fermecat | pe furiș | trage cu ochiul | zgâi</annotation>
+		<annotation cp="🫣" type="tts">față care trage cu ochiul</annotation>
 		<annotation cp="🤫">față care șâșâie | liniște | șșșt</annotation>
 		<annotation cp="🤫" type="tts">față care șâșâie</annotation>
 		<annotation cp="🤔">față | față gânditoare | gândire | reflecție</annotation>
 		<annotation cp="🤔" type="tts">față gânditoare</annotation>
+		<annotation cp="🫡">da | față care salută | însorit | militar | OK | salut</annotation>
+		<annotation cp="🫡" type="tts">față care salută</annotation>
 		<annotation cp="🤐">buze | față | față cu fermoar la buze | fermoar | tăcere</annotation>
 		<annotation cp="🤐" type="tts">față cu fermoar la buze</annotation>
 		<annotation cp="🤨">față cu sprânceană ridicată | neîncredere | sceptic</annotation>
@@ -277,6 +793,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😑" type="tts">față fără expresie</annotation>
 		<annotation cp="😶">față | față fără gură | gură | liniște | tăcut</annotation>
 		<annotation cp="😶" type="tts">față fără gură</annotation>
+		<annotation cp="🫥">ascuns | depresie | dispariție | față cu contur punctat | introvert | invizibil</annotation>
+		<annotation cp="🫥" type="tts">față cu contur punctat</annotation>
+		<annotation cp="😶‍🌫">absent | capul în nori | față în ceață | față în nori</annotation>
+		<annotation cp="😶‍🌫" type="tts">față în nori</annotation>
 		<annotation cp="😏">afectare | față | față cu zâmbet superior | superioritate | zâmbet</annotation>
 		<annotation cp="😏" type="tts">față cu zâmbet superior</annotation>
 		<annotation cp="😒">față | față morocănoasă | nemulțumire | neplăcere</annotation>
@@ -285,8 +805,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">față care dă ochii peste cap</annotation>
 		<annotation cp="😬">față | față cu grimasă | grimasă</annotation>
 		<annotation cp="😬" type="tts">față cu grimasă</annotation>
+		<annotation cp="😮‍💨">expirare | față care expiră | fluierat | oftat | răsuflare | șoptit | ușurare</annotation>
+		<annotation cp="😮‍💨" type="tts">față care expiră</annotation>
 		<annotation cp="🤥">față | fața mincinoasă | minciună | pinocchio</annotation>
 		<annotation cp="🤥" type="tts">fața mincinoasă</annotation>
+		<annotation cp="🫨">cutremur | față | față zgâlțâită | șoc | vibrație | zgâlțâit</annotation>
+		<annotation cp="🫨" type="tts">față zgâlțâită</annotation>
+		<annotation cp="🙂‍↔">cap care se clatină pe orizontală | cap clătinându-se orizontal | clătinat din cap | dând din cap a negație | negativ | nu</annotation>
+		<annotation cp="🙂‍↔" type="tts">cap care se clatină pe orizontală</annotation>
+		<annotation cp="🙂‍↕">afirmativ | cap care se clatină pe verticală | cap clătinându-se vertical | clătinat din cap | da | dând din cap afirmativ</annotation>
+		<annotation cp="🙂‍↕" type="tts">cap care se clatină pe verticală</annotation>
 		<annotation cp="😌">față | față ușurată | relaxare | ușurare</annotation>
 		<annotation cp="😌" type="tts">față ușurată</annotation>
 		<annotation cp="😔">demoralizat | față | față îngândurată | îngândurat | melancolic</annotation>
@@ -317,12 +845,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥴" type="tts">față cherchelită</annotation>
 		<annotation cp="😵">amețeală | față | față amețită | ochi</annotation>
 		<annotation cp="😵" type="tts">față amețită</annotation>
+		<annotation cp="😵‍💫">amețit | față cu ochi în spirală | hipnotizat | problemă | spirală | uau</annotation>
+		<annotation cp="😵‍💫" type="tts">față cu ochi în spirală</annotation>
 		<annotation cp="🤯">cap care explodează | șocat</annotation>
 		<annotation cp="🤯" type="tts">cap care explodează</annotation>
 		<annotation cp="🤠">cowboy | cowgirl | față | față cu pălărie de cowboy | pălărie</annotation>
 		<annotation cp="🤠" type="tts">față cu pălărie de cowboy</annotation>
 		<annotation cp="🥳">coif | față de petrecere | petrecere | sărbătorire | trompetă</annotation>
 		<annotation cp="🥳" type="tts">față de petrecere</annotation>
+		<annotation cp="🥸">deghizare | față | față deghizată | incognito | nas | ochelari</annotation>
+		<annotation cp="🥸" type="tts">față deghizată</annotation>
 		<annotation cp="😎">față | față zâmbitoare cu ochelari de soare | ochelari de soare | relaxare | soare | strălucitor</annotation>
 		<annotation cp="😎" type="tts">față zâmbitoare cu ochelari de soare</annotation>
 		<annotation cp="🤓">față | față de tocilar | tocilar</annotation>
@@ -331,6 +863,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧐" type="tts">față cu monoclu</annotation>
 		<annotation cp="😕">confuzie | față | față confuză | neînțelegere</annotation>
 		<annotation cp="😕" type="tts">față confuză</annotation>
+		<annotation cp="🫤">dezamăgire | față cu gura pe diagonală | meh | nesigur | sceptic</annotation>
+		<annotation cp="🫤" type="tts">față cu gura pe diagonală</annotation>
 		<annotation cp="😟">față | față îngrijorată | îngrijorare</annotation>
 		<annotation cp="😟" type="tts">față îngrijorată</annotation>
 		<annotation cp="🙁">față | față ușor încruntată | față ușor tristă | încruntare | tristețe</annotation>
@@ -347,6 +881,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😳" type="tts">față îmbujorată</annotation>
 		<annotation cp="🥺">față rugătoare | implora | milă | ochi de cățeluș | ruga</annotation>
 		<annotation cp="🥺" type="tts">față rugătoare</annotation>
+		<annotation cp="🥹">față cu lacrimi în ochi | mândrie | plâns | rezistență | supărare | tristețe</annotation>
+		<annotation cp="🥹" type="tts">față cu lacrimi în ochi</annotation>
 		<annotation cp="😦">față | față tristă cu gura deschisă | gură deschisă | întristare</annotation>
 		<annotation cp="😦" type="tts">față tristă cu gura deschisă</annotation>
 		<annotation cp="😧">angoasă | față | față angoasată | stres</annotation>
@@ -355,7 +891,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😨" type="tts">față înfricoșată</annotation>
 		<annotation cp="😰">față | față neliniștită cu sudoare rece | gură deschisă | stres | sudoare rece</annotation>
 		<annotation cp="😰" type="tts">față neliniștită cu sudoare rece</annotation>
-		<annotation cp="😥">dezamăgire | față | față dezamăgită, dar ușurată | relaxare | ușurare</annotation>
+		<annotation cp="😥">dar ușurată | dezamăgire | față | față dezamăgită | față dezamăgită, dar ușurată | relaxare | ușurare</annotation>
 		<annotation cp="😥" type="tts">față dezamăgită, dar ușurată</annotation>
 		<annotation cp="😢">față | față plângând | lacrimi | plânset | tristețe</annotation>
 		<annotation cp="😢" type="tts">față plângând</annotation>
@@ -433,8 +969,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙉" type="tts">nu aud nimic rău</annotation>
 		<annotation cp="🙊">față | gură acoperită | interzis | maimuță | nu spun nimic rău | rău | vorbit</annotation>
 		<annotation cp="🙊" type="tts">nu spun nimic rău</annotation>
-		<annotation cp="💋">buze | roșu | sărut | urme de buze</annotation>
-		<annotation cp="💋" type="tts">urme de buze</annotation>
 		<annotation cp="💌">dragoste | inimă | iubire | plic | scrisoare | scrisoare de dragoste</annotation>
 		<annotation cp="💌" type="tts">scrisoare de dragoste</annotation>
 		<annotation cp="💘">cupidon | inimă | inimă săgetată | săgeată</annotation>
@@ -457,8 +991,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">semnul exclamării cu inimioară</annotation>
 		<annotation cp="💔">durere | inimă | inimă zdrobită</annotation>
 		<annotation cp="💔" type="tts">inimă zdrobită</annotation>
+		<annotation cp="❤‍🔥">arde | dorință | inimă | inimă în flăcări | inimă sacră | iubire | pasiune</annotation>
+		<annotation cp="❤‍🔥" type="tts">inimă în flăcări</annotation>
+		<annotation cp="❤‍🩹">ameliorare | bine | inimă în convalescență | însănătoșire | mai sănătos | recuperare</annotation>
+		<annotation cp="❤‍🩹" type="tts">inimă în convalescență</annotation>
 		<annotation cp="❤">inimă | inimă roșie</annotation>
 		<annotation cp="❤" type="tts">inimă roșie</annotation>
+		<annotation cp="🩷">adorabil | dragoste | drăguț | inimă | iubi | plăcea | roz</annotation>
+		<annotation cp="🩷" type="tts">inimă roz</annotation>
 		<annotation cp="🧡">inimă | inimă portocalie | portocaliu</annotation>
 		<annotation cp="🧡" type="tts">inimă portocalie</annotation>
 		<annotation cp="💛">galben | inimă | inimă galbenă</annotation>
@@ -467,14 +1007,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💚" type="tts">inimă verde</annotation>
 		<annotation cp="💙">albastru | inimă | inimă albastră</annotation>
 		<annotation cp="💙" type="tts">inimă albastră</annotation>
+		<annotation cp="🩵">albastru-deschis | albastru-verzui | bleu | cyan | inimă</annotation>
+		<annotation cp="🩵" type="tts">inimă albastru-deschis</annotation>
 		<annotation cp="💜">inimă | mov</annotation>
 		<annotation cp="💜" type="tts">inimă mov</annotation>
 		<annotation cp="🤎">inimă | maro</annotation>
 		<annotation cp="🤎" type="tts">inimă maro</annotation>
 		<annotation cp="🖤">inimă | inimă neagră | malefic | negru | rău</annotation>
 		<annotation cp="🖤" type="tts">inimă neagră</annotation>
+		<annotation cp="🩶">argintiu | cenușiu | gri | inimă</annotation>
+		<annotation cp="🩶" type="tts">inimă gri</annotation>
 		<annotation cp="🤍">alb | albă | inimă</annotation>
 		<annotation cp="🤍" type="tts">inimă albă</annotation>
+		<annotation cp="💋">buze | roșu | sărut | urme de buze</annotation>
+		<annotation cp="💋" type="tts">urme de buze</annotation>
 		<annotation cp="💯">100 | maxim | o sută de puncte | scor</annotation>
 		<annotation cp="💯" type="tts">o sută de puncte</annotation>
 		<annotation cp="💢">bandă desenată | furie | simbol mânie | supărare</annotation>
@@ -489,8 +1035,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💨" type="tts">ștergând-o rapid</annotation>
 		<annotation cp="🕳">gaură</annotation>
 		<annotation cp="🕳" type="tts">gaură</annotation>
-		<annotation cp="💣">bandă desenată | bombă | fitil</annotation>
-		<annotation cp="💣" type="tts">bombă</annotation>
 		<annotation cp="💬">balon | balon de dialog | bandă desenată | dialog</annotation>
 		<annotation cp="💬" type="tts">balon de dialog</annotation>
 		<annotation cp="👁‍🗨">balon de dialog | martor | ochi | ochi în balon de dialog</annotation>
@@ -513,14 +1057,30 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="✋" type="tts">mână ridicată</annotation>
 		<annotation cp="🖖">deget | salut | salut vulcanian | spock | vulcan</annotation>
 		<annotation cp="🖖" type="tts">salut vulcanian</annotation>
+		<annotation cp="🫱">dreapta | la dreapta | mână | mână spre dreapta | spre dreapta</annotation>
+		<annotation cp="🫱" type="tts">mână spre dreapta</annotation>
+		<annotation cp="🫲">la stânga | mână | mână spre stânga | spre stânga | stânga</annotation>
+		<annotation cp="🫲" type="tts">mână spre stânga</annotation>
+		<annotation cp="🫳">concedia | mână cu palma în jos | renunță | respinge | uș</annotation>
+		<annotation cp="🫳" type="tts">mână cu palma în jos</annotation>
+		<annotation cp="🫴">atrage | chemare | mână cu palma în sus | oferi | prinde | vino</annotation>
+		<annotation cp="🫴" type="tts">mână cu palma în sus</annotation>
+		<annotation cp="🫷">așteaptă | bate palma | împinge | mână care împinge spre stânga | refuz | spre stânga | stop</annotation>
+		<annotation cp="🫷" type="tts">mână care împinge spre stânga</annotation>
+		<annotation cp="🫸">așteaptă | bate palma | împinge | mână care împinge spre dreapta | refuz | spre dreapta | stop</annotation>
+		<annotation cp="🫸" type="tts">mână care împinge spre dreapta</annotation>
 		<annotation cp="👌">gest | mână | ok | semnul ok</annotation>
 		<annotation cp="👌" type="tts">semnul ok</annotation>
+		<annotation cp="🤌">degete | degete strânse | gest cu mâna | interogație | sarcastic</annotation>
+		<annotation cp="🤌" type="tts">degete strânse</annotation>
 		<annotation cp="🤏">cantitate mică | mână cu două degete apropiate | valoare mică</annotation>
 		<annotation cp="🤏" type="tts">mână cu două degete apropiate</annotation>
 		<annotation cp="✌">degete | mână | semnul victoriei | v | victorie</annotation>
 		<annotation cp="✌" type="tts">semnul victoriei</annotation>
 		<annotation cp="🤞">degete | degete încrucișate | încrucișare | mână | noroc</annotation>
 		<annotation cp="🤞" type="tts">degete încrucișate</annotation>
+		<annotation cp="🫰">bani | ciubuc | mână cu degetul mare și arătătorul încrucișate | pocnet | scump</annotation>
+		<annotation cp="🫰" type="tts">mână cu degetul mare și arătătorul încrucișate</annotation>
 		<annotation cp="🤟">gest cu semnificația te iubesc | mână | te iubesc</annotation>
 		<annotation cp="🤟" type="tts">gest cu semnificația te iubesc</annotation>
 		<annotation cp="🤘">coarne | deget | mână | rock | semnul cu coarne</annotation>
@@ -539,6 +1099,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👇" type="tts">dos de mână cu arătătorul în jos</annotation>
 		<annotation cp="☝">deget | deget arătător îndreptat în sus | indicator | sus</annotation>
 		<annotation cp="☝" type="tts">deget arătător îndreptat în sus</annotation>
+		<annotation cp="🫵">arăta | deget arătător îndreptat spre privitor | indica | tu</annotation>
+		<annotation cp="🫵" type="tts">deget arătător îndreptat spre privitor</annotation>
 		<annotation cp="👍">+1 | aprobare | da | mână | pozitiv | semn de aprobare</annotation>
 		<annotation cp="👍" type="tts">semn de aprobare</annotation>
 		<annotation cp="👎">-1 | dezaprobare | mână | negativ | nu | semn de dezaprobare</annotation>
@@ -555,6 +1117,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👏" type="tts">mâini care aplaudă</annotation>
 		<annotation cp="🙌">mâini | mâini ridicate | ridicat | sărbătoare | ura</annotation>
 		<annotation cp="🙌" type="tts">mâini ridicate</annotation>
+		<annotation cp="🫶">dragoste | iubire | mâini care formează o inimă</annotation>
+		<annotation cp="🫶" type="tts">mâini care formează o inimă</annotation>
 		<annotation cp="👐">deschise | mână | palme</annotation>
 		<annotation cp="👐" type="tts">palme deschise</annotation>
 		<annotation cp="🤲">palme ridicate împreună | rugăciune</annotation>
@@ -587,6 +1151,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👃" type="tts">nas</annotation>
 		<annotation cp="🧠">creier | inteligent</annotation>
 		<annotation cp="🧠" type="tts">creier</annotation>
+		<annotation cp="🫀">anatomic | cardiologie | inimă | organ | puls</annotation>
+		<annotation cp="🫀" type="tts">inimă</annotation>
+		<annotation cp="🫁">expirare | inhalare | inspirare | organ | plămâni | respirare | respirație</annotation>
+		<annotation cp="🫁" type="tts">plămâni</annotation>
 		<annotation cp="🦷">dentist | dinte | stomatolog</annotation>
 		<annotation cp="🦷" type="tts">dinte</annotation>
 		<annotation cp="🦴">os | schelet</annotation>
@@ -599,6 +1167,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👅" type="tts">limbă</annotation>
 		<annotation cp="👄">buze | gură</annotation>
 		<annotation cp="👄" type="tts">gură</annotation>
+		<annotation cp="🫦">anxietate | buză mușcată | flirt | frică | îngrijorare | neliniște | neplăcut | nervozitate</annotation>
+		<annotation cp="🫦" type="tts">buză mușcată</annotation>
 		<annotation cp="👶">bebe | bebeluș | copilaș | tânăr</annotation>
 		<annotation cp="👶" type="tts">bebeluș</annotation>
 		<annotation cp="🧒">copil | neutru | tânăr</annotation>
@@ -611,24 +1181,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">adult</annotation>
 		<annotation cp="👱">blond | om | păr | persoană blondă | persoană cu păr blond</annotation>
 		<annotation cp="👱" type="tts">persoană blondă</annotation>
-		<annotation cp="🧑‍🍼">alăptare | bebeluș | hrănire | persoană | persoană hrănind un bebeluș</annotation>
-		<annotation cp="🧑‍🍼" type="tts">persoană hrănind un bebeluș</annotation>
-		<annotation cp="🧑‍🎄">Crăciun</annotation>
-		<annotation cp="🧑‍🎄" type="tts">Crăciun</annotation>
 		<annotation cp="👨">adult | bărbat</annotation>
 		<annotation cp="👨" type="tts">bărbat</annotation>
 		<annotation cp="🧔">barbă | bărbat | bărbat cu barbă | persoană</annotation>
 		<annotation cp="🧔" type="tts">bărbat cu barbă</annotation>
+		<annotation cp="🧔‍♂">barbă | bărbat | bărbat: barbă</annotation>
+		<annotation cp="🧔‍♂" type="tts">bărbat: barbă</annotation>
 		<annotation cp="👱‍♂">bărbat | bărbat cu păr blond | blond | păr</annotation>
 		<annotation cp="👱‍♂" type="tts">bărbat blond</annotation>
-		<annotation cp="👨‍🍼">bărbat | bărbat hrănind un bebeluș | bebeluș | hrănire</annotation>
-		<annotation cp="👨‍🍼" type="tts">bărbat hrănind un bebeluș</annotation>
 		<annotation cp="👩">adultă | femeie</annotation>
 		<annotation cp="👩" type="tts">femeie</annotation>
+		<annotation cp="🧔‍♀">barbă | femeie | femeie: barbă</annotation>
+		<annotation cp="🧔‍♀" type="tts">femeie: barbă</annotation>
 		<annotation cp="👱‍♀">blondă | femeie | femeie cu păr blond | păr</annotation>
 		<annotation cp="👱‍♀" type="tts">femeie blondă</annotation>
-		<annotation cp="👩‍🍼">alăptare | bebeluș | femeie | femeie hrănind un bebeluș | hrănire</annotation>
-		<annotation cp="👩‍🍼" type="tts">femeie hrănind un bebeluș</annotation>
 		<annotation cp="🧓">adult | bătrân | neutru | persoană în vârstă | vârstnic</annotation>
 		<annotation cp="🧓" type="tts">persoană în vârstă</annotation>
 		<annotation cp="👴">adult | bărbat | bătrân</annotation>
@@ -695,7 +1261,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤷‍♂" type="tts">bărbat care ridică din umeri</annotation>
 		<annotation cp="🤷‍♀">femeie | femeie care ridică din umeri | ignoranță | indiferență | îndoială | ridicare din umeri</annotation>
 		<annotation cp="🤷‍♀" type="tts">femeie care ridică din umeri</annotation>
-		<annotation cp="🧑‍⚕">asistent | asistentă | doctor | doctoriță | persoană lucrătoare în domeniul sănătății | servicii medicale | terapeut | terapeută</annotation>
+		<annotation cp="🧑‍⚕">asistentă | doctor | medic | persoană lucrătoare în domeniul sănătății | soră medicală | terapeut</annotation>
 		<annotation cp="🧑‍⚕" type="tts">persoană lucrătoare în domeniul sănătății</annotation>
 		<annotation cp="👨‍⚕">bărbat | doctor | infirmier | lucrător în domeniul sănătății | servicii medicale | terapeut</annotation>
 		<annotation cp="👨‍⚕" type="tts">lucrător în domeniul sănătății</annotation>
@@ -707,25 +1273,25 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨‍🎓" type="tts">student</annotation>
 		<annotation cp="👩‍🎓">absolventă | studentă</annotation>
 		<annotation cp="👩‍🎓" type="tts">studentă</annotation>
-		<annotation cp="🧑‍🏫">instructor | învățător | profesor | profesor sau profesoară</annotation>
+		<annotation cp="🧑‍🏫">instructor | învățător | profesoară | profesor | profesor sau profesoară</annotation>
 		<annotation cp="🧑‍🏫" type="tts">profesor sau profesoară</annotation>
 		<annotation cp="👨‍🏫">instructor | învățător | profesor</annotation>
 		<annotation cp="👨‍🏫" type="tts">profesor</annotation>
 		<annotation cp="👩‍🏫">instructoare | învățătoare | profesoară</annotation>
 		<annotation cp="👩‍🏫" type="tts">profesoară</annotation>
-		<annotation cp="🧑‍⚖">balanță | judecător | judecător sau judecătoare</annotation>
+		<annotation cp="🧑‍⚖">balanță | judecătoare | judecător | judecător sau judecătoare</annotation>
 		<annotation cp="🧑‍⚖" type="tts">judecător sau judecătoare</annotation>
 		<annotation cp="👨‍⚖">balanță | judecător | justiție</annotation>
 		<annotation cp="👨‍⚖" type="tts">judecător</annotation>
 		<annotation cp="👩‍⚖">balanță | judecătoare | justiție</annotation>
 		<annotation cp="👩‍⚖" type="tts">judecătoare</annotation>
-		<annotation cp="🧑‍🌾">crescător de vite | fermier | fermier sau fermieră | grădinar</annotation>
+		<annotation cp="🧑‍🌾">crescător de vite | fermier | fermier sau fermieră | fermieră | grădinar</annotation>
 		<annotation cp="🧑‍🌾" type="tts">fermier sau fermieră</annotation>
 		<annotation cp="👨‍🌾">agricultor | fermier | grădinar | țăran</annotation>
 		<annotation cp="👨‍🌾" type="tts">fermier</annotation>
 		<annotation cp="👩‍🌾">agricultoare | femeie grădinar | fermieră | țărancă</annotation>
 		<annotation cp="👩‍🌾" type="tts">fermieră</annotation>
-		<annotation cp="🧑‍🍳">bucătar | bucătar sau bucătăreasă | chef</annotation>
+		<annotation cp="🧑‍🍳">bucătar | bucătar sau bucătăreasă | bucătăreasă | chef</annotation>
 		<annotation cp="🧑‍🍳" type="tts">bucătar sau bucătăreasă</annotation>
 		<annotation cp="👨‍🍳">bucătar | bucătărie</annotation>
 		<annotation cp="👨‍🍳" type="tts">bucătar</annotation>
@@ -733,17 +1299,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👩‍🍳" type="tts">bucătăreasă</annotation>
 		<annotation cp="🧑‍🔧">electrician | instalator | mecanic | meseriaș</annotation>
 		<annotation cp="🧑‍🔧" type="tts">mecanic</annotation>
-		<annotation cp="👨‍🔧">electrician | instalator | mecanic | mecanic bărbat | meșter</annotation>
+		<annotation cp="👨‍🔧">bărbat | electrician | instalator | mecanic | meșter</annotation>
 		<annotation cp="👨‍🔧" type="tts">mecanic bărbat</annotation>
-		<annotation cp="👩‍🔧">electriciană | femeie mecanic | instalatoare | mecanic femeie</annotation>
+		<annotation cp="👩‍🔧">electriciană | femeie | instalatoare | mecanic | meșter</annotation>
 		<annotation cp="👩‍🔧" type="tts">mecanic femeie</annotation>
-		<annotation cp="🧑‍🏭">colectiv | fabrică | industrial | muncitor | muncitor sau muncitoare în fabrică</annotation>
+		<annotation cp="🧑‍🏭">colectiv | fabrică | industrial | muncitoare | muncitor | muncitor sau muncitoare în fabrică</annotation>
 		<annotation cp="🧑‍🏭" type="tts">muncitor sau muncitoare în fabrică</annotation>
 		<annotation cp="👨‍🏭">asamblare | fabrică | industrial | muncitor | muncitor în fabrică | uzină</annotation>
 		<annotation cp="👨‍🏭" type="tts">muncitor în fabrică</annotation>
 		<annotation cp="👩‍🏭">asamblare | fabrică | industrial | muncitoare | muncitoare în fabrică | uzină</annotation>
 		<annotation cp="👩‍🏭" type="tts">muncitoare în fabrică</annotation>
-		<annotation cp="🧑‍💼">arhitect | director | funcționar sau funcționară | guler alb | manager</annotation>
+		<annotation cp="🧑‍💼">arhitect | director | funcționar | funcționar sau funcționară | funcționară | guler alb | manager</annotation>
 		<annotation cp="🧑‍💼" type="tts">funcționar sau funcționară</annotation>
 		<annotation cp="👨‍💼">administrație | arhitect | birou | business | funcționar | manager</annotation>
 		<annotation cp="👨‍💼" type="tts">funcționar</annotation>
@@ -751,23 +1317,23 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👩‍💼" type="tts">funcționară</annotation>
 		<annotation cp="🧑‍🔬">biolog | chimist | fizician | inginer | om de știință</annotation>
 		<annotation cp="🧑‍🔬" type="tts">om de știință</annotation>
-		<annotation cp="👨‍🔬">biolog | chimist | fizician | matematician | om de știință | om de știință bărbat</annotation>
+		<annotation cp="👨‍🔬">bărbat | biolog | chimist | fizician | inginer | om de știință | om de știință bărbat</annotation>
 		<annotation cp="👨‍🔬" type="tts">om de știință bărbat</annotation>
-		<annotation cp="👩‍🔬">biologă | chimistă | femeie om de știință | fiziciană | matematiciană | om de știință femeie</annotation>
+		<annotation cp="👩‍🔬">biologă | chimistă | femeie | fiziciană | inginer | om de știință | om de știință femeie</annotation>
 		<annotation cp="👩‍🔬" type="tts">om de știință femeie</annotation>
-		<annotation cp="🧑‍💻">dezvoltator | inventator | programator | software | specialist sau specialistă IT | tehnic | tehnolog</annotation>
+		<annotation cp="🧑‍💻">dezvoltator | inventatoare | inventator | programatoare | programator | software | specialist IT | specialist sau specialistă IT | specialistă IT | tehnic | tehnolog | tehnologă</annotation>
 		<annotation cp="🧑‍💻" type="tts">specialist sau specialistă IT</annotation>
 		<annotation cp="👨‍💻">dezvoltator | informatician | programator | software | specialist IT</annotation>
 		<annotation cp="👨‍💻" type="tts">specialist IT</annotation>
 		<annotation cp="👩‍💻">dezvoltatoare | informaticiană | programatoare | software | specialistă IT</annotation>
 		<annotation cp="👩‍💻" type="tts">specialistă IT</annotation>
-		<annotation cp="🧑‍🎤">actor | cântăreț | cântăreț sau cântăreață | comediant | rock | solist | vedetă</annotation>
+		<annotation cp="🧑‍🎤">actor | actriță | cântăreață | cântăreț | cântăreț sau cântăreață | comediant | comediantă | rock | solist | solistă | vedetă</annotation>
 		<annotation cp="🧑‍🎤" type="tts">cântăreț sau cântăreață</annotation>
 		<annotation cp="👨‍🎤">actor | cântăreț | comediant | rock | star | vedetă</annotation>
 		<annotation cp="👨‍🎤" type="tts">cântăreț</annotation>
 		<annotation cp="👩‍🎤">actriță | cântăreață | comediantă | rock | star | vedetă</annotation>
 		<annotation cp="👩‍🎤" type="tts">cântăreață</annotation>
-		<annotation cp="🧑‍🎨">artist | artist sau artistă | paletă</annotation>
+		<annotation cp="🧑‍🎨">artist | artist sau artistă | artistă | paletă</annotation>
 		<annotation cp="🧑‍🎨" type="tts">artist sau artistă</annotation>
 		<annotation cp="👨‍🎨">artist | paletă | pictor</annotation>
 		<annotation cp="👨‍🎨" type="tts">artist</annotation>
@@ -775,11 +1341,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👩‍🎨" type="tts">artistă</annotation>
 		<annotation cp="🧑‍✈">avion | pilot</annotation>
 		<annotation cp="🧑‍✈" type="tts">pilot</annotation>
-		<annotation cp="👨‍✈">avion | pilot | pilot bărbat</annotation>
+		<annotation cp="👨‍✈">avion | bărbat | pilot</annotation>
 		<annotation cp="👨‍✈" type="tts">pilot bărbat</annotation>
-		<annotation cp="👩‍✈">avion | femeie pilot | pilot femeie</annotation>
+		<annotation cp="👩‍✈">avion | femeie | pilot</annotation>
 		<annotation cp="👩‍✈" type="tts">pilot femeie</annotation>
-		<annotation cp="🧑‍🚀">astronaut | astronaut sau astronaută | rachetă</annotation>
+		<annotation cp="🧑‍🚀">astronaut | astronaut sau astronaută | astronaută | rachetă</annotation>
 		<annotation cp="🧑‍🚀" type="tts">astronaut sau astronaută</annotation>
 		<annotation cp="👨‍🚀">astronaut | cosmonaut | rachetă | spațiu</annotation>
 		<annotation cp="👨‍🚀" type="tts">astronaut</annotation>
@@ -787,11 +1353,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👩‍🚀" type="tts">astronaută</annotation>
 		<annotation cp="🧑‍🚒">mașină de pompieri | pompier</annotation>
 		<annotation cp="🧑‍🚒" type="tts">pompier</annotation>
-		<annotation cp="👨‍🚒">mașină de pompieri | pompier | pompier bărbat</annotation>
+		<annotation cp="👨‍🚒">bărbat | mașină de pompieri | pompier</annotation>
 		<annotation cp="👨‍🚒" type="tts">pompier bărbat</annotation>
-		<annotation cp="👩‍🚒">femeie pompier | mașină de pompieri | pompier femeie</annotation>
+		<annotation cp="👩‍🚒">femeie | mașină de pompieri | pompier</annotation>
 		<annotation cp="👩‍🚒" type="tts">pompier femeie</annotation>
-		<annotation cp="👮">ofițer | polițist | polițist sau polițistă</annotation>
+		<annotation cp="👮">ofițer | poliție | polițist | polițist sau polițistă | polițistă</annotation>
 		<annotation cp="👮" type="tts">polițist sau polițistă</annotation>
 		<annotation cp="👮‍♂">ofițer | poliție | polițist | polițist bărbat</annotation>
 		<annotation cp="👮‍♂" type="tts">polițist</annotation>
@@ -799,9 +1365,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👮‍♀" type="tts">polițistă</annotation>
 		<annotation cp="🕵">agent secret | detectiv | spion</annotation>
 		<annotation cp="🕵" type="tts">detectiv</annotation>
-		<annotation cp="🕵‍♂">agent secret | detectiv | detectiv bărbat | spion</annotation>
+		<annotation cp="🕵‍♂">agent secret | bărbat | detectiv | spion</annotation>
 		<annotation cp="🕵‍♂" type="tts">detectiv bărbat</annotation>
-		<annotation cp="🕵‍♀">agentă secretă | detectiv femeie | detectivă | femeie detectiv | spioană</annotation>
+		<annotation cp="🕵‍♀">agentă secretă | detectiv femeie | detectivă | femeie | spioană</annotation>
 		<annotation cp="🕵‍♀" type="tts">detectiv femeie</annotation>
 		<annotation cp="💂">gardă | gardian | pază | protecție</annotation>
 		<annotation cp="💂" type="tts">gardian</annotation>
@@ -809,12 +1375,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💂‍♂" type="tts">gardian bărbat</annotation>
 		<annotation cp="💂‍♀">femeie | gardă | gardian | pază | protecție</annotation>
 		<annotation cp="💂‍♀" type="tts">gardian femeie</annotation>
+		<annotation cp="🥷">ascuns | invizibil | luptător | ninja</annotation>
+		<annotation cp="🥷" type="tts">ninja</annotation>
 		<annotation cp="👷">cască de protecție | construcții | constructor | muncă</annotation>
 		<annotation cp="👷" type="tts">constructor</annotation>
 		<annotation cp="👷‍♂">construcții | muncitor | muncitor în construcții</annotation>
 		<annotation cp="👷‍♂" type="tts">muncitor în construcții</annotation>
 		<annotation cp="👷‍♀">construcții | muncitoare | muncitoare în construcții</annotation>
 		<annotation cp="👷‍♀" type="tts">muncitoare în construcții</annotation>
+		<annotation cp="🫅">monarh | monarhie | nobil | persoană cu coroană | regal | regalitate</annotation>
+		<annotation cp="🫅" type="tts">persoană cu coroană</annotation>
 		<annotation cp="🤴">principe | prinț</annotation>
 		<annotation cp="🤴" type="tts">prinț</annotation>
 		<annotation cp="👸">basm | fantezie | poveste | prințesă</annotation>
@@ -831,26 +1401,38 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧕" type="tts">femeie cu năframă</annotation>
 		<annotation cp="🤵">mire | persoană | persoană în smoching | smoching</annotation>
 		<annotation cp="🤵" type="tts">persoană în smoching</annotation>
-		<annotation cp="🤵‍♀">femeie | femeie în smoching | smoching</annotation>
-		<annotation cp="🤵‍♀" type="tts">femeie în smoching</annotation>
 		<annotation cp="🤵‍♂">bărbat | bărbat în smoching | smoching</annotation>
 		<annotation cp="🤵‍♂" type="tts">bărbat în smoching</annotation>
+		<annotation cp="🤵‍♀">femeie | femeie în smoching | smoching</annotation>
+		<annotation cp="🤵‍♀" type="tts">femeie în smoching</annotation>
 		<annotation cp="👰">mireasă | nuntă | persoană | persoană cu voal | voal</annotation>
 		<annotation cp="👰" type="tts">persoană cu voal</annotation>
-		<annotation cp="👰‍♀">femeie | femeie cu voal | voal</annotation>
-		<annotation cp="👰‍♀" type="tts">femeie cu voal</annotation>
 		<annotation cp="👰‍♂">bărbat | bărbat cu voal | voal</annotation>
 		<annotation cp="👰‍♂" type="tts">bărbat cu voal</annotation>
+		<annotation cp="👰‍♀">femeie | femeie cu voal | voal</annotation>
+		<annotation cp="👰‍♀" type="tts">femeie cu voal</annotation>
 		<annotation cp="🤰">femeie | femeie însărcinată | gravidă</annotation>
 		<annotation cp="🤰" type="tts">femeie însărcinată</annotation>
+		<annotation cp="🫃">balonat | bărbat însărcinat | burtă | gravid | însărcinat | umflat</annotation>
+		<annotation cp="🫃" type="tts">bărbat însărcinat</annotation>
+		<annotation cp="🫄">balonată | burtă | gravidă | însărcinat | persoană însărcinată | umflată</annotation>
+		<annotation cp="🫄" type="tts">persoană însărcinată</annotation>
 		<annotation cp="🤱">alăptare | alăptare la sân | bebeluș | piept | sân</annotation>
 		<annotation cp="🤱" type="tts">alăptare la sân</annotation>
+		<annotation cp="👩‍🍼">alăptare | bebeluș | femeie | femeie hrănind un bebeluș | hrănire | îngrijire</annotation>
+		<annotation cp="👩‍🍼" type="tts">femeie hrănind un bebeluș</annotation>
+		<annotation cp="👨‍🍼">bărbat | bărbat hrănind un bebeluș | bebeluș | hrănire | îngrijire</annotation>
+		<annotation cp="👨‍🍼" type="tts">bărbat hrănind un bebeluș</annotation>
+		<annotation cp="🧑‍🍼">alăptare | bebeluș | hrănire | îngrijire | persoană | persoană hrănind un bebeluș</annotation>
+		<annotation cp="🧑‍🍼" type="tts">persoană hrănind un bebeluș</annotation>
 		<annotation cp="👼">basm | bebeluș | bebeluș îngeraș | fantezie | față | înger</annotation>
 		<annotation cp="👼" type="tts">bebeluș îngeraș</annotation>
-		<annotation cp="🎅">Crăciun | moș | Moș Crăciun | sărbătoare</annotation>
+		<annotation cp="🎅">Crăciun | moș | sărbătoare</annotation>
 		<annotation cp="🎅" type="tts">Moș Crăciun</annotation>
-		<annotation cp="🤶">Crăciun | doamna | Doamna Crăciun | sărbătoare</annotation>
+		<annotation cp="🤶">Crăciun | doamna | sărbătoare</annotation>
 		<annotation cp="🤶" type="tts">Doamna Crăciun</annotation>
+		<annotation cp="🧑‍🎄">Crăciun</annotation>
+		<annotation cp="🧑‍🎄" type="tts">Crăciun</annotation>
 		<annotation cp="🦸">bun | eroină | erou | supererou | superputere | superputeri</annotation>
 		<annotation cp="🦸" type="tts">supererou</annotation>
 		<annotation cp="🦸‍♂">bărbat | bun | erou | supererou bărbat | superputere</annotation>
@@ -905,14 +1487,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧟‍♂" type="tts">bărbat zombi</annotation>
 		<annotation cp="🧟‍♀">femeie zombi | morți vii | strigoi</annotation>
 		<annotation cp="🧟‍♀" type="tts">femeie zombi</annotation>
+		<annotation cp="🧌">basm | fantezie | monstru | poveste | trol</annotation>
+		<annotation cp="🧌" type="tts">trol</annotation>
 		<annotation cp="💆">față | masaj | persoană care primește un masaj | persoană care primește un masaj facial | salon</annotation>
 		<annotation cp="💆" type="tts">persoană care primește un masaj facial</annotation>
 		<annotation cp="💆‍♂">bărbat | bărbat care primește un masaj facial | față | masaj facial</annotation>
 		<annotation cp="💆‍♂" type="tts">bărbat care primește un masaj facial</annotation>
 		<annotation cp="💆‍♀">față | femeie | femeie care primește un masaj facial | masaj facial</annotation>
 		<annotation cp="💆‍♀" type="tts">femeie care primește un masaj facial</annotation>
-		<annotation cp="💇">coafor | frizerie | frumusețe | oafat | persoană care de tunde | persoană care se tunde | salon | tuns | tunsoare</annotation>
-		<annotation cp="💇" type="tts">persoană care de tunde</annotation>
+		<annotation cp="💇">coafat | coafor | frizerie | frumusețe | persoană care se tunde | salon | tuns | tunsoare</annotation>
+		<annotation cp="💇" type="tts">persoană care se tunde</annotation>
 		<annotation cp="💇‍♂">bărbat | bărbat care se tunde | frizerie | tunsoare</annotation>
 		<annotation cp="💇‍♂" type="tts">bărbat care se tunde</annotation>
 		<annotation cp="💇‍♀">coafor | femeie | femeie care se tunde | tunsoare</annotation>
@@ -963,7 +1547,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💃" type="tts">dansatoare</annotation>
 		<annotation cp="🕺">bărbat | dans | dansator</annotation>
 		<annotation cp="🕺" type="tts">dansator</annotation>
-		<annotation cp="🕴">afaceri | bărbat | bărbat la costum, levitând | costum | plutire</annotation>
+		<annotation cp="🕴">afaceri | bărbat | bărbat la costum | bărbat la costum, levitând | costum | levitând | plutire</annotation>
 		<annotation cp="🕴" type="tts">bărbat la costum, levitând</annotation>
 		<annotation cp="👯">dans | distracție | persoane care poartă urechi de iepuraș | petrecere | urechi de iepuraș</annotation>
 		<annotation cp="👯" type="tts">persoane care poartă urechi de iepuraș</annotation>
@@ -1091,14 +1675,24 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💏" type="tts">sărut</annotation>
 		<annotation cp="💑">cuplu | cuplu cu inimă | dragoste | iubire</annotation>
 		<annotation cp="💑" type="tts">cuplu cu inimă</annotation>
-		<annotation cp="👪">familie</annotation>
-		<annotation cp="👪" type="tts">familie</annotation>
 		<annotation cp="🗣">cap | față | profil | siluetă | vorbi | vorbire | vorbitor</annotation>
 		<annotation cp="🗣" type="tts">cap vorbitor</annotation>
 		<annotation cp="👤">bust | siluetă</annotation>
 		<annotation cp="👤" type="tts">siluetă bust</annotation>
 		<annotation cp="👥">bust | siluetă | siluete busturi</annotation>
 		<annotation cp="👥" type="tts">siluete busturi</annotation>
+		<annotation cp="🫂">adio | îmbrățișare | la revedere | mulțumesc | persoane îmbrățișate | salut</annotation>
+		<annotation cp="🫂" type="tts">persoane îmbrățișate</annotation>
+		<annotation cp="👪">familie</annotation>
+		<annotation cp="👪" type="tts">familie</annotation>
+		<annotation cp="🧑‍🧑‍🧒">adult | copil | familie: adult | familie: adult, adult, copil</annotation>
+		<annotation cp="🧑‍🧑‍🧒" type="tts">familie: adult, adult, copil</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">adult | copil | familie: adult | familie: adult, adult, copil, copil</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">familie: adult, adult, copil, copil</annotation>
+		<annotation cp="🧑‍🧒">copil | familie: adult | familie: adult, copil</annotation>
+		<annotation cp="🧑‍🧒" type="tts">familie: adult, copil</annotation>
+		<annotation cp="🧑‍🧒‍🧒">copil | familie: adult | familie: adult, copil, copil</annotation>
+		<annotation cp="🧑‍🧒‍🧒" type="tts">familie: adult, copil, copil</annotation>
 		<annotation cp="👣">talpă | urmă | urme de pași</annotation>
 		<annotation cp="👣" type="tts">urme de pași</annotation>
 		<annotation cp="🦰">păr roșcat | roșcat | roșcată</annotation>
@@ -1149,6 +1743,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐆" type="tts">leopard</annotation>
 		<annotation cp="🐴">animal domestic | cal | față | față de cal</annotation>
 		<annotation cp="🐴" type="tts">față de cal</annotation>
+		<annotation cp="🫎">animal | cerb | cornut | elan | mamifer</annotation>
+		<annotation cp="🫎" type="tts">elan</annotation>
+		<annotation cp="🫏">animal | asin | catâr | încăpățânat | măgar | mamifer</annotation>
+		<annotation cp="🫏" type="tts">măgar</annotation>
 		<annotation cp="🐎">cal | cal de curse | echitație</annotation>
 		<annotation cp="🐎" type="tts">cal</annotation>
 		<annotation cp="🦄">față | unicorn</annotation>
@@ -1157,6 +1755,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦓" type="tts">zebră</annotation>
 		<annotation cp="🦌">animal sălbatic | cerb</annotation>
 		<annotation cp="🦌" type="tts">cerb</annotation>
+		<annotation cp="🦬">bizon | bour | bufal | cireadă | zimbru</annotation>
+		<annotation cp="🦬" type="tts">bizon</annotation>
 		<annotation cp="🐮">animal domestic | cap de vacă | față | vacă</annotation>
 		<annotation cp="🐮" type="tts">cap de vacă</annotation>
 		<annotation cp="🐂">animal domestic | bou | taur | zodiac</annotation>
@@ -1189,6 +1789,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦒" type="tts">girafă</annotation>
 		<annotation cp="🐘">animal sălbatic | elefant</annotation>
 		<annotation cp="🐘" type="tts">elefant</annotation>
+		<annotation cp="🦣">colți | dispariție | extincție | lânos | mamut | mare</annotation>
+		<annotation cp="🦣" type="tts">mamut</annotation>
 		<annotation cp="🦏">animal sălbatic | rinocer</annotation>
 		<annotation cp="🦏" type="tts">rinocer</annotation>
 		<annotation cp="🦛">hipo | hipopotam</annotation>
@@ -1207,6 +1809,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐇" type="tts">iepure</annotation>
 		<annotation cp="🐿">rozător | veveriță</annotation>
 		<annotation cp="🐿" type="tts">veveriță</annotation>
+		<annotation cp="🦫">baraj | castor</annotation>
+		<annotation cp="🦫" type="tts">castor</annotation>
 		<annotation cp="🦔">arici | țepos</annotation>
 		<annotation cp="🦔" type="tts">arici</annotation>
 		<annotation cp="🦇">liliac | vampir</annotation>
@@ -1257,12 +1861,24 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦢" type="tts">lebădă</annotation>
 		<annotation cp="🦉">bufniță | de noapte | înțelept | pasăre</annotation>
 		<annotation cp="🦉" type="tts">bufniță</annotation>
+		<annotation cp="🦤">dispariție | dodo | extincție | mare | Mauritius</annotation>
+		<annotation cp="🦤" type="tts">dodo</annotation>
+		<annotation cp="🪶">pană | pasăre | penaj | ușor | zbor</annotation>
+		<annotation cp="🪶" type="tts">pană</annotation>
 		<annotation cp="🦩">flamboaiant | flamingo | tropical</annotation>
 		<annotation cp="🦩" type="tts">flamingo</annotation>
 		<annotation cp="🦚">mândrie | orgoliu | ostentație | pasăre | păun</annotation>
 		<annotation cp="🦚" type="tts">păun</annotation>
 		<annotation cp="🦜">papagal mare | pasăre | pirat | vorbit</annotation>
 		<annotation cp="🦜" type="tts">papagal mare</annotation>
+		<annotation cp="🪽">angelic | aripă | aviație | mitologie | pasăre | zbor</annotation>
+		<annotation cp="🪽" type="tts">aripă</annotation>
+		<annotation cp="🐦‍⬛">cioară | corb | mierlă | neagră | pasăre</annotation>
+		<annotation cp="🐦‍⬛" type="tts">pasăre neagră</annotation>
+		<annotation cp="🪿">gâgâit | gânsac | gâscă | gâsculiță | pasăre | prostuț</annotation>
+		<annotation cp="🪿" type="tts">gâscă</annotation>
+		<annotation cp="🐦‍🔥">fantezie | pasăre de foc | phoenix | reîncarnare | renaștere</annotation>
+		<annotation cp="🐦‍🔥" type="tts">phoenix</annotation>
 		<annotation cp="🐸">broască | față | față de broască</annotation>
 		<annotation cp="🐸" type="tts">broască</annotation>
 		<annotation cp="🐊">crocodil | reptilă</annotation>
@@ -1287,6 +1903,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐋" type="tts">balenă</annotation>
 		<annotation cp="🐬">delfin | inteligent | mamifer acvatic</annotation>
 		<annotation cp="🐬" type="tts">delfin</annotation>
+		<annotation cp="🦭">focă | leu de mare</annotation>
+		<annotation cp="🦭" type="tts">focă</annotation>
 		<annotation cp="🐟">pește | pești | zodiac</annotation>
 		<annotation cp="🐟" type="tts">pește</annotation>
 		<annotation cp="🐠">exotic | pește tropical | pești | tropical</annotation>
@@ -1299,6 +1917,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐙" type="tts">caracatiță</annotation>
 		<annotation cp="🐚">cochilie | cochilie spiralată | spirală</annotation>
 		<annotation cp="🐚" type="tts">cochilie spiralată</annotation>
+		<annotation cp="🪸">coral | ocean | recif</annotation>
+		<annotation cp="🪸" type="tts">coral</annotation>
+		<annotation cp="🪼">au | gelatină | înțepătură | marină | meduză | nevertebrată | urzicătură</annotation>
+		<annotation cp="🪼" type="tts">meduză</annotation>
 		<annotation cp="🐌">melc</annotation>
 		<annotation cp="🐌" type="tts">melc</annotation>
 		<annotation cp="🦋">fluture | frumos | insectă</annotation>
@@ -1309,10 +1931,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐜" type="tts">furnică</annotation>
 		<annotation cp="🐝">albină | aripi | insectă | miere</annotation>
 		<annotation cp="🐝" type="tts">albină</annotation>
+		<annotation cp="🪲">cărăbuș | gândac | insectă</annotation>
+		<annotation cp="🪲" type="tts">cărăbuș</annotation>
 		<annotation cp="🐞">buburuză | buline | insectă | roșu</annotation>
 		<annotation cp="🐞" type="tts">buburuză</annotation>
 		<annotation cp="🦗">greier | lăcustă</annotation>
 		<annotation cp="🦗" type="tts">greier</annotation>
+		<annotation cp="🪳">gândac de bucătărie | insectă | parazit</annotation>
+		<annotation cp="🪳" type="tts">gândac de bucătărie</annotation>
 		<annotation cp="🕷">arahnidă | insectă | păianjen | pânză</annotation>
 		<annotation cp="🕷" type="tts">păianjen</annotation>
 		<annotation cp="🕸">capcană | păianjen | pânză | pânză de păianjen</annotation>
@@ -1321,6 +1947,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦂" type="tts">scorpion</annotation>
 		<annotation cp="🦟">boală | febră | insectă | înțepătură | malarie | țânțar</annotation>
 		<annotation cp="🦟" type="tts">țânțar</annotation>
+		<annotation cp="🪰">boală | dăunător | descompunere | muscă | putrezire</annotation>
+		<annotation cp="🪰" type="tts">muscă</annotation>
+		<annotation cp="🪱">anelid | parazit | râmă | vierme</annotation>
+		<annotation cp="🪱" type="tts">vierme</annotation>
 		<annotation cp="🦠">amibă | bacterie | microb | virus</annotation>
 		<annotation cp="🦠" type="tts">microb</annotation>
 		<annotation cp="💐">buchet de flori | cadou | flori</annotation>
@@ -1329,6 +1959,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌸" type="tts">floare de cireș</annotation>
 		<annotation cp="💮">floare | floare albă | puritate</annotation>
 		<annotation cp="💮" type="tts">floare albă</annotation>
+		<annotation cp="🪷">budism | floare | hinduism | India | lotus | nufăr | puritate | Vietnam</annotation>
+		<annotation cp="🪷" type="tts">lotus</annotation>
 		<annotation cp="🏵">plantă | rozetă</annotation>
 		<annotation cp="🏵" type="tts">rozetă</annotation>
 		<annotation cp="🌹">floare | trandafir</annotation>
@@ -1343,8 +1975,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌼" type="tts">boboc</annotation>
 		<annotation cp="🌷">floare | lalea | plantă | primăvară</annotation>
 		<annotation cp="🌷" type="tts">lalea</annotation>
+		<annotation cp="🪻">gura leului | hyacinthus | iacint | lavandă | lupin | zambilă</annotation>
+		<annotation cp="🪻" type="tts">zambilă</annotation>
 		<annotation cp="🌱">plantă | răsad | tânără</annotation>
 		<annotation cp="🌱" type="tts">răsad</annotation>
+		<annotation cp="🪴">casă | crește | cultiva | ghiveci | plantă | plantă în ghiveci</annotation>
+		<annotation cp="🪴" type="tts">plantă în ghiveci</annotation>
 		<annotation cp="🌲">arbore conifer | brad | conifer | copac</annotation>
 		<annotation cp="🌲" type="tts">arbore conifer</annotation>
 		<annotation cp="🌳">arbore foios | copac | frunze căzătoare</annotation>
@@ -1367,6 +2003,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍂" type="tts">frunză în cădere</annotation>
 		<annotation cp="🍃">frunză | frunză plutind în aer | plutire | vânt</annotation>
 		<annotation cp="🍃" type="tts">frunză plutind în aer</annotation>
+		<annotation cp="🪹">cuib gol | cuibărire</annotation>
+		<annotation cp="🪹" type="tts">cuib gol</annotation>
+		<annotation cp="🪺">cuib | cuib cu ouă | cuibăreală | cuibărit</annotation>
+		<annotation cp="🪺" type="tts">cuib cu ouă</annotation>
+		<annotation cp="🍄">ciupercă | ciupercă otrăvitoare</annotation>
+		<annotation cp="🍄" type="tts">ciupercă</annotation>
 		<annotation cp="🍇">boabe | fruct | struguri | viță de vie</annotation>
 		<annotation cp="🍇" type="tts">struguri</annotation>
 		<annotation cp="🍈">fruct | pepene | pepene galben</annotation>
@@ -1377,6 +2019,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍊" type="tts">mandarină</annotation>
 		<annotation cp="🍋">citrice | fruct | lămâie</annotation>
 		<annotation cp="🍋" type="tts">lămâie</annotation>
+		<annotation cp="🍋‍🟩">citrice | fruct | lămâie verde | limetă | tropical</annotation>
+		<annotation cp="🍋‍🟩" type="tts">limetă</annotation>
 		<annotation cp="🍌">banană | fruct</annotation>
 		<annotation cp="🍌" type="tts">banană</annotation>
 		<annotation cp="🍍">ananas | fruct</annotation>
@@ -1395,10 +2039,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍒" type="tts">cireșe</annotation>
 		<annotation cp="🍓">bacă | căpșună | fruct</annotation>
 		<annotation cp="🍓" type="tts">căpșună</annotation>
+		<annotation cp="🫐">afină | afine | albastru | fructe de pădure</annotation>
+		<annotation cp="🫐" type="tts">afine</annotation>
 		<annotation cp="🥝">fructe | kiwi | mâncare</annotation>
 		<annotation cp="🥝" type="tts">kiwi</annotation>
 		<annotation cp="🍅">fruct | legumă | roșie | tomată</annotation>
 		<annotation cp="🍅" type="tts">roșie</annotation>
+		<annotation cp="🫒">mâncare | măslină</annotation>
+		<annotation cp="🫒" type="tts">măslină</annotation>
 		<annotation cp="🥥">cocotier | nucă de cocos | palmier</annotation>
 		<annotation cp="🥥" type="tts">nucă de cocos</annotation>
 		<annotation cp="🥑">avocado | fruct | mâncare</annotation>
@@ -1413,6 +2061,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌽" type="tts">știulete de porumb</annotation>
 		<annotation cp="🌶">ardei | iute | legumă</annotation>
 		<annotation cp="🌶" type="tts">ardei iute</annotation>
+		<annotation cp="🫑">ardei | ardei capia | ardei gras | ardei iute | gogoșar | legumă</annotation>
+		<annotation cp="🫑" type="tts">ardei gras</annotation>
 		<annotation cp="🥒">castravete | legume | mâncare | murătură</annotation>
 		<annotation cp="🥒" type="tts">castravete</annotation>
 		<annotation cp="🥬">lăptucă | salată | varză | varză chinezească | varză kale | verdețuri</annotation>
@@ -1423,18 +2073,26 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧄" type="tts">usturoi</annotation>
 		<annotation cp="🧅">aromă | ceapă | condiment</annotation>
 		<annotation cp="🧅" type="tts">ceapă</annotation>
-		<annotation cp="🍄">ciupercă | ciupercă otrăvitoare</annotation>
-		<annotation cp="🍄" type="tts">ciupercă</annotation>
 		<annotation cp="🥜">alune | arahide | legumă | mâncare</annotation>
 		<annotation cp="🥜" type="tts">arahide</annotation>
+		<annotation cp="🫘">fasole | fasole boabe | fasole roșie | legumă | mâncare</annotation>
+		<annotation cp="🫘" type="tts">fasole</annotation>
 		<annotation cp="🌰">castană | plantă</annotation>
 		<annotation cp="🌰" type="tts">castană</annotation>
+		<annotation cp="🫚">bere | condiment | rădăcină | rădăcină de ghimbir</annotation>
+		<annotation cp="🫚" type="tts">rădăcină de ghimbir</annotation>
+		<annotation cp="🫛">boabe | edamame | legumă | leguminoasă | mazăre | păstaie | păstaie de mazăre</annotation>
+		<annotation cp="🫛" type="tts">păstaie de mazăre</annotation>
+		<annotation cp="🍄‍🟫">aliment | ciupercă | ciupercă maro | legumă | natură</annotation>
+		<annotation cp="🍄‍🟫" type="tts">ciupercă maro</annotation>
 		<annotation cp="🍞">aliment | franzelă | pâine</annotation>
 		<annotation cp="🍞" type="tts">pâine</annotation>
 		<annotation cp="🥐">corn | croasant | croissant | mâncare | pâine</annotation>
 		<annotation cp="🥐" type="tts">croasant</annotation>
 		<annotation cp="🥖">baghetă | baghetă de pâine | franțuzească | mâncare | pâine</annotation>
 		<annotation cp="🥖" type="tts">baghetă de pâine</annotation>
+		<annotation cp="🫓">lipie | pită</annotation>
+		<annotation cp="🫓" type="tts">pită</annotation>
 		<annotation cp="🥨">covrig | covrigei | covrigel | covrigi</annotation>
 		<annotation cp="🥨" type="tts">covrig</annotation>
 		<annotation cp="🥯">bagel | covrig moale | patiserie</annotation>
@@ -1467,6 +2125,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌮" type="tts">taco</annotation>
 		<annotation cp="🌯">burrito | lipie | mexican | sandvici rulat | sandviș rulat</annotation>
 		<annotation cp="🌯" type="tts">burrito</annotation>
+		<annotation cp="🫔">colțunaș | mâncare mexicană | tamale</annotation>
+		<annotation cp="🫔" type="tts">tamale</annotation>
 		<annotation cp="🥙">falafel | giros | kebab | lipie | lipie umplută | mâncare | șaorma</annotation>
 		<annotation cp="🥙" type="tts">lipie umplută</annotation>
 		<annotation cp="🧆">chifteluță | falafel | năut</annotation>
@@ -1479,6 +2139,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥘" type="tts">cratiță cu mâncare</annotation>
 		<annotation cp="🍲">oală | oală cu mâncare | tocană</annotation>
 		<annotation cp="🍲" type="tts">oală cu mâncare</annotation>
+		<annotation cp="🫕">brânză | ciocolată | fondue | mâncare elvețiană | topită | vas de gătit</annotation>
+		<annotation cp="🫕" type="tts">fondue</annotation>
 		<annotation cp="🥣">castron cu lingură | cereale | mic dejun | terci</annotation>
 		<annotation cp="🥣" type="tts">castron cu lingură</annotation>
 		<annotation cp="🥗">mâncare | salată | verde</annotation>
@@ -1569,6 +2231,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥛" type="tts">pahar cu lapte</annotation>
 		<annotation cp="☕">băutură | cafea | ceai | ceașcă | fierbinte</annotation>
 		<annotation cp="☕" type="tts">băutură fierbinte</annotation>
+		<annotation cp="🫖">băutură | ceai | ceainic</annotation>
+		<annotation cp="🫖" type="tts">ceainic</annotation>
 		<annotation cp="🍵">băutură | ceai | ceașcă | ceașcă fără mâner</annotation>
 		<annotation cp="🍵" type="tts">ceașcă fără mâner</annotation>
 		<annotation cp="🍶">bar | băutură | ceașcă | sake | sticlă</annotation>
@@ -1589,8 +2253,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥂" type="tts">pahare ciocnite</annotation>
 		<annotation cp="🥃">lichior | pahar | pahar de whisky | shot | whisky</annotation>
 		<annotation cp="🥃" type="tts">pahar de whisky</annotation>
+		<annotation cp="🫗">băutură | gol | lichid turnat | pahar | vărsa</annotation>
+		<annotation cp="🫗" type="tts">lichid turnat</annotation>
 		<annotation cp="🥤">pahar cu pai | sifon | suc</annotation>
 		<annotation cp="🥤" type="tts">pahar cu pai</annotation>
+		<annotation cp="🧋">ceai | ceai cu perle | lapte | perle</annotation>
+		<annotation cp="🧋" type="tts">ceai cu perle</annotation>
 		<annotation cp="🧃">cutie de băutură | cutie de suc</annotation>
 		<annotation cp="🧃" type="tts">cutie de băutură</annotation>
 		<annotation cp="🧉">băutură | mate</annotation>
@@ -1607,6 +2275,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥄" type="tts">lingură</annotation>
 		<annotation cp="🔪">armă | cuțit | cuțit de bucătărie | gătit | instrument</annotation>
 		<annotation cp="🔪" type="tts">cuțit de bucătărie</annotation>
+		<annotation cp="🫙">borcan | condiment | depozitare | gol | recipient | sos</annotation>
+		<annotation cp="🫙" type="tts">borcan</annotation>
 		<annotation cp="🏺">amforă | băut | gătit | ulcior | Vărsător | zodiac</annotation>
 		<annotation cp="🏺" type="tts">amforă</annotation>
 		<annotation cp="🌍">Africa | Europa | Europa și Africa pe glob | glob | lume | Pământ</annotation>
@@ -1639,7 +2309,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏜" type="tts">deșert</annotation>
 		<annotation cp="🏝">insulă | insulă pustie | pustiu</annotation>
 		<annotation cp="🏝" type="tts">insulă pustie</annotation>
-		<annotation cp="🏞">național | parc național | park</annotation>
+		<annotation cp="🏞">parc | parc național</annotation>
 		<annotation cp="🏞" type="tts">parc național</annotation>
 		<annotation cp="🏟">public | sport | stadion</annotation>
 		<annotation cp="🏟" type="tts">stadion</annotation>
@@ -1649,6 +2319,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏗" type="tts">clădire în construcție</annotation>
 		<annotation cp="🧱">argilă | cărămidă | cărămizi | mortar | zid</annotation>
 		<annotation cp="🧱" type="tts">cărămidă</annotation>
+		<annotation cp="🪨">bolovan | greu | piatră | rocă | solid | stâncă</annotation>
+		<annotation cp="🪨" type="tts">piatră</annotation>
+		<annotation cp="🪵">buștean | cherestea | lemn | masă lemnoasă</annotation>
+		<annotation cp="🪵" type="tts">lemn</annotation>
+		<annotation cp="🛖">adăpost | casă | căsuță | cocioabă | colibă | iurtă</annotation>
+		<annotation cp="🛖" type="tts">colibă</annotation>
 		<annotation cp="🏘">case | construcție</annotation>
 		<annotation cp="🏘" type="tts">case</annotation>
 		<annotation cp="🏚">abandonată | casă | casă părăsită</annotation>
@@ -1681,7 +2357,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏭" type="tts">fabrică</annotation>
 		<annotation cp="🏯">castel | castel japonez | clădire | Japonia</annotation>
 		<annotation cp="🏯" type="tts">castel japonez</annotation>
-		<annotation cp="🏰">castel | clădire | Japonia</annotation>
+		<annotation cp="🏰">castel | Europa</annotation>
 		<annotation cp="🏰" type="tts">castel</annotation>
 		<annotation cp="💒">capelă | inimă | nuntă</annotation>
 		<annotation cp="💒" type="tts">nuntă</annotation>
@@ -1723,14 +2399,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌉" type="tts">pod luminat noaptea</annotation>
 		<annotation cp="♨">aburi | apă | căldură | izvoare termale | izvor</annotation>
 		<annotation cp="♨" type="tts">izvoare termale</annotation>
-		<annotation cp="🎠">cal | căluț de carusel | carousel</annotation>
+		<annotation cp="🎠">căluț | căluț de carusel | carusel</annotation>
 		<annotation cp="🎠" type="tts">căluț de carusel</annotation>
+		<annotation cp="🛝">joacă | parc de distracții | tobogan pentru joacă</annotation>
+		<annotation cp="🛝" type="tts">tobogan pentru joacă</annotation>
 		<annotation cp="🎡">bâlci | carnaval | distracție | parc de distracție | roata mare</annotation>
 		<annotation cp="🎡" type="tts">roata mare</annotation>
 		<annotation cp="🎢">adrenalină | montagne russe | parc de distracție</annotation>
 		<annotation cp="🎢" type="tts">montagne russe</annotation>
-		<annotation cp="💈">bărbier | indicator | stâlp de bărbier | tuns</annotation>
-		<annotation cp="💈" type="tts">stâlp de bărbier</annotation>
+		<annotation cp="💈">bărbier | indicator | semn de frizerie | tuns</annotation>
+		<annotation cp="💈" type="tts">semn de frizerie</annotation>
 		<annotation cp="🎪">circ | cort | cort de circ</annotation>
 		<annotation cp="🎪" type="tts">cort de circ</annotation>
 		<annotation cp="🚂">aburi | cale ferată | locomotivă | motor | transport | tren</annotation>
@@ -1783,6 +2461,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚘" type="tts">automobil care se apropie</annotation>
 		<annotation cp="🚙">călătorii | jeep | SUV | vacanță | vehicul | vehicul recreațional</annotation>
 		<annotation cp="🚙" type="tts">vehicul recreațional</annotation>
+		<annotation cp="🛻">camion | camionetă | mașină papuc</annotation>
+		<annotation cp="🛻" type="tts">camionetă</annotation>
 		<annotation cp="🚚">camion | camion de marfă | livrare | marfă</annotation>
 		<annotation cp="🚚" type="tts">camion de marfă</annotation>
 		<annotation cp="🚛">articulat | camion</annotation>
@@ -1807,6 +2487,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛴" type="tts">trotinetă</annotation>
 		<annotation cp="🛹">placă | skateboard</annotation>
 		<annotation cp="🛹" type="tts">skateboard</annotation>
+		<annotation cp="🛼">patină | patină cu rotile | rotile</annotation>
+		<annotation cp="🛼" type="tts">patină cu rotile</annotation>
 		<annotation cp="🚏">autobuz | oprire | stație de autobuz</annotation>
 		<annotation cp="🚏" type="tts">stație de autobuz</annotation>
 		<annotation cp="🛣">autostradă | autovehicule | drum</annotation>
@@ -1817,6 +2499,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛢" type="tts">butoi de combustibil</annotation>
 		<annotation cp="⛽">alimentare | benzină | benzinărie | combustibil | diesel | pompă | pompă de combustibil</annotation>
 		<annotation cp="⛽" type="tts">pompă de combustibil</annotation>
+		<annotation cp="🛞">anvelopă | cauciuc | cerc | învârti | roată</annotation>
+		<annotation cp="🛞" type="tts">roată</annotation>
 		<annotation cp="🚨">girofar | girofar de poliție | lumină | poliție | semnal luminos</annotation>
 		<annotation cp="🚨" type="tts">girofar de poliție</annotation>
 		<annotation cp="🚥">semafor | semafor orizontal | semnal | trafic</annotation>
@@ -1829,6 +2513,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚧" type="tts">șantier</annotation>
 		<annotation cp="⚓">ancoră | ancorare | instrument | navă | vas</annotation>
 		<annotation cp="⚓" type="tts">ancoră</annotation>
+		<annotation cp="🛟">colac de salvare | plută | pluti | plutire | salvare | siguranță</annotation>
+		<annotation cp="🛟" type="tts">colac de salvare</annotation>
 		<annotation cp="⛵">barcă | barcă cu pânze | iaht | navigație | pânze</annotation>
 		<annotation cp="⛵" type="tts">barcă cu pânze</annotation>
 		<annotation cp="🛶">barcă | canoe</annotation>
@@ -2143,12 +2829,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪀" type="tts">yo-yo</annotation>
 		<annotation cp="🪁">plana | pluti | zbura | zmeu</annotation>
 		<annotation cp="🪁" type="tts">zmeu</annotation>
+		<annotation cp="🔫">armă | armă de foc | pistol | pistol cu apă | pistolet | revolver</annotation>
+		<annotation cp="🔫" type="tts">pistol cu apă</annotation>
 		<annotation cp="🎱">bilă | biliard | gaură | joc | opt</annotation>
 		<annotation cp="🎱" type="tts">biliard</annotation>
 		<annotation cp="🔮">basm | cristal | fantezie | glob | glob de cristal | noroc</annotation>
 		<annotation cp="🔮" type="tts">glob de cristal</annotation>
-		<annotation cp="🧿">amuletă | amuletă nazar | ochiul magic | ochiul răului | talisman</annotation>
-		<annotation cp="🧿" type="tts">amuletă nazar</annotation>
+		<annotation cp="🪄">baghetă magică | magie | vrajă | vrăjitoare | vrăjitor | vrăjitorie</annotation>
+		<annotation cp="🪄" type="tts">baghetă magică</annotation>
 		<annotation cp="🎮">controller | joc | video</annotation>
 		<annotation cp="🎮" type="tts">joc video</annotation>
 		<annotation cp="🕹">joc | joystick | manetă | video</annotation>
@@ -2161,6 +2849,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧩" type="tts">piesă de puzzle</annotation>
 		<annotation cp="🧸">jucărie | pluș | ursuleț | ursuleț de pluș</annotation>
 		<annotation cp="🧸" type="tts">ursuleț de pluș</annotation>
+		<annotation cp="🪅">petrecere | piñata | sărbătorire</annotation>
+		<annotation cp="🪅" type="tts">piñata</annotation>
+		<annotation cp="🪩">dans | disco | glob cu oglinzi | petrecere | sclipici | strălucire</annotation>
+		<annotation cp="🪩" type="tts">glob cu oglinzi</annotation>
+		<annotation cp="🪆">lemn | matrioșka | păpușă | rusească | Rusia</annotation>
+		<annotation cp="🪆" type="tts">matrioșka</annotation>
 		<annotation cp="♠">cărți | inimă neagră | joc | pică</annotation>
 		<annotation cp="♠" type="tts">pică</annotation>
 		<annotation cp="♥">cărți | cupă | inimă roșie | joc</annotation>
@@ -2185,8 +2879,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎨" type="tts">paletă de pictor</annotation>
 		<annotation cp="🧵">ac | ață | croitorie | cusut | mosor</annotation>
 		<annotation cp="🧵" type="tts">ață</annotation>
+		<annotation cp="🪡">ac | ac de cusut | broderie | croitorie | cusut</annotation>
+		<annotation cp="🪡" type="tts">ac de cusut</annotation>
 		<annotation cp="🧶">croșeta | fir textil | ghem | tricota</annotation>
 		<annotation cp="🧶" type="tts">fir textil</annotation>
+		<annotation cp="🪢">frânghie | încurcătură | lega | nod | sfoară</annotation>
+		<annotation cp="🪢" type="tts">nod</annotation>
 		<annotation cp="👓">ochelari | ochi | vedere</annotation>
 		<annotation cp="👓" type="tts">ochelari</annotation>
 		<annotation cp="🕶">ochelari | ochelari de soare | protecție | soare</annotation>
@@ -2227,6 +2925,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👙" type="tts">costum de baie</annotation>
 		<annotation cp="👚">femeie | feminin | haine | haine de damă</annotation>
 		<annotation cp="👚" type="tts">haine de damă</annotation>
+		<annotation cp="🪭">caniculă | dans | evantai | eventai pliabil | fâlfâit | răcire | răcorire | timiditate</annotation>
+		<annotation cp="🪭" type="tts">eventai pliabil</annotation>
 		<annotation cp="👛">accesoriu | feminin | poșetă</annotation>
 		<annotation cp="👛" type="tts">poșetă</annotation>
 		<annotation cp="👜">accesoriu | feminin | geantă de mână | poșetă</annotation>
@@ -2237,6 +2937,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛍" type="tts">sacoșe de cumpărături</annotation>
 		<annotation cp="🎒">ghiozdan | rechizite | rucsac | școală</annotation>
 		<annotation cp="🎒" type="tts">rucsac</annotation>
+		<annotation cp="🩴">papuci de plajă | sandale | sandale de plajă | șlap</annotation>
+		<annotation cp="🩴" type="tts">șlap</annotation>
 		<annotation cp="👞">bărbat | încălțăminte | masculin | pantof bărbătesc</annotation>
 		<annotation cp="👞" type="tts">pantof bărbătesc</annotation>
 		<annotation cp="👟">alergare | atletism | încălțăminte | pantof sport | sport</annotation>
@@ -2253,6 +2955,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🩰" type="tts">pantofi de balet</annotation>
 		<annotation cp="👢">cizmă de damă | femeie | feminin | încălțăminte | pantof</annotation>
 		<annotation cp="👢" type="tts">cizmă de damă</annotation>
+		<annotation cp="🪮">afro | creț | păr | pieptene | pieptene cu dinți lungi</annotation>
+		<annotation cp="🪮" type="tts">pieptene cu dinți lungi</annotation>
 		<annotation cp="👑">coroană | încoronat | putere | regalitate | rege | regină</annotation>
 		<annotation cp="👑" type="tts">coroană</annotation>
 		<annotation cp="👒">femeie | feminin | îmbrăcăminte | pălărie | pălărie de damă</annotation>
@@ -2263,6 +2967,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎓" type="tts">tichie de absolvent</annotation>
 		<annotation cp="🧢">șapcă | șapcă cu cozoroc | șapcă de baseball</annotation>
 		<annotation cp="🧢" type="tts">șapcă</annotation>
+		<annotation cp="🪖">armată | cască | cască militară | luptător | militar | soldat</annotation>
+		<annotation cp="🪖" type="tts">cască militară</annotation>
 		<annotation cp="⛑">ajutor | alb | cască | cască de pompier salvator | cruce | roșu</annotation>
 		<annotation cp="⛑" type="tts">cască de pompier salvator</annotation>
 		<annotation cp="📿">mărgele | mătănii | meditație | religie | rugăciune</annotation>
@@ -2311,6 +3017,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📻" type="tts">radio</annotation>
 		<annotation cp="🎷">instrument | muzică | saxofon</annotation>
 		<annotation cp="🎷" type="tts">saxofon</annotation>
+		<annotation cp="🪗">acordeon | armonică | burduf | concertină</annotation>
+		<annotation cp="🪗" type="tts">acordeon</annotation>
 		<annotation cp="🎸">chitară | instrument | muzică</annotation>
 		<annotation cp="🎸" type="tts">chitară</annotation>
 		<annotation cp="🎹">clape | claviatură muzicală | instrument | muzică | pian</annotation>
@@ -2323,6 +3031,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪕" type="tts">banjo</annotation>
 		<annotation cp="🥁">bețe de tobă | muzică | tobă</annotation>
 		<annotation cp="🥁" type="tts">tobă</annotation>
+		<annotation cp="🪘">bătaie | conga | ritm | tobă | tobă înaltă</annotation>
+		<annotation cp="🪘" type="tts">tobă înaltă</annotation>
+		<annotation cp="🪇">instrument | maracas | muzică | percuție | scuturat | zornăit</annotation>
+		<annotation cp="🪇" type="tts">maracas</annotation>
+		<annotation cp="🪈">flaut | fluier | instrument de suflat din lemn | muzică | tub</annotation>
+		<annotation cp="🪈" type="tts">flaut</annotation>
 		<annotation cp="📱">celular | mobil | telefon</annotation>
 		<annotation cp="📱" type="tts">telefon mobil</annotation>
 		<annotation cp="📲">celular | mobil | recepție | săgeată | telefon | telefon mobil cu săgeată</annotation>
@@ -2337,6 +3051,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📠" type="tts">echipament fax</annotation>
 		<annotation cp="🔋">baterie | energie</annotation>
 		<annotation cp="🔋" type="tts">baterie</annotation>
+		<annotation cp="🪫">baterie cosumată | baterie slabă | electronic | energie scăzută</annotation>
+		<annotation cp="🪫" type="tts">baterie slabă</annotation>
 		<annotation cp="🔌">electric | electricitate | fișă electrică | priză | ștecher</annotation>
 		<annotation cp="🔌" type="tts">fișă electrică</annotation>
 		<annotation cp="💻">computer laptop | computer personal | laptop | notebook | PC | portabil</annotation>
@@ -2429,6 +3145,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏷" type="tts">etichetă</annotation>
 		<annotation cp="💰">bani | dolar | pungă cu bani | sac cu bani</annotation>
 		<annotation cp="💰" type="tts">sac cu bani</annotation>
+		<annotation cp="🪙">argint | aur | bani | comoară | metal | monedă</annotation>
+		<annotation cp="🪙" type="tts">monedă</annotation>
 		<annotation cp="💴">bancnotă | bani | monedă | valută | yen</annotation>
 		<annotation cp="💴" type="tts">bancnotă yen</annotation>
 		<annotation cp="💵">bancnotă | bani | dolar | monedă | valută</annotation>
@@ -2445,10 +3163,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧾" type="tts">chitanță</annotation>
 		<annotation cp="💹">creștere | grafic | grafic ascendent cu yen | valută | yen</annotation>
 		<annotation cp="💹" type="tts">grafic ascendent cu yen</annotation>
-		<annotation cp="💱">bani | schimb | schimb valutar | valută</annotation>
-		<annotation cp="💱" type="tts">schimb valutar</annotation>
-		<annotation cp="💲">bani | dolar | semnul dolar îngroșat</annotation>
-		<annotation cp="💲" type="tts">semnul dolar îngroșat</annotation>
 		<annotation cp="✉">e-mail | plic | scrisoare</annotation>
 		<annotation cp="✉" type="tts">plic</annotation>
 		<annotation cp="📧">corespondență | e-mail | mesaj | scrisoare</annotation>
@@ -2561,14 +3275,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🗡" type="tts">pumnal</annotation>
 		<annotation cp="⚔">arme | încrucișare | săbii încrucișate | spade</annotation>
 		<annotation cp="⚔" type="tts">săbii încrucișate</annotation>
-		<annotation cp="🔫">armă | armă de foc | pistol | revolver</annotation>
-		<annotation cp="🔫" type="tts">pistol</annotation>
+		<annotation cp="💣">bandă desenată | bombă | fitil</annotation>
+		<annotation cp="💣" type="tts">bombă</annotation>
+		<annotation cp="🪃">Australia | bumerang | repercusiune | revenire</annotation>
+		<annotation cp="🪃" type="tts">bumerang</annotation>
 		<annotation cp="🏹">arc | arc și săgeată | arcaș | armă | săgeată | Săgetător | zodiac</annotation>
 		<annotation cp="🏹" type="tts">arc și săgeată</annotation>
 		<annotation cp="🛡">armă | scut</annotation>
 		<annotation cp="🛡" type="tts">scut</annotation>
+		<annotation cp="🪚">cherestea | dulgher | fierăstrău | fierăstrău pentru tămplărie | instrument | sculă | tâmplar | unealtă</annotation>
+		<annotation cp="🪚" type="tts">fierăstrău pentru tămplărie</annotation>
 		<annotation cp="🔧">cheie de piulițe | cheie fixă | instrument</annotation>
 		<annotation cp="🔧" type="tts">cheie fixă</annotation>
+		<annotation cp="🪛">instrument | sculă | șurub | șurubelniță | unealtă</annotation>
+		<annotation cp="🪛" type="tts">șurubelniță</annotation>
 		<annotation cp="🔩">instrument | piuliță | șurub | șurub și piuliță</annotation>
 		<annotation cp="🔩" type="tts">șurub și piuliță</annotation>
 		<annotation cp="⚙">instrument | roată dințată | roată zimțată | rotiță dințată | rotiță zimțată</annotation>
@@ -2581,17 +3301,23 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦯" type="tts">baston pentru nevăzători</annotation>
 		<annotation cp="🔗">conexiune | legătură | link | verigă | za</annotation>
 		<annotation cp="🔗" type="tts">za</annotation>
+		<annotation cp="⛓‍💥">cătușe | lanț | libertate | rupere | rupt</annotation>
+		<annotation cp="⛓‍💥" type="tts">lanț rupt</annotation>
 		<annotation cp="⛓">lanț | lanțuri | zale</annotation>
 		<annotation cp="⛓" type="tts">lanț</annotation>
+		<annotation cp="🪝">argument de vânzare | captură | cârlig | escroc | momeală</annotation>
+		<annotation cp="🪝" type="tts">cârlig</annotation>
 		<annotation cp="🧰">cutie | instrument | mecanic | trusă de scule | unealtă</annotation>
 		<annotation cp="🧰" type="tts">trusă de scule</annotation>
 		<annotation cp="🧲">atracție | magnet | magnetic | potcoavă</annotation>
 		<annotation cp="🧲" type="tts">magnet</annotation>
+		<annotation cp="🪜">scară | treaptă | urca</annotation>
+		<annotation cp="🪜" type="tts">scară</annotation>
 		<annotation cp="⚗">alambic | chimie | instrument</annotation>
 		<annotation cp="⚗" type="tts">alambic</annotation>
 		<annotation cp="🧪">chimie | chimist | eprubetă | experiment | laborator</annotation>
 		<annotation cp="🧪" type="tts">eprubetă</annotation>
-		<annotation cp="🧫">bacterii | bilogie | biolog | cultură | laborator | vas Petri</annotation>
+		<annotation cp="🧫">bacterii | biolog | biologie | cultură | laborator | vas Petri</annotation>
 		<annotation cp="🧫" type="tts">vas Petri</annotation>
 		<annotation cp="🧬">ADN | biolog | evoluție | genă | genetică | viață</annotation>
 		<annotation cp="🧬" type="tts">ADN</annotation>
@@ -2609,10 +3335,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💊" type="tts">pastilă</annotation>
 		<annotation cp="🩹">bandaj adeziv | leucoplast</annotation>
 		<annotation cp="🩹" type="tts">leucoplast</annotation>
+		<annotation cp="🩼">accidentare | baston | cârjă | dizabilitate | sprijin | susținerea mersului</annotation>
+		<annotation cp="🩼" type="tts">cârjă</annotation>
 		<annotation cp="🩺">doctor | inimă | medicină | stetoscop</annotation>
 		<annotation cp="🩺" type="tts">stetoscop</annotation>
+		<annotation cp="🩻">doctor | medical | oase | radiografie | raze x | schelet</annotation>
+		<annotation cp="🩻" type="tts">radiografie</annotation>
 		<annotation cp="🚪">ușă</annotation>
 		<annotation cp="🚪" type="tts">ușă</annotation>
+		<annotation cp="🛗">accesibilitate | ascensor | elevator | lift</annotation>
+		<annotation cp="🛗" type="tts">lift</annotation>
+		<annotation cp="🪞">oglindă | oglindire | reflectare | reflexie</annotation>
+		<annotation cp="🪞" type="tts">oglindă</annotation>
+		<annotation cp="🪟">aer proaspăt | deschidere | fereastră | geam | ramă | transparent | vedere</annotation>
+		<annotation cp="🪟" type="tts">fereastră</annotation>
 		<annotation cp="🛏">cazare | hotel | pat | somn</annotation>
 		<annotation cp="🛏" type="tts">pat</annotation>
 		<annotation cp="🛋">canapea | canapea și lampă | hotel | lampă | lumină</annotation>
@@ -2621,10 +3357,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪑" type="tts">scaun</annotation>
 		<annotation cp="🚽">toaletă</annotation>
 		<annotation cp="🚽" type="tts">toaletă</annotation>
+		<annotation cp="🪠">desfundare | instalator | pompă de aspirare | pompă de desfundat | toaletă | ventuză</annotation>
+		<annotation cp="🪠" type="tts">pompă de aspirare</annotation>
 		<annotation cp="🚿">apă | duș</annotation>
 		<annotation cp="🚿" type="tts">duș</annotation>
 		<annotation cp="🛁">baie | cadă</annotation>
 		<annotation cp="🛁" type="tts">cadă</annotation>
+		<annotation cp="🪤">ademeni | capcană de șoareci | cursă de șoareci | momeală</annotation>
+		<annotation cp="🪤" type="tts">cursă de șoareci</annotation>
 		<annotation cp="🪒">ascuțit | bărbierit | brici | ras</annotation>
 		<annotation cp="🪒" type="tts">brici</annotation>
 		<annotation cp="🧴">cremă | flacon de loțiune | loțiune | protecție solară | șampon</annotation>
@@ -2637,8 +3377,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧺" type="tts">coș</annotation>
 		<annotation cp="🧻">hârtie de toaletă | hârtie igienică | sul de hârtie</annotation>
 		<annotation cp="🧻" type="tts">sul de hârtie</annotation>
+		<annotation cp="🪣">căldare | găleată | recipient | vas</annotation>
+		<annotation cp="🪣" type="tts">găleată</annotation>
 		<annotation cp="🧼">clăbuc | curățenie | îmbăiere | săpun</annotation>
 		<annotation cp="🧼" type="tts">săpun</annotation>
+		<annotation cp="🫧">balonașe | bule | clăbuci | curat | săpun | subacvatic</annotation>
+		<annotation cp="🫧" type="tts">balonașe</annotation>
+		<annotation cp="🪥">baie | curățare | dantură | dentară | dinte | igienă | periaj | periere | periuță de dinți</annotation>
+		<annotation cp="🪥" type="tts">periuță de dinți</annotation>
 		<annotation cp="🧽">absorbant | burete | curățenie | poros</annotation>
 		<annotation cp="🧽" type="tts">burete</annotation>
 		<annotation cp="🧯">foc | înăbușire | stingător de incendiu | stingere</annotation>
@@ -2649,13 +3395,23 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚬" type="tts">țigară</annotation>
 		<annotation cp="⚰">coșciug | înmormântare | moarte</annotation>
 		<annotation cp="⚰" type="tts">coșciug</annotation>
+		<annotation cp="🪦">cimitir | groapă | loc de veci | mormânt | piatră funerară</annotation>
+		<annotation cp="🪦" type="tts">piatră funerară</annotation>
 		<annotation cp="⚱">cenușă | moarte | urnă | urnă funerară</annotation>
 		<annotation cp="⚱" type="tts">urnă funerară</annotation>
+		<annotation cp="🧿">amuletă | amuletă nazar | ochiul magic | ochiul răului | talisman</annotation>
+		<annotation cp="🧿" type="tts">amuletă nazar</annotation>
+		<annotation cp="🪬">amuletă | Fatima | Fecioara Maria | hamsa | mână | Miriam | protecție</annotation>
+		<annotation cp="🪬" type="tts">hamsa</annotation>
 		<annotation cp="🗿">insula paștelui | statuie | statuie moai</annotation>
 		<annotation cp="🗿" type="tts">statuie moai</annotation>
+		<annotation cp="🪧">demonstrație | picheta | placardă | protest | semn</annotation>
+		<annotation cp="🪧" type="tts">placardă</annotation>
+		<annotation cp="🪪">act de identitate | buletin | carte de identitate | ID | legitimație | permis | securitate</annotation>
+		<annotation cp="🪪" type="tts">carte de identitate</annotation>
 		<annotation cp="🏧">atm | automat bancar | bancomat | simbol pentru bancomat</annotation>
 		<annotation cp="🏧" type="tts">simbol pentru bancomat</annotation>
-		<annotation cp="🚮">coș de gunoi | folosiți coșul de gunoi | gunoi | simbol pentru folosirea coșului de gunoi | simbol pentru folosiți coșul de gunoi</annotation>
+		<annotation cp="🚮">coș de gunoi | gunoi | simbol pentru folosirea coșului de gunoi | simbol pentru folosiți coșul de gunoi</annotation>
 		<annotation cp="🚮" type="tts">simbol pentru folosiți coșul de gunoi</annotation>
 		<annotation cp="🚰">apă | hidratare | potabilă</annotation>
 		<annotation cp="🚰" type="tts">apă potabilă</annotation>
@@ -2725,6 +3481,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↕" type="tts">săgeată sus-jos</annotation>
 		<annotation cp="↔">săgeată | săgeată dreapta-stânga</annotation>
 		<annotation cp="↔" type="tts">săgeată dreapta-stânga</annotation>
+		<annotation cp="↮" draft="contributed">săgeată bidirecțională cu bară oblică</annotation>
+		<annotation cp="↮" type="tts">săgeată bidirecțională cu bară oblică</annotation>
 		<annotation cp="↩">săgeată | săgeată dreapta curbată spre stânga</annotation>
 		<annotation cp="↩" type="tts">săgeată dreapta curbată spre stânga</annotation>
 		<annotation cp="↪">săgeată | săgeată stânga curbată spre dreapta</annotation>
@@ -2771,6 +3529,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🕎" type="tts">menorah</annotation>
 		<annotation cp="🔯">noroc | stea | stea cu șase colțuri și punct în centru</annotation>
 		<annotation cp="🔯" type="tts">stea cu șase colțuri și punct în centru</annotation>
+		<annotation cp="🪯">khanda | religie | sikh</annotation>
+		<annotation cp="🪯" type="tts">khanda</annotation>
 		<annotation cp="♈">berbec | zodia Berbec | zodiac | zodie</annotation>
 		<annotation cp="♈" type="tts">zodia Berbec</annotation>
 		<annotation cp="♉">taur | zodia Taur | zodiac | zodie</annotation>
@@ -2841,6 +3601,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔆" type="tts">buton de creștere a luminozității</annotation>
 		<annotation cp="📶">bare | bare de semnal | rețea | semnal | telefon mobil</annotation>
 		<annotation cp="📶" type="tts">bare de semnal</annotation>
+		<annotation cp="🛜">computer | fără fir | internet | rețea | wireless</annotation>
+		<annotation cp="🛜" type="tts">wireless</annotation>
 		<annotation cp="📳">celular | mobil | modul vibrare | telefon | vibrare | vibrație</annotation>
 		<annotation cp="📳" type="tts">modul vibrare</annotation>
 		<annotation cp="📴">dezactivare | închidere telefoane mobile | mobil | telefon</annotation>
@@ -2849,10 +3611,40 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="♀" type="tts">semn feminin</annotation>
 		<annotation cp="♂">bărbat | masculin | semn masculin</annotation>
 		<annotation cp="♂" type="tts">semn masculin</annotation>
-		<annotation cp="⚕">Esculap | medicamente | personal | simbol medical</annotation>
-		<annotation cp="⚕" type="tts">simbol medical</annotation>
+		<annotation cp="⚧">simbol transgender | transgender</annotation>
+		<annotation cp="⚧" type="tts">transgender</annotation>
+		<annotation cp="✖">anulare | înmulțire | semn | x</annotation>
+		<annotation cp="✖" type="tts">înmulțire</annotation>
+		<annotation cp="➕">+ | adunare | matematică | plus | semn</annotation>
+		<annotation cp="➕" type="tts">plus</annotation>
+		<annotation cp="➖">- | – | matematică | minus | scădere | semn minus</annotation>
+		<annotation cp="➖" type="tts">minus</annotation>
+		<annotation cp="➗">÷ | împărțire | matematică | semn</annotation>
+		<annotation cp="➗" type="tts">împărțire</annotation>
+		<annotation cp="🟰">egalitate | matematică | semn gros de egal</annotation>
+		<annotation cp="🟰" type="tts">semn gros de egal</annotation>
 		<annotation cp="♾">etern | infinit | nelimitat | universal</annotation>
 		<annotation cp="♾" type="tts">infinit</annotation>
+		<annotation cp="‼">! | exclamație | punctuație | semn | semn dublu de exclamare</annotation>
+		<annotation cp="‼" type="tts">semn dublu de exclamare</annotation>
+		<annotation cp="⁉">! | !? | ? | exclamație | întrebare | punctuație | semn de exclamare și întrebare</annotation>
+		<annotation cp="⁉" type="tts">semn de exclamare și întrebare</annotation>
+		<annotation cp="❓">? | întrebare | punctuație | semn | semnul întrebării roșu</annotation>
+		<annotation cp="❓" type="tts">semnul întrebării roșu</annotation>
+		<annotation cp="❔">contur | întrebare | punctuație | semn | semnul întrebării alb</annotation>
+		<annotation cp="❔" type="tts">semnul întrebării alb</annotation>
+		<annotation cp="❕">contur | exclamație | punctuație | semn | semnul exclamării alb</annotation>
+		<annotation cp="❕" type="tts">semnul exclamării alb</annotation>
+		<annotation cp="❗">! | exclamație | mirare | punctuație | semn | semnul exclamării</annotation>
+		<annotation cp="❗" type="tts">semnul exclamării</annotation>
+		<annotation cp="〰">liniuță | liniuță ondulată | ondulat</annotation>
+		<annotation cp="〰" type="tts">liniuță ondulată</annotation>
+		<annotation cp="💱">bani | schimb | schimb valutar | valută</annotation>
+		<annotation cp="💱" type="tts">schimb valutar</annotation>
+		<annotation cp="💲">bani | dolar | semnul dolar îngroșat</annotation>
+		<annotation cp="💲" type="tts">semnul dolar îngroșat</annotation>
+		<annotation cp="⚕">Esculap | medicamente | personal | simbol medical</annotation>
+		<annotation cp="⚕" type="tts">simbol medical</annotation>
 		<annotation cp="♻">reciclare | simbolul pentru reciclare</annotation>
 		<annotation cp="♻" type="tts">simbolul pentru reciclare</annotation>
 		<annotation cp="⚜">crin | fleur de lis | floare de crin stilizată | Franța | regalitate</annotation>
@@ -2871,18 +3663,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☑" type="tts">casetă de votare bifată</annotation>
 		<annotation cp="✔">bifă | bifă îngroșată</annotation>
 		<annotation cp="✔" type="tts">bifă îngroșată</annotation>
-		<annotation cp="✖">anulare | înmulțire | semn | x</annotation>
-		<annotation cp="✖" type="tts">înmulțire</annotation>
 		<annotation cp="❌">× | anulare | închidere | înmulțire | semnul x | x</annotation>
 		<annotation cp="❌" type="tts">semnul x</annotation>
 		<annotation cp="❎">× | buton | pătrat | x</annotation>
 		<annotation cp="❎" type="tts">buton x</annotation>
-		<annotation cp="➕">+ | adunare | matematică | plus | semn</annotation>
-		<annotation cp="➕" type="tts">plus</annotation>
-		<annotation cp="➖">- | – | matematică | minus | scădere | semn minus</annotation>
-		<annotation cp="➖" type="tts">minus</annotation>
-		<annotation cp="➗">÷ | împărțire | matematică | semn</annotation>
-		<annotation cp="➗" type="tts">împărțire</annotation>
 		<annotation cp="➰">buclă | buclă ondulată | cârlionț | onduleu</annotation>
 		<annotation cp="➰" type="tts">buclă ondulată</annotation>
 		<annotation cp="➿">buclă | buclă dublă | buclă ondulată dublă | dublu | onduleu</annotation>
@@ -2895,20 +3679,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="✴" type="tts">stea cu opt colțuri</annotation>
 		<annotation cp="❇">* | lumină | strălucire</annotation>
 		<annotation cp="❇" type="tts">strălucire</annotation>
-		<annotation cp="‼">! | exclamație | punctuație | semn | semn dublu de exclamare</annotation>
-		<annotation cp="‼" type="tts">semn dublu de exclamare</annotation>
-		<annotation cp="⁉">! | !? | ? | exclamație | întrebare | punctuație | semn de exclamare și întrebare</annotation>
-		<annotation cp="⁉" type="tts">semn de exclamare și întrebare</annotation>
-		<annotation cp="❓">întrebare | punctuație | semn | semnul întrebării</annotation>
-		<annotation cp="❓" type="tts">semnul întrebării</annotation>
-		<annotation cp="❔">contur | întrebare | punctuație | semn | semnul întrebării alb</annotation>
-		<annotation cp="❔" type="tts">semnul întrebării alb</annotation>
-		<annotation cp="❕">contur | exclamație | punctuație | semn | semnul exclamării alb</annotation>
-		<annotation cp="❕" type="tts">semnul exclamării alb</annotation>
-		<annotation cp="❗">! | exclamație | mirare | punctuație | semn | semnul exclamării</annotation>
-		<annotation cp="❗" type="tts">semnul exclamării</annotation>
-		<annotation cp="〰">liniuță | liniuță ondulată | ondulat</annotation>
-		<annotation cp="〰" type="tts">liniuță ondulată</annotation>
 		<annotation cp="©">c | copyright | drepturi de autor</annotation>
 		<annotation cp="©" type="tts">drepturi de autor</annotation>
 		<annotation cp="®">înregistrat | marcă înregistrată | r</annotation>
@@ -3071,22 +3841,52 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏴" type="tts">steag negru</annotation>
 		<annotation cp="🏳">fluturând | steag alb</annotation>
 		<annotation cp="🏳" type="tts">steag alb</annotation>
-		<annotation cp="🏳‍⚧">alb | albastru deschis | roz | steag | transgender</annotation>
-		<annotation cp="🏳‍⚧" type="tts">steag transgender</annotation>
 		<annotation cp="🏳‍🌈">curcubeu | steag curcubeu</annotation>
 		<annotation cp="🏳‍🌈" type="tts">steag curcubeu</annotation>
+		<annotation cp="🏳‍⚧">alb | albastru deschis | roz | steag | transgender</annotation>
+		<annotation cp="🏳‍⚧" type="tts">steag transgender</annotation>
 		<annotation cp="🏴‍☠">comoară | pirați | pradă | steag cu cap de mort | steagul piraților</annotation>
 		<annotation cp="🏴‍☠" type="tts">steagul piraților</annotation>
+		<annotation cp="¢">cent</annotation>
+		<annotation cp="¢" type="tts">cent</annotation>
+		<annotation cp="$">bani | dolar | peso | USD</annotation>
+		<annotation cp="$" type="tts">dolar</annotation>
 		<annotation cp="£">EGP | GBP | liră | monedă</annotation>
 		<annotation cp="£" type="tts">liră</annotation>
 		<annotation cp="¥">CNY | JPY | monedă | yen | yuan</annotation>
 		<annotation cp="¥" type="tts">yen</annotation>
+		<annotation cp="₢">cruzeiro | monedă</annotation>
+		<annotation cp="₢" type="tts">cruzeiro</annotation>
+		<annotation cp="₣">franc | franc francez | monedă</annotation>
+		<annotation cp="₣" type="tts">franc francez</annotation>
+		<annotation cp="₤">liră | liră sterlină | monedă</annotation>
+		<annotation cp="₤" type="tts">liră sterlină</annotation>
+		<annotation cp="₥">mil | mill</annotation>
+		<annotation cp="₥" type="tts">mill</annotation>
+		<annotation cp="₩">KPW | KRW | won</annotation>
+		<annotation cp="₩" type="tts">won</annotation>
 		<annotation cp="€">EUR | euro | monedă</annotation>
 		<annotation cp="€" type="tts">euro</annotation>
+		<annotation cp="₰">monedă | pfenig | pfenig german</annotation>
+		<annotation cp="₰" type="tts">pfenig german</annotation>
+		<annotation cp="₱">peso</annotation>
+		<annotation cp="₱" type="tts">peso</annotation>
+		<annotation cp="₳">austral argentinian | monedă</annotation>
+		<annotation cp="₳" type="tts">austral argentinian</annotation>
+		<annotation cp="₶">livră tournois | monedă</annotation>
+		<annotation cp="₶" type="tts">livră tournois</annotation>
+		<annotation cp="₷">monedă | spesmilo</annotation>
+		<annotation cp="₷" type="tts">spesmilo</annotation>
 		<annotation cp="₹">monedă | rupie | rupie indiană</annotation>
 		<annotation cp="₹" type="tts">rupie indiană</annotation>
 		<annotation cp="₽">monedă | rublă</annotation>
 		<annotation cp="₽" type="tts">rublă</annotation>
+		<annotation cp="₿">bitcoin | BTC</annotation>
+		<annotation cp="₿" type="tts">bitcoin</annotation>
+		<annotation cp="₨">monedă | rupie</annotation>
+		<annotation cp="₨" type="tts">rupie</annotation>
+		<annotation cp="﷼">monedă | rial</annotation>
+		<annotation cp="﷼" type="tts">rial</annotation>
 		<annotation cp="¹">exponent | unu</annotation>
 		<annotation cp="¹" type="tts">exponent unu</annotation>
 		<annotation cp="²">doi | exponent | la pătrat</annotation>

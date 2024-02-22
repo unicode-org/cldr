@@ -103,7 +103,7 @@ $om=\uE050; # OM
 $lm = \uE055;#  Telugu Length Mark
 $ailm=\uE056;#  AI Length Mark
 $aulm=\uE057;#  AU Length Mark
-#urdu compatibity forms
+#urdu compatibility forms
 $uka=\uE058;
 $ukha=\uE059;
 $ugha=\uE05A;
@@ -409,7 +409,7 @@ $wco} $x → ŏ̔;
 $wse} $x → e̔;
 $wso} $x → o̔;
 $om} $x → ''om̔;
-# independent vowels when preceeded by vowels
+# independent vowels when preceded by vowels
 $vowels{$waa  → ''ā;
 $vowels{$wai  → ''ai;
 $vowels{$wau  → ''au;
@@ -473,7 +473,7 @@ $dgs→ʔ;
 $kta→ṯ;
 $danda→'.';
 $doubleDanda→'.';
-\uE070→;       # ABBREVIATION SIGN
+\uE070→'.';       # ABBREVIATION SIGN
 # LETTER RA WITH MIDDLE DIAGONAL
 \uE071}$x→ra;
 \uE071$virama→r;
@@ -497,6 +497,10 @@ $doubleDanda→'.';
 \uE07F→;       # URA
 \uE080→;       # EK ONKAR
 \uE004→;       # DEVANAGARI VOWEL SIGN SHORT A
+
+$virama→; # remove remaining viramas
+$nukta→\u0323 ;  # combining dot below
+\uE084→æ;       # DEVANAGARI VOWEL SIGN SHORT A
 			</tRule>
 		</transform>
 	</transforms>

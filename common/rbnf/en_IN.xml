@@ -167,7 +167,7 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="1000000000">←%spellout-numbering← billion→%%th→;</rbnfrule>
                 <rbnfrule value="1000000000000">←%spellout-numbering← trillion→%%th→;</rbnfrule>
                 <rbnfrule value="1000000000000000">←%spellout-numbering← quadrillion→%%th→;</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##0=.;</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=$(ordinal,one{st}two{nd}few{rd}other{th})$;</rbnfrule>
             </ruleset>
             <ruleset type="and-o" access="private">
                 <rbnfrule value="0">th;</rbnfrule>
@@ -193,13 +193,7 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="1000000000">←%spellout-numbering-verbose← billion→%%commas-o→;</rbnfrule>
                 <rbnfrule value="1000000000000">←%spellout-numbering-verbose← trillion→%%commas-o→;</rbnfrule>
                 <rbnfrule value="1000000000000000">←%spellout-numbering-verbose← quadrillion→%%commas-o→;</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##0=.;</rbnfrule>
-            </ruleset>
-        </rulesetGrouping>
-        <rulesetGrouping type="OrdinalRules">
-            <ruleset type="digits-ordinal">
-                <rbnfrule value="-x">−→→;</rbnfrule>
-                <rbnfrule value="0">=#,##0=$(ordinal,one{st}two{nd}few{rd}other{th})$;</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=$(ordinal,one{st}two{nd}few{rd}other{th})$;</rbnfrule>
             </ruleset>
         </rulesetGrouping>
     </rbnf>

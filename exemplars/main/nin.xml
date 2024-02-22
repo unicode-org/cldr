@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2018 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
@@ -17,7 +17,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</orientation>
 	</layout>
 	<characters>
-		<exemplarCharacters draft="unconfirmed">[a á à â ǎ ā b ɓ c d e é {é\u0331} è {è\u0331} ê {ê\u0331} ě {ě\u0331} ē {ē\u0331} {e\u0331} f g h i í ì î ǐ ī ɨ {ɨ\u0301} {ɨ\u0300} {ɨ\u0302} {ɨ\u030C} {ɨ\u0304} j k {kp} {kyw} ƙ l m n {ng} {ny} o ó ò ô ǒ ō p q r s t u ú ù û ǔ ū v w y {ywh} z {zh}]</exemplarCharacters>
+		<exemplarCharacters draft="unconfirmed">[aáàâǎā b ɓ c d eé{é̱}è{è̱}ê{ê̱}ě{ě̱}ē{ē̱}{e̱} f g h iíìîǐī ɨ{ɨ́}{ɨ̀}{ɨ̂}{ɨ̌}{ɨ̄} j k {kp} {kyw} ƙ l m n {ng} {ny} oóòôǒō p q r s t uúùûǔū v w y {ywh} z {zh}]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary" draft="unconfirmed">[x]</exemplarCharacters>
 	</characters>
 </ldml>

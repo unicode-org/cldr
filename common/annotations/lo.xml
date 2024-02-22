@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
@@ -13,6 +13,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<language type="lo"/>
 	</identity>
 	<annotations>
+		<annotation cp="{">ເຄື່ອງໝາຍປີກກາ | ເປີດວົງປີກກາ | ວົງປີກກາ | ວົງເລັບ</annotation>
+		<annotation cp="{" type="tts">ເປີດວົງປີກກາ</annotation>
 		<annotation cp="🏻">ສີສັນ | ສີສັນປະເພດ-1-2 | ໂທນສີ | ປະເພດ</annotation>
 		<annotation cp="🏻" type="tts">ສີສັນປະເພດ-1-2</annotation>
 		<annotation cp="🏼">ສີສັນ | ສີສັນປະເພດ-3 | ໂທນສີ | ປະເພດ</annotation>
@@ -23,188 +25,692 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">ສີສັນປະເພດ-5</annotation>
 		<annotation cp="🏿">ສີສັນ | ສີສັນປະເພດ-6 | ໂທນສີ | ປະເພດ</annotation>
 		<annotation cp="🏿" type="tts">ສີສັນປະເພດ-6</annotation>
+		<annotation cp="‾">ຂີດ | ຂີດເທິງ</annotation>
+		<annotation cp="‾" type="tts">ຂີດເທິງ</annotation>
+		<annotation cp="_">ຂີດກ້ອງ | ຂີດຕໍ່ | ເສັ້ນ | ເສັ້ນຂີດກ້ອງ | ໝາຍຂີດກ້ອງ</annotation>
+		<annotation cp="_" type="tts">ໝາຍຂີດກ້ອງ</annotation>
+		<annotation cp="-">ຂີດຕໍ່ | ຂີດຕໍ່-ລົບ | ລົບ | ໝາຍຂີດຕໍ່</annotation>
+		<annotation cp="-" type="tts">ຂີດຕໍ່-ລົບ</annotation>
+		<annotation cp="‐">ຂີດຕໍ່ | ໝາຍຂີດຕໍ່</annotation>
+		<annotation cp="‐" type="tts">ໝາຍຂີດຕໍ່</annotation>
 		<annotation cp="–">[en] | ຂີດຕໍ່ | ເຄື່ອງໝາຍຂີດຕໍ່ [en]</annotation>
 		<annotation cp="–" type="tts">ເຄື່ອງໝາຍຂີດຕໍ່ [en]</annotation>
 		<annotation cp="—">[em] | ຂີດຕໍ່ | ເຄື່ອງໝາຍຂີດຕໍ່ [em]</annotation>
 		<annotation cp="—" type="tts">ເຄື່ອງໝາຍຂີດຕໍ່ [em]</annotation>
+		<annotation cp="―">ຂີດຕໍ່ | ເສັ້ນຊື່ | ແຖບ | ແຖບນອນ</annotation>
+		<annotation cp="―" type="tts">ແຖບນອນ</annotation>
+		<annotation cp="・">ຄາຕາຄານະ | ຈໍ້າກາງ | ຈໍ້າເຄິ່ງ | ຈໍ້າເມັດກາງເຄິ່ງຄາຕາຄານະ | ໝາຍຈໍ້າ</annotation>
+		<annotation cp="・" type="tts">ຈໍ້າເມັດກາງເຄິ່ງຄາຕາຄານະ</annotation>
+		<annotation cp=",">ຈຸດ | ໝາຍຈຸດ</annotation>
+		<annotation cp="," type="tts">ຈຸດ</annotation>
+		<annotation cp="،">ຈຸດ | ຈຸດອາຣາບິກ | ອາຣາບິກ</annotation>
+		<annotation cp="،" type="tts">ຈຸດອາຣາບິກ</annotation>
+		<annotation cp="、">ຈຸດ | ໝາຍຈຸດນ້ອຍ</annotation>
+		<annotation cp="、" type="tts">ໝາຍຈຸດນ້ອຍ</annotation>
+		<annotation cp=";">ເຄື່ອງໝາຍຈໍ້າຈຸດ | ຈໍ້າຈຸດ | ຈ້ຳຈຸດ</annotation>
+		<annotation cp=";" type="tts">ຈ້ຳຈຸດ</annotation>
+		<annotation cp="؛">ເຄື່ອງໝາຍເຊມິໂຄໂລນ | ເຄື່ອງໝາຍເຊມິໂຄໂລນອາຣັບ | ອາຣັບ</annotation>
+		<annotation cp="؛" type="tts">ເຄື່ອງໝາຍເຊມິໂຄໂລນອາຣັບ</annotation>
+		<annotation cp=":">ເຄື່ອງໝາຍສອງຈໍ້າ | ສອງຈໍ້າ | ສອງຈ້ຳ</annotation>
+		<annotation cp=":" type="tts">ສອງຈ້ຳ</annotation>
+		<annotation cp="!">ຄໍາອຸທານ | ຈໍ້າຂີ້ຢອດ | ໝາຍທ້ວງ</annotation>
+		<annotation cp="!" type="tts">ໝາຍທ້ວງ</annotation>
+		<annotation cp="¡">ຄໍາອຸທານ | ຈໍ້າຂີ້ຢອດ | ທາງປີ້ນ | ໝາຍທ້ວງ | ໝາຍທ້ວງທາງປີ້ນ</annotation>
+		<annotation cp="¡" type="tts">ໝາຍທ້ວງທາງປີ້ນ</annotation>
+		<annotation cp="?">ຖາມ | ໝາຍຖາມ</annotation>
+		<annotation cp="?" type="tts">ໝາຍຖາມ</annotation>
+		<annotation cp="¿">ຖາມ | ທາງປີ້ນ | ໝາຍຖາມ | ໝາຍຖາມທາງປີ້ນ</annotation>
+		<annotation cp="¿" type="tts">ໝາຍຖາມທາງປີ້ນ</annotation>
+		<annotation cp="؟">ຖາມ | ໝາຍຖາມ | ໝາຍຖາມອາຣັບ | ອາຣັບ</annotation>
+		<annotation cp="؟" type="tts">ໝາຍຖາມອາຣັບ</annotation>
+		<annotation cp="‽">ໝາຍຖາມທ້ວງ</annotation>
+		<annotation cp="‽" type="tts">ໝາຍຖາມທ້ວງ</annotation>
+		<annotation cp=".">ຈ້ຳ | ຈ້ຳເມັດ</annotation>
+		<annotation cp="." type="tts">ຈ້ຳເມັດ</annotation>
+		<annotation cp="…">ຈ້ຳສາມເມັດ | ຈ້ຳເມັດ | ປະຫວ່າງ</annotation>
+		<annotation cp="…" type="tts">ຈ້ຳສາມເມັດ</annotation>
+		<annotation cp="。">ຈໍ້າ | ຈໍ້າເມັດ | ຈໍ້າເມັດໃຫຍ່</annotation>
+		<annotation cp="。" type="tts">ຈໍ້າເມັດໃຫຍ່</annotation>
 		<annotation cp="·">ຂັ້ນຄຳ | ເຄື່ອງໝາຍຈຸດຂັ້ນກາງ | ຈຸດ | ຈຸດຂັ້ນກາງ | ທາງກາງ</annotation>
 		<annotation cp="·" type="tts">ເຄື່ອງໝາຍຈຸດຂັ້ນກາງ</annotation>
+		<annotation cp="'">ການອ້າງອີງ | ການອ້າງອີງດ່ຽວ | ເຄື່ອງໝາຍວັກ | ເຄື່ອງໝາຍວັກໃນເຄື່ອງພິມດີດ</annotation>
+		<annotation cp="'" type="tts">ເຄື່ອງໝາຍວັກໃນເຄື່ອງພິມດີດ</annotation>
+		<annotation cp="‘">ການອ້າງອີງ | ເຄື່ອງໝາຍວັກຕອນ | ເຄື່ອງໝາຍວັກຕອນເບື້ອງຊ້າຍ | ວົງຢືມ | ວົງຢືມດ່ຽວ</annotation>
+		<annotation cp="‘" type="tts">ເຄື່ອງໝາຍວັກຕອນເບື້ອງຊ້າຍ</annotation>
+		<annotation cp="’">ການອ້າງອີງ | ເຄື່ອງໝາຍວັກຕອນ | ເຄື່ອງໝາຍວັກຕອນເບື້ອງຂວາ | ວົງຢືມ | ວົງຢືມດ່ຽວ</annotation>
+		<annotation cp="’" type="tts">ເຄື່ອງໝາຍວັກຕອນເບື້ອງຂວາ</annotation>
+		<annotation cp="‚">ເຄື່ອງໝາຍວັກຕອນ | ເຄື່ອງໝາຍວັກຕອນລຸ່ມຂວາ | ວົງຢືມ | ວົງຢືມລຸ່ມ</annotation>
+		<annotation cp="‚" type="tts">ເຄື່ອງໝາຍວັກຕອນລຸ່ມຂວາ</annotation>
+		<annotation cp="“">ການອ້າງອີງ | ການອ້າງອີງຄູ່ | ຄໍາອ້າງ | ວົງຢືມ | ໝາຍຢືມເບື້ອງຊ້າຍ</annotation>
+		<annotation cp="“" type="tts">ໝາຍຢືມເບື້ອງຊ້າຍ</annotation>
+		<annotation cp="”">ການອ້າງອີງ | ການອ້າງອີງຄູ່ | ຄໍາອ້າງ | ວົງຢືມ | ໝາຍຢືມເບື້ອງຂວາ</annotation>
+		<annotation cp="”" type="tts">ໝາຍຢືມເບື້ອງຂວາ</annotation>
+		<annotation cp="„">ການອ້າງອີງ | ການອ້າງອີງຄູ່ | ຄໍາອ້າງ | ວົງຢືມ | ໝາຍຢືມລຸ່ມ | ໝາຍຢືມລຸ່ມຂວາ</annotation>
+		<annotation cp="„" type="tts">ໝາຍຢືມລຸ່ມຂວາ</annotation>
 		<annotation cp="«">ເຄື່ອງໝາຍເປີດວົງຢືມ | ຊ້າຍ | ເປິດວົງຢືມ | ມຸມ | ວົງຢືມ | ວົງເລັບ</annotation>
 		<annotation cp="«" type="tts">ເຄື່ອງໝາຍເປີດວົງຢືມ</annotation>
 		<annotation cp="»">ຂວາ | ເຄື່ອງໝາຍປິດວົງຢືມ | ປິດວົງຢືມ | ມຸມ | ວົງຢືມ | ວົງເລັບ</annotation>
 		<annotation cp="»" type="tts">ເຄື່ອງໝາຍປິດວົງຢືມ</annotation>
+		<annotation cp=")">ປິດວົງເລັບ | ວົງເລັບ</annotation>
+		<annotation cp=")" type="tts">ປິດວົງເລັບ</annotation>
+		<annotation cp="[">ເປີດວົງຂໍ | ວົງຂໍ | ວົງເລັບ</annotation>
+		<annotation cp="[" type="tts">ເປີດວົງຂໍ</annotation>
+		<annotation cp="]">ປິດວົງຂໍ | ວົງຂໍ | ວົງເລັບ</annotation>
+		<annotation cp="]" type="tts">ປິດວົງຂໍ</annotation>
+		<annotation cp="}">ເຄື່ອງໝາຍປີກກາ | ປິດວົງປີກກາ | ວົງປີກກາ | ວົງເລັບ</annotation>
+		<annotation cp="}" type="tts">ປິດວົງປີກກາ</annotation>
+		<annotation cp="〈">ເປີດວົງເລັບມຸມ | ວົງເລັບ | ວົງເລັບຊີ້ | ວົງເລັບເພັດ | ວົງເລັບມຸມ | ວົງເລັບຮູບວີ</annotation>
+		<annotation cp="〈" type="tts">ເປີດວົງເລັບມຸມ</annotation>
+		<annotation cp="〉">ປິດວົງເລັບມຸມ | ວົງເລັບ | ວົງເລັບຊີ້ | ວົງເລັບເພັດ | ວົງເລັບມຸມ | ວົງເລັບຮູບວີ</annotation>
+		<annotation cp="〉" type="tts">ປິດວົງເລັບມຸມ</annotation>
+		<annotation cp="《">ເປີດວົງເລັບຊ້ອນ | ວົງເລັບ | ວົງເລັບຊ້ອນ</annotation>
+		<annotation cp="《" type="tts">ເປີດວົງເລັບຊ້ອນ</annotation>
+		<annotation cp="》">ປິດວົງເລັບຊ້ອນ | ວົງເລັບ | ວົງເລັບຊ້ອນ</annotation>
+		<annotation cp="》" type="tts">ປິດວົງເລັບຊ້ອນ</annotation>
+		<annotation cp="「">ເປີດວົງເລັບແຈ | ວົງເລັບ | ວົງເລັບແຈ</annotation>
+		<annotation cp="「" type="tts">ເປີດວົງເລັບແຈ</annotation>
+		<annotation cp="」">ປິດວົງເລັບແຈ | ວົງເລັບ | ວົງເລັບແຈ</annotation>
+		<annotation cp="」" type="tts">ປິດວົງເລັບແຈ</annotation>
+		<annotation cp="『">ເປີດວົງເລັບແຈໂປ່ງ | ວົງເລັບ | ວົງເລັບແຈໂປ່ງ</annotation>
+		<annotation cp="『" type="tts">ເປີດວົງເລັບແຈໂປ່ງ</annotation>
+		<annotation cp="』">ປິດວົງເລັບແຈໂປ່ງ | ວົງເລັບ | ວົງເລັບແຈໂປ່ງ</annotation>
+		<annotation cp="』" type="tts">ປິດວົງເລັບແຈໂປ່ງ</annotation>
+		<annotation cp="【">ເປີດວົງເລັບເລນຕັນ | ວົງເລັບ | ວົງເລັບເລນ | ວົງເລັບຮູບຄືເລນ</annotation>
+		<annotation cp="【" type="tts">ເປີດວົງເລັບເລນຕັນ</annotation>
+		<annotation cp="】">ປິດວົງເລັບເລນຕັນ | ວົງເລັບ | ວົງເລັບເລນ | ວົງເລັບຮູບຄືເລນ</annotation>
+		<annotation cp="】" type="tts">ປິດວົງເລັບເລນຕັນ</annotation>
+		<annotation cp="〔">ເປີດວົງເລັບອອງເຕົ່າ | ວົງເລັບ | ວົງເລັບອອງເຕົ່າ</annotation>
+		<annotation cp="〔" type="tts">ເປີດວົງເລັບອອງເຕົ່າ</annotation>
+		<annotation cp="〕">ປິດວົງເລັບອອງເຕົ່າ | ວົງເລັບ | ວົງເລັບອອງເຕົ່າ</annotation>
+		<annotation cp="〕" type="tts">ປິດວົງເລັບອອງເຕົ່າ</annotation>
+		<annotation cp="〖">ເປີດວົງເລັບເລນໂປ່ງ | ວົງເລັບ | ວົງເລັບເລນໂປ່ງ | ວົງເລັບຮູບຄືເລນໂປ່ງ</annotation>
+		<annotation cp="〖" type="tts">ເປີດວົງເລັບເລນໂປ່ງ</annotation>
+		<annotation cp="〗">ປິດວົງເລັບເລນໂປ່ງ | ວົງເລັບ | ວົງເລັບເລນໂປ່ງ | ວົງເລັບຮູບຄືເລນໂປ່ງ</annotation>
+		<annotation cp="〗" type="tts">ປິດວົງເລັບເລນໂປ່ງ</annotation>
 		<annotation cp="§">ເຄື່ອງໝາຍພາກສ່ວນ | ສ່ວນ | ພາກສ່ວນ | ວັກ</annotation>
 		<annotation cp="§" type="tts">ເຄື່ອງໝາຍພາກສ່ວນ</annotation>
+		<annotation cp="¶">ຍໍ່ໜ້າ | ວັກ | ໝາຍວັກ</annotation>
+		<annotation cp="¶" type="tts">ໝາຍວັກ</annotation>
+		<annotation cp="@">ເຄື່ອງໝາຍອີເມວ | ເຄື່ອງໝາຍແອັດ | ເຄື່ອງໝາຍແອັດທາງການຄ້າ | ທີ່ | ໝາຍແອັດ</annotation>
+		<annotation cp="@" type="tts">ເຄື່ອງໝາຍແອັດ</annotation>
+		<annotation cp="*">ເຄື່ອງໝາຍດາວ | ດາວ</annotation>
+		<annotation cp="*" type="tts">ເຄື່ອງໝາຍດາວ</annotation>
+		<annotation cp="/">ເຄື່ອງໝາຍສະແດງການເລືອກ | ເສັ້ນສະຫຼຽງ | ທັບ</annotation>
+		<annotation cp="/" type="tts">ເຄື່ອງໝາຍສະແດງການເລືອກ</annotation>
+		<annotation cp="\">ເຄື່ອງໝາຍທັບຂວາ | ທັບ | ທັບຂວາ</annotation>
+		<annotation cp="\" type="tts">ເຄື່ອງໝາຍທັບຂວາ</annotation>
+		<annotation cp="&amp;">ເຄື່ອງໝາຍແລະ | ແລະ | ອື່ນໆ</annotation>
+		<annotation cp="&amp;" type="tts">ເຄື່ອງໝາຍແລະ</annotation>
+		<annotation cp="#">ເຄື່ອງໝາຍສີ່ຫຼ່ຽມ | ປອນ | ໝາຍເລກ | ແຮຊແທັກ</annotation>
+		<annotation cp="#" type="tts">ເຄື່ອງໝາຍສີ່ຫຼ່ຽມ</annotation>
+		<annotation cp="%">ສ່ວນຮ້ອຍ | ເປີເຊັນ</annotation>
+		<annotation cp="%" type="tts">ເປີເຊັນ</annotation>
+		<annotation cp="‰">ເຄື່ອງໝາຍສ່ວນພັນ | ສ່ວນພັນ</annotation>
+		<annotation cp="‰" type="tts">ເຄື່ອງໝາຍສ່ວນພັນ</annotation>
 		<annotation cp="†">ເຄື່ອງໝາຍດາບ | ດາບ</annotation>
 		<annotation cp="†" type="tts">ເຄື່ອງໝາຍດາບ</annotation>
 		<annotation cp="‡">ເຄື່ອງໝາຍສອງດາບ | ສອງ | ດາບ</annotation>
 		<annotation cp="‡" type="tts">ເຄື່ອງໝາຍສອງດາບ</annotation>
 		<annotation cp="•">ເຄື່ອງໝາຍຈ້ຳວົງມົນ | ຈ້ຳວົງມົນ | ຈຸດ</annotation>
 		<annotation cp="•" type="tts">ເຄື່ອງໝາຍຈ້ຳວົງມົນ</annotation>
+		<annotation cp="‧">ຂີດ | ຈໍ້າ | ຈໍ້າຍະຕິພັງ | ຍະຕິພັງ</annotation>
+		<annotation cp="‧" type="tts">ຈໍ້າຍະຕິພັງ</annotation>
+		<annotation cp="′">ວົງຢືມໜຶ່ງຂີດ</annotation>
+		<annotation cp="′" type="tts">ວົງຢືມໜຶ່ງຂີດ</annotation>
+		<annotation cp="″">ວົງຢືມສອງຂີດ</annotation>
+		<annotation cp="″" type="tts">ວົງຢືມສອງຂີດ</annotation>
+		<annotation cp="‴">ວົງຢືມສາມຂີດ</annotation>
+		<annotation cp="‴" type="tts">ວົງຢືມສາມຂີດ</annotation>
+		<annotation cp="‸">ເຄື່ອງໝາຍຕົກ</annotation>
+		<annotation cp="‸" type="tts">ເຄື່ອງໝາຍຕົກ</annotation>
+		<annotation cp="※">ໝາຍອ້າງອີງ | ອ້າງອີງ ​​</annotation>
+		<annotation cp="※" type="tts">ໝາຍອ້າງອີງ</annotation>
+		<annotation cp="⁂">ກຸ່ມດາວ | ເຄື່ອງໝາຍກຸ່ມດາວ | ດາວ</annotation>
+		<annotation cp="⁂" type="tts">ເຄື່ອງໝາຍກຸ່ມດາວ</annotation>
+		<annotation cp="`">ສໍານຽງ | ສຽງຕໍ່າ | ຕໍ່າ | ລະດັບສຽງ</annotation>
+		<annotation cp="`" type="tts">ສຽງຕໍ່າ</annotation>
+		<annotation cp="´">ສໍານຽງ | ສຽງແຫຼມ | ລະດັບສຽງ | ແຫຼມ</annotation>
+		<annotation cp="´" type="tts">ສຽງແຫຼມ</annotation>
+		<annotation cp="^">ຄວບຄຸບ | ເຄື່ອງໝາຍຄວບຄຸມສຽງຮູບກຸບ | ສັນຍາລັກຮູບໂຕວີ | ສັນຍາລັກຮູບໂຕວີຂວ້າມ | ສໍານຽງ | ຕົວຊີ້ | ພະລັງ | ໝວກ</annotation>
+		<annotation cp="^" type="tts">ເຄື່ອງໝາຍຄວບຄຸມສຽງຮູບກຸບ</annotation>
+		<annotation cp="¨">ເຄື່ອງໝາຍແຍກສຽງ | ສັນຍາລັກແຍກສຽງສະຫຼະ</annotation>
+		<annotation cp="¨" type="tts">ສັນຍາລັກແຍກສຽງສະຫຼະ</annotation>
 		<annotation cp="°">ເຄື່ອງໝາຍອົງສາ | ຊົ່ວໂມງ | ພິສູດ | ອົງສາ</annotation>
 		<annotation cp="°" type="tts">ເຄື່ອງໝາຍອົງສາ</annotation>
 		<annotation cp="℗">ການ​ບັນ​ທຶກ | ສຽງ | ລິ​ຂະ​ສິດ | ລິ​ຂະ​ສິດ​ການ​ບັນ​ທຶກ​ສຽງ</annotation>
 		<annotation cp="℗" type="tts">ລິ​ຂະ​ສິດ​ການ​ບັນ​ທຶກ​ສຽງ</annotation>
 		<annotation cp="←">ຊ້າຍ | ລູກສອນ | ລູກສອນຊີ້ໄປທາງຊ້າຍ</annotation>
 		<annotation cp="←" type="tts">ລູກສອນຊີ້ໄປທາງຊ້າຍ</annotation>
+		<annotation cp="↚">ໝາຍຍ້າຍລູກສອນໄປຊ້າຍ</annotation>
+		<annotation cp="↚" type="tts">ໝາຍຍ້າຍລູກສອນໄປຊ້າຍ</annotation>
 		<annotation cp="→">ຂວາ | ລູກສອງຊີ້ໄປທາງຂວາ | ລູກສອນ | ລູກສອນຊີ້ໄປທາງຂວາ</annotation>
 		<annotation cp="→" type="tts">ລູກສອງຊີ້ໄປທາງຂວາ</annotation>
+		<annotation cp="↛">ໝາຍຍ້າຍລູກສອນໄປຂວາ</annotation>
+		<annotation cp="↛" type="tts">ໝາຍຍ້າຍລູກສອນໄປຂວາ</annotation>
 		<annotation cp="↑">ຂຶ້ນ | ລູກສອນ | ລູກສອນຊີ້ຂຶ້ນເທິງ</annotation>
 		<annotation cp="↑" type="tts">ລູກສອນຊີ້ຂຶ້ນເທິງ</annotation>
-		<annotation cp="↓">ລູກສອນ | ລູກສອນຊີ້ລົງ | ລູກສອນຊີ້ລົງລຸ່ມ | ລົງ</annotation>
+		<annotation cp="↓">ລູກສອນ | ລູກສອນຊີ້ລົງລຸ່ມ | ລົງ</annotation>
 		<annotation cp="↓" type="tts">ລູກສອນຊີ້ລົງລຸ່ມ</annotation>
+		<annotation cp="↜">ໝາຍລູກສອນເປັນຄື້ນໄປທາງຊ້າຍ</annotation>
+		<annotation cp="↜" type="tts">ໝາຍລູກສອນເປັນຄື້ນໄປທາງຊ້າຍ</annotation>
+		<annotation cp="↝">ໝາຍລູກສອນເປັນຄື້ນໄປທາງຂວາ</annotation>
+		<annotation cp="↝" type="tts">ໝາຍລູກສອນເປັນຄື້ນໄປທາງຂວາ</annotation>
+		<annotation cp="↞">ໝາຍລູກສອນສອງຫົວໄປທາງຊ້າຍ</annotation>
+		<annotation cp="↞" type="tts">ໝາຍລູກສອນສອງຫົວໄປທາງຊ້າຍ</annotation>
+		<annotation cp="↟">ໝາຍລູກສອນສອງຫົວຊີ້ຂຶ້ນເທິງ</annotation>
+		<annotation cp="↟" type="tts">ໝາຍລູກສອນສອງຫົວຊີ້ຂຶ້ນເທິງ</annotation>
+		<annotation cp="↠">ໝາຍລູກສອນສອງຫົວໄປທາງຂວາ</annotation>
+		<annotation cp="↠" type="tts">ໝາຍລູກສອນສອງຫົວໄປທາງຂວາ</annotation>
+		<annotation cp="↡">ໝາຍລູກສອນສອງຫົວຊີ້ລົງລຸ່ມ</annotation>
+		<annotation cp="↡" type="tts">ໝາຍລູກສອນສອງຫົວຊີ້ລົງລຸ່ມ</annotation>
+		<annotation cp="↢">ລູກສອນມີຫາງຊີ້ໄປຊ້າຍ</annotation>
+		<annotation cp="↢" type="tts">ລູກສອນມີຫາງຊີ້ໄປຊ້າຍ</annotation>
+		<annotation cp="↣">ລູກສອນມີຫາງຊີ້ໄປຂວາ</annotation>
+		<annotation cp="↣" type="tts">ລູກສອນມີຫາງຊີ້ໄປຂວາ</annotation>
+		<annotation cp="↤">ລູກສອນຕັດກົ້ນຊີ້ໄປຊ້າຍ</annotation>
+		<annotation cp="↤" type="tts">ລູກສອນຕັດກົ້ນຊີ້ໄປຊ້າຍ</annotation>
+		<annotation cp="↥">ລູກສອນຕັດກົ້ນຊີ້ຂຶ້ນເທິງ</annotation>
+		<annotation cp="↥" type="tts">ລູກສອນຕັດກົ້ນຊີ້ຂຶ້ນເທິງ</annotation>
+		<annotation cp="↦">ລູກສອນຕັດກົ້ນຊີ້ໄປຂວາ</annotation>
+		<annotation cp="↦" type="tts">ລູກສອນຕັດກົ້ນຊີ້ໄປຂວາ</annotation>
+		<annotation cp="↧">ລູກສອນຕັດກົ້ນຊີ້ລົງລຸ່ມ</annotation>
+		<annotation cp="↧" type="tts">ລູກສອນຕັດກົ້ນຊີ້ລົງລຸ່ມ</annotation>
+		<annotation cp="↨">ລູກສອນຊີ້ຂຶ້ນລົງມີຖານ</annotation>
+		<annotation cp="↨" type="tts">ລູກສອນຊີ້ຂຶ້ນລົງມີຖານ</annotation>
+		<annotation cp="↫">ລູກສອນກ້ຽວໄປຊ້າຍ</annotation>
+		<annotation cp="↫" type="tts">ລູກສອນກ້ຽວໄປຊ້າຍ</annotation>
+		<annotation cp="↬">ລູກສອນກ້ຽວໄປຂວາ</annotation>
+		<annotation cp="↬" type="tts">ລູກສອນກ້ຽວໄປຂວາ</annotation>
+		<annotation cp="↭">ລູກສອນຄື້ນຊ້າຍຂວາ</annotation>
+		<annotation cp="↭" type="tts">ລູກສອນຄື້ນຊ້າຍຂວາ</annotation>
+		<annotation cp="↯">ລູກສອນຊິກແຊັກຊີ້ລົງລຸ່ມ</annotation>
+		<annotation cp="↯" type="tts">ລູກສອນຊິກແຊັກຊີ້ລົງລຸ່ມ</annotation>
+		<annotation cp="↰">ລູກສອນຂຶ້ນເທິງລ້ຽວຊ້າຍ</annotation>
+		<annotation cp="↰" type="tts">ລູກສອນຂຶ້ນເທິງລ້ຽວຊ້າຍ</annotation>
+		<annotation cp="↱">ລູກສອນຂຶ້ນເທິງລ້ຽວຂວາ</annotation>
+		<annotation cp="↱" type="tts">ລູກສອນຂຶ້ນເທິງລ້ຽວຂວາ</annotation>
+		<annotation cp="↲">ລູກສອນລົງລຸ່ມລ້ຽວຊ້າຍ</annotation>
+		<annotation cp="↲" type="tts">ລູກສອນລົງລຸ່ມລ້ຽວຊ້າຍ</annotation>
+		<annotation cp="↳">ລູກສອນລົງລຸ່ມລ້ຽວຂວາ</annotation>
+		<annotation cp="↳" type="tts">ລູກສອນລົງລຸ່ມລ້ຽວຂວາ</annotation>
+		<annotation cp="↴">ລູກສອນຊີ້ໄປຂວາຫັກມຸມລຸ່ມ</annotation>
+		<annotation cp="↴" type="tts">ລູກສອນຊີ້ໄປຂວາຫັກມຸມລຸ່ມ</annotation>
+		<annotation cp="↵">ລູກສອນຊີ້ໄປຊ້າຍຫັກມຸມລຸ່ມ</annotation>
+		<annotation cp="↵" type="tts">ລູກສອນຊີ້ໄປຊ້າຍຫັກມຸມລຸ່ມ</annotation>
+		<annotation cp="↶">ລູກສອນໂຄ້ງໄປທິດກົງກັນຂ້າມກັບເຂັມໂມງ</annotation>
+		<annotation cp="↶" type="tts">ລູກສອນໂຄ້ງໄປທິດກົງກັນຂ້າມກັບເຂັມໂມງ</annotation>
+		<annotation cp="↷">ລູກສອນໂຄ້ງໄປທິດດຽວກັບເຂັມໂມງ</annotation>
+		<annotation cp="↷" type="tts">ລູກສອນໂຄ້ງໄປທິດດຽວກັບເຂັມໂມງ</annotation>
+		<annotation cp="↸">ແຖບຂັ້ນລູກສອນຊີ້ໄປທິດຕາເວັນຕົກສຽງເໜືອ</annotation>
+		<annotation cp="↸" type="tts">ແຖບຂັ້ນລູກສອນຊີ້ໄປທິດຕາເວັນຕົກສຽງເໜືອ</annotation>
+		<annotation cp="↹">ແຖບຂັ້ນລູກສອນຊີ້ໄປຊ້າຍຢູ່ເທິງແຖບຂັ້ນລູກສອນຊີ້ໄປຂວາ</annotation>
+		<annotation cp="↹" type="tts">ແຖບຂັ້ນລູກສອນຊີ້ໄປຊ້າຍຢູ່ເທິງແຖບຂັ້ນລູກສອນຊີ້ໄປຂວາ</annotation>
+		<annotation cp="↺">ລູກສອນວົງກົມເປີດຊີ້ໄປທາງກົງກັນຂ້າມກັບເຂັມໂມງ</annotation>
+		<annotation cp="↺" type="tts">ລູກສອນວົງກົມເປີດຊີ້ໄປທາງກົງກັນຂ້າມກັບເຂັມໂມງ</annotation>
+		<annotation cp="↻">ລູກສອນວົງກົມເປີດຊີ້ໄປທາງດຽວກັບເຂັມໂມງ</annotation>
+		<annotation cp="↻" type="tts">ລູກສອນວົງກົມເປີດຊີ້ໄປທາງດຽວກັບເຂັມໂມງ</annotation>
+		<annotation cp="↼">ງ່ຽງ | ສະໝວກຊີ້ໄປຊ້າຍງ່ຽງຂຶ້ນເທິງ</annotation>
+		<annotation cp="↼" type="tts">ສະໝວກຊີ້ໄປຊ້າຍງ່ຽງຂຶ້ນເທິງ</annotation>
+		<annotation cp="↽">ສະໝວກຊີ້ໄປຊ້າຍງ່ຽງລົງລຸ່ມ</annotation>
+		<annotation cp="↽" type="tts">ສະໝວກຊີ້ໄປຊ້າຍງ່ຽງລົງລຸ່ມ</annotation>
+		<annotation cp="↾">ງ່ຽງ | ສະໝວກຊີ້ຂຶ້ນເທິງງ່ຽງໄປຂວາ</annotation>
+		<annotation cp="↾" type="tts">ສະໝວກຊີ້ຂຶ້ນເທິງງ່ຽງໄປຂວາ</annotation>
+		<annotation cp="↿">ງ່ຽງ | ສະໝວກຊີ້ຂຶ້ນເທິງງ່ຽງໄປຊ້າຍ</annotation>
+		<annotation cp="↿" type="tts">ສະໝວກຊີ້ຂຶ້ນເທິງງ່ຽງໄປຊ້າຍ</annotation>
+		<annotation cp="⇀">ງ່ຽງ | ສະໝວກຊີ້ໄປຂວາງ່ຽງຂຶ້ນເທິງ</annotation>
+		<annotation cp="⇀" type="tts">ສະໝວກຊີ້ໄປຂວາງ່ຽງຂຶ້ນເທິງ</annotation>
+		<annotation cp="⇁">ງ່ຽງ | ສະໝວກຊີ້ໄປຂວາງ່ຽງລົງລຸ່ມ</annotation>
+		<annotation cp="⇁" type="tts">ສະໝວກຊີ້ໄປຂວາງ່ຽງລົງລຸ່ມ</annotation>
+		<annotation cp="⇂">ງ່ຽງ | ສະໝວກຊີ້ລົງລຸ່ມງ່ຽງໄປຂວາ</annotation>
+		<annotation cp="⇂" type="tts">ສະໝວກຊີ້ລົງລຸ່ມງ່ຽງໄປຂວາ</annotation>
+		<annotation cp="⇃">ງ່ຽງ | ສະໝວກຊີ້ລົງລຸ່ມງ່ຽງໄປຊ້າຍ</annotation>
+		<annotation cp="⇃" type="tts">ສະໝວກຊີ້ລົງລຸ່ມງ່ຽງໄປຊ້າຍ</annotation>
+		<annotation cp="⇄">ລູກສອນຊີ້ໄປຊ້າຍຢູ່ເທິງລູກສອນຊີ້ໄປຂວາ</annotation>
+		<annotation cp="⇄" type="tts">ລູກສອນຊີ້ໄປຊ້າຍຢູ່ເທິງລູກສອນຊີ້ໄປຂວາ</annotation>
 		<annotation cp="⇅">ຂຶ້ນ | ລູກສອນ | ລູກສອນຊີ້ຂຶ້ນ ແລະ ລູກສອນຊີ້ລົງ | ລົງ</annotation>
 		<annotation cp="⇅" type="tts">ລູກສອນຊີ້ຂຶ້ນ ແລະ ລູກສອນຊີ້ລົງ</annotation>
-		<annotation cp="⇆">ຂວາ | ຊ້າຍ | ລູກສອນ | ລູກສອນຊີ້ໄປທາງຊ້າຍເທິງລູກສອນຊີ້ໄປທາງຂວາ | ລູກສອນຊີ້ໄປທາງຊ້າຍເທິງລູກສູນຊີ້ໄປທາງຂວາ</annotation>
+		<annotation cp="⇆">ຂວາ | ຊ້າຍ | ລູກສອນ | ລູກສອນຊີ້ໄປທາງຊ້າຍເທິງລູກສອນຊີ້ໄປທາງຂວາ</annotation>
 		<annotation cp="⇆" type="tts">ລູກສອນຊີ້ໄປທາງຊ້າຍເທິງລູກສອນຊີ້ໄປທາງຂວາ</annotation>
+		<annotation cp="⇇">ລູກສອນສອງອັນຊີ້ໄປຊ້າຍ</annotation>
+		<annotation cp="⇇" type="tts">ລູກສອນສອງອັນຊີ້ໄປຊ້າຍ</annotation>
+		<annotation cp="⇈">ລູກສອນສອງອັນຊີ້ຂຶ້ນເທິງ</annotation>
+		<annotation cp="⇈" type="tts">ລູກສອນສອງອັນຊີ້ຂຶ້ນເທິງ</annotation>
+		<annotation cp="⇉">ລູກສອນສອງອັນຊີ້ໄປຂວາ</annotation>
+		<annotation cp="⇉" type="tts">ລູກສອນສອງອັນຊີ້ໄປຂວາ</annotation>
+		<annotation cp="⇊">ລູກສອນສອງອັນຊີ້ລົງລຸ່ມ</annotation>
+		<annotation cp="⇊" type="tts">ລູກສອນສອງອັນຊີ້ລົງລຸ່ມ</annotation>
+		<annotation cp="⇋">ສະໝວກຊີ້ໄປຊ້າຍຢູ່ເທິງສະໝວກຊີ້ໄປຂວາ</annotation>
+		<annotation cp="⇋" type="tts">ສະໝວກຊີ້ໄປຊ້າຍຢູ່ເທິງສະໝວກຊີ້ໄປຂວາ</annotation>
+		<annotation cp="⇌">ສະໝວກຊີ້ໄປຂວາຢູ່ເທິງສະໝວກຊີ້ໄປຊ້າຍ</annotation>
+		<annotation cp="⇌" type="tts">ສະໝວກຊີ້ໄປຂວາຢູ່ເທິງສະໝວກຊີ້ໄປຊ້າຍ</annotation>
+		<annotation cp="⇐">ລູກສອນຄູ່ຊີ້ໄປຊ້າຍ</annotation>
+		<annotation cp="⇐" type="tts">ລູກສອນຄູ່ຊີ້ໄປຊ້າຍ</annotation>
+		<annotation cp="⇍">ລູກສອນຄູ່ຕັດຊີ້ໄປຊ້າຍ</annotation>
+		<annotation cp="⇍" type="tts">ລູກສອນຄູ່ຕັດຊີ້ໄປຊ້າຍ</annotation>
+		<annotation cp="⇑">ລູກສອນຄູ່ຊີ້ຂຶ້ນເທິງ</annotation>
+		<annotation cp="⇑" type="tts">ລູກສອນຄູ່ຊີ້ຂຶ້ນເທິງ</annotation>
+		<annotation cp="⇒">ລູກສອນຄູ່ຊີ້ໄປຂວາ</annotation>
+		<annotation cp="⇒" type="tts">ລູກສອນຄູ່ຊີ້ໄປຂວາ</annotation>
+		<annotation cp="⇏">ລູກສອນຄູ່ຕັດຊີ້ໄປຂວາ</annotation>
+		<annotation cp="⇏" type="tts">ລູກສອນຄູ່ຕັດຊີ້ໄປຂວາ</annotation>
+		<annotation cp="⇓">ລູກສອນຄູ່ຊີ້ລົງລຸ່ມ</annotation>
+		<annotation cp="⇓" type="tts">ລູກສອນຄູ່ຊີ້ລົງລຸ່ມ</annotation>
+		<annotation cp="⇔">ລູກສອນຄູ່ຊີ້ໄປຊ້າຍຂວາ</annotation>
+		<annotation cp="⇔" type="tts">ລູກສອນຄູ່ຊີ້ໄປຊ້າຍຂວາ</annotation>
+		<annotation cp="⇎">ລູກສອນຄູ່ຕັດຊີ້ໄປຊ້າຍຂວາ</annotation>
+		<annotation cp="⇎" type="tts">ລູກສອນຄູ່ຕັດຊີ້ໄປຊ້າຍຂວາ</annotation>
+		<annotation cp="⇖">ລູກສອນຄູ່ຊີ້ໄປທາງຕາເວັນຕົກສຽງເໜືອ</annotation>
+		<annotation cp="⇖" type="tts">ລູກສອນຄູ່ຊີ້ໄປທາງຕາເວັນຕົກສຽງເໜືອ</annotation>
+		<annotation cp="⇗">ລູກສອນຄູ່ຊີ້ໄປທາງຕາເວັນອອກສຽງເໜືອ</annotation>
+		<annotation cp="⇗" type="tts">ລູກສອນຄູ່ຊີ້ໄປທາງຕາເວັນອອກສຽງເໜືອ</annotation>
+		<annotation cp="⇘">ລູກສອນຄູ່ຊີ້ໄປທາງຕາເວັນອອກສຽງໄຕ້</annotation>
+		<annotation cp="⇘" type="tts">ລູກສອນຄູ່ຊີ້ໄປທາງຕາເວັນອອກສຽງໄຕ້</annotation>
+		<annotation cp="⇙">ລູກສອນຄູ່ຊີ້ໄປທາງຕາເວັນຕົກສຽງໄຕ້</annotation>
+		<annotation cp="⇙" type="tts">ລູກສອນຄູ່ຊີ້ໄປທາງຕາເວັນຕົກສຽງໄຕ້</annotation>
+		<annotation cp="⇚">ລູກສອນສາມເສັ້ນຊີ້ໄປຊ້າຍ</annotation>
+		<annotation cp="⇚" type="tts">ລູກສອນສາມເສັ້ນຊີ້ໄປຊ້າຍ</annotation>
+		<annotation cp="⇛">ລູກສອນສາມເສັ້ນຊີ້ໄປຂວາ</annotation>
+		<annotation cp="⇛" type="tts">ລູກສອນສາມເສັ້ນຊີ້ໄປຂວາ</annotation>
+		<annotation cp="⇜">ລູກສອນຮູບກະແສໄຟຊີ້ໄປຊ້າຍ</annotation>
+		<annotation cp="⇜" type="tts">ລູກສອນຮູບກະແສໄຟຊີ້ໄປຊ້າຍ</annotation>
+		<annotation cp="⇝">ລູກສອນຮູບກະແສໄຟຊີ້ໄປຂວາ</annotation>
+		<annotation cp="⇝" type="tts">ລູກສອນຮູບກະແສໄຟຊີ້ໄປຂວາ</annotation>
+		<annotation cp="⇞">ລູກສອນຕັດຄູ່ຊີ້ຂຶ້ນເທິງ</annotation>
+		<annotation cp="⇞" type="tts">ລູກສອນຕັດຄູ່ຊີ້ຂຶ້ນເທິງ</annotation>
+		<annotation cp="⇟">ລູກສອນຕັດຄູ່ຊີ້ລົງລຸ່ມ</annotation>
+		<annotation cp="⇟" type="tts">ລູກສອນຕັດຄູ່ຊີ້ລົງລຸ່ມ</annotation>
+		<annotation cp="⇠">ລູກສອນຂີດຂາດຊີ້ໄປຊ້າຍ</annotation>
+		<annotation cp="⇠" type="tts">ລູກສອນຂີດຂາດຊີ້ໄປຊ້າຍ</annotation>
+		<annotation cp="⇡">ລູກສອນຂີດຂາດຊີ້ຂຶ້ນເທິງ</annotation>
+		<annotation cp="⇡" type="tts">ລູກສອນຂີດຂາດຊີ້ຂຶ້ນເທິງ</annotation>
+		<annotation cp="⇢">ລູກສອນຂີດຂາດຊີ້ໄປຂວາ</annotation>
+		<annotation cp="⇢" type="tts">ລູກສອນຂີດຂາດຊີ້ໄປຂວາ</annotation>
+		<annotation cp="⇣">ລູກສອນຂີດຂາດຊີ້ລົງລຸ່ມ</annotation>
+		<annotation cp="⇣" type="tts">ລູກສອນຂີດຂາດຊີ້ລົງລຸ່ມ</annotation>
+		<annotation cp="⇤">ແຖບລູກສອນຊີ້ໄປຊ້າຍ</annotation>
+		<annotation cp="⇤" type="tts">ແຖບລູກສອນຊີ້ໄປຊ້າຍ</annotation>
+		<annotation cp="⇥">ແຖບລູກສອນຊີ້ໄປຂວາ</annotation>
+		<annotation cp="⇥" type="tts">ແຖບລູກສອນຊີ້ໄປຂວາ</annotation>
+		<annotation cp="⇦">ລູກສອນໂປ່ງຊີ້ໄປຊ້າຍ</annotation>
+		<annotation cp="⇦" type="tts">ລູກສອນໂປ່ງຊີ້ໄປຊ້າຍ</annotation>
+		<annotation cp="⇧">ລູກສອນໂປ່ງຊີ້ຂຶ້ນເທິງ</annotation>
+		<annotation cp="⇧" type="tts">ລູກສອນໂປ່ງຊີ້ຂຶ້ນເທິງ</annotation>
+		<annotation cp="⇨">ລູກສອນໂປ່ງຊີ້ໄປຂວາ</annotation>
+		<annotation cp="⇨" type="tts">ລູກສອນໂປ່ງຊີ້ໄປຂວາ</annotation>
+		<annotation cp="⇩">ລູກສອນໂປ່ງຊີ້ລົງລຸ່ມ</annotation>
+		<annotation cp="⇩" type="tts">ລູກສອນໂປ່ງຊີ້ລົງລຸ່ມ</annotation>
+		<annotation cp="⇪">ລູກສອນໂປ່ງຂາດຊີ້ຂຶ້ນເທິງ</annotation>
+		<annotation cp="⇪" type="tts">ລູກສອນໂປ່ງຂາດຊີ້ຂຶ້ນເທິງ</annotation>
+		<annotation cp="⇵">ລູກສອນຊີ້ລົງລຸ່ມຢູ່ເບື້ອງຊ້າຍລູກສອນຊີ້ຂຶ້ນເທິງ</annotation>
+		<annotation cp="⇵" type="tts">ລູກສອນຊີ້ລົງລຸ່ມຢູ່ເບື້ອງຊ້າຍລູກສອນຊີ້ຂຶ້ນເທິງ</annotation>
+		<annotation cp="∀">ເຄື່ອງໝາຍທັງໝົດ | ທັງໝົດ | ທຸກໆ | ທົ່ວຈັກກະວານ | ໃຫ້</annotation>
+		<annotation cp="∀" type="tts">ເຄື່ອງໝາຍທັງໝົດ</annotation>
+		<annotation cp="∂">ເຄື່ອງໝາຍຕ່າງ | ຕ່າງກັນ</annotation>
+		<annotation cp="∂" type="tts">ເຄື່ອງໝາຍຕ່າງ</annotation>
+		<annotation cp="∃">ເຄື່ອງໝາຍມີຢູ່</annotation>
+		<annotation cp="∃" type="tts">ເຄື່ອງໝາຍມີຢູ່</annotation>
+		<annotation cp="∅">ກຸ່ມເປົ່າ | ຄະນິດສາດ</annotation>
+		<annotation cp="∅" type="tts">ກຸ່ມເປົ່າ</annotation>
 		<annotation cp="∆">ເຄື່ອງໝາຍເພີ່ມ | ສາມຫຼ່ຽມ | ເພີ່ມ</annotation>
 		<annotation cp="∆" type="tts">ເຄື່ອງໝາຍເພີ່ມ</annotation>
 		<annotation cp="∇">ເຄື່ອງໝາຍນາບຣາ | ສາມຫຼ່ຽມ | ນາບຣາ</annotation>
 		<annotation cp="∇" type="tts">ເຄື່ອງໝາຍນາບຣາ</annotation>
 		<annotation cp="∈">ກຸ່ມ | ເຄື່ອງໝາຍຢູ່ໃນກຸ່ມ | ສະມາຊິກຂອງ | ປະກອບ | ອົງປະກອບ | ອົງປະກອບຂອງ</annotation>
 		<annotation cp="∈" type="tts">ເຄື່ອງໝາຍຢູ່ໃນກຸ່ມ</annotation>
+		<annotation cp="∉">ບໍ່ແມ່ນອົງປະກອບ | ອົງປະກອບ</annotation>
+		<annotation cp="∉" type="tts">ບໍ່ແມ່ນອົງປະກອບ</annotation>
+		<annotation cp="∋">ນອນໃນ | ອົງປະກອບ</annotation>
+		<annotation cp="∋" type="tts">ນອນໃນ</annotation>
+		<annotation cp="∎">ເຄື່ອງໝາຍສິ້ນສຸດ | ຈຸດຈົບ | ຈຸດສິ້ນສຸດ | ສິ້ນສຸດການພິສູດ</annotation>
+		<annotation cp="∎" type="tts">ສິ້ນສຸດການພິສູດ</annotation>
+		<annotation cp="∏">ເຄື່ອງໝາຍຜົນທະວີຄູນ | ຜົນໄດ້ຮັບ | ໂລຈິກ</annotation>
+		<annotation cp="∏" type="tts">ເຄື່ອງໝາຍຜົນທະວີຄູນ</annotation>
+		<annotation cp="∑">ຄະນິດສາດ | ເຄື່ອງໝາຍຜົນຮວມ | ຜົນຮວມ</annotation>
+		<annotation cp="∑" type="tts">ເຄື່ອງໝາຍຜົນຮວມ</annotation>
+		<annotation cp="+">ບວກ | ເພີ່ມ | ໝາຍບວກ</annotation>
+		<annotation cp="+" type="tts">ໝາຍບວກ</annotation>
+		<annotation cp="±">ບວກ-ລົບ | ບວກລົບ</annotation>
+		<annotation cp="±" type="tts">ບວກລົບ</annotation>
 		<annotation cp="÷">ການຫານ | ເຄື່ອງໝາຍຫານ | ສ່ວນ | ຫານ</annotation>
 		<annotation cp="÷" type="tts">ເຄື່ອງໝາຍຫານ</annotation>
 		<annotation cp="×">ຄູນ | ເຄື່ອງ​ໝາຍ | ​ສັນ​ຍາ​ລັກ | ສັນ​ຍາ​ລັກຄູນ</annotation>
 		<annotation cp="×" type="tts">ສັນ​ຍາ​ລັກຄູນ</annotation>
+		<annotation cp="&lt;">ແທັກ | ນ້ອຍກວ່າ | ເປີດແທັກ</annotation>
+		<annotation cp="&lt;" type="tts">ນ້ອຍກວ່າ</annotation>
+		<annotation cp="≮">ຄະນິດສາດ | ບໍ່ເທົ່າກັບ | ບໍ່ນ້ອຍກວ່າ</annotation>
+		<annotation cp="≮" type="tts">ບໍ່ນ້ອຍກວ່າ</annotation>
+		<annotation cp="=">ເທົ່າ | ເທົ່າກັບ</annotation>
+		<annotation cp="=" type="tts">ເທົ່າກັບ</annotation>
+		<annotation cp="≠">ຕ່າງ | ບໍ່ເທົ່າກັນ | ບໍ່ເທົ່າກັບ | ບໍ່ເທົ່າທຽມ</annotation>
+		<annotation cp="≠" type="tts">ບໍ່ເທົ່າກັບ</annotation>
+		<annotation cp="&gt;">ແທັກ | ປິດແທັກ | ໃຫຍ່ກວ່າ</annotation>
+		<annotation cp="&gt;" type="tts">ໃຫຍ່ກວ່າ</annotation>
+		<annotation cp="≯">ຄະນິດສາດ | ບໍ່ເທົ່າກັບ | ບໍ່ໃຫຍ່ກວ່າ</annotation>
+		<annotation cp="≯" type="tts">ບໍ່ໃຫຍ່ກວ່າ</annotation>
+		<annotation cp="¬">ບໍ່ | ປະຕິເສດ</annotation>
+		<annotation cp="¬" type="tts">ປະຕິເສດ</annotation>
+		<annotation cp="|">ເສັ້ນຊື່ | ເສັ້ນຕັ້ງ | ແຖບ | ແຖບຕັ້ງ | ທໍ່ | ແທ່ງ | ຫອກ</annotation>
+		<annotation cp="|" type="tts">ເສັ້ນຕັ້ງ</annotation>
+		<annotation cp="~">ເຄື່ອງໝາຍເທິງອັກສອນສະແດງສຽງທາງດັງ | ເຄື່ອງໝາຍເທິງອັກສອນສະແດງອອກສຽງທາງດັງ</annotation>
+		<annotation cp="~" type="tts">ເຄື່ອງໝາຍເທິງອັກສອນສະແດງສຽງທາງດັງ</annotation>
+		<annotation cp="−">ລົບ | ໝາຍລົບ | ຫຼຸດລົງ</annotation>
+		<annotation cp="−" type="tts">ໝາຍລົບ</annotation>
 		<annotation cp="⁻">ກຳລັງລົບ | ເຄື່ອງໝາຍກຳລັງລົບ | ລົບ</annotation>
 		<annotation cp="⁻" type="tts">ເຄື່ອງໝາຍກຳລັງລົບ</annotation>
+		<annotation cp="∓">ເຄື່ອງໝາຍບວກລົບ | ບວກລົບ</annotation>
+		<annotation cp="∓" type="tts">ເຄື່ອງໝາຍບວກລົບ</annotation>
+		<annotation cp="∕">ຂີດສະຫຼຽງ | ຂີດແບ່ງຄໍາ | ຕັດ | ໝາຍຫານ</annotation>
+		<annotation cp="∕" type="tts">ໝາຍຫານ</annotation>
+		<annotation cp="⁄">ຂີດຕັດ | ຂີດແບ່ງຄໍາ | ຂີດແບ່ງສ່ວນ</annotation>
+		<annotation cp="⁄" type="tts">ຂີດແບ່ງສ່ວນ</annotation>
+		<annotation cp="∗">ດາວ | ໝາຍດາວ</annotation>
+		<annotation cp="∗" type="tts">ໝາຍດາວ</annotation>
+		<annotation cp="∘">ເຄື່ອງໝາຍ | ໝາຍຈໍ້າວົງແຫວນ | ອົງປະກອບ</annotation>
+		<annotation cp="∘" type="tts">ໝາຍຈໍ້າວົງແຫວນ</annotation>
+		<annotation cp="∙">ການຄໍານວນ | ເຄື່ອງໝາຍຈໍ້າເມັດ</annotation>
+		<annotation cp="∙" type="tts">ເຄື່ອງໝາຍຈໍ້າເມັດ</annotation>
 		<annotation cp="√">ກຳລັງສ່ວນ | ຮາກ | ຮາກຂັ້ນສອງ</annotation>
 		<annotation cp="√" type="tts">ຮາກຂັ້ນສອງ</annotation>
+		<annotation cp="∝">ສັດສ່ວນ</annotation>
+		<annotation cp="∝" type="tts">ສັດສ່ວນ</annotation>
 		<annotation cp="∞">ເຄື່ອງໝາຍອະນັນ | ອະນັນ</annotation>
 		<annotation cp="∞" type="tts">ເຄື່ອງໝາຍອະນັນ</annotation>
+		<annotation cp="∟">ຄະນິດສາດ | ມຸມຂວາ</annotation>
+		<annotation cp="∟" type="tts">ມຸມຂວາ</annotation>
+		<annotation cp="∠">ປາຍແຫຼມ | ມຸມ</annotation>
+		<annotation cp="∠" type="tts">ມຸມ</annotation>
+		<annotation cp="∣">ເຄື່ອງໝາຍແບ່ງ | ຕົວຫານ</annotation>
+		<annotation cp="∣" type="tts">ເຄື່ອງໝາຍແບ່ງ</annotation>
+		<annotation cp="∥">ເສັ້ນຂະໜານ</annotation>
+		<annotation cp="∥" type="tts">ເສັ້ນຂະໜານ</annotation>
+		<annotation cp="∧">ເຄື່ອງໝາຍແລະ | ແລະ | ຫຼີ້ມ</annotation>
+		<annotation cp="∧" type="tts">ແລະ</annotation>
 		<annotation cp="∩">ການຕັດ | ກຸ່ມ | ເຄື່ອງໝາຍຕັດ</annotation>
 		<annotation cp="∩" type="tts">ເຄື່ອງໝາຍຕັດ</annotation>
-		<annotation cp="∪">ການຮວມຮວມ | ກຸ່ມ | ເຄື່ອງໝາຍຮວມ | ຮວມ</annotation>
+		<annotation cp="∪">ການຮວບຮວມ | ກຸ່ມ | ເຄື່ອງໝາຍຮວມ | ຮວມ</annotation>
 		<annotation cp="∪" type="tts">ເຄື່ອງໝາຍຮວມ</annotation>
+		<annotation cp="∫">ເຄື່ອງໝາຍສັງຄະນິດ | ແຄລຄູລັສ</annotation>
+		<annotation cp="∫" type="tts">ເຄື່ອງໝາຍສັງຄະນິດ</annotation>
+		<annotation cp="∬">ເຄື່ອງໝາຍສັງຄະນິດຄູ່ | ແຄລຄູລັສຄູ່</annotation>
+		<annotation cp="∬" type="tts">ເຄື່ອງໝາຍສັງຄະນິດຄູ່</annotation>
+		<annotation cp="∮">ເສັ້ນສະແດງສັງຄະນິດ</annotation>
+		<annotation cp="∮" type="tts">ເສັ້ນສະແດງສັງຄະນິດ</annotation>
+		<annotation cp="∴">ດັ່ງນັ້ນ | ໂລຈິກ</annotation>
+		<annotation cp="∴" type="tts">ດັ່ງນັ້ນ</annotation>
+		<annotation cp="∵">ຍ້ອນວ່າ | ໂລຈິກ</annotation>
+		<annotation cp="∵" type="tts">ຍ້ອນວ່າ</annotation>
+		<annotation cp="∶">ອັດຕາສ່ວນ</annotation>
+		<annotation cp="∶" type="tts">ອັດຕາສ່ວນ</annotation>
+		<annotation cp="∷">ຄວາມໄດ້ສ່ວນ</annotation>
+		<annotation cp="∷" type="tts">ຄວາມໄດ້ສ່ວນ</annotation>
+		<annotation cp="∼">ເຄື່ອງໝາຍການຄໍານວນ | ເຄື່ອງໝາຍປະມານ</annotation>
+		<annotation cp="∼" type="tts">ເຄື່ອງໝາຍປະມານ</annotation>
+		<annotation cp="∽">ຄ່າປະມານ | ເຄື່ອງໝາຍປະມານລວງປີ້ນ</annotation>
+		<annotation cp="∽" type="tts">ເຄື່ອງໝາຍປະມານລວງປີ້ນ</annotation>
+		<annotation cp="∾">ເຄື່ອງໝາຍຄ້າຍຄືກັນ</annotation>
+		<annotation cp="∾" type="tts">ເຄື່ອງໝາຍຄ້າຍຄືກັນ</annotation>
+		<annotation cp="≃">ເກືອບເທົ່າກັບ | ຄະນິດສາດ</annotation>
+		<annotation cp="≃" type="tts">ເກືອບເທົ່າກັບ</annotation>
+		<annotation cp="≅">ຄວາມສອດຄ່ອງ | ຄະນິດສາດ | ຄາດຄະເນ | ເທົ່າກັນ</annotation>
+		<annotation cp="≅" type="tts">ຄາດຄະເນ</annotation>
+		<annotation cp="≈">ໃກ້ຄຽງ | ທຽບເທົ່າ | ປະມານ</annotation>
+		<annotation cp="≈" type="tts">ທຽບເທົ່າ</annotation>
+		<annotation cp="≌">ຄວາມເທົ່າກັນ | ຄະນິດສາດ | ເທົ່າກັນທັງໝົດ</annotation>
+		<annotation cp="≌" type="tts">ເທົ່າກັນທັງໝົດ</annotation>
+		<annotation cp="≒">ຮູບປະມານເກືອບເທົ່າກັນ</annotation>
+		<annotation cp="≒" type="tts">ຮູບປະມານເກືອບເທົ່າກັນ</annotation>
+		<annotation cp="≖">ຄວາມເທົ່າກັນ | ຄະນິດສາດ | ວົງແຫວນເທົ່າກັນ</annotation>
+		<annotation cp="≖" type="tts">ວົງແຫວນເທົ່າກັນ</annotation>
 		<annotation cp="≡">ເຄື່ອງໝາຍລະບຸເປັນ | ຈຳກັດ | ສາມ | ຖືກລະບຸ | ຖືກລະບຸເປັນ</annotation>
 		<annotation cp="≡" type="tts">ເຄື່ອງໝາຍລະບຸເປັນ</annotation>
+		<annotation cp="≣">ຄວາມເທົ່າກັນ | ຄະນິດສາດ | ເທົ່າກັນແນ່ນອນ</annotation>
+		<annotation cp="≣" type="tts">ເທົ່າກັນແນ່ນອນ</annotation>
+		<annotation cp="≤">ເທົ່າ | ເທົ່າກັບ | ນ້ອຍກວ່າ | ນ້ອຍກວ່າ ຫຼື ເທົ່າກັບ | ບໍ່ເທົ່າກັນ</annotation>
+		<annotation cp="≤" type="tts">ນ້ອຍກວ່າ ຫຼື ເທົ່າກັບ</annotation>
+		<annotation cp="≥">ເທົ່າ | ເທົ່າກັບ | ບໍ່ເທົ່າກັນ | ໃຫ່ຍກວ່າ | ໃຫຍ່ກວ່າ ຫຼື ເທົ່າກັບ</annotation>
+		<annotation cp="≥" type="tts">ໃຫຍ່ກວ່າ ຫຼື ເທົ່າກັບ</annotation>
+		<annotation cp="≦">ຄວາມບໍ່ເທົ່າກັນ | ຄະນິດສາດ | ໝາຍນ້ອຍກວ່າຢູ່ເທິງໝາຍເທົ່າກັບ</annotation>
+		<annotation cp="≦" type="tts">ໝາຍນ້ອຍກວ່າຢູ່ເທິງໝາຍເທົ່າກັບ</annotation>
+		<annotation cp="≧">ຄວາມບໍ່ເທົ່າກັນ | ຄະນິດສາດ | ໝາຍໃຫຍ່ກວ່າຢູ່ເທິງໝາຍເທົ່າກັບ</annotation>
+		<annotation cp="≧" type="tts">ໝາຍໃຫຍ່ກວ່າຢູ່ເທິງໝາຍເທົ່າກັບ</annotation>
+		<annotation cp="≪">ຄວາມບໍ່ເທົ່າກັນ | ຄະນິດສາດ | ນ້ອຍກວ່າຫຼາຍ</annotation>
+		<annotation cp="≪" type="tts">ນ້ອຍກວ່າຫຼາຍ</annotation>
+		<annotation cp="≫">ຄວາມບໍ່ເທົ່າກັນ | ຄະນິດສາດ | ໃຫຍ່ກວ່າຫຼາຍ</annotation>
+		<annotation cp="≫" type="tts">ໃຫຍ່ກວ່າຫຼາຍ</annotation>
+		<annotation cp="≬">ລະຫວ່າງ</annotation>
+		<annotation cp="≬" type="tts">ລະຫວ່າງ</annotation>
+		<annotation cp="≳">ຄວາມບໍ່ເທົ່າກັນ | ຄະນິດສາດ | ໃຫຍ່ກວ່າເທົ່າກັບ</annotation>
+		<annotation cp="≳" type="tts">ໃຫຍ່ກວ່າເທົ່າກັບ</annotation>
+		<annotation cp="≺">ຄະນິດສາດ | ເຄື່ອງໝາຍຢູ່ທາງໜ້າ | ຕົວຄໍານວນກຸ່ມ</annotation>
+		<annotation cp="≺" type="tts">ເຄື່ອງໝາຍຢູ່ທາງໜ້າ</annotation>
+		<annotation cp="≻">ຄະນິດສາດ | ເຄື່ອງໝາຍຕາມຫຼັງ | ຕົວຄໍານວນກຸ່ມ</annotation>
+		<annotation cp="≻" type="tts">ເຄື່ອງໝາຍຕາມຫຼັງ</annotation>
+		<annotation cp="⊁">ຄະນິດສາດ | ຕົວຄໍານວນກຸ່ມ | ບໍ່ຢູ່ທາງຫຼັງ</annotation>
+		<annotation cp="⊁" type="tts">ບໍ່ຢູ່ທາງຫຼັງ</annotation>
 		<annotation cp="⊂">ກຸ່ມ | ກຸ່ມຍ່ອຍ | ກຸ່ມຍ່ອຍຂອງ | ເຄື່ອງໝາຍກຸ່ມຍ່ອຍ</annotation>
 		<annotation cp="⊂" type="tts">ເຄື່ອງໝາຍກຸ່ມຍ່ອຍ</annotation>
+		<annotation cp="⊃">ກຸ່ມພາກສ່ວນ | ຄະນິດສາດ | ຕົວຄໍານວນກຸ່ມ</annotation>
+		<annotation cp="⊃" type="tts">ກຸ່ມພາກສ່ວນ</annotation>
+		<annotation cp="⊆">ເທົ່າກັບອານຸກຸ່ມ</annotation>
+		<annotation cp="⊆" type="tts">ເທົ່າກັບອານຸກຸ່ມ</annotation>
+		<annotation cp="⊇">ຄວາມເທົ່າກັນ | ຄະນິດສາດ | ເທົ່າກັບກຸ່ມພາກສ່ວນ</annotation>
+		<annotation cp="⊇" type="tts">ເທົ່າກັບກຸ່ມພາກສ່ວນ</annotation>
+		<annotation cp="⊕">ໝາຍບວກ | ໝາຍບວກວົງມົນ</annotation>
+		<annotation cp="⊕" type="tts">ໝາຍບວກວົງມົນ</annotation>
+		<annotation cp="⊖">ການເສາະເຈື່ອນ | ຄວາມແຕກຕ່າງທາງລະບົບ | ໝາຍລົບວົງມົນ</annotation>
+		<annotation cp="⊖" type="tts">ໝາຍລົບວົງມົນ</annotation>
+		<annotation cp="⊗">ເທັນເຊີ | ຜົນຄໍານວນ | ໝາຍຄູນວົງມົນ</annotation>
+		<annotation cp="⊗" type="tts">ໝາຍຄູນວົງມົນ</annotation>
+		<annotation cp="⊘">ຂີດຫານໃນວົງມົນ | ຄະນິດສາດ | ຄ້າຍເຄື່ອງໝາຍຫານ</annotation>
+		<annotation cp="⊘" type="tts">ຂີດຫານໃນວົງມົນ</annotation>
+		<annotation cp="⊙">ຈໍ້າເມັດໃນວົງມົນ | ຕົວຄໍານວນ | ຮວມ</annotation>
+		<annotation cp="⊙" type="tts">ຈໍ້າເມັດໃນວົງມົນ</annotation>
+		<annotation cp="⊚">ຕົວຄໍານວນວົງແຫວນໃນວົງມົນ</annotation>
+		<annotation cp="⊚" type="tts">ຕົວຄໍານວນວົງແຫວນໃນວົງມົນ</annotation>
+		<annotation cp="⊛">ຕົວຄໍານວນ | ຕົວຄໍານວນໝາຍດາວໃນວົງມົນ | ໝາຍດາວ</annotation>
+		<annotation cp="⊛" type="tts">ຕົວຄໍານວນໝາຍດາວໃນວົງມົນ</annotation>
+		<annotation cp="⊞">ຄະນິດສາດ | ຄ້າຍເຄື່ອງໝາຍເພີ່ມ | ໝາຍບວກໃນຮູບສີ່ຫຼ່ຽມ</annotation>
+		<annotation cp="⊞" type="tts">ໝາຍບວກໃນຮູບສີ່ຫຼ່ຽມ</annotation>
+		<annotation cp="⊟">ຄະນິດສາດ | ຄ້າຍເຄື່ອງໝາຍລົບ | ໝາຍລົບໃນຮູບສີ່ຫຼ່ຽມ</annotation>
+		<annotation cp="⊟" type="tts">ໝາຍລົບໃນຮູບສີ່ຫຼ່ຽມ</annotation>
+		<annotation cp="⊥">ຂໍ | ເຄື່ອງໝາຍຂໍເທິງ | ຕັ້ງສາກ</annotation>
+		<annotation cp="⊥" type="tts">ເຄື່ອງໝາຍຂໍເທິງ</annotation>
+		<annotation cp="⊮">ບໍ່ບັງຄັບ</annotation>
+		<annotation cp="⊮" type="tts">ບໍ່ບັງຄັບ</annotation>
+		<annotation cp="⊰">ຄະນິດສາດ | ເຄື່ອງໝາຍທາງໜ້າຢູ່ພາຍໃຕ້ຄວາມສໍາພັນ | ຕົວຄໍານວນກຸ່ມ</annotation>
+		<annotation cp="⊰" type="tts">ເຄື່ອງໝາຍທາງໜ້າຢູ່ພາຍໃຕ້ຄວາມສໍາພັນ</annotation>
+		<annotation cp="⊱">ຄະນິດສາດ | ເຄື່ອງໝາຍທາງຫຼັງຢູ່ພາຍໃຕ້ຄວາມສໍາພັນ | ຕົວຄໍານວນກຸ່ມ</annotation>
+		<annotation cp="⊱" type="tts">ເຄື່ອງໝາຍທາງຫຼັງຢູ່ພາຍໃຕ້ຄວາມສໍາພັນ</annotation>
+		<annotation cp="⋭">ຄະນິດສາດ | ທິດສະດີກຸ່ມ | ບໍ່ໄດ້ປະກອບເປັນອານຸກຸ່ມທີ່ເທົ່າກັນ</annotation>
+		<annotation cp="⋭" type="tts">ບໍ່ໄດ້ປະກອບເປັນອານຸກຸ່ມທີ່ເທົ່າກັນ</annotation>
+		<annotation cp="⊶">ກົກເຄົ້າ</annotation>
+		<annotation cp="⊶" type="tts">ກົກເຄົ້າ</annotation>
+		<annotation cp="⊹">ຄະນິດສາດ | ມາຕຣິສກໍາລັງສອງ | ມາຕຣິສສັບປ່ຽນສັງຄະຍຸດ | ມາຕຣິສປັບດ້ວຍຕົວເອງ</annotation>
+		<annotation cp="⊹" type="tts">ມາຕຣິສສັບປ່ຽນສັງຄະຍຸດ</annotation>
+		<annotation cp="⊿">ຄະນິດສາດ | ສາມຫຼ່ຽມເບື້ອງຂວາ | ສາມຫຼ່ຽມມຸມຂວາ</annotation>
+		<annotation cp="⊿" type="tts">ສາມຫຼ່ຽມເບື້ອງຂວາ</annotation>
+		<annotation cp="⋁">ປະພົດເລືອກ | ໂລຈິກ | ຫຼື</annotation>
+		<annotation cp="⋁" type="tts">ຫຼື</annotation>
+		<annotation cp="⋂">ການຕັດ | ຄະນິດສາດ | ຕັດ | ຕົວຄໍານວນກຸ່ມ</annotation>
+		<annotation cp="⋂" type="tts">ຕັດ</annotation>
+		<annotation cp="⋃">ການຮວມ | ຄະນິດສາດ | ຕົວຄໍານວນກຸ່ມ</annotation>
+		<annotation cp="⋃" type="tts">ການຮວມ</annotation>
+		<annotation cp="⋅">ຕົວຄໍານວນ | ຕົວຄໍານວນຈໍ້າເມັດ</annotation>
+		<annotation cp="⋅" type="tts">ຕົວຄໍານວນຈໍ້າເມັດ</annotation>
+		<annotation cp="⋆">ຕົວຄໍານວນ | ຕົວຄໍານວນດາວ</annotation>
+		<annotation cp="⋆" type="tts">ຕົວຄໍານວນດາວ</annotation>
+		<annotation cp="⋈">ຕົວຄໍານວນທະວີພາກ | ຕົວເຊື່ອມຕໍ່ໂດຍທໍາມະຊາດ | ຮູບຜູກໂບ</annotation>
+		<annotation cp="⋈" type="tts">ຕົວເຊື່ອມຕໍ່ໂດຍທໍາມະຊາດ</annotation>
+		<annotation cp="⋒">ການຕັດ | ຄະນິດສາດ | ຕົວຄໍານວນກຸ່ມ | ຕົວຕັດຄູ່</annotation>
+		<annotation cp="⋒" type="tts">ຕົວຕັດຄູ່</annotation>
+		<annotation cp="⋘">ຄວາມບໍ່ເທົ່າກັນ | ຄະນິດສາດ | ນ້ອຍກວ່າຫຼາຍເທົ່າ</annotation>
+		<annotation cp="⋘" type="tts">ນ້ອຍກວ່າຫຼາຍເທົ່າ</annotation>
+		<annotation cp="⋙">ຄວາມບໍ່ເທົ່າກັນ | ຄະນິດສາດ | ໃຫຍ່ກວ່າຫຼາຍເທົ່າ</annotation>
+		<annotation cp="⋙" type="tts">ໃຫຍ່ກວ່າຫຼາຍເທົ່າ</annotation>
+		<annotation cp="⋮">ສາມຈໍ້າແນວຕັ້ງ</annotation>
+		<annotation cp="⋮" type="tts">ສາມຈໍ້າແນວຕັ້ງ</annotation>
+		<annotation cp="⋯">ສາມຈໍ້າ | ສາມຈໍ້າແນວນອນ</annotation>
+		<annotation cp="⋯" type="tts">ສາມຈໍ້າແນວນອນ</annotation>
+		<annotation cp="⋰">ຄະນິດສາດ | ສາມຈໍ້າ | ສາມຈໍ້າສະຫຼຽງຂຶ້ນຂວາ</annotation>
+		<annotation cp="⋰" type="tts">ສາມຈໍ້າສະຫຼຽງຂຶ້ນຂວາ</annotation>
+		<annotation cp="⋱">ຄະນິດສາດ | ສາມຈໍ້າ | ສາມຈໍ້າສະຫຼຽງລົງຂວາ</annotation>
+		<annotation cp="⋱" type="tts">ສາມຈໍ້າສະຫຼຽງລົງຂວາ</annotation>
+		<annotation cp="■">ຈັດຕຸລັດຕັນ</annotation>
+		<annotation cp="■" type="tts">ຈັດຕຸລັດຕັນ</annotation>
+		<annotation cp="□">ຈັດຕຸລັດໂປ່ງ</annotation>
+		<annotation cp="□" type="tts">ຈັດຕຸລັດໂປ່ງ</annotation>
+		<annotation cp="▢">ຈັດຕຸລັດໂປ່ງແຈມົນ</annotation>
+		<annotation cp="▢" type="tts">ຈັດຕຸລັດໂປ່ງແຈມົນ</annotation>
+		<annotation cp="▣">ຈັດຕຸລັດຕັນຢູ່ໃນສີ່ຫຼ່ຽມໂປ່ງ</annotation>
+		<annotation cp="▣" type="tts">ຈັດຕຸລັດຕັນຢູ່ໃນສີ່ຫຼ່ຽມໂປ່ງ</annotation>
+		<annotation cp="▤">ຈັດຕຸລັດຂີດຂວາງ</annotation>
+		<annotation cp="▤" type="tts">ຈັດຕຸລັດຂີດຂວາງ</annotation>
+		<annotation cp="▥">ຈັດຕຸລັດຂີດຕັ້ງ</annotation>
+		<annotation cp="▥" type="tts">ຈັດຕຸລັດຂີດຕັ້ງ</annotation>
+		<annotation cp="▦">ຈັດຕຸລັດຂີດຕັດ</annotation>
+		<annotation cp="▦" type="tts">ຈັດຕຸລັດຂີດຕັດ</annotation>
+		<annotation cp="▧">ຈັດຕຸລັດຂີດສະຫຼຽງເທິງຊ້າຍຫາລຸ່ມຂວາ</annotation>
+		<annotation cp="▧" type="tts">ຈັດຕຸລັດຂີດສະຫຼຽງເທິງຊ້າຍຫາລຸ່ມຂວາ</annotation>
+		<annotation cp="▨">ຈັດຕຸລັດຂີດສະຫຼຽງເທິງຂວາຫາລຸ່ມຊ້າຍ</annotation>
+		<annotation cp="▨" type="tts">ຈັດຕຸລັດຂີດສະຫຼຽງເທິງຂວາຫາລຸ່ມຊ້າຍ</annotation>
+		<annotation cp="▩">ຈັດຕຸລັດຂີດໄຂວ່</annotation>
+		<annotation cp="▩" type="tts">ຈັດຕຸລັດຂີດໄຂວ່</annotation>
+		<annotation cp="▬">ສີ່ແຈຕັນ</annotation>
+		<annotation cp="▬" type="tts">ສີ່ແຈຕັນ</annotation>
+		<annotation cp="▭">ສີ່ແຈໂປ່ງ</annotation>
+		<annotation cp="▭" type="tts">ສີ່ແຈໂປ່ງ</annotation>
+		<annotation cp="▮">ສີ່ແຈຕັນລວງຕັ້ງ</annotation>
+		<annotation cp="▮" type="tts">ສີ່ແຈຕັນລວງຕັ້ງ</annotation>
+		<annotation cp="▰">ສີ່ແຈຕັນສະຫຼຽງ</annotation>
+		<annotation cp="▰" type="tts">ສີ່ແຈຕັນສະຫຼຽງ</annotation>
 		<annotation cp="▲">ຂຶ້ນ | ສາມຫຼ່ຽມ | ສາມຫຼ່ຽມຊິ້ຂຶ້ນ | ສາມຫຼ່ຽມຊີ້ຂຶ້ນແບບທຶບ | ທຶບ | ລູກສອນ</annotation>
 		<annotation cp="▲" type="tts">ສາມຫຼ່ຽມຊິ້ຂຶ້ນ</annotation>
+		<annotation cp="△">ສາມແຈໂປ່ງຈອມຊີ້ຂຶ້ນເທິງ</annotation>
+		<annotation cp="△" type="tts">ສາມແຈໂປ່ງຈອມຊີ້ຂຶ້ນເທິງ</annotation>
+		<annotation cp="▴">ສາມແຈຕັນນ້ອຍຈອມຊີ້ຂຶ້ນເທິງ</annotation>
+		<annotation cp="▴" type="tts">ສາມແຈຕັນນ້ອຍຈອມຊີ້ຂຶ້ນເທິງ</annotation>
+		<annotation cp="▵">ສາມແຈໂປ່ງນ້ອຍຈອມຊີ້ຂຶ້ນເທິງ</annotation>
+		<annotation cp="▵" type="tts">ສາມແຈໂປ່ງນ້ອຍຈອມຊີ້ຂຶ້ນເທິງ</annotation>
+		<annotation cp="▷">ສາມແຈໂປ່ງຈອມຊີ້ໄປຂວາ</annotation>
+		<annotation cp="▷" type="tts">ສາມແຈໂປ່ງຈອມຊີ້ໄປຂວາ</annotation>
+		<annotation cp="▸">ສາມແຈຕັນນ້ອຍຈອມຊີ້ໄປຂວາ</annotation>
+		<annotation cp="▸" type="tts">ສາມແຈຕັນນ້ອຍຈອມຊີ້ໄປຂວາ</annotation>
+		<annotation cp="▹">ສາມແຈໂປ່ງນ້ອຍຈອມຊີ້ໄປຂວາ</annotation>
+		<annotation cp="▹" type="tts">ສາມແຈໂປ່ງນ້ອຍຈອມຊີ້ໄປຂວາ</annotation>
+		<annotation cp="►">ເມັດສາມແຈຕັນຈອມຊີ້ໄປຂວາ</annotation>
+		<annotation cp="►" type="tts">ເມັດສາມແຈຕັນຈອມຊີ້ໄປຂວາ</annotation>
+		<annotation cp="▻">ເມັດສາມແຈໂປ່ງຈອມຊີ້ໄປຂວາ</annotation>
+		<annotation cp="▻" type="tts">ເມັດສາມແຈໂປ່ງຈອມຊີ້ໄປຂວາ</annotation>
 		<annotation cp="▼">ສາມຫຼ່ຽມ | ສາມຫຼ່ຽມຊີ້ລົງ | ສາມຫຼ່ຽມຊີ້ລົງແບບທຶບ | ທຶບ | ລູກສອນ | ລົງ</annotation>
 		<annotation cp="▼" type="tts">ສາມຫຼ່ຽມຊີ້ລົງ</annotation>
+		<annotation cp="▽">ສາມແຈໂປ່ງຈອມຊີ້ລົງລຸ່ມ</annotation>
+		<annotation cp="▽" type="tts">ສາມແຈໂປ່ງຈອມຊີ້ລົງລຸ່ມ</annotation>
+		<annotation cp="▾">ສາມແຈຕັນນ້ອຍຈອມຊີ້ລົງລຸ່ມ</annotation>
+		<annotation cp="▾" type="tts">ສາມແຈຕັນນ້ອຍຈອມຊີ້ລົງລຸ່ມ</annotation>
+		<annotation cp="▿">ສາມແຈໂປ່ງນ້ອຍຈອມຊີ້ລົງລຸ່ມ</annotation>
+		<annotation cp="▿" type="tts">ສາມແຈໂປ່ງນ້ອຍຈອມຊີ້ລົງລຸ່ມ</annotation>
+		<annotation cp="◁">ສາມແຈໂປ່ງຈອມຊີ້ໄປຊ້າຍ</annotation>
+		<annotation cp="◁" type="tts">ສາມແຈໂປ່ງຈອມຊີ້ໄປຊ້າຍ</annotation>
+		<annotation cp="◂">ສາມແຈຕັນນ້ອຍຈອມຊີ້ໄປຊ້າຍ</annotation>
+		<annotation cp="◂" type="tts">ສາມແຈຕັນນ້ອຍຈອມຊີ້ໄປຊ້າຍ</annotation>
+		<annotation cp="◃">ສາມແຈໂປ່ງນ້ອຍຈອມຊີ້ໄປຊ້າຍ</annotation>
+		<annotation cp="◃" type="tts">ສາມແຈໂປ່ງນ້ອຍຈອມຊີ້ໄປຊ້າຍ</annotation>
+		<annotation cp="◄">ເມັດສາມແຈຕັນຈອມຊີ້ໄປຊ້າຍ</annotation>
+		<annotation cp="◄" type="tts">ເມັດສາມແຈຕັນຈອມຊີ້ໄປຊ້າຍ</annotation>
+		<annotation cp="◅">ເມັດສາມແຈໂປ່ງຈອມຊີ້ໄປຊ້າຍ</annotation>
+		<annotation cp="◅" type="tts">ເມັດສາມແຈໂປ່ງຈອມຊີ້ໄປຊ້າຍ</annotation>
+		<annotation cp="◆">ສີ່ຫຼ່ຽມເພັດຕັນ</annotation>
+		<annotation cp="◆" type="tts">ສີ່ຫຼ່ຽມເພັດຕັນ</annotation>
+		<annotation cp="◇">ສີ່ຫຼ່ຽມເພັດໂປ່ງ</annotation>
+		<annotation cp="◇" type="tts">ສີ່ຫຼ່ຽມເພັດໂປ່ງ</annotation>
+		<annotation cp="◈">ສີ່ຫຼ່ຽມເພັດຕັນຢູ່ໃນສີ່ຫຼ່ຽມເພັດໂປ່ງ</annotation>
+		<annotation cp="◈" type="tts">ສີ່ຫຼ່ຽມເພັດຕັນຢູ່ໃນສີ່ຫຼ່ຽມເພັດໂປ່ງ</annotation>
+		<annotation cp="◉">ວົງມົນຕັນຢູ່ໃນວົງມົນໂປ່ງ</annotation>
+		<annotation cp="◉" type="tts">ວົງມົນຕັນຢູ່ໃນວົງມົນໂປ່ງ</annotation>
 		<annotation cp="◊">ເຄື່ອງໝາຍສີ່ຫຼ່ຽມດອກຈັນ | ສີ່ຫຼ່ຽມດອກຈັນ | ຮູບເພັດ</annotation>
 		<annotation cp="◊" type="tts">ເຄື່ອງໝາຍສີ່ຫຼ່ຽມດອກຈັນ</annotation>
 		<annotation cp="○">ວົງມົນ | ວົງມົນເປົ່າ | ແຫວນ</annotation>
 		<annotation cp="○" type="tts">ວົງມົນເປົ່າ</annotation>
+		<annotation cp="◌">ວົງມົນເສັ້ນຂາດ</annotation>
+		<annotation cp="◌" type="tts">ວົງມົນເສັ້ນຂາດ</annotation>
+		<annotation cp="◍">ວົງມົນຂີດເສັ້ນຕັ້ງ</annotation>
+		<annotation cp="◍" type="tts">ວົງມົນຂີດເສັ້ນຕັ້ງ</annotation>
+		<annotation cp="◎">ວົງມົນຊ້ອນ</annotation>
+		<annotation cp="◎" type="tts">ວົງມົນຊ້ອນ</annotation>
 		<annotation cp="●">ວົງມົນ | ວົງມົນແບບທຶບ</annotation>
 		<annotation cp="●" type="tts">ວົງມົນແບບທຶບ</annotation>
+		<annotation cp="◐">ວົງມົນຕັນເຄິ່ງຊ້າຍ</annotation>
+		<annotation cp="◐" type="tts">ວົງມົນຕັນເຄິ່ງຊ້າຍ</annotation>
+		<annotation cp="◑">ວົງມົນຕັນເຄິ່ງຂວາ</annotation>
+		<annotation cp="◑" type="tts">ວົງມົນຕັນເຄິ່ງຂວາ</annotation>
+		<annotation cp="◒">ວົງມົນຕັນເຄິ່ງລຸ່ມ</annotation>
+		<annotation cp="◒" type="tts">ວົງມົນຕັນເຄິ່ງລຸ່ມ</annotation>
+		<annotation cp="◓">ວົງມົນຕັນເຄິ່ງເທິງ</annotation>
+		<annotation cp="◓" type="tts">ວົງມົນຕັນເຄິ່ງເທິງ</annotation>
+		<annotation cp="◔">ວົງມົນຕັນໜຶ່ງສ່ວນສີ່ເທິງເບື້ອງຂວາ</annotation>
+		<annotation cp="◔" type="tts">ວົງມົນຕັນໜຶ່ງສ່ວນສີ່ເທິງເບື້ອງຂວາ</annotation>
+		<annotation cp="◕">ວົງມົນໂປ່ງໜຶ່ງສ່ວນສີ່ເບື້ອງເທິງຊ້າຍ</annotation>
+		<annotation cp="◕" type="tts">ວົງມົນໂປ່ງໜຶ່ງສ່ວນສີ່ເບື້ອງເທິງຊ້າຍ</annotation>
+		<annotation cp="◖">ເຄິ່ງວົງມົນຕັນເບື້ອງຊ້າຍ</annotation>
+		<annotation cp="◖" type="tts">ເຄິ່ງວົງມົນຕັນເບື້ອງຊ້າຍ</annotation>
+		<annotation cp="◗">ເຄິ່ງວົງມົນຕັນເບື້ອງຂວາ</annotation>
+		<annotation cp="◗" type="tts">ເຄິ່ງວົງມົນຕັນເບື້ອງຂວາ</annotation>
+		<annotation cp="◘">ຈໍ້າເມັດໂປ່ງໃນສີ່ແຈຕັນ</annotation>
+		<annotation cp="◘" type="tts">ຈໍ້າເມັດໂປ່ງໃນສີ່ແຈຕັນ</annotation>
+		<annotation cp="◙">ວົງມົນໂປ່ງໃນຈັດຕຸລັດຕັນ</annotation>
+		<annotation cp="◙" type="tts">ວົງມົນໂປ່ງໃນຈັດຕຸລັດຕັນ</annotation>
+		<annotation cp="◜">ເສັ້ນໂຄ້ງໜຶ່ງສ່ວນສີ່ວົງມົນເທິງເບື້ອງຊ້າຍ</annotation>
+		<annotation cp="◜" type="tts">ເສັ້ນໂຄ້ງໜຶ່ງສ່ວນສີ່ວົງມົນເທິງເບື້ອງຊ້າຍ</annotation>
+		<annotation cp="◝">ເສັ້ນໂຄ້ງໜຶ່ງສ່ວນສີ່ວົງມົນເທິງເບື້ອງຂວາ</annotation>
+		<annotation cp="◝" type="tts">ເສັ້ນໂຄ້ງໜຶ່ງສ່ວນສີ່ວົງມົນເທິງເບື້ອງຂວາ</annotation>
+		<annotation cp="◞">ເສັ້ນໂຄ້ງໜຶ່ງສ່ວນສີ່ວົງມົນລຸ່ມເບື້ອງຂວາ</annotation>
+		<annotation cp="◞" type="tts">ເສັ້ນໂຄ້ງໜຶ່ງສ່ວນສີ່ວົງມົນລຸ່ມເບື້ອງຂວາ</annotation>
+		<annotation cp="◟">ເສັ້ນໂຄ້ງໜຶ່ງສ່ວນສີ່ວົງມົນລຸ່ມເບື້ອງຊ້າຍ</annotation>
+		<annotation cp="◟" type="tts">ເສັ້ນໂຄ້ງໜຶ່ງສ່ວນສີ່ວົງມົນລຸ່ມເບື້ອງຊ້າຍ</annotation>
+		<annotation cp="◠">ເສັ້ນໂຄ້ງເຄິ່ງວົງມົນເບື້ອງເທິງ</annotation>
+		<annotation cp="◠" type="tts">ເສັ້ນໂຄ້ງເຄິ່ງວົງມົນເບື້ອງເທິງ</annotation>
+		<annotation cp="◡">ເສັ້ນໂຄ້ງເຄິ່ງວົງມົນເບື້ອງລຸ່ມ</annotation>
+		<annotation cp="◡" type="tts">ເສັ້ນໂຄ້ງເຄິ່ງວົງມົນເບື້ອງລຸ່ມ</annotation>
+		<annotation cp="◢">ສາມແຈຕັນຈອມຊີ້ໄປທາງລຸ່ມຂວາ</annotation>
+		<annotation cp="◢" type="tts">ສາມແຈຕັນຈອມຊີ້ໄປທາງລຸ່ມຂວາ</annotation>
+		<annotation cp="◣">ສາມແຈຕັນຈອມຊີ້ໄປທາງລຸ່ມຊ້າຍ</annotation>
+		<annotation cp="◣" type="tts">ສາມແຈຕັນຈອມຊີ້ໄປທາງລຸ່ມຊ້າຍ</annotation>
+		<annotation cp="◤">ສາມແຈຕັນຈອມຊີ້ໄປທາງເທິງຊ້າຍ</annotation>
+		<annotation cp="◤" type="tts">ສາມແຈຕັນຈອມຊີ້ໄປທາງເທິງຊ້າຍ</annotation>
+		<annotation cp="◥">ສາມແຈຕັນຈອມຊີ້ໄປທາງເທິງຂວາ</annotation>
+		<annotation cp="◥" type="tts">ສາມແຈຕັນຈອມຊີ້ໄປທາງເທິງຂວາ</annotation>
+		<annotation cp="◦">ຈໍ້າເມັດໂປ່ງ</annotation>
+		<annotation cp="◦" type="tts">ຈໍ້າເມັດໂປ່ງ</annotation>
 		<annotation cp="◯">ວົງເປົ່າແບບກວ້າງ | ວົງມົນ | ວົງມົນເປົ່າແບບກວ້າງ | ແຫວນ</annotation>
 		<annotation cp="◯" type="tts">ວົງເປົ່າແບບກວ້າງ</annotation>
-		<annotation cp="⚧" draft="provisional">ສັນຍາລັກຄົນ​ຂ້າມ​ເພດ</annotation>
-		<annotation cp="⚧" type="tts">ສັນຍາລັກຄົນ​ຂ້າມ​ເພດ</annotation>
-		<annotation cp="🤌" draft="provisional">ຈຸ້ມ​ນິ້ວ​ມື</annotation>
-		<annotation cp="🤌" type="tts">ຈຸ້ມ​ນິ້ວ​ມື</annotation>
-		<annotation cp="🥲" draft="provisional">ໜ້າຍິ້ມດ້ວຍນຳ້ຕາ</annotation>
-		<annotation cp="🥲" type="tts">ໜ້າຍິ້ມດ້ວຍນຳ້ຕາ</annotation>
-		<annotation cp="🥷">ການຕໍ່ສຸ້ | ຊິ້ງຊັບ | ນິນຈາ | ລີ້ຢຸ່</annotation>
-		<annotation cp="🥷" type="tts">ນິນຈາ</annotation>
-		<annotation cp="🥸">ດັງ | ບໍ່ລະບຸຕົວຕົນ | ປອມຕົວ | ແວ່ນຕາ | ໜ້າ | ໜ້າປອມໂຕ</annotation>
-		<annotation cp="🥸" type="tts">ໜ້າປອມໂຕ</annotation>
-		<annotation cp="🦣">ສັດ | ສູນ​ພັນ | ຊ້າງ | ຊ້າງ​ແມມມອດ | ໃຫຍ່</annotation>
-		<annotation cp="🦣" type="tts">ຊ້າງ​ແມມມອດ</annotation>
-		<annotation cp="🦤">ສູນ​ພັນ | ນົກ | ນົກ​ໂດ​ໂດ | ມົວຣິຊຽສ | ໃຫຍ່</annotation>
-		<annotation cp="🦤" type="tts">ນົກ​ໂດ​ໂດ</annotation>
-		<annotation cp="🦫">ສັດ | ໂຕ​ບີ​ເວີ | ບີ​ເວີ</annotation>
-		<annotation cp="🦫" type="tts">ໂຕ​ບີ​ເວີ</annotation>
-		<annotation cp="🦬">ກະ​ທິງ | ສັດ</annotation>
-		<annotation cp="🦬" type="tts">ກະ​ທິງ</annotation>
-		<annotation cp="🦭">ສັດ | ​ນາກ​ນ້ຳ | ແມວ​ນ້ຳ</annotation>
-		<annotation cp="🦭" type="tts">ແມວ​ນ້ຳ</annotation>
-		<annotation cp="🧋">ໄຂ່ມຸກ | ຊາ | ຊາໄຂ່ມຸກ | ນົມ</annotation>
-		<annotation cp="🧋" type="tts">ຊາໄຂ່ມຸກ</annotation>
-		<annotation cp="🩴">zōri | ເກີບແຕະ | ເກີບແຕະສີທອງ | ເກີບແຕະໃສ່ໄປຊາຍຫາດ | ທອງ</annotation>
-		<annotation cp="🩴" type="tts">ເກີບແຕະສີທອງ</annotation>
-		<annotation cp="🪃">ສະທ້ອນກັບ | ເດັ້ງກັບ | ບູມເມີແລງ | ອອສເຕເລຍ</annotation>
-		<annotation cp="🪃" type="tts">ບູມເມີແລງ</annotation>
-		<annotation cp="🪄">ຄາ​ຖາ | ​ພໍ່​ມົດ | ແມ່​ມົດ | ໄມ້​ກາ​ຍະ​ສິດ | ວິ​ເສດ | ເວດ​ມົນ</annotation>
-		<annotation cp="🪄" type="tts">ໄມ້​ກາ​ຍະ​ສິດ</annotation>
-		<annotation cp="🪅" draft="provisional">piñata</annotation>
-		<annotation cp="🪅" type="tts">piñata</annotation>
-		<annotation cp="🪆">ການເຮັດຮັງ | ຕຸກກະຕາ | ຕຸກກະຕາເປັນຮັງ | ຣັດເຊຍ</annotation>
-		<annotation cp="🪆" type="tts">ຕຸກກະຕາເປັນຮັງ</annotation>
-		<annotation cp="🪖">ກອງທັບ | ທະຫານ | ນັກຮົບ | ໝວກ | ໝວກທະຫານ</annotation>
-		<annotation cp="🪖" type="tts">ໝວກທະຫານ</annotation>
-		<annotation cp="🪗">ກ່ອງ | ຄອນເສີດ | ຫີບເພງ</annotation>
-		<annotation cp="🪗" type="tts">ຫີບເພງ</annotation>
-		<annotation cp="🪘">ກອງ | ກອງຍາວ | ຄອນກ້າ | ຈັງຫວະ | ທຳນອງ</annotation>
-		<annotation cp="🪘" type="tts">ກອງຍາວ</annotation>
-		<annotation cp="🪙">ເງິນ | ສົມບັດ | ທອງ | ໂລຫະ | ໂລຫະເງິນ | ຫຼຽນ</annotation>
-		<annotation cp="🪙" type="tts">ຫຼຽນ</annotation>
-		<annotation cp="🪚" draft="provisional">ຊ່າງໄມ້</annotation>
-		<annotation cp="🪚" type="tts">ຊ່າງໄມ້</annotation>
-		<annotation cp="🪛">ໄຂຄວງ | ເຄື່ອງມື | ຕະລະບິດ</annotation>
-		<annotation cp="🪛" type="tts">ໄຂຄວງ</annotation>
-		<annotation cp="🪜" draft="provisional">ຂັນໃດ</annotation>
-		<annotation cp="🪜" type="tts">ຂັນໃດ</annotation>
-		<annotation cp="🪝">ຂໍ້ພັບ | ໂຄ້ງ | ຈັບ | ຈຸດຂາຍ | ດັກຟັງ | ຕະຂໍ</annotation>
-		<annotation cp="🪝" type="tts">ຕະຂໍ</annotation>
-		<annotation cp="🪞">ເຄື່ອງ​ສະ​ທ້ອນ | ພາບສະ​ທ້ອນ | ແວ່ນ</annotation>
-		<annotation cp="🪞" type="tts">ແວ່ນ</annotation>
-		<annotation cp="🪟">ຂອບ | ປ່ອງ​ຢ້ຽມ | ປະ​ຕູ | ເປີດ | ວິວ | ໜ້າ​ຕ່າງ</annotation>
-		<annotation cp="🪟" type="tts">ປ່ອງ​ຢ້ຽມ</annotation>
-		<annotation cp="🪠">ຖ້ວຍໄວ້ດັນ | ປ້ຳ | ລູກສູບ | ຫ້ອງນຳ້ | ອັນດູດ</annotation>
-		<annotation cp="🪠" type="tts">ລູກສູບ</annotation>
-		<annotation cp="🪡">ການຕັດຍິບເຄື່ອງ | ເຂັມ | ເຂັມຍິບ | ຍິບ | ຍິບປັກ | ດ້າຍຍິບ</annotation>
-		<annotation cp="🪡" type="tts">ເຂັມຍິບ</annotation>
-		<annotation cp="🪢">ກ້ຽວ | ​ຂອດ | ເຊືອກ | ພັນ | ມັດ</annotation>
-		<annotation cp="🪢" type="tts">​ຂອດ</annotation>
-		<annotation cp="🪣">ຄຸ | ຄຸນ້ຳ | ຄຸໃຫຍ່ | ຖັງນ້ຳ</annotation>
-		<annotation cp="🪣" type="tts">ຄຸ</annotation>
-		<annotation cp="🪤">ກັບດັກ | ກັບດັກໜູ | ຫ່ວງ | ເຫຍື່ອ</annotation>
-		<annotation cp="🪤" type="tts">ກັບດັກໜູ</annotation>
-		<annotation cp="🪥">ແຂ້ວ | ສະອາດ | ສຸຂະອານາໄມ | ແປງ | ແປງຖູແຂ້ວ | ຫ້ອງນ້ຳ</annotation>
-		<annotation cp="🪥" type="tts">ແປງຖູແຂ້ວ</annotation>
-		<annotation cp="🪦">ສິລາເລິກ | ສິລາເລີກ | ສຸສານ | ປ່າຊ້າ | ຫຼຸມຝັງສົບ</annotation>
-		<annotation cp="🪦" type="tts">ສິລາເລີກ</annotation>
-		<annotation cp="🪧">ການສາທິດ | ສັນຍານ | ປະທ້ວງ | ປ້າຍປະກາດ | ຮົ້ວ</annotation>
-		<annotation cp="🪧" type="tts">ປ້າຍປະກາດ</annotation>
-		<annotation cp="🪨">ຂອງແຂງ | ໂງ່ນຫີນ | ບູດເດີ້ຫີນ | ໜັກ | ຫີນ</annotation>
-		<annotation cp="🪨" type="tts">ໂງ່ນຫີນ</annotation>
-		<annotation cp="🪰">ພະ​ຍາດ | ແມງ​ໄມ້ | ແມງວັນ | ໜອນ</annotation>
-		<annotation cp="🪰" type="tts">ແມງວັນ</annotation>
-		<annotation cp="🪱">ຂີ້​ກະ​ເດືອນ | ແມ່​ທ້ອງ | ໜອນ</annotation>
-		<annotation cp="🪱" type="tts">ໜອນ</annotation>
-		<annotation cp="🪲">ແມງ​ຄາມ | ແມງ​ປີກ​ແຂງ | ແມງ​ໄມ້</annotation>
-		<annotation cp="🪲" type="tts">ແມງ​ປີກ​ແຂງ</annotation>
-		<annotation cp="🪳">ແມງ​ສາບ | ແມງ​ໄມ້</annotation>
-		<annotation cp="🪳" type="tts">ແມງ​ສາບ</annotation>
-		<annotation cp="🪴" draft="provisional">ໂຖ​ຕົ້ນ​ໄມ້</annotation>
-		<annotation cp="🪴" type="tts">ໂຖ​ຕົ້ນ​ໄມ້</annotation>
-		<annotation cp="🪵">ທ່ອນໄມ້ | ເນື້ອໄມ້ | ບັນທຶກ | ຟືນ | ໄມ້ແປຮູບ</annotation>
-		<annotation cp="🪵" type="tts">ຟືນ</annotation>
-		<annotation cp="🪶">ຂົນ​ນົກ | ນົກ | ບິນ | ເບົາ | ປິວ</annotation>
-		<annotation cp="🪶" type="tts">ຂົນ​ນົກ</annotation>
-		<annotation cp="🫀">ການເຕັ້ນຂອງຫົວໃຈ | ຊີບພະຈອນ | ທາງກາງ | ໂລກຫົວໃຈ | ອະໄວຍະວະ | ອະໄວຍະວະຫົວໃຈ</annotation>
-		<annotation cp="🫀" type="tts">ອະໄວຍະວະຫົວໃຈ</annotation>
-		<annotation cp="🫁" draft="provisional">ປວດ</annotation>
-		<annotation cp="🫁" type="tts">ປວດ</annotation>
-		<annotation cp="🫂">ກອດ | ຂອບໃຈ | ຄົນກອດກັນ | ສະບາຍດີ | ລາກອນ</annotation>
-		<annotation cp="🫂" type="tts">ຄົນກອດກັນ</annotation>
-		<annotation cp="🫐">ບຣູເບີ້ລີ້ | ເບີ້ລີ້</annotation>
-		<annotation cp="🫐" type="tts">ບຣູເບີ້ລີ້</annotation>
-		<annotation cp="🫑">ຜັກ | ພິກໄທ | ໝາກເຜັດ | ໝາກເຜັດໃຫຍ່</annotation>
-		<annotation cp="🫑" type="tts">ໝາກເຜັດໃຫຍ່</annotation>
-		<annotation cp="🫒" draft="provisional">ໝາກກອກ</annotation>
-		<annotation cp="🫒" type="tts">ໝາກກອກ</annotation>
-		<annotation cp="🫓" draft="provisional">ເຂົ້າຂີ່ຍາວ</annotation>
-		<annotation cp="🫓" type="tts">ເຂົ້າຂີ່ຍາວ</annotation>
-		<annotation cp="🫔">ພັບ | ແມັກຊີກັນ | ຫໍ່</annotation>
-		<annotation cp="🫔" type="tts">ພັບ</annotation>
-		<annotation cp="🫕">ການຳ້ | ສະວິດ | ຊ໋ອກໂກແລັດ | ຊີດສ | ຟອງດູ | ລະລາຍ</annotation>
-		<annotation cp="🫕" type="tts">ຟອງດູ</annotation>
-		<annotation cp="🫖" draft="provisional">ການ້ຳຊາ</annotation>
-		<annotation cp="🫖" type="tts">ການ້ຳຊາ</annotation>
-		<annotation cp="🛖" draft="provisional">ກະທົມ</annotation>
-		<annotation cp="🛖" type="tts">ກະທົມ</annotation>
-		<annotation cp="🛗">ການ​ຊ່ວຍ​ເຂົ້າ​ເຖິງ | ເຄື່ອນ​ທີ່ | ຍົກ​ຂຶ້ນ | ລິບ</annotation>
-		<annotation cp="🛗" type="tts">ລິບ</annotation>
-		<annotation cp="🛻">ລົດ | ລົດກະບະ | ລົດຂົນສົ່ງປິກອັບ | ລົດປິກອັບ</annotation>
-		<annotation cp="🛻" type="tts">ລົດຂົນສົ່ງປິກອັບ</annotation>
-		<annotation cp="🛼">ເກີບ | ເກີບ​ສະ​ເກດ | ສະ​ເກດ | ລໍ້​ກິ້ງ</annotation>
-		<annotation cp="🛼" type="tts">ເກີບ​ສະ​ເກດ</annotation>
+		<annotation cp="◳">ໜຶ່ງສ່ວນສີ່ຈັດຕຸລັດໂປ່ງເບື້ອງເທິງຂວາ</annotation>
+		<annotation cp="◳" type="tts">ໜຶ່ງສ່ວນສີ່ຈັດຕຸລັດໂປ່ງເບື້ອງເທິງຂວາ</annotation>
+		<annotation cp="◷">ໜຶ່ງສ່ວນສີ່ວົງມົນໂປ່ງເບື້ອງເທິງຂວາ</annotation>
+		<annotation cp="◷" type="tts">ໜຶ່ງສ່ວນສີ່ວົງມົນໂປ່ງເບື້ອງເທິງຂວາ</annotation>
+		<annotation cp="◿">ສາມແຈໂປ່ງຈອມຊີ້ໄປທາງລຸ່ມຂວາ</annotation>
+		<annotation cp="◿" type="tts">ສາມແຈໂປ່ງຈອມຊີ້ໄປທາງລຸ່ມຂວາ</annotation>
+		<annotation cp="♪">ທີແປດ | ໂນດ | ໂນດໂຕທີແປດ | ເພງ</annotation>
+		<annotation cp="♪" type="tts">ໂນດໂຕທີແປດ</annotation>
+		<annotation cp="⨧">ໝາຍບວກຫ້ອຍສອງ</annotation>
+		<annotation cp="⨧" type="tts">ໝາຍບວກຫ້ອຍສອງ</annotation>
+		<annotation cp="⨯">ຜົນຄູນເວັກເຕີ</annotation>
+		<annotation cp="⨯" type="tts">ຜົນຄູນເວັກເຕີ</annotation>
+		<annotation cp="⨼">ຜົນພາຍໃນ</annotation>
+		<annotation cp="⨼" type="tts">ຜົນພາຍໃນ</annotation>
+		<annotation cp="⩣">ເຫດຜົນ ຫຼື ເສັ້ນຄູ່ກ້ອງຮູບວີ</annotation>
+		<annotation cp="⩣" type="tts">ເຫດຜົນ ຫຼື ເສັ້ນຄູ່ກ້ອງຮູບວີ</annotation>
+		<annotation cp="⩽">ນ້ອຍກວ່າຫຼືເທົ່າກັບສະຫຼຽງ</annotation>
+		<annotation cp="⩽" type="tts">ນ້ອຍກວ່າຫຼືເທົ່າກັບສະຫຼຽງ</annotation>
+		<annotation cp="⪍">ເຄື່ອງໝາຍນ້ອຍກວ່າຢູ່ເທິງເຄື່ອງໝາຍເກືອບເທົ່າກັບ</annotation>
+		<annotation cp="⪍" type="tts">ເຄື່ອງໝາຍນ້ອຍກວ່າຢູ່ເທິງເຄື່ອງໝາຍເກືອບເທົ່າກັບ</annotation>
+		<annotation cp="⪚">ຄວາມບໍ່ເທົ່າກັນ | ຄະນິດສາດ | ເສັ້ນຄູ່ເທົ່າກັບໃຫຍ່ກວ່າ</annotation>
+		<annotation cp="⪚" type="tts">ເສັ້ນຄູ່ເທົ່າກັບໃຫຍ່ກວ່າ</annotation>
+		<annotation cp="⪺">ເຄື່ອງໝາຍທາງຫຼັງຢູ່ເທິງເຄື່ອງໝາຍບໍ່ເກືອບເທົ່າກັບ</annotation>
+		<annotation cp="⪺" type="tts">ເຄື່ອງໝາຍທາງຫຼັງຢູ່ເທິງເຄື່ອງໝາຍບໍ່ເກືອບເທົ່າກັບ</annotation>
+		<annotation cp="♭">ຕໍ່າ | ໂນດ | ໂນດຕໍ່າ | ເພງ</annotation>
+		<annotation cp="♭" type="tts">ໂນດຕໍ່າ</annotation>
+		<annotation cp="♯">ໂນດ | ໂນດແຫຼມ | ເພງ</annotation>
+		<annotation cp="♯" type="tts">ໂນດແຫຼມ</annotation>
 		<annotation cp="😀">ຍິ້ມ | ຕະຫຼົກ | ໜ້າ | ໜ້າຍິ້ມຍິ່ງແຂ້ວ | ຫົວ | ຮາຮ່າ</annotation>
 		<annotation cp="😀" type="tts">ໜ້າຍິ້ມຍິ່ງແຂ້ວ</annotation>
 		<annotation cp="😃">ຍິ້ມ | ຕະຫຼົກ | ໜ້າ | ໜ້າຍິ້ມອ້າປາກ | ຫົວ | ຮາຮ່າ</annotation>
@@ -225,6 +731,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙂" type="tts">ໜ້າຍິ້ມບາງໆ</annotation>
 		<annotation cp="🙃">ປີ້ນຫົວ | ໜ້າ | ໜ້າປີ້ນຫົວ</annotation>
 		<annotation cp="🙃" type="tts">ໜ້າປີ້ນຫົວ</annotation>
+		<annotation cp="🫠">ຂອງແຫຼວ | ລະລາຍ | ໜ້າລະລາຍ | ຫາຍຕົວ</annotation>
+		<annotation cp="🫠" type="tts">ໜ້າລະລາຍ</annotation>
 		<annotation cp="😉">ຍິບຕາ | ຍິ້ມ | ໜ້າ | ໜ້າຍິບຕາ | ຮິຮິ</annotation>
 		<annotation cp="😉" type="tts">ໜ້າຍິບຕາ</annotation>
 		<annotation cp="😊">ຕາ | ໜ້າ | ໜ້າຍິ້ມຕາຍິ້ມ | ອົບຍິ້ມ | ຮິຮິ</annotation>
@@ -247,6 +755,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😚" type="tts">ຫຼັບຕາສົ່ງຈູບ</annotation>
 		<annotation cp="😙">ຈູບ | ຍິ້ມ | ໜ້າ | ໜ້າຍິ້ມສົ່ງຈູບ</annotation>
 		<annotation cp="😙" type="tts">ໜ້າຍິ້ມສົ່ງຈູບ</annotation>
+		<annotation cp="🥲">ຊາບຊຶ້ງ | ຍິ້ມ | ດີໃຈ | ນໍ້າຕາ | ພູມໃຈ | ໂລ່ງໃຈ | ໜ້າຍິ້ມດ້ວຍນໍ້າຕາ | ໜ້າຍິ້ມດ້ວຍນຳ້ຕາ</annotation>
+		<annotation cp="🥲" type="tts">ໜ້າຍິ້ມດ້ວຍນຳ້ຕາ</annotation>
 		<annotation cp="😋">ແຊບ | ນໍ້າລາຍໄຫຼ | ໜ້າ</annotation>
 		<annotation cp="😋" type="tts">ນໍ້າລາຍໄຫຼ</annotation>
 		<annotation cp="😛">ແລບລີ້ນ | ໜ້າ | ໜ້າແລບລິ້ນ</annotation>
@@ -263,10 +773,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤗" type="tts">ຍິ້ມກອດ</annotation>
 		<annotation cp="🤭">ໜ້າເອົາມືປ້ອງປາກ | ອຸຍ</annotation>
 		<annotation cp="🤭" type="tts">ໜ້າເອົາມືປ້ອງປາກ</annotation>
+		<annotation cp="🫢">ຕົກຕະລຶງ | ບໍ່ເຊື່ອ | ປະຫຼາດໃຈ | ຢ້ານ | ຢໍາເກງ | ໜ້າມືນຕາ ແລະ ເອົາມືປິດປາກ | ອາຍ</annotation>
+		<annotation cp="🫢" type="tts">ໜ້າມືນຕາ ແລະ ເອົາມືປິດປາກ</annotation>
+		<annotation cp="🫣">ຈ້ອງເບິ່ງ | ຈອບເບິ່ງ | ຈັບໃຈ | ໜ້າທີ່ກໍາລັງລັກເບິ່ງ</annotation>
+		<annotation cp="🫣" type="tts">ໜ້າທີ່ກໍາລັງລັກເບິ່ງ</annotation>
 		<annotation cp="🤫">ງຽບ | ມິດ | ໜ້າງຽບ</annotation>
 		<annotation cp="🤫" type="tts">ໜ້າງຽບ</annotation>
 		<annotation cp="🤔">ຄິດ | ໜ້າ | ໜ້າກຳລັງຄິດ</annotation>
 		<annotation cp="🤔" type="tts">ໜ້າກຳລັງຄິດ</annotation>
+		<annotation cp="🫡">ການຄໍານັບ | ແດດດ້າ | ຕົກລົງ | ທະຫານ | ແມ່ນແລ້ວ | ໜ້າຄໍານັບ</annotation>
+		<annotation cp="🫡" type="tts">ໜ້າຄໍານັບ</annotation>
 		<annotation cp="🤐">ປາກ | ໜ້າ | ໜ້າຮູດຊິບປາກ | ຮູດຊິບ</annotation>
 		<annotation cp="🤐" type="tts">ໜ້າຮູດຊິບປາກ</annotation>
 		<annotation cp="🤨">ສົງໄສ | ບໍ່ເຊື່ອ | ໜ້າພ້ອມຕາເບິ່ງຂຶ້ນເທິງ</annotation>
@@ -277,6 +793,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😑" type="tts">ໜ້າເຢັນຊາ</annotation>
 		<annotation cp="😶">ບໍ່ມີປາກ | ໜ້າ | ໜ້າບໍ່ມີປາກ</annotation>
 		<annotation cp="😶" type="tts">ໜ້າບໍ່ມີປາກ</annotation>
+		<annotation cp="🫥">ເກັບຕົວ | ເສົ້າ | ບໍ່ມີຕົວຕົນ | ລີ້ | ໜ້າເສັ້ນຈຸດ | ຫາຍຕົວ</annotation>
+		<annotation cp="🫥" type="tts">ໜ້າເສັ້ນຈຸດ</annotation>
+		<annotation cp="😶‍🌫">ໃຈລອຍ | ໜ້າໃນເມກ | ໜ້າໃນໝອກ | ຫົວໃນເມກ</annotation>
+		<annotation cp="😶‍🌫" type="tts">ໜ້າໃນເມກ</annotation>
 		<annotation cp="😏">ຍິ້ມເຍາະເຍີ້ຍ | ໜ້າ | ໜ້າຍິ້ມເຍາະເຍີ້ຍ</annotation>
 		<annotation cp="😏" type="tts">ໜ້າຍິ້ມເຍາະເຍີ້ຍ</annotation>
 		<annotation cp="😒">ບໍ່ມີຄວາມສຸກ | ໜ້າ | ໜ້າບໍ່ມ່ວນຊື່ນ</annotation>
@@ -285,8 +805,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">ໜ້າທີ່ມີຕາລັອກແລັກ</annotation>
 		<annotation cp="😬">ບູດບ້ຽວ | ໜ້າ | ໜ້າບູດບ້ຽວ</annotation>
 		<annotation cp="😬" type="tts">ໜ້າບູດບ້ຽວ</annotation>
+		<annotation cp="😮‍💨">ຊຶ່ມ | ເປົ່າປາກ | ໂລ່ງໃຈ | ໜ້າຫາຍໃຈອອກ | ຫາຍໃຈອອກ | ອ້າປາກຫາຍໃຈ | ຮ້ອງຄາງ</annotation>
+		<annotation cp="😮‍💨" type="tts">ໜ້າຫາຍໃຈອອກ</annotation>
 		<annotation cp="🤥">ຕົວະ | ພິນັອກຄິໂອ | ໜ້າ | ໜ້າຂີ້ຕົວ</annotation>
 		<annotation cp="🤥" type="tts">ໜ້າຂີ້ຕົວ</annotation>
+		<annotation cp="🫨">ແກວ່ງ | ແກວ່ງຫົວ | ສັ່ນ | ຊັອກ | ແຜ່ນດິນໄຫວ | ໜ້າ</annotation>
+		<annotation cp="🫨" type="tts">ແກວ່ງຫົວ</annotation>
+		<annotation cp="🙂‍↔">ແກວ່ງຫົວແນວນອນ | ສັ່ນ | ບໍ່ | ປະຕິເສດ</annotation>
+		<annotation cp="🙂‍↔" type="tts">ແກວ່ງຫົວແນວນອນ</annotation>
+		<annotation cp="🙂‍↕">ແກວ່ງຫົວແນວຕັ້ງ | ງຶກຫົວ | ແມ່ນ</annotation>
+		<annotation cp="🙂‍↕" type="tts">ແກວ່ງຫົວແນວຕັ້ງ</annotation>
 		<annotation cp="😌">ຜ່ອນຄາຍ | ໂລ່ງໃຈ | ໜ້າ | ໜ້າຜ່ອນຄາຍ</annotation>
 		<annotation cp="😌" type="tts">ໜ້າຜ່ອນຄາຍ</annotation>
 		<annotation cp="😔">ຄິດຫຼາຍ | ຜິດຫວັງ | ໜ້າ | ໜ້າຄິດບໍ່ອອກ</annotation>
@@ -313,16 +841,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥵" type="tts">ໃບໜ້າຮ້ອນໃໝ້</annotation>
 		<annotation cp="🥶">ກ້າມແຂງ | ຊຸ່ມເຢັນ | ໃບໜ້າຊຸ່ມເຢັນ | ຫຍາດນໍ້າແຂງ | ໜ້າສີຟ້າ | ໜ້າຕືງຂື້ນ</annotation>
 		<annotation cp="🥶" type="tts">ໃບໜ້າຊຸ່ມເຢັນ</annotation>
-		<annotation cp="🥴">ຕາເລືອກ | ຖືກສານພິດ | ໃບໜ້າໂຊກເສົ້າ | ປາກເຕີ່ຍ | ມືງົງ | ວິຫົວ</annotation>
+		<annotation cp="🥴">ຕາເຫຼືອກ | ຖືກສານພິດ | ໃບໜ້າໂສກເສົ້າ | ໃບໜ້າໂຊກເສົ້າ | ປາກເຕີ່ຍ | ມຶນງົງ | ວິນຫົວ</annotation>
 		<annotation cp="🥴" type="tts">ໃບໜ້າໂຊກເສົ້າ</annotation>
 		<annotation cp="😵">ວິນຫົວ | ໜ້າ | ໜ້າວິນຫົວ</annotation>
 		<annotation cp="😵" type="tts">ໜ້າວິນຫົວ</annotation>
+		<annotation cp="😵‍💫">ຖືກສະກົດຈິດ | ບັນຫາ | ເປັນວິນ | ໂວ້ | ໜ້າຫົວໝຸນ | ຫົວໝຸນ</annotation>
+		<annotation cp="😵‍💫" type="tts">ໜ້າຫົວໝຸນ</annotation>
 		<annotation cp="🤯">ຕົກໃຈ | ຫົວລະເບີດ</annotation>
 		<annotation cp="🤯" type="tts">ຫົວລະເບີດ</annotation>
 		<annotation cp="🤠">ຄາວເກີ | ຄາວບອຍ | ໜ້າ | ໜ້າໃສ່ໝວກຄາວບອຍ | ໝວກ</annotation>
 		<annotation cp="🤠" type="tts">ໜ້າໃສ່ໝວກຄາວບອຍ</annotation>
 		<annotation cp="🥳">ການສະໜອງ | ແກ | ງານປາຕີ | ໃບໜ້າໃນງານປາຕີ | ໝວກ</annotation>
 		<annotation cp="🥳" type="tts">ໃບໜ້າໃນງານປາຕີ</annotation>
+		<annotation cp="🥸">ດັງ | ບໍ່ລະບຸຕົວຕົນ | ປອມຕົວ | ແວ່ນຕາ | ໜ້າ | ໜ້າປອມໂຕ</annotation>
+		<annotation cp="🥸" type="tts">ໜ້າປອມໂຕ</annotation>
 		<annotation cp="😎">ຍິ້ມ | ແວ່ນ | ແວ່ນຕາກັນແດດ | ໜ້າ | ໜ້າຍິ້ມໃສ່ແວ່ນຕາກັນແດດ</annotation>
 		<annotation cp="😎" type="tts">ໜ້າຍິ້ມໃສ່ແວ່ນຕາກັນແດດ</annotation>
 		<annotation cp="🤓">ຄົນໂງ່ | ຈິງຈັງ | ໜ້າ | ໜ້າຄົນໂງ່</annotation>
@@ -331,6 +863,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧐" type="tts">ໜ້າໃສ່ແວ່ນຂ້າງດຽວ</annotation>
 		<annotation cp="😕">ສັບສົນ | ໜ້າ | ໜ້າສັບສົນ</annotation>
 		<annotation cp="😕" type="tts">ໜ້າສັບສົນ</annotation>
+		<annotation cp="🫤">ສົງໄສ | ບໍ່ແນ່ໃຈ | ຜົດຫວັງ | ໜ້າທີ່ມີປາກອ່ຽງ</annotation>
+		<annotation cp="🫤" type="tts">ໜ້າທີ່ມີປາກອ່ຽງ</annotation>
 		<annotation cp="😟">ກັງວົນ | ໜ້າ | ໜ້າກັງວົນ</annotation>
 		<annotation cp="😟" type="tts">ໜ້າກັງວົນ</annotation>
 		<annotation cp="🙁">ບຶ້ງ | ຫຍຸ້ງ | ໜ້າ | ໜ້າຫຍຸ້ງເລັກນ້ອຍ</annotation>
@@ -347,6 +881,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😳" type="tts">ໜ້າແດງ</annotation>
 		<annotation cp="🥺">ຕາຫ້ອຍໝານ້ອຍ | ໃບໜ້າອ້ອນວອນ | ປານີ | ຮ້ອງຂໍ້</annotation>
 		<annotation cp="🥺" type="tts">ໃບໜ້າອ້ອນວອນ</annotation>
+		<annotation cp="🥹">ໃຈຮ້າຍ | ເສົ້າ | ໂສກເສົ້າ | ຕໍ່ຕ້ານ | ພູມໃຈ | ໜ້າກັ້ນນໍ້າຕາ | ໄຫ້ | ຮ້ອງໄຫ້</annotation>
+		<annotation cp="🥹" type="tts">ໜ້າກັ້ນນໍ້າຕາ</annotation>
 		<annotation cp="😦">ປາກ | ຫຍຸ້ງ | ໜ້າ | ໜ້າຫຍຸ້ງອ້າປາກ | ອ້າ</annotation>
 		<annotation cp="😦" type="tts">ໜ້າຫຍຸ້ງອ້າປາກ</annotation>
 		<annotation cp="😧">ເຈັບປວດ | ໜ້າ | ໜ້າເຈັບປວດ</annotation>
@@ -433,8 +969,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙉" type="tts">ລິງປິດຫູ</annotation>
 		<annotation cp="🙊">ປິດປາກ | ລີງ | ລີງປິດປາກ</annotation>
 		<annotation cp="🙊" type="tts">ລີງປິດປາກ</annotation>
-		<annotation cp="💋">ຈູບ | ປາກ | ຮອຍຈູບ | ຮ່າງກາຍ</annotation>
-		<annotation cp="💋" type="tts">ຮອຍຈູບ</annotation>
 		<annotation cp="💌">ຄວາມຮັກ | ຈົດໝາຍ | ຈົດໝາຍຮັກ | ຫົວໃຈ</annotation>
 		<annotation cp="💌" type="tts">ຈົດໝາຍຮັກ</annotation>
 		<annotation cp="💘">ຄວາມຮັກ | ລູກສອນ | ຫົວໃຈ | ຫົວໃຈມີລູກສອນປັກ</annotation>
@@ -457,8 +991,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="❣" type="tts">ເຄື່ອງໝາຍທ້ວງເປັນຮູບຫົວໃຈໃຫຍ່</annotation>
 		<annotation cp="💔">ຫົວໃຈ | ຫົວໃຈແຕກ | ອົກຮັກ</annotation>
 		<annotation cp="💔" type="tts">ຫົວໃຈແຕກ</annotation>
+		<annotation cp="❤‍🔥">ໃໝ້ | ຫື່ນ | ຫົວໃຈ | ຫົວໃຈມີໄຟ | ຫົວໃຈອັນສັກສິດ | ຮັກ</annotation>
+		<annotation cp="❤‍🔥" type="tts">ຫົວໃຈມີໄຟ</annotation>
+		<annotation cp="❤‍🩹">ແຂງແຮງຂຶ້ນ | ສ້ອມແປງ | ສຸຂະພາບດີ | ດາມໃຈ | ປັບປຸງ | ພັກຟື້ນ | ຟື້ນຕົວ</annotation>
+		<annotation cp="❤‍🩹" type="tts">ດາມໃຈ</annotation>
 		<annotation cp="❤">ສີແດງ | ຫົວໃຈ | ຫົວໃຈສີແດງ</annotation>
 		<annotation cp="❤" type="tts">ຫົວໃຈສີແດງ</annotation>
+		<annotation cp="🩷">ສີບົວ | ມັກ | ໜ້າຮັກ | ຫົວໃຈ | ຫົວໃຈສີບົວ | ຮັກ</annotation>
+		<annotation cp="🩷" type="tts">ຫົວໃຈສີບົວ</annotation>
 		<annotation cp="🧡">ໝາກກ້ຽງ | ຫົວໃຈໝາກກ້ຽງ</annotation>
 		<annotation cp="🧡" type="tts">ຫົວໃຈໝາກກ້ຽງ</annotation>
 		<annotation cp="💛">ຫົວໃຈ | ຫົວໃຈສີເຫຼືອງ</annotation>
@@ -467,14 +1007,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💚" type="tts">ຫົວໃຈສີຂຽວ</annotation>
 		<annotation cp="💙">ຫົວໃຈ | ຫົວໃຈສີຟ້າ</annotation>
 		<annotation cp="💙" type="tts">ຫົວໃຈສີຟ້າ</annotation>
+		<annotation cp="🩵">ສີຄາມ | ສີທະເລ | ສີຟ້າອ່ອນ | ຫົວໃຈ | ຫົວໃຈສີຟ້າອ່ອນ</annotation>
+		<annotation cp="🩵" type="tts">ຫົວໃຈສີຟ້າອ່ອນ</annotation>
 		<annotation cp="💜">ຫົວໃຈ | ຫົວໃຈສີມ່ວງ</annotation>
 		<annotation cp="💜" type="tts">ຫົວໃຈສີມ່ວງ</annotation>
 		<annotation cp="🤎">ສີ​ນ້ຳ​ຕານ | ຫົວ​ໃຈ | ຫົວ​ໃຈ​ນ້ຳ​ຕານ</annotation>
 		<annotation cp="🤎" type="tts">ຫົວ​ໃຈ​ນ້ຳ​ຕານ</annotation>
 		<annotation cp="🖤">ໃຈ | ຊົ່ວຮ້າຍ | ດຳ | ຫົວໃຈສີດຳ</annotation>
 		<annotation cp="🖤" type="tts">ຫົວໃຈສີດຳ</annotation>
+		<annotation cp="🩶">ສີເງິນ | ສີດ້ານ | ສີເທົາ | ຫົວໃຈ | ຫົວໃຈສີເທົາ</annotation>
+		<annotation cp="🩶" type="tts">ຫົວໃຈສີເທົາ</annotation>
 		<annotation cp="🤍">ສີ​ຂາວ | ຫົວ​ໃຈ | ຫົວ​ໃຈ​ຂາວ</annotation>
 		<annotation cp="🤍" type="tts">ຫົວ​ໃຈ​ຂາວ</annotation>
+		<annotation cp="💋">ຈູບ | ປາກ | ຮອຍຈູບ | ຮ່າງກາຍ</annotation>
+		<annotation cp="💋" type="tts">ຮອຍຈູບ</annotation>
 		<annotation cp="💯">100 | ຄະແນນ | ຄະແນນຮ້ອຍ | ຮ້ອຍ</annotation>
 		<annotation cp="💯" type="tts">ຄະແນນຮ້ອຍ</annotation>
 		<annotation cp="💢">ໃຈຮ້າຍ | ສັນຍາລັກໃຈຮ້າຍ | ອາລົມ</annotation>
@@ -489,8 +1035,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💨" type="tts">ເຄື່ອນທີ່ໄວ</annotation>
 		<annotation cp="🕳">ຮູ</annotation>
 		<annotation cp="🕳" type="tts">ຮູ</annotation>
-		<annotation cp="💣">ຕະລົກ | ລະເບີດ</annotation>
-		<annotation cp="💣" type="tts">ລະເບີດ</annotation>
 		<annotation cp="💬">ຄຳເວົ້າ | ບົດສົນທະນາ | ປູມເປົ້າ | ປູມເປົ້າຄຳເວົ້າ</annotation>
 		<annotation cp="💬" type="tts">ປູມເປົ້າຄຳເວົ້າ</annotation>
 		<annotation cp="👁‍🗨">ກ່ອງຄຳເວົ້າ | ຕາ | ຕາໃນປ່ອງຄຳເວົ້າ | ປ່ອງຄຳເວົ້າ | ພະຍານ</annotation>
@@ -513,14 +1057,30 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="✋" type="tts">ຍົກມືຂຶ້ນ</annotation>
 		<annotation cp="🖖">ຊູນິ້ວແບບວັນແຄນ | ນິ້ວມື | ວັນແຄນ | ຮ່າງກາຍ</annotation>
 		<annotation cp="🖖" type="tts">ຊູນິ້ວແບບວັນແຄນ</annotation>
+		<annotation cp="🫱">ຂວາມື | ດ້ານຂວາ | ໄປທາງຂວາ | ມື | ມືຊີ້ໄປທາງຂວາ</annotation>
+		<annotation cp="🫱" type="tts">ມືຊີ້ໄປທາງຂວາ</annotation>
+		<annotation cp="🫲">ຊ້າຍມື | ດ້ານຊ້າຍ | ໄປທາງຊ້າຍ | ມື | ມືຊີ້ໄປທາງຊ້າຍ</annotation>
+		<annotation cp="🫲" type="tts">ມືຊີ້ໄປທາງຊ້າຍ</annotation>
+		<annotation cp="🫳">ປ່ອຍ | ຝາມືລົງ | ເລີກ | ໄລ່ | ວາງ</annotation>
+		<annotation cp="🫳" type="tts">ຝາມືລົງ</annotation>
+		<annotation cp="🫴">ກວັກມື | ສະເໜີ | ແບຝາມື | ມາ | ຮັບ</annotation>
+		<annotation cp="🫴" type="tts">ແບຝາມື</annotation>
+		<annotation cp="🫷">ຍູ້ | ທາງຊ້າຍ | ປະຕິເສດ | ປັດມືໄປທາງຊ້າຍ | ແປະມື | ຢຸດ | ລໍຖ້າ</annotation>
+		<annotation cp="🫷" type="tts">ປັດມືໄປທາງຊ້າຍ</annotation>
+		<annotation cp="🫸">ຍູ້ | ທາງຂວາ | ປະຕິເສດ | ປັດມືໄປທາງຂວາ | ແປະມື | ຢຸດ | ລໍຖ້າ</annotation>
+		<annotation cp="🫸" type="tts">ປັດມືໄປທາງຂວາ</annotation>
 		<annotation cp="👌">ຍົກມືຕົກລົງ | ນິ້ວ | ມື | ຮ່າງກາຍ</annotation>
 		<annotation cp="👌" type="tts">ຍົກມືຕົກລົງ</annotation>
+		<annotation cp="🤌">ການສອບຖາມ | ຈຸ້ມ | ຈຸ້ມ​ນິ້ວ​ມື | ສຽດສີ | ນິ້ວມື | ພາສາມື</annotation>
+		<annotation cp="🤌" type="tts">ຈຸ້ມ​ນິ້ວ​ມື</annotation>
 		<annotation cp="🤏">ຈຳ​ນວນ​ໜ້ອຍ | ຢິບ​ມື</annotation>
 		<annotation cp="🤏" type="tts">ຢິບ​ມື</annotation>
 		<annotation cp="✌">ສອງນິ້ວ | ສູ້ໆ | ຊູສອງນິ້ວ | ມື</annotation>
 		<annotation cp="✌" type="tts">ຊູສອງນິ້ວ</annotation>
 		<annotation cp="🤞">ໄຂວ່ | ໂຊກດີ | ນິ້ວ | ນິ້ວໄຂວ່ກັນ | ມື</annotation>
 		<annotation cp="🤞" type="tts">ນິ້ວໄຂວ່ກັນ</annotation>
+		<annotation cp="🫰">ຄວາມຮັກ | ເງິນ | ດີດນິ້ວ | ແພງ | ມືນິ້ວຊີ້ ແລະ ນິ້ວໂປ້ໄຂວ່ກັນ | ຫົວໃຈ</annotation>
+		<annotation cp="🫰" type="tts">ມືນິ້ວຊີ້ ແລະ ນິ້ວໂປ້ໄຂວ່ກັນ</annotation>
 		<annotation cp="🤟">ILY | ທ່າເລີບຢູ | ມື</annotation>
 		<annotation cp="🤟" type="tts">ທ່າເລີບຢູ</annotation>
 		<annotation cp="🤘">ເຂົາ | ຊູນີ້ວແບບສັນຍາລັກເຂົາ | ນິ້ວມື | ຮ່າງກາຍ</annotation>
@@ -539,6 +1099,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👇" type="tts">ຫຼັງມືນີ້ວຊີ້ລົງ</annotation>
 		<annotation cp="☝">ຂຶ້ນ | ຊີ້ | ນິ້ວ | ຝ່າມືນີ້ວຊີ້ຂຶ້ນ | ມື | ຮ່າງກາຍ</annotation>
 		<annotation cp="☝" type="tts">ຝ່າມືນີ້ວຊີ້ຂຶ້ນ</annotation>
+		<annotation cp="🫵">ຊີ້ | ທ່ານ | ນີ້ວຊີ້ຊີ້ຜູ້ຊົມ</annotation>
+		<annotation cp="🫵" type="tts">ນີ້ວຊີ້ຊີ້ຜູ້ຊົມ</annotation>
 		<annotation cp="👍">ນິ້ວ | ໂປ້ມືຂຶ້ນ | ມື | ຮ່າງກາຍ</annotation>
 		<annotation cp="👍" type="tts">ໂປ້ມືຂຶ້ນ</annotation>
 		<annotation cp="👎">ນິ້ວ | ໂປ້ມືລົງ | ມື | ຮ່າງກາຍ</annotation>
@@ -555,6 +1117,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👏" type="tts">ຕົບມື</annotation>
 		<annotation cp="🙌">ຄົນຍົກມືຂຶ້ນ | ດີໃຈ | ມື | ຮ່າງກາຍ</annotation>
 		<annotation cp="🙌" type="tts">ຄົນຍົກມືຂຶ້ນ</annotation>
+		<annotation cp="🫶">ຄວາມຮັກ | ມືຮູບຊົງຫົວໃຈ | ຮັກ</annotation>
+		<annotation cp="🫶" type="tts">ມືຮູບຊົງຫົວໃຈ</annotation>
 		<annotation cp="👐">ແບມື | ແບມືອອກສອງຂ້າງ | ຮ່າງກາຍ</annotation>
 		<annotation cp="👐" type="tts">ແບມືອອກສອງຂ້າງ</annotation>
 		<annotation cp="🤲">ຍົກຝ່າມືຂຶ້ນພ້ອມກັນ | ນັກພາວະນາ</annotation>
@@ -587,6 +1151,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👃" type="tts">ດັງ</annotation>
 		<annotation cp="🧠">ຄວາມສະຫຼາດ | ສະໝອງ</annotation>
 		<annotation cp="🧠" type="tts">ສະໝອງ</annotation>
+		<annotation cp="🫀">ການເຕັ້ນຂອງຫົວໃຈ | ຊີບພະຈອນ | ທາງກາງ | ໂລກຫົວໃຈ | ອະໄວຍະວະ | ອະໄວຍະວະຫົວໃຈ</annotation>
+		<annotation cp="🫀" type="tts">ອະໄວຍະວະຫົວໃຈ</annotation>
+		<annotation cp="🫁">ການຫາຍໃຈ | ການຫາຍໃຈເຂົ້າ | ການຫາຍໃຈອອກ | ປອດ | ລົມຫາຍໃຈ | ອະໄວຍະວະ</annotation>
+		<annotation cp="🫁" type="tts">ປອດ</annotation>
 		<annotation cp="🦷">ແຂ້ວ | ທັນຕະແພດ</annotation>
 		<annotation cp="🦷" type="tts">ແຂ້ວ</annotation>
 		<annotation cp="🦴">ກະດູກ | ກະດູກຮ່າງ</annotation>
@@ -599,6 +1167,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👅" type="tts">ລີ້ນ</annotation>
 		<annotation cp="👄">ປາກ | ຮ່າງກາຍ</annotation>
 		<annotation cp="👄" type="tts">ປາກ</annotation>
+		<annotation cp="🫦">ກັງວົນໃຈ | ກັດສົບ | ຈີບ | ຕື່ນເຕັ້ນ | ເປັນຫ່ວງ | ຢ້ານ | ອຶດອັດ</annotation>
+		<annotation cp="🫦" type="tts">ກັດສົບ</annotation>
 		<annotation cp="👶">ຄົນ | ແອນ້ອຍ</annotation>
 		<annotation cp="👶" type="tts">ແອນ້ອຍ</annotation>
 		<annotation cp="🧒">ເດັກ | ເພດກາງ | ໜຸ່ມ</annotation>
@@ -611,24 +1181,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">ຜູ້ໃຫຍ່</annotation>
 		<annotation cp="👱">ຄົນ | ຄົນຜົມສີເຫຼືອງອ່ອນ | ຜົມສີເຫຼືອງອ່ອນ</annotation>
 		<annotation cp="👱" type="tts">ຄົນຜົມສີເຫຼືອງອ່ອນ</annotation>
-		<annotation cp="🧑‍🍼">ຄົນ | ຄົນປ້ອນນົມ​ລູກ | ດູ​ແລ | ປ້ອນ​ນົມ | ລູກ | ແອ​ນ້ອຍ</annotation>
-		<annotation cp="🧑‍🍼" type="tts">ຄົນປ້ອນນົມ​ລູກ</annotation>
-		<annotation cp="🧑‍🎄">ຄລັອສ (ບໍ່​ລະ​ບຸ​ເພດ) | ຄລັອສ, ຄຣິສມາສ</annotation>
-		<annotation cp="🧑‍🎄" type="tts">ຄລັອສ (ບໍ່​ລະ​ບຸ​ເພດ)</annotation>
 		<annotation cp="👨">ຄົນ | ຜູ້ຊາຍ</annotation>
 		<annotation cp="👨" type="tts">ຜູ້ຊາຍ</annotation>
 		<annotation cp="🧔">ຄົນມີໜວດ | ໜວດ</annotation>
 		<annotation cp="🧔" type="tts">ຄົນມີໜວດ</annotation>
+		<annotation cp="🧔‍♂">ຜູ້ຊາຍ | ຜູ້ຊາຍມີໜວດ | ໜວດ</annotation>
+		<annotation cp="🧔‍♂" type="tts">ຜູ້ຊາຍມີໜວດ</annotation>
 		<annotation cp="👱‍♂">ຊາຍຜົມບລອນ | ບລອນ | ຜູ້ຊາຍ | ຜົມສີ | ຜົມທອງ</annotation>
 		<annotation cp="👱‍♂" type="tts">ຊາຍຜົມບລອນ</annotation>
-		<annotation cp="👨‍🍼">ດູ​ແລ | ປ້ອນ​ນົມ | ຜູ້​ຊາຍ | ຜູ້​ຊາຍປ້ອນນົມ​ລູກ | ລູກ | ແອ​ນ້ອຍ</annotation>
-		<annotation cp="👨‍🍼" type="tts">ຜູ້​ຊາຍປ້ອນນົມ​ລູກ</annotation>
 		<annotation cp="👩">ຄົນ | ແມ່ຍິງ</annotation>
 		<annotation cp="👩" type="tts">ແມ່ຍິງ</annotation>
+		<annotation cp="🧔‍♀">ຜູ້ຍິງ | ຜູ້ຍິງມີໜວດ | ໜວດ</annotation>
+		<annotation cp="🧔‍♀" type="tts">ຜູ້ຍິງມີໜວດ</annotation>
 		<annotation cp="👱‍♀">ຍິງຜົມບລອນ | ບລອນ | ຜູ້ຍິງ | ຜົມສີ | ຜົມທອງ</annotation>
 		<annotation cp="👱‍♀" type="tts">ຍິງຜົມບລອນ</annotation>
-		<annotation cp="👩‍🍼">ດູແລ | ປ້ອນນົມ | ຜູ້ຍິງ | ຜູ້​ຍິງປ້ອນນົມ​ລູກ | ລູກ | ແອນ້ອຍ</annotation>
-		<annotation cp="👩‍🍼" type="tts">ຜູ້​ຍິງປ້ອນນົມ​ລູກ</annotation>
 		<annotation cp="🧓">ແກ່ | ຜູ້ໃຫຍ່ທີ່ມີອາຍຸ | ເພດກາງ</annotation>
 		<annotation cp="🧓" type="tts">ຜູ້ໃຫຍ່ທີ່ມີອາຍຸ</annotation>
 		<annotation cp="👴">ຄົນ | ຊາຍເຖົ້າ | ຜູ້ຊາຍເຖົ້າ | ຜູ້ເຖົ້າ</annotation>
@@ -695,7 +1261,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤷‍♂" type="tts">ຜູ້ຊາຍຫໍ່ໄຫລ່</annotation>
 		<annotation cp="🤷‍♀">ສົງໄສ | ຍັກໄຫລ່ | ບໍ່ສົນໃຈ | ບໍ່ຕ່າງກັນ | ຜູ້ຍິງ | ຜູ້ຍິງຫໍ່ໄຫລ່ | ຫໍ່ໄຫລ່</annotation>
 		<annotation cp="🤷‍♀" type="tts">ຜູ້ຍິງຫໍ່ໄຫລ່</annotation>
-		<annotation cp="🧑‍⚕">ດ໋ອກເຕີ້ | ດຸແລສຸຊະພາບ | ນັກບຳບັດໂລກ | ພະຍສບານ | ພະນັກງານກວດສຸຂະພາບ</annotation>
+		<annotation cp="🧑‍⚕">ການເບິ່ງແຍງສຸຂະພາບ | ທ່ານໝໍ | ນັກບໍາບັດ | ພະຍາບານ | ພະນັກງານກວດສຸຂະພາບ | ພະນັກງານສາທາລະນະສຸກ</annotation>
 		<annotation cp="🧑‍⚕" type="tts">ພະນັກງານກວດສຸຂະພາບ</annotation>
 		<annotation cp="👨‍⚕">ສຸຂະພາບ | ບຳບັດ | ຜູ້ຊາຍ | ຜູ້ຊາຍເຮັດວຽກສຸຂະພາບ | ພະຍາບານ | ແພດ | ໝໍ</annotation>
 		<annotation cp="👨‍⚕" type="tts">ຜູ້ຊາຍເຮັດວຽກສຸຂະພາບ</annotation>
@@ -785,7 +1351,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨‍🚀" type="tts">ນັກບິນອະວະກາດຊາຍ</annotation>
 		<annotation cp="👩‍🚀">ຈະຫຼວດ | ນັກບິນ | ນັກບິນອະວະກາດຍິງ | ຜູ້ຍິງ | ອະວະກາດ</annotation>
 		<annotation cp="👩‍🚀" type="tts">ນັກບິນອະວະກາດຍິງ</annotation>
-		<annotation cp="🧑‍🚒" draft="provisional">ນັກດັບເພິ້ງ</annotation>
+		<annotation cp="🧑‍🚒">ນັກດັບເພິ້ງ | ນັກດັບເພີງ | ລົດດັບເພີງ</annotation>
 		<annotation cp="🧑‍🚒" type="tts">ນັກດັບເພິ້ງ</annotation>
 		<annotation cp="👨‍🚒">ດັບເພີງ | ນັກດັບເພີງ | ນັກດັບເພີງຊາຍ | ຜູ້ຊາຍ | ໄຟໄໝ້</annotation>
 		<annotation cp="👨‍🚒" type="tts">ນັກດັບເພີງຊາຍ</annotation>
@@ -809,12 +1375,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💂‍♂" type="tts">ເວນຍາມຊາຍ</annotation>
 		<annotation cp="💂‍♀">ປ້ອງກັນ | ຜູ້ຍິງ | ເວນຍາມ | ເວນຍາມຍິງ</annotation>
 		<annotation cp="💂‍♀" type="tts">ເວນຍາມຍິງ</annotation>
+		<annotation cp="🥷">ເຊື່ອງໄວ້ | ນັກສູ້ | ນິນຈາ | ລັກຊັບ</annotation>
+		<annotation cp="🥷" type="tts">ນິນຈາ</annotation>
 		<annotation cp="👷">ກໍ່ສ້າງ | ຄົນ | ຄົນງານກໍ່ສ້າງ | ປອດໄພໄວ້ກ່ອນ</annotation>
 		<annotation cp="👷" type="tts">ຄົນງານກໍ່ສ້າງ</annotation>
 		<annotation cp="👷‍♂">ກໍ່ສ້າງ | ກຳມະກອນ | ຜູ້ຊາຍ | ແຮງງານ | ແຮງງານກໍ່ສ້າງຊາຍ</annotation>
 		<annotation cp="👷‍♂" type="tts">ແຮງງານກໍ່ສ້າງຊາຍ</annotation>
 		<annotation cp="👷‍♀">ກໍ່ສ້າງ | ກຳມະກອນ | ຜູ້ຍິງ | ແຮງງານ | ແຮງງານກໍ່ສ້າງຍິງ</annotation>
 		<annotation cp="👷‍♀" type="tts">ແຮງງານກໍ່ສ້າງຍິງ</annotation>
+		<annotation cp="🫅">ກະສັດ | ຂຸນນາງ | ຄົນໃສ່ມົງກຸດ | ເຈົ້າຊີວິດ | ລາຊະວົງ</annotation>
+		<annotation cp="🫅" type="tts">ຄົນໃສ່ມົງກຸດ</annotation>
 		<annotation cp="🤴">ເຈົ້າຊາຍ | ອົງຊາຍ</annotation>
 		<annotation cp="🤴" type="tts">ເຈົ້າຊາຍ</annotation>
 		<annotation cp="👸">ເຈົ້າຍິງ | ເທບນິຍາມ</annotation>
@@ -831,26 +1401,38 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧕" type="tts">ຜູ້ຍິງໃສ່ຜ້າຄຸມຫົວ</annotation>
 		<annotation cp="🤵">ຄົນໃສ່ຊຸດທັກຊິໂດ | ເຈົ້າບ່າວ | ທັກຊິໂດ | ຜູ້ຊາຍ</annotation>
 		<annotation cp="🤵" type="tts">ຄົນໃສ່ຊຸດທັກຊິໂດ</annotation>
-		<annotation cp="🤵‍♀">ທັກຊິໂດ | ຜູ້​ຍິງ | ຜູ້​ຍິງໃສ່ຊຸດທັກຊິໂດ</annotation>
-		<annotation cp="🤵‍♀" type="tts">ຜູ້​ຍິງໃສ່ຊຸດທັກຊິໂດ</annotation>
 		<annotation cp="🤵‍♂">ທັກຊິໂດ | ຜູ້​ຊາຍ | ຜູ້​ຊາຍໃສ່ຊຸດທັກຊິໂດ</annotation>
 		<annotation cp="🤵‍♂" type="tts">ຜູ້​ຊາຍໃສ່ຊຸດທັກຊິໂດ</annotation>
+		<annotation cp="🤵‍♀">ທັກຊິໂດ | ຜູ້​ຍິງ | ຜູ້​ຍິງໃສ່ຊຸດທັກຊິໂດ</annotation>
+		<annotation cp="🤵‍♀" type="tts">ຜູ້​ຍິງໃສ່ຊຸດທັກຊິໂດ</annotation>
 		<annotation cp="👰">ເຈົ້າສາວ | ເຈົ້າສາວໃສ່ຜ້າຄຸມໜ້າ | ແຕ່ງງານ</annotation>
 		<annotation cp="👰" type="tts">ເຈົ້າສາວໃສ່ຜ້າຄຸມໜ້າ</annotation>
-		<annotation cp="👰‍♀">ຜ້າຄຸມໜ້າ | ຜູ້ຍິງ | ຜູ້ຍິງໃສ່ຜ້າຄຸມໜ້າ</annotation>
-		<annotation cp="👰‍♀" type="tts">ຜູ້ຍິງໃສ່ຜ້າຄຸມໜ້າ</annotation>
 		<annotation cp="👰‍♂">ຜ້າຄຸມໜ້າ | ຜູ້ຊາຍ | ຜູ້ຊາຍໃສ່ຜ້າຄຸມໜ້າ</annotation>
 		<annotation cp="👰‍♂" type="tts">ຜູ້ຊາຍໃສ່ຜ້າຄຸມໜ້າ</annotation>
+		<annotation cp="👰‍♀">ຜ້າຄຸມໜ້າ | ຜູ້ຍິງ | ຜູ້ຍິງໃສ່ຜ້າຄຸມໜ້າ</annotation>
+		<annotation cp="👰‍♀" type="tts">ຜູ້ຍິງໃສ່ຜ້າຄຸມໜ້າ</annotation>
 		<annotation cp="🤰">ຖືພາ | ຜູ້ຍິງ | ຜູ້ຍິງຖືພາ</annotation>
 		<annotation cp="🤰" type="tts">ຜູ້ຍິງຖືພາ</annotation>
+		<annotation cp="🫃">ຖືພາ | ທ້ອງ | ທ້ອງໃຄ່ | ຜູ້ຊາຍຖືພາ | ອິ່ມ</annotation>
+		<annotation cp="🫃" type="tts">ຜູ້ຊາຍຖືພາ</annotation>
+		<annotation cp="🫄">ຄົນຖືພາ | ຖືພາ | ທ້ອງ | ທ້ອງໃຄ່ | ອິ່ມ</annotation>
+		<annotation cp="🫄" type="tts">ຄົນຖືພາ</annotation>
 		<annotation cp="🤱">ນົມ | ປ້ອນນົມ | ໃຫ້ນົມ | ແອນ້ອຍ</annotation>
 		<annotation cp="🤱" type="tts">ປ້ອນນົມ</annotation>
+		<annotation cp="👩‍🍼">ດູແລ | ປ້ອນນົມ | ຜູ້ຍິງ | ຜູ້​ຍິງປ້ອນນົມ​ລູກ | ລູກ | ແອນ້ອຍ</annotation>
+		<annotation cp="👩‍🍼" type="tts">ຜູ້​ຍິງປ້ອນນົມ​ລູກ</annotation>
+		<annotation cp="👨‍🍼">ດູ​ແລ | ປ້ອນ​ນົມ | ຜູ້​ຊາຍ | ຜູ້​ຊາຍປ້ອນນົມ​ລູກ | ລູກ | ແອ​ນ້ອຍ</annotation>
+		<annotation cp="👨‍🍼" type="tts">ຜູ້​ຊາຍປ້ອນນົມ​ລູກ</annotation>
+		<annotation cp="🧑‍🍼">ຄົນ | ຄົນປ້ອນນົມ​ລູກ | ດູ​ແລ | ປ້ອນ​ນົມ | ລູກ | ແອ​ນ້ອຍ</annotation>
+		<annotation cp="🧑‍🍼" type="tts">ຄົນປ້ອນນົມ​ລູກ</annotation>
 		<annotation cp="👼">ເທບນິຍາຍ | ນາງຟ້າ | ນາງຟ້າເດັກ</annotation>
 		<annotation cp="👼" type="tts">ນາງຟ້າເດັກ</annotation>
 		<annotation cp="🎅">ຄຣິສມາດ | ຊາຕາຄຣັອສ | ຊານຕາຄລັອສ</annotation>
 		<annotation cp="🎅" type="tts">ຊານຕາຄລັອສ</annotation>
 		<annotation cp="🤶">ຄຣິສມາສ | ນາງຄລອສ | ແມ່ | ແມ່ຄຣິສມາສ</annotation>
 		<annotation cp="🤶" type="tts">ແມ່ຄຣິສມາສ</annotation>
+		<annotation cp="🧑‍🎄">ຄຣິສມາສ | ຄລັອສ | ຄລັອສ (ບໍ່​ລະ​ບຸ​ເພດ)</annotation>
+		<annotation cp="🧑‍🎄" type="tts">ຄລັອສ (ບໍ່​ລະ​ບຸ​ເພດ)</annotation>
 		<annotation cp="🦸">ຈອມພະລັງ | ສຸດຍອດພະເອກ | ດີ | ບັນຈອມພະລັງ | ພະເອກ | ມາດພະເອກ</annotation>
 		<annotation cp="🦸" type="tts">ສຸດຍອດພະເອກ</annotation>
 		<annotation cp="🦸‍♂">ຈອມພະລັງ | ດີ | ບຸລຸດ | ພະເອກ | ພະເອກຍອດຊາຍ</annotation>
@@ -905,6 +1487,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧟‍♂" type="tts">ຊອມບີ້ຜູ້ຊາຍ</annotation>
 		<annotation cp="🧟‍♀">ຊອມບີ້ຍິງ | ຜີດິບ | ວອກຄິງເດດ</annotation>
 		<annotation cp="🧟‍♀" type="tts">ຊອມບີ້ຍິງ</annotation>
+		<annotation cp="🧌">ຄົນເຕ້ຍ | ຈິນຕະນາການ | ສັດປະຫຼາດ | ເທບນິຍາຍ</annotation>
+		<annotation cp="🧌" type="tts">ຄົນເຕ້ຍ</annotation>
 		<annotation cp="💆">ເສີມສວຍ | ນວດ | ນວດໜ້າ</annotation>
 		<annotation cp="💆" type="tts">ນວດໜ້າ</annotation>
 		<annotation cp="💆‍♂">ຊາຍ | ນວດ | ນວດໜ້າຜູ້ຊາຍ | ຜູ້ຊາຍ | ໜ້າ</annotation>
@@ -935,19 +1519,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧎‍♂" type="tts">ຜູ້​ຊາຍ​ຄຸ​ເຂົ່າ</annotation>
 		<annotation cp="🧎‍♀">ຄຸ​ເຂົ່າ | ຜູ້​ຍິງ | ຜູ້​ຍິງ​ຄຸ​ເຂົ່າ</annotation>
 		<annotation cp="🧎‍♀" type="tts">ຜູ້​ຍິງ​ຄຸ​ເຂົ່າ</annotation>
-		<annotation cp="🧑‍🦯" draft="provisional">ຄົນທີ່ມີ​ໄມ້​ຄັນ​ເທົ້າ​ນຳ​ທາງ</annotation>
-		<annotation cp="🧑‍🦯" type="tts">ຄົນທີ່ມີ​ໄມ້​ຄັນ​ເທົ້າ​ນຳ​ທາງ</annotation>
+		<annotation cp="🧑‍🦯">ຄວາມສາມາດໃນການເຂົ້າເຖິງ | ຄົນກັບໄມ້ເທົ້າສີຂາວ | ຕາບອດ</annotation>
+		<annotation cp="🧑‍🦯" type="tts">ຄົນກັບໄມ້ເທົ້າສີຂາວ</annotation>
 		<annotation cp="👨‍🦯">ຄວາມ​ສາ​ມາດ​ເຂົ້າ​ເຖິງ | ຕາ​ບອດ | ຜູ້​ຊາຍ | ຜູ້​ຊາຍ​ຖື​ໄມ້​ຄັນ​ເທົ້າ​ນຳ​ທາງ</annotation>
 		<annotation cp="👨‍🦯" type="tts">ຜູ້​ຊາຍ​ຖື​ໄມ້​ຄັນ​ເທົ້າ​ນຳ​ທາງ</annotation>
 		<annotation cp="👩‍🦯">ຄວາມ​ສາ​ມາດ​ເຂົ້າ​ເຖິງ | ຕາ​ບອດ | ຜູ້​ຍິງ | ຜູ້​ຍິງ​ຖື​ໄມ້​ຄັນ​ເທົ້າ​ນຳ​ທາງ</annotation>
 		<annotation cp="👩‍🦯" type="tts">ຜູ້​ຍິງ​ຖື​ໄມ້​ຄັນ​ເທົ້າ​ນຳ​ທາງ</annotation>
-		<annotation cp="🧑‍🦼" draft="provisional">ຄົນນັ່ງ​ລໍ້​ຍູ້ຕິດ​ຕັ້ງ​ມໍ​ເຕີ້</annotation>
+		<annotation cp="🧑‍🦼">ຄວາມສາມາດໃນການເຂົ້າເຖິງ | ຄົນນັ່ງ​ລໍ້​ຍູ້ຕິດ​ຕັ້ງ​ມໍ​ເຕີ້ | ລໍ້ຍູ້</annotation>
 		<annotation cp="🧑‍🦼" type="tts">ຄົນນັ່ງ​ລໍ້​ຍູ້ຕິດ​ຕັ້ງ​ມໍ​ເຕີ້</annotation>
 		<annotation cp="👨‍🦼">ຄວາມ​ສາ​ມາດ​ເຂົ້າ​ເຖິງ | ຜູ້​ຊາຍ | ຜູ້​ຊາຍ​ນັ່ງ​ລໍ້​ຍູ້ຕິດ​ຕັ້ງ​ມໍ​ເຕີ້ | ລໍ້​ຍູ້</annotation>
 		<annotation cp="👨‍🦼" type="tts">ຜູ້​ຊາຍ​ນັ່ງ​ລໍ້​ຍູ້ຕິດ​ຕັ້ງ​ມໍ​ເຕີ້</annotation>
 		<annotation cp="👩‍🦼">ຄວາມ​ສາ​ມາດ​ເຂົ້າ​ເຖິງ | ຜູ້​ຍິງ | ຜູ້​ຍິງນັ່ງ​ລໍ້​ຍູ້ຕິດ​ຕັ້ງ​ມໍ​ເຕີ້ | ລໍ້​ຍູ້</annotation>
 		<annotation cp="👩‍🦼" type="tts">ຜູ້​ຍິງນັ່ງ​ລໍ້​ຍູ້ຕິດ​ຕັ້ງ​ມໍ​ເຕີ້</annotation>
-		<annotation cp="🧑‍🦽" draft="provisional">ຄົນນັ່ງ​ລໍ້​ຍູ້ແບບ​ບັງ​ຄັບ​ເອງ</annotation>
+		<annotation cp="🧑‍🦽">ຄວາມ​ສາ​ມາດ​ເຂົ້າ​ເຖິງ | ຄົນນັ່ງ​ລໍ້​ຍູ້ແບບ​ບັງ​ຄັບ​ເອງ | ລໍ້ຍູ້</annotation>
 		<annotation cp="🧑‍🦽" type="tts">ຄົນນັ່ງ​ລໍ້​ຍູ້ແບບ​ບັງ​ຄັບ​ເອງ</annotation>
 		<annotation cp="👨‍🦽">ຄວາມ​ສາ​ມາດ​ເຂົ້າ​ເຖິງ | ຜູ້​ຊາຍ | ຜູ້​ຊາຍ​ນັ່ງ​ລໍ້​ຍູ້ແບບ​ບັງ​ຄັບ​ເອງ | ລໍ້​ຍູ້</annotation>
 		<annotation cp="👨‍🦽" type="tts">ຜູ້​ຊາຍ​ນັ່ງ​ລໍ້​ຍູ້ແບບ​ບັງ​ຄັບ​ເອງ</annotation>
@@ -1091,14 +1675,24 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💏" type="tts">ຈູບ</annotation>
 		<annotation cp="💑">ຄວາມຮັກ | ຄູ່ຮັກ | ຄູ່ຮັກກັບຫົວໃຈ</annotation>
 		<annotation cp="💑" type="tts">ຄູ່ຮັກກັບຫົວໃຈ</annotation>
-		<annotation cp="👪">ຄອບຄົວ | ຄົນ | ພໍ່ | ແມ່</annotation>
-		<annotation cp="👪" type="tts">ຄອບຄົວ</annotation>
 		<annotation cp="🗣">ຄົນ | ເງົາ | ເງົາຄົນກຳລັງເວົ້າ | ເວົ້າ</annotation>
 		<annotation cp="🗣" type="tts">ເງົາຄົນກຳລັງເວົ້າ</annotation>
 		<annotation cp="👤">ຄົນ | ເງົາ | ເງົາເຄິ່ງໂຕຄົນດຽວ</annotation>
 		<annotation cp="👤" type="tts">ເງົາເຄິ່ງໂຕຄົນດຽວ</annotation>
 		<annotation cp="👥">ຄົນ | ເງົາ | ເງົາເຄິ່ງໂຕສອງຄົນ</annotation>
 		<annotation cp="👥" type="tts">ເງົາເຄິ່ງໂຕສອງຄົນ</annotation>
+		<annotation cp="🫂">ກອດ | ຂອບໃຈ | ຄົນກອດກັນ | ສະບາຍດີ | ລາກອນ</annotation>
+		<annotation cp="🫂" type="tts">ຄົນກອດກັນ</annotation>
+		<annotation cp="👪">ຄອບຄົວ | ຄົນ | ພໍ່ | ແມ່</annotation>
+		<annotation cp="👪" type="tts">ຄອບຄົວ</annotation>
+		<annotation cp="🧑‍🧑‍🧒">ຄອບຄົວ: ຜູ້ໃຫຍ່ | ຄອບຄົວ: ຜູ້ໃຫຍ່, ຜູ້ໃຫຍ່, ເດັກນ້ອຍ | ເດັກນ້ອຍ | ຜູ້ໃຫຍ່</annotation>
+		<annotation cp="🧑‍🧑‍🧒" type="tts">ຄອບຄົວ: ຜູ້ໃຫຍ່, ຜູ້ໃຫຍ່, ເດັກນ້ອຍ</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">ຄອບຄົວ: ຜູ້ໃຫຍ່ | ຄອບຄົວ: ຜູ້ໃຫຍ່, ຜູ້ໃຫຍ່, ເດັກນ້ອຍ, ເດັກນ້ອຍ | ເດັກນ້ອຍ | ຜູ້ໃຫຍ່</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">ຄອບຄົວ: ຜູ້ໃຫຍ່, ຜູ້ໃຫຍ່, ເດັກນ້ອຍ, ເດັກນ້ອຍ</annotation>
+		<annotation cp="🧑‍🧒">ຄອບຄົວ: ຜູ້ໃຫຍ່ | ຄອບຄົວ: ຜູ້ໃຫຍ່, ເດັກນ້ອຍ | ເດັກນ້ອຍ</annotation>
+		<annotation cp="🧑‍🧒" type="tts">ຄອບຄົວ: ຜູ້ໃຫຍ່, ເດັກນ້ອຍ</annotation>
+		<annotation cp="🧑‍🧒‍🧒">ຄອບຄົວ: ຜູ້ໃຫຍ່ | ຄອບຄົວ: ຜູ້ໃຫຍ່, ເດັກນ້ອຍ, ເດັກນ້ອຍ | ເດັກນ້ອຍ</annotation>
+		<annotation cp="🧑‍🧒‍🧒" type="tts">ຄອບຄົວ: ຜູ້ໃຫຍ່, ເດັກນ້ອຍ, ເດັກນ້ອຍ</annotation>
 		<annotation cp="👣">ຮອຍຕີນ | ຮ່າງກາຍ</annotation>
 		<annotation cp="👣" type="tts">ຮອຍຕີນ</annotation>
 		<annotation cp="🦰">ສີຂີງດອງ | ຜົມແດງ | ຫົວແດງ</annotation>
@@ -1149,6 +1743,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐆" type="tts">ເສືອດາວ</annotation>
 		<annotation cp="🐴">ສັດ | ມ້າ | ໜ້າມ້າ</annotation>
 		<annotation cp="🐴" type="tts">ໜ້າມ້າ</annotation>
+		<annotation cp="🫎">ກວາງ | ກວາງມູຊ | ເຂົາກວາງ | ສັດ | ສັດທີ່ລ້ຽງລູກດ້ວຍນົມ</annotation>
+		<annotation cp="🫎" type="tts">ກວາງມູຊ</annotation>
+		<annotation cp="🫏">ກົ້ນ | ສັດ | ສັດທີ່ລ້ຽງລູກດ້ວຍນົມ | ໂຕລໍ | ໂຕລາ | ລາ | ຫົວແຂງ</annotation>
+		<annotation cp="🫏" type="tts">ໂຕລາ</annotation>
 		<annotation cp="🐎">ສັດ | ມ້າ</annotation>
 		<annotation cp="🐎" type="tts">ມ້າ</annotation>
 		<annotation cp="🦄">ມ້າ​ຢູ​ນິ​ຄອນ | ໜ້າ</annotation>
@@ -1157,6 +1755,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦓" type="tts">ມ້າລາຍ</annotation>
 		<annotation cp="🦌">ກວາງ | ສັດ</annotation>
 		<annotation cp="🦌" type="tts">ກວາງ</annotation>
+		<annotation cp="🦬">ກະ​ທິງ | ສັດ</annotation>
+		<annotation cp="🦬" type="tts">ກະ​ທິງ</annotation>
 		<annotation cp="🐮">ງົວ | ສັດ | ໜ້າງົວ</annotation>
 		<annotation cp="🐮" type="tts">ໜ້າງົວ</annotation>
 		<annotation cp="🐂">ງົວ | ງົວຜູ້ | ສັດ</annotation>
@@ -1189,6 +1789,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦒" type="tts">ຢີຣາບ</annotation>
 		<annotation cp="🐘">ສັດ | ຊ້າງ</annotation>
 		<annotation cp="🐘" type="tts">ຊ້າງ</annotation>
+		<annotation cp="🦣">ສັດ | ສູນ​ພັນ | ຊ້າງ | ຊ້າງ​ແມມມອດ | ໃຫຍ່</annotation>
+		<annotation cp="🦣" type="tts">ຊ້າງ​ແມມມອດ</annotation>
 		<annotation cp="🦏">ສັດ | ແຮດ</annotation>
 		<annotation cp="🦏" type="tts">ແຮດ</annotation>
 		<annotation cp="🦛">ໂຕຮີໂປ | ຮິບໂປ</annotation>
@@ -1207,6 +1809,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐇" type="tts">ກະຕ່າຍ</annotation>
 		<annotation cp="🐿">ກະຮອກ | ສັດ</annotation>
 		<annotation cp="🐿" type="tts">ກະຮອກ</annotation>
+		<annotation cp="🦫">ໂຕ​ບີ​ເວີ | ແມ່ພັນ | ໜູນາ</annotation>
+		<annotation cp="🦫" type="tts">ໂຕ​ບີ​ເວີ</annotation>
 		<annotation cp="🦔">ມີໜາມ | ເໝັ້ນ</annotation>
 		<annotation cp="🦔" type="tts">ເໝັ້ນ</annotation>
 		<annotation cp="🦇">ເຈຍ | ສັດ | ແວມພາຍ</annotation>
@@ -1253,16 +1857,28 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦅" type="tts">ອິນຊີ</annotation>
 		<annotation cp="🦆">ນົກ | ເປັດ</annotation>
 		<annotation cp="🦆" type="tts">ເປັດ</annotation>
-		<annotation cp="🦢">ນົກ | ເປັດນ້ອຍຂີລ້າຍ | ລູກເປັດ | ຫ່ານ</annotation>
-		<annotation cp="🦢" type="tts">ຫ່ານ</annotation>
+		<annotation cp="🦢">ນົກ | ເປັດນ້ອຍຂີລ້າຍ | ລູກເປັດ | ຫ່ານ | ຫົງ</annotation>
+		<annotation cp="🦢" type="tts">ຫົງ</annotation>
 		<annotation cp="🦉">ສະຫຼາດ | ນົກ | ນົກເຄົ້າ</annotation>
 		<annotation cp="🦉" type="tts">ນົກເຄົ້າ</annotation>
+		<annotation cp="🦤">ສູນ​ພັນ | ນົກ | ນົກ​ໂດ​ໂດ | ມົວຣິຊຽສ | ໃຫຍ່</annotation>
+		<annotation cp="🦤" type="tts">ນົກ​ໂດ​ໂດ</annotation>
+		<annotation cp="🪶">ຂົນ​ນົກ | ນົກ | ບິນ | ເບົາ | ປິວ</annotation>
+		<annotation cp="🪶" type="tts">ຂົນ​ນົກ</annotation>
 		<annotation cp="🦩">ເຂດ​ຮ້ອນ​ຊຸ່ມ | ສີ​ສັນ​ສົດ​ໃສ | ນົກ | ນົກ​ຟ​ລາ​ມິງ​ໂກ</annotation>
 		<annotation cp="🦩" type="tts">ນົກ​ຟ​ລາ​ມິງ​ໂກ</annotation>
 		<annotation cp="🦚">ນົກ | ນົກຍຸງ | ພູມໃຈ | ໂອອວດ</annotation>
 		<annotation cp="🦚" type="tts">ນົກຍຸງ</annotation>
 		<annotation cp="🦜">ໂຈນສະລັກ | ນົກ | ນົກແກ້ວ | ເວົ້າ</annotation>
 		<annotation cp="🦜" type="tts">ນົກແກ້ວ</annotation>
+		<annotation cp="🪽">ການບິນ | ຕຳນານ | ນາງຟ້າ | ນົກ | ບິນ | ປີກ</annotation>
+		<annotation cp="🪽" type="tts">ປີກ</annotation>
+		<annotation cp="🐦‍⬛">ກາ | ກາປາກຂາວ | ດໍາ | ນົກ | ນົກດໍາ</annotation>
+		<annotation cp="🐦‍⬛" type="tts">ນົກດໍາ</annotation>
+		<annotation cp="🪿">ສັດປີກ | ສຽງຫ່ານ | ນົກ | ຫ່ານ | ໄຮ້ສາລະ</annotation>
+		<annotation cp="🪿" type="tts">ຫ່ານ</annotation>
+		<annotation cp="🐦‍🔥">ກັບຊາດ | ເກີດໃໝ່ | ຈິນຕະນາການ | ນົກຟີນິກ | ນົກໄຟ | ຟີນິກ</annotation>
+		<annotation cp="🐦‍🔥" type="tts">ນົກຟີນິກ</annotation>
 		<annotation cp="🐸">ກົບ | ສັດ | ໜ້າ | ໜ້າກົບ</annotation>
 		<annotation cp="🐸" type="tts">ກົບ</annotation>
 		<annotation cp="🐊">ແຂ້ | ສັດ</annotation>
@@ -1287,6 +1903,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐋" type="tts">ປາວານ</annotation>
 		<annotation cp="🐬">ສັດ | ປາຂ່າ</annotation>
 		<annotation cp="🐬" type="tts">ປາຂ່າ</annotation>
+		<annotation cp="🦭">ສັດ | ​ນາກ​ນ້ຳ | ແມວ​ນ້ຳ</annotation>
+		<annotation cp="🦭" type="tts">ແມວ​ນ້ຳ</annotation>
 		<annotation cp="🐟">ສັດ | ປາ</annotation>
 		<annotation cp="🐟" type="tts">ປາ</annotation>
 		<annotation cp="🐠">ສັດ | ປາ | ປາເຂດຮ້ອນ</annotation>
@@ -1299,6 +1917,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐙" type="tts">ປາມຶກ</annotation>
 		<annotation cp="🐚">ສັດ | ຫອຍ | ຫ້ອຍ</annotation>
 		<annotation cp="🐚" type="tts">ຫ້ອຍ</annotation>
+		<annotation cp="🪸">ໂຂດຫີນ | ໂງ່ນຫີນ | ມະຫາສະໝຸດ | ຫີນປະກາລັງ</annotation>
+		<annotation cp="🪸" type="tts">ຫີນປະກາລັງ</annotation>
+		<annotation cp="🪼">ຕອດ | ທະເລ | ບໍ່ມີກະດູກສັນຫຼັງ | ແມງກະພຸນ | ວຸ້ນ | ໄໝ້ | ໂອ້ຍ</annotation>
+		<annotation cp="🪼" type="tts">ແມງກະພຸນ</annotation>
 		<annotation cp="🐌">ສັດ | ຫອຍທາດ</annotation>
 		<annotation cp="🐌" type="tts">ຫອຍທາດ</annotation>
 		<annotation cp="🦋">ແມງກະເບື້ອ | ແມງໄມ້ | ໜ້າຮັກ</annotation>
@@ -1309,10 +1931,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐜" type="tts">ມົດ</annotation>
 		<annotation cp="🐝">ສັດ | ເຜິ້ງ</annotation>
 		<annotation cp="🐝" type="tts">ເຜິ້ງ</annotation>
+		<annotation cp="🪲">ແມງ​ຄາມ | ແມງ​ປີກ​ແຂງ | ແມງ​ໄມ້</annotation>
+		<annotation cp="🪲" type="tts">ແມງ​ປີກ​ແຂງ</annotation>
 		<annotation cp="🐞">ສັດ | ແມງເຕົ່າທອງ</annotation>
 		<annotation cp="🐞" type="tts">ແມງເຕົ່າທອງ</annotation>
 		<annotation cp="🦗">ຈິ້ງຫລີດ | ຕັກກະແຕນ</annotation>
 		<annotation cp="🦗" type="tts">ຈິ້ງຫລີດ</annotation>
+		<annotation cp="🪳">ແມງ​ສາບ | ແມງ​ໄມ້</annotation>
+		<annotation cp="🪳" type="tts">ແມງ​ສາບ</annotation>
 		<annotation cp="🕷">ສັດ | ແມງມຸມ</annotation>
 		<annotation cp="🕷" type="tts">ແມງມຸມ</annotation>
 		<annotation cp="🕸">ໃຍ | ໃຍແມງມຸມ | ແມງມຸມ</annotation>
@@ -1321,6 +1947,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦂" type="tts">ແມງເງົາ</annotation>
 		<annotation cp="🦟">ໄຂ້ | ຍຸງ | ພະຍາດ | ມາລາເລຍ | ແມງໄມ້ | ໄວລັດ</annotation>
 		<annotation cp="🦟" type="tts">ຍຸງ</annotation>
+		<annotation cp="🪰">ພະ​ຍາດ | ແມງ​ໄມ້ | ແມງວັນ | ໜອນ</annotation>
+		<annotation cp="🪰" type="tts">ແມງວັນ</annotation>
+		<annotation cp="🪱">ຂີ້​ກະ​ເດືອນ | ແມ່​ທ້ອງ | ໜອນ</annotation>
+		<annotation cp="🪱" type="tts">ໜອນ</annotation>
 		<annotation cp="🦠">ຈຸລະພືກ | ແບກເທີເລຍ | ໄວລັດ | ແອເມບາ</annotation>
 		<annotation cp="🦠" type="tts">ຈຸລະພືກ</annotation>
 		<annotation cp="💐">ຊໍ່ດອກໄມ້ | ດອກໄມ້</annotation>
@@ -1329,6 +1959,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌸" type="tts">ດອກເຊີຣີບານ</annotation>
 		<annotation cp="💮">ສີຂາວ | ດອກໄມ້ | ດອກໄມ້ສີຂາວ</annotation>
 		<annotation cp="💮" type="tts">ດອກໄມ້ສີຂາວ</annotation>
+		<annotation cp="🪷">ຄວາມບໍລິສຸດ | ດອກບົວ | ດອກໄມ້ | ພຸດ | ຫວຽດນາມ | ອິນເດຍ | ຮິນດູ</annotation>
+		<annotation cp="🪷" type="tts">ດອກບົວ</annotation>
 		<annotation cp="🏵">ດອກໄມ້ | ໂບ | ໂບດອກກຸຫຼາບ | ພືດ</annotation>
 		<annotation cp="🏵" type="tts">ໂບດອກກຸຫຼາບ</annotation>
 		<annotation cp="🌹">ດອກກຸຫຼາບ | ດອກໄມ້ | ຕົ້ນໄມ້</annotation>
@@ -1343,8 +1975,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌼" type="tts">ດອກໄມ້ບານ</annotation>
 		<annotation cp="🌷">ດອກທິວລິບ | ດອກໄມ້</annotation>
 		<annotation cp="🌷" type="tts">ດອກທິວລິບ</annotation>
+		<annotation cp="🪻">ດອກສະແນັບດຣາກອນ | ດອກບູບອນເນັດ | ດອກໄມ້ | ດອກລາເວນເດີ | ດອກລູປິນ | ຜັກຕົບ</annotation>
+		<annotation cp="🪻" type="tts">ຜັກຕົບ</annotation>
 		<annotation cp="🌱">ເບ້ຍໄມ້ | ພືດ</annotation>
 		<annotation cp="🌱" type="tts">ເບ້ຍໄມ້</annotation>
+		<annotation cp="🪴">ການເບິ່ງແຍງຕົ້ນໄມ້ | ຕົ້ນໄມ້ | ຕົ້ນໄມ້ທີ່ປູກໃນໂຖ | ບໍ່ມີປະໂຫຍດ | ປູກ | ໜ້າເບື່ອ | ເຮືອນ</annotation>
+		<annotation cp="🪴" type="tts">ຕົ້ນໄມ້ທີ່ປູກໃນໂຖ</annotation>
 		<annotation cp="🌲">ຕົ້ນໄມ້ | ຕົ້ນໄມ້ຂຽວຕະຫຼອດປີ | ພືດ</annotation>
 		<annotation cp="🌲" type="tts">ຕົ້ນໄມ້ຂຽວຕະຫຼອດປີ</annotation>
 		<annotation cp="🌳">ຕົ້ນໄມ້ | ຕົ້ນໄມ້ປ່ຽນໃບ | ຮົ່ມ</annotation>
@@ -1367,6 +2003,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍂" type="tts">ໃບໄມ້ຫຼົ່ນ</annotation>
 		<annotation cp="🍃">ໃບໄມ້ | ໃບໄມ້ປິວຕາມລົມ | ປິວ | ລົມ</annotation>
 		<annotation cp="🍃" type="tts">ໃບໄມ້ປິວຕາມລົມ</annotation>
+		<annotation cp="🪹">ສ້າງຮັງ | ສ້າງຮັງນົກ | ຮັງເປົ່າ</annotation>
+		<annotation cp="🪹" type="tts">ຮັງເປົ່າ</annotation>
+		<annotation cp="🪺">ສ້າງຮັງ | ສ້າງຮັງນົກ | ຮັງມີໄຂ່</annotation>
+		<annotation cp="🪺" type="tts">ຮັງມີໄຂ່</annotation>
+		<annotation cp="🍄">ພືດ | ເຫັດ</annotation>
+		<annotation cp="🍄" type="tts">ເຫັດ</annotation>
 		<annotation cp="🍇">ໝາກໄມ້ | ອາງຸ່ນ</annotation>
 		<annotation cp="🍇" type="tts">ອາງຸ່ນ</annotation>
 		<annotation cp="🍈">ພືດ | ໝາກເມລອນ | ໝາກໄມ້</annotation>
@@ -1377,6 +2019,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍊" type="tts">ໝາກກ້ຽງນ້ອຍ</annotation>
 		<annotation cp="🍋">ພືດ | ໝາກນາວ | ໝາກໄມ້</annotation>
 		<annotation cp="🍋" type="tts">ໝາກນາວ</annotation>
+		<annotation cp="🍋‍🟩">ສົ້ມ | ລະດູຮ້ອນ | ໝາກນາວຂຽວ | ໝາກໄມ້</annotation>
+		<annotation cp="🍋‍🟩" type="tts">ໝາກນາວຂຽວ</annotation>
 		<annotation cp="🍌">ພືດ | ໝາກກ້ວຍ | ໝາກໄມ້</annotation>
 		<annotation cp="🍌" type="tts">ໝາກກ້ວຍ</annotation>
 		<annotation cp="🍍">ພືດ | ໝາກນັດ | ໝາກໄມ້</annotation>
@@ -1395,10 +2039,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍒" type="tts">ໝາກເຊີຣີ</annotation>
 		<annotation cp="🍓">ພືດ | ໝາກສະຕໍເບີຣີ | ໝາກໄມ້</annotation>
 		<annotation cp="🍓" type="tts">ໝາກສະຕໍເບີຣີ</annotation>
+		<annotation cp="🫐">ບຣູເບີ້ລີ້ | ເບີ້ລີ້</annotation>
+		<annotation cp="🫐" type="tts">ບຣູເບີ້ລີ້</annotation>
 		<annotation cp="🥝">ກີວີ | ໝາກກີວີ | ໝາກໄມ້ | ອາຫານ</annotation>
 		<annotation cp="🥝" type="tts">ໝາກກີວີ</annotation>
 		<annotation cp="🍅">ຜັກ | ພືດ | ໝາກເດັ່ນ</annotation>
 		<annotation cp="🍅" type="tts">ໝາກເດັ່ນ</annotation>
+		<annotation cp="🫒">ໝາກກອກ | ອາຫານ</annotation>
+		<annotation cp="🫒" type="tts">ໝາກກອກ</annotation>
 		<annotation cp="🥥">ປາມ | ພິນາ ໂຄລາດາ | ໝາກພ້າວ</annotation>
 		<annotation cp="🥥" type="tts">ໝາກພ້າວ</annotation>
 		<annotation cp="🥑">ໝາກໄມ້ | ອະໂວຄາໂດ | ອາຫານ</annotation>
@@ -1413,6 +2061,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌽" type="tts">ຮວງສາລີ</annotation>
 		<annotation cp="🌶">ພິກ | ພືດ | ໝາກເຜັດ</annotation>
 		<annotation cp="🌶" type="tts">ໝາກເຜັດ</annotation>
+		<annotation cp="🫑">ຜັກ | ພິກໄທ | ໝາກເຜັດ | ໝາກເຜັດໃຫຍ່</annotation>
+		<annotation cp="🫑" type="tts">ໝາກເຜັດໃຫຍ່</annotation>
 		<annotation cp="🥒">ເຄື່ອງດອງ | ຜັກ | ໝາກແຕງ | ໝາແຕງ | ອາຫານ</annotation>
 		<annotation cp="🥒" type="tts">ໝາແຕງ</annotation>
 		<annotation cp="🥬">ກາລໍາປີ | ໃບສະລັດ | ໃບໄມ້ຂຽວ | ຜັກກາດຂາວ | ຜັກສະລັດຫໍ່</annotation>
@@ -1423,18 +2073,26 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧄" type="tts">ກະ​ທ​ຽມ</annotation>
 		<annotation cp="🧅">ເຄື່​ອງ​ເທດ | ຫົວ​ຜັກ​ບົ່ວ | ​ຫົວ​ຜັກ​ບົ່ວ​ໃຫຍ່</annotation>
 		<annotation cp="🧅" type="tts">​ຫົວ​ຜັກ​ບົ່ວ​ໃຫຍ່</annotation>
-		<annotation cp="🍄">ພືດ | ເຫັດ</annotation>
-		<annotation cp="🍄" type="tts">ເຫັດ</annotation>
 		<annotation cp="🥜">ຖົ່ວ | ຜັກ | ໝາກຖົ່ວ | ອາຫານ</annotation>
 		<annotation cp="🥜" type="tts">ໝາກຖົ່ວ</annotation>
+		<annotation cp="🫘">ຖົ່ວ | ໝາກໄຂ່ຫຼັງ | ອາຫານ</annotation>
+		<annotation cp="🫘" type="tts">ຖົ່ວ</annotation>
 		<annotation cp="🌰">ພືດ | ໝາກກໍ່</annotation>
 		<annotation cp="🌰" type="tts">ໝາກກໍ່</annotation>
+		<annotation cp="🫚">ເຄື່ອງເທດ | ເບຍ | ຫົວຂີງ | ຮາກ</annotation>
+		<annotation cp="🫚" type="tts">ຫົວຂີງ</annotation>
+		<annotation cp="🫛">ຖົ່ວ | ຖົ່ວແຮ | ທັນຍາພືດ | ຜັກ | ຝັກ | ຝັກຖົ່ວ</annotation>
+		<annotation cp="🫛" type="tts">ຝັກຖົ່ວ</annotation>
+		<annotation cp="🍄‍🟫">ເຊື້ອລາ | ທໍາມະຊາດ | ຜັກ | ເຫັດສີນໍ້າຕານ | ອາຫານ</annotation>
+		<annotation cp="🍄‍🟫" type="tts">ເຫັດສີນໍ້າຕານ</annotation>
 		<annotation cp="🍞">ເຂົ້າຈີ່ | ເຂົ້າຈີ່ແຜ່ນ | ເຂົ້າໜົມປັງ</annotation>
 		<annotation cp="🍞" type="tts">ເຂົ້າໜົມປັງ</annotation>
 		<annotation cp="🥐">ເຂົ້າຈີ່ | ຄຣົວຊອງ | ຝຣັ່ງ | ອາຫານ</annotation>
 		<annotation cp="🥐" type="tts">ຄຣົວຊອງ</annotation>
 		<annotation cp="🥖">ເຂົ້າຈີ່ | ເຂົ້າໜົມປັງ | ຝຣັ່ງ | ອາຫານ</annotation>
 		<annotation cp="🥖" type="tts">ເຂົ້າຈີ່</annotation>
+		<annotation cp="🫓">ເຂົ້າຂີ່ຍາວ | ເຂົ້າຈີ່ແປ | ເຂົ້າຈີ່ມົນແປ | ນັນ | ໂລຕີ</annotation>
+		<annotation cp="🫓" type="tts">ເຂົ້າຂີ່ຍາວ</annotation>
 		<annotation cp="🥨">ທະວິສທ໌ | ເພຣັດເຊລ</annotation>
 		<annotation cp="🥨" type="tts">ເພຣັດເຊລ</annotation>
 		<annotation cp="🥯">ຂະໜົມແປ້ງ | ຂະໝົມແປ້ງ ບາເກວ | ອົບແປ້ງ</annotation>
@@ -1467,6 +2125,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌮" type="tts">ທາໂກ້</annotation>
 		<annotation cp="🌯">ເບີຣິໂຕ | ເບີຣີໂຕ | ແມັກຊີກັນ</annotation>
 		<annotation cp="🌯" type="tts">ເບີຣິໂຕ</annotation>
+		<annotation cp="🫔">ພັບ | ແມັກຊີກັນ | ຫໍ່</annotation>
+		<annotation cp="🫔" type="tts">ພັບ</annotation>
 		<annotation cp="🥙">ເຂົ້າຈີ່ແຜ່ນ | ເຂົ້າຈີ່ແຜ່ນຍັດໄສ້ | ຊີ້ນສະເຕະ | ຍັດໄສ້ | ລູກຊີ້ນຈືນ | ອາຫານ</annotation>
 		<annotation cp="🥙" type="tts">ເຂົ້າຈີ່ແຜ່ນຍັດໄສ້</annotation>
 		<annotation cp="🧆">ຖົ່ວ​ຊິກ​ພີ | ຟາ​ລາ​ເຟວ | ລູກ​ຊີ້ນ</annotation>
@@ -1479,6 +2139,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥘" type="tts">ຈານອາຫານບາງໆ</annotation>
 		<annotation cp="🍲">ຖ້ວຍອາຫານ | ຖ້ອຍອາຫານ</annotation>
 		<annotation cp="🍲" type="tts">ຖ້ວຍອາຫານ</annotation>
+		<annotation cp="🫕">ການຳ້ | ສະວິດ | ຊ໋ອກໂກແລັດ | ຊີດສ | ຟອງດູ | ລະລາຍ</annotation>
+		<annotation cp="🫕" type="tts">ຟອງດູ</annotation>
 		<annotation cp="🥣">ເຂົ້າປຽກເຂົ້າ | ຊີຣຽວ | ຖ້ວຍກັບບ່ວງ | ອາຫານເຊົ້າ</annotation>
 		<annotation cp="🥣" type="tts">ຖ້ວຍກັບບ່ວງ</annotation>
 		<annotation cp="🥗">ຂຽວ | ສະລັດ | ສະລັດຂຽວ | ອາຫານ</annotation>
@@ -1569,6 +2231,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥛" type="tts">ຈອກນົມ</annotation>
 		<annotation cp="☕">ເຄື່ອງດື່ມ | ເຄື່ອງດື່ມຮ້ອນ | ຊາ | ຮ້ອນ</annotation>
 		<annotation cp="☕" type="tts">ເຄື່ອງດື່ມຮ້ອນ</annotation>
+		<annotation cp="🫖">ກາ | ການໍ້າຊາ | ການ້ຳຊາ | ດື່ມ | ນໍ້າຊາ</annotation>
+		<annotation cp="🫖" type="tts">ການ້ຳຊາ</annotation>
 		<annotation cp="🍵">ຈອກຊາທີ່ບໍ່ມີງ້ວງຈັບ | ຊາ</annotation>
 		<annotation cp="🍵" type="tts">ຈອກຊາທີ່ບໍ່ມີງ້ວງຈັບ</annotation>
 		<annotation cp="🍶">ຊາເກະ | ເຫຼົ້າ | ເຫຼົ້າຊາເກະ</annotation>
@@ -1589,8 +2253,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥂" type="tts">ຕຳຈອກ</annotation>
 		<annotation cp="🥃">ແກ້ວ | ແກ້ວເຫຼົ້າ | ຊັອດ | ວິສກີ້ | ເຫຼົ້າ</annotation>
 		<annotation cp="🥃" type="tts">ແກ້ວເຫຼົ້າ</annotation>
+		<annotation cp="🫗">ຈອກແກ້ວ | ເຍັ້ນນໍ້າ | ດື່ມ | ເປົ່າ | ລົ້ນ</annotation>
+		<annotation cp="🫗" type="tts">ເຍັ້ນນໍ້າ</annotation>
 		<annotation cp="🥤">ຈອກມີຫຼອດດູດ | ໂຊດາ | ນ້ຳໝາກໄມ້</annotation>
 		<annotation cp="🥤" type="tts">ຈອກມີຫຼອດດູດ</annotation>
+		<annotation cp="🧋">ໄຂ່ມຸກ | ຊາ | ຊາໄຂ່ມຸກ | ນົມ</annotation>
+		<annotation cp="🧋" type="tts">ຊາໄຂ່ມຸກ</annotation>
 		<annotation cp="🧃">ກ່​ອງ​ໃສ່​ເຄື່ອງ​ດື່ມ | ກ່​ອງ​ນ້ຳ​ໝາກ​ໄມ້</annotation>
 		<annotation cp="🧃" type="tts">ກ່​ອງ​ໃສ່​ເຄື່ອງ​ດື່ມ</annotation>
 		<annotation cp="🧉">ເຄື່​ອງ​ດື່ມ | ເມດ</annotation>
@@ -1607,6 +2275,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥄" type="tts">ບ່ວງ</annotation>
 		<annotation cp="🔪">ມີດ | ມີດໃຊ້ໃນເຮືອນຄົວ | ເຮືອນຄົວ</annotation>
 		<annotation cp="🔪" type="tts">ມີດໃຊ້ໃນເຮືອນຄົວ</annotation>
+		<annotation cp="🫙">ເກັບມ້ຽນ | ເຄື່ອງປຸງອາຫານ | ສິ່ງບັນຈຸ | ນໍ້າຊອສ | ເປົ່າ | ໄຫ</annotation>
+		<annotation cp="🫙" type="tts">ໄຫ</annotation>
 		<annotation cp="🏺">ໂຖບູຮານ | ໂຖແອມໂພຣາ</annotation>
 		<annotation cp="🏺" type="tts">ໂຖແອມໂພຣາ</annotation>
 		<annotation cp="🌍">ໜ່ວຍໂລກ | ໜ່ວຍໂລກທີ່ສະແດງເອີຣົບ-ອາຝຣິກາ | ອາຝຣິກາ | ເອີຣົບ</annotation>
@@ -1649,6 +2319,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏗" type="tts">ການກໍ່ສ້າງອາຄານ</annotation>
 		<annotation cp="🧱">ກ້ອນດິນຈີ່ | ກໍາແພງ | ຄົກ | ດິນເໍດາກ</annotation>
 		<annotation cp="🧱" type="tts">ກ້ອນດິນຈີ່</annotation>
+		<annotation cp="🪨">ຂອງແຂງ | ໂງ່ນຫີນ | ບູດເດີ້ຫີນ | ໜັກ | ຫີນ</annotation>
+		<annotation cp="🪨" type="tts">ໂງ່ນຫີນ</annotation>
+		<annotation cp="🪵">ທ່ອນໄມ້ | ເນື້ອໄມ້ | ຟືນ | ໄມ້ແປຮູບ</annotation>
+		<annotation cp="🪵" type="tts">ຟືນ</annotation>
+		<annotation cp="🛖">ກະທົມ | ຕູບ | ຖຽງ | ເຮືອນ | ເຮືອນຊົງກົມ</annotation>
+		<annotation cp="🛖" type="tts">ກະທົມ</annotation>
 		<annotation cp="🏘">ອາຄານ | ອາຄານເຮືອນຫຼາຍຫຼັງ | ເຮືອນ</annotation>
 		<annotation cp="🏘" type="tts">ອາຄານເຮືອນຫຼາຍຫຼັງ</annotation>
 		<annotation cp="🏚">ອາຄານ | ອາຄານເຮືອນຮ້າງ | ຮ້າງ | ເຮືອນ</annotation>
@@ -1725,6 +2401,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="♨" type="tts">ນໍ້າພຸຮ້ອນ</annotation>
 		<annotation cp="🎠">ສວນສະໜຸກ | ມ້າໝູນ</annotation>
 		<annotation cp="🎠" type="tts">ມ້າໝູນ</annotation>
+		<annotation cp="🛝">ສວນສະນຸກ | ສວນຫຼິ້ນ | ຕະລູດ</annotation>
+		<annotation cp="🛝" type="tts">ຕະລູດ</annotation>
 		<annotation cp="🎡">ສວນສະໜຸກ | ຊິງຊ້າສະຫວັນ</annotation>
 		<annotation cp="🎡" type="tts">ຊິງຊ້າສະຫວັນ</annotation>
 		<annotation cp="🎢">ສວນສະໜຸກ | ລົດໄຟເຫາະ</annotation>
@@ -1783,6 +2461,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚘" type="tts">ລົດຍົນກຳລັງມາ</annotation>
 		<annotation cp="🚙">ພາຫະນະ | ລົດພັກຜ່ອນ</annotation>
 		<annotation cp="🚙" type="tts">ລົດພັກຜ່ອນ</annotation>
+		<annotation cp="🛻">ລົດ | ລົດກະບະ | ລົດຂົນສົ່ງປິກອັບ | ລົດປິກອັບ</annotation>
+		<annotation cp="🛻" type="tts">ລົດຂົນສົ່ງປິກອັບ</annotation>
 		<annotation cp="🚚">ພາຫະນະ | ລົດຂົນສົ່ງ</annotation>
 		<annotation cp="🚚" type="tts">ລົດຂົນສົ່ງ</annotation>
 		<annotation cp="🚛">ຂົນສົ່ງ | ບັນທຸກ | ລົດພວງ | ລົດພວງບັນທຸກ</annotation>
@@ -1807,6 +2487,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛴" type="tts">ສະກູດເຕີແບບເຕະ</annotation>
 		<annotation cp="🛹">ບຼອດ | ແຜ່ນສະເກັດບອດ</annotation>
 		<annotation cp="🛹" type="tts">ແຜ່ນສະເກັດບອດ</annotation>
+		<annotation cp="🛼">ເກີບ | ເກີບ​ສະ​ເກດ | ສະ​ເກດ | ລໍ້​ກິ້ງ</annotation>
+		<annotation cp="🛼" type="tts">ເກີບ​ສະ​ເກດ</annotation>
 		<annotation cp="🚏">ບ່ອນຈອດລົດ | ບ່ອນຈອດລົດເມ | ລົດເມ</annotation>
 		<annotation cp="🚏" type="tts">ບ່ອນຈອດລົດເມ</annotation>
 		<annotation cp="🛣">ຖະໜົນ | ທາງດ່ວນ</annotation>
@@ -1817,6 +2499,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛢" type="tts">ຖັງນໍ້າມັນ</annotation>
 		<annotation cp="⛽">ສະຖານີ | ນໍ້າມັນ | ປໍ້າ | ປໍ້ານໍ້າມັນ</annotation>
 		<annotation cp="⛽" type="tts">ປໍ້ານໍ້າມັນ</annotation>
+		<annotation cp="🛞">ຢາງລົດ | ລໍ້ລົດ | ລ້ຽວ | ວົງມົນ</annotation>
+		<annotation cp="🛞" type="tts">ລໍ້ລົດ</annotation>
 		<annotation cp="🚨">ພາຫະນະ | ໄຟສັນຍານ | ໄຟສັນຍານລົດຕໍາຫຼວດ | ລົດຕໍາຫຼວດ</annotation>
 		<annotation cp="🚨" type="tts">ໄຟສັນຍານລົດຕໍາຫຼວດ</annotation>
 		<annotation cp="🚥">ຈາລະຈອນ | ໄຟຈາລະຈອນແນວນອນ | ໄຟສັນຍານ</annotation>
@@ -1829,6 +2513,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚧" type="tts">ປ້າຍການກໍ່ສ້າງ</annotation>
 		<annotation cp="⚓">ເຄື່ອງມື | ສະໝໍ | ເຮືອ</annotation>
 		<annotation cp="⚓" type="tts">ສະໝໍ</annotation>
+		<annotation cp="🛟">ກູ້ໄພ | ຄວາມປອດໄພ | ຊ່ວຍຊີວິດ | ລອຍ | ຫ່ວງຊູຊີບ | ຮັກສາຊີວິດ</annotation>
+		<annotation cp="🛟" type="tts">ຫ່ວງຊູຊີບ</annotation>
 		<annotation cp="⛵">ທະເລ | ເຮືອໃບ</annotation>
 		<annotation cp="⛵" type="tts">ເຮືອໃບ</annotation>
 		<annotation cp="🛶">ແຄໂນ | ເຮືອ</annotation>
@@ -2055,7 +2741,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎎" type="tts">ຕຸກກະຕາຍີ່ປຸ່ນ</annotation>
 		<annotation cp="🎏">ສະເຫຼີມສະຫຼອງ | ທຸງ | ທຸງປາຄາບ | ປາຄາບ</annotation>
 		<annotation cp="🎏" type="tts">ທຸງປາຄາບ</annotation>
-		<annotation cp="🎐">ກະດິ່ງ | ສະເຫຼີມສະຫຼອງ | ລົມ | ລົມພັດລະຄັງ | ວິນຈິມິ</annotation>
+		<annotation cp="🎐">ກະດິ່ງ | ສະເຫຼີມສະຫຼອງ | ລະຄັງ | ລົມ | ລົມພັດລະຄັງ</annotation>
 		<annotation cp="🎐" type="tts">ລົມພັດລະຄັງ</annotation>
 		<annotation cp="🎑">ສະເຫຼີມສະຫຼອງ | ພະຈັນ | ພິທີ | ພິທີໄຫວ້ພະຈັນ</annotation>
 		<annotation cp="🎑" type="tts">ພິທີໄຫວ້ພະຈັນ</annotation>
@@ -2081,7 +2767,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥇" type="tts">ຫຼຽນທີ 1</annotation>
 		<annotation cp="🥈">ເງິນ | ທີສອງ | ຫຼຽນ | ຫຼຽນເງິນ</annotation>
 		<annotation cp="🥈" type="tts">ຫຼຽນເງິນ</annotation>
-		<annotation cp="🥉">ທອງແດງ | ທີສາມ | ຫຼຽນ | ຫຼຽນທອງແດງ | ຫຽນທອງແດງ</annotation>
+		<annotation cp="🥉">ທອງແດງ | ທີສາມ | ຫຼຽນ | ຫຼຽນທີ 3 | ຫຽນທອງແດງ</annotation>
 		<annotation cp="🥉" type="tts">ຫຽນທອງແດງ</annotation>
 		<annotation cp="⚽">ບານເຕະ | ໝາກບານ | ໝາກບານເຕະ</annotation>
 		<annotation cp="⚽" type="tts">ໝາກບານເຕະ</annotation>
@@ -2143,12 +2829,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪀" type="tts">ໂຢ​ໂຢ້</annotation>
 		<annotation cp="🪁">ຂ​ອງຫຼິ້ນ | ບິນ​ໄດ້ | ລ​ອຍ​ກາງ​ອາ​ກາດ | ວ່າວ</annotation>
 		<annotation cp="🪁" type="tts">ວ່າວ</annotation>
+		<annotation cp="🔫">ເຄື່ອງມື | ນ້ຳ | ປືນ | ປືນສັ້ນ | ອາວຸດ</annotation>
+		<annotation cp="🔫" type="tts">ປືນສັ້ນ</annotation>
 		<annotation cp="🎱">8 | ເກມ 8 | ສະນຸກເກີ | ແປດ</annotation>
 		<annotation cp="🎱" type="tts">ສະນຸກເກີ</annotation>
 		<annotation cp="🔮">ແກ້ວ | ແກ້ວຄຣິສໂຕ້ | ຄຣິສໂຕ້</annotation>
 		<annotation cp="🔮" type="tts">ແກ້ວຄຣິສໂຕ້</annotation>
-		<annotation cp="🧿">ເຄື່ອງລາງ | ເຄື່ອງລາງຂອງຂັງ | ສາຍປອງຮ້າຍ | ລູກປັດ | ໝໍດູ | ໂອ່ງລໍ້</annotation>
-		<annotation cp="🧿" type="tts">ເຄື່ອງລາງຂອງຂັງ</annotation>
+		<annotation cp="🪄">ຄາ​ຖາ | ​ພໍ່​ມົດ | ແມ່​ມົດ | ໄມ້​ກາ​ຍະ​ສິດ | ວິ​ເສດ | ເວດ​ມົນ</annotation>
+		<annotation cp="🪄" type="tts">ໄມ້​ກາ​ຍະ​ສິດ</annotation>
 		<annotation cp="🎮">ເກມ | ເກມວິດີໂອ | ວິດີໂອ | ວີດີໂອເກມ</annotation>
 		<annotation cp="🎮" type="tts">ວີດີໂອເກມ</annotation>
 		<annotation cp="🕹">ເກມ | ເກມວິດີໂອ | ຄັນບັງຄັບ</annotation>
@@ -2161,6 +2849,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧩" type="tts">ຈິກຊໍ</annotation>
 		<annotation cp="🧸">ເຄື່ອງຕ່າງໆ | ເຄື່ອງຫຼີ້ນ | ຕຸກ​ກະ​ຕາ | ໝີເທດດີ</annotation>
 		<annotation cp="🧸" type="tts">ໝີເທດດີ</annotation>
+		<annotation cp="🪅">ການສະຫຼອງ | ປາຕີ້ | ພິນາຕາ</annotation>
+		<annotation cp="🪅" type="tts">ພິນາຕາ</annotation>
+		<annotation cp="🪩">ງານລ້ຽງ | ດິສໂກ | ເຕັ້ນລໍາ | ໝາກບານກະຈົກ | ເຫຼື້ອມຍິບໆ</annotation>
+		<annotation cp="🪩" type="tts">ໝາກບານກະຈົກ</annotation>
+		<annotation cp="🪆">ການເຮັດຮັງ | ຕຸກກະຕາ | ຕຸກກະຕາເປັນຮັງ | ຣັດເຊຍ</annotation>
+		<annotation cp="🪆" type="tts">ຕຸກກະຕາເປັນຮັງ</annotation>
 		<annotation cp="♠">ໂພດຳ | ໄພ້ | ຫຼີ້ນ</annotation>
 		<annotation cp="♠" type="tts">ໂພດຳ</annotation>
 		<annotation cp="♥">ເກີ | ໄພ້ | ຫຼີ້ນ</annotation>
@@ -2185,8 +2879,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎨" type="tts">ຈານປະສົມສີ</annotation>
 		<annotation cp="🧵">ກໍ້າແລນ | ເຂັມ | ເສັ້ນດ້າຍ | ຍິບແຊ່ວ</annotation>
 		<annotation cp="🧵" type="tts">ເສັ້ນດ້າຍ</annotation>
+		<annotation cp="🪡">ການຕັດຍິບເຄື່ອງ | ເຂັມ | ເຂັມຍິບ | ຍິບ | ຍິບປັກ | ດ້າຍຍິບ</annotation>
+		<annotation cp="🪡" type="tts">ເຂັມຍິບ</annotation>
 		<annotation cp="🧶">ກໍ້ດ້າຍ | ຖັກແຊ່ວ | ຖັກແລນ | ບານ</annotation>
 		<annotation cp="🧶" type="tts">ກໍ້ດ້າຍ</annotation>
+		<annotation cp="🪢">ກ້ຽວ | ​ຂອດ | ເຊືອກ | ພັນ | ມັດ</annotation>
+		<annotation cp="🪢" type="tts">​ຂອດ</annotation>
 		<annotation cp="👓">ຕາ | ແວ່ນຕາ</annotation>
 		<annotation cp="👓" type="tts">ແວ່ນຕາ</annotation>
 		<annotation cp="🕶">ແດດ | ຕາ | ແວ່ນຕາ | ແວ່ນຕາກັນແດດ</annotation>
@@ -2227,6 +2925,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👙" type="tts">ຊຸດຊັ້ນໃນ</annotation>
 		<annotation cp="👚">ເສື້ອຜ້າ | ເສື້ອຜ້າແມ່ຍິງ | ຊຸດແມ່ຍິງ</annotation>
 		<annotation cp="👚" type="tts">ເສື້ອຜ້າແມ່ຍິງ</annotation>
+		<annotation cp="🪭">ເຕັ້ນ | ປິວ | ວີ | ວີພັບ | ອາຍ | ຮ້ອນ | ເຮັດໃຫ້ເຢັນ</annotation>
+		<annotation cp="🪭" type="tts">ວີພັບ</annotation>
 		<annotation cp="👛">ກະເປົາເງິນ | ເຄື່່ອງ | ຫູຽນ</annotation>
 		<annotation cp="👛" type="tts">ກະເປົາເງິນ</annotation>
 		<annotation cp="👜">ກະເປົາ | ກະເປົາເງິນ | ກະເປົາແບບຖຶ | ເຄື່ອງ</annotation>
@@ -2237,6 +2937,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛍" type="tts">ຖົງໃສ່ເຄື່ອງ</annotation>
 		<annotation cp="🎒">ກະເປົາເປ້ | ຖົງເປ້ | ຖົງເປ້ໄປໂຮງຮຽນ | ໂຮງຮຽນ</annotation>
 		<annotation cp="🎒" type="tts">ກະເປົາເປ້</annotation>
+		<annotation cp="🩴">zōri | ເກີບແຕະ | ເກີບແຕະສີທອງ | ເກີບແຕະໃສ່ໄປຊາຍຫາດ | ທອງ</annotation>
+		<annotation cp="🩴" type="tts">ເກີບແຕະສີທອງ</annotation>
 		<annotation cp="👞">ເກີບ | ເກີບຜູ້ຊາຍ</annotation>
 		<annotation cp="👞" type="tts">ເກີບຜູ້ຊາຍ</annotation>
 		<annotation cp="👟">ກິລາ | ເກີບ | ເກີບສຳລັບແລ່ນ | ເສື້ອຜ້າ | ແລ່ນ</annotation>
@@ -2253,6 +2955,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🩰" type="tts">ເກີບ​ເຕັ້ນ​ບັນ​ເລ້</annotation>
 		<annotation cp="👢">ເກີບບູດ | ເກີບບູດແມ່ຍິງ | ແມ່ຍິງ</annotation>
 		<annotation cp="👢" type="tts">ເກີບບູດແມ່ຍິງ</annotation>
+		<annotation cp="🪮">ປັກ | ຜົມ | ຜົມຫຍິກ | ຫວີ</annotation>
+		<annotation cp="🪮" type="tts">ຫວີ</annotation>
 		<annotation cp="👑">ພະລາຊະນີ | ພະລາຊາ | ມຸງກຸດ | ມົງກຸດ</annotation>
 		<annotation cp="👑" type="tts">ມຸງກຸດ</annotation>
 		<annotation cp="👒">ແມ່ຍິງ | ໝວກ | ໝວກແມ່ຍິງ</annotation>
@@ -2263,6 +2967,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎓" type="tts">ໝວກຮັບໃບປະກາດ</annotation>
 		<annotation cp="🧢">ໝວກແກັບ | ໝວກເບສບອນ</annotation>
 		<annotation cp="🧢" type="tts">ໝວກແກັບ</annotation>
+		<annotation cp="🪖">ກອງທັບ | ທະຫານ | ນັກຮົບ | ໝວກ | ໝວກທະຫານ</annotation>
+		<annotation cp="🪖" type="tts">ໝວກທະຫານ</annotation>
 		<annotation cp="⛑">ກາກະບາດ | ປອດໄພ | ໝວກກັນກະທົບ | ໝວກກັນກະທົບທີ່ມີກາກະບາດສີຂາວ</annotation>
 		<annotation cp="⛑" type="tts">ໝວກກັນກະທົບທີ່ມີກາກະບາດສີຂາວ</annotation>
 		<annotation cp="📿">ສາຍ | ສາຍລູກປັດ | ລູກປັດ</annotation>
@@ -2311,6 +3017,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📻" type="tts">ວິທະຍຸ</annotation>
 		<annotation cp="🎷">ເຄື່ອງດົນຕີ | ແຊັກໂຊໂຟນ</annotation>
 		<annotation cp="🎷" type="tts">ແຊັກໂຊໂຟນ</annotation>
+		<annotation cp="🪗">ກ່ອງ | ຄອນເສີດ | ຫີບເພງ</annotation>
+		<annotation cp="🪗" type="tts">ຫີບເພງ</annotation>
 		<annotation cp="🎸">ກີຕາ | ເຄື່ອງດົນຕີ</annotation>
 		<annotation cp="🎸" type="tts">ກີຕາ</annotation>
 		<annotation cp="🎹">ຄີບອດ | ເຄື່ອງດົນຕີ | ເປຍໂນ</annotation>
@@ -2323,6 +3031,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪕" type="tts">ແບນ​ໂຈ</annotation>
 		<annotation cp="🥁">ກອງ | ເພງ | ໄມ້ກອງ</annotation>
 		<annotation cp="🥁" type="tts">ກອງ</annotation>
+		<annotation cp="🪘">ກອງ | ກອງຍາວ | ຄອນກ້າ | ຈັງຫວະ | ທຳນອງ</annotation>
+		<annotation cp="🪘" type="tts">ກອງຍາວ</annotation>
+		<annotation cp="🪇">ເຄື່ອງດົນຕີ | ສັ່ນ | ເຍົ່າ | ຕີ | ເພງ | ມາຣາຄັສ</annotation>
+		<annotation cp="🪇" type="tts">ມາຣາຄັສ</annotation>
+		<annotation cp="🪈">ຂຸ່ຍ | ຂຸ່ຍຜິວ | ເຄື່ອງບັນທຶກ | ເຄື່ອງເປົ່າທີ່ເຮັດດ້ວຍໄມ້ | ທໍ່ | ເພງ</annotation>
+		<annotation cp="🪈" type="tts">ຂຸ່ຍ</annotation>
 		<annotation cp="📱">ໂທລະສັບ | ໂທລະສັບມືຖື | ມືຖື</annotation>
 		<annotation cp="📱" type="tts">ໂທລະສັບມືຖື</annotation>
 		<annotation cp="📲">ໂທລະສັບ | ໂທລະສັບມືຖືກັບລູກສອນ | ມືຖື | ລູກສອນ</annotation>
@@ -2337,6 +3051,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📠" type="tts">ເຄື່ອງຮັບສົ່ງແຟັກ</annotation>
 		<annotation cp="🔋">ແບັດເຕີຣີ</annotation>
 		<annotation cp="🔋" type="tts">ແບັດເຕີຣີ</annotation>
+		<annotation cp="🪫">ເຄື່ອງໄຟຟ້າ | ແບັດເຕີຣີຕໍ່າ | ພະລັງງານຕໍ່າ</annotation>
+		<annotation cp="🪫" type="tts">ແບັດເຕີຣີຕໍ່າ</annotation>
 		<annotation cp="🔌">ປັກສຽບ | ປັກສຽບໄຟ | ໄຟຟ້າ</annotation>
 		<annotation cp="🔌" type="tts">ປັກສຽບໄຟ</annotation>
 		<annotation cp="💻">ຄອມພິວເຕີ | ຄອມພິວເຕີແລັບທັອບ</annotation>
@@ -2429,6 +3145,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏷" type="tts">ປ້າຍກຳກັບ</annotation>
 		<annotation cp="💰">ເງິນ | ຖົງ | ຖົງເງິນ</annotation>
 		<annotation cp="💰" type="tts">ຖົງເງິນ</annotation>
+		<annotation cp="🪙">ເງິນ | ສົມບັດ | ທອງ | ໂລຫະ | ໂລຫະເງິນ | ຫຼຽນ</annotation>
+		<annotation cp="🪙" type="tts">ຫຼຽນ</annotation>
 		<annotation cp="💴">ທະນະບັດ | ທະນາຄານ | ໃບເງິນ | ໃບເງິນເຢັນ | ເຢັນ</annotation>
 		<annotation cp="💴" type="tts">ໃບເງິນເຢັນ</annotation>
 		<annotation cp="💵">ໂດລາ | ທະນະບັດ | ທະນາຄານ | ໃບເງິນ | ໃບເງິນໂດລາ</annotation>
@@ -2445,10 +3163,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧾" type="tts">ໃບຮັບເງິນ</annotation>
 		<annotation cp="💹">ສະກຸນເງິນ | ເສັ້ນສະແດງ | ເສັ້ນສະແດງຄ່າເງິນເຢັນທີ່ເພີ່ມຂຶ້ນ | ທະນາຄານ | ເຢັນ</annotation>
 		<annotation cp="💹" type="tts">ເສັ້ນສະແດງຄ່າເງິນເຢັນທີ່ເພີ່ມຂຶ້ນ</annotation>
-		<annotation cp="💱">ເງິນ | ສະກຸນເງິນ | ທະນາຄານ | ແລກປ່ຽນເງິນຕາ | ອັດຕາແລກປ່ຽນ</annotation>
-		<annotation cp="💱" type="tts">ແລກປ່ຽນເງິນຕາ</annotation>
-		<annotation cp="💲">ເງິນ | ສັນຍາລັກໂດລາໃຫຍ່ໜາ | ໂດລາ</annotation>
-		<annotation cp="💲" type="tts">ສັນຍາລັກໂດລາໃຫຍ່ໜາ</annotation>
 		<annotation cp="✉">ຈົດໝາຍ | ຊອງຈົດໝາຍ | ອີເມວ</annotation>
 		<annotation cp="✉" type="tts">ຊອງຈົດໝາຍ</annotation>
 		<annotation cp="📧">ຈົດໝາຍ | ອີເມວ</annotation>
@@ -2561,14 +3275,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🗡" type="tts">ດາບສັ້ນ</annotation>
 		<annotation cp="⚔">ໄຂວ່ | ດາບ | ດາບໄຂວ່ກັນ | ອາວຸດ</annotation>
 		<annotation cp="⚔" type="tts">ດາບໄຂວ່ກັນ</annotation>
-		<annotation cp="🔫">ເຄື່ອງມື | ປືນ | ປືນສັ້ນ | ອາວຸດ</annotation>
-		<annotation cp="🔫" type="tts">ປືນສັ້ນ</annotation>
+		<annotation cp="💣">ຕະລົກ | ລະເບີດ</annotation>
+		<annotation cp="💣" type="tts">ລະເບີດ</annotation>
+		<annotation cp="🪃">ສະທ້ອນກັບ | ເດັ້ງກັບ | ບູມເມີແລງ | ອອສເຕເລຍ</annotation>
+		<annotation cp="🪃" type="tts">ບູມເມີແລງ</annotation>
 		<annotation cp="🏹">ຄັນທະນູ | ຄັນທະນູ ແລະ ລູກສອນ | ລູກສອນ</annotation>
 		<annotation cp="🏹" type="tts">ຄັນທະນູ ແລະ ລູກສອນ</annotation>
 		<annotation cp="🛡">ໂລ່ປ້ອງກັນ | ອາວຸດ</annotation>
 		<annotation cp="🛡" type="tts">ໂລ່ປ້ອງກັນ</annotation>
+		<annotation cp="🪚">ເຄື່ອງມື | ຊ່າງໄມ້ | ໄມ້ທ່ອນ | ເລື່ອຍ | ເລື່ອຍຊ່າງໄມ້</annotation>
+		<annotation cp="🪚" type="tts">ຊ່າງໄມ້</annotation>
 		<annotation cp="🔧">ເຄື່ອງມື | ປະແຈ</annotation>
 		<annotation cp="🔧" type="tts">ປະແຈ</annotation>
+		<annotation cp="🪛">ໄຂຄວງ | ເຄື່ອງມື | ຕະລະບິດ</annotation>
+		<annotation cp="🪛" type="tts">ໄຂຄວງ</annotation>
 		<annotation cp="🔩">ນັອດໂຕຜູ້ | ນັອດໂຕຜູ້ ແລະໂຕແມ່ | ນັອດໂຕແມ່</annotation>
 		<annotation cp="🔩" type="tts">ນັອດໂຕຜູ້ ແລະໂຕແມ່</annotation>
 		<annotation cp="⚙">ເກຍ | ເຄື່ອງມື | ເຟືອງເກຍ</annotation>
@@ -2581,12 +3301,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦯" type="tts">ໄມ້​ຄັນ​ເທົ້າ​ນຳ​ທາງ</annotation>
 		<annotation cp="🔗">ຂໍ້ຕໍ່ | ລິ້ງ</annotation>
 		<annotation cp="🔗" type="tts">ຂໍ້ຕໍ່</annotation>
+		<annotation cp="⛓‍💥">ກັບມື | ກໍາລັງຫັກ | ໂສ້ | ໂສ້ຫັກ | ຫັກ | ອິດສະຫຼະພາບ</annotation>
+		<annotation cp="⛓‍💥" type="tts">ໂສ້ຫັກ</annotation>
 		<annotation cp="⛓">ໂສ້</annotation>
 		<annotation cp="⛓" type="tts">ໂສ້</annotation>
+		<annotation cp="🪝">ຂໍ້ພັບ | ໂຄ້ງ | ຈັບ | ຈຸດຂາຍ | ດັກຟັງ | ຕະຂໍ</annotation>
+		<annotation cp="🪝" type="tts">ຕະຂໍ</annotation>
 		<annotation cp="🧰">ກັບໃສ່ເຄື່ອງອຸປະກອນ | ເຄື່ອງມືອູຸປະກອນ | ແມ່ກະນິກ | ເອີກ</annotation>
 		<annotation cp="🧰" type="tts">ກັບໃສ່ເຄື່ອງອຸປະກອນ</annotation>
 		<annotation cp="🧲">ກາບຮອງຕີນມ້າ | ຕິດແປະ | ພົງກິນເຫຼັກ</annotation>
 		<annotation cp="🧲" type="tts">ພົງກິນເຫຼັກ</annotation>
+		<annotation cp="🪜">ຂັນໃດ | ຂັ້ນໄດ | ປີນ | ລູກຂັ້ນໄດ</annotation>
+		<annotation cp="🪜" type="tts">ຂັນໃດ</annotation>
 		<annotation cp="⚗">ເຄມີ | ເຄື່ອງມື | ພາຊະນະກັ່ນ | ວິທະຍາສາດ</annotation>
 		<annotation cp="⚗" type="tts">ພາຊະນະກັ່ນ</annotation>
 		<annotation cp="🧪">ການທົດລອງ | ເຄມີສາດ | ນັກເຄມີສາດ | ວິທະຍາສາດ | ຫ້ອງທົດລອງ | ຫຼອດທົດລອງ</annotation>
@@ -2605,14 +3331,24 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💉" type="tts">ຊະແລັງ</annotation>
 		<annotation cp="🩸">ບໍ​ລິ​ຈາກ​ເລືອດ | ປະ​ຈຳ​ເດືອນ | ຢົດ​ເລື​ອດ | ຮັກ​ສາ</annotation>
 		<annotation cp="🩸" type="tts">ຢົດ​ເລື​ອດ</annotation>
-		<annotation cp="💊">ໄຂ້ | ເປັນຢາ | ເມັດຢາ | ຢາ | ໝໍ</annotation>
+		<annotation cp="💊">ເປັນໄຂ້ | ເມັດຢາ | ຢາ | ໝໍ</annotation>
 		<annotation cp="💊" type="tts">ເມັດຢາ</annotation>
 		<annotation cp="🩹">ຜ້າ​ພັນ​ບາດ | ຜ້າ​ພັນ​ບາດ​ແຜ</annotation>
 		<annotation cp="🩹" type="tts">ຜ້າ​ພັນ​ບາດ​ແຜ</annotation>
+		<annotation cp="🩼">ເຈັບ | ຊ່ວຍເຄື່ອນໄຫວ | ພິການ | ໄມ້ຄ້ອນເທົ້າ | ໄມ້ຄໍ້າ</annotation>
+		<annotation cp="🩼" type="tts">ໄມ້ຄໍ້າ</annotation>
 		<annotation cp="🩺">ປິ່ນ​ປົວ | ແພດ | ໝໍ | ຫູ​ຟັງ​ຂອງ​ແພດ | ຫົວ​ໃຈ | ຮັກ​ສາ</annotation>
 		<annotation cp="🩺" type="tts">ຫູ​ຟັງ​ຂອງ​ແພດ</annotation>
+		<annotation cp="🩻">ກະດູກ | ການແພດ | ໂຄງກະດູກ | ສ່ອງໄຟຟ້າ | ທ່ານໝໍ</annotation>
+		<annotation cp="🩻" type="tts">ສ່ອງໄຟຟ້າ</annotation>
 		<annotation cp="🚪">ປະຕູ</annotation>
 		<annotation cp="🚪" type="tts">ປະຕູ</annotation>
+		<annotation cp="🛗">ການ​ຊ່ວຍ​ເຂົ້າ​ເຖິງ | ເຄື່ອນ​ທີ່ | ຍົກ​ຂຶ້ນ | ລິບ</annotation>
+		<annotation cp="🛗" type="tts">ລິບ</annotation>
+		<annotation cp="🪞">ເຄື່ອງ​ສະ​ທ້ອນ | ພາບສະ​ທ້ອນ | ແວ່ນ</annotation>
+		<annotation cp="🪞" type="tts">ແວ່ນ</annotation>
+		<annotation cp="🪟">ຂອບ | ປ່ອງ​ຢ້ຽມ | ປະ​ຕູ | ເປີດ | ວິວ | ໜ້າ​ຕ່າງ</annotation>
+		<annotation cp="🪟" type="tts">ປ່ອງ​ຢ້ຽມ</annotation>
 		<annotation cp="🛏">ຕຽງນອນ | ໂຮງແຮມ</annotation>
 		<annotation cp="🛏" type="tts">ຕຽງນອນ</annotation>
 		<annotation cp="🛋">ໂຄມໄຟ | ໂຊຟາ | ໂຊຟາກັບໂຄມໄຟ | ໂຮງແຮມ</annotation>
@@ -2621,10 +3357,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪑" type="tts">ຕັ່ງ</annotation>
 		<annotation cp="🚽">ວິດ | ວິດຖ່າຍ | ຫ້ອງນໍ້າ</annotation>
 		<annotation cp="🚽" type="tts">ວິດຖ່າຍ</annotation>
+		<annotation cp="🪠">ຖ້ວຍໄວ້ດັນ | ປ້ຳ | ລູກສູບ | ຫ້ອງນຳ້ | ອັນດູດ</annotation>
+		<annotation cp="🪠" type="tts">ລູກສູບ</annotation>
 		<annotation cp="🚿">ນໍ້າ | ຝັກບົວ | ຝັກບົວອາບນໍ້າ</annotation>
 		<annotation cp="🚿" type="tts">ຝັກບົວອາບນໍ້າ</annotation>
 		<annotation cp="🛁">ອ່າງ | ອ່າງອາບນໍ້າ | ອາບນໍ້າ</annotation>
 		<annotation cp="🛁" type="tts">ອ່າງອາບນໍ້າ</annotation>
+		<annotation cp="🪤">ກັບດັກ | ກັບດັກໜູ | ຫ່ວງ | ເຫຍື່ອ</annotation>
+		<annotation cp="🪤" type="tts">ກັບດັກໜູ</annotation>
 		<annotation cp="🪒">ຄົມ | ແຖ | ມີດ | ມີດ​ແຖ</annotation>
 		<annotation cp="🪒" type="tts">ມີດ​ແຖ</annotation>
 		<annotation cp="🧴">ຂວດໂລຊັ່ນ | ຄຣີມກັນແດດ | ຄວາມຊຸມຊື່ນ | ແຊມພູ | ໂລຊັນ</annotation>
@@ -2637,10 +3377,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧺" type="tts">ກະຕ່າ</annotation>
 		<annotation cp="🧻">ກໍ້ເຈ້ຍ | ເຈ້ຍອະນາໄມ | ແພເຈ້ຍເຊັດຕົວ</annotation>
 		<annotation cp="🧻" type="tts">ກໍ້ເຈ້ຍ</annotation>
+		<annotation cp="🪣">ຄຸ | ຄຸນ້ຳ | ຄຸໃຫຍ່ | ຖັງນ້ຳ</annotation>
+		<annotation cp="🪣" type="tts">ຄຸ</annotation>
 		<annotation cp="🧼">ການອາບນໍ້າ | ຄານ | ສະບູ | ຖານສະບູ | ທໍາຄວາມສະອາດ | ໜັງ</annotation>
 		<annotation cp="🧼" type="tts">ສະບູ</annotation>
-		<annotation cp="🧽">ດູດຊືມ | ທໍາຄວາມສະອາດ | ຟອງສະບູ | ໄຟ | ຮ້ອນໃໝ້ | ຮູຂົນໜາວ ເຕົ້າດັບເພິງ</annotation>
-		<annotation cp="🧽" type="tts">ຟອງສະບູ</annotation>
+		<annotation cp="🫧">ສະບູ | ໃຕ້ນໍ້າ | ຟອງສະບູ | ອະນາໄມ | ເອື້ອມ</annotation>
+		<annotation cp="🫧" type="tts">ຟອງສະບູ</annotation>
+		<annotation cp="🪥">ແຂ້ວ | ສະອາດ | ສຸຂະອານາໄມ | ແປງ | ແປງຖູແຂ້ວ | ຫ້ອງນ້ຳ</annotation>
+		<annotation cp="🪥" type="tts">ແປງຖູແຂ້ວ</annotation>
+		<annotation cp="🧽">ດູດຊືມ | ທໍາຄວາມສະອາດ | ຟອງສະບູ | ຟອງນ້ຳ | ໄຟ | ຮ້ອນໃໝ້ | ຮູຂົນໜາວ ເຕົ້າດັບເພິງ</annotation>
+		<annotation cp="🧽" type="tts">ຟອງນ້ຳ</annotation>
 		<annotation cp="🧯">ເຕົ້າດັບເພິງ | ເຕົ້່າດັບເຟີງ | ໄຟ | ຮ້ອນໃໝ້</annotation>
 		<annotation cp="🧯" type="tts">ເຕົ້່າດັບເຟີງ</annotation>
 		<annotation cp="🛒">ຊັອບປິງ | ຊື້ເຄື່ອງ | ລໍ້ຍູ້ | ລົດເຂັນ | ລົດເຂັນຊື້ເຄື່ອງ</annotation>
@@ -2649,10 +3395,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚬" type="tts">ຢາສູບ</annotation>
 		<annotation cp="⚰">ຄວາມຕາຍ | ໂລງສົບ</annotation>
 		<annotation cp="⚰" type="tts">ໂລງສົບ</annotation>
+		<annotation cp="🪦">ສິລາເລິກ | ສິລາເລີກ | ສຸສານ | ປ່າຊ້າ | ຫຼຸມຝັງສົບ</annotation>
+		<annotation cp="🪦" type="tts">ສິລາເລີກ</annotation>
 		<annotation cp="⚱">ກະດູກ | ຄວາມຕາຍ | ໂຖ | ໂຖໃສ່ກະດູກ</annotation>
 		<annotation cp="⚱" type="tts">ໂຖໃສ່ກະດູກ</annotation>
+		<annotation cp="🧿">ເຄື່ອງລາງ | ເຄື່ອງລາງຂອງຂັງ | ສາຍປອງຮ້າຍ | ລູກປັດ | ໝໍດູ | ໂອ່ງລໍ້</annotation>
+		<annotation cp="🧿" type="tts">ເຄື່ອງລາງຂອງຂັງ</annotation>
+		<annotation cp="🪬">ເຄື່ອງລາງ | ປົກປ້ອງ | ຟາຕິມາ | ມີຣຽມ | ມື | ມືແຫ່ງການປົກປ້ອງ | ແມຣີ</annotation>
+		<annotation cp="🪬" type="tts">ມືແຫ່ງການປົກປ້ອງ</annotation>
 		<annotation cp="🗿">ໂມໄອ | ໜ້າ | ຮູບປັ້ນ | ຮູບປັ້ນໂມໄອ</annotation>
 		<annotation cp="🗿" type="tts">ຮູບປັ້ນໂມໄອ</annotation>
+		<annotation cp="🪧">ການສາທິດ | ສັນຍານ | ປະທ້ວງ | ປ້າຍປະກາດ | ຮົ້ວ</annotation>
+		<annotation cp="🪧" type="tts">ປ້າຍປະກາດ</annotation>
+		<annotation cp="🪪">ຄວາມປອດໄພ | ບັດປະຈໍາຕົວ | ໃບອະນຸຍາດ | ໜັງສືຮັບຮອງ</annotation>
+		<annotation cp="🪪" type="tts">ບັດປະຈໍາຕົວ</annotation>
 		<annotation cp="🏧">ຕູ້ກົດເງິນ | ເອທີເອັມ</annotation>
 		<annotation cp="🏧" type="tts">ເອທີເອັມ</annotation>
 		<annotation cp="🚮">ຖັງ | ຖິ້ມຂີ້ເຫຍື້ອ | ຖິ້ມຂີ້ເຫຍື້ອໃສ່ຖັງ</annotation>
@@ -2725,6 +3481,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↕" type="tts">ລູກສອນຂຶ້ນແລະລົງ</annotation>
 		<annotation cp="↔">ຂວາ | ຊ້າຍ | ລູກສອນ | ລູກສອນຊ້າຍຂວາ</annotation>
 		<annotation cp="↔" type="tts">ລູກສອນຊ້າຍຂວາ</annotation>
+		<annotation cp="↮">ໝາຍຍ້າຍລູກສອນຊ້າຍຂວາ</annotation>
+		<annotation cp="↮" type="tts">ໝາຍຍ້າຍລູກສອນຊ້າຍຂວາ</annotation>
 		<annotation cp="↩">ໂຄ້ງ | ຊ້າຍ | ລູກສອນ | ລູກສອນໂຄ້ງຂວາໄປຊ້າຍ</annotation>
 		<annotation cp="↩" type="tts">ລູກສອນໂຄ້ງຂວາໄປຊ້າຍ</annotation>
 		<annotation cp="↪">ຂວາ | ໂຄ້ງ | ລູກສອນ | ລູກສອນໂຄ້ງຊ້າຍໄປຂວາ</annotation>
@@ -2771,6 +3529,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🕎" type="tts">ສັນຍາລັກໂຄມປັກທຽນ</annotation>
 		<annotation cp="🔯">ຈໍ້າກາງ | ດາວ | ດາວຫຼົກແຈມີຈໍ້າຢູ່ກາງ | ຫຼົກແຈ</annotation>
 		<annotation cp="🔯" type="tts">ດາວຫຼົກແຈມີຈໍ້າຢູ່ກາງ</annotation>
+		<annotation cp="🪯">ຄານດາ | ສາສະໜາ | ຊິກ</annotation>
+		<annotation cp="🪯" type="tts">ຄານດາ</annotation>
 		<annotation cp="♈">ລາສີ | ລາສີເມກ</annotation>
 		<annotation cp="♈" type="tts">ລາສີເມກ</annotation>
 		<annotation cp="♉">ລາສີ | ລາສີງົວ</annotation>
@@ -2841,6 +3601,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔆" type="tts">ປຸ່ມປັບໃຫ້ສະຫວ່າງຂຶ້ນ</annotation>
 		<annotation cp="📶">ສັນຍານ | ແຖບ | ແຖບສັນຍານ | ໂທລະສັບ | ມືຖື</annotation>
 		<annotation cp="📶" type="tts">ແຖບສັນຍານ</annotation>
+		<annotation cp="🛜">ຄອມພິວເຕີ | ເຄືອຂ່າຍ | ອິນເຕີເນັດ | ໄຮ້ສາຍ</annotation>
+		<annotation cp="🛜" type="tts">ໄຮ້ສາຍ</annotation>
 		<annotation cp="📳">ສັ່ນ | ໂທລະສັບ | ມືຖື | ໂໝດສັ່ນ</annotation>
 		<annotation cp="📳" type="tts">ໂໝດສັ່ນ</annotation>
 		<annotation cp="📴">ໂທລະສັບ | ປິດ | ປິດມືຖື | ມືຖື</annotation>
@@ -2849,10 +3611,40 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="♀" type="tts">ສັນຍາລັກຜູ້ຍິງ</annotation>
 		<annotation cp="♂">ສັນຍາລັກຜູ້ຊາຍ | ຊາຍ | ຜູ້ຊາຍ</annotation>
 		<annotation cp="♂" type="tts">ສັນຍາລັກຜູ້ຊາຍ</annotation>
-		<annotation cp="⚕">ການຢາ | ສັນຍາລັກການຢາ | ແພດ | ຢາ</annotation>
-		<annotation cp="⚕" type="tts">ສັນຍາລັກການຢາ</annotation>
+		<annotation cp="⚧">ຄົນຂ້າມເພດ | ສັນຍາລັກຄົນ​ຂ້າມ​ເພດ</annotation>
+		<annotation cp="⚧" type="tts">ສັນຍາລັກຄົນ​ຂ້າມ​ເພດ</annotation>
+		<annotation cp="✖">ຄູນ | ເຄື່ອງໝາຍ | ເຄື່ອງໝາຍຄູນ | ເຄື່ອງໝາຍຄູນໃຫຍ່ໜາ | ໃຫຍ່ໜາ</annotation>
+		<annotation cp="✖" type="tts">ເຄື່ອງໝາຍຄູນ</annotation>
+		<annotation cp="➕">ເຄື່ອງໝາຍ | ເຄື່ອງໝາຍບວກ | ບວກ</annotation>
+		<annotation cp="➕" type="tts">ເຄື່ອງໝາຍບວກ</annotation>
+		<annotation cp="➖">ເຄື່ອງໝາຍ | ເຄື່ອງໝາຍລົບ | ລົບ</annotation>
+		<annotation cp="➖" type="tts">ເຄື່ອງໝາຍລົບ</annotation>
+		<annotation cp="➗">ເຄື່ອງໝາຍ | ເຄື່ອງໝາຍຫານ | ຫານ</annotation>
+		<annotation cp="➗" type="tts">ຫານ</annotation>
+		<annotation cp="🟰">ເຄື່ອງໝາຍເທົ່າກັບ</annotation>
+		<annotation cp="🟰" type="tts">ເຄື່ອງໝາຍເທົ່າກັບ</annotation>
 		<annotation cp="♾">ຈັກກະວານ | ຕະລອດການ | ບໍ່ມີຂອບເຂດ | ອະສົງໄຂ</annotation>
 		<annotation cp="♾" type="tts">ອະສົງໄຂ</annotation>
+		<annotation cp="‼">ເຄື່ອງໝາຍທ້ວງ | ເຄື່ອງໝາຍທ້ວງຄູ່ | ຕົກໃຈ</annotation>
+		<annotation cp="‼" type="tts">ເຄື່ອງໝາຍທ້ວງຄູ່</annotation>
+		<annotation cp="⁉">ເຄື່ອງໝາຍທ້ວງ | ເຄື່ອງໝາຍທ້ວງກັບໝາຍຖາມ | ໝາຍຖາມ</annotation>
+		<annotation cp="⁉" type="tts">ເຄື່ອງໝາຍທ້ວງກັບໝາຍຖາມ</annotation>
+		<annotation cp="❓">ຄຳຖາມ | ເຄື່ອງໝາຍ | ເຄື່ອງໝາຍຖາມ</annotation>
+		<annotation cp="❓" type="tts">ເຄື່ອງໝາຍຖາມ</annotation>
+		<annotation cp="❔">ຄໍາຖາມ | ເຄື່ອງໝາຍ | ເຄື່ອງໝາຍຖາມສີຂາວ | ສີຂາວ</annotation>
+		<annotation cp="❔" type="tts">ເຄື່ອງໝາຍຖາມສີຂາວ</annotation>
+		<annotation cp="❕">ເຄື່ອງໝາຍທ້ວງ | ເຄື່ອງໝາຍທ້ວງສີຂາວ | ສີຂາວ | ອັດສະຈັນ</annotation>
+		<annotation cp="❕" type="tts">ເຄື່ອງໝາຍທ້ວງສີຂາວ</annotation>
+		<annotation cp="❗">ເຄື່ອງໝາຍທ້ວງ | ຕົກໃຈ | ອັດສະຈັນ</annotation>
+		<annotation cp="❗" type="tts">ເຄື່ອງໝາຍທ້ວງ</annotation>
+		<annotation cp="〰">ຄື້ນ | ເຄື່ອງໝາຍ | ເສັ້ນ | ເສັ້ນຄື້ນ</annotation>
+		<annotation cp="〰" type="tts">ເສັ້ນຄື້ນ</annotation>
+		<annotation cp="💱">ເງິນ | ສະກຸນເງິນ | ທະນາຄານ | ແລກປ່ຽນເງິນຕາ | ອັດຕາແລກປ່ຽນ</annotation>
+		<annotation cp="💱" type="tts">ແລກປ່ຽນເງິນຕາ</annotation>
+		<annotation cp="💲">ເງິນ | ສັນຍາລັກໂດລາໃຫຍ່ໜາ | ໂດລາ</annotation>
+		<annotation cp="💲" type="tts">ສັນຍາລັກໂດລາໃຫຍ່ໜາ</annotation>
+		<annotation cp="⚕">ການຢາ | ສັນຍາລັກການຢາ | ແພດ | ຢາ</annotation>
+		<annotation cp="⚕" type="tts">ສັນຍາລັກການຢາ</annotation>
 		<annotation cp="♻">ສັນຍາລັກການນຳກັບມາໃຊ້ໃໝ່ | ນຳກັບມາໃຊ້ໃໝ່</annotation>
 		<annotation cp="♻" type="tts">ສັນຍາລັກການນຳກັບມາໃຊ້ໃໝ່</annotation>
 		<annotation cp="⚜">ດອກໄມ້ | ດອກໄອລິສ | ໄອລິສ</annotation>
@@ -2871,18 +3663,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☑" type="tts">ປ່ອງມີເຄື່ອງໝາຍຖືກ</annotation>
 		<annotation cp="✔">ເຄື່ອງໝາຍຕິກ | ເຄື່ອງໝາຍຕິກໃຫຍ່ໜາ | ໃຫຍ່ໜາ</annotation>
 		<annotation cp="✔" type="tts">ເຄື່ອງໝາຍຕິກໃຫຍ່ໜາ</annotation>
-		<annotation cp="✖">ຄູນ | ເຄື່ອງໝາຍ | ເຄື່ອງໝາຍຄູນ | ເຄື່ອງໝາຍຄູນໃຫຍ່ໜາ | ໃຫຍ່ໜາ</annotation>
-		<annotation cp="✖" type="tts">ເຄື່ອງໝາຍຄູນ</annotation>
 		<annotation cp="❌">ກາກະບາດ | ເຄື່ອງໝາຍ | ເຄື່ອງໝາຍກາກະບາດ | ຍົກເລີກ</annotation>
 		<annotation cp="❌" type="tts">ເຄື່ອງໝາຍກາກະບາດ</annotation>
 		<annotation cp="❎">ກາລະບາດ | ປຸ່ມເຄື່ອງໝາຍ | ປຸ່ມເຄື່ອງໝາຍກາກະບາດ | ປຸ່ມເຄື່ອງໝາຍກາລະບາດ</annotation>
 		<annotation cp="❎" type="tts">ປຸ່ມເຄື່ອງໝາຍກາກະບາດ</annotation>
-		<annotation cp="➕">ເຄື່ອງໝາຍ | ເຄື່ອງໝາຍບວກ | ບວກ</annotation>
-		<annotation cp="➕" type="tts">ເຄື່ອງໝາຍບວກ</annotation>
-		<annotation cp="➖">ເຄື່ອງໝາຍ | ເຄື່ອງໝາຍລົບ | ລົບ</annotation>
-		<annotation cp="➖" type="tts">ເຄື່ອງໝາຍລົບ</annotation>
-		<annotation cp="➗">ເຄື່ອງໝາຍ | ເຄື່ອງໝາຍຫານ | ຫານ</annotation>
-		<annotation cp="➗" type="tts">ຫານ</annotation>
 		<annotation cp="➰">ເສັ້ນໂຄ້ງ | ວົງ | ຫ່ວງ</annotation>
 		<annotation cp="➰" type="tts">ຫ່ວງ</annotation>
 		<annotation cp="➿">ເສັ້ນໂຄ້ງ | ວົງ | ຫ່ວງ | ຫ່ວງຄູ່</annotation>
@@ -2895,20 +3679,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="✴" type="tts">ດາວແປດແຈ</annotation>
 		<annotation cp="❇">ປະກາຍ</annotation>
 		<annotation cp="❇" type="tts">ປະກາຍ</annotation>
-		<annotation cp="‼">ເຄື່ອງໝາຍທ້ວງ | ເຄື່ອງໝາຍທ້ວງຄູ່ | ຕົກໃຈ</annotation>
-		<annotation cp="‼" type="tts">ເຄື່ອງໝາຍທ້ວງຄູ່</annotation>
-		<annotation cp="⁉">ເຄື່ອງໝາຍທ້ວງ | ເຄື່ອງໝາຍທ້ວງກັບໝາຍຖາມ | ໝາຍຖາມ</annotation>
-		<annotation cp="⁉" type="tts">ເຄື່ອງໝາຍທ້ວງກັບໝາຍຖາມ</annotation>
-		<annotation cp="❓">ຄຳຖາມ | ເຄື່ອງໝາຍ | ເຄື່ອງໝາຍຖາມ</annotation>
-		<annotation cp="❓" type="tts">ເຄື່ອງໝາຍຖາມ</annotation>
-		<annotation cp="❔">ຄໍາຖາມ | ເຄື່ອງໝາຍ | ເຄື່ອງໝາຍຖາມສີຂາວ | ສີຂາວ</annotation>
-		<annotation cp="❔" type="tts">ເຄື່ອງໝາຍຖາມສີຂາວ</annotation>
-		<annotation cp="❕">ເຄື່ອງໝາຍທ້ວງ | ເຄື່ອງໝາຍທ້ວງສີຂາວ | ສີຂາວ | ອັດສະຈັນ</annotation>
-		<annotation cp="❕" type="tts">ເຄື່ອງໝາຍທ້ວງສີຂາວ</annotation>
-		<annotation cp="❗">ເຄື່ອງໝາຍທ້ວງ | ຕົກໃຈ | ອັດສະຈັນ</annotation>
-		<annotation cp="❗" type="tts">ເຄື່ອງໝາຍທ້ວງ</annotation>
-		<annotation cp="〰">ຄື້ນ | ເຄື່ອງໝາຍ | ເສັ້ນ | ເສັ້ນຄື້ນ</annotation>
-		<annotation cp="〰" type="tts">ເສັ້ນຄື້ນ</annotation>
 		<annotation cp="©">ເຄື່ອງໝາຍລິຂະສິດ | ລິຂະສິດ</annotation>
 		<annotation cp="©" type="tts">ເຄື່ອງໝາຍລິຂະສິດ</annotation>
 		<annotation cp="®">ເຄື່ອງໝາຍຈົດທະບຽນ | ຈົດທະບຽນ</annotation>
@@ -3071,22 +3841,52 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏴" type="tts">ທຸງດຳທີ່ປິວສະບັດ</annotation>
 		<annotation cp="🏳">ທຸງຂາວ | ທຸງຂາວທີ່ປິວສະບັດ | ປິວສະບັດ</annotation>
 		<annotation cp="🏳" type="tts">ທຸງຂາວທີ່ປິວສະບັດ</annotation>
-		<annotation cp="🏳‍⚧" draft="provisional">ສີຟ້າ, ສີບົວ, ແລະ ທຸງຂາວ</annotation>
-		<annotation cp="🏳‍⚧" type="tts">ສີຟ້າ, ສີບົວ, ແລະ ທຸງຂາວ</annotation>
 		<annotation cp="🏳‍🌈">ສາຍຮຸ້ງ | ທຸງ | ທຸງສາຍຮຸ້ງ | ຮຸ້ງ</annotation>
 		<annotation cp="🏳‍🌈" type="tts">ທຸງສາຍຮຸ້ງ</annotation>
+		<annotation cp="🏳‍⚧">ຄົນຂ້າມເພດ | ສີຂາວ | ສີບົວ | ສີບົວອ່ອນ | ສີຟ້າ | ສີຟ້າ, ສີບົວ, ແລະ ທຸງຂາວ | ທຸງ | ແລະ ທຸງຂາວ</annotation>
+		<annotation cp="🏳‍⚧" type="tts">ສີຟ້າ, ສີບົວ, ແລະ ທຸງຂາວ</annotation>
 		<annotation cp="🏴‍☠">ຂຸມຊັບ | ໂຈນສະລັດ | ທຸງໂຈນສະລັດ | ປູ້ນ | ໂລໂກຫົວກະໂຫຼກ</annotation>
 		<annotation cp="🏴‍☠" type="tts">ທຸງໂຈນສະລັດ</annotation>
+		<annotation cp="¢">ເຊັນ</annotation>
+		<annotation cp="¢" type="tts">ເຊັນ</annotation>
+		<annotation cp="$">ເງິນ | ໂດລາ | ໂດລາສະຫະລັດ | ເປໂຊ</annotation>
+		<annotation cp="$" type="tts">ໂດລາ</annotation>
 		<annotation cp="£">[EGP] | [GBP] | ສະ​ກຸນ​ເງິນ | ປອນ</annotation>
 		<annotation cp="£" type="tts">ປອນ</annotation>
 		<annotation cp="¥">[CNY] | [JPY] | ສະ​ກຸນ​ເງິນ | ຢວນ | ເຢນ</annotation>
 		<annotation cp="¥" type="tts">ເຢນ</annotation>
+		<annotation cp="₢">BRB | ສະກຸນເງິນ | ສະກຸນເງິນຄຣູເຊໂຣ</annotation>
+		<annotation cp="₢" type="tts">ສະກຸນເງິນຄຣູເຊໂຣ</annotation>
+		<annotation cp="₣">ເງິນຝລັ່ງ | ສະກຸນເງິນ</annotation>
+		<annotation cp="₣" type="tts">ເງິນຝລັ່ງ</annotation>
+		<annotation cp="₤">ເງິນລີຣາ | ສະກຸນເງິນ</annotation>
+		<annotation cp="₤" type="tts">ເງິນລີຣາ</annotation>
+		<annotation cp="₥">ມິວ</annotation>
+		<annotation cp="₥" type="tts">ມິວ</annotation>
+		<annotation cp="₩">ເງິນວອນເກົາຫຼີ | ວອນ</annotation>
+		<annotation cp="₩" type="tts">ວອນ</annotation>
 		<annotation cp="€">[EUR] | ສະກຸນເງິນ | ເອີ​ໂຣ</annotation>
 		<annotation cp="€" type="tts">ເອີ​ໂຣ</annotation>
+		<annotation cp="₰">ເງິນຫຼຽນເຢຍລະມັນ | ສະກຸນເງິນ</annotation>
+		<annotation cp="₰" type="tts">ເງິນຫຼຽນເຢຍລະມັນ</annotation>
+		<annotation cp="₱">ເປໂຊ</annotation>
+		<annotation cp="₱" type="tts">ເປໂຊ</annotation>
+		<annotation cp="₳">ARA | ເງິນອັອສໂຕຣ | ສະກຸນເງິນ</annotation>
+		<annotation cp="₳" type="tts">ເງິນອັອສໂຕຣ</annotation>
+		<annotation cp="₶">ເງິນ livre tournois | ສະກຸນເງິນ</annotation>
+		<annotation cp="₶" type="tts">ເງິນ livre tournois</annotation>
+		<annotation cp="₷">ສະກຸນເງິນ | ສະເປສມິໂລ</annotation>
+		<annotation cp="₷" type="tts">ສະເປສມິໂລ</annotation>
 		<annotation cp="₹">ສະ​ກຸນ​ເງິນ | ຣູ​ປີ | ອິນ​ເດຍ ຣູ​ປີ</annotation>
 		<annotation cp="₹" type="tts">ອິນ​ເດຍ ຣູ​ປີ</annotation>
 		<annotation cp="₽">ສະ​ກຸນ​ເງິນ | ຣູ​ເບິນ</annotation>
 		<annotation cp="₽" type="tts">ຣູ​ເບິນ</annotation>
+		<annotation cp="₿">ບິດຄອຍ</annotation>
+		<annotation cp="₿" type="tts">ບິດຄອຍ</annotation>
+		<annotation cp="₨">ສະກຸນເງິນ | ຣູປີ</annotation>
+		<annotation cp="₨" type="tts">ຣູປີ</annotation>
+		<annotation cp="﷼">ສະກຸນເງິນ | ຣຽວ</annotation>
+		<annotation cp="﷼" type="tts">ຣຽວ</annotation>
 		<annotation cp="¹">ກຳລັງ | ກຳລັງໜຶ່ງ | ໜຶ່ງ</annotation>
 		<annotation cp="¹" type="tts">ກຳລັງໜຶ່ງ</annotation>
 		<annotation cp="²">ກຳລັງ | ກຳລັງສອງ | ສອງ | ຍົກກຳລັງ</annotation>

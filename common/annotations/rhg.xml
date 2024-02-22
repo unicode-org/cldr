@@ -1,0 +1,1023 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2023 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+SPDX-License-Identifier: Unicode-DFS-2016
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="rhg"/>
+	</identity>
+	<annotations>
+		<annotation cp="👋">𐴇𐴥𐴝𐴃𐴠 𐴀𐴞𐴐𐴤𐴝𐴌𐴝 𐴒𐴡𐴌𐴥𐴡𐴕 | 𐴇𐴥𐴝𐴃𐴢 / 𐴀𐴞𐴐𐴤𐴝𐴌𐴝 / 𐴀𐴞𐴐𐴤𐴝𐴌𐴝 𐴒𐴡𐴌𐴥𐴡𐴕</annotation>
+		<annotation cp="👋" type="tts">𐴇𐴥𐴝𐴃𐴠 𐴀𐴞𐴐𐴤𐴝𐴌𐴝 𐴒𐴡𐴌𐴥𐴡𐴕</annotation>
+		<annotation cp="🤚">𐴇𐴥𐴝𐴃𐴡𐴌 𐴉𐴞𐴏𐴢 𐴋𐴤𐴝𐴑 / 𐴃𐴟𐴙𐴓𐴧𐴙𐴠 / 𐴇𐴥𐴝𐴃𐴡𐴌 𐴉𐴞𐴏𐴢 𐴋𐴤𐴝𐴑 𐴃𐴟𐴙𐴓𐴧𐴙𐴠 | 𐴇𐴥𐴝𐴃𐴡𐴌 𐴉𐴞𐴏𐴢 𐴋𐴤𐴝𐴑 𐴃𐴟𐴙𐴓𐴧𐴙𐴠</annotation>
+		<annotation cp="🤚" type="tts">𐴇𐴥𐴝𐴃𐴡𐴌 𐴉𐴞𐴏𐴢 𐴋𐴤𐴝𐴑 𐴃𐴟𐴙𐴓𐴧𐴙𐴠</annotation>
+		<annotation cp="🖐">𐴀𐴦𐴡𐴣𐴓 / 𐴇𐴥𐴝𐴃𐴢 / 𐴏𐴥𐴠𐴌𐴝𐴘𐴧𐴝 𐴀𐴦𐴡𐴣𐴓𐴡𐴌 𐴇𐴥𐴝𐴃𐴢/ 𐴏𐴥𐴠𐴌𐴝𐴘𐴧𐴝 | 𐴏𐴥𐴠𐴌𐴝𐴘𐴧𐴝 𐴀𐴦𐴡𐴣𐴓𐴡𐴌 𐴇𐴥𐴝𐴃𐴢</annotation>
+		<annotation cp="🖐" type="tts">𐴏𐴥𐴠𐴌𐴝𐴘𐴧𐴝 𐴀𐴦𐴡𐴣𐴓𐴡𐴌 𐴇𐴥𐴝𐴃𐴢</annotation>
+		<annotation cp="✋">𐴇𐴥𐴝𐴃𐴢 / 𐴀𐴟𐴣𐴏𐴡𐴓 𐴵 / 𐴀𐴟𐴣𐴏𐴡𐴓 𐴉𐴝𐴣𐴏𐴢/ 𐴇𐴥𐴝𐴃𐴢 𐴃𐴟𐴙𐴓𐴧𐴙𐴠 | 𐴇𐴥𐴝𐴃𐴢 𐴃𐴟𐴙𐴓𐴧𐴙𐴠</annotation>
+		<annotation cp="✋" type="tts">𐴇𐴥𐴝𐴃𐴢 𐴃𐴟𐴙𐴓𐴧𐴙𐴠</annotation>
+		<annotation cp="🖖">𐴀𐴦𐴡𐴣𐴓 / 𐴇𐴥𐴝𐴃𐴢 / 𐴀𐴠𐴏𐴂𐴡𐴑 / 𐴁𐴟𐴓𐴑𐴝𐴕/𐴁𐴟𐴓𐴑𐴝𐴕 𐴏𐴥𐴡𐴓𐴝𐴔 | 𐴁𐴟𐴓𐴑𐴝𐴕 𐴏𐴥𐴡𐴓𐴝𐴔</annotation>
+		<annotation cp="🖖" type="tts">𐴁𐴟𐴓𐴑𐴝𐴕 𐴏𐴥𐴡𐴓𐴝𐴔</annotation>
+		<annotation cp="🫱">𐴇𐴥𐴝𐴃𐴢 / 𐴋𐴠𐴕 / 𐴋𐴠𐴕𐴋𐴤𐴝𐴑 / 𐴋𐴠𐴕 𐴇𐴥𐴝𐴃𐴢 | 𐴋𐴠𐴕 𐴇𐴥𐴝𐴃𐴢</annotation>
+		<annotation cp="🫱" type="tts">𐴋𐴠𐴕 𐴇𐴥𐴝𐴃𐴢</annotation>
+		<annotation cp="🫲">𐴁𐴝𐴕 𐴇𐴥𐴝𐴃𐴢 | 𐴇𐴥𐴝𐴃𐴢 / 𐴁𐴝𐴕 / 𐴁𐴝𐴕𐴋𐴤𐴝𐴑/ 𐴁𐴝𐴕 𐴇𐴥𐴝𐴃𐴢</annotation>
+		<annotation cp="🫲" type="tts">𐴁𐴝𐴕 𐴇𐴥𐴝𐴃𐴢</annotation>
+		<annotation cp="🫳">𐴁𐴡𐴌𐴈𐴝𐴐𐴢 𐴒𐴡𐴌𐴥𐴝 / 𐴉𐴥𐴟𐴍𐴝 / 𐴃𐴝𐴓𐴧𐴗𐴝 𐴕𐴞𐴏𐴠 𐴒𐴡𐴙𐴅𐴤𐴙𐴝 𐴇𐴥𐴝𐴃𐴢/ 𐴎𐴟𐴃𐴝 | 𐴃𐴝𐴓𐴧𐴗𐴝 𐴕𐴠𐴏𐴡 𐴒𐴡𐴙𐴅𐴧𐴤𐴙𐴝 𐴇𐴥𐴝𐴃𐴢</annotation>
+		<annotation cp="🫳" type="tts">𐴃𐴝𐴓𐴧𐴗𐴝 𐴕𐴠𐴏𐴡 𐴒𐴡𐴙𐴅𐴧𐴤𐴙𐴝 𐴇𐴥𐴝𐴃𐴢</annotation>
+		<annotation cp="🫴">𐴀𐴞𐴐𐴤𐴝𐴌𐴝 𐴒𐴡𐴌𐴥𐴝 / 𐴊𐴤𐴡𐴌𐴥𐴡𐴕 / 𐴀𐴝𐴘𐴧𐴡𐴕/ 𐴀𐴡𐴉𐴥𐴝𐴌 / 𐴃𐴝𐴓𐴧𐴗𐴝 𐴀𐴟𐴖𐴡𐴌 𐴔𐴞𐴑𐴧𐴤𐴙𐴝 𐴇𐴥𐴝𐴃𐴢 | 𐴃𐴝𐴓𐴧𐴗𐴝 𐴀𐴟𐴖𐴡𐴌 𐴔𐴞𐴑𐴧𐴤𐴙𐴝 𐴇𐴥𐴝𐴃𐴢</annotation>
+		<annotation cp="🫴" type="tts">𐴃𐴝𐴓𐴧𐴗𐴝 𐴀𐴟𐴖𐴡𐴌 𐴔𐴞𐴑𐴧𐴤𐴙𐴝 𐴇𐴥𐴝𐴃𐴢</annotation>
+		<annotation cp="🫷">𐴀𐴟𐴣𐴏𐴡𐴓 𐴉𐴝𐴣𐴏𐴢 / 𐴁𐴝𐴕𐴋𐴤𐴝𐴑 /𐴁𐴝𐴕𐴋𐴤𐴝𐴙𐴑𐴧𐴙𐴝 𐴄𐴤𐴠𐴓𐴡𐴙𐴕𐴧𐴙𐴝 𐴇𐴥𐴝𐴃𐴢/ 𐴄𐴤𐴠𐴓𐴡𐴕/ 𐴀𐴞𐴕𐴑𐴝𐴌/ 𐴌𐴟𐴑𐴤𐴡/ 𐴀𐴠𐴕𐴃𐴠𐴎𐴝𐴌 | 𐴁𐴝𐴕𐴋𐴤𐴝𐴙𐴑𐴧𐴙𐴝 𐴄𐴤𐴠𐴓𐴡𐴙𐴕𐴧𐴙𐴝 𐴇𐴥𐴝𐴃𐴢</annotation>
+		<annotation cp="🫷" type="tts">𐴁𐴝𐴕𐴋𐴤𐴝𐴙𐴑𐴧𐴙𐴝 𐴄𐴤𐴠𐴓𐴡𐴙𐴕𐴧𐴙𐴝 𐴇𐴥𐴝𐴃𐴢</annotation>
+		<annotation cp="🫸">𐴀𐴟𐴣𐴏𐴡𐴓 𐴉𐴝𐴣𐴏𐴢 / 𐴁𐴝𐴕𐴋𐴤𐴝𐴑 / 𐴁𐴝𐴕𐴋𐴤𐴝𐴙𐴑𐴧𐴙𐴝 𐴄𐴤𐴠𐴓𐴡𐴙𐴕𐴧𐴙𐴝 𐴇𐴥𐴝𐴃𐴢 / 𐴄𐴤𐴠𐴓𐴡𐴕 / 𐴀𐴞𐴕𐴑𐴝𐴌 𐴒𐴡𐴌𐴥𐴡𐴕 / 𐴌𐴟𐴑𐴤𐴡𐴕/𐴀𐴠𐴕𐴃𐴠𐴎𐴝𐴌 | 𐴋𐴠𐴕𐴋𐴤𐴝𐴙𐴑𐴧𐴙𐴝 𐴄𐴥𐴠𐴓𐴡𐴙𐴕𐴧𐴙𐴝 𐴇𐴥𐴝𐴃𐴢</annotation>
+		<annotation cp="🫸" type="tts">𐴋𐴠𐴕𐴋𐴤𐴝𐴙𐴑𐴧𐴙𐴝 𐴄𐴥𐴠𐴓𐴡𐴙𐴕𐴧𐴙𐴝 𐴇𐴥𐴝𐴃𐴢</annotation>
+		<annotation cp="👌">𐴀𐴡𐴑𐴠 𐴇𐴥𐴝𐴃𐴢 | 𐴇𐴥𐴝𐴃𐴢 / 𐴀𐴡𐴑𐴠</annotation>
+		<annotation cp="👌" type="tts">𐴀𐴡𐴑𐴠 𐴇𐴥𐴝𐴃𐴢</annotation>
+		<annotation cp="🤌">𐴀𐴦𐴡𐴣𐴓 / 𐴇𐴥𐴝𐴃𐴡𐴌 𐴀𐴞𐴐𐴤𐴝𐴌𐴝 / 𐴉𐴟𐴏𐴥𐴝𐴌 𐴒𐴡𐴌𐴥𐴝 / 𐴑𐴟𐴣𐴌𐴝𐴘𐴧𐴝 / 𐴒𐴟𐴃𐴝 𐴔𐴝𐴌𐴝 | 𐴑𐴟𐴣𐴌𐴝𐴘𐴧𐴝 𐴀𐴦𐴡𐴣𐴓</annotation>
+		<annotation cp="🤌" type="tts">𐴑𐴟𐴣𐴌𐴝𐴘𐴧𐴝 𐴀𐴦𐴡𐴣𐴓</annotation>
+		<annotation cp="🤏">𐴑𐴟𐴣𐴌𐴝𐴘𐴧𐴝 𐴇𐴥𐴝𐴃𐴢 | 𐴑𐴟𐴣𐴌𐴝𐴘𐴧𐴝 𐴇𐴥𐴝𐴃𐴢 / 𐴀𐴡𐴓𐴉𐴡 𐴔𐴞𐴑𐴊𐴝𐴌</annotation>
+		<annotation cp="🤏" type="tts">𐴑𐴟𐴣𐴌𐴝𐴘𐴧𐴝 𐴇𐴥𐴝𐴃𐴢</annotation>
+		<annotation cp="✌">𐴇𐴥𐴝𐴃𐴢 / v / 𐴑𐴝𐴔𐴞𐴘𐴝𐴁𐴞 | 𐴑𐴝𐴔𐴞𐴘𐴝𐴁𐴞𐴌 𐴇𐴥𐴝𐴃𐴢</annotation>
+		<annotation cp="✌" type="tts">𐴑𐴝𐴔𐴞𐴘𐴝𐴁𐴞𐴌 𐴇𐴥𐴝𐴃𐴢</annotation>
+		<annotation cp="🤞">𐴈𐴡𐴓 / 𐴈𐴡𐴓 𐴊𐴞𐴘𐴝 𐴀𐴦𐴡𐴣𐴓 /𐴀𐴦𐴡𐴣𐴓 / 𐴇𐴥𐴝𐴃𐴢 / 𐴕𐴡𐴏𐴥𐴞𐴁𐴢 | 𐴈𐴡𐴓 𐴊𐴞𐴘𐴝 𐴀𐴦𐴡𐴣𐴓</annotation>
+		<annotation cp="🤞" type="tts">𐴈𐴡𐴓 𐴊𐴞𐴘𐴝 𐴀𐴦𐴡𐴣𐴓</annotation>
+		<annotation cp="🫰">𐴓𐴝𐴙𐴅𐴧𐴙𐴝 𐴀𐴦𐴡𐴣𐴓 𐴀𐴝𐴌 𐴁𐴟𐴙𐴅𐴧𐴤𐴙𐴝 𐴀𐴦𐴡𐴣𐴓 𐴈𐴡𐴓 𐴊𐴞𐴘𐴝 𐴇𐴥𐴝𐴃𐴢 | 𐴔𐴡𐴀𐴡𐴚𐴒𐴝 / 𐴓𐴝𐴙𐴅𐴧𐴤𐴙𐴝 𐴀𐴦𐴡𐴣𐴓 𐴀𐴝𐴌 𐴁𐴟𐴙𐴅𐴧𐴤𐴙𐴝 𐴀𐴦𐴡𐴣𐴓 𐴈𐴡𐴓 𐴊𐴞𐴘𐴝 𐴇𐴥𐴝𐴃𐴢 / 𐴑𐴡𐴓𐴥𐴡𐴁𐴢 / 𐴀𐴝𐴊𐴡𐴌 / 𐴄𐴞𐴛𐴝 / 𐴓𐴝𐴓𐴏𐴥𐴞</annotation>
+		<annotation cp="🫰" type="tts">𐴓𐴝𐴙𐴅𐴧𐴙𐴝 𐴀𐴦𐴡𐴣𐴓 𐴀𐴝𐴌 𐴁𐴟𐴙𐴅𐴧𐴤𐴙𐴝 𐴀𐴦𐴡𐴣𐴓 𐴈𐴡𐴓 𐴊𐴞𐴘𐴝 𐴇𐴥𐴝𐴃𐴢</annotation>
+		<annotation cp="🤟">𐴃𐴟𐴣𐴖𐴥𐴝𐴣𐴌 𐴀𐴝𐴊𐴡𐴌𐴡𐴌 𐴀𐴞𐴐𐴤𐴝𐴌𐴝 | 𐴇𐴥𐴝𐴃𐴢 / 𐴀𐴦𐴝𐴛 𐴃𐴡𐴌𐴠 𐴀𐴝𐴊𐴡𐴌 𐴒𐴡𐴌𐴥𐴞 / 𐴃𐴟𐴣𐴖𐴥𐴝𐴣𐴌 𐴀𐴝𐴊𐴡𐴌𐴡𐴌 𐴀𐴞𐴐𐴤𐴝𐴌𐴝</annotation>
+		<annotation cp="🤟" type="tts">𐴃𐴟𐴣𐴖𐴥𐴝𐴣𐴌 𐴀𐴝𐴊𐴡𐴌𐴡𐴌 𐴀𐴞𐴐𐴤𐴝𐴌𐴝</annotation>
+		<annotation cp="🤘">𐴀𐴦𐴡𐴣𐴓 / 𐴇𐴥𐴝𐴃𐴢 / 𐴐𐴤𐴞𐴚 / 𐴊𐴡𐴌𐴥𐴡 / 𐴐𐴤𐴞𐴚𐴒𐴡𐴌 𐴀𐴞𐴐𐴤𐴝𐴌𐴝 | 𐴇𐴥𐴡𐴌𐴡𐴕𐴡𐴌 𐴀𐴞𐴐𐴤𐴝𐴌𐴝</annotation>
+		<annotation cp="🤘" type="tts">𐴇𐴥𐴡𐴌𐴡𐴕𐴡𐴌 𐴀𐴞𐴐𐴤𐴝𐴌𐴝</annotation>
+		<annotation cp="🤙">𐴋𐴝𐴑𐴡𐴕 / 𐴋𐴝𐴑𐴡𐴕𐴡𐴌 𐴀𐴞𐴐𐴤𐴝𐴌𐴝 / 𐴇𐴥𐴝𐴃𐴢 / 𐴇𐴥𐴡𐴣𐴐𐴢 𐴊𐴤𐴡𐴌𐴝/ 𐴐𐴝𐴑𐴝 | 𐴋𐴝𐴑𐴡𐴕𐴡𐴌 𐴀𐴞𐴐𐴤𐴝𐴌𐴝</annotation>
+		<annotation cp="🤙" type="tts">𐴋𐴝𐴑𐴡𐴕𐴡𐴌 𐴀𐴞𐴐𐴤𐴝𐴌𐴝</annotation>
+		<annotation cp="👈">𐴁𐴝𐴕𐴋𐴤𐴝𐴑𐴡𐴌 𐴀𐴦𐴡𐴣𐴓𐴡𐴌 𐴀𐴞𐴐𐴤𐴝𐴌𐴝 | 𐴉𐴞𐴏𐴢 𐴋𐴤𐴝𐴑 / 𐴁𐴝𐴕𐴋𐴤𐴝𐴑𐴡𐴌 𐴀𐴦𐴡𐴣𐴓𐴡𐴌 𐴀𐴞𐴐𐴤𐴝𐴌𐴝 / 𐴀𐴦𐴡𐴣𐴓 / 𐴇𐴥𐴝𐴃𐴢 / 𐴓𐴝𐴙𐴅𐴧𐴙𐴝 𐴀𐴦𐴡𐴣𐴓 / 𐴀𐴞𐴐𐴤𐴝𐴌𐴝</annotation>
+		<annotation cp="👈" type="tts">𐴁𐴝𐴕𐴋𐴤𐴝𐴑𐴡𐴌 𐴀𐴦𐴡𐴣𐴓𐴡𐴌 𐴀𐴞𐴐𐴤𐴝𐴌𐴝</annotation>
+		<annotation cp="👉">𐴉𐴞𐴏𐴢 𐴋𐴤𐴝𐴑 / 𐴋𐴠𐴕𐴋𐴤𐴝𐴑𐴡𐴌 𐴀𐴦𐴡𐴣𐴓𐴡𐴌 𐴀𐴞𐴐𐴤𐴝𐴌𐴝 / 𐴀𐴦𐴡𐴣𐴓 / 𐴇𐴥𐴝𐴃𐴢 / 𐴓𐴝𐴙𐴅𐴧𐴙𐴝 𐴀𐴦𐴡𐴣𐴓 / 𐴀𐴞𐴐𐴤𐴝𐴌𐴝 | 𐴋𐴠𐴕𐴋𐴤𐴝𐴑𐴡𐴌 𐴀𐴦𐴡𐴣𐴓𐴡𐴌 𐴀𐴞𐴐𐴤𐴝𐴌𐴝</annotation>
+		<annotation cp="👉" type="tts">𐴋𐴠𐴕𐴋𐴤𐴝𐴑𐴡𐴌 𐴀𐴦𐴡𐴣𐴓𐴡𐴌 𐴀𐴞𐴐𐴤𐴝𐴌𐴝</annotation>
+		<annotation cp="🖕">𐴀𐴦𐴡𐴣𐴓 / 𐴇𐴥𐴝𐴃𐴢 / 𐴔𐴝𐴙𐴅𐴧𐴤𐴙𐴝 𐴀𐴦𐴡𐴣𐴓 | 𐴔𐴝𐴙𐴅𐴧𐴤𐴙𐴝 𐴀𐴦𐴡𐴣𐴓</annotation>
+		<annotation cp="🖕" type="tts">𐴔𐴝𐴙𐴅𐴧𐴤𐴙𐴝 𐴀𐴦𐴡𐴣𐴓</annotation>
+		<annotation cp="👇">𐴇𐴥𐴝𐴃𐴡𐴌 𐴉𐴞𐴏𐴢 / 𐴓𐴝𐴙𐴅𐴧𐴙𐴝 𐴀𐴦𐴡𐴣𐴓 𐴓𐴡𐴘 𐴇𐴥𐴠𐴔 𐴔𐴞𐴑𐴧𐴙𐴝 𐴀𐴞𐴐𐴤𐴝𐴌𐴝 𐴒𐴡𐴌𐴡𐴕 / 𐴇𐴥𐴠𐴔 𐴔𐴞𐴑𐴧𐴤𐴙𐴝 / 𐴀𐴦𐴡𐴣𐴓 / 𐴇𐴥𐴝𐴃𐴢 / 𐴀𐴞𐴐𐴤𐴝𐴌𐴝 | 𐴓𐴝𐴙𐴅𐴧𐴙𐴝 𐴀𐴦𐴡𐴣𐴓 𐴓𐴡𐴘 𐴇𐴥𐴠𐴔 𐴔𐴞𐴑𐴧𐴙𐴝 𐴀𐴞𐴐𐴤𐴝𐴌𐴝 𐴒𐴡𐴌𐴡𐴕</annotation>
+		<annotation cp="👇" type="tts">𐴓𐴝𐴙𐴅𐴧𐴙𐴝 𐴀𐴦𐴡𐴣𐴓 𐴓𐴡𐴘 𐴇𐴥𐴠𐴔 𐴔𐴞𐴑𐴧𐴙𐴝 𐴀𐴞𐴐𐴤𐴝𐴌𐴝 𐴒𐴡𐴌𐴡𐴕</annotation>
+		<annotation cp="☝">𐴀𐴦𐴡𐴣𐴓 / 𐴇𐴥𐴝𐴃𐴢 / 𐴓𐴝𐴙𐴅𐴧𐴤𐴙𐴝 𐴀𐴦𐴡𐴣𐴓 / 𐴓𐴝𐴙𐴅𐴧𐴙𐴝 𐴀𐴦𐴡𐴣𐴓 𐴓𐴡𐴘 𐴀𐴟𐴖𐴡𐴌 𐴔𐴞𐴑𐴧𐴤𐴙𐴝 𐴀𐴞𐴐𐴤𐴝𐴌𐴝 𐴒𐴡𐴌𐴥𐴡𐴕 / 𐴀𐴞𐴐𐴤𐴝𐴌𐴝 / 𐴀𐴟𐴖𐴡𐴌 𐴔𐴞𐴑𐴧𐴤𐴙𐴝 | 𐴓𐴝𐴙𐴅𐴧𐴙𐴝 𐴀𐴦𐴡𐴣𐴓 𐴓𐴡𐴘 𐴀𐴟𐴖𐴡𐴌 𐴔𐴞𐴑𐴧𐴤𐴙𐴝 𐴀𐴞𐴐𐴤𐴝𐴌𐴝 𐴒𐴡𐴌𐴥𐴡𐴕</annotation>
+		<annotation cp="☝" type="tts">𐴓𐴝𐴙𐴅𐴧𐴙𐴝 𐴀𐴦𐴡𐴣𐴓 𐴓𐴡𐴘 𐴀𐴟𐴖𐴡𐴌 𐴔𐴞𐴑𐴧𐴤𐴙𐴝 𐴀𐴞𐴐𐴤𐴝𐴌𐴝 𐴒𐴡𐴌𐴥𐴡𐴕</annotation>
+		<annotation cp="🫵">𐴓𐴝𐴙𐴅𐴧𐴙𐴝 𐴀𐴦𐴡𐴣𐴓 𐴓𐴡𐴘 𐴏𐴡𐴀𐴡𐴙𐴕𐴧𐴝𐴌 𐴔𐴞𐴑𐴧𐴤𐴙𐴝 𐴀𐴞𐴐𐴤𐴝𐴌𐴝 𐴒𐴡𐴌𐴥𐴡𐴕 | 𐴓𐴝𐴙𐴅𐴧𐴙𐴝 𐴀𐴦𐴡𐴣𐴓 𐴓𐴡𐴘 𐴏𐴡𐴀𐴡𐴙𐴕𐴧𐴝𐴌 𐴔𐴞𐴑𐴧𐴤𐴙𐴝 𐴀𐴞𐴐𐴤𐴝𐴌𐴝 𐴒𐴡𐴌𐴥𐴡𐴕 / 𐴀𐴞𐴐𐴤𐴝𐴌𐴝 / 𐴃𐴟𐴘</annotation>
+		<annotation cp="🫵" type="tts">𐴓𐴝𐴙𐴅𐴧𐴙𐴝 𐴀𐴦𐴡𐴣𐴓 𐴓𐴡𐴘 𐴏𐴡𐴀𐴡𐴙𐴕𐴧𐴝𐴌 𐴔𐴞𐴑𐴧𐴤𐴙𐴝 𐴀𐴞𐴐𐴤𐴝𐴌𐴝 𐴒𐴡𐴌𐴥𐴡𐴕</annotation>
+		<annotation cp="👍">+ 𐴱 / 𐴇𐴥𐴝𐴃𐴢 / 𐴁𐴟𐴙𐴅𐴧𐴤𐴙𐴝 𐴀𐴦𐴡𐴣𐴓 / 𐴁𐴞𐴐𐴤𐴞 𐴁𐴤𐴝𐴓𐴝 / 𐴀𐴟𐴖𐴡𐴌 𐴔𐴞𐴑𐴧𐴤𐴙𐴝 | 𐴁𐴞𐴐𐴤𐴞 𐴁𐴤𐴝𐴓𐴝</annotation>
+		<annotation cp="👍" type="tts">𐴁𐴞𐴐𐴤𐴞 𐴁𐴤𐴝𐴓𐴝</annotation>
+		<annotation cp="👎">- 1 / 𐴇𐴥𐴠𐴔 𐴔𐴞𐴑𐴧𐴤𐴙𐴝 / 𐴇𐴥𐴝𐴃𐴢 / 𐴁𐴟𐴙𐴅𐴧𐴤𐴙𐴝 𐴀𐴦𐴡𐴣𐴓 / 𐴕𐴝𐴑𐴤𐴟𐴐𐴢 | 𐴕𐴝𐴑𐴤𐴟𐴐𐴢</annotation>
+		<annotation cp="👎" type="tts">𐴕𐴝𐴑𐴤𐴟𐴐𐴢</annotation>
+		<annotation cp="✊">𐴔𐴥𐴟𐴄𐴢 / 𐴈𐴡𐴎𐴧𐴝/ 𐴇𐴥𐴝𐴃𐴢 / 𐴒𐴤𐴟𐴐𐴤𐴞 / 𐴔𐴥𐴟𐴄𐴢 𐴔𐴝𐴙𐴅𐴧𐴤𐴙𐴝 𐴇𐴥𐴝𐴃𐴢 𐴀𐴟𐴖𐴡𐴌 𐴔𐴞𐴑𐴧𐴤𐴙𐴝 𐴃𐴟𐴓𐴡𐴕 | 𐴔𐴥𐴟𐴄𐴢 𐴔𐴝𐴙𐴅𐴧𐴤𐴙𐴝 𐴇𐴥𐴝𐴃𐴢 𐴀𐴟𐴖𐴡𐴌 𐴔𐴞𐴑𐴧𐴤𐴙𐴝 𐴃𐴟𐴓𐴡𐴕</annotation>
+		<annotation cp="✊" type="tts">𐴔𐴥𐴟𐴄𐴢 𐴔𐴝𐴙𐴅𐴧𐴤𐴙𐴝 𐴇𐴥𐴝𐴃𐴢 𐴀𐴟𐴖𐴡𐴌 𐴔𐴞𐴑𐴧𐴤𐴙𐴝 𐴃𐴟𐴓𐴡𐴕</annotation>
+		<annotation cp="👊">𐴔𐴟𐴀𐴟𐴔 𐴒𐴤𐴟𐴐𐴤𐴝 | 𐴔𐴥𐴟𐴄𐴢 / 𐴈𐴡𐴎𐴧𐴝 / 𐴇𐴥𐴝𐴃𐴢 / 𐴔𐴟𐴀𐴟𐴔 𐴒𐴤𐴟𐴐𐴤𐴝 / 𐴒𐴤𐴟𐴐𐴤𐴝</annotation>
+		<annotation cp="👊" type="tts">𐴔𐴟𐴀𐴟𐴔 𐴒𐴤𐴟𐴐𐴤𐴝</annotation>
+		<annotation cp="🤛">𐴁𐴝𐴕 𐴔𐴟𐴑𐴤𐴝 𐴔𐴥𐴟𐴄𐴢 | 𐴔𐴥𐴟𐴄𐴢 / 𐴁𐴝𐴕 𐴔𐴟𐴑𐴤𐴝 𐴔𐴥𐴟𐴄𐴢 / 𐴁𐴝𐴕 𐴔𐴞𐴑𐴧𐴤𐴙𐴝</annotation>
+		<annotation cp="🤛" type="tts">𐴁𐴝𐴕 𐴔𐴟𐴑𐴤𐴝 𐴔𐴥𐴟𐴄𐴢</annotation>
+		<annotation cp="🤜">𐴋𐴠𐴕 𐴔𐴟𐴑𐴤𐴝 𐴔𐴥𐴟𐴄𐴢 | 𐴔𐴥𐴟𐴄𐴢 / 𐴋𐴠𐴕 𐴔𐴟𐴑𐴤𐴝 𐴔𐴥𐴟𐴄𐴢 / 𐴋𐴠𐴕 𐴔𐴞𐴑𐴧𐴤𐴙𐴝</annotation>
+		<annotation cp="🤜" type="tts">𐴋𐴠𐴕 𐴔𐴟𐴑𐴤𐴝 𐴔𐴥𐴟𐴄𐴢</annotation>
+		<annotation cp="👏">𐴃𐴝𐴓𐴞 / 𐴃𐴝𐴓𐴞 𐴔𐴝𐴌𐴝 𐴇𐴥𐴝𐴃𐴢/ 𐴇𐴥𐴝𐴃𐴢 | 𐴃𐴝𐴓𐴞 𐴔𐴝𐴌𐴝 𐴇𐴥𐴝𐴃𐴢</annotation>
+		<annotation cp="👏" type="tts">𐴃𐴝𐴓𐴞 𐴔𐴝𐴌𐴝 𐴇𐴥𐴝𐴃𐴢</annotation>
+		<annotation cp="🙌">𐴃𐴟𐴙𐴓𐴧𐴝 𐴇𐴥𐴝𐴃𐴢 | 𐴑𐴤𐴟𐴐𐴤𐴞 𐴒𐴡𐴌𐴥𐴝/ 𐴀𐴞𐴐𐴤𐴝𐴌𐴝 / 𐴇𐴥𐴝𐴃𐴢 / 𐴇𐴦𐴟𐴌𐴠 / 𐴃𐴟𐴙𐴓𐴧𐴝 / 𐴃𐴟𐴓𐴥𐴡𐴕 / 𐴇𐴥𐴝𐴃𐴢</annotation>
+		<annotation cp="🙌" type="tts">𐴃𐴟𐴙𐴓𐴧𐴝 𐴇𐴥𐴝𐴃𐴢</annotation>
+		<annotation cp="🫶">𐴑𐴡𐴓𐴥𐴡𐴁𐴢 𐴐𐴡𐴑𐴤𐴡𐴓 𐴇𐴥𐴝𐴃𐴢 | 𐴑𐴡𐴓𐴥𐴡𐴁𐴢 𐴐𐴡𐴑𐴤𐴡𐴓 𐴇𐴥𐴝𐴃𐴢 / 𐴀𐴝𐴊𐴡𐴌</annotation>
+		<annotation cp="🫶" type="tts">𐴑𐴡𐴓𐴥𐴡𐴁𐴢 𐴐𐴡𐴑𐴤𐴡𐴓 𐴇𐴥𐴝𐴃𐴢</annotation>
+		<annotation cp="👐">𐴇𐴥𐴝𐴃𐴢 / 𐴑𐴤𐴟𐴓 / 𐴑𐴤𐴟𐴓𐴝 𐴇𐴥𐴝𐴃𐴢 | 𐴑𐴤𐴟𐴓𐴝 𐴇𐴥𐴝𐴃𐴢</annotation>
+		<annotation cp="👐" type="tts">𐴑𐴤𐴟𐴓𐴝 𐴇𐴥𐴝𐴃𐴢</annotation>
+		<annotation cp="🤲">𐴊𐴟𐴕𐴥𐴞 𐴃𐴝𐴓𐴧𐴗𐴝 𐴉𐴥𐴟𐴣𐴖𐴥𐴝𐴣𐴃𐴞 𐴃𐴟𐴓𐴥𐴡 | 𐴊𐴟𐴕𐴥𐴞 𐴃𐴝𐴓𐴧𐴗𐴝 𐴉𐴥𐴟𐴣𐴖𐴥𐴝𐴣𐴃𐴞 𐴃𐴟𐴓𐴥𐴡 / 𐴊𐴟𐴀𐴝</annotation>
+		<annotation cp="🤲" type="tts">𐴊𐴟𐴕𐴥𐴞 𐴃𐴝𐴓𐴧𐴗𐴝 𐴉𐴥𐴟𐴣𐴖𐴥𐴝𐴣𐴃𐴞 𐴃𐴟𐴓𐴥𐴡</annotation>
+		<annotation cp="🤝">𐴌𐴝𐴎𐴞 / 𐴇𐴥𐴝𐴃𐴢 / 𐴔𐴟𐴓𐴦𐴡𐴃𐴢 / 𐴔𐴞𐴓𐴡𐴀𐴡𐴕 / 𐴓𐴝𐴌𐴡𐴕 | 𐴔𐴟𐴓𐴦𐴡𐴃𐴢</annotation>
+		<annotation cp="🤝" type="tts">𐴔𐴟𐴓𐴦𐴡𐴃𐴢</annotation>
+		<annotation cp="🙏">𐴉𐴟𐴏𐴥𐴝𐴌 𐴒𐴡𐴌𐴡𐴕 / 𐴊𐴟𐴕𐴥𐴞 𐴃𐴝𐴓𐴧𐴗𐴝 𐴁𐴝𐴎𐴤𐴝𐴘𐴧𐴝 𐴇𐴥𐴝𐴃𐴢 / 𐴇𐴥𐴝𐴃𐴢 / 𐴀𐴟𐴣𐴏𐴡𐴓 5 / 𐴀𐴟𐴣𐴏𐴡𐴓 𐴉𐴝𐴣𐴏𐴢 / 𐴔𐴠𐴀𐴠𐴌 𐴁𐴝𐴕𐴞 / 𐴊𐴟𐴀𐴝 / 𐴐𐴤𐴟𐴑𐴟𐴌𐴞𐴘𐴝 | 𐴊𐴟𐴕𐴥𐴞 𐴃𐴝𐴓𐴧𐴗𐴝 𐴁𐴝𐴎𐴤𐴝𐴘𐴧𐴝 𐴇𐴥𐴝𐴃𐴢</annotation>
+		<annotation cp="🙏" type="tts">𐴊𐴟𐴕𐴥𐴞 𐴃𐴝𐴓𐴧𐴗𐴝 𐴁𐴝𐴎𐴤𐴝𐴘𐴧𐴝 𐴇𐴥𐴝𐴃𐴢</annotation>
+		<annotation cp="✍">𐴇𐴥𐴝𐴃𐴢 / 𐴓𐴠𐴑𐴤𐴡𐴕 / 𐴓𐴠𐴑𐴤𐴠𐴊𐴠 𐴇𐴥𐴝𐴃𐴢 | 𐴓𐴠𐴑𐴤𐴠𐴊𐴠 𐴇𐴥𐴝𐴃𐴢</annotation>
+		<annotation cp="✍" type="tts">𐴓𐴠𐴑𐴤𐴠𐴊𐴠 𐴇𐴥𐴝𐴃𐴢</annotation>
+		<annotation cp="💅">𐴎𐴡𐴃𐴧𐴡𐴕 / 𐴑𐴡𐴏𐴔𐴞𐴄𐴤𐴞𐴑 / 𐴕𐴡𐴑 𐴈𐴝𐴍𐴝 / 𐴕𐴡𐴑 / 𐴂𐴝𐴓𐴥𐴞𐴐𐴢 | 𐴕𐴡𐴑 𐴂𐴝𐴓𐴥𐴞𐴐𐴢</annotation>
+		<annotation cp="💅" type="tts">𐴕𐴡𐴑 𐴂𐴝𐴓𐴥𐴞𐴐𐴢</annotation>
+		<annotation cp="🤳">𐴏𐴥𐴠𐴓𐴉𐴞 | 𐴑𐴠𐴔𐴠𐴌𐴝 / 𐴄𐴠𐴓𐴞 𐴉𐴥𐴟𐴕 / 𐴏𐴥𐴠𐴓𐴉𐴞</annotation>
+		<annotation cp="🤳" type="tts">𐴏𐴥𐴠𐴓𐴉𐴞</annotation>
+		<annotation cp="💪">𐴉𐴥𐴟𐴓𐴝𐴙𐴕𐴧𐴝 𐴁𐴝𐴛𐴧𐴝𐴌𐴝 | 𐴊𐴡𐴌𐴥𐴡 𐴔𐴟𐴃𐴤𐴝 / 𐴉𐴥𐴟𐴓𐴝𐴙𐴕𐴧𐴝 𐴁𐴝𐴛𐴧𐴝𐴌𐴝 / 𐴒𐴟𐴏𐴧𐴡𐴌 𐴊𐴡𐴓𐴝 | 𐴒𐴟𐴏𐴧𐴡𐴌 𐴑𐴟𐴣𐴖𐴥𐴝𐴣 / 𐴉𐴡𐴄𐴤𐴟 𐴓𐴡𐴘 𐴁𐴟𐴎𐴤𐴝</annotation>
+		<annotation cp="💪" type="tts">𐴉𐴥𐴟𐴓𐴝𐴙𐴕𐴧𐴝 𐴁𐴝𐴛𐴧𐴝𐴌𐴝</annotation>
+		<annotation cp="🦾">𐴉𐴡𐴣𐴀𐴡𐴏𐴞 𐴉𐴝𐴌𐴝 / 𐴔𐴞𐴑𐴤𐴝𐴕𐴞𐴑𐴤𐴞 𐴇𐴥𐴝𐴃𐴢 / 𐴁𐴝𐴕𐴦𐴡𐴄𐴞 | 𐴔𐴞𐴑𐴤𐴝𐴕𐴞𐴑𐴤𐴞 𐴇𐴥𐴝𐴃𐴢</annotation>
+		<annotation cp="🦾" type="tts">𐴔𐴞𐴑𐴤𐴝𐴕𐴞𐴑𐴤𐴞 𐴇𐴥𐴝𐴃𐴢</annotation>
+		<annotation cp="🦿">𐴉𐴡𐴣𐴀𐴡𐴏𐴞 𐴉𐴝𐴌𐴝 / 𐴔𐴞𐴑𐴤𐴝𐴕𐴞𐴑𐴤𐴞 𐴄𐴤𐴠𐴚 / 𐴁𐴝𐴕𐴦𐴡𐴄𐴞 | 𐴔𐴞𐴑𐴤𐴝𐴕𐴌𐴑𐴤𐴞 𐴄𐴤𐴠𐴚</annotation>
+		<annotation cp="🦿" type="tts">𐴔𐴞𐴑𐴤𐴝𐴕𐴌𐴑𐴤𐴞 𐴄𐴤𐴠𐴚</annotation>
+		<annotation cp="🦶">𐴄𐴤𐴠𐴚 | 𐴄𐴤𐴠𐴚 / 𐴓𐴝𐴃𐴤𐴞 / 𐴄𐴤𐴠𐴚𐴡𐴌 𐴏𐴞𐴁𐴢</annotation>
+		<annotation cp="🦶" type="tts">𐴄𐴤𐴠𐴚</annotation>
+		<annotation cp="👂">𐴈𐴝𐴕 | 𐴒𐴝𐴀𐴝 / 𐴈𐴝𐴕</annotation>
+		<annotation cp="👂" type="tts">𐴈𐴝𐴕</annotation>
+		<annotation cp="🦻">𐴈𐴝𐴕 𐴓𐴡𐴘 𐴉𐴥𐴟𐴕𐴝𐴌 𐴔𐴡𐴊𐴡𐴃𐴢 | 𐴉𐴡𐴣𐴀𐴡𐴏𐴞 𐴉𐴝𐴌𐴝 / 𐴈𐴝𐴕 𐴓𐴡𐴘 𐴉𐴥𐴟𐴕𐴝𐴌 𐴔𐴡𐴊𐴡𐴃𐴢 / 𐴉𐴥𐴟𐴕𐴝𐴌 𐴃𐴡𐴑𐴓𐴞𐴉𐴢</annotation>
+		<annotation cp="🦻" type="tts">𐴈𐴝𐴕 𐴓𐴡𐴘 𐴉𐴥𐴟𐴕𐴝𐴌 𐴔𐴡𐴊𐴡𐴃𐴢</annotation>
+		<annotation cp="👃">𐴒𐴝𐴀𐴝 / 𐴕𐴝𐴑 | 𐴕𐴝𐴑</annotation>
+		<annotation cp="👃" type="tts">𐴕𐴝𐴑</annotation>
+		<annotation cp="🧠">𐴊𐴠𐴔𐴝𐴒𐴢 | 𐴊𐴠𐴔𐴝𐴒𐴢 / 𐴏𐴝𐴓𐴥𐴝𐴑</annotation>
+		<annotation cp="🧠" type="tts">𐴊𐴠𐴔𐴝𐴒𐴢</annotation>
+		<annotation cp="🫀">𐴐𐴤𐴡𐴌𐴞𐴓𐴞 / 𐴑𐴡𐴓𐴥𐴡𐴁𐴡𐴌 𐴀𐴠𐴓𐴥𐴡𐴔 / 𐴑𐴡𐴓𐴥𐴡𐴁𐴢 /𐴇𐴥𐴞𐴏𐴧𐴝 / 𐴐𐴤𐴞𐴌𐴝 | 𐴐𐴤𐴡𐴌𐴞𐴓𐴞 𐴑𐴡𐴓𐴥𐴡𐴁𐴢</annotation>
+		<annotation cp="🫀" type="tts">𐴐𐴤𐴡𐴌𐴞𐴓𐴞 𐴑𐴡𐴓𐴥𐴡𐴁𐴢</annotation>
+		<annotation cp="🫁">𐴉𐴥𐴠𐴐𐴧𐴤𐴗𐴝 | 𐴕𐴞𐴘𐴥𐴝𐴐𐴢 / 𐴕𐴞𐴘𐴥𐴝𐴐𐴢 𐴉𐴥𐴠𐴓𐴡𐴕 / 𐴕𐴞𐴘𐴥𐴝𐴐𐴢 𐴓𐴡𐴀𐴡𐴕 / 𐴉𐴥𐴠𐴐𐴧𐴤𐴗𐴝 / 𐴒𐴝𐴀𐴝𐴌 𐴇𐴥𐴞𐴏𐴧𐴝 / 𐴕𐴞𐴘𐴥𐴝𐴐𐴢 𐴄𐴝𐴕𐴡𐴕</annotation>
+		<annotation cp="🫁" type="tts">𐴉𐴥𐴠𐴐𐴧𐴤𐴗𐴝</annotation>
+		<annotation cp="🦷">𐴊𐴝𐴃𐴡𐴌 𐴋𐴝𐴑𐴄𐴡𐴌 | 𐴊𐴝𐴃𐴢</annotation>
+		<annotation cp="🦷" type="tts">𐴊𐴝𐴃𐴢</annotation>
+		<annotation cp="🦴">𐴇𐴥𐴝𐴣𐴋𐴧𐴞 | 𐴈𐴥𐴝𐴑</annotation>
+		<annotation cp="🦴" type="tts">𐴇𐴥𐴝𐴣𐴋𐴧𐴞</annotation>
+		<annotation cp="👀">𐴏𐴟𐴑 | 𐴏𐴟𐴑 𐴀𐴥𐴡𐴑𐴧𐴡𐴓 | 𐴔𐴟𐴑</annotation>
+		<annotation cp="👀" type="tts">𐴏𐴟𐴑 𐴀𐴥𐴡𐴑𐴧𐴡𐴓</annotation>
+		<annotation cp="👁">𐴏𐴟𐴑 | 𐴒𐴝𐴀𐴝</annotation>
+		<annotation cp="👁" type="tts">𐴏𐴟𐴑</annotation>
+		<annotation cp="👅">𐴎𐴞𐴌 | 𐴒𐴝𐴀𐴝</annotation>
+		<annotation cp="👅" type="tts">𐴎𐴞𐴌</annotation>
+		<annotation cp="👄">𐴀𐴟𐴣𐴄𐴢 𐴀𐴥𐴡𐴑𐴧𐴡𐴓 | 𐴒𐴝𐴓</annotation>
+		<annotation cp="👄" type="tts">𐴒𐴝𐴓</annotation>
+		<annotation cp="🫦">𐴊𐴝𐴃𐴠 𐴏𐴞𐴂𐴧𐴝 𐴀𐴟𐴣𐴄𐴢 | 𐴒𐴟𐴐𐴧𐴤𐴝 - 𐴊𐴝𐴃𐴠 𐴏𐴞𐴂𐴧𐴝 𐴀𐴟𐴣𐴄𐴢 - 𐴋𐴡𐴌 - 𐴓𐴠𐴚𐴒𐴞 𐴓𐴝𐴌𐴝 - 𐴕𐴝𐴌𐴁𐴤𐴝𐴏𐴢 - 𐴀𐴡𐴐𐴤𐴝𐴕𐴃𐴞 - 𐴉𐴠𐴌𐴠𐴐𐴝𐴕𐴞</annotation>
+		<annotation cp="🫦" type="tts">𐴊𐴝𐴃𐴠 𐴏𐴞𐴂𐴧𐴝 𐴀𐴟𐴣𐴄𐴢</annotation>
+		<annotation cp="👶">𐴉𐴟𐴖𐴝 - 𐴒𐴟𐴌𐴝 | 𐴊𐴟𐴊𐴡𐴌 𐴉𐴟𐴖𐴝</annotation>
+		<annotation cp="👶" type="tts">𐴊𐴟𐴊𐴡𐴌 𐴉𐴟𐴖𐴝</annotation>
+		<annotation cp="🧒">𐴉𐴟𐴖𐴝𐴙𐴕 | 𐴉𐴟𐴖𐴝𐴙𐴕 - 𐴓𐴠𐴚 𐴏𐴞𐴕𐴧𐴡 𐴑𐴟𐴊𐴟𐴌𐴡𐴃𐴞 - 𐴏𐴞𐴕𐴧𐴡 𐴏𐴥𐴝𐴌𐴝 𐴓𐴞𐴚 𐴏𐴞𐴕𐴧𐴡 - 𐴒𐴟𐴌𐴝</annotation>
+		<annotation cp="🧒" type="tts">𐴉𐴟𐴖𐴝𐴙𐴕</annotation>
+		<annotation cp="👦">𐴉𐴟𐴖𐴝 | 𐴉𐴟𐴖𐴝 - 𐴒𐴟𐴌𐴝</annotation>
+		<annotation cp="👦" type="tts">𐴉𐴟𐴖𐴝</annotation>
+		<annotation cp="👧">𐴔𐴝𐴘𐴧𐴝 | 𐴔𐴝𐴘𐴧𐴝 - 𐴀𐴝𐴁𐴞𐴘𐴝𐴃𐴝 - 𐴅𐴟𐴖𐴝𐴕</annotation>
+		<annotation cp="👧" type="tts">𐴔𐴝𐴘𐴧𐴝</annotation>
+		<annotation cp="👱">𐴐𐴤𐴟𐴕𐴝 𐴌𐴡𐴚𐴒𐴙𐴝 - 𐴐𐴤𐴟𐴕𐴝 𐴌𐴡𐴚 𐴏𐴟𐴙𐴓𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 - 𐴏𐴟𐴓 - 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 : 𐴐𐴤𐴟𐴕𐴝 𐴌𐴡𐴚𐴒𐴙𐴝 𐴏𐴟𐴓 | 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 : 𐴐𐴤𐴟𐴕𐴝 𐴌𐴡𐴚𐴒𐴙𐴝 𐴏𐴟𐴓</annotation>
+		<annotation cp="👱" type="tts">𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 : 𐴐𐴤𐴟𐴕𐴝 𐴌𐴡𐴚𐴒𐴙𐴝 𐴏𐴟𐴓</annotation>
+		<annotation cp="👨">𐴁𐴝𐴓𐴠𐴑 - 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 | 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="👨" type="tts">𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🧔‍♂">𐴊𐴝𐴌𐴥𐴞 - 𐴔𐴝𐴕𐴟𐴙𐴐𐴢 - 𐴊𐴝𐴌𐴥𐴞 𐴀𐴡𐴓𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 | 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 - 𐴊𐴝𐴌𐴥𐴞</annotation>
+		<annotation cp="🧔‍♂" type="tts">𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 - 𐴊𐴝𐴌𐴥𐴞</annotation>
+		<annotation cp="👱‍♂">𐴁𐴠𐴍𐴝 - 𐴐𐴤𐴟𐴕𐴝 𐴌𐴡𐴚𐴒𐴙𐴝 𐴏𐴟𐴓 | 𐴐𐴤𐴟𐴕𐴝 𐴌𐴡𐴚 - 𐴐𐴤𐴟𐴕𐴝 𐴌𐴡𐴚 𐴏𐴟𐴙𐴓𐴧𐴝 𐴁𐴠𐴍𐴝 - 𐴏𐴟𐴓 - 𐴁𐴠𐴍𐴝 - 𐴁𐴠𐴍𐴝: 𐴐𐴤𐴟𐴕𐴝 𐴌𐴡𐴚 𐴏𐴟𐴓</annotation>
+		<annotation cp="👱‍♂" type="tts">𐴁𐴠𐴍𐴝 - 𐴐𐴤𐴟𐴕𐴝 𐴌𐴡𐴚𐴒𐴙𐴝 𐴏𐴟𐴓</annotation>
+		<annotation cp="👩">𐴁𐴝𐴓𐴠𐴑 - 𐴁𐴠𐴍𐴞 | 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="👩" type="tts">𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🧔‍♀">𐴁𐴠𐴍𐴞 : 𐴊𐴝𐴌𐴥𐴞 | 𐴊𐴝𐴌𐴥𐴞 - 𐴁𐴠𐴍𐴞 - 𐴁𐴠𐴍𐴞 : 𐴊𐴝𐴌𐴥𐴞</annotation>
+		<annotation cp="🧔‍♀" type="tts">𐴁𐴠𐴍𐴞 : 𐴊𐴝𐴌𐴥𐴞</annotation>
+		<annotation cp="👱‍♀">𐴁𐴠𐴍𐴞 : 𐴐𐴤𐴟𐴕𐴝 𐴌𐴡𐴚𐴒𐴙𐴝 𐴏𐴟𐴓 | 𐴐𐴤𐴟𐴕𐴝 𐴌𐴡𐴚 𐴏𐴟𐴙𐴓𐴧𐴝 𐴁𐴠𐴍𐴞 - 𐴐𐴤𐴟𐴕𐴝 𐴌𐴡𐴚 - 𐴏𐴟𐴓 - 𐴁𐴠𐴍𐴞 - 𐴁𐴠𐴍𐴞: 𐴐𐴤𐴟𐴕𐴝 𐴌𐴡𐴚𐴒𐴙𐴝 𐴏𐴟𐴓</annotation>
+		<annotation cp="👱‍♀" type="tts">𐴁𐴠𐴍𐴞 : 𐴐𐴤𐴟𐴕𐴝 𐴌𐴡𐴚𐴒𐴙𐴝 𐴏𐴟𐴓</annotation>
+		<annotation cp="👴">𐴁𐴝𐴓𐴠𐴑 - 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 - 𐴁𐴟𐴌𐴥𐴝 | 𐴁𐴟𐴌𐴥𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="👴" type="tts">𐴁𐴟𐴌𐴥𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="👵">𐴁𐴝𐴓𐴠𐴑 - 𐴁𐴟𐴌𐴥𐴝 - 𐴁𐴠𐴍𐴞 | 𐴁𐴟𐴌𐴥𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="👵" type="tts">𐴁𐴟𐴌𐴥𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🙍">𐴀𐴝𐴔𐴧𐴟𐴑 - 𐴀𐴞𐴐𐴤𐴝𐴌𐴝 - 𐴀𐴝𐴔𐴧𐴟𐴙𐴑𐴧𐴙𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 | 𐴀𐴝𐴔𐴧𐴟𐴙𐴑𐴧𐴙𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🙍" type="tts">𐴀𐴝𐴔𐴧𐴟𐴙𐴑𐴧𐴙𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🙍‍♂">𐴀𐴝𐴔𐴧𐴟𐴙𐴑𐴧𐴙𐴝 - 𐴀𐴞𐴐𐴤𐴝𐴌𐴝 - 𐴁𐴠𐴍𐴝 | 𐴀𐴝𐴔𐴧𐴟𐴙𐴑𐴧𐴙𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🙍‍♂" type="tts">𐴀𐴝𐴔𐴧𐴟𐴙𐴑𐴧𐴙𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🙍‍♀">𐴀𐴝𐴔𐴧𐴟𐴙𐴑𐴧𐴙𐴝 - 𐴀𐴞𐴐𐴤𐴝𐴌𐴝 - 𐴁𐴠𐴍𐴞 | 𐴀𐴝𐴔𐴧𐴟𐴙𐴑𐴧𐴙𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🙍‍♀" type="tts">𐴀𐴝𐴔𐴧𐴟𐴙𐴑𐴧𐴙𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🙎">𐴀𐴞𐴐𐴤𐴝𐴌𐴝 - 𐴉𐴥𐴟𐴓𐴝𐴘𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 - 𐴉𐴥𐴟𐴓𐴝𐴕𐴞 | 𐴉𐴥𐴟𐴓𐴝𐴘𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🙎" type="tts">𐴉𐴥𐴟𐴓𐴝𐴘𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🙎‍♂">𐴀𐴞𐴐𐴤𐴝𐴌𐴝 - 𐴁𐴠𐴍𐴝 - 𐴉𐴥𐴟𐴓𐴝𐴘𐴧𐴝 | 𐴉𐴥𐴟𐴓𐴝𐴘𐴧𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🙎‍♂" type="tts">𐴉𐴥𐴟𐴓𐴝𐴘𐴧𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🙎‍♀">𐴀𐴞𐴐𐴤𐴝𐴌𐴝 - 𐴉𐴥𐴟𐴓𐴝𐴘𐴧𐴝 - 𐴁𐴠𐴍𐴞 | 𐴉𐴥𐴟𐴓𐴝𐴘𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🙎‍♀" type="tts">𐴉𐴥𐴟𐴓𐴝𐴘𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🙅">𐴀𐴞𐴐𐴤𐴝𐴌𐴝 𐴕𐴡 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 | 𐴔𐴝𐴕𐴥𐴝 - 𐴀𐴞𐴐𐴤𐴝𐴌𐴝 - 𐴇𐴥𐴝𐴃𐴢 - 𐴀𐴞𐴐𐴤𐴝𐴌𐴝 𐴕𐴡 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 - 𐴔𐴝𐴕𐴥𐴝 𐴒𐴡𐴙𐴅𐴧𐴤𐴙𐴝</annotation>
+		<annotation cp="🙅" type="tts">𐴀𐴞𐴐𐴤𐴝𐴌𐴝 𐴕𐴡 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🙅‍♂">𐴀𐴞𐴐𐴤𐴝𐴌𐴝 𐴕𐴡 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝 | 𐴔𐴝𐴕𐴥𐴝 - 𐴀𐴞𐴐𐴤𐴝𐴌𐴝 - 𐴇𐴥𐴝𐴃𐴢 - 𐴁𐴠𐴍𐴝 - 𐴀𐴞𐴐𐴤𐴝𐴌𐴝 𐴕𐴡 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝 - 𐴔𐴝𐴕𐴥𐴝 𐴒𐴡𐴙𐴅𐴧𐴤𐴙𐴝</annotation>
+		<annotation cp="🙅‍♂" type="tts">𐴀𐴞𐴐𐴤𐴝𐴌𐴝 𐴕𐴡 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🙅‍♀">𐴀𐴞𐴐𐴤𐴝𐴌𐴝 𐴕𐴡 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞 | 𐴔𐴝𐴕𐴥𐴝 - 𐴀𐴞𐴐𐴤𐴝𐴌𐴝 - 𐴇𐴥𐴝𐴃𐴢 - 𐴔𐴝𐴕𐴥𐴝 𐴒𐴡𐴙𐴅𐴧𐴤𐴙𐴝 - 𐴁𐴠𐴍𐴞 - 𐴀𐴞𐴐𐴤𐴝𐴌𐴝 𐴕𐴡 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🙅‍♀" type="tts">𐴀𐴞𐴐𐴤𐴝𐴌𐴝 𐴕𐴡 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🙆">𐴀𐴞𐴐𐴤𐴝𐴌𐴝 - 𐴇𐴥𐴝𐴃𐴢 - 𐴀𐴥𐴡𐴘 - 𐴀𐴞𐴐𐴤𐴝𐴌𐴝 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 | 𐴀𐴞𐴐𐴤𐴝𐴌𐴝 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🙆" type="tts">𐴀𐴞𐴐𐴤𐴝𐴌𐴝 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🙆‍♂">𐴀𐴞𐴐𐴤𐴝𐴌𐴝 - 𐴇𐴥𐴝𐴃𐴢 - 𐴁𐴠𐴍𐴝 - 𐴀𐴞𐴐𐴤𐴝𐴌𐴝 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝 - 𐴀𐴥𐴡𐴘 | 𐴀𐴞𐴐𐴤𐴝𐴌𐴝 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🙆‍♂" type="tts">𐴀𐴞𐴐𐴤𐴝𐴌𐴝 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🙆‍♀">𐴀𐴞𐴐𐴤𐴝𐴌𐴝 - 𐴇𐴥𐴝𐴃𐴢 - 𐴀𐴥𐴡𐴘 - 𐴁𐴠𐴍𐴞 - 𐴀𐴞𐴐𐴤𐴝𐴌𐴝 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞 | 𐴀𐴞𐴐𐴤𐴝𐴌𐴝 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🙆‍♀" type="tts">𐴀𐴞𐴐𐴤𐴝𐴌𐴝 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="💁">𐴀𐴠𐴑 𐴋𐴤𐴝𐴙𐴑𐴧𐴙𐴝 𐴇𐴥𐴝𐴃𐴡𐴌 𐴃𐴝𐴓𐴧𐴗𐴝 𐴊𐴞𐴘𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 | 𐴇𐴥𐴝𐴃𐴢 - 𐴔𐴡𐴊𐴡𐴃𐴢 - 𐴎𐴝𐴕𐴝𐴘 𐴊𐴡𐴀𐴡𐴕 - 𐴀𐴠𐴑 𐴋𐴤𐴝𐴙𐴑𐴧𐴙𐴝 𐴇𐴥𐴝𐴃𐴡𐴌 𐴃𐴝𐴓𐴧𐴗𐴝 𐴊𐴞𐴘𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 - 𐴀𐴠𐴑 𐴋𐴤𐴝𐴙𐴑𐴧𐴙𐴝 𐴇𐴥𐴝𐴃𐴡𐴌 𐴃𐴝𐴓𐴧𐴗𐴝 𐴊𐴞𐴘𐴝</annotation>
+		<annotation cp="💁" type="tts">𐴀𐴠𐴑 𐴋𐴤𐴝𐴙𐴑𐴧𐴙𐴝 𐴇𐴥𐴝𐴃𐴡𐴌 𐴃𐴝𐴓𐴧𐴗𐴝 𐴊𐴞𐴘𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="💁‍♂">𐴀𐴠𐴑 𐴋𐴤𐴝𐴙𐴑𐴧𐴙𐴝 𐴇𐴥𐴝𐴃𐴡𐴌 𐴃𐴝𐴓𐴧𐴗𐴝 𐴊𐴞𐴘𐴝 𐴁𐴠𐴍𐴝 | 𐴁𐴠𐴍𐴝 - 𐴈𐴝𐴕𐴊 𐴁𐴡𐴌𐴝𐴁𐴡𐴌 𐴃𐴠𐴏𐴧𐴝 𐴇𐴥𐴝𐴃𐴢 𐴊𐴞𐴘𐴝 𐴁𐴠𐴍𐴝 - 𐴃𐴠𐴏𐴧𐴝 𐴇𐴥𐴝𐴃𐴢</annotation>
+		<annotation cp="💁‍♂" type="tts">𐴀𐴠𐴑 𐴋𐴤𐴝𐴙𐴑𐴧𐴙𐴝 𐴇𐴥𐴝𐴃𐴡𐴌 𐴃𐴝𐴓𐴧𐴗𐴝 𐴊𐴞𐴘𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="💁‍♀">𐴈𐴝𐴕𐴊 𐴁𐴡𐴌𐴝𐴁𐴡𐴌 𐴃𐴠𐴏𐴧𐴝 𐴇𐴥𐴝𐴃𐴢 𐴀𐴡𐴓𐴝 𐴁𐴠𐴍𐴞 | 𐴒𐴤𐴝𐴣𐴀𐴝𐴌 - 𐴃𐴠𐴏𐴧𐴝 𐴇𐴥𐴝𐴃𐴢 - 𐴁𐴠𐴍𐴞 - 𐴃𐴠𐴏𐴧𐴝 𐴇𐴥𐴝𐴃𐴢 𐴀𐴡𐴓𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="💁‍♀" type="tts">𐴈𐴝𐴕𐴊 𐴁𐴡𐴌𐴝𐴁𐴡𐴌 𐴃𐴠𐴏𐴧𐴝 𐴇𐴥𐴝𐴃𐴢 𐴀𐴡𐴓𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🙋">𐴀𐴞𐴐𐴤𐴝𐴌𐴝 - 𐴇𐴥𐴝𐴃𐴢 - 𐴑𐴤𐴟𐴐𐴤𐴞 - 𐴇𐴤𐴝𐴃𐴢 𐴃𐴟𐴙𐴓𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 - 𐴃𐴟𐴙𐴓𐴧𐴥𐴝 | 𐴇𐴥𐴝𐴃𐴢 𐴃𐴟𐴙𐴓𐴧𐴥𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🙋" type="tts">𐴇𐴥𐴝𐴃𐴢 𐴃𐴟𐴙𐴓𐴧𐴥𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🙋‍♂">𐴀𐴞𐴐𐴤𐴌𐴝 - 𐴁𐴠𐴍𐴝 - 𐴇𐴥𐴝𐴃𐴢 𐴃𐴟𐴙𐴓𐴧𐴥𐴝 𐴁𐴠𐴍𐴝 - 𐴃𐴟𐴙𐴓𐴧𐴥𐴝 𐴇𐴥𐴝𐴃𐴢 | 𐴇𐴥𐴝𐴃𐴢 𐴃𐴟𐴙𐴓𐴧𐴥𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🙋‍♂" type="tts">𐴇𐴥𐴝𐴃𐴢 𐴃𐴟𐴙𐴓𐴧𐴥𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🙋‍♀">𐴀𐴞𐴐𐴤𐴝𐴌𐴝 - 𐴃𐴟𐴙𐴓𐴧𐴥𐴝 𐴇𐴥𐴝𐴃𐴢- 𐴁𐴠𐴍𐴞 -𐴇𐴥𐴝𐴃𐴢 𐴃𐴟𐴙𐴓𐴧𐴥𐴝 𐴁𐴠𐴍𐴞 | 𐴇𐴥𐴝𐴃𐴢 𐴃𐴟𐴙𐴓𐴧𐴥𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🙋‍♀" type="tts">𐴇𐴥𐴝𐴃𐴢 𐴃𐴟𐴙𐴓𐴧𐴥𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🧏">𐴉𐴡𐴣𐴀𐴡𐴏𐴞 𐴉𐴝𐴌𐴝 - 𐴕𐴥𐴝𐴉𐴝𐴚 - 𐴕𐴥𐴝𐴉𐴝𐴚 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 - 𐴈𐴝𐴕 𐴉𐴥𐴟𐴕𐴡𐴕 | 𐴕𐴥𐴝𐴉𐴝𐴚 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🧏" type="tts">𐴕𐴥𐴝𐴉𐴝𐴚 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🧏‍♂">𐴕𐴥𐴝𐴉𐴝𐴚 - 𐴁𐴠𐴍𐴝 | 𐴕𐴥𐴝𐴉𐴝𐴚 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🧏‍♂" type="tts">𐴕𐴥𐴝𐴉𐴝𐴚 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🧏‍♀">𐴕𐴥𐴝𐴉𐴝𐴚 - 𐴁𐴠𐴍𐴞 | 𐴕𐴥𐴝𐴉𐴝𐴚 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🧏‍♀" type="tts">𐴕𐴥𐴝𐴉𐴝𐴚 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🙇">𐴔𐴝𐴉𐴢 𐴏𐴡𐴀𐴡𐴕 - 𐴕𐴞𐴘𐴥𐴟𐴌𐴥𐴡𐴕 - 𐴕𐴞𐴘𐴥𐴟𐴙𐴅𐴧𐴤𐴙𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 - 𐴏𐴦𐴡𐴌𐴞 | 𐴕𐴞𐴘𐴥𐴟𐴙𐴅𐴧𐴤𐴙𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🙇" type="tts">𐴕𐴞𐴘𐴥𐴟𐴙𐴅𐴧𐴤𐴙𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🙇‍♂">𐴔𐴝𐴉𐴢 𐴏𐴡𐴀𐴡𐴕 - 𐴕𐴞𐴘𐴥𐴟𐴙𐴅𐴧𐴤𐴙𐴝 - 𐴀𐴠𐴇𐴏𐴝𐴕 - 𐴀𐴞𐴐𐴤𐴝𐴌𐴝 - 𐴁𐴠𐴍𐴞 - 𐴏𐴦𐴡𐴌𐴞 | 𐴕𐴞𐴘𐴥𐴟𐴙𐴅𐴧𐴤𐴙𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🙇‍♂" type="tts">𐴕𐴞𐴘𐴥𐴟𐴙𐴅𐴧𐴤𐴙𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🙇‍♀">𐴔𐴝𐴉𐴢 𐴏𐴡𐴀𐴡𐴕 - 𐴕𐴞𐴘𐴥𐴟𐴙𐴅𐴧𐴤𐴙𐴝 - 𐴀𐴠𐴇𐴏𐴝𐴕 - 𐴀𐴞𐴐𐴤𐴝𐴌𐴝 - 𐴁𐴠𐴍𐴝 - 𐴁𐴠𐴍𐴞 | 𐴕𐴞𐴘𐴥𐴟𐴙𐴅𐴧𐴤𐴙𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🙇‍♀" type="tts">𐴕𐴞𐴘𐴥𐴟𐴙𐴅𐴧𐴤𐴙𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🤦">𐴔𐴟𐴑 𐴏𐴞𐴁𐴞 𐴊𐴤𐴡𐴙𐴅𐴧𐴤𐴙𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 | 𐴕𐴝 𐴁𐴞𐴐𐴧𐴤𐴝𐴐𐴢 - 𐴒𐴟𐴐𐴧𐴤𐴝 - 𐴔𐴟𐴑 - 𐴇𐴥𐴝𐴃𐴡𐴌 𐴃𐴝𐴓𐴧𐴗𐴝 - 𐴔𐴟𐴑 𐴏𐴞𐴁𐴞 𐴊𐴤𐴡𐴙𐴅𐴧𐴤𐴙𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🤦" type="tts">𐴔𐴟𐴑 𐴏𐴞𐴁𐴞 𐴊𐴤𐴡𐴙𐴅𐴧𐴤𐴙𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🤦‍♂">𐴔𐴟𐴑 𐴏𐴞𐴁𐴞 𐴊𐴤𐴡𐴙𐴅𐴧𐴤𐴙𐴝 𐴁𐴠𐴍𐴝 | 𐴕𐴝 𐴁𐴞𐴐𐴧𐴤𐴝𐴐𐴢 - 𐴒𐴟𐴐𐴧𐴤𐴝 - 𐴔𐴟𐴑 𐴏𐴞𐴁𐴞 𐴊𐴤𐴡𐴌𐴝 - 𐴁𐴠𐴍𐴝 - 𐴔𐴟𐴑 𐴏𐴞𐴁𐴞 𐴊𐴤𐴡𐴙𐴅𐴧𐴤𐴙𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🤦‍♂" type="tts">𐴔𐴟𐴑 𐴏𐴞𐴁𐴞 𐴊𐴤𐴡𐴙𐴅𐴧𐴤𐴙𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🤦‍♀">𐴔𐴟𐴑 𐴏𐴞𐴁𐴞 𐴊𐴤𐴡𐴙𐴅𐴧𐴤𐴙𐴝 𐴁𐴠𐴍𐴞 | 𐴕𐴝 𐴁𐴞𐴐𐴧𐴤𐴝𐴐𐴢 - 𐴒𐴟𐴐𐴧𐴤𐴝 - 𐴔𐴟𐴑 𐴏𐴞𐴁𐴞 𐴊𐴤𐴡𐴌𐴝 - 𐴁𐴠𐴍𐴞 - 𐴔𐴟𐴑 𐴏𐴞𐴁𐴞 𐴊𐴤𐴡𐴙𐴅𐴧𐴤𐴙𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🤦‍♀" type="tts">𐴔𐴟𐴑 𐴏𐴞𐴁𐴞 𐴊𐴤𐴡𐴙𐴅𐴧𐴤𐴙𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🤷">𐴁𐴠𐴉𐴡𐴌𐴁𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 | 𐴐𐴟𐴁𐴤𐴝 - 𐴀𐴡𐴎𐴝𐴕𐴝 - 𐴁𐴠𐴉𐴡𐴌𐴁𐴝 - 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 - 𐴁𐴠𐴉𐴡𐴌𐴁𐴝 -</annotation>
+		<annotation cp="🤷" type="tts">𐴁𐴠𐴉𐴡𐴌𐴁𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🤷‍♂">𐴁𐴠𐴉𐴡𐴌𐴁𐴝 𐴁𐴠𐴍𐴝 | 𐴐𐴟𐴁𐴤𐴝 - 𐴀𐴡𐴎𐴝𐴕𐴝 - 𐴁𐴠𐴉𐴡𐴁𐴝 - 𐴁𐴠𐴍𐴝 - 𐴁𐴠𐴉𐴡𐴌𐴁𐴝 𐴁𐴠𐴍𐴝 - 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🤷‍♂" type="tts">𐴁𐴠𐴉𐴡𐴌𐴁𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🤷‍♀">𐴁𐴠𐴉𐴡𐴌𐴁𐴝 𐴁𐴠𐴍𐴞 | 𐴐𐴟𐴁𐴤𐴝 - 𐴀𐴡𐴎𐴝𐴕𐴝 - 𐴁𐴠𐴉𐴡𐴌𐴁𐴝 - 𐴁𐴠𐴍𐴞 - 𐴁𐴠𐴉𐴡𐴌𐴁𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🤷‍♀" type="tts">𐴁𐴠𐴉𐴡𐴌𐴁𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🧑‍⚕">𐴋𐴝𐴑𐴄𐴡𐴌 - 𐴏𐴠𐴇𐴥𐴠𐴃𐴡𐴌 𐴈𐴝𐴔 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 - 𐴏𐴠𐴇𐴥𐴠𐴃𐴡𐴌 𐴏𐴝𐴀𐴝 𐴏𐴞𐴃𐴝 - 𐴕𐴦𐴝𐴏𐴢 - 𐴋𐴝𐴑𐴄𐴡𐴌 | 𐴏𐴠𐴇𐴥𐴠𐴃𐴡𐴌 𐴈𐴝𐴔 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝</annotation>
+		<annotation cp="🧑‍⚕" type="tts">𐴏𐴠𐴇𐴥𐴠𐴃𐴡𐴌 𐴈𐴝𐴔 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝</annotation>
+		<annotation cp="👨‍⚕">𐴋𐴝𐴑𐴄𐴡𐴌 - 𐴏𐴠𐴇𐴥𐴠𐴃𐴡𐴌 𐴏𐴝𐴀𐴝 𐴏𐴞𐴃𐴝 - 𐴁𐴠𐴍𐴝 - 𐴏𐴠𐴇𐴥𐴠𐴃𐴡𐴌 𐴈𐴝𐴔 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝 - 𐴕𐴦𐴝𐴏𐴢 - 𐴃𐴠𐴌𐴝𐴂𐴥𐴞𐴏𐴢 | 𐴏𐴠𐴇𐴥𐴠𐴃𐴡𐴌 𐴈𐴝𐴔 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="👨‍⚕" type="tts">𐴏𐴠𐴇𐴥𐴠𐴃𐴡𐴌 𐴈𐴝𐴔 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="👩‍⚕">𐴋𐴝𐴑𐴄𐴡𐴌 - 𐴏𐴠𐴇𐴥𐴠𐴃𐴡𐴌 𐴏𐴝𐴀𐴝 𐴏𐴞𐴃𐴝 - 𐴕𐴦𐴝𐴏𐴢 - 𐴏𐴠𐴇𐴥𐴠𐴃𐴡𐴌 𐴈𐴝𐴔 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞 | 𐴏𐴠𐴇𐴥𐴠𐴃𐴡𐴌 𐴈𐴝𐴔 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="👩‍⚕" type="tts">𐴏𐴠𐴇𐴥𐴠𐴃𐴡𐴌 𐴈𐴝𐴔 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🧑‍🎓">𐴉𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 𐴉𐴟𐴖𐴝 | 𐴋𐴞𐴒𐴞𐴌𐴞 𐴀𐴡𐴓𐴝</annotation>
+		<annotation cp="🧑‍🎓" type="tts">𐴉𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 𐴉𐴟𐴖𐴝</annotation>
+		<annotation cp="👨‍🎓">𐴉𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝 | 𐴋𐴞𐴒𐴞𐴌𐴞 𐴀𐴡𐴓𐴝 - 𐴁𐴠𐴍𐴝 - 𐴉𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝</annotation>
+		<annotation cp="👨‍🎓" type="tts">𐴉𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="👩‍🎓">𐴉𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞 | 𐴋𐴞𐴒𐴞𐴌𐴞 𐴀𐴡𐴓𐴝 - 𐴉𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 - 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="👩‍🎓" type="tts">𐴉𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🧑‍🏫">𐴀𐴟𐴏𐴃𐴝𐴊𐴢 - 𐴉𐴡𐴌𐴡𐴉𐴥𐴞𐴏𐴝𐴌 - 𐴔𐴝𐴏𐴄𐴡𐴌 | 𐴔𐴝𐴏𐴄𐴡𐴌</annotation>
+		<annotation cp="🧑‍🏫" type="tts">𐴔𐴝𐴏𐴄𐴡𐴌</annotation>
+		<annotation cp="👨‍🏫">𐴀𐴟𐴏𐴃𐴝𐴊𐴢 - 𐴁𐴠𐴍𐴝 - 𐴉𐴡𐴌𐴡𐴉𐴥𐴞𐴏𐴝𐴌 - 𐴔𐴝𐴏𐴄𐴡𐴌 | 𐴁𐴠𐴍𐴝 𐴔𐴝𐴏𐴄𐴡𐴌</annotation>
+		<annotation cp="👨‍🏫" type="tts">𐴁𐴠𐴍𐴝 𐴔𐴝𐴏𐴄𐴡𐴌</annotation>
+		<annotation cp="👩‍🏫">𐴀𐴟𐴏𐴃𐴝𐴊𐴢 - 𐴉𐴡𐴌𐴡𐴉𐴥𐴞𐴏𐴝𐴌 - 𐴔𐴝𐴏𐴄𐴡𐴌 - 𐴁𐴠𐴍𐴞 | 𐴁𐴠𐴍𐴞 𐴔𐴝𐴏𐴄𐴡𐴌</annotation>
+		<annotation cp="👩‍🏫" type="tts">𐴁𐴠𐴍𐴞 𐴔𐴝𐴏𐴄𐴡𐴌</annotation>
+		<annotation cp="🧑‍⚖">𐴁𐴞𐴏𐴝𐴌 𐴉𐴡𐴃𐴞 -𐴀𐴞𐴕𐴏𐴝𐴉𐴢 - 𐴉𐴝𐴓𐴊𐴝 | 𐴑𐴝𐴎𐴞</annotation>
+		<annotation cp="🧑‍⚖" type="tts">𐴑𐴝𐴎𐴞</annotation>
+		<annotation cp="👨‍⚖">𐴁𐴞𐴏𐴝𐴌𐴉𐴡𐴃𐴞 𐴁𐴠𐴍𐴝 | 𐴑𐴝𐴎𐴞 - 𐴀𐴞𐴕𐴏𐴝𐴉𐴢 - 𐴁𐴠𐴍𐴝 - 𐴉𐴝𐴓𐴊𐴝</annotation>
+		<annotation cp="👨‍⚖" type="tts">𐴁𐴞𐴏𐴝𐴌𐴉𐴡𐴃𐴞 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="👩‍⚖">𐴁𐴞𐴏𐴝𐴌 𐴉𐴡𐴃𐴞 - 𐴀𐴞𐴕𐴏𐴝𐴉𐴢 - 𐴉𐴝𐴓𐴊𐴝 - 𐴁𐴠𐴍𐴞 | 𐴁𐴞𐴏𐴝𐴌 𐴉𐴡𐴃𐴞 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="👩‍⚖" type="tts">𐴁𐴞𐴏𐴝𐴌 𐴉𐴡𐴃𐴞 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🧑‍🌾">𐴀𐴥𐴝𐴙𐴓𐴧𐴝 | 𐴀𐴥𐴝𐴙𐴓𐴧𐴝 - 𐴔𐴝𐴓𐴞 - 𐴑𐴤𐴠𐴃𐴧𐴠𐴙𐴓𐴧𐴝</annotation>
+		<annotation cp="🧑‍🌾" type="tts">𐴀𐴥𐴝𐴙𐴓𐴧𐴝</annotation>
+		<annotation cp="👨‍🌾">𐴀𐴥𐴝𐴙𐴓𐴧𐴝 - 𐴔𐴝𐴓𐴞 - 𐴁𐴠𐴍𐴝 - 𐴑𐴤𐴠𐴃𐴧𐴠𐴙𐴓𐴧𐴝 | 𐴁𐴠𐴍𐴝 𐴀𐴥𐴝𐴙𐴓𐴧𐴝</annotation>
+		<annotation cp="👨‍🌾" type="tts">𐴁𐴠𐴍𐴝 𐴀𐴥𐴝𐴙𐴓𐴧𐴝</annotation>
+		<annotation cp="👩‍🌾">𐴀𐴥𐴝𐴙𐴓𐴧𐴝 - 𐴔𐴝𐴓𐴞 - 𐴑𐴤𐴠𐴃𐴧𐴠𐴙𐴓𐴧𐴝 - 𐴁𐴠𐴍𐴞 | 𐴁𐴠𐴍𐴞 𐴀𐴥𐴝𐴙𐴓𐴧𐴞</annotation>
+		<annotation cp="👩‍🌾" type="tts">𐴁𐴠𐴍𐴞 𐴀𐴥𐴝𐴙𐴓𐴧𐴞</annotation>
+		<annotation cp="🧑‍🍳">𐴁𐴦𐴡𐴏𐴃𐴤𐴞 | 𐴔𐴝𐴎𐴤𐴞 - 𐴁𐴦𐴡𐴏𐴃𐴤𐴞</annotation>
+		<annotation cp="🧑‍🍳" type="tts">𐴁𐴦𐴡𐴏𐴃𐴤𐴞</annotation>
+		<annotation cp="👨‍🍳">𐴁𐴠𐴍𐴝 𐴁𐴦𐴡𐴏𐴃𐴤𐴞 | 𐴔𐴝𐴎𐴤𐴞 - 𐴁𐴦𐴡𐴏𐴃𐴤𐴞 - 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="👨‍🍳" type="tts">𐴁𐴠𐴍𐴝 𐴁𐴦𐴡𐴏𐴃𐴤𐴞</annotation>
+		<annotation cp="👩‍🍳">𐴁𐴠𐴍𐴞 𐴁𐴦𐴡𐴏𐴃𐴤𐴞 | 𐴔𐴝𐴎𐴤𐴞 - 𐴁𐴦𐴡𐴏𐴃𐴤𐴞 - 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="👩‍🍳" type="tts">𐴁𐴠𐴍𐴞 𐴁𐴦𐴡𐴏𐴃𐴤𐴞</annotation>
+		<annotation cp="🧑‍🔧">𐴀𐴠𐴓𐴠𐴑𐴄𐴤𐴠𐴌𐴞 𐴇𐴥𐴡𐴚𐴑𐴝𐴌 - 𐴔𐴞𐴑𐴤𐴝𐴕𐴥𐴞𐴑 - 𐴕𐴡𐴓𐴑𐴝𐴌 - 𐴔𐴞𐴏𐴃𐴤𐴞𐴌𐴞 | 𐴔𐴞𐴑𐴝𐴕𐴥𐴞𐴑</annotation>
+		<annotation cp="🧑‍🔧" type="tts">𐴔𐴞𐴑𐴝𐴕𐴥𐴞𐴑</annotation>
+		<annotation cp="👨‍🔧">𐴀𐴠𐴓𐴠𐴑𐴄𐴤𐴠𐴌𐴞 𐴇𐴥𐴡𐴚𐴑𐴝𐴌 - 𐴁𐴠𐴍𐴝 - 𐴔𐴞𐴑𐴤𐴝𐴕𐴥𐴞𐴑 - 𐴕𐴡𐴓𐴑𐴝𐴌 - 𐴔𐴞𐴏𐴃𐴤𐴞𐴌𐴞 | 𐴁𐴠𐴍𐴝 𐴔𐴞𐴑𐴤𐴝𐴕𐴥𐴞𐴑</annotation>
+		<annotation cp="👨‍🔧" type="tts">𐴁𐴠𐴍𐴝 𐴔𐴞𐴑𐴤𐴝𐴕𐴥𐴞𐴑</annotation>
+		<annotation cp="👩‍🔧">𐴀𐴠𐴓𐴠𐴑𐴄𐴤𐴠𐴌𐴞 𐴇𐴥𐴡𐴚𐴑𐴝𐴌 - 𐴔𐴞𐴑𐴤𐴝𐴕𐴥𐴞𐴑 - 𐴕𐴡𐴓𐴑𐴝𐴌 - 𐴔𐴞𐴏𐴃𐴤𐴞𐴌𐴞 - 𐴁𐴠𐴍𐴞 | 𐴁𐴠𐴍𐴞 𐴔𐴞𐴑𐴤𐴝𐴕𐴥𐴞𐴑</annotation>
+		<annotation cp="👩‍🔧" type="tts">𐴁𐴠𐴍𐴞 𐴔𐴞𐴑𐴤𐴝𐴕𐴥𐴞𐴑</annotation>
+		<annotation cp="🧑‍🏭">𐴉𐴥𐴠𐴑𐴄𐴠𐴌𐴥𐴞𐴌 𐴔𐴡𐴎𐴟𐴌 | 𐴐𐴤𐴡𐴁𐴝 - 𐴉𐴥𐴠𐴑𐴄𐴠𐴌𐴥𐴞𐴌 - 𐴈𐴝𐴌𐴈𐴥𐴝𐴕𐴝 𐴎𐴝𐴃𐴢 - 𐴔𐴡𐴎𐴟𐴌</annotation>
+		<annotation cp="🧑‍🏭" type="tts">𐴉𐴥𐴠𐴑𐴄𐴠𐴌𐴥𐴞𐴌 𐴔𐴡𐴎𐴟𐴌</annotation>
+		<annotation cp="👨‍🏭">𐴉𐴥𐴠𐴑𐴄𐴠𐴌𐴥𐴞𐴌 𐴁𐴠𐴍𐴝 𐴔𐴡𐴎𐴟𐴌 | 𐴐𐴤𐴡𐴁𐴝 - 𐴉𐴥𐴠𐴑𐴄𐴠𐴌𐴥𐴞 - 𐴈𐴝𐴌𐴈𐴥𐴝𐴕𐴝 𐴎𐴝𐴃𐴢 - 𐴁𐴠𐴍𐴝 - 𐴔𐴡𐴎𐴟𐴌</annotation>
+		<annotation cp="👨‍🏭" type="tts">𐴉𐴥𐴠𐴑𐴄𐴠𐴌𐴥𐴞𐴌 𐴁𐴠𐴍𐴝 𐴔𐴡𐴎𐴟𐴌</annotation>
+		<annotation cp="👩‍🏭">𐴉𐴥𐴠𐴑𐴄𐴠𐴌𐴥𐴞𐴌 𐴁𐴠𐴍𐴞 𐴔𐴡𐴎𐴟𐴌 | 𐴐𐴤𐴡𐴁𐴝 - 𐴉𐴥𐴠𐴑𐴄𐴠𐴌𐴥𐴞 - 𐴈𐴝𐴌𐴈𐴥𐴝𐴕𐴝 𐴎𐴝𐴃𐴢 - 𐴁𐴠𐴍𐴞 - 𐴔𐴡𐴎𐴟𐴌</annotation>
+		<annotation cp="👩‍🏭" type="tts">𐴉𐴥𐴠𐴑𐴄𐴠𐴌𐴥𐴞𐴌 𐴁𐴠𐴍𐴞 𐴔𐴡𐴎𐴟𐴌</annotation>
+		<annotation cp="🧑‍💼">𐴀𐴝𐴌𐴑𐴞𐴄𐴤𐴠𐴑 - 𐴐𐴤𐴡𐴊𐴡𐴌𐴞 - 𐴔𐴠𐴕𐴠𐴅𐴝𐴌 - 𐴀𐴡𐴉𐴥𐴞𐴏𐴡𐴌 𐴏𐴦𐴡𐴙𐴅𐴧𐴙𐴝 | 𐴀𐴡𐴉𐴥𐴞𐴏𐴡𐴌 𐴏𐴦𐴡𐴙𐴅𐴧𐴙𐴝</annotation>
+		<annotation cp="🧑‍💼" type="tts">𐴀𐴡𐴉𐴥𐴞𐴏𐴡𐴌 𐴏𐴦𐴡𐴙𐴅𐴧𐴙𐴝</annotation>
+		<annotation cp="👨‍💼">𐴀𐴝𐴌𐴑𐴞𐴄𐴤𐴠𐴑 - 𐴈𐴝𐴌𐴁𐴝𐴌 - 𐴁𐴠𐴍𐴝 - 𐴀𐴡𐴉𐴥𐴞𐴏𐴡𐴌 𐴁𐴠𐴍𐴝 𐴏𐴦𐴡𐴙𐴅𐴧𐴙𐴝 - 𐴔𐴠𐴕𐴥𐴠𐴅𐴝𐴌 | 𐴀𐴡𐴉𐴥𐴞𐴏𐴡𐴌 𐴁𐴠𐴍𐴝 𐴏𐴦𐴡𐴙𐴅𐴧𐴙𐴝</annotation>
+		<annotation cp="👨‍💼" type="tts">𐴀𐴡𐴉𐴥𐴞𐴏𐴡𐴌 𐴁𐴠𐴍𐴝 𐴏𐴦𐴡𐴙𐴅𐴧𐴙𐴝</annotation>
+		<annotation cp="👩‍💼">𐴀𐴝𐴌𐴑𐴞𐴄𐴤𐴠𐴑 - 𐴈𐴝𐴌𐴁𐴝𐴌 - 𐴔𐴠𐴕𐴥𐴠𐴅𐴝𐴌 - 𐴀𐴡𐴉𐴥𐴞𐴏𐴡𐴌 𐴁𐴠𐴍𐴞 𐴏𐴦𐴡𐴙𐴅𐴧𐴙𐴝𐴁𐴠𐴍𐴞 - | 𐴀𐴡𐴉𐴥𐴞𐴏𐴡𐴌 𐴁𐴠𐴍𐴞 𐴏𐴦𐴡𐴙𐴅𐴧𐴙𐴝</annotation>
+		<annotation cp="👩‍💼" type="tts">𐴀𐴡𐴉𐴥𐴞𐴏𐴡𐴌 𐴁𐴠𐴍𐴞 𐴏𐴦𐴡𐴙𐴅𐴧𐴙𐴝</annotation>
+		<annotation cp="🧑‍🔬">𐴁𐴝𐴘𐴀𐴡𐴓𐴡𐴅𐴞 - 𐴑𐴠𐴔𐴥𐴞𐴏𐴄𐴢 - 𐴀𐴞𐴕𐴅𐴞𐴕𐴙𐴝𐴌 - 𐴉𐴠𐴎𐴤𐴞𐴑 - 𐴏𐴥𐴝𐴛𐴏𐴊𐴝𐴕 | 𐴏𐴥𐴝𐴛𐴏𐴊𐴝𐴕</annotation>
+		<annotation cp="🧑‍🔬" type="tts">𐴏𐴥𐴝𐴛𐴏𐴊𐴝𐴕</annotation>
+		<annotation cp="👨‍🔬">𐴁𐴝𐴘𐴀𐴡𐴓𐴡𐴅𐴞 - 𐴑𐴠𐴔𐴥𐴞𐴏𐴄𐴢 - 𐴀𐴞𐴕𐴅𐴞𐴕𐴙𐴝𐴌 - 𐴁𐴠𐴍𐴝 - 𐴉𐴠𐴎𐴤𐴞𐴑 - 𐴏𐴥𐴝𐴛𐴏𐴊𐴝𐴕 | 𐴏𐴥𐴝𐴛𐴏𐴊𐴝𐴕 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="👨‍🔬" type="tts">𐴏𐴥𐴝𐴛𐴏𐴊𐴝𐴕 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="👩‍🔬">𐴁𐴝𐴘𐴀𐴡𐴓𐴡𐴅𐴞 - 𐴑𐴠𐴔𐴥𐴞𐴏𐴄𐴢 - 𐴀𐴞𐴕𐴅𐴞𐴕𐴙𐴝𐴌 - 𐴉𐴠𐴎𐴤𐴞𐴑 - 𐴏𐴥𐴝𐴛𐴏𐴊𐴝𐴕 - 𐴁𐴠𐴍𐴞 | 𐴏𐴥𐴝𐴛𐴏𐴊𐴝𐴕 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="👩‍🔬" type="tts">𐴏𐴥𐴝𐴛𐴏𐴊𐴝𐴕 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🧑‍💻">𐴄𐴠𐴑𐴕𐴡𐴓𐴡𐴅𐴞 𐴊𐴝𐴕 | 𐴑𐴟𐴋𐴤𐴝𐴌 - 𐴀𐴟𐴃𐴉𐴡𐴕𐴧𐴡𐴑𐴝𐴌 - 𐴀𐴝𐴁𐴞𐴐𐴑𐴝𐴌𐴡𐴑 - 𐴏𐴡𐴉𐴄𐴙𐴝𐴌 - 𐴄𐴠𐴑𐴕𐴡𐴓𐴡𐴅𐴞𐴌 𐴔𐴝𐴇𐴥𐴠𐴌 -</annotation>
+		<annotation cp="🧑‍💻" type="tts">𐴄𐴠𐴑𐴕𐴡𐴓𐴡𐴅𐴞 𐴊𐴝𐴕</annotation>
+		<annotation cp="👨‍💻">𐴄𐴠𐴑𐴕𐴡𐴓𐴡𐴅𐴞𐴌 𐴔𐴝𐴇𐴥𐴠𐴌 𐴁𐴠𐴍𐴝 | 𐴑𐴟𐴋𐴤𐴝𐴌 - 𐴀𐴟𐴃𐴉𐴡𐴕𐴧𐴡𐴑𐴝𐴌 - 𐴀𐴝𐴁𐴞𐴐𐴑𐴝𐴌𐴡𐴑 - 𐴏𐴡𐴉𐴄𐴙𐴝𐴌 - 𐴄𐴠𐴑𐴕𐴡𐴓𐴡𐴅𐴞𐴌 𐴔𐴝𐴇𐴥𐴠𐴌</annotation>
+		<annotation cp="👨‍💻" type="tts">𐴄𐴠𐴑𐴕𐴡𐴓𐴡𐴅𐴞𐴌 𐴔𐴝𐴇𐴥𐴠𐴌 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="👩‍💻">𐴄𐴠𐴑𐴕𐴡𐴓𐴡𐴅𐴞𐴌 𐴔𐴝𐴇𐴥𐴠𐴌 𐴁𐴠𐴍𐴞 | 𐴑𐴟𐴋𐴤𐴝𐴌 - 𐴀𐴟𐴃𐴉𐴡𐴕𐴧𐴡𐴑𐴝𐴌 - 𐴀𐴝𐴁𐴞𐴐𐴑𐴝𐴌𐴡𐴑 - 𐴏𐴡𐴉𐴄𐴙𐴝𐴌 - 𐴄𐴠𐴑𐴕𐴡𐴓𐴡𐴅𐴞𐴌 𐴔𐴝𐴇𐴥𐴠𐴌 - 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="👩‍💻" type="tts">𐴄𐴠𐴑𐴕𐴡𐴓𐴡𐴅𐴞𐴌 𐴔𐴝𐴇𐴥𐴠𐴌 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🧑‍🎤">𐴀𐴠𐴑𐴄𐴤𐴝𐴌 - 𐴑𐴤𐴟𐴐𐴢 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 - 𐴒𐴝𐴙𐴕 - 𐴒𐴝𐴙𐴕 - 𐴇𐴥𐴞𐴌𐴟 - | 𐴒𐴝𐴙𐴕</annotation>
+		<annotation cp="🧑‍🎤" type="tts">𐴒𐴝𐴙𐴕</annotation>
+		<annotation cp="👨‍🎤">𐴀𐴠𐴑𐴄𐴤𐴝𐴌 - 𐴑𐴤𐴟𐴐𐴢 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 - 𐴒𐴝𐴙𐴕 - 𐴒𐴝𐴙𐴕 - 𐴇𐴥𐴞𐴌𐴟 | 𐴒𐴝𐴙𐴕 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="👨‍🎤" type="tts">𐴒𐴝𐴙𐴕 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="👩‍🎤">𐴀𐴠𐴑𐴄𐴤𐴝𐴌 - 𐴑𐴤𐴟𐴐𐴢 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 - 𐴒𐴝𐴙𐴕 - 𐴒𐴝𐴙𐴕 - 𐴇𐴥𐴞𐴌𐴟 - 𐴁𐴠𐴍𐴞 | 𐴒𐴝𐴙𐴕 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="👩‍🎤" type="tts">𐴒𐴝𐴙𐴕 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🧑‍🎨">𐴀𐴦𐴝𐴌𐴄 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 - | 𐴀𐴦𐴝𐴌𐴄 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 -𐴂𐴞𐴓𐴡𐴄</annotation>
+		<annotation cp="🧑‍🎨" type="tts">𐴀𐴦𐴝𐴌𐴄 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 -</annotation>
+		<annotation cp="👨‍🎨">𐴀𐴦𐴝𐴌𐴄 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 - 𐴁𐴠𐴍𐴝 - 𐴂𐴞𐴓𐴡𐴄 | 𐴀𐴦𐴝𐴌𐴄 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="👨‍🎨" type="tts">𐴀𐴦𐴝𐴌𐴄 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="👩‍🎨">𐴀𐴦𐴝𐴌𐴄 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 - 𐴂𐴞𐴓𐴡𐴄 - 𐴁𐴠𐴍𐴞 | 𐴀𐴦𐴝𐴌𐴄 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="👩‍🎨" type="tts">𐴀𐴦𐴝𐴌𐴄 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🧑‍✈">𐴉𐴝𐴘𐴓𐴥𐴡𐴄 | 𐴉𐴝𐴘𐴓𐴥𐴡𐴄 - 𐴇𐴥𐴝𐴁𐴝𐴌 𐴎𐴝𐴣𐴀𐴝𐴏𐴢</annotation>
+		<annotation cp="🧑‍✈" type="tts">𐴉𐴝𐴘𐴓𐴥𐴡𐴄</annotation>
+		<annotation cp="👨‍✈">𐴁𐴠𐴍𐴝 - 𐴉𐴝𐴘𐴓𐴥𐴡𐴄 - 𐴇𐴥𐴝𐴁𐴝𐴌 𐴎𐴝𐴣𐴀𐴝𐴏𐴢 | 𐴁𐴠𐴍𐴝 𐴉𐴝𐴘𐴓𐴥𐴡𐴄</annotation>
+		<annotation cp="👨‍✈" type="tts">𐴁𐴠𐴍𐴝 𐴉𐴝𐴘𐴓𐴥𐴡𐴄</annotation>
+		<annotation cp="👩‍✈">𐴁𐴠𐴍𐴞 - 𐴉𐴝𐴘𐴓𐴥𐴡𐴄 | 𐴉𐴝𐴘𐴓𐴥𐴡𐴄 - 𐴇𐴥𐴝𐴁𐴝𐴌 𐴎𐴝𐴣𐴀𐴝𐴏𐴢 - 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="👩‍✈" type="tts">𐴁𐴠𐴍𐴞 - 𐴉𐴝𐴘𐴓𐴥𐴡𐴄</annotation>
+		<annotation cp="🧑‍🚀">𐴇𐴥𐴝𐴁𐴝𐴃𐴢 𐴀𐴟𐴌𐴥𐴡𐴙𐴕𐴧𐴝 | 𐴇𐴥𐴝𐴁𐴝𐴃𐴢 𐴀𐴟𐴌𐴡𐴙𐴕𐴧𐴝 - 𐴌𐴡𐴑𐴤𐴠𐴄𐴢</annotation>
+		<annotation cp="🧑‍🚀" type="tts">𐴇𐴥𐴝𐴁𐴝𐴃𐴢 𐴀𐴟𐴌𐴥𐴡𐴙𐴕𐴧𐴝</annotation>
+		<annotation cp="👨‍🚀">𐴇𐴥𐴝𐴁𐴝𐴃𐴢 𐴀𐴟𐴌𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝 | 𐴇𐴥𐴝𐴁𐴝𐴃𐴢 𐴀𐴟𐴌𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝 - 𐴌𐴡𐴑𐴤𐴠𐴄𐴢</annotation>
+		<annotation cp="👨‍🚀" type="tts">𐴇𐴥𐴝𐴁𐴝𐴃𐴢 𐴀𐴟𐴌𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="👩‍🚀">𐴇𐴥𐴝𐴁𐴝𐴃𐴢 𐴀𐴟𐴌𐴡𐴙𐴕𐴧𐴝 - 𐴌𐴡𐴑𐴤𐴠𐴄 - 𐴁𐴠𐴍𐴞 | 𐴇𐴥𐴝𐴁𐴝𐴃𐴢 𐴀𐴟𐴌𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="👩‍🚀" type="tts">𐴇𐴥𐴝𐴁𐴝𐴃𐴢 𐴀𐴟𐴌𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🧑‍🚒">𐴀𐴦𐴡𐴙𐴕 𐴕𐴞𐴉𐴡𐴀𐴡𐴙𐴕𐴧𐴝 | 𐴀𐴦𐴡𐴙𐴕 𐴕𐴞𐴉𐴡𐴀𐴡𐴙𐴕𐴧𐴝 - 𐴀𐴦𐴡𐴙𐴕 𐴕𐴞𐴉𐴥𐴝 𐴒𐴝𐴌𐴥𐴞</annotation>
+		<annotation cp="🧑‍🚒" type="tts">𐴀𐴦𐴡𐴙𐴕 𐴕𐴞𐴉𐴡𐴀𐴡𐴙𐴕𐴧𐴝</annotation>
+		<annotation cp="👨‍🚒">𐴀𐴦𐴡𐴙𐴕 𐴕𐴞𐴉𐴡𐴀𐴡𐴙𐴕𐴧𐴝 - 𐴀𐴦𐴡𐴙𐴕 𐴕𐴞𐴉𐴥𐴝 𐴒𐴝𐴌𐴥𐴞 - 𐴁𐴠𐴍𐴝 | 𐴀𐴦𐴡𐴙𐴕 𐴕𐴞𐴉𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="👨‍🚒" type="tts">𐴀𐴦𐴡𐴙𐴕 𐴕𐴞𐴉𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="👩‍🚒">𐴀𐴦𐴡𐴙𐴕 𐴕𐴞𐴉𐴡𐴀𐴡𐴙𐴕𐴧𐴝 - 𐴀𐴦𐴡𐴙𐴕 𐴕𐴞𐴉𐴥𐴝 𐴒𐴝𐴌𐴥𐴞 - 𐴁𐴠𐴍𐴞 | 𐴀𐴦𐴡𐴙𐴕 𐴕𐴞𐴉𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="👩‍🚒" type="tts">𐴀𐴦𐴡𐴙𐴕 𐴕𐴞𐴉𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="👮">𐴃𐴤𐴝𐴕𐴝 - 𐴀𐴡𐴉𐴥𐴞𐴏𐴝𐴌 - 𐴉𐴟𐴓𐴞𐴐𐴢 | 𐴉𐴟𐴓𐴞𐴐𐴢 𐴀𐴡𐴉𐴥𐴞𐴏𐴝𐴌</annotation>
+		<annotation cp="👮" type="tts">𐴉𐴟𐴓𐴞𐴐𐴢 𐴀𐴡𐴉𐴥𐴞𐴏𐴝𐴌</annotation>
+		<annotation cp="👮‍♂">𐴃𐴤𐴝𐴕𐴝 - 𐴁𐴠𐴍𐴝 - 𐴀𐴝𐴉𐴥𐴞𐴏𐴝𐴌 - 𐴉𐴟𐴓𐴞𐴐𐴢 | 𐴉𐴟𐴓𐴞𐴐𐴢 𐴀𐴝𐴉𐴥𐴞𐴏𐴝𐴌 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="👮‍♂" type="tts">𐴉𐴟𐴓𐴞𐴐𐴢 𐴀𐴝𐴉𐴥𐴞𐴏𐴝𐴌 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="👮‍♀">𐴃𐴤𐴝𐴕𐴝 - 𐴀𐴝𐴉𐴥𐴞𐴏𐴝𐴌 - 𐴉𐴟𐴓𐴞𐴐𐴢 - 𐴁𐴠𐴍𐴞 | 𐴉𐴟𐴓𐴞𐴐𐴢 𐴀𐴝𐴉𐴥𐴞𐴏𐴝𐴌 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="👮‍♀" type="tts">𐴉𐴟𐴓𐴞𐴐𐴢 𐴀𐴝𐴉𐴥𐴞𐴏𐴝𐴌 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🕵">𐴃𐴝𐴇𐴑𐴞𐴑 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 | 𐴃𐴝𐴇𐴑𐴞𐴑 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 - 𐴒𐴟𐴌𐴞𐴕𐴊𐴝 - 𐴅𐴝𐴏𐴟𐴏𐴢</annotation>
+		<annotation cp="🕵" type="tts">𐴃𐴝𐴇𐴑𐴞𐴑 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝</annotation>
+		<annotation cp="🕵‍♂">𐴃𐴝𐴇𐴑𐴞𐴑 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 - 𐴁𐴠𐴍𐴝 -𐴒𐴟𐴌𐴞𐴕𐴊𐴝 - 𐴅𐴝𐴏𐴟𐴏𐴢 | 𐴃𐴝𐴇𐴑𐴞𐴑 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🕵‍♂" type="tts">𐴃𐴝𐴇𐴑𐴞𐴑 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🕵‍♀">𐴃𐴝𐴇𐴑𐴞𐴑 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 -𐴒𐴟𐴌𐴞𐴕𐴊𐴝 - 𐴅𐴝𐴏𐴟𐴏𐴢 - 𐴁𐴠𐴍𐴞 | 𐴃𐴝𐴇𐴑𐴞𐴑 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🕵‍♀" type="tts">𐴃𐴝𐴇𐴑𐴞𐴑 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="💂">𐴒𐴝𐴀𐴝𐴋</annotation>
+		<annotation cp="💂" type="tts">𐴒𐴝𐴀𐴝𐴋</annotation>
+		<annotation cp="💂‍♂">𐴁𐴠𐴍𐴝 𐴒𐴝𐴀𐴝𐴋 | 𐴒𐴝𐴀𐴝𐴋 - 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="💂‍♂" type="tts">𐴁𐴠𐴍𐴝 𐴒𐴝𐴀𐴝𐴋</annotation>
+		<annotation cp="💂‍♀">𐴁𐴠𐴍𐴞 𐴒𐴝𐴀𐴝𐴋 | 𐴒𐴝𐴀𐴝𐴋𐴝- 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="💂‍♀" type="tts">𐴁𐴠𐴍𐴞 𐴒𐴝𐴀𐴝𐴋</annotation>
+		<annotation cp="🥷">𐴔𐴝𐴌𐴡𐴙𐴕𐴧𐴝 - 𐴓𐴟𐴖𐴝𐴘𐴧𐴝 -𐴕𐴠𐴕𐴅𐴝 - 𐴒𐴟𐴉𐴡𐴕𐴃𐴝 | 𐴕𐴠𐴕𐴅𐴝</annotation>
+		<annotation cp="🥷" type="tts">𐴕𐴠𐴕𐴅𐴝</annotation>
+		<annotation cp="👷">𐴒𐴤𐴡𐴌 𐴁𐴝𐴣𐴊𐴤𐴝 - 𐴇𐴥𐴠𐴄𐴢 - 𐴔𐴡𐴎𐴟𐴌 | 𐴒𐴤𐴡𐴌 𐴁𐴝𐴣𐴊𐴤𐴡𐴙𐴕𐴧𐴝</annotation>
+		<annotation cp="👷" type="tts">𐴒𐴤𐴡𐴌 𐴁𐴝𐴣𐴊𐴤𐴡𐴙𐴕𐴧𐴝</annotation>
+		<annotation cp="👷‍♂">𐴒𐴤𐴡𐴌 𐴁𐴝𐴣𐴊𐴤𐴝- 𐴁𐴠𐴍𐴝 - 𐴔𐴡𐴎𐴟𐴌 | 𐴒𐴤𐴡𐴌 𐴁𐴝𐴣𐴊𐴤𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="👷‍♂" type="tts">𐴒𐴤𐴡𐴌 𐴁𐴝𐴣𐴊𐴤𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="👷‍♀">𐴒𐴤𐴡𐴌 𐴁𐴝𐴣𐴊𐴤𐴝- 𐴁𐴠𐴍𐴞 - 𐴔𐴡𐴎𐴟𐴌 | 𐴒𐴤𐴡𐴌 𐴁𐴝𐴣𐴊𐴤𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="👷‍♀" type="tts">𐴒𐴤𐴡𐴌 𐴁𐴝𐴣𐴊𐴤𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🫅">𐴁𐴦𐴝𐴐𐴧𐴤𐴝 - 𐴀𐴝𐴔𐴞𐴌 - 𐴃𐴝𐴏𐴉𐴞𐴕𐴊𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 -𐴌𐴝𐴎𐴝 𐴒𐴞𐴌𐴞 | 𐴃𐴝𐴏𐴢 𐴉𐴞𐴕𐴊𐴤𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🫅" type="tts">𐴃𐴝𐴏𐴢 𐴉𐴞𐴕𐴊𐴤𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🤴">𐴀𐴔𐴞𐴌</annotation>
+		<annotation cp="🤴" type="tts">𐴀𐴔𐴞𐴌</annotation>
+		<annotation cp="👸">𐴌𐴝𐴎𐴑𐴟𐴔𐴝𐴌𐴞 | 𐴑𐴤𐴞𐴘𐴝𐴓𐴞 𐴑𐴞𐴏𐴧𐴥𐴝- 𐴑𐴡𐴓𐴉𐴡𐴕𐴝 - 𐴌𐴝𐴎𐴑𐴟𐴔𐴝𐴌𐴞</annotation>
+		<annotation cp="👸" type="tts">𐴌𐴝𐴎𐴑𐴟𐴔𐴝𐴌𐴞</annotation>
+		<annotation cp="👳">𐴉𐴦𐴡𐴌𐴞 𐴉𐴞𐴕𐴊𐴤𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 | 𐴉𐴦𐴡𐴌𐴞 𐴉𐴞𐴕𐴊𐴤𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 - 𐴉𐴦𐴡𐴌𐴞</annotation>
+		<annotation cp="👳" type="tts">𐴉𐴦𐴡𐴌𐴞 𐴉𐴞𐴕𐴊𐴤𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="👳‍♂">𐴁𐴠𐴍𐴝 - 𐴉𐴦𐴡𐴌𐴞 𐴉𐴞𐴕𐴊𐴤𐴝 𐴁𐴠𐴍𐴝 - 𐴉𐴦𐴡𐴌𐴞 | 𐴉𐴦𐴡𐴌𐴞 𐴉𐴞𐴕𐴊𐴤𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="👳‍♂" type="tts">𐴉𐴦𐴡𐴌𐴞 𐴉𐴞𐴕𐴊𐴤𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="👳‍♀">𐴉𐴦𐴡𐴌𐴞 - 𐴁𐴠𐴍𐴞 - 𐴉𐴦𐴡𐴌𐴞 𐴉𐴞𐴕𐴊𐴤𐴝 𐴁𐴠𐴍𐴞 | 𐴉𐴦𐴡𐴌𐴞 𐴉𐴞𐴕𐴊𐴤𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="👳‍♀" type="tts">𐴉𐴦𐴡𐴌𐴞 𐴉𐴞𐴕𐴊𐴤𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="👲">𐴃𐴠𐴙𐴑𐴧𐴝 - 𐴏𐴞𐴕𐴝 𐴃𐴠𐴙𐴑𐴧𐴝 -𐴇𐴥𐴠𐴄𐴢 - 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 - 𐴏𐴞𐴕𐴝 𐴃𐴠𐴙𐴑𐴧𐴝 𐴉𐴞𐴕𐴊𐴤𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 - 𐴃𐴠𐴙𐴑𐴧𐴝 | 𐴏𐴞𐴕𐴝 𐴃𐴠𐴙𐴑𐴧𐴝 𐴉𐴞𐴕𐴊𐴤𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="👲" type="tts">𐴏𐴞𐴕𐴝 𐴃𐴠𐴙𐴑𐴧𐴝 𐴉𐴞𐴕𐴊𐴤𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🧕">𐴔𐴝𐴃𐴤𐴝 𐴈𐴦𐴡𐴌 - 𐴇𐴥𐴞𐴅𐴝𐴁𐴢 - 𐴔𐴝𐴕𐴄𐴞𐴓𐴝 - 𐴁𐴠𐴍𐴞 - 𐴔𐴝𐴃𐴤𐴝 𐴈𐴦𐴡𐴌 𐴉𐴞𐴕𐴊𐴤𐴝 𐴁𐴠𐴍𐴞 | 𐴔𐴝𐴃𐴤𐴝 𐴈𐴦𐴡𐴌 𐴉𐴞𐴕𐴊𐴤𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🧕" type="tts">𐴔𐴝𐴃𐴤𐴝 𐴈𐴦𐴡𐴌 𐴉𐴞𐴕𐴊𐴤𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🤵">𐴊𐴟𐴓𐴥𐴝 - 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 - 𐴑𐴟𐴄𐴢 𐴉𐴞𐴕𐴊𐴤𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 - 𐴑𐴟𐴄𐴢 𐴐𐴤𐴟𐴄𐴢 | 𐴑𐴟𐴄𐴢 𐴉𐴞𐴕𐴊𐴤𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🤵" type="tts">𐴑𐴟𐴄𐴢 𐴉𐴞𐴕𐴊𐴤𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🤵‍♂">𐴁𐴠𐴍𐴝 - 𐴑𐴟𐴄𐴢 𐴉𐴞𐴕𐴊𐴤𐴝 𐴁𐴠𐴍𐴝 - 𐴑𐴟𐴄𐴢 𐴐𐴤𐴟𐴄𐴢 | 𐴑𐴟𐴄𐴢 𐴉𐴞𐴕𐴊𐴤𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🤵‍♂" type="tts">𐴑𐴟𐴄𐴢 𐴉𐴞𐴕𐴊𐴤𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🤵‍♀">𐴑𐴟𐴄𐴢 𐴉𐴞𐴕𐴊𐴤𐴝 𐴁𐴠𐴍𐴞 | 𐴑𐴟𐴄𐴢 𐴐𐴤𐴟𐴄𐴢- 𐴁𐴠𐴍𐴞 - 𐴑𐴟𐴄𐴢 𐴉𐴞𐴕𐴊𐴤𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🤵‍♀" type="tts">𐴑𐴟𐴄𐴢 𐴉𐴞𐴕𐴊𐴤𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="👰">𐴁𐴞𐴘𐴥𐴝𐴌 𐴇𐴥𐴝𐴣𐴏𐴢 𐴉𐴞𐴕𐴊𐴤𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 | 𐴊𐴟𐴓𐴥𐴞 - 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 - 𐴁𐴞𐴘𐴥𐴝𐴌 𐴇𐴥𐴝𐴣𐴏𐴢 𐴉𐴞𐴕𐴊𐴤𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 - 𐴁𐴞𐴘𐴥𐴝𐴌 𐴇𐴥𐴝𐴣𐴏𐴢 - 𐴁𐴞𐴘𐴥𐴝</annotation>
+		<annotation cp="👰" type="tts">𐴁𐴞𐴘𐴥𐴝𐴌 𐴇𐴥𐴝𐴣𐴏𐴢 𐴉𐴞𐴕𐴊𐴤𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="👰‍♂">𐴁𐴞𐴘𐴥𐴝𐴌 𐴇𐴥𐴝𐴣𐴏𐴢 𐴉𐴞𐴕𐴊𐴤𐴝 𐴁𐴠𐴍𐴝 | 𐴁𐴠𐴍𐴝 - 𐴁𐴞𐴘𐴥𐴝𐴌 𐴇𐴥𐴝𐴣𐴏𐴢 𐴉𐴞𐴕𐴊𐴤𐴝 𐴁𐴠𐴍𐴝 - 𐴁𐴞𐴘𐴥𐴝𐴌 𐴇𐴥𐴝𐴣𐴏𐴢</annotation>
+		<annotation cp="👰‍♂" type="tts">𐴁𐴞𐴘𐴥𐴝𐴌 𐴇𐴥𐴝𐴣𐴏𐴢 𐴉𐴞𐴕𐴊𐴤𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="👰‍♀">𐴁𐴞𐴘𐴥𐴝𐴌 𐴇𐴥𐴝𐴣𐴏𐴢 - 𐴁𐴠𐴍𐴞 - 𐴁𐴞𐴘𐴥𐴝𐴌 𐴇𐴥𐴝𐴣𐴏𐴢 𐴉𐴞𐴕𐴊𐴤𐴝 𐴁𐴠𐴍𐴞 | 𐴁𐴞𐴘𐴥𐴝𐴌 𐴇𐴥𐴝𐴣𐴏𐴢 𐴉𐴞𐴕𐴊𐴤𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="👰‍♀" type="tts">𐴁𐴞𐴘𐴥𐴝𐴌 𐴇𐴥𐴝𐴣𐴏𐴢 𐴉𐴞𐴕𐴊𐴤𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🤰">𐴇𐴦𐴝𐴔𐴠𐴓 - 𐴁𐴠𐴍𐴞 | 𐴇𐴦𐴝𐴔𐴠𐴓 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🤰" type="tts">𐴇𐴦𐴝𐴔𐴠𐴓 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🫃">𐴇𐴦𐴝𐴔𐴠𐴓 𐴁𐴠𐴍𐴝 | 𐴉𐴠𐴄𐴢 - 𐴒𐴡𐴌𐴁𐴤𐴡𐴃𐴞 -𐴉𐴟𐴌𐴝𐴉𐴟𐴌𐴞 - 𐴇𐴦𐴝𐴔𐴠𐴓 - 𐴇𐴦𐴝𐴔𐴠𐴓 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🫃" type="tts">𐴇𐴦𐴝𐴔𐴠𐴓 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🫄">𐴇𐴦𐴝𐴔𐴠𐴓 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 | 𐴉𐴠𐴄𐴢 - 𐴒𐴡𐴌𐴁𐴤𐴡𐴃𐴞 -𐴉𐴟𐴌𐴝𐴉𐴟𐴌𐴞 - 𐴇𐴦𐴝𐴔𐴠𐴓 - 𐴇𐴦𐴝𐴔𐴠𐴓 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 -</annotation>
+		<annotation cp="🫄" type="tts">𐴇𐴦𐴝𐴔𐴠𐴓 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🤱">𐴊𐴟𐴊𐴤𐴡𐴌 𐴉𐴟𐴖𐴝 - 𐴊𐴟𐴃𐴢 - 𐴊𐴟𐴊𐴢 𐴈𐴥𐴝𐴀𐴝𐴁𐴡𐴀𐴡𐴕 - 𐴎𐴡𐴃𐴧𐴡𐴕 𐴒𐴡𐴌𐴥𐴝 | 𐴊𐴟𐴊𐴢 𐴈𐴥𐴝𐴀𐴝𐴁𐴡𐴀𐴡𐴕</annotation>
+		<annotation cp="🤱" type="tts">𐴊𐴟𐴊𐴢 𐴈𐴥𐴝𐴀𐴝𐴁𐴡𐴀𐴡𐴕</annotation>
+		<annotation cp="👩‍🍼">𐴉𐴟𐴖𐴝 𐴊𐴟𐴊𐴢 𐴈𐴥𐴝𐴀𐴝𐴁𐴡𐴀𐴡𐴕 𐴁𐴠𐴍𐴞 | 𐴊𐴟𐴊𐴤𐴡𐴌 𐴉𐴟𐴖𐴝 - 𐴈𐴥𐴝𐴀𐴝𐴁𐴡𐴀𐴡𐴕 - 𐴎𐴡𐴃𐴧𐴡𐴕 𐴒𐴡𐴌𐴥𐴝 - 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="👩‍🍼" type="tts">𐴉𐴟𐴖𐴝 𐴊𐴟𐴊𐴢 𐴈𐴥𐴝𐴀𐴝𐴁𐴡𐴀𐴡𐴕 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="👨‍🍼">𐴉𐴟𐴖𐴝 𐴊𐴟𐴊𐴢 𐴈𐴥𐴝𐴀𐴝𐴁𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝 | 𐴊𐴟𐴊𐴤𐴡𐴌 𐴉𐴟𐴖𐴝 - 𐴈𐴥𐴝𐴀𐴝𐴁𐴡𐴀𐴡𐴕 - 𐴁𐴠𐴍𐴝 - 𐴎𐴡𐴃𐴧𐴡𐴕 𐴒𐴡𐴌𐴥𐴝</annotation>
+		<annotation cp="👨‍🍼" type="tts">𐴉𐴟𐴖𐴝 𐴊𐴟𐴊𐴢 𐴈𐴥𐴝𐴀𐴝𐴁𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🧑‍🍼">𐴉𐴟𐴖𐴝 𐴊𐴟𐴊𐴢 𐴈𐴥𐴝𐴀𐴝𐴁𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 | 𐴊𐴟𐴊𐴤𐴡𐴌 𐴉𐴟𐴖𐴝 - 𐴈𐴥𐴝𐴀𐴝𐴁𐴡𐴀𐴡𐴕 - 𐴎𐴡𐴃𐴧𐴡𐴕 𐴒𐴡𐴌𐴥𐴝 - 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🧑‍🍼" type="tts">𐴉𐴟𐴖𐴝 𐴊𐴟𐴊𐴢 𐴈𐴥𐴝𐴀𐴝𐴁𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="👼">𐴉𐴥𐴞𐴌𐴞𐴐𐴃𐴤𐴝 - 𐴊𐴟𐴊𐴤𐴡𐴌 𐴉𐴟𐴖𐴝 - 𐴔𐴟𐴑 - 𐴑𐴤𐴞𐴘𐴝𐴓𐴞 𐴑𐴞𐴏𐴧𐴥𐴝 - 𐴑𐴡𐴓𐴉𐴡𐴕𐴝 | 𐴊𐴟𐴊𐴤𐴡𐴌 𐴉𐴟𐴖𐴝 𐴉𐴥𐴞𐴌𐴞𐴐𐴃𐴤𐴝</annotation>
+		<annotation cp="👼" type="tts">𐴊𐴟𐴊𐴤𐴡𐴌 𐴉𐴟𐴖𐴝 𐴉𐴥𐴞𐴌𐴞𐴐𐴃𐴤𐴝</annotation>
+		<annotation cp="🎅">𐴏𐴝𐴕𐴄𐴝 𐴑𐴡𐴓𐴡𐴎 | 𐴑𐴤𐴟𐴐𐴞 𐴁𐴝𐴕𐴡𐴀𐴡𐴕 - 𐴑𐴞𐴌𐴞𐴏𐴔𐴥𐴝𐴏𐴢 - 𐴑𐴡𐴓𐴡𐴎 - 𐴁𐴝𐴉𐴢 - 𐴏𐴝𐴕𐴄𐴝 - 𐴏𐴝𐴕𐴄𐴝 𐴑𐴡𐴓𐴡𐴎</annotation>
+		<annotation cp="🎅" type="tts">𐴏𐴝𐴕𐴄𐴝 𐴑𐴡𐴓𐴡𐴎</annotation>
+		<annotation cp="🤶">𐴁𐴠𐴍𐴞 𐴑𐴡𐴓𐴡𐴎 | 𐴑𐴤𐴟𐴐𐴞 𐴁𐴝𐴕𐴡𐴀𐴡𐴕 - 𐴑𐴞𐴌𐴞𐴏𐴔𐴥𐴝𐴏𐴢 - 𐴑𐴡𐴓𐴡𐴎 - 𐴔𐴦𐴝𐴣 - 𐴁𐴠𐴍𐴞 - 𐴁𐴠𐴍𐴞 𐴑𐴡𐴓𐴡𐴎</annotation>
+		<annotation cp="🤶" type="tts">𐴁𐴠𐴍𐴞 𐴑𐴡𐴓𐴡𐴎</annotation>
+		<annotation cp="🧑‍🎄">𐴀𐴠𐴔 𐴀𐴥𐴠𐴑𐴏𐴢 𐴑𐴡𐴓𐴡𐴎 | 𐴑𐴞𐴌𐴞𐴏𐴔𐴥𐴝𐴏𐴢 - 𐴑𐴡𐴓𐴡𐴎 - 𐴀𐴠𐴔 𐴀𐴥𐴠𐴑𐴏𐴢 𐴑𐴡𐴓𐴡𐴎</annotation>
+		<annotation cp="🧑‍🎄" type="tts">𐴀𐴠𐴔 𐴀𐴥𐴠𐴑𐴏𐴢 𐴑𐴡𐴓𐴡𐴎</annotation>
+		<annotation cp="🦸">𐴁𐴤𐴝𐴓𐴝 - 𐴇𐴥𐴞𐴌𐴟 - 𐴇𐴥𐴞𐴌𐴟𐴕𐴞 - 𐴏𐴟𐴂𐴥𐴝𐴌 𐴇𐴥𐴞𐴌𐴟 - 𐴏𐴟𐴂𐴥𐴝𐴌 𐴂𐴦𐴝𐴖𐴥𐴡𐴌 | 𐴏𐴟𐴂𐴥𐴝𐴌 𐴇𐴥𐴞𐴌𐴟</annotation>
+		<annotation cp="🦸" type="tts">𐴏𐴟𐴂𐴥𐴝𐴌 𐴇𐴥𐴞𐴌𐴟</annotation>
+		<annotation cp="🦸‍♂">𐴁𐴤𐴝𐴓𐴝 - 𐴇𐴥𐴞𐴌𐴟 - 𐴁𐴠𐴍𐴝 - 𐴏𐴟𐴂𐴥𐴝𐴌 𐴇𐴥𐴞𐴌𐴟 𐴁𐴠𐴍𐴝 - 𐴏𐴟𐴂𐴥𐴝𐴌 𐴂𐴦𐴝𐴖𐴥𐴡𐴌 | 𐴏𐴟𐴂𐴥𐴝𐴌 𐴇𐴥𐴞𐴌𐴟 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🦸‍♂" type="tts">𐴏𐴟𐴂𐴥𐴝𐴌 𐴇𐴥𐴞𐴌𐴟 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🦸‍♀">𐴁𐴤𐴝𐴓𐴝 - 𐴇𐴥𐴞𐴌𐴟 - 𐴇𐴥𐴞𐴌𐴟𐴕𐴞 - 𐴏𐴟𐴂𐴥𐴝𐴌 𐴂𐴦𐴝𐴖𐴥𐴡𐴌 - 𐴁𐴠𐴍𐴞 - 𐴏𐴟𐴂𐴥𐴝𐴌 𐴇𐴥𐴞𐴌𐴟 𐴁𐴠𐴍𐴞 | 𐴏𐴟𐴂𐴥𐴝𐴌 𐴇𐴥𐴞𐴌𐴟 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🦸‍♀" type="tts">𐴏𐴟𐴂𐴥𐴝𐴌 𐴇𐴥𐴞𐴌𐴟 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🦹">𐴀𐴡𐴉𐴥𐴡𐴌𐴝𐴊𐴞 - 𐴁𐴟𐴌𐴦𐴝𐴘 - 𐴏𐴟𐴂𐴥𐴝𐴌 𐴂𐴦𐴝𐴖𐴥𐴡𐴌 - 𐴏𐴟𐴂𐴥𐴝𐴌 𐴁𐴞𐴓𐴥𐴝𐴕 - 𐴁𐴞𐴓𐴥𐴝𐴕 | 𐴏𐴟𐴂𐴥𐴝𐴌 𐴁𐴞𐴓𐴥𐴝𐴕</annotation>
+		<annotation cp="🦹" type="tts">𐴏𐴟𐴂𐴥𐴝𐴌 𐴁𐴞𐴓𐴥𐴝𐴕</annotation>
+		<annotation cp="🦹‍♂">𐴀𐴡𐴉𐴥𐴡𐴌𐴝𐴊𐴞 - 𐴁𐴟𐴌𐴦𐴝𐴘 - 𐴁𐴠𐴍𐴝 - 𐴏𐴟𐴂𐴥𐴝𐴌 𐴁𐴞𐴓𐴥𐴝𐴕 𐴁𐴠𐴍𐴝 - 𐴏𐴟𐴂𐴥𐴝𐴌 𐴂𐴦𐴝𐴖𐴥𐴡𐴌 - 𐴁𐴞𐴓𐴥𐴝𐴕 | 𐴏𐴟𐴂𐴥𐴝𐴌 𐴁𐴞𐴓𐴥𐴝𐴕 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🦹‍♂" type="tts">𐴏𐴟𐴂𐴥𐴝𐴌 𐴁𐴞𐴓𐴥𐴝𐴕 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🦹‍♀">𐴀𐴡𐴉𐴥𐴡𐴌𐴝𐴊𐴞 - 𐴁𐴟𐴌𐴦𐴝𐴘 - 𐴏𐴟𐴂𐴥𐴝𐴌 𐴂𐴦𐴝𐴖𐴥𐴡𐴌 - 𐴁𐴞𐴓𐴥𐴝𐴕 - 𐴁𐴠𐴍𐴞 - 𐴏𐴟𐴂𐴥𐴝𐴌 𐴁𐴞𐴓𐴥𐴝𐴕 𐴁𐴠𐴍𐴞 | 𐴏𐴟𐴂𐴥𐴝𐴌 𐴁𐴞𐴓𐴥𐴝𐴕 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🦹‍♀" type="tts">𐴏𐴟𐴂𐴥𐴝𐴌 𐴁𐴞𐴓𐴥𐴝𐴕 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🧙">𐴅𐴝𐴊𐴟 | 𐴅𐴝𐴊𐴟 - 𐴅𐴝𐴊𐴟 𐴒𐴡𐴌 - 𐴅𐴝𐴊𐴟 𐴒𐴡𐴌𐴕𐴞</annotation>
+		<annotation cp="🧙" type="tts">𐴅𐴝𐴊𐴟</annotation>
+		<annotation cp="🧙‍♂">𐴁𐴠𐴍𐴝 𐴅𐴝𐴊𐴟 | 𐴁𐴠𐴍𐴝 𐴅𐴝𐴊𐴟 - 𐴅𐴝𐴊𐴟 𐴒𐴡𐴌 - 𐴅𐴝𐴊𐴟 𐴒𐴡𐴌𐴕𐴞</annotation>
+		<annotation cp="🧙‍♂" type="tts">𐴁𐴠𐴍𐴝 𐴅𐴝𐴊𐴟</annotation>
+		<annotation cp="🧙‍♀">𐴁𐴠𐴍𐴞 𐴅𐴝𐴊𐴟 | 𐴅𐴝𐴊𐴟 𐴒𐴡𐴌𐴕𐴞 - 𐴁𐴠𐴍𐴞 𐴅𐴝𐴊𐴟</annotation>
+		<annotation cp="🧙‍♀" type="tts">𐴁𐴠𐴍𐴞 𐴅𐴝𐴊𐴟</annotation>
+		<annotation cp="🧚">𐴑𐴤𐴞𐴘𐴝𐴓𐴞 - 𐴅𐴞𐴕𐴡𐴌 𐴋𐴡𐴀𐴡𐴙𐴓𐴧𐴝 | 𐴑𐴤𐴞𐴘𐴝𐴓𐴞 𐴉𐴡𐴌𐴞</annotation>
+		<annotation cp="🧚" type="tts">𐴑𐴤𐴞𐴘𐴝𐴓𐴞 𐴉𐴡𐴌𐴞</annotation>
+		<annotation cp="🧚‍♂">𐴉𐴡𐴌𐴞 𐴁𐴠𐴍𐴝 | 𐴉𐴡𐴌𐴞 𐴁𐴠𐴍𐴝 - 𐴅𐴞𐴕𐴡𐴌 𐴋𐴡𐴀𐴡𐴙𐴓𐴧𐴝</annotation>
+		<annotation cp="🧚‍♂" type="tts">𐴉𐴡𐴌𐴞 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🧚‍♀">𐴅𐴞𐴕𐴡𐴌 𐴋𐴡𐴀𐴡𐴙𐴓𐴧𐴝 - 𐴉𐴡𐴌𐴞 𐴁𐴠𐴍𐴞 | 𐴉𐴡𐴌𐴞 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🧚‍♀" type="tts">𐴉𐴡𐴌𐴞 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🧛">𐴌𐴝𐴑𐴧𐴤𐴡𐴆 - 𐴀𐴡𐴔𐴡𐴌𐴝 - 𐴓𐴡𐴖 𐴉𐴞𐴘𐴡𐴙𐴕𐴧𐴝 | 𐴓𐴡𐴖 𐴉𐴞𐴘𐴡𐴙𐴕𐴧𐴝</annotation>
+		<annotation cp="🧛" type="tts">𐴓𐴡𐴖 𐴉𐴞𐴘𐴡𐴙𐴕𐴧𐴝</annotation>
+		<annotation cp="🧛‍♂">𐴌𐴝𐴑𐴧𐴤𐴡𐴆 - 𐴓𐴡𐴖 𐴉𐴞𐴘𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝 - 𐴀𐴡𐴔𐴡𐴌𐴝 | 𐴓𐴡𐴖 𐴉𐴞𐴘𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🧛‍♂" type="tts">𐴓𐴡𐴖 𐴉𐴞𐴘𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🧛‍♀">𐴀𐴡𐴔𐴡𐴌𐴝 - 𐴓𐴡𐴖 𐴉𐴞𐴘𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞 | 𐴓𐴡𐴖 𐴉𐴞𐴘𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🧛‍♀" type="tts">𐴓𐴡𐴖 𐴉𐴞𐴘𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🧜">𐴔𐴠𐴌𐴁𐴠𐴍𐴞 - 𐴔𐴠𐴌𐴁𐴠𐴍𐴝 - 𐴔𐴠𐴌𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 - 𐴔𐴠𐴌𐴁𐴠𐴍𐴞 | 𐴔𐴠𐴌𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🧜" type="tts">𐴔𐴠𐴌𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🧜‍♂">𐴔𐴠𐴌𐴁𐴠𐴍𐴝 | 𐴔𐴠𐴌𐴁𐴠𐴍𐴝 - 𐴄𐴠𐴌𐴞𐴄𐴟𐴕</annotation>
+		<annotation cp="🧜‍♂" type="tts">𐴔𐴠𐴌𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🧜‍♀">𐴔𐴠𐴌𐴁𐴠𐴍𐴞 | 𐴔𐴠𐴌𐴁𐴠𐴍𐴞 -</annotation>
+		<annotation cp="🧜‍♀" type="tts">𐴔𐴠𐴌𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🧝">𐴁𐴤𐴟𐴃𐴢 𐴉𐴠𐴌𐴡𐴃𐴢 | 𐴁𐴤𐴟𐴃𐴢 𐴉𐴠𐴌𐴡𐴃𐴢 - 𐴅𐴝𐴊𐴟𐴌 𐴁𐴝𐴁𐴡𐴃𐴠</annotation>
+		<annotation cp="🧝" type="tts">𐴁𐴤𐴟𐴃𐴢 𐴉𐴠𐴌𐴡𐴃𐴢</annotation>
+		<annotation cp="🧝‍♂">𐴁𐴤𐴟𐴃𐴢 𐴉𐴠𐴌𐴡𐴃𐴢 𐴁𐴠𐴍𐴝 | 𐴅𐴝𐴊𐴟𐴌 𐴁𐴝𐴁𐴡𐴃𐴠 - 𐴁𐴤𐴟𐴃𐴢 𐴉𐴠𐴌𐴡𐴃𐴢 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🧝‍♂" type="tts">𐴁𐴤𐴟𐴃𐴢 𐴉𐴠𐴌𐴡𐴃𐴢 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🧝‍♀">𐴁𐴤𐴟𐴃𐴢 𐴉𐴠𐴌𐴡𐴃𐴢 𐴁𐴠𐴍𐴞 | 𐴅𐴝𐴊𐴟𐴌 𐴁𐴝𐴁𐴡𐴃𐴠 - 𐴁𐴤𐴟𐴃𐴢 𐴉𐴠𐴌𐴡𐴃𐴢 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🧝‍♀" type="tts">𐴁𐴤𐴟𐴃𐴢 𐴉𐴠𐴌𐴡𐴃𐴢 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🧞">𐴅𐴞𐴕</annotation>
+		<annotation cp="🧞" type="tts">𐴅𐴞𐴕</annotation>
+		<annotation cp="🧞‍♂">𐴁𐴠𐴍𐴝 𐴅𐴞𐴕 | 𐴅𐴞𐴕 - 𐴁𐴠𐴍𐴝 𐴅𐴞𐴕</annotation>
+		<annotation cp="🧞‍♂" type="tts">𐴁𐴠𐴍𐴝 𐴅𐴞𐴕</annotation>
+		<annotation cp="🧞‍♀">𐴁𐴠𐴍𐴞 𐴅𐴞𐴕 | 𐴅𐴞𐴕 - 𐴁𐴠𐴍𐴞 𐴅𐴞𐴕</annotation>
+		<annotation cp="🧞‍♀" type="tts">𐴁𐴠𐴍𐴞 𐴅𐴞𐴕</annotation>
+		<annotation cp="🧟">𐴀𐴡𐴔𐴡𐴌𐴝 - 𐴔𐴡𐴌𐴝 𐴀𐴥𐴝𐴣𐴍𐴝 - 𐴎𐴤𐴟𐴔𐴁𐴞 | 𐴎𐴤𐴟𐴔𐴁𐴞</annotation>
+		<annotation cp="🧟" type="tts">𐴎𐴤𐴟𐴔𐴁𐴞</annotation>
+		<annotation cp="🧟‍♂">𐴎𐴤𐴟𐴔𐴁𐴞 𐴁𐴠𐴍𐴝 | 𐴎𐴤𐴟𐴔𐴁𐴞 𐴁𐴠𐴍𐴝 - 𐴀𐴡𐴔𐴡𐴌𐴝 - 𐴔𐴡𐴌𐴝 𐴀𐴥𐴝𐴣𐴍𐴝</annotation>
+		<annotation cp="🧟‍♂" type="tts">𐴎𐴤𐴟𐴔𐴁𐴞 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🧟‍♀">𐴀𐴡𐴔𐴡𐴌𐴝 - 𐴔𐴡𐴌𐴝 𐴀𐴥𐴝𐴣𐴍𐴝 - 𐴎𐴤𐴟𐴔𐴁𐴞 𐴁𐴠𐴍𐴞 | 𐴎𐴤𐴟𐴔𐴁𐴞 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🧟‍♀" type="tts">𐴎𐴤𐴟𐴔𐴁𐴞 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🧌">𐴄𐴡𐴌𐴥𐴟𐴓 | 𐴑𐴤𐴞𐴘𐴝𐴓𐴞 𐴑𐴞𐴏𐴧𐴥𐴝 - 𐴑𐴡𐴓𐴉𐴡𐴕𐴝 - 𐴔𐴥𐴡𐴕𐴏𐴄𐴝𐴌 - 𐴄𐴡𐴌𐴥𐴟𐴓</annotation>
+		<annotation cp="🧌" type="tts">𐴄𐴡𐴌𐴥𐴟𐴓</annotation>
+		<annotation cp="💆">𐴔𐴝𐴎𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 | 𐴔𐴟𐴑 - 𐴔𐴝𐴎𐴝𐴀𐴝 - 𐴔𐴝𐴎𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 - 𐴕𐴦𐴝𐴙𐴃𐴡𐴌 𐴊𐴟𐴖𐴝𐴕</annotation>
+		<annotation cp="💆" type="tts">𐴔𐴝𐴎𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="💆‍♂">𐴔𐴝𐴎𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝 | 𐴔𐴟𐴑 - 𐴁𐴠𐴍𐴝 - 𐴔𐴝𐴎𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝 - 𐴔𐴝𐴎𐴝𐴀𐴝</annotation>
+		<annotation cp="💆‍♂" type="tts">𐴔𐴝𐴎𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="💆‍♀">𐴔𐴝𐴎𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞 | 𐴔𐴟𐴑 - 𐴔𐴝𐴎𐴝𐴀𐴝 - 𐴁𐴠𐴍𐴞 - 𐴔𐴝𐴎𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="💆‍♀" type="tts">𐴔𐴝𐴎𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="💇">𐴏𐴟𐴓 𐴈𐴝𐴍𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 | 𐴕𐴦𐴝𐴙𐴃𐴢 - 𐴐𐴤𐴟𐴕𐴊𐴡𐴌 - 𐴏𐴟𐴓 𐴈𐴝𐴍𐴝 - 𐴇𐴥𐴝𐴣𐴎𐴝𐴊𐴠 𐴑𐴝𐴔𐴌𐴥𐴝 -𐴏𐴟𐴓 𐴈𐴝𐴍𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="💇" type="tts">𐴏𐴟𐴓 𐴈𐴝𐴍𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="💇‍♂">𐴏𐴟𐴓 𐴈𐴝𐴍𐴝 - 𐴁𐴠𐴍𐴝 - 𐴏𐴟𐴓 𐴈𐴝𐴍𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝 | 𐴏𐴟𐴓 𐴈𐴝𐴍𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="💇‍♂" type="tts">𐴏𐴟𐴓 𐴈𐴝𐴍𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="💇‍♀">𐴏𐴟𐴓 𐴈𐴝𐴍𐴝 - 𐴁𐴠𐴍𐴞 - 𐴏𐴟𐴓 𐴈𐴝𐴍𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞 - | 𐴏𐴟𐴓 𐴈𐴝𐴍𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="💇‍♀" type="tts">𐴏𐴟𐴓 𐴈𐴝𐴍𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🚶">𐴀𐴥𐴝𐴣𐴍𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 | 𐴁𐴠𐴌𐴝 - 𐴀𐴥𐴝𐴣𐴍𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 - 𐴀𐴥𐴝𐴣𐴍𐴝 - 𐴀𐴥𐴝𐴣𐴍𐴡𐴀𐴡𐴕</annotation>
+		<annotation cp="🚶" type="tts">𐴀𐴥𐴝𐴣𐴍𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🚶‍♂">𐴀𐴥𐴝𐴣𐴍𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝 | 𐴁𐴠𐴌𐴝 - 𐴁𐴠𐴍𐴝 - 𐴀𐴥𐴝𐴣𐴍𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝 - 𐴀𐴥𐴝𐴣𐴍𐴝</annotation>
+		<annotation cp="🚶‍♂" type="tts">𐴀𐴥𐴝𐴣𐴍𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🚶‍♀">𐴀𐴥𐴝𐴣𐴍𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞 | 𐴁𐴠𐴌𐴝 - 𐴀𐴥𐴝𐴣𐴍𐴝 - 𐴁𐴠𐴍𐴞 - 𐴀𐴥𐴝𐴣𐴍𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🚶‍♀" type="tts">𐴀𐴥𐴝𐴣𐴍𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🧍">𐴃𐴤𐴞𐴘𐴝𐴘𐴧𐴥𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 | 𐴃𐴤𐴞𐴘𐴝𐴘𐴧𐴥𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 - 𐴃𐴤𐴞𐴘𐴝 - 𐴃𐴤𐴞𐴘𐴡𐴀𐴡𐴕</annotation>
+		<annotation cp="🧍" type="tts">𐴃𐴤𐴞𐴘𐴝𐴘𐴧𐴥𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🧍‍♂">𐴁𐴠𐴍𐴝 - 𐴃𐴤𐴞𐴘𐴡𐴀𐴡𐴕 | 𐴃𐴤𐴞𐴘𐴝𐴘𐴧𐴥𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🧍‍♂" type="tts">𐴃𐴤𐴞𐴘𐴝𐴘𐴧𐴥𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🧍‍♀">𐴃𐴤𐴞𐴘𐴝𐴘𐴧𐴥𐴝 𐴁𐴠𐴍𐴞 | 𐴃𐴤𐴞𐴘𐴡𐴀𐴡𐴕 - 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🧍‍♀" type="tts">𐴃𐴤𐴞𐴘𐴝𐴘𐴧𐴥𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🧎">𐴀𐴝𐴣𐴍𐴥𐴟 - 𐴀𐴝𐴣𐴍𐴥𐴟𐴃𐴢 𐴁𐴤𐴡𐴌𐴊𐴧𐴞𐴘𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 | 𐴀𐴝𐴣𐴍𐴥𐴟𐴃𐴢 𐴁𐴤𐴡𐴌𐴊𐴧𐴞𐴘𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🧎" type="tts">𐴀𐴝𐴣𐴍𐴥𐴟𐴃𐴢 𐴁𐴤𐴡𐴌𐴊𐴧𐴞𐴘𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🧎‍♂">𐴀𐴝𐴣𐴍𐴥𐴟𐴃𐴢 𐴁𐴤𐴡𐴌𐴊𐴧𐴞𐴘𐴝 - 𐴁𐴠𐴍𐴝 | 𐴀𐴝𐴣𐴍𐴥𐴟𐴃𐴢 𐴁𐴤𐴡𐴌𐴊𐴧𐴞𐴘𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🧎‍♂" type="tts">𐴀𐴝𐴣𐴍𐴥𐴟𐴃𐴢 𐴁𐴤𐴡𐴌𐴊𐴧𐴞𐴘𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🧎‍♀">𐴀𐴝𐴣𐴍𐴥𐴟𐴃𐴢 𐴁𐴤𐴡𐴌𐴊𐴧𐴞𐴘𐴝 - 𐴁𐴠𐴍𐴞 | 𐴀𐴝𐴣𐴍𐴥𐴟𐴃𐴢 𐴁𐴤𐴡𐴌𐴊𐴧𐴞𐴘𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🧎‍♀" type="tts">𐴀𐴝𐴣𐴍𐴥𐴟𐴃𐴢 𐴁𐴤𐴡𐴌𐴊𐴧𐴞𐴘𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🧑‍🦯">𐴉𐴡𐴣𐴀𐴡𐴏𐴞 𐴉𐴝𐴌𐴝 - 𐴀𐴝𐴣𐴊𐴤𐴝 - 𐴓𐴝𐴍𐴥𐴞 𐴊𐴤𐴡𐴙𐴅𐴧𐴙𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 | 𐴓𐴝𐴍𐴥𐴞 𐴊𐴤𐴡𐴙𐴅𐴧𐴙𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🧑‍🦯" type="tts">𐴓𐴝𐴍𐴥𐴞 𐴊𐴤𐴡𐴙𐴅𐴧𐴙𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="👨‍🦯">𐴉𐴡𐴣𐴀𐴡𐴏𐴞 𐴉𐴝𐴌𐴝 - 𐴀𐴝𐴣𐴊𐴤𐴝 - 𐴁𐴠𐴍𐴝 - 𐴓𐴝𐴍𐴥𐴞 𐴊𐴤𐴡𐴙𐴅𐴧𐴙𐴝 𐴁𐴠𐴍𐴝 | 𐴓𐴝𐴍𐴥𐴞 𐴊𐴤𐴡𐴙𐴅𐴧𐴙𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="👨‍🦯" type="tts">𐴓𐴝𐴍𐴥𐴞 𐴊𐴤𐴡𐴙𐴅𐴧𐴙𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="👩‍🦯">𐴉𐴡𐴣𐴀𐴡𐴏𐴞 𐴉𐴝𐴌𐴝 - 𐴀𐴝𐴣𐴊𐴤𐴝 - 𐴁𐴠𐴍𐴞 - 𐴓𐴝𐴍𐴥𐴞 𐴊𐴤𐴡𐴙𐴅𐴧𐴙𐴝 𐴁𐴠𐴍𐴞 | 𐴓𐴝𐴍𐴥𐴞 𐴊𐴤𐴡𐴙𐴅𐴧𐴙𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="👩‍🦯" type="tts">𐴓𐴝𐴍𐴥𐴞 𐴊𐴤𐴡𐴙𐴅𐴧𐴙𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🧑‍🦼">𐴉𐴡𐴣𐴀𐴡𐴏𐴞 𐴉𐴝𐴌𐴝 - 𐴔𐴡𐴄𐴤𐴡𐴌 𐴖𐴥𐴠𐴓𐴆𐴤𐴙𐴝𐴌𐴡𐴃𐴢 𐴁𐴡𐴙𐴐𐴧𐴤𐴙𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 - 𐴖𐴥𐴠𐴓𐴆𐴤𐴙𐴝𐴌 | 𐴔𐴡𐴄𐴤𐴡𐴌 𐴖𐴥𐴠𐴓𐴆𐴤𐴙𐴝𐴌𐴡𐴃𐴢 𐴁𐴡𐴙𐴐𐴧𐴤𐴙𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🧑‍🦼" type="tts">𐴔𐴡𐴄𐴤𐴡𐴌 𐴖𐴥𐴠𐴓𐴆𐴤𐴙𐴝𐴌𐴡𐴃𐴢 𐴁𐴡𐴙𐴐𐴧𐴤𐴙𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="👨‍🦼">𐴉𐴡𐴣𐴀𐴡𐴏𐴞 𐴉𐴝𐴌𐴝 - 𐴁𐴠𐴍𐴝 -𐴔𐴡𐴄𐴤𐴡𐴌 𐴖𐴥𐴠𐴓𐴆𐴤𐴙𐴝𐴌𐴡𐴃𐴢 𐴁𐴡𐴙𐴐𐴧𐴤𐴙𐴝 𐴁𐴠𐴍𐴝 - 𐴖𐴥𐴠𐴓𐴆𐴤𐴙𐴝𐴌 | 𐴔𐴡𐴄𐴤𐴡𐴌 𐴖𐴥𐴠𐴓𐴆𐴤𐴙𐴝𐴌𐴡𐴃𐴢 𐴁𐴡𐴙𐴐𐴧𐴤𐴙𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="👨‍🦼" type="tts">𐴔𐴡𐴄𐴤𐴡𐴌 𐴖𐴥𐴠𐴓𐴆𐴤𐴙𐴝𐴌𐴡𐴃𐴢 𐴁𐴡𐴙𐴐𐴧𐴤𐴙𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="👩‍🦼">𐴉𐴡𐴣𐴀𐴡𐴏𐴞 𐴉𐴝𐴌𐴝 - 𐴖𐴥𐴠𐴓𐴆𐴤𐴙𐴝𐴌𐴡𐴃𐴢 - 𐴁𐴠𐴍𐴞 -𐴔𐴡𐴄𐴤𐴡𐴌 𐴖𐴥𐴠𐴓𐴆𐴤𐴙𐴝𐴌𐴡𐴃𐴢 𐴁𐴡𐴙𐴐𐴧𐴤𐴙𐴝 𐴁𐴠𐴍𐴞 | 𐴔𐴡𐴄𐴤𐴡𐴌 𐴖𐴥𐴠𐴓𐴆𐴤𐴙𐴝𐴌𐴡𐴃𐴢 𐴁𐴡𐴙𐴐𐴧𐴤𐴙𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="👩‍🦼" type="tts">𐴔𐴡𐴄𐴤𐴡𐴌 𐴖𐴥𐴠𐴓𐴆𐴤𐴙𐴝𐴌𐴡𐴃𐴢 𐴁𐴡𐴙𐴐𐴧𐴤𐴙𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🧑‍🦽">𐴉𐴡𐴣𐴀𐴡𐴏𐴞 𐴉𐴝𐴌𐴝 - 𐴖𐴥𐴠𐴓𐴆𐴤𐴙𐴝𐴌𐴡𐴃𐴢 𐴁𐴡𐴙𐴐𐴧𐴤𐴙𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 - 𐴖𐴥𐴠𐴓𐴆𐴤𐴙𐴝𐴌 | 𐴖𐴥𐴠𐴓𐴆𐴤𐴙𐴝𐴌𐴡𐴃𐴢 𐴁𐴡𐴙𐴐𐴧𐴤𐴙𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🧑‍🦽" type="tts">𐴖𐴥𐴠𐴓𐴆𐴤𐴙𐴝𐴌𐴡𐴃𐴢 𐴁𐴡𐴙𐴐𐴧𐴤𐴙𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="👨‍🦽">𐴉𐴡𐴣𐴀𐴡𐴏𐴞 𐴉𐴝𐴌𐴝 - 𐴁𐴠𐴍𐴝 - 𐴖𐴥𐴠𐴓𐴆𐴤𐴙𐴝𐴌𐴡𐴃𐴢 𐴁𐴡𐴙𐴐𐴧𐴤𐴙𐴝 𐴁𐴠𐴍𐴝 - 𐴖𐴥𐴠𐴓𐴆𐴤𐴙𐴝𐴌 | 𐴖𐴥𐴠𐴓𐴆𐴤𐴙𐴝𐴌𐴡𐴃𐴢 𐴁𐴡𐴙𐴐𐴧𐴤𐴙𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="👨‍🦽" type="tts">𐴖𐴥𐴠𐴓𐴆𐴤𐴙𐴝𐴌𐴡𐴃𐴢 𐴁𐴡𐴙𐴐𐴧𐴤𐴙𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="👩‍🦽">𐴉𐴡𐴣𐴀𐴡𐴏𐴞 𐴉𐴝𐴌𐴝 - 𐴖𐴥𐴠𐴓𐴆𐴤𐴙𐴝𐴌 - 𐴁𐴠𐴍𐴞 - 𐴖𐴥𐴠𐴓𐴆𐴤𐴙𐴝𐴌𐴡𐴃𐴢 𐴁𐴡𐴙𐴐𐴧𐴤𐴙𐴝 𐴁𐴠𐴍𐴞 | 𐴖𐴥𐴠𐴓𐴆𐴤𐴙𐴝𐴌𐴡𐴃𐴢 𐴁𐴡𐴙𐴐𐴧𐴤𐴙𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="👩‍🦽" type="tts">𐴖𐴥𐴠𐴓𐴆𐴤𐴙𐴝𐴌𐴡𐴃𐴢 𐴁𐴡𐴙𐴐𐴧𐴤𐴙𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🏃">𐴊𐴦𐴟𐴣𐴌𐴠𐴌𐴊𐴧𐴠 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 | 𐴔𐴝𐴌𐴝𐴃𐴟𐴕 - 𐴊𐴦𐴟𐴣𐴌𐴠𐴌𐴊𐴧𐴠 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 - 𐴊𐴦𐴟𐴣𐴌𐴝</annotation>
+		<annotation cp="🏃" type="tts">𐴊𐴦𐴟𐴣𐴌𐴠𐴌𐴊𐴧𐴠 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🏃‍♂">𐴁𐴠𐴍𐴝 - 𐴔𐴝𐴌𐴝𐴃𐴟𐴕 - 𐴎𐴞𐴁𐴧𐴝𐴃𐴢 - 𐴊𐴦𐴟𐴣𐴌𐴠𐴌 | 𐴊𐴦𐴟𐴣𐴌𐴠𐴌𐴊𐴧𐴠 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🏃‍♂" type="tts">𐴊𐴦𐴟𐴣𐴌𐴠𐴌𐴊𐴧𐴠 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🏃‍♀">𐴊𐴦𐴟𐴣𐴌𐴠𐴌𐴊𐴧𐴠 𐴁𐴠𐴍𐴞 | 𐴔𐴝𐴌𐴝𐴃𐴟𐴕 - 𐴎𐴞𐴁𐴧𐴝𐴃𐴢 - 𐴊𐴦𐴟𐴣𐴌𐴡𐴀𐴡𐴕 - 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🏃‍♀" type="tts">𐴊𐴦𐴟𐴣𐴌𐴠𐴌𐴊𐴧𐴠 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="💃">𐴕𐴝𐴏𐴢 - 𐴕𐴝𐴏𐴡𐴀𐴡𐴕 -𐴁𐴠𐴍𐴞 | 𐴕𐴝𐴏𐴢 𐴖𐴝𐴓𐴞</annotation>
+		<annotation cp="💃" type="tts">𐴕𐴝𐴏𐴢 𐴖𐴝𐴓𐴞</annotation>
+		<annotation cp="🕺">𐴕𐴝𐴄𐴧𐴗𐴝 | 𐴕𐴝𐴏𐴢 - 𐴕𐴝𐴏𐴡𐴀𐴡𐴕 - 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🕺" type="tts">𐴕𐴝𐴄𐴧𐴗𐴝</annotation>
+		<annotation cp="🕴">𐴈𐴝𐴌𐴁𐴝𐴌 - 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 - 𐴓𐴠𐴁𐴝𐴏𐴢 𐴉𐴞𐴕𐴊𐴤𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 - 𐴓𐴠𐴁𐴝𐴏𐴢 | 𐴓𐴝𐴁𐴝𐴏𐴢 𐴉𐴞𐴕𐴊𐴤𐴝 𐴈𐴝𐴌𐴁𐴝𐴌𐴞 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🕴" type="tts">𐴓𐴝𐴁𐴝𐴏𐴢 𐴉𐴞𐴕𐴊𐴤𐴝 𐴈𐴝𐴌𐴁𐴝𐴌𐴞 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="👯">𐴈𐴥𐴡𐴌𐴒𐴟𐴐𐴢 𐴈𐴝𐴙𐴕𐴧𐴝 - 𐴕𐴝𐴄𐴧𐴗𐴝 -𐴑𐴤𐴟𐴐𐴤𐴞 𐴒𐴡𐴌𐴥𐴡𐴕 - 𐴈𐴥𐴡𐴌𐴒𐴟𐴐𐴢 𐴈𐴝𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 | 𐴈𐴥𐴡𐴌𐴒𐴟𐴐𐴢 𐴈𐴝𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="👯" type="tts">𐴈𐴥𐴡𐴌𐴒𐴟𐴐𐴢 𐴈𐴝𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="👯‍♂">𐴈𐴥𐴡𐴌𐴒𐴟𐴐𐴢 𐴈𐴝𐴙𐴕𐴧𐴝 - 𐴕𐴝𐴏𐴡𐴀𐴡𐴙𐴕𐴧𐴝 - 𐴁𐴠𐴍𐴝𐴀𐴝𐴙𐴕 - 𐴈𐴥𐴡𐴌𐴒𐴟𐴐𐴢 𐴈𐴝𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝𐴀𐴝𐴙𐴕 - 𐴑𐴤𐴟𐴐𐴤𐴞 𐴒𐴡𐴌𐴥𐴝 | 𐴈𐴥𐴡𐴌𐴒𐴟𐴐𐴢 𐴈𐴝𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="👯‍♂" type="tts">𐴈𐴥𐴡𐴌𐴒𐴟𐴐𐴢 𐴈𐴝𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="👯‍♀">𐴈𐴥𐴡𐴌𐴒𐴟𐴐𐴢 𐴈𐴝𐴙𐴕𐴧𐴝 - 𐴕𐴝𐴏𐴡𐴀𐴡𐴙𐴕𐴧𐴝 - 𐴑𐴤𐴟𐴐𐴤𐴞 𐴒𐴡𐴌𐴝 - 𐴁𐴠𐴍𐴞𐴘𐴥𐴝𐴙𐴕 -𐴈𐴥𐴡𐴌𐴒𐴟𐴐𐴢 𐴈𐴝𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞𐴘𐴥𐴝𐴙𐴕 | 𐴈𐴥𐴡𐴌𐴒𐴟𐴐𐴢 𐴈𐴝𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞𐴘𐴥𐴝𐴙𐴕</annotation>
+		<annotation cp="👯‍♀" type="tts">𐴈𐴥𐴡𐴌𐴒𐴟𐴐𐴢 𐴈𐴝𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞𐴘𐴥𐴝𐴙𐴕</annotation>
+		<annotation cp="🧖">𐴁𐴤𐴝𐴉𐴢 𐴀𐴡𐴓𐴝 𐴑𐴝𐴔𐴌𐴝𐴌 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 | 𐴁𐴤𐴝𐴉𐴢 𐴀𐴡𐴓𐴝 𐴑𐴝𐴔𐴌𐴝𐴌 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 - 𐴁𐴤𐴝𐴉𐴢 - 𐴁𐴤𐴝𐴉𐴢 𐴀𐴡𐴓𐴝 𐴑𐴝𐴔𐴌𐴝</annotation>
+		<annotation cp="🧖" type="tts">𐴁𐴤𐴝𐴉𐴢 𐴀𐴡𐴓𐴝 𐴑𐴝𐴔𐴌𐴝𐴌 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🧖‍♂">𐴁𐴤𐴝𐴉𐴢 𐴀𐴡𐴓𐴝 𐴑𐴝𐴔𐴌𐴝𐴌 𐴁𐴠𐴍𐴝 | 𐴁𐴤𐴝𐴉𐴢 𐴀𐴡𐴓𐴝 𐴑𐴝𐴔𐴌𐴝𐴌 𐴁𐴠𐴍𐴝 - 𐴁𐴤𐴝𐴉𐴢 - 𐴁𐴤𐴝𐴉𐴢 𐴀𐴡𐴓𐴝 𐴑𐴝𐴔𐴌𐴝</annotation>
+		<annotation cp="🧖‍♂" type="tts">𐴁𐴤𐴝𐴉𐴢 𐴀𐴡𐴓𐴝 𐴑𐴝𐴔𐴌𐴝𐴌 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🧖‍♀">𐴁𐴤𐴝𐴉𐴢 - 𐴁𐴤𐴝𐴉𐴢 𐴀𐴡𐴓𐴝 𐴑𐴝𐴔𐴌𐴝 - 𐴁𐴤𐴝𐴉𐴢 𐴀𐴡𐴓𐴝 𐴑𐴝𐴔𐴌𐴝𐴌 𐴁𐴠𐴍𐴞 | 𐴁𐴤𐴝𐴉𐴢 𐴀𐴡𐴓𐴝 𐴑𐴝𐴔𐴌𐴝𐴌 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🧖‍♀" type="tts">𐴁𐴤𐴝𐴉𐴢 𐴀𐴡𐴓𐴝 𐴑𐴝𐴔𐴌𐴝𐴌 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🧗">𐴓𐴡𐴄𐴑𐴞 𐴀𐴟𐴍𐴥𐴠𐴌𐴊𐴧𐴠 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 | 𐴓𐴡𐴄𐴑𐴞 𐴀𐴟𐴍𐴡𐴀𐴡𐴙𐴕𐴧𐴝 - 𐴓𐴡𐴄𐴑𐴞 𐴀𐴟𐴍𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🧗" type="tts">𐴓𐴡𐴄𐴑𐴞 𐴀𐴟𐴍𐴥𐴠𐴌𐴊𐴧𐴠 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🧗‍♂">𐴓𐴡𐴄𐴑𐴞 𐴀𐴟𐴍𐴡𐴀𐴡𐴙𐴕𐴧𐴝 - 𐴓𐴡𐴄𐴑𐴞 𐴀𐴟𐴍𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝 | 𐴓𐴡𐴄𐴑𐴞 𐴀𐴟𐴍𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🧗‍♂" type="tts">𐴓𐴡𐴄𐴑𐴞 𐴀𐴟𐴍𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🧗‍♀">𐴓𐴡𐴄𐴑𐴞 𐴀𐴟𐴍𐴡𐴀𐴡𐴙𐴕𐴧𐴝 - 𐴓𐴡𐴄𐴑𐴞 𐴀𐴟𐴍𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞 | 𐴓𐴡𐴄𐴑𐴞 𐴀𐴟𐴍𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🧗‍♀" type="tts">𐴓𐴡𐴄𐴑𐴞 𐴀𐴟𐴍𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🤺">𐴃𐴡𐴓𐴖𐴝𐴌 𐴁𐴝𐴎 - 𐴃𐴡𐴓𐴖𐴝𐴌 𐴁𐴝𐴎𐴞 - 𐴃𐴡𐴓𐴖𐴝𐴌 𐴁𐴝𐴎 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 - 𐴃𐴡𐴓𐴖𐴝𐴌 | 𐴃𐴡𐴓𐴖𐴝𐴌 𐴁𐴝𐴎 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🤺" type="tts">𐴃𐴡𐴓𐴖𐴝𐴌 𐴁𐴝𐴎 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🏇">𐴒𐴤𐴟𐴣𐴌 𐴊𐴧𐴦𐴟𐴣𐴌 | 𐴒𐴤𐴟𐴣𐴌𐴝 - 𐴁𐴤𐴡𐴔𐴁𐴞 𐴉𐴞𐴕𐴊𐴤𐴝 -𐴒𐴤𐴟𐴣𐴌 𐴊𐴧𐴦𐴟𐴣𐴌 - 𐴎𐴞𐴁𐴧𐴝𐴃𐴢</annotation>
+		<annotation cp="🏇" type="tts">𐴒𐴤𐴟𐴣𐴌 𐴊𐴧𐴦𐴟𐴣𐴌</annotation>
+		<annotation cp="⛷">𐴀𐴠𐴏𐴑𐴞𐴁𐴟𐴄𐴢 - 𐴁𐴡𐴌𐴥𐴡𐴉𐴡𐴃𐴢 𐴏𐴡𐴏𐴧𐴡𐴌𐴡𐴙𐴕𐴧𐴝 - 𐴁𐴡𐴌𐴥𐴉𐴢 | 𐴁𐴡𐴌𐴥𐴡𐴉𐴡𐴃𐴢 𐴏𐴡𐴏𐴧𐴡𐴌𐴡𐴙𐴕𐴧𐴝</annotation>
+		<annotation cp="⛷" type="tts">𐴁𐴡𐴌𐴥𐴡𐴉𐴡𐴃𐴢 𐴏𐴡𐴏𐴧𐴡𐴌𐴡𐴙𐴕𐴧𐴝</annotation>
+		<annotation cp="🏂">𐴀𐴠𐴏𐴑𐴞𐴁𐴟𐴄𐴢 - 𐴁𐴡𐴌𐴥𐴡𐴉𐴢 - 𐴏𐴡𐴏𐴧𐴡𐴌𐴝𐴕𐴞 | 𐴏𐴡𐴏𐴧𐴡𐴌𐴝𐴕𐴞</annotation>
+		<annotation cp="🏂" type="tts">𐴏𐴡𐴏𐴧𐴡𐴌𐴝𐴕𐴞</annotation>
+		<annotation cp="🏌">𐴁𐴡𐴀𐴡𐴓 - 𐴒𐴤𐴡𐴓𐴉𐴢 𐴑𐴤𐴠𐴓𐴝 -𐴒𐴤𐴡𐴓𐴉𐴢 𐴑𐴤𐴠𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 | 𐴒𐴤𐴡𐴓𐴉𐴢 𐴑𐴤𐴠𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🏌" type="tts">𐴒𐴤𐴡𐴓𐴉𐴢 𐴑𐴤𐴠𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🏌‍♂">𐴒𐴤𐴡𐴓𐴉𐴢 𐴑𐴤𐴠𐴓𐴝 -𐴁𐴠𐴍𐴝 - 𐴒𐴤𐴡𐴓𐴉𐴢 𐴑𐴤𐴠𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝 | 𐴒𐴤𐴡𐴓𐴉𐴢 𐴑𐴤𐴠𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🏌‍♂" type="tts">𐴒𐴤𐴡𐴓𐴉𐴢 𐴑𐴤𐴠𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🏌‍♀">𐴒𐴤𐴡𐴓𐴉𐴢 𐴑𐴤𐴠𐴓𐴝 -𐴁𐴠𐴍𐴞 - 𐴒𐴤𐴡𐴓𐴉𐴢 𐴑𐴤𐴠𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞 | 𐴒𐴤𐴡𐴓𐴉𐴢 𐴑𐴤𐴠𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🏌‍♀" type="tts">𐴒𐴤𐴡𐴓𐴉𐴢 𐴑𐴤𐴠𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🏄">𐴉𐴝𐴕𐴥𐴞𐴃𐴢 𐴏𐴡𐴏𐴧𐴡𐴌𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 | 𐴉𐴝𐴕𐴥𐴞𐴃𐴢 𐴏𐴡𐴏𐴧𐴡𐴌𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 - 𐴉𐴝𐴕𐴥𐴞𐴃𐴢 𐴏𐴡𐴏𐴧𐴡𐴌𐴝</annotation>
+		<annotation cp="🏄" type="tts">𐴉𐴝𐴕𐴥𐴞𐴃𐴢 𐴏𐴡𐴏𐴧𐴡𐴌𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🏄‍♂">𐴁𐴠𐴍𐴝 - 𐴉𐴝𐴕𐴥𐴞𐴃𐴢 𐴏𐴡𐴏𐴧𐴡𐴌𐴝 | 𐴉𐴝𐴕𐴥𐴞𐴃𐴢 𐴏𐴡𐴏𐴧𐴡𐴌𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🏄‍♂" type="tts">𐴉𐴝𐴕𐴥𐴞𐴃𐴢 𐴏𐴡𐴏𐴧𐴡𐴌𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🏄‍♀">𐴉𐴝𐴕𐴥𐴞𐴃𐴢 𐴏𐴡𐴏𐴧𐴡𐴌𐴝 - 𐴁𐴠𐴍𐴞 | 𐴉𐴝𐴕𐴥𐴞𐴃𐴢 𐴏𐴡𐴏𐴧𐴡𐴌𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🏄‍♀" type="tts">𐴉𐴝𐴕𐴥𐴞𐴃𐴢 𐴏𐴡𐴏𐴧𐴡𐴌𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🚣">𐴁𐴟𐴄𐴢- 𐴕𐴦𐴡 𐴁𐴝𐴀𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 - 𐴕𐴦𐴡 | 𐴕𐴦𐴡 𐴁𐴝𐴀𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🚣" type="tts">𐴕𐴦𐴡 𐴁𐴝𐴀𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🚣‍♂">𐴁𐴟𐴄𐴢 - 𐴁𐴠𐴍𐴝 - 𐴕𐴦𐴡 𐴁𐴝𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝 - 𐴕𐴦𐴡 | 𐴕𐴦𐴡 𐴁𐴝𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🚣‍♂" type="tts">𐴕𐴦𐴡 𐴁𐴝𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🚣‍♀">𐴁𐴟𐴄𐴢 - 𐴕𐴦𐴡 - 𐴁𐴠𐴍𐴞 - 𐴕𐴦𐴡 𐴁𐴝𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞 | 𐴕𐴦𐴡 𐴁𐴝𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🚣‍♀" type="tts">𐴕𐴦𐴡 𐴁𐴝𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🏊">𐴀𐴥𐴝𐴣𐴏𐴟𐴌𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 | 𐴀𐴥𐴝𐴣𐴏𐴟𐴌𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 - 𐴀𐴥𐴝𐴣𐴏𐴟𐴌𐴝</annotation>
+		<annotation cp="🏊" type="tts">𐴀𐴥𐴝𐴣𐴏𐴟𐴌𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🏊‍♂">𐴀𐴥𐴝𐴣𐴏𐴟𐴌𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝 | 𐴁𐴠𐴍𐴝 - 𐴀𐴥𐴝𐴣𐴏𐴟𐴌𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝 - 𐴀𐴥𐴝𐴣𐴏𐴟𐴌𐴝</annotation>
+		<annotation cp="🏊‍♂" type="tts">𐴀𐴥𐴝𐴣𐴏𐴟𐴌𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🏊‍♀">𐴀𐴥𐴝𐴣𐴏𐴟𐴌𐴝 - 𐴁𐴠𐴍𐴞 - 𐴀𐴥𐴝𐴣𐴏𐴟𐴌𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞 | 𐴀𐴥𐴝𐴣𐴏𐴟𐴌𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞 -</annotation>
+		<annotation cp="🏊‍♀" type="tts">𐴀𐴥𐴝𐴣𐴏𐴟𐴌𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞 -</annotation>
+		<annotation cp="⛹">𐴁𐴡𐴀𐴡𐴓 -𐴉𐴥𐴝𐴓𐴊𐴝𐴕𐴞 𐴁𐴡𐴀𐴡𐴓 𐴑𐴤𐴠𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 | 𐴉𐴥𐴝𐴓𐴊𐴝𐴕𐴞 𐴁𐴡𐴀𐴡𐴓 𐴑𐴤𐴠𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="⛹" type="tts">𐴉𐴥𐴝𐴓𐴊𐴝𐴕𐴞 𐴁𐴡𐴀𐴡𐴓 𐴑𐴤𐴠𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="⛹‍♂">𐴁𐴡𐴀𐴡𐴓 - 𐴁𐴠𐴍𐴝 - 𐴉𐴥𐴝𐴓𐴊𐴝𐴕𐴞 𐴁𐴡𐴀𐴡𐴓 𐴑𐴤𐴠𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝 | 𐴉𐴥𐴝𐴓𐴊𐴝𐴕𐴞 𐴁𐴡𐴀𐴡𐴓 𐴑𐴤𐴠𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝 - 𐴁𐴡𐴀𐴡𐴓 - 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="⛹‍♂" type="tts">𐴉𐴥𐴝𐴓𐴊𐴝𐴕𐴞 𐴁𐴡𐴀𐴡𐴓 𐴑𐴤𐴠𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝 - 𐴁𐴡𐴀𐴡𐴓 - 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="⛹‍♀">𐴁𐴡𐴀𐴡𐴓 - 𐴁𐴠𐴍𐴞 -𐴉𐴥𐴝𐴓𐴊𐴝𐴕𐴞 𐴁𐴡𐴀𐴡𐴓 𐴑𐴤𐴠𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞 | 𐴉𐴥𐴝𐴓𐴊𐴝𐴕𐴞 𐴁𐴡𐴀𐴡𐴓 𐴑𐴤𐴠𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="⛹‍♀" type="tts">𐴉𐴥𐴝𐴓𐴊𐴝𐴕𐴞 𐴁𐴡𐴀𐴡𐴓 𐴑𐴤𐴠𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🏋">𐴀𐴟𐴎𐴤𐴡𐴕 𐴃𐴟𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 | 𐴃𐴟𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 -𐴀𐴟𐴎𐴤𐴡𐴕 𐴃𐴟𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 - 𐴀𐴟𐴎𐴤𐴡𐴕</annotation>
+		<annotation cp="🏋" type="tts">𐴀𐴟𐴎𐴤𐴡𐴕 𐴃𐴟𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🏋‍♂">𐴁𐴠𐴍𐴝 - 𐴀𐴟𐴎𐴤𐴡𐴕 𐴃𐴟𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝 - 𐴀𐴟𐴎𐴤𐴡𐴕 𐴃𐴟𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 | 𐴃𐴟𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🏋‍♂" type="tts">𐴃𐴟𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🏋‍♀">𐴀𐴟𐴎𐴤𐴡𐴕 𐴃𐴟𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 - 𐴁𐴠𐴍𐴞 - 𐴀𐴟𐴎𐴤𐴡𐴕 𐴃𐴟𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞 | 𐴀𐴟𐴎𐴤𐴡𐴕 𐴃𐴟𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🏋‍♀" type="tts">𐴀𐴟𐴎𐴤𐴡𐴕 𐴃𐴟𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🚴">𐴏𐴝𐴙𐴌𐴑𐴤𐴠𐴓 - 𐴏𐴝𐴓𐴡𐴀𐴡𐴕 - 𐴏𐴝𐴙𐴌𐴑𐴤𐴠𐴓 𐴏𐴝𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 - 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 - 𐴏𐴝𐴙𐴌𐴑𐴤𐴠𐴓 𐴏𐴝𐴓𐴝 | 𐴏𐴝𐴙𐴌𐴑𐴤𐴠𐴓 𐴏𐴝𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🚴" type="tts">𐴏𐴝𐴙𐴌𐴑𐴤𐴠𐴓 𐴏𐴝𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🚴‍♂">𐴏𐴝𐴙𐴌𐴑𐴤𐴠𐴓 - 𐴏𐴝𐴙𐴌𐴑𐴤𐴠𐴓 𐴏𐴝𐴓𐴝 - 𐴏𐴝𐴙𐴌𐴑𐴤𐴠𐴓 𐴏𐴝𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 - 𐴁𐴠𐴍𐴝 | 𐴏𐴝𐴙𐴌𐴑𐴤𐴠𐴓 𐴏𐴝𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🚴‍♂" type="tts">𐴏𐴝𐴙𐴌𐴑𐴤𐴠𐴓 𐴏𐴝𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🚴‍♀">𐴏𐴝𐴙𐴌𐴑𐴤𐴠𐴓 - 𐴏𐴝𐴙𐴌𐴑𐴤𐴠𐴓 𐴏𐴝𐴓𐴝 - 𐴏𐴝𐴙𐴌𐴑𐴤𐴠𐴓 𐴏𐴝𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 - 𐴁𐴠𐴍𐴞 | 𐴏𐴝𐴙𐴌𐴑𐴤𐴠𐴓 𐴏𐴝𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🚴‍♀" type="tts">𐴏𐴝𐴙𐴌𐴑𐴤𐴠𐴓 𐴏𐴝𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🚵">𐴉𐴝𐴀𐴝𐴌𐴡𐴃𐴢 𐴏𐴝𐴙𐴌𐴑𐴤𐴠𐴓 𐴏𐴝𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 | 𐴏𐴝𐴙𐴌𐴑𐴤𐴠𐴓 - 𐴏𐴝𐴙𐴌𐴑𐴤𐴠𐴓 𐴏𐴝𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 - 𐴏𐴝𐴙𐴌𐴑𐴤𐴠𐴓 - 𐴉𐴝𐴀𐴝𐴌 - 𐴉𐴝𐴀𐴝𐴌𐴡𐴃𐴢 𐴏𐴝𐴙𐴌𐴑𐴤𐴠𐴓 𐴏𐴝𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🚵" type="tts">𐴉𐴝𐴀𐴝𐴌𐴡𐴃𐴢 𐴏𐴝𐴙𐴌𐴑𐴤𐴠𐴓 𐴏𐴝𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🚵‍♂">𐴉𐴝𐴀𐴝𐴌𐴡𐴃𐴢 𐴏𐴝𐴙𐴌𐴑𐴤𐴠𐴓 𐴏𐴝𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝 | 𐴏𐴝𐴙𐴌𐴑𐴤𐴠𐴓 - 𐴏𐴝𐴙𐴌𐴑𐴤𐴠𐴓 𐴏𐴝𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 - 𐴁𐴠𐴍𐴝 - 𐴉𐴝𐴀𐴝𐴌𐴡𐴃𐴢 𐴏𐴝𐴙𐴌𐴑𐴤𐴠𐴓 𐴏𐴝𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝 - 𐴉𐴝𐴀𐴝𐴌</annotation>
+		<annotation cp="🚵‍♂" type="tts">𐴉𐴝𐴀𐴝𐴌𐴡𐴃𐴢 𐴏𐴝𐴙𐴌𐴑𐴤𐴠𐴓 𐴏𐴝𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🚵‍♀">𐴉𐴝𐴀𐴝𐴌𐴡𐴃𐴢 𐴏𐴝𐴙𐴌𐴑𐴤𐴠𐴓 𐴏𐴝𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞 | 𐴏𐴝𐴙𐴌𐴑𐴤𐴠𐴓 - 𐴏𐴝𐴙𐴌𐴑𐴤𐴠𐴓 𐴏𐴝𐴓𐴝 - 𐴏𐴝𐴙𐴌𐴑𐴤𐴠𐴓 𐴏𐴝𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 - 𐴉𐴝𐴀𐴝𐴌 - 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🚵‍♀" type="tts">𐴉𐴝𐴀𐴝𐴌𐴡𐴃𐴢 𐴏𐴝𐴙𐴌𐴑𐴤𐴠𐴓 𐴏𐴝𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🤸">𐴑𐴝𐴄𐴖𐴥𐴠𐴓 - 𐴁𐴠𐴘𐴝𐴔 - 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 - 𐴑𐴝𐴄𐴖𐴥𐴠𐴓 𐴒𐴡𐴌𐴥𐴝 | 𐴑𐴝𐴄𐴖𐴥𐴠𐴓 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🤸" type="tts">𐴑𐴝𐴄𐴖𐴥𐴠𐴓 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🤸‍♂">𐴑𐴝𐴄𐴖𐴥𐴠𐴓 - 𐴁𐴞𐴘𐴝𐴔 - 𐴁𐴠𐴍𐴝 - 𐴑𐴝𐴄𐴖𐴥𐴠𐴓 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝 | 𐴑𐴝𐴄𐴖𐴥𐴠𐴓 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🤸‍♂" type="tts">𐴑𐴝𐴄𐴖𐴥𐴠𐴓 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🤸‍♀">𐴑𐴝𐴄𐴖𐴥𐴠𐴓 - 𐴁𐴞𐴘𐴝𐴔 - 𐴁𐴠𐴍𐴞 - 𐴑𐴝𐴄𐴖𐴥𐴠𐴓 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞 | 𐴑𐴝𐴄𐴖𐴥𐴠𐴓 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🤸‍♀" type="tts">𐴑𐴝𐴄𐴖𐴥𐴠𐴓 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🤼">𐴑𐴟𐴏𐴥𐴞 𐴊𐴤𐴡𐴌𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 𐴀𐴥𐴡𐴑𐴧𐴡𐴓 | 𐴑𐴟𐴏𐴥𐴞 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 𐴀𐴥𐴡𐴑𐴧𐴡𐴓 - 𐴑𐴟𐴏𐴥𐴞 - 𐴁𐴡𐴓𐴞</annotation>
+		<annotation cp="🤼" type="tts">𐴑𐴟𐴏𐴥𐴞 𐴊𐴤𐴡𐴌𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 𐴀𐴥𐴡𐴑𐴧𐴡𐴓</annotation>
+		<annotation cp="🤼‍♂">𐴁𐴠𐴍𐴝𐴀𐴝𐴙𐴕 - 𐴑𐴟𐴏𐴥𐴞 𐴊𐴤𐴡𐴌𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝𐴀𐴝𐴙𐴕 - 𐴁𐴡𐴓𐴞 𐴑𐴤𐴠𐴓𐴝 | 𐴑𐴟𐴏𐴥𐴞 𐴊𐴤𐴡𐴌𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝𐴀𐴝𐴙𐴕</annotation>
+		<annotation cp="🤼‍♂" type="tts">𐴑𐴟𐴏𐴥𐴞 𐴊𐴤𐴡𐴌𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝𐴀𐴝𐴙𐴕</annotation>
+		<annotation cp="🤼‍♀">𐴁𐴠𐴍𐴞 - 𐴑𐴟𐴏𐴥𐴞 𐴊𐴤𐴡𐴌𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞 - 𐴁𐴡𐴓𐴞 𐴑𐴤𐴠𐴓𐴝 | 𐴑𐴟𐴏𐴥𐴞 𐴊𐴤𐴡𐴌𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🤼‍♀" type="tts">𐴑𐴟𐴏𐴥𐴞 𐴊𐴤𐴡𐴌𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🤽">𐴉𐴝𐴕𐴥𐴞𐴃𐴢 𐴁𐴡𐴀𐴡𐴓 𐴑𐴤𐴠𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 | 𐴉𐴝𐴕𐴥𐴞𐴃𐴢 𐴁𐴡𐴀𐴡𐴓 𐴑𐴤𐴠𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 - 𐴂𐴟𐴓𐴟 𐴑𐴤𐴠𐴓𐴝 - 𐴉𐴝𐴕𐴥𐴞</annotation>
+		<annotation cp="🤽" type="tts">𐴉𐴝𐴕𐴥𐴞𐴃𐴢 𐴁𐴡𐴀𐴡𐴓 𐴑𐴤𐴠𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🤽‍♂">𐴁𐴠𐴍𐴝 - 𐴉𐴝𐴕𐴥𐴞𐴃𐴢 𐴁𐴡𐴀𐴡𐴓 𐴑𐴤𐴠𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝 - 𐴉𐴝𐴕𐴥𐴞𐴃𐴢 𐴁𐴡𐴀𐴡𐴓 𐴑𐴤𐴠𐴓𐴝 | 𐴉𐴝𐴕𐴥𐴞𐴃𐴢 𐴁𐴡𐴀𐴡𐴓 𐴑𐴤𐴠𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🤽‍♂" type="tts">𐴉𐴝𐴕𐴥𐴞𐴃𐴢 𐴁𐴡𐴀𐴡𐴓 𐴑𐴤𐴠𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🤽‍♀">𐴉𐴝𐴕𐴥𐴞𐴃𐴢 𐴁𐴡𐴀𐴡𐴓 𐴑𐴤𐴠𐴓𐴝 - 𐴁𐴠𐴍𐴞 - 𐴉𐴝𐴕𐴥𐴞𐴃𐴢 𐴁𐴡𐴀𐴡𐴓 𐴑𐴤𐴠𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞 | 𐴉𐴝𐴕𐴥𐴞𐴃𐴢 𐴁𐴡𐴀𐴡𐴓 𐴑𐴤𐴠𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🤽‍♀" type="tts">𐴉𐴝𐴕𐴥𐴞𐴃𐴢 𐴁𐴡𐴀𐴡𐴓 𐴑𐴤𐴠𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🤾">𐴁𐴡𐴀𐴡𐴓 - 𐴇𐴥𐴝𐴃𐴢 𐴁𐴡𐴀𐴡𐴓 - 𐴇𐴥𐴝𐴃𐴢 𐴁𐴡𐴀𐴡𐴓 𐴑𐴤𐴠𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 | 𐴇𐴥𐴝𐴃𐴢 𐴁𐴡𐴀𐴡𐴓 𐴑𐴤𐴠𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🤾" type="tts">𐴇𐴥𐴝𐴃𐴢 𐴁𐴡𐴀𐴡𐴓 𐴑𐴤𐴠𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🤾‍♂">𐴇𐴥𐴝𐴃𐴢 𐴁𐴡𐴀𐴡𐴓 - 𐴁𐴠𐴍𐴝 - 𐴇𐴥𐴝𐴃𐴢 𐴁𐴡𐴀𐴡𐴓 𐴑𐴤𐴠𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝 | 𐴇𐴥𐴝𐴃𐴢 𐴁𐴡𐴀𐴡𐴓 𐴑𐴤𐴠𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🤾‍♂" type="tts">𐴇𐴥𐴝𐴃𐴢 𐴁𐴡𐴀𐴡𐴓 𐴑𐴤𐴠𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🤾‍♀">𐴇𐴥𐴝𐴃𐴢 𐴁𐴡𐴀𐴡𐴓 - 𐴁𐴠𐴍𐴞 - 𐴇𐴥𐴝𐴃𐴢 𐴁𐴡𐴀𐴡𐴓 𐴑𐴤𐴠𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞 | 𐴇𐴥𐴝𐴃𐴢 𐴁𐴡𐴀𐴡𐴓 𐴑𐴤𐴠𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🤾‍♀" type="tts">𐴇𐴥𐴝𐴃𐴢 𐴁𐴡𐴀𐴡𐴓 𐴑𐴤𐴠𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🤹">𐴃𐴦𐴡𐴓 - 𐴅𐴝𐴒𐴓𐴞𐴚 - 𐴁𐴦𐴠𐴐𐴢 𐴈𐴝𐴔 - 𐴅𐴝𐴒𐴓𐴞𐴚 𐴑𐴤𐴠𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 - 𐴔𐴝𐴇𐴥𐴠𐴌 | 𐴅𐴝𐴒𐴓𐴞𐴚 𐴑𐴤𐴠𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🤹" type="tts">𐴅𐴝𐴒𐴓𐴞𐴚 𐴑𐴤𐴠𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🤹‍♂">𐴅𐴝𐴒𐴓𐴞𐴚 - 𐴁𐴠𐴍𐴝 - 𐴁𐴦𐴠𐴐𐴢 𐴈𐴝𐴔 | 𐴅𐴝𐴒𐴓𐴞𐴚 𐴑𐴤𐴠𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🤹‍♂" type="tts">𐴅𐴝𐴒𐴓𐴞𐴚 𐴑𐴤𐴠𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🤹‍♀">𐴅𐴝𐴒𐴓𐴞𐴚 - 𐴁𐴦𐴠𐴐𐴢 𐴈𐴝𐴔 - 𐴁𐴠𐴍𐴞 | 𐴅𐴝𐴒𐴓𐴞𐴚 𐴑𐴤𐴠𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🤹‍♀" type="tts">𐴅𐴝𐴒𐴓𐴞𐴚 𐴑𐴤𐴠𐴓𐴡𐴀𐴡𐴙𐴕𐴧𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🧘">𐴊𐴤𐴞𐴘𐴝𐴕 - 𐴓𐴥𐴠𐴂𐴧𐴝𐴍𐴞 𐴁𐴡𐴙𐴐𐴧𐴤𐴙𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 - 𐴁𐴞𐴘𐴝𐴔 | 𐴓𐴥𐴠𐴂𐴧𐴝𐴍𐴞 𐴁𐴡𐴙𐴐𐴧𐴤𐴙𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🧘" type="tts">𐴓𐴥𐴠𐴂𐴧𐴝𐴍𐴞 𐴁𐴡𐴙𐴐𐴧𐴤𐴙𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🧘‍♂">𐴓𐴥𐴠𐴂𐴧𐴝𐴍𐴞 𐴁𐴡𐴙𐴐𐴧𐴤𐴙𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 𐴁𐴠𐴍𐴝 | 𐴓𐴥𐴠𐴂𐴧𐴝𐴍𐴞 𐴁𐴡𐴙𐴐𐴧𐴤𐴙𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 𐴁𐴠𐴍𐴝 - 𐴊𐴤𐴞𐴘𐴝𐴕 - 𐴁𐴞𐴘𐴝𐴔</annotation>
+		<annotation cp="🧘‍♂" type="tts">𐴓𐴥𐴠𐴂𐴧𐴝𐴍𐴞 𐴁𐴡𐴙𐴐𐴧𐴤𐴙𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 𐴁𐴠𐴍𐴝</annotation>
+		<annotation cp="🧘‍♀">𐴊𐴤𐴞𐴘𐴝𐴕 - 𐴓𐴥𐴠𐴂𐴧𐴝𐴍𐴞 𐴁𐴡𐴙𐴐𐴧𐴤𐴙𐴝 𐴁𐴠𐴍𐴞 -𐴁𐴞𐴘𐴝𐴔 | 𐴓𐴥𐴠𐴂𐴧𐴝𐴍𐴞 𐴁𐴡𐴙𐴐𐴧𐴤𐴙𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🧘‍♀" type="tts">𐴓𐴥𐴠𐴂𐴧𐴝𐴍𐴞 𐴁𐴡𐴙𐴐𐴧𐴤𐴙𐴝 𐴁𐴠𐴍𐴞</annotation>
+		<annotation cp="🛀">𐴒𐴝𐴀𐴝 𐴊𐴤𐴟𐴖𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 | 𐴒𐴟𐴏𐴥𐴡𐴓 - 𐴕𐴡𐴓 - 𐴒𐴝𐴀𐴝 𐴊𐴤𐴟𐴖𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🛀" type="tts">𐴒𐴝𐴀𐴝 𐴊𐴤𐴟𐴖𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🛌">𐴁𐴤𐴝𐴓𐴝 𐴌𐴝𐴙𐴃𐴢 - 𐴇𐴥𐴡𐴄𐴡𐴓 - 𐴕𐴠𐴙𐴄𐴧𐴙𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 - 𐴒𐴤𐴟𐴔 | 𐴕𐴠𐴙𐴄𐴧𐴙𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🛌" type="tts">𐴕𐴠𐴙𐴄𐴧𐴙𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🧑‍🤝‍🧑">𐴇𐴥𐴝𐴃𐴠 𐴇𐴥𐴝𐴃𐴠 𐴊𐴤𐴡𐴙𐴅𐴧𐴤𐴙𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 𐴀𐴥𐴡𐴑𐴧𐴡𐴓 | 𐴎𐴟𐴌 - 𐴇𐴥𐴝𐴃𐴢 - 𐴊𐴤𐴡𐴌𐴡𐴕 - 𐴊𐴤𐴡𐴙𐴅𐴧𐴤𐴙𐴝 𐴇𐴥𐴝𐴃𐴢 𐴀𐴥𐴡𐴑𐴧𐴡𐴓 - 𐴇𐴥𐴝𐴃𐴠 𐴇𐴥𐴝𐴃𐴠 𐴊𐴤𐴡𐴙𐴅𐴧𐴤𐴙𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 𐴀𐴥𐴡𐴑𐴧𐴡𐴓 - 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🧑‍🤝‍🧑" type="tts">𐴇𐴥𐴝𐴃𐴠 𐴇𐴥𐴝𐴃𐴠 𐴊𐴤𐴡𐴙𐴅𐴧𐴤𐴙𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 𐴀𐴥𐴡𐴑𐴧𐴡𐴓</annotation>
+		<annotation cp="👭">𐴇𐴥𐴝𐴃𐴠 𐴇𐴥𐴝𐴃𐴠 𐴊𐴤𐴡𐴙𐴅𐴧𐴤𐴙𐴝 𐴁𐴠𐴍𐴞𐴘𐴥𐴝𐴙𐴕 | 𐴎𐴟𐴌 - 𐴇𐴥𐴝𐴃𐴢 - 𐴊𐴤𐴡𐴙𐴅𐴧𐴤𐴙𐴝 𐴇𐴥𐴝𐴃𐴢 𐴀𐴥𐴡𐴑𐴧𐴡𐴓 - 𐴁𐴠𐴍𐴞𐴘𐴥𐴝𐴙𐴕 - 𐴇𐴥𐴝𐴃𐴠 𐴇𐴥𐴝𐴃𐴠 𐴊𐴤𐴡𐴙𐴅𐴧𐴤𐴙𐴝 𐴁𐴠𐴍𐴞𐴘𐴥𐴝𐴙𐴕</annotation>
+		<annotation cp="👭" type="tts">𐴇𐴥𐴝𐴃𐴠 𐴇𐴥𐴝𐴃𐴠 𐴊𐴤𐴡𐴙𐴅𐴧𐴤𐴙𐴝 𐴁𐴠𐴍𐴞𐴘𐴥𐴝𐴙𐴕</annotation>
+		<annotation cp="👫">𐴁𐴠𐴍𐴝 𐴀𐴝𐴌 𐴁𐴠𐴍𐴞 𐴊𐴤𐴡𐴙𐴅𐴧𐴤𐴙𐴝 𐴇𐴥𐴝𐴃𐴢 𐴀𐴥𐴡𐴑𐴧𐴡𐴓 | 𐴎𐴟𐴌 - 𐴇𐴥𐴝𐴃𐴢 - 𐴊𐴤𐴡𐴌𐴡𐴕 - 𐴊𐴤𐴡𐴙𐴅𐴧𐴤𐴙𐴝 𐴇𐴥𐴝𐴃𐴢 𐴀𐴥𐴡𐴑𐴧𐴡𐴓 - 𐴁𐴠𐴍𐴝 - 𐴁𐴠𐴍𐴞 - 𐴁𐴠𐴍𐴝 𐴀𐴝𐴌 𐴁𐴠𐴍𐴞 𐴊𐴤𐴡𐴙𐴅𐴧𐴤𐴙𐴝 𐴇𐴥𐴝𐴃𐴢 𐴀𐴥𐴡𐴑𐴧𐴡𐴓</annotation>
+		<annotation cp="👫" type="tts">𐴁𐴠𐴍𐴝 𐴀𐴝𐴌 𐴁𐴠𐴍𐴞 𐴊𐴤𐴡𐴙𐴅𐴧𐴤𐴙𐴝 𐴇𐴥𐴝𐴃𐴢 𐴀𐴥𐴡𐴑𐴧𐴡𐴓</annotation>
+		<annotation cp="👬">𐴇𐴥𐴝𐴃𐴠 𐴇𐴥𐴝𐴃𐴠 𐴊𐴤𐴡𐴙𐴅𐴧𐴤𐴙𐴝 𐴁𐴠𐴍𐴝𐴀𐴝𐴙𐴕 | 𐴎𐴟𐴌 - 𐴎𐴦𐴡𐴣𐴙𐴑𐴧𐴙𐴝 - 𐴊𐴤𐴡𐴙𐴅𐴧𐴤𐴙𐴝 𐴇𐴥𐴝𐴃𐴢 𐴀𐴥𐴡𐴑𐴧𐴡𐴓 - 𐴁𐴠𐴍𐴝 - 𐴁𐴠𐴍𐴝𐴀𐴝𐴙𐴕 - 𐴇𐴥𐴝𐴃𐴠 𐴇𐴥𐴝𐴃𐴠 𐴊𐴤𐴡𐴙𐴅𐴧𐴤𐴙𐴝 𐴁𐴠𐴍𐴝𐴀𐴝𐴙𐴕 - 𐴎𐴦𐴡𐴣𐴙𐴑𐴧𐴙𐴝</annotation>
+		<annotation cp="👬" type="tts">𐴇𐴥𐴝𐴃𐴠 𐴇𐴥𐴝𐴃𐴠 𐴊𐴤𐴡𐴙𐴅𐴧𐴤𐴙𐴝 𐴁𐴠𐴍𐴝𐴀𐴝𐴙𐴕</annotation>
+		<annotation cp="💏">𐴀𐴝𐴂𐴧𐴥𐴗𐴝 | 𐴎𐴟𐴌 - 𐴀𐴝𐴂𐴧𐴥𐴗𐴝</annotation>
+		<annotation cp="💏" type="tts">𐴀𐴝𐴂𐴧𐴥𐴗𐴝</annotation>
+		<annotation cp="💑">𐴎𐴟𐴌 - 𐴎𐴟𐴌 𐴀𐴝𐴌 𐴑𐴡𐴓𐴥𐴡𐴁𐴢 - 𐴀𐴝𐴊𐴡𐴌 | 𐴎𐴟𐴌 𐴀𐴝𐴌 𐴑𐴡𐴓𐴥𐴡𐴁𐴢</annotation>
+		<annotation cp="💑" type="tts">𐴎𐴟𐴌 𐴀𐴝𐴌 𐴑𐴡𐴓𐴥𐴡𐴁𐴢</annotation>
+		<annotation cp="🗣">𐴈𐴡𐴃𐴤𐴝 𐴈𐴡𐴀𐴡𐴙𐴕𐴧𐴙𐴝 𐴔𐴝𐴃𐴤𐴝 | 𐴔𐴟𐴑 - 𐴔𐴝𐴃𐴤𐴝 - 𐴏𐴥𐴝𐴁𐴝 - 𐴈𐴡𐴃𐴤𐴝 - 𐴈𐴡𐴃𐴤𐴝 𐴈𐴡𐴀𐴡𐴕</annotation>
+		<annotation cp="🗣" type="tts">𐴈𐴡𐴃𐴤𐴝 𐴈𐴡𐴀𐴡𐴙𐴕𐴧𐴙𐴝 𐴔𐴝𐴃𐴤𐴝</annotation>
+		<annotation cp="👤">𐴔𐴟𐴃𐴧𐴞 - 𐴔𐴟𐴃𐴧𐴞𐴌 𐴏𐴥𐴝𐴁𐴝 - 𐴏𐴥𐴝𐴁𐴝 | 𐴔𐴟𐴃𐴧𐴞𐴌 𐴏𐴥𐴝𐴁𐴝</annotation>
+		<annotation cp="👤" type="tts">𐴔𐴟𐴃𐴧𐴞𐴌 𐴏𐴥𐴝𐴁𐴝</annotation>
+		<annotation cp="👥">𐴔𐴟𐴃𐴧𐴞 - 𐴔𐴟𐴃𐴧𐴞 𐴀𐴥𐴡𐴑𐴧𐴡𐴓𐴡𐴌 𐴏𐴥𐴝𐴁𐴝 - 𐴏𐴥𐴝𐴁𐴝 | 𐴔𐴟𐴃𐴧𐴞 𐴀𐴥𐴡𐴑𐴧𐴡𐴓𐴡𐴌 𐴏𐴥𐴝𐴁𐴝</annotation>
+		<annotation cp="👥" type="tts">𐴔𐴟𐴃𐴧𐴞 𐴀𐴥𐴡𐴑𐴧𐴡𐴓𐴡𐴌 𐴏𐴥𐴝𐴁𐴝</annotation>
+		<annotation cp="🫂">𐴀𐴝𐴣𐴎𐴝 𐴀𐴝𐴣𐴎𐴞 𐴒𐴡𐴙𐴅𐴧𐴤𐴙𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 𐴀𐴥𐴡𐴑𐴧𐴡𐴓 | 𐴁𐴞𐴊𐴝𐴘 - 𐴏𐴥𐴡𐴓𐴝𐴔 - 𐴀𐴝𐴣𐴎𐴝 𐴀𐴝𐴣𐴎𐴞 𐴒𐴡𐴌𐴥𐴝 - 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 𐴀𐴥𐴡𐴑𐴧𐴡𐴓 - 𐴀𐴝𐴣𐴎𐴝 𐴀𐴝𐴣𐴎𐴞 𐴒𐴡𐴌𐴥𐴡𐴕 - 𐴐𐴤𐴟𐴑𐴟𐴌𐴞𐴘𐴝</annotation>
+		<annotation cp="🫂" type="tts">𐴀𐴝𐴣𐴎𐴝 𐴀𐴝𐴣𐴎𐴞 𐴒𐴡𐴙𐴅𐴧𐴤𐴙𐴝 𐴔𐴝𐴕𐴥𐴟𐴙𐴐𐴢 𐴀𐴥𐴡𐴑𐴧𐴡𐴓</annotation>
+		<annotation cp="👪">𐴒𐴤𐴡𐴌 𐴒𐴟𐴐𐴧𐴞</annotation>
+		<annotation cp="👪" type="tts">𐴒𐴤𐴡𐴌 𐴒𐴟𐴐𐴧𐴞</annotation>
+		<annotation cp="🧑‍🧒‍🧒">𐴒𐴤𐴡𐴌 𐴒𐴟𐴐𐴧𐴞 - 𐴁𐴝𐴓𐴠𐴑 - 𐴉𐴟𐴖𐴝</annotation>
+		<annotation cp="🧑‍🧒‍🧒" type="tts">𐴒𐴤𐴡𐴌 𐴒𐴟𐴐𐴧𐴞 - 𐴁𐴝𐴓𐴠𐴑 - 𐴉𐴟𐴖𐴝</annotation>
+		<annotation cp="👣">𐴈𐴦𐴡𐴌 - 𐴑𐴤𐴟𐴣𐴐𐴢 𐴈𐴦𐴡𐴌 -- 𐴑𐴤𐴟𐴣𐴐𐴢 - 𐴑𐴤𐴟𐴣𐴐𐴢 𐴀𐴥𐴡𐴑𐴧𐴡𐴓 | 𐴑𐴤𐴟𐴣𐴐𐴢</annotation>
+		<annotation cp="👣" type="tts">𐴑𐴤𐴟𐴣𐴐𐴢</annotation>
+		<annotation cp="🐵">𐴁𐴝𐴣𐴊𐴡𐴌 𐴔𐴟𐴑 | 𐴔𐴟𐴑 - 𐴁𐴝𐴣𐴊𐴡𐴌</annotation>
+		<annotation cp="🐵" type="tts">𐴁𐴝𐴣𐴊𐴡𐴌 𐴔𐴟𐴑</annotation>
+		<annotation cp="🐒">𐴁𐴝𐴣𐴊𐴡𐴌</annotation>
+		<annotation cp="🐒" type="tts">𐴁𐴝𐴣𐴊𐴡𐴌</annotation>
+		<annotation cp="🦍">𐴒𐴟𐴌𐴞𐴓𐴝</annotation>
+		<annotation cp="🦍" type="tts">𐴒𐴟𐴌𐴞𐴓𐴝</annotation>
+		<annotation cp="🦧">𐴀𐴠𐴂𐴞 - 𐴀𐴡𐴌𐴝𐴚 𐴒𐴟𐴄𐴝𐴕 | 𐴀𐴡𐴌𐴝𐴚 𐴒𐴟𐴄𐴝𐴕</annotation>
+		<annotation cp="🦧" type="tts">𐴀𐴡𐴌𐴝𐴚 𐴒𐴟𐴄𐴝𐴕</annotation>
+		<annotation cp="🐶">𐴑𐴟𐴛𐴌 - 𐴔𐴟𐴑 - 𐴉𐴝𐴓𐴧𐴗𐴝 | 𐴑𐴟𐴛𐴌 𐴔𐴟𐴑</annotation>
+		<annotation cp="🐶" type="tts">𐴑𐴟𐴛𐴌 𐴔𐴟𐴑</annotation>
+		<annotation cp="🐕">𐴑𐴟𐴛𐴌 | 𐴑𐴟𐴛𐴌 - 𐴉𐴝𐴓𐴧𐴗𐴝</annotation>
+		<annotation cp="🐕" type="tts">𐴑𐴟𐴛𐴌</annotation>
+		<annotation cp="🦮">𐴉𐴡𐴀𐴡𐴣𐴏𐴞 𐴉𐴝𐴌𐴝 - 𐴀𐴝𐴣𐴊𐴝 - 𐴌𐴝𐴏𐴧𐴝 𐴊𐴠𐴈𐴝𐴀𐴡𐴕 - 𐴌𐴝𐴏𐴧𐴝 𐴊𐴠𐴈𐴝𐴀𐴡𐴙𐴕𐴧𐴝 𐴑𐴟𐴛𐴌 | 𐴌𐴝𐴏𐴧𐴝 𐴊𐴠𐴈𐴝𐴀𐴡𐴙𐴕𐴧𐴝 𐴑𐴟𐴛𐴌</annotation>
+		<annotation cp="🦮" type="tts">𐴌𐴝𐴏𐴧𐴝 𐴊𐴠𐴈𐴝𐴀𐴡𐴙𐴕𐴧𐴝 𐴑𐴟𐴛𐴌</annotation>
+		<annotation cp="🐕‍🦺">𐴉𐴡𐴀𐴡𐴣𐴏𐴞 𐴉𐴝𐴌𐴝 - 𐴏𐴦𐴝𐴙𐴅𐴧𐴡 𐴑𐴝𐴌 - 𐴔𐴡𐴊𐴡𐴃𐴢𐴒𐴝𐴌 𐴑𐴟𐴛𐴌 | 𐴔𐴡𐴊𐴡𐴃𐴢 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 𐴑𐴟𐴛𐴌</annotation>
+		<annotation cp="🐕‍🦺" type="tts">𐴔𐴡𐴊𐴡𐴃𐴢 𐴒𐴡𐴌𐴥𐴡𐴙𐴕𐴧𐴝 𐴑𐴟𐴛𐴌</annotation>
+		<annotation cp="🐩">𐴂𐴟𐴋𐴡𐴓 | 𐴑𐴟𐴛𐴌 - 𐴂𐴟𐴋𐴡𐴓</annotation>
+		<annotation cp="🐩" type="tts">𐴂𐴟𐴋𐴡𐴓</annotation>
+		<annotation cp="🐺">𐴌𐴝𐴚𐴑𐴟𐴛𐴌 | 𐴔𐴟𐴑 - 𐴌𐴝𐴚𐴑𐴟𐴛𐴌</annotation>
+		<annotation cp="🐺" type="tts">𐴌𐴝𐴚𐴑𐴟𐴛𐴌</annotation>
+		<annotation cp="🦊">𐴐𐴤𐴞𐴘𐴝𐴓 | 𐴔𐴟𐴑 - 𐴐𐴤𐴞𐴘𐴝𐴓</annotation>
+		<annotation cp="🦊" type="tts">𐴐𐴤𐴞𐴘𐴝𐴓</annotation>
+		<annotation cp="🦝">𐴌𐴝𐴑𐴟𐴕 | 𐴏𐴝𐴓𐴥𐴝𐴑 - 𐴌𐴝𐴑𐴟𐴕 - 𐴉𐴥𐴡𐴑𐴧𐴡𐴌</annotation>
+		<annotation cp="🦝" type="tts">𐴌𐴝𐴑𐴟𐴕</annotation>
+		<annotation cp="🐱">𐴁𐴞𐴓𐴝𐴘 - 𐴔𐴟𐴑 - 𐴉𐴝𐴓𐴧𐴗𐴝 | 𐴁𐴞𐴓𐴝𐴘 𐴔𐴟𐴑</annotation>
+		<annotation cp="🐱" type="tts">𐴁𐴞𐴓𐴝𐴘 𐴔𐴟𐴑</annotation>
+		<annotation cp="🐈">𐴁𐴞𐴓𐴝𐴘 | 𐴁𐴞𐴓𐴝𐴘 - 𐴉𐴝𐴓𐴧𐴗𐴝</annotation>
+		<annotation cp="🐈" type="tts">𐴁𐴞𐴓𐴝𐴘</annotation>
+		<annotation cp="🐈‍⬛">𐴈𐴝𐴓𐴝 - 𐴁𐴞𐴓𐴝𐴘 - 𐴀𐴡𐴁𐴤𐴝𐴙𐴒𐴧𐴙𐴡 | 𐴈𐴝𐴓𐴝 𐴁𐴞𐴓𐴝𐴘</annotation>
+		<annotation cp="🐈‍⬛" type="tts">𐴈𐴝𐴓𐴝 𐴁𐴞𐴓𐴝𐴘</annotation>
+		<annotation cp="🦁">𐴐𐴤𐴞𐴚𐴒𐴡 | 𐴔𐴟𐴑 - 𐴓𐴞𐴀𐴡 𐴏𐴞𐴕𐴧𐴡 - 𐴐𐴤𐴞𐴚𐴒𐴡</annotation>
+		<annotation cp="🦁" type="tts">𐴐𐴤𐴞𐴚𐴒𐴡</annotation>
+		<annotation cp="🐯">𐴁𐴝𐴑 𐴔𐴟𐴑 | 𐴔𐴟𐴑 - 𐴁𐴝𐴑</annotation>
+		<annotation cp="🐯" type="tts">𐴁𐴝𐴑 𐴔𐴟𐴑</annotation>
+		<annotation cp="🐅">𐴁𐴝𐴑</annotation>
+		<annotation cp="🐅" type="tts">𐴁𐴝𐴑</annotation>
+		<annotation cp="🐆">𐴐𐴞𐴃𐴝 𐴁𐴝𐴑</annotation>
+		<annotation cp="🐆" type="tts">𐴐𐴞𐴃𐴝 𐴁𐴝𐴑</annotation>
+		<annotation cp="🐴">𐴒𐴤𐴟𐴣𐴌𐴝 𐴔𐴟𐴑 | 𐴔𐴟𐴑 - 𐴒𐴤𐴟𐴣𐴌𐴝</annotation>
+		<annotation cp="🐴" type="tts">𐴒𐴤𐴟𐴣𐴌𐴝 𐴔𐴟𐴑</annotation>
+		<annotation cp="🫎">𐴁𐴝𐴌𐴥𐴡 𐴐𐴤𐴞𐴚𐴒𐴙𐴝 | 𐴎𐴝𐴕𐴖𐴝𐴌 - 𐴒𐴡𐴗𐴏𐴢 𐴇𐴥𐴡𐴌𐴞𐴕- 𐴐𐴤𐴞𐴚 𐴀𐴡𐴓𐴝 - 𐴁𐴝𐴌𐴥𐴡 𐴐𐴤𐴞𐴚𐴒𐴙𐴝</annotation>
+		<annotation cp="🫎" type="tts">𐴁𐴝𐴌𐴥𐴡 𐴐𐴤𐴞𐴚𐴒𐴙𐴝</annotation>
+		<annotation cp="🫏">𐴎𐴝𐴕𐴖𐴝𐴌 - 𐴒𐴝𐴊𐴤𐴝 - 𐴒𐴝𐴊𐴤𐴝 - 𐴈𐴥𐴡𐴏𐴧𐴡𐴌 - 𐴀𐴠𐴑𐴒𐴟𐴛𐴧𐴝 | 𐴒𐴝𐴊𐴤𐴝</annotation>
+		<annotation cp="🫏" type="tts">𐴒𐴝𐴊𐴤𐴝</annotation>
+		<annotation cp="🐎">𐴒𐴤𐴟𐴣𐴌 𐴏𐴥𐴟𐴖𐴥𐴝𐴌 - 𐴒𐴤𐴟𐴣𐴌𐴝 - 𐴒𐴤𐴟𐴣𐴌 𐴊𐴦𐴟𐴣𐴌 - 𐴎𐴞𐴁𐴧𐴝𐴃𐴢 | 𐴒𐴤𐴟𐴣𐴌𐴝</annotation>
+		<annotation cp="🐎" type="tts">𐴒𐴤𐴟𐴣𐴌𐴝</annotation>
+		<annotation cp="🦄">𐴀𐴠𐴑 𐴐𐴤𐴞𐴚𐴒𐴙𐴝 | 𐴔𐴟𐴑 - 𐴀𐴠𐴑 𐴐𐴤𐴞𐴚𐴒𐴙𐴝</annotation>
+		<annotation cp="🦄" type="tts">𐴀𐴠𐴑 𐴐𐴤𐴞𐴚𐴒𐴙𐴝</annotation>
+		<annotation cp="🦌">𐴇𐴥𐴡𐴌𐴞𐴕</annotation>
+		<annotation cp="🦌" type="tts">𐴇𐴥𐴡𐴌𐴞𐴕</annotation>
+		<annotation cp="🦬">𐴎𐴦𐴡𐴣𐴓𐴞 𐴔𐴟𐴣𐴙𐴐𐴢 | 𐴎𐴦𐴡𐴣𐴓𐴞 𐴔𐴟𐴣𐴙𐴐𐴢 - 𐴁𐴤𐴟𐴙𐴐𐴢 - 𐴎𐴤𐴝𐴑 - 𐴘𐴟𐴌𐴟𐴂𐴞 𐴒𐴡𐴌𐴟</annotation>
+		<annotation cp="🦬" type="tts">𐴎𐴦𐴡𐴣𐴓𐴞 𐴔𐴟𐴣𐴙𐴐𐴢</annotation>
+		<annotation cp="🐮">𐴒𐴝𐴘 𐴒𐴡𐴌𐴟 - 𐴔𐴟𐴑 | 𐴒𐴝𐴘 𐴒𐴡𐴌𐴟 𐴔𐴟𐴑</annotation>
+		<annotation cp="🐮" type="tts">𐴒𐴝𐴘 𐴒𐴡𐴌𐴟 𐴔𐴟𐴑</annotation>
+		<annotation cp="🐂">𐴁𐴡𐴓𐴡𐴃𐴢 𐴒𐴡𐴌𐴟 | 𐴔𐴟𐴣𐴙𐴐𐴢 - 𐴁𐴡𐴓𐴡𐴃𐴢 𐴒𐴡𐴌𐴟 - 𐴄𐴡𐴌𐴥𐴝𐴏𐴢 𐴏𐴞𐴕𐴧𐴡 - 𐴌𐴝𐴐𐴤𐴞</annotation>
+		<annotation cp="🐂" type="tts">𐴁𐴡𐴓𐴡𐴃𐴢 𐴒𐴡𐴌𐴟</annotation>
+		<annotation cp="🐃">𐴁𐴤𐴟𐴙𐴐𐴢 - 𐴉𐴝𐴕𐴥𐴞 | 𐴉𐴝𐴕𐴥𐴞𐴌 𐴁𐴤𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🐃" type="tts">𐴉𐴝𐴕𐴥𐴞𐴌 𐴁𐴤𐴟𐴙𐴐𐴢</annotation>
+		<annotation cp="🐄">𐴒𐴝𐴘 𐴒𐴡𐴌𐴟</annotation>
+		<annotation cp="🐄" type="tts">𐴒𐴝𐴘 𐴒𐴡𐴌𐴟</annotation>
+		<annotation cp="🐷">𐴐𐴤𐴟𐴖𐴡𐴌 - 𐴔𐴟𐴑 | 𐴔𐴟𐴑 - 𐴐𐴤𐴟𐴖𐴡𐴌</annotation>
+		<annotation cp="🐷" type="tts">𐴐𐴤𐴟𐴖𐴡𐴌 - 𐴔𐴟𐴑</annotation>
+		<annotation cp="🐖">𐴐𐴤𐴟𐴖𐴡𐴌 | 𐴐𐴤𐴟𐴖𐴡𐴌 - 𐴐𐴤𐴟𐴖𐴡𐴌𐴕𐴞</annotation>
+		<annotation cp="🐖" type="tts">𐴐𐴤𐴟𐴖𐴡𐴌</annotation>
+		<annotation cp="🐗">𐴎𐴦𐴡𐴣𐴓𐴞 𐴐𐴤𐴟𐴖𐴡𐴌 | 𐴎𐴦𐴡𐴣𐴓𐴞 𐴐𐴤𐴟𐴖𐴡𐴌 - 𐴐𐴤𐴟𐴖𐴡𐴌</annotation>
+		<annotation cp="🐗" type="tts">𐴎𐴦𐴡𐴣𐴓𐴞 𐴐𐴤𐴟𐴖𐴡𐴌</annotation>
+		<annotation cp="🐽">𐴐𐴤𐴟𐴖𐴡𐴌 𐴕𐴝𐴑 | 𐴔𐴟𐴑 - 𐴕𐴝𐴑 - 𐴐𐴤𐴟𐴖𐴡𐴌</annotation>
+		<annotation cp="🐽" type="tts">𐴐𐴤𐴟𐴖𐴡𐴌 𐴕𐴝𐴑</annotation>
+		<annotation cp="🐏">𐴀𐴝𐴌𐴞𐴏𐴢 𐴏𐴞𐴕𐴧𐴡 - 𐴁𐴠𐴍𐴝 - 𐴌𐴝𐴔 - 𐴁𐴤𐴠𐴌𐴝 𐴏𐴥𐴡𐴀𐴡𐴓 𐴉𐴝𐴣𐴍𐴥𐴞 | 𐴌𐴝𐴔</annotation>
+		<annotation cp="🐏" type="tts">𐴌𐴝𐴔</annotation>
+		<annotation cp="🐑">𐴁𐴤𐴠𐴌𐴝 𐴉𐴝𐴣𐴍𐴥𐴞 - 𐴉𐴝𐴣𐴍𐴥𐴞 - 𐴁𐴤𐴠𐴌𐴝 | 𐴉𐴝𐴣𐴍𐴥𐴞 𐴁𐴤𐴠𐴌𐴝 𐴏𐴥𐴡𐴀𐴡𐴓</annotation>
+		<annotation cp="🐑" type="tts">𐴉𐴝𐴣𐴍𐴥𐴞 𐴁𐴤𐴠𐴌𐴝 𐴏𐴥𐴡𐴀𐴡𐴓</annotation>
+		<annotation cp="🐐">𐴏𐴥𐴡𐴀𐴡𐴓 | 𐴑𐴠𐴂𐴌𐴞𐴑𐴤𐴡𐴕 - 𐴏𐴥𐴡𐴀𐴡𐴓</annotation>
+		<annotation cp="🐐" type="tts">𐴏𐴥𐴡𐴀𐴡𐴓</annotation>
+		<annotation cp="🐪">𐴀𐴟𐴣𐴄𐴢 | 𐴀𐴟𐴣𐴄𐴢 - 𐴀𐴟𐴣𐴄𐴢 - 𐴐𐴟𐴙𐴄𐴧𐴝𐴓𐴞</annotation>
+		<annotation cp="🐪" type="tts">𐴀𐴟𐴣𐴄𐴢</annotation>
+		<annotation cp="🐫">𐴊𐴟𐴘 𐴐𐴟𐴙𐴄𐴧𐴝𐴓𐴞 𐴀𐴡𐴓𐴝 𐴀𐴟𐴣𐴄𐴢 | 𐴊𐴟𐴘 𐴐𐴟𐴙𐴄𐴧𐴝𐴓𐴞 𐴀𐴡𐴓𐴝 𐴀𐴟𐴣𐴄𐴢 -𐴀𐴟𐴣𐴄𐴢 - 𐴐𐴟𐴙𐴄𐴧𐴝𐴓𐴞 - 𐴊𐴟𐴘 𐴐𐴟𐴙𐴄𐴧𐴝𐴓𐴞 𐴀𐴡𐴓𐴝 𐴀𐴟𐴣𐴄𐴢</annotation>
+		<annotation cp="🐫" type="tts">𐴊𐴟𐴘 𐴐𐴟𐴙𐴄𐴧𐴝𐴓𐴞 𐴀𐴡𐴓𐴝 𐴀𐴟𐴣𐴄𐴢</annotation>
+		<annotation cp="🦙">𐴀𐴝𐴓𐴂𐴝𐴑𐴝 - 𐴒𐴟𐴀𐴝𐴕𐴝𐴑𐴟 - 𐴓𐴝𐴔𐴝 - 𐴁𐴞𐴑𐴟𐴕𐴝 -𐴀𐴟𐴕 | 𐴓𐴝𐴓𐴝𐴔𐴝</annotation>
+		<annotation cp="🦙" type="tts">𐴓𐴝𐴓𐴝𐴔𐴝</annotation>
+		<annotation cp="🦒">𐴎𐴞𐴌𐴝𐴉𐴢 | 𐴎𐴞𐴌𐴝𐴉𐴢 - 𐴊𐴝𐴒𐴢</annotation>
+		<annotation cp="🦒" type="tts">𐴎𐴞𐴌𐴝𐴉𐴢</annotation>
+		<annotation cp="🐘">𐴇𐴥𐴝𐴣𐴃𐴞</annotation>
+		<annotation cp="🐘" type="tts">𐴇𐴥𐴝𐴣𐴃𐴞</annotation>
+		<annotation cp="🦣">𐴔𐴝𐴔𐴟𐴃𐴢 | 𐴕𐴡 𐴃𐴤𐴝𐴑𐴝 - 𐴋𐴡𐴣𐴀𐴡𐴌 - 𐴔𐴝𐴔𐴟𐴃𐴢 - 𐴀𐴟𐴕𐴞</annotation>
+		<annotation cp="🦣" type="tts">𐴔𐴝𐴔𐴟𐴃𐴢</annotation>
+		<annotation cp="🦏">𐴀𐴠𐴑 𐴐𐴤𐴞𐴚𐴒𐴙𐴝 𐴎𐴝𐴕𐴖𐴝𐴌</annotation>
+		<annotation cp="🦏" type="tts">𐴀𐴠𐴑 𐴐𐴤𐴞𐴚𐴒𐴙𐴝 𐴎𐴝𐴕𐴖𐴝𐴌</annotation>
+		<annotation cp="🦛">𐴉𐴝𐴕𐴥𐴞𐴌 𐴒𐴤𐴟𐴣𐴌𐴝</annotation>
+		<annotation cp="🦛" type="tts">𐴉𐴝𐴕𐴥𐴞𐴌 𐴒𐴤𐴟𐴣𐴌𐴝</annotation>
+		<annotation cp="🐭">𐴀𐴟𐴕𐴊𐴟𐴌 𐴔𐴟𐴑 | 𐴔𐴟𐴑 - 𐴀𐴟𐴕𐴊𐴟𐴌</annotation>
+		<annotation cp="🐭" type="tts">𐴀𐴟𐴕𐴊𐴟𐴌 𐴔𐴟𐴑</annotation>
+		<annotation cp="🐁">𐴀𐴟𐴕𐴊𐴟𐴌</annotation>
+		<annotation cp="🐁" type="tts">𐴀𐴟𐴕𐴊𐴟𐴌</annotation>
+		<annotation cp="🐹">𐴇𐴥𐴝𐴔𐴏𐴄𐴝𐴌 | 𐴔𐴟𐴑 - 𐴇𐴥𐴝𐴔𐴏𐴄𐴝𐴌 - 𐴉𐴝𐴓𐴧𐴗𐴝</annotation>
+		<annotation cp="🐹" type="tts">𐴇𐴥𐴝𐴔𐴏𐴄𐴝𐴌</annotation>
+		<annotation cp="🐰">𐴈𐴥𐴡𐴌𐴒𐴟𐴐𐴢 -𐴔𐴟𐴑 - 𐴉𐴝𐴓𐴧𐴗𐴝 - 𐴈𐴥𐴡𐴌𐴒𐴟𐴐𐴢 | 𐴈𐴥𐴡𐴌𐴒𐴟𐴐𐴢 𐴔𐴟𐴑</annotation>
+		<annotation cp="🐰" type="tts">𐴈𐴥𐴡𐴌𐴒𐴟𐴐𐴢 𐴔𐴟𐴑</annotation>
+		<annotation cp="🐇">𐴈𐴥𐴡𐴌𐴒𐴟𐴐𐴢 | 𐴈𐴥𐴡𐴌𐴒𐴟𐴐𐴢 -𐴔𐴟𐴑 - 𐴉𐴝𐴓𐴧𐴗𐴝</annotation>
+		<annotation cp="🐇" type="tts">𐴈𐴥𐴡𐴌𐴒𐴟𐴐𐴢</annotation>
+		<annotation cp="🐿">𐴏𐴟𐴌𐴈𐴝𐴍𐴝 | 𐴏𐴟𐴌𐴈𐴝𐴍𐴝 - 𐴒𐴝𐴏𐴧𐴥𐴗𐴝 𐴀𐴟𐴕𐴊𐴟𐴌</annotation>
+		<annotation cp="🐿" type="tts">𐴏𐴟𐴌𐴈𐴝𐴍𐴝</annotation>
+		<annotation cp="🦫">𐴁𐴦𐴞𐴁𐴤𐴝𐴌 | 𐴁𐴦𐴞𐴁𐴤𐴝𐴌 - 𐴀𐴡𐴣𐴖𐴏𐴥𐴝</annotation>
+		<annotation cp="🦫" type="tts">𐴁𐴦𐴞𐴁𐴤𐴝𐴌</annotation>
+		<annotation cp="🦔">𐴀𐴥𐴠𐴎𐴝 | 𐴀𐴥𐴠𐴎𐴝 - 𐴑𐴠𐴣𐴍𐴝 𐴀𐴡𐴓𐴝</annotation>
+		<annotation cp="🦔" type="tts">𐴀𐴥𐴠𐴎𐴝</annotation>
+		<annotation cp="🦇">𐴏𐴝𐴔𐴁𐴝 𐴁𐴝𐴣𐴊𐴡𐴌</annotation>
+		<annotation cp="🦇" type="tts">𐴏𐴝𐴔𐴁𐴝 𐴁𐴝𐴣𐴊𐴡𐴌</annotation>
+		<annotation cp="🐻">𐴁𐴤𐴝𐴓𐴧𐴟𐴑 | 𐴁𐴤𐴝𐴓𐴧𐴟𐴑 - 𐴔𐴟𐴑</annotation>
+		<annotation cp="🐻" type="tts">𐴁𐴤𐴝𐴓𐴧𐴟𐴑</annotation>
+		<annotation cp="🐻‍❄">𐴀𐴟𐴃𐴧𐴡𐴌 𐴑𐴟𐴃𐴟𐴁𐴢 - 𐴁𐴤𐴝𐴓𐴧𐴟𐴑 - 𐴊𐴤𐴡𐴓𐴝 𐴁𐴤𐴝𐴓𐴧𐴟𐴑 - 𐴊𐴤𐴡𐴓𐴝 | 𐴊𐴤𐴡𐴓𐴝 𐴁𐴤𐴝𐴓𐴧𐴟𐴑</annotation>
+		<annotation cp="🐻‍❄" type="tts">𐴊𐴤𐴡𐴓𐴝 𐴁𐴤𐴝𐴓𐴧𐴟𐴑</annotation>
+		<annotation cp="🐨">𐴑𐴡𐴀𐴝𐴓𐴝 | 𐴔𐴟𐴑 - 𐴑𐴡𐴀𐴝𐴓𐴝 - 𐴔𐴝𐴌𐴏𐴟𐴂𐴞𐴀𐴠𐴓</annotation>
+		<annotation cp="🐨" type="tts">𐴑𐴡𐴀𐴝𐴓𐴝</annotation>
+		<annotation cp="🐼">𐴈𐴥𐴝𐴕𐴋𐴝𐴏𐴢 | 𐴔𐴟𐴑 - 𐴈𐴥𐴝𐴕𐴋𐴝𐴏𐴢</annotation>
+		<annotation cp="🐼" type="tts">𐴈𐴥𐴝𐴕𐴋𐴝𐴏𐴢</annotation>
+		<annotation cp="🦥">𐴀𐴝𐴓𐴐𐴤𐴞 - 𐴏𐴡𐴓𐴥𐴡𐴃𐴢 - 𐴀𐴝𐴏𐴧𐴥𐴠 | 𐴏𐴡𐴓𐴥𐴡𐴃𐴢</annotation>
+		<annotation cp="🦥" type="tts">𐴏𐴡𐴓𐴥𐴡𐴃𐴢</annotation>
+		<annotation cp="🦦">𐴀𐴟𐴙𐴃𐴢 | 𐴔𐴝𐴏𐴢 𐴐𐴝𐴀𐴝 - 𐴀𐴟𐴙𐴃𐴢 - 𐴉𐴟𐴣𐴖𐴥𐴝𐴣𐴕𐴊𐴡𐴌 𐴑𐴤𐴠𐴓𐴝</annotation>
+		<annotation cp="🦦" type="tts">𐴀𐴟𐴙𐴃𐴢</annotation>
+		<annotation cp="🦨">𐴀𐴠𐴏𐴑𐴤𐴟𐴚 | 𐴀𐴠𐴏𐴑𐴤𐴟𐴚 - 𐴁𐴝𐴐𐴢</annotation>
+		<annotation cp="🦨" type="tts">𐴀𐴠𐴏𐴑𐴤𐴟𐴚</annotation>
+		<annotation cp="🦘">𐴑𐴝𐴚𐴒𐴟𐴌𐴟 | 𐴑𐴤𐴟𐴐𐴞 - 𐴉𐴥𐴝𐴓 𐴔𐴝𐴌𐴝 -𐴑𐴝𐴚𐴒𐴟𐴌𐴟</annotation>
+		<annotation cp="🦘" type="tts">𐴑𐴝𐴚𐴒𐴟𐴌𐴟</annotation>
+		<annotation cp="🦡">𐴁𐴠𐴎𐴞 | 𐴁𐴠𐴎𐴞 - 𐴔𐴡𐴣𐴊𐴤𐴟 𐴁𐴠𐴎𐴞 - 𐴒𐴟𐴐𐴧𐴝 𐴒𐴡𐴌𐴥𐴝𐴁𐴡𐴀𐴡𐴕</annotation>
+		<annotation cp="🦡" type="tts">𐴁𐴠𐴎𐴞</annotation>
+		<annotation cp="🐾">𐴄𐴤𐴠𐴚 - 𐴄𐴤𐴠𐴚 - 𐴄𐴤𐴠𐴚𐴡𐴌 𐴑𐴤𐴟𐴣𐴐𐴢 - 𐴑𐴤𐴟𐴣𐴐𐴢 | 𐴄𐴤𐴠𐴚𐴡𐴌 𐴑𐴤𐴟𐴣𐴐𐴢</annotation>
+		<annotation cp="🐾" type="tts">𐴄𐴤𐴠𐴚𐴡𐴌 𐴑𐴤𐴟𐴣𐴐𐴢</annotation>
+		<annotation cp="🦃">𐴇𐴥𐴝𐴣𐴌𐴒𐴞𐴓𐴝 | 𐴉𐴝𐴙𐴑 - 𐴇𐴥𐴝𐴣𐴌𐴒𐴞𐴓𐴝</annotation>
+		<annotation cp="🦃" type="tts">𐴇𐴥𐴝𐴣𐴌𐴒𐴞𐴓𐴝</annotation>
+		<annotation cp="🐔">𐴉𐴝𐴙𐴑 - 𐴑𐴟𐴌𐴥𐴝 | 𐴑𐴟𐴌𐴥𐴝</annotation>
+		<annotation cp="🐔" type="tts">𐴑𐴟𐴌𐴥𐴝</annotation>
+		<annotation cp="🐓">𐴉𐴝𐴙𐴑 - 𐴌𐴝𐴃𐴝 𐴑𐴟𐴌𐴥𐴝 | 𐴌𐴝𐴃𐴝 𐴑𐴟𐴌𐴥𐴝</annotation>
+		<annotation cp="🐓" type="tts">𐴌𐴝𐴃𐴝 𐴑𐴟𐴌𐴥𐴝</annotation>
+		<annotation cp="🐣">𐴏𐴥𐴡𐴀𐴡 - 𐴉𐴝𐴙𐴑 - 𐴑𐴟𐴌𐴥𐴝 -𐴏𐴥𐴡𐴀𐴡 𐴉𐴥𐴟𐴍𐴝𐴀𐴝𐴀𐴡𐴕 | 𐴏𐴥𐴡𐴀𐴡 𐴉𐴥𐴟𐴍𐴝𐴀𐴝𐴀𐴡𐴕</annotation>
+		<annotation cp="🐣" type="tts">𐴏𐴥𐴡𐴀𐴡 𐴉𐴥𐴟𐴍𐴝𐴀𐴝𐴀𐴡𐴕</annotation>
+		<annotation cp="🐤">𐴏𐴥𐴡𐴀𐴡 - 𐴉𐴝𐴙𐴑 - 𐴑𐴟𐴌𐴥𐴝 | 𐴏𐴥𐴡𐴀𐴡 𐴑𐴟𐴌𐴥𐴝</annotation>
+		<annotation cp="🐤" type="tts">𐴏𐴥𐴡𐴀𐴡 𐴑𐴟𐴌𐴥𐴝</annotation>
+		<annotation cp="🐥">𐴏𐴥𐴡𐴀𐴡 - 𐴉𐴝𐴙𐴑 - 𐴑𐴟𐴌𐴥𐴝 - 𐴔𐴟𐴀𐴟𐴔 𐴔𐴟𐴑𐴤𐴝 𐴑𐴟𐴌𐴥𐴝𐴌 𐴏𐴥𐴡𐴀𐴡 | 𐴔𐴟𐴀𐴟𐴔 𐴔𐴟𐴑𐴤𐴝 𐴑𐴟𐴌𐴥𐴝𐴌 𐴏𐴥𐴡𐴀𐴡</annotation>
+		<annotation cp="🐥" type="tts">𐴔𐴟𐴀𐴟𐴔 𐴔𐴟𐴑𐴤𐴝 𐴑𐴟𐴌𐴥𐴝𐴌 𐴏𐴥𐴡𐴀𐴡</annotation>
+		<annotation cp="🐦">𐴉𐴝𐴙𐴑</annotation>
+		<annotation cp="🐦" type="tts">𐴉𐴝𐴙𐴑</annotation>
+		<annotation cp="🐧">𐴂𐴠𐴕𐴒𐴟𐴖𐴞𐴕 | 𐴉𐴝𐴙𐴑 - 𐴂𐴠𐴕𐴒𐴟𐴖𐴞𐴕</annotation>
+		<annotation cp="🐧" type="tts">𐴂𐴠𐴕𐴒𐴟𐴖𐴞𐴕</annotation>
+		<annotation cp="🕊">𐴈𐴡𐴣𐴀𐴡𐴓 | 𐴉𐴝𐴙𐴑 - 𐴈𐴡𐴣𐴀𐴡𐴓- 𐴀𐴟𐴌𐴝 - 𐴐𐴤𐴝𐴕𐴃𐴞</annotation>
+		<annotation cp="🕊" type="tts">𐴈𐴡𐴣𐴀𐴡𐴓</annotation>
+		<annotation cp="🦅">𐴀𐴟𐴑𐴝𐴁𐴢 | 𐴉𐴝𐴙𐴑 - 𐴀𐴟𐴑𐴝𐴁𐴢</annotation>
+		<annotation cp="🦅" type="tts">𐴀𐴟𐴑𐴝𐴁𐴢</annotation>
+		<annotation cp="🦢">𐴉𐴝𐴙𐴑 - 𐴌𐴝𐴊𐴝 𐴇𐴥𐴝𐴣𐴐𐴡𐴌 𐴏𐴥𐴡𐴀𐴡 - 𐴌𐴝𐴊𐴝 𐴇𐴥𐴝𐴣𐴐𐴢 - 𐴑𐴟𐴐𐴤𐴟𐴕𐴊𐴡𐴌 𐴇𐴥𐴝𐴣𐴐𐴤𐴡𐴌 𐴏𐴥𐴡𐴀𐴡 | 𐴌𐴝𐴊𐴝 𐴇𐴥𐴝𐴣𐴐𐴢</annotation>
+		<annotation cp="🦢" type="tts">𐴌𐴝𐴊𐴝 𐴇𐴥𐴝𐴣𐴐𐴢</annotation>
+		<annotation cp="🦉">𐴉𐴝𐴙𐴑 - 𐴉𐴠𐴣𐴏𐴝 - 𐴀𐴝𐴑𐴡𐴓𐴔𐴡𐴕 | 𐴉𐴠𐴣𐴏𐴝</annotation>
+		<annotation cp="🦉" type="tts">𐴉𐴠𐴣𐴏𐴝</annotation>
+		<annotation cp="🦤">𐴋𐴟𐴋𐴟 𐴉𐴝𐴙𐴑 | 𐴋𐴟𐴋𐴟 𐴉𐴝𐴙𐴑 - 𐴀𐴡𐴉𐴝 - 𐴋𐴡𐴣𐴀𐴡𐴌 - 𐴔𐴟𐴌𐴞𐴐𐴤𐴞𐴐𐴢</annotation>
+		<annotation cp="🦤" type="tts">𐴋𐴟𐴋𐴟 𐴉𐴝𐴙𐴑</annotation>
+		<annotation cp="🪶">𐴉𐴝𐴙𐴑 - 𐴉𐴥𐴡𐴙𐴌 - 𐴀𐴟𐴌𐴡𐴀𐴡𐴕 - 𐴉𐴝𐴃𐴡𐴓 - 𐴑𐴟𐴣𐴌𐴝𐴘𐴧𐴝 𐴉𐴥𐴡𐴙𐴌 | 𐴉𐴥𐴡𐴙𐴌</annotation>
+		<annotation cp="🪶" type="tts">𐴉𐴥𐴡𐴙𐴌</annotation>
+		<annotation cp="🦩">𐴓𐴝𐴓 𐴔𐴝𐴃𐴤𐴝 𐴉𐴝𐴙𐴑 | 𐴓𐴝𐴓 𐴔𐴝𐴃𐴤𐴝 𐴉𐴝𐴙𐴑 - 𐴒𐴡𐴌𐴡𐴔 𐴔𐴟𐴓𐴧𐴟𐴑</annotation>
+		<annotation cp="🦩" type="tts">𐴓𐴝𐴓 𐴔𐴝𐴃𐴤𐴝 𐴉𐴝𐴙𐴑</annotation>
+		<annotation cp="🦚">𐴉𐴝𐴙𐴑 - 𐴊𐴠𐴈𐴥𐴝𐴁𐴡𐴕 - 𐴔𐴡𐴘𐴧𐴟𐴌 - 𐴔𐴡𐴘𐴧𐴟𐴌𐴕𐴞 - 𐴁𐴡𐴌𐴥𐴝𐴘 𐴒𐴡𐴌𐴥𐴝 | 𐴔𐴡𐴘𐴧𐴟𐴌</annotation>
+		<annotation cp="🦚" type="tts">𐴔𐴡𐴘𐴧𐴟𐴌</annotation>
+		<annotation cp="🦜">𐴃𐴟𐴃𐴝 | 𐴉𐴝𐴙𐴑 - 𐴃𐴟𐴃𐴝 - 𐴋𐴝𐴈𐴝𐴣𐴃𐴞 - 𐴔𐴝𐴃𐴢</annotation>
+		<annotation cp="🦜" type="tts">𐴃𐴟𐴃𐴝</annotation>
+		<annotation cp="🪽">𐴉𐴝𐴑 | 𐴉𐴡𐴌𐴞 - 𐴀𐴟𐴌𐴈𐴝𐴕 - 𐴉𐴝𐴙𐴑 -𐴀𐴟𐴌𐴡𐴀𐴡𐴕 - 𐴉𐴟𐴌𐴝𐴕𐴑𐴞 - 𐴉𐴝𐴑</annotation>
+		<annotation cp="🪽" type="tts">𐴉𐴝𐴑</annotation>
+		<annotation cp="🐦‍⬛">𐴈𐴝𐴓𐴝 𐴉𐴝𐴙𐴑 | 𐴉𐴝𐴙𐴑 - 𐴈𐴝𐴓𐴝 - 𐴈𐴝𐴖𐴧𐴝 - 𐴈𐴝𐴌𐴥𐴞 𐴓𐴡𐴀𐴡𐴕 - 𐴈𐴝𐴖𐴧𐴝</annotation>
+		<annotation cp="🐦‍⬛" type="tts">𐴈𐴝𐴓𐴝 𐴉𐴝𐴙𐴑</annotation>
+		<annotation cp="🪿">𐴇𐴥𐴝𐴣𐴐𐴢 | 𐴉𐴝𐴙𐴑 - 𐴉𐴡𐴐𐴤𐴟 - 𐴇𐴥𐴝𐴣𐴐𐴢 - 𐴇𐴥𐴝𐴣𐴐𐴤𐴡𐴌 𐴔𐴝𐴃𐴢 -𐴁𐴠𐴑𐴟𐴁𐴢</annotation>
+		<annotation cp="🪿" type="tts">𐴇𐴥𐴝𐴣𐴐𐴢</annotation>
+		<annotation cp="🐦‍🔥">𐴀𐴦𐴡𐴙𐴕𐴞 𐴉𐴝𐴙𐴑 | 𐴑𐴤𐴞𐴘𐴝𐴓𐴞 - 𐴀𐴦𐴡𐴙𐴕𐴞 𐴉𐴝𐴙𐴑 - 𐴊𐴟𐴘𐴀𐴡𐴔 𐴎𐴡𐴕𐴡𐴔 - 𐴀𐴦𐴡𐴙𐴕𐴞 𐴉𐴝𐴙𐴑</annotation>
+		<annotation cp="🐦‍🔥" type="tts">𐴀𐴦𐴡𐴙𐴕𐴞 𐴉𐴝𐴙𐴑</annotation>
+		<annotation cp="🐸">𐴁𐴠𐴚 | 𐴔𐴟𐴑 - 𐴁𐴠𐴚</annotation>
+		<annotation cp="🐸" type="tts">𐴁𐴠𐴚</annotation>
+		<annotation cp="🐊">𐴑𐴟𐴣𐴀𐴟𐴛𐴌</annotation>
+		<annotation cp="🐊" type="tts">𐴑𐴟𐴣𐴀𐴟𐴛𐴌</annotation>
+		<annotation cp="🐢">𐴈𐴡𐴏𐴧𐴡𐴂𐴢 | 𐴔𐴞𐴍𐴥𐴝 𐴉𐴝𐴕𐴥𐴞𐴌 𐴈𐴡𐴏𐴧𐴡𐴂𐴢 - 𐴈𐴡𐴏𐴧𐴡𐴂𐴢</annotation>
+		<annotation cp="🐢" type="tts">𐴈𐴡𐴏𐴧𐴡𐴂𐴢</annotation>
+		<annotation cp="🦎">𐴄𐴟𐴄𐴧𐴟𐴘 | 𐴄𐴟𐴄𐴧𐴟𐴘 - 𐴁𐴟𐴑𐴠 𐴏𐴥𐴠𐴣𐴏𐴟𐴌𐴡𐴕</annotation>
+		<annotation cp="🦎" type="tts">𐴄𐴟𐴄𐴧𐴟𐴘</annotation>
+		<annotation cp="🐍">𐴇𐴥𐴝𐴉𐴢 | 𐴎𐴝𐴕𐴖𐴝𐴌 - 𐴇𐴥𐴝𐴉𐴢</annotation>
+		<annotation cp="🐍" type="tts">𐴇𐴥𐴝𐴉𐴢</annotation>
+		<annotation cp="🐲">𐴋𐴠𐴌𐴝𐴒𐴟𐴕 - 𐴔𐴟𐴑 - 𐴑𐴤𐴞𐴘𐴝𐴓𐴞 𐴈𐴡𐴃𐴤𐴝 | 𐴋𐴠𐴌𐴝𐴒𐴟𐴕 𐴔𐴟𐴑</annotation>
+		<annotation cp="🐲" type="tts">𐴋𐴠𐴌𐴝𐴒𐴟𐴕 𐴔𐴟𐴑</annotation>
+		<annotation cp="🐉">𐴋𐴠𐴌𐴝𐴒𐴟𐴕 | 𐴋𐴠𐴌𐴝𐴒𐴟𐴕 - 𐴑𐴤𐴞𐴘𐴝𐴓𐴞 𐴈𐴡𐴃𐴤𐴝</annotation>
+		<annotation cp="🐉" type="tts">𐴋𐴠𐴌𐴝𐴒𐴟𐴕</annotation>
+		<annotation cp="🦕">𐴋𐴝𐴘𐴕𐴝 𐴏𐴦𐴟𐴌 - 𐴏𐴝𐴌𐴡𐴂𐴡𐴋 | 𐴏𐴝𐴌𐴡𐴂𐴡𐴋</annotation>
+		<annotation cp="🦕" type="tts">𐴏𐴝𐴌𐴡𐴂𐴡𐴋</annotation>
+		<annotation cp="🦖">𐴄𐴞𐴌𐴥𐴞𐴑𐴏𐴢</annotation>
+		<annotation cp="🦖" type="tts">𐴄𐴞𐴌𐴥𐴞𐴑𐴏𐴢</annotation>
+		<annotation cp="🐳">𐴉𐴥𐴟𐴖𐴥𐴝𐴌𐴝 𐴁𐴝𐴕𐴝𐴀𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴏𐴢 | 𐴔𐴟𐴑 - 𐴉𐴥𐴟𐴖𐴥𐴝𐴌𐴝 𐴁𐴝𐴕𐴝𐴀𐴡𐴙𐴕𐴧𐴝 - 𐴔𐴝𐴏𐴢</annotation>
+		<annotation cp="🐳" type="tts">𐴉𐴥𐴟𐴖𐴥𐴝𐴌𐴝 𐴁𐴝𐴕𐴝𐴀𐴡𐴙𐴕𐴧𐴝 𐴔𐴝𐴏𐴢</annotation>
+		<annotation cp="🐋">𐴏𐴥𐴟𐴏𐴟𐴔 𐴔𐴝𐴏𐴢</annotation>
+		<annotation cp="🐋" type="tts">𐴏𐴥𐴟𐴏𐴟𐴔 𐴔𐴝𐴏𐴢</annotation>
+		<annotation cp="🐬">𐴋𐴡𐴓𐴉𐴞𐴕 | 𐴋𐴡𐴓𐴉𐴞𐴕 - 𐴆𐴠𐴄𐴧𐴤𐴝 𐴉𐴝𐴑</annotation>
+		<annotation cp="🐬" type="tts">𐴋𐴡𐴓𐴉𐴞𐴕</annotation>
+		<annotation cp="🦭">𐴏𐴦𐴞𐴓 | 𐴏𐴦𐴞𐴓 𐴁𐴝𐴑 - 𐴏𐴦𐴞𐴓</annotation>
+		<annotation cp="🦭" type="tts">𐴏𐴦𐴞𐴓</annotation>
+		<annotation cp="🐟">𐴔𐴝𐴏𐴢 | 𐴔𐴝𐴏𐴢 - 𐴂𐴦𐴞𐴏𐴢 𐴏𐴞𐴕𐴧𐴡</annotation>
+		<annotation cp="🐟" type="tts">𐴔𐴝𐴏𐴢</annotation>
+		<annotation cp="🐠">𐴒𐴡𐴌𐴡𐴔 𐴊𐴠𐴐𐴤𐴡𐴌 𐴔𐴝𐴏𐴢 | 𐴔𐴝𐴏𐴢- 𐴒𐴡𐴌𐴡𐴔 𐴊𐴠𐴐𐴢</annotation>
+		<annotation cp="🐠" type="tts">𐴒𐴡𐴌𐴡𐴔 𐴊𐴠𐴐𐴤𐴡𐴌 𐴔𐴝𐴏𐴢</annotation>
+		<annotation cp="🐡">𐴉𐴟𐴄𐴑𐴝 | 𐴉𐴟𐴄𐴑𐴝 - 𐴔𐴝𐴏𐴢</annotation>
+		<annotation cp="🐡" type="tts">𐴉𐴟𐴄𐴑𐴝</annotation>
+		<annotation cp="🦈">𐴀𐴥𐴡𐴣𐴗𐴏𐴢 | 𐴔𐴝𐴏𐴢 - 𐴀𐴥𐴡𐴣𐴗𐴏𐴢</annotation>
+		<annotation cp="🦈" type="tts">𐴀𐴥𐴡𐴣𐴗𐴏𐴢</annotation>
+		<annotation cp="🐙">𐴕𐴟𐴙𐴕𐴧𐴝</annotation>
+		<annotation cp="🐙" type="tts">𐴕𐴟𐴙𐴕𐴧𐴝</annotation>
+		<annotation cp="🐚">𐴏𐴥𐴞𐴓𐴡𐴙𐴕</annotation>
+		<annotation cp="🐚" type="tts">𐴏𐴥𐴞𐴓𐴡𐴙𐴕</annotation>
+		<annotation cp="🪸">𐴔𐴟𐴚𐴒𐴝 | 𐴔𐴟𐴚𐴒𐴝 - 𐴐𐴤𐴝𐴘𐴒𐴤𐴡𐴌 - 𐴌𐴦𐴞𐴉𐴢</annotation>
+		<annotation cp="🪸" type="tts">𐴔𐴟𐴚𐴒𐴝</annotation>
+		<annotation cp="🪼">𐴉𐴟𐴌𐴝 - 𐴀𐴤𐴝𐴣𐴋𐴧𐴞 𐴏𐴝𐴌𐴥𐴝 𐴉𐴝𐴕𐴥𐴞𐴌 𐴎𐴝𐴕𐴟𐴖𐴝𐴌 -𐴓𐴠𐴐𐴧𐴗𐴝 - 𐴏𐴥𐴝𐴃𐴞 𐴕𐴟𐴙𐴕𐴧𐴝 - 𐴐𐴤𐴝𐴘𐴒𐴡𐴌𐴞 - 𐴀𐴟𐴇 - 𐴑𐴤𐴟𐴣𐴄 𐴔𐴝𐴌𐴡𐴀𐴡𐴙𐴕𐴧𐴝 | 𐴏𐴥𐴝𐴃𐴞 𐴕𐴟𐴙𐴕𐴧𐴝</annotation>
+		<annotation cp="🪼" type="tts">𐴏𐴥𐴝𐴃𐴞 𐴕𐴟𐴙𐴕𐴧𐴝</annotation>
+		<annotation cp="🐌">𐴓𐴠𐴎𐴝</annotation>
+		<annotation cp="🐌" type="tts">𐴓𐴠𐴎𐴝</annotation>
+		<annotation cp="🦋">𐴈𐴡𐴊𐴧𐴝 𐴉𐴟𐴃𐴞 | 𐴈𐴡𐴊𐴧𐴝 𐴉𐴟𐴃𐴞 - 𐴓𐴡𐴑 - 𐴐𐴤𐴟𐴕𐴊𐴡𐴌</annotation>
+		<annotation cp="🦋" type="tts">𐴈𐴡𐴊𐴧𐴝 𐴉𐴟𐴃𐴞</annotation>
+		<annotation cp="🐛">𐴁𐴟𐴑 | 𐴁𐴟𐴑 - 𐴓𐴡𐴑</annotation>
+		<annotation cp="🐛" type="tts">𐴁𐴟𐴑</annotation>
+		<annotation cp="🐜">𐴉𐴞𐴛𐴥𐴝𐴌𐴝 | 𐴉𐴞𐴛𐴥𐴝𐴌𐴝 - 𐴓𐴡𐴑</annotation>
+		<annotation cp="🐜" type="tts">𐴉𐴞𐴛𐴥𐴝𐴌𐴝</annotation>
+		<annotation cp="🐝">𐴉𐴟𐴑 - 𐴔𐴡𐴊𐴤𐴟 𐴉𐴟𐴑 - 𐴓𐴡𐴑 | 𐴔𐴡𐴊𐴤𐴟 𐴉𐴟𐴑</annotation>
+		<annotation cp="🐝" type="tts">𐴔𐴡𐴊𐴤𐴟 𐴉𐴟𐴑</annotation>
+		<annotation cp="🪲">𐴒𐴟𐴖𐴡𐴙𐴅𐴧𐴙𐴝 𐴉𐴟𐴑 | 𐴒𐴟𐴖𐴡𐴙𐴅𐴧𐴙𐴝 𐴉𐴟𐴑 - 𐴁𐴟𐴑 - 𐴓𐴡𐴑</annotation>
+		<annotation cp="🪲" type="tts">𐴒𐴟𐴖𐴡𐴙𐴅𐴧𐴙𐴝 𐴉𐴟𐴑</annotation>
+		<annotation cp="🐞">𐴁𐴤𐴡𐴣𐴌𐴝 | 𐴁𐴤𐴡𐴣𐴌𐴝 - 𐴓𐴡𐴑 - 𐴁𐴤𐴡𐴣𐴌𐴝 - 𐴓𐴠𐴋𐴞 𐴁𐴤𐴝𐴋 - 𐴓𐴠𐴋𐴞 𐴁𐴟𐴑</annotation>
+		<annotation cp="🐞" type="tts">𐴁𐴤𐴡𐴣𐴌𐴝</annotation>
+		<annotation cp="🦗">𐴉𐴥𐴟𐴣𐴖𐴥𐴝𐴣 | 𐴉𐴥𐴟𐴣𐴖𐴥𐴝𐴣 - 𐴉𐴥𐴞𐴌𐴠𐴚</annotation>
+		<annotation cp="🦗" type="tts">𐴉𐴥𐴟𐴣𐴖𐴥𐴝𐴣</annotation>
+		<annotation cp="🪳">𐴃𐴠𐴙𐴓𐴧𐴝 𐴏𐴟𐴌𐴝 | 𐴃𐴠𐴙𐴓𐴧𐴝 𐴏𐴟𐴌𐴝 - 𐴓𐴡𐴑 -</annotation>
+		<annotation cp="🪳" type="tts">𐴃𐴠𐴙𐴓𐴧𐴝 𐴏𐴟𐴌𐴝</annotation>
+		<annotation cp="🕷">𐴓𐴡𐴑 - 𐴔𐴦𐴡𐴣𐴐𐴧𐴝 | 𐴔𐴦𐴡𐴣𐴐𐴧𐴝</annotation>
+		<annotation cp="🕷" type="tts">𐴔𐴦𐴡𐴣𐴐𐴧𐴝</annotation>
+		<annotation cp="🕸">𐴔𐴦𐴡𐴣𐴐𐴧𐴝 - 𐴎𐴝𐴓 | 𐴔𐴦𐴡𐴣𐴐𐴧𐴝𐴌 𐴎𐴝𐴓</annotation>
+		<annotation cp="🕸" type="tts">𐴔𐴦𐴡𐴣𐴐𐴧𐴝𐴌 𐴎𐴝𐴓</annotation>
+		<annotation cp="🦂">𐴀𐴠𐴏𐴑𐴟𐴌𐴟𐴂𐴞𐴘𐴟 𐴏𐴞𐴕𐴧𐴡 - 𐴁𐴠𐴏𐴧𐴟 | 𐴁𐴞𐴏𐴧𐴥𐴟</annotation>
+		<annotation cp="🦂" type="tts">𐴁𐴞𐴏𐴧𐴥𐴟</annotation>
+		<annotation cp="🦟">𐴁𐴞𐴘𐴝𐴌𐴝𐴔 - 𐴎𐴡𐴌 - 𐴔𐴠𐴓𐴠𐴌𐴞𐴘𐴝 - 𐴔𐴟𐴆𐴤𐴝 - 𐴉𐴟𐴑 | 𐴔𐴟𐴆𐴤𐴝</annotation>
+		<annotation cp="🦟" type="tts">𐴔𐴟𐴆𐴤𐴝</annotation>
+		<annotation cp="🪰">𐴁𐴞𐴘𐴝𐴌𐴝𐴔 - 𐴔𐴝𐴏𐴥𐴞 - 𐴓𐴡𐴑 - 𐴉𐴡𐴣𐴏𐴝 | 𐴔𐴝𐴏𐴥𐴞</annotation>
+		<annotation cp="🪰" type="tts">𐴔𐴝𐴏𐴥𐴞</annotation>
+		<annotation cp="🪱">𐴏𐴞𐴌 | 𐴓𐴝𐴔𐴁𐴝 𐴓𐴡𐴑 - 𐴑𐴠𐴏𐴧𐴗𐴝 - 𐴔𐴡𐴃𐴧𐴤𐴡 𐴈𐴥𐴟𐴌 - 𐴏𐴞𐴌</annotation>
+		<annotation cp="🪱" type="tts">𐴏𐴞𐴌</annotation>
+		<annotation cp="🦠">𐴀𐴝𐴔𐴞𐴁𐴝 - 𐴁𐴠𐴑𐴄𐴠𐴌𐴞𐴘𐴝 - 𐴁𐴞𐴘𐴝𐴌𐴝𐴔𐴡𐴌 𐴉𐴟𐴑 - 𐴁𐴤𐴝𐴘𐴌𐴠𐴏𐴢 | 𐴁𐴞𐴘𐴝𐴌𐴝𐴔𐴡𐴌 𐴉𐴟𐴑</annotation>
+		<annotation cp="🦠" type="tts">𐴁𐴞𐴘𐴝𐴌𐴝𐴔𐴡𐴌 𐴉𐴟𐴑</annotation>
+		<annotation cp="💐">𐴉𐴥𐴟𐴓𐴡𐴌 𐴁𐴟𐴣𐴊𐴝 | 𐴉𐴥𐴟𐴓𐴡𐴌 𐴁𐴟𐴣𐴊𐴝 - 𐴉𐴥𐴟𐴓</annotation>
+		<annotation cp="💐" type="tts">𐴉𐴥𐴟𐴓𐴡𐴌 𐴁𐴟𐴣𐴊𐴝</annotation>
+		<annotation cp="🌸">𐴆𐴠𐴌𐴞 𐴉𐴥𐴟𐴓 | 𐴈𐴡𐴓𐴞 - 𐴆𐴠𐴌𐴞 - 𐴉𐴥𐴟𐴓</annotation>
+		<annotation cp="🌸" type="tts">𐴆𐴠𐴌𐴞 𐴉𐴥𐴟𐴓</annotation>
+		<annotation cp="💮">𐴉𐴥𐴟𐴓 - 𐴊𐴤𐴡𐴓𐴝 𐴉𐴥𐴟𐴓 | 𐴊𐴤𐴡𐴓𐴝 𐴉𐴥𐴟𐴓</annotation>
+		<annotation cp="💮" type="tts">𐴊𐴤𐴡𐴓𐴝 𐴉𐴥𐴟𐴓</annotation>
+		<annotation cp="🪷">𐴁𐴟𐴋𐴧𐴤𐴞𐴏𐴢 𐴊𐴤𐴡𐴌𐴔𐴡 - 𐴉𐴥𐴟𐴓 - 𐴇𐴥𐴞𐴕𐴊𐴟 𐴊𐴤𐴡𐴌𐴔𐴡 - 𐴇𐴥𐴡𐴣𐴓𐴝 𐴉𐴥𐴟𐴓 - 𐴏𐴥𐴝𐴉𐴢 | 𐴇𐴥𐴡𐴣𐴓𐴝 𐴉𐴥𐴟𐴓</annotation>
+		<annotation cp="🪷" type="tts">𐴇𐴥𐴡𐴣𐴓𐴝 𐴉𐴥𐴟𐴓</annotation>
+		<annotation cp="🏵">𐴏𐴝𐴌𐴝 - 𐴒𐴟𐴓𐴝𐴁𐴞 | 𐴒𐴟𐴓𐴝𐴁𐴞 𐴕𐴡𐴑𐴐𐴤𐴡</annotation>
+		<annotation cp="🏵" type="tts">𐴒𐴟𐴓𐴝𐴁𐴞 𐴕𐴡𐴑𐴐𐴤𐴡</annotation>
+		<annotation cp="🌹">𐴉𐴥𐴟𐴓 - 𐴒𐴟𐴓𐴝𐴁𐴢 𐴉𐴥𐴟𐴓 | 𐴒𐴟𐴓𐴝𐴁𐴢 𐴉𐴥𐴟𐴓</annotation>
+		<annotation cp="🌹" type="tts">𐴒𐴟𐴓𐴝𐴁𐴢 𐴉𐴥𐴟𐴓</annotation>
+		<annotation cp="🥀">𐴉𐴥𐴟𐴓 - 𐴔𐴡𐴙𐴎𐴧𐴙𐴝 | 𐴔𐴡𐴙𐴎𐴧𐴙𐴝 𐴉𐴥𐴟𐴓</annotation>
+		<annotation cp="🥀" type="tts">𐴔𐴡𐴙𐴎𐴧𐴙𐴝 𐴉𐴥𐴟𐴓</annotation>
+		<annotation cp="🌺">𐴉𐴥𐴟𐴓 - 𐴌𐴡𐴚 𐴁𐴡𐴌𐴡𐴚 | 𐴌𐴡𐴚 𐴁𐴡𐴌𐴡𐴚 𐴉𐴥𐴟𐴓</annotation>
+		<annotation cp="🌺" type="tts">𐴌𐴡𐴚 𐴁𐴡𐴌𐴡𐴚 𐴉𐴥𐴟𐴓</annotation>
+		<annotation cp="🌻">𐴉𐴥𐴟𐴓 - 𐴁𐴠𐴙𐴓 - 𐴏𐴥𐴟𐴅𐴧𐴡 𐴔𐴟𐴑𐴤𐴞 𐴉𐴥𐴟𐴓 | 𐴏𐴥𐴟𐴅𐴧𐴡 𐴔𐴟𐴑𐴤𐴞 𐴉𐴥𐴟𐴓</annotation>
+		<annotation cp="🌻" type="tts">𐴏𐴥𐴟𐴅𐴧𐴡 𐴔𐴟𐴑𐴤𐴞 𐴉𐴥𐴟𐴓</annotation>
+		<annotation cp="🌼">𐴈𐴡𐴓𐴞 | 𐴈𐴡𐴓𐴞 - 𐴉𐴥𐴟𐴓</annotation>
+		<annotation cp="🌼" type="tts">𐴈𐴡𐴓𐴞</annotation>
+		<annotation cp="🌷">𐴃𐴡𐴖𐴓𐴞𐴂𐴢 𐴉𐴥𐴟𐴓 | 𐴉𐴥𐴟𐴓 - 𐴃𐴡𐴖𐴓𐴞𐴂𐴢 𐴉𐴥𐴟𐴓</annotation>
+		<annotation cp="🌷" type="tts">𐴃𐴡𐴖𐴓𐴞𐴂𐴢 𐴉𐴥𐴟𐴓</annotation>
+		<annotation cp="🪻">𐴀𐴝𐴏𐴔𐴝𐴕𐴞 𐴌𐴡𐴚𐴡𐴌 𐴉𐴥𐴟𐴓 - 𐴉𐴥𐴟𐴓 - 𐴘𐴝𐴑𐴟𐴃𐴞 𐴉𐴥𐴟𐴓 - 𐴓𐴟𐴂𐴞𐴕 | 𐴘𐴝𐴑𐴟𐴃𐴞 𐴉𐴥𐴟𐴓</annotation>
+		<annotation cp="🪻" type="tts">𐴘𐴝𐴑𐴟𐴃𐴞 𐴉𐴥𐴟𐴓</annotation>
+		<annotation cp="🌱">𐴊𐴝𐴕𐴝 𐴉𐴥𐴟𐴍𐴝𐴀𐴡𐴕 | 𐴊𐴝𐴕𐴝 𐴉𐴥𐴟𐴍𐴝𐴀𐴡𐴕 - 𐴐𐴤𐴡𐴣𐴍𐴡</annotation>
+		<annotation cp="🌱" type="tts">𐴊𐴝𐴕𐴝 𐴉𐴥𐴟𐴍𐴝𐴀𐴡𐴕</annotation>
+		<annotation cp="🪴">𐴇𐴤𐴡𐴌𐴝𐴕 - 𐴁𐴝𐴌𐴡𐴀𐴡𐴕 - 𐴒𐴤𐴡𐴌 - 𐴏𐴝𐴌𐴝 - 𐴉𐴡𐴍𐴡𐴃𐴢 𐴓𐴝𐴒𐴝𐴘𐴧𐴝 𐴏𐴝𐴌𐴝 - 𐴉𐴥𐴝𐴘𐴊𐴝 𐴏𐴥𐴝𐴌𐴝 | 𐴉𐴡𐴍𐴡𐴃𐴢 𐴓𐴝𐴒𐴝𐴘𐴧𐴝 𐴏𐴝𐴌𐴝</annotation>
+		<annotation cp="🪴" type="tts">𐴉𐴡𐴍𐴡𐴃𐴢 𐴓𐴝𐴒𐴝𐴘𐴧𐴝 𐴏𐴝𐴌𐴝</annotation>
+		<annotation cp="🌲">𐴕𐴞𐴃𐴧𐴞 𐴇𐴥𐴝𐴙𐴓 𐴒𐴝𐴏𐴢 | 𐴕𐴞𐴃𐴧𐴞 𐴇𐴥𐴝𐴙𐴓 𐴒𐴝𐴏𐴢 - 𐴒𐴝𐴏𐴢</annotation>
+		<annotation cp="🌲" type="tts">𐴕𐴞𐴃𐴧𐴞 𐴇𐴥𐴝𐴙𐴓 𐴒𐴝𐴏𐴢</annotation>
+		<annotation cp="🌳">𐴉𐴝𐴃𐴝 𐴎𐴤𐴡𐴌𐴝 - 𐴏𐴥𐴝𐴁𐴝 - 𐴒𐴝𐴏𐴢 | 𐴉𐴝𐴃𐴝 𐴎𐴤𐴡𐴌𐴝 𐴒𐴝𐴏𐴢</annotation>
+		<annotation cp="🌳" type="tts">𐴉𐴝𐴃𐴝 𐴎𐴤𐴡𐴌𐴝 𐴒𐴝𐴏𐴢</annotation>
+		<annotation cp="🌴">𐴈𐴥𐴝𐴎𐴟 - 𐴒𐴝𐴏𐴢 | 𐴈𐴥𐴝𐴎𐴟 𐴒𐴝𐴏𐴢</annotation>
+		<annotation cp="🌴" type="tts">𐴈𐴥𐴝𐴎𐴟 𐴒𐴝𐴏𐴢</annotation>
+		<annotation cp="🌵">𐴕𐴝𐴑𐴉𐴡𐴕𐴞 𐴒𐴝𐴏𐴢 | 𐴕𐴝𐴑𐴉𐴡𐴕𐴞 𐴒𐴝𐴏𐴢 - 𐴏𐴝𐴌𐴝</annotation>
+		<annotation cp="🌵" type="tts">𐴕𐴝𐴑𐴉𐴡𐴕𐴞 𐴒𐴝𐴏𐴢</annotation>
+		<annotation cp="🌾">𐴈𐴝𐴕 - 𐴏𐴡𐴙𐴓 - 𐴊𐴤𐴝𐴕𐴡𐴌 𐴏𐴥𐴡𐴌𐴝 | 𐴊𐴤𐴝𐴕𐴡𐴌 𐴏𐴥𐴡𐴌𐴝</annotation>
+		<annotation cp="🌾" type="tts">𐴊𐴤𐴝𐴕𐴡𐴌 𐴏𐴥𐴡𐴌𐴝</annotation>
+		<annotation cp="🌿">𐴓𐴡𐴃𐴝 𐴒𐴝𐴏𐴢 | 𐴓𐴡𐴃𐴝 𐴒𐴝𐴏𐴢 - 𐴉𐴝𐴃𐴝</annotation>
+		<annotation cp="🌿" type="tts">𐴓𐴡𐴃𐴝 𐴒𐴝𐴏𐴢</annotation>
+		<annotation cp="☘">𐴏𐴝𐴌𐴝 - 𐴃𐴞𐴕 𐴉𐴝𐴃𐴝 𐴀𐴡𐴓𐴝 𐴒𐴝𐴏𐴢 | 𐴐𐴤𐴝𐴔𐴟𐴌𐴟𐴑</annotation>
+		<annotation cp="☘" type="tts">𐴐𐴤𐴝𐴔𐴟𐴌𐴟𐴑</annotation>
+		<annotation cp="🍀">4 - 𐴉𐴝𐴃𐴝 - 𐴏𐴝𐴙𐴌 - 𐴏𐴝𐴙𐴌 𐴉𐴝𐴃𐴝 | 𐴏𐴝𐴙𐴌 𐴉𐴝𐴃𐴝 𐴀𐴡𐴓𐴝 𐴒𐴝𐴏𐴢</annotation>
+		<annotation cp="🍀" type="tts">𐴏𐴝𐴙𐴌 𐴉𐴝𐴃𐴝 𐴀𐴡𐴓𐴝 𐴒𐴝𐴏𐴢</annotation>
+		<annotation cp="🍁">𐴎𐴤𐴡𐴌𐴡𐴕 - 𐴉𐴝𐴃𐴝 - 𐴔𐴟𐴙𐴕𐴧𐴝 𐴉𐴝𐴃𐴝 𐴀𐴡𐴓𐴝 𐴒𐴝𐴏𐴢 | 𐴔𐴟𐴙𐴕𐴧𐴝 𐴉𐴝𐴃𐴝 𐴀𐴡𐴓𐴝 𐴒𐴝𐴏𐴢</annotation>
+		<annotation cp="🍁" type="tts">𐴔𐴟𐴙𐴕𐴧𐴝 𐴉𐴝𐴃𐴝 𐴀𐴡𐴓𐴝 𐴒𐴝𐴏𐴢</annotation>
+		<annotation cp="🍂">𐴎𐴤𐴡𐴙𐴅𐴧𐴙𐴝 𐴉𐴝𐴃𐴝 | 𐴎𐴤𐴡𐴙𐴅𐴧𐴙𐴝 𐴉𐴝𐴃𐴝 - 𐴎𐴤𐴡𐴌𐴝 - 𐴉𐴝𐴃𐴝</annotation>
+		<annotation cp="🍂" type="tts">𐴎𐴤𐴡𐴙𐴅𐴧𐴙𐴝 𐴉𐴝𐴃𐴝</annotation>
+		<annotation cp="🍃">𐴁𐴡𐴘𐴧𐴝𐴌𐴠 𐴀𐴟𐴌𐴠𐴌𐴊𐴧𐴠 𐴉𐴝𐴃𐴝 | 𐴅𐴤𐴝𐴄𐴑𐴝 - 𐴀𐴟𐴌𐴝𐴀𐴡𐴕 - 𐴉𐴝𐴃𐴝 - 𐴁𐴡𐴘𐴧𐴝𐴌𐴠 𐴀𐴟𐴌𐴠𐴌𐴊𐴧𐴠 𐴉𐴝𐴃𐴝 - 𐴁𐴡𐴘𐴧𐴝𐴌</annotation>
+		<annotation cp="🍃" type="tts">𐴁𐴡𐴘𐴧𐴝𐴌𐴠 𐴀𐴟𐴌𐴠𐴌𐴊𐴧𐴠 𐴉𐴝𐴃𐴝</annotation>
+		<annotation cp="🪹">𐴈𐴥𐴝𐴓𐴞 𐴁𐴝𐴈𐴥𐴝 | 𐴈𐴥𐴝𐴓𐴞 𐴁𐴝𐴈𐴥𐴝 - 𐴁𐴝𐴈𐴥𐴝 𐴁𐴝𐴕𐴝</annotation>
+		<annotation cp="🪹" type="tts">𐴈𐴥𐴝𐴓𐴞 𐴁𐴝𐴈𐴥𐴝</annotation>
+		<annotation cp="🪺">𐴀𐴝𐴕𐴋𐴝 𐴀𐴡𐴓𐴝 𐴁𐴝𐴈𐴥𐴝 | 𐴀𐴝𐴕𐴋𐴝 𐴀𐴡𐴓𐴝 𐴁𐴝𐴈𐴥𐴝 - 𐴁𐴝𐴈𐴥𐴝 𐴁𐴝𐴕𐴝</annotation>
+		<annotation cp="🪺" type="tts">𐴀𐴝𐴕𐴋𐴝 𐴀𐴡𐴓𐴝 𐴁𐴝𐴈𐴥𐴝</annotation>
+		<annotation cp="🍄">𐴀𐴟𐴓 | 𐴀𐴟𐴓 - 𐴁𐴠𐴚𐴡𐴌 𐴏𐴥𐴝𐴃𐴞</annotation>
+		<annotation cp="🍄" type="tts">𐴀𐴟𐴓</annotation>
+		<annotation cp="🍇">𐴀𐴝𐴚𐴒𐴟𐴌 | 𐴒𐴟𐴓𐴝 - 𐴀𐴝𐴚𐴒𐴟𐴌 - 𐴀𐴝𐴚𐴒𐴟𐴌 𐴀𐴥𐴡𐴑𐴧𐴡𐴓</annotation>
+		<annotation cp="🍇" type="tts">𐴀𐴝𐴚𐴒𐴟𐴌</annotation>
+		<annotation cp="🍈">𐴈𐴥𐴡𐴌𐴁𐴟𐴎𐴝 | 𐴒𐴟𐴓𐴝 - 𐴈𐴥𐴡𐴌𐴁𐴟𐴎𐴝</annotation>
+		<annotation cp="🍈" type="tts">𐴈𐴥𐴡𐴌𐴁𐴟𐴎𐴝</annotation>
+		<annotation cp="🍉">𐴃𐴡𐴌𐴔𐴟𐴏𐴢 | 𐴒𐴟𐴓𐴝 - 𐴃𐴡𐴌𐴔𐴟𐴏𐴢</annotation>
+		<annotation cp="🍉" type="tts">𐴃𐴡𐴌𐴔𐴟𐴏𐴢</annotation>
+		<annotation cp="🍊">𐴐𐴤𐴡𐴣𐴍𐴡 𐴈𐴦𐴡𐴣𐴓𐴝 | 𐴒𐴟𐴓𐴝 - 𐴈𐴦𐴡𐴣𐴓𐴝 - 𐴐𐴤𐴡𐴣𐴍𐴡 𐴈𐴦𐴡𐴓𐴝</annotation>
+		<annotation cp="🍊" type="tts">𐴐𐴤𐴡𐴣𐴍𐴡 𐴈𐴦𐴡𐴣𐴓𐴝</annotation>
+		<annotation cp="🍋">𐴐𐴤𐴡𐴌𐴁𐴡𐴃𐴞 - 𐴒𐴟𐴓𐴝 - 𐴓𐴠𐴔𐴟 | 𐴓𐴠𐴔𐴟</annotation>
+		<annotation cp="🍋" type="tts">𐴓𐴠𐴔𐴟</annotation>
+		<annotation cp="🍋‍🟩">𐴐𐴤𐴡𐴌𐴁𐴡𐴃𐴞 - 𐴒𐴟𐴓𐴝 - 𐴒𐴡𐴌𐴡𐴙𐴔𐴧𐴙𐴝 - 𐴑𐴠𐴣𐴍𐴝 𐴎𐴝𐴔𐴞𐴌 | 𐴑𐴠𐴣𐴍𐴝 𐴎𐴝𐴔𐴞𐴌</annotation>
+		<annotation cp="🍋‍🟩" type="tts">𐴑𐴠𐴣𐴍𐴝 𐴎𐴝𐴔𐴞𐴌</annotation>
+		<annotation cp="🍌">𐴑𐴠𐴓𐴝 | 𐴑𐴠𐴓𐴝 - 𐴒𐴟𐴓𐴝</annotation>
+		<annotation cp="🍌" type="tts">𐴑𐴠𐴓𐴝</annotation>
+		<annotation cp="🍍">𐴀𐴠𐴕𐴦𐴝𐴐𐴢 | 𐴒𐴟𐴓𐴝 - 𐴀𐴠𐴕𐴦𐴝𐴐𐴢</annotation>
+		<annotation cp="🍍" type="tts">𐴀𐴠𐴕𐴦𐴝𐴐𐴢</annotation>
+		<annotation cp="🥭">𐴀𐴝𐴔 | 𐴒𐴟𐴓𐴝 - 𐴀𐴝𐴔 - 𐴒𐴡𐴌𐴡𐴙𐴔𐴧𐴙𐴝</annotation>
+		<annotation cp="🥭" type="tts">𐴀𐴝𐴔</annotation>
+		<annotation cp="🍎">𐴏𐴥𐴠𐴂𐴢 - 𐴒𐴟𐴓𐴝 -𐴓𐴝𐴓 | 𐴓𐴝𐴓 𐴏𐴥𐴠𐴂𐴢</annotation>
+		<annotation cp="🍎" type="tts">𐴓𐴝𐴓 𐴏𐴥𐴠𐴂𐴢</annotation>
+		<annotation cp="🍏">𐴇𐴥𐴝𐴙𐴓 𐴏𐴥𐴠𐴂𐴢 | 𐴏𐴥𐴠𐴂𐴢 - 𐴒𐴟𐴓𐴝 - 𐴇𐴥𐴝𐴙𐴓</annotation>
+		<annotation cp="🍏" type="tts">𐴇𐴥𐴝𐴙𐴓 𐴏𐴥𐴠𐴂𐴢</annotation>
+		<annotation cp="🍐">𐴒𐴟𐴓𐴝 - 𐴕𐴝𐴐𐴉𐴡𐴃𐴞 | 𐴕𐴝𐴐𐴉𐴡𐴃𐴞</annotation>
+		<annotation cp="🍐" type="tts">𐴕𐴝𐴐𐴉𐴡𐴃𐴞</annotation>
+		<annotation cp="🍑">𐴒𐴟𐴓𐴝 - 𐴔𐴥𐴝𐴔𐴟𐴕 𐴒𐴟𐴓𐴝 | 𐴔𐴥𐴝𐴔𐴟𐴕 𐴒𐴟𐴓𐴝</annotation>
+		<annotation cp="🍑" type="tts">𐴔𐴥𐴝𐴔𐴟𐴕 𐴒𐴟𐴓𐴝</annotation>
+		<annotation cp="🍒">𐴁𐴦𐴠𐴌𐴞 - 𐴆𐴦𐴠𐴌𐴞 - 𐴒𐴟𐴓𐴝 - 𐴓𐴝𐴓 | 𐴆𐴦𐴠𐴌𐴞</annotation>
+		<annotation cp="🍒" type="tts">𐴆𐴦𐴠𐴌𐴞</annotation>
+		<annotation cp="🍓">𐴀𐴠𐴏𐴄𐴡𐴌𐴡 𐴁𐴝𐴌𐴞 | 𐴁𐴦𐴠𐴌𐴞 - 𐴒𐴟𐴓𐴝 - 𐴀𐴠𐴏𐴄𐴡𐴌𐴡 𐴁𐴝𐴌𐴞</annotation>
+		<annotation cp="🍓" type="tts">𐴀𐴠𐴏𐴄𐴡𐴌𐴡 𐴁𐴝𐴌𐴞</annotation>
+		<annotation cp="🫐">𐴁𐴟𐴓𐴟 𐴁𐴦𐴠𐴌𐴞 | 𐴁𐴦𐴠𐴌𐴞 - 𐴁𐴞𐴓𐴁𐴦𐴠𐴌𐴞 - 𐴕𐴞𐴓𐴝 - 𐴁𐴟𐴓𐴟 𐴁𐴦𐴠𐴌𐴞</annotation>
+		<annotation cp="🫐" type="tts">𐴁𐴟𐴓𐴟 𐴁𐴦𐴠𐴌𐴞</annotation>
+		<annotation cp="🥝">𐴈𐴥𐴝𐴕𐴝 - 𐴒𐴟𐴓𐴝 - 𐴑𐴦𐴞𐴖𐴞 | 𐴑𐴦𐴞𐴖𐴞 𐴒𐴟𐴓𐴝</annotation>
+		<annotation cp="🥝" type="tts">𐴑𐴦𐴞𐴖𐴞 𐴒𐴟𐴓𐴝</annotation>
+		<annotation cp="🍅">𐴄𐴝𐴘𐴧𐴡𐴕 | 𐴒𐴟𐴓𐴝 - 𐴄𐴝𐴘𐴧𐴡𐴕 - 𐴃𐴡𐴌𐴈𐴝𐴌𐴞</annotation>
+		<annotation cp="🍅" type="tts">𐴄𐴝𐴘𐴧𐴡𐴕</annotation>
+		<annotation cp="🫒">𐴈𐴥𐴝𐴕𐴝 - 𐴎𐴝𐴘𐴃𐴟𐴕 | 𐴎𐴝𐴘𐴃𐴟𐴕</annotation>
+		<annotation cp="🫒" type="tts">𐴎𐴝𐴘𐴃𐴟𐴕</annotation>
+		<annotation cp="🥥">𐴕𐴝𐴙𐴅𐴧𐴡𐴓 | 𐴕𐴝𐴙𐴅𐴧𐴡𐴓 - 𐴈𐴥𐴝𐴎𐴟 𐴒𐴝𐴏𐴢 - 𐴂𐴞𐴕𐴝 𐴑𐴟𐴓𐴝𐴋𐴝</annotation>
+		<annotation cp="🥥" type="tts">𐴕𐴝𐴙𐴅𐴧𐴡𐴓</annotation>
+		<annotation cp="🥑">𐴍𐴝𐴚𐴈𐴥𐴝𐴆 | 𐴍𐴝𐴚𐴈𐴥𐴝𐴆 - 𐴈𐴥𐴝𐴕𐴝 - 𐴒𐴟𐴓𐴝</annotation>
+		<annotation cp="🥑" type="tts">𐴍𐴝𐴚𐴈𐴥𐴝𐴆</annotation>
+		<annotation cp="🍆">𐴁𐴝𐴘𐴧𐴡𐴕 | 𐴓𐴝𐴔𐴁𐴝 𐴁𐴝𐴘𐴧𐴡𐴕 - 𐴁𐴝𐴘𐴧𐴡𐴕 - 𐴃𐴡𐴌𐴈𐴝𐴌𐴞</annotation>
+		<annotation cp="🍆" type="tts">𐴁𐴝𐴘𐴧𐴡𐴕</annotation>
+		<annotation cp="🥔">𐴀𐴝𐴓𐴟 | 𐴈𐴥𐴝𐴕𐴝 - 𐴀𐴝𐴓𐴟 - 𐴃𐴡𐴌𐴈𐴝𐴌𐴞</annotation>
+		<annotation cp="🥔" type="tts">𐴀𐴝𐴓𐴟</annotation>
+		<annotation cp="🥕">𐴒𐴝𐴎𐴡𐴌 | 𐴒𐴝𐴎𐴡𐴌 - 𐴈𐴥𐴝𐴕𐴝 - 𐴃𐴡𐴌𐴈𐴝𐴌𐴞</annotation>
+		<annotation cp="🥕" type="tts">𐴒𐴝𐴎𐴡𐴌</annotation>
+		<annotation cp="🌽">𐴔𐴡𐴑𐴧𐴝 𐴒𐴟𐴓𐴝 - 𐴔𐴡𐴑𐴧𐴝 𐴒𐴟𐴓𐴝𐴌 𐴁𐴝𐴈𐴡𐴓 | 𐴔𐴡𐴑𐴧𐴝 𐴒𐴟𐴓𐴝𐴌 𐴁𐴝𐴈𐴡𐴓</annotation>
+		<annotation cp="🌽" type="tts">𐴔𐴡𐴑𐴧𐴝 𐴒𐴟𐴓𐴝𐴌 𐴁𐴝𐴈𐴡𐴓</annotation>
+		<annotation cp="🌶">𐴎𐴤𐴝𐴓 - 𐴔𐴡𐴌𐴞𐴏𐴢 | 𐴎𐴤𐴝𐴓 𐴔𐴡𐴌𐴞𐴏𐴢</annotation>
+		<annotation cp="🌶" type="tts">𐴎𐴤𐴝𐴓 𐴔𐴡𐴌𐴞𐴏𐴢</annotation>
+		<annotation cp="🫑">𐴋𐴤𐴟𐴌𐴝 𐴔𐴡𐴌𐴞𐴏𐴢 | 𐴋𐴤𐴟𐴌𐴝 𐴔𐴡𐴌𐴞𐴏𐴢 - 𐴔𐴡𐴌𐴞𐴏𐴢 - 𐴃𐴡𐴌𐴈𐴝𐴌𐴞</annotation>
+		<annotation cp="🫑" type="tts">𐴋𐴤𐴟𐴌𐴝 𐴔𐴡𐴌𐴞𐴏𐴢</annotation>
+		<annotation cp="🥒">𐴉𐴥𐴡𐴓 | 𐴉𐴥𐴡𐴓 - 𐴈𐴥𐴝𐴕𐴝 - 𐴇𐴥𐴞𐴣𐴎𐴝𐴘𐴧𐴝 𐴉𐴥𐴡𐴓</annotation>
+		<annotation cp="🥒" type="tts">𐴉𐴥𐴡𐴓</annotation>
+		<annotation cp="🥬">𐴁𐴡𐴑𐴆𐴟𐴖𐴝𐴘 - 𐴁𐴝𐴣𐴊𐴤𐴝 𐴈𐴡𐴂𐴧𐴞 - 𐴉𐴝𐴃𐴝 𐴈𐴡𐴂𐴧𐴞 - 𐴇𐴥𐴝𐴙𐴓 𐴉𐴝𐴃𐴝 𐴀𐴡𐴓𐴝 - 𐴏𐴥𐴡𐴓𐴧𐴝𐴃𐴢 𐴉𐴝𐴃𐴝 | 𐴇𐴥𐴝𐴙𐴓 𐴉𐴝𐴃𐴝 𐴀𐴡𐴓𐴝</annotation>
+		<annotation cp="🥬" type="tts">𐴇𐴥𐴝𐴙𐴓 𐴉𐴝𐴃𐴝 𐴀𐴡𐴓𐴝</annotation>
+		<annotation cp="🥦">𐴉𐴥𐴟𐴓 𐴈𐴡𐴂𐴧𐴞 | 𐴉𐴥𐴟𐴓 𐴈𐴡𐴂𐴧𐴞 - 𐴎𐴦𐴡𐴣𐴓𐴟 𐴈𐴡𐴂𐴧𐴞</annotation>
+		<annotation cp="🥦" type="tts">𐴉𐴥𐴟𐴓 𐴈𐴡𐴂𐴧𐴞</annotation>
+		<annotation cp="🧄">𐴌𐴦𐴡𐴗𐴕 | 𐴐𐴤𐴟𐴒𐴡𐴕𐴊𐴡- 𐴌𐴦𐴡𐴗𐴕</annotation>
+		<annotation cp="🧄" type="tts">𐴌𐴦𐴡𐴗𐴕</annotation>
+		<annotation cp="🧅">𐴉𐴞𐴛𐴝𐴏𐴢 | 𐴐𐴤𐴟𐴒𐴡𐴊𐴡 - 𐴉𐴞𐴛𐴝𐴏𐴢</annotation>
+		<annotation cp="🧅" type="tts">𐴉𐴞𐴛𐴝𐴏𐴢</annotation>
+		<annotation cp="🥜">𐴁𐴝𐴊𐴝𐴔 | 𐴈𐴥𐴝𐴕𐴝 - 𐴁𐴝𐴈𐴡𐴓 𐴀𐴡𐴓𐴝 𐴊𐴝𐴕𐴝 - 𐴁𐴝𐴊𐴝𐴔 - 𐴃𐴡𐴌𐴈𐴝𐴌𐴞</annotation>
+		<annotation cp="🥜" type="tts">𐴁𐴝𐴊𐴝𐴔</annotation>
+		<annotation cp="🫘">𐴊𐴝𐴕𐴝 𐴀𐴥𐴡𐴑𐴧𐴡𐴓 | 𐴊𐴝𐴕𐴝 𐴀𐴥𐴡𐴑𐴧𐴡𐴓 - 𐴈𐴥𐴝𐴕𐴝 - 𐴑𐴞𐴕𐴧𐴞 - 𐴊𐴝𐴕𐴝</annotation>
+		<annotation cp="🫘" type="tts">𐴊𐴝𐴕𐴝 𐴀𐴥𐴡𐴑𐴧𐴡𐴓</annotation>
+		<annotation cp="🌰">𐴑𐴟𐴏𐴃𐴝𐴕𐴝 | 𐴑𐴟𐴏𐴃𐴝𐴕𐴝 - 𐴏𐴝𐴌𐴝</annotation>
+		<annotation cp="🌰" type="tts">𐴑𐴟𐴏𐴃𐴝𐴕𐴝</annotation>
+		<annotation cp="🫚">𐴀𐴝𐴊𐴝 | 𐴁𐴞𐴀𐴠𐴌 - 𐴀𐴝𐴊𐴝 - 𐴐𐴤𐴞𐴛𐴡𐴌- 𐴔𐴡𐴏𐴥𐴡𐴓𐴧𐴝</annotation>
+		<annotation cp="🫚" type="tts">𐴀𐴝𐴊𐴝</annotation>
+		<annotation cp="🫛">𐴊𐴝𐴕𐴝 - 𐴏𐴥𐴡𐴛 - 𐴊𐴝𐴕𐴝 - 𐴏𐴥𐴡𐴛 - 𐴃𐴡𐴌𐴈𐴝𐴌𐴞 | 𐴏𐴥𐴡𐴛</annotation>
+		<annotation cp="🫛" type="tts">𐴏𐴥𐴡𐴛</annotation>
+		<annotation cp="🍄‍🟫">𐴈𐴡𐴃𐴢 𐴌𐴡𐴚𐴝 𐴀𐴟𐴓 | 𐴈𐴡𐴃𐴢 𐴌𐴡𐴚𐴝 𐴀𐴟𐴓 - 𐴈𐴥𐴝𐴕𐴝 - 𐴓𐴝𐴓 𐴀𐴟𐴓 - 𐴑𐴟𐴊𐴟𐴌𐴡𐴃𐴞 - 𐴃𐴡𐴌𐴈𐴝𐴌𐴞</annotation>
+		<annotation cp="🍄‍🟫" type="tts">𐴈𐴡𐴃𐴢 𐴌𐴡𐴚𐴝 𐴀𐴟𐴓</annotation>
+	</annotations>
+</ldml>

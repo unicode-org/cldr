@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
@@ -13,6 +13,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<language type="kn"/>
 	</identity>
 	<annotations>
+		<annotation cp="{">ಕರ್ಲಿ ಬ್ರಾಕೆಟ್ | ಕರ್ಲಿ ಬ್ರೇಸ್ | ಗುಲ್ವಿಂಗ್ | ತೆರೆದ ಕರ್ಲಿ ಬ್ರಾಕೆಟ್ | ಬ್ರಾಕೆಟ್ | ಬ್ರೇಸ್</annotation>
+		<annotation cp="{" type="tts">ತೆರೆದ ಕರ್ಲಿ ಬ್ರಾಕೆಟ್</annotation>
 		<annotation cp="🏻">ಚರ್ಮದ ಬಣ್ಣ ತಿಳಿ | ತಿಳಿ ಬಣ್ಣದ ಚರ್ಮ | ವಿಧ 1–2</annotation>
 		<annotation cp="🏻" type="tts">ತಿಳಿ ಬಣ್ಣದ ಚರ್ಮ</annotation>
 		<annotation cp="🏼">ಚರ್ಮದ ಬಣ್ಣ ಮಧ್ಯಮ | ಮಧ್ಯಮ-ತಿಳಿ ಬಣ್ಣದ ಚರ್ಮ | ವಿಧ 3</annotation>
@@ -23,188 +25,692 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏾" type="tts">ಮಧ್ಯಮ-ಗಾಢ ಬಣ್ಣದ ಚರ್ಮ</annotation>
 		<annotation cp="🏿">ಗಾಢ ಬಣ್ಣದ ಚರ್ಮ | ಚರ್ಮದ ಬಣ್ಣ ಅತ್ಯಂತ ಗಾಢ | ವಿಧ 6</annotation>
 		<annotation cp="🏿" type="tts">ಗಾಢ ಬಣ್ಣದ ಚರ್ಮ</annotation>
+		<annotation cp="‾">ಓವರ್ಸ್ಟ್ರೈಕ್ | ಮೇಲುಗೆರೆ | ವಿನ್ಕುಲಮ್</annotation>
+		<annotation cp="‾" type="tts">ಮೇಲುಗೆರೆ</annotation>
+		<annotation cp="_">ಅಡಿ ಸಾಲು | ಅಡಿಗೆರೆ | ಕೆಳ ಸಾಲು | ಡ್ಯಾಶ್‌ | ಸಾಲು</annotation>
+		<annotation cp="_" type="tts">ಕೆಳ ಸಾಲು</annotation>
+		<annotation cp="-">ಅಡ್ಡ ಕಳೆ | ಡ್ಯಾಶ್ | ಮೈನಸ್ | ಹೈಫನ್ | ಹೈಫನ್-ಮೈನಸ್</annotation>
+		<annotation cp="-" type="tts">ಅಡ್ಡ ಕಳೆ</annotation>
+		<annotation cp="‐">ಅಡ್ಡಗೆರೆ | ಡ್ಯಾಶ್‌ | ಹೈಫನ್‌</annotation>
+		<annotation cp="‐" type="tts">ಹೈಫನ್‌</annotation>
 		<annotation cp="–">ಅಡ್ಡ ಗೆರೆ | ಸಣ್ಣ | ಸಣ್ಣ ಅಡ್ಡ ಗೆರೆ</annotation>
 		<annotation cp="–" type="tts">ಸಣ್ಣ ಅಡ್ಡ ಗೆರೆ</annotation>
-		<annotation cp="—">ಅಡ್ಡ | ಅಡ್ಡಗೆರೆ | ಗೆರೆ</annotation>
-		<annotation cp="—" type="tts">ಅಡ್ಡಗೆರೆ</annotation>
-		<annotation cp="·">ಚುಕ್ಕಿ | ಮಧ್ಯ | ಮಧ್ಯ ಚಿಹ್ನೆ</annotation>
+		<annotation cp="—">ಇಎಮ್ | ಡ್ಯಾಶ್</annotation>
+		<annotation cp="—" type="tts">ಇಎಮ್ ಡ್ಯಾಶ್</annotation>
+		<annotation cp="―">ಅಡ್ಡ ಪಟ್ಟಿ | ಡ್ಯಾಶ್ | ಬಾರ್ | ಸಮತಲ ಪಟ್ಟಿ | ಸಾಲು</annotation>
+		<annotation cp="―" type="tts">ಅಡ್ಡ ಪಟ್ಟಿ</annotation>
+		<annotation cp="・">ಇಂಟರ್‌ಪಂಕ್ಟ್ | ಕಟಕನ ಮಧ್ಯ ಚುಕ್ಕೆ | ಕಟಕನ ಮಧ್ಯದ ಬಿಂದು | ಕಟಕನಾ | ಚುಕ್ಕೆಗಳು | ಮಿಡ್‌ಡಾಟ್</annotation>
+		<annotation cp="・" type="tts">ಕಟಕನ ಮಧ್ಯ ಚುಕ್ಕೆ</annotation>
+		<annotation cp=",">ಅರ್ಧ ವಿರಾಮ | ಅರ್ಧ ವಿರಾಮ ಚಿಹ್ನೆ</annotation>
+		<annotation cp="," type="tts">ಅರ್ಧ ವಿರಾಮ ಚಿಹ್ನೆ</annotation>
+		<annotation cp="،">ಅರಾಬಿಕ್ | ಅರಾಬಿಕ್‌ ಅರ್ಧ ವಿರಾಮ | ಅರ್ಧ ವಿರಾಮ</annotation>
+		<annotation cp="،" type="tts">ಅರಾಬಿಕ್‌ ಅರ್ಧ ವಿರಾಮ</annotation>
+		<annotation cp="、">ಅರ್ಧ ವಿರಾಮ | ಇಡಿಯೋಗ್ರಾಫಿಕ್‌ | ಇಡಿಯೋಗ್ರಾಫಿಕ್ ಅರ್ಧ ವಿರಾಮ</annotation>
+		<annotation cp="、" type="tts">ಇಡಿಯೋಗ್ರಾಫಿಕ್ ಅರ್ಧ ವಿರಾಮ</annotation>
+		<annotation cp=";">ಅಲ್ಪ ವಿರಾಮ | ಅಲ್ಪ-ವಿರಾಮ</annotation>
+		<annotation cp=";" type="tts">ಅಲ್ಪ ವಿರಾಮ</annotation>
+		<annotation cp="؛">ಅರಾಬಿಕ್ | ಅರಾಬಿಕ್ ಅಲ್ಪವಿರಾಮ | ಅಲ್ಪ-ವಿರಾಮ</annotation>
+		<annotation cp="؛" type="tts">ಅರಾಬಿಕ್ ಅಲ್ಪವಿರಾಮ</annotation>
+		<annotation cp=":">ವಿವರಣ ಸೂಚಿ</annotation>
+		<annotation cp=":" type="tts">ವಿವರಣ ಸೂಚಿ</annotation>
+		<annotation cp="!">ಆಶ್ಚರ್ಯಸೂಚಕ | ಆಶ್ಚರ್ಯಸೂಚಕ ಬಿಂದು | ಬ್ಯಾಂಗ್‌</annotation>
+		<annotation cp="!" type="tts">ಆಶ್ಚರ್ಯಸೂಚಕ</annotation>
+		<annotation cp="¡">ಆಶ್ಚರ್ಯಸೂಚಕ | ಆಶ್ಚರ್ಯಸೂಚಕ ಗುರುತು | ಆಶ್ಚರ್ಯಸೂಚಕ ಬಿಂದು | ಇನ್ವರ್ಟೆಡ್‌ | ಇನ್ವರ್ಟೆಡ್‌ ಆಶ್ಚರ್ಯಸೂಚಕ ಚಿಹ್ನೆ | ಬ್ಯಾಂಗ್‌</annotation>
+		<annotation cp="¡" type="tts">ಇನ್ವರ್ಟೆಡ್‌ ಆಶ್ಚರ್ಯಸೂಚಕ ಚಿಹ್ನೆ</annotation>
+		<annotation cp="?">ಪ್ರಶ್ನಾರ್ಥಕ ಗುರುತು | ಪ್ರಶ್ನೆ</annotation>
+		<annotation cp="?" type="tts">ಪ್ರಶ್ನಾರ್ಥಕ ಗುರುತು</annotation>
+		<annotation cp="¿">ಆಶ್ಚರ್ಯಸೂಚಕ ಗುರುತು | ಇನ್ವರ್ಟೆಡ್‌ | ಇನ್ವರ್ಟೆಡ್‌ ಪ್ರಶ್ನಾರ್ಥಕ ಗುರುತು | ಪ್ರಶ್ನೆ</annotation>
+		<annotation cp="¿" type="tts">ಇನ್ವರ್ಟೆಡ್‌ ಪ್ರಶ್ನಾರ್ಥಕ ಗುರುತು</annotation>
+		<annotation cp="؟">ಅರಾಬಿಕ್‌ | ಅರಾಬಿಕ್ ಪ್ರಶ್ನಾರ್ಥಕ ಗುರುತು | ಪ್ರಶ್ನಾರ್ಥಕ ಗುರುತು | ಪ್ರಶ್ನೆ</annotation>
+		<annotation cp="؟" type="tts">ಅರಾಬಿಕ್ ಪ್ರಶ್ನಾರ್ಥಕ ಗುರುತು</annotation>
+		<annotation cp="‽">ಇಂಟರೋಬ್ಯಾಂಗ್</annotation>
+		<annotation cp="‽" type="tts">ಇಂಟರೋಬ್ಯಾಂಗ್</annotation>
+		<annotation cp=".">ಚುಕ್ಕೆ | ಪೂರ್ಣ ವಿರಾಮ | ಪೂರ್ಣವಿರಾಮ | ಫುಲ್‌ಸ್ಟಾಪ್</annotation>
+		<annotation cp="." type="tts">ಪೂರ್ಣವಿರಾಮ</annotation>
+		<annotation cp="…">ಅಪೂರ್ಣ | ಎಲಿಪ್ಸಿಸ್‌ | ಚುಕ್ಕೆ | ಮೂರು ಚುಕ್ಕೆ | ಮೂರು ಚುಕ್ಕೆಗಳು</annotation>
+		<annotation cp="…" type="tts">ಮೂರು ಚುಕ್ಕೆ</annotation>
+		<annotation cp="。">ಈಡಿಯೋಗ್ರಾಫಿಕ್ | ಈಡಿಯೋಗ್ರಾಫಿಕ್‌ ಪೂರ್ಣ ವಿರಾಮ | ಪೂರ್ಣವಿರಾಮ | ಫುಲ್‌ ಸ್ಟಾಪ್</annotation>
+		<annotation cp="。" type="tts">ಈಡಿಯೋಗ್ರಾಫಿಕ್‌ ಪೂರ್ಣ ವಿರಾಮ</annotation>
+		<annotation cp="·">ಇಂಟರ್ಪಂಕ್ಟ್ | ಚುಕ್ಕೆ | ಮಧ್ಯ ಚುಕ್ಕಿ | ಮಧ್ಯಮ | ಮಿಡ್ಡಾಟ್</annotation>
 		<annotation cp="·" type="tts">ಮಧ್ಯ ಚುಕ್ಕಿ</annotation>
-		<annotation cp="«">ಉದ್ಧರಣ ಚಿಹ್ನೆ | ಎಡ | ಎಡ ಕೋನ ಗುರುತು | ಕಂಸಗಳು | ಕೋನ | ಮಾರ್ಜಿನ್‌ ಚಿಹ್ನೆ | ಲಾಂಛನ</annotation>
-		<annotation cp="«" type="tts">ಎಡ ಕೋನ ಗುರುತು</annotation>
-		<annotation cp="»">ಉದ್ಧರಣ ಚಿಹ್ನೆ | ಕಂಸಗಳು | ಕೋನ | ಬಲ | ಬಲ ಕೋನ ಗುರುತು | ಮಾರ್ಜಿನ್‌ ಚಿಹ್ನೆ | ಲಾಂಛನ</annotation>
-		<annotation cp="»" type="tts">ಬಲ ಕೋನ ಗುರುತು</annotation>
+		<annotation cp="'">ಅಪಾಸ್ಟ್ರಫಿ | ಕೋಟ್ | ಟೈಪ್‌ರೈಟರ್‌ ಅಪಾಸ್ಟ್ರಫಿ | ಸಿಂಗಲ್ ಕೋಟ್</annotation>
+		<annotation cp="'" type="tts">ಟೈಪ್‌ರೈಟರ್‌ ಅಪಾಸ್ಟ್ರಫಿ</annotation>
+		<annotation cp="‘">ಅಪಾಸ್ಟ್ರಫಿ | ಎಡ ಅಪಾಸ್ಟ್ರಫಿ | ಒಂದೇ ಕೋಟ್ | ಕೋಟ್ | ಸ್ಮಾರ್ಟ್ ಕೋಟ್</annotation>
+		<annotation cp="‘" type="tts">ಎಡ ಅಪಾಸ್ಟ್ರಫಿ</annotation>
+		<annotation cp="’">ಅಪಾಸ್ಟ್ರಫಿ | ಕೋಟ್ | ಬಲ ಅಪಾಸ್ಟ್ರಫಿ | ಸಿಂಗಲ್ ಕೋಟ್ | ಸ್ಮಾರ್ಟ್‌ ಕೋಟ್</annotation>
+		<annotation cp="’" type="tts">ಬಲ ಅಪಾಸ್ಟ್ರಫಿ</annotation>
+		<annotation cp="‚">ಅಪಾಸ್ಟ್ರಫಿ | ಕೆಳ ಕೋಟ್ | ಕೆಳ ಬಲ ಅಪಾಸ್ಟ್ರಫಿ | ಕೋಟ್</annotation>
+		<annotation cp="‚" type="tts">ಕೆಳ ಬಲ ಅಪಾಸ್ಟ್ರಫಿ</annotation>
+		<annotation cp="“">ಎಡ ಕೊಟೇಶನ್‌ ಮಾರ್ಕ್‌ | ಕೊಟೇಶನ್ | ಕೋಟ್ | ಡಬಲ್ ಕೋಟ್ | ಸ್ಮಾರ್ಟ್‌ ಕೊಟೇಶನ್</annotation>
+		<annotation cp="“" type="tts">ಎಡ ಕೊಟೇಶನ್‌ ಮಾರ್ಕ್‌</annotation>
+		<annotation cp="”">ಎರಡು ಕೋಟ್ | ಕೋಟ್ | ಬಲ ಕೊಟೇಶ ಚಿಹ್ನೆ | ಬಲ ಕೊಟೇಶನ್‌ ಮಾರ್ಕ್‌ | ಸ್ಮಾರ್ಟ್ ಕೊಟೇಶನ್</annotation>
+		<annotation cp="”" type="tts">ಬಲ ಕೊಟೇಶನ್‌ ಮಾರ್ಕ್‌</annotation>
+		<annotation cp="„">ಕಡಿಮೆ ಕೊಟೇಶನ್‌ | ಕಡಿಮೆ ಬಲ ಕೊಟೇಶನ್‌ ಚಿಹ್ನೆ | ಕೊಟೇಶನ್‌ | ಕೋಟ್‌ | ಡಬಲ್‌ ಕೋಟ್‌ | ಸ್ಮಾರ್ಟ್‌ ಕೊಟೇಶನ್‌</annotation>
+		<annotation cp="„" type="tts">ಕಡಿಮೆ ಬಲ ಕೊಟೇಶನ್‌ ಚಿಹ್ನೆ</annotation>
+		<annotation cp="«">ಆವರಣಗಳು | ಎಡ | ಎಡ ಗಿಲ್ಲೆಮೆಟ್ | ಕೋಟ್ | ಕೋನ | ಕ್ಯಾರೆಟ್ಸ್ | ಚೆವ್ರಾನ್</annotation>
+		<annotation cp="«" type="tts">ಎಡ ಗಿಲ್ಲೆಮೆಟ್</annotation>
+		<annotation cp="»">ಆವರಣಗಳು | ಕೋಟ್ | ಕೋನ | ಕ್ಯಾರೆಟ್ಸ್ | ಚೆವ್ರಾನ್ | ಬಲ | ಬಲ ಗಿಲ್ಲೆಮೆಟ್</annotation>
+		<annotation cp="»" type="tts">ಬಲ ಗಿಲ್ಲೆಮೆಟ್</annotation>
+		<annotation cp=")">ಕ್ಲೋಸ್ ಪ್ಯಾರೆಂಥಿಸಿಸ್ | ಪಾರೆನ್ಸ್ | ಪ್ಯಾರೆಂಥಿಸಿಸ್ | ಪ್ಯಾರೆನ್ | ಬ್ರಾಕೆಟ್ | ಮುಚ್ಚಿದ ಪ್ಯಾರೆಂಥೆಸಿಸ್‌ | ರೌಂಡ್ ಬ್ರಾಕೆಟ್</annotation>
+		<annotation cp=")" type="tts">ಮುಚ್ಚಿದ ಪ್ಯಾರೆಂಥೆಸಿಸ್‌</annotation>
+		<annotation cp="[">ಕ್ರೊಚೆಟ್‌ | ಚೌಕ ಬ್ರಾಕೆಟ್‌ | ತೆರೆದ ಚೌಕ ಬ್ರಾಕೆಟ್‌ | ಬ್ರಾಕೆಟ್</annotation>
+		<annotation cp="[" type="tts">ತೆರೆದ ಚೌಕ ಬ್ರಾಕೆಟ್‌</annotation>
+		<annotation cp="]">ಕ್ರೋಚೆಟ್‌ | ಚೌಕ ಬ್ರಾಕೆಟ್ | ಬ್ರಾಕೆಟ್‌ | ಮುಚ್ಚಿದ ಚೌಕ ಬ್ರಾಕೆಟ್‌</annotation>
+		<annotation cp="]" type="tts">ಮುಚ್ಚಿದ ಚೌಕ ಬ್ರಾಕೆಟ್‌</annotation>
+		<annotation cp="}">ಕರ್ಲಿ ಬ್ರಾಕೆಟ್‌ | ಕರ್ಲಿ ಬ್ರೇಸ್‌ | ಗಲ್ವಿಂಗ್‌ | ಬ್ರಾಕೆಟ್‌ | ಬ್ರೇಸ್‌ | ಮುಚ್ಚಿದ ಕರ್ಲಿ ಬ್ರಾಕೆಟ್</annotation>
+		<annotation cp="}" type="tts">ಮುಚ್ಚಿದ ಕರ್ಲಿ ಬ್ರಾಕೆಟ್</annotation>
+		<annotation cp="〈">ಆ್ಯಂಗಲ್ ಬ್ರಾಕೆಟ್‌ | ಟುಪಲ್‌ | ಡೈಮಂಡ್‌ ಬ್ರಾಕೆಟ್‌ಗಳು | ತೆರೆದ ಆ್ಯಂಗಲ್ ಬ್ರಾಕೆಟ್ | ಪಾಯಿಂಟಿ ಬ್ರಾಕೆಟ್‌ | ಬ್ರಾಕೆಟ್‌ | ಶೆವ್ರೊನ್‌</annotation>
+		<annotation cp="〈" type="tts">ತೆರೆದ ಆ್ಯಂಗಲ್ ಬ್ರಾಕೆಟ್</annotation>
+		<annotation cp="〉">ಆ್ಯಂಗಲ್ ಬ್ರಾಕೆಟ್ | ಟುಪಲ್ | ಡೈಮಂಡ್‌ ಬ್ರಾಕೆಟ್‌ಗಳು | ಪಾಯಿಂಟಿ ಬ್ರಾಕೆಟ್ | ಬ್ರಾಕೆಟ್‌ | ಮುಚ್ಚಿದ ಆ್ಯಂಗಲ್ ಬ್ರಾಕೆಟ್ | ಶೆವ್ರೋನ್‌</annotation>
+		<annotation cp="〉" type="tts">ಮುಚ್ಚಿದ ಆ್ಯಂಗಲ್ ಬ್ರಾಕೆಟ್</annotation>
+		<annotation cp="《">ಡಬಲ್‌ ಆ್ಯಂಗಲ್ ಬ್ರಾಕೆಟ್ | ತೆರೆದ ಡಬಲ್ ಆ್ಯಂಗಲ್ ಬ್ರಾಕೆಟ್ | ಬ್ರಾಕೆಟ್‌</annotation>
+		<annotation cp="《" type="tts">ತೆರೆದ ಡಬಲ್ ಆ್ಯಂಗಲ್ ಬ್ರಾಕೆಟ್</annotation>
+		<annotation cp="》">ಡಬಲ್ ಆ್ಯಂಗಲ್ ಬ್ರಾಕೆಟ್ | ಬ್ರಾಕೆಟ್ | ಮುಚ್ಚಿದ ಡಬಲ್ ಆ್ಯಂಗಲ್ ಬ್ರಾಕೆಟ್</annotation>
+		<annotation cp="》" type="tts">ಮುಚ್ಚಿದ ಡಬಲ್ ಆ್ಯಂಗಲ್ ಬ್ರಾಕೆಟ್</annotation>
+		<annotation cp="「">ಕಾರ್ನರ್ ಬ್ರಾಕೆಟ್ | ತೆರೆದ ಕಾರ್ನರ್ ಬ್ರಾಕೆಟ್ | ಬ್ರಾಕೆಟ್</annotation>
+		<annotation cp="「" type="tts">ತೆರೆದ ಕಾರ್ನರ್ ಬ್ರಾಕೆಟ್</annotation>
+		<annotation cp="」">ಕಾರ್ನರ್ ಬ್ರಾಕೆಟ್ | ಬ್ರಾಕೆಟ್ | ಮುಚ್ಚಿದ ಕಾರ್ನರ್ ಬ್ರಾಕೆಟ್</annotation>
+		<annotation cp="」" type="tts">ಮುಚ್ಚಿದ ಕಾರ್ನರ್ ಬ್ರಾಕೆಟ್</annotation>
+		<annotation cp="『">ತೆರೆದ ಹಾಲೋ ಕಾರ್ನರ್ ಬ್ರಾಕೆಟ್ | ಬ್ರಾಕೆಟ್ | ಹಾಲೋ ಕಾರ್ನರ್ ಬ್ರಾಕೆಟ್</annotation>
+		<annotation cp="『" type="tts">ತೆರೆದ ಹಾಲೋ ಕಾರ್ನರ್ ಬ್ರಾಕೆಟ್</annotation>
+		<annotation cp="』">ಬ್ರಾಕೆಟ್ | ಮುಚ್ಚಿದ ಹಾಲೋ ಕಾರ್ನರ್ ಬ್ರಾಕೆಟ್ | ಹಾಲೋ ಕಾರ್ನರ್ ಬ್ರಾಕೆಟ್</annotation>
+		<annotation cp="』" type="tts">ಮುಚ್ಚಿದ ಹಾಲೋ ಕಾರ್ನರ್ ಬ್ರಾಕೆಟ್</annotation>
+		<annotation cp="【">ತೆರೆದ ಬ್ಲ್ಯಾಕ್ ಲೆನ್ಸ್ ಬ್ರಾಕೆಟ್ | ಬ್ರಾಕೆಟ್ | ಲೆಂಟಿಕ್ಯುಲಾರ್ ಬ್ರಾಕೆಟ್‌ | ಲೆನ್ಸ್ ಬ್ರಾಕೆಟ್</annotation>
+		<annotation cp="【" type="tts">ತೆರೆದ ಬ್ಲ್ಯಾಕ್ ಲೆನ್ಸ್ ಬ್ರಾಕೆಟ್</annotation>
+		<annotation cp="】">ಬ್ರಾಕೆಟ್ | ಮುಚ್ಚಿದ ಬ್ಲ್ಯಾಕ್ ಲೆನ್ಸ್ ಬ್ರಾಕೆಟ್ | ಲೆಂಟಿಕ್ಯುಲಾರ್ ಬ್ರಾಕೆಟ್ | ಲೆನ್ಸ್ ಬ್ರಾಕೆಟ್</annotation>
+		<annotation cp="】" type="tts">ಮುಚ್ಚಿದ ಬ್ಲ್ಯಾಕ್ ಲೆನ್ಸ್ ಬ್ರಾಕೆಟ್</annotation>
+		<annotation cp="〔">ಟೊರ್ಟೋಯಿಸ್ ಶೆಲ್ ಬ್ರಾಕೆಟ್ | ತೆರೆದ ಟೊರ್ಟೋಯಿಸ್ ಶೆಲ್ ಬ್ರಾಕೆಟ್ | ಬ್ರಾಕೆಟ್ | ಶೆಲ್ ಬ್ರಾಕೆಟ್</annotation>
+		<annotation cp="〔" type="tts">ತೆರೆದ ಟೊರ್ಟೋಯಿಸ್ ಶೆಲ್ ಬ್ರಾಕೆಟ್</annotation>
+		<annotation cp="〕">ಟೊರ್ಟೋಯಿಸ್ ಶೆಲ್ ಬ್ರಾಕೆಟ್‌ | ಬ್ರಾಕೆಟ್‌ | ಮುಚ್ಚಿದ ಟೊರ್ಟೋಯಿಸ್ ಶೆಲ್ ಬ್ರಾಕೆಟ್ | ಶೆಲ್‌ ಬ್ರಾಕೆಟ್</annotation>
+		<annotation cp="〕" type="tts">ಮುಚ್ಚಿದ ಟೊರ್ಟೋಯಿಸ್ ಶೆಲ್ ಬ್ರಾಕೆಟ್</annotation>
+		<annotation cp="〖">ತೆರೆದ ಹಾಲೋ ಲೆನ್ಸ್ ಬ್ರಾಕೆಟ್ | ಬ್ರಾಕೆಟ್ | ಹಾಲೋ ಲೆಂಟಿಕ್ಯುಲಾರ್ ಬ್ರಾಕೆಟ್ | ಹಾಲೋ ಲೆನ್ಸ್ ಬ್ರಾಕೆಟ್</annotation>
+		<annotation cp="〖" type="tts">ತೆರೆದ ಹಾಲೋ ಲೆನ್ಸ್ ಬ್ರಾಕೆಟ್</annotation>
+		<annotation cp="〗">ಬ್ರಾಕೆಟ್ | ಮುಚ್ಚಿದ ಹಾಲೋ ಲೆನ್ಸ್ ಬ್ರಾಕೆಟ್ | ಹಾಲೋ ಲೆಂಟಿಕ್ಯುಲಾರ್ ಬ್ರಾಕೆಟ್ | ಹಾಲೋ ಲೆನ್ಸ್ ಬ್ರಾಕೆಟ್</annotation>
+		<annotation cp="〗" type="tts">ಮುಚ್ಚಿದ ಹಾಲೋ ಲೆನ್ಸ್ ಬ್ರಾಕೆಟ್</annotation>
 		<annotation cp="§">ಪ್ಯಾರಾ | ಭಾಗ | ವಿಭಾಗ | ವಿಭಾಗ ಚಿಹ್ನೆ</annotation>
 		<annotation cp="§" type="tts">ವಿಭಾಗ</annotation>
+		<annotation cp="¶">ಅಲಿನಿಯಾ | ಪಿಲ್‌ಕ್ರೋ | ಪ್ಯಾರಾಗ್ರಾಫ್‌ | ಪ್ಯಾರಾಗ್ರಾಫ್ ಗುರುತು | ಪ್ಯಾರಾಫ್‌</annotation>
+		<annotation cp="¶" type="tts">ಪ್ಯಾರಾಗ್ರಾಫ್ ಗುರುತು</annotation>
+		<annotation cp="@">ಅಟ್ ಚಿಹ್ನೆ | ಅಟ್‌ ಮಾರ್ಕ್ | ಅರೋಬಾ | ಆಂಪರ್‌ಸ್ಯಾಟ್ | ಏರೋಬೇಸ್ | ವಾಣಿಜ್ಯಿಕ ಅಟ್‌ | ಸ್ಟ್ರುಡೆಲ್</annotation>
+		<annotation cp="@" type="tts">ಅಟ್ ಚಿಹ್ನೆ</annotation>
+		<annotation cp="*">ಚುಕ್ಕೆ | ನಕ್ಷತ್ರ | ನಕ್ಷತ್ರ ಚಿಹ್ನೆ | ವೈಲ್ಡ್‌ಕಾರ್ಡ್‌</annotation>
+		<annotation cp="*" type="tts">ನಕ್ಷತ್ರ ಚಿಹ್ನೆ</annotation>
+		<annotation cp="/">ಅಬ್ಲಿಕ್‌ | ವಿರ್ಗ್ಯೂಲ್‌ | ವ್ಯಾಕ್‌ | ಸೊಲಿಡಸ್‌ | ಸ್ಟ್ರೋಕ್‌ | ಸ್ಲ್ಯಾಶ್‌</annotation>
+		<annotation cp="/" type="tts">ಸ್ಲ್ಯಾಶ್‌</annotation>
+		<annotation cp="\">ಬ್ಯಾಕ್‌ಸ್ಲ್ಯಾಶ್‌ | ರಿವರ್ಸ್‌ ಸೊಲಿಡಸ್‌ | ವ್ಯಾಕ್‌</annotation>
+		<annotation cp="\" type="tts">ಬ್ಯಾಕ್‌ಸ್ಲ್ಯಾಶ್‌</annotation>
+		<annotation cp="&amp;">ಆ್ಯಂಪರ್ಸ್ಯಾಂಡ್‌ | ಇಟಿ | ಮತ್ತು</annotation>
+		<annotation cp="&amp;" type="tts">ಆ್ಯಂಪರ್ಸ್ಯಾಂಡ್‌</annotation>
+		<annotation cp="#">ಎಲ್‌ಬಿ | ಪೌಂಡ್‌ | ಸಂಖ್ಯೆ | ಹ್ಯಾಶ್‌ | ಹ್ಯಾಶ್‌ ಚಿಹ್ನೆ | ಹ್ಯಾಶ್‌ಟ್ಯಾಗ್‌</annotation>
+		<annotation cp="#" type="tts">ಹ್ಯಾಶ್‌ ಚಿಹ್ನೆ</annotation>
+		<annotation cp="%">ಪರ್‌ ಸೆಂಟ್‌ | ಶೇಕಡಾ</annotation>
+		<annotation cp="%" type="tts">ಶೇಕಡಾ</annotation>
+		<annotation cp="‰">ಪರ್ ಮಿಲ್ | ಪರ್‌ಮಿಲ್ | ಪರ್‌ಮಿಲ್ಲೆ | ಪ್ರತಿ ಮಿಲ್‌ಗೆ</annotation>
+		<annotation cp="‰" type="tts">ಪರ್ ಮಿಲ್</annotation>
 		<annotation cp="†">ಕಠಾರಿ ಗುರುತು | ಕಠಾರಿ ಚಿಹ್ನೆ | ಚೌಕ ಸೂಜಿಯಂಥ ಕಂಬ</annotation>
 		<annotation cp="†" type="tts">ಕಠಾರಿ ಚಿಹ್ನೆ</annotation>
 		<annotation cp="‡">ಕಠಾರಿ ಗುರುತು | ಕಠಾರಿ ಚಿಹ್ನೆ | ಚೌಕ ಸೂಜಿಯಂಥ ಕಂಬ | ದ್ವಿ | ದ್ವಿ ಕಠಾರಿ ಚಿಹ್ನೆ</annotation>
 		<annotation cp="‡" type="tts">ದ್ವಿ ಕಠಾರಿ ಚಿಹ್ನೆ</annotation>
-		<annotation cp="•">ಗುಂಡು | ಗುಂಡು ಚಿಹ್ನೆ | ಚುಕ್ಕೆ</annotation>
-		<annotation cp="•" type="tts">ಗುಂಡು ಚಿಹ್ನೆ</annotation>
+		<annotation cp="•">ಚುಕ್ಕೆ | ಬುಲೆಟ್</annotation>
+		<annotation cp="•" type="tts">ಬುಲೆಟ್</annotation>
+		<annotation cp="‧">ಅಡ್ಡಗೆರೆ | ಚುಕ್ಕೆ | ಡ್ಯಾಶ್ | ಪಾಯಿಂಟ್</annotation>
+		<annotation cp="‧" type="tts">ಅಡ್ಡಗೆರೆ ಚುಕ್ಕೆ</annotation>
+		<annotation cp="′">ಪ್ರೈಮ್‌</annotation>
+		<annotation cp="′" type="tts">ಪ್ರೈಮ್‌</annotation>
+		<annotation cp="″">ಡಬಲ್‌ ಪ್ರೈಮ್‌ | ಪ್ರೈಮ್‌</annotation>
+		<annotation cp="″" type="tts">ಡಬಲ್‌ ಪ್ರೈಮ್‌</annotation>
+		<annotation cp="‴">ಟ್ರಿಪಲ್‌ ಪ್ರೈಮ್‌ | ಪ್ರೈಮ್</annotation>
+		<annotation cp="‴" type="tts">ಟ್ರಿಪಲ್‌ ಪ್ರೈಮ್‌</annotation>
+		<annotation cp="‸">ಕ್ಯಾರಟ್</annotation>
+		<annotation cp="‸" type="tts">ಕ್ಯಾರಟ್</annotation>
+		<annotation cp="※">ಉಲ್ಲೇಖ ಗುರುತು</annotation>
+		<annotation cp="※" type="tts">ಉಲ್ಲೇಖ ಗುರುತು</annotation>
+		<annotation cp="⁂">ಡಿಂಕಸ್ | ನಕ್ಷತ್ರಗಳು | ನಕ್ಷತ್ರಪುಂಜ</annotation>
+		<annotation cp="⁂" type="tts">ನಕ್ಷತ್ರಪುಂಜ</annotation>
+		<annotation cp="`">ಆ್ಯಕ್ಸೆಂಟ್ | ಗ್ರೇವ್ | ಟೋನ್</annotation>
+		<annotation cp="`" type="tts">ಗ್ರೇವ್ ಆ್ಯಕ್ಸೆಂಟ್‌</annotation>
+		<annotation cp="´">ಅಕ್ಯೂಟ್ | ಆಕ್ಸೆಂಟ್ | ಟೋನ್</annotation>
+		<annotation cp="´" type="tts">ಅಕ್ಯೂಟ್ ಆಕ್ಸೆಂಟ್‌</annotation>
+		<annotation cp="^">ಆಕ್ಸೆಂಟ್ | ಕ್ಯಾರೆಟ್‌ | ಕ್ಸಾರ್‌ ಚಿಹ್ನೆ | ನಿಯಂತ್ರಣ | ಪವರ್ | ಪಾಯಿಂಟರ್ | ವೆಡ್ಜ್‌ | ಶೆವ್ರಾನ್ | ಸರ್ಕಮ್‌ಫ್ಲೆಕ್ಸ್‌ | ಹ್ಯಾಟ್</annotation>
+		<annotation cp="^" type="tts">ಸರ್ಕಮ್‌ಫ್ಲೆಕ್ಸ್ ಆಕ್ಸೆಂಟ್‌</annotation>
+		<annotation cp="¨">ಉಮ್ಲಾಟ್ | ಟ್ರೆಮಾ | ಡಯರೆಸಿಸ್‌</annotation>
+		<annotation cp="¨" type="tts">ಡಯರೆಸಿಸ್‌</annotation>
 		<annotation cp="°">ಕೋನ | ಗಂಟೆ | ಸಾಕ್ಷ್ಯ</annotation>
 		<annotation cp="°" type="tts">ಕೋನ</annotation>
 		<annotation cp="℗">ಧ್ವನಿ | ರೆಕಾರ್ಡಿಂಗ್ | ಹಕ್ಕುಸ್ವಾಮ್ಯ</annotation>
 		<annotation cp="℗" type="tts">ಧ್ವನಿ ರೆಕಾರ್ಡಿಂಗ್‌ ಹಕ್ಕುಸ್ವಾಮ್ಯ</annotation>
 		<annotation cp="←">ಎಡ | ಎಡ ಮುಖದ ಬಾಣದ ಗುರುತು | ಬಾಣ</annotation>
 		<annotation cp="←" type="tts">ಎಡ ಮುಖದ ಬಾಣದ ಗುರುತು</annotation>
-		<annotation cp="→">ಬಲ | ಬಲ ದಿಕ್ಕಿನ ಬಾಣದ ಗುರುತು | ಬಾಣ</annotation>
-		<annotation cp="→" type="tts">ಬಲ ದಿಕ್ಕಿನ ಬಾಣದ ಗುರುತು</annotation>
+		<annotation cp="↚">ಎಡಮುಖ ಬಾಣದ ಸ್ಟ್ರೋಕ್</annotation>
+		<annotation cp="↚" type="tts">ಎಡಮುಖ ಬಾಣದ ಸ್ಟ್ರೋಕ್</annotation>
+		<annotation cp="→">ಬಲ | ಬಲ ದಿಕ್ಕಿನ ಬಾಣದ ಗುರುತು | ಬಲ ದಿಕ್ಕು ತೋರುತ್ತಿರುವ ಬಾಣದ ಗುರುತು | ಬಾಣ</annotation>
+		<annotation cp="→" type="tts">ಬಲ ದಿಕ್ಕು ತೋರುತ್ತಿರುವ ಬಾಣದ ಗುರುತು</annotation>
+		<annotation cp="↛">ಬಲಮುಖ ಬಾಣದ ಸ್ಟ್ರೋಕ್</annotation>
+		<annotation cp="↛" type="tts">ಬಲಮುಖ ಬಾಣದ ಸ್ಟ್ರೋಕ್</annotation>
 		<annotation cp="↑">ಬಾಣ | ಮೇಲೆ | ಮೇಲ್ಮುಖದ ಬಾಣದ ಗುರುತು</annotation>
 		<annotation cp="↑" type="tts">ಮೇಲ್ಮುಖದ ಬಾಣದ ಗುರುತು</annotation>
-		<annotation cp="↓">ಕೆಳ | ಕೆಳ ಮುಖದ ಬಾಣದ ಗುರುತು | ಬಾಣ</annotation>
-		<annotation cp="↓" type="tts">ಕೆಳ ಮುಖದ ಬಾಣದ ಗುರುತು</annotation>
+		<annotation cp="↓">ಕೆಳ | ಕೆಳ ಮುಖ ತೋರುತ್ತಿರುವ ಬಾಣದ ಗುರುತು | ಕೆಳ ಮುಖದ ಬಾಣದ ಗುರುತು | ಬಾಣ</annotation>
+		<annotation cp="↓" type="tts">ಕೆಳ ಮುಖ ತೋರುತ್ತಿರುವ ಬಾಣದ ಗುರುತು</annotation>
+		<annotation cp="↜">ಎಡಮುಖ ಅಲೆ ಬಾಣ</annotation>
+		<annotation cp="↜" type="tts">ಎಡಮುಖ ಅಲೆ ಬಾಣ</annotation>
+		<annotation cp="↝">ಬಲಮುಖ ಅಲೆ ಬಾಣ</annotation>
+		<annotation cp="↝" type="tts">ಬಲಮುಖ ಅಲೆ ಬಾಣ</annotation>
+		<annotation cp="↞">ಎಡ ಮುಖದ ಎರಡು ತಲೆಯ ಬಾಣ</annotation>
+		<annotation cp="↞" type="tts">ಎಡ ಮುಖದ ಎರಡು ತಲೆಯ ಬಾಣ</annotation>
+		<annotation cp="↟">ಮೇಲ್ಮುಖದ ಎರಡು ತಲೆಯ ಬಾಣ</annotation>
+		<annotation cp="↟" type="tts">ಮೇಲ್ಮುಖದ ಎರಡು ತಲೆಯ ಬಾಣ</annotation>
+		<annotation cp="↠">ಬಲಮುಖದ ಎರಡು ತಲೆಯ ಬಾಣ</annotation>
+		<annotation cp="↠" type="tts">ಬಲಮುಖದ ಎರಡು ತಲೆಯ ಬಾಣ</annotation>
+		<annotation cp="↡">ಕೆಳಮುಖದ ಎರಡು ತಲೆಯ ಬಾಣ</annotation>
+		<annotation cp="↡" type="tts">ಕೆಳಮುಖದ ಎರಡು ತಲೆಯ ಬಾಣ</annotation>
+		<annotation cp="↢">ಎಡಮುಖದ ಬಾಲ ಸಹಿತ ಬಾಣ</annotation>
+		<annotation cp="↢" type="tts">ಎಡಮುಖದ ಬಾಲ ಸಹಿತ ಬಾಣ</annotation>
+		<annotation cp="↣">ಬಲಮುಖದ ಬಾಲ ಸಹಿತ ಬಾಣ</annotation>
+		<annotation cp="↣" type="tts">ಬಲಮುಖದ ಬಾಲ ಸಹಿತ ಬಾಣ</annotation>
+		<annotation cp="↤">ಪಟ್ಟಿ ಸಹಿತ ಎಡಮುಖದ ಬಾಣ</annotation>
+		<annotation cp="↤" type="tts">ಪಟ್ಟಿ ಸಹಿತ ಎಡಮುಖದ ಬಾಣ</annotation>
+		<annotation cp="↥">ಪಟ್ಟಿ ಸಹಿತ ಮೇಲ್ಮುಖದ ಬಾಣ</annotation>
+		<annotation cp="↥" type="tts">ಪಟ್ಟಿ ಸಹಿತ ಮೇಲ್ಮುಖದ ಬಾಣ</annotation>
+		<annotation cp="↦">ಪಟ್ಟಿ ಸಹಿತ ಬಲಮುಖದ ಬಾಣ</annotation>
+		<annotation cp="↦" type="tts">ಪಟ್ಟಿ ಸಹಿತ ಬಲಮುಖದ ಬಾಣ</annotation>
+		<annotation cp="↧">ಪಟ್ಟಿ ಸಹಿತ ಕೆಳಮುಖದ ಬಾಣ</annotation>
+		<annotation cp="↧" type="tts">ಪಟ್ಟಿ ಸಹಿತ ಕೆಳಮುಖದ ಬಾಣ</annotation>
+		<annotation cp="↨">ಅಡಿ ಸಹಿತ ಮೇಲೆ ಕೆಳಗೆ ಬಾಣದ ಗುರುತು</annotation>
+		<annotation cp="↨" type="tts">ಅಡಿ ಸಹಿತ ಮೇಲೆ ಕೆಳಗೆ ಬಾಣದ ಗುರುತು</annotation>
+		<annotation cp="↫">ಕುಣಿಕೆ ಸಹಿತ ಎಡಮುಖದ ಬಾಣ</annotation>
+		<annotation cp="↫" type="tts">ಕುಣಿಕೆ ಸಹಿತ ಎಡಮುಖದ ಬಾಣ</annotation>
+		<annotation cp="↬">ಕುಣಿಕೆ ಸಹಿತ ಬಲಮುಖದ ಬಾಣ</annotation>
+		<annotation cp="↬" type="tts">ಕುಣಿಕೆ ಸಹಿತ ಬಲಮುಖದ ಬಾಣ</annotation>
+		<annotation cp="↭">ಎಡ ಬಲ ಅಲೆ ಬಾಣ</annotation>
+		<annotation cp="↭" type="tts">ಎಡ ಬಲ ಅಲೆ ಬಾಣ</annotation>
+		<annotation cp="↯">ಕೆಳಮುಖದ ಝಿಗ್‌ಜ್ಯಾಗ್‌ ಬಾಣ</annotation>
+		<annotation cp="↯" type="tts">ಕೆಳಮುಖದ ಝಿಗ್‌ಜ್ಯಾಗ್‌ ಬಾಣ</annotation>
+		<annotation cp="↰">ಮೇಲ್ಮುಖ ಬಾಣ ತುದಿ ಎಡಗಡೆಗೆ</annotation>
+		<annotation cp="↰" type="tts">ಮೇಲ್ಮುಖ ಬಾಣ ತುದಿ ಎಡಗಡೆಗೆ</annotation>
+		<annotation cp="↱">ಮೇಲ್ಮುಖ ಬಾಣ ತುದಿ ಬಲಗಡೆಗೆ</annotation>
+		<annotation cp="↱" type="tts">ಮೇಲ್ಮುಖ ಬಾಣ ತುದಿ ಬಲಗಡೆಗೆ</annotation>
+		<annotation cp="↲">ಕೆಳಮುಖ ಬಾಣ ತುದಿ ಎಡಗಡೆಗೆ</annotation>
+		<annotation cp="↲" type="tts">ಕೆಳಮುಖ ಬಾಣ ತುದಿ ಎಡಗಡೆಗೆ</annotation>
+		<annotation cp="↳">ಕೆಳಮುಖ ಬಾಣ ತುದಿ ಬಲಗಡೆಗೆ</annotation>
+		<annotation cp="↳" type="tts">ಕೆಳಮುಖ ಬಾಣ ತುದಿ ಬಲಗಡೆಗೆ</annotation>
+		<annotation cp="↴">ಎಡಮುಖ ಬಾಣ ತುದಿ ಕೆಳ ಮುಖ</annotation>
+		<annotation cp="↴" type="tts">ಎಡಮುಖ ಬಾಣ ತುದಿ ಕೆಳ ಮುಖ</annotation>
+		<annotation cp="↵">ಕೆಳಮುಖ ಬಾಣ ತುದಿ ಎಡಮುಖ</annotation>
+		<annotation cp="↵" type="tts">ಕೆಳಮುಖ ಬಾಣ ತುದಿ ಎಡಮುಖ</annotation>
+		<annotation cp="↶">ಅಪ್ರದಕ್ಷಿಣಾಕಾರದ ತುದಿ ಅರೆ ವೃತ್ತ ಬಾಣ</annotation>
+		<annotation cp="↶" type="tts">ಅಪ್ರದಕ್ಷಿಣಾಕಾರದ ತುದಿ ಅರೆ ವೃತ್ತ ಬಾಣ</annotation>
+		<annotation cp="↷">ಪ್ರದಕ್ಷಿಣಾಕಾರದ ತುದಿ ಅರೆ ವೃತ್ತ ಬಾಣ</annotation>
+		<annotation cp="↷" type="tts">ಪ್ರದಕ್ಷಿಣಾಕಾರದ ತುದಿ ಅರೆ ವೃತ್ತ ಬಾಣ</annotation>
+		<annotation cp="↸">ವಾಯವ್ಯ ಬಾಣ ಉದ್ದನೆಯ ಗೆರೆ</annotation>
+		<annotation cp="↸" type="tts">ವಾಯವ್ಯ ಬಾಣ ಉದ್ದನೆಯ ಗೆರೆ</annotation>
+		<annotation cp="↹">ಎಡಕ್ಕೆ | ಪಟ್ಟಿ | ಬಲಗಡೆಗೆ | ಬಲಮುಖ ಬಾಣ ಪಟ್ಟಿಯ ಮೇಲೆ ಎಡಮುಖ | ಬಲಮುಖ ಬಾಣ ಪಟ್ಟಿಯ ಮೇಲೆ ಎಡಮುಖ ಬಾಣ ಪಟ್ಟಿ | ಬಾಣ</annotation>
+		<annotation cp="↹" type="tts">ಬಲಮುಖ ಬಾಣ ಪಟ್ಟಿಯ ಮೇಲೆ ಎಡಮುಖ</annotation>
+		<annotation cp="↺">ಅಪ್ರದಕ್ಷಿಣಾಕಾರದ ತೆರೆ ವೃತ್ತ ಬಾಣ</annotation>
+		<annotation cp="↺" type="tts">ಅಪ್ರದಕ್ಷಿಣಾಕಾರದ ತೆರೆ ವೃತ್ತ ಬಾಣ</annotation>
+		<annotation cp="↻">ಪ್ರದಕ್ಷಿಣಾಕಾರದ ತೆರೆ ವೃತ್ತ ಬಾಣ</annotation>
+		<annotation cp="↻" type="tts">ಪ್ರದಕ್ಷಿಣಾಕಾರದ ತೆರೆ ವೃತ್ತ ಬಾಣ</annotation>
+		<annotation cp="↼">ಎಡಮುಖದ ಈಟಿ ಅಡ್ಡ ಗೆರೆ ಮೇಲ್ಮುಖ</annotation>
+		<annotation cp="↼" type="tts">ಎಡಮುಖದ ಈಟಿ ಅಡ್ಡ ಗೆರೆ ಮೇಲ್ಮುಖ</annotation>
+		<annotation cp="↽">ಎಡಮುಖದ ಈಟಿ ಅಡ್ಡ ಗೆರೆ ಕೆಳಮುಖ</annotation>
+		<annotation cp="↽" type="tts">ಎಡಮುಖದ ಈಟಿ ಅಡ್ಡ ಗೆರೆ ಕೆಳಮುಖ</annotation>
+		<annotation cp="↾">ಮೇಲ್ಮುಖದ ಈಟಿ ಅಡ್ಡ ಗೆರೆ ಬಲಮುಖ</annotation>
+		<annotation cp="↾" type="tts">ಮೇಲ್ಮುಖದ ಈಟಿ ಅಡ್ಡ ಗೆರೆ ಬಲಮುಖ</annotation>
+		<annotation cp="↿">ಮೇಲ್ಮುಖದ ಈಟಿ ಅಡ್ಡ ಗೆರೆ ಎಡಮುಖ</annotation>
+		<annotation cp="↿" type="tts">ಮೇಲ್ಮುಖದ ಈಟಿ ಅಡ್ಡ ಗೆರೆ ಎಡಮುಖ</annotation>
+		<annotation cp="⇀">ಬಲಮುಖದ ಈಟಿ ಅಡ್ಡ ಗೆರೆ ಮೇಲ್ಮುಖ</annotation>
+		<annotation cp="⇀" type="tts">ಬಲಮುಖದ ಈಟಿ ಅಡ್ಡ ಗೆರೆ ಮೇಲ್ಮುಖ</annotation>
+		<annotation cp="⇁">ಬಲಮುಖದ ಈಟಿ ಅಡ್ಡ ಗೆರೆ ಕೆಳಮುಖ</annotation>
+		<annotation cp="⇁" type="tts">ಬಲಮುಖದ ಈಟಿ ಅಡ್ಡ ಗೆರೆ ಕೆಳಮುಖ</annotation>
+		<annotation cp="⇂">ಕೆಳಮುಖ ಈಟಿ ಅಡ್ಡ ಗೆರೆ ಬಲಮುಖ</annotation>
+		<annotation cp="⇂" type="tts">ಕೆಳಮುಖ ಈಟಿ ಅಡ್ಡ ಗೆರೆ ಬಲಮುಖ</annotation>
+		<annotation cp="⇃">ಕೆಳಮುಖ ಈಟಿ ಅಡ್ಡ ಗೆರೆ ಎಡಮುಖ</annotation>
+		<annotation cp="⇃" type="tts">ಕೆಳಮುಖ ಈಟಿ ಅಡ್ಡ ಗೆರೆ ಎಡಮುಖ</annotation>
+		<annotation cp="⇄">ಎಡಮುಖ ಬಾಣದ ಮೇಲೆ ಬಲಮುಖ ಬಾಣ</annotation>
+		<annotation cp="⇄" type="tts">ಎಡಮುಖ ಬಾಣದ ಮೇಲೆ ಬಲಮುಖ ಬಾಣ</annotation>
 		<annotation cp="⇅">ಕೆಳ | ಬಾಣ | ಮೇಲೆ | ಮೇಲೆ ಹಾಗೂ ಕೆಳ ಮುಖದ ಬಾಣದ ಗುರುತುಗಳು</annotation>
 		<annotation cp="⇅" type="tts">ಮೇಲೆ ಹಾಗೂ ಕೆಳ ಮುಖದ ಬಾಣದ ಗುರುತುಗಳು</annotation>
 		<annotation cp="⇆">ಎಡ | ಎಡ ಹಾಗೂ ಬಲ ಮುಖದ ಬಾಣದ ಗುರುತುಗಳು | ಬಲ | ಬಾಣ</annotation>
 		<annotation cp="⇆" type="tts">ಎಡ ಹಾಗೂ ಬಲ ಮುಖದ ಬಾಣದ ಗುರುತುಗಳು</annotation>
+		<annotation cp="⇇">ಎಡ ಮುಖ ಜೋಡಿ ಬಾಣಗಳು</annotation>
+		<annotation cp="⇇" type="tts">ಎಡ ಮುಖ ಜೋಡಿ ಬಾಣಗಳು</annotation>
+		<annotation cp="⇈">ಮೇಲ್ಮುಖ ಜೋಡಿ ಬಾಣಗಳು</annotation>
+		<annotation cp="⇈" type="tts">ಮೇಲ್ಮುಖ ಜೋಡಿ ಬಾಣಗಳು</annotation>
+		<annotation cp="⇉">ಬಲಮುಖ ಜೋಡಿ ಬಾಣಗಳು</annotation>
+		<annotation cp="⇉" type="tts">ಬಲಮುಖ ಜೋಡಿ ಬಾಣಗಳು</annotation>
+		<annotation cp="⇊">ಕೆಳಮುಖ ಜೋಡಿ ಬಾಣಗಳು</annotation>
+		<annotation cp="⇊" type="tts">ಕೆಳಮುಖ ಜೋಡಿ ಬಾಣಗಳು</annotation>
+		<annotation cp="⇋">ಎಡಮಖ ಈಟಿಯ ಮೇಲೆ ಬಲಮುಖ ಈಟಿ | ಬಲಮುಖ ಈಟಿಯ ಮೇಲೆ ಎಡಮುಖ ಈಟಿ</annotation>
+		<annotation cp="⇋" type="tts">ಬಲಮುಖ ಈಟಿಯ ಮೇಲೆ ಎಡಮುಖ ಈಟಿ</annotation>
+		<annotation cp="⇌">ಬಲಮಖ ಈಟಿಯ ಮೇಲೆ ಎಡಮುಖ ಈಟಿ</annotation>
+		<annotation cp="⇌" type="tts">ಬಲಮಖ ಈಟಿಯ ಮೇಲೆ ಎಡಮುಖ ಈಟಿ</annotation>
+		<annotation cp="⇐">ಎಡಮುಖ ಎರಡು ಬಾಣ</annotation>
+		<annotation cp="⇐" type="tts">ಎಡಮುಖ ಎರಡು ಬಾಣ</annotation>
+		<annotation cp="⇍">ಎಡಮುಖ ಎರಡು ಬಾಣ ಸ್ಟ್ರೋಕ್‌</annotation>
+		<annotation cp="⇍" type="tts">ಎಡಮುಖ ಎರಡು ಬಾಣ ಸ್ಟ್ರೋಕ್‌</annotation>
+		<annotation cp="⇑">ಮೇಲ್ಮುಖ ಎರಡು ಬಾಣ</annotation>
+		<annotation cp="⇑" type="tts">ಮೇಲ್ಮುಖ ಎರಡು ಬಾಣ</annotation>
+		<annotation cp="⇒">ಬಲಮುಖ ಎರಡು ಬಾಣ</annotation>
+		<annotation cp="⇒" type="tts">ಬಲಮುಖ ಎರಡು ಬಾಣ</annotation>
+		<annotation cp="⇏">ಬಲಮುಖ ಎರಡು ಬಾಣ ಸ್ಟ್ರೋಕ್</annotation>
+		<annotation cp="⇏" type="tts">ಬಲಮುಖ ಎರಡು ಬಾಣ ಸ್ಟ್ರೋಕ್</annotation>
+		<annotation cp="⇓">ಕೆಳಮುಖ ಎರಡು ಬಾಣ</annotation>
+		<annotation cp="⇓" type="tts">ಕೆಳಮುಖ ಎರಡು ಬಾಣ</annotation>
+		<annotation cp="⇔">ಎಡ ಬಲ ಎರಡು ಬಾಣ</annotation>
+		<annotation cp="⇔" type="tts">ಎಡ ಬಲ ಎರಡು ಬಾಣ</annotation>
+		<annotation cp="⇎">ಎಡ ಬಲ ಎರಡು ಬಾಣ ಸ್ಟ್ರೋಕ್‌</annotation>
+		<annotation cp="⇎" type="tts">ಎಡ ಬಲ ಎರಡು ಬಾಣ ಸ್ಟ್ರೋಕ್‌</annotation>
+		<annotation cp="⇖">ವಾಯವ್ಯ ಎರಡು ಬಾಣ</annotation>
+		<annotation cp="⇖" type="tts">ವಾಯವ್ಯ ಎರಡು ಬಾಣ</annotation>
+		<annotation cp="⇗">ಈಶಾನ್ಯ ಎರಡು ಬಾಣ</annotation>
+		<annotation cp="⇗" type="tts">ಈಶಾನ್ಯ ಎರಡು ಬಾಣ</annotation>
+		<annotation cp="⇘">ಆಗ್ನೇಯ ಎರಡು ಬಾಣ</annotation>
+		<annotation cp="⇘" type="tts">ಆಗ್ನೇಯ ಎರಡು ಬಾಣ</annotation>
+		<annotation cp="⇙">ನೈಋತ್ಯ ಎರಡು ಬಾಣ</annotation>
+		<annotation cp="⇙" type="tts">ನೈಋತ್ಯ ಎರಡು ಬಾಣ</annotation>
+		<annotation cp="⇚">ಎಡಮುಖ ಮೂರು ಬಾಣ</annotation>
+		<annotation cp="⇚" type="tts">ಎಡಮುಖ ಮೂರು ಬಾಣ</annotation>
+		<annotation cp="⇛">ಬಲಮುಖ ಮೂರು ಬಾಣ</annotation>
+		<annotation cp="⇛" type="tts">ಬಲಮುಖ ಮೂರು ಬಾಣ</annotation>
+		<annotation cp="⇜">ಎಡಮುಖ ಓರೆ ಬಾಣ</annotation>
+		<annotation cp="⇜" type="tts">ಎಡಮುಖ ಓರೆ ಬಾಣ</annotation>
+		<annotation cp="⇝">ಬಲಮುಖ ಓರೆ ಬಾಣ</annotation>
+		<annotation cp="⇝" type="tts">ಬಲಮುಖ ಓರೆ ಬಾಣ</annotation>
+		<annotation cp="⇞">ಮೇಲ್ಮುಖ ಬಾಣ ಎರಡು ಸ್ಟ್ರೋಕ್‌</annotation>
+		<annotation cp="⇞" type="tts">ಮೇಲ್ಮುಖ ಬಾಣ ಎರಡು ಸ್ಟ್ರೋಕ್‌</annotation>
+		<annotation cp="⇟">ಕೆಳಮುಖ ಬಾಣ ಎರಡು ಸ್ಟ್ರೋಕ್‌</annotation>
+		<annotation cp="⇟" type="tts">ಕೆಳಮುಖ ಬಾಣ ಎರಡು ಸ್ಟ್ರೋಕ್‌</annotation>
+		<annotation cp="⇠">ಎಡಮುಖ ಅಡ್ಡ ಗೆರೆ ಬಾಣ</annotation>
+		<annotation cp="⇠" type="tts">ಎಡಮುಖ ಅಡ್ಡ ಗೆರೆ ಬಾಣ</annotation>
+		<annotation cp="⇡">ಮೇಲ್ಮುಖ ಅಡ್ಡ ಗೆರೆ ಬಾಣ</annotation>
+		<annotation cp="⇡" type="tts">ಮೇಲ್ಮುಖ ಅಡ್ಡ ಗೆರೆ ಬಾಣ</annotation>
+		<annotation cp="⇢">ಬಲಮುಖ ಅಡ್ಡ ಗೆರೆ ಬಾಣ</annotation>
+		<annotation cp="⇢" type="tts">ಬಲಮುಖ ಅಡ್ಡ ಗೆರೆ ಬಾಣ</annotation>
+		<annotation cp="⇣">ಕೆಳಮುಖ ಅಡ್ಡ ಗೆರೆ ಬಾಣ</annotation>
+		<annotation cp="⇣" type="tts">ಕೆಳಮುಖ ಅಡ್ಡ ಗೆರೆ ಬಾಣ</annotation>
+		<annotation cp="⇤">ಎಡಮುಖ ಬಾಣ ಪಟ್ಟಿ</annotation>
+		<annotation cp="⇤" type="tts">ಎಡಮುಖ ಬಾಣ ಪಟ್ಟಿ</annotation>
+		<annotation cp="⇥">ಬಲಮುಖ ಬಾಣ ಪಟ್ಟಿ</annotation>
+		<annotation cp="⇥" type="tts">ಬಲಮುಖ ಬಾಣ ಪಟ್ಟಿ</annotation>
+		<annotation cp="⇦">ಎಡಮುಖದ ಟೊಳ್ಳು ಬಾಣ</annotation>
+		<annotation cp="⇦" type="tts">ಎಡಮುಖದ ಟೊಳ್ಳು ಬಾಣ</annotation>
+		<annotation cp="⇧">ಮೇಲ್ಮುಖದ ಟೊಳ್ಳು ಬಾಣ</annotation>
+		<annotation cp="⇧" type="tts">ಮೇಲ್ಮುಖದ ಟೊಳ್ಳು ಬಾಣ</annotation>
+		<annotation cp="⇨">ಬಲಮುಖದ ಟೊಳ್ಳು ಬಾಣ</annotation>
+		<annotation cp="⇨" type="tts">ಬಲಮುಖದ ಟೊಳ್ಳು ಬಾಣ</annotation>
+		<annotation cp="⇩">ಇಳಿಮುಖದ ಟೊಳ್ಳು ಬಾಣ | ಕೆಳಮುಖದ ಟೊಳ್ಳು ಬಾಣ</annotation>
+		<annotation cp="⇩" type="tts">ಇಳಿಮುಖದ ಟೊಳ್ಳು ಬಾಣ</annotation>
+		<annotation cp="⇪">ಮೇಲ್ಮುಖದ ಟೊಳ್ಳು ಬಾಣ ಸಹಿತ ಪಟ್ಟಿ</annotation>
+		<annotation cp="⇪" type="tts">ಮೇಲ್ಮುಖದ ಟೊಳ್ಳು ಬಾಣ ಸಹಿತ ಪಟ್ಟಿ</annotation>
+		<annotation cp="⇵">ಕೆಳಮುಖದ ಬಾಣ ಎಡ ಮೇಲ್ಮುಖ ಬಾಣ</annotation>
+		<annotation cp="⇵" type="tts">ಕೆಳಮುಖದ ಬಾಣ ಎಡ ಮೇಲ್ಮುಖ ಬಾಣ</annotation>
+		<annotation cp="∀">ಎಲ್ಲಕ್ಕೂ | ಎಲ್ಲರಿಗೂ | ಎಲ್ಲಾ | ಕೊಟ್ಟ | ಯಾವುದೇ | ಸಾರ್ವತ್ರಿಕ</annotation>
+		<annotation cp="∀" type="tts">ಎಲ್ಲಕ್ಕೂ</annotation>
+		<annotation cp="∂">ಭಾಗಶಃ ವ್ಯತ್ಯಾಸಕ</annotation>
+		<annotation cp="∂" type="tts">ಭಾಗಶಃ ವ್ಯತ್ಯಾಸಕ</annotation>
+		<annotation cp="∃">ಅಲ್ಲಿದೆ</annotation>
+		<annotation cp="∃" type="tts">ಅಲ್ಲಿದೆ</annotation>
+		<annotation cp="∅">ಖಾಲಿ ಸೆಟ್ | ಗಣಿತ | ಸೆಟ್ ಆಪರೇಟರ್</annotation>
+		<annotation cp="∅" type="tts">ಖಾಲಿ ಸೆಟ್</annotation>
 		<annotation cp="∆">ಏರಿಕೆ | ತ್ರಿಕೋನ</annotation>
 		<annotation cp="∆" type="tts">ಏರಿಕೆ</annotation>
 		<annotation cp="∇">ಇಳಿಮುಖ ತ್ರಿಕೋನ | ತ್ರಿಕೋನ</annotation>
 		<annotation cp="∇" type="tts">ಇಳಿಮುಖ ತ್ರಿಕೋನ</annotation>
 		<annotation cp="∈">ಅಂಶ | ಅಂಶವು | ವರ್ಗ | ಸದಸ್ಯತ್ವ | ಹೊಂದಿರುವ</annotation>
 		<annotation cp="∈" type="tts">ಅಂಶ</annotation>
-		<annotation cp="÷">ಕಠಾರಿ ಗುರುತು | ಭಾಗಾಕಾರ | ಭಾಗಾಕಾರ ಚಿಹ್ನೆ | ವಿಭಜನೆ</annotation>
+		<annotation cp="∉">ಅಂಶವಲ್ಲ</annotation>
+		<annotation cp="∉" type="tts">ಅಂಶವಲ್ಲ</annotation>
+		<annotation cp="∋">ಸದಸ್ಯರಾಗಿ ಒಳಗೊಂಡಿದೆ</annotation>
+		<annotation cp="∋" type="tts">ಸದಸ್ಯರಾಗಿ ಒಳಗೊಂಡಿದೆ</annotation>
+		<annotation cp="∎">ಅಂತ್ಯ ಸಾಕ್ಷಿ | ಕ್ಯೂ.ಇ.ಡಿ. | ಕ್ಯೂಇಡಿ | ಗೋರಿಗಲ್ಲು | ಹಲ್ಮೋಸ್</annotation>
+		<annotation cp="∎" type="tts">ಅಂತ್ಯ ಸಾಕ್ಷಿ</annotation>
+		<annotation cp="∏">ಉತ್ಪನ್ನ | ಎನ್‌-ಎಆರ್‌ವೈ ಉತ್ಪನ್ನ | ತರ್ಕ</annotation>
+		<annotation cp="∏" type="tts">ಎನ್‌-ಎಆರ್‌ವೈ ಉತ್ಪನ್ನ</annotation>
+		<annotation cp="∑">ಎನ್‌-ಎಆರ್‌ವೈ ಸಾರಾಂಶೀಕರಣ | ಗಣಿತ | ಸಂಕಲನ</annotation>
+		<annotation cp="∑" type="tts">ಎನ್‌-ಎಆರ್‌ವೈ ಸಾರಾಂಶೀಕರಣ</annotation>
+		<annotation cp="+">ಅಧಿಕ | ಅಧಿಕ ಚಿಹ್ನೆ | ಕೂಡಿಸು</annotation>
+		<annotation cp="+" type="tts">ಅಧಿಕ ಚಿಹ್ನೆ</annotation>
+		<annotation cp="±">ಅಧಿಕ - ಕಳೆ | ಅಧಿಕ-ಕಳೆ</annotation>
+		<annotation cp="±" type="tts">ಅಧಿಕ - ಕಳೆ</annotation>
+		<annotation cp="÷">ಒಬೆಲಸ್ | ಭಾಗಾಕಾರ ಚಿಹ್ನೆ | ಭಾಗಿಸಿ | ವಿಭಾಗ</annotation>
 		<annotation cp="÷" type="tts">ಭಾಗಾಕಾರ ಚಿಹ್ನೆ</annotation>
 		<annotation cp="×">ಗುಣಾಕಾರ | ಗುಣಾಕಾರ ಚಿಹ್ನೆ | ಗುಣಾಕಾರದ ಚಿಹ್ನೆ | ಗುಣಿಸುವುದು | ಪಟ್ಟು</annotation>
 		<annotation cp="×" type="tts">ಗುಣಾಕಾರದ ಚಿಹ್ನೆ</annotation>
-		<annotation cp="⁻">ಕಳೆ | ಘಾತ | ಘಾತ ಕಳೆಯುವಿಕೆ</annotation>
+		<annotation cp="&lt;">ಇದಕ್ಕಿಂತ ಕಡಿಮೆ | ಕಡಿಮೆ | ಟ್ಯಾಗ್ | ತೆರೆದ ಟ್ಯಾಗ್</annotation>
+		<annotation cp="&lt;" type="tts">ಕಡಿಮೆ</annotation>
+		<annotation cp="≮">ಅಸಮಾನತೆ | ಇದಕ್ಕಿಂತ ಕಡಿಮೆ ಇಲ್ಲ | ಗಣಿತ</annotation>
+		<annotation cp="≮" type="tts">ಇದಕ್ಕಿಂತ ಕಡಿಮೆ ಇಲ್ಲ</annotation>
+		<annotation cp="=">ಸಮ | ಸಮಾನ</annotation>
+		<annotation cp="=" type="tts">ಸಮ</annotation>
+		<annotation cp="≠">ಅಸಮಾನತೆ | ಸಮವಾಗಿಲ್ಲ | ಸಮವಾಗಿಲ್ಲದಿರುವಿಕೆ | ಸಮಾನವಾಗಿಲ್ಲ</annotation>
+		<annotation cp="≠" type="tts">ಸಮವಾಗಿಲ್ಲ</annotation>
+		<annotation cp="&gt;">ಟ್ಯಾಗ್ | ಮುಚ್ಚುವ ಟ್ಯಾಗ್ | ಹೆಚ್ಚು</annotation>
+		<annotation cp="&gt;" type="tts">ಹೆಚ್ಚು</annotation>
+		<annotation cp="≯">ಇದಕ್ಕಿಂತ ಹೆಚ್ಚು ಇಲ್ಲ</annotation>
+		<annotation cp="≯" type="tts">ಇದಕ್ಕಿಂತ ಹೆಚ್ಚು ಇಲ್ಲ</annotation>
+		<annotation cp="¬">ಇಲ್ಲ | ನಕಾರ</annotation>
+		<annotation cp="¬" type="tts">ನಕಾರ</annotation>
+		<annotation cp="|">ಕೋಲು | ಪೈಕ್ | ಪೈಪ್ | ಬಾರ್ | ಲಂಬ ಸಾಲು | ಶೆಫರ್ ಸ್ಟ್ರೋಕ್ | ಸಾಲು</annotation>
+		<annotation cp="|" type="tts">ಲಂಬ ಸಾಲು</annotation>
+		<annotation cp="~">ಅಲೆ</annotation>
+		<annotation cp="~" type="tts">ಅಲೆ</annotation>
+		<annotation cp="−">ಕಳೆ | ಕಳೆ ಚಿಹ್ನೆ | ವ್ಯವಕಲನ</annotation>
+		<annotation cp="−" type="tts">ಕಳೆ ಚಿಹ್ನೆ</annotation>
+		<annotation cp="⁻">ಕಳೆ | ಕಳೆಯುವಿಕೆ | ಘಾತ</annotation>
 		<annotation cp="⁻" type="tts">ಘಾತ ಕಳೆಯುವಿಕೆ</annotation>
+		<annotation cp="∓">ಕಳೆ ಅಥವಾ ಕೂಡಿಸು</annotation>
+		<annotation cp="∓" type="tts">ಕಳೆ ಅಥವಾ ಕೂಡಿಸು</annotation>
+		<annotation cp="∕">ಗೆರೆ | ವಿಭಜನೆ ಗೆರೆ | ಸ್ಟ್ರೋಕ್</annotation>
+		<annotation cp="∕" type="tts">ವಿಭಜನೆ ಗೆರೆ</annotation>
+		<annotation cp="⁄">ಭಾಗಾಕಾರ ಗೆರೆ</annotation>
+		<annotation cp="⁄" type="tts">ಭಾಗಾಕಾರ ಗೆರೆ</annotation>
+		<annotation cp="∗">ಚುಕ್ಕೆ ಆಪರೇಟರ್</annotation>
+		<annotation cp="∗" type="tts">ಚುಕ್ಕೆ ಆಪರೇಟರ್</annotation>
+		<annotation cp="∘">ಆಪರೇಟರ್ | ರಿಂಗ್ ಆಪರೇಟರ್ | ಸಂಯೋಜನೆ</annotation>
+		<annotation cp="∘" type="tts">ರಿಂಗ್ ಆಪರೇಟರ್</annotation>
+		<annotation cp="∙">ಬುಲೆಟ್ ಆಪರೇಟರ್</annotation>
+		<annotation cp="∙" type="tts">ಬುಲೆಟ್ ಆಪರೇಟರ್</annotation>
 		<annotation cp="√">ಅಪರಿಮೇಯ | ಪಾದಾಂಕ | ಪ್ರಾತಿಪದಿಕ | ಮೂಲ | ವರ್ಗ | ವರ್ಗಮೂಲ</annotation>
 		<annotation cp="√" type="tts">ವರ್ಗಮೂಲ</annotation>
-		<annotation cp="∞">ಅನಂತ | ಅನಂತ ಚಿಹ್ನೆ</annotation>
-		<annotation cp="∞" type="tts">ಅನಂತ ಚಿಹ್ನೆ</annotation>
+		<annotation cp="∝">ಅನುಪಾತ</annotation>
+		<annotation cp="∝" type="tts">ಅನುಪಾತ</annotation>
+		<annotation cp="∞">ಇನ್‌ಫಿನಿಟಿ | ಇನ್‌ಫಿನಿಟಿ ಚಿಹ್ನೆ</annotation>
+		<annotation cp="∞" type="tts">ಇನ್‌ಫಿನಿಟಿ ಚಿಹ್ನೆ</annotation>
+		<annotation cp="∟">ಗಣಿತ | ಬಲ ಕೋನ</annotation>
+		<annotation cp="∟" type="tts">ಬಲ ಕೋನ</annotation>
+		<annotation cp="∠">ಆ್ಯಂಗಲ್</annotation>
+		<annotation cp="∠" type="tts">ಆ್ಯಂಗಲ್</annotation>
+		<annotation cp="∣">ಭಾಜಕ | ವಿಭಜಿಸುವುದು</annotation>
+		<annotation cp="∣" type="tts">ವಿಭಜಿಸುವುದು</annotation>
+		<annotation cp="∥">ಪರ್ಯಾಯ</annotation>
+		<annotation cp="∥" type="tts">ಪರ್ಯಾಯ</annotation>
+		<annotation cp="∧">ಎಸಿ | ಲಾಜಿಕಲ್ ಮತ್ತು | ವೆಡ್ಜ್</annotation>
+		<annotation cp="∧" type="tts">ಲಾಜಿಕಲ್ ಮತ್ತು</annotation>
 		<annotation cp="∩">ಛೇದನ | ವರ್ಗ</annotation>
 		<annotation cp="∩" type="tts">ಛೇದನ</annotation>
 		<annotation cp="∪">ವರ್ಗ | ಸಂಗ್ರಹ | ಸಮೂಹ</annotation>
 		<annotation cp="∪" type="tts">ಸಮೂಹ</annotation>
+		<annotation cp="∫">ಕಲನಶಾಸ್ತ್ರ | ಪೂರ್ಣಾಂಕ</annotation>
+		<annotation cp="∫" type="tts">ಪೂರ್ಣಾಂಕ</annotation>
+		<annotation cp="∬">ಎರಡು ಪೂರ್ಣಾಂಕ</annotation>
+		<annotation cp="∬" type="tts">ಎರಡು ಪೂರ್ಣಾಂಕ</annotation>
+		<annotation cp="∮">ಸಮೋನ್ನತ ಪೂರ್ಣಾಂಕ</annotation>
+		<annotation cp="∮" type="tts">ಸಮೋನ್ನತ ಪೂರ್ಣಾಂಕ</annotation>
+		<annotation cp="∴">ಆದ್ದರಿಂದ | ತರ್ಕ</annotation>
+		<annotation cp="∴" type="tts">ಆದ್ದರಿಂದ</annotation>
+		<annotation cp="∵">ಏಕೆಂದರೆ</annotation>
+		<annotation cp="∵" type="tts">ಏಕೆಂದರೆ</annotation>
+		<annotation cp="∶">ನಿಷ್ಪತ್ತಿ</annotation>
+		<annotation cp="∶" type="tts">ನಿಷ್ಪತ್ತಿ</annotation>
+		<annotation cp="∷">ಪ್ರಮಾಣ | ಪ್ರಮಾಣಾನುಗುಣತೆ</annotation>
+		<annotation cp="∷" type="tts">ಪ್ರಮಾಣ</annotation>
+		<annotation cp="∼">ಅಲೆ ಗೆರೆ ಆಪರೇಟರ್</annotation>
+		<annotation cp="∼" type="tts">ಅಲೆ ಗೆರೆ ಆಪರೇಟರ್</annotation>
+		<annotation cp="∽">ಹಿಮ್ಮುಖ ಅಲೆ ಗೆರೆ</annotation>
+		<annotation cp="∽" type="tts">ಹಿಮ್ಮುಖ ಅಲೆ ಗೆರೆ</annotation>
+		<annotation cp="∾">ಒಳಮುಖ ಲೇಝಿ ಎಸ್‌</annotation>
+		<annotation cp="∾" type="tts">ಒಳಮುಖ ಲೇಝಿ ಎಸ್‌</annotation>
+		<annotation cp="≃">ಅಸಂಪಾತ | ಅಸಂಪಾತವಾಗಿ ಸಮಾನ | ಗಣಿತಶಾಸ್ತ್ರ</annotation>
+		<annotation cp="≃" type="tts">ಅಸಂಪಾತವಾಗಿ ಸಮಾನ</annotation>
+		<annotation cp="≅">ಅಂದಾಜು ಸಮಾನ | ಐಸೋಮಾರ್ಫಿಸಂ | ಗಣಿತಶಾಸ್ತ್ರ | ಸಮಾನತೆ</annotation>
+		<annotation cp="≅" type="tts">ಅಂದಾಜು ಸಮಾನ</annotation>
+		<annotation cp="≈">ಅಂದಾಜು | ಅಂದಾಜು ಮಾಡುವಿಕೆ | ಬಹುತೇಕ ಸಮ</annotation>
+		<annotation cp="≈" type="tts">ಬಹುತೇಕ ಸಮ</annotation>
+		<annotation cp="≌">ಎಲ್ಲವೂ ಸಮಾನ | ಗಣಿತಶಾಸ್ತ್ರ | ಸಮಾನತೆ</annotation>
+		<annotation cp="≌" type="tts">ಎಲ್ಲವೂ ಸಮಾನ</annotation>
+		<annotation cp="≒">ಅಂದಾಜು ಸಮಾನತೆ ಚಿತ್ರ</annotation>
+		<annotation cp="≒" type="tts">ಅಂದಾಜು ಸಮಾನತೆ ಚಿತ್ರ</annotation>
+		<annotation cp="≖">ಗಣಿತ | ಸಮಾನತೆ | ಸಮಾನತೆಯಲ್ಲಿ ವೃತ್ತ</annotation>
+		<annotation cp="≖" type="tts">ಸಮಾನತೆಯಲ್ಲಿ ವೃತ್ತ</annotation>
 		<annotation cp="≡">ತ್ರಿವಳಿ | ಸಮ | ಸಮ ರೀತಿಯ | ಸಮಾನ</annotation>
 		<annotation cp="≡" type="tts">ಸಮಾನ</annotation>
+		<annotation cp="≣">ಕಟ್ಟುನಿಟ್ಟಾಗಿ ಸಮಾನ | ಗಣಿತ | ಸಮಾನತೆ</annotation>
+		<annotation cp="≣" type="tts">ಕಟ್ಟುನಿಟ್ಟಾಗಿ ಸಮಾನ</annotation>
+		<annotation cp="≤">ಅಸಮಾನತೆ | ಕಡಿಮೆ | ಕಡಿಮೆ ಅಥವಾ ಸಮಾನ | ಸಮಾನ | ಸಮಾನಗಳು</annotation>
+		<annotation cp="≤" type="tts">ಕಡಿಮೆ ಅಥವಾ ಸಮಾನ</annotation>
+		<annotation cp="≥">ಅಸಮಾನತೆ | ಇದಕ್ಕಿಂತ ಹೆಚ್ಚು | ಇದಕ್ಕಿಂತ ಹೆಚ್ಚು ಅಥವಾ ಸಮಾನ | ಸಮಾನ | ಸಮಾನತೆ</annotation>
+		<annotation cp="≥" type="tts">ಇದಕ್ಕಿಂತ ಹೆಚ್ಚು ಅಥವಾ ಸಮಾನ</annotation>
+		<annotation cp="≦">ಅಸಮಾನತೆ | ಕಡಿಮೆ-ಗಿಂತ ಹೆಚ್ಚು ಸಮಾನ | ಗಣಿತಶಾಸ್ತ್ರ | ಸಮಾನತೆಗಿಂತ ಸ್ವಲ್ಪ ಕಡಿಮೆ</annotation>
+		<annotation cp="≦" type="tts">ಸಮಾನತೆಗಿಂತ ಸ್ವಲ್ಪ ಕಡಿಮೆ</annotation>
+		<annotation cp="≧">ಅಸಮಾನತೆ | ಗಣಿತಶಾಸ್ತ್ರ | ಸಮಾನತೆಗಿಂತ ಸ್ವಲ್ಪ ಹೆಚ್ಚು</annotation>
+		<annotation cp="≧" type="tts">ಸಮಾನತೆಗಿಂತ ಸ್ವಲ್ಪ ಹೆಚ್ಚು</annotation>
+		<annotation cp="≪">ಅಸಮಾನತೆ | ಗಣಿತಶಾಸ್ತ್ರ | ತುಂಬಾ ಕಡಿಮೆ</annotation>
+		<annotation cp="≪" type="tts">ತುಂಬಾ ಕಡಿಮೆ</annotation>
+		<annotation cp="≫">ಅಸಮಾನತೆ | ಗಣಿತಶಾಸ್ತ್ರ | ತುಂಬಾ ಹೆಚ್ಚು</annotation>
+		<annotation cp="≫" type="tts">ತುಂಬಾ ಹೆಚ್ಚು</annotation>
+		<annotation cp="≬">ಮಧ್ಯೆ</annotation>
+		<annotation cp="≬" type="tts">ಮಧ್ಯೆ</annotation>
+		<annotation cp="≳">ಅಸಮಾನತೆ | ಗಣಿತಶಾಸ್ತ್ರ | ಸಮಾನತೆಗಿಂತ ಹೆಚ್ಚು</annotation>
+		<annotation cp="≳" type="tts">ಸಮಾನತೆಗಿಂತ ಹೆಚ್ಚು</annotation>
+		<annotation cp="≺">ಅಗ್ರಗಾಮಿ | ಗಣಿತ | ಸೆಟ್ ಆಪರೇಟರ್</annotation>
+		<annotation cp="≺" type="tts">ಅಗ್ರಗಾಮಿ</annotation>
+		<annotation cp="≻">ಗಣಿತ | ಸೆಟ್ ಆಪರೇಟರ್ | ಹಿಂಬಾಲಿಸು</annotation>
+		<annotation cp="≻" type="tts">ಹಿಂಬಾಲಿಸು</annotation>
+		<annotation cp="⊁">ಗಣಿತ | ಸೆಟ್ ಆಪರೇಟರ್ | ಹಿಂಬಾಲಿಸದ</annotation>
+		<annotation cp="⊁" type="tts">ಹಿಂಬಾಲಿಸದ</annotation>
 		<annotation cp="⊂">ಉಪ ವರ್ಗ | ಉಪವರ್ಗ | ಉಪವರ್ಗದ | ವರ್ಗ</annotation>
 		<annotation cp="⊂" type="tts">ಉಪ ವರ್ಗ</annotation>
-		<annotation cp="▲">ತುಂಬಿಕೊಂಡ ತುಂಬಿಕೊಂಡ ಮೇಲ್ಮುಖದ ತ್ರಿಕೋನ | ತುಂಬಿಕೊಂಡ ಮೇಲ್ಮುಖದ ತ್ರಿಕೋನ | ತ್ರಿಕೋನ | ಬಾಣ | ಮೇಲ್ಮುಖ</annotation>
+		<annotation cp="⊃">ಸೂಪರ್‌ಸೆಟ್</annotation>
+		<annotation cp="⊃" type="tts">ಸೂಪರ್‌ಸೆಟ್</annotation>
+		<annotation cp="⊆">ಸಬ್‌ಸಟ್‌ ಸಮಾನ</annotation>
+		<annotation cp="⊆" type="tts">ಸಬ್‌ಸಟ್‌ ಸಮಾನ</annotation>
+		<annotation cp="⊇">ಸೂಪರ್‌ಸೆಟ್ ಸಮಾನ</annotation>
+		<annotation cp="⊇" type="tts">ಸೂಪರ್‌ಸೆಟ್ ಸಮಾನ</annotation>
+		<annotation cp="⊕">ವೃತ್ತ ಅಧಿಕ ಚಿಹ್ನೆ</annotation>
+		<annotation cp="⊕" type="tts">ವೃತ್ತ ಅಧಿಕ ಚಿಹ್ನೆ</annotation>
+		<annotation cp="⊖">ವೃತ್ತದಲ್ಲಿ ಕಳೆ ಚಿಹ್ನೆ</annotation>
+		<annotation cp="⊖" type="tts">ವೃತ್ತದಲ್ಲಿ ಕಳೆ ಚಿಹ್ನೆ</annotation>
+		<annotation cp="⊗">ವೃತ್ತಾಕಾರದ ಕಾಲ</annotation>
+		<annotation cp="⊗" type="tts">ವೃತ್ತಾಕಾರದ ಕಾಲ</annotation>
+		<annotation cp="⊘">ವೃತ್ತಾಕಾರದೊಳಗೆ ಭಾಗಾಕಾರ ಗೀಟು</annotation>
+		<annotation cp="⊘" type="tts">ವೃತ್ತಾಕಾರದೊಳಗೆ ಭಾಗಾಕಾರ ಗೀಟು</annotation>
+		<annotation cp="⊙">ವೃತ್ತಾಕಾರದಲ್ಲಿ ಚುಕ್ಕೆ ಆಪರೇಟರ್</annotation>
+		<annotation cp="⊙" type="tts">ವೃತ್ತಾಕಾರದಲ್ಲಿ ಚುಕ್ಕೆ ಆಪರೇಟರ್</annotation>
+		<annotation cp="⊚">ವೃತ್ತಾಕಾರದೊಳಗೆ ರಿಂಗ್ ಆಪರೇಟರ್‌</annotation>
+		<annotation cp="⊚" type="tts">ವೃತ್ತಾಕಾರದೊಳಗೆ ರಿಂಗ್ ಆಪರೇಟರ್‌</annotation>
+		<annotation cp="⊛">ವೃತ್ತಾಕಾರದ ಚುಕ್ಕೆ ಆಪರೇಟರ್</annotation>
+		<annotation cp="⊛" type="tts">ವೃತ್ತಾಕಾರದ ಚುಕ್ಕೆ ಆಪರೇಟರ್</annotation>
+		<annotation cp="⊞">ಆಯತ ಅಧಿಕ ಚಿಹ್ನೆ</annotation>
+		<annotation cp="⊞" type="tts">ಆಯತ ಅಧಿಕ ಚಿಹ್ನೆ</annotation>
+		<annotation cp="⊟">ಆಯತದೊಳಗೆ ಕಳೆ ಚಿಹ್ನೆ</annotation>
+		<annotation cp="⊟" type="tts">ಆಯತದೊಳಗೆ ಕಳೆ ಚಿಹ್ನೆ</annotation>
+		<annotation cp="⊥">ಟ್ಯಾಕ್ | ಫಾಲ್ಸಮ್ | ಮೇಲ್ಮುಖ ಟ್ಯಾಕ್ | ಮೇಲ್ಮುಖ ಟ್ರ್ಯಾಕ್</annotation>
+		<annotation cp="⊥" type="tts">ಮೇಲ್ಮುಖ ಟ್ರ್ಯಾಕ್</annotation>
+		<annotation cp="⊮">ಬಲವಿಲ್ಲ</annotation>
+		<annotation cp="⊮" type="tts">ಬಲವಿಲ್ಲ</annotation>
+		<annotation cp="⊰">ಸಂಬಂಧ ಸಹಿತ ಅಗ್ರಗಾಮಿ</annotation>
+		<annotation cp="⊰" type="tts">ಸಂಬಂಧ ಸಹಿತ ಅಗ್ರಗಾಮಿ</annotation>
+		<annotation cp="⊱">ಸಂಬಂಧ ಸಹಿತ ಹಿಂಬಾಲಿಸುವುದು</annotation>
+		<annotation cp="⊱" type="tts">ಸಂಬಂಧ ಸಹಿತ ಹಿಂಬಾಲಿಸುವುದು</annotation>
+		<annotation cp="⋭">ಸಾಮಾನ್ಯ ಉಪಗುಂಪು ಸಮಾನತೆಯಂತೆ ಒಳಗೊಂಡಿರುವುದಿಲ್ಲ | ಸಾಮಾನ್ಯ ಉಪಸಮೂಹ ಸಮಾನತೆಯಂತೆ ಒಳಗೊಂಡಿರುವುದಿಲ್ಲ</annotation>
+		<annotation cp="⋭" type="tts">ಸಾಮಾನ್ಯ ಉಪಗುಂಪು ಸಮಾನತೆಯಂತೆ ಒಳಗೊಂಡಿರುವುದಿಲ್ಲ</annotation>
+		<annotation cp="⊶">ಮೂಲ</annotation>
+		<annotation cp="⊶" type="tts">ಮೂಲ</annotation>
+		<annotation cp="⊹">ಹರ್ಮಿಟನ್ ಕಾಂಜುಗೇಟ್ ಮ್ಯಾಟ್ರಿಕ್ಸ್</annotation>
+		<annotation cp="⊹" type="tts">ಹರ್ಮಿಟನ್ ಕಾಂಜುಗೇಟ್ ಮ್ಯಾಟ್ರಿಕ್ಸ್</annotation>
+		<annotation cp="⊿">ಬಲ ಕೋನ ತ್ರಿಕೋನ</annotation>
+		<annotation cp="⊿" type="tts">ಬಲ ಕೋನ ತ್ರಿಕೋನ</annotation>
+		<annotation cp="⋁">ಒಂದೂ ಇಲ್ಲ ಲಾಜಿಕಲ್‌ ಅಥವಾ</annotation>
+		<annotation cp="⋁" type="tts">ಒಂದೂ ಇಲ್ಲ ಲಾಜಿಕಲ್‌ ಅಥವಾ</annotation>
+		<annotation cp="⋂">ಒಂದೂ ಇಲ್ಲ ಮಧ್ಯಂತರ</annotation>
+		<annotation cp="⋂" type="tts">ಒಂದೂ ಇಲ್ಲ ಮಧ್ಯಂತರ</annotation>
+		<annotation cp="⋃">ಒಂದೂ ಇಲ್ಲ ಸಂಯೋಜನೆ</annotation>
+		<annotation cp="⋃" type="tts">ಒಂದೂ ಇಲ್ಲ ಸಂಯೋಜನೆ</annotation>
+		<annotation cp="⋅">ಬಿಂದು ಆಪರೇಟರ್</annotation>
+		<annotation cp="⋅" type="tts">ಬಿಂದು ಆಪರೇಟರ್</annotation>
+		<annotation cp="⋆">ನಕ್ಷತ್ರ ಆಪರೇಟರ್</annotation>
+		<annotation cp="⋆" type="tts">ನಕ್ಷತ್ರ ಆಪರೇಟರ್</annotation>
+		<annotation cp="⋈">ನೈಸರ್ಗಿಕ ಜಂಟಿ | ಬೈನರಿ ಆಪರೇಟರ್</annotation>
+		<annotation cp="⋈" type="tts">ನೈಸರ್ಗಿಕ ಜಂಟಿ</annotation>
+		<annotation cp="⋒">ಎರಡು ಮಧ್ಯಂತರ</annotation>
+		<annotation cp="⋒" type="tts">ಎರಡು ಮಧ್ಯಂತರ</annotation>
+		<annotation cp="⋘">ಇದಕ್ಕಿಂತ ತುಂಬಾ ಕಡಿಮೆ</annotation>
+		<annotation cp="⋘" type="tts">ಇದಕ್ಕಿಂತ ತುಂಬಾ ಕಡಿಮೆ</annotation>
+		<annotation cp="⋙">ಅದಕ್ಕಿಂತ ತುಂಬಾ ಹೆಚ್ಚು</annotation>
+		<annotation cp="⋙" type="tts">ಅದಕ್ಕಿಂತ ತುಂಬಾ ಹೆಚ್ಚು</annotation>
+		<annotation cp="⋮">ಲಂಬ ಲೋಪಚಿಹ್ನೆ</annotation>
+		<annotation cp="⋮" type="tts">ಲಂಬ ಲೋಪಚಿಹ್ನೆ</annotation>
+		<annotation cp="⋯">ಮಧ್ಯ ಸಾಲು ಲಂಬ ಲೋಪಚಿಹ್ನೆ</annotation>
+		<annotation cp="⋯" type="tts">ಮಧ್ಯ ಸಾಲು ಲಂಬ ಲೋಪಚಿಹ್ನೆ</annotation>
+		<annotation cp="⋰">ಬಲ ಮೇಲ್ಮುಖ ಲಂಬ ಲೋಪ ಚಿಹ್ನೆ</annotation>
+		<annotation cp="⋰" type="tts">ಬಲ ಮೇಲ್ಮುಖ ಲಂಬ ಲೋಪ ಚಿಹ್ನೆ</annotation>
+		<annotation cp="⋱">ಬಲ ಕೆಳಮುಖ ಲಂಬ ಲೋಪ ಚಿಹ್ನೆ</annotation>
+		<annotation cp="⋱" type="tts">ಬಲ ಕೆಳಮುಖ ಲಂಬ ಲೋಪ ಚಿಹ್ನೆ</annotation>
+		<annotation cp="■">ತುಂಬಿದ ಆಯತ</annotation>
+		<annotation cp="■" type="tts">ತುಂಬಿದ ಆಯತ</annotation>
+		<annotation cp="□">ಖಾಲಿ ಆಯತ</annotation>
+		<annotation cp="□" type="tts">ಖಾಲಿ ಆಯತ</annotation>
+		<annotation cp="▢">ವೃತ್ತ ಅಂಚಿನ ಸಹಿತ ಖಾಲಿ ವೃತ್ತ</annotation>
+		<annotation cp="▢" type="tts">ವೃತ್ತ ಅಂಚಿನ ಸಹಿತ ಖಾಲಿ ವೃತ್ತ</annotation>
+		<annotation cp="▣">ಭರ್ತಿ ಮಾಡಿದ ಆಯತ ಸಹಿತ ಖಾಲಿ ಆಯತ</annotation>
+		<annotation cp="▣" type="tts">ಭರ್ತಿ ಮಾಡಿದ ಆಯತ ಸಹಿತ ಖಾಲಿ ಆಯತ</annotation>
+		<annotation cp="▤">ಅಡ್ಡ ಭರ್ತಿ ಸಹಿತ ಆಯತ</annotation>
+		<annotation cp="▤" type="tts">ಅಡ್ಡ ಭರ್ತಿ ಸಹಿತ ಆಯತ</annotation>
+		<annotation cp="▥">ಲಂಬ ಭರ್ತಿ ಸಹಿತ ಆಯತ</annotation>
+		<annotation cp="▥" type="tts">ಲಂಬ ಭರ್ತಿ ಸಹಿತ ಆಯತ</annotation>
+		<annotation cp="▦">ಆಯತ ಲಂಬಕೋನೀಯ ಅಡ್ಡಗೆರೆ ಭರ್ತಿ</annotation>
+		<annotation cp="▦" type="tts">ಆಯತ ಲಂಬಕೋನೀಯ ಅಡ್ಡಗೆರೆ ಭರ್ತಿ</annotation>
+		<annotation cp="▧">ಆಯತ ಎಡ ಮೇಲಿನಿಂದ ಕೆಳಕ್ಕೆ ಬಲ ಭರ್ತಿ</annotation>
+		<annotation cp="▧" type="tts">ಆಯತ ಎಡ ಮೇಲಿನಿಂದ ಕೆಳಕ್ಕೆ ಬಲ ಭರ್ತಿ</annotation>
+		<annotation cp="▨">ಆಯತ ಬಲ ಮೇಲಿನಿಂದ ಕೆಳಕ್ಕೆ ಎಡ ಭರ್ತಿ</annotation>
+		<annotation cp="▨" type="tts">ಆಯತ ಬಲ ಮೇಲಿನಿಂದ ಕೆಳಕ್ಕೆ ಎಡ ಭರ್ತಿ</annotation>
+		<annotation cp="▩">ಆಯತ ಕರ್ಣೀಯ ಅಡ್ಡಗೆರೆ ಭರ್ತಿ</annotation>
+		<annotation cp="▩" type="tts">ಆಯತ ಕರ್ಣೀಯ ಅಡ್ಡಗೆರೆ ಭರ್ತಿ</annotation>
+		<annotation cp="▬">ಭರ್ತಿ ಮಾಡಿದ ಚೌಕಾಕಾರ</annotation>
+		<annotation cp="▬" type="tts">ಭರ್ತಿ ಮಾಡಿದ ಚೌಕಾಕಾರ</annotation>
+		<annotation cp="▭">ಖಾಲಿ ಚೌಕಾಕಾರ</annotation>
+		<annotation cp="▭" type="tts">ಖಾಲಿ ಚೌಕಾಕಾರ</annotation>
+		<annotation cp="▮">ಭರ್ತಿ ಮಾಡಿದ ಲಂಬ ಚೌಕಾಕಾರ</annotation>
+		<annotation cp="▮" type="tts">ಭರ್ತಿ ಮಾಡಿದ ಲಂಬ ಚೌಕಾಕಾರ</annotation>
+		<annotation cp="▰">ಭರ್ತಿ ಮಾಡಿದ ಸಮಾಂತರ ಚತುರ್ಭುಜ</annotation>
+		<annotation cp="▰" type="tts">ಭರ್ತಿ ಮಾಡಿದ ಸಮಾಂತರ ಚತುರ್ಭುಜ</annotation>
+		<annotation cp="▲">ತುಂಬಿಕೊಂಡ ಮೇಲ್ಮುಖದ ತ್ರಿಕೋನ | ತ್ರಿಕೋನ | ಬಾಣ | ಮೇಲ್ಮುಖ</annotation>
 		<annotation cp="▲" type="tts">ತುಂಬಿಕೊಂಡ ಮೇಲ್ಮುಖದ ತ್ರಿಕೋನ</annotation>
+		<annotation cp="△">ಖಾಲಿ ಮೇಲ್ಮುಖ ತ್ರಿಕೋನ</annotation>
+		<annotation cp="△" type="tts">ಖಾಲಿ ಮೇಲ್ಮುಖ ತ್ರಿಕೋನ</annotation>
+		<annotation cp="▴">ಭರ್ತಿ ಮಾಡಿದ ಮೇಲ್ಮುಖ ಸಣ್ಣ ತ್ರಿಕೋನ</annotation>
+		<annotation cp="▴" type="tts">ಭರ್ತಿ ಮಾಡಿದ ಮೇಲ್ಮುಖ ಸಣ್ಣ ತ್ರಿಕೋನ</annotation>
+		<annotation cp="▵">ಖಾಲಿ ಮೇಲ್ಮುಖ ಸಣ್ಣ ತ್ರಿಕೋನ</annotation>
+		<annotation cp="▵" type="tts">ಖಾಲಿ ಮೇಲ್ಮುಖ ಸಣ್ಣ ತ್ರಿಕೋನ</annotation>
+		<annotation cp="▷">ಖಾಲಿ ಬಲ ಮುಖ ತ್ರಿಕೋನ</annotation>
+		<annotation cp="▷" type="tts">ಖಾಲಿ ಬಲ ಮುಖ ತ್ರಿಕೋನ</annotation>
+		<annotation cp="▸">ಭರ್ತಿ ಮಾಡಿದ ಬಲ ಮುಖ ಸಣ್ಣ ತ್ರಿಕೋನ</annotation>
+		<annotation cp="▸" type="tts">ಭರ್ತಿ ಮಾಡಿದ ಬಲ ಮುಖ ಸಣ್ಣ ತ್ರಿಕೋನ</annotation>
+		<annotation cp="▹">ಖಾಲಿ ಬಲ ಮುಖ ಸಣ್ಣ ತ್ರಿಕೋನ</annotation>
+		<annotation cp="▹" type="tts">ಖಾಲಿ ಬಲ ಮುಖ ಸಣ್ಣ ತ್ರಿಕೋನ</annotation>
+		<annotation cp="►">ಭರ್ತಿ ಮಾಡಿದ ಬಲ ಮುಖ ಪಾಯಿಂಟರ್</annotation>
+		<annotation cp="►" type="tts">ಭರ್ತಿ ಮಾಡಿದ ಬಲ ಮುಖ ಪಾಯಿಂಟರ್</annotation>
+		<annotation cp="▻">ಖಾಲಿ ಬಲ ಮುಖ ಪಾಯಿಂಟರ್</annotation>
+		<annotation cp="▻" type="tts">ಖಾಲಿ ಬಲ ಮುಖ ಪಾಯಿಂಟರ್</annotation>
 		<annotation cp="▼">ಇಳಿಮುಖ | ತುಂಬಿಕೊಂಡ | ತುಂಬಿಕೊಂಡ ಇಳಿಮುಖದ ತ್ರಿಕೋನ | ತುಂಬಿಕೊಂಡ ಕೆಳಮುಖದ ತ್ರಿಕೋನ | ತ್ರಿಕೋನ | ಬಾಣ</annotation>
 		<annotation cp="▼" type="tts">ತುಂಬಿಕೊಂಡ ಕೆಳಮುಖದ ತ್ರಿಕೋನ</annotation>
+		<annotation cp="▽">ಖಾಲಿ ಕೆಳ ಮುಖ ತ್ರಿಕೋನ</annotation>
+		<annotation cp="▽" type="tts">ಖಾಲಿ ಕೆಳ ಮುಖ ತ್ರಿಕೋನ</annotation>
+		<annotation cp="▾">ಭರ್ತಿ ಮಾಡಿದ ಕೆಳ ಮುಖ ಸಣ್ಣ ತ್ರಿಕೋನ</annotation>
+		<annotation cp="▾" type="tts">ಭರ್ತಿ ಮಾಡಿದ ಕೆಳ ಮುಖ ಸಣ್ಣ ತ್ರಿಕೋನ</annotation>
+		<annotation cp="▿">ಖಾಲಿ ಕೆಳ ಮಖ ಸಣ್ಣ ತ್ರಿಕೋನ</annotation>
+		<annotation cp="▿" type="tts">ಖಾಲಿ ಕೆಳ ಮಖ ಸಣ್ಣ ತ್ರಿಕೋನ</annotation>
+		<annotation cp="◁">ಖಾಲಿ ಎಡ ಮುಖ ತ್ರಿಕೋನ</annotation>
+		<annotation cp="◁" type="tts">ಖಾಲಿ ಎಡ ಮುಖ ತ್ರಿಕೋನ</annotation>
+		<annotation cp="◂">ಭರ್ತಿ ಮಾಡಿದ ಎಡ ಮುಖ ಸಣ್ಣ ತ್ರಿಕೋನ</annotation>
+		<annotation cp="◂" type="tts">ಭರ್ತಿ ಮಾಡಿದ ಎಡ ಮುಖ ಸಣ್ಣ ತ್ರಿಕೋನ</annotation>
+		<annotation cp="◃">ಖಾಲಿ ಎಡ ಮುಖ ಸಣ್ಣ ತ್ರಿಕೋನ</annotation>
+		<annotation cp="◃" type="tts">ಖಾಲಿ ಎಡ ಮುಖ ಸಣ್ಣ ತ್ರಿಕೋನ</annotation>
+		<annotation cp="◄">ಭರ್ತಿ ಮಾಡಿದ ಎಡ ಪಾಯಿಂಟರ್‌</annotation>
+		<annotation cp="◄" type="tts">ಭರ್ತಿ ಮಾಡಿದ ಎಡ ಪಾಯಿಂಟರ್‌</annotation>
+		<annotation cp="◅">ಖಾಲಿ ಎಡ ಪಾಯಿಂಟರ್‌</annotation>
+		<annotation cp="◅" type="tts">ಖಾಲಿ ಎಡ ಪಾಯಿಂಟರ್‌</annotation>
+		<annotation cp="◆">ಭರ್ತಿ ಮಾಡಿದ ವಜ್ರ ಚಿಹ್ನೆ</annotation>
+		<annotation cp="◆" type="tts">ಭರ್ತಿ ಮಾಡಿದ ವಜ್ರ ಚಿಹ್ನೆ</annotation>
+		<annotation cp="◇">ಖಾಲಿ ವಜ್ರ ಚಿಹ್ನೆ</annotation>
+		<annotation cp="◇" type="tts">ಖಾಲಿ ವಜ್ರ ಚಿಹ್ನೆ</annotation>
+		<annotation cp="◈">ಖಾಲಿ ವಜ್ರ ಚಿಹ್ನೆ ಒಳಗೆ ಭರ್ತಿ ಮಾಡಿದ ಚಿಹ್ನೆ</annotation>
+		<annotation cp="◈" type="tts">ಖಾಲಿ ವಜ್ರ ಚಿಹ್ನೆ ಒಳಗೆ ಭರ್ತಿ ಮಾಡಿದ ಚಿಹ್ನೆ</annotation>
+		<annotation cp="◉">ಖಾಲಿ ವೃತ್ತದ ಒಳಗೆ ಭರ್ತಿ ಮಾಡಿದ ವೃತ್ತ</annotation>
+		<annotation cp="◉" type="tts">ಖಾಲಿ ವೃತ್ತದ ಒಳಗೆ ಭರ್ತಿ ಮಾಡಿದ ವೃತ್ತ</annotation>
 		<annotation cp="◊">ರಾಂಬಸ್‌ | ವಜ್ರ | ವಜ್ರಾಕೃತಿ</annotation>
 		<annotation cp="◊" type="tts">ವಜ್ರಾಕೃತಿ</annotation>
 		<annotation cp="○">ಖಾಲಿ ವೃತ್ತ | ರಿಂಗ್‌ | ವೃತ್ತ</annotation>
 		<annotation cp="○" type="tts">ಖಾಲಿ ವೃತ್ತ</annotation>
+		<annotation cp="◌">ಚುಕ್ಕೆ ವೃತ್ತ</annotation>
+		<annotation cp="◌" type="tts">ಚುಕ್ಕೆ ವೃತ್ತ</annotation>
+		<annotation cp="◍">ಲಂಬ ಭರ್ತಿ ಸಹಿತ ವೃತ್ತ</annotation>
+		<annotation cp="◍" type="tts">ಲಂಬ ಭರ್ತಿ ಸಹಿತ ವೃತ್ತ</annotation>
+		<annotation cp="◎">ಗೂಳಿ ಕಣ್ಣು</annotation>
+		<annotation cp="◎" type="tts">ಗೂಳಿ ಕಣ್ಣು</annotation>
 		<annotation cp="●">ಭರ್ತಿ ಮಾಡಿದ ವೃತ್ತ | ವೃತ್ತ</annotation>
 		<annotation cp="●" type="tts">ಭರ್ತಿ ಮಾಡಿದ ವೃತ್ತ</annotation>
+		<annotation cp="◐">ವೃತ್ತ ಎಡ ಅರ್ಧ ಭರ್ತಿ</annotation>
+		<annotation cp="◐" type="tts">ವೃತ್ತ ಎಡ ಅರ್ಧ ಭರ್ತಿ</annotation>
+		<annotation cp="◑">ವೃತ್ತ ಬಲ ಅರ್ಧ ಭರ್ತಿ</annotation>
+		<annotation cp="◑" type="tts">ವೃತ್ತ ಬಲ ಅರ್ಧ ಭರ್ತಿ</annotation>
+		<annotation cp="◒">ವೃತ್ತ ಕೆಳ ಅರ್ಧ ಭರ್ತಿ</annotation>
+		<annotation cp="◒" type="tts">ವೃತ್ತ ಕೆಳ ಅರ್ಧ ಭರ್ತಿ</annotation>
+		<annotation cp="◓">ವೃತ್ತ ಮೇಲಿನ ಅರ್ಧ ಭರ್ತಿ</annotation>
+		<annotation cp="◓" type="tts">ವೃತ್ತ ಮೇಲಿನ ಅರ್ಧ ಭರ್ತಿ</annotation>
+		<annotation cp="◔">ವೃತ್ತದ ಬಲ ಮೇಲ್ಭಾಗ ಕಾಲು ಭಾಗ ಭರ್ತಿ</annotation>
+		<annotation cp="◔" type="tts">ವೃತ್ತದ ಬಲ ಮೇಲ್ಭಾಗ ಕಾಲು ಭಾಗ ಭರ್ತಿ</annotation>
+		<annotation cp="◕">ವೃತ್ತದ ಎಡ ಕಾಲುಭಾಗವನ್ನು ಹೊರತುಪಡಿಸಿದ ಭರ್ತಿ</annotation>
+		<annotation cp="◕" type="tts">ವೃತ್ತದ ಎಡ ಕಾಲುಭಾಗವನ್ನು ಹೊರತುಪಡಿಸಿದ ಭರ್ತಿ</annotation>
+		<annotation cp="◖">ಎಡ ಅರ್ಧ ಭರ್ತಿ ವೃತ್ತ</annotation>
+		<annotation cp="◖" type="tts">ಎಡ ಅರ್ಧ ಭರ್ತಿ ವೃತ್ತ</annotation>
+		<annotation cp="◗">ಬಲ ಅರ್ಧ ಭರ್ತಿ ವೃತ್ತ</annotation>
+		<annotation cp="◗" type="tts">ಬಲ ಅರ್ಧ ಭರ್ತಿ ವೃತ್ತ</annotation>
+		<annotation cp="◘">ಒಳಮುಖ ಬುಲೆಟ್</annotation>
+		<annotation cp="◘" type="tts">ಒಳಮುಖ ಬುಲೆಟ್</annotation>
+		<annotation cp="◙">ಖಾಲಿ ವೃತ್ತವನ್ನು ಒಳಗೊಂಡ ಭರ್ತಿ ಮಾಡಿದ ಆಯತ</annotation>
+		<annotation cp="◙" type="tts">ಖಾಲಿ ವೃತ್ತವನ್ನು ಒಳಗೊಂಡ ಭರ್ತಿ ಮಾಡಿದ ಆಯತ</annotation>
+		<annotation cp="◜">ಮೇಲ್ಮುಖ ಎಡ ಕಾಲುಭಾಗ ವೃತ್ತ ಕಮಾನು</annotation>
+		<annotation cp="◜" type="tts">ಮೇಲ್ಮುಖ ಎಡ ಕಾಲುಭಾಗ ವೃತ್ತ ಕಮಾನು</annotation>
+		<annotation cp="◝">ಮೇಲ್ಮುಖ ಬಲ ಕಾಲುಭಾಗ ವೃತ್ತ ಕಮಾನು</annotation>
+		<annotation cp="◝" type="tts">ಮೇಲ್ಮುಖ ಬಲ ಕಾಲುಭಾಗ ವೃತ್ತ ಕಮಾನು</annotation>
+		<annotation cp="◞">ಕೆಳ ಬಲ ಕಾಲುಭಾಗ ವೃತ್ತ ಕಮಾನು</annotation>
+		<annotation cp="◞" type="tts">ಕೆಳ ಬಲ ಕಾಲುಭಾಗ ವೃತ್ತ ಕಮಾನು</annotation>
+		<annotation cp="◟">ಕೆಳ ಎಡ ಕಾಲುಭಾಗ ವೃತ್ತ ಕಮಾನು</annotation>
+		<annotation cp="◟" type="tts">ಕೆಳ ಎಡ ಕಾಲುಭಾಗ ವೃತ್ತ ಕಮಾನು</annotation>
+		<annotation cp="◠">ಮೇಲ್ಮುಖ ಅರ್ಧ ವೃತ್ತ</annotation>
+		<annotation cp="◠" type="tts">ಮೇಲ್ಮುಖ ಅರ್ಧ ವೃತ್ತ</annotation>
+		<annotation cp="◡">ಕೆಳ ಅರ್ಧ ವೃತ್ತ</annotation>
+		<annotation cp="◡" type="tts">ಕೆಳ ಅರ್ಧ ವೃತ್ತ</annotation>
+		<annotation cp="◢">ಭರ್ತಿ ಮಾಡಿದ ಕೆಳ ಬಲ ತ್ರಿಕೋನ</annotation>
+		<annotation cp="◢" type="tts">ಭರ್ತಿ ಮಾಡಿದ ಕೆಳ ಬಲ ತ್ರಿಕೋನ</annotation>
+		<annotation cp="◣">ಭರ್ತಿ ಮಾಡಿದ ಕೆಳ ಎಡ ತ್ರಿಕೋನ</annotation>
+		<annotation cp="◣" type="tts">ಭರ್ತಿ ಮಾಡಿದ ಕೆಳ ಎಡ ತ್ರಿಕೋನ</annotation>
+		<annotation cp="◤">ಭರ್ತಿ ಮಾಡಿದ ಮೇಲಿನ ಎಡ ತ್ರಿಕೋನ</annotation>
+		<annotation cp="◤" type="tts">ಭರ್ತಿ ಮಾಡಿದ ಮೇಲಿನ ಎಡ ತ್ರಿಕೋನ</annotation>
+		<annotation cp="◥">ಭರ್ತಿ ಮಾಡಿದ ಮೇಲಿನ ಬಲ ತ್ರಿಕೋನ</annotation>
+		<annotation cp="◥" type="tts">ಭರ್ತಿ ಮಾಡಿದ ಮೇಲಿನ ಬಲ ತ್ರಿಕೋನ</annotation>
+		<annotation cp="◦">ಖಾಲಿ ಬುಲೆಟ್</annotation>
+		<annotation cp="◦" type="tts">ಖಾಲಿ ಬುಲೆಟ್</annotation>
 		<annotation cp="◯">ದೊಡ್ಡ ಖಾಲಿ ವೃತ್ತ | ರಿಂಗ್‌ | ವೃತ್ತ</annotation>
 		<annotation cp="◯" type="tts">ದೊಡ್ಡ ಖಾಲಿ ವೃತ್ತ</annotation>
-		<annotation cp="⚧">ತೃತೀಯ ಲಿಂಗಿ | ತೃತೀಯ ಲಿಂಗಿ ಚಿಹ್ನೆ</annotation>
-		<annotation cp="⚧" type="tts">ತೃತೀಯ ಲಿಂಗಿ ಚಿಹ್ನೆ</annotation>
-		<annotation cp="🤌">ಕಹಿಯಾದ | ಕೈ ಸೂಚಕ | ಬೆರಳುಗಳು | ಮಡಚಿಕೊಂಡ | ವಿಚಾರಣೆ</annotation>
-		<annotation cp="🤌" type="tts">ಮಡಚಿಕೊಂಡ ಬೆರಳುಗಳು</annotation>
-		<annotation cp="🥲">ಕಣ್ಣೀರಿನೊಂದಿಗೆ ನಗುತ್ತಿರುವ ಮುಖ | ಕಣ್ಣೀರು | ಕೃತಜ್ಞತೆ | ನಗುತ್ತಿರುವ | ಬಿಡುಗಡೆ | ಸ್ಪರ್ಶಿಸಿದ | ಹೆಮ್ಮೆ</annotation>
-		<annotation cp="🥲" type="tts">ಕಣ್ಣೀರಿನೊಂದಿಗೆ ನಗುತ್ತಿರುವ ಮುಖ</annotation>
-		<annotation cp="🥷">ನಿಂಜಾ | ಫೈಟರ್ | ಮರೆಮಾಡಲಾಗಿದೆ | ರಹಸ್ಯ</annotation>
-		<annotation cp="🥷" type="tts">ನಿಂಜಾ</annotation>
-		<annotation cp="🥸">ಅಜ್ಞಾತ | ಗ್ಲಾಸ್ | ಮಾರುವೇಷ | ಮುಖ | ಮೂಗು</annotation>
-		<annotation cp="🥸" type="tts">ಮಾರುವೇಷ ಮುಖ</annotation>
-		<annotation cp="🦣">ಅಳಿವು | ಉಣ್ಣೆ | ದಂತ | ದೊಡ್ಡ | ಮಹಾಗಜ</annotation>
-		<annotation cp="🦣" type="tts">ಮಹಾಗಜ</annotation>
-		<annotation cp="🦤">ಅಳಿವು | ಡೊಡೊ | ದೊಡ್ಡದು | ಮಾರೀಷಸ್</annotation>
-		<annotation cp="🦤" type="tts">ಡೊಡೊ</annotation>
-		<annotation cp="🦫">ಡ್ಯಾಮ್ | ಬಿವರ್ | ಬೀವರ್</annotation>
-		<annotation cp="🦫" type="tts">ಬೀವರ್</annotation>
-		<annotation cp="🦬">ಕೋಣ | ಬೈಸನ್ | ವೈಸೆಂಟ್ | ಹಿಂಡು</annotation>
-		<annotation cp="🦬" type="tts">ಬೈಸನ್</annotation>
-		<annotation cp="🦭">ಸಮುದ್ರ ಸಿಂಹ | ಸೀಲ್</annotation>
-		<annotation cp="🦭" type="tts">ಸೀಲ್</annotation>
-		<annotation cp="🧋">ಚಹಾ | ಬಬಲ್ | ಬಬಲ್ ಟೀ | ಮುತ್ತು | ಹಾಲು</annotation>
-		<annotation cp="🧋" type="tts">ಬಬಲ್ ಟೀ</annotation>
-		<annotation cp="🩴">ಚಪ್ಪಲಿ | ತೊಂಗ್ಸ್ | ಬೀಚ್ ಚಪ್ಪಲಿ | ಹವಾಯಿ ಚಪ್ಪಲಿ</annotation>
-		<annotation cp="🩴" type="tts">ಹವಾಯಿ ಚಪ್ಪಲಿ</annotation>
-		<annotation cp="🪃">ಆಸ್ಟ್ರೇಲಿಯಾ | ಪರಿಣಾಮ | ಬೂಮರಾಂಗ್ | ಮರುಕಳಿಸುವಿಕೆ</annotation>
-		<annotation cp="🪃" type="tts">ಬೂಮರಾಂಗ್</annotation>
-		<annotation cp="🪄">ಮಂತ್ರ ದಂಡ | ಮಾಟಗಾತಿ | ಮಾಂತ್ರಿಕ | ಮ್ಯಾಜಿಕ್</annotation>
-		<annotation cp="🪄" type="tts">ಮಂತ್ರ ದಂಡ</annotation>
-		<annotation cp="🪅">ಪಾರ್ಟಿ | ಪಿನಾಟ | ಸಂಭ್ರಮ</annotation>
-		<annotation cp="🪅" type="tts">ಪಿನಾಟ</annotation>
-		<annotation cp="🪆">ಗೂಡುಕಟ್ಟುವ ಗೊಂಬೆಗಳು | ಗೂಡುಕಟ್ಟುವಿಕೆ | ಗೊಂಬೆ | ರಷ್ಯಾ</annotation>
-		<annotation cp="🪆" type="tts">ಗೂಡುಕಟ್ಟುವ ಗೊಂಬೆಗಳು</annotation>
-		<annotation cp="🪖">ಮಿಲಿಟರಿ | ಯೋಧ | ಸೈನಿಕ | ಸೈನ್ಯ | ಹೆಲ್ಮೆಟ್</annotation>
-		<annotation cp="🪖" type="tts">ಮಿಲಿಟರಿ ಹೆಲ್ಮೆಟ್</annotation>
-		<annotation cp="🪗">ಅಕಾರ್ಡಿಯನ್‌ | ಕನ್ಸರ್ಟಿನಾ | ಸ್ಕ್ವೀಜ್‌ ಬಾಕ್ಸ್‌</annotation>
-		<annotation cp="🪗" type="tts">ಅಕಾರ್ಡಿಯನ್‌</annotation>
-		<annotation cp="🪘">ಕಾಂಗಾ | ಡ್ರಮ್‌ | ನುಡಿಸು | ಲಯ | ಲಾಂಗ್‌ ಡ್ರಮ್‌</annotation>
-		<annotation cp="🪘" type="tts">ಲಾಂಗ್‌ ಡ್ರಮ್‌</annotation>
-		<annotation cp="🪙">ಖಜಾನೆ | ಚಿನ್ನ | ನಾಣ್ಯ | ಬೆಳ್ಳಿ | ಲೋಹ | ಹಣ</annotation>
-		<annotation cp="🪙" type="tts">ನಾಣ್ಯ</annotation>
-		<annotation cp="🪚">ಗರಗಸ | ಬಡಗಿ | ಮರಗೆಲಸ | ಮರಗೆಲಸದ ಗರಗಸ | ಸಾಧನ</annotation>
-		<annotation cp="🪚" type="tts">ಮರಗೆಲಸದ ಗರಗಸ</annotation>
-		<annotation cp="🪛">ಸಾಧನ | ಸ್ಕ್ರೂ | ಸ್ಕ್ರೂಡ್ರೈವರ್</annotation>
-		<annotation cp="🪛" type="tts">ಸ್ಕ್ರೂಡ್ರೈವರ್</annotation>
-		<annotation cp="🪜">ಏಣಿ | ಮೆಟ್ಟಿಲು | ರಂಗ್ | ಹತ್ತು</annotation>
-		<annotation cp="🪜" type="tts">ಏಣಿ</annotation>
-		<annotation cp="🪝">ಕರ್ವ್ | ಕೊಕ್ಕೆ | ಕ್ಯಾಚ್ | ಮಾರಾಟದ ಸ್ಥಳ</annotation>
-		<annotation cp="🪝" type="tts">ಕೊಕ್ಕೆ</annotation>
-		<annotation cp="🪞">ಕನ್ನಡಿ | ಪ್ರತಿಫಲಕ | ಪ್ರತಿಫಲನ | ಸ್ಪೆಕ್ಯುಲಂ</annotation>
-		<annotation cp="🪞" type="tts">ಕನ್ನಡಿ</annotation>
-		<annotation cp="🪟">ಅಂಚು | ಕಿಟಕಿ | ತಾಜಾ ಗಾಳಿ | ತೆರೆಯುವುದು | ನೋಟ | ಪಾರದರ್ಶಕ</annotation>
-		<annotation cp="🪟" type="tts">ಕಿಟಕಿ</annotation>
-		<annotation cp="🪠">ಕೊಳಾಯಿಗಾರ | ಪ್ಲಂಗರ್‌ | ಫೋರ್ಸ್ ಕಪ್ | ಶೌಚಾಲಯ | ಹೀರುವಿಕೆ</annotation>
-		<annotation cp="🪠" type="tts">ಪ್ಲಂಗರ್‌</annotation>
-		<annotation cp="🪡">ಸೂಜಿ | ಹೆಣಿಗೆ | ಹೊಲಿಗೆಗಳು | ಹೊಲಿಯುವಿಕೆ</annotation>
-		<annotation cp="🪡" type="tts">ಸೂಜಿ</annotation>
-		<annotation cp="🪢">ಕಟ್ಟು | ಗಂಟು | ತಿರುಗಿಸು | ಸಿಕ್ಕು | ಹಗ್ಗ | ಹೆಣೆಯುವುದು</annotation>
-		<annotation cp="🪢" type="tts">ಗಂಟು</annotation>
-		<annotation cp="🪣">ಪೆಟ್ಟಿಗೆ | ಪೈಲ್ | ಬಕೆಟ್ | ವ್ಯಾಟ್</annotation>
-		<annotation cp="🪣" type="tts">ಬಕೆಟ್</annotation>
-		<annotation cp="🪤">ಬಲೆ | ಬೆಟ್ | ಮೌಸ್ ಬಲೆ</annotation>
-		<annotation cp="🪤" type="tts">ಮೌಸ್ ಬಲೆ</annotation>
-		<annotation cp="🪥">ಟೂತ್ ಬ್ರಷ್ | ದಂತ | ನೈರ್ಮಲ್ಯ | ಬ್ರಷ್ | ಸ್ನಾನಗೃಹ | ಹಲ್ಲುಗಳು</annotation>
-		<annotation cp="🪥" type="tts">ಟೂತ್ ಬ್ರಷ್</annotation>
-		<annotation cp="🪦">ಮಸಣ | ಸಮಾಧಿ | ಸಾಮಾಧಿ ಕಲ್ಲು | ಸ್ಮಶಾನ | ಹೆಡ್‌ಸ್ಟೋನ್‌</annotation>
-		<annotation cp="🪦" type="tts">ಹೆಡ್‌ಸ್ಟೋನ್‌</annotation>
-		<annotation cp="🪧">ಪ್ರತಿಭಟನೆ | ಪ್ಲಕಾರ್ಡ್‌ | ಸೂಚನೆ | ಹರತಾಳ</annotation>
-		<annotation cp="🪧" type="tts">ಪ್ಲಕಾರ್ಡ್‌</annotation>
-		<annotation cp="🪨">ಕಲ್ಲು | ಘನ | ಬಂಡೆ | ಬೌಲ್ಡರ್ | ಭಾರ</annotation>
-		<annotation cp="🪨" type="tts">ಬಂಡೆ</annotation>
-		<annotation cp="🪰">ಕೀಟ | ಕೊಳೆಯುತ್ತಿರುವ | ನೊಣ | ಮ್ಯಾಗ್ಗೊಟ್ | ರೋಗ</annotation>
-		<annotation cp="🪰" type="tts">ನೊಣ</annotation>
-		<annotation cp="🪱">ಅನೆಲಿಡ್ | ಎರೆಹುಳು | ಕ್ರಿಮಿ | ಪರಾವಲಂಬಿ</annotation>
-		<annotation cp="🪱" type="tts">ಕ್ರಿಮಿ</annotation>
-		<annotation cp="🪲">ಬಗ್ | ಬೀಟಲ್ | ಹುಳು</annotation>
-		<annotation cp="🪲" type="tts">ಬೀಟಲ್</annotation>
-		<annotation cp="🪳">ಕೀಟ | ಜಿರಳೆ | ರೋಚ್ | ಹುಳು</annotation>
-		<annotation cp="🪳" type="tts">ಜಿರಳೆ</annotation>
-		<annotation cp="🪴">ಅನುಪಯುಕ್ತ | ಕುಂಡದಲ್ಲಿರುವ ಗಿಡ | ನೀರಸ | ಪೋಷಣೆ | ಬೆಳೆಯಿರಿ | ಮನೆ | ಸಸ್ಯ</annotation>
-		<annotation cp="🪴" type="tts">ಕುಂಡದಲ್ಲಿರುವ ಗಿಡ</annotation>
-		<annotation cp="🪵">ಕಟ್ಟಿಗೆ | ಮರಗೆಲಸ | ಮರದ | ಲಾಗ್</annotation>
-		<annotation cp="🪵" type="tts">ಕಟ್ಟಿಗೆ</annotation>
-		<annotation cp="🪶">ಗರಿ | ಪಕ್ಷಿ | ಪ್ಲಮೇಜ್ | ಫ್ಲೈಟ್ | ಲೈಟ್</annotation>
-		<annotation cp="🪶" type="tts">ಗರಿ</annotation>
-		<annotation cp="🫀">ಅಂಗ | ಕೇಂದ್ರ | ನಾಡಿ | ಹೃದಯ ಅಂಗ | ಹೃದಯ ಬಡಿತ | ಹೃದಯವಿಜ್ಞಾನ</annotation>
-		<annotation cp="🫀" type="tts">ಹೃದಯ ಅಂಗ</annotation>
-		<annotation cp="🫁">ಅಂಗ | ಉಚ್ವಾಸ | ಉಸಿರಾಟ | ಉಸಿರು | ನಿಶ್ವಾಸ | ಶ್ವಾಶಕೋಶಗಳು</annotation>
-		<annotation cp="🫁" type="tts">ಶ್ವಾಶಕೋಶಗಳು</annotation>
-		<annotation cp="🫂">ತಬ್ಬಿಕೊ | ತಬ್ಬಿಕೊಂಡಿರುವ ಜನರು | ಧನ್ಯವಾದಗಳು | ವಿದಾಯ | ಹಲೋ</annotation>
-		<annotation cp="🫂" type="tts">ತಬ್ಬಿಕೊಂಡಿರುವ ಜನರು</annotation>
-		<annotation cp="🫐" draft="provisional">ಬ್ಲೂಬೆರಿಗಳು</annotation>
-		<annotation cp="🫐" type="tts" draft="contributed">ಬ್ಲೂಬೆರಿಗಳು</annotation>
-		<annotation cp="🫑">ಕ್ಯಾಪ್ಸಿಕಂ | ತರಕಾರಿ | ದೊಡ್ಡ ಮೆಣಸಿನಕಾಯಿ | ಮೆಣಸು</annotation>
-		<annotation cp="🫑" type="tts">ದೊಡ್ಡ ಮೆಣಸಿನಕಾಯಿ</annotation>
-		<annotation cp="🫒">ಆಲಿವ್ | ಆಹಾರ</annotation>
-		<annotation cp="🫒" type="tts">ಆಲಿವ್</annotation>
-		<annotation cp="🫓">ಅರೆಪಾ | ನಾನ್ | ಪಿಟಾ | ಫ್ಲಾಟ್ ಬ್ರೆಡ್ | ಲಾವಾಶ್</annotation>
-		<annotation cp="🫓" type="tts">ಫ್ಲಾಟ್ ಬ್ರೆಡ್</annotation>
-		<annotation cp="🫔">ತಮಾಲೆ | ಮೆಕ್ಸಿಕನ್ | ಸುತ್ತಿಕೊಂಡಿರುವ</annotation>
-		<annotation cp="🫔" type="tts">ತಮಾಲೆ</annotation>
-		<annotation cp="🫕">ಕರಗಿದ | ಚಾಕೊಲೇಟ್ | ಚೀಸ್ | ಫಂಡ್ಯು | ಮಡಕೆ | ಸ್ವಿಸ್</annotation>
-		<annotation cp="🫕" type="tts">ಫಂಡ್ಯು</annotation>
-		<annotation cp="🫖">ಚಹಾ | ಟೀಪಾಟ್ | ಪಾಟ್‌ | ಪಾನೀಯ</annotation>
-		<annotation cp="🫖" type="tts">ಟೀಪಾಟ್</annotation>
-		<annotation cp="🛖">ಗುಡಿಸಲು | ಮನೆ | ರೌಂಡ್‌ಹೌಸ್</annotation>
-		<annotation cp="🛖" type="tts">ಗುಡಿಸಲು</annotation>
-		<annotation cp="🛗">ಎತ್ತುವುದು | ಎಲಿವೇಟರ್‌ | ಲಭ್ಯತೆ | ಲಿಫ್ಟ್‌</annotation>
-		<annotation cp="🛗" type="tts">ಎಲಿವೇಟರ್‌</annotation>
-		<annotation cp="🛻">ಟ್ರಕ್ | ಪಿಕಪ್ ಟ್ರಕ್ | ಪಿಕ್-ಅಪ್</annotation>
-		<annotation cp="🛻" type="tts">ಪಿಕಪ್ ಟ್ರಕ್</annotation>
-		<annotation cp="🛼">ರೋಲರ್‌ | ಸ್ಕೇಟ್‌</annotation>
-		<annotation cp="🛼" type="tts">ರೋಲರ್‌ ಸ್ಕೇಟ್‌</annotation>
+		<annotation cp="◳">ಖಾಲಿ ಆಯತ ಮೇಲಿನ ಬಲ ಕಾಲುಭಾಗ</annotation>
+		<annotation cp="◳" type="tts">ಖಾಲಿ ಆಯತ ಮೇಲಿನ ಬಲ ಕಾಲುಭಾಗ</annotation>
+		<annotation cp="◷">ಖಾಲಿ ವೃತ್ತ ಮೇಲಿನ ಬಲ ಕಾಲುಭಾಗ</annotation>
+		<annotation cp="◷" type="tts">ಖಾಲಿ ವೃತ್ತ ಮೇಲಿನ ಬಲ ಕಾಲುಭಾಗ</annotation>
+		<annotation cp="◿">ಖಾಲಿ ಬಲ ತ್ರಿಕೋನ</annotation>
+		<annotation cp="◿" type="tts">ಖಾಲಿ ಬಲ ತ್ರಿಕೋನ</annotation>
+		<annotation cp="♪">ಎಂಟನೇ | ನೋಟ್ | ಸಂಗೀತ</annotation>
+		<annotation cp="♪" type="tts">ಎಂಟನೇ ನೋಟ್</annotation>
+		<annotation cp="⨧">ಅಧಿಕ ಉಪಲೇಖ ಎರಡು</annotation>
+		<annotation cp="⨧" type="tts">ಅಧಿಕ ಉಪಲೇಖ ಎರಡು</annotation>
+		<annotation cp="⨯">ವೆಕ್ಟರ್ ಕ್ರಾಸ್ ಉತ್ಪನ್ನ</annotation>
+		<annotation cp="⨯" type="tts">ವೆಕ್ಟರ್ ಕ್ರಾಸ್ ಉತ್ಪನ್ನ</annotation>
+		<annotation cp="⨼">ಒಳ ಉತ್ಪನ್ನ</annotation>
+		<annotation cp="⨼" type="tts">ಒಳ ಉತ್ಪನ್ನ</annotation>
+		<annotation cp="⩣">ಸ್ಥಳೀಯ ಅಥವಾ ದ್ವಿ ಕೆಳ ಪಟ್ಟಿ</annotation>
+		<annotation cp="⩣" type="tts">ಸ್ಥಳೀಯ ಅಥವಾ ದ್ವಿ ಕೆಳ ಪಟ್ಟಿ</annotation>
+		<annotation cp="⩽">ಅದಕ್ಕಿಂತ ಕಡಿಮೆ ಓರೆಯಾದ ಸಮಾನ</annotation>
+		<annotation cp="⩽" type="tts">ಅದಕ್ಕಿಂತ ಕಡಿಮೆ ಓರೆಯಾದ ಸಮಾನ</annotation>
+		<annotation cp="⪍">ಅದಕ್ಕಿಂತ ಕಡಿಮೆ ಮೇಲಿನ ಸಮಾನ</annotation>
+		<annotation cp="⪍" type="tts">ಅದಕ್ಕಿಂತ ಕಡಿಮೆ ಮೇಲಿನ ಸಮಾನ</annotation>
+		<annotation cp="⪚">ಎರಡು ಗೆರೆ ಸಮಾನ ಅದಕ್ಕಿಂತ ಹೆಚ್ಚು</annotation>
+		<annotation cp="⪚" type="tts">ಎರಡು ಗೆರೆ ಸಮಾನ ಅದಕ್ಕಿಂತ ಹೆಚ್ಚು</annotation>
+		<annotation cp="⪺">ಹಿಂಬಾಲಿಸು ಮೇಲೆ ಬಹುತೇಕ ಸಮಾನವಲ್ಲ</annotation>
+		<annotation cp="⪺" type="tts">ಹಿಂಬಾಲಿಸು ಮೇಲೆ ಬಹುತೇಕ ಸಮಾನವಲ್ಲ</annotation>
+		<annotation cp="♭">ನೋಟ್ | ಫ್ಲ್ಯಾಟ್‌ | ಬೆಮೊಲ್ಲೆ | ಸಂಗೀತ</annotation>
+		<annotation cp="♭" type="tts">ಫ್ಲ್ಯಾಟ್‌</annotation>
+		<annotation cp="♯">ನೋಟ್ | ಮ್ಯೂಸಿಕ್‌ | ಶಾರ್ಪ್‌ | ಸಂಗೀತ</annotation>
+		<annotation cp="♯" type="tts">ಶಾರ್ಪ್‌</annotation>
 		<annotation cp="😀">ಮುಖ | ಹಾಸ್ಯ | ಹಾಸ್ಯದ ಮುಖ</annotation>
 		<annotation cp="😀" type="tts">ಹಾಸ್ಯದ ಮುಖ</annotation>
 		<annotation cp="😃">ತೆರೆದ | ನಗು | ಬಾಯಿ | ಬಾಯ್ತುಂಬಾ ನಗುತ್ತಿರುವ ನಗುಮುಖ | ಮುಖ</annotation>
@@ -219,12 +725,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😅" type="tts">ಬೆವರಿನೊಂದಿಗೆ ಮಂದಸ್ಮಿತ ಮುಖ</annotation>
 		<annotation cp="🤣">ನಗು | ನೆಲ | ನೆಲದ ಮೇಲೆ ಹೊರಳಾಡಿ ನಗುವುದು | ಮುಖ | ಹೊರಳಾಡಿ ನಗುವುದು | ಹೊರಳಾಡು</annotation>
 		<annotation cp="🤣" type="tts">ಹೊರಳಾಡಿ ನಗುವುದು</annotation>
-		<annotation cp="😂">ಆನಂದದ ಕಣ್ಣೀರು, ಆನಂದ ಬಾಷ್ಪ | ಕಣ್ಣೀರು | ನಗು | ಮುಖ | ಸಂತೋಷ</annotation>
+		<annotation cp="😂">ಆನಂದ ಬಾಷ್ಪ | ಆನಂದದ ಕಣ್ಣೀರು | ಆನಂದದ ಕಣ್ಣೀರು, ಆನಂದ ಬಾಷ್ಪ | ಕಣ್ಣೀರು | ನಗು | ಮುಖ | ಸಂತೋಷ</annotation>
 		<annotation cp="😂" type="tts">ಆನಂದದ ಕಣ್ಣೀರು, ಆನಂದ ಬಾಷ್ಪ</annotation>
 		<annotation cp="🙂">ನಗು | ಮುಖ | ಸ್ವಲ್ಪ ನಗು ಮುಖ</annotation>
 		<annotation cp="🙂" type="tts">ಸ್ವಲ್ಪ ನಗು ಮುಖ</annotation>
 		<annotation cp="🙃">ತಲೆಕೆಳಗಾದ ಮುಖ | ಮುಖ</annotation>
 		<annotation cp="🙃" type="tts">ತಲೆಕೆಳಗಾದ ಮುಖ</annotation>
+		<annotation cp="🫠">ಕರಗಿಹೋಗು | ಕರಗು | ಕರಗುತ್ತಿರುವ ಮುಖ | ಕಾಣೆಯಾಗು | ದ್ರವ</annotation>
+		<annotation cp="🫠" type="tts">ಕರಗುತ್ತಿರುವ ಮುಖ</annotation>
 		<annotation cp="😉">ಕಣ್ಣು ಮಿಟುಕಿಸುವ ಮುಖ | ಮಿಟುಕಿಸು | ಮುಖ</annotation>
 		<annotation cp="😉" type="tts">ಕಣ್ಣು ಮಿಟುಕಿಸುವ ಮುಖ</annotation>
 		<annotation cp="😊">ಕಿರುನಗೆ ಕಣ್ಣುಗಳು | ಕಿರುನಗೆ ಮುಖ ಮತ್ತು ಕಣ್ಣುಗಳು | ನಗುತ್ತಿರುವ ಕಣ್ಣುಗಳೊಂದಿಗೆ ನಗು ಮುಖ</annotation>
@@ -245,8 +753,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☺" type="tts">ನಗು ಮುಖ</annotation>
 		<annotation cp="😚">ಕಣ್ಣು | ಚುಂಬನ | ಮುಖ | ಮುಚ್ಚಿದ | ಮುಚ್ಚಿರುವ ಕಣ್ಣುಗಳಿಂದ ಚುಂಬಿಸುತ್ತಿರುವ ಮುಖ</annotation>
 		<annotation cp="😚" type="tts">ಮುಚ್ಚಿರುವ ಕಣ್ಣುಗಳಿಂದ ಚುಂಬಿಸುತ್ತಿರುವ ಮುಖ</annotation>
-		<annotation cp="😙">ಕಣ್ಣು | ಚುಂಬನ | ನಗು | ನಗುತ್ತಿರುವ ಕಣ್ಣುಗಳೊಂದಿಗೆ ಚುಂಬಿಸುತ್ತಿರುವ ಮುಖ | ನಗುತ್ತಿರುುವ ಕಣ್ಣುಗಳೊಂದಿಗೆ ಚುಂಬಿಸುತ್ತಿರುವ ಮುಖ | ಮುಖ</annotation>
-		<annotation cp="😙" type="tts">ನಗುತ್ತಿರುುವ ಕಣ್ಣುಗಳೊಂದಿಗೆ ಚುಂಬಿಸುತ್ತಿರುವ ಮುಖ</annotation>
+		<annotation cp="😙">ಕಣ್ಣು | ನಗುತ್ತಿರುವ ಕಣ್ಣುಗಳೊಂದಿಗೆ ಚುಂಬಿಸುತ್ತಿರುವ ಮುಖ | ಮುಖ | ಮುಗುಳ್ನಗೆ | ಮುತ್ತು</annotation>
+		<annotation cp="😙" type="tts">ನಗುತ್ತಿರುವ ಕಣ್ಣುಗಳೊಂದಿಗೆ ಚುಂಬಿಸುತ್ತಿರುವ ಮುಖ</annotation>
+		<annotation cp="🥲">ಕಣ್ಣೀರಿನೊಂದಿಗೆ ನಗುತ್ತಿರುವ ಮುಖ | ಕಣ್ಣೀರು | ಕೃತಜ್ಞತೆಯ | ನಗುತ್ತಿರುವ | ಮುಟ್ಟಿದೆ | ಸಮಾಧಾನ | ಹೆಮ್ಮೆ</annotation>
+		<annotation cp="🥲" type="tts">ಕಣ್ಣೀರಿನೊಂದಿಗೆ ನಗುತ್ತಿರುವ ಮುಖ</annotation>
 		<annotation cp="😋">ಬಾಯಲ್ಲಿ ನೀರೂರಿಸುತ್ತಿರುವ ಮುಖ | ರುಚಿಯಾದ ಆಹಾರ | ರುಚಿಯಾದ ಆಹಾರ ಕಂಡು ಬಾಯಲ್ಲಿ ನೀರೂರಿಸುತ್ತಿರುವ ಮುಖ</annotation>
 		<annotation cp="😋" type="tts">ರುಚಿಯಾದ ಆಹಾರ ಕಂಡು ಬಾಯಲ್ಲಿ ನೀರೂರಿಸುತ್ತಿರುವ ಮುಖ</annotation>
 		<annotation cp="😛">ನಾಲಿಗೆ | ನಾಲಿಗೆ ಹೊರ ಚಾಚಿರುವ ಮುಖ | ನಾಲಿಗೆ ಹೊರಚಾಚಿರುವ ಮುಖ | ಮುಖ</annotation>
@@ -263,10 +773,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤗" type="tts">ಅಪ್ಪಿಕೊಳ್ಳುವ ಮುಖ</annotation>
 		<annotation cp="🤭">ಓಹ್ | ಕೈಗಳಿಂದ ಬಾಯಿ ಮುಚ್ಚಿರುವ ಮುಖ</annotation>
 		<annotation cp="🤭" type="tts">ಕೈಗಳಿಂದ ಬಾಯಿ ಮುಚ್ಚಿರುವ ಮುಖ</annotation>
+		<annotation cp="🫢">ಅಪನಂಬಿಕೆ | ಆಶ್ಚರ್ಯ | ತೆರೆದ ಕಣ್ಣುಗಳ ಜೊತೆಗೆ ಬಾಯಿಯ ಮೇಲೆ ಕೈ ಇರಿಸಿರುವ ಮುಖ | ಬೆರಗು | ಮುಜುಗರ | ವಿಸ್ಮಯ | ಹೆದರಿದ</annotation>
+		<annotation cp="🫢" type="tts">ತೆರೆದ ಕಣ್ಣುಗಳ ಜೊತೆಗೆ ಬಾಯಿಯ ಮೇಲೆ ಕೈ ಇರಿಸಿರುವ ಮುಖ</annotation>
+		<annotation cp="🫣">ಇಣುಕಿ ನೋಡುವ | ಒಂದೇ ಕಣ್ಣಿನಿಂದ ಇಣುಕಿ ನೋಡುವ ಮುಖ | ದಿಟ್ಟಿಸುವ | ಸೆರೆಹಿಡಿಯಲಾದ</annotation>
+		<annotation cp="🫣" type="tts">ಒಂದೇ ಕಣ್ಣಿನಿಂದ ಇಣುಕಿ ನೋಡುವ ಮುಖ</annotation>
 		<annotation cp="🤫">ಮೌನ | ಶ್ | ಶ್ ಎಂದು ಹೇಳುತ್ತಿರುವ ಮುಖ</annotation>
 		<annotation cp="🤫" type="tts">ಶ್ ಎಂದು ಹೇಳುತ್ತಿರುವ ಮುಖ</annotation>
 		<annotation cp="🤔">ಆಲೋಚನೆ | ಮುಖ</annotation>
 		<annotation cp="🤔" type="tts">ಆಲೋಚನೆ ಮುಖ</annotation>
+		<annotation cp="🫡">ನಮಸ್ಕರಿಸುತ್ತಿರುವ ಮುಖ | ಪಡೆಗಳು | ಬಿಸಿಲು | ಸರಿ | ಸೆಲ್ಯೂಟ್ | ಹೌದು</annotation>
+		<annotation cp="🫡" type="tts">ನಮಸ್ಕರಿಸುತ್ತಿರುವ ಮುಖ</annotation>
 		<annotation cp="🤐">ಝಿಪ್ಪರ್ | ಝಿಪ್ಪರ್ ಬಾಯಿಯ ಮುಖ | ಬಾಯಿ | ಮುಖ</annotation>
 		<annotation cp="🤐" type="tts">ಝಿಪ್ಪರ್ ಬಾಯಿಯ ಮುಖ</annotation>
 		<annotation cp="🤨">ಅಪನಂಬಿಕೆ | ಎತ್ತರಿಸಿದ ಹುಬ್ಬುಳ್ಳ ಮುಖ | ಸ್ಕೆಪ್ಟಿಕ್</annotation>
@@ -277,6 +793,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😑" type="tts">ಭಾವನೆಯಿಲ್ಲದ ಮುಖ</annotation>
 		<annotation cp="😶">ಬಾಯಿ | ಬಾಯಿಯಿಲ್ಲದ ಮುಖ | ಮುಖ | ಮೌನ | ಸ್ತಬ್ಧ</annotation>
 		<annotation cp="😶" type="tts">ಬಾಯಿಯಿಲ್ಲದ ಮುಖ</annotation>
+		<annotation cp="🫥">ಅಗೋಚರ | ಅಂತರ್ಮುಖಿ | ಕಣ್ಮರೆಯಾಗುವ | ಖಿನ್ನತೆಗೆ ಒಳಗಾದ | ಚುಕ್ಕೆಗಳ ಸಾಲಿನ ಮುಖ | ಮರೆಮಾಡಿರುವ</annotation>
+		<annotation cp="🫥" type="tts">ಚುಕ್ಕೆಗಳ ಸಾಲಿನ ಮುಖ</annotation>
+		<annotation cp="😶‍🌫">ಮಬ್ಬು ಆವರಿಸಿದ ಮುಖ | ಮಾನಸಿಕವಾಗಿ ಕಳೆದುಹೋಗಿರುವುದು | ಮೋಡಗಳಲ್ಲಿ ತಲೆ | ಮೋಡಗಳಲ್ಲಿ ಮುಖ</annotation>
+		<annotation cp="😶‍🌫" type="tts">ಮೋಡಗಳಲ್ಲಿ ಮುಖ</annotation>
 		<annotation cp="😏">ಮುಖ | ಹುಸಿ ನಗು | ಹುಸಿ ನಗುವಿನ ಮುಖ</annotation>
 		<annotation cp="😏" type="tts">ಹುಸಿ ನಗುವಿನ ಮುಖ</annotation>
 		<annotation cp="😒">ಅತೃಪ್ತಿ ಮುಖ | ಅತೃಪ್ತಿಯ ಮುಖ | ಹಾಸ್ಯಗ್ರಹಿಸದ ಮುಖ</annotation>
@@ -285,8 +805,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙄" type="tts">ತಿರುಗುತ್ತಿರುವ ಕಣ್ಣುಗಳ ಮುಖ</annotation>
 		<annotation cp="😬">ಗಂಟುಮೋರೆ ಮುಖ | ಸೊಟ್ಟ ಮುಖ</annotation>
 		<annotation cp="😬" type="tts">ಸೊಟ್ಟ ಮುಖ</annotation>
+		<annotation cp="😮‍💨">ನಿಟ್ಟುಸಿರು ಇಡುತ್ತಿರುವ ಮುಖ</annotation>
+		<annotation cp="😮‍💨" type="tts">ನಿಟ್ಟುಸಿರು ಇಡುತ್ತಿರುವ ಮುಖ</annotation>
 		<annotation cp="🤥">ಪಿನಾಷಿಯೋ | ಮುಖ | ಸುಳ್ಳು | ಸುಳ್ಳುಗಾರ ಮುಖ</annotation>
 		<annotation cp="🤥" type="tts">ಸುಳ್ಳುಗಾರ ಮುಖ</annotation>
+		<annotation cp="🫨">ಅಲುಗಾಡುತ್ತಿರುವ | ಆಘಾತ | ಕಂಪಿಸು | ಭೂಕಂಪ | ಮುಖ</annotation>
+		<annotation cp="🫨" type="tts">ಅಲುಗಾಡುತ್ತಿರುವ ಮುಖ</annotation>
+		<annotation cp="🙂‍↔">ಅಡ್ಡಲಾಗಿ ತಲೆ ಅಲುಗಾಡಿಸುತ್ತಿರುವುದು | ಅಲುಗಾಡಿಸು | ಇಲ್ಲ</annotation>
+		<annotation cp="🙂‍↔" type="tts">ಅಡ್ಡಲಾಗಿ ತಲೆ ಅಲುಗಾಡಿಸುತ್ತಿರುವುದು</annotation>
+		<annotation cp="🙂‍↕">ತಲೆಯಾಡಿಸು | ಲಂಬವಾಗಿ ತಲೆ ಅಲುಗಾಡಿಸುತ್ತಿರುವುದು | ಹೌದು</annotation>
+		<annotation cp="🙂‍↕" type="tts">ಲಂಬವಾಗಿ ತಲೆ ಅಲುಗಾಡಿಸುತ್ತಿರುವುದು</annotation>
 		<annotation cp="😌">ನಿರಾಳತೆ | ನಿರಾಳತೆಯ ಮುಖ | ಮುಖ</annotation>
 		<annotation cp="😌" type="tts">ನಿರಾಳತೆಯ ಮುಖ</annotation>
 		<annotation cp="😔">ಖಿನ್ನತೆ | ಖಿನ್ನತೆಯ ಮುಖ | ನಿರುತ್ಸಾಹಗೊಂಡಿರುವುದು | ಮುಖ</annotation>
@@ -317,12 +845,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥴" type="tts">ತಲೆತಿರುಗುವಂತಿರುವ ಮುಖ</annotation>
 		<annotation cp="😵">ತಲೆತಿರುಗುತ್ತಿರುವಂತಿರುವ ಮುಖ | ತೆಲೆತಿರುಗಿಸುತ್ತಿರುವ ಮುಖ | ತೆಲೆತಿರುಗಿಸುವ ಮುಖ</annotation>
 		<annotation cp="😵" type="tts">ತಲೆತಿರುಗುತ್ತಿರುವಂತಿರುವ ಮುಖ</annotation>
+		<annotation cp="😵‍💫">ಗಿರುಗುಟ್ಟುವ ಕಣ್ಣುಗಳ ಮುಖ</annotation>
+		<annotation cp="😵‍💫" type="tts">ಗಿರುಗುಟ್ಟುವ ಕಣ್ಣುಗಳ ಮುಖ</annotation>
 		<annotation cp="🤯">ಆಘಾತಗೊಂಡಿರುವುದು | ಸ್ಫೋಟಿಸುತ್ತಿರುವ ತಲೆ</annotation>
 		<annotation cp="🤯" type="tts">ಸ್ಫೋಟಿಸುತ್ತಿರುವ ತಲೆ</annotation>
 		<annotation cp="🤠">ಕೌಗರ್ಲ್ | ಕೌಬಾಯ್ | ಟೋಪಿ | ಮುಖ</annotation>
 		<annotation cp="🤠" type="tts">ಕೌಬಾಯ್ ಟೋಪಿ ಮುಖ</annotation>
 		<annotation cp="🥳">ಆಚರಣೆ | ಪಾರ್ಟಿ | ಪಾರ್ಟಿ ಮಾಡುತ್ತಿರುವ ಮುಖ | ಹಾರ್ನ್ | ಹ್ಯಾಟ್</annotation>
 		<annotation cp="🥳" type="tts">ಪಾರ್ಟಿ ಮಾಡುತ್ತಿರುವ ಮುಖ</annotation>
+		<annotation cp="🥸">ಅಜ್ಞಾತ | ಗ್ಲಾಸ್ | ಮಾರುವೇಷ | ಮುಖ | ಮೂಗು</annotation>
+		<annotation cp="🥸" type="tts">ಮಾರುವೇಷ ಮುಖ</annotation>
 		<annotation cp="😎">ತಂಪಾದ | ಪ್ರಕಾಶಮಾನವಾದ | ಮುಖ | ಸನ್‌ಗ್ಲಾಸ್‌ | ಸನ್‌ಗ್ಲಾಸ್‌ನೊಂದಿಗೆ ನಗು ಮುಖ</annotation>
 		<annotation cp="😎" type="tts">ಸನ್‌ಗ್ಲಾಸ್‌ನೊಂದಿಗೆ ನಗು ಮುಖ</annotation>
 		<annotation cp="🤓">ದಡ್ಡತನ | ಪೆದ್ದು ಮುಖ</annotation>
@@ -331,6 +863,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧐" type="tts">ಮೊನೊಕಲ್ ಮುಖ</annotation>
 		<annotation cp="😕">ಗೊಂದಲಗೊಂಡಿರುವುದು | ಗೊಂದಲದ ಮುಖ | ಮುಖ</annotation>
 		<annotation cp="😕" type="tts">ಗೊಂದಲದ ಮುಖ</annotation>
+		<annotation cp="🫤">ಅಡ್ಡವಾಗಿ ಬಾಯಿಯನ್ನು ಹೊಂದಿರುವ ಮುಖ | ಖಚಿತವಾಗಿಲ್ಲ | ನಿರಾಶೆ | ಮೆಹ್ | ಸಂಶಯ</annotation>
+		<annotation cp="🫤" type="tts">ಅಡ್ಡವಾಗಿ ಬಾಯಿಯನ್ನು ಹೊಂದಿರುವ ಮುಖ</annotation>
 		<annotation cp="😟">ಚಿಂತೆ ಮುಖ | ಚಿಂತೆಯ ಮುಖ</annotation>
 		<annotation cp="😟" type="tts">ಚಿಂತೆಯ ಮುಖ</annotation>
 		<annotation cp="🙁">ಗಂಟಿಕ್ಕಿರುವ ಮುಖ | ಸ್ವಲ್ಪ ಗಂಟಿಕ್ಕಿರುವ ಮುಖ</annotation>
@@ -347,6 +881,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😳" type="tts">ಕೆಂಪೇರಿದ ಮುಖ</annotation>
 		<annotation cp="🥺">ಕರುಣೆ | ನಾಯಿಮರಿ ಕಣ್ಣುಗಳು | ಬೇಡುತ್ತಿರುವ | ಮನವೊಲಿಸುವ ಮುಖ</annotation>
 		<annotation cp="🥺" type="tts">ಮನವೊಲಿಸುವ ಮುಖ</annotation>
+		<annotation cp="🥹">ಅಳು | ಕಣ್ಣೀರನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಂಡಿರುವ ಮುಖ | ಕೋಪ | ದುಃಖ | ವಿರೋಧಿಸು | ಹೆಮ್ಮೆ</annotation>
+		<annotation cp="🥹" type="tts">ಕಣ್ಣೀರನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಂಡಿರುವ ಮುಖ</annotation>
 		<annotation cp="😦">ಗಂಟಿಕ್ಕಿರುವ | ತೆರೆದಿರುವುದು | ಬಾಯಿ | ಬಾಯಿ ತೆರೆದು ಗಂಟಿಕ್ಕಿರುವ ಮುಖ | ಮುಖ</annotation>
 		<annotation cp="😦" type="tts">ಬಾಯಿ ತೆರೆದು ಗಂಟಿಕ್ಕಿರುವ ಮುಖ</annotation>
 		<annotation cp="😧">ಕಳವಳದ ಮುಖ | ಸಂಕಟದ ಮುಖ</annotation>
@@ -407,11 +943,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👽" type="tts">ಏಲಿಯನ್</annotation>
 		<annotation cp="👾">ಅನ್ಯಲೋಕದ ದೈತ್ಯ | ಏಲಿಯನ್ ಮಾನ್‌ಸ್ಟರ್ | ದೈತ್ಯ</annotation>
 		<annotation cp="👾" type="tts">ಏಲಿಯನ್ ಮಾನ್‌ಸ್ಟರ್</annotation>
-		<annotation cp="🤖">ರೋಬಾಟ್ ಮುಖ | ರೋಬೊ ಮುಖ | ರೋಬೋಟ್</annotation>
+		<annotation cp="🤖">ಮುಖ | ರಾಕ್ಷಸ | ರೋಬೋಟ್</annotation>
 		<annotation cp="🤖" type="tts">ರೋಬೋಟ್</annotation>
 		<annotation cp="😺">ತೆರೆದ | ನಗು | ನಗುತ್ತಿರುವ | ಬಾಯಿ | ಬೆಕ್ಕು | ಮುಖ</annotation>
 		<annotation cp="😺" type="tts">ನಗುತ್ತಿರುವ ಬೆಕ್ಕು</annotation>
-		<annotation cp="😸">ನಗುತ್ತಿರುವ ಕಣ್ಣುಗಳೊಂದಿಗೆ ನಗುತ್ತಿರುವ ಬೆಕ್ಕು | ನಗುತ್ತಿರುವ ಕಣ್ಣುಗಳೊಂದಿಗೆ ಹಲ್ಲು ಬಿಟ್ಟು ನಗುತ್ತಿರುವ ಬೆಕ್ಕಿನ ಮುಖ | ಬೆಕ್ಕಿನ ಮುಖ | ಹಲ್ಲು ಕಿರಿದು ನಗುತ್ತಿರುವ ಕಣ್ಣುಗಳು</annotation>
+		<annotation cp="😸">ಕಣ್ಣು | ನಗು | ನಗುತ್ತಿರುವ ಕಣ್ಣುಗಳೊಂದಿಗೆ ನಗುತ್ತಿರುವ ಬೆಕ್ಕು | ನಗುವ ಕಣ್ಣುಗಳಿರುವ ನಗುವ ಬೆಕ್ಕು | ಬೆಕ್ಕು | ಮುಖ | ಮುಗುಳ್ನಗೆ</annotation>
 		<annotation cp="😸" type="tts">ನಗುತ್ತಿರುವ ಕಣ್ಣುಗಳೊಂದಿಗೆ ನಗುತ್ತಿರುವ ಬೆಕ್ಕು</annotation>
 		<annotation cp="😹">ಆನಂದ ಬಾಷ್ಪದೊಂದಿಗಿರುವ ಬೆಕ್ಕಿನ ಮುಖ | ಬೆಕ್ಕಿನ ಮುಖ | ಸಂತೋಷದ ಕಣ್ಣೀರು</annotation>
 		<annotation cp="😹" type="tts">ಆನಂದ ಬಾಷ್ಪದೊಂದಿಗಿರುವ ಬೆಕ್ಕಿನ ಮುಖ</annotation>
@@ -421,7 +957,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😼" type="tts">ವಕ್ರ ನಗೆಯೊಂದಿಗೆ ಬೆಕ್ಕಿನ ಮುಖ</annotation>
 		<annotation cp="😽">ಕಣ್ಣು | ಚುಂಬಿಸುತ್ತಿರುವ ಬೆಕ್ಕು | ಬೆಕ್ಕು | ಮುಖ | ಮುತ್ತು</annotation>
 		<annotation cp="😽" type="tts">ಚುಂಬಿಸುತ್ತಿರುವ ಬೆಕ್ಕು</annotation>
-		<annotation cp="🙀">ಅಸಹನೆಯ ಬೆಕ್ಕಿನ ಮುಖ | ಆಶ್ಚರ್ಯ | ಓಹ್ | ಬೆಕ್ಕು | ಮುಖ</annotation>
+		<annotation cp="🙀">ಅಸಹನೆಯ ಬೆಕ್ಕಿನ ಮುಖ | ಆಶ್ಚರ್ಯ | ಓಹ್ | ದಣಿದ | ಬೆಕ್ಕು | ಮುಖ</annotation>
 		<annotation cp="🙀" type="tts">ಅಸಹನೆಯ ಬೆಕ್ಕಿನ ಮುಖ</annotation>
 		<annotation cp="😿">ಅಳು | ಅಳುತ್ತಿರುವ ಬೆಕ್ಕು | ಕಣ್ಣೀರು | ದುಃಖ | ಬೆಕ್ಕು | ಮುಖ</annotation>
 		<annotation cp="😿" type="tts">ಅಳುತ್ತಿರುವ ಬೆಕ್ಕು</annotation>
@@ -433,8 +969,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙉" type="tts">ಯಾವುದೇ ಕೆಟ್ಟದ್ದನ್ನು ಕೇಳಬೇಡ</annotation>
 		<annotation cp="🙊">ಕೆಟ್ಟದ್ದನ್ನು ಮಾತನಾಡಬೇಡಿ | ಯಾವುದೇ ಕೆಟ್ಟದ್ದನ್ನು ಮಾತನಾಡಬೇಡ</annotation>
 		<annotation cp="🙊" type="tts">ಯಾವುದೇ ಕೆಟ್ಟದ್ದನ್ನು ಮಾತನಾಡಬೇಡ</annotation>
-		<annotation cp="💋">ಚುಂಬನದ ಗುರುತು | ತುಟಿಗಳು</annotation>
-		<annotation cp="💋" type="tts">ಚುಂಬನದ ಗುರುತು</annotation>
 		<annotation cp="💌">ಪ್ರಣಯ | ಪ್ರೇಮ ಪತ್ರ</annotation>
 		<annotation cp="💌" type="tts">ಪ್ರೇಮ ಪತ್ರ</annotation>
 		<annotation cp="💘">ಬಾಣದೊಂದಿಗೆ ಹೃದಯ | ಹೃದಯ | ಹೃದಯ ಮತ್ತು ಬಾಣ</annotation>
@@ -453,12 +987,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💕" type="tts">ಎರಡು ಹೃದಯಗಳು</annotation>
 		<annotation cp="💟">ಅಲಂಕರಿತ ಹೃದಯ | ಹೃದಯ ಅಲಂಕಾರ</annotation>
 		<annotation cp="💟" type="tts">ಹೃದಯ ಅಲಂಕಾರ</annotation>
-		<annotation cp="❣">ಆಶ್ಚರ್ಯಸೂಚಕ | ಗುರುತು | ವಿರಾಮಚಿಹ್ನೆ | ಹೃದಯ ಆಶ್ಚರ್ಯ ಗುರುತು | ಹೃದಯದ ಆಶ್ಚರ್ಯಸೂಚಕ</annotation>
+		<annotation cp="❣">ಉದ್ಗಾರ | ಗುರುತು | ವಿರಾಮಚಿಹ್ನೆ | ಹೃದಯ ಆಶ್ಚರ್ಯ ಗುರುತು | ಹೃದಯದ ಉದ್ಗಾರ</annotation>
 		<annotation cp="❣" type="tts">ಹೃದಯ ಆಶ್ಚರ್ಯ ಗುರುತು</annotation>
 		<annotation cp="💔">ಒಡೆದ ಹೃದಯ | ಒಡೆದಿರುವ ಹೃದಯ | ಹೃದಯ ಮುರಿಯುವಿಕೆ</annotation>
 		<annotation cp="💔" type="tts">ಒಡೆದಿರುವ ಹೃದಯ</annotation>
+		<annotation cp="❤‍🔥">ಕಾಮ | ಪವಿತ್ರ ಹೃದಯ | ಪ್ರೀತಿ | ಬೆಂಕಿಯಲ್ಲಿ ಹೃದಯ | ಸುಡುವುದು | ಹೃದಯ</annotation>
+		<annotation cp="❤‍🔥" type="tts">ಬೆಂಕಿಯಲ್ಲಿ ಹೃದಯ</annotation>
+		<annotation cp="❤‍🩹">ಆರಾಮಾಗುತ್ತಿರುವುದು | ಆರೋಗ್ಯವಂತ | ಒಳ್ಳೆಯದು | ಚೇತರಿಕೆ | ಸುಧಾರಿಸುವುದು | ಹತೋಟಿಯಲ್ಲಿಡುವುದು | ಹೃದಯ ಹತೋಟಿಯಲ್ಲಿಡುವುದು</annotation>
+		<annotation cp="❤‍🩹" type="tts">ಹೃದಯ ಹತೋಟಿಯಲ್ಲಿಡುವುದು</annotation>
 		<annotation cp="❤">ಕೆಂಪು ಹೃದಯ | ಹೃದಯ</annotation>
 		<annotation cp="❤" type="tts">ಕೆಂಪು ಹೃದಯ</annotation>
+		<annotation cp="🩷">ಇಷ್ಟ | ಗುಲಾಬಿ | ಗುಲಾಬಿ ಬಣ್ಣದ ಹೃದಯ | ಪ್ರೀತಿ | ಮುದ್ದಾದ | ಹೃದಯ</annotation>
+		<annotation cp="🩷" type="tts">ಗುಲಾಬಿ ಬಣ್ಣದ ಹೃದಯ</annotation>
 		<annotation cp="🧡">ಕಿತ್ತಳೆ | ಕಿತ್ತಳೆ ಹೃದಯ</annotation>
 		<annotation cp="🧡" type="tts">ಕಿತ್ತಳೆ ಹೃದಯ</annotation>
 		<annotation cp="💛">ಹಳದಿ | ಹಳದಿ ಹೃದಯ</annotation>
@@ -467,21 +1007,27 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💚" type="tts">ಹಸಿರು ಹೃದಯ</annotation>
 		<annotation cp="💙">ನೀಲಿ ಹೃದಯ | ಭಾವನೆ</annotation>
 		<annotation cp="💙" type="tts">ನೀಲಿ ಹೃದಯ</annotation>
+		<annotation cp="🩵">ಟೀಲ್ | ತಿಳಿ ನೀಲಿ | ತಿಳಿ ನೀಲಿ ಹೃದಯ | ಸಯಾನ್ | ಹೃದಯ</annotation>
+		<annotation cp="🩵" type="tts">ತಿಳಿ ನೀಲಿ ಹೃದಯ</annotation>
 		<annotation cp="💜">ನೇರಳೆ ಹೃದಯ | ಪರ್ಪಲ್ ಹಾರ್ಟ್ | ಪರ್ಪಲ್ ಹೃದಯ</annotation>
 		<annotation cp="💜" type="tts">ನೇರಳೆ ಹೃದಯ</annotation>
 		<annotation cp="🤎">ಕಂದು | ಕಂದುಬಣ್ಣದ ಹೃದಯ | ಹೃದಯ</annotation>
 		<annotation cp="🤎" type="tts">ಕಂದುಬಣ್ಣದ ಹೃದಯ</annotation>
 		<annotation cp="🖤">ಕಪ್ಪು | ಕೆಡುಕು | ದುಷ್ಟ | ನಿರ್ದಯ ಹೃದಯ | ಹೃದಯ</annotation>
 		<annotation cp="🖤" type="tts">ನಿರ್ದಯ ಹೃದಯ</annotation>
+		<annotation cp="🩶">ಬೂದು | ಬೂದು ಬಣ್ಣದ ಹೃದಯ | ಬೆಳ್ಳಿ | ಸ್ಲೇಟ್ | ಹೃದಯ</annotation>
+		<annotation cp="🩶" type="tts">ಬೂದು ಬಣ್ಣದ ಹೃದಯ</annotation>
 		<annotation cp="🤍">ಬಿಳಿ | ಬಿಳಿಯ ಹೃದಯ | ಹೃದಯ</annotation>
 		<annotation cp="🤍" type="tts">ಬಿಳಿಯ ಹೃದಯ</annotation>
+		<annotation cp="💋">ಚುಂಬನದ ಗುರುತು | ತುಟಿಗಳು</annotation>
+		<annotation cp="💋" type="tts">ಚುಂಬನದ ಗುರುತು</annotation>
 		<annotation cp="💯">100 ಅಂಕಗಳು | ನೂರು ಪಾಯಿಂಟ್‌ಗಳು | ಪೂರ್ಣ ಸ್ಕೋರ್</annotation>
 		<annotation cp="💯" type="tts">ನೂರು ಪಾಯಿಂಟ್‌ಗಳು</annotation>
 		<annotation cp="💢">ಉದ್ವೇಗ | ಕೋಪ | ಕೋಪದ ಚಿಹ್ನೆ</annotation>
 		<annotation cp="💢" type="tts">ಕೋಪದ ಚಿಹ್ನೆ</annotation>
 		<annotation cp="💥">ಘರ್ಷಣೆ | ಘರ್ಷಣೆ ಚಿಹ್ನೆ</annotation>
 		<annotation cp="💥" type="tts">ಘರ್ಷಣೆ</annotation>
-		<annotation cp="💫">ಚಂಚಲ | ತಿರುುಗುವಿಕೆ | ನಕ್ಷತ್ರಗಳು</annotation>
+		<annotation cp="💫">ಕಾಮಿಕ್ | ಡಿಝಿ | ತಿರುುಗುವಿಕೆ | ನಕ್ಷತ್ರಗಳು</annotation>
 		<annotation cp="💫" type="tts">ತಿರುುಗುವಿಕೆ</annotation>
 		<annotation cp="💦">ತೊಟ್ಟಿಕ್ಕುವ ಬೆವರು | ಬೆವರಿನ ಹನಿಗಳು | ಬೆವರು</annotation>
 		<annotation cp="💦" type="tts">ಬೆವರಿನ ಹನಿಗಳು</annotation>
@@ -489,8 +1035,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💨" type="tts">ಗುದ್ದುವಿಕೆ</annotation>
 		<annotation cp="🕳">ಕುಳಿ | ರಂಧ್ರ</annotation>
 		<annotation cp="🕳" type="tts">ರಂಧ್ರ</annotation>
-		<annotation cp="💣">ಕಾಮಿಕ್ | ಬಾಂಬ್</annotation>
-		<annotation cp="💣" type="tts">ಬಾಂಬ್</annotation>
 		<annotation cp="💬">ಧ್ವನಿ ಬಲೂನ್ | ಮಾತಿನ ಬಬಲ್ | ಮಾತಿನ ಬಲೂನ್</annotation>
 		<annotation cp="💬" type="tts">ಧ್ವನಿ ಬಲೂನ್</annotation>
 		<annotation cp="👁‍🗨">ಕಣ್ಣು | ನೋಡು | ಮಾತಿನ ಬಬಲ್‌ನಲ್ಲಿ ಕಣ್ಣು | ಮಾತು ಬಬಲ್</annotation>
@@ -513,14 +1057,30 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="✋" type="tts">ಎತ್ತಿರುವ ಕೈ</annotation>
 		<annotation cp="🖖">ವಲ್ಕೇನ್ ಸಲ್ಕೂಟ್ | ವಲ್ಕೇನ್ ಸಲ್ಯೂಟ್ | ಸಲ್ಯೂಟ್</annotation>
 		<annotation cp="🖖" type="tts">ವಲ್ಕೇನ್ ಸಲ್ಯೂಟ್</annotation>
+		<annotation cp="🫱">ಕೈ | ಬಲ | ಬಲಕ್ಕೆ | ಬಲದಿಕ್ಕನ್ನು ತೋರಿಸುತ್ತಿರುವ ಕೈ</annotation>
+		<annotation cp="🫱" type="tts">ಬಲದಿಕ್ಕನ್ನು ತೋರಿಸುತ್ತಿರುವ ಕೈ</annotation>
+		<annotation cp="🫲">ಎಡ | ಎಡಕ್ಕೆ | ಎಡದಿಕ್ಕನ್ನು ತೋರಿಸುತ್ತಿರುವ ಕೈ | ಕೈ</annotation>
+		<annotation cp="🫲" type="tts">ಎಡದಿಕ್ಕನ್ನು ತೋರಿಸುತ್ತಿರುವ ಕೈ</annotation>
+		<annotation cp="🫳">ಕೆಳಮುಖವಾಗಿರುವ ಅಂಗೈ | ಡ್ರಾಪ್ | ವಜಾಗೊಳಿಸಿ | ಷೂ</annotation>
+		<annotation cp="🫳" type="tts">ಕೆಳಮುಖವಾಗಿರುವ ಅಂಗೈ</annotation>
+		<annotation cp="🫴">ಕೊಡುಗೆ | ಕ್ಯಾಚ್ | ಬನ್ನಿ | ಬೆಕನ್ | ಮೇಲ್ಮುಖವಾಗಿರುವ ಅಂಗೈ</annotation>
+		<annotation cp="🫴" type="tts">ಮೇಲ್ಮುಖವಾಗಿರುವ ಅಂಗೈ</annotation>
+		<annotation cp="🫷">ಎಡಕ್ಕೆ | ಎಡಕ್ಕೆ ತಳ್ಳುತ್ತಿರುವ ಕೈ | ತಳ್ಳು | ನಿರಾಕರಿಸು | ನಿರೀಕ್ಷಿಸಿ | ನಿಲ್ಲಿಸು | ಹೈ ಫೈ</annotation>
+		<annotation cp="🫷" type="tts">ಎಡಕ್ಕೆ ತಳ್ಳುತ್ತಿರುವ ಕೈ</annotation>
+		<annotation cp="🫸">ತಳ್ಳು | ನಿರಾಕರಿಸು | ನಿರೀಕ್ಷಿಸಿ | ನಿಲ್ಲಿಸು | ಬಲಕ್ಕೆ | ಬಲಕ್ಕೆ ತಳ್ಳುತ್ತಿರುವ ಕೈ | ಹೈ ಫೈ</annotation>
+		<annotation cp="🫸" type="tts">ಬಲಕ್ಕೆ ತಳ್ಳುತ್ತಿರುವ ಕೈ</annotation>
 		<annotation cp="👌">ಉತ್ತಮ | ಸರಿ ಕೈ | ಸರಿ ಚಿಹ್ನೆ</annotation>
 		<annotation cp="👌" type="tts">ಸರಿ ಕೈ</annotation>
+		<annotation cp="🤌">ಕಹಿಯಾದ | ಕೈ ಸೂಚಕ | ಬೆರಳುಗಳು | ಮಡಚಿಕೊಂಡ | ವಿಚಾರಣೆ</annotation>
+		<annotation cp="🤌" type="tts">ಮಡಚಿಕೊಂಡ ಬೆರಳುಗಳು</annotation>
 		<annotation cp="🤏">ಕಡಿಮೆ ಪ್ರಮಾಣ | ಗಿಲ್ಲುವ ಕೈ</annotation>
 		<annotation cp="🤏" type="tts">ಗಿಲ್ಲುವ ಕೈ</annotation>
 		<annotation cp="✌">ವಿಜಯ | ವಿಜಯದ ಕೈ</annotation>
 		<annotation cp="✌" type="tts">ವಿಜಯದ ಕೈ</annotation>
 		<annotation cp="🤞">ಅದೃಷ್ಟ | ಕೈ | ತಿರುಪುವಿಕೆ | ನಿರೀಕ್ಷೆ | ಬೆರಳು</annotation>
 		<annotation cp="🤞" type="tts">ನಿರೀಕ್ಷೆ</annotation>
+		<annotation cp="🫰">ತೋರುಬೆರಳು ಮತ್ತು ಹೆಬ್ಬೆರಳು ಅಡ್ದವಾಗಿರುವ ಕೈ | ತೋರುಬೆರಳು ಮತ್ತು ಹೆಬ್ಬೆರಳು ಕ್ರಾಸ್ ಆಗಿರುವ ಕೈ | ದುಬಾರಿ | ಪ್ರೀತಿ | ಸ್ನ್ಯಾಪ್ | ಹಣ | ಹೃದಯ</annotation>
+		<annotation cp="🫰" type="tts">ತೋರುಬೆರಳು ಮತ್ತು ಹೆಬ್ಬೆರಳು ಅಡ್ದವಾಗಿರುವ ಕೈ</annotation>
 		<annotation cp="🤟">ಐಎಲ್‌ವೈ | ಕೈ | ಪ್ರೀತಿಸುತ್ತೇನೆ ಸೂಚನೆ</annotation>
 		<annotation cp="🤟" type="tts">ಪ್ರೀತಿಸುತ್ತೇನೆ ಸೂಚನೆ</annotation>
 		<annotation cp="🤘">ಕೊಂಬು | ಕೊಂಬುಗಳ ಸೂಚನೆ | ಕೊಂಬುಗಳು</annotation>
@@ -539,6 +1099,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👇" type="tts">ಹಿಂಬದಿ ಕೈ ಕೆಳಕ್ಕೆ ತೋರಿಸುತ್ತಿರುವುದು</annotation>
 		<annotation cp="☝">ಬೆರಳು | ಮೇಲಕ್ಕೆ ತೋರಿಸುತ್ತಿರುವುದು | ಮೇಲೆ</annotation>
 		<annotation cp="☝" type="tts">ಮೇಲಕ್ಕೆ ತೋರಿಸುತ್ತಿರುವುದು</annotation>
+		<annotation cp="🫵">ನೀವು | ವೀಕ್ಷಕರನ್ನು ತೋರಿಸುತ್ತಿರುವ ತೋರುಬೆರಳು | ಸೂಚಿಸು</annotation>
+		<annotation cp="🫵" type="tts">ವೀಕ್ಷಕರನ್ನು ತೋರಿಸುತ್ತಿರುವ ತೋರುಬೆರಳು</annotation>
 		<annotation cp="👍">ಒಪ್ಪಿಗೆಯ ಸಂಕೇತ | ಥಂಬ್ಸ್ ಅಪ್</annotation>
 		<annotation cp="👍" type="tts">ಥಂಬ್ಸ್ ಅಪ್</annotation>
 		<annotation cp="👎">ಅಸಮ್ಮತಿಯ ಸಂಕೇತ | ಥಂಬ್ಸ್ ಡೌನ್ | ಹೆಬ್ಬೆರಳು</annotation>
@@ -555,6 +1117,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👏" type="tts">ಚಪ್ಪಾಳೆಯ ಕೈಗಳು</annotation>
 		<annotation cp="🙌">ಆಚರಣೆ | ಕೈ | ಕೈಗಳನ್ನು ಎತ್ತುತ್ತಿರುವ ವ್ಯಕ್ತಿ | ಕೈಗಳನ್ನು ಎತ್ತುವುದು | ಹುರ್ರೇ</annotation>
 		<annotation cp="🙌" type="tts">ಕೈಗಳನ್ನು ಎತ್ತುವುದು</annotation>
+		<annotation cp="🫶">ಪ್ರೀತಿ | ಹೃದಯದಾಕಾರದಲ್ಲಿ ಕೈಗಳು</annotation>
+		<annotation cp="🫶" type="tts">ಹೃದಯದಾಕಾರದಲ್ಲಿ ಕೈಗಳು</annotation>
 		<annotation cp="👐">ತೆರೆಗಳ ಕೈಗಳ ಚಿಹ್ನೆ | ತೆರೆದ ಕೈಗಳು | ತೆರೆದಿರುವ ಕೈಗಳು</annotation>
 		<annotation cp="👐" type="tts">ತೆರೆದಿರುವ ಕೈಗಳು</annotation>
 		<annotation cp="🤲">ಎರಡೂ ಹಸ್ತಗಳನ್ನು ಜೋಡಿಸಿರುವುದು | ಪ್ರಾರ್ಥನೆ</annotation>
@@ -587,6 +1151,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👃" type="tts">ಮೂಗು</annotation>
 		<annotation cp="🧠">ಬುದ್ಧಿವಂತ | ಮೆದುಳು</annotation>
 		<annotation cp="🧠" type="tts">ಮೆದುಳು</annotation>
+		<annotation cp="🫀">ಅಂಗ | ಕೇಂದ್ರ | ನಾಡಿ | ಹೃದಯ ಅಂಗ | ಹೃದಯ ಬಡಿತ | ಹೃದಯವಿಜ್ಞಾನ</annotation>
+		<annotation cp="🫀" type="tts">ಹೃದಯ ಅಂಗ</annotation>
+		<annotation cp="🫁">ಅಂಗ | ಉಚ್ವಾಸ | ಉಸಿರಾಟ | ಉಸಿರು | ನಿಶ್ವಾಸ | ಶ್ವಾಶಕೋಶಗಳು</annotation>
+		<annotation cp="🫁" type="tts">ಶ್ವಾಶಕೋಶಗಳು</annotation>
 		<annotation cp="🦷">ದಂತ ವೈದ್ಯ | ಹಲ್ಲು</annotation>
 		<annotation cp="🦷" type="tts">ಹಲ್ಲು</annotation>
 		<annotation cp="🦴">ಅಸ್ಥಿಪಂಚರ | ಮೂಳೆ</annotation>
@@ -599,6 +1167,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👅" type="tts">ನಾಲಿಗೆ</annotation>
 		<annotation cp="👄">ತುಟಿಗಳು | ದೇಹ | ಬಾಯಿ</annotation>
 		<annotation cp="👄" type="tts">ಬಾಯಿ</annotation>
+		<annotation cp="🫦">ಅಹಿತಕರ | ಆತಂಕ | ಚಿಂತೆ | ತುಟಿ ಕಚ್ಚುವುದು | ನರ | ಫ್ಲರ್ಟಿಂಗ್ | ಭಯ</annotation>
+		<annotation cp="🫦" type="tts">ತುಟಿ ಕಚ್ಚುವುದು</annotation>
 		<annotation cp="👶">ಎಳೆಮಗು | ಶಿಶು</annotation>
 		<annotation cp="👶" type="tts">ಎಳೆಮಗು</annotation>
 		<annotation cp="🧒">ಅನಿರ್ದಿಷ್ಟ ಲಿಂಗ | ಮಗು | ಯುವ | ಲಿಂಗ-ತಟಸ್ಥ</annotation>
@@ -611,29 +1181,25 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑" type="tts">ವ್ಯಕ್ತಿ</annotation>
 		<annotation cp="👱">ಹೊಂಬಣ್ಣ ಕೂದಲಿನ ವ್ಯಕ್ತಿ | ಹೊಂಬಣ್ಣದ ವ್ಯಕ್ತಿ</annotation>
 		<annotation cp="👱" type="tts">ಹೊಂಬಣ್ಣ ಕೂದಲಿನ ವ್ಯಕ್ತಿ</annotation>
-		<annotation cp="🧑‍🍼">ಆರೈಕೆ | ಮಗು | ಮಗುವಿಗೆ ಹಾಲೂಡಿಸುತ್ತಿರುವ ವ್ಯಕ್ತಿ | ವ್ಯಕ್ತಿ | ಹಾಲೂಡಿಸುವುದು</annotation>
-		<annotation cp="🧑‍🍼" type="tts">ಮಗುವಿಗೆ ಹಾಲೂಡಿಸುತ್ತಿರುವ ವ್ಯಕ್ತಿ</annotation>
-		<annotation cp="🧑‍🎄">ಎಂಎಕ್ಸ್‌ ಕ್ಲಾಸ್‌ | ಕ್ಲಾಸ್, ಕ್ರಿಸ್‌ಮಸ್‌</annotation>
-		<annotation cp="🧑‍🎄" type="tts">ಎಂಎಕ್ಸ್‌ ಕ್ಲಾಸ್‌</annotation>
 		<annotation cp="👨">ಪುರುಷ | ವ್ಯಕ್ತಿ</annotation>
 		<annotation cp="👨" type="tts">ಪುರುಷ</annotation>
 		<annotation cp="🧔">ಗಡ್ಡ | ಗಡ್ಡಧಾರಿ ವ್ಯಕ್ತಿ</annotation>
 		<annotation cp="🧔" type="tts">ಗಡ್ಡಧಾರಿ ವ್ಯಕ್ತಿ</annotation>
+		<annotation cp="🧔‍♂">ಗಡ್ಡ | ಪುರುಷ | ಪುರುಷ: ಗಡ್ಡ</annotation>
+		<annotation cp="🧔‍♂" type="tts">ಪುರುಷ: ಗಡ್ಡ</annotation>
 		<annotation cp="👱‍♂">ಪುರುಷ | ಹೊಂಬಣ್ಣ ಕೂದಲಿನ ಪುರುಷ | ಹೊಂಬಣ್ಣ ಕೂದಲಿನ ವ್ಯಕ್ತಿ</annotation>
 		<annotation cp="👱‍♂" type="tts">ಹೊಂಬಣ್ಣ ಕೂದಲಿನ ಪುರುಷ</annotation>
-		<annotation cp="👨‍🍼">ಆರೈಕೆ | ಪುರುಷ | ಮಗು | ಮಗುವಿಗೆ ಹಾಲೂಡಿಸುತ್ತಿರುವ ಪುರುಷ | ಹಾಲೂಡಿಸುವುದು</annotation>
-		<annotation cp="👨‍🍼" type="tts">ಮಗುವಿಗೆ ಹಾಲೂಡಿಸುತ್ತಿರುವ ಪುರುಷ</annotation>
 		<annotation cp="👩">ಮಹಿಳೆ | ಸ್ತ್ರೀ</annotation>
 		<annotation cp="👩" type="tts">ಮಹಿಳೆ</annotation>
+		<annotation cp="🧔‍♀">ಗಡ್ಡ | ಮಹಿಳೆ | ಮಹಿಳೆ: ಗಡ್ಡ</annotation>
+		<annotation cp="🧔‍♀" type="tts">ಮಹಿಳೆ: ಗಡ್ಡ</annotation>
 		<annotation cp="👱‍♀">ಮಹಿಳೆ | ಸ್ತ್ರೀ | ಹೊಂಬಣ್ಣ ಕೂದಲಿನ ಮಹಿಳೆ</annotation>
 		<annotation cp="👱‍♀" type="tts">ಹೊಂಬಣ್ಣ ಕೂದಲಿನ ಮಹಿಳೆ</annotation>
-		<annotation cp="👩‍🍼">ಆರೈಕೆ | ಮಗು | ಮಗುವಿಗೆ ಹಾಲೂಡಿಸುತ್ತಿರುವ ಮಹಿಳೆ | ಮಹಿಳೆ | ಹಾಲೂಡಿಸುವುದು</annotation>
-		<annotation cp="👩‍🍼" type="tts">ಮಗುವಿಗೆ ಹಾಲೂಡಿಸುತ್ತಿರುವ ಮಹಿಳೆ</annotation>
 		<annotation cp="🧓">ಲಿಂಗ-ತಟಸ್ಥ | ಹಿರಿಯ | ಹಿರಿಯ ವಯಸ್ಕರು</annotation>
 		<annotation cp="🧓" type="tts">ಹಿರಿಯ ವಯಸ್ಕರು</annotation>
 		<annotation cp="👴">ಪುರುಷ | ಮುದುಕ | ವೃದ್ದ | ವ್ಯಕ್ತಿ</annotation>
 		<annotation cp="👴" type="tts">ಮುದುಕ</annotation>
-		<annotation cp="👵">ವಯಸ್ಸಾದ ಮಹಿಳೆ | ವಯಸ್ಸಾದವರು</annotation>
+		<annotation cp="👵">ಮಹಿಳೆ | ವಯಸ್ಕ | ವಯಸ್ಸಾದ ಮಹಿಳೆ | ವೃದ್ಧೆ</annotation>
 		<annotation cp="👵" type="tts">ವಯಸ್ಸಾದ ಮಹಿಳೆ</annotation>
 		<annotation cp="🙍">ಗಂಟಿಕ್ಕಿರುವ ವ್ಯಕ್ತಿ | ಗಂಟಿಕ್ಕು</annotation>
 		<annotation cp="🙍" type="tts">ಗಂಟಿಕ್ಕಿರುವ ವ್ಯಕ್ತಿ</annotation>
@@ -773,8 +1339,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👨‍🎨" type="tts">ಪುರುಷ ಕಲಾವಿದ</annotation>
 		<annotation cp="👩‍🎨">ಕಲಾವಿದೆ | ಗಂಡಸು | ಮಹಿಳೆ | ವರ್ಣಫಲಕ</annotation>
 		<annotation cp="👩‍🎨" type="tts">ಕಲಾವಿದೆ</annotation>
-		<annotation cp="🧑‍✈">ಪೈಲೆಟ್ | ಪ್ಲೇನ್</annotation>
-		<annotation cp="🧑‍✈" type="tts">ಪೈಲೆಟ್</annotation>
+		<annotation cp="🧑‍✈">ಪೈಲಟ್ | ಪ್ಲೇನ್</annotation>
+		<annotation cp="🧑‍✈" type="tts">ಪೈಲಟ್</annotation>
 		<annotation cp="👨‍✈">ಗಂಡಸು | ಪುರುಷ | ಪೈಲಟ್ | ವಿಮಾನ</annotation>
 		<annotation cp="👨‍✈" type="tts">ಪುರುಷ ಪೈಲಟ್</annotation>
 		<annotation cp="👩‍✈">ಪೈಲಟ್ | ಮಹಿಳಾ ಪೈಲಟ್ | ಮಹಿಳೆ | ವಿಮಾನ | ಹೆಂಗಸು</annotation>
@@ -809,12 +1375,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💂‍♂" type="tts">ಅಂಗರಕ್ಷಕ</annotation>
 		<annotation cp="💂‍♀">ಅಂಗರಕ್ಷಕಿ | ಮಹಿಳೆ | ಸ್ತ್ರೀ</annotation>
 		<annotation cp="💂‍♀" type="tts">ಅಂಗರಕ್ಷಕಿ</annotation>
+		<annotation cp="🥷">ನಿಂಜಾ | ಫೈಟರ್ | ಮರೆಮಾಡಲಾಗಿದೆ | ರಹಸ್ಯ</annotation>
+		<annotation cp="🥷" type="tts">ನಿಂಜಾ</annotation>
 		<annotation cp="👷">ಕಟ್ಟಡ ಕೆಲಸಗಾರ | ಕಾರ್ಮಿಕ</annotation>
 		<annotation cp="👷" type="tts">ಕಟ್ಟಡ ಕೆಲಸಗಾರ</annotation>
 		<annotation cp="👷‍♂">ಕಟ್ಟಡ ನಿರ್ಮಾಣ | ಕಟ್ಟಡ ಪುರುಷ ಕೆಲಸಗಾರ | ಕೆಲಸಗಾರ | ಪುರುಷ</annotation>
 		<annotation cp="👷‍♂" type="tts">ಕಟ್ಟಡ ಪುರುಷ ಕೆಲಸಗಾರ</annotation>
 		<annotation cp="👷‍♀">ಕಟ್ಟಡ ನಿರ್ಮಾಣ | ಕಟ್ಟಡ ಮಹಿಳಾ ಕೆಲಸಗಾರ್ತಿ | ಕೆಲಸಗಾರ | ಪುರುಷ | ಮಹಿಳೆ</annotation>
 		<annotation cp="👷‍♀" type="tts">ಕಟ್ಟಡ ಮಹಿಳಾ ಕೆಲಸಗಾರ್ತಿ</annotation>
+		<annotation cp="🫅">ಉದಾತ್ತ | ಕಿರೀಟ ಹೊಂದಿರುವ ವ್ಯಕ್ತಿ | ರಾಜ | ರಾಯಧನ | ರೀಗಲ್</annotation>
+		<annotation cp="🫅" type="tts">ಕಿರೀಟ ಹೊಂದಿರುವ ವ್ಯಕ್ತಿ</annotation>
 		<annotation cp="🤴">ರಾಜಕುಮಾರ</annotation>
 		<annotation cp="🤴" type="tts">ರಾಜಕುಮಾರ</annotation>
 		<annotation cp="👸">ಕಾಲ್ಪನಿಕ ಕಥೆ | ರಾಜಕುಮಾರಿ</annotation>
@@ -831,26 +1401,38 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧕" type="tts">ತಲೆಗೆ ಸ್ಕಾರ್ಫ್ ಕಟ್ಟಿಕೊಂಡಿರುವ ಮಹಿಳೆ</annotation>
 		<annotation cp="🤵">ಟಕ್ಸ್ ಧರಿಸಿದ ವ್ಯಕ್ತಿ | ಟಕ್ಸ್ ಧರಿಸಿದವ | ವರ | ವ್ಯಕ್ತಿ</annotation>
 		<annotation cp="🤵" type="tts">ಟಕ್ಸ್ ಧರಿಸಿದ ವ್ಯಕ್ತಿ</annotation>
-		<annotation cp="🤵‍♀">ಮಹಿಳೆ | ಸೂಟ್ | ಸೂಟ್‌ ಧರಿಸಿದ ಮಹಿಳೆ</annotation>
-		<annotation cp="🤵‍♀" type="tts">ಸೂಟ್‌ ಧರಿಸಿದ ಮಹಿಳೆ</annotation>
 		<annotation cp="🤵‍♂">ವ್ಯಕ್ತಿ | ಸೂಟ್‌ | ಸೂಟ್‌ ಧರಿಸಿದ ವ್ಯಕ್ತಿ</annotation>
 		<annotation cp="🤵‍♂" type="tts">ಸೂಟ್‌ ಧರಿಸಿದ ವ್ಯಕ್ತಿ</annotation>
+		<annotation cp="🤵‍♀">ಮಹಿಳೆ | ಸೂಟ್ | ಸೂಟ್‌ ಧರಿಸಿದ ಮಹಿಳೆ</annotation>
+		<annotation cp="🤵‍♀" type="tts">ಸೂಟ್‌ ಧರಿಸಿದ ಮಹಿಳೆ</annotation>
 		<annotation cp="👰">ಮದುವೆ | ವಧು | ವೇಲ್‌ | ವೇಲ್‌ ಧರಿಸಿರುವ ವ್ಯಕ್ತಿ | ವ್ಯಕ್ತಿ</annotation>
 		<annotation cp="👰" type="tts">ವೇಲ್‌ ಧರಿಸಿರುವ ವ್ಯಕ್ತಿ</annotation>
-		<annotation cp="👰‍♀">ಮಹಿಳೆ | ವೇಲ್ | ವೇಲ್‌ ಧರಿಸಿದ ಮಹಿಳೆ</annotation>
-		<annotation cp="👰‍♀" type="tts">ವೇಲ್‌ ಧರಿಸಿದ ಮಹಿಳೆ</annotation>
 		<annotation cp="👰‍♂">ಪುರುಷ | ವೇಲ್‌ | ವೇಲ್‌ ಧರಿಸಿದ ಪುರುಷ</annotation>
 		<annotation cp="👰‍♂" type="tts">ವೇಲ್‌ ಧರಿಸಿದ ಪುರುಷ</annotation>
+		<annotation cp="👰‍♀">ಮಹಿಳೆ | ವೇಲ್ | ವೇಲ್‌ ಧರಿಸಿದ ಮಹಿಳೆ</annotation>
+		<annotation cp="👰‍♀" type="tts">ವೇಲ್‌ ಧರಿಸಿದ ಮಹಿಳೆ</annotation>
 		<annotation cp="🤰">ಗರ್ಭಿಣಿ | ಮಹಿಳೆ</annotation>
 		<annotation cp="🤰" type="tts">ಗರ್ಭಿಣಿ</annotation>
-		<annotation cp="🤱">ಆರೈಕೆ | ಸ್ತನ | ಸ್ತನ್ಯ ಪಾನ | ಹಸುಳೆ</annotation>
-		<annotation cp="🤱" type="tts">ಸ್ತನ್ಯ ಪಾನ</annotation>
+		<annotation cp="🫃">ಉಬ್ಬಿದ | ಗರ್ಭಿಣಿ | ಪೂರ್ಣ | ಹೊಟ್ಟೆ | ಹೊಟ್ಟೆ ಬಂದಿರುವ ಪುರುಷ</annotation>
+		<annotation cp="🫃" type="tts">ಹೊಟ್ಟೆ ಬಂದಿರುವ ಪುರುಷ</annotation>
+		<annotation cp="🫄">ಉಬ್ಬಿದ | ಗರ್ಭ ಧರಿಸಿರುವ ವ್ಯಕ್ತಿ | ಗರ್ಭಿಣಿ | ಪೂರ್ಣ | ಹೊಟ್ಟೆ</annotation>
+		<annotation cp="🫄" type="tts">ಗರ್ಭ ಧರಿಸಿರುವ ವ್ಯಕ್ತಿ</annotation>
+		<annotation cp="🤱">ಬಾಣಂತಿ | ಸ್ತನ | ಸ್ತನಪಾನ | ಹಸುಳೆ</annotation>
+		<annotation cp="🤱" type="tts">ಸ್ತನಪಾನ</annotation>
+		<annotation cp="👩‍🍼">ಆರೈಕೆ | ಮಗು | ಮಗುವಿಗೆ ಹಾಲೂಡಿಸುತ್ತಿರುವ ಮಹಿಳೆ | ಮಹಿಳೆ | ಹಾಲೂಡಿಸುವುದು</annotation>
+		<annotation cp="👩‍🍼" type="tts">ಮಗುವಿಗೆ ಹಾಲೂಡಿಸುತ್ತಿರುವ ಮಹಿಳೆ</annotation>
+		<annotation cp="👨‍🍼">ಆರೈಕೆ | ಪುರುಷ | ಮಗು | ಮಗುವಿಗೆ ಹಾಲೂಡಿಸುತ್ತಿರುವ ಪುರುಷ | ಹಾಲೂಡಿಸುವುದು</annotation>
+		<annotation cp="👨‍🍼" type="tts">ಮಗುವಿಗೆ ಹಾಲೂಡಿಸುತ್ತಿರುವ ಪುರುಷ</annotation>
+		<annotation cp="🧑‍🍼">ಆರೈಕೆ | ಮಗು | ಮಗುವಿಗೆ ಹಾಲೂಡಿಸುತ್ತಿರುವ ವ್ಯಕ್ತಿ | ವ್ಯಕ್ತಿ | ಹಾಲೂಡಿಸುವುದು</annotation>
+		<annotation cp="🧑‍🍼" type="tts">ಮಗುವಿಗೆ ಹಾಲೂಡಿಸುತ್ತಿರುವ ವ್ಯಕ್ತಿ</annotation>
 		<annotation cp="👼">ದೇವತೆ | ಶಿಶು ದೇವತೆ</annotation>
 		<annotation cp="👼" type="tts">ಶಿಶು ದೇವತೆ</annotation>
 		<annotation cp="🎅">ಆಚರಣೆ | ಕ್ರಿಸ್ಮಸ್ | ಕ್ಲಾಸ್ | ತಂದೆ | ಸಂತಾ | ಸಾಂಟಾ ಕ್ಲಾಸ್ | ಸಾಂತಾ ಕ್ಲಾಜ್</annotation>
 		<annotation cp="🎅" type="tts">ಸಾಂತಾ ಕ್ಲಾಜ್</annotation>
 		<annotation cp="🤶">ಕ್ರಿಸ್‌ಮಸ್ | ತಾಯಿ | ಮಿ. ಕ್ಲಾಸ್</annotation>
 		<annotation cp="🤶" type="tts">ಕ್ರಿಸ್‌ಮಸ್ ತಾಯಿ</annotation>
+		<annotation cp="🧑‍🎄">ಎಂಎಕ್ಸ್‌ ಕ್ಲಾಸ್‌ | ಕ್ರಿಸ್‌ಮಸ್‌ | ಕ್ಲಾಸ್</annotation>
+		<annotation cp="🧑‍🎄" type="tts">ಎಂಎಕ್ಸ್‌ ಕ್ಲಾಸ್‌</annotation>
 		<annotation cp="🦸">ಉತ್ತಮ | ಸೂಪರ್‌ಪವರ್ | ಸೂಪರ್‌ಹೀರೊ | ಹೀರೊ | ಹೀರೊಯಿನ್</annotation>
 		<annotation cp="🦸" type="tts">ಸೂಪರ್‌ಹೀರೊ</annotation>
 		<annotation cp="🦸‍♂">ಉತ್ತಮ | ಪುರುಷ | ಪುರುಷ ಸೂಪರ್‌ಹೀರೊ | ಸೂಪರ್‌ಪವರ್ | ಹೀರೊ</annotation>
@@ -905,19 +1487,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧟‍♂" type="tts">ಪುರುಷ ಜೊಂಬಿ</annotation>
 		<annotation cp="🧟‍♀">ನಡೆದಾಡುವ ಶವ | ಮಹಿಳೆ ಜೊಂಬಿ | ಶವ</annotation>
 		<annotation cp="🧟‍♀" type="tts">ಮಹಿಳೆ ಜೊಂಬಿ</annotation>
-		<annotation cp="💆">ಫೇಸ್ ಮಸಾಜ್ | ಮಸಾಜ್ | ಸಲೂನ್</annotation>
+		<annotation cp="🧌">ಕಾಲ್ಪನಿಕ ಕಥೆ | ಟ್ರೋಲ್ | ಫ್ಯಾಂಟಸಿ | ಮಾನ್‌ಸ್ಟರ್</annotation>
+		<annotation cp="🧌" type="tts">ಟ್ರೋಲ್</annotation>
+		<annotation cp="💆">ಫೇಸ್ ಮಸಾಜ್ | ಮಸಾಜ್ | ಮಸಾಜ್ ಪಡೆಯುತ್ತಿರುವ ವ್ಯಕ್ತಿ | ಮುಖ | ಸಲೂನ್</annotation>
 		<annotation cp="💆" type="tts">ಫೇಸ್ ಮಸಾಜ್</annotation>
 		<annotation cp="💆‍♂">ಪುರುಷ | ಮಸಾಜ್ | ಮಸಾಜ್ ಪಡೆಯುತ್ತಿರುವ ಪುರುಷ | ಮುಖ</annotation>
 		<annotation cp="💆‍♂" type="tts">ಮಸಾಜ್ ಪಡೆಯುತ್ತಿರುವ ಪುರುಷ</annotation>
 		<annotation cp="💆‍♀">ಮಸಾಜ್ | ಮಸಾಜ್ ಪಡೆಯುತ್ತಿರುವ ಸ್ತ್ರೀ | ಮಹಿಳೆ | ಮುಖ | ಸ್ತ್ರೀ</annotation>
 		<annotation cp="💆‍♀" type="tts">ಮಸಾಜ್ ಪಡೆಯುತ್ತಿರುವ ಸ್ತ್ರೀ</annotation>
-		<annotation cp="💇">ಕೇಶವಿನ್ಯಾಸ | ಕ್ಷೌರ | ಪಾರ್ಲರ್ | ಬಾರ್ಬರ್ | ಸೌಂದರ್ಯ</annotation>
+		<annotation cp="💇">ಕೇಶವಿನ್ಯಾಸ | ಕ್ಷೌರ | ಕ್ಷೌರ ಮಾಡಿಸಿಕೊಳ್ಳುತ್ತಿರುವ ವ್ಯಕ್ತಿ | ಕ್ಷೌರಿಕ | ಪಾರ್ಲರ್ | ಸೌಂದರ್ಯ</annotation>
 		<annotation cp="💇" type="tts">ಕೇಶವಿನ್ಯಾಸ</annotation>
 		<annotation cp="💇‍♂">ಕೂದಲು ಕತ್ತರಿಸಿಕೊಳ್ಳುತ್ತಿರುವ ಪುರುಷ | ಕೂದಲು ಕತ್ತರಿಸುವುದು | ಕೂದಲು ಕತ್ತರಿಸುವುದು ಪುರುಷ | ಪುರುಷ</annotation>
 		<annotation cp="💇‍♂" type="tts">ಕೂದಲು ಕತ್ತರಿಸಿಕೊಳ್ಳುತ್ತಿರುವ ಪುರುಷ</annotation>
 		<annotation cp="💇‍♀">ಕೂದಲು ಕತ್ತರಿಸಿಕೊಳ್ಳುತ್ತಿರುವ ಸ್ತ್ರೀ | ಕೂದಲು ಕತ್ತರಿಸುವುದು | ಕೂದಲು ಕತ್ತರಿಸುವುದು ಸ್ತ್ರೀ | ಮಹಿಳೆ | ಸ್ತ್ರೀ</annotation>
 		<annotation cp="💇‍♀" type="tts">ಕೂದಲು ಕತ್ತರಿಸಿಕೊಳ್ಳುತ್ತಿರುವ ಸ್ತ್ರೀ</annotation>
-		<annotation cp="🚶">ನಡಿಗೆ | ಪಾದಚಾರಿ</annotation>
+		<annotation cp="🚶">ಚಾರಣ | ನಡೆ | ನಡೆಯುತ್ತಿರುವ ವ್ಯಕ್ತಿ | ಪಾದಚಾರಿ | ವಾಕಿಂಗ್</annotation>
 		<annotation cp="🚶" type="tts">ಪಾದಚಾರಿ</annotation>
 		<annotation cp="🚶‍♂">ನಡಿಗೆ | ನಡೆಯುತ್ತಿರುವ ಪುರುಷ | ಪಾದಾಚಾರಿ | ಪುರುಷ</annotation>
 		<annotation cp="🚶‍♂" type="tts">ನಡೆಯುತ್ತಿರುವ ಪುರುಷ</annotation>
@@ -935,7 +1519,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧎‍♂" type="tts">ವ್ಯಕ್ತಿ ಮಂಡಿಯೂರಿರುವುದು</annotation>
 		<annotation cp="🧎‍♀">ಮಂಡಿಯೂರಿರುವುದು | ಮಹಿಳೆ</annotation>
 		<annotation cp="🧎‍♀" type="tts">ಮಹಿಳೆ ಮಂಡಿಯೂರಿರುವುದು</annotation>
-		<annotation cp="🧑‍🦯">ಕಟ್ಟಿಗೆಯೊಂದಿಗೆ ವ್ಯಕ್ತಿ | ಕುರುಡು | ಪ್ರವೇಶಿಸುವಿಕೆ</annotation>
+		<annotation cp="🧑‍🦯">ಅಂಧ | ಕಟ್ಟಿಗೆಯೊಂದಿಗೆ ವ್ಯಕ್ತಿ | ಪ್ರವೇಶ | ಬಿಳಿಯ ಕೋಲು ಹಿಡಿದ ವ್ಯಕ್ತಿ</annotation>
 		<annotation cp="🧑‍🦯" type="tts">ಕಟ್ಟಿಗೆಯೊಂದಿಗೆ ವ್ಯಕ್ತಿ</annotation>
 		<annotation cp="👨‍🦯">ಊರುಗೋಲು ಹಿಡಿದಿರುವ ವ್ಯಕ್ತಿ | ಕುರುಡು | ಪ್ರವೇಶಿಸುವಿಕೆ | ವ್ಯಕ್ತಿ</annotation>
 		<annotation cp="👨‍🦯" type="tts">ಊರುಗೋಲು ಹಿಡಿದಿರುವ ವ್ಯಕ್ತಿ</annotation>
@@ -1091,14 +1675,24 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💏" type="tts">ಚುಂಬನ</annotation>
 		<annotation cp="💑">ಪ್ರೀತಿ | ಹೃದಯದೊಂದಿಗೆ ಜೋಡಿ</annotation>
 		<annotation cp="💑" type="tts">ಹೃದಯದೊಂದಿಗೆ ಜೋಡಿ</annotation>
-		<annotation cp="👪">ಕುಟುಂಬ | ಕುಟುಂಬ ಸದಸ್ಯರು</annotation>
-		<annotation cp="👪" type="tts">ಕುಟುಂಬ</annotation>
 		<annotation cp="🗣">ಮಾತನಾಡು | ಮಾತನಾಡುತ್ತಿರುವ ತಲೆ | ಮಾತನಾಡುವ ಸೂಚಕ</annotation>
 		<annotation cp="🗣" type="tts">ಮಾತನಾಡುತ್ತಿರುವ ತಲೆ</annotation>
 		<annotation cp="👤">ಎದೆಮಟ್ಟದ ರೇಖಾಚಿತ್ರ | ಬಸ್ಟ್ | ಸಿಲೂಯೆಟ್</annotation>
 		<annotation cp="👤" type="tts">ಎದೆಮಟ್ಟದ ರೇಖಾಚಿತ್ರ</annotation>
 		<annotation cp="👥">ಬಸ್ಟ್ | ಸಿಲೂಯೆಟ್‌ನಲ್ಲಿ ಬಸ್ಟ್ | ಸಿಲೂಯೆಟ್‌ನಲ್ಲಿ ಬಸ್ಟ್‌ಗಳು</annotation>
 		<annotation cp="👥" type="tts">ಸಿಲೂಯೆಟ್‌ನಲ್ಲಿ ಬಸ್ಟ್‌ಗಳು</annotation>
+		<annotation cp="🫂">ತಬ್ಬಿಕೊ | ತಬ್ಬಿಕೊಂಡಿರುವ ಜನರು | ಧನ್ಯವಾದಗಳು | ವಿದಾಯ | ಹಲೋ</annotation>
+		<annotation cp="🫂" type="tts">ತಬ್ಬಿಕೊಂಡಿರುವ ಜನರು</annotation>
+		<annotation cp="👪">ಕುಟುಂಬ | ಕುಟುಂಬ ಸದಸ್ಯರು</annotation>
+		<annotation cp="👪" type="tts">ಕುಟುಂಬ</annotation>
+		<annotation cp="🧑‍🧑‍🧒">ಕುಟುಂಬ: ವಯಸ್ಕ | ಕುಟುಂಬ: ವಯಸ್ಕ, ವಯಸ್ಕರು, ಮಗು | ಮಗು | ವಯಸ್ಕರು</annotation>
+		<annotation cp="🧑‍🧑‍🧒" type="tts">ಕುಟುಂಬ: ವಯಸ್ಕ, ವಯಸ್ಕರು, ಮಗು</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">ಕುಟುಂಬ: ವಯಸ್ಕ | ಕುಟುಂಬ: ವಯಸ್ಕ, ವಯಸ್ಕರು, ಮಗು, ಮಗು | ಮಗು | ವಯಸ್ಕರು</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">ಕುಟುಂಬ: ವಯಸ್ಕ, ವಯಸ್ಕರು, ಮಗು, ಮಗು</annotation>
+		<annotation cp="🧑‍🧒">ಕುಟುಂಬ: ವಯಸ್ಕರು | ಕುಟುಂಬ: ವಯಸ್ಕರು, ಮಗು | ಮಗು</annotation>
+		<annotation cp="🧑‍🧒" type="tts">ಕುಟುಂಬ: ವಯಸ್ಕರು, ಮಗು</annotation>
+		<annotation cp="🧑‍🧒‍🧒">ಕುಟುಂಬ: ವಯಸ್ಕರು | ಕುಟುಂಬ: ವಯಸ್ಕರು, ಮಗು, ಮಗು | ಮಗು</annotation>
+		<annotation cp="🧑‍🧒‍🧒" type="tts">ಕುಟುಂಬ: ವಯಸ್ಕರು, ಮಗು, ಮಗು</annotation>
 		<annotation cp="👣">ಪಾದ | ಹೆಜ್ಜೆ ಗುರುತುಗಳು | ಹೆಜ್ಜೆಗುರುತು</annotation>
 		<annotation cp="👣" type="tts">ಹೆಜ್ಜೆ ಗುರುತುಗಳು</annotation>
 		<annotation cp="🦰">ಕೆಂಪು ಕೂದಲು | ಕೆಂಪು ತಲೆ | ಶುಂಠಿ</annotation>
@@ -1149,6 +1743,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐆" type="tts">ಚಿರತೆ</annotation>
 		<annotation cp="🐴">ಕುದುರೆ | ಮುಖ</annotation>
 		<annotation cp="🐴" type="tts">ಕುದುರೆ ಮುಖ</annotation>
+		<annotation cp="🫎">ಎಲ್ಕ್ | ಕೊಂಬುಗಳು | ಪ್ರಾಣಿ | ಮೂಸ್ | ಸಸ್ತನಿ</annotation>
+		<annotation cp="🫎" type="tts">ಮೂಸ್</annotation>
+		<annotation cp="🫏">ಕತ್ತೆ | ಪ್ರಾಣಿ | ಬುರೋ | ಮೊಂಡು | ಸಸ್ತನಿ | ಹೇಸರಗತ್ತೆ</annotation>
+		<annotation cp="🫏" type="tts">ಕತ್ತೆ</annotation>
 		<annotation cp="🐎">ಕುದುರೆ | ಕುದುರೆ ಸವಾರಿ | ರೇಸಿಂಗ್ | ರೇಸ್ ಹಾರ್ಸ್</annotation>
 		<annotation cp="🐎" type="tts">ಕುದುರೆ</annotation>
 		<annotation cp="🦄">ಮುಖ | ಯೂನಿಕಾರ್ನ್</annotation>
@@ -1157,6 +1755,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦓" type="tts">ಝೀಬ್ರಾ</annotation>
 		<annotation cp="🦌">ಜಿಂಕೆ</annotation>
 		<annotation cp="🦌" type="tts">ಜಿಂಕೆ</annotation>
+		<annotation cp="🦬">ಕೋಣ | ಬೈಸನ್ | ವೈಸೆಂಟ್ | ಹಿಂಡು</annotation>
+		<annotation cp="🦬" type="tts">ಬೈಸನ್</annotation>
 		<annotation cp="🐮">ಹಸು | ಹಸುವಿನ ಮುಖ</annotation>
 		<annotation cp="🐮" type="tts">ಹಸುವಿನ ಮುಖ</annotation>
 		<annotation cp="🐂">ಎತ್ತು | ಕೋಣ | ಟಾರಸ್ | ರಾಶಿಚಕ್ರ</annotation>
@@ -1189,6 +1789,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦒" type="tts">ಜಿರಾಫೆ</annotation>
 		<annotation cp="🐘">ಆನೆ</annotation>
 		<annotation cp="🐘" type="tts">ಆನೆ</annotation>
+		<annotation cp="🦣">ಅಳಿವು | ಉಣ್ಣೆ | ದಂತ | ದೊಡ್ಡ | ಮಹಾಗಜ</annotation>
+		<annotation cp="🦣" type="tts">ಮಹಾಗಜ</annotation>
 		<annotation cp="🦏">ಘೇಂಡಾಮೃಗ | ಪ್ರಾಣಿ</annotation>
 		<annotation cp="🦏" type="tts">ಘೇಂಡಾಮೃಗ</annotation>
 		<annotation cp="🦛">ಹಿಪ್ಪೊ | ಹಿಪ್ಪೊಪೊಟೊಮಸ್</annotation>
@@ -1207,6 +1809,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐇" type="tts">ಮೊಲ</annotation>
 		<annotation cp="🐿">ಅಳಿಲು | ಚಿಪ್‌ಮಂಕ್‌</annotation>
 		<annotation cp="🐿" type="tts">ಚಿಪ್‌ಮಂಕ್‌</annotation>
+		<annotation cp="🦫">ಡ್ಯಾಮ್ | ಬಿವರ್ | ಬೀವರ್</annotation>
+		<annotation cp="🦫" type="tts">ಬೀವರ್</annotation>
 		<annotation cp="🦔">ಮುಳ್ಳುಹಂದಿ | ಸ್ಪೈನಿ | ಹೆಡ್ಜ್‌ಹಾಗ್</annotation>
 		<annotation cp="🦔" type="tts">ಹೆಡ್ಜ್‌ಹಾಗ್</annotation>
 		<annotation cp="🦇">ಪ್ರಾಣಿ | ಪ್ರೇತ | ಬಾವಲಿ</annotation>
@@ -1257,12 +1861,24 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦢" type="tts">ಹಂಸ</annotation>
 		<annotation cp="🦉">ಅಪಶಕುನ | ಗೂಬೆ | ಪಕ್ಷಿ</annotation>
 		<annotation cp="🦉" type="tts">ಗೂಬೆ</annotation>
+		<annotation cp="🦤">ಅಳಿವು | ಡೊಡೊ | ದೊಡ್ಡದು | ಮಾರೀಷಸ್</annotation>
+		<annotation cp="🦤" type="tts">ಡೊಡೊ</annotation>
+		<annotation cp="🪶">ಗರಿ | ಪಕ್ಷಿ | ಪ್ಲಮೇಜ್ | ಫ್ಲೈಟ್ | ಲೈಟ್</annotation>
+		<annotation cp="🪶" type="tts">ಗರಿ</annotation>
 		<annotation cp="🦩">ಟ್ರಾಪಿಕಲ್ | ಫ್ಲಮಿಂಗೊ | ಫ್ಲೆಂಬಯೊಂಟ್</annotation>
 		<annotation cp="🦩" type="tts">ಫ್ಲಮಿಂಗೊ</annotation>
 		<annotation cp="🦚">ಆಸ್ಟೆಂಟೆಟಿಯಸ್ | ನವಿಲು | ಪಕ್ಷಿ | ಪೀಹೆನ್ | ಹೆಮ್ಮೆ</annotation>
 		<annotation cp="🦚" type="tts">ನವಿಲು</annotation>
 		<annotation cp="🦜">ಪಕ್ಷಿ | ಪಂಚವರ್ಣ ಗಿಣಿ | ಪೈರೇಟ್ | ಮಾತು</annotation>
 		<annotation cp="🦜" type="tts">ಪಂಚವರ್ಣ ಗಿಣಿ</annotation>
+		<annotation cp="🪽">ದೇವದೂತ | ಪುರಾಣ | ರೆಕ್ಕೆ | ವಾಯುಯಾನ | ಹಕ್ಕಿ | ಹಾರುವ</annotation>
+		<annotation cp="🪽" type="tts">ರೆಕ್ಕೆ</annotation>
+		<annotation cp="🐦‍⬛">ಕಪ್ಪು | ಕಾಗೆ | ಪಕ್ಷಿ | ರವೆನ್ | ರೂಕ್</annotation>
+		<annotation cp="🐦‍⬛" type="tts">ಕಪ್ಪು ಪಕ್ಷಿ</annotation>
+		<annotation cp="🪿">ಕೋಳಿ | ಸಿಲ್ಲಿ | ಹಕ್ಕಿ | ಹಾರ್ನ್ | ಹೆಬ್ಬಾತು</annotation>
+		<annotation cp="🪿" type="tts">ಹೆಬ್ಬಾತು</annotation>
+		<annotation cp="🐦‍🔥">ಪುನರ್ಜನ್ಮ | ಫೀನಿಕ್ಸ್ | ಫೈರ್‌ಬರ್ಡ್ | ಫ್ಯಾಂಟಸಿ | ಮರುಜನ್ಮ</annotation>
+		<annotation cp="🐦‍🔥" type="tts">ಫೀನಿಕ್ಸ್</annotation>
 		<annotation cp="🐸">ಕಪ್ಪೆ | ಮುಖ</annotation>
 		<annotation cp="🐸" type="tts">ಕಪ್ಪೆ</annotation>
 		<annotation cp="🐊">ಮೊಸಳೆ</annotation>
@@ -1287,6 +1903,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐋" type="tts">ತಿಮಿಂಗಿಲ</annotation>
 		<annotation cp="🐬">ಡಾಲ್ಫಿನ್ | ಫ್ಲಿಪ್ಪರ್</annotation>
 		<annotation cp="🐬" type="tts">ಡಾಲ್ಫಿನ್</annotation>
+		<annotation cp="🦭">ಸಮುದ್ರ ಸಿಂಹ | ಸೀಲ್</annotation>
+		<annotation cp="🦭" type="tts">ಸೀಲ್</annotation>
 		<annotation cp="🐟">ಮೀನ ರಾಶಿ | ಮೀನು</annotation>
 		<annotation cp="🐟" type="tts">ಮೀನು</annotation>
 		<annotation cp="🐠">ಉಷ್ಣವಲಯ ಮೀನು | ಉಷ್ಣವಲಯದ ಮೀನುಗಳು | ಮೀನು</annotation>
@@ -1299,6 +1917,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐙" type="tts">ಆಕ್ಟೋಪಸ್</annotation>
 		<annotation cp="🐚">ಶೆಲ್ | ಸುರುಳಿಯಾಕಾರದ ಶೆಲ್ | ಸ್ಪೈರಲ್ ಶೆಲ್</annotation>
 		<annotation cp="🐚" type="tts">ಸ್ಪೈರಲ್ ಶೆಲ್</annotation>
+		<annotation cp="🪸">ರೀಫ್ | ಸಾಗರ | ಹವಳದ ಬಣ್ಣ</annotation>
+		<annotation cp="🪸" type="tts">ಹವಳದ ಬಣ್ಣ</annotation>
+		<annotation cp="🪼">ಅಕಶೇರುಕ | ಔಚ್ | ಕುಟುಕುವ ಪ್ರಾಣಿ | ಜೆಲ್ಲಿ | ಜೆಲ್ಲಿ ಮೀನು | ಸಾಗರ | ಸುಟ್ಟ</annotation>
+		<annotation cp="🪼" type="tts">ಜೆಲ್ಲಿ ಮೀನು</annotation>
 		<annotation cp="🐌">ಬಸವನ ಹುಳು</annotation>
 		<annotation cp="🐌" type="tts">ಬಸವನ ಹುಳು</annotation>
 		<annotation cp="🦋">ಕೀಟ | ಚಂದ | ಚಿಟ್ಟೆ</annotation>
@@ -1309,10 +1931,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐜" type="tts">ಇರುವೆ</annotation>
 		<annotation cp="🐝">ಜೇನು ನೊಣ | ಜೇನುನೊಣ | ನೊಣ</annotation>
 		<annotation cp="🐝" type="tts">ಜೇನು ನೊಣ</annotation>
+		<annotation cp="🪲">ಬಗ್ | ಬೀಟಲ್ | ಹುಳು</annotation>
+		<annotation cp="🪲" type="tts">ಬೀಟಲ್</annotation>
 		<annotation cp="🐞">ಬೀಟಲ್ | ಲೇಡಿ ಬೀಟಲ್ | ಲೇಡಿಬಗ್ | ಲೇಡಿಬರ್ಡ್ | ಹುಳು</annotation>
 		<annotation cp="🐞" type="tts">ಲೇಡಿ ಬೀಟಲ್</annotation>
 		<annotation cp="🦗">ಕ್ರಿಕೆಟ್ | ಮಿಡತೆ</annotation>
 		<annotation cp="🦗" type="tts">ಕ್ರಿಕೆಟ್</annotation>
+		<annotation cp="🪳">ಕೀಟ | ಜಿರಳೆ | ರೋಚ್ | ಹುಳು</annotation>
+		<annotation cp="🪳" type="tts">ಜಿರಳೆ</annotation>
 		<annotation cp="🕷">ಕೀಟ | ಜೇಡ</annotation>
 		<annotation cp="🕷" type="tts">ಜೇಡ</annotation>
 		<annotation cp="🕸">ಜೇಡ | ಜೇಡರ ಬಲೆ</annotation>
@@ -1321,6 +1947,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦂" type="tts">ಚೇಳು</annotation>
 		<annotation cp="🦟">ಕಾಯಿಲೆ | ಜ್ವರ | ಮಲೇರಿಯಾ | ವೈರಸ್ | ಸೊಳ್ಳೆ | ಹುಳು</annotation>
 		<annotation cp="🦟" type="tts">ಸೊಳ್ಳೆ</annotation>
+		<annotation cp="🪰">ಕೀಟ | ಕೊಳೆಯುತ್ತಿರುವ | ನೊಣ | ಮ್ಯಾಗ್ಗೊಟ್ | ರೋಗ</annotation>
+		<annotation cp="🪰" type="tts">ನೊಣ</annotation>
+		<annotation cp="🪱">ಅನೆಲಿಡ್ | ಎರೆಹುಳು | ಕ್ರಿಮಿ | ಪರಾವಲಂಬಿ</annotation>
+		<annotation cp="🪱" type="tts">ಕ್ರಿಮಿ</annotation>
 		<annotation cp="🦠">ಅಮೀಬಾ | ಬ್ಯಾಕ್ಟೀರಿಯಾ | ವೈರಸ್ | ಸೂಕ್ಷ್ಮಜೀವಿ</annotation>
 		<annotation cp="🦠" type="tts">ಸೂಕ್ಷ್ಮಜೀವಿ</annotation>
 		<annotation cp="💐">ಪುಷ್ಪಗುಚ್ಛ | ಹೂವು</annotation>
@@ -1329,6 +1959,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌸" type="tts">ಚೆರ್ರಿ ಹೂವು</annotation>
 		<annotation cp="💮">ಬಿಳಿ ಹೂವು | ಹೂವಿನ ಚೀಟಿ | ಹೂವು</annotation>
 		<annotation cp="💮" type="tts">ಬಿಳಿ ಹೂವು</annotation>
+		<annotation cp="🪷">ಕಮಲ | ಬೌದ್ಧಧರ್ಮ | ಭಾರತ | ವಿಯೆಟ್ನಾಂ | ಶುದ್ಧತೆ | ಹಿಂದೂ ಧರ್ಮ | ಹೂವು</annotation>
+		<annotation cp="🪷" type="tts">ಕಮಲ</annotation>
 		<annotation cp="🏵">ಗಿಡ | ರೊಸೆಟ್</annotation>
 		<annotation cp="🏵" type="tts">ರೊಸೆಟ್</annotation>
 		<annotation cp="🌹">ಗುಲಾಬಿ | ಸಸ್ಯ | ಹೂ</annotation>
@@ -1343,8 +1975,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌼" type="tts">ಅರಳುವ ಹೂವು</annotation>
 		<annotation cp="🌷">ಟುಲಿಪ್ | ಹೂ</annotation>
 		<annotation cp="🌷" type="tts">ಟುಲಿಪ್</annotation>
+		<annotation cp="🪻">ಬ್ಲೂಬೊನೆಟ್ | ಲೂಪೈನ್ | ಲ್ಯಾವೆಂಡರ್ | ಸ್ನ್ಯಾಪ್‌ಡ್ರ್ಯಾಗನ್ | ಹೂವು | ಹೈಯಸಿಂತ್</annotation>
+		<annotation cp="🪻" type="tts">ಹೈಯಸಿಂತ್</annotation>
 		<annotation cp="🌱">ಚಿಕ್ಕ ಸಸ್ಯ | ಮೊಳಕೆ ಒಡೆಯುತ್ತಿರುವ ಸಸ್ಯ</annotation>
 		<annotation cp="🌱" type="tts">ಮೊಳಕೆ ಒಡೆಯುತ್ತಿರುವ ಸಸ್ಯ</annotation>
+		<annotation cp="🪴">ಅನುಪಯುಕ್ತ | ಕುಂಡದಲ್ಲಿರುವ ಗಿಡ | ನೀರಸ | ಪೋಷಣೆ | ಬೆಳೆಯಿರಿ | ಮನೆ | ಸಸ್ಯ</annotation>
+		<annotation cp="🪴" type="tts">ಕುಂಡದಲ್ಲಿರುವ ಗಿಡ</annotation>
 		<annotation cp="🌲">ಮರ | ಸದಾ ಹಚ್ಚಹಸುರಾದ ಮರ | ಹಚ್ಚಹಸಿರಿನ ಮರ</annotation>
 		<annotation cp="🌲" type="tts">ಹಚ್ಚಹಸಿರಿನ ಮರ</annotation>
 		<annotation cp="🌳">ಉದುರುವ ಮರ | ಮರ</annotation>
@@ -1367,6 +2003,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍂" type="tts">ಉದುರಿದ ಎಲೆ</annotation>
 		<annotation cp="🍃">ಗಾಳಿ ಊದುವ | ಗಾಳಿಯಲ್ಲಿ ಎಲೆ | ಗಾಳಿಯಲ್ಲಿ ತೇಲುತ್ತಿರುವ ಎಲೆ</annotation>
 		<annotation cp="🍃" type="tts">ಗಾಳಿಯಲ್ಲಿ ತೇಲುತ್ತಿರುವ ಎಲೆ</annotation>
+		<annotation cp="🪹">ಖಾಲಿ ಗೂಡು | ಗೂಡುಕಟ್ಟುವಿಕೆ</annotation>
+		<annotation cp="🪹" type="tts">ಖಾಲಿ ಗೂಡು</annotation>
+		<annotation cp="🪺">ಗೂಡುಕಟ್ಟುವಿಕೆ | ಮೊಟ್ಟೆಗಳಿರುವ ಗೂಡು</annotation>
+		<annotation cp="🪺" type="tts">ಮೊಟ್ಟೆಗಳಿರುವ ಗೂಡು</annotation>
+		<annotation cp="🍄">ಅಣಬೆ | ಟೋಡ್‌ಸ್ಟೂಲ್‌</annotation>
+		<annotation cp="🍄" type="tts">ಅಣಬೆ</annotation>
 		<annotation cp="🍇">ದ್ರಾಕ್ಷಿ | ಹಣ್ಣು</annotation>
 		<annotation cp="🍇" type="tts">ದ್ರಾಕ್ಷಿ</annotation>
 		<annotation cp="🍈">ಕರಬೂಜ | ಕಲ್ಲಂಗಡಿ | ಹಣ್ಣು</annotation>
@@ -1377,6 +2019,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍊" type="tts">ಕಿತ್ತಳೆ</annotation>
 		<annotation cp="🍋">ನಿಂಬೆ | ಸಿಟ್ರಸ್‌ | ಹಣ್ಣು</annotation>
 		<annotation cp="🍋" type="tts">ನಿಂಬೆ</annotation>
+		<annotation cp="🍋‍🟩">ಉಷ್ಣವಲಯದ | ನಿಂಬೆಹಣ್ಣು | ಸಿಟ್ರಸ್ | ಹಣ್ಣು</annotation>
+		<annotation cp="🍋‍🟩" type="tts">ನಿಂಬೆಹಣ್ಣು</annotation>
 		<annotation cp="🍌">ಬಾಳೆ | ಬಾಳೆಹಣ್ಣು | ಹಣ್ಣು</annotation>
 		<annotation cp="🍌" type="tts">ಬಾಳೆಹಣ್ಣು</annotation>
 		<annotation cp="🍍">ಅನಾನಸ್ | ಹಣ್ಣು</annotation>
@@ -1395,10 +2039,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍒" type="tts">ಚೆರ್ರಿಗಳು</annotation>
 		<annotation cp="🍓">ಬೆರ್ರಿ | ಸ್ಟ್ರಾಬೆರಿ</annotation>
 		<annotation cp="🍓" type="tts">ಸ್ಟ್ರಾಬೆರಿ</annotation>
+		<annotation cp="🫐">ಬಿಲ್‌ಬೆರ್ರಿ | ಬೆರ್ರಿ | ಬ್ಲೂ | ಬ್ಲೂಬೆರಿಗಳು | ಬ್ಲೂಬೆರ್ರಿ | ಬ್ಲೂಬೆರ್ರಿಗಳು</annotation>
+		<annotation cp="🫐" type="tts">ಬ್ಲೂಬೆರಿಗಳು</annotation>
 		<annotation cp="🥝">ಆಹಾರ | ಕಿವಿ | ಹಣ್ಣು</annotation>
 		<annotation cp="🥝" type="tts">ಕಿವಿ ಹಣ್ಣು</annotation>
 		<annotation cp="🍅">ಟೊಮೆಟೊ | ಟೊಮೊಟೊ | ತರಕಾರಿ</annotation>
 		<annotation cp="🍅" type="tts">ಟೊಮೆಟೊ</annotation>
+		<annotation cp="🫒">ಆಲಿವ್ | ಆಹಾರ</annotation>
+		<annotation cp="🫒" type="tts">ಆಲಿವ್</annotation>
 		<annotation cp="🥥">ಅಂಗೈ | ತೆಂಗಿನಕಾಯಿ | ಪಿನಾ ಕೊಲೊಡಾ</annotation>
 		<annotation cp="🥥" type="tts">ತೆಂಗಿನಕಾಯಿ</annotation>
 		<annotation cp="🥑">ಅವಕಾಡೋ | ಆಹಾರ | ಹಣ್ಣು</annotation>
@@ -1413,9 +2061,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌽" type="tts">ಬಿಡಿಸಿರುವ ಜೋಳ</annotation>
 		<annotation cp="🌶">ಕೆಂಪು ಮೆಣಸಿನಕಾಯಿ | ಮೆಣಸಿನ ಕಾಯಿ</annotation>
 		<annotation cp="🌶" type="tts">ಕೆಂಪು ಮೆಣಸಿನಕಾಯಿ</annotation>
+		<annotation cp="🫑">ಕ್ಯಾಪ್ಸಿಕಂ | ತರಕಾರಿ | ದೊಡ್ಡ ಮೆಣಸಿನಕಾಯಿ | ಮೆಣಸು</annotation>
+		<annotation cp="🫑" type="tts">ದೊಡ್ಡ ಮೆಣಸಿನಕಾಯಿ</annotation>
 		<annotation cp="🥒">ಆಹಾರ | ಉಪ್ಪಿನಕಾಯಿ | ತರಕಾರಿ | ಸೌತೆ</annotation>
 		<annotation cp="🥒" type="tts">ಸೌತೆ</annotation>
-		<annotation cp="🥬">ಕಾಲೆ | ಕೋಸು | ಬಾಕ್ ಚೋ | ಲೆಟೆಸ್ | ಹಸಿರಿನ ಎಲೆ</annotation>
+		<annotation cp="🥬">ಎಲೆಕೋಸು | ಕಾಲೆ | ಬೊಕ್ ಚಾಯ್ | ಲೆಟ್ಯೂಸ್ | ಹಸಿರಿನ ಎಲೆ | ಹಸಿರು ಸೊಪ್ಪು</annotation>
 		<annotation cp="🥬" type="tts">ಹಸಿರಿನ ಎಲೆ</annotation>
 		<annotation cp="🥦">ಬ್ರೊಕೋಲಿ | ವೈಲ್ಡ್ ಕ್ಯಾಬೇಜ್</annotation>
 		<annotation cp="🥦" type="tts">ಬ್ರೊಕೋಲಿ</annotation>
@@ -1423,18 +2073,26 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧄" type="tts">ಬೆಳ್ಳುಳ್ಳಿ</annotation>
 		<annotation cp="🧅">ಈರುಳ್ಳಿ | ಫ್ಲೇವರಿಂಗ್</annotation>
 		<annotation cp="🧅" type="tts">ಈರುಳ್ಳಿ</annotation>
-		<annotation cp="🍄">ಅಣಬೆ | ಟೋಡ್‌ಸ್ಟೂಲ್‌</annotation>
-		<annotation cp="🍄" type="tts">ಅಣಬೆ</annotation>
 		<annotation cp="🥜">ಆಹಾರ | ತರಕಾರಿ | ಬೀಜ | ಶೇಂಗಾ</annotation>
 		<annotation cp="🥜" type="tts">ಶೇಂಗಾ</annotation>
+		<annotation cp="🫘">ಆಹಾರ | ದ್ವಿದಳ ಧಾನ್ಯ | ಬೀನ್ಸ್ | ಹುರುಳಿ ಬೀಜ</annotation>
+		<annotation cp="🫘" type="tts">ಬೀನ್ಸ್</annotation>
 		<annotation cp="🌰">ಚೆಸ್ಟ್ ನಟ್ | ಸಸ್ಯ</annotation>
 		<annotation cp="🌰" type="tts">ಚೆಸ್ಟ್ ನಟ್</annotation>
+		<annotation cp="🫚">ಬಿಯರ್ | ಬೇರು | ಮಸಾಲೆ | ಶುಂಠಿಯ ಬೇರು</annotation>
+		<annotation cp="🫚" type="tts">ಶುಂಠಿಯ ಬೇರು</annotation>
+		<annotation cp="🫛">ಎಡಮಾಮೆ | ತರಕಾರಿ | ದ್ವಿದಳ ಧಾನ್ಯ | ಪಾಡ್ | ಬಟಾಣಿ | ಬೀನ್ಸ್</annotation>
+		<annotation cp="🫛" type="tts">ಬಟಾಣಿ</annotation>
+		<annotation cp="🍄‍🟫">ಆಹಾರ | ಕಂದು ಬಣ್ಣದ ಅಣಬೆ | ತರಕಾರಿ | ಪ್ರಕೃತಿ | ಶಿಲೀಂಧ್ರ</annotation>
+		<annotation cp="🍄‍🟫" type="tts">ಕಂದು ಬಣ್ಣದ ಅಣಬೆ</annotation>
 		<annotation cp="🍞">ಬ್ರೆಡ್ | ಬ್ರೆಡ್ ತುಂಡುಗಳು</annotation>
 		<annotation cp="🍞" type="tts">ಬ್ರೆಡ್</annotation>
 		<annotation cp="🥐">ಆಹಾರ | ಕ್ರ್ಯೆಸಾಂತ್ ರೋಲ್ | ಕ್ರ್ವಾಸಾಂತ್ | ಫ್ರೆಂಚ್ | ಬ್ರೆಡ್</annotation>
 		<annotation cp="🥐" type="tts">ಕ್ರ್ವಾಸಾಂತ್</annotation>
 		<annotation cp="🥖">ಆಹಾರ | ಫ್ರೆಂಚ್ | ಬಗೆಟ್ | ಬ್ರೆಡ್</annotation>
 		<annotation cp="🥖" type="tts">ಬಗೆಟ್ ಬ್ರೆಡ್</annotation>
+		<annotation cp="🫓">ಅರೆಪಾ | ನಾನ್ | ಪಿಟಾ | ಫ್ಲಾಟ್ ಬ್ರೆಡ್ | ಲಾವಾಶ್</annotation>
+		<annotation cp="🫓" type="tts">ಫ್ಲಾಟ್ ಬ್ರೆಡ್</annotation>
 		<annotation cp="🥨">ತಿರುಚಿದ | ಪ್ರೆಟ್ಜೆಲ್</annotation>
 		<annotation cp="🥨" type="tts">ಪ್ರೆಟ್ಜೆಲ್</annotation>
 		<annotation cp="🥯">ಬೇಕರಿ | ಬೇಗಲ್ | ಸ್ಕೆಮರ್</annotation>
@@ -1467,6 +2125,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌮" type="tts">ಟ್ಯಾಕೊ</annotation>
 		<annotation cp="🌯">ಬುರಿಟೊ | ಮೆಕ್ಸಿಕನ್</annotation>
 		<annotation cp="🌯" type="tts">ಬುರಿಟೊ</annotation>
+		<annotation cp="🫔">ತಮಾಲೆ | ಮೆಕ್ಸಿಕನ್ | ಸುತ್ತಿಕೊಂಡಿರುವ</annotation>
+		<annotation cp="🫔" type="tts">ತಮಾಲೆ</annotation>
 		<annotation cp="🥙">ಆಹಾರ | ಕಬಾಬ್ | ಗೈರೋ | ತುಂಬಿದ ಬ್ರೆಡ್ | ಫಲಾಫೆಲ್ | ಬ್ರೆಡ್</annotation>
 		<annotation cp="🥙" type="tts">ತುಂಬಿದ ಬ್ರೆಡ್</annotation>
 		<annotation cp="🧆">ಚಿಕ್‌ಪೀ | ಫಲಾಫೆಲ್ | ಮೀಟ್‌ಬಾಲ್</annotation>
@@ -1479,6 +2139,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥘" type="tts">ಶಾಲೋ ಪಾನ್ ಆಹಾರ</annotation>
 		<annotation cp="🍲">ಮಡಿಕೆ | ಮಡಿಕೆ ಆಹಾರ | ಸ್ಟೀವ್</annotation>
 		<annotation cp="🍲" type="tts">ಮಡಿಕೆ ಆಹಾರ</annotation>
+		<annotation cp="🫕">ಕರಗಿದ | ಚಾಕೊಲೇಟ್ | ಚೀಸ್ | ಫಂಡ್ಯು | ಮಡಕೆ | ಸ್ವಿಸ್</annotation>
+		<annotation cp="🫕" type="tts">ಫಂಡ್ಯು</annotation>
 		<annotation cp="🥣">ಉಪಹಾರ | ಗಂಜಿ | ಧಾನ್ಯ | ಸ್ಪೂನ್‌ನೊಂದಿಗೆ ಬೌಲ್</annotation>
 		<annotation cp="🥣" type="tts">ಸ್ಪೂನ್‌ನೊಂದಿಗೆ ಬೌಲ್</annotation>
 		<annotation cp="🥗">ಆಹಾರ | ತರಕಾರಿ | ಸಲಾಡ್</annotation>
@@ -1495,7 +2157,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍱" type="tts">ಬೆಂಟೊ ಬಾಕ್ಸ್</annotation>
 		<annotation cp="🍘">ಅಕ್ಕಿ | ಅಕ್ಕಿ ಕ್ರ್ಯಾಕರ್ | ಒಡೆದ ಅಕ್ಕಿ</annotation>
 		<annotation cp="🍘" type="tts">ಅಕ್ಕಿ ಕ್ರ್ಯಾಕರ್</annotation>
-		<annotation cp="🍙">ಅನ್ನದ ಉಂಡೆ | ಒನಿಗ್ರೀ</annotation>
+		<annotation cp="🍙">ಅಕ್ಕಿ | ಅನ್ನದ ಉಂಡೆ | ಜಪಾನೀಸ್ | ಬಾಲ್</annotation>
 		<annotation cp="🍙" type="tts">ಅನ್ನದ ಉಂಡೆ</annotation>
 		<annotation cp="🍚">ಅನ್ನ | ಬೇಯಿಸಿದ ಅಕ್ಕಿ</annotation>
 		<annotation cp="🍚" type="tts">ಅನ್ನ</annotation>
@@ -1533,9 +2195,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦐" type="tts">ಶ್ರಿಂಪ್</annotation>
 		<annotation cp="🦑">ಆಹಾರ | ಮೊಲುಸ್ಕ್ | ಸ್ಕ್ವಿಡ್</annotation>
 		<annotation cp="🦑" type="tts">ಸ್ಕ್ವಿಡ್</annotation>
-		<annotation cp="🦪">ಡೈವಿಂಗ್ | ಮುತ್ತು | ಸಿಂಪಿ</annotation>
-		<annotation cp="🦪" type="tts">ಸಿಂಪಿ</annotation>
-		<annotation cp="🍦">ಐಸ್ ಕ್ರೀಮ್ | ಮೆತ್ತಗಿನ ಐಸ್ ಕ್ರೀಮ್ | ಸಾಫ್ಟ್ ಐಸ್ ಕ್ರೀಮ್</annotation>
+		<annotation cp="🦪">ಡೈವಿಂಗ್ | ಮುತ್ತು | ಮೃದ್ವಂಗಿ</annotation>
+		<annotation cp="🦪" type="tts">ಮೃದ್ವಂಗಿ</annotation>
+		<annotation cp="🍦">ಐಸ್‌ಕ್ರೀಮ್ | ಕ್ರೀಮ್ | ಡೆಸ್ಸರ್ಟ್ | ಮಂಜುಗಡ್ಡೆ | ಮೃದು | ಮೆತ್ತಗಿನ ಐಸ್ ಕ್ರೀಮ್ | ಸಿಹಿ</annotation>
 		<annotation cp="🍦" type="tts">ಮೆತ್ತಗಿನ ಐಸ್ ಕ್ರೀಮ್</annotation>
 		<annotation cp="🍧">ಐಸ್ | ಕತ್ತರಿಸಿದ ಐಸ್</annotation>
 		<annotation cp="🍧" type="tts">ಕತ್ತರಿಸಿದ ಐಸ್</annotation>
@@ -1543,11 +2205,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍨" type="tts">ಐಸ್ ಕ್ರೀಮ್</annotation>
 		<annotation cp="🍩">ಡೋನಟ್ | ಮಿಠಾಯಿ</annotation>
 		<annotation cp="🍩" type="tts">ಡೋನಟ್</annotation>
-		<annotation cp="🍪">ಕುಕೀ | ಸಿಹಿ | ಸಿಹಿತಿಂಡಿ</annotation>
+		<annotation cp="🍪">ಕುಕೀ | ಡೆಸ್ಸರ್ಟ್ | ಸಿಹಿ</annotation>
 		<annotation cp="🍪" type="tts">ಕುಕೀ</annotation>
-		<annotation cp="🎂">ಜನ್ಮದಿನ | ಜನ್ಮದಿನದ ಕೇಕ್</annotation>
+		<annotation cp="🎂">ಆಚರಣೆ | ಕೇಕ್ | ಜನ್ಮದಿನ | ಜನ್ಮದಿನದ ಕೇಕ್ | ಪೇಸ್ಟ್ರಿ | ಸಿಹಿ</annotation>
 		<annotation cp="🎂" type="tts">ಜನ್ಮದಿನದ ಕೇಕ್</annotation>
-		<annotation cp="🍰">ಚಿಕ್ಕ ಕೇಕ್ | ಶಾರ್ಟ್‌ಕೇಕ್ | ಸ್ಲೈಸ್ ಮಾಡಿದ ಕೇಕ್</annotation>
+		<annotation cp="🍰">ಕೇಕ್ | ಚಿಕ್ಕ ಕೇಕ್ | ಪೇಸ್ಟ್ರಿ | ಶಾರ್ಟ್‌ಕೇಕ್ | ಸಿಹಿ | ಸಿಹಿತಿಂಡಿ | ಹೋಳು</annotation>
 		<annotation cp="🍰" type="tts">ಚಿಕ್ಕ ಕೇಕ್</annotation>
 		<annotation cp="🧁">ಕಪ್ ಕೇಕ್ | ಬೇಕರಿ | ಸಿಹಿ</annotation>
 		<annotation cp="🧁" type="tts">ಕಪ್ ಕೇಕ್</annotation>
@@ -1559,9 +2221,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍬" type="tts">ಕ್ಯಾಂಡಿ</annotation>
 		<annotation cp="🍭">ಕ್ಯಾಂಡಿ | ಲಾಲಿಪಾಪ್ | ಸಿಹಿ</annotation>
 		<annotation cp="🍭" type="tts">ಲಾಲಿಪಾಪ್</annotation>
-		<annotation cp="🍮">ಕಸ್ಟರ್ಡ್ | ಪುಡ್ಡಿಂಗ್</annotation>
+		<annotation cp="🍮">ಕಸ್ಟರ್ಡ್ | ಡೆಸ್ಸರ್ಟ್ | ಪುಡಿಂಗ್ | ಸಿಹಿ</annotation>
 		<annotation cp="🍮" type="tts">ಕಸ್ಟರ್ಡ್</annotation>
-		<annotation cp="🍯">ಜೇನುತುಪ್ಪ | ಜೇನುತುಪ್ಪದ ಮಡಿಕೆ | ಹನಿಪಾಟ್</annotation>
+		<annotation cp="🍯">ಜೇನು | ಜೇನು ಕುಡಿಕೆ | ಜೇನುತುಪ್ಪದ ಮಡಿಕೆ | ಮಡಕೆ | ಸಿಹಿ</annotation>
 		<annotation cp="🍯" type="tts">ಜೇನುತುಪ್ಪದ ಮಡಿಕೆ</annotation>
 		<annotation cp="🍼">ಬೇಬಿ ಬಾಟಲ್ | ಹಾಲು</annotation>
 		<annotation cp="🍼" type="tts">ಬೇಬಿ ಬಾಟಲ್</annotation>
@@ -1569,6 +2231,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥛" type="tts">ಒಂದು ಲೋಟ ಹಾಲು</annotation>
 		<annotation cp="☕">ಕಾಫಿ | ಪಾನೀಯ | ಬಿಸಿ ಪಾನೀಯ</annotation>
 		<annotation cp="☕" type="tts">ಬಿಸಿ ಪಾನೀಯ</annotation>
+		<annotation cp="🫖">ಚಹಾ | ಟೀಪಾಟ್ | ಪಾಟ್‌ | ಪಾನೀಯ</annotation>
+		<annotation cp="🫖" type="tts">ಟೀಪಾಟ್</annotation>
 		<annotation cp="🍵">ಚಹಾಕಪ್ | ಚಹಾದ ಕಪ್ | ಹ್ಯಾಂಡ್‌ಲ್ ಇಲ್ಲದ ಚಹಾ ಕಪ್</annotation>
 		<annotation cp="🍵" type="tts">ಹ್ಯಾಂಡ್‌ಲ್ ಇಲ್ಲದ ಚಹಾ ಕಪ್</annotation>
 		<annotation cp="🍶">ಅಕ್ಕಿ ಮಧ್ಯದ ಬಾಟಲ್ ಮತ್ತು ಕಪ್ | ಜಪಾನೀಯರ ಅಕ್ಕಿ ಮಧ್ಯ | ಸೇಕ್</annotation>
@@ -1589,8 +2253,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥂" type="tts">ಖಣಖಣಿಸುವ ಗ್ಲಾಸುಗಳು</annotation>
 		<annotation cp="🥃">ಗ್ಲಾಸು | ಟಂಬ್ಲರ್ | ಟಂಬ್ಲರ್ ಗ್ಲಾಸುಗಳು | ಪೆಗ್ | ವಿಸ್ಕಿ | ಸರಾಯಿ</annotation>
 		<annotation cp="🥃" type="tts">ಟಂಬ್ಲರ್ ಗ್ಲಾಸುಗಳು</annotation>
+		<annotation cp="🫗">ಕುಡಿಯಿರಿ | ಖಾಲಿ | ಗಾಜು | ದ್ರವವನ್ನು ಸುರಿಯುವುದು | ಸೋರುವಿಕೆ</annotation>
+		<annotation cp="🫗" type="tts">ದ್ರವವನ್ನು ಸುರಿಯುವುದು</annotation>
 		<annotation cp="🥤">ಜೂಸ್ | ಸೋಡಾ | ಸ್ಟ್ರಾ ಜೊತೆಗೆ ಕಪ್</annotation>
 		<annotation cp="🥤" type="tts">ಸ್ಟ್ರಾ ಜೊತೆಗೆ ಕಪ್</annotation>
+		<annotation cp="🧋">ಚಹಾ | ಬಬಲ್ | ಬಬಲ್ ಟೀ | ಮುತ್ತು | ಹಾಲು</annotation>
+		<annotation cp="🧋" type="tts">ಬಬಲ್ ಟೀ</annotation>
 		<annotation cp="🧃">ಜ್ಯೂಸ್ ಬಾಕ್ಸ್ | ಪಾನೀಯದ ಬಾಕ್ಸ್</annotation>
 		<annotation cp="🧃" type="tts">ಪಾನೀಯದ ಬಾಕ್ಸ್</annotation>
 		<annotation cp="🧉">ಪಾನೀಯ | ಮೇಟ್</annotation>
@@ -1607,16 +2275,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥄" type="tts">ಚಮಚ</annotation>
 		<annotation cp="🔪">ಅಡುಗೆ ಚಾಕು | ಅಡುಗೆಮನೆ ಚಾಕು | ಚಾಕು</annotation>
 		<annotation cp="🔪" type="tts">ಅಡುಗೆಮನೆ ಚಾಕು</annotation>
+		<annotation cp="🫙">ಅಂಗಡಿ | ಕಂಟೇನರ್ | ಕಾಂಡಿಮೆಂಟ್ | ಖಾಲಿ | ಜಾರ್ | ಸಾಸ್</annotation>
+		<annotation cp="🫙" type="tts">ಜಾರ್</annotation>
 		<annotation cp="🏺">ಅಂಫೋರಾ | ಆಯುಧ | ಜಗ್</annotation>
 		<annotation cp="🏺" type="tts">ಅಂಫೋರಾ</annotation>
-		<annotation cp="🌍">ಜಗತ್ತು | ಭೂಮಿ | ಯೂರೋಪ್-ಆಫ್ರಿಕಾ ತೋರಿಸುತ್ತಿರುವ ಜಗತ್ತು</annotation>
-		<annotation cp="🌍" type="tts">ಯೂರೋಪ್-ಆಫ್ರಿಕಾ ತೋರಿಸುತ್ತಿರುವ ಜಗತ್ತು</annotation>
-		<annotation cp="🌎">ಅಮೆರಿಕ ತೋರಿಸುತ್ತಿರುವ ಜಗತ್ತು | ಗೋಳ | ಭೂಮಿ</annotation>
-		<annotation cp="🌎" type="tts">ಅಮೆರಿಕ ತೋರಿಸುತ್ತಿರುವ ಜಗತ್ತು</annotation>
-		<annotation cp="🌏">ಏಷಿಯಾ-ಆಸ್ಟ್ರೇಲಿಯಾ ತೋರಿಸುತ್ತಿರುವ ಜಗತ್ತು | ಗೋಳ | ಭೂಮಿ</annotation>
-		<annotation cp="🌏" type="tts">ಏಷಿಯಾ-ಆಸ್ಟ್ರೇಲಿಯಾ ತೋರಿಸುತ್ತಿರುವ ಜಗತ್ತು</annotation>
-		<annotation cp="🌐">ಜಗತ್ತು | ಮೆರಿಡಿಯನ್‌ಗಳೊಂದಿಗೆ ಜಗತ್ತು</annotation>
-		<annotation cp="🌐" type="tts">ಮೆರಿಡಿಯನ್‌ಗಳೊಂದಿಗೆ ಜಗತ್ತು</annotation>
+		<annotation cp="🌍">ಜಗತ್ತು | ಭೂಮಿ | ಯೂರೋಪ್-ಆಫ್ರಿಕಾ ತೋರಿಸುತ್ತಿರುವ ಜಗತ್ತು | ಯೂರೋಪ್-ಆಫ್ರಿಕಾ ತೋರಿಸುತ್ತಿರುವ ಭೂಗೋಳ</annotation>
+		<annotation cp="🌍" type="tts">ಯೂರೋಪ್-ಆಫ್ರಿಕಾ ತೋರಿಸುತ್ತಿರುವ ಭೂಗೋಳ</annotation>
+		<annotation cp="🌎">ಅಮೆರಿಕ ತೋರಿಸುತ್ತಿರುವ ಜಗತ್ತು | ಅಮೆರಿಕ ತೋರಿಸುತ್ತಿರುವ ಭೂಗೋಳ | ಗೋಳ | ಭೂಮಿ</annotation>
+		<annotation cp="🌎" type="tts">ಅಮೆರಿಕ ತೋರಿಸುತ್ತಿರುವ ಭೂಗೋಳ</annotation>
+		<annotation cp="🌏">ಏಷಿಯಾ-ಆಸ್ಟ್ರೇಲಿಯಾ ತೋರಿಸುತ್ತಿರುವ ಜಗತ್ತು | ಏಷಿಯಾ-ಆಸ್ಟ್ರೇಲಿಯಾ ತೋರಿಸುತ್ತಿರುವ ಭೂಗೋಳ | ಗೋಳ | ಭೂಮಿ</annotation>
+		<annotation cp="🌏" type="tts">ಏಷಿಯಾ-ಆಸ್ಟ್ರೇಲಿಯಾ ತೋರಿಸುತ್ತಿರುವ ಭೂಗೋಳ</annotation>
+		<annotation cp="🌐">ಜಗತ್ತು | ಮೆರಿಡಿಯನ್‌ಗಳಿರುವ ಭೂಗೋಳ | ಮೆರಿಡಿಯನ್‌ಗಳೊಂದಿಗೆ ಜಗತ್ತು</annotation>
+		<annotation cp="🌐" type="tts">ಮೆರಿಡಿಯನ್‌ಗಳಿರುವ ಭೂಗೋಳ</annotation>
 		<annotation cp="🗺">ನಕ್ಷೆ | ಪ್ರಪಂಚ</annotation>
 		<annotation cp="🗺" type="tts">ಪ್ರಪಂಚ ನಕ್ಷೆ</annotation>
 		<annotation cp="🗾">ಜಪಾನ್ ನಕ್ಷೆ | ನಕ್ಷೆ</annotation>
@@ -1635,8 +2305,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏕" type="tts">ಕ್ಯಾಂಪಿಂಗ್</annotation>
 		<annotation cp="🏖">ಕೊಡೆ | ಕೊಡೆಯೊಂದಿಗೆ ಬೀಚ್ | ಬೀಚ್</annotation>
 		<annotation cp="🏖" type="tts">ಕೊಡೆಯೊಂದಿಗೆ ಬೀಚ್</annotation>
-		<annotation cp="🏜">ಮರಭೂಮಿ</annotation>
-		<annotation cp="🏜" type="tts">ಮರಭೂಮಿ</annotation>
+		<annotation cp="🏜">ಮರುಭೂಮಿ</annotation>
+		<annotation cp="🏜" type="tts">ಮರುಭೂಮಿ</annotation>
 		<annotation cp="🏝">ದ್ವೀಪ | ಮರಳುಗಾಡು</annotation>
 		<annotation cp="🏝" type="tts">ಮರಳುಗಾಡು ದ್ವೀಪ</annotation>
 		<annotation cp="🏞">ಉದ್ಯಾನ | ರಾಷ್ಟ್ರೀಯ ಉದ್ಯಾನ</annotation>
@@ -1649,6 +2319,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏗" type="tts">ಕಟ್ಟಡ ನಿರ್ಮಾಣ</annotation>
 		<annotation cp="🧱">ಇಟ್ಟಿಗೆ | ಇಟ್ಟಿಗೆಗಳು | ಗಾರೆ | ಗೋಡೆ | ಜೇಡಿಮಣ್ಣು</annotation>
 		<annotation cp="🧱" type="tts">ಇಟ್ಟಿಗೆ</annotation>
+		<annotation cp="🪨">ಕಲ್ಲು | ಘನ | ಬಂಡೆ | ಬೌಲ್ಡರ್ | ಭಾರ</annotation>
+		<annotation cp="🪨" type="tts">ಬಂಡೆ</annotation>
+		<annotation cp="🪵">ಕಟ್ಟಿಗೆ | ಮರಗೆಲಸ | ಮರದ | ಲಾಗ್</annotation>
+		<annotation cp="🪵" type="tts">ಕಟ್ಟಿಗೆ</annotation>
+		<annotation cp="🛖">ಗುಡಿಸಲು | ಮನೆ | ರೌಂಡ್‌ಹೌಸ್</annotation>
+		<annotation cp="🛖" type="tts">ಗುಡಿಸಲು</annotation>
 		<annotation cp="🏘">ಕಟ್ಟಡ | ಮನೆ | ಮನೆ ಕಟ್ಟಡಗಳು</annotation>
 		<annotation cp="🏘" type="tts">ಮನೆ ಕಟ್ಟಡಗಳು</annotation>
 		<annotation cp="🏚">ಕಟ್ಟಡ | ಡೆರ್ಲಿಕ್ಟ್ ಮನೆ ಕಟ್ಟಡ | ನಿವಾಸ</annotation>
@@ -1679,10 +2355,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏬" type="tts">ಡಿಪಾರ್ಟ್‌ಮೆಂಟಲ್ ಸ್ಟೋರ್</annotation>
 		<annotation cp="🏭">ಕಟ್ಟಡ | ಕಾರ್ಖಾನೆ</annotation>
 		<annotation cp="🏭" type="tts">ಕಾರ್ಖಾನೆ</annotation>
-		<annotation cp="🏯">ಕ್ಯಾಸ್ಟಲ್ | ಜಪಾನೀಸ್ ಕ್ಯಾಸ್ಟಲ್ | ಜಾಪನೀಸ್ ಕ್ಯಾಸ್ಟಲ್</annotation>
-		<annotation cp="🏯" type="tts">ಜಾಪನೀಸ್ ಕ್ಯಾಸ್ಟಲ್</annotation>
-		<annotation cp="🏰">ಕ್ಯಾಸ್ಟಲ್ | ಯುರೋಪಿಯನ್ ಕ್ಯಾಸ್ಟಲ್</annotation>
-		<annotation cp="🏰" type="tts">ಕ್ಯಾಸ್ಟಲ್</annotation>
+		<annotation cp="🏯">ಕ್ಯಾಸಲ್ | ಜಾಪನೀಸ್</annotation>
+		<annotation cp="🏯" type="tts">ಜಾಪನೀಸ್ ಕ್ಯಾಸಲ್</annotation>
+		<annotation cp="🏰">ಕ್ಯಾಸಲ್ | ಯುರೋಪಿಯನ್</annotation>
+		<annotation cp="🏰" type="tts">ಕ್ಯಾಸಲ್</annotation>
 		<annotation cp="💒">ವಿವಾಹ | ವಿವಾಹ ದೇಗುಲ</annotation>
 		<annotation cp="💒" type="tts">ವಿವಾಹ</annotation>
 		<annotation cp="🗼">ಟೋಕಿಯೊ | ಟೋಕಿಯೊ ಟವರ್</annotation>
@@ -1725,6 +2401,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="♨" type="tts">ಬಿಸಿನೀರಿನ ಬುಗ್ಗೆಗಳು</annotation>
 		<annotation cp="🎠">ಏರಿಳಿಕೆ | ಕುದುರೆ | ಕ್ಯರೋಸೆಲ್ ಕುದುರೆ</annotation>
 		<annotation cp="🎠" type="tts">ಕ್ಯರೋಸೆಲ್ ಕುದುರೆ</annotation>
+		<annotation cp="🛝">ಅಮ್ಯೂಸ್ಮೆಂಟ್ ಪಾರ್ಕ್ | ಆಟ | ಆಟದ ಮೈದಾನದ ಜಾರುಬಂಡಿ</annotation>
+		<annotation cp="🛝" type="tts">ಆಟದ ಮೈದಾನದ ಜಾರುಬಂಡಿ</annotation>
 		<annotation cp="🎡">ಚಕ್ರ | ಫೆರಿಸ್ ವೀಲ್ | ಮನರಂಜನಾ ಪಾರ್ಕ್</annotation>
 		<annotation cp="🎡" type="tts">ಫೆರಿಸ್ ವೀಲ್</annotation>
 		<annotation cp="🎢">ಮನರಂಜನಾ ಪಾರ್ಕ್ | ರೋಲರ್ ಕೋಸ್ಟರ್</annotation>
@@ -1783,6 +2461,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚘" type="tts">ಮುಂದೆ ಬರುತ್ತಿರುವ ಆಟೊಮೊಬೈಲ್</annotation>
 		<annotation cp="🚙">ಕ್ರೀಡಾ ಯುಟಿಲಿಟಿ ವಾಹನ | ಕ್ರೀಡಾ ಸೌಲಭ್ಯ | ಮನರಂಜನೆ | ಮನರಂಜನೆ ವಾಹನ</annotation>
 		<annotation cp="🚙" type="tts">ಮನರಂಜನೆ ವಾಹನ</annotation>
+		<annotation cp="🛻">ಟ್ರಕ್ | ಪಿಕಪ್ ಟ್ರಕ್ | ಪಿಕ್-ಅಪ್</annotation>
+		<annotation cp="🛻" type="tts">ಪಿಕಪ್ ಟ್ರಕ್</annotation>
 		<annotation cp="🚚">ಟ್ರಕ್ | ಡೆಲಿವರಿ ಟ್ರಕ್</annotation>
 		<annotation cp="🚚" type="tts">ಡೆಲಿವರಿ ಟ್ರಕ್</annotation>
 		<annotation cp="🚛">ಅರ್ಧ | ಆರ್ಟಿಕ್ಯುಲೇಟೆಡ್ ಲಾರಿ | ಲಾರಿ</annotation>
@@ -1807,6 +2487,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛴" type="tts">ಕಿಕ್ ಸ್ಕೂಟರ್</annotation>
 		<annotation cp="🛹">ಬೋರ್ಡ್ | ಸ್ಕೇಟ್‌ಬೋರ್ಡ್</annotation>
 		<annotation cp="🛹" type="tts">ಸ್ಕೇಟ್‌ಬೋರ್ಡ್</annotation>
+		<annotation cp="🛼">ರೋಲರ್‌ | ಸ್ಕೇಟ್‌</annotation>
+		<annotation cp="🛼" type="tts">ರೋಲರ್‌ ಸ್ಕೇಟ್‌</annotation>
 		<annotation cp="🚏">ನಿಲುಗಡೆ | ಬಸ್ ನಿಲ್ದಾಣ</annotation>
 		<annotation cp="🚏" type="tts">ಬಸ್ ನಿಲ್ದಾಣ</annotation>
 		<annotation cp="🛣">ಮೋಟರ್ ಹಾದಿ | ರಸ್ತೆ | ಹೈವೇ</annotation>
@@ -1817,6 +2499,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛢" type="tts">ತೈಲ ಡ್ರಮ್</annotation>
 		<annotation cp="⛽">ಇಂಧನ ಪಂಪ್ | ಇಂಧನ ಪಂಪ್‌ಗಳು | ಗ್ಯಾಸ್ ಸ್ಟೇಶನ್</annotation>
 		<annotation cp="⛽" type="tts">ಇಂಧನ ಪಂಪ್</annotation>
+		<annotation cp="🛞">ಚಕ್ರ | ಟೈರ್ | ತಿರುವು | ವೃತ್ತ</annotation>
+		<annotation cp="🛞" type="tts">ಚಕ್ರ</annotation>
 		<annotation cp="🚨">ಪೊಲೀಸರ ಲೈಟ್ | ಪೊಲೀಸ್ ಕಾರ್‌ನ ಬೆಳಕು | ಸುತ್ತುತ್ತಿರುವ ಬೆಳಕು</annotation>
 		<annotation cp="🚨" type="tts">ಪೊಲೀಸ್ ಕಾರ್‌ನ ಬೆಳಕು</annotation>
 		<annotation cp="🚥">ಅಡ್ಡಲಾಗಿರುವ ಸಂಚಾರಿ ಬೆಳಕು | ಸಂಚಾರ ದೀಪಗಳು | ಸಮತಲ ಸಂಚಾರಿ ಬೆಳಕು</annotation>
@@ -1829,6 +2513,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚧" type="tts">ನಿರ್ಮಾಣ</annotation>
 		<annotation cp="⚓">ಲಂಗರು | ಸಂಕೇತ</annotation>
 		<annotation cp="⚓" type="tts">ಲಂಗರು</annotation>
+		<annotation cp="🛟">ಜೀವ ರಕ್ಷಕ | ಜೀವ ಸಂರಕ್ಷಕ | ಫ್ಲೋಟ್ | ರಕ್ಷಣೆ | ರಿಂಗ್ ಬೂಯ್ | ಸುರಕ್ಷತೆ</annotation>
+		<annotation cp="🛟" type="tts">ರಿಂಗ್ ಬೂಯ್</annotation>
 		<annotation cp="⛵">ದೋಣಿ | ಹಾಯಿದೋಣಿ</annotation>
 		<annotation cp="⛵" type="tts">ಹಾಯಿದೋಣಿ</annotation>
 		<annotation cp="🛶">ದೋಣಿ | ಬೋಟ್</annotation>
@@ -1857,7 +2543,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💺" type="tts">ಆಸನ</annotation>
 		<annotation cp="🚁">ವಾಹನ | ಹೆಲಿಕಾಫ್ಟರ್</annotation>
 		<annotation cp="🚁" type="tts">ಹೆಲಿಕಾಫ್ಟರ್</annotation>
-		<annotation cp="🚟">ಅಮಾನತು ರೈಲು | ರೈಲ್ವೆ | ವಾಹನ | ಸಸ್ಪೆನ್ಶನ್ ರೈಲ್ವೆ</annotation>
+		<annotation cp="🚟">ರೈಲ್ವೆ | ವಾಹನ | ಸಸ್ಪೆನ್ಶನ್ ರೈಲು | ಸಸ್ಪೆನ್ಶನ್ ರೈಲ್ವೆ</annotation>
 		<annotation cp="🚟" type="tts">ಸಸ್ಪೆನ್ಶನ್ ರೈಲ್ವೆ</annotation>
 		<annotation cp="🚠">ಕೇಬಲ್ | ಪರ್ವತ | ಪರ್ವತ ಕೇಬಲ್ ಕಾರ್ | ಪರ್ವತದ ಕೇಬಲ್‌ವೇ | ವಾಹನ</annotation>
 		<annotation cp="🚠" type="tts">ಪರ್ವತದ ಕೇಬಲ್‌ವೇ</annotation>
@@ -1935,7 +2621,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🕚" type="tts">ಹನ್ನೊಂದು ಗಂಟೆ</annotation>
 		<annotation cp="🕦">11:30 | ಗಡಿಯಾರ | ಹನ್ನೊಂದು -ಮೂವತ್ತು | ಹನ್ನೊಂದು ಮೂವತ್ತು</annotation>
 		<annotation cp="🕦" type="tts">ಹನ್ನೊಂದು ಮೂವತ್ತು</annotation>
-		<annotation cp="🌑">ಅಮಾವಾಸ್ಯೆ | ಗಾಢ | ಚಂದ್ರ | ಹೊಸದು</annotation>
+		<annotation cp="🌑">ಅಮಾವಾಸ್ಯೆ | ಕತ್ತಲು | ಚಂದ್ರ | ಹೊಸದು</annotation>
 		<annotation cp="🌑" type="tts">ಅಮಾವಾಸ್ಯೆ</annotation>
 		<annotation cp="🌒">ಅರ್ಧ ಚಂದ್ರ | ಕ್ರೆಸೆಂಟ್ | ಚಂದ್ರ | ಮೇಣ | ಮೇಣದ ಚಂದ್ರ</annotation>
 		<annotation cp="🌒" type="tts">ಅರ್ಧ ಚಂದ್ರ</annotation>
@@ -2143,12 +2829,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪀" type="tts">ಯೋ-ಯೋ</annotation>
 		<annotation cp="🪁">ಎತ್ತರವಾಗಿ ಹಾರು | ಗಾಳಿಪಟ | ಹಾರು</annotation>
 		<annotation cp="🪁" type="tts">ಗಾಳಿಪಟ</annotation>
+		<annotation cp="🔫">ಉಪಕರಣ | ಕೈಬಂದೂಕು | ನೀರು | ಪಿಸ್ತೂಲು | ಪಿಸ್ತೂಲ್ | ಬಂದೂಕು | ರಿವಾಲ್ವರ್ | ಶಸ್ತ್ರ</annotation>
+		<annotation cp="🔫" type="tts">ಪಿಸ್ತೂಲ್</annotation>
 		<annotation cp="🎱">ಆಟ | ಎಂಟು ಚೆಂಡು | ಬಿಲಿಯರ್ಡ್ | ಬಿಲಿಯರ್ಡ್ಸ್</annotation>
 		<annotation cp="🎱" type="tts">ಬಿಲಿಯರ್ಡ್ಸ್</annotation>
 		<annotation cp="🔮">ಅದೃಷ್ಟ | ಕಾಲ್ಪನಿಕ ಕಥೆ | ಚೆಂಡು | ಫ್ಯಾಂಟಸಿ | ಸಾಧನ | ಸ್ಫಟಿಕ</annotation>
 		<annotation cp="🔮" type="tts">ಸ್ಫಟಿಕ ಚೆಂಡು</annotation>
-		<annotation cp="🧿">ಕೆಟ್ಟ ದೃಷ್ಟಿ | ತಲಿಸ್ಮನ್ | ನಜರ್ | ನಜರ್ ಅಮುಲೆಟ್ | ಮಣಿ | ಮೋಡಿ</annotation>
-		<annotation cp="🧿" type="tts">ನಜರ್ ಅಮುಲೆಟ್</annotation>
+		<annotation cp="🪄">ಮಂತ್ರ ದಂಡ | ಮಾಟಗಾತಿ | ಮಾಂತ್ರಿಕ | ಮ್ಯಾಜಿಕ್</annotation>
+		<annotation cp="🪄" type="tts">ಮಂತ್ರ ದಂಡ</annotation>
 		<annotation cp="🎮">ಆಟ ನಿಯಂತ್ರಕ | ಆಟದ | ನಿಯಂತ್ರಕ | ವೀಡಿಯೋ ಗೇಮ್</annotation>
 		<annotation cp="🎮" type="tts">ವೀಡಿಯೋ ಗೇಮ್</annotation>
 		<annotation cp="🕹">ಆಟ | ಗೇಮ್ | ಜಾಯ್‌ಸ್ಟಿಕ್ | ವೀಡಿಯೊ</annotation>
@@ -2161,6 +2849,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧩" type="tts">ಒಗಟು ತುಣುಕು</annotation>
 		<annotation cp="🧸">ಆಟದ ವಸ್ತು | ಆಟಿಕೆ | ಟೆಡ್ಡಿ ಬೇರ್ | ಬೆಲೆಬಾಳುವ | ಸೇರ್ಪಡೆ</annotation>
 		<annotation cp="🧸" type="tts">ಟೆಡ್ಡಿ ಬೇರ್</annotation>
+		<annotation cp="🪅">ಪಾರ್ಟಿ | ಪಿನಾಟ | ಸಂಭ್ರಮ</annotation>
+		<annotation cp="🪅" type="tts">ಪಿನಾಟ</annotation>
+		<annotation cp="🪩">ಕನ್ನಡಿ ಚೆಂಡು | ಡಿಸ್ಕೋ | ನೃತ್ಯ | ಪಾರ್ಟಿ | ಮಿನುಗು</annotation>
+		<annotation cp="🪩" type="tts">ಕನ್ನಡಿ ಚೆಂಡು</annotation>
+		<annotation cp="🪆">ಗೂಡುಕಟ್ಟುವ ಗೊಂಬೆಗಳು | ಗೂಡುಕಟ್ಟುವಿಕೆ | ಗೊಂಬೆ | ರಷ್ಯಾ</annotation>
+		<annotation cp="🪆" type="tts">ಗೂಡುಕಟ್ಟುವ ಗೊಂಬೆಗಳು</annotation>
 		<annotation cp="♠">ಕಾರ್ಡು | ಗೇಮ್ | ಸೂಟ್ | ಸ್ಪೇಡ್</annotation>
 		<annotation cp="♠" type="tts">ಸ್ಪೇಡ್ ಸೂಟ್</annotation>
 		<annotation cp="♥">ಆಟ | ಸೂಟ್ | ಹಾರ್ಟ್ | ಹೃದಯ</annotation>
@@ -2185,8 +2879,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎨" type="tts">ಕಲಾವಿದರ ವರ್ಣಫಲಕ</annotation>
 		<annotation cp="🧵">ದಾರ | ಸೂಜಿ | ಸ್ಟ್ರಿಂಗ್ | ಸ್ಪೂಲ್ | ಹೊಲಿಗೆ</annotation>
 		<annotation cp="🧵" type="tts">ದಾರ</annotation>
+		<annotation cp="🪡">ಸೂಜಿ | ಹೆಣಿಗೆ | ಹೊಲಿಗೆಗಳು | ಹೊಲಿಯುವಿಕೆ</annotation>
+		<annotation cp="🪡" type="tts">ಸೂಜಿ</annotation>
 		<annotation cp="🧶">ಕ್ರೋಶ | ಚೆಂಡು | ನೂಲು | ಹೆಣಿಗೆ</annotation>
 		<annotation cp="🧶" type="tts">ನೂಲು</annotation>
+		<annotation cp="🪢">ಕಟ್ಟು | ಗಂಟು | ತಿರುಗಿಸು | ಸಿಕ್ಕು | ಹಗ್ಗ | ಹೆಣೆಯುವುದು</annotation>
+		<annotation cp="🪢" type="tts">ಗಂಟು</annotation>
 		<annotation cp="👓">ಉಡುಪು | ಕಣ್ಣು | ಕನ್ನಡಕಗಳು | ನಯನತೊಡುಗೆಗಳು</annotation>
 		<annotation cp="👓" type="tts">ಕನ್ನಡಕಗಳು</annotation>
 		<annotation cp="🕶">ಕಣ್ಣು | ಕನ್ನಡಕ | ಕಪ್ಪು | ತಂಪು ಕನ್ನಡಕಗಳು | ನಯನತೊಡುಗೆಗಳು</annotation>
@@ -2197,11 +2895,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥼" type="tts">ಲ್ಯಾಬ್ ಕೋಟ್</annotation>
 		<annotation cp="🦺">ಕವಚ | ತುರ್ತುಪರಿಸ್ಥಿತಿ | ಸುರಕ್ಷತೆ</annotation>
 		<annotation cp="🦺" type="tts">ಸುರಕ್ಷತೆ ಕವಚ</annotation>
-		<annotation cp="👔">ಉಡುಪು | ನೆಕ್‌ಟೈ</annotation>
+		<annotation cp="👔">ಉಡುಪು | ಟೈ | ನೆಕ್‌ಟೈ</annotation>
 		<annotation cp="👔" type="tts">ನೆಕ್‌ಟೈ</annotation>
 		<annotation cp="👕">ಉಡುಪು | ಟಿ-ಶರ್ಟ್ | ಟಿಶರ್ಟ್ | ಶರ್ಟ್</annotation>
 		<annotation cp="👕" type="tts">ಟಿ-ಶರ್ಟ್</annotation>
-		<annotation cp="👖">ಉಡುಪು | ಜೀನ್ಸ್ | ಪ್ಯಾಂಟ್</annotation>
+		<annotation cp="👖">ಉಡುಪು | ಜೀನ್ಸ್ | ಟ್ರೌಸರ್ | ಪ್ಯಾಂಟ್‌ಗಳು</annotation>
 		<annotation cp="👖" type="tts">ಜೀನ್ಸ್</annotation>
 		<annotation cp="🧣">ಕುತ್ತಿಗೆ | ಸ್ಕಾರ್ಫ್</annotation>
 		<annotation cp="🧣" type="tts">ಸ್ಕಾರ್ಫ್</annotation>
@@ -2209,13 +2907,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧤" type="tts">ಗ್ಲೋವ್ಸ್</annotation>
 		<annotation cp="🧥">ಕೋಟು | ಜ್ಯಾಕೆಟ್</annotation>
 		<annotation cp="🧥" type="tts">ಕೋಟು</annotation>
-		<annotation cp="🧦">ಬಿಗಿಯುಡುಪು | ಸಾಕ್ಸ್</annotation>
+		<annotation cp="🧦">ಸಾಕ್ಸ್ | ಸ್ಟಾಕಿಂಗ್</annotation>
 		<annotation cp="🧦" type="tts">ಸಾಕ್ಸ್</annotation>
 		<annotation cp="👗">ಉಡುಗೆ | ಬಟ್ಟೆ</annotation>
 		<annotation cp="👗" type="tts">ಉಡುಗೆ</annotation>
 		<annotation cp="👘">ಉಡುಗೆ | ನಿಲುವಂಗಿ</annotation>
 		<annotation cp="👘" type="tts">ನಿಲುವಂಗಿ</annotation>
-		<annotation cp="🥻">ಉಡಿಗೆ | ತೊಡಿಗೆ | ಸೀರೆ</annotation>
+		<annotation cp="🥻">ಉಡುಗೆ | ತೊಡುಗೆ | ಸೀರೆ</annotation>
 		<annotation cp="🥻" type="tts">ಸೀರೆ</annotation>
 		<annotation cp="🩱">ಒಂದೇ ತುಂಡಿನ ಈಜುಡುಗೆ | ಸ್ನಾನದ ಉಡುಗೆ</annotation>
 		<annotation cp="🩱" type="tts">ಒಂದೇ ತುಂಡಿನ ಈಜುಡುಗೆ</annotation>
@@ -2227,6 +2925,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👙" type="tts">ಬಿಕಿನಿ</annotation>
 		<annotation cp="👚">ಬಟ್ಟೆಗಳು | ಮಹಿಳೆಯ ಉಡುಪುಗಳು | ಮಹಿಳೆಯರ ಉಡುಪು</annotation>
 		<annotation cp="👚" type="tts">ಮಹಿಳೆಯರ ಉಡುಪು</annotation>
+		<annotation cp="🪭">ಅಭಿಮಾನಿ | ಕೂಲಿಂಗ್ | ನಾಚಿಕೆ | ನೃತ್ಯ | ಬಿಸಿ | ಬೀಸು | ಮಡಿಸಬಹುದಾದ ಕೈ ಫ್ಯಾನ್</annotation>
+		<annotation cp="🪭" type="tts">ಮಡಿಸಬಹುದಾದ ಕೈ ಫ್ಯಾನ್</annotation>
 		<annotation cp="👛">ಉಡುಪು | ನಾಣ್ಯ | ಪರ್ಸ್</annotation>
 		<annotation cp="👛" type="tts">ಪರ್ಸ್</annotation>
 		<annotation cp="👜">ಬಟ್ಟೆ | ಬ್ಯಾಗ್ | ಹ್ಯಾಂಡ್‌ಬ್ಯಾಗ್</annotation>
@@ -2235,10 +2935,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👝" type="tts">ಪೌಚ್</annotation>
 		<annotation cp="🛍">ಬ್ಯಾಗ್ | ಶಾಪಿಂಗ್ | ಶಾಪಿಂಗ್ ಬ್ಯಾಗ್‌ಗಳು | ಹೋಟೆಲ್</annotation>
 		<annotation cp="🛍" type="tts">ಶಾಪಿಂಗ್ ಬ್ಯಾಗ್‌ಗಳು</annotation>
-		<annotation cp="🎒">ಶಾಲಾ ಸಣ್ಣ ಚೀಲ | ಶಾಲೆಯ ಚೀಲ | ಶಾಲೆಯ ಬ್ಯಾಕ್‌ಪ್ಯಾಕ್</annotation>
+		<annotation cp="🎒">ರಕ್ಸ್ಯಾಕ್ | ಶಾಲೆಯ ಚೀಲ | ಶಾಲೆಯ ಬ್ಯಾಕ್‌ಪ್ಯಾಕ್ | ಸ್ಯಾಚೆಲ್</annotation>
 		<annotation cp="🎒" type="tts">ಶಾಲೆಯ ಬ್ಯಾಕ್‌ಪ್ಯಾಕ್</annotation>
+		<annotation cp="🩴">ಚಪ್ಪಲಿ | ತೊಂಗ್ಸ್ | ಬೀಚ್ ಚಪ್ಪಲಿ | ಹವಾಯಿ ಚಪ್ಪಲಿ</annotation>
+		<annotation cp="🩴" type="tts">ಹವಾಯಿ ಚಪ್ಪಲಿ</annotation>
 		<annotation cp="👞">ಪುರುಷರ ಶೂ | ಪುರುುಷರ ಶೂ | ಶೂ</annotation>
-		<annotation cp="👞" type="tts">ಪುರುುಷರ ಶೂ</annotation>
+		<annotation cp="👞" type="tts">ಪುರುಷರ ಶೂ</annotation>
 		<annotation cp="👟">ಅಥ್ಲೇಟಿಕ್ ಶೂ | ಓಟದ ಶೂ | ಸ್ನೀಕರ್</annotation>
 		<annotation cp="👟" type="tts">ಓಟದ ಶೂ</annotation>
 		<annotation cp="🥾">ಕ್ಯಾಂಪಿಂಗ್ | ಬೂಟ್ | ಬ್ಯಾಕ್‌ಪ್ಯಾಕಿಂಗ್ | ಹೈಕಿಂಗ್ | ಹೈಕಿಂಗ್ ಬೂಟು</annotation>
@@ -2253,6 +2955,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🩰" type="tts">ಬ್ಯಾಲೆಟ್ ಶೂಸ್</annotation>
 		<annotation cp="👢">ಬೂಟ್ | ಮಹಿಳೆಯ ಬೂಟ್ | ಮಹಿಳೆಯರ ಬೂಟು</annotation>
 		<annotation cp="👢" type="tts">ಮಹಿಳೆಯರ ಬೂಟು</annotation>
+		<annotation cp="🪮">ಆಫ್ರೋ | ಕೂದಲು | ಪಿಕ್ | ಬಾಚಣಿಗೆ | ಹೇರ್ ಪಿಕ್</annotation>
+		<annotation cp="🪮" type="tts">ಹೇರ್ ಪಿಕ್</annotation>
 		<annotation cp="👑">ಉಡುಪು | ಕಿರೀಟ | ರಾಜ | ರಾಣಿ</annotation>
 		<annotation cp="👑" type="tts">ಕಿರೀಟ</annotation>
 		<annotation cp="👒">ಟೋಪಿ | ಮಹಿಳೆಯ ಟೋಪಿ | ಮಹಿಳೆಯರ ಹ್ಯಾಟ್</annotation>
@@ -2263,24 +2967,26 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎓" type="tts">ಪದವಿ ಕ್ಯಾಪ್</annotation>
 		<annotation cp="🧢">ಬಿಲ್ಡ್ ಕ್ಯಾಪ್ | ಬೇಸ್‌ಬಾಲ್ ಕ್ಯಾಪ್</annotation>
 		<annotation cp="🧢" type="tts">ಬಿಲ್ಡ್ ಕ್ಯಾಪ್</annotation>
-		<annotation cp="⛑">ಕಾಪಾಡುವ ಕಾರ್ಮಿಕರ ಹೆಲ್ಮೆಟ್ | ಬಿಳಿ ಕ್ರಾಸ್‌ನ ಹೆಲ್ಮೆಟ್ | ಹ್ಯಾಟ್</annotation>
+		<annotation cp="🪖">ಮಿಲಿಟರಿ | ಯೋಧ | ಸೈನಿಕ | ಸೈನ್ಯ | ಹೆಲ್ಮೆಟ್</annotation>
+		<annotation cp="🪖" type="tts">ಮಿಲಿಟರಿ ಹೆಲ್ಮೆಟ್</annotation>
+		<annotation cp="⛑">ಕಾಪಾಡುವ ಕಾರ್ಮಿಕರ ಹೆಲ್ಮೆಟ್ | ಬಿಳಿ ಕ್ರಾಸ್‌ನ ಹೆಲ್ಮೆಟ್ | ರಕ್ಷಣಾ ಕಾರ್ಮಿಕರ ಹೆಲ್ಮೆಟ್ | ಹ್ಯಾಟ್</annotation>
 		<annotation cp="⛑" type="tts">ಕಾಪಾಡುವ ಕಾರ್ಮಿಕರ ಹೆಲ್ಮೆಟ್</annotation>
-		<annotation cp="📿">ನೆಕ್‌ಲೆಸ್ | ಪ್ರಾರ್ಥನೆ ಮಣಿಗಳು | ಮಣಿಗಳು</annotation>
+		<annotation cp="📿">ಜಪಮಾಲೆಗಳು | ನೆಕ್‌ಲೆಸ್ | ಪ್ರಾರ್ಥನೆ ಜಪಮಾಲೆ | ಪ್ರಾರ್ಥನೆ ಮಣಿಗಳು</annotation>
 		<annotation cp="📿" type="tts">ಪ್ರಾರ್ಥನೆ ಮಣಿಗಳು</annotation>
 		<annotation cp="💄">ಅಲಂಕಾರ | ಲಿಪ್‌ಸ್ಟಿಕ್</annotation>
 		<annotation cp="💄" type="tts">ಲಿಪ್‌ಸ್ಟಿಕ್</annotation>
-		<annotation cp="💍">ಉಂಗುರ | ಪ್ರಣಯ | ರಿಂಗ್</annotation>
+		<annotation cp="💍">ಉಂಗುರ | ರಿಂಗ್ | ವಜ್ರ</annotation>
 		<annotation cp="💍" type="tts">ರಿಂಗ್</annotation>
-		<annotation cp="💎">ರತ್ನ | ರತ್ನ ಕಲ್ಲು | ವಜ್ರ</annotation>
+		<annotation cp="💎">ಆಭರಣ | ರತ್ನ | ರತ್ನ ಕಲ್ಲು | ರತ್ನದ ಕಲ್ಲು | ವಜ್ರ</annotation>
 		<annotation cp="💎" type="tts">ರತ್ನ ಕಲ್ಲು</annotation>
-		<annotation cp="🔇">ದಯವಿಟ್ಟು ನಿಶ್ಯಬ್ದ | ನಿಶ್ಯಬ್ದ | ರದ್ದುಗೊಳಿಸುವಿಕೆ ಗುರುತಿನೊಂದಿಗೆ ಸ್ಪೀಕರ್ | ಸ್ಪೀಕರ್ ಆಫ್</annotation>
+		<annotation cp="🔇">ಮೌನ | ಮ್ಯೂಟ್ | ಮ್ಯೂಟ್ ಮಾಡಿದ ಸ್ಪೀಕರ್ | ಸ್ತಬ್ಧ | ಸ್ಪೀಕರ್ | ಸ್ಪೀಕರ್ ಆಫ್</annotation>
 		<annotation cp="🔇" type="tts">ಸ್ಪೀಕರ್ ಆಫ್</annotation>
-		<annotation cp="🔈">ಲೌಡ್‌ಸ್ಪೀಕರ್ | ಸ್ಪೀಕರ್</annotation>
-		<annotation cp="🔈" type="tts">ಸ್ಪೀಕರ್</annotation>
-		<annotation cp="🔉">ಕಡಿಮೆ | ಕಡಿಮೆ ವಾಲ್ಯೂಮ್ | ಕಡಿಮೆ ವಾಲ್ಯೂಮ್‌ನೊಂದಿಗೆ ಸ್ಪೀಕರ್ | ಸ್ಪೀಕರ್ ಆನ್</annotation>
-		<annotation cp="🔉" type="tts">ಸ್ಪೀಕರ್ ಆನ್</annotation>
-		<annotation cp="🔊">ಸ್ಪೀಕರ್ ಜೋರಾಗಿ | ಹೆಚ್ಚಿನ ವಾಲ್ಯೂಮ್ | ಹೆಚ್ಚಿನ ವಾಲ್ಯೂಮ್‌ನೊಂದಿಗೆ ಸ್ಪೀಕರ್ | ಹೆಚ್ಚು</annotation>
-		<annotation cp="🔊" type="tts">ಸ್ಪೀಕರ್ ಜೋರಾಗಿ</annotation>
+		<annotation cp="🔈">ಮೆಲ್ಲಗೆ | ಸ್ಪೀಕರ್ ಕಡಿಮೆ ವಾಲ್ಯೂಮ್</annotation>
+		<annotation cp="🔈" type="tts">ಸ್ಪೀಕರ್ ಕಡಿಮೆ ವಾಲ್ಯೂಮ್</annotation>
+		<annotation cp="🔉">ಮೀಡಿಯಂ | ಸ್ಪೀಕರ್ ಮೀಡಿಯಂ ವಾಲ್ಯೂಮ್</annotation>
+		<annotation cp="🔉" type="tts">ಸ್ಪೀಕರ್ ಮೀಡಿಯಂ ವಾಲ್ಯೂಮ್</annotation>
+		<annotation cp="🔊">ಲೌಡ್ | ಸ್ಪೀಕರ್ ಹೈ ವಾಲ್ಯೂಮ್</annotation>
+		<annotation cp="🔊" type="tts">ಸ್ಪೀಕರ್ ಹೈ ವಾಲ್ಯೂಮ್</annotation>
 		<annotation cp="📢">ಕೈ ಸ್ಪೀಕರ್ | ಲೌಡ್ ಸ್ಪೀಕರ್ | ಸಂವಹನ | ಸಾರ್ವಜನಿಕ ವಿಳಾಸ</annotation>
 		<annotation cp="📢" type="tts">ಲೌಡ್ ಸ್ಪೀಕರ್</annotation>
 		<annotation cp="📣">ಚಿಯರಿಂಗ್ | ಮೆಗಾಫೋನ್ | ಸಂವಹನ</annotation>
@@ -2289,7 +2995,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📯" type="tts">ಪೋಸ್ಟಲ್ ಹಾರ್ನ್</annotation>
 		<annotation cp="🔔">ಚಾಪಲ್ | ಬೆಲ್‌</annotation>
 		<annotation cp="🔔" type="tts">ಬೆಲ್‌</annotation>
-		<annotation cp="🔕">ಬೆಲ್ | ರದ್ದುಗೊಳಿಸುವಿಕೆ ಚಿಹ್ನೆಯೊಂದಿಗೆ ಬೆಲ್ | ಸ್ರ್ಯಾಷ್ ನೊಂದಿಗೆ ಬೆಲ್</annotation>
+		<annotation cp="🔕">ನಿಷೇಧಿಸಲಾಗಿದೆ | ಬೆಲ್ | ಮ್ಯೂಟ್ | ಶಾಂತ | ಸೈಲೆಂಟ್ | ಸ್ರ್ಯಾಷ್ ನೊಂದಿಗೆ ಬೆಲ್ | ಸ್ಲ್ಯಾಶ್ ಜೊತೆಗೆ ಬೆಲ್</annotation>
 		<annotation cp="🔕" type="tts">ಸ್ರ್ಯಾಷ್ ನೊಂದಿಗೆ ಬೆಲ್</annotation>
 		<annotation cp="🎼">ಮ್ಯೂಸಿಕ್ | ಸಂಗೀತ | ಸ್ಕೋರ್</annotation>
 		<annotation cp="🎼" type="tts">ಸಂಗೀತ ಸ್ಕೋರ್</annotation>
@@ -2311,11 +3017,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📻" type="tts">ರೇಡಿಯೊ</annotation>
 		<annotation cp="🎷">ವಾದ್ಯ | ಸಂಗೀತ | ಸ್ಯಾಕ್ಸಾಫೋನ್ | ಸ್ಯಾಕ್ಸೋಫೋನ್</annotation>
 		<annotation cp="🎷" type="tts">ಸ್ಯಾಕ್ಸೋಫೋನ್</annotation>
+		<annotation cp="🪗">ಅಕಾರ್ಡಿಯನ್‌ | ಕನ್ಸರ್ಟಿನಾ | ಸ್ಕ್ವೀಜ್‌ ಬಾಕ್ಸ್‌</annotation>
+		<annotation cp="🪗" type="tts">ಅಕಾರ್ಡಿಯನ್‌</annotation>
 		<annotation cp="🎸">ಗಿಟಾರ್ | ವಾದ್ಯ | ಸಂಗೀತ</annotation>
 		<annotation cp="🎸" type="tts">ಗಿಟಾರ್</annotation>
-		<annotation cp="🎹">ಕೀಬೋರ್ಡ್ | ವಾದ್ | ಸಂಗೀತ | ಸಂಗೀತ ವಾದ್ಯ</annotation>
+		<annotation cp="🎹">ಕೀಬೋರ್ಡ್ | ಸಂಗೀತ | ಸಂಗೀತ ವಾದ್ಯ</annotation>
 		<annotation cp="🎹" type="tts">ಸಂಗೀತ ಕೀಬೋರ್ಡ್</annotation>
-		<annotation cp="🎺">ವಾದ್ಯ | ಸಂಗೀತ</annotation>
+		<annotation cp="🎺">ಇನ್‌ಸ್ಟ್ರುಮೆಂಟ್ | ಟ್ರಂಪೆಟ್ | ವಾದ್ಯ | ಸಂಗೀತ</annotation>
 		<annotation cp="🎺" type="tts">ಸಂಗೀತ ವಾದ್ಯ</annotation>
 		<annotation cp="🎻">ಪಿಟೀಲು | ವಾದ್ಯ | ಸಂಗೀತ</annotation>
 		<annotation cp="🎻" type="tts">ಪಿಟೀಲು</annotation>
@@ -2323,13 +3031,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪕" type="tts">ಬಂಜೋ</annotation>
 		<annotation cp="🥁">ಕೋಲುಗಳು | ಡ್ರಮ್ | ಸಂಗೀತ</annotation>
 		<annotation cp="🥁" type="tts">ಡ್ರಮ್</annotation>
-		<annotation cp="📱">ಫೋನ್ | ಮೊಬೈಲ್ ಫೋನ್</annotation>
+		<annotation cp="🪘">ಕಾಂಗಾ | ಡ್ರಮ್‌ | ನುಡಿಸು | ಲಯ | ಲಾಂಗ್‌ ಡ್ರಮ್‌</annotation>
+		<annotation cp="🪘" type="tts">ಲಾಂಗ್‌ ಡ್ರಮ್‌</annotation>
+		<annotation cp="🪇">ಇನ್‌ಸ್ಟ್ರುಮೆಂಟ್ | ಕುಣಿಯಿರಿ | ಗಲಾಟೆ | ತಾಳವಾದ್ಯ | ಮರಾಕಸ್ | ಸಂಗೀತ</annotation>
+		<annotation cp="🪇" type="tts">ಮರಾಕಸ್</annotation>
+		<annotation cp="🪈">ಕೊಳಲು | ಪೈಪ್ | ಫೈಫ್ | ರೆಕಾರ್ಡರ್ | ವುಡ್ ವಿಂಡ್ | ಸಂಗೀತ</annotation>
+		<annotation cp="🪈" type="tts">ಕೊಳಲು</annotation>
+		<annotation cp="📱">ದೂರವಾಣಿ | ಫೋನ್ | ಮೊಬೈಲ್ | ಸೆಲ್</annotation>
 		<annotation cp="📱" type="tts">ಮೊಬೈಲ್ ಫೋನ್</annotation>
 		<annotation cp="📲">ಕರೆ ಮಾಡಿ | ಫೋನ್ | ಬಾಣದ ಗುರುತಿನೊಂದಿಗೆ ಮೊಬೈಲ್ ಫೋನ್ | ಮೊಬೈಲ್ ಫೋನ್ | ಸೆಲ್ ಫೋನ್</annotation>
 		<annotation cp="📲" type="tts">ಬಾಣದ ಗುರುತಿನೊಂದಿಗೆ ಮೊಬೈಲ್ ಫೋನ್</annotation>
 		<annotation cp="☎">ದೂರವಾಣಿ | ಫೋನ್‌</annotation>
 		<annotation cp="☎" type="tts">ಫೋನ್‌</annotation>
-		<annotation cp="📞">ದೂರವಾಣಿ | ದೂರವಾಣಿ ಸ್ವೀಕರಿಸುವವನು | ಫೋನ್‌ ರಿಸೀವರ್‌ | ಸಂವಹನ</annotation>
+		<annotation cp="📞">ದೂರವಾಣಿ | ಫೋನ್ | ರಿಸೀವರ್</annotation>
 		<annotation cp="📞" type="tts">ಫೋನ್‌ ರಿಸೀವರ್‌</annotation>
 		<annotation cp="📟">ಪೇಜರ್ | ಫೋನ್ | ಸಂವಹನ</annotation>
 		<annotation cp="📟" type="tts">ಪೇಜರ್</annotation>
@@ -2337,6 +3051,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📠" type="tts">ಫ್ಯಾಕ್ಸ್ ಯಂತ್ರ</annotation>
 		<annotation cp="🔋">ಬ್ಯಾಟರಿ</annotation>
 		<annotation cp="🔋" type="tts">ಬ್ಯಾಟರಿ</annotation>
+		<annotation cp="🪫">ಎಲೆಕ್ಟ್ರಾನಿಕ್ | ಕಡಿಮೆ ಬ್ಯಾಟರಿ | ಕಡಿಮೆ ಶಕ್ತಿ</annotation>
+		<annotation cp="🪫" type="tts">ಕಡಿಮೆ ಬ್ಯಾಟರಿ</annotation>
 		<annotation cp="🔌">ಎಲೆಕ್ಟ್ರಿಕಲ್ | ಎಲೆಕ್ಟ್ರಿಕ್ | ಪ್ಲಗ್</annotation>
 		<annotation cp="🔌" type="tts">ಎಲೆಕ್ಟ್ರಿಕ್ ಪ್ಲಗ್</annotation>
 		<annotation cp="💻">ಕಂಪ್ಯೂಟರ್ | ಪರ್ಸನಲ್ ಕಂಪ್ಯೂಟರ್ | ಲ್ಯಾಪ್‌ಟಾಪ್ ಕಂಪ್ಯೂಟರ್ | ವೈಯಕ್ತಿಕ</annotation>
@@ -2345,7 +3061,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🖥" type="tts">ಡೆಸ್ಕ್‌ಟಾಪ್ ಕಂಪ್ಯೂಟರ್</annotation>
 		<annotation cp="🖨">ಕಂಪ್ಯೂಟರ್ | ಪ್ರಿಂಟರ್ | ಮುದ್ರಣ</annotation>
 		<annotation cp="🖨" type="tts">ಪ್ರಿಂಟರ್</annotation>
-		<annotation cp="⌨">ಕಂಪ್ಯೂಟರ್ | ಕೀಬೋರ್ಡ್ | ಮುದ್ರಣ</annotation>
+		<annotation cp="⌨">ಕಂಪ್ಯೂಟರ್ | ಕೀಬೋರ್ಡ್</annotation>
 		<annotation cp="⌨" type="tts">ಕೀಬೋರ್ಡ್</annotation>
 		<annotation cp="🖱">ಕಂಪ್ಯೂಟರ್ | ಕಂಪ್ಯೂಟರ್ ಮೌಸ್</annotation>
 		<annotation cp="🖱" type="tts">ಕಂಪ್ಯೂಟರ್ ಮೌಸ್</annotation>
@@ -2353,7 +3069,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🖲" type="tts">ಟ್ರಾಕ್ ಬಾಲ್</annotation>
 		<annotation cp="💽">ಆಪ್ಟಿಕಲ್ | ಕಂಪ್ಯೂಟರ್ | ಡಿಸ್ಕ್ | ಮಿನಿ</annotation>
 		<annotation cp="💽" type="tts">ಕಂಪ್ಯೂಟರ್ ಡಿಸ್ಕ್</annotation>
-		<annotation cp="💾">ಡಿಸ್ಕ್ | ಫ್ಲಾಪಿ</annotation>
+		<annotation cp="💾">ಕಂಪ್ಯೂಟರ್ | ಡಿಸ್ಕ್ | ಫ್ಲಾಪಿ</annotation>
 		<annotation cp="💾" type="tts">ಫ್ಲಾಪಿ ಡಿಸ್ಕ್</annotation>
 		<annotation cp="💿">ಆಪ್ ಡಿಸ್ಕ್ | ಆಪ್ಟಿಕಲ್ | ಕಂಪ್ಯೂಟರ್ | ಡಿಸ್ಕ್ | ಸಿಡಿ</annotation>
 		<annotation cp="💿" type="tts">ಆಪ್ ಡಿಸ್ಕ್</annotation>
@@ -2385,16 +3101,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔎" type="tts">ಬಲಕ್ಕೆ ಓರೆಯಾಗಿರುವ ಭೂತಗನ್ನಡಿ</annotation>
 		<annotation cp="🕯">ಕ್ಯಾಂಡಲ್ | ಬೆಳಕು | ಮೋಂಬತ್ತಿ</annotation>
 		<annotation cp="🕯" type="tts">ಕ್ಯಾಂಡಲ್</annotation>
-		<annotation cp="💡">ಕಾಮಿಕ್ | ಬೆಳಕಿನ ಬಲ್ಬ್ | ವಿದ್ಯುತ್</annotation>
+		<annotation cp="💡">ಎಲೆಕ್ಟ್ರಿಕ್ | ಐಡಿಯಾ | ಕಾಮಿಕ್ | ಬಲ್ಬ್ | ಬೆಳಕಿನ ಬಲ್ಬ್ | ಲೈಟ್</annotation>
 		<annotation cp="💡" type="tts">ಬೆಳಕಿನ ಬಲ್ಬ್</annotation>
 		<annotation cp="🔦">ಎಲೆಕ್ಟ್ರಿಕ್ | ಟಾರ್ಚ್ | ಫ್ಲ್ಯಾಶ್‌ ಲೈಟ್ | ಬೆಳಕು</annotation>
 		<annotation cp="🔦" type="tts">ಫ್ಲ್ಯಾಶ್‌ ಲೈಟ್</annotation>
-		<annotation cp="🏮">ಇಝಾಕಿಯಾ | ಕೆಂಪು | ಕೆಂಪು ಪೇಪರ್ ಲಾಟೀನು | ಬಾರ್</annotation>
+		<annotation cp="🏮">ಕೆಂಪು | ಕೆಂಪು ಕಾಗದದ ಲ್ಯಾಂಟರ್ನ್ | ಕೆಂಪು ಪೇಪರ್ ಲಾಟೀನು | ಬಾರ್ | ಬೆಳಕು | ಲಾಟೀನು</annotation>
 		<annotation cp="🏮" type="tts">ಕೆಂಪು ಪೇಪರ್ ಲಾಟೀನು</annotation>
 		<annotation cp="🪔">ಎಣ್ಣೆ | ದೀಪ | ಮಣ್ಣಿನ ಹಣತೆ</annotation>
 		<annotation cp="🪔" type="tts">ಮಣ್ಣಿನ ಹಣತೆ</annotation>
-		<annotation cp="📔">ಅಲಂಕಾರದೊಂದಿಗೆ ನೋಟ್‌ಬುಕ್ | ಅಲಾಂಕಾರಿತ ಕವರಿನ ನೋಟ್‌ಬುಕ್ | ಕವರ್ | ನೋಟ್‌ಬುಕ್</annotation>
-		<annotation cp="📔" type="tts">ಅಲಾಂಕಾರಿತ ಕವರಿನ ನೋಟ್‌ಬುಕ್</annotation>
+		<annotation cp="📔">ಅಲಂಕರಿಸಿದ | ಅಲಂಕಾರಿಕ ಕವರಿನ ನೋಟ್‌ಬುಕ್ | ಅಲಂಕಾರಿಕ ಕವರ್‌ನೊಂದಿಗೆ ನೋಟ್‌ಬುಕ್ | ಕವರ್ | ನೋಟ್‌ಬುಕ್ | ಪುಸ್ತಕ</annotation>
+		<annotation cp="📔" type="tts">ಅಲಂಕಾರಿಕ ಕವರಿನ ನೋಟ್‌ಬುಕ್</annotation>
 		<annotation cp="📕">ಪುಸ್ತಕ | ಮುಚ್ಚಿದ ಪುಸ್ತಕ</annotation>
 		<annotation cp="📕" type="tts">ಮುಚ್ಚಿದ ಪುಸ್ತಕ</annotation>
 		<annotation cp="📖">ತೆರೆ | ತೆರೆದ ಪುಸ್ತಕ | ಪುಸ್ತಕ</annotation>
@@ -2415,7 +3131,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📃" type="tts">ಸುರಳಿ ಪುಟ</annotation>
 		<annotation cp="📜">ಡಾಕ್ಯುಮೆಂಟ್ | ಪೇಪರ್ ಸ್ಕ್ರಾಲ್ | ಸ್ಕ್ರಾಲ್</annotation>
 		<annotation cp="📜" type="tts">ಸ್ಕ್ರಾಲ್</annotation>
-		<annotation cp="📄">ಎದುರಿಸುವ | ಪುಟ | ಮೇಲ್ಮುಖ ಪುಟ</annotation>
+		<annotation cp="📄">ಎದುರಿಗೆ ಕಾಣುತ್ತಿರುವ ಪುಟ | ದಾಖಲೆ | ಪುಟ | ಮೇಲ್ಮುಖ ಪುಟ</annotation>
 		<annotation cp="📄" type="tts">ಮೇಲ್ಮುಖ ಪುಟ</annotation>
 		<annotation cp="📰">ಕಾಗದ | ವೃತ್ತ ಪತ್ರಿಕೆ | ಸುದ್ದಿ</annotation>
 		<annotation cp="📰" type="tts">ವೃತ್ತ ಪತ್ರಿಕೆ</annotation>
@@ -2429,6 +3145,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏷" type="tts">ಲೇಬಲ್</annotation>
 		<annotation cp="💰">ಚೀಲ | ಡಾಲರ್ ಚೀಲ | ಹಣ | ಹಣದ ಚೀಲ</annotation>
 		<annotation cp="💰" type="tts">ಹಣದ ಚೀಲ</annotation>
+		<annotation cp="🪙">ಖಜಾನೆ | ಚಿನ್ನ | ನಾಣ್ಯ | ಬೆಳ್ಳಿ | ಲೋಹ | ಹಣ</annotation>
+		<annotation cp="🪙" type="tts">ನಾಣ್ಯ</annotation>
 		<annotation cp="💴">ನೋಟ್ | ಬಿಲ್ | ಬ್ಯಾಂಕ್‌ನೋಟ್ | ಯೆನ್ | ಹಣ</annotation>
 		<annotation cp="💴" type="tts">ಯೆನ್ ಬ್ಯಾಂಕ್‌ನೋಟ್</annotation>
 		<annotation cp="💵">ಡಾಲರ್ | ನೋಟ್ | ಬಿಲ್ | ಬ್ಯಾಂಕ್‌ನೋಟ್ | ಹಣ</annotation>
@@ -2439,16 +3157,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💷" type="tts">ಪೌಂಡ್ ಬ್ಯಾಂಕ್‌ನೋಟ್</annotation>
 		<annotation cp="💸">ನೋಟ್ | ಬ್ಯಾಂಕ್ | ರೆಕ್ಕೆಗಳೊಂದಿಗೆ ಹಣ | ಹಣ | ಹಾರಾಡುವ ಬ್ಯಾಂಕ್‌ನೋಟ್</annotation>
 		<annotation cp="💸" type="tts">ರೆಕ್ಕೆಗಳೊಂದಿಗೆ ಹಣ</annotation>
-		<annotation cp="💳">ಕಾರ್ಡ್ | ಕ್ರೆಡಿಟ್</annotation>
+		<annotation cp="💳">ಕಾರ್ಡ್ | ಕ್ರೆಡಿಟ್ | ಹಣ</annotation>
 		<annotation cp="💳" type="tts">ಕ್ರೆಡಿಟ್ ಕಾರ್ಡ್</annotation>
 		<annotation cp="🧾">ಅಕೌಂಟಿಂಗ್ | ಪುರಾವೆ | ಪುರಾವೆಗಳು | ಬುಕ್‌ಕೀಪಿಂಗ್ | ರಸೀದಿ</annotation>
 		<annotation cp="🧾" type="tts">ರಸೀದಿ</annotation>
-		<annotation cp="💹">ಚಾರ್ಟ್ | ಮಾರುಕಟ್ಟೆ | ಮೇಲ್ಮುಖ ಚಾರ್ಟ್ | ಮೇಲ್ಮುಖವಾಗಿ | ಯೆನ್ ನೊಂದಿಗೆ ಏರುತ್ತಿರುವ ಚಾರ್ಟ್</annotation>
-		<annotation cp="💹" type="tts">ಯೆನ್ ನೊಂದಿಗೆ ಏರುತ್ತಿರುವ ಚಾರ್ಟ್</annotation>
-		<annotation cp="💱">ಕರೆನ್ಸಿ | ಕರೆನ್ಸಿ ವಿನಿಮಯ</annotation>
-		<annotation cp="💱" type="tts">ಕರೆನ್ಸಿ ವಿನಿಮಯ</annotation>
-		<annotation cp="💲">ಡಾಲರ್ | ಡಾಲರ್ ಚಿಹ್ನೆ | ದಪ್ಪ ಡಾಲರ್ ಚಿಹ್ನೆ | ಭಾರಿ ಡಾಲರ್ ಚಿಹ್ನೆ | ಹಣ</annotation>
-		<annotation cp="💲" type="tts">ಭಾರಿ ಡಾಲರ್ ಚಿಹ್ನೆ</annotation>
+		<annotation cp="💹">ಗ್ರಾಫ್ | ಚಾರ್ಟ್ | ಬೆಳವಣಿಗೆ | ಯೆನ್ | ಯೆನ್‌ನೊಂದಿಗೆ ಏರುತ್ತಿರುವ ಚಾರ್ಟ್ | ಹಣ</annotation>
+		<annotation cp="💹" type="tts">ಯೆನ್‌ನೊಂದಿಗೆ ಏರುತ್ತಿರುವ ಚಾರ್ಟ್</annotation>
 		<annotation cp="✉">ಇ-ಮೇಲ್ | ಇಮೇಲ್ | ಲಕೋಟೆ</annotation>
 		<annotation cp="✉" type="tts">ಲಕೋಟೆ</annotation>
 		<annotation cp="📧">ಇಮೇಲ್ | ಪತ್ರ | ಮೇಲ್ | ಸಂವಹನ</annotation>
@@ -2479,8 +3193,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="✏" type="tts">ಪೆನ್ಸಿಲ್</annotation>
 		<annotation cp="✒">ಕಪ್ಪು ಮುಳ್ಳು | ನಿಬ್ | ಪೆನ್ನು | ಮುಳ್ಳು | ಲೇಖನಿ</annotation>
 		<annotation cp="✒" type="tts">ಕಪ್ಪು ಮುಳ್ಳು</annotation>
-		<annotation cp="🖋">ಕಾರಂಜಿ | ಕಾರಂಜಿ ಪೆನ್ | ಪೆನ್ನು</annotation>
-		<annotation cp="🖋" type="tts">ಕಾರಂಜಿ ಪೆನ್</annotation>
+		<annotation cp="🖋">ಕಾರಂಜಿ | ಕಾರಂಜಿ ಪೆನ್ | ಪೆನ್ನು | ಶಾಯಿ ಪೆನ್</annotation>
+		<annotation cp="🖋" type="tts">ಶಾಯಿ ಪೆನ್</annotation>
 		<annotation cp="🖊">ಪೆನ್ | ಬಾಲ್‌ಪಾಯಿಂಟ್</annotation>
 		<annotation cp="🖊" type="tts">ಪೆನ್</annotation>
 		<annotation cp="🖌">ಪೇಂಟ್ ಬ್ರಷ್ | ಪೇಯಿಂಟ್</annotation>
@@ -2523,17 +3237,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📎" type="tts">ಪೇಪರ್‌ಕ್ಲಿಪ್</annotation>
 		<annotation cp="🖇">ಪೇಪರ್‌ಕ್ಲಿಪ್ | ಲಿಂಕ್ | ಲಿಂಕ್ ಮಾಡಿದ ಪೇಪರ್‌ಕ್ಲಿಪ್‌ಗಳು</annotation>
 		<annotation cp="🖇" type="tts">ಲಿಂಕ್ ಮಾಡಿದ ಪೇಪರ್‌ಕ್ಲಿಪ್‌ಗಳು</annotation>
-		<annotation cp="📏">ನೇರ ರೂಲರ್ | ರೂಲರ್</annotation>
+		<annotation cp="📏">ನೇರ ರೂಲರ್ | ರೂಲರ್ | ಸ್ಟ್ರೈಟ್ ಎಡ್ಜ್</annotation>
 		<annotation cp="📏" type="tts">ನೇರ ರೂಲರ್</annotation>
-		<annotation cp="📐">ಚೌಕ ಹೊಂದಿಸು | ತ್ರಿಕೋನ | ರೂಲರ್</annotation>
+		<annotation cp="📐">ತ್ರಿಕೋನ | ರೂಲರ್ | ಸೆಟ್</annotation>
 		<annotation cp="📐" type="tts">ತ್ರಿಕೋನ ರೂಲರ್</annotation>
 		<annotation cp="✂">ಕತ್ತರಿಗಳು | ಟೂಲ್ | ಪರಿಕರ</annotation>
 		<annotation cp="✂" type="tts">ಕತ್ತರಿಗಳು</annotation>
 		<annotation cp="🗃">ಕಾರ್ಡ್ | ಫೈಲ್ | ಬಾಕ್ಸ್</annotation>
 		<annotation cp="🗃" type="tts">ಕಾರ್ಡ್ ಫೈಲ್ ಬಾಕ್ಸ್</annotation>
-		<annotation cp="🗄">ಕ್ಯಾಬಿನೆಟ್ | ಫೈಲ್</annotation>
+		<annotation cp="🗄">ಕ್ಯಾಬಿನೆಟ್ | ಫೈಲಿಂಗ್ | ಫೈಲ್</annotation>
 		<annotation cp="🗄" type="tts">ಫೈಲ್ ಕ್ಯಾಬಿನೆಟ್</annotation>
-		<annotation cp="🗑">ಕಳಪೆ ಕಾಗದ ಬುಟ್ಟಿ | ಬ್ಯಾಸ್ಕೆಟ್ | ವೇಸ್ಟ್ ಬ್ಯಾಸ್ಕೆಟ್</annotation>
+		<annotation cp="🗑">ಕಸದ ಬುಟ್ಟಿ | ಕಳಪೆ ಕಾಗದ ಬುಟ್ಟಿ | ವೇಸ್ಟ್ ಬ್ಯಾಸ್ಕೆಟ್</annotation>
 		<annotation cp="🗑" type="tts">ಕಳಪೆ ಕಾಗದ ಬುಟ್ಟಿ</annotation>
 		<annotation cp="🔒">ಮುಚ್ಚಿದ ಲಾಕ್ | ಲಾಕ್</annotation>
 		<annotation cp="🔒" type="tts">ಲಾಕ್</annotation>
@@ -2543,17 +3257,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔏" type="tts">ಪೆನ್ನಿನಿಂದ ಲಾಕ್</annotation>
 		<annotation cp="🔐">ಕೀಯೊಂದಿಗೆ ಮುಚ್ಚಿದ ಲಾಕ್ | ಕೀಯೊಂದಿಗೆ ಲಾಕ್ | ಲಾಕ್ | ಸುರಕ್ಷಿತ</annotation>
 		<annotation cp="🔐" type="tts">ಕೀಯೊಂದಿಗೆ ಮುಚ್ಚಿದ ಲಾಕ್</annotation>
-		<annotation cp="🔑">ಕೀ | ಪಾಸ್‌ವರ್ಡ್</annotation>
+		<annotation cp="🔑">ಕೀ | ಪಾಸ್‌ವರ್ಡ್ | ಲಾಕ್</annotation>
 		<annotation cp="🔑" type="tts">ಕೀ</annotation>
 		<annotation cp="🗝">ಲಾಕ್ | ಸಲಹೆ | ಹಳೆಯ | ಹಳೆಯ ಕೀ</annotation>
 		<annotation cp="🗝" type="tts">ಹಳೆಯ ಕೀ</annotation>
-		<annotation cp="🔨">ಕತ್ತರಿಗಳು | ಟೂಲ್ | ಪರಿಕರ | ಸುತ್ತಿಗೆ</annotation>
+		<annotation cp="🔨">ಟೂಲ್ | ಪರಿಕರ | ಸುತ್ತಿಗೆ</annotation>
 		<annotation cp="🔨" type="tts">ಸುತ್ತಿಗೆ</annotation>
 		<annotation cp="🪓">ಕಟ್ಟಿಗೆ | ಕತ್ತರಿಸು | ಕೊಡಲಿ | ವಿಭಾಗಿಸು | ಹ್ಯಾಚೆಟ್</annotation>
 		<annotation cp="🪓" type="tts">ಕೊಡಲಿ</annotation>
-		<annotation cp="⛏">ಆಯ್ಕೆ | ಪರಿಕರ | ಮೈನಿಂಗ್</annotation>
+		<annotation cp="⛏">ಆಯ್ಕೆ | ಪರಿಕರ | ಪಿಕಾಸಿ | ಮೈನಿಂಗ್</annotation>
 		<annotation cp="⛏" type="tts">ಆಯ್ಕೆ</annotation>
-		<annotation cp="⚒">ಆಯ್ಕೆ | ಪರಿಕರ | ಸುತ್ತಿಗೆ | ಸುತ್ತಿಗೆ ಮತ್ತು ಆಯ್ಕೆ</annotation>
+		<annotation cp="⚒">ಉಪಕರಣ | ಗುದ್ದಲಿ | ಸುತ್ತಿಗೆ | ಸುತ್ತಿಗೆ ಮತ್ತು ಆಯ್ಕೆ | ಸುತ್ತಿಗೆ ಮತ್ತು ಗುದ್ದಲಿ</annotation>
 		<annotation cp="⚒" type="tts">ಸುತ್ತಿಗೆ ಮತ್ತು ಆಯ್ಕೆ</annotation>
 		<annotation cp="🛠">ಪರಿಕರ | ವ್ರೆಂಚ್ | ಸುತ್ತಿಗೆ | ಸುತ್ತಿಗೆ ಮತ್ತು ವ್ರೆಂಚ್</annotation>
 		<annotation cp="🛠" type="tts">ಸುತ್ತಿಗೆ ಮತ್ತು ವ್ರೆಂಚ್</annotation>
@@ -2561,37 +3275,49 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🗡" type="tts">ಬಾಕು</annotation>
 		<annotation cp="⚔">ಕತ್ತರಿ | ಕತ್ತಿಗಳು | ಕ್ರಾಸ್ ಮಾಡಿದ ಕತ್ತಿಗಳು | ಶಸ್ತ್ರಾಸ್ತ್ರ</annotation>
 		<annotation cp="⚔" type="tts">ಕ್ರಾಸ್ ಮಾಡಿದ ಕತ್ತಿಗಳು</annotation>
-		<annotation cp="🔫">ಪಿಸ್ತೂಲ್ | ರಿವಾಲ್ವರ್</annotation>
-		<annotation cp="🔫" type="tts">ಪಿಸ್ತೂಲ್</annotation>
-		<annotation cp="🏹">ಕತ್ತರಿ | ಕತ್ತಿಗಳು | ಗುರಾಣಿ | ಬಿಲ್ಲು ಮತ್ತು ಬಾಣ | ಶಸ್ತ್ರಾಸ್ತ್ರ</annotation>
+		<annotation cp="💣">ಕಾಮಿಕ್ | ಬಾಂಬ್</annotation>
+		<annotation cp="💣" type="tts">ಬಾಂಬ್</annotation>
+		<annotation cp="🪃">ಆಸ್ಟ್ರೇಲಿಯಾ | ಪರಿಣಾಮ | ಬೂಮರಾಂಗ್ | ಮರುಕಳಿಸುವಿಕೆ</annotation>
+		<annotation cp="🪃" type="tts">ಬೂಮರಾಂಗ್</annotation>
+		<annotation cp="🏹">ಧನು ರಾಶಿ | ಬಾಣ | ಬಿಲ್ಲು | ಬಿಲ್ಲು ಮತ್ತು ಬಾಣ | ಬಿಲ್ಲುಗಾರ | ರಾಶಿಚಕ್ರ</annotation>
 		<annotation cp="🏹" type="tts">ಬಿಲ್ಲು ಮತ್ತು ಬಾಣ</annotation>
-		<annotation cp="🛡">ಕತ್ತರಿ | ಕತ್ತಿಗಳು | ಗುರಾಣಿ | ಶಸ್ತ್ರಾಸ್ತ್ರ</annotation>
+		<annotation cp="🛡">ಗುರಾಣಿ | ಶಸ್ತ್ರ</annotation>
 		<annotation cp="🛡" type="tts">ಗುರಾಣಿ</annotation>
-		<annotation cp="🔧">ಉಪಕರಣ | ವ್ರೆಂಚ್</annotation>
+		<annotation cp="🪚">ಉಪಕರಣ | ಬಡಗಿ | ಮರಗೆಲಸ ಗರಗಸ | ಮರಗೆಲಸದ ಗರಗಸ | ಲಂಬರ್ | ಸೌದೆ</annotation>
+		<annotation cp="🪚" type="tts">ಮರಗೆಲಸದ ಗರಗಸ</annotation>
+		<annotation cp="🔧">ಉಪಕರಣ | ವ್ರೆಂಚ್ | ಸ್ಪಾನರ್</annotation>
 		<annotation cp="🔧" type="tts">ವ್ರೆಂಚ್</annotation>
-		<annotation cp="🔩">ಉಪಕರಣ | ತಿರುಪು | ತಿರುಪು ಮತ್ತು ಬೋಲ್ಟ್ | ಬೋಲ್ಟ್</annotation>
-		<annotation cp="🔩" type="tts">ತಿರುಪು ಮತ್ತು ಬೋಲ್ಟ್</annotation>
-		<annotation cp="⚙">ಕತ್ತರಿಗಳು | ಗೇರ್ | ಟೂಲ್ | ಪರಿಕರ</annotation>
+		<annotation cp="🪛">ಟೂಲ್ | ಸ್ಕ್ರೂ | ಸ್ಕ್ರೂಡ್ರೈವರ್</annotation>
+		<annotation cp="🪛" type="tts">ಸ್ಕ್ರೂಡ್ರೈವರ್</annotation>
+		<annotation cp="🔩">ಟೂಲ್ | ನಟ್ | ನಟ್ ಮತ್ತು ಬೋಲ್ಟ್ | ಬೋಲ್ಟ್</annotation>
+		<annotation cp="🔩" type="tts">ನಟ್ ಮತ್ತು ಬೋಲ್ಟ್</annotation>
+		<annotation cp="⚙">ಉಪಕರಣ | ಕಾಗ್ | ಕಾಗ್ವೀಲ್ | ಗೇರ್</annotation>
 		<annotation cp="⚙" type="tts">ಗೇರ್</annotation>
-		<annotation cp="🗜">ಕುಗ್ಗುವಿಕೆ | ಪರಿಕರ | ಸಂಕುಚಿತ</annotation>
+		<annotation cp="🗜">ಕಂಪ್ರೆಸ್ | ಕ್ಲಾಂಪ್ | ಟೂಲ್ | ವೈಸ್ | ಸಂಕುಚಿತ</annotation>
 		<annotation cp="🗜" type="tts">ಸಂಕುಚಿತ</annotation>
-		<annotation cp="⚖">ನ್ಯಾಯ | ಪರಿಕರ | ಬ್ಯಾಲೆನ್ಸ್ ಸ್ಕೇಲ್ | ಮಾಪನಗಳು | ಲಿಂಕ್ ಚಿಹ್ನೆ</annotation>
+		<annotation cp="⚖">ತುಲಾ | ನ್ಯಾಯ | ಪ್ರಮಾಣದ | ಬ್ಯಾಲೆನ್ಸ್ ಸ್ಕೇಲ್ | ರಾಶಿಚಕ್ರ | ಸಮತೋಲನ</annotation>
 		<annotation cp="⚖" type="tts">ಬ್ಯಾಲೆನ್ಸ್ ಸ್ಕೇಲ್</annotation>
 		<annotation cp="🦯">ಊರುಗೋಲು | ಕುರುಡು | ಪ್ರವೇಶಿಸುವಿಕೆ</annotation>
 		<annotation cp="🦯" type="tts">ಊರುಗೋಲು</annotation>
 		<annotation cp="🔗">ಲಿಂಕ್</annotation>
 		<annotation cp="🔗" type="tts">ಲಿಂಕ್</annotation>
+		<annotation cp="⛓‍💥">ಬೇಡಿಗಳು | ಮುರಿದ ಸರಪಳಿ | ಮುರಿದಿರುವುದು | ಮುರಿಯುತ್ತಿರುವುದು | ಸರಪಳಿ | ಸ್ವಾತಂತ್ರ್ಯ</annotation>
+		<annotation cp="⛓‍💥" type="tts">ಮುರಿದ ಸರಪಳಿ</annotation>
 		<annotation cp="⛓">ಚೈನು‌ಗಳು | ಚೈನ್</annotation>
 		<annotation cp="⛓" type="tts">ಚೈನು‌ಗಳು</annotation>
+		<annotation cp="🪝">ಕರ್ವ್ | ಕೊಕ್ಕೆ | ಕ್ಯಾಚ್ | ಮಾರಾಟದ ಸ್ಥಳ</annotation>
+		<annotation cp="🪝" type="tts">ಕೊಕ್ಕೆ</annotation>
 		<annotation cp="🧰">ಪರಿಕರ | ಪರಿಕರಪೆಟ್ಟಿಗೆ | ಪೆಟ್ಟಿಗೆ | ಮೆಕ್ಯಾನಿಕ್</annotation>
 		<annotation cp="🧰" type="tts">ಪರಿಕರಪೆಟ್ಟಿಗೆ</annotation>
 		<annotation cp="🧲">ಆಕರ್ಷಣೆ | ಕುದುರೆ ಲಾಳ | ಮ್ಯಾಗ್ನೆಟಿಕ್ | ಮ್ಯಾಗ್ನೆಟ್</annotation>
 		<annotation cp="🧲" type="tts">ಮ್ಯಾಗ್ನೆಟ್</annotation>
-		<annotation cp="⚗">ಕೆಮಿಸ್ಟ್ರೀ | ಟೂಲ್ | ಪರಿಕರ | ಭಟ್ಟಿಪಾತ್ರೆ | ರಸಾಯನ ಶಾಸ್ತ್ರ</annotation>
+		<annotation cp="🪜">ಏಣಿ | ಮೆಟ್ಟಿಲು | ರಂಗ್ | ಹತ್ತು</annotation>
+		<annotation cp="🪜" type="tts">ಏಣಿ</annotation>
+		<annotation cp="⚗">ಅಲೆಂಬಿಕ್ | ಉಪಕರಣ | ಭಟ್ಟಿಪಾತ್ರೆ | ರಸಾಯನಶಾಸ್ತ್ರ</annotation>
 		<annotation cp="⚗" type="tts">ಭಟ್ಟಿಪಾತ್ರೆ</annotation>
-		<annotation cp="🧪">ಟೆಸ್ಟ್ ಟ್ಯೂಬ್ | ಪ್ರಯೋಗ | ರಸಾಯನಶಾಸ್ತ್ರ | ರಸಾಯನಶಾಸ್ತ್ರಜ್ಞ | ಲ್ಯಾಬ್ | ವಿಜ್ಞಾನ</annotation>
+		<annotation cp="🧪">ಟೆಸ್ಟ್ ಟ್ಯೂಬ್ | ಪ್ರನಾಳ | ಪ್ರಯೋಗ | ಪ್ರಯೋಗಾಲಯ | ರಸಾಯನಶಾಸ್ತ್ರ | ರಸಾಯನಶಾಸ್ತ್ರಜ್ಞ | ವಿಜ್ಞಾನ</annotation>
 		<annotation cp="🧪" type="tts">ಟೆಸ್ಟ್ ಟ್ಯೂಬ್</annotation>
-		<annotation cp="🧫">ಜೀವಶಾಸ್ತ್ರ | ಜೀವಶಾಸ್ತ್ರಜ್ಞ | ಪೆಟ್ರಿ ಡಿಶ್ | ಬ್ಯಾಕ್ಟೀರಿಯಾ | ಲ್ಯಾಬ್ | ಸಂಸ್ಕೃತಿ</annotation>
+		<annotation cp="🧫">ಕಲ್ಚರ್ | ಜೀವಶಾಸ್ತ್ರ | ಜೀವಶಾಸ್ತ್ರಜ್ಞ | ಪೆಟ್ರಿ ಡಿಶ್ | ಬ್ಯಾಕ್ಟೀರಿಯಾ | ಲ್ಯಾಬ್</annotation>
 		<annotation cp="🧫" type="tts">ಪೆಟ್ರಿ ಡಿಶ್</annotation>
 		<annotation cp="🧬">ಜೀನ್ | ಜೀವನ | ಜೀವಶಾಸ್ತ್ರಜ್ಞ | ಜೆನೆಟಿಕ್ಸ್ | ಡಿಎನ್ಎ | ವಿಕಸನ</annotation>
 		<annotation cp="🧬" type="tts">ಡಿಎನ್ಎ</annotation>
@@ -2601,18 +3327,28 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔭" type="tts">ಟೆಲಿಸ್ಕೋಪ್</annotation>
 		<annotation cp="📡">ಆಂಟೆನಾ | ಉಪಗ್ರಹ | ಡಿಶ್ | ಸಂವಹನ</annotation>
 		<annotation cp="📡" type="tts">ಉಪಗ್ರಹ ಆಂಟೆನಾ</annotation>
-		<annotation cp="💉">ಔಷಧ | ವೈದ್ಯರು | ಸಿರಿಂಜ್ | ಸೂಜಿ</annotation>
+		<annotation cp="💉">ಅನಾರೋಗ್ಯ | ಔಷಧ | ಚುಚ್ಚುಮದ್ದು | ಸಿರಿಂಜ್ | ಸೂಜಿ</annotation>
 		<annotation cp="💉" type="tts">ಸಿರಿಂಜ್</annotation>
-		<annotation cp="🩸">ಋತುಚಕ್ರ | ಔಷಧಿ | ರಕ್ತ ದಾನ | ರಕ್ತದ ಹನಿ</annotation>
+		<annotation cp="🩸">ಋತು ಚಕ್ರ | ಔಷಧ | ಗಾಯ | ರಕ್ತದ ಹನಿ | ರಕ್ತದಾನ | ರಕ್ತಸ್ರಾವ</annotation>
 		<annotation cp="🩸" type="tts">ರಕ್ತದ ಹನಿ</annotation>
-		<annotation cp="💊">ಔಷಧ | ಮಾತ್ರೆ | ವೈದ್ಯರು</annotation>
+		<annotation cp="💊">ಅನಾರೋಗ್ಯ | ಔಷಧ | ಮಾತ್ರೆ | ವೈದ್ಯ</annotation>
 		<annotation cp="💊" type="tts">ಮಾತ್ರೆ</annotation>
 		<annotation cp="🩹">ಅಂಟಿಸುವ ಬ್ಯಾಂಡೇಜ್ | ಬ್ಯಾಂಡೇಜ್</annotation>
 		<annotation cp="🩹" type="tts">ಅಂಟಿಸುವ ಬ್ಯಾಂಡೇಜ್</annotation>
+		<annotation cp="🩼">ಅಂಗವೈಕಲ್ಯ | ಕೋಲು | ಕ್ರಚ್ | ಚಲಿಸುವುದಕ್ಕೆ ನೆರವು | ಸ್ಟಿಕ್ | ಹರ್ಟ್</annotation>
+		<annotation cp="🩼" type="tts">ಕ್ರಚ್</annotation>
 		<annotation cp="🩺">ಔಷಧಿ | ವೈದ್ಯರು | ಸ್ಟೆತಸ್ಕೋಪ್ | ಹೃದಯ</annotation>
 		<annotation cp="🩺" type="tts">ಸ್ಟೆತಸ್ಕೋಪ್</annotation>
+		<annotation cp="🩻">ಅಸ್ಥಿಪಂಜರ | ಎಕ್ಸ್-ರೇ | ಮೂಳೆಗಳು | ವೈದ್ಯ | ವೈದ್ಯಕೀಯ</annotation>
+		<annotation cp="🩻" type="tts">ಎಕ್ಸ್-ರೇ</annotation>
 		<annotation cp="🚪">ಬಾಗಿಲು</annotation>
 		<annotation cp="🚪" type="tts">ಬಾಗಿಲು</annotation>
+		<annotation cp="🛗">ಎತ್ತುವುದು | ಎಲಿವೇಟರ್‌ | ಲಭ್ಯತೆ | ಲಿಫ್ಟ್‌</annotation>
+		<annotation cp="🛗" type="tts">ಎಲಿವೇಟರ್‌</annotation>
+		<annotation cp="🪞">ಕನ್ನಡಿ | ಪ್ರತಿಫಲಕ | ಪ್ರತಿಫಲನ | ಸ್ಪೆಕ್ಯುಲಂ</annotation>
+		<annotation cp="🪞" type="tts">ಕನ್ನಡಿ</annotation>
+		<annotation cp="🪟">ಕಿಟಕಿ | ತಾಜಾ ಗಾಳಿ | ತೆರೆಯುತ್ತಿರುವ | ನೋಟ | ಪಾರದರ್ಶಕ | ಫ್ರೇಮ್</annotation>
+		<annotation cp="🪟" type="tts">ಕಿಟಕಿ</annotation>
 		<annotation cp="🛏">ನಿದ್ರೆ | ಹಾಸಿಗೆ | ಹೊಟೇಲ್</annotation>
 		<annotation cp="🛏" type="tts">ಹಾಸಿಗೆ</annotation>
 		<annotation cp="🛋">ಕೋಚ್ | ಲ್ಯಾಂಪು ಮತ್ತು ಸೋಫಾ | ಸೋಫಾ ಮತ್ತು ಲ್ಯಾಂಪ್ | ಹೊಟೇಲ್</annotation>
@@ -2621,12 +3357,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪑" type="tts">ಕುರ್ಚಿ</annotation>
 		<annotation cp="🚽">ಶೌಚ ಗೃಹ | ಶೌಚಾಲಯ</annotation>
 		<annotation cp="🚽" type="tts">ಶೌಚಾಲಯ</annotation>
+		<annotation cp="🪠">ಕೊಳಾಯಿಗಾರ | ಪ್ಲಂಗರ್‌ | ಫೋರ್ಸ್ ಕಪ್ | ಶೌಚಾಲಯ | ಹೀರುವಿಕೆ</annotation>
+		<annotation cp="🪠" type="tts">ಪ್ಲಂಗರ್‌</annotation>
 		<annotation cp="🚿">ನೀರು | ಶವರ್</annotation>
 		<annotation cp="🚿" type="tts">ಶವರ್</annotation>
 		<annotation cp="🛁">ಬಾತ್‌ಟಬ್ | ಸ್ನಾನ | ಸ್ನಾನದ ಟಬ್</annotation>
 		<annotation cp="🛁" type="tts">ಬಾತ್‌ಟಬ್</annotation>
-		<annotation cp="🪒">ಚೂಪಾದ | ರೇಸರ್ | ಶೇವ್</annotation>
-		<annotation cp="🪒" type="tts">ರೇಸರ್</annotation>
+		<annotation cp="🪤">ಬಲೆ | ಬೆಟ್ | ಮೌಸ್ ಬಲೆ</annotation>
+		<annotation cp="🪤" type="tts">ಮೌಸ್ ಬಲೆ</annotation>
+		<annotation cp="🪒">ರೇಜರ್ | ಶಾರ್ಪ್ | ಶೇವ್</annotation>
+		<annotation cp="🪒" type="tts">ರೇಜರ್</annotation>
 		<annotation cp="🧴">ಮಾಯಿಶ್ಚರೈಸರ್ | ಲೋಷನ್ | ಲೋಷನ್ ಬಾಟಲ್ | ಶಾಂಪೂ | ಸನ್‌ಸ್ಕ್ರೀನ್</annotation>
 		<annotation cp="🧴" type="tts">ಲೋಷನ್ ಬಾಟಲ್</annotation>
 		<annotation cp="🧷">ಡೈಪರ್ | ಪಂಕ್ ರಾಕ್ | ಸೇಫ್ಟಿ ಪಿನ್</annotation>
@@ -2637,22 +3377,38 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧺" type="tts">ಬ್ಯಾಸ್ಕೆಟ್</annotation>
 		<annotation cp="🧻">ಟಾಯ್ಲೆಟ್ ಪೇಪರ್ | ಪೇಪರ್ ಟವಲ್‌ಗಳು | ಪೇಪರ್‌ನ ರೋಲ್</annotation>
 		<annotation cp="🧻" type="tts">ಪೇಪರ್‌ನ ರೋಲ್</annotation>
+		<annotation cp="🪣">ಪೆಟ್ಟಿಗೆ | ಪೈಲ್ | ಬಕೆಟ್ | ವ್ಯಾಟ್</annotation>
+		<annotation cp="🪣" type="tts">ಬಕೆಟ್</annotation>
 		<annotation cp="🧼">ಬಾಥಿಂಗ್ | ಬಾರ್ | ಲೇಥರ್ | ಶುಚಿ ಗೊಳಿಸುವಿಕೆ | ಸೋಪ್ | ಸೋಪ್‌ಡಿಷ್</annotation>
 		<annotation cp="🧼" type="tts">ಸೋಪ್</annotation>
+		<annotation cp="🫧">ಗುಳ್ಳೆಗಳು | ನೀರೊಳಗಿನ | ಬರ್ಪ್ | ಸೋಪು | ಸ್ವಚ್ಛ</annotation>
+		<annotation cp="🫧" type="tts">ಗುಳ್ಳೆಗಳು</annotation>
+		<annotation cp="🪥">ಟೂತ್ ಬ್ರಷ್ | ದಂತ | ನೈರ್ಮಲ್ಯ | ಬ್ರಷ್ | ಸ್ನಾನಗೃಹ | ಹಲ್ಲುಗಳು</annotation>
+		<annotation cp="🪥" type="tts">ಟೂತ್ ಬ್ರಷ್</annotation>
 		<annotation cp="🧽">ಸರಂಧ್ರ | ಸ್ಪಾಂಜ್ | ಸ್ವಚ್ಛಗೊಳಿಸುವ | ಹೀರಿಕೊಳ್ಳುವ</annotation>
 		<annotation cp="🧽" type="tts">ಸ್ಪಾಂಜ್</annotation>
 		<annotation cp="🧯">ತಗ್ಗಿಸು | ನಂದಿಸು | ಬೆಂಕಿ | ಬೆಂಕಿ ಆರಿಸುವಿಕೆ</annotation>
 		<annotation cp="🧯" type="tts">ಬೆಂಕಿ ಆರಿಸುವಿಕೆ</annotation>
 		<annotation cp="🛒">ಕಾರ್ಟ್ | ಟ್ರಾಲಿ | ಶಾಪಿಂಗ್</annotation>
 		<annotation cp="🛒" type="tts">ಶಾಪಿಂಗ್ ಕಾರ್ಟ್</annotation>
-		<annotation cp="🚬">ಚಿಹ್ನೆ | ಧೂಮಪಾನ | ಧೂಮಪಾನ ಅನುಮತಿಸಲಾಗಿದೆ</annotation>
+		<annotation cp="🚬">ಧೂಮಪಾನ | ಸಿಗರೇಟು</annotation>
 		<annotation cp="🚬" type="tts">ಧೂಮಪಾನ</annotation>
 		<annotation cp="⚰">ಕಾಫಿನ್ | ಮರಣ</annotation>
 		<annotation cp="⚰" type="tts">ಕಾಫಿನ್</annotation>
-		<annotation cp="⚱">ಅಂತ್ಯಕ್ರಿಯೆ ಚಿತಾಭಸ್ಮ | ಮರಣ</annotation>
+		<annotation cp="🪦">ಮಸಣ | ಸಮಾಧಿ | ಸಾಮಾಧಿ ಕಲ್ಲು | ಸ್ಮಶಾನ | ಹೆಡ್‌ಸ್ಟೋನ್‌</annotation>
+		<annotation cp="🪦" type="tts">ಹೆಡ್‌ಸ್ಟೋನ್‌</annotation>
+		<annotation cp="⚱">ಅಂತ್ಯಕ್ರಿಯೆ | ಚಿತಾಭಸ್ಮ | ಬೂದಿ | ಸಾವು</annotation>
 		<annotation cp="⚱" type="tts">ಅಂತ್ಯಕ್ರಿಯೆ ಚಿತಾಭಸ್ಮ</annotation>
-		<annotation cp="🗿">ಪ್ರತಿಮೆ | ಮೊಯಾ</annotation>
+		<annotation cp="🧿">ಕೆಟ್ಟ ದೃಷ್ಟಿ | ತಲಿಸ್ಮನ್ | ನಜರ್ | ನಜರ್ ಅಮುಲೆಟ್ | ಮಣಿ | ಮೋಡಿ</annotation>
+		<annotation cp="🧿" type="tts">ನಜರ್ ಅಮುಲೆಟ್</annotation>
+		<annotation cp="🪬">ಕೈ | ತಾಯತ | ಫಾತಿಮಾ | ಮಿರಿಯಮ್ | ಮೇರಿ | ರಕ್ಷಣೆ | ಹಮ್ಸಾ</annotation>
+		<annotation cp="🪬" type="tts">ಹಮ್ಸಾ</annotation>
+		<annotation cp="🗿">ಪ್ರತಿಮೆ | ಮುಖ | ಮೊಯಾ | ಮೋಯಿ | ಮೋಯೈ</annotation>
 		<annotation cp="🗿" type="tts">ಮೊಯಾ</annotation>
+		<annotation cp="🪧">ಪ್ರತಿಭಟನೆ | ಪ್ಲಕಾರ್ಡ್‌ | ಸೂಚನೆ | ಹರತಾಳ</annotation>
+		<annotation cp="🪧" type="tts">ಪ್ಲಕಾರ್ಡ್‌</annotation>
+		<annotation cp="🪪">ಐಡಿ | ಗುರುತಿನ ಚೀಟಿ | ಪರವಾನಗಿ | ಭದ್ರತೆ | ವಿವರಗಳು</annotation>
+		<annotation cp="🪪" type="tts">ಗುರುತಿನ ಚೀಟಿ</annotation>
 		<annotation cp="🏧">ಎಟಿಎಂ ಚಿಹ್ನೆ | ಟೆಲ್ಲರ್ | ಬ್ಯಾಂಕ್ | ಸ್ವಯಂಚಾಲಿತ</annotation>
 		<annotation cp="🏧" type="tts">ಎಟಿಎಂ ಚಿಹ್ನೆ</annotation>
 		<annotation cp="🚮">ಅದರ ಸ್ಥಳದಲ್ಲಿ ಕಸವನ್ನು ಹಾಕಿ | ಕಸದ ಪೆಟ್ಟಿಗೆ | ಕಸದ ಪೆಟ್ಟಿಗೆ ಚಿಹ್ನೆ | ಚಿಹ್</annotation>
@@ -2661,9 +3417,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚰" type="tts">ಪೋರ್ಟಬಲ್ ನೀರು</annotation>
 		<annotation cp="♿">ಗಾಲಿಕುರ್ಚಿ ಚಿಹ್ನೆ | ಗಾಲಿಕುರ್ಚಿ ಚಿಹ್ನೆ ಸಂಕೇತ | ಪ್ರವೇಶ</annotation>
 		<annotation cp="♿" type="tts">ಗಾಲಿಕುರ್ಚಿ ಚಿಹ್ನೆ</annotation>
-		<annotation cp="🚹">ಡಬ್ಯೂಸಿ | ಪುರುಷ | ಪುರುಷರ ಕೊಠಡಿ | ಪುರುಷರ ಕೋಣೆ | ರೆಸ್ಟ್ ರೂಂ | ಶೌಚಾಲಯ</annotation>
+		<annotation cp="🚹">ಡಬ್ಲ್ಯೂಸಿ | ಪುರುಷ | ಪುರುಷರ ಕೊಠಡಿ | ಪುರುಷರ ಕೋಣೆ | ರೆಸ್ಟ್ ರೂಂ | ಶೌಚಾಲಯ</annotation>
 		<annotation cp="🚹" type="tts">ಪುರುಷರ ಕೊಠಡಿ</annotation>
-		<annotation cp="🚺">ಡಬ್ಯೂಸಿ | ಮಹಿಳೆ | ಮಹಿಳೆಯರ ಕೊಠಡಿ | ಮಹಿಳೆಯರ ಕೋಣೆ | ರೆಸ್ಟ್ ರೂಂ | ಶೌಚಾಲಯ</annotation>
+		<annotation cp="🚺">ಡಬ್ಲ್ಯೂಸಿ | ಮಹಿಳೆ | ಮಹಿಳೆಯರ ಕೊಠಡಿ | ಮಹಿಳೆಯರ ಕೋಣೆ | ರೆಸ್ಟ್ ರೂಂ | ಶೌಚಾಲಯ</annotation>
 		<annotation cp="🚺" type="tts">ಮಹಿಳೆಯರ ಕೊಠಡಿ</annotation>
 		<annotation cp="🚻">ಡಬ್ಲ್ಯೂಸಿ | ರೆಸ್ಟ್ ರೂಂ | ರೆಸ್ಟ್ ರೂಂ ಸಂಕೇತ | ಶೌಚಾಲಯದ</annotation>
 		<annotation cp="🚻" type="tts">ರೆಸ್ಟ್ ರೂಂ</annotation>
@@ -2699,8 +3455,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚷" type="tts">ಪಾದಾಚಾರಿಗಳಿಗೆ ಇಲ್ಲ</annotation>
 		<annotation cp="📵">ಫೋನ್ | ಮೊಬೈಲ್ | ಮೊಬೈಲ್ ಫೋನ್‌ಗಳಿಲ್ಲ | ಸೆಲ್ ಫೋನ್ ಇಲ್ಲ</annotation>
 		<annotation cp="📵" type="tts">ಮೊಬೈಲ್ ಫೋನ್‌ಗಳಿಲ್ಲ</annotation>
-		<annotation cp="🔞">18 ಕ್ಕೂ ಕಡಿಮೆ ಇಲ್ಲ | 18ಕ್ಕೂ ಕಡಿಮೆ ನಿಷೇಧಿಸಲಾಗಿದೆ | ಹದಿನೆಂಟಕ್ಕೂ ಕಡಿಮೆ ಒಂದು ಇಲ್ಲ</annotation>
-		<annotation cp="🔞" type="tts">ಹದಿನೆಂಟಕ್ಕೂ ಕಡಿಮೆ ಒಂದು ಇಲ್ಲ</annotation>
+		<annotation cp="🔞">18 ಕ್ಕೂ ಕಡಿಮೆ ಇಲ್ಲ | 18ಕ್ಕೂ ಕಡಿಮೆ ನಿಷೇಧಿಸಲಾಗಿದೆ | ಹದಿನೆಂಟು ವರ್ಷಕ್ಕೂ ಕಡಿಮೆ ಒಬ್ಬರೂ ಇಲ್ಲ</annotation>
+		<annotation cp="🔞" type="tts">ಹದಿನೆಂಟು ವರ್ಷಕ್ಕೂ ಕಡಿಮೆ ಒಬ್ಬರೂ ಇಲ್ಲ</annotation>
 		<annotation cp="☢">ರೇಡಿಯೊ | ರೇಡಿಯೊ ವಿಕಿರಣ</annotation>
 		<annotation cp="☢" type="tts">ರೇಡಿಯೊ ವಿಕಿರಣ</annotation>
 		<annotation cp="☣">ಚಿಹ್ನೆ | ಜೈವಿಕ ನೈರ್ಮಲ್ಯ</annotation>
@@ -2725,6 +3481,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↕" type="tts">ಮೇಲಿನ ಕೆಳ ಬಾಣ</annotation>
 		<annotation cp="↔">ಎಡ-ಬಲ ಬಾಣ | ಎಡ-ಬಲ ಬಾಣದ ಗುರುತು</annotation>
 		<annotation cp="↔" type="tts">ಎಡ-ಬಲ ಬಾಣ</annotation>
+		<annotation cp="↮">ಎಡ ಬಲ ಬಾಣದ ಸ್ಟ್ರೋಕ್‌</annotation>
+		<annotation cp="↮" type="tts">ಎಡ ಬಲ ಬಾಣದ ಸ್ಟ್ರೋಕ್‌</annotation>
 		<annotation cp="↩">ಎಡಕ್ಕೆ ತಿರುಗುವ ಬಲ ಬಾಣ | ಬಾಣ</annotation>
 		<annotation cp="↩" type="tts">ಎಡಕ್ಕೆ ತಿರುಗುವ ಬಲ ಬಾಣ</annotation>
 		<annotation cp="↪">ಬಲಕ್ಕೆ ತಿರುಗುವ ಎಡ ಬಾಣ | ಬಾಣ</annotation>
@@ -2769,41 +3527,43 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☮" type="tts">ಶಾಂತಿಯ ಸಂಕೇತ</annotation>
 		<annotation cp="🕎">ಕ್ಯಾಂಡಲ್ | ಕ್ಯಾಂಡಲ್‌ಸ್ಟಿಕ್ | ಚಿಹ್ನೆ | ಧಾರ್ಮಿಕ | ಸಪ್ತ ದೀಪಸ್ತಂಭ</annotation>
 		<annotation cp="🕎" type="tts">ಸಪ್ತ ದೀಪಸ್ತಂಭ</annotation>
-		<annotation cp="🔯">ಅದೃಷ್ಟ | ಆರು ಬಿಂದುಗಳ ನಕ್ಷತ್ರದ | ಚುಕ್ಕೆಗಳ ಆರು ಬಿಂದುಗಳ ನಕ್ಷತ್ರ | ನಕ್ಷತ್ರ</annotation>
+		<annotation cp="🔯">ಚುಕ್ಕಿ ಆರು ಬಿಂದುಗಳ ನಕ್ಷತ್ರ | ಚುಕ್ಕೆಗಳ ಆರು ಬಿಂದುಗಳ ನಕ್ಷತ್ರ | ನಕ್ಷತ್ರ | ಫಾರ್ಚೂನ್</annotation>
 		<annotation cp="🔯" type="tts">ಚುಕ್ಕೆಗಳ ಆರು ಬಿಂದುಗಳ ನಕ್ಷತ್ರ</annotation>
-		<annotation cp="♈">ಮೇಷ | ರಾಶಿಚಕ್ರ</annotation>
+		<annotation cp="🪯">ಖಾಂಡ | ಧರ್ಮ | ಸಿಖ್</annotation>
+		<annotation cp="🪯" type="tts">ಖಾಂಡ</annotation>
+		<annotation cp="♈">ಮೇಷ | ಮೇಷ ರಾಶಿ | ರಾಮ್ | ರಾಶಿಚಕ್ರ</annotation>
 		<annotation cp="♈" type="tts">ಮೇಷ</annotation>
-		<annotation cp="♉">ರಾಶಿಚಕ್ರ | ವೃಷಭ</annotation>
+		<annotation cp="♉">ಎತ್ತು | ಬುಲ್ | ರಾಶಿಚಕ್ರ | ವೃಷಭ | ವೃಷಭ ರಾಶಿ</annotation>
 		<annotation cp="♉" type="tts">ವೃಷಭ</annotation>
-		<annotation cp="♊">ಮಿಥುನ | ರಾಶಿಚಕ್ರ</annotation>
+		<annotation cp="♊">ಅವಳಿಗಳು | ಮಿಥುನ | ರಾಶಿಚಕ್ರ</annotation>
 		<annotation cp="♊" type="tts">ಮಿಥುನ</annotation>
-		<annotation cp="♋">ಕರ್ಕಾಟಕ | ರಾಶಿಚಕ್ರ</annotation>
+		<annotation cp="♋">ಏಡಿ | ಕರ್ಕಾಟಕ | ರಾಶಿಚಕ್ರ</annotation>
 		<annotation cp="♋" type="tts">ಕರ್ಕಾಟಕ</annotation>
 		<annotation cp="♌">ರಾಶಿಚಕ್ರ | ಸಿಂಹ</annotation>
 		<annotation cp="♌" type="tts">ಸಿಂಹ</annotation>
 		<annotation cp="♍">ಕನ್ಯಾರಾಶಿ | ರಾಶಿಚಕ್ರ</annotation>
 		<annotation cp="♍" type="tts">ಕನ್ಯಾರಾಶಿ</annotation>
-		<annotation cp="♎">ತುಲಾ | ರಾಶಿಚಕ್ರ</annotation>
+		<annotation cp="♎">ತುಲಾ | ನ್ಯಾಯ | ಮಾಪಕಗಳು | ರಾಶಿಚಕ್ರ | ಸಮತೋಲನ</annotation>
 		<annotation cp="♎" type="tts">ತುಲಾ</annotation>
-		<annotation cp="♏">ಚೇಳು | ರಾಶಿಚಕ್ರ | ವೃಷ್ಚಿಕ</annotation>
-		<annotation cp="♏" type="tts">ವೃಷ್ಚಿಕ</annotation>
-		<annotation cp="♐">ಧನು | ಧನು ರಾಶಿ | ರಾಶಿಚಕ್ರ</annotation>
+		<annotation cp="♏">ಚೇಳು | ರಾಶಿಚಕ್ರ | ವೃಶ್ಚಿಕ | ವೃಶ್ಚಿಕ ರಾಶಿ</annotation>
+		<annotation cp="♏" type="tts">ವೃಶ್ಚಿಕ</annotation>
+		<annotation cp="♐">ಧನು | ಧನು ರಾಶಿ | ಬಿಲ್ಲುಗಾರ | ರಾಶಿಚಕ್ರ</annotation>
 		<annotation cp="♐" type="tts">ಧನು</annotation>
-		<annotation cp="♑">ಮಕರ | ರಾಶಿಚಕ್ರ</annotation>
+		<annotation cp="♑">ಮಕರ | ಮಕರ ರಾಶಿ | ಮೇಕೆ | ರಾಶಿಚಕ್ರ</annotation>
 		<annotation cp="♑" type="tts">ಮಕರ</annotation>
-		<annotation cp="♒">ಕುಂಭ | ರಾಶಿಚಕ್ರ</annotation>
+		<annotation cp="♒">ಕುಂಭ | ಕುಂಭ ರಾಶಿ | ಧಾರಕ | ನೀರು | ರಾಶಿಚಕ್ರ</annotation>
 		<annotation cp="♒" type="tts">ಕುಂಭ</annotation>
-		<annotation cp="♓">ಮೀನ | ರಾಶಿಚಕ್ರ</annotation>
+		<annotation cp="♓">ಮೀನ | ಮೀನು | ರಾಶಿಚಕ್ರ</annotation>
 		<annotation cp="♓" type="tts">ಮೀನ</annotation>
-		<annotation cp="⛎">ಆಫ್ಯೂಕಸ್ | ರಾಶಿ</annotation>
+		<annotation cp="⛎">ಆಫ್ಯೂಕಸ್ | ಒಫಿಯುಚಸ್ | ಧಾರಕ | ರಾಶಿಚಕ್ರ | ಸರ್ಪ | ಹಾವು</annotation>
 		<annotation cp="⛎" type="tts">ಆಫ್ಯೂಕಸ್</annotation>
 		<annotation cp="🔀">ಕ್ರಾಸ್ ಮಾಡಿದ ಬಲ ಬಾಣಗಳು | ಕ್ರಾಸ್ ಮಾಡಿದ ಬಾಣಗಳು | ಬಾಣಗಳು | ಶಫಲ್ ಟ್ರ್ಯಾಕ್‌ಗಳ ಬಟನ್</annotation>
 		<annotation cp="🔀" type="tts">ಶಫಲ್ ಟ್ರ್ಯಾಕ್‌ಗಳ ಬಟನ್</annotation>
 		<annotation cp="🔁">ಕ್ಲಾಕ್‌ವೈಸ್ | ಪುನರಾವರ್ತಿತ ಬಟನ್ | ಪ್ರದಕ್ಷಿಣಾಕಾರದ ಬಾಣಗಳು | ಬಾಣಗಳು</annotation>
 		<annotation cp="🔁" type="tts">ಪುನರಾವರ್ತಿತ ಬಟನ್</annotation>
-		<annotation cp="🔂">ಪುನರಾಾವರ್ತಿತ ಒಂದು ಬಟನ್ | ಪ್ರದಕ್ಷಿಣಾಕಾರದ ಬಾಣಗಳು | ಬಾಣಗಳು | ಸಂಖ್ಯೆ 1 | ಸಂಖ್ಯೆಯೊಂದಿಗೆ ಪ್ರದಕ್ಷಣಾಕಾರದ ಬಾಣಗಳು 1. ಪ್ರದಕ್ಷಿಣಾಕಾರ</annotation>
-		<annotation cp="🔂" type="tts">ಪುನರಾಾವರ್ತಿತ ಒಂದು ಬಟನ್</annotation>
-		<annotation cp="▶">ಪ್ಲೇ ಬಟನ್ | ಬಲ ತ್ರಿಕೋನ | ಬಾಣದ ಗುರುತು</annotation>
+		<annotation cp="🔂">ಒಂದೇ ಬಟನ್ ಅನ್ನು ಪುನರಾವರ್ತಿಸಿ | ಒಮ್ಮೆ | ಕ್ಲಾಕ್‌ವೈಸ್ | ಪುನರಾವರ್ತಿತ ಏಕ ಬಟನ್‌ | ಬಾಣ</annotation>
+		<annotation cp="🔂" type="tts">ಪುನರಾವರ್ತಿತ ಏಕ ಬಟನ್‌</annotation>
+		<annotation cp="▶">ತ್ರಿಕೋನ | ಪ್ಲೇ | ಪ್ಲೇ ಬಟನ್ | ಬಲ | ಬಾಣ</annotation>
 		<annotation cp="▶" type="tts">ಪ್ಲೇ ಬಟನ್</annotation>
 		<annotation cp="⏩">ಡಬಲ್ ಬಲ ಬಾಣದ ಗುರುತು | ಫಾಸ್ಟ್ ಫಾರ್ವಡ್ | ಫಾಸ್ಟ್ ಫಾರ್ವಡ್ ಬಟನ್</annotation>
 		<annotation cp="⏩" type="tts">ಫಾಸ್ಟ್ ಫಾರ್ವಡ್ ಬಟನ್</annotation>
@@ -2817,8 +3577,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⏪" type="tts">ಫಾಸ್ಟ್ ರಿವರ್ಸ್ ಬಟನ್</annotation>
 		<annotation cp="⏮">ಎರಡು ತ್ರಿಕೋನ | ಬಾಣದ ಗುರುತು | ಲಾಸ್ಟ್ ಟ್ರ್ಯಾಕ್ ಬಟನ್</annotation>
 		<annotation cp="⏮" type="tts">ಲಾಸ್ಟ್ ಟ್ರ್ಯಾಕ್ ಬಟನ್</annotation>
-		<annotation cp="🔼">ಮೇಲಿನ ತ್ರಿಕೋನ | ಮೇಲಿನ ತ್ರಿಕೋನ ಬಟನ್ | ಮೇಲಿನ ಬಟನ್</annotation>
-		<annotation cp="🔼" type="tts">ಮೇಲಿನ ಬಟನ್</annotation>
+		<annotation cp="🔼">ಅಪ್‌ವರ್ಡ್ಸ್ ಬಟನ್ | ಬಟನ್ | ಬಾಣ</annotation>
+		<annotation cp="🔼" type="tts">ಅಪ್‌ವರ್ಡ್ಸ್ ಬಟನ್</annotation>
 		<annotation cp="⏫">ಎರಡು ಮೇಲಿನ ಬಾಣದ ಗುರುತು | ಫಾಸ್ಟ್ ಮೇಲಿನ ಬಟನ್ | ಮೇಲಿನ ಬಾಣದ ಗುರುತು</annotation>
 		<annotation cp="⏫" type="tts">ಫಾಸ್ಟ್ ಮೇಲಿನ ಬಟನ್</annotation>
 		<annotation cp="🔽">ಕೆಳಗಿನ ತ್ರಿಕೋನ | ಕೆಳಗಿನ ತ್ರಿಕೋನ ಬಟನ್ | ಕೆಳಗಿನ ಬಟನ್</annotation>
@@ -2841,6 +3601,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔆" type="tts">ಹೆಚ್ಚಿನ ಹೊಳಪಿನ ಬಟನ್</annotation>
 		<annotation cp="📶">ಆಂಟೆನಾ ಬಾರ್‌ಗಳು | ಬಾರ್‌ಗಳೊಂದಿಗೆ ಆಂಟೆನಾ | ಮೊಬೈಲ್ ಸಿಗ್ನಲ್‌ಗಳು</annotation>
 		<annotation cp="📶" type="tts">ಆಂಟೆನಾ ಬಾರ್‌ಗಳು</annotation>
+		<annotation cp="🛜">ಅಂತರ್ಜಾಲ | ಕಂಪ್ಯೂಟರ್ | ನೆಟ್‌ವರ್ಕ್ | ವೈರ್‌ಲೆಸ್</annotation>
+		<annotation cp="🛜" type="tts">ವೈರ್‌ಲೆಸ್</annotation>
 		<annotation cp="📳">ಕಂಪನ ಮೋಡ್ | ಮೊಬೈಲ್ | ಸೆಲ್ ಫೋನ್</annotation>
 		<annotation cp="📳" type="tts">ಕಂಪನ ಮೋಡ್</annotation>
 		<annotation cp="📴">ಫೋನ್ ಆಫ್ ಆಗಿದೆ | ಮೊಬೈಲ್ ಫೋನ್‌ ಆಫ್ ಆಗಿದೆ | ಸೆಲ್ ಫೋನ್ ಆಫ್</annotation>
@@ -2849,10 +3611,40 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="♀" type="tts">ಮಹಿಳೆ ಚಿಹ್ನೆ</annotation>
 		<annotation cp="♂">ಗಂಡು | ಪುರುಷ | ಪುರುಷ ಚಿಹ್ನೆ</annotation>
 		<annotation cp="♂" type="tts">ಪುರುಷ ಚಿಹ್ನೆ</annotation>
-		<annotation cp="⚕">ಏಸ್ಕುಲೇಪಿಯಸ್ | ಔಷಧಿ | ವೈದ್ಯಕೀಯ ಚಿಹ್ನೆ | ಸಿಬ್ಬಂದಿ</annotation>
-		<annotation cp="⚕" type="tts">ವೈದ್ಯಕೀಯ ಚಿಹ್ನೆ</annotation>
+		<annotation cp="⚧">ತೃತೀಯ ಲಿಂಗಿ | ತೃತೀಯ ಲಿಂಗಿ ಚಿಹ್ನೆ</annotation>
+		<annotation cp="⚧" type="tts">ತೃತೀಯ ಲಿಂಗಿ ಚಿಹ್ನೆ</annotation>
+		<annotation cp="✖">× | x | ಗುಣಾಕಾರ | ಗುಣಿಸು | ಚಿಹ್ನೆ | ರದ್ದುಮಾಡು</annotation>
+		<annotation cp="✖" type="tts">ಗುಣಾಕಾರ ಚಿಹ್ನೆ</annotation>
+		<annotation cp="➕">+ | ಗಣಿತ | ಚಿಹ್ನೆ | ಸಂಕಲನ</annotation>
+		<annotation cp="➕" type="tts">ಸಂಕಲನ ಚಿಹ್ನೆ</annotation>
+		<annotation cp="➖">- | − | ಗಣಿತ | ಚಿಹ್ನೆ | ವ್ಯವಕಲನ ಚಿಹ್ನೆ</annotation>
+		<annotation cp="➖" type="tts">ವ್ಯವಕಲನ ಚಿಹ್ನೆ</annotation>
+		<annotation cp="➗">÷ | ಗಣಿತ | ಚಿಹ್ನೆ | ಭಾಗಾಕಾರ | ವಿಭಜನೆ ಚಿಹ್ನೆ</annotation>
+		<annotation cp="➗" type="tts">ವಿಭಜನೆ ಚಿಹ್ನೆ</annotation>
+		<annotation cp="🟰">ಗಣಿತ | ದೊಡ್ಡದಾದ ಸಮ ಚಿಹ್ನೆ | ಸಮಾನತೆ</annotation>
+		<annotation cp="🟰" type="tts">ದೊಡ್ಡದಾದ ಸಮ ಚಿಹ್ನೆ</annotation>
 		<annotation cp="♾">ಅಪರಿಮಿತ | ಮಿತಿರಹಿತ | ಶಾಶ್ವತ | ಸಾರ್ವತ್ರಿಕ</annotation>
 		<annotation cp="♾" type="tts">ಅಪರಿಮಿತ</annotation>
+		<annotation cp="‼">! | !! | ಆಶ್ಚರ್ಯಸೂಚಕ | ಎರಡು ಆಶ್ಚರ್ಯಸೂಚಕ ಗುರುತು | ಗುರುತು | ಡಬಲ್ ಆಶ್ಚರ್ಯಸೂಚಕ ಚಿಹ್ನೆ | ಬ್ಯಾಂಗ್‌ಬ್ಯಾಂಗ್</annotation>
+		<annotation cp="‼" type="tts">ಎರಡು ಆಶ್ಚರ್ಯಸೂಚಕ ಗುರುತು</annotation>
+		<annotation cp="⁉">!? | ? | ಆಶ್ಚರ್ಯ ಪ್ರಶ್ನಾರ್ಥಕ ಗುರುತು | ಆಶ್ಚರ್ಯಸೂಚಕ | ಇಂಟರೊಬ್ಯಾಂಗ್ | ಗುರುತು | ಪ್ರಶ್ನೆ | ವಿರಾಮಚಿಹ್ನೆ</annotation>
+		<annotation cp="⁉" type="tts">ಆಶ್ಚರ್ಯ ಪ್ರಶ್ನಾರ್ಥಕ ಗುರುತು</annotation>
+		<annotation cp="❓">? | ಕೆಂಪು ಪ್ರಶ್ನಾರ್ಥಕ ಚಿಹ್ನೆ | ಕೆಂಪು ಬಣ್ಣದ ಪ್ರಶ್ನಾರ್ಥಕ ಚಿಹ್ನೆ | ಗುರುತು | ಪ್ರಶ್ನೆ | ಲೇಖನ ಚಿಹ್ನೆ</annotation>
+		<annotation cp="❓" type="tts">ಕೆಂಪು ಬಣ್ಣದ ಪ್ರಶ್ನಾರ್ಥಕ ಚಿಹ್ನೆ</annotation>
+		<annotation cp="❔">ಪ್ರಶ್ನಾರ್ಥಕ ಚಿಹ್ನೆ | ಪ್ರಶ್ನೆ | ಬಿಳಿ ಪ್ರಶ್ನಾರ್ಥಕ ಗುರುತು</annotation>
+		<annotation cp="❔" type="tts">ಬಿಳಿ ಪ್ರಶ್ನಾರ್ಥಕ ಗುರುತು</annotation>
+		<annotation cp="❕">ಘೋಷಣಾ | ಘೋಷಣಾ ಚಿಹ್ನೆ | ಬಿಳಿ ಆಶ್ಚರ್ಯಸೂಚಕ ಗುರುತು</annotation>
+		<annotation cp="❕" type="tts">ಬಿಳಿ ಆಶ್ಚರ್ಯಸೂಚಕ ಗುರುತು</annotation>
+		<annotation cp="❗">ಆಶ್ಚರ್ಯ ಸೂಚಕ ಚಿಹ್ನೆ | ಆಶ್ಚರ್ಯಸೂಚಕ | ಗುರುತು | ವಿರಾಮ ಚಿಹ್ನೆಗಳು</annotation>
+		<annotation cp="❗" type="tts">ಆಶ್ಚರ್ಯ ಸೂಚಕ ಚಿಹ್ನೆ</annotation>
+		<annotation cp="〰">ಅಲೆ ಅಲೆಯಾದ ಡ್ಯಾಶ್ | ಅಲೆಯಾದ ಡ್ಯಾಶ್ | ದೀರ್ಘವಾದ ಶಬ್ದದ ಗುರುತು</annotation>
+		<annotation cp="〰" type="tts">ಅಲೆಯಾದ ಡ್ಯಾಶ್</annotation>
+		<annotation cp="💱">ಕರೆನ್ಸಿ | ಬ್ಯಾಂಕ್ | ವಿನಿಮಯ | ಹಣ</annotation>
+		<annotation cp="💱" type="tts">ಕರೆನ್ಸಿ ವಿನಿಮಯ</annotation>
+		<annotation cp="💲">ಡಾಲರ್ | ಡಾಲರ್ ಚಿಹ್ನೆ | ದಪ್ಪ ಡಾಲರ್ ಚಿಹ್ನೆ | ಭಾರಿ ಡಾಲರ್ ಚಿಹ್ನೆ | ಹಣ</annotation>
+		<annotation cp="💲" type="tts">ಭಾರಿ ಡಾಲರ್ ಚಿಹ್ನೆ</annotation>
+		<annotation cp="⚕">ಏಸ್ಕುಲೇಪಿಯಸ್ | ಔಷಧಿ | ವೈದ್ಯಕೀಯ ಚಿಹ್ನೆ | ಸಿಬ್ಬಂದಿ</annotation>
+		<annotation cp="⚕" type="tts">ವೈದ್ಯಕೀಯ ಚಿಹ್ನೆ</annotation>
 		<annotation cp="♻">ಮರುಬಳಕೆ | ಮರುಬಳಕೆ ಚಿಹ್ನೆ | ಮರುಬಳಕೆಯ ಚಿಹ್ನೆ</annotation>
 		<annotation cp="♻" type="tts">ಮರುಬಳಕೆಯ ಚಿಹ್ನೆ</annotation>
 		<annotation cp="⚜">ನಾಣ್ಯದ ಲಿಸ್ | ಫ್ಲಿಯರ್-ಡಿ-ಲಿಸ್</annotation>
@@ -2871,18 +3663,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☑" type="tts">ಚೆಕ್‌ನೊಂದಿಗೆ ಚೆಕ್ ಬಾಕ್ಸ್</annotation>
 		<annotation cp="✔">✓ | ಗುರುತು | ಚೆಕ್ ಮಾರ್ಕ್ | ಮಾರ್ಕ್</annotation>
 		<annotation cp="✔" type="tts">ಚೆಕ್ ಮಾರ್ಕ್</annotation>
-		<annotation cp="✖">× | x | ಗುಣಾಕಾರ | ಗುಣಿಸು | ಚಿಹ್ನೆ | ರದ್ದುಮಾಡು</annotation>
-		<annotation cp="✖" type="tts">ಗುಣಾಕಾರ ಚಿಹ್ನೆ</annotation>
 		<annotation cp="❌">x | ಕ್ರಾಸ್ ಮಾರ್ಕ್ | ಗುಣಾಕಾರ | ಗುಣಿಸು</annotation>
 		<annotation cp="❌" type="tts">ಕ್ರಾಸ್ ಮಾರ್ಕ್</annotation>
 		<annotation cp="❎">× | ಕ್ರಾಸ್ ಮಾರ್ಕ್ ಬಟನ್ | ಗುರುತು | ಚೌಕ</annotation>
 		<annotation cp="❎" type="tts">ಕ್ರಾಸ್ ಮಾರ್ಕ್ ಬಟನ್</annotation>
-		<annotation cp="➕">+ | ಗಣಿತ | ಚಿಹ್ನೆ | ಸಂಕಲನ</annotation>
-		<annotation cp="➕" type="tts">ಸಂಕಲನ ಚಿಹ್ನೆ</annotation>
-		<annotation cp="➖">- | − | ಗಣಿತ | ಚಿಹ್ನೆ | ವ್ಯವಕಲನ ಚಿಹ್ನೆ</annotation>
-		<annotation cp="➖" type="tts">ವ್ಯವಕಲನ ಚಿಹ್ನೆ</annotation>
-		<annotation cp="➗">÷ | ಗಣಿತ | ಚಿಹ್ನೆ | ಭಾಗಾಕಾರ | ವಿಭಜನೆ ಚಿಹ್ನೆ</annotation>
-		<annotation cp="➗" type="tts">ವಿಭಜನೆ ಚಿಹ್ನೆ</annotation>
 		<annotation cp="➰">ಆರಂಭಿಕ ಸುರುಳಿ | ತಿರುಗಿಸಿ</annotation>
 		<annotation cp="➰" type="tts">ಆರಂಭಿಕ ಸುರುಳಿ</annotation>
 		<annotation cp="➿">ಎರಡು ಆರಂಭಿಕ ಸುರಳಿ | ಎರಡು ಆರಂಭಿಕ ಸುರುಳಿ | ಸುರಳಿ ಲೂಪ್</annotation>
@@ -2895,20 +3679,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="✴" type="tts">ಎಂಟು ಬಿಂದುಗಳ ನಕ್ಷತ್ರ</annotation>
 		<annotation cp="❇">* | ಸ್ಪಾರ್ಕಲ್</annotation>
 		<annotation cp="❇" type="tts">ಸ್ಪಾರ್ಕಲ್</annotation>
-		<annotation cp="‼">! | !! | ಆಶ್ಚರ್ಯಸೂಚಕ | ಎರಡು ಆಶ್ಚರ್ಯಸೂಚಕ ಗುರುತು | ಗುರುತು | ಡಬಲ್ ಆಶ್ಚರ್ಯಸೂಚಕ ಚಿಹ್ನೆ | ಬ್ಯಾಂಗ್‌ಬ್ಯಾಂಗ್</annotation>
-		<annotation cp="‼" type="tts">ಎರಡು ಆಶ್ಚರ್ಯಸೂಚಕ ಗುರುತು</annotation>
-		<annotation cp="⁉">!? | ? | ಆಶ್ಚರ್ಯ ಪ್ರಶ್ನಾರ್ಥಕ ಗುರುತು | ಆಶ್ಚರ್ಯಸೂಚಕ | ಇಂಟರೊಬ್ಯಾಂಗ್ | ಗುರುತು | ಪ್ರಶ್ನೆ | ವಿರಾಮಚಿಹ್ನೆ</annotation>
-		<annotation cp="⁉" type="tts">ಆಶ್ಚರ್ಯ ಪ್ರಶ್ನಾರ್ಥಕ ಗುರುತು</annotation>
-		<annotation cp="❓">? | ಪ್ರಶ್ನಾರ್ಥಕ ಗುರುತು | ಪ್ರಶ್ನಾರ್ಥಕ ಚಿಹ್ನೆ | ಪ್ರಶ್ನೆ</annotation>
-		<annotation cp="❓" type="tts">ಪ್ರಶ್ನಾರ್ಥಕ ಗುರುತು</annotation>
-		<annotation cp="❔">ಪ್ರಶ್ನಾರ್ಥಕ ಚಿಹ್ನೆ | ಪ್ರಶ್ನೆ | ಬಿಳಿ ಪ್ರಶ್ನಾರ್ಥಕ ಗುರುತು</annotation>
-		<annotation cp="❔" type="tts">ಬಿಳಿ ಪ್ರಶ್ನಾರ್ಥಕ ಗುರುತು</annotation>
-		<annotation cp="❕">ಘೋಷಣಾ | ಘೋಷಣಾ ಚಿಹ್ನೆ | ಬಿಳಿ ಆಶ್ಚರ್ಯಸೂಚಕ ಗುರುತು</annotation>
-		<annotation cp="❕" type="tts">ಬಿಳಿ ಆಶ್ಚರ್ಯಸೂಚಕ ಗುರುತು</annotation>
-		<annotation cp="❗">ಆಶ್ಚರ್ಯ ಸೂಚಕ ಚಿಹ್ನೆ | ಆಶ್ಚರ್ಯಸೂಚಕ | ಗುರುತು | ವಿರಾಮ ಚಿಹ್ನೆಗಳು</annotation>
-		<annotation cp="❗" type="tts">ಆಶ್ಚರ್ಯ ಸೂಚಕ ಚಿಹ್ನೆ</annotation>
-		<annotation cp="〰">ಅಲೆ ಅಲೆಯಾದ ಡ್ಯಾಶ್ | ಅಲೆಯಾದ ಡ್ಯಾಶ್ | ದೀರ್ಘವಾದ ಶಬ್ದದ ಗುರುತು</annotation>
-		<annotation cp="〰" type="tts">ಅಲೆಯಾದ ಡ್ಯಾಶ್</annotation>
 		<annotation cp="©">ಕೃ | ಕೃತಿಸ್ವಾಮ್ಯ | ಕೃತಿಸ್ವಾಮ್ಯ ಚಿಹ್ನೆ</annotation>
 		<annotation cp="©" type="tts">ಕೃತಿಸ್ವಾಮ್ಯ</annotation>
 		<annotation cp="®">ನೋಂದಾಯಿತ | ನೋಂದಾಯಿತ ಚಿಹ್ನೆ</annotation>
@@ -2919,7 +3689,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔠" type="tts">ಇನ್‌ಪುಟ್ ಲ್ಯಾಟಿನ್ ಅಪ್ಪರ್‌ಕೇಸ್</annotation>
 		<annotation cp="🔡">ಇನ್‌ಪುಟ್ | ಇನ್‌‌ಪುಟ್ ಲ್ಯಾಟಿನ್ ಲೋಯರ್‌ಕೇಸ್ | ಎಬಿಸಿಡಿ | ಪತ್ರಗಳು | ಲೋಯರ್‌ಕೇಸ್ | ಲ್ಯಾಟೀನ್</annotation>
 		<annotation cp="🔡" type="tts">ಇನ್‌‌ಪುಟ್ ಲ್ಯಾಟಿನ್ ಲೋಯರ್‌ಕೇಸ್</annotation>
-		<annotation cp="🔢">ಇನ್‌ಪುಟ್ ಸಂಖ್ಯೆಗಳು</annotation>
+		<annotation cp="🔢">1234 | ಇನ್‌ಪುಟ್ ಸಂಖ್ಯೆಗಳು</annotation>
 		<annotation cp="🔢" type="tts">ಇನ್‌ಪುಟ್ ಸಂಖ್ಯೆಗಳು</annotation>
 		<annotation cp="🔣">ಇನ್‌ಪುಟ್ ಚಿಹ್ನೆಗಳು | ಇನ್‌ಪುಟ್ ಸಂಕೇತಗಳು</annotation>
 		<annotation cp="🔣" type="tts">ಇನ್‌ಪುಟ್ ಚಿಹ್ನೆಗಳು</annotation>
@@ -2935,13 +3705,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🆑" type="tts">ಸಿಎಲ್ ಬಟನ್</annotation>
 		<annotation cp="🆒">ಕೂಲ್ | ಕೂಲ್ ಬಟನ್</annotation>
 		<annotation cp="🆒" type="tts">ಕೂಲ್ ಬಟನ್</annotation>
-		<annotation cp="🆓">ಉಚಿತ | ಉಚಿತ ಬಟನ್ | ಚೌಕದ ಉಚಿತ</annotation>
+		<annotation cp="🆓">ಉಚಿತ | ಉಚಿತ ಬಟನ್</annotation>
 		<annotation cp="🆓" type="tts">ಉಚಿತ ಬಟನ್</annotation>
 		<annotation cp="ℹ">ಐ | ಮಾಹಿತಿ</annotation>
 		<annotation cp="ℹ" type="tts">ಮಾಹಿತಿ</annotation>
 		<annotation cp="🆔">ಐಡಿ ಚಿಹ್ನೆ | ಐಡಿ ಬಟನ್ | ಗುರುತಿಸುವಿಕೆ</annotation>
 		<annotation cp="🆔" type="tts">ಐಡಿ ಬಟನ್</annotation>
-		<annotation cp="Ⓜ">ಎಂ | ವೃತ್ತ | ವೃತ್ತಕಾರದ ಎಂ | ವೃತ್ತಕಾರದ ಪತ್ರ</annotation>
+		<annotation cp="Ⓜ">ಎಂ | ವೃತ್ತ | ವೃತ್ತಕಾರದ ಎಂ</annotation>
 		<annotation cp="Ⓜ" type="tts">ವೃತ್ತಕಾರದ ಎಂ</annotation>
 		<annotation cp="🆕">ಹೊಸ | ಹೊಸ ಬಟನ್</annotation>
 		<annotation cp="🆕" type="tts">ಹೊಸ ಬಟನ್</annotation>
@@ -3055,9 +3825,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔻" type="tts">ಕೆಳಗೆ ತೋರಿಸಿದ ಕೆಂಪು ತ್ರಿಕೋನ</annotation>
 		<annotation cp="💠">ಒಂದು ಡಾಟ್ನೊಂದಿಗೆ ವಜ್ರ | ಒಂದು ಬಿಂದುವಿನೊಂದಿಗೆ ವಜ್ರ | ಒಳಗೆ | ಕಾಮಿಕ್ | ಜ್ಯಾಮಿತೀಯ | ವಜ್ರ</annotation>
 		<annotation cp="💠" type="tts">ಒಂದು ಬಿಂದುವಿನೊಂದಿಗೆ ವಜ್ರ</annotation>
-		<annotation cp="🔘">ಜ್ಯಾಮಿತೀಯ | ಬಟನ್ | ರೇಡಿ`ಯೊ`` | ರೇಡಿಯೊ ಬಟನ್</annotation>
+		<annotation cp="🔘">ಜಿಯೋಮೆಟ್ರಿಕ್ | ಬಟನ್ | ರೇಡಿಯೊ ಬಟನ್ | ರೇಡಿಯೋ</annotation>
 		<annotation cp="🔘" type="tts">ರೇಡಿಯೊ ಬಟನ್</annotation>
-		<annotation cp="🔳">ಚೌಕ | ಜ್ಯಾಮಿತೀಯ | ಬಟನ್ | ಬಿಳಿ ಚದರ ಬಟನ್ | ಬಿಳಿ ಚೌಕದ ಬಟನ್ | ವಿವರಣಾತ್ಮಕ</annotation>
+		<annotation cp="🔳">ಔಟ್‌ಲೈನ್ ಇರುವ | ಚೌಕ | ಜಿಯೋಮೆಟ್ರಿಕ್ | ಬಟನ್ | ಬಿಳಿ ಚೌಕದ ಬಟನ್</annotation>
 		<annotation cp="🔳" type="tts">ಬಿಳಿ ಚೌಕದ ಬಟನ್</annotation>
 		<annotation cp="🔲">ಕಪ್ಪು ಚೌಕದ ಬಟನ್ | ಚದರ | ಚದರ ಬಟನ್</annotation>
 		<annotation cp="🔲" type="tts">ಕಪ್ಪು ಚೌಕದ ಬಟನ್</annotation>
@@ -3071,22 +3841,52 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏴" type="tts">ಕಪ್ಪು ಧ್ವಜ</annotation>
 		<annotation cp="🏳">ಬೀಸುವ | ಶ್ವೇತ ಧ್ವಜ</annotation>
 		<annotation cp="🏳" type="tts">ಶ್ವೇತ ಧ್ವಜ</annotation>
-		<annotation cp="🏳‍⚧" draft="provisional">ಟ್ರಾನ್ಸ್ಜೆಂಡರ್ ಧ್ವಜ</annotation>
-		<annotation cp="🏳‍⚧" type="tts" draft="contributed">ಟ್ರಾನ್ಸ್ಜೆಂಡರ್ ಧ್ವಜ</annotation>
 		<annotation cp="🏳‍🌈">ಕಾಮನಬಿಲ್ಲಿನ ಧ್ವಜ | ಕಾಮನಬಿಲ್ಲು | ಧ್ವಜ</annotation>
 		<annotation cp="🏳‍🌈" type="tts">ಕಾಮನಬಿಲ್ಲಿನ ಧ್ವಜ</annotation>
+		<annotation cp="🏳‍⚧">ಟ್ರಾನ್ಸ್‌ಜೆಂಡರ್ ಧ್ವಜ</annotation>
+		<annotation cp="🏳‍⚧" type="tts">ಟ್ರಾನ್ಸ್‌ಜೆಂಡರ್ ಧ್ವಜ</annotation>
 		<annotation cp="🏴‍☠">ಜಾಲಿ ರೋಜರ್ | ದರೋಡೆಕೋರ | ದರೋಡೆಕೋರರ ಧ್ವಜ | ನಿಧಿ | ಲೂಟಿ</annotation>
 		<annotation cp="🏴‍☠" type="tts">ದರೋಡೆಕೋರರ ಧ್ವಜ</annotation>
+		<annotation cp="¢">ಸೆಂಟ್</annotation>
+		<annotation cp="¢" type="tts">ಸೆಂಟ್</annotation>
+		<annotation cp="$">ಡಾಲರ್ | ಪೆಸೋ | ಯುಎಸ್‌ಡಿ | ಹಣ</annotation>
+		<annotation cp="$" type="tts">ಡಾಲರ್</annotation>
 		<annotation cp="£">ಇಜಿಪಿ | ಕರೆನ್ಸಿ | ಜಿಬಿಪಿ | ಪೌಂಡ್‌</annotation>
 		<annotation cp="£" type="tts">ಪೌಂಡ್‌</annotation>
 		<annotation cp="¥">ಕರೆನ್ಸಿ | ಜೆಪಿವೈ | ಯುವಾನ್‌ | ಯೆನ್‌ | ಸಿಎನ್‌ವೈ</annotation>
 		<annotation cp="¥" type="tts">ಯೆನ್‌</annotation>
+		<annotation cp="₢">ಕ್ರುಝೀರೊ</annotation>
+		<annotation cp="₢" type="tts">ಕ್ರುಝೀರೊ</annotation>
+		<annotation cp="₣">ಫ್ರೆಂಚ್ ಫ್ರಾಂಕ್‌</annotation>
+		<annotation cp="₣" type="tts">ಫ್ರೆಂಚ್ ಫ್ರಾಂಕ್‌</annotation>
+		<annotation cp="₤">ಲಿರಾ</annotation>
+		<annotation cp="₤" type="tts">ಲಿರಾ</annotation>
+		<annotation cp="₥">ಮಿಲ್</annotation>
+		<annotation cp="₥" type="tts">ಮಿಲ್</annotation>
+		<annotation cp="₩">KPW | KRW | ವೋನ್</annotation>
+		<annotation cp="₩" type="tts">ವೋನ್</annotation>
 		<annotation cp="€">ಇಯುಆರ್‌ | ಕರೆನ್ಸಿ | ಯೂರೋ</annotation>
 		<annotation cp="€" type="tts">ಯೂರೋ</annotation>
+		<annotation cp="₰">ಜರ್ಮನ್‌ ಪೆನ್ನಿ</annotation>
+		<annotation cp="₰" type="tts">ಜರ್ಮನ್‌ ಪೆನ್ನಿ</annotation>
+		<annotation cp="₱">ಪೆಸೋ</annotation>
+		<annotation cp="₱" type="tts">ಪೆಸೋ</annotation>
+		<annotation cp="₳">ಆಸ್ಟ್ರಲ್‌</annotation>
+		<annotation cp="₳" type="tts">ಆಸ್ಟ್ರಲ್‌</annotation>
+		<annotation cp="₶">ಲೈವ್ ಟರ್ನಾಯ್ಸ್‌</annotation>
+		<annotation cp="₶" type="tts">ಲೈವ್ ಟರ್ನಾಯ್ಸ್‌</annotation>
+		<annotation cp="₷">ಸ್ಪೆಸ್ಮಿಲೋ</annotation>
+		<annotation cp="₷" type="tts">ಸ್ಪೆಸ್ಮಿಲೋ</annotation>
 		<annotation cp="₹">ಕರೆನ್ಸಿ | ಭಾರತೀಯ ರೂಪಾಯಿ | ರುಪೀ</annotation>
 		<annotation cp="₹" type="tts">ಭಾರತೀಯ ರೂಪಾಯಿ</annotation>
 		<annotation cp="₽">ಕರೆನ್ಸಿ | ರಬಲ್‌</annotation>
 		<annotation cp="₽" type="tts">ರಬಲ್‌</annotation>
+		<annotation cp="₿">ಬಿಟಿಸಿ | ಬಿಟ್‌ಕಾಯಿನ್‌</annotation>
+		<annotation cp="₿" type="tts">ಬಿಟ್‌ಕಾಯಿನ್‌</annotation>
+		<annotation cp="₨">ರುಪೀ</annotation>
+		<annotation cp="₨" type="tts">ರುಪೀ</annotation>
+		<annotation cp="﷼">ರಿಯಾಲ್</annotation>
+		<annotation cp="﷼" type="tts">ರಿಯಾಲ್</annotation>
 		<annotation cp="¹">ಒಂದು | ಘಾತ</annotation>
 		<annotation cp="¹" type="tts">ಘಾತ ಒಂದು</annotation>
 		<annotation cp="²">ಎರಡು | ಘಾತ | ವರ್ಗ</annotation>

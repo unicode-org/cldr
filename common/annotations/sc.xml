@@ -1,0 +1,2251 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2023 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+SPDX-License-Identifier: Unicode-DFS-2016
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="sc"/>
+	</identity>
+	<annotations>
+		<annotation cp="🏻">colore de sa pedde | pedde crara | pedde de colore craru | tonalidade</annotation>
+		<annotation cp="🏻" type="tts">pedde crara</annotation>
+		<annotation cp="🏼">colore de sa pedde | pedde bastante crara | pedde crara bastante | pedde de colore bastante craru | tonalidade</annotation>
+		<annotation cp="🏼" type="tts">pedde bastante crara</annotation>
+		<annotation cp="🏽">colore de sa pedde | pedde de colore mèdiu | pedde de colore mesanu | pedde in colore de olia | tonalidade</annotation>
+		<annotation cp="🏽" type="tts">pedde de colore mèdiu</annotation>
+		<annotation cp="🏾">colore de sa pedde | pedde bastante iscura | pedde iscura bastante | tonalidade</annotation>
+		<annotation cp="🏾" type="tts">pedde bastante iscura</annotation>
+		<annotation cp="🏿">colore de sa pedde | pedde de colore iscuru | pedde iscura | tonalidade</annotation>
+		<annotation cp="🏿" type="tts">pedde iscura</annotation>
+		<annotation cp="←">fritza | fritza a manca | fritza cara a manca | fritza conca a manca | manca</annotation>
+		<annotation cp="←" type="tts">fritza conca a manca</annotation>
+		<annotation cp="→">dereta | destra | fritza | fritza a destra | fritza cara a dereta | fritza cara a destra | fritza conca a dereta | fritza conca a destra</annotation>
+		<annotation cp="→" type="tts">fritza conca a dereta</annotation>
+		<annotation cp="↑">artu | fritza | fritza a susu | fritza cara a artu | fritza cara a susu | fritza conca a artu | fritza conca a susu | susu</annotation>
+		<annotation cp="↑" type="tts">fritza conca a susu</annotation>
+		<annotation cp="↓">bassu | fritza | fritza a giosso | fritza cara a bassu | fritza cara a giosso | fritza conca a bassu | fritza conca a giosso | giosso</annotation>
+		<annotation cp="↓" type="tts">fritza conca a giosso</annotation>
+		<annotation cp="⇅">artu | bassu | fritza | fritzas cara a artu e cara a bassu | fritzas cara a susu e cara a giosso | fritzas conca a artu e conca a bassu | fritzas conca a susu e conca a giosso | giosso | susu</annotation>
+		<annotation cp="⇅" type="tts">fritzas cara a susu e cara a giosso</annotation>
+		<annotation cp="⇆">fritza a manca subra una fritza a dereta | fritza a manca subra una fritza a destra | fritza cara a manca subra de una fritza cara a destra | fritza conca a manca subra de una fritza conca a dereta</annotation>
+		<annotation cp="⇆" type="tts">fritza a manca subra una fritza a destra</annotation>
+		<annotation cp="∆">acreschimentu | aumentu | crèschida | creschina | delta | triàngulu</annotation>
+		<annotation cp="∆" type="tts">creschina</annotation>
+		<annotation cp="∇">delta a s’imbesse | delta furriadu | nabla | triàngulu</annotation>
+		<annotation cp="∇" type="tts">nabla</annotation>
+		<annotation cp="∈">cuntenet | elementu | elementu de | faghet parte de | grupu | insieme</annotation>
+		<annotation cp="∈" type="tts">elementu de</annotation>
+		<annotation cp="÷">divisione | obelu | partzidura | signu de divisione | signu de partzidua | sinnu de divisione | sinnu de partzidura</annotation>
+		<annotation cp="÷" type="tts">sinnu de divisione</annotation>
+		<annotation cp="×">bortas | multiplicatzione | pro | signu de multiplicatzione | sinnu de multiplicatzione</annotation>
+		<annotation cp="×" type="tts">sinnu de multiplicatzione</annotation>
+		<annotation cp="¬">negatzione | nono</annotation>
+		<annotation cp="¬" type="tts">negatzione</annotation>
+		<annotation cp="|">istanga | istanga verticale | lìnia verticale | tratigheddu verticale</annotation>
+		<annotation cp="|" type="tts">lìnia verticale</annotation>
+		<annotation cp="~">tilde</annotation>
+		<annotation cp="~" type="tts">tilde</annotation>
+		<annotation cp="⁻">àpitze | ismanchiamentu | mancu | signu de mancu in àpitze | sinnu de mancu in àpitze</annotation>
+		<annotation cp="⁻" type="tts">sinnu de mancu in àpitze</annotation>
+		<annotation cp="√">nùmeru irratzionale | radicale | raighina | raighina cuadrada</annotation>
+		<annotation cp="√" type="tts">raighina cuadrada</annotation>
+		<annotation cp="∞">infinidu | signu de s’infinidu | sinnu de s’infinidu</annotation>
+		<annotation cp="∞" type="tts">sinnu de s’infinidu</annotation>
+		<annotation cp="≡">che pare | cointzidèntzia | esatu | idènticu | idènticu a | totunu</annotation>
+		<annotation cp="≡" type="tts">idènticu a</annotation>
+		<annotation cp="≥">no uguale | prus mannu | prus mannu o uguale | uguale</annotation>
+		<annotation cp="≥" type="tts">prus mannu o uguale</annotation>
+		<annotation cp="▲">artu | fritza | susu | triàngulu | triàngulu prenu | triàngulu prenu chi puntat a artu | triàngulu prenu punta a susu | trìàngulu prenu punta a susu</annotation>
+		<annotation cp="▲" type="tts">trìàngulu prenu punta a susu</annotation>
+		<annotation cp="▼">bassu | fritza | giosso | triàngulu | triàngulu prenu | triàngulu prenu chi puntat a bassu | triàngulu prenu punta a giosso | trìàngulu prenu punta a giosso</annotation>
+		<annotation cp="▼" type="tts">trìàngulu prenu punta a giosso</annotation>
+		<annotation cp="◊">diamante | losanga | rombu</annotation>
+		<annotation cp="◊" type="tts">rombu</annotation>
+		<annotation cp="○">aneddu | chircu | chircu bòidu</annotation>
+		<annotation cp="○" type="tts">chircu bòidu</annotation>
+		<annotation cp="●">chircu | chircu prenu</annotation>
+		<annotation cp="●" type="tts">chircu prenu</annotation>
+		<annotation cp="◯">aneddu | chircu | chircu bòidu mannu</annotation>
+		<annotation cp="◯" type="tts">chircu bòidu mannu</annotation>
+		<annotation cp="😀">aberta | buca | buca risulana | cara | cara risulana | fatze | iscantzada | iscantzende | risu | risulanu</annotation>
+		<annotation cp="😀" type="tts">cara risulana</annotation>
+		<annotation cp="😃">aberta | buca | buca risulana | cara | cara cun ogros ispamparriados | cara cun ogros mannos | cara risulana cun ogros ispamparriados | fatze | iscantzada | iscantzende | ispamparriados | risu | risulanu</annotation>
+		<annotation cp="😃" type="tts">cara risulana cun ogros ispamparriados</annotation>
+		<annotation cp="😄">aberta | buca | buca risulana | cara | cara cun ogros chi rident | cara cun ogros risulanos | cara risulana cun sos ogros chi rident | fatze | iscantzada | iscantzende | risu | risulanu</annotation>
+		<annotation cp="😄" type="tts">cara risulana cun sos ogros chi rident</annotation>
+		<annotation cp="😁">cara | cara alligra cun ogros risulanos | fatze | ogros risulanos | risitu | risu | sorrisu</annotation>
+		<annotation cp="😁" type="tts">cara alligra cun ogros risulanos</annotation>
+		<annotation cp="😆">buca | cara | cara risulana cun ogros serrados | fatze | risu | risulana | risulanu</annotation>
+		<annotation cp="😆" type="tts">cara risulana cun ogros serrados</annotation>
+		<annotation cp="😅">cara | cara risulana cun gùtiu de suore | fatze | risu | risulanu | sorrisu | suore | suore fritu</annotation>
+		<annotation cp="😅" type="tts">cara risulana cun gùtiu de suore</annotation>
+		<annotation cp="🤣">cara | fatze | iscracàllios | riende | riende a iscracàllios | risu</annotation>
+		<annotation cp="🤣" type="tts">riende a iscracàllios</annotation>
+		<annotation cp="😂">cara | cara cun làgrimas dae su risu | cara cun làgrimas de cuntentesa | cuntentesa | fatze | làgrimas | riende | risu</annotation>
+		<annotation cp="😂" type="tts">cara cun làgrimas de cuntentesa</annotation>
+		<annotation cp="🙂">cara | cara cun sorrisu atzinnadu | fatze | risitu | sorrisu | sorrisu atzinnadu</annotation>
+		<annotation cp="🙂" type="tts">cara cun sorrisu atzinnadu</annotation>
+		<annotation cp="🙃">cara | cara a conca a giosso | cara a giosso | conca a giosso | fatze</annotation>
+		<annotation cp="🙃" type="tts">cara a conca a giosso</annotation>
+		<annotation cp="🫠">cara | fatze | isorta | isortu | isorvende·si | lìcuida | lìcuidu</annotation>
+		<annotation cp="🫠" type="tts">cara isorvende·si</annotation>
+		<annotation cp="😉">atzinnare | atzinnu | cara | cara chi faghet s’atzinnu | cara chi faghet s’ogritu | cara chi faghet un’ogritu | fatze | ogritu | tzinnire</annotation>
+		<annotation cp="😉" type="tts">cara chi faghet s’atzinnu</annotation>
+		<annotation cp="😊">arrubiada | arrubiadu | arrubiare | cara | cara risulana cun ogros risulanos | cuntenta | cuntentu | fatze | risulana | risulanu | sorrisu</annotation>
+		<annotation cp="😊" type="tts">cara risulana cun ogros risulanos</annotation>
+		<annotation cp="😇">ànghelu | cara | cara risulana cun chìrchinu | chìrchinu | fantasia | fatze | innotzente | risitu | risu | risulana | risulanu | sorrisu</annotation>
+		<annotation cp="😇" type="tts">cara risulana cun chìrchinu</annotation>
+		<annotation cp="😶‍🌫">cara | cara in is nues | cara in sa nèula | cara in sas nues | conca in sa nèula | conca in sas nues | fatze | fatze in is nues | fatze in sas nues | isagherada | isagheradu | isbeliada | isbeliadu</annotation>
+		<annotation cp="😶‍🌫" type="tts">cara in sas nues</annotation>
+		<annotation cp="🙄">apurada | apuradu | cara | cara cun ogros a chelu | cara cun ogros revessos | fatze | ogros | ogros a chelu | ogros revessos</annotation>
+		<annotation cp="🙄" type="tts">cara cun ogros a chelu</annotation>
+		<annotation cp="🤥">cara | cara de faulàrgiu | fatze | fàula | faulàrgiu | nasu longu | pinocchio | pinòchiu</annotation>
+		<annotation cp="🤥" type="tts">cara de faulàrgiu</annotation>
+		<annotation cp="😡">arrennegada | arrennegadu | arrennegu | cara | fatze | fùria | furiosa | furiosu | inchieta | inchietu | infrascada | infrascadu | pirmada | pirmadu | ruja | ruju</annotation>
+		<annotation cp="😡" type="tts">cara inchieta</annotation>
+		<annotation cp="😠">arrennegada | arrennegadu | arrennegu | cara | fatze | fùria | furiosa | furiosu | inchieta | inchietu | infrascada | infrascadu | pirmada | pirmadu | ruja | ruju</annotation>
+		<annotation cp="😠" type="tts">cara arrennegada</annotation>
+		<annotation cp="🤬">arrennegada | arrennegadu | cara cun sìmbulos subra de sa buca | frastimare | frastimos | inchieta | inchietu | irrocare | irrocos</annotation>
+		<annotation cp="🤬" type="tts">cara cun sìmbulos subra de sa buca</annotation>
+		<annotation cp="😈">cara | cara risulana cun corros | corros | diauleddu | diàulu | dimonieddu | dimòniu | fantasia | fatze | iscantzada | risitu | risu | risulana | risulanu | sorrisu</annotation>
+		<annotation cp="😈" type="tts">cara risulana cun corros</annotation>
+		<annotation cp="👿">cara | cara arrennegada cun corros | cara inchieta cun corros | diauleddu | diàulu | dimonieddu | dimòniu | fantasia | fatze</annotation>
+		<annotation cp="👿" type="tts">cara inchieta cun corros</annotation>
+		<annotation cp="💀">cabitza de mortu | calavera | cara | cherbeddera | conca de mortu | concale de mortu | concorròcia | fatze | morte | mostru | paristòria</annotation>
+		<annotation cp="💀" type="tts">calavera</annotation>
+		<annotation cp="☠">abitza de mortu | calavera | calavera cun ossos rugrados | cara | cherbeddera | conca de mortu | concale de mortu | concorròcia | fatze | morte | mostru | ossos rugrados</annotation>
+		<annotation cp="☠" type="tts">calavera cun ossos rugrados</annotation>
+		<annotation cp="💩">cara | cascasina | chechei | fatze | merda | muntone de merda | muntoneddu de merda</annotation>
+		<annotation cp="💩" type="tts">muntoneddu de merda</annotation>
+		<annotation cp="🤡">cara | cara de palliatzu | fatze | fatze de palliatzu | palliatzu</annotation>
+		<annotation cp="🤡" type="tts">cara de palliatzu</annotation>
+		<annotation cp="👹">babborcu | cara | creatura | fantasia | fatze | oni | orcu | orcu giaponesu | paristòria | tziorcu</annotation>
+		<annotation cp="👹" type="tts">orcu</annotation>
+		<annotation cp="👺">cara | creatura | fantasia | fatze | mostru | mostru giaponesu | paristòria | tengu | tengu giaponesu</annotation>
+		<annotation cp="👺" type="tts">tengu giaponesu</annotation>
+		<annotation cp="👻">cara | creatura | fantasia | fatze | mostru | pantasma | paristòria</annotation>
+		<annotation cp="👻" type="tts">pantasma</annotation>
+		<annotation cp="👽">alienu | cara | creatura | extraterrestre | fatze | ufo</annotation>
+		<annotation cp="👽" type="tts">alienu</annotation>
+		<annotation cp="👾">alienu | cara | creatura | extraterrestre | fatze | mostru | ufo</annotation>
+		<annotation cp="👾" type="tts">mostru alienu</annotation>
+		<annotation cp="🤖">cara | fatze | mostru | robot</annotation>
+		<annotation cp="🤖" type="tts">robot</annotation>
+		<annotation cp="😺">aberta | buca | buca risulana | cara | gatu | iscantzada | iscantzende | pisitu | risu | risulanu</annotation>
+		<annotation cp="😺" type="tts">gatu risulanu</annotation>
+		<annotation cp="😸">aberta | buca | buca risulana | cara | gatu | gatu cun ogros chi rident | gatu cun ogros risulanos | gatu risulanu cun sos ogros chi rident | iscantzada | iscantzende | pisitu | risu | risulanu</annotation>
+		<annotation cp="😸" type="tts">gatu risulanu cun sos ogros chi rident</annotation>
+		<annotation cp="😹">cara | cuntentesa | gatu | gatu cun làgrimas de cuntentesa | làgrimas | pisitu</annotation>
+		<annotation cp="😹" type="tts">gatu cun làgrimas de cuntentesa</annotation>
+		<annotation cp="😻">amore | cara | coro | gatu | gatu risulanu cun ogros a forma de coro | ogros | ogru | pisitu | risitu | risulanu</annotation>
+		<annotation cp="😻" type="tts">gatu risulanu cun ogros a forma de coro</annotation>
+		<annotation cp="😼">befulanu | cara | gatu | irònicu | pisitu | risitu</annotation>
+		<annotation cp="😼" type="tts">gatu befulanu</annotation>
+		<annotation cp="😽">basu | cara | gatu | gatu chi mandat basos | ogros serrados | pisitu</annotation>
+		<annotation cp="😽" type="tts">gatu chi mandat basos</annotation>
+		<annotation cp="🙀">assustadu | cara | gatu | ispantadu | ispramadu | istasidu | istracu | oh | pisitu</annotation>
+		<annotation cp="🙀" type="tts">gatu istasidu</annotation>
+		<annotation cp="😿">cara | gatu | gatu chi pranghet | làgrimas | pisitu | pranghende | prànghere | tristu</annotation>
+		<annotation cp="😿" type="tts">gatu chi pranghet</annotation>
+		<annotation cp="😾">abbuddadu | ammurrionadu | cara | gatu | gatu a murru longu | inchighiristadu | murrilongu | murrione | murru longu | mutriosu | mutzighiladu | neghidadu</annotation>
+		<annotation cp="😾" type="tts">gatu a murru longu</annotation>
+		<annotation cp="🙈">bidere | cara | mala | male | malu | manos in ogros | martinica | martinica chi non bidet su male | muninca | muninca chi non bidet su male | muninca covechende·si sos ogros | non bido | ogros | ogros covecados</annotation>
+		<annotation cp="🙈" type="tts">muninca chi non bidet su male</annotation>
+		<annotation cp="🙉">cara | intendere | mala | male | malu | manos in sas origras | martinica | martinica chi no intendet su male | muninca | muninca chi no intendet su male | muninca covechende·si sas origras | no intendo | no iscurto | origras | origras covecadas</annotation>
+		<annotation cp="🙉" type="tts">muninca chi no intendet su male</annotation>
+		<annotation cp="🙊">buca | cara | covechende·si sa buca | mala | male | malu | manos in buca | martinica | martinica chi non narat cosa mala | muninca | muninca a manos in buca | muninca chi non narat cosa mala | muninca covechende·si sa buca | non faeddo | non naro</annotation>
+		<annotation cp="🙊" type="tts">muninca chi non narat cosa mala</annotation>
+		<annotation cp="💌">amore | coro | lìtera | lìtera de amore | posta</annotation>
+		<annotation cp="💌" type="tts">lìtera de amore</annotation>
+		<annotation cp="💘">amore | coro | coro cun fritza | cupidu | emotzione | fritza | innamoramentu | istima</annotation>
+		<annotation cp="💘" type="tts">coro cun fritza</annotation>
+		<annotation cp="💝">bita | coro | coro cun listrone | emotzione | feta | filiocu | fresu | listrone | nastru | Santu Valentinu</annotation>
+		<annotation cp="💝" type="tts">coro cun listrone</annotation>
+		<annotation cp="💖">birbilliada | birbilliadu | coro | coro brillende | coro chi brillat | emotzione</annotation>
+		<annotation cp="💖" type="tts">coro brillende</annotation>
+		<annotation cp="💗">birbilliada | birbilliadu | coro | coro chi creschet | coro chi s’ismànniat | coro creschende | coro ismanniende·si | emotzione</annotation>
+		<annotation cp="💗" type="tts">coro creschende</annotation>
+		<annotation cp="💓">coro | coro tocheddende | emotzione | tocheddos | tocheddos de su coro | tocheddu</annotation>
+		<annotation cp="💓" type="tts">coro tocheddende</annotation>
+		<annotation cp="💞">coro | coros | coros chi girant | coros girende</annotation>
+		<annotation cp="💞" type="tts">coros girende</annotation>
+		<annotation cp="💕">amore | duos coros | istima</annotation>
+		<annotation cp="💕" type="tts">duos coros</annotation>
+		<annotation cp="💟">coro | decoratzione a coro | decoratzione a forma de coro</annotation>
+		<annotation cp="💟" type="tts">decoratzione a forma de coro</annotation>
+		<annotation cp="❣">coro | esclamativu | esclamatzione | puntegiadura | puntu esclamativu a forma de coro</annotation>
+		<annotation cp="❣" type="tts">coro esclamativu</annotation>
+		<annotation cp="💔">coro | emotzione | segadu</annotation>
+		<annotation cp="💔" type="tts">coro segadu</annotation>
+		<annotation cp="❤‍🔥">amore | coro | coro brusiende | coro in framas | coro sacru | coro sagradu | emotzione | istima | lussùria | passione</annotation>
+		<annotation cp="❤‍🔥" type="tts">coro brusiende</annotation>
+		<annotation cp="❤‍🩹">coro | megiorende | recuperende | sanende</annotation>
+		<annotation cp="❤‍🩹" type="tts">coro sanende</annotation>
+		<annotation cp="❤">arrùbiu | coro | emotzione | ruju</annotation>
+		<annotation cp="❤" type="tts">coro ruju</annotation>
+		<annotation cp="🩷">amore | belledda | belleddu | bellighedda | belligheddu | coro | emotzione | istima | rosa</annotation>
+		<annotation cp="🩷" type="tts">coro rosa</annotation>
+		<annotation cp="🧡">arantzu | coro | emotzione</annotation>
+		<annotation cp="🧡" type="tts">coro arantzu</annotation>
+		<annotation cp="💛">coro | emotzione | grogu</annotation>
+		<annotation cp="💛" type="tts">coro grogu</annotation>
+		<annotation cp="💚">birde | coro | emotzione</annotation>
+		<annotation cp="💚" type="tts">coro birde</annotation>
+		<annotation cp="💙">asulu | biaitu | coro | emotzione</annotation>
+		<annotation cp="💙" type="tts">coro biaitu</annotation>
+		<annotation cp="🩵">asulu | biaitu | birde abba | cianu | coro | emotzione | turchesu</annotation>
+		<annotation cp="🩵" type="tts">coro asulu</annotation>
+		<annotation cp="💜">coro | emotzione | pùrpura | tanadu</annotation>
+		<annotation cp="💜" type="tts">coro tanadu</annotation>
+		<annotation cp="🤎">baju | castàngiu | coro | emotzione</annotation>
+		<annotation cp="🤎" type="tts">coro castàngiu</annotation>
+		<annotation cp="🖤">coro | dolore | nieddu | tristura</annotation>
+		<annotation cp="🖤" type="tts">coro nieddu</annotation>
+		<annotation cp="🩶">bizarra | coro | murru | pedrabbàina | pisarra | prata</annotation>
+		<annotation cp="🩶" type="tts">coro murru</annotation>
+		<annotation cp="🤍">arbu | biancu | coro | emotzione</annotation>
+		<annotation cp="🤍" type="tts">coro biancu</annotation>
+		<annotation cp="💋">arrubieddu | basu | belletu | lavras | marcu de basu | russetu | sinnu de basu</annotation>
+		<annotation cp="💋" type="tts">sinnu de basu</annotation>
+		<annotation cp="💯">100 | puntègiu prenu | puntos</annotation>
+		<annotation cp="💯" type="tts">100 puntos</annotation>
+		<annotation cp="💢">arrennegu | collobbiada | crepe | fele | fumetos | inchietesa | rajolu | renigna | sìmbulu de s’arrennegu</annotation>
+		<annotation cp="💢" type="tts">sìmbulu de s’arrennegu</annotation>
+		<annotation cp="💥">atopada | atumbada | atumbadura | atumbu | atupada | esplosione | fumetos | fumetu | imberta | impèllida | iscuta a pare | istumbada | istumborada | tambadura</annotation>
+		<annotation cp="💥" type="tts">istumbada</annotation>
+		<annotation cp="💫">abbabbalocada | abbabbalocadu | allochiada | allochiadu | atontada | atontadu | fumetos | fumetu | incadumada | incadumadu | istedda cun coa | isteddu cun coa | istella cun coa | istontonada | istontonadu</annotation>
+		<annotation cp="💫" type="tts">isteddu cun coa</annotation>
+		<annotation cp="💦">emotzione | fumetos | fumetu | gùtios de sudore | sudada | sudadu | sudore</annotation>
+		<annotation cp="💦" type="tts">gùtios de sudore</annotation>
+		<annotation cp="💨">cùrrere | fuida lestra | fuire | fumetos | fumetu | nue de proine | nue de prùere</annotation>
+		<annotation cp="💨" type="tts">fuida lestra</annotation>
+		<annotation cp="🕳">istampu</annotation>
+		<annotation cp="🕳" type="tts">istampu</annotation>
+		<annotation cp="💬">diàlogu | fumetos | fumetu | nuedda | nuedda de diàlogu | nuedda de testu | testu</annotation>
+		<annotation cp="💬" type="tts">nuedda</annotation>
+		<annotation cp="👁‍🗨">diàlogu | fumetos | fumetu | nuedda | nuedda de diàlogu | nuedda de testu | ogru | ogru in una nuedda | testimòngia | testimòngiu | testu</annotation>
+		<annotation cp="👁‍🗨" type="tts">ogru in una nuedda</annotation>
+		<annotation cp="🗨">diàlogu | fumetos | fumetu | nuedda | nuedda de diàlogu | nuedda de diàlogu a manca | nuedda de diàlogu a manu manca | nuedda de testu | testu | testu a manca | testu a manu manca</annotation>
+		<annotation cp="🗨" type="tts">nuedda de diàlogu a manca</annotation>
+		<annotation cp="🗯">diàlogu | fumetos | fumetu | nuedda | nuedda de diàlogu a manu dereta | nuedda de diàlogu a manu destra | nuedda de diàlogu arrennegadu | nuedda de diàlogu arrennegadu a destra | nuedda de diàlogu inchietu | nuedda de diàlogu inchietu a destra | nuedda de testu | testu | testu a destra | testu a manu dereta</annotation>
+		<annotation cp="🗯" type="tts">nuedda de diàlogu inchietu a destra</annotation>
+		<annotation cp="💭">fumetos | fumetu | nuedda | nuedda de pensamentu | pensamentu</annotation>
+		<annotation cp="💭" type="tts">nuedda de pensamentu</annotation>
+		<annotation cp="💤">corroschiare | cosconare | currungiare | forroschiare | fumetos | fumetu | roncare | roschidare | ruschidare | sonnu | sorroscrare | Zzz</annotation>
+		<annotation cp="💤" type="tts">Zzz</annotation>
+		<annotation cp="🦵">anca | cadrigulada | carche | carcheddu | càrchida | càrchide | càrchidu | fichida de pee | isticada de pee | mermu | peada | pee | punta de pee</annotation>
+		<annotation cp="🦵" type="tts">anca</annotation>
+		<annotation cp="🦶">cadrigulada | carche | carcheddu | càrchida | càrchide | càrchidu | fichida de pee | isticada de pee | peada | pee | pistada | punta de pee</annotation>
+		<annotation cp="🦶" type="tts">pee</annotation>
+		<annotation cp="👂">corpus | origra</annotation>
+		<annotation cp="👂" type="tts">origra</annotation>
+		<annotation cp="👃">corpus | nasu</annotation>
+		<annotation cp="👃" type="tts">nasu</annotation>
+		<annotation cp="🧠">abbistu | cherbeddu | inteligente</annotation>
+		<annotation cp="🧠" type="tts">cherbeddu</annotation>
+		<annotation cp="🫀">anatòmicu | cardiologia | coro | òrganu | tocheddos | tocheddu</annotation>
+		<annotation cp="🫀" type="tts">coro anatòmicu</annotation>
+		<annotation cp="🫁">alentu | alenu | àlidu | alore | espiratzione | fiadu | inspiratzione | òrganu | purmones | respiratzione | respiru</annotation>
+		<annotation cp="🫁" type="tts">purmones</annotation>
+		<annotation cp="🦷">dente | dentista</annotation>
+		<annotation cp="🦷" type="tts">dente</annotation>
+		<annotation cp="🦴">ischèletru | ossu</annotation>
+		<annotation cp="🦴" type="tts">ossu</annotation>
+		<annotation cp="👀">cara | fatze | ogros | ogru</annotation>
+		<annotation cp="👀" type="tts">ogros</annotation>
+		<annotation cp="👁">corpus | ogru</annotation>
+		<annotation cp="👁" type="tts">ogru</annotation>
+		<annotation cp="👅">corpus | limba</annotation>
+		<annotation cp="👅" type="tts">limba</annotation>
+		<annotation cp="👄">buca | lavras</annotation>
+		<annotation cp="👄" type="tts">buca</annotation>
+		<annotation cp="🫦">amorare | anneu | buca chi mòssigat is lavras | buca chi mòssigat sas lavras | diosare | indiosare | oriolada | orioladu | oriolu | pensamentosa | pensamentosu | pensamentu | timoria</annotation>
+		<annotation cp="🫦" type="tts">buca chi mòssigat sas lavras</annotation>
+		<annotation cp="👶">creadura | cria | criatolu | criatone | criu | giòvana | giòvanu | pipia | pipiu | pitzinnedda | pitzinneddu</annotation>
+		<annotation cp="👶" type="tts">creadura</annotation>
+		<annotation cp="🧒">giòvana | giòvanu | pisedda | piseddu | pitzinna | pitzinnedda | pitzinneddu | pitzinnu | pitzoca | pitzochedda | pitzocheddu | pitzocu</annotation>
+		<annotation cp="🧒" type="tts">pitzinneddu</annotation>
+		<annotation cp="👦">giòvanu | pitzinnu | pitzocu</annotation>
+		<annotation cp="👦" type="tts">pitzinnu</annotation>
+		<annotation cp="👧">giòvana | pitzinna | pitzoca | vìrgine | zodìacu</annotation>
+		<annotation cp="👧" type="tts">pitzinna</annotation>
+		<annotation cp="🧑">adulta | adultu | manna | mannu | persone</annotation>
+		<annotation cp="🧑" type="tts">persone</annotation>
+		<annotation cp="👱">brunda | brundu | persone brunda | pilos brundos</annotation>
+		<annotation cp="👱" type="tts">persone brunda</annotation>
+		<annotation cp="👨">adultu | mannu | òmine</annotation>
+		<annotation cp="👨" type="tts">òmine</annotation>
+		<annotation cp="🧔">barba | persone barbuda</annotation>
+		<annotation cp="🧔" type="tts">persone barbuda</annotation>
+		<annotation cp="🧔‍♂">barba | òmine | òmine barbudu</annotation>
+		<annotation cp="🧔‍♂" type="tts">òmine barbudu</annotation>
+		<annotation cp="👱‍♂">brundu | òmine | pilos brundos</annotation>
+		<annotation cp="👱‍♂" type="tts">òmine brundu</annotation>
+		<annotation cp="👩">adulta | fèmina | manna</annotation>
+		<annotation cp="👩" type="tts">fèmina</annotation>
+		<annotation cp="🧔‍♀">barba | fèmina | fèmina barbuda</annotation>
+		<annotation cp="🧔‍♀" type="tts">fèmina barbuda</annotation>
+		<annotation cp="👱‍♀">brunda | fèmina | pilos brundos</annotation>
+		<annotation cp="👱‍♀" type="tts">fèmina brunda</annotation>
+		<annotation cp="🧓">adulta | adultu | antziana | antzianu | betza | betzu | manna | mannu | persone antziana</annotation>
+		<annotation cp="🧓" type="tts">persone antziana</annotation>
+		<annotation cp="👴">adultu | antzianu | betzu | mannu | òmine</annotation>
+		<annotation cp="👴" type="tts">òmine antzianu</annotation>
+		<annotation cp="👵">adulta | antziana | betza | fèmina | manna</annotation>
+		<annotation cp="👵" type="tts">fèmina antziana</annotation>
+		<annotation cp="🤴">prìntzipe</annotation>
+		<annotation cp="🤴" type="tts">prìntzipe</annotation>
+		<annotation cp="👸">fantasia | paristòria | printzesa | printzipessa</annotation>
+		<annotation cp="👸" type="tts">printzesa</annotation>
+		<annotation cp="🤰">fèmina | prìngia</annotation>
+		<annotation cp="🤰" type="tts">fèmina prìngia</annotation>
+		<annotation cp="👼">angheleddu</annotation>
+		<annotation cp="👼" type="tts">angheleddu</annotation>
+		<annotation cp="🦸">bona | bonu | eroe | eroina | supereroe | supereroina | superpodere</annotation>
+		<annotation cp="🦸" type="tts">supereroe</annotation>
+		<annotation cp="🦹">criminale | mala | malu | supercriminale | supermalu | superpodere</annotation>
+		<annotation cp="🦹" type="tts">supercriminale</annotation>
+		<annotation cp="🦹‍♂">criminale | malu | òmine | supercriminale | supermalu | superpodere</annotation>
+		<annotation cp="🦹‍♂" type="tts">supercriminale òmine</annotation>
+		<annotation cp="🦹‍♀">criminale | fèmina | mala | supercriminale | supermalu | superpodere</annotation>
+		<annotation cp="🦹‍♀" type="tts">supercriminale fèmina</annotation>
+		<annotation cp="🧙">majàrgiu</annotation>
+		<annotation cp="🧙" type="tts">majàrgiu</annotation>
+		<annotation cp="🧙‍♂">majàrgiu òmine</annotation>
+		<annotation cp="🧙‍♂" type="tts">majàrgiu òmine</annotation>
+		<annotation cp="🧙‍♀">majàrgia</annotation>
+		<annotation cp="🧙‍♀" type="tts">majàrgia</annotation>
+		<annotation cp="🧚">fada</annotation>
+		<annotation cp="🧚" type="tts">fada</annotation>
+		<annotation cp="🧚‍♂">fada òmine</annotation>
+		<annotation cp="🧚‍♂" type="tts">fada òmine</annotation>
+		<annotation cp="🧚‍♀">fada fèmina</annotation>
+		<annotation cp="🧚‍♀" type="tts">fada fèmina</annotation>
+		<annotation cp="🧛">Dracula | mortu chi bivet | non-mortu-vampiru | vampiru</annotation>
+		<annotation cp="🧛" type="tts">vampiru</annotation>
+		<annotation cp="🧛‍♂">Dracula | mortu chi bivet | non-mortu | òmine | vampiru</annotation>
+		<annotation cp="🧛‍♂" type="tts">vampiru òmine</annotation>
+		<annotation cp="🧛‍♀">fèmina | morta chi bivet | non-morta | vampira</annotation>
+		<annotation cp="🧛‍♀" type="tts">vampira</annotation>
+		<annotation cp="🧝">alvu | elfu | màgicu</annotation>
+		<annotation cp="🧝" type="tts">alvu</annotation>
+		<annotation cp="🧝‍♂">alvu òmine | elfu òmine | màgicu</annotation>
+		<annotation cp="🧝‍♂" type="tts">alvu òmine</annotation>
+		<annotation cp="🧝‍♀">alva | alvu fèmina | elfa | elfu fèmina | màgica | màgicu</annotation>
+		<annotation cp="🧝‍♀" type="tts">alva</annotation>
+		<annotation cp="🧞">djinn | gèniu</annotation>
+		<annotation cp="🧞" type="tts">gèniu</annotation>
+		<annotation cp="🧌">fantasia | mostru | paristòria | troll</annotation>
+		<annotation cp="🧌" type="tts">troll</annotation>
+		<annotation cp="💏">basu | còpia | croba</annotation>
+		<annotation cp="💏" type="tts">basu</annotation>
+		<annotation cp="👪">famìlia</annotation>
+		<annotation cp="👪" type="tts">famìlia</annotation>
+		<annotation cp="🦰">piliruja | piliruju | pilos rujos</annotation>
+		<annotation cp="🦰" type="tts">pilos rujos</annotation>
+		<annotation cp="🦱">afro | pilaneddada | pilaneddadu | pilos aneddados | ritzulada | ritzuladu</annotation>
+		<annotation cp="🦱" type="tts">pilos aneddados</annotation>
+		<annotation cp="🦳">antzianos | arbos | arbu | betzos | biancos | biancu | cana | canu | incanida | incanidu | murru | pilos</annotation>
+		<annotation cp="🦳" type="tts">pilos biancos</annotation>
+		<annotation cp="🦲">chemioterapia | chene pilos | iscucada | iscucadu | iscucadura | ispilidu | ispilidura | isplilida | rapada | rapadu | sena pilos</annotation>
+		<annotation cp="🦲" type="tts">ispilidu</annotation>
+		<annotation cp="🐵">animale | cara | cara de martinica | fatze | martinica | moninca</annotation>
+		<annotation cp="🐵" type="tts">cara de martinica</annotation>
+		<annotation cp="🐒">animale | martinica | moninca</annotation>
+		<annotation cp="🐒" type="tts">martinica</annotation>
+		<annotation cp="🦍">animale | gorilla</annotation>
+		<annotation cp="🦍" type="tts">gorilla</annotation>
+		<annotation cp="🦧">martinica | moninca | orangu | orangutangu</annotation>
+		<annotation cp="🦧" type="tts">orangutangu</annotation>
+		<annotation cp="🐶">animale | cane | cara | fatze | murru | murru de cane</annotation>
+		<annotation cp="🐶" type="tts">murru de cane</annotation>
+		<annotation cp="🐕">animale | cane</annotation>
+		<annotation cp="🐕" type="tts">cane</annotation>
+		<annotation cp="🦮">atzessibilidade | cane de acumpangiamentu | cane de ghia | tzegos</annotation>
+		<annotation cp="🦮" type="tts">cane de ghia</annotation>
+		<annotation cp="🐕‍🦺">atzessibilidade | cane de agiudu | cane de assistèntzia | cane de servìtziu</annotation>
+		<annotation cp="🐕‍🦺" type="tts">cane de agiudu</annotation>
+		<annotation cp="🐩">animale | barbontzinu | cane</annotation>
+		<annotation cp="🐩" type="tts">barbontzinu</annotation>
+		<annotation cp="🐺">animale | cara | fatze | lupu | murru</annotation>
+		<annotation cp="🐺" type="tts">lupu</annotation>
+		<annotation cp="🦊">animale | cara | fatze | grodde | mariane | murru</annotation>
+		<annotation cp="🦊" type="tts">mariane</annotation>
+		<annotation cp="🦝">abbistu | animale | curiosu | procione</annotation>
+		<annotation cp="🦝" type="tts">procione</annotation>
+		<annotation cp="🐱">animale | cara | fatze | gatu | murru | murru de gatu | murru de pisitu | pisitu</annotation>
+		<annotation cp="🐱" type="tts">murru de gatu</annotation>
+		<annotation cp="🐈">animale | gatu | pisitu</annotation>
+		<annotation cp="🐈" type="tts">gatu</annotation>
+		<annotation cp="🐈‍⬛">gatu | malasorte | nieddu | pisitu</annotation>
+		<annotation cp="🐈‍⬛" type="tts">gatu nieddu</annotation>
+		<annotation cp="🦁">animale | cara | fatze | leone | murru | zodìacu</annotation>
+		<annotation cp="🦁" type="tts">leone</annotation>
+		<annotation cp="🐯">animale | cara | fatze | murru | murru de tigre | tigre</annotation>
+		<annotation cp="🐯" type="tts">murru de tigre</annotation>
+		<annotation cp="🐅">animale | tigre</annotation>
+		<annotation cp="🐅" type="tts">tigre</annotation>
+		<annotation cp="🐆">animale | leopardu</annotation>
+		<annotation cp="🐆" type="tts">leopardu</annotation>
+		<annotation cp="🐴">animale | caddu | cara | fatze | murru | murru de caddu</annotation>
+		<annotation cp="🐴" type="tts">murru de caddu</annotation>
+		<annotation cp="🫎">arcone | arcone nòrdicu | cherbu nòrdicu | chervu nòrdicu | madrina | mammìfera | mammìferu | mardina</annotation>
+		<annotation cp="🫎" type="tts">chervu nòrdicu</annotation>
+		<annotation cp="🫏">àina | àinu | animale | burrica | burricu | mammìfera | mammìferu | poledda | poleddu | tosturruda | tosturrudu</annotation>
+		<annotation cp="🫏" type="tts">poleddu</annotation>
+		<annotation cp="🐎">animale | caddu | cursas | ecuitatzione</annotation>
+		<annotation cp="🐎" type="tts">caddu</annotation>
+		<annotation cp="🦄">animale | cara | fazte | murru | unicornu</annotation>
+		<annotation cp="🦄" type="tts">unicornu</annotation>
+		<annotation cp="🦓">animale | cara | fatze | istrìscias | murru | zebra</annotation>
+		<annotation cp="🦓" type="tts">zebra</annotation>
+		<annotation cp="🦌">animale | cherbu | chervu | crebu</annotation>
+		<annotation cp="🦌" type="tts">chervu</annotation>
+		<annotation cp="🦬">animale | bisonte | bùfalu | chedda | gama | màndria | masone | tàgiu</annotation>
+		<annotation cp="🦬" type="tts">bisonte</annotation>
+		<annotation cp="🐮">animale | baca | cara | fatze | murru | murru de baca</annotation>
+		<annotation cp="🐮" type="tts">murru de baca</annotation>
+		<annotation cp="🐂">animale | boe | malloru | trau | zodìacu</annotation>
+		<annotation cp="🐂" type="tts">boe</annotation>
+		<annotation cp="🐃">animale | bùfalu | bùfalu de abba</annotation>
+		<annotation cp="🐃" type="tts">bùfalu de abba</annotation>
+		<annotation cp="🐄">baca</annotation>
+		<annotation cp="🐄" type="tts">baca</annotation>
+		<annotation cp="🐷">animale | cara | fatze | majale | mannale | murru | murru de porcu | porcu | rebedustu | tzotzo | tzotzu</annotation>
+		<annotation cp="🐷" type="tts">murru de porcu</annotation>
+		<annotation cp="🐖">animale | majale | mannale | porcu | rebedustu | tzotzo | tzotzu</annotation>
+		<annotation cp="🐖" type="tts">porcu</annotation>
+		<annotation cp="🐗">animale | sirbone</annotation>
+		<annotation cp="🐗" type="tts">sirbone</annotation>
+		<annotation cp="🐽">animale | cara | fatze | majale | mannale | murru | nasu | nasu de porcu | porcu | rebedustu | tzotzo | tzotzu</annotation>
+		<annotation cp="🐽" type="tts">nasu de porcu</annotation>
+		<annotation cp="🐏">animale | bedustu | berrile | mascru | mascru de sa berbeghe | rebedustu</annotation>
+		<annotation cp="🐏" type="tts">mascru</annotation>
+		<annotation cp="🐑">animale | berbeghe</annotation>
+		<annotation cp="🐑" type="tts">berbeghe</annotation>
+		<annotation cp="🐐">animale | capricornu | craba | crabucorru | zodìacu</annotation>
+		<annotation cp="🐐" type="tts">craba</annotation>
+		<annotation cp="🐪">animale | cammellu | dromedàriu | gobba | tzumba | tzurumba</annotation>
+		<annotation cp="🐪" type="tts">dromedàriu</annotation>
+		<annotation cp="🐫">animale | cammellu | gobba | tzumba | tzurumba</annotation>
+		<annotation cp="🐫" type="tts">cammellu</annotation>
+		<annotation cp="🦙">alpaca | animale | guanaco | lama | lana | vicuna | vicuña</annotation>
+		<annotation cp="🦙" type="tts">lama</annotation>
+		<annotation cp="🦒">animale | girafa | macras | puntigheddos</annotation>
+		<annotation cp="🦒" type="tts">girafa</annotation>
+		<annotation cp="🐘">animale | elefante</annotation>
+		<annotation cp="🐘" type="tts">elefante</annotation>
+		<annotation cp="🦣">animale | estintzione | lanosu | mammùt | mannu | sanna</annotation>
+		<annotation cp="🦣" type="tts">mammùt</annotation>
+		<annotation cp="🦏">animale | rinotzeronte</annotation>
+		<annotation cp="🦏" type="tts">rinotzeronte</annotation>
+		<annotation cp="🦛">animale | ipopòtamu</annotation>
+		<annotation cp="🦛" type="tts">ipopòtamu</annotation>
+		<annotation cp="🐭">animale | murru de sòrighe | murru de topi | sòrighe | topi</annotation>
+		<annotation cp="🐭" type="tts">murru de sòrighe</annotation>
+		<annotation cp="🐁">animale | sòrighe | topi</annotation>
+		<annotation cp="🐁" type="tts">sòrighe</annotation>
+		<annotation cp="🐀">animale | ratu</annotation>
+		<annotation cp="🐀" type="tts">ratu</annotation>
+		<annotation cp="🐹">animale | cara | critzetu | fatze | murru</annotation>
+		<annotation cp="🐹" type="tts">critzetu</annotation>
+		<annotation cp="🐰">animale | cara | cunillu | fatze | murru | murru de cunillu</annotation>
+		<annotation cp="🐰" type="tts">murru de cunillu</annotation>
+		<annotation cp="🐇">animale | cunillu</annotation>
+		<annotation cp="🐇" type="tts">cunillu</annotation>
+		<annotation cp="🐿">animale | iscojàtulu</annotation>
+		<annotation cp="🐿" type="tts">iscojàtulu</annotation>
+		<annotation cp="🦫">animale | castoru | diga</annotation>
+		<annotation cp="🦫" type="tts">castoru</annotation>
+		<annotation cp="🦔">animale | eritzu | ischissone | ispinosu</annotation>
+		<annotation cp="🦔" type="tts">eritzu</annotation>
+		<annotation cp="🦇">alipedde | animale | chighineddu | corrintolu | impeddone | isterripedde | pibiristeddu | pioguladu | ratapignata | sòrighe pinnadu | tzichirriolu | tzintzimurreddu | tzintzirriolu | tzutzurreri | untzurrullu | vampiru</annotation>
+		<annotation cp="🦇" type="tts">tzintzimurreddu</annotation>
+		<annotation cp="🐻">animale | cara | fatze | murru | ursu</annotation>
+		<annotation cp="🐻" type="tts">ursu</annotation>
+		<annotation cp="🐻‍❄">arbu | biancu | polare | ursu</annotation>
+		<annotation cp="🐻‍❄" type="tts">ursu polare</annotation>
+		<annotation cp="🐨">animale | koala | ursu</annotation>
+		<annotation cp="🐨" type="tts">koala</annotation>
+		<annotation cp="🐼">animale | cara | fatze | murru | panda</annotation>
+		<annotation cp="🐼" type="tts">panda</annotation>
+		<annotation cp="🦥">animale | bràdipu | lentu | mandrone</annotation>
+		<annotation cp="🦥" type="tts">bràdipu</annotation>
+		<annotation cp="🦦">anfaneri | animale | lontra | pisca</annotation>
+		<annotation cp="🦦" type="tts">lontra</annotation>
+		<annotation cp="🦨">animale | fragu | pùtzola</annotation>
+		<annotation cp="🦨" type="tts">pùtzola</annotation>
+		<annotation cp="🦘">animale | Austràlia | brincu | canguru | marsupiale</annotation>
+		<annotation cp="🦘" type="tts">canguru</annotation>
+		<annotation cp="🦡">animale | cane de riu | tassu | tassu de su mele</annotation>
+		<annotation cp="🦡" type="tts">tassu</annotation>
+		<annotation cp="🐾">anca | branca | farranca | pee | rasta | rastas de animales</annotation>
+		<annotation cp="🐾" type="tts">rastas de animales</annotation>
+		<annotation cp="🦃">animale | dindu | piocu | pugione</annotation>
+		<annotation cp="🦃" type="tts">dindu</annotation>
+		<annotation cp="🐔">animale | pudda | pugione</annotation>
+		<annotation cp="🐔" type="tts">pudda</annotation>
+		<annotation cp="🐓">animale | cabone | puddu | pugione</annotation>
+		<annotation cp="🐓" type="tts">puddu</annotation>
+		<annotation cp="🐣">animale | pudda | puddighinu | puddighinu essende dae s’ou | puddighinu naschende | puddu | pugione</annotation>
+		<annotation cp="🐣" type="tts">puddighinu naschende</annotation>
+		<annotation cp="🐤">animale | pudda | puddighinu | puddu | pugione</annotation>
+		<annotation cp="🐤" type="tts">puddighinu</annotation>
+		<annotation cp="🐥">animale | puddighinu | puddighinu abbaidadu in cara | puddighinu castiadu in cara | puddighinu pompiadu in cara | pugione</annotation>
+		<annotation cp="🐥" type="tts">puddighinu pompiadu in cara</annotation>
+		<annotation cp="🐦">animale | pugione</annotation>
+		<annotation cp="🐦" type="tts">pugione</annotation>
+		<annotation cp="🐧">animale | pinguinu | pugione</annotation>
+		<annotation cp="🐧" type="tts">pinguinu</annotation>
+		<annotation cp="🕊">animale | bolu | culumba | olia | paghe | pasca | pugione</annotation>
+		<annotation cp="🕊" type="tts">culumba</annotation>
+		<annotation cp="🦅">àbbila | àbbile | altanera | animale | pugione</annotation>
+		<annotation cp="🦅" type="tts">àbbila</annotation>
+		<annotation cp="🦆">anade | animale | cracatzola | nada | pugione</annotation>
+		<annotation cp="🦆" type="tts">anade</annotation>
+		<annotation cp="🦢">anadiscu feu | anadiscu lègiu | animale | chìghinu | pugione | sìsini | tzignu</annotation>
+		<annotation cp="🦢" type="tts">chìghinu</annotation>
+		<annotation cp="🦉">animale | connoschèntzia | cucu | cucumeu | cucumiau | pugione | sabidoria | sàbiu</annotation>
+		<annotation cp="🦉" type="tts">cucumiau</annotation>
+		<annotation cp="🦤">dodo | estintzione | mannu | Mauritius</annotation>
+		<annotation cp="🦤" type="tts">dodo</annotation>
+		<annotation cp="🪶">bolu | lèbia | lèbiu | pinna | pinninnia | piuma | pugione | puma</annotation>
+		<annotation cp="🪶" type="tts">piuma</annotation>
+		<annotation cp="🦩">animale | gentarrùbia | gente arrùbia | gente ruja | mangone | pugione | tropicale</annotation>
+		<annotation cp="🦩" type="tts">mangone</annotation>
+		<annotation cp="🦚">ampompare | animale | artivu | impaonare | impompadu | impomponare | paone | pugione | sisirinare</annotation>
+		<annotation cp="🦚" type="tts">paone</annotation>
+		<annotation cp="🦜">allegare | animale | chistionare | faeddare | papagallu | pirata | pugione | repìtere</annotation>
+		<annotation cp="🦜" type="tts">papagallu</annotation>
+		<annotation cp="🪽">ala | angèlica | angèlicu | aviatzione | bolu | mitologia | pugione</annotation>
+		<annotation cp="🪽" type="tts">ala</annotation>
+		<annotation cp="🐦‍⬛">carroga | corbu | corranca | corrancra | corronca | nieddu | pugione</annotation>
+		<annotation cp="🐦‍⬛" type="tts">pugione nieddu</annotation>
+		<annotation cp="🪿">coca | croculare | cròculu | oca | pugione | tontìghine</annotation>
+		<annotation cp="🪿" type="tts">oca</annotation>
+		<annotation cp="🐦‍🔥">fantasia | fenitze | pugione | pugione de fogu | reincarnatzione | renàschida | rinàschida</annotation>
+		<annotation cp="🐦‍🔥" type="tts">fenitze</annotation>
+		<annotation cp="🐸">animale | cara | fatze | rana</annotation>
+		<annotation cp="🐸" type="tts">rana</annotation>
+		<annotation cp="🐊">animale | cocodrillu</annotation>
+		<annotation cp="🐊" type="tts">cocodrillu</annotation>
+		<annotation cp="🐢">animale | testùghine | tostòine</annotation>
+		<annotation cp="🐢" type="tts">tostòine</annotation>
+		<annotation cp="🦎">animale | pistigione | rètile | tziligherta | tzintziligherta | tzìriga | tzorrompis</annotation>
+		<annotation cp="🦎" type="tts">tziligherta</annotation>
+		<annotation cp="🐍">animale | colovra | colovredda | rètile | serpente | zodìacu</annotation>
+		<annotation cp="🐍" type="tts">colovra</annotation>
+		<annotation cp="🐲">animale | cara | conca de dragu | dragone | dragu | fatze | paristòria</annotation>
+		<annotation cp="🐲" type="tts">conca de dragu</annotation>
+		<annotation cp="🐉">animale | dragone | dragu | paristòria</annotation>
+		<annotation cp="🐉" type="tts">dragu</annotation>
+		<annotation cp="🦕">brachiosàuru | brontosàuru | dinosàuru | diplòdocu | sauròpodu</annotation>
+		<annotation cp="🦕" type="tts">sauròpodu</annotation>
+		<annotation cp="🦖">t-rex | tirannosàuru | tirannosàuru rex</annotation>
+		<annotation cp="🦖" type="tts">tirannosàuru</annotation>
+		<annotation cp="🐳">animale | arrusciare | balena | balena ischitzende abba | balena tzaviende abba | crispiare | isbrufulare | ischitzare | ispanzolare | papuschiare | pibiristare | pispisare | pispisiare | tzivinare</annotation>
+		<annotation cp="🐳" type="tts">balena tzaviende abba</annotation>
+		<annotation cp="🐋">animale | balena</annotation>
+		<annotation cp="🐋" type="tts">balena</annotation>
+		<annotation cp="🐬">animale | delfinu | gurfinu</annotation>
+		<annotation cp="🐬" type="tts">delfinu</annotation>
+		<annotation cp="🦭">animale | baca de modde | bigrumarra | bigrumarras | bitellu marinu | boe marinu | culumarru</annotation>
+		<annotation cp="🦭" type="tts">boe marinu</annotation>
+		<annotation cp="🐟">animale | pische | pisches | zodìacu</annotation>
+		<annotation cp="🐟" type="tts">pische</annotation>
+		<annotation cp="🐠">animale | pische | tropicale</annotation>
+		<annotation cp="🐠" type="tts">pische tropicale</annotation>
+		<annotation cp="🐡">animale | pische | pische botza</annotation>
+		<annotation cp="🐡" type="tts">pische botza</annotation>
+		<annotation cp="🦈">animale | cane marinu | canisca | canusu | pische | pischecane</annotation>
+		<annotation cp="🦈" type="tts">canisca</annotation>
+		<annotation cp="🐙">animale | purpu</annotation>
+		<annotation cp="🐙" type="tts">purpu</annotation>
+		<annotation cp="🐚">animale | conchìgiu | croca | croca a ispirale | ispirale | nicu | tufigheddu</annotation>
+		<annotation cp="🐚" type="tts">croca</annotation>
+		<annotation cp="🪸">coraddu | otzèanu</annotation>
+		<annotation cp="🪸" type="tts">coraddu</annotation>
+		<annotation cp="🪼">bromu | brusiore | burba marina | dolore | friidura | gruma | invertebradu | mare | marina | marinu | medusa | pistiddore | pìtziu | velenu</annotation>
+		<annotation cp="🪼" type="tts">medusa</annotation>
+		<annotation cp="🐌">animale | bacacorru | caragolu | cioga | coli-coli | corrobaca | croga | crogu | tabacorra | tapacorra | tapada | tzitzigorru | vaca de corru</annotation>
+		<annotation cp="🐌" type="tts">corrobaca</annotation>
+		<annotation cp="🦋">animale | babbarotu | barabàtula | calacasu | faghefarina | ispìritu | lepi-lepi | mamasciola | mariola | mariposa | meribella | pabedda | papacasu | pompone | tratacasu | vola-vola</annotation>
+		<annotation cp="🦋" type="tts">mariposa</annotation>
+		<annotation cp="🐛">animale | babballoti | babbarotu | berruga | bobborroti | chentuancas | chentupees | cugurra | gremèddighe | mamaruga | ruca | ruda | ruga | tzurunga</annotation>
+		<annotation cp="🐛" type="tts">babbarotu</annotation>
+		<annotation cp="🐜">animale | babbarotu | formiga | formìgula</annotation>
+		<annotation cp="🐜" type="tts">formiga</annotation>
+		<annotation cp="🐝">abe | animale | babbarotu</annotation>
+		<annotation cp="🐝" type="tts">abe</annotation>
+		<annotation cp="🪲">boe de Tomasu | boe Tomasu | buvone | carra-carra | carrabusu | carramerda | carravatzu | carravore | tragamerda</annotation>
+		<annotation cp="🪲" type="tts">carrabusu</annotation>
+		<annotation cp="🐞">animale | babbajola | babbarotu | caramedda | mamajola | mariapesabola | mariola | maritzola | mundiola | pedrupischeddu | pibiola | pipiridonna | tiria | zunzella</annotation>
+		<annotation cp="🐞" type="tts">mariola</annotation>
+		<annotation cp="🦗">animale | babbarotu | coicopira | grillu</annotation>
+		<annotation cp="🦗" type="tts">grillu</annotation>
+		<annotation cp="🪳">animale | babbajoledda | babbarotu | bobosorighe | cadenale | carrafatzu | carrafone | garrapiu | iscafone | iscarrafione | iscarrafone | iscrabione | paulina</annotation>
+		<annotation cp="🪳" type="tts">iscarrafone</annotation>
+		<annotation cp="🕷">animale | aràcnide | arangiolu | babbauda | cantupiludu | cobesciada | francadossu | mariafarranca | marragoti</annotation>
+		<annotation cp="🕷" type="tts">arangiolu</annotation>
+		<annotation cp="🕸">arangiolu | chelu de arangiolu | cheluemuru | lanarràngiu | napa de arangiolu | sedatzu | taddaranu | talaranis | talaranu | tela de arangiolu | tirinnina | veleleu | velu de arangiolu</annotation>
+		<annotation cp="🕸" type="tts">taddaranu</annotation>
+		<annotation cp="🦂">animale | furchiddàdile | furchiddàdula | iscorpione | tenaza | zodìacu</annotation>
+		<annotation cp="🦂" type="tts">furchiddàdile</annotation>
+		<annotation cp="🦟">animale | babbarotu | maladia | malària | pesta | tzìntzula | virus</annotation>
+		<annotation cp="🦟" type="tts">tzìntzula</annotation>
+		<annotation cp="🪰">animale | babbarotu | berme | maladia | musca | pesta | pudeschiore | pudesciura | pudrigadura</annotation>
+		<annotation cp="🪰" type="tts">musca</annotation>
+		<annotation cp="🪱">anèllide | animale | babbarotu | berme | fenos | lembrèchinu | mamaterra | parassita | piberedda | tzilingrone | tzitzilingone | tzorroiga</annotation>
+		<annotation cp="🪱" type="tts">berme</annotation>
+		<annotation cp="🦠">ameba | batèriu | mìcrobu | virus</annotation>
+		<annotation cp="🦠" type="tts">mìcrobu</annotation>
+		<annotation cp="💐">frores | matzu | matzu de frores</annotation>
+		<annotation cp="💐" type="tts">matzu de frores</annotation>
+		<annotation cp="🌸">cariasa | frore | frore de cariasa | froridura</annotation>
+		<annotation cp="🌸" type="tts">frore de cariasa</annotation>
+		<annotation cp="💮">frore | frore arbu | frore biancu</annotation>
+		<annotation cp="💮" type="tts">frore biancu</annotation>
+		<annotation cp="🪷">buddismu | frore | Ìndia | induismu | lotu | puresa | Vietnam</annotation>
+		<annotation cp="🪷" type="tts">lotu</annotation>
+		<annotation cp="🏵">pranta | rosighedda</annotation>
+		<annotation cp="🏵" type="tts">rosighedda</annotation>
+		<annotation cp="🌹">frore | rosa</annotation>
+		<annotation cp="🌹" type="tts">rosa</annotation>
+		<annotation cp="🥀">acalamadu | allevigiadu | alligiadu | allisiadu | ammortighinadu | calicadu | caliginadu | carigadu | frore | mùstiu | pabassadu | passiu | sicadu | sicu | sumurtidu</annotation>
+		<annotation cp="🥀" type="tts">frore alligiadu</annotation>
+		<annotation cp="🌺">frore | ibiscu</annotation>
+		<annotation cp="🌺" type="tts">ibiscu</annotation>
+		<annotation cp="🌻">erba de sole | frore | girasole</annotation>
+		<annotation cp="🌻" type="tts">girasole</annotation>
+		<annotation cp="🌼">frore</annotation>
+		<annotation cp="🌼" type="tts">frore</annotation>
+		<annotation cp="🌷">frore | lantzeta | tulipanu</annotation>
+		<annotation cp="🌷" type="tts">tulipanu</annotation>
+		<annotation cp="🪻">archemissa | buca de cane | buca de leone | cardàmpulu | erba de totu cura | fasolu caddinu | fasolu de ranas | frore | frore de Santa Maria | giatzintu | ispicu | ispìgula agreste | lavanda | lupinu | putzema | uscradinu</annotation>
+		<annotation cp="🪻" type="tts">giatzintu</annotation>
+		<annotation cp="🌱">brossa | brota | chimuzone | chiu | froedda | frua | fruedda | frunza | prantighedda | pullone | sirione | sìriu | tzeurredda | tziriotu | tzuddu</annotation>
+		<annotation cp="🌱" type="tts">tziriotu</annotation>
+		<annotation cp="🪴">coltivare | inùtile | letrangosu | pranta | pranta in vasu</annotation>
+		<annotation cp="🪴" type="tts">pranta in vasu</annotation>
+		<annotation cp="🌲">àrbore | àrbore semper birde | mata | mata semper birde</annotation>
+		<annotation cp="🌲" type="tts">àrbore semper birde</annotation>
+		<annotation cp="🌳">àrbore | àrbore cun fògia caduca | mata | mata cun fògias caducas</annotation>
+		<annotation cp="🌳" type="tts">àrbore cun fògia caduca</annotation>
+		<annotation cp="🌴">àrbore | mata | prama</annotation>
+		<annotation cp="🌴" type="tts">prama</annotation>
+		<annotation cp="🌵">càctus | pranta</annotation>
+		<annotation cp="🌵" type="tts">càctus</annotation>
+		<annotation cp="🌾">ispiga de risu | ispiga de rosu | pranta de risu | pranta de rosu | risu | rosu</annotation>
+		<annotation cp="🌾" type="tts">pranta de rosu</annotation>
+		<annotation cp="🌿">fògia | pranta</annotation>
+		<annotation cp="🌿" type="tts">pranta</annotation>
+		<annotation cp="☘">pranta | trifògiu</annotation>
+		<annotation cp="☘" type="tts">trifògiu</annotation>
+		<annotation cp="🍀">bator fògias | bonasorte | cuadrifògiu | fortuna</annotation>
+		<annotation cp="🍀" type="tts">cuadrifògiu</annotation>
+		<annotation cp="🍁">aera | costi | còstighe | fògia | fògia de olàdighe | fògia ruta | olàdighe</annotation>
+		<annotation cp="🍁" type="tts">fògia de olàdighe</annotation>
+		<annotation cp="🍂">fògia | fògia ruta | rughende</annotation>
+		<annotation cp="🍂" type="tts">fògia ruta</annotation>
+		<annotation cp="🍃">àlinu de bentu | bentu surbende | fògia | fògia in su bentu</annotation>
+		<annotation cp="🍃" type="tts">fògia in su bentu</annotation>
+		<annotation cp="🪹">nidificatzione | nidu | nidu bòidu</annotation>
+		<annotation cp="🪹" type="tts">nidu bòidu</annotation>
+		<annotation cp="🪺">nidificatzione | nidu | nidu cun oos</annotation>
+		<annotation cp="🪺" type="tts">nidu cun oos</annotation>
+		<annotation cp="🍄">antunna | buletu | cardulinu | cugumeddu</annotation>
+		<annotation cp="🍄" type="tts">cardulinu</annotation>
+		<annotation cp="🍇">àghina | budrone | frùtora | ua</annotation>
+		<annotation cp="🍇" type="tts">àghina</annotation>
+		<annotation cp="🍈">frùtora | melone</annotation>
+		<annotation cp="🍈" type="tts">melone</annotation>
+		<annotation cp="🍉">foràstigu | frùtora | sìndria</annotation>
+		<annotation cp="🍉" type="tts">sìndria</annotation>
+		<annotation cp="🍊">arantzu | frùtora | mandarinu</annotation>
+		<annotation cp="🍊" type="tts">mandarinu</annotation>
+		<annotation cp="🍋">agrume | frùtora | limone</annotation>
+		<annotation cp="🍋" type="tts">limone</annotation>
+		<annotation cp="🍌">banana | frùtora</annotation>
+		<annotation cp="🍌" type="tts">banana</annotation>
+		<annotation cp="🍍">ànanas | frùtora</annotation>
+		<annotation cp="🍍" type="tts">ànanas</annotation>
+		<annotation cp="🥭">frùtora | mangu | tropicale</annotation>
+		<annotation cp="🥭" type="tts">mangu</annotation>
+		<annotation cp="🍎">frùtora | mela | ruja</annotation>
+		<annotation cp="🍎" type="tts">mela ruja</annotation>
+		<annotation cp="🍏">birde | frùtora | mela</annotation>
+		<annotation cp="🍏" type="tts">mela birde</annotation>
+		<annotation cp="🍐">frùtora | pira</annotation>
+		<annotation cp="🍐" type="tts">pira</annotation>
+		<annotation cp="🍑">frùtora | pèssighe</annotation>
+		<annotation cp="🍑" type="tts">pèssighe</annotation>
+		<annotation cp="🍒">cariasa | cariasas | frùtora</annotation>
+		<annotation cp="🍒" type="tts">cariasas</annotation>
+		<annotation cp="🍓">fràgula | frùtora</annotation>
+		<annotation cp="🍓" type="tts">fràgula</annotation>
+		<annotation cp="🫐">baca | murta durche | murtitza | murtitzos | murtitzu</annotation>
+		<annotation cp="🫐" type="tts">murtitzos</annotation>
+		<annotation cp="🥝">frùtora | kiwi | màndigu</annotation>
+		<annotation cp="🥝" type="tts">kiwi</annotation>
+		<annotation cp="🍅">birdura | frùtora | tomata</annotation>
+		<annotation cp="🍅" type="tts">tomata</annotation>
+		<annotation cp="🫒">màndigu | olia</annotation>
+		<annotation cp="🫒" type="tts">olia</annotation>
+		<annotation cp="🥥">caciumbu | coco | cocu | nughe de cocu | piña colada | pramma</annotation>
+		<annotation cp="🥥" type="tts">cocu</annotation>
+		<annotation cp="🥑">avocado | avocadu | frùtora | màndigu</annotation>
+		<annotation cp="🥑" type="tts">avocadu</annotation>
+		<annotation cp="🍆">birdura | pedringiana | pedringianu | perdingiana | perdingianu</annotation>
+		<annotation cp="🍆" type="tts">perdingianu</annotation>
+		<annotation cp="🥔">birdura | màndigu | patata | tùvara</annotation>
+		<annotation cp="🥔" type="tts">patata</annotation>
+		<annotation cp="🥕">aligàrgia | birdura | fustinaga | màndigu | pastinaga</annotation>
+		<annotation cp="🥕" type="tts">pastinaga</annotation>
+		<annotation cp="🌽">mais | pannuga | trigu moriscu | triguìndia | triguìndias</annotation>
+		<annotation cp="🌽" type="tts">pannuga</annotation>
+		<annotation cp="🌶">àspidu | pibereddu | picante</annotation>
+		<annotation cp="🌶" type="tts">pibereddu</annotation>
+		<annotation cp="🫑">birdura | ortalìssia | piberone</annotation>
+		<annotation cp="🫑" type="tts">piberone</annotation>
+		<annotation cp="🥒">birdura | cugùmene | ortalìssia</annotation>
+		<annotation cp="🥒" type="tts">cugùmene</annotation>
+		<annotation cp="🥬">birdura a fògia | birdura a fògia birde | bok choy | càule | kale | latuga</annotation>
+		<annotation cp="🥬" type="tts">birdura a fògia birde</annotation>
+		<annotation cp="🥦">bròculu | càule a truncu | càule de conca | pugione de càule | pupiu de càule</annotation>
+		<annotation cp="🥦" type="tts">càule de conca</annotation>
+		<annotation cp="🧄">àgiu | gustu | isaboriare | nuscos | sabore</annotation>
+		<annotation cp="🧄" type="tts">àgiu</annotation>
+		<annotation cp="🧅">chibudda | gustu | isaboriare | nuscos | sabore</annotation>
+		<annotation cp="🧅" type="tts">chibudda</annotation>
+		<annotation cp="🥜">birdura | màndigu | nutzola americana | nutzolas americanas</annotation>
+		<annotation cp="🥜" type="tts">nutzolas americanas</annotation>
+		<annotation cp="🫘">fasolos | fasolu | legùmenes | màndigu</annotation>
+		<annotation cp="🫘" type="tts">fasolos</annotation>
+		<annotation cp="🌰">castàngia | pranta</annotation>
+		<annotation cp="🌰" type="tts">castàngia</annotation>
+		<annotation cp="🍞">cocone | pane</annotation>
+		<annotation cp="🍞" type="tts">pane</annotation>
+		<annotation cp="🥐">cocone | croissant | filone | frantzesu | ismurzu | màndigu | pane</annotation>
+		<annotation cp="🥐" type="tts">croissant</annotation>
+		<annotation cp="🥖">baguette | cocone | frantzesu | màndigu | pane</annotation>
+		<annotation cp="🥖" type="tts">baguette</annotation>
+		<annotation cp="🫓">arepa | covatza | lavash | naan | pita</annotation>
+		<annotation cp="🫓" type="tts">covatza</annotation>
+		<annotation cp="🥨">imboligadu | pretzel</annotation>
+		<annotation cp="🥨" type="tts">pretzel</annotation>
+		<annotation cp="🥯">bagel | ismurzu | paneteria</annotation>
+		<annotation cp="🥯" type="tts">bagel</annotation>
+		<annotation cp="🥞">crêpe | ismurzu | màndigu | pancake | pancakes</annotation>
+		<annotation cp="🥞" type="tts">pancakes</annotation>
+		<annotation cp="🧇">gaufre | ismùrgiu | waffle</annotation>
+		<annotation cp="🧇" type="tts">waffle</annotation>
+		<annotation cp="🍔">burger | hamburger</annotation>
+		<annotation cp="🍔" type="tts">hamburger</annotation>
+		<annotation cp="🍟">patata frinta | patatas frintas</annotation>
+		<annotation cp="🍟" type="tts">patatas frintas</annotation>
+		<annotation cp="🍕">fita | pizza</annotation>
+		<annotation cp="🍕" type="tts">pizza</annotation>
+		<annotation cp="🌭">hot dog</annotation>
+		<annotation cp="🌭" type="tts">hot dog</annotation>
+		<annotation cp="🥚">ismurzu | màndigu | ou</annotation>
+		<annotation cp="🥚" type="tts">ou</annotation>
+		<annotation cp="🧈">butiru | latitzinos | latitzinu | produtu caseàriu</annotation>
+		<annotation cp="🧈" type="tts">butiru</annotation>
+		<annotation cp="🧂">cundimentu | gustos | sale | salera</annotation>
+		<annotation cp="🧂" type="tts">sale</annotation>
+		<annotation cp="🥫">bote | boto | botu | màndigu in bote | màndigu in boto | màndigu in botu</annotation>
+		<annotation cp="🥫" type="tts">màndigu in boto</annotation>
+		<annotation cp="🍣">sushi</annotation>
+		<annotation cp="🍣" type="tts">sushi</annotation>
+		<annotation cp="🍼">alleu | bèvida | crabighera | creadura | criu | late | pipiu | pitzinneddu | puparola | tiralate | tirapetus | titiera</annotation>
+		<annotation cp="🍼" type="tts">puparola</annotation>
+		<annotation cp="🥛">bèvida | late | tassa | tassa de late</annotation>
+		<annotation cp="🥛" type="tts">tassa de late</annotation>
+		<annotation cp="☕">bèvida | caente | cafè | papore | tè</annotation>
+		<annotation cp="☕" type="tts">bèvida caente</annotation>
+		<annotation cp="🫖">bèvida | tè | tejera</annotation>
+		<annotation cp="🫖" type="tts">tejera</annotation>
+		<annotation cp="🍵">bèvida | tè | tzìchera | tzìchera de tè | tzìchera de tè chene asa | tzìchera de tè chene mànigu</annotation>
+		<annotation cp="🍵" type="tts">tzìchera de tè chene mànigu</annotation>
+		<annotation cp="🍶">ampulla | bèvida | sakè | tassa | tzilleri</annotation>
+		<annotation cp="🍶" type="tts">sakè</annotation>
+		<annotation cp="🥢">bachitas | hashi</annotation>
+		<annotation cp="🥢" type="tts">bachitas</annotation>
+		<annotation cp="🍽">coghina | furcheta | furcheta e leputzu cun pratu | leputzu | pratu | pratu cun posadas</annotation>
+		<annotation cp="🍽" type="tts">furcheta e leputzu cun pratu</annotation>
+		<annotation cp="🍴">coghina | furcheta | furcheta e leputzu | leputzu | posadas</annotation>
+		<annotation cp="🍴" type="tts">furcheta e leputzu</annotation>
+		<annotation cp="🥄">cullera | posada</annotation>
+		<annotation cp="🥄" type="tts">cullera</annotation>
+		<annotation cp="🔪">arma | coghina | leputzu | leputzu de coghina | traste</annotation>
+		<annotation cp="🔪" type="tts">leputzu de coghina</annotation>
+		<annotation cp="🫙">bòidu | boto | butega | cundimentu | cuntenidore | nuscos | pimentas</annotation>
+		<annotation cp="🫙" type="tts">boto</annotation>
+		<annotation cp="🏺">abbàrgiu | ànfora | bèvida | broca | coghina | sinnu zodiacale | ziru | zodìacu</annotation>
+		<annotation cp="🏺" type="tts">ànfora</annotation>
+		<annotation cp="🌍">Àfrica | Europa | mapamundu | mapamundu chi ammustrat s’Europa e s’Àfrica | mundu | terra</annotation>
+		<annotation cp="🌍" type="tts">mapamundu chi ammustrat s’Europa e s’Àfrica</annotation>
+		<annotation cp="🌎">Amèrica | Amèricas | mapamundu | mapamundu chi ammustrat s’Amèrica | mapamundu chi ammustrat sas Amèricas | mundu | terra | world</annotation>
+		<annotation cp="🌎" type="tts">mapamundu chi ammustrat sas Amèricas</annotation>
+		<annotation cp="🌏">Àsia | Austràlia | mapamundu | mapamundu chi ammustrat s’Àsia e s’Austràlia | mundu | terra | world</annotation>
+		<annotation cp="🌏" type="tts">mapamundu chi ammustrat s’Àsia e s’Austràlia</annotation>
+		<annotation cp="🌐">mapamundu | mapamundu cun meridianos | meridianos | mundu | terra</annotation>
+		<annotation cp="🌐" type="tts">mapamundu cun meridianos</annotation>
+		<annotation cp="🗺">mapa | mapa de su mundu | mundu</annotation>
+		<annotation cp="🗺" type="tts">mapa de su mundu</annotation>
+		<annotation cp="🗾">Giapone | mapa | mapa de su Giapone</annotation>
+		<annotation cp="🗾" type="tts">mapa de su Giapone</annotation>
+		<annotation cp="🧭">bùssola | magnètica | magnèticu | navigatzione | nàvigu | orientamentu</annotation>
+		<annotation cp="🧭" type="tts">bùssola</annotation>
+		<annotation cp="🏔">cùcuru | fritu | montagna | montàngia | monte | monte cun nie | montera | nie</annotation>
+		<annotation cp="🏔" type="tts">monte cun nie</annotation>
+		<annotation cp="⛰">cùcuru | montagna | montàngia | monte | montera</annotation>
+		<annotation cp="⛰" type="tts">monte</annotation>
+		<annotation cp="🌋">cùcuru | erutzione | montagna | montàngia | monte | montera | vulcanu</annotation>
+		<annotation cp="🌋" type="tts">vulcanu</annotation>
+		<annotation cp="🗻">cùcuru | fuji | montagna | montàngia | monte | montera</annotation>
+		<annotation cp="🗻" type="tts">monte fuji</annotation>
+		<annotation cp="🏕">acampamentu | campègiu | tenda | vacàntzia</annotation>
+		<annotation cp="🏕" type="tts">campègiu</annotation>
+		<annotation cp="🏖">istiu | mare | para-sole | praja | praja cun para-sole</annotation>
+		<annotation cp="🏖" type="tts">praja cun para-sole</annotation>
+		<annotation cp="🏜">desertu</annotation>
+		<annotation cp="🏜" type="tts">desertu</annotation>
+		<annotation cp="🏝">desertu | ìsula | ìsula deserta | soledade</annotation>
+		<annotation cp="🏝" type="tts">ìsula deserta</annotation>
+		<annotation cp="🏞">parcu | parcu natzionale</annotation>
+		<annotation cp="🏞" type="tts">parcu natzionale</annotation>
+		<annotation cp="🏟">edifìtziu | fàbricu | istàdiu</annotation>
+		<annotation cp="🏟" type="tts">istàdiu</annotation>
+		<annotation cp="🏛">clàssicu | edifìtziu | fàbricu</annotation>
+		<annotation cp="🏛" type="tts">edifìtziu clàssicu</annotation>
+		<annotation cp="🏗">costrutzione | edilìtzia | fàbricu | fàbricu de un’edifìtziu</annotation>
+		<annotation cp="🏗" type="tts">fàbricu de un’edifìtziu</annotation>
+		<annotation cp="🧱">impastu | matone | matones | muru</annotation>
+		<annotation cp="🧱" type="tts">matone</annotation>
+		<annotation cp="🪨">coròngiu | pedra | perda | pesante | preda | roca | sòlida | sòlidu</annotation>
+		<annotation cp="🪨" type="tts">roca</annotation>
+		<annotation cp="🪵">cotighina | cotzighina | cotzigone | cotzina | cotzinàrgiu | linna | linnàmene | mutzigone | mutzu | truncu | tzompa</annotation>
+		<annotation cp="🪵" type="tts">linna</annotation>
+		<annotation cp="🛖">barraca | domo | iurta | pinneta | pinnetu</annotation>
+		<annotation cp="🛖" type="tts">pinnetu</annotation>
+		<annotation cp="🏘">domos | edifìtzios | fàbricos</annotation>
+		<annotation cp="🏘" type="tts">domos</annotation>
+		<annotation cp="🏚">abbandonada | cadrudda | disabitada | domo | domo chi si nch’est irrughende | rùdere</annotation>
+		<annotation cp="🏚" type="tts">domo chi si nch’est irrughende</annotation>
+		<annotation cp="🏠">abitatzione | domo | edifìtziu | fàbricu</annotation>
+		<annotation cp="🏠" type="tts">domo</annotation>
+		<annotation cp="🏡">abitatzione | domo | domo cun giardinu | edifìtziu | fàbricu | giardinu</annotation>
+		<annotation cp="🏡" type="tts">domo cun giardinu</annotation>
+		<annotation cp="🏢">edifìtziu | edifìtziu de ufìtzios | fàbricu | fàbricu de ufìtzios | ufìtzios | ufìtziu</annotation>
+		<annotation cp="🏢" type="tts">fàbricu de ufìtzios</annotation>
+		<annotation cp="🏣">edifìtziu | fàbricu | giaponesu | postas | ufìtziu postale | ufìtziu postale giaponesu</annotation>
+		<annotation cp="🏣" type="tts">ufìtziu postale giaponesu</annotation>
+		<annotation cp="🏤">edifìtziu | europeu | fàbricu | postas | ufìtziu postale</annotation>
+		<annotation cp="🏤" type="tts">ufìtziu postale</annotation>
+		<annotation cp="🏥">dutore | edifìtziu | fàbricu | ispidale | meighina | mèigos | salude</annotation>
+		<annotation cp="🏥" type="tts">ispidale</annotation>
+		<annotation cp="🏦">banca | edifìtziu | fàbricu</annotation>
+		<annotation cp="🏦" type="tts">banca</annotation>
+		<annotation cp="🏨">albergu | edifìtziu | fàbricu | hotel | posada</annotation>
+		<annotation cp="🏨" type="tts">albergu</annotation>
+		<annotation cp="🏩">albergu | amore | edifìtziu | fàbricu | hotel | love hotel | motel</annotation>
+		<annotation cp="🏩" type="tts">love hotel</annotation>
+		<annotation cp="🏪">butega | butega 24 oras | buteghedda | drogheria | edifìtziu | fàbricu | minimarket</annotation>
+		<annotation cp="🏪" type="tts">buteghedda</annotation>
+		<annotation cp="🏫">edifìtziu | fàbricu | iscola</annotation>
+		<annotation cp="🏫" type="tts">iscola</annotation>
+		<annotation cp="🏬">butega | edifìtziu | fàbricu | supermercadu</annotation>
+		<annotation cp="🏬" type="tts">supermercadu</annotation>
+		<annotation cp="🏭">edifìtziu | fàbrica | fàbricu | industria</annotation>
+		<annotation cp="🏭" type="tts">fàbrica</annotation>
+		<annotation cp="🏯">casteddu | edifìtziu | fàbricu | giaponesu</annotation>
+		<annotation cp="🏯" type="tts">casteddu giaponesu</annotation>
+		<annotation cp="🏰">casteddu | edifìtziu | europeu | fàbricu</annotation>
+		<annotation cp="🏰" type="tts">casteddu</annotation>
+		<annotation cp="💒">amore | capella | coja | cojuiu | cresiedda</annotation>
+		<annotation cp="💒" type="tts">cojuiu</annotation>
+		<annotation cp="🗼">Tòkyo | turre | Turre de Tòkyo</annotation>
+		<annotation cp="🗼" type="tts">Turre de Tòkyo</annotation>
+		<annotation cp="🗽">istàtua | Istàtua de sa Libertade | libertade</annotation>
+		<annotation cp="🗽" type="tts">Istàtua de sa Libertade</annotation>
+		<annotation cp="⛪">crèsia | cristianèsimu | edifìtziu | fàbricu | religione | rughe</annotation>
+		<annotation cp="⛪" type="tts">crèsia</annotation>
+		<annotation cp="🕌">edifìtziu | fàbricu | islam | islamismu | moschea | religione</annotation>
+		<annotation cp="🕌" type="tts">moschea</annotation>
+		<annotation cp="🛕">edifìtziu | fàbricu | induismu | religione | tèmpiu | tèmpiu induista</annotation>
+		<annotation cp="🛕" type="tts">tèmpiu induista</annotation>
+		<annotation cp="🕍">ebraismu | edifìtziu | fàbricu | giudaismu | religione | sinagoga | tèmpiu</annotation>
+		<annotation cp="🕍" type="tts">sinagoga</annotation>
+		<annotation cp="⛩">jinja | religione | santuàriu | santuàriu shintoista | shintoismu</annotation>
+		<annotation cp="⛩" type="tts">santuàriu shintoista</annotation>
+		<annotation cp="🕋">islam | islamismu | kaaba | religione</annotation>
+		<annotation cp="🕋" type="tts">kaaba</annotation>
+		<annotation cp="⛲">càntaru | funtana | grifone | mitza</annotation>
+		<annotation cp="⛲" type="tts">càntaru</annotation>
+		<annotation cp="⛺">campègiu | tenda</annotation>
+		<annotation cp="⛺" type="tts">tenda</annotation>
+		<annotation cp="🌁">anneuladu | bùora | buorosu | fumatzosu | fuscu | nèbida | nebidosu | nèula | neulosu</annotation>
+		<annotation cp="🌁" type="tts">anneuladu</annotation>
+		<annotation cp="🌃">isteddas | isteddos | isteddu | note | note cun isteddos</annotation>
+		<annotation cp="🌃" type="tts">note cun isteddos</annotation>
+		<annotation cp="🏙">edifìtzios | fàbricos | paesàgiu urbanu | tzitade</annotation>
+		<annotation cp="🏙" type="tts">paesàgiu urbanu</annotation>
+		<annotation cp="🌄">arbèschida | arbèschida in sos montes | arborinu | mangiana | mangianeddu | mangianile | mangianu | montagnas | monte | montera | montes | sole</annotation>
+		<annotation cp="🌄" type="tts">arbèschida in sos montes</annotation>
+		<annotation cp="🌅">arbèschida | arborinu | mangiana | mangianeddu | mangianile | mangianu</annotation>
+		<annotation cp="🌅" type="tts">arbèschida</annotation>
+		<annotation cp="🌆">edifìtzios | fàbricos | intrinada | paesàgiu | sero | tzitade | tzitade a s’intrinada</annotation>
+		<annotation cp="🌆" type="tts">tzitade a s’intrinada</annotation>
+		<annotation cp="🌇">edifìtzios | fàbricos | intrinada | paesàgiu | sole | tzitade</annotation>
+		<annotation cp="🌇" type="tts">intrinada</annotation>
+		<annotation cp="🌉">note | ponte | ponte a de note</annotation>
+		<annotation cp="🌉" type="tts">ponte a de note</annotation>
+		<annotation cp="♨">calore | fontes termales | mitzas termales | papore | termas</annotation>
+		<annotation cp="♨" type="tts">fontes termales</annotation>
+		<annotation cp="🎠">caddu | caddu de giòstra | giostra</annotation>
+		<annotation cp="🎠" type="tts">caddu de giòstra</annotation>
+		<annotation cp="🛝">àrea de ispàssiu | giogare | giogu | iscagiadòrgiu | lassinadòrgia | lassinadòrgiu | parcu de giogos | trauladòrgiu</annotation>
+		<annotation cp="🛝" type="tts">lassinadòrgiu</annotation>
+		<annotation cp="🎡">intratenimentu | parcu de disaogu | parcu de ispàssiu | roda panoràmica</annotation>
+		<annotation cp="🎡" type="tts">roda panoràmica</annotation>
+		<annotation cp="🎢">intratenimentu | montagnas russas | parcu de disaogu | parcu de ispàssiu</annotation>
+		<annotation cp="🎢" type="tts">montagnas russas</annotation>
+		<annotation cp="💈">barbieri | insigna | palu | palu de barbieri | pelucheri | pilucheri | segada de pilos</annotation>
+		<annotation cp="💈" type="tts">palu de barbieri</annotation>
+		<annotation cp="🎪">intratenimentu | tenda | tendone | tendone de su tzircu | tzircu</annotation>
+		<annotation cp="🎪" type="tts">tendone de su tzircu</annotation>
+		<annotation cp="🚂">ferrovia | locomotiva | motore | papore | trenu</annotation>
+		<annotation cp="🚂" type="tts">locomotiva</annotation>
+		<annotation cp="🚃">elètricu | ferrovia | màchina | tram | trenu | vagone</annotation>
+		<annotation cp="🚃" type="tts">vagone</annotation>
+		<annotation cp="🚄">ferrovia | lestresa | shinkansen | trenu | trenu a lestresa arta | velotzidade</annotation>
+		<annotation cp="🚄" type="tts">trenu a lestresa arta</annotation>
+		<annotation cp="🚅">balla | ferrovia | lestresa | shinkansen | trenu | velotzidade</annotation>
+		<annotation cp="🚅" type="tts">trenu balla</annotation>
+		<annotation cp="🚆">ferrovia | trenu</annotation>
+		<annotation cp="🚆" type="tts">trenu</annotation>
+		<annotation cp="🚇">metro | metropolitana</annotation>
+		<annotation cp="🚇" type="tts">metropolitana</annotation>
+		<annotation cp="🚈">binàriu lèbiu | ferrovia | metropolitana lèbia | metrotranvia</annotation>
+		<annotation cp="🚈" type="tts">metrotranvia</annotation>
+		<annotation cp="🚉">ferrovia | istatzione | trenu</annotation>
+		<annotation cp="🚉" type="tts">istatzione</annotation>
+		<annotation cp="🚊">filubus | tram</annotation>
+		<annotation cp="🚊" type="tts">tram</annotation>
+		<annotation cp="🚝">monorotàia | veìculu</annotation>
+		<annotation cp="🚝" type="tts">monorotàia</annotation>
+		<annotation cp="🚞">ferrovia | ferrovia de monte | ferrovia montana | monte | trenu | veìculu</annotation>
+		<annotation cp="🚞" type="tts">ferrovia de monte</annotation>
+		<annotation cp="🚋">tram | vagone | vagone de su tram | veìculu</annotation>
+		<annotation cp="🚋" type="tts">vagone de su tram</annotation>
+		<annotation cp="🚌">àutobus | bus | corriera | postale | veìculu</annotation>
+		<annotation cp="🚌" type="tts">postale</annotation>
+		<annotation cp="🚍">arribende | àutobus | bus | corriera | in arribu | in arrivu | postale | veìculu</annotation>
+		<annotation cp="🚍" type="tts">postale arribende</annotation>
+		<annotation cp="🚎">bus | filobus | filubus | postalinu cun filu | veìculu</annotation>
+		<annotation cp="🚎" type="tts">postalinu cun filu</annotation>
+		<annotation cp="🚐">bus | postale | postalinu | veìculu</annotation>
+		<annotation cp="🚐" type="tts">postalinu</annotation>
+		<annotation cp="🚑">ambulàntzia | veìculu</annotation>
+		<annotation cp="🚑" type="tts">ambulàntzia</annotation>
+		<annotation cp="🚒">autopompa | càmion | càmion de is pompieris | càmion de sos pompieris | pompieris | veìculu</annotation>
+		<annotation cp="🚒" type="tts">càmion de sos pompieris</annotation>
+		<annotation cp="🚓">automòbile | màchina | màchina de sa politzia | patùllia | politzia | veìculu</annotation>
+		<annotation cp="🚓" type="tts">màchina de sa politzia</annotation>
+		<annotation cp="🚔">arribende | automòbile | in arribu | in arrivu | màchina | màchina de sa politzia arribende | politzia | veìculu</annotation>
+		<annotation cp="🚔" type="tts">màchina de sa politzia arribende</annotation>
+		<annotation cp="🚕">taxi | veìculu</annotation>
+		<annotation cp="🚕" type="tts">taxi</annotation>
+		<annotation cp="🚖">arribende | in arribu | in arrivu | taxi | veìculu</annotation>
+		<annotation cp="🚖" type="tts">taxi arribende</annotation>
+		<annotation cp="🚗">automòbile | màchina | veìculu</annotation>
+		<annotation cp="🚗" type="tts">automòbile</annotation>
+		<annotation cp="🚘">arribende | automòbile | in arribu | in arrivu | màchina | veìculu</annotation>
+		<annotation cp="🚘" type="tts">automòbile arribende</annotation>
+		<annotation cp="🚙">automòbile | màchina | SUV | veìculu</annotation>
+		<annotation cp="🚙" type="tts">SUV</annotation>
+		<annotation cp="🛻">camieddu | pick-up | pickup | veìculu</annotation>
+		<annotation cp="🛻" type="tts">camieddu</annotation>
+		<annotation cp="🚚">càmion | veìculu</annotation>
+		<annotation cp="🚚" type="tts">càmion</annotation>
+		<annotation cp="🚛">autoarticuladu | càmion | càmion articuladu | semi-rimòrchiu | veìculu</annotation>
+		<annotation cp="🚛" type="tts">autoarticuladu</annotation>
+		<annotation cp="🚜">tratore | veìculu</annotation>
+		<annotation cp="🚜" type="tts">tratore</annotation>
+		<annotation cp="🏎">àuto de cursa | automòbile de cursa | cursa | màchina de cursa | veìculu</annotation>
+		<annotation cp="🏎" type="tts">automòbile de cursa</annotation>
+		<annotation cp="🏍">cursa | moto | mototzicleta | veìculu</annotation>
+		<annotation cp="🏍" type="tts">mototzicleta</annotation>
+		<annotation cp="🛵">motorinu | veìculu</annotation>
+		<annotation cp="🛵" type="tts">motorinu</annotation>
+		<annotation cp="🦽">atzessibilidade | cadira a rodas manuale | carrotzedda manuale | carrutzina manuale</annotation>
+		<annotation cp="🦽" type="tts">carrotzedda manuale</annotation>
+		<annotation cp="🦼">atzessibilidade | cadira a rodas a motore | cadira a rodas motorizada | carrotzedda a motore | carrotzedda motorizada | carrutzina a motore | carrutzina motorizada</annotation>
+		<annotation cp="🦼" type="tts">carrotzedda a motore</annotation>
+		<annotation cp="🛺">risciò a motore | risciò motorizadu | tuk tuk</annotation>
+		<annotation cp="🛺" type="tts">risciò a motore</annotation>
+		<annotation cp="🚲">bitzicleta | veìculu</annotation>
+		<annotation cp="🚲" type="tts">bitzicleta</annotation>
+		<annotation cp="🛴">monopàtinu</annotation>
+		<annotation cp="🛴" type="tts">monopàtinu</annotation>
+		<annotation cp="🛹">skateboard | tàula de skateboard</annotation>
+		<annotation cp="🛹" type="tts">skateboard</annotation>
+		<annotation cp="🛼">pàtinos | pàtinos a rodeddas</annotation>
+		<annotation cp="🛼" type="tts">pàtinos a rodeddas</annotation>
+		<annotation cp="🚏">àutobus | bus | corriera | firmada | firmada de sa corriera | firmada de su postale | postale</annotation>
+		<annotation cp="🚏" type="tts">firmada de su postale</annotation>
+		<annotation cp="🛣">autostrada | caminu | caminu lestru | pedàgiu</annotation>
+		<annotation cp="🛣" type="tts">autostrada</annotation>
+		<annotation cp="🛤">binàrios | ferrovia | trenu</annotation>
+		<annotation cp="🛤" type="tts">ferrovia</annotation>
+		<annotation cp="🛢">barile | barile de petròliu | petròliu</annotation>
+		<annotation cp="🛢" type="tts">barile de petròliu</annotation>
+		<annotation cp="⛽">benzina | carburante | istatzione | istatzione de servìtziu | pompa de benzina</annotation>
+		<annotation cp="⛽" type="tts">istatzione de servìtziu</annotation>
+		<annotation cp="🛞">bortare | chircu | girare | gomma | pneumàticu | roda</annotation>
+		<annotation cp="🛞" type="tts">roda</annotation>
+		<annotation cp="🚨">lughe | lughe de sa politzia | politzia | sirena de sa politzia</annotation>
+		<annotation cp="🚨" type="tts">sirena de sa politzia</annotation>
+		<annotation cp="🚥">semàforu orizontale | sinnale | tràficu</annotation>
+		<annotation cp="🚥" type="tts">semàforu orizontale</annotation>
+		<annotation cp="🚦">semàforu verticale | sinnale | tràficu</annotation>
+		<annotation cp="🚦" type="tts">semàforu verticale</annotation>
+		<annotation cp="🛑">otagonale | sinnale | sinnale de stop | stop</annotation>
+		<annotation cp="🛑" type="tts">sinnale de stop</annotation>
+		<annotation cp="🚧">barriera | cantieri | fràigu | traballos</annotation>
+		<annotation cp="🚧" type="tts">cantieri</annotation>
+		<annotation cp="⚓">àncora | barca | imbarcatzione | nae | navile | naviu | traste</annotation>
+		<annotation cp="⚓" type="tts">àncora</annotation>
+		<annotation cp="🛟">agiudu | gallegiante | gallegiare | sarvagente | seguresa | sucursu</annotation>
+		<annotation cp="🛟" type="tts">sarvagente</annotation>
+		<annotation cp="⛵">barca | barca a vela | localidade balneare | vela | yacht</annotation>
+		<annotation cp="⛵" type="tts">barca a vela</annotation>
+		<annotation cp="🛶">barca | canoa | imbarcatzione</annotation>
+		<annotation cp="🛶" type="tts">canoa</annotation>
+		<annotation cp="🚤">barca | imbarcatzione | motoscafu</annotation>
+		<annotation cp="🚤" type="tts">motoscafu</annotation>
+		<annotation cp="🛳">crotziera | imbarcatzione | nave | nave de crotziera | naviu</annotation>
+		<annotation cp="🛳" type="tts">nave de crotziera</annotation>
+		<annotation cp="⛴">batellu | imbarcatzione | nave | navile | naviu</annotation>
+		<annotation cp="⛴" type="tts">navile</annotation>
+		<annotation cp="🛥">barca | barca a motore | imbarcatzione</annotation>
+		<annotation cp="🛥" type="tts">barca a motore</annotation>
+		<annotation cp="🚢">imbarcatzione | nave | naviu</annotation>
+		<annotation cp="🚢" type="tts">nave</annotation>
+		<annotation cp="✈">aèreu | aeroplanu | velìvolu</annotation>
+		<annotation cp="✈" type="tts">aeroplanu</annotation>
+		<annotation cp="🛩">aeroplaneddu | aeroplanu | aeroplanu minore | velìvolu</annotation>
+		<annotation cp="🛩" type="tts">aeroplanu minore</annotation>
+		<annotation cp="🛫">aèreu | aeroplanu | check-in | decollu | partèntzia | tzucada | velìvolu</annotation>
+		<annotation cp="🛫" type="tts">decollu</annotation>
+		<annotation cp="🛬">aèreu | aeroplanu | arribu | arrivu | aterràgiu | velìvolu</annotation>
+		<annotation cp="🛬" type="tts">aterràgiu</annotation>
+		<annotation cp="🪂">paracadute | paracadutismu | pararutas</annotation>
+		<annotation cp="🪂" type="tts">pararutas</annotation>
+		<annotation cp="💺">cadira | sedile</annotation>
+		<annotation cp="💺" type="tts">sedile</annotation>
+		<annotation cp="🚁">elicòteru | veìculu | velìvolu</annotation>
+		<annotation cp="🚁" type="tts">elicòteru</annotation>
+		<annotation cp="🚟">ferrovia | ferrovia suspèndida | ferrovia suspesa</annotation>
+		<annotation cp="🚟" type="tts">ferrovia suspesa</annotation>
+		<annotation cp="🚠">cabina | funivia | montagna | monte | montera | veìculu</annotation>
+		<annotation cp="🚠" type="tts">funivia</annotation>
+		<annotation cp="🚡">cabina | funivia aèrea | veìculu</annotation>
+		<annotation cp="🚡" type="tts">funivia aèrea</annotation>
+		<annotation cp="🛰">ispàtziu | satèllite</annotation>
+		<annotation cp="🛰" type="tts">satèllite</annotation>
+		<annotation cp="🚀">ispàtziu | razu</annotation>
+		<annotation cp="🚀" type="tts">razu</annotation>
+		<annotation cp="🛸">discu chi bolat | UFO</annotation>
+		<annotation cp="🛸" type="tts">discu chi bolat</annotation>
+		<annotation cp="🛎">albergu | campanedda | campanedda de albergu | posada</annotation>
+		<annotation cp="🛎" type="tts">campanedda de albergu</annotation>
+		<annotation cp="🧳">bagàlliu | biàgiu | valìgia</annotation>
+		<annotation cp="🧳" type="tts">bagàlliu</annotation>
+		<annotation cp="⌛">arena | rellògiu a arena | rellògiu a arena chene tempus | rellògiu a rena | rellògiu a rena chene tempus | rena | tempus</annotation>
+		<annotation cp="⌛" type="tts">rellògiu a arena chene tempus</annotation>
+		<annotation cp="⏳">arena | rellògiu a arena | rellògiu a arena iscurrende | rellògiu a rena | rellògiu a rena iscurrende | rena | tempus</annotation>
+		<annotation cp="⏳" type="tts">rellògiu a arena iscurrende</annotation>
+		<annotation cp="⌚">rellògiu | rellògiu de burtzu</annotation>
+		<annotation cp="⌚" type="tts">rellògiu</annotation>
+		<annotation cp="⏰">isvèllia | rellògiu</annotation>
+		<annotation cp="⏰" type="tts">isvèllia</annotation>
+		<annotation cp="⏱">cronòmetru | rellògiu</annotation>
+		<annotation cp="⏱" type="tts">cronòmetru</annotation>
+		<annotation cp="⏲">rellògiu | temporizadore | timer</annotation>
+		<annotation cp="⏲" type="tts">temporizadore</annotation>
+		<annotation cp="🕰">rellògiu | rellògiu de consola | rellògiu de mènsola | rellògiu de mesa</annotation>
+		<annotation cp="🕰" type="tts">rellògiu de mesa</annotation>
+		<annotation cp="🕛">00:00 | 12:00 | dòighi | dòighi in puntu | in puntu | mesanote | mesudie | mesunote | rellògiu</annotation>
+		<annotation cp="🕛" type="tts">dòighi in puntu</annotation>
+		<annotation cp="🕧">00:30 | 12:30 | dòighi e mesa | dòighi e mesu | mesanote e mesa | mesanote e mesu | mesudie e mesa | mesudie e mesu | mesunote e mesa | mesunote e mesu | rellògiu</annotation>
+		<annotation cp="🕧" type="tts">dòighi e mesa</annotation>
+		<annotation cp="🕐">1:00 | 13:00 | rellògiu | una | una in puntu</annotation>
+		<annotation cp="🕐" type="tts">una in puntu</annotation>
+		<annotation cp="🕜">1:30 | 13:30 | rellògiu | una e mesa | una e mesu</annotation>
+		<annotation cp="🕜" type="tts">una e mesa</annotation>
+		<annotation cp="🕑">14:00 | 2:00 | duas | duas in puntu | rellògiu</annotation>
+		<annotation cp="🕑" type="tts">duas in puntu</annotation>
+		<annotation cp="🕝">14:30 | 2:30 | duas e mesa | duas e mesu | rellògiu</annotation>
+		<annotation cp="🕝" type="tts">duas e mesa</annotation>
+		<annotation cp="🕒">15:00 | 3:00 | rellògiu | tres | tres in puntu</annotation>
+		<annotation cp="🕒" type="tts">tres in puntu</annotation>
+		<annotation cp="🕞">15:30 | 3:30 | rellògiu | tres e mesa | tres e mesu</annotation>
+		<annotation cp="🕞" type="tts">tres e mesa</annotation>
+		<annotation cp="🕓">16:00 | 4:00 | bator | bator in puntu | rellògiu</annotation>
+		<annotation cp="🕓" type="tts">bator in puntu</annotation>
+		<annotation cp="🕟">16:30 | 4:30 | bator e mesa | bator e mesu | rellògiu</annotation>
+		<annotation cp="🕟" type="tts">bator e mesa</annotation>
+		<annotation cp="🕔">17:00 | 5:00 | chimbe | chimbe in puntu | rellògiu</annotation>
+		<annotation cp="🕔" type="tts">chimbe in puntu</annotation>
+		<annotation cp="🕠">17:30 | 5:30 | chimbe e mesa | chimbe e mesu | rellògiu</annotation>
+		<annotation cp="🕠" type="tts">chimbe e mesa</annotation>
+		<annotation cp="🕕">18:00 | 6:00 | rellògiu | ses | ses in puntu</annotation>
+		<annotation cp="🕕" type="tts">ses in puntu</annotation>
+		<annotation cp="🕡">18:30 | 6:30 | rellògiu | ses e mesa | ses e mesu</annotation>
+		<annotation cp="🕡" type="tts">ses e mesa</annotation>
+		<annotation cp="🕖">19:00 | 7:00 | rellògiu | sete | sete in puntu</annotation>
+		<annotation cp="🕖" type="tts">sete in puntu</annotation>
+		<annotation cp="🕢">19:30 | 7:30 | rellògiu | sete e mesa | sete e mesu</annotation>
+		<annotation cp="🕢" type="tts">sete e mesa</annotation>
+		<annotation cp="🕗">20:00 | 8:00 | oto | oto in puntu | rellògiu</annotation>
+		<annotation cp="🕗" type="tts">oto in puntu</annotation>
+		<annotation cp="🕣">20:30 | 8:30 | oto e mesa | oto e mesu | rellògiu</annotation>
+		<annotation cp="🕣" type="tts">oto e mesa</annotation>
+		<annotation cp="🕘">21:00 | 9:00 | noe | noe in puntu | rellògiu</annotation>
+		<annotation cp="🕘" type="tts">noe in puntu</annotation>
+		<annotation cp="🕤">21:30 | 9:30 | noe e mesa | noe e mesu | rellògiu</annotation>
+		<annotation cp="🕤" type="tts">noe e mesa</annotation>
+		<annotation cp="🕙">10:00 | 22:00 | deghe | deghe in puntu | rellògiu</annotation>
+		<annotation cp="🕙" type="tts">deghe in puntu</annotation>
+		<annotation cp="🕥">10:30 | 22:30 | deghe e mesa | deghe e mesu | rellògiu</annotation>
+		<annotation cp="🕥" type="tts">deghe e mesa</annotation>
+		<annotation cp="🕚">11:00 | 23:00 | rellògiu | ùndighi | ùndighi in puntu</annotation>
+		<annotation cp="🕚" type="tts">ùndighi in puntu</annotation>
+		<annotation cp="🕦">11:30 | 23:30 | rellògiu | ùndighi e mesa | ùndighi e mesu</annotation>
+		<annotation cp="🕦" type="tts">ùndighi e mesa</annotation>
+		<annotation cp="🌑">isburridura de luna | iscura | iscuridade | iscuru | isperdimentu de luna | luna | luna noa</annotation>
+		<annotation cp="🌑" type="tts">luna noa</annotation>
+		<annotation cp="🌒">creschente | luna</annotation>
+		<annotation cp="🌒" type="tts">luna creschente</annotation>
+		<annotation cp="🌓">cuartu | luna | primu cuartu de luna</annotation>
+		<annotation cp="🌓" type="tts">primu cuartu de luna</annotation>
+		<annotation cp="🌔">creschente | cumbessa | luna</annotation>
+		<annotation cp="🌔" type="tts">luna creschente cumbessa</annotation>
+		<annotation cp="🌕">luna | prena</annotation>
+		<annotation cp="🌕" type="tts">luna prena</annotation>
+		<annotation cp="🌖">calante | luna | luna calante cumbessa | menguante | minimante</annotation>
+		<annotation cp="🌖" type="tts">luna calante cumbessa</annotation>
+		<annotation cp="🌗">cuartu | musciura | ùrtimu cuartu de luna</annotation>
+		<annotation cp="🌗" type="tts">ùrtimu cuartu de luna</annotation>
+		<annotation cp="🌘">calante | ismenguamentu de luna | luna | luna betza | luna modde | menguante | minimante</annotation>
+		<annotation cp="🌘" type="tts">luna calante</annotation>
+		<annotation cp="🌙">creschente | farche | farche de luna | luna</annotation>
+		<annotation cp="🌙" type="tts">farche de luna</annotation>
+		<annotation cp="🌚">cara | fatze | luna | luna noa cun cara</annotation>
+		<annotation cp="🌚" type="tts">luna noa cun cara</annotation>
+		<annotation cp="🌛">cara | cuartu | fatze | luna | primu cuartu de luna cun cara</annotation>
+		<annotation cp="🌛" type="tts">primu cuartu de luna cun cara</annotation>
+		<annotation cp="🌜">cara | cuartu | fatze | luna | musciura | ùrtimu cuartu de luna cun cara</annotation>
+		<annotation cp="🌜" type="tts">ùrtimu cuartu de luna cun cara</annotation>
+		<annotation cp="🌡">clima | mèteu | temperadura | tempus | termòmetru</annotation>
+		<annotation cp="🌡" type="tts">termòmetru</annotation>
+		<annotation cp="☀">calore | lughente | luminosu | rajos | sole | solianu</annotation>
+		<annotation cp="☀" type="tts">sole</annotation>
+		<annotation cp="🌝">cara | fatze | lughente | luminosa | luna | luna prena cun cara | prena</annotation>
+		<annotation cp="🌝" type="tts">luna prena cun cara</annotation>
+		<annotation cp="🌞">cara | fatze | lughente | luminosu | sole | sole cun cara</annotation>
+		<annotation cp="🌞" type="tts">sole cun cara</annotation>
+		<annotation cp="🪐">praneta cun aneddos | saturninu | Saturnu</annotation>
+		<annotation cp="🪐" type="tts">praneta cun aneddos</annotation>
+		<annotation cp="⭐">istedda | isteddu | istella</annotation>
+		<annotation cp="⭐" type="tts">isteddu</annotation>
+		<annotation cp="🌟">brillante | istedda | isteddu | isteddu chi brillat | isteddu chi lampat | istella | lampante | lughente</annotation>
+		<annotation cp="🌟" type="tts">isteddu lughente</annotation>
+		<annotation cp="🌠">falada | falende | irruende | irruta | istedda | isteddu | isteddu coudu | istella | ruende | ruta</annotation>
+		<annotation cp="🌠" type="tts">isteddu coudu</annotation>
+		<annotation cp="🌌">caminu de pàgia | galàssia | ispàtziu</annotation>
+		<annotation cp="🌌" type="tts">caminu de pàgia</annotation>
+		<annotation cp="☁">clima | mèteu | nue | tempus</annotation>
+		<annotation cp="☁" type="tts">nue</annotation>
+		<annotation cp="⛅">nue | sole | sole in palas de una nue</annotation>
+		<annotation cp="⛅" type="tts">sole in palas de una nue</annotation>
+		<annotation cp="⛈">abba | lampos | lampu | nue | nue cun lampos e abba | proende | temporada | tronos | tronu</annotation>
+		<annotation cp="⛈" type="tts">nue cun lampos e abba</annotation>
+		<annotation cp="🌤">nue | sole | sole in palas de una nue minoredda</annotation>
+		<annotation cp="🌤" type="tts">sole in palas de una nue minoredda</annotation>
+		<annotation cp="🌥">nue | sole | sole in palas de una nue manna</annotation>
+		<annotation cp="🌥" type="tts">sole in palas de una nue manna</annotation>
+		<annotation cp="🌦">abba | nue | proghende | sole | sole in palas de una nue cun abba</annotation>
+		<annotation cp="🌦" type="tts">sole in palas de una nue cun abba</annotation>
+		<annotation cp="🌧">abba | nue | nue cun abba</annotation>
+		<annotation cp="🌧" type="tts">nue cun abba</annotation>
+		<annotation cp="🌨">fritu | nie | nue | nue cun nie</annotation>
+		<annotation cp="🌨" type="tts">nue cun nie</annotation>
+		<annotation cp="🌩">lampos | lampu | nue | nue cun lampos | nue cun lampu | rajos | raju</annotation>
+		<annotation cp="🌩" type="tts">nue cun lampu</annotation>
+		<annotation cp="🌪">momonissa | preidoríssa | remolinu | tornadu | torvellinu | trumujone</annotation>
+		<annotation cp="🌪" type="tts">trumujone</annotation>
+		<annotation cp="🌫">bùora | nèbida | nèula</annotation>
+		<annotation cp="🌫" type="tts">nèula</annotation>
+		<annotation cp="🌬">alenu | bentu | cara | cara de bentu | fatze | nue | sulada</annotation>
+		<annotation cp="🌬" type="tts">cara de bentu</annotation>
+		<annotation cp="🌀">momonissa | preidoríssa | remolinu | tifone | tornadu | torvellinu | trumujone | tziclone | uraganu</annotation>
+		<annotation cp="🌀" type="tts">tziclone</annotation>
+		<annotation cp="🌈">arcu de chelu | chirchiola</annotation>
+		<annotation cp="🌈" type="tts">arcu de chelu</annotation>
+		<annotation cp="🌂">abba | paracu | paracu serradu | paràcua | paràcua serradu</annotation>
+		<annotation cp="🌂" type="tts">paracu serradu</annotation>
+		<annotation cp="☂">abba | paracu | paràcua</annotation>
+		<annotation cp="☂" type="tts">paracu</annotation>
+		<annotation cp="☔">gùtios | gùtios de abba | paracu | paracu cun gùtios de abba | paràcua | paràcua cun gùtios de abba</annotation>
+		<annotation cp="☔" type="tts">paracu cun gùtios de abba</annotation>
+		<annotation cp="⛱">arena | ombrellone | paracuone | parasole | praja | sole | umbrellone</annotation>
+		<annotation cp="⛱" type="tts">umbrellone</annotation>
+		<annotation cp="⚡">elètrica | elètricu | eletritzidade | lampu | perìgulu | tensione | tensione arta | voltàgiu | voltàgiu artu</annotation>
+		<annotation cp="⚡" type="tts">tensione arta</annotation>
+		<annotation cp="❄">fritu | froca | nie | solla | taddàine</annotation>
+		<annotation cp="❄" type="tts">froca</annotation>
+		<annotation cp="☃">fritu | nie | òmine de nie | santeddu de nie | tzieddu de nie</annotation>
+		<annotation cp="☃" type="tts">òmine de nie</annotation>
+		<annotation cp="⛄">fritu | nie | òmine de nie | òmine de nie chene nie | santeddu de nie | tzieddu de nie</annotation>
+		<annotation cp="⛄" type="tts">òmine de nie chene nie</annotation>
+		<annotation cp="☄">cometa | ispàtziu</annotation>
+		<annotation cp="☄" type="tts">cometa</annotation>
+		<annotation cp="🔥">aina | fogu | frama</annotation>
+		<annotation cp="🔥" type="tts">fogu</annotation>
+		<annotation cp="💧">fritu | fumetos | fumetu | gùtiu | sudore</annotation>
+		<annotation cp="💧" type="tts">gùtiu</annotation>
+		<annotation cp="🌊">abba | mare | otzèanu | unda | unda de abba | unda de su mare</annotation>
+		<annotation cp="🌊" type="tts">unda</annotation>
+		<annotation cp="🎃">conca de mortu | festa | Halloween | is animeddas | is pannigheddas | lanterna | sas ànimas | su bìddiu longu | su mortu mortu | su pedi cocone | tzuca</annotation>
+		<annotation cp="🎃" type="tts">conca de mortu</annotation>
+		<annotation cp="🎄">àrbore de Nadale | mata de Nadale | Pasca de Nadale | Paschighedda</annotation>
+		<annotation cp="🎄" type="tts">àrbore de Nadale</annotation>
+		<annotation cp="🎆">festa | fogos de artifìtziu</annotation>
+		<annotation cp="🎆" type="tts">fogos de artifìtziu</annotation>
+		<annotation cp="🎇">bengala | festa | fogos de artifìtziu | ischintiddas</annotation>
+		<annotation cp="🎇" type="tts">bengala</annotation>
+		<annotation cp="🧨">dinamite | fogos de artifìtziu | petardu</annotation>
+		<annotation cp="🧨" type="tts">petardu</annotation>
+		<annotation cp="✨">* | chichinita | chichinitas | fraria | frarias | ischinchidda | ischinchiddas | ischintidda | ischintiddas | istedda | isteddu | istella | pispidda | pispiddas</annotation>
+		<annotation cp="✨" type="tts">ischintiddas</annotation>
+		<annotation cp="🎈">festa | palloneddu | pallontzinu</annotation>
+		<annotation cp="🎈" type="tts">palloneddu</annotation>
+		<annotation cp="🎉">coriàndolos | festa | ispara coriàndolos</annotation>
+		<annotation cp="🎉" type="tts">ispara coriàndolos</annotation>
+		<annotation cp="🎊">botza | botza de coriàndolos | coriàndolos | festa</annotation>
+		<annotation cp="🎊" type="tts">botza de coriàndolos</annotation>
+		<annotation cp="🎋">àrbore | àrbore de sos disìgios | àrbore de Tanabata | festa de is isteddas | festa de sos isteddos | giaponesu | mata | mata de Tanabata</annotation>
+		<annotation cp="🎋" type="tts">àrbore de Tanabata</annotation>
+		<annotation cp="🎍">bambù | bambù decoradu | decoratzione de pinu | festa | giaponesu | kadomatsu | pinu</annotation>
+		<annotation cp="🎍" type="tts">bambù decoradu</annotation>
+		<annotation cp="🎎">buatas | festa manna | giaponesas | pupias</annotation>
+		<annotation cp="🎎" type="tts">pupias giaponesas</annotation>
+		<annotation cp="🎏">bandereddas | bandereddas de carpas | carpas | festa | koinobori</annotation>
+		<annotation cp="🎏" type="tts">bandereddas de carpas</annotation>
+		<annotation cp="🎐">bentu | campana | campana a su bentu | festa</annotation>
+		<annotation cp="🎐" type="tts">campana a su bentu</annotation>
+		<annotation cp="🎑">cuntemplatzione de sa luna | festa | luna | tzerimònia | tzerimònia de osservatzione de sa luna</annotation>
+		<annotation cp="🎑" type="tts">tzerimònia de osservatzione de sa luna</annotation>
+		<annotation cp="🧧">bonasorte | busta ruja | dinare | fortuna | hóngbāo | lai see</annotation>
+		<annotation cp="🧧" type="tts">busta ruja</annotation>
+		<annotation cp="🎀">chirrione | festa | frocu | pubusa</annotation>
+		<annotation cp="🎀" type="tts">frocu</annotation>
+		<annotation cp="🎁">donu | festa | incartadu | iscàtula | regalu</annotation>
+		<annotation cp="🎁" type="tts">donu incartadu</annotation>
+		<annotation cp="🎗">ammentadore | festa | nastru</annotation>
+		<annotation cp="🎗" type="tts">nastru ammentadore</annotation>
+		<annotation cp="🎟">ammissione | atzessu | billete | billete de intrada | intrada</annotation>
+		<annotation cp="🎟" type="tts">billete de intrada</annotation>
+		<annotation cp="🎫">ammissione | atzessu | billete | intrada</annotation>
+		<annotation cp="🎫" type="tts">billete</annotation>
+		<annotation cp="🎖">glorificatzione | medàllia | militare</annotation>
+		<annotation cp="🎖" type="tts">medàllia militare</annotation>
+		<annotation cp="🏆">prèmiu | trofeu</annotation>
+		<annotation cp="🏆" type="tts">trofeu</annotation>
+		<annotation cp="🏅">medàllia | medàllia de isport</annotation>
+		<annotation cp="🏅" type="tts">medàllia de isport</annotation>
+		<annotation cp="🥇">medàllia | medàllia de oro | medàllia de su de unu postu | medàllia de su primu postu | oro | primu</annotation>
+		<annotation cp="🥇" type="tts">medàllia de oro</annotation>
+		<annotation cp="🥈">medàllia | medàllia de prata | medàllia de su de duos postos | medàllia de su de duos postu | medàllia de su primu postu | prata | segundu</annotation>
+		<annotation cp="🥈" type="tts">medàllia de prata</annotation>
+		<annotation cp="🥉">brunzu | medàllia | medàllia de brunzu | medàllia de su de tres postos | medàllia de su de tres postu | medàllia de su tertzu postu | tertzu</annotation>
+		<annotation cp="🥉" type="tts">medàllia de brunzu</annotation>
+		<annotation cp="⚽">botza | botza de fùbalu | fùbalu</annotation>
+		<annotation cp="⚽" type="tts">botza de fùbalu</annotation>
+		<annotation cp="⚾">baseball | botza | botza de baseball</annotation>
+		<annotation cp="⚾" type="tts">botza de baseball</annotation>
+		<annotation cp="🥎">botza | botza de softball | guante | softball</annotation>
+		<annotation cp="🥎" type="tts">botza de softball</annotation>
+		<annotation cp="🏀">basket | botza | botza de basket | canistru | pallacanestro</annotation>
+		<annotation cp="🏀" type="tts">botza de basket</annotation>
+		<annotation cp="🏐">botza | giogu | pallavolo | volley</annotation>
+		<annotation cp="🏐" type="tts">volley</annotation>
+		<annotation cp="🏈">botza | fùbalu americanu</annotation>
+		<annotation cp="🏈" type="tts">fùbalu americanu</annotation>
+		<annotation cp="🏉">botza | botza de rugby | rugby</annotation>
+		<annotation cp="🏉" type="tts">rugby</annotation>
+		<annotation cp="🎾">botza | racheta | tennis</annotation>
+		<annotation cp="🎾" type="tts">tennis</annotation>
+		<annotation cp="🥏">discu chi bolat | frisbee | ultimate frisbee</annotation>
+		<annotation cp="🥏" type="tts">frisbee</annotation>
+		<annotation cp="🎳">botza | bowling | giogu</annotation>
+		<annotation cp="🎳" type="tts">bowling</annotation>
+		<annotation cp="🏏">botza | cricket | giogu | matza</annotation>
+		<annotation cp="🏏" type="tts">cricket</annotation>
+		<annotation cp="🏑">bàculu | botza | giogu | hockey de pradu | matza | pradu</annotation>
+		<annotation cp="🏑" type="tts">hockey de pradu</annotation>
+		<annotation cp="🏒">astra | àstragu | bàculu | discu | giogu | hockey in s’astra | hockey in s’àstragu | matza</annotation>
+		<annotation cp="🏒" type="tts">hockey in s’astra</annotation>
+		<annotation cp="🥍">botza | gol | lacrosse | racheta de lacrosse</annotation>
+		<annotation cp="🥍" type="tts">lacrosse</annotation>
+		<annotation cp="🏓">botza | ping pong | racheta | rete | retza | retze | tennis de mesa</annotation>
+		<annotation cp="🏓" type="tts">ping pong</annotation>
+		<annotation cp="🏸">badminton | giogu | isport | racheta | volanu</annotation>
+		<annotation cp="🏸" type="tts">badminton</annotation>
+		<annotation cp="🥊">boxe | guante | guante de boxe | guante de pugiladu | pugiladu</annotation>
+		<annotation cp="🥊" type="tts">guante de pugiladu</annotation>
+		<annotation cp="🥋">artes martziales | judo | karate | kimono | taekwondo | uniforme | uniforme de artes martziales | uniforme pro artes martziales</annotation>
+		<annotation cp="🥋" type="tts">uniforme pro artes martziales</annotation>
+		<annotation cp="🥅">gol | isport | porta | rete | retza | retze</annotation>
+		<annotation cp="🥅" type="tts">porta</annotation>
+		<annotation cp="⛳">banderedda in sa buca | buca | golf</annotation>
+		<annotation cp="⛳" type="tts">banderedda in sa buca</annotation>
+		<annotation cp="⛸">astra | àstragu | patinàgiu | patinàgiu artìsticu | patinàgiu in s’astra | patinàgiu in s’àstragu</annotation>
+		<annotation cp="⛸" type="tts">patinàgiu in s’astra</annotation>
+		<annotation cp="🎣">canna | canna de pisca | lentza | pisca | pische</annotation>
+		<annotation cp="🎣" type="tts">canna de pisca</annotation>
+		<annotation cp="🤿">acabussada | bisera | caratza | imberghidura | imberghimentu | impojada | màscara pro sas imbèrghidas | màschera | snorkeling</annotation>
+		<annotation cp="🤿" type="tts">màscara pro sas imbèrghidas</annotation>
+		<annotation cp="🎽">atlètica | cursa | fàscia | isport | màllia | màllia de cursa</annotation>
+		<annotation cp="🎽" type="tts">màllia de cursa</annotation>
+		<annotation cp="🎿">iscì | iscìs | nie</annotation>
+		<annotation cp="🎿" type="tts">iscì</annotation>
+		<annotation cp="🛷">islita | tragu | tràngulu</annotation>
+		<annotation cp="🛷" type="tts">islita</annotation>
+		<annotation cp="🥌">curling | giogu | pedra | pedra de curling | perda | perda de curling | preda | preda de curling</annotation>
+		<annotation cp="🥌" type="tts">perda de curling</annotation>
+		<annotation cp="🎯">bersàlliu | corpu diretu | fritza | fritzedda | giogu</annotation>
+		<annotation cp="🎯" type="tts">bersàlliu</annotation>
+		<annotation cp="🪀">gioghitu | giogu | maretare | maretosu | yo-yo</annotation>
+		<annotation cp="🪀" type="tts">yo-yo</annotation>
+		<annotation cp="🪁">abbilone | bolare | cometa | pranare</annotation>
+		<annotation cp="🪁" type="tts">abbilone</annotation>
+		<annotation cp="🔫">abba | arma | pistola | pistola a abba | traste | trastu</annotation>
+		<annotation cp="🔫" type="tts">pistola a abba</annotation>
+		<annotation cp="🎱">8 | billiardu | botza | botza de billiardu | botza de billiardu de 8 | giogu | oto</annotation>
+		<annotation cp="🎱" type="tts">botza de billiardu de 8</annotation>
+		<annotation cp="🔮">addeinòngiu | aina | benidore | cristallu | destinu | fantasia | fortuna | isfera | isfera de cristallu | paristòria</annotation>
+		<annotation cp="🔮" type="tts">isfera de cristallu</annotation>
+		<annotation cp="🪄">bachita màgica | brùscia | brùsciu | coga | cogu | maia | majàrgia | majàrgiu</annotation>
+		<annotation cp="🪄" type="tts">bachita màgica</annotation>
+		<annotation cp="🎮">controlladore | giogu | videogiogu</annotation>
+		<annotation cp="🎮" type="tts">videogiogu</annotation>
+		<annotation cp="🕹">giogu | joystick | leva de giogu | videogiogu</annotation>
+		<annotation cp="🕹" type="tts">leva de giogu</annotation>
+		<annotation cp="🎰">giogu | machineta màndiga-dinare | machineta màndiga-dinari</annotation>
+		<annotation cp="🎰" type="tts">machineta màndiga-dinari</annotation>
+		<annotation cp="🎲">dadu | dadu de giogu | giogu | giogu de dados</annotation>
+		<annotation cp="🎲" type="tts">dadu de giogu</annotation>
+		<annotation cp="🧩">giogu a incastros | incastros | incastru | puzzle | tèssera de giogu a incastros | tèssera de puzzle</annotation>
+		<annotation cp="🧩" type="tts">tèssera de giogu a incastros</annotation>
+		<annotation cp="🧸">gioghitu | piluche | ursigheddu</annotation>
+		<annotation cp="🧸" type="tts">ursigheddu</annotation>
+		<annotation cp="🪅">festa | ogliàcia | padeddatza | pignada | pinzadatza | sciaciapignada</annotation>
+		<annotation cp="🪅" type="tts">padeddatza</annotation>
+		<annotation cp="🪩">ballu | botza de discoteca | brillante | brillare | dantza | discoteca | festa | ispricos</annotation>
+		<annotation cp="🪩" type="tts">botza de discoteca</annotation>
+		<annotation cp="🪆">matrioska | pipia | pupia | pupias russas | rùssia</annotation>
+		<annotation cp="🪆" type="tts">pupias russas</annotation>
+		<annotation cp="♠">bastos | cartas | giogu | piche</annotation>
+		<annotation cp="♠" type="tts">bastos</annotation>
+		<annotation cp="♥">cartas | coros | cupas | giogu</annotation>
+		<annotation cp="♥" type="tts">coros</annotation>
+		<annotation cp="♦">cartas | cuadros | dinares | dinaris | giogu | oros</annotation>
+		<annotation cp="♦" type="tts">oros</annotation>
+		<annotation cp="♣">cartas | frores | giogu</annotation>
+		<annotation cp="♣" type="tts">frores</annotation>
+		<annotation cp="♟">iscacos | pedone | pedone de is iscacos | pedone de sos iscacos | sacrificàbile</annotation>
+		<annotation cp="♟" type="tts">pedone de sos iscacos</annotation>
+		<annotation cp="🃏">carta | giogu | jolly</annotation>
+		<annotation cp="🃏" type="tts">jolly</annotation>
+		<annotation cp="🀄">dragu ruju | dragu ruju de su mahjong | giogu | mahjong | tèssera</annotation>
+		<annotation cp="🀄" type="tts">dragu ruju de su mahjong</annotation>
+		<annotation cp="🎴">carta de giogu de frores | cartas de frores | frores | giaponesu | giogu | hanafuda</annotation>
+		<annotation cp="🎴" type="tts">carta de giogu de frores</annotation>
+		<annotation cp="🎭">arte | artes performativas | bisera | caratza | caratzas | màscara | màschera | teàtru</annotation>
+		<annotation cp="🎭" type="tts">artes performativas</annotation>
+		<annotation cp="🖼">arte | cornitze | cuadru | cuadru incornitzadu | guarnissa | immàgine | museu | pintura</annotation>
+		<annotation cp="🖼" type="tts">cuadru incornitzadu</annotation>
+		<annotation cp="🎨">arte | museu | pintura | tauledda | tauledda de is colores | tauledda de pintore | tauledda de sos colores</annotation>
+		<annotation cp="🎨" type="tts">tauledda de pintore</annotation>
+		<annotation cp="🧵">agu | cosìngiu | filu | rodineddu</annotation>
+		<annotation cp="🧵" type="tts">filu</annotation>
+		<annotation cp="🪡">agu | agu pro cosire | cosìngiu | puntos | ricamu | sartoria | suturas</annotation>
+		<annotation cp="🪡" type="tts">agu pro cosire</annotation>
+		<annotation cp="🧶">botza | busare | glòmuru | gròmuru | isferrutzare | lòmuru | rumbulone | unchineddu</annotation>
+		<annotation cp="🧶" type="tts">gròmuru</annotation>
+		<annotation cp="🪢">acapiadu | acapiare | annodadu | annodare | corda | ispagu | ligadu | ligare | nodu</annotation>
+		<annotation cp="🪢" type="tts">nodu</annotation>
+		<annotation cp="👓">bistimentas | ogru | ulleras | ulleras de vista</annotation>
+		<annotation cp="👓" type="tts">ulleras</annotation>
+		<annotation cp="🕶">iscuru | ogru | ulleras | ulleras de sole</annotation>
+		<annotation cp="🕶" type="tts">ulleras de sole</annotation>
+		<annotation cp="🥽">amparu de sos ogros | bisera | caratza | màscara | màschera | nadare | nadòngiu | saldadura</annotation>
+		<annotation cp="🥽" type="tts">màscara</annotation>
+		<annotation cp="🥼">càmitze | càmitze de laboratòriu | dutora | dutore | esprimentu | iscientziadu | mèiga | mèigu</annotation>
+		<annotation cp="🥼" type="tts">càmitze</annotation>
+		<annotation cp="🦺">antinfortunìstica | corpete | corpete de seguresa | emergèntzia | gileco | seguresa</annotation>
+		<annotation cp="🦺" type="tts">corpete de seguresa</annotation>
+		<annotation cp="👔">bestimenta | corbata</annotation>
+		<annotation cp="👔" type="tts">corbata</annotation>
+		<annotation cp="👕">bestimenta | malliedda</annotation>
+		<annotation cp="👕" type="tts">malliedda</annotation>
+		<annotation cp="👖">bestimenta | cartzones | jeans | pantalones | ragas</annotation>
+		<annotation cp="👖" type="tts">jeans</annotation>
+		<annotation cp="🧣">coddu | isserpa | tzugru</annotation>
+		<annotation cp="🧣" type="tts">isserpa</annotation>
+		<annotation cp="🧤">guantes | manu</annotation>
+		<annotation cp="🧤" type="tts">guantes</annotation>
+		<annotation cp="🧥">caparone | capoto | capotu | gabbanu | giaca | giacheta | redingote | redingotu | serenicu</annotation>
+		<annotation cp="🧥" type="tts">capotu</annotation>
+		<annotation cp="🧦">cartzas | cartzitas | mesascartzas | mìgias | migigheddas</annotation>
+		<annotation cp="🧦" type="tts">mìgias</annotation>
+		<annotation cp="👗">bestimenta | bestire</annotation>
+		<annotation cp="👗" type="tts">bestire</annotation>
+		<annotation cp="👘">bestimenta | bestire | kimono</annotation>
+		<annotation cp="👘" type="tts">kimono</annotation>
+		<annotation cp="🥻">bestimenta | bestire | sari</annotation>
+		<annotation cp="🥻" type="tts">sari</annotation>
+		<annotation cp="🩱">costuminu | costuminu intreu</annotation>
+		<annotation cp="🩱" type="tts">costuminu intreu</annotation>
+		<annotation cp="🩲">costuminu | costuminu de òmine | ìntimu | islip | mudandas | mudandas de òmine | slip</annotation>
+		<annotation cp="🩲" type="tts">mudandas</annotation>
+		<annotation cp="🩳">bermuda | cartzoneddos | costuminu | ìntimu | pantaloneddos</annotation>
+		<annotation cp="🩳" type="tts">pantaloneddos</annotation>
+		<annotation cp="👙">bestimenta | bikini | costuminu | costuminu de fèmina</annotation>
+		<annotation cp="👙" type="tts">bikini</annotation>
+		<annotation cp="👚">bestimenta | bestire de fèmina | fèmina</annotation>
+		<annotation cp="👚" type="tts">bestire de fèmina</annotation>
+		<annotation cp="🪭">afogu | agitare | ballu | bentàlliu | bentulare | birgongiosa | birgongiosu | infriscare | isbentulare | mòere àera | timidesa | ventàlliu</annotation>
+		<annotation cp="🪭" type="tts">ventàlliu</annotation>
+		<annotation cp="👛">bestimenta | bussighedda | bussiotu | dinare | dinari | moneda | monedas | taschinu</annotation>
+		<annotation cp="👛" type="tts">taschinu</annotation>
+		<annotation cp="👜">bestimenta | bursa | bussa | bussedda | bussighedda</annotation>
+		<annotation cp="👜" type="tts">bussedda</annotation>
+		<annotation cp="👝">bestimenta | butzachedda | taschinu</annotation>
+		<annotation cp="👝" type="tts">butzachedda</annotation>
+		<annotation cp="🛍">bursas | bursas de ispesa | bussas | bussas de ispesa | còmporas</annotation>
+		<annotation cp="🛍" type="tts">bussas de ispesa</annotation>
+		<annotation cp="🎒">iscola | zàinu | zàinu de iscola</annotation>
+		<annotation cp="🎒" type="tts">zàinu</annotation>
+		<annotation cp="🩴">cartzola | cartzola cun filu | cartzola de praja</annotation>
+		<annotation cp="🩴" type="tts">cartzola</annotation>
+		<annotation cp="👞">bestimenta | bota | iscarpa | iscarpa de òmine | iscrapita | iscrapita de òmine</annotation>
+		<annotation cp="👞" type="tts">iscarpa de òmine</annotation>
+		<annotation cp="👟">bestimenta | iscarpa | iscarpa de cursa | iscarpa de tennis | iscarpa isportiva | iscrapita</annotation>
+		<annotation cp="👟" type="tts">iscarpa de cursa</annotation>
+		<annotation cp="🥾">bota | bota de escursionismu | campègiu | escursionismu</annotation>
+		<annotation cp="🥾" type="tts">bota de escursionismu</annotation>
+		<annotation cp="🥿">ballerina | iscarpa bassa | iscarpa chene latzos | iscarpa sena latzos | iscrapita</annotation>
+		<annotation cp="🥿" type="tts">ballerina</annotation>
+		<annotation cp="👠">bestimenta | fèmina | iscarpa | iscarpa cun su tacu | iscrapita | tacone | tacu</annotation>
+		<annotation cp="👠" type="tts">iscarpa cun su tacu</annotation>
+		<annotation cp="👡">bestimenta | fèmina | iscarpa | iscrapita | sàndalu | sàndalu de fèmina</annotation>
+		<annotation cp="👡" type="tts">sàndalu de fèmina</annotation>
+		<annotation cp="🩰">balligheddu | ballitu | iscarpitas de ballerinas | iscarpitas de balligheddu | iscarpitas de ballitu | iscarpitas pro ballerinas | iscrapitas</annotation>
+		<annotation cp="🩰" type="tts">iscarpitas pro ballerinas</annotation>
+		<annotation cp="👢">bestimenta | bota | bota de fèmina | fèmina | iscarpa</annotation>
+		<annotation cp="👢" type="tts">bota de fèmina</annotation>
+		<annotation cp="🪮">afro | petenare | pètene | pilos</annotation>
+		<annotation cp="🪮" type="tts">pètene</annotation>
+		<annotation cp="👑">bestimenta | corona | re | rei | reina</annotation>
+		<annotation cp="👑" type="tts">corona</annotation>
+		<annotation cp="👒">bestimenta | bonete | bonete de fèmina | capeddu | capeddu de fèmina | fèmina</annotation>
+		<annotation cp="👒" type="tts">bonete de fèmina</annotation>
+		<annotation cp="🎩">bestimenta | bonete | bonete a tzilindru | capeddu | capeddu a tzilindru | tzilindru</annotation>
+		<annotation cp="🎩" type="tts">bonete a tzilindru</annotation>
+		<annotation cp="🎓">bestimenta | bonete | bonete de laureadu | capeddu | capeddu de laureadu | festa | laùrea | tzelebratzione</annotation>
+		<annotation cp="🎓" type="tts">bonete de laureadu</annotation>
+		<annotation cp="🧢">bonete cun visiera | bonete de baseball | capeddu cun visiera | capeddu de baseball</annotation>
+		<annotation cp="🧢" type="tts">bonete cun visiera</annotation>
+		<annotation cp="🪖">elmetu | elmetu militare | elmu | esèrtzitu | gherreri | mirrione | sordadu</annotation>
+		<annotation cp="🪖" type="tts">elmetu militare</annotation>
+		<annotation cp="⛑">agiudu | arba | bianca | cascu | cascu cun rughe arba | cascu cun rughe bianca | elmetu | elmetu cun rughe arba | elmetu cun rughe bianca | rughe | sucursu</annotation>
+		<annotation cp="⛑" type="tts">cascu cun rughe bianca</annotation>
+		<annotation cp="📿">bestimenta | collana | pregadoria | preghiera | religione | rosàriu</annotation>
+		<annotation cp="📿" type="tts">rosàriu</annotation>
+		<annotation cp="💄">arrubieddu | arrubietu | belletu | cosmèticos | russetu | trucos | trucu</annotation>
+		<annotation cp="💄" type="tts">russetu</annotation>
+		<annotation cp="💍">aneddu | diamante</annotation>
+		<annotation cp="💍" type="tts">aneddu</annotation>
+		<annotation cp="💎">diamante | gemma | prenda</annotation>
+		<annotation cp="💎" type="tts">gemma</annotation>
+		<annotation cp="🔇">a sa muda | altoparlante istudadu | altoparlante mortu | istudadu | mortu | silentziosu</annotation>
+		<annotation cp="🔇" type="tts">altoparlante istudadu</annotation>
+		<annotation cp="🔈">altoparlante a volume bassu | volume bassu</annotation>
+		<annotation cp="🔈" type="tts">altoparlante a volume bassu</annotation>
+		<annotation cp="🔉">altoparlante a volume mèdiu | altoparlante a volume mesanu | volume mesanu | voulme mèdiu</annotation>
+		<annotation cp="🔉" type="tts">altoparlante a volume mèdiu</annotation>
+		<annotation cp="🔊">altoparlante a volume artu | volume artu</annotation>
+		<annotation cp="🔊" type="tts">altoparlante a volume artu</annotation>
+		<annotation cp="📢">altoparlante | discursu pùblicu | megàfonu</annotation>
+		<annotation cp="📢" type="tts">altoparlante</annotation>
+		<annotation cp="📣">altoparlante | megàfonu | tifu</annotation>
+		<annotation cp="📣" type="tts">megàfonu</annotation>
+		<annotation cp="📯">cornu postale | posta | postas</annotation>
+		<annotation cp="📯" type="tts">cornu postale</annotation>
+		<annotation cp="🔔">campana | campanedda</annotation>
+		<annotation cp="🔔" type="tts">campana</annotation>
+		<annotation cp="🔕">a sa muda | campana | campana istangada | campanedda | campanedda istangada | mudìmene | proibidu | silèntziu</annotation>
+		<annotation cp="🔕" type="tts">campana istangada</annotation>
+		<annotation cp="🎼">mùsica | partidura | partidura musicale | pentagramma</annotation>
+		<annotation cp="🎼" type="tts">pentagramma</annotation>
+		<annotation cp="🎵">mùsica | nota | nota musicale</annotation>
+		<annotation cp="🎵" type="tts">nota musicale</annotation>
+		<annotation cp="🎶">mùsica | nota | notas | notas musicales</annotation>
+		<annotation cp="🎶" type="tts">notas musicales</annotation>
+		<annotation cp="🎙">istùdiu | micròfonu | micròfonu de istùdiu | mùsica</annotation>
+		<annotation cp="🎙" type="tts">micròfonu de istùdiu</annotation>
+		<annotation cp="🎚">controllu | controllu de su volume | cursore | cursore de su volume | mùsica | volume</annotation>
+		<annotation cp="🎚" type="tts">cursore de su volume</annotation>
+		<annotation cp="🎛">controllu | manòpulas | manòpulas de controllu | mùsica</annotation>
+		<annotation cp="🎛" type="tts">manòpulas de controllu</annotation>
+		<annotation cp="🎤">karaoke | micròfonu</annotation>
+		<annotation cp="🎤" type="tts">micròfonu</annotation>
+		<annotation cp="🎧">auricolares | cùfias</annotation>
+		<annotation cp="🎧" type="tts">cùfias</annotation>
+		<annotation cp="📻">ràdiu</annotation>
+		<annotation cp="📻" type="tts">ràdiu</annotation>
+		<annotation cp="🎷">istrumentu | istrumentu musicale | mùsica | sassòfonu</annotation>
+		<annotation cp="🎷" type="tts">sassòfonu</annotation>
+		<annotation cp="🪗">fisarmònica | organeddu | organete | organitu | soneddu | sonetu | sonu</annotation>
+		<annotation cp="🪗" type="tts">organitu</annotation>
+		<annotation cp="🎸">chitarra | chiterra | istrumentu | istrumentu musicale | mùsica</annotation>
+		<annotation cp="🎸" type="tts">chiterra</annotation>
+		<annotation cp="🎹">istrumentu | istrumentu musicale | mùsica | pianoforte | pianu | tastieras | tecladu | tecladu musicale</annotation>
+		<annotation cp="🎹" type="tts">tecladu musicale</annotation>
+		<annotation cp="🎺">istrumentu | istrumentu musicale | mùsica | trumba</annotation>
+		<annotation cp="🎺" type="tts">trumba</annotation>
+		<annotation cp="🎻">istrumentu | istrumentu musicale | mùsica | violinu</annotation>
+		<annotation cp="🎻" type="tts">violinu</annotation>
+		<annotation cp="🪕">banjo | istrumentu | istrumentu a cordas | istrumentu musicale | mùsica</annotation>
+		<annotation cp="🪕" type="tts">banjo</annotation>
+		<annotation cp="🥁">bachitas | istrumentu | istrumentu musicale | mùsica | tamburu</annotation>
+		<annotation cp="🥁" type="tts">tamburu</annotation>
+		<annotation cp="🪘">bonghitu | bongu | conga | istrumentu | istrumentu musicale | mùsica | ritmu | tamburu | tamburu longu</annotation>
+		<annotation cp="🪘" type="tts">tamburu longu</annotation>
+		<annotation cp="🪇">agitare | istrumentu | istrumentu musicale | maracas | mùsica | percussione | percussiones | tranchinare | trumbulare</annotation>
+		<annotation cp="🪇" type="tts">maracas</annotation>
+		<annotation cp="🪈">flàutu | istrumentu | istrumentu musicale | mùsica | otavinu | pìferu | pimpiriolu | pipajolu | sonedda | sonos de canna | trobedda | truedda</annotation>
+		<annotation cp="🪈" type="tts">flàutu</annotation>
+		<annotation cp="📱">telefoneddu | telèfono | telèfono mòbile | telèfonu | telèfonu mòbile | tzellulare</annotation>
+		<annotation cp="📱" type="tts">telefoneddu</annotation>
+		<annotation cp="📲">fritza | mutida | mutida in intrada | retzende | telefoneddu | telefoneddu cun fritza | telèfono | telèfonu | telèfonu mòbile</annotation>
+		<annotation cp="📲" type="tts">telefoneddu cun fritza</annotation>
+		<annotation cp="☎">telèfono | telèfonu</annotation>
+		<annotation cp="☎" type="tts">telèfonu</annotation>
+		<annotation cp="📞">corneta | corneta de su telèfono | corneta de su telèfonu | telèfono | telèfonu</annotation>
+		<annotation cp="📞" type="tts">corneta de su telèfonu</annotation>
+		<annotation cp="📟">chircapersones</annotation>
+		<annotation cp="📟" type="tts">chircapersones</annotation>
+		<annotation cp="📠">fax</annotation>
+		<annotation cp="📠" type="tts">fax</annotation>
+		<annotation cp="🔋">bateria</annotation>
+		<annotation cp="🔋" type="tts">bateria</annotation>
+		<annotation cp="🪫">bateria bassa | bateria iscàrriga | bateria iscarrigada | eletrònica | energia bassa</annotation>
+		<annotation cp="🪫" type="tts">bateria bassa</annotation>
+		<annotation cp="🔌">elètricu | eletritzidade | ispina elètrica</annotation>
+		<annotation cp="🔌" type="tts">ispina elètrica</annotation>
+		<annotation cp="💻">carculadore | cumputadore | elaboradore | mòbile | ordinadore | portàtile</annotation>
+		<annotation cp="💻" type="tts">elaboradore portàtile</annotation>
+		<annotation cp="🖥">carculadore | cumputadore | elaboradore de iscrivania | elaboradore fissu | ordinadore</annotation>
+		<annotation cp="🖥" type="tts">elaboradore fissu</annotation>
+		<annotation cp="🖨">carculadore | cumputadore | elaboradore | imprentadora | ordinadore</annotation>
+		<annotation cp="🖨" type="tts">imprentadora</annotation>
+		<annotation cp="⌨">carculadore | cumputadore | elaboradore | ordinadore | tastiera | tecladu</annotation>
+		<annotation cp="⌨" type="tts">tecladu</annotation>
+		<annotation cp="🖱">carculadore | cumputadore | elaboradore | ordinadore | ratu | ratu de s’ordinadore | sòrighe | topi</annotation>
+		<annotation cp="🖱" type="tts">ratu de s’ordinadore</annotation>
+		<annotation cp="🖲">botza de controllu | carculadore | cumputadore | elaboradore | ordinadore | trackball</annotation>
+		<annotation cp="🖲" type="tts">botza de controllu</annotation>
+		<annotation cp="💽">carculadore | cumputadore | discu | elaboradore | minidiscu | ordinadore | òticu</annotation>
+		<annotation cp="💽" type="tts">minidiscu</annotation>
+		<annotation cp="💾">carculadore | cumputadore | discheddu | discu | elaboradore | floppy | floppy disc | ordinadore</annotation>
+		<annotation cp="💾" type="tts">discheddu</annotation>
+		<annotation cp="💿">carculadore | cd | cumputadore | discu | elaboradore | ordinadore | òticu</annotation>
+		<annotation cp="💿" type="tts">discu òticu</annotation>
+		<annotation cp="📀">blu-ray | carculadore | cumputadore | discu | dvd | elaboradore | ordinadore | òticu</annotation>
+		<annotation cp="📀" type="tts">dvd</annotation>
+		<annotation cp="🧮">àbacu | càrculu</annotation>
+		<annotation cp="🧮" type="tts">àbacu</annotation>
+		<annotation cp="🎥">film | tzìnema | tzinepresa | videocàmera</annotation>
+		<annotation cp="🎥" type="tts">tzinepresa</annotation>
+		<annotation cp="🎞">film | fotogrammas | pellìcula | pellìcula tzinematogràfica | tzìnema</annotation>
+		<annotation cp="🎞" type="tts">pellìcula tzinematogràfica</annotation>
+		<annotation cp="📽">film | projetore | projetore tzinematogràficu | tzìnema | vìdeu</annotation>
+		<annotation cp="📽" type="tts">projetore tzinematogràficu</annotation>
+		<annotation cp="🎬">ciàc | ciàk | film | tzìnema</annotation>
+		<annotation cp="🎬" type="tts">ciàc</annotation>
+		<annotation cp="📺">televisione | tv | vìdeu</annotation>
+		<annotation cp="📺" type="tts">televisione</annotation>
+		<annotation cp="📷">fotocàmera | fotografia | màchina fotogràfica</annotation>
+		<annotation cp="📷" type="tts">fotocàmera</annotation>
+		<annotation cp="📸">flash | fotocàmera | fotocàmera cun su flash | màchina fotogràfica | màchina fotogràfica cun su flash</annotation>
+		<annotation cp="📸" type="tts">fotocàmera cun su flash</annotation>
+		<annotation cp="📹">telecàmera | videocàmera | vìdeu</annotation>
+		<annotation cp="📹" type="tts">videocàmera</annotation>
+		<annotation cp="📼">casseta | cassita | vhs | videocasseta | videocassita | vìdeu</annotation>
+		<annotation cp="📼" type="tts">videocasseta</annotation>
+		<annotation cp="🔍">aina | chirca | lente | lente de ismanniamentu | lente de ismanniamentu orientada cara a manca | traste | trastu</annotation>
+		<annotation cp="🔍" type="tts">lente de ismanniamentu orientada cara a manca</annotation>
+		<annotation cp="🔎">aina | chirca | lente | lente de ismanniamentu | lente de ismanniamentu orientada cara a destra | traste | trastu</annotation>
+		<annotation cp="🔎" type="tts">lente de ismanniamentu orientada cara a destra</annotation>
+		<annotation cp="🕯">candela | lughe</annotation>
+		<annotation cp="🕯" type="tts">candela</annotation>
+		<annotation cp="💡">elètrica | eletritzidade | fumetu | idea | lampadina | lughe</annotation>
+		<annotation cp="💡" type="tts">lampadina</annotation>
+		<annotation cp="🔦">elètrica | lughe | pila | tortza | traste</annotation>
+		<annotation cp="🔦" type="tts">tortza</annotation>
+		<annotation cp="🏮">izakaya | lanterna | lanterna de paperi ruju | lanterna ruja | locale | lughe | tzilleri</annotation>
+		<annotation cp="🏮" type="tts">lanterna de paperi ruju</annotation>
+		<annotation cp="🪔">diya | làmpada | làmpada a ògiu | ògiu</annotation>
+		<annotation cp="🪔" type="tts">làmpada diya</annotation>
+		<annotation cp="📔">cobertedda decorada | cuadernu | cuadernu cun cobertedda decorada | tacuinu | tacuinu cun cobertedda decorada</annotation>
+		<annotation cp="📔" type="tts">cuadernu cun cobertedda decorada</annotation>
+		<annotation cp="📕">libru | libru serradu | libru tancadu</annotation>
+		<annotation cp="📕" type="tts">libru serradu</annotation>
+		<annotation cp="📖">libru | libru abertu</annotation>
+		<annotation cp="📖" type="tts">libru abertu</annotation>
+		<annotation cp="📗">libru | libru birde</annotation>
+		<annotation cp="📗" type="tts">libru birde</annotation>
+		<annotation cp="📘">libru | libru biaitu</annotation>
+		<annotation cp="📘" type="tts">libru biaitu</annotation>
+		<annotation cp="📙">libru | libru arantzu | libru in colore de arantzu</annotation>
+		<annotation cp="📙" type="tts">libru in colore de arantzu</annotation>
+		<annotation cp="📚">libros | libru</annotation>
+		<annotation cp="📚" type="tts">libros</annotation>
+		<annotation cp="📓">cuadernu</annotation>
+		<annotation cp="📓" type="tts">cuadernu</annotation>
+		<annotation cp="📒">cuadernu | cuadernu a aneddos</annotation>
+		<annotation cp="📒" type="tts">cuadernu a aneddos</annotation>
+		<annotation cp="📃">documentu | pàgina | pàgina pinnigada | pìnniga</annotation>
+		<annotation cp="📃" type="tts">pàgina pinnigada</annotation>
+		<annotation cp="📜">pabiru | paperi | pergamena | ròtulu</annotation>
+		<annotation cp="📜" type="tts">pergamena</annotation>
+		<annotation cp="📄">documentu | pàgina</annotation>
+		<annotation cp="📄" type="tts">pàgina</annotation>
+		<annotation cp="📰">cuotidianu | diàriu | giornale | noas | novas</annotation>
+		<annotation cp="📰" type="tts">giornale</annotation>
+		<annotation cp="🗞">alloturadu | cuotidianu | diàriu | giornale | noas | novas</annotation>
+		<annotation cp="🗞" type="tts">giornale alloturadu</annotation>
+		<annotation cp="📑">etichetas | marcadore | marcadores | sinnalibros | sinnalibru</annotation>
+		<annotation cp="📑" type="tts">etichetas sinnalibru</annotation>
+		<annotation cp="🔖">marcadore | sinnalibru</annotation>
+		<annotation cp="🔖" type="tts">sinnalibru</annotation>
+		<annotation cp="🏷">eticheta</annotation>
+		<annotation cp="🏷" type="tts">eticheta</annotation>
+		<annotation cp="💰">dinare | dinari | dòllaru | sacu | sacu de dinare | sacu de dinari</annotation>
+		<annotation cp="💰" type="tts">sacu de dinare</annotation>
+		<annotation cp="🪙">ascusòrgiu | dinare | dinari | metallu | moneda | oro | prata | siddadu</annotation>
+		<annotation cp="🪙" type="tts">moneda</annotation>
+		<annotation cp="💴">banconota | banconota in yen | dinare | dinari | moneda | yen</annotation>
+		<annotation cp="💴" type="tts">banconota in yen</annotation>
+		<annotation cp="💵">banconota | banconota in dòllaros | dinare | dinari | dòllaros | dòllaru | moneda</annotation>
+		<annotation cp="💵" type="tts">banconota in dòllaros</annotation>
+		<annotation cp="💶">banconota | banconota in èuros | dinare | dinari | èuro | èuros | èuru | moneda</annotation>
+		<annotation cp="💶" type="tts">banconota in èuros</annotation>
+		<annotation cp="💷">banconota | banconota in isterlinas | dinare | dinari | isterlina | isterlinas | moneda</annotation>
+		<annotation cp="💷" type="tts">banconota in isterlinas</annotation>
+		<annotation cp="💸">banconota | dinare | dinare bolende | dinare chi bolat | dinare cun is alas | dinare cun sas alas | dinari | dinari bolende | dinari chi bolat | dinari cun is alas | dinari cun sas alas</annotation>
+		<annotation cp="💸" type="tts">dinare cun sas alas</annotation>
+		<annotation cp="💳">carta | carta de crèditu | crèditu | dinare | dinari</annotation>
+		<annotation cp="💳" type="tts">carta de crèditu</annotation>
+		<annotation cp="🧾">contabilidade | iscontrinu | retzida | retzida de pagamentu | retzida fiscale</annotation>
+		<annotation cp="🧾" type="tts">iscontrinu</annotation>
+		<annotation cp="💹">dinare | dinari | gràficu | gràficu artziende | gràficu chi àrtziat | gràficu chi àrtziat cun su sìmbulu de su yen | gràficu in artziada | mercadu in artziada | mercadu in pesada | yen</annotation>
+		<annotation cp="💹" type="tts">gràficu chi àrtziat cun su sìmbulu de su yen</annotation>
+		<annotation cp="✉">busta | email | lìtera | lìtera eletrònica | posta | posta eletrònica</annotation>
+		<annotation cp="✉" type="tts">busta</annotation>
+		<annotation cp="📧">email | lìtera | lìtera eletrònica | posta | posta eletrònica</annotation>
+		<annotation cp="📧" type="tts">lìtera eletrònica</annotation>
+		<annotation cp="📨">email | lìtera | lìtera eletrònica | lìtera in intrada | messàgiu in intrada | posta | posta eletrònica | posta in intrada</annotation>
+		<annotation cp="📨" type="tts">posta in intrada</annotation>
+		<annotation cp="📩">busta | busta cun fritza | email | fritza | lìtera | lìtera eletrònica | posta | posta eletrònica</annotation>
+		<annotation cp="📩" type="tts">busta cun fritza</annotation>
+		<annotation cp="📤">cartella | cartella de essida | email | lìtera | lìtera eletrònica | posta | posta eletrònica | posta imbiada | posta in essida</annotation>
+		<annotation cp="📤" type="tts">cartella de essida</annotation>
+		<annotation cp="📥">cartella | cartella de intrada | email | lìtera | lìtera eletrònica | posta | posta eletrònica | posta in intrada | posta retzida</annotation>
+		<annotation cp="📥" type="tts">cartella de intrada</annotation>
+		<annotation cp="📦">iscàtula | pacu</annotation>
+		<annotation cp="📦" type="tts">pacu</annotation>
+		<annotation cp="📫">banderedda | cassita postale | cassita postale serrada cun sa banderedda artziada | posta | serrada | tancada</annotation>
+		<annotation cp="📫" type="tts">cassita postale serrada cun sa banderedda artziada</annotation>
+		<annotation cp="📪">banderedda | cassita postale | cassita postale serrada cun sa banderedda abbassada | posta | serrada | tancada</annotation>
+		<annotation cp="📪" type="tts">cassita postale serrada cun sa banderedda abbassada</annotation>
+		<annotation cp="📬">banderedda | cassita postale | cassita postale aberta cun sa banderedda artziada | posta | serrada | tancada</annotation>
+		<annotation cp="📬" type="tts">cassita postale aberta cun sa banderedda artziada</annotation>
+		<annotation cp="📭">aberta | banderedda | cassita postale | cassita postale aberta cun sa banderedda abbassada | posta</annotation>
+		<annotation cp="📭" type="tts">cassita postale aberta cun sa banderedda abbassada</annotation>
+		<annotation cp="📮">cassita de sas lìteras | imbiare posta | posta</annotation>
+		<annotation cp="📮" type="tts">cassita de sas lìteras</annotation>
+		<annotation cp="🗳">eletziones | ischeda de votu | ischeda eletorale | urna eletorale cun ischeda | votu</annotation>
+		<annotation cp="🗳" type="tts">urna eletorale cun ischeda</annotation>
+		<annotation cp="✏">lapis</annotation>
+		<annotation cp="✏" type="tts">lapis</annotation>
+		<annotation cp="✒">penninu | pinna | pinnina | pinninu | pinninu nieddu | temperedda | temperedda niedda</annotation>
+		<annotation cp="✒" type="tts">pinninu nieddu</annotation>
+		<annotation cp="🖋">penninu | pinna | pinna istilogràfica | pinnina | pinninu | temperedda</annotation>
+		<annotation cp="🖋" type="tts">pinna istilogràfica</annotation>
+		<annotation cp="🖊">pinna | pinna a isfera</annotation>
+		<annotation cp="🖊" type="tts">pinna</annotation>
+		<annotation cp="🖌">pintare | pintura | pintzellu</annotation>
+		<annotation cp="🖌" type="tts">pintzellu</annotation>
+		<annotation cp="🖍">pastellu | pastellu a cera</annotation>
+		<annotation cp="🖍" type="tts">pastellu a cera</annotation>
+		<annotation cp="📝">apuntos | apuntu | làpis | nota | punta de billete</annotation>
+		<annotation cp="📝" type="tts">nota</annotation>
+		<annotation cp="💼">documentos | ufìtziu | valigedda</annotation>
+		<annotation cp="💼" type="tts">valigedda</annotation>
+		<annotation cp="📁">archìvios | cartella | cartella de archìvios | cartella de documentos | documentos</annotation>
+		<annotation cp="📁" type="tts">cartella de documentos</annotation>
+		<annotation cp="📂">archìvios | cartella | cartella aberta | cartella de archìvios aberta | cartella de documentos aberta | documentos</annotation>
+		<annotation cp="📂" type="tts">cartella de documentos aberta</annotation>
+		<annotation cp="🗂">documentos | ìnditze | ischedàriu | ordinare | partzidores | partzidores pro ischedàriu</annotation>
+		<annotation cp="🗂" type="tts">partzidores pro ischedàriu</annotation>
+		<annotation cp="📅">calendàriu | data</annotation>
+		<annotation cp="📅" type="tts">calendàriu</annotation>
+		<annotation cp="📆">calendàriu | calendàriu de istratzare</annotation>
+		<annotation cp="📆" type="tts">calendàriu de istratzare</annotation>
+		<annotation cp="🗒">apuntos | blocu pro apuntos a ispirale | blocu pro notas a ispirale | ispirale | nota | notas</annotation>
+		<annotation cp="🗒" type="tts">blocu pro notas a ispirale</annotation>
+		<annotation cp="🗓">calendàriu | calendàriu a ispirale | ispirale</annotation>
+		<annotation cp="🗓" type="tts">calendàriu a ispirale</annotation>
+		<annotation cp="📇">documentos | ìnditze | ischeda | ischedàriu | ischedas | ordinare | rolodex</annotation>
+		<annotation cp="📇" type="tts">ischedàriu</annotation>
+		<annotation cp="📈">artziada | balàngiu | crèschida | gràficu | gràficu cara a susu | gràficu in artziada | tendèntzia</annotation>
+		<annotation cp="📈" type="tts">gràficu in artziada</annotation>
+		<annotation cp="📉">achirrada | calada | gràficu | gràficu cara a giosso | gràficu in achirrada | minimada | pèrdida | tendèntzia</annotation>
+		<annotation cp="📉" type="tts">gràficu in achirrada</annotation>
+		<annotation cp="📊">barras | colunnas | gràficu | gràficu a barras | gràficu a colunnas</annotation>
+		<annotation cp="📊" type="tts">gràficu a barras</annotation>
+		<annotation cp="📋">apuntos | portablocu | punta de billete</annotation>
+		<annotation cp="📋" type="tts">portablocu</annotation>
+		<annotation cp="📌">puntighedda | puntina | puntina de disinnu</annotation>
+		<annotation cp="📌" type="tts">puntina</annotation>
+		<annotation cp="📍">puntighedda | puntina | puntina de disinnu | puntina tunda</annotation>
+		<annotation cp="📍" type="tts">puntina tunda</annotation>
+		<annotation cp="📎">brestiedda | fermàlliu | grafeta</annotation>
+		<annotation cp="📎" type="tts">grafeta</annotation>
+		<annotation cp="🖇">brestieddas | fermàllios | grafeta | grafetas | grafetas collegadas</annotation>
+		<annotation cp="🖇" type="tts">grafetas collegadas</annotation>
+		<annotation cp="📏">aina | geometria | medire | ria | riga | righighedda | traste | trastu</annotation>
+		<annotation cp="📏" type="tts">righighedda</annotation>
+		<annotation cp="📐">aina | cartabonu | geometria | iscuadra | medire | traste | trastu</annotation>
+		<annotation cp="📐" type="tts">iscuadra</annotation>
+		<annotation cp="✂">aina | ferros | fòrfighes | fòrtzighes | serritos | traste | trastu</annotation>
+		<annotation cp="✂" type="tts">fòrtzighes</annotation>
+		<annotation cp="🗃">archiviare | archìviu | cuntenidore | documentos | ischedàriu | ischedàriu de mesa</annotation>
+		<annotation cp="🗃" type="tts">ischedàriu de mesa</annotation>
+		<annotation cp="🗄">archiviare | archìviu | armàriu | documentos | ischedàriu | ischedàriu de ufìtziu | mòbile</annotation>
+		<annotation cp="🗄" type="tts">ischedàriu de ufìtziu</annotation>
+		<annotation cp="🗑">botu de s’àliga | botu de s’arga</annotation>
+		<annotation cp="🗑" type="tts">botu de s’arga</annotation>
+		<annotation cp="🔒">luchete | luchetu | morisca | moriscu | serradu | tancadu | tancadura</annotation>
+		<annotation cp="🔒" type="tts">luchete serradu</annotation>
+		<annotation cp="🔓">abertu | luchete | luchetu | morisca | moriscu</annotation>
+		<annotation cp="🔓" type="tts">luchete abertu</annotation>
+		<annotation cp="🔏">critografia | luchete cun pinna istilogràfica | luchete cun pinninu | luchete serradu cun pinninu | luchete tancadu cun pinninu | luchetu | morisca | moriscu | penninu | pinninu | riservadera | serradu | tancadu | tzifradura</annotation>
+		<annotation cp="🔏" type="tts">luchete serradu cun pinninu</annotation>
+		<annotation cp="🔐">crae | luchete | luchete serradu cun crae | luchetu | morisca | moriscu | seguru | serradu | serradu a crae | tancadu | tancadu a crae</annotation>
+		<annotation cp="🔐" type="tts">luchete serradu cun crae</annotation>
+		<annotation cp="🔑">crae | crae de intrada | serrare | serrare a crae | tancare | tancare a crae</annotation>
+		<annotation cp="🔑" type="tts">crae</annotation>
+		<annotation cp="🗝">crae | crae antiga | crae betza | serrare | serrare a crae | tancare | tancare a crae</annotation>
+		<annotation cp="🗝" type="tts">crae antiga</annotation>
+		<annotation cp="🔨">marteddu | traste | trastu</annotation>
+		<annotation cp="🔨" type="tts">marteddu</annotation>
+		<annotation cp="🪓">buscajolu | buscarinu | istrale | segalinna | segantinu | segare linna | segura</annotation>
+		<annotation cp="🪓" type="tts">istrale</annotation>
+		<annotation cp="⛏">iscavare | miniera | pàstinu | piconare | picone | picu | traste | trastu</annotation>
+		<annotation cp="⛏" type="tts">picu</annotation>
+		<annotation cp="⚒">marteddu | marteddu e picu | picone | picu | traste | trastes | trastu</annotation>
+		<annotation cp="⚒" type="tts">marteddu e picu</annotation>
+		<annotation cp="🛠">crae inglesa | marteddu | marteddu e crae inglesa | traste | trastes | trastu</annotation>
+		<annotation cp="🛠" type="tts">marteddu e crae inglesa</annotation>
+		<annotation cp="🗡">arma | istile | istocu | leputzu | pugnale</annotation>
+		<annotation cp="🗡" type="tts">istocu</annotation>
+		<annotation cp="⚔">arma | armas | irrugadas | ispadas | rugradas</annotation>
+		<annotation cp="⚔" type="tts">ispadas rugradas</annotation>
+		<annotation cp="💣">bomba | emotzione | fumetos | fumetu</annotation>
+		<annotation cp="💣" type="tts">bomba</annotation>
+		<annotation cp="🪃">austràlia | boomerang | rebbàtida | rebòtiu</annotation>
+		<annotation cp="🪃" type="tts">boomerang</annotation>
+		<annotation cp="🏹">arcu | arcu e fritza | artzeri | fritza | sagitàriu | zodìacu</annotation>
+		<annotation cp="🏹" type="tts">arcu e fritza</annotation>
+		<annotation cp="🛡">arma | iscudu</annotation>
+		<annotation cp="🛡" type="tts">iscudu</annotation>
+		<annotation cp="🪚">aina | linna | mastru de linna | serra | serracu | traste | trastu</annotation>
+		<annotation cp="🪚" type="tts">serracu</annotation>
+		<annotation cp="🔧">crae inglesa | traste | trastu</annotation>
+		<annotation cp="🔧" type="tts">crae inglesa</annotation>
+		<annotation cp="🪛">catzavite | catziavite | traste | trastu</annotation>
+		<annotation cp="🪛" type="tts">catzavite</annotation>
+		<annotation cp="🔩">bullone | traste | trastu | vite | vite e bullone</annotation>
+		<annotation cp="🔩" type="tts">vite e bullone</annotation>
+		<annotation cp="⚙">cumponente | ingranàgiu | mecanismu | roda dentada | traste | trastu</annotation>
+		<annotation cp="⚙" type="tts">ingranàgiu</annotation>
+		<annotation cp="🗜">fissare | istrìnghere | istringone | sergente | traste | trastu</annotation>
+		<annotation cp="🗜" type="tts">istringone</annotation>
+		<annotation cp="⚖">balantza | bilàntzia | giustìtzia | pesare | pratos de sa bilàntzia | zodìacu</annotation>
+		<annotation cp="⚖" type="tts">bilàntzia</annotation>
+		<annotation cp="🦯">atzessibilidade | bàculu arbu | bàculu biancu | bàculu pro ipovedentes | bàculu pro tzegos | tzegos | tzegu</annotation>
+		<annotation cp="🦯" type="tts">bàculu pro tzegos</annotation>
+		<annotation cp="🔗">cadena | duos aneddos | ligàmene</annotation>
+		<annotation cp="🔗" type="tts">ligàmene</annotation>
+		<annotation cp="⛓‍💥">cadena | cadena segada | cadena truncada | libertade | segare | truncare</annotation>
+		<annotation cp="⛓‍💥" type="tts">cadena truncada</annotation>
+		<annotation cp="⛓">cadena | cadenas</annotation>
+		<annotation cp="⛓" type="tts">cadenas</annotation>
+		<annotation cp="🪝">càncaru | carabatu | crocu | gantzu | grocu | rampinu | satzu | unchinu | ùnchinu</annotation>
+		<annotation cp="🪝" type="tts">càncaru</annotation>
+		<annotation cp="🧰">ainas | cassita | cassita de is trastes | cassita de is trastos | cassita de sos trastes | cassita de sos trastos | mecànicu | trastes | trastos</annotation>
+		<annotation cp="🧰" type="tts">cassita de sos trastes</annotation>
+		<annotation cp="🧲">atratzione | calamita | magnete | magnètica | magnetismu</annotation>
+		<annotation cp="🧲" type="tts">calamita</annotation>
+		<annotation cp="🪜">aperrinzada | apiligada | artziare | brocu | iscala | iscalinu</annotation>
+		<annotation cp="🪜" type="tts">iscala</annotation>
+		<annotation cp="⚗">aina | chìmica | lambicu | traste | trastu</annotation>
+		<annotation cp="⚗" type="tts">lambicu</annotation>
+		<annotation cp="🧪">chìmica | chìmicu | esperimentos | iscièntzia | laboratòriu | proveta | sièntzia</annotation>
+		<annotation cp="🧪" type="tts">proveta</annotation>
+		<annotation cp="🧫">batèrios | biòlogu | coltura | discu de Petri | laboratòriu | piastra de Petri</annotation>
+		<annotation cp="🧫" type="tts">piastra de Petri</annotation>
+		<annotation cp="🧬">bida | biòlogu | còdighe genèticu | dna | evolutzione | gene | genes | genètica</annotation>
+		<annotation cp="🧬" type="tts">dna</annotation>
+		<annotation cp="🔬">aina | iscièntzia | microscòpiu | sièntzia | traste | trastu</annotation>
+		<annotation cp="🔬" type="tts">microscòpiu</annotation>
+		<annotation cp="🔭">aina | iscièntzia | sièntzia | telescòpiu | traste | trastu</annotation>
+		<annotation cp="🔭" type="tts">telescòpiu</annotation>
+		<annotation cp="📡">antenna | antenna parabòlica | antenna satellitare | paràbola | satèllite</annotation>
+		<annotation cp="📡" type="tts">antenna satellitare</annotation>
+		<annotation cp="💉">agu | dutora | dutore | inietzione | maladia | malàida | malàidu | mèiga | meighina | mèigu | siringa</annotation>
+		<annotation cp="💉" type="tts">siringa</annotation>
+		<annotation cp="🩸">donatzione de sàmbene | ferta | flussu de sa madre | gùtiu | gùtiu de sàmbene | meighina | menstru | ministru | regla | sàmbene | tribisu</annotation>
+		<annotation cp="🩸" type="tts">gùtiu de sàmbene</annotation>
+		<annotation cp="💊">dutore | maladia | meighina | mèigu | pìllola</annotation>
+		<annotation cp="💊" type="tts">pìllola</annotation>
+		<annotation cp="🩹">achillo | carta de Brèscia | isparadrapa | liga | tafetanu | tzerotu | tzirone</annotation>
+		<annotation cp="🩹" type="tts">tzerotu</annotation>
+		<annotation cp="🩼">agiudu a sa mobilidade | bacheddu | bàculu | disabilidade | ferta | istampella | suportu | tesiddu</annotation>
+		<annotation cp="🩼" type="tts">istampella</annotation>
+		<annotation cp="🩺">coro | dutora | dutore | isteteoscòpiu | mèiga | meighina | mèigu</annotation>
+		<annotation cp="🩺" type="tts">isteteoscòpiu</annotation>
+		<annotation cp="🩻">dutora | dutore | ischèletru | mèiga | meighina | mèigu | ossos | radiografia | rajos x</annotation>
+		<annotation cp="🩻" type="tts">radiografia</annotation>
+		<annotation cp="🚪">ghenna</annotation>
+		<annotation cp="🚪" type="tts">ghenna</annotation>
+		<annotation cp="🛗">artziadore | ascensore | atzessibilidade | monta-càrrigos | piga e fala | pigaefala</annotation>
+		<annotation cp="🛗" type="tts">ascensore</annotation>
+		<annotation cp="🪞">ispricu | reflessu</annotation>
+		<annotation cp="🪞" type="tts">ispricu</annotation>
+		<annotation cp="🪟">abertura | àera frisca | bastimentu | bentana | trasparente | ventana | vista</annotation>
+		<annotation cp="🪟" type="tts">ventana</annotation>
+		<annotation cp="🛏">albergu | dormire | letu | posada</annotation>
+		<annotation cp="🛏" type="tts">letu</annotation>
+		<annotation cp="🛋">albergu | divanu | divanu cun làmpada | làmpada | otomana | otomana cun làmpada | otomanu | otomanu cun làmpada | posada</annotation>
+		<annotation cp="🛋" type="tts">otomana cun làmpada</annotation>
+		<annotation cp="🪑">cadira | cadrea | sètzida</annotation>
+		<annotation cp="🪑" type="tts">cadira</annotation>
+		<annotation cp="🚽">bassa | còmodu | gabinete | latrina | privada | toeleta | tzesso | vasu</annotation>
+		<annotation cp="🚽" type="tts">gabinete</annotation>
+		<annotation cp="🪠">aspiratzione | bagnu | idràulicu | iscàricu | istupa-lavandinos | ventosa</annotation>
+		<annotation cp="🪠" type="tts">istupa-lavandinos</annotation>
+		<annotation cp="🚿">abba | dòtzia</annotation>
+		<annotation cp="🚿" type="tts">dòtzia</annotation>
+		<annotation cp="🛁">bagnera | bagnu</annotation>
+		<annotation cp="🛁" type="tts">bagnera</annotation>
+		<annotation cp="🪤">cassatopis | esca | latzu | ratera | ratonera | sorigàrgiu | trampa | tràpula</annotation>
+		<annotation cp="🪤" type="tts">sorigàrgiu</annotation>
+		<annotation cp="🪒">lesorja de barba | lesorja de barbieri | rasoju | resorza | resorza de barba | resorza de barbieri</annotation>
+		<annotation cp="🪒" type="tts">lesorja de barba</annotation>
+		<annotation cp="🧴">ampulla | ampullita de bàlsamu | ampullita de crema | bàlsamu | crema | flacone</annotation>
+		<annotation cp="🧴" type="tts">flacone</annotation>
+		<annotation cp="🧷">aguzacrica | ispilla de bàlia | ispillabàlia | pannolone | punk rock</annotation>
+		<annotation cp="🧷" type="tts">ispilla de bàlia</annotation>
+		<annotation cp="🧹">coga | innetare | iscoba | iscobare | limpiare | majàrgia | mundare | sabunare</annotation>
+		<annotation cp="🧹" type="tts">iscoba</annotation>
+		<annotation cp="🧺">banastra | canestra | canistedda | canisteddu | canistru | cofinu | corbe | corbedda | corbulita | discu | discuedda | erone | isportinu | picheddu | pischedda | postura</annotation>
+		<annotation cp="🧺" type="tts">canistedda</annotation>
+		<annotation cp="🧻">carta igiènica | carta suspidora | cartasciuga | pabilu | pabilu de còmudu | paperi | paperi de còmudu | paperi igiènicu | ròtulos de paperi | ròtulu de paperi</annotation>
+		<annotation cp="🧻" type="tts">ròtulu de paperi</annotation>
+		<annotation cp="🪣">baddidone | cannada | carciga | cartzida | casiddu | coberina | cubedina | istagnale | istangiada | malinzone | malune | maningione | mannirone | puale | sèchia | umpriolu</annotation>
+		<annotation cp="🪣" type="tts">puale</annotation>
+		<annotation cp="🧼">bagnu | ispuma | sabone | saboneta | sabunòngiu</annotation>
+		<annotation cp="🧼" type="tts">sabone</annotation>
+		<annotation cp="🫧">abbajolas | abbajolos | bolloncas | bubbulicas | bullas | in suta de s’abba | lìmpiu | netu | pabeddas | pibisias | rutu | sabone</annotation>
+		<annotation cp="🫧" type="tts">bolloncas</annotation>
+		<annotation cp="🪥">bagnu | dentale | dentes | igiene | innetare | ispatzulinu | ispatzulinu de dentes | ispumadoreddu | limpiare | netu | sabunare</annotation>
+		<annotation cp="🪥" type="tts">ispatzulinu</annotation>
+		<annotation cp="🧽">assorbimentu | ispòngia | ispugna | porosa | sabunare</annotation>
+		<annotation cp="🧽" type="tts">ispugna</annotation>
+		<annotation cp="🧯">fogu | frammas | istudadore | istudare | mòrrere</annotation>
+		<annotation cp="🧯" type="tts">istudadore</annotation>
+		<annotation cp="🛒">carreddu | carrellu de is còmporas | carrellu de s’ispesa | carrellu de sas còmporas | carrutzu | còmporas</annotation>
+		<annotation cp="🛒" type="tts">carrellu de sas còmporas</annotation>
+		<annotation cp="🚬">pipare | pipòngiu | sigareta | tzica</annotation>
+		<annotation cp="🚬" type="tts">sigareta</annotation>
+		<annotation cp="⚰">baule | càscia | funerale | interru | morte</annotation>
+		<annotation cp="⚰" type="tts">baule</annotation>
+		<annotation cp="🪦">campusantu | losa | tumba | tzimitòriu</annotation>
+		<annotation cp="🪦" type="tts">losa</annotation>
+		<annotation cp="⚱">chisina | funerale | morte | urna | urna funerària</annotation>
+		<annotation cp="⚱" type="tts">urna funerària</annotation>
+		<annotation cp="🧿">breve | coco | fortile | iscapolàriu | mumughe | nazar | ogru malu | pastagna | pinnadellu | punga | sebeste</annotation>
+		<annotation cp="🧿" type="tts">nazar</annotation>
+		<annotation cp="🪬">amparu | breve | coco | Fàtima | fortile | iscapolàriu | manu | manu de Fàtima | Maria | Miriam | mumughe | pastagna | pinnadellu | punga | sebeste</annotation>
+		<annotation cp="🪬" type="tts">manu de Fàtima</annotation>
+		<annotation cp="🗿">cara | fatze | istàtua | ìsula de Pasca | moai | moai de s’ìsula de Pasca | moyai</annotation>
+		<annotation cp="🗿" type="tts">moai</annotation>
+		<annotation cp="🪧">cartellu | corteu | manifestatzione | pichetu | protesta | signale | sinnale</annotation>
+		<annotation cp="🪧" type="tts">cartellu</annotation>
+		<annotation cp="🪪">carta de identidade | credentziales | documentu de identidade | pantente | seguresa | tèssera</annotation>
+		<annotation cp="🪪" type="tts">carta de identidade</annotation>
+		<annotation cp="🏧">bàncomat | isportellu automàticu | isportellu bàncomat | sìmbulu de s’isportellu bàncomat | sìmbulu de su bàncomat</annotation>
+		<annotation cp="🏧" type="tts">sìmbulu de s’isportellu bàncomat</annotation>
+		<annotation cp="🚮">arga | collida de s’àliga | collida de s’arga | istèrgiu de s’àliga | istèrgiu de s’arga | regorta de s’àliga | regorta de s’arga | sìmbulu de sa collida de s’àliga | sìmbulu de sa collida de s’arga | sìmbulu de sa regorta de s’àliga | sìmbulu de sa regorta de s’arga</annotation>
+		<annotation cp="🚮" type="tts">sìmbulu de sa collida de s’arga</annotation>
+		<annotation cp="🚰">abba | potàbile</annotation>
+		<annotation cp="🚰" type="tts">abba potàbile</annotation>
+		<annotation cp="♿">atzessibilidade | atzessu | cadira a rodas | disàbiles | sìmbulu de cadira a rodas | sìmbulu de sa disabilidade</annotation>
+		<annotation cp="♿" type="tts">sìmbulu de cadira a rodas</annotation>
+		<annotation cp="🚹">bagnu | bagnu de is òmines | bagnu de sos òmines | còmodu | gabinete | òmine | òmines | WC</annotation>
+		<annotation cp="🚹" type="tts">bagnu de sos òmines</annotation>
+		<annotation cp="🚺">bagnu | bagnu de is fèminas | bagnu de sas fèminas | còmodu | fèmina | fèminas | gabinete | WC</annotation>
+		<annotation cp="🚺" type="tts">bagnu de sas fèminas</annotation>
+		<annotation cp="🚻">bagnu | còmodu | gabinete | servìtzios igiènicos | WC</annotation>
+		<annotation cp="🚻" type="tts">bagnu</annotation>
+		<annotation cp="🚼">creadura | fasciatoju | pipia | pipiu | pitzinnedda | pitzinneddu | sìmbulu de pipiu</annotation>
+		<annotation cp="🚼" type="tts">sìmbulu de pipiu</annotation>
+		<annotation cp="🚾">bagnu | còmodu | gabinete | latrina | servìtzios | servìtzios igiènicos | sìmbulu WC | WC</annotation>
+		<annotation cp="🚾" type="tts">sìmbulu WC</annotation>
+		<annotation cp="🛂">controllu | controllu de is passaportos | controllu de sos passaportos | frontera | làcana</annotation>
+		<annotation cp="🛂" type="tts">controllu de sos passaportos</annotation>
+		<annotation cp="🛃">controllu | controllu de dogana | dogana | frontera | làcana</annotation>
+		<annotation cp="🛃" type="tts">dogana</annotation>
+		<annotation cp="🛄">bagàllios | ritiru | ritiru de bagàllios</annotation>
+		<annotation cp="🛄" type="tts">ritiru de bagàllios</annotation>
+		<annotation cp="🛅">bagàllios | depòsitu | depòsitu de bagàllios</annotation>
+		<annotation cp="🛅" type="tts">depòsitu de bagàllios</annotation>
+		<annotation cp="⚠">atentu | atentzione | avisu | dare cara | perìgulu | signale de avisu | sìmbulu de avisu | sinnale de avisu</annotation>
+		<annotation cp="⚠" type="tts">avisu</annotation>
+		<annotation cp="🚸">atraessamentu de pitzinnos | pipias | pipios | pitzinna | pitzinnas | pitzinneddas | pitzinneddos | pitzinnos | pitzinnu</annotation>
+		<annotation cp="🚸" type="tts">atraessamentu de pitzinnos</annotation>
+		<annotation cp="⛔">intrada | proibida | proibidu | proibitzione | proibitzione de intrada | signale | signale de proibitzione | sìmbulu | sìmbulu de proibitzione | sinnale | sinnale de proibitzione | tràficu</annotation>
+		<annotation cp="⛔" type="tts">proibitzione de intrada</annotation>
+		<annotation cp="🚫">proibida | proibidu | proibitzione | signale de proibitzione | sìmbulu | sìmbulu de proibitzione | sinnale | sinnale de proibitzione</annotation>
+		<annotation cp="🚫" type="tts">proibidu</annotation>
+		<annotation cp="🚳">bitzicleta | bitzicletas proibidas | proibida | proibidu | proibitzione | proibitzione a is bitzicletas | proibitzione a sas bitzicletas | signale de proibitzione | sìmbulu | sìmbulu de proibitzione | sinnale | sinnale de proibitzione | tràficu</annotation>
+		<annotation cp="🚳" type="tts">bitzicletas proibidas</annotation>
+		<annotation cp="🚭">pipòngiu | proibida | proibidu | proibitzione | sigareta | signale de proibitzione | sìmbulu | sìmbulu de proibitzione | sinnale | sinnale de proibitzione | tzica</annotation>
+		<annotation cp="🚭" type="tts">pipòngiu proibidu</annotation>
+		<annotation cp="🚯">àliga | àliga in terra | àliga in terra proibida | arga | arga in terra | arga in terra proibida | proibida | proibidu | proibitzione | proibitzione de imbolare àrga in terra | signale de proibitzione | sìmbulu | sìmbulu de proibitzione | sinnale | sinnale de proibitzione</annotation>
+		<annotation cp="🚯" type="tts">arga in terra proibida</annotation>
+		<annotation cp="🚱">abba | abba non potàbile | non potàbile | signale | sìmbulu | sinnale</annotation>
+		<annotation cp="🚱" type="tts">abba non potàbile</annotation>
+		<annotation cp="🚷">atzessu proibidu a is pedones | atzessu proibidu a sos pedones | pedone | pedones | pedones proibidos | proibida | proibidu | proibitzione | signale de proibitzione | sìmbulu | sìmbulu de proibitzione | sinnale | sinnale de proibitzione</annotation>
+		<annotation cp="🚷" type="tts">pedones proibidos</annotation>
+		<annotation cp="📵">proibida | proibidu | proibitzione | signale de proibitzione | sìmbulu | sìmbulu de proibitzione | sinnale | sinnale de proibitzione | telefoneddos proibidos | telefoneddu | telefoninos | telefoninu | tzellulare | tzellulares proibidos</annotation>
+		<annotation cp="📵" type="tts">telefoneddos proibidos</annotation>
+		<annotation cp="🔞">18 | degheoto annos | lìmite de edade | minorenne | minorennes | proibida | proibidu | proibitzione | proibitzione a is minorennes | proibitzione a sos minorennes | signale de proibitzione | sìmbulu | sìmbulu de proibitzione | sinnale | sinnale de proibitzione</annotation>
+		<annotation cp="🔞" type="tts">proibitzione a sos minorennes</annotation>
+		<annotation cp="☢">perìgulu | radiatividade | radiativu | radiatziones | signale | sìmbulu | sinnale</annotation>
+		<annotation cp="☢" type="tts">radiativu</annotation>
+		<annotation cp="☣">biològicu | contaminada | contaminadu | contaminatzione | perìgulu | signale | sìmbulu | sinnale</annotation>
+		<annotation cp="☣" type="tts">perìgulu biològicu</annotation>
+		<annotation cp="⬆">diretzione | fritza | fritza cara a artu | fritza cara a susu | fritza conca a artu | fritza conca a susu | nord | norte | puntu cardinale | tramuntana</annotation>
+		<annotation cp="⬆" type="tts">fritza cara a artu</annotation>
+		<annotation cp="↗">diretzione | fritza | fritza cara a artu a dereta | fritza cara a artu a destra | fritza cara a susu a dereta | fritza cara a susu a destra | fritza conca a artu a dereta | fritza conca a artu a destra | fritza conca a susu a dereta | fritza conca a susu a destra | nord-est | puntu cardinale</annotation>
+		<annotation cp="↗" type="tts">fritza cara a artu a destra</annotation>
+		<annotation cp="➡">diretzione | est | fritza | fritza cara a dereta | fritza cara a destra | fritza conca a dereta | fritza conca a destra | oriente | puntu cardinale</annotation>
+		<annotation cp="➡" type="tts">fritza cara a destra</annotation>
+		<annotation cp="↘">diretzione | fritza | fritza cara a bassu a dereta | fritza cara a bassu a destra | fritza cara a giosso a dereta | fritza cara a giosso a destra | fritza conca a bassu a dereta | fritza conca a bassu a destra | fritza conca a giosso a dereta | fritza conca a giosso a destra | puntu cardinale | sud-est</annotation>
+		<annotation cp="↘" type="tts">fritza cara a bassu a destra</annotation>
+		<annotation cp="⬇">diretzione | fritza | fritza cara a bassu | fritza cara a giosso | fritza conca a bassu | fritza conca a giosso | meridione | puntu cardinale | sud</annotation>
+		<annotation cp="⬇" type="tts">fritza cara a bassu</annotation>
+		<annotation cp="↙">diretzione | fritza | fritza cara a bassu a manca | fritza cara a giosso a manca | fritza conca a bassu a manca | fritza conca a giosso a manca | puntu cardinale | sud-ovest</annotation>
+		<annotation cp="↙" type="tts">fritza cara a bassu a manca</annotation>
+		<annotation cp="⬅">diretzione | fritza | fritza cara a manca | fritza conca a manca | otzidente | ovest | puntu cardinale</annotation>
+		<annotation cp="⬅" type="tts">fritza cara a manca</annotation>
+		<annotation cp="↖">diretzione | fritza | fritza cara a artu a manca | fritza cara a susu a manca | fritza conca a artu a manca | fritza conca a susu a manca | nord-ovest | puntu cardinale</annotation>
+		<annotation cp="↖" type="tts">fritza cara a artu a manca</annotation>
+		<annotation cp="↕">fritza | fritza cara a artu e a bassu | fritza cara a susu e a giosso | fritza conca a artu e a bassu | fritza conca a susu e a giosso</annotation>
+		<annotation cp="↕" type="tts">fritza cara a susu e a giosso</annotation>
+		<annotation cp="↔">fritza | fritza cara a manca e a dereta | fritza cara a manca e a destra | fritza conca a manca e a dereta | fritza conca a manca e a destra</annotation>
+		<annotation cp="↔" type="tts">fritza cara a manca e a destra</annotation>
+		<annotation cp="↩">bortada | bortada a manca | cara a manca | fritza cara a dereta chi girat cara a manca | fritza cara a destra chi girat cara a manca | gira a manca</annotation>
+		<annotation cp="↩" type="tts">fritza cara a dereta chi girat cara a manca</annotation>
+		<annotation cp="↪">bortada | bortada a dereta | bortada a destra | cara a dereta | cara a destra | fritza cara a manca chi girat cara a dereta | fritza cara a manca chi girat cara a destra | fritza conca a manca chi girat conca a dereta | fritza conca a manca chi girat conca a destra | gira a dereta | gira a destra</annotation>
+		<annotation cp="↪" type="tts">fritza cara a manca chi girat cara a destra</annotation>
+		<annotation cp="⤴">bortada | bortada a susu | cara a artu | cara a susu | fritza cara a dereta chi girat cara a susu | fritza cara a destra chi girat cara a artu | fritza conca a destra chi girat conca a artu | fritza conca a destra chi girat conca a susu | girada</annotation>
+		<annotation cp="⤴" type="tts">fritza cara a destra chi girat cara a artu</annotation>
+		<annotation cp="⤵">bortada | bortada a giosso | cara a bassu | cara a giosso | fritza cara a dereta chi girat cara a giosso | fritza cara a destra chi girat cara a bassu | fritza cara a destra chi girat cara a giosso | fritza conca a dereta chi girat conca a giosso | fritza conca a destra chi girat conca a bassu | girada</annotation>
+		<annotation cp="⤵" type="tts">fritza cara a destra chi girat cara a bassu</annotation>
+		<annotation cp="🔃">càrriga | fritza | fritzas verticales | fritzas verticales in sensu oràriu | ricàrriga | sensu oràriu</annotation>
+		<annotation cp="🔃" type="tts">fritzas verticales in sensu oràriu</annotation>
+		<annotation cp="🔄">butone de fritzas in sensu antioràriu | fritzas | fritzas in sensu antioràriu | sensu antioràriu</annotation>
+		<annotation cp="🔄" type="tts">butone de fritzas in sensu antioràriu</annotation>
+		<annotation cp="🔙">BACK | fritza | fritza &quot;BACK&quot; | fritza cara a manca | fritza cun s’iscrita &quot;BACK&quot; | fritza de torrada | fritza pro torrare a segus | fritza pro torrare in segus</annotation>
+		<annotation cp="🔙" type="tts">fritza &quot;BACK&quot;</annotation>
+		<annotation cp="🔚">END | fritza | fritza &quot;END&quot; | fritza cara a manca | fritza cun s’iscrita &quot;END&quot; | fritza de fine</annotation>
+		<annotation cp="🔚" type="tts">fritza &quot;END&quot;</annotation>
+		<annotation cp="🔛">fritza | fritza &quot;ON!&quot; | fritza cara a ambos lados | fritza cara a totu sos duos lados | fritza conca a ambos lados | fritza conca a totu sos duos lados | fritza cun s’iscrita &quot;ON!&quot; | fritza de ativatzione | ON!</annotation>
+		<annotation cp="🔛" type="tts">fritza &quot;ON!&quot;</annotation>
+		<annotation cp="🔜">fritza | fritza &quot;SOON&quot; | fritza cara a dereta | fritza cara a destra | fritza conca a dereta | fritza conca a destra | fritza cun s’iscrita &quot;SOON&quot; | fritza de luego | SOON</annotation>
+		<annotation cp="🔜" type="tts">fritza &quot;SOON&quot;</annotation>
+		<annotation cp="🔝">fritza &quot;TOP&quot; | fritza cara a artu | fritza cara a susu | fritza conca a artu | fritza conca a susu | fritza cun s’iscrita &quot;TOP&quot; | TOP</annotation>
+		<annotation cp="🔝" type="tts">fritza &quot;TOP&quot;</annotation>
+		<annotation cp="🛐">cultu | ispiridualidade | logu de cultu | religione</annotation>
+		<annotation cp="🛐" type="tts">logu de cultu</annotation>
+		<annotation cp="⚛">ateismu | àteu | àtomu | sìmbulu de s’àtomu</annotation>
+		<annotation cp="⚛" type="tts">sìmbulu de s’àtomu</annotation>
+		<annotation cp="🕉">induismu | induista | mantra | om | religione</annotation>
+		<annotation cp="🕉" type="tts">om</annotation>
+		<annotation cp="✡">David | ebraismu | ebrea | ebreu | giudaismu | istedda de David | isteddu de David | istella de David | religione</annotation>
+		<annotation cp="✡" type="tts">isteddu de David</annotation>
+		<annotation cp="☸">buddismu | buddista | religione | roda | roda de su dharma</annotation>
+		<annotation cp="☸" type="tts">roda de su dharma</annotation>
+		<annotation cp="☯">religione | tao | taoismu | taoista | yang | yin | yin e yang</annotation>
+		<annotation cp="☯" type="tts">yin e yang</annotation>
+		<annotation cp="✝">cristiana | cristianèsimu | cristianu | religione | rughe | rughe latina</annotation>
+		<annotation cp="✝" type="tts">rughe latina</annotation>
+		<annotation cp="☦">cristiana | cristianèsimu | cristianu | religione | rughe | rughe ortodossa</annotation>
+		<annotation cp="☦" type="tts">rughe ortodossa</annotation>
+		<annotation cp="☪">farche de luna e istedda | farche de luna e isteddu | farche de luna e istella | farche e isteddu | islam | mussulmana | mussulmanu | religione</annotation>
+		<annotation cp="☪" type="tts">farche de luna e isteddu</annotation>
+		<annotation cp="☮">paghe | sìmbulu de sa paghe</annotation>
+		<annotation cp="☮" type="tts">sìmbulu de sa paghe</annotation>
+		<annotation cp="🕎">branca | candelobre | candelote | candeloto | ebraismu | giudaismu | menorah | religione</annotation>
+		<annotation cp="🕎" type="tts">menorah</annotation>
+		<annotation cp="🔯">addeinòngiu | fortuna | istedda | istedda a ses puntas | isteddu | isteddu a ses puntas | istella | istella a ses puntas</annotation>
+		<annotation cp="🔯" type="tts">isteddu a ses puntas</annotation>
+		<annotation cp="🪯">khanda | religione | Sikh | sikhismu</annotation>
+		<annotation cp="🪯" type="tts">khanda</annotation>
+		<annotation cp="♈">mascru | signu de su mascru | sinnu de su mascru | zodìacu</annotation>
+		<annotation cp="♈" type="tts">sinnu de su mascru</annotation>
+		<annotation cp="♉">malloru | signu de su malloru | signu de su trau | sinnu de su malloru | sinnu de su trau | trau | zodìacu</annotation>
+		<annotation cp="♉" type="tts">sinnu de su trau</annotation>
+		<annotation cp="♊">gemellos | signu de is gemellos | signu de sos gemellos | sinnu de is gemellos | sinnu de sos gemellos | zodìacu</annotation>
+		<annotation cp="♊" type="tts">sinnu de sos gemellos</annotation>
+		<annotation cp="♋">càncaru | signu de su càncaru | sinnu de su càncaru | zodìacu</annotation>
+		<annotation cp="♋" type="tts">sinnu de su càncaru</annotation>
+		<annotation cp="♌">leone | signu de su leone | sinnu de su leone | zodìacu</annotation>
+		<annotation cp="♌" type="tts">sinnu de su leone</annotation>
+		<annotation cp="♍">signu de sa vìrgine | sinnu de sa vìrgine | vìrgine | zodìacu</annotation>
+		<annotation cp="♍" type="tts">sinnu de sa vìrgine</annotation>
+		<annotation cp="♎">balantza | giustìtzia | signu de sa balantza | sinnu de sa balantza | zodìacu</annotation>
+		<annotation cp="♎" type="tts">sinnu de sa balantza</annotation>
+		<annotation cp="♏">iscorpione | signu de s’iscorpione | sinnu de s’iscorpione | zodìacu</annotation>
+		<annotation cp="♏" type="tts">sinnu de s’iscorpione</annotation>
+		<annotation cp="♐">sagitàriu | signu de su sagitàriu | sinnu de su sagitàriu | zodìacu</annotation>
+		<annotation cp="♐" type="tts">sinnu de su sagitàriu</annotation>
+		<annotation cp="♑">capricornu | corricràbinu | crabucorru | signu de su capricornu | signu de su crabucorru | sinnu de su capricornu | zodìacu</annotation>
+		<annotation cp="♑" type="tts">sinnu de su capricornu</annotation>
+		<annotation cp="♒">abba | abbàrgiu | signu de s’abbàrgiu | sinnu de s’abbàrgiu | zodìacu</annotation>
+		<annotation cp="♒" type="tts">sinnu de s’abbàrgiu</annotation>
+		<annotation cp="♓">pisches | signu de is pisches | signu de sos pisches | sinnu de is pisches | sinnu de sos pisches | zodìacu</annotation>
+		<annotation cp="♓" type="tts">sinnu de sos pisches</annotation>
+		<annotation cp="⛎">colovra | ofiucu | serpente | signu de s’ofiucu | sinnu de s’ofiucu | zodìacu</annotation>
+		<annotation cp="⛎" type="tts">sinnu de s’ofiucu</annotation>
+		<annotation cp="🔀">butone de riprodutzione casuale | fritzas | fritzas rugradas | riprodutzione casuale</annotation>
+		<annotation cp="🔀" type="tts">butone de riprodutzione casuale</annotation>
+		<annotation cp="🔁">butone de ripetitzione | fritzas | repite | ripetitzione | sensu oràriu</annotation>
+		<annotation cp="🔁" type="tts">butone de ripetitzione</annotation>
+		<annotation cp="🔂">butone de ripetitzione de una rasta | butone de ripetitzione sìngula | fritzas | ripetitzione sìngula | sensu oràriu | una borta</annotation>
+		<annotation cp="🔂" type="tts">butone de ripetitzione sìngula</annotation>
+		<annotation cp="▶">butone de riprodutzione | butone play | play | riprodutzione | triàngulu</annotation>
+		<annotation cp="▶" type="tts">butone de riprodutzione</annotation>
+		<annotation cp="⏩">a in antis | avantzamentu lestru | butone de avantzamentu lestru | duas fritzas | fritza</annotation>
+		<annotation cp="⏩" type="tts">butone de avantzamentu lestru</annotation>
+		<annotation cp="⏭">butone de rasta imbeniente | fritza | iscena imbeniente | rasta imbeniente | triàngulu</annotation>
+		<annotation cp="⏭" type="tts">butone de rasta imbeniente</annotation>
+		<annotation cp="⏯">butone de riprodutzione o pàusa | fritza | pàusa | play | riprodutzione | triàngulu</annotation>
+		<annotation cp="⏯" type="tts">butone de riprodutzione o pàusa</annotation>
+		<annotation cp="◀">butone de de re-imboligadura | butone de incuida | fritza | incuida | re-imboligadura | triàngulu</annotation>
+		<annotation cp="◀" type="tts">butone de incuida</annotation>
+		<annotation cp="⏪">butone de de re-imboligadura lestra | butone de incuida lestra | fritza | incuida lestra | re-imboligadura</annotation>
+		<annotation cp="⏪" type="tts">butone de incuida lestra</annotation>
+		<annotation cp="⏮">butone de rasta anteposta | fritza | iscena anteposta | rasta anteposta | triàngulu</annotation>
+		<annotation cp="⏮" type="tts">butone de rasta anteposta</annotation>
+		<annotation cp="🔼">butone | butone a triàngulu cara a artu | butone a triàngulu conca a artu | butone a triàngulu conca a susu | butone cara a artu | butone cara a susu | butone conca a artu | butone conca a susu | fritza | triàngulu</annotation>
+		<annotation cp="🔼" type="tts">butone a triàngulu conca a susu</annotation>
+		<annotation cp="⏫">butone a triàngulu dòpiu conca a susu | butone de allestrada | butone fritza dòpia cara a artu | butone fritza dòpia cara a susu | butone fritza dòpia conca a artu | butone fritza dòpia conca a susu | fritza dòpia</annotation>
+		<annotation cp="⏫" type="tts">butone a triàngulu dòpiu conca a susu</annotation>
+		<annotation cp="🔽">butone | butone a triàngulu cara a bassu | butone a triàngulu conca a bassu | butone a triàngulu conca a giosso | butone cara a bassu | butone cara a giosso | butone conca a giosso | fritza | triàngulu</annotation>
+		<annotation cp="🔽" type="tts">butone a triàngulu conca a giosso</annotation>
+		<annotation cp="⏬">butone a triàngulu dòpiu conca a giosso | butone de allestrada | butone fritza dòpia cara a bassu | butone fritza dòpia cara a giosso | butone fritza dòpia conca a bassu | butone fritza dòpia conca a giosso | fritza dòpia</annotation>
+		<annotation cp="⏬" type="tts">butone a triàngulu dòpiu conca a giosso</annotation>
+		<annotation cp="⏸">butone de pàusa | istanga dòpia | pàusa | pònnere in pàusa | verticale</annotation>
+		<annotation cp="⏸" type="tts">butone de pàusa</annotation>
+		<annotation cp="⏹">butone de firmada | butone de istop | butone de stop | cuadradu | firmada | istop | stop</annotation>
+		<annotation cp="⏹" type="tts">butone de firmada</annotation>
+		<annotation cp="⏺">butone de registratzione | chircu | registratzione</annotation>
+		<annotation cp="⏺" type="tts">butone de registratzione</annotation>
+		<annotation cp="⏏">butone de espulsione | espulsione</annotation>
+		<annotation cp="⏏" type="tts">butone de espulsione</annotation>
+		<annotation cp="🎦">film | pellìcula | tzìnema | videocàmera</annotation>
+		<annotation cp="🎦" type="tts">tzìnema</annotation>
+		<annotation cp="🔅">bassa | butone de luminosidade bassa | luminosidade</annotation>
+		<annotation cp="🔅" type="tts">butone de luminosidade bassa</annotation>
+		<annotation cp="🔆">arta | butone de luminosidade arta | luminosidade</annotation>
+		<annotation cp="🔆" type="tts">butone de luminosidade arta</annotation>
+		<annotation cp="📶">barras de signale | barras de sinnale | istangas | istangas de signale | istangas de sinnale | retze | signale | sinnale | telefoneddu | telefoninu | telèfono | telèfonu | tzellulare</annotation>
+		<annotation cp="📶" type="tts">istangas de sinnale</annotation>
+		<annotation cp="🛜">elaboradore | ìnternet | rete | rete chene filos | retza | retza chene filos | retze chene filos | wi-fi | wifi</annotation>
+		<annotation cp="🛜" type="tts">retze chene filos</annotation>
+		<annotation cp="📳">modalidade de vibratzione | telefoneddu | telefoninu | telèfono | telèfonu | tzellulare | vibratzione</annotation>
+		<annotation cp="📳" type="tts">modalidade de vibratzione</annotation>
+		<annotation cp="📴">disativadu | istudadu | mortu | off | telefoneddu | telèfoneddu mortu | telefoninu | telèfono | telèfonu</annotation>
+		<annotation cp="📴" type="tts">telefoneddu istudadu</annotation>
+		<annotation cp="♀">fèmina | gènere femininu | natura feminina | sìmbulu femininu</annotation>
+		<annotation cp="♀" type="tts">sìmbulu femininu</annotation>
+		<annotation cp="♂">gènere masculinu | natura masculina | òmine | sìmbulu masculinu</annotation>
+		<annotation cp="♂" type="tts">sìmbulu masculinu</annotation>
+		<annotation cp="⚧">sìmbulu transgènere | transgènere</annotation>
+		<annotation cp="⚧" type="tts">sìmbulu transgènere</annotation>
+		<annotation cp="✖">× | annullare | multiplicare | multiplicatzione | signu pro | sinnu pro | x</annotation>
+		<annotation cp="✖" type="tts">multiplicatzione</annotation>
+		<annotation cp="➕">+ | additzione | matemàtica | prus | signu de additzione | sinnu de additzione | summa</annotation>
+		<annotation cp="➕" type="tts">additzione</annotation>
+		<annotation cp="➖">- | − | ismanchiadura | ismanchiare | mancu | matemàtica | signu de sutratzione | sinnu de sutratzione | sutratzione | tirare</annotation>
+		<annotation cp="➖" type="tts">sutratzione</annotation>
+		<annotation cp="➗">÷ | dividire | divisione | matemàtica | partzidura | partzire | signu de divisione | signu de partzidura | sinnu de divisione | sinnu de partzidura</annotation>
+		<annotation cp="➗" type="tts">divisione</annotation>
+		<annotation cp="🟰">egualidade | matemàtica | signu de egualidade | sinnu de egualidade | sinnu de ugualidade | ugualidade</annotation>
+		<annotation cp="🟰" type="tts">sinnu de ugualidade</annotation>
+		<annotation cp="♾">chene lmite | illimitadu | infinidu | pro semper | sena lìmite | universale</annotation>
+		<annotation cp="♾" type="tts">infinidu</annotation>
+		<annotation cp="💱">banca | càmbiu de moneda | càmbiu de valuta | cuncàmbiu de valuta | dinare | dinari | moneda | valuta</annotation>
+		<annotation cp="💱" type="tts">càmbiu de valuta</annotation>
+		<annotation cp="💲">dinare | dinari | dòllaru | moneda | sìmbulu de su dòllaru | valuta</annotation>
+		<annotation cp="💲" type="tts">sìmbulu de su dòllaru</annotation>
+		<annotation cp="🔴">arrùbiu | chircu | geometria | ruju</annotation>
+		<annotation cp="🔴" type="tts">chircu ruju</annotation>
+		<annotation cp="🟠">arantzu | chircu | geometria</annotation>
+		<annotation cp="🟠" type="tts">chircu arantzu</annotation>
+		<annotation cp="🟡">chircu | geometria | grogu</annotation>
+		<annotation cp="🟡" type="tts">chircu grogu</annotation>
+		<annotation cp="🟢">birde | chircu | geometria</annotation>
+		<annotation cp="🟢" type="tts">chircu birde</annotation>
+		<annotation cp="🔵">biaitu | chircu | geometria</annotation>
+		<annotation cp="🔵" type="tts">chircu biaitu</annotation>
+		<annotation cp="🟣">chircu | geometria | pùrpura | tanadu</annotation>
+		<annotation cp="🟣" type="tts">chircu tanadu</annotation>
+		<annotation cp="🟤">castàngiu | chircu | geometria</annotation>
+		<annotation cp="🟤" type="tts">chircu castàngiu</annotation>
+		<annotation cp="⚫">chircu | geometria | nieddu</annotation>
+		<annotation cp="⚫" type="tts">chircu nieddu</annotation>
+		<annotation cp="⚪">arbu | biancu | chircu | geometria</annotation>
+		<annotation cp="⚪" type="tts">chircu biancu</annotation>
+		<annotation cp="🟥">arrùbiu | cuadradu | geometria | ruju</annotation>
+		<annotation cp="🟥" type="tts">cuadradu ruju</annotation>
+		<annotation cp="🟧">arantzu | cuadradu | geometria</annotation>
+		<annotation cp="🟧" type="tts">cuadradu arantzu</annotation>
+		<annotation cp="🟨">cuadradu | geometria | grogu</annotation>
+		<annotation cp="🟨" type="tts">cuadradu grogu</annotation>
+		<annotation cp="🟩">birde | cuadradu | geometria</annotation>
+		<annotation cp="🟩" type="tts">cuadradu birde</annotation>
+		<annotation cp="🟦">biaitu | cuadradu | geometria</annotation>
+		<annotation cp="🟦" type="tts">cuadradu biaitu</annotation>
+		<annotation cp="🟪">cuadradu | geometria | pùrpura | tanadu</annotation>
+		<annotation cp="🟪" type="tts">cuadradu tanadu</annotation>
+		<annotation cp="🟫">castàngiu | cuadradu | geometria</annotation>
+		<annotation cp="🟫" type="tts">cuadradu castàngiu</annotation>
+		<annotation cp="⬛">cuadradu | cuadradu nieddu mannu | geometria | nieddu</annotation>
+		<annotation cp="⬛" type="tts">cuadradu nieddu mannu</annotation>
+		<annotation cp="⬜">arbu | biancu | cuadradu | cuadradu arbu mannu | cuadradu biancu mannu | geometria</annotation>
+		<annotation cp="⬜" type="tts">cuadradu biancu mannu</annotation>
+		<annotation cp="◼">cuadradu | cuadradu nieddu mèdiu | cuadradu nieddu mesanu | geometria | nieddu</annotation>
+		<annotation cp="◼" type="tts">cuadradu nieddu mesanu</annotation>
+		<annotation cp="◻">arbu | biancu | cuadradu | cuadradu arbu mèdiu | cuadradu arbu mesanu | cuadradu biancu mèdiu | cuadradu biancu mesanu | geometria</annotation>
+		<annotation cp="◻" type="tts">cuadradu biancu mesanu</annotation>
+		<annotation cp="◾">cuadradu | cuadradu nieddu mèdiu-minore | cuadradu nieddu mèdiu-piticu | cuadradu nieddu mesanu-minore | cuadradu nieddu mesanu-piticu | nieddu</annotation>
+		<annotation cp="◾" type="tts">cuadradu nieddu mesanu-minore</annotation>
+		<annotation cp="◽">arbu | biancu | cuadradu | cuadradu arbu mèdiu-minore | cuadradu arbu mesanu-minore | cuadradu biancu mèdiu-minore | cuadradu biancu mèdiu-piticu | cuadradu biancu mesanu-minore | cuadradu biancu mesanu-piticu</annotation>
+		<annotation cp="◽" type="tts">cuadradu biancu mesanu-minore</annotation>
+		<annotation cp="▪">cuadradu | cuadradu nieddu minore | cuadradu nieddu piticu | geometria | nieddu</annotation>
+		<annotation cp="▪" type="tts">cuadradu nieddu minore</annotation>
+		<annotation cp="▫">arbu | biancu | cuadradu | cuadradu arbu minore | cuadradu biancu minore | cuadradu biancu piticu | geometria</annotation>
+		<annotation cp="▫" type="tts">cuadradu biancu minore</annotation>
+		<annotation cp="🔶">arantzu | geometria | rombu | rombu arantzu mannu</annotation>
+		<annotation cp="🔶" type="tts">rombu arantzu mannu</annotation>
+		<annotation cp="🔷">asulu | biaitu | geometria | rombu | rombu asulu mannu | rombu biaitu mannu</annotation>
+		<annotation cp="🔷" type="tts">rombu biaitu mannu</annotation>
+		<annotation cp="🔸">arantzu | geometria | rombu | rombu arantzu minore | rombu arantzu piticu</annotation>
+		<annotation cp="🔸" type="tts">rombu arantzu minore</annotation>
+		<annotation cp="🔹">asulu | biaitu | geometria | rombu | rombu asulu minore | rombu biaitu minore | rombu biaitu minure | rombu biaitu piticu</annotation>
+		<annotation cp="🔹" type="tts">rombu biaitu minure</annotation>
+		<annotation cp="🔺">arrùbiu | geometria | ruju | triàngulu | triàngulu cara a susu | triàngulu conca a susu | triàngulu ruju punta a susu</annotation>
+		<annotation cp="🔺" type="tts">triàngulu ruju punta a susu</annotation>
+		<annotation cp="🔻">arrùbiu | geometria | ruju | triàngulu | triàngulu cara a giosso | triàngulu conca a giosso | triàngulu ruju punta a giosso</annotation>
+		<annotation cp="🔻" type="tts">triàngulu ruju punta a giosso</annotation>
+		<annotation cp="💠">belledda | belleddu | bellighedda | belligheddu | diamante | diamante cun puntu | emotzione | forma de frore | frore | geometria | pètalos de frore | rombu cun puntu</annotation>
+		<annotation cp="💠" type="tts">rombu cun puntu</annotation>
+		<annotation cp="🔘">butone | butone de issèberu | butone de optzione | butone de sèberu | butone ràdiu | butone tundu | geometria</annotation>
+		<annotation cp="🔘" type="tts">butone tundu</annotation>
+		<annotation cp="🔳">butone | butone cuadradu cun oru arbu | butone cuadradu cun oru biancu | cuadradu | geometria</annotation>
+		<annotation cp="🔳" type="tts">butone cuadradu cun oru arbu</annotation>
+		<annotation cp="🔲">butone | butone cuadradu cun oru nieddu | cuadradu | geometria</annotation>
+		<annotation cp="🔲" type="tts">butone cuadradu cun oru nieddu</annotation>
+		<annotation cp="🏁">bandera | bandera a iscacos | cursa | pòdiu</annotation>
+		<annotation cp="🏁" type="tts">bandera a iscacos</annotation>
+		<annotation cp="🚩">bandera | bandera ruja | bandera triangulare | banderedda | banderedda ruja | banderedda ruja triangulare</annotation>
+		<annotation cp="🚩" type="tts">bandera triangulare</annotation>
+		<annotation cp="🎌">banderas | banderas de su Giapone | banderas de su Giapone irrugadas | banderas de su Giapone rugradas | banderas giaponesas | banderas giaponesas irrugadas | banderas giaponesas rugradas | banderas irrugadas | banderas rugradas | festa | Giapone</annotation>
+		<annotation cp="🎌" type="tts">banderas rugradas</annotation>
+		<annotation cp="🏴">bandera a su bentu | bandera isbentulada | bandera niedda</annotation>
+		<annotation cp="🏴" type="tts">bandera niedda</annotation>
+		<annotation cp="🏳">bandera a su bentu | bandera arba | bandera bianca | bandera isbentulada | resa</annotation>
+		<annotation cp="🏳" type="tts">bandera bianca</annotation>
+		<annotation cp="🏳‍🌈">arcu de chelu | bandera de s’arcu de chelu | chirchiola</annotation>
+		<annotation cp="🏳‍🌈" type="tts">bandera de s’arcu de chelu</annotation>
+		<annotation cp="🏳‍⚧">bandera asulu | bandera de sos transgèneres | biancu e rosa | transgènere | transgèneres</annotation>
+		<annotation cp="🏳‍⚧" type="tts">bandera de sos transgèneres</annotation>
+		<annotation cp="🏴‍☠">ascusòrgiu | bandera de sos piratas | botinu | corsaros | corsaru | Jolly Roger | pirata | piratas | siddadu</annotation>
+		<annotation cp="🏴‍☠" type="tts">bandera de sos piratas</annotation>
+		<annotation cp="¢">tzentèsimu</annotation>
+		<annotation cp="¢" type="tts">tzentèsimu</annotation>
+		<annotation cp="$">dinare | dinari | dòllaru | moneda | USD | valuta</annotation>
+		<annotation cp="$" type="tts">dòllaru</annotation>
+		<annotation cp="£">EGP | GBP | isterlina | moneda | valuta</annotation>
+		<annotation cp="£" type="tts">isterlina</annotation>
+		<annotation cp="¥">CNY | JPY | moneta | valuta | yen | yuan</annotation>
+		<annotation cp="¥" type="tts">yen</annotation>
+		<annotation cp="₥">mil | mill | millèsimu</annotation>
+		<annotation cp="₥" type="tts">millèsimu</annotation>
+		<annotation cp="₩">KPW | KRW | moneda | valuta | won</annotation>
+		<annotation cp="₩" type="tts">won</annotation>
+		<annotation cp="€">dinare | dinari | EUR | èuro | èuru | moneda | valuta</annotation>
+		<annotation cp="€" type="tts">èuro</annotation>
+		<annotation cp="₱">moneda | peso | valuta</annotation>
+		<annotation cp="₱" type="tts">peso</annotation>
+		<annotation cp="₹">moneda | rupia indiana | valuta</annotation>
+		<annotation cp="₹" type="tts">rupia indiana</annotation>
+		<annotation cp="₽">moneda | rublu | valuta</annotation>
+		<annotation cp="₽" type="tts">rublu</annotation>
+		<annotation cp="₿">bitcoin | BTC | criptovaluta</annotation>
+		<annotation cp="₿" type="tts">bitcoin</annotation>
+		<annotation cp="¹">àpitze | nùmeru unu in àpitze | punta | unu</annotation>
+		<annotation cp="¹" type="tts">nùmeru unu in àpitze</annotation>
+		<annotation cp="²">a su cuadradu | àpitze | duos | nùmeru duos in àpitze | punta | valore cuardadu</annotation>
+		<annotation cp="²" type="tts">nùmeru duos in àpitze</annotation>
+		<annotation cp="³">a su cubu | àpitze | duos | nùmeru duos in àpitze | nùmeru tres in àpitze | punta | valore cùbicu</annotation>
+		<annotation cp="³" type="tts">nùmeru tres in àpitze</annotation>
+	</annotations>
+</ldml>

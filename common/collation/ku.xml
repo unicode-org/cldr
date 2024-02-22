@@ -13,35 +13,33 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<collations>
 		<!-- TODO: Add collation type="search" -->
 		<collation type="standard" draft="contributed"
-				references="​http://en.wikipedia.org/wiki/Kurdish_alphabets 2013-aug-20">
+				references="http://en.wikipedia.org/wiki/Kurdish_alphabets 2019-oct-10">
 			<!-- Initial request and data see cldrbug 6527. -->
+			<!-- Note that this collation is intended only for Kurmanji/Northern Kurdish. -->
 			<cr><![CDATA[
 				[reorder Latn Arab]
-			
-				# Primary differences for Kurmanji letters.
+
+				# Primary differences for Kurmanji letters, based on the Kurdish Latin alphabet
+				# introduced by Celadet Bedir Khan in 1932 (often called the Hawar alphabet).
 				&c<ç<<<Ç
 				&e<ê<<<Ê
 				&i<î<<<Î
 				&s<ş<<<Ş
 				&u<û<<<Û
 
-				# Sahand T says: "Éé Íí Úú" are alternative forms
-				# that are used in a variant of the Kurdish-Latin alphabet.
+				# "Éé Íí Úú Ùù" are alternative forms that are used in the Yekgirtú variant of the
+				# Kurdish Latin alphabet.
 				&ê<<é<<<É
 				&î<<í<<<Í
 				&û<<ú<<<Ú
+				&ú<<ù<<<Ù
 
-				# According to Wikipedia, ḧ and ẍ "do not have the status of letter"
-				# which should mean they don't need primary differences.
+				# According to Wikipedia, ḧ and ẍ, which represent distinct "non-Kurdish" sounds
+				# in Kurdish writing, "do not have the status of letter" which should mean they
+				# don't need primary differences.
 				# &h<ḧ<<<Ḧ
 				# &x<ẍ<<<Ẍ
-
-				# Sahand T also suggested tailoring Řř
-				# but that was not requested in cldrbug 6527 nor mentioned in Wikipedia.
-				# &r<ř<<<Ř
 			]]></cr>
 		</collation>
-		<!-- TODO: Does ku-Arab (or ckb) need to tailor Arabic letters relative to the CLDR root?
-			If so, then we should add them to the one tailoring here. -->
 	</collations>
 </ldml>

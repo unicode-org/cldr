@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 
 Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
@@ -15,8 +15,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 	</identity>
 	<localeDisplayNames>
 		<languages>
+			<language type="bla">Siksika</language>
 			<language type="mus" draft="contributed">Creek</language>
 			<language type="nds_NL">West Low German</language>
+			<language type="sah">↑↑↑</language>
 		</languages>
 		<territories>
 			<territory type="BL">St Barthélemy</territory>
@@ -26,7 +28,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="PM">St Pierre &amp; Miquelon</territory>
 			<territory type="SH">St Helena</territory>
 			<territory type="UM">US Outlying Islands</territory>
-			<territory type="VC">St Vincent &amp; Grenadines</territory>
+			<territory type="VC">St Vincent &amp; the Grenadines</territory>
 			<territory type="VI">US Virgin Islands</territory>
 		</territories>
 		<keys>
@@ -49,21 +51,25 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>EEEE, d MMMM r(U)</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
 							<pattern>d MMMM r(U)</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern>d MMM r</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
 							<pattern>dd/MM/r</pattern>
+							<datetimeSkeleton>rMMdd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -71,7 +77,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<availableFormats>
 						<dateFormatItem id="Ed">E d</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d MMM r</dateFormatItem>
-						<dateFormatItem id="GyMMMEd">E, d MMM r(U)</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">E, d MMM r</dateFormatItem>
+						<dateFormatItem id="GyMMMMd">d MMMM r(U)</dateFormatItem>
+						<dateFormatItem id="GyMMMMEd">E, d MMMM r(U)</dateFormatItem>
 						<dateFormatItem id="M">LL</dateFormatItem>
 						<dateFormatItem id="Md">dd/MM</dateFormatItem>
 						<dateFormatItem id="MEd">E, dd/MM</dateFormatItem>
@@ -80,58 +88,385 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
 						<dateFormatItem id="UMd">dd/MM/U</dateFormatItem>
 						<dateFormatItem id="UMMMd">d MMM U</dateFormatItem>
-						<dateFormatItem id="yMd">dd/MM/r</dateFormatItem>
 						<dateFormatItem id="yyyyM">MM/r</dateFormatItem>
 						<dateFormatItem id="yyyyMd">dd/MM/r</dateFormatItem>
 						<dateFormatItem id="yyyyMEd">E, dd/MM/r</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">d MMM r</dateFormatItem>
-						<dateFormatItem id="yyyyMMMEd">E, d MMM r(U)</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">E, d MMM r</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMd">d MMMM r(U)</dateFormatItem>
+						<dateFormatItem id="yyyyMMMMEd">E, d MMMM r(U)</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatItem id="Md">
-							<greatestDifference id="d">dd/MM – dd/MM</greatestDifference>
-							<greatestDifference id="M">dd/MM – dd/MM</greatestDifference>
+							<greatestDifference id="d">dd/MM – dd/MM</greatestDifference>
+							<greatestDifference id="M">dd/MM – dd/MM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MEd">
-							<greatestDifference id="d">E dd/MM – E dd/MM</greatestDifference>
-							<greatestDifference id="M">E dd/MM – E dd/MM</greatestDifference>
+							<greatestDifference id="d">E dd/MM – E dd/MM</greatestDifference>
+							<greatestDifference id="M">E dd/MM – E dd/MM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMd">
-							<greatestDifference id="d">d – d MMM</greatestDifference>
-							<greatestDifference id="M">d MMM – d MMM</greatestDifference>
+							<greatestDifference id="d">d – d MMM</greatestDifference>
+							<greatestDifference id="M">d MMM – d MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMEd">
-							<greatestDifference id="d">E d – E d MMM</greatestDifference>
-							<greatestDifference id="M">E d MMM – E d MMM</greatestDifference>
+							<greatestDifference id="d">E d – E d MMM</greatestDifference>
+							<greatestDifference id="M">E d MMM – E d MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
-							<greatestDifference id="M">MM/y – MM/y</greatestDifference>
-							<greatestDifference id="y">MM/y – MM/y</greatestDifference>
+							<greatestDifference id="M">MM/y – MM/y</greatestDifference>
+							<greatestDifference id="y">MM/y – MM/y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
-							<greatestDifference id="d">dd/MM/y – dd/MM/y</greatestDifference>
-							<greatestDifference id="M">dd/MM/y – dd/MM/y</greatestDifference>
-							<greatestDifference id="y">dd/MM/y – dd/MM/y</greatestDifference>
+							<greatestDifference id="d">dd/MM/y – dd/MM/y</greatestDifference>
+							<greatestDifference id="M">dd/MM/y – dd/MM/y</greatestDifference>
+							<greatestDifference id="y">dd/MM/y – dd/MM/y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d">E, dd/MM/y – E, dd/MM/y</greatestDifference>
-							<greatestDifference id="M">E, dd/MM/y – E, dd/MM/y</greatestDifference>
-							<greatestDifference id="y">E, dd/MM/y – E, dd/MM/y</greatestDifference>
+							<greatestDifference id="d">E, dd/MM/y – E, dd/MM/y</greatestDifference>
+							<greatestDifference id="M">E, dd/MM/y – E, dd/MM/y</greatestDifference>
+							<greatestDifference id="y">E, dd/MM/y – E, dd/MM/y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
-							<greatestDifference id="d">d – d MMM U</greatestDifference>
-							<greatestDifference id="M">d MMM – d MMM U</greatestDifference>
-							<greatestDifference id="y">d MMM U – d MMM U</greatestDifference>
+							<greatestDifference id="d">d – d MMM U</greatestDifference>
+							<greatestDifference id="M">d MMM – d MMM U</greatestDifference>
+							<greatestDifference id="y">d MMM U – d MMM U</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="d">E, d – E, d MMM U</greatestDifference>
-							<greatestDifference id="M">E, d MMM – E, d MMM U</greatestDifference>
-							<greatestDifference id="y">E, d MMM U – E, d MMM U</greatestDifference>
+							<greatestDifference id="d">E, d – E, d MMM U</greatestDifference>
+							<greatestDifference id="M">E, d MMM – E, d MMM U</greatestDifference>
+							<greatestDifference id="y">E, d MMM U – E, d MMM U</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="generic">
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>EEEE, d MMMM y G</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>d MMMM y G</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>d MMM y G</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>dd/MM/y GGGGG</pattern>
+							<datetimeSkeleton>GGGGGyMMdd</datetimeSkeleton>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="Bhms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EBhm">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EBhms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Ed">E d</dateFormatItem>
+						<dateFormatItem id="Ehm">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Ehm" alt="ascii">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EHm">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Ehms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Ehms" alt="ascii">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EHms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMd">dd/MM/y GGGGG</dateFormatItem>
+						<dateFormatItem id="GyMMMd">d MMM y G</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">E, d MMM y G</dateFormatItem>
+						<dateFormatItem id="M">LL</dateFormatItem>
+						<dateFormatItem id="Md">dd/MM</dateFormatItem>
+						<dateFormatItem id="MEd">E, dd/MM</dateFormatItem>
+						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
+						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
+						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
+						<dateFormatItem id="yyyyM">MM/y GGGGG</dateFormatItem>
+						<dateFormatItem id="yyyyMd">dd/MM/y GGGGG</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">E, dd/MM/y GGGGG</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">d MMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">E, d MMM y G</dateFormatItem>
+					</availableFormats>
+					<intervalFormats>
+						<intervalFormatItem id="d">
+							<greatestDifference id="d">d–d</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Gy">
+							<greatestDifference id="y">y–y G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMd">
+							<greatestDifference id="d">dd/MM/y – dd/MM/y GGGGG</greatestDifference>
+							<greatestDifference id="G">dd/MM/y GGGGG – dd/MM/y GGGGG</greatestDifference>
+							<greatestDifference id="M">dd/MM/y – dd/MM/y GGGGG</greatestDifference>
+							<greatestDifference id="y">dd/MM/y – dd/MM/y GGGGG</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMEd">
+							<greatestDifference id="d">E, dd/MM/y – E, dd/MM/y GGGGG</greatestDifference>
+							<greatestDifference id="G">E, dd/MM/y GGGGG – E, dd/MM/y GGGGG</greatestDifference>
+							<greatestDifference id="M">E, dd/MM/y – E, dd/MM/y GGGGG</greatestDifference>
+							<greatestDifference id="y">E, dd/MM/y – E, dd/MM/y GGGGG</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMd">
+							<greatestDifference id="d">d–d MMM y G</greatestDifference>
+							<greatestDifference id="G">d MMM y G – d MMM y G</greatestDifference>
+							<greatestDifference id="M">d MMM – d MMM y G</greatestDifference>
+							<greatestDifference id="y">d MMM y – d MMM y G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMEd">
+							<greatestDifference id="d">E, d MMM – E, d MMM y G</greatestDifference>
+							<greatestDifference id="G">E, d MMM y G – E, d MMM y G</greatestDifference>
+							<greatestDifference id="M">E, d MMM – E, d MMM y G</greatestDifference>
+							<greatestDifference id="y">E, d MMM y – E, d MMM y G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="M">
+							<greatestDifference id="M">M–M</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Md">
+							<greatestDifference id="d">dd/MM – dd/MM</greatestDifference>
+							<greatestDifference id="M">dd/MM – dd/MM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MEd">
+							<greatestDifference id="d">E dd/MM – E dd/MM</greatestDifference>
+							<greatestDifference id="M">E dd/MM – E dd/MM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMd">
+							<greatestDifference id="d">d–d MMM</greatestDifference>
+							<greatestDifference id="M">d MMM – d MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMEd">
+							<greatestDifference id="d">E d – E d MMM</greatestDifference>
+							<greatestDifference id="M">E d MMM – E d MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="y">
+							<greatestDifference id="y">y–y G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yM">
+							<greatestDifference id="M">MM/y – MM/y GGGGG</greatestDifference>
+							<greatestDifference id="y">MM/y – MM/y GGGGG</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMd">
+							<greatestDifference id="d">dd/MM/y – dd/MM/y GGGGG</greatestDifference>
+							<greatestDifference id="M">dd/MM/y – dd/MM/y GGGGG</greatestDifference>
+							<greatestDifference id="y">dd/MM/y – dd/MM/y GGGGG</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMEd">
+							<greatestDifference id="d">E, dd/MM/y – E, dd/MM/y GGGGG</greatestDifference>
+							<greatestDifference id="M">E, dd/MM/y – E, dd/MM/y GGGGG</greatestDifference>
+							<greatestDifference id="y">E, dd/MM/y – E, dd/MM/y GGGGG</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMd">
+							<greatestDifference id="d">d–d MMM y G</greatestDifference>
+							<greatestDifference id="M">d MMM – d MMM y G</greatestDifference>
+							<greatestDifference id="y">d MMM y – d MMM y G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMEd">
+							<greatestDifference id="d">E, d – E, d MMM y G</greatestDifference>
+							<greatestDifference id="M">E, d MMM – E, d MMM y G</greatestDifference>
+							<greatestDifference id="y">E, d MMM y – E, d MMM y G</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
+			</calendar>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="9">Sept</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="9">Sept</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am">am</dayPeriod>
+							<dayPeriod type="noon">↑↑↑</dayPeriod>
+							<dayPeriod type="pm">pm</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="noon">↑↑↑</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">am</dayPeriod>
+							<dayPeriod type="noon">↑↑↑</dayPeriod>
+							<dayPeriod type="pm">pm</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+					<dayPeriodContext type="stand-alone">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="am">am</dayPeriod>
+							<dayPeriod type="pm">pm</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="pm">pm</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am">am</dayPeriod>
+							<dayPeriod type="pm">pm</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>EEEE, d MMMM y</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>d MMMM y</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>d MMM y</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>dd/MM/y</pattern>
+							<datetimeSkeleton>yMMdd</datetimeSkeleton>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="EBhm">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EBhms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Ed">E d</dateFormatItem>
+						<dateFormatItem id="Ehm">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Ehm" alt="ascii">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EHm">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Ehms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Ehms" alt="ascii">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EHms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="GyMd">d/M/y G</dateFormatItem>
+						<dateFormatItem id="GyMMMd">d MMM y G</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">E, d MMM y G</dateFormatItem>
+						<dateFormatItem id="Md">dd/MM</dateFormatItem>
+						<dateFormatItem id="MEd">E, dd/MM</dateFormatItem>
+						<dateFormatItem id="MMdd">dd/MM</dateFormatItem>
+						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
+						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
+						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
+						<dateFormatItem id="yM">MM/y</dateFormatItem>
+						<dateFormatItem id="yMd">dd/MM/y</dateFormatItem>
+						<dateFormatItem id="yMEd">E, dd/MM/y</dateFormatItem>
+						<dateFormatItem id="yMMMd">d MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMEd">E, d MMM y</dateFormatItem>
+					</availableFormats>
+					<intervalFormats>
+						<intervalFormatItem id="d">
+							<greatestDifference id="d">d–d</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMd">
+							<greatestDifference id="d">dd/MM/y – dd/MM/y G</greatestDifference>
+							<greatestDifference id="G">dd/MM/y G – dd/MM/y G</greatestDifference>
+							<greatestDifference id="M">dd/MM/y – dd/MM/y G</greatestDifference>
+							<greatestDifference id="y">dd/MM/y – dd/MM/y G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMEd">
+							<greatestDifference id="d">E, dd/MM/y – E, dd/MM/y G</greatestDifference>
+							<greatestDifference id="G">E, dd/MM/y G – E, dd/MM/y G</greatestDifference>
+							<greatestDifference id="M">E, dd/MM/y – E, dd/MM/y G</greatestDifference>
+							<greatestDifference id="y">E, dd/MM/y – E, dd/MM/y G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMd">
+							<greatestDifference id="d">d – d MMM y G</greatestDifference>
+							<greatestDifference id="G">d MMM y G – d MMM y G</greatestDifference>
+							<greatestDifference id="M">d MMM – d MMM y G</greatestDifference>
+							<greatestDifference id="y">d MMM y – d MMM y G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMEd">
+							<greatestDifference id="d">E, d MMM – E, d MMM y G</greatestDifference>
+							<greatestDifference id="G">E, d MMM y G – E, d MMM y G</greatestDifference>
+							<greatestDifference id="M">E, d MMM – E, d MMM y G</greatestDifference>
+							<greatestDifference id="y">E, d MMM y – E, d MMM y G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="h">
+							<greatestDifference id="h">h–h a</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="H">
+							<greatestDifference id="H">HH–HH</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hm">
+							<greatestDifference id="H">HH:mm–HH:mm</greatestDifference>
+							<greatestDifference id="m">HH:mm–HH:mm</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hmv">
+							<greatestDifference id="H">HH:mm–HH:mm v</greatestDifference>
+							<greatestDifference id="m">HH:mm–HH:mm v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hv">
+							<greatestDifference id="h">h–h a v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hv">
+							<greatestDifference id="H">HH–HH v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="M">
+							<greatestDifference id="M">M–M</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Md">
+							<greatestDifference id="d">dd/MM – dd/MM</greatestDifference>
+							<greatestDifference id="M">dd/MM – dd/MM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MEd">
+							<greatestDifference id="d">E dd/MM – E dd/MM</greatestDifference>
+							<greatestDifference id="M">E dd/MM – E dd/MM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMd">
+							<greatestDifference id="d">d–d MMM</greatestDifference>
+							<greatestDifference id="M">d MMM – d MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMEd">
+							<greatestDifference id="d">E d – E d MMM</greatestDifference>
+							<greatestDifference id="M">E d MMM – E d MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="y">
+							<greatestDifference id="y">y–y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yM">
+							<greatestDifference id="M">MM/y – MM/y</greatestDifference>
+							<greatestDifference id="y">MM/y – MM/y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMd">
+							<greatestDifference id="d">dd/MM/y – dd/MM/y</greatestDifference>
+							<greatestDifference id="M">dd/MM/y – dd/MM/y</greatestDifference>
+							<greatestDifference id="y">dd/MM/y – dd/MM/y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMEd">
+							<greatestDifference id="d">E, dd/MM/y – E, dd/MM/y</greatestDifference>
+							<greatestDifference id="M">E, dd/MM/y – E, dd/MM/y</greatestDifference>
+							<greatestDifference id="y">E, dd/MM/y – E, dd/MM/y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMd">
+							<greatestDifference id="d">d–d MMM y</greatestDifference>
+							<greatestDifference id="M">d MMM – d MMM y</greatestDifference>
+							<greatestDifference id="y">d MMM y – d MMM y</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMEd">
+							<greatestDifference id="d">E, d – E, d MMM y</greatestDifference>
+							<greatestDifference id="M">E, d MMM – E, d MMM y</greatestDifference>
+							<greatestDifference id="y">E, d MMM y – E, d MMM y</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
+			</calendar>
+			<calendar type="islamic">
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
@@ -156,282 +491,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="Bhms">h:mm.ss B</dateFormatItem>
-						<dateFormatItem id="EBhm">E, h:mm B</dateFormatItem>
-						<dateFormatItem id="EBhms">E, h:mm:ss B</dateFormatItem>
-						<dateFormatItem id="Ed">E d</dateFormatItem>
-						<dateFormatItem id="Ehm">E, h:mm a</dateFormatItem>
-						<dateFormatItem id="EHm">E, HH:mm</dateFormatItem>
-						<dateFormatItem id="Ehms">E, h:mm:ss a</dateFormatItem>
-						<dateFormatItem id="EHms">E, HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="GyMd">dd/MM/y GGGGG</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E, d MMM y G</dateFormatItem>
-						<dateFormatItem id="M">LL</dateFormatItem>
 						<dateFormatItem id="Md">dd/MM</dateFormatItem>
-						<dateFormatItem id="MEd">E, dd/MM</dateFormatItem>
+						<dateFormatItem id="MEd">E dd/MM</dateFormatItem>
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
-						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
+						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
-						<dateFormatItem id="yyyyM">MM/y GGGGG</dateFormatItem>
 						<dateFormatItem id="yyyyMd">dd/MM/y GGGGG</dateFormatItem>
 						<dateFormatItem id="yyyyMEd">E, dd/MM/y GGGGG</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">d MMM y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">E, d MMM y G</dateFormatItem>
-					</availableFormats>
-					<intervalFormats>
-						<intervalFormatItem id="d">
-							<greatestDifference id="d">d–d</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Gy">
-							<greatestDifference id="y">y–y G</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="GyMd">
-							<greatestDifference id="d">dd/MM/y – dd/MM/y GGGGG</greatestDifference>
-							<greatestDifference id="G">dd/MM/y GGGGG – dd/MM/y GGGGG</greatestDifference>
-							<greatestDifference id="M">dd/MM/y – dd/MM/y GGGGG</greatestDifference>
-							<greatestDifference id="y">dd/MM/y – dd/MM/y GGGGG</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="GyMEd">
-							<greatestDifference id="d">E, dd/MM/y – E, dd/MM/y GGGGG</greatestDifference>
-							<greatestDifference id="G">E, dd/MM/y GGGGG – E, dd/MM/y GGGGG</greatestDifference>
-							<greatestDifference id="M">E, dd/MM/y – E, dd/MM/y GGGGG</greatestDifference>
-							<greatestDifference id="y">E, dd/MM/y – E, dd/MM/y GGGGG</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="GyMMMd">
-							<greatestDifference id="d">d–d MMM y G</greatestDifference>
-							<greatestDifference id="G">d MMM y G – d MMM y G</greatestDifference>
-							<greatestDifference id="M">d MMM – d MMM y G</greatestDifference>
-							<greatestDifference id="y">d MMM y – d MMM y G</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="GyMMMEd">
-							<greatestDifference id="d">E, d MMM – E, d MMM y G</greatestDifference>
-							<greatestDifference id="G">E, d MMM y G – E, d MMM y G</greatestDifference>
-							<greatestDifference id="M">E, d MMM – E, d MMM y G</greatestDifference>
-							<greatestDifference id="y">E, d MMM y – E, d MMM y G</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="M">
-							<greatestDifference id="M">M–M</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Md">
-							<greatestDifference id="d">dd/MM – dd/MM</greatestDifference>
-							<greatestDifference id="M">dd/MM – dd/MM</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MEd">
-							<greatestDifference id="d">E dd/MM – E dd/MM</greatestDifference>
-							<greatestDifference id="M">E dd/MM – E dd/MM</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MMMd">
-							<greatestDifference id="d">d–d MMM</greatestDifference>
-							<greatestDifference id="M">d MMM – d MMM</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MMMEd">
-							<greatestDifference id="d">E d – E d MMM</greatestDifference>
-							<greatestDifference id="M">E d MMM – E d MMM</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="y">
-							<greatestDifference id="y">y–y G</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yM">
-							<greatestDifference id="M">MM/y – MM/y GGGGG</greatestDifference>
-							<greatestDifference id="y">MM/y – MM/y GGGGG</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMd">
-							<greatestDifference id="d">dd/MM/y – dd/MM/y GGGGG</greatestDifference>
-							<greatestDifference id="M">dd/MM/y – dd/MM/y GGGGG</greatestDifference>
-							<greatestDifference id="y">dd/MM/y – dd/MM/y GGGGG</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d">E, dd/MM/y – E, dd/MM/y GGGGG</greatestDifference>
-							<greatestDifference id="M">E, dd/MM/y – E, dd/MM/y GGGGG</greatestDifference>
-							<greatestDifference id="y">E, dd/MM/y – E, dd/MM/y GGGGG</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMMMd">
-							<greatestDifference id="d">d–d MMM y G</greatestDifference>
-							<greatestDifference id="M">d MMM – d MMM y G</greatestDifference>
-							<greatestDifference id="y">d MMM y – d MMM y G</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="d">E, d – E, d MMM y G</greatestDifference>
-							<greatestDifference id="M">E, d MMM – E, d MMM y G</greatestDifference>
-							<greatestDifference id="y">E, d MMM y – E, d MMM y G</greatestDifference>
-						</intervalFormatItem>
-					</intervalFormats>
-				</dateTimeFormats>
-			</calendar>
-			<calendar type="gregorian">
-				<dayPeriods>
-					<dayPeriodContext type="format">
-						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am">am</dayPeriod>
-							<dayPeriod type="noon">noon</dayPeriod>
-							<dayPeriod type="pm">pm</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
-							<dayPeriod type="noon">n</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">am</dayPeriod>
-							<dayPeriod type="noon">noon</dayPeriod>
-							<dayPeriod type="pm">pm</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-					<dayPeriodContext type="stand-alone">
-						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am">am</dayPeriod>
-							<dayPeriod type="pm">pm</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="narrow">
-							<dayPeriod type="pm">pm</dayPeriod>
-						</dayPeriodWidth>
-						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">am</dayPeriod>
-							<dayPeriod type="pm">pm</dayPeriod>
-						</dayPeriodWidth>
-					</dayPeriodContext>
-				</dayPeriods>
-				<dateFormats>
-					<dateFormatLength type="full">
-						<dateFormat>
-							<pattern>EEEE, d MMMM y</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="long">
-						<dateFormat>
-							<pattern>d MMMM y</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="medium">
-						<dateFormat>
-							<pattern>d MMM y</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="short">
-						<dateFormat>
-							<pattern>dd/MM/y</pattern>
-						</dateFormat>
-					</dateFormatLength>
-				</dateFormats>
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="EBhm">E, h:mm B</dateFormatItem>
-						<dateFormatItem id="EBhms">E, h:mm:ss B</dateFormatItem>
-						<dateFormatItem id="Ed">E d</dateFormatItem>
-						<dateFormatItem id="GyMMMd">d MMM y G</dateFormatItem>
-						<dateFormatItem id="GyMMMEd">E, d MMM y G</dateFormatItem>
-						<dateFormatItem id="Md">dd/MM</dateFormatItem>
-						<dateFormatItem id="MEd">E, dd/MM</dateFormatItem>
-						<dateFormatItem id="MMdd">dd/MM</dateFormatItem>
-						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
-						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
-						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
-						<dateFormatItem id="yM">MM/y</dateFormatItem>
-						<dateFormatItem id="yMd">dd/MM/y</dateFormatItem>
-						<dateFormatItem id="yMEd">E, dd/MM/y</dateFormatItem>
-						<dateFormatItem id="yMMMd">d MMM y</dateFormatItem>
-						<dateFormatItem id="yMMMEd">E, d MMM y</dateFormatItem>
-					</availableFormats>
-					<intervalFormats>
-						<intervalFormatItem id="d">
-							<greatestDifference id="d">d–d</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="GyMd">
-							<greatestDifference id="d">dd/MM/y – dd/MM/y GGGGG</greatestDifference>
-							<greatestDifference id="G">dd/MM/y GGGGG – dd/MM/y GGGGG</greatestDifference>
-							<greatestDifference id="M">dd/MM/y – dd/MM/y GGGGG</greatestDifference>
-							<greatestDifference id="y">dd/MM/y – dd/MM/y GGGGG</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="GyMEd">
-							<greatestDifference id="d">E, dd/MM/y – E, dd/MM/y GGGGG</greatestDifference>
-							<greatestDifference id="G">E, dd/MM/y GGGGG – E, dd/MM/y GGGGG</greatestDifference>
-							<greatestDifference id="M">E, dd/MM/y – E, dd/MM/y GGGGG</greatestDifference>
-							<greatestDifference id="y">E, dd/MM/y – E, dd/MM/y GGGGG</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="GyMMMd">
-							<greatestDifference id="d">d – d MMM y G</greatestDifference>
-							<greatestDifference id="G">d MMM y G – d MMM y G</greatestDifference>
-							<greatestDifference id="M">d MMM – d MMM y G</greatestDifference>
-							<greatestDifference id="y">d MMM y – d MMM y G</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="GyMMMEd">
-							<greatestDifference id="d">E, d MMM – E, d MMM y G</greatestDifference>
-							<greatestDifference id="G">E, d MMM y G – E, d MMM y G</greatestDifference>
-							<greatestDifference id="M">E, d MMM – E, d MMM y G</greatestDifference>
-							<greatestDifference id="y">E, d MMM y – E, d MMM y G</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="h">
-							<greatestDifference id="h">h–h a</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="H">
-							<greatestDifference id="H">HH–HH</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hm">
-							<greatestDifference id="H">HH:mm–HH:mm</greatestDifference>
-							<greatestDifference id="m">HH:mm–HH:mm</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hmv">
-							<greatestDifference id="H">HH:mm–HH:mm v</greatestDifference>
-							<greatestDifference id="m">HH:mm–HH:mm v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="hv">
-							<greatestDifference id="h">h–h a v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Hv">
-							<greatestDifference id="H">HH–HH v</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="M">
-							<greatestDifference id="M">M–M</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="Md">
-							<greatestDifference id="d">dd/MM – dd/MM</greatestDifference>
-							<greatestDifference id="M">dd/MM – dd/MM</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MEd">
-							<greatestDifference id="d">E dd/MM – E dd/MM</greatestDifference>
-							<greatestDifference id="M">E dd/MM – E dd/MM</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MMMd">
-							<greatestDifference id="d">d–d MMM</greatestDifference>
-							<greatestDifference id="M">d MMM – d MMM</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="MMMEd">
-							<greatestDifference id="d">E d – E d MMM</greatestDifference>
-							<greatestDifference id="M">E d MMM – E d MMM</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="y">
-							<greatestDifference id="y">y–y</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yM">
-							<greatestDifference id="M">MM/y – MM/y</greatestDifference>
-							<greatestDifference id="y">MM/y – MM/y</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMd">
-							<greatestDifference id="d">dd/MM/y – dd/MM/y</greatestDifference>
-							<greatestDifference id="M">dd/MM/y – dd/MM/y</greatestDifference>
-							<greatestDifference id="y">dd/MM/y – dd/MM/y</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d">E, dd/MM/y – E, dd/MM/y</greatestDifference>
-							<greatestDifference id="M">E, dd/MM/y – E, dd/MM/y</greatestDifference>
-							<greatestDifference id="y">E, dd/MM/y – E, dd/MM/y</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMMMd">
-							<greatestDifference id="d">d–d MMM y</greatestDifference>
-							<greatestDifference id="M">d MMM – d MMM y</greatestDifference>
-							<greatestDifference id="y">d MMM y – d MMM y</greatestDifference>
-						</intervalFormatItem>
-						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="d">E, d – E, d MMM y</greatestDifference>
-							<greatestDifference id="M">E, d MMM – E, d MMM y</greatestDifference>
-							<greatestDifference id="y">E, d MMM y – E, d MMM y</greatestDifference>
-						</intervalFormatItem>
-					</intervalFormats>
-				</dateTimeFormats>
-			</calendar>
-			<calendar type="islamic">
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="MEd">E dd/MM</dateFormatItem>
-						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -476,7 +547,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</relativeTime>
 			</field>
 			<field type="quarter-narrow">
-				<displayName>qtr</displayName>
+				<displayName>↑↑↑</displayName>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} qtr</relativeTimePattern>
 					<relativeTimePattern count="other">in {0} qtr</relativeTimePattern>
@@ -501,7 +572,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</relativeTime>
 			</field>
 			<field type="month-narrow">
-				<displayName>mo</displayName>
+				<displayName>↑↑↑</displayName>
 				<relative type="-1">last mo</relative>
 				<relative type="0">this mo</relative>
 				<relative type="1">next mo</relative>
@@ -529,7 +600,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</relativeTime>
 			</field>
 			<field type="week-narrow">
-				<displayName>wk</displayName>
+				<displayName>↑↑↑</displayName>
 				<relative type="-1">last wk</relative>
 				<relative type="0">this wk</relative>
 				<relative type="1">next wk</relative>
@@ -547,6 +618,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</field>
 			<field type="weekOfMonth-narrow">
 				<displayName>wk of mo</displayName>
+			</field>
+			<field type="day-narrow">
+				<relativeTime type="future">
+					<relativeTimePattern count="one">in {0} day</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} days</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} day ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} days ago</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="dayOfYear-short">
 				<displayName>day of yr</displayName>
@@ -699,7 +780,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</relativeTime>
 			</field>
 			<field type="minute-narrow">
-				<displayName>min</displayName>
+				<displayName>↑↑↑</displayName>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">in {0} min</relativeTimePattern>
 					<relativeTimePattern count="other">in {0} min</relativeTimePattern>
@@ -732,27 +813,33 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</field>
 		</fields>
 		<timeZoneNames>
-			<zone type="Pacific/Honolulu">
-				<short>
-					<generic>∅∅∅</generic>
-					<standard>∅∅∅</standard>
-					<daylight>∅∅∅</daylight>
-				</short>
-			</zone>
 			<zone type="America/St_Barthelemy">
 				<exemplarCity>St Barthélemy</exemplarCity>
 			</zone>
 			<zone type="America/St_Johns">
 				<exemplarCity>St John’s</exemplarCity>
 			</zone>
+			<zone type="Pacific/Enderbury">
+				<exemplarCity>Enderbury</exemplarCity>
+			</zone>
 			<zone type="America/St_Kitts">
 				<exemplarCity>St Kitts</exemplarCity>
+			</zone>
+			<zone type="Asia/Aqtau">
+				<exemplarCity>Aktau</exemplarCity>
 			</zone>
 			<zone type="America/St_Lucia">
 				<exemplarCity>St Lucia</exemplarCity>
 			</zone>
 			<zone type="Atlantic/St_Helena">
 				<exemplarCity>St Helena</exemplarCity>
+			</zone>
+			<zone type="Pacific/Honolulu">
+				<short>
+					<generic>∅∅∅</generic>
+					<standard>∅∅∅</standard>
+					<daylight>∅∅∅</daylight>
+				</short>
 			</zone>
 			<zone type="America/St_Vincent">
 				<exemplarCity>St Vincent</exemplarCity>
@@ -820,6 +907,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 	</dates>
 	<numbers>
 		<currencies>
+			<currency type="AFN">
+				<displayName count="one">Afghan afghani</displayName>
+				<displayName count="other">Afghan afghanis</displayName>
+			</currency>
+			<currency type="BMD">
+				<displayName>Bermudian Dollar</displayName>
+				<displayName count="one">Bermudian dollar</displayName>
+				<displayName count="other">Bermudian dollars</displayName>
+			</currency>
 			<currency type="BYB">
 				<displayName>Belarusian New Rouble (1994–1999)</displayName>
 				<displayName count="one">Belarusian new rouble (1994–1999)</displayName>
@@ -835,13 +931,30 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="one">Belarusian rouble (2000–2016)</displayName>
 				<displayName count="other">Belarusian roubles (2000–2016)</displayName>
 			</currency>
+			<currency type="ETB">
+				<displayName count="other">Ethiopian birr</displayName>
+			</currency>
 			<currency type="JPY">
 				<symbol>JP¥</symbol>
+			</currency>
+			<currency type="LSL">
+				<displayName count="other">Lesotho maloti</displayName>
 			</currency>
 			<currency type="LVR">
 				<displayName>Latvian Rouble</displayName>
 				<displayName count="one">Latvian rouble</displayName>
 				<displayName count="other">Latvian roubles</displayName>
+			</currency>
+			<currency type="MGA">
+				<displayName count="other">Malagasy ariary</displayName>
+			</currency>
+			<currency type="MVR">
+				<displayName count="other">Maldivian rufiyaa</displayName>
+			</currency>
+			<currency type="PHP">
+				<displayName>↑↑↑</displayName>
+				<displayName count="one">↑↑↑</displayName>
+				<displayName count="other">↑↑↑</displayName>
 			</currency>
 			<currency type="RUB">
 				<displayName>Russian Rouble</displayName>
@@ -866,10 +979,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<currency type="USD">
 				<symbol>US$</symbol>
 			</currency>
+			<currency type="VUV">
+				<displayName count="other">Vanuatu vatu</displayName>
+			</currency>
 		</currencies>
 	</numbers>
 	<units>
 		<unitLength type="long">
+			<compoundUnit type="10p1">
+				<unitPrefixPattern>deca{0}</unitPrefixPattern>
+			</compoundUnit>
 			<unit type="acceleration-meter-per-square-second">
 				<displayName>metres per second squared</displayName>
 				<unitPattern count="one">{0} metre per second squared</unitPattern>
@@ -894,11 +1013,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<perUnitPattern>{0} per square centimetre</perUnitPattern>
 			</unit>
 			<unit type="concentr-karat">
-				<displayName>carat</displayName>
+				<displayName>carats</displayName>
 				<unitPattern count="one">{0} carat</unitPattern>
 				<unitPattern count="other">{0} carats</unitPattern>
 			</unit>
-			<unit type="concentr-milligram-per-deciliter">
+			<unit type="concentr-milligram-ofglucose-per-deciliter">
 				<displayName>milligrams per decilitre</displayName>
 				<unitPattern count="one">{0} milligram per decilitre</unitPattern>
 				<unitPattern count="other">{0} milligrams per decilitre</unitPattern>
@@ -938,15 +1057,29 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} mile per gallon</unitPattern>
 				<unitPattern count="other">{0} miles per gallon</unitPattern>
 			</unit>
+			<unit type="energy-kilowatt-hour">
+				<unitPattern count="one">{0} kilowatt-hour</unitPattern>
+			</unit>
+			<unit type="force-kilowatt-hour-per-100-kilometer">
+				<displayName>kilowatt-hour per 100 kilometres</displayName>
+				<unitPattern count="one">{0} kilowatt-hour per 100 kilometres</unitPattern>
+				<unitPattern count="other">{0} kilowatt-hours per 100 kilometres</unitPattern>
+			</unit>
 			<unit type="graphics-pixel-per-centimeter">
 				<displayName>pixels per centimetre</displayName>
 				<unitPattern count="one">{0} pixel per centimetre</unitPattern>
 				<unitPattern count="other">{0} pixels per centimetre</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
-				<displayName>dots per centimetre</displayName>
-				<unitPattern count="one">{0} dot per centimetre</unitPattern>
-				<unitPattern count="other">{0} dots per centimetre</unitPattern>
+				<displayName draft="provisional">dots per centimetre</displayName>
+				<unitPattern count="one" draft="provisional">{0} dot per centimetre</unitPattern>
+				<unitPattern count="other" draft="provisional">{0} dots per centimetre</unitPattern>
+			</unit>
+			<unit type="graphics-dot">
+				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
+			</unit>
+			<unit type="length-earth-radius">
+				<unitPattern count="other">{0} earth radii</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<displayName>kilometres</displayName>
@@ -991,15 +1124,29 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} picometre</unitPattern>
 				<unitPattern count="other">{0} picometres</unitPattern>
 			</unit>
-			<unit type="mass-metric-ton">
+			<unit type="length-mile-scandinavian">
+				<displayName>Scandinavian mile</displayName>
+				<unitPattern count="one">{0} Scandinavian mile</unitPattern>
+				<unitPattern count="other">{0} Scandinavian miles</unitPattern>
+			</unit>
+			<unit type="light-candela">
+				<unitPattern count="other">{0} candelas</unitPattern>
+			</unit>
+			<unit type="light-lumen">
+				<unitPattern count="other">{0} lumens</unitPattern>
+			</unit>
+			<unit type="mass-tonne">
 				<displayName>tonnes</displayName>
 				<unitPattern count="one">{0} tonne</unitPattern>
 				<unitPattern count="other">{0} tonnes</unitPattern>
 			</unit>
 			<unit type="mass-stone">
 				<displayName>stone</displayName>
-				<unitPattern count="one">{0} stone</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} stone</unitPattern>
+			</unit>
+			<unit type="mass-grain">
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-ofhg">
 				<displayName>millimetres of mercury</displayName>
@@ -1016,9 +1163,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} metre per second</unitPattern>
 				<unitPattern count="other">{0} metres per second</unitPattern>
 			</unit>
+			<unit type="temperature-generic">
+				<displayName>degree</displayName>
+			</unit>
 			<unit type="temperature-kelvin">
 				<displayName>kelvin</displayName>
-				<unitPattern count="one">{0} kelvin</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} kelvin</unitPattern>
 			</unit>
 			<unit type="torque-newton-meter">
@@ -1086,20 +1236,55 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} gallons</unitPattern>
 				<perUnitPattern>{0} per gallon</perUnitPattern>
 			</unit>
+			<unit type="volume-quart">
+				<displayName>US quarts</displayName>
+				<unitPattern count="one">{0} US quart</unitPattern>
+				<unitPattern count="other">{0} US quarts</unitPattern>
+			</unit>
 			<unit type="volume-fluid-ounce">
 				<displayName>US fluid ounces</displayName>
 				<unitPattern count="one">{0} US fluid ounce</unitPattern>
 				<unitPattern count="other">{0} US fluid ounces</unitPattern>
 			</unit>
 			<unit type="volume-fluid-ounce-imperial">
-				<displayName>Imp. fluid ounces</displayName>
-				<unitPattern count="one">{0} Imp. fluid ounce</unitPattern>
-				<unitPattern count="other">{0} Imp. fluid ounces</unitPattern>
+				<displayName>fluid ounces</displayName>
+				<unitPattern count="one">{0} fluid ounce</unitPattern>
+				<unitPattern count="other">{0} fluid ounces</unitPattern>
+			</unit>
+			<unit type="volume-dessert-spoon">
+				<displayName>US dessertspoon</displayName>
+				<unitPattern count="one">{0} US dessertspoon</unitPattern>
+				<unitPattern count="other">{0} US dessertspoons</unitPattern>
+			</unit>
+			<unit type="volume-dessert-spoon-imperial">
+				<displayName>dessertspoon</displayName>
+				<unitPattern count="one">{0} dessertspoon</unitPattern>
+				<unitPattern count="other">{0} dessertspoons</unitPattern>
+			</unit>
+			<unit type="volume-drop">
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-dram">
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-jigger">
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-pinch">
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-quart-imperial">
+				<displayName>quart</displayName>
+				<unitPattern count="one">{0} quart</unitPattern>
+				<unitPattern count="other">{0} quarts</unitPattern>
 			</unit>
 		</unitLength>
 		<unitLength type="short">
 			<unit type="acceleration-meter-per-square-second">
 				<displayName>metres/sec²</displayName>
+			</unit>
+			<unit type="angle-revolution">
+				<unitPattern count="other">{0} revs</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
 				<displayName>metres²</displayName>
@@ -1109,13 +1294,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} ct</unitPattern>
 				<unitPattern count="other">{0} ct</unitPattern>
 			</unit>
-			<unit type="concentr-milligram-per-deciliter">
+			<unit type="concentr-milligram-ofglucose-per-deciliter">
 				<displayName>mg/dl</displayName>
 				<unitPattern count="one">{0} mg/dl</unitPattern>
 				<unitPattern count="other">{0} mg/dl</unitPattern>
 			</unit>
 			<unit type="concentr-millimole-per-liter">
-				<displayName>millimol/litre</displayName>
+				<displayName>millimole/litre</displayName>
 				<unitPattern count="one">{0} mmol/l</unitPattern>
 				<unitPattern count="other">{0} mmol/l</unitPattern>
 			</unit>
@@ -1136,7 +1321,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} l/100 km</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon">
-				<displayName>miles/gal US</displayName>
+				<displayName>miles/US gal</displayName>
 				<unitPattern count="one">{0} mpg US</unitPattern>
 				<unitPattern count="other">{0} mpg US</unitPattern>
 			</unit>
@@ -1146,35 +1331,52 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} mpg</unitPattern>
 			</unit>
 			<unit type="duration-hour">
-				<unitPattern count="one">{0} hr</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} hrs</unitPattern>
-				<perUnitPattern>{0}/h</perUnitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-minute">
-				<unitPattern count="one">{0} min</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} mins</unitPattern>
 			</unit>
 			<unit type="duration-second">
-				<unitPattern count="one">{0} sec</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} secs</unitPattern>
-				<perUnitPattern>{0}/s</perUnitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
+			</unit>
+			<unit type="duration-microsecond">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="graphics-dot">
+				<unitPattern count="one" draft="provisional">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-meter">
 				<displayName>metres</displayName>
 			</unit>
 			<unit type="length-micrometer">
-				<displayName>µmetres</displayName>
+				<displayName>μmetres</displayName>
 			</unit>
 			<unit type="mass-stone">
 				<displayName>stone</displayName>
 			</unit>
+			<unit type="mass-carat">
+				<unitPattern count="one">{0} ct</unitPattern>
+				<unitPattern count="other">{0} ct</unitPattern>
+			</unit>
+			<unit type="mass-grain">
+				<unitPattern count="one">{0} grains</unitPattern>
+				<unitPattern count="other">{0} grains</unitPattern>
+			</unit>
 			<unit type="pressure-millimeter-ofhg">
-				<displayName>mmHg</displayName>
-				<unitPattern count="one">{0} mmHg</unitPattern>
-				<unitPattern count="other">{0} mmHg</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="pressure-inch-ofhg">
-				<displayName>inHG</displayName>
+				<displayName>↑↑↑</displayName>
 			</unit>
 			<unit type="speed-meter-per-second">
 				<displayName>metres/sec</displayName>
@@ -1212,8 +1414,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-gallon">
 				<displayName>US gal</displayName>
-				<unitPattern count="one">{0} gal US</unitPattern>
-				<unitPattern count="other">{0} gal US</unitPattern>
+				<unitPattern count="one">{0} US gal</unitPattern>
+				<unitPattern count="other">{0} US gal</unitPattern>
+				<perUnitPattern>{0}/US gal</perUnitPattern>
 			</unit>
 			<unit type="volume-gallon-imperial">
 				<displayName>gal</displayName>
@@ -1221,22 +1424,64 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} gal</unitPattern>
 				<perUnitPattern>{0}/gal</perUnitPattern>
 			</unit>
+			<unit type="volume-quart">
+				<displayName>US qts</displayName>
+				<unitPattern count="one">{0} US qt</unitPattern>
+				<unitPattern count="other">{0} US qt</unitPattern>
+			</unit>
 			<unit type="volume-fluid-ounce">
 				<displayName>US fl oz</displayName>
 				<unitPattern count="one">{0} US fl oz</unitPattern>
 				<unitPattern count="other">{0} US fl oz</unitPattern>
 			</unit>
 			<unit type="volume-fluid-ounce-imperial">
-				<displayName>Imp. fl oz</displayName>
-				<unitPattern count="one">{0} fl oz Imp.</unitPattern>
-				<unitPattern count="other">{0} fl oz Imp.</unitPattern>
+				<displayName>fl oz</displayName>
+				<unitPattern count="one">{0} fl oz</unitPattern>
+				<unitPattern count="other">{0} fl oz</unitPattern>
+			</unit>
+			<unit type="volume-dessert-spoon">
+				<displayName>US dstspn</displayName>
+				<unitPattern count="one">{0} US dstspn</unitPattern>
+				<unitPattern count="other">{0} US dstspn</unitPattern>
+			</unit>
+			<unit type="volume-dessert-spoon-imperial">
+				<displayName>dstspn</displayName>
+				<unitPattern count="one">{0} dstspn</unitPattern>
+				<unitPattern count="other">{0} dstspn</unitPattern>
+			</unit>
+			<unit type="volume-drop">
+				<unitPattern count="one">{0} drops</unitPattern>
+				<unitPattern count="other">{0} drops</unitPattern>
+			</unit>
+			<unit type="volume-dram">
+				<displayName>dram</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-jigger">
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="volume-pinch">
+				<unitPattern count="one">{0} pinches</unitPattern>
+				<unitPattern count="other">{0} pinches</unitPattern>
+			</unit>
+			<unit type="volume-quart-imperial">
+				<displayName>qt</displayName>
+				<unitPattern count="one">{0} qt</unitPattern>
+				<unitPattern count="other">{0} qt</unitPattern>
 			</unit>
 		</unitLength>
 		<unitLength type="narrow">
 			<unit type="area-square-meter">
 				<displayName draft="contributed">metres²</displayName>
 			</unit>
-			<unit type="concentr-milligram-per-deciliter">
+			<unit type="concentr-karat">
+				<displayName>carat</displayName>
+				<unitPattern count="one">{0}ct</unitPattern>
+				<unitPattern count="other">{0}ct</unitPattern>
+			</unit>
+			<unit type="concentr-milligram-ofglucose-per-deciliter">
 				<displayName>mg/dl</displayName>
 				<unitPattern count="one">{0}mg/dl</unitPattern>
 				<unitPattern count="other">{0}mg/dl</unitPattern>
@@ -1275,6 +1520,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>
+			</unit>
+			<unit type="speed-mile-per-hour">
+				<displayName>mph</displayName>
 			</unit>
 			<unit type="temperature-celsius">
 				<unitPattern count="one">{0}°</unitPattern>
@@ -1327,6 +1575,34 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}gal</unitPattern>
 				<perUnitPattern>{0}/gal</perUnitPattern>
 			</unit>
+			<unit type="volume-fluid-ounce">
+				<displayName>US fl oz</displayName>
+				<unitPattern count="one">{0}US fl oz</unitPattern>
+				<unitPattern count="other">{0}US fl oz</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce-imperial">
+				<displayName>fl oz</displayName>
+				<unitPattern count="one">{0}fl oz</unitPattern>
+				<unitPattern count="other">{0}fl oz</unitPattern>
+			</unit>
+			<unit type="volume-dessert-spoon">
+				<displayName>US dsp</displayName>
+				<unitPattern count="one">{0}US dsp</unitPattern>
+				<unitPattern count="other">{0}US dsp</unitPattern>
+			</unit>
+			<unit type="volume-dessert-spoon-imperial">
+				<displayName>dsp</displayName>
+				<unitPattern count="one">{0}dsp</unitPattern>
+				<unitPattern count="other">{0}dsp</unitPattern>
+			</unit>
+			<unit type="volume-jigger">
+				<unitPattern count="other">{0}jiggers</unitPattern>
+			</unit>
+			<unit type="volume-quart-imperial">
+				<displayName>qt</displayName>
+				<unitPattern count="one">{0}qt</unitPattern>
+				<unitPattern count="other">{0}qt</unitPattern>
+			</unit>
 		</unitLength>
 	</units>
 	<listPatterns>
@@ -1358,4 +1634,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabelPattern type="scripts">scripts – {0}</characterLabelPattern>
 		<characterLabel type="math_symbols">maths symbol</characterLabel>
 	</characterLabels>
+	<personNames>
+		<sampleName item="nativeFull">
+			<nameField type="title">Mr</nameField>
+		</sampleName>
+		<sampleName item="foreignFull">
+			<nameField type="title">Prof Dr</nameField>
+		</sampleName>
+	</personNames>
 </ldml>

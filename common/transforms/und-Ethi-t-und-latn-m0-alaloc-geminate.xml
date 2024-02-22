@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<supplementalData>
+	<version number="$Revision$"/>
+	<transforms>
+		<transform source="Ethi" target="Latn" variant="ALALOC_Geminate" direction="forward" draft="contributed" alias="Ethiopic-Latin/ALALOC_Geminate und-Latn-t-und-ethi-m0-alaloc-geminate">
+			<tRule><![CDATA[
+########################################################################
+#
+# Preemptive gemination for the American Library Association Transliteration for Amharic system.
+#
+# This transformation applies the Ethiopic-to-Ethiopic gemination mappings prior to
+# performing the regular Ethiopic-to-ALALOC-Latin transform.  These mappings are
+# supported in the forward direction (Ethiopic-to-Latin) only at this time.
+#
+# Documentation for these transforms are given in the am-Ethi-t-am-ethi-m0-geminate.xml
+# and und-Ethi-t-und-latn-m0-alaloc.xml files respectively.
+#
+########################################################################
+#
+:: Amharic-Amharic/Geminate ; 
+:: Ethiopic-Latin/ALALOC ;
+#
+########################################################################
+			]]></tRule>
+		</transform>
+	</transforms>
+</supplementalData>

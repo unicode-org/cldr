@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!--
+Copyright © 1991-2014 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="no" /> 
+	</identity>
+	<collations>
+		<collation type="search">
+			<cr><![CDATA[
+				[import und-u-co-search]
+				[import no-u-co-standard]
+			]]></cr>
+		</collation>
+		<collation type="standard">
+				<cr><![CDATA[
+					&D<<đ<<<Đ<<ð<<<Ð
+					&t<<<þ/h
+					&T<<<Þ/H
+					&Y<<ü<<<Ü<<ű<<<Ű
+					&[before 1]ǀ<æ<<<Æ<<ä<<<Ä<<ę<<<Ę<ø<<<Ø<<ö<<<Ö<<ő<<<Ő<<œ<<<Œ<å<<<Å<<aa<<<Aa<<<AA
+				]]></cr>
+		</collation>
+	</collations>
+</ldml>

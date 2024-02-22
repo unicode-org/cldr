@@ -206,7 +206,7 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="1000000000">←%spellout-cardinal-neuter← δισεκατομμυριοστός[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000">←%spellout-cardinal-neuter← τρισεκατομμυριοστός[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000">←%spellout-cardinal-neuter← τετράκις εκατομμυριοστός[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##0=.;</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal-feminine">
                 <rbnfrule value="-x">μείον →→;</rbnfrule>
@@ -257,7 +257,7 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="1000000000">←%spellout-cardinal-neuter← δισεκατομμυριοστή[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000">←%spellout-cardinal-neuter← τρισεκατομμυριοστή[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000">←%spellout-cardinal-neuter← τετράκις εκατομμυριοστή[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##0=.;</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal-neuter">
                 <rbnfrule value="-x">μείον →→;</rbnfrule>
@@ -307,7 +307,13 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="1000000000">←%spellout-cardinal-neuter← δισεκατομμυριοστό[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000">←%spellout-cardinal-neuter← τρισεκατομμυριοστό[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000">←%spellout-cardinal-neuter← τετράκις εκατομμυριοστό[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000000">=#,##0=.;</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
+            </ruleset>
+        </rulesetGrouping>
+        <rulesetGrouping type="OrdinalRules">
+            <ruleset type="digits-ordinal">
+                <rbnfrule value="-x">−→→;</rbnfrule>
+                <rbnfrule value="0">=#,##0=;</rbnfrule>
             </ruleset>
         </rulesetGrouping>
     </rbnf>

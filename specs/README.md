@@ -5,4 +5,4 @@ so that the files may be served directly from GitHub.
 
 Copyright &copy; 1991-2019 Unicode, Inc.
 All rights reserved.
-[Terms of use](http://www.unicode.org/copyright.html)
+[Terms of use](https://www.unicode.org/copyright.html)

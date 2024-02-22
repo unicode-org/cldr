@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
@@ -12,6 +12,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<territory type="AU"/>
 	</identity>
 	<annotations>
+		<annotation cp="{">↑↑↑</annotation>
+		<annotation cp="{" type="tts">↑↑↑</annotation>
 		<annotation cp="🏻">↑↑↑</annotation>
 		<annotation cp="🏻" type="tts">↑↑↑</annotation>
 		<annotation cp="🏼">↑↑↑</annotation>
@@ -22,188 +24,692 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏾" type="tts">↑↑↑</annotation>
 		<annotation cp="🏿">↑↑↑</annotation>
 		<annotation cp="🏿" type="tts">↑↑↑</annotation>
+		<annotation cp="‾">↑↑↑</annotation>
+		<annotation cp="‾" type="tts">↑↑↑</annotation>
+		<annotation cp="_">↑↑↑</annotation>
+		<annotation cp="_" type="tts">↑↑↑</annotation>
+		<annotation cp="-">↑↑↑</annotation>
+		<annotation cp="-" type="tts">↑↑↑</annotation>
+		<annotation cp="‐">↑↑↑</annotation>
+		<annotation cp="‐" type="tts">↑↑↑</annotation>
 		<annotation cp="–">↑↑↑</annotation>
 		<annotation cp="–" type="tts">↑↑↑</annotation>
 		<annotation cp="—">↑↑↑</annotation>
 		<annotation cp="—" type="tts">↑↑↑</annotation>
+		<annotation cp="―">↑↑↑</annotation>
+		<annotation cp="―" type="tts">↑↑↑</annotation>
+		<annotation cp="・">↑↑↑</annotation>
+		<annotation cp="・" type="tts">↑↑↑</annotation>
+		<annotation cp=",">↑↑↑</annotation>
+		<annotation cp="," type="tts">↑↑↑</annotation>
+		<annotation cp="،">↑↑↑</annotation>
+		<annotation cp="،" type="tts">↑↑↑</annotation>
+		<annotation cp="、">↑↑↑</annotation>
+		<annotation cp="、" type="tts">↑↑↑</annotation>
+		<annotation cp=";">↑↑↑</annotation>
+		<annotation cp=";" type="tts">↑↑↑</annotation>
+		<annotation cp="؛">↑↑↑</annotation>
+		<annotation cp="؛" type="tts">↑↑↑</annotation>
+		<annotation cp=":">↑↑↑</annotation>
+		<annotation cp=":" type="tts">↑↑↑</annotation>
+		<annotation cp="!">↑↑↑</annotation>
+		<annotation cp="!" type="tts">↑↑↑</annotation>
+		<annotation cp="¡">↑↑↑</annotation>
+		<annotation cp="¡" type="tts">↑↑↑</annotation>
+		<annotation cp="?">↑↑↑</annotation>
+		<annotation cp="?" type="tts">↑↑↑</annotation>
+		<annotation cp="¿">↑↑↑</annotation>
+		<annotation cp="¿" type="tts">↑↑↑</annotation>
+		<annotation cp="؟">↑↑↑</annotation>
+		<annotation cp="؟" type="tts">↑↑↑</annotation>
+		<annotation cp="‽">↑↑↑</annotation>
+		<annotation cp="‽" type="tts">↑↑↑</annotation>
+		<annotation cp=".">↑↑↑</annotation>
+		<annotation cp="." type="tts">↑↑↑</annotation>
+		<annotation cp="…">↑↑↑</annotation>
+		<annotation cp="…" type="tts">↑↑↑</annotation>
+		<annotation cp="。">↑↑↑</annotation>
+		<annotation cp="。" type="tts">↑↑↑</annotation>
 		<annotation cp="·">↑↑↑</annotation>
 		<annotation cp="·" type="tts">↑↑↑</annotation>
+		<annotation cp="'">↑↑↑</annotation>
+		<annotation cp="'" type="tts">↑↑↑</annotation>
+		<annotation cp="‘">↑↑↑</annotation>
+		<annotation cp="‘" type="tts">↑↑↑</annotation>
+		<annotation cp="’">↑↑↑</annotation>
+		<annotation cp="’" type="tts">↑↑↑</annotation>
+		<annotation cp="‚">↑↑↑</annotation>
+		<annotation cp="‚" type="tts">↑↑↑</annotation>
+		<annotation cp="“">↑↑↑</annotation>
+		<annotation cp="“" type="tts">↑↑↑</annotation>
+		<annotation cp="”">↑↑↑</annotation>
+		<annotation cp="”" type="tts">↑↑↑</annotation>
+		<annotation cp="„">↑↑↑</annotation>
+		<annotation cp="„" type="tts">↑↑↑</annotation>
 		<annotation cp="«">↑↑↑</annotation>
 		<annotation cp="«" type="tts">↑↑↑</annotation>
 		<annotation cp="»">↑↑↑</annotation>
 		<annotation cp="»" type="tts">↑↑↑</annotation>
+		<annotation cp=")">↑↑↑</annotation>
+		<annotation cp=")" type="tts">↑↑↑</annotation>
+		<annotation cp="[">↑↑↑</annotation>
+		<annotation cp="[" type="tts">↑↑↑</annotation>
+		<annotation cp="]">↑↑↑</annotation>
+		<annotation cp="]" type="tts">↑↑↑</annotation>
+		<annotation cp="}">↑↑↑</annotation>
+		<annotation cp="}" type="tts">↑↑↑</annotation>
+		<annotation cp="〈">↑↑↑</annotation>
+		<annotation cp="〈" type="tts">↑↑↑</annotation>
+		<annotation cp="〉">angle bracket | bracket | chevron | close angle bracket | diamond brackets | pointy bracket | right angle bracket | tuple</annotation>
+		<annotation cp="〉" type="tts">↑↑↑</annotation>
+		<annotation cp="《">↑↑↑</annotation>
+		<annotation cp="《" type="tts">↑↑↑</annotation>
+		<annotation cp="》">↑↑↑</annotation>
+		<annotation cp="》" type="tts">↑↑↑</annotation>
+		<annotation cp="「">↑↑↑</annotation>
+		<annotation cp="「" type="tts">↑↑↑</annotation>
+		<annotation cp="」">↑↑↑</annotation>
+		<annotation cp="」" type="tts">↑↑↑</annotation>
+		<annotation cp="『">↑↑↑</annotation>
+		<annotation cp="『" type="tts">↑↑↑</annotation>
+		<annotation cp="』">↑↑↑</annotation>
+		<annotation cp="』" type="tts">↑↑↑</annotation>
+		<annotation cp="【">↑↑↑</annotation>
+		<annotation cp="【" type="tts">↑↑↑</annotation>
+		<annotation cp="】">↑↑↑</annotation>
+		<annotation cp="】" type="tts">↑↑↑</annotation>
+		<annotation cp="〔">↑↑↑</annotation>
+		<annotation cp="〔" type="tts">↑↑↑</annotation>
+		<annotation cp="〕">↑↑↑</annotation>
+		<annotation cp="〕" type="tts">↑↑↑</annotation>
+		<annotation cp="〖">↑↑↑</annotation>
+		<annotation cp="〖" type="tts">↑↑↑</annotation>
+		<annotation cp="〗">↑↑↑</annotation>
+		<annotation cp="〗" type="tts">↑↑↑</annotation>
 		<annotation cp="§">↑↑↑</annotation>
 		<annotation cp="§" type="tts">↑↑↑</annotation>
+		<annotation cp="¶">↑↑↑</annotation>
+		<annotation cp="¶" type="tts">↑↑↑</annotation>
+		<annotation cp="@">↑↑↑</annotation>
+		<annotation cp="@" type="tts">↑↑↑</annotation>
+		<annotation cp="*">↑↑↑</annotation>
+		<annotation cp="*" type="tts">↑↑↑</annotation>
+		<annotation cp="/">↑↑↑</annotation>
+		<annotation cp="/" type="tts">↑↑↑</annotation>
+		<annotation cp="\">↑↑↑</annotation>
+		<annotation cp="\" type="tts">↑↑↑</annotation>
+		<annotation cp="&amp;">↑↑↑</annotation>
+		<annotation cp="&amp;" type="tts">↑↑↑</annotation>
+		<annotation cp="#">↑↑↑</annotation>
+		<annotation cp="#" type="tts">↑↑↑</annotation>
+		<annotation cp="%">↑↑↑</annotation>
+		<annotation cp="%" type="tts">↑↑↑</annotation>
+		<annotation cp="‰">↑↑↑</annotation>
+		<annotation cp="‰" type="tts">↑↑↑</annotation>
 		<annotation cp="†">↑↑↑</annotation>
 		<annotation cp="†" type="tts">↑↑↑</annotation>
 		<annotation cp="‡">↑↑↑</annotation>
 		<annotation cp="‡" type="tts">↑↑↑</annotation>
 		<annotation cp="•">↑↑↑</annotation>
 		<annotation cp="•" type="tts">↑↑↑</annotation>
+		<annotation cp="‧">↑↑↑</annotation>
+		<annotation cp="‧" type="tts">↑↑↑</annotation>
+		<annotation cp="′">↑↑↑</annotation>
+		<annotation cp="′" type="tts">↑↑↑</annotation>
+		<annotation cp="″">↑↑↑</annotation>
+		<annotation cp="″" type="tts">↑↑↑</annotation>
+		<annotation cp="‴">↑↑↑</annotation>
+		<annotation cp="‴" type="tts">↑↑↑</annotation>
+		<annotation cp="‸">↑↑↑</annotation>
+		<annotation cp="‸" type="tts">↑↑↑</annotation>
+		<annotation cp="※">↑↑↑</annotation>
+		<annotation cp="※" type="tts">↑↑↑</annotation>
+		<annotation cp="⁂">↑↑↑</annotation>
+		<annotation cp="⁂" type="tts">↑↑↑</annotation>
+		<annotation cp="`">↑↑↑</annotation>
+		<annotation cp="`" type="tts">↑↑↑</annotation>
+		<annotation cp="´">↑↑↑</annotation>
+		<annotation cp="´" type="tts">↑↑↑</annotation>
+		<annotation cp="^">↑↑↑</annotation>
+		<annotation cp="^" type="tts">↑↑↑</annotation>
+		<annotation cp="¨">↑↑↑</annotation>
+		<annotation cp="¨" type="tts">↑↑↑</annotation>
 		<annotation cp="°">↑↑↑</annotation>
 		<annotation cp="°" type="tts">↑↑↑</annotation>
 		<annotation cp="℗">↑↑↑</annotation>
 		<annotation cp="℗" type="tts">↑↑↑</annotation>
 		<annotation cp="←">↑↑↑</annotation>
 		<annotation cp="←" type="tts">↑↑↑</annotation>
+		<annotation cp="↚">↑↑↑</annotation>
+		<annotation cp="↚" type="tts">↑↑↑</annotation>
 		<annotation cp="→">↑↑↑</annotation>
 		<annotation cp="→" type="tts">↑↑↑</annotation>
+		<annotation cp="↛">↑↑↑</annotation>
+		<annotation cp="↛" type="tts">↑↑↑</annotation>
 		<annotation cp="↑">↑↑↑</annotation>
 		<annotation cp="↑" type="tts">↑↑↑</annotation>
 		<annotation cp="↓">↑↑↑</annotation>
 		<annotation cp="↓" type="tts">↑↑↑</annotation>
+		<annotation cp="↜">↑↑↑</annotation>
+		<annotation cp="↜" type="tts">↑↑↑</annotation>
+		<annotation cp="↝">↑↑↑</annotation>
+		<annotation cp="↝" type="tts">↑↑↑</annotation>
+		<annotation cp="↞">↑↑↑</annotation>
+		<annotation cp="↞" type="tts">↑↑↑</annotation>
+		<annotation cp="↟">↑↑↑</annotation>
+		<annotation cp="↟" type="tts">↑↑↑</annotation>
+		<annotation cp="↠">↑↑↑</annotation>
+		<annotation cp="↠" type="tts">↑↑↑</annotation>
+		<annotation cp="↡">↑↑↑</annotation>
+		<annotation cp="↡" type="tts">↑↑↑</annotation>
+		<annotation cp="↢">↑↑↑</annotation>
+		<annotation cp="↢" type="tts">↑↑↑</annotation>
+		<annotation cp="↣">↑↑↑</annotation>
+		<annotation cp="↣" type="tts">↑↑↑</annotation>
+		<annotation cp="↤">↑↑↑</annotation>
+		<annotation cp="↤" type="tts">↑↑↑</annotation>
+		<annotation cp="↥">↑↑↑</annotation>
+		<annotation cp="↥" type="tts">↑↑↑</annotation>
+		<annotation cp="↦">↑↑↑</annotation>
+		<annotation cp="↦" type="tts">↑↑↑</annotation>
+		<annotation cp="↧">↑↑↑</annotation>
+		<annotation cp="↧" type="tts">↑↑↑</annotation>
+		<annotation cp="↨">↑↑↑</annotation>
+		<annotation cp="↨" type="tts">↑↑↑</annotation>
+		<annotation cp="↫">↑↑↑</annotation>
+		<annotation cp="↫" type="tts">↑↑↑</annotation>
+		<annotation cp="↬">↑↑↑</annotation>
+		<annotation cp="↬" type="tts">↑↑↑</annotation>
+		<annotation cp="↭">↑↑↑</annotation>
+		<annotation cp="↭" type="tts">↑↑↑</annotation>
+		<annotation cp="↯">↑↑↑</annotation>
+		<annotation cp="↯" type="tts">↑↑↑</annotation>
+		<annotation cp="↰">↑↑↑</annotation>
+		<annotation cp="↰" type="tts">↑↑↑</annotation>
+		<annotation cp="↱">↑↑↑</annotation>
+		<annotation cp="↱" type="tts">↑↑↑</annotation>
+		<annotation cp="↲">↑↑↑</annotation>
+		<annotation cp="↲" type="tts">↑↑↑</annotation>
+		<annotation cp="↳">↑↑↑</annotation>
+		<annotation cp="↳" type="tts">↑↑↑</annotation>
+		<annotation cp="↴">↑↑↑</annotation>
+		<annotation cp="↴" type="tts">↑↑↑</annotation>
+		<annotation cp="↵">↑↑↑</annotation>
+		<annotation cp="↵" type="tts">↑↑↑</annotation>
+		<annotation cp="↶">↑↑↑</annotation>
+		<annotation cp="↶" type="tts">↑↑↑</annotation>
+		<annotation cp="↷">↑↑↑</annotation>
+		<annotation cp="↷" type="tts">↑↑↑</annotation>
+		<annotation cp="↸">↑↑↑</annotation>
+		<annotation cp="↸" type="tts">↑↑↑</annotation>
+		<annotation cp="↹">↑↑↑</annotation>
+		<annotation cp="↹" type="tts">↑↑↑</annotation>
+		<annotation cp="↺">↑↑↑</annotation>
+		<annotation cp="↺" type="tts">↑↑↑</annotation>
+		<annotation cp="↻">↑↑↑</annotation>
+		<annotation cp="↻" type="tts">↑↑↑</annotation>
+		<annotation cp="↼">↑↑↑</annotation>
+		<annotation cp="↼" type="tts">↑↑↑</annotation>
+		<annotation cp="↽">↑↑↑</annotation>
+		<annotation cp="↽" type="tts">↑↑↑</annotation>
+		<annotation cp="↾">↑↑↑</annotation>
+		<annotation cp="↾" type="tts">↑↑↑</annotation>
+		<annotation cp="↿">↑↑↑</annotation>
+		<annotation cp="↿" type="tts">↑↑↑</annotation>
+		<annotation cp="⇀">↑↑↑</annotation>
+		<annotation cp="⇀" type="tts">↑↑↑</annotation>
+		<annotation cp="⇁">↑↑↑</annotation>
+		<annotation cp="⇁" type="tts">↑↑↑</annotation>
+		<annotation cp="⇂">↑↑↑</annotation>
+		<annotation cp="⇂" type="tts">↑↑↑</annotation>
+		<annotation cp="⇃">↑↑↑</annotation>
+		<annotation cp="⇃" type="tts">↑↑↑</annotation>
+		<annotation cp="⇄">↑↑↑</annotation>
+		<annotation cp="⇄" type="tts">↑↑↑</annotation>
 		<annotation cp="⇅">↑↑↑</annotation>
 		<annotation cp="⇅" type="tts">↑↑↑</annotation>
 		<annotation cp="⇆">↑↑↑</annotation>
 		<annotation cp="⇆" type="tts">↑↑↑</annotation>
+		<annotation cp="⇇">↑↑↑</annotation>
+		<annotation cp="⇇" type="tts">↑↑↑</annotation>
+		<annotation cp="⇈">↑↑↑</annotation>
+		<annotation cp="⇈" type="tts">↑↑↑</annotation>
+		<annotation cp="⇉">↑↑↑</annotation>
+		<annotation cp="⇉" type="tts">↑↑↑</annotation>
+		<annotation cp="⇊">↑↑↑</annotation>
+		<annotation cp="⇊" type="tts">↑↑↑</annotation>
+		<annotation cp="⇋">↑↑↑</annotation>
+		<annotation cp="⇋" type="tts">↑↑↑</annotation>
+		<annotation cp="⇌">↑↑↑</annotation>
+		<annotation cp="⇌" type="tts">↑↑↑</annotation>
+		<annotation cp="⇐">↑↑↑</annotation>
+		<annotation cp="⇐" type="tts">↑↑↑</annotation>
+		<annotation cp="⇍">↑↑↑</annotation>
+		<annotation cp="⇍" type="tts">↑↑↑</annotation>
+		<annotation cp="⇑">↑↑↑</annotation>
+		<annotation cp="⇑" type="tts">↑↑↑</annotation>
+		<annotation cp="⇒">↑↑↑</annotation>
+		<annotation cp="⇒" type="tts">↑↑↑</annotation>
+		<annotation cp="⇏">↑↑↑</annotation>
+		<annotation cp="⇏" type="tts">↑↑↑</annotation>
+		<annotation cp="⇓">↑↑↑</annotation>
+		<annotation cp="⇓" type="tts">↑↑↑</annotation>
+		<annotation cp="⇔">↑↑↑</annotation>
+		<annotation cp="⇔" type="tts">↑↑↑</annotation>
+		<annotation cp="⇎">↑↑↑</annotation>
+		<annotation cp="⇎" type="tts">↑↑↑</annotation>
+		<annotation cp="⇖">↑↑↑</annotation>
+		<annotation cp="⇖" type="tts">↑↑↑</annotation>
+		<annotation cp="⇗">↑↑↑</annotation>
+		<annotation cp="⇗" type="tts">↑↑↑</annotation>
+		<annotation cp="⇘">↑↑↑</annotation>
+		<annotation cp="⇘" type="tts">↑↑↑</annotation>
+		<annotation cp="⇙">↑↑↑</annotation>
+		<annotation cp="⇙" type="tts">↑↑↑</annotation>
+		<annotation cp="⇚">↑↑↑</annotation>
+		<annotation cp="⇚" type="tts">↑↑↑</annotation>
+		<annotation cp="⇛">↑↑↑</annotation>
+		<annotation cp="⇛" type="tts">↑↑↑</annotation>
+		<annotation cp="⇜">↑↑↑</annotation>
+		<annotation cp="⇜" type="tts">↑↑↑</annotation>
+		<annotation cp="⇝">↑↑↑</annotation>
+		<annotation cp="⇝" type="tts">↑↑↑</annotation>
+		<annotation cp="⇞">↑↑↑</annotation>
+		<annotation cp="⇞" type="tts">↑↑↑</annotation>
+		<annotation cp="⇟">↑↑↑</annotation>
+		<annotation cp="⇟" type="tts">↑↑↑</annotation>
+		<annotation cp="⇠">↑↑↑</annotation>
+		<annotation cp="⇠" type="tts">↑↑↑</annotation>
+		<annotation cp="⇡">↑↑↑</annotation>
+		<annotation cp="⇡" type="tts">↑↑↑</annotation>
+		<annotation cp="⇢">↑↑↑</annotation>
+		<annotation cp="⇢" type="tts">↑↑↑</annotation>
+		<annotation cp="⇣">↑↑↑</annotation>
+		<annotation cp="⇣" type="tts">↑↑↑</annotation>
+		<annotation cp="⇤">↑↑↑</annotation>
+		<annotation cp="⇤" type="tts">↑↑↑</annotation>
+		<annotation cp="⇥">↑↑↑</annotation>
+		<annotation cp="⇥" type="tts">↑↑↑</annotation>
+		<annotation cp="⇦">↑↑↑</annotation>
+		<annotation cp="⇦" type="tts">↑↑↑</annotation>
+		<annotation cp="⇧">↑↑↑</annotation>
+		<annotation cp="⇧" type="tts">↑↑↑</annotation>
+		<annotation cp="⇨">↑↑↑</annotation>
+		<annotation cp="⇨" type="tts">↑↑↑</annotation>
+		<annotation cp="⇩">↑↑↑</annotation>
+		<annotation cp="⇩" type="tts">↑↑↑</annotation>
+		<annotation cp="⇪">↑↑↑</annotation>
+		<annotation cp="⇪" type="tts">↑↑↑</annotation>
+		<annotation cp="⇵">↑↑↑</annotation>
+		<annotation cp="⇵" type="tts">↑↑↑</annotation>
+		<annotation cp="∀">↑↑↑</annotation>
+		<annotation cp="∀" type="tts">↑↑↑</annotation>
+		<annotation cp="∂">↑↑↑</annotation>
+		<annotation cp="∂" type="tts">↑↑↑</annotation>
+		<annotation cp="∃">↑↑↑</annotation>
+		<annotation cp="∃" type="tts">↑↑↑</annotation>
+		<annotation cp="∅">↑↑↑</annotation>
+		<annotation cp="∅" type="tts">↑↑↑</annotation>
 		<annotation cp="∆">↑↑↑</annotation>
 		<annotation cp="∆" type="tts">↑↑↑</annotation>
 		<annotation cp="∇">↑↑↑</annotation>
 		<annotation cp="∇" type="tts">↑↑↑</annotation>
 		<annotation cp="∈">↑↑↑</annotation>
 		<annotation cp="∈" type="tts">↑↑↑</annotation>
+		<annotation cp="∉">↑↑↑</annotation>
+		<annotation cp="∉" type="tts">↑↑↑</annotation>
+		<annotation cp="∋">↑↑↑</annotation>
+		<annotation cp="∋" type="tts">↑↑↑</annotation>
+		<annotation cp="∎">↑↑↑</annotation>
+		<annotation cp="∎" type="tts">↑↑↑</annotation>
+		<annotation cp="∏">↑↑↑</annotation>
+		<annotation cp="∏" type="tts">↑↑↑</annotation>
+		<annotation cp="∑">↑↑↑</annotation>
+		<annotation cp="∑" type="tts">↑↑↑</annotation>
+		<annotation cp="+">↑↑↑</annotation>
+		<annotation cp="+" type="tts">↑↑↑</annotation>
+		<annotation cp="±">↑↑↑</annotation>
+		<annotation cp="±" type="tts">↑↑↑</annotation>
 		<annotation cp="÷">↑↑↑</annotation>
 		<annotation cp="÷" type="tts">↑↑↑</annotation>
 		<annotation cp="×">↑↑↑</annotation>
 		<annotation cp="×" type="tts">↑↑↑</annotation>
+		<annotation cp="&lt;">↑↑↑</annotation>
+		<annotation cp="&lt;" type="tts">↑↑↑</annotation>
+		<annotation cp="≮">↑↑↑</annotation>
+		<annotation cp="≮" type="tts">↑↑↑</annotation>
+		<annotation cp="=">↑↑↑</annotation>
+		<annotation cp="=" type="tts">↑↑↑</annotation>
+		<annotation cp="≠">↑↑↑</annotation>
+		<annotation cp="≠" type="tts">↑↑↑</annotation>
+		<annotation cp="&gt;">↑↑↑</annotation>
+		<annotation cp="&gt;" type="tts">↑↑↑</annotation>
+		<annotation cp="≯">↑↑↑</annotation>
+		<annotation cp="≯" type="tts">↑↑↑</annotation>
+		<annotation cp="¬">↑↑↑</annotation>
+		<annotation cp="¬" type="tts">↑↑↑</annotation>
+		<annotation cp="|">↑↑↑</annotation>
+		<annotation cp="|" type="tts">↑↑↑</annotation>
+		<annotation cp="~">↑↑↑</annotation>
+		<annotation cp="~" type="tts">↑↑↑</annotation>
+		<annotation cp="−">↑↑↑</annotation>
+		<annotation cp="−" type="tts">↑↑↑</annotation>
 		<annotation cp="⁻">↑↑↑</annotation>
 		<annotation cp="⁻" type="tts">↑↑↑</annotation>
+		<annotation cp="∓">↑↑↑</annotation>
+		<annotation cp="∓" type="tts">↑↑↑</annotation>
+		<annotation cp="∕">↑↑↑</annotation>
+		<annotation cp="∕" type="tts">↑↑↑</annotation>
+		<annotation cp="⁄">↑↑↑</annotation>
+		<annotation cp="⁄" type="tts">↑↑↑</annotation>
+		<annotation cp="∗">↑↑↑</annotation>
+		<annotation cp="∗" type="tts">↑↑↑</annotation>
+		<annotation cp="∘">↑↑↑</annotation>
+		<annotation cp="∘" type="tts">↑↑↑</annotation>
+		<annotation cp="∙">↑↑↑</annotation>
+		<annotation cp="∙" type="tts">↑↑↑</annotation>
 		<annotation cp="√">↑↑↑</annotation>
 		<annotation cp="√" type="tts">↑↑↑</annotation>
+		<annotation cp="∝">↑↑↑</annotation>
+		<annotation cp="∝" type="tts">↑↑↑</annotation>
 		<annotation cp="∞">↑↑↑</annotation>
 		<annotation cp="∞" type="tts">↑↑↑</annotation>
+		<annotation cp="∟">↑↑↑</annotation>
+		<annotation cp="∟" type="tts">↑↑↑</annotation>
+		<annotation cp="∠">↑↑↑</annotation>
+		<annotation cp="∠" type="tts">↑↑↑</annotation>
+		<annotation cp="∣">↑↑↑</annotation>
+		<annotation cp="∣" type="tts">↑↑↑</annotation>
+		<annotation cp="∥">↑↑↑</annotation>
+		<annotation cp="∥" type="tts">↑↑↑</annotation>
+		<annotation cp="∧">↑↑↑</annotation>
+		<annotation cp="∧" type="tts">↑↑↑</annotation>
 		<annotation cp="∩">↑↑↑</annotation>
 		<annotation cp="∩" type="tts">↑↑↑</annotation>
 		<annotation cp="∪">↑↑↑</annotation>
 		<annotation cp="∪" type="tts">↑↑↑</annotation>
+		<annotation cp="∫">↑↑↑</annotation>
+		<annotation cp="∫" type="tts">↑↑↑</annotation>
+		<annotation cp="∬">↑↑↑</annotation>
+		<annotation cp="∬" type="tts">↑↑↑</annotation>
+		<annotation cp="∮">↑↑↑</annotation>
+		<annotation cp="∮" type="tts">↑↑↑</annotation>
+		<annotation cp="∴">↑↑↑</annotation>
+		<annotation cp="∴" type="tts">↑↑↑</annotation>
+		<annotation cp="∵">↑↑↑</annotation>
+		<annotation cp="∵" type="tts">↑↑↑</annotation>
+		<annotation cp="∶">↑↑↑</annotation>
+		<annotation cp="∶" type="tts">↑↑↑</annotation>
+		<annotation cp="∷">↑↑↑</annotation>
+		<annotation cp="∷" type="tts">↑↑↑</annotation>
+		<annotation cp="∼">↑↑↑</annotation>
+		<annotation cp="∼" type="tts">↑↑↑</annotation>
+		<annotation cp="∽">↑↑↑</annotation>
+		<annotation cp="∽" type="tts">↑↑↑</annotation>
+		<annotation cp="∾">↑↑↑</annotation>
+		<annotation cp="∾" type="tts">↑↑↑</annotation>
+		<annotation cp="≃">↑↑↑</annotation>
+		<annotation cp="≃" type="tts">↑↑↑</annotation>
+		<annotation cp="≅">↑↑↑</annotation>
+		<annotation cp="≅" type="tts">↑↑↑</annotation>
+		<annotation cp="≈">↑↑↑</annotation>
+		<annotation cp="≈" type="tts">↑↑↑</annotation>
+		<annotation cp="≌">↑↑↑</annotation>
+		<annotation cp="≌" type="tts">↑↑↑</annotation>
+		<annotation cp="≒">↑↑↑</annotation>
+		<annotation cp="≒" type="tts">↑↑↑</annotation>
+		<annotation cp="≖">↑↑↑</annotation>
+		<annotation cp="≖" type="tts">↑↑↑</annotation>
 		<annotation cp="≡">↑↑↑</annotation>
 		<annotation cp="≡" type="tts">↑↑↑</annotation>
+		<annotation cp="≣">↑↑↑</annotation>
+		<annotation cp="≣" type="tts">↑↑↑</annotation>
+		<annotation cp="≤">inequality | less-than | less-than or equal</annotation>
+		<annotation cp="≤" type="tts">↑↑↑</annotation>
+		<annotation cp="≥">greater-than | greater-than or equal | inequality</annotation>
+		<annotation cp="≥" type="tts">↑↑↑</annotation>
+		<annotation cp="≦">↑↑↑</annotation>
+		<annotation cp="≦" type="tts">↑↑↑</annotation>
+		<annotation cp="≧">↑↑↑</annotation>
+		<annotation cp="≧" type="tts">↑↑↑</annotation>
+		<annotation cp="≪">↑↑↑</annotation>
+		<annotation cp="≪" type="tts">↑↑↑</annotation>
+		<annotation cp="≫">↑↑↑</annotation>
+		<annotation cp="≫" type="tts">↑↑↑</annotation>
+		<annotation cp="≬">↑↑↑</annotation>
+		<annotation cp="≬" type="tts">↑↑↑</annotation>
+		<annotation cp="≳">↑↑↑</annotation>
+		<annotation cp="≳" type="tts">↑↑↑</annotation>
+		<annotation cp="≺">↑↑↑</annotation>
+		<annotation cp="≺" type="tts">↑↑↑</annotation>
+		<annotation cp="≻">↑↑↑</annotation>
+		<annotation cp="≻" type="tts">↑↑↑</annotation>
+		<annotation cp="⊁">↑↑↑</annotation>
+		<annotation cp="⊁" type="tts">↑↑↑</annotation>
 		<annotation cp="⊂">↑↑↑</annotation>
 		<annotation cp="⊂" type="tts">↑↑↑</annotation>
+		<annotation cp="⊃">↑↑↑</annotation>
+		<annotation cp="⊃" type="tts">↑↑↑</annotation>
+		<annotation cp="⊆">↑↑↑</annotation>
+		<annotation cp="⊆" type="tts">↑↑↑</annotation>
+		<annotation cp="⊇">↑↑↑</annotation>
+		<annotation cp="⊇" type="tts">↑↑↑</annotation>
+		<annotation cp="⊕">↑↑↑</annotation>
+		<annotation cp="⊕" type="tts">↑↑↑</annotation>
+		<annotation cp="⊖">↑↑↑</annotation>
+		<annotation cp="⊖" type="tts">↑↑↑</annotation>
+		<annotation cp="⊗">↑↑↑</annotation>
+		<annotation cp="⊗" type="tts">↑↑↑</annotation>
+		<annotation cp="⊘">↑↑↑</annotation>
+		<annotation cp="⊘" type="tts">↑↑↑</annotation>
+		<annotation cp="⊙">↑↑↑</annotation>
+		<annotation cp="⊙" type="tts">↑↑↑</annotation>
+		<annotation cp="⊚">↑↑↑</annotation>
+		<annotation cp="⊚" type="tts">↑↑↑</annotation>
+		<annotation cp="⊛">↑↑↑</annotation>
+		<annotation cp="⊛" type="tts">↑↑↑</annotation>
+		<annotation cp="⊞">↑↑↑</annotation>
+		<annotation cp="⊞" type="tts">↑↑↑</annotation>
+		<annotation cp="⊟">↑↑↑</annotation>
+		<annotation cp="⊟" type="tts">↑↑↑</annotation>
+		<annotation cp="⊥">↑↑↑</annotation>
+		<annotation cp="⊥" type="tts">↑↑↑</annotation>
+		<annotation cp="⊮">↑↑↑</annotation>
+		<annotation cp="⊮" type="tts">↑↑↑</annotation>
+		<annotation cp="⊰">↑↑↑</annotation>
+		<annotation cp="⊰" type="tts">↑↑↑</annotation>
+		<annotation cp="⊱">↑↑↑</annotation>
+		<annotation cp="⊱" type="tts">↑↑↑</annotation>
+		<annotation cp="⋭">does not contain as normal subgroup | does not contain as normal subgroup or equal | group theory | mathematics</annotation>
+		<annotation cp="⋭" type="tts">↑↑↑</annotation>
+		<annotation cp="⊶">↑↑↑</annotation>
+		<annotation cp="⊶" type="tts">↑↑↑</annotation>
+		<annotation cp="⊹">↑↑↑</annotation>
+		<annotation cp="⊹" type="tts">↑↑↑</annotation>
+		<annotation cp="⊿">↑↑↑</annotation>
+		<annotation cp="⊿" type="tts">↑↑↑</annotation>
+		<annotation cp="⋁">↑↑↑</annotation>
+		<annotation cp="⋁" type="tts">↑↑↑</annotation>
+		<annotation cp="⋂">↑↑↑</annotation>
+		<annotation cp="⋂" type="tts">↑↑↑</annotation>
+		<annotation cp="⋃">↑↑↑</annotation>
+		<annotation cp="⋃" type="tts">↑↑↑</annotation>
+		<annotation cp="⋅">↑↑↑</annotation>
+		<annotation cp="⋅" type="tts">↑↑↑</annotation>
+		<annotation cp="⋆">↑↑↑</annotation>
+		<annotation cp="⋆" type="tts">↑↑↑</annotation>
+		<annotation cp="⋈">↑↑↑</annotation>
+		<annotation cp="⋈" type="tts">↑↑↑</annotation>
+		<annotation cp="⋒">↑↑↑</annotation>
+		<annotation cp="⋒" type="tts">↑↑↑</annotation>
+		<annotation cp="⋘">↑↑↑</annotation>
+		<annotation cp="⋘" type="tts">↑↑↑</annotation>
+		<annotation cp="⋙">↑↑↑</annotation>
+		<annotation cp="⋙" type="tts">↑↑↑</annotation>
+		<annotation cp="⋮">↑↑↑</annotation>
+		<annotation cp="⋮" type="tts">↑↑↑</annotation>
+		<annotation cp="⋯">↑↑↑</annotation>
+		<annotation cp="⋯" type="tts">↑↑↑</annotation>
+		<annotation cp="⋰">↑↑↑</annotation>
+		<annotation cp="⋰" type="tts">↑↑↑</annotation>
+		<annotation cp="⋱">↑↑↑</annotation>
+		<annotation cp="⋱" type="tts">↑↑↑</annotation>
+		<annotation cp="■">↑↑↑</annotation>
+		<annotation cp="■" type="tts">↑↑↑</annotation>
+		<annotation cp="□">↑↑↑</annotation>
+		<annotation cp="□" type="tts">↑↑↑</annotation>
+		<annotation cp="▢">↑↑↑</annotation>
+		<annotation cp="▢" type="tts">↑↑↑</annotation>
+		<annotation cp="▣">↑↑↑</annotation>
+		<annotation cp="▣" type="tts">↑↑↑</annotation>
+		<annotation cp="▤">↑↑↑</annotation>
+		<annotation cp="▤" type="tts">↑↑↑</annotation>
+		<annotation cp="▥">↑↑↑</annotation>
+		<annotation cp="▥" type="tts">↑↑↑</annotation>
+		<annotation cp="▦">↑↑↑</annotation>
+		<annotation cp="▦" type="tts">↑↑↑</annotation>
+		<annotation cp="▧">↑↑↑</annotation>
+		<annotation cp="▧" type="tts">↑↑↑</annotation>
+		<annotation cp="▨">↑↑↑</annotation>
+		<annotation cp="▨" type="tts">↑↑↑</annotation>
+		<annotation cp="▩">↑↑↑</annotation>
+		<annotation cp="▩" type="tts">↑↑↑</annotation>
+		<annotation cp="▬">↑↑↑</annotation>
+		<annotation cp="▬" type="tts">↑↑↑</annotation>
+		<annotation cp="▭">↑↑↑</annotation>
+		<annotation cp="▭" type="tts">↑↑↑</annotation>
+		<annotation cp="▮">↑↑↑</annotation>
+		<annotation cp="▮" type="tts">↑↑↑</annotation>
+		<annotation cp="▰">↑↑↑</annotation>
+		<annotation cp="▰" type="tts">↑↑↑</annotation>
 		<annotation cp="▲">↑↑↑</annotation>
 		<annotation cp="▲" type="tts">↑↑↑</annotation>
+		<annotation cp="△">↑↑↑</annotation>
+		<annotation cp="△" type="tts">↑↑↑</annotation>
+		<annotation cp="▴">↑↑↑</annotation>
+		<annotation cp="▴" type="tts">↑↑↑</annotation>
+		<annotation cp="▵">↑↑↑</annotation>
+		<annotation cp="▵" type="tts">↑↑↑</annotation>
+		<annotation cp="▷">↑↑↑</annotation>
+		<annotation cp="▷" type="tts">↑↑↑</annotation>
+		<annotation cp="▸">↑↑↑</annotation>
+		<annotation cp="▸" type="tts">↑↑↑</annotation>
+		<annotation cp="▹">↑↑↑</annotation>
+		<annotation cp="▹" type="tts">↑↑↑</annotation>
+		<annotation cp="►">↑↑↑</annotation>
+		<annotation cp="►" type="tts">↑↑↑</annotation>
+		<annotation cp="▻">↑↑↑</annotation>
+		<annotation cp="▻" type="tts">↑↑↑</annotation>
 		<annotation cp="▼">↑↑↑</annotation>
 		<annotation cp="▼" type="tts">↑↑↑</annotation>
+		<annotation cp="▽">↑↑↑</annotation>
+		<annotation cp="▽" type="tts">↑↑↑</annotation>
+		<annotation cp="▾">↑↑↑</annotation>
+		<annotation cp="▾" type="tts">↑↑↑</annotation>
+		<annotation cp="▿">↑↑↑</annotation>
+		<annotation cp="▿" type="tts">↑↑↑</annotation>
+		<annotation cp="◁">↑↑↑</annotation>
+		<annotation cp="◁" type="tts">↑↑↑</annotation>
+		<annotation cp="◂">↑↑↑</annotation>
+		<annotation cp="◂" type="tts">↑↑↑</annotation>
+		<annotation cp="◃">↑↑↑</annotation>
+		<annotation cp="◃" type="tts">↑↑↑</annotation>
+		<annotation cp="◄">↑↑↑</annotation>
+		<annotation cp="◄" type="tts">↑↑↑</annotation>
+		<annotation cp="◅">↑↑↑</annotation>
+		<annotation cp="◅" type="tts">↑↑↑</annotation>
+		<annotation cp="◆">↑↑↑</annotation>
+		<annotation cp="◆" type="tts">↑↑↑</annotation>
+		<annotation cp="◇">↑↑↑</annotation>
+		<annotation cp="◇" type="tts">↑↑↑</annotation>
+		<annotation cp="◈">↑↑↑</annotation>
+		<annotation cp="◈" type="tts">↑↑↑</annotation>
+		<annotation cp="◉">↑↑↑</annotation>
+		<annotation cp="◉" type="tts">↑↑↑</annotation>
 		<annotation cp="◊">↑↑↑</annotation>
 		<annotation cp="◊" type="tts">↑↑↑</annotation>
 		<annotation cp="○">↑↑↑</annotation>
 		<annotation cp="○" type="tts">↑↑↑</annotation>
+		<annotation cp="◌">↑↑↑</annotation>
+		<annotation cp="◌" type="tts">↑↑↑</annotation>
+		<annotation cp="◍">↑↑↑</annotation>
+		<annotation cp="◍" type="tts">↑↑↑</annotation>
+		<annotation cp="◎">↑↑↑</annotation>
+		<annotation cp="◎" type="tts">↑↑↑</annotation>
 		<annotation cp="●">↑↑↑</annotation>
 		<annotation cp="●" type="tts">↑↑↑</annotation>
+		<annotation cp="◐">↑↑↑</annotation>
+		<annotation cp="◐" type="tts">↑↑↑</annotation>
+		<annotation cp="◑">↑↑↑</annotation>
+		<annotation cp="◑" type="tts">↑↑↑</annotation>
+		<annotation cp="◒">↑↑↑</annotation>
+		<annotation cp="◒" type="tts">↑↑↑</annotation>
+		<annotation cp="◓">↑↑↑</annotation>
+		<annotation cp="◓" type="tts">↑↑↑</annotation>
+		<annotation cp="◔">↑↑↑</annotation>
+		<annotation cp="◔" type="tts">↑↑↑</annotation>
+		<annotation cp="◕">↑↑↑</annotation>
+		<annotation cp="◕" type="tts">↑↑↑</annotation>
+		<annotation cp="◖">↑↑↑</annotation>
+		<annotation cp="◖" type="tts">↑↑↑</annotation>
+		<annotation cp="◗">↑↑↑</annotation>
+		<annotation cp="◗" type="tts">↑↑↑</annotation>
+		<annotation cp="◘">↑↑↑</annotation>
+		<annotation cp="◘" type="tts">↑↑↑</annotation>
+		<annotation cp="◙">↑↑↑</annotation>
+		<annotation cp="◙" type="tts">↑↑↑</annotation>
+		<annotation cp="◜">↑↑↑</annotation>
+		<annotation cp="◜" type="tts">↑↑↑</annotation>
+		<annotation cp="◝">↑↑↑</annotation>
+		<annotation cp="◝" type="tts">↑↑↑</annotation>
+		<annotation cp="◞">↑↑↑</annotation>
+		<annotation cp="◞" type="tts">↑↑↑</annotation>
+		<annotation cp="◟">↑↑↑</annotation>
+		<annotation cp="◟" type="tts">↑↑↑</annotation>
+		<annotation cp="◠">↑↑↑</annotation>
+		<annotation cp="◠" type="tts">↑↑↑</annotation>
+		<annotation cp="◡">↑↑↑</annotation>
+		<annotation cp="◡" type="tts">↑↑↑</annotation>
+		<annotation cp="◢">↑↑↑</annotation>
+		<annotation cp="◢" type="tts">↑↑↑</annotation>
+		<annotation cp="◣">↑↑↑</annotation>
+		<annotation cp="◣" type="tts">↑↑↑</annotation>
+		<annotation cp="◤">↑↑↑</annotation>
+		<annotation cp="◤" type="tts">↑↑↑</annotation>
+		<annotation cp="◥">↑↑↑</annotation>
+		<annotation cp="◥" type="tts">↑↑↑</annotation>
+		<annotation cp="◦">↑↑↑</annotation>
+		<annotation cp="◦" type="tts">↑↑↑</annotation>
 		<annotation cp="◯">↑↑↑</annotation>
 		<annotation cp="◯" type="tts">↑↑↑</annotation>
-		<annotation cp="⚧">↑↑↑</annotation>
-		<annotation cp="⚧" type="tts">↑↑↑</annotation>
-		<annotation cp="🤌">↑↑↑</annotation>
-		<annotation cp="🤌" type="tts">↑↑↑</annotation>
-		<annotation cp="🥲">↑↑↑</annotation>
-		<annotation cp="🥲" type="tts">↑↑↑</annotation>
-		<annotation cp="🥷">↑↑↑</annotation>
-		<annotation cp="🥷" type="tts">↑↑↑</annotation>
-		<annotation cp="🥸">↑↑↑</annotation>
-		<annotation cp="🥸" type="tts">↑↑↑</annotation>
-		<annotation cp="🦣">↑↑↑</annotation>
-		<annotation cp="🦣" type="tts">↑↑↑</annotation>
-		<annotation cp="🦤">↑↑↑</annotation>
-		<annotation cp="🦤" type="tts">↑↑↑</annotation>
-		<annotation cp="🦫">↑↑↑</annotation>
-		<annotation cp="🦫" type="tts">↑↑↑</annotation>
-		<annotation cp="🦬">↑↑↑</annotation>
-		<annotation cp="🦬" type="tts">↑↑↑</annotation>
-		<annotation cp="🦭">↑↑↑</annotation>
-		<annotation cp="🦭" type="tts">↑↑↑</annotation>
-		<annotation cp="🧋">↑↑↑</annotation>
-		<annotation cp="🧋" type="tts">↑↑↑</annotation>
-		<annotation cp="🩴" draft="contributed">↑↑↑</annotation>
-		<annotation cp="🩴" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="🪃">↑↑↑</annotation>
-		<annotation cp="🪃" type="tts">↑↑↑</annotation>
-		<annotation cp="🪄" draft="contributed">↑↑↑</annotation>
-		<annotation cp="🪄" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="🪅" draft="contributed">↑↑↑</annotation>
-		<annotation cp="🪅" type="tts" draft="contributed">↑↑↑</annotation>
-		<annotation cp="🪆">↑↑↑</annotation>
-		<annotation cp="🪆" type="tts">↑↑↑</annotation>
-		<annotation cp="🪖">↑↑↑</annotation>
-		<annotation cp="🪖" type="tts">↑↑↑</annotation>
-		<annotation cp="🪗">↑↑↑</annotation>
-		<annotation cp="🪗" type="tts">↑↑↑</annotation>
-		<annotation cp="🪘">↑↑↑</annotation>
-		<annotation cp="🪘" type="tts">↑↑↑</annotation>
-		<annotation cp="🪙">↑↑↑</annotation>
-		<annotation cp="🪙" type="tts">↑↑↑</annotation>
-		<annotation cp="🪚">↑↑↑</annotation>
-		<annotation cp="🪚" type="tts">↑↑↑</annotation>
-		<annotation cp="🪛">↑↑↑</annotation>
-		<annotation cp="🪛" type="tts">↑↑↑</annotation>
-		<annotation cp="🪜">↑↑↑</annotation>
-		<annotation cp="🪜" type="tts">↑↑↑</annotation>
-		<annotation cp="🪝">catch | crook | curve | ensnare | fishing | hook | selling point</annotation>
-		<annotation cp="🪝" type="tts">↑↑↑</annotation>
-		<annotation cp="🪞">looking glass | mirror | reflection | reflector</annotation>
-		<annotation cp="🪞" type="tts">↑↑↑</annotation>
-		<annotation cp="🪟">↑↑↑</annotation>
-		<annotation cp="🪟" type="tts">↑↑↑</annotation>
-		<annotation cp="🪠">↑↑↑</annotation>
-		<annotation cp="🪠" type="tts">↑↑↑</annotation>
-		<annotation cp="🪡" draft="contributed">needle and thread</annotation>
-		<annotation cp="🪡" type="tts" draft="contributed">needle and thread</annotation>
-		<annotation cp="🪢">↑↑↑</annotation>
-		<annotation cp="🪢" type="tts">↑↑↑</annotation>
-		<annotation cp="🪣">↑↑↑</annotation>
-		<annotation cp="🪣" type="tts">↑↑↑</annotation>
-		<annotation cp="🪤">↑↑↑</annotation>
-		<annotation cp="🪤" type="tts">mouse trap</annotation>
-		<annotation cp="🪥">↑↑↑</annotation>
-		<annotation cp="🪥" type="tts">↑↑↑</annotation>
-		<annotation cp="🪦">↑↑↑</annotation>
-		<annotation cp="🪦" type="tts">↑↑↑</annotation>
-		<annotation cp="🪧">↑↑↑</annotation>
-		<annotation cp="🪧" type="tts">↑↑↑</annotation>
-		<annotation cp="🪨">↑↑↑</annotation>
-		<annotation cp="🪨" type="tts">↑↑↑</annotation>
-		<annotation cp="🪰">↑↑↑</annotation>
-		<annotation cp="🪰" type="tts">↑↑↑</annotation>
-		<annotation cp="🪱">↑↑↑</annotation>
-		<annotation cp="🪱" type="tts">↑↑↑</annotation>
-		<annotation cp="🪲">↑↑↑</annotation>
-		<annotation cp="🪲" type="tts">↑↑↑</annotation>
-		<annotation cp="🪳">↑↑↑</annotation>
-		<annotation cp="🪳" type="tts">↑↑↑</annotation>
-		<annotation cp="🪴">grow | house | nurturing | plant | pot plant</annotation>
-		<annotation cp="🪴" type="tts">pot plant</annotation>
-		<annotation cp="🪵">↑↑↑</annotation>
-		<annotation cp="🪵" type="tts">↑↑↑</annotation>
-		<annotation cp="🪶">↑↑↑</annotation>
-		<annotation cp="🪶" type="tts">↑↑↑</annotation>
-		<annotation cp="🫀">↑↑↑</annotation>
-		<annotation cp="🫀" type="tts">↑↑↑</annotation>
-		<annotation cp="🫁">↑↑↑</annotation>
-		<annotation cp="🫁" type="tts">↑↑↑</annotation>
-		<annotation cp="🫂">↑↑↑</annotation>
-		<annotation cp="🫂" type="tts">↑↑↑</annotation>
-		<annotation cp="🫐">↑↑↑</annotation>
-		<annotation cp="🫐" type="tts">↑↑↑</annotation>
-		<annotation cp="🫑">↑↑↑</annotation>
-		<annotation cp="🫑" type="tts">↑↑↑</annotation>
-		<annotation cp="🫒">↑↑↑</annotation>
-		<annotation cp="🫒" type="tts">↑↑↑</annotation>
-		<annotation cp="🫓">↑↑↑</annotation>
-		<annotation cp="🫓" type="tts">↑↑↑</annotation>
-		<annotation cp="🫔">↑↑↑</annotation>
-		<annotation cp="🫔" type="tts">↑↑↑</annotation>
-		<annotation cp="🫕">↑↑↑</annotation>
-		<annotation cp="🫕" type="tts">↑↑↑</annotation>
-		<annotation cp="🫖">↑↑↑</annotation>
-		<annotation cp="🫖" type="tts">↑↑↑</annotation>
-		<annotation cp="🛖">↑↑↑</annotation>
-		<annotation cp="🛖" type="tts">↑↑↑</annotation>
-		<annotation cp="🛗">↑↑↑</annotation>
-		<annotation cp="🛗" type="tts">↑↑↑</annotation>
-		<annotation cp="🛻">pick-up | pickup | truck | ute</annotation>
-		<annotation cp="🛻" type="tts">ute</annotation>
-		<annotation cp="🛼">roller | rollerskate | skate</annotation>
-		<annotation cp="🛼" type="tts">rollerskate</annotation>
+		<annotation cp="◳">↑↑↑</annotation>
+		<annotation cp="◳" type="tts">↑↑↑</annotation>
+		<annotation cp="◷">↑↑↑</annotation>
+		<annotation cp="◷" type="tts">↑↑↑</annotation>
+		<annotation cp="◿">↑↑↑</annotation>
+		<annotation cp="◿" type="tts">↑↑↑</annotation>
+		<annotation cp="♪">↑↑↑</annotation>
+		<annotation cp="♪" type="tts">↑↑↑</annotation>
+		<annotation cp="⨧">↑↑↑</annotation>
+		<annotation cp="⨧" type="tts">↑↑↑</annotation>
+		<annotation cp="⨯">↑↑↑</annotation>
+		<annotation cp="⨯" type="tts">↑↑↑</annotation>
+		<annotation cp="⨼">↑↑↑</annotation>
+		<annotation cp="⨼" type="tts">↑↑↑</annotation>
+		<annotation cp="⩣">↑↑↑</annotation>
+		<annotation cp="⩣" type="tts">↑↑↑</annotation>
+		<annotation cp="⩽">↑↑↑</annotation>
+		<annotation cp="⩽" type="tts">↑↑↑</annotation>
+		<annotation cp="⪍">↑↑↑</annotation>
+		<annotation cp="⪍" type="tts">↑↑↑</annotation>
+		<annotation cp="⪚">↑↑↑</annotation>
+		<annotation cp="⪚" type="tts">↑↑↑</annotation>
+		<annotation cp="⪺">↑↑↑</annotation>
+		<annotation cp="⪺" type="tts">↑↑↑</annotation>
+		<annotation cp="♭">↑↑↑</annotation>
+		<annotation cp="♭" type="tts">↑↑↑</annotation>
+		<annotation cp="♯">↑↑↑</annotation>
+		<annotation cp="♯" type="tts">↑↑↑</annotation>
 		<annotation cp="😀">↑↑↑</annotation>
 		<annotation cp="😀" type="tts">↑↑↑</annotation>
 		<annotation cp="😃">↑↑↑</annotation>
@@ -224,6 +730,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙂" type="tts">↑↑↑</annotation>
 		<annotation cp="🙃">↑↑↑</annotation>
 		<annotation cp="🙃" type="tts">↑↑↑</annotation>
+		<annotation cp="🫠">↑↑↑</annotation>
+		<annotation cp="🫠" type="tts">↑↑↑</annotation>
 		<annotation cp="😉">↑↑↑</annotation>
 		<annotation cp="😉" type="tts">↑↑↑</annotation>
 		<annotation cp="😊">↑↑↑</annotation>
@@ -246,6 +754,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😚" type="tts">↑↑↑</annotation>
 		<annotation cp="😙">↑↑↑</annotation>
 		<annotation cp="😙" type="tts">↑↑↑</annotation>
+		<annotation cp="🥲">↑↑↑</annotation>
+		<annotation cp="🥲" type="tts">↑↑↑</annotation>
 		<annotation cp="😋">↑↑↑</annotation>
 		<annotation cp="😋" type="tts">↑↑↑</annotation>
 		<annotation cp="😛">↑↑↑</annotation>
@@ -262,10 +772,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤗" type="tts">↑↑↑</annotation>
 		<annotation cp="🤭">face with hand over mouth | whoops</annotation>
 		<annotation cp="🤭" type="tts">↑↑↑</annotation>
-		<annotation cp="🤫">↑↑↑</annotation>
-		<annotation cp="🤫" type="tts">↑↑↑</annotation>
+		<annotation cp="🫢">↑↑↑</annotation>
+		<annotation cp="🫢" type="tts">↑↑↑</annotation>
+		<annotation cp="🫣">↑↑↑</annotation>
+		<annotation cp="🫣" type="tts">↑↑↑</annotation>
+		<annotation cp="🤫">quiet | shooshing face | shush | shushing face</annotation>
+		<annotation cp="🤫" type="tts">shooshing face</annotation>
 		<annotation cp="🤔">↑↑↑</annotation>
 		<annotation cp="🤔" type="tts">↑↑↑</annotation>
+		<annotation cp="🫡">↑↑↑</annotation>
+		<annotation cp="🫡" type="tts">↑↑↑</annotation>
 		<annotation cp="🤐">↑↑↑</annotation>
 		<annotation cp="🤐" type="tts">↑↑↑</annotation>
 		<annotation cp="🤨">↑↑↑</annotation>
@@ -276,6 +792,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😑" type="tts">↑↑↑</annotation>
 		<annotation cp="😶">↑↑↑</annotation>
 		<annotation cp="😶" type="tts">↑↑↑</annotation>
+		<annotation cp="🫥">↑↑↑</annotation>
+		<annotation cp="🫥" type="tts">↑↑↑</annotation>
+		<annotation cp="😶‍🌫">↑↑↑</annotation>
+		<annotation cp="😶‍🌫" type="tts">↑↑↑</annotation>
 		<annotation cp="😏">↑↑↑</annotation>
 		<annotation cp="😏" type="tts">↑↑↑</annotation>
 		<annotation cp="😒">↑↑↑</annotation>
@@ -284,8 +804,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙄" type="tts">↑↑↑</annotation>
 		<annotation cp="😬">↑↑↑</annotation>
 		<annotation cp="😬" type="tts">↑↑↑</annotation>
+		<annotation cp="😮‍💨">↑↑↑</annotation>
+		<annotation cp="😮‍💨" type="tts">↑↑↑</annotation>
 		<annotation cp="🤥">↑↑↑</annotation>
 		<annotation cp="🤥" type="tts">↑↑↑</annotation>
+		<annotation cp="🫨">↑↑↑</annotation>
+		<annotation cp="🫨" type="tts">↑↑↑</annotation>
+		<annotation cp="🙂‍↔">↑↑↑</annotation>
+		<annotation cp="🙂‍↔" type="tts">↑↑↑</annotation>
+		<annotation cp="🙂‍↕">↑↑↑</annotation>
+		<annotation cp="🙂‍↕" type="tts">↑↑↑</annotation>
 		<annotation cp="😌">↑↑↑</annotation>
 		<annotation cp="😌" type="tts">↑↑↑</annotation>
 		<annotation cp="😔">↑↑↑</annotation>
@@ -294,9 +822,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😪" type="tts">↑↑↑</annotation>
 		<annotation cp="🤤">↑↑↑</annotation>
 		<annotation cp="🤤" type="tts">↑↑↑</annotation>
-		<annotation cp="😴">↑↑↑</annotation>
+		<annotation cp="😴">face | good night | sleep | sleeping face | ZZZ</annotation>
 		<annotation cp="😴" type="tts">↑↑↑</annotation>
-		<annotation cp="😷">↑↑↑</annotation>
+		<annotation cp="😷">cold | doctor | face with medical mask | ill | mask | medicine | poorly | sick</annotation>
 		<annotation cp="😷" type="tts">↑↑↑</annotation>
 		<annotation cp="🤒">↑↑↑</annotation>
 		<annotation cp="🤒" type="tts">↑↑↑</annotation>
@@ -309,19 +837,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤧">↑↑↑</annotation>
 		<annotation cp="🤧" type="tts">↑↑↑</annotation>
 		<annotation cp="🥵">feverish | flushed | heat stroke | hot | hot face | red-faced | sweating</annotation>
-		<annotation cp="🥵" type="tts">hot face</annotation>
+		<annotation cp="🥵" type="tts">↑↑↑</annotation>
 		<annotation cp="🥶">↑↑↑</annotation>
 		<annotation cp="🥶" type="tts">↑↑↑</annotation>
 		<annotation cp="🥴">↑↑↑</annotation>
 		<annotation cp="🥴" type="tts">↑↑↑</annotation>
 		<annotation cp="😵">↑↑↑</annotation>
 		<annotation cp="😵" type="tts">↑↑↑</annotation>
+		<annotation cp="😵‍💫">↑↑↑</annotation>
+		<annotation cp="😵‍💫" type="tts">↑↑↑</annotation>
 		<annotation cp="🤯">↑↑↑</annotation>
 		<annotation cp="🤯" type="tts">↑↑↑</annotation>
 		<annotation cp="🤠">↑↑↑</annotation>
 		<annotation cp="🤠" type="tts">↑↑↑</annotation>
 		<annotation cp="🥳">↑↑↑</annotation>
 		<annotation cp="🥳" type="tts">↑↑↑</annotation>
+		<annotation cp="🥸">↑↑↑</annotation>
+		<annotation cp="🥸" type="tts">↑↑↑</annotation>
 		<annotation cp="😎">↑↑↑</annotation>
 		<annotation cp="😎" type="tts">↑↑↑</annotation>
 		<annotation cp="🤓">↑↑↑</annotation>
@@ -330,6 +862,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧐" type="tts">↑↑↑</annotation>
 		<annotation cp="😕">↑↑↑</annotation>
 		<annotation cp="😕" type="tts">↑↑↑</annotation>
+		<annotation cp="🫤">↑↑↑</annotation>
+		<annotation cp="🫤" type="tts">↑↑↑</annotation>
 		<annotation cp="😟">↑↑↑</annotation>
 		<annotation cp="😟" type="tts">↑↑↑</annotation>
 		<annotation cp="🙁">↑↑↑</annotation>
@@ -346,6 +880,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😳" type="tts">↑↑↑</annotation>
 		<annotation cp="🥺">↑↑↑</annotation>
 		<annotation cp="🥺" type="tts">↑↑↑</annotation>
+		<annotation cp="🥹">↑↑↑</annotation>
+		<annotation cp="🥹" type="tts">↑↑↑</annotation>
 		<annotation cp="😦">↑↑↑</annotation>
 		<annotation cp="😦" type="tts">↑↑↑</annotation>
 		<annotation cp="😧">↑↑↑</annotation>
@@ -432,8 +968,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🙉" type="tts">↑↑↑</annotation>
 		<annotation cp="🙊">↑↑↑</annotation>
 		<annotation cp="🙊" type="tts">↑↑↑</annotation>
-		<annotation cp="💋">↑↑↑</annotation>
-		<annotation cp="💋" type="tts">↑↑↑</annotation>
 		<annotation cp="💌">↑↑↑</annotation>
 		<annotation cp="💌" type="tts">↑↑↑</annotation>
 		<annotation cp="💘">↑↑↑</annotation>
@@ -456,8 +990,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="❣" type="tts">↑↑↑</annotation>
 		<annotation cp="💔">↑↑↑</annotation>
 		<annotation cp="💔" type="tts">↑↑↑</annotation>
+		<annotation cp="❤‍🔥">↑↑↑</annotation>
+		<annotation cp="❤‍🔥" type="tts">↑↑↑</annotation>
+		<annotation cp="❤‍🩹">↑↑↑</annotation>
+		<annotation cp="❤‍🩹" type="tts">↑↑↑</annotation>
 		<annotation cp="❤">↑↑↑</annotation>
 		<annotation cp="❤" type="tts">↑↑↑</annotation>
+		<annotation cp="🩷">↑↑↑</annotation>
+		<annotation cp="🩷" type="tts">↑↑↑</annotation>
 		<annotation cp="🧡">↑↑↑</annotation>
 		<annotation cp="🧡" type="tts">↑↑↑</annotation>
 		<annotation cp="💛">↑↑↑</annotation>
@@ -466,14 +1006,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💚" type="tts">↑↑↑</annotation>
 		<annotation cp="💙">↑↑↑</annotation>
 		<annotation cp="💙" type="tts">↑↑↑</annotation>
+		<annotation cp="🩵">↑↑↑</annotation>
+		<annotation cp="🩵" type="tts">↑↑↑</annotation>
 		<annotation cp="💜">↑↑↑</annotation>
 		<annotation cp="💜" type="tts">↑↑↑</annotation>
 		<annotation cp="🤎">↑↑↑</annotation>
 		<annotation cp="🤎" type="tts">↑↑↑</annotation>
 		<annotation cp="🖤">↑↑↑</annotation>
 		<annotation cp="🖤" type="tts">↑↑↑</annotation>
+		<annotation cp="🩶">↑↑↑</annotation>
+		<annotation cp="🩶" type="tts">↑↑↑</annotation>
 		<annotation cp="🤍">↑↑↑</annotation>
 		<annotation cp="🤍" type="tts">↑↑↑</annotation>
+		<annotation cp="💋">↑↑↑</annotation>
+		<annotation cp="💋" type="tts">↑↑↑</annotation>
 		<annotation cp="💯">↑↑↑</annotation>
 		<annotation cp="💯" type="tts">↑↑↑</annotation>
 		<annotation cp="💢">↑↑↑</annotation>
@@ -488,8 +1034,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💨" type="tts">↑↑↑</annotation>
 		<annotation cp="🕳">↑↑↑</annotation>
 		<annotation cp="🕳" type="tts">↑↑↑</annotation>
-		<annotation cp="💣">↑↑↑</annotation>
-		<annotation cp="💣" type="tts">↑↑↑</annotation>
 		<annotation cp="💬">↑↑↑</annotation>
 		<annotation cp="💬" type="tts">↑↑↑</annotation>
 		<annotation cp="👁‍🗨">↑↑↑</annotation>
@@ -512,19 +1056,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="✋" type="tts">↑↑↑</annotation>
 		<annotation cp="🖖">finger | hand | spock | vulcan | Vulcan salute</annotation>
 		<annotation cp="🖖" type="tts">Vulcan salute</annotation>
+		<annotation cp="🫱">↑↑↑</annotation>
+		<annotation cp="🫱" type="tts">↑↑↑</annotation>
+		<annotation cp="🫲">↑↑↑</annotation>
+		<annotation cp="🫲" type="tts">↑↑↑</annotation>
+		<annotation cp="🫳">↑↑↑</annotation>
+		<annotation cp="🫳" type="tts">↑↑↑</annotation>
+		<annotation cp="🫴">↑↑↑</annotation>
+		<annotation cp="🫴" type="tts">↑↑↑</annotation>
+		<annotation cp="🫷">↑↑↑</annotation>
+		<annotation cp="🫷" type="tts">↑↑↑</annotation>
+		<annotation cp="🫸">↑↑↑</annotation>
+		<annotation cp="🫸" type="tts">↑↑↑</annotation>
 		<annotation cp="👌">↑↑↑</annotation>
 		<annotation cp="👌" type="tts">↑↑↑</annotation>
+		<annotation cp="🤌">↑↑↑</annotation>
+		<annotation cp="🤌" type="tts">↑↑↑</annotation>
 		<annotation cp="🤏">↑↑↑</annotation>
 		<annotation cp="🤏" type="tts">↑↑↑</annotation>
 		<annotation cp="✌">↑↑↑</annotation>
 		<annotation cp="✌" type="tts">↑↑↑</annotation>
 		<annotation cp="🤞">↑↑↑</annotation>
 		<annotation cp="🤞" type="tts">↑↑↑</annotation>
+		<annotation cp="🫰">↑↑↑</annotation>
+		<annotation cp="🫰" type="tts">↑↑↑</annotation>
 		<annotation cp="🤟">↑↑↑</annotation>
 		<annotation cp="🤟" type="tts">↑↑↑</annotation>
 		<annotation cp="🤘">↑↑↑</annotation>
 		<annotation cp="🤘" type="tts">↑↑↑</annotation>
-		<annotation cp="🤙">↑↑↑</annotation>
+		<annotation cp="🤙">call | call me hand | call-me hand | hand | shaka</annotation>
 		<annotation cp="🤙" type="tts">↑↑↑</annotation>
 		<annotation cp="👈">↑↑↑</annotation>
 		<annotation cp="👈" type="tts">↑↑↑</annotation>
@@ -538,6 +1098,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👇" type="tts">↑↑↑</annotation>
 		<annotation cp="☝">↑↑↑</annotation>
 		<annotation cp="☝" type="tts">↑↑↑</annotation>
+		<annotation cp="🫵">↑↑↑</annotation>
+		<annotation cp="🫵" type="tts">↑↑↑</annotation>
 		<annotation cp="👍">↑↑↑</annotation>
 		<annotation cp="👍" type="tts">↑↑↑</annotation>
 		<annotation cp="👎">↑↑↑</annotation>
@@ -552,8 +1114,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤜" type="tts">↑↑↑</annotation>
 		<annotation cp="👏">↑↑↑</annotation>
 		<annotation cp="👏" type="tts">↑↑↑</annotation>
-		<annotation cp="🙌">↑↑↑</annotation>
+		<annotation cp="🙌">celebration | gesture | hand | hooray | raised | raising hands</annotation>
 		<annotation cp="🙌" type="tts">↑↑↑</annotation>
+		<annotation cp="🫶">↑↑↑</annotation>
+		<annotation cp="🫶" type="tts">↑↑↑</annotation>
 		<annotation cp="👐">↑↑↑</annotation>
 		<annotation cp="👐" type="tts">↑↑↑</annotation>
 		<annotation cp="🤲">↑↑↑</annotation>
@@ -586,6 +1150,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👃" type="tts">↑↑↑</annotation>
 		<annotation cp="🧠">↑↑↑</annotation>
 		<annotation cp="🧠" type="tts">↑↑↑</annotation>
+		<annotation cp="🫀">↑↑↑</annotation>
+		<annotation cp="🫀" type="tts">↑↑↑</annotation>
+		<annotation cp="🫁">↑↑↑</annotation>
+		<annotation cp="🫁" type="tts">↑↑↑</annotation>
 		<annotation cp="🦷">↑↑↑</annotation>
 		<annotation cp="🦷" type="tts">↑↑↑</annotation>
 		<annotation cp="🦴">↑↑↑</annotation>
@@ -598,6 +1166,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👅" type="tts">↑↑↑</annotation>
 		<annotation cp="👄">↑↑↑</annotation>
 		<annotation cp="👄" type="tts">↑↑↑</annotation>
+		<annotation cp="🫦">↑↑↑</annotation>
+		<annotation cp="🫦" type="tts">↑↑↑</annotation>
 		<annotation cp="👶">↑↑↑</annotation>
 		<annotation cp="👶" type="tts">↑↑↑</annotation>
 		<annotation cp="🧒">↑↑↑</annotation>
@@ -610,24 +1180,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑" type="tts">↑↑↑</annotation>
 		<annotation cp="👱">↑↑↑</annotation>
 		<annotation cp="👱" type="tts">↑↑↑</annotation>
-		<annotation cp="🧑‍🍼">↑↑↑</annotation>
-		<annotation cp="🧑‍🍼" type="tts">↑↑↑</annotation>
-		<annotation cp="🧑‍🎄">↑↑↑</annotation>
-		<annotation cp="🧑‍🎄" type="tts">↑↑↑</annotation>
 		<annotation cp="👨">↑↑↑</annotation>
 		<annotation cp="👨" type="tts">↑↑↑</annotation>
 		<annotation cp="🧔">↑↑↑</annotation>
 		<annotation cp="🧔" type="tts">↑↑↑</annotation>
+		<annotation cp="🧔‍♂">↑↑↑</annotation>
+		<annotation cp="🧔‍♂" type="tts">↑↑↑</annotation>
 		<annotation cp="👱‍♂">↑↑↑</annotation>
 		<annotation cp="👱‍♂" type="tts">↑↑↑</annotation>
-		<annotation cp="👨‍🍼">↑↑↑</annotation>
-		<annotation cp="👨‍🍼" type="tts">↑↑↑</annotation>
 		<annotation cp="👩">↑↑↑</annotation>
 		<annotation cp="👩" type="tts">↑↑↑</annotation>
+		<annotation cp="🧔‍♀">↑↑↑</annotation>
+		<annotation cp="🧔‍♀" type="tts">↑↑↑</annotation>
 		<annotation cp="👱‍♀">↑↑↑</annotation>
 		<annotation cp="👱‍♀" type="tts">↑↑↑</annotation>
-		<annotation cp="👩‍🍼">↑↑↑</annotation>
-		<annotation cp="👩‍🍼" type="tts">↑↑↑</annotation>
 		<annotation cp="🧓">↑↑↑</annotation>
 		<annotation cp="🧓" type="tts">↑↑↑</annotation>
 		<annotation cp="👴">↑↑↑</annotation>
@@ -762,9 +1328,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👩‍💻" type="tts">↑↑↑</annotation>
 		<annotation cp="🧑‍🎤">↑↑↑</annotation>
 		<annotation cp="🧑‍🎤" type="tts">↑↑↑</annotation>
-		<annotation cp="👨‍🎤">entertainer | man | man singer | performer | rock singer | star</annotation>
+		<annotation cp="👨‍🎤">↑↑↑</annotation>
 		<annotation cp="👨‍🎤" type="tts">↑↑↑</annotation>
-		<annotation cp="👩‍🎤">entertainer | performer | rock singer | star | woman | woman singer</annotation>
+		<annotation cp="👩‍🎤">↑↑↑</annotation>
 		<annotation cp="👩‍🎤" type="tts">↑↑↑</annotation>
 		<annotation cp="🧑‍🎨">↑↑↑</annotation>
 		<annotation cp="🧑‍🎨" type="tts">↑↑↑</annotation>
@@ -808,12 +1374,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💂‍♂" type="tts">↑↑↑</annotation>
 		<annotation cp="💂‍♀">↑↑↑</annotation>
 		<annotation cp="💂‍♀" type="tts">↑↑↑</annotation>
+		<annotation cp="🥷">↑↑↑</annotation>
+		<annotation cp="🥷" type="tts">↑↑↑</annotation>
 		<annotation cp="👷">↑↑↑</annotation>
 		<annotation cp="👷" type="tts">↑↑↑</annotation>
 		<annotation cp="👷‍♂">↑↑↑</annotation>
 		<annotation cp="👷‍♂" type="tts">↑↑↑</annotation>
 		<annotation cp="👷‍♀">↑↑↑</annotation>
 		<annotation cp="👷‍♀" type="tts">↑↑↑</annotation>
+		<annotation cp="🫅">↑↑↑</annotation>
+		<annotation cp="🫅" type="tts">↑↑↑</annotation>
 		<annotation cp="🤴">↑↑↑</annotation>
 		<annotation cp="🤴" type="tts">↑↑↑</annotation>
 		<annotation cp="👸">↑↑↑</annotation>
@@ -828,28 +1398,40 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👲" type="tts">↑↑↑</annotation>
 		<annotation cp="🧕">↑↑↑</annotation>
 		<annotation cp="🧕" type="tts">↑↑↑</annotation>
-		<annotation cp="🤵">groom | person | person in tux | person in tuxedo | tuxedo</annotation>
+		<annotation cp="🤵">↑↑↑</annotation>
 		<annotation cp="🤵" type="tts">↑↑↑</annotation>
-		<annotation cp="🤵‍♀">tuxedo | woman | woman in tux | woman in tuxedo</annotation>
-		<annotation cp="🤵‍♀" type="tts">↑↑↑</annotation>
 		<annotation cp="🤵‍♂">man | man in tux | man in tuxedo | tux | tuxedo</annotation>
 		<annotation cp="🤵‍♂" type="tts">↑↑↑</annotation>
+		<annotation cp="🤵‍♀">↑↑↑</annotation>
+		<annotation cp="🤵‍♀" type="tts">↑↑↑</annotation>
 		<annotation cp="👰">↑↑↑</annotation>
 		<annotation cp="👰" type="tts">↑↑↑</annotation>
-		<annotation cp="👰‍♀">bride | veil | woman | woman with veil</annotation>
-		<annotation cp="👰‍♀" type="tts">↑↑↑</annotation>
 		<annotation cp="👰‍♂">↑↑↑</annotation>
 		<annotation cp="👰‍♂" type="tts">↑↑↑</annotation>
+		<annotation cp="👰‍♀">bride | veil | woman | woman with veil</annotation>
+		<annotation cp="👰‍♀" type="tts">↑↑↑</annotation>
 		<annotation cp="🤰">↑↑↑</annotation>
 		<annotation cp="🤰" type="tts">↑↑↑</annotation>
+		<annotation cp="🫃">↑↑↑</annotation>
+		<annotation cp="🫃" type="tts">↑↑↑</annotation>
+		<annotation cp="🫄">↑↑↑</annotation>
+		<annotation cp="🫄" type="tts">↑↑↑</annotation>
 		<annotation cp="🤱">↑↑↑</annotation>
 		<annotation cp="🤱" type="tts">↑↑↑</annotation>
+		<annotation cp="👩‍🍼">↑↑↑</annotation>
+		<annotation cp="👩‍🍼" type="tts">↑↑↑</annotation>
+		<annotation cp="👨‍🍼">↑↑↑</annotation>
+		<annotation cp="👨‍🍼" type="tts">↑↑↑</annotation>
+		<annotation cp="🧑‍🍼">↑↑↑</annotation>
+		<annotation cp="🧑‍🍼" type="tts">↑↑↑</annotation>
 		<annotation cp="👼">↑↑↑</annotation>
 		<annotation cp="👼" type="tts">↑↑↑</annotation>
 		<annotation cp="🎅">celebration | Christmas | Father Christmas | Santa | Santa Claus</annotation>
 		<annotation cp="🎅" type="tts">Santa</annotation>
-		<annotation cp="🤶">celebration | Christmas | Mrs Claus | Mrs Santa Claus</annotation>
+		<annotation cp="🤶">celebration | Christmas | Mrs Claus | Mrs Santa Claus | Mrs. Claus</annotation>
 		<annotation cp="🤶" type="tts">↑↑↑</annotation>
+		<annotation cp="🧑‍🎄">↑↑↑</annotation>
+		<annotation cp="🧑‍🎄" type="tts">↑↑↑</annotation>
 		<annotation cp="🦸">↑↑↑</annotation>
 		<annotation cp="🦸" type="tts">↑↑↑</annotation>
 		<annotation cp="🦸‍♂">↑↑↑</annotation>
@@ -904,6 +1486,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧟‍♂" type="tts">↑↑↑</annotation>
 		<annotation cp="🧟‍♀">↑↑↑</annotation>
 		<annotation cp="🧟‍♀" type="tts">↑↑↑</annotation>
+		<annotation cp="🧌">↑↑↑</annotation>
+		<annotation cp="🧌" type="tts">↑↑↑</annotation>
 		<annotation cp="💆">↑↑↑</annotation>
 		<annotation cp="💆" type="tts">↑↑↑</annotation>
 		<annotation cp="💆‍♂">↑↑↑</annotation>
@@ -940,14 +1524,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨‍🦯" type="tts">↑↑↑</annotation>
 		<annotation cp="👩‍🦯">↑↑↑</annotation>
 		<annotation cp="👩‍🦯" type="tts">↑↑↑</annotation>
-		<annotation cp="🧑‍🦼" draft="contributed">person in motorised wheelchair</annotation>
-		<annotation cp="🧑‍🦼" type="tts" draft="contributed">person in motorised wheelchair</annotation>
-		<annotation cp="👨‍🦼" draft="contributed">man in motorised wheelchair</annotation>
-		<annotation cp="👨‍🦼" type="tts" draft="contributed">man in motorised wheelchair</annotation>
-		<annotation cp="👩‍🦼" draft="contributed">woman in motorised wheelchair</annotation>
-		<annotation cp="👩‍🦼" type="tts" draft="contributed">woman in motorised wheelchair</annotation>
-		<annotation cp="🧑‍🦽" draft="contributed">↑↑↑</annotation>
-		<annotation cp="🧑‍🦽" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="🧑‍🦼">accessibility | electric wheelchair | person in motorised wheelchair | wheelchair</annotation>
+		<annotation cp="🧑‍🦼" type="tts">person in motorised wheelchair</annotation>
+		<annotation cp="👨‍🦼">accessibility | electric wheelchair | man | man in motorised wheelchair | wheelchair</annotation>
+		<annotation cp="👨‍🦼" type="tts">man in motorised wheelchair</annotation>
+		<annotation cp="👩‍🦼">accessibility | electric wheelchair | wheelchair | woman | woman in motorised wheelchair</annotation>
+		<annotation cp="👩‍🦼" type="tts">woman in motorised wheelchair</annotation>
+		<annotation cp="🧑‍🦽">↑↑↑</annotation>
+		<annotation cp="🧑‍🦽" type="tts">↑↑↑</annotation>
 		<annotation cp="👨‍🦽">↑↑↑</annotation>
 		<annotation cp="👨‍🦽" type="tts">↑↑↑</annotation>
 		<annotation cp="👩‍🦽">↑↑↑</annotation>
@@ -1028,9 +1612,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏋‍♀" type="tts">↑↑↑</annotation>
 		<annotation cp="🚴">bicycle | biking | cyclist | person biking | person riding a bike</annotation>
 		<annotation cp="🚴" type="tts">person riding a bike</annotation>
-		<annotation cp="🚴‍♂">bicycle | biking | cyclist | man | man riding a bike</annotation>
+		<annotation cp="🚴‍♂">bicycle | cycling | cyclist | man | man riding a bike</annotation>
 		<annotation cp="🚴‍♂" type="tts">man riding a bike</annotation>
-		<annotation cp="🚴‍♀">bicycle | biking | cyclist | woman | woman riding a bike</annotation>
+		<annotation cp="🚴‍♀">bicycle | cycling | cyclist | woman | woman riding a bike</annotation>
 		<annotation cp="🚴‍♀" type="tts">woman riding a bike</annotation>
 		<annotation cp="🚵">↑↑↑</annotation>
 		<annotation cp="🚵" type="tts">↑↑↑</annotation>
@@ -1090,21 +1674,31 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💏" type="tts">↑↑↑</annotation>
 		<annotation cp="💑">↑↑↑</annotation>
 		<annotation cp="💑" type="tts">↑↑↑</annotation>
-		<annotation cp="👪">↑↑↑</annotation>
-		<annotation cp="👪" type="tts">↑↑↑</annotation>
 		<annotation cp="🗣">↑↑↑</annotation>
 		<annotation cp="🗣" type="tts">↑↑↑</annotation>
 		<annotation cp="👤">↑↑↑</annotation>
 		<annotation cp="👤" type="tts">↑↑↑</annotation>
 		<annotation cp="👥">↑↑↑</annotation>
 		<annotation cp="👥" type="tts">↑↑↑</annotation>
+		<annotation cp="🫂">↑↑↑</annotation>
+		<annotation cp="🫂" type="tts">↑↑↑</annotation>
+		<annotation cp="👪">↑↑↑</annotation>
+		<annotation cp="👪" type="tts">↑↑↑</annotation>
+		<annotation cp="🧑‍🧑‍🧒">↑↑↑</annotation>
+		<annotation cp="🧑‍🧑‍🧒" type="tts">↑↑↑</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">↑↑↑</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">↑↑↑</annotation>
+		<annotation cp="🧑‍🧒">↑↑↑</annotation>
+		<annotation cp="🧑‍🧒" type="tts">↑↑↑</annotation>
+		<annotation cp="🧑‍🧒‍🧒">↑↑↑</annotation>
+		<annotation cp="🧑‍🧒‍🧒" type="tts">↑↑↑</annotation>
 		<annotation cp="👣">↑↑↑</annotation>
 		<annotation cp="👣" type="tts">↑↑↑</annotation>
 		<annotation cp="🦰">↑↑↑</annotation>
 		<annotation cp="🦰" type="tts">↑↑↑</annotation>
 		<annotation cp="🦱">↑↑↑</annotation>
 		<annotation cp="🦱" type="tts">↑↑↑</annotation>
-		<annotation cp="🦳">grey | hair | old | white</annotation>
+		<annotation cp="🦳">↑↑↑</annotation>
 		<annotation cp="🦳" type="tts">↑↑↑</annotation>
 		<annotation cp="🦲">↑↑↑</annotation>
 		<annotation cp="🦲" type="tts">↑↑↑</annotation>
@@ -1148,6 +1742,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐆" type="tts">↑↑↑</annotation>
 		<annotation cp="🐴">↑↑↑</annotation>
 		<annotation cp="🐴" type="tts">↑↑↑</annotation>
+		<annotation cp="🫎">↑↑↑</annotation>
+		<annotation cp="🫎" type="tts">↑↑↑</annotation>
+		<annotation cp="🫏">↑↑↑</annotation>
+		<annotation cp="🫏" type="tts">↑↑↑</annotation>
 		<annotation cp="🐎">↑↑↑</annotation>
 		<annotation cp="🐎" type="tts">↑↑↑</annotation>
 		<annotation cp="🦄">↑↑↑</annotation>
@@ -1156,6 +1754,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦓" type="tts">↑↑↑</annotation>
 		<annotation cp="🦌">deer | stag</annotation>
 		<annotation cp="🦌" type="tts">↑↑↑</annotation>
+		<annotation cp="🦬">↑↑↑</annotation>
+		<annotation cp="🦬" type="tts">↑↑↑</annotation>
 		<annotation cp="🐮">↑↑↑</annotation>
 		<annotation cp="🐮" type="tts">↑↑↑</annotation>
 		<annotation cp="🐂">↑↑↑</annotation>
@@ -1164,7 +1764,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐃" type="tts">↑↑↑</annotation>
 		<annotation cp="🐄">↑↑↑</annotation>
 		<annotation cp="🐄" type="tts">↑↑↑</annotation>
-		<annotation cp="🐷" draft="contributed">face | pig</annotation>
+		<annotation cp="🐷">↑↑↑</annotation>
 		<annotation cp="🐷" type="tts">↑↑↑</annotation>
 		<annotation cp="🐖">↑↑↑</annotation>
 		<annotation cp="🐖" type="tts">↑↑↑</annotation>
@@ -1182,15 +1782,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐪" type="tts">↑↑↑</annotation>
 		<annotation cp="🐫">↑↑↑</annotation>
 		<annotation cp="🐫" type="tts">↑↑↑</annotation>
-		<annotation cp="🦙">alpaca | guanaco | llama | vicuña | wool</annotation>
+		<annotation cp="🦙">↑↑↑</annotation>
 		<annotation cp="🦙" type="tts">↑↑↑</annotation>
 		<annotation cp="🦒">↑↑↑</annotation>
 		<annotation cp="🦒" type="tts">↑↑↑</annotation>
 		<annotation cp="🐘">↑↑↑</annotation>
 		<annotation cp="🐘" type="tts">↑↑↑</annotation>
+		<annotation cp="🦣">↑↑↑</annotation>
+		<annotation cp="🦣" type="tts">↑↑↑</annotation>
 		<annotation cp="🦏">rhino | rhinoceros</annotation>
 		<annotation cp="🦏" type="tts">↑↑↑</annotation>
-		<annotation cp="🦛">hippo | hippopotamus</annotation>
+		<annotation cp="🦛">↑↑↑</annotation>
 		<annotation cp="🦛" type="tts">↑↑↑</annotation>
 		<annotation cp="🐭">face | mouse | pet</annotation>
 		<annotation cp="🐭" type="tts">↑↑↑</annotation>
@@ -1206,6 +1808,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐇" type="tts">↑↑↑</annotation>
 		<annotation cp="🐿">↑↑↑</annotation>
 		<annotation cp="🐿" type="tts">↑↑↑</annotation>
+		<annotation cp="🦫">↑↑↑</annotation>
+		<annotation cp="🦫" type="tts">↑↑↑</annotation>
 		<annotation cp="🦔">↑↑↑</annotation>
 		<annotation cp="🦔" type="tts">↑↑↑</annotation>
 		<annotation cp="🦇">↑↑↑</annotation>
@@ -1214,7 +1818,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐻" type="tts">↑↑↑</annotation>
 		<annotation cp="🐻‍❄">↑↑↑</annotation>
 		<annotation cp="🐻‍❄" type="tts">↑↑↑</annotation>
-		<annotation cp="🐨">bear | koala | marsupial</annotation>
+		<annotation cp="🐨">koala | marsupial</annotation>
 		<annotation cp="🐨" type="tts">↑↑↑</annotation>
 		<annotation cp="🐼">↑↑↑</annotation>
 		<annotation cp="🐼" type="tts">↑↑↑</annotation>
@@ -1256,12 +1860,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦢" type="tts">↑↑↑</annotation>
 		<annotation cp="🦉">bird of prey | owl | wise</annotation>
 		<annotation cp="🦉" type="tts">↑↑↑</annotation>
+		<annotation cp="🦤">↑↑↑</annotation>
+		<annotation cp="🦤" type="tts">↑↑↑</annotation>
+		<annotation cp="🪶">↑↑↑</annotation>
+		<annotation cp="🪶" type="tts">↑↑↑</annotation>
 		<annotation cp="🦩">↑↑↑</annotation>
 		<annotation cp="🦩" type="tts">↑↑↑</annotation>
 		<annotation cp="🦚">↑↑↑</annotation>
 		<annotation cp="🦚" type="tts">↑↑↑</annotation>
-		<annotation cp="🦜">bird | parrot | pirate | talk</annotation>
+		<annotation cp="🦜">↑↑↑</annotation>
 		<annotation cp="🦜" type="tts">↑↑↑</annotation>
+		<annotation cp="🪽">↑↑↑</annotation>
+		<annotation cp="🪽" type="tts">↑↑↑</annotation>
+		<annotation cp="🐦‍⬛">↑↑↑</annotation>
+		<annotation cp="🐦‍⬛" type="tts">↑↑↑</annotation>
+		<annotation cp="🪿">↑↑↑</annotation>
+		<annotation cp="🪿" type="tts">↑↑↑</annotation>
+		<annotation cp="🐦‍🔥">↑↑↑</annotation>
+		<annotation cp="🐦‍🔥" type="tts">↑↑↑</annotation>
 		<annotation cp="🐸">↑↑↑</annotation>
 		<annotation cp="🐸" type="tts">↑↑↑</annotation>
 		<annotation cp="🐊">↑↑↑</annotation>
@@ -1286,7 +1902,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐋" type="tts">↑↑↑</annotation>
 		<annotation cp="🐬">dolphin | porpoise</annotation>
 		<annotation cp="🐬" type="tts">↑↑↑</annotation>
-		<annotation cp="🐟" draft="contributed">fish | Pisces | zodiac</annotation>
+		<annotation cp="🦭">↑↑↑</annotation>
+		<annotation cp="🦭" type="tts">↑↑↑</annotation>
+		<annotation cp="🐟">↑↑↑</annotation>
 		<annotation cp="🐟" type="tts">↑↑↑</annotation>
 		<annotation cp="🐠">fish | reef fish | tropical</annotation>
 		<annotation cp="🐠" type="tts">reef fish</annotation>
@@ -1298,6 +1916,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐙" type="tts">↑↑↑</annotation>
 		<annotation cp="🐚">↑↑↑</annotation>
 		<annotation cp="🐚" type="tts">↑↑↑</annotation>
+		<annotation cp="🪸">↑↑↑</annotation>
+		<annotation cp="🪸" type="tts">↑↑↑</annotation>
+		<annotation cp="🪼">↑↑↑</annotation>
+		<annotation cp="🪼" type="tts">↑↑↑</annotation>
 		<annotation cp="🐌">mollusc | snail</annotation>
 		<annotation cp="🐌" type="tts">↑↑↑</annotation>
 		<annotation cp="🦋">butterfly | insect | moth</annotation>
@@ -1308,18 +1930,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐜" type="tts">↑↑↑</annotation>
 		<annotation cp="🐝">↑↑↑</annotation>
 		<annotation cp="🐝" type="tts">↑↑↑</annotation>
+		<annotation cp="🪲">↑↑↑</annotation>
+		<annotation cp="🪲" type="tts">↑↑↑</annotation>
 		<annotation cp="🐞">↑↑↑</annotation>
 		<annotation cp="🐞" type="tts">↑↑↑</annotation>
 		<annotation cp="🦗">↑↑↑</annotation>
-		<annotation cp="🦗" type="tts">cricket</annotation>
+		<annotation cp="🦗" type="tts">↑↑↑</annotation>
+		<annotation cp="🪳">↑↑↑</annotation>
+		<annotation cp="🪳" type="tts">↑↑↑</annotation>
 		<annotation cp="🕷">arachnid | spider</annotation>
 		<annotation cp="🕷" type="tts">↑↑↑</annotation>
 		<annotation cp="🕸">↑↑↑</annotation>
 		<annotation cp="🕸" type="tts">↑↑↑</annotation>
 		<annotation cp="🦂">↑↑↑</annotation>
 		<annotation cp="🦂" type="tts">↑↑↑</annotation>
-		<annotation cp="🦟">dengue | fever | insect | malaria | mosquito | virus</annotation>
+		<annotation cp="🦟">dengue | fever | insect | malaria | mosquito | mozzie | virus</annotation>
 		<annotation cp="🦟" type="tts">↑↑↑</annotation>
+		<annotation cp="🪰">↑↑↑</annotation>
+		<annotation cp="🪰" type="tts">↑↑↑</annotation>
+		<annotation cp="🪱">↑↑↑</annotation>
+		<annotation cp="🪱" type="tts">↑↑↑</annotation>
 		<annotation cp="🦠">↑↑↑</annotation>
 		<annotation cp="🦠" type="tts">↑↑↑</annotation>
 		<annotation cp="💐">↑↑↑</annotation>
@@ -1328,6 +1958,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🌸" type="tts">↑↑↑</annotation>
 		<annotation cp="💮">↑↑↑</annotation>
 		<annotation cp="💮" type="tts">↑↑↑</annotation>
+		<annotation cp="🪷">↑↑↑</annotation>
+		<annotation cp="🪷" type="tts">↑↑↑</annotation>
 		<annotation cp="🏵">↑↑↑</annotation>
 		<annotation cp="🏵" type="tts">↑↑↑</annotation>
 		<annotation cp="🌹">↑↑↑</annotation>
@@ -1342,8 +1974,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🌼" type="tts">↑↑↑</annotation>
 		<annotation cp="🌷">↑↑↑</annotation>
 		<annotation cp="🌷" type="tts">↑↑↑</annotation>
+		<annotation cp="🪻">↑↑↑</annotation>
+		<annotation cp="🪻" type="tts">↑↑↑</annotation>
 		<annotation cp="🌱">↑↑↑</annotation>
 		<annotation cp="🌱" type="tts">↑↑↑</annotation>
+		<annotation cp="🪴">grow | house | nurturing | plant | pot plant</annotation>
+		<annotation cp="🪴" type="tts">pot plant</annotation>
 		<annotation cp="🌲">↑↑↑</annotation>
 		<annotation cp="🌲" type="tts">↑↑↑</annotation>
 		<annotation cp="🌳">↑↑↑</annotation>
@@ -1366,6 +2002,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍂" type="tts">↑↑↑</annotation>
 		<annotation cp="🍃">↑↑↑</annotation>
 		<annotation cp="🍃" type="tts">↑↑↑</annotation>
+		<annotation cp="🪹">↑↑↑</annotation>
+		<annotation cp="🪹" type="tts">↑↑↑</annotation>
+		<annotation cp="🪺">↑↑↑</annotation>
+		<annotation cp="🪺" type="tts">↑↑↑</annotation>
+		<annotation cp="🍄">↑↑↑</annotation>
+		<annotation cp="🍄" type="tts">↑↑↑</annotation>
 		<annotation cp="🍇">↑↑↑</annotation>
 		<annotation cp="🍇" type="tts">↑↑↑</annotation>
 		<annotation cp="🍈">↑↑↑</annotation>
@@ -1376,6 +2018,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍊" type="tts">mandarin</annotation>
 		<annotation cp="🍋">↑↑↑</annotation>
 		<annotation cp="🍋" type="tts">↑↑↑</annotation>
+		<annotation cp="🍋‍🟩">↑↑↑</annotation>
+		<annotation cp="🍋‍🟩" type="tts">↑↑↑</annotation>
 		<annotation cp="🍌">↑↑↑</annotation>
 		<annotation cp="🍌" type="tts">↑↑↑</annotation>
 		<annotation cp="🍍">↑↑↑</annotation>
@@ -1394,10 +2038,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍒" type="tts">↑↑↑</annotation>
 		<annotation cp="🍓">↑↑↑</annotation>
 		<annotation cp="🍓" type="tts">↑↑↑</annotation>
-		<annotation cp="🥝">↑↑↑</annotation>
+		<annotation cp="🫐">↑↑↑</annotation>
+		<annotation cp="🫐" type="tts">↑↑↑</annotation>
+		<annotation cp="🥝">food | fruit | kiwi fruit</annotation>
 		<annotation cp="🥝" type="tts">↑↑↑</annotation>
 		<annotation cp="🍅">↑↑↑</annotation>
 		<annotation cp="🍅" type="tts">↑↑↑</annotation>
+		<annotation cp="🫒">↑↑↑</annotation>
+		<annotation cp="🫒" type="tts">↑↑↑</annotation>
 		<annotation cp="🥥">↑↑↑</annotation>
 		<annotation cp="🥥" type="tts">↑↑↑</annotation>
 		<annotation cp="🥑">↑↑↑</annotation>
@@ -1408,32 +2056,42 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥔" type="tts">↑↑↑</annotation>
 		<annotation cp="🥕">↑↑↑</annotation>
 		<annotation cp="🥕" type="tts">↑↑↑</annotation>
-		<annotation cp="🌽">↑↑↑</annotation>
-		<annotation cp="🌽" type="tts">↑↑↑</annotation>
-		<annotation cp="🌶">chilli | pepper</annotation>
+		<annotation cp="🌽">corn | corn on the cob | sweetcorn</annotation>
+		<annotation cp="🌽" type="tts">sweetcorn</annotation>
+		<annotation cp="🌶">chilli | hot pepper | pepper</annotation>
 		<annotation cp="🌶" type="tts">↑↑↑</annotation>
+		<annotation cp="🫑">↑↑↑</annotation>
+		<annotation cp="🫑" type="tts">capsicum</annotation>
 		<annotation cp="🥒">↑↑↑</annotation>
 		<annotation cp="🥒" type="tts">↑↑↑</annotation>
-		<annotation cp="🥬">↑↑↑</annotation>
+		<annotation cp="🥬">bok choy | leafy green | pak choi</annotation>
 		<annotation cp="🥬" type="tts">↑↑↑</annotation>
 		<annotation cp="🥦">↑↑↑</annotation>
 		<annotation cp="🥦" type="tts">↑↑↑</annotation>
-		<annotation cp="🧄">flavouring | garlic</annotation>
+		<annotation cp="🧄">↑↑↑</annotation>
 		<annotation cp="🧄" type="tts">↑↑↑</annotation>
-		<annotation cp="🧅">flavouring | onion</annotation>
+		<annotation cp="🧅">↑↑↑</annotation>
 		<annotation cp="🧅" type="tts">↑↑↑</annotation>
-		<annotation cp="🍄">↑↑↑</annotation>
-		<annotation cp="🍄" type="tts">↑↑↑</annotation>
-		<annotation cp="🥜">↑↑↑</annotation>
+		<annotation cp="🥜">food | nut | nuts | peanut | peanuts</annotation>
 		<annotation cp="🥜" type="tts">↑↑↑</annotation>
-		<annotation cp="🌰" draft="contributed">chestnut | plant</annotation>
+		<annotation cp="🫘">food | kidney bean | kidney beans | legume</annotation>
+		<annotation cp="🫘" type="tts">kidney beans</annotation>
+		<annotation cp="🌰">↑↑↑</annotation>
 		<annotation cp="🌰" type="tts">↑↑↑</annotation>
+		<annotation cp="🫚">beer | ginger | root | spice</annotation>
+		<annotation cp="🫚" type="tts">ginger</annotation>
+		<annotation cp="🫛">↑↑↑</annotation>
+		<annotation cp="🫛" type="tts">↑↑↑</annotation>
+		<annotation cp="🍄‍🟫">↑↑↑</annotation>
+		<annotation cp="🍄‍🟫" type="tts">↑↑↑</annotation>
 		<annotation cp="🍞">↑↑↑</annotation>
 		<annotation cp="🍞" type="tts">↑↑↑</annotation>
 		<annotation cp="🥐">↑↑↑</annotation>
 		<annotation cp="🥐" type="tts">↑↑↑</annotation>
 		<annotation cp="🥖">baguette | bread | food | french | French stick</annotation>
-		<annotation cp="🥖" type="tts">French stick</annotation>
+		<annotation cp="🥖" type="tts">↑↑↑</annotation>
+		<annotation cp="🫓">↑↑↑</annotation>
+		<annotation cp="🫓" type="tts">↑↑↑</annotation>
 		<annotation cp="🥨">↑↑↑</annotation>
 		<annotation cp="🥨" type="tts">↑↑↑</annotation>
 		<annotation cp="🥯">bagel | bakery</annotation>
@@ -1452,9 +2110,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥩" type="tts">↑↑↑</annotation>
 		<annotation cp="🥓">↑↑↑</annotation>
 		<annotation cp="🥓" type="tts">↑↑↑</annotation>
-		<annotation cp="🍔" draft="contributed">beefburger | burger | hamburger</annotation>
-		<annotation cp="🍔" type="tts">hamburger</annotation>
-		<annotation cp="🍟">chips | fries</annotation>
+		<annotation cp="🍔">beefburger | burger | hamburger</annotation>
+		<annotation cp="🍔" type="tts">↑↑↑</annotation>
+		<annotation cp="🍟">chips | french fries | fries</annotation>
 		<annotation cp="🍟" type="tts">↑↑↑</annotation>
 		<annotation cp="🍕">↑↑↑</annotation>
 		<annotation cp="🍕" type="tts">↑↑↑</annotation>
@@ -1466,9 +2124,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🌮" type="tts">↑↑↑</annotation>
 		<annotation cp="🌯">↑↑↑</annotation>
 		<annotation cp="🌯" type="tts">↑↑↑</annotation>
-		<annotation cp="🥙">falafel | flatbread | food | gyro | kebab | pita | pita roll | stuffed</annotation>
+		<annotation cp="🫔">↑↑↑</annotation>
+		<annotation cp="🫔" type="tts">↑↑↑</annotation>
+		<annotation cp="🥙">falafel | flatbread | food | gyro | kebab | pita roll | stuffed</annotation>
 		<annotation cp="🥙" type="tts">pita roll</annotation>
-		<annotation cp="🧆">↑↑↑</annotation>
+		<annotation cp="🧆">chickpea | falafel</annotation>
 		<annotation cp="🧆" type="tts">↑↑↑</annotation>
 		<annotation cp="🥚">↑↑↑</annotation>
 		<annotation cp="🥚" type="tts">↑↑↑</annotation>
@@ -1478,6 +2138,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥘" type="tts">↑↑↑</annotation>
 		<annotation cp="🍲">↑↑↑</annotation>
 		<annotation cp="🍲" type="tts">↑↑↑</annotation>
+		<annotation cp="🫕">↑↑↑</annotation>
+		<annotation cp="🫕" type="tts">↑↑↑</annotation>
 		<annotation cp="🥣">↑↑↑</annotation>
 		<annotation cp="🥣" type="tts">↑↑↑</annotation>
 		<annotation cp="🥗">food | garden | salad</annotation>
@@ -1542,8 +2204,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🍨" type="tts">↑↑↑</annotation>
 		<annotation cp="🍩">↑↑↑</annotation>
 		<annotation cp="🍩" type="tts">↑↑↑</annotation>
-		<annotation cp="🍪" draft="contributed">biscuit | cookie | dessert | sweet</annotation>
-		<annotation cp="🍪" type="tts">cookie</annotation>
+		<annotation cp="🍪">biscuit | cookie | dessert | sweet</annotation>
+		<annotation cp="🍪" type="tts">↑↑↑</annotation>
 		<annotation cp="🎂">↑↑↑</annotation>
 		<annotation cp="🎂" type="tts">↑↑↑</annotation>
 		<annotation cp="🍰">↑↑↑</annotation>
@@ -1568,6 +2230,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥛" type="tts">↑↑↑</annotation>
 		<annotation cp="☕">↑↑↑</annotation>
 		<annotation cp="☕" type="tts">↑↑↑</annotation>
+		<annotation cp="🫖">↑↑↑</annotation>
+		<annotation cp="🫖" type="tts">↑↑↑</annotation>
 		<annotation cp="🍵">↑↑↑</annotation>
 		<annotation cp="🍵" type="tts">↑↑↑</annotation>
 		<annotation cp="🍶">↑↑↑</annotation>
@@ -1588,9 +2252,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥂" type="tts">↑↑↑</annotation>
 		<annotation cp="🥃">↑↑↑</annotation>
 		<annotation cp="🥃" type="tts">↑↑↑</annotation>
+		<annotation cp="🫗">↑↑↑</annotation>
+		<annotation cp="🫗" type="tts">↑↑↑</annotation>
 		<annotation cp="🥤">↑↑↑</annotation>
 		<annotation cp="🥤" type="tts">↑↑↑</annotation>
-		<annotation cp="🧃">drink carton | juice box</annotation>
+		<annotation cp="🧋">↑↑↑</annotation>
+		<annotation cp="🧋" type="tts">↑↑↑</annotation>
+		<annotation cp="🧃">drink carton | juice box | popper</annotation>
 		<annotation cp="🧃" type="tts">drink carton</annotation>
 		<annotation cp="🧉">↑↑↑</annotation>
 		<annotation cp="🧉" type="tts">↑↑↑</annotation>
@@ -1606,6 +2274,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥄" type="tts">↑↑↑</annotation>
 		<annotation cp="🔪">↑↑↑</annotation>
 		<annotation cp="🔪" type="tts">↑↑↑</annotation>
+		<annotation cp="🫙">↑↑↑</annotation>
+		<annotation cp="🫙" type="tts">↑↑↑</annotation>
 		<annotation cp="🏺">↑↑↑</annotation>
 		<annotation cp="🏺" type="tts">↑↑↑</annotation>
 		<annotation cp="🌍">↑↑↑</annotation>
@@ -1648,6 +2318,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏗" type="tts">↑↑↑</annotation>
 		<annotation cp="🧱">↑↑↑</annotation>
 		<annotation cp="🧱" type="tts">↑↑↑</annotation>
+		<annotation cp="🪨">↑↑↑</annotation>
+		<annotation cp="🪨" type="tts">↑↑↑</annotation>
+		<annotation cp="🪵">↑↑↑</annotation>
+		<annotation cp="🪵" type="tts">↑↑↑</annotation>
+		<annotation cp="🛖">↑↑↑</annotation>
+		<annotation cp="🛖" type="tts">↑↑↑</annotation>
 		<annotation cp="🏘">↑↑↑</annotation>
 		<annotation cp="🏘" type="tts">↑↑↑</annotation>
 		<annotation cp="🏚">↑↑↑</annotation>
@@ -1690,7 +2366,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🗽" type="tts">↑↑↑</annotation>
 		<annotation cp="⛪">↑↑↑</annotation>
 		<annotation cp="⛪" type="tts">↑↑↑</annotation>
-		<annotation cp="🕌">Islam | mosque | Muslim | religion</annotation>
+		<annotation cp="🕌">↑↑↑</annotation>
 		<annotation cp="🕌" type="tts">↑↑↑</annotation>
 		<annotation cp="🛕">↑↑↑</annotation>
 		<annotation cp="🛕" type="tts">↑↑↑</annotation>
@@ -1698,8 +2374,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🕍" type="tts">↑↑↑</annotation>
 		<annotation cp="⛩">religion | Shinto | shrine</annotation>
 		<annotation cp="⛩" type="tts">Shinto shrine</annotation>
-		<annotation cp="🕋">Islam | Kaaba | Muslim | religion</annotation>
-		<annotation cp="🕋" type="tts">Kaaba</annotation>
+		<annotation cp="🕋">↑↑↑</annotation>
+		<annotation cp="🕋" type="tts">↑↑↑</annotation>
 		<annotation cp="⛲">↑↑↑</annotation>
 		<annotation cp="⛲" type="tts">↑↑↑</annotation>
 		<annotation cp="⛺">↑↑↑</annotation>
@@ -1722,8 +2398,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🌉" type="tts">↑↑↑</annotation>
 		<annotation cp="♨">↑↑↑</annotation>
 		<annotation cp="♨" type="tts">↑↑↑</annotation>
-		<annotation cp="🎠">↑↑↑</annotation>
+		<annotation cp="🎠">carousel | horse | merry-go-round</annotation>
 		<annotation cp="🎠" type="tts">merry-go-round</annotation>
+		<annotation cp="🛝">↑↑↑</annotation>
+		<annotation cp="🛝" type="tts">↑↑↑</annotation>
 		<annotation cp="🎡">↑↑↑</annotation>
 		<annotation cp="🎡" type="tts">↑↑↑</annotation>
 		<annotation cp="🎢">↑↑↑</annotation>
@@ -1734,8 +2412,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🎪" type="tts">big top</annotation>
 		<annotation cp="🚂">↑↑↑</annotation>
 		<annotation cp="🚂" type="tts">↑↑↑</annotation>
-		<annotation cp="🚃">car | electric | railway | train | tram | trolley bus</annotation>
-		<annotation cp="🚃" type="tts">tram</annotation>
+		<annotation cp="🚃">car | electric | railway | train | train carriage | tram | trolley bus</annotation>
+		<annotation cp="🚃" type="tts">train carriage</annotation>
 		<annotation cp="🚄">↑↑↑</annotation>
 		<annotation cp="🚄" type="tts">↑↑↑</annotation>
 		<annotation cp="🚅">↑↑↑</annotation>
@@ -1755,7 +2433,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚞">↑↑↑</annotation>
 		<annotation cp="🚞" type="tts">↑↑↑</annotation>
 		<annotation cp="🚋">car | tram | trolley bus</annotation>
-		<annotation cp="🚋" type="tts">tram car</annotation>
+		<annotation cp="🚋" type="tts">↑↑↑</annotation>
 		<annotation cp="🚌">↑↑↑</annotation>
 		<annotation cp="🚌" type="tts">↑↑↑</annotation>
 		<annotation cp="🚍">↑↑↑</annotation>
@@ -1782,6 +2460,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚘" type="tts">↑↑↑</annotation>
 		<annotation cp="🚙">4WD | four-wheel drive</annotation>
 		<annotation cp="🚙" type="tts">four-wheel drive</annotation>
+		<annotation cp="🛻">pick-up | pickup | truck | ute</annotation>
+		<annotation cp="🛻" type="tts">ute</annotation>
 		<annotation cp="🚚">↑↑↑</annotation>
 		<annotation cp="🚚" type="tts">↑↑↑</annotation>
 		<annotation cp="🚛">articulated truck | lorry | semi | truck</annotation>
@@ -1796,16 +2476,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛵" type="tts">↑↑↑</annotation>
 		<annotation cp="🦽">↑↑↑</annotation>
 		<annotation cp="🦽" type="tts">↑↑↑</annotation>
-		<annotation cp="🦼" draft="provisional">mobility scooter</annotation>
-		<annotation cp="🦼" type="tts" draft="provisional">mobility scooter</annotation>
+		<annotation cp="🦼">mobility scooter</annotation>
+		<annotation cp="🦼" type="tts">mobility scooter</annotation>
 		<annotation cp="🛺">↑↑↑</annotation>
 		<annotation cp="🛺" type="tts">↑↑↑</annotation>
 		<annotation cp="🚲">↑↑↑</annotation>
 		<annotation cp="🚲" type="tts">↑↑↑</annotation>
 		<annotation cp="🛴">↑↑↑</annotation>
-		<annotation cp="🛴" type="tts">↑↑↑</annotation>
+		<annotation cp="🛴" type="tts">scooter</annotation>
 		<annotation cp="🛹">↑↑↑</annotation>
 		<annotation cp="🛹" type="tts">↑↑↑</annotation>
+		<annotation cp="🛼">roller | rollerskate | skate</annotation>
+		<annotation cp="🛼" type="tts">rollerskate</annotation>
 		<annotation cp="🚏">↑↑↑</annotation>
 		<annotation cp="🚏" type="tts">↑↑↑</annotation>
 		<annotation cp="🛣">freeway | highway | road</annotation>
@@ -1816,6 +2498,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛢" type="tts">↑↑↑</annotation>
 		<annotation cp="⛽">diesel | fuel | gas | petrol pump | pump | station</annotation>
 		<annotation cp="⛽" type="tts">petrol pump</annotation>
+		<annotation cp="🛞">↑↑↑</annotation>
+		<annotation cp="🛞" type="tts">↑↑↑</annotation>
 		<annotation cp="🚨">↑↑↑</annotation>
 		<annotation cp="🚨" type="tts">↑↑↑</annotation>
 		<annotation cp="🚥">horizontal traffic lights | lights | signal | traffic</annotation>
@@ -1828,6 +2512,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚧" type="tts">↑↑↑</annotation>
 		<annotation cp="⚓">↑↑↑</annotation>
 		<annotation cp="⚓" type="tts">↑↑↑</annotation>
+		<annotation cp="🛟">buoy | float | life preserver | lifebuoy | rescue | ring buoy | safety</annotation>
+		<annotation cp="🛟" type="tts">↑↑↑</annotation>
 		<annotation cp="⛵">↑↑↑</annotation>
 		<annotation cp="⛵" type="tts">↑↑↑</annotation>
 		<annotation cp="🛶">↑↑↑</annotation>
@@ -1938,7 +2624,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🌑" type="tts">↑↑↑</annotation>
 		<annotation cp="🌒">↑↑↑</annotation>
 		<annotation cp="🌒" type="tts">↑↑↑</annotation>
-		<annotation cp="🌓" draft="contributed">↑↑↑</annotation>
+		<annotation cp="🌓">↑↑↑</annotation>
 		<annotation cp="🌓" type="tts">↑↑↑</annotation>
 		<annotation cp="🌔">↑↑↑</annotation>
 		<annotation cp="🌔" type="tts">↑↑↑</annotation>
@@ -1946,7 +2632,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🌕" type="tts">↑↑↑</annotation>
 		<annotation cp="🌖">↑↑↑</annotation>
 		<annotation cp="🌖" type="tts">↑↑↑</annotation>
-		<annotation cp="🌗" draft="contributed">↑↑↑</annotation>
+		<annotation cp="🌗">↑↑↑</annotation>
 		<annotation cp="🌗" type="tts">↑↑↑</annotation>
 		<annotation cp="🌘">↑↑↑</annotation>
 		<annotation cp="🌘" type="tts">↑↑↑</annotation>
@@ -1954,9 +2640,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🌙" type="tts">↑↑↑</annotation>
 		<annotation cp="🌚">↑↑↑</annotation>
 		<annotation cp="🌚" type="tts">↑↑↑</annotation>
-		<annotation cp="🌛" draft="contributed">↑↑↑</annotation>
+		<annotation cp="🌛">↑↑↑</annotation>
 		<annotation cp="🌛" type="tts">↑↑↑</annotation>
-		<annotation cp="🌜" draft="contributed">↑↑↑</annotation>
+		<annotation cp="🌜">↑↑↑</annotation>
 		<annotation cp="🌜" type="tts">↑↑↑</annotation>
 		<annotation cp="🌡">↑↑↑</annotation>
 		<annotation cp="🌡" type="tts">↑↑↑</annotation>
@@ -2082,8 +2768,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥈" type="tts">↑↑↑</annotation>
 		<annotation cp="🥉">↑↑↑</annotation>
 		<annotation cp="🥉" type="tts">↑↑↑</annotation>
-		<annotation cp="⚽" draft="contributed">↑↑↑</annotation>
-		<annotation cp="⚽" type="tts" draft="contributed">↑↑↑</annotation>
+		<annotation cp="⚽">↑↑↑</annotation>
+		<annotation cp="⚽" type="tts">↑↑↑</annotation>
 		<annotation cp="⚾">↑↑↑</annotation>
 		<annotation cp="⚾" type="tts">↑↑↑</annotation>
 		<annotation cp="🥎">↑↑↑</annotation>
@@ -2094,23 +2780,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏐" type="tts">↑↑↑</annotation>
 		<annotation cp="🏈">↑↑↑</annotation>
 		<annotation cp="🏈" type="tts">↑↑↑</annotation>
-		<annotation cp="🏉">↑↑↑</annotation>
-		<annotation cp="🏉" type="tts">↑↑↑</annotation>
+		<annotation cp="🏉">australian football | rugby ball | rugby league | rugby union</annotation>
+		<annotation cp="🏉" type="tts">rugby ball</annotation>
 		<annotation cp="🎾">↑↑↑</annotation>
 		<annotation cp="🎾" type="tts">↑↑↑</annotation>
-		<annotation cp="🥏">↑↑↑</annotation>
-		<annotation cp="🥏" type="tts">↑↑↑</annotation>
+		<annotation cp="🥏">flying disc | frisbee | ultimate</annotation>
+		<annotation cp="🥏" type="tts">frisbee</annotation>
 		<annotation cp="🎳">ball | game | tenpin bowling</annotation>
 		<annotation cp="🎳" type="tts">tenpin bowling</annotation>
 		<annotation cp="🏏">↑↑↑</annotation>
 		<annotation cp="🏏" type="tts">↑↑↑</annotation>
-		<annotation cp="🏑" draft="contributed">↑↑↑</annotation>
+		<annotation cp="🏑">↑↑↑</annotation>
 		<annotation cp="🏑" type="tts">↑↑↑</annotation>
 		<annotation cp="🏒">↑↑↑</annotation>
 		<annotation cp="🏒" type="tts">↑↑↑</annotation>
 		<annotation cp="🥍">↑↑↑</annotation>
 		<annotation cp="🥍" type="tts">↑↑↑</annotation>
-		<annotation cp="🏓" draft="contributed">↑↑↑</annotation>
+		<annotation cp="🏓">↑↑↑</annotation>
 		<annotation cp="🏓" type="tts">↑↑↑</annotation>
 		<annotation cp="🏸">↑↑↑</annotation>
 		<annotation cp="🏸" type="tts">↑↑↑</annotation>
@@ -2118,7 +2804,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥊" type="tts">↑↑↑</annotation>
 		<annotation cp="🥋">↑↑↑</annotation>
 		<annotation cp="🥋" type="tts">↑↑↑</annotation>
-		<annotation cp="🥅">goal cage</annotation>
+		<annotation cp="🥅">goal | goal cage | net</annotation>
 		<annotation cp="🥅" type="tts">goal cage</annotation>
 		<annotation cp="⛳">flag | flag in hole | golf | hole</annotation>
 		<annotation cp="⛳" type="tts">↑↑↑</annotation>
@@ -2132,8 +2818,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🎽" type="tts">↑↑↑</annotation>
 		<annotation cp="🎿">ski | skiing | skis | snow</annotation>
 		<annotation cp="🎿" type="tts">↑↑↑</annotation>
-		<annotation cp="🛷">sled | sledge | sleigh</annotation>
-		<annotation cp="🛷" type="tts">sled</annotation>
+		<annotation cp="🛷">↑↑↑</annotation>
+		<annotation cp="🛷" type="tts">↑↑↑</annotation>
 		<annotation cp="🥌">curling | game | rock | stone</annotation>
 		<annotation cp="🥌" type="tts">↑↑↑</annotation>
 		<annotation cp="🎯">↑↑↑</annotation>
@@ -2142,12 +2828,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪀" type="tts">↑↑↑</annotation>
 		<annotation cp="🪁">↑↑↑</annotation>
 		<annotation cp="🪁" type="tts">↑↑↑</annotation>
+		<annotation cp="🔫">toy | water pistol</annotation>
+		<annotation cp="🔫" type="tts">↑↑↑</annotation>
 		<annotation cp="🎱">↑↑↑</annotation>
 		<annotation cp="🎱" type="tts">↑↑↑</annotation>
 		<annotation cp="🔮">↑↑↑</annotation>
 		<annotation cp="🔮" type="tts">↑↑↑</annotation>
-		<annotation cp="🧿">amulet | charm | evil-eye | nazar | talisman</annotation>
-		<annotation cp="🧿" type="tts">evil-eye amulet</annotation>
+		<annotation cp="🪄">↑↑↑</annotation>
+		<annotation cp="🪄" type="tts">↑↑↑</annotation>
 		<annotation cp="🎮">↑↑↑</annotation>
 		<annotation cp="🎮" type="tts">↑↑↑</annotation>
 		<annotation cp="🕹">↑↑↑</annotation>
@@ -2160,6 +2848,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧩" type="tts">↑↑↑</annotation>
 		<annotation cp="🧸">↑↑↑</annotation>
 		<annotation cp="🧸" type="tts">↑↑↑</annotation>
+		<annotation cp="🪅">↑↑↑</annotation>
+		<annotation cp="🪅" type="tts">↑↑↑</annotation>
+		<annotation cp="🪩">↑↑↑</annotation>
+		<annotation cp="🪩" type="tts">↑↑↑</annotation>
+		<annotation cp="🪆">↑↑↑</annotation>
+		<annotation cp="🪆" type="tts">↑↑↑</annotation>
 		<annotation cp="♠">↑↑↑</annotation>
 		<annotation cp="♠" type="tts">↑↑↑</annotation>
 		<annotation cp="♥">↑↑↑</annotation>
@@ -2184,11 +2878,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🎨" type="tts">↑↑↑</annotation>
 		<annotation cp="🧵">↑↑↑</annotation>
 		<annotation cp="🧵" type="tts">↑↑↑</annotation>
+		<annotation cp="🪡">embroidery | needle | needle and thread | sewing | stitches | sutures | tailoring</annotation>
+		<annotation cp="🪡" type="tts">needle and thread</annotation>
 		<annotation cp="🧶">↑↑↑</annotation>
 		<annotation cp="🧶" type="tts">↑↑↑</annotation>
+		<annotation cp="🪢">↑↑↑</annotation>
+		<annotation cp="🪢" type="tts">↑↑↑</annotation>
 		<annotation cp="👓">↑↑↑</annotation>
 		<annotation cp="👓" type="tts">↑↑↑</annotation>
-		<annotation cp="🕶">↑↑↑</annotation>
+		<annotation cp="🕶">dark | eye | eyewear | glasses | sunglasses | sunnies</annotation>
 		<annotation cp="🕶" type="tts">↑↑↑</annotation>
 		<annotation cp="🥽">↑↑↑</annotation>
 		<annotation cp="🥽" type="tts">↑↑↑</annotation>
@@ -2197,10 +2895,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🦺">↑↑↑</annotation>
 		<annotation cp="🦺" type="tts">↑↑↑</annotation>
 		<annotation cp="👔">↑↑↑</annotation>
-		<annotation cp="👔" type="tts">tie</annotation>
-		<annotation cp="👕">clothing | shirt | t-shirt | T-shirt | tee | tshirt</annotation>
+		<annotation cp="👔" type="tts">↑↑↑</annotation>
+		<annotation cp="👕">clothing | shirt | T-shirt | tee | tshirt</annotation>
 		<annotation cp="👕" type="tts">↑↑↑</annotation>
-		<annotation cp="👖">clothing | jeans | pants | trousers</annotation>
+		<annotation cp="👖">↑↑↑</annotation>
 		<annotation cp="👖" type="tts">↑↑↑</annotation>
 		<annotation cp="🧣">↑↑↑</annotation>
 		<annotation cp="🧣" type="tts">↑↑↑</annotation>
@@ -2218,14 +2916,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥻" type="tts">↑↑↑</annotation>
 		<annotation cp="🩱">↑↑↑</annotation>
 		<annotation cp="🩱" type="tts">↑↑↑</annotation>
-		<annotation cp="🩲">↑↑↑</annotation>
+		<annotation cp="🩲">bathers | briefs | speedos | underwear</annotation>
 		<annotation cp="🩲" type="tts">↑↑↑</annotation>
-		<annotation cp="🩳">↑↑↑</annotation>
+		<annotation cp="🩳">bathing suit | boardies | boardshorts | shorts | swim shorts | underwear</annotation>
 		<annotation cp="🩳" type="tts">↑↑↑</annotation>
 		<annotation cp="👙">bikini | clothing | swim suit | two-piece</annotation>
 		<annotation cp="👙" type="tts">↑↑↑</annotation>
 		<annotation cp="👚">blouse | clothing | top | woman | woman’s clothes</annotation>
 		<annotation cp="👚" type="tts">blouse</annotation>
+		<annotation cp="🪭">↑↑↑</annotation>
+		<annotation cp="🪭" type="tts">↑↑↑</annotation>
 		<annotation cp="👛">accessories | coin | purse</annotation>
 		<annotation cp="👛" type="tts">↑↑↑</annotation>
 		<annotation cp="👜">accessories | bag | handbag | tote</annotation>
@@ -2236,15 +2936,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🛍" type="tts">↑↑↑</annotation>
 		<annotation cp="🎒">↑↑↑</annotation>
 		<annotation cp="🎒" type="tts">↑↑↑</annotation>
+		<annotation cp="🩴">↑↑↑</annotation>
+		<annotation cp="🩴" type="tts">thongs</annotation>
 		<annotation cp="👞">↑↑↑</annotation>
 		<annotation cp="👞" type="tts">↑↑↑</annotation>
-		<annotation cp="👟">athletic | clothing | running shoe | shoe | sneaker | trainer</annotation>
+		<annotation cp="👟">athletic | clothing | runners | running shoe | shoe | sneaker | trainer</annotation>
 		<annotation cp="👟" type="tts">sneaker</annotation>
 		<annotation cp="🥾">↑↑↑</annotation>
 		<annotation cp="🥾" type="tts">↑↑↑</annotation>
 		<annotation cp="🥿">↑↑↑</annotation>
 		<annotation cp="🥿" type="tts">↑↑↑</annotation>
-		<annotation cp="👠">↑↑↑</annotation>
+		<annotation cp="👠">heel | high-heeled shoe | shoe | stiletto | woman</annotation>
 		<annotation cp="👠" type="tts">↑↑↑</annotation>
 		<annotation cp="👡">↑↑↑</annotation>
 		<annotation cp="👡" type="tts">↑↑↑</annotation>
@@ -2252,6 +2954,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🩰" type="tts">↑↑↑</annotation>
 		<annotation cp="👢">↑↑↑</annotation>
 		<annotation cp="👢" type="tts">↑↑↑</annotation>
+		<annotation cp="🪮">↑↑↑</annotation>
+		<annotation cp="🪮" type="tts">↑↑↑</annotation>
 		<annotation cp="👑">↑↑↑</annotation>
 		<annotation cp="👑" type="tts">↑↑↑</annotation>
 		<annotation cp="👒">↑↑↑</annotation>
@@ -2262,11 +2966,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🎓" type="tts">↑↑↑</annotation>
 		<annotation cp="🧢">↑↑↑</annotation>
 		<annotation cp="🧢" type="tts">baseball cap</annotation>
+		<annotation cp="🪖">↑↑↑</annotation>
+		<annotation cp="🪖" type="tts">↑↑↑</annotation>
 		<annotation cp="⛑">↑↑↑</annotation>
 		<annotation cp="⛑" type="tts">↑↑↑</annotation>
 		<annotation cp="📿">↑↑↑</annotation>
 		<annotation cp="📿" type="tts">↑↑↑</annotation>
-		<annotation cp="💄">↑↑↑</annotation>
+		<annotation cp="💄">cosmetics | lipstick | make-up</annotation>
 		<annotation cp="💄" type="tts">↑↑↑</annotation>
 		<annotation cp="💍">↑↑↑</annotation>
 		<annotation cp="💍" type="tts">↑↑↑</annotation>
@@ -2310,6 +3016,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="📻" type="tts">↑↑↑</annotation>
 		<annotation cp="🎷">↑↑↑</annotation>
 		<annotation cp="🎷" type="tts">↑↑↑</annotation>
+		<annotation cp="🪗">↑↑↑</annotation>
+		<annotation cp="🪗" type="tts">↑↑↑</annotation>
 		<annotation cp="🎸">↑↑↑</annotation>
 		<annotation cp="🎸" type="tts">↑↑↑</annotation>
 		<annotation cp="🎹">instrument | keyboard | music | musical keyboard | organ | piano</annotation>
@@ -2322,11 +3030,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪕" type="tts">↑↑↑</annotation>
 		<annotation cp="🥁">drum | drumsticks | music | percussions</annotation>
 		<annotation cp="🥁" type="tts">↑↑↑</annotation>
+		<annotation cp="🪘">↑↑↑</annotation>
+		<annotation cp="🪘" type="tts">↑↑↑</annotation>
+		<annotation cp="🪇">↑↑↑</annotation>
+		<annotation cp="🪇" type="tts">↑↑↑</annotation>
+		<annotation cp="🪈">↑↑↑</annotation>
+		<annotation cp="🪈" type="tts">↑↑↑</annotation>
 		<annotation cp="📱">↑↑↑</annotation>
 		<annotation cp="📱" type="tts">↑↑↑</annotation>
 		<annotation cp="📲">↑↑↑</annotation>
 		<annotation cp="📲" type="tts">↑↑↑</annotation>
-		<annotation cp="☎">land line | phone | telephone</annotation>
+		<annotation cp="☎">landline | phone | telephone</annotation>
 		<annotation cp="☎" type="tts">↑↑↑</annotation>
 		<annotation cp="📞">↑↑↑</annotation>
 		<annotation cp="📞" type="tts">↑↑↑</annotation>
@@ -2336,6 +3050,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="📠" type="tts">↑↑↑</annotation>
 		<annotation cp="🔋">↑↑↑</annotation>
 		<annotation cp="🔋" type="tts">↑↑↑</annotation>
+		<annotation cp="🪫">↑↑↑</annotation>
+		<annotation cp="🪫" type="tts">↑↑↑</annotation>
 		<annotation cp="🔌">↑↑↑</annotation>
 		<annotation cp="🔌" type="tts">↑↑↑</annotation>
 		<annotation cp="💻">computer | laptop | PC | personal</annotation>
@@ -2354,19 +3070,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💽" type="tts">↑↑↑</annotation>
 		<annotation cp="💾">computer | disk | diskette | floppy</annotation>
 		<annotation cp="💾" type="tts">↑↑↑</annotation>
-		<annotation cp="💿">CD | computer | disk | optical</annotation>
+		<annotation cp="💿">↑↑↑</annotation>
 		<annotation cp="💿" type="tts">↑↑↑</annotation>
-		<annotation cp="📀">blu-ray | computer | disk | dvd | DVD | optical</annotation>
+		<annotation cp="📀">blu-ray | computer | disk | DVD | optical</annotation>
 		<annotation cp="📀" type="tts">DVD</annotation>
 		<annotation cp="🧮">↑↑↑</annotation>
 		<annotation cp="🧮" type="tts">↑↑↑</annotation>
-		<annotation cp="🎥">camera | cinema | movie</annotation>
-		<annotation cp="🎥" type="tts">movie camera</annotation>
+		<annotation cp="🎥">↑↑↑</annotation>
+		<annotation cp="🎥" type="tts">↑↑↑</annotation>
 		<annotation cp="🎞">↑↑↑</annotation>
 		<annotation cp="🎞" type="tts">↑↑↑</annotation>
 		<annotation cp="📽">↑↑↑</annotation>
 		<annotation cp="📽" type="tts">↑↑↑</annotation>
-		<annotation cp="🎬">clapper | clapperboard | film</annotation>
+		<annotation cp="🎬">clapper | clapper board | clapperboard | film | movie</annotation>
 		<annotation cp="🎬" type="tts">↑↑↑</annotation>
 		<annotation cp="📺">television | TV | video</annotation>
 		<annotation cp="📺" type="tts">↑↑↑</annotation>
@@ -2424,10 +3140,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="📑" type="tts">↑↑↑</annotation>
 		<annotation cp="🔖">↑↑↑</annotation>
 		<annotation cp="🔖" type="tts">↑↑↑</annotation>
-		<annotation cp="🏷">↑↑↑</annotation>
+		<annotation cp="🏷">label | tag</annotation>
 		<annotation cp="🏷" type="tts">↑↑↑</annotation>
 		<annotation cp="💰">↑↑↑</annotation>
 		<annotation cp="💰" type="tts">↑↑↑</annotation>
+		<annotation cp="🪙">↑↑↑</annotation>
+		<annotation cp="🪙" type="tts">↑↑↑</annotation>
 		<annotation cp="💴">↑↑↑</annotation>
 		<annotation cp="💴" type="tts">↑↑↑</annotation>
 		<annotation cp="💵">↑↑↑</annotation>
@@ -2444,10 +3162,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧾" type="tts">↑↑↑</annotation>
 		<annotation cp="💹">chart | chart increasing with yen | graph | graph increasing with yen | growth | money | yen</annotation>
 		<annotation cp="💹" type="tts">graph increasing with yen</annotation>
-		<annotation cp="💱">↑↑↑</annotation>
-		<annotation cp="💱" type="tts">↑↑↑</annotation>
-		<annotation cp="💲">↑↑↑</annotation>
-		<annotation cp="💲" type="tts">↑↑↑</annotation>
 		<annotation cp="✉">↑↑↑</annotation>
 		<annotation cp="✉" type="tts">↑↑↑</annotation>
 		<annotation cp="📧">↑↑↑</annotation>
@@ -2532,8 +3246,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🗃" type="tts">↑↑↑</annotation>
 		<annotation cp="🗄">↑↑↑</annotation>
 		<annotation cp="🗄" type="tts">filing cabinet</annotation>
-		<annotation cp="🗑">↑↑↑</annotation>
-		<annotation cp="🗑" type="tts">↑↑↑</annotation>
+		<annotation cp="🗑">rubbish bin | trash | waste paper basket</annotation>
+		<annotation cp="🗑" type="tts">waste paper basket</annotation>
 		<annotation cp="🔒">↑↑↑</annotation>
 		<annotation cp="🔒" type="tts">↑↑↑</annotation>
 		<annotation cp="🔓">↑↑↑</annotation>
@@ -2554,20 +3268,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⛏" type="tts">↑↑↑</annotation>
 		<annotation cp="⚒">↑↑↑</annotation>
 		<annotation cp="⚒" type="tts">↑↑↑</annotation>
-		<annotation cp="🛠">hammer | hammer and spanner | spanner | tool | wrench</annotation>
+		<annotation cp="🛠">hammer | hammer and spanner | hammer and wrench | spanner | tool | wrench</annotation>
 		<annotation cp="🛠" type="tts">↑↑↑</annotation>
 		<annotation cp="🗡">↑↑↑</annotation>
 		<annotation cp="🗡" type="tts">↑↑↑</annotation>
 		<annotation cp="⚔">↑↑↑</annotation>
 		<annotation cp="⚔" type="tts">↑↑↑</annotation>
-		<annotation cp="🔫">↑↑↑</annotation>
-		<annotation cp="🔫" type="tts">water gun</annotation>
+		<annotation cp="💣">↑↑↑</annotation>
+		<annotation cp="💣" type="tts">↑↑↑</annotation>
+		<annotation cp="🪃">↑↑↑</annotation>
+		<annotation cp="🪃" type="tts">↑↑↑</annotation>
 		<annotation cp="🏹">↑↑↑</annotation>
 		<annotation cp="🏹" type="tts">↑↑↑</annotation>
 		<annotation cp="🛡">↑↑↑</annotation>
 		<annotation cp="🛡" type="tts">↑↑↑</annotation>
-		<annotation cp="🔧" draft="contributed">↑↑↑</annotation>
+		<annotation cp="🪚">↑↑↑</annotation>
+		<annotation cp="🪚" type="tts">↑↑↑</annotation>
+		<annotation cp="🔧">↑↑↑</annotation>
 		<annotation cp="🔧" type="tts">↑↑↑</annotation>
+		<annotation cp="🪛">↑↑↑</annotation>
+		<annotation cp="🪛" type="tts">↑↑↑</annotation>
 		<annotation cp="🔩">↑↑↑</annotation>
 		<annotation cp="🔩" type="tts">↑↑↑</annotation>
 		<annotation cp="⚙">↑↑↑</annotation>
@@ -2576,23 +3296,29 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🗜" type="tts">↑↑↑</annotation>
 		<annotation cp="⚖">↑↑↑</annotation>
 		<annotation cp="⚖" type="tts">↑↑↑</annotation>
-		<annotation cp="🦯">↑↑↑</annotation>
-		<annotation cp="🦯" type="tts">↑↑↑</annotation>
+		<annotation cp="🦯">accessibility | blind | long mobility cane | white cane</annotation>
+		<annotation cp="🦯" type="tts">long mobility cane</annotation>
 		<annotation cp="🔗">↑↑↑</annotation>
 		<annotation cp="🔗" type="tts">↑↑↑</annotation>
+		<annotation cp="⛓‍💥">↑↑↑</annotation>
+		<annotation cp="⛓‍💥" type="tts">↑↑↑</annotation>
 		<annotation cp="⛓">↑↑↑</annotation>
 		<annotation cp="⛓" type="tts">↑↑↑</annotation>
+		<annotation cp="🪝">catch | crook | curve | ensnare | fishing | hook | selling point</annotation>
+		<annotation cp="🪝" type="tts">↑↑↑</annotation>
 		<annotation cp="🧰">↑↑↑</annotation>
 		<annotation cp="🧰" type="tts">↑↑↑</annotation>
 		<annotation cp="🧲">↑↑↑</annotation>
 		<annotation cp="🧲" type="tts">↑↑↑</annotation>
+		<annotation cp="🪜">↑↑↑</annotation>
+		<annotation cp="🪜" type="tts">↑↑↑</annotation>
 		<annotation cp="⚗">↑↑↑</annotation>
 		<annotation cp="⚗" type="tts">↑↑↑</annotation>
 		<annotation cp="🧪">↑↑↑</annotation>
 		<annotation cp="🧪" type="tts">↑↑↑</annotation>
 		<annotation cp="🧫">↑↑↑</annotation>
 		<annotation cp="🧫" type="tts">↑↑↑</annotation>
-		<annotation cp="🧬">biologist | dna | DNA | evolution | gene | genetics | life</annotation>
+		<annotation cp="🧬">biologist | DNA | evolution | gene | genetics | life</annotation>
 		<annotation cp="🧬" type="tts">DNA</annotation>
 		<annotation cp="🔬">↑↑↑</annotation>
 		<annotation cp="🔬" type="tts">↑↑↑</annotation>
@@ -2604,31 +3330,45 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💉" type="tts">↑↑↑</annotation>
 		<annotation cp="🩸">↑↑↑</annotation>
 		<annotation cp="🩸" type="tts">↑↑↑</annotation>
-		<annotation cp="💊">↑↑↑</annotation>
+		<annotation cp="💊">capsule | doctor | medicine | pill | sick</annotation>
 		<annotation cp="💊" type="tts">↑↑↑</annotation>
-		<annotation cp="🩹">↑↑↑</annotation>
-		<annotation cp="🩹" type="tts">↑↑↑</annotation>
+		<annotation cp="🩹">adhesive bandage | bandage | bandaid | dressing</annotation>
+		<annotation cp="🩹" type="tts">bandaid</annotation>
+		<annotation cp="🩼">↑↑↑</annotation>
+		<annotation cp="🩼" type="tts">↑↑↑</annotation>
 		<annotation cp="🩺">↑↑↑</annotation>
 		<annotation cp="🩺" type="tts">↑↑↑</annotation>
+		<annotation cp="🩻">↑↑↑</annotation>
+		<annotation cp="🩻" type="tts">↑↑↑</annotation>
 		<annotation cp="🚪">↑↑↑</annotation>
 		<annotation cp="🚪" type="tts">↑↑↑</annotation>
+		<annotation cp="🛗">↑↑↑</annotation>
+		<annotation cp="🛗" type="tts">↑↑↑</annotation>
+		<annotation cp="🪞">looking glass | mirror | reflection | reflector</annotation>
+		<annotation cp="🪞" type="tts">↑↑↑</annotation>
+		<annotation cp="🪟">↑↑↑</annotation>
+		<annotation cp="🪟" type="tts">↑↑↑</annotation>
 		<annotation cp="🛏">↑↑↑</annotation>
 		<annotation cp="🛏" type="tts">↑↑↑</annotation>
 		<annotation cp="🛋">couch | couch and lamp | hotel | lamp | sofa | sofa and lamp</annotation>
-		<annotation cp="🛋" type="tts">couch and lamp</annotation>
+		<annotation cp="🛋" type="tts">↑↑↑</annotation>
 		<annotation cp="🪑">↑↑↑</annotation>
 		<annotation cp="🪑" type="tts">↑↑↑</annotation>
 		<annotation cp="🚽">facilities | loo | toilet | WC</annotation>
 		<annotation cp="🚽" type="tts">↑↑↑</annotation>
+		<annotation cp="🪠">↑↑↑</annotation>
+		<annotation cp="🪠" type="tts">↑↑↑</annotation>
 		<annotation cp="🚿">↑↑↑</annotation>
 		<annotation cp="🚿" type="tts">↑↑↑</annotation>
 		<annotation cp="🛁">↑↑↑</annotation>
 		<annotation cp="🛁" type="tts">↑↑↑</annotation>
+		<annotation cp="🪤">↑↑↑</annotation>
+		<annotation cp="🪤" type="tts">mouse trap</annotation>
 		<annotation cp="🪒">↑↑↑</annotation>
 		<annotation cp="🪒" type="tts">↑↑↑</annotation>
 		<annotation cp="🧴">↑↑↑</annotation>
 		<annotation cp="🧴" type="tts">↑↑↑</annotation>
-		<annotation cp="🧷">nappy | punk rock | safety pin</annotation>
+		<annotation cp="🧷">↑↑↑</annotation>
 		<annotation cp="🧷" type="tts">↑↑↑</annotation>
 		<annotation cp="🧹">↑↑↑</annotation>
 		<annotation cp="🧹" type="tts">↑↑↑</annotation>
@@ -2636,8 +3376,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧺" type="tts">↑↑↑</annotation>
 		<annotation cp="🧻">↑↑↑</annotation>
 		<annotation cp="🧻" type="tts">↑↑↑</annotation>
+		<annotation cp="🪣">↑↑↑</annotation>
+		<annotation cp="🪣" type="tts">↑↑↑</annotation>
 		<annotation cp="🧼">↑↑↑</annotation>
 		<annotation cp="🧼" type="tts">↑↑↑</annotation>
+		<annotation cp="🫧">↑↑↑</annotation>
+		<annotation cp="🫧" type="tts">↑↑↑</annotation>
+		<annotation cp="🪥">↑↑↑</annotation>
+		<annotation cp="🪥" type="tts">↑↑↑</annotation>
 		<annotation cp="🧽">↑↑↑</annotation>
 		<annotation cp="🧽" type="tts">↑↑↑</annotation>
 		<annotation cp="🧯">↑↑↑</annotation>
@@ -2648,29 +3394,39 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚬" type="tts">↑↑↑</annotation>
 		<annotation cp="⚰">↑↑↑</annotation>
 		<annotation cp="⚰" type="tts">↑↑↑</annotation>
+		<annotation cp="🪦">↑↑↑</annotation>
+		<annotation cp="🪦" type="tts">↑↑↑</annotation>
 		<annotation cp="⚱">↑↑↑</annotation>
 		<annotation cp="⚱" type="tts">↑↑↑</annotation>
+		<annotation cp="🧿">amulet | charm | evil-eye | nazar | talisman</annotation>
+		<annotation cp="🧿" type="tts">evil-eye amulet</annotation>
+		<annotation cp="🪬">↑↑↑</annotation>
+		<annotation cp="🪬" type="tts">↑↑↑</annotation>
 		<annotation cp="🗿">↑↑↑</annotation>
 		<annotation cp="🗿" type="tts">↑↑↑</annotation>
+		<annotation cp="🪧">↑↑↑</annotation>
+		<annotation cp="🪧" type="tts">↑↑↑</annotation>
+		<annotation cp="🪪">↑↑↑</annotation>
+		<annotation cp="🪪" type="tts">↑↑↑</annotation>
 		<annotation cp="🏧">↑↑↑</annotation>
 		<annotation cp="🏧" type="tts">↑↑↑</annotation>
 		<annotation cp="🚮">↑↑↑</annotation>
 		<annotation cp="🚮" type="tts">↑↑↑</annotation>
-		<annotation cp="🚰" draft="contributed">↑↑↑</annotation>
+		<annotation cp="🚰">↑↑↑</annotation>
 		<annotation cp="🚰" type="tts">↑↑↑</annotation>
 		<annotation cp="♿">access | disabled access | wheelchair symbol</annotation>
 		<annotation cp="♿" type="tts">↑↑↑</annotation>
 		<annotation cp="🚹">↑↑↑</annotation>
 		<annotation cp="🚹" type="tts">↑↑↑</annotation>
-		<annotation cp="🚺">↑↑↑</annotation>
+		<annotation cp="🚺">ladies room | lavatory | restroom | wc | woman | women’s room | women’s toilet</annotation>
 		<annotation cp="🚺" type="tts">↑↑↑</annotation>
 		<annotation cp="🚻">↑↑↑</annotation>
 		<annotation cp="🚻" type="tts">↑↑↑</annotation>
 		<annotation cp="🚼">baby | baby symbol | change room | changing</annotation>
 		<annotation cp="🚼" type="tts">↑↑↑</annotation>
-		<annotation cp="🚾">amenities | bathroom | restroom | toilet | water closet | wc | WC</annotation>
+		<annotation cp="🚾">amenities | bathroom | restroom | toilet | water closet | WC</annotation>
 		<annotation cp="🚾" type="tts">WC</annotation>
-		<annotation cp="🛂">↑↑↑</annotation>
+		<annotation cp="🛂">border | control | passport | security</annotation>
 		<annotation cp="🛂" type="tts">↑↑↑</annotation>
 		<annotation cp="🛃">↑↑↑</annotation>
 		<annotation cp="🛃" type="tts">↑↑↑</annotation>
@@ -2724,6 +3480,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="↕" type="tts">↑↑↑</annotation>
 		<annotation cp="↔">↑↑↑</annotation>
 		<annotation cp="↔" type="tts">↑↑↑</annotation>
+		<annotation cp="↮">↑↑↑</annotation>
+		<annotation cp="↮" type="tts">↑↑↑</annotation>
 		<annotation cp="↩">↑↑↑</annotation>
 		<annotation cp="↩" type="tts">↑↑↑</annotation>
 		<annotation cp="↪">↑↑↑</annotation>
@@ -2734,7 +3492,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⤵" type="tts">↑↑↑</annotation>
 		<annotation cp="🔃">↑↑↑</annotation>
 		<annotation cp="🔃" type="tts">↑↑↑</annotation>
-		<annotation cp="🔄" draft="contributed">↑↑↑</annotation>
+		<annotation cp="🔄">↑↑↑</annotation>
 		<annotation cp="🔄" type="tts">↑↑↑</annotation>
 		<annotation cp="🔙">↑↑↑</annotation>
 		<annotation cp="🔙" type="tts">↑↑↑</annotation>
@@ -2770,6 +3528,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🕎" type="tts">↑↑↑</annotation>
 		<annotation cp="🔯">↑↑↑</annotation>
 		<annotation cp="🔯" type="tts">↑↑↑</annotation>
+		<annotation cp="🪯">↑↑↑</annotation>
+		<annotation cp="🪯" type="tts">↑↑↑</annotation>
 		<annotation cp="♈">↑↑↑</annotation>
 		<annotation cp="♈" type="tts">↑↑↑</annotation>
 		<annotation cp="♉">↑↑↑</annotation>
@@ -2804,15 +3564,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔂" type="tts">↑↑↑</annotation>
 		<annotation cp="▶">↑↑↑</annotation>
 		<annotation cp="▶" type="tts">↑↑↑</annotation>
-		<annotation cp="⏩" draft="contributed">fast forward button</annotation>
-		<annotation cp="⏩" type="tts" draft="contributed">fast forward button</annotation>
+		<annotation cp="⏩">fast forward button</annotation>
+		<annotation cp="⏩" type="tts">fast forward button</annotation>
 		<annotation cp="⏭">↑↑↑</annotation>
 		<annotation cp="⏭" type="tts">↑↑↑</annotation>
 		<annotation cp="⏯">↑↑↑</annotation>
 		<annotation cp="⏯" type="tts">↑↑↑</annotation>
 		<annotation cp="◀">↑↑↑</annotation>
 		<annotation cp="◀" type="tts">↑↑↑</annotation>
-		<annotation cp="⏪" draft="contributed">↑↑↑</annotation>
+		<annotation cp="⏪">↑↑↑</annotation>
 		<annotation cp="⏪" type="tts">↑↑↑</annotation>
 		<annotation cp="⏮">↑↑↑</annotation>
 		<annotation cp="⏮" type="tts">↑↑↑</annotation>
@@ -2840,6 +3600,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔆" type="tts">↑↑↑</annotation>
 		<annotation cp="📶">↑↑↑</annotation>
 		<annotation cp="📶" type="tts">↑↑↑</annotation>
+		<annotation cp="🛜">computer | internet | network | Wi-Fi | wifi | wireless</annotation>
+		<annotation cp="🛜" type="tts">↑↑↑</annotation>
 		<annotation cp="📳">↑↑↑</annotation>
 		<annotation cp="📳" type="tts">↑↑↑</annotation>
 		<annotation cp="📴">↑↑↑</annotation>
@@ -2848,52 +3610,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="♀" type="tts">↑↑↑</annotation>
 		<annotation cp="♂">↑↑↑</annotation>
 		<annotation cp="♂" type="tts">↑↑↑</annotation>
-		<annotation cp="⚕">↑↑↑</annotation>
-		<annotation cp="⚕" type="tts">↑↑↑</annotation>
-		<annotation cp="♾">eternal | forever | infinity | unbound | universal</annotation>
-		<annotation cp="♾" type="tts">↑↑↑</annotation>
-		<annotation cp="♻">↑↑↑</annotation>
-		<annotation cp="♻" type="tts">↑↑↑</annotation>
-		<annotation cp="⚜">↑↑↑</annotation>
-		<annotation cp="⚜" type="tts">↑↑↑</annotation>
-		<annotation cp="🔱">↑↑↑</annotation>
-		<annotation cp="🔱" type="tts">↑↑↑</annotation>
-		<annotation cp="📛">↑↑↑</annotation>
-		<annotation cp="📛" type="tts">↑↑↑</annotation>
-		<annotation cp="🔰">↑↑↑</annotation>
-		<annotation cp="🔰" type="tts">↑↑↑</annotation>
-		<annotation cp="⭕">↑↑↑</annotation>
-		<annotation cp="⭕" type="tts">↑↑↑</annotation>
-		<annotation cp="✅">↑↑↑</annotation>
-		<annotation cp="✅" type="tts">↑↑↑</annotation>
-		<annotation cp="☑">ballot | ballot box with check | box | tick | tick box with tick</annotation>
-		<annotation cp="☑" type="tts">↑↑↑</annotation>
-		<annotation cp="✔">heavy tick mark | mark | tick</annotation>
-		<annotation cp="✔" type="tts">↑↑↑</annotation>
+		<annotation cp="⚧">↑↑↑</annotation>
+		<annotation cp="⚧" type="tts">↑↑↑</annotation>
 		<annotation cp="✖">↑↑↑</annotation>
 		<annotation cp="✖" type="tts">↑↑↑</annotation>
-		<annotation cp="❌">↑↑↑</annotation>
-		<annotation cp="❌" type="tts">↑↑↑</annotation>
-		<annotation cp="❎">↑↑↑</annotation>
-		<annotation cp="❎" type="tts">↑↑↑</annotation>
 		<annotation cp="➕">+ | add | addition | math | maths | plus | sign</annotation>
 		<annotation cp="➕" type="tts">↑↑↑</annotation>
 		<annotation cp="➖">- | – | math | maths | minus | sign | subtraction</annotation>
 		<annotation cp="➖" type="tts">↑↑↑</annotation>
-		<annotation cp="➗">÷ | divide | division | math | sign</annotation>
+		<annotation cp="➗">↑↑↑</annotation>
 		<annotation cp="➗" type="tts">↑↑↑</annotation>
-		<annotation cp="➰">↑↑↑</annotation>
-		<annotation cp="➰" type="tts">↑↑↑</annotation>
-		<annotation cp="➿">↑↑↑</annotation>
-		<annotation cp="➿" type="tts">↑↑↑</annotation>
-		<annotation cp="〽">↑↑↑</annotation>
-		<annotation cp="〽" type="tts">↑↑↑</annotation>
-		<annotation cp="✳">↑↑↑</annotation>
-		<annotation cp="✳" type="tts">↑↑↑</annotation>
-		<annotation cp="✴">↑↑↑</annotation>
-		<annotation cp="✴" type="tts">↑↑↑</annotation>
-		<annotation cp="❇">↑↑↑</annotation>
-		<annotation cp="❇" type="tts">↑↑↑</annotation>
+		<annotation cp="🟰">equality | heavy equals sign | maths</annotation>
+		<annotation cp="🟰" type="tts">↑↑↑</annotation>
+		<annotation cp="♾">eternal | forever | infinity | unbound | universal</annotation>
+		<annotation cp="♾" type="tts">↑↑↑</annotation>
 		<annotation cp="‼">double exclamation mark | exclamation | mark | punctuation</annotation>
 		<annotation cp="‼" type="tts">↑↑↑</annotation>
 		<annotation cp="⁉">exclamation | mark | punctuation | question</annotation>
@@ -2908,22 +3638,62 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="❗" type="tts">↑↑↑</annotation>
 		<annotation cp="〰">↑↑↑</annotation>
 		<annotation cp="〰" type="tts">↑↑↑</annotation>
+		<annotation cp="💱">↑↑↑</annotation>
+		<annotation cp="💱" type="tts">↑↑↑</annotation>
+		<annotation cp="💲">↑↑↑</annotation>
+		<annotation cp="💲" type="tts">↑↑↑</annotation>
+		<annotation cp="⚕">↑↑↑</annotation>
+		<annotation cp="⚕" type="tts">↑↑↑</annotation>
+		<annotation cp="♻">↑↑↑</annotation>
+		<annotation cp="♻" type="tts">↑↑↑</annotation>
+		<annotation cp="⚜">↑↑↑</annotation>
+		<annotation cp="⚜" type="tts">↑↑↑</annotation>
+		<annotation cp="🔱">↑↑↑</annotation>
+		<annotation cp="🔱" type="tts">↑↑↑</annotation>
+		<annotation cp="📛">↑↑↑</annotation>
+		<annotation cp="📛" type="tts">↑↑↑</annotation>
+		<annotation cp="🔰">↑↑↑</annotation>
+		<annotation cp="🔰" type="tts">↑↑↑</annotation>
+		<annotation cp="⭕">↑↑↑</annotation>
+		<annotation cp="⭕" type="tts">↑↑↑</annotation>
+		<annotation cp="✅">↑↑↑</annotation>
+		<annotation cp="✅" type="tts">↑↑↑</annotation>
+		<annotation cp="☑">ballot | box | check box with check | tick | tick box with tick</annotation>
+		<annotation cp="☑" type="tts">↑↑↑</annotation>
+		<annotation cp="✔">check mark | heavy tick mark | mark | tick</annotation>
+		<annotation cp="✔" type="tts">↑↑↑</annotation>
+		<annotation cp="❌">↑↑↑</annotation>
+		<annotation cp="❌" type="tts">↑↑↑</annotation>
+		<annotation cp="❎">↑↑↑</annotation>
+		<annotation cp="❎" type="tts">↑↑↑</annotation>
+		<annotation cp="➰">↑↑↑</annotation>
+		<annotation cp="➰" type="tts">↑↑↑</annotation>
+		<annotation cp="➿">↑↑↑</annotation>
+		<annotation cp="➿" type="tts">↑↑↑</annotation>
+		<annotation cp="〽">↑↑↑</annotation>
+		<annotation cp="〽" type="tts">↑↑↑</annotation>
+		<annotation cp="✳">↑↑↑</annotation>
+		<annotation cp="✳" type="tts">↑↑↑</annotation>
+		<annotation cp="✴">↑↑↑</annotation>
+		<annotation cp="✴" type="tts">↑↑↑</annotation>
+		<annotation cp="❇">↑↑↑</annotation>
+		<annotation cp="❇" type="tts">↑↑↑</annotation>
 		<annotation cp="©">↑↑↑</annotation>
 		<annotation cp="©" type="tts">↑↑↑</annotation>
 		<annotation cp="®">↑↑↑</annotation>
 		<annotation cp="®" type="tts">↑↑↑</annotation>
 		<annotation cp="™">↑↑↑</annotation>
 		<annotation cp="™" type="tts">↑↑↑</annotation>
-		<annotation cp="🔠" draft="contributed">input Latin uppercase</annotation>
-		<annotation cp="🔠" type="tts" draft="contributed">input Latin uppercase</annotation>
-		<annotation cp="🔡" draft="contributed">input Latin lowercase</annotation>
-		<annotation cp="🔡" type="tts" draft="contributed">input Latin lowercase</annotation>
+		<annotation cp="🔠">input Latin uppercase</annotation>
+		<annotation cp="🔠" type="tts">input Latin uppercase</annotation>
+		<annotation cp="🔡">input Latin lowercase</annotation>
+		<annotation cp="🔡" type="tts">input Latin lowercase</annotation>
 		<annotation cp="🔢">↑↑↑</annotation>
 		<annotation cp="🔢" type="tts">↑↑↑</annotation>
 		<annotation cp="🔣">↑↑↑</annotation>
 		<annotation cp="🔣" type="tts">↑↑↑</annotation>
-		<annotation cp="🔤" draft="contributed">input Latin letters</annotation>
-		<annotation cp="🔤" type="tts" draft="contributed">input Latin letters</annotation>
+		<annotation cp="🔤">input Latin letters</annotation>
+		<annotation cp="🔤" type="tts">input Latin letters</annotation>
 		<annotation cp="🅰">↑↑↑</annotation>
 		<annotation cp="🅰" type="tts">↑↑↑</annotation>
 		<annotation cp="🆎">↑↑↑</annotation>
@@ -2950,7 +3720,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🅾" type="tts">↑↑↑</annotation>
 		<annotation cp="🆗">↑↑↑</annotation>
 		<annotation cp="🆗" type="tts">↑↑↑</annotation>
-		<annotation cp="🅿">↑↑↑</annotation>
+		<annotation cp="🅿">car park | carpark | P | P button | parking</annotation>
 		<annotation cp="🅿" type="tts">↑↑↑</annotation>
 		<annotation cp="🆘">↑↑↑</annotation>
 		<annotation cp="🆘" type="tts">↑↑↑</annotation>
@@ -3070,22 +3840,52 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏴" type="tts">↑↑↑</annotation>
 		<annotation cp="🏳">↑↑↑</annotation>
 		<annotation cp="🏳" type="tts">↑↑↑</annotation>
-		<annotation cp="🏳‍⚧">↑↑↑</annotation>
-		<annotation cp="🏳‍⚧" type="tts" draft="contributed">↑↑↑</annotation>
 		<annotation cp="🏳‍🌈">↑↑↑</annotation>
 		<annotation cp="🏳‍🌈" type="tts">↑↑↑</annotation>
+		<annotation cp="🏳‍⚧">↑↑↑</annotation>
+		<annotation cp="🏳‍⚧" type="tts">↑↑↑</annotation>
 		<annotation cp="🏴‍☠">↑↑↑</annotation>
 		<annotation cp="🏴‍☠" type="tts">↑↑↑</annotation>
+		<annotation cp="¢">↑↑↑</annotation>
+		<annotation cp="¢" type="tts">↑↑↑</annotation>
+		<annotation cp="$">AUD | dollar | money</annotation>
+		<annotation cp="$" type="tts">↑↑↑</annotation>
 		<annotation cp="£">↑↑↑</annotation>
 		<annotation cp="£" type="tts">↑↑↑</annotation>
 		<annotation cp="¥">↑↑↑</annotation>
 		<annotation cp="¥" type="tts">↑↑↑</annotation>
+		<annotation cp="₢">↑↑↑</annotation>
+		<annotation cp="₢" type="tts">↑↑↑</annotation>
+		<annotation cp="₣">↑↑↑</annotation>
+		<annotation cp="₣" type="tts">↑↑↑</annotation>
+		<annotation cp="₤">↑↑↑</annotation>
+		<annotation cp="₤" type="tts">↑↑↑</annotation>
+		<annotation cp="₥">↑↑↑</annotation>
+		<annotation cp="₥" type="tts">↑↑↑</annotation>
+		<annotation cp="₩">↑↑↑</annotation>
+		<annotation cp="₩" type="tts">↑↑↑</annotation>
 		<annotation cp="€">↑↑↑</annotation>
 		<annotation cp="€" type="tts">↑↑↑</annotation>
-		<annotation cp="₹">currency | indian rupee | INR | rupee</annotation>
+		<annotation cp="₰">↑↑↑</annotation>
+		<annotation cp="₰" type="tts">↑↑↑</annotation>
+		<annotation cp="₱">↑↑↑</annotation>
+		<annotation cp="₱" type="tts">↑↑↑</annotation>
+		<annotation cp="₳">↑↑↑</annotation>
+		<annotation cp="₳" type="tts">↑↑↑</annotation>
+		<annotation cp="₶">↑↑↑</annotation>
+		<annotation cp="₶" type="tts">↑↑↑</annotation>
+		<annotation cp="₷">↑↑↑</annotation>
+		<annotation cp="₷" type="tts">↑↑↑</annotation>
+		<annotation cp="₹">currency | Indian rupee | INR | rupee</annotation>
 		<annotation cp="₹" type="tts">↑↑↑</annotation>
 		<annotation cp="₽">↑↑↑</annotation>
 		<annotation cp="₽" type="tts">↑↑↑</annotation>
+		<annotation cp="₿">↑↑↑</annotation>
+		<annotation cp="₿" type="tts">↑↑↑</annotation>
+		<annotation cp="₨">↑↑↑</annotation>
+		<annotation cp="₨" type="tts">↑↑↑</annotation>
+		<annotation cp="﷼">↑↑↑</annotation>
+		<annotation cp="﷼" type="tts">↑↑↑</annotation>
 		<annotation cp="¹">↑↑↑</annotation>
 		<annotation cp="¹" type="tts">↑↑↑</annotation>
 		<annotation cp="²">↑↑↑</annotation>

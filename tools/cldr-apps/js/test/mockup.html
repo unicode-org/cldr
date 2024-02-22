@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Mock-up of Survey Tool</title>
+    <style>
+      body,
+      html {
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+      }
+      #st-run-gui {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        justify-content: space-between;
+        margin: 0;
+        padding: 0;
+      }
+      .sidebyside {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        flex: 1;
+        width: 100%;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+      }
+      .sidebyside-column {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+      .sidebyside-wide {
+        width: 75%;
+      }
+      .sidebyside-narrow {
+        width: 25%;
+      }
+      .sidebyside-column-top {
+        flex: none;
+        margin: 4px;
+      }
+      .sidebyside-scrollable {
+        margin: 4px;
+        /* padding-bottom is ignored by Firefox, though it is respected by Chrome, Edge, and Firefox */
+        padding-bottom: 3em;
+        overflow: auto;
+        /* min-height: min-content here causes scrollbar to disappear on Safari only,
+           though not on Chrome, Edge, or Firefox. Anyway it seems not to be needed. */
+      }
+      .halfheight {
+        width: 100%;
+        height: 50%;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+
+      #toptitle h1 {
+        display: inline-block;
+        font-size: 28px;
+      }
+
+      #toptitle h1::before {
+        content: " / ";
+      }
+
+      #toptitle #title-locale-container h1::before {
+        content: "";
+      }
+
+      .menu-container {
+        display: inline;
+      }
+
+      .menu-container::before {
+        color: black;
+      }
+
+      .menu-container:first-child:before {
+        content: "";
+      }
+
+      #nav-page {
+        align-items: center;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        text-align: center;
+        align-items: center;
+        margin: 0;
+        padding: 0em 1em 0em 1em;
+        box-sizing: border-box;
+      }
+
+      /* These colors are only for this test */
+      .green {
+        background-color: green;
+      }
+      .yellow {
+        background-color: yellow;
+      }
+      .pink {
+        background-color: pink;
+      }
+      .orange {
+        background-color: rgba(255, 166, 0, 0.541);
+      }
+      .cyan {
+        background-color: cyan;
+      }
+      .gray {
+        background-color: #dbd4d4;
+      }
+      .purple {
+        background-color: #cfb3f3;
+      }
+      .lightgreen {
+        background-color: #99f763;
+      }
+
+      /* The "real" st-header is in MainHeader.vue; this copy is only for this test */
+      #st-header {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        background-color: white;
+        background-image: linear-gradient(white, #e7f7ff);
+        z-index: 10000000000; /* prevent transparency when scrolling; also stay in front of "overlay"  */
+      }
+
+      #st-header ul {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        width: 98vw;
+        margin: 0;
+        padding: 0;
+      }
+
+      #st-header li {
+        display: inline;
+        margin-left: 0.5em;
+        margin-right: 0.5em;
+      }
+
+      #st-header label {
+        /* override bootstrap, which has margin-bottom: 5px; font-weight: bold;
+     -- the 5px messes up vertical alignment */
+        margin-bottom: 0;
+        font-weight: normal;
+      }
+
+      #st-header .gear {
+        font-size: x-large;
+      }
+
+      #st-header .gear:hover {
+        text-decoration: underline;
+      }
+
+      #st-special-header {
+        /* This element, and those to the right of it, will be pushed to the right.
+           The elements to the left of it will be pushed to the left. */
+        margin-left: auto !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="st-run-gui">
+      <header id="st-header">
+        <ul>
+          <li>Survey Tool 40 Data Submission</li>
+          <li><a class="gear" href="#gear">⚙</a></li>
+          <li>
+            <a href="https://cldr.unicode.org/translation/" target="_blank"
+              >Instructions</a
+            >
+          </li>
+          <li id="st-special-header" class="specialmessage">
+            ST is open for version 40
+          </li>
+          <li>
+            <a
+              href="https://www.unicode.org/policies/privacy_policy.html"
+              target="_blank"
+              >This site uses cookies.</a
+            >
+          </li>
+          <li>
+            <span id="flag-info"></span
+            ><span id="st-session-message" class="v-status"></span>
+          </li>
+          <li>
+            <span
+              class="hasTooltip"
+              title="heikapupperson.ltsmpzt8p@frkv.gaeilge.example.com"
+              >Heika</span
+            ><span
+              class="glyphicon glyphicon-user tip-log"
+              title="gaeilge"
+            ></span>
+            &nbsp;|&nbsp;
+            <a href="/cldr-apps/survey?do=logout">Log out</a>
+          </li>
+        </ul>
+      </header>
+      <div id="toptitle">
+        <div id="title-locale-container" class="menu-container">
+          <h1><a href="#locales///" id="title-locale">Aghem</a></h1>
+          <span id="title-dcontent-container"
+            ><a
+              href="http://cldr.unicode.org/translation/default-content"
+              id="title-content"
+            ></a
+          ></span>
+        </div>
+        <div id="title-section-container" class="menu-container">
+          <h1 id="section-current">Core Data</h1>
+        </div>
+        <div id="title-page-container" class="menu-container">
+          <h1>Alphabetic Information</h1>
+        </div>
+        <div id="nav-page">
+          <span
+            ><button id="chgPagePrevTop" type="button" onclick="chgPage(-1)">
+              ← Previous
+            </button>
+            <button id="chgPageNextTop" type="button" onclick="chgPage(1)">
+              Next →
+            </button></span
+          >
+          <span>
+            <a onclick="cldrForum.reload();">Forum:</a>
+            <span id="vForum"><span id="forumSummary"> 0</span> </span> ● Votes:
+            <span id="count-voted">0</span> - Abstain:
+            <span id="count-abstain">0</span> - Total:
+            <span id="count-total">0</span>
+            <meter value="0.7">70%</meter>
+            <button type="button">Toggle Sidebar</button>
+          </span>
+        </div>
+      </div>
+
+      <div id="main-row" class="sidebyside">
+        <div
+          id="MainContentPane"
+          class="sidebyside-column sidebyside-wide green"
+        >
+          <section class="halfheight">
+            <div class="sidebyside-column-top pink">
+              <p>
+                This locale, Aghem, supplies the
+                <i><a href="#">default content</a></i>
+                for
+                <b
+                  ><a class="notselected" href="#/agq_CM"
+                    >Aghem (Cameroon)</a
+                  ></b
+                >. Please make sure that all the changes that you make here are
+                appropriate for <b>Aghem (Cameroon)</b>. If there are multiple
+                acceptable choices, please try to pick the one that would work
+                for the most other sublocales.
+              </p>
+            </div>
+            <div class="sidebyside-scrollable cyan">
+              <p>1: top row</p>
+              <p>...</p>
+              <p>...</p>
+              <p>...</p>
+              <p>...</p>
+              <p>2</p>
+              <p>...</p>
+              <p>...</p>
+              <p>...</p>
+              <p>...</p>
+              <p>3</p>
+              <p>...</p>
+              <p>...</p>
+              <p>...</p>
+              <p>...</p>
+              <p>4</p>
+              <p>...</p>
+              <p>...</p>
+              <p>...</p>
+              <p>...</p>
+              <p>5</p>
+              <p>...</p>
+              <p>...</p>
+              <p>...</p>
+              <p>...</p>
+              <p>6</p>
+              <p>...</p>
+              <p>...</p>
+              <p>...</p>
+              <p>...</p>
+              <p>7</p>
+              <p>...</p>
+              <p>...</p>
+              <p>...</p>
+              <p>...</p>
+              <p>8</p>
+              <p>...</p>
+              <p>...</p>
+              <p>...</p>
+              <p>This is the bottom, OK!</p>
+            </div>
+          </section>
+          <section class="halfheight">
+            <div class="sidebyside-column-top lightgreen">
+              <p>Dash Header</p>
+            </div>
+            <div class="sidebyside-scrollable purple">
+              <p>Dashboard 1</p>
+              <p>Dashboard 2</p>
+              <p>Dashboard 3</p>
+              <p>Dashboard 4</p>
+              <p>Dashboard 5</p>
+              <p>Dashboard 6</p>
+              <p>Dashboard 7</p>
+              <p>Dashboard 8</p>
+              <p>Dashboard 9</p>
+              <p>Dashboard 10</p>
+              <p>Dashboard 11</p>
+              <p>Dashboard 12</p>
+              <p>Dashboard 13</p>
+              <p>Dashboard 14</p>
+              <p>Dashboard 15</p>
+              <p>Dashboard 16</p>
+              <p>Dashboard 17</p>
+              <p>Dashboard 18</p>
+              <p>Dashboard 19</p>
+              <p>Dashboard 20</p>
+            </div>
+          </section>
+        </div>
+        <div
+          id="ItemInfoContainer"
+          class="sidebyside-column sidebyside-narrow yellow"
+        >
+          <div class="sidebyside-column-top"><p>Info Panel</p></div>
+          <div id="itemInfo" class="sidebyside-scrollable gray">
+            <div class="alert alert-info fix-popover-help vote-help">
+              <span class="helpHtml"
+                >Defines the set of characters used in your language for the
+                “punctuation” category. You may not edit or vote on this item at
+                this time...</span
+              >
+            </div>
+            <div class="span">
+              <span class="fallback_root" dir="ltr" lang="agq"
+                >[\- ‑ , ; \: ! ? . ( ) \[ \] \{ \}]</span
+              >
+              <p class="pClassExplain">
+                This item is inherited from the root locale.
+              </p>
+              <a class="followAlias" href="#/root//6cf943e652b01478"
+                >Jump to Original ⇒</a
+              >
+            </div>
+            <div>
+              <p
+                class="trInfo tr_Warning alert alert-warning fix-popover-help"
+                title="Warning: CheckExemplars.missingPunctuationCharacters"
+              >
+                <img
+                  alt="[warn]"
+                  style="width: 16px; height: 16px; border: 0"
+                  src="/cldr-apps/warn.png"
+                  title="Test Warning"
+                />Punctuation exemplar characters are missing quotation marks
+                for this locale: ’ ‚ ” „
+              </p>
+            </div>
+            <div class="voteDiv">
+              <span class="i-flag-d">&nbsp; &nbsp;</span
+              ><span
+                >Losing items may be flagged for CLDR Committee review.</span
+              >
+              <div class="value-div first" dir="ltr" lang="agq">
+                <span class="fallback_root"
+                  >[\- ‑ , ; \: ! ? . ( ) \[ \] \{ \}]</span
+                >
+                <p>These are votes for inheritance.</p>
+                <div class="voteInfo_iconBar">
+                  <div
+                    class="voteInfo_winningItem d-dr-missing"
+                    title="Status: Missing"
+                  ></div>
+                </div>
+              </div>
+              <table class="voteInfo_perValue table table-vote">
+                <tr class="voteInfo_tr voteInfo_tr_heading">
+                  <td class="voteInfo_orgColumn voteInfo_td">Org.</td>
+                  <td class="voteInfo_valueTitle voteInfo_td">User</td>
+                  <td class="voteInfo_voteTitle voteInfo_voteCount voteInfo_td">
+                    <span class="badge"></span>
+                  </td>
+                </tr>
+                <tr class="voteInfo_tr voteInfo_orgHeading">
+                  <td class="voteInfo_noVotes voteInfo_td">(no votes)</td>
+                  <td class="voteInfo_noVotes voteInfo_td"></td>
+                </tr>
+              </table>
+              <p class="alert alert-warning fix-popover-help">
+                Changes to this item require 20 votes.
+              </p>
+            </div>
+            <i style="display: none">loading</i>
+            <div class="forumDiv"></div>
+            <div class="xpath">
+              //ldml/characters/exemplarCharacters[@type="punctuation"]
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

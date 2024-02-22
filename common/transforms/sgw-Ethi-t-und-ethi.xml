@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<supplementalData>
+	<version number="Revision$"/>
+	<transforms>
+		<transform source="sgw_Ethi" target="Ethi" variant="Gurage_2013" direction="both" draft="contributed" alias="Ethiopic-Ethiopic/Gurage und-Ethi-t-sgw-ethi-m0-gurage-2013" backwardAlias="Gurage-Ethiopic sgw-Ethi-t-und-ethi-m0-gurage-2013">
+		<!-- The transform described in prose:
+		  This is a conversion from Ethiopic script (Unicode 4.1 level) under the Sebatbet 1998 orthography convention
+		  to the Ethiopic script (Unicode 14 level) under the 2013 orthography convention for the Gurage Zone languages,
+		  and the reversal.  The conversion uses the "variant" attribute to distinguish the 2013 orthography from previous
+		  conventions.  "sgw" as prefix in the "source" attribute is primary there to facilitate CLDR unit test, it is also
+		  appropriate based on the "Gurage" extensions in Unicode 4.1 having been specific to Sebatbet dialect utilization.
+		-->
+			<tRule><![CDATA[
+########################################################################
+# Gurage Fider (2013, Unicode Ethiopic Extended-B 2021)
+#
+# This transliteration system converts between the old and new writing
+# conventions for the Gurage language.  Conversions are between the
+# pre- and post-2013 system as supported in Unicode 4.1 and Unicode 14.
+#
+# Prepared by Daniel Yacob <yacob@geez.org>
+#
+########################################################################
+#
+# MINIMAL FILTER: Ethiopic-Latin
+#
+:: [:Ethiopic:] ;
+#
+#
+########################################################################
+# Start of Syllabic Transformations
+########################################################################
+#
+
+ሠ → ሰ  ; # ETHIOPIC SYLLABLE SZA
+ሡ → ሱ  ; # ETHIOPIC SYLLABLE SZU
+ሣ → ሳ  ; # ETHIOPIC SYLLABLE SZAA
+ሤ → ሴ  ; # ETHIOPIC SYLLABLE SZEE
+ሢ → ሲ  ; # ETHIOPIC SYLLABLE SZI
+ሥ → ስ  ; # ETHIOPIC SYLLABLE SZE
+ሦ → ሶ  ; # ETHIOPIC SYLLABLE SZO
+ሧ → ሷ  ; # ETHIOPIC SYLLABLE SZWA
+#
+ኀ → ሐ ; # ETHIOPIC SYLLABLE XA
+ኁ → ሑ ; # ETHIOPIC SYLLABLE XU
+ኂ → ሒ ; # ETHIOPIC SYLLABLE XI
+ኃ → ሓ ; # ETHIOPIC SYLLABLE XAA
+ኄ → ሔ ; # ETHIOPIC SYLLABLE XEE
+ኅ → ሕ ; # ETHIOPIC SYLLABLE XE
+ኆ → ሖ ; # ETHIOPIC SYLLABLE XO
+ኈ → 𞟨 ; # ETHIOPIC SYLLABLE XWA
+ኊ → 𞟩 ; # ETHIOPIC SYLLABLE XWI
+ኋ → ሗ ; # ETHIOPIC SYLLABLE XWAA
+ኌ → 𞟪 ; # ETHIOPIC SYLLABLE XWEE
+ኍ → 𞟫; # ETHIOPIC SYLLABLE XWE
+# 
+ሀ → ሐ ; # ETHIOPIC SYLLABLE HA
+ሁ → ሑ  ; # ETHIOPIC SYLLABLE HU
+ሂ → ሒ ; # ETHIOPIC SYLLABLE HI
+ሃ → ሓ ; # ETHIOPIC SYLLABLE HAA
+ሄ → ሔ ; # ETHIOPIC SYLLABLE HEE
+ህ → ሕ ; # ETHIOPIC SYLLABLE HE
+ሆ → ሖ ; # ETHIOPIC SYLLABLE HO
+#
+ፀ → ጸ ; # ETHIOPIC SYLLABLE TZA
+ፁ → ጹ ; # ETHIOPIC SYLLABLE TZU
+ፂ → ጺ ; # ETHIOPIC SYLLABLE TZI
+ፃ → ጻ ; # ETHIOPIC SYLLABLE TZAA
+ፄ → ጼ ; # ETHIOPIC SYLLABLE TZEE
+ፅ → ጽ ; # ETHIOPIC SYLLABLE TZE
+ፆ → ጾ ; # ETHIOPIC SYLLABLE TZO
+#
+#
+########################################################################
+#
+########################################################################
+#
+ᎁ ↔ 𞟭 ; # ETHIOPIC SYLLABLE MWI
+ᎂ ↔ 𞟮 ; # ETHIOPIC SYLLABLE MWEE
+#
+ቊ ↔ 𞟰 ; # ETHIOPIC SYLLABLE QWI
+ቌ ↔ 𞟱 ; # ETHIOPIC SYLLABLE QWEE
+ቍ ↔ 𞟲 ; # ETHIOPIC SYLLABLE QWE
+#
+ᎅ ↔ 𞟳 ; # ETHIOPIC SYLLABLE BWI
+ᎆ ↔ 𞟴 ; # ETHIOPIC SYLLABLE BWEE 
+#
+ⷀ ↔ ቐ ; # ETHIOPIC SYLLABLE SA
+ⷁ ↔ ቑ ; # ETHIOPIC SYLLABLE SU
+ⷂ ↔ ቒ ; # ETHIOPIC SYLLABLE SI
+ⷃ ↔ ቓ ; # ETHIOPIC SYLLABLE SAA
+ⷄ ↔ ቔ ; # ETHIOPIC SYLLABLE SEE
+ⷅ ↔ ቕ ; # ETHIOPIC SYLLABLE SE
+ⷆ ↔ ቖ ; # ETHIOPIC SYLLABLE SO
+#
+ኧ ↔ አ ; # ETHIOPIC SYLLABLE GLOTTAL WA
+አ ↔ ኣ ; # ETHIOPIC SYLLABLE GLOTTAL A
+#
+ኲ ↔ 𞟵 ; # ETHIOPIC SYLLABLE KWI
+ኴ ↔ 𞟶 ; # ETHIOPIC SYLLABLE KWEE
+ኵ ↔ 𞟷 ; # ETHIOPIC SYLLABLE KWE
+#
+ኸ ↔ ሐ ; # ETHIOPIC SYLLABLE KXA
+ኹ ↔ ሑ ; # ETHIOPIC SYLLABLE KXU
+ኺ ↔ ሒ ; # ETHIOPIC SYLLABLE KXI
+ኻ ↔ ሓ ; # ETHIOPIC SYLLABLE KXAA
+ኼ ↔ ሔ ; # ETHIOPIC SYLLABLE KXEE
+ኽ ↔ ሕ ; # ETHIOPIC SYLLABLE KXE
+ኾ ↔ ሖ ; # ETHIOPIC SYLLABLE KXO
+ዀ ↔ 𞟨 ; # ETHIOPIC SYLLABLE KXWA
+ዂ ↔ 𞟩 ; # ETHIOPIC SYLLABLE KXWI
+ዃ ↔ ሗ ; # ETHIOPIC SYLLABLE KXWAA
+ዄ ↔ 𞟪 ; # ETHIOPIC SYLLABLE KXWEE
+ዅ ↔ 𞟫 ; # ETHIOPIC SYLLABLE KXWE
+#
+ⷈ ↔ ኸ ; # ETHIOPIC SYLLABLE KYA
+ⷉ ↔ ኹ ; # ETHIOPIC SYLLABLE KYU
+ⷊ ↔ ኺ ; # ETHIOPIC SYLLABLE KYI
+ⷋ ↔ ኻ ; # ETHIOPIC SYLLABLE KYAA
+ⷌ ↔ ኼ ; # ETHIOPIC SYLLABLE KYEE
+ⷍ ↔ ኽ ; # ETHIOPIC SYLLABLE KYE
+ⷎ ↔ ኾ ; # ETHIOPIC SYLLABLE KYO
+#
+ⷐ ↔ 𞟠 ; # ETHIOPIC SYLLABLE XYA
+ⷑ ↔ 𞟡 ; # ETHIOPIC SYLLABLE XYU
+ⷒ ↔ 𞟢 ; # ETHIOPIC SYLLABLE XYI
+ⷓ ↔ 𞟣 ; # ETHIOPIC SYLLABLE XYAA
+ⷔ ↔ 𞟤 ; # ETHIOPIC SYLLABLE XYEE
+ⷕ ↔ 𞟥 ; # ETHIOPIC SYLLABLE XYE
+ⷖ ↔ 𞟦 ; # ETHIOPIC SYLLABLE XYO
+#
+ጒ ↔ 𞟸 ; # ETHIOPIC SYLLABLE GWI
+ጔ ↔ 𞟹 ; # ETHIOPIC SYLLABLE GWEE
+ጕ ↔ 𞟺 ; # ETHIOPIC SYLLABLE GWE
+#
+ⷘ ↔ ጘ ; # ETHIOPIC SYLLABLE GYA 
+ⷙ ↔ ጙ ; # ETHIOPIC SYLLABLE GYU
+ⷚ ↔ ጚ ; # ETHIOPIC SYLLABLE GYI
+ⷛ ↔ ጛ ; # ETHIOPIC SYLLABLE GYAA
+ⷜ ↔ ጜ ; # ETHIOPIC SYLLABLE GYEE
+ⷝ ↔ ጝ ; # ETHIOPIC SYLLABLE GYE
+ⷞ ↔ ጞ ; # ETHIOPIC SYLLABLE GYO
+#
+ᎉ ↔ 𞟻 ; # ETHIOPIC SYLLABLE FWI
+ᎊ ↔ 𞟼 ; # ETHIOPIC SYLLABLE FWEE 
+#
+ᎍ ↔ 𞟽 ; # ETHIOPIC SYLLABLE PWI
+ᎎ ↔ 𞟾 ; # ETHIOPIC SYLLABLE PWEE 
+#
+########################################################################
+			]]></tRule>
+		</transform>
+	</transforms>
+</supplementalData>

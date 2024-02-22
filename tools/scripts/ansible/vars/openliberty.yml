@@ -1,0 +1,10 @@
+# This file contains variables used by devopstoolbox.openliberty for Survey Tool
+openliberty_firewall_configure: false
+openliberty_packages_state: present
+openliberty_remove_packages: true
+openliberty_enable_service: false
+openliberty_enable_selinux: false
+openliberty_copy_templates: false
+openliberty_users:
+  - user: "{{ cldr_openliberty_user }}"
+    group: "{{ cldr_openliberty_group }}"

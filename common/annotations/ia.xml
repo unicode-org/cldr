@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2023 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
@@ -21,10 +21,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏾" type="tts">tono de pelle medio-obscur</annotation>
 		<annotation cp="🏿">tono de pelle | tono de pelle obscur | typo 6</annotation>
 		<annotation cp="🏿" type="tts">tono de pelle obscur</annotation>
-		<annotation cp="🫀">battimento del corde | centro | corde | organo | pulsation cardiac | pulsation del corde | rhythmo cardiac | rhythmo del corde</annotation>
-		<annotation cp="🫀" type="tts">corde</annotation>
-		<annotation cp="🫁">exhalation | halito | inhalation | organo | pulmones | respiration | sufflo | suspiro</annotation>
-		<annotation cp="🫁" type="tts">pulmones</annotation>
 		<annotation cp="😀">facie | surridente | surriso | visage | visage con grande surriso</annotation>
 		<annotation cp="😀" type="tts">visage con grande surriso</annotation>
 		<annotation cp="😃">aperte | bucca | facie | grande surriso con grande oculos | surriso | visage</annotation>
@@ -37,7 +33,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😆" type="tts">grande surriso con oculos clause</annotation>
 		<annotation cp="😅">aperte | facie | frigide | grande surriso con gutta de sudor | sudor | visage</annotation>
 		<annotation cp="😅" type="tts">grande surriso con gutta de sudor</annotation>
-		<annotation cp="🤣">facie | ridente | riso | rolante se per terra de rider | rolar | visage</annotation>
+		<annotation cp="🤣">facie | lacrimas | ridente | riso | rolante se per terra de rider | visage</annotation>
 		<annotation cp="🤣" type="tts">rolante se per terra de rider</annotation>
 		<annotation cp="😂">facie | gaudio | joia | lacrimas | visage | visage plorante de riso</annotation>
 		<annotation cp="😂" type="tts">visage plorante de riso</annotation>
@@ -69,6 +65,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👃" type="tts">naso</annotation>
 		<annotation cp="🧠">cerebro | intelligente</annotation>
 		<annotation cp="🧠" type="tts">cerebro</annotation>
+		<annotation cp="🫀">battimento del corde | centro | corde | organo | pulsation | rhythmo cardiac | rhythmo del corde</annotation>
+		<annotation cp="🫀" type="tts">corde</annotation>
+		<annotation cp="🫁">exhalation | halito | inhalation | organo | pulmones | respiration | sufflo</annotation>
+		<annotation cp="🫁" type="tts">pulmones</annotation>
 		<annotation cp="🦷">dental | dentari | dente | dentista | odontologia | orthodontista</annotation>
 		<annotation cp="🦷" type="tts">dente</annotation>
 		<annotation cp="🦴">osso | osteologia | skeleto</annotation>
@@ -81,6 +81,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👅" type="tts">lingua</annotation>
 		<annotation cp="👄">bucca | labial | labios | oral | ore</annotation>
 		<annotation cp="👄" type="tts">bucca</annotation>
+		<annotation cp="🤵">fidantiato | homine | marito | persona in tuxedo | sponso | sposo | tuxedo</annotation>
+		<annotation cp="🤵" type="tts">persona in tuxedo</annotation>
+		<annotation cp="👰">femina | fidantiata | marita | persona con vela | sponsa | sposa | vela</annotation>
+		<annotation cp="👰" type="tts">persona con vela</annotation>
 		<annotation cp="🦰">capillos rosse | rossa | rossastre | rubee | rubie | rubre</annotation>
 		<annotation cp="🦰" type="tts">capillos rosse</annotation>
 		<annotation cp="🦱">afro | buclate | buclettas | capillos | crispe</annotation>
@@ -135,6 +139,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚷" type="tts">prohibite al pedones</annotation>
 		<annotation cp="📵">interdicite | mobile | portabile | prohibite | telephono | telephonos mobile prohibite</annotation>
 		<annotation cp="📵" type="tts">telephonos mobile prohibite</annotation>
+		<annotation cp="✖">multiplication</annotation>
+		<annotation cp="✖" type="tts">multiplication</annotation>
+		<annotation cp="➕">plus</annotation>
+		<annotation cp="➕" type="tts">plus</annotation>
+		<annotation cp="➖">minus</annotation>
+		<annotation cp="➖" type="tts">minus</annotation>
+		<annotation cp="➗">÷ | divider | division | mathematica | signo</annotation>
+		<annotation cp="➗" type="tts">division</annotation>
 		<annotation cp="🏁">bandiera | bandiera a quadros | currer | cursa | quadrettos | quadros</annotation>
 		<annotation cp="🏁" type="tts">bandiera a quadros</annotation>
 		<annotation cp="🚩">bandiera triangular | palo</annotation>

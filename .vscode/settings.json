@@ -1,0 +1,11 @@
+{
+    "java.test.config": [{
+        "name": "cldrtest",
+        "workingDirectory": "${workspaceFolder}",
+        "vmargs": [
+            "-DCLDR_DIR=${workspaceFolder}",
+            "-DCLDR_ENVIRONMENT=UNITTEST"
+        ]
+    }],
+    "java.test.defaultConfig": "cldrtest",
+}

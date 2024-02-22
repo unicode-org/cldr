@@ -1,0 +1,34 @@
+
+.rows {
+    display: table;
+    margin-top: 2em;
+}
+
+.row {
+    display: table-row;
+}
+
+.key {
+    border: 1px solid gray;
+    padding: 0.25em;
+    margin-right: 0.5em;
+    height: 2em;
+    display: table-cell;
+    font-size: small;
+}
+
+.gap-key {
+    background-color: gray;
+}
+
+.to-key {
+    background-color: beige;
+}
+
+.switch-key {
+    background-color: lime;
+}
+
+.contents {
+    padding: 1em;
+}

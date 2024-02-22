@@ -1,0 +1,25 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.provider "virtualbox" do |v|
+    v.memory = 8192
+  end
+  # increase the boot timeout
+  config.vm.boot_timeout = 600
+  config.vm.box = "ubuntu/jammy64";
+  config.vm.define "surveytool"
+  config.vm.hostname = "surveytool"
+  # forward http and https
+  config.vm.network "forwarded_port", guest: 80,   host: 8880
+  config.vm.network "forwarded_port", guest: 9080,   host: 9081
+  # Just the minimum to get ansible going
+  config.vm.provision "shell", inline: <<-SHELL
+    apt-get update
+    apt-get install -y python3 sudo
+  SHELL
+  config.vm.provision "ansible" do |ansible|
+    ansible.compatibility_mode = "2.0"
+    ansible.playbook = "vagrant-playbook.yml"
+  end
+end

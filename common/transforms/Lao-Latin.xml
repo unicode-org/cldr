@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<!--
+Copyright © 1991-2013 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<supplementalData>
+	<version number="$Revision$"/>
+	<transforms>
+		<transform source="Laoo" target="Latn" variant="UNGEGN" direction="forward" draft="provisional" alias="Lao-Latin/BGN und-Latn-t-und-laoo-m0-bgn">
+			<tRule><![CDATA[
+########################################################################
+# Provisional transcription for Lao
+# https://www.eki.ee/wgrs/rom2_lo.htm
+# TODO handle consonants at the end of words specially
+ ເັຽະ→ia ;
+ ເຶອະ→ua ;
+ ເາະ→o ;
+ ເິະ→eu ;
+ ເັຽ→ia ;
+ ເຶອ→ua ;
+ ເືອ→ua ;
+ ົວະ→oua ;
+ ເົາ→ao ;
+ ຣ໌ →r ;
+ ເະ→é ;
+ ເັ→é ;
+ ແະ→è ;
+ ແັ→è ;
+ ໂະ→ô ;
+ ັອ→o ;
+ ເິ→eu ;
+ ເີ→eu ;
+ ເື→eu ;
+ ັຽ→ia ;
+ ັວ→oua ;
+ ົວ→oua ;
+ ກ→k ;
+ ຂ→kh ;
+ ຄ→kh ;
+ ງ→ng ;
+ ຈ→ch ;
+ ສ→s ;
+ ຊ→x ;
+ ຍ→gn ;
+ ດ→d ;
+ ຕ→t ;
+ ຖ→th ;
+ ທ→th ;
+ ນ→n ;
+ ບ→b ;
+ ປ→p ;
+ ຜ→ph ;
+ ຝ→f ;
+ ພ→ph ;
+ ຟ→f ;
+ ມ→m ;
+ ຢ→y ;
+ ຣ→r ;
+ ລ→l ;
+ ວ→v ;
+ ຫ→h ;
+ [[:L:][:M:]]{ອ→'-' ;
+  ອ→ ;
+  ຮ→h ;
+  
+ ະ→a ;
+ ັ→a ;
+ າ→a ;
+ ິ→i ;
+ ີ→i ;
+ ຶ→u ;
+ ື→u ;
+ ຸ→ou ;
+ ູ→ou ;
+ ເ→é ;
+ ແ→è ;
+ ົ→ô ;
+ ໂ→ô ;
+ ໍ→o ;
+ #ອ→o ;
+ ຽ→ia ;
+ #ວ→oua ;
+ ໄ→ai ;
+ ໃ→ai ;
+ ຳ→am ;
+ ່→ ;
+ ້→ ;
+ ໊→ ;
+ ໋→ ;
+ ຯ→… ;
+ ฯ→… ;
+  ໆ→⓶ ;
+ ຼ→o ;
+ ໌→ ;
+ ໜ→n ;
+ ໝ→n ;
+     			]]></tRule>
+		</transform>
+	</transforms>
+</supplementalData>

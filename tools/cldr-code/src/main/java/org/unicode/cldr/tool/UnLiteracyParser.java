@@ -1,17 +1,14 @@
 package org.unicode.cldr.tool;
 
+import com.ibm.icu.number.LocalizedNumberFormatter;
+import com.ibm.icu.number.NumberFormatter;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.TreeMap;
-
-import org.checkerframework.checker.units.qual.C;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
-
-import com.ibm.icu.number.LocalizedNumberFormatter;
-import com.ibm.icu.number.NumberFormatter;
 
 public class UnLiteracyParser extends XMLFileReader.SimpleHandler {
 
@@ -38,9 +35,24 @@ public class UnLiteracyParser extends XMLFileReader.SimpleHandler {
             Long unknown = py.total(UNKNOWN);
             Long total = py.total(TOTAL);
 
-            System.out.println(country + "\t" + latest + "\t" + literate + "/" + illiterate + ", " + unknown + " = " + total);
+            System.out.println(
+                    country
+                            + "\t"
+                            + latest
+                            + "\t"
+                            + literate
+                            + "/"
+                            + illiterate
+                            + ", "
+                            + unknown
+                            + " = "
+                            + total);
             if ((literate + illiterate + unknown) != total) {
-                System.out.println("- doesn't add up for " + country + " - total is " + (literate+illiterate+unknown));
+                System.out.println(
+                        "- doesn't add up for "
+                                + country
+                                + " - total is "
+                                + (literate + illiterate + unknown));
             }
         }
     }
@@ -49,14 +61,22 @@ public class UnLiteracyParser extends XMLFileReader.SimpleHandler {
 
     // Reading stuff
     public static final String UN_LITERACY = "external/un_literacy.xml";
+
     UnLiteracyParser read() {
         System.out.println("* Reading " + UN_LITERACY);
         new XMLFileReader()
-           .setHandler(this).readCLDRResource(UN_LITERACY, XMLFileReader.CONTENT_HANDLER, false);
+                .setHandler(this)
+                .readCLDRResource(UN_LITERACY, XMLFileReader.CONTENT_HANDLER, false);
         // get the final record
         handleNewRecord();
         LocalizedNumberFormatter nf = NumberFormatter.with().locale(Locale.ENGLISH);
-        System.out.println("* Read " + nf.format(recCount) + " record(s) with " + nf.format(perCountry.size()) + " region(s) from " + UN_LITERACY);
+        System.out.println(
+                "* Read "
+                        + nf.format(recCount)
+                        + " record(s) with "
+                        + nf.format(perCountry.size())
+                        + " region(s) from "
+                        + UN_LITERACY);
         return this;
     }
 
@@ -71,19 +91,20 @@ public class UnLiteracyParser extends XMLFileReader.SimpleHandler {
     }
 
     @Override
-    public
-    void handleElement(CharSequence path) {
+    public void handleElement(CharSequence path) {
         if ("//ROOT/data/record".equals(path.toString())) {
             handleNewRecord();
         }
     }
 
     // Data ingestion
-    final Map<String,String> thisRecord = new HashMap<String,String>();
+    final Map<String, String> thisRecord = new HashMap<String, String>();
+
     private void handleField(String field, String value) {
         final String old = thisRecord.put(field, value);
         if (old != null) {
-            throw new IllegalArgumentException("Duplicate field " + field + ", context: " + thisRecord);
+            throw new IllegalArgumentException(
+                    "Duplicate field " + field + ", context: " + thisRecord);
         }
     }
 
@@ -98,8 +119,8 @@ public class UnLiteracyParser extends XMLFileReader.SimpleHandler {
 
     boolean validate() {
         try {
-            assertEqual("Area","Total");
-            assertEqual("Sex","Both Sexes");
+            assertEqual("Area", "Total");
+            assertEqual("Sex", "Both Sexes");
 
             assertPresent(AGE);
             assertPresent(COUNTRY_OR_AREA);
@@ -109,7 +130,7 @@ public class UnLiteracyParser extends XMLFileReader.SimpleHandler {
             assertPresent(RELIABILITY);
 
             return true;
-        } catch(Throwable t) {
+        } catch (Throwable t) {
             final String context = thisRecord.toString();
             throw new IllegalArgumentException("While parsing " + context, t);
         }
@@ -119,7 +140,7 @@ public class UnLiteracyParser extends XMLFileReader.SimpleHandler {
         String value = get(field);
         if (value == null) {
             throw new NullPointerException("Missing field: " + field);
-        } else if(value.isEmpty()) {
+        } else if (value.isEmpty()) {
             throw new NullPointerException("Empty field: " + field);
         }
     }
@@ -128,7 +149,8 @@ public class UnLiteracyParser extends XMLFileReader.SimpleHandler {
         assertPresent(field);
         String value = get(field);
         if (!value.equals(expected)) {
-            throw new NullPointerException("Expected " + field + "=" + expected + " but got " + value);
+            throw new NullPointerException(
+                    "Expected " + field + "=" + expected + " but got " + value);
         }
     }
 
@@ -144,14 +166,19 @@ public class UnLiteracyParser extends XMLFileReader.SimpleHandler {
         final String age = get(AGE);
         final String literacy = get(LITERACY);
         final String reliability = get(RELIABILITY);
-        final PerAge pa = perCountry.computeIfAbsent(country, (String c) -> new PerCountry())
-        .perYear.computeIfAbsent(year, (String y) -> new PerYear())
-        .perAge.computeIfAbsent(age, (String a) -> new PerAge());
+        final PerAge pa =
+                perCountry
+                        .computeIfAbsent(country, (String c) -> new PerCountry())
+                        .perYear
+                        .computeIfAbsent(year, (String y) -> new PerYear())
+                        .perAge
+                        .computeIfAbsent(age, (String a) -> new PerAge());
 
         if (pa.reliability == null) {
             pa.reliability = reliability;
         } else if (!pa.reliability.equals(reliability)) {
-            throw new IllegalArgumentException("Inconsistent reliability " + reliability + " for " + thisRecord);
+            throw new IllegalArgumentException(
+                    "Inconsistent reliability " + reliability + " for " + thisRecord);
         }
         final Long old = pa.perLiteracy.put(literacy, getLongValue());
         if (old != null) {
@@ -161,7 +188,8 @@ public class UnLiteracyParser extends XMLFileReader.SimpleHandler {
 
     private long getLongValue() {
         final String value = get(VALUE);
-        if (value.contains(".")) { // yes. some of the data has decimal points. Ignoring the fractional part.
+        if (value.contains(
+                ".")) { // yes. some of the data has decimal points. Ignoring the fractional part.
             return Long.parseLong(value.split("\\.")[0]);
         } else {
             return Long.parseLong(value);
@@ -171,18 +199,21 @@ public class UnLiteracyParser extends XMLFileReader.SimpleHandler {
     final Map<String, PerCountry> perCountry = new TreeMap<String, PerCountry>();
 
     final class PerCountry {
-        final Map<String, PerYear> perYear = new TreeMap<String,PerYear>();
+        final Map<String, PerYear> perYear = new TreeMap<String, PerYear>();
 
         public String latest() {
             final String y[] = perYear.keySet().toArray(new String[0]);
-            return y[y.length-1];
+            return y[y.length - 1];
         }
     }
 
     final class PerYear {
         final Map<String, PerAge> perAge = new TreeMap<String, PerAge>();
+
         Long total(String literacy) {
-            return perAge.values().stream().map((pa) -> pa.perLiteracy.getOrDefault(literacy, 0L)).reduce(0L, (Long a, Long b) -> a + b);
+            return perAge.values().stream()
+                    .map((pa) -> pa.perLiteracy.getOrDefault(literacy, 0L))
+                    .reduce(0L, (Long a, Long b) -> a + b);
         }
     }
 

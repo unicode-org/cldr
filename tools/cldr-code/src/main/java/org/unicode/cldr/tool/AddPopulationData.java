@@ -1,10 +1,16 @@
 package org.unicode.cldr.tool;
 
+import com.ibm.icu.text.ListFormat;
+import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.Output;
+import com.ibm.icu.util.ULocale;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -12,17 +18,11 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CldrUtility.LineHandler;
 import org.unicode.cldr.util.Counter2;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.StandardCodes;
-
-import com.ibm.icu.text.ListFormat;
-import com.ibm.icu.text.NumberFormat;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.ULocale;
 
 public class AddPopulationData {
     static boolean ADD_POP = CldrUtility.getProperty("ADD_POP", false);
@@ -480,10 +480,22 @@ public class AddPopulationData {
     }
 
     static void loadUnLiteracy() throws IOException {
+        for (final Pair<String, Double> p : getUnLiteracy(null)) {
+            un_literacy.add(p.getFirst(), p.getSecond());
+        }
+    }
+
+    /**
+     * @param hadErr on return, true if there were errs
+     * @return list of code,percent values
+     * @throws IOException
+     */
+    static List<Pair<String, Double>> getUnLiteracy(Output<Boolean> hadErr) throws IOException {
+        List<Pair<String, Double>> result = new LinkedList<>();
         UnLiteracyParser ulp;
         try {
             ulp = new UnLiteracyParser().read();
-        } catch(Throwable t) {
+        } catch (Throwable t) {
             throw new IOException("Could not read UN data " + UnLiteracyParser.UN_LITERACY, t);
         }
 
@@ -497,6 +509,9 @@ public class AddPopulationData {
 
             String code = CountryCodeConverter.getCodeFromName(country, true, missing);
             if (code == null) {
+                if (hadErr != null) {
+                    hadErr.value = true;
+                }
                 continue;
             }
             if (!StandardCodes.isCountry(code)) {
@@ -507,8 +522,12 @@ public class AddPopulationData {
             }
             double total = literate + illiterate;
             double percent = ((double) literate) / total;
-            un_literacy.add(code, percent);
+            result.add(Pair.of(code, percent));
         }
+        if (result.isEmpty()) {
+            hadErr.value = true;
+        }
+        return result;
     }
 
     static {

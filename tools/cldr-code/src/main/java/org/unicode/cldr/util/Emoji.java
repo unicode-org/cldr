@@ -88,16 +88,10 @@ public class Emoji {
                 line = line.substring(1).trim();
                 if (line.startsWith("group:")) {
                     majorCategory = line.substring("group:".length()).trim();
-                    Long oldMajorOrder = majorToOrder.get(majorCategory);
-                    if (oldMajorOrder == null) {
-                        majorToOrder.put(majorCategory, (long) majorToOrder.size());
-                    }
+                    majorToOrder.computeIfAbsent(majorCategory, k -> (long) majorToOrder.size());
                 } else if (line.startsWith("subgroup:")) {
                     minorCategory = line.substring("subgroup:".length()).trim();
-                    Long oldMinorOrder = minorToOrder.get(minorCategory);
-                    if (oldMinorOrder == null) {
-                        minorToOrder.put(minorCategory, (long) minorToOrder.size());
-                    }
+                    minorToOrder.computeIfAbsent(minorCategory, k -> (long) minorToOrder.size());
                 }
                 continue;
             }
@@ -312,14 +306,6 @@ public class Emoji {
         return majorCat;
     }
 
-    public static Set<String> getMajorCategories() {
-        return emojiToMajorCategory.values();
-    }
-
-    public static Set<String> getMinorCategories() {
-        return emojiToMinorCategory.values();
-    }
-
     public static Set<String> getMinorCategoriesWithExtras() {
         Set<String> result = new LinkedHashSet<>(emojiToMinorCategory.values());
         result.addAll(EXTRA_SYMBOL_MINOR_CATEGORIES.getAvailableValues());
@@ -337,15 +323,10 @@ public class Emoji {
     }
 
     private static Set<String> NAME_PATHS = null;
-    private static Set<String> KEYWORD_PATHS = null;
     public static final String TYPE_TTS = "[@type=\"tts\"]";
 
     public static synchronized Set<String> getNamePaths() {
         return NAME_PATHS != null ? NAME_PATHS : (NAME_PATHS = buildPaths(TYPE_TTS));
-    }
-
-    public static synchronized Set<String> getKeywordPaths() {
-        return KEYWORD_PATHS != null ? KEYWORD_PATHS : (KEYWORD_PATHS = buildPaths(""));
     }
 
     private static ImmutableSet<String> buildPaths(String suffix) {
@@ -368,21 +349,22 @@ public class Emoji {
         final String major = getMajorCategory(emoji);
         final String minor = getMinorCategory(emoji);
         final PageId pageId = PageId.forString(major);
+        final Long minorOrder = minorToOrder.get(minor);
         switch (pageId) {
+            case Objects:
+                return (minorOrder < minorToOrder.get("money")) ? PageId.Objects : PageId.Objects2;
             case People:
-                if (minorToOrder.get(minor) < minorToOrder.get("person-fantasy")) {
-                    return PageId.People;
-                } else {
-                    return PageId.People2;
-                }
+                return (minorOrder < minorToOrder.get("person-fantasy"))
+                        ? PageId.People
+                        : PageId.People2;
             case Symbols:
-                if (minorToOrder.get(minor) < minorToOrder.get("transport-sign")) {
-                    return PageId.Symbols;
-                } else if (minorToOrder.get(minor) < minorToOrder.get("other-symbol")) {
-                    return PageId.Symbols2;
-                } else {
-                    return PageId.Symbols3;
-                }
+                return (minorOrder < minorToOrder.get("transport-sign"))
+                        ? PageId.Symbols
+                        : PageId.EmojiSymbols;
+            case Travel_Places:
+                return (minorOrder < minorToOrder.get("transport-ground"))
+                        ? PageId.Travel_Places
+                        : PageId.Travel_Places2;
             default:
                 return pageId;
         }

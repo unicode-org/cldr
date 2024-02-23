@@ -136,7 +136,7 @@ public class LanguageInfoTest extends TestFmwk {
     static final ULocale MUL = new ULocale(LocaleNames.MUL);
 
     public void testFallbacks() {
-        if (logKnownIssue("ICU-21241", "waiting on LocaleMatcherData update")) {
+        if (logKnownIssue("CLDR-17189", "waiting on LocaleMatcherData update")) {
             return;
         }
         for (R4<String, String, Integer, Boolean> foo :

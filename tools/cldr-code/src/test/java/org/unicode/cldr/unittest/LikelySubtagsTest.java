@@ -223,16 +223,6 @@ public class LikelySubtagsTest extends TestFmwk {
     }
 
     public void TestCompleteness() {
-        // if (logKnownIssue("Cldrbug:7121",
-        // "Problems with likely subtags test")) {
-        // return;
-        // }
-        // checkAdding("und_Bopo");
-        // checkAdding("und_Brai");
-        // checkAdding("und_Limb");
-        // checkAdding("und_Cakm");
-        // checkAdding("und_Shaw");
-
         final LanguageTagParser ltp = new LanguageTagParser();
         if (DEBUG) {
             System.out.println(TAGS.languages.size() + "\t" + TAGS.languages);

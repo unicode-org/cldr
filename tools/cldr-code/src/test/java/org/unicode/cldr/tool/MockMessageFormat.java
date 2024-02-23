@@ -1,12 +1,5 @@
 package org.unicode.cldr.tool;
 
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Sets;
 import com.ibm.icu.number.NumberFormatter;
@@ -17,20 +10,38 @@ import com.ibm.icu.text.DecimalFormatSymbols;
 import com.ibm.icu.text.NumberingSystem;
 import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.PluralRules.IFixedDecimal;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
+/**
+ * A mock implementation of a possible internal organization for MF2. Each function is represented
+ * by a FunctionFactory. That factory can take an input value or FunctionVariable, plus options, and
+ * produce a FunctionVariable. For example, a NumberFactory represents the :number function. It can
+ * take an input value (say a Double) and some options, and produce a NumberVariable. <br>
+ * A function factory may produce a different type. For example, a StringFunction (aka :string)
+ * could take a NumberVariable, and produce a StringVariable. <br>
+ * This is a mockup, and no attempt has been made to produce optimal coden, nor is everything
+ * cleanly encapsulated with getters/setters, nor marked with private/public as would be needed for
+ * a real API, nor with good error checking.
+ */
 public class MockMessageFormat {
 
     private final MFContext context;
+
+    public MFContext getContext() {
+        return context;
+    }
 
     public MockMessageFormat(Locale locale) {
         context = new MFContext(locale);
     }
 
-    /**
-     * Format a variant, once it has been chosen.
-     */
+    /** Format a variant, once it has been chosen. */
     private String format(String variant) {
-        // dumb implementation
         StringBuilder result = new StringBuilder();
         int lastPosition = 0;
         while (true) {
@@ -46,29 +57,27 @@ public class MockMessageFormat {
             }
             // the variant messages are pre-parsed to not have any options
             String varString = variant.substring(start + 1, end);
-            FunctionBundle bundle = context.namedBundles.get(varString);
-            if (bundle == null) {
+            FunctionVariable variable = context.namedVariables.get(varString);
+            if (variable == null) {
                 throw new IllegalArgumentException("No variable named " + varString);
             }
-            result.append(bundle.format(context));
+            result.append(variable.format(context));
             lastPosition = end + 1;
         }
     }
 
-    /**
-     * Represents a set of variants with keys
-     */
+    /** Represents a set of variants with keys */
     private static class Variants {
         private Map<List<String>, String> map = new LinkedHashMap<>();
 
-        String getBestMatch(MFContext context, List<FunctionBundle> selectors) {
+        String getBestMatch(MFContext context, List<FunctionVariable> selectors) {
             // dumb algorithm for now, just first match
             for (Entry<List<String>, String> entry : map.entrySet()) {
                 if (selectors.size() != entry.getKey().size()) {
                     throw new IllegalArgumentException();
                 }
                 int i = 0;
-                for (FunctionBundle selector : selectors) {
+                for (FunctionVariable selector : selectors) {
                     if (selector.match(context, entry.getKey().get(i))) {
                         return entry.getValue();
                     }
@@ -89,31 +98,32 @@ public class MockMessageFormat {
     }
 
     /**
-     * A factory that represents a particular function. It is used to create a FunctionBundle from
+     * A factory that represents a particular function. It is used to create a FunctionVariable from
      * either an input, or another variable (
      */
-   public interface FunctionFactory {
-        public FunctionBundle fromBundle(FunctionBundle bundle, OptionsMap options);
+    public interface FunctionFactory {
+        public FunctionVariable fromVariable(
+                String variableName, MFContext context, OptionsMap options);
 
-        public FunctionBundle fromInput(Object input, OptionsMap options);
+        public FunctionVariable fromInput(Object input, OptionsMap options);
 
         public boolean canSelect();
 
         public boolean canFormat();
     }
 
-    /**
-     * A bundle of information that results from applying a function (factory).
-     */
-    abstract static class FunctionBundle {
-        OptionsMap options;
+    /** A variable of information that results from applying a function (factory). */
+    abstract static class FunctionVariable {
+        private OptionsMap options;
         // The subclasses will have a value as well
 
         public OptionsMap getOptions() {
             return options;
         }
 
-        public abstract void setOptions(OptionsMap options);
+        public void setOptions(OptionsMap options) {
+            this.options = options;
+        }
 
         public abstract boolean match(MFContext contact, String matchKey);
 
@@ -127,14 +137,92 @@ public class MockMessageFormat {
         }
     }
 
-    /**
-     * A factory that represents a particular function (in this case :number).
-     */
+    static class StringFactory implements FunctionFactory {
+
+        @Override
+        public FunctionVariable fromVariable(
+                String variableName, MFContext context, OptionsMap options) {
+            FunctionVariable variable = context.get(variableName);
+            validate(options);
+            return new StringVariable(variable.format(context), options);
+        }
+
+        static final Set<String> ALLOWED = Set.of("casing");
+
+        private void validate(OptionsMap options) {
+            // simple for now
+            if (!ALLOWED.containsAll(options.keySet())) {
+                throw new IllegalArgumentException(
+                        "Invalid options: " + Sets.difference(options.keySet(), ALLOWED));
+            }
+        }
+
+        @Override
+        public FunctionVariable fromInput(Object input, OptionsMap options) {
+            validate(options);
+            return new StringVariable(input.toString(), options);
+        }
+
+        @Override
+        public boolean canSelect() {
+            return true;
+        }
+
+        @Override
+        public boolean canFormat() {
+            return true;
+        }
+    }
+
+    static class StringVariable extends FunctionVariable {
+        private String value;
+
+        public StringVariable(String string, OptionsMap options) {
+            value = string;
+            setOptions(options);
+        }
+
+        @Override
+        public void setOptions(OptionsMap options) {
+            super.options = options;
+        }
+
+        @Override
+        public boolean match(MFContext contact, String matchKey) {
+            return value.equals(matchKey);
+        }
+
+        @Override
+        public String format(MFContext context) {
+            Object casing = getOptions().get("casing");
+            if (casing == null) {
+                return value;
+            }
+            final String caseOption = casing.toString();
+            switch (caseOption) {
+                case "upper":
+                    return value.toUpperCase(context.locale);
+                case "lower":
+                    return value.toLowerCase(context.locale);
+                default:
+                    throw new IllegalArgumentException("Illegal casing=" + caseOption);
+            }
+        }
+
+        @Override
+        public String toString() {
+            return "value=" + value + ", options=" + getOptions().toString();
+        }
+    }
+
+    /** A factory that represents a particular function (in this case :number). */
     static class NumberFactory implements FunctionFactory {
         @Override
-        public NumberBundle fromBundle(FunctionBundle bundle, OptionsMap options) {
+        public NumberVariable fromVariable(
+                String variableName, MFContext context, OptionsMap options) {
+            FunctionVariable variable = context.get(variableName);
             // In this case, we always
-            if (!(bundle instanceof NumberBundle)) {
+            if (!(variable instanceof NumberVariable)) {
                 throw new IllegalArgumentException("Number requires numbers");
             }
             validate(options);
@@ -142,17 +230,17 @@ public class MockMessageFormat {
             // Determine if any mutate.
             // In that case, they could modify the value, and modify the options
             // Otherwise...
-            return new NumberBundle(
-                    ((NumberBundle) bundle).value, bundle.getOptions().merge(options));
+            return new NumberVariable(
+                    ((NumberVariable) variable).value, variable.getOptions().merge(options));
         }
 
         @Override
-        public NumberBundle fromInput(Object input, OptionsMap options) {
+        public NumberVariable fromInput(Object input, OptionsMap options) {
             if (!(input instanceof Number)) {
                 throw new IllegalArgumentException("Number requires numbers");
             }
             validate(options);
-            return new NumberBundle((Number) input, options);
+            return new NumberVariable((Number) input, options);
         }
 
         @Override
@@ -170,17 +258,15 @@ public class MockMessageFormat {
 
         public void validate(OptionsMap options) {
             // simple for now
-            if (!ALLOWED.containsAll(options.map.keySet())) {
+            if (!ALLOWED.containsAll(options.keySet())) {
                 throw new IllegalArgumentException(
-                        "Invalid options: " + Sets.difference(options.map.keySet(), ALLOWED));
+                        "Invalid options: " + Sets.difference(options.keySet(), ALLOWED));
             }
         }
     }
 
-    /**
-     * A bundle of information that results from applying number function (factory).
-     */
-    static class NumberBundle extends FunctionBundle {
+    /** A variable of information that results from applying number function (factory). */
+    static class NumberVariable extends FunctionVariable {
         Number value;
         UnlocalizedNumberFormatter nf = NumberFormatter.with();
         String keyword = null;
@@ -193,17 +279,14 @@ public class MockMessageFormat {
                     + ", keyword="
                     + keyword
                     + ", optionsApplied="
-                    + optionsApplied;
+                    + optionsApplied
+                    + ", options="
+                    + getOptions();
         }
 
-        @Override
-        public void setOptions(OptionsMap options) {
-            this.options = options;
-        }
-
-        private NumberBundle(Number operand, OptionsMap options) {
+        private NumberVariable(Number operand, OptionsMap options) {
             value = operand;
-            this.options = options;
+            setOptions(options);
         }
 
         @Override
@@ -235,7 +318,7 @@ public class MockMessageFormat {
                 return;
             }
             // for the options matching those in ICU NumberFormatter, we could drop after processing
-            for (Entry<String, Object> entry : options.entrySet()) {
+            for (Entry<String, Object> entry : getOptions().entrySet()) {
                 switch (entry.getKey()) {
                     case "maxFractionDigits":
                         nf.precision(Precision.maxFraction(((Integer) entry.getValue())));
@@ -262,34 +345,32 @@ public class MockMessageFormat {
         }
     }
 
-    /**
-     * A container for context that the particular bundles will need.
-     */
+    /** A container for context that the particular variables will need. */
     static class MFContext {
-        public final Map<String, FunctionBundle> namedBundles = new LinkedHashMap<>();
+        public final Map<String, FunctionVariable> namedVariables = new LinkedHashMap<>();
         public final Locale locale;
 
         public MFContext(Locale locale) {
             this.locale = locale;
         }
 
-        public FunctionBundle get(String name) {
-            return namedBundles.get(name);
+        public FunctionVariable get(String name) {
+            return namedVariables.get(name);
         }
 
-        public void put(String name, FunctionBundle numberBundle) {
-            if (namedBundles.containsKey(name)) {
+        public void put(String name, FunctionVariable numberVariable) {
+            if (namedVariables.containsKey(name)) {
                 throw new IllegalArgumentException("Can't reassign variable");
             }
-            namedBundles.put(name, numberBundle);
+            namedVariables.put(name, numberVariable);
         }
     }
 
-    /**
-     * A container for an options map.
-     */
+    /** A container for an options map. <b> Could have enum keys instead of Strings. */
     static class OptionsMap {
         final Map<String, Object> map;
+
+        static final OptionsMap EMPTY = new OptionsMap(ImmutableMap.of());
 
         static class OptionBuilder {
             Map<String, Object> map = new LinkedHashMap<>();
@@ -312,6 +393,14 @@ public class MockMessageFormat {
             return map.entrySet();
         }
 
+        public Set<String> keySet() {
+            return map.keySet();
+        }
+
+        public Object get(String option) {
+            return map.get(option);
+        }
+
         public OptionsMap merge(OptionsMap options) {
             Map<String, Object> temp = new LinkedHashMap<>();
             temp.putAll(options.map);
@@ -330,71 +419,86 @@ public class MockMessageFormat {
 
     /**
      * Run some simple examples
+     *
      * @param args
      */
     public static void main(String[] args) {
-        System.out.println(formatTest(Locale.forLanguageTag("ar"), 3.456));
-        System.out.println(formatTest(Locale.forLanguageTag("fr"), 0));
-        System.out.println(formatTest(Locale.forLanguageTag("en"), 1));
+        System.out.println(formatTest(Locale.forLanguageTag("ar"), 3.456, "John"));
+        System.out.println(formatTest(Locale.forLanguageTag("fr"), 0, "John"));
+        System.out.println(formatTest(Locale.forLanguageTag("en"), 1, "John"));
+        System.out.println(formatTest(Locale.forLanguageTag("en"), 1, "Sarah"));
     }
 
     /**
-     * This is a mockup of an example with MF2. It is just looking at the structure,
-     * so it doesn't bother with actually parsing the message.
-     * Instead, it shows code that would be generated when interpreting the MF2 string.
-     * There are no optimizations for speed or memory since it is a mockup.
+     * This is a mockup of an example with MF2. It is just looking at the structure, so it doesn't
+     * bother with actually parsing the message. Instead, it shows code that would be generated when
+     * interpreting the MF2 string. There are no optimizations for speed or memory since it is a
+     * mockup.
+     *
      * @param locale
      * @param varInput
      * @return
      */
-    public static String formatTest(Locale locale, Number varInput) {
+    public static String formatTest(Locale locale, Number inputCount, String inputName) {
         MockMessageFormat mf = new MockMessageFormat(locale);
+        final MFContext context = mf.getContext();
 
         // .input {$var :number maxFractionDigits=2 minFractionDigits=1}
         NumberFactory number = new NumberFactory(); // create at first need
-        mf.context.put(
+        context.put(
                 "$var",
                 number.fromInput(
-                        varInput,
+                        inputCount,
                         OptionsMap.put("maxFractionDigits", 3).put("minFractionDigits", 1).done()));
 
+        // .input {$name :string}
+        StringFactory string = new StringFactory(); // create at first need
+        context.put("$name", string.fromInput(inputName, OptionsMap.EMPTY));
+
         // .local {$var2 :number maxFractionDigits=3}
-        mf.context.put(
+        context.put(
                 "$var2",
-                number.fromBundle(mf.context.get("$var"), OptionsMap.put("maxFractionDigits", 2).done()));
+                number.fromVariable(
+                        "$var", context, OptionsMap.put("maxFractionDigits", 2).done()));
 
-        // .match {$var2 :number numberingSystem=arab}
-        // 0 {{The selector can apply a different annotation to {$var2} for the purposes of
-        // selection}}
-        // one {{Matches ‘one’ with {$var2}}
-        // * {{A placeholder in a pattern can apply a different annotation to {$var2 :number
-        // signDisplay=always}}}
+        // .match {$var2 :number numberingSystem=arab} {$name}
+        // 0 hi {{There are no books for the {$name}.}
+        // one hi{{There is {$var2} book for {$name}.}
+        // * * {{There are {$var2 :number signDisplay=always} books for {$name option="upper"}.}}
 
-        // For simplicity in this mockup, we pull all the additional function values out ahead of time, giving them
+        // For simplicity in this mockup, we pull all the additional function values out ahead of
+        // time, giving them
         // non-colliding identifiers.
-        mf.context.put(
+        context.put(
                 "$var2_a",
-                number.fromBundle(mf.context.get("$var2"), OptionsMap.put("numberingSystem", "arab").done()));
-        mf.context.put(
+                number.fromVariable(
+                        "$var2", context, OptionsMap.put("numberingSystem", "arab").done()));
+        context.put(
                 "$var2_b",
-                number.fromBundle(mf.context.get("$var2"), OptionsMap.put("signDisplay", "always").done()));
+                number.fromVariable(
+                        "$var2", context, OptionsMap.put("signDisplay", "always").done()));
+        context.put(
+                "$name_b",
+                string.fromVariable("$name", context, OptionsMap.put("casing", "upper").done()));
 
         // We then build the variants and match them
 
         Variants variants =
                 new Variants(
                         ImmutableMap.of(
-                                List.of("0"),
-                                "The selector can apply a different annotation to {$var} for the purposes of selection",
-                                List.of("one"),
-                                "Matches ‘one’ with {$var2_a}",
-                                List.of("*"),
-                                "A placeholder in a pattern can apply a different annotation to {$var2_b}."));
-        String variant = variants.getBestMatch(mf.context, List.of(mf.context.get("$var2_a")));
+                                List.of("0", "John"),
+                                "There are no books for the {$name}.",
+                                List.of("one", "John"),
+                                "There is {$var2} book for {$name}.",
+                                List.of("*", "*"),
+                                "There are {$var2_b} books for {$name_b}."));
+        String variant =
+                variants.getBestMatch(
+                        context, List.of(context.get("$var2_a"), context.get("$name")));
 
         // And finally, we format (only format to string is needed for this mockup
 
         String formatted = mf.format(variant);
-        return locale + "/" + varInput + " 🡆 " + formatted;
+        return locale + ", " + inputCount + ", " + inputName + " 🡆 " + formatted;
     }
 }

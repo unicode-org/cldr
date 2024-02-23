@@ -199,12 +199,8 @@ public class TestAttributeValues extends TestFmwk {
                 }
                 // XMLFileReader.read("noId", inputStreamReader, -1, true, myHandler);
             } catch (XMLStreamException e) {
-                if (!logKnownIssue("cldrbug 10120", "XML reading issue")) {
-                    warnln("Can't read " + fullFile);
-                } else {
-                    throw (IllegalArgumentException)
-                            new IllegalArgumentException("Can't read " + fullFile).initCause(e);
-                }
+                throw (IllegalArgumentException)
+                        new IllegalArgumentException("Can't read " + fullFile).initCause(e);
             } catch (Throwable e) {
                 if (r == null) throw e;
                 throw new IllegalArgumentException(" at " + r.getLocation(), e);

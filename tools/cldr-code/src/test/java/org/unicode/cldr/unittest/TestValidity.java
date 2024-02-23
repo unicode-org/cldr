@@ -192,10 +192,6 @@ public class TestValidity extends TestFmwkPlus {
                             if (ALLOWED_MISSING.contains(code)) {
                                 continue;
                             }
-                            if (code.equals("cqzzzz")
-                                    && logKnownIssue("CLDR-16464", "Skipping cqzzzz")) {
-                                continue;
-                            }
                             errln(
                                     messages,
                                     type

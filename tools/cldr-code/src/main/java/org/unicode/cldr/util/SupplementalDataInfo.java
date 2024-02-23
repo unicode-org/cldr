@@ -897,6 +897,9 @@ public class SupplementalDataInfo {
 
     private VersionInfo cldrVersion;
 
+    private String cldrVersionString = null;
+    private String unicodeVersion = null;
+
     private Map<String, PopulationData> territoryToPopulationData = new TreeMap<>();
 
     private Map<String, Map<String, PopulationData>> territoryToLanguageToPopulationData =
@@ -1325,7 +1328,9 @@ public class SupplementalDataInfo {
                             // old format
                             version = parts.getAttributeValue(0, "version");
                         }
+                        cldrVersionString = version;
                         cldrVersion = VersionInfo.getInstance(version);
+                        unicodeVersion = parts.getAttributeValue(1, "unicodeVersion");
                     }
                     return;
                 }
@@ -4959,6 +4964,18 @@ public class SupplementalDataInfo {
 
     public VersionInfo getCldrVersion() {
         return cldrVersion;
+    }
+
+    public String getUnicodeVersionString() {
+        return unicodeVersion;
+    }
+
+    public VersionInfo getUnicodeVersion() {
+        return VersionInfo.getInstance(getUnicodeVersionString());
+    }
+
+    public String getCldrVersionString() {
+        return cldrVersionString;
     }
 
     public File getDirectory() {

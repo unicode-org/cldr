@@ -478,7 +478,7 @@ public class TestCheckCLDR extends TestFmwk {
         return oldLevel;
     }
 
-    /** undo the effect of a popCheckLevel */
+    /** undo the effect of a pushCheckLevel */
     public void popCheckLevel(java.util.logging.Level oldLevel) {
         if (oldLevel != null) {
             CheckCLDR.setLoggerLevel(oldLevel);

@@ -1587,9 +1587,14 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                 cldrCountries.add(x.getFirst());
             }
             if (!isoCountries.equals(cldrCountries)) {
-                if (!logKnownIssue(
-                        "cldrbug:10765", "Missing codes compared to ISO: " + missing.toString())) {
-
+                // TODO 17397: remove isKnownIssue and the if around errln when the logknown issue
+                // goes away.
+                final boolean skipKnownIssue =
+                        currency.equals("ANG")
+                                && isoCountries.isEmpty()
+                                && cldrCountries.equals(Set.of("CW", "SX"))
+                                && logKnownIssue("CLDR-17397", "Mismatched codes " + cldrCountries);
+                if (!skipKnownIssue) {
                     errln(
                             "Mismatch between ISO and Cldr modern currencies for "
                                     + currency

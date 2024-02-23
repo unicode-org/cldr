@@ -10,12 +10,14 @@ import com.ibm.icu.text.DecimalFormatSymbols;
 import com.ibm.icu.text.NumberingSystem;
 import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.PluralRules.IFixedDecimal;
+import java.math.BigDecimal;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import org.unicode.cldr.tool.MockMessageFormat.FunctionVariable.MatchType;
 
 /**
  * A mock implementation of a possible internal organization for MF2. Each function is represented
@@ -30,102 +32,62 @@ import java.util.Set;
  */
 public class MockMessageFormat {
 
-    private final MFContext context;
-
-    public MFContext getContext() {
-        return context;
-    }
-
-    public MockMessageFormat(Locale locale) {
-        context = new MFContext(locale);
-    }
-
-    /** Format a variant, once it has been chosen. */
-    private String format(String variant) {
-        StringBuilder result = new StringBuilder();
-        int lastPosition = 0;
-        while (true) {
-            int start = variant.indexOf('{', lastPosition);
-            if (start < 0) { // failed
-                result.append(variant.substring(lastPosition));
-                return result.toString();
-            }
-            result.append(variant.substring(lastPosition, start));
-            int end = variant.indexOf('}', start);
-            if (end < 0) {
-                throw new IllegalArgumentException();
-            }
-            // the variant messages are pre-parsed to not have any options
-            String varString = variant.substring(start + 1, end);
-            FunctionVariable variable = context.namedVariables.get(varString);
-            if (variable == null) {
-                throw new IllegalArgumentException("No variable named " + varString);
-            }
-            result.append(variable.format(context));
-            lastPosition = end + 1;
-        }
-    }
-
-    /** Represents a set of variants with keys */
-    private static class Variants {
-        private Map<List<String>, String> map = new LinkedHashMap<>();
-
-        String getBestMatch(MFContext context, List<FunctionVariable> selectors) {
-            // dumb algorithm for now, just first match
-            for (Entry<List<String>, String> entry : map.entrySet()) {
-                if (selectors.size() != entry.getKey().size()) {
-                    throw new IllegalArgumentException();
-                }
-                int i = 0;
-                for (FunctionVariable selector : selectors) {
-                    if (selector.match(context, entry.getKey().get(i))) {
-                        return entry.getValue();
-                    }
-                }
-                ++i;
-            }
-            throw new IllegalArgumentException();
-        }
-
-        Variants(Map<List<String>, String> map) {
-            this.map = ImmutableMap.copyOf(map);
-        }
-
-        @Override
-        public String toString() {
-            return map.toString();
-        }
-    }
-
     /**
      * A factory that represents a particular function. It is used to create a FunctionVariable from
      * either an input, or another variable (
      */
     public interface FunctionFactory {
+        /**
+         * Get a value from a variable, such as $count. An error may be thrown if not convertible.
+         */
         public FunctionVariable fromVariable(
                 String variableName, MFContext context, OptionsMap options);
 
+        /**
+         * Get a value from an input datatype, such as a Double. so an error may be thrown if not
+         * convertible.
+         */
         public FunctionVariable fromInput(Object input, OptionsMap options);
 
+        /** Use an implementation-neutral parse to get an internal value. */
+        public FunctionVariable fromLiteral(String literal, OptionsMap options);
+
+        /** Used in checking syntax */
         public boolean canSelect();
 
+        /** Used in checking syntax */
         public boolean canFormat();
     }
 
-    /** A variable of information that results from applying a function (factory). */
+    /**
+     * An immutable variable containing information that results from applying a FunctionFactory
+     * such as :number or :date. The FunctionVariable is specific to FunctionFactory.
+     */
     abstract static class FunctionVariable {
         private OptionsMap options;
         // The subclasses will have a value as well
 
+        /** Return the stored options (immutable) */
         public OptionsMap getOptions() {
             return options;
         }
 
-        public void setOptions(OptionsMap options) {
+        /** Set the options. Only usable in the subclasses */
+        protected void setOptions(OptionsMap options) {
             this.options = options;
         }
 
-        public abstract boolean match(MFContext contact, String matchKey);
+        public enum MatchType {
+            NO_MATCH,
+            EXACT,
+            LOOSE
+        }
+
+        /**
+         * Matches this value against the result produced by its FunctionFactory from the literal
+         * matchKey.
+         */
+        public abstract MatchType match(MFContext contact, String matchKey);
 
         public abstract String format(MFContext contact);
 
@@ -145,6 +107,11 @@ public class MockMessageFormat {
             FunctionVariable variable = context.get(variableName);
             validate(options);
             return new StringVariable(variable.format(context), options);
+        }
+
+        @Override
+        public FunctionVariable fromLiteral(String literal, OptionsMap options) {
+            return fromInput(literal, options);
         }
 
         static final Set<String> ALLOWED = Set.of("casing");
@@ -188,8 +155,8 @@ public class MockMessageFormat {
         }
 
         @Override
-        public boolean match(MFContext contact, String matchKey) {
-            return value.equals(matchKey);
+        public MatchType match(MFContext contact, String matchKey) {
+            return value.equals(matchKey) ? MatchType.EXACT : MatchType.NO_MATCH;
         }
 
         @Override
@@ -235,6 +202,12 @@ public class MockMessageFormat {
         }
 
         @Override
+        public NumberVariable fromLiteral(String literal, OptionsMap options) {
+            // needs to use an implementation-neutral parse
+            return fromInput(new BigDecimal(literal), options);
+        }
+
+        @Override
         public NumberVariable fromInput(Object input, OptionsMap options) {
             if (!(input instanceof Number)) {
                 throw new IllegalArgumentException("Number requires numbers");
@@ -269,7 +242,7 @@ public class MockMessageFormat {
     static class NumberVariable extends FunctionVariable {
         Number value;
         UnlocalizedNumberFormatter nf = NumberFormatter.with();
-        String keyword = null;
+        String pluralCategory = null;
         boolean optionsApplied = false;
 
         @Override
@@ -277,7 +250,7 @@ public class MockMessageFormat {
             return "number="
                     + value
                     + ", keyword="
-                    + keyword
+                    + pluralCategory
                     + ", optionsApplied="
                     + optionsApplied
                     + ", options="
@@ -290,21 +263,23 @@ public class MockMessageFormat {
         }
 
         @Override
-        public boolean match(MFContext context, String matchKey) {
-            if (matchKey.equals("*")) {
-                return true;
-            } else if (matchKey.charAt(0) < 'A') { // hack for now
-                return value.toString().equals(matchKey);
+        public MatchType match(MFContext context, String matchKey) {
+            if (matchKey.charAt(0) < 'A') {
+                // hack for now; should perform a better comparison that matches
+                // irrespective of the type of number
+                return value.toString().equals(matchKey) ? MatchType.EXACT : MatchType.NO_MATCH;
             }
-            if (keyword == null) {
+            // TODO, look at select option to pick cardinal vs ordinal vs none.
+            if (pluralCategory == null) {
+                // get the plural category
                 applyOptions(context);
                 PluralRules rules =
                         PluralRules.forLocale(context.locale, PluralRules.PluralType.CARDINAL);
                 IFixedDecimal fixedDecimal =
                         nf.locale(context.locale).format(value).getFixedDecimal();
-                keyword = rules.select(fixedDecimal);
+                pluralCategory = rules.select(fixedDecimal);
             }
-            return keyword.equals(matchKey);
+            return pluralCategory.equals(matchKey) ? MatchType.LOOSE : MatchType.NO_MATCH;
         }
 
         @Override
@@ -417,6 +392,77 @@ public class MockMessageFormat {
         }
     }
 
+    /** Represents a set of variants with keys */
+    private static class Variants {
+        private Map<List<String>, String> map = new LinkedHashMap<>();
+
+        String getBestMatch(MFContext context, List<FunctionVariable> selectors) {
+            // It is just a dumb algorithm for matching since that isn't the point of this mock:
+            // just the first list of keys where each element is either a loose match (eg *) or
+            // exact match
+            for (Entry<List<String>, String> entry : map.entrySet()) {
+                if (selectors.size() != entry.getKey().size()) {
+                    throw new IllegalArgumentException();
+                }
+                int i = 0;
+                for (FunctionVariable selector : selectors) {
+                    final String matchKey = entry.getKey().get(i);
+                    if (matchKey.equals("*")
+                            || selector.match(context, matchKey) != MatchType.NO_MATCH) {
+                        return entry.getValue(); // return the variant submessage
+                    }
+                }
+                ++i;
+            }
+            throw new IllegalArgumentException();
+        }
+
+        Variants(Map<List<String>, String> map) {
+            this.map = ImmutableMap.copyOf(map);
+        }
+
+        @Override
+        public String toString() {
+            return map.toString();
+        }
+    }
+
+    private final MFContext context;
+
+    public MFContext getContext() {
+        return context;
+    }
+
+    public MockMessageFormat(Locale locale) {
+        context = new MFContext(locale);
+    }
+
+    /** Format a variant message, once it has been chosen. */
+    private String format(String variant) {
+        StringBuilder result = new StringBuilder();
+        int lastPosition = 0;
+        while (true) {
+            int start = variant.indexOf('{', lastPosition);
+            if (start < 0) { // failed
+                result.append(variant.substring(lastPosition));
+                return result.toString();
+            }
+            result.append(variant.substring(lastPosition, start));
+            int end = variant.indexOf('}', start);
+            if (end < 0) {
+                throw new IllegalArgumentException();
+            }
+            // the variant messages are pre-parsed to not have any options
+            String varString = variant.substring(start + 1, end);
+            FunctionVariable variable = context.namedVariables.get(varString);
+            if (variable == null) {
+                throw new IllegalArgumentException("No variable named " + varString);
+            }
+            result.append(variable.format(context));
+            lastPosition = end + 1;
+        }
+    }
+
     /**
      * Run some simple examples
      *
@@ -455,6 +501,9 @@ public class MockMessageFormat {
         StringFactory string = new StringFactory(); // create at first need
         context.put("$name", string.fromInput(inputName, OptionsMap.EMPTY));
 
+        // .input {$amount :number}
+        context.put("$amount", number.fromLiteral("3.2", OptionsMap.EMPTY));
+
         // .local {$var2 :number maxFractionDigits=3}
         context.put(
                 "$var2",
@@ -487,7 +536,7 @@ public class MockMessageFormat {
                 new Variants(
                         ImmutableMap.of(
                                 List.of("0", "John"),
-                                "There are no books for the {$name}.",
+                                "There are no books for {$name}.",
                                 List.of("one", "John"),
                                 "There is {$var2} book for {$name}.",
                                 List.of("*", "*"),

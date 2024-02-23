@@ -1386,6 +1386,10 @@ public class Ldml2JsonConverter {
         obj.addProperty("license", CLDRURLS.UNICODE_SPDX);
         obj.addProperty("bugs", CLDRURLS.CLDR_NEWTICKET_URL);
 
+        final SupplementalDataInfo sdi = CLDRConfig.getInstance().getSupplementalDataInfo();
+        obj.addProperty("cldrVersion", sdi.getCldrVersionString());
+        obj.addProperty("unicodeVersion", sdi.getUnicodeVersionString());
+
         outf.println(gson.toJson(obj));
         outf.close();
     }

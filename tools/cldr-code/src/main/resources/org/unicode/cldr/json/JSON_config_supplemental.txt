@@ -31,7 +31,7 @@ section=references ; path=//cldr/supplemental/references/.* ; package=core
 section=telephoneCodeData ; path=//cldr/supplemental/telephoneCodeData/.* ; package=core
 section=windowsZones ; path=//cldr/supplemental/windowsZones/.* ; package=core
 section=aliases ; path=//cldr/supplemental/metadata/alias/(language|script|subdivision|territory|variant|zone)Alias.* ; package=core
-section=units ; path=//cldr/supplemental/(unitConstants|unitQuantities|convertUnits).* ; package=core
+section=units ; path=//cldr/supplemental/(unitConstants|unitQuantities|convertUnits|unitPrefixes).* ; package=core
 section=unitsMetadata ; path=//cldr/supplemental/metadata/.*/(unitAlias|usageAlias).* ; package=core
 section=unitIdComponents ; path=//cldr/supplemental/unitIdComponents/.* ; package=core
 

@@ -1256,11 +1256,11 @@ public class Ldml2JsonConverter {
                 outf.println();
             } else if (packageName.endsWith(MODERN_TIER_SUFFIX)) {
                 outf.println(
-                        "This package contains only the set of locales listed as modern coverage. See also the `"
+                        "**Deprecated** This package contains only the set of locales listed as modern coverage. Use `"
                                 + CLDR_PKG_PREFIX
                                 + basePackageName
                                 + FULL_TIER_SUFFIX
-                                + "` package.");
+                                + "` and locale coverage data instead. The -modern packages are scheduled to be removed in v46, see [CLDR-16465](https://unicode-org.atlassian.net/browse/CLDR-16465).");
                 outf.println();
             }
             outf.println();
@@ -1356,10 +1356,8 @@ public class Ldml2JsonConverter {
 
         final String basePackageName = getBasePackageName(packageName);
         String description = configFileReader.getPackageDescriptions().get(basePackageName);
-        if (packageName.endsWith(FULL_TIER_SUFFIX)) {
-            description = description + " (all locales)";
-        } else if (packageName.endsWith(MODERN_TIER_SUFFIX)) {
-            description = description + " (modern coverage locales)";
+        if (packageName.endsWith(MODERN_TIER_SUFFIX)) {
+            description = description + " (modern only: deprecated)";
         }
         obj.addProperty("description", description);
 
@@ -1576,7 +1574,7 @@ public class Ldml2JsonConverter {
             } else {
                 {
                     JsonObject packageEntry = new JsonObject();
-                    packageEntry.addProperty("description", e.getValue() + " (basic)");
+                    packageEntry.addProperty("description", e.getValue());
                     packageEntry.addProperty("tier", "full");
                     packageEntry.addProperty("name", CLDR_PKG_PREFIX + baseName + FULL_TIER_SUFFIX);
                     packages.add(packageEntry);
@@ -1586,17 +1584,7 @@ public class Ldml2JsonConverter {
                 }
                 {
                     JsonObject packageEntry = new JsonObject();
-                    packageEntry.addProperty("description", e.getValue() + " (basic)");
-                    packageEntry.addProperty("tier", "full");
-                    packageEntry.addProperty("name", CLDR_PKG_PREFIX + baseName + FULL_TIER_SUFFIX);
-                    packages.add(packageEntry);
-                    pkgsToDesc.put(
-                            packageEntry.get("name").getAsString(),
-                            packageEntry.get("description").getAsString());
-                }
-                {
-                    JsonObject packageEntry = new JsonObject();
-                    packageEntry.addProperty("description", e.getValue() + " (modern)");
+                    packageEntry.addProperty("description", e.getValue() + " modern (deprecated)");
                     packageEntry.addProperty("tier", "modern");
                     packageEntry.addProperty(
                             "name", CLDR_PKG_PREFIX + baseName + MODERN_TIER_SUFFIX);
@@ -1611,6 +1599,10 @@ public class Ldml2JsonConverter {
         for (Map.Entry<String, String> e : pkgsToDesc.entrySet()) {
             pkgs.println("### [" + e.getKey() + "](./cldr-json/" + e.getKey() + "/)");
             pkgs.println();
+            if (e.getKey().contains("-modern")) {
+                pkgs.println(
+                        " - **Note: Deprecated** see [CLDR-16465](https://unicode-org.atlassian.net/browse/CLDR-16465).");
+            }
             pkgs.println(" - " + e.getValue());
             pkgs.println(" - " + getNpmBadge(e.getKey()));
             pkgs.println();

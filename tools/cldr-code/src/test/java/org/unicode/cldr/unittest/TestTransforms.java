@@ -672,13 +672,6 @@ public class TestTransforms extends TestFmwkPlus {
 
         String lithuanianSource =
                 "I \u00CF J J\u0308 \u012E \u012E\u0308 \u00CC \u00CD \u0128 xi\u0307\u0308 xj\u0307\u0308 x\u012F\u0307\u0308 xi\u0307\u0300 xi\u0307\u0301 xi\u0307\u0303 XI X\u00CF XJ XJ\u0308 X\u012E X\u012E\u0308";
-        // The following test was formerly skipped with
-        // !logKnownIssue("11094", "Fix ICU4J UCharacter.toTitleCase/toLowerCase for lt").
-        // However [https://unicode-org.atlassian.net/browse/ICU-11094] is supposedly
-        // fixed in the version of ICU4J currently in CLDR, but removing the logKnownIssue
-        // to execute the test results in test failures, mainly for  i\u0307\u0308.
-        // So I am changing the logKnownIssue to reference a CLDR ticket about
-        // investigating the test (it may be wrong).
         if (!logKnownIssue(
                 "cldrbug:13313", "Investigate the Lithuanian casing test, it may be wrong")) {
             Transliterator ltTitle =

@@ -947,9 +947,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                                         + oldSchool
                                         + " in allowed: "
                                         + preferredAndAllowedHour.allowed;
-                        // if (!logKnownIssue("cldrbug:11448", message)) {
                         errln(message);
-                        // }
                     }
                     break;
                 }
@@ -1876,13 +1874,6 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                     testLocales.contains(locale) ? CoverageIssue.error : CoverageIssue.log;
             CoverageIssue needsCoverage2 =
                     needsCoverage == CoverageIssue.error ? CoverageIssue.warn : needsCoverage;
-
-            //            if (logKnownIssue("Cldrbug:8809", "Missing plural rules/samples be and ga
-            // locales")) {
-            //                if (locale.equals("be") || locale.equals("ga")) {
-            //                    needsCoverage = CoverageIssue.warn;
-            //                }
-            //            }
             PluralRulesFactory prf =
                     PluralRulesFactory.getInstance(
                             CLDRConfig.getInstance().getSupplementalDataInfo());

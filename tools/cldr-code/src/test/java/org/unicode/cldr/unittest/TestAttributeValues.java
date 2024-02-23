@@ -308,10 +308,6 @@ public class TestAttributeValues extends TestFmwk {
                 testLog.warnln("Skipping for keyboard3");
             }
             boolean haveProblems = false;
-            //          if (testLog.logKnownIssue("cldrbug 10120", "Don't enable error until
-            // complete")) {
-            //              testLog.warnln("Counts: " + counter.toString());
-            //          } else
             for (ValueStatus valueStatus : ValueStatus.values()) {
                 if (valueStatus == ValueStatus.valid) {
                     continue;

@@ -1,5 +1,15 @@
 package org.unicode.cldr.unittest;
 
+import com.google.common.base.Joiner;
+import com.google.common.collect.ComparisonChain;
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.LinkedListMultimap;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.TreeMultimap;
+import com.ibm.icu.impl.Relation;
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Row.R2;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,7 +29,6 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.stream.Collectors;
-
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.util.CLDRConfig;
@@ -62,17 +71,6 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
-
-import com.google.common.base.Joiner;
-import com.google.common.collect.ComparisonChain;
-import com.google.common.collect.HashMultimap;
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.LinkedListMultimap;
-import com.google.common.collect.Multimap;
-import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.impl.Relation;
-import com.ibm.icu.impl.Row;
-import com.ibm.icu.impl.Row.R2;
 
 public class TestPathHeader extends TestFmwkPlus {
     private static final DtdType DEBUG_DTD_TYPE = null; // DtdType.supplementalData;
@@ -1685,68 +1683,79 @@ public class TestPathHeader extends TestFmwkPlus {
     }
 
     static Comparator<Pair<SectionId, PageId>> comparator =
-        new Comparator<>() {
-            @Override
-            public int compare(Pair<SectionId, PageId> o1, Pair<SectionId, PageId> o2) {
-                return ComparisonChain.start()
-                        .compare(o1.getFirst(), o2.getFirst())
-                        .compare(o1.getSecond(), o2.getSecond())
-                        .result();
+            new Comparator<>() {
+                @Override
+                public int compare(Pair<SectionId, PageId> o1, Pair<SectionId, PageId> o2) {
+                    return ComparisonChain.start()
+                            .compare(o1.getFirst(), o2.getFirst())
+                            .compare(o1.getSecond(), o2.getSecond())
+                            .result();
+                }
+            };
+
+    public void testPageSize() {
+        final long minError = 600; // above this, emit error
+        final long minLog = 500; // otherwise above this, emit warning
+        Factory factory = CLDRConfig.getInstance().getCommonAndSeedAndMainAndAnnotationsFactory();
+        // "en", "cs", "ar", "pl"
+        List<String> locales =
+                StandardCodes.make()
+                        .getLocaleCoverageLocales(Organization.cldr, ImmutableSet.of(Level.MODERN))
+                        .stream()
+                        .filter(x -> CLDRLocale.getInstance(x).getCountry().isEmpty())
+                        .collect(Collectors.toUnmodifiableList());
+        List<Counter<PageId>> counters = new ArrayList<>();
+        for (String locale : locales) {
+            CLDRFile cldrFile = factory.make(locale, false);
+            PathHeader.Factory phf = PathHeader.getFactory();
+            Counter<PageId> c = new Counter<>();
+            counters.add(c);
+            for (String path : cldrFile) {
+                PathHeader ph = phf.fromPath(path);
+                c.add(ph.getPageId(), 1);
             }
-        };
-
-public void testPageSize() {
-    final long minError = 600; // above this, emit error
-    final long minLog = 500; // otherwise above this, emit warning
-    Factory factory = CLDRConfig.getInstance().getCommonAndSeedAndMainAndAnnotationsFactory();
-    // "en", "cs", "ar", "pl"
-    List<String> locales =
-            StandardCodes.make()
-                    .getLocaleCoverageLocales(Organization.cldr, ImmutableSet.of(Level.MODERN))
-                    .stream()
-                    .filter(x -> CLDRLocale.getInstance(x).getCountry().isEmpty())
-                    .collect(Collectors.toUnmodifiableList());
-    List<Counter<PageId>> counters = new ArrayList<>();
-    for (String locale : locales) {
-        CLDRFile cldrFile = factory.make(locale, false);
-        PathHeader.Factory phf = PathHeader.getFactory();
-        Counter<PageId> c = new Counter<>();
-        counters.add(c);
-        for (String path : cldrFile) {
-            PathHeader ph = phf.fromPath(path);
-            c.add(ph.getPageId(), 1);
+            for (PageId entry : c.getKeysetSortedByKey()) {
+                long count = c.getCount(entry);
+                if (count > minError) {
+                    errln(
+                            locale
+                                    + "\t"
+                                    + entry.getSectionId()
+                                    + "\t"
+                                    + entry
+                                    + "\thas too many entries:\t"
+                                    + count);
+                } else if (count > minLog) {
+                    logln(
+                            locale
+                                    + "\t"
+                                    + entry.getSectionId()
+                                    + "\t"
+                                    + "\thas too many entries:\t"
+                                    + count);
+                }
+            }
         }
-        for (PageId entry : c.getKeysetSortedByKey()) {
-            long count = c.getCount(entry);
-            if (count > minError) {
-                errln(locale + "\t" + entry.getSectionId() + "\t" + entry + "\thas too many entries:\t" + count);
-            } else if (count > minLog) {
-                logln(locale + "\t" + entry.getSectionId() + "\t" + "\thas too many entries:\t" + count);
+        if (isVerbose()) {
+            System.out.println();
+            Set<PageId> sorted = new TreeSet<>();
+            for (Counter<PageId> counter : counters) {
+                sorted.addAll(counter.keySet());
+            }
+            int i = 0;
+            System.out.print("Order" + "\t" + "Section" + "\t" + "Page");
+            for (String c : locales) {
+                System.out.print("\t" + c);
+            }
+            System.out.println();
+
+            for (PageId entry : sorted) {
+                System.out.print(++i + "\t" + entry.getSectionId() + "\t" + entry);
+                for (Counter<PageId> c : counters) {
+                    System.out.print("\t" + c.get(entry));
+                }
+                System.out.println();
             }
         }
     }
-    if (isVerbose()) {
-        System.out.println();
-    Set<PageId> sorted = new TreeSet<>();
-    for (Counter<PageId> counter : counters) {
-        sorted.addAll(counter.keySet());
-    }
-    int i = 0;
-    System.out.print("Order" + "\t" + "Section" + "\t" + "Page");
-    for (String c : locales) {
-        System.out.print("\t" + c);
-    }
-    System.out.println();
-
-    for (PageId entry : sorted) {
-        System.out.print(++i + "\t" + entry.getSectionId() + "\t" + entry);
-        for (Counter<PageId> c : counters) {
-            System.out.print("\t" + c.get(entry));
-        }
-        System.out.println();
-    }
-    }
-}
-
-
 }

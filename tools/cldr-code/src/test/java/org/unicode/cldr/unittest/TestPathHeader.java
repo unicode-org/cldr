@@ -1,7 +1,6 @@
 package org.unicode.cldr.unittest;
 
 import com.google.common.base.Joiner;
-import com.google.common.collect.ComparisonChain;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.LinkedListMultimap;
@@ -14,7 +13,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Comparator;
 import java.util.EnumMap;
 import java.util.EnumSet;
 import java.util.HashMap;
@@ -1681,17 +1679,6 @@ public class TestPathHeader extends TestFmwkPlus {
             }
         }
     }
-
-    static Comparator<Pair<SectionId, PageId>> comparator =
-            new Comparator<>() {
-                @Override
-                public int compare(Pair<SectionId, PageId> o1, Pair<SectionId, PageId> o2) {
-                    return ComparisonChain.start()
-                            .compare(o1.getFirst(), o2.getFirst())
-                            .compare(o1.getSecond(), o2.getSecond())
-                            .result();
-                }
-            };
 
     public void testPageSize() {
         final long minError = 600; // above this, emit error

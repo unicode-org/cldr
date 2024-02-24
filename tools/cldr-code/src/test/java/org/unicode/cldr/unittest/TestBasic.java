@@ -724,7 +724,7 @@ public class TestBasic extends TestFmwkPlus {
                     if (set == null) {
                         results.put(formatted, set = new TreeSet<>());
                     }
-                    set.add(Row.of(locale.toString(), Integer.valueOf(i)));
+                    set.add(Row.of(locale.toString(), i));
                 }
             }
         }

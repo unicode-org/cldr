@@ -152,7 +152,7 @@ public class CheckNumbers extends FactoryCheckCLDR {
 
         if (path.indexOf("/minimumGroupingDigits") >= 0) {
             try {
-                int mgd = Integer.valueOf(value);
+                int mgd = Integer.parseInt(value);
                 if (!CldrUtility.DIGITS.contains(value)) {
                     result.add(
                             new CheckStatus()

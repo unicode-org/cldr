@@ -319,7 +319,7 @@ public class XPathTable {
             }
 
             int id = rs.getInt(1);
-            nid = Integer.valueOf(id);
+            nid = id;
             setById(id, xpath);
             // logger.info("Mapped " + id + " back to " + xpath);
             rs.close();

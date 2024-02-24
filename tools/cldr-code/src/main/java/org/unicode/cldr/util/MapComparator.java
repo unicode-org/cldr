@@ -102,7 +102,7 @@ public class MapComparator<K> implements Comparator<K>, Freezable<MapComparator<
         Integer already = ordering.get(newObject);
         if (already == null) {
             if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
-            ordering.put(newObject, new Integer(rankToName.size()));
+            ordering.put(newObject, rankToName.size());
             rankToName.add(newObject);
         }
         return this;

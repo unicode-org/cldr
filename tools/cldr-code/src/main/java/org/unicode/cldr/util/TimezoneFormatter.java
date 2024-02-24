@@ -805,7 +805,7 @@ public class TimezoneFormatter extends UFormat {
                                 if (i >= STANDARD_LIMIT) {
                                     offset += tz.getDSTSavings();
                                 }
-                                localizedNonWall.put(name, new Long(offset));
+                                localizedNonWall.put(name, (long) offset);
                             } else {
                                 localizedNonWall.put(name, zoneId);
                             }

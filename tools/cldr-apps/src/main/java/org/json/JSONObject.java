@@ -707,7 +707,7 @@ public class JSONObject {
             Object o = opt(key);
             return o instanceof Number
                     ? ((Number) o).doubleValue()
-                    : new Double((String) o).doubleValue();
+                    : Double.parseDouble((String) o);
         } catch (Exception e) {
             return defaultValue;
         }
@@ -897,7 +897,7 @@ public class JSONObject {
      * @throws JSONException If the key is null or if the number is invalid.
      */
     public JSONObject put(String key, double value) throws JSONException {
-        put(key, new Double(value));
+        put(key, value);
         return this;
     }
 
@@ -910,7 +910,7 @@ public class JSONObject {
      * @throws JSONException If the key is null.
      */
     public JSONObject put(String key, int value) throws JSONException {
-        put(key, new Integer(value));
+        put(key, value);
         return this;
     }
 
@@ -923,7 +923,7 @@ public class JSONObject {
      * @throws JSONException If the key is null.
      */
     public JSONObject put(String key, long value) throws JSONException {
-        put(key, new Long(value));
+        put(key, value);
         return this;
     }
 
@@ -1117,7 +1117,7 @@ public class JSONObject {
         if ((b >= '0' && b <= '9') || b == '.' || b == '-' || b == '+') {
             if (b == '0' && s.length() > 2 && (s.charAt(1) == 'x' || s.charAt(1) == 'X')) {
                 try {
-                    return new Integer(Integer.parseInt(s.substring(2), 16));
+                    return Integer.parseInt(s.substring(2), 16);
                 } catch (Exception ignore) {
                 }
             }
@@ -1125,9 +1125,9 @@ public class JSONObject {
                 if (s.indexOf('.') > -1 || s.indexOf('e') > -1 || s.indexOf('E') > -1) {
                     return Double.valueOf(s);
                 } else {
-                    Long myLong = new Long(s);
+                    Long myLong = Long.parseLong(s);
                     if (myLong.longValue() == myLong.intValue()) {
-                        return new Integer(myLong.intValue());
+                        return myLong.intValue();
                     } else {
                         return myLong;
                     }

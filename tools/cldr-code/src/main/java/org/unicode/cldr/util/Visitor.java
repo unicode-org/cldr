@@ -45,15 +45,15 @@ public abstract class Visitor {
     // the default implementation boxing
 
     public void doAt(int o) {
-        doSimpleAt(new Integer(o));
+        doSimpleAt(o);
     }
 
     public void doAt(double o) {
-        doSimpleAt(new Double(o));
+        doSimpleAt(o);
     }
 
     public void doAt(char o) {
-        doSimpleAt(new Character(o));
+        doSimpleAt(o);
     }
 
     // for subclassing

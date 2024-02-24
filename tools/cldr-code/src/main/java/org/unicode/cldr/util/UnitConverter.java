@@ -51,7 +51,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 
 public class UnitConverter implements Freezable<UnitConverter> {
     public static boolean DEBUG = false;
-    public static final Integer INTEGER_ONE = Integer.valueOf(1);
+    public static final Integer INTEGER_ONE = 1;
 
     static final Splitter BAR_SPLITTER = Splitter.on('-');
     static final Splitter SPACE_SPLITTER = Splitter.on(' ').trimResults().omitEmptyStrings();
@@ -1694,7 +1694,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
 
     public static String stripPrefixPower(String unit, Output<Integer> deprefix) {
         if (deprefix != null) {
-            deprefix.value = Integer.valueOf(1);
+            deprefix.value = 1;
         }
         return stripPrefixCommon(unit, deprefix, PREFIX_POWERS);
     }

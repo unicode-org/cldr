@@ -1525,7 +1525,7 @@ public class PathHeader implements Comparable<PathHeader> {
                             try {
                                 if (specialRegions.contains(theTerritory)
                                         || theTerritory.charAt(0) < 'A'
-                                                && Integer.valueOf(theTerritory) > 0) {
+                                                && Integer.parseInt(theTerritory) > 0) {
                                     return "Geographic Regions";
                                 }
                             } catch (NumberFormatException ex) {
@@ -1598,7 +1598,7 @@ public class PathHeader implements Comparable<PathHeader> {
                             String theContinent = Containment.getContinent(theTerritory);
                             final String subcontinent = Containment.getSubcontinent(theTerritory);
                             String theSubContinent;
-                            switch (Integer.valueOf(theContinent)) {
+                            switch (Integer.parseInt(theContinent)) {
                                 case 9: // Oceania - For the timeZonePage, we group Australasia on
                                     // one page, and the rest of Oceania on the other.
                                     try {
@@ -1614,7 +1614,7 @@ public class PathHeader implements Comparable<PathHeader> {
                                 case 19: // Americas - For the timeZonePage, we just group North
                                     // America & South America
                                     theSubContinent =
-                                            Integer.valueOf(subcontinent) == 5 ? "005" : "003";
+                                            Integer.parseInt(subcontinent) == 5 ? "005" : "003";
                                     return englishFile.getName(
                                             CLDRFile.TERRITORY_NAME, theSubContinent);
                                 case 142: // Asia
@@ -1705,7 +1705,7 @@ public class PathHeader implements Comparable<PathHeader> {
                         // Probably only works well for small values, like -5 through +4.
                         @Override
                         public String transform(String source) {
-                            Integer pos = Integer.valueOf(source) + 5;
+                            Integer pos = Integer.parseInt(source) + 5;
                             suborder = new SubstringOrder(pos.toString());
                             return source;
                         }

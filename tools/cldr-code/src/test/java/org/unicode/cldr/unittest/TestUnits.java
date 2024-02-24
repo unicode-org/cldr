@@ -138,7 +138,7 @@ public class TestUnits extends TestFmwk {
     private static final Set<String> DEPRECATED_REGULAR_UNITS =
             Validity.getInstance().getStatusToCodes(LstrType.unit).get(Validity.Status.deprecated);
     private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
-    private static final Integer INTEGER_ONE = Integer.valueOf(1);
+    private static final Integer INTEGER_ONE = 1;
 
     public static boolean getFlag(String flag) {
         return CldrUtility.getProperty(flag, false);

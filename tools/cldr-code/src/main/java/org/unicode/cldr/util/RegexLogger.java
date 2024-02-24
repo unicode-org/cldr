@@ -462,9 +462,7 @@ public class RegexLogger {
             if (o == null) {
                 return 1;
             }
-            return new Integer(matchFailCount + matchMatchCount + findFailCount + findMatchCount)
-                    .compareTo(
-                            o.getNumberOfFindFailures()
+            return Integer.compare(matchFailCount + matchMatchCount + findFailCount + findMatchCount, o.getNumberOfFindFailures()
                                     + o.getNumberOfFindMatches()
                                     + o.getNumberOfMatchFailures()
                                     + o.getNumberOfMatchMatches());

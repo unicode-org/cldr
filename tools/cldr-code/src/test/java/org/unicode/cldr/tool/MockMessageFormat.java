@@ -1,6 +1,10 @@
 package org.unicode.cldr.tool;
 
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.LinkedHashMultimap;
+import com.google.common.collect.Multimap;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
@@ -240,10 +244,30 @@ public class MockMessageFormat {
      * @param args
      */
     public static void main(String[] args) {
-        System.out.println(formatTest(Locale.forLanguageTag("en-US"), 1, "John", "188/meter"));
-        System.out.println(formatTest(Locale.forLanguageTag("en"), 1, "Sarah", "1100/meter"));
-        System.out.println(formatTest(Locale.forLanguageTag("de"), 3.456, "John", "188/meter"));
-        System.out.println(formatTest(Locale.forLanguageTag("fr"), 0, "John", "188/meter"));
+        checkOffset(5, 2, "other");
+        checkOffset(5, 4, "one");
+        System.out.println(checkFormat(Locale.forLanguageTag("en-US"), 1, "John", "188/meter"));
+        System.out.println(checkFormat(Locale.forLanguageTag("en"), 1, "Sarah", "1100/meter"));
+        System.out.println(checkFormat(Locale.forLanguageTag("de"), 3.456, "John", "188/meter"));
+        System.out.println(checkFormat(Locale.forLanguageTag("fr"), 0, "John", "188/meter"));
+    }
+
+    private static void checkOffset(int input, int offset, String... nonZeroScoresArray) {
+        MockMessageFormat mf = new MockMessageFormat(Locale.FRANCE);
+        final MFContext context = mf.getContext();
+        FunctionFactory number = MockFunctions.get(":number"); // create at first need
+        FunctionVariable temp = number.fromInput(input, OptionsMap.put("u:offset", offset).done());
+        System.out.println("variable: value=" + input + " offset=" + offset + " pair=" + temp);
+        System.out.println("format=" + temp.format(context));
+        Multimap<Integer, String> scores = LinkedHashMultimap.create();
+        for (String key : Arrays.asList("0", "1", "one", "other")) {
+            int matchScore = temp.match(context, key);
+            scores.put(matchScore, key);
+        }
+        for (Entry<Integer, Collection<String>> entry : scores.asMap().entrySet()) {
+            System.out.println(
+                    "match score= " + entry.getKey() + ", matchValues=" + entry.getValue());
+        }
     }
 
     /**
@@ -257,7 +281,7 @@ public class MockMessageFormat {
      * @param varInput
      * @return
      */
-    public static String formatTest(
+    public static String checkFormat(
             Locale locale, Number inputCount, String inputName, String distance) {
         MockMessageFormat mf = new MockMessageFormat(locale);
         final MFContext context = mf.getContext();
@@ -277,7 +301,7 @@ public class MockMessageFormat {
         // .input {$amount :number}
         context.put("$amount", number.fromLiteral("3.2", OptionsMap.EMPTY));
 
-        // .local {$var2 :number maxFractionDigits=3}
+        // .local {$var2 :number maxFractionDigits=2}
         context.put(
                 "$var2",
                 number.fromVariable(
@@ -313,7 +337,7 @@ public class MockMessageFormat {
                         "$var2", context, OptionsMap.put("signDisplay", "always").done()));
         context.put(
                 "$name_b",
-                string.fromVariable("$name", context, OptionsMap.put("casing", "upper").done()));
+                string.fromVariable("$name", context, OptionsMap.put("u:casing", "upper").done()));
 
         // We then build the variants and match them
 

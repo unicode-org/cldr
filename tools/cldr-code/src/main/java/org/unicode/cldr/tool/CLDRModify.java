@@ -649,7 +649,7 @@ public class CLDRModify {
                             + CldrUtility.LINE_SEPARATOR
                             + "Use -? for help.");
         }
-        if (i == FIX) {
+        if (i == FIX && givenOptions.value != null) {
             final UnicodeSet allowedFilters = new UnicodeSet().add('P').add('Q').add('V');
             for (char c : givenOptions.value.toCharArray()) {
                 if (!allowedFilters.contains(c)) {

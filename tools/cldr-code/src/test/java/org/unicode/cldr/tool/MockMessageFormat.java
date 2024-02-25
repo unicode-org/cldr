@@ -59,7 +59,7 @@ public class MockMessageFormat {
      * An immutable variable containing information that results from applying a FunctionFactory
      * such as :number or :date. The FunctionVariable is specific to FunctionFactory.
      */
-    abstract static class FunctionVariable {
+    public abstract static class FunctionVariable {
         private OptionsMap options;
         // The subclasses will have a value as well
 

@@ -30,6 +30,55 @@ public class MockFunctions {
     /** FunctionFactory & FunctionVariable for :string */
     static class StringFactory implements FunctionFactory {
 
+        static class StringVariable extends FunctionVariable {
+            private String value;
+
+            public StringVariable(String string, OptionsMap options) {
+                value = string;
+                setOptions(options);
+            }
+
+            @Override
+            public void setOptions(OptionsMap options) {
+                super.setOptions(options);
+            }
+
+            @Override
+            public int match(MFContext contact, String matchKey) {
+                return value.equals(matchKey)
+                        ? FunctionVariable.EXACT_MATCH
+                        : FunctionVariable.NO_MATCH;
+            }
+
+            @Override
+            public String format(MFContext context) {
+                for (Entry<String, Object> entry : getOptions().entrySet()) {
+                    switch (entry.getKey()) {
+                        case "u:casing":
+                            final String caseOption = entry.getValue().toString();
+                            switch (caseOption) {
+                                case "upper":
+                                    return value.toUpperCase(context.locale);
+                                case "lower":
+                                    return value.toLowerCase(context.locale);
+                                default:
+                                    throw new IllegalArgumentException(
+                                            "Illegal casing=" + caseOption);
+                            }
+                        default:
+                            throw new IllegalArgumentException(
+                                    ":string doen't allow the option " + entry);
+                    }
+                }
+                return value;
+            }
+
+            @Override
+            public String toString() {
+                return "value=" + value + ", options=" + getOptions().toString();
+            }
+        }
+
         @Override
         public String getName() {
             return ":string";
@@ -75,56 +124,117 @@ public class MockFunctions {
         }
     }
 
-    static class StringVariable extends FunctionVariable {
-        private String value;
-
-        public StringVariable(String string, OptionsMap options) {
-            value = string;
-            setOptions(options);
-        }
-
-        @Override
-        public void setOptions(OptionsMap options) {
-            super.setOptions(options);
-        }
-
-        @Override
-        public int match(MFContext contact, String matchKey) {
-            return value.equals(matchKey)
-                    ? FunctionVariable.EXACT_MATCH
-                    : FunctionVariable.NO_MATCH;
-        }
-
-        @Override
-        public String format(MFContext context) {
-            for (Entry<String, Object> entry : getOptions().entrySet()) {
-                switch (entry.getKey()) {
-                    case "u:casing":
-                        final String caseOption = entry.getValue().toString();
-                        switch (caseOption) {
-                            case "upper":
-                                return value.toUpperCase(context.locale);
-                            case "lower":
-                                return value.toLowerCase(context.locale);
-                            default:
-                                throw new IllegalArgumentException("Illegal casing=" + caseOption);
-                        }
-                    default:
-                        throw new IllegalArgumentException(
-                                ":string doen't allow the option " + entry);
-                }
-            }
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return "value=" + value + ", options=" + getOptions().toString();
-        }
-    }
-
     /** FunctionFactory & FunctionVariable for :number */
     static class NumberFactory implements FunctionFactory {
+
+        /** A variable of information that results from applying number function (factory). */
+        static class NumberVariable extends FunctionVariable {
+            Number value;
+            Number offsettedValue;
+            UnlocalizedNumberFormatter nf = NumberFormatter.with();
+            String pluralCategory = null;
+            int offset = 0;
+            NumberingSystem numberingSystem = null;
+
+            @Override
+            public String toString() {
+                return "["
+                        + "baseValue="
+                        + value
+                        + ", offsettedValue="
+                        + offsettedValue
+                        + ", keyword="
+                        + pluralCategory
+                        + ", offset="
+                        + offset
+                        + ", options="
+                        + getOptions()
+                        + "]";
+            }
+
+            private NumberVariable(Number operand, OptionsMap options) {
+                value = operand;
+                offsettedValue = operand;
+                setOptions(options);
+                applyOptions();
+            }
+
+            @Override
+            public int match(MFContext context, String matchKey) {
+                if (matchKey.charAt(0) < 'A') {
+                    // hack for now; should perform a better comparison that matches
+                    // irrespective of the type of number
+                    return value.toString().equals(matchKey)
+                            ? FunctionVariable.EXACT_MATCH
+                            : FunctionVariable.NO_MATCH;
+                }
+                // TODO, look at select option to pick cardinal vs ordinal vs none.
+                if (pluralCategory == null) {
+                    // get the plural category
+                    PluralRules rules =
+                            PluralRules.forLocale(context.locale, PluralRules.PluralType.CARDINAL);
+                    IFixedDecimal fixedDecimal =
+                            nf.locale(context.locale).format(offsettedValue).getFixedDecimal();
+                    pluralCategory = rules.select(fixedDecimal);
+                }
+                return pluralCategory.equals(matchKey) ? 100 : FunctionVariable.NO_MATCH;
+            }
+
+            private Number subtractOffset() {
+                if (value instanceof BigDecimal) {
+                    return ((BigDecimal) value).subtract(new BigDecimal(offset));
+                } else if (value instanceof BigInteger) {
+                    return ((BigInteger) value).subtract(BigInteger.valueOf(offset));
+                } else if (value instanceof Double || value instanceof Float) {
+                    return value.doubleValue() - offset;
+                } else {
+                    return value.longValue() - offset;
+                }
+            }
+
+            @Override
+            public String format(MFContext context) {
+                if (numberingSystem != null) {
+                    nf =
+                            nf.symbols(
+                                    DecimalFormatSymbols.forNumberingSystem(
+                                            context.locale, numberingSystem));
+                }
+                return nf.locale(context.locale).format(offsettedValue).toString();
+            }
+
+            public void applyOptions() {
+                for (Entry<String, Object> entry : getOptions().entrySet()) {
+                    switch (entry.getKey()) {
+                        case "maxFractionDigits":
+                            nf = nf.precision(Precision.maxFraction(((Integer) entry.getValue())));
+                            break;
+                        case "minFractionDigits":
+                            nf = nf.precision(Precision.minFraction(((Integer) entry.getValue())));
+                            break;
+                        case "numberingSystem":
+                            numberingSystem =
+                                    NumberingSystem.getInstanceByName(entry.getValue().toString());
+                            break;
+                        case "signDisplay":
+                            nf =
+                                    nf.sign(
+                                            SignDisplay.valueOf(
+                                                    entry.getValue()
+                                                            .toString()
+                                                            .toUpperCase(Locale.ROOT)));
+                            break;
+                        case "u:offset":
+                            offset = (Integer) entry.getValue();
+                            offsettedValue = subtractOffset();
+                            break;
+                        default:
+                            throw new IllegalArgumentException(
+                                    ":number doen't allow the option " + entry);
+                    }
+                }
+            }
+        }
 
         @Override
         public String getName() {
@@ -172,117 +282,74 @@ public class MockFunctions {
         }
     }
 
-    /** A variable of information that results from applying number function (factory). */
-    static class NumberVariable extends FunctionVariable {
-        Number value;
-        Number offsettedValue;
-        UnlocalizedNumberFormatter nf = NumberFormatter.with();
-        String pluralCategory = null;
-        int offset = 0;
-        NumberingSystem numberingSystem = null;
-
-        @Override
-        public String toString() {
-            return "["
-                    + "baseValue="
-                    + value
-                    + ", offsettedValue="
-                    + offsettedValue
-                    + ", keyword="
-                    + pluralCategory
-                    + ", offset="
-                    + offset
-                    + ", options="
-                    + getOptions()
-                    + "]";
-        }
-
-        private NumberVariable(Number operand, OptionsMap options) {
-            value = operand;
-            offsettedValue = operand;
-            setOptions(options);
-            applyOptions();
-        }
-
-        @Override
-        public int match(MFContext context, String matchKey) {
-            if (matchKey.charAt(0) < 'A') {
-                // hack for now; should perform a better comparison that matches
-                // irrespective of the type of number
-                return value.toString().equals(matchKey)
-                        ? FunctionVariable.EXACT_MATCH
-                        : FunctionVariable.NO_MATCH;
-            }
-            // TODO, look at select option to pick cardinal vs ordinal vs none.
-            if (pluralCategory == null) {
-                // get the plural category
-                PluralRules rules =
-                        PluralRules.forLocale(context.locale, PluralRules.PluralType.CARDINAL);
-                IFixedDecimal fixedDecimal =
-                        nf.locale(context.locale).format(offsettedValue).getFixedDecimal();
-                pluralCategory = rules.select(fixedDecimal);
-            }
-            return pluralCategory.equals(matchKey) ? 100 : FunctionVariable.NO_MATCH;
-        }
-
-        private Number subtractOffset() {
-            if (value instanceof BigDecimal) {
-                return ((BigDecimal) value).subtract(new BigDecimal(offset));
-            } else if (value instanceof BigInteger) {
-                return ((BigInteger) value).subtract(BigInteger.valueOf(offset));
-            } else if (value instanceof Double || value instanceof Float) {
-                return value.doubleValue() - offset;
-            } else {
-                return value.longValue() - offset;
-            }
-        }
-
-        @Override
-        public String format(MFContext context) {
-            if (numberingSystem != null) {
-                nf =
-                        nf.symbols(
-                                DecimalFormatSymbols.forNumberingSystem(
-                                        context.locale, numberingSystem));
-            }
-            return nf.locale(context.locale).format(offsettedValue).toString();
-        }
-
-        public void applyOptions() {
-            for (Entry<String, Object> entry : getOptions().entrySet()) {
-                switch (entry.getKey()) {
-                    case "maxFractionDigits":
-                        nf = nf.precision(Precision.maxFraction(((Integer) entry.getValue())));
-                        break;
-                    case "minFractionDigits":
-                        nf = nf.precision(Precision.minFraction(((Integer) entry.getValue())));
-                        break;
-                    case "numberingSystem":
-                        numberingSystem =
-                                NumberingSystem.getInstanceByName(entry.getValue().toString());
-                        break;
-                    case "signDisplay":
-                        nf =
-                                nf.sign(
-                                        SignDisplay.valueOf(
-                                                entry.getValue()
-                                                        .toString()
-                                                        .toUpperCase(Locale.ROOT)));
-                        break;
-                    case "u:offset":
-                        offset = (Integer) entry.getValue();
-                        offsettedValue = subtractOffset();
-                        break;
-                    default:
-                        throw new IllegalArgumentException(
-                                ":number doen't allow the option " + entry);
-                }
-            }
-        }
-    }
-
     /** FunctionFactory & FunctionVariable for :number */
     static class MeasureFactory implements FunctionFactory {
+        /** A variable of information that results from applying measure function (factory). */
+        static class MeasureVariable extends FunctionVariable {
+            Measure value;
+            String formatted = null;
+
+            @Override
+            public String toString() {
+                return "[value=" + value + ", options=" + getOptions() + "]";
+            }
+
+            private MeasureVariable(Measure operand, OptionsMap options) {
+                value = operand;
+                setOptions(options);
+            }
+
+            @Override
+            public int match(MFContext context, String matchKey) {
+                throw new UnsupportedOperationException(":u:measure doesn't support selection");
+            }
+
+            @Override
+            public String format(MFContext context) {
+                if (formatted == null) {
+                    UnlocalizedNumberFormatter nf = NumberFormatter.with();
+                    for (Entry<String, Object> entry : getOptions().entrySet()) {
+                        final Object value1 = entry.getValue();
+                        switch (entry.getKey()) {
+                            case "maxFractionDigits":
+                                nf = nf.precision(Precision.maxFraction(((Integer) value1)));
+                                break;
+                            case "minFractionDigits":
+                                nf = nf.precision(Precision.minFraction(((Integer) value1)));
+                                break;
+                            case "numberingSystem":
+                                final NumberingSystem numberingSystem =
+                                        NumberingSystem.getInstanceByName(value1.toString());
+                                nf.symbols(
+                                        DecimalFormatSymbols.forNumberingSystem(
+                                                context.locale, numberingSystem));
+                                break;
+                            case "signDisplay":
+                                nf = nf.sign(SignDisplay.valueOf(value1.toString()));
+                                break;
+                            case "usage":
+                                nf = nf.usage(value1.toString());
+                                break;
+                            case "width":
+                                String stringValue = value1.toString().toUpperCase();
+                                nf =
+                                        nf.unitWidth(
+                                                stringValue.equals("FULL")
+                                                        ? UnitWidth.FULL_NAME
+                                                        : UnitWidth.valueOf(stringValue));
+                                break;
+                            default:
+                                throw new IllegalArgumentException(
+                                        "Number doen't allow the option " + entry);
+                        }
+                    }
+                    final LocalizedNumberFormatter localized = nf.locale(context.locale);
+                    formatted = localized.format(value).toString();
+                }
+                return formatted;
+            }
+        }
+
         @Override
         public String getName() {
             return ":u:measure";
@@ -351,72 +418,6 @@ public class MockFunctions {
                 throw new IllegalArgumentException(
                         "Invalid options: " + Sets.difference(options.keySet(), ALLOWED));
             }
-        }
-    }
-
-    /** A variable of information that results from applying number function (factory). */
-    static class MeasureVariable extends FunctionVariable {
-        Measure value;
-        String formatted = null;
-
-        @Override
-        public String toString() {
-            return "[value=" + value + ", options=" + getOptions() + "]";
-        }
-
-        private MeasureVariable(Measure operand, OptionsMap options) {
-            value = operand;
-            setOptions(options);
-        }
-
-        @Override
-        public int match(MFContext context, String matchKey) {
-            throw new UnsupportedOperationException(":u:measure doesn't support selection");
-        }
-
-        @Override
-        public String format(MFContext context) {
-            if (formatted == null) {
-                UnlocalizedNumberFormatter nf = NumberFormatter.with();
-                for (Entry<String, Object> entry : getOptions().entrySet()) {
-                    final Object value1 = entry.getValue();
-                    switch (entry.getKey()) {
-                        case "maxFractionDigits":
-                            nf = nf.precision(Precision.maxFraction(((Integer) value1)));
-                            break;
-                        case "minFractionDigits":
-                            nf = nf.precision(Precision.minFraction(((Integer) value1)));
-                            break;
-                        case "numberingSystem":
-                            final NumberingSystem numberingSystem =
-                                    NumberingSystem.getInstanceByName(value1.toString());
-                            nf.symbols(
-                                    DecimalFormatSymbols.forNumberingSystem(
-                                            context.locale, numberingSystem));
-                            break;
-                        case "signDisplay":
-                            nf = nf.sign(SignDisplay.valueOf(value1.toString()));
-                            break;
-                        case "usage":
-                            nf = nf.usage(value1.toString());
-                            break;
-                        case "width":
-                            String stringValue = value1.toString().toUpperCase();
-                            nf =
-                                    nf.unitWidth(
-                                            stringValue.equals("FULL")
-                                                    ? UnitWidth.FULL_NAME
-                                                    : UnitWidth.valueOf(stringValue));
-                            break;
-                        default:
-                            throw new IllegalArgumentException(
-                                    "Number doen't allow the option " + entry);
-                    }
-                }
-                final LocalizedNumberFormatter localized = nf.locale(context.locale);
-                formatted = localized.format(value).toString();
-            }
-            return formatted;
         }
     }
 

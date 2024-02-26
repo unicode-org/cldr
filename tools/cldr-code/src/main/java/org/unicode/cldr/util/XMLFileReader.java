@@ -182,6 +182,8 @@ public class XMLFileReader {
             AllHandler allHandler) {
         try {
             XMLReader xmlReader = createXMLReader(handlers, validating, allHandler);
+            // wrap the reader to insert a character stream
+            DoctypeXmlStreamWrapper.wrap(is);
             is.setSystemId(systemID);
             try {
                 xmlReader.parse(is);
@@ -198,7 +200,7 @@ public class XMLFileReader {
         }
     }
 
-    private static final XMLReader createXMLReader(
+    public static final XMLReader createXMLReader(
             int handlers, boolean validating, AllHandler allHandler)
             throws SAXNotRecognizedException, SAXNotSupportedException {
         XMLReader xmlReader = createXMLReader(validating);

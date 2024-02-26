@@ -1,6 +1,7 @@
 package org.unicode.cldr.util;
 
 import com.google.common.collect.ImmutableSet;
+import java.io.File;
 import java.lang.annotation.Annotation;
 import java.util.Collections;
 import java.util.Set;
@@ -153,5 +154,20 @@ public enum DtdType {
 
     public String getXsdPath() {
         return dtdPath.replaceAll("\\.dtd$", ".xsd");
+    }
+
+    /** The xmlns name for this dtd type */
+    public String getNsUrl() {
+        return CLDRURLS.CLDR_CURVER_BASE + "/" + name();
+    }
+
+    /** The current version DTD as a URI */
+    String getDtdUri() {
+        return new File(CLDRPaths.BASE_DIRECTORY, dtdPath).toURI().toString();
+    }
+
+    /** DOCTYPE for this DTD (current version) */
+    String getDoctype() {
+        return "<!DOCTYPE " + name() + " SYSTEM \"" + getDtdUri() + "\">";
     }
 }

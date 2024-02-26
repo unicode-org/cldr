@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE keyboard3 SYSTEM "../dtd/ldmlKeyboard3.dtd">
 <!--
     This file is part of the CLDR Keyboard Technical Preview.
     This is a sample data file.
@@ -8,7 +7,7 @@
 
 	Also NOTE: this is really a test keyboard.  CLDR-12026 will be for the real new azerty keyboard
 -->
-<keyboard3 locale="fr-t-k0-azerty" conformsTo="techpreview">
+<keyboard3 xmlns="https://schemas.unicode.org/cldr/45/keyboard3" locale="fr-t-k0-azerty" conformsTo="techpreview">
 	<locales>
 		<locale id="br" /> <!-- example of including Breton -->
 	</locales>

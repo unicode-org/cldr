@@ -58,6 +58,7 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.DiscreteComparator;
 import org.unicode.cldr.util.DiscreteComparator.Ordering;
+import org.unicode.cldr.util.DoctypeXmlStreamWrapper;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdData.Attribute;
 import org.unicode.cldr.util.DtdData.Element;
@@ -376,6 +377,7 @@ public class TestBasic extends TestFmwkPlus {
             xmlReader.setErrorHandler(new MyErrorHandler());
             InputSource is = new InputSource(fis);
             is.setSystemId(systemID.toString());
+            DoctypeXmlStreamWrapper.wrap(is);
             xmlReader.parse(is);
             // fis.close();
         } catch (SAXException | IOException e) {

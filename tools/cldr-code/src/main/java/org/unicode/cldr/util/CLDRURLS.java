@@ -7,6 +7,8 @@ package org.unicode.cldr.util;
  * @author srl
  */
 public abstract class CLDRURLS {
+    public static final String CLDR_SCHEMA_BASE = "https://schemas.unicode.org/cldr";
+    public static final String CLDR_CURVER_BASE = CLDR_SCHEMA_BASE + "/" + CLDRFile.GEN_VERSION;
     /** Base URL for the CLDR repository */
     public static final String CLDR_REPO_BASE = "https://github.com/unicode-org/cldr";
 

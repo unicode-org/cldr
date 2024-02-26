@@ -840,14 +840,12 @@ public class TestExampleGenerator extends TestFmwk {
 
     public void Test4897() {
         ExampleGenerator exampleGenerator = getExampleGenerator("it");
+        final CLDRFile cldrFile = exampleGenerator.getCldrFile();
         for (String xpath :
                 With.in(
-                        exampleGenerator
-                                .getCldrFile()
-                                .iterator(
-                                        "//ldml/dates/timeZoneNames",
-                                        exampleGenerator.getCldrFile().getComparator()))) {
-            String value = exampleGenerator.getCldrFile().getStringValue(xpath);
+                        cldrFile.iterator(
+                                "//ldml/dates/timeZoneNames", cldrFile.getComparator()))) {
+            String value = cldrFile.getStringValue(xpath);
             String actual = exampleGenerator.getExampleHtml(xpath, value);
             if (actual == null) {
                 if (!xpath.contains("singleCountries") && !xpath.contains("gmtZeroFormat")) {

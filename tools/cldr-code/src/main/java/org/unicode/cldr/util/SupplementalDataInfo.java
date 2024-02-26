@@ -10,6 +10,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSetMultimap;
 import com.google.common.collect.Multimap;
+import com.google.common.collect.Sets;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.impl.IterableComparator;
 import com.ibm.icu.impl.Relation;
@@ -5244,28 +5245,58 @@ public class SupplementalDataInfo {
         return unitPrefixInfo.keySet();
     }
 
+    /**
+     * Filter out deprecated items. This is more complicated than it seems. The deprecation is in
+     * timezones.xml, eg: <type name="cathu" description="Thunder Bay, Canada" deprecated="true"
+     * preferred="cator"/> <type name="cator" description="Toronto, Canada" alias="America/Toronto
+     * America/Montreal Canada/Eastern America/Nipigon America/Thunder_Bay"/> We need to find the
+     * short id's that are deprecated, put there is a problem due to
+     * https://unicode-org.atlassian.net/browse/CLDR-17412.
+     *
+     * <p>America/Nipigon, America/Thunder_Bay, America/Rainy_River
+     */
     Supplier<Set<String>> goodTimezones =
             Suppliers.memoize(
                     new Supplier<Set<String>>() {
+
                         @Override
                         public Set<String> get() {
                             Set<String> availableLongTz = sc.getAvailableCodes(CodeType.tzid);
-                            Map<String, String> aliasToRegular = bcp47KeyToAliasToSubtype.get("tz");
-                            Map<String, Bcp47KeyInfo> subtypeToInfo =
-                                    bcp47KeyToSubtypeToInfo.get("tz");
-                            Set<String> result =
-                                    availableLongTz.stream()
-                                            .filter(
-                                                    x -> {
-                                                        String shortId = aliasToRegular.get(x);
-                                                        Bcp47KeyInfo info =
-                                                                subtypeToInfo.get(shortId);
-                                                        if (info.deprecated) {
-                                                            System.out.println("deprecated: " + x);
-                                                        }
-                                                        return info.deprecated;
-                                                    })
-                                            .collect(Collectors.toUnmodifiableSet());
+                            Set<String> result = null;
+                            if (true) { // hack for now
+                                final Set<String> hack =
+                                        Set.of(
+                                                "America/Santa_Isabel",
+                                                "Australia/Currie",
+                                                "America/Yellowknife",
+                                                "America/Rainy_River",
+                                                "America/Thunder_Bay",
+                                                "America/Nipigon",
+                                                "America/Pangnirtung",
+                                                "Europe/Uzhgorod",
+                                                "Europe/Zaporozhye",
+                                                "Pacific/Johnston");
+                                result = Set.copyOf(Sets.difference(availableLongTz, hack));
+                            } else { // TODO restore when CLDR-17412 is fixed
+                                Map<String, String> aliasToRegular =
+                                        bcp47KeyToAliasToSubtype.get("tz");
+                                Map<String, Bcp47KeyInfo> subtypeToInfo =
+                                        bcp47KeyToSubtypeToInfo.get("tz");
+                                result =
+                                        availableLongTz.stream()
+                                                .filter(
+                                                        x -> {
+                                                            String shortId = aliasToRegular.get(x);
+                                                            Bcp47KeyInfo info =
+                                                                    subtypeToInfo.get(shortId);
+                                                            System.out.println(
+                                                                    String.format(
+                                                                            "%s %s %s",
+                                                                            x, shortId, info));
+                                                            return !info.deprecated;
+                                                        })
+                                                .collect(Collectors.toUnmodifiableSet());
+                            }
                             return result;
                         }
                     });

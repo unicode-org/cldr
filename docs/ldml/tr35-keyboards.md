@@ -1410,7 +1410,7 @@ There is one special case:  the `other` layer matches if and only if no other la
 
 Because there is no overlap allowed between layers, the order of `<layer>` elements is not significant.
 
-> Note: The modifier syntax may be enhanced in the future. but will remain backwards compatible with the syntax described here.
+> Note: The modifier syntax may be enhanced in the future, but will remain backwards compatible with the syntax described here.
 
 * * *
 

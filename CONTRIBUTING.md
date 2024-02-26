@@ -58,7 +58,7 @@ To sign the CLA in Github, open a Pull Request (a comment will be automatically 
 
 - **Corporate CLA**: If you have determined that a Corporate CLA is appropriate, please first check the [public list of Corporate CLAs][unicode-corporate-clas] that the Consortium has on file. If your employer is listed, then when you access the CLA Form, you can click the box indicating that you are covered by your employer’s corporate CLA. If your employer is not on the list, then it has not already signed a CLA and you will need to arrange for your employer to do so before you contribute, as described in [How to Sign a Unicode CLA][signing].
 
-Unless otherwise noted in the [`LICENSE`][unicode-license] file, this project is released under the [OSI-approved][osi-Unicode-License-3.0] free and open-source [Unicode License v3][unicode-license].
+Unless otherwise noted in the [`LICENSE`](./LICENSE) file, this project is released under the [OSI-approved][osi-Unicode-License-3.0] free and open-source [Unicode License v3][unicode-license].
 
 ## Building
 
@@ -112,4 +112,4 @@ All rights reserved. [Terms of use][]
 [signing]: https://www.unicode.org/policies/licensing_policy.html#signing
 [sign-cla]: https://cla-assistant.io/unicode-org/.github
 [osi-Unicode-License-3.0]: https://opensource.org/license/unicode-license-v3/
-[unicode-license]: ./LICENSE
+[unicode-license]: https://www.unicode.org/license.txt

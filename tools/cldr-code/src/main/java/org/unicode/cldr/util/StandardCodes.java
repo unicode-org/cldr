@@ -149,6 +149,10 @@ public class StandardCodes {
         return type_code_data.get(type);
     }
 
+    public Set<String> getCodes(CodeType type) {
+        return type_code_data.get(type).keySet();
+    }
+
     /**
      * Get at the language registry values, as a Map from label to value.
      *
@@ -275,7 +279,7 @@ public class StandardCodes {
                     case script:
                         return sd.getCLDRScriptCodes();
                     case tzid:
-                        break; // nothing special
+                        return sd.getCLDRTimezoneCodes();
                     default:
                         for (Iterator<String> it = result.iterator(); it.hasNext(); ) {
                             String code = it.next();

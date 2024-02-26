@@ -939,12 +939,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel inTerritory="%unitBeaufortRegions" value="modern" match="units/unitLength[@type='%unitLengths']/unit[@type='speed-beaufort']/displayName"/>
 		<coverageLevel inTerritory="%unitBeaufortRegions" value="modern" match="units/unitLength[@type='%unitLengths']/unit[@type='speed-beaufort']/gender"/>
 		<coverageLevel inTerritory="%unitBeaufortRegions" value="modern" match="units/unitLength[@type='%unitLengths']/unit[@type='speed-beaufort']/perUnitPattern"/>
-		<!-- Then make Beaufort explicitly  comprehensive for other regions -->
+		<!-- Then make Beaufort explicitly  comprehensive for other regions
+		This does not appear to be working.
 		<coverageLevel value="comprehensive" match="units/unitLength[@type='%unitLengths']/unit[@type='speed-beaufort']/unitPattern[@count='%anyAttribute'][@case='%anyAttribute']"/>
 		<coverageLevel value="comprehensive" match="units/unitLength[@type='%unitLengths']/unit[@type='speed-beaufort']/unitPattern[@count='%anyAttribute']"/>
 		<coverageLevel value="comprehensive" match="units/unitLength[@type='%unitLengths']/unit[@type='speed-beaufort']/displayName"/>
 		<coverageLevel value="comprehensive" match="units/unitLength[@type='%unitLengths']/unit[@type='speed-beaufort']/gender"/>
 		<coverageLevel value="comprehensive" match="units/unitLength[@type='%unitLengths']/unit[@type='speed-beaufort']/perUnitPattern"/>
+		-->
 		<!-- Then handle other units -->
 
 		<coverageLevel inLanguage="en" value="modern" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsEnglish']/unitPattern[@count='%anyAttribute']"/>
@@ -956,13 +958,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="modern" match="units/unitLength[@type='%unitLengths']/compoundUnit[@type='%anyAttribute']/compoundUnitPattern1[@count='%anyAttribute'][@gender='%anyAttribute']"/>
 		<coverageLevel value="modern" match="units/unitLength[@type='%unitLengths']/compoundUnit[@type='%anyAttribute']/compoundUnitPattern1[@count='%anyAttribute'][@case='%anyAttribute']"/>
 		<coverageLevel value="modern" match="units/unitLength[@type='%unitLengths']/compoundUnit[@type='%anyAttribute']/compoundUnitPattern1[@count='%anyAttribute']"/>
-
-		<coverageLevel value="modern" match="units/unitLength[@type='%unitLengths']/unit[@type='%anyAttribute']/unitPattern[@count='%anyAttribute'][@case='%anyAttribute']"/>
-		<coverageLevel value="modern" match="units/unitLength[@type='%unitLengths']/unit[@type='%anyAttribute']/unitPattern[@count='%anyAttribute']"/>
-		<coverageLevel value="modern" match="units/unitLength[@type='%unitLengths']/unit[@type='%anyAttribute']/displayName"/>
-		<coverageLevel value="modern" match="units/unitLength[@type='%unitLengths']/unit[@type='%anyAttribute']/gender"/>
-		<coverageLevel value="modern" match="units/unitLength[@type='%unitLengths']/unit[@type='%anyAttribute']/perUnitPattern"/>
 		<coverageLevel value="modern" match="units/unitLength[@type='%unitLengths']/compoundUnit[@type='%anyAttribute']/unitPrefixPattern"/>
+
+		<coverageLevel value="modern" match="units/unitLength[@type='%unitLengths']/unit[@type='(?!speed-beaufort)%anyAttribute']/unitPattern[@count='%anyAttribute'][@case='%anyAttribute']"/>
+		<coverageLevel value="modern" match="units/unitLength[@type='%unitLengths']/unit[@type='(?!speed-beaufort)%anyAttribute']/unitPattern[@count='%anyAttribute']"/>
+		<coverageLevel value="modern" match="units/unitLength[@type='%unitLengths']/unit[@type='(?!speed-beaufort)%anyAttribute']/displayName"/>
+		<coverageLevel value="modern" match="units/unitLength[@type='%unitLengths']/unit[@type='(?!speed-beaufort)%anyAttribute']/gender"/>
+		<coverageLevel value="modern" match="units/unitLength[@type='%unitLengths']/unit[@type='(?!speed-beaufort)%anyAttribute']/perUnitPattern"/>
 
 		<coverageLevel value="modern" match="localeDisplayNames/types/type[@key='calendar'][@type='%calendarType80']"/>
 

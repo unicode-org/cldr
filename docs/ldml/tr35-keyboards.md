@@ -1356,7 +1356,7 @@ For example, in the element `<layer … modifiers="ctrlL altL, altR" …` the at
 - `ctrlL altL` (two components)
 - `altR` (one component)
 
-The order of the sets and the order of the components within each set is not significant.
+The order of the sets and the order of the components within each set is not significant. However, for clarity in reading, the canonical order within a set is in the order listed in Layout Modifier Components; the canonical order for the sets should be first by the cardinality of the sets (least first), then alphabetical.
 
 #### Layer Modifier Components
 

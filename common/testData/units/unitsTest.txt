@@ -1,5 +1,5 @@
 # Test data for unit conversions
-#  Copyright © 1991-2023 Unicode, Inc.
+#  Copyright © 1991-2024 Unicode, Inc.
 #  For terms of use, see http://www.unicode.org/copyright.html
 #  SPDX-License-Identifier: Unicode-DFS-2016
 #  CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -189,9 +189,9 @@ speed	;	meter-per-second	;	meter-per-second	;	1 * x	;	1,000.00
 substance-amount	;	item	;	item	;	1 * x	;	1,000.00
 substance-amount	;	mole	;	item	;	602,214,076,000,000,000,000,000 * x	;	6.022141E26
 temperature	;	rankine	;	kelvin	;	5/9 * x	;	555.5556
-temperature	;	fahrenheit	;	kelvin	;	5/9 * x - 2,298.35/9	;	810.9278
+temperature	;	fahrenheit	;	kelvin	;	5/9 * x + 2,298.35/9	;	810.9278
 temperature	;	kelvin	;	kelvin	;	1 * x	;	1,000.00
-temperature	;	celsius	;	kelvin	;	1 * x - 273.15	;	1273.15
+temperature	;	celsius	;	kelvin	;	1 * x + 273.15	;	1273.15
 typewidth	;	em	;	em	;	1 * x	;	1,000.00
 voltage	;	volt	;	kilogram-square-meter-per-cubic-second-ampere	;	1 * x	;	1000.0
 volume	;	drop	;	cubic-meter	;	0.0000001540287998046875/3 * x	;	5.134293E-5

@@ -2177,7 +2177,6 @@ _Attribute:_ `from` (required)
     - supported
     - no Unicode properties such as `\p{…}`
     - Warning: Character classes look superficially similar to [`uset`](#element-uset) elements, but they are distinct and referenced with the `$[...usetId]` notation in transforms. The `uset` notation cannot be embedded directly in a transform.
-    - See [Normalization and Character Classes](#normalization-and-character-classes) for more details about the impact of normalization on ranges.
 
 - **Bounded quantifier**
 

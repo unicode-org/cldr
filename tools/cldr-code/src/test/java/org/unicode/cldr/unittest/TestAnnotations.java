@@ -39,11 +39,14 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Emoji;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.Pair;
+import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XListFormatter;
 import org.unicode.cldr.util.XListFormatter.ListTypeLength;
+import org.unicode.cldr.util.XPathParts;
 
 public class TestAnnotations extends TestFmwkPlus {
     private static final String APPS_EMOJI_DIRECTORY =
@@ -234,7 +237,7 @@ public class TestAnnotations extends TestFmwkPlus {
             final String rawCategory = Emoji.getMajorCategory(emoji);
             PageId majorCategory = PageId.forString(rawCategory);
             if (majorCategory == PageId.Symbols) {
-                majorCategory = PageId.Symbols2;
+                majorCategory = PageId.EmojiSymbols;
             }
             String minorCategory = Emoji.getMinorCategory(emoji);
             long emojiOrder = Emoji.getEmojiToOrder(emoji);
@@ -615,6 +618,65 @@ public class TestAnnotations extends TestFmwkPlus {
                 default:
                     assertEquals(level.toString(), 0, us.size());
                     break;
+            }
+        }
+    }
+
+    static final UnicodeSet allRgiNoES = Emoji.getAllRgiNoES();
+    static final UnicodeSet punctuation = new UnicodeSet("[:P:]").freeze();
+    static final UnicodeSet mathSymbols = new UnicodeSet("[:Sm:]").freeze();
+    static final UnicodeSet otherSymbols = new UnicodeSet("[^[:Sm:][:P:]]").freeze();
+
+    public void testSymbols() {
+        CLDRFile root = CLDRConfig.getInstance().getAnnotationsFactory().make("root", false);
+        UnicodeMap<String> expectedMap =
+                new UnicodeMap<String>()
+                        .putAll(punctuation, "Punctuation")
+                        .putAll(mathSymbols, "Math Symbols")
+                        .putAll(otherSymbols, "Other Symbols")
+                        .freeze();
+        Set<String> nonEmojiPages = expectedMap.values();
+        UnicodeMap<Pair<String, String>> failures = new UnicodeMap<>();
+        PathHeader.Factory phf = PathHeader.getFactory();
+        for (String path : root) {
+            XPathParts parts = XPathParts.getFrozenInstance(path);
+            String cp = parts.getAttributeValue(-1, "cp");
+            if (cp == null) {
+                continue; // non-annotation line
+            }
+            PathHeader ph = phf.fromPath(path);
+            PathHeader.SectionId sectionId = ph.getSectionId();
+            assertEquals("Section for " + cp, PathHeader.SectionId.Characters, sectionId);
+            PageId pageId = ph.getPageId();
+            final String actual = pageId.toString();
+
+            // collect all the failures rather than having a long list of errors
+
+            if (allRgiNoES.contains(cp)) { // check emoji
+                if (nonEmojiPages.contains(actual)) {
+                    failures.put(cp, Pair.of("«Emoji-Page»", actual));
+                } else if (actual.equals("Symbols2")) {
+                    failures.put(cp, Pair.of("Emoji Symbols", actual));
+                }
+            } else {
+                String expected = expectedMap.get(cp);
+                if (!actual.equals(expected)) {
+                    failures.put(cp, Pair.of(expected, actual));
+                }
+            }
+        }
+        if (!failures.isEmpty()) {
+            for (Pair<String, String> value : ImmutableSortedSet.copyOf(failures.values())) {
+                UnicodeSet uset = failures.getSet(value);
+                errln(
+                        "Mismatch in "
+                                + uset.size()
+                                + " cases: expected="
+                                + value.getFirst()
+                                + " actual="
+                                + value.getSecond()
+                                + "\n"
+                                + uset.toPattern(false));
             }
         }
     }

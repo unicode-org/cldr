@@ -64,6 +64,24 @@ The LDML specification is divided into the following parts:
   * [UTS18 Escaping](#uts18-escaping)
 * [File and Directory Structure](#file-and-directory-structure)
   * [Extensibility](#extensibility)
+* [Normalization](#normalization)
+  * [Where Normalization Occurs](#where-normalization-occurs)
+  * [Normalization and Transform Matching](#normalization-and-transform-matching)
+  * [Normalization and Markers](#normalization-and-markers)
+    * [Rationale for 'gluing' markers](#rationale-for-gluing-markers)
+    * [Data Model: `Marker`](#data-model-marker)
+    * [Data Model: string](#data-model-string)
+    * [Data Model: `MarkerEntry`](#data-model-markerentry)
+    * [Marker Algorithm Overview](#marker-algorithm-overview)
+    * [Phase 1: Parsing/Removing Markers](#phase-1-parsingremoving-markers)
+    * [Phase 2: Plain Text Processing](#phase-2-plain-text-processing)
+    * [Phase 3: Adding Markers](#phase-3-adding-markers)
+    * [Example Normalization with Markers](#example-normalization-with-markers)
+  * [Normalization and Character Classes](#normalization-and-character-classes)
+  * [Normalization and Reorder elements](#normalization-and-reorder-elements)
+  * [Normalization-safe Segments](#normalization-safe-segments)
+  * [Normalization and Output](#normalization-and-output)
+  * [Disabling Normalization](#disabling-normalization)
 * [Element Hierarchy](#element-hierarchy)
   * [Element: keyboard3](#element-keyboard3)
   * [Element: locales](#element-locales)
@@ -108,6 +126,7 @@ The LDML specification is divided into the following parts:
   * [Element: reorder](#element-reorder)
     * [Using `<import>` with `<reorder>` elements](#using-import-with-reorder-elements)
     * [Example Post-reorder transforms](#example-post-reorder-transforms)
+    * [Reorder and Markers](#reorder-and-markers)
   * [Backspace Transforms](#backspace-transforms)
 * [Invariants](#invariants)
 * [Keyboard IDs](#keyboard-ids)
@@ -307,6 +326,284 @@ Attribute values escaped in this manner are annotated with the `<!--@ALLOWS_UESC
 For extensibility, the `<special>` element will be allowed at nearly every level.
 
 See [Element special](tr35.md#special) in Part 1.
+
+## Normalization
+
+Unicode Normalization, as described in [The Unicode Standard](https://www.unicode.org/reports/tr41/#Unicode/), is a process by which Unicode text is processed to eliminate unwanted distinctions.
+
+This section discusses how conformant keyboards are affected by normalization, and the impact of normalization on keyboard authors and keyboard implmentations.
+
+Keyboard implementations will usually apply normalization as appropriate when matching transform rules and `<display>` value matching.
+Output from the keyboard, following application of all transform rules, will be normalized to the appropriate form by the keyboard implementation.
+
+> Note: There are many existing software libraries which perform Unicode Normalization, including [ICU](https://icu.unicode.org), [ICU4X](https://icu4x.unicode.org), and JavaScript's [String.prototype.normalize()](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String/normalize).
+
+Keyboard authors will not typically need to perform normalization as part of the keyboard layout.  However, authors should be aware of areas where normalization affects keyboard operation so that they may achieve their desired results.
+
+### Where Normalization Occurs
+
+There are four stages where normalization must be performed by keyboard implementations.
+
+1. **From the keyboard source `.xml`**
+
+    Keyboard source .xml files may be in any normalization form.
+    However, in processing they are converted to NFD.
+
+    - From any form to NFD: full normalization (decompose+reorder)
+    - Markers must be processed as described [below](#marker-algorithm-overview).
+    - Regex patterns must be processed so that matching is performed in NFD.
+
+    Example: `<key output=`, and `<transform from= to=` attribute contents will be normalized to NFD.
+
+2. **From the input context**
+
+    The input context must be normalized for purposes of matching.
+
+    - From any form to NFD: full normalization (decompose+reorder)
+    - Markers in the cached context must be preserved.
+
+    Example: The input context contains U+00E8 (`è`).  The user clicks the cursor after the character, then presses a key which produces U+0320 (`<key output="\u{0320}"/>`).
+    The implementation must normalize the context buffer to `e\u{0320}\u{0300}` (`è̠`) before matching.
+
+3. **Before each `transformGroup`**
+
+    Text must be normalized before processing by the next `transformGroup`.
+
+    - To NFD: no decomposition should be needed, because all of the input text (including transform rules) was already in NFD form.
+    However, marker reordering may be needed if transforms insert segments out of order.
+    - Markers must be preserved.
+
+    Example: The input context contains U+00E8 (`è`).  The user clicks the cursor after this character, then presses a key producing `x`. A transform rule `<transform from='x' to='\u{0320}'/>` matches. The implementation must normalize the intermediate buffer to `e\u{0320}\u{0300}` (`è̠`) before proceeding to the next `transformGroup`.
+
+4. **Before output to the platform/application**
+
+    Text must be normalized into the output form requested by the platform or application. This will typically be NFC, but may not be.
+
+    - If normalizing to NFC, full normalization (reorder+composition) will be required.
+    - No markers are present in this text, they are removed prior to output but retained in the implementation's input context for subsequent keystrokes. See [markers](#markers).
+
+    Example: The result of keystrokes and transform processing produces the string `e\u{0300}`. The keyboard implementation normalizes this to a single NFC codepoint U+00E8 (`è`), which is returned to the application.
+
+### Normalization and Transform Matching
+
+Regardless of the normalization form in the keyboard source file or in the edit buffer context, transform matching will be performed using **NFD**. For example, all of the following transforms will match the input strings è̠, whether the input is U+00E8 U+0320, U+0065 U+0320 U+0300, or U+0065 U+0300 U+0320.
+
+```xml
+<transform from="e\u{0320}\u{0300}" /> <!-- NFD -->
+<transform from="\u{00E8}\u{0320}"  /> <!-- NFC: è + U+0320 -->
+<transform from="e\u{0300}\u{0320}" /> <!-- Unnormalized -->
+```
+
+### Normalization and Markers
+
+A special issue occurs when markers are involved.
+[Markers](#markers) are not text, and so not themselves modified or reordered by the Unicode Normalization Algorithm.
+Existing Normalization APIs typically operate on plain text, and so those APIs can not be used with content containing markers.
+
+However, the markers must be retained and processed by keyboard implementations in a manner which will be both consistent across implementations and predictable to keyboard authors.
+Inconsistencies would result in different user experiences — specifically, different or incorrect text output — on some implementations and not another.
+Unpredictability would make it challenging for the keyboard author to create a keyboard with expected behavior.
+
+This section gives an algorithm for implementing normalization on a text stream including markers.
+
+_Note:_ When the algorithm is performed on a plain text stream that doesn't include markers, implementations may skip the removing/re-adding steps 1 and 3 because no markers are involved.
+
+#### Rationale for 'gluing' markers
+
+The processing described here describes an extension to Unicode normalization to account for the desired behavior of markers.
+
+The algorithm described considers markers 'glued' (remaining with) the following character. If a context ends with a marker, that marker would be guaranteed to remain at the end after processing, consistently located with respect to the next keystroke to be input.
+
+1. Keyboard authors can keep a marker together with a character of interest by emitting the marker just previous to that character.
+
+For example, given a key `output="\m{marker}X"`, the marker will proceed `X` regardless of any normalization. (If `output="X\m{marker}"` were used, and `X` were to reorder with other characters, the marker would no longer be adjacent to the X.)
+
+2. Markers which are at the end of the input remain at the end of input during normalization.
+
+For example, given input context which ends with a marker, such as `...ABCDX\m{marker}`, the marker will remain at the end of the input context regardless of any normalization.
+
+The 'gluing' is only applicable during one particular processing step. It does not persist or affect further processing steps or future keystrokes.
+
+#### Data Model: `Marker`
+
+For purposes of this algorithm, a `Marker` is an opaque data type which has one property, its ID. See [Markers](#markers) for a discussion of the marker ID.
+
+#### Data Model: string
+
+For purposes of this algorithm, a string is an array of elements, where each element is either a codepoint or a `Marker`. For example, a [`key`](#element-key) in the XML such as `<key id="sha" output="𐓯\m{mymarker}x" />` would produce a string with three elements:
+
+1. The codepoint U+104EF
+2. The `Marker` named `mymarker`
+3. The codepoint U+0078
+
+If this string were output to an application, it would be converted to _plain text_ by removing all markers, which would yield the plain text string with only two codepoints: `𐓯x`.
+
+#### Data Model: `MarkerEntry`
+
+This algorithm uses a temporary data structure which is an ordered array of `MarkerEntry` elements.
+
+Each `MarkerEntry` element has the following properties:
+- `glue` (a codepoint, or the special value `END_OF_SEGMENT`)
+- `divider?` (true/false)
+- `processed?` (true/false, defaults to false)
+- `marker` (the `Marker` object)
+
+#### Marker Algorithm Overview
+
+This algorithm has three main phases to it.
+
+1. **Parsing/Removing Markers**
+
+    In this phase, the input string is analyzed to locate all markers. Metadata about each marker is stored in a temporary `MarkerArray` data structure.
+    Markers are removed from the input string, leaving only plain text.
+
+2. **Plain Text Processing**
+
+    This phase is performed on the plain text string, such as NFD normalization.
+
+3. **Re-Adding Markers**
+
+    Finally, markers are re-added to the plain text string using the `MarkerEntry` metadata from step 1.
+    This phase results in a string which contains both codepoints and markers.
+
+#### Phase 1: Parsing/Removing Markers
+
+Given an input string _s_
+
+1. Initialize an empty `MarkerEntry` array _e_
+2. Initialize an empty `Marker` array _pending_
+2. Loop through each element _i_ of the input _s_
+    1. If _i_ is a `Marker`:
+        1. add the marker _i_ to the end of _pending_
+        2. remove the marker from the input string _s_
+    2. else if _i_ is a codepoint:
+        1. Decompose _i_ into NFD form into a plain text string array of codepoints _d_
+        2. Add an element with `glue=d[0]` (the first codepoint of _d_) and `divider? = true` to the end of _e_
+        3. For every marker _m_ in _pending_:
+            1. Add an element with `glue=d[0]` and `marker=m` and `divider? = false` to the end of _e_
+        4. Clear the _pending_ array.
+        5. Finally, for every codepoint _c_ in _d_ **following** the initial codepoint: (d[1]..):
+            1. Add an element with `glue=c` and `divider? = true` to the end of _e_
+3. At the end of text,
+    1. Add an element with `glue=END` and `divider?=true` to the end of _e_
+    2. For every marker _m_ in _pending_:
+        1. Add an element with `glue=END` and `marker=m` and `divider? = false` to the end of _e_
+
+The string _s_ is now plain text and can be processed by the next phase.
+
+The array _e_ will be used in Phase 3.
+
+#### Phase 2: Plain Text Processing
+
+See [UAX #15](https://www.unicode.org/reports/tr15/#Description_Norm) for an overview of the process.  An existing Unicode-compliant API can be used here.
+
+#### Phase 3: Adding Markers
+
+1. Initialize an empty output string _o_
+2. Loop through the elements _p_ of the array _e_ from end to beginning (backwards)
+    1. If _p_.glue isn't `END`:
+        1. break out of the loop
+    2. If _p_.divider? == false:
+        1. Prepend marker _p_.marker to the output string _o_
+    3. Set _p_.processed?=true (so we don't process this again)
+2. Loop through each codepoint _i_ ( in the plain text input string ) from end to beginning (backwards)
+    1. Prepend _i_ to output _o_
+    2. Loop through the elements _p_ of the array _e_ from end to beginning (backwards)
+        1. If _p_.processed? == true:
+            1. Continue the inner loop  (was already processed)
+        2. If _p_.glue isn't _i_
+            1. Continue the inner loop  (wrong glue, not applicable)
+        3. If _p_.divider? == true:
+            1. Break out of the inner loop  (reached end of this 'glue' char)
+        4. Prepend marker _p_.marker to the output string _o_
+        5. Set _p_.processed?=true (so we don't process this again)
+3. _o_ is now the output string including markers.
+
+#### Example Normalization with Markers
+
+**Example 1**
+
+Consider this example, without markers:
+
+- `e\u{0300}\u{0320}` (input)
+- `e\u{0320}\u{0300}` (NFD)
+
+The combining marks are reordered.
+
+**Example 2**
+
+If we add markers:
+
+- `e\u{0300}\m{marker}\u{0320}` (input)
+- `e\m{marker}\u{0320}\u{0300}` (NFD)
+
+Note that the marker is 'glued' to the _following_ character. In the above example, `\m{marker}` was 'glued' to the `\u{0320}`.
+
+**Example 2**
+
+A second example:
+
+- `e\m{marker0}\u{0300}\m{marker1}\u{0320}\m{marker2}` (input)
+- `e\m{marker1}\u{0320}\m{marker0}\u{0300}\m{marker2}` (NFD)
+
+Here `\m{marker2}` is 'glued' to the end of the string. However, if additional text is added such as by a subsequent keystroke (which may add an additional combining character, for example), this marker may be 'glued' to that following text.
+
+Markers remain in the same normalization-safe segment during normalization. Consider:
+
+**Example 3**
+
+- `e\u{0300}\m{marker1}\u{0320}a\u{0300}\m{marker2}\u{0320}` (original)
+- `e\m{marker1}\u{0320}\u{0300}a\m{marker2}\u{0320}\u{0300}` (NFD)
+
+There are two normalization-safe segments here:
+
+1. `e\u{0300}\m{marker1}\u{0320}`
+2. `a\u{0300}\m{marker2}\u{0320}`
+
+Normalization (and marker rearranging) effectively occurs within each segment.  While `\m{marker1}` is 'glued' to the `\u{0320}`, it is glued within the first segment and has no effect on the second segment.
+
+### Normalization and Character Classes
+
+If pre-composed (non-NFD) characters are used in [character classes](#regex-like-syntax), such as `[á-é]`, these may not match as keyboard authors expect, as the U+00E1 character (á) will not occur in NFD form. Thus this may be masking serious errors in the data.
+
+Tools that process keyboard data must reject the data when character classes include non-NFD characters.
+
+The above should be written instead as a regex `(á|â|ã|ä|å|æ|ç|è|é)`. Alternatively, it could be written as a set variable `<set id="Example" value="á â ã ä å æ ç è é"/>` and matched as `$[Example]`.
+
+There is another case where there is no explicit mention of a non-NFD character, but the character class could include non-NFD characters, such as the range `[\u{0020}-\u{01FF}]`. For these, the tools should raise a warning by default.
+
+### Normalization and Reorder elements
+
+[`reorder`](#element-reorder) elements operate on NFD codepoints.
+
+### Normalization-safe Segments
+
+For purposes of this algorithm, "normalization-safe segments" are defined as a string of codepoints which are
+
+1. already in [NFD](https://www.unicode.org/reports/tr15/#Norm_Forms), and
+2. begin with a character with [Canonical Combining Class](https://www.unicode.org/reports/tr44/#Canonical_Combining_Class_Values) of `0`.
+
+See [UAX #15 Section 9.1: Stable Code Points](https://www.unicode.org/reports/tr15/#Stable_Code_Points) for related discussion.
+Text under consideration can be segmented by locating such characters.
+
+### Normalization and Output
+
+On output, text will be normalized into a specified normalization form. That form will typically be NFC, but an implementation may allow a calling application to override the choice of normalization form.
+For example, many platforms may request NFC as the output format. In such a case, all text emitted via the keyboard will be transformed into NFC.
+
+Existing text in a document will only have normalization applied within a single normalization-safe segment from the caret.  The output will not contain any markers, thus any normalization is unaffected by any markers embedded within the segment.
+
+For example, the sequence `e\m{marker}\u{300}` would be output in NFC as `è`. The marker is removed and has no effect on the output.
+
+### Disabling Normalization
+
+The attribute value `normalization="disabled"` can be used to indicate that no automatic normalization is to be applied in input, matching, or output. Using this setting should be done with caution:
+
+- When this attribute value is used, all matching and output uses only the exact codepoints provided by the keyboard author.
+- The input context from the application may not be normalized, which means that the keyboard author should consider all possible combinations, including NFC, NFD, and mixed normalization in `<transform from=` attributes.
+- See [`<settings>`](#element-settings) for further details.
+
+The majority of the above section only applies when `normalization="disabled"` is not used.
 
 * * *
 
@@ -556,13 +853,10 @@ An element used to keep track of layout-specific settings by implementations. Th
 
 _Attribute:_ `normalization="disabled"`
 
-> Normalization will not typically be the responsibility of the keyboard author, rather this will be managed by the implementation.
-> The implementation will apply normalization as appropriate when matching transform rules and `<display>` value matching.
-> Output from the keyboard, following application of all transform rules, will be normalized to implementation or application-requested form.
+> The presence of this attribute indicates that normalization will not be applied to the input text, matching, or the output.
+> See [Normalization](#normalization) for additional details.
 >
-> However, it is recognized that there may be some keyboards which, for compatibility or legacy reasons, need to manage their own normalization. The implementation in that case will do no normalization at all. The keyboard author must make use of transforms in the keyboard to any required normalization. In this case, the attribute value `normalization="disabled"` is used to indicate that no automatic normalization happens.
->
-> **Note**: while this attribute is allowed by the specification, its use is discouraged, and keyboards with `normalization="disabled"` would not be accepted into the ClDR repository.
+> **Note**: while this attribute is allowed by the specification, it should be used with caution.
 
 
 **Example**
@@ -1675,7 +1969,7 @@ Consider the following abbreviated example:
 
 1. The user presses the `circ_key` key. The key can be shown with the keycap `^` due to the `<display>` element.
 
-2. The special marker, `circ_marker`, is added to the end of input context.
+2. The special marker, `circ_marker`, is added to the end of the input context.
 
     The input context does not match any transforms.
 
@@ -1750,6 +2044,8 @@ Another strategy might be to use a marker to indicate where transforms are desir
 ```
 
 In this way, only the `X`, `e` keys will produce `^e` with a _transform_ marker (again, any name could be used) which will cause the transform to be applied. One benefit is that navigating to an existing `^` in a document and adding an `e` will result in `^e`, and this output will not be affected by the transform, because there will be no marker present there (remember that markers are not stored with the document but only recorded in memory temporarily during text input).
+
+Please note important considerations for [Normalization and Markers](#normalization-and-markers).
 
 **Effect of markers on final text**
 
@@ -2314,7 +2610,7 @@ The effect of this is that the _e-vowel_ will be identified as a prebase and wil
 
 #### Example Post-reorder transforms
 
-It may be desired to perform additional processing following reorder operations.  This may be aaccomplished by adding an additional `<transformGroup>` element after the reorders.
+It may be desired to perform additional processing following reorder operations.  This may be aaccomplished by adding an additional `<transformGroup>` element after the group containing `<reorder>` elements.
 
 First, a partial example from Khmer where split vowels are combined after reordering.
 
@@ -2346,6 +2642,22 @@ Another partial example allows a keyboard implementation to prevent people typin
     <transform from="[\u{102F}\u{1030}\u{1048}\u{1059}][\u{102F}\u{1030}\u{1048}\u{1059}]"  />
 </transformGroup>
 ```
+
+#### Reorder and Markers
+
+Markers are not matched by `reorder` elements. However, if a character preceded by one or more markers is reordered due to a `reorder` element, those markers will be reordered with the characters, maintaining the same relative order.  This is a similar process to the algorithm used to normalize strings processed by `transform` elements.
+
+Keyboard implementations must process `reorder` elements using the following algorithm.
+
+Note that steps 1 and 3 are identical to the steps used for normalization using markers in the [Marker Algorithm Overview](#marker-algorithm-overview).
+
+Given an input string from context or from a previous `transformGroup`:
+
+1. Parsing/Removing Markers
+
+2. Perform reordering (as in this section)
+
+3. Re-Adding Markers
 
 * * *
 

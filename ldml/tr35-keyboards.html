@@ -692,6 +692,98 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script src="./js/anchor.min.js"></script><div class="header"><table class="header" cellpadding="0" cellspacing="0" width="100%">
     <tbody>
         <tr>
@@ -751,6 +843,28 @@ developing this technical preview to the CLDR keyboard specification.</p><h2 id=
 <li><a href="#extensibility">Extensibility</a></li>
 </ul>
 </li>
+<li><a href="#normalization">Normalization</a><ul>
+<li><a href="#where-normalization-occurs">Where Normalization Occurs</a></li>
+<li><a href="#normalization-and-transform-matching">Normalization and Transform Matching</a></li>
+<li><a href="#normalization-and-markers">Normalization and Markers</a><ul>
+<li><a href="#rationale-for-gluing-markers">Rationale for 'gluing' markers</a></li>
+<li><a href="#data-model-marker">Data Model: <code>Marker</code></a></li>
+<li><a href="#data-model-string">Data Model: string</a></li>
+<li><a href="#data-model-markerentry">Data Model: <code>MarkerEntry</code></a></li>
+<li><a href="#marker-algorithm-overview">Marker Algorithm Overview</a></li>
+<li><a href="#phase-1-parsingremoving-markers">Phase 1: Parsing/Removing Markers</a></li>
+<li><a href="#phase-2-plain-text-processing">Phase 2: Plain Text Processing</a></li>
+<li><a href="#phase-3-adding-markers">Phase 3: Adding Markers</a></li>
+<li><a href="#example-normalization-with-markers">Example Normalization with Markers</a></li>
+</ul>
+</li>
+<li><a href="#normalization-and-character-classes">Normalization and Character Classes</a></li>
+<li><a href="#normalization-and-reorder-elements">Normalization and Reorder elements</a></li>
+<li><a href="#normalization-safe-segments">Normalization-safe Segments</a></li>
+<li><a href="#normalization-and-output">Normalization and Output</a></li>
+<li><a href="#disabling-normalization">Disabling Normalization</a></li>
+</ul>
+</li>
 <li><a href="#element-hierarchy">Element Hierarchy</a><ul>
 <li><a href="#element-keyboard3">Element: keyboard3</a></li>
 <li><a href="#element-locales">Element: locales</a></li>
@@ -807,6 +921,7 @@ developing this technical preview to the CLDR keyboard specification.</p><h2 id=
 <li><a href="#element-reorder">Element: reorder</a><ul>
 <li><a href="#using-import-with-reorder-elements">Using <code>&lt;import&gt;</code> with <code>&lt;reorder&gt;</code> elements</a></li>
 <li><a href="#example-post-reorder-transforms">Example Post-reorder transforms</a></li>
+<li><a href="#reorder-and-markers">Reorder and Markers</a></li>
 </ul>
 </li>
 <li><a href="#backspace-transforms">Backspace Transforms</a></li>
@@ -896,7 +1011,172 @@ If it becomes necessary in the future, the format could extend the ISO layout to
 </blockquote><pre><code class="language-xml"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">keyboard3</span> <span class="hljs-keyword">SYSTEM</span> <span class="hljs-string">"../dtd/ldmlKeyboard3.dtd"</span>&gt;</span>
 </code></pre><ul>
 <li>The filename of a keyboard .xml file does not have to match the BCP47 primary locale ID, but it is recommended to do so. The CLDR repository may enforce filename consistency.</li>
-</ul><h3 id="extensibility">Extensibility</h3><p>For extensibility, the <code>&lt;special&gt;</code> element will be allowed at nearly every level.</p><p>See <a href="tr35.html#special">Element special</a> in Part 1.</p><hr><h2 id="element-hierarchy">Element Hierarchy</h2><p>This section describes the XML elements in a keyboard layout file, beginning with the top level element <code>&lt;keyboard3&gt;</code>.</p><h3 id="element-keyboard3">Element: keyboard3</h3><p>This is the top level element. All other elements defined below are under this element.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span> <span class="hljs-attr">locale</span>=<span class="hljs-string">"{locale ID}"</span>&gt;</span>
+</ul><h3 id="extensibility">Extensibility</h3><p>For extensibility, the <code>&lt;special&gt;</code> element will be allowed at nearly every level.</p><p>See <a href="tr35.html#special">Element special</a> in Part 1.</p><h2 id="normalization">Normalization</h2><p>Unicode Normalization, as described in <a href="https://www.unicode.org/reports/tr41/#Unicode/">The Unicode Standard</a>, is a process by which Unicode text is processed to eliminate unwanted distinctions.</p><p>This section discusses how conformant keyboards are affected by normalization, and the impact of normalization on keyboard authors and keyboard implmentations.</p><p>Keyboard implementations will usually apply normalization as appropriate when matching transform rules and <code>&lt;display&gt;</code> value matching.
+Output from the keyboard, following application of all transform rules, will be normalized to the appropriate form by the keyboard implementation.</p><blockquote>
+<p>Note: There are many existing software libraries which perform Unicode Normalization, including <a href="https://icu.unicode.org">ICU</a>, <a href="https://icu4x.unicode.org">ICU4X</a>, and JavaScript's <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String/normalize">String.prototype.normalize()</a>.</p>
+</blockquote><p>Keyboard authors will not typically need to perform normalization as part of the keyboard layout.  However, authors should be aware of areas where normalization affects keyboard operation so that they may achieve their desired results.</p><h3 id="where-normalization-occurs">Where Normalization Occurs</h3><p>There are four stages where normalization must be performed by keyboard implementations.</p><ol>
+<li><p><strong>From the keyboard source <code>.xml</code></strong></p>
+<p> Keyboard source .xml files may be in any normalization form.
+ However, in processing they are converted to NFD.</p>
+<ul>
+<li>From any form to NFD: full normalization (decompose+reorder)</li>
+<li>Markers must be processed as described <a href="#marker-algorithm-overview">below</a>.</li>
+<li>Regex patterns must be processed so that matching is performed in NFD.</li>
+</ul>
+<p> Example: <code>&lt;key output=</code>, and <code>&lt;transform from= to=</code> attribute contents will be normalized to NFD.</p>
+</li>
+<li><p><strong>From the input context</strong></p>
+<p> The input context must be normalized for purposes of matching.</p>
+<ul>
+<li>From any form to NFD: full normalization (decompose+reorder)</li>
+<li>Markers in the cached context must be preserved.</li>
+</ul>
+<p> Example: The input context contains U+00E8 (<code>è</code>).  The user clicks the cursor after the character, then presses a key which produces U+0320 (<code>&lt;key output="\u{0320}"/&gt;</code>).
+ The implementation must normalize the context buffer to <code>e\u{0320}\u{0300}</code> (<code>è̠</code>) before matching.</p>
+</li>
+<li><p><strong>Before each <code>transformGroup</code></strong></p>
+<p> Text must be normalized before processing by the next <code>transformGroup</code>.</p>
+<ul>
+<li>To NFD: no decomposition should be needed, because all of the input text (including transform rules) was already in NFD form.
+ However, marker reordering may be needed if transforms insert segments out of order.</li>
+<li>Markers must be preserved.</li>
+</ul>
+<p> Example: The input context contains U+00E8 (<code>è</code>).  The user clicks the cursor after this character, then presses a key producing <code>x</code>. A transform rule <code>&lt;transform from='x' to='\u{0320}'/&gt;</code> matches. The implementation must normalize the intermediate buffer to <code>e\u{0320}\u{0300}</code> (<code>è̠</code>) before proceeding to the next <code>transformGroup</code>.</p>
+</li>
+<li><p><strong>Before output to the platform/application</strong></p>
+<p> Text must be normalized into the output form requested by the platform or application. This will typically be NFC, but may not be.</p>
+<ul>
+<li>If normalizing to NFC, full normalization (reorder+composition) will be required.</li>
+<li>No markers are present in this text, they are removed prior to output but retained in the implementation's input context for subsequent keystrokes. See <a href="#markers">markers</a>.</li>
+</ul>
+<p> Example: The result of keystrokes and transform processing produces the string <code>e\u{0300}</code>. The keyboard implementation normalizes this to a single NFC codepoint U+00E8 (<code>è</code>), which is returned to the application.</p>
+</li>
+</ol><h3 id="normalization-and-transform-matching">Normalization and Transform Matching</h3><p>Regardless of the normalization form in the keyboard source file or in the edit buffer context, transform matching will be performed using <strong>NFD</strong>. For example, all of the following transforms will match the input strings è̠, whether the input is U+00E8 U+0320, U+0065 U+0320 U+0300, or U+0065 U+0300 U+0320.</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">transform</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"e\u{0320}\u{0300}"</span> /&gt;</span> <span class="hljs-comment">&lt;!-- NFD --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">transform</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"\u{00E8}\u{0320}"</span>  /&gt;</span> <span class="hljs-comment">&lt;!-- NFC: è + U+0320 --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">transform</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"e\u{0300}\u{0320}"</span> /&gt;</span> <span class="hljs-comment">&lt;!-- Unnormalized --&gt;</span>
+</code></pre><h3 id="normalization-and-markers">Normalization and Markers</h3><p>A special issue occurs when markers are involved.
+<a href="#markers">Markers</a> are not text, and so not themselves modified or reordered by the Unicode Normalization Algorithm.
+Existing Normalization APIs typically operate on plain text, and so those APIs can not be used with content containing markers.</p><p>However, the markers must be retained and processed by keyboard implementations in a manner which will be both consistent across implementations and predictable to keyboard authors.
+Inconsistencies would result in different user experiences — specifically, different or incorrect text output — on some implementations and not another.
+Unpredictability would make it challenging for the keyboard author to create a keyboard with expected behavior.</p><p>This section gives an algorithm for implementing normalization on a text stream including markers.</p><p><em>Note:</em> When the algorithm is performed on a plain text stream that doesn't include markers, implementations may skip the removing/re-adding steps 1 and 3 because no markers are involved.</p><h4 id="rationale-for-gluing-markers">Rationale for 'gluing' markers</h4><p>The processing described here describes an extension to Unicode normalization to account for the desired behavior of markers.</p><p>The algorithm described considers markers 'glued' (remaining with) the following character. If a context ends with a marker, that marker would be guaranteed to remain at the end after processing, consistently located with respect to the next keystroke to be input.</p><ol>
+<li>Keyboard authors can keep a marker together with a character of interest by emitting the marker just previous to that character.</li>
+</ol><p>For example, given a key <code>output="\m{marker}X"</code>, the marker will proceed <code>X</code> regardless of any normalization. (If <code>output="X\m{marker}"</code> were used, and <code>X</code> were to reorder with other characters, the marker would no longer be adjacent to the X.)</p><ol start="2">
+<li>Markers which are at the end of the input remain at the end of input during normalization.</li>
+</ol><p>For example, given input context which ends with a marker, such as <code>...ABCDX\m{marker}</code>, the marker will remain at the end of the input context regardless of any normalization.</p><p>The 'gluing' is only applicable during one particular processing step. It does not persist or affect further processing steps or future keystrokes.</p><h4 id="data-model-marker">Data Model: <code>Marker</code></h4><p>For purposes of this algorithm, a <code>Marker</code> is an opaque data type which has one property, its ID. See <a href="#markers">Markers</a> for a discussion of the marker ID.</p><h4 id="data-model-string">Data Model: string</h4><p>For purposes of this algorithm, a string is an array of elements, where each element is either a codepoint or a <code>Marker</code>. For example, a <a href="#element-key"><code>key</code></a> in the XML such as <code>&lt;key id="sha" output="𐓯\m{mymarker}x" /&gt;</code> would produce a string with three elements:</p><ol>
+<li>The codepoint U+104EF</li>
+<li>The <code>Marker</code> named <code>mymarker</code></li>
+<li>The codepoint U+0078</li>
+</ol><p>If this string were output to an application, it would be converted to <em>plain text</em> by removing all markers, which would yield the plain text string with only two codepoints: <code>𐓯x</code>.</p><h4 id="data-model-markerentry">Data Model: <code>MarkerEntry</code></h4><p>This algorithm uses a temporary data structure which is an ordered array of <code>MarkerEntry</code> elements.</p><p>Each <code>MarkerEntry</code> element has the following properties:</p><ul>
+<li><code>glue</code> (a codepoint, or the special value <code>END_OF_SEGMENT</code>)</li>
+<li><code>divider?</code> (true/false)</li>
+<li><code>processed?</code> (true/false, defaults to false)</li>
+<li><code>marker</code> (the <code>Marker</code> object)</li>
+</ul><h4 id="marker-algorithm-overview">Marker Algorithm Overview</h4><p>This algorithm has three main phases to it.</p><ol>
+<li><p><strong>Parsing/Removing Markers</strong></p>
+<p> In this phase, the input string is analyzed to locate all markers. Metadata about each marker is stored in a temporary <code>MarkerArray</code> data structure.
+ Markers are removed from the input string, leaving only plain text.</p>
+</li>
+<li><p><strong>Plain Text Processing</strong></p>
+<p> This phase is performed on the plain text string, such as NFD normalization.</p>
+</li>
+<li><p><strong>Re-Adding Markers</strong></p>
+<p> Finally, markers are re-added to the plain text string using the <code>MarkerEntry</code> metadata from step 1.
+ This phase results in a string which contains both codepoints and markers.</p>
+</li>
+</ol><h4 id="phase-1-parsingremoving-markers">Phase 1: Parsing/Removing Markers</h4><p>Given an input string <em>s</em></p><ol>
+<li>Initialize an empty <code>MarkerEntry</code> array <em>e</em></li>
+<li>Initialize an empty <code>Marker</code> array <em>pending</em></li>
+<li>Loop through each element <em>i</em> of the input <em>s</em><ol>
+<li>If <em>i</em> is a <code>Marker</code>:<ol>
+<li>add the marker <em>i</em> to the end of <em>pending</em></li>
+<li>remove the marker from the input string <em>s</em></li>
+</ol>
+</li>
+<li>else if <em>i</em> is a codepoint:<ol>
+<li>Decompose <em>i</em> into NFD form into a plain text string array of codepoints <em>d</em></li>
+<li>Add an element with <code>glue=d[0]</code> (the first codepoint of <em>d</em>) and <code>divider? = true</code> to the end of <em>e</em></li>
+<li>For every marker <em>m</em> in <em>pending</em>:<ol>
+<li>Add an element with <code>glue=d[0]</code> and <code>marker=m</code> and <code>divider? = false</code> to the end of <em>e</em></li>
+</ol>
+</li>
+<li>Clear the <em>pending</em> array.</li>
+<li>Finally, for every codepoint <em>c</em> in <em>d</em> <strong>following</strong> the initial codepoint: (d[1]..):<ol>
+<li>Add an element with <code>glue=c</code> and <code>divider? = true</code> to the end of <em>e</em></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>At the end of text,<ol>
+<li>Add an element with <code>glue=END</code> and <code>divider?=true</code> to the end of <em>e</em></li>
+<li>For every marker <em>m</em> in <em>pending</em>:<ol>
+<li>Add an element with <code>glue=END</code> and <code>marker=m</code> and <code>divider? = false</code> to the end of <em>e</em></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol><p>The string <em>s</em> is now plain text and can be processed by the next phase.</p><p>The array <em>e</em> will be used in Phase 3.</p><h4 id="phase-2-plain-text-processing">Phase 2: Plain Text Processing</h4><p>See <a href="https://www.unicode.org/reports/tr15/#Description_Norm">UAX #15</a> for an overview of the process.  An existing Unicode-compliant API can be used here.</p><h4 id="phase-3-adding-markers">Phase 3: Adding Markers</h4><ol>
+<li>Initialize an empty output string <em>o</em></li>
+<li>Loop through the elements <em>p</em> of the array <em>e</em> from end to beginning (backwards)<ol>
+<li>If <em>p</em>.glue isn't <code>END</code>:<ol>
+<li>break out of the loop</li>
+</ol>
+</li>
+<li>If <em>p</em>.divider? == false:<ol>
+<li>Prepend marker <em>p</em>.marker to the output string <em>o</em></li>
+</ol>
+</li>
+<li>Set <em>p</em>.processed?=true (so we don't process this again)</li>
+</ol>
+</li>
+<li>Loop through each codepoint <em>i</em> ( in the plain text input string ) from end to beginning (backwards)<ol>
+<li>Prepend <em>i</em> to output <em>o</em></li>
+<li>Loop through the elements <em>p</em> of the array <em>e</em> from end to beginning (backwards)<ol>
+<li>If <em>p</em>.processed? == true:<ol>
+<li>Continue the inner loop  (was already processed)</li>
+</ol>
+</li>
+<li>If <em>p</em>.glue isn't <em>i</em><ol>
+<li>Continue the inner loop  (wrong glue, not applicable)</li>
+</ol>
+</li>
+<li>If <em>p</em>.divider? == true:<ol>
+<li>Break out of the inner loop  (reached end of this 'glue' char)</li>
+</ol>
+</li>
+<li>Prepend marker <em>p</em>.marker to the output string <em>o</em></li>
+<li>Set <em>p</em>.processed?=true (so we don't process this again)</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><em>o</em> is now the output string including markers.</li>
+</ol><h4 id="example-normalization-with-markers">Example Normalization with Markers</h4><p><strong>Example 1</strong></p><p>Consider this example, without markers:</p><ul>
+<li><code>e\u{0300}\u{0320}</code> (input)</li>
+<li><code>e\u{0320}\u{0300}</code> (NFD)</li>
+</ul><p>The combining marks are reordered.</p><p><strong>Example 2</strong></p><p>If we add markers:</p><ul>
+<li><code>e\u{0300}\m{marker}\u{0320}</code> (input)</li>
+<li><code>e\m{marker}\u{0320}\u{0300}</code> (NFD)</li>
+</ul><p>Note that the marker is 'glued' to the <em>following</em> character. In the above example, <code>\m{marker}</code> was 'glued' to the <code>\u{0320}</code>.</p><p><strong>Example 2</strong></p><p>A second example:</p><ul>
+<li><code>e\m{marker0}\u{0300}\m{marker1}\u{0320}\m{marker2}</code> (input)</li>
+<li><code>e\m{marker1}\u{0320}\m{marker0}\u{0300}\m{marker2}</code> (NFD)</li>
+</ul><p>Here <code>\m{marker2}</code> is 'glued' to the end of the string. However, if additional text is added such as by a subsequent keystroke (which may add an additional combining character, for example), this marker may be 'glued' to that following text.</p><p>Markers remain in the same normalization-safe segment during normalization. Consider:</p><p><strong>Example 3</strong></p><ul>
+<li><code>e\u{0300}\m{marker1}\u{0320}a\u{0300}\m{marker2}\u{0320}</code> (original)</li>
+<li><code>e\m{marker1}\u{0320}\u{0300}a\m{marker2}\u{0320}\u{0300}</code> (NFD)</li>
+</ul><p>There are two normalization-safe segments here:</p><ol>
+<li><code>e\u{0300}\m{marker1}\u{0320}</code></li>
+<li><code>a\u{0300}\m{marker2}\u{0320}</code></li>
+</ol><p>Normalization (and marker rearranging) effectively occurs within each segment.  While <code>\m{marker1}</code> is 'glued' to the <code>\u{0320}</code>, it is glued within the first segment and has no effect on the second segment.</p><h3 id="normalization-and-character-classes">Normalization and Character Classes</h3><p>If pre-composed (non-NFD) characters are used in <a href="#regex-like-syntax">character classes</a>, such as <code>[á-é]</code>, these may not match as keyboard authors expect, as the U+00E1 character (á) will not occur in NFD form. Thus this may be masking serious errors in the data.</p><p>Tools that process keyboard data must reject the data when character classes include non-NFD characters.</p><p>The above should be written instead as a regex <code>(á|â|ã|ä|å|æ|ç|è|é)</code>. Alternatively, it could be written as a set variable <code>&lt;set id="Example" value="á â ã ä å æ ç è é"/&gt;</code> and matched as <code>$[Example]</code>.</p><p>There is another case where there is no explicit mention of a non-NFD character, but the character class could include non-NFD characters, such as the range <code>[\u{0020}-\u{01FF}]</code>. For these, the tools should raise a warning by default.</p><h3 id="normalization-and-reorder-elements">Normalization and Reorder elements</h3><p><a href="#element-reorder"><code>reorder</code></a> elements operate on NFD codepoints.</p><h3 id="normalization-safe-segments">Normalization-safe Segments</h3><p>For purposes of this algorithm, "normalization-safe segments" are defined as a string of codepoints which are</p><ol>
+<li>already in <a href="https://www.unicode.org/reports/tr15/#Norm_Forms">NFD</a>, and</li>
+<li>begin with a character with <a href="https://www.unicode.org/reports/tr44/#Canonical_Combining_Class_Values">Canonical Combining Class</a> of <code>0</code>.</li>
+</ol><p>See <a href="https://www.unicode.org/reports/tr15/#Stable_Code_Points">UAX #15 Section 9.1: Stable Code Points</a> for related discussion.
+Text under consideration can be segmented by locating such characters.</p><h3 id="normalization-and-output">Normalization and Output</h3><p>On output, text will be normalized into a specified normalization form. That form will typically be NFC, but an implementation may allow a calling application to override the choice of normalization form.
+For example, many platforms may request NFC as the output format. In such a case, all text emitted via the keyboard will be transformed into NFC.</p><p>Existing text in a document will only have normalization applied within a single normalization-safe segment from the caret.  The output will not contain any markers, thus any normalization is unaffected by any markers embedded within the segment.</p><p>For example, the sequence <code>e\m{marker}\u{300}</code> would be output in NFC as <code>è</code>. The marker is removed and has no effect on the output.</p><h3 id="disabling-normalization">Disabling Normalization</h3><p>The attribute value <code>normalization="disabled"</code> can be used to indicate that no automatic normalization is to be applied in input, matching, or output. Using this setting should be done with caution:</p><ul>
+<li>When this attribute value is used, all matching and output uses only the exact codepoints provided by the keyboard author.</li>
+<li>The input context from the application may not be normalized, which means that the keyboard author should consider all possible combinations, including NFC, NFD, and mixed normalization in <code>&lt;transform from=</code> attributes.</li>
+<li>See <a href="#element-settings"><code>&lt;settings&gt;</code></a> for further details.</li>
+</ul><p>The majority of the above section only applies when <code>normalization="disabled"</code> is not used.</p><hr><h2 id="element-hierarchy">Element Hierarchy</h2><p>This section describes the XML elements in a keyboard layout file, beginning with the top level element <code>&lt;keyboard3&gt;</code>.</p><h3 id="element-keyboard3">Element: keyboard3</h3><p>This is the top level element. All other elements defined below are under this element.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span> <span class="hljs-attr">locale</span>=<span class="hljs-string">"{locale ID}"</span>&gt;</span>
     {definition of the layout as described by the elements defined below}
 <span class="hljs-tag">&lt;/<span class="hljs-name">keyboard3</span>&gt;</span>
 </code></pre><blockquote>
@@ -999,11 +1279,9 @@ Typically, this is shown on a UI element that allows switching keyboard layouts 
 <p>Occurrence: optional, single</p>
 </small>
 </blockquote><p><em>Attribute:</em> <code>normalization="disabled"</code></p><blockquote>
-<p>Normalization will not typically be the responsibility of the keyboard author, rather this will be managed by the implementation.
-The implementation will apply normalization as appropriate when matching transform rules and <code>&lt;display&gt;</code> value matching.
-Output from the keyboard, following application of all transform rules, will be normalized to implementation or application-requested form.</p>
-<p>However, it is recognized that there may be some keyboards which, for compatibility or legacy reasons, need to manage their own normalization. The implementation in that case will do no normalization at all. The keyboard author must make use of transforms in the keyboard to any required normalization. In this case, the attribute value <code>normalization="disabled"</code> is used to indicate that no automatic normalization happens.</p>
-<p><strong>Note</strong>: while this attribute is allowed by the specification, its use is discouraged, and keyboards with <code>normalization="disabled"</code> would not be accepted into the ClDR repository.</p>
+<p>The presence of this attribute indicates that normalization will not be applied to the input text, matching, or the output.
+See <a href="#normalization">Normalization</a> for additional details.</p>
+<p><strong>Note</strong>: while this attribute is allowed by the specification, it should be used with caution.</p>
 </blockquote><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span> <span class="hljs-attr">locale</span>=<span class="hljs-string">"bg"</span>&gt;</span>
     …
     <span class="hljs-tag">&lt;<span class="hljs-name">settings</span> <span class="hljs-attr">normalization</span>=<span class="hljs-string">"disabled"</span> /&gt;</span>
@@ -1607,7 +1885,7 @@ Variables may refer to other string variables if they have been previously defin
 </code></pre><ol>
 <li><p>The user presses the <code>circ_key</code> key. The key can be shown with the keycap <code>^</code> due to the <code>&lt;display&gt;</code> element.</p>
 </li>
-<li><p>The special marker, <code>circ_marker</code>, is added to the end of input context.</p>
+<li><p>The special marker, <code>circ_marker</code>, is added to the end of the input context.</p>
 <p> The input context does not match any transforms.</p>
 <p> The input context has:</p>
 <ul>
@@ -1660,7 +1938,7 @@ One strategy would be to use a marker, which won’t be visible in the output, b
     <span class="hljs-comment">&lt;!-- Won't match ^e without marker. --&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">transform</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"^\m{transform}e"</span> <span class="hljs-attr">output</span>=<span class="hljs-string">"ê"</span>/&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">transforms</span>&gt;</span>
-</code></pre><p>In this way, only the <code>X</code>, <code>e</code> keys will produce <code>^e</code> with a <em>transform</em> marker (again, any name could be used) which will cause the transform to be applied. One benefit is that navigating to an existing <code>^</code> in a document and adding an <code>e</code> will result in <code>^e</code>, and this output will not be affected by the transform, because there will be no marker present there (remember that markers are not stored with the document but only recorded in memory temporarily during text input).</p><p><strong>Effect of markers on final text</strong></p><p>All markers must be removed before text is returned to the application from the input context.
+</code></pre><p>In this way, only the <code>X</code>, <code>e</code> keys will produce <code>^e</code> with a <em>transform</em> marker (again, any name could be used) which will cause the transform to be applied. One benefit is that navigating to an existing <code>^</code> in a document and adding an <code>e</code> will result in <code>^e</code>, and this output will not be affected by the transform, because there will be no marker present there (remember that markers are not stored with the document but only recorded in memory temporarily during text input).</p><p>Please note important considerations for <a href="#normalization-and-markers">Normalization and Markers</a>.</p><p><strong>Effect of markers on final text</strong></p><p>All markers must be removed before text is returned to the application from the input context.
 If the input context changes, such as if the cursor or mouse moves the insertion point somewhere else, all markers in the input context are removed.</p><p><strong>Implementation Notes</strong></p><p>Ideally, markers are implemented entirely out-of-band from the normal text stream. However, implementations <em>may</em> choose to map each marker to a <a href="https://www.unicode.org/glossary/#private_use_character">Unicode private-use character</a> for use only within the implementation’s processing and temporary storage in the input context.</p><p>For example, the first marker encountered could be represented as U+E000, the second by U+E001 and so on.  If a regex processing engine were used, then those PUA characters could be processed through the existing regex processing engine.  <code>[^\u{E000}-\u{E009}]</code> could be used as an expression to match a character that is not a marker, and <code>[Ee]\u{E000}</code> could match <code>E</code> or <code>e</code> followed by the first marker.</p><p>Such implementations must take care to remove all such markers (see prior section) from the resultant text. As well, implementations must take care to avoid conflicts if applications themselves are using PUA characters, such as is often done with not-yet-encoded scripts or characters.</p><hr><h3 id="element-transformgroup">Element: transformGroup</h3><blockquote>
 <small>
 
@@ -2080,7 +2358,7 @@ endif
     <span class="hljs-comment">&lt;!-- medial-r --&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">reorder</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"\u{103C}"</span> <span class="hljs-attr">preBase</span>=<span class="hljs-string">"1"</span> /&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">transformGroup</span>&gt;</span>
-</code></pre><p>The effect of this is that the <em>e-vowel</em> will be identified as a prebase and will have an order of 30. Likewise a <em>medial-r</em> will be identified as a prebase and will have an order of 20. Notice that a <em>shan-e-vowel</em> (<code>\u{1084}</code>) will not be identified as a prebase (even if it should be!). The <em>kinzi</em> is described in the layout since it moves something across a run boundary. By separating such movements (prebase or moving to in front of a base) from the shared ordering rules, the shared ordering rules become a self-contained combining order description that can be used in other keyboards or even in other contexts than keyboarding.</p><h4 id="example-post-reorder-transforms">Example Post-reorder transforms</h4><p>It may be desired to perform additional processing following reorder operations.  This may be aaccomplished by adding an additional <code>&lt;transformGroup&gt;</code> element after the reorders.</p><p>First, a partial example from Khmer where split vowels are combined after reordering.</p><pre><code class="language-xml">…
+</code></pre><p>The effect of this is that the <em>e-vowel</em> will be identified as a prebase and will have an order of 30. Likewise a <em>medial-r</em> will be identified as a prebase and will have an order of 20. Notice that a <em>shan-e-vowel</em> (<code>\u{1084}</code>) will not be identified as a prebase (even if it should be!). The <em>kinzi</em> is described in the layout since it moves something across a run boundary. By separating such movements (prebase or moving to in front of a base) from the shared ordering rules, the shared ordering rules become a self-contained combining order description that can be used in other keyboards or even in other contexts than keyboarding.</p><h4 id="example-post-reorder-transforms">Example Post-reorder transforms</h4><p>It may be desired to perform additional processing following reorder operations.  This may be aaccomplished by adding an additional <code>&lt;transformGroup&gt;</code> element after the group containing <code>&lt;reorder&gt;</code> elements.</p><p>First, a partial example from Khmer where split vowels are combined after reordering.</p><pre><code class="language-xml">…
 <span class="hljs-tag">&lt;<span class="hljs-name">transformGroup</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">reorder</span>&nbsp;… /&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">reorder</span>&nbsp;… /&gt;</span>
@@ -2101,7 +2379,14 @@ endif
 <span class="hljs-tag">&lt;<span class="hljs-name">transformGroup</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">transform</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"[\u{102F}\u{1030}\u{1048}\u{1059}][\u{102F}\u{1030}\u{1048}\u{1059}]"</span>  /&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">transformGroup</span>&gt;</span>
-</code></pre><hr><h3 id="backspace-transforms">Backspace Transforms</h3><p>The <code>&lt;transforms type="backspace"&gt;</code> describe an optional transform that is not applied on input of normal characters, but is only used to perform extra backspace modifications to previously committed text.</p><p>When the backspace key is pressed, the <code>&lt;transforms type="backspace"&gt;</code> element (if present) is processed, and then the <code>&lt;transforms type="simple"&gt;</code> element (if processed) as with any other key.</p><p>Keyboarding applications typically work, but are not required to, in one of two modes:</p><p><strong><em>text entry</em></strong></p><blockquote>
+</code></pre><h4 id="reorder-and-markers">Reorder and Markers</h4><p>Markers are not matched by <code>reorder</code> elements. However, if a character preceded by one or more markers is reordered due to a <code>reorder</code> element, those markers will be reordered with the characters, maintaining the same relative order.  This is a similar process to the algorithm used to normalize strings processed by <code>transform</code> elements.</p><p>Keyboard implementations must process <code>reorder</code> elements using the following algorithm.</p><p>Note that steps 1 and 3 are identical to the steps used for normalization using markers in the <a href="#marker-algorithm-overview">Marker Algorithm Overview</a>.</p><p>Given an input string from context or from a previous <code>transformGroup</code>:</p><ol>
+<li><p>Parsing/Removing Markers</p>
+</li>
+<li><p>Perform reordering (as in this section)</p>
+</li>
+<li><p>Re-Adding Markers</p>
+</li>
+</ol><hr><h3 id="backspace-transforms">Backspace Transforms</h3><p>The <code>&lt;transforms type="backspace"&gt;</code> describe an optional transform that is not applied on input of normal characters, but is only used to perform extra backspace modifications to previously committed text.</p><p>When the backspace key is pressed, the <code>&lt;transforms type="backspace"&gt;</code> element (if present) is processed, and then the <code>&lt;transforms type="simple"&gt;</code> element (if processed) as with any other key.</p><p>Keyboarding applications typically work, but are not required to, in one of two modes:</p><p><strong><em>text entry</em></strong></p><blockquote>
 <p>text entry happens while a user is typing new text. A user typically wants the backspace key to undo whatever they last typed, whether or not they typed things in the 'right' order.</p>
 </blockquote><p><strong><em>text editing</em></strong></p><blockquote>
 <p>text editing happens when a user moves the cursor into some previously entered text which may have been entered by someone else. As such, there is no way to know in which order things were typed, but a user will still want appropriate behaviour when they press backspace. This may involve deleting more than one character or replacing a sequence of characters with a different sequence.</p>

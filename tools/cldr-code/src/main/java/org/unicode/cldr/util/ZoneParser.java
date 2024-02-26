@@ -499,9 +499,7 @@ public class ZoneParser {
     private static List<String> errorData =
             Arrays.asList(
                     new String[] {
-                        String.valueOf(Double.MIN_VALUE),
-                        String.valueOf(Double.MIN_VALUE),
-                        ""
+                        String.valueOf(Double.MIN_VALUE), String.valueOf(Double.MIN_VALUE), ""
                     });
 
     private Comparator<String> TZIDComparator =

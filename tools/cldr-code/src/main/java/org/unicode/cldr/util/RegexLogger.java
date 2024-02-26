@@ -462,10 +462,12 @@ public class RegexLogger {
             if (o == null) {
                 return 1;
             }
-            return Integer.compare(matchFailCount + matchMatchCount + findFailCount + findMatchCount, o.getNumberOfFindFailures()
-                                    + o.getNumberOfFindMatches()
-                                    + o.getNumberOfMatchFailures()
-                                    + o.getNumberOfMatchMatches());
+            return Integer.compare(
+                    matchFailCount + matchMatchCount + findFailCount + findMatchCount,
+                    o.getNumberOfFindFailures()
+                            + o.getNumberOfFindMatches()
+                            + o.getNumberOfMatchFailures()
+                            + o.getNumberOfMatchMatches());
         }
 
         @Override

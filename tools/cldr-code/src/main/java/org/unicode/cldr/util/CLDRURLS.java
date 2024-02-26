@@ -25,7 +25,7 @@ public abstract class CLDRURLS {
     public static final String UNICODE_CONSORTIUM = "The Unicode Consortium";
     public static final String CLDR_UPDATINGDTD_URL = CLDR_HOMEPAGE + "/development/updating-dtds";
     /** Our license, in SPDX format */
-    public static final String UNICODE_SPDX = "Unicode-DFS-2016";
+    public static final String UNICODE_SPDX = "Unicode-3.0";
     /**
      * See:
      * https://spdx.github.io/spdx-spec/appendix-V-using-SPDX-short-identifiers-in-source-files/

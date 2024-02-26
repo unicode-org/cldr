@@ -21,6 +21,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.TempPrintWriter;
 import org.unicode.cldr.util.personname.PersonNameFormatter;
@@ -244,12 +245,8 @@ public class GeneratePersonNameTestData {
                 try (TempPrintWriter output2 =
                         TempPrintWriter.openUTF8Writer(dir.toString(), locale + ".txt"); ) {
                     output2.write(
-                            "# Test data for unit conversions"
-                                    + "\n#  Copyright © 1991-2023 Unicode, Inc."
-                                    + "\n#  For terms of use, see http://www.unicode.org/copyright.html"
-                                    + "\n#  SPDX-License-Identifier: Unicode-DFS-2016"
-                                    + "\n#  CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)"
-                                    + "\n#"
+                            "# Test data for Person Name Data"
+                                    + CldrUtility.getCopyrightString("#  ")
                                     + "\n# CLDR person name formatting test data for: "
                                     + locale
                                     + "\n#"

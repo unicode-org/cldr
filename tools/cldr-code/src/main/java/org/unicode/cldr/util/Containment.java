@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -59,6 +60,8 @@ public class Containment {
     static final Map<String, Integer> toOrder = new LinkedHashMap<>();
     static int level = 0;
     static int order;
+    /** track whether any errors, such as loops, were detected */
+    public static boolean hadErrors = false;
 
     static {
         initOrder("001");
@@ -188,6 +191,7 @@ public class Containment {
         // }
         final Integer oldOrder = toOrder.get(oldTerritory);
         if (oldOrder == null) {
+            hadErrors = true;
             throw new IllegalArgumentException(oldTerritory + " not yet defined");
         }
         toOrder.put(newTerritory, oldOrder);
@@ -203,7 +207,13 @@ public class Containment {
 
     public static Set<List<String>> getAllDirected(Multimap<String, String> multimap, String lang) {
         LinkedHashSet<List<String>> result = new LinkedHashSet<>();
-        getAllDirected(multimap, lang, new ArrayList<String>(), result);
+        getAllDirected(
+                multimap,
+                lang,
+                new ArrayList<String>(),
+                result,
+                new LinkedList<String>(),
+                new HashSet<String>());
         return result;
     }
 
@@ -211,8 +221,30 @@ public class Containment {
             Multimap<String, String> multimap,
             String lang,
             ArrayList<String> target,
-            Set<List<String>> targets) {
-        target.add(lang);
+            Set<List<String>> targets,
+            List<String> depth,
+            Set<String> loops) {
+        int alreadySawThis = depth.indexOf(lang);
+        if (alreadySawThis != -1) {
+            hadErrors = true;
+            if (loops.add(lang)) {
+                System.err.println(
+                        "WARNING: CLDR-15020 getAllDirected(): Loops Detected: "
+                                + String.join(" -> ", depth)
+                                + " -> "
+                                + lang);
+            } // else: already reported it.
+            return;
+        } else {
+            depth.add(lang);
+        }
+        if (!target.add(lang)) {
+            hadErrors = true;
+            throw new StackOverflowError("Error: Saw " + lang + " multiple times in this target.");
+        } else if (depth.size() > 999) {
+            hadErrors = true;
+            throw new StackOverflowError("Error: Too deep getting " + lang);
+        }
         Collection<String> parents = multimap.get(lang);
         int size = parents.size();
         if (size == 0) {
@@ -220,20 +252,29 @@ public class Containment {
         } else if (size == 1) {
             for (String parent : parents) {
                 if (parent.equals(lang)) {
+                    hadErrors = true;
                     System.err.println("ERR: " + lang + " is its own parent");
                 } else {
-                    getAllDirected(multimap, parent, target, targets);
+                    getAllDirected(multimap, parent, target, targets, depth, loops);
                 }
             }
         } else {
             for (String parent : parents) {
                 if (parent.equals(lang)) {
+                    hadErrors = true;
                     System.err.println("ERR: " + lang + " is its own parent");
                 } else {
-                    getAllDirected(multimap, parent, (ArrayList<String>) target.clone(), targets);
+                    getAllDirected(
+                            multimap,
+                            parent,
+                            (ArrayList<String>) target.clone(),
+                            targets,
+                            depth,
+                            loops);
                 }
             }
         }
+        depth.remove(lang); // pop stack
     }
 
     /**

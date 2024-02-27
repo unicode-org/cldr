@@ -31,11 +31,23 @@
         </button>
         <span v-for="catData of data.notifications" :key="catData.category">
           <template v-if="catData.total">
+            <input
+              type="checkbox"
+              :title="describeShow(catData.category)"
+              :id="'dash-cat-checkbox-' + '-' + catData.category"
+              v-model="catIsShown[catData.category]"
+              @change="
+                (event) => {
+                  catCheckmarkChanged(event, catData.category);
+                }
+              "
+            />
             <button
               :category="catData.category"
               class="scrollto cldr-nav-btn"
               v-on:click.prevent="scrollToCategory"
-              :title="describe(catData.category)"
+              :title="describeScrollTo(catData.category)"
+              :disabled="!catIsShown[catData.category]"
             >
               {{ humanize(catData.category) }} ({{ catData.total }})
             </button>
@@ -66,100 +78,102 @@
           v-for="catData of data.notifications"
           :key="'template-' + catData.category"
         >
-          <template
-            v-for="group of catData.groups"
-            :key="group.section + group.page + group.header"
-          >
-            <template v-for="entry in group.entries">
-              <p
-                v-if="!(hideChecked && entry.checked)"
-                :key="'dash-item-' + entry.xpstrid + '-' + catData.category"
-                :id="'dash-item-' + entry.xpstrid + '-' + catData.category"
-                :class="
-                  'dash-' +
-                  catData.category +
-                  (lastClicked === entry.xpstrid + '-' + catData.category
-                    ? ' last-clicked'
-                    : '')
-                "
-              >
-                <span class="dashEntry">
-                  <a
-                    v-bind:href="
-                      getLink(
-                        [locale, group.page, entry.xpstrid],
-                        catData.category,
-                        entry.code
-                      )
-                    "
-                    @click="
-                      () =>
-                        setLastClicked(entry.xpstrid + '-' + catData.category)
-                    "
-                  >
-                    <span
-                      class="category"
-                      :title="describe(catData.category)"
-                      >{{ abbreviate(catData.category) }}</span
-                    >
-                    <span class="section-page" title="section—page">{{
-                      humanize(group.section + "—" + group.page)
-                    }}</span>
-                    |
-                    <span
-                      v-if="group.header"
-                      class="entry-header"
-                      title="entry header"
-                      >{{ group.header }}</span
-                    >
-                    |
-                    <span class="code" title="code">{{ entry.code }}</span>
-                    |
-                    <cldr-value
-                      class="previous-english"
-                      title="previous English"
-                      lang="en"
-                      dir="ltr"
-                      v-if="entry.previousEnglish"
-                      >{{ entry.previousEnglish }} →</cldr-value
-                    >
-                    <cldr-value
-                      class="english"
-                      lang="en"
-                      dir="ltr"
-                      title="English"
-                      v-if="entry.english"
-                      >{{ entry.english }}</cldr-value
-                    >
-                    |
-                    <cldr-value
-                      v-if="entry.winning"
-                      class="winning"
-                      title="Winning"
-                      >{{ entry.winning }}</cldr-value
-                    >
-                    <template v-if="entry.comment">
-                      |
-                      <span v-html="entry.comment" title="comment"></span>
-                    </template>
-                    <span v-if="catData.category === 'Reports'"
-                      >{{ humanizeReport(entry.code) }} Report</span
-                    >
-                  </a>
-                </span>
-                <input
-                  v-if="canBeHidden(catData.category)"
-                  type="checkbox"
-                  class="right-control"
-                  title="You can hide checked items with the hide checkbox above"
-                  v-model="entry.checked"
-                  @change="
-                    (event) => {
-                      entryCheckmarkChanged(event, entry);
-                    }
+          <template v-if="catIsShown[catData.category]">
+            <template
+              v-for="group of catData.groups"
+              :key="group.section + group.page + group.header"
+            >
+              <template v-for="entry in group.entries">
+                <p
+                  v-if="!(hideChecked && entry.checked)"
+                  :key="'dash-item-' + entry.xpstrid + '-' + catData.category"
+                  :id="'dash-item-' + entry.xpstrid + '-' + catData.category"
+                  :class="
+                    'dash-' +
+                    catData.category +
+                    (lastClicked === entry.xpstrid + '-' + catData.category
+                      ? ' last-clicked'
+                      : '')
                   "
-                />
-              </p>
+                >
+                  <span class="dashEntry">
+                    <a
+                      v-bind:href="
+                        getLink(
+                          [locale, group.page, entry.xpstrid],
+                          catData.category,
+                          entry.code
+                        )
+                      "
+                      @click="
+                        () =>
+                          setLastClicked(entry.xpstrid + '-' + catData.category)
+                      "
+                    >
+                      <span
+                        class="category"
+                        :title="describe(catData.category)"
+                        >{{ abbreviate(catData.category) }}</span
+                      >
+                      <span class="section-page" title="section—page">{{
+                        humanize(group.section + "—" + group.page)
+                      }}</span>
+                      |
+                      <span
+                        v-if="group.header"
+                        class="entry-header"
+                        title="entry header"
+                        >{{ group.header }}</span
+                      >
+                      |
+                      <span class="code" title="code">{{ entry.code }}</span>
+                      |
+                      <cldr-value
+                        class="previous-english"
+                        title="previous English"
+                        lang="en"
+                        dir="ltr"
+                        v-if="entry.previousEnglish"
+                        >{{ entry.previousEnglish }} →</cldr-value
+                      >
+                      <cldr-value
+                        class="english"
+                        lang="en"
+                        dir="ltr"
+                        title="English"
+                        v-if="entry.english"
+                        >{{ entry.english }}</cldr-value
+                      >
+                      |
+                      <cldr-value
+                        v-if="entry.winning"
+                        class="winning"
+                        title="Winning"
+                        >{{ entry.winning }}</cldr-value
+                      >
+                      <template v-if="entry.comment">
+                        |
+                        <span v-html="entry.comment" title="comment"></span>
+                      </template>
+                      <span v-if="catData.category === 'Reports'"
+                        >{{ humanizeReport(entry.code) }} Report</span
+                      >
+                    </a>
+                  </span>
+                  <input
+                    v-if="canBeHidden(catData.category)"
+                    type="checkbox"
+                    class="right-control"
+                    title="You can hide checked items with the hide checkbox above"
+                    v-model="entry.checked"
+                    @change="
+                      (event) => {
+                        entryCheckmarkChanged(event, entry);
+                      }
+                    "
+                  />
+                </p>
+              </template>
             </template>
           </template>
         </template>
@@ -193,6 +207,7 @@ export default {
       localeName: null,
       level: null,
       downloadMessage: null,
+      catIsShown: {},
     };
   },
 
@@ -209,6 +224,7 @@ export default {
         return "#/" + array.join("/");
       }
     },
+
     scrollToCategory(event) {
       const whence = event.target.getAttribute("category");
       if (this.data && this.data.notifications) {
@@ -285,12 +301,19 @@ export default {
         .then((data) => {
           this.data = cldrDash.setData(data);
           this.resetScrolling();
+          this.showAllCategories();
         })
         .catch((err) => {
           const msg = "Error loading Dashboard data: " + err;
           console.error(msg);
           this.fetchErr = msg;
         });
+    },
+
+    showAllCategories() {
+      for (let catData of this.data.notifications) {
+        this.catIsShown[catData.category] = true;
+      }
     },
 
     downloadXlsx() {
@@ -345,6 +368,24 @@ export default {
       }
     },
 
+    describeShow(category) {
+      return (
+        "Show this notification category [" +
+        this.humanize(category) +
+        "]: " +
+        this.describe(category)
+      );
+    },
+
+    describeScrollTo(category) {
+      return (
+        "Scroll to this notification category [" +
+        this.humanize(category) +
+        "]: " +
+        this.describe(category)
+      );
+    },
+
     describe(category) {
       // The category is like "English_Changed" or "English Changed"
       // The corresponding key is like "notification_category_english_changed"
@@ -372,6 +413,10 @@ export default {
 
     entryCheckmarkChanged(event, entry) {
       cldrDash.saveEntryCheckmark(event.target.checked, entry, this.locale);
+    },
+
+    catCheckmarkChanged(event, category) {
+      this.catIsShown[category] = event.target.checked;
     },
 
     canBeHidden(category) {

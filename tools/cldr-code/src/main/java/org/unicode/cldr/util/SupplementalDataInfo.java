@@ -4,10 +4,13 @@ import static org.unicode.cldr.util.PathUtilities.getNormalizedPathString;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
+import com.google.common.base.Supplier;
+import com.google.common.base.Suppliers;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSetMultimap;
 import com.google.common.collect.Multimap;
+import com.google.common.collect.Sets;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.impl.IterableComparator;
 import com.ibm.icu.impl.Relation;
@@ -74,6 +77,7 @@ import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
 import org.unicode.cldr.util.Rational.RationalParser;
+import org.unicode.cldr.util.StandardCodes.CodeType;
 import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
 import org.unicode.cldr.util.SupplementalDataInfo.NumberingSystemInfo.NumberingSystemType;
@@ -984,6 +988,10 @@ public class SupplementalDataInfo {
     public Map<Row.R2<String, String>, String> bcp47Since = new TreeMap<>();
     public Map<Row.R2<String, String>, String> bcp47Preferred = new TreeMap<>();
     public Map<Row.R2<String, String>, String> bcp47Deprecated = new TreeMap<>();
+
+    Map<String, Map<String, Bcp47KeyInfo>> bcp47KeyToSubtypeToInfo = new TreeMap<>();
+    Map<String, Map<String, String>> bcp47KeyToAliasToSubtype = new TreeMap<>();
+
     public Map<String, String> bcp47ValueType = new TreeMap<>();
 
     public Map<String, Row.R2<String, String>> validityInfo = new LinkedHashMap<>();
@@ -1148,6 +1156,34 @@ public class SupplementalDataInfo {
         this.validity = Validity.getInstance(directory.toString() + "/../validity/");
     } // hide
 
+    public static class Bcp47KeyInfo {
+        public Bcp47KeyInfo(
+                Set<String> aliases,
+                String description,
+                String since,
+                String preferred,
+                String deprecated) {
+            this.description = description;
+            this.deprecated = !(deprecated == null || deprecated.equals("false"));
+            this.preferred = preferred;
+            this.since = since == null ? null : VersionInfo.getInstance(since);
+            this.aliases = aliases;
+        }
+
+        final String description;
+        final VersionInfo since;
+        final String preferred;
+        final boolean deprecated;
+        final Set<String> aliases;
+
+        @Override
+        public String toString() {
+            return String.format(
+                    "{description=«%s» since=%s preferred=%s deprecated=%s aliases=%s}",
+                    description, since, preferred, deprecated, aliases);
+        }
+    }
+
     private void makeStuffSafe() {
         // now make stuff safe
         allLanguages.addAll(languageToPopulation.keySet());
@@ -1227,19 +1263,54 @@ public class SupplementalDataInfo {
         }
         typeToLocaleToDayPeriodInfo = CldrUtility.protectCollection(typeToLocaleToDayPeriodInfo);
         languageMatch = CldrUtility.protectCollection(languageMatch);
-        bcp47Key2Subtypes.freeze();
+
         bcp47Extension2Keys.freeze();
-        bcp47Aliases.freeze();
+        bcp47Key2Subtypes.freeze();
+        CldrUtility.protectCollection(bcp47ValueType);
         if (bcp47Key2Subtypes.isEmpty()) {
             throw new InternalError(
                     "No BCP47 key 2 subtype data was loaded from bcp47 dir "
                             + getBcp47Directory().getAbsolutePath());
         }
+
+        bcp47Aliases.freeze();
         CldrUtility.protectCollection(bcp47Descriptions);
         CldrUtility.protectCollection(bcp47Since);
         CldrUtility.protectCollection(bcp47Preferred);
         CldrUtility.protectCollection(bcp47Deprecated);
-        CldrUtility.protectCollection(bcp47ValueType);
+
+        // create clean structure
+
+        for (Entry<String, Set<String>> entry : bcp47Extension2Keys.keyValuesSet()) {
+            for (String key : entry.getValue()) {
+                Map<String, Bcp47KeyInfo> subtypeToInfo = bcp47KeyToSubtypeToInfo.get(key);
+                if (subtypeToInfo == null) {
+                    bcp47KeyToSubtypeToInfo.put(key, subtypeToInfo = new TreeMap<>());
+                }
+                Map<String, String> aliasToRegular = bcp47KeyToAliasToSubtype.get(key);
+                if (aliasToRegular == null) {
+                    bcp47KeyToAliasToSubtype.put(key, aliasToRegular = new TreeMap<>());
+                }
+                for (String subtype : bcp47Key2Subtypes.get(key)) {
+                    final R2<String, String> pair = R2.of(key, subtype);
+                    final Set<String> aliases = bcp47Aliases.get(pair);
+                    final Bcp47KeyInfo info =
+                            new Bcp47KeyInfo(
+                                    aliases,
+                                    bcp47Descriptions.get(pair),
+                                    bcp47Since.get(pair),
+                                    bcp47Preferred.get(pair),
+                                    bcp47Deprecated.get(pair));
+                    subtypeToInfo.put(subtype, info);
+                    final Map<String, String> aliasToRegularFinal = aliasToRegular;
+                    if (aliases != null) {
+                        aliases.forEach(x -> aliasToRegularFinal.put(x, subtype));
+                    }
+                }
+            }
+        }
+        bcp47KeyToSubtypeToInfo = CldrUtility.protectCollection(bcp47KeyToSubtypeToInfo);
+        bcp47KeyToAliasToSubtype = CldrUtility.protectCollection(bcp47KeyToAliasToSubtype);
 
         CoverageLevelInfo.fixEU(coverageLevels, this);
         coverageLevels = Collections.unmodifiableSortedSet(coverageLevels);
@@ -5196,5 +5267,65 @@ public class SupplementalDataInfo {
 
     public Set<String> getUnitPrefixes() {
         return unitPrefixInfo.keySet();
+    }
+
+    /**
+     * Filter out deprecated items. This is more complicated than it seems. The deprecation is in
+     * timezones.xml, eg: <type name="cathu" description="Thunder Bay, Canada" deprecated="true"
+     * preferred="cator"/> <type name="cator" description="Toronto, Canada" alias="America/Toronto
+     * America/Montreal Canada/Eastern America/Nipigon America/Thunder_Bay"/> We need to find the
+     * short id's that are deprecated, put there is a problem due to
+     * https://unicode-org.atlassian.net/browse/CLDR-17412.
+     *
+     * <p>America/Nipigon, America/Thunder_Bay, America/Rainy_River
+     */
+    Supplier<Set<String>> goodTimezones =
+            Suppliers.memoize(
+                    new Supplier<Set<String>>() {
+
+                        @Override
+                        public Set<String> get() {
+                            Set<String> availableLongTz = sc.getAvailableCodes(CodeType.tzid);
+                            Set<String> result = null;
+                            if (true) { // hack for now
+                                final Set<String> hack =
+                                        Set.of(
+                                                "America/Santa_Isabel",
+                                                "Australia/Currie",
+                                                "America/Yellowknife",
+                                                "America/Rainy_River",
+                                                "America/Thunder_Bay",
+                                                "America/Nipigon",
+                                                "America/Pangnirtung",
+                                                "Europe/Uzhgorod",
+                                                "Europe/Zaporozhye",
+                                                "Pacific/Johnston");
+                                result = Set.copyOf(Sets.difference(availableLongTz, hack));
+                            } else { // TODO restore when CLDR-17412 is fixed
+                                Map<String, String> aliasToRegular =
+                                        bcp47KeyToAliasToSubtype.get("tz");
+                                Map<String, Bcp47KeyInfo> subtypeToInfo =
+                                        bcp47KeyToSubtypeToInfo.get("tz");
+                                result =
+                                        availableLongTz.stream()
+                                                .filter(
+                                                        x -> {
+                                                            String shortId = aliasToRegular.get(x);
+                                                            Bcp47KeyInfo info =
+                                                                    subtypeToInfo.get(shortId);
+                                                            System.out.println(
+                                                                    String.format(
+                                                                            "%s %s %s",
+                                                                            x, shortId, info));
+                                                            return !info.deprecated;
+                                                        })
+                                                .collect(Collectors.toUnmodifiableSet());
+                            }
+                            return result;
+                        }
+                    });
+
+    public Set<String> getCLDRTimezoneCodes() {
+        return goodTimezones.get();
     }
 }

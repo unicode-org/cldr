@@ -141,7 +141,7 @@ public class Dashboard {
         @Schema(description = "SurveyTool section", example = "Units")
         public String section;
 
-        @Schema(description = "SurveyTool page", example = "Volume")
+        @Schema(description = "SurveyTool page", example = "Area")
         public String page;
 
         @Schema(description = "SurveyTool header", example = "dessert-spoon-imperial")

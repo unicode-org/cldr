@@ -231,10 +231,8 @@ public class PathHeader implements Comparable<PathHeader> {
         Graphics(SectionId.Units),
         Length(SectionId.Units),
         Area(SectionId.Units),
-        Volume(SectionId.Units),
-        // TODO: enable splitting Volume into Volume/Volume2
-        // Reference: https://unicode-org.atlassian.net/browse/CLDR-11155
-        // Volume2(SectionId.Units),
+        Volume_Metric(SectionId.Units, "Volume Metric"),
+        Volume_Other(SectionId.Units, "Volume Other"),
         SpeedAcceleration(SectionId.Units, "Speed and Acceleration"),
         MassWeight(SectionId.Units, "Mass and Weight"),
         EnergyPower(SectionId.Units, "Energy and Power"),
@@ -721,20 +719,7 @@ public class PathHeader implements Comparable<PathHeader> {
                     samples.put(data, cleanPath);
                 }
                 try {
-                    PathHeader result =
-                            new PathHeader(
-                                    SectionId.forString(fix(data.section, 0)),
-                                    PageId.forString(fix(data.page, 0)),
-                                    fix(data.header, data.headerOrder),
-                                    (int) order, // only valid after call to fix. TODO, make
-                                    // this cleaner
-                                    fix(
-                                            data.code + (alt == null ? "" : ("-" + alt)),
-                                            data.codeOrder),
-                                    order, // only valid after call to fix
-                                    suborder,
-                                    data.status,
-                                    path);
+                    PathHeader result = makePathHeader(data, path, alt);
                     synchronized (cache) {
                         PathHeader old = cache.get(path);
                         if (old == null) {
@@ -763,6 +748,56 @@ public class PathHeader implements Comparable<PathHeader> {
                                     + path,
                             e);
                 }
+            }
+        }
+
+        private PathHeader makePathHeader(RawData data, String path, String alt) {
+            // Caution: each call to PathHeader.Factory.fix changes the value of
+            // PathHeader.Factory.order
+            SectionId newSectionId = SectionId.forString(fix(data.section, 0));
+            String pageIdName = fix(data.page, 0);
+            PageId newPageId;
+            if ("Volume".equals(pageIdName)) {
+                newPageId = getVolumePageId(path);
+            } else {
+                newPageId = PageId.forString(pageIdName);
+            }
+            String newHeader = fix(data.header, data.headerOrder);
+            int newHeaderOrder = (int) order;
+            String codeDashAlt = data.code + (alt == null ? "" : ("-" + alt));
+            String newCode = fix(codeDashAlt, data.codeOrder);
+            long newCodeOrder = order;
+            return new PathHeader(
+                    newSectionId,
+                    newPageId,
+                    newHeader,
+                    newHeaderOrder,
+                    newCode,
+                    newCodeOrder,
+                    suborder,
+                    data.status,
+                    path);
+        }
+
+        private static Set<UnitConverter.UnitSystem> METRIC =
+                Set.of(UnitConverter.UnitSystem.metric, UnitConverter.UnitSystem.metric_adjacent);
+
+        private PageId getVolumePageId(String path) {
+            // Extract the unit from the path. For example, if path is
+            // //ldml/units/unitLength[@type="narrow"]/unit[@type="volume-cubic-kilometer"]/displayName
+            // then extract "volume-cubic-kilometer" which is the long unit id
+            final String longUnitId =
+                    XPathParts.getFrozenInstance(path).findAttributeValue("unit", "type");
+            if (longUnitId == null) {
+                throw new RuntimeException("Missing unit in path " + path);
+            }
+            final UnitConverter uc = supplementalDataInfo.getUnitConverter();
+            // Convert, for example, "volume-cubic-kilometer" to "cubic-kilometer"
+            final String shortUnitId = uc.getShortId(longUnitId);
+            if (!Collections.disjoint(METRIC, uc.getSystemsEnum(shortUnitId))) {
+                return PageId.Volume_Metric;
+            } else {
+                return PageId.Volume_Other;
             }
         }
 
@@ -2476,8 +2511,6 @@ public class PathHeader implements Comparable<PathHeader> {
         if (pageId == null) {
             throw new InternalCldrException("Failure getting character page id");
         }
-        // TODO: enable splitting Volume into Volume/Volume2, starting Volume2 at "acre-foot"
-        // Reference: https://unicode-org.atlassian.net/browse/CLDR-11155
         return pageId;
     }
 

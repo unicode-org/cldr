@@ -1030,7 +1030,7 @@ _Attribute:_ `output`
 
 > The `output` attribute value contains the sequence of characters that is emitted when pressing this particular key. Control characters, whitespace (other than the regular space character) and combining marks in this attribute are escaped using the `\u{…}` notation. More than one key may output the same output.
 >
-> The `output` attribute may also contain the `\m{…}` syntax to insert a marker. See the definition of [markers](#markers).
+> The `output` attribute may also contain the `\m{…markerId}` syntax to insert a marker. See the definition of [markers](#markers).
 
 _Attribute:_ `width="1.2"` (optional, default "1.0")
 
@@ -1299,17 +1299,19 @@ The `displays` element consists of a list of [`display`](#element-display) subel
 
 ### Element: display
 
-The display elements can be used to describe what is to be displayed on the keytops for various keys. For the most part, such explicit information is unnecessary since the `@to` element from the `keys/key` element will be used for keytop display. However some characters, such as diacritics, do not display well on their own.
+The `display` elements can be used to describe what is to be displayed on the keytops for various keys. For the most part, such explicit information is unnecessary since the `@to` element from the `keys/key` element will be used for keytop display.
 
-Another useful scenario is where there are doubled diacritics, or multiple characters with spacing issues.
+- Some characters, such as diacritics, do not display well on their own.
+- Another useful scenario is where there are doubled diacritics, or multiple characters with spacing issues.
+- Finally, the `display` element provides a way to specify the keytop for keys which do not otherwise produce output. Keys which switch layers using the `@layerId` attribute typically do not produce output.
 
-Finally, this provides a way to specify the keytop for keys which do not otherwise produce output, which is common for the `@layerId` attribute.
+> Note: `displays` elements are designed to be shared across many different keyboard layout descriptions, and imported with `<import>` where needed.
 
-Note: `displays` elements are designed to be shared across many different keyboard layout descriptions, and imported with `<import>` where needed.
+#### Non-spacing marks on keytops
 
-For combining characters, U+25CC `◌` is used as a base. It is an error to use a combining character without a base in the `display` attribute.
+For non-spacing marks, U+25CC `◌` is used as a base. It is an error to use a combining character without a base in the `display` attribute. For example, `display="\u{0303}"` would produce an error.
 
-For example, a key which outputs a combining tilde (U+0303) can be represented as follows:
+A key which outputs a combining tilde (U+0303) could be represented as either of the following:
 
 ```xml
     <display output="\u{0303}" display="◌̃" />  <!-- \u{25CC} \u{0303}-->
@@ -1318,8 +1320,7 @@ For example, a key which outputs a combining tilde (U+0303) can be represented a
 
 This way, a key which outputs a combining tilde (U+0303) will be represented as `◌̃` (a tilde on a dotted circle).
 
-Some scripts/languages may prefer a different base than U+25CC.
-See  [`<displayOptions baseCharacter=…/>`](#element-displayoptions).
+Some scripts/languages may prefer a different base than U+25CC. See  [`<displayOptions baseCharacter=…/>`](#element-displayoptions).
 
 
 **Syntax**

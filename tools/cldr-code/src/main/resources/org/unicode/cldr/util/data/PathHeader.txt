@@ -418,6 +418,7 @@
 //supplementalData/windowsZones/mapTimezones/mapZone[@other="%A"][@territory="%A"]/_type			; Supplemental ; WZoneMapping ; $1 ; $2 ; HIDE
 
 //supplementalData/parentLocales/parentLocale[@parent="%A"]/_locales			; Supplemental ; Locale ; Parent ; $1 ; HIDE
+//supplementalData/parentLocales/parentLocale[@parent="%A"]/_localeRules			; Supplemental ; Locale ; Parent Rules ; $1 ; HIDE
 //supplementalData/parentLocales[@component="%A"]/parentLocale[@parent="%A"]/_locales			; Supplemental ; Locale ; Parent ($1) ; $2 ; HIDE
 //supplementalData/metadata/skipDefaultLocale/_services			; Supplemental ; Locale ; SkipDefault ; plain ; HIDE
 //supplementalData/metadata/defaultContent/_locales			; Supplemental ; Locale ; DefaultContent ; plain ; HIDE

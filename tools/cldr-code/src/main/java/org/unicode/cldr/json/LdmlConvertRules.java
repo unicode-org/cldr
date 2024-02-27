@@ -322,6 +322,7 @@ class LdmlConvertRules {
                     .add("systems")
                     .add("origin")
                     .add("component") // for parentLocales - may need to be more specific here
+                    .add("localeRules") // for parentLocales
                     .add("values") // for unitIdComponents - may need to be more specific here
                     .freeze();
 

@@ -1906,10 +1906,17 @@ public class SupplementalDataInfo {
             }
             String parent = parts.getAttributeValue(-1, "parent");
             String locales = parts.getAttributeValue(-1, "locales");
+            String localeRules = parts.getAttributeValue(-1, "localeRules");
+            Set<String> localeRuleSet =
+                    localeRules == null
+                            ? Set.of()
+                            : Set.copyOf(split_space.splitToList(localeRules));
 
             for (ParentLocaleComponent component : components) {
                 Map<String, String> componentParentLocales = parentLocales.get(component);
-                if (locales.equals(NONLIKELYSCRIPT)) {
+                if (localeRuleSet.contains(NONLIKELYSCRIPT)) {
+                    // This will need to be modified if we add any other rules,
+                    // particularly if any rules are based on the particular parent
                     parentLocalesSkipNonLikely.add(component);
                     continue;
                 }

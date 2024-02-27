@@ -283,11 +283,11 @@ Keyboard implementations will typically consist of two parts:
 
 - Ellipsis (`…`) in syntax examples are used to denote substituted parts.
 
-  For example, `id="…keyId"` denotes that `…keyId` (the part between double quotes) is to be replaced with something, in this case a key identifier. As another example, `\u{…}` denotes that the `…` is to be replaced with something, in this case a hex number.
+  For example, `id="…keyId"` denotes that `…keyId` (the part between double quotes) is to be replaced with something, in this case a key identifier. As another example, `\u{…usv}` denotes that the `…usv` is to be replaced with something, in this case a Unicode scalar value in hex.
 
 ### Escaping
 
-When explicitly specified, attribute values can contain escaped characters. This specification uses two methods of escaping, the _UnicodeSet_ notation and the `\u{…}` notation.
+When explicitly specified, attribute values can contain escaped characters. This specification uses two methods of escaping, the _UnicodeSet_ notation and the `\u{…usv}` notation.
 
 ### UnicodeSet Escaping
 
@@ -334,7 +334,7 @@ Attribute values escaped in this manner are annotated with the `<!--@ALLOWS_UESC
 <!DOCTYPE keyboard3 SYSTEM "../dtd/ldmlKeyboard3.dtd">
 ```
 
-> For distributing keyboards outside of the CLDR repository, it is recommended to either use a copy of the .dtd file, omit the `DOCTYPE` clause. Do not use a http or https URL in the DOCTYPE.
+> For distributing keyboards outside of the CLDR repository, it is recommended to either use a copy of the .dtd file, or omit the `DOCTYPE` clause. Do not use a http or https URL in the DOCTYPE.
 
 * The filename of a keyboard .xml file does not have to match the BCP47 primary locale ID, but it is recommended to do so. The CLDR repository may enforce filename consistency.
 
@@ -1329,6 +1329,7 @@ For example, a key which outputs a combining tilde (U+0303) can be represented a
 
 ```xml
     <display output="\u{0303}" display="◌̃" />  <!-- \u{25CC} \u{0303}-->
+    <display output="\u{0303}" display="\u{25cc}\u{0303}" />  <!-- also acceptable -->
 ```
 
 This way, a key which outputs a combining tilde (U+0303) will be represented as `◌̃` (a tilde on a dotted circle).

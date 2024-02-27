@@ -154,7 +154,7 @@ More and more language communities are determining that digitization is vital to
 
 However, commensurate improvements to streamline new language support on the input side have been lacking. CLDR’s Keyboard specification has been updated in an attempt to address this gap.
 
-This document describes an interchange format for the communication of keyboard mapping data independent of vendors and platforms. Keyboard authors can then create a single mapping file for their language, which implementations can use to provide that language’s keyboard mapping on their own platform.
+This document specifies an interchange format for the communication of keyboard mapping data independent of vendors and platforms. Keyboard authors can then create a single mapping file for their language, which implementations can use to provide that language’s keyboard mapping on their own platform.
 
 Additionally, the standardized identifier for keyboards can be used to communicate, internally or externally, a request for a particular keyboard mapping that is to be used to transform either text or keystrokes. The corresponding data can then be used to perform the requested actions.  For example, a remote screen-access application (such as used for customer service or server management) would be able to communicate and choose the same keyboard layout on the remote device as is used in front of the user, even if the two systems used different platforms.
 
@@ -191,7 +191,7 @@ Some non-goals (outside the scope of the format) currently are:
 4. Support for prior (pre 3.0) CLDR keyboard files. See [Compatibility Notice](#compatibility-notice).
 5. Run-time efficiency. [LDML is explicitly an interchange format](tr35.md#Introduction), and so it is expected that data will be transformed to a more compact format for use by a keystroke processing engine.
 6. Platform-specific frame keys such as Fn, Numpad, IME swap keys, and cursor keys are out of scope.
-   (This also means that in the current specification, modifier (frame) keys cannot generate output, such as capslock producing backslash.)
+   (This also means that in this specification, modifier (frame) keys cannot generate output, such as capslock producing backslash.)
 
 <!-- 1. Display names or symbols for keycaps (eg, the German name for "Return"). If that were added to LDML, it would be in a different structure, outside the scope of this section.
 2. Advanced IME features, handwriting recognition, etc.
@@ -209,7 +209,7 @@ Note that in parts of this document, the format `@x` is used to indicate the _at
 
 ### Accessibility
 
-Keyboard use can be challenging for individuals with various types of disabilities. For this revision, features or architectural designs for the purpose of improving accessibility are not being considered. Such consideration could be fruitful for future revisions. However, some points on this topic should be made:
+Keyboard use can be challenging for individuals with various types of disabilities. For this revision, features or architectural designs specifically for the purpose of improving accessibility are not yet included. However:
 
 1. Having an industry-wide standard format for keyboards will enable accessibility software to make use of keyboard data with a reduced dependence on platform-specific knowledge.
 2. Features which require certain levels of mobility or speed of entry should be considered for their impact on accessibility. This impact could be mitigated by means of additional, accessible methods of generating the same output.
@@ -1309,7 +1309,7 @@ The `display` elements can be used to describe what is to be displayed on the ke
 
 #### Non-spacing marks on keytops
 
-For non-spacing marks, U+25CC `◌` is used as a base. It is an error to use a combining character without a base in the `display` attribute. For example, `display="\u{0303}"` would produce an error.
+For non-spacing marks, U+25CC `◌` is used as a base. It is an error to use a nonspacing character without a base in the `display` attribute. For example, `display="\u{0303}"` would produce an error.
 
 A key which outputs a combining tilde (U+0303) could be represented as either of the following:
 
@@ -1320,7 +1320,7 @@ A key which outputs a combining tilde (U+0303) could be represented as either of
 
 This way, a key which outputs a combining tilde (U+0303) will be represented as `◌̃` (a tilde on a dotted circle).
 
-Some scripts/languages may prefer a different base than U+25CC. See  [`<displayOptions baseCharacter=…/>`](#element-displayoptions).
+Users of some scripts/languages may prefer a different base than U+25CC. See  [`<displayOptions baseCharacter=…/>`](#element-displayoptions).
 
 
 **Syntax**

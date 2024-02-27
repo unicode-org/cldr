@@ -105,6 +105,7 @@ The LDML specification is divided into the following parts:
   * [Element: scanCodes](#element-scancodes)
   * [Element: layers](#element-layers)
   * [Element: layer](#element-layer)
+    * [Layer Modifier Sets](#layer-modifier-sets)
     * [Layer Modifier Components](#layer-modifier-components)
     * [Modifier Left- and Right- keys](#modifier-left--and-right--keys)
     * [Layer Modifier Matching](#layer-modifier-matching)
@@ -814,7 +815,7 @@ _Attribute:_ `name` (required)
 
 _Attribute:_ `author`
 
-> The `author` attribute contains the name of the author of the layout file.
+> The `author` attribute value contains the name of the author of the layout file.
 
 _Attribute:_ `layout`
 
@@ -1027,7 +1028,7 @@ _Attribute:_ `layerId="shift"` (optional)
 
 _Attribute:_ `output`
 
-> The `output` attribute contains the sequence of characters that is emitted when pressing this particular key. Control characters, whitespace (other than the regular space character) and combining marks in this attribute are escaped using the `\u{...}` notation. More than one key may output the same output.
+> The `output` attribute value contains the sequence of characters that is emitted when pressing this particular key. Control characters, whitespace (other than the regular space character) and combining marks in this attribute are escaped using the `\u{...}` notation. More than one key may output the same output.
 >
 > The `output` attribute may also contain the `\m{…}` syntax to insert a marker. See the definition of [markers](#markers).
 
@@ -1570,7 +1571,6 @@ _Attribute:_ `form` (required)
 >
 > A mismatch between the hardware layout in the keyboard file, and the actual hardware used by the user could result in some keys being inaccessible to the user if their hardware cannot generate the scancodes corresponding to the layout specified by the `form=` attribute. Such keys could be accessed only via an on-screen keyboard utility. Conversely, a user with hardware keys that are not present in the specified `form=` will result in some hardware keys which have no function when pressed.
 >
->
 > The value of the `form=` attribute may be `touch`, or correspond to a `form` element. See [`form`](#element-form).
 >
 
@@ -1587,8 +1587,10 @@ A `layer` element describes the configuration of keys on a particular layer of a
 **Syntax**
 
 ```xml
-<layer id="layerId" modifiers="{Set of Modifier Combinations}">
-    ...
+<layer id="…layerId" modifiers="…modifier modifier, …modifier modifier, …">
+    <row …/>
+    <row …/>
+    …
 </layer>
 ```
 
@@ -1615,7 +1617,9 @@ _Attribute:_ `modifiers` (required for `hardware`)
 >
 > For hardware layouts, the use of `@modifiers` as an identifier for a layer is sufficient since it is always unique among the set of `layer` elements in each  `form`.
 >
-> The set of modifiers must match `(none|([A-Za-z0-9]+)( [A-Za-z0-9]+)*)`
+> This attribute value is a list of lists. It is a comma-separated (`,`) list of modifier sets, and each modifier set is a space-separated list of modifier components.
+>
+> Each modifier component must match `[A-Za-z0-9]+`. Extra whitespace is ignored.
 >
 > To indicate that no modifiers apply, the reserved name of `none` is used.
 
@@ -1639,9 +1643,19 @@ _Attribute:_ `modifiers` (required for `hardware`)
 </layer>
 ```
 
+#### Layer Modifier Sets
+
+The `@modifiers` attribute value contains one or more Layer Modifier Sets, separated by commas.
+For example, in the element `<layer … modifiers="ctrlL altL, altR" …` the attribute value consists of two sets:
+
+- `ctrlL altL` (two components)
+- `altR` (one component)
+
+The order of the sets and the order of the components within each set is not significant. However, for clarity in reading, the canonical order within a set is in the order listed in Layout Modifier Components; the canonical order for the sets should be first by the cardinality of the sets (least first), then alphabetical.
+
 #### Layer Modifier Components
 
- The following modifier components can be used, separated by spaces.
+Within a Layer Modifier Set, the following modifier components can be used, separated by spaces.
 
  - `none` (no modifier)
  - `alt`
@@ -1663,7 +1677,7 @@ _Attribute:_ `modifiers` (required for `hardware`)
 1. `L` or `R` indicates a left- or right- side modifier only (such as `altL`)
  whereas `alt` indicates _either_ left or right alt key (that is, `altL` or `altR`). `ctrl` indicates either left or right ctrl key (that is, `ctrlL` or `ctrlR`).
 
-2.  If there are any layers (in the same `form=`) with a modifier `alt`, there may not also be another layer with `altL` or `altR`.  Similarly, if there is a layer with a modifier `ctrl`, there may not be a layer with `ctrlL` or `ctrlR`.
+2. Keyboard implementations must warn if a keyboard mixes `alt` with `altL`/`altR`, or `ctrl` with `ctrlL`/`ctrlR`.
 
 3. Left- and right- side modifiers may not be mixed together in a single `modifier` attribute value, so neither `altL ctrlR"` nor `altL altR` are allowed.
 
@@ -1681,9 +1695,17 @@ Layers are matched exactly based on the modifier keys which are down. For exampl
 
 - `other` as a modifier will match if no other layers match.
 
-Multiple modifier sets may be separated by commas.  For example, `none, shift caps` will match either no modifiers *or* shift and caps.  `ctrlL altL, altR` will match either  left-control and left-alt, *or* right-alt.
+Multiple modifier sets are separated by commas.  For example, `none, shift caps` will match either no modifiers *or* shift and caps.  `ctrlL altL, altR` will match either  left-control and left-alt, *or* right-alt.
 
-Keystrokes where there isn’t an explicitly matching layer, and where there is no layer with `other` specified, are ignored.
+Keystrokes must be ignored where there isn’t a layer that explicitly matches nor a layer with `other`. Example: If there is a `ctrl` and `shift` layer, but no `ctrl shift` nor `other` layer, no output will result from `ctrl shift X`.
+
+Layers are not allowed to overlap in their matching.  For example, the keyboard author will receive an error if one layer specifies `alt shift` and another layer specifies `altR shift`.
+
+There is one special case:  the `other` layer matches if and only if no other layer matches. Thus logically the `other` layer is matched after all other layers have been checked.
+
+Because there is no overlap allowed between layers, the order of `<layer>` elements is not significant.
+
+> Note: The modifier syntax may be enhanced in the future, but will remain backwards compatible with the syntax described here.
 
 * * *
 
@@ -1736,7 +1758,7 @@ Here is an example of a `row` element:
 
 This is a container for variables to be used with [transform](#element-transform), [display](#element-display) and [key](#element-key) elements.
 
-Note that the `id=` attribute must be unique across all children of the `variables` element.
+Note that the `id=` attribute value must be unique across all children of the `variables` element.
 
 **Example**
 
@@ -1773,7 +1795,7 @@ _Attribute:_ `id` (required)
 _Attribute:_ `value` (required)
 
 > Strings may contain whitespaces. However, for clarity, it is recommended to escape spacing marks, even in strings.
-> This attribute may be escaped with `\u` notation, see [Escaping](#escaping).
+> This attribute value may be escaped with `\u` notation, see [Escaping](#escaping).
 > Variables may refer to other string variables if they have been previously defined, using `${string}` syntax.
 > [Markers](#markers) may be included with the `\m{…}` notation.
 
@@ -1829,9 +1851,9 @@ _Attribute:_ `id` (required)
 
 _Attribute:_ `value` (required)
 
-> The `value` attribute is always a set of strings separated by whitespace, even if there is only a single item in the set, such as `"A"`.
+> The `value` attribute value is always a set of strings separated by whitespace, even if there is only a single item in the set, such as `"A"`.
 > Leading and trailing whitespace is ignored.
-> This attribute may be escaped with `\u` notation, see [Escaping](#escaping).
+> This attribute value may be escaped with `\u` notation, see [Escaping](#escaping).
 > Sets may refer to other string variables if they have been previously defined, using `${string}` syntax, or to other previously-defined sets using `$[set]` syntax.
 > Set references must be separated by whitespace: `$[set1]$[set2]` is an error; instead use `$[set1] $[set2]`.
 > [Markers](#markers) may be included with the `\m{…}` notation.
@@ -2142,7 +2164,7 @@ All of the `transform` elements in a `transformGroup` are tested for a match, in
 
 _Attribute:_ `from` (required)
 
-> The `from` attribute consists of an input rule for matching the input context.
+> The `from` attribute value consists of an input rule for matching the input context.
 >
 > The `transform` rule and output pattern uses a modified, mostly subsetted, regular expression syntax, with EcmaScript syntax (with the `u` Unicode flag) as its baseline reference (see [MDN-REGEX](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Regular_Expressions)). Differences from regex implementations will be noted.
 
@@ -2316,7 +2338,7 @@ The following are additions to standard Regex syntax.
 
 _Attribute:_ `to`
 
-> This attribute represents the characters that are output from the transform.
+> This attribute value represents the characters that are output from the transform.
 >
 > If this attribute is absent, it indicates that the no characters are output, such as with a backspace transform.
 >
@@ -2437,15 +2459,15 @@ The relative ordering of `<reorder>` elements is not significant.
 
 _Attribute:_ `from` (required)
 
-> This attribute contains a string of elements. Each element matches one character and may consist of a codepoint or a UnicodeSet (both as defined in [UTS #35 Part One](tr35.md#Unicode_Sets)).
+> This attribute value contains a string of elements. Each element matches one character and may consist of a codepoint or a UnicodeSet (both as defined in [UTS #35 Part One](tr35.md#Unicode_Sets)).
 
 _Attribute:_ `before`
 
-> This attribute contains the element string that must match the string immediately preceding the start of the string that the @from matches.
+> This attribute value contains the element string that must match the string immediately preceding the start of the string that the @from matches.
 
 _Attribute:_ `order`
 
-> This attribute gives the primary order for the elements in the matched string in the `@from` attribute. The value is a simple integer between -128 and +127 inclusive, or a space separated list of such integers. For a single integer, it is applied to all the elements in the matched string. Details of such list type attributes are given after all the attributes are described. If missing, the order value of all the matched characters is 0. We consider the order value for a matched character in the string.
+> This attribute value gives the primary order for the elements in the matched string in the `@from` attribute. The value is a simple integer between -128 and +127 inclusive, or a space separated list of such integers. For a single integer, it is applied to all the elements in the matched string. Details of such list type attributes are given after all the attributes are described. If missing, the order value of all the matched characters is 0. We consider the order value for a matched character in the string.
 >
 > * If the value is 0 and its tertiary value is 0, then the character is the base of a new run.
 > * If the value is 0 and its tertiary value is non-zero, then it is a normal character in a run, with ordering semantics as described in the `@tertiary` attribute.
@@ -2461,7 +2483,7 @@ _Attribute:_ `order`
 
 _Attribute:_ `tertiary`
 
-> This attribute gives the tertiary order value to the characters matched. The value is a simple integer between -128 and +127 inclusive, or a space separated list of such integers. If missing, the value for all the characters matched is 0. We consider the tertiary value for a matched character in the string.
+> This attribute value gives the tertiary order value to the characters matched. The value is a simple integer between -128 and +127 inclusive, or a space separated list of such integers. If missing, the value for all the characters matched is 0. We consider the tertiary value for a matched character in the string.
 >
 > * If the value is 0 then the character is considered to have a primary order as specified in its order value and is a primary character.
 > * If the value is non zero, then the order value must be zero otherwise it is an error. The character is considered as a tertiary character for the purposes of ordering.
@@ -2475,15 +2497,15 @@ _Attribute:_ `tertiary`
 
 _Attribute:_ `tertiaryBase`
 
-> This attribute is a space separated list of `"true"` or `"false"` values corresponding to each character matched. It is illegal for a tertiary character to have a true `tertiaryBase` value. For a primary character it marks that this character may have tertiary characters moved after it. When calculating the secondary weight for a tertiary character, the most recently encountered primary character with a true `tertiaryBase` attribute is used. Primary characters with an `@order` value of 0 automatically are treated as having `tertiaryBase` true regardless of what is specified for them.
+> This attribute value is a space separated list of `"true"` or `"false"` values corresponding to each character matched. It is illegal for a tertiary character to have a true `tertiaryBase` value. For a primary character it marks that this character may have tertiary characters moved after it. When calculating the secondary weight for a tertiary character, the most recently encountered primary character with a true `tertiaryBase` attribute value is used. Primary characters with an `@order` value of 0 automatically are treated as having `tertiaryBase` true regardless of what is specified for them.
 
 _Attribute:_ `preBase`
 
-> This attribute gives the prebase attribute for each character matched. The value may be `"true"` or `"false"` or a space separated list of such values. If missing the value for all the characters matched is false. It is illegal for a tertiary character to have a true prebase value.
+> This attribute value gives the prebase attribute for each character matched. The value may be `"true"` or `"false"` or a space separated list of such values. If missing the value for all the characters matched is false. It is illegal for a tertiary character to have a true prebase value.
 >
 > If a primary character has a true prebase value then the character is marked as being typed before the base character of a run, even though it is intended to be stored after it. The primary order gives the intended position in the order after the base character, that the prebase character will end up. Thus `@order` shall not be 0. These characters are part of the run prefix. If such characters are typed then, in order to give the run a base character after which characters can be sorted, an appropriate base character, such as a dotted circle, is inserted into the output run, until a real base character has been typed. A value of `"false"` indicates that the character is not a prebase.
 
-For `@from` attributes with a match string length greater than 1, the sort key information (`@order`, `@tertiary`, `@tertiaryBase`, `@preBase`) may consist of a space-separated list of values, one for each element matched. The last value is repeated to fill out any missing values. Such a list may not contain more values than there are elements in the `@from` attribute:
+For `@from` attribute values with a match string length greater than 1, the sort key information (`@order`, `@tertiary`, `@tertiaryBase`, `@preBase`) may consist of a space-separated list of values, one for each element matched. The last value is repeated to fill out any missing values. Such a list may not contain more values than there are elements in the `@from` attribute:
 
 ```java
 if len(@from) < len(@list) then error
@@ -2541,7 +2563,7 @@ We want all of these sequences to end up ordered as the first. To do this, we us
 
 The first reorder is the default ordering for the _sakot_ which allows for it to be placed anywhere in a sequence, but moves any non-consonants that may immediately follow it, back before it in the sequence. The next two rules give the orders for the top vowel component and tone marks respectively. The next three rules give the _sakot_ and _wa_ characters a primary order that places them before the _o_. Notice particularly the final reorder rule where the _sakot_+_wa_ is split by the tone mark. This rule is necessary in case someone types into the middle of previously normalized text.
 
-`<reorder>` elements are priority ordered based first on the length of string their `@from` attribute matches and then the sum of the lengths of the strings their `@before` attribute matches.
+`<reorder>` elements are priority ordered based first on the length of string their `@from` attribute value matches and then the sum of the lengths of the strings their `@before` attribute value matches.
 
 #### Using `<import>` with `<reorder>` elements
 
@@ -2551,9 +2573,9 @@ The @from string in a `<reorder>` element describes a set of strings that it mat
 
 If two `<reorder>` elements have a non empty intersection, then they are split and merged. They are split such that where there were two `<reorder>` elements, there are, in effect (but not actuality), three elements consisting of:
 
-* `@from`, `@before` that match the intersection of the two rules. The other attributes are merged, as described below.
-* `@from`, `@before` that match the set of strings in the first rule not in the intersection with the other attributes from the first rule.
-* `@from`, `@before` that match the set of strings in the second rule not in the intersection, with the other attributes from the second rule.
+* `@from`, `@before` that match the intersection of the two rules. The other attribute values are merged, as described below.
+* `@from`, `@before` that match the set of strings in the first rule not in the intersection with the other attribute values from the first rule.
+* `@from`, `@before` that match the set of strings in the second rule not in the intersection, with the other attribute values from the second rule.
 
 When merging the other attributes, the second rule is taken to have priority (being an override of the earlier element). Where the second rule does not define the value for a character but the first does, the value is taken from the first rule, otherwise it is taken from the second rule.
 
@@ -2908,7 +2930,7 @@ This is the top level element.
 
 _Attribute:_ `conformsTo` (required)
 
-The `conformsTo` attribute here is the same as on the [`<keyboard3>`](#element-keyboard3) element.
+The `conformsTo` attribute value here is the same as on the [`<keyboard3>`](#element-keyboard3) element.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -2929,15 +2951,15 @@ The `conformsTo` attribute here is the same as on the [`<keyboard3>`](#element-k
 
 _Attribute:_ `author`
 
-This freeform attribute allows for description of the author or authors of this test file.
+This freeform attribute value allows for description of the author or authors of this test file.
 
 _Attribute:_ `keyboard` (required)
 
-This attribute specifies the keyboard’s file name, such as `fr-t-k0-azerty.xml`.
+This attribute value specifies the keyboard’s file name, such as `fr-t-k0-azerty.xml`.
 
 _Attribute:_ `name` (required)
 
-This attribute specifies a name for this overall test file. These names could be output to the user during test execution, used to summarize success and failure, or used to select or deselect test components.
+This attribute value specifies a name for this overall test file. These names could be output to the user during test execution, used to summarize success and failure, or used to select or deselect test components.
 
 **Example**
 
@@ -2960,11 +2982,11 @@ This element represents a repertoire test, to validate the available characters 
 
 _Attribute:_ `name` (required)
 
-This attribute specifies a unique name for this repertoire test. These names could be output to the user during test execution, used to summarize success and failure, or used to select or deselect test components.
+This attribute value specifies a unique name for this repertoire test. These names could be output to the user during test execution, used to summarize success and failure, or used to select or deselect test components.
 
 _Attribute:_ `type`
 
-This attribute is one of the following:
+This attribute value is one of the following:
 
 |  type     | Meaning                                                                                                  |
 |-----------|----------------------------------------------------------------------------------------------------------|
@@ -2978,7 +3000,7 @@ This attribute is one of the following:
 
 _Attribute:_ `chars` (required)
 
-This attribute specifies a list of characters in UnicodeSet format, which is specified in [UTS #35 Part One](tr35.md#Unicode_Sets).
+This attribute value specifies a list of characters in UnicodeSet format, which is specified in [UTS #35 Part One](tr35.md#Unicode_Sets).
 
 **Example**
 
@@ -3011,7 +3033,7 @@ This element specifies a particular suite of `<test>` elements.
 
 _Attribute:_ `name` (required)
 
-This attribute specifies a unique name for this suite of tests. These names could be output to the user during test execution, used to summarize success and failure, or used to select or deselect test components.
+This attribute value specifies a unique name for this suite of tests. These names could be output to the user during test execution, used to summarize success and failure, or used to select or deselect test components.
 
 **Example**
 
@@ -3042,13 +3064,13 @@ This attribute specifies a unique name for this suite of tests. These names coul
 > Occurrence: Required, Multiple
 > </small>
 
-This attribute specifies a specific isolated regression test. Multiple test elements do not interact with each other.
+This attribute value specifies a specific isolated regression test. Multiple test elements do not interact with each other.
 
 The order of child elements is significant, with cumulative effects: they must be processed from first to last.
 
 _Attribute:_ `name` (required)
 
-This attribute specifies a unique name for this particular test. These names could be output to the user during test execution, used to summarize success and failure, or used to select or deselect test components.
+This attribute value specifies a unique name for this particular test. These names could be output to the user during test execution, used to summarize success and failure, or used to select or deselect test components.
 
 **Example**
 
@@ -3093,7 +3115,7 @@ Specifies the starting context. This text may be escaped with `\u` notation, see
 
 This element represents a single keystroke or other gesture event, identified by a particular key element.
 
-Optionally, one of the gesture attributes, either `flick`, `longPress`, or `tapCount` may be specified. If none of the gesture attributes are specified, then a regular keypress is effected on the key.  It is an error to specify more than one gesture attribute.
+Optionally, one of the gesture attributes, either `flick`, `longPress`, or `tapCount` may be specified. If none of the gesture attribute values are specified, then a regular keypress is effected on the key.  It is an error to specify more than one gesture attribute.
 
 If a key is not found, or a particular gesture has no definition, the output should be behave as if the user attempted to perform such an action.  For example, an unspecified `flick` would result in no output.
 
@@ -3101,19 +3123,19 @@ When a key is found, processing continues with the transform and other elements 
 
 _Attribute:_ `key` (required)
 
-This attribute specifies a key by means of the key’s `id` attribute.
+This attribute value specifies a key by means of the key’s `id` attribute.
 
 _Attribute:_ `flick`
 
-This attribute specifies a flick gesture to be performed on the specified key instead of a keypress, such as `e` or `nw se`. This value corresponds to the `directions` attribute of the [`<flickSegment>`](#element-flicksegment) element.
+This attribute value specifies a flick gesture to be performed on the specified key instead of a keypress, such as `e` or `nw se`. This value corresponds to the `directions` attribute value of the [`<flickSegment>`](#element-flicksegment) element.
 
 _Attribute:_ `longPress`
 
-This attribute specifies that a long press gesture should be performed on the specified key instead of a keypress. For example, `longPress="2"` indicates that the second character in a longpress series should be chosen. `longPress="0"` indicates that the `longPressDefault` value, if any, should be chosen. This corresponds to `longPress` and `longPressDefault` on [`<key>`](#element-key).
+This attribute value specifies that a long press gesture should be performed on the specified key instead of a keypress. For example, `longPress="2"` indicates that the second character in a longpress series should be chosen. `longPress="0"` indicates that the `longPressDefault` value, if any, should be chosen. This corresponds to `longPress` and `longPressDefault` on [`<key>`](#element-key).
 
 _Attribute:_ `tapCount`
 
-This attribute specifies that a multi-tap gesture should be performed on the specified key instead of a keypress. For example, `tapCount="3"` indicates that the key should be tapped three times in rapid succession. This corresponds to `multiTap` on [`<key>`](#element-key). The minimum tapCount is 2.
+This attribute value specifies that a multi-tap gesture should be performed on the specified key instead of a keypress. For example, `tapCount="3"` indicates that the key should be tapped three times in rapid succession. This corresponds to `multiTap` on [`<key>`](#element-key). The minimum tapCount is 2.
 
 **Example**
 
@@ -3142,10 +3164,10 @@ Processing of the specified text continues with the transform and other elements
 
 _Attribute:_ `to` (required)
 
-This attribute specifies a string of output text representing a single keystroke or gesture. This string is intended to match the output of a `key`, `flick`, `longPress` or `multiTap` element or attribute.
-Tooling should give a hint if this attribute does not match at least one keystroke or gesture. Note that the specified text is not injected directly into the output buffer.
+This attribute value specifies a string of output text representing a single keystroke or gesture. This string is intended to match the output of a `key`, `flick`, `longPress` or `multiTap` element or attribute.
+Tooling should give a hint if this attribute value does not match at least one keystroke or gesture. Note that the specified text is not injected directly into the output buffer.
 
-This attribute may be escaped with `\u` notation, see [Escaping](#escaping).
+This attribute value may be escaped with `\u` notation, see [Escaping](#escaping).
 
 **Example**
 
@@ -3188,7 +3210,7 @@ This element represents a check on the current output buffer.
 
 _Attribute:_ `result` (required)
 
-This attribute specifies the expected resultant text in a document after processing this event and all prior events, and including any `startContext` text.  This text may be escaped with `\u` notation, see [Escaping](#escaping).
+This attribute value specifies the expected resultant text in a document after processing this event and all prior events, and including any `startContext` text.  This text may be escaped with `\u` notation, see [Escaping](#escaping).
 
 **Example**
 

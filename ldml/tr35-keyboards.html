@@ -784,6 +784,14 @@
 
 
 
+
+
+
+
+
+
+
+
 <script src="./js/anchor.min.js"></script><div class="header"><table class="header" cellpadding="0" cellspacing="0" width="100%">
     <tbody>
         <tr>
@@ -892,6 +900,7 @@ developing this technical preview to the CLDR keyboard specification.</p><h2 id=
 <li><a href="#element-scancodes">Element: scanCodes</a></li>
 <li><a href="#element-layers">Element: layers</a></li>
 <li><a href="#element-layer">Element: layer</a><ul>
+<li><a href="#layer-modifier-sets">Layer Modifier Sets</a></li>
 <li><a href="#layer-modifier-components">Layer Modifier Components</a></li>
 <li><a href="#modifier-left--and-right--keys">Modifier Left- and Right- keys</a></li>
 <li><a href="#layer-modifier-matching">Layer Modifier Matching</a></li>
@@ -1262,7 +1271,7 @@ Must <em>not</em> include the <code>-k0-</code> subtag for this additional langu
     …
 <span class="hljs-tag">&lt;/<span class="hljs-name">keyboard3</span>&gt;</span>
 </code></pre><hr><p><em>Attribute:</em> <code>author</code></p><blockquote>
-<p>The <code>author</code> attribute contains the name of the author of the layout file.</p>
+<p>The <code>author</code> attribute value contains the name of the author of the layout file.</p>
 </blockquote><p><em>Attribute:</em> <code>layout</code></p><blockquote>
 <p>The <code>layout</code> attribute describes the layout pattern, such as QWERTY, DVORAK, INSCRIPT, etc. typically used to distinguish various layouts for the same language.</p>
 <p>This attribute is not localized, but is an informative identifier for implementation use.</p>
@@ -1380,7 +1389,7 @@ the modifier keys.</p>
 <p>This attribute is an NMTOKEN.</p>
 <p>In the future, this attribute’s definition is expected to be updated to align with <a href="https://www.unicode.org/reports/tr31/">UAX#31</a>. Please see <a href="https://unicode-org.atlassian.net/browse/CLDR-17043">CLDR-17043</a> for more details.</p>
 </blockquote><p><em>Attribute:</em> <code>output</code></p><blockquote>
-<p>The <code>output</code> attribute contains the sequence of characters that is emitted when pressing this particular key. Control characters, whitespace (other than the regular space character) and combining marks in this attribute are escaped using the <code>\u{...}</code> notation. More than one key may output the same output.</p>
+<p>The <code>output</code> attribute value contains the sequence of characters that is emitted when pressing this particular key. Control characters, whitespace (other than the regular space character) and combining marks in this attribute are escaped using the <code>\u{...}</code> notation. More than one key may output the same output.</p>
 <p>The <code>output</code> attribute may also contain the <code>\m{…}</code> syntax to insert a marker. See the definition of <a href="#markers">markers</a>.</p>
 </blockquote><p><em>Attribute:</em> <code>width="1.2"</code> (optional, default "1.0")</p><blockquote>
 <p>The <code>width</code> attribute indicates that this key has a different width than other keys, by the specified number of key widths.</p>
@@ -1667,8 +1676,10 @@ At most one hardware (non-<code>touch</code>) <code>&lt;layers&gt;</code> elemen
 </blockquote><p><em>Attribute:</em> <code>minDeviceWidth</code></p><blockquote>
 <p>This attribute specifies the minimum required width, in millimeters (mm), of the touch surface.  The <code>layers</code> entry with the greatest matching width will be selected. This attribute is intended for <code>form="touch"</code>, but is supported for hardware forms.</p>
 <p>This must be a whole number between 1 and 999, inclusive.</p>
-</blockquote><h3 id="element-layer">Element: layer</h3><p>A <code>layer</code> element describes the configuration of keys on a particular layer of a keyboard. It contains one or more <code>row</code> elements to describe which keys exist in each row.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">layer</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"layerId"</span> <span class="hljs-attr">modifiers</span>=<span class="hljs-string">"{Set of Modifier Combinations}"</span>&gt;</span>
-    ...
+</blockquote><h3 id="element-layer">Element: layer</h3><p>A <code>layer</code> element describes the configuration of keys on a particular layer of a keyboard. It contains one or more <code>row</code> elements to describe which keys exist in each row.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">layer</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"…layerId"</span> <span class="hljs-attr">modifiers</span>=<span class="hljs-string">"…modifier modifier, …modifier modifier, …"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">row</span> …/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">row</span> …/&gt;</span>
+    …
 <span class="hljs-tag">&lt;/<span class="hljs-name">layer</span>&gt;</span>
 </code></pre><blockquote>
 <small>
@@ -1684,7 +1695,8 @@ Touch layouts must have one <code>layer</code> with <code>id="base"</code> to se
 </blockquote><p><em>Attribute:</em> <code>modifiers</code> (required for <code>hardware</code>)</p><blockquote>
 <p>This has two roles. It acts as an identifier for the <code>layer</code> element for hardware keyboards (in the absence of the id= element) and also provides the linkage from the hardware modifiers into the correct <code>layer</code>.</p>
 <p>For hardware layouts, the use of <code>@modifiers</code> as an identifier for a layer is sufficient since it is always unique among the set of <code>layer</code> elements in each  <code>form</code>.</p>
-<p>The set of modifiers must match <code>(none|([A-Za-z0-9]+)( [A-Za-z0-9]+)*)</code></p>
+<p>This attribute value is a list of lists. It is a comma-separated (<code>,</code>) list of modifier sets, and each modifier set is a space-separated list of modifier components.</p>
+<p>Each modifier component must match <code>[A-Za-z0-9]+</code>. Extra whitespace is ignored.</p>
 <p>To indicate that no modifiers apply, the reserved name of <code>none</code> is used.</p>
 </blockquote><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">layer</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"base"</span>        <span class="hljs-attr">modifiers</span>=<span class="hljs-string">"none"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">row</span> <span class="hljs-attr">keys</span>=<span class="hljs-string">"a"</span> /&gt;</span>
@@ -1701,7 +1713,11 @@ Touch layouts must have one <code>layer</code> with <code>id="base"</code> to se
 <span class="hljs-tag">&lt;<span class="hljs-name">layer</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"upper-altgr"</span> <span class="hljs-attr">modifiers</span>=<span class="hljs-string">"altR shift"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">row</span> <span class="hljs-attr">keys</span>=<span class="hljs-string">"A-umlaut"</span> /&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">layer</span>&gt;</span>
-</code></pre><h4 id="layer-modifier-components">Layer Modifier Components</h4><p> The following modifier components can be used, separated by spaces.</p><ul>
+</code></pre><h4 id="layer-modifier-sets">Layer Modifier Sets</h4><p>The <code>@modifiers</code> attribute value contains one or more Layer Modifier Sets, separated by commas.
+For example, in the element <code>&lt;layer … modifiers="ctrlL altL, altR" …</code> the attribute value consists of two sets:</p><ul>
+<li><code>ctrlL altL</code> (two components)</li>
+<li><code>altR</code> (one component)</li>
+</ul><p>The order of the sets and the order of the components within each set is not significant. However, for clarity in reading, the canonical order within a set is in the order listed in Layout Modifier Components; the canonical order for the sets should be first by the cardinality of the sets (least first), then alphabetical.</p><h4 id="layer-modifier-components">Layer Modifier Components</h4><p>Within a Layer Modifier Set, the following modifier components can be used, separated by spaces.</p><ul>
 <li><code>none</code> (no modifier)</li>
 <li><code>alt</code></li>
 <li><code>altL</code></li>
@@ -1721,7 +1737,7 @@ Touch layouts must have one <code>layer</code> with <code>id="base"</code> to se
 <li><p><code>L</code> or <code>R</code> indicates a left- or right- side modifier only (such as <code>altL</code>)
  whereas <code>alt</code> indicates <em>either</em> left or right alt key (that is, <code>altL</code> or <code>altR</code>). <code>ctrl</code> indicates either left or right ctrl key (that is, <code>ctrlL</code> or <code>ctrlR</code>).</p>
 </li>
-<li><p>If there are any layers (in the same <code>form=</code>) with a modifier <code>alt</code>, there may not also be another layer with <code>altL</code> or <code>altR</code>.  Similarly, if there is a layer with a modifier <code>ctrl</code>, there may not be a layer with <code>ctrlL</code> or <code>ctrlR</code>.</p>
+<li><p>Keyboard implementations must warn if a keyboard mixes <code>alt</code> with <code>altL</code>/<code>altR</code>, or <code>ctrl</code> with <code>ctrlL</code>/<code>ctrlR</code>.</p>
 </li>
 <li><p>Left- and right- side modifiers may not be mixed together in a single <code>modifier</code> attribute value, so neither <code>altL ctrlR"</code> nor <code>altL altR</code> are allowed.</p>
 </li>
@@ -1736,7 +1752,9 @@ Touch layouts must have one <code>layer</code> with <code>id="base"</code> to se
 </li>
 <li><p><code>other</code> as a modifier will match if no other layers match.</p>
 </li>
-</ul><p>Multiple modifier sets may be separated by commas.  For example, <code>none, shift caps</code> will match either no modifiers <em>or</em> shift and caps.  <code>ctrlL altL, altR</code> will match either  left-control and left-alt, <em>or</em> right-alt.</p><p>Keystrokes where there isn’t an explicitly matching layer, and where there is no layer with <code>other</code> specified, are ignored.</p><hr><h3 id="element-row">Element: row</h3><p>A <code>row</code> element describes the keys that are present in the row of a keyboard.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">row</span> <span class="hljs-attr">keys</span>=<span class="hljs-string">"{keyId} {keyId} …"</span> /&gt;</span>
+</ul><p>Multiple modifier sets are separated by commas.  For example, <code>none, shift caps</code> will match either no modifiers <em>or</em> shift and caps.  <code>ctrlL altL, altR</code> will match either  left-control and left-alt, <em>or</em> right-alt.</p><p>Keystrokes must be ignored where there isn’t a layer that explicitly matches nor a layer with <code>other</code>. Example: If there is a <code>ctrl</code> and <code>shift</code> layer, but no <code>ctrl shift</code> nor <code>other</code> layer, no output will result from <code>ctrl shift X</code>.</p><p>Layers are not allowed to overlap in their matching.  For example, the keyboard author will receive an error if one layer specifies <code>alt shift</code> and another layer specifies <code>altR shift</code>.</p><p>There is one special case:  the <code>other</code> layer matches if and only if no other layer matches. Thus logically the <code>other</code> layer is matched after all other layers have been checked.</p><p>Because there is no overlap allowed between layers, the order of <code>&lt;layer&gt;</code> elements is not significant.</p><blockquote>
+<p>Note: The modifier syntax may be enhanced in the future, but will remain backwards compatible with the syntax described here.</p>
+</blockquote><hr><h3 id="element-row">Element: row</h3><p>A <code>row</code> element describes the keys that are present in the row of a keyboard.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">row</span> <span class="hljs-attr">keys</span>=<span class="hljs-string">"{keyId} {keyId} …"</span> /&gt;</span>
 </code></pre><blockquote>
 <small>
 
@@ -1755,7 +1773,7 @@ Touch layouts must have one <code>layer</code> with <code>id="base"</code> to se
 <p>Children: <a href="#element-import">import</a>, <a href="tr35.html#special"><em>special</em></a>, <a href="#element-string">string</a>, <a href="#element-set">set</a>, <a href="#element-uset">uset</a></p>
 </small><p><small>Occurrence: optional, single
 </small></p>
-</blockquote><p>This is a container for variables to be used with <a href="#element-transform">transform</a>, <a href="#element-display">display</a> and <a href="#element-key">key</a> elements.</p><p>Note that the <code>id=</code> attribute must be unique across all children of the <code>variables</code> element.</p><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">variables</span>&gt;</span>
+</blockquote><p>This is a container for variables to be used with <a href="#element-transform">transform</a>, <a href="#element-display">display</a> and <a href="#element-key">key</a> elements.</p><p>Note that the <code>id=</code> attribute value must be unique across all children of the <code>variables</code> element.</p><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">variables</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">string</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"y"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"yes"</span> /&gt;</span> <span class="hljs-comment">&lt;!-- a simple string--&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">set</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"upper"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"A B C D E FF"</span> /&gt;</span> <span class="hljs-comment">&lt;!-- a set with 6 items --&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">uset</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"consonants"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"[कसतनमह]"</span> /&gt;</span> <span class="hljs-comment">&lt;!-- a UnicodeSet --&gt;</span>
@@ -1775,7 +1793,7 @@ All ids must be unique across all types of variables.</p>
 <p><code>id</code> must match <code>[0-9A-Za-z_]{1,32}</code></p>
 </blockquote><p><em>Attribute:</em> <code>value</code> (required)</p><blockquote>
 <p>Strings may contain whitespaces. However, for clarity, it is recommended to escape spacing marks, even in strings.
-This attribute may be escaped with <code>\u</code> notation, see <a href="#escaping">Escaping</a>.
+This attribute value may be escaped with <code>\u</code> notation, see <a href="#escaping">Escaping</a>.
 Variables may refer to other string variables if they have been previously defined, using <code>${string}</code> syntax.
 <a href="#markers">Markers</a> may be included with the <code>\m{…}</code> notation.</p>
 </blockquote><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">variables</span>&gt;</span>
@@ -1810,9 +1828,9 @@ Variables may refer to other string variables if they have been previously defin
 All ids must be unique across all types of variables.</p>
 <p><code>id</code> must match <code>[0-9A-Za-z_]{1,32}</code></p>
 </blockquote><p><em>Attribute:</em> <code>value</code> (required)</p><blockquote>
-<p>The <code>value</code> attribute is always a set of strings separated by whitespace, even if there is only a single item in the set, such as <code>"A"</code>.
+<p>The <code>value</code> attribute value is always a set of strings separated by whitespace, even if there is only a single item in the set, such as <code>"A"</code>.
 Leading and trailing whitespace is ignored.
-This attribute may be escaped with <code>\u</code> notation, see <a href="#escaping">Escaping</a>.
+This attribute value may be escaped with <code>\u</code> notation, see <a href="#escaping">Escaping</a>.
 Sets may refer to other string variables if they have been previously defined, using <code>${string}</code> syntax, or to other previously-defined sets using <code>$[set]</code> syntax.
 Set references must be separated by whitespace: <code>$[set1]$[set2]</code> is an error; instead use <code>$[set1] $[set2]</code>.
 <a href="#markers">Markers</a> may be included with the <code>\m{…}</code> notation.</p>
@@ -1965,7 +1983,7 @@ Children: <em>none</em>
 Occurrence: required, multiple</p>
 </small>
 </blockquote><p><em>Attribute:</em> <code>from</code> (required)</p><blockquote>
-<p>The <code>from</code> attribute consists of an input rule for matching the input context.</p>
+<p>The <code>from</code> attribute value consists of an input rule for matching the input context.</p>
 <p>The <code>transform</code> rule and output pattern uses a modified, mostly subsetted, regular expression syntax, with EcmaScript syntax (with the <code>u</code> Unicode flag) as its baseline reference (see <a href="https://developer.mozilla.org/docs/Web/JavaScript/Guide/Regular_Expressions">MDN-REGEX</a>). Differences from regex implementations will be noted.</p>
 </blockquote><h4 id="regex-like-syntax">Regex-like Syntax</h4><ul>
 <li><p><strong>Simple matches</strong></p>
@@ -2082,7 +2100,7 @@ Occurrence: required, multiple</p>
 <p>  The end marker can be thought of as being implicitly at the end of every <code>from=</code> pattern, matching the insertion point. Transforms do not match past the insertion point.</p>
 </li>
 </ul><p><em>Attribute:</em> <code>to</code></p><blockquote>
-<p>This attribute represents the characters that are output from the transform.</p>
+<p>This attribute value represents the characters that are output from the transform.</p>
 <p>If this attribute is absent, it indicates that the no characters are output, such as with a backspace transform.</p>
 <p>A final rule such as <code>&lt;transform from=".*"/&gt;</code> will remove all context which doesn’t match one of the prior rules.</p>
 </blockquote><h4 id="replacement-syntax">Replacement syntax</h4><p>Used in the <code>to=</code></p><ul>
@@ -2166,11 +2184,11 @@ Children: <em>none</em>
 Occurrence: optional, multiple</p>
 </small>
 </blockquote><p><em>Attribute:</em> <code>from</code> (required)</p><blockquote>
-<p>This attribute contains a string of elements. Each element matches one character and may consist of a codepoint or a UnicodeSet (both as defined in <a href="tr35.html#Unicode_Sets">UTS #35 Part One</a>).</p>
+<p>This attribute value contains a string of elements. Each element matches one character and may consist of a codepoint or a UnicodeSet (both as defined in <a href="tr35.html#Unicode_Sets">UTS #35 Part One</a>).</p>
 </blockquote><p><em>Attribute:</em> <code>before</code></p><blockquote>
-<p>This attribute contains the element string that must match the string immediately preceding the start of the string that the @from matches.</p>
+<p>This attribute value contains the element string that must match the string immediately preceding the start of the string that the @from matches.</p>
 </blockquote><p><em>Attribute:</em> <code>order</code></p><blockquote>
-<p>This attribute gives the primary order for the elements in the matched string in the <code>@from</code> attribute. The value is a simple integer between -128 and +127 inclusive, or a space separated list of such integers. For a single integer, it is applied to all the elements in the matched string. Details of such list type attributes are given after all the attributes are described. If missing, the order value of all the matched characters is 0. We consider the order value for a matched character in the string.</p>
+<p>This attribute value gives the primary order for the elements in the matched string in the <code>@from</code> attribute. The value is a simple integer between -128 and +127 inclusive, or a space separated list of such integers. For a single integer, it is applied to all the elements in the matched string. Details of such list type attributes are given after all the attributes are described. If missing, the order value of all the matched characters is 0. We consider the order value for a matched character in the string.</p>
 <ul>
 <li>If the value is 0 and its tertiary value is 0, then the character is the base of a new run.</li>
 <li>If the value is 0 and its tertiary value is non-zero, then it is a normal character in a run, with ordering semantics as described in the <code>@tertiary</code> attribute.</li>
@@ -2185,7 +2203,7 @@ Occurrence: optional, multiple</p>
 <li>Quaternary weight is the same as the secondary weight.</li>
 </ul>
 </blockquote><p><em>Attribute:</em> <code>tertiary</code></p><blockquote>
-<p>This attribute gives the tertiary order value to the characters matched. The value is a simple integer between -128 and +127 inclusive, or a space separated list of such integers. If missing, the value for all the characters matched is 0. We consider the tertiary value for a matched character in the string.</p>
+<p>This attribute value gives the tertiary order value to the characters matched. The value is a simple integer between -128 and +127 inclusive, or a space separated list of such integers. If missing, the value for all the characters matched is 0. We consider the tertiary value for a matched character in the string.</p>
 <ul>
 <li>If the value is 0 then the character is considered to have a primary order as specified in its order value and is a primary character.</li>
 <li>If the value is non zero, then the order value must be zero otherwise it is an error. The character is considered as a tertiary character for the purposes of ordering.</li>
@@ -2198,11 +2216,11 @@ Occurrence: optional, multiple</p>
 <li>Quaternary weight is the index of the tertiary character.</li>
 </ul>
 </blockquote><p><em>Attribute:</em> <code>tertiaryBase</code></p><blockquote>
-<p>This attribute is a space separated list of <code>"true"</code> or <code>"false"</code> values corresponding to each character matched. It is illegal for a tertiary character to have a true <code>tertiaryBase</code> value. For a primary character it marks that this character may have tertiary characters moved after it. When calculating the secondary weight for a tertiary character, the most recently encountered primary character with a true <code>tertiaryBase</code> attribute is used. Primary characters with an <code>@order</code> value of 0 automatically are treated as having <code>tertiaryBase</code> true regardless of what is specified for them.</p>
+<p>This attribute value is a space separated list of <code>"true"</code> or <code>"false"</code> values corresponding to each character matched. It is illegal for a tertiary character to have a true <code>tertiaryBase</code> value. For a primary character it marks that this character may have tertiary characters moved after it. When calculating the secondary weight for a tertiary character, the most recently encountered primary character with a true <code>tertiaryBase</code> attribute value is used. Primary characters with an <code>@order</code> value of 0 automatically are treated as having <code>tertiaryBase</code> true regardless of what is specified for them.</p>
 </blockquote><p><em>Attribute:</em> <code>preBase</code></p><blockquote>
-<p>This attribute gives the prebase attribute for each character matched. The value may be <code>"true"</code> or <code>"false"</code> or a space separated list of such values. If missing the value for all the characters matched is false. It is illegal for a tertiary character to have a true prebase value.</p>
+<p>This attribute value gives the prebase attribute for each character matched. The value may be <code>"true"</code> or <code>"false"</code> or a space separated list of such values. If missing the value for all the characters matched is false. It is illegal for a tertiary character to have a true prebase value.</p>
 <p>If a primary character has a true prebase value then the character is marked as being typed before the base character of a run, even though it is intended to be stored after it. The primary order gives the intended position in the order after the base character, that the prebase character will end up. Thus <code>@order</code> shall not be 0. These characters are part of the run prefix. If such characters are typed then, in order to give the run a base character after which characters can be sorted, an appropriate base character, such as a dotted circle, is inserted into the output run, until a real base character has been typed. A value of <code>"false"</code> indicates that the character is not a prebase.</p>
-</blockquote><p>For <code>@from</code> attributes with a match string length greater than 1, the sort key information (<code>@order</code>, <code>@tertiary</code>, <code>@tertiaryBase</code>, <code>@preBase</code>) may consist of a space-separated list of values, one for each element matched. The last value is repeated to fill out any missing values. Such a list may not contain more values than there are elements in the <code>@from</code> attribute:</p><pre><code class="language-java"><span class="hljs-keyword">if</span> <span class="hljs-title function_">len</span><span class="hljs-params">(<span class="hljs-meta">@from</span>)</span> &lt; len(<span class="hljs-meta">@list</span>) then error
+</blockquote><p>For <code>@from</code> attribute values with a match string length greater than 1, the sort key information (<code>@order</code>, <code>@tertiary</code>, <code>@tertiaryBase</code>, <code>@preBase</code>) may consist of a space-separated list of values, one for each element matched. The last value is repeated to fill out any missing values. Such a list may not contain more values than there are elements in the <code>@from</code> attribute:</p><pre><code class="language-java"><span class="hljs-keyword">if</span> <span class="hljs-title function_">len</span><span class="hljs-params">(<span class="hljs-meta">@from</span>)</span> &lt; len(<span class="hljs-meta">@list</span>) then error
 <span class="hljs-keyword">else</span>
     <span class="hljs-keyword">while</span> <span class="hljs-title function_">len</span><span class="hljs-params">(<span class="hljs-meta">@from</span>)</span> &gt; len(<span class="hljs-meta">@list</span>)
         append <span class="hljs-title function_">lastitem</span><span class="hljs-params">(<span class="hljs-meta">@list</span>)</span> to <span class="hljs-meta">@list</span>
@@ -2322,10 +2340,10 @@ endif
 <span class="hljs-tag">&lt;<span class="hljs-name">reorder</span> <span class="hljs-attr">before</span>=<span class="hljs-string">"\u{1A6B}"</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"\u{1A60}\u{1A45}"</span> <span class="hljs-attr">order</span>=<span class="hljs-string">"10"</span> /&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">reorder</span> <span class="hljs-attr">before</span>=<span class="hljs-string">"\u{1A6B}[\u{1A75}-\u{1A79}]"</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"\u{1A60}\u{1A45}"</span> <span class="hljs-attr">order</span>=<span class="hljs-string">"10"</span> /&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">reorder</span> <span class="hljs-attr">before</span>=<span class="hljs-string">"\u{1A6B}"</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"\u{1A60}[\u{1A75}-\u{1A79}]\u{1A45}"</span> <span class="hljs-attr">order</span>=<span class="hljs-string">"10 55 10"</span> /&gt;</span>
-</code></pre><p>The first reorder is the default ordering for the <em>sakot</em> which allows for it to be placed anywhere in a sequence, but moves any non-consonants that may immediately follow it, back before it in the sequence. The next two rules give the orders for the top vowel component and tone marks respectively. The next three rules give the <em>sakot</em> and <em>wa</em> characters a primary order that places them before the <em>o</em>. Notice particularly the final reorder rule where the <em>sakot</em>+<em>wa</em> is split by the tone mark. This rule is necessary in case someone types into the middle of previously normalized text.</p><p><code>&lt;reorder&gt;</code> elements are priority ordered based first on the length of string their <code>@from</code> attribute matches and then the sum of the lengths of the strings their <code>@before</code> attribute matches.</p><h4 id="using-import-with-reorder-elements">Using <code>&lt;import&gt;</code> with <code>&lt;reorder&gt;</code> elements</h4><p>This section describes the impact of using <a href="#element-import"><code>import</code></a> elements with <code>&lt;reorder&gt;</code> elements.</p><p>The @from string in a <code>&lt;reorder&gt;</code> element describes a set of strings that it matches. This also holds for the <code>@before</code> attribute. The <strong>intersection</strong> of any two <code>&lt;reorder&gt;</code> elements consists of the intersections of their <code>@from</code> and <code>@before</code> string sets. Tooling should warn users if the intersection between any two <code>&lt;reorder&gt;</code> elements in the same <code>&lt;transformGroup&gt;</code> element to be non empty prior to processing imports.</p><p>If two <code>&lt;reorder&gt;</code> elements have a non empty intersection, then they are split and merged. They are split such that where there were two <code>&lt;reorder&gt;</code> elements, there are, in effect (but not actuality), three elements consisting of:</p><ul>
-<li><code>@from</code>, <code>@before</code> that match the intersection of the two rules. The other attributes are merged, as described below.</li>
-<li><code>@from</code>, <code>@before</code> that match the set of strings in the first rule not in the intersection with the other attributes from the first rule.</li>
-<li><code>@from</code>, <code>@before</code> that match the set of strings in the second rule not in the intersection, with the other attributes from the second rule.</li>
+</code></pre><p>The first reorder is the default ordering for the <em>sakot</em> which allows for it to be placed anywhere in a sequence, but moves any non-consonants that may immediately follow it, back before it in the sequence. The next two rules give the orders for the top vowel component and tone marks respectively. The next three rules give the <em>sakot</em> and <em>wa</em> characters a primary order that places them before the <em>o</em>. Notice particularly the final reorder rule where the <em>sakot</em>+<em>wa</em> is split by the tone mark. This rule is necessary in case someone types into the middle of previously normalized text.</p><p><code>&lt;reorder&gt;</code> elements are priority ordered based first on the length of string their <code>@from</code> attribute value matches and then the sum of the lengths of the strings their <code>@before</code> attribute value matches.</p><h4 id="using-import-with-reorder-elements">Using <code>&lt;import&gt;</code> with <code>&lt;reorder&gt;</code> elements</h4><p>This section describes the impact of using <a href="#element-import"><code>import</code></a> elements with <code>&lt;reorder&gt;</code> elements.</p><p>The @from string in a <code>&lt;reorder&gt;</code> element describes a set of strings that it matches. This also holds for the <code>@before</code> attribute. The <strong>intersection</strong> of any two <code>&lt;reorder&gt;</code> elements consists of the intersections of their <code>@from</code> and <code>@before</code> string sets. Tooling should warn users if the intersection between any two <code>&lt;reorder&gt;</code> elements in the same <code>&lt;transformGroup&gt;</code> element to be non empty prior to processing imports.</p><p>If two <code>&lt;reorder&gt;</code> elements have a non empty intersection, then they are split and merged. They are split such that where there were two <code>&lt;reorder&gt;</code> elements, there are, in effect (but not actuality), three elements consisting of:</p><ul>
+<li><code>@from</code>, <code>@before</code> that match the intersection of the two rules. The other attribute values are merged, as described below.</li>
+<li><code>@from</code>, <code>@before</code> that match the set of strings in the first rule not in the intersection with the other attribute values from the first rule.</li>
+<li><code>@from</code>, <code>@before</code> that match the set of strings in the second rule not in the intersection, with the other attribute values from the second rule.</li>
 </ul><p>When merging the other attributes, the second rule is taken to have priority (being an override of the earlier element). Where the second rule does not define the value for a character but the first does, the value is taken from the first rule, otherwise it is taken from the second rule.</p><p>Notice that it is possible for two rules to match the same string, but for them not to merge because the distribution of the string across <code>@before</code> and <code>@from</code> is different. For example, the following would not merge:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">reorder</span> <span class="hljs-attr">before</span>=<span class="hljs-string">"ab"</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"cd"</span> /&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">reorder</span> <span class="hljs-attr">before</span>=<span class="hljs-string">"a"</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"bcd"</span> /&gt;</span>
 </code></pre><p>After <code>&lt;reorder&gt;</code> elements merge, the resulting <code>reorder</code> elements are sorted into priority order for matching.</p><p>Consider this fragment from a shared reordering for the Myanmar script:</p><pre><code class="language-xml"><span class="hljs-comment">&lt;!-- File: "myanmar-reordering.xml" --&gt;</span>
@@ -2552,7 +2570,7 @@ TODO: Rewrite this? Probably push out to each element's section?
 
 </small><p><small>Children: <a href="#test-element-info">info</a>, <a href="#test-element-repertoire">repertoire</a>, <a href="tr35.html#special"><em>special</em></a>, <a href="#test-element-tests">tests</a>
 </small></p>
-</blockquote><p>This is the top level element.</p><p><em>Attribute:</em> <code>conformsTo</code> (required)</p><p>The <code>conformsTo</code> attribute here is the same as on the <a href="#element-keyboard3"><code>&lt;keyboard3&gt;</code></a> element.</p><pre><code class="language-xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"UTF-8"</span>?&gt;</span>
+</blockquote><p>This is the top level element.</p><p><em>Attribute:</em> <code>conformsTo</code> (required)</p><p>The <code>conformsTo</code> attribute value here is the same as on the <a href="#element-keyboard3"><code>&lt;keyboard3&gt;</code></a> element.</p><pre><code class="language-xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"UTF-8"</span>?&gt;</span>
 <span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">keyboardTest3</span> <span class="hljs-keyword">SYSTEM</span> <span class="hljs-string">"../dtd/ldmlKeyboardTest3.dtd"</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">keyboardTest3</span> <span class="hljs-attr">conformsTo</span>=<span class="hljs-string">"techpreview"</span>&gt;</span>
     …
@@ -2565,7 +2583,7 @@ TODO: Rewrite this? Probably push out to each element's section?
 </blockquote>
 </small><p><small>Occurrence: Required, Single
 </small></p>
-</blockquote><p><em>Attribute:</em> <code>author</code></p><p>This freeform attribute allows for description of the author or authors of this test file.</p><p><em>Attribute:</em> <code>keyboard</code> (required)</p><p>This attribute specifies the keyboard’s file name, such as <code>fr-t-k0-azerty.xml</code>.</p><p><em>Attribute:</em> <code>name</code> (required)</p><p>This attribute specifies a name for this overall test file. These names could be output to the user during test execution, used to summarize success and failure, or used to select or deselect test components.</p><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">info</span> <span class="hljs-attr">keyboard</span>=<span class="hljs-string">"fr-t-k0-azerty.xml"</span> <span class="hljs-attr">author</span>=<span class="hljs-string">"Team Keyboard"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"fr-test"</span> /&gt;</span>
+</blockquote><p><em>Attribute:</em> <code>author</code></p><p>This freeform attribute value allows for description of the author or authors of this test file.</p><p><em>Attribute:</em> <code>keyboard</code> (required)</p><p>This attribute value specifies the keyboard’s file name, such as <code>fr-t-k0-azerty.xml</code>.</p><p><em>Attribute:</em> <code>name</code> (required)</p><p>This attribute value specifies a name for this overall test file. These names could be output to the user during test execution, used to summarize success and failure, or used to select or deselect test components.</p><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">info</span> <span class="hljs-attr">keyboard</span>=<span class="hljs-string">"fr-t-k0-azerty.xml"</span> <span class="hljs-attr">author</span>=<span class="hljs-string">"Team Keyboard"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"fr-test"</span> /&gt;</span>
 </code></pre><h3 id="test-element-repertoire">Test Element: repertoire</h3><blockquote>
 <small>
 
@@ -2573,7 +2591,7 @@ TODO: Rewrite this? Probably push out to each element's section?
 <p>Children: <em>none</em></p>
 </small><p><small>Occurrence: Optional, Multiple
 </small></p>
-</blockquote><p>This element represents a repertoire test, to validate the available characters and their reachability. This test ensures that each of the specified characters is somehow typeable on the keyboard, after transforms have been applied. The characters in the repertoire will be matched against the complete set of possible generated outputs, post-transform, of all keys on the keyboard.</p><p><em>Attribute:</em> <code>name</code> (required)</p><p>This attribute specifies a unique name for this repertoire test. These names could be output to the user during test execution, used to summarize success and failure, or used to select or deselect test components.</p><p><em>Attribute:</em> <code>type</code></p><p>This attribute is one of the following:</p><table>
+</blockquote><p>This element represents a repertoire test, to validate the available characters and their reachability. This test ensures that each of the specified characters is somehow typeable on the keyboard, after transforms have been applied. The characters in the repertoire will be matched against the complete set of possible generated outputs, post-transform, of all keys on the keyboard.</p><p><em>Attribute:</em> <code>name</code> (required)</p><p>This attribute value specifies a unique name for this repertoire test. These names could be output to the user during test execution, used to summarize success and failure, or used to select or deselect test components.</p><p><em>Attribute:</em> <code>type</code></p><p>This attribute value is one of the following:</p><table>
 <thead>
 <tr>
 <th>type</th>
@@ -2608,7 +2626,7 @@ TODO: Rewrite this? Probably push out to each element's section?
 <td>hardware</td>
 <td>The characters are typeable by use of any simple keystrokes on any hardware layout.</td>
 </tr>
-</tbody></table><p><em>Attribute:</em> <code>chars</code> (required)</p><p>This attribute specifies a list of characters in UnicodeSet format, which is specified in <a href="tr35.html#Unicode_Sets">UTS #35 Part One</a>.</p><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">repertoire</span> <span class="hljs-attr">chars</span>=<span class="hljs-string">"[a b c d e \u{22}]"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"default"</span> /&gt;</span>
+</tbody></table><p><em>Attribute:</em> <code>chars</code> (required)</p><p>This attribute value specifies a list of characters in UnicodeSet format, which is specified in <a href="tr35.html#Unicode_Sets">UTS #35 Part One</a>.</p><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">repertoire</span> <span class="hljs-attr">chars</span>=<span class="hljs-string">"[a b c d e \u{22}]"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"default"</span> /&gt;</span>
 
 <span class="hljs-comment">&lt;!-- taken from CLDR's common/main/fr.xml main exemplars - indicates that all of these characters should be reachable without requiring a gesture.
 Note that the 'name' is arbitrary. --&gt;</span>
@@ -2623,7 +2641,7 @@ Note that the 'name' is arbitrary. --&gt;</span>
 <p>Children: <a href="tr35.html#special"><em>special</em></a>, <a href="#test-element-test">test</a></p>
 </small><p><small>Occurrence: Optional, Multiple
 </small></p>
-</blockquote><p>This element specifies a particular suite of <code>&lt;test&gt;</code> elements.</p><p><em>Attribute:</em> <code>name</code> (required)</p><p>This attribute specifies a unique name for this suite of tests. These names could be output to the user during test execution, used to summarize success and failure, or used to select or deselect test components.</p><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">tests</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"key-tests"</span>&gt;</span>
+</blockquote><p>This element specifies a particular suite of <code>&lt;test&gt;</code> elements.</p><p><em>Attribute:</em> <code>name</code> (required)</p><p>This attribute value specifies a unique name for this suite of tests. These names could be output to the user during test execution, used to summarize success and failure, or used to select or deselect test components.</p><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">tests</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"key-tests"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">test</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"key-test"</span>&gt;</span>
         …
     <span class="hljs-tag">&lt;/<span class="hljs-name">test</span>&gt;</span>
@@ -2643,7 +2661,7 @@ Note that the 'name' is arbitrary. --&gt;</span>
 <p>Children: <a href="#test-element-startcontext">startContext</a>, <a href="#test-element-emit">emit</a>, <a href="#test-element-keystroke">keystroke</a>, <a href="#test-element-backspace">backspace</a>, <a href="#test-element-check">check</a>, <a href="tr35.html#special"><em>special</em></a></p>
 </small><p><small>Occurrence: Required, Multiple
 </small></p>
-</blockquote><p>This attribute specifies a specific isolated regression test. Multiple test elements do not interact with each other.</p><p>The order of child elements is significant, with cumulative effects: they must be processed from first to last.</p><p><em>Attribute:</em> <code>name</code> (required)</p><p>This attribute specifies a unique name for this particular test. These names could be output to the user during test execution, used to summarize success and failure, or used to select or deselect test components.</p><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">info</span> <span class="hljs-attr">keyboard</span>=<span class="hljs-string">"fr-t-k0-azerty.xml"</span> <span class="hljs-attr">author</span>=<span class="hljs-string">"Team Keyboard"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"fr-test"</span> /&gt;</span>
+</blockquote><p>This attribute value specifies a specific isolated regression test. Multiple test elements do not interact with each other.</p><p>The order of child elements is significant, with cumulative effects: they must be processed from first to last.</p><p><em>Attribute:</em> <code>name</code> (required)</p><p>This attribute value specifies a unique name for this particular test. These names could be output to the user during test execution, used to summarize success and failure, or used to select or deselect test components.</p><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">info</span> <span class="hljs-attr">keyboard</span>=<span class="hljs-string">"fr-t-k0-azerty.xml"</span> <span class="hljs-attr">author</span>=<span class="hljs-string">"Team Keyboard"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"fr-test"</span> /&gt;</span>
 </code></pre><h3 id="test-element-startcontext">Test Element: startContext</h3><p>This element specifies pre-existing text in a document, as if prior to the user’s insertion point. This is useful for testing transforms and reordering. If not specified, the startContext can be considered to be the empty string ("").</p><blockquote>
 <small>
 
@@ -2659,7 +2677,7 @@ Note that the 'name' is arbitrary. --&gt;</span>
 <p>Children: <em>none</em></p>
 </small><p><small>Occurrence: Optional, Multiple
 </small></p>
-</blockquote><p>This element represents a single keystroke or other gesture event, identified by a particular key element.</p><p>Optionally, one of the gesture attributes, either <code>flick</code>, <code>longPress</code>, or <code>tapCount</code> may be specified. If none of the gesture attributes are specified, then a regular keypress is effected on the key.  It is an error to specify more than one gesture attribute.</p><p>If a key is not found, or a particular gesture has no definition, the output should be behave as if the user attempted to perform such an action.  For example, an unspecified <code>flick</code> would result in no output.</p><p>When a key is found, processing continues with the transform and other elements before updating the test output buffer.</p><p><em>Attribute:</em> <code>key</code> (required)</p><p>This attribute specifies a key by means of the key’s <code>id</code> attribute.</p><p><em>Attribute:</em> <code>flick</code></p><p>This attribute specifies a flick gesture to be performed on the specified key instead of a keypress, such as <code>e</code> or <code>nw se</code>. This value corresponds to the <code>directions</code> attribute of the <a href="#element-flicksegment"><code>&lt;flickSegment&gt;</code></a> element.</p><p><em>Attribute:</em> <code>longPress</code></p><p>This attribute specifies that a long press gesture should be performed on the specified key instead of a keypress. For example, <code>longPress="2"</code> indicates that the second character in a longpress series should be chosen. <code>longPress="0"</code> indicates that the <code>longPressDefault</code> value, if any, should be chosen. This corresponds to <code>longPress</code> and <code>longPressDefault</code> on <a href="#element-key"><code>&lt;key&gt;</code></a>.</p><p><em>Attribute:</em> <code>tapCount</code></p><p>This attribute specifies that a multi-tap gesture should be performed on the specified key instead of a keypress. For example, <code>tapCount="3"</code> indicates that the key should be tapped three times in rapid succession. This corresponds to <code>multiTap</code> on <a href="#element-key"><code>&lt;key&gt;</code></a>. The minimum tapCount is 2.</p><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keystroke</span> <span class="hljs-attr">key</span>=<span class="hljs-string">"q"</span>/&gt;</span>
+</blockquote><p>This element represents a single keystroke or other gesture event, identified by a particular key element.</p><p>Optionally, one of the gesture attributes, either <code>flick</code>, <code>longPress</code>, or <code>tapCount</code> may be specified. If none of the gesture attribute values are specified, then a regular keypress is effected on the key.  It is an error to specify more than one gesture attribute.</p><p>If a key is not found, or a particular gesture has no definition, the output should be behave as if the user attempted to perform such an action.  For example, an unspecified <code>flick</code> would result in no output.</p><p>When a key is found, processing continues with the transform and other elements before updating the test output buffer.</p><p><em>Attribute:</em> <code>key</code> (required)</p><p>This attribute value specifies a key by means of the key’s <code>id</code> attribute.</p><p><em>Attribute:</em> <code>flick</code></p><p>This attribute value specifies a flick gesture to be performed on the specified key instead of a keypress, such as <code>e</code> or <code>nw se</code>. This value corresponds to the <code>directions</code> attribute value of the <a href="#element-flicksegment"><code>&lt;flickSegment&gt;</code></a> element.</p><p><em>Attribute:</em> <code>longPress</code></p><p>This attribute value specifies that a long press gesture should be performed on the specified key instead of a keypress. For example, <code>longPress="2"</code> indicates that the second character in a longpress series should be chosen. <code>longPress="0"</code> indicates that the <code>longPressDefault</code> value, if any, should be chosen. This corresponds to <code>longPress</code> and <code>longPressDefault</code> on <a href="#element-key"><code>&lt;key&gt;</code></a>.</p><p><em>Attribute:</em> <code>tapCount</code></p><p>This attribute value specifies that a multi-tap gesture should be performed on the specified key instead of a keypress. For example, <code>tapCount="3"</code> indicates that the key should be tapped three times in rapid succession. This corresponds to <code>multiTap</code> on <a href="#element-key"><code>&lt;key&gt;</code></a>. The minimum tapCount is 2.</p><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keystroke</span> <span class="hljs-attr">key</span>=<span class="hljs-string">"q"</span>/&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">keystroke</span> <span class="hljs-attr">key</span>=<span class="hljs-string">"doublequote"</span>/&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">keystroke</span> <span class="hljs-attr">key</span>=<span class="hljs-string">"s"</span> <span class="hljs-attr">flick</span>=<span class="hljs-string">"nw se"</span>/&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">keystroke</span> <span class="hljs-attr">key</span>=<span class="hljs-string">"e"</span> <span class="hljs-attr">longPress</span>=<span class="hljs-string">"1"</span>/&gt;</span>
@@ -2671,8 +2689,8 @@ Note that the 'name' is arbitrary. --&gt;</span>
 <p>Children: <em>none</em></p>
 </small><p><small>Occurrence: Optional, Multiple
 </small></p>
-</blockquote><p>This element also represents an input event, except that the input is specified in terms of textual value rather than key or gesture identity. This element is particularly useful for testing transforms.</p><p>Processing of the specified text continues with the transform and other elements before updating the test output buffer.</p><p><em>Attribute:</em> <code>to</code> (required)</p><p>This attribute specifies a string of output text representing a single keystroke or gesture. This string is intended to match the output of a <code>key</code>, <code>flick</code>, <code>longPress</code> or <code>multiTap</code> element or attribute.
-Tooling should give a hint if this attribute does not match at least one keystroke or gesture. Note that the specified text is not injected directly into the output buffer.</p><p>This attribute may be escaped with <code>\u</code> notation, see <a href="#escaping">Escaping</a>.</p><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">emit</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"s"</span>/&gt;</span>
+</blockquote><p>This element also represents an input event, except that the input is specified in terms of textual value rather than key or gesture identity. This element is particularly useful for testing transforms.</p><p>Processing of the specified text continues with the transform and other elements before updating the test output buffer.</p><p><em>Attribute:</em> <code>to</code> (required)</p><p>This attribute value specifies a string of output text representing a single keystroke or gesture. This string is intended to match the output of a <code>key</code>, <code>flick</code>, <code>longPress</code> or <code>multiTap</code> element or attribute.
+Tooling should give a hint if this attribute value does not match at least one keystroke or gesture. Note that the specified text is not injected directly into the output buffer.</p><p>This attribute value may be escaped with <code>\u</code> notation, see <a href="#escaping">Escaping</a>.</p><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">emit</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"s"</span>/&gt;</span>
 </code></pre><h3 id="test-element-backspace">Test Element: backspace</h3><blockquote>
 <small>
 
@@ -2688,7 +2706,7 @@ Tooling should give a hint if this attribute does not match at least one keystro
 <p>Children: <em>none</em></p>
 </small><p><small>Occurrence: Optional, Multiple
 </small></p>
-</blockquote><p>This element represents a check on the current output buffer.</p><p><em>Attribute:</em> <code>result</code> (required)</p><p>This attribute specifies the expected resultant text in a document after processing this event and all prior events, and including any <code>startContext</code> text.  This text may be escaped with <code>\u</code> notation, see <a href="#escaping">Escaping</a>.</p><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">check</span> <span class="hljs-attr">result</span>=<span class="hljs-string">"abc\u{0022}s\u{0022}•éÈ"</span>/&gt;</span>
+</blockquote><p>This element represents a check on the current output buffer.</p><p><em>Attribute:</em> <code>result</code> (required)</p><p>This attribute value specifies the expected resultant text in a document after processing this event and all prior events, and including any <code>startContext</code> text.  This text may be escaped with <code>\u</code> notation, see <a href="#escaping">Escaping</a>.</p><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">check</span> <span class="hljs-attr">result</span>=<span class="hljs-string">"abc\u{0022}s\u{0022}•éÈ"</span>/&gt;</span>
 </code></pre><h3 id="test-examples">Test Examples</h3><pre><code class="language-xml">
 <span class="hljs-tag">&lt;<span class="hljs-name">test</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"spec-sample"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">startContext</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"abc\u{0022}"</span>/&gt;</span>

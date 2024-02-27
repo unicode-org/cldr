@@ -198,6 +198,7 @@ const _KeyboardData =
      ],
      "@_formId": "us"
     },
+    "@_xmlns": "https://schemas.unicode.org/cldr/45/keyboard3",
     "@_locale": "mt-t-k0-47key",
     "@_conformsTo": "techpreview"
    }
@@ -340,6 +341,7 @@ const _KeyboardData =
       "@_type": "simple"
      }
     ],
+    "@_xmlns": "https://schemas.unicode.org/cldr/45/keyboard3",
     "@_locale": "pcm",
     "@_conformsTo": "techpreview"
    }
@@ -536,6 +538,7 @@ const _KeyboardData =
      ],
      "@_formId": "iso"
     },
+    "@_xmlns": "https://schemas.unicode.org/cldr/45/keyboard3",
     "@_locale": "mt",
     "@_conformsTo": "techpreview"
    }
@@ -996,6 +999,7 @@ const _KeyboardData =
       "@_type": "simple"
      }
     ],
+    "@_xmlns": "https://schemas.unicode.org/cldr/45/keyboard3",
     "@_locale": "fr-t-k0-azerty",
     "@_conformsTo": "techpreview"
    }
@@ -1074,6 +1078,7 @@ const _KeyboardData =
      ],
      "@_formId": "jis"
     },
+    "@_xmlns": "https://schemas.unicode.org/cldr/45/keyboard3",
     "@_locale": "ja-Latn",
     "@_conformsTo": "techpreview"
    }
@@ -1571,6 +1576,7 @@ const _KeyboardData =
       "@_type": "simple"
      }
     ],
+    "@_xmlns": "https://schemas.unicode.org/cldr/45/keyboard3",
     "@_locale": "bn",
     "@_conformsTo": "techpreview"
    }
@@ -1743,6 +1749,7 @@ const _KeyboardData =
      ],
      "@_formId": "abnt2"
     },
+    "@_xmlns": "https://schemas.unicode.org/cldr/45/keyboard3",
     "@_locale": "pt-t-k0-abnt2",
     "@_conformsTo": "techpreview"
    }

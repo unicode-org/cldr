@@ -2364,20 +2364,27 @@ then a mixture of child and parent textual data is a mishmash of different scrip
 <p>Thus there are two cases where the truncation inheritance needs to be overridden:</p>
 <ol>
 <li>When the parent locale would have a different script, and text would be mixed.</li>
-<li>In certain exceptional circumstances where the parent.</li>
+<li>In certain exceptional circumstances where the 'truncation' parent needs to be adjusted.</li>
 </ol>
 <p>The <code>parentLocale</code> element is used to override the normal inheritance when accessing CLDR data.</p>
-<p>For case 1, there is a special value for the locales, <code>nonlikelyScript</code>,
-which includes all locales of the form <lang>_<script>, where the <script> is not the likely script for <lang>.</p>
-<pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">parentLocale</span> <span class="hljs-attr">parent</span>=<span class="hljs-string">&quot;root&quot;</span> <span class="hljs-attr">locales</span>=<span class="hljs-string">&quot;nonlikelyScript&quot;</span>/&gt;</span>
+<p>For case 1, there is a special attribute and value, <code>localeRules=&quot;nonlikelyScript&quot;</code>,
+which specifies <strong>all locales</strong> of the form <lang>_<script>, wherever the <script> is <strong>not</strong> the likely script for <lang>.
+For migration, the previous short list of locales (a subset of the nonlikelyScript locales) is retained,
+but those locales are slated for removal in the future. 
+For example, <code>ru_Latn</code> is not included in the short list but is included (programmatically) in the rule.</p>
+<pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">parentLocale</span> <span class="hljs-attr">parent</span>=<span class="hljs-string">&quot;root&quot;</span> <span class="hljs-attr">localeRules</span>=<span class="hljs-string">&quot;nonlikelyScript&quot;</span> <span class="hljs-attr">locales</span>=<span class="hljs-string">&quot;az_Arab az_Cyrl bal_Latn … yue_Hans zh_Hant&quot;</span>/&gt;</span>/&gt;
 </code></pre>
-<p>This is used for the main component.
+<p>The <code>localeRules</code> is used for the main component, for example.
 It is not used to components where text is not mixed, 
 such as the collations component or the plurals component.</p>
 <p>For case 2, the children and parent share the same primary language, but the region is changed. For example:</p>
 <pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">parentLocale</span> <span class="hljs-attr">parent</span>=<span class="hljs-string">&quot;es_419&quot;</span> <span class="hljs-attr">locales</span>=<span class="hljs-string">&quot;es_AR es_BO … es_UY es_VE&quot;</span>/&gt;</span>
 </code></pre>
-<p>There are certain components that require addenda to the common parent fallback rules. For a locale like <code>zh_Hant</code> in the example above, the <code>parentLocale</code> element would dictate the parent as <code>root</code> when referring to main locale data, but for collation data, the parent locale should still be <code>zh</code>, even though the <code>parentLocale</code> element is present for that locale. To address this, components can have their own fallback rules that inherit from the common rules and add additional parents that supplement or override the common rules:</p>
+<p>There are certain components that require addenda to the common parent fallback rules. 
+For a locale like <code>zh_Hant</code> in the example above, the <code>parentLocale</code> element would dictate the parent as <code>root</code> when referring to main locale data,
+but for collation data, the parent locale should still be <code>zh</code>,
+even though the <code>parentLocale</code> element is present for that locale.
+To address this, components can have their own fallback rules that inherit from the common rules and add additional parents that supplement or override the common rules:</p>
 <pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">parentLocales</span> <span class="hljs-attr">component</span>=<span class="hljs-string">&quot;segmentations&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">parentLocale</span> <span class="hljs-attr">parent</span>=<span class="hljs-string">&quot;zh&quot;</span> <span class="hljs-attr">locales</span>=<span class="hljs-string">&quot;zh_Hant&quot;</span>/&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">parentLocales</span>&gt;</span>
@@ -2388,7 +2395,8 @@ This was determined to be an error, and the component-specific parent locales ar
 the parentLocale information is contained in CLDR’s <a href="tr35-info.md">supplemental data.</a></p>
 <p>When a <code>parentLocale</code> element is used to override normal inheritance, the following guidelines apply in most cases:</p>
 <ol>
-<li>If X is the parentLocale of Y, then either X is the root locale, or X has the same base language code as Y. For example, the parent of <code>en</code> cannot be <code>fr</code>, and the parent of <code>en_YY</code> cannot be <code>fr</code> or <code>fr_XX</code>.</li>
+<li>If X is the parentLocale of Y, then either X is the root locale, or X has the same base language code as Y.
+For example, the parent of <code>en</code> cannot be <code>fr</code>, and the parent of <code>en_YY</code> cannot be <code>fr</code> or <code>fr_XX</code>.</li>
 <li>If X is the parentLocale of Y, Y must not be a base language locale. For example, the parent of <code>en</code> cannot be <code>en_XX</code>.</li>
 </ol>
 <p>There may be specific exceptions to these for certain closely-related languages or language-script combinations, for example:</p>

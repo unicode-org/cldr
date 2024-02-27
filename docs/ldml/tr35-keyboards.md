@@ -150,12 +150,11 @@ The LDML specification is divided into the following parts:
 
 The Unicode Standard and related technologies such as CLDR have dramatically improved the path to language support. However, keyboard support remains platform and vendor specific, causing inconsistencies in implementation as well as timeline.
 
-> “More and more language communities are determining that digitization is vital to their approach to language preservation and that engagement with Unicode is essential to becoming fully digitized. For many of these communities, however, getting new characters or a new script added to The Unicode Standard is not the end of their journey. The next, often more challenging stage is to get device makers, operating systems, apps and services to implement the script requirements that Unicode has just added to support their language. …
->
-> “However, commensurate improvements to streamline new language support on the input side have been lacking. CLDR’s new Keyboard Subcommittee has been established to address this very gap.”
-> _(Cornelius et. al, “Standardizing Keyboards with CLDR,” presented at the 45th Internationalization and Unicode Conference, Santa Clara, California, USA, October 2021)_
+More and more language communities are determining that digitization is vital to their approach to language preservation and that engagement with Unicode is essential to becoming fully digitized. For many of these communities, however, getting new characters or a new script added to The Unicode Standard is not the end of their journey. The next, often more challenging stage is to get device makers, operating systems, apps and services to implement the script requirements that Unicode has just added to support their language.
 
-The CLDR keyboard format seeks to address these challenges, by providing an interchange format for the communication of keyboard mapping data independent of vendors and platforms. Keyboard authors can then create a single mapping file for their language, which implementations can use to provide that language’s keyboard mapping on their own platform.
+However, commensurate improvements to streamline new language support on the input side have been lacking. CLDR’s new Keyboard Subcommittee has been established to address this very gap.
+
+This document describes an interchange format for the communication of keyboard mapping data independent of vendors and platforms. Keyboard authors can then create a single mapping file for their language, which implementations can use to provide that language’s keyboard mapping on their own platform.
 
 Additionally, the standardized identifier for keyboards can be used to communicate, internally or externally, a request for a particular keyboard mapping that is to be used to transform either text or keystrokes. The corresponding data can then be used to perform the requested actions.  For example, a remote screen-access application (such as used for customer service or server management) would be able to communicate and choose the same keyboard layout on the remote device as is used in front of the user, even if the two systems used different platforms.
 
@@ -177,8 +176,6 @@ Some goals of this format are:
 2. Provide definitive platform-independent definitions for new keyboard layouts.
     * For example, a new French standard keyboard layout would have a single definition which would be usable across all implementations.
 3. Allow platforms to be able to use CLDR keyboard data for the character-emitting keys (non-frame) aspects of keyboard layouts.
-    * For example, platform-specific keys such as Fn, Numpad, IME swap keys, and cursor keys are out of scope.
-    * This also means that modifier (frame) keys cannot generate output, such as capslock -> backslash.
 4. Deprecate & archive existing LDML platform-specific layouts so they are not part of future releases.
 
 <!--
@@ -193,6 +190,8 @@ Some non-goals (outside the scope of the format) currently are:
 3. Unification of pre-existing platform layouts themselves (e.g. existing fr-azerty on platform a, b, c).
 4. Support for prior (pre 3.0) CLDR keyboard files. See [Compatibility Notice](#compatibility-notice).
 5. Run-time efficiency. [LDML is explicitly an interchange format](tr35.md#Introduction), and so it is expected that data will be transformed to a more compact format for use by a keystroke processing engine.
+6. Platform-specific frame keys such as Fn, Numpad, IME swap keys, and cursor keys are out of scope.
+   (This also means that in the current specification, modifier (frame) keys cannot generate output, such as capslock producing backslash.)
 
 <!-- 1. Display names or symbols for keycaps (eg, the German name for "Return"). If that were added to LDML, it would be in a different structure, outside the scope of this section.
 2. Advanced IME features, handwriting recognition, etc.
@@ -233,6 +232,8 @@ Distinguished from the **frame keys**.
 
 <!-- **Hardware map:** A mapping between  and layout positions. -->
 
+**Implementation:** see **Keyboard implementation**
+
 **Input Method Editor (IME):** a component or program that supports input of large character sets. Typically, IMEs employ contextual logic and candidate UI to identify the Unicode characters intended by the user.
 
 <!-- **ISO position:** The corresponding position of a key using the ISO layout convention where rows are identified by letters and columns are identified by numbers. For example, "D01" corresponds to the "Q" key on a US keyboard. For the purposes of this document, an ISO layout position is depicted by a one-letter row identifier followed by a two digit column number (like "B03", "E12" or "C00"). The following diagram depicts a typical US keyboard layout superimposed with the ISO layout indicators (it is important to note that the number of keys and their physical placement relative to each-other in this diagram is irrelevant, rather what is important is their logical placement using the ISO convention):
@@ -244,6 +245,13 @@ One may also extend the notion of the ISO layout to support keys that don't map 
 ![keyboard layout example showing extension of ISO key numbering](images/androidKeyboard.png)
 
 If it becomes necessary in the future, the format could extend the ISO layout to support keys that are located to the left of the "00" column by using negative column numbers "-01", "-02" and so on, or 100's complement "99", "98",... -->
+
+**Keyboard implementation:** Software which implements the present specification, such that keyboard XML files can be used to interpret keystrokes from a **Hardware keyboard** or an on-screen **Touch keyboard**.
+
+Keyboard implementations will typically consist of two parts:
+
+1. A _compile/build tool_ part used by **Keyboard authors** to parse the XML file and produce a compact runtime format, and
+2. A _runtime_ part which interprets the runtime format when the keyboard is selected by the end user, and delivers the output plain text to the platform or application.
 
 **Key:** A physical key on a hardware keyboard, or a virtual key on a touch keyboard.
 
@@ -271,9 +279,15 @@ If it becomes necessary in the future, the format could extend the ISO layout to
 
 **Virtual keyboard:** see **Touch keyboard**
 
+## Notation
+
+- Ellipsis (`…`) in syntax examples are used to denote substituted parts.
+
+  For example, `id="…keyId"` denotes that `…keyId` (the part between double quotes) is to be replaced with something, in this case a key identifier. As another example, `\u{…}` denotes that the `…` is to be replaced with something, in this case a hex number.
+
 ### Escaping
 
-When explicitly specified, attribute values can contain escaped characters. This specification uses two methods of escaping, the _UnicodeSet_ notation and the `\u{...}` notation.
+When explicitly specified, attribute values can contain escaped characters. This specification uses two methods of escaping, the _UnicodeSet_ notation and the `\u{…}` notation.
 
 ### UnicodeSet Escaping
 
@@ -306,18 +320,21 @@ Attribute values escaped in this manner are annotated with the `<!--@ALLOWS_UESC
 
 ## File and Directory Structure
 
-* New collection of layouts that are prescriptive, and define the common core for a keyboard that can be consumed as data for implementation on different platforms will be included in the CLDR repository. This collection will be in a different location than the existing CLDR keyboard files under main/keyboards. We should remove the existing data files, but keep the old DTD in the same place for compatibility, and also so that conversion tools can use it to read older files.
-* New layouts will have version metadata to indicate their specification compliance versi​​on number. For this tech preview, the value used must be `techpreview`.
+* In the future, new layouts will be included in the CLDR repository, as a way for new layouts to be distributed in a cross-platorm manner. The process for this repository of layouts has not yet been defined, see [CLDR-17253](https://unicode-org.atlassian.net/browse/CLDR-17253) for up-to-date information.  Layouts which are currently in the repository are intended as sample data only.
+
+* Layouts have version metadata to indicate their specification compliance versi​​on number. For this tech preview, the value used must be `techpreview`. When the the specification is out of tech preview, a specific CLDR version number will be used. See [`cldrVersion`](tr35-info.md#version-information).
 
 ```xml
 <keyboard3 conformsTo="techpreview"/>
 ```
 
-> _Note_: Unlike other LDML files, layouts are designed to be used outside of the CLDR source tree.  A new mechanism for referencing the DTD path should ideally be used, such as a URN or FPI. See <https://unicode-org.atlassian.net/browse/CLDR-15505> for discussion. For this tech preview, a relative path to the dtd will continue to be used as below.  Future versions may give other recommendations.
+> _Note_: Unlike other LDML files, layouts are designed to be used outside of the CLDR source tree.  A new mechanism for referencing the DTD path should ideally be used, such as a URN or FPI. See <https://unicode-org.atlassian.net/browse/CLDR-15505> for discussion. For this tech preview, a relative path to the dtd will continue to be used in sample data.  Future versions may give other recommendations.
 
 ```xml
 <!DOCTYPE keyboard3 SYSTEM "../dtd/ldmlKeyboard3.dtd">
 ```
+
+> For distributing keyboards outside of the CLDR repository, it is recommended to either use a copy of the .dtd file, omit the `DOCTYPE` clause. Do not use a http or https URL in the DOCTYPE.
 
 * The filename of a keyboard .xml file does not have to match the BCP47 primary locale ID, but it is recommended to do so. The CLDR repository may enforce filename consistency.
 
@@ -618,8 +635,8 @@ This is the top level element. All other elements defined below are under this e
 **Syntax**
 
 ```xml
-<keyboard3 locale="{locale ID}">
-    {definition of the layout as described by the elements defined below}
+<keyboard3 locale="…localeId">
+    <!-- …definition of the layout as described by the elements defined below -->
 </keyboard3>
 ```
 
@@ -696,7 +713,7 @@ The optional `<locales>` element allows specifying additional or alternate local
 **Syntax**
 
 ```xml
-<locale id="{id}"/>
+<locale id="…id"/>
 ```
 
 > <small>
@@ -738,7 +755,7 @@ Element used to keep track of the source data version.
 **Syntax**
 
 ```xml
-<version number="..">
+<version number="…number">
 ```
 
 > <small>
@@ -779,10 +796,10 @@ Element containing informative properties about the layout, for displaying in us
 
 ```xml
 <info
-      name="{keyboard name}"
-      author="{author}"
-      layout="{hint of the layout}"
-      indicator="{short identifier}" />
+      name="…name"
+      author="…author"
+      layout="…hint of the layout"
+      indicator="…short identifier" />
 ```
 
 > <small>
@@ -907,16 +924,16 @@ This element defines a mapping between an abstract key and its output. This elem
 
 ```xml
 <key
- id="{key id}"
- flickId="{flick identifier}"
+ id="…keyId"
+ flickId="…flickId"
  gap="true"
- longPressKeyIds="{long press list id}"
- longPressDefaultKeyId="{default longpress key}"
- multiTapKeyIds="{multi tap list id}"
+ longPressKeyIds="…list of keyIds"
+ longPressDefaultKeyId="…keyId"
+ multiTapKeyIds="…listId"
  stretch="true"
- layerId="{switch layer id}"
- output="{the output}"
- width="{key width}"
+ layerId="…layerId"
+ output="…string"
+ width="…number"
  />
 ```
 
@@ -939,7 +956,7 @@ _Attribute:_ `id`
 >
 > In the future, this attribute’s definition is expected to be updated to align with [UAX#31](https://www.unicode.org/reports/tr31/). Please see [CLDR-17043](https://unicode-org.atlassian.net/browse/CLDR-17043) for more details.
 
-_Attribute:_ `flickId="{flick id}"` (optional)
+_Attribute:_ `flickId="…flickId"` (optional)
 
 > The `flickId` attribute indicates that this key makes use of a [`flick`](#element-flick) set with the specified id.
 
@@ -951,7 +968,7 @@ _Attribute:_ `gap="true"` (optional)
 <key id="mediumgap" gap="true" width="1.5"/>
 ```
 
-_Attribute:_ `longPressKeyIds="{list of key ids}"` (optional)
+_Attribute:_ `longPressKeyIds="…list of keyIds"` (optional)
 
 > A space-separated ordered list of `key` element ids, which keys which can be emitted by "long-pressing" this key. This feature is prominent in mobile devices.
 >
@@ -980,7 +997,7 @@ _Attribute:_ `longPressKeyIds="{list of key ids}"` (optional)
 >
 > ```
 
-_Attribute:_ `longPressDefaultKeyId="{key-id}"` (optional)
+_Attribute:_ `longPressDefaultKeyId="…keyId"` (optional)
 
 > Specifies the default key, by id, in a list of long-press keys. See the discussion of `LongPressKeyIds`, above.
 
@@ -1272,35 +1289,17 @@ After loading, the above example will be the equivalent of the following.
 
 ### Element: displays
 
-The displays can be used to describe what is to be displayed on the keytops for various keys. For the most part, such explicit information is unnecessary since the `@to` element from the `keys/key` element can be used. But there are some characters, such as diacritics, that do not display well on their own and so explicit overrides for such characters can help.
-Another useful scenario is where there are doubled diacritics, or multiple characters with spacing issues.
-
-The `displays` consists of a list of display subelements.
-
-`displays` elements are designed to be shared across many different keyboard layout descriptions, and imported with `<import>` where needed.
-
-For combining characters, U+25CC `◌` is used as a base. It is an error to use a combining character without a base in the `display` attribute.
-
-For example, a key which outputs a combining tilde (U+0303) can be represented as follows:
-
-```xml
-    <display output="\u{0303}" display="◌̃" />  <!-- \u{25CC} \u{0303}-->
-```
-
-This way, a key which outputs a combining tilde (U+0303) will be represented as `◌̃` (a tilde on a dotted circle).
-
-Some scripts/languages may prefer a different base than U+25CC.
-See  [`<displayOptions baseCharacter=…/>`](#element-displayoptions).
+The `displays` element consists of a list of [`display`](#element-display) subelements.
 
 **Syntax**
 
 ```xml
 <displays>
-    {a set of display elements}
+    <display ... />
+    <display ... />
+    ...
 </displays>
 ```
-
-**Note**: There is currently no way to indicate a custom display for a key without output (i.e. without a `to=` attribute), nor is there a way to indicate that such a key has a standardized identity (e.g. that a key should be identified as a “Shift”). These may be addressed in future versions of this standard.
 
 > <small>
 >
@@ -1316,12 +1315,32 @@ See  [`<displayOptions baseCharacter=…/>`](#element-displayoptions).
 
 ### Element: display
 
-The `display` element describes how a character, that has come from a `keys/key` element, should be displayed on a keyboard layout where such display is possible.
+The display elements can be used to describe what is to be displayed on the keytops for various keys. For the most part, such explicit information is unnecessary since the `@to` element from the `keys/key` element will be used for keytop display. However some characters, such as diacritics, do not display well on their own.
+
+Another useful scenario is where there are doubled diacritics, or multiple characters with spacing issues.
+
+Finally, this provides a way to specify the keytop for keys which do not otherwise produce output, which is common for the `@layerId` attribute.
+
+Note: `displays` elements are designed to be shared across many different keyboard layout descriptions, and imported with `<import>` where needed.
+
+For combining characters, U+25CC `◌` is used as a base. It is an error to use a combining character without a base in the `display` attribute.
+
+For example, a key which outputs a combining tilde (U+0303) can be represented as follows:
+
+```xml
+    <display output="\u{0303}" display="◌̃" />  <!-- \u{25CC} \u{0303}-->
+```
+
+This way, a key which outputs a combining tilde (U+0303) will be represented as `◌̃` (a tilde on a dotted circle).
+
+Some scripts/languages may prefer a different base than U+25CC.
+See  [`<displayOptions baseCharacter=…/>`](#element-displayoptions).
+
 
 **Syntax**
 
 ```xml
-<display output="{the output}" display="{show as}" />
+<display output="…string" display="…string" />
 ```
 
 > <small>
@@ -1335,6 +1354,9 @@ The `display` element describes how a character, that has come from a `keys/key`
 > </small>
 
 One of the `output` or `id` attributes is required.
+
+**Note**: There is currently no way to indicate a custom display for a key without output (i.e. without a `to=` attribute), nor is there a way to indicate that such a key has a standardized identity (e.g. that a key should be identified as a “Shift”). These may be addressed in future versions of this standard.
+
 
 _Attribute:_ `output` (optional)
 
@@ -1554,7 +1576,7 @@ _Attribute:_ `form` (required)
 > or that the form is a `touch` layout.
 >
 > When using an on-screen touch keyboard, if the keyboard does not specify a `<layers form="touch">`
-> element, a `<layers form="{hardware}">` element can be used as an fallback alternative.
+> element, a `<layers form="…formId">` element can be used as an fallback alternative.
 > If there is no `hardware` form, the implementation may need
 > to choose a different keyboard file, or use some other fallback behavior when using a
 > hardware keyboard.
@@ -1715,7 +1737,7 @@ A `row` element describes the keys that are present in the row of a keyboard.
 **Syntax**
 
 ```xml
-<row keys="{keyId} {keyId} …" />
+<row keys="…keyId …keyId …" />
 ```
 
 > <small>
@@ -2149,7 +2171,7 @@ All of the `transform` elements in a `transformGroup` are tested for a match, in
 **Syntax**
 
 ```xml
-<transform from="{input rule}" to="{output pattern}"/>
+<transform from="…matching pattern" to="…output pattern"/>
 ```
 
 > <small>
@@ -2438,12 +2460,12 @@ The relative ordering of `<reorder>` elements is not significant.
 ```xml
 <transformGroup>
     <!-- one or more <import/> elements are allowed at this point -->
-    <reorder from="{combination of characters}"
-    before="{look-behind required match}"
-    order="{list of weights}"
-    tertiary="{list of weights}"
-    tertiaryBase="{list of true/false}"
-    preBase="{list of true/false}" />
+    <reorder from="…combination of characters"
+    before="…look-behind required match"
+    order="…list of weights"
+    tertiary="…list of weights"
+    tertiaryBase="…list of true/false"
+    preBase="…list of true/false" />
     <!-- other <reorder/> elements... -->
 </transformGroup>
 ```
@@ -2704,7 +2726,7 @@ In text editing mode, different keyboard layouts may behave differently in the s
 ```xml
 <transforms type="backspace">
     <transformGroup>
-        <transform from="{combination of characters}" to="{output}" />
+        <transform from="…match pattern" to="…output pattern" />
     </transformGroup>
 </transforms>
 ```

@@ -31,7 +31,7 @@ This document is a _technical preview_ of the Keyboard standard.
 
 To process earlier XML files, use the data and specification from v43.1, found at <https://www.unicode.org/reports/tr35/tr35-69/tr35.html>
 
-The CLDR [Keyboard Workgroup](https://cldr.unicode.org/index/keyboard-workgroup) is currently
+The CLDR [Keyboard Workgroup][keyboard-workgroup] is currently
 developing this technical preview to the CLDR keyboard specification.
 
 ## <a name="Parts" href="#Parts">Parts</a>
@@ -308,7 +308,7 @@ Attribute values escaped in this manner are annotated with the `<!--@ALLOWS_UESC
 
 ## File and Directory Structure
 
-* In the future, new layouts will be included in the CLDR repository, as a way for new layouts to be distributed in a cross-platorm manner. The process for this repository of layouts has not yet been defined, see [CLDR-17253](https://unicode-org.atlassian.net/browse/CLDR-17253) for up-to-date information.
+* In the future, new layouts will be included in the CLDR repository, as a way for new layouts to be distributed in a cross-platorm manner. The process for this repository of layouts has not yet been defined, see the [CLDR Keyboard Workgroup Page][keyboard-workgroup] for up-to-date information.
 
 * Layouts have version metadata to indicate their specification compliance versi​​on number. For this tech preview, the value used must be `techpreview`. When the the specification is out of tech preview, a specific CLDR version number will be used. See [`cldrVersion`](tr35-info.md#version-information).
 
@@ -647,7 +647,7 @@ For purposes of this current draft specification, the value should always be `te
 
 _Attribute:_ `locale` (required)
 
-This attribute contains the primary locale of the keyboard using BCP 47 [Unicode locale identifiers](tr35.md#Canonical_Unicode_Locale_Identifiers) - for example `"el"` for Greek. Sometimes, the locale may not specify the base language. For example, a Devanagari keyboard for many languages could be specified by BCP-47 code: `"und-Deva"`. However, it is better to list out the languages explicitly using the [`locales`](#element-locales) element.
+This attribute value contains the primary locale of the keyboard using BCP 47 [Unicode locale identifiers](tr35.md#Canonical_Unicode_Locale_Identifiers) - for example `"el"` for Greek. Sometimes, the locale may not specify the base language. For example, a Devanagari keyboard for many languages could be specified by BCP-47 code: `"und-Deva"`. However, it is better to list out the languages explicitly using the [`locales`](#element-locales) element.
 
 For further details about the choice of locale ID, see [Keyboard IDs](#keyboard-ids).
 
@@ -938,7 +938,7 @@ _Attribute:_ `id`
 
 > The `id` attribute uniquely identifies the key. NMTOKEN. It can (but needn't be) the key name (a, b, c, A, B, C, …), or any other valid token (e-acute, alef, alif, alpha, …).
 >
-> In the future, this attribute’s definition is expected to be updated to align with [UAX#31](https://www.unicode.org/reports/tr31/). Please see [CLDR-17043](https://unicode-org.atlassian.net/browse/CLDR-17043) for more details.
+> In the future, this attribute’s definition is expected to be updated to align with [UAX#31](https://www.unicode.org/reports/tr31/).
 
 _Attribute:_ `flickId="…flickId"` (optional)
 
@@ -1023,7 +1023,7 @@ _Attribute:_ `layerId="shift"` (optional)
 >
 > This attribute is an NMTOKEN.
 >
-> In the future, this attribute’s definition is expected to be updated to align with [UAX#31](https://www.unicode.org/reports/tr31/). Please see [CLDR-17043](https://unicode-org.atlassian.net/browse/CLDR-17043) for more details.
+> In the future, this attribute’s definition is expected to be updated to align with [UAX#31](https://www.unicode.org/reports/tr31/).
 
 
 _Attribute:_ `output`
@@ -1136,7 +1136,7 @@ _Attribute:_ `id` (required)
 > The `flick` elements do not share a namespace with the `key`s, so it would also be allowed
 > to have `<key id="a" flick="a"/>`
 >
-> In the future, this attribute’s definition is expected to be updated to align with [UAX#31](https://www.unicode.org/reports/tr31/). Please see [CLDR-17043](https://unicode-org.atlassian.net/browse/CLDR-17043) for more details.
+> In the future, this attribute’s definition is expected to be updated to align with [UAX#31](https://www.unicode.org/reports/tr31/).
 
 * * *
 
@@ -1985,7 +1985,7 @@ There are other keying behaviors that are needed particularly in handing complex
 
 Markers are placeholders which record some state, but without producing normal visible text output.  They were designed particularly to support dead-keys.
 
-The marker ID is any valid `NMTOKEN` (But see [CLDR-17043](https://unicode-org.atlassian.net/browse/CLDR-17043) for future discussion.)
+The marker ID is any valid `NMTOKEN`.
 
 Consider the following abbreviated example:
 
@@ -3222,3 +3222,6 @@ This attribute value specifies the expected resultant text in a document after p
 Copyright © 2001–2024 Unicode, Inc. All Rights Reserved. The Unicode Consortium makes no expressed or implied warranty of any kind, and assumes no liability for errors or omissions. No liability is assumed for incidental and consequential damages in connection with or arising out of the use of the information or programs contained or accompanying this technical report. The Unicode [Terms of Use](https://www.unicode.org/copyright.html) apply.
 
 Unicode and the Unicode logo are trademarks of Unicode, Inc., and are registered in some jurisdictions.
+
+
+[keyboard-workgroup]: https://cldr.unicode.org/index/keyboard-workgroup

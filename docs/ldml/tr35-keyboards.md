@@ -244,7 +244,7 @@ One may also extend the notion of the ISO layout to support keys that don't map 
 
 ![keyboard layout example showing extension of ISO key numbering](images/androidKeyboard.png)
 
-If it becomes necessary in the future, the format could extend the ISO layout to support keys that are located to the left of the "00" column by using negative column numbers "-01", "-02" and so on, or 100's complement "99", "98",... -->
+If it becomes necessary in the future, the format could extend the ISO layout to support keys that are located to the left of the "00" column by using negative column numbers "-01", "-02" and so on, or 100's complement "99", "98",… -->
 
 **Keyboard implementation:** Software which implements the present specification, such that keyboard XML files can be used to interpret keystrokes from a **Hardware keyboard** or an on-screen **Touch keyboard**.
 
@@ -281,7 +281,7 @@ Keyboard implementations will typically consist of two parts:
 
 ## Notation
 
-- Ellipsis (`…`) in syntax examples are used to denote substituted parts.
+- Ellipses (`…`) in syntax examples are used to denote substituted parts.
 
   For example, `id="…keyId"` denotes that `…keyId` (the part between double quotes) is to be replaced with something, in this case a key identifier. As another example, `\u{…usv}` denotes that the `…usv` is to be replaced with something, in this case a Unicode scalar value in hex.
 
@@ -303,7 +303,7 @@ Currently, the following attribute values allow _UnicodeSet_ notation:
 
 ### UTS18 Escaping
 
-The `\u{...}` notation, a subset of hex notation, is described in [UTS #18 section 1.1](https://www.unicode.org/reports/tr18/#Hex_notation). It can refer to one or multiple individual codepoints. Currently, the following attribute values allow the `\u{...}` notation:
+The `\u{…}` notation, a subset of hex notation, is described in [UTS #18 section 1.1](https://www.unicode.org/reports/tr18/#Hex_notation). It can refer to one or multiple individual codepoints. Currently, the following attribute values allow the `\u{…}` notation:
 
 * `output` on the `<key>` element
 * `from` or `to` on the `<transform>` element
@@ -1044,7 +1044,7 @@ _Attribute:_ `layerId="shift"` (optional)
 
 _Attribute:_ `output`
 
-> The `output` attribute value contains the sequence of characters that is emitted when pressing this particular key. Control characters, whitespace (other than the regular space character) and combining marks in this attribute are escaped using the `\u{...}` notation. More than one key may output the same output.
+> The `output` attribute value contains the sequence of characters that is emitted when pressing this particular key. Control characters, whitespace (other than the regular space character) and combining marks in this attribute are escaped using the `\u{…}` notation. More than one key may output the same output.
 >
 > The `output` attribute may also contain the `\m{…}` syntax to insert a marker. See the definition of [markers](#markers).
 
@@ -1295,9 +1295,9 @@ The `displays` element consists of a list of [`display`](#element-display) subel
 
 ```xml
 <displays>
-    <display ... />
-    <display ... />
-    ...
+    <display … />
+    <display … />
+    …
 </displays>
 ```
 
@@ -1460,10 +1460,10 @@ This element contains a set of `form` elements which define the layout of a part
 ```xml
 <forms>
     <form id="iso">
-        <!-- ... -->
+        <!-- … -->
     </form>
     <form id="us">
-        <!-- ... -->
+        <!-- … -->
     </form>
 </forms>
 ```
@@ -1969,8 +1969,10 @@ There can be multiple `<transforms>` elements, but only one for each `type`.
 **Syntax**
 
 ```xml
-<transforms type="...">
-    {a set of transform groups}
+<transforms type="…type">
+    <transformGroup …/>
+    <transformGroup …/>
+    …
 </transforms>
 ```
 
@@ -2134,7 +2136,7 @@ This is a `transformGroup` that consists of one or more [`transform`](#element-t
 
 ```xml
 <transformGroup>
-    <import path="..."/> <!-- optional import elements-->
+    <import path="…"/> <!-- optional import elements-->
     <transform />
     <!-- other <transform/> elements -->
 </transformGroup>
@@ -2149,8 +2151,8 @@ This is a `transformGroup` that consists of one or more [`transform`](#element-t
 
 ```xml
 <transformGroup>
-    <import path="..."/> <!-- optional import elements-->
-    <reorder ... />
+    <import path="…"/> <!-- optional import elements-->
+    <reorder … />
     <!-- other <reorder> elements -->
 </transformGroup>
 ```
@@ -2467,7 +2469,7 @@ The relative ordering of `<reorder>` elements is not significant.
     tertiary="…list of weights"
     tertiaryBase="…list of true/false"
     preBase="…list of true/false" />
-    <!-- other <reorder/> elements... -->
+    <!-- other <reorder/> elements… -->
 </transformGroup>
 ```
 
@@ -2825,7 +2827,7 @@ TODO: Rewrite this? Probably push out to each element's section?
 3.  No `keyMap[@modifiers]` value can overlap with another `keyMap[@modifiers]` value.
     * eg you can't have `"RAlt Ctrl"` in one `keyMap`, and `"Alt Shift"` in another (because Alt = RAltLAlt).
 4.  Every sequence of characters in a `transform[@from]` value must be a concatenation of two or more `map[@to]` values.
-    * eg with `<transform from="xyz" to="q">` there must be some map values to get there, such as `<map... to="xy">` & `<map... to="z">`
+    * eg with `<transform from="xyz" to="q">` there must be some map values to get there, such as `<map… to="xy">` & `<map… to="z">`
 5.  If the base and chars values for `modifiers=""` are all identical, and there are no longpresses, that `keyMap` must not appear (??)
 6.  There will never be overlaps among modifier values.
 7.  A modifier set will never have ? (optional) on all values

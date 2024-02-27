@@ -2,6 +2,56 @@ package org.unicode.cldr.util;
 
 import static org.unicode.cldr.util.PathUtilities.getNormalizedPathString;
 
+import java.io.File;
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.Deque;
+import java.util.EnumMap;
+import java.util.EnumSet;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Objects;
+import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeMap;
+import java.util.TreeSet;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+
+import org.unicode.cldr.test.CoverageLevel2;
+import org.unicode.cldr.tool.LikelySubtags;
+import org.unicode.cldr.tool.SubdivisionNames;
+import org.unicode.cldr.util.Builder.CBuilder;
+import org.unicode.cldr.util.CldrUtility.VariableReplacer;
+import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
+import org.unicode.cldr.util.DtdType.DtdStatus;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
+import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
+import org.unicode.cldr.util.Rational.RationalParser;
+import org.unicode.cldr.util.StandardCodes.LstrType;
+import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
+import org.unicode.cldr.util.SupplementalDataInfo.NumberingSystemInfo.NumberingSystemType;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
+import org.unicode.cldr.util.Validity.Status;
+import org.unicode.cldr.util.personname.PersonNameFormatter;
+import org.unicode.cldr.util.personname.PersonNameFormatter.Order;
+
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableList;
@@ -33,54 +83,6 @@ import com.ibm.icu.util.Output;
 import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
 import com.ibm.icu.util.VersionInfo;
-import java.io.File;
-import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.Deque;
-import java.util.EnumMap;
-import java.util.EnumSet;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Objects;
-import java.util.Set;
-import java.util.SortedSet;
-import java.util.TreeMap;
-import java.util.TreeSet;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import java.util.stream.Collectors;
-import org.unicode.cldr.test.CoverageLevel2;
-import org.unicode.cldr.tool.LikelySubtags;
-import org.unicode.cldr.tool.SubdivisionNames;
-import org.unicode.cldr.util.Builder.CBuilder;
-import org.unicode.cldr.util.CldrUtility.VariableReplacer;
-import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
-import org.unicode.cldr.util.DtdType.DtdStatus;
-import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
-import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
-import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
-import org.unicode.cldr.util.Rational.RationalParser;
-import org.unicode.cldr.util.StandardCodes.LstrType;
-import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
-import org.unicode.cldr.util.SupplementalDataInfo.NumberingSystemInfo.NumberingSystemType;
-import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
-import org.unicode.cldr.util.Validity.Status;
-import org.unicode.cldr.util.personname.PersonNameFormatter;
-import org.unicode.cldr.util.personname.PersonNameFormatter.Order;
 
 /**
  * Singleton class to provide API access to supplemental data -- in all the supplemental data files.
@@ -1906,10 +1908,14 @@ public class SupplementalDataInfo {
             }
             String parent = parts.getAttributeValue(-1, "parent");
             String locales = parts.getAttributeValue(-1, "locales");
+            String localeRules = parts.getAttributeValue(-1, "localeRules");
+            Set<String> localeRuleSet = localeRules == null ? Set.of() : Set.copyOf(split_space.splitToList(localeRules));
 
             for (ParentLocaleComponent component : components) {
                 Map<String, String> componentParentLocales = parentLocales.get(component);
-                if (locales.equals(NONLIKELYSCRIPT)) {
+                if (localeRuleSet.contains(NONLIKELYSCRIPT)) {
+                    // This will need to be modified if we add any other rules,
+                    // particularly if any rules are based on the particular parent
                     parentLocalesSkipNonLikely.add(component);
                     continue;
                 }

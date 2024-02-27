@@ -345,6 +345,10 @@ public class GenerateLanguageContainment {
 
     public static void main(String[] args) throws IOException {
         new GenerateLanguageContainment().run(args);
+        if (Containment.hadErrors) {
+            System.err.println("ERROR: Containment Errors detected, see errors above.");
+            System.exit(1);
+        }
     }
 
     void run(String[] args) throws IOException {

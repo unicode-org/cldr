@@ -488,11 +488,6 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                     break; // do nothin
             }
         }
-
-        ImmutableSet<String> variants =
-                ImmutableSet.of("Cyrs", "Geok", "Latf", "Latg", "Syre", "Syrj", "Syrn");
-        assertRelation(
-                "getCLDRScriptCodes contains variants", false, codes, CONTAINS_SOME, variants);
     }
 
     public void checkPluralSamples(String... row) {

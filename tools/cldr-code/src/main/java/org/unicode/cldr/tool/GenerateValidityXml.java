@@ -284,6 +284,25 @@ public class GenerateValidityXml {
                 "Unknown/Undetermined subdivision codes (ZZZZ) are defined for all regular region codes.");
     }
 
+    static final Set<String> VARIANTS =
+            Set.of( // variants
+                    "Aran",
+                    "Cyrs",
+                    "Hans",
+                    "Hant",
+                    "Latf",
+                    "Latg",
+                    "Syre",
+                    "Syrj",
+                    "Syrn",
+                    // composites
+                    "Hanb",
+                    "Jpan",
+                    "Hrkt",
+                    "Kore",
+                    // subsets
+                    "Jamo");
+
     private static void doLstr(Map<String, Info> types) throws IOException {
         Set<String> skippedScripts = new TreeSet<>();
         for (Entry<LstrType, Map<String, Map<LstrField, String>>> entry : LSTREG.entrySet()) {
@@ -349,11 +368,10 @@ public class GenerateValidityXml {
                         break;
                     case script:
                         switch (code) {
-                            case "Aran":
+                                // extra specials
                             case "Qaag":
-                            case "Zsye":
-                            case "Zanb":
                             case "Zinh":
+                            case "Zsye":
                             case "Zyyy":
                                 subtype = Status.special;
                                 break;
@@ -367,7 +385,7 @@ public class GenerateValidityXml {
                                     case regular:
                                         ScriptMetadata.Info scriptInfo =
                                                 ScriptMetadata.getInfo(code);
-                                        if (scriptInfo == null && !code.equals("Hrkt")) {
+                                        if (scriptInfo == null && !VARIANTS.contains(code)) {
                                             skippedScripts.add(code);
                                             continue;
                                         }

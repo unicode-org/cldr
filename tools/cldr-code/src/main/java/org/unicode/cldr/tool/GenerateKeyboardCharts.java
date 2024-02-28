@@ -30,8 +30,9 @@ public class GenerateKeyboardCharts {
             return;
         }
         final File staticTarg = new File(mainDir, "keyboard/static");
-        if (staticTarg.mkdirs()) {
-            System.err.println("Created: " + staticTarg);
+        final File staticDataTarg = new File(mainDir, "keyboard/static/data");
+        if (staticDataTarg.mkdirs()) {
+            System.err.println("Created: " + staticDataTarg);
         }
         System.out.println("Copying: " + kbdStatic + " to " + staticTarg);
 

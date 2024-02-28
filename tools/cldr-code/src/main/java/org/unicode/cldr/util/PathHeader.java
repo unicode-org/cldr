@@ -755,13 +755,7 @@ public class PathHeader implements Comparable<PathHeader> {
             // Caution: each call to PathHeader.Factory.fix changes the value of
             // PathHeader.Factory.order
             SectionId newSectionId = SectionId.forString(fix(data.section, 0));
-            String pageIdName = fix(data.page, 0);
-            PageId newPageId;
-            if ("Volume".equals(pageIdName)) {
-                newPageId = getVolumePageId(path);
-            } else {
-                newPageId = PageId.forString(pageIdName);
-            }
+            PageId newPageId = PageId.forString(fix(data.page, 0));
             String newHeader = fix(data.header, data.headerOrder);
             int newHeaderOrder = (int) order;
             String codeDashAlt = data.code + (alt == null ? "" : ("-" + alt));
@@ -777,28 +771,6 @@ public class PathHeader implements Comparable<PathHeader> {
                     suborder,
                     data.status,
                     path);
-        }
-
-        private static Set<UnitConverter.UnitSystem> METRIC =
-                Set.of(UnitConverter.UnitSystem.metric, UnitConverter.UnitSystem.metric_adjacent);
-
-        private PageId getVolumePageId(String path) {
-            // Extract the unit from the path. For example, if path is
-            // //ldml/units/unitLength[@type="narrow"]/unit[@type="volume-cubic-kilometer"]/displayName
-            // then extract "volume-cubic-kilometer" which is the long unit id
-            final String longUnitId =
-                    XPathParts.getFrozenInstance(path).findAttributeValue("unit", "type");
-            if (longUnitId == null) {
-                throw new RuntimeException("Missing unit in path " + path);
-            }
-            final UnitConverter uc = supplementalDataInfo.getUnitConverter();
-            // Convert, for example, "volume-cubic-kilometer" to "cubic-kilometer"
-            final String shortUnitId = uc.getShortId(longUnitId);
-            if (!Collections.disjoint(METRIC, uc.getSystemsEnum(shortUnitId))) {
-                return PageId.Volume_Metric;
-            } else {
-                return PageId.Volume_Other;
-            }
         }
 
         private static class SectionPage implements Comparable<SectionPage> {
@@ -2267,6 +2239,9 @@ public class PathHeader implements Comparable<PathHeader> {
             while (true) {
                 int functionStart = input.indexOf('&', pos);
                 if (functionStart < 0) {
+                    if ("Volume".equals(input)) {
+                        return getVolumePageId(args.value[0] /* path */).toString();
+                    }
                     return input;
                 }
                 int functionEnd = input.indexOf('(', functionStart);
@@ -2284,6 +2259,28 @@ public class PathHeader implements Comparable<PathHeader> {
                 }
                 input = input.substring(0, functionStart) + temp + input.substring(argEnd + 1);
                 pos = functionStart + temp.length();
+            }
+        }
+
+        private static Set<UnitConverter.UnitSystem> METRIC =
+                Set.of(UnitConverter.UnitSystem.metric, UnitConverter.UnitSystem.metric_adjacent);
+
+        private static PageId getVolumePageId(String path) {
+            // Extract the unit from the path. For example, if path is
+            // //ldml/units/unitLength[@type="narrow"]/unit[@type="volume-cubic-kilometer"]/displayName
+            // then extract "volume-cubic-kilometer" which is the long unit id
+            final String longUnitId =
+                    XPathParts.getFrozenInstance(path).findAttributeValue("unit", "type");
+            if (longUnitId == null) {
+                throw new InternalCldrException("Missing unit in path " + path);
+            }
+            final UnitConverter uc = supplementalDataInfo.getUnitConverter();
+            // Convert, for example, "volume-cubic-kilometer" to "cubic-kilometer"
+            final String shortUnitId = uc.getShortId(longUnitId);
+            if (!Collections.disjoint(METRIC, uc.getSystemsEnum(shortUnitId))) {
+                return PageId.Volume_Metric;
+            } else {
+                return PageId.Volume_Other;
             }
         }
 

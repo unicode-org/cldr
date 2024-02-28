@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2023 Unicode, Inc.
+<!-- Copyright © 1991-2024 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -44,6 +44,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<calendar type="persian">
 				<months>
 					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="2">گوڵان</month>
+							<month type="8">گەڵاڕێزان</month>
+							<month type="12">ڕەشەمە</month>
+						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="contributed">↑↑↑</month>
 							<month type="2" draft="contributed">گوڵان</month>
@@ -57,6 +62,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="10" draft="contributed">↑↑↑</month>
 							<month type="11" draft="contributed">↑↑↑</month>
 							<month type="12" draft="contributed">ڕەشەمە</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="2">گوڵان</month>
+							<month type="8">گەڵاڕێزان</month>
+							<month type="12">ڕەشەمە</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="2">گوڵان</month>
+							<month type="8">گەڵاڕێزان</month>
+							<month type="12">ڕەشەمە</month>
 						</monthWidth>
 					</monthContext>
 				</months>

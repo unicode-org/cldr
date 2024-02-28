@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2023 Unicode, Inc.
+<!-- Copyright © 1991-2024 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -621,7 +621,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="NR" draft="unconfirmed">Nauru</territory>
 			<territory type="NU" draft="unconfirmed">Niue</territory>
 			<territory type="NZ" draft="unconfirmed">Nowo Zelandyjo</territory>
-			<territory type="NZ" alt="variant" draft="unconfirmed">↑↑↑</territory>
+			<territory type="NZ" alt="variant" draft="unconfirmed">Nowo Zelandyjo</territory>
 			<territory type="OM" draft="unconfirmed">Ōman</territory>
 			<territory type="PA" draft="unconfirmed">Panama</territory>
 			<territory type="PE" draft="unconfirmed">Peru</territory>
@@ -681,7 +681,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="TN" draft="unconfirmed">Tunezyjo</territory>
 			<territory type="TO" draft="unconfirmed">Tōnga</territory>
 			<territory type="TR" draft="unconfirmed">Turcyjo</territory>
-			<territory type="TR" alt="variant" draft="unconfirmed">↑↑↑</territory>
+			<territory type="TR" alt="variant" draft="unconfirmed">Turcyjo</territory>
 			<territory type="TT" draft="unconfirmed">Trynidad i Tobago</territory>
 			<territory type="TV" draft="unconfirmed">Tuvalu</territory>
 			<territory type="TW" draft="unconfirmed">Tajwan</territory>
@@ -809,7 +809,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<pattern draft="unconfirmed">{1} 'ô' {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern draft="unconfirmed">↑↑↑</pattern>
+							<pattern draft="unconfirmed">{1} 'ô' {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
@@ -817,7 +817,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<pattern draft="unconfirmed">{1} 'ô' {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern draft="unconfirmed">↑↑↑</pattern>
+							<pattern draft="unconfirmed">{1} 'ô' {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
@@ -825,7 +825,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<pattern draft="unconfirmed">{1}, {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern draft="unconfirmed">↑↑↑</pattern>
+							<pattern draft="unconfirmed">{1}, {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
@@ -833,7 +833,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<pattern draft="unconfirmed">{1}, {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern draft="unconfirmed">↑↑↑</pattern>
+							<pattern draft="unconfirmed">{1}, {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
@@ -1037,18 +1037,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="12" draft="unconfirmed">gru</month>
 						</monthWidth>
 						<monthWidth type="narrow">
-							<month type="1" draft="unconfirmed">↑↑↑</month>
-							<month type="2" draft="unconfirmed">↑↑↑</month>
-							<month type="3" draft="unconfirmed">↑↑↑</month>
-							<month type="4" draft="unconfirmed">↑↑↑</month>
-							<month type="5" draft="unconfirmed">↑↑↑</month>
-							<month type="6" draft="unconfirmed">↑↑↑</month>
-							<month type="7" draft="unconfirmed">↑↑↑</month>
-							<month type="8" draft="unconfirmed">↑↑↑</month>
-							<month type="9" draft="unconfirmed">↑↑↑</month>
-							<month type="10" draft="unconfirmed">↑↑↑</month>
-							<month type="11" draft="unconfirmed">↑↑↑</month>
-							<month type="12" draft="unconfirmed">↑↑↑</month>
+							<month type="1" draft="unconfirmed">S</month>
+							<month type="2" draft="unconfirmed">L</month>
+							<month type="3" draft="unconfirmed">M</month>
+							<month type="4" draft="unconfirmed">K</month>
+							<month type="5" draft="unconfirmed">M</month>
+							<month type="6" draft="unconfirmed">C</month>
+							<month type="7" draft="unconfirmed">L</month>
+							<month type="8" draft="unconfirmed">S</month>
+							<month type="9" draft="unconfirmed">W</month>
+							<month type="10" draft="unconfirmed">P</month>
+							<month type="11" draft="unconfirmed">L</month>
+							<month type="12" draft="unconfirmed">G</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="contributed">stycznia</month>
@@ -1067,18 +1067,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</monthContext>
 					<monthContext type="stand-alone">
 						<monthWidth type="abbreviated">
-							<month type="1" draft="unconfirmed">↑↑↑</month>
-							<month type="2" draft="unconfirmed">↑↑↑</month>
-							<month type="3" draft="unconfirmed">↑↑↑</month>
-							<month type="4" draft="unconfirmed">↑↑↑</month>
-							<month type="5" draft="unconfirmed">↑↑↑</month>
-							<month type="6" draft="unconfirmed">↑↑↑</month>
-							<month type="7" draft="unconfirmed">↑↑↑</month>
-							<month type="8" draft="unconfirmed">↑↑↑</month>
-							<month type="9" draft="unconfirmed">↑↑↑</month>
-							<month type="10" draft="unconfirmed">↑↑↑</month>
-							<month type="11" draft="unconfirmed">↑↑↑</month>
-							<month type="12" draft="unconfirmed">↑↑↑</month>
+							<month type="1" draft="unconfirmed">sty</month>
+							<month type="2" draft="unconfirmed">lut</month>
+							<month type="3" draft="unconfirmed">mar</month>
+							<month type="4" draft="unconfirmed">kwi</month>
+							<month type="5" draft="unconfirmed">moj</month>
+							<month type="6" draft="unconfirmed">czy</month>
+							<month type="7" draft="unconfirmed">lip</month>
+							<month type="8" draft="unconfirmed">siy</month>
+							<month type="9" draft="unconfirmed">wrz</month>
+							<month type="10" draft="unconfirmed">paź</month>
+							<month type="11" draft="unconfirmed">lis</month>
+							<month type="12" draft="unconfirmed">gru</month>
 						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1" draft="unconfirmed">S</month>
@@ -1122,13 +1122,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<day type="sat" draft="unconfirmed">sob</day>
 						</dayWidth>
 						<dayWidth type="narrow">
-							<day type="sun" draft="unconfirmed">↑↑↑</day>
-							<day type="mon" draft="unconfirmed">↑↑↑</day>
-							<day type="tue" draft="unconfirmed">↑↑↑</day>
-							<day type="wed" draft="unconfirmed">↑↑↑</day>
-							<day type="thu" draft="unconfirmed">↑↑↑</day>
-							<day type="fri" draft="unconfirmed">↑↑↑</day>
-							<day type="sat" draft="unconfirmed">↑↑↑</day>
+							<day type="sun" draft="unconfirmed">n</day>
+							<day type="mon" draft="unconfirmed">p</day>
+							<day type="tue" draft="unconfirmed">w</day>
+							<day type="wed" draft="unconfirmed">s</day>
+							<day type="thu" draft="unconfirmed">s</day>
+							<day type="fri" draft="unconfirmed">p</day>
+							<day type="sat" draft="unconfirmed">s</day>
 						</dayWidth>
 						<dayWidth type="short">
 							<day type="sun" draft="unconfirmed">nd</day>
@@ -1151,13 +1151,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</dayContext>
 					<dayContext type="stand-alone">
 						<dayWidth type="abbreviated">
-							<day type="sun" draft="unconfirmed">↑↑↑</day>
-							<day type="mon" draft="unconfirmed">↑↑↑</day>
-							<day type="tue" draft="unconfirmed">↑↑↑</day>
-							<day type="wed" draft="unconfirmed">↑↑↑</day>
-							<day type="thu" draft="unconfirmed">↑↑↑</day>
-							<day type="fri" draft="unconfirmed">↑↑↑</day>
-							<day type="sat" draft="unconfirmed">↑↑↑</day>
+							<day type="sun" draft="unconfirmed">niy</day>
+							<day type="mon" draft="unconfirmed">pyń</day>
+							<day type="tue" draft="unconfirmed">wto</day>
+							<day type="wed" draft="unconfirmed">str</day>
+							<day type="thu" draft="unconfirmed">szt</day>
+							<day type="fri" draft="unconfirmed">piō</day>
+							<day type="sat" draft="unconfirmed">sob</day>
 						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun" draft="unconfirmed">n</day>
@@ -1169,22 +1169,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<day type="sat" draft="unconfirmed">s</day>
 						</dayWidth>
 						<dayWidth type="short">
-							<day type="sun" draft="unconfirmed">↑↑↑</day>
-							<day type="mon" draft="unconfirmed">↑↑↑</day>
-							<day type="tue" draft="unconfirmed">↑↑↑</day>
-							<day type="wed" draft="unconfirmed">↑↑↑</day>
-							<day type="thu" draft="unconfirmed">↑↑↑</day>
-							<day type="fri" draft="unconfirmed">↑↑↑</day>
-							<day type="sat" draft="unconfirmed">↑↑↑</day>
+							<day type="sun" draft="unconfirmed">nd</day>
+							<day type="mon" draft="unconfirmed">pń</day>
+							<day type="tue" draft="unconfirmed">wt</day>
+							<day type="wed" draft="unconfirmed">st</day>
+							<day type="thu" draft="unconfirmed">sz</day>
+							<day type="fri" draft="unconfirmed">pt</day>
+							<day type="sat" draft="unconfirmed">sb</day>
 						</dayWidth>
 						<dayWidth type="wide">
-							<day type="sun" draft="unconfirmed">↑↑↑</day>
-							<day type="mon" draft="unconfirmed">↑↑↑</day>
-							<day type="tue" draft="unconfirmed">↑↑↑</day>
-							<day type="wed" draft="unconfirmed">↑↑↑</day>
-							<day type="thu" draft="unconfirmed">↑↑↑</day>
-							<day type="fri" draft="unconfirmed">↑↑↑</day>
-							<day type="sat" draft="unconfirmed">↑↑↑</day>
+							<day type="sun" draft="unconfirmed">niydziela</day>
+							<day type="mon" draft="unconfirmed">pyńdziałek</day>
+							<day type="tue" draft="unconfirmed">wtorek</day>
+							<day type="wed" draft="unconfirmed">strzoda</day>
+							<day type="thu" draft="unconfirmed">sztwortek</day>
+							<day type="fri" draft="unconfirmed">piōntek</day>
+							<day type="sat" draft="unconfirmed">sobota</day>
 						</dayWidth>
 					</dayContext>
 				</days>
@@ -1197,10 +1197,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<quarter type="4" draft="unconfirmed">IV szr.</quarter>
 						</quarterWidth>
 						<quarterWidth type="narrow">
-							<quarter type="1" draft="unconfirmed">↑↑↑</quarter>
-							<quarter type="2" draft="unconfirmed">↑↑↑</quarter>
-							<quarter type="3" draft="unconfirmed">↑↑↑</quarter>
-							<quarter type="4" draft="unconfirmed">↑↑↑</quarter>
+							<quarter type="1" draft="unconfirmed">I</quarter>
+							<quarter type="2" draft="unconfirmed">II</quarter>
+							<quarter type="3" draft="unconfirmed">III</quarter>
+							<quarter type="4" draft="unconfirmed">IV</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1" draft="unconfirmed">I sztwierć roku</quarter>
@@ -1211,10 +1211,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</quarterContext>
 					<quarterContext type="stand-alone">
 						<quarterWidth type="abbreviated">
-							<quarter type="1" draft="unconfirmed">↑↑↑</quarter>
-							<quarter type="2" draft="unconfirmed">↑↑↑</quarter>
-							<quarter type="3" draft="unconfirmed">↑↑↑</quarter>
-							<quarter type="4" draft="unconfirmed">↑↑↑</quarter>
+							<quarter type="1" draft="unconfirmed">I szr.</quarter>
+							<quarter type="2" draft="unconfirmed">II szr.</quarter>
+							<quarter type="3" draft="unconfirmed">III szr.</quarter>
+							<quarter type="4" draft="unconfirmed">IV szr.</quarter>
 						</quarterWidth>
 						<quarterWidth type="narrow">
 							<quarter type="1" draft="unconfirmed">I</quarter>
@@ -1223,10 +1223,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<quarter type="4" draft="unconfirmed">IV</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
-							<quarter type="1" draft="unconfirmed">↑↑↑</quarter>
-							<quarter type="2" draft="unconfirmed">↑↑↑</quarter>
-							<quarter type="3" draft="unconfirmed">↑↑↑</quarter>
-							<quarter type="4" draft="unconfirmed">↑↑↑</quarter>
+							<quarter type="1" draft="unconfirmed">I sztwierć roku</quarter>
+							<quarter type="2" draft="unconfirmed">II sztwierć roku</quarter>
+							<quarter type="3" draft="unconfirmed">III sztwierć roku</quarter>
+							<quarter type="4" draft="unconfirmed">IV sztwierć roku</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
@@ -1237,8 +1237,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<dayPeriod type="pm">po połedniu</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am" draft="unconfirmed">↑↑↑</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">↑↑↑</dayPeriod>
+							<dayPeriod type="am" draft="unconfirmed">do połedniŏ</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">po połedniu</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">do połedniŏ</dayPeriod>
@@ -1247,12 +1247,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
 						<dayPeriodWidth type="abbreviated">
-							<dayPeriod type="am">↑↑↑</dayPeriod>
-							<dayPeriod type="pm">↑↑↑</dayPeriod>
+							<dayPeriod type="am">do połedniŏ</dayPeriod>
+							<dayPeriod type="pm">po połedniu</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am" draft="unconfirmed">↑↑↑</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">↑↑↑</dayPeriod>
+							<dayPeriod type="am" draft="unconfirmed">do połedniŏ</dayPeriod>
+							<dayPeriod type="pm" draft="unconfirmed">po połedniu</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">do połedniŏ</dayPeriod>
@@ -1263,15 +1263,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<eras>
 					<eraNames>
 						<era type="0" draft="unconfirmed">przed naszōm erōm</era>
-						<era type="0" alt="variant" draft="unconfirmed">↑↑↑</era>
+						<era type="0" alt="variant" draft="unconfirmed">p.n.e.</era>
 						<era type="1" draft="unconfirmed">naszyj ery</era>
-						<era type="1" alt="variant" draft="unconfirmed">↑↑↑</era>
+						<era type="1" alt="variant" draft="unconfirmed">n.e.</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0" draft="unconfirmed">p.n.e.</era>
-						<era type="0" alt="variant" draft="unconfirmed">↑↑↑</era>
+						<era type="0" alt="variant" draft="unconfirmed">p.n.e.</era>
 						<era type="1" draft="unconfirmed">n.e.</era>
-						<era type="1" alt="variant" draft="unconfirmed">↑↑↑</era>
+						<era type="1" alt="variant" draft="unconfirmed">n.e.</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
@@ -1332,7 +1332,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<pattern draft="unconfirmed">{1} 'ô' {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern draft="unconfirmed">↑↑↑</pattern>
+							<pattern draft="unconfirmed">{1} 'ô' {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
@@ -1340,7 +1340,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<pattern draft="unconfirmed">{1} 'ô' {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern draft="unconfirmed">↑↑↑</pattern>
+							<pattern draft="unconfirmed">{1} 'ô' {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
@@ -1348,7 +1348,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<pattern draft="unconfirmed">{1}, {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern draft="unconfirmed">↑↑↑</pattern>
+							<pattern draft="unconfirmed">{1}, {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="short">
@@ -1356,7 +1356,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<pattern draft="unconfirmed">{1}, {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern draft="unconfirmed">↑↑↑</pattern>
+							<pattern draft="unconfirmed">{1}, {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
@@ -1561,10 +1561,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName draft="unconfirmed">era</displayName>
 			</field>
 			<field type="era-short">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<displayName draft="unconfirmed">era</displayName>
 			</field>
 			<field type="era-narrow">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<displayName draft="unconfirmed">era</displayName>
 			</field>
 			<field type="year">
 				<displayName draft="unconfirmed">rok</displayName>
@@ -1580,26 +1580,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="year-short">
 				<displayName draft="unconfirmed">r.</displayName>
-				<relative type="-1" draft="unconfirmed">↑↑↑</relative>
-				<relative type="0" draft="unconfirmed">↑↑↑</relative>
-				<relative type="1" draft="unconfirmed">↑↑↑</relative>
+				<relative type="-1" draft="unconfirmed">łōńskigo roku</relative>
+				<relative type="0" draft="unconfirmed">latoś</relative>
+				<relative type="1" draft="unconfirmed">na bezrok</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other" draft="unconfirmed">za {0} roku</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other" draft="unconfirmed">{0} roku tymu</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="year-narrow">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<relative type="-1" draft="unconfirmed">↑↑↑</relative>
-				<relative type="0" draft="unconfirmed">↑↑↑</relative>
-				<relative type="1" draft="unconfirmed">↑↑↑</relative>
+				<displayName draft="unconfirmed">r.</displayName>
+				<relative type="-1" draft="unconfirmed">łōńskigo roku</relative>
+				<relative type="0" draft="unconfirmed">latoś</relative>
+				<relative type="1" draft="unconfirmed">na bezrok</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other" draft="unconfirmed">za {0} roku</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other" draft="unconfirmed">{0} roku tymu</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="quarter">
@@ -1616,9 +1616,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="quarter-short">
 				<displayName draft="unconfirmed">szr.</displayName>
-				<relative type="-1" draft="unconfirmed">↑↑↑</relative>
-				<relative type="0" draft="unconfirmed">↑↑↑</relative>
-				<relative type="1" draft="unconfirmed">↑↑↑</relative>
+				<relative type="-1" draft="unconfirmed">w zeszłyj sztwierci roku</relative>
+				<relative type="0" draft="unconfirmed">w tyj sztwierci roku</relative>
+				<relative type="1" draft="unconfirmed">w prziszłyj sztwierci roku</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other" draft="unconfirmed">za {0} szr.</relativeTimePattern>
 				</relativeTime>
@@ -1627,15 +1627,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="quarter-narrow">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<relative type="-1" draft="unconfirmed">↑↑↑</relative>
-				<relative type="0" draft="unconfirmed">↑↑↑</relative>
-				<relative type="1" draft="unconfirmed">↑↑↑</relative>
+				<displayName draft="unconfirmed">szr.</displayName>
+				<relative type="-1" draft="unconfirmed">w zeszłyj sztwierci roku</relative>
+				<relative type="0" draft="unconfirmed">w tyj sztwierci roku</relative>
+				<relative type="1" draft="unconfirmed">w prziszłyj sztwierci roku</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other" draft="unconfirmed">za {0} szr.</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other" draft="unconfirmed">{0} szr. tymu</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="month">
@@ -1652,9 +1652,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="month-short">
 				<displayName draft="unconfirmed">mies.</displayName>
-				<relative type="-1" draft="unconfirmed">↑↑↑</relative>
-				<relative type="0" draft="unconfirmed">↑↑↑</relative>
-				<relative type="1" draft="unconfirmed">↑↑↑</relative>
+				<relative type="-1" draft="unconfirmed">w zeszłym miesiōncu</relative>
+				<relative type="0" draft="unconfirmed">w tym miesiōncu</relative>
+				<relative type="1" draft="unconfirmed">na drugi miesiōnc</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other" draft="unconfirmed">za {0} mies.</relativeTimePattern>
 				</relativeTime>
@@ -1664,14 +1664,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="month-narrow">
 				<displayName draft="unconfirmed">mc</displayName>
-				<relative type="-1" draft="unconfirmed">↑↑↑</relative>
-				<relative type="0" draft="unconfirmed">↑↑↑</relative>
-				<relative type="1" draft="unconfirmed">↑↑↑</relative>
+				<relative type="-1" draft="unconfirmed">w zeszłym miesiōncu</relative>
+				<relative type="0" draft="unconfirmed">w tym miesiōncu</relative>
+				<relative type="1" draft="unconfirmed">na drugi miesiōnc</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other" draft="unconfirmed">za {0} mies.</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other" draft="unconfirmed">{0} mies. tymu</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="week">
@@ -1689,29 +1689,29 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 			<field type="week-short">
 				<displayName draft="unconfirmed">tydz.</displayName>
-				<relative type="-1" draft="unconfirmed">↑↑↑</relative>
-				<relative type="0" draft="unconfirmed">↑↑↑</relative>
-				<relative type="1" draft="unconfirmed">↑↑↑</relative>
+				<relative type="-1" draft="unconfirmed">w zeszłym tydniu</relative>
+				<relative type="0" draft="unconfirmed">w tym tydniu</relative>
+				<relative type="1" draft="unconfirmed">na drugi tydziyń</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other" draft="unconfirmed">za {0} tyd.</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
 					<relativeTimePattern count="other" draft="unconfirmed">{0} tyd. tymu</relativeTimePattern>
 				</relativeTime>
-				<relativePeriod draft="unconfirmed">↑↑↑</relativePeriod>
+				<relativePeriod draft="unconfirmed">tydziyń {0}</relativePeriod>
 			</field>
 			<field type="week-narrow">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<relative type="-1" draft="unconfirmed">↑↑↑</relative>
-				<relative type="0" draft="unconfirmed">↑↑↑</relative>
-				<relative type="1" draft="unconfirmed">↑↑↑</relative>
+				<displayName draft="unconfirmed">tydz.</displayName>
+				<relative type="-1" draft="unconfirmed">w zeszłym tydniu</relative>
+				<relative type="0" draft="unconfirmed">w tym tydniu</relative>
+				<relative type="1" draft="unconfirmed">na drugi tydziyń</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other" draft="unconfirmed">za {0} tyd.</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other" draft="unconfirmed">{0} tyd. tymu</relativeTimePattern>
 				</relativeTime>
-				<relativePeriod draft="unconfirmed">↑↑↑</relativePeriod>
+				<relativePeriod draft="unconfirmed">tydziyń {0}</relativePeriod>
 			</field>
 			<field type="weekOfMonth">
 				<displayName draft="unconfirmed">tydziyń miesiōnca</displayName>
@@ -1720,7 +1720,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName draft="unconfirmed">tydz. mies.</displayName>
 			</field>
 			<field type="weekOfMonth-narrow">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<displayName draft="unconfirmed">tydz. mies.</displayName>
 			</field>
 			<field type="day">
 				<displayName draft="unconfirmed">dziyń</displayName>
@@ -1735,27 +1735,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="day-short">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<relative type="-1" draft="unconfirmed">↑↑↑</relative>
-				<relative type="0" draft="unconfirmed">↑↑↑</relative>
-				<relative type="1" draft="unconfirmed">↑↑↑</relative>
+				<displayName draft="unconfirmed">dziyń</displayName>
+				<relative type="-1" draft="unconfirmed">wczorej</relative>
+				<relative type="0" draft="unconfirmed">dzisiej</relative>
+				<relative type="1" draft="unconfirmed">jutro</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other" draft="unconfirmed">za {0} dnia</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other" draft="unconfirmed">{0} dnia tymu</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="day-narrow">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<relative type="-1" draft="unconfirmed">↑↑↑</relative>
-				<relative type="0" draft="unconfirmed">↑↑↑</relative>
-				<relative type="1" draft="unconfirmed">↑↑↑</relative>
+				<displayName draft="unconfirmed">dziyń</displayName>
+				<relative type="-1" draft="unconfirmed">wczorej</relative>
+				<relative type="0" draft="unconfirmed">dzisiej</relative>
+				<relative type="1" draft="unconfirmed">jutro</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other" draft="unconfirmed">za {0} dnia</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other" draft="unconfirmed">{0} dnia tymu</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="dayOfYear">
@@ -1774,7 +1774,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName draft="unconfirmed">dziyń tyd.</displayName>
 			</field>
 			<field type="weekday-narrow">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<displayName draft="unconfirmed">dziyń tyd.</displayName>
 			</field>
 			<field type="weekdayOfMonth">
 				<displayName draft="unconfirmed">dziyń miesiōnca</displayName>
@@ -1783,7 +1783,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName draft="unconfirmed">dziyń mies.</displayName>
 			</field>
 			<field type="weekdayOfMonth-narrow">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<displayName draft="unconfirmed">dziyń mies.</displayName>
 			</field>
 			<field type="sun">
 				<relative type="-1" draft="unconfirmed">w zeszło niydziela</relative>
@@ -1797,25 +1797,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="sun-short">
-				<relative type="-1" draft="unconfirmed">↑↑↑</relative>
-				<relative type="0" draft="unconfirmed">↑↑↑</relative>
-				<relative type="1" draft="unconfirmed">↑↑↑</relative>
+				<relative type="-1" draft="unconfirmed">w zeszło niydziela</relative>
+				<relative type="0" draft="unconfirmed">w ta niydziela</relative>
+				<relative type="1" draft="unconfirmed">w prziszło niydziela</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other" draft="unconfirmed">za {0} niydziele</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other" draft="unconfirmed">{0} niydziele tymu</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="sun-narrow">
-				<relative type="-1" draft="unconfirmed">↑↑↑</relative>
-				<relative type="0" draft="unconfirmed">↑↑↑</relative>
-				<relative type="1" draft="unconfirmed">↑↑↑</relative>
+				<relative type="-1" draft="unconfirmed">w zeszło niydziela</relative>
+				<relative type="0" draft="unconfirmed">w ta niydziela</relative>
+				<relative type="1" draft="unconfirmed">w prziszło niydziela</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other" draft="unconfirmed">za {0} niydziele</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other" draft="unconfirmed">{0} niydziele tymu</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="mon">
@@ -1830,25 +1830,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="mon-short">
-				<relative type="-1" draft="unconfirmed">↑↑↑</relative>
-				<relative type="0" draft="unconfirmed">↑↑↑</relative>
-				<relative type="1" draft="unconfirmed">↑↑↑</relative>
+				<relative type="-1" draft="unconfirmed">w zeszły pyńdziałek</relative>
+				<relative type="0" draft="unconfirmed">w tyn pyńdziałek</relative>
+				<relative type="1" draft="unconfirmed">w prziszły pyńdziałek</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other" draft="unconfirmed">za {0} pyńdziałku</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other" draft="unconfirmed">{0} pyńdziałku tymu</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="mon-narrow">
-				<relative type="-1" draft="unconfirmed">↑↑↑</relative>
-				<relative type="0" draft="unconfirmed">↑↑↑</relative>
-				<relative type="1" draft="unconfirmed">↑↑↑</relative>
+				<relative type="-1" draft="unconfirmed">w zeszły pyńdziałek</relative>
+				<relative type="0" draft="unconfirmed">w tyn pyńdziałek</relative>
+				<relative type="1" draft="unconfirmed">w prziszły pyńdziałek</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other" draft="unconfirmed">za {0} pyńdziałku</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other" draft="unconfirmed">{0} pyńdziałku tymu</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="tue">
@@ -1863,25 +1863,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="tue-short">
-				<relative type="-1" draft="unconfirmed">↑↑↑</relative>
-				<relative type="0" draft="unconfirmed">↑↑↑</relative>
-				<relative type="1" draft="unconfirmed">↑↑↑</relative>
+				<relative type="-1" draft="unconfirmed">w zeszły wtorek</relative>
+				<relative type="0" draft="unconfirmed">w tyn wtorek</relative>
+				<relative type="1" draft="unconfirmed">w prziszły wtorek</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other" draft="unconfirmed">za {0} wtorku</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other" draft="unconfirmed">{0} wtorku tymu</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="tue-narrow">
-				<relative type="-1" draft="unconfirmed">↑↑↑</relative>
-				<relative type="0" draft="unconfirmed">↑↑↑</relative>
-				<relative type="1" draft="unconfirmed">↑↑↑</relative>
+				<relative type="-1" draft="unconfirmed">w zeszły wtorek</relative>
+				<relative type="0" draft="unconfirmed">w tyn wtorek</relative>
+				<relative type="1" draft="unconfirmed">w prziszły wtorek</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other" draft="unconfirmed">za {0} wtorku</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other" draft="unconfirmed">{0} wtorku tymu</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="wed">
@@ -1896,25 +1896,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="wed-short">
-				<relative type="-1" draft="unconfirmed">↑↑↑</relative>
-				<relative type="0" draft="unconfirmed">↑↑↑</relative>
-				<relative type="1" draft="unconfirmed">↑↑↑</relative>
+				<relative type="-1" draft="unconfirmed">w zeszło strzoda</relative>
+				<relative type="0" draft="unconfirmed">w ta strzoda</relative>
+				<relative type="1" draft="unconfirmed">w prziszło strzoda</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other" draft="unconfirmed">za {0} strzody</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other" draft="unconfirmed">{0} strzody tymu</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="wed-narrow">
-				<relative type="-1" draft="unconfirmed">↑↑↑</relative>
-				<relative type="0" draft="unconfirmed">↑↑↑</relative>
-				<relative type="1" draft="unconfirmed">↑↑↑</relative>
+				<relative type="-1" draft="unconfirmed">w zeszło strzoda</relative>
+				<relative type="0" draft="unconfirmed">w ta strzoda</relative>
+				<relative type="1" draft="unconfirmed">w prziszło strzoda</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other" draft="unconfirmed">za {0} strzody</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other" draft="unconfirmed">{0} strzody tymu</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="thu">
@@ -1929,25 +1929,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="thu-short">
-				<relative type="-1" draft="unconfirmed">↑↑↑</relative>
-				<relative type="0" draft="unconfirmed">↑↑↑</relative>
-				<relative type="1" draft="unconfirmed">↑↑↑</relative>
+				<relative type="-1" draft="unconfirmed">w zeszły sztwortek</relative>
+				<relative type="0" draft="unconfirmed">w tyn sztwortek</relative>
+				<relative type="1" draft="unconfirmed">w prziszły sztwortek</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other" draft="unconfirmed">za {0} sztwortku</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other" draft="unconfirmed">{0} sztwortku tymu</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="thu-narrow">
-				<relative type="-1" draft="unconfirmed">↑↑↑</relative>
-				<relative type="0" draft="unconfirmed">↑↑↑</relative>
-				<relative type="1" draft="unconfirmed">↑↑↑</relative>
+				<relative type="-1" draft="unconfirmed">w zeszły sztwortek</relative>
+				<relative type="0" draft="unconfirmed">w tyn sztwortek</relative>
+				<relative type="1" draft="unconfirmed">w prziszły sztwortek</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other" draft="unconfirmed">za {0} sztwortku</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other" draft="unconfirmed">{0} sztwortku tymu</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="fri">
@@ -1962,25 +1962,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="fri-short">
-				<relative type="-1" draft="unconfirmed">↑↑↑</relative>
-				<relative type="0" draft="unconfirmed">↑↑↑</relative>
-				<relative type="1" draft="unconfirmed">↑↑↑</relative>
+				<relative type="-1" draft="unconfirmed">w zeszły piōntek</relative>
+				<relative type="0" draft="unconfirmed">w tyn piōntek</relative>
+				<relative type="1" draft="unconfirmed">w prziszły piōntek</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other" draft="unconfirmed">za {0} piōntku</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other" draft="unconfirmed">{0} piōntku tymu</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="fri-narrow">
-				<relative type="-1" draft="unconfirmed">↑↑↑</relative>
-				<relative type="0" draft="unconfirmed">↑↑↑</relative>
-				<relative type="1" draft="unconfirmed">↑↑↑</relative>
+				<relative type="-1" draft="unconfirmed">w zeszły piōntek</relative>
+				<relative type="0" draft="unconfirmed">w tyn piōntek</relative>
+				<relative type="1" draft="unconfirmed">w prziszły piōntek</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other" draft="unconfirmed">za {0} piōntku</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other" draft="unconfirmed">{0} piōntku tymu</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="sat">
@@ -1995,29 +1995,29 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="sat-short">
-				<relative type="-1" draft="unconfirmed">↑↑↑</relative>
-				<relative type="0" draft="unconfirmed">↑↑↑</relative>
-				<relative type="1" draft="unconfirmed">↑↑↑</relative>
+				<relative type="-1" draft="unconfirmed">w zeszło sobota</relative>
+				<relative type="0" draft="unconfirmed">w ta sobota</relative>
+				<relative type="1" draft="unconfirmed">w prziszło sobota</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other" draft="unconfirmed">za {0} soboty</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other" draft="unconfirmed">{0} soboty tymu</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="sat-narrow">
-				<relative type="-1" draft="unconfirmed">↑↑↑</relative>
-				<relative type="0" draft="unconfirmed">↑↑↑</relative>
-				<relative type="1" draft="unconfirmed">↑↑↑</relative>
+				<relative type="-1" draft="unconfirmed">w zeszło sobota</relative>
+				<relative type="0" draft="unconfirmed">w ta sobota</relative>
+				<relative type="1" draft="unconfirmed">w prziszło sobota</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other" draft="unconfirmed">za {0} soboty</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other" draft="unconfirmed">{0} soboty tymu</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="dayperiod-short">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<displayName draft="unconfirmed">rano / po połedniu / na wieczōr</displayName>
 			</field>
 			<field type="dayperiod">
 				<displayName draft="unconfirmed">rano / po połedniu / na wieczōr</displayName>
@@ -2073,12 +2073,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="minute-narrow">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<displayName draft="unconfirmed">min</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other" draft="unconfirmed">za {0} min</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other" draft="unconfirmed">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other" draft="unconfirmed">{0} min tymu</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="second">
@@ -4217,7 +4217,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="unconfirmed">¤ #,##0.00</pattern>
-					<pattern alt="noCurrency" draft="unconfirmed">↑↑↑</pattern>
+					<pattern alt="noCurrency" draft="unconfirmed">#,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
@@ -4264,7 +4264,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<compoundUnitPattern draft="unconfirmed">{0} na {1}</compoundUnitPattern>
 			</compoundUnit>
 			<compoundUnit type="times">
-				<compoundUnitPattern draft="unconfirmed">↑↑↑</compoundUnitPattern>
+				<compoundUnitPattern draft="unconfirmed">{0}⋅{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
 				<displayName draft="unconfirmed">stało grawitacyje</displayName>
@@ -4283,7 +4283,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other" draft="unconfirmed">{0} radiana</unitPattern>
 			</unit>
 			<unit type="angle-degree">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<displayName draft="unconfirmed">stopnie</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} stopnia</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
@@ -4319,7 +4319,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<perUnitPattern draft="unconfirmed">{0} na mila kwadratowōm</perUnitPattern>
 			</unit>
 			<unit type="area-acre">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<displayName draft="unconfirmed">akry</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} akra</unitPattern>
 			</unit>
 			<unit type="area-square-yard">
@@ -4336,11 +4336,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<perUnitPattern draft="unconfirmed">{0} na cal kwadratowy</perUnitPattern>
 			</unit>
 			<unit type="area-dunam">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
+				<displayName draft="unconfirmed">dunamy</displayName>
+				<unitPattern count="other" draft="unconfirmed">{0} dunama</unitPattern>
 			</unit>
 			<unit type="concentr-karat">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<displayName draft="unconfirmed">karaty</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} karata</unitPattern>
 			</unit>
 			<unit type="concentr-milligram-ofglucose-per-deciliter">
@@ -4356,11 +4356,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other" draft="unconfirmed">{0} czyńści na milijōn</unitPattern>
 			</unit>
 			<unit type="concentr-percent">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<displayName draft="unconfirmed">procynt</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} procynt</unitPattern>
 			</unit>
 			<unit type="concentr-permille">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<displayName draft="unconfirmed">prōmil</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} prōmila</unitPattern>
 			</unit>
 			<unit type="concentr-permyriad">
@@ -4368,8 +4368,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other" draft="unconfirmed">{0} punktu bazowego</unitPattern>
 			</unit>
 			<unit type="concentr-mole">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
+				<displayName draft="unconfirmed">mol</displayName>
+				<unitPattern count="other" draft="unconfirmed">{0} mola</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-kilometer">
 				<displayName draft="unconfirmed">litry na kilōmeter</displayName>
@@ -4424,11 +4424,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other" draft="unconfirmed">{0} kilobitu</unitPattern>
 			</unit>
 			<unit type="digital-byte">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<displayName draft="unconfirmed">bajty</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} bajta</unitPattern>
 			</unit>
 			<unit type="digital-bit">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<displayName draft="unconfirmed">bity</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} bitu</unitPattern>
 			</unit>
 			<unit type="duration-century">
@@ -4440,8 +4440,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other" draft="unconfirmed">{0} dekady</unitPattern>
 			</unit>
 			<unit type="duration-year">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
+				<displayName draft="unconfirmed">lata</displayName>
+				<unitPattern count="other" draft="unconfirmed">{0} roku</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} na rok</perUnitPattern>
 			</unit>
 			<unit type="duration-quarter">
@@ -4450,37 +4450,37 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<perUnitPattern draft="unconfirmed">{0} na sztwierć roku</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<displayName draft="unconfirmed">miesiōnce</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} miesiōnca</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} na miesiōnc</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<displayName draft="unconfirmed">tydnie</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} tydnia</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} na tydziyń</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
+				<displayName draft="unconfirmed">dni</displayName>
+				<unitPattern count="other" draft="unconfirmed">{0} dnia</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} na dziyń</perUnitPattern>
 			</unit>
 			<unit type="duration-hour">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<displayName draft="unconfirmed">godziny</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} godziny</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} na godzina</perUnitPattern>
 			</unit>
 			<unit type="duration-minute">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<displayName draft="unconfirmed">minuty</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} minuty</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} na minuta</perUnitPattern>
 			</unit>
 			<unit type="duration-second">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<displayName draft="unconfirmed">sekundy</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} sekundy</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} na sekunda</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<displayName draft="unconfirmed">milisekundy</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} milisekundy</unitPattern>
 			</unit>
 			<unit type="duration-microsecond">
@@ -4492,7 +4492,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other" draft="unconfirmed">{0} nanosekundy</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<displayName draft="unconfirmed">ampry</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} ampra</unitPattern>
 			</unit>
 			<unit type="electric-milliampere">
@@ -4500,11 +4500,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other" draft="unconfirmed">{0} miliampra</unitPattern>
 			</unit>
 			<unit type="electric-ohm">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<displayName draft="unconfirmed">ōmy</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} ōma</unitPattern>
 			</unit>
 			<unit type="electric-volt">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<displayName draft="unconfirmed">wolty</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} wolta</unitPattern>
 			</unit>
 			<unit type="energy-kilocalorie">
@@ -4544,7 +4544,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other" draft="unconfirmed">{0} terma amerykańskigo</unitPattern>
 			</unit>
 			<unit type="force-pound-force">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<displayName draft="unconfirmed">fōnt-siła</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} fōnta-siły</unitPattern>
 			</unit>
 			<unit type="force-newton">
@@ -4569,14 +4569,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="graphics-em">
 				<displayName draft="unconfirmed">typograficzne ym</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} yma</unitPattern>
 			</unit>
 			<unit type="graphics-pixel">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<displayName draft="unconfirmed">piksele</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} piksela</unitPattern>
 			</unit>
 			<unit type="graphics-megapixel">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<displayName draft="unconfirmed">megapiksele</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} megapiksela</unitPattern>
 			</unit>
 			<unit type="graphics-pixel-per-centimeter">
@@ -4610,7 +4610,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other" draft="unconfirmed">{0} decymetra</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<displayName draft="unconfirmed">cyntymetry</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} cyntymetra</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} na cyntymeter</perUnitPattern>
 			</unit>
@@ -4631,7 +4631,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other" draft="unconfirmed">{0} pikōmetra</unitPattern>
 			</unit>
 			<unit type="length-mile">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<displayName draft="unconfirmed">mile</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} mile</unitPattern>
 			</unit>
 			<unit type="length-yard">
@@ -4639,7 +4639,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other" draft="unconfirmed">{0} jarda</unitPattern>
 			</unit>
 			<unit type="length-foot">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<displayName draft="unconfirmed">stopy</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} stopy</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} na stopa</perUnitPattern>
 			</unit>
@@ -4653,7 +4653,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other" draft="unconfirmed">{0} parseka</unitPattern>
 			</unit>
 			<unit type="length-light-year">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<displayName draft="unconfirmed">lata świetlne</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} roku świetlnego</unitPattern>
 			</unit>
 			<unit type="length-astronomical-unit">
@@ -4669,11 +4669,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other" draft="unconfirmed">{0} mile skandynawskij</unitPattern>
 			</unit>
 			<unit type="length-point">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
+				<displayName draft="unconfirmed">punkty</displayName>
+				<unitPattern count="other" draft="unconfirmed">{0} pkt.</unitPattern>
 			</unit>
 			<unit type="length-solar-radius">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<displayName draft="unconfirmed">prōmiynie Słōńca</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} prōmiynia Słōńca</unitPattern>
 			</unit>
 			<unit type="light-lux">
@@ -4681,7 +4681,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other" draft="unconfirmed">{0} luksu</unitPattern>
 			</unit>
 			<unit type="light-solar-luminosity">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<displayName draft="unconfirmed">jasność Słōńca</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} jasności Słōńca</unitPattern>
 			</unit>
 			<unit type="mass-tonne">
@@ -4711,7 +4711,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other" draft="unconfirmed">{0} krōtkij tōny</unitPattern>
 			</unit>
 			<unit type="mass-pound">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<displayName draft="unconfirmed">fōnty</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} fōnta</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} na fōnt</perUnitPattern>
 			</unit>
@@ -4725,19 +4725,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other" draft="unconfirmed">{0} uncyje trojańskij</unitPattern>
 			</unit>
 			<unit type="mass-carat">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<displayName draft="unconfirmed">karaty</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} karata</unitPattern>
 			</unit>
 			<unit type="mass-dalton">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<displayName draft="unconfirmed">daltōny</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} daltōna</unitPattern>
 			</unit>
 			<unit type="mass-earth-mass">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<displayName draft="unconfirmed">masa Ziymie</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} masy Ziymie</unitPattern>
 			</unit>
 			<unit type="mass-solar-mass">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<displayName draft="unconfirmed">masa Słōńca</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} masy Słōńca</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
@@ -4753,7 +4753,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other" draft="unconfirmed">{0} kilowata</unitPattern>
 			</unit>
 			<unit type="power-watt">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<displayName draft="unconfirmed">waty</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} wata</unitPattern>
 			</unit>
 			<unit type="power-milliwatt">
@@ -4883,7 +4883,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other" draft="unconfirmed">{0} hektolitra</unitPattern>
 			</unit>
 			<unit type="volume-liter">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<displayName draft="unconfirmed">litry</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} litra</unitPattern>
 				<perUnitPattern draft="unconfirmed">{0} na liter</perUnitPattern>
 			</unit>
@@ -4926,11 +4926,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other" draft="unconfirmed">{0} kworty</unitPattern>
 			</unit>
 			<unit type="volume-pint">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<displayName draft="unconfirmed">pōłkworty</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} pōłkworty</unitPattern>
 			</unit>
 			<unit type="volume-cup">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<displayName draft="unconfirmed">ćwierćkworty</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} ćwierćkworty</unitPattern>
 			</unit>
 			<unit type="volume-fluid-ounce">
@@ -4946,11 +4946,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other" draft="unconfirmed">{0} łyżki stołowyj</unitPattern>
 			</unit>
 			<unit type="volume-teaspoon">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
+				<displayName draft="unconfirmed">łyżeczki</displayName>
+				<unitPattern count="other" draft="unconfirmed">{0} łyżeczki</unitPattern>
 			</unit>
 			<unit type="volume-barrel">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<displayName draft="unconfirmed">baryłki</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} baryłki</unitPattern>
 			</unit>
 			<coordinateUnit>
@@ -5665,44 +5665,44 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</unitLength>
 		<unitLength type="narrow">
 			<compoundUnit type="per">
-				<compoundUnitPattern draft="unconfirmed">↑↑↑</compoundUnitPattern>
+				<compoundUnitPattern draft="unconfirmed">{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<compoundUnit type="times">
-				<compoundUnitPattern draft="unconfirmed">↑↑↑</compoundUnitPattern>
+				<compoundUnitPattern draft="unconfirmed">{0}⋅{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} G</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}′</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}″</unitPattern>
 			</unit>
 			<unit type="concentr-percent">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
+				<displayName draft="unconfirmed">procynt</displayName>
+				<unitPattern count="other" draft="unconfirmed">{0}%</unitPattern>
 			</unit>
 			<unit type="consumption-liter-per-100-kilometer">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
+				<displayName draft="unconfirmed">l/100 km</displayName>
+				<unitPattern count="other" draft="unconfirmed">{0} l/100 km</unitPattern>
 			</unit>
 			<unit type="duration-year">
 				<displayName draft="unconfirmed">rok</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0} r.</unitPattern>
 			</unit>
 			<unit type="duration-quarter">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
-				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
+				<displayName draft="unconfirmed">sztr</displayName>
+				<unitPattern count="other" draft="unconfirmed">{0} sztr</unitPattern>
+				<perUnitPattern draft="unconfirmed">{0}/szt</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
 				<displayName draft="unconfirmed">miesiōnc</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} mies.</unitPattern>
 			</unit>
 			<unit type="duration-week">
 				<displayName draft="unconfirmed">tydziyń</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} tyd.</unitPattern>
 			</unit>
 			<unit type="duration-day">
 				<displayName draft="unconfirmed">dziyń</displayName>
@@ -5714,76 +5714,76 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other" draft="unconfirmed">{0} g.</unitPattern>
 			</unit>
 			<unit type="duration-minute">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
+				<displayName draft="unconfirmed">minuty</displayName>
+				<unitPattern count="other" draft="unconfirmed">{0} min</unitPattern>
 			</unit>
 			<unit type="duration-second">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
+				<displayName draft="unconfirmed">sekundy</displayName>
+				<unitPattern count="other" draft="unconfirmed">{0} sek.</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
+				<displayName draft="unconfirmed">milisekundy</displayName>
+				<unitPattern count="other" draft="unconfirmed">{0} ms</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
+				<displayName draft="unconfirmed">km</displayName>
+				<unitPattern count="other" draft="unconfirmed">{0} km</unitPattern>
 			</unit>
 			<unit type="length-meter">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
+				<displayName draft="unconfirmed">m</displayName>
+				<unitPattern count="other" draft="unconfirmed">{0} m</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
+				<displayName draft="unconfirmed">cyntymetry</displayName>
+				<unitPattern count="other" draft="unconfirmed">{0} cm</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
+				<displayName draft="unconfirmed">mm</displayName>
+				<unitPattern count="other" draft="unconfirmed">{0} mm</unitPattern>
 			</unit>
 			<unit type="length-mile">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<displayName draft="unconfirmed">mile</displayName>
 			</unit>
 			<unit type="length-foot">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<displayName draft="unconfirmed">stopy</displayName>
 			</unit>
 			<unit type="length-inch">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
+				<displayName draft="unconfirmed">cale</displayName>
 				<unitPattern count="other" draft="unconfirmed">{0}″</unitPattern>
-				<perUnitPattern draft="unconfirmed">↑↑↑</perUnitPattern>
+				<perUnitPattern draft="unconfirmed">{0}/cal</perUnitPattern>
 			</unit>
 			<unit type="mass-kilogram">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
+				<displayName draft="unconfirmed">kg</displayName>
+				<unitPattern count="other" draft="unconfirmed">{0} kg</unitPattern>
 			</unit>
 			<unit type="mass-gram">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
+				<displayName draft="unconfirmed">g</displayName>
+				<unitPattern count="other" draft="unconfirmed">{0} g</unitPattern>
 			</unit>
 			<unit type="mass-pound">
 				<displayName draft="unconfirmed">funty</displayName>
 			</unit>
 			<unit type="power-horsepower">
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} KM</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
+				<displayName draft="unconfirmed">km/h</displayName>
+				<unitPattern count="other" draft="unconfirmed">{0} km/h</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
-				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
+				<displayName draft="unconfirmed">°C</displayName>
+				<unitPattern count="other" draft="unconfirmed">{0}°C</unitPattern>
 			</unit>
 			<unit type="volume-liter">
 				<displayName draft="unconfirmed">liter</displayName>
-				<unitPattern count="other" draft="unconfirmed">↑↑↑</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} l</unitPattern>
 			</unit>
 			<coordinateUnit>
-				<displayName draft="unconfirmed">↑↑↑</displayName>
-				<coordinateUnitPattern type="east" draft="unconfirmed">↑↑↑</coordinateUnitPattern>
-				<coordinateUnitPattern type="north" draft="unconfirmed">↑↑↑</coordinateUnitPattern>
-				<coordinateUnitPattern type="south" draft="unconfirmed">↑↑↑</coordinateUnitPattern>
-				<coordinateUnitPattern type="west" draft="unconfirmed">↑↑↑</coordinateUnitPattern>
+				<displayName draft="unconfirmed">rychtōnek</displayName>
+				<coordinateUnitPattern type="east" draft="unconfirmed">{0}E</coordinateUnitPattern>
+				<coordinateUnitPattern type="north" draft="unconfirmed">{0}N</coordinateUnitPattern>
+				<coordinateUnitPattern type="south" draft="unconfirmed">{0}S</coordinateUnitPattern>
+				<coordinateUnitPattern type="west" draft="unconfirmed">{0}W</coordinateUnitPattern>
 			</coordinateUnit>
 		</unitLength>
 		<durationUnit type="hm">
@@ -5810,46 +5810,46 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<listPatternPart type="2" draft="unconfirmed">{0} abo {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="or-narrow">
-			<listPatternPart type="start" draft="unconfirmed">↑↑↑</listPatternPart>
-			<listPatternPart type="middle" draft="unconfirmed">↑↑↑</listPatternPart>
-			<listPatternPart type="end" draft="unconfirmed">↑↑↑</listPatternPart>
-			<listPatternPart type="2" draft="unconfirmed">↑↑↑</listPatternPart>
+			<listPatternPart type="start" draft="unconfirmed">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle" draft="unconfirmed">{0}, {1}</listPatternPart>
+			<listPatternPart type="end" draft="unconfirmed">{0}, abo {1}</listPatternPart>
+			<listPatternPart type="2" draft="unconfirmed">{0} abo {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="or-short">
-			<listPatternPart type="start" draft="unconfirmed">↑↑↑</listPatternPart>
-			<listPatternPart type="middle" draft="unconfirmed">↑↑↑</listPatternPart>
+			<listPatternPart type="start" draft="unconfirmed">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle" draft="unconfirmed">{0}, {1}</listPatternPart>
 			<listPatternPart type="end" draft="unconfirmed">{0}, abo {1}</listPatternPart>
-			<listPatternPart type="2" draft="unconfirmed">↑↑↑</listPatternPart>
+			<listPatternPart type="2" draft="unconfirmed">{0} abo {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="standard-narrow">
-			<listPatternPart type="start" draft="unconfirmed">↑↑↑</listPatternPart>
-			<listPatternPart type="middle" draft="unconfirmed">↑↑↑</listPatternPart>
-			<listPatternPart type="end" draft="unconfirmed">↑↑↑</listPatternPart>
-			<listPatternPart type="2" draft="unconfirmed">↑↑↑</listPatternPart>
+			<listPatternPart type="start" draft="unconfirmed">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle" draft="unconfirmed">{0}, {1}</listPatternPart>
+			<listPatternPart type="end" draft="unconfirmed">{0} i {1}</listPatternPart>
+			<listPatternPart type="2" draft="unconfirmed">{0} i {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="standard-short">
-			<listPatternPart type="start" draft="unconfirmed">↑↑↑</listPatternPart>
-			<listPatternPart type="middle" draft="unconfirmed">↑↑↑</listPatternPart>
-			<listPatternPart type="end" draft="unconfirmed">↑↑↑</listPatternPart>
-			<listPatternPart type="2" draft="unconfirmed">↑↑↑</listPatternPart>
+			<listPatternPart type="start" draft="unconfirmed">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle" draft="unconfirmed">{0}, {1}</listPatternPart>
+			<listPatternPart type="end" draft="unconfirmed">{0} i {1}</listPatternPart>
+			<listPatternPart type="2" draft="unconfirmed">{0} i {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="unit">
-			<listPatternPart type="start" draft="unconfirmed">↑↑↑</listPatternPart>
-			<listPatternPart type="middle" draft="unconfirmed">↑↑↑</listPatternPart>
-			<listPatternPart type="end" draft="unconfirmed">↑↑↑</listPatternPart>
-			<listPatternPart type="2" draft="unconfirmed">↑↑↑</listPatternPart>
+			<listPatternPart type="start" draft="unconfirmed">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle" draft="unconfirmed">{0}, {1}</listPatternPart>
+			<listPatternPart type="end" draft="unconfirmed">{0} i {1}</listPatternPart>
+			<listPatternPart type="2" draft="unconfirmed">{0} i {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="unit-narrow">
-			<listPatternPart type="start" draft="unconfirmed">↑↑↑</listPatternPart>
-			<listPatternPart type="middle" draft="unconfirmed">↑↑↑</listPatternPart>
-			<listPatternPart type="end" draft="unconfirmed">↑↑↑</listPatternPart>
-			<listPatternPart type="2" draft="unconfirmed">↑↑↑</listPatternPart>
+			<listPatternPart type="start" draft="unconfirmed">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle" draft="unconfirmed">{0}, {1}</listPatternPart>
+			<listPatternPart type="end" draft="unconfirmed">{0} i {1}</listPatternPart>
+			<listPatternPart type="2" draft="unconfirmed">{0} i {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="unit-short">
-			<listPatternPart type="start" draft="unconfirmed">↑↑↑</listPatternPart>
-			<listPatternPart type="middle" draft="unconfirmed">↑↑↑</listPatternPart>
-			<listPatternPart type="end" draft="unconfirmed">↑↑↑</listPatternPart>
-			<listPatternPart type="2" draft="unconfirmed">↑↑↑</listPatternPart>
+			<listPatternPart type="start" draft="unconfirmed">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle" draft="unconfirmed">{0}, {1}</listPatternPart>
+			<listPatternPart type="end" draft="unconfirmed">{0} i {1}</listPatternPart>
+			<listPatternPart type="2" draft="unconfirmed">{0} i {1}</listPatternPart>
 		</listPattern>
 	</listPatterns>
 	<posix>

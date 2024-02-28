@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2023 Unicode, Inc.
+<!-- Copyright © 1991-2024 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -44,6 +44,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<dayPeriod type="afternoon2">↑↑↑</dayPeriod>
 							<dayPeriod type="evening1">↑↑↑</dayPeriod>
 							<dayPeriod type="night1">↑↑↑</dayPeriod>
+							<dayPeriod type="night2">ل</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="night2">ل</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="night2">ل</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+					<dayPeriodContext type="stand-alone">
+						<dayPeriodWidth type="abbreviated">
+							<dayPeriod type="night2">ل</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="night2">ل</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
 							<dayPeriod type="night2">ل</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2023 Unicode, Inc.
+<!-- Copyright © 1991-2024 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
 SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
@@ -203,7 +203,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="4">↑↑↑</month>
 							<month type="5">↑↑↑</month>
 							<month type="6">↑↑↑</month>
-							<month type="7">↑↑↑</month>
+							<month type="7">জুল</month>
 							<month type="8">↑↑↑</month>
 							<month type="9">↑↑↑</month>
 							<month type="10">↑↑↑</month>
@@ -310,6 +310,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<day type="fri">↑↑↑</day>
 							<day type="sat">↑↑↑</day>
 						</dayWidth>
+						<dayWidth type="short">
+							<day type="sat">শঃ</day>
+						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">↑↑↑</day>
 							<day type="mon">↑↑↑</day>
@@ -413,7 +416,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</dayPeriods>
 				<eras>
 					<eraNames>
-						<era type="0">↑↑↑</era>
+						<era type="0">খ্রিঃপূঃ</era>
 						<era type="0" alt="variant">↑↑↑</era>
 						<era type="1">খ্রিষ্টাব্দ</era>
 						<era type="1" alt="variant">↑↑↑</era>
@@ -427,7 +430,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</eras>
 				<dateTimeFormats>
 					<availableFormats>
-						<dateFormatItem id="MMMMW" count="one">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMMW" count="one">MMMM এর W নম্বর সপ্তাহ</dateFormatItem>
 						<dateFormatItem id="MMMMW" count="other">MMMM এর W নম্বর সপ্তাহ</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
@@ -653,7 +656,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<currencyFormats numberSystem="beng">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
-					<pattern>↑↑↑</pattern>
+					<pattern>¤#,##,##0.00</pattern>
 					<pattern alt="alphaNextToNumber">¤ #,##,##0.00</pattern>
 					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
@@ -676,14 +679,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<currencies>
 			<currency type="ANG">
 				<displayName>নেদারল্যান্ডস অ্যান্টিলিয়ান গিল্ডার</displayName>
-				<displayName count="one">↑↑↑</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="one">নেদারল্যান্ডস অ্যান্টিলিয়ান গিল্ডার</displayName>
+				<displayName count="other">নেদারল্যান্ডস অ্যান্টিলিয়ান গিল্ডার</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="AWG">
 				<displayName>আরুবান গিল্ডার</displayName>
-				<displayName count="one">↑↑↑</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="one">আরুবান গিল্ডার</displayName>
+				<displayName count="other">আরুবান গিল্ডার</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="BBD">
@@ -695,8 +698,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="BMD">
 				<displayName>বারমুডান ডলার</displayName>
-				<displayName count="one">↑↑↑</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="one">বারমুডান ডলার</displayName>
+				<displayName count="other">বারমুডান ডলার</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
@@ -758,22 +761,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="GTQ">
 				<displayName>গুয়াতেমালান কেৎসাল</displayName>
-				<displayName count="one">↑↑↑</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="one">গুয়াতেমালান কেৎসাল</displayName>
+				<displayName count="other">গুয়াতেমালান কেৎসাল</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="HNL">
 				<displayName>হন্ডুরান লেম্পিরা</displayName>
-				<displayName count="one">↑↑↑</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="one">হন্ডুরান লেম্পিরা</displayName>
+				<displayName count="other">হন্ডুরান লেম্পিরা</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="HTG">
 				<displayName>হাইতিয়ান গুর্দ</displayName>
-				<displayName count="one">↑↑↑</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="one">হাইতিয়ান গুর্দ</displayName>
+				<displayName count="other">হাইতিয়ান গুর্দ</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="JMD">
@@ -792,8 +795,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="MXN">
 				<displayName>মেক্সিকান পেসো</displayName>
-				<displayName count="one">↑↑↑</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="one">মেক্সিকান পেসো</displayName>
+				<displayName count="other">মেক্সিকান পেসো</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
@@ -826,8 +829,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="XCD">
 				<displayName>পূর্ব ক্যারিবিয়ান ডলার</displayName>
-				<displayName count="one">↑↑↑</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="one">পূর্ব ক্যারিবিয়ান ডলার</displayName>
+				<displayName count="other">পূর্ব ক্যারিবিয়ান ডলার</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
@@ -887,7 +890,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
 			</compoundUnit>
 			<coordinateUnit>
-				<displayName>↑↑↑</displayName>
+				<displayName>দিক</displayName>
 				<coordinateUnitPattern type="east">↑↑↑</coordinateUnitPattern>
 				<coordinateUnitPattern type="north">↑↑↑</coordinateUnitPattern>
 				<coordinateUnitPattern type="south">↑↑↑</coordinateUnitPattern>

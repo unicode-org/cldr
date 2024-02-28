@@ -320,7 +320,7 @@ Attribute values escaped in this manner are annotated with the `<!--@ALLOWS_UESC
 
 ## File and Directory Structure
 
-* In the future, new layouts will be included in the CLDR repository, as a way for new layouts to be distributed in a cross-platorm manner. The process for this repository of layouts has not yet been defined, see [CLDR-17253](https://unicode-org.atlassian.net/browse/CLDR-17253) for up-to-date information.  Layouts which are currently in the repository are intended as sample data only.
+* In the future, new layouts will be included in the CLDR repository, as a way for new layouts to be distributed in a cross-platorm manner. The process for this repository of layouts has not yet been defined, see [CLDR-17253](https://unicode-org.atlassian.net/browse/CLDR-17253) for up-to-date information.
 
 * Layouts have version metadata to indicate their specification compliance versi​​on number. For this tech preview, the value used must be `techpreview`. When the the specification is out of tech preview, a specific CLDR version number will be used. See [`cldrVersion`](tr35-info.md#version-information).
 
@@ -328,13 +328,9 @@ Attribute values escaped in this manner are annotated with the `<!--@ALLOWS_UESC
 <keyboard3 conformsTo="techpreview"/>
 ```
 
-> _Note_: Unlike other LDML files, layouts are designed to be used outside of the CLDR source tree.  A new mechanism for referencing the DTD path should ideally be used, such as a URN or FPI. See <https://unicode-org.atlassian.net/browse/CLDR-15505> for discussion. For this tech preview, a relative path to the dtd will continue to be used in sample data.  Future versions may give other recommendations.
-
-```xml
-<!DOCTYPE keyboard3 SYSTEM "../dtd/ldmlKeyboard3.dtd">
-```
-
-> For distributing keyboards outside of the CLDR repository, it is recommended to either use a copy of the .dtd file, or omit the `DOCTYPE` clause. Do not use a http or https URL in the DOCTYPE.
+> _Note_: Unlike other LDML files, layouts are designed to be used outside of the CLDR source tree.  As such, they do not contain DOCTYPE entries.
+>
+> DTD and Schema (.xsd) files are available for use in validating keyboard files.
 
 * The filename of a keyboard .xml file does not have to match the BCP47 primary locale ID, but it is recommended to do so. The CLDR repository may enforce filename consistency.
 
@@ -2820,41 +2816,6 @@ It is important that implementations do not by default delete more than one non-
 Beyond what the DTD imposes, certain other restrictions on the data are imposed on the data.
 Please note the constraints given under each element section above.
 DTD validation alone is not sufficient to verify a keyboard file.
-
-<!--
-TODO: Rewrite this? Probably push out to each element's section?
-
-3.  No `keyMap[@modifiers]` value can overlap with another `keyMap[@modifiers]` value.
-    * eg you can't have `"RAlt Ctrl"` in one `keyMap`, and `"Alt Shift"` in another (because Alt = RAltLAlt).
-4.  Every sequence of characters in a `transform[@from]` value must be a concatenation of two or more `map[@to]` values.
-    * eg with `<transform from="xyz" to="q">` there must be some map values to get there, such as `<map… to="xy">` & `<map… to="z">`
-5.  If the base and chars values for `modifiers=""` are all identical, and there are no longpresses, that `keyMap` must not appear (??)
-6.  There will never be overlaps among modifier values.
-7.  A modifier set will never have ? (optional) on all values
-    * eg, you'll never have `RCtrl?Caps?LShift?`
-8.  Every `base[@base`] value must be unique.
-9. A `modifier` attribute value will aways be minimal, observing the following simplification rules.
-
-| Notation                                 | Notes |
-|------------------------------------------|-------|
-| Lower case character (e.g. _x_ )          | Interpreted as any combination of modifiers. <br/> (e.g. _x_ = CtrlShiftOption) |
-| Upper-case character (e.g. _Y_ )          | Interpreted as a single modifier key (which may or may not have an L and R variant) <br/> (e.g. _Y_ = Ctrl, _RY_ = RCtrl, etc.) |
-| Y? ⇔ Y ∨ ∅ <br/> Y ⇔ LY ∨ RY ∨ LYRY | E.g. Opt? ⇔ ROpt ∨ LOpt ∨ ROptLOpt ∨ ∅ <br/> E.g. Opt ⇔ ROpt ∨ LOpt ∨ ROptLOpt |
-
-| Axiom                                       | Example                                      |
-|---------------------------------------------|----------------------------------------------|
-| xY ∨ x ⇒ xY?                              | OptCtrlShift OptCtrl → OptCtrlShift?         |
-| xRY ∨ xY? ⇒ xY? <br/> xLY ∨ xY? ⇒ xY?   | OptCtrlRShift OptCtrlShift? → OptCtrlShift?  |
-| xRY? ∨ xY ⇒ xY? <br/> xLY? ∨ xY ⇒ xY?   | OptCtrlRShift? OptCtrlShift → OptCtrlShift?  |
-| xRY? ∨ xY? ⇒ xY? <br/> xLY? ∨ xY? ⇒ xY? | OptCtrlRShift? OptCtrlShift? → OptCtrlShift? |
-| xRY ∨ xY ⇒ xY <br/> xLY ∨ xY ⇒ xY       | OptCtrlRShift OptCtrlShift → OptCtrlShift?   |
-| LY?RY?                                      | OptRCtrl?LCtrl? → OptCtrl?                   |
-| xLY? ⋁ xLY ⇒ xLY?                          |                                              |
-| xY? ⋁ xY ⇒ xY?                             |                                              |
-| xY? ⋁ x ⇒ xY?                              |                                              |
-| xLY? ⋁ x ⇒ xLY?                            |                                              |
-| xLY ⋁ x ⇒ xLY?                             |                                              |
--->
 
 * * *
 

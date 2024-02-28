@@ -152,7 +152,9 @@ public class ChartDtdDelta extends Chart {
                 String firstVersion = type.firstVersion; // FIRST_VERSION.get(type);
                 if (firstVersion != null
                         && current != null
-                        && current.compareTo(firstVersion) < 0) {
+                        && VersionInfo.getInstance(current)
+                                        .compareTo(VersionInfo.getInstance(firstVersion))
+                                < 0) {
                     // skip if current is too old to have “type”
                     continue;
                 }
@@ -174,7 +176,11 @@ public class ChartDtdDelta extends Chart {
                     continue;
                 }
                 DtdData dtdLast = null;
-                if (last != null && (firstVersion == null || last.compareTo(firstVersion) >= 0)) {
+                if (last != null
+                        && (firstVersion == null
+                                || VersionInfo.getInstance(last)
+                                                .compareTo(VersionInfo.getInstance(firstVersion))
+                                        >= 0)) {
                     // only read if last isn’t too old to have “type”
                     dtdLast = DtdData.getInstance(type, last);
                 }

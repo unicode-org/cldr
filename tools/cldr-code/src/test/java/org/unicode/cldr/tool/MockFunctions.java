@@ -15,6 +15,7 @@ import com.ibm.icu.util.Measure;
 import com.ibm.icu.util.MeasureUnit;
 import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -31,10 +32,10 @@ public class MockFunctions {
     static class StringFactory implements FunctionFactory {
 
         static class StringVariable extends FunctionVariable {
-            private String value;
+            private String baseValue;
 
             public StringVariable(String string, OptionsMap options) {
-                value = string;
+                baseValue = string;
                 setOptions(options);
             }
 
@@ -45,7 +46,7 @@ public class MockFunctions {
 
             @Override
             public int match(MFContext contact, String matchKey) {
-                return value.equals(matchKey)
+                return baseValue.equals(matchKey)
                         ? FunctionVariable.EXACT_MATCH
                         : FunctionVariable.NO_MATCH;
             }
@@ -58,9 +59,9 @@ public class MockFunctions {
                             final String caseOption = entry.getValue().toString();
                             switch (caseOption) {
                                 case "upper":
-                                    return value.toUpperCase(context.locale);
+                                    return baseValue.toUpperCase(context.locale);
                                 case "lower":
-                                    return value.toLowerCase(context.locale);
+                                    return baseValue.toLowerCase(context.locale);
                                 default:
                                     throw new IllegalArgumentException(
                                             "Illegal casing=" + caseOption);
@@ -70,12 +71,15 @@ public class MockFunctions {
                                     ":string doen't allow the option " + entry);
                     }
                 }
-                return value;
+                return baseValue;
             }
 
             @Override
             public String toString() {
-                return "value=" + value + ", options=" + getOptions().toString();
+                return "[baseValue="
+                        + baseValue
+                        + (getOptions().isEmpty() ? "" : ", options=" + getOptions().toString())
+                        + "]";
             }
         }
 
@@ -141,14 +145,10 @@ public class MockFunctions {
                 return "["
                         + "baseValue="
                         + value
-                        + ", offsettedValue="
-                        + offsettedValue
-                        + ", keyword="
-                        + pluralCategory
-                        + ", offset="
-                        + offset
-                        + ", options="
-                        + getOptions()
+                        + (offsettedValue.equals(value) ? "" : ", offsettedValue=" + offsettedValue)
+                        + (pluralCategory == null ? "" : ", pluralCategory=" + pluralCategory)
+                        + (offset == 0 ? "" : ", offset=" + offset)
+                        + (getOptions().isEmpty() ? "" : ", options=" + getOptions())
                         + "]";
             }
 
@@ -205,27 +205,31 @@ public class MockFunctions {
 
             public void applyOptions() {
                 for (Entry<String, Object> entry : getOptions().entrySet()) {
+                    final Object eValue = entry.getValue();
                     switch (entry.getKey()) {
                         case "maxFractionDigits":
-                            nf = nf.precision(Precision.maxFraction(((Integer) entry.getValue())));
+                            nf =
+                                    nf.precision(
+                                            Precision.maxFraction(
+                                                    Integer.parseInt(eValue.toString())));
                             break;
                         case "minFractionDigits":
-                            nf = nf.precision(Precision.minFraction(((Integer) entry.getValue())));
+                            nf =
+                                    nf.precision(
+                                            Precision.minFraction(
+                                                    Integer.parseInt(eValue.toString())));
                             break;
                         case "numberingSystem":
-                            numberingSystem =
-                                    NumberingSystem.getInstanceByName(entry.getValue().toString());
+                            numberingSystem = NumberingSystem.getInstanceByName(eValue.toString());
                             break;
                         case "signDisplay":
                             nf =
                                     nf.sign(
                                             SignDisplay.valueOf(
-                                                    entry.getValue()
-                                                            .toString()
-                                                            .toUpperCase(Locale.ROOT)));
+                                                    eValue.toString().toUpperCase(Locale.ROOT)));
                             break;
                         case "u:offset":
-                            offset = (Integer) entry.getValue();
+                            offset = Integer.parseInt(eValue.toString());
                             offsettedValue = subtractOffset();
                             break;
                         default:
@@ -309,29 +313,35 @@ public class MockFunctions {
                 if (formatted == null) {
                     UnlocalizedNumberFormatter nf = NumberFormatter.with();
                     for (Entry<String, Object> entry : getOptions().entrySet()) {
-                        final Object value1 = entry.getValue();
+                        final Object eValue = entry.getValue();
                         switch (entry.getKey()) {
                             case "maxFractionDigits":
-                                nf = nf.precision(Precision.maxFraction(((Integer) value1)));
+                                nf =
+                                        nf.precision(
+                                                Precision.maxFraction(
+                                                        Integer.parseInt(eValue.toString())));
                                 break;
                             case "minFractionDigits":
-                                nf = nf.precision(Precision.minFraction(((Integer) value1)));
+                                nf =
+                                        nf.precision(
+                                                Precision.minFraction(
+                                                        Integer.parseInt(eValue.toString())));
                                 break;
                             case "numberingSystem":
                                 final NumberingSystem numberingSystem =
-                                        NumberingSystem.getInstanceByName(value1.toString());
+                                        NumberingSystem.getInstanceByName(eValue.toString());
                                 nf.symbols(
                                         DecimalFormatSymbols.forNumberingSystem(
                                                 context.locale, numberingSystem));
                                 break;
                             case "signDisplay":
-                                nf = nf.sign(SignDisplay.valueOf(value1.toString()));
+                                nf = nf.sign(SignDisplay.valueOf(eValue.toString()));
                                 break;
                             case "usage":
-                                nf = nf.usage(value1.toString());
+                                nf = nf.usage(eValue.toString());
                                 break;
                             case "width":
-                                String stringValue = value1.toString().toUpperCase();
+                                String stringValue = eValue.toString().toUpperCase();
                                 nf =
                                         nf.unitWidth(
                                                 stringValue.equals("FULL")
@@ -374,13 +384,13 @@ public class MockFunctions {
 
         @Override
         public MeasureVariable fromLiteral(String literal, OptionsMap options) {
-            String[] parts = literal.split("/");
-            if (parts.length != 2) {
+            List<String> parts = MockMessageFormat.SPACE_SPLITTER.splitToList(literal);
+            if (parts.size() != 2) {
                 throw new IllegalArgumentException(
                         getName() + " requires a literal in the form number/unicode_unit_id");
             }
-            MeasureUnit unit = MeasureUnit.forIdentifier(parts[1]);
-            Measure measure = new Measure(new BigDecimal(parts[0]), unit);
+            MeasureUnit unit = MeasureUnit.forIdentifier(parts.get(1));
+            Measure measure = new Measure(new BigDecimal(parts.get(0)), unit);
             return fromInput(measure, options);
         }
 

@@ -1,16 +1,26 @@
 package org.unicode.cldr.tool;
 
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.LinkedHashMultimap;
-import com.google.common.collect.Multimap;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import org.unicode.cldr.util.RegexUtilities;
+
+import com.google.common.base.Splitter;
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.LinkedHashMultimap;
+import com.google.common.collect.Multimap;
+import com.ibm.icu.util.Measure;
+import com.ibm.icu.util.MeasureUnit;
 
 /**
  * A mock implementation of a possible internal organization for MF2. Each function is represented
@@ -24,6 +34,7 @@ import java.util.Set;
  * a real API, nor with good error checking.
  */
 public class MockMessageFormat {
+    public static final Splitter SPACE_SPLITTER = Splitter.on(' ').omitEmptyStrings().trimResults();
     private static final boolean DEBUG = false;
 
     /**
@@ -98,6 +109,8 @@ public class MockMessageFormat {
     static class MFContext {
         public final Map<String, FunctionVariable> namedVariables = new LinkedHashMap<>();
         public final Locale locale;
+        public final List<FunctionVariable> selectors = new ArrayList<>(0);
+        public final Variants variants = new Variants();
 
         public MFContext(Locale locale) {
             this.locale = locale;
@@ -107,11 +120,16 @@ public class MockMessageFormat {
             return namedVariables.get(name);
         }
 
-        public void put(String name, FunctionVariable numberVariable) {
+        public FunctionVariable addVariable(String name, FunctionVariable numberVariable) {
             if (namedVariables.containsKey(name)) {
                 throw new IllegalArgumentException("Can't reassign variable");
             }
             namedVariables.put(name, numberVariable);
+            return numberVariable;
+        }
+
+        public void addSelector(FunctionVariable selectorVariable) {
+            selectors.add(selectorVariable);
         }
     }
 
@@ -156,6 +174,10 @@ public class MockMessageFormat {
             return new OptionsMap(temp);
         }
 
+        static OptionBuilder start() {
+            return new OptionBuilder();
+        }
+
         static OptionBuilder put(String key, Object value) {
             return new OptionBuilder().put(key, value);
         }
@@ -163,6 +185,34 @@ public class MockMessageFormat {
         @Override
         public String toString() {
             return map.toString();
+        }
+
+        public static OptionsMap make(int firstPair, List<String> pairs) {
+            OptionBuilder builder = OptionsMap.start();
+            for (int i = 3; i < pairs.size(); ++i) {
+                List<String> optionParts = Splitter.on('=').splitToList(pairs.get(i));
+                builder.put(optionParts.get(0), optionParts.get(1));
+            }
+            return builder.done();
+        }
+
+        public boolean isEmpty() {
+            return map.isEmpty();
+        }
+
+        public static OptionsMap make(String pairs) {
+            if (pairs == null) {
+                return EMPTY;
+            }
+            OptionBuilder builder = OptionsMap.start();
+            SPACE_SPLITTER
+                    .split(pairs)
+                    .forEach(
+                            x -> {
+                                Iterator<String> it = Splitter.on('=').split(x).iterator();
+                                builder.put(it.next(), it.next());
+                            });
+            return builder.done();
         }
     }
 
@@ -192,8 +242,13 @@ public class MockMessageFormat {
             throw new IllegalArgumentException();
         }
 
-        Variants(Map<List<String>, String> map) {
-            this.map = ImmutableMap.copyOf(map);
+        public Variants add(List<String> keys, String submessage) {
+            String old = map.put(keys, submessage);
+            if (old != null) {
+                throw new IllegalArgumentException(
+                        String.format("Duplicate variant keys %s %s %s", keys, old, submessage));
+            }
+            return this;
         }
 
         @Override
@@ -244,12 +299,13 @@ public class MockMessageFormat {
      * @param args
      */
     public static void main(String[] args) {
+        checkParsing();
         checkOffset(5, 2, "other");
         checkOffset(5, 4, "one");
-        System.out.println(checkFormat(Locale.forLanguageTag("en-US"), 1, "John", "188/meter"));
-        System.out.println(checkFormat(Locale.forLanguageTag("en"), 1, "Sarah", "1100/meter"));
-        System.out.println(checkFormat(Locale.forLanguageTag("de"), 3.456, "John", "188/meter"));
-        System.out.println(checkFormat(Locale.forLanguageTag("fr"), 0, "John", "188/meter"));
+        System.out.println(checkFormat(Locale.forLanguageTag("en-US"), 1, "John", "188 meter"));
+        System.out.println(checkFormat(Locale.forLanguageTag("en"), 1, "Sarah", "1100 meter"));
+        System.out.println(checkFormat(Locale.forLanguageTag("de"), 3.456, "John", "188 meter"));
+        System.out.println(checkFormat(Locale.forLanguageTag("fr"), 0, "John", "188 meter"));
     }
 
     private static void checkOffset(int input, int offset, String... nonZeroScoresArray) {
@@ -267,6 +323,214 @@ public class MockMessageFormat {
         for (Entry<Integer, Collection<String>> entry : scores.asMap().entrySet()) {
             System.out.println(
                     "match score= " + entry.getKey() + ", matchValues=" + entry.getValue());
+        }
+    }
+
+    static final String EXPRESSION = "\\s*\\{(\\S*)(?:\\s+(:\\S*)\\s*([^}]*))?\\s*}\\s*";
+    static final Pattern EXPRESSION_PATTERN = Pattern.compile(EXPRESSION);
+    static final Pattern INPUT_PATTERN = Pattern.compile("\\.input" + EXPRESSION);
+    static final Pattern LOCAL_PATTERN = Pattern.compile("\\.local\\s+(\\$\\S*)\\s*=" + EXPRESSION);
+    static final Pattern VARIANT_PATTERN =
+            Pattern.compile("\\.local\\s*(\\$\\S*)\\s*=\\s*\\{\\{[^}]*}}");
+
+    /**
+     * very simple; depends on the message being in 'normal form and not too complicated
+     *
+     * @return
+     */
+    Object dumbParseInput(String line, Map<String, Object> inputParameters) {
+        // eg .input {$var :number maxFractionDigits=2 minFractionDigits=1}
+        if (line.startsWith(".input")) {
+            return handleInput(line, inputParameters);
+        } else if (line.startsWith(".local")) {
+            return handleLocal(line, inputParameters);
+        } else if (line.startsWith(".match")) {
+            return handleMatch(line, inputParameters);
+        } else { // variant: keys & message
+            return handleVariant(line, inputParameters);
+        }
+    }
+
+    private Object handleVariant(String line, Map<String, Object> inputParameters) {
+        // TODO
+        return null;
+    }
+
+    public List<FunctionVariable> handleMatch(String line, Map<String, Object> inputParameters) {
+        int selector = 0;
+        int position = 6;
+        Matcher matcher = EXPRESSION_PATTERN.matcher(line);
+        while (true) {
+            matcher.region(position, line.length());
+            if (!matcher.lookingAt()) {
+                // later, check for cruft at end
+                return context.selectors;
+            }
+            String operand = matcher.group(1);
+            // optional
+            String functionName = matcher.group(2);
+            // optional, but if it occurs then the function has to be there
+            String options = matcher.group(3);
+
+            FunctionVariable existingVariable = context.get(operand);
+
+            if (functionName == null) {
+                if (existingVariable == null) {
+                    throw new IllegalArgumentException(
+                            "variable must be defined in: " + matcher.group());
+                }
+                context.addSelector(context.get(operand));
+            } else {
+                FunctionFactory functionFactory =
+                        functionName == null ? null : MockFunctions.get(functionName);
+                OptionsMap optionsMap =
+                        options.isBlank() ? null : OptionsMap.make(options); // optional
+                String newVariable = "$selector__" + selector++;
+                FunctionVariable result = null;
+                if (existingVariable != null) {
+                    context.addVariable(
+                            newVariable,
+                            result = functionFactory.fromVariable(operand, context, optionsMap));
+                } else {
+                    Object inputParameter = inputParameters.get(operand);
+                    if (inputParameter != null) {
+                        context.addVariable(
+                                newVariable,
+                                result = functionFactory.fromInput(inputParameter, optionsMap));
+                    } else {
+                        context.addVariable(
+                                newVariable,
+                                result = functionFactory.fromLiteral(operand, optionsMap));
+                    }
+                }
+                context.addSelector(result);
+            }
+            position = matcher.end();
+        }
+    }
+
+    public Object handleLocal(String line, Map<String, Object> inputParameters) {
+        Matcher matcher = LOCAL_PATTERN.matcher(line);
+        if (!matcher.matches()) {
+            throw new IllegalArgumentException(
+                    "Malformed line: " + RegexUtilities.showMismatch(INPUT_PATTERN, line));
+        }
+        String targetVariable = matcher.group(1);
+        if (context.get(targetVariable) != null) {
+            throw new IllegalArgumentException("Can't redefine variable in: " + line);
+        }
+        String operand = matcher.group(2);
+        String functionName = matcher.group(3); // optional
+        String options =
+                matcher.group(4); // optional, but if it occurs then the function has to be there
+
+        FunctionFactory functionFactory =
+                functionName == null ? null : MockFunctions.get(functionName);
+        OptionsMap optionsMap = options.isBlank() ? null : OptionsMap.make(options); // optional
+        FunctionVariable existingVariable = context.get(operand);
+        FunctionVariable result;
+        if (existingVariable != null) {
+            result =
+                    context.addVariable(
+                            targetVariable,
+                            functionFactory.fromVariable(operand, context, optionsMap));
+        } else {
+            Object inputParameter = inputParameters.get(operand);
+            if (inputParameter != null) {
+                result =
+                        context.addVariable(
+                                targetVariable,
+                                functionFactory.fromInput(inputParameter, optionsMap));
+            } else {
+                result =
+                        context.addVariable(
+                                targetVariable, functionFactory.fromLiteral(operand, optionsMap));
+            }
+        }
+        return result;
+    }
+
+    public Object handleInput(String line, Map<String, Object> inputParameters) {
+        Matcher matcher = INPUT_PATTERN.matcher(line);
+        if (!matcher.matches()) {
+            throw new IllegalArgumentException(
+                    "Malformed line: " + RegexUtilities.showMismatch(INPUT_PATTERN, line));
+        }
+        String operand = matcher.group(1);
+        String functionName = matcher.group(2); // not optional
+        String options = matcher.group(3); // optional
+
+        Object baseValue = inputParameters.get(operand);
+        if (baseValue == null) {
+            throw new IllegalArgumentException(
+                    String.format("Input parameter %s not passed in: %s", operand, line));
+        }
+        FunctionFactory functionFactory = MockFunctions.get(functionName);
+        if (functionFactory == null) {
+            throw new IllegalArgumentException(
+                    String.format("Function %s not registered: %s", functionName, line));
+        }
+        OptionsMap optionsMap = OptionsMap.make(options);
+        return context.addVariable(operand, functionFactory.fromInput(baseValue, optionsMap));
+    }
+
+    public static void checkParsing() {
+        Map<String, Object> inputParameters =
+                Map.of(
+                        "$var",
+                        3, //
+                        "$name",
+                        "John", //
+                        "$amount",
+                        3, //
+                        "$distance",
+                        new Measure(1.88, MeasureUnit.METER));
+        String[][] tests = {
+            {
+                ".input {$var :number maxFractionDigits=2 minFractionDigits=1}",
+                "[baseValue=3, options={maxFractionDigits=2, minFractionDigits=1}]"
+            },
+            {".input {$name :string}", "[baseValue=John]"},
+            {".input {$amount :number}", "[baseValue=3]"},
+            {
+                ".local $var2 = {$var :number maxFractionDigits=2}",
+                "[baseValue=3, options={maxFractionDigits=2}]"
+            },
+            {
+                ".input {$distance :u:measure maxFractionDigits=3 usage=road width=long}",
+                "[value=1.88 length-meter, options={maxFractionDigits=3, usage=road, width=long}]"
+            },
+            {
+                ".local $distance2 = {$distance :u:measure maxFractionDigits=2 usage=road width=long}",
+                "[value=1.88 length-meter, options={maxFractionDigits=2, usage=road, width=long}]"
+            },
+            {
+                ".match {$var2 :number numberingSystem=arab} {$name}",
+                "[[baseValue=3, options={numberingSystem=arab}], [baseValue=John]]"
+            },
+            {"0 hi {{There are no books for the {$name}.}}", ""},
+            {"one hi {{There is {$var2} book for {$name}.}}", ""},
+            {
+                "* * {{There are {$var2 :number signDisplay=always} books for {$name option=\"upper\"}.}}",
+                ""
+            },
+        };
+        MockMessageFormat mf = new MockMessageFormat(Locale.FRANCE);
+
+        for (String[] test : Arrays.asList(tests)) {
+            String source = test[0];
+            String expected = test[1];
+            Object actual;
+            try {
+                actual = mf.dumbParseInput(source, inputParameters);
+            } catch (Exception e) {
+                actual = e.getMessage();
+            }
+            String result = expected.equals(actual.toString()) ? "OK" : "Fail";
+            System.out.println(
+                    String.format(
+                            "%s %s\n\texpected %s,\n\tactual %s",
+                            result, source, expected, actual.toString()));
         }
     }
 
@@ -288,7 +552,7 @@ public class MockMessageFormat {
 
         // .input {$var :number maxFractionDigits=2 minFractionDigits=1}
         FunctionFactory number = MockFunctions.get(":number"); // create at first need
-        context.put(
+        context.addVariable(
                 "$var",
                 number.fromInput(
                         inputCount,
@@ -296,20 +560,20 @@ public class MockMessageFormat {
 
         // .input {$name :string}
         FunctionFactory string = MockFunctions.get(":string"); // create at first need
-        context.put("$name", string.fromInput(inputName, OptionsMap.EMPTY));
+        context.addVariable("$name", string.fromInput(inputName, OptionsMap.EMPTY));
 
         // .input {$amount :number}
-        context.put("$amount", number.fromLiteral("3.2", OptionsMap.EMPTY));
+        context.addVariable("$amount", number.fromLiteral("3.2", OptionsMap.EMPTY));
 
-        // .local {$var2 :number maxFractionDigits=2}
-        context.put(
+        // .local $var2 = {$var :number maxFractionDigits=2}
+        context.addVariable(
                 "$var2",
                 number.fromVariable(
                         "$var", context, OptionsMap.put("maxFractionDigits", 2).done()));
 
         // .local {$distance :u:measure maxFractionDigits=3 usage=road width=}
         FunctionFactory measure = MockFunctions.get(":u:measure"); // create at first need
-        context.put(
+        context.addVariable(
                 "$distance",
                 measure.fromLiteral( // the literal structure is number/unitId
                         distance,
@@ -327,29 +591,32 @@ public class MockMessageFormat {
         // For simplicity in this mockup, we pull all the additional function values out ahead of
         // time, giving them
         // non-colliding identifiers.
-        context.put(
+        context.addVariable(
                 "$var2_a",
                 number.fromVariable(
                         "$var2", context, OptionsMap.put("numberingSystem", "arab").done()));
-        context.put(
+        context.addVariable(
                 "$var2_b",
                 number.fromVariable(
                         "$var2", context, OptionsMap.put("signDisplay", "always").done()));
-        context.put(
+        context.addVariable(
                 "$name_b",
                 string.fromVariable("$name", context, OptionsMap.put("u:casing", "upper").done()));
 
         // We then build the variants and match them
 
         Variants variants =
-                new Variants(
-                        ImmutableMap.of(
+                new Variants()
+                        .add(
                                 List.of("0", "John"),
-                                "There are no books for {$name} within {$distance}.",
+                                "There are no books for {$name} within {$distance}.")
+                        .add(
                                 List.of("one", "John"),
-                                "There is {$var2} book for {$name} within {$distance}.",
+                                "There is {$var2} book for {$name} within {$distance}.")
+                        .add(
                                 List.of("*", "*"),
-                                "There are {$var2_b} books for {$name_b} within {$distance}."));
+                                "There are {$var2_b} books for {$name_b} within {$distance}.");
+
         String variant =
                 variants.getBestMatch(
                         context, List.of(context.get("$var2_a"), context.get("$name")));

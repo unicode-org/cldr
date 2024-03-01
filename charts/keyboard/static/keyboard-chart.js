@@ -94,7 +94,7 @@ function getKeyboardKeys(id) {
     {
       // add implied import
       "@_base": "cldr",
-      "@_path": "techpreview/keys-Latn-implied.xml",
+      "@_path": "45/keys-Latn-implied.xml",
     },
     ...(_KeyboardData.keyboards[id].keyboard3.keys.import || []),
   ];

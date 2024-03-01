@@ -22,11 +22,11 @@ const _KeyboardData =
      "import": [
       {
        "@_base": "cldr",
-       "@_path": "techpreview/keys-Zyyy-punctuation.xml"
+       "@_path": "45/keys-Zyyy-punctuation.xml"
       },
       {
        "@_base": "cldr",
-       "@_path": "techpreview/keys-Zyyy-currency.xml"
+       "@_path": "45/keys-Zyyy-currency.xml"
       }
      ],
      "key": [
@@ -200,7 +200,7 @@ const _KeyboardData =
     },
     "@_xmlns": "https://schemas.unicode.org/cldr/45/keyboard3",
     "@_locale": "mt-t-k0-47key",
-    "@_conformsTo": "techpreview"
+    "@_conformsTo": "45"
    }
   },
   "pcm.xml": {
@@ -219,11 +219,11 @@ const _KeyboardData =
      "import": [
       {
        "@_base": "cldr",
-       "@_path": "techpreview/keys-Zyyy-punctuation.xml"
+       "@_path": "45/keys-Zyyy-punctuation.xml"
       },
       {
        "@_base": "cldr",
-       "@_path": "techpreview/keys-Zyyy-currency.xml"
+       "@_path": "45/keys-Zyyy-currency.xml"
       }
      ],
      "key": [
@@ -343,7 +343,7 @@ const _KeyboardData =
     ],
     "@_xmlns": "https://schemas.unicode.org/cldr/45/keyboard3",
     "@_locale": "pcm",
-    "@_conformsTo": "techpreview"
+    "@_conformsTo": "45"
    }
   },
   "mt.xml": {
@@ -367,11 +367,11 @@ const _KeyboardData =
      "import": [
       {
        "@_base": "cldr",
-       "@_path": "techpreview/keys-Zyyy-punctuation.xml"
+       "@_path": "45/keys-Zyyy-punctuation.xml"
       },
       {
        "@_base": "cldr",
-       "@_path": "techpreview/keys-Zyyy-currency.xml"
+       "@_path": "45/keys-Zyyy-currency.xml"
       }
      ],
      "key": [
@@ -540,7 +540,7 @@ const _KeyboardData =
     },
     "@_xmlns": "https://schemas.unicode.org/cldr/45/keyboard3",
     "@_locale": "mt",
-    "@_conformsTo": "techpreview"
+    "@_conformsTo": "45"
    }
   },
   "fr-t-k0-azerty.xml": {
@@ -586,11 +586,11 @@ const _KeyboardData =
      "import": [
       {
        "@_base": "cldr",
-       "@_path": "techpreview/keys-Zyyy-punctuation.xml"
+       "@_path": "45/keys-Zyyy-punctuation.xml"
       },
       {
        "@_base": "cldr",
-       "@_path": "techpreview/keys-Zyyy-currency.xml"
+       "@_path": "45/keys-Zyyy-currency.xml"
       }
      ],
      "key": [
@@ -1001,7 +1001,7 @@ const _KeyboardData =
     ],
     "@_xmlns": "https://schemas.unicode.org/cldr/45/keyboard3",
     "@_locale": "fr-t-k0-azerty",
-    "@_conformsTo": "techpreview"
+    "@_conformsTo": "45"
    }
   },
   "ja-Latn.xml": {
@@ -1025,11 +1025,11 @@ const _KeyboardData =
      "import": [
       {
        "@_base": "cldr",
-       "@_path": "techpreview/keys-Zyyy-punctuation.xml"
+       "@_path": "45/keys-Zyyy-punctuation.xml"
       },
       {
        "@_base": "cldr",
-       "@_path": "techpreview/keys-Zyyy-currency.xml"
+       "@_path": "45/keys-Zyyy-currency.xml"
       }
      ]
     },
@@ -1080,7 +1080,7 @@ const _KeyboardData =
     },
     "@_xmlns": "https://schemas.unicode.org/cldr/45/keyboard3",
     "@_locale": "ja-Latn",
-    "@_conformsTo": "techpreview"
+    "@_conformsTo": "45"
    }
   },
   "bn.xml": {
@@ -1127,11 +1127,11 @@ const _KeyboardData =
      "import": [
       {
        "@_base": "cldr",
-       "@_path": "techpreview/keys-Zyyy-punctuation.xml"
+       "@_path": "45/keys-Zyyy-punctuation.xml"
       },
       {
        "@_base": "cldr",
-       "@_path": "techpreview/keys-Zyyy-currency.xml"
+       "@_path": "45/keys-Zyyy-currency.xml"
       }
      ],
      "key": [
@@ -1578,7 +1578,7 @@ const _KeyboardData =
     ],
     "@_xmlns": "https://schemas.unicode.org/cldr/45/keyboard3",
     "@_locale": "bn",
-    "@_conformsTo": "techpreview"
+    "@_conformsTo": "45"
    }
   },
   "pt-t-k0-abnt2.xml": {
@@ -1626,11 +1626,11 @@ const _KeyboardData =
      "import": [
       {
        "@_base": "cldr",
-       "@_path": "techpreview/keys-Zyyy-punctuation.xml"
+       "@_path": "45/keys-Zyyy-punctuation.xml"
       },
       {
        "@_base": "cldr",
-       "@_path": "techpreview/keys-Zyyy-currency.xml"
+       "@_path": "45/keys-Zyyy-currency.xml"
       }
      ],
      "key": [
@@ -1751,7 +1751,7 @@ const _KeyboardData =
     },
     "@_xmlns": "https://schemas.unicode.org/cldr/45/keyboard3",
     "@_locale": "pt-t-k0-abnt2",
-    "@_conformsTo": "techpreview"
+    "@_conformsTo": "45"
    }
   }
  },

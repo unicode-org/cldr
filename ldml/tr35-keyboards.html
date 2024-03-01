@@ -793,6 +793,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script src="./js/anchor.min.js"></script><div class="header"><table class="header" cellpadding="0" cellspacing="0" width="100%">
     <tbody>
         <tr>
@@ -814,14 +827,15 @@
 <td>Editors</td>
 <td>Steven Loomis (<a href="mailto:srloomis@unicode.org">srloomis@unicode.org</a>) and <a href="tr35.html#Acknowledgments">other CLDR committee members</a></td>
 </tr>
-</tbody></table><p>For the full header, summary, and status, see <a href="tr35.html">Part 1: Core</a>.</p><h4 id="important-note"><em>Important Note</em></h4><blockquote>
-<p>This is a technical preview of a future version of the LDML Part 7. See <a href="#status"><em>Status</em></a>, below.</p>
-<p>There are breaking changes, see <a href="#compatibility-notice">Compatibility Notice</a></p>
-</blockquote><h3 id="summary"><em>Summary</em></h3><p>This document describes parts of an XML format (<em>vocabulary</em>) for the exchange of structured locale data. This format is used in the <a href="https://www.unicode.org/cldr/">Unicode Common Locale Data Repository</a>.</p><p>This is a partial document, describing keyboards. For the other parts of the LDML see the <a href="tr35.html">main LDML document</a> and the links above.</p><p><em>Note:</em>
+</tbody></table><p>For the full header, summary, and status, see <a href="tr35.html">Part 1: Core</a>.</p><h3 id="summary"><em>Summary</em></h3><p>This document describes parts of an XML format (<em>vocabulary</em>) for the exchange of structured locale data. This format is used in the <a href="https://www.unicode.org/cldr/">Unicode Common Locale Data Repository</a>.</p><p>This is a partial document, describing keyboards. For the other parts of the LDML see the <a href="tr35.html">main LDML document</a> and the links above.</p><p><em>Note:</em>
 Some links may lead to in-development or older
 versions of the data files.
-See <a href="https://cldr.unicode.org">https://cldr.unicode.org</a> for up-to-date CLDR release data.</p><h3 id="status"><em>Status</em></h3><p>This document is a <em>technical preview</em> of the Keyboard standard.</p><p>To process earlier XML files, use the data and specification from v43.1, found at <a href="https://www.unicode.org/reports/tr35/tr35-69/tr35.html">https://www.unicode.org/reports/tr35/tr35-69/tr35.html</a></p><p>The CLDR <a href="https://cldr.unicode.org/index/keyboard-workgroup">Keyboard Workgroup</a> is currently
-developing this technical preview to the CLDR keyboard specification.</p><h2 id="Parts"><a name="parts" href="#Parts">Parts</a></h2><p>The LDML specification is divided into the following parts:</p><ul>
+See <a href="https://cldr.unicode.org">https://cldr.unicode.org</a> for up-to-date CLDR release data.</p><h3 id="status"><em>Status</em></h3><p><em>This is a draft document which may be updated, replaced, or superseded by other documents at any time.
+Publication does not imply endorsement by the Unicode Consortium.
+This is not a stable document; it is inappropriate to cite this document as other than a work in progress.</em></p><!-- _This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium.
+This is a stable document and may be used as reference material or cited as a normative reference by other specifications._ --><blockquote>
+<p><em><strong>A Unicode Technical Standard (UTS)</strong> is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS.</em></p>
+</blockquote><p><em>Please submit corrigenda and other comments with the CLDR bug reporting form [<a href="tr35.html#Bugs">Bugs</a>]. Related information that is useful in understanding this document is found in the <a href="tr35.html#References">References</a>. For the latest version of the Unicode Standard see [<a href="tr35.html#Unicode">Unicode</a>]. For a list of current Unicode Technical Reports see [<a href="tr35.html#Reports">Reports</a>]. For more information about versions of the Unicode Standard, see [<a href="tr35.html#Versions">Versions</a>].</em></p><p>See also <a href="#compatibility-notice">Compatibility Notice</a>.</p><h2 id="Parts"><a name="parts" href="#Parts">Parts</a></h2><p>The LDML specification is divided into the following parts:</p><ul>
 <li>Part 1: <a href="tr35.html#Contents">Core</a> (languages, locales, basic structure)</li>
 <li>Part 2: <a href="tr35-general.html#Contents">General</a> (display names &amp; transforms, etc.)</li>
 <li>Part 3: <a href="tr35-numbers.html#Contents">Numbers</a> (number &amp; currency formatting)</li>
@@ -831,11 +845,6 @@ developing this technical preview to the CLDR keyboard specification.</p><h2 id=
 <li>Part 7: <a href="tr35-keyboards.html#Contents">Keyboards</a> (keyboard mappings)</li>
 <li>Part 8: <a href="tr35-personNames.html#Contents">Person Names</a> (person names)</li>
 </ul><h2 id="Contents"><a name="contents-of-part-7-keyboards" href="#Contents">Contents of Part 7, Keyboards</a></h2><ul>
-<li><a href="#important-note"><em>Important Note</em></a></li>
-<li><a href="#summary"><em>Summary</em></a></li>
-<li><a href="#status"><em>Status</em></a></li>
-<li><a href="#Parts">Parts</a></li>
-<li><a href="#Contents">Contents of Part 7, Keyboards</a></li>
 <li><a href="#keyboards">Keyboards</a></li>
 <li><a href="#goals-and-non-goals">Goals and Non-goals</a><ul>
 <li><a href="#compatibility-notice">Compatibility Notice</a></li>
@@ -984,8 +993,10 @@ developing this technical preview to the CLDR keyboard specification.</p><h2 id=
 </ol><!-- 1. Display names or symbols for keycaps (eg, the German name for "Return"). If that were added to LDML, it would be in a different structure, outside the scope of this section.
 2. Advanced IME features, handwriting recognition, etc.
 3. Roundtrip mappings—the ability to recover precisely the same format as an original platform's representation. In particular, the internal structure may have no relation to the internal structure of external keyboard source data, the only goal is functional equivalence. --><!-- Note: During development of this section, it was considered whether the modifier RAlt (= AltGr) should be merged with Option. In the end, they were kept separate, but for comparison across platforms implementers may choose to unify them. --><p>Note that in parts of this document, the format <code>@x</code> is used to indicate the <em>attribute</em> <strong>x</strong>.</p><h3 id="compatibility-notice">Compatibility Notice</h3><blockquote>
-<p>👉 Note: CLDR-TC has agreed that the changes required were too extensive to maintain compatibility. For this reason, the <code>ldmlKeyboard3.dtd</code> DTD used here is <em>not</em> compatible with DTDs from prior versions of CLDR such as v43 and prior.</p>
+<p>A major rewrite of this specification, called "Keyboard 3.0", was introduced in CLDR v45.
+The changes required were too extensive to maintain compatibility. For this reason, the <code>ldmlKeyboard3.dtd</code> DTD is <em>not</em> compatible with DTDs from prior versions of CLDR such as v43 and prior.</p>
 <p>To process earlier XML files, use the data and specification from v43.1, found at <a href="https://www.unicode.org/reports/tr35/tr35-69/tr35.html">https://www.unicode.org/reports/tr35/tr35-69/tr35.html</a></p>
+<p><code>ldmlKeyboard.dtd</code> continues to be made available in CLDR, however, it will not be updated.</p>
 </blockquote><h3 id="accessibility">Accessibility</h3><p>Keyboard use can be challenging for individuals with various types of disabilities. For this revision, features or architectural designs specifically for the purpose of improving accessibility are not yet included. However:</p><ol>
 <li>Having an industry-wide standard format for keyboards will enable accessibility software to make use of keyboard data with a reduced dependence on platform-specific knowledge.</li>
 <li>Features which require certain levels of mobility or speed of entry should be considered for their impact on accessibility. This impact could be mitigated by means of additional, accessible methods of generating the same output.</li>
@@ -1012,9 +1023,9 @@ Distinguished from the <strong>frame keys</strong>.</p><p><strong>Dead keys:</st
 </ul><p>Characters of general category of Mark (M), Control characters (Cc), Format characters (Cf), and whitespace other than space should be encoded using one of the notation above as appropriate.</p><p>Attribute values escaped in this manner are annotated with the <code>&lt;!--@ALLOWS_UESC--&gt;</code> DTD annotation, see <a href="tr35.html#dtd-annotations">DTD Annotations</a></p><hr><h2 id="file-and-directory-structure">File and Directory Structure</h2><ul>
 <li><p>In the future, new layouts will be included in the CLDR repository, as a way for new layouts to be distributed in a cross-platorm manner. The process for this repository of layouts has not yet been defined, see the <a href="https://cldr.unicode.org/index/keyboard-workgroup">CLDR Keyboard Workgroup Page</a> for up-to-date information.</p>
 </li>
-<li><p>Layouts have version metadata to indicate their specification compliance versi​​on number. For this tech preview, the value used must be <code>techpreview</code>. When the the specification is out of tech preview, a specific CLDR version number will be used. See <a href="tr35-info.html#version-information"><code>cldrVersion</code></a>.</p>
+<li><p>Layouts have version metadata to indicate their specification compliance versi​​on number, such as <code>45</code>. See <a href="tr35-info.html#version-information"><code>cldrVersion</code></a>.</p>
 </li>
-</ul><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"https://schemas.unicode.org/cldr/45/keyboard3"</span> <span class="hljs-attr">conformsTo</span>=<span class="hljs-string">"techpreview"</span>/&gt;</span>
+</ul><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"https://schemas.unicode.org/cldr/45/keyboard3"</span> <span class="hljs-attr">conformsTo</span>=<span class="hljs-string">"45"</span>/&gt;</span>
 </code></pre><blockquote>
 <p><em>Note</em>: Unlike other LDML files, layouts are designed to be used outside of the CLDR source tree.  As such, they do not contain DOCTYPE entries.</p>
 <p>DTD and Schema (.xsd) files are available for use in validating keyboard files.</p>
@@ -1195,8 +1206,8 @@ For example, many platforms may request NFC as the output format. In such a case
 <p>Children: <a href="#element-displays">displays</a>, <a href="#element-import">import</a>, <a href="#element-info">info</a>, <a href="#element-keys">keys</a>, <a href="#element-flicks">flicks</a>, <a href="#element-layers">layers</a>, <a href="#element-locales">locales</a>, <a href="#element-settings">settings</a>, <a href="tr35.html#special"><em>special</em></a>, <a href="#element-transforms">transforms</a>, <a href="#element-variables">variables</a>, <a href="#element-version">version</a></p>
 <p>Occurrence: required, single</p>
 </small>
-</blockquote><p><em>Attribute:</em> <code>conformsTo</code> (required)</p><p>This attribute distinguishes the keyboard from prior versions,
-and it also specifies the minimum CLDR version required.</p><p>For purposes of this current draft specification, the value should always be <code>techpreview</code>.</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span> …&nbsp;<span class="hljs-attr">conformsTo</span>=<span class="hljs-string">"techpreview"</span>/&gt;</span>
+</blockquote><p><em>Attribute:</em> <code>conformsTo</code> (required)</p><p>This attribute value distinguishes the keyboard from prior versions,
+and it also specifies the minimum CLDR major version required.</p><p>This attribute value must be a whole number of <code>45</code> or greater. See <a href="tr35-info.html#version-information"><code>cldrVersion</code></a></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span> …&nbsp;<span class="hljs-attr">conformsTo</span>=<span class="hljs-string">"45"</span>/&gt;</span>
 </code></pre><p><em>Attribute:</em> <code>locale</code> (required)</p><p>This attribute value contains the primary locale of the keyboard using BCP 47 <a href="tr35.html#Canonical_Unicode_Locale_Identifiers">Unicode locale identifiers</a> - for example <code>"el"</code> for Greek. Sometimes, the locale may not specify the base language. For example, a Devanagari keyboard for many languages could be specified by BCP-47 code: <code>"und-Deva"</code>. However, it is better to list out the languages explicitly using the <a href="#element-locales"><code>locales</code></a> element.</p><p>For further details about the choice of locale ID, see <a href="#keyboard-ids">Keyboard IDs</a>.</p><p><strong>Example</strong> (for illustrative purposes only, not indicative of the real data)</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span> <span class="hljs-attr">locale</span>=<span class="hljs-string">"ka"</span>&gt;</span>
   …
 <span class="hljs-tag">&lt;/<span class="hljs-name">keyboard3</span>&gt;</span>
@@ -1411,7 +1422,7 @@ the modifier keys.</p>
 …
 </code></pre><p>These implied keys are available in a data file named <code>keyboards/import/keys-Latn-implied.xml</code> in the CLDR distribution for the convenience of implementations.</p><p>Thus, the implied keys behave as if the following import were present.</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">keys</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">import</span> <span class="hljs-attr">base</span>=<span class="hljs-string">"cldr"</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"techpreview/keys-Latn-implied.xml"</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">import</span> <span class="hljs-attr">base</span>=<span class="hljs-string">"cldr"</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"45/keys-Latn-implied.xml"</span> /&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">keys</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">keyboard3</span>&gt;</span>
 </code></pre><p><strong>Note:</strong> All implied keys may be overridden, as with all other imported data items. See the <a href="#element-import"><code>import</code></a> element for more details.</p><hr><h4 id="element-flicks">Element: flicks</h4><p>The <code>flicks</code> element is a collection of <code>flick</code> elements.</p><blockquote>
@@ -1472,7 +1483,7 @@ where a flick to the Northeast then South produces <code>Å</code>.</p><pre><cod
 another file. The use case is to be able to import a standard set of <code>transform</code>s and similar
 from the CLDR repository, especially to be able to share common information relevant to a particular script.
 The intent is for each single XML file to contain all that is needed for a keyboard layout, other than required standard import data from the CLDR repository.</p><p><code>&lt;import&gt;</code> can be used as a child of a number of elements (see the <em>Parents</em> section immediately below). Multiple <code>&lt;import&gt;</code> elements may be used, however, <code>&lt;import&gt;</code> elements must come before any other sibling elements.
-If two identical elements are defined, the later element will take precedence, that is, override.</p><p><strong>Note:</strong> imported files do not have any indication of their normalization mode. For this reason, the keyboard author must verify that the imported file is of a compatible normalization mode. See the <a href="#element-settings"><code>settings</code> element</a> for further details.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">import</span> <span class="hljs-attr">base</span>=<span class="hljs-string">"cldr"</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"techpreview/keys-Zyyy-punctuation.xml"</span>/&gt;</span>
+If two identical elements are defined, the later element will take precedence, that is, override.</p><p><strong>Note:</strong> imported files do not have any indication of their normalization mode. For this reason, the keyboard author must verify that the imported file is of a compatible normalization mode. See the <a href="#element-settings"><code>settings</code> element</a> for further details.</p><p><strong>Syntax</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">import</span> <span class="hljs-attr">base</span>=<span class="hljs-string">"cldr"</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"45/keys-Zyyy-punctuation.xml"</span>/&gt;</span>
 </code></pre><blockquote>
 <small>
 
@@ -1483,13 +1494,13 @@ Children: <em>none</em></p>
 </blockquote><p><em>Attribute:</em> <code>base</code></p><blockquote>
 <p>The base may be omitted (indicating a local import) or have the value <code>"cldr"</code>.</p>
 </blockquote><p><strong>Note:</strong> <code>base="cldr"</code> is required for all <code>&lt;import&gt;</code> statements within keyboard files in the CLDR repository.</p><p><em>Attribute:</em> <code>path</code> (required)</p><blockquote>
-<p>If <code>base</code> is <code>cldr</code>, then the <code>path</code> must start with a CLDR version (such as <code>techpreview</code>) representing the CLDR version to pull imports from. The imports are located in the <code>keyboard/import</code> subdirectory of the CLDR source repository.
+<p>If <code>base</code> is <code>cldr</code>, then the <code>path</code> must start with a CLDR major version (such as <code>45</code>) representing the CLDR version to pull imports from. The imports are located in the <code>keyboard/import</code> subdirectory of the CLDR source repository.
 Implementations are not required to have all CLDR versions available to them.</p>
 <p>If <code>base</code> is omitted, then <code>path</code> is an absolute or relative file path.</p>
 </blockquote><p><strong>Further Examples</strong></p><pre><code class="language-xml"><span class="hljs-comment">&lt;!-- in a keyboard xml file--&gt;</span>
 …
 <span class="hljs-tag">&lt;<span class="hljs-name">transforms</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"simple"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">import</span> <span class="hljs-attr">base</span>=<span class="hljs-string">"cldr"</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"techpreview/transforms-example.xml"</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">import</span> <span class="hljs-attr">base</span>=<span class="hljs-string">"cldr"</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"45/transforms-example.xml"</span>/&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">transform</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"` "</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"`"</span> /&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">transform</span> <span class="hljs-attr">from</span>=<span class="hljs-string">"^ "</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"^"</span> /&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">transforms</span>&gt;</span>
@@ -1630,7 +1641,7 @@ As a hint, the implementation may ignore this option.</p>
 <span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span>
 </code></pre><h5 id="implied-form-values">Implied Form Values</h5><p>There is an implied set of <code>&lt;form&gt;</code> elements corresponding to the default forms, thus implementations must behave as if there was the following import statement:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">keyboard3</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">forms</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">import</span> <span class="hljs-attr">base</span>=<span class="hljs-string">"cldr"</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"techpreview/scanCodes-implied.xml"</span> /&gt;</span> <span class="hljs-comment">&lt;!-- the version will match the current conformsTo of the file --&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">import</span> <span class="hljs-attr">base</span>=<span class="hljs-string">"cldr"</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"45/scanCodes-implied.xml"</span> /&gt;</span> <span class="hljs-comment">&lt;!-- the version will match the current conformsTo of the file --&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">forms</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">keyboard3</span>&gt;</span>
 </code></pre><p>Here is a summary of the implied form elements. Keyboards included in the CLDR Repository must only use these <code>form=</code> values and may not override the scanCodes.</p><blockquote>
@@ -2539,19 +2550,27 @@ DTD validation alone is not sufficient to verify a keyboard file.</p><hr><h2 id=
 <td>No output</td>
 <td>Both keys are output separately</td>
 </tr>
-</tbody></table><hr><h2 id="keyboard-test-data">Keyboard Test Data</h2><p>Keyboard Test Data allows the keyboard author to provide regression test data to validate the repertoire and behavior of a keyboard. Tooling can run these regression tests against an implementation, and can also be used as part of the development cycle to validate that keyboard changes do not deviate from expected behavior.  In the interest of complete coverage, tooling could also indicate whether all keys and gestures in a layout are exercised by the test data.</p><p>Test data files have a separate DTD, named <code>ldmlKeyboardTest3.dtd</code>.  Note that multiple test data files can refer to the same keyboard. Test files should be named similarly to the keyboards which they test, such as <code>fr_test.xml</code> to test <code>fr.xml</code>.</p><p>Sample test data files are located in the <code>keyboards/test</code> subdirectory.</p><p>The following describes the structure of a keyboard test file.</p><h3 id="test-doctype">Test Doctype</h3><pre><code class="language-xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"UTF-8"</span>?&gt;</span>
+</tbody></table><hr><h2 id="keyboard-test-data">Keyboard Test Data</h2><blockquote>
+<p><strong>NOTE</strong>: The Keyboard Test Data format is a technical preview, it is subject to revision in future versions of CLDR.</p>
+</blockquote><p>Keyboard Test Data allows the keyboard author to provide regression test data to validate the repertoire and behavior of a keyboard. Tooling can run these regression tests against an implementation, and can also be used as part of the development cycle to validate that keyboard changes do not deviate from expected behavior.  In the interest of complete coverage, tooling could also indicate whether all keys and gestures in a layout are exercised by the test data.</p><p>Test data files have a separate DTD, named <code>ldmlKeyboardTest3.dtd</code>.  Note that multiple test data files can refer to the same keyboard. Test files should be named similarly to the keyboards which they test, such as <code>fr_test.xml</code> to test <code>fr.xml</code>.</p><p>Sample test data files are located in the <code>keyboards/test</code> subdirectory.</p><p>The following describes the structure of a keyboard test file.</p><h3 id="test-doctype">Test Doctype</h3><blockquote>
+<p><strong>NOTE</strong>: The Keyboard Test Data format is a technical preview, it is subject to revision in future versions of CLDR.</p>
+</blockquote><pre><code class="language-xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"UTF-8"</span>?&gt;</span>
 <span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">keyboardTest3</span> <span class="hljs-keyword">SYSTEM</span> <span class="hljs-string">"../dtd/ldmlKeyboardTest3.dtd"</span>&gt;</span>
 </code></pre><p>The top level element is named <code>keyboardTest</code>.</p><h3 id="test-element-keyboardtest">Test Element: keyboardTest</h3><blockquote>
+<p><strong>NOTE</strong>: The Keyboard Test Data format is a technical preview, it is subject to revision in future versions of CLDR.</p>
+</blockquote><blockquote>
 <small>
 
 </small><p><small>Children: <a href="#test-element-info">info</a>, <a href="#test-element-repertoire">repertoire</a>, <a href="tr35.html#special"><em>special</em></a>, <a href="#test-element-tests">tests</a>
 </small></p>
-</blockquote><p>This is the top level element.</p><p><em>Attribute:</em> <code>conformsTo</code> (required)</p><p>The <code>conformsTo</code> attribute value here is the same as on the <a href="#element-keyboard3"><code>&lt;keyboard3&gt;</code></a> element.</p><pre><code class="language-xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"UTF-8"</span>?&gt;</span>
+</blockquote><p>This is the top level element.</p><p><em>Attribute:</em> <code>conformsTo</code> (required)</p><p>The <code>conformsTo</code> attribute value here is a fixed value of <code>techpreview</code>, because the test data is a Technical Preview.</p><pre><code class="language-xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">"1.0"</span> encoding=<span class="hljs-string">"UTF-8"</span>?&gt;</span>
 <span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">keyboardTest3</span> <span class="hljs-keyword">SYSTEM</span> <span class="hljs-string">"../dtd/ldmlKeyboardTest3.dtd"</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">keyboardTest3</span> <span class="hljs-attr">conformsTo</span>=<span class="hljs-string">"techpreview"</span>&gt;</span>
     …
 <span class="hljs-tag">&lt;/<span class="hljs-name">keyboardTest3</span>&gt;</span>
 </code></pre><h3 id="test-element-info">Test Element: info</h3><blockquote>
+<p><strong>NOTE</strong>: The Keyboard Test Data format is a technical preview, it is subject to revision in future versions of CLDR.</p>
+</blockquote><blockquote>
 <small>
 
 <p>Parents: <a href="#test-element-keyboardtest">keyboardTest</a></p>
@@ -2561,6 +2580,8 @@ DTD validation alone is not sufficient to verify a keyboard file.</p><hr><h2 id=
 </small></p>
 </blockquote><p><em>Attribute:</em> <code>author</code></p><p>This freeform attribute value allows for description of the author or authors of this test file.</p><p><em>Attribute:</em> <code>keyboard</code> (required)</p><p>This attribute value specifies the keyboard’s file name, such as <code>fr-t-k0-azerty.xml</code>.</p><p><em>Attribute:</em> <code>name</code> (required)</p><p>This attribute value specifies a name for this overall test file. These names could be output to the user during test execution, used to summarize success and failure, or used to select or deselect test components.</p><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">info</span> <span class="hljs-attr">keyboard</span>=<span class="hljs-string">"fr-t-k0-azerty.xml"</span> <span class="hljs-attr">author</span>=<span class="hljs-string">"Team Keyboard"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"fr-test"</span> /&gt;</span>
 </code></pre><h3 id="test-element-repertoire">Test Element: repertoire</h3><blockquote>
+<p><strong>NOTE</strong>: The Keyboard Test Data format is a technical preview, it is subject to revision in future versions of CLDR.</p>
+</blockquote><blockquote>
 <small>
 
 <p>Parents: <a href="#test-element-keyboardtest">keyboardTest</a></p>
@@ -2611,6 +2632,8 @@ Note that the 'name' is arbitrary. --&gt;</span>
 <span class="hljs-comment">&lt;!-- taken from CLDR's common/main/fr.xml auxiliary exemplars - indicates that all of these characters should be reachable even if a gesture is required.--&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">repertoire</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"cldr-fr-auxiliary"</span> <span class="hljs-attr">chars</span>=<span class="hljs-string">"[á å ä ã ā ć ē í ì ī ĳ ñ ó ò ö õ ø ř š ſ ß ú ǔ]"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"gesture"</span> /&gt;</span>
 </code></pre><p>Note: CLDR’s extensive <a href="tr35-general.html#Character_Elements">exemplar set</a> data may be useful in validating a language’s repertoire against a keyboard. Tooling may wish to make use of this data in order to suggest recommended repertoire values for a language.</p><h3 id="test-element-tests">Test Element: tests</h3><blockquote>
+<p><strong>NOTE</strong>: The Keyboard Test Data format is a technical preview, it is subject to revision in future versions of CLDR.</p>
+</blockquote><blockquote>
 <small>
 
 <p>Parents: <a href="#test-element-keyboardtest">keyboardTest</a></p>
@@ -2631,6 +2654,8 @@ Note that the 'name' is arbitrary. --&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">test</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">tests</span>&gt;</span>
 </code></pre><h3 id="test-element-test">Test Element: test</h3><blockquote>
+<p><strong>NOTE</strong>: The Keyboard Test Data format is a technical preview, it is subject to revision in future versions of CLDR.</p>
+</blockquote><blockquote>
 <small>
 
 <p>Parents: <a href="#test-element-tests">tests</a></p>
@@ -2638,7 +2663,9 @@ Note that the 'name' is arbitrary. --&gt;</span>
 </small><p><small>Occurrence: Required, Multiple
 </small></p>
 </blockquote><p>This attribute value specifies a specific isolated regression test. Multiple test elements do not interact with each other.</p><p>The order of child elements is significant, with cumulative effects: they must be processed from first to last.</p><p><em>Attribute:</em> <code>name</code> (required)</p><p>This attribute value specifies a unique name for this particular test. These names could be output to the user during test execution, used to summarize success and failure, or used to select or deselect test components.</p><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">info</span> <span class="hljs-attr">keyboard</span>=<span class="hljs-string">"fr-t-k0-azerty.xml"</span> <span class="hljs-attr">author</span>=<span class="hljs-string">"Team Keyboard"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"fr-test"</span> /&gt;</span>
-</code></pre><h3 id="test-element-startcontext">Test Element: startContext</h3><p>This element specifies pre-existing text in a document, as if prior to the user’s insertion point. This is useful for testing transforms and reordering. If not specified, the startContext can be considered to be the empty string ("").</p><blockquote>
+</code></pre><h3 id="test-element-startcontext">Test Element: startContext</h3><blockquote>
+<p><strong>NOTE</strong>: The Keyboard Test Data format is a technical preview, it is subject to revision in future versions of CLDR.</p>
+</blockquote><p>This element specifies pre-existing text in a document, as if prior to the user’s insertion point. This is useful for testing transforms and reordering. If not specified, the startContext can be considered to be the empty string ("").</p><blockquote>
 <small>
 
 <p>Parents: <a href="#test-element-test">test</a></p>
@@ -2647,6 +2674,8 @@ Note that the 'name' is arbitrary. --&gt;</span>
 </small></p>
 </blockquote><p><em>Attribute:</em> <code>to</code> (required)</p><p>Specifies the starting context. This text may be escaped with <code>\u</code> notation, see <a href="#escaping">Escaping</a>.</p><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">startContext</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"abc\u{0022}"</span>/&gt;</span>
 </code></pre><h3 id="test-element-keystroke">Test Element: keystroke</h3><blockquote>
+<p><strong>NOTE</strong>: The Keyboard Test Data format is a technical preview, it is subject to revision in future versions of CLDR.</p>
+</blockquote><blockquote>
 <small>
 
 <p>Parents: <a href="#test-element-test">test</a></p>
@@ -2659,6 +2688,8 @@ Note that the 'name' is arbitrary. --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">keystroke</span> <span class="hljs-attr">key</span>=<span class="hljs-string">"e"</span> <span class="hljs-attr">longPress</span>=<span class="hljs-string">"1"</span>/&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">keystroke</span> <span class="hljs-attr">key</span>=<span class="hljs-string">"E"</span> <span class="hljs-attr">tapCount</span>=<span class="hljs-string">"2"</span>/&gt;</span>
 </code></pre><h3 id="test-element-emit">Test Element: emit</h3><blockquote>
+<p><strong>NOTE</strong>: The Keyboard Test Data format is a technical preview, it is subject to revision in future versions of CLDR.</p>
+</blockquote><blockquote>
 <small>
 
 <p>Parents: <a href="#test-element-test">test</a></p>
@@ -2668,6 +2699,8 @@ Note that the 'name' is arbitrary. --&gt;</span>
 </blockquote><p>This element also contains an input event, except that the input is specified in terms of textual value rather than key or gesture identity. This element is particularly useful for testing transforms.</p><p>Processing of the specified text continues with the transform and other elements before updating the test output buffer.</p><p><em>Attribute:</em> <code>to</code> (required)</p><p>This attribute value specifies a string of output text representing a single keystroke or gesture. This string is intended to match the output of a <code>key</code>, <code>flick</code>, <code>longPress</code> or <code>multiTap</code> element or attribute.
 Tooling should give a hint if this attribute value does not match at least one keystroke or gesture. Note that the specified text is not injected directly into the output buffer.</p><p>This attribute value may be escaped with <code>\u</code> notation, see <a href="#escaping">Escaping</a>.</p><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">emit</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"s"</span>/&gt;</span>
 </code></pre><h3 id="test-element-backspace">Test Element: backspace</h3><blockquote>
+<p><strong>NOTE</strong>: The Keyboard Test Data format is a technical preview, it is subject to revision in future versions of CLDR.</p>
+</blockquote><blockquote>
 <small>
 
 <p>Parents: <a href="#test-element-test">test</a></p>
@@ -2676,6 +2709,8 @@ Tooling should give a hint if this attribute value does not match at least one k
 </small></p>
 </blockquote><p>This element contains a backspace action, as if the user typed the backspace key</p><p><strong>Example</strong></p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">backspace</span>/&gt;</span>
 </code></pre><h3 id="test-element-check">Test Element: check</h3><blockquote>
+<p><strong>NOTE</strong>: The Keyboard Test Data format is a technical preview, it is subject to revision in future versions of CLDR.</p>
+</blockquote><blockquote>
 <small>
 
 <p>Parents: <a href="#test-element-test">test</a></p>

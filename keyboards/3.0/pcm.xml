@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<keyboard3 xmlns="https://schemas.unicode.org/cldr/45/keyboard3" locale="pcm" conformsTo="techpreview">
+<keyboard3 xmlns="https://schemas.unicode.org/cldr/45/keyboard3" locale="pcm" conformsTo="45">
   <version number="1.0.0" />
   <info name="Naijíriá Píjin" />
   <keys>
-    <import base="cldr" path="techpreview/keys-Zyyy-punctuation.xml" />
-    <import base="cldr" path="techpreview/keys-Zyyy-currency.xml" />
+    <import base="cldr" path="45/keys-Zyyy-punctuation.xml" />
+    <import base="cldr" path="45/keys-Zyyy-currency.xml" />
     <key id="grave" output="\u{300}" />
     <key id="backquote" output="`" />
     <key id="acute" output="\u{301}" />

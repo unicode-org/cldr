@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<keyboard3 xmlns="https://schemas.unicode.org/cldr/45/keyboard3" locale="ja-Latn" conformsTo="techpreview">
+<keyboard3 xmlns="https://schemas.unicode.org/cldr/45/keyboard3" locale="ja-Latn" conformsTo="45">
 	<locales>
 		<locale id="en" />
 	</locales>
@@ -7,8 +7,8 @@
 	<info name="Romaji (JIS)" />
 
 	<keys>
-		<import base="cldr" path="techpreview/keys-Zyyy-punctuation.xml" />
-		<import base="cldr" path="techpreview/keys-Zyyy-currency.xml" />
+		<import base="cldr" path="45/keys-Zyyy-punctuation.xml" />
+		<import base="cldr" path="45/keys-Zyyy-currency.xml" />
 	</keys>
 
 	<layers formId="jis">

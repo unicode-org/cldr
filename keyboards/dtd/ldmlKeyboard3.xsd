@@ -7,14 +7,11 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
 <!--
   Copyright © 1991-2024 Unicode, Inc.
   For terms of use, see http://www.unicode.org/copyright.html
-  SPDX-License-Identifier: Unicode-DFS-2016
+  SPDX-License-Identifier: Unicode-3.0
   CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 --><!--
-  Important Note:
-
-  The CLDR Keyboard Subcommittee is currently developing major changes to the CLDR keyboard specification.
-  Please view the subcommittee page for the most recent information.
-  <https://cldr.unicode.org/index/keyboard-workgroup>
+  Note: This DTD is not compatible with prior versions of the keyboard data.
+  See ldmlKeyboard.dtd  and CLDR v43 and prior.
 --><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
   <xs:element name="keyboard3">
     <xs:complexType>
@@ -37,16 +34,17 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="conformsTo" use="required">
         <xs:simpleType>
           <xs:restriction base="xs:token">
-            <xs:enumeration value="techpreview"/>
+            <xs:enumeration value="45"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-
-
-
-
+  
+  
+  
+  
+  
   <xs:element name="import">
     <xs:complexType>
       <xs:attribute name="path" use="required"/>
@@ -59,8 +57,7 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-
-
+  
   <xs:element name="locales">
     <xs:complexType>
       <xs:sequence>
@@ -68,32 +65,28 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-
   <xs:element name="locale">
     <xs:complexType>
       <xs:attribute name="id" use="required"/>
     </xs:complexType>
   </xs:element>
-
-
+  
   <xs:element name="version">
     <xs:complexType>
       <xs:attribute name="number"/>
-      <xs:attribute default="techpreview" name="cldrVersion">
+      <xs:attribute default="45" name="cldrVersion">
         <xs:simpleType>
           <xs:restriction base="xs:string">
-            <xs:enumeration value="techpreview"/>
+            <xs:enumeration value="45"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-
-
-
-  <!-- Note: post techpreview, change cldrVersion to MATCH:version -->
-
-
+  
+  
+  
+  
   <xs:element name="info">
     <xs:complexType>
       <xs:attribute name="name" use="required"/>
@@ -102,15 +95,14 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="indicator"/>
     </xs:complexType>
   </xs:element>
-
-
-
-
-
-
-
-
-
+  
+  
+  
+  
+  
+  
+  
+  
   <xs:element name="settings">
     <xs:complexType>
       <xs:attribute name="normalization">
@@ -122,9 +114,8 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-
-
-
+  
+  
   <xs:element name="displays">
     <xs:complexType>
       <xs:sequence>
@@ -135,7 +126,6 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-
   <xs:element name="display">
     <xs:complexType>
       <xs:attribute name="keyId" type="xs:NMTOKEN"/>
@@ -143,24 +133,21 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="display" use="required"/>
     </xs:complexType>
   </xs:element>
-
-
-
-
-
-
-
+  
+  
+  
+  
+  
+  
   <xs:element name="displayOptions">
     <xs:complexType>
       <xs:attribute name="baseCharacter"/>
     </xs:complexType>
   </xs:element>
-
-
-
-
+  
+  
+  
   <xs:element name="special" type="any"/>
-
   <xs:element name="keys">
     <xs:complexType>
       <xs:sequence>
@@ -170,7 +157,6 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-
   <xs:element name="key">
     <xs:complexType>
       <xs:attribute name="id" type="xs:NMTOKEN" use="required"/>
@@ -197,24 +183,23 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="width"/>
     </xs:complexType>
   </xs:element>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   <xs:element name="flicks">
     <xs:complexType>
       <xs:sequence>
@@ -233,18 +218,16 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="id" type="xs:NMTOKEN" use="required"/>
     </xs:complexType>
   </xs:element>
-
-
+  
   <xs:element name="flickSegment">
     <xs:complexType>
       <xs:attribute name="directions" type="xs:NMTOKENS" use="required"/>
       <xs:attribute name="keyId" type="xs:NMTOKEN" use="required"/>
     </xs:complexType>
   </xs:element>
-
-
-
-
+  
+  
+  
   <xs:element name="forms">
     <xs:complexType>
       <xs:sequence>
@@ -254,7 +237,6 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-
   <xs:element name="form">
     <xs:complexType>
       <xs:sequence>
@@ -264,16 +246,14 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="id" type="xs:NMTOKEN"/>
     </xs:complexType>
   </xs:element>
-
-
+  
   <xs:element name="scanCodes">
     <xs:complexType>
       <xs:attribute name="codes" type="xs:NMTOKENS" use="required"/>
     </xs:complexType>
   </xs:element>
-
-
-
+  
+  
   <xs:element name="layers">
     <xs:complexType>
       <xs:sequence>
@@ -285,9 +265,8 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="minDeviceWidth"/>
     </xs:complexType>
   </xs:element>
-
-
-
+  
+  
   <xs:element name="layer">
     <xs:complexType>
       <xs:sequence>
@@ -298,18 +277,16 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="modifiers" type="xs:NMTOKENS"/>
     </xs:complexType>
   </xs:element>
-
-
-
+  
+  
   <xs:element name="row">
     <xs:complexType>
       <xs:attribute name="keys" type="xs:NMTOKENS" use="required"/>
     </xs:complexType>
   </xs:element>
-
-
-
-
+  
+  
+  
   <xs:element name="variables">
     <xs:complexType>
       <xs:sequence>
@@ -321,36 +298,35 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-
   <xs:element name="string">
     <xs:complexType>
       <xs:attribute name="id" type="xs:NMTOKEN" use="required"/>
       <xs:attribute name="value" use="required"/>
     </xs:complexType>
   </xs:element>
-
-
-
-
+  
+  
+  
+  
   <xs:element name="set">
     <xs:complexType>
       <xs:attribute name="id" type="xs:NMTOKEN" use="required"/>
       <xs:attribute name="value" use="required"/>
     </xs:complexType>
   </xs:element>
-
-
-
-
+  
+  
+  
+  
   <xs:element name="uset">
     <xs:complexType>
       <xs:attribute name="id" type="xs:NMTOKEN" use="required"/>
       <xs:attribute name="value" use="required"/>
     </xs:complexType>
   </xs:element>
-
-
-
+  
+  
+  
   <xs:element name="transforms">
     <xs:complexType>
       <xs:sequence>
@@ -368,8 +344,7 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-
-
+  
   <xs:element name="transformGroup">
     <xs:complexType>
       <xs:sequence>
@@ -382,20 +357,19 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-
   <xs:element name="transform">
     <xs:complexType>
       <xs:attribute name="from" use="required"/>
       <xs:attribute name="to"/>
     </xs:complexType>
   </xs:element>
-
-
-
-
-
-
-
+  
+  
+  
+  
+  
+  
+  
   <xs:element name="reorder">
     <xs:complexType>
       <xs:attribute name="before"/>

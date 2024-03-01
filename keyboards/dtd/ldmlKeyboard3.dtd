@@ -1,52 +1,42 @@
 <!--
 Copyright © 1991-2024 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-SPDX-License-Identifier: Unicode-DFS-2016
+SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
-<!-- Important Note:
-
-The CLDR Keyboard Subcommittee is currently developing major changes to the CLDR keyboard specification.
-Please view the subcommittee page for the most recent information.
-<https://cldr.unicode.org/index/keyboard-workgroup> -->
+<!-- Note: This DTD is not compatible with prior versions of the keyboard data.
+     See ldmlKeyboard.dtd  and CLDR v43 and prior. -->
 
 <!ELEMENT keyboard3 ( import*, locales?, version?, info, settings?, displays?, keys?, flicks?, forms?, layers*, variables?, transforms*, special* ) >
-    <!--@TECHPREVIEW-->
 <!ATTLIST keyboard3 locale CDATA #REQUIRED >
     <!--@MATCH:validity/bcp47-wellformed-->
-<!ATTLIST keyboard3 conformsTo (techpreview) #REQUIRED >
-    <!--@MATCH:any-->
+<!ATTLIST keyboard3 conformsTo (45) #REQUIRED >
+    <!--@MATCH:version-->
     <!--@METADATA-->
 <!ATTLIST keyboard3 xmlns CDATA #IMPLIED >
     <!--@MATCH:any-->
     <!--@METADATA-->
 
 <!ELEMENT import EMPTY >
-    <!--@TECHPREVIEW-->
 <!ATTLIST import path CDATA #REQUIRED >
     <!--@MATCH:any-->
 <!ATTLIST import base (cldr) #IMPLIED >
 
 <!ELEMENT locales ( locale* ) >
-    <!--@TECHPREVIEW-->
 
 <!ELEMENT locale EMPTY >
-    <!--@TECHPREVIEW-->
 <!ATTLIST locale id CDATA #REQUIRED >
     <!--@MATCH:validity/bcp47-wellformed-->
 
 <!ELEMENT version EMPTY >
-    <!--@TECHPREVIEW-->
 <!ATTLIST version number CDATA #IMPLIED >
     <!--@MATCH:semver-->
     <!--@VALUE-->
-<!ATTLIST version cldrVersion CDATA #FIXED "techpreview" >
-    <!-- Note: post techpreview, change cldrVersion to MATCH:version -->
-    <!--@MATCH:any-->
+<!ATTLIST version cldrVersion CDATA #FIXED "45" >
+    <!--@MATCH:version-->
     <!--@METADATA-->
 
 <!ELEMENT info EMPTY >
-    <!--@TECHPREVIEW-->
 <!ATTLIST info name CDATA #REQUIRED >
     <!--@MATCH:any-->
     <!--@VALUE-->
@@ -62,15 +52,12 @@ Please view the subcommittee page for the most recent information.
 
 <!ELEMENT settings EMPTY >
     <!--@ORDERED-->
-    <!--@TECHPREVIEW-->
 <!ATTLIST settings normalization (disabled) #IMPLIED >
     <!--@VALUE-->
 
 <!ELEMENT displays ( import*, display*, displayOptions*, special* ) >
-    <!--@TECHPREVIEW-->
 
 <!ELEMENT display EMPTY >
-    <!--@TECHPREVIEW-->
 <!ATTLIST display keyId NMTOKEN #IMPLIED >
     <!--@MATCH:any-->
 <!ATTLIST display output CDATA #IMPLIED >
@@ -82,20 +69,16 @@ Please view the subcommittee page for the most recent information.
     <!--@ALLOWS_UESC-->
 
 <!ELEMENT displayOptions EMPTY >
-    <!--@TECHPREVIEW-->
 <!ATTLIST displayOptions baseCharacter CDATA #IMPLIED >
     <!--@MATCH:any-->
     <!--@VALUE-->
     <!--@ALLOWS_UESC-->
 
 <!ELEMENT special ANY >
-    <!--@TECHPREVIEW-->
 
 <!ELEMENT keys ( import*, key*, special* ) >
-    <!--@TECHPREVIEW-->
 
 <!ELEMENT key EMPTY >
-    <!--@TECHPREVIEW-->
 <!ATTLIST key id NMTOKEN #REQUIRED >
     <!--@MATCH:any-->
 <!ATTLIST key flickId NMTOKEN #IMPLIED >
@@ -127,12 +110,10 @@ Please view the subcommittee page for the most recent information.
 <!ELEMENT flicks ( import*, flick*, special* ) >
 
 <!ELEMENT flick ( flickSegment+, special* ) >
-    <!--@TECHPREVIEW-->
 <!ATTLIST flick id NMTOKEN #REQUIRED >
     <!--@MATCH:any-->
 
 <!ELEMENT flickSegment EMPTY >
-    <!--@TECHPREVIEW-->
 <!ATTLIST flickSegment directions NMTOKENS #REQUIRED >
     <!--@MATCH:regex/(n|e|s|w|ne|nw|se|sw)([ ]+(n|e|s|w|ne|nw|se|sw))*-->
 <!ATTLIST flickSegment keyId NMTOKEN #REQUIRED >
@@ -140,28 +121,23 @@ Please view the subcommittee page for the most recent information.
     <!--@VALUE-->
 
 <!ELEMENT forms ( import*, form*, special* ) >
-    <!--@TECHPREVIEW-->
 
 <!ELEMENT form ( scanCodes+, special* ) >
-    <!--@TECHPREVIEW-->
 <!ATTLIST form id NMTOKEN #IMPLIED >
     <!--@MATCH:any-->
 
 <!ELEMENT scanCodes EMPTY >
-    <!--@TECHPREVIEW-->
 <!ATTLIST scanCodes codes NMTOKENS #REQUIRED >
     <!--@MATCH:regex/[0-9a-fA-F]{2}( [0-9a-fA-F]{2})*-->
     <!--@VALUE-->
 
 <!ELEMENT layers ( import*, layer*, special* ) >
-    <!--@TECHPREVIEW-->
 <!ATTLIST layers formId NMTOKEN #REQUIRED >
     <!--@MATCH:any-->
 <!ATTLIST layers minDeviceWidth CDATA #IMPLIED >
     <!--@MATCH:range/1~999-->
 
 <!ELEMENT layer ( row+, special* ) >
-    <!--@TECHPREVIEW-->
 <!ATTLIST layer id NMTOKEN #IMPLIED >
     <!--@MATCH:any-->
 <!ATTLIST layer modifiers NMTOKENS #IMPLIED >
@@ -169,13 +145,11 @@ Please view the subcommittee page for the most recent information.
 
 <!ELEMENT row EMPTY >
     <!--@ORDERED-->
-    <!--@TECHPREVIEW-->
 <!ATTLIST row keys NMTOKENS #REQUIRED >
     <!--@MATCH:any-->
     <!--@VALUE-->
 
 <!ELEMENT variables ( import*, string*, set*, uset*, special* ) >
-    <!--@TECHPREVIEW-->
 
 <!ELEMENT string EMPTY >
 <!ATTLIST string id NMTOKEN #REQUIRED >
@@ -201,12 +175,10 @@ Please view the subcommittee page for the most recent information.
     <!--@VALUE-->
 
 <!ELEMENT transforms ( import*, transformGroup*, special* ) >
-    <!--@TECHPREVIEW-->
 <!ATTLIST transforms type (simple | backspace) #REQUIRED >
     <!--@MATCH:literal/simple, backspace-->
 
 <!ELEMENT transformGroup ( import*, ( transform* | reorder* ), special* ) >
-    <!--@TECHPREVIEW-->
 
 <!ELEMENT transform EMPTY >
     <!--@ORDERED-->
@@ -221,7 +193,6 @@ Please view the subcommittee page for the most recent information.
 
 <!ELEMENT reorder EMPTY >
     <!--@ORDERED-->
-    <!--@TECHPREVIEW-->
 <!ATTLIST reorder before CDATA #IMPLIED >
     <!--@MATCH:any-->
     <!--@VALUE-->

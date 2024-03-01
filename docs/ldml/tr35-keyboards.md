@@ -8,12 +8,6 @@
 
 For the full header, summary, and status, see [Part 1: Core](tr35.md).
 
-#### _Important Note_
-
-> This is a technical preview of a future version of the LDML Part 7. See [_Status_](#status), below.
->
-> There are breaking changes, see [Compatibility Notice](#compatibility-notice)
-
 ### _Summary_
 
 This document describes parts of an XML format (_vocabulary_) for the exchange of structured locale data. This format is used in the [Unicode Common Locale Data Repository](https://www.unicode.org/cldr/).
@@ -27,12 +21,19 @@ See <https://cldr.unicode.org> for up-to-date CLDR release data.
 
 ### _Status_
 
-This document is a _technical preview_ of the Keyboard standard.
+_This is a draft document which may be updated, replaced, or superseded by other documents at any time.
+Publication does not imply endorsement by the Unicode Consortium.
+This is not a stable document; it is inappropriate to cite this document as other than a work in progress._
 
-To process earlier XML files, use the data and specification from v43.1, found at <https://www.unicode.org/reports/tr35/tr35-69/tr35.html>
+<!-- _This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium.
+This is a stable document and may be used as reference material or cited as a normative reference by other specifications._ -->
 
-The CLDR [Keyboard Workgroup][keyboard-workgroup] is currently
-developing this technical preview to the CLDR keyboard specification.
+> _**A Unicode Technical Standard (UTS)** is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS._
+
+_Please submit corrigenda and other comments with the CLDR bug reporting form [[Bugs](tr35.md#Bugs)]. Related information that is useful in understanding this document is found in the [References](tr35.md#References). For the latest version of the Unicode Standard see [[Unicode](tr35.md#Unicode)]. For a list of current Unicode Technical Reports see [[Reports](tr35.md#Reports)]. For more information about versions of the Unicode Standard, see [[Versions](tr35.md#Versions)]._
+
+
+See also [Compatibility Notice](#compatibility-notice).
 
 ## <a name="Parts" href="#Parts">Parts</a>
 
@@ -49,16 +50,12 @@ The LDML specification is divided into the following parts:
 
 ## <a name="Contents" href="#Contents">Contents of Part 7, Keyboards</a>
 
-  * [_Important Note_](#important-note)
-  * [_Summary_](#summary)
-  * [_Status_](#status)
-* [Parts](#Parts)
-* [Contents of Part 7, Keyboards](#Contents)
 * [Keyboards](#keyboards)
 * [Goals and Non-goals](#goals-and-non-goals)
   * [Compatibility Notice](#compatibility-notice)
   * [Accessibility](#accessibility)
 * [Definitions](#definitions)
+* [Notation](#notation)
   * [Escaping](#escaping)
   * [UnicodeSet Escaping](#unicodeset-escaping)
   * [UTS18 Escaping](#uts18-escaping)
@@ -98,6 +95,7 @@ The LDML specification is divided into the following parts:
   * [Element: import](#element-import)
   * [Element: displays](#element-displays)
   * [Element: display](#element-display)
+    * [Non-spacing marks on keytops](#non-spacing-marks-on-keytops)
   * [Element: displayOptions](#element-displayoptions)
   * [Element: forms](#element-forms)
   * [Element: form](#element-form)
@@ -105,6 +103,7 @@ The LDML specification is divided into the following parts:
   * [Element: scanCodes](#element-scancodes)
   * [Element: layers](#element-layers)
   * [Element: layer](#element-layer)
+    * [Layer Modifier Sets](#layer-modifier-sets)
     * [Layer Modifier Components](#layer-modifier-components)
     * [Modifier Left- and Right- keys](#modifier-left--and-right--keys)
     * [Layer Modifier Matching](#layer-modifier-matching)
@@ -203,9 +202,12 @@ Note that in parts of this document, the format `@x` is used to indicate the _at
 
 ### Compatibility Notice
 
-> 👉 Note: CLDR-TC has agreed that the changes required were too extensive to maintain compatibility. For this reason, the `ldmlKeyboard3.dtd` DTD used here is _not_ compatible with DTDs from prior versions of CLDR such as v43 and prior.
+> A major rewrite of this specification, called "Keyboard 3.0", was introduced in CLDR v45.
+> The changes required were too extensive to maintain compatibility. For this reason, the `ldmlKeyboard3.dtd` DTD is _not_ compatible with DTDs from prior versions of CLDR such as v43 and prior.
 >
 > To process earlier XML files, use the data and specification from v43.1, found at <https://www.unicode.org/reports/tr35/tr35-69/tr35.html>
+>
+> `ldmlKeyboard.dtd` continues to be made available in CLDR, however, it will not be updated.
 
 ### Accessibility
 
@@ -310,10 +312,10 @@ Attribute values escaped in this manner are annotated with the `<!--@ALLOWS_UESC
 
 * In the future, new layouts will be included in the CLDR repository, as a way for new layouts to be distributed in a cross-platorm manner. The process for this repository of layouts has not yet been defined, see the [CLDR Keyboard Workgroup Page][keyboard-workgroup] for up-to-date information.
 
-* Layouts have version metadata to indicate their specification compliance versi​​on number. For this tech preview, the value used must be `techpreview`. When the the specification is out of tech preview, a specific CLDR version number will be used. See [`cldrVersion`](tr35-info.md#version-information).
+* Layouts have version metadata to indicate their specification compliance versi​​on number, such as `45`. See [`cldrVersion`](tr35-info.md#version-information).
 
 ```xml
-<keyboard3 xmlns="https://schemas.unicode.org/cldr/45/keyboard3" conformsTo="techpreview"/>
+<keyboard3 xmlns="https://schemas.unicode.org/cldr/45/keyboard3" conformsTo="45"/>
 ```
 
 > _Note_: Unlike other LDML files, layouts are designed to be used outside of the CLDR source tree.  As such, they do not contain DOCTYPE entries.
@@ -636,13 +638,13 @@ This is the top level element. All other elements defined below are under this e
 
 _Attribute:_ `conformsTo` (required)
 
-This attribute distinguishes the keyboard from prior versions,
-and it also specifies the minimum CLDR version required.
+This attribute value distinguishes the keyboard from prior versions,
+and it also specifies the minimum CLDR major version required.
 
-For purposes of this current draft specification, the value should always be `techpreview`.
+This attribute value must be a whole number of `45` or greater. See [`cldrVersion`](tr35-info.md#version-information)
 
 ```xml
-<keyboard3 … conformsTo="techpreview"/>
+<keyboard3 … conformsTo="45"/>
 ```
 
 _Attribute:_ `locale` (required)
@@ -1074,7 +1076,7 @@ Thus, the implied keys behave as if the following import were present.
 ```xml
 <keyboard3>
     <keys>
-        <import base="cldr" path="techpreview/keys-Latn-implied.xml" />
+        <import base="cldr" path="45/keys-Latn-implied.xml" />
     </keys>
 </keyboard3>
 ```
@@ -1195,7 +1197,7 @@ If two identical elements are defined, the later element will take precedence, t
 
 **Syntax**
 ```xml
-<import base="cldr" path="techpreview/keys-Zyyy-punctuation.xml"/>
+<import base="cldr" path="45/keys-Zyyy-punctuation.xml"/>
 ```
 > <small>
 >
@@ -1214,7 +1216,7 @@ _Attribute:_ `base`
 
 _Attribute:_ `path` (required)
 
-> If `base` is `cldr`, then the `path` must start with a CLDR version (such as `techpreview`) representing the CLDR version to pull imports from. The imports are located in the `keyboard/import` subdirectory of the CLDR source repository.
+> If `base` is `cldr`, then the `path` must start with a CLDR major version (such as `45`) representing the CLDR version to pull imports from. The imports are located in the `keyboard/import` subdirectory of the CLDR source repository.
 > Implementations are not required to have all CLDR versions available to them.
 >
 > If `base` is omitted, then `path` is an absolute or relative file path.
@@ -1226,7 +1228,7 @@ _Attribute:_ `path` (required)
 <!-- in a keyboard xml file-->
 …
 <transforms type="simple">
-    <import base="cldr" path="techpreview/transforms-example.xml"/>
+    <import base="cldr" path="45/transforms-example.xml"/>
     <transform from="` " to="`" />
     <transform from="^ " to="^" />
 </transforms>
@@ -1497,7 +1499,7 @@ There is an implied set of `<form>` elements corresponding to the default forms,
 ```xml
 <keyboard3>
     <forms>
-        <import base="cldr" path="techpreview/scanCodes-implied.xml" /> <!-- the version will match the current conformsTo of the file -->
+        <import base="cldr" path="45/scanCodes-implied.xml" /> <!-- the version will match the current conformsTo of the file -->
     </forms>
 </keyboard3>
 ```
@@ -2876,6 +2878,8 @@ The following are the design principles for the IDs.
 
 ## Keyboard Test Data
 
+> **NOTE**: The Keyboard Test Data format is a technical preview, it is subject to revision in future versions of CLDR.
+
 Keyboard Test Data allows the keyboard author to provide regression test data to validate the repertoire and behavior of a keyboard. Tooling can run these regression tests against an implementation, and can also be used as part of the development cycle to validate that keyboard changes do not deviate from expected behavior.  In the interest of complete coverage, tooling could also indicate whether all keys and gestures in a layout are exercised by the test data.
 
 Test data files have a separate DTD, named `ldmlKeyboardTest3.dtd`.  Note that multiple test data files can refer to the same keyboard. Test files should be named similarly to the keyboards which they test, such as `fr_test.xml` to test `fr.xml`.
@@ -2886,6 +2890,8 @@ The following describes the structure of a keyboard test file.
 
 ### Test Doctype
 
+> **NOTE**: The Keyboard Test Data format is a technical preview, it is subject to revision in future versions of CLDR.
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE keyboardTest3 SYSTEM "../dtd/ldmlKeyboardTest3.dtd">
@@ -2894,6 +2900,8 @@ The following describes the structure of a keyboard test file.
 The top level element is named `keyboardTest`.
 
 ### Test Element: keyboardTest
+
+> **NOTE**: The Keyboard Test Data format is a technical preview, it is subject to revision in future versions of CLDR.
 
 > <small>
 >
@@ -2904,7 +2912,7 @@ This is the top level element.
 
 _Attribute:_ `conformsTo` (required)
 
-The `conformsTo` attribute value here is the same as on the [`<keyboard3>`](#element-keyboard3) element.
+The `conformsTo` attribute value here is a fixed value of `techpreview`, because the test data is a Technical Preview.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -2915,6 +2923,8 @@ The `conformsTo` attribute value here is the same as on the [`<keyboard3>`](#ele
 ```
 
 ### Test Element: info
+
+> **NOTE**: The Keyboard Test Data format is a technical preview, it is subject to revision in future versions of CLDR.
 
 > <small>
 >
@@ -2942,6 +2952,8 @@ This attribute value specifies a name for this overall test file. These names co
 ```
 
 ### Test Element: repertoire
+
+> **NOTE**: The Keyboard Test Data format is a technical preview, it is subject to revision in future versions of CLDR.
 
 > <small>
 >
@@ -2994,6 +3006,9 @@ Note: CLDR’s extensive [exemplar set](tr35-general.md#Character_Elements) data
 
 ### Test Element: tests
 
+> **NOTE**: The Keyboard Test Data format is a technical preview, it is subject to revision in future versions of CLDR.
+
+
 > <small>
 >
 > Parents: [keyboardTest](#test-element-keyboardtest)
@@ -3029,6 +3044,9 @@ This attribute value specifies a unique name for this suite of tests. These name
 
 ### Test Element: test
 
+> **NOTE**: The Keyboard Test Data format is a technical preview, it is subject to revision in future versions of CLDR.
+
+
 > <small>
 >
 > Parents: [tests](#test-element-tests)
@@ -3054,6 +3072,8 @@ This attribute value specifies a unique name for this particular test. These nam
 
 ### Test Element: startContext
 
+> **NOTE**: The Keyboard Test Data format is a technical preview, it is subject to revision in future versions of CLDR.
+
 This element specifies pre-existing text in a document, as if prior to the user’s insertion point. This is useful for testing transforms and reordering. If not specified, the startContext can be considered to be the empty string ("").
 
 > <small>
@@ -3077,6 +3097,9 @@ Specifies the starting context. This text may be escaped with `\u` notation, see
 
 
 ### Test Element: keystroke
+
+> **NOTE**: The Keyboard Test Data format is a technical preview, it is subject to revision in future versions of CLDR.
+
 
 > <small>
 >
@@ -3123,6 +3146,9 @@ This attribute value specifies that a multi-tap gesture should be performed on t
 
 ### Test Element: emit
 
+> **NOTE**: The Keyboard Test Data format is a technical preview, it is subject to revision in future versions of CLDR.
+
+
 > <small>
 >
 > Parents: [test](#test-element-test)
@@ -3152,6 +3178,9 @@ This attribute value may be escaped with `\u` notation, see [Escaping](#escaping
 
 ### Test Element: backspace
 
+> **NOTE**: The Keyboard Test Data format is a technical preview, it is subject to revision in future versions of CLDR.
+
+
 > <small>
 >
 > Parents: [test](#test-element-test)
@@ -3170,6 +3199,9 @@ This element contains a backspace action, as if the user typed the backspace key
 ```
 
 ### Test Element: check
+
+> **NOTE**: The Keyboard Test Data format is a technical preview, it is subject to revision in future versions of CLDR.
+
 
 > <small>
 >

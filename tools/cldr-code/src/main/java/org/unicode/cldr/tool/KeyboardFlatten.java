@@ -83,8 +83,8 @@ public class KeyboardFlatten {
         final String path = getPath(item);
         System.err.println("Import: " + base + ":" + path);
         if (base.equals("cldr")) {
-            if (path.startsWith("techpreview/")) {
-                final String subpath = path.replaceFirst("techpreview/", "");
+            if (path.startsWith("45/")) {
+                final String subpath = path.replaceFirst("45/", "");
                 final File importDir =
                         new File(
                                 CLDRConfig.getInstance().getCldrBaseDirectory(),

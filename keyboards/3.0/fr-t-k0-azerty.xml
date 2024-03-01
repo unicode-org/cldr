@@ -7,7 +7,7 @@
 
 	Also NOTE: this is really a test keyboard.  CLDR-12026 will be for the real new azerty keyboard
 -->
-<keyboard3 xmlns="https://schemas.unicode.org/cldr/45/keyboard3" locale="fr-t-k0-azerty" conformsTo="techpreview">
+<keyboard3 xmlns="https://schemas.unicode.org/cldr/45/keyboard3" locale="fr-t-k0-azerty" conformsTo="45">
 	<locales>
 		<locale id="br" /> <!-- example of including Breton -->
 	</locales>
@@ -36,8 +36,8 @@
 	</displays>
 
 	<keys>
-		<import base="cldr" path="techpreview/keys-Zyyy-punctuation.xml" />
-		<import base="cldr" path="techpreview/keys-Zyyy-currency.xml" />
+		<import base="cldr" path="45/keys-Zyyy-punctuation.xml" />
+		<import base="cldr" path="45/keys-Zyyy-currency.xml" />
 
 		<!-- switch keys -->
 		<key id="shift" layerId="shift" />

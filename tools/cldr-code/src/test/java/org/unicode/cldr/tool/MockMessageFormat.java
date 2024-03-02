@@ -38,7 +38,7 @@ public class MockMessageFormat {
      * A factory that represents a particular function. It is used to create a FunctionVariable from
      * either an input, or another variable (
      */
-    public interface FunctionFactory {
+    public interface MfFunction {
 
         public String getName();
 
@@ -48,14 +48,14 @@ public class MockMessageFormat {
         /** Used in checking syntax */
         public boolean canFormat();
 
-        public FunctionVariable from(Expression expression, MFContext mfContext);
+        public MfResolvedVariable from(Expression expression, MfContext mfContext);
     }
 
     /**
      * An immutable variable containing information that results from applying a FunctionFactory
      * such as :number or :date. The FunctionVariable is specific to FunctionFactory.
      */
-    public abstract static class FunctionVariable {
+    public abstract static class MfResolvedVariable {
         private OptionsMap options;
         // The subclasses will have a value as well
 
@@ -78,9 +78,9 @@ public class MockMessageFormat {
 
         public static final int EXACT_MATCH = Integer.MAX_VALUE;
 
-        public abstract int match(MFContext contact, String matchKey);
+        public abstract int match(MfContext contact, String matchKey);
 
-        public abstract String format(MFContext contact);
+        public abstract String format(MfContext contact);
 
         // abstract Parts formatToParts(); // not necessary for mock
 
@@ -141,13 +141,13 @@ public class MockMessageFormat {
         }
 
         /** Format a variant message, once it has been chosen. */
-        String format(MFContext context) {
+        String format(MfContext context) {
             StringBuilder result = new StringBuilder();
             for (Object piece : contents) {
                 if (piece instanceof String) {
                     result.append(piece.toString());
                 } else {
-                    FunctionVariable fv = ((Expression) piece).resolve(context);
+                    MfResolvedVariable fv = ((Expression) piece).resolve(context);
                     result.append(fv.format(context));
                 }
             }
@@ -331,7 +331,7 @@ public class MockMessageFormat {
     static class Expression {
         Type type;
         String operandId;
-        FunctionFactory functionFactory;
+        MfFunction functionFactory;
         OptionsMap map;
 
         @Override
@@ -350,8 +350,7 @@ public class MockMessageFormat {
             variable
         }
 
-        public Expression(
-                Type type, String operandId, FunctionFactory function, OptionsMap optionsMap) {
+        public Expression(Type type, String operandId, MfFunction function, OptionsMap optionsMap) {
             this.type = type;
             this.operandId = operandId;
             this.functionFactory = function == null ? MockFunctions.get(":string") : function;
@@ -361,7 +360,7 @@ public class MockMessageFormat {
             }
         }
 
-        public FunctionVariable resolve(MFContext context) {
+        public MfResolvedVariable resolve(MfContext context) {
             return functionFactory.from(this, context);
         }
     }
@@ -387,7 +386,7 @@ public class MockMessageFormat {
             }
             return existingVariable;
         } else {
-            FunctionFactory functionFactory =
+            MfFunction functionFactory =
                     functionName == null ? null : MockFunctions.get(functionName);
             OptionsMap optionsMap = options.isBlank() ? null : OptionsMap.make(options); // optional
             if (existingVariable != null) {
@@ -428,7 +427,7 @@ public class MockMessageFormat {
                 }
                 result = existingVariable;
             } else {
-                FunctionFactory functionFactory =
+                MfFunction functionFactory =
                         functionName == null ? null : MockFunctions.get(functionName);
                 OptionsMap optionsMap =
                         options.isBlank() ? null : OptionsMap.make(options); // optional
@@ -481,8 +480,7 @@ public class MockMessageFormat {
         String options =
                 matcher.group(4); // optional, but if it occurs then the function has to be there
 
-        FunctionFactory functionFactory =
-                functionName == null ? null : MockFunctions.get(functionName);
+        MfFunction functionFactory = functionName == null ? null : MockFunctions.get(functionName);
         OptionsMap optionsMap = options.isBlank() ? null : OptionsMap.make(options); // optional
         Expression existingVariable = variables.get(operand);
         Expression result;
@@ -518,7 +516,7 @@ public class MockMessageFormat {
             throw new IllegalArgumentException(
                     String.format("Input parameter %s must not be a variable: %s", operand, line));
         }
-        FunctionFactory functionFactory = MockFunctions.get(functionName);
+        MfFunction functionFactory = MockFunctions.get(functionName);
         if (functionFactory == null) {
             throw new IllegalArgumentException(
                     String.format("Function %s not registered: %s", functionName, line));
@@ -582,16 +580,16 @@ public class MockMessageFormat {
      * A container for context used to format a particular set of input parameters. It contains
      * structures that are used in intermediate processing.
      */
-    static class MFContext {
+    static class MfContext {
         public final Map<String, Object> inputParameters = new LinkedHashMap<>();
-        public final Map<String, FunctionVariable> boundVariables = new LinkedHashMap<>();
+        public final Map<String, MfResolvedVariable> boundVariables = new LinkedHashMap<>();
 
         public Locale getLocale() {
             Object result = inputParameters.get("$locale");
             return result == null ? Locale.GERMAN : (Locale) result;
         }
 
-        public FunctionVariable get(String name) {
+        public MfResolvedVariable get(String name) {
             return boundVariables.get(name);
         }
 
@@ -599,12 +597,12 @@ public class MockMessageFormat {
             return inputParameters.get(id);
         }
 
-        public MFContext addInput(String id, Object parameter) {
+        public MfContext addInput(String id, Object parameter) {
             inputParameters.put(id, parameter);
             return this;
         }
 
-        public MFContext addInput(Map<String, Object> parameters) {
+        public MfContext addInput(Map<String, Object> parameters) {
             inputParameters.putAll(parameters);
             return this;
         }
@@ -619,7 +617,7 @@ public class MockMessageFormat {
             }
         }
 
-        public FunctionVariable addVariable(String name, FunctionVariable numberVariable) {
+        public MfResolvedVariable addVariable(String name, MfResolvedVariable numberVariable) {
             if (boundVariables.containsKey(name)) {
                 throw new IllegalArgumentException("Can't reassign variable");
             }
@@ -632,7 +630,7 @@ public class MockMessageFormat {
         }
     }
 
-    public String format(MFContext context) {
+    public String format(MfContext context) {
         freeze();
         if (!context.inputParameters.keySet().containsAll(requiredInput.keySet())) {
             throw new IllegalArgumentException(
@@ -642,7 +640,7 @@ public class MockMessageFormat {
         }
         context.bindVariables(this);
 
-        List<FunctionVariable> boundSelectors = new ArrayList<>();
+        List<MfResolvedVariable> boundSelectors = new ArrayList<>();
         for (Expression expression : selectors) {
             boundSelectors.add(expression.resolve(context));
         }
@@ -660,10 +658,10 @@ public class MockMessageFormat {
                 throw new IllegalArgumentException();
             }
             Iterator<String> keyIterator = entry.getKey().iterator();
-            for (FunctionVariable selector : boundSelectors) {
+            for (MfResolvedVariable selector : boundSelectors) {
                 final String matchKey = keyIterator.next();
                 if (!matchKey.equals("*")
-                        && selector.match(context, matchKey) == FunctionVariable.NO_MATCH) {
+                        && selector.match(context, matchKey) == MfResolvedVariable.NO_MATCH) {
                     continue main;
                 }
             }

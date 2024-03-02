@@ -9,8 +9,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-import org.unicode.cldr.tool.MockMessageFormat.FunctionVariable;
-import org.unicode.cldr.tool.MockMessageFormat.MFContext;
+import org.unicode.cldr.tool.MockMessageFormat.MfContext;
+import org.unicode.cldr.tool.MockMessageFormat.MfResolvedVariable;
 
 public class TestMockMessageFormat {
     private static final Joiner LINE_JOINER = Joiner.on("\n\t");
@@ -51,8 +51,8 @@ public class TestMockMessageFormat {
                     "* {{{$name :string} likes {$sport1 :string}, {$sport1 :string}, and {$count} others.}}");
 
     private static void checkOffset(String name, int input, String sport1, String sport2) {
-        final MFContext context =
-                new MFContext()
+        final MfContext context =
+                new MfContext()
                         .addInput("$locale", Locale.forLanguageTag("ar-u-nu-arab"))
                         .addInput("$name", name)
                         .addInput("$count", input)
@@ -160,7 +160,7 @@ public class TestMockMessageFormat {
         for (Object[] test : Arrays.asList(tests2)) {
             Map<String, Object> source = (Map<String, Object>) test[0];
             String expected = test[1].toString();
-            MFContext context = new MFContext().addInput(source);
+            MfContext context = new MfContext().addInput(source);
             String actual = mf.format(context);
             System.out.println(
                     String.format(
@@ -172,9 +172,9 @@ public class TestMockMessageFormat {
         }
     }
 
-    private static void debug(String variableName, MFContext context) {
+    private static void debug(String variableName, MfContext context) {
         if (MockMessageFormat.DEBUG) {
-            final FunctionVariable functionVariable = context.get(variableName);
+            final MfResolvedVariable functionVariable = context.get(variableName);
             final String formatted = functionVariable.format(context);
             System.out.println(
                     "# "

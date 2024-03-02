@@ -22,17 +22,17 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import org.unicode.cldr.tool.MockMessageFormat.Expression;
-import org.unicode.cldr.tool.MockMessageFormat.FunctionFactory;
-import org.unicode.cldr.tool.MockMessageFormat.FunctionVariable;
-import org.unicode.cldr.tool.MockMessageFormat.MFContext;
+import org.unicode.cldr.tool.MockMessageFormat.MfContext;
+import org.unicode.cldr.tool.MockMessageFormat.MfFunction;
+import org.unicode.cldr.tool.MockMessageFormat.MfResolvedVariable;
 import org.unicode.cldr.tool.MockMessageFormat.OptionsMap;
 
 public class MockFunctions {
 
     /** FunctionFactory & FunctionVariable for :string */
-    static class StringFactory implements FunctionFactory {
+    static class StringFactory implements MfFunction {
 
-        static class StringVariable extends FunctionVariable {
+        static class StringVariable extends MfResolvedVariable {
             private String baseValue;
 
             public StringVariable(String string, OptionsMap options) {
@@ -46,14 +46,14 @@ public class MockFunctions {
             }
 
             @Override
-            public int match(MFContext contact, String matchKey) {
+            public int match(MfContext contact, String matchKey) {
                 return baseValue.equals(matchKey)
-                        ? FunctionVariable.EXACT_MATCH
-                        : FunctionVariable.NO_MATCH;
+                        ? MfResolvedVariable.EXACT_MATCH
+                        : MfResolvedVariable.NO_MATCH;
             }
 
             @Override
-            public String format(MFContext context) {
+            public String format(MfContext context) {
                 for (Entry<String, Object> entry : getOptions().entrySet()) {
                     switch (entry.getKey()) {
                         case "u:casing":
@@ -110,7 +110,7 @@ public class MockFunctions {
         }
 
         @Override
-        public FunctionVariable from(Expression expression, MFContext mfContext) {
+        public MfResolvedVariable from(Expression expression, MfContext mfContext) {
             switch (expression.type) {
                 case literal:
                     return new StringVariable(expression.operandId.toString(), expression.map);
@@ -118,7 +118,7 @@ public class MockFunctions {
                     return new StringVariable(
                             mfContext.getInput(expression.operandId).toString(), expression.map);
                 case variable:
-                    FunctionVariable sourceVariable =
+                    MfResolvedVariable sourceVariable =
                             mfContext.boundVariables.get(expression.operandId);
                     if (expression.map.isEmpty()) {
                         return sourceVariable;
@@ -134,10 +134,10 @@ public class MockFunctions {
     }
 
     /** FunctionFactory & FunctionVariable for :number */
-    static class NumberFactory implements FunctionFactory {
+    static class NumberFactory implements MfFunction {
 
         /** A variable of information that results from applying number function (factory). */
-        static class NumberVariable extends FunctionVariable {
+        static class NumberVariable extends MfResolvedVariable {
             Number value;
             Number offsettedValue;
             UnlocalizedNumberFormatter nf = NumberFormatter.with();
@@ -165,13 +165,13 @@ public class MockFunctions {
             }
 
             @Override
-            public int match(MFContext context, String matchKey) {
+            public int match(MfContext context, String matchKey) {
                 if (matchKey.charAt(0) < 'A') {
                     // hack for now; should perform a better comparison that matches
                     // irrespective of the type of number
                     return value.toString().equals(matchKey)
-                            ? FunctionVariable.EXACT_MATCH
-                            : FunctionVariable.NO_MATCH;
+                            ? MfResolvedVariable.EXACT_MATCH
+                            : MfResolvedVariable.NO_MATCH;
                 }
                 // TODO, look at select option to pick cardinal vs ordinal vs none.
                 if (pluralCategory == null) {
@@ -183,7 +183,7 @@ public class MockFunctions {
                             nf.locale(context.getLocale()).format(offsettedValue).getFixedDecimal();
                     pluralCategory = rules.select(fixedDecimal);
                 }
-                return pluralCategory.equals(matchKey) ? 100 : FunctionVariable.NO_MATCH;
+                return pluralCategory.equals(matchKey) ? 100 : MfResolvedVariable.NO_MATCH;
             }
 
             private Number subtractOffset() {
@@ -199,7 +199,7 @@ public class MockFunctions {
             }
 
             @Override
-            public String format(MFContext context) {
+            public String format(MfContext context) {
                 Locale locale = context.getLocale();
                 if (numberingSystem != null) {
                     nf =
@@ -263,7 +263,7 @@ public class MockFunctions {
         }
 
         @Override
-        public FunctionVariable from(Expression expression, MFContext mfContext) {
+        public MfResolvedVariable from(Expression expression, MfContext mfContext) {
             switch (expression.type) {
                 case literal:
                     // needs to use an implementation-neutral parse
@@ -275,7 +275,7 @@ public class MockFunctions {
                     }
                     return new NumberVariable((Number) input1, expression.map);
                 case variable:
-                    FunctionVariable sourceVariable =
+                    MfResolvedVariable sourceVariable =
                             mfContext.boundVariables.get(expression.operandId);
                     // In this case, we only take numbers
                     if (!(sourceVariable instanceof NumberVariable)) {
@@ -298,9 +298,9 @@ public class MockFunctions {
     }
 
     /** FunctionFactory & FunctionVariable for :number */
-    static class MeasureFactory implements FunctionFactory {
+    static class MeasureFactory implements MfFunction {
         /** A variable of information that results from applying measure function (factory). */
-        static class MeasureVariable extends FunctionVariable {
+        static class MeasureVariable extends MfResolvedVariable {
             Measure value;
             String formatted = null;
 
@@ -315,12 +315,12 @@ public class MockFunctions {
             }
 
             @Override
-            public int match(MFContext context, String matchKey) {
+            public int match(MfContext context, String matchKey) {
                 throw new UnsupportedOperationException(":u:measure doesn't support selection");
             }
 
             @Override
-            public String format(MFContext context) {
+            public String format(MfContext context) {
                 if (formatted == null) {
                     UnlocalizedNumberFormatter nf = NumberFormatter.with();
                     for (Entry<String, Object> entry : getOptions().entrySet()) {
@@ -377,7 +377,7 @@ public class MockFunctions {
         }
 
         public MeasureVariable fromVariable(
-                FunctionVariable variable, MFContext context, OptionsMap options) {
+                MfResolvedVariable variable, MfContext context, OptionsMap options) {
             // In this case, we always
             if (!(variable instanceof MeasureVariable)) {
                 throw new IllegalArgumentException(getName() + " requires measures");
@@ -438,7 +438,7 @@ public class MockFunctions {
         }
 
         @Override
-        public FunctionVariable from(Expression expression, MFContext mfContext) {
+        public MfResolvedVariable from(Expression expression, MfContext mfContext) {
             switch (expression.type) {
                 case literal:
                     List<String> parts =
@@ -465,7 +465,7 @@ public class MockFunctions {
                     validate(options);
                     return new MeasureVariable((Measure) input1, options);
                 case variable:
-                    FunctionVariable sourceVariable =
+                    MfResolvedVariable sourceVariable =
                             mfContext.boundVariables.get(expression.operandId);
                     if (!(sourceVariable instanceof MeasureVariable)) {
                         throw new IllegalArgumentException(getName() + " requires measures");
@@ -492,10 +492,10 @@ public class MockFunctions {
             new RegistryBuilder(new StringFactory(), new NumberFactory(), new MeasureFactory());
 
     static class RegistryBuilder {
-        Map<String, FunctionFactory> lookup = new ConcurrentHashMap<>();
+        Map<String, MfFunction> lookup = new ConcurrentHashMap<>();
 
-        public RegistryBuilder(FunctionFactory... factories) {
-            for (FunctionFactory factory : factories) {
+        public RegistryBuilder(MfFunction... factories) {
+            for (MfFunction factory : factories) {
                 lookup.put(factory.getName(), factory);
             }
         }
@@ -504,8 +504,8 @@ public class MockFunctions {
     /*
      * To register additional functions
      */
-    public void register(FunctionFactory... factories) {
-        for (FunctionFactory factory : factories) {
+    public void register(MfFunction... factories) {
+        for (MfFunction factory : factories) {
             registry.lookup.put(factory.getName(), factory);
         }
     }
@@ -513,7 +513,7 @@ public class MockFunctions {
     /*
      * To access a function by name
      */
-    static FunctionFactory get(String functionName) {
+    static MfFunction get(String functionName) {
         return registry.lookup.get(functionName);
     }
 }

@@ -1,10 +1,14 @@
 package org.unicode.cldr.tool;
 
+import com.google.common.base.Splitter;
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.LinkedHashMultimap;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.Sets;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -12,15 +16,8 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
+import org.unicode.cldr.tool.MockMessageFormat.Expression.Type;
 import org.unicode.cldr.util.RegexUtilities;
-
-import com.google.common.base.Splitter;
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.LinkedHashMultimap;
-import com.google.common.collect.Multimap;
-import com.ibm.icu.util.Measure;
-import com.ibm.icu.util.MeasureUnit;
 
 /**
  * A mock implementation of a possible internal organization for MF2. Each function is represented
@@ -35,7 +32,7 @@ import com.ibm.icu.util.MeasureUnit;
  */
 public class MockMessageFormat {
     public static final Splitter SPACE_SPLITTER = Splitter.on(' ').omitEmptyStrings().trimResults();
-    private static final boolean DEBUG = false;
+    static final boolean DEBUG = false;
 
     /**
      * A factory that represents a particular function. It is used to create a FunctionVariable from
@@ -44,26 +41,14 @@ public class MockMessageFormat {
     public interface FunctionFactory {
 
         public String getName();
-        /**
-         * Get a value from a variable, such as $count. An error may be thrown if not convertible.
-         */
-        public FunctionVariable fromVariable(
-                String variableName, MFContext context, OptionsMap options);
-
-        /**
-         * Get a value from an input datatype, such as a Double. so an error may be thrown if not
-         * convertible.
-         */
-        public FunctionVariable fromInput(Object input, OptionsMap options);
-
-        /** Use an implementation-neutral parse to get an internal value. */
-        public FunctionVariable fromLiteral(String literal, OptionsMap options);
 
         /** Used in checking syntax */
         public boolean canSelect();
 
         /** Used in checking syntax */
         public boolean canFormat();
+
+        public FunctionVariable from(Expression expression, MFContext mfContext);
     }
 
     /**
@@ -100,37 +85,92 @@ public class MockMessageFormat {
         // abstract Parts formatToParts(); // not necessary for mock
 
         @Override
+        /** Provides a debug form of the internal structure */
         public String toString() {
             return options.toString();
         }
     }
 
-    /** A container for context that the particular variables will need. */
-    static class MFContext {
-        public final Map<String, FunctionVariable> namedVariables = new LinkedHashMap<>();
-        public final Locale locale;
-        public final List<FunctionVariable> selectors = new ArrayList<>(0);
-        public final Variants variants = new Variants();
+    // Once built, these are invariant
+    public final Map<String, Expression> variables = new LinkedHashMap<>();
+    public final List<Expression> selectors = new ArrayList<>(0);
+    public final Variants variants = new Variants();
 
-        public MFContext(Locale locale) {
-            this.locale = locale;
+    public Expression addVariable(String variableId, Expression expression) {
+        Expression old = variables.put(variableId, expression);
+        if (old != null) {
+            throw new IllegalArgumentException(
+                    "Cannot reset variables once created: " + variableId);
         }
+        return expression;
+    }
 
-        public FunctionVariable get(String name) {
-            return namedVariables.get(name);
-        }
+    public Expression addSelector(Expression selectorVariable) {
+        selectors.add(selectorVariable);
+        return selectorVariable;
+    }
 
-        public FunctionVariable addVariable(String name, FunctionVariable numberVariable) {
-            if (namedVariables.containsKey(name)) {
-                throw new IllegalArgumentException("Can't reassign variable");
+    public int selectorSize() {
+        return selectors.size();
+    }
+
+    public Expression getExpressionFromVariableId(String variableId) {
+        return variables.get(variableId);
+    }
+
+    class Message {
+        // An object is either a String or an Expression
+        // The only restriction is that a String can't be followed by another String
+        List<Object> contents = new ArrayList<>();
+
+        public Message(String messageString) {
+            Matcher matcher = EXPRESSION_PATTERN.matcher(messageString);
+            int position = 0;
+            while (matcher.find()) {
+                if (matcher.start() > position) {
+                    contents.add(messageString.substring(position, matcher.start()));
+                }
+                Expression expression = getInternalExpression(matcher);
+                contents.add(expression);
+                position = matcher.end();
             }
-            namedVariables.put(name, numberVariable);
-            return numberVariable;
+            String fail = RegexUtilities.showMismatch(matcher, messageString);
+            if (position < messageString.length()) {
+                contents.add(messageString.substring(position, messageString.length()));
+            }
         }
 
-        public void addSelector(FunctionVariable selectorVariable) {
-            selectors.add(selectorVariable);
+        /** Format a variant message, once it has been chosen. */
+        String format(MFContext context) {
+            StringBuilder result = new StringBuilder();
+            for (Object piece : contents) {
+                if (piece instanceof String) {
+                    result.append(piece.toString());
+                } else {
+                    FunctionVariable fv = ((Expression) piece).resolve(context);
+                    result.append(fv.format(context));
+                }
+            }
+            return result.toString();
         }
+
+        @Override
+        public String toString() {
+            StringBuilder result = new StringBuilder();
+            for (Object piece : contents) {
+                if (piece instanceof String) {
+                    result.append(piece.toString());
+                } else {
+                    Expression expression = (Expression) piece;
+                    result.append(expression);
+                }
+            }
+            return result.toString();
+        }
+    }
+
+    Message getMessage(String messageText) {
+        return new Message(messageText);
     }
 
     /** A container for an options map. <b> Could have enum keys instead of Strings. */
@@ -216,37 +256,15 @@ public class MockMessageFormat {
         }
     }
 
-    /** Represents a set of variants with keys */
-    private static class Variants {
-        private Map<List<String>, String> map = new LinkedHashMap<>();
+    /** Represents a mapping of key-lists to variants */
+    public static class Variants {
+        private Map<List<String>, Message> map = new LinkedHashMap<>();
 
-        String getBestMatch(MFContext context, List<FunctionVariable> selectors) {
-            // It is just a dumb algorithm for matching since that isn't the point of this mock:
-            // just the first list of keys where each element is either a loose match (eg *) or
-            // exact match. It should, of course, sort according to the ordering set by the
-            // FunctionVariable.
-            for (Entry<List<String>, String> entry : map.entrySet()) {
-                if (selectors.size() != entry.getKey().size()) {
-                    throw new IllegalArgumentException();
-                }
-                int i = 0;
-                for (FunctionVariable selector : selectors) {
-                    final String matchKey = entry.getKey().get(i);
-                    if (matchKey.equals("*")
-                            || selector.match(context, matchKey) != FunctionVariable.NO_MATCH) {
-                        return entry.getValue(); // return the variant submessage
-                    }
-                }
-                ++i;
-            }
-            throw new IllegalArgumentException();
-        }
-
-        public Variants add(List<String> keys, String submessage) {
-            String old = map.put(keys, submessage);
+        public Variants add(List<String> keys, Message message) {
+            Message old = map.put(keys, message);
             if (old != null) {
                 throw new IllegalArgumentException(
-                        String.format("Duplicate variant keys %s %s %s", keys, old, submessage));
+                        String.format("Duplicate variant keys %s %s %s", keys, old, message));
             }
             return this;
         }
@@ -257,114 +275,142 @@ public class MockMessageFormat {
         }
     }
 
-    private final MFContext context;
-
-    public MFContext getContext() {
-        return context;
-    }
-
-    public MockMessageFormat(Locale locale) {
-        context = new MFContext(locale);
-    }
-
-    /** Format a variant message, once it has been chosen. */
-    private String format(String variant) {
-        StringBuilder result = new StringBuilder();
-        int lastPosition = 0;
-        while (true) {
-            int start = variant.indexOf('{', lastPosition);
-            if (start < 0) { // failed
-                result.append(variant.substring(lastPosition));
-                return result.toString();
-            }
-            result.append(variant.substring(lastPosition, start));
-            int end = variant.indexOf('}', start);
-            if (end < 0) {
-                throw new IllegalArgumentException();
-            }
-            // the variant messages are pre-parsed to not have any options
-            String varString = variant.substring(start + 1, end);
-            FunctionVariable variable = context.namedVariables.get(varString);
-            if (variable == null) {
-                throw new IllegalArgumentException("No variable named " + varString);
-            }
-            result.append(variable.format(context));
-            lastPosition = end + 1;
-        }
-    }
-
-    /**
-     * Run some simple examples
-     *
-     * @param args
-     */
-    public static void main(String[] args) {
-        checkParsing();
-        checkOffset(5, 2, "other");
-        checkOffset(5, 4, "one");
-        System.out.println(checkFormat(Locale.forLanguageTag("en-US"), 1, "John", "188 meter"));
-        System.out.println(checkFormat(Locale.forLanguageTag("en"), 1, "Sarah", "1100 meter"));
-        System.out.println(checkFormat(Locale.forLanguageTag("de"), 3.456, "John", "188 meter"));
-        System.out.println(checkFormat(Locale.forLanguageTag("fr"), 0, "John", "188 meter"));
-    }
-
-    private static void checkOffset(int input, int offset, String... nonZeroScoresArray) {
-        MockMessageFormat mf = new MockMessageFormat(Locale.FRANCE);
-        final MFContext context = mf.getContext();
-        FunctionFactory number = MockFunctions.get(":number"); // create at first need
-        FunctionVariable temp = number.fromInput(input, OptionsMap.put("u:offset", offset).done());
-        System.out.println("variable: value=" + input + " offset=" + offset + " pair=" + temp);
-        System.out.println("format=" + temp.format(context));
-        Multimap<Integer, String> scores = LinkedHashMultimap.create();
-        for (String key : Arrays.asList("0", "1", "one", "other")) {
-            int matchScore = temp.match(context, key);
-            scores.put(matchScore, key);
-        }
-        for (Entry<Integer, Collection<String>> entry : scores.asMap().entrySet()) {
-            System.out.println(
-                    "match score= " + entry.getKey() + ", matchValues=" + entry.getValue());
-        }
-    }
-
-    static final String EXPRESSION = "\\s*\\{(\\S*)(?:\\s+(:\\S*)\\s*([^}]*))?\\s*}\\s*";
+    static final String EXPRESSION = "\\{(\\S*)(?:\\s+(:[^}\\s]*)\\s*([^}]*))?\\s*}";
     static final Pattern EXPRESSION_PATTERN = Pattern.compile(EXPRESSION);
-    static final Pattern INPUT_PATTERN = Pattern.compile("\\.input" + EXPRESSION);
-    static final Pattern LOCAL_PATTERN = Pattern.compile("\\.local\\s+(\\$\\S*)\\s*=" + EXPRESSION);
-    static final Pattern VARIANT_PATTERN =
-            Pattern.compile("\\.local\\s*(\\$\\S*)\\s*=\\s*\\{\\{[^}]*}}");
+
+    static final String EXPRESSION_TRIMMING = "\\s*" + EXPRESSION + "\\s*";
+    static final Pattern EXPRESSION_TRIMMING_PATTERN = Pattern.compile(EXPRESSION_TRIMMING);
+    static final Pattern INPUT_PATTERN = Pattern.compile("\\.input" + EXPRESSION_TRIMMING);
+    static final Pattern LOCAL_PATTERN =
+            Pattern.compile("\\.local\\s+(\\$\\S*)\\s*=" + EXPRESSION_TRIMMING);
+    static final Pattern VARIANT_PATTERN = Pattern.compile("(.*?)\\{\\{(.*)");
 
     /**
      * very simple; depends on the message being in 'normal form and not too complicated
      *
      * @return
      */
-    Object dumbParseInput(String line, Map<String, Object> inputParameters) {
+    Object dumbParseInput(String line) {
         // eg .input {$var :number maxFractionDigits=2 minFractionDigits=1}
         if (line.startsWith(".input")) {
-            return handleInput(line, inputParameters);
+            return handleInput(line);
         } else if (line.startsWith(".local")) {
-            return handleLocal(line, inputParameters);
+            return handleLocal(line);
         } else if (line.startsWith(".match")) {
-            return handleMatch(line, inputParameters);
+            return handleMatch(line);
         } else { // variant: keys & message
-            return handleVariant(line, inputParameters);
+            return handleVariant(line);
         }
     }
 
-    private Object handleVariant(String line, Map<String, Object> inputParameters) {
-        // TODO
-        return null;
+    private Object handleVariant(String line) {
+        Matcher matcher = VARIANT_PATTERN.matcher(line); // doesn't catch final }}
+        if (!matcher.matches()) {
+            throw new IllegalArgumentException(
+                    "Malformed line: " + RegexUtilities.showMismatch(VARIANT_PATTERN, line));
+        }
+        String keys = matcher.group(1);
+        List<String> keyList = SPACE_SPLITTER.splitToList(keys);
+        if (keyList.size() != selectorSize()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            "The number of keys (%s) must be identical to the number of selectors (%s): %s",
+                            keyList, selectors, line));
+        }
+        String messageString = matcher.group(2).trim();
+        if (messageString.endsWith("}}")) {
+            messageString = messageString.substring(0, messageString.length() - 2);
+        } else {
+            throw new IllegalArgumentException("Malformed line, must end with }}: " + line);
+        }
+        Message message = new Message(messageString);
+        variants.add(keyList, message);
+        return message;
     }
 
-    public List<FunctionVariable> handleMatch(String line, Map<String, Object> inputParameters) {
+    static class Expression {
+        Type type;
+        String operandId;
+        FunctionFactory functionFactory;
+        OptionsMap map;
+
+        @Override
+        public String toString() {
+            return String.format(
+                    "[type: %s, operandId: %s%s%s]",
+                    type,
+                    operandId,
+                    functionFactory == null ? "" : ", function: " + functionFactory.getName(),
+                    map.isEmpty() ? "" : ", options: " + map);
+        }
+
+        public enum Type {
+            literal,
+            input,
+            variable
+        }
+
+        public Expression(
+                Type type, String operandId, FunctionFactory function, OptionsMap optionsMap) {
+            this.type = type;
+            this.operandId = operandId;
+            this.functionFactory = function == null ? MockFunctions.get(":string") : function;
+            this.map = optionsMap == null ? OptionsMap.EMPTY : optionsMap;
+            if (this.functionFactory == null) {
+                throw new IllegalArgumentException("Arrrg");
+            }
+        }
+
+        public FunctionVariable resolve(MFContext context) {
+            return functionFactory.from(this, context);
+        }
+    }
+
+    /**
+     * Only call inside match or message
+     *
+     * @param matcher2
+     */
+    public Expression getInternalExpression(Matcher matcher) {
+        // The matcher was made from EXPRESSION_PATTERN, and matched
+        String operand = matcher.group(1);
+        // optional
+        String functionName = matcher.group(2);
+        // optional, but if it occurs then the function has to be there
+        String options = matcher.group(3);
+
+        Expression existingVariable = getExpressionFromVariableId(operand);
+        if (functionName == null) {
+            if (existingVariable == null) {
+                throw new IllegalArgumentException(
+                        "variable must be defined in: " + matcher.group());
+            }
+            return existingVariable;
+        } else {
+            FunctionFactory functionFactory =
+                    functionName == null ? null : MockFunctions.get(functionName);
+            OptionsMap optionsMap = options.isBlank() ? null : OptionsMap.make(options); // optional
+            if (existingVariable != null) {
+                return new Expression(Type.variable, operand, functionFactory, optionsMap);
+            } else {
+                if (operand.startsWith("$")) {
+                    return new Expression(Type.input, operand, functionFactory, optionsMap);
+                } else {
+                    return new Expression(Type.literal, operand, functionFactory, optionsMap);
+                }
+            }
+        }
+    }
+
+    public List<Expression> handleMatch(String line) {
         int selector = 0;
         int position = 6;
-        Matcher matcher = EXPRESSION_PATTERN.matcher(line);
+        Matcher matcher = EXPRESSION_TRIMMING_PATTERN.matcher(line);
         while (true) {
             matcher.region(position, line.length());
             if (!matcher.lookingAt()) {
                 // later, check for cruft at end
-                return context.selectors;
+                return selectors;
             }
             String operand = matcher.group(1);
             // optional
@@ -372,51 +418,62 @@ public class MockMessageFormat {
             // optional, but if it occurs then the function has to be there
             String options = matcher.group(3);
 
-            FunctionVariable existingVariable = context.get(operand);
+            Expression existingVariable = variables.get(operand);
+            Expression result = null;
 
             if (functionName == null) {
                 if (existingVariable == null) {
                     throw new IllegalArgumentException(
                             "variable must be defined in: " + matcher.group());
                 }
-                context.addSelector(context.get(operand));
+                result = existingVariable;
             } else {
                 FunctionFactory functionFactory =
                         functionName == null ? null : MockFunctions.get(functionName);
                 OptionsMap optionsMap =
                         options.isBlank() ? null : OptionsMap.make(options); // optional
                 String newVariable = "$selector__" + selector++;
-                FunctionVariable result = null;
                 if (existingVariable != null) {
-                    context.addVariable(
+                    addVariable(
                             newVariable,
-                            result = functionFactory.fromVariable(operand, context, optionsMap));
+                            result =
+                                    new Expression(
+                                            Type.variable, operand, functionFactory, optionsMap));
                 } else {
-                    Object inputParameter = inputParameters.get(operand);
-                    if (inputParameter != null) {
-                        context.addVariable(
+                    if (operand.startsWith("$")) {
+                        addVariable(
                                 newVariable,
-                                result = functionFactory.fromInput(inputParameter, optionsMap));
+                                result =
+                                        new Expression(
+                                                Type.input, operand, functionFactory, optionsMap));
                     } else {
-                        context.addVariable(
+                        addVariable(
                                 newVariable,
-                                result = functionFactory.fromLiteral(operand, optionsMap));
+                                result =
+                                        new Expression(
+                                                Type.literal,
+                                                operand,
+                                                functionFactory,
+                                                optionsMap));
                     }
                 }
-                context.addSelector(result);
             }
+            addSelector(result);
             position = matcher.end();
         }
     }
 
-    public Object handleLocal(String line, Map<String, Object> inputParameters) {
+    public Object handleLocal(String line) {
+        if (!selectors.isEmpty()) {
+            throw new IllegalArgumentException(".local cannot occur after .match");
+        }
         Matcher matcher = LOCAL_PATTERN.matcher(line);
         if (!matcher.matches()) {
             throw new IllegalArgumentException(
                     "Malformed line: " + RegexUtilities.showMismatch(INPUT_PATTERN, line));
         }
         String targetVariable = matcher.group(1);
-        if (context.get(targetVariable) != null) {
+        if (variables.containsKey(targetVariable)) {
             throw new IllegalArgumentException("Can't redefine variable in: " + line);
         }
         String operand = matcher.group(2);
@@ -427,30 +484,25 @@ public class MockMessageFormat {
         FunctionFactory functionFactory =
                 functionName == null ? null : MockFunctions.get(functionName);
         OptionsMap optionsMap = options.isBlank() ? null : OptionsMap.make(options); // optional
-        FunctionVariable existingVariable = context.get(operand);
-        FunctionVariable result;
+        Expression existingVariable = variables.get(operand);
+        Expression result;
         if (existingVariable != null) {
-            result =
-                    context.addVariable(
-                            targetVariable,
-                            functionFactory.fromVariable(operand, context, optionsMap));
+            result = new Expression(Type.variable, operand, functionFactory, optionsMap);
         } else {
-            Object inputParameter = inputParameters.get(operand);
-            if (inputParameter != null) {
-                result =
-                        context.addVariable(
-                                targetVariable,
-                                functionFactory.fromInput(inputParameter, optionsMap));
+            if (operand.startsWith("$")) {
+                result = new Expression(Type.variable, operand, functionFactory, optionsMap);
             } else {
-                result =
-                        context.addVariable(
-                                targetVariable, functionFactory.fromLiteral(operand, optionsMap));
+                result = new Expression(Type.variable, operand, functionFactory, optionsMap);
             }
         }
+        variables.put(targetVariable, result);
         return result;
     }
 
-    public Object handleInput(String line, Map<String, Object> inputParameters) {
+    public Object handleInput(String line) {
+        if (!selectors.isEmpty()) {
+            throw new IllegalArgumentException(".input cannot occur after .match");
+        }
         Matcher matcher = INPUT_PATTERN.matcher(line);
         if (!matcher.matches()) {
             throw new IllegalArgumentException(
@@ -460,10 +512,11 @@ public class MockMessageFormat {
         String functionName = matcher.group(2); // not optional
         String options = matcher.group(3); // optional
 
-        Object baseValue = inputParameters.get(operand);
-        if (baseValue == null) {
+        // must be an input parameter
+        Expression var = variables.get(operand);
+        if (var != null) {
             throw new IllegalArgumentException(
-                    String.format("Input parameter %s not passed in: %s", operand, line));
+                    String.format("Input parameter %s must not be a variable: %s", operand, line));
         }
         FunctionFactory functionFactory = MockFunctions.get(functionName);
         if (functionFactory == null) {
@@ -471,173 +524,169 @@ public class MockMessageFormat {
                     String.format("Function %s not registered: %s", functionName, line));
         }
         OptionsMap optionsMap = OptionsMap.make(options);
-        return context.addVariable(operand, functionFactory.fromInput(baseValue, optionsMap));
+        return addVariable(
+                operand, new Expression(Type.input, operand, functionFactory, optionsMap));
     }
 
-    public static void checkParsing() {
-        Map<String, Object> inputParameters =
-                Map.of(
-                        "$var",
-                        3, //
-                        "$name",
-                        "John", //
-                        "$amount",
-                        3, //
-                        "$distance",
-                        new Measure(1.88, MeasureUnit.METER));
-        String[][] tests = {
-            {
-                ".input {$var :number maxFractionDigits=2 minFractionDigits=1}",
-                "[baseValue=3, options={maxFractionDigits=2, minFractionDigits=1}]"
-            },
-            {".input {$name :string}", "[baseValue=John]"},
-            {".input {$amount :number}", "[baseValue=3]"},
-            {
-                ".local $var2 = {$var :number maxFractionDigits=2}",
-                "[baseValue=3, options={maxFractionDigits=2}]"
-            },
-            {
-                ".input {$distance :u:measure maxFractionDigits=3 usage=road width=long}",
-                "[value=1.88 length-meter, options={maxFractionDigits=3, usage=road, width=long}]"
-            },
-            {
-                ".local $distance2 = {$distance :u:measure maxFractionDigits=2 usage=road width=long}",
-                "[value=1.88 length-meter, options={maxFractionDigits=2, usage=road, width=long}]"
-            },
-            {
-                ".match {$var2 :number numberingSystem=arab} {$name}",
-                "[[baseValue=3, options={numberingSystem=arab}], [baseValue=John]]"
-            },
-            {"0 hi {{There are no books for the {$name}.}}", ""},
-            {"one hi {{There is {$var2} book for {$name}.}}", ""},
-            {
-                "* * {{There are {$var2 :number signDisplay=always} books for {$name option=\"upper\"}.}}",
-                ""
-            },
-        };
-        MockMessageFormat mf = new MockMessageFormat(Locale.FRANCE);
+    Set<String> requiredVariables = null;
+    Multimap<String, Expression> requiredInput = null;
+    Set<String> unused = null;
 
-        for (String[] test : Arrays.asList(tests)) {
-            String source = test[0];
-            String expected = test[1];
-            Object actual;
-            try {
-                actual = mf.dumbParseInput(source, inputParameters);
-            } catch (Exception e) {
-                actual = e.getMessage();
+    public void freeze() {
+        if (requiredVariables != null) {
+            return;
+        }
+        requiredVariables = new LinkedHashSet<>();
+        requiredInput = LinkedHashMultimap.create();
+        // we first find out what variables and input parameters are used in the match and
+        // submessages
+        // we check for selectors and messages
+        for (Expression variant : selectors) {
+            extractVariablesAndInput(variant, requiredVariables, requiredInput);
+        }
+        // we also check for messages
+        for (Entry<List<String>, Message> keysAndVariants : variants.map.entrySet()) {
+            for (Object obj : keysAndVariants.getValue().contents) {
+                if (obj instanceof Expression) {
+                    extractVariablesAndInput((Expression) obj, requiredVariables, requiredInput);
+                }
             }
-            String result = expected.equals(actual.toString()) ? "OK" : "Fail";
-            System.out.println(
-                    String.format(
-                            "%s %s\n\texpected %s,\n\tactual %s",
-                            result, source, expected, actual.toString()));
+        }
+        unused = new LinkedHashSet<>(variables.keySet());
+        unused.removeAll(requiredVariables);
+    }
+
+    public void extractVariablesAndInput(
+            Expression expression,
+            Set<String> requiredVariables,
+            Multimap<String, Expression> requiredInput) {
+        switch (expression.type) {
+            case input:
+                requiredInput.put(expression.operandId, expression);
+                break;
+            case variable:
+                Expression parentExpression = variables.get(expression.operandId);
+                if (parentExpression == null) { // this is an input and we didn't know it
+                    requiredInput.put(expression.operandId, expression);
+                } else {
+                    requiredVariables.add(expression.operandId);
+                    extractVariablesAndInput(parentExpression, requiredVariables, requiredInput);
+                }
+                break;
+            default:
+                break;
         }
     }
 
     /**
-     * This is a mockup of an example with MF2. It is just looking at the structure, so it doesn't
-     * bother with actually parsing the message. Instead, it shows code that would be generated when
-     * interpreting the MF2 string. There are no optimizations for speed or memory since it is a
-     * mockup.
-     *
-     * @param locale
-     * @param distance TODO
-     * @param varInput
-     * @return
+     * A container for context used to format a particular set of input parameters. It contains
+     * structures that are used in intermediate processing.
      */
-    public static String checkFormat(
-            Locale locale, Number inputCount, String inputName, String distance) {
-        MockMessageFormat mf = new MockMessageFormat(locale);
-        final MFContext context = mf.getContext();
+    static class MFContext {
+        public final Map<String, Object> inputParameters = new LinkedHashMap<>();
+        public final Map<String, FunctionVariable> boundVariables = new LinkedHashMap<>();
 
-        // .input {$var :number maxFractionDigits=2 minFractionDigits=1}
-        FunctionFactory number = MockFunctions.get(":number"); // create at first need
-        context.addVariable(
-                "$var",
-                number.fromInput(
-                        inputCount,
-                        OptionsMap.put("maxFractionDigits", 3).put("minFractionDigits", 1).done()));
+        public Locale getLocale() {
+            Object result = inputParameters.get("$locale");
+            return result == null ? Locale.GERMAN : (Locale) result;
+        }
 
-        // .input {$name :string}
-        FunctionFactory string = MockFunctions.get(":string"); // create at first need
-        context.addVariable("$name", string.fromInput(inputName, OptionsMap.EMPTY));
+        public FunctionVariable get(String name) {
+            return boundVariables.get(name);
+        }
 
-        // .input {$amount :number}
-        context.addVariable("$amount", number.fromLiteral("3.2", OptionsMap.EMPTY));
+        public Object getInputParameter(String id) {
+            return inputParameters.get(id);
+        }
 
-        // .local $var2 = {$var :number maxFractionDigits=2}
-        context.addVariable(
-                "$var2",
-                number.fromVariable(
-                        "$var", context, OptionsMap.put("maxFractionDigits", 2).done()));
+        public MFContext addInput(String id, Object parameter) {
+            inputParameters.put(id, parameter);
+            return this;
+        }
 
-        // .local {$distance :u:measure maxFractionDigits=3 usage=road width=}
-        FunctionFactory measure = MockFunctions.get(":u:measure"); // create at first need
-        context.addVariable(
-                "$distance",
-                measure.fromLiteral( // the literal structure is number/unitId
-                        distance,
-                        OptionsMap.put("maxFractionDigits", 2)
-                                .put("usage", "road")
-                                .put("width", "full")
-                                .done()));
-        debug("$distance", context);
+        public MFContext addInput(Map<String, Object> parameters) {
+            inputParameters.putAll(parameters);
+            return this;
+        }
 
-        // .match {$var2 :number numberingSystem=arab} {$name}
-        // 0 hi {{There are no books for the {$name}.}
-        // one hi{{There is {$var2} book for {$name}.}
-        // * * {{There are {$var2 :number signDisplay=always} books for {$name option="upper"}.}}
+        public void bindVariables(MockMessageFormat messageFormat) {
+            // the variables are in order of entry, so we should never be left hanging
+            for (Entry<String, Expression> entry : messageFormat.variables.entrySet()) {
+                if (messageFormat.requiredVariables.contains(entry.getKey())) {
+                    Expression expression = entry.getValue();
+                    boundVariables.put(entry.getKey(), expression.resolve(this));
+                }
+            }
+        }
 
-        // For simplicity in this mockup, we pull all the additional function values out ahead of
-        // time, giving them
-        // non-colliding identifiers.
-        context.addVariable(
-                "$var2_a",
-                number.fromVariable(
-                        "$var2", context, OptionsMap.put("numberingSystem", "arab").done()));
-        context.addVariable(
-                "$var2_b",
-                number.fromVariable(
-                        "$var2", context, OptionsMap.put("signDisplay", "always").done()));
-        context.addVariable(
-                "$name_b",
-                string.fromVariable("$name", context, OptionsMap.put("u:casing", "upper").done()));
+        public FunctionVariable addVariable(String name, FunctionVariable numberVariable) {
+            if (boundVariables.containsKey(name)) {
+                throw new IllegalArgumentException("Can't reassign variable");
+            }
+            boundVariables.put(name, numberVariable);
+            return numberVariable;
+        }
 
-        // We then build the variants and match them
-
-        Variants variants =
-                new Variants()
-                        .add(
-                                List.of("0", "John"),
-                                "There are no books for {$name} within {$distance}.")
-                        .add(
-                                List.of("one", "John"),
-                                "There is {$var2} book for {$name} within {$distance}.")
-                        .add(
-                                List.of("*", "*"),
-                                "There are {$var2_b} books for {$name_b} within {$distance}.");
-
-        String variant =
-                variants.getBestMatch(
-                        context, List.of(context.get("$var2_a"), context.get("$name")));
-
-        // And finally, we format (only format to string is needed for this mockup
-
-        String formatted = mf.format(variant);
-        return locale + ", " + inputCount + ", " + inputName + " 🡆 " + formatted;
+        public Object getInput(String operandId) {
+            return inputParameters.get(operandId);
+        }
     }
 
-    private static void debug(String variableName, MFContext context) {
-        if (DEBUG) {
-            final FunctionVariable functionVariable = context.get(variableName);
-            final String formatted = functionVariable.format(context);
-            System.out.println(
-                    "# "
-                            + variableName
-                            + " 🡆 «"
-                            + formatted
-                            + "» "
-                            + functionVariable.getOptions());
+    public String format(MFContext context) {
+        freeze();
+        if (!context.inputParameters.keySet().containsAll(requiredInput.keySet())) {
+            throw new IllegalArgumentException(
+                    "Missing input parameters: "
+                            + Sets.difference(
+                                    requiredInput.keySet(), context.inputParameters.keySet()));
         }
+        context.bindVariables(this);
+
+        List<FunctionVariable> boundSelectors = new ArrayList<>();
+        for (Expression expression : selectors) {
+            boundSelectors.add(expression.resolve(context));
+        }
+
+        // all of the variables are now bound, except in variant messages
+
+        // It is just a dumb algorithm for matching since that isn't the point of this mock:
+        // just the first list of keys where each element is either a loose match (eg *) or
+        // exact match. It should, of course, sort according to the ordering set by the
+        // FunctionVariable.
+        Message bestMatch = null;
+        main:
+        for (Entry<List<String>, Message> entry : variants.map.entrySet()) {
+            if (selectors.size() != entry.getKey().size()) {
+                throw new IllegalArgumentException();
+            }
+            Iterator<String> keyIterator = entry.getKey().iterator();
+            for (FunctionVariable selector : boundSelectors) {
+                final String matchKey = keyIterator.next();
+                if (!matchKey.equals("*")
+                        && selector.match(context, matchKey) == FunctionVariable.NO_MATCH) {
+                    continue main;
+                }
+            }
+            bestMatch = entry.getValue(); // return the variant message
+            break;
+        }
+        if (bestMatch == null) {
+            throw new IllegalArgumentException("No match in selectors");
+        }
+        return bestMatch.format(context);
+    }
+
+    public MockMessageFormat add(String... messageFormatLines) {
+        for (String line : messageFormatLines) {
+            dumbParseInput(line);
+        }
+        return this;
+    }
+
+    public MockMessageFormat add(List<String> messageFormatLines) {
+        for (String line : messageFormatLines) {
+            dumbParseInput(line);
+        }
+        return this;
     }
 }

@@ -21,6 +21,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
+import org.unicode.cldr.tool.MockMessageFormat.Expression;
 import org.unicode.cldr.tool.MockMessageFormat.FunctionFactory;
 import org.unicode.cldr.tool.MockMessageFormat.FunctionVariable;
 import org.unicode.cldr.tool.MockMessageFormat.MFContext;
@@ -59,9 +60,9 @@ public class MockFunctions {
                             final String caseOption = entry.getValue().toString();
                             switch (caseOption) {
                                 case "upper":
-                                    return baseValue.toUpperCase(context.locale);
+                                    return baseValue.toUpperCase(context.getLocale());
                                 case "lower":
-                                    return baseValue.toLowerCase(context.locale);
+                                    return baseValue.toLowerCase(context.getLocale());
                                 default:
                                     throw new IllegalArgumentException(
                                             "Illegal casing=" + caseOption);
@@ -88,19 +89,6 @@ public class MockFunctions {
             return ":string";
         }
 
-        @Override
-        public FunctionVariable fromVariable(
-                String variableName, MFContext context, OptionsMap options) {
-            FunctionVariable variable = context.get(variableName);
-            validate(options);
-            return new StringVariable(variable.format(context), options);
-        }
-
-        @Override
-        public FunctionVariable fromLiteral(String literal, OptionsMap options) {
-            return fromInput(literal, options);
-        }
-
         static final Set<String> ALLOWED = Set.of("u:casing");
 
         private void validate(OptionsMap options) {
@@ -112,12 +100,6 @@ public class MockFunctions {
         }
 
         @Override
-        public FunctionVariable fromInput(Object input, OptionsMap options) {
-            validate(options);
-            return new StringVariable(input.toString(), options);
-        }
-
-        @Override
         public boolean canSelect() {
             return true;
         }
@@ -125,6 +107,29 @@ public class MockFunctions {
         @Override
         public boolean canFormat() {
             return true;
+        }
+
+        @Override
+        public FunctionVariable from(Expression expression, MFContext mfContext) {
+            switch (expression.type) {
+                case literal:
+                    return new StringVariable(expression.operandId.toString(), expression.map);
+                case input:
+                    return new StringVariable(
+                            mfContext.getInput(expression.operandId).toString(), expression.map);
+                case variable:
+                    FunctionVariable sourceVariable =
+                            mfContext.boundVariables.get(expression.operandId);
+                    if (expression.map.isEmpty()) {
+                        return sourceVariable;
+                    }
+                    OptionsMap newMap = sourceVariable.getOptions().merge(expression.map);
+                    if (newMap.equals(sourceVariable.getOptions())) {
+                        return sourceVariable;
+                    }
+                    return new StringVariable(sourceVariable.format(mfContext), newMap);
+            }
+            return null;
         }
     }
 
@@ -172,9 +177,10 @@ public class MockFunctions {
                 if (pluralCategory == null) {
                     // get the plural category
                     PluralRules rules =
-                            PluralRules.forLocale(context.locale, PluralRules.PluralType.CARDINAL);
+                            PluralRules.forLocale(
+                                    context.getLocale(), PluralRules.PluralType.CARDINAL);
                     IFixedDecimal fixedDecimal =
-                            nf.locale(context.locale).format(offsettedValue).getFixedDecimal();
+                            nf.locale(context.getLocale()).format(offsettedValue).getFixedDecimal();
                     pluralCategory = rules.select(fixedDecimal);
                 }
                 return pluralCategory.equals(matchKey) ? 100 : FunctionVariable.NO_MATCH;
@@ -194,13 +200,14 @@ public class MockFunctions {
 
             @Override
             public String format(MFContext context) {
+                Locale locale = context.getLocale();
                 if (numberingSystem != null) {
                     nf =
                             nf.symbols(
                                     DecimalFormatSymbols.forNumberingSystem(
-                                            context.locale, numberingSystem));
+                                            locale, numberingSystem));
                 }
-                return nf.locale(context.locale).format(offsettedValue).toString();
+                return nf.locale(locale).format(offsettedValue).toString();
             }
 
             public void applyOptions() {
@@ -246,36 +253,6 @@ public class MockFunctions {
         }
 
         @Override
-        public NumberVariable fromVariable(
-                String variableName, MFContext context, OptionsMap options) {
-            FunctionVariable variable = context.get(variableName);
-            // In this case, we always
-            if (!(variable instanceof NumberVariable)) {
-                throw new IllegalArgumentException(getName() + " requires numbers");
-            }
-            final NumberVariable numberVariable = (NumberVariable) variable;
-
-            // Determine if any mutate.
-            // In that case, they could modify the value, and modify the options
-            // Otherwise...
-            return new NumberVariable(numberVariable.value, variable.getOptions().merge(options));
-        }
-
-        @Override
-        public NumberVariable fromLiteral(String literal, OptionsMap options) {
-            // needs to use an implementation-neutral parse
-            return fromInput(new BigDecimal(literal), options);
-        }
-
-        @Override
-        public NumberVariable fromInput(Object input, OptionsMap options) {
-            if (!(input instanceof Number)) {
-                throw new IllegalArgumentException(getName() + " requires numbers");
-            }
-            return new NumberVariable((Number) input, options);
-        }
-
-        @Override
         public boolean canSelect() {
             return true;
         }
@@ -283,6 +260,40 @@ public class MockFunctions {
         @Override
         public boolean canFormat() {
             return true;
+        }
+
+        @Override
+        public FunctionVariable from(Expression expression, MFContext mfContext) {
+            switch (expression.type) {
+                case literal:
+                    // needs to use an implementation-neutral parse
+                    new NumberVariable(new BigDecimal(expression.operandId), expression.map);
+                case input:
+                    Object input1 = mfContext.getInput(expression.operandId);
+                    if (!(input1 instanceof Number)) {
+                        throw new IllegalArgumentException(getName() + " requires numbers");
+                    }
+                    return new NumberVariable((Number) input1, expression.map);
+                case variable:
+                    FunctionVariable sourceVariable =
+                            mfContext.boundVariables.get(expression.operandId);
+                    // In this case, we only take numbers
+                    if (!(sourceVariable instanceof NumberVariable)) {
+                        throw new IllegalArgumentException(getName() + " requires numbers");
+                    }
+                    if (expression.map.isEmpty()) {
+                        return sourceVariable;
+                    }
+                    OptionsMap newMap = sourceVariable.getOptions().merge(expression.map);
+                    if (newMap.equals(sourceVariable.getOptions())) {
+                        return sourceVariable;
+                    }
+                    // Determine if anything mutates.
+                    // In that case, they could modify the value, and modify the options
+                    // Otherwise...
+                    return new NumberVariable(((NumberVariable) sourceVariable).value, newMap);
+            }
+            return null;
         }
     }
 
@@ -332,7 +343,7 @@ public class MockFunctions {
                                         NumberingSystem.getInstanceByName(eValue.toString());
                                 nf.symbols(
                                         DecimalFormatSymbols.forNumberingSystem(
-                                                context.locale, numberingSystem));
+                                                context.getLocale(), numberingSystem));
                                 break;
                             case "signDisplay":
                                 nf = nf.sign(SignDisplay.valueOf(eValue.toString()));
@@ -353,7 +364,7 @@ public class MockFunctions {
                                         "Number doen't allow the option " + entry);
                         }
                     }
-                    final LocalizedNumberFormatter localized = nf.locale(context.locale);
+                    final LocalizedNumberFormatter localized = nf.locale(context.getLocale());
                     formatted = localized.format(value).toString();
                 }
                 return formatted;
@@ -365,10 +376,8 @@ public class MockFunctions {
             return ":u:measure";
         }
 
-        @Override
         public MeasureVariable fromVariable(
-                String variableName, MFContext context, OptionsMap options) {
-            FunctionVariable variable = context.get(variableName);
+                FunctionVariable variable, MFContext context, OptionsMap options) {
             // In this case, we always
             if (!(variable instanceof MeasureVariable)) {
                 throw new IllegalArgumentException(getName() + " requires measures");
@@ -382,7 +391,6 @@ public class MockFunctions {
                     ((MeasureVariable) variable).value, variable.getOptions().merge(options));
         }
 
-        @Override
         public MeasureVariable fromLiteral(String literal, OptionsMap options) {
             List<String> parts = MockMessageFormat.SPACE_SPLITTER.splitToList(literal);
             if (parts.size() != 2) {
@@ -394,7 +402,6 @@ public class MockFunctions {
             return fromInput(measure, options);
         }
 
-        @Override
         public MeasureVariable fromInput(Object input, OptionsMap options) {
             if (!(input instanceof Measure)) {
                 throw new IllegalArgumentException(getName() + " requires measures");
@@ -428,6 +435,56 @@ public class MockFunctions {
                 throw new IllegalArgumentException(
                         "Invalid options: " + Sets.difference(options.keySet(), ALLOWED));
             }
+        }
+
+        @Override
+        public FunctionVariable from(Expression expression, MFContext mfContext) {
+            switch (expression.type) {
+                case literal:
+                    List<String> parts =
+                            MockMessageFormat.SPACE_SPLITTER.splitToList(expression.operandId);
+                    if (parts.size() != 2) {
+                        throw new IllegalArgumentException(
+                                getName()
+                                        + " requires a literal in the form number/unicode_unit_id");
+                    }
+                    MeasureUnit unit = MeasureUnit.forIdentifier(parts.get(1));
+                    Measure measure = new Measure(new BigDecimal(parts.get(0)), unit);
+                    OptionsMap options2 = expression.map;
+                    if (!(measure instanceof Measure)) {
+                        throw new IllegalArgumentException(getName() + " requires measures");
+                    }
+                    validate(options2);
+                    return new MeasureVariable(measure, options2);
+                case input:
+                    Object input1 = mfContext.getInput(expression.operandId);
+                    OptionsMap options = expression.map;
+                    if (!(input1 instanceof Measure)) {
+                        throw new IllegalArgumentException(getName() + " requires measures");
+                    }
+                    validate(options);
+                    return new MeasureVariable((Measure) input1, options);
+                case variable:
+                    FunctionVariable sourceVariable =
+                            mfContext.boundVariables.get(expression.operandId);
+                    if (!(sourceVariable instanceof MeasureVariable)) {
+                        throw new IllegalArgumentException(getName() + " requires measures");
+                    }
+                    validate(expression.map);
+                    if (expression.map.isEmpty()) {
+                        return sourceVariable;
+                    }
+                    OptionsMap newMap = sourceVariable.getOptions().merge(expression.map);
+                    if (newMap.equals(sourceVariable.getOptions())) {
+                        return sourceVariable;
+                    }
+
+                    // Determine if any mutate.
+                    // In that case, they could modify the value, and modify the options
+                    // Otherwise...
+                    return new MeasureVariable(((MeasureVariable) sourceVariable).value, newMap);
+            }
+            return null;
         }
     }
 

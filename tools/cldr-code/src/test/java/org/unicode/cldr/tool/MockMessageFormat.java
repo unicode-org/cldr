@@ -1,5 +1,10 @@
 package org.unicode.cldr.tool;
 
+import com.google.common.base.Splitter;
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.LinkedHashMultimap;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.Sets;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -11,15 +16,8 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.tool.MockMessageFormat.Expression.Type;
 import org.unicode.cldr.util.RegexUtilities;
-
-import com.google.common.base.Splitter;
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.LinkedHashMultimap;
-import com.google.common.collect.Multimap;
-import com.google.common.collect.Sets;
 
 /**
  * A mock implementation of a possible internal organization for MF2. Each function is represented
@@ -280,7 +278,7 @@ public class MockMessageFormat {
     static final String allButSpaceAndCloseCurly = "[^\\}\\s]*";
     static final String allButCurly = "[^\\}]*";
     static final String EXPRESSION =
-        // spotless:off
+            // spotless:off
         "\\{(" + allButSpaceAndCloseCurly  + ")" // operand
         + "(?:"
           + "\\s+(:" + allButSpaceAndCloseCurly + ")" // function
@@ -439,7 +437,9 @@ public class MockMessageFormat {
                 MfFunction functionFactory =
                         functionName == null ? null : MockFunctions.get(functionName);
                 OptionsMap optionsMap =
-                        options == null || options.isBlank() ? null : OptionsMap.make(options); // optional
+                        options == null || options.isBlank()
+                                ? null
+                                : OptionsMap.make(options); // optional
                 String newVariable = "$selector__" + selector++;
                 if (existingVariable != null) {
                     addVariable(

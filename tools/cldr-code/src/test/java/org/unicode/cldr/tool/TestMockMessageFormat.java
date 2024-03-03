@@ -1,20 +1,18 @@
 package org.unicode.cldr.tool;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.stream.Collectors;
-
-import org.unicode.cldr.tool.MockMessageFormat.MfContext;
-import org.unicode.cldr.tool.MockMessageFormat.MfResolvedVariable;
-
 import com.google.common.base.Joiner;
 import com.google.common.base.Objects;
 import com.google.common.collect.ImmutableMap;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.util.Measure;
 import com.ibm.icu.util.MeasureUnit;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.stream.Collectors;
+import org.unicode.cldr.tool.MockMessageFormat.MfContext;
+import org.unicode.cldr.tool.MockMessageFormat.MfResolvedVariable;
 
 public class TestMockMessageFormat {
     private static final Joiner JOINER_EMPTY = Joiner.on("");
@@ -202,7 +200,12 @@ public class TestMockMessageFormat {
               "   =2 {{host} invites {guest} and one other person to their party.}",
                "   other {{host} invites {guest} and # other people to their party.}}}}");
         // spotless:on
-        MessageFormat mf1 = new MessageFormat(JOINER_EMPTY.join(mf1Pattern.stream().map(x -> x.trim()).collect(Collectors.toUnmodifiableList())));
+        MessageFormat mf1 =
+                new MessageFormat(
+                        JOINER_EMPTY.join(
+                                mf1Pattern.stream()
+                                        .map(x -> x.trim())
+                                        .collect(Collectors.toUnmodifiableList())));
 
         // spotless:off
         final List<String> mf2Pattern = List.of(
@@ -224,15 +227,39 @@ public class TestMockMessageFormat {
 
         MockMessageFormat mf2 = new MockMessageFormat().add(mf2Pattern).freeze();
 
-        System.out.println("MF2 Pattern:\n\t" + JOINER_LF_TAB.join(mf1Pattern));
-        System.out.println("MF1 Pattern:\n\t" + JOINER_LF_TAB.join(mf2Pattern));
+        System.out.println("MF1 Pattern:\n\t" + JOINER_LF_TAB.join(mf1Pattern));
+        System.out.println("MF2 Pattern:\n\t" + JOINER_LF_TAB.join(mf2Pattern));
 
         for (int num_guests : Arrays.asList(0, 1, 2, 3)) {
-            Map<String, Object> inputParameters1 = Map.of("host", "Sarah", "gender_of_host", "female", "guest", "Mike", "num_guests", num_guests);
+            Map<String, Object> inputParameters1 =
+                    Map.of(
+                            "host",
+                            "Sarah",
+                            "gender_of_host",
+                            "female",
+                            "guest",
+                            "Mike",
+                            "num_guests",
+                            num_guests);
             String result1 = mf1.format(inputParameters1);
-            Map<String, Object> inputParameters2 = Map.of("$host", "Sarah", "$gender_of_host", "female", "$guest", "Mike", "$num_guests", num_guests);
+            Map<String, Object> inputParameters2 =
+                    Map.of(
+                            "$host",
+                            "Sarah",
+                            "$gender_of_host",
+                            "female",
+                            "$guest",
+                            "Mike",
+                            "$num_guests",
+                            num_guests);
             String result2 = mf2.format(new MfContext().addInput(inputParameters2));
-            System.out.println(String.format("%s with input: %s\n\tMF1: %s\n\tMF2: %s", Objects.equal(result1, result2) ? "OK" : "Fail", inputParameters2, result1, result2));
+            System.out.println(
+                    String.format(
+                            "%s with input: %s\n\tMF1: %s\n\tMF2: %s",
+                            Objects.equal(result1, result2) ? "OK" : "Fail",
+                            inputParameters2,
+                            result1,
+                            result2));
         }
     }
 

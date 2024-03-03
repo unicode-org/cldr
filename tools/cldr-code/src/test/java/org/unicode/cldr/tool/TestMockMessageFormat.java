@@ -1,19 +1,24 @@
 package org.unicode.cldr.tool;
 
-import com.google.common.base.Joiner;
-import com.google.common.base.Objects;
-import com.google.common.collect.ImmutableMap;
-import com.ibm.icu.util.Measure;
-import com.ibm.icu.util.MeasureUnit;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.stream.Collectors;
+
 import org.unicode.cldr.tool.MockMessageFormat.MfContext;
 import org.unicode.cldr.tool.MockMessageFormat.MfResolvedVariable;
 
+import com.google.common.base.Joiner;
+import com.google.common.base.Objects;
+import com.google.common.collect.ImmutableMap;
+import com.ibm.icu.text.MessageFormat;
+import com.ibm.icu.util.Measure;
+import com.ibm.icu.util.MeasureUnit;
+
 public class TestMockMessageFormat {
-    private static final Joiner LINE_JOINER = Joiner.on("\n\t");
+    private static final Joiner JOINER_EMPTY = Joiner.on("");
+    private static final Joiner JOINER_LF_TAB = Joiner.on("\n\t");
 
     /**
      * Run some simple examples
@@ -21,8 +26,10 @@ public class TestMockMessageFormat {
      * @param args
      */
     public static void main(String[] args) {
+        testAgainstMf1();
+        if (true) return;
         System.out.println(
-                "Message Format:\n\t" + LINE_JOINER.join(checkOffsetMessageLines) + "\n");
+                "Message Format:\n\t" + JOINER_LF_TAB.join(checkOffsetMessageLines) + "\n");
         checkOffset("Jim", 0, "", "");
         checkOffset("Sarah", 1, "Water Polo", "Ping Pong");
         checkOffset("Tom", 2, "Baseball", "Billiards");
@@ -169,6 +176,63 @@ public class TestMockMessageFormat {
                             source,
                             expected,
                             actual));
+        }
+    }
+
+    public static void testAgainstMf1() {
+        // spotless:off
+        final List<String> mf1Pattern = List.of(
+         "{gender_of_host, select, ",
+           " female {",
+            "  {num_guests, plural, offset:1 ",
+              "   =0 {{host} does not give a party.}",
+              "   =1 {{host} invites {guest} to her party.}",
+              "   =2 {{host} invites {guest} and one other person to her party.}",
+              "   other {{host} invites {guest} and # other people to her party.}}}",
+           " male {",
+             "  {num_guests, plural, offset:1 ",
+               "   =0 {{host} does not give a party.}",
+               "   =1 {{host} invites {guest} to his party.}",
+              "   =2 {{host} invites {guest} and one other person to his party.}",
+              "   other {{host} invites {guest} and # other people to his party.}}}",
+           " other {",
+             "  {num_guests, plural, offset:1 ",
+               "   =0 {{host} does not give a party.}",
+               "   =1 {{host} invites {guest} to their party.}",
+              "   =2 {{host} invites {guest} and one other person to their party.}",
+               "   other {{host} invites {guest} and # other people to their party.}}}}");
+        // spotless:on
+        MessageFormat mf1 = new MessageFormat(JOINER_EMPTY.join(mf1Pattern.stream().map(x -> x.trim()).collect(Collectors.toUnmodifiableList())));
+
+        // spotless:off
+        final List<String> mf2Pattern = List.of(
+            ".input {$num_guests :number u:offset=1}", // must be separate line
+            ".match {$gender_of_host}{$num_guests}", // {$host}, {$guest} not matched
+                " female 0 {{{$host} does not give a party.}}",
+                " female 1 {{{$host} invites {$guest} to her party.}}",
+                " female 2 {{{$host} invites {$guest} and one other person to her party.}}",
+                " female * {{{$host} invites {$guest} and {$num_guests} other people to her party.}}",
+                " male 0 {{{$host} does not give a party.}}",
+                " male 1 {{{$host} invites {$guest} to his party.}}",
+                " male 2 {{{$host} invites {$guest} and one other person to his party.}}",
+                " male * {{{$host} invites {$guest} and {$num_guests} other people to his party.}}",
+                " * 0 {{{$host} does not give a party.}}",
+                " * 1 {{{$host} invites {$guest} to their party.}}",
+                " * 2 {{{$host} invites {$guest} and one other person to their party.}}",
+                " * * {{{$host} invites {$guest} and {$num_guests} other people to their party.}}");
+        // spotless:on
+
+        MockMessageFormat mf2 = new MockMessageFormat().add(mf2Pattern).freeze();
+
+        System.out.println("MF2 Pattern:\n\t" + JOINER_LF_TAB.join(mf1Pattern));
+        System.out.println("MF1 Pattern:\n\t" + JOINER_LF_TAB.join(mf2Pattern));
+
+        for (int num_guests : Arrays.asList(0, 1, 2, 3)) {
+            Map<String, Object> inputParameters1 = Map.of("host", "Sarah", "gender_of_host", "female", "guest", "Mike", "num_guests", num_guests);
+            String result1 = mf1.format(inputParameters1);
+            Map<String, Object> inputParameters2 = Map.of("$host", "Sarah", "$gender_of_host", "female", "$guest", "Mike", "$num_guests", num_guests);
+            String result2 = mf2.format(new MfContext().addInput(inputParameters2));
+            System.out.println(String.format("%s with input: %s\n\tMF1: %s\n\tMF2: %s", Objects.equal(result1, result2) ? "OK" : "Fail", inputParameters2, result1, result2));
         }
     }
 

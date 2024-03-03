@@ -1,10 +1,5 @@
 package org.unicode.cldr.tool;
 
-import com.google.common.base.Splitter;
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.LinkedHashMultimap;
-import com.google.common.collect.Multimap;
-import com.google.common.collect.Sets;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -16,8 +11,15 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 import org.unicode.cldr.tool.MockMessageFormat.Expression.Type;
 import org.unicode.cldr.util.RegexUtilities;
+
+import com.google.common.base.Splitter;
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.LinkedHashMultimap;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.Sets;
 
 /**
  * A mock implementation of a possible internal organization for MF2. Each function is represented
@@ -241,7 +243,7 @@ public class MockMessageFormat {
         }
 
         public static OptionsMap make(String pairs) {
-            if (pairs == null) {
+            if (pairs == null || pairs.isBlank()) {
                 return EMPTY;
             }
             OptionBuilder builder = OptionsMap.start();
@@ -275,7 +277,19 @@ public class MockMessageFormat {
         }
     }
 
-    static final String EXPRESSION = "\\{(\\S*)(?:\\s+(:[^}\\s]*)\\s*([^}]*))?\\s*}";
+    static final String allButSpaceAndCloseCurly = "[^\\}\\s]*";
+    static final String allButCurly = "[^\\}]*";
+    static final String EXPRESSION =
+        // spotless:off
+        "\\{(" + allButSpaceAndCloseCurly  + ")" // operand
+        + "(?:"
+          + "\\s+(:" + allButSpaceAndCloseCurly + ")" // function
+          + "\\s*"
+          + "(" + allButCurly + ")" // options
+        + ")?"
+        + "\\s*}";
+    // spotless:on
+
     static final Pattern EXPRESSION_PATTERN = Pattern.compile(EXPRESSION);
 
     static final String EXPRESSION_TRIMMING = "\\s*" + EXPRESSION + "\\s*";
@@ -314,8 +328,8 @@ public class MockMessageFormat {
         if (keyList.size() != selectorSize()) {
             throw new IllegalArgumentException(
                     String.format(
-                            "The number of keys (%s) must be identical to the number of selectors (%s): %s",
-                            keyList, selectors, line));
+                            "The number of keys (%s:%s) must be identical to the number of selectors (%s:%s): %s",
+                            keyList.size(), keyList, selectors.size(), selectors, line));
         }
         String messageString = matcher.group(2).trim();
         if (messageString.endsWith("}}")) {
@@ -379,16 +393,12 @@ public class MockMessageFormat {
         String options = matcher.group(3);
 
         Expression existingVariable = getExpressionFromVariableId(operand);
-        if (functionName == null) {
-            if (existingVariable == null) {
-                throw new IllegalArgumentException(
-                        "variable must be defined in: " + matcher.group());
-            }
+        if (functionName == null && existingVariable != null) {
             return existingVariable;
         } else {
             MfFunction functionFactory =
-                    functionName == null ? null : MockFunctions.get(functionName);
-            OptionsMap optionsMap = options.isBlank() ? null : OptionsMap.make(options); // optional
+                    MockFunctions.get(functionName == null ? ":string" : functionName);
+            OptionsMap optionsMap = OptionsMap.make(options);
             if (existingVariable != null) {
                 return new Expression(Type.variable, operand, functionFactory, optionsMap);
             } else {
@@ -412,6 +422,9 @@ public class MockMessageFormat {
                 return selectors;
             }
             String operand = matcher.group(1);
+            if (operand.contains("}")) {
+                throw new IllegalArgumentException();
+            }
             // optional
             String functionName = matcher.group(2);
             // optional, but if it occurs then the function has to be there
@@ -420,17 +433,13 @@ public class MockMessageFormat {
             Expression existingVariable = variables.get(operand);
             Expression result = null;
 
-            if (functionName == null) {
-                if (existingVariable == null) {
-                    throw new IllegalArgumentException(
-                            "variable must be defined in: " + matcher.group());
-                }
+            if (functionName == null && existingVariable != null) {
                 result = existingVariable;
             } else {
                 MfFunction functionFactory =
                         functionName == null ? null : MockFunctions.get(functionName);
                 OptionsMap optionsMap =
-                        options.isBlank() ? null : OptionsMap.make(options); // optional
+                        options == null || options.isBlank() ? null : OptionsMap.make(options); // optional
                 String newVariable = "$selector__" + selector++;
                 if (existingVariable != null) {
                     addVariable(
@@ -530,9 +539,9 @@ public class MockMessageFormat {
     Multimap<String, Expression> requiredInput = null;
     Set<String> unused = null;
 
-    public void freeze() {
+    public MockMessageFormat freeze() {
         if (requiredVariables != null) {
-            return;
+            return this;
         }
         requiredVariables = new LinkedHashSet<>();
         requiredInput = LinkedHashMultimap.create();
@@ -552,6 +561,7 @@ public class MockMessageFormat {
         }
         unused = new LinkedHashSet<>(variables.keySet());
         unused.removeAll(requiredVariables);
+        return this;
     }
 
     public void extractVariablesAndInput(

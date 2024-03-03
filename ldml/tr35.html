@@ -476,6 +476,7 @@ This is a stable document and may be used as reference material or cited as a no
 <li>Part 6: <a href="tr35-info.html#Contents">Supplemental</a> (supplemental data)</li>
 <li>Part 7: <a href="tr35-keyboards.html#Contents">Keyboards</a> (keyboard mappings)</li>
 <li>Part 8: <a href="tr35-personNames.html#Contents">Person Names</a> (person names)</li>
+<li>Part 9: <a href="tr35-messageFormat.html#Contents">MessageFormat</a> (message format)</li>
 </ul><h2 id="Contents"><a name="contents-of-part-1-core" href="#Contents">Contents of Part 1, Core</a></h2><ul>
 <li><a href="#Introduction">Introduction</a><ul>
 <li><a href="#Conformance">Conformance</a></li>
@@ -2349,7 +2350,7 @@ lang_region (aliases to lang_script_region based on likely subtags)
 <span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">parentLocale</span> <span class="hljs-keyword">parent</span> <span class="hljs-keyword">NMTOKEN</span> <span class="hljs-keyword">#REQUIRED</span> &gt;</span>
 <span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">parentLocale</span> <span class="hljs-keyword">locales</span> <span class="hljs-keyword">NMTOKENS</span> <span class="hljs-keyword">#REQUIRED</span> &gt;</span>
 </code></pre><p>When the component does not occur, that is referred to as the ‘main’ component.
-Otherwise the component value typically corresponds to an element and its children, such as ‘collations’ or ‘plurals’.</p><p>The basic inheritance model for locales of the form <lang><em><script></em><region>_<variant1>_…<variantN> is to truncate from the end. That is, 
+Otherwise the component value typically corresponds to an element and its children, such as ‘collations’ or ‘plurals’.</p><p>The basic inheritance model for locales of the form <lang><em><script></em><region>_<variant1>_…<variantN> is to truncate from the end. That is,
 remove the _u and _t extensions, then remove the last _ and following tag, then restore the extensions.</p>
 <p>For example</p>
 <pre><code>sr_Cyrl_ME
@@ -2370,17 +2371,17 @@ then a mixture of child and parent textual data is a mishmash of different scrip
 <p>For case 1, there is a special attribute and value, <code>localeRules=&quot;nonlikelyScript&quot;</code>,
 which specifies <strong>all locales</strong> of the form <lang>_<script>, wherever the <script> is <strong>not</strong> the likely script for <lang>.
 For migration, the previous short list of locales (a subset of the nonlikelyScript locales) is retained,
-but those locales are slated for removal in the future. 
+but those locales are slated for removal in the future.
 For example, <code>ru_Latn</code> is not included in the short list but is included (programmatically) in the rule.</p>
 <pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">parentLocale</span> <span class="hljs-attr">parent</span>=<span class="hljs-string">&quot;root&quot;</span> <span class="hljs-attr">localeRules</span>=<span class="hljs-string">&quot;nonlikelyScript&quot;</span> <span class="hljs-attr">locales</span>=<span class="hljs-string">&quot;az_Arab az_Cyrl bal_Latn … yue_Hans zh_Hant&quot;</span>/&gt;</span>/&gt;
 </code></pre>
 <p>The <code>localeRules</code> is used for the main component, for example.
-It is not used to components where text is not mixed, 
+It is not used to components where text is not mixed,
 such as the collations component or the plurals component.</p>
 <p>For case 2, the children and parent share the same primary language, but the region is changed. For example:</p>
 <pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">parentLocale</span> <span class="hljs-attr">parent</span>=<span class="hljs-string">&quot;es_419&quot;</span> <span class="hljs-attr">locales</span>=<span class="hljs-string">&quot;es_AR es_BO … es_UY es_VE&quot;</span>/&gt;</span>
 </code></pre>
-<p>There are certain components that require addenda to the common parent fallback rules. 
+<p>There are certain components that require addenda to the common parent fallback rules.
 For a locale like <code>zh_Hant</code> in the example above, the <code>parentLocale</code> element would dictate the parent as <code>root</code> when referring to main locale data,
 but for collation data, the parent locale should still be <code>zh</code>,
 even though the <code>parentLocale</code> element is present for that locale.
@@ -2390,8 +2391,8 @@ To address this, components can have their own fallback rules that inherit from 
 <span class="hljs-tag">&lt;/<span class="hljs-name">parentLocales</span>&gt;</span>
 </code></pre>
 <p>Note: When components were first introduced, the component-specific parent locales were be merged with the main parent locales.
-This was determined to be an error, and the component-specific parent locales are now not merged, but are treated as stand-alone. </p>
-<p>Since parentLocale information is not localizable on a per locale basis, 
+This was determined to be an error, and the component-specific parent locales are now not merged, but are treated as stand-alone.</p>
+<p>Since parentLocale information is not localizable on a per locale basis,
 the parentLocale information is contained in CLDR’s <a href="tr35-info.md">supplemental data.</a></p>
 <p>When a <code>parentLocale</code> element is used to override normal inheritance, the following guidelines apply in most cases:</p>
 <ol>

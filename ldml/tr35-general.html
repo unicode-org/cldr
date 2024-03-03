@@ -737,6 +737,7 @@ This is a stable document and may be used as reference material or cited as a no
 <li>Part 6: <a href="tr35-info.html#Contents">Supplemental</a> (supplemental data)</li>
 <li>Part 7: <a href="tr35-keyboards.html#Contents">Keyboards</a> (keyboard mappings)</li>
 <li>Part 8: <a href="tr35-personNames.html#Contents">Person Names</a> (person names)</li>
+<li>Part 9: <a href="tr35-messageFormat.html#Contents">MessageFormat</a> (message format)</li>
 </ul><h2 id="Contents"><a name="contents-of-part-2-general" href="#Contents">Contents of Part 2, General</a></h2><ul>
 <li><a href="#Display_Name_Elements">Display Name Elements</a><ul>
 <li><a href="#locale_display_name_algorithm">Locale Display Name Algorithm</a></li>
@@ -3458,7 +3459,7 @@ so this algorithm can be used to write into append-only sinks. Both the back-to-
 <li>If <strong>sequence</strong> is an <strong>emoji flag sequence</strong>, look up the territory name in CLDR for the corresponding ASCII characters and return as the short name. For example, the regional indicator symbols P+F would map to “Französisch-Polynesien” in German.</li>
 <li>If <strong>sequence</strong> is an <strong>emoji tag sequence</strong>, look up the subdivision name in CLDR for the corresponding ASCII characters and return as the short name. For example, the TAG characters gbsct would map to “Schottland” in German.</li>
 <li>If <strong>sequence</strong> is a keycap sequence or 🔟, use the characterLabel for "keycap" as the <strong>prefixName</strong> and set the <strong>suffix</strong> to be the sequence (or "10" in the case of 🔟), then go to step 8.</li>
-<li>If the <strong>sequence</strong> ends with the string ZWJ + ➡️, look up the name of that sequence with that string removed. Embed that name into the "facing-right" characterLabelPattern and return it. </li>
+<li>If the <strong>sequence</strong> ends with the string ZWJ + ➡️, look up the name of that sequence with that string removed. Embed that name into the "facing-right" characterLabelPattern and return it.</li>
 <li>Let <strong>suffix</strong> and <strong>prefixName</strong> be "".</li>
 <li>If <strong>sequence</strong> contains any emoji modifiers, move them (in order) into <strong>suffix</strong>, removing them from <strong>sequence</strong>.</li>
 <li>If <strong>sequence</strong> is a "KISS", "HEART", "FAMILY", or "HOLDING HANDS" emoji ZWJ sequence, move the characters in <strong>sequence</strong> to the front of <strong>suffix</strong>, and set the <strong>sequence</strong> to be "💏", "💑", or "👪" respectively, and go to step 7.<ol>

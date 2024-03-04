@@ -29,6 +29,35 @@ import org.unicode.cldr.tool.MockMessageFormat.OptionsMap;
 
 public class MockFunctions {
 
+    static final RegistryBuilder registry =
+            new RegistryBuilder(new StringFactory(), new NumberFactory(), new MeasureFactory());
+
+    static class RegistryBuilder {
+        Map<String, MfFunction> lookup = new ConcurrentHashMap<>();
+
+        public RegistryBuilder(MfFunction... factories) {
+            for (MfFunction factory : factories) {
+                lookup.put(factory.getName(), factory);
+            }
+        }
+    }
+
+    /*
+     * To register additional functions
+     */
+    public void register(MfFunction... factories) {
+        for (MfFunction factory : factories) {
+            registry.lookup.put(factory.getName(), factory);
+        }
+    }
+
+    /*
+     * To access a function by name
+     */
+    static MfFunction get(String functionName) {
+        return registry.lookup.get(functionName);
+    }
+
     /** FunctionFactory & FunctionVariable for :string */
     static class StringFactory implements MfFunction {
 
@@ -46,7 +75,7 @@ public class MockFunctions {
             }
 
             @Override
-            public int match(MfContext contact, String matchKey) {
+            public double match(MfContext contact, String matchKey) {
                 return baseValue.equals(matchKey)
                         ? MfResolvedVariable.EXACT_MATCH
                         : MfResolvedVariable.NO_MATCH;
@@ -144,6 +173,7 @@ public class MockFunctions {
             String pluralCategory = null;
             int offset = 0;
             NumberingSystem numberingSystem = null;
+            private boolean choice = false;
 
             @Override
             public String toString() {
@@ -165,7 +195,22 @@ public class MockFunctions {
             }
 
             @Override
-            public int match(MfContext context, String matchKey) {
+            public double match(MfContext context, String matchKey) {
+                if (choice) {
+                    double doubleValue = value.doubleValue();
+                    if (matchKey.endsWith(">")) {
+                        double base =
+                                Double.parseDouble(matchKey.substring(0, matchKey.length() - 1));
+                        return base <= doubleValue
+                                ? MfResolvedVariable.NO_MATCH
+                                : base - doubleValue;
+                    } else {
+                        double base = Double.parseDouble(matchKey);
+                        return base != doubleValue
+                                ? MfResolvedVariable.NO_MATCH
+                                : MfResolvedVariable.EXACT_MATCH;
+                    }
+                }
                 if (matchKey.charAt(0) < 'A') {
                     // hack for now; should perform a better comparison that matches
                     // irrespective of the type of number
@@ -183,7 +228,7 @@ public class MockFunctions {
                             nf.locale(context.getLocale()).format(offsettedValue).getFixedDecimal();
                     pluralCategory = rules.select(fixedDecimal);
                 }
-                return pluralCategory.equals(matchKey) ? 100 : MfResolvedVariable.NO_MATCH;
+                return pluralCategory.equals(matchKey) ? 100.0 : MfResolvedVariable.NO_MATCH;
             }
 
             private Number subtractOffset() {
@@ -238,6 +283,9 @@ public class MockFunctions {
                         case "u:offset":
                             offset = Integer.parseInt(eValue.toString());
                             offsettedValue = subtractOffset();
+                            break;
+                        case "u:choice":
+                            choice = Boolean.valueOf(eValue.toString());
                             break;
                         default:
                             throw new IllegalArgumentException(
@@ -315,7 +363,7 @@ public class MockFunctions {
             }
 
             @Override
-            public int match(MfContext context, String matchKey) {
+            public double match(MfContext context, String matchKey) {
                 throw new UnsupportedOperationException(":u:measure doesn't support selection");
             }
 
@@ -486,34 +534,5 @@ public class MockFunctions {
             }
             return null;
         }
-    }
-
-    static final RegistryBuilder registry =
-            new RegistryBuilder(new StringFactory(), new NumberFactory(), new MeasureFactory());
-
-    static class RegistryBuilder {
-        Map<String, MfFunction> lookup = new ConcurrentHashMap<>();
-
-        public RegistryBuilder(MfFunction... factories) {
-            for (MfFunction factory : factories) {
-                lookup.put(factory.getName(), factory);
-            }
-        }
-    }
-
-    /*
-     * To register additional functions
-     */
-    public void register(MfFunction... factories) {
-        for (MfFunction factory : factories) {
-            registry.lookup.put(factory.getName(), factory);
-        }
-    }
-
-    /*
-     * To access a function by name
-     */
-    static MfFunction get(String functionName) {
-        return registry.lookup.get(functionName);
     }
 }

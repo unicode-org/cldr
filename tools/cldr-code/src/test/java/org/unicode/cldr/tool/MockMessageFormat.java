@@ -74,11 +74,18 @@ public class MockMessageFormat {
          * matchKey. A match value of zero is "no match"; the maximum int value is an exact match;
          * anything between implementation defined
          */
-        public static final int NO_MATCH = 0;
+        public static final double NO_MATCH = -1d;
 
-        public static final int EXACT_MATCH = Integer.MAX_VALUE;
+        public static final double EXACT_MATCH = 0d;
 
-        public abstract int match(MfContext contact, String matchKey);
+        /**
+         * Returns the match difference. <br>
+         * 0.0 is an exact match <br>
+         * -1 is a complete failure <br>
+         * Anything positive is a "distance" from being exact. The meaning of that distance is up to
+         * the MfFunction
+         */
+        public abstract double match(MfContext contact, String matchKey);
 
         public abstract String format(MfContext contact);
 

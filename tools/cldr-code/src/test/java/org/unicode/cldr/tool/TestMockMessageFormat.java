@@ -24,8 +24,9 @@ public class TestMockMessageFormat {
      * @param args
      */
     public static void main(String[] args) {
-        testAgainstMf1();
+        checkChoice();
         if (true) return;
+        testAgainstMf1();
         System.out.println(
                 "Message Format:\n\t" + JOINER_LF_TAB.join(checkOffsetMessageLines) + "\n");
         checkOffset("Jim", 0, "", "");
@@ -43,6 +44,69 @@ public class TestMockMessageFormat {
         // meter"));
         //        System.out.println(checkFormat(Locale.forLanguageTag("fr"), 0, "John", "188
         // meter"));
+    }
+
+    public static void checkChoice() {
+        // "-1#is negative| 0#is zero or fraction | 1#is one |1.0<is 1+ |2#is two |2<is more than
+        // 2."
+
+        final List<String> choiceMessageLines =
+                List.of( //
+                        ".match {$count :number u:choice=true}",
+                        "0> {{{$count} is negative}}",
+                        "1> {{{$count} is zero or fraction}}",
+                        "1 {{{$count} is one}}",
+                        "2> {{{$count} is 1+}}",
+                        "2 {{{$count} is two}}",
+                        "* {{{$count} is more than 2.}}");
+
+        MockMessageFormat mf = new MockMessageFormat();
+        mf.add(choiceMessageLines);
+
+        for (Double sample :
+                List.of(
+                        Double.NEGATIVE_INFINITY,
+                        -1.0,
+                        0.0,
+                        0.9,
+                        1.0,
+                        1.5,
+                        2.0,
+                        2.1,
+                        Double.NaN,
+                        Double.POSITIVE_INFINITY)) {
+            final MfContext context = new MfContext().addInput("$count", sample);
+            String actual = mf.format(context);
+            System.out.println("input: " + sample + " formatted: " + actual);
+        }
+
+        //        System.out.println("Formatter Pattern : " + fmt.toPattern());
+        //
+        //        System.out.println("Format with -INF : " + fmt.format(Double.NEGATIVE_INFINITY));
+        //        System.out.println("Format with -1.0 : " + fmt.format(-1.0));
+        //        System.out.println("Format with 0 : " + fmt.format(0));
+        //        System.out.println("Format with 0.9 : " + fmt.format(0.9));
+        //        System.out.println("Format with 1.0 : " + fmt.format(1));
+        //        System.out.println("Format with 1.5 : " + fmt.format(1.5));
+        //        System.out.println("Format with 2 : " + fmt.format(2));
+        //        System.out.println("Format with 2.1 : " + fmt.format(2.1));
+        //        System.out.println("Format with NaN : " + fmt.format(Double.NaN));
+        //        System.out.println("Format with +INF : " + fmt.format(Double.POSITIVE_INFINITY));
+
+        /*
+        Format with -INF : is negative
+         Format with -1.0 : is negative
+         Format with 0 : is zero or fraction
+         Format with 0.9 : is zero or fraction
+         Format with 1.0 : is one
+         Format with 1.5 : is 1+
+         Format with 2 : is two
+         Format with 2.1 : is more than 2.
+         Format with NaN : is negative
+         Format with +INF : is more than 2.
+
+                 */
+
     }
 
     static final List<String> checkOffsetMessageLines =

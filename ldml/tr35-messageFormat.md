@@ -60,7 +60,8 @@ The specification will be included in this page prior to release.
 
 In the interim, the current draft specification may be accessed at:
 
-<https://github.com/unicode-org/message-format-wg/blob/LDML45-alpha/spec/README.md>
+In the interim, access the
+<a href="https://github.com/unicode-org/message-format-wg/blob/LDML45-alpha/spec/README.md">current draft specification</a>.
 
 * * *
 

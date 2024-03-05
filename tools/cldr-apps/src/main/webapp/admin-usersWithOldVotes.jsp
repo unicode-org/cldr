@@ -33,7 +33,7 @@ SurveyMain sm = CookieSession.sm;
 // Group together votes from each old table, list groups in reverse chronological order. 
 int ver = Integer.parseInt(SurveyMain.getNewVersion());
 while (--ver >= SurveyAjax.oldestVersionForImportingVotes) {
-	String oldVotesTable = DBUtils.Table.VOTE_VALUE.forVersion(new Integer(ver).toString(), false).toString();
+	String oldVotesTable = DBUtils.Table.VOTE_VALUE.forVersion(Integer.toString(ver), false).toString();
 	if (DBUtils.hasTable(oldVotesTable)) {
 		String sql = "select " + oldVotesTable
 			+".submitter as submitter, cldr_users.id as id, cldr_users.email as email, cldr_users.password as password, count(*) as count from "+oldVotesTable

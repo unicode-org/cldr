@@ -499,9 +499,7 @@ public class ZoneParser {
     private static List<String> errorData =
             Arrays.asList(
                     new String[] {
-                        new Double(Double.MIN_VALUE).toString(),
-                        new Double(Double.MIN_VALUE).toString(),
-                        ""
+                        String.valueOf(Double.MIN_VALUE), String.valueOf(Double.MIN_VALUE), ""
                     });
 
     private Comparator<String> TZIDComparator =
@@ -717,17 +715,17 @@ public class ZoneParser {
                 if (longitude <= -180) {
                     longitude += 360;
                 }
-                pieces.add(new Double(latitude).toString()); // lat
+                pieces.add(Double.toString(latitude)); // lat
                 // remember that the sign of the TZIDs is wrong
-                pieces.add(new Double(-longitude).toString()); // long
+                pieces.add(Double.toString(-longitude)); // long
                 pieces.add(StandardCodes.NO_COUNTRY); // country
 
                 zoneData.put("Etc/GMT" + (i == 0 ? "" : i < 0 ? "" + i : "+" + i), pieces);
             }
             // add Unknown / UTC
             List<String> pieces = new ArrayList<>();
-            pieces.add(new Double(0).toString()); // lat
-            pieces.add(new Double(0).toString()); // long
+            pieces.add(Double.toString(0)); // lat
+            pieces.add(Double.toString(0)); // long
             pieces.add(StandardCodes.NO_COUNTRY); // country
             zoneData.put("Etc/Unknown", pieces);
             zoneData.put("Etc/UTC", pieces);
@@ -952,7 +950,7 @@ public class ZoneParser {
         if (m.group(startIndex + 3) != null)
             amount += Integer.parseInt(m.group(startIndex + 3)) / 3600.0;
         if (m.group(startIndex).equals("-")) amount = -amount;
-        return new Double(amount);
+        return amount;
     }
 
     /**

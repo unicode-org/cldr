@@ -229,7 +229,7 @@ public class TestUtilities {
                 fixedID = "{" + originalTzid + "}";
             }
             map_integer_zones[numeric] = fixedID;
-            map_timezone_integer.put(fixedID, new Integer(numeric));
+            map_timezone_integer.put(fixedID, numeric);
             if (maxNumeric < numeric) maxNumeric = numeric;
         }
         // get the differences (and sort them)
@@ -258,7 +258,7 @@ public class TestUtilities {
             while (map_integer_zones[numeric] != null) ++numeric; // find first free one
             if (maxNumeric < numeric) maxNumeric = numeric;
             map_integer_zones[numeric] = tzid;
-            map_timezone_integer.put(tzid, new Integer(numeric));
+            map_timezone_integer.put(tzid, numeric);
         }
 
         // print it out

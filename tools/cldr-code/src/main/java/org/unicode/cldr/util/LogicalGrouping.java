@@ -270,7 +270,7 @@ public class LogicalGrouping {
         if (parts.containsElement("relative")) {
             String fieldType = parts.findAttributeValue("field", "type");
             String relativeType = parts.findAttributeValue("relative", "type");
-            Integer relativeValue = relativeType == null ? 999 : Integer.valueOf(relativeType);
+            Integer relativeValue = relativeType == null ? 999 : Integer.parseInt(relativeType);
             if (fieldType != null
                     && fieldType.startsWith("day")
                     && Math.abs(relativeValue.intValue()) >= 2) {
@@ -396,7 +396,7 @@ public class LogicalGrouping {
             @SuppressWarnings("unused")
             void addPaths(Set<String> set, CLDRFile cldrFile, String path, XPathParts parts) {
                 String quarterName = parts.size() > 7 ? parts.getAttributeValue(7, "type") : null;
-                Integer quarter = quarterName == null ? 0 : Integer.valueOf(quarterName);
+                Integer quarter = quarterName == null ? 0 : Integer.parseInt(quarterName);
                 if (quarter > 0
                         && quarter
                                 <= 4) { // This is just a quick check to make sure the path is good.
@@ -413,7 +413,7 @@ public class LogicalGrouping {
             void addPaths(Set<String> set, CLDRFile cldrFile, String path, XPathParts parts) {
                 String calType = parts.size() > 3 ? parts.getAttributeValue(3, "type") : null;
                 String monthName = parts.size() > 7 ? parts.getAttributeValue(7, "type") : null;
-                Integer month = monthName == null ? 0 : Integer.valueOf(monthName);
+                Integer month = monthName == null ? 0 : Integer.parseInt(monthName);
                 int calendarMonthMax = calendarsWith13Months.contains(calType) ? 13 : 12;
                 if (month > 0
                         && month <= calendarMonthMax) { // This is just a quick check to make sure
@@ -439,7 +439,7 @@ public class LogicalGrouping {
             void addPaths(Set<String> set, CLDRFile cldrFile, String path, XPathParts parts) {
                 String fieldType = parts.findAttributeValue("field", "type");
                 String relativeType = parts.findAttributeValue("relative", "type");
-                Integer relativeValue = relativeType == null ? 999 : Integer.valueOf(relativeType);
+                Integer relativeValue = relativeType == null ? 999 : Integer.parseInt(relativeType);
                 if (relativeValue >= -3
                         && relativeValue
                                 <= 3) { // This is just a quick check to make sure the path is good.

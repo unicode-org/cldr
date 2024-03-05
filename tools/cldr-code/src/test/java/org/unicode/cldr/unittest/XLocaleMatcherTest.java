@@ -385,7 +385,7 @@ public class XLocaleMatcherTest extends TestFmwk {
                     distanceOption = DistanceOption.valueOf(arguments.get(1));
                     break;
                 case "@Threshold":
-                    threshold = Integer.valueOf(arguments.get(1));
+                    threshold = Integer.parseInt(arguments.get(1));
                     break;
                 default:
                     super.handleParams(comment, arguments);

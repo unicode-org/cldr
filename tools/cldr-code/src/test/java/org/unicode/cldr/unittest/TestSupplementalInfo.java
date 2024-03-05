@@ -1998,7 +1998,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         List<Integer> unicodeDigits = new ArrayList<>();
         for (int cp = UCharacter.MIN_CODE_POINT; cp <= UCharacter.MAX_CODE_POINT; cp++) {
             if (UCharacter.getType(cp) == UCharacterEnums.ECharacterCategory.DECIMAL_DIGIT_NUMBER) {
-                unicodeDigits.add(Integer.valueOf(cp));
+                unicodeDigits.add(cp);
             }
         }
 

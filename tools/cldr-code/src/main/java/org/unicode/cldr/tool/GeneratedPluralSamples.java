@@ -260,7 +260,7 @@ public class GeneratedPluralSamples {
         }
     }
 
-    static final Double CELTIC_SPECIAL = new Double(1000000.0d);
+    static final Double CELTIC_SPECIAL = 1000000.0d;
 
     static class DataSample {
         int count;

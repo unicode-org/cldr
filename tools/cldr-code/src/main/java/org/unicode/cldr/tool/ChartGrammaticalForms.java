@@ -1005,7 +1005,7 @@ public class ChartGrammaticalForms extends Chart {
                 unitCell = shortUnit + "\n( = " + unitMeasure + ")";
             }
         } else {
-            sizeInBaseUnits.value = Double.valueOf(-1);
+            sizeInBaseUnits.value = -1d;
         }
         BEST_UNIT_CACHE.put(shortUnit, Pair.of(unitCell, sizeInBaseUnits.value));
         return unitCell;

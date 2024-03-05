@@ -255,13 +255,13 @@ public class IsoCurrencyParser {
                     alphabetic_code = value;
                 } else if (type.equals("CcyNbr")) {
                     try {
-                        numeric_code = Integer.valueOf(value);
+                        numeric_code = Integer.parseInt(value);
                     } catch (NumberFormatException ex) {
                         numeric_code = -1;
                     }
                 } else if (type.equals("CcyMnrUnts")) {
                     try {
-                        minor_unit = Integer.valueOf(value);
+                        minor_unit = Integer.parseInt(value);
                     } catch (NumberFormatException ex) {
                         minor_unit = 2;
                     }

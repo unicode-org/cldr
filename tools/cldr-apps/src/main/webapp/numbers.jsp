@@ -157,7 +157,7 @@ private static String formatNumber(double num) {
         numStr = fmt.format(num);
     }
     else {
-        numStr = new Long(longVal).toString();
+        numStr = Long.toString(longVal);
     }
     return numStr;
 }

@@ -91,7 +91,7 @@ public final class MatcherList {
         for (String[] test : tests) {
             MatcherList matcherList = MatcherList.from(test[0]);
             boolean actual = matcherList.find(test[1]);
-            boolean expected = Boolean.valueOf(test[2]);
+            boolean expected = Boolean.parseBoolean(test[2]);
             if (actual != expected) {
                 System.out.println("Failed");
                 matcherList.find(test[1]); // for debugging

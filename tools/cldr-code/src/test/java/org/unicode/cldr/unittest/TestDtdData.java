@@ -860,11 +860,11 @@ public class TestDtdData extends TestFmwk {
     }
 
     public void TestMatchValue() {
-        Object[][] tests = {{"validity/short-unit/deprecated", "inch-hg"}};
-        for (Object[] test : tests) {
-            MatchValue matcher = MatchValue.of((String) test[0]);
-            final String toMatch = (String) test[1];
-            boolean expectedValue = test.length < 3 ? true : Boolean.valueOf((String) test[2]);
+        String[][] tests = {{"validity/short-unit/deprecated", "inch-hg"}};
+        for (String[] test : tests) {
+            MatchValue matcher = MatchValue.of(test[0]);
+            final String toMatch = test[1];
+            boolean expectedValue = test.length < 3 ? true : Boolean.parseBoolean(test[2]);
 
             final boolean actual = matcher.is(toMatch);
             assertEquals(Arrays.asList(test).toString(), expectedValue, actual);

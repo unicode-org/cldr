@@ -92,8 +92,8 @@ public class POSIX_LCMonetary {
             String[] choices = tmp_currency_symbol.split("\\u007c");
             for (int i = choices.length - 1; i >= 0; i--) {
                 String[] numvalue = choices[i].split("[<\\u2264]", 2);
-                Float num = Float.valueOf(numvalue[0]);
-                Float ten = new Float(10);
+                Float num = Float.parseFloat(numvalue[0]);
+                Float ten = 10f;
                 if (num.compareTo(ten) <= 0 || i == 0) {
                     currency_symbol = POSIXUtilities.POSIXCharName(numvalue[1]);
                     i = 0;

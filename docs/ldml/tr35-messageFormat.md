@@ -58,10 +58,8 @@ This specification defines the data model, syntax, processing, and conformance r
 The Message Format 2.0 Specification has been approved by the CLDR-TC for inclusion in CLDR version 45.
 The specification will be included in this page prior to release.
 
-In the interim, the current draft specification may be accessed at:
-
 In the interim, access the
-<a href="https://github.com/unicode-org/message-format-wg/blob/LDML45-alpha/spec/README.md">current draft specification</a>.
+[current draft specification](https://github.com/unicode-org/message-format-wg/blob/LDML45-alpha/spec/#readme).
 
 * * *
 

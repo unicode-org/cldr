@@ -135,13 +135,14 @@ public class ElementAttributeInfo {
             is.setSystemId(filename);
             // xmlReader.setContentHandler(me);
             // xmlReader.setErrorHandler(me);
-            xmlReader.parse(is);
+            xmlReader.parse(DoctypeXmlStreamWrapper.wrap(is));
             this.elementAttribute2Data =
                     Collections.unmodifiableMap(getElementAttribute2Data()); // TODO, protect rows
             getElement2Children().freeze();
             getElement2Parents().freeze();
             getElement2Attributes().freeze();
         } catch (Exception e) {
+            // TODO: why is this being caught here?
             e.printStackTrace();
         } finally {
             fis.close();

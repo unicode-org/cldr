@@ -237,6 +237,15 @@ public class SurveyTool extends HttpServlet {
                         + ".js\"></script>\n");
         includeJqueryJavaScript(request, out);
         includeCldrJavaScript(request, out);
+
+        out.write(
+                "<script src='https://s.keyman.com/kmw/engine/16.0.141/keymanweb.js'></script>\n");
+        out.write(
+                "<script src='https://s.keyman.com/kmw/engine/16.0.141/kmwuitoggle.js'></script>\n");
+        out.write(
+                "<script>(function(kmw) {"
+                        + "kmw.init({attachType:'auto'});\n"
+                        + "})(keyman);</script>\n");
     }
 
     private static void includeJqueryJavaScript(HttpServletRequest request, Writer out)

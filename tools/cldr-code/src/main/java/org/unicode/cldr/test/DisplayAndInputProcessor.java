@@ -190,6 +190,7 @@ public class DisplayAndInputProcessor {
     private static final CLDRLocale GERMAN_SWITZERLAND = CLDRLocale.getInstance("de_CH");
     private static final CLDRLocale SWISS_GERMAN = CLDRLocale.getInstance("gsw");
     private static final CLDRLocale FF_ADLAM = CLDRLocale.getInstance("ff_Adlm");
+    private static final CLDRLocale KASHMIRI = CLDRLocale.getInstance("ks");
     public static final Set<String> LANGUAGES_USING_MODIFIER_APOSTROPHE =
             new HashSet<>(
                     Arrays.asList(
@@ -232,6 +233,10 @@ public class DisplayAndInputProcessor {
     private static final char[][] KYRGYZ_CONVERSIONS = {{'ӊ', 'ң'}, {'Ӊ', 'Ң'}}; //  right modifier
 
     private static final char[][] URDU_PLUS_CONVERSIONS = {{'\u0643', '\u06A9'}}; //  wrong char
+
+    private static final char[][] KASHMIRI_CONVERSIONS = {
+        {'ۍ', 'ؠ'}
+    }; //  wrong char (see CLDR-16595)
 
     private static final ZawgyiDetector detector = new ZawgyiDetector();
     private static final Transliterator zawgyiUnicodeTransliterator =
@@ -608,6 +613,8 @@ public class DisplayAndInputProcessor {
             value = replaceChars(path, value, URDU_PLUS_CONVERSIONS, true);
         } else if (locale.childOf(FF_ADLAM) && !isUnicodeSet) {
             value = fixAdlamNasalization(value);
+        } else if (locale.childOf(KASHMIRI)) {
+            value = replaceChars(path, value, KASHMIRI_CONVERSIONS, false);
         }
         return value;
     }

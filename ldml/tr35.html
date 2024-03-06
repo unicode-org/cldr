@@ -996,7 +996,7 @@
 </tr>
 <tr>
 <td>Date</td>
-<td>2024-01-31</td>
+<td>2024-04-04</td>
 </tr>
 <tr>
 <td>This Version</td>
@@ -5132,14 +5132,36 @@ See §3.8.2 <a href="#Legacy_Variants">Legacy Variants</a>.</p>
 <li>Alex Kolisnychenko for work on Person Names.</li>
 <li>Mike McKenna for work on Person Names.</li>
 </ul><p>Other contributors to CLDR are listed on the <a href="https://www.unicode.org/cldr/">CLDR Project Page</a>.</p><h2 id="Modifications"><a name="modifications" href="#Modifications">Modifications</a></h2><p><strong>Differences from LDML Version 44.1</strong></p><ul>
-<li><p><a href="tr35-numbers.html#Contents">Numbers</a></p>
+<li><p>Part 1: <a href="tr35.html#Contents">Core</a></p>
+<ul>
+<li>In <a href="tr35.html#Parent_Locales">Parent Locales</a>, add an additional attribute and value <code>localeRules="nonlikelyScript"</code> to allow for algorithmic handling of inheritance so that mixtures of scripts are avoided.
+For example, preventing <code>ru_Latn</code> from falling back to <code>ru</code> (which is Cyrillic script). 
+Previously, there was a small list of such locales, but they were far from covering all cases. 
+That list was retained for migration.</li>
+</ul>
+</li>
+<li><p>Part 3: <a href="tr35-numbers.html#Contents">Numbers</a></p>
 <ul>
 <li>In <a href="tr35-numbers.html#Supplemental_Currency_Data">Supplemental Currency Data</a>, for the <code>currency</code> element, added attributes <code>tz</code> and <code>to-tz</code> to clarify the <code>from</code> and <code>to</code> dates.</li>
 </ul>
 </li>
-<li><p><a href="tr35-info.html#Contents">Supplemental</a></p>
+<li><p>Part 6: [Supplemental]<a href="tr35-info.html#Contents">Supplemental</a></p>
 <ul>
 <li>In <a href="tr35-info.html#conversion-data">Conversion Data</a>, added the <code>special</code> attribute for <code>convertUnit</code>, used for handling beaufort.</li>
+</ul>
+</li>
+<li><p>Part 7: [Keyboards]</p>
+<ul>
+<li>There are substantial changes from v44 to bring the Keyboard 3.0 specification out of Tech Preview, including:<ul>
+<li>New sections for Definitions, Notation, and Normalization.</li>
+<li>Many clarifications and modifications in other sections.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Part 9: <a href="tr35-messageFormat.html#Contents">MessageFormat</a></p>
+<ul>
+<li>Added the completely new specification for MessageFormat 2.0 (in Tech Preview)</li>
 </ul>
 </li>
 </ul><p><strong>Differences from LDML Version 43 to 44.1</strong></p><ul>

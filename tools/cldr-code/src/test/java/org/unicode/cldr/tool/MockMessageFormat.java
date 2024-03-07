@@ -21,17 +21,18 @@ import org.unicode.cldr.util.RegexUtilities;
 
 /**
  * A mock implementation of a possible internal organization for MF2. Each function is represented
- * by a FunctionFactory. That factory can take an input value or FunctionVariable, plus options, and
- * produce a FunctionVariable. For example, a NumberFactory represents the :number function. It can
- * take an input value (say a Double) and some options, and produce a NumberVariable. <br>
+ * by an MfFunction. That factory can take a literal, input value or MfResolvedVariable, plus
+ * options, and produce a MfResolvedVariable. For example, a NumberFactory represents the :number
+ * function. It can take an input value (say a Double) and some options, and produce a
+ * NumberVariable. <br>
  * A function factory may produce a different type. For example, a StringFunction (aka :string)
  * could take a NumberVariable, and produce a StringVariable. <br>
- * This is a mockup, and no attempt has been made to produce optimal coden, nor is everything
- * cleanly encapsulated with getters/setters, nor marked with private/public as would be needed for
- * a real API, nor with good error checking.
+ * This is a mockup, and no attempt has been made to produce optimal code, nor is everything cleanly
+ * encapsulated with getters/setters, nor marked with private/public as would be needed for a real
+ * API, nor with good error checking.
  */
 public class MockMessageFormat {
-    public static final Splitter SPACE_SPLITTER = Splitter.on(' ').omitEmptyStrings().trimResults();
+    static final Splitter SPACE_SPLITTER = Splitter.on(' ').omitEmptyStrings().trimResults();
     static final boolean DEBUG = false;
 
     /**
@@ -49,6 +50,21 @@ public class MockMessageFormat {
         public boolean canFormat();
 
         public MfResolvedVariable from(Expression expression, MfContext mfContext);
+    }
+
+    public enum MatchComparison {
+        /**
+         * special value: if one key in a variant fails to match, the variant is never considered
+         */
+        FAIL,
+        /** worse than best variant so far */
+        WORSE,
+        /** same as best variant so far */
+        SAME,
+        /** better than as best variant so far */
+        BETTER,
+        /** special value: if all keys in a variant are the best possible, we don't look further */
+        BEST
     }
 
     /**
@@ -78,14 +94,19 @@ public class MockMessageFormat {
 
         public static final double EXACT_MATCH = 0d;
 
+        public static final double FALLBACK = Double.POSITIVE_INFINITY;
+
         /**
          * Returns the match difference. <br>
          * 0.0 is an exact match <br>
          * -1 is a complete failure <br>
          * Anything positive is a "distance" from being exact. The meaning of that distance is up to
          * the MfFunction
+         *
+         * @param bestMatchKey
          */
-        public abstract double match(MfContext contact, String matchKey);
+        public abstract MatchComparison match(
+                MfContext contact, String matchKey, String bestMatchKey);
 
         public abstract String format(MfContext contact);
 
@@ -550,6 +571,17 @@ public class MockMessageFormat {
         if (requiredVariables != null) {
             return this;
         }
+        for (Entry<List<String>, Message> entry : variants.map.entrySet()) {
+            if (selectors.size() != entry.getKey().size()) {
+                throw new IllegalArgumentException(
+                        String.format(
+                                "Number of keys (%s, %s) doesn't match number of selectors (%s):\n\t%s",
+                                entry.getKey().size(),
+                                entry.getKey(),
+                                selectors.size(),
+                                selectors));
+            }
+        }
         requiredVariables = new LinkedHashSet<>();
         requiredInput = LinkedHashMultimap.create();
         // we first find out what variables and input parameters are used in the match and
@@ -600,6 +632,12 @@ public class MockMessageFormat {
     static class MfContext {
         public final Map<String, Object> inputParameters = new LinkedHashMap<>();
         public final Map<String, MfResolvedVariable> boundVariables = new LinkedHashMap<>();
+
+        @Override
+        public String toString() {
+            return String.format(
+                    "inputParameters:\t%s\nboundVariables:\t%s", inputParameters, boundVariables);
+        }
 
         public Locale getLocale() {
             Object result = inputParameters.get("$locale");
@@ -663,32 +701,110 @@ public class MockMessageFormat {
         }
 
         // all of the variables are now bound, except in variant messages
+        Entry<List<String>, Message> bestVariantTilNow = null;
 
-        // It is just a dumb algorithm for matching since that isn't the point of this mock:
-        // just the first list of keys where each element is either a loose match (eg *) or
-        // exact match. It should, of course, sort according to the ordering set by the
-        // FunctionVariable.
-        Message bestMatch = null;
+        int counter = 0;
         main:
-        for (Entry<List<String>, Message> entry : variants.map.entrySet()) {
-            if (selectors.size() != entry.getKey().size()) {
-                throw new IllegalArgumentException();
+        for (Entry<List<String>, Message> currentVariant : variants.map.entrySet()) {
+            if (DEBUG)
+                System.out.println(" " + ++counter + ") Current keys: " + currentVariant.getKey());
+            MatchComparison matchResult =
+                    isBetter(context, boundSelectors, bestVariantTilNow, currentVariant);
+            switch (matchResult) {
+                case FAIL:
+                case WORSE:
+                case SAME:
+                    break;
+                case BETTER:
+                    bestVariantTilNow = currentVariant;
+                    break;
+                case BEST:
+                    bestVariantTilNow = currentVariant;
+                    break main; // when the match result is perfect, there is no need to continue
             }
-            Iterator<String> keyIterator = entry.getKey().iterator();
-            for (MfResolvedVariable selector : boundSelectors) {
-                final String matchKey = keyIterator.next();
-                if (!matchKey.equals("*")
-                        && selector.match(context, matchKey) == MfResolvedVariable.NO_MATCH) {
-                    continue main;
-                }
-            }
-            bestMatch = entry.getValue(); // return the variant message
-            break;
         }
-        if (bestMatch == null) {
+        if (bestVariantTilNow == null) {
             throw new IllegalArgumentException("No match in selectors");
         }
-        return bestMatch.format(context);
+        if (DEBUG) System.out.println("Best Keys: " + bestVariantTilNow.getKey());
+        return bestVariantTilNow.getValue().format(context);
+    }
+
+    /**
+     * The bestEntry starts out as null; it is replaced when there as a BETTER match. An entry is
+     * BEST when all the match results are BEST. An entry is NO_MATCH when at least one match result
+     * is NO_MATCH Otherwise, the first different match among the keys determines the result: WORSE
+     * or BETTER
+     */
+    private MatchComparison isBetter(
+            MfContext context,
+            List<MfResolvedVariable> boundSelectors,
+            Entry<List<String>, Message> bestVariantTilNow,
+            Entry<List<String>, Message> currentVariant) {
+        Iterator<String> variantKeys = currentVariant.getKey().iterator();
+        Iterator<String> bestVariantKeysTilNow =
+                bestVariantTilNow == null ? null : bestVariantTilNow.getKey().iterator();
+        MatchComparison firstDifference = null;
+        boolean allBest = true;
+        // Note: we have already verified that the number of keys is the same as the number of
+        // selectors
+        // We walk along the keys; we have to hit all of them.
+        // If any result is FAIL we return FAIL
+        // If all results are BEST we return BEST
+        // Otherwise the first time there is a difference we return the better one.
+        // When bestVariantTilNow == null, then we return BETTER unless there is a FAIL.
+        // A * is never a fail
+        for (MfResolvedVariable selector : boundSelectors) {
+            final String variantKey = variantKeys.next();
+            final String bestVariantKeyTilNow =
+                    bestVariantKeysTilNow == null ? null : bestVariantKeysTilNow.next();
+            MatchComparison matchResult;
+            // handle * at this point, so that we don't depend on the functions getting it right
+            if (variantKey.equals("*")) {
+                matchResult =
+                        bestVariantKeyTilNow == null
+                                ? MatchComparison.BETTER
+                                : bestVariantKeyTilNow.equals("*")
+                                        ? MatchComparison.SAME
+                                        : MatchComparison.WORSE;
+            } else {
+                matchResult = selector.match(context, variantKey, bestVariantKeyTilNow);
+            }
+            if (DEBUG)
+                System.out.println(
+                        String.format(
+                                "\tselector: %s, varientKey: %s, bestTilNow: %s, match: %s",
+                                selector, variantKey, bestVariantKeyTilNow, matchResult));
+            switch (matchResult) {
+                case FAIL:
+                    return MatchComparison.FAIL; // fail
+                case WORSE:
+                    // although we have a match, it isn't any better, so no change
+                    if (firstDifference == null) {
+                        firstDifference = matchResult;
+                    }
+                    allBest = false;
+                    break;
+                case SAME:
+                    // although we have a match, it isn't any better, so no change
+                    allBest = false;
+                    break;
+                case BETTER:
+                    if (firstDifference == null) {
+                        firstDifference = matchResult;
+                    }
+                    allBest = false;
+                    break;
+                case BEST:
+                    if (firstDifference == null) {
+                        firstDifference = matchResult;
+                    }
+                    break;
+            }
+        }
+        firstDifference = allBest ? MatchComparison.BEST : firstDifference;
+        if (DEBUG) System.out.println("  row result: " + firstDifference);
+        return firstDifference;
     }
 
     public MockMessageFormat add(String... messageFormatLines) {
@@ -703,5 +819,17 @@ public class MockMessageFormat {
             dumbParseInput(line);
         }
         return this;
+    }
+
+    @Override
+    public String toString() {
+        return String.format(
+                "requiredInput:\t%s\n"
+                        + "requiredVariables:\t%s\n"
+                        + "selectors:\t%s\n"
+                        + "unused:\t%s\n"
+                        + "variables:\t%s\n"
+                        + "variants:\t%s\n",
+                requiredInput, requiredVariables, selectors, unused, variables, variants);
     }
 }

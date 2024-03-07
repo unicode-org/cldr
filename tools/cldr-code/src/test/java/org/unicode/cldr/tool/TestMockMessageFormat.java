@@ -1,8 +1,8 @@
 package org.unicode.cldr.tool;
 
 import com.google.common.base.Joiner;
-import com.google.common.base.Objects;
 import com.google.common.collect.ImmutableMap;
+import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.util.Measure;
 import com.ibm.icu.util.MeasureUnit;
@@ -10,11 +10,12 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.stream.Collectors;
 import org.unicode.cldr.tool.MockMessageFormat.MfContext;
 import org.unicode.cldr.tool.MockMessageFormat.MfResolvedVariable;
 
-public class TestMockMessageFormat {
+public class TestMockMessageFormat extends TestFmwk {
     private static final Joiner JOINER_EMPTY = Joiner.on("");
     private static final Joiner JOINER_LF_TAB = Joiner.on("\n\t");
 
@@ -24,18 +25,11 @@ public class TestMockMessageFormat {
      * @param args
      */
     public static void main(String[] args) {
-        checkChoice();
-        if (true) return;
-        testAgainstMf1();
-        System.out.println(
-                "Message Format:\n\t" + JOINER_LF_TAB.join(checkOffsetMessageLines) + "\n");
-        checkOffset("Jim", 0, "", "");
-        checkOffset("Sarah", 1, "Water Polo", "Ping Pong");
-        checkOffset("Tom", 2, "Baseball", "Billiards");
-        checkOffset("John", 3, "Football", "Chess");
-        checkOffset("Jane", 4, "Lacrosse", "Cycling");
-        System.out.println();
-        checkParsing();
+        new TestMockMessageFormat().run(args);
+    }
+
+    public void testMeasureUnits() {
+        // TBD
         //        System.out.println(checkFormat(Locale.forLanguageTag("en-US"), 1, "John", "188
         // meter"));
         //        System.out.println(checkFormat(Locale.forLanguageTag("en"), 1, "Sarah", "1100
@@ -46,71 +40,59 @@ public class TestMockMessageFormat {
         // meter"));
     }
 
-    public static void checkChoice() {
+    public void testChoice() {
         // "-1#is negative| 0#is zero or fraction | 1#is one |1.0<is 1+ |2#is two |2<is more than
         // 2."
 
+        // Example is taken from the ICU user guide, and modified for ranges
         final List<String> choiceMessageLines =
                 List.of( //
                         ".match {$count :number u:choice=true}",
-                        "0> {{{$count} is negative}}",
-                        "1> {{{$count} is zero or fraction}}",
-                        "1 {{{$count} is one}}",
-                        "2> {{{$count} is 1+}}",
-                        "2 {{{$count} is two}}",
-                        "* {{{$count} is more than 2.}}");
+                        "[,0)\t{{{$count} is negative}}",
+                        "[0,1)\t{{{$count} is zero or fraction}}",
+                        "1\t{{{$count} is one}}",
+                        "[1,2)\t{{{$count} is 1+}}",
+                        "2\t{{{$count} is two}}",
+                        "(2,]\t{{{$count} is more than 2.}}",
+                        "* {{{$count} is not a number.}}");
 
+        // Example is taken from the ICU user guide, and modified for ranges
+        final ImmutableMap<Double, String> testData =
+                ImmutableMap.of(
+                        Double.NEGATIVE_INFINITY,
+                        "-Infinity is negative",
+                        -1.0,
+                        "-1.0 is negative",
+                        0.0,
+                        "0.0 is zero or fraction",
+                        0.9,
+                        "0.9 is zero or fraction",
+                        1.0,
+                        "1.0 is one",
+                        1.5,
+                        "1.5 is 1+",
+                        2.0,
+                        "2.0 is two",
+                        2.1,
+                        "2.1 is more than 2.",
+                        Double.NaN,
+                        "NaN is not a number.",
+                        Double.POSITIVE_INFINITY,
+                        "Infinity is more than 2.");
+
+        logln("MessageFormat:\n\t" + JOINER_LF_TAB.join(choiceMessageLines));
         MockMessageFormat mf = new MockMessageFormat();
         mf.add(choiceMessageLines);
-
-        for (Double sample :
-                List.of(
-                        Double.NEGATIVE_INFINITY,
-                        -1.0,
-                        0.0,
-                        0.9,
-                        1.0,
-                        1.5,
-                        2.0,
-                        2.1,
-                        Double.NaN,
-                        Double.POSITIVE_INFINITY)) {
-            final MfContext context = new MfContext().addInput("$count", sample);
+        for (Entry<Double, String> inputAndExpected : testData.entrySet()) {
+            String expected = inputAndExpected.getValue();
+            final MfContext context = new MfContext().addInput("$count", inputAndExpected.getKey());
             String actual = mf.format(context);
-            System.out.println("input: " + sample + " formatted: " + actual);
+            assertEquals(inputAndExpected.getKey().toString(), expected, actual);
         }
-
-        //        System.out.println("Formatter Pattern : " + fmt.toPattern());
-        //
-        //        System.out.println("Format with -INF : " + fmt.format(Double.NEGATIVE_INFINITY));
-        //        System.out.println("Format with -1.0 : " + fmt.format(-1.0));
-        //        System.out.println("Format with 0 : " + fmt.format(0));
-        //        System.out.println("Format with 0.9 : " + fmt.format(0.9));
-        //        System.out.println("Format with 1.0 : " + fmt.format(1));
-        //        System.out.println("Format with 1.5 : " + fmt.format(1.5));
-        //        System.out.println("Format with 2 : " + fmt.format(2));
-        //        System.out.println("Format with 2.1 : " + fmt.format(2.1));
-        //        System.out.println("Format with NaN : " + fmt.format(Double.NaN));
-        //        System.out.println("Format with +INF : " + fmt.format(Double.POSITIVE_INFINITY));
-
-        /*
-        Format with -INF : is negative
-         Format with -1.0 : is negative
-         Format with 0 : is zero or fraction
-         Format with 0.9 : is zero or fraction
-         Format with 1.0 : is one
-         Format with 1.5 : is 1+
-         Format with 2 : is two
-         Format with 2.1 : is more than 2.
-         Format with NaN : is negative
-         Format with +INF : is more than 2.
-
-                 */
-
     }
 
     static final List<String> checkOffsetMessageLines =
-            List.of( //
+            List.of(
                     ".input {$count :number u:offset=2}",
                     ".match {$count}",
                     "0 {{{$name :string} doesn’t like any sports.}}",
@@ -119,7 +101,25 @@ public class TestMockMessageFormat {
                     "one {{{$name :string} likes {$sport1 :string}, {$sport1 :string}, and {$count} other.}}",
                     "* {{{$name :string} likes {$sport1 :string}, {$sport1 :string}, and {$count} others.}}");
 
-    private static void checkOffset(String name, int input, String sport1, String sport2) {
+    public void testOffset() {
+        logln("Message Format:\n\t" + JOINER_LF_TAB.join(checkOffsetMessageLines) + "\n");
+        checkOffset("John likes Football, Football, and ١ other.", "John", 3, "Football", "Chess");
+
+        checkOffset("Jim doesn’t like any sports.", "Jim", 0, "", "");
+        checkOffset("Sarah likes one sport, Water Polo.", "Sarah", 1, "Water Polo", "");
+        checkOffset(
+                "Tom likes a pair of sports, Baseball and Baseball.",
+                "Tom",
+                2,
+                "Baseball",
+                "Billiards");
+        checkOffset("John likes Football, Football, and ١ other.", "John", 3, "Football", "Chess");
+        checkOffset(
+                "Jane likes Lacrosse, Lacrosse, and ٢ others.", "Jane", 4, "Lacrosse", "Cycling");
+    }
+
+    private void checkOffset(
+            String expected, String name, int input, String sport1, String sport2) {
         final MfContext context =
                 new MfContext()
                         .addInput("$locale", Locale.forLanguageTag("ar-u-nu-arab"))
@@ -129,23 +129,11 @@ public class TestMockMessageFormat {
                         .addInput("$sport2", sport2);
         MockMessageFormat mf = new MockMessageFormat();
         mf.add(checkOffsetMessageLines);
-        System.out.println("Input parameters:\t" + context.inputParameters);
         String actual = mf.format(context);
-        System.out.println("Result:\t“" + actual + "”\n");
-        //            Multimap<Integer, String> scores = LinkedHashMultimap.create();
-        //            for (String key : Arrays.asList("0", "1", "one", "other")) {
-        //                int matchScore = temp.match(context, key);
-        //                scores.put(matchScore, key);
-        //            }
-        //            for (Entry<Integer, Collection<String>> entry : scores.asMap().entrySet()) {
-        //                System.out.println(
-        //                        "match score= " + entry.getKey() + ", matchValues=" +
-        // entry.getValue());
-        //            }
+        assertEquals(String.format("%s\n\t", context.inputParameters), expected, actual);
     }
 
-    public static void checkParsing() {
-        System.out.println("Details\n");
+    public void testParsing() {
         String[][] tests = {
             {
                 ".input {$var :number maxFractionDigits=2 minFractionDigits=1}",
@@ -193,18 +181,16 @@ public class TestMockMessageFormat {
             } catch (Exception e) {
                 actual = e.getMessage();
             }
-            String result =
-                    actual == null ? "Fail" : expected.equals(actual.toString()) ? "OK" : "Fail";
-            System.out.println(
-                    String.format(
-                            "%s %s\n\texpected:\t%s,\n\tactual:  \t%s\n\tvariables:\t%s",
-                            result, source, expected, actual, mf.variables.keySet()));
+            assertEquals(
+                    String.format("%s\n\t%s\n\t", source, mf.variables.keySet()),
+                    expected,
+                    actual.toString());
         }
         mf.freeze();
 
-        System.out.println(
+        logln(
                 String.format(
-                        "Stats:\n\trequiredInput:\t%s\n\trequiredVariables:\t%s\n\tunused:\t%s",
+                        "\n\n\tStats:\n\trequiredInput:\t%s\n\trequiredVariables:\t%s\n\tunused:\t%s",
                         mf.requiredInput, mf.requiredVariables, mf.unused));
         Map<String, Object> inputParameters =
                 Map.of(
@@ -231,17 +217,12 @@ public class TestMockMessageFormat {
             String expected = test[1].toString();
             MfContext context = new MfContext().addInput(source);
             String actual = mf.format(context);
-            System.out.println(
-                    String.format(
-                            "%s\t %s\n\texpected:\t%s\n\tactual:\t%s",
-                            Objects.equal(expected, actual) ? "OK" : "Fail",
-                            source,
-                            expected,
-                            actual));
+
+            assertEquals(String.format("%s\n\t", source), expected, actual);
         }
     }
 
-    public static void testAgainstMf1() {
+    public void testAgainstMf1() {
         // spotless:off
         final List<String> mf1Pattern = List.of(
          "{gender_of_host, select, ",
@@ -291,8 +272,8 @@ public class TestMockMessageFormat {
 
         MockMessageFormat mf2 = new MockMessageFormat().add(mf2Pattern).freeze();
 
-        System.out.println("MF1 Pattern:\n\t" + JOINER_LF_TAB.join(mf1Pattern));
-        System.out.println("MF2 Pattern:\n\t" + JOINER_LF_TAB.join(mf2Pattern));
+        logln("MF1 Pattern:\n\t" + JOINER_LF_TAB.join(mf1Pattern));
+        logln("MF2 Pattern:\n\t" + JOINER_LF_TAB.join(mf2Pattern));
 
         for (int num_guests : Arrays.asList(0, 1, 2, 3)) {
             Map<String, Object> inputParameters1 =
@@ -317,13 +298,7 @@ public class TestMockMessageFormat {
                             "$num_guests",
                             num_guests);
             String result2 = mf2.format(new MfContext().addInput(inputParameters2));
-            System.out.println(
-                    String.format(
-                            "%s with input: %s\n\tMF1: %s\n\tMF2: %s",
-                            Objects.equal(result1, result2) ? "OK" : "Fail",
-                            inputParameters2,
-                            result1,
-                            result2));
+            assertEquals(String.format("%s\n\t", inputParameters2), result1, result2);
         }
     }
 

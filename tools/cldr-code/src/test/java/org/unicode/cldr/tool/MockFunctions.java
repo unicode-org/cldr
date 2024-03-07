@@ -21,7 +21,10 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import org.unicode.cldr.tool.MockMessageFormat.Expression;
+import org.unicode.cldr.tool.MockMessageFormat.MatchComparison;
 import org.unicode.cldr.tool.MockMessageFormat.MfContext;
 import org.unicode.cldr.tool.MockMessageFormat.MfFunction;
 import org.unicode.cldr.tool.MockMessageFormat.MfResolvedVariable;
@@ -30,7 +33,7 @@ import org.unicode.cldr.tool.MockMessageFormat.OptionsMap;
 public class MockFunctions {
 
     static final RegistryBuilder registry =
-            new RegistryBuilder(new StringFactory(), new NumberFactory(), new MeasureFactory());
+            new RegistryBuilder(new StringFunction(), new NumberFunction(), new MeasureFunction());
 
     static class RegistryBuilder {
         Map<String, MfFunction> lookup = new ConcurrentHashMap<>();
@@ -58,8 +61,8 @@ public class MockFunctions {
         return registry.lookup.get(functionName);
     }
 
-    /** FunctionFactory & FunctionVariable for :string */
-    static class StringFactory implements MfFunction {
+    /** MfFunction & MfVariable for :string */
+    static class StringFunction implements MfFunction {
 
         static class StringVariable extends MfResolvedVariable {
             private String baseValue;
@@ -75,10 +78,8 @@ public class MockFunctions {
             }
 
             @Override
-            public double match(MfContext contact, String matchKey) {
-                return baseValue.equals(matchKey)
-                        ? MfResolvedVariable.EXACT_MATCH
-                        : MfResolvedVariable.NO_MATCH;
+            public MatchComparison match(MfContext context, String matchKey, String bestMatchKey) {
+                return baseValue.equals(matchKey) ? MatchComparison.BEST : MatchComparison.FAIL;
             }
 
             @Override
@@ -162,8 +163,8 @@ public class MockFunctions {
         }
     }
 
-    /** FunctionFactory & FunctionVariable for :number */
-    static class NumberFactory implements MfFunction {
+    /** MfFunction & MfVariable for :number */
+    static class NumberFunction implements MfFunction {
 
         /** A variable of information that results from applying number function (factory). */
         static class NumberVariable extends MfResolvedVariable {
@@ -195,40 +196,98 @@ public class MockFunctions {
             }
 
             @Override
-            public double match(MfContext context, String matchKey) {
-                if (choice) {
-                    double doubleValue = value.doubleValue();
-                    if (matchKey.endsWith(">")) {
-                        double base =
-                                Double.parseDouble(matchKey.substring(0, matchKey.length() - 1));
-                        return base <= doubleValue
-                                ? MfResolvedVariable.NO_MATCH
-                                : base - doubleValue;
-                    } else {
-                        double base = Double.parseDouble(matchKey);
-                        return base != doubleValue
-                                ? MfResolvedVariable.NO_MATCH
-                                : MfResolvedVariable.EXACT_MATCH;
-                    }
+            public MatchComparison match(MfContext context, String matchKey, String bestMatchKey) {
+                if (Double.isNaN(value.doubleValue())) {
+                    return MatchComparison.FAIL;
                 }
-                if (matchKey.charAt(0) < 'A') {
+                // numbers only have 4 results, so they are easy to compare
+                MatchComparison result1 = matchKey(context, matchKey);
+                if (result1 == MatchComparison.FAIL || result1 == MatchComparison.BEST) {
+                    return result1;
+                }
+                if (bestMatchKey == null) {
+                    return MatchComparison.BETTER;
+                }
+                // If the best key match were FAIL, it would be null instead, and handled at a
+                // higher level
+                MatchComparison bestResult = matchKey(context, bestMatchKey);
+                int comparison = result1.compareTo(bestResult);
+                return comparison < 0
+                        ? MatchComparison.WORSE
+                        : comparison > 0 ? MatchComparison.BETTER : MatchComparison.SAME;
+            }
+
+            static final Pattern HALFOPEN = Pattern.compile("[\\[(]([^,]*),([^)]*)[)\\]]");
+
+            public MatchComparison matchKey(MfContext context, String matchKey) {
+                char firstChar = matchKey.charAt(0);
+                if (firstChar == '[' || firstChar == '(') {
+                    Matcher matcher = HALFOPEN.matcher(matchKey);
+                    if (!matcher.matches()) {
+                        throw new IllegalArgumentException(
+                                "Match key is not a valid half-open interval: " + matchKey);
+                    }
+                    final String lowerBound = matcher.group(1);
+                    if (!lowerBound.isEmpty()) { // "" = -infinity
+                        BigDecimal lowerBoundBG = new BigDecimal(lowerBound);
+                        int lowerToValue = compare(lowerBoundBG, value);
+                        if (lowerToValue > 0 || lowerToValue == 0 && firstChar == '(') {
+                            return MatchComparison.FAIL;
+                        }
+                    }
+                    final String upperBound = matcher.group(2);
+                    if (!upperBound.isEmpty()) { // "" = infinity
+                        char lastChar = matchKey.charAt(matchKey.length() - 1);
+                        BigDecimal upperBoundBG = new BigDecimal(upperBound);
+                        int upperToValue = compare(upperBoundBG, value);
+                        if (upperToValue < 0 || upperToValue == 0 && lastChar == ')') {
+                            return MatchComparison.FAIL;
+                        }
+                    }
+                    return MatchComparison.BEST;
+                } else if (firstChar < 'A') {
+                    // TODO Fix to not worry about the number type.
                     // hack for now; should perform a better comparison that matches
                     // irrespective of the type of number
-                    return value.toString().equals(matchKey)
-                            ? MfResolvedVariable.EXACT_MATCH
-                            : MfResolvedVariable.NO_MATCH;
+                    BigDecimal keyValue = new BigDecimal(matchKey);
+
+                    return compare(keyValue, value) == 0
+                            ? MatchComparison.BEST
+                            : MatchComparison.FAIL;
+                } else {
+                    // TODO, look at select option to pick cardinal vs ordinal vs none.
+                    if (pluralCategory == null) {
+                        // get the plural category
+                        PluralRules rules =
+                                PluralRules.forLocale(
+                                        context.getLocale(), PluralRules.PluralType.CARDINAL);
+                        IFixedDecimal fixedDecimal =
+                                nf.locale(context.getLocale())
+                                        .format(offsettedValue)
+                                        .getFixedDecimal();
+                        pluralCategory = rules.select(fixedDecimal);
+                    }
+                    return pluralCategory.equals(matchKey)
+                            ? MatchComparison.BETTER
+                            : MatchComparison.FAIL;
                 }
-                // TODO, look at select option to pick cardinal vs ordinal vs none.
-                if (pluralCategory == null) {
-                    // get the plural category
-                    PluralRules rules =
-                            PluralRules.forLocale(
-                                    context.getLocale(), PluralRules.PluralType.CARDINAL);
-                    IFixedDecimal fixedDecimal =
-                            nf.locale(context.getLocale()).format(offsettedValue).getFixedDecimal();
-                    pluralCategory = rules.select(fixedDecimal);
+            }
+
+            private int compare(BigDecimal keyValue, Number value2) {
+                if (value instanceof BigDecimal) {
+                    return keyValue.compareTo((BigDecimal) value);
+                } else if (value instanceof BigInteger) {
+                    return keyValue.compareTo(new BigDecimal((BigInteger) value));
+                } else if (value instanceof Double || value instanceof Float) {
+                    final double doubleValue = value.doubleValue();
+                    return doubleValue == Double.POSITIVE_INFINITY
+                            ? -1
+                            : doubleValue == Double.NEGATIVE_INFINITY
+                                    ? 1
+                                    : keyValue.compareTo(BigDecimal.valueOf(doubleValue));
+                } else {
+                    return keyValue.compareTo(BigDecimal.valueOf(value.longValue()));
                 }
-                return pluralCategory.equals(matchKey) ? 100.0 : MfResolvedVariable.NO_MATCH;
             }
 
             private Number subtractOffset() {
@@ -345,8 +404,8 @@ public class MockFunctions {
         }
     }
 
-    /** FunctionFactory & FunctionVariable for :number */
-    static class MeasureFactory implements MfFunction {
+    /** MfFunction & MfVariable for :number */
+    static class MeasureFunction implements MfFunction {
         /** A variable of information that results from applying measure function (factory). */
         static class MeasureVariable extends MfResolvedVariable {
             Measure value;
@@ -363,7 +422,7 @@ public class MockFunctions {
             }
 
             @Override
-            public double match(MfContext context, String matchKey) {
+            public MatchComparison match(MfContext context, String matchKey, String bestMatchKey) {
                 throw new UnsupportedOperationException(":u:measure doesn't support selection");
             }
 

@@ -17,6 +17,8 @@ import org.unicode.cldr.tool.MockMessageFormat.MfContext;
 import org.unicode.cldr.tool.MockMessageFormat.MfResolvedVariable;
 
 public class TestMockMessageFormat extends TestFmwk {
+    public static final boolean SHOW_EXAMPLES =
+            Boolean.valueOf(System.getProperty("SHOW_EXAMPLES", "false"));
     private static final Joiner JOINER_EMPTY = Joiner.on("");
     private static final Joiner JOINER_LF_TAB = Joiner.on("\n\t");
 
@@ -30,47 +32,71 @@ public class TestMockMessageFormat extends TestFmwk {
     }
 
     public void testMeasureUnits() {
-        final List<String> unitMessageFrench =
-                List.of( //
-                        ".input {$distance :u:measure usage=road}",
-                        ".match {$gender}",
-                        // "0-meter\t{{You are at your destination!}}",
-                        "feminine\t{{Tu es revenue après {$distance}.}}",
-                        "*\t{{Tu es revenu après {$distance}.}}");
+        if (SHOW_EXAMPLES) System.out.println();
+        {
+            final List<String> unitMessageEnglish =
+                    List.of( //
+                            ".input {$distance :u:measure usage=road}",
+                            ".match {$user:gender}",
+                            "*\t{{You returned after {$distance}.}}");
 
-        // Example is taken from the ICU user guide, and modified for ranges
-        final ImmutableMap<Measure, String> testDataFrenchMale =
-                ImmutableMap.of(
-                        new Measure(0, MeasureUnit.MILE),
-                        "Tu es revenu après 0 mètre.",
-                        new Measure(0.1, MeasureUnit.MILE),
-                        "Tu es revenu après 160 mètres.",
-                        new Measure(1, MeasureUnit.MILE),
-                        "Tu es revenu après 1,6 kilomètre.",
-                        new Measure(1000, MeasureUnit.MILE),
-                        "Tu es revenu après 1 609 kilomètres.");
-        final ImmutableMap<Measure, String> testDataFrenchFemale =
-                ImmutableMap.of(
-                        new Measure(0, MeasureUnit.MILE),
-                        "Tu es revenue après 0 mètre.",
-                        new Measure(0.1, MeasureUnit.MILE),
-                        "Tu es revenue après 160 mètres.",
-                        new Measure(1, MeasureUnit.MILE),
-                        "Tu es revenue après 1,6 kilomètre.",
-                        new Measure(1000, MeasureUnit.MILE),
-                        "Tu es revenue après 1 609 kilomètres.");
+            final ImmutableMap<Measure, String> testDataEnglish =
+                    ImmutableMap.of(
+                            new Measure(12, MeasureUnit.METER),
+                            "You returned after 40 feet.",
+                            new Measure(123, MeasureUnit.METER),
+                            "You returned after 400 feet.",
+                            new Measure(1, MeasureUnit.MILE),
+                            "You returned after 1 mile.",
+                            new Measure(12345, MeasureUnit.METER),
+                            "You returned after 7.7 miles.");
 
-        checkData(
-                unitMessageFrench,
-                "$distance",
-                testDataFrenchMale,
-                Map.of("$gender", "masculine", "$locale", Locale.FRENCH));
-        checkData(
-                unitMessageFrench,
-                "$distance",
-                testDataFrenchFemale,
-                Map.of("$gender", "feminine", "$locale", Locale.FRENCH));
+            checkData(
+                    unitMessageEnglish,
+                    "$distance",
+                    testDataEnglish,
+                    Map.of("$user:locale", Locale.US));
+        }
+        {
+            final List<String> unitMessageFrench =
+                    List.of( //
+                            ".input {$distance :u:measure usage=road}",
+                            ".match {$user:gender}",
+                            "feminine\t{{Tu es revenue après {$distance}.}}",
+                            "*\t{{Tu es revenu après {$distance}.}}");
 
+            final ImmutableMap<Measure, String> testDataFrenchMale =
+                    ImmutableMap.of(
+                            new Measure(12, MeasureUnit.METER),
+                            "Tu es revenu après 10 mètres.",
+                            new Measure(123, MeasureUnit.METER),
+                            "Tu es revenu après 120 mètres.",
+                            new Measure(1, MeasureUnit.MILE),
+                            "Tu es revenu après 1,6 kilomètre.",
+                            new Measure(12345, MeasureUnit.METER),
+                            "Tu es revenu après 12 kilomètres.");
+            final ImmutableMap<Measure, String> testDataFrenchFemale =
+                    ImmutableMap.of(
+                            new Measure(10, MeasureUnit.METER),
+                            "Tu es revenue après 10 mètres.",
+                            new Measure(123, MeasureUnit.METER),
+                            "Tu es revenue après 120 mètres.",
+                            new Measure(1, MeasureUnit.MILE),
+                            "Tu es revenue après 1,6 kilomètre.",
+                            new Measure(12345, MeasureUnit.METER),
+                            "Tu es revenue après 12 kilomètres.");
+
+            checkData(
+                    unitMessageFrench,
+                    "$distance",
+                    testDataFrenchMale,
+                    Map.of("$user:gender", "masculine", "$user:locale", Locale.FRENCH));
+            checkData(
+                    unitMessageFrench,
+                    "$distance",
+                    testDataFrenchFemale,
+                    Map.of("$user:gender", "feminine", "$user:locale", Locale.FRENCH));
+        }
         //      final List<String> unitMessageSlovenian =
         //      List.of( //
         //          ".match {$count :u:measure usage=road}",
@@ -94,10 +120,12 @@ public class TestMockMessageFormat extends TestFmwk {
     }
 
     public void testChoice() {
+        if (SHOW_EXAMPLES) System.out.println();
+        // ICU example:
         // "-1#is negative| 0#is zero or fraction | 1#is one |1.0<is 1+ |2#is two |2<is more than
         // 2."
-
         // Example is taken from the ICU user guide, and modified for ranges
+
         final List<String> choiceMessageLines =
                 List.of( //
                         ".match {$count :number u:choice=true}",
@@ -141,7 +169,8 @@ public class TestMockMessageFormat extends TestFmwk {
             String matchVariable,
             final ImmutableMap<T, String> testData,
             Map<String, Object> otherInput) {
-        logln("MessageFormat:\n\t" + JOINER_LF_TAB.join(messageLines));
+        if (SHOW_EXAMPLES)
+            System.out.println("MessageFormat:\n\t" + JOINER_LF_TAB.join(messageLines));
         MockMessageFormat mf = new MockMessageFormat();
         mf.add(messageLines);
         for (Entry<T, String> inputAndExpected : testData.entrySet()) {
@@ -152,6 +181,10 @@ public class TestMockMessageFormat extends TestFmwk {
             final MfContext context = new MfContext().addInput(input);
             String actual = mf.format(context);
             assertEquals(input.toString(), expected, actual);
+            if (SHOW_EXAMPLES) {
+                System.out.println(
+                        String.format("Input:\t%s\tResult:\t%s", context.inputParameters, actual));
+            }
         }
     }
 
@@ -166,7 +199,10 @@ public class TestMockMessageFormat extends TestFmwk {
                     "* {{{$name :string} likes {$sport1 :string}, {$sport1 :string}, and {$count} others.}}");
 
     public void testOffset() {
-        logln("Message Format:\n\t" + JOINER_LF_TAB.join(checkOffsetMessageLines) + "\n");
+        if (SHOW_EXAMPLES) System.out.println();
+        if (SHOW_EXAMPLES)
+            System.out.println(
+                    "Message Format:\n\t" + JOINER_LF_TAB.join(checkOffsetMessageLines) + "\n");
         checkOffset("John likes Football, Football, and ١ other.", "John", 3, "Football", "Chess");
 
         checkOffset("Jim doesn’t like any sports.", "Jim", 0, "", "");
@@ -186,7 +222,7 @@ public class TestMockMessageFormat extends TestFmwk {
             String expected, String name, int input, String sport1, String sport2) {
         final MfContext context =
                 new MfContext()
-                        .addInput("$locale", Locale.forLanguageTag("ar-u-nu-arab"))
+                        .addInput("$user:locale", Locale.forLanguageTag("ar-u-nu-arab"))
                         .addInput("$name", name)
                         .addInput("$count", input)
                         .addInput("$sport1", sport1)
@@ -195,9 +231,14 @@ public class TestMockMessageFormat extends TestFmwk {
         mf.add(checkOffsetMessageLines);
         String actual = mf.format(context);
         assertEquals(String.format("%s\n\t", context.inputParameters), expected, actual);
+        if (SHOW_EXAMPLES) {
+            System.out.println(
+                    String.format("Input:\t%s\tResult:\t%s", context.inputParameters, actual));
+        }
     }
 
     public void testParsing() {
+        if (SHOW_EXAMPLES) System.out.println();
         String[][] tests = {
             {
                 ".input {$var :number maxFractionDigits=2 minFractionDigits=1}",
@@ -252,10 +293,11 @@ public class TestMockMessageFormat extends TestFmwk {
         }
         mf.freeze();
 
-        logln(
-                String.format(
-                        "\n\n\tStats:\n\trequiredInput:\t%s\n\trequiredVariables:\t%s\n\tunused:\t%s",
-                        mf.requiredInput, mf.requiredVariables, mf.unused));
+        if (SHOW_EXAMPLES)
+            System.out.println(
+                    String.format(
+                            "\n\tStats:\n\trequiredInput:\t%s\n\trequiredVariables:\t%s\n\tunused:\t%s",
+                            mf.requiredInput, mf.requiredVariables, mf.unused));
         Map<String, Object> inputParameters =
                 Map.of(
                         "$var",
@@ -268,11 +310,11 @@ public class TestMockMessageFormat extends TestFmwk {
                         new Measure(1.88, MeasureUnit.METER));
         Object[][] tests2 = {
             {
-                ImmutableMap.of("$locale", Locale.ENGLISH, "$var", 1234, "$name", "John"),
+                ImmutableMap.of("$user:locale", Locale.ENGLISH, "$var", 1234, "$name", "John"),
                 "There are +1,234 books for JOHN."
             },
             {
-                ImmutableMap.of("$locale", Locale.GERMAN, "$var", 1234, "$name", "Hans"),
+                ImmutableMap.of("$user:locale", Locale.GERMAN, "$var", 1234, "$name", "Hans"),
                 "There are +1.234 books for HANS."
             },
         };
@@ -283,10 +325,15 @@ public class TestMockMessageFormat extends TestFmwk {
             String actual = mf.format(context);
 
             assertEquals(String.format("%s\n\t", source), expected, actual);
+            if (SHOW_EXAMPLES) {
+                System.out.println(
+                        String.format("Input:\t%s\tResult:\t%s", context.inputParameters, actual));
+            }
         }
     }
 
     public void testAgainstMf1() {
+        if (SHOW_EXAMPLES) System.out.println();
         // spotless:off
         final List<String> mf1Pattern = List.of(
          "{gender_of_host, select, ",
@@ -336,8 +383,8 @@ public class TestMockMessageFormat extends TestFmwk {
 
         MockMessageFormat mf2 = new MockMessageFormat().add(mf2Pattern).freeze();
 
-        logln("MF1 Pattern:\n\t" + JOINER_LF_TAB.join(mf1Pattern));
-        logln("MF2 Pattern:\n\t" + JOINER_LF_TAB.join(mf2Pattern));
+        if (SHOW_EXAMPLES) System.out.println("MF1 Pattern:\n\t" + JOINER_LF_TAB.join(mf1Pattern));
+        if (SHOW_EXAMPLES) System.out.println("MF2 Pattern:\n\t" + JOINER_LF_TAB.join(mf2Pattern));
 
         for (int num_guests : Arrays.asList(0, 1, 2, 3)) {
             Map<String, Object> inputParameters1 =
@@ -350,7 +397,7 @@ public class TestMockMessageFormat extends TestFmwk {
                             "Mike",
                             "num_guests",
                             num_guests);
-            String result1 = mf1.format(inputParameters1);
+            String expected = mf1.format(inputParameters1);
             Map<String, Object> inputParameters2 =
                     Map.of(
                             "$host",
@@ -361,8 +408,13 @@ public class TestMockMessageFormat extends TestFmwk {
                             "Mike",
                             "$num_guests",
                             num_guests);
-            String result2 = mf2.format(new MfContext().addInput(inputParameters2));
-            assertEquals(String.format("%s\n\t", inputParameters2), result1, result2);
+            final MfContext context = new MfContext().addInput(inputParameters2);
+            String actual = mf2.format(context);
+            assertEquals(String.format("%s\n\t", inputParameters2), expected, actual);
+            if (SHOW_EXAMPLES) {
+                System.out.println(
+                        String.format("Input:\t%s\tResult:\t%s", context.inputParameters, actual));
+            }
         }
     }
 

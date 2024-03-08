@@ -90,9 +90,9 @@ public class MockFunctions {
                             final String caseOption = entry.getValue().toString();
                             switch (caseOption) {
                                 case "upper":
-                                    return baseValue.toUpperCase(context.getLocale());
+                                    return baseValue.toUpperCase(context.getUserLocale());
                                 case "lower":
-                                    return baseValue.toLowerCase(context.getLocale());
+                                    return baseValue.toLowerCase(context.getUserLocale());
                                 default:
                                     throw new IllegalArgumentException(
                                             "Illegal casing=" + caseOption);
@@ -260,9 +260,9 @@ public class MockFunctions {
                         // get the plural category
                         PluralRules rules =
                                 PluralRules.forLocale(
-                                        context.getLocale(), PluralRules.PluralType.CARDINAL);
+                                        context.getUserLocale(), PluralRules.PluralType.CARDINAL);
                         IFixedDecimal fixedDecimal =
-                                nf.locale(context.getLocale())
+                                nf.locale(context.getUserLocale())
                                         .format(offsettedValue)
                                         .getFixedDecimal();
                         pluralCategory = rules.select(fixedDecimal);
@@ -304,7 +304,7 @@ public class MockFunctions {
 
             @Override
             public String format(MfContext context) {
-                Locale locale = context.getLocale();
+                Locale locale = context.getUserLocale();
                 if (numberingSystem != null) {
                     nf =
                             nf.symbols(
@@ -413,7 +413,13 @@ public class MockFunctions {
 
             @Override
             public String toString() {
-                return "[value=" + value + ", options=" + getOptions() + "]";
+                return "[value="
+                        + value.getNumber()
+                        + "-"
+                        + value.getUnit()
+                        + ", options="
+                        + getOptions()
+                        + "]";
             }
 
             private MeasureVariable(Measure operand, OptionsMap options) {
@@ -451,7 +457,7 @@ public class MockFunctions {
                                         NumberingSystem.getInstanceByName(eValue.toString());
                                 nf.symbols(
                                         DecimalFormatSymbols.forNumberingSystem(
-                                                context.getLocale(), numberingSystem));
+                                                context.getUserLocale(), numberingSystem));
                                 break;
                             case "signDisplay":
                                 nf = nf.sign(SignDisplay.valueOf(eValue.toString()));
@@ -472,7 +478,7 @@ public class MockFunctions {
                                         "Number doen't allow the option " + entry);
                         }
                     }
-                    final LocalizedNumberFormatter localized = nf.locale(context.getLocale());
+                    final LocalizedNumberFormatter localized = nf.locale(context.getUserLocale());
                     formatted = localized.format(value).toString();
                 }
                 return formatted;

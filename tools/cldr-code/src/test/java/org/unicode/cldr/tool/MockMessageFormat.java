@@ -631,7 +631,9 @@ public class MockMessageFormat {
      * structures that are used in intermediate processing.
      */
     static class MfContext {
-        public final Map<String, Object> inputParameters = new LinkedHashMap<>();
+        public final Map<String, Object> inputParameters =
+                new LinkedHashMap<>(
+                        Map.of("$user:locale", Locale.ENGLISH, "$user:gender", "other"));
         public final Map<String, MfResolvedVariable> boundVariables = new LinkedHashMap<>();
 
         @Override
@@ -640,9 +642,12 @@ public class MockMessageFormat {
                     "inputParameters:\t%s\nboundVariables:\t%s", inputParameters, boundVariables);
         }
 
-        public Locale getLocale() {
-            Object result = inputParameters.get("$locale");
-            return result == null ? Locale.GERMAN : (Locale) result;
+        public Locale getUserLocale() {
+            return (Locale) inputParameters.get("$user:locale");
+        }
+
+        public String getUserGender() {
+            return (String) inputParameters.get("$user:gender");
         }
 
         public MfResolvedVariable get(String name) {

@@ -72,13 +72,21 @@ public class GenerateLikelyTestData {
                 if (max.isEmpty()) {
                     throw new IllegalArgumentException("Empty max: " + test);
                 }
-                final String minScript =
-                        CLDRLocale.getInstance(likely.setFavorRegion(false).minimize(test))
-                                .toLanguageTag();
-                final String minRegion =
-                        CLDRLocale.getInstance(likely.setFavorRegion(true).minimize(test))
-                                .toLanguageTag();
-                showLine(pw, test, max, minScript, minRegion);
+                final CLDRLocale minFavorScriptLocale =
+                        CLDRLocale.getInstance(likely.setFavorRegion(false).minimize(test));
+                final String favorScript =
+                        minFavorScriptLocale.getScript().isEmpty()
+                                        || !minFavorScriptLocale.getCountry().isEmpty()
+                                ? "FAIL"
+                                : minFavorScriptLocale.toLanguageTag();
+                final CLDRLocale minFavorRegionLocale =
+                        CLDRLocale.getInstance(likely.setFavorRegion(true).minimize(test));
+                final String minFavorRegion =
+                        !minFavorScriptLocale.getScript().isEmpty()
+                                        || minFavorScriptLocale.getCountry().isEmpty()
+                                ? "FAIL"
+                                : minFavorRegionLocale.toLanguageTag();
+                showLine(pw, test, max, favorScript, minFavorRegion);
             }
         }
     }

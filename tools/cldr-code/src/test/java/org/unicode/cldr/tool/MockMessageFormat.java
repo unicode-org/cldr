@@ -33,6 +33,7 @@ import org.unicode.cldr.util.RegexUtilities;
  */
 public class MockMessageFormat {
     static final Splitter SPACE_SPLITTER = Splitter.on(' ').omitEmptyStrings().trimResults();
+    static final Splitter HYPHEN_SPLITTER = Splitter.on('-').omitEmptyStrings().trimResults();
     static final boolean DEBUG = false;
 
     /**

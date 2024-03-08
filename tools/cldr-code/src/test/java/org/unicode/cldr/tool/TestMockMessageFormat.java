@@ -7,6 +7,7 @@ import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.util.Measure;
 import com.ibm.icu.util.MeasureUnit;
 import java.util.Arrays;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -29,15 +30,67 @@ public class TestMockMessageFormat extends TestFmwk {
     }
 
     public void testMeasureUnits() {
-        // TBD
-        //        System.out.println(checkFormat(Locale.forLanguageTag("en-US"), 1, "John", "188
-        // meter"));
-        //        System.out.println(checkFormat(Locale.forLanguageTag("en"), 1, "Sarah", "1100
-        // meter"));
-        //        System.out.println(checkFormat(Locale.forLanguageTag("de"), 3.456, "John", "188
-        // meter"));
-        //        System.out.println(checkFormat(Locale.forLanguageTag("fr"), 0, "John", "188
-        // meter"));
+        final List<String> unitMessageFrench =
+                List.of( //
+                        ".input {$distance :u:measure usage=road}",
+                        ".match {$gender}",
+                        // "0-meter\t{{You are at your destination!}}",
+                        "feminine\t{{Tu es revenue après {$distance}.}}",
+                        "*\t{{Tu es revenu après {$distance}.}}");
+
+        // Example is taken from the ICU user guide, and modified for ranges
+        final ImmutableMap<Measure, String> testDataFrenchMale =
+                ImmutableMap.of(
+                        new Measure(0, MeasureUnit.MILE),
+                        "Tu es revenu après 0 mètre.",
+                        new Measure(0.1, MeasureUnit.MILE),
+                        "Tu es revenu après 160 mètres.",
+                        new Measure(1, MeasureUnit.MILE),
+                        "Tu es revenu après 1,6 kilomètre.",
+                        new Measure(1000, MeasureUnit.MILE),
+                        "Tu es revenu après 1 609 kilomètres.");
+        final ImmutableMap<Measure, String> testDataFrenchFemale =
+                ImmutableMap.of(
+                        new Measure(0, MeasureUnit.MILE),
+                        "Tu es revenue après 0 mètre.",
+                        new Measure(0.1, MeasureUnit.MILE),
+                        "Tu es revenue après 160 mètres.",
+                        new Measure(1, MeasureUnit.MILE),
+                        "Tu es revenue après 1,6 kilomètre.",
+                        new Measure(1000, MeasureUnit.MILE),
+                        "Tu es revenue après 1 609 kilomètres.");
+
+        checkData(
+                unitMessageFrench,
+                "$distance",
+                testDataFrenchMale,
+                Map.of("$gender", "masculine", "$locale", Locale.FRENCH));
+        checkData(
+                unitMessageFrench,
+                "$distance",
+                testDataFrenchFemale,
+                Map.of("$gender", "feminine", "$locale", Locale.FRENCH));
+
+        //      final List<String> unitMessageSlovenian =
+        //      List.of( //
+        //          ".match {$count :u:measure usage=road}",
+        //  "one {{Od cilja ste oddaljeni 1 kilometer}}",
+        //  "Od cilja ste oddaljeni 2 kilometra.",
+        //  "Od cilja ste oddaljeni 3 kilometre.",
+        //  "Od cilja ste oddaljeni 5 kilometrov.",
+        //  "Od cilja ste oddaljeni 101 kilometer."
+        //  );
+        //  final ImmutableMap<Measure, String> testDataSlovenian =
+        //      ImmutableMap.of(
+        //              new Measure(0, MeasureUnit.METER),
+        //              "",
+        //              new Measure(0, MeasureUnit.METER),
+        //              "",
+        //              new Measure(0, MeasureUnit.METER),
+        //              "",
+        //              new Measure(0, MeasureUnit.KILOMETER),
+        //              "");
+
     }
 
     public void testChoice() {
@@ -80,14 +133,25 @@ public class TestMockMessageFormat extends TestFmwk {
                         Double.POSITIVE_INFINITY,
                         "Infinity is more than 2.");
 
-        logln("MessageFormat:\n\t" + JOINER_LF_TAB.join(choiceMessageLines));
+        checkData(choiceMessageLines, "$count", testData, Map.of());
+    }
+
+    public <T> void checkData(
+            final List<String> messageLines,
+            String matchVariable,
+            final ImmutableMap<T, String> testData,
+            Map<String, Object> otherInput) {
+        logln("MessageFormat:\n\t" + JOINER_LF_TAB.join(messageLines));
         MockMessageFormat mf = new MockMessageFormat();
-        mf.add(choiceMessageLines);
-        for (Entry<Double, String> inputAndExpected : testData.entrySet()) {
+        mf.add(messageLines);
+        for (Entry<T, String> inputAndExpected : testData.entrySet()) {
             String expected = inputAndExpected.getValue();
-            final MfContext context = new MfContext().addInput("$count", inputAndExpected.getKey());
+            Map<String, Object> input = new LinkedHashMap<>();
+            input.put(matchVariable, inputAndExpected.getKey());
+            input.putAll(otherInput);
+            final MfContext context = new MfContext().addInput(input);
             String actual = mf.format(context);
-            assertEquals(inputAndExpected.getKey().toString(), expected, actual);
+            assertEquals(input.toString(), expected, actual);
         }
     }
 

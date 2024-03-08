@@ -429,7 +429,8 @@ public class MockFunctions {
             @Override
             public String format(MfContext context) {
                 if (formatted == null) {
-                    UnlocalizedNumberFormatter nf = NumberFormatter.with();
+                    UnlocalizedNumberFormatter nf =
+                            NumberFormatter.with().unitWidth(UnitWidth.FULL_NAME);
                     for (Entry<String, Object> entry : getOptions().entrySet()) {
                         final Object eValue = entry.getValue();
                         switch (entry.getKey()) {
@@ -499,13 +500,18 @@ public class MockFunctions {
         }
 
         public MeasureVariable fromLiteral(String literal, OptionsMap options) {
-            List<String> parts = MockMessageFormat.SPACE_SPLITTER.splitToList(literal);
-            if (parts.size() != 2) {
+            int pos = literal.indexOf('-');
+            if (pos < 0) {
                 throw new IllegalArgumentException(
-                        getName() + " requires a literal in the form number/unicode_unit_id");
+                        getName()
+                                + " requires a literal in the form number-unicode_unit_id, not "
+                                + literal);
             }
-            MeasureUnit unit = MeasureUnit.forIdentifier(parts.get(1));
-            Measure measure = new Measure(new BigDecimal(parts.get(0)), unit);
+            String first = literal.substring(0, pos);
+            String second = literal.substring(pos + 1);
+
+            MeasureUnit unit = MeasureUnit.forIdentifier(first);
+            Measure measure = new Measure(new BigDecimal(second), unit);
             return fromInput(measure, options);
         }
 

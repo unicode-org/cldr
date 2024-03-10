@@ -156,4 +156,28 @@ public class TestCoverage extends TestFmwkPlus {
             errln("\t" + title + ": " + diff);
         }
     }
+
+    public void testBeaufort() {
+        // locale, path, expected coverage
+        String[][] tests = {
+            {
+                "am",
+                "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"speed-beaufort\"]/displayName",
+                "comprehensive"
+            },
+            {
+                "de",
+                "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"speed-beaufort\"]/displayName",
+                "modern"
+            },
+        };
+        for (String[] test : tests) {
+            String locale = test[0];
+            String path = test[1];
+            Level expected = Level.fromString(test[2]);
+            CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(sdi, locale);
+            Level actual = coverageLevel.getLevel(path);
+            assertEquals(String.format("locale:%s, path:%s", locale, path), expected, actual);
+        }
+    }
 }

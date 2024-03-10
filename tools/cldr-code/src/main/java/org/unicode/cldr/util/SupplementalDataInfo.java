@@ -59,7 +59,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
-import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
@@ -837,7 +836,7 @@ public class SupplementalDataInfo {
         }
     }
 
-    public static class CoverageLevelInfo implements Comparable<CoverageLevelInfo> {
+    public static class CoverageLevelInfo {
         public final String match;
         public final Level value;
         public final Pattern inLanguage;
@@ -868,15 +867,6 @@ public class SupplementalDataInfo {
             result.remove("");
             inTerritorySetInternal = result;
             return Collections.unmodifiableSet(result);
-        }
-
-        @Override
-        public int compareTo(CoverageLevelInfo o) {
-            if (value == o.value) {
-                return match.compareTo(o.match);
-            } else {
-                return value.compareTo(o.value);
-            }
         }
 
         public static void fixEU(Collection<CoverageLevelInfo> targets, SupplementalDataInfo info) {
@@ -1313,7 +1303,7 @@ public class SupplementalDataInfo {
         bcp47KeyToAliasToSubtype = CldrUtility.protectCollection(bcp47KeyToAliasToSubtype);
 
         CoverageLevelInfo.fixEU(coverageLevels, this);
-        coverageLevels = Collections.unmodifiableSortedSet(coverageLevels);
+        coverageLevels = CldrUtility.protectCollection(coverageLevels);
 
         measurementData = CldrUtility.protectCollection(measurementData);
 
@@ -2486,7 +2476,7 @@ public class SupplementalDataInfo {
     private Map<String, String> likelySubtags = new TreeMap<>();
     private Map<String, String> likelyOrigins = new TreeMap<>();
     // make public temporarily until we resolve.
-    private SortedSet<CoverageLevelInfo> coverageLevels = new TreeSet<>();
+    private Set<CoverageLevelInfo> coverageLevels = new LinkedHashSet<>();
     private Map<ParentLocaleComponent, Map<String, String>> parentLocales = new HashMap<>();
 
     { // Prefill, since we know we will need these
@@ -2776,7 +2766,7 @@ public class SupplementalDataInfo {
         return numberingSystems.get(numberingSystem).type;
     }
 
-    public SortedSet<CoverageLevelInfo> getCoverageLevelInfo() {
+    public Set<CoverageLevelInfo> getCoverageLevelInfo() {
         return coverageLevels;
     }
 

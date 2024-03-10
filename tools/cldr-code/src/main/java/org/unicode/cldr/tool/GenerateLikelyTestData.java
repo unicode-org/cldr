@@ -62,23 +62,26 @@ public class GenerateLikelyTestData {
                 if (testRaw.startsWith("qaa")) {
                     int debug = 0;
                 }
-                final String test = CLDRLocale.getInstance(testRaw).toLanguageTag();
-                final String maximize = likely.maximize(test);
-                if (maximize == null) {
+                final CLDRLocale source = CLDRLocale.getInstance(testRaw);
+                final String test = source.toLanguageTag();
+
+                // if the maxLang is empty, we have no data for the language
+                String lang = source.getLanguage();
+                String maxLang = likely.maximize(lang);
+                if (maxLang == null || maxLang.isEmpty()) {
                     showLine(pw, test, "FAIL", "FAIL", "FAIL");
                     continue;
                 }
+
+                final String maximize = likely.maximize(test);
                 final String max = CLDRLocale.getInstance(maximize).toLanguageTag();
-                if (max.isEmpty()) {
-                    throw new IllegalArgumentException("Empty max: " + test);
-                }
-                final String minScript =
-                        CLDRLocale.getInstance(likely.setFavorRegion(false).minimize(test))
-                                .toLanguageTag();
-                final String minRegion =
-                        CLDRLocale.getInstance(likely.setFavorRegion(true).minimize(test))
-                                .toLanguageTag();
-                showLine(pw, test, max, minScript, minRegion);
+                final CLDRLocale minFavorScriptLocale =
+                        CLDRLocale.getInstance(likely.setFavorRegion(false).minimize(test));
+                final String favorScript = minFavorScriptLocale.toLanguageTag();
+                final CLDRLocale minFavorRegionLocale =
+                        CLDRLocale.getInstance(likely.setFavorRegion(true).minimize(test));
+                final String minFavorRegion = minFavorRegionLocale.toLanguageTag();
+                showLine(pw, test, max, favorScript, minFavorRegion);
             }
         }
     }

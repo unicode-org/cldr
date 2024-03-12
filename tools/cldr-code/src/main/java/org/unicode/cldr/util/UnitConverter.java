@@ -798,6 +798,14 @@ public class UnitConverter implements Freezable<UnitConverter> {
      */
     public ConversionInfo parseUnitId(
             String derivedUnit, Output<String> metricUnit, boolean showYourWork) {
+        // First check whether we are dealing with a special mapping
+        Output<String> testBaseUnit = new Output<>();
+        ConversionInfo testInfo = getUnitInfo(derivedUnit, testBaseUnit);
+        if (testInfo != null && testInfo.special != null) {
+            metricUnit.value = testBaseUnit.value;
+            return new ConversionInfo(testInfo.special, testInfo.specialInverse);
+        }
+        // Not a special mapping, proceed as usual
         metricUnit.value = null;
 
         UnitId outputUnit = new UnitId(UNIT_COMPARATOR);
@@ -891,8 +899,6 @@ public class UnitConverter implements Freezable<UnitConverter> {
                     unit = baseUnit;
                 }
                 for (int p = 1; p <= power; ++p) {
-                    // TODO CLDR-16329 additional PR or follow-on ticket, how to handle special
-                    // here?
                     String title = "";
                     if (value.equals(Rational.ONE)) {
                         if (showYourWork) System.out.println("\t(already base unit)");
@@ -913,12 +919,10 @@ public class UnitConverter implements Freezable<UnitConverter> {
                                         + numerator.divide(denominator).doubleValue());
                 }
                 // create cleaned up target unitid
-                // TODO CLDR-16329 additional PR or follow-on ticket, how to handle special here?
                 outputUnit.add(continuations, unit, inNumerator, power);
                 power = 1;
             }
         }
-        // TODO CLDR-16329 additional PR or follow-on ticket, how to handle special here?
         metricUnit.value = outputUnit.toString();
         return new ConversionInfo(numerator.divide(denominator), offset);
     }

@@ -669,7 +669,7 @@ public class TestUnits extends TestFmwk {
         assertEquals("Units without Quantity", Collections.emptySet(), noQuantity);
     }
 
-    static final Set<String> NOT_CONVERTABLE = ImmutableSet.of("generic", "beaufort");
+    static final Set<String> NOT_CONVERTABLE = ImmutableSet.of("generic");
 
     private void checkUnitConvertability(
             UnitConverter converter,
@@ -1146,6 +1146,7 @@ public class TestUnits extends TestFmwk {
                     "radian",
                     "revolution",
                     "electronvolt",
+                    "beaufort",
                     // quasi-metric
                     "dunam",
                     "mile-scandinavian",
@@ -1300,6 +1301,21 @@ public class TestUnits extends TestFmwk {
                 "kilogram-meter-per-square-second",
                 "17281869297 / 2500000000"
             },
+            {"1", "beaufort", "meter-per-second", "0.95"}, // 19/20
+            {"4", "beaufort", "meter-per-second", "6.75"}, // 27/4
+            {"7", "beaufort", "meter-per-second", "15.55"}, // 311/20
+            {"10", "beaufort", "meter-per-second", "26.5"}, // 53/2
+            {"13", "beaufort", "meter-per-second", "39.15"}, // 783/20
+            {"1", "beaufort", "mile-per-hour", "11875 / 5588"}, // 2.125089...
+            {"4", "beaufort", "mile-per-hour", "84375 / 5588"}, // 15.099319971367215
+            {"7", "beaufort", "mile-per-hour", "194375 / 5588"}, // 34.784359341445956
+            {"10", "beaufort", "mile-per-hour", "165625 / 2794"}, // 59.27881...
+            {"13", "beaufort", "mile-per-hour", "489375 / 5588"}, // 87.576056...
+            {"1", "meter-per-second", "beaufort", "1"},
+            {"7", "meter-per-second", "beaufort", "4"},
+            {"16", "meter-per-second", "beaufort", "7"},
+            {"27", "meter-per-second", "beaufort", "10"},
+            {"39", "meter-per-second", "beaufort", "13"},
         };
         int count = 0;
         for (String[] test : tests) {

@@ -1,7 +1,7 @@
 # Test data for unit conversions
 #  Copyright © 1991-2024 Unicode, Inc.
 #  For terms of use, see http://www.unicode.org/copyright.html
-#  SPDX-License-Identifier: Unicode-DFS-2016
+#  SPDX-License-Identifier: Unicode-3.0
 #  CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 #
 # Format:
@@ -182,6 +182,7 @@ resolution	;	pixel-per-inch	;	pixel-per-meter	;	5,000/127 * x	;	39370.08
 resolution	;	dot-per-centimeter	;	pixel-per-meter	;	100 * x	;	100000.0
 resolution	;	pixel-per-centimeter	;	pixel-per-meter	;	100 * x	;	100000.0
 solid-angle	;	steradian	;	square-revolution	;	4,290,444,930,214,144/169379976663492169 * x	;	25.3303
+speed	;	beaufort	;	meter-per-second	;	special:beaufort(x)	;	58.6
 speed	;	kilometer-per-hour	;	meter-per-second	;	2.5/9 * x	;	277.7778
 speed	;	mile-per-hour	;	meter-per-second	;	0.44704 * x	;	447.04
 speed	;	knot	;	meter-per-second	;	4.63/9 * x	;	514.4444

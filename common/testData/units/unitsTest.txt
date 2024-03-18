@@ -1,7 +1,7 @@
 # Test data for unit conversions
 #  Copyright © 1991-2024 Unicode, Inc.
 #  For terms of use, see http://www.unicode.org/copyright.html
-#  SPDX-License-Identifier: Unicode-DFS-2016
+#  SPDX-License-Identifier: Unicode-3.0
 #  CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 #
 # Format:
@@ -12,7 +12,7 @@
 #   round to 4 decimal digits before comparing.
 # Note that certain conversions are approximate, such as degrees to radians
 #
-# Generation: Set GENERATE_TESTS in TestUnits.java to regenerate unitsTest.txt.
+# Generation: Use GenerateUnitTestData.java to regenerate unitsTest.txt.
 
 acceleration	;	meter-per-square-second	;	meter-per-square-second	;	1 * x	;	1,000.00
 acceleration	;	g-force	;	meter-per-square-second	;	9.80665 * x	;	9806.65

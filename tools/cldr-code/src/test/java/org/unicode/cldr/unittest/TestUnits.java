@@ -22,18 +22,29 @@ import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R3;
+import com.ibm.icu.number.FormattedNumber;
+import com.ibm.icu.number.LocalizedNumberFormatter;
+import com.ibm.icu.number.NumberFormatter;
+import com.ibm.icu.number.NumberFormatter.UnitWidth;
+import com.ibm.icu.number.Precision;
+import com.ibm.icu.number.UnlocalizedNumberFormatter;
 import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ICUUncheckedIOException;
+import com.ibm.icu.util.Measure;
+import com.ibm.icu.util.MeasureUnit;
 import com.ibm.icu.util.Output;
+import com.ibm.icu.util.ULocale;
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.io.UncheckedIOException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.MathContext;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -43,6 +54,7 @@ import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Objects;
@@ -114,6 +126,8 @@ import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
 public class TestUnits extends TestFmwk {
+    private static final boolean DEBUG = System.getProperty("TestUnits:DEBUG") != null;
+    private static final boolean TEST_ICU = System.getProperty("TestUnits:TEST_ICU") != null;
 
     private static final Joiner JOIN_COMMA = Joiner.on(", ");
 
@@ -137,7 +151,7 @@ public class TestUnits extends TestFmwk {
             Validity.getInstance().getStatusToCodes(LstrType.unit).get(Validity.Status.regular);
     private static final Set<String> DEPRECATED_REGULAR_UNITS =
             Validity.getInstance().getStatusToCodes(LstrType.unit).get(Validity.Status.deprecated);
-    private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
+    public static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
     private static final Integer INTEGER_ONE = 1;
 
     public static boolean getFlag(String flag) {
@@ -479,8 +493,6 @@ public class TestUnits extends TestFmwk {
         return true;
     }
 
-    static final boolean DEBUG = false;
-
     public void TestConversion() {
         String[][] tests = {
             {"foot", "12", "inch"},
@@ -736,11 +748,7 @@ public class TestUnits extends TestFmwk {
         assertEquals("", Rational.ONE, a3_5.multiply(a3_5.reciprocal()));
         assertEquals("", Rational.ZERO, a3_5.add(a3_5.negate()));
 
-        assertEquals("", Rational.INFINITY, Rational.ZERO.reciprocal());
-        assertEquals("", Rational.NEGATIVE_INFINITY, Rational.INFINITY.negate());
         assertEquals("", Rational.NEGATIVE_ONE, Rational.ONE.negate());
-
-        assertEquals("", Rational.NaN, Rational.ZERO.divide(Rational.ZERO));
 
         assertEquals("", BigDecimal.valueOf(2), Rational.of(2, 1).toBigDecimal());
         assertEquals("", BigDecimal.valueOf(0.5), Rational.of(1, 2).toBigDecimal());
@@ -755,6 +763,38 @@ public class TestUnits extends TestFmwk {
         ConversionInfo uinfo = new ConversionInfo(Rational.of(2), Rational.of(3));
         assertEquals("", Rational.of(3), uinfo.convert(Rational.ZERO));
         assertEquals("", Rational.of(7), uinfo.convert(Rational.of(2)));
+
+        assertEquals("", Rational.INFINITY, Rational.ZERO.reciprocal());
+        assertEquals("", Rational.NEGATIVE_INFINITY, Rational.INFINITY.negate());
+
+        Set<Rational> anything =
+                ImmutableSet.of(
+                        Rational.NaN,
+                        Rational.NEGATIVE_INFINITY,
+                        Rational.NEGATIVE_ONE,
+                        Rational.ZERO,
+                        Rational.ONE,
+                        Rational.INFINITY);
+        for (Rational something : anything) {
+            assertEquals("0/0", Rational.NaN, Rational.NaN.add(something));
+            assertEquals("0/0", Rational.NaN, Rational.NaN.subtract(something));
+            assertEquals("0/0", Rational.NaN, Rational.NaN.divide(something));
+            assertEquals("0/0", Rational.NaN, Rational.NaN.add(something));
+            assertEquals("0/0", Rational.NaN, Rational.NaN.negate());
+
+            assertEquals("0/0", Rational.NaN, something.add(Rational.NaN));
+            assertEquals("0/0", Rational.NaN, something.subtract(Rational.NaN));
+            assertEquals("0/0", Rational.NaN, something.divide(Rational.NaN));
+            assertEquals("0/0", Rational.NaN, something.add(Rational.NaN));
+        }
+        assertEquals("0/0", Rational.NaN, Rational.ZERO.divide(Rational.ZERO));
+        assertEquals("INF-INF", Rational.NaN, Rational.INFINITY.subtract(Rational.INFINITY));
+        assertEquals("INF+-INF", Rational.NaN, Rational.INFINITY.add(Rational.NEGATIVE_INFINITY));
+        assertEquals("-INF+INF", Rational.NaN, Rational.NEGATIVE_INFINITY.add(Rational.INFINITY));
+        assertEquals("INF/INF", Rational.NaN, Rational.INFINITY.divide(Rational.INFINITY));
+
+        assertEquals("INF+1", Rational.INFINITY, Rational.INFINITY.add(Rational.ONE));
+        assertEquals("INF-1", Rational.INFINITY, Rational.INFINITY.subtract(Rational.ONE));
     }
 
     public void TestRationalParse() {
@@ -990,6 +1030,7 @@ public class TestUnits extends TestFmwk {
         // Test that sorted is in same order as the file.
         MapComparator<String> conversionOrder = new MapComparator<>(data.keySet());
         String lastUnit = null;
+        Set<String> warnings = new LinkedHashSet<>();
         for (Entry<TargetInfo, String> entry : sorted.entries()) {
             final TargetInfo tInfo = entry.getKey();
             final String unit = entry.getValue();
@@ -1001,7 +1042,7 @@ public class TestUnits extends TestFmwk {
                     ConversionInfo info = converter.parseUnitId(unit, metricUnit, false);
                     String metric = metricUnit.value;
                     if (metric.equals(lastMetric)) {
-                        warnln(
+                        warnings.add(
                                 "Expected "
                                         + lastUnit
                                         + " < "
@@ -1027,6 +1068,9 @@ public class TestUnits extends TestFmwk {
                 //  <convertUnit source='week-person' target='second' factor='604800'/>
                 System.out.println("        " + tInfo.formatOriginalSource(entry.getValue()));
             }
+        }
+        if (!warnings.isEmpty()) {
+            warnln("Some units are not ordered by size, count=" + warnings.size());
         }
     }
 
@@ -1779,25 +1823,6 @@ public class TestUnits extends TestFmwk {
                 "If this fails, check the output of TestUnitPreferencesSource (with -DTestUnits:SHOW_DATA), fix as needed, then incorporate.");
         UnitPreferences prefs = SDI.getUnitPreferences();
         checkUnitPreferences(prefs);
-        //        Map<String, Map<String, Map<String, UnitPreference>>> fastMap =
-        // prefs.getFastMap(converter);
-        //        for (Entry<String, Map<String, Map<String, UnitPreference>>> entry :
-        // fastMap.entrySet()) {
-        //            String quantity = entry.getKey();
-        //            String baseUnit = converter.getBaseUnitFromQuantity(quantity);
-        //            for (Entry<String, Map<String, UnitPreference>> entry2 :
-        // entry.getValue().entrySet()) {
-        //                String usage = entry2.getKey();
-        //                for (Entry<String, UnitPreference> entry3 : entry2.getValue().entrySet())
-        // {
-        //                    String region = entry3.getKey();
-        //                    UnitPreference pref = entry3.getValue();
-        //                    System.out.println(quantity + "\t" + usage + "\t" + region + "\t" +
-        // pref.toString(baseUnit));
-        //                }
-        //            }
-        //        }
-        prefs.getFastMap(converter); // call just to make sure we don't get an exception
 
         if (GENERATE_TESTS) {
             try (TempPrintWriter pw =
@@ -4244,5 +4269,338 @@ public class TestUnits extends TestFmwk {
         return assertFalse(
                 units + ": " + systemSet + " does not contain " + unitSystem,
                 systemSet.contains(unitSystem));
+    }
+
+    public void testQuantitiesMissingFromPreferences() {
+        UnitPreferences prefs = SDI.getUnitPreferences();
+        Set<String> preferenceQuantities = prefs.getQuantities();
+        Set<String> unitQuantities = converter.getQuantities();
+        assertEquals(
+                "pref - unit quantities",
+                Collections.emptySet(),
+                Sets.difference(preferenceQuantities, unitQuantities));
+        final SetView<String> quantitiesNotInPreferences =
+                Sets.difference(unitQuantities, preferenceQuantities);
+        if (!quantitiesNotInPreferences.isEmpty()) {
+            warnln("unit - pref quantities = " + quantitiesNotInPreferences);
+        }
+        for (String unit : converter.getSimpleUnits()) {
+            String quantity = converter.getQuantityFromUnit(unit, false);
+            if (!quantitiesNotInPreferences.contains(quantity)) {
+                continue;
+            }
+            // we have a unit whose quantity is not in preferences
+            // get its unit preferences
+            UnitPreference pref =
+                    prefs.getUnitPreference(Rational.ONE, unit, "default", ULocale.US);
+            if (pref == null) {
+                errln(
+                        String.format(
+                                "Default preference is null: input unit=%s, quantity=%s",
+                                unit, quantity));
+                continue;
+            }
+            // ensure that it is metric
+            Set<UnitSystem> inputSystems = converter.getSystemsEnum(unit);
+            if (Collections.disjoint(inputSystems, UnitSystem.SiOrMetric)) {
+                warnln(
+                        String.format(
+                                "There are no explicit preferences for %s, but %s is not metric",
+                                quantity, unit));
+            }
+            Set<UnitSystem> prefSystems = converter.getSystemsEnum(pref.unit);
+
+            String errorOrWarningString =
+                    String.format(
+                            "Test default preference is metric: input unit=%s, quantity=%s, pref-unit=%s, systems: %s",
+                            unit, quantity, pref.unit, prefSystems);
+            if (Collections.disjoint(prefSystems, UnitSystem.SiOrMetric)) {
+                errln(errorOrWarningString);
+            } else {
+                logln("OK " + errorOrWarningString);
+            }
+        }
+    }
+
+    public void testUnitPreferencesTest() {
+        try {
+            final Set<String> warnings = new LinkedHashSet<>();
+            Files.lines(Path.of(CLDRPaths.TEST_DATA + "units/unitPreferencesTest.txt"))
+                    .forEach(line -> checkUnitPreferencesTest(line, warnings));
+            if (!warnings.isEmpty()) {
+                warnln("Mixed unit identifiers not yet checked, count=" + warnings.size());
+            }
+        } catch (IOException e) {
+            throw new UncheckedIOException(e);
+        }
+    }
+
+    public void checkUnitPreferencesTest(String line, Set<String> warnings) {
+        if (line.startsWith("#") || line.isBlank()) {
+            return;
+        }
+        // #    Quantity;   Usage;  Region; Input (r);  Input (d);  Input Unit; Output (r);
+        // Output (d); Output Unit
+        // Example:
+        // area;      default;    001;    1100000;    1100000.0;  square-meter;
+        // 11/10;  1.1;    square-kilometer
+        // duration;   media;     001;    66;         66.0;       second;        1; minute;   6;
+        //      6.0;    second
+        try {
+            UnitPreferences prefs = SDI.getUnitPreferences();
+            List<String> parts = SPLIT_SEMI.splitToList(line);
+            Map<String, Long> highMixed_unit_identifiers = new LinkedHashMap<>();
+            String quantity = parts.get(0);
+            String usage = parts.get(1);
+            String region = parts.get(2);
+            Rational inputRational = Rational.of(parts.get(3));
+            double inputDouble = Double.parseDouble(parts.get(4));
+            String inputUnit = parts.get(5);
+            // account for multi-part output
+            int size = parts.size();
+            // This section has larger elements with integer values
+            for (int i = 6; i < size - 3; i += 2) {
+                highMixed_unit_identifiers.put(parts.get(i + 1), Long.parseLong(parts.get(i)));
+            }
+            Rational expectedValue = Rational.of(parts.get(size - 3));
+            Double expectedValueDouble = Double.parseDouble(parts.get(size - 2));
+            String expectedOutputUnit = parts.get(size - 1);
+
+            // Check that the double values are approximately the same as
+            // the Rational ones
+            assertTrue(
+                    String.format(
+                            "input rational ~ input double, %s %s", inputRational, inputDouble),
+                    inputRational.approximatelyEquals(inputDouble));
+            assertTrue(
+                    String.format(
+                            "output rational ~ output double, %s %s",
+                            expectedValue, expectedValueDouble),
+                    expectedValue.approximatelyEquals(expectedValueDouble));
+
+            // check that the quantity is consistent
+            String expectedQuantity = converter.getQuantityFromUnit(inputUnit, false);
+            assertEquals("Input: Quantity consistency check", expectedQuantity, quantity);
+
+            // TODO handle mixed_unit_identifiers
+            if (!highMixed_unit_identifiers.isEmpty()) {
+                warnings.add("mixed_unit_identifiers not yet checked: " + line);
+                return;
+            }
+            // check output unit, then value
+            UnitPreference unitPreference =
+                    prefs.getUnitPreference(inputRational, inputUnit, usage, region);
+            String actualUnit = unitPreference.unit;
+            assertEquals("Output unit", expectedOutputUnit, actualUnit);
+
+            Rational actualValue = converter.convert(inputRational, inputUnit, actualUnit, false);
+            assertEquals("Output numeric value", expectedValue, actualValue);
+        } catch (Exception e) {
+            errln(e.getMessage() + "\n\t" + line);
+        }
+    }
+
+    public void testUnitsTest() {
+        try {
+            Files.lines(Path.of(CLDRPaths.TEST_DATA + "units/unitsTest.txt"))
+                    .forEach(line -> checkUnitsTest(line));
+        } catch (IOException e) {
+            throw new UncheckedIOException(e);
+        }
+    }
+
+    private void checkUnitsTest(String line) {
+        if (line.startsWith("#") || line.isBlank()) {
+            return;
+        }
+        // Quantity    ;   x   ;   y   ;   conversion to y (rational)  ;   test: 1000 x ⟹ y
+        //
+        //        Use: convert 1000 x units to the y unit; the result should match the final column,
+        //           at the given precision. For example, when the last column is 159.1549,
+        //           round to 4 decimal digits before comparing.
+        // Example:
+        //        acceleration  ;   g-force ;   meter-per-square-second ;   9.80665 * x ;   9806.65
+        try {
+            UnitPreferences prefs = SDI.getUnitPreferences();
+            List<String> parts = SPLIT_SEMI.splitToList(line);
+            String quantity = parts.get(0);
+            String sourceUnit = parts.get(1);
+            String targetUnit = parts.get(2);
+            String conversion = parts.get(3);
+            double expectedNumericValueFor1000 = Rational.of(parts.get(4)).doubleValue();
+
+            String expectedQuantity = converter.getQuantityFromUnit(sourceUnit, false);
+            assertEquals("Input: Quantity consistency check", expectedQuantity, quantity);
+
+            // TODO check conversion equation (not particularly important
+            Rational actualValue =
+                    converter.convert(Rational.of(1000), sourceUnit, targetUnit, false);
+            assertTrue(
+                    String.format(
+                            "output rational ~ expected double, %s %s",
+                            expectedNumericValueFor1000, actualValue.doubleValue()),
+                    actualValue.approximatelyEquals(expectedNumericValueFor1000));
+        } catch (Exception e) {
+            errln(e.getMessage() + "\n\t" + line);
+        }
+    }
+
+    public void testUnitLocalePreferencesTest() {
+        try {
+            Files.lines(Path.of(CLDRPaths.TEST_DATA + "units/unitLocalePreferencesTest.txt"))
+                    .forEach(line -> checkUnitLocalePreferencesTest(line));
+        } catch (IOException e) {
+            throw new UncheckedIOException(e);
+        }
+    }
+
+    private void checkUnitLocalePreferencesTest(String rawLine) {
+        int hashPos = rawLine.indexOf('#');
+        String line = hashPos < 0 ? rawLine : rawLine.substring(0, hashPos);
+        String comment = hashPos < 0 ? "" : "\t# " + rawLine.substring(hashPos + 1);
+        if (line.isBlank()) {
+            return;
+        }
+        // #    input-unit; amount; usage;  languageTag; expected-unit; expected-amount # comment
+        // Example:
+        // fahrenheit;  1;  default;    en-u-rg-uszzzz-ms-ussystem-mu-celsius;  celsius;    -155/9 #
+        // mu > ms > rg > (likely) region
+        try {
+            UnitPreferences prefs = SDI.getUnitPreferences();
+            List<String> parts = SPLIT_SEMI.splitToList(line);
+            String sourceUnit = parts.get(0);
+            Rational sourceAmount = Rational.of(parts.get(1));
+            String usage = parts.get(2);
+            String languageTag = parts.get(3);
+            String expectedUnit = parts.get(4);
+            Rational expectedAmount = Rational.of(parts.get(5));
+
+            String actualUnit;
+            Rational actualValue;
+            try {
+                if (DEBUG)
+                    System.out.println(
+                            String.format(
+                                    "%s;\t%s;\t%s;\t%s;\t%s;\t%s%s",
+                                    sourceUnit,
+                                    sourceAmount.toString(FormatStyle.formatted),
+                                    usage,
+                                    languageTag,
+                                    expectedUnit,
+                                    expectedAmount.toString(FormatStyle.formatted),
+                                    comment));
+
+                final ULocale uLocale = ULocale.forLanguageTag(languageTag);
+                UnitPreference unitPreference =
+                        prefs.getUnitPreference(sourceAmount, sourceUnit, usage, uLocale);
+                if (unitPreference == null) { // if the quantity isn't found
+                    throw new IllegalArgumentException(
+                            String.format(
+                                    "No unit preferences found for unit: %s, usage: %s, locale:%s",
+                                    sourceUnit, usage, languageTag));
+                }
+                actualUnit = unitPreference.unit;
+                actualValue =
+                        converter.convert(sourceAmount, sourceUnit, unitPreference.unit, false);
+            } catch (Exception e1) {
+                actualUnit = e1.getMessage();
+                actualValue = Rational.NaN;
+            }
+            if (assertEquals(
+                    String.format(
+                            "ICU unit pref, %s %s %s %s",
+                            sourceUnit,
+                            sourceAmount.toString(FormatStyle.formatted),
+                            usage,
+                            languageTag),
+                    expectedUnit,
+                    actualUnit)) {
+                assertEquals("CLDR value", expectedAmount, actualValue);
+            } else if (!comment.isBlank()) {
+                warnln(comment);
+            }
+
+        } catch (Exception e) {
+            errln(e.getStackTrace()[0] + ", " + e.getMessage() + "\n\t" + rawLine);
+        }
+    }
+
+    public void testUnitLocalePreferencesTestIcu() {
+        if (TEST_ICU) {
+            try {
+                Files.lines(Path.of(CLDRPaths.TEST_DATA + "units/unitLocalePreferencesTest.txt"))
+                        .forEach(line -> checkUnitLocalePreferencesTestIcu(line));
+            } catch (IOException e) {
+                throw new UncheckedIOException(e);
+            }
+        } else {
+            warnln("Skipping ICU test. To enable, set -DTestUnits:TEST_ICU");
+        }
+    }
+
+    private void checkUnitLocalePreferencesTestIcu(String rawLine) {
+        int hashPos = rawLine.indexOf('#');
+        String line = hashPos < 0 ? rawLine : rawLine.substring(0, hashPos);
+        String comment = hashPos < 0 ? "" : "\t# " + rawLine.substring(hashPos + 1);
+        if (line.isBlank()) {
+            return;
+        }
+        // #    input-unit; amount; usage;  languageTag; expected-unit; expected-amount # comment
+        // Example:
+        // fahrenheit;  1;  default;    en-u-rg-uszzzz-ms-ussystem-mu-celsius;  celsius;    -155/9 #
+        // mu > ms > rg > (likely) region
+        try {
+            List<String> parts = SPLIT_SEMI.splitToList(line);
+            String sourceUnit = parts.get(0);
+            double sourceAmount = icuRational(parts.get(1));
+            String usage = parts.get(2);
+            String languageTag = parts.get(3);
+            String expectedUnit = parts.get(4);
+            double expectedAmount = icuRational(parts.get(5));
+
+            String actualUnit;
+
+            float actualValueFloat;
+            try {
+                UnlocalizedNumberFormatter nf =
+                        NumberFormatter.with()
+                                .unitWidth(UnitWidth.FULL_NAME)
+                                .precision(Precision.maxSignificantDigits(20));
+                LocalizedNumberFormatter localized =
+                        nf.usage(usage).locale(Locale.forLanguageTag(languageTag));
+                final FormattedNumber formatted =
+                        localized.format(
+                                new Measure(sourceAmount, MeasureUnit.forIdentifier(sourceUnit)));
+                MeasureUnit icuOutputUnit = formatted.getOutputUnit();
+                actualUnit = icuOutputUnit.getSubtype();
+                actualValueFloat = formatted.toBigDecimal().floatValue();
+            } catch (Exception e) {
+                actualUnit = e.getMessage();
+                actualValueFloat = Float.NaN;
+            }
+            if (assertEquals(
+                    String.format(
+                            "ICU unit pref, %s %s %s %s",
+                            sourceUnit, sourceAmount, usage, languageTag),
+                    expectedUnit,
+                    actualUnit)) {
+                assertEquals("ICU value", (float) expectedAmount, actualValueFloat);
+            } else if (!comment.isBlank()) {
+                warnln(comment);
+            }
+        } catch (Exception e) {
+            errln(e.getStackTrace()[0] + ", " + e.getMessage() + "\n\t" + rawLine);
+        }
+    }
+
+    private double icuRational(String string) {
+        string = string.replace(",", "");
+        int slashPos = string.indexOf('/');
+        if (slashPos < 0) {
+            return Double.parseDouble(string);
+        } else {
+            return Double.parseDouble(string.substring(0, slashPos))
+                    / Double.parseDouble(string.substring(slashPos + 1));
+        }
     }
 }

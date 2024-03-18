@@ -32,10 +32,19 @@ import java.util.regex.Pattern;
  *
  * @author markdavis
  */
-public final class Rational implements Comparable<Rational> {
+public final class Rational extends Number implements Comparable<Rational> {
+    private static final long serialVersionUID = 1L;
     private static final Pattern INT_POWER_10 = Pattern.compile("10*");
     public final BigInteger numerator;
     public final BigInteger denominator;
+
+    static final BigInteger BI_TWO = BigInteger.valueOf(2);
+    static final BigInteger BI_FIVE = BigInteger.valueOf(5);
+    static final BigInteger BI_MINUS_ONE = BigInteger.valueOf(-1);
+    static final BigInteger BI_TEN = BigInteger.valueOf(10);
+
+    static final BigDecimal BD_TWO = BigDecimal.valueOf(2);
+    static final BigDecimal BD_FIVE = BigDecimal.valueOf(5);
 
     // Constraints:
     //   always stored in normalized form.
@@ -44,16 +53,18 @@ public final class Rational implements Comparable<Rational> {
     //   if numerator is zero, denominator is 1 or 0
     //   if denominator is zero, numerator is 1, -1, or 0
 
-    public static final Rational ZERO = Rational.of(0);
-    public static final Rational ONE = Rational.of(1);
-    public static final Rational TWO = Rational.of(2);
+    // NOTE, the constructor doesn't do any checking, so everything other than these goes
+    // through Rational.of(...)
+    public static final Rational ZERO = new Rational(BigInteger.ZERO, BigInteger.ONE);
+    public static final Rational ONE = new Rational(BigInteger.ONE, BigInteger.ONE);
+    public static final Rational NaN = new Rational(BigInteger.ZERO, BigInteger.ZERO);
+    public static final Rational INFINITY = new Rational(BigInteger.ONE, BigInteger.ZERO);
+
     public static final Rational NEGATIVE_ONE = ONE.negate();
-
-    public static final Rational INFINITY = Rational.of(1, 0);
     public static final Rational NEGATIVE_INFINITY = INFINITY.negate();
-    public static final Rational NaN = Rational.of(0, 0);
 
-    public static final Rational TEN = Rational.of(10, 1);
+    public static final Rational TWO = new Rational(BI_TWO, BigInteger.ONE);
+    public static final Rational TEN = new Rational(BI_TEN, BigInteger.ONE);
     public static final Rational TENTH = TEN.reciprocal();
 
     public static final char REPTEND_MARKER = '˙';
@@ -202,18 +213,41 @@ public final class Rational implements Comparable<Rational> {
     }
 
     public static Rational of(long numerator, long denominator) {
-        return new Rational(BigInteger.valueOf(numerator), BigInteger.valueOf(denominator));
+        return Rational.of(BigInteger.valueOf(numerator), BigInteger.valueOf(denominator));
     }
 
     public static Rational of(long numerator) {
-        return new Rational(BigInteger.valueOf(numerator), BigInteger.ONE);
+        return Rational.of(BigInteger.valueOf(numerator), BigInteger.ONE);
     }
 
     public static Rational of(BigInteger numerator, BigInteger denominator) {
-        return new Rational(numerator, denominator);
+        int dComparison = denominator.compareTo(BigInteger.ZERO);
+        if (dComparison == 0) {
+            // catch equivalents to NaN, -INF, +INF
+            // 0/0 => NaN
+            // +/0 => INF
+            // -/0 => -INF
+            int nComparison = numerator.compareTo(BigInteger.ZERO);
+            return nComparison < 0 ? NEGATIVE_INFINITY : nComparison > 0 ? INFINITY : NaN;
+        } else {
+            // reduce to lowest form
+            BigInteger gcd = numerator.gcd(denominator);
+            if (gcd.compareTo(BigInteger.ONE) > 0) {
+                numerator = numerator.divide(gcd);
+                denominator = denominator.divide(gcd);
+            }
+            if (dComparison < 0) {
+                // ** NOTE: is already reduced, so safe to use constructor
+                return new Rational(numerator, denominator);
+            } else {
+                // ** NOTE: is already reduced, so safe to use constructor
+                return new Rational(numerator.negate(), denominator.negate());
+            }
+        }
     }
 
     public static Rational of(BigInteger numerator) {
+        // ** NOTE: is already reduced, so safe to use constructor
         return new Rational(numerator, BigInteger.ONE);
     }
 
@@ -236,56 +270,47 @@ public final class Rational implements Comparable<Rational> {
     }
 
     public Rational add(Rational other) {
-        BigInteger gcd_den = denominator.gcd(other.denominator);
-        return new Rational(
-                numerator
-                        .multiply(other.denominator)
-                        .divide(gcd_den)
-                        .add(other.numerator.multiply(denominator).divide(gcd_den)),
-                denominator.multiply(other.denominator).divide(gcd_den));
+        BigInteger newNumerator =
+                numerator.multiply(other.denominator).add(other.numerator.multiply(denominator));
+        BigInteger newDenominator = denominator.multiply(other.denominator);
+        return Rational.of(newNumerator, newDenominator);
     }
 
     public Rational subtract(Rational other) {
-        BigInteger gcd_den = denominator.gcd(other.denominator);
-        return new Rational(
+        BigInteger newNumerator =
                 numerator
                         .multiply(other.denominator)
-                        .divide(gcd_den)
-                        .subtract(other.numerator.multiply(denominator).divide(gcd_den)),
-                denominator.multiply(other.denominator).divide(gcd_den));
+                        .subtract(other.numerator.multiply(denominator));
+        BigInteger newDenominator = denominator.multiply(other.denominator);
+        return Rational.of(newNumerator, newDenominator);
     }
 
     public Rational multiply(Rational other) {
-        BigInteger gcd_num_oden = numerator.gcd(other.denominator);
-        boolean isZero = gcd_num_oden.equals(BigInteger.ZERO);
-        BigInteger smallNum = isZero ? numerator : numerator.divide(gcd_num_oden);
-        BigInteger smallODen = isZero ? other.denominator : other.denominator.divide(gcd_num_oden);
+        BigInteger newNumerator = numerator.multiply(other.numerator);
+        BigInteger newDenominator = denominator.multiply(other.denominator);
+        return Rational.of(newNumerator, newDenominator);
+    }
 
-        BigInteger gcd_den_onum = denominator.gcd(other.numerator);
-        isZero = gcd_den_onum.equals(BigInteger.ZERO);
-        BigInteger smallONum = isZero ? other.numerator : other.numerator.divide(gcd_den_onum);
-        BigInteger smallDen = isZero ? denominator : denominator.divide(gcd_den_onum);
-
-        return new Rational(smallNum.multiply(smallONum), smallDen.multiply(smallODen));
+    public Rational divide(Rational other) {
+        BigInteger newNumerator = numerator.multiply(other.denominator);
+        BigInteger newDenominator = denominator.multiply(other.numerator);
+        return Rational.of(newNumerator, newDenominator);
     }
 
     public Rational pow(int i) {
-        return new Rational(numerator.pow(i), denominator.pow(i));
+        return Rational.of(numerator.pow(i), denominator.pow(i));
     }
 
     public static Rational pow10(int i) {
         return i > 0 ? TEN.pow(i) : TENTH.pow(-i);
     }
 
-    public Rational divide(Rational other) {
-        return multiply(other.reciprocal());
-    }
-
     public Rational reciprocal() {
-        return new Rational(denominator, numerator);
+        return Rational.of(denominator, numerator);
     }
 
     public Rational negate() {
+        // ** NOTE: is already reduced, so safe to use constructor
         return new Rational(numerator.negate(), denominator);
     }
 
@@ -298,17 +323,24 @@ public final class Rational implements Comparable<Rational> {
         }
     }
 
+    public BigDecimal toBigDecimal() {
+        return toBigDecimal(MathContext.DECIMAL128); // prevent failures due to repeating fractions
+    }
+
+    @Override
     public double doubleValue() {
         if (denominator.equals(BigInteger.ZERO) && numerator.equals(BigInteger.ZERO)) {
             return Double.NaN;
         }
-        return new BigDecimal(numerator)
-                .divide(new BigDecimal(denominator), MathContext.DECIMAL64)
-                .doubleValue();
+        return toBigDecimal(MathContext.DECIMAL64).doubleValue();
     }
 
-    public BigDecimal toBigDecimal() {
-        return toBigDecimal(MathContext.UNLIMITED);
+    @Override
+    public float floatValue() {
+        if (denominator.equals(BigInteger.ZERO) && numerator.equals(BigInteger.ZERO)) {
+            return Float.NaN;
+        }
+        return toBigDecimal(MathContext.DECIMAL32).floatValue();
     }
 
     public static Rational of(BigDecimal bigDecimal) {
@@ -320,14 +352,20 @@ public final class Rational implements Comparable<Rational> {
         final int scale = bigDecimal.scale();
         final BigInteger unscaled = bigDecimal.unscaledValue();
         if (scale == 0) {
+            // ** NOTE: is already reduced, so safe to use constructor
             return new Rational(unscaled, BigInteger.ONE);
         } else if (scale >= 0) {
-            return new Rational(unscaled, BigDecimal.ONE.movePointRight(scale).toBigInteger());
+            return Rational.of(unscaled, BigDecimal.ONE.movePointRight(scale).toBigInteger());
         } else {
+            // ** NOTE: is already reduced, so safe to use constructor
             return new Rational(
                     unscaled.multiply(BigDecimal.ONE.movePointLeft(scale).toBigInteger()),
                     BigInteger.ONE);
         }
+    }
+
+    public static Rational of(double doubleValue) {
+        return of(new BigDecimal(doubleValue));
     }
 
     public enum FormatStyle {
@@ -495,13 +533,6 @@ public final class Rational implements Comparable<Rational> {
     public Rational abs() {
         return numerator.signum() >= 0 ? this : this.negate();
     }
-
-    static final BigInteger BI_TWO = BigInteger.valueOf(2);
-    static final BigInteger BI_FIVE = BigInteger.valueOf(5);
-    static final BigInteger BI_MINUS_ONE = BigInteger.valueOf(-1);
-
-    static final BigDecimal BD_TWO = BigDecimal.valueOf(2);
-    static final BigDecimal BD_FIVE = BigDecimal.valueOf(5);
 
     /**
      * Goal is to be able to display rationals in a short but exact form, like 1,234,567/3 or
@@ -727,5 +758,19 @@ public final class Rational implements Comparable<Rational> {
 
     public boolean approximatelyEquals(Rational b) {
         return approximatelyEquals(b, EPSILON);
+    }
+
+    public boolean approximatelyEquals(Number b) {
+        return approximatelyEquals(Rational.of(b.doubleValue()), EPSILON);
+    }
+
+    @Override
+    public int intValue() {
+        return toBigDecimal().intValue();
+    }
+
+    @Override
+    public long longValue() {
+        return toBigDecimal().longValue();
     }
 }

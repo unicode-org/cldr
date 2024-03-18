@@ -1,15 +1,22 @@
 package org.unicode.cldr.tool;
 
+import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.util.Output;
+import com.ibm.icu.util.ULocale;
+import java.io.IOException;
+import java.io.UncheckedIOException;
 import java.math.BigInteger;
 import java.math.MathContext;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Collection;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
@@ -17,10 +24,12 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.regex.Pattern;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.Rational;
+import org.unicode.cldr.util.Rational.FormatStyle;
 import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.TempPrintWriter;
@@ -47,6 +56,7 @@ public class GenerateUnitTestData {
         GenerateUnitTestData item = new GenerateUnitTestData();
         item.TestParseUnit();
         item.TestUnitPreferences();
+        item.generateUnitLocalePreferences();
     }
 
     static {
@@ -117,7 +127,7 @@ public class GenerateUnitTestData {
                                 + "#   round to 4 decimal digits before comparing.\n"
                                 + "# Note that certain conversions are approximate, such as degrees to radians\n"
                                 + "#\n"
-                                + "# Generation: Set GENERATE_TESTS in TestUnits.java to regenerate unitsTest.txt.\n");
+                                + "# Generation: Use GenerateUnitTestData.java to regenerate unitsTest.txt.\n");
                 for (Entry<Pair<String, Double>, String> entry : testPrintout.entries()) {
                     pw.println(entry.getValue());
                 }
@@ -127,101 +137,179 @@ public class GenerateUnitTestData {
 
     public void TestUnitPreferences() {
         UnitPreferences prefs = SDI.getUnitPreferences();
-        if (true) {
-            try (TempPrintWriter pw =
-                    TempPrintWriter.openUTF8Writer(
-                            CLDRPaths.TEST_DATA + "units", "unitPreferencesTest.txt")) {
+        try (TempPrintWriter pw =
+                TempPrintWriter.openUTF8Writer(
+                        CLDRPaths.TEST_DATA + "units", "unitPreferencesTest.txt")) {
+            pw.println(getHeader("Region"));
+            Rational ONE_TENTH = Rational.of(1, 10);
 
-                pw.println(
-                        "\n# Test data for unit preferences\n"
-                                + CldrUtility.getCopyrightString("#  ")
-                                + "\n"
-                                + "#\n"
-                                + "# Format:\n"
-                                + "#\tQuantity;\tUsage;\tRegion;\tInput (r);\tInput (d);\tInput Unit;\tOutput (r);\tOutput (d);\tOutput Unit\n"
-                                + "#\n"
-                                + "# Use: Convert the Input amount & unit according to the Usage and Region.\n"
-                                + "#\t The result should match the Output amount and unit.\n"
-                                + "#\t Both rational (r) and double64 (d) forms of the input and output amounts are supplied so that implementations\n"
-                                + "#\t have two options for testing based on the precision in their implementations. For example:\n"
-                                + "#\t   3429 / 12500; 0.27432; meter;\n"
-                                + "#\t The Output amount and Unit are repeated for mixed units. In such a case, only the smallest unit will have\n"
-                                + "#\t both a rational and decimal amount; the others will have a single integer value, such as:\n"
-                                + "#\t   length; person-height; CA; 3429 / 12500; 0.27432; meter; 2; foot; 54 / 5; 10.8; inch\n"
-                                + "#\t The input and output units are unit identifers; in particular, the output does not have further processing:\n"
-                                + "#\t\t • no localization\n"
-                                + "#\t\t • no adjustment for pluralization\n"
-                                + "#\t\t • no formatted with the skeleton\n"
-                                + "#\t\t • no suppression of zero values (for secondary -and- units such as pound in stone-and-pound)\n"
-                                + "#\n"
-                                + "# Generation: Set GENERATE_TESTS in TestUnits.java to regenerate unitPreferencesTest.txt.\n");
-                Rational ONE_TENTH = Rational.of(1, 10);
+            // Note that for production usage, precomputed data like the
+            // prefs.getFastMap(converter) would be used instead of the raw data.
 
-                // Note that for production usage, precomputed data like the
-                // prefs.getFastMap(converter) would be used instead of the raw data.
+            for (Entry<String, Map<String, Multimap<Set<String>, UnitPreference>>> entry :
+                    prefs.getData().entrySet()) {
+                String quantity = entry.getKey();
+                String baseUnit = converter.getBaseUnitFromQuantity(quantity);
+                for (Entry<String, Multimap<Set<String>, UnitPreference>> entry2 :
+                        entry.getValue().entrySet()) {
+                    String usage = entry2.getKey();
 
-                for (Entry<String, Map<String, Multimap<Set<String>, UnitPreference>>> entry :
-                        prefs.getData().entrySet()) {
-                    String quantity = entry.getKey();
-                    String baseUnit = converter.getBaseUnitFromQuantity(quantity);
-                    for (Entry<String, Multimap<Set<String>, UnitPreference>> entry2 :
-                            entry.getValue().entrySet()) {
-                        String usage = entry2.getKey();
-
-                        // collect samples of base units
-                        for (Entry<Set<String>, Collection<UnitPreference>> entry3 :
-                                entry2.getValue().asMap().entrySet()) {
-                            boolean first = true;
-                            Set<Rational> samples = new TreeSet<>(Comparator.reverseOrder());
-                            for (UnitPreference pref : entry3.getValue()) {
-                                final String topUnit =
-                                        UnitPreferences.SPLIT_AND
-                                                .split(pref.unit)
-                                                .iterator()
-                                                .next();
-                                if (first) {
-                                    samples.add(
-                                            converter.convert(
-                                                    pref.geq.add(ONE_TENTH),
-                                                    topUnit,
-                                                    baseUnit,
-                                                    false));
-                                    first = false;
-                                }
-                                samples.add(converter.convert(pref.geq, topUnit, baseUnit, false));
+                    // collect samples of base units
+                    for (Entry<Set<String>, Collection<UnitPreference>> entry3 :
+                            entry2.getValue().asMap().entrySet()) {
+                        boolean first = true;
+                        Set<Rational> samples = new TreeSet<>(Comparator.reverseOrder());
+                        for (UnitPreference pref : entry3.getValue()) {
+                            final String topUnit =
+                                    UnitPreferences.SPLIT_AND.split(pref.unit).iterator().next();
+                            if (first) {
                                 samples.add(
                                         converter.convert(
-                                                pref.geq.subtract(ONE_TENTH),
-                                                topUnit,
-                                                baseUnit,
-                                                false));
+                                                pref.geq.add(ONE_TENTH), topUnit, baseUnit, false));
+                                first = false;
                             }
-                            // show samples
-                            Set<String> regions = entry3.getKey();
-                            String sampleRegion = regions.iterator().next();
-                            Collection<UnitPreference> uprefs = entry3.getValue();
-                            for (Rational sample : samples) {
-                                showSample(
-                                        quantity,
-                                        usage,
-                                        sampleRegion,
-                                        sample,
-                                        baseUnit,
-                                        uprefs,
-                                        pw);
-                            }
-                            pw.println();
+                            samples.add(converter.convert(pref.geq, topUnit, baseUnit, false));
+                            samples.add(
+                                    converter.convert(
+                                            pref.geq.subtract(ONE_TENTH),
+                                            topUnit,
+                                            baseUnit,
+                                            false));
                         }
+                        // show samples
+                        Set<String> regions = entry3.getKey();
+                        String sampleRegion = regions.iterator().next();
+                        Collection<UnitPreference> uprefs = entry3.getValue();
+                        for (Rational sample : samples) {
+                            showSample(quantity, usage, sampleRegion, sample, baseUnit, uprefs, pw);
+                        }
+                        pw.println();
                     }
                 }
             }
         }
     }
 
+    public void generateUnitLocalePreferences() {
+        try (TempPrintWriter pwLocale =
+                TempPrintWriter.openUTF8Writer(
+                        CLDRPaths.TEST_DATA + "units", "unitLocalePreferencesTest.txt")) {
+
+            try {
+                Set<List<Object>> seen = new HashSet<>();
+                // first copy existing lines
+                // This includes the header, so modify the old header if changes are needed!
+                Files.lines(Path.of(CLDRPaths.TEST_DATA + "units/unitLocalePreferencesTest.txt"))
+                        .forEach(line -> formatPwLocale(pwLocale, line, seen));
+                // TODO: add more lines
+                formatLocaleLine(
+                        "byte-per-millisecond", Rational.of(123), "default", "en", "", seen);
+            } catch (IOException e) {
+                throw new UncheckedIOException(e);
+            }
+        }
+    }
+
+    static final Splitter SPLIT_SEMI = Splitter.on(Pattern.compile("\\s*;\\s*")).trimResults();
+
+    private void formatPwLocale(TempPrintWriter pwLocale, String rawLine, Set<List<Object>> seen) {
+        int hashPos = rawLine.indexOf('#');
+        String line = hashPos < 0 ? rawLine : rawLine.substring(0, hashPos);
+        String comment = hashPos < 0 ? "" : "#" + rawLine.substring(hashPos + 1);
+        if (line.isBlank()) {
+            if (!comment.isBlank()) {
+                pwLocale.println(comment);
+            }
+            return;
+        }
+        List<String> parts = SPLIT_SEMI.splitToList(line);
+
+        String sourceUnit = parts.get(0);
+        Rational sourceAmount = Rational.of(parts.get(1));
+        String usage = parts.get(2);
+        String languageTag = parts.get(3);
+        String newLine =
+                formatLocaleLine(sourceUnit, sourceAmount, usage, languageTag, comment, seen);
+        if (newLine != null) {
+            pwLocale.println(newLine);
+        }
+    }
+
+    public String formatLocaleLine(
+            String sourceUnit,
+            Rational sourceAmount,
+            String usage,
+            String languageTag,
+            String comment,
+            Set<List<Object>> seen) {
+        List<Object> bundle = List.of(sourceUnit, sourceAmount, usage, languageTag);
+        if (bundle.contains(seen)) {
+            return null;
+        }
+        seen.add(bundle);
+
+        UnitPreferences prefs = SDI.getUnitPreferences();
+        final ULocale uLocale = ULocale.forLanguageTag(languageTag);
+        UnitPreference unitPreference =
+                prefs.getUnitPreference(sourceAmount, sourceUnit, usage, uLocale);
+        if (unitPreference == null) { // if the quantity isn't found
+            throw new IllegalArgumentException(
+                    String.format(
+                            "No unit preferences found for unit: %s, usage: %s, locale:%s",
+                            sourceUnit, usage, languageTag));
+        }
+        String actualUnit = unitPreference.unit;
+        Rational actualValue =
+                converter.convert(sourceAmount, sourceUnit, unitPreference.unit, false);
+        // #    input-unit; amount; usage;  languageTag; expected-unit; expected-amount # comment
+        final String newFileLine =
+                String.format(
+                        "%s;\t%s;\t%s;\t%s;\t%s;\t%s%s",
+                        sourceUnit,
+                        sourceAmount.toString(FormatStyle.formatted),
+                        usage,
+                        languageTag,
+                        actualUnit,
+                        actualValue.toString(FormatStyle.formatted),
+                        comment.isBlank() ? "" : "\t" + comment);
+        return newFileLine;
+    }
+
+    static LikelySubtags likely = new LikelySubtags();
+
+    public String getHeader(String regionOrLocale) {
+        return "\n# Test data for unit region preferences\n"
+                + CldrUtility.getCopyrightString("#  ")
+                + "\n"
+                + "#\n"
+                + "# Format:\n"
+                + "#\tQuantity;\tUsage;\t"
+                + regionOrLocale
+                + ";\tInput (r);\tInput (d);\tInput Unit;\tOutput (r);\tOutput (d);\tOutput Unit\n"
+                + "#\n"
+                + "# Use: Convert the Input amount & unit according to the Usage and "
+                + regionOrLocale
+                + ".\n"
+                + "#\t The result should match the Output amount and unit.\n"
+                + "#\t Both rational (r) and double64 (d) forms of the input and output amounts are supplied so that implementations\n"
+                + "#\t have two options for testing based on the precision in their implementations. For example:\n"
+                + "#\t   3429 / 12500; 0.27432; meter;\n"
+                + "#\t The Output amount and Unit are repeated for mixed units. In such a case, only the smallest unit will have\n"
+                + "#\t both a rational and decimal amount; the others will have a single integer value, such as:\n"
+                + "#\t   length; person-height; CA; 3429 / 12500; 0.27432; meter; 2; foot; 54 / 5; 10.8; inch\n"
+                + "#\t The input and output units are unit identifers; in particular, the output does not have further processing:\n"
+                + "#\t\t • no localization\n"
+                + "#\t\t • no adjustment for pluralization\n"
+                + "#\t\t • no formatted with the skeleton\n"
+                + "#\t\t • no suppression of zero values (for secondary -and- units such as pound in stone-and-pound)\n"
+                + "#\n"
+                + "# Generation: Use GenerateUnitTestData.java to regenerate unitPreferencesTest.txt.\n";
+    }
+
     private void showSample(
             String quantity,
             String usage,
-            String sampleRegion,
+            String sampleRegionOrLocale,
             Rational sampleBaseValue,
             String baseUnit,
             Collection<UnitPreference> prefs,
@@ -233,21 +321,28 @@ public class GenerateUnitTestData {
             Rational baseGeq = converter.convert(pref.geq, topUnit, baseUnit, false);
             if (sampleBaseValue.compareTo(baseGeq) >= 0) {
                 showSample2(
-                        quantity, usage, sampleRegion, sampleBaseValue, baseUnit, pref.unit, pw);
+                        quantity,
+                        usage,
+                        sampleRegionOrLocale,
+                        sampleBaseValue,
+                        baseUnit,
+                        pref.unit,
+                        pw);
                 gotOne = true;
                 break;
             }
             lastUnit = pref.unit;
         }
         if (!gotOne) {
-            showSample2(quantity, usage, sampleRegion, sampleBaseValue, baseUnit, lastUnit, pw);
+            showSample2(
+                    quantity, usage, sampleRegionOrLocale, sampleBaseValue, baseUnit, lastUnit, pw);
         }
     }
 
     private void showSample2(
             String quantity,
             String usage,
-            String sampleRegion,
+            String sampleRegionOrLocale,
             Rational sampleBaseValue,
             String baseUnit,
             String lastUnit,
@@ -279,7 +374,7 @@ public class GenerateUnitTestData {
                         + TEST_SEP
                         + usage
                         + TEST_SEP
-                        + sampleRegion
+                        + sampleRegionOrLocale
                         + TEST_SEP
                         + originalSampleBaseValue
                         + TEST_SEP

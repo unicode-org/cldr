@@ -109,10 +109,12 @@ public class Units {
     }
 
     public static String getShort(String longUnit) {
-        return LONG_TO_SHORT.get(longUnit);
+        String result = LONG_TO_SHORT.get(longUnit);
+        return result == null ? longUnit : result;
     }
 
     public static String getLong(String shortId) {
-        return LONG_TO_SHORT.inverse().get(shortId);
+        String result = LONG_TO_SHORT.inverse().get(shortId);
+        return result == null ? shortId : result;
     }
 }

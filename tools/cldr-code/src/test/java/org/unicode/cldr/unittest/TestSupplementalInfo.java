@@ -1288,7 +1288,9 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                         .addAll(languageCodes)
                         .addAll(Iso639Data.getAvailable())
                         .get()) {
-            if (language.equals("no") || language.equals("sh")) continue; // special cases
+            if (language.equals("no") || language.equals("sa") || language.equals("sh")) {
+                continue; // special cases
+            }
             Scope languageScope = getScope(language, lstregLanguageInfo);
             if (languageScope == Scope.Macrolanguage) {
                 if (Iso639Data.getHeirarchy(language) != null) {

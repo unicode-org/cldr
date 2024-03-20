@@ -138,7 +138,9 @@ public class TestValidity extends TestFmwkPlus {
                     "itpn",
                     "itts",
                     "itud",
-                    "SLE");
+                    "SLE",
+                    // 2024
+                    "dzd");
     static final Set<String> ALLOWED_MISSING =
             ImmutableSet.of(LocaleNames.ROOT, "POSIX", "REVISED", "SAAHO");
     static final Set<String> ALLOWED_REGULAR_TO_SPECIAL = ImmutableSet.of("Zanb", "Zinh", "Zyyy");

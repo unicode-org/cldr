@@ -226,8 +226,13 @@ function getCurrentLocale() {
 
 function setCurrentLocale(loc) {
   currentLocale = loc;
-  dispatchEvent(new Event("locale"));
-  setRef("currentLocale", loc);
+  // loc may be "USER" temporarily, meaning the back end should choose an appropriate locale
+  // for the current user. The real locale ID should be set when a server response contains it.
+  // In the meantime, postpone calling dispatchEvent or setRef.
+  if ("USER" !== loc) {
+    dispatchEvent(new Event("locale"));
+    setRef("currentLocale", loc);
+  }
 }
 
 /**

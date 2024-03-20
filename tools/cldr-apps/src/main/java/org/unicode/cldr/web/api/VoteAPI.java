@@ -232,6 +232,7 @@ public class VoteAPI {
 
         public DisplaySets displaySets;
         public JSONArray issues;
+        public String loc; // normally matches requested locale ID unless "USER" is requested
         public String localeDisplayName;
         public Dashboard.ReviewNotification[] notifications;
         public Page page;

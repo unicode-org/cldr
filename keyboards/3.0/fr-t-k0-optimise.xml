@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<keyboard3 xmlns="https://schemas.unicode.org/cldr/45/keyboard3" locale="fr-t-k0-optimise" conformsTo="45">
+<keyboard3 xmlns="https://schemas.unicode.org/cldr/45/keyboard3" locale="fr-t-k0-optimise"
+	conformsTo="45">
 	<!--
   New French
 -->
@@ -7,17 +8,17 @@
 	<info author="Team Keyboard" name="French AZERTY optimisé" layout="AZERTY" indicator="FR" />
 
 	<displays>
-    <display output="\u0300" display="${grave}" />
-    <display output="\m{acute}" display="´" />
-    <display output="\m{grave}" display="`" />
-    <display output="\m{umlaut}" display="¨" />
-    <display output="\m{caret}" display="^" />
-    <display output="\m{tilde}" display="~" />
-  </displays>
+		<display output="\u0300" display="${grave}" />
+		<display output="\m{acute}" display="´" />
+		<display output="\m{grave}" display="`" />
+		<display output="\m{umlaut}" display="¨" />
+		<display output="\m{caret}" display="^" />
+		<display output="\m{tilde}" display="~" />
+	</displays>
 
 	<keys>
-		<import base="cldr" path="techpreview/keys-Zyyy-punctuation.xml" />
-		<import base="cldr" path="techpreview/keys-Zyyy-currency.xml" />
+		<import base="cldr" path="45/keys-Zyyy-punctuation.xml" />
+		<import base="cldr" path="45/keys-Zyyy-currency.xml" />
 
 		<!-- deadkeys -->
 		<key id="mark-acute" output="\m{acute}" />
@@ -72,7 +73,7 @@
 		<key id="Theta" output="ϴ" /> <!-- "for Romani" -->
 		<key id="tm" output="™" />
 		<key id="open-double" output="“" />
-		<key id="close-double" output="’" />
+		<key id="close-double" output="”" />
 		<key id="oe" output="œ" />
 		<key id="Oe" output="Œ" />
 		<key id="registered" output="®" />
@@ -95,7 +96,7 @@
 		<key id="u-grave" output="Ù" />
 		<key id="radix" output="√" />
 		<key id="C-cedilla" output="Ç" />
-		<key id="not-equal" output="±" />
+		<key id="not-equal" output="≠" />
 
 		<key id="infinity" output="∞" />
 		<key id="E-grave" output="È" />
@@ -115,7 +116,8 @@
 
 	<layers formId="iso">
 		<layer modifiers="none">
-      <row keys="at a-grave e-acute e-grave e-caret open-paren close-paren open-apos close-apos open-g close-g apos mark-caret" />
+			<row
+				keys="at a-grave e-acute e-grave e-caret open-paren close-paren open-apos close-apos open-g close-g apos mark-caret" />
 			<row keys="a z e r t y u i o p hyphen plus" />
 			<row keys="q s d f g h j k l m slash asterisk" />
 			<row keys="open-angle w x c v b n period comma colon semi-colon" />
@@ -131,35 +133,41 @@
 		</layer>
 
 		<layer modifiers="alt">
-			<row keys="mark-breve section mark-acute mark-grave amp open-square close-square mark-macron underscore open-double close-double degree mark-caron"/>
-			<row keys="ae pound euro registered open-curly close-curly u-grave mark-dotabove oe percent minus-sign dagger"/>
-			<row keys="theta ss dollar mark-currency mark-scientific mark-euro gap mark-solidus pipe infinity division multiplication"/>
-			<row keys="less-equal ezh copy c-cedilla mark-cedilla mark-stroke mark-tilde inverse-question inverse-bang middle-dot asym-equal"/>
+			<row
+				keys="mark-breve section mark-acute mark-grave amp open-square close-square mark-macron underscore open-double close-double degree mark-caron" />
+			<row
+				keys="ae pound euro registered open-curly close-curly u-grave mark-dotabove oe percent minus-sign dagger" />
+			<row
+				keys="theta ss dollar mark-currency mark-scientific mark-euro gap mark-solidus pipe infinity division multiplication" />
+			<row
+				keys="less-equal ezh copy c-cedilla mark-cedilla mark-stroke mark-tilde inverse-question inverse-bang middle-dot asym-equal" />
 			<row keys="space" />
 		</layer>
 
 		<layer modifiers="alt shift">
-			<row keys="mark-circumflex A-grave E-acute E-grave E-caret mark-doubleacute mark-doublegrave gap em-dash open-single close-single mark-ring gap"/>
-			<row keys="Ae gap gap gap tm gap U-grave mark-dotbelow Oe permille nb-hyphen dbl-dagger"/>
-			<row keys="Theta Ss gap gap gap mark-submacron gap gap gap gap radix vulgar-quarter"/>
-			<row keys="greater-equal Ezh gap C-cedilla mark-ogonek gap gap gap mark-comma gap not-equal"/>
+			<row
+				keys="mark-circumflex A-grave E-acute E-grave E-caret mark-doubleacute mark-doublegrave gap em-dash open-angle close-single mark-ring gap" />
+			<row keys="Ae gap gap gap tm gap U-grave mark-dotbelow Oe permille nb-hyphen dbl-dagger" />
+			<row keys="Theta Ss gap gap gap mark-submacron gap gap gap gap radix vulgar-quarter" />
+			<row
+				keys="greater-equal Ezh gap C-cedilla mark-ogonek gap gap gap mark-comma gap not-equal" />
 			<row keys="space" />
 		</layer>
 	</layers>
 
 	<variables>
 		<!-- spacing accents as string variables -->
-		<string id="grave"  value="`" />
-		<string id="caret"  value="^" />
+		<string id="grave" value="`" />
+		<string id="caret" value="^" />
 		<string id="umlaut" value="¨" />
-		<string id="tilde"  value="~" />
+		<string id="tilde" value="~" />
 
 		<!-- sets representing vowels and accented vowels.  -->
 		<!-- There's an extra space between the lower and upper case for visual separation -->
 		<!-- but, there are only 10 items in the following four sets -->
-		<set id="vowel"       value="a e i o u  A E I O U" />
-		<set id="graveVowel"  value="à è ì ò ù  À È Ì Ò Ù" />
-		<set id="caretVowel"  value="â ê î ô û  Â Ê Î Ô Û" />
+		<set id="vowel" value="a e i o u  A E I O U" />
+		<set id="graveVowel" value="à è ì ò ù  À È Ì Ò Ù" />
+		<set id="caretVowel" value="â ê î ô û  Â Ê Î Ô Û" />
 		<set id="umlautVowel" value="ä ë ï ö ü  Ä Ë Ï Ö Ü" />
 
 		<!-- a set containing all spacing accents -->
@@ -169,8 +177,9 @@
 	<transforms type="simple">
 		<transformGroup>
 			<!-- use sets for those that fit neatly into sets -->
-			<transform from="${grave}($[vowel])"  to="$[1:graveVowel]" />
-			<transform from="${caret}($[vowel])"  to="$[1:caretVowel]" />
+			<transform from="${grave}($[vowel])" to="$[1:graveVowel]" />
+			<!-- next line has a workaround for https://github.com/keymanapp/keyman/issues/11037 -->
+			<transform from="\^($[vowel])" to="$[1:caretVowel]" />
 			<transform from="${umlaut}($[vowel])" to="$[1:umlautVowel]" />
 
 			<!-- y also takes umlaut (in this sample) -->

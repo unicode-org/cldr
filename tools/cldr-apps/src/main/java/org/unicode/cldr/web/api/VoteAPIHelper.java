@@ -69,7 +69,7 @@ public class VoteAPIHelper {
         Boolean getDashboard = false;
 
         public ArgsForGet(String loc, String session) {
-            this.localeId = loc;
+            this.localeId = UserRegistry.substituteUserWildcardLocale(loc, session);
             this.sessionId = session;
         }
     }
@@ -182,6 +182,7 @@ public class VoteAPIHelper {
             r.page.nocontent = true;
         } else {
             r.canModify = UserRegistry.userCanModifyLocale(mySession.user, locale);
+            r.loc = locale.getBaseName();
             r.localeDisplayName = locale.getDisplayName();
             r.page.nocontent = false;
             Collection<DataRow> dataRows = pageData.getAll();

@@ -872,6 +872,9 @@ function loadAllRowsFromJson(json, theDiv) {
     if (json.dataLoadTime) {
       cldrDom.updateIf("dynload", json.dataLoadTime);
     }
+    if (json.loc) {
+      cldrStatus.setCurrentLocale(json.loc); // may replace "USER"
+    }
     cldrStatus.setCurrentSection("");
     cldrStatus.setCurrentPage(json.pageId);
     updateHashAndMenus(); // now that we have a pageid

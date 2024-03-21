@@ -127,7 +127,7 @@ function addTopLocales(theDiv, locmap) {
   for (let n in locmap.locmap.topLocales) {
     const topLoc = locmap.locmap.topLocales[n];
     const topLocInfo = locmap.getLocaleInfo(topLoc);
-    if (topLocInfo.special_type !== "scratch") {
+    if (topLocInfo?.special_type !== "scratch") {
       // Skip Sandbox locales here
       addTopLocale(topLoc, theDiv);
     }
@@ -136,7 +136,7 @@ function addTopLocales(theDiv, locmap) {
     for (let n in locmap.locmap.topLocales) {
       const topLoc = locmap.locmap.topLocales[n];
       const topLocInfo = locmap.getLocaleInfo(topLoc);
-      if (topLocInfo.special_type === "scratch") {
+      if (topLocInfo?.special_type === "scratch") {
         // Now only Sandbox locales here
         addTopLocale(topLoc, theDiv);
       }
@@ -421,7 +421,7 @@ function updateLocaleMenu() {
     const locmap = cldrLoad.getTheLocaleMap();
     cldrStatus.setCurrentLocaleName(locmap.getLocaleName(curLocale));
     var bund = locmap.getLocaleInfo(curLocale);
-    if (bund.special_type === "scratch") {
+    if (bund?.special_type === "scratch") {
       prefixMessage = cldrText.get("scratch_locale") + ": ";
     }
     if (bund) {

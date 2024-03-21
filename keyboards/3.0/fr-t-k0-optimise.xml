@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE keyboard3 SYSTEM "../dtd/ldmlKeyboard3.dtd">
-<!--
+<keyboard3 xmlns="https://schemas.unicode.org/cldr/45/keyboard3" locale="fr-t-k0-optimise" conformsTo="45">
+	<!--
   New French
 -->
-<keyboard3 locale="fr-t-k0-optimise" conformsTo="techpreview">
 	<version number="1.0.0" />
 	<info author="Team Keyboard" name="French AZERTY optimisé" layout="AZERTY" indicator="FR" />
 
@@ -187,14 +186,6 @@
 
 			<!-- accent + space = spacing accent -->
 			<transform from="($[spacing_accent]) " to="$1" />
-		</transformGroup>
-		<transformGroup>
-			<!-- this is a reorder group -->
-			<!-- nod-Lana partial example -->
-			<reorder from="\u1A60" order="127" />
-			<reorder from="\u1A6B" order="42" />
-			<reorder from="[\u1A75-\u1A79]" order="55" />
-			<!-- ... partial example ... -->
 		</transformGroup>
 	</transforms>
 </keyboard3>

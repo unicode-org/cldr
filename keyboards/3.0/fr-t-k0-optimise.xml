@@ -8,12 +8,18 @@
 	<info author="Team Keyboard" name="French AZERTY optimisé" layout="AZERTY" indicator="FR" />
 
 	<displays>
+		<!-- display for diacritics -->
 		<display output="\u0300" display="${grave}" />
 		<display output="\m{acute}" display="´" />
 		<display output="\m{grave}" display="`" />
 		<display output="\m{umlaut}" display="¨" />
 		<display output="\m{caret}" display="^" />
 		<display output="\m{tilde}" display="~" />
+
+		<!-- display for 'mode' keys -->
+		<display keyId="mark-currency" display="\u{00A4}" />
+		<display keyId="mark-greek" display="μ" />
+		<display keyId="mark-euro" display="Eu" />
 	</displays>
 
 	<keys>
@@ -97,6 +103,8 @@
 		<key id="radix" output="√" />
 		<key id="C-cedilla" output="Ç" />
 		<key id="not-equal" output="≠" />
+        <key id="open-angle-quote" output="‹" />
+        <key id="close-angle-quote" output="›" />
 
 		<key id="infinity" output="∞" />
 		<key id="E-grave" output="È" />
@@ -146,7 +154,7 @@
 
 		<layer modifiers="ctrl alt shift">
 			<row
-				keys="mark-circumflex A-grave E-acute E-grave E-caret mark-doubleacute mark-doublegrave gap em-dash open-angle close-single mark-ring gap" />
+				keys="mark-circumflex A-grave E-acute E-grave E-caret mark-doubleacute mark-doublegrave gap em-dash open-angle-quote close-angle-quote mark-ring gap" />
 			<row keys="Ae gap gap gap tm gap U-grave mark-dotbelow Oe permille nb-hyphen dbl-dagger" />
 			<row keys="Theta Ss gap gap gap mark-submacron gap gap gap gap radix vulgar-quarter" />
 			<row
@@ -168,9 +176,17 @@
         <!-- plus space at end for the visible version -->
 		<set id="vowel"      value="a e i o u  A E I O U"  />
 
-        <!-- deviating from spec, uppercase final sigma (X) is encoded as another Σ  -->
+        <!-- currency key from/to -->
+        <set id="currfrom"    value="y"/> <!-- TODO: others -->
+        <set id="currto"      value="¥"/>
+
+        <!-- greek from/to: deviating from spec, uppercase final sigma (X) is encoded as another Σ  -->
         <set id="greekfrom"   value="a z e r u i o p s d g h j k l m x b n A Z E R U I O P S D G H J K L M X B N" />
         <set id="greekto"     value="α ζ ε ρ θ ι ο π σ δ γ η ξ κ λ μ ς β ν Α Ζ Ε Ρ Θ Ι Ο Π Σ Δ Γ Η Ξ Κ Λ Μ Σ Β Ν" />
+
+        <!-- euro key from/to -->
+        <set id="eurofrom" value="a e t i o s d g j  ‘ ’ «  » '   E T I D G J  7 8 9 0"/>
+        <set id="euroto"   value="ª ə þ ı º ſ ð ŋ ij ‚ ‘ „ ‟ ’    Ə Þ İ Đ Ŋ IJ › ‹ » «"/>
 	</variables>
 
 	<transforms type="simple">
@@ -179,10 +195,10 @@
 			<transform from="\m{caret}($[vowel])" to="$1\u{0302}" />
 			<transform from="\m{umlaut}($[vowel])" to="$1\u{0308}" />
 
-            <!-- greek layer for hardware -->
+            <!-- curr/greek/euro layer for hardware -->
+            <transform from="\m{currency}($[currfrom])" to="$[1:currto]" />
             <transform from="\m{greek}($[greekfrom])" to="$[1:greekto]" />
-            <!-- drop greek+anything else -->
-            <transform from="\m{greek}(.)" to="$1" />
+            <transform from="\m{euro}($[eurofrom])" to="$[1:euroto]" />
 
 			<!-- tilde is on a subset, not all vowels, + n -->
 			<transform from="\m{tilde}a" to="ã" />
@@ -192,5 +208,11 @@
 			<transform from="\m{tilde}o" to="õ" />
 			<transform from="\m{tilde}O" to="Õ" />
 		</transformGroup>
+        <transformGroup>
+            <!-- catch-all: drop any marker that didn't otherwise match before a char -->
+            <transform from="\m{.}(.)" to="$1" />
+            <!-- also drop any doubled marker -->
+          <!-- (not currently working) <transform from="\m{.}(\m{.})" to="$1" /> -->
+        </transformGroup>
 	</transforms>
 </keyboard3>

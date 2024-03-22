@@ -38,7 +38,7 @@
 		<key id="mark-macron" output="\m{macron}" />
 		<key id="mark-ogonek" output="\m{ogonek}" />
 		<key id="mark-ring" output="\m{ring}" />
-		<key id="mark-scientific" output="\m{scientific}" />
+		<key id="mark-greek" output="\m{greek}" />
 		<key id="mark-solidus" output="\m{solidus}" />
 		<key id="mark-stroke" output="\m{stroke}" />
 		<key id="mark-submacron" output="\m{submacron}" />
@@ -131,20 +131,20 @@
 			<row keys="close-angle W X C V B N question bang ellipsis equal" />
 			<row keys="space" />
 		</layer>
-
-		<layer modifiers="alt">
+        <!-- layer is for AltGr - for now we use ctrl alt -->
+		<layer modifiers="ctrl alt">
 			<row
 				keys="mark-breve section mark-acute mark-grave amp open-square close-square mark-macron underscore open-double close-double degree mark-caron" />
 			<row
 				keys="ae pound euro registered open-curly close-curly u-grave mark-dotabove oe percent minus-sign dagger" />
 			<row
-				keys="theta ss dollar mark-currency mark-scientific mark-euro gap mark-solidus pipe infinity division multiplication" />
+				keys="theta ss dollar mark-currency mark-greek mark-euro gap mark-solidus pipe infinity division multiplication" />
 			<row
 				keys="less-equal ezh copy c-cedilla mark-cedilla mark-stroke mark-tilde inverse-question inverse-bang middle-dot asym-equal" />
 			<row keys="space" />
 		</layer>
 
-		<layer modifiers="alt shift">
+		<layer modifiers="ctrl alt shift">
 			<row
 				keys="mark-circumflex A-grave E-acute E-grave E-caret mark-doubleacute mark-doublegrave gap em-dash open-angle close-single mark-ring gap" />
 			<row keys="Ae gap gap gap tm gap U-grave mark-dotbelow Oe permille nb-hyphen dbl-dagger" />
@@ -164,37 +164,33 @@
 
 		<!-- sets representing vowels and accented vowels.  -->
 		<!-- There's an extra space between the lower and upper case for visual separation -->
-		<!-- but, there are only 10 items in the following four sets -->
-		<set id="vowel" value="a e i o u  A E I O U" />
-		<set id="graveVowel" value="à è ì ò ù  À È Ì Ò Ù" />
-		<set id="caretVowel" value="â ê î ô û  Â Ê Î Ô Û" />
-		<set id="umlautVowel" value="ä ë ï ö ü  Ä Ë Ï Ö Ü" />
+		<!-- but, there are only 10 vowels in the following four sets -->
+        <!-- plus space at end for the visible version -->
+		<set id="vowel"      value="a e i o u  A E I O U"  />
 
-		<!-- a set containing all spacing accents -->
-		<set id="spacing_accent" value="${grave} ${caret} ${umlaut} ${tilde}" />
+        <!-- deviating from spec, uppercase final sigma (X) is encoded as another Σ  -->
+        <set id="greekfrom"   value="a z e r u i o p s d g h j k l m x b n A Z E R U I O P S D G H J K L M X B N" />
+        <set id="greekto"     value="α ζ ε ρ θ ι ο π σ δ γ η ξ κ λ μ ς β ν Α Ζ Ε Ρ Θ Ι Ο Π Σ Δ Γ Η Ξ Κ Λ Μ Σ Β Ν" />
 	</variables>
 
 	<transforms type="simple">
 		<transformGroup>
 			<!-- use sets for those that fit neatly into sets -->
-			<transform from="${grave}($[vowel])" to="$[1:graveVowel]" />
-			<!-- next line has a workaround for https://github.com/keymanapp/keyman/issues/11037 -->
-			<transform from="\^($[vowel])" to="$[1:caretVowel]" />
-			<transform from="${umlaut}($[vowel])" to="$[1:umlautVowel]" />
+			<transform from="\m{caret}($[vowel])" to="$1\u{0302}" />
+			<transform from="\m{umlaut}($[vowel])" to="$1\u{0308}" />
 
-			<!-- y also takes umlaut (in this sample) -->
-			<transform from="${umlaut}y" to="ÿ" />
+            <!-- greek layer for hardware -->
+            <transform from="\m{greek}($[greekfrom])" to="$[1:greekto]" />
+            <!-- drop greek+anything else -->
+            <transform from="\m{greek}(.)" to="$1" />
 
 			<!-- tilde is on a subset, not all vowels, + n -->
-			<transform from="${tilde}a" to="ã" />
-			<transform from="${tilde}A" to="Ã" />
-			<transform from="${tilde}n" to="ñ" />
-			<transform from="${tilde}N" to="Ñ" />
-			<transform from="${tilde}o" to="õ" />
-			<transform from="${tilde}O" to="Õ" />
-
-			<!-- accent + space = spacing accent -->
-			<transform from="($[spacing_accent]) " to="$1" />
+			<transform from="\m{tilde}a" to="ã" />
+			<transform from="\m{tilde}A" to="Ã" />
+			<transform from="\m{tilde}n" to="ñ" />
+			<transform from="\m{tilde}N" to="Ñ" />
+			<transform from="\m{tilde}o" to="õ" />
+			<transform from="\m{tilde}O" to="Õ" />
 		</transformGroup>
 	</transforms>
 </keyboard3>

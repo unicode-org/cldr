@@ -120,6 +120,8 @@
 		<key id="dagger" output="†" />
 		<key id="asym-equal" output="≃" />
 		<key id="Ss" output="ẞ" />
+        <!-- interestingly, this key has no output by itself, but is U+00A4 when preceded by the currency mark. -->
+        <key id="altshifte" output="\m{altshifte}"/>
 	</keys>
 
 	<layers formId="iso">
@@ -155,7 +157,7 @@
 		<layer modifiers="ctrl alt shift">
 			<row
 				keys="mark-circumflex A-grave E-acute E-grave E-caret mark-doubleacute mark-doublegrave gap em-dash open-angle-quote close-angle-quote mark-ring gap" />
-			<row keys="Ae gap gap gap tm gap U-grave mark-dotbelow Oe permille nb-hyphen dbl-dagger" />
+			<row keys="Ae gap altshifte gap tm gap U-grave mark-dotbelow Oe permille nb-hyphen dbl-dagger" />
 			<row keys="Theta Ss gap gap gap mark-submacron gap gap gap gap radix vulgar-quarter" />
 			<row
 				keys="greater-equal Ezh gap C-cedilla mark-ogonek gap gap gap mark-comma gap not-equal" />
@@ -177,8 +179,13 @@
 		<set id="vowel"      value="a e i o u  A E I O U"  />
 
         <!-- currency key from/to -->
-        <set id="currfrom"    value="y"/> <!-- TODO: others -->
-        <set id="currto"      value="¥"/>
+        <!-- currency key from/to -->
+        <set id="currfrom"    value="e r t y p s d f g h k l m w c b n A R T P S D F L M  C B"/>
+        <set id="currto"      value="₠ ₽ ₸ ¥ ₱ ₪ ₫ ƒ ₲ ₴ ₭ ₺ ₥ ₩ ¢ ₿ ₦ ₳ ₹ ₮ ₧ ₷ ₯ ₣ ₤ ℳ ₡ ﺀ"/>
+
+			<!-- <row keys="a z e r t y u i o p hyphen plus" />
+			<row keys="q s d f g h j k l m slash asterisk" />
+			<row keys="open-angle w x c v b n period comma colon semi-colon" /> -->
 
         <!-- greek from/to: deviating from spec, uppercase final sigma (X) is encoded as another Σ  -->
         <set id="greekfrom"   value="a z e r u i o p s d g h j k l m x b n A Z E R U I O P S D G H J K L M X B N" />
@@ -199,6 +206,15 @@
             <transform from="\m{currency}($[currfrom])" to="$[1:currto]" />
             <transform from="\m{greek}($[greekfrom])" to="$[1:greekto]" />
             <transform from="\m{euro}($[eurofrom])" to="$[1:euroto]" />
+
+            <!-- these are harder to see because they are from AltGr and AltGr+Shift layers -->
+            <transform from="\m{currency}®" to="₨"/> <!-- AltGr-R -->
+            <transform from="\m{currency}%" to="₰"/> <!-- AltGr-P -->
+            <transform from="\m{currency}\|" to="₾"/> <!-- AltGr-L -->
+            <transform from="\m{currency}∞" to="₼"/> <!-- AltGr-M -->
+            <transform from="\m{currency}ç" to="₢"/> <!-- AltGr-C -->
+            <transform from="\m{currency}\m{altshifte}" to="¤"/> <!-- AltGr-Shift-E -->
+            <transform from="\m{currency}Ç" to="₵"/> <!-- AltGr-Shift-C -->
 
 			<!-- tilde is on a subset, not all vowels, + n -->
 			<transform from="\m{tilde}a" to="ã" />

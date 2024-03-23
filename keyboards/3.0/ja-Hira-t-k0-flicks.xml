@@ -65,14 +65,25 @@
 
         <key id="h-n" output="ん" />
 
-        <key id="h-period" output="。" />
+        <key id="h-period" output="。" flickId="marks" />
 
         <key id="num" layerId="num"/>
         <key id="sym" layerId="sym"/>
         <key id="base" layerId="base"/>
+
+        <key id="voiced" output="\u{3099}"/>
+        <key id="semivoiced" output="\u{309A}"/>
+        <key id="smalltsu" output="っ"/>
+        <key id="smallya" output="ゃ"/>
 	</keys>
 
     <flicks>
+        <flick id="marks">
+            <flickSegment directions="w" keyId="voiced"/>
+            <flickSegment direction="n" keyId="h-period"/>
+            <flickSegment directions="e" keyId="semivoiced"/>
+            <flickSegment direction="s" keyId="period"/>
+        </flick>
 		<flick id="h-a">
 			<flickSegment directions="n"  keyId="h-a" />
 			<flickSegment directions="w"  keyId="h-i" />
@@ -98,6 +109,7 @@
 			<flickSegment directions="n"  keyId="h-ta" />
 			<flickSegment directions="w"  keyId="h-ti" />
 			<flickSegment directions="e"  keyId="h-tu" />
+            <flickSegment direction="se" keyId="smalltsu"/>
 			<flickSegment directions="sw"  keyId="h-te" />
             <flickSegment directions="s" keyId="h-to" />
 		</flick>
@@ -124,6 +136,7 @@
 		</flick>
 		<flick id="h-ya">
 			<flickSegment directions="n"  keyId="h-ya" />
+            <flickSegment directions="ne" keyId="smallya"/>
 			<flickSegment directions="e"  keyId="h-yu" />
             <flickSegment directions="s" keyId="h-yo" />
 		</flick>

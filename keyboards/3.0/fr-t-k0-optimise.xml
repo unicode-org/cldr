@@ -183,10 +183,6 @@
         <set id="currfrom"    value="e r t y p s d f g h k l m w c b n A R T P S D F L M  C B"/>
         <set id="currto"      value="₠ ₽ ₸ ¥ ₱ ₪ ₫ ƒ ₲ ₴ ₭ ₺ ₥ ₩ ¢ ₿ ₦ ₳ ₹ ₮ ₧ ₷ ₯ ₣ ₤ ℳ ₡ ﺀ"/>
 
-			<!-- <row keys="a z e r t y u i o p hyphen plus" />
-			<row keys="q s d f g h j k l m slash asterisk" />
-			<row keys="open-angle w x c v b n period comma colon semi-colon" /> -->
-
         <!-- greek from/to: deviating from spec, uppercase final sigma (X) is encoded as another Σ  -->
         <set id="greekfrom"   value="a z e r u i o p s d g h j k l m x b n A Z E R U I O P S D G H J K L M X B N" />
         <set id="greekto"     value="α ζ ε ρ θ ι ο π σ δ γ η ξ κ λ μ ς β ν Α Ζ Ε Ρ Θ Ι Ο Π Σ Δ Γ Η Ξ Κ Λ Μ Σ Β Ν" />
@@ -210,11 +206,11 @@
             <!-- these are harder to see because they are from AltGr and AltGr+Shift layers -->
             <transform from="\m{currency}®" to="₨"/> <!-- AltGr-R -->
             <transform from="\m{currency}%" to="₰"/> <!-- AltGr-P -->
-            <transform from="\m{currency}\|" to="₾"/> <!-- AltGr-L -->
+            <transform from="\m{currency}\|" to="₾"/> <!-- AltGr-L  - note pipe is escaped -->
             <transform from="\m{currency}∞" to="₼"/> <!-- AltGr-M -->
             <transform from="\m{currency}ç" to="₢"/> <!-- AltGr-C -->
             <transform from="\m{currency}\m{altshifte}" to="¤"/> <!-- AltGr-Shift-E -->
-            <transform from="\m{currency}Ç" to="₵"/> <!-- AltGr-Shift-C -->
+            <transform from="\m{currency}Ç" to="₵"/> <!-- AltGr-Shift-C (Cedi sign) -->
 
 			<!-- tilde is on a subset, not all vowels, + n -->
 			<transform from="\m{tilde}a" to="ã" />

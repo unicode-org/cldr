@@ -6,7 +6,7 @@ import * as cldrNotify from "./cldrNotify.mjs";
 import * as cldrProgress from "./cldrProgress.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
 import * as cldrSurvey from "./cldrSurvey.mjs";
-import * as cldrXlsx from "./cldrXlsx.mjs";
+// import * as cldrXlsx from "./cldrXlsx.mjs";
 import * as XLSX from "xlsx";
 
 /**

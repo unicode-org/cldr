@@ -21,7 +21,7 @@ jobs:
         lfs: false # not needed for this job, as we don’t currently do a Java build
     - uses: nodenv/actions/node-version@v3 # setup using .node-version
     - name: Cache webpack
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: tools/cldr-apps/target/webpack_cache
         key: ${{ runner.os }}-webpack-${{ hashFiles('tools/cldr-apps/package*') }}-${{ hashFiles('tools/cldr-apps/src/**') }}
@@ -29,7 +29,7 @@ jobs:
           ${{ runner.os }}-webpack-
           webpack-
     - name: Cache npm repository
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: ~/.npm
         key: ${{ runner.os }}-lint-${{ hashFiles('.github/workflows/js.yml') }}

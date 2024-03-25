@@ -20,7 +20,7 @@ jobs:
         with:
           lfs: false
       - name: Cache local npm repository
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.npm
           key: ${{ runner.os }}-nodetr-${{ hashFiles('tools/scripts/tr-archive/package-lock.json') }}

@@ -51,7 +51,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload cldr-code
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: cldr-code
           path: tools/cldr-code/target/cldr-code.jar
@@ -66,7 +66,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload cldr-prod
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: cldr-prod
           path: target/cldr-prod.zip
@@ -154,7 +154,7 @@ jobs:
       - name: Zip up icu-data.zip
         run: 'cd icu/icu4c/source && zip -rlq ../../../icu-data.zip data'
       - name: Upload icu-data.zip
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: icu-data
           path: icu-data.zip
@@ -194,7 +194,7 @@ jobs:
           make -j 2;
           make dist
       - name: Upload icu4c
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: icu4c
           path: icu4c/source/dist
@@ -241,7 +241,7 @@ jobs:
           ant jar;
           ant releaseBinaries;
       - name: Upload icu4j
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: icu4j
           path: icu4j/release

@@ -1116,11 +1116,21 @@ The examples in #4 are due to the following ordering of the `unitQuantity` eleme
 
 ## Mixed Units
 
-Mixed units, or unit sequences, are units with the same base unit which are listed in sequence. Common examples are feet and inches, meters and centimeters, and hours, minutes, and seconds. Mixed unit identifiers are expressed using the "-and-" infix, as in "foot-and-inch", "meter-and-centimeter", and "hour-and-minute-and-second".
+Mixed units, or unit sequences, are units with the same base unit which are listed in sequence. 
+Common examples are feet and inches, meters and centimeters, and hours, minutes, and seconds. 
+Mixed unit identifiers are expressed using the "-and-" infix, as in "foot-and-inch", "meter-and-centimeter", and "hour-and-minute-and-second".
 
-Scalar values for mixed units are expressed in the largest unit, according to the sort order discussed above in "Normalization". For example, numbers for "foot-and-inch" are expressed in feet.
+Scalar values for mixed units are expressed in the largest unit, according to the sort order discussed above in "Normalization". 
+For example, numbers for "foot-and-inch" are expressed in feet.
 
-Mixed units are expected to be rendered in the order of the tokens in the identifier. For example, the value 1.25 with the identifier "foot-and-inch" should be rendered as "1 foot and 3 inches" and 1.25 inch-and-foot should be rendered as “3 inches and 1 foot". **NOTE:** the correct application of this may require adding locales to the regions attribute set.
+Mixed unit identifiers should be from largest to smallest (eg foot-and-inch instead of inch-and-foot). 
+If it turns out that some locales present certain mixed units in a different order, additional structure will be needed in CLDR.
+
+If a maximum/minimum number of decimals or signficant digits is desired in formatting, 
+those values should should be adapted to the mixed radix used, starting with the largest unit, 
+and discarding smaller units where they would be overly accurate. 
+For example, if the goal is 1 part in 100, then "6 miles 1 foot" is overly precise, 
+while "6 foot 1 inch" has approximately the right accuracy.
 
 ## Testing
 
@@ -1134,7 +1144,7 @@ Different locales have different preferences for which unit or combination of un
 
 The determination of preferred units uses the user preference data together with **input unit**, the **input usage**, and the **input locale identifer**.
 Within the locale identifier, the subtags that can affect the result are:
-  * the value so the keys mu, ms, rg
+  * the value of the keys mu, ms, and rg
   * the region in the locale identifier (if there is one)
   * and otherwise the likely region subtag for the locale identifier
 
@@ -1150,30 +1160,34 @@ For example:
 | 4 | en-DE                                 | Celsius    | because explicit region is DE                                      |
 | 5 | en                                    | Fahrenheit | because the likely region for en with no region is US              |
 
-If any of the above are invalid, then they are ignored. Thus the following constructs are ignored: 
+If any key-values are invalid, then they are ignored. Thus the following constructs are ignored: 
 
-  * -me-smoot // invalid unit
-  * -ms-stanford // invalid unit system
-  * -rg-aazzzz // invalid region 'AA'. 
-      * Only the region portion is currently used, so in -rg-usabcdef the "abcdef" is ignored, whether or not it is valid.
-  * -AA // invalid region 'AA'
+| subtags | reason |
+| --- | --- |
+| -me-smoot | invalid unit |
+| -ms-stanford | invalid unit system |
+| -rg-aazzzz | invalid region 'AA' ‡|
+| -AA | invalid region 'AA'|
+‡ Only the region portion is currently used, so in -rg-usabcdef the "abcdef" is ignored, whether or not it is valid.
 
-The following algorithym is used to return the **output unit**.
+The following algorithm is used to compute the override units, regions, and category. 
+The latter two items are used in the [Unit Preferences Data](#Unit_Preferences_Data).
 
-#### Computing override units
+#### Compute override units
 If there is a valid -mu value then let the **output unit** be the that value, and return it.
-This terminates the algorithm.
+This terminates the algorithm; there is no need to use the unit preferences information.
 
-#### Compute the regions
+#### Compute  regions
 If there is no valid -mu value, the following steps are used to determine a region R from the **input locale identifer**.
 (and optionally a Unit Systems Match (USM)):
 
-1. If there is a valid -ms value then let USM  be the corresponding value in column 2 of the table below. Otherwise FR is not used. In either case continue with step 2.
-2. If there is a valid -rg region, let R be that region and go to Compute the category.
-3. If there is a valid region in the locale, let R be that region go to Compute the category.
+1. If there is a valid -ms value then let USM  be the corresponding value in column 2 of the table below.
+Otherwise FR is not used. In either case continue with step 2.
+2. If there is a valid -rg region, let R be that region, and go to Compute the category.
+3. If there is a valid region in the locale, let R be that region, and go to Compute the category.
 4. Otherwise, compute the likely subtags for the locale. 
-     1. If there is a likely region, then let R be that region and go to Compute the category.
-	 2. Otherwise, let R be 001 and go to Compute the category
+     1. If there is a likely region, then let R be that region, and go to Compute the category.
+	 2. Otherwise, let R be 001, and go to Compute the category
 
 | Key-Value   | Unit Systems Match          | Fallback Region for Unit Preferences |
 |-------------|-----------------------------|--------------------------------------|
@@ -1188,13 +1202,136 @@ A **category** is determined as follows from the input unit:
 1. From the input unit, use the conversion data in [baseUnit](tr35-info.html#Unit_Conversion) and let the **input base unit** be the baseUnit attribute value.
     * eg, for `pound-force` the baseUnit is `kilogram-meter-per-square-second`.
 2. If there is no such base unit (such as for a an unusual unit like `ampere-pound-per-foot-square-minute`), convert the input unit to a combination of base units, reduce to lowest terms, and normalize. Let the **input base unit** be that value.
-    * eg, `ampere-pound-per-foot-square-minute` -> kilogram-ampere-per-meter-square-second
-3. If the **input base unit**, has a unitQuantity element, then let the **category** be the quantity attribute value
+    * eg, `ampere-pound-per-foot-square-minute` -> `kilogram-ampere-per-meter-square-second`
+3. If the **input base unit** has a unitQuantity element, then let the **category** be the quantity attribute value.
     * eg, `force` from `<unitQuantity baseUnit='kilogram-meter-per-square-second' quantity='force'/>`
-3. If the result does not have a unitQuantity, let the output unit be the input base unit or an equivalent metric/SI unit, and return. This terminates the algorithm.
+3. If the **input base unit** does not have a unitQuantity, let the output unit be the input base unit or an equivalent metric/SI unit, and return. This terminates the algorithm; there is no need to use the unit preferences information.
     * eg, for `ampere-pound-per-foot-square-minute` return `kilogram-ampere-per-meter-square-second` or `pascal-ampere`
 	* That is, an implementation can use shorter units as long as long as the combination is equivalent in value.
 
+### <a name="Unit_Preferences_Data" href="#Unit_Preferences_Data">Unit Preferences Data</a>
+
+The CLDR data is intended to map from a particular usage — e.g. measuring the height of a person or the fuel consumption of an automobile — to the unit or combination of units typically used for that usage in a given region. Considerations for such a mapping include:
+
+* The list of possible usages large and open-ended, and will be extended in the future.
+* Even for a given usage such a measuring a road distance, there are multiple ranges in use. For example, one set of units may be used for indicating the distance to the next city (kilometers or miles), while another may be used for indicating the distance to the next exit (meters, yards, or feet).
+* There are also differences between more formal usage (official signage, medical records) and more informal usage (conversation, texting).
+* For some usages, the measurement may be expressed using a sequence of units, such as “1 meter, 78 centimeters” or “12 stone, 2 pounds”.
+
+The DTD structure is as follows:
+
+```xml
+<!ELEMENT unitPreferenceData ( unitPreferences* ) >
+
+<!ELEMENT unitPreferences ( unitPreference* ) >
+<!ATTLIST unitPreferences category NMTOKEN #REQUIRED >
+<!ATTLIST unitPreferences usage NMTOKENS #REQUIRED >
+
+<!ELEMENT unitPreference ( #PCDATA ) >
+<!ATTLIST unitPreference regions NMTOKENS #REQUIRED >
+<!ATTLIST unitPreference geq NMTOKEN #IMPLIED >
+<!ATTLIST unitPreference skeleton CDATA #IMPLIED >
+```
+
+| Term | Description |
+|---|---|
+| category | A unit quantity, such as “area” or “length”. See Unit Conversion |
+| usage | A type of usage, such as person-height. |
+| regions | One or more region identifiers (macroregions or regions), such as 001, US. (Note that this field may be extended in the future to also include subdivision identifiers and/or language identifiers, such as usca, and de-CH.) |
+| geq | A threshold value, in a unit determined by the unitPreference element value. The unitPreference element is only used for values higher than this value (and lower than any higher value).<br/>The value must be non-negative. For picking negative units (-3 meters), use the absolute value to pick the unit. |
+| skeleton | A skeleton in the ICU number format syntax, that is to be used to format the output unit amount. |
+
+
+Logically, the unit preferences data is a map from categories to a map of usages to a map of regions to a list of ranked units and optional formats.
+
+**Note:** As of CLDR 37, the `<unitPreference>` `geq` attribute replaces the now-deprecated `<unitPreferences>` `scope` attribute.
+
+#### Examples:
+
+```xml
+<unitPreferences category="length" usage="default">
+    <unitPreference regions="001">kilometer</unitPreference>
+    <unitPreference regions="001">meter</unitPreference>
+    <unitPreference regions="001">centimeter</unitPreference>
+    <unitPreference regions="US GB">mile</unitPreference>
+    <unitPreference regions="US GB">foot</unitPreference>
+    <unitPreference regions="US GB">inch</unitPreference>
+</unitPreferences>
+```
+
+The above information says that for default usage, in the US people use mile, foot, and inch, where people in the rest of the world (001) use kilometer, meter, and centimeter. Take another example:
+
+```xml
+<unitPreferences category="length" usage="road">
+    <unitPreference regions="001" geq="0.9">kilometer</unitPreference>
+    <unitPreference regions="001" geq="300.0" skeleton="precision-increment/50">meter</unitPreference>
+    <unitPreference regions="001" skeleton="precision-increment/10">meter</unitPreference>
+    <unitPreference regions="001">meter</unitPreference>
+    <unitPreference regions="US" geq="0.5">mile</unitPreference>
+    <unitPreference regions="US" geq="100.0" skeleton="precision-increment/50">foot</unitPreference>
+    <unitPreference regions="US" skeleton="precision-increment/10">foot</unitPreference>
+    <unitPreference regions="GB" geq="0.5">mile</unitPreference>
+    <unitPreference regions="GB" geq="100.0" skeleton="precision-increment/50">yard</unitPreference>
+    <unitPreference regions="GB">yard</unitPreference>
+    <unitPreference regions="SE" geq="0.1">mile-scandinavian</unitPreference>
+</unitPreferences>
+```
+
+The following is the algorithm for computing the preferred output unit from the category, usage, region, and USM.
+
+#### Compute the preferred output unit
+
+1. Let category preferences be the result of a lookup of **category** in the unit preferences.
+    1. If the lookup fails, let the **output unit** be the input base unit or an equivalent metric/SI unit, and return. This terminates the algorithm.
+2. Let category-usage preferences be the result of a lookup of **input usage** in the category preferences.
+    1. If the lookup fails, let the **input usage** be its containing usage, and repeat. (This will always terminate is always a 'default' usage for each category.)
+    2. The containing usage is the result of truncating the last '-' and following text, if there is a '-', and other wise 'default'
+        * For example, land-agriculture-grain ⊂ land-agriculture ⊂ land ⊂ default
+3. Let ranked units be the result of a lookup of R in the category-usage preferences. There may be both region values and [containment regions](https://www.unicode.org/cldr/charts/latest/supplemental/territory_containment_un_m_49.html). 
+    1. If the lookup of R fails, set R to its containing region and repeat. (This will always terminate because 001 is always present.)
+        * For example, CH (Switzerland) ⊂ 155 (Western Europe) ⊂ 150 (Europe) ⊂ 001 (World).
+        * This loop can be optimized to only include containing regions that occur in the data (eg, only 001 in LDML 45).
+4. If there is a USM, and the corresponding Fallback Region is different than R, and any of the units in the ranked list don't match the USM, then let the ranked units be the result of a lookup of the Fallback Region in the category-usage preferences.
+
+#### Search the ranked units
+
+The ranked units will be of the following form:
+  ```xml
+  <unitPreference regions="GB" geq="0.5">mile</unitPreference>
+  <unitPreference regions="GB" geq="100.0" skeleton="precision-increment/50">yard</unitPreference>
+  <unitPreference regions="GB">yard</unitPreference>
+  ```
+  
+* The geq item gives the value for the unit in the element value (or for the largest unit for mixed units). For example,
+  * `...geq="0.5">mile<...` is ≥ 0.5 miles
+  * `...geq="100.0">foot-and-inch<...` is  ≥ 100 feet
+* If there is no `geq` attribute, then the implicit value is 1.0.
+* Implementations will probably convert the values into the base units, so that the comparison is fast. Thus the above would be converted internally to something like:
+  * ≥ 804.672 meters ⇒ mile
+  * ≥ 30.48 meters ⇒ foot-and-inch
+
+1. Search for the first matching unitPreference for the absolute value of the input measure. If there is no match (eg < 100 feet in the above example), take the last unitPreference. That is, the last unitPreference is effectively geq="0". In the above example, `<unitPreference regions="GB">yard</unitPreference>` is equivalent to `<unitPreference geq="0" regions="GB">yard</unitPreference>`
+
+For completeness, when comparing doubles to the geq values:
+* Negative numbers are treated as if they were positive, so in the above example -804.672 meters will format as "-0.5 mile".
+* _infinity_, NaN, and -_infinity_ match the largest possible value. Thus -∞ meters will format as "-∞ miles", not "-∞ yards".
+
+2. Once a matching `unitPreference` element is found:
+
+* The unit is the element value
+* The skeleton (if there is one) supplies formatting information for the unit. API settings may allow that to be overridden.
+  * The syntax and semantics for the skeleton value are defined by the [ICU Number Skeletons](https://unicode-org.github.io/icu/userguide/format_parse/numbers/skeletons.html) document.
+* If the skeleton is missing, the default is skeleton="**precision-integer/@@\***". However, the client can also override or tune the number formatting.
+* If the unit is mixed (eg foot-and-inch) the skeleton applies to the final subunit; the higher subunits are formatted as integers.
+
+### Constraints
+
+* For a given category, there is always a “default” usage.
+* For a given category and usage:
+  * There is always a 001 region.
+  * None of the sets of regions can overlap. That is, you can’t have “US” on one line and “US GB” on another. You _can_ have two lines with “US”, for different sizes of units.
+* For a given category, usage, and region-set
+  * The unitPreferences are in descending order.
 
 #### Examples
 
@@ -1233,131 +1370,7 @@ For example, in showing the weather, an application may want to show:
 High today: 68°F (20°C)
 
 To do that, the application needs to show the first value with the locale information, and then (a) query what the alternative is, and show the temperature in that.
-As an example, ICU only uses the unit preferences (with rg, ms, and/or mu and the likely region) in formatting units when a usage parameter is set.
-
-### <a name="Unit_Preferences_Data" href="#Unit_Preferences_Data">Unit Preferences Data</a>
-
-The CLDR data is intended to map from a particular usage — e.g. measuring the height of a person or the fuel consumption of an automobile — to the unit or combination of units typically used for that usage in a given region. Considerations for such a mapping include:
-
-* The list of possible usages large and open-ended, and will be extended in the future.
-* Even for a given usage such a measuring a road distance, there are multiple ranges in use. For example, one set of units may be used for indicating the distance to the next city (kilometers or miles), while another may be used for indicating the distance to the next exit (meters, yards, or feet).
-* There are also differences between more formal usage (official signage, medical records) and more informal usage (conversation, texting).
-* For some usages, the measurement may be expressed using a sequence of units, such as “1 meter, 78 centimeters” or “12 stone, 2 pounds”.
-
-The DTD structure is as follows:
-
-```xml
-<!ELEMENT unitPreferenceData ( unitPreferences* ) >
-
-<!ELEMENT unitPreferences ( unitPreference* ) >
-<!ATTLIST unitPreferences category NMTOKEN #REQUIRED >
-<!ATTLIST unitPreferences usage NMTOKENS #REQUIRED >
-
-<!ELEMENT unitPreference ( #PCDATA ) >
-<!ATTLIST unitPreference regions NMTOKENS #REQUIRED >
-<!ATTLIST unitPreference geq NMTOKEN #IMPLIED >
-<!ATTLIST unitPreference skeleton CDATA #IMPLIED >
-```
-
-<table><tbody>
-<tr><td>category</td><td>A unit quantity, such as “area” or “length”. See Unit Conversion</td></tr>
-<tr><td>usage</td><td>A type of usage, such as person-height.</td></tr>
-<tr><td>regions</td><td>One or more region identifiers (macroregions or regions), such as 001, US. (Note that this field may be extended in the future to also include subdivision identifiers and/or language identifiers, such as usca, and de-CH.)</td></tr>
-<tr><td>geq</td><td>A threshold value, in a unit determined by the unitPreference element value. The unitPreference element is only used for values higher than this value (and lower than any higher value).<br/>The value must be non-negative. For picking negative units (-3 meters), use the absolute value to pick the unit.</td></tr>
-<tr><td>skeleton</td><td>A skeleton in the ICU number format syntax, that can be used to format unit</td></tr>
-</tbody></table>
-
-Logically, the unit preferences data is a map from categories to a map of usages to a map of regions to a list of ranked units and optional formats.
-
-**Note:** As of CLDR 37, the `<unitPreference>` `geq` attribute replaces the now-deprecated `<unitPreferences>` `scope` attribute.
-
-Example:
-
-```xml
-<unitPreferences category="length" usage="default">
-    <unitPreference regions="001">kilometer</unitPreference>
-    <unitPreference regions="001">meter</unitPreference>
-    <unitPreference regions="001">centimeter</unitPreference>
-    <unitPreference regions="US GB">mile</unitPreference>
-    <unitPreference regions="US GB">foot</unitPreference>
-    <unitPreference regions="US GB">inch</unitPreference>
-</unitPreferences>
-```
-
-The above information says that for default usage, in the US people use mile, foot, and inch, where people in the rest of the world (001) use kilometer, meter, and centimeter. Take another example:
-
-```xml
-<unitPreferences category="length" usage="road">
-    <unitPreference regions="001" geq="0.9">kilometer</unitPreference>
-    <unitPreference regions="001" geq="300.0" skeleton="precision-increment/50">meter</unitPreference>
-    <unitPreference regions="001" skeleton="precision-increment/10">meter</unitPreference>
-    <unitPreference regions="001">meter</unitPreference>
-    <unitPreference regions="US" geq="0.5">mile</unitPreference>
-    <unitPreference regions="US" geq="100.0" skeleton="precision-increment/50">foot</unitPreference>
-    <unitPreference regions="US" skeleton="precision-increment/10">foot</unitPreference>
-    <unitPreference regions="GB" geq="0.5">mile</unitPreference>
-    <unitPreference regions="GB" geq="100.0" skeleton="precision-increment/50">yard</unitPreference>
-    <unitPreference regions="GB">yard</unitPreference>
-    <unitPreference regions="SE" geq="0.1">mile-scandinavian</unitPreference>
-</unitPreferences>
-```
-
-The following is the algorithm for computing the preferred output unit from the category, usage, region, and USM.
-
-#### Compute the preferred output unit
-
-1. Let category preferences be the result of a lookup of **category** in the unit preferences.
-  1. If the lookup fails, let the **output unit** be the input base unit or an equivalent metric/SI unit, and return. This terminates the algorithm.
-2. Let category-usage preferences be the result of a lookup of **input usage** in the category preferences.
-  1. If the lookup fails, let the **input usage** be its containing usage, and repeat. (This will always terminate is always a 'default' usage for each category.)
-  2. The containing usage is the result of truncating the last '-' and following text, if there is a '-', and other wise 'default'
-  * For example, land-agriculture-grain ⊂ land-agriculture ⊂ land ⊂ default
-3. Let ranked units be the result of a lookup of R in the category-usage preferences. There may be both region values and [containment regions](https://www.unicode.org/cldr/charts/latest/supplemental/territory_containment_un_m_49.html). 
-  1. If the lookup of R fails, set R to its containing region and repeat. (This will always terminate because 001 is always present.)
-  * For example, CH (Switzerland) ⊂ 155 (Western Europe) ⊂ 150 (Europe) ⊂ 001 (World).
-  * This loop can be optimized to only include containing regions that occur in the data (eg, only 001 in LDML 45).
-4. If there is a USM, and the corresponding Fallback Region is different than R, and any of the units in the ranked list don't match the USM, then let the ranked units be the result of a lookup of the Fallback Region in the category-usage preferences.
-
-The ranked units will be of the following form:
-  ```xml
-  <unitPreference regions="GB" geq="0.5">mile</unitPreference>
-  <unitPreference regions="GB" geq="100.0" skeleton="precision-increment/50">yard</unitPreference>
-  <unitPreference regions="GB">yard</unitPreference>
-  ```
-  
-* The geq item gives the value for the unit in the element value (or for the largest unit for mixed units). For example,
-  * `...geq="0.5">mile<...` means 0.5 miles = 1609.344 meters
-  * `...geq="100.0">foot-and-inch<...` means 100 feet = 30.48 meters
-* If there is no `geq` attribute, then the implicit value is 1.0.
-* Implementations will probably convert the values into the base units, so that the comparison is fast. Thus the above would be converted internally to something like:
-  * ≥ 804.672 meters ⇒ mile
-  * ≥ 30.48 meters ⇒ foot-and-inch
-
-#### Search the ranked units
-
-1. Search for the first matching unitPreference for the input measure. If there is no match (eg < 100 feet in the above example), take the last unitPreference. That is, the last unitPreference is effectively geq="0".
-
-For completeness, when comparing doubles to the geq values:
-* Negative numbers are treated as if they were positive.
-* _infinity_ is treated as being the largest possible value.
-* NaN is treated as the smallest possible value.
-
-Once a matching `unitPreference` element is found:
-
-* The unit is the element value
-* The skeleton (if there is one) supplies formatting information for the unit. API settings may allow that to be overridden.
-  * The syntax and semantics for the skeleton value are defined by the [ICU Number Skeletons](https://unicode-org.github.io/icu/userguide/format_parse/numbers/skeletons.html) document.
-* If the unit is mixed (eg foot-and-inch) the skeleton applies to the final subunit; the higher subunits are formatted as integers.
-* If the skeleton is missing, the default is skeleton="**precision-integer/@@\***". However, the client can also override or tune the number formatting.
-
-### Constraints
-
-* For a given category, there is always a “default” usage.
-* For a given category and usage:
-  * There is always a 001 region.
-  * None of the sets of regions can overlap. That is, you can’t have “US” on one line and “US GB” on another. You _can_ have two lines with “US”, for different sizes of units.
-* For a given category, usage, and region-set
-  * The unitPreferences are in descending order.
+As an example, ICU only uses the unit preferences (with rg, ms, and/or mu and the likely region) in formatting units when a **usage** parameter is set.
 
 * * *
 

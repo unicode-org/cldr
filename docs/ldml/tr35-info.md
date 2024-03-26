@@ -1132,28 +1132,71 @@ Different locales have different preferences for which unit or combination of un
 
 ### <a name="Unit_Preferences_Overrides" href="#Unit_Preferences_Overrides">Unit Preferences Overrides</a>
 
-The determination of preferred units depends on the locale identifer: the keys mu, ms, rg, their values, the base locale (language, script, region) and the user preferences data.
+The determination of preferred units uses the user preference data together with **input unit**, the **input usage**, and the **input locale identifer**.
+Within the locale identifier, the subtags that can affect the result are:
+  * the value so the keys mu, ms, rg
+  * the region in the locale identifier (if there is one)
+  * and otherwise the likely region subtag for the locale identifier
 
-The strongest is the mu key, then the ms key, then the rg key. Beyond that the region of the locale identifer is used, and if not present, the likely-subtag region. For example:
+The strongest priority is the mu key, then the ms key, then the rg key.
+Beyond that the region of the locale identifer is used, and if not present, the likely-subtag region.
+For example:
 
 |   | Locale                                | Result     | Comment                                                            |
 |---|---------------------------------------|------------|--------------------------------------------------------------------|
 | 1 | en-u-rg-uszzzz-ms-ussystem-mu-celsius | Celsius    | despite the rg and ms settings for US, and the likely region of US |
 | 2 | en-u-rg-uszzzz-ms-metric              | Celsius    | despite the rg setting for US, and the likely region of US         |
-| 3 | en-u-rg-dezzzz.                      | Celsius    | despite the likely region of US                                    |
-| 4 | en                                    | Fahrenheit | because the likely region for en with no region is US              |
+| 3 | en-u-rg-dezzzz.                       | Celsius    | despite the likely region of US                                    |
+| 4 | en-DE                                 | Celsius    | because explicit region is DE                                      |
+| 5 | en                                    | Fahrenheit | because the likely region for en with no region is US              |
 
-The **ms** value is used in the following way.
+If any of the above are invalid, then they are ignored. Thus the following constructs are ignored: 
 
-1. Find the corresponding Key-Value row in the table below.
-2. Get the unit preferences for the **locale**, **category**, and **usage**.
-3. If any of the units in that set have a measurement system that doesn’t match the -u-ms- value, get unit preferences again, but using the fallback region instead of the locale's region.
+  * -me-smoot // invalid unit
+  * -ms-stanford // invalid unit system
+  * -rg-aazzzz // invalid region 'AA'. 
+      * Only the region portion is currently used, so in -rg-usabcdef the "abcdef" is ignored, whether or not it is valid.
+  * -AA // invalid region 'AA'
+
+The following algorithym is used to return the **output unit**.
+
+#### Computing override units
+If there is a valid -mu value then let the **output unit** be the that value, and return it.
+This terminates the algorithm.
+
+#### Compute the regions
+If there is no valid -mu value, the following steps are used to determine a region R from the **input locale identifer**.
+(and optionally a Unit Systems Match (USM)):
+
+1. If there is a valid -ms value then let USM  be the corresponding value in column 2 of the table below. Otherwise FR is not used. In either case continue with step 2.
+2. If there is a valid -rg region, let R be that region and go to Compute the category.
+3. If there is a valid region in the locale, let R be that region go to Compute the category.
+4. Otherwise, compute the likely subtags for the locale. 
+     1. If there is a likely region, then let R be that region and go to Compute the category.
+	 2. Otherwise, let R be 001 and go to Compute the category
 
 | Key-Value   | Unit Systems Match          | Fallback Region for Unit Preferences |
 |-------------|-----------------------------|--------------------------------------|
 | ms-metric   | metric OR metric_adjacent   | 001                                  |
 | ms-ussystem | ussystem                    | US                                   |
 | ms-uksystem | uksystem                    | UK                                   |
+
+#### Compute the category
+
+A **category** is determined as follows from the input unit:
+
+1. From the input unit, use the conversion data in [baseUnit](tr35-info.html#Unit_Conversion) and let the **input base unit** be the baseUnit attribute value.
+    * eg, for `pound-force` the baseUnit is `kilogram-meter-per-square-second`.
+2. If there is no such base unit (such as for a an unusual unit like `ampere-pound-per-foot-square-minute`), convert the input unit to a combination of base units, reduce to lowest terms, and normalize. Let the **input base unit** be that value.
+    * eg, `ampere-pound-per-foot-square-minute` -> kilogram-ampere-per-meter-square-second
+3. If the **input base unit**, has a unitQuantity element, then let the **category** be the quantity attribute value
+    * eg, `force` from `<unitQuantity baseUnit='kilogram-meter-per-square-second' quantity='force'/>`
+3. If the result does not have a unitQuantity, let the output unit be the input base unit or an equivalent metric/SI unit, and return. This terminates the algorithm.
+    * eg, for `ampere-pound-per-foot-square-minute` return `kilogram-ampere-per-meter-square-second` or `pascal-ampere`
+	* That is, an implementation can use shorter units as long as long as the combination is equivalent in value.
+
+
+#### Examples
 
 **Example A: xx-SE-u-ms-metric, length, road**
 1. Fetch the data from `<unitPreferences category="length" usage="road">` for xx-SE
@@ -1196,7 +1239,7 @@ As an example, ICU only uses the unit preferences (with rg, ms, and/or mu and th
 
 The CLDR data is intended to map from a particular usage — e.g. measuring the height of a person or the fuel consumption of an automobile — to the unit or combination of units typically used for that usage in a given region. Considerations for such a mapping include:
 
-* The list of possible usages large and open-ended. The intent here is to start with a small set for which there is an urgent need, and expand as necessary.
+* The list of possible usages large and open-ended, and will be extended in the future.
 * Even for a given usage such a measuring a road distance, there are multiple ranges in use. For example, one set of units may be used for indicating the distance to the next city (kilometers or miles), while another may be used for indicating the distance to the next exit (meters, yards, or feet).
 * There are also differences between more formal usage (official signage, medical records) and more informal usage (conversation, texting).
 * For some usages, the measurement may be expressed using a sequence of units, such as “1 meter, 78 centimeters” or “12 stone, 2 pounds”.
@@ -1219,10 +1262,12 @@ The DTD structure is as follows:
 <table><tbody>
 <tr><td>category</td><td>A unit quantity, such as “area” or “length”. See Unit Conversion</td></tr>
 <tr><td>usage</td><td>A type of usage, such as person-height.</td></tr>
-<tr><td>regions</td><td>One or more region identifiers (macroregions or regions), subdivision identifiers, or language identifiers, such as 001, US, usca, and de-CH.</td></tr>
+<tr><td>regions</td><td>One or more region identifiers (macroregions or regions), such as 001, US. (Note that this field may be extended in the future to also include subdivision identifiers and/or language identifiers, such as usca, and de-CH.)</td></tr>
 <tr><td>geq</td><td>A threshold value, in a unit determined by the unitPreference element value. The unitPreference element is only used for values higher than this value (and lower than any higher value).<br/>The value must be non-negative. For picking negative units (-3 meters), use the absolute value to pick the unit.</td></tr>
 <tr><td>skeleton</td><td>A skeleton in the ICU number format syntax, that can be used to format unit</td></tr>
 </tbody></table>
+
+Logically, the unit preferences data is a map from categories to a map of usages to a map of regions to a list of ranked units and optional formats.
 
 **Note:** As of CLDR 37, the `<unitPreference>` `geq` attribute replaces the now-deprecated `<unitPreferences>` `scope` attribute.
 
@@ -1257,49 +1302,40 @@ The above information says that for default usage, in the US people use mile, fo
 </unitPreferences>
 ```
 
-The intended usage is to take the measure to be formatted, and the desired category, usage, and region and find the best match as follows.
+The following is the algorithm for computing the preferred output unit from the category, usage, region, and USM.
 
-* First, see if there is an exact match, producing a list of one or more `unitPreference` elements. For example, length/road/GB has a match above, giving
+#### Compute the preferred output unit
 
+1. Let category preferences be the result of a lookup of **category** in the unit preferences.
+  1. If the lookup fails, let the **output unit** be the input base unit or an equivalent metric/SI unit, and return. This terminates the algorithm.
+2. Let category-usage preferences be the result of a lookup of **input usage** in the category preferences.
+  1. If the lookup fails, let the **input usage** be its containing usage, and repeat. (This will always terminate is always a 'default' usage for each category.)
+  2. The containing usage is the result of truncating the last '-' and following text, if there is a '-', and other wise 'default'
+  * For example, land-agriculture-grain ⊂ land-agriculture ⊂ land ⊂ default
+3. Let ranked units be the result of a lookup of R in the category-usage preferences. There may be both region values and [containment regions](https://www.unicode.org/cldr/charts/latest/supplemental/territory_containment_un_m_49.html). 
+  1. If the lookup of R fails, set R to its containing region and repeat. (This will always terminate because 001 is always present.)
+  * For example, CH (Switzerland) ⊂ 155 (Western Europe) ⊂ 150 (Europe) ⊂ 001 (World).
+  * This loop can be optimized to only include containing regions that occur in the data (eg, only 001 in LDML 45).
+4. If there is a USM, and the corresponding Fallback Region is different than R, and any of the units in the ranked list don't match the USM, then let the ranked units be the result of a lookup of the Fallback Region in the category-usage preferences.
+
+The ranked units will be of the following form:
   ```xml
   <unitPreference regions="GB" geq="0.5">mile</unitPreference>
   <unitPreference regions="GB" geq="100.0" skeleton="precision-increment/50">yard</unitPreference>
   <unitPreference regions="GB">yard</unitPreference>
   ```
-
-* If there is no match for the category, then the data is not available.
-* Otherwise, given the category:
-  * If there is an exact match for the usage, but not for the region, try region="001".
-* The specification allows for [containment regions](https://unicode-org.github.io/cldr-staging/charts/38/supplemental/territory_containment_un_m_49.html), [region subdivisions](https://unicode-org.github.io/cldr-staging/charts/38/supplemental/territory_subdivisions.html).
-* While in version 37 only 001 is used, in the future the data may contain others.
-* The fallback is: subdivision2 ⇒ subdivision1 ⇒ region/country ⇒ subcontinent ⇒ continent ⇒ world
-* Example:
-
-  | Region/subdivision | Code  |
-  | ------------------ | ----- |
-  | Blackpool          | gbbpl |
-  | England            | gbeng |
-  | United Kingdom     | GB    |
-  | Northern Europe    | 154   |
-  | Europe             | 150   |
-  | World              | 001   |
-
-* If there is an exact match for the region, but not for the usage,
-  * If the usage has multiple parts (eg land-agriculture-grain) drop the last part (eg land-agriculture)
-  * Repeat dropping the last part and trying the result (eg land)
-  * If you eliminate all of them, try usage="default".
-  * If there is no exact match for either one, try usage="default", region="001". That will always match.
-
-Once you have a list of `unitPreference` elements, find the applicable unitPreference. For a given category, usage, and set of regions (eg “US GB”), the units are ordered from largest to smallest.
-
+  
 * The geq item gives the value for the unit in the element value (or for the largest unit for mixed units). For example,
-  * `...geq="0.5">mile<...` means 0.9 kilometers
-  * `...geq="100.0">foot:inch<...` means 100 feet
+  * `...geq="0.5">mile<...` means 0.5 miles = 1609.344 meters
+  * `...geq="100.0">foot-and-inch<...` means 100 feet = 30.48 meters
 * If there is no `geq` attribute, then the implicit value is 1.0.
 * Implementations will probably convert the values into the base units, so that the comparison is fast. Thus the above would be converted internally to something like:
   * ≥ 804.672 meters ⇒ mile
-  * ≥ 30.48 meters ⇒ foot:inch
-* Search for the first matching unitPreference for the input measure. If there is no match (eg < 100 feet in the above example), take the last unitPreference. That is, the last unitPreference is effectively geq="0"
+  * ≥ 30.48 meters ⇒ foot-and-inch
+
+#### Search the ranked units
+
+1. Search for the first matching unitPreference for the input measure. If there is no match (eg < 100 feet in the above example), take the last unitPreference. That is, the last unitPreference is effectively geq="0".
 
 For completeness, when comparing doubles to the geq values:
 * Negative numbers are treated as if they were positive.
@@ -1311,21 +1347,17 @@ Once a matching `unitPreference` element is found:
 * The unit is the element value
 * The skeleton (if there is one) supplies formatting information for the unit. API settings may allow that to be overridden.
   * The syntax and semantics for the skeleton value are defined by the [ICU Number Skeletons](https://unicode-org.github.io/icu/userguide/format_parse/numbers/skeletons.html) document.
-* If the unit is mixed (eg foot:inch) the skeleton applies to the final subunit; the higher subunits are formatted as integers.
+* If the unit is mixed (eg foot-and-inch) the skeleton applies to the final subunit; the higher subunits are formatted as integers.
 * If the skeleton is missing, the default is skeleton="**precision-integer/@@\***". However, the client can also override or tune the number formatting.
 
 ### Constraints
 
 * For a given category, there is always a “default” usage.
-* For a given category, and usage:
+* For a given category and usage:
   * There is always a 001 region.
   * None of the sets of regions can overlap. That is, you can’t have “US” on one line and “US GB” on another. You _can_ have two lines with “US”, for different sizes of units.
 * For a given category, usage, and region-set
   * The unitPreferences are in descending order.
-
-### Caveats
-
-The extended unit support is still being developed further. See the Known Issues on the release page for futher information.
 
 * * *
 

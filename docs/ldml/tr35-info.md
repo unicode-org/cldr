@@ -1136,7 +1136,7 @@ Implementations may offer mechanisms to control the precision of the formatted m
 * an implementation could allow a percentage precision; 
 thus 1612 meters with ±1% precision would be represented by **1 mile** rather than **1 mile 9 feet**. 
 
-The default behavior is to round the lowest unit to the nearest integer. 
+The default behavior is to round the lowest unit to the nearest integer.
 Thus 1.99959 degree-and-arc-minute-and-arc-second would be (before rounding) **1 degree 59 minutes 58.524 seconds**.
 After rounding it would be **1 degree 59 minutes 59 seconds**. 
 
@@ -1183,7 +1183,7 @@ If any key-values are invalid, then they are ignored. Thus the following constru
 
 | subtags | reason |
 | --- | --- |
-| -me-smoot | invalid unit |
+| -mu-smoot | invalid unit |
 | -ms-stanford | invalid unit system |
 | -rg-aazzzz | invalid region 'AA' ‡|
 | -AA | invalid region 'AA'|
@@ -1221,20 +1221,25 @@ A **category** is determined as follows from the input unit:
 
 1. From the input unit, use the conversion data in [baseUnit](tr35-info.html#Unit_Conversion) and let the **input base unit** be the baseUnit attribute value.
     * eg, for `pound-force` the baseUnit is `kilogram-meter-per-square-second`.
-2. If there is no such base unit (such as for a an unusual unit like `ampere-pound-per-foot-square-minute`), convert the input unit to a combination of base units, reduce to lowest terms, and normalize. Let the **input base unit** be that value.
-    * eg, `ampere-pound-per-foot-square-minute` -> `kilogram-ampere-per-meter-square-second`
+2. If there is no such base unit (such as for a an unusual unit like `ampere-pound-per-foot-square-minute`), 
+   convert the input unit to a combination of base units, reduce to lowest terms, and normalize.
+   Let the **input base unit** be that value.
+       * eg, `ampere-pound-per-foot-square-minute` ⇒ `kilogram-ampere-per-meter-square-second`
 3. If the **input base unit** has a unitQuantity element, then let the **category** be the quantity attribute value.
-    * eg, `force` from `<unitQuantity baseUnit='kilogram-meter-per-square-second' quantity='force'/>`
-3. If the **input base unit** does not have a unitQuantity, let the output unit be the input base unit. An implementation may also set it to an equivalent metric/SI unit, as in the example below. This terminates the algorithm; there is no need to use the unit preferences information.
-	* That is, an implementation can use shorter units as long as long as the combination is equivalent in value.    
-	* For example, for `ampere-pound-per-foot-square-minute` an implementation could return `kilogram-ampere-per-meter-square-second` or `pascal-ampere`.
+       * eg, `force` from `<unitQuantity baseUnit='kilogram-meter-per-square-second' quantity='force'/>`
+4. If the **input base unit** does not have a unitQuantity, let the output unit be the input base unit.
+   An implementation may also set it to an equivalent metric/SI unit, as in the example below.
+   This terminates the algorithm; there is no need to use the unit preferences information.
+      * For example, for `ampere-pound-per-foot-square-minute` an implementation could return `kilogram-ampere-per-meter-square-second` or `pascal-ampere`.
+      * That is, an implementation can use shorter metric/SI units as long as long as the combination is equivalent in value.    
 
 ### <a name="Unit_Preferences_Data" href="#Unit_Preferences_Data">Unit Preferences Data</a>
 
 The CLDR data is intended to map from a particular usage — e.g. measuring the height of a person or the fuel consumption of an automobile — to the unit or combination of units typically used for that usage in a given region. Considerations for such a mapping include:
 
-* The list of possible usages large and open-ended, and will be extended in the future.
-* Even for a given usage such a measuring a road distance, there are multiple ranges in use. For example, one set of units may be used for indicating the distance to the next city (kilometers or miles), while another may be used for indicating the distance to the next exit (meters, yards, or feet).
+* The list of possible usages is large and open-ended, and will be extended in the future.
+* Even for a given usage such a measuring a road distance, there are different choices of units based on the particular distance.
+  For example, one set of units may be used for indicating the distance to the next city (kilometers or miles), while another may be used for indicating the distance to the next exit (meters, yards, or feet).
 * There are also differences between more formal usage (official signage, medical records) and more informal usage (conversation, texting).
 * For some usages, the measurement may be expressed using a sequence of units, such as “1 meter, 78 centimeters” or “12 stone, 2 pounds”.
 
@@ -1255,7 +1260,7 @@ The DTD structure is as follows:
 
 | Term | Description |
 |---|---|
-| category | A unit quantity, such as “area” or “length”. See Unit Conversion |
+| category | A unit quantity, such as “area” or “length”. See [Unit Conversion](#Unit_Conversion) |
 | usage | A type of usage, such as person-height. |
 | regions | One or more region identifiers (macroregions or regions), such as 001, US. (Note that this field may be extended in the future to also include subdivision identifiers and/or language identifiers, such as usca, and de-CH.) |
 | geq | A threshold value, in a unit determined by the unitPreference element value. The unitPreference element is only used for values higher than this value (and lower than any higher value).<br/>The value must be non-negative. For picking negative units (-3 meters), use the absolute value to pick the unit. |
@@ -1383,6 +1388,7 @@ For completeness, when comparing doubles to the geq values:
 <unitPreference regions="US">teaspoon</unitPreference>
 ```
 
+## Unit APIs
 APIs should clearly allow for both the use of unit preferences with the above process, and for the _invariant use_ of a unit measure.
 That is, while an application will usually want to obey the preferences for the locale or in the locale ID, there will definitely be instances where it will want to not use them.
 For example, in showing the weather, an application may want to show:

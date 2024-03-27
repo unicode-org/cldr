@@ -1117,20 +1117,34 @@ The examples in #4 are due to the following ordering of the `unitQuantity` eleme
 ## Mixed Units
 
 Mixed units, or unit sequences, are units with the same base unit which are listed in sequence. 
-Common examples are feet and inches, meters and centimeters, and hours, minutes, and seconds. 
-Mixed unit identifiers are expressed using the "-and-" infix, as in "foot-and-inch", "meter-and-centimeter", and "hour-and-minute-and-second".
+Common examples are feet and inches; meters and centimeters; hours, minutes, and seconds; degrees, minutes, and seconds.
+Mixed unit identifiers are expressed using the "-and-" infix, as in "foot-and-inch", "meter-and-centimeter", "hour-and-minute-and-second", "degree-and-arc-minute-and-arc-second."
 
 Scalar values for mixed units are expressed in the largest unit, according to the sort order discussed above in "Normalization". 
 For example, numbers for "foot-and-inch" are expressed in feet.
 
-Mixed unit identifiers should be from largest to smallest (eg foot-and-inch instead of inch-and-foot). 
+Mixed unit identifiers should be from highest to lowest (eg foot-and-inch instead of inch-and-foot), and that is reflected in the display.
 If it turns out that some locales present certain mixed units in a different order, additional structure will be needed in CLDR.
 
-If a maximum/minimum number of decimals or signficant digits is desired in formatting, 
-those values should should be adapted to the mixed radix used, starting with the largest unit, 
-and discarding smaller units where they would be overly accurate. 
-For example, if the goal is 1 part in 100, then "6 miles 1 foot" is overly precise, 
-while "6 foot 1 inch" has approximately the right accuracy.
+Only the lowest unit can have decimal fractions; the higher units will be integers, so no "3.5 feet 3 inches".
+If a number is negative, then only the highest unit shows the minus sign: eg, "-3 hours 27 minutes".
+If one of the units is zero, then it is normally omitted: eg, "3 feet" instead of "3 feet 0 inches".
+However, when all of the units would be omitted, then the highest unit is shown with zero: eg "0 feet".
+
+Implementations may offer mechanisms to control the precision of the formatted mixed unit. For example:
+* an implementation could apply the precision of a number formatter to the final unit. 
+* an implementation could allow a percentage precision; 
+thus 1612 meters with ±1% precision would be represented by **1 mile** rather than **1 mile 9 feet**. 
+
+The default behavior is to round the lowest unit to the nearest integer. 
+Thus 1.99959 degree-and-arc-minute-and-arc-second would be (before rounding) **1 degree 59 minutes 58.524 seconds**.
+After rounding it would be **1 degree 59 minutes 59 seconds**. 
+
+If the lowest unit would round to zero, or round up to the size of the next higher unit, then the next higher unit is rounded instead, recursively.
+Thus 1.999862 degree-and-arc-minute-and-arc-second would be (before rounding) **1 degree 59 minutes 59.5032 degrees**.
+After rounding the last unit it would be **1 degree 59 minutes 60 seconds**, which rounds up to **1 degree 60 minutes**, which rounds up to  **2 degrees**.
+This can be determined before computing the lower units:
+for example, if the remainder in degrees is below 1/120 degrees or above 119/120 degrees, then the degrees can be rounded without computing the minutes. 
 
 ## Testing
 
@@ -1211,9 +1225,9 @@ A **category** is determined as follows from the input unit:
     * eg, `ampere-pound-per-foot-square-minute` -> `kilogram-ampere-per-meter-square-second`
 3. If the **input base unit** has a unitQuantity element, then let the **category** be the quantity attribute value.
     * eg, `force` from `<unitQuantity baseUnit='kilogram-meter-per-square-second' quantity='force'/>`
-3. If the **input base unit** does not have a unitQuantity, let the output unit be the input base unit or an equivalent metric/SI unit, and return. This terminates the algorithm; there is no need to use the unit preferences information.
-    * eg, for `ampere-pound-per-foot-square-minute` return `kilogram-ampere-per-meter-square-second` or `pascal-ampere`
-	* That is, an implementation can use shorter units as long as long as the combination is equivalent in value.
+3. If the **input base unit** does not have a unitQuantity, let the output unit be the input base unit. An implementation may also set it to an equivalent metric/SI unit, as in the example below. This terminates the algorithm; there is no need to use the unit preferences information.
+	* That is, an implementation can use shorter units as long as long as the combination is equivalent in value.    
+	* For example, for `ampere-pound-per-foot-square-minute` an implementation could return `kilogram-ampere-per-meter-square-second` or `pascal-ampere`.
 
 ### <a name="Unit_Preferences_Data" href="#Unit_Preferences_Data">Unit Preferences Data</a>
 

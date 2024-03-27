@@ -21,6 +21,7 @@
 - cf63211ac313545dcd153a74e4d19d0be593db41 CLDR-16712 v44 CLDRModify
 - cbdd59767072c7ca154faae2d3b59ad6ad67dd1d CLDR-16650 v44 cherry-pick maint-43 to main
 - f534e312f9c5b6984e5a941746adff08eff66c50 CLDR-16577 v44 merge maint-43 to main
+- 09c8e10 CLDR-17277 v45 accidental merge commit
 
 ### The following are items to skip for a certain CLDR version.
 ### Format: `# SKIP v00` followed by a list of commits to skip for that version (same structure as above)
@@ -59,3 +60,7 @@
 - 1a52361654 CLDR-17141 kbd: drop transform=no (#3330) (cherry-picked to maint-44)
 - 286a10b2b2 CLDR-17140 kbd: specify modifier matching (#3314) (cherry-picked to maint-44)
 - 5f1d2981aa CLDR-17113 kbd: element/attr renaming (#3313) (cherry-picked to maint-44)
+- 73e4014 CLDR-17229 kbd: cherry pick FROM maint-44
+- 13db390 CLDR-17141 kbd: fixed in 44
+- 09c8e10 CLDR-17230 emoji: fixed in 44.1
+- 657e6e9 CLDR-17141 kbd: fixed in 44

@@ -4824,68 +4824,138 @@ See §3.8.2 <a href="#Legacy_Variants">Legacy Variants</a>.</p>
 <li>Note that the “und” value disappears.</li>
 </ol>
 </li>
-<li>Order the set of rules by the following levels<ol>
-<li>First order by the size of the union of all field value sets, with larger sizes before smaller sizes.</li>
-</ol>
-<ul>
-<li>So V={hepburn, heploc}} is before {R={CA}}</li>
-<li>V={hepburn, heploc}} and {L={en}, R={GB}} are not ordered at this level</li>
+<li>Order the set of rules using the following comparison logic:<ol>
+<li>For each rule, count the number of items in each field value set (L, S, R, V) and sum the four counts.
+If two rules have differing sums, order the rule with the greater sum before the rule with the smaller sum.<ul>
+<li>For example:</li>
+<li>{V={hepburn,heploc}} is tied with </li>
+<li>{L={en}, R={GB}} (because both have 2 total field value items) and both precede </li>
+<li>{R={CA}} (which has 1).</li>
 </ul>
-<ol start="2">
-<li>And then order by field, where L &lt; S &lt; R &lt; V. Thus L is first and V is last.</li>
-</ol>
-<ul>
-<li>So {L={fr}, R={CA}} is before {V={fonipa, heploc}}.</li>
-<li>V={hepburn, heploc}} and {V={hepburn, heploc}} are not ordered at this level</li>
-<li>After this point we are guaranteed to have the same set of fields, with possibly different field value sets.</li>
+</li>
+<li>For rule pairs that are not differentiated by the previous step, consider the value set for each field in the order L, then S, then R, then V.
+If one rule has a non-empty value set for that field and the other rule does not, 
+then order the rule with the non-empty value set for that field before the other rule and disregard all later fields. 
+Otherwise, consider the next field.<ul>
+<li>For example:</li>
+<li>{L={zh}, S={Hant}, R={CN}} is tied with </li>
+<li>{L={en}, S={Latn}, R={GB}} (because both have non-empty sets for L, S, and R but not for V),
+and both precede</li>
+<li>{L={zh}, S={Hans}, V={pinyin}} (because it lacks values for R), 
+which precedes </li>
+<li>{L={en}, R={GB}, V={scouse}} (because it lacks values for S), 
+which precedes </li>
+<li>{V={fonipa,hepburn,heploc}} (because it lacks values for L),
+which is tied with </li>
+<li>{V={hepburn,heploc,simple}} (because both have non-empty sets for V but not for L, S, or R).</li>
 </ul>
-<ol start="3">
-<li>And then order by field value sets, traversing also in the order of their fields L &lt; S &lt; R &lt; V.</li>
-</ol>
-<ul>
-<li>To determine the ordering between a field value set A and B, traverse each in parallel</li>
-<li>If the corresponding field value sets for A and B are identical, then the next pair of field value sets is processed</li>
-<li>Otherwise at the first pair of differing field values, A is before B if its field value is alphabetically less, otherwise B is before.</li>
+</li>
+<li>For rule pairs that are not differentiated by the previous step,
+consider the value set for each field in the order L, then S, then R, then V as a sequence of subtags. 
+If those lists for the same field of two rules differ, 
+then consider the first position of difference in the two lists and order the rules by code-point order
+of the field value at that position and disregard all later fields.
+Otherwise, consider the next field.<ul>
+<li>For example:</li>
+<li>{L={ja}, V={hepburn, heploc}} precedes </li>
+<li>{L={zh}, V={1996, pinyin}} 
+(because it has a different field value set for L and "ja" precedes "zh" at the first position of difference),
+which precedes </li>
+<li>{L={zh}, V={hepburn, heploc}}
+(because it has the same field value set for L and a different field value set for V in which "1996" precedes "hepburn" at the first position of difference),
+which precedes</li>
+<li>{L={zh}, V={hepburn, simple}}
+(because it has the same field value set for L and a different field value set for V in which "heploc" precedes "simple" at the first position of difference).</li>
 </ul>
+</li>
+</ol>
 </li>
 <li>The result is the set of <strong>Alias Rules</strong></li>
 </ol><p>So using the examples above, we get the following order:</p><table>
 <thead>
 <tr>
 <th>languageId</th>
-<th>i. size of union</th>
-<th>ii. field order</th>
-<th>iii. field value sets</th>
+<th>5.1 total field value set item count</th>
+<th>5.2 non-empty field value set</th>
+<th>5.3 field value set items</th>
 </tr>
 </thead>
 <tbody><tr>
+<td>{L={en}, S={Latn}, R={GB}}</td>
+<td>3</td>
+<td>n/a</td>
+<td>n/a</td>
+</tr>
+<tr>
+<td>{L={zh}, S={Hant}, R={CN}}</td>
+<td>3</td>
+<td>match (L, S, R)</td>
+<td>in L, “en” before “zh”</td>
+</tr>
+<tr>
+<td>{L={zh}, S={Hans}, V={pinyin}}</td>
+<td>3</td>
+<td>(L, S, R, …) before (L, S, V)</td>
+<td></td>
+</tr>
+<tr>
+<td>{L={en}, R={GB}, V={scouse}}</td>
+<td>3</td>
+<td>(L, S, …) before (L, R, …)</td>
+<td></td>
+</tr>
+<tr>
+<td>{L={ja}, V={hepburn,heploc}}</td>
+<td>3</td>
+<td>(L, R, …) before (L, V)</td>
+<td></td>
+</tr>
+<tr>
+<td>{L={zh}, V={1996,pinyin}}</td>
+<td>3</td>
+<td>match (L, V)</td>
+<td>in L, “ja” before “zh”</td>
+</tr>
+<tr>
+<td>{L={zh}, V={hepburn,heploc}}</td>
+<td>3</td>
+<td>match (L, V)</td>
+<td>in V, “1996” before “hepburn”</td>
+</tr>
+<tr>
+<td>{L={zh}, V={hepburn,simple}}</td>
+<td>3</td>
+<td>match (L, V)</td>
+<td>in V, “heploc” before “simple”</td>
+</tr>
+<tr>
+<td>{V={fonipa,hepburn,heploc}}</td>
+<td>3</td>
+<td>(L, …) before (V)</td>
+<td></td>
+</tr>
+<tr>
+<td>{V={hepburn,heploc,simple}}</td>
+<td>3</td>
+<td>match (V)</td>
+<td>in V, “fonipa” before “hepburn”</td>
+</tr>
+<tr>
 <td>{L={en}, R={GB}}</td>
 <td>2</td>
-<td>n/a</td>
+<td></td>
 <td></td>
 </tr>
 <tr>
-<td>{L={fr}, R={CA}}</td>
+<td>{V={hepburn,heploc}}</td>
 <td>2</td>
-<td>n/a</td>
-<td>en &lt; fr</td>
-</tr>
-<tr>
-<td>{V={fonipa, heploc}}</td>
-<td>2</td>
-<td>L &lt; V</td>
+<td>(L, …) before (V)</td>
 <td></td>
-</tr>
-<tr>
-<td>{V={hepburn, heploc}}</td>
-<td>2</td>
-<td>n/a</td>
-<td>fonipa &lt; hepburn</td>
 </tr>
 <tr>
 <td>{R={CA}}</td>
 <td>1</td>
-<td>n/a</td>
+<td></td>
 <td></td>
 </tr>
 </tbody></table><h3 id="processing-languageids"><a name="processing-languageids" href="#processing-languageids">Processing LanguageIds</a></h3><p>To canonicalize a given <em>source</em>:</p><ol>

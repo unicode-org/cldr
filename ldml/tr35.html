@@ -2752,19 +2752,19 @@ lang_region (aliases to lang_script_region based on likely subtags)
 </tr>
 </thead>
 <tbody><tr>
-<td>currency @pattern</td>
-<td>currencyFormat</td>
-<td>numberSystem = defaultNumberingSystem, unless otherwise specified*<br>currencyFormatLength type=none, unless otherwise specified<br>currencyFormat type="standard", unless otherwise specified</td>
+<td><code>currency</code> <code>@pattern</code></td>
+<td><code>currencyFormat</code></td>
+<td><code>numberSystem</code> = <code>defaultNumberingSystem</code>, unless otherwise specified*<br><code>currencyFormatLength</code> type=none, unless otherwise specified<br><code>currencyFormat</code> <code>type="standard"</code>, unless otherwise specified</td>
 </tr>
 <tr>
-<td>currency @decimal</td>
-<td>symbols @decimal</td>
-<td>numberSystem = defaultNumberingSystem, unless otherwise specified</td>
+<td><code>currency</code> <code>@decimal</code></td>
+<td><code>symbols</code> <code>@decimal</code></td>
+<td><code>numberSystem</code> = <code>defaultNumberingSystem</code>, unless otherwise specified</td>
 </tr>
 <tr>
-<td>currency @group</td>
-<td>symbols @group</td>
-<td>numberSystem = defaultNumberingSystem, unless otherwise specified</td>
+<td><code>currency</code> <code>@group</code></td>
+<td><code>symbols</code> <code>@group</code></td>
+<td><code>numberSystem</code> = <code>defaultNumberingSystem</code>, unless otherwise specified</td>
 </tr>
 </tbody></table><blockquote>
 <p>* The "unless otherwise specified" clause is for when an API or other context indicates a different choice, such as currencyFormat type="accounting".</p>
@@ -2777,29 +2777,29 @@ lang_region (aliases to lang_script_region based on likely subtags)
 </tr>
 </thead>
 <tbody><tr>
-<td>alt</td>
+<td><code>alt</code></td>
 <td><strong>no alt attribute</strong></td>
 <td><em>none</em></td>
 </tr>
 <tr>
-<td>case</td>
+<td><code>case</code></td>
 <td>"nominative" → ∅</td>
-<td>caseMinimalPairs</td>
+<td><code>caseMinimalPairs</code></td>
 </tr>
 <tr>
-<td>gender</td>
+<td><code>gender</code></td>
 <td>default_gender(locale) → ∅</td>
-<td>genderMinimalPairs</td>
+<td><code>genderMinimalPairs</code></td>
 </tr>
 <tr>
-<td>count</td>
+<td><code>count</code></td>
 <td>plural_rules(locale, x) → "other" → ∅</td>
-<td>minDays, pluralMinimalPairs</td>
+<td><code>minDays</code>, <code>pluralMinimalPairs</code></td>
 </tr>
 <tr>
-<td>ordinal</td>
+<td><code>ordinal</code></td>
 <td>plural_rules(locale, x) → "other" → ∅</td>
-<td>ordinalMinimalPairs</td>
+<td><code>ordinalMinimalPairs</code></td>
 </tr>
 </tbody></table><p>The gender fallback is to neuter if the locale has a neuter gender, otherwise masculine. This may be extended in the future if necessary. See also <a href="tr35-general.html#Grammatical_Features">Part 2, Grammatical Features</a>.</p><p>For example, if there is no value for a path, and that path has a [@count="x"] attribute and value, then:</p><ol>
 <li>If "x" is numeric, the path falls back to the path with [@count=«the plural rules category for x for that locale»], within that the same locale.<ol>
@@ -4781,10 +4781,10 @@ See §3.8.2 <a href="#Legacy_Variants">Legacy Variants</a>.</p>
 </ul>
 </li>
 </ul><p><em>Example:</em></p><blockquote>
-<p>source=ja-Latn-fonipa-hepburn-heploc</p>
-<p>rule  ="&lt;languageAlias type="und-hepburn-heploc"</p>
-<p>replacement="und-alalc97"&gt;"</p>
-<p>result="ja-Latn-alalc97-fonipa" // note that CLDR canonical order of variants is alphabetical</p>
+<p>source="ja-Latn-fonipa-hepburn-heploc"</p>
+<p>rule  =<code>&lt;languageAlias type="und-hepburn-heploc" replacement="und-alalc97"&gt;</code></p>
+<p>result="ja-Latn-alalc97-fonipa"</p>
+<p>(note that CLDR canonical order of variants is alphabetical)</p>
 </blockquote><h5 id="territory-exception">Territory Exception</h5><p>If the field = territory, and the replacement.field has more than one value, then look up the most likely territory for the base language code (and script, if there is one). If that likely territory is in the list of replacements, use it. Otherwise, use the first territory in the list.</p><h4 id="5.-canonicalizing-syntax"><a name="5-canonicalizing-syntax" href="#5.-canonicalizing-syntax">5. Canonicalizing Syntax</a></h4><p>To canonicalize the syntax of <em>source</em>:</p><ul>
 <li>Initial Script Subtag<ul>
 <li>If the first subtag has 4 letters, prepend the source with "und-"</li>

@@ -1131,10 +1131,14 @@ If a number is negative, then only the highest unit shows the minus sign: eg, "-
 If one of the units is zero, then it is normally omitted: eg, "3 feet" instead of "3 feet 0 inches".
 However, when all of the units would be omitted, then the highest unit is shown with zero: eg "0 feet".
 
-Implementations may offer mechanisms to control the precision of the formatted mixed unit. For example:
-* an implementation could apply the precision of a number formatter to the final unit. 
-* an implementation could allow a percentage precision; 
-thus 1612 meters with ±1% precision would be represented by **1 mile** rather than **1 mile 9 feet**. 
+Implementations may offer mechanisms to control the precision of the formatted mixed unit. Examples include, but are not limited to:
+* An implementation could apply the precision of a number formatter to the final unit.
+  However, this mechanisim has a couple of disadvantages, such as matching precision across user preferences. For example, suppose the input amount is 1.5254 and the precision is 2 decimals.
+    * Locale A uses decimal degrees and gets 1.53°.
+    * Locale B uses degrees, minutes, seconds, and gets 1° 31′ 31.44″
+	* Locale B has an unnecessarily precise result: the equivalent of 1.52540 in precision.
+* An implementation could allow a percentage precision; 
+  thus 1612 meters with ±1% precision would be represented by **1 mile** rather than **1 mile 9 feet**. 
 
 The default behavior is to round the lowest unit to the nearest integer.
 Thus 1.99959 degree-and-arc-minute-and-arc-second would be (before rounding) **1 degree 59 minutes 58.524 seconds**.
@@ -1143,8 +1147,8 @@ After rounding it would be **1 degree 59 minutes 59 seconds**.
 If the lowest unit would round to zero, or round up to the size of the next higher unit, then the next higher unit is rounded instead, recursively.
 Thus 1.999862 degree-and-arc-minute-and-arc-second would be (before rounding) **1 degree 59 minutes 59.5032 degrees**.
 After rounding the last unit it would be **1 degree 59 minutes 60 seconds**, which rounds up to **1 degree 60 minutes**, which rounds up to  **2 degrees**.
-This can be determined before computing the lower units:
-for example, if the remainder in degrees is below 1/120 degrees or above 119/120 degrees, then the degrees can be rounded without computing the minutes. 
+This behavior can be determined before having to compute the lower units:
+for example, where rounding to the second, if the remainder in degrees is below 1/120 degrees or above 119/120 degrees, then the degrees can be rounded without computing the minutes or seconds. 
 
 ## Testing
 

@@ -3,16 +3,24 @@
  * The display logic is in AnnouncePanel.vue.
  */
 import * as cldrAjax from "./cldrAjax.mjs";
+import * as cldrSchedule from "./cldrSchedule.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
 
 /**
  * This should be false for production. It can be made true during debugging, which
- * may be useful for performance testing. Also, there is a bug where "announce" requests
- * (as well as "completion" requests) are not only made too often (every 15 seconds synced
- * with status requests), but are made in pairs where one "announce" request immediately follows
- * another, see https://unicode-org.atlassian.net/browse/CLDR-16900
+ * may be useful for performance testing.
  */
 const DISABLE_ANNOUNCEMENTS = false;
+
+const CLDR_ANNOUNCE_DEBUG = false;
+
+const ANNOUNCE_REFRESH_SECONDS = 60; // one minute
+
+const schedule = new cldrSchedule.FetchSchedule(
+  "cldrAnnounce",
+  ANNOUNCE_REFRESH_SECONDS,
+  CLDR_ANNOUNCE_DEBUG
+);
 
 let thePosts = null;
 
@@ -28,6 +36,9 @@ async function refresh(viewCallbackSetData) {
   if (DISABLE_ANNOUNCEMENTS) {
     return;
   }
+  if (schedule.tooSoon()) {
+    return;
+  }
   if (!cldrStatus.getSurveyUser()) {
     if (viewCallbackSetData) {
       viewCallbackSetData(null);
@@ -36,6 +47,7 @@ async function refresh(viewCallbackSetData) {
   }
   callbackSetData = viewCallbackSetData;
   const url = cldrAjax.makeApiUrl("announce", null);
+  schedule.setRequestTime();
   return await cldrAjax
     .doFetch(url)
     .then(cldrAjax.handleFetchErrors)
@@ -46,6 +58,7 @@ async function refresh(viewCallbackSetData) {
 
 function setPosts(json) {
   thePosts = json;
+  schedule.setResponseTime();
   if (callbackSetData) {
     callbackSetData(thePosts);
   }

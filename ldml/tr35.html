@@ -3157,7 +3157,13 @@ always be a value that exists in root. So you can not have the following in root
 <tr><th rowspan="4">LikelySubtags</th>
     <td colspan="2">Provides most likely full subtag (script and region) in the absence of other information. A core component of LocaleMatching.</td></tr>
         <tr><td><i>Example:</i></td>
-            <td>addLikelySubtags(zh) ⇒ zh-Hans-CN<br>addLikelySubtags(zh-TW) ⇒ zh-Hant-TW<br>minimize(zh-Hans, favorRegion) ⇒ zh-TW</td></tr>
+            <td>addLikelySubtags(zh) ⇒ zh-Hans-CN<br>
+                addLikelySubtags(zh-TW) ⇒ zh-Hant-TW<br>
+                addLikelySubtags(zh-Hant) ⇒ zh-Hant-TW<br>
+                minimize(zh-Hans-CN, favorRegion|favorScript) ⇒ zh<br>
+                minimize(zh-Hant-TW, favorRegion) ⇒ zh-TW<br>
+                minimize(zh-Hant-TW, favorScript) ⇒ zh-Hant
+            </td></tr>
         <tr><td><i>Data:</i></td>
             <td>likelySubtags.xml &lt;likelySubtags&gt;</td></tr>
         <tr><td><i>Spec:</i></td>
@@ -5215,8 +5221,14 @@ That list was retained for migration.</li>
 <li>In <a href="tr35-numbers.html#Supplemental_Currency_Data">Supplemental Currency Data</a>, for the <code>currency</code> element, added attributes <code>tz</code> and <code>to-tz</code> to clarify the <code>from</code> and <code>to</code> dates.</li>
 </ul>
 </li>
-<li><p>Part 6: [Supplemental]<a href="tr35-info.html#Contents">Supplemental</a></p>
+<li><p>Part 6: <a href="tr35-info.html#Contents">Supplemental</a></p>
 <ul>
+<li>In <a href="tr35-info.html#mixed-units">Mixed Units</a>, clarified many aspects of mixed units (such as foot-and-inch), 
+including how to handle rounding and precision. </li>
+<li>In <a href="tr35-info.html#testing">Testing</a>, listed the additional test files.</li>
+<li>In <a href="tr35-info.html#Unit_Preferences_Overrides">Unit Preferences Overrides</a>, added handling of edge cases,
+such as where there is no quantity for a unit, or no preference data for a quantity.
+Also clarified how to handle invalid subtags, and the usage of each of the subtags that affect unit preferences. </li>
 <li>In <a href="tr35-info.html#conversion-data">Conversion Data</a>, added the <code>special</code> attribute for <code>convertUnit</code>, used for handling beaufort.</li>
 </ul>
 </li>

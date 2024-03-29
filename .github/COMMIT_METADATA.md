@@ -4,6 +4,9 @@
 ### The following list of commits is parsed by the ICU/CLDR commit checker to make corrections
 ### It has the following structure:
 ### `- <commit> <bug id or hyphen> <message>`
+###
+### Hint: To see full commit hashes use:
+###   git log --format='%H %s'
 
 - 00decafbad CLDR-0000 Bad commit message
 - 50257a7a3eba7bbed634961a2aa74e77b12810bf - Early commit, no bug id
@@ -21,7 +24,7 @@
 - cf63211ac313545dcd153a74e4d19d0be593db41 CLDR-16712 v44 CLDRModify
 - cbdd59767072c7ca154faae2d3b59ad6ad67dd1d CLDR-16650 v44 cherry-pick maint-43 to main
 - f534e312f9c5b6984e5a941746adff08eff66c50 CLDR-16577 v44 merge maint-43 to main
-- 09c8e10 CLDR-17277 v45 accidental merge commit
+- 09c8e1082808f97608c39062897a7b844d50c18e CLDR-17277 v45 accidental merge commit
 
 ### The following are items to skip for a certain CLDR version.
 ### Format: `# SKIP v00` followed by a list of commits to skip for that version (same structure as above)
@@ -57,10 +60,10 @@
 
 # SKIP v45
 
-- 1a52361654 CLDR-17141 kbd: drop transform=no (#3330) (cherry-picked to maint-44)
-- 286a10b2b2 CLDR-17140 kbd: specify modifier matching (#3314) (cherry-picked to maint-44)
-- 5f1d2981aa CLDR-17113 kbd: element/attr renaming (#3313) (cherry-picked to maint-44)
-- 73e4014 CLDR-17229 kbd: cherry pick FROM maint-44
-- 13db390 CLDR-17141 kbd: fixed in 44
-- 09c8e10 CLDR-17230 emoji: fixed in 44.1
-- 657e6e9 CLDR-17141 kbd: fixed in 44
+- 1a52361654f5d9c58f084d1d919080423862975a CLDR-17141 kbd: drop transform=no (#3330) (cherry-picked to maint-44)
+- 286a10b2b26fb4db33b4225a9f6d7a59eb1608d5 CLDR-17140 kbd: specify modifier matching (#3314) (cherry-picked to maint-44)
+- 5f1d2981aa384660722d5788ad7e396f86af9f97 CLDR-17113 kbd: element/attr renaming (#3313) (cherry-picked to maint-44)
+- 73e4014f703e78e7868abc218b3e8f60f912cb96 CLDR-17229 kbd: cherry pick FROM maint-44
+- 13db39076da1999260ad5ad85b6fc2bf8050756f CLDR-17141 kbd: fixed in 44
+- 09c8e1082808f97608c39062897a7b844d50c18e CLDR-17230 emoji: fixed in 44.1
+- 657e6e996b88b891132db29cc4fc61c36f174689 CLDR-17141 kbd: fixed in 44

@@ -36,6 +36,10 @@ export class FetchSchedule {
     }
   }
 
+  reset() {
+    this.lastRequestTime = this.lastResponseTime = 0;
+  }
+
   /**
    * Is it too soon to make a request?
    *
@@ -44,8 +48,9 @@ export class FetchSchedule {
   tooSoon() {
     const now = Date.now();
     if (
-      now < this.lastResponseTime + this.refreshMillis ||
-      now < this.lastRequestTime + this.refreshMillis
+      this.lastRequestTime &&
+      (now < this.lastResponseTime + this.refreshMillis ||
+        now < this.lastRequestTime + this.refreshMillis)
     ) {
       if (this.debug) {
         console.log(

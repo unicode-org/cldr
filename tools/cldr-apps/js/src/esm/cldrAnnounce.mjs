@@ -27,17 +27,37 @@ let thePosts = null;
 let callbackSetData = null;
 let callbackSetUnread = null;
 
+/**
+ * Get the number of unread announcements, to display in the main menu
+ *
+ * @param {Function} setUnreadCount the callback function for setting the unread count
+ */
 async function getUnreadCount(setUnreadCount) {
-  callbackSetUnread = setUnreadCount;
+  if (setUnreadCount) {
+    callbackSetUnread = setUnreadCount;
+  }
   await refresh(callbackSetData);
 }
 
+/**
+ * Refresh the Announcements page and/or unread count
+ *
+ * @param {Function} viewCallbackSetData the callback function for the Announcements page, or null
+ *
+ * The callback function for setting the data may be null if the Announcements page isn't open and
+ * we're only getting the number of unread announcements to display in the main header
+ */
 async function refresh(viewCallbackSetData) {
   if (DISABLE_ANNOUNCEMENTS) {
     return;
   }
-  if (schedule.tooSoon()) {
-    return;
+  if (viewCallbackSetData) {
+    if (!callbackSetData) {
+      // The Announcements page was just opened, so re-fetch the data immediately regardless
+      // of how recently it was fetched previously (for unread count)
+      schedule.reset();
+    }
+    callbackSetData = viewCallbackSetData;
   }
   if (!cldrStatus.getSurveyUser()) {
     if (viewCallbackSetData) {
@@ -45,7 +65,9 @@ async function refresh(viewCallbackSetData) {
     }
     return;
   }
-  callbackSetData = viewCallbackSetData;
+  if (schedule.tooSoon()) {
+    return;
+  }
   const url = cldrAjax.makeApiUrl("announce", null);
   schedule.setRequestTime();
   return await cldrAjax
@@ -63,7 +85,7 @@ function setPosts(json) {
     callbackSetData(thePosts);
   }
   if (callbackSetUnread) {
-    let totalCount = thePosts.announcements?.length || 0;
+    const totalCount = thePosts.announcements?.length || 0;
     let checkedCount = 0;
     for (let announcement of thePosts.announcements) {
       if (announcement.checked) {
@@ -85,6 +107,7 @@ function canChooseAllOrgs() {
 }
 
 async function compose(formState, viewCallbackComposeResult) {
+  schedule.reset();
   const init = cldrAjax.makePostData(formState);
   const url = cldrAjax.makeApiUrl("announce", null);
   return await cldrAjax

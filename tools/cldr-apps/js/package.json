@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build-test": "webpack --config webpack-test.config.js",
+    "watch-test": "npm run build-test -- --watch",
     "test": "npm run nonbrowser-test && npm run browser-test",
     "nonbrowser-test": "mocha --reporter spec test/nonbrowser/test-*.mjs",
     "browser-test": "npm run build-test && mocha-headless-chrome -f test/Test.html",

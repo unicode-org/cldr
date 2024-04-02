@@ -7,7 +7,7 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
 <!--
   Copyright © 1991-2024 Unicode, Inc.
   For terms of use, see http://www.unicode.org/copyright.html
-  SPDX-License-Identifier: Unicode-DFS-2016
+  SPDX-License-Identifier: Unicode-3.0
   CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 --><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
   <xs:element name="supplementalData">
@@ -80,30 +80,30 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
   <xs:element name="generation">
     <xs:complexType>
       <xs:attribute name="date" use="required"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
+
+
+
+
   <xs:element name="cldrVersion">
     <xs:complexType>
       <xs:attribute name="version" use="required"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
+
+
+
   <xs:element name="currencyData">
     <xs:complexType>
       <xs:sequence>
@@ -124,8 +124,8 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-  
-  
+
+
   <xs:element name="fractions">
     <xs:complexType>
       <xs:sequence>
@@ -145,8 +145,8 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-  
-  
+
+
   <xs:element name="info">
     <xs:complexType>
       <xs:attribute name="iso4217" type="xs:NMTOKEN" use="required"/>
@@ -169,18 +169,18 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="references"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
+
+
+
   <xs:element name="region">
     <xs:complexType>
       <xs:sequence>
@@ -201,9 +201,9 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-  
-  
-  
+
+
+
   <xs:element name="currency">
     <xs:complexType>
       <xs:sequence>
@@ -242,30 +242,30 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
     </xs:complexType>
   </xs:element>
   <!-- use from and to instead. -->
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <xs:element name="alternate">
     <xs:complexType>
       <xs:attribute name="iso4217" type="xs:NMTOKEN" use="required"/>
     </xs:complexType>
   </xs:element>
   <!-- use from and to instead. -->
-  
-  
+
+
   <xs:element name="territoryContainment">
     <xs:complexType>
       <xs:sequence>
@@ -308,13 +308,13 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="references"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
   <xs:element name="subdivisionContainment">
     <xs:complexType>
       <xs:sequence>
@@ -329,10 +329,10 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="contains" type="xs:NMTOKENS"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
+
+
+
+
   <xs:element name="languageData">
     <xs:complexType>
       <xs:sequence>
@@ -362,16 +362,16 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="alt" type="xs:NMTOKENS"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
+
   <xs:element name="territoryInfo">
     <xs:complexType>
       <xs:sequence>
@@ -393,10 +393,10 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="alt" type="xs:NMTOKENS"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
+
+
+
+
   <xs:element name="territory">
     <xs:complexType>
       <xs:sequence>
@@ -422,18 +422,18 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="alt" type="xs:NMTOKENS"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
+
+
+
   <xs:element name="languagePopulation">
     <xs:complexType>
       <xs:attribute name="type" type="xs:NMTOKEN" use="required"/>
@@ -466,19 +466,19 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="alt" type="xs:NMTOKENS"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
   <xs:element name="postalCodeData">
     <xs:complexType>
       <xs:sequence>
@@ -486,7 +486,7 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  
+
   <xs:element name="postCodeRegex">
     <xs:complexType mixed="true">
       <xs:attribute name="territoryId" type="xs:NMTOKEN" use="required"/>
@@ -504,10 +504,10 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
+
+
+
+
   <xs:element name="calendarData">
     <xs:complexType>
       <xs:sequence>
@@ -540,14 +540,14 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="alt" type="xs:NMTOKENS"/>
     </xs:complexType>
   </xs:element>
-  
+
   <!-- use ordering attribute in calendarPreference element instead. -->
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
   <xs:element name="calendarSystem">
     <xs:complexType>
       <xs:attribute name="type" use="required">
@@ -563,15 +563,15 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="references"/>
     </xs:complexType>
   </xs:element>
-  
-  
+
+
   <xs:element name="inheritEras">
     <xs:complexType>
       <xs:attribute name="calendar" type="xs:NMTOKEN" use="required"/>
     </xs:complexType>
   </xs:element>
-  
-  
+
+
   <xs:element name="eras">
     <xs:complexType>
       <xs:sequence>
@@ -580,7 +580,7 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="references"/>
     </xs:complexType>
   </xs:element>
-  
+
   <xs:element name="era">
     <xs:complexType>
       <xs:attribute name="type" type="xs:NMTOKEN" use="required"/>
@@ -598,16 +598,16 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
+
   <xs:element name="calendarPreferenceData">
     <xs:complexType>
       <xs:sequence>
@@ -621,9 +621,9 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="ordering" type="xs:NMTOKENS" use="required"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
+
+
+
   <xs:element name="weekData">
     <xs:complexType>
       <xs:sequence>
@@ -667,12 +667,12 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="alt" type="xs:NMTOKENS"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
   <xs:element name="firstDay">
     <xs:complexType>
       <xs:attribute name="day" use="required">
@@ -705,13 +705,13 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="alt" type="xs:NMTOKENS"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
   <xs:element name="weekendStart">
     <xs:complexType>
       <xs:attribute name="day" use="required">
@@ -744,12 +744,12 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="alt" type="xs:NMTOKENS"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
   <xs:element name="weekendEnd">
     <xs:complexType>
       <xs:attribute name="day" use="required">
@@ -782,21 +782,21 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="alt" type="xs:NMTOKENS"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
   <xs:element name="weekOfPreference">
     <xs:complexType>
       <xs:attribute name="locales" type="xs:NMTOKENS" use="required"/>
       <xs:attribute name="ordering" type="xs:NMTOKENS" use="required"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
+
+
+
   <xs:element name="timeData">
     <xs:complexType>
       <xs:sequence>
@@ -822,12 +822,12 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="references"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
   <xs:element name="measurementData">
     <xs:complexType>
       <xs:sequence>
@@ -871,12 +871,12 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="alt" type="xs:NMTOKENS"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
   <xs:element name="paperSize">
     <xs:complexType>
       <xs:attribute name="type" use="required">
@@ -904,12 +904,12 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="alt" type="xs:NMTOKENS"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
   <xs:element name="unitIdComponents">
     <xs:complexType>
       <xs:sequence>
@@ -923,9 +923,9 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="values" type="xs:NMTOKENS" use="required"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
+
+
+
   <xs:element name="unitPrefixes">
     <xs:complexType>
       <xs:sequence>
@@ -945,13 +945,13 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
     <unitPrefix type='quecto' symbol='q' power10='-30'>
     <unitPrefix type='kibi' symbol='Ki' power2='10'>
   -->
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
   <xs:element name="unitConstants">
     <xs:complexType>
       <xs:sequence>
@@ -967,13 +967,13 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="description"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
   <xs:element name="unitQuantities">
     <xs:complexType>
       <xs:sequence>
@@ -989,13 +989,13 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="description"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
   <xs:element name="convertUnits">
     <xs:complexType>
       <xs:sequence>
@@ -1014,19 +1014,19 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="description"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
   <xs:element name="unitPreferenceData">
     <xs:complexType>
       <xs:sequence>
@@ -1044,7 +1044,7 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-  
+
   <xs:element name="unitPreferences">
     <xs:complexType>
       <xs:sequence>
@@ -1071,10 +1071,10 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
+
+
+
+
   <xs:element name="unitPreference">
     <xs:complexType mixed="true">
       <xs:attribute name="regions" type="xs:NMTOKENS" use="required"/>
@@ -1094,14 +1094,14 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="alt" type="xs:NMTOKENS"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
   <xs:element name="timezoneData">
     <xs:complexType>
       <xs:sequence>
@@ -1110,7 +1110,7 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  
+
   <xs:element name="mapTimezones">
     <xs:complexType>
       <xs:sequence>
@@ -1122,13 +1122,13 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="references"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
   <xs:element name="mapZone">
     <xs:complexType>
       <xs:attribute name="type" use="required"/>
@@ -1137,12 +1137,12 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="references"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
   <xs:element name="zoneFormatting">
     <xs:complexType>
       <xs:sequence>
@@ -1153,13 +1153,13 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="references"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
   <xs:element name="zoneItem">
     <xs:complexType>
       <xs:attribute name="type" use="required"/>
@@ -1168,14 +1168,14 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="references"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
   <xs:element name="characters">
     <xs:complexType>
       <xs:sequence>
@@ -1195,8 +1195,8 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-  
-  
+
+
   <xs:element name="character-fallback">
     <xs:complexType>
       <xs:sequence>
@@ -1227,13 +1227,13 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="alt" type="xs:NMTOKENS"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
   <xs:element name="substitute">
     <xs:complexType mixed="true">
       <xs:attribute name="draft">
@@ -1253,13 +1253,13 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="alt" type="xs:NMTOKENS"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
   <xs:element name="transforms">
     <xs:complexType>
       <xs:sequence>
@@ -1311,22 +1311,22 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="alt" type="xs:NMTOKENS"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
+
+
   <xs:element name="comment" type="xs:string"/>
-  
-  
+
+
   <xs:element name="tRule" type="xs:string"/>
-  
+
   <xs:element name="metadata">
     <xs:complexType>
       <xs:sequence>
@@ -1357,8 +1357,8 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-  
-  
+
+
   <xs:element name="attributeOrder">
     <xs:complexType mixed="true">
       <xs:attribute name="draft">
@@ -1375,9 +1375,9 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-  
-  
-  
+
+
+
   <xs:element name="elementOrder">
     <xs:complexType mixed="true">
       <xs:attribute name="draft">
@@ -1394,9 +1394,9 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-  
-  
-  
+
+
+
   <xs:element name="serialElements">
     <xs:complexType mixed="true">
       <xs:attribute name="draft">
@@ -1413,9 +1413,9 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-  
-  
-  
+
+
+
   <xs:element name="suppress">
     <xs:complexType>
       <xs:sequence>
@@ -1435,9 +1435,9 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-  
-  
-  
+
+
+
   <xs:element name="attributes">
     <xs:complexType>
       <xs:attribute name="element" type="xs:NMTOKENS"/>
@@ -1457,15 +1457,15 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
   <xs:element name="validity">
     <xs:complexType>
       <xs:sequence>
@@ -1486,9 +1486,9 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-  
-  
-  
+
+
+
   <xs:element name="variable">
     <xs:complexType mixed="true">
       <xs:attribute name="type" type="xs:NMTOKEN"/>
@@ -1507,12 +1507,12 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
   <xs:element name="attributeValues">
     <xs:complexType mixed="true">
       <xs:attribute name="dtds" type="xs:NMTOKEN"/>
@@ -1534,17 +1534,17 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
+
+
   <xs:element name="alias">
     <xs:complexType>
       <xs:sequence>
@@ -1571,8 +1571,8 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-  
-  
+
+
   <xs:element name="languageAlias">
     <xs:complexType>
       <xs:attribute name="type" type="xs:NMTOKEN" use="required"/>
@@ -1590,10 +1590,10 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
+
+
+
+
   <xs:element name="scriptAlias">
     <xs:complexType>
       <xs:attribute name="type" type="xs:NMTOKEN" use="required"/>
@@ -1608,10 +1608,10 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
+
+
+
+
   <xs:element name="territoryAlias">
     <xs:complexType>
       <xs:attribute name="type" type="xs:NMTOKEN" use="required"/>
@@ -1626,10 +1626,10 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
+
+
+
+
   <xs:element name="subdivisionAlias">
     <xs:complexType>
       <xs:attribute name="type" type="xs:NMTOKEN" use="required"/>
@@ -1644,10 +1644,10 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
+
+
+
+
   <xs:element name="variantAlias">
     <xs:complexType>
       <xs:attribute name="type" type="xs:NMTOKEN" use="required"/>
@@ -1662,10 +1662,10 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
+
+
+
+
   <xs:element name="zoneAlias">
     <xs:complexType>
       <xs:attribute name="type" use="required"/>
@@ -1680,10 +1680,10 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
+
+
+
+
   <xs:element name="unitAlias">
     <xs:complexType>
       <xs:attribute name="type" type="xs:NMTOKEN" use="required"/>
@@ -1697,10 +1697,10 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
+
+
+
+
   <xs:element name="usageAlias">
     <xs:complexType>
       <xs:attribute name="type" type="xs:NMTOKEN" use="required"/>
@@ -1714,10 +1714,10 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
+
+
+
+
   <xs:element name="deprecated">
     <xs:complexType>
       <xs:sequence>
@@ -1737,9 +1737,9 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-  
-  
-  
+
+
+
   <xs:element name="deprecatedItems">
     <xs:complexType>
       <xs:attribute name="type">
@@ -1770,13 +1770,13 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
   <xs:element name="distinguishing">
     <xs:complexType>
       <xs:sequence>
@@ -1794,10 +1794,10 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
+
+
+
+
   <xs:element name="distinguishingItems">
     <xs:complexType>
       <xs:attribute name="exclude">
@@ -1822,14 +1822,14 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
   <xs:element name="blocking">
     <xs:complexType>
       <xs:sequence>
@@ -1847,10 +1847,10 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
+
+
+
+
   <xs:element name="blockingItems">
     <xs:complexType>
       <xs:attribute name="elements" type="xs:NMTOKENS"/>
@@ -1866,11 +1866,11 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
-  
+
+
+
+
+
   <xs:element name="coverageAdditions">
     <xs:complexType>
       <xs:sequence>
@@ -1894,9 +1894,9 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-  
-  
-  
+
+
+
   <xs:element name="languageCoverage">
     <xs:complexType>
       <xs:attribute name="type" type="xs:NMTOKEN"/>
@@ -1915,12 +1915,12 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
   <xs:element name="scriptCoverage">
     <xs:complexType>
       <xs:attribute name="type" type="xs:NMTOKEN"/>
@@ -1939,12 +1939,12 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
   <xs:element name="territoryCoverage">
     <xs:complexType>
       <xs:attribute name="type" type="xs:NMTOKEN"/>
@@ -1963,12 +1963,12 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
   <xs:element name="currencyCoverage">
     <xs:complexType>
       <xs:attribute name="type" type="xs:NMTOKEN"/>
@@ -1987,12 +1987,12 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
   <xs:element name="timezoneCoverage">
     <xs:complexType>
       <xs:attribute name="type" type="xs:NMTOKEN"/>
@@ -2011,28 +2011,28 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-  
-  
+
+
   <!-- would be NMTOKENS, but needs to allow / -->
-  
-  
-  
-  
+
+
+
+
   <xs:element name="skipDefaultLocale">
     <xs:complexType>
       <xs:attribute name="services" type="xs:NMTOKENS"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
+
+
+
   <xs:element name="defaultContent">
     <xs:complexType>
       <xs:attribute name="locales" type="xs:NMTOKENS"/>
     </xs:complexType>
   </xs:element>
-  
-  
+
+
   <xs:element name="codeMappings">
     <xs:complexType>
       <xs:sequence>
@@ -2048,10 +2048,10 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="alpha3" type="xs:NMTOKEN" use="required"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
+
+
+
+
   <xs:element name="territoryCodes">
     <xs:complexType>
       <xs:attribute name="type" type="xs:NMTOKEN" use="required"/>
@@ -2061,24 +2061,24 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="internet" type="xs:NMTOKENS"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
   <xs:element name="currencyCodes">
     <xs:complexType>
       <xs:attribute name="type" type="xs:NMTOKEN" use="required"/>
       <xs:attribute name="numeric" type="xs:NMTOKEN" use="required"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
+
+
+
   <!-- # Parent locales -->
   <xs:element name="parentLocales">
     <xs:complexType>
@@ -2088,16 +2088,16 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="component" type="xs:NMTOKENS"/>
     </xs:complexType>
   </xs:element>
-  
+
   <xs:element name="parentLocale">
     <xs:complexType>
       <xs:attribute name="parent" type="xs:NMTOKEN" use="required"/>
       <xs:attribute name="locales" type="xs:NMTOKENS" use="required"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
+
+
+
   <xs:element name="personNamesDefaults">
     <xs:complexType>
       <xs:choice>
@@ -2119,7 +2119,7 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="references"/>
     </xs:complexType>
   </xs:element>
-  
+
   <xs:element name="likelySubtags">
     <xs:complexType>
       <xs:sequence>
@@ -2134,11 +2134,11 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="origin" type="xs:NMTOKENS"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
-  
+
+
+
+
+
   <xs:element name="metazoneInfo">
     <xs:complexType>
       <xs:sequence>
@@ -2154,7 +2154,7 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="type" use="required"/>
     </xs:complexType>
   </xs:element>
-  
+
   <xs:element name="usesMetazone">
     <xs:complexType>
       <xs:attribute name="from"/>
@@ -2162,10 +2162,10 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="mzone" type="xs:NMTOKEN" use="required"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
+
+
+
+
   <xs:element name="plurals">
     <xs:complexType>
       <xs:sequence>
@@ -2194,9 +2194,9 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
     </xs:complexType>
   </xs:element>
   <!-- default is cardinal -->
-  
-  
-  
+
+
+
   <xs:element name="pluralRules">
     <xs:complexType>
       <xs:sequence>
@@ -2216,10 +2216,10 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="references"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
+
+
+
+
   <xs:element name="pluralRule">
     <xs:complexType mixed="true">
       <xs:attribute name="count" use="required">
@@ -2247,10 +2247,10 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="references"/>
     </xs:complexType>
   </xs:element>
-  
+
   <!-- 'other' is implicitly everything else -->
-  
-  
+
+
   <xs:element name="pluralRanges">
     <xs:complexType>
       <xs:sequence>
@@ -2270,10 +2270,10 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="references"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
+
+
+
+
   <xs:element name="pluralRange">
     <xs:complexType>
       <xs:attribute name="start">
@@ -2328,9 +2328,9 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
   <!-- if missing, means *all* -->
   <!-- if missing, means *all* -->
   <!-- if a whole rule is missing, means *other* -->
-  
-  
-  
+
+
+
   <xs:element name="telephoneCodeData">
     <xs:complexType>
       <xs:sequence>
@@ -2338,7 +2338,7 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  
+
   <xs:element name="codesByTerritory">
     <xs:complexType>
       <xs:sequence>
@@ -2360,12 +2360,12 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="references"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
   <xs:element name="telephoneCountryCode">
     <xs:complexType>
       <xs:attribute name="code" type="xs:NMTOKEN" use="required"/>
@@ -2387,18 +2387,18 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="alt" type="xs:NMTOKENS"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
+
+
+
   <xs:element name="numberingSystems">
     <xs:complexType>
       <xs:sequence>
@@ -2432,14 +2432,14 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
   <xs:element name="bcp47KeywordMappings">
     <xs:complexType>
       <xs:sequence>
@@ -2448,7 +2448,7 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  
+
   <xs:element name="mapKeys">
     <xs:complexType>
       <xs:sequence>
@@ -2456,17 +2456,17 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  
+
   <xs:element name="keyMap">
     <xs:complexType>
       <xs:attribute name="type" type="xs:NMTOKEN" use="required"/>
       <xs:attribute name="bcp47" type="xs:NMTOKEN" use="required"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
+
+
+
+
   <xs:element name="mapTypes">
     <xs:complexType>
       <xs:sequence>
@@ -2475,18 +2475,18 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="type" type="xs:NMTOKEN" use="required"/>
     </xs:complexType>
   </xs:element>
-  
-  
+
+
   <xs:element name="typeMap">
     <xs:complexType>
       <xs:attribute name="type" use="required"/>
       <xs:attribute name="bcp47" type="xs:NMTOKEN" use="required"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
+
+
+
+
   <!-- # Gender List support -->
   <xs:element name="gender">
     <xs:complexType>
@@ -2509,8 +2509,8 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="locales" type="xs:NMTOKENS" use="required"/>
     </xs:complexType>
   </xs:element>
-  
-  
+
+
   <xs:element name="references">
     <xs:complexType>
       <xs:sequence>
@@ -2518,7 +2518,7 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  
+
   <xs:element name="reference">
     <xs:complexType mixed="true">
       <xs:attribute name="type" type="xs:NMTOKEN" use="required"/>
@@ -2546,15 +2546,15 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="alt" type="xs:NMTOKENS"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
   <xs:element name="languageMatching">
     <xs:complexType>
       <xs:sequence>
@@ -2572,23 +2572,23 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="type" type="xs:NMTOKEN" use="required"/>
     </xs:complexType>
   </xs:element>
-  
+
   <xs:element name="paradigmLocales">
     <xs:complexType>
       <xs:attribute name="locales" type="xs:NMTOKENS" use="required"/>
     </xs:complexType>
   </xs:element>
-  
-  
+
+
   <xs:element name="matchVariable">
     <xs:complexType>
       <xs:attribute name="id" use="required"/>
       <xs:attribute name="value" use="required"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
+
+
+
   <xs:element name="languageMatch">
     <xs:complexType>
       <xs:attribute name="desired" use="required"/>
@@ -2605,14 +2605,14 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
   <!-- # Day Periods -->
   <xs:element name="dayPeriodRuleSet">
     <xs:complexType>
@@ -2633,10 +2633,10 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="references"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
+
+
+
+
   <xs:element name="dayPeriodRules">
     <xs:complexType>
       <xs:sequence>
@@ -2656,10 +2656,10 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="references"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
+
+
+
+
   <xs:element name="dayPeriodRule">
     <xs:complexType>
       <xs:attribute name="type" type="xs:NMTOKEN" use="required"/>
@@ -2681,21 +2681,21 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="references"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <xs:element name="metaZones">
     <xs:complexType>
       <xs:sequence>
@@ -2728,14 +2728,14 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute default="40" name="since"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
   <xs:element name="primaryZones">
     <xs:complexType>
       <xs:sequence>
@@ -2748,7 +2748,7 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="iso3166" type="xs:NMTOKEN" use="required"/>
     </xs:complexType>
   </xs:element>
-  
+
   <!-- # Time Zones -->
   <xs:element name="windowsZones">
     <xs:complexType>
@@ -2768,7 +2768,7 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  
+
   <xs:element name="approvalRequirements">
     <xs:complexType>
       <xs:sequence>
@@ -2783,20 +2783,20 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="paths" use="required"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
+
+
+
+
   <xs:element name="coverageVariable">
     <xs:complexType>
       <xs:attribute name="key" use="required"/>
       <xs:attribute name="value" use="required"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
+
+
+
+
   <xs:element name="coverageLevel">
     <xs:complexType>
       <xs:attribute name="inLanguage"/>
@@ -2806,22 +2806,22 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="match" use="required"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
   <xs:element name="pathMatch">
     <xs:complexType>
       <xs:attribute name="id" type="xs:NMTOKENS"/>
       <xs:attribute name="match" use="required"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
+
+
+
   <xs:element name="idValidity">
     <xs:complexType>
       <xs:sequence>
@@ -2835,8 +2835,8 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="idStatus" type="xs:NMTOKEN" use="required"/>
     </xs:complexType>
   </xs:element>
-  
-  
+
+
   <xs:element name="rgScope">
     <xs:complexType>
       <xs:sequence>
@@ -2859,8 +2859,8 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-  
-  
+
+
   <xs:element name="languageGroups">
     <xs:complexType>
       <xs:sequence>
@@ -2873,7 +2873,7 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="parent" type="xs:NMTOKEN" use="required"/>
     </xs:complexType>
   </xs:element>
-  
+
   <!-- # Grammatical Features -->
   <xs:element name="grammaticalData">
     <xs:complexType>
@@ -2894,35 +2894,35 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="locales" type="xs:NMTOKENS" use="required"/>
     </xs:complexType>
   </xs:element>
-  
-  
+
+
   <xs:element name="grammaticalCase">
     <xs:complexType>
       <xs:attribute name="scope" type="xs:NMTOKENS"/>
       <xs:attribute name="values" type="xs:NMTOKENS"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
+
+
+
   <xs:element name="grammaticalGender">
     <xs:complexType>
       <xs:attribute name="scope" type="xs:NMTOKENS"/>
       <xs:attribute name="values" type="xs:NMTOKENS"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
+
+
+
   <xs:element name="grammaticalDefiniteness">
     <xs:complexType>
       <xs:attribute name="scope" type="xs:NMTOKENS"/>
       <xs:attribute name="values" type="xs:NMTOKENS"/>
     </xs:complexType>
   </xs:element>
-  
-  
-  
+
+
+
   <xs:element name="grammaticalDerivations">
     <xs:complexType>
       <xs:sequence>
@@ -2932,7 +2932,7 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="locales" type="xs:NMTOKENS" use="required"/>
     </xs:complexType>
   </xs:element>
-  
+
   <xs:element name="deriveCompound">
     <xs:complexType>
       <xs:attribute name="feature" type="xs:NMTOKENS" use="required"/>
@@ -2940,11 +2940,11 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
       <xs:attribute name="value" type="xs:NMTOKEN" use="required"/>
     </xs:complexType>
   </xs:element>
-  
-  
+
+
   <!-- TODO: add @MATCH function for locale's gender categories and use here -->
-  
-  
+
+
   <xs:element name="deriveComponent">
     <xs:complexType>
       <xs:attribute name="feature" type="xs:NMTOKENS" use="required"/>

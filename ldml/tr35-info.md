@@ -76,6 +76,7 @@ The LDML specification is divided into the following parts:
 * [Parent Locales](#Parent_Locales)
 * [Unit Conversion](#Unit_Conversion)
   * [Unit Parsing Data](#unit-parsing-data)
+  * [Unit Prefixes](#unit-prefixes)
   * [Constants](#constants)
   * [Conversion Data](#conversion-data)
     * [Derived Unit System](#derived-unit-system)
@@ -815,6 +816,44 @@ For example the following values can be suffixes in a simple_unit identifier suc
 ```
 <unitIdComponent type="suffix" values="force imperial luminosity mass metric person radius scandinavian troy unit us"/>
 ````
+
+### Unit Prefixes
+```xml
+<!ELEMENT unitPrefixes ( unitPrefix* ) >
+
+<!ELEMENT unitPrefix EMPTY >
+<!ATTLIST unitPrefix type NMTOKEN #REQUIRED >
+<!ATTLIST unitPrefix symbol NMTOKEN #REQUIRED >
+<!ATTLIST unitPrefix power10 NMTOKEN #IMPLIED >
+<!ATTLIST unitPrefix power2 NMTOKEN #IMPLIED >
+```
+
+This data lists the SI prefixes that can be applied to units (typically limited to prefixable units), 
+such as the following:
+```xml
+<unitPrefixes>
+	<unitPrefix type='quecto' symbol='q' power10='-30'/>
+...
+	<unitPrefix type='micro' symbol='μ' power10='-6'/>
+...
+	<unitPrefix type='giga' symbol='G' power10='9'/>
+...
+	<unitPrefix type='quetta' symbol='Q' power10='30'/>
+	<unitPrefix type='kibi' symbol='Ki' power2='10'/>
+...
+	<unitPrefix type='yobi' symbol='Yi' power2='80'/>
+</unitPrefixes>
+```
+The information includes the SI prefix and symbol, and the power of 10 or power of 2 
+(for binary prefixes, intended for use with digital units).
+
+Note that the translated short form of a unit prefix is not the same as the localized symbol. 
+The localized symbol may be the same for most Latin-script languages, 
+but depending on the customary use in a language they can be in a different script
+or use different letters even in Latin-script languages. They are, however, the same in the root locale.
+
+The newer prefixes (quecto-, ronto-, -ronna, -quetta) are not yet being translated, 
+because the appropriate translated versions have not yet been well established across languages.
 
 ### Constants
 

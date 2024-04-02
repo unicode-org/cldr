@@ -973,6 +973,10 @@
 
 
 
+
+
+
+
 <script src="./js/anchor.min.js"></script><div class="header"><table class="header" cellpadding="0" cellspacing="0" width="100%">
     <tbody>
         <tr>
@@ -1089,6 +1093,7 @@ This is a stable document and may be used as reference material or cited as a no
 </li>
 </ul>
 </li>
+<li><a href="#special-script-codes">Special Script Codes</a></li>
 <li><a href="#u_Extension">Unicode BCP 47 U Extension</a><ul>
 <li><a href="#Key_And_Type_Definitions_">Key And Type Definitions</a><ul>
 <li>Table: <a href="#Key_Type_Definitions">Key/Type Definitions</a></li>
@@ -1985,7 +1990,94 @@ zh-Hant-HK
 <td>excluded</td>
 <td>bcp47: all non-5 letter codes starting with x</td>
 </tr>
-</tbody></table><p>See also <em><a href="#Unknown_or_Invalid_Identifiers">Unknown or Invalid Identifiers</a></em>.</p><p><a name="Locale_Extension_Key_and_Type_Data"></a></p><h3 id="u_Extension"><a name="unicode-bcp-47-u-extension" href="#u_Extension">Unicode BCP 47 U Extension</a></h3><p>[<a href="#BCP47">BCP47</a>] Language Tags provides a mechanism for extending language tags for use in various applications by extension subtags. Each extension subtag is identified by a single alphanumeric character subtag assigned by IANA.</p><p>The Unicode Consortium has registered and is the maintaining authority for two BCP 47 language tag extensions: the extension 'u' for Unicode locale extension [<a href="#RFC6067">RFC6067</a>] and extension 't' for transformed content [<a href="#RFC6497">RFC6497</a>]. The Unicode BCP 47 extension data defines the complete list of valid subtags.</p><p>These subtags are all in lowercase (that is the canonical casing for these subtags), however, subtags are case-insensitive and casing does not carry any specific meaning. All subtags within the Unicode extensions are alphanumeric characters in length of two to eight that meet the rule <code>extension</code> in the [<a href="#BCP47">BCP47</a>].</p><p><strong>The -u- Extension.</strong> The syntax of 'u' extension subtags is defined by the rule <code>unicode_locale_extensions</code> in <a href="#Unicode_locale_identifier">Unicode locale identifier</a>, except the separator of subtags <code>sep</code> must be always hyphen '-' when the extension is used as a part of BCP 47 language tag.</p><p>A 'u' extension may contain multiple <code>attribute</code> s or <code>keyword</code> s as defined in <a href="#Unicode_locale_identifier">Unicode locale identifier</a>. The canonical syntax is defined as in <a href="#Canonical_Unicode_Locale_Identifiers">Canonical Unicode Locale Identifiers</a>.</p><p><em>See also <a href="https://cldr.unicode.org/index/bcp47-extension">Unicode Extensions for BCP 47</a> on the CLDR site.</em></p><h4 id="Key_And_Type_Definitions_"><a name="key-and-type-definitions" href="#Key_And_Type_Definitions_">Key And Type Definitions</a></h4><p>The following chart contains a set of U extension key values that are currently available, with a description or sampling of the U extension type values. Each category is associated with an XML file in the bcp47 directory.</p><p>For the complete list of valid keys and types defined for Unicode locale extensions, see <a href="#Unicode_Locale_Extension_Data_Files">U Extension Data Files</a>. For information on the process for adding new <em>key</em>/<em>type</em>, see [<a href="#localeProject">LocaleProject</a>].</p><p>Most type values are represented by a single subtag in the current version of CLDR. There are exceptions, such as types used for key "ca" (calendar) and "kr" (collation reordering). If the type is not included, then the type value "true" is assumed. Note that the default for key with a possible "true" value is often "false", but may not always be. Note also that "true"/"True" is not a valid script code, since <a href="https://www.unicode.org/iso15924/codelists.html">the ISO 15924 Registration Authority has exceptionally reserved it</a>, which means that it will not be assigned for any purpose.</p><p>Note that canonicalization does not change invalid locales to valid locales. For example, und-u-ka canonicalizes to und-u-ka-true, but:</p><ol>
+</tbody></table><p>See also <em><a href="#Unknown_or_Invalid_Identifiers">Unknown or Invalid Identifiers</a></em>.</p><h3 id="special-script-codes">Special Script Codes</h3><p>Certain valid script code require special handling.
+These are the codes in <a href="https://www.unicode.org/iso15924/iso15924-codes.html">Script Codes</a> with the words "variant" or "alias" within parentheses,
+excluding Zsye. 
+The Compound codes include characters in multiple scripts; 
+the Visual variants are distinct in appearance, but otherwise encompass a single script; 
+and the Subsets exclude certain characters from a script. 
+The Equivalents for Subsets are not as well defined, so the "Equivalents" are marked as approximate.</p><table>
+<thead>
+<tr>
+<th>Group</th>
+<th>Script</th>
+<th>Equivalent</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Compounds</td>
+<td>Jpan</td>
+<td>≡ Hani ∪ Hira ∪ Kana</td>
+</tr>
+<tr>
+<td></td>
+<td>Hrkt</td>
+<td>≡ Hira ∪ Kana</td>
+</tr>
+<tr>
+<td></td>
+<td>Kore</td>
+<td>≡ Hani ∪ Hang</td>
+</tr>
+<tr>
+<td></td>
+<td>Hanb</td>
+<td>≡ Hani ∪ Bopo</td>
+</tr>
+<tr>
+<td>Visual variants</td>
+<td>Aran</td>
+<td>≡ Arab (Nastaliq variant)</td>
+</tr>
+<tr>
+<td></td>
+<td>Cyrs</td>
+<td>≡ Cyrl (Old Church Slavonic variant)</td>
+</tr>
+<tr>
+<td></td>
+<td>Latf</td>
+<td>≡ Latn (Fraktur variant)</td>
+</tr>
+<tr>
+<td></td>
+<td>Latg</td>
+<td>≡ Latn (Gaelic variant)</td>
+</tr>
+<tr>
+<td></td>
+<td>Syrn</td>
+<td>≡ Syrc (Eastern variant)</td>
+</tr>
+<tr>
+<td></td>
+<td>Syre</td>
+<td>≡ Syrc (Estrangelo variant)</td>
+</tr>
+<tr>
+<td></td>
+<td>Syrj</td>
+<td>≡ Syrc (Western variant)</td>
+</tr>
+<tr>
+<td>Subsets (approximate)</td>
+<td>Jamo</td>
+<td>≃ Hang - LVT - LV</td>
+</tr>
+<tr>
+<td></td>
+<td>Hans</td>
+<td>≃ Hani - Traditional-only</td>
+</tr>
+<tr>
+<td></td>
+<td>Hant</td>
+<td>≃ Hani - Simplified-only</td>
+</tr>
+</tbody></table><p>The special codes most frequently used are in the locale identifiers zh-Hans, zh-Hant, ja-Jpan, and ko-Kore. 
+These are used, for example, in <a href="#Likely_Subtags">Likely Subtags</a> in LDML. 
+Some of the special codes are used in other specifications, 
+such as in <a href="https://unicode.org/reports/tr39/#Mixed_Script_Detection">Mixed_Script_Detection</a>.</p><p><a name="Locale_Extension_Key_and_Type_Data"></a></p><h3 id="u_Extension"><a name="unicode-bcp-47-u-extension" href="#u_Extension">Unicode BCP 47 U Extension</a></h3><p>[<a href="#BCP47">BCP47</a>] Language Tags provides a mechanism for extending language tags for use in various applications by extension subtags. Each extension subtag is identified by a single alphanumeric character subtag assigned by IANA.</p><p>The Unicode Consortium has registered and is the maintaining authority for two BCP 47 language tag extensions: the extension 'u' for Unicode locale extension [<a href="#RFC6067">RFC6067</a>] and extension 't' for transformed content [<a href="#RFC6497">RFC6497</a>]. The Unicode BCP 47 extension data defines the complete list of valid subtags.</p><p>These subtags are all in lowercase (that is the canonical casing for these subtags), however, subtags are case-insensitive and casing does not carry any specific meaning. All subtags within the Unicode extensions are alphanumeric characters in length of two to eight that meet the rule <code>extension</code> in the [<a href="#BCP47">BCP47</a>].</p><p><strong>The -u- Extension.</strong> The syntax of 'u' extension subtags is defined by the rule <code>unicode_locale_extensions</code> in <a href="#Unicode_locale_identifier">Unicode locale identifier</a>, except the separator of subtags <code>sep</code> must be always hyphen '-' when the extension is used as a part of BCP 47 language tag.</p><p>A 'u' extension may contain multiple <code>attribute</code> s or <code>keyword</code> s as defined in <a href="#Unicode_locale_identifier">Unicode locale identifier</a>. The canonical syntax is defined as in <a href="#Canonical_Unicode_Locale_Identifiers">Canonical Unicode Locale Identifiers</a>.</p><p><em>See also <a href="https://cldr.unicode.org/index/bcp47-extension">Unicode Extensions for BCP 47</a> on the CLDR site.</em></p><h4 id="Key_And_Type_Definitions_"><a name="key-and-type-definitions" href="#Key_And_Type_Definitions_">Key And Type Definitions</a></h4><p>The following chart contains a set of U extension key values that are currently available, with a description or sampling of the U extension type values. Each category is associated with an XML file in the bcp47 directory.</p><p>For the complete list of valid keys and types defined for Unicode locale extensions, see <a href="#Unicode_Locale_Extension_Data_Files">U Extension Data Files</a>. For information on the process for adding new <em>key</em>/<em>type</em>, see [<a href="#localeProject">LocaleProject</a>].</p><p>Most type values are represented by a single subtag in the current version of CLDR. There are exceptions, such as types used for key "ca" (calendar) and "kr" (collation reordering). If the type is not included, then the type value "true" is assumed. Note that the default for key with a possible "true" value is often "false", but may not always be. Note also that "true"/"True" is not a valid script code, since <a href="https://www.unicode.org/iso15924/codelists.html">the ISO 15924 Registration Authority has exceptionally reserved it</a>, which means that it will not be assigned for any purpose.</p><p>Note that canonicalization does not change invalid locales to valid locales. For example, und-u-ka canonicalizes to und-u-ka-true, but:</p><ol>
 <li>"und-u-ka-true" — is invalid, since ‘yes’ is not a valid value for ka</li>
 <li>"und-u-ka" — is invalid, since the value “true” is assumed whenever there is no value, and ‘true’ is not a valid value for ka</li>
 </ol><p>The BCP 47 form for keys and types is the canonical form, and recommended. Other aliases are included for backwards compatibility.</p><!-- HTML: rowspan, colspan --><table><caption id="Key_Type_Definitions">Table: <a name="table-keytype-definitions" href="#Key_Type_Definitions">Key/Type Definitions</a></caption><tbody>
@@ -2918,12 +3010,16 @@ lang_region (aliases to lang_script_region based on likely subtags)
 <td><code>//ldml/numbers/currencies/currency[@type="CAD"]/displayName</code></td>
 </tr>
 </tbody></table><h4 id="Parent_Locales"><a name="parent-locales" href="#Parent_Locales">Parent Locales</a></h4><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">parentLocales</span> ( <span class="hljs-keyword">parentLocale</span>* ) &gt;</span>
-<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">parentLocales</span> <span class="hljs-keyword">component</span> <span class="hljs-keyword">NMTOKEN</span> <span class="hljs-keyword">#IMPLIED</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">parentLocales</span> <span class="hljs-keyword">component</span> <span class="hljs-keyword">NMTOKENS</span> <span class="hljs-keyword">#IMPLIED</span> &gt;</span>
 <span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">parentLocale</span> <span class="hljs-keyword">EMPTY</span> &gt;</span>
 <span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">parentLocale</span> <span class="hljs-keyword">parent</span> <span class="hljs-keyword">NMTOKEN</span> <span class="hljs-keyword">#REQUIRED</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">parentLocale</span> <span class="hljs-keyword">localeRules</span> <span class="hljs-keyword">NMTOKENS</span> <span class="hljs-keyword">#IMPLIED</span> &gt;</span>
 <span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">parentLocale</span> <span class="hljs-keyword">locales</span> <span class="hljs-keyword">NMTOKENS</span> <span class="hljs-keyword">#REQUIRED</span> &gt;</span>
 </code></pre><p>When the component does not occur, that is referred to as the ‘main’ component.
-Otherwise the component value typically corresponds to an element and its children, such as ‘collations’ or ‘plurals’.</p><p>The basic inheritance model for locales of the form <code>lang_script_region_variant1_…variantN</code> is to truncate from the end. That is,
+Otherwise the component value typically corresponds to elements and their children, such as ‘collations’ or ‘plurals’.
+There may be more than one component value (space separated):
+in that case the information applies to all the components listed.</p><p>The basic inheritance model for locales of the form <code>lang_script_region_variant1_…variantN</code> is to truncate from the end.
+That is,
 remove the _u and _t extensions, then remove the last _ and following tag, then restore the extensions.</p><p>For example</p><pre><code>sr_Cyrl_ME
 →
 sr_Cyrl
@@ -2935,22 +3031,27 @@ then a mixture of child and parent textual data is a mishmash of different scrip
 <li>When the parent locale would have a different script, and text would be mixed.</li>
 <li>In certain exceptional circumstances where the 'truncation' parent needs to be adjusted.</li>
 </ol><p>The <code>parentLocale</code> element is used to override the normal inheritance when accessing CLDR data.</p><p>For case 1, there is a special attribute and value, <code>localeRules="nonlikelyScript"</code>,
-which specifies <strong>all locales</strong> of the form <code>lang_script</code>, wherever the <code>script</code> is <strong>not</strong> the likely script for <code>lang</code>.
+which specifies <strong>all locales</strong> of the form <code>lang_script</code>,
+wherever the <code>script</code> is <strong>not</strong> the likely script for <code>lang</code>.
 For migration, the previous short list of locales (a subset of the nonlikelyScript locales) is retained,
 but those locales are slated for removal in the future.
 For example, <code>ru_Latn</code> is not included in the short list but is included (programmatically) in the rule.</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">parentLocale</span> <span class="hljs-attr">parent</span>=<span class="hljs-string">"root"</span> <span class="hljs-attr">localeRules</span>=<span class="hljs-string">"nonlikelyScript"</span> <span class="hljs-attr">locales</span>=<span class="hljs-string">"az_Arab az_Cyrl bal_Latn … yue_Hans zh_Hant"</span>/&gt;</span>/&gt;
 </code></pre><p>The <code>localeRules</code> is used for the main component, for example.
 It is not used to components where text is not mixed,
-such as the collations component or the plurals component.</p><p>For case 2, the children and parent share the same primary language, but the region is changed. For example:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">parentLocale</span> <span class="hljs-attr">parent</span>=<span class="hljs-string">"es_419"</span> <span class="hljs-attr">locales</span>=<span class="hljs-string">"es_AR es_BO … es_UY es_VE"</span>/&gt;</span>
+such as the collations component or the plurals component.</p><p>For case 2, the children and parent share the same primary language, but the region is changed.
+For example:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">parentLocale</span> <span class="hljs-attr">parent</span>=<span class="hljs-string">"es_419"</span> <span class="hljs-attr">locales</span>=<span class="hljs-string">"es_AR es_BO … es_UY es_VE"</span>/&gt;</span>
 </code></pre><p>There are certain components that require addenda to the common parent fallback rules.
-For a locale like <code>zh_Hant</code> in the example above, the <code>parentLocale</code> element would dictate the parent as <code>root</code> when referring to main locale data,
+For a locale like <code>zh_Hant</code> in the example above,
+the <code>parentLocale</code> element would dictate the parent as <code>root</code> when referring to main locale data,
 but for collation data, the parent locale should still be <code>zh</code>,
 even though the <code>parentLocale</code> element is present for that locale.
-To address this, components can have their own fallback rules that inherit from the common rules and add additional parents that supplement or override the common rules:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">parentLocales</span> <span class="hljs-attr">component</span>=<span class="hljs-string">"segmentations"</span>&gt;</span>
+To address this, components can have their own fallback rules that inherit from the common rules
+and add additional parents that supplement or override the common rules:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">parentLocales</span> <span class="hljs-attr">component</span>=<span class="hljs-string">"segmentations"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">parentLocale</span> <span class="hljs-attr">parent</span>=<span class="hljs-string">"zh"</span> <span class="hljs-attr">locales</span>=<span class="hljs-string">"zh_Hant"</span>/&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">parentLocales</span>&gt;</span>
 </code></pre><p>Note: When components were first introduced, the component-specific parent locales were be merged with the main parent locales.
-This was determined to be an error, and the component-specific parent locales are now not merged, but are treated as stand-alone.</p><p>Since parentLocale information is not localizable on a per locale basis,
+This was determined to be an error, and the component-specific parent locales are now not merged,
+but instead are treated as stand-alone.</p><p>Since parentLocale information is not localizable on a per locale basis,
 the parentLocale information is contained in CLDR’s <a href="tr35-info.html">supplemental data.</a></p><p>When a <code>parentLocale</code> element is used to override normal inheritance, the following guidelines apply in most cases:</p><ol>
 <li>If X is the parentLocale of Y, then either X is the root locale, or X has the same base language code as Y.
 For example, the parent of <code>en</code> cannot be <code>fr</code>, and the parent of <code>en_YY</code> cannot be <code>fr</code> or <code>fr_XX</code>.</li>

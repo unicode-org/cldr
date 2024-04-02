@@ -356,6 +356,13 @@
 
 
 
+
+
+
+
+
+
+
 <script src="./js/anchor.min.js"></script><div class="header"><table class="header" cellpadding="0" cellspacing="0" width="100%">
     <tbody>
         <tr>
@@ -434,6 +441,7 @@ This is a stable document and may be used as reference material or cited as a no
 <li><a href="#Parent_Locales">Parent Locales</a></li>
 <li><a href="#Unit_Conversion">Unit Conversion</a><ul>
 <li><a href="#unit-parsing-data">Unit Parsing Data</a></li>
+<li><a href="#unit-prefixes">Unit Prefixes</a></li>
 <li><a href="#constants">Constants</a></li>
 <li><a href="#conversion-data">Conversion Data</a><ul>
 <li><a href="#derived-unit-system">Derived Unit System</a></li>
@@ -940,7 +948,32 @@ It can also be <code>=LOWER_BAR</code> (8) or <code>=HIGH_BAR</code> (same as <c
 </code></pre><p>The <code>cldrVersion</code> attribute defines the CLDR version for this data, as published on <a href="https://cldr.unicode.org/index/downloads">CLDR Releases/Downloads</a>.</p><p>The <code>unicodeVersion</code> attribute defines the version of the Unicode standard that is used to interpret data. Specifically, some data elements such as exemplar characters are expressed in terms of UnicodeSets. Since UnicodeSets can be expressed in terms of Unicode properties, their meaning depends on the Unicode version from which property values are derived.</p><h2 id="Parent_Locales"><a name="parent-locales" href="#Parent_Locales">Parent Locales</a></h2><p>The parentLocales data is supplemental data, but is described in detail in the <a href="tr35.html#Parent_Locales">core specification section 4.1.3.</a></p><h2 id="Unit_Conversion"><a name="unit-conversion" href="#Unit_Conversion">Unit Conversion</a></h2><p>The unit conversion data (<a href="https://github.com/unicode-org/cldr/blob/main/common/supplemental/units.xml">units.xml</a>) provides the data for converting all of the cldr unit identifiers to base units, and back. That allows conversion between any two convertible units, such as two units of length. For any two convertible units (such as acre and dunum) the first can be converted to the base unit (square-meter), then that base unit can be converted to the second unit.</p><h3 id="unit-parsing-data">Unit Parsing Data</h3><!--ELEMENT unitIdComponents ( unitIdComponent* ) --><!--ELEMENT unitIdComponent EMPTY --><!--ATTLIST unitIdComponent type NMTOKEN #REQUIRED --><!--ATTLIST unitIdComponent values NMTOKENS #REQUIRED --><p>These elements provide support for parsing unit identifiers, as described in <a href="tr35-general.html#Unit_Elements">Unit Elements</a>.
 Each of the values has tokens with specific functions, identified by the type.
 For example the following values can be suffixes in a simple_unit identifier such as <code>quart-imperial</code>.</p><pre><code>&lt;unitIdComponent type="suffix" values="force imperial luminosity mass metric person radius scandinavian troy unit us"/&gt;
-</code></pre><h3 id="constants">Constants</h3><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">unitConstants</span> ( <span class="hljs-keyword">unitConstant</span>* ) &gt;</span>
+</code></pre><h3 id="unit-prefixes">Unit Prefixes</h3><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">unitPrefixes</span> ( <span class="hljs-keyword">unitPrefix</span>* ) &gt;</span>
+
+<span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">unitPrefix</span> <span class="hljs-keyword">EMPTY</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">unitPrefix</span> <span class="hljs-keyword">type</span> <span class="hljs-keyword">NMTOKEN</span> <span class="hljs-keyword">#REQUIRED</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">unitPrefix</span> <span class="hljs-keyword">symbol</span> <span class="hljs-keyword">NMTOKEN</span> <span class="hljs-keyword">#REQUIRED</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">unitPrefix</span> <span class="hljs-keyword">power1</span>0 <span class="hljs-keyword">NMTOKEN</span> <span class="hljs-keyword">#IMPLIED</span> &gt;</span>
+<span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">unitPrefix</span> <span class="hljs-keyword">power2</span> <span class="hljs-keyword">NMTOKEN</span> <span class="hljs-keyword">#IMPLIED</span> &gt;</span>
+</code></pre><p>This data lists the SI prefixes that can be applied to units (typically limited to prefixable units), 
+such as the following:</p><pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">unitPrefixes</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">unitPrefix</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'quecto'</span> <span class="hljs-attr">symbol</span>=<span class="hljs-string">'q'</span> <span class="hljs-attr">power10</span>=<span class="hljs-string">'-30'</span>/&gt;</span>
+...
+    <span class="hljs-tag">&lt;<span class="hljs-name">unitPrefix</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'micro'</span> <span class="hljs-attr">symbol</span>=<span class="hljs-string">'μ'</span> <span class="hljs-attr">power10</span>=<span class="hljs-string">'-6'</span>/&gt;</span>
+...
+    <span class="hljs-tag">&lt;<span class="hljs-name">unitPrefix</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'giga'</span> <span class="hljs-attr">symbol</span>=<span class="hljs-string">'G'</span> <span class="hljs-attr">power10</span>=<span class="hljs-string">'9'</span>/&gt;</span>
+...
+    <span class="hljs-tag">&lt;<span class="hljs-name">unitPrefix</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'quetta'</span> <span class="hljs-attr">symbol</span>=<span class="hljs-string">'Q'</span> <span class="hljs-attr">power10</span>=<span class="hljs-string">'30'</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">unitPrefix</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'kibi'</span> <span class="hljs-attr">symbol</span>=<span class="hljs-string">'Ki'</span> <span class="hljs-attr">power2</span>=<span class="hljs-string">'10'</span>/&gt;</span>
+...
+    <span class="hljs-tag">&lt;<span class="hljs-name">unitPrefix</span> <span class="hljs-attr">type</span>=<span class="hljs-string">'yobi'</span> <span class="hljs-attr">symbol</span>=<span class="hljs-string">'Yi'</span> <span class="hljs-attr">power2</span>=<span class="hljs-string">'80'</span>/&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">unitPrefixes</span>&gt;</span>
+</code></pre><p>The information includes the SI prefix and symbol, and the power of 10 or power of 2 
+(for binary prefixes, intended for use with digital units).</p><p>Note that the translated short form of a unit prefix is not the same as the localized symbol. 
+The localized symbol may be the same for most Latin-script languages, 
+but depending on the customary use in a language they can be in a different script
+or use different letters even in Latin-script languages. They are, however, the same in the root locale.</p><p>The newer prefixes (quecto-, ronto-, -ronna, -quetta) are not yet being translated, 
+because the appropriate translated versions have not yet been well established across languages.</p><h3 id="constants">Constants</h3><pre><code class="language-xml"><span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">unitConstants</span> ( <span class="hljs-keyword">unitConstant</span>* ) &gt;</span>
 
 <span class="hljs-meta">&lt;!ELEMENT <span class="hljs-keyword">unitConstant</span> <span class="hljs-keyword">EMPTY</span> &gt;</span>
 <span class="hljs-meta">&lt;!ATTLIST <span class="hljs-keyword">unitConstant</span> <span class="hljs-keyword">constant</span> <span class="hljs-keyword">NMTOKEN</span> <span class="hljs-keyword">#REQUIRED</span> &gt;</span>

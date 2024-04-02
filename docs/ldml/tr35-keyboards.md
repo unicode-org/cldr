@@ -2287,6 +2287,10 @@ The following are additions to standard Regex syntax.
 
 #### Disallowed Regex Features
 
+- **Matching an empty string**
+
+    Transforms may not match an empty string. For example, `<transform from=""/>` or `<transform from="X{0,1}"/>` are not allowed and must be flagged as an error to keyboard authors.
+
 - **Unicode properties**
 
     `\p{property}` `\P{property}`

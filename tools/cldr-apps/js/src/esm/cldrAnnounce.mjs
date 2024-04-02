@@ -25,7 +25,10 @@ const schedule = new cldrSchedule.FetchSchedule(
 let thePosts = null;
 
 let callbackSetData = null;
+let callbackSetCounts = null;
 let callbackSetUnread = null;
+
+let alreadyGotId = 0;
 
 /**
  * Get the number of unread announcements, to display in the main menu
@@ -36,28 +39,27 @@ async function getUnreadCount(setUnreadCount) {
   if (setUnreadCount) {
     callbackSetUnread = setUnreadCount;
   }
-  await refresh(callbackSetData);
+  await refresh(callbackSetData, callbackSetCounts);
 }
 
 /**
  * Refresh the Announcements page and/or unread count
  *
  * @param {Function} viewCallbackSetData the callback function for the Announcements page, or null
+ * @param {Function} viewCallbackSetCounts the callback function for the Announcements page, or null
  *
  * The callback function for setting the data may be null if the Announcements page isn't open and
  * we're only getting the number of unread announcements to display in the main header
  */
-async function refresh(viewCallbackSetData) {
+async function refresh(viewCallbackSetData, viewCallbackSetCounts) {
   if (DISABLE_ANNOUNCEMENTS) {
     return;
   }
   if (viewCallbackSetData) {
-    if (!callbackSetData) {
-      // The Announcements page was just opened, so re-fetch the data immediately regardless
-      // of how recently it was fetched previously (for unread count)
-      schedule.reset();
-    }
     callbackSetData = viewCallbackSetData;
+  }
+  if (viewCallbackSetCounts) {
+    callbackSetCounts = viewCallbackSetCounts;
   }
   if (!cldrStatus.getSurveyUser()) {
     if (viewCallbackSetData) {
@@ -68,34 +70,62 @@ async function refresh(viewCallbackSetData) {
   if (schedule.tooSoon()) {
     return;
   }
-  const url = cldrAjax.makeApiUrl("announce", null);
+  let p = null;
+  if (alreadyGotId) {
+    p = new URLSearchParams();
+    p.append("alreadyGotId", alreadyGotId);
+  }
+  const url = cldrAjax.makeApiUrl("announce", p);
   schedule.setRequestTime();
   return await cldrAjax
     .doFetch(url)
     .then(cldrAjax.handleFetchErrors)
     .then((r) => r.json())
     .then(setPosts)
-    .catch((e) => console.error(e));
+    .catch(handleErrorOrNotModified);
+}
+
+function handleErrorOrNotModified(e) {
+  if (e.message === "Not Modified") {
+    // 304
+    if (CLDR_ANNOUNCE_DEBUG) {
+      console.log("cldrAnnounce got " + e.message);
+    }
+  } else {
+    console.error(e);
+  }
 }
 
 function setPosts(json) {
   thePosts = json;
   schedule.setResponseTime();
+  setAlreadyGotId(thePosts);
+  const totalCount = thePosts.announcements?.length || 0;
+  let checkedCount = 0;
+  for (let announcement of thePosts.announcements) {
+    if (announcement.checked) {
+      ++checkedCount;
+    }
+  }
+  const unreadCount = totalCount - checkedCount;
   if (callbackSetData) {
-    callbackSetData(thePosts);
+    callbackSetData(thePosts); // AnnouncePanel.vue
+  }
+  if (callbackSetCounts) {
+    callbackSetCounts(unreadCount, totalCount); // AnnouncePanel.vue
   }
   if (callbackSetUnread) {
-    const totalCount = thePosts.announcements?.length || 0;
-    let checkedCount = 0;
-    for (let announcement of thePosts.announcements) {
-      if (announcement.checked) {
-        ++checkedCount;
-      }
-    }
-    const unreadCount = totalCount - checkedCount;
-    callbackSetUnread(unreadCount);
+    callbackSetUnread(unreadCount); // MainHeader.vue (balloon icon)
   }
   return thePosts;
+}
+
+function setAlreadyGotId(thePosts) {
+  for (let announcement of thePosts.announcements) {
+    if (announcement.id > alreadyGotId) {
+      alreadyGotId = announcement.id;
+    }
+  }
 }
 
 function canAnnounce() {
@@ -107,7 +137,7 @@ function canChooseAllOrgs() {
 }
 
 async function compose(formState, viewCallbackComposeResult) {
-  schedule.reset();
+  resetSchedule();
   const init = cldrAjax.makePostData(formState);
   const url = cldrAjax.makeApiUrl("announce", null);
   return await cldrAjax
@@ -119,6 +149,7 @@ async function compose(formState, viewCallbackComposeResult) {
 }
 
 async function saveCheckmark(checked, announcement) {
+  resetSchedule();
   window.setTimeout(refreshCount, 1000);
   const init = cldrAjax.makePostData({
     id: announcement.id,
@@ -154,12 +185,18 @@ async function combineAndValidateLocales(locs, validateLocCallback) {
     .catch((e) => console.error(`Error: ${e} validating locales`));
 }
 
+function resetSchedule() {
+  alreadyGotId = 0;
+  schedule.reset();
+}
+
 export {
   canAnnounce,
   canChooseAllOrgs,
   compose,
   getUnreadCount,
   refresh,
+  resetSchedule,
   saveCheckmark,
   combineAndValidateLocales,
 };

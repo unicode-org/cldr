@@ -15,6 +15,12 @@ public class AnnouncementData {
 
     static boolean dbIsSetUp = false;
 
+    static int mostRecentAnnouncementId = 0;
+
+    public static int getMostRecentAnnouncementId() {
+        return mostRecentAnnouncementId;
+    }
+
     public static void get(
             UserRegistry.User user, List<Announcements.Announcement> announcementList) {
         makeSureDbSetup();
@@ -30,6 +36,9 @@ public class AnnouncementData {
                     if (aFilter.passes(a)) {
                         a.setChecked(getChecked(a.id, user.id));
                         announcementList.add(a);
+                        if (a.id > mostRecentAnnouncementId) {
+                            mostRecentAnnouncementId = a.id;
+                        }
                     }
                 }
             } finally {
@@ -55,7 +64,6 @@ public class AnnouncementData {
         String audience = (String) objects[7];
 
         String date = lastDate.toString();
-        // long date_long = lastDate.getTime();
         Announcements.Announcement a =
                 new Announcements.Announcement(id, poster, date, subject, body);
         a.setFilters(locs, orgs, audience);
@@ -69,10 +77,11 @@ public class AnnouncementData {
             throws SurveyException {
         makeSureDbSetup();
         try {
-            int announcementId = savePostToDb(request, user);
+            final int announcementId = savePostToDb(request, user);
             logger.fine("Saved announcement, id = " + announcementId);
             response.id = announcementId;
             response.ok = true;
+            mostRecentAnnouncementId = announcementId;
         } catch (SurveyException e) {
             response.err = "An exception occured: " + e;
             logger.severe(e.getMessage());
@@ -117,7 +126,7 @@ public class AnnouncementData {
                 "INSERT INTO "
                         + DBUtils.Table.ANNOUNCE
                         + " (poster,subj,text,locs,orgs,audience)"
-                        + " values (?,?,?,?,?,?)";
+                        + " VALUES (?,?,?,?,?,?)";
         return DBUtils.prepareStatement(conn, "pAddAnnouncement", sql);
     }
 
@@ -134,7 +143,7 @@ public class AnnouncementData {
                         + announcementId
                         + " queueing:"
                         + recipients.size());
-        if (recipients.size() == 0) {
+        if (recipients.isEmpty()) {
             return;
         }
         String subject = "CLDR Survey Tool announcement: " + request.subject;

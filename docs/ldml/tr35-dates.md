@@ -2002,6 +2002,7 @@ The Date Field Symbol Table below shows the pattern characters (Sym.) and associ
     <tr><td>3</td><td>Abbreviated (e.g. MMM)</td></tr>
     <tr><td>4</td><td colspan="2">Wide / Long / Full (e.g. MMMM, EEEE)</td></tr>
     <tr><td>5</td><td colspan="2">Narrow (e.g. MMMMM, EEEEE)<br/>(The counter-intuitive use of 5 letters for this is forced by backwards compatibility)</td></tr>
+    <tr><td>&gt;16</td><td colspan="2">Private Use<br/>(Reserved for use by implementations using CLDR; will never be otherwise used by CLDR.)</td></tr>
 </table>
 
 Notes for the table below:

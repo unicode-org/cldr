@@ -82,23 +82,15 @@ async function refresh(viewCallbackSetData, viewCallbackSetCounts) {
     .then(cldrAjax.handleFetchErrors)
     .then((r) => r.json())
     .then(setPosts)
-    .catch(handleErrorOrNotModified);
-}
-
-function handleErrorOrNotModified(e) {
-  if (e.message === "Not Modified") {
-    // 304
-    if (CLDR_ANNOUNCE_DEBUG) {
-      console.log("cldrAnnounce got " + e.message);
-    }
-  } else {
-    console.error(e);
-  }
+    .catch(console.error);
 }
 
 function setPosts(json) {
-  thePosts = json;
   schedule.setResponseTime();
+  if (json.unchanged) {
+    return;
+  }
+  thePosts = json;
   setAlreadyGotId(thePosts);
   const totalCount = thePosts.announcements?.length || 0;
   let checkedCount = 0;

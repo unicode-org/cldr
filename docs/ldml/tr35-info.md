@@ -836,13 +836,13 @@ such as the following:
 	<unitPrefix type='yobi' symbol='Yi' power2='80'/>
 </unitPrefixes>
 ```
-The infomration includes the SI prefix and symbol, and power of 10 or power of 2 
+The information includes the SI prefix and symbol, and the power of 10 or power of 2 
 (for binary prefixes, intended for use with digital units).
 
 Note that the translated short form of a unit prefix is not the same as the localized symbol. 
 The localized symbol may be the same for most Latin-script languages, 
-but they can be in a different script or even in Latin use different letters,
-depending on the customary use in a language. They are, however, the same in the root locale.
+but depending on the customary use in a language they can be in a different script
+or use different letters even in Latin-script languages. They are, however, the same in the root locale.
 
 The newer prefixes (quecto-, ronto-, -ronna, quetta) are not yet being translated, 
 because the appropriate translated versions have not yet been well established across languages.

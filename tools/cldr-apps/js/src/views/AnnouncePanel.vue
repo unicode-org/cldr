@@ -83,7 +83,8 @@ export default {
   created() {
     this.canAnnounce = cldrAnnounce.canAnnounce();
     this.canChooseAllOrgs = cldrAnnounce.canChooseAllOrgs();
-    cldrAnnounce.refresh(this.setData);
+    cldrAnnounce.resetSchedule();
+    cldrAnnounce.refresh(this.setData, this.setCounts);
   },
 
   methods: {
@@ -92,24 +93,16 @@ export default {
         this.pleaseLogIn = true;
       } else {
         this.announcementData = data;
-        this.updateCounts();
       }
+    },
+
+    setCounts(unreadCount, totalCount) {
+      this.unreadCount = unreadCount;
+      this.totalCount = totalCount;
     },
 
     checkmarkChanged(event, announcement) {
       cldrAnnounce.saveCheckmark(event.target.checked, announcement);
-      this.updateCounts();
-    },
-
-    updateCounts() {
-      this.totalCount = this.announcementData.announcements.length;
-      let checkedCount = 0;
-      for (let announcement of this.announcementData.announcements) {
-        if (announcement.checked) {
-          ++checkedCount;
-        }
-      }
-      this.unreadCount = this.totalCount - checkedCount;
     },
 
     startCompose() {
@@ -137,7 +130,7 @@ export default {
           message: "Your announcement was not posted: " + errMessage,
         });
       }
-      cldrAnnounce.refresh(this.setData);
+      cldrAnnounce.refresh(this.setData, this.setCounts);
     },
   },
 };

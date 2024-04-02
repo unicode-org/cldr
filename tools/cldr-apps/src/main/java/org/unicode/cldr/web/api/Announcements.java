@@ -59,7 +59,12 @@ public class Announcements {
                                         mediaType = "application/json",
                                         schema = @Schema(implementation = STError.class))),
             })
-    public Response getAnnouncements(@HeaderParam(Auth.SESSION_HEADER) String sessionString) {
+    public Response getAnnouncements(
+            @HeaderParam(Auth.SESSION_HEADER) String sessionString,
+            @QueryParam("alreadyGotId")
+                    @Schema(description = "The client already got this announcement ID")
+                    @DefaultValue("0")
+                    int alreadyGotId) {
         CookieSession session = Auth.getSession(sessionString);
         if (session == null) {
             return Auth.noSessionResponse();
@@ -70,6 +75,9 @@ public class Announcements {
         session.userDidAction();
         if (SurveyMain.isBusted() || !SurveyMain.wasInitCalled() || !SurveyMain.triedToStartUp()) {
             return STError.surveyNotQuiteReady();
+        }
+        if (alreadyGotId != 0 && alreadyGotId == AnnouncementData.getMostRecentAnnouncementId()) {
+            return Response.notModified().build();
         }
         AnnouncementResponse response = new AnnouncementResponse(session.user);
         return Response.ok(response).build();

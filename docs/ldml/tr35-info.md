@@ -820,7 +820,8 @@ For example the following values can be suffixes in a simple_unit identifier suc
 <!ATTLIST unitPrefix power2 NMTOKEN #IMPLIED >
 ```
 
-This data lists the SI prefixes that can be applied to units (typically limited to prefixable units), such as the following:
+This data lists the SI prefixes that can be applied to units (typically limited to prefixable units), 
+such as the following:
 ```xml
 <unitPrefixes>
 	<unitPrefix type='quecto' symbol='q' power10='-30'/>
@@ -835,14 +836,16 @@ This data lists the SI prefixes that can be applied to units (typically limited 
 	<unitPrefix type='yobi' symbol='Yi' power2='80'/>
 </unitPrefixes>
 ```
-The infomration includes the SI prefix and symbol, and power of 10 or power of 2 (for binary prefixes, intended for use with digital units).
+The infomration includes the SI prefix and symbol, and power of 10 or power of 2 
+(for binary prefixes, intended for use with digital units).
 
 Note that the translated short form of a unit prefix is not the same as the localized symbol. 
 The localized symbol may be the same for most Latin-script languages, 
 but they can be in a different script or even in Latin use different letters,
 depending on the customary use in a language. They are, however, the same in the root locale.
 
-The newer prefixes (quecto-, ronto-, -ronna, quetta) are not yet being translated, because the appropriate translated versions have not yet been well established across languages.
+The newer prefixes (quecto-, ronto-, -ronna, quetta) are not yet being translated, 
+because the appropriate translated versions have not yet been well established across languages.
 
 ### Constants
 

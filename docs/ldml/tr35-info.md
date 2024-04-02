@@ -844,7 +844,7 @@ The localized symbol may be the same for most Latin-script languages,
 but depending on the customary use in a language they can be in a different script
 or use different letters even in Latin-script languages. They are, however, the same in the root locale.
 
-The newer prefixes (quecto-, ronto-, -ronna, quetta) are not yet being translated, 
+The newer prefixes (quecto-, ronto-, -ronna, -quetta) are not yet being translated, 
 because the appropriate translated versions have not yet been well established across languages.
 
 ### Constants

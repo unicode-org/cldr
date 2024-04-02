@@ -98,6 +98,9 @@ public class TestLevel {
         final Level expect = Level.MODERN;
         assertTrue(
                 expect.isAtLeast(l),
-                () -> String.format("cov for %s is %s expected ≤ %s", code, l, expect));
+                () ->
+                        String.format(
+                                "Coverage for modern currency %s: %s, expected ≤ %s",
+                                code, l, expect));
     }
 }

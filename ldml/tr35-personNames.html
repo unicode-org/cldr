@@ -348,8 +348,6 @@
 
 
 
-
-
 <script src="./js/anchor.min.js"></script><div class="header"><table class="header" cellpadding="0" cellspacing="0" width="100%">
     <tbody>
         <tr>
@@ -515,11 +513,7 @@ This is a stable document and may be used as reference material or cited as a no
 </li>
 </ul>
 </li>
-</ul><h3 id="api-implementation">API Implementation</h3><p>A draft API for formatting personal names was first included in ICU4J 73 and has been updated for ICU4J 74 to reflect updates in this specification and associated data. (“Draft” means that the full functionality is present, but the API might be refined before it is stabilized.) The implementation can be found at the following:</p><ul>
-<li><a href="https://github.com/unicode-org/icu/blob/main/icu4j/main/core/src/main/java/com/ibm/icu/text/PersonName.java">PersonName.java</a></li>
-<li><a href="https://github.com/unicode-org/icu/blob/main/icu4j/main/core/src/main/java/com/ibm/icu/text/PersonNameFormatter.java">PersonNameFormatter.java</a></li>
-<li><a href="https://github.com/unicode-org/icu/blob/main/icu4j/main/core/src/main/java/com/ibm/icu/text/SimplePersonName.java">SimplePersonName.java</a></li>
-</ul><p>In addition to the settings in this document, it is recommended that implementations provide some additional features in their APIs to allow more control for clients, notably:</p><ol>
+</ul><h3 id="api-implementation">API Implementation</h3><p>In addition to the settings in this document, it is recommended that implementations provide some additional features in their APIs to allow more control for clients, notably:</p><ol>
 <li>forceGivenFirst — no matter what the values are in nameOrderLocales or in the NameObject, display the name as givenFirst.</li>
 <li>forceSurnameFirst — no matter what the values are in nameOrderLocales or in the NameObject, display the name as surnameFirst.</li>
 <li>forceNativeOrdering — no matter what the values are in nameOrderLocales or in the NameObject, display the name with the same ordering as the native locale.</li>

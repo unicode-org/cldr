@@ -93,9 +93,16 @@ The LDML specification is divided into the following parts:
 * [Testing](#testing)
 * [Unit Preferences](#Unit_Preferences)
   * [Unit Preferences Overrides](#Unit_Preferences_Overrides)
+    * [Compute override units](#compute-override-units)
+    * [Compute  regions](#compute--regions)
+    * [Compute the category](#compute-the-category)
   * [Unit Preferences Data](#Unit_Preferences_Data)
+    * [Examples:](#examples)
+    * [Compute the preferred output unit](#compute-the-preferred-output-unit)
+    * [Search the ranked units](#search-the-ranked-units)
   * [Constraints](#constraints)
-  * [Caveats](#caveats)
+    * [Examples](#examples)
+* [Unit APIs](#unit-apis)
 
 ## Introduction <a name="Supplemental_Data" href="#Supplemental_Data">Supplemental Data</a>
 
@@ -1261,7 +1268,7 @@ Otherwise FR is not used. In either case continue with step 2.
 
 A **category** is determined as follows from the input unit:
 
-1. From the input unit, use the conversion data in [baseUnit](tr35-info.html#Unit_Conversion) and let the **input base unit** be the baseUnit attribute value.
+1. From the input unit, use the conversion data in [baseUnit](tr35-info.md#Unit_Conversion) and let the **input base unit** be the baseUnit attribute value.
     * eg, for `pound-force` the baseUnit is `kilogram-meter-per-square-second`.
 2. If there is no such base unit (such as for a an unusual unit like `ampere-pound-per-foot-square-minute`), 
    convert the input unit to a combination of base units, reduce to lowest terms, and normalize.

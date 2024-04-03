@@ -979,8 +979,6 @@
 
 
 
-
-
 <script src="./js/anchor.min.js"></script><div class="header"><table class="header" cellpadding="0" cellspacing="0" width="100%">
     <tbody>
         <tr>
@@ -5338,15 +5336,34 @@ which precedes</li>
 </ul><p>Other contributors to CLDR are listed on the <a href="https://www.unicode.org/cldr/">CLDR Project Page</a>.</p><h2 id="Modifications"><a name="modifications" href="#Modifications">Modifications</a></h2><p><strong>Differences from LDML Version 44.1</strong></p><ul>
 <li><p>Part 1: <a href="tr35.html#Contents">Core</a></p>
 <ul>
-<li>In <a href="tr35.html#Parent_Locales">Parent Locales</a>, add an additional attribute and value <code>localeRules="nonlikelyScript"</code> to allow for algorithmic handling of inheritance so that mixtures of scripts are avoided.
-For example, preventing <code>ru_Latn</code> from falling back to <code>ru</code> (which is Cyrillic script). 
-Previously, there was a small list of such locales, but they were far from covering all cases. 
-That list was retained for migration.</li>
+<li>In <a href="#Parent_Locales">Parent Locales</a>, made substantial changes to the way that parentLocales work,
+including a new attribute for algorithmic handling of inheritance 
+that avoids needing a long (and fragile) list of language-script codes
+to skip when falling back to root.
+That list was retained for migration, but will be withdrawn in the future.</li>
+<li>In <a href="#special-script-codes">Special Script Codes</a>, added a description of special script codes,
+such as Jpan and Aran.</li>
+<li>In <a href="#Lateral_Inheritance">Lateral Inheritance</a>, improved the formatting for clarity.</li>
+<li>In <a href="#preprocessing">LocaleId Canonicalization:Preprocessing</a>, restructured the steps for clarity, added more examples.</li>
+<li>In <a href="#Likely_Subtags">Likely Subtags</a>, clarified that language subtags iw, in, and yi are treated specially in the data,
+to allow for applications that use them as canonical language subtags.
+Also removed the substitution for macroregions,
+and noted that some elements could be NOOPs in customized data, but could be misleading.</li>
+<li>In <a href="#ebnf">EBNF</a>, added more differences from W3C EBNF, 
+and documented use of wfc: and vc: for wellformedness and validity constraints.
+Marked clauses with that format where appropriate, and grouped constraints after the relevant EBNF.</li>
 </ul>
 </li>
 <li><p>Part 3: <a href="tr35-numbers.html#Contents">Numbers</a></p>
 <ul>
-<li>In <a href="tr35-numbers.html#Supplemental_Currency_Data">Supplemental Currency Data</a>, for the <code>currency</code> element, added attributes <code>tz</code> and <code>to-tz</code> to clarify the <code>from</code> and <code>to</code> dates.</li>
+<li>In <a href="tr35-numbers.html#Supplemental_Currency_Data">Supplemental Currency Data</a>, for the <code>currency</code> element, 
+added attributes <code>tz</code> and <code>to-tz</code> to clarify the <code>from</code> and <code>to</code> dates.</li>
+</ul>
+</li>
+<li><p>Part 4: <a href="tr35-dates.html#Contents">Dates</a></p>
+<ul>
+<li>In <a href="tr35-dates.html#Date_Format_Patterns">Date Format Patterns</a>, reserved date Pattern field lengths of greater than 16
+as private use.</li>
 </ul>
 </li>
 <li><p>Part 6: <a href="tr35-info.html#Contents">Supplemental</a></p>
@@ -5354,15 +5371,19 @@ That list was retained for migration.</li>
 <li>In <a href="tr35-info.html#mixed-units">Mixed Units</a>, clarified many aspects of mixed units (such as foot-and-inch), 
 including how to handle rounding and precision. </li>
 <li>In <a href="tr35-info.html#testing">Testing</a>, listed the additional test files.</li>
-<li>In <a href="tr35-info.html#Unit_Preferences_Overrides">Unit Preferences Overrides</a>, added handling of edge cases,
-such as where there is no quantity for a unit, or no preference data for a quantity.
-Also clarified how to handle invalid subtags, and the usage of each of the subtags that affect unit preferences. </li>
+<li>In <a href="tr35-info.html#Unit_Preferences_Overrides">Unit Preferences Overrides</a>, made substantial changes including
+handling of edge cases, such as where there is no quantity for a unit, or no preference data for a quantity;
+how to handle invalid subtags;
+negative unit amounts;
+the usage of each of the subtags that affect unit preferences, and others.</li>
 <li>In <a href="tr35-info.html#conversion-data">Conversion Data</a>, added the <code>special</code> attribute for <code>convertUnit</code>, used for handling beaufort.</li>
+<li>In <a href="unit-prefixes">Unit Prefixes</a>, added the SI unit prefixes and the power of 10
+(or 2, for binary prefixes) that they represent.</li>
 </ul>
 </li>
-<li><p>Part 7: [Keyboards]</p>
+<li><p>Part 7: <a href="tr35-keyboards.html#Contents">Keyboards</a></p>
 <ul>
-<li>There are substantial changes from v44 to bring the Keyboard 3.0 specification out of Tech Preview, including:<ul>
+<li>Added substantial changes from v44 to bring the Keyboard 3.0 specification out of Tech Preview, including:<ul>
 <li>New sections for Definitions, Notation, and Normalization.</li>
 <li>Many clarifications and modifications in other sections.</li>
 </ul>
@@ -5372,58 +5393,6 @@ Also clarified how to handle invalid subtags, and the usage of each of the subta
 <li><p>Part 9: <a href="tr35-messageFormat.html#Contents">MessageFormat</a></p>
 <ul>
 <li>Added the completely new specification for MessageFormat 2.0 (in Tech Preview)</li>
-</ul>
-</li>
-</ul><p><strong>Differences from LDML Version 43 to 44.1</strong></p><ul>
-<li><p><a href="#Contents">Core</a></p>
-<ul>
-<li>In <a href="#Time_Zone_Identifiers">Time Zone Identifiers</a>, added information on the new <code>iana</code> attribute for stability; also see information on <code>iana</code> in the section <a href="#Unicode_Locale_Extension_Data_Files">U Extension Data Files</a>.</li>
-<li><a href="#Likely_Subtags">Likely Subtags</a>: There is a fix to how macroregions are handled by adding likely subtags, such as with <code>und_419</code></li>
-<li><a href="#Unicode_Sets">Unicode Sets</a>: New sections on the following, with additional clarifications:<ul>
-<li><a href="#unicodeset-syntax">UnicodeSet syntax</a></li>
-<li><a href="#Backslash_Escapes">Backslash Escapes</a></li>
-<li><a href="#Variables_in_UnicodeSets">Variables in UnicodeSets</a></li>
-</ul>
-</li>
-<li><a href="#unicode-language-identifier">Unicode Language Identifier</a>: clarified constraint on duplicate subtags.</li>
-<li><a href="#key-and-type-definitions">Key/Type Definitions</a>: clarified definition of <code>-dx</code></li>
-<li><a href="#ebnf">EBNF</a>: Clarified use of EBNF in LDML</li>
-<li>(44.1)<a href="#key-and-type-definitions">Key/Type Definitions</a>: further clarified the definition of <code>-dx</code></li>
-</ul>
-</li>
-<li><p><a href="tr35-general.html#Contents">General</a></p>
-<ul>
-<li>Added new section <a href="tr35-general.html#Unit_Identifier_Uniqueness">Unit Identifier Uniqueness</a>, and added a relevant constraint on base_component in the <a href="tr35-general.html#syntax">Syntax</a> section.</li>
-<li>Several clarifications were added in <a href="tr35-general.html#Transform_Rules_Syntax">Transform Rules Syntax</a>, and a new section <a href="tr35-general.html#transform-syntax-characters">Transform Syntax Characters</a> was added with a table of the characters.</li>
-<li>(44.1) <a href="tr35-general.html#SynthesizingNames">Synthesizing Sequence Names</a> Added handling of derived emoji names and keywords for emoji facing-right sequences.</li>
-</ul>
-</li>
-<li><p><a href="tr35-dates.html#Contents">Dates</a></p>
-<ul>
-<li>New section <a href="tr35-dates.html#first-day-overrides">First Day Overrides</a>: Described the various locale ID elements that affect determination of the first day of the week (for week of year calculations), and the order in which they should be considered. Also noted in <a href="#Key_Type_Definitions">Key/Type Definitions</a> which keys can affect determination of first day.</li>
-</ul>
-</li>
-<li><p><a href="tr35-info.html#Contents">Supplemental</a></p>
-<ul>
-<li>In <a href="tr35-info.html#conversion-data">Conversion Data</a>, expanded the list of values for the convertUnit systems attribute.</li>
-<li>Added new section <a href="tr35-info.html#derived-unit-system">Derived Unit System</a></li>
-<li>Rewrote and clarified the material in <a href="tr35-info.html#Unit_Preferences_Data">Unit Preferences Overrides</a></li>
-</ul>
-</li>
-<li><p><a href="tr35-keyboards.html#Contents">Keyboards</a></p>
-<ul>
-<li>Complete rewrite of the specification by the Keyboard Subcommittee. Available as a technical preview in CLDR version 44. See <a href="tr35-keyboards.html#status">Part 7: Status</a>.</li>
-</ul>
-</li>
-<li><p><a href="tr35-personNames.html#Contents">Person Names</a></p>
-<ul>
-<li>Added material in <a href="tr35-personNames.html#api-implementation">API Implementaion</a> on recommended implementation  API options.</li>
-<li>Describe new <a href="tr35-personNames.html#parameterdefault-element">parameterDefault Element</a> element that specifies default formality and length.</li>
-<li>Describe new <a href="tr35-personNames.html#nativespacereplacement-element">nativeSpaceReplacement Element</a> that specifies how spaces should be handled when the name language is the same as the formatting language.</li>
-<li>In <a href="tr35-personNames.html#modifiers">Modifiers</a> added the modifiers retain, genitive and vocative.</li>
-<li>Added sections on <a href="tr35-personNames.html#grammatical-modifiers-for-names">Grammatical Modifiers for Names</a> and <a href="tr35-personNames.html#future-modifiers">Future Modifiers</a>.</li>
-<li>Fixed a problem in <a href="tr35-personNames.html#switch-the-formatting-locale-if-necessary">Switch the formatting locale if necessary</a>, where the full formatting locale wasn't being set correctly when the name object has a locale whose script is incompatibility with name script.</li>
-<li>Rewrote the section on <a href="tr35-personNames.html#setting-the-spacereplacement">Setting the spaceReplacement</a>.</li>
 </ul>
 </li>
 </ul><p>Note that small changes such as typos and link fixes are not listed above.

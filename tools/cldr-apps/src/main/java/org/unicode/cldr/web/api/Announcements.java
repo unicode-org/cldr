@@ -76,22 +76,29 @@ public class Announcements {
         if (SurveyMain.isBusted() || !SurveyMain.wasInitCalled() || !SurveyMain.triedToStartUp()) {
             return STError.surveyNotQuiteReady();
         }
-        if (alreadyGotId != 0 && alreadyGotId == AnnouncementData.getMostRecentAnnouncementId()) {
-            return Response.notModified().build();
-        }
-        AnnouncementResponse response = new AnnouncementResponse(session.user);
+        Boolean unchanged =
+                (alreadyGotId != 0
+                        && alreadyGotId == AnnouncementData.getMostRecentAnnouncementId());
+        AnnouncementResponse response = new AnnouncementResponse(session.user, unchanged);
         return Response.ok(response).build();
     }
 
     @Schema(description = "List of announcements")
     public static final class AnnouncementResponse {
+        @Schema(description = "unchanged")
+        public boolean unchanged;
+
         @Schema(description = "announcements")
         public Announcement[] announcements;
 
-        public AnnouncementResponse(UserRegistry.User user) {
-            List<Announcement> announcementList = new ArrayList<>();
-            AnnouncementData.get(user, announcementList);
-            announcements = announcementList.toArray(new Announcement[0]);
+        public AnnouncementResponse(UserRegistry.User user, Boolean unchanged) {
+            this.unchanged = unchanged;
+
+            if (!unchanged) {
+                List<Announcement> announcementList = new ArrayList<>();
+                AnnouncementData.get(user, announcementList);
+                announcements = announcementList.toArray(new Announcement[0]);
+            }
         }
     }
 

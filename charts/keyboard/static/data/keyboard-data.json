@@ -1,5 +1,700 @@
 {
  "keyboards": {
+  "bn.xml": {
+   "?xml": {
+    "@_version": "1.0",
+    "@_encoding": "UTF-8"
+   },
+   "keyboard3": {
+    "locales": {
+     "locale": [
+      {
+       "@_id": "as"
+      },
+      {
+       "@_id": "syl"
+      }
+     ]
+    },
+    "version": {
+     "@_number": "1.3.0"
+    },
+    "info": {
+     "@_name": "SIL Bengali-Assamese Phonetic",
+     "@_indicator": "bn",
+     "@_layout": "QWERTY"
+    },
+    "displays": {
+     "display": [
+      {
+       "@_keyId": "au-lengthener",
+       "@_display": "ৗ"
+      },
+      {
+       "@_keyId": "vis-hasant",
+       "@_display": "্"
+      },
+      {
+       "@_keyId": "more",
+       "@_display": "…"
+      }
+     ]
+    },
+    "keys": {
+     "import": [
+      {
+       "@_base": "cldr",
+       "@_path": "45/keys-Zyyy-punctuation.xml"
+      },
+      {
+       "@_base": "cldr",
+       "@_path": "45/keys-Zyyy-currency.xml"
+      }
+     ],
+     "key": [
+      {
+       "@_id": "1",
+       "@_output": "১"
+      },
+      {
+       "@_id": "2",
+       "@_output": "২"
+      },
+      {
+       "@_id": "3",
+       "@_output": "৩"
+      },
+      {
+       "@_id": "4",
+       "@_output": "৪"
+      },
+      {
+       "@_id": "5",
+       "@_output": "৫"
+      },
+      {
+       "@_id": "6",
+       "@_output": "৬"
+      },
+      {
+       "@_id": "7",
+       "@_output": "৭"
+      },
+      {
+       "@_id": "8",
+       "@_output": "৮"
+      },
+      {
+       "@_id": "9",
+       "@_output": "৯"
+      },
+      {
+       "@_id": "0",
+       "@_output": "০"
+      },
+      {
+       "@_id": "au-lengthener",
+       "@_output": "\\m{A}"
+      },
+      {
+       "@_id": "candrabindu",
+       "@_output": "\\u{0981}"
+      },
+      {
+       "@_id": "hasant",
+       "@_output": "\\u{09CD}"
+      },
+      {
+       "@_id": "more",
+       "@_output": "\\m{q}"
+      },
+      {
+       "@_id": "nukta",
+       "@_output": "\\u{09BC}"
+      },
+      {
+       "@_id": "vis-hasant",
+       "@_output": "\\m{X}"
+      },
+      {
+       "@_id": "ā",
+       "@_output": "\\u{09BE}"
+      },
+      {
+       "@_id": "ai",
+       "@_output": "\\u{09C8}"
+      },
+      {
+       "@_id": "au",
+       "@_output": "\\u{09CC}"
+      },
+      {
+       "@_id": "ba",
+       "@_output": "ব"
+      },
+      {
+       "@_id": "bha",
+       "@_output": "ভ"
+      },
+      {
+       "@_id": "ca",
+       "@_output": "চ"
+      },
+      {
+       "@_id": "cha",
+       "@_output": "ছ"
+      },
+      {
+       "@_id": "ḍa",
+       "@_output": "ড"
+      },
+      {
+       "@_id": "da",
+       "@_output": "দ"
+      },
+      {
+       "@_id": "dahri",
+       "@_output": "।"
+      },
+      {
+       "@_id": "ḍha",
+       "@_output": "ঢ"
+      },
+      {
+       "@_id": "dha",
+       "@_output": "ধ"
+      },
+      {
+       "@_id": "e",
+       "@_output": "\\u{09C7}"
+      },
+      {
+       "@_id": "ga",
+       "@_output": "গ"
+      },
+      {
+       "@_id": "gha",
+       "@_output": "ঘ"
+      },
+      {
+       "@_id": "ha",
+       "@_output": "হ"
+      },
+      {
+       "@_id": "i",
+       "@_output": "\\u{09BF}"
+      },
+      {
+       "@_id": "ī",
+       "@_output": "\\u{09C0}"
+      },
+      {
+       "@_id": "ja",
+       "@_output": "জ"
+      },
+      {
+       "@_id": "jha",
+       "@_output": "ঝ"
+      },
+      {
+       "@_id": "ka",
+       "@_output": "ক"
+      },
+      {
+       "@_id": "kha",
+       "@_output": "খ"
+      },
+      {
+       "@_id": "la",
+       "@_output": "ল"
+      },
+      {
+       "@_id": "ṃ",
+       "@_output": "\\u{0982}"
+      },
+      {
+       "@_id": "ma",
+       "@_output": "ম"
+      },
+      {
+       "@_id": "ṅa",
+       "@_output": "ঙ"
+      },
+      {
+       "@_id": "ña",
+       "@_output": "ঞ"
+      },
+      {
+       "@_id": "ṇa",
+       "@_output": "ণ"
+      },
+      {
+       "@_id": "na",
+       "@_output": "ন"
+      },
+      {
+       "@_id": "o",
+       "@_output": "\\u{09CB}"
+      },
+      {
+       "@_id": "pa",
+       "@_output": "প"
+      },
+      {
+       "@_id": "pha",
+       "@_output": "ফ"
+      },
+      {
+       "@_id": "ṛ",
+       "@_output": "\\u{09C3}"
+      },
+      {
+       "@_id": "ra",
+       "@_output": "র"
+      },
+      {
+       "@_id": "śa",
+       "@_output": "শ"
+      },
+      {
+       "@_id": "sa",
+       "@_output": "স"
+      },
+      {
+       "@_id": "sha",
+       "@_output": "ষ"
+      },
+      {
+       "@_id": "ṭa",
+       "@_output": "ট"
+      },
+      {
+       "@_id": "ta",
+       "@_output": "ত"
+      },
+      {
+       "@_id": "ṭha",
+       "@_output": "ঠ"
+      },
+      {
+       "@_id": "tha",
+       "@_output": "থ"
+      },
+      {
+       "@_id": "u",
+       "@_output": "\\u{09C1}"
+      },
+      {
+       "@_id": "ū",
+       "@_output": "\\u{09C2}"
+      },
+      {
+       "@_id": "wa",
+       "@_output": "ৱ"
+      },
+      {
+       "@_id": "ya",
+       "@_output": "য"
+      },
+      {
+       "@_id": "ẏa",
+       "@_output": "য়"
+      }
+     ]
+    },
+    "layers": {
+     "layer": [
+      {
+       "row": [
+        {
+         "@_keys": "candrabindu 1 2 3 4 5 6 7 8 9 0 hyphen equal"
+        },
+        {
+         "@_keys": "more wa e ra ta ya u i o pa open-square close-square backslash"
+        },
+        {
+         "@_keys": "ā sa da ṭa ga ha ja ka la semi-colon apos"
+        },
+        {
+         "@_keys": "śa hasant ca ḍa ba na ma comma dahri slash"
+        },
+        {
+         "@_keys": "space"
+        }
+       ],
+       "@_modifiers": "none"
+      },
+      {
+       "row": [
+        {
+         "@_keys": "ṃ bang at hash dollar percent caret amp asterisk open-paren close-paren underscore plus"
+        },
+        {
+         "@_keys": "gap ña ai ṛ tha ẏa ū ī au pha open-curly close-curly pipe"
+        },
+        {
+         "@_keys": "au-lengthener sha dha ṭha gha gap jha kha gap colon double-quote"
+        },
+        {
+         "@_keys": "gap vis-hasant cha ḍha bha ṇa ṅa open-angle nukta question"
+        },
+        {
+         "@_keys": "space"
+        }
+       ],
+       "@_modifiers": "shift"
+      }
+     ],
+     "@_formId": "us"
+    },
+    "transforms": [
+     {
+      "transformGroup": [
+       {
+        "transform": [
+         {
+          "@_from": "\\u{09C7}\\m{A}",
+          "@_to": "\\u{09CC}"
+         },
+         {
+          "@_from": "\\m{q}:",
+          "@_to": "\\u{0983}"
+         },
+         {
+          "@_from": "\\m{q}L",
+          "@_to": "ৡ"
+         },
+         {
+          "@_from": "\\m{q}।",
+          "@_to": "॥"
+         },
+         {
+          "@_from": "\\m{q}ড",
+          "@_to": "ড়"
+         },
+         {
+          "@_from": "\\m{q}ঢ",
+          "@_to": "ঢ়"
+         },
+         {
+          "@_from": "\\m{q}ত",
+          "@_to": "ৎ"
+         },
+         {
+          "@_from": "\\m{q}য",
+          "@_to": "য়"
+         },
+         {
+          "@_from": "\\m{q}র",
+          "@_to": "ৰ"
+         },
+         {
+          "@_from": "\\m{q}ল",
+          "@_to": "ঌ"
+         },
+         {
+          "@_from": "\\m{q}\\u{09BE}",
+          "@_to": "অ"
+         },
+         {
+          "@_from": "\\m{q}\\u{09BF}",
+          "@_to": "ই"
+         },
+         {
+          "@_from": "\\m{q}\\u{09C0}",
+          "@_to": "ঈ"
+         },
+         {
+          "@_from": "\\m{q}\\u{09C1}",
+          "@_to": "উ"
+         },
+         {
+          "@_from": "\\m{q}\\u{09C2}",
+          "@_to": "ঊ"
+         },
+         {
+          "@_from": "\\m{q}\\u{09C3}",
+          "@_to": "ৠ"
+         },
+         {
+          "@_from": "\\m{q}\\u{09C7}",
+          "@_to": "এ"
+         },
+         {
+          "@_from": "\\m{q}\\u{09C8}",
+          "@_to": "ঐ"
+         },
+         {
+          "@_from": "\\m{q}\\u{09CB}",
+          "@_to": "ও"
+         },
+         {
+          "@_from": "\\m{q}\\u{09CC}",
+          "@_to": "ঔ"
+         },
+         {
+          "@_from": "\\m{q}\\m{A}",
+          "@_to": "আ"
+         },
+         {
+          "@_from": "\\m{q}\\m{X}",
+          "@_to": "\\u{09CD}\\u{200C}"
+         }
+        ]
+       },
+       {
+        "reorder": [
+         {
+          "@_from": "\\u{09BC}",
+          "@_tertiary": "3"
+         },
+         {
+          "@_from": "\\u{09CD}[\\u{0980}\\u{0985}-\\u{098C}\\u{098F}\\u{0990}\\u{0993}-\\u{09A8}\\u{09AA}-\\u{09B0}\\u{09B2}\\u{09B6}-\\u{09B9}\\u{09BD}\\u{09DC}\\u{09DD}\\u{09DF}-\\u{09E1}\\u{09E6}-\\u{09F1}\\u{09FC}]",
+          "@_order": "10",
+          "@_tertiaryBase": "true"
+         },
+         {
+          "@_from": "\\u{09CD}[\\u{200C}\\u{200D}][\\u{0980}\\u{0985}-\\u{098C}\\u{098F}\\u{0990}\\u{0993}-\\u{09A8}\\u{09AA}-\\u{09B0}\\u{09B2}\\u{09B6}-\\u{09B9}\\u{09BD}\\u{09DC}\\u{09DD}\\u{09DF}-\\u{09E1}\\u{09E6}-\\u{09F1}\\u{09FC}]",
+          "@_order": "10",
+          "@_tertiaryBase": "true"
+         },
+         {
+          "@_from": "\\u{09CD}",
+          "@_order": "120",
+          "@_tertiaryBase": "true"
+         },
+         {
+          "@_from": "[\\u{09BF}\\u{09C7}\\u{09C8}]",
+          "@_order": "60"
+         },
+         {
+          "@_from": "[\\u{09C1}-\\u{09C4}\\u{09E2}\\u{09E3}]",
+          "@_order": "70"
+         },
+         {
+          "@_from": "[\\u{09BE}\\u{09C0}\\u{09CB}\\u{09CC}\\u{09D7}]",
+          "@_order": "75"
+         },
+         {
+          "@_from": "\\u{0981}",
+          "@_order": "85"
+         },
+         {
+          "@_from": "[\\u{0982}\\u{0983}]",
+          "@_order": "95"
+         },
+         {
+          "@_from": "\\u{09FE}",
+          "@_order": "117"
+         }
+        ]
+       }
+      ],
+      "@_type": "simple"
+     }
+    ],
+    "@_xmlns": "https://schemas.unicode.org/cldr/45/keyboard3",
+    "@_locale": "bn",
+    "@_conformsTo": "45"
+   }
+  },
+  "mt.xml": {
+   "?xml": {
+    "@_version": "1.0",
+    "@_encoding": "UTF-8"
+   },
+   "keyboard3": {
+    "locales": {
+     "locale": {
+      "@_id": "en"
+     }
+    },
+    "info": {
+     "@_name": "Maltese",
+     "@_author": "Steven R. Loomis",
+     "@_layout": "QWERTY",
+     "@_indicator": "MT"
+    },
+    "keys": {
+     "import": [
+      {
+       "@_base": "cldr",
+       "@_path": "45/keys-Zyyy-punctuation.xml"
+      },
+      {
+       "@_base": "cldr",
+       "@_path": "45/keys-Zyyy-currency.xml"
+      }
+     ],
+     "key": [
+      {
+       "@_id": "a-grave",
+       "@_output": "à"
+      },
+      {
+       "@_id": "A-grave",
+       "@_output": "À"
+      },
+      {
+       "@_id": "e-grave",
+       "@_output": "è"
+      },
+      {
+       "@_id": "E-grave",
+       "@_output": "È"
+      },
+      {
+       "@_id": "i-grave",
+       "@_output": "ì"
+      },
+      {
+       "@_id": "I-grave",
+       "@_output": "Ì"
+      },
+      {
+       "@_id": "o-grave",
+       "@_output": "ò"
+      },
+      {
+       "@_id": "O-grave",
+       "@_output": "Ò"
+      },
+      {
+       "@_id": "u-grave",
+       "@_output": "ù"
+      },
+      {
+       "@_id": "U-grave",
+       "@_output": "Ù"
+      },
+      {
+       "@_id": "c-tikka",
+       "@_output": "ċ"
+      },
+      {
+       "@_id": "C-tikka",
+       "@_output": "Ċ"
+      },
+      {
+       "@_id": "g-tikka",
+       "@_output": "ġ"
+      },
+      {
+       "@_id": "G-tikka",
+       "@_output": "Ġ"
+      },
+      {
+       "@_id": "h-maqtugha",
+       "@_output": "ħ"
+      },
+      {
+       "@_id": "H-maqtugha",
+       "@_output": "Ħ"
+      },
+      {
+       "@_id": "z-tikka",
+       "@_output": "ż"
+      },
+      {
+       "@_id": "Z-tikka",
+       "@_output": "Ż"
+      },
+      {
+       "@_id": "c-cedilla",
+       "@_output": "ç"
+      }
+     ]
+    },
+    "layers": {
+     "layer": [
+      {
+       "row": [
+        {
+         "@_keys": "c-tikka 1 2 3 4 5 6 7 8 9 0 hyphen equal"
+        },
+        {
+         "@_keys": "q w e r t y u i o p g-tikka h-maqtugha"
+        },
+        {
+         "@_keys": "a s d f g h j k l semi-colon hash"
+        },
+        {
+         "@_keys": "z-tikka z x c v b n m comma period slash"
+        },
+        {
+         "@_keys": "space"
+        }
+       ],
+       "@_modifiers": "none"
+      },
+      {
+       "row": [
+        {
+         "@_keys": "C-tikka bang double-quote euro dollar percent caret amp open-paren close-paren underscore plus"
+        },
+        {
+         "@_keys": "Q W E R T Y U I O P G-tikka H-maqtugha"
+        },
+        {
+         "@_keys": "A S D F G H J K L colon at tilde"
+        },
+        {
+         "@_keys": "Z-tikka Z X C V B N M open-angle close-angle question"
+        },
+        {
+         "@_keys": "space"
+        }
+       ],
+       "@_modifiers": "shift"
+      },
+      {
+       "row": [
+        {
+         "@_keys": "grave gap gap pound gap gap gap gap gap gap gap gap gap"
+        },
+        {
+         "@_keys": "gap gap e-grave gap gap gap u-grave i-grave o-grave gap open-square close-square"
+        },
+        {
+         "@_keys": "a-grave gap gap gap gap gap gap gap gap gap gap gap"
+        },
+        {
+         "@_keys": "backslash gap gap gap gap gap gap gap gap gap gap"
+        },
+        {
+         "@_keys": "space"
+        }
+       ],
+       "@_modifiers": "altR"
+      },
+      {
+       "row": [
+        {
+         "@_keys": "not gap gap gap gap gap gap gap gap gap gap gap gap"
+        },
+        {
+         "@_keys": "gap gap E-grave gap gap gap U-grave I-grave O-grave gap open-curly close-curly"
+        },
+        {
+         "@_keys": "A-grave gap gap gap gap gap gap gap gap gap gap gap"
+        },
+        {
+         "@_keys": "pipe gap gap gap gap gap gap gap gap gap gap"
+        },
+        {
+         "@_keys": "space"
+        }
+       ],
+       "@_modifiers": "altR shift"
+      }
+     ],
+     "@_formId": "iso"
+    },
+    "@_xmlns": "https://schemas.unicode.org/cldr/45/keyboard3",
+    "@_locale": "mt",
+    "@_conformsTo": "45"
+   }
+  },
   "fr-t-k0-azerty.xml": {
    "?xml": {
     "@_version": "1.0",
@@ -634,22 +1329,17 @@
     "@_conformsTo": "45"
    }
   },
-  "mt.xml": {
+  "pcm.xml": {
    "?xml": {
     "@_version": "1.0",
     "@_encoding": "UTF-8"
    },
    "keyboard3": {
-    "locales": {
-     "locale": {
-      "@_id": "en"
-     }
+    "version": {
+     "@_number": "1.0.0"
     },
     "info": {
-     "@_name": "Maltese",
-     "@_author": "Steven R. Loomis",
-     "@_layout": "QWERTY",
-     "@_indicator": "MT"
+     "@_name": "Naijíriá Píjin"
     },
     "keys": {
      "import": [
@@ -664,80 +1354,36 @@
      ],
      "key": [
       {
-       "@_id": "a-grave",
-       "@_output": "à"
+       "@_id": "grave",
+       "@_output": "\\u{300}"
       },
       {
-       "@_id": "A-grave",
-       "@_output": "À"
+       "@_id": "backquote",
+       "@_output": "`"
       },
       {
-       "@_id": "e-grave",
-       "@_output": "è"
+       "@_id": "acute",
+       "@_output": "\\u{301}"
       },
       {
-       "@_id": "E-grave",
-       "@_output": "È"
+       "@_id": "odot",
+       "@_output": "ọ"
       },
       {
-       "@_id": "i-grave",
-       "@_output": "ì"
+       "@_id": "Odot",
+       "@_output": "Ọ"
       },
       {
-       "@_id": "I-grave",
-       "@_output": "Ì"
+       "@_id": "edot",
+       "@_output": "ẹ"
       },
       {
-       "@_id": "o-grave",
-       "@_output": "ò"
+       "@_id": "Edot",
+       "@_output": "Ẹ"
       },
       {
-       "@_id": "O-grave",
-       "@_output": "Ò"
-      },
-      {
-       "@_id": "u-grave",
-       "@_output": "ù"
-      },
-      {
-       "@_id": "U-grave",
-       "@_output": "Ù"
-      },
-      {
-       "@_id": "c-tikka",
-       "@_output": "ċ"
-      },
-      {
-       "@_id": "C-tikka",
-       "@_output": "Ċ"
-      },
-      {
-       "@_id": "g-tikka",
-       "@_output": "ġ"
-      },
-      {
-       "@_id": "G-tikka",
-       "@_output": "Ġ"
-      },
-      {
-       "@_id": "h-maqtugha",
-       "@_output": "ħ"
-      },
-      {
-       "@_id": "H-maqtugha",
-       "@_output": "Ħ"
-      },
-      {
-       "@_id": "z-tikka",
-       "@_output": "ż"
-      },
-      {
-       "@_id": "Z-tikka",
-       "@_output": "Ż"
-      },
-      {
-       "@_id": "c-cedilla",
-       "@_output": "ç"
+       "@_id": "naira",
+       "@_output": "₦"
       }
      ]
     },
@@ -746,16 +1392,16 @@
       {
        "row": [
         {
-         "@_keys": "c-tikka 1 2 3 4 5 6 7 8 9 0 hyphen equal"
+         "@_keys": "grave 1 2 3 4 5 6 7 8 9 0 hyphen equal"
         },
         {
-         "@_keys": "q w e r t y u i o p g-tikka h-maqtugha"
+         "@_keys": "acute w e r t y u i o p open-square close-square"
         },
         {
-         "@_keys": "a s d f g h j k l semi-colon hash"
+         "@_keys": "a s d f g h j k l odot edot slash"
         },
         {
-         "@_keys": "z-tikka z x c v b n m comma period slash"
+         "@_keys": "slash z c v b n m comma period semi-colon apos"
         },
         {
          "@_keys": "space"
@@ -766,16 +1412,16 @@
       {
        "row": [
         {
-         "@_keys": "C-tikka bang double-quote euro dollar percent caret amp open-paren close-paren underscore plus"
+         "@_keys": "grave bang at hash dollar naira percent amp asterisk open-paren close-paren underscore plus"
         },
         {
-         "@_keys": "Q W E R T Y U I O P G-tikka H-maqtugha"
+         "@_keys": "A S D F G H J K L Odot Edot question"
         },
         {
-         "@_keys": "A S D F G H J K L colon at tilde"
+         "@_keys": "A S D F G H J K L Odot Edot"
         },
         {
-         "@_keys": "Z-tikka Z X C V B N M open-angle close-angle question"
+         "@_keys": "question Z C V B N M open-angle close-angle colon double-quote"
         },
         {
          "@_keys": "space"
@@ -786,48 +1432,43 @@
       {
        "row": [
         {
-         "@_keys": "grave gap gap pound gap gap gap gap gap gap gap gap gap"
+         "@_keys": "backquote 1 2 3 4 5 6 7 8 9 0 hyphen equal"
         },
         {
-         "@_keys": "gap gap e-grave gap gap gap u-grave i-grave o-grave gap open-square close-square"
+         "@_keys": "Q W E R T Y U I O P open-square close-square"
         },
         {
-         "@_keys": "a-grave gap gap gap gap gap gap gap gap gap gap gap"
+         "@_keys": "A S D F G H J K L Odot Edot slash"
         },
         {
-         "@_keys": "backslash gap gap gap gap gap gap gap gap gap gap"
-        },
-        {
-         "@_keys": "space"
-        }
-       ],
-       "@_modifiers": "altR"
-      },
-      {
-       "row": [
-        {
-         "@_keys": "not gap gap gap gap gap gap gap gap gap gap gap gap"
-        },
-        {
-         "@_keys": "gap gap E-grave gap gap gap U-grave I-grave O-grave gap open-curly close-curly"
-        },
-        {
-         "@_keys": "A-grave gap gap gap gap gap gap gap gap gap gap gap"
-        },
-        {
-         "@_keys": "pipe gap gap gap gap gap gap gap gap gap gap"
+         "@_keys": "slash Z C V B N M comma period semi-colon apos"
         },
         {
          "@_keys": "space"
         }
        ],
-       "@_modifiers": "altR shift"
+       "@_modifiers": "caps"
       }
      ],
      "@_formId": "iso"
     },
+    "transforms": [
+     {
+      "transformGroup": [
+       {
+        "transform": [
+         {
+          "@_from": "''",
+          "@_to": "\\u{323}"
+         }
+        ]
+       }
+      ],
+      "@_type": "simple"
+     }
+    ],
     "@_xmlns": "https://schemas.unicode.org/cldr/45/keyboard3",
-    "@_locale": "mt",
+    "@_locale": "pcm",
     "@_conformsTo": "45"
    }
   },
@@ -1111,650 +1752,43 @@
     "@_locale": "mt-t-k0-47key",
     "@_conformsTo": "45"
    }
-  },
-  "bn.xml": {
-   "?xml": {
-    "@_version": "1.0",
-    "@_encoding": "UTF-8"
-   },
-   "keyboard3": {
-    "locales": {
-     "locale": [
-      {
-       "@_id": "as"
-      },
-      {
-       "@_id": "syl"
-      }
-     ]
-    },
-    "version": {
-     "@_number": "1.3.0"
-    },
-    "info": {
-     "@_name": "SIL Bengali-Assamese Phonetic",
-     "@_indicator": "bn",
-     "@_layout": "QWERTY"
-    },
-    "displays": {
-     "display": [
-      {
-       "@_keyId": "au-lengthener",
-       "@_display": "ৗ"
-      },
-      {
-       "@_keyId": "vis-hasant",
-       "@_display": "্"
-      },
-      {
-       "@_keyId": "more",
-       "@_display": "…"
-      }
-     ]
-    },
-    "keys": {
-     "import": [
-      {
-       "@_base": "cldr",
-       "@_path": "45/keys-Zyyy-punctuation.xml"
-      },
-      {
-       "@_base": "cldr",
-       "@_path": "45/keys-Zyyy-currency.xml"
-      }
-     ],
-     "key": [
-      {
-       "@_id": "1",
-       "@_output": "১"
-      },
-      {
-       "@_id": "2",
-       "@_output": "২"
-      },
-      {
-       "@_id": "3",
-       "@_output": "৩"
-      },
-      {
-       "@_id": "4",
-       "@_output": "৪"
-      },
-      {
-       "@_id": "5",
-       "@_output": "৫"
-      },
-      {
-       "@_id": "6",
-       "@_output": "৬"
-      },
-      {
-       "@_id": "7",
-       "@_output": "৭"
-      },
-      {
-       "@_id": "8",
-       "@_output": "৮"
-      },
-      {
-       "@_id": "9",
-       "@_output": "৯"
-      },
-      {
-       "@_id": "0",
-       "@_output": "০"
-      },
-      {
-       "@_id": "au-lengthener",
-       "@_output": "\\m{A}"
-      },
-      {
-       "@_id": "candrabindu",
-       "@_output": "\\u{0981}"
-      },
-      {
-       "@_id": "hasant",
-       "@_output": "\\u{09CD}"
-      },
-      {
-       "@_id": "more",
-       "@_output": "\\m{q}"
-      },
-      {
-       "@_id": "nukta",
-       "@_output": "\\u{09BC}"
-      },
-      {
-       "@_id": "vis-hasant",
-       "@_output": "\\m{X}"
-      },
-      {
-       "@_id": "ā",
-       "@_output": "\\u{09BE}"
-      },
-      {
-       "@_id": "ai",
-       "@_output": "\\u{09C8}"
-      },
-      {
-       "@_id": "au",
-       "@_output": "\\u{09CC}"
-      },
-      {
-       "@_id": "ba",
-       "@_output": "ব"
-      },
-      {
-       "@_id": "bha",
-       "@_output": "ভ"
-      },
-      {
-       "@_id": "ca",
-       "@_output": "চ"
-      },
-      {
-       "@_id": "cha",
-       "@_output": "ছ"
-      },
-      {
-       "@_id": "ḍa",
-       "@_output": "ড"
-      },
-      {
-       "@_id": "da",
-       "@_output": "দ"
-      },
-      {
-       "@_id": "dahri",
-       "@_output": "।"
-      },
-      {
-       "@_id": "ḍha",
-       "@_output": "ঢ"
-      },
-      {
-       "@_id": "dha",
-       "@_output": "ধ"
-      },
-      {
-       "@_id": "e",
-       "@_output": "\\u{09C7}"
-      },
-      {
-       "@_id": "ga",
-       "@_output": "গ"
-      },
-      {
-       "@_id": "gha",
-       "@_output": "ঘ"
-      },
-      {
-       "@_id": "ha",
-       "@_output": "হ"
-      },
-      {
-       "@_id": "i",
-       "@_output": "\\u{09BF}"
-      },
-      {
-       "@_id": "ī",
-       "@_output": "\\u{09C0}"
-      },
-      {
-       "@_id": "ja",
-       "@_output": "জ"
-      },
-      {
-       "@_id": "jha",
-       "@_output": "ঝ"
-      },
-      {
-       "@_id": "ka",
-       "@_output": "ক"
-      },
-      {
-       "@_id": "kha",
-       "@_output": "খ"
-      },
-      {
-       "@_id": "la",
-       "@_output": "ল"
-      },
-      {
-       "@_id": "ṃ",
-       "@_output": "\\u{0982}"
-      },
-      {
-       "@_id": "ma",
-       "@_output": "ম"
-      },
-      {
-       "@_id": "ṅa",
-       "@_output": "ঙ"
-      },
-      {
-       "@_id": "ña",
-       "@_output": "ঞ"
-      },
-      {
-       "@_id": "ṇa",
-       "@_output": "ণ"
-      },
-      {
-       "@_id": "na",
-       "@_output": "ন"
-      },
-      {
-       "@_id": "o",
-       "@_output": "\\u{09CB}"
-      },
-      {
-       "@_id": "pa",
-       "@_output": "প"
-      },
-      {
-       "@_id": "pha",
-       "@_output": "ফ"
-      },
-      {
-       "@_id": "ṛ",
-       "@_output": "\\u{09C3}"
-      },
-      {
-       "@_id": "ra",
-       "@_output": "র"
-      },
-      {
-       "@_id": "śa",
-       "@_output": "শ"
-      },
-      {
-       "@_id": "sa",
-       "@_output": "স"
-      },
-      {
-       "@_id": "sha",
-       "@_output": "ষ"
-      },
-      {
-       "@_id": "ṭa",
-       "@_output": "ট"
-      },
-      {
-       "@_id": "ta",
-       "@_output": "ত"
-      },
-      {
-       "@_id": "ṭha",
-       "@_output": "ঠ"
-      },
-      {
-       "@_id": "tha",
-       "@_output": "থ"
-      },
-      {
-       "@_id": "u",
-       "@_output": "\\u{09C1}"
-      },
-      {
-       "@_id": "ū",
-       "@_output": "\\u{09C2}"
-      },
-      {
-       "@_id": "wa",
-       "@_output": "ৱ"
-      },
-      {
-       "@_id": "ya",
-       "@_output": "য"
-      },
-      {
-       "@_id": "ẏa",
-       "@_output": "য়"
-      }
-     ]
-    },
-    "layers": {
-     "layer": [
-      {
-       "row": [
-        {
-         "@_keys": "candrabindu 1 2 3 4 5 6 7 8 9 0 hyphen equal"
-        },
-        {
-         "@_keys": "more wa e ra ta ya u i o pa open-square close-square backslash"
-        },
-        {
-         "@_keys": "ā sa da ṭa ga ha ja ka la semi-colon apos"
-        },
-        {
-         "@_keys": "śa hasant ca ḍa ba na ma comma dahri slash"
-        },
-        {
-         "@_keys": "space"
-        }
-       ],
-       "@_modifiers": "none"
-      },
-      {
-       "row": [
-        {
-         "@_keys": "ṃ bang at hash dollar percent caret amp asterisk open-paren close-paren underscore plus"
-        },
-        {
-         "@_keys": "gap ña ai ṛ tha ẏa ū ī au pha open-curly close-curly pipe"
-        },
-        {
-         "@_keys": "au-lengthener sha dha ṭha gha gap jha kha gap colon double-quote"
-        },
-        {
-         "@_keys": "gap vis-hasant cha ḍha bha ṇa ṅa open-angle nukta question"
-        },
-        {
-         "@_keys": "space"
-        }
-       ],
-       "@_modifiers": "shift"
-      }
-     ],
-     "@_formId": "us"
-    },
-    "transforms": [
-     {
-      "transformGroup": [
-       {
-        "transform": [
-         {
-          "@_from": "\\u{09C7}\\m{A}",
-          "@_to": "\\u{09CC}"
-         },
-         {
-          "@_from": "\\m{q}:",
-          "@_to": "\\u{0983}"
-         },
-         {
-          "@_from": "\\m{q}L",
-          "@_to": "ৡ"
-         },
-         {
-          "@_from": "\\m{q}।",
-          "@_to": "॥"
-         },
-         {
-          "@_from": "\\m{q}ড",
-          "@_to": "ড়"
-         },
-         {
-          "@_from": "\\m{q}ঢ",
-          "@_to": "ঢ়"
-         },
-         {
-          "@_from": "\\m{q}ত",
-          "@_to": "ৎ"
-         },
-         {
-          "@_from": "\\m{q}য",
-          "@_to": "য়"
-         },
-         {
-          "@_from": "\\m{q}র",
-          "@_to": "ৰ"
-         },
-         {
-          "@_from": "\\m{q}ল",
-          "@_to": "ঌ"
-         },
-         {
-          "@_from": "\\m{q}\\u{09BE}",
-          "@_to": "অ"
-         },
-         {
-          "@_from": "\\m{q}\\u{09BF}",
-          "@_to": "ই"
-         },
-         {
-          "@_from": "\\m{q}\\u{09C0}",
-          "@_to": "ঈ"
-         },
-         {
-          "@_from": "\\m{q}\\u{09C1}",
-          "@_to": "উ"
-         },
-         {
-          "@_from": "\\m{q}\\u{09C2}",
-          "@_to": "ঊ"
-         },
-         {
-          "@_from": "\\m{q}\\u{09C3}",
-          "@_to": "ৠ"
-         },
-         {
-          "@_from": "\\m{q}\\u{09C7}",
-          "@_to": "এ"
-         },
-         {
-          "@_from": "\\m{q}\\u{09C8}",
-          "@_to": "ঐ"
-         },
-         {
-          "@_from": "\\m{q}\\u{09CB}",
-          "@_to": "ও"
-         },
-         {
-          "@_from": "\\m{q}\\u{09CC}",
-          "@_to": "ঔ"
-         },
-         {
-          "@_from": "\\m{q}\\m{A}",
-          "@_to": "আ"
-         },
-         {
-          "@_from": "\\m{q}\\m{X}",
-          "@_to": "\\u{09CD}\\u{200C}"
-         }
-        ]
-       },
-       {
-        "reorder": [
-         {
-          "@_from": "\\u{09BC}",
-          "@_tertiary": "3"
-         },
-         {
-          "@_from": "\\u{09CD}[\\u{0980}\\u{0985}-\\u{098C}\\u{098F}\\u{0990}\\u{0993}-\\u{09A8}\\u{09AA}-\\u{09B0}\\u{09B2}\\u{09B6}-\\u{09B9}\\u{09BD}\\u{09DC}\\u{09DD}\\u{09DF}-\\u{09E1}\\u{09E6}-\\u{09F1}\\u{09FC}]",
-          "@_order": "10",
-          "@_tertiaryBase": "true"
-         },
-         {
-          "@_from": "\\u{09CD}[\\u{200C}\\u{200D}][\\u{0980}\\u{0985}-\\u{098C}\\u{098F}\\u{0990}\\u{0993}-\\u{09A8}\\u{09AA}-\\u{09B0}\\u{09B2}\\u{09B6}-\\u{09B9}\\u{09BD}\\u{09DC}\\u{09DD}\\u{09DF}-\\u{09E1}\\u{09E6}-\\u{09F1}\\u{09FC}]",
-          "@_order": "10",
-          "@_tertiaryBase": "true"
-         },
-         {
-          "@_from": "\\u{09CD}",
-          "@_order": "120",
-          "@_tertiaryBase": "true"
-         },
-         {
-          "@_from": "[\\u{09BF}\\u{09C7}\\u{09C8}]",
-          "@_order": "60"
-         },
-         {
-          "@_from": "[\\u{09C1}-\\u{09C4}\\u{09E2}\\u{09E3}]",
-          "@_order": "70"
-         },
-         {
-          "@_from": "[\\u{09BE}\\u{09C0}\\u{09CB}\\u{09CC}\\u{09D7}]",
-          "@_order": "75"
-         },
-         {
-          "@_from": "\\u{0981}",
-          "@_order": "85"
-         },
-         {
-          "@_from": "[\\u{0982}\\u{0983}]",
-          "@_order": "95"
-         },
-         {
-          "@_from": "\\u{09FE}",
-          "@_order": "117"
-         }
-        ]
-       }
-      ],
-      "@_type": "simple"
-     }
-    ],
-    "@_xmlns": "https://schemas.unicode.org/cldr/45/keyboard3",
-    "@_locale": "bn",
-    "@_conformsTo": "45"
-   }
-  },
-  "pcm.xml": {
-   "?xml": {
-    "@_version": "1.0",
-    "@_encoding": "UTF-8"
-   },
-   "keyboard3": {
-    "version": {
-     "@_number": "1.0.0"
-    },
-    "info": {
-     "@_name": "Naijíriá Píjin"
-    },
-    "keys": {
-     "import": [
-      {
-       "@_base": "cldr",
-       "@_path": "45/keys-Zyyy-punctuation.xml"
-      },
-      {
-       "@_base": "cldr",
-       "@_path": "45/keys-Zyyy-currency.xml"
-      }
-     ],
-     "key": [
-      {
-       "@_id": "grave",
-       "@_output": "\\u{300}"
-      },
-      {
-       "@_id": "backquote",
-       "@_output": "`"
-      },
-      {
-       "@_id": "acute",
-       "@_output": "\\u{301}"
-      },
-      {
-       "@_id": "odot",
-       "@_output": "ọ"
-      },
-      {
-       "@_id": "Odot",
-       "@_output": "Ọ"
-      },
-      {
-       "@_id": "edot",
-       "@_output": "ẹ"
-      },
-      {
-       "@_id": "Edot",
-       "@_output": "Ẹ"
-      },
-      {
-       "@_id": "naira",
-       "@_output": "₦"
-      }
-     ]
-    },
-    "layers": {
-     "layer": [
-      {
-       "row": [
-        {
-         "@_keys": "grave 1 2 3 4 5 6 7 8 9 0 hyphen equal"
-        },
-        {
-         "@_keys": "acute w e r t y u i o p open-square close-square"
-        },
-        {
-         "@_keys": "a s d f g h j k l odot edot slash"
-        },
-        {
-         "@_keys": "slash z c v b n m comma period semi-colon apos"
-        },
-        {
-         "@_keys": "space"
-        }
-       ],
-       "@_modifiers": "none"
-      },
-      {
-       "row": [
-        {
-         "@_keys": "grave bang at hash dollar naira percent amp asterisk open-paren close-paren underscore plus"
-        },
-        {
-         "@_keys": "A S D F G H J K L Odot Edot question"
-        },
-        {
-         "@_keys": "A S D F G H J K L Odot Edot"
-        },
-        {
-         "@_keys": "question Z C V B N M open-angle close-angle colon double-quote"
-        },
-        {
-         "@_keys": "space"
-        }
-       ],
-       "@_modifiers": "shift"
-      },
-      {
-       "row": [
-        {
-         "@_keys": "backquote 1 2 3 4 5 6 7 8 9 0 hyphen equal"
-        },
-        {
-         "@_keys": "Q W E R T Y U I O P open-square close-square"
-        },
-        {
-         "@_keys": "A S D F G H J K L Odot Edot slash"
-        },
-        {
-         "@_keys": "slash Z C V B N M comma period semi-colon apos"
-        },
-        {
-         "@_keys": "space"
-        }
-       ],
-       "@_modifiers": "caps"
-      }
-     ],
-     "@_formId": "iso"
-    },
-    "transforms": [
-     {
-      "transformGroup": [
-       {
-        "transform": [
-         {
-          "@_from": "''",
-          "@_to": "\\u{323}"
-         }
-        ]
-       }
-      ],
-      "@_type": "simple"
-     }
-    ],
-    "@_xmlns": "https://schemas.unicode.org/cldr/45/keyboard3",
-    "@_locale": "pcm",
-    "@_conformsTo": "45"
-   }
   }
  },
  "imports": {
+  "keys-Zyyy-currency.xml": {
+   "?xml": {
+    "@_version": "1.0",
+    "@_encoding": "UTF-8"
+   },
+   "keys": {
+    "key": [
+     {
+      "@_id": "dollar",
+      "@_output": "$"
+     },
+     {
+      "@_id": "euro",
+      "@_output": "€"
+     },
+     {
+      "@_id": "pound",
+      "@_output": "£"
+     },
+     {
+      "@_id": "yen",
+      "@_output": "¥"
+     },
+     {
+      "@_id": "cruzeiro",
+      "@_output": "₢"
+     },
+     {
+      "@_id": "cent",
+      "@_output": "¢"
+     }
+    ]
+   }
+  },
   "keys-Latn-implied.xml": {
    "?xml": {
     "@_version": "1.0",
@@ -2280,40 +2314,6 @@
        }
       ],
       "@_id": "ks"
-     }
-    ]
-   }
-  },
-  "keys-Zyyy-currency.xml": {
-   "?xml": {
-    "@_version": "1.0",
-    "@_encoding": "UTF-8"
-   },
-   "keys": {
-    "key": [
-     {
-      "@_id": "dollar",
-      "@_output": "$"
-     },
-     {
-      "@_id": "euro",
-      "@_output": "€"
-     },
-     {
-      "@_id": "pound",
-      "@_output": "£"
-     },
-     {
-      "@_id": "yen",
-      "@_output": "¥"
-     },
-     {
-      "@_id": "cruzeiro",
-      "@_output": "₢"
-     },
-     {
-      "@_id": "cent",
-      "@_output": "¢"
      }
     ]
    }

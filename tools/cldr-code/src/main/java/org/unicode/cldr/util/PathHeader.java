@@ -232,6 +232,7 @@ public class PathHeader implements Comparable<PathHeader> {
         Length(SectionId.Units),
         Area(SectionId.Units),
         Volume_Metric(SectionId.Units, "Volume Metric"),
+        Volume_US(SectionId.Units, "Volume US"),
         Volume_Other(SectionId.Units, "Volume Other"),
         SpeedAcceleration(SectionId.Units, "Speed and Acceleration"),
         MassWeight(SectionId.Units, "Mass and Weight"),
@@ -241,6 +242,9 @@ public class PathHeader implements Comparable<PathHeader> {
         Digital(SectionId.Units),
         Coordinates(SectionId.Units),
         OtherUnits(SectionId.Units, "Other Units"),
+        OtherUnitsPer(SectionId.Units, "Other Units Per"),
+        OtherUnitsUS(SectionId.Units, "Other Units US"),
+        OtherUnitsMisc(SectionId.Units, "Other Units Misc"),
         CompoundUnits(SectionId.Units, "Compound Units"),
 
         Displaying_Lists(SectionId.Misc, "Displaying Lists"),
@@ -2241,6 +2245,8 @@ public class PathHeader implements Comparable<PathHeader> {
                 if (functionStart < 0) {
                     if ("Volume".equals(input)) {
                         return getVolumePageId(args.value[0] /* path */).toString();
+                    } else if ("Other Units".equals(input)) {
+                        return getOtherUnitsPageId(args.value[0] /* path */).toString();
                     }
                     return input;
                 }
@@ -2262,10 +2268,40 @@ public class PathHeader implements Comparable<PathHeader> {
             }
         }
 
-        private static Set<UnitConverter.UnitSystem> METRIC =
+        private static Set<UnitConverter.UnitSystem> METRIC_UNITS =
                 Set.of(UnitConverter.UnitSystem.metric, UnitConverter.UnitSystem.metric_adjacent);
 
+        private static Set<UnitConverter.UnitSystem> US_UNITS =
+                Set.of(UnitConverter.UnitSystem.ussystem);
+
         private static PageId getVolumePageId(String path) {
+            final String shortUnitId = getShortUnitId(path);
+            if (isSystemUnit(shortUnitId, METRIC_UNITS)) {
+                return PageId.Volume_Metric;
+            } else {
+                return isSystemUnit(shortUnitId, US_UNITS) ? PageId.Volume_US : PageId.Volume_Other;
+            }
+        }
+
+        private static PageId getOtherUnitsPageId(String path) {
+            String shortUnitId = getShortUnitId(path);
+            if (isSystemUnit(shortUnitId, METRIC_UNITS)) {
+                return shortUnitId.contains("per") ? PageId.OtherUnitsPer : PageId.OtherUnits;
+            } else {
+                return isSystemUnit(shortUnitId, US_UNITS)
+                        ? PageId.OtherUnitsUS
+                        : PageId.OtherUnitsMisc;
+            }
+        }
+
+        private static boolean isSystemUnit(
+                String shortUnitId, Set<UnitConverter.UnitSystem> system) {
+            final UnitConverter uc = supplementalDataInfo.getUnitConverter();
+            final Set<UnitConverter.UnitSystem> systems = uc.getSystemsEnum(shortUnitId);
+            return !Collections.disjoint(system, systems);
+        }
+
+        private static String getShortUnitId(String path) {
             // Extract the unit from the path. For example, if path is
             // //ldml/units/unitLength[@type="narrow"]/unit[@type="volume-cubic-kilometer"]/displayName
             // then extract "volume-cubic-kilometer" which is the long unit id
@@ -2276,12 +2312,7 @@ public class PathHeader implements Comparable<PathHeader> {
             }
             final UnitConverter uc = supplementalDataInfo.getUnitConverter();
             // Convert, for example, "volume-cubic-kilometer" to "cubic-kilometer"
-            final String shortUnitId = uc.getShortId(longUnitId);
-            if (!Collections.disjoint(METRIC, uc.getSystemsEnum(shortUnitId))) {
-                return PageId.Volume_Metric;
-            } else {
-                return PageId.Volume_Other;
-            }
+            return uc.getShortId(longUnitId);
         }
 
         /**

@@ -902,7 +902,8 @@ public abstract class CheckCLDR implements CheckAccessor {
             namePlaceholderProblem,
             missingSpaceBetweenNameFields,
             illegalParameterValue,
-            illegalAnnotationCode;
+            illegalAnnotationCode,
+            illegalCharacter;
 
             @Override
             public String toString() {

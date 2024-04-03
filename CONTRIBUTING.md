@@ -17,6 +17,10 @@ The CLDR project consists of 3 aspects:
 
 ### Areas where contributions are welcome
 
+- `docs/`: Documents relevant to CLDR, including the main site, Unicode Technical Standard #35, and IETF drafts.
+    Improvements could include:
+  - fixing typographical and formatting errors
+  - clarifying content
 - `cldr-apps/`: (Survey Tool).
     Improvements here include:
   - UI:  performance improvements, visual and functional refinements

@@ -10,13 +10,13 @@ For current CLDR release information, see [cldr.unicode.org](https://cldr.unicod
 
 ## Status
 
-Update: 2024-02-27
+Update: 2024-04-03
 
 <!-- [inapplicable lines are commented out.]-->
 <!-- **Note:**  CLDR 45 is in development and not recommended for use at this stage. -->
 <!--**Note:**  This is the milestone 1 version of CLDR 45, intended for those wishing to do pre-release testing. It is not recommended for production use.-->
-**Note:** This is a preliminary version of CLDR 45, intended for those wishing to do pre-release testing. It is not recommended for production use.
-<!--**Note:**  This is a pre-release candidate version of CLDR 45, intended for testing. It is not recommended for production use.-->
+<!--**Note:** This is a preliminary version of CLDR 45, intended for those wishing to do pre-release testing. It is not recommended for production use.-->
+**Note:**  This is a pre-release candidate version of CLDR 45, intended for testing. It is not recommended for production use.
 <!--This is the final release version of CLDR 45.-->
 
 ### What is CLDR?

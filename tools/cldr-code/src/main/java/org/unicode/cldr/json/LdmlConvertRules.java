@@ -290,6 +290,8 @@ class LdmlConvertRules {
         new SplittableAttributeSpec(
                 "collations", "locales", "parent"), // parentLocale component=collations
         new SplittableAttributeSpec(
+                "plurals", "locales", "parent"), // parentLocale component=plurals
+        new SplittableAttributeSpec(
                 "segmentations", "locales", "parent"), // parentLocale component=segmentations
         new SplittableAttributeSpec("hours", "regions", null),
         new SplittableAttributeSpec("dayPeriodRules", "locales", null),
@@ -298,6 +300,8 @@ class LdmlConvertRules {
         new SplittableAttributeSpec("unitPreference", "regions", null),
         new SplittableAttributeSpec("grammaticalFeatures", "locales", null),
         new SplittableAttributeSpec("grammaticalDerivations", "locales", null),
+        // this will cause EMPTY parentLocales elements to work properly
+        new SplittableAttributeSpec("parentLocales", "component", "" /* Not null */),
     };
 
     /** The set that contains all timezone type of elements. */

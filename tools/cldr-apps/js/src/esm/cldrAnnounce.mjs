@@ -28,7 +28,15 @@ let callbackSetData = null;
 let callbackSetCounts = null;
 let callbackSetUnread = null;
 
-let alreadyGotId = 0;
+const MOST_RECENT_ID_UNKNOWN = -1; // must be less than zero
+
+/**
+ * The most recent announcement ID the back end has told us about
+ *
+ * MOST_RECENT_ID_UNKNOWN means the front end hasn't received a response yet;
+ * 0 means the response from the back end indicated no announcements exist yet
+ */
+let alreadyGotId = MOST_RECENT_ID_UNKNOWN;
 
 /**
  * Get the number of unread announcements, to display in the main menu
@@ -70,11 +78,7 @@ async function refresh(viewCallbackSetData, viewCallbackSetCounts) {
   if (schedule.tooSoon()) {
     return;
   }
-  let p = null;
-  if (alreadyGotId) {
-    p = new URLSearchParams();
-    p.append("alreadyGotId", alreadyGotId);
-  }
+  const p = new URLSearchParams().append("alreadyGotId", alreadyGotId);
   const url = cldrAjax.makeApiUrl("announce", p);
   schedule.setRequestTime();
   return await cldrAjax
@@ -90,8 +94,8 @@ function setPosts(json) {
   if (json.unchanged) {
     return;
   }
+  alreadyGotId = json.mostRecentId;
   thePosts = json;
-  setAlreadyGotId(thePosts);
   const totalCount = thePosts.announcements?.length || 0;
   let checkedCount = 0;
   for (let announcement of thePosts.announcements) {
@@ -110,14 +114,6 @@ function setPosts(json) {
     callbackSetUnread(unreadCount); // MainHeader.vue (balloon icon)
   }
   return thePosts;
-}
-
-function setAlreadyGotId(thePosts) {
-  for (let announcement of thePosts.announcements) {
-    if (announcement.id > alreadyGotId) {
-      alreadyGotId = announcement.id;
-    }
-  }
 }
 
 function canAnnounce() {
@@ -178,7 +174,7 @@ async function combineAndValidateLocales(locs, validateLocCallback) {
 }
 
 function resetSchedule() {
-  alreadyGotId = 0;
+  alreadyGotId = MOST_RECENT_ID_UNKNOWN;
   schedule.reset();
 }
 

@@ -57,9 +57,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
     private static enum Type {
         LANGUAGE("//ldml/localeDisplayNames/languages/language", MatchType.PREFIX),
         SCRIPT("//ldml/localeDisplayNames/scripts/script", MatchType.PREFIX),
-        TERRITORY(
-                "//ldml/localeDisplayNames/(territories/territory|subdivisions/subdivision\\[@type=\"gb(eng|sct|wls)\")",
-                MatchType.REGEX),
+        TERRITORY("//ldml/localeDisplayNames/territories/territory", MatchType.PREFIX),
         VARIANT("//ldml/localeDisplayNames/variants/variant", MatchType.PREFIX),
         CURRENCY("//ldml/numbers/currencies/currency", MatchType.PREFIX),
         ZONE("//ldml/dates/timeZoneNames/zone", MatchType.PREFIX),
@@ -350,7 +348,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         Matcher matcher = null;
         String message =
                 "Can't have same translation as {0}. Please change either this name or the other one. "
-                        + "See <a target='doc' href='http://cldr.unicode.org/translation/short-names-and-keywords#TOC-Unique-Names'>Unique-Names</a>.";
+                        + "See <a target='doc' href='https://cldr.unicode.org/translation/displaynames/countryregion-territory-names#h.xkmg2o42dw29'>Unique-Names</a>.";
         Matcher currentAttributesToIgnore = ignoreAltAndCountAttributes;
         Set<String> paths;
         if (myType == Type.DECIMAL_FORMAT) {

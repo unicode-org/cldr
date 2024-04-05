@@ -18,7 +18,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -241,10 +240,10 @@ public class PathHeader implements Comparable<PathHeader> {
         Weather(SectionId.Units),
         Digital(SectionId.Units),
         Coordinates(SectionId.Units),
-        OtherUnits(SectionId.Units, "Other Units"),
-        OtherUnitsPer(SectionId.Units, "Other Units Per"),
+        OtherUnitsMetric(SectionId.Units, "Other Unitsj Metric"),
+        OtherUnitsMetricPer(SectionId.Units, "Other Units Metric Per"),
         OtherUnitsUS(SectionId.Units, "Other Units US"),
-        OtherUnitsMisc(SectionId.Units, "Other Units Misc"),
+        OtherUnits(SectionId.Units, "Other Units"),
         CompoundUnits(SectionId.Units, "Compound Units"),
 
         Displaying_Lists(SectionId.Misc, "Displaying Lists"),
@@ -864,28 +863,7 @@ public class PathHeader implements Comparable<PathHeader> {
             return SectionIdToPageIds;
         }
 
-        /**
-         * Return the names for Sections and Pages that are defined, for display in menus. Both are
-         * ordered.
-         *
-         * @deprecated Use getSectionIdsToPageIds
-         */
-        @Deprecated
-        public static LinkedHashMap<String, Set<String>> getSectionsToPages() {
-            LinkedHashMap<String, Set<String>> sectionsToPages = new LinkedHashMap<>();
-            for (PageId pageId : PageId.values()) {
-                String sectionId2 = pageId.getSectionId().toString();
-                Set<String> pages =
-                        sectionsToPages.computeIfAbsent(sectionId2, k -> new LinkedHashSet<>());
-                pages.add(pageId.toString());
-            }
-            return sectionsToPages;
-        }
-
-        /**
-         * @deprecated, use the filterCldr with the section/page ids.
-         */
-        public Iterable<String> filterCldr(String section, String page, CLDRFile file) {
+        public Iterable<String> filterCldr(SectionId section, PageId page, CLDRFile file) {
             return new FilteredIterable(section, page, file);
         }
 
@@ -2286,11 +2264,13 @@ public class PathHeader implements Comparable<PathHeader> {
         private static PageId getOtherUnitsPageId(String path) {
             String shortUnitId = getShortUnitId(path);
             if (isSystemUnit(shortUnitId, METRIC_UNITS)) {
-                return shortUnitId.contains("per") ? PageId.OtherUnitsPer : PageId.OtherUnits;
+                return shortUnitId.contains("per")
+                        ? PageId.OtherUnitsMetricPer
+                        : PageId.OtherUnitsMetric;
             } else {
                 return isSystemUnit(shortUnitId, US_UNITS)
                         ? PageId.OtherUnitsUS
-                        : PageId.OtherUnitsMisc;
+                        : PageId.OtherUnits;
             }
         }
 

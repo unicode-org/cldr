@@ -124,7 +124,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 
 <!ELEMENT form ( scanCodes+, special* ) >
 <!ATTLIST form id NMTOKEN #IMPLIED >
-    <!--@MATCH:any-->
+    <!--@MATCH:regex/[A-Za-z0-9][A-Za-z0-9_-]*-->
 
 <!ELEMENT scanCodes EMPTY >
 <!ATTLIST scanCodes codes NMTOKENS #REQUIRED >
@@ -133,13 +133,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 
 <!ELEMENT layers ( import*, layer*, special* ) >
 <!ATTLIST layers formId NMTOKEN #REQUIRED >
-    <!--@MATCH:any-->
+    <!--@MATCH:regex/[A-Za-z0-9][A-Za-z0-9_-]*-->
 <!ATTLIST layers minDeviceWidth CDATA #IMPLIED >
     <!--@MATCH:range/1~999-->
 
 <!ELEMENT layer ( row+, special* ) >
 <!ATTLIST layer id NMTOKEN #IMPLIED >
-    <!--@MATCH:any-->
+    <!--@MATCH:regex/[A-Za-z0-9][A-Za-z0-9_-]*-->
 <!ATTLIST layer modifiers NMTOKENS #IMPLIED >
     <!--@MATCH:regex/(none|([A-Za-z0-9]+)( [A-Za-z0-9]+)*)-->
 

@@ -243,7 +243,7 @@ Keyboard implementations will typically consist of two parts:
 
 **Keyboard layout:** A layout is the overall keyboard configuration for a particular locale. Within a keyboard layout, there is a single base map, one or more key maps and zero or more transforms.
 
-**Layer** is an arrangement of keys on a touch keyboard. A touch keyboard is made up of a set of layers. Each layer may have a different key layout, unlike with a hardware keyboard, and may not correspond directly to a hardware keyboard's modifier keys. A layer is accessed via a switch key. See also touch keyboard, modifier, switch.
+**Layer** is an arrangement of keys on a touch keyboard. A touch keyboard is made up of a set of layers. Each layer may have a different key layout, unlike with a hardware keyboard, and may not correspond directly to a hardware keyboard's modifier keys. A layer is accessed via a layer-switching key. See also touch keyboard and modifier.
 
 **Long-press key:** also known as a “child key”. A secondary key that is invoked from a top level key on a touch keyboard. Secondary keys typically provide access to variants of the top level key, such as accented variants (a => á, à, ä, ã)
 
@@ -1031,11 +1031,11 @@ _Attribute:_ `output` (optional)
 > The `output` attribute may also contain the `\m{…}` syntax to reference a marker. See [Markers](#markers). Implementations may highlight a displayed marker, such as with a lighter text color, or a yellow highlight.
 > String variables may be substituted. See [String variables](#element-string)
 
-_Attribute:_ `id` (optional)
+_Attribute:_ `keyId` (optional)
 
 > Specifies the `key` id. This is useful for keys which do not produce any output (no `output=` value), such as a shift key.
 >
-> This attribute must match `[A-Za-z0-9][A-Za-z0-9-]*`
+> Must match `[A-Za-z0-9][A-Za-z0-9_-]*`
 
 _Attribute:_ `display` (required)
 
@@ -1472,6 +1472,9 @@ _Attribute:_ `id` (required)
 
 > This attribute specifies the form id. The value may not be `touch`.
 
+> Must match `[A-Za-z0-9][A-Za-z0-9_-]*`
+
+
 ***Syntax***
 
 ```xml
@@ -1604,10 +1607,10 @@ A `layer` element describes the configuration of keys on a particular layer of a
 
 _Attribute_ `id` (required for `touch`)
 
-> The `id` attribute identifies the layer for touch layouts.  This identifier specifies the layout as the target for layer switching, as specified by the `switch=` attribute on the [`<key>`](#element-key) element.
+> The `id` attribute identifies the layer for touch layouts.  This identifier specifies the layout as the target for layer switching, as specified by the `layerId=` attribute on the [`<key>`](#element-key) element.
 > Touch layouts must have one `layer` with `id="base"` to serve as the base layer.
 >
-> Must match `[A-Za-z0-9][A-Za-z0-9-]*`
+> Must match `[A-Za-z0-9][A-Za-z0-9_-]*`
 
 _Attribute:_ `modifiers` (required for `hardware`)
 

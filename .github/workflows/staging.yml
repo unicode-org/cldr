@@ -72,7 +72,7 @@ jobs:
         run: >
           zip tools/cldr-apps/target/cldr-apps.zip  -d  wlp/usr/servers/cldr/apps/expanded/\*
       - name: Upload cldr-apps.zip
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: cldr-apps-server
           path: tools/cldr-apps/target/cldr-apps.zip

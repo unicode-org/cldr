@@ -1855,7 +1855,30 @@ public class Ldml2JsonConverter {
                     o.getAsJsonObject().addProperty(attrAsKey, v);
                 } // else, omit
             } else {
-                o.getAsJsonObject().addProperty(attrAsKey, value);
+                // hack for localeRules
+                if (attrAsKey.equals("_localeRules")) {
+                    // find the _localeRules object, add if it didn't exist
+                    JsonElement localeRules = out.getAsJsonObject().get(attrAsKey);
+                    if (localeRules == null) {
+                        localeRules = new JsonObject();
+                        out.getAsJsonObject().add(attrAsKey, localeRules);
+                    }
+                    // find the sibling object, add if it did't exist ( this will be parentLocale or
+                    // collations etc.)
+                    JsonElement sibling = localeRules.getAsJsonObject().get(name);
+                    if (sibling == null) {
+                        sibling = new JsonObject();
+                        localeRules.getAsJsonObject().add(name, sibling);
+                    }
+                    // get the 'parent' attribute, which wil be the value
+                    final String parent =
+                            XPathParts.getFrozenInstance(node.getUntransformedPath())
+                                    .getAttributeValue(-1, "parent");
+                    // finally, we add something like "nonLikelyScript: und"
+                    sibling.getAsJsonObject().addProperty(value, parent);
+                } else {
+                    o.getAsJsonObject().addProperty(attrAsKey, value);
+                }
             }
         }
         return o;
@@ -2312,7 +2335,9 @@ public class Ldml2JsonConverter {
             String attrValue = escapeValue(rawAttrValue);
             // attribute is prefixed with "_" when being used as key.
             String attrAsKey = "_" + key;
-            logger.finest(() -> "Leaf Node: " + node.getUntransformedPath() + " ." + key);
+            if (node != null) {
+                logger.finest(() -> "Leaf Node: " + node.getUntransformedPath() + " ." + key);
+            }
             if (LdmlConvertRules.ATTRVALUE_AS_ARRAY_SET.contains(key)) {
                 String[] strings = attrValue.trim().split("\\s+");
                 JsonArray a = new JsonArray();

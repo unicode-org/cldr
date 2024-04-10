@@ -1795,7 +1795,6 @@ _This section is non-normative._
 > This part of the specification is not part of the Tech Preview.
 
 The registry contains descriptions of function signatures.
-[`registry.dtd`](./registry.dtd) describes its data model.
 
 The main building block of the registry is the `<function>` element.
 It represents an implementation of a custom function available to translation at runtime.
@@ -3603,9 +3602,9 @@ To ensure compatibility across all platforms,
 this interchange data model is defined here using TypeScript notation.
 Two equivalent definitions of the data model are also provided:
 
-- [`message.json`](./message.json) is a JSON Schema definition,
+- `common/dtd/messageFormat/message.json` is a JSON Schema definition,
   for use with message data encoded as JSON or compatible formats, such as YAML.
-- [`message.dtd`](./message.dtd) is a document type definition (DTD),
+- `common/dtd/messageFormat/message.json` is a document type definition (DTD),
   for use with message data encoded as XML.
 
 Note that while the data model description below is the canonical one,

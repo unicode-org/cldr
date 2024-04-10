@@ -5,7 +5,7 @@
   New French
 -->
 	<version number="1.0.0" />
-	<info author="Team Keyboard" name="French AZERTY optimisé" layout="AZERTY" indicator="FR" />
+	<info author="Team Keyboard" name="Français normalisé (AZERTY)" layout="AZERTY" indicator="FR" />
 
 	<displays>
 		<!-- display for diacritics -->
@@ -15,10 +15,11 @@
 		<display output="\m{umlaut}" display="¨" />
 		<display output="\m{caret}" display="^" />
 		<display output="\m{tilde}" display="~" />
+        <display output="\m{invbreve}" display="\u{20}\u{0311}" /> 
 
 		<!-- display for 'mode' keys -->
 		<display keyId="mark-currency" display="\u{00A4}" />
-		<display keyId="mark-greek" display="μ" />
+		<display keyId="mark-greek" display="\u{B5}" />
 		<display keyId="mark-euro" display="Eu" />
 	</displays>
 
@@ -32,7 +33,7 @@
 		<key id="mark-caret" output="\m{caret}" />
 		<key id="mark-caron" output="\m{caron}" />
 		<key id="mark-cedilla" output="\m{cedilla}" />
-		<key id="mark-circumflex" output="\m{circumflex}" />
+		<key id="mark-invbreve" output="\m{invbreve}" />
 		<key id="mark-comma" output="\m{comma}" />
 		<key id="mark-currency" output="\m{currency}" />
 		<key id="mark-dotabove" output="\m{dotabove}" />
@@ -51,6 +52,9 @@
 		<key id="mark-tilde" output="\m{tilde}" />
 		<key id="mark-umlaut" output="\m{umlaut}" />
 
+        <!-- spaces -->
+        <key id="nbsp" output="\u{A0}" />
+        <key id="nnbsp" output="\u{202F}" />
 
 		<!-- extra keys -->
 		<key id="e-grave" output="è" />
@@ -85,10 +89,10 @@
 		<key id="registered" output="®" />
 		<key id="minus-sign" output="−" />
 		<key id="ss" output="ß" />
-		<key id="ininity" output="∞" />
+		<key id="infinity" output="∞" />
 		<key id="division" output="÷" />
-		<key id="less-equal" output="≤" />
-		<key id="greater-equal" output="≥" />
+		<key id="less-equal" output="⩽" />
+		<key id="greater-equal" output="⩾" />
 		<key id="copy" output="©" />
 		<key id="inverse-question" output="¿" />
 		<key id="inverse-bang" output="¡" />
@@ -106,7 +110,9 @@
         <key id="open-angle-quote" output="‹" />
         <key id="close-angle-quote" output="›" />
 
-		<key id="infinity" output="∞" />
+
+
+
 		<key id="E-grave" output="È" />
 		<key id="U-grave" output="Ù" />
 		<key id="nb-hyphen" output="‑" />
@@ -120,8 +126,6 @@
 		<key id="dagger" output="†" />
 		<key id="asym-equal" output="≃" />
 		<key id="Ss" output="ẞ" />
-        <!-- interestingly, this key has no output by itself, but is U+00A4 when preceded by the currency mark. -->
-        <key id="altshifte" output="\m{altshifte}"/>
 	</keys>
 
 	<layers formId="iso">
@@ -151,17 +155,17 @@
 				keys="theta ss dollar mark-currency mark-greek mark-euro gap mark-solidus pipe infinity division multiplication" />
 			<row
 				keys="less-equal ezh copy c-cedilla mark-cedilla mark-stroke mark-tilde inverse-question inverse-bang middle-dot asym-equal" />
-			<row keys="space" />
+			<row keys="nbsp" />
 		</layer>
 
 		<layer modifiers="ctrl alt shift">
 			<row
-				keys="mark-circumflex A-grave E-acute E-grave E-caret mark-doubleacute mark-doublegrave gap em-dash open-angle-quote close-angle-quote mark-ring gap" />
-			<row keys="Ae gap altshifte gap tm gap U-grave mark-dotbelow Oe permille nb-hyphen dbl-dagger" />
+				keys="mark-invbreve A-grave E-acute E-grave E-caret mark-doubleacute mark-doublegrave gap em-dash open-angle-quote close-angle-quote mark-ring gap" />
+			<row keys="Ae gap gap gap tm gap U-grave mark-dotbelow Oe permille nb-hyphen dbl-dagger" />
 			<row keys="Theta Ss gap gap gap mark-submacron gap gap gap gap radix vulgar-quarter" />
 			<row
 				keys="greater-equal Ezh gap C-cedilla mark-ogonek gap gap gap mark-comma gap not-equal" />
-			<row keys="space" />
+			<row keys="nnbsp" />
 		</layer>
 	</layers>
 
@@ -190,16 +194,22 @@
         <!-- euro key from/to -->
         <set id="eurofrom" value="a e t i o s d g j  ‘ ’ «  » '   E T I D G J  7 8 9 0"/>
         <set id="euroto"   value="ª ə þ ı º ſ ð ŋ ij ‚ ‘ „ ‟ ’    Ə Þ İ Đ Ŋ IJ › ‹ » «"/>
+
+        <set id="digits"      value="0 1 2 3 4 5 6 7 8 9"/>
+        <set id="superdigits" value="⁰ ¹ ² ³ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹"/>
+        <set id="subdigits"   value="₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉"/>
 	</variables>
 
 	<transforms type="simple">
 		<transformGroup>
 			<!-- use sets for those that fit neatly into sets -->
-			<transform from="\m{caret}($[vowel])" to="$1\u{0302}" />
+			<transform from="\m{breve}($[vowel])" to="$1\u{0306}" />
 			<transform from="\m{umlaut}($[vowel])" to="$1\u{0308}" />
+			<transform from="\m{invbreve}($[vowel])" to="$1\u{0311}" />
 
             <!-- curr/greek/euro layer for hardware -->
             <transform from="\m{currency}($[currfrom])" to="$[1:currto]" />
+            <transform from="\m{greek}\m{greek}" to="\u{B5}" />
             <transform from="\m{greek}($[greekfrom])" to="$[1:greekto]" />
             <transform from="\m{euro}($[eurofrom])" to="$[1:euroto]" />
 
@@ -209,7 +219,7 @@
             <transform from="\m{currency}\|" to="₾"/> <!-- AltGr-L  - note pipe is escaped -->
             <transform from="\m{currency}∞" to="₼"/> <!-- AltGr-M -->
             <transform from="\m{currency}ç" to="₢"/> <!-- AltGr-C -->
-            <transform from="\m{currency}\m{altshifte}" to="¤"/> <!-- AltGr-Shift-E -->
+            <transform from="\m{currency}\m{currency}" to="¤"/> <!-- AltGr-Shift-E -->
             <transform from="\m{currency}Ç" to="₵"/> <!-- AltGr-Shift-C (Cedi sign) -->
 
 			<!-- tilde is on a subset, not all vowels, + n -->
@@ -219,6 +229,9 @@
 			<transform from="\m{tilde}N" to="Ñ" />
 			<transform from="\m{tilde}o" to="õ" />
 			<transform from="\m{tilde}O" to="Õ" />
+
+            <transform from="\m{breve}($[digits])" to="$[1:superdigits]" />
+            <transform from="\m{invbreve}($[digits])" to="$[1:subdigits]" />
 		</transformGroup>
         <transformGroup>
             <!-- catch-all: drop any marker that didn't otherwise match before a char -->

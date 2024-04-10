@@ -11,6 +11,7 @@ cp node_modules/anchor-js/anchor.min.js dist/js
 
 # copy the source .md and other stuff into dist
 cp -vR ../../../docs/ldml/* ./dist/
+cp tr35.css ./dist/
 
 # Generate output .html, and zip it all up.
 node archive.js && zip -r tr35.zip dist/*.html dist/images dist/js

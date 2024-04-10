@@ -491,7 +491,7 @@ _Duplicate Declaration_ error during processing:
 A _local-declaration_ MAY overwrite an external input value as long as the
 external input value does not appear in a previous _declaration_.
 
-> [!Note]
+> [!NOTE]
 > These restrictions only apply to _declarations_.
 > A _placeholder_ or _selector_ can apply a different annotation to a _variable_
 > than one applied to the same _variable_ named in a _declaration_.
@@ -520,7 +520,7 @@ reserved-statement = reserved-keyword [s reserved-body] 1*([s] expression)
 reserved-keyword   = "." name
 ```
 
-> [!Note]
+> [!NOTE]
 > The `reserved-keyword` ABNF rule is a simplification,
 > as it MUST NOT be considered to match any of the existing keywords
 > `.input`, `.local`, or `.match`.
@@ -913,7 +913,7 @@ private-use-annotation = private-start [[s] reserved-body]
 private-start          = "^" / "&"
 ```
 
-> [!Note]
+> [!NOTE]
 > Users are cautioned that _private-use annotations_ cannot be reliably exchanged
 > and can result in errors during formatting.
 > It is generally a better idea to use the function registry
@@ -3523,7 +3523,7 @@ isolating such parts to ensure that the formatted value displays correctly in a 
 > includes **U+200F U+200E** at the start and **U+200F** at the end of the string.
 > If it did not do this, the same string would appear like this instead:
 >
-> ![image](https://github.com/unicode-org/message-format-wg/assets/69082/6cc7f16f-8d9b-400b-a333-ae2ddb316edb)
+> ![image](images/messageFormatCurrencyExample.png)
 
 A **_bidirectional isolation strategy_** is functionality in the formatter's
 processing of a _message_ that produces bidirectional output text that is ready for display.

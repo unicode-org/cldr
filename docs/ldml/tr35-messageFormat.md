@@ -2289,7 +2289,7 @@ but can cause problems in target locales that the original developer is not cons
 > The `one` variant is needed by languages such as Polish or Russian.
 > Such locales typically also require other keywords such as `two`, `few`, and `many`.
 
-####### Percent Style
+###### Percent Style
 When implementing `style=percent`, the numeric value of the _operand_
 MUST be multiplied by 100 for the purposes of formatting.
 

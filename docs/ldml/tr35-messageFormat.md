@@ -2157,7 +2157,7 @@ are encouraged to track development of these options during Tech Preview:
    - `short` (default)
    - `narrow`
 
-####### Default Value of `select` Option
+###### Default Value of `select` Option
 
 The value `plural` is the default for the option `select`
 because it is the most common use case for numeric selection.
@@ -2178,7 +2178,7 @@ but can cause problems in target locales that the original developer is not cons
 > The `one` variant is needed by languages such as Polish or Russian.
 > Such locales typically also require other keywords such as `two`, `few`, and `many`.
 
-####### Percent Style
+###### Percent Style
 When implementing `style=percent`, the numeric value of the _operand_
 MUST be multiplied by 100 for the purposes of formatting.
 
@@ -2268,7 +2268,7 @@ are encouraged to track development of these options during Tech Preview:
    - `short` (default)
    - `narrow`
 
-####### Default Value of `select` Option
+###### Default Value of `select` Option
 
 The value `plural` is the default for the option `select`
 because it is the most common use case for numeric selection.
@@ -2495,7 +2495,7 @@ output.
 If both are specified, an _Invalid Expression_ error MUST be emitted
 and a _fallback value_ used as the resolved value of the _expression_.
 
-####### Style Options
+**Style Options**
 
 The function `:datetime` has these _style options_.
 - `dateStyle`
@@ -2509,7 +2509,7 @@ The function `:datetime` has these _style options_.
   - `medium`
   - `short`
 
-####### Field Options
+**Field Options**
 
 _Field options_ describe which fields to include in the formatted output
 and what format to use for that field.

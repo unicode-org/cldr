@@ -2030,7 +2030,7 @@ The function `:string` has no options.
 
 ###### Selection
 
-When implementing [`MatchSelectorKeys(resolvedSelector, keys)`](/spec/formatting.md#resolve-preferences)
+When implementing [`MatchSelectorKeys(resolvedSelector, keys)`](#resolve-preferences)
 where `resolvedSelector` is the resolved value of a _selector_ _expression_
 and `keys` is a list of strings,
 the `:string` selector performs as described below.
@@ -2308,7 +2308,7 @@ The _function_ `:integer` performs selection as described in [Number Selection](
 ##### Number Operands
 
 The _operand_ of a number function is either an implementation-defined type or
-a literal whose contents match the `number-literal` production in the [ABNF](/spec/message.abnf).
+a literal whose contents match the `number-literal` production in the [ABNF](#messageabnf).
 All other values produce an _Invalid Expression_ error.
 
 > For example, in Java, any subclass of `java.lang.Number` plus the primitive
@@ -2320,7 +2320,7 @@ All other values produce an _Invalid Expression_ error.
 > [!NOTE]
 > String values passed as variables in the _formatting context_'s
 > _input mapping_ can be formatted as numeric values as long as their
-> contents match the `number-literal` production in the [ABNF](/spec/message.abnf).
+> contents match the `number-literal` production in the [ABNF](#messageabnf).
 >
 > For example, if the value of the variable `num` were the string
 > `-1234.567`, it would behave identically to the local
@@ -2367,7 +2367,7 @@ Number selection has three modes:
 - `ordinal` selection matches the operand to explicit numeric keys exactly
   or to ordinal rule categories if there is no explicit match
 
-When implementing [`MatchSelectorKeys(resolvedSelector, keys)`](/spec/formatting.md#resolve-preferences)
+When implementing [`MatchSelectorKeys(resolvedSelector, keys)`](#resolve-preferences)
 where `resolvedSelector` is the resolved value of a _selector_ _expression_
 and `keys` is a list of strings,
 numeric selectors perform as described below.
@@ -2664,7 +2664,7 @@ When the offset is not present, implementations SHOULD use a floating time type
 For more information, see [Working with Timezones](https://w3c.github.io/timezone).
 
 > [!IMPORTANT]
-> The [ABNF](/spec/message.abnf) and [syntax](/spec/syntax.md) of MF2
+> The [ABNF](#messageabnf) and [syntax](#syntax) of MF2
 > do not formally define date/time literals.
 > This means that a _message_ can be syntactically valid but produce
 > an _Operand Mismatch Error_ at runtime.
@@ -3623,7 +3623,7 @@ declarations, options, and attributes to be optional rather than required proper
 
 > [!IMPORTANT]
 > The data model uses the field name `name` to denote various interface identifiers.
-> In the MessageFormat 2 [syntax](/spec/syntax.md), the source for these `name` fields
+> In the MessageFormat 2 [syntax](#syntax), the source for these `name` fields
 > sometimes uses the production `identifier`.
 > This happens when the named item, such as a _function_, supports namespacing.
 >

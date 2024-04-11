@@ -1,12 +1,5 @@
 package org.unicode.cldr.tool;
 
-import com.google.common.base.Joiner;
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.Multimap;
-import com.google.common.collect.Multimaps;
-import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.text.Collator;
-import com.ibm.icu.util.ULocale;
 import java.io.File;
 import java.io.StringWriter;
 import java.util.Collection;
@@ -17,6 +10,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
@@ -35,6 +29,14 @@ import org.unicode.cldr.util.personname.PersonNameFormatter.Order;
 import org.unicode.cldr.util.personname.PersonNameFormatter.SampleType;
 import org.unicode.cldr.util.personname.PersonNameFormatter.Usage;
 import org.unicode.cldr.util.personname.SimpleNameObject;
+
+import com.google.common.base.Joiner;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.Multimaps;
+import com.google.common.collect.TreeMultimap;
+import com.ibm.icu.text.Collator;
+import com.ibm.icu.util.ULocale;
 
 public class GeneratePersonNameTestData {
     private static final Joiner COMMA_JOINER = Joiner.on(", ");
@@ -245,7 +247,7 @@ public class GeneratePersonNameTestData {
                 try (TempPrintWriter output2 =
                         TempPrintWriter.openUTF8Writer(dir.toString(), locale + ".txt"); ) {
                     output2.write(
-                            "# Test data for Person Name Data"
+                            "# Test data for Person Name Data\n"
                                     + CldrUtility.getCopyrightString("#  ")
                                     + "\n# CLDR person name formatting test data for: "
                                     + locale

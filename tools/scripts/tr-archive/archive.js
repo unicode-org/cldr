@@ -142,7 +142,7 @@ async function renderit(infile) {
   // put this last
   body.appendChild(getScript({
     // This invokes anchor.js
-    code: `anchors.add('h1, h2, h3, h4, h5, h6, caption');`
+    code: `anchors.add('h1, h2, h3, h4, h5, h6, caption, dfn');`
   }));
 
   // Now, fixup captions

@@ -245,7 +245,7 @@ public class GeneratePersonNameTestData {
                 try (TempPrintWriter output2 =
                         TempPrintWriter.openUTF8Writer(dir.toString(), locale + ".txt"); ) {
                     output2.write(
-                            "# Test data for Person Name Data"
+                            "# Test data for Person Name Data\n"
                                     + CldrUtility.getCopyrightString("#  ")
                                     + "\n# CLDR person name formatting test data for: "
                                     + locale

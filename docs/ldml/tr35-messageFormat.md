@@ -113,14 +113,14 @@ The LDML specification is divided into the following parts:
       * [The `:number` function](#the-number-function)
         * [Operands](#operands)
         * [Options](#options)
-          * [Default Value of `select` Option](#default-value-of-select-option)
-          * [Percent Style](#percent-style)
+        * [Default Value of `select` Option](#default-value-of-select-option)
+        * [Percent Style](#percent-style)
         * [Selection](#selection)
       * [The `:integer` function](#the-integer-function)
         * [Operands](#operands)
         * [Options](#options)
-          * [Default Value of `select` Option](#default-value-of-select-option)
-          * [Percent Style](#percent-style)
+        * [Default Value of `select` Option](#default-value-of-select-option)
+        * [Percent Style](#percent-style)
         * [Selection](#selection)
       * [Number Operands](#number-operands)
       * [Digit Size Options](#digit-size-options)
@@ -131,8 +131,6 @@ The LDML specification is divided into the following parts:
       * [The `:datetime` function](#the-datetime-function)
         * [Operands](#operands)
         * [Options](#options)
-          * [Style Options](#style-options)
-          * [Field Options](#field-options)
       * [The `:date` function](#the-date-function)
         * [Operands](#operands)
         * [Options](#options)
@@ -374,7 +372,7 @@ This part of the MessageFormat specification defines the syntax for a _message_,
 along with the concepts and terminology needed when processing a _message_
 during the [formatting](./formatting.md) of a _message_ at runtime.
 
-The complete formal syntax of a _message_ is described by the [ABNF](./message.abnf).
+The complete formal syntax of a _message_ is described by the [ABNF](#complete-abnf).
 
 #### Well-formed vs. Valid Messages
 
@@ -2307,7 +2305,7 @@ The _function_ `:integer` performs selection as described in [Number Selection](
 ##### Number Operands
 
 The _operand_ of a number function is either an implementation-defined type or
-a literal whose contents match the `number-literal` production in the [ABNF](#messageabnf).
+a literal whose contents match the `number-literal` production in the [ABNF](#complete-abnf).
 All other values produce an _Invalid Expression_ error.
 
 > For example, in Java, any subclass of `java.lang.Number` plus the primitive
@@ -2319,7 +2317,7 @@ All other values produce an _Invalid Expression_ error.
 > [!NOTE]
 > String values passed as variables in the _formatting context_'s
 > _input mapping_ can be formatted as numeric values as long as their
-> contents match the `number-literal` production in the [ABNF](#messageabnf).
+> contents match the `number-literal` production in the [ABNF](#complete-abnf).
 >
 > For example, if the value of the variable `num` were the string
 > `-1234.567`, it would behave identically to the local
@@ -2663,7 +2661,7 @@ When the offset is not present, implementations SHOULD use a floating time type
 For more information, see [Working with Timezones](https://w3c.github.io/timezone).
 
 > [!IMPORTANT]
-> The [ABNF](#messageabnf) and [syntax](#syntax) of MF2
+> The [ABNF](#complete-abnf) and [syntax](#syntax) of MF2
 > do not formally define date/time literals.
 > This means that a _message_ can be syntactically valid but produce
 > an _Operand Mismatch Error_ at runtime.

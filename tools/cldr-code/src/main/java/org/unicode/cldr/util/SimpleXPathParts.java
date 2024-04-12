@@ -30,6 +30,7 @@ public class SimpleXPathParts extends XPathParser {
     }
 
     final List<Element> elements = new LinkedList<>();
+    private final String xpath;
 
     @Override
     public String getElement(int i) {
@@ -101,7 +102,13 @@ public class SimpleXPathParts extends XPathParser {
     }
 
     SimpleXPathParts(String xpath) {
+        this.xpath = xpath;
         handleParse(xpath, true);
+    }
+
+    @Override
+    public String toString() {
+        return xpath;
     }
 
     /**

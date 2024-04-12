@@ -27,4 +27,7 @@ public interface XPathValue {
 
     /** Does this xpath contain the attribute at all? */
     public boolean containsAttribute(String attribute);
+
+    /** return the original string */
+    public String toString();
 }

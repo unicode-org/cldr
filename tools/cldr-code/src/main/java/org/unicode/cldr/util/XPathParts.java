@@ -1211,10 +1211,13 @@ public final class XPathParts extends XPathParser
     }
 
     public static XPathParts getFrozenInstance(String path) {
-        XPathParts result =
-                cache.computeIfAbsent(
-                        path,
-                        (String forPath) -> new XPathParts().addInternal(forPath, true).freeze());
+        XPathParts result = cache.get(path);
+        if (result == null) {
+            // CLDR-17504: This can recursively create new paths during creation so MUST NOT
+            // happen inside the lambda of computeIfAbsent(), but freezing the path is safe.
+            XPathParts unfrozen = new XPathParts().addInternal(path, true);
+            result = cache.computeIfAbsent(path, (String p) -> unfrozen.freeze());
+        }
         return result;
     }
 

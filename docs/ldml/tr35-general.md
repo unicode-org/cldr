@@ -2867,7 +2867,7 @@ The @scope attributes are targeted at messages created by computers, thus a feat
 Feature that classifies nouns in classes.
 This is grammatical gender, which may be assigned on the basis of sex in some languages, but may be completely separate in others.
 Also used to tag elements in CLDR that should agree with a particular gender of an associated noun.
-(adapted from: [linguistics-ontology.org/gold/2010/GenderProperty](https://web.archive.org/20200115041525/linguistics-ontology.org/gold/2010/GenderProperty) - links below go to an archived version. The original site is no longer available, current data files at <https://linguistlist.org/gold/>)
+(adapted from: [linguistics-ontology.org/gold/2010/GenderProperty](https://web.archive.org/20200115041525/linguistics-ontology.org/gold/2010/GenderProperty) - the links below go to an archived version. The original site is no longer available, as explained at <https://linguistlist.org/gold/>.)
 
 The term "gender" is somewhat of a misnomer, because CLDR treats "gender" as a broad term, equivalent to "noun class".
 Thus it bundles noun class categories such as gender and animacy into a single identifier, such as "feminine-animate".

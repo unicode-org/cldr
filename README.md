@@ -10,14 +10,14 @@ For current CLDR release information, see [cldr.unicode.org](https://cldr.unicod
 
 ## Status
 
-Update: 2024-04-03
+Update: 2024-04-15
 
 <!-- [inapplicable lines are commented out.]-->
 <!-- **Note:**  CLDR 45 is in development and not recommended for use at this stage. -->
 <!--**Note:**  This is the milestone 1 version of CLDR 45, intended for those wishing to do pre-release testing. It is not recommended for production use.-->
 <!--**Note:** This is a preliminary version of CLDR 45, intended for those wishing to do pre-release testing. It is not recommended for production use.-->
-**Note:**  This is a pre-release candidate version of CLDR 45, intended for testing. It is not recommended for production use.
-<!--This is the final release version of CLDR 45.-->
+<!--**Note:**  This is a pre-release candidate version of CLDR 45, intended for testing. It is not recommended for production use.-->
+This is the final release version of CLDR 45.
 
 ### What is CLDR?
 The Unicode Common Locale Data Repository (CLDR) provides key building blocks for software to support the world's languages, with the largest and most extensive standard repository of locale data available. This data is used by a [wide spectrum of companies](https://cldr.unicode.org/index#h.ezpykkomyltl) for their software internationalization and localization, adapting software to the conventions of different languages for such common software tasks.

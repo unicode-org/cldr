@@ -43,7 +43,7 @@ jobs:
         run: 'cd tools/scripts/tr-archive/ && npm run extract-link-targets || (echo Warning, please fix these ; true)'
       - name: Lint Markdown
         # Warn, don't fail yet
-        run: npx markdownlint-cli *.md {specs,docs}/*.md $(find .github -name '*.md') || (echo Warning, please fix these ; true)
+        run: npx markdownlint-cli *.md {specs,docs}/*.md || (echo Warning, please fix these ; true)
       - name: Note any changes
         run: git status ; git diff
       - uses: ruby/setup-ruby@v1

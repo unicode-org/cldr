@@ -309,7 +309,7 @@ The design goals of the syntax specification are as follows:
 1. The syntax should leverage the familiarity with ICU MessageFormat 1.0
    in order to lower the barrier to entry and increase the chance of adoption.
    At the same time,
-   the syntax should fix the [pain points of ICU MessageFormat 1.0](../docs/why_mf_next.md).
+   the syntax should fix the [pain points of ICU MessageFormat 1.0](https://github.com/unicode-org/message-format-wg/blob/main/docs/why_mf_next.md).
 
    - _Non-Goal_: Be backwards-compatible with the ICU MessageFormat 1.0 syntax.
 
@@ -370,7 +370,7 @@ variables that modify _external variables_.
 
 This part of the MessageFormat specification defines the syntax for a _message_,
 along with the concepts and terminology needed when processing a _message_
-during the [formatting](./formatting.md) of a _message_ at runtime.
+during the [formatting](#formatting) of a _message_ at runtime.
 
 The complete formal syntax of a _message_ is described by the [ABNF](#complete-abnf).
 
@@ -500,7 +500,7 @@ external input value does not appear in a previous _declaration_.
 > 0 {{The selector can apply a different annotation to {$var} for the purposes of selection}}
 > * {{A placeholder in a pattern can apply a different annotation to {$var :number maximumFractionDigits=3}}}
 > ```
-> (See the [Errors](./errors.md) section for examples of invalid messages)
+> (See the [Errors](#errors) section for examples of invalid messages)
 
 ##### Reserved Statements
 
@@ -831,7 +831,7 @@ whether an _operand_ is required,
 what form the values of an _operand_ can take,
 what _options_ and _option_ values are valid,
 and what outputs might result.
-See [function registry](./registry.md) for more information.
+See [function registry](#function-registry) for more information.
 
 A _function_ starts with a prefix sigil `:` followed by an _identifier_.
 The _identifier_ MAY be followed by one or more _options_.

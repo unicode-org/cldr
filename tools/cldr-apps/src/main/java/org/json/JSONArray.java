@@ -555,7 +555,7 @@ public class JSONArray {
      * @return this.
      */
     public JSONArray put(int value) {
-        put(value);
+        put(new Integer(value));
         return this;
     }
 
@@ -566,7 +566,7 @@ public class JSONArray {
      * @return this.
      */
     public JSONArray put(long value) {
-        put(value);
+        put(new Long(value));
         return this;
     }
 

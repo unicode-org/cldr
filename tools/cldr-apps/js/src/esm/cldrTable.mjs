@@ -26,7 +26,7 @@ import * as cldrXPathUtils from "./cldrXpathUtils.mjs";
 const HEADER_ID_PREFIX = "header_";
 const ROW_ID_PREFIX = "row_"; // formerly "r@"
 
-const CLDR_TABLE_DEBUG = true;
+const CLDR_TABLE_DEBUG = false;
 
 /*
  * NO_WINNING_VALUE indicates the server delivered path data without a valid winning value.

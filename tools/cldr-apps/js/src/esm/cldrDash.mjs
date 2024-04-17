@@ -306,7 +306,9 @@ function getFetchError() {
 function setData(json) {
   cldrProgress.updateVoterCompletion(json);
   const newData = convertData(json);
-  viewSetDataCallback(newData);
+  if (viewSetDataCallback) {
+    viewSetDataCallback(newData);
+  }
   return newData;
 }
 
@@ -339,7 +341,7 @@ function updatePath(dashData, json) {
       if (!json.notifications?.length) {
         // The path no longer has any notifications, so remove the entry
         dashData.removeEntry(dashEntry);
-        return;
+        return dashData; // for unit test
       }
       // Clear attributes that might have changed or disappeared as a result of voting.
       // They will be updated/restored from the json.

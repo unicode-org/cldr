@@ -7,6 +7,7 @@
 
 package org.unicode.cldr.test;
 
+import com.google.common.collect.ComparisonChain;
 import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.impl.Row.R3;
@@ -763,6 +764,8 @@ public abstract class CheckCLDR implements CheckAccessor {
             cachedPossibleErrors.clear();
             // call into the subclass
             handleSetCldrFileToCheck(this.cldrFileToCheck, cachedOptions, cachedPossibleErrors);
+            // all of these are entireLocale
+            cachedPossibleErrors.forEach(e -> e.setEntireLocale());
             initted = true;
         }
         // unconditionally append all cached possible errors
@@ -782,7 +785,7 @@ public abstract class CheckCLDR implements CheckAccessor {
     Options cachedOptions = null;
 
     /** Status value returned from check */
-    public static class CheckStatus {
+    public static class CheckStatus implements Comparable<CheckStatus> {
         public static final Type alertType = Type.Comment,
                 warningType = Type.Warning,
                 errorType = Type.Error,
@@ -1116,6 +1119,38 @@ public abstract class CheckCLDR implements CheckAccessor {
                 }
             }
             return false;
+        }
+
+        /**
+         * @returns true if this status applies to the entire locale, not a single path
+         */
+        public boolean isEntireLocale() {
+            return entireLocale;
+        }
+
+        /** Mark this CheckStatus as isEntireLocale */
+        CheckStatus setEntireLocale() {
+            entireLocale = true;
+            return this;
+        }
+
+        private boolean entireLocale = false;
+
+        @Override
+        public int compareTo(CheckStatus o) {
+            if (this == o) return 0;
+            return ComparisonChain.start()
+                    .compare(getType(), o.getType())
+                    .compare(getSubtype(), o.getSubtype())
+                    .compare(getMessage(), o.getMessage())
+                    .result();
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o instanceof CheckStatus) return false;
+            return compareTo((CheckStatus) o) == 0;
         }
     }
 
@@ -1488,6 +1523,8 @@ public abstract class CheckCLDR implements CheckAccessor {
                 }
             }
             if (SHOW_TIMES) System.out.println("Overall: " + testOverallTime + ": {0}");
+            // all of these are entire locale
+            possibleErrors.forEach(e -> e.setEntireLocale());
         }
 
         public Matcher getFilter() {

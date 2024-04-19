@@ -71,7 +71,8 @@ import org.unicode.cldr.util.XPathParts;
 
 public class TestCoverageLevel extends TestFmwkPlus {
 
-    private static final boolean SHOW_LSR_DATA = false;
+    private static final boolean SHOW_LSR_DATA =
+            CLDRConfig.getInstance().getProperty("SHOW_LSR_DATA", false);
 
     private static CLDRConfig testInfo = CLDRConfig.getInstance();
     private static final StandardCodes STANDARD_CODES = StandardCodes.make();
@@ -1123,9 +1124,6 @@ public class TestCoverageLevel extends TestFmwkPlus {
             addBestLevel(scripts, ltp.getScript(), languageLevel);
             addBestLevel(regions, ltp.getRegion(), languageLevel);
         }
-        regions.remove("");
-        scripts.remove("");
-
         // get the data
 
         Map<String, CoverageStatus> data = new TreeMap<>();
@@ -1257,17 +1255,9 @@ public class TestCoverageLevel extends TestFmwkPlus {
     }
 
     private void addBestLevel(Map<String, Level> codeToBestLevel, String code, Level level) {
-        if (level != Level.UNDETERMINED) {
-            int debug = 0;
-        }
-        Level old = codeToBestLevel.get(code);
-        if (old == null) {
-            codeToBestLevel.put(code, level);
-        } else if (level.compareTo(old) > 0) {
-            codeToBestLevel.put(code, level);
-        } else if (level != old) {
-            int debug = 0;
-        }
+        if (code.isEmpty()) return; // ignore empty strings from tags such as ca__VALENCIA
+        final Level old = codeToBestLevel.get(code);
+        codeToBestLevel.put(code, Level.max(old, level));
     }
 
     public void TestEnglishCoverage() {

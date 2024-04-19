@@ -35,6 +35,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRCacheDir;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRTool;
 
 @CLDRTool(
@@ -52,7 +53,8 @@ public class SubtypeToURLMap {
     public static void main(String args[]) throws FileNotFoundException, IOException {
         if (args.length == 0) {
             System.err.println(
-                    "Usage: SubtypeToURLMap (url or file path). The default map is " + DEFAULT_URL);
+                    "Usage: SubtypeToURLMap (url or file path). The default map is "
+                            + getDefaultUrl());
             return;
         } else {
             int problems = 0;
@@ -446,7 +448,7 @@ public class SubtypeToURLMap {
                 }
             }
             try {
-                map = SubtypeToURLMap.getInstance(new URL(getDefaultUrl()));
+                map = makeDefaultInstance();
                 logger.info("Read new map from " + getDefaultUrl());
                 // now, write out the cache
                 writeToCache(map);
@@ -491,7 +493,7 @@ public class SubtypeToURLMap {
      * @return
      */
     public static String getDefaultUrl() {
-        return DEFAULT_URL;
+        return CLDRConfig.getInstance().getProperty("CLDR_SUBTYPE_URL", DEFAULT_URL);
     }
     /**
      * Get the default instance.

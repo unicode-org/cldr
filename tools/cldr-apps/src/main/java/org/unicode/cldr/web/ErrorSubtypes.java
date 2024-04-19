@@ -78,10 +78,12 @@ public class ErrorSubtypes {
             throws MalformedURLException {
         if (recheck.startsWith("MAP")) {
             try {
-                SubtypeToURLMap map = SubtypeToURLMap.reload();
+                // load directly to make sure there are no errors
+                SubtypeToURLMap map = SubtypeToURLMap.makeDefaultInstance();
                 if (map == null) {
                     r.put("err", "FAILED. Check for errors.");
                 } else {
+                    SubtypeToURLMap.setDefaultInstance(map);
                     r.put("status", "SUCCESS!");
                 }
             } catch (Throwable t) {

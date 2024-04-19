@@ -1,6 +1,8 @@
 package org.unicode.cldr.unittest;
 
+import com.google.common.collect.HashMultimap;
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Multimap;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,6 +14,7 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.Stack;
 import java.util.TreeSet;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -24,8 +27,10 @@ import org.unicode.cldr.util.ChainedMap.M5;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdData.Attribute;
+import org.unicode.cldr.util.DtdData.DtdGuide.DtdVisitor;
 import org.unicode.cldr.util.DtdData.Element;
 import org.unicode.cldr.util.DtdData.ElementType;
+import org.unicode.cldr.util.DtdData.ValueStatus;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathHeader;
@@ -688,5 +693,76 @@ public class TestPaths extends TestFmwkPlus {
             }
         }
         return counter;
+    }
+
+    public class MatchElementAttribute {
+        private Multimap<String, String> matchElementAttribute =
+                HashMultimap.create(); // "" is a wildcard
+
+        public MatchElementAttribute add(String... elementAttributePairs) {
+            for (int i = 0; i < elementAttributePairs.length; i += 2) {
+                matchElementAttribute.put(elementAttributePairs[i], elementAttributePairs[i + 1]);
+            }
+            return this;
+        }
+
+        boolean matches(String element, String attribute) {
+            return matchElementAttribute.containsEntry(element, attribute)
+                    || matchElementAttribute.containsEntry("", attribute)
+                    || matchElementAttribute.containsEntry(element, "");
+        }
+    }
+
+    public void testForUndefined() {
+        DtdVisitor visitor =
+                new DtdVisitor() {
+                    final MatchElementAttribute skipAttributeNames =
+                            new MatchElementAttribute()
+                                    .add(
+                                            "", "references", //
+                                            "", "cp", //
+                                            "version", "", //
+                                            "ruleset", "type" //
+                                            );
+                    final Set<String> skipElementAndChildren = Set.of("keyboard3", "keyboardTest3");
+
+                    @Override
+                    public boolean visit(
+                            DtdType dtdType,
+                            Stack<Element> ancestors,
+                            Element element,
+                            Attribute attribute) {
+                        if (skipElementAndChildren.contains(element.getName())) {
+                            return false;
+                        }
+                        final String attributeName = attribute.getName();
+                        if (skipAttributeNames.matches(element.getName(), attributeName)) {
+                            return true;
+                        }
+                        final ValueStatus valueStatus = attribute.getValueStatus("undefined");
+                        attribute.toString();
+                        if (valueStatus == ValueStatus.valid) {
+                            errln(
+                                    String.format(
+                                            "Can match 'undefined': type=%s\tancestors=%s\telement=%s\tattribute=%s\tmatch=%s",
+                                            dtdType,
+                                            ancestors,
+                                            element,
+                                            attributeName,
+                                            attribute.getMatchString()));
+                        } else {
+                            logln(
+                                    String.format(
+                                            "visiting: type=%s\tparent=%s\telement=%s\tancestors=%s\tmatch=%s",
+                                            dtdType,
+                                            ancestors,
+                                            element,
+                                            attributeName,
+                                            attribute.getMatchString()));
+                        }
+                        return true;
+                    }
+                };
+        new DtdData.DtdGuide(true, visitor).process();
     }
 }

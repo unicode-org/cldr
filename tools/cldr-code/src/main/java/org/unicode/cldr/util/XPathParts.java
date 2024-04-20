@@ -37,7 +37,7 @@ import java.util.concurrent.ConcurrentHashMap;
  *
  * <p>Caches values for fast lookup.
  *
- * <p>For use at static init time, or anywhere a simpler API can be used, see {@link
+ * <p>(If caching isn't needed, such as with supplemental data at static init time, see {@link
  * SimpleXPathParts#getFrozenInstance(String)}
  */
 public final class XPathParts extends XPathParser

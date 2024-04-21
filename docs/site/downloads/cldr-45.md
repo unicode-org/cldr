@@ -121,7 +121,7 @@ For this release there are no appreciable changes.
 <territory type="IO" alt="biot">British Indian Ocean Territory</territory> <!-- explicit "biot" variant" -->  
 <territory type="IO" alt="chagos">Chagos Archipelago</territory> <!-- explicit "chagos" variant" --> 
 ```
-Both `alt` forms inherit sideways from the non-`alt` form. Thus in this case, the "`biot`" variant is redundant and will be removed in production data. Clients that are trying to select the "`biot`" variant but find it missing should fall back to the non-`alt` form. Similar behavior occurs with plural forms for units, where some plural forms may match and thus fall back to the "`other`" form.
+    Both `alt` forms inherit sideways from the non-`alt` form. Thus in this case, the "`biot`" variant is redundant and will be removed in production data. Clients that are trying to select the "`biot`" variant but find it missing should fall back to the non-`alt` form. Similar behavior occurs with plural forms for units, where some plural forms may match and thus fall back to the "`other`" form.
 
 ## [Known Issues](https://unicode-org.atlassian.net/issues/CLDR-17535?jql=project%20%3D%20cldr%20and%20labels%20%3D%20%22ReleaseKnownIssue%22%20and%20status%20!%3D%20done)
 

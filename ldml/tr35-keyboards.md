@@ -82,22 +82,22 @@ The LDML specification is divided into the following parts:
   * [Disabling Normalization](#disabling-normalization)
 * [Element Hierarchy](#element-hierarchy)
   * [Element: keyboard3](#element-keyboard3)
+  * [Element: import](#element-import)
   * [Element: locales](#element-locales)
   * [Element: locale](#element-locale)
   * [Element: version](#element-version)
   * [Element: info](#element-info)
   * [Element: settings](#element-settings)
-  * [Element: keys](#element-keys)
-  * [Element: key](#element-key)
-    * [Implied Keys](#implied-keys)
-    * [Element: flicks](#element-flicks)
-    * [Element: flick](#element-flick)
-    * [Element: flickSegment](#element-flicksegment)
-  * [Element: import](#element-import)
   * [Element: displays](#element-displays)
   * [Element: display](#element-display)
     * [Non-spacing marks on keytops](#non-spacing-marks-on-keytops)
   * [Element: displayOptions](#element-displayoptions)
+  * [Element: keys](#element-keys)
+  * [Element: key](#element-key)
+    * [Implied Keys](#implied-keys)
+  * [Element: flicks](#element-flicks)
+    * [Element: flick](#element-flick)
+    * [Element: flickSegment](#element-flicksegment)
   * [Element: forms](#element-forms)
   * [Element: form](#element-form)
     * [Implied Form Values](#implied-form-values)
@@ -243,7 +243,7 @@ Keyboard implementations will typically consist of two parts:
 
 **Keyboard layout:** A layout is the overall keyboard configuration for a particular locale. Within a keyboard layout, there is a single base map, one or more key maps and zero or more transforms.
 
-**Layer** is an arrangement of keys on a touch keyboard. A touch keyboard is made up of a set of layers. Each layer may have a different key layout, unlike with a hardware keyboard, and may not correspond directly to a hardware keyboard's modifier keys. A layer is accessed via a switch key. See also touch keyboard, modifier, switch.
+**Layer** is an arrangement of keys on a touch keyboard. A touch keyboard is made up of a set of layers. Each layer may have a different key layout, unlike with a hardware keyboard, and may not correspond directly to a hardware keyboard's modifier keys. A layer is accessed via a layer-switching key. See also touch keyboard and modifier.
 
 **Long-press key:** also known as a “child key”. A secondary key that is invoked from a top level key on a touch keyboard. Secondary keys typically provide access to variants of the top level key, such as accented variants (a => á, à, ä, ã)
 
@@ -618,7 +618,7 @@ This is the top level element. All other elements defined below are under this e
 >
 > Parents: _none_
 >
-> Children: [displays](#element-displays), [import](#element-import), [info](#element-info), [keys](#element-keys), [flicks](#element-flicks), [layers](#element-layers), [locales](#element-locales), [settings](#element-settings), [_special_](tr35.md#special), [transforms](#element-transforms), [variables](#element-variables), [version](#element-version)
+> Children: [displays](#element-displays), [flicks](#element-flicks), [forms](#element-forms), [import](#element-import), [info](#element-info), [keys](#element-keys), [layers](#element-layers), [locales](#element-locales), [settings](#element-settings), [_special_](tr35.md#special), [transforms](#element-transforms), [variables](#element-variables), [version](#element-version)
 >
 > Occurrence: required, single
 >
@@ -654,12 +654,101 @@ For further details about the choice of locale ID, see [Keyboard IDs](#keyboard-
   …
 </keyboard3>
 ```
+* * *
+
+### Element: import
+
+The `import` element is used to reference another xml file so that elements are imported from
+another file. The use case is to be able to import a standard set of `transform`s and similar
+from the CLDR repository, especially to be able to share common information relevant to a particular script.
+The intent is for each single XML file to contain all that is needed for a keyboard layout, other than required standard import data from the CLDR repository.
+
+`<import>` can be used as a child of a number of elements (see the _Parents_ section immediately below). Multiple `<import>` elements may be used, however, `<import>` elements must come before any other sibling elements.
+If two identical elements are defined, the later element will take precedence, that is, override.
+Imported elements may contain other `<import>` statements. Implementations must prevent recursion, that is, each imported file may only be included once.
+
+**Note:** imported files do not have any indication of their normalization mode. For this reason, the keyboard author must verify that the imported file is of a compatible normalization mode. See the [`settings` element](#element-settings) for further details.
+
+**Syntax**
+```xml
+<import base="cldr" path="45/keys-Zyyy-punctuation.xml"/>
+```
+> <small>
+>
+> Parents: [displays](#element-displays), [flicks](#element-flicks), [forms](#element-forms), [keyboard3](#element-keyboard3), [keys](#element-keys), [layers](#element-layers), [transformGroup](#element-transformgroup), [transforms](#element-transforms), [variables](#element-variables)
+> Children: _none_
+>
+> Occurrence: optional, multiple
+>
+> </small>
+
+_Attribute:_ `base`
+
+> The base may be omitted (indicating a local import) or have the value `"cldr"`.
+
+**Note:** `base="cldr"` is required for all `<import>` statements within keyboard files in the CLDR repository.
+
+_Attribute:_ `path` (required)
+
+> If `base` is `cldr`, then the `path` must start with a CLDR major version (such as `45`) representing the CLDR version to pull imports from. The imports are located in the `keyboard/import` subdirectory of the CLDR source repository.
+> Implementations are not required to have all CLDR versions available to them.
+>
+> If `base` is omitted, then `path` is an absolute or relative file path.
+
+
+**Further Examples**
+
+```xml
+<!-- in a keyboard xml file-->
+…
+<transforms type="simple">
+    <import base="cldr" path="45/transforms-example.xml"/>
+    <transform from="` " to="`" />
+    <transform from="^ " to="^" />
+</transforms>
+…
+
+
+<!-- contents of transforms-example.xml -->
+<?xml version="1.0" encoding="UTF-8"?>
+<transforms>
+    <!-- begin imported part-->
+    <transform from="`a" to="à" />
+    <transform from="`e" to="è" />
+    <transform from="`i" to="ì" />
+    <transform from="`o" to="ò" />
+    <transform from="`u" to="ù" />
+    <!-- end imported part -->
+</transforms>
+```
+
+**Note:** The root element, here `transforms`, is the same as
+the _parent_ of the `<import/>` element. It is an error to import an XML file
+whose root element is different than the parent element of the `<import/>` element.
+
+After loading, the above example will be the equivalent of the following.
+
+```xml
+<transforms type="simple">
+    <!-- begin imported part-->
+    <transform from="`a" to="à" />
+    <transform from="`e" to="è" />
+    <transform from="`i" to="ì" />
+    <transform from="`o" to="ò" />
+    <transform from="`u" to="ù" />
+    <!-- end imported part -->
+
+    <!-- this line is after the import -->
+    <transform from="^ " to="^" />
+    <transform from="` " to="`" />
+</transforms>
+```
 
 * * *
 
 ### Element: locales
 
-The optional `<locales>` element allows specifying additional or alternate locales. Denotes intentional support for an extra language, not just that a keyboard incidentally supports a language’s orthography.
+The optional `<locales>` element allows specifying additional or alternate locales.
 
 **Syntax**
 
@@ -682,7 +771,7 @@ The optional `<locales>` element allows specifying additional or alternate local
 
 ### Element: locale
 
-The optional `<locales>` element allows specifying additional or alternate locales. Denotes intentional support for an extra language, not just that a keyboard incidentally supports a language’s orthography.
+The `<locale>` element specifies an additional or alternate locale. Denotes intentional support for an extra language, not just that a keyboard incidentally supports a language’s orthography.
 
 **Syntax**
 
@@ -862,405 +951,6 @@ _Attribute:_ `normalization="disabled"`
 
 * * *
 
-### Element: keys
-
-This element defines the properties of all possible keys via [`<key>` elements](#element-key) used in all layouts.
-It is a “bag of keys” without specifying any ordering or relation between the keys.
-There is only a single `<keys>` element in each layout.
-
-**Syntax**
-
-```xml
-<keys>
-    <key … />
-    <key … />
-    <key … />
-</keys>
-```
-
-> <small>
->
-> Parents: [keyboard3](#element-keyboard3)
-> Children: [key](#element-key)
-> Occurrence: optional, single
->
-> </small>
-
-
-
-* * *
-
-### Element: key
-
-This element defines a mapping between an abstract key and its output. This element must have the `keys` element as its parent. The `key` element is referenced by the `keys=` attribute of the [`row` element](#element-row).
-
-**Syntax**
-
-```xml
-<key
- id="…keyId"
- flickId="…flickId"
- gap="true"
- longPressKeyIds="…list of keyIds"
- longPressDefaultKeyId="…keyId"
- multiTapKeyIds="…listId"
- stretch="true"
- layerId="…layerId"
- output="…string"
- width="…number"
- />
-```
-
-> <small>
->
-> Parents: [keys](#element-keys)
->
-> Children: _none_
->
-> Occurrence: optional, multiple
-> </small>
-
-**Note**: The `id` attribute is required.
-
-**Note**: _at least one of_ `layerId`, `gap`, or `output` are required.
-
-_Attribute:_ `id`
-
-> The `id` attribute uniquely identifies the key. NMTOKEN. It can (but needn't be) the key name (a, b, c, A, B, C, …), or any other valid token (e-acute, alef, alif, alpha, …).
->
-> In the future, this attribute’s definition is expected to be updated to align with [UAX#31](https://www.unicode.org/reports/tr31/).
-
-_Attribute:_ `flickId="…flickId"` (optional)
-
-> The `flickId` attribute indicates that this key makes use of a [`flick`](#element-flick) set with the specified id.
-
-_Attribute:_ `gap="true"` (optional)
-
-> The `gap` attribute indicates that this key does not have any appearance, but causes a "gap" of the specified number of key widths. Can be used with `width` to set a width.
-
-```xml
-<key id="mediumgap" gap="true" width="1.5"/>
-```
-
-_Attribute:_ `longPressKeyIds="…list of keyIds"` (optional)
-
-> A space-separated ordered list of `key` element ids, which keys which can be emitted by "long-pressing" this key. This feature is prominent in mobile devices.
->
-> In a list of keys specified by `longPressKeyIds`, the key matching `longPressDefaultKeyId` attribute (if present) specifies the default long-press target, which could be different than the first element. It is an error if the `longPressDefaultKeyId` key is not in the `longPressKeyIds` list.
->
-> Implementations shall ignore any gestures (such as flick, multiTap, longPress) defined on keys in the `longPressKeyIds` list.
->
-> For example, if the default key is a key whose [display](#element-displays) value is `{`, an implementation might render the key as follows:
->
-> ![keycap hint](images/keycapHint.png)
->
-> _Example:_
-> - pressing the `o` key will produce `o`
-> - holding down the key will produce a list `ó`, `{` (where `{` is the default and produces a marker)
->
-> ```xml
-> <displays>
->    <displays output="\m{marker}" display="{" />
-> </displays>
->
-> <keys>
->    <key id="o" output="o" longPressKeyIds="o-acute marker" longPressDefaultKeyId="marker">
->    <key id="o-acute" output="ó"/>
->    <key id="marker" display="{"/>
-> </key>
->
-> ```
-
-_Attribute:_ `longPressDefaultKeyId="…keyId"` (optional)
-
-> Specifies the default key, by id, in a list of long-press keys. See the discussion of `LongPressKeyIds`, above.
-
-_Attribute:_ `multiTapKeyIds` (optional)
-
-> A space-separated ordered list of `key` element ids, which keys, where each successive key in the list is produced by the corresponding number of quick taps.
-> It is an error for a key to reference itself in the `multiTapKeyIds` list.
->
-> Implementations shall ignore any gestures (such as flick, multiTap, longPress) defined on keys in the `multiTapKeyIds` list.
->
-> _Example:_
-> - first tap on the key will produce “a”
-> - two taps will produce “bb”
-> - three taps on the key will produce “c”
-> - four taps on the key will produce “d”
->
-> ```xml
-> <keys>
->    <key id="a" output="a" multiTapKeyIds="bb c d">
->    <key id="bb" output="bb" />
->    <key id="c" output="c" />
->    <key id="d" output="d" />
-> </key>
-> ```
-
-**Note**: Behavior past the end of the multiTap list is implementation specific.
-
-_Attribute:_ `stretch="true"` (optional)
-
-> The `stretch` attribute indicates that a touch layout may stretch this key to fill available horizontal space on the row.
-> This is used, for example, on the spacebar. Note that `stretch=` is ignored for hardware layouts.
-
-_Attribute:_ `layerId="shift"` (optional)
-
-> The `layerId` attribute indicates that this key switches to another `layer` with the specified id (such as `<layer id="shift"/>` in this example).
-> Note that a key may have both a `layerId=` and a `output=` attribute, indicating that the key outputs _prior_ to switching layers.
-> Also note that `layerId=` is ignored for hardware layouts: their shifting is controlled via
-> the modifier keys.
->
-> This attribute is an NMTOKEN.
->
-> In the future, this attribute’s definition is expected to be updated to align with [UAX#31](https://www.unicode.org/reports/tr31/).
-
-
-_Attribute:_ `output`
-
-> The `output` attribute value contains the sequence of characters that is emitted when pressing this particular key. Control characters, whitespace (other than the regular space character) and combining marks in this attribute are escaped using the `\u{…}` notation. More than one key may output the same output.
->
-> The `output` attribute may also contain the `\m{…markerId}` syntax to insert a marker. See the definition of [markers](#markers).
-
-_Attribute:_ `width="1.2"` (optional, default "1.0")
-
-> The `width` attribute indicates that this key has a different width than other keys, by the specified number of key widths.
-
-```xml
-<key id="wide-a" output="a" width="1.2"/>
-<key id="wide-gap" gap="true" width="2.5"/>
-```
-
-##### Implied Keys
-
-Not all keys need to be listed explicitly.  The following two can be assumed to already exist:
-
-```xml
-<key id="gap" gap="true" width="1"/>
-<key id="space" output=" " stretch="true" width="1"/>
-```
-
-In addition, these 62 keys, comprising 10 digit keys, 26 Latin lower-case keys, and 26 Latin upper-case keys, where the `id` is the same as the `to`, are assumed to exist:
-
-```xml
-<key id="0" output="0"/>
-<key id="1" output="1"/>
-<key id="2" output="2"/>
-…
-<key id="A" output="A"/>
-<key id="B" output="B"/>
-<key id="C" output="C"/>
-…
-<key id="a" output="a"/>
-<key id="b" output="b"/>
-<key id="c" output="c"/>
-…
-```
-
-These implied keys are available in a data file named `keyboards/import/keys-Latn-implied.xml` in the CLDR distribution for the convenience of implementations.
-
-Thus, the implied keys behave as if the following import were present.
-
-```xml
-<keyboard3>
-    <keys>
-        <import base="cldr" path="45/keys-Latn-implied.xml" />
-    </keys>
-</keyboard3>
-```
-
-**Note:** All implied keys may be overridden, as with all other imported data items. See the [`import`](#element-import) element for more details.
-
-* * *
-
-#### Element: flicks
-
-The `flicks` element is a collection of `flick` elements.
-
-> <small>
->
-> Parents: [keyboard3](#element-keyboard3)
->
-> Children: [flick](#element-flick), [import](#element-import), [_special_](tr35.md#special)
->
-> Occurrence: optional, single
-> </small>
-
-* * *
-
-#### Element: flick
-
-The `flick` element is used to generate results from a "flick" of the finger on a mobile device.
-
-**Syntax**
-
-```xml
-<keyboard3>
-    <keys>
-        <key id="a" flicks="a-flicks" output="a" />
-    </keys>
-    <flicks>
-        <flick id="a-flicks">
-            <flickSegment … />
-            <flickSegment … />
-            <flickSegment … />
-        </flick>
-    </flicks>
-</keyboard3>
-```
-
-> <small>
->
-> Parents: [flicks](#element-flicks)
->
-> Children: [flickSegment](#element-flicksegment), [_special_](tr35.md#special)
->
-> Occurrence: optional, multiple
->
-> </small>
-
-_Attribute:_ `id` (required)
-
-> The `id` attribute identifies the flicks. It can be any NMTOKEN.
->
-> The `flick` elements do not share a namespace with the `key`s, so it would also be allowed
-> to have `<key id="a" flick="a"/>`
->
-> In the future, this attribute’s definition is expected to be updated to align with [UAX#31](https://www.unicode.org/reports/tr31/).
-
-* * *
-
-#### Element: flickSegment
-
-> <small>
->
-> Parents: [flick](#element-flick)
->
-> Children: _none_
->
-> Occurrence: required, multiple
->
-> </small>
-
-_Attribute:_ `directions` (required)
-
-> The `directions` attribute value is a space-delimited list of keywords, that describe a path, currently restricted to the cardinal and intercardinal directions `{n e s w ne nw se sw}`.
-
-_Attribute:_ `keyId` (required)
-
-> The `keyId` attribute value is the result of (one or more) flicks.
->
-> Implementations shall ignore any gestures (such as flick, multiTap, longPress) defined on the key specified by `keyId`.
-
-
-**Example**
-where a flick to the Northeast then South produces `Å`.
-
-```xml
-<keys>
-    <key id="something" flickId="a" output="Something" />
-    <key id="A-ring" output="A-ring" />
-</keys>
-
-<flicks>
-    <flick id="a">
-        <flickSegment directions="ne s" keyId="A-ring" />
-    </flick>
-</flicks>
-```
-
-* * *
-
-### Element: import
-
-The `import` element is used to reference another xml file so that elements are imported from
-another file. The use case is to be able to import a standard set of `transform`s and similar
-from the CLDR repository, especially to be able to share common information relevant to a particular script.
-The intent is for each single XML file to contain all that is needed for a keyboard layout, other than required standard import data from the CLDR repository.
-
-`<import>` can be used as a child of a number of elements (see the _Parents_ section immediately below). Multiple `<import>` elements may be used, however, `<import>` elements must come before any other sibling elements.
-If two identical elements are defined, the later element will take precedence, that is, override.
-
-**Note:** imported files do not have any indication of their normalization mode. For this reason, the keyboard author must verify that the imported file is of a compatible normalization mode. See the [`settings` element](#element-settings) for further details.
-
-**Syntax**
-```xml
-<import base="cldr" path="45/keys-Zyyy-punctuation.xml"/>
-```
-> <small>
->
-> Parents: [displays](#element-displays), [keyboard3](#element-keyboard3), [keys](#element-keys), [flicks](#element-flicks), [layers](#element-layers), [transformGroup](#element-transformgroup), [transforms](#element-transforms), [variables](#element-variables)
-> Children: _none_
->
-> Occurrence: optional, multiple
->
-> </small>
-
-_Attribute:_ `base`
-
-> The base may be omitted (indicating a local import) or have the value `"cldr"`.
-
-**Note:** `base="cldr"` is required for all `<import>` statements within keyboard files in the CLDR repository.
-
-_Attribute:_ `path` (required)
-
-> If `base` is `cldr`, then the `path` must start with a CLDR major version (such as `45`) representing the CLDR version to pull imports from. The imports are located in the `keyboard/import` subdirectory of the CLDR source repository.
-> Implementations are not required to have all CLDR versions available to them.
->
-> If `base` is omitted, then `path` is an absolute or relative file path.
-
-
-**Further Examples**
-
-```xml
-<!-- in a keyboard xml file-->
-…
-<transforms type="simple">
-    <import base="cldr" path="45/transforms-example.xml"/>
-    <transform from="` " to="`" />
-    <transform from="^ " to="^" />
-</transforms>
-…
-
-
-<!-- contents of transforms-example.xml -->
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE transforms SYSTEM "../dtd/ldmlKeyboard3.dtd">
-<transforms>
-    <!-- begin imported part-->
-    <transform from="`a" to="à" />
-    <transform from="`e" to="è" />
-    <transform from="`i" to="ì" />
-    <transform from="`o" to="ò" />
-    <transform from="`u" to="ù" />
-    <!-- end imported part -->
-</transforms>
-```
-
-**Note:** The DOCTYPE and root element, here `transforms`, is the same as
-the _parent_ of the `<import/>` element. It is an error to import an XML file
-whose root element is different than the parent element of the `<import/>` element.
-
-After loading, the above example will be the equivalent of the following.
-
-```xml
-<transforms type="simple">
-    <!-- begin imported part-->
-    <transform from="`a" to="à" />
-    <transform from="`e" to="è" />
-    <transform from="`i" to="ì" />
-    <transform from="`o" to="ò" />
-    <transform from="`u" to="ù" />
-    <!-- end imported part -->
-
-    <!-- this line is after the import -->
-    <transform from="^ " to="^" />
-    <transform from="` " to="`" />
-</transforms>
-```
-
-* * *
-
 ### Element: displays
 
 The `displays` element consists of a list of [`display`](#element-display) subelements.
@@ -1341,11 +1031,11 @@ _Attribute:_ `output` (optional)
 > The `output` attribute may also contain the `\m{…}` syntax to reference a marker. See [Markers](#markers). Implementations may highlight a displayed marker, such as with a lighter text color, or a yellow highlight.
 > String variables may be substituted. See [String variables](#element-string)
 
-_Attribute:_ `id` (optional)
+_Attribute:_ `keyId` (optional)
 
 > Specifies the `key` id. This is useful for keys which do not produce any output (no `output=` value), such as a shift key.
 >
-> This attribute must match `[A-Za-z0-9][A-Za-z0-9-]*`
+> Must match `[A-Za-z0-9][A-Za-z0-9_-]*`
 
 _Attribute:_ `display` (required)
 
@@ -1415,6 +1105,317 @@ This attribute may be escaped with `\u` notation, see [Escaping](#escaping).
 
 * * *
 
+### Element: keys
+
+This element defines the properties of all possible keys via [`<key>` elements](#element-key) used in all layouts.
+It is a “bag of keys” without specifying any ordering or relation between the keys.
+There is only a single `<keys>` element in each layout.
+
+**Syntax**
+
+```xml
+<keys>
+    <key … />
+    <key … />
+    <key … />
+</keys>
+```
+
+> <small>
+>
+> Parents: [keyboard3](#element-keyboard3)
+> Children: [key](#element-key)
+> Occurrence: optional, single
+>
+> </small>
+
+
+
+* * *
+
+### Element: key
+
+This element defines a mapping between an abstract key and its output. This element must have the `keys` element as its parent. The `key` element is referenced by the `keys=` attribute of the [`row` element](#element-row).
+
+**Syntax**
+
+```xml
+<key
+ id="…keyId"
+ flickId="…flickId"
+ gap="true"
+ output="…string"
+ longPressKeyIds="…list of keyIds"
+ longPressDefaultKeyId="…keyId"
+ multiTapKeyIds="…listId"
+ stretch="true"
+ layerId="…layerId"
+ width="…number"
+ />
+```
+
+> <small>
+>
+> Parents: [keys](#element-keys)
+>
+> Children: _none_
+>
+> Occurrence: optional, multiple
+> </small>
+
+**Note**: The `id` attribute is required.
+
+**Note**: _at least one of_ `layerId`, `gap`, or `output` are required.
+
+_Attribute:_ `id`
+
+> The `id` attribute uniquely identifies the key. NMTOKEN. It can (but needn't be) the key name (a, b, c, A, B, C, …), or any other valid token (e-acute, alef, alif, alpha, …).
+>
+> In the future, this attribute’s definition is expected to be updated to align with [UAX#31](https://www.unicode.org/reports/tr31/).
+
+_Attribute:_ `flickId="…flickId"` (optional)
+
+> The `flickId` attribute indicates that this key makes use of a [`flick`](#element-flick) set with the specified id.
+
+_Attribute:_ `gap="true"` (optional)
+
+> The `gap` attribute indicates that this key does not have any appearance, but causes a "gap" of the specified number of key widths. Can be used with `width` to set a width.
+> Such elements may not be referred to by `display` elements, nor may they have any of the following attributes:  `flickId`, `longPressKeyId`, `longPressDefaultKeyId`, `multiTapKeyIds`, `layerId`, or `output`.
+
+```xml
+<key id="mediumgap" gap="true" width="1.5"/>
+```
+
+_Attribute:_ `output`
+
+> The `output` attribute value contains the sequence of characters that is emitted when pressing this particular key. Control characters, whitespace (other than the regular space character) and combining marks in this attribute are escaped using the `\u{…}` notation. More than one key may output the same output.
+>
+> The `output` attribute may also contain the `\m{…markerId}` syntax to insert a marker. See the definition of [markers](#markers).
+
+_Attribute:_ `longPressKeyIds="…list of keyIds"` (optional)
+
+> A space-separated ordered list of `key` element ids, which keys which can be emitted by "long-pressing" this key. This feature is prominent in mobile devices.
+>
+> In a list of keys specified by `longPressKeyIds`, the key matching `longPressDefaultKeyId` attribute (if present) specifies the default long-press target, which could be different than the first element. It is an error if the `longPressDefaultKeyId` key is not in the `longPressKeyIds` list.
+>
+> Implementations shall ignore any gestures (such as flick, multiTap, longPress) defined on keys in the `longPressKeyIds` list.
+>
+> For example, if the default key is a key whose [display](#element-displays) value is `{`, an implementation might render the key as follows:
+>
+> ![keycap hint](images/keycapHint.png)
+>
+> _Example:_
+> - pressing the `o` key will produce `o`
+> - holding down the key will produce a list `ó`, `{` (where `{` is the default and produces a marker)
+>
+> ```xml
+> <displays>
+>    <display output="\m{marker}" display="{" />
+> </displays>
+>
+> <keys>
+>    <key id="o" output="o" longPressKeyIds="o-acute marker" longPressDefaultKeyId="marker">
+>    <key id="o-acute" output="ó"/>
+>    <key id="marker" output="\m{marker}" />
+> </key>
+>
+> ```
+
+_Attribute:_ `longPressDefaultKeyId="…keyId"` (optional)
+
+> Specifies the default key, by id, in a list of long-press keys. See the discussion of `LongPressKeyIds`, above.
+
+_Attribute:_ `multiTapKeyIds` (optional)
+
+> A space-separated ordered list of `key` element ids, which keys, where each successive key in the list is produced by the corresponding number of quick taps.
+> It is an error for a key to reference itself in the `multiTapKeyIds` list.
+>
+> Implementations shall ignore any gestures (such as flick, multiTap, longPress) defined on keys in the `multiTapKeyIds` list.
+>
+> _Example:_
+> - first tap on the key will produce “a”
+> - two taps will produce “bb”
+> - three taps on the key will produce “c”
+> - four taps on the key will produce “d”
+>
+> ```xml
+> <keys>
+>    <key id="a" output="a" multiTapKeyIds="bb c d">
+>    <key id="bb" output="bb" />
+>    <key id="c" output="c" />
+>    <key id="d" output="d" />
+> </key>
+> ```
+
+**Note**: Behavior past the end of the multiTap list is implementation specific.
+
+_Attribute:_ `stretch="true"` (optional)
+
+> The `stretch` attribute indicates that a touch layout may stretch this key to fill available horizontal space on the row.
+> This is used, for example, on the spacebar. Note that `stretch=` is ignored for hardware layouts.
+
+_Attribute:_ `layerId="shift"` (optional)
+
+> The `layerId` attribute indicates that this key switches to another `layer` with the specified id (such as `<layer id="shift"/>` in this example).
+> Note that a key may have both a `layerId=` and a `output=` attribute, indicating that the key outputs _prior_ to switching layers.
+> Also note that `layerId=` is ignored for hardware layouts: their shifting is controlled via
+> the modifier keys.
+>
+> This attribute is an NMTOKEN.
+>
+> In the future, this attribute’s definition is expected to be updated to align with [UAX#31](https://www.unicode.org/reports/tr31/).
+
+
+_Attribute:_ `width="1.2"` (optional, default "1.0")
+
+> The `width` attribute indicates that this key has a different width than other keys, by the specified number of key widths.
+
+```xml
+<key id="wide-a" output="a" width="1.2"/>
+<key id="wide-gap" gap="true" width="2.5"/>
+```
+
+##### Implied Keys
+
+Not all keys need to be listed explicitly.  The following two can be assumed to already exist:
+
+```xml
+<key id="gap" gap="true" width="1"/>
+<key id="space" output=" " stretch="true" width="1"/>
+```
+
+In addition, these 62 keys, comprising 10 digit keys, 26 Latin lower-case keys, and 26 Latin upper-case keys, where the `id` is the same as the `to`, are assumed to exist:
+
+```xml
+<key id="0" output="0"/>
+<key id="1" output="1"/>
+<key id="2" output="2"/>
+…
+<key id="A" output="A"/>
+<key id="B" output="B"/>
+<key id="C" output="C"/>
+…
+<key id="a" output="a"/>
+<key id="b" output="b"/>
+<key id="c" output="c"/>
+…
+```
+
+These implied keys are available in a data file named `keyboards/import/keys-Latn-implied.xml` in the CLDR distribution for the convenience of implementations.
+
+Thus, the implied keys behave as if the following import were present.
+
+```xml
+<keyboard3>
+    <keys>
+        <import base="cldr" path="45/keys-Latn-implied.xml" />
+    </keys>
+</keyboard3>
+```
+
+**Note:** All implied keys may be overridden, as with all other imported data items. See the [`import`](#element-import) element for more details.
+
+* * *
+
+### Element: flicks
+
+The `flicks` element is a collection of `flick` elements.
+
+> <small>
+>
+> Parents: [keyboard3](#element-keyboard3)
+>
+> Children: [flick](#element-flick), [import](#element-import), [_special_](tr35.md#special)
+>
+> Occurrence: optional, single
+> </small>
+
+* * *
+
+#### Element: flick
+
+The `flick` element is used to generate results from a "flick" of the finger on a mobile device.
+
+**Syntax**
+
+```xml
+<keyboard3>
+    <keys>
+        <key id="a" flickId="a-flicks" output="a" />
+    </keys>
+    <flicks>
+        <flick id="a-flicks">
+            <flickSegment … />
+            <flickSegment … />
+            <flickSegment … />
+        </flick>
+    </flicks>
+</keyboard3>
+```
+
+> <small>
+>
+> Parents: [flicks](#element-flicks)
+>
+> Children: [flickSegment](#element-flicksegment), [_special_](tr35.md#special)
+>
+> Occurrence: optional, multiple
+>
+> </small>
+
+_Attribute:_ `id` (required)
+
+> The `id` attribute identifies the flicks. It can be any NMTOKEN.
+>
+> The `id` attribute on `flick` elements are distinct from the `id` attribute on `key` elements.
+> For example, it is permissible to have both `<key id="a" />` and
+> `<flick id="a" />` which are two unrelated elements.
+>
+> In the future, this attribute’s definition is expected to be updated to align with [UAX#31](https://www.unicode.org/reports/tr31/).
+
+* * *
+
+#### Element: flickSegment
+
+> <small>
+>
+> Parents: [flick](#element-flick)
+>
+> Children: _none_
+>
+> Occurrence: required, multiple
+>
+> </small>
+
+_Attribute:_ `directions` (required)
+
+> The `directions` attribute value is a space-delimited list of keywords, that describe a path, currently restricted to the cardinal and intercardinal directions `{n e s w ne nw se sw}`.
+
+_Attribute:_ `keyId` (required)
+
+> The `keyId` attribute value is the result of (one or more) flicks.
+>
+> Implementations shall ignore any gestures (such as flick, multiTap, longPress) defined on the key specified by `keyId`.
+
+
+**Example**
+where a flick to the Northeast then South produces `Å`.
+
+```xml
+<keys>
+    <key id="something" flickId="a" output="Something" />
+    <key id="A-ring" output="A-ring" />
+</keys>
+
+<flicks>
+    <flick id="a">
+        <flickSegment directions="ne s" keyId="A-ring" />
+    </flick>
+</flicks>
+```
+
+* * *
+
 ### Element: forms
 
 This element contains a set of `form` elements which define the layout of a particular hardware form.
@@ -1471,6 +1472,9 @@ _Attribute:_ `id` (required)
 
 > This attribute specifies the form id. The value may not be `touch`.
 
+> Must match `[A-Za-z0-9][A-Za-z0-9_-]*`
+
+
 ***Syntax***
 
 ```xml
@@ -1492,7 +1496,7 @@ There is an implied set of `<form>` elements corresponding to the default forms,
 </keyboard3>
 ```
 
-Here is a summary of the implied form elements. Keyboards included in the CLDR Repository must only use these `form=` values and may not override the scanCodes.
+Here is a summary of the implied form elements. Keyboards included in the CLDR Repository must only use these `formId=` values and may not override the scanCodes.
 
 > - `touch` - Touch (non-hardware) layout.
 > - `abnt2` - Brazilian 103 key ABNT2 layout (iso + extra key near right shift)
@@ -1546,34 +1550,34 @@ hardware or touch layout.
 
 - At least one `layers` element is required.
 
-_Attribute:_ `form` (required)
+_Attribute:_ `formId` (required)
 
 > This attribute specifies the physical layout of a hardware keyboard,
 > or that the form is a `touch` layout.
 >
-> When using an on-screen touch keyboard, if the keyboard does not specify a `<layers form="touch">`
-> element, a `<layers form="…formId">` element can be used as an fallback alternative.
+> When using an on-screen touch keyboard, if the keyboard does not specify a `<layers formId="touch">`
+> element, a `<layers formId="…formId">` element can be used as an fallback alternative.
 > If there is no `hardware` form, the implementation may need
 > to choose a different keyboard file, or use some other fallback behavior when using a
 > hardware keyboard.
 >
 > Because a hardware keyboard facilitates non-trivial amounts of text input,
 > and many touch devices can also be connected to a hardware keyboard, it
-> is recommended to always have at least one hardware (non-touch) form.
+> is recommended to always have a hardware (non-touch) form.
 >
-> Multiple `<layers form="touch">` elements are allowed with distinct `minDeviceWidth` values.
-> At most one hardware (non-`touch`) `<layers>` element is allowed. If a different key arrangement is desired between, for example, `us` and `iso` formats, these should be separated into two different keyboards.
+> Multiple `<layers formId="touch">` elements are allowed with distinct `minDeviceWidth` values.
+> At most one hardware (non-`formId="touch"`) `<layers>` element is allowed. If a different key arrangement is desired between, for example, `us` and `iso` formats, these should be separated into two different keyboards.
 >
-> The typical keyboard author will be designing a keyboard based on their circumstances and the hardware that they are using. So, for example, if they are in South East Asia, they will almost certainly be using an 101 key hardware keyboard with US key caps. So we want them to be able to reference that (`<layers form="us">`) in their design, rather than having to work with an unfamiliar form.
+> The typical keyboard author will be designing a keyboard based on their circumstances and the hardware that they are using. So, for example, if they are in South East Asia, they will almost certainly be using an 101 key hardware keyboard with US key caps. So we want them to be able to reference that (`<layers formId="us">`) in their design, rather than having to work with an unfamiliar form.
 >
-> A mismatch between the hardware layout in the keyboard file, and the actual hardware used by the user could result in some keys being inaccessible to the user if their hardware cannot generate the scancodes corresponding to the layout specified by the `form=` attribute. Such keys could be accessed only via an on-screen keyboard utility. Conversely, a user with hardware keys that are not present in the specified `form=` will result in some hardware keys which have no function when pressed.
+> A mismatch between the hardware layout in the keyboard file, and the actual hardware used by the user could result in some keys being inaccessible to the user if their hardware cannot generate the scancodes corresponding to the layout specified by the `formId=` attribute. Such keys could be accessed only via an on-screen keyboard utility. Conversely, a user with hardware keys that are not present in the specified `formId=` will result in some hardware keys which have no function when pressed.
 >
-> The value of the `form=` attribute may be `touch`, or correspond to a `form` element. See [`form`](#element-form).
+> The value of the `formId=` attribute may be `touch`, or correspond to a `form` element. See [`form`](#element-form).
 >
 
 _Attribute:_ `minDeviceWidth`
 
-> This attribute specifies the minimum required width, in millimeters (mm), of the touch surface.  The `layers` entry with the greatest matching width will be selected. This attribute is intended for `form="touch"`, but is supported for hardware forms.
+> This attribute specifies the minimum required width, in millimeters (mm), of the touch surface.  The `layers` entry with the greatest matching width will be selected. This attribute is intended for `formId="touch"`, but is supported for hardware forms.
 >
 > This must be a whole number between 1 and 999, inclusive.
 
@@ -1603,10 +1607,10 @@ A `layer` element describes the configuration of keys on a particular layer of a
 
 _Attribute_ `id` (required for `touch`)
 
-> The `id` attribute identifies the layer for touch layouts.  This identifier specifies the layout as the target for layer switching, as specified by the `switch=` attribute on the [`<key>`](#element-key) element.
+> The `id` attribute identifies the layer for touch layouts.  This identifier specifies the layout as the target for layer switching, as specified by the `layerId=` attribute on the [`<key>`](#element-key) element.
 > Touch layouts must have one `layer` with `id="base"` to serve as the base layer.
 >
-> Must match `[A-Za-z0-9][A-Za-z0-9-]*`
+> Must match `[A-Za-z0-9][A-Za-z0-9_-]*`
 
 _Attribute:_ `modifiers` (required for `hardware`)
 

@@ -11,7 +11,7 @@
           {{ unreadAnnouncementCount }}</a
         >
       </li>
-      <li v-if="coverageLevel">
+      <li v-if="coverageLevel && !needCla">
         <label for="coverageLevel">Coverage:</label>
         <select
           id="coverageLevel"
@@ -30,7 +30,7 @@
           </option>
         </select>
       </li>
-      <li v-if="voteCountMenu && voteCountMenu.length">
+      <li v-if="voteCountMenu && voteCountMenu.length && !needCla">
         <label for="voteLevelChanged">Votes:</label>
         <select
           id="voteLevelChanged"
@@ -47,6 +47,13 @@
           >Instructions</a
         >
       </li>
+      <a-alert
+        v-if="needCla"
+        @click="showCla"
+        message="CLA must be signed before data can be input"
+        type="error"
+        show-icon
+      />
       <li id="st-special-header" class="specialmessage">{{ specialHeader }}</li>
       <li>
         <a
@@ -101,6 +108,7 @@ export default {
       userName: null,
       voteCountMenu: null,
       voteLevelChanged: 0,
+      needCla: false,
     };
   },
 
@@ -153,6 +161,10 @@ export default {
         this.voteCountMenu = null;
         this.voteLevelChanged = 0;
       }
+
+      // only need CLA if logged in
+      this.needCla = !!user && !user.claSigned;
+
       this.sessionMessage = cldrStatus.getSessionMessage();
       this.specialHeader = cldrStatus.getSpecialHeader();
       this.stVersionPhase =
@@ -176,6 +188,10 @@ export default {
       this.announcementsTitle = n
         ? "You have " + n + " unread announcement(s)"
         : "";
+    },
+
+    showCla() {
+      window.location.replace("#cla///");
     },
   },
 };

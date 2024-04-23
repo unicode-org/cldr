@@ -206,6 +206,9 @@ public class UserRegistry {
         @Schema(hidden = true)
         private String emailmd5 = null;
 
+        @Schema(description = "True if CLA is signed")
+        public boolean claSigned = false;
+
         public String getEmailHash() {
             if (emailmd5 == null) {
                 String newHash = DigestUtils.md5Hex(email.trim().toLowerCase());
@@ -481,6 +484,7 @@ public class UserRegistry {
                     .put("org", vrOrg().name())
                     .put("orgName", vrOrg().getDisplayName())
                     .put("id", id)
+                    .put("claSigned", claSigned)
                     .toString();
         }
 
@@ -577,6 +581,36 @@ public class UserRegistry {
                 return localeSet.firstElement();
             }
             return null;
+        }
+
+        public void signCla(ClaSignature cla) {
+            if (ClaSignature.CLA_ORGS.contains(getOrganization())) {
+                throw new IllegalArgumentException("Cannot modify CLA for a listed org");
+            }
+            if (!cla.valid()) throw new IllegalArgumentException("Invalid CLA");
+            cla.signed = new Date();
+            settings().setJson(ClaSignature.CLA_KEY, cla);
+            claSigned = true;
+        }
+
+        public boolean revokeCla() {
+            if (ClaSignature.CLA_ORGS.contains(getOrganization())) {
+                return false;
+            }
+            final String oldCla = settings().get(ClaSignature.CLA_KEY, null);
+            if (oldCla == null || oldCla.isBlank()) {
+                return false;
+            }
+            settings().set(ClaSignature.CLA_KEY, "");
+            claSigned = false;
+            return true;
+        }
+
+        public ClaSignature getCla() {
+            if (ClaSignature.CLA_ORGS.contains(getOrganization())) {
+                return new ClaSignature(getOrganization());
+            }
+            return settings().getJson(ClaSignature.CLA_KEY, ClaSignature.class);
         }
     }
 
@@ -857,6 +891,9 @@ public class UserRegistry {
                         infoArray = new UserRegistry.User[newchunk];
                         arraySize = newchunk;
                     }
+
+                    u.claSigned = (u.getCla() != null);
+
                     infoArray[id] = u;
                     // good so far..
                     if (rs.next()) {
@@ -977,6 +1014,7 @@ public class UserRegistry {
             u.locales = rs.getString(5);
             u.intlocs = rs.getString(6);
             u.last_connect = rs.getTimestamp(7);
+            u.claSigned = (u.getCla() != null);
 
             // good so far..
 
@@ -1883,7 +1921,8 @@ public class UserRegistry {
         DENY_PHASE_CLOSED("SurveyTool is in 'closed' phase"),
         DENY_NO_RIGHTS("User does not have any voting rights"),
         DENY_LOCALE_LIST("User does not have rights to vote for this locale"),
-        DENY_PHASE_FINAL_TESTING("SurveyTool is in the 'final testing' phase");
+        DENY_PHASE_FINAL_TESTING("SurveyTool is in the 'final testing' phase"),
+        DENY_CLA_NOT_SIGNED("CLA is not signed");
 
         ModifyDenial(String reason) {
             this.reason = reason;
@@ -1893,6 +1932,55 @@ public class UserRegistry {
 
         public String getReason() {
             return reason;
+        }
+    }
+
+    public static final class ClaSignature {
+        public static final String CLA_KEY = "SignedCla";
+        public String email;
+        public String name;
+        public String employer; // May be different than org!
+        public boolean corporate; // signed as corporate
+
+        @Schema(required = false)
+        public Date signed;
+
+        @Schema(
+                description = "CLA is fixed by organization and cannot be changed",
+                required = false)
+        public boolean readonly;
+
+        public boolean valid() {
+            if (email.isBlank()) return false;
+            if (name.isBlank()) return false;
+            if (employer.isBlank()) return false;
+            if (corporate && employer.equals("none")) return false;
+            return true;
+        }
+
+        public static final EnumSet<Organization> CLA_ORGS =
+                EnumSet.of(
+                        Organization.adobe,
+                        Organization.apple,
+                        Organization.cherokee,
+                        Organization.google,
+                        Organization.ibm,
+                        Organization.meta,
+                        Organization.microsoft,
+                        Organization.mozilla,
+                        Organization.sil,
+                        Organization.wikimedia,
+                        Organization.surveytool);
+
+        public ClaSignature() {}
+
+        public ClaSignature(Organization o) {
+            this.email = "";
+            this.name = "Corporate CLA - " + o.name();
+            this.employer = o.toString();
+            this.corporate = true;
+            this.signed = new Date(0);
+            this.readonly = true;
         }
     }
 
@@ -1906,6 +1994,7 @@ public class UserRegistry {
 
     private static Object userCanAccessForumWhy(User u, CLDRLocale locale) {
         if (u == null) return ModifyDenial.DENY_NULL_USER; // no user, no dice
+        if (!u.claSigned) return ModifyDenial.DENY_CLA_NOT_SIGNED;
         if (!userIsGuest(u)) return ModifyDenial.DENY_NO_RIGHTS; // at least guest level
         if (userIsAdmin(u)) return null; // Admin can modify all
         if (userIsTC(u)) return null; // TC can modify all
@@ -1965,6 +2054,7 @@ public class UserRegistry {
     }
 
     public static ModifyDenial userCanModifyLocaleWhy(User u, CLDRLocale locale) {
+        if (u != null && !u.claSigned) return ModifyDenial.DENY_CLA_NOT_SIGNED;
         final ModifyDenial denyCountVote = countUserVoteForLocaleWhy(u, locale);
 
         // If we don't count the votes, modify is prohibited.

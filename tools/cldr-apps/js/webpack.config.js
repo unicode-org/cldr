@@ -50,6 +50,10 @@ module.exports = (env, argv) => {
           test: /\.vue$/,
           loader: "vue-loader",
         },
+        {
+          test: /\.md$/,
+          type: 'asset/source',
+        },
       ],
     },
     resolve: {

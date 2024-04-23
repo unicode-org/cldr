@@ -12,6 +12,7 @@ import CldrValue from "../views/CldrValue.vue";
 import LoginButton from "../views/LoginButton.vue";
 import ReportResponse from "../views/ReportResponse.vue";
 import SearchButton from "../views/SearchButton.vue";
+import SignCla from "../views/SignCla.vue";
 
 // 3rd party component(s)
 
@@ -80,6 +81,7 @@ function setup(app) {
   app.component("cldr-report-response", ReportResponse);
   app.component("cldr-searchbutton", SearchButton);
   app.component("cldr-value", CldrValue);
+  app.component("cldr-cla", SignCla);
 }
 
 export { setup };

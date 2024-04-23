@@ -28,6 +28,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.Stack;
 import java.util.TreeMap;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
@@ -2268,5 +2269,52 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         return DtdData.getInstance(DtdType.valueOf(parts.getElement(0)))
                 .getElementFromName()
                 .get(parts.getElement(elementIndex));
+    }
+
+    public static class DtdGuide {
+        public interface DtdVisitor {
+            /** Return false if all children should be skipped */
+            public boolean visit(
+                    DtdType dtdType, Stack<Element> ancestors, Element child, Attribute attribute);
+        }
+
+        private Set<Element> seenElements = new HashSet<>();
+        private DtdVisitor dtdVisitor;
+        private DtdType dtdType;
+        private Stack<Element> ancestors = new Stack<>();
+        private boolean skipDeprecated;
+
+        public DtdGuide(boolean skipDeprecated, DtdVisitor dtdVisitor) {
+            this.dtdVisitor = dtdVisitor;
+            this.skipDeprecated = skipDeprecated;
+            process(DtdType.values());
+        }
+
+        public void process(DtdType... dtdTypes) {
+            for (DtdType dt : dtdTypes.length != 0 ? dtdTypes : DtdType.values()) {
+                dtdType = dt;
+                process(getInstance(dtdType).ROOT);
+            }
+        }
+
+        private void process(Element element) {
+            if (seenElements.contains(element) || !skipDeprecated && element.isDeprecated()) {
+                return;
+            }
+            seenElements.add(element);
+            for (Attribute attribute : element.getAttributes().keySet()) {
+                if (!skipDeprecated && attribute.isDeprecated()) {
+                    continue;
+                }
+                if (!dtdVisitor.visit(dtdType, ancestors, element, attribute)) {
+                    return;
+                }
+            }
+            ancestors.push(element);
+            for (Element child : element.getChildren().keySet()) {
+                process(child);
+            }
+            ancestors.pop();
+        }
     }
 }

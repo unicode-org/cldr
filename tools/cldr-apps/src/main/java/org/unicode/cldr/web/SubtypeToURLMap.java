@@ -36,13 +36,14 @@ import java.util.stream.Collectors;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
+import org.unicode.cldr.test.CheckCLDR.SubtypeToURLProvider;
 import org.unicode.cldr.util.CLDRCacheDir;
 import org.unicode.cldr.util.CLDRTool;
 
 @CLDRTool(
         alias = "subtype-to-url-map",
         description = "parse each of the params as a path or URL to a subtype map and check.")
-public class SubtypeToURLMap {
+public class SubtypeToURLMap implements SubtypeToURLProvider {
     static final Logger logger = SurveyLog.forClass(SubtypeToURLMap.class);
     /**
      * Little tool for validating input data.
@@ -513,5 +514,10 @@ public class SubtypeToURLMap {
     public static String forSubtype(Subtype subtype) {
         if (SubtypeToURLMapHelper.INSTANCE == null) return null;
         return SubtypeToURLMapHelper.INSTANCE.get(subtype);
+    }
+
+    @Override
+    public String apply(Subtype t) {
+        return forSubtype(t);
     }
 }

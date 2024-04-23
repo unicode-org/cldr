@@ -197,6 +197,8 @@ public class VettingViewer<T> {
             StringBuilder errorMessage = new StringBuilder();
             factory.getTestCache().getBundle(options).check(path, result, value);
             for (CheckStatus checkStatus : result) {
+                if (checkStatus.isEntireLocale())
+                    continue; // these will show up in the Entire Locale (supplemental) report
                 final CheckCLDR cause = checkStatus.getCause();
                 /*
                  * CheckCoverage will be shown under Missing, not under Warnings; and

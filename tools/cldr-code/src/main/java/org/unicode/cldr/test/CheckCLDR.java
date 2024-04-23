@@ -26,6 +26,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.function.Function;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -785,6 +786,12 @@ public abstract class CheckCLDR implements CheckAccessor {
     List<CheckStatus> cachedPossibleErrors = new ArrayList<>();
 
     Options cachedOptions = null;
+
+    /**
+     * abstract interface for mapping from a Subtype to a "more details" URL. see
+     * org.unicode.cldr.web.SubtypeToURLMap
+     */
+    public interface SubtypeToURLProvider extends Function<Subtype, String> {}
 
     /** Status value returned from check */
     public static class CheckStatus implements Comparable<CheckStatus> {

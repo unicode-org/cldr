@@ -524,7 +524,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
                                 + "|gaa|gag|gan|gay|gba|gbz|gez|gil|glk|gmh|goh|gom|gon|gor|got|grb|grc|gsw|guc|gur|guz|gwi"
                                 + "|hai|hak|haw|hax|hdn|hif|hil|hit|hnj|hsn|hup|hur|iba|ilo|inh|izh|jam|jbo|jgo|jmc|jpr|jrb|jut"
                                 + "|kaa|kab|kac|kaj|kam|kaw|kbd|kbl|kcg|kde|ken|kfo|kgp|kha|kho|khq|khw|kiu|kln|kmb|koi|kos|kpe|krc|kri|krj|krl|kru|ksb|ksf|ksh|kum|kut|kwk|kxv"
-                                + "|lad|lag|lah|lam|lez|lfn|lij|lil|liv|lkt|lmo|lol|lou|loz|lrc|ltg|lua|lui|lun|luo|lus|luy|lzh|lzz"
+                                + "|lad|lag|lah|lam|lez|lfn|lij|lil|liv|lkt|lld|lmo|lol|lou|loz|lrc|ltg|lua|lui|lun|luo|lus|luy|lzh|lzz"
                                 + "|mad|maf|mag|mai|mak|man|mas|mde|mdf|mdr|men|mer|mfe|mga|mgh|mgo|mic|min|mnc|mni|moe|moh|mos|mrj|mua|mus|mwl|mwr|mwv|mye|myv|mzn"
                                 + "|nan|nap|naq|nds|new|nia|niu|njo|nmg|nog|non|nov|nqo|nso|nus|nwc|nym|nyn|nyo|nzi|oka|osa|ota"
                                 + "|pag|pal|pam|pap|pau|pcd|pcm|pdc|pdt|peo|pfl|phn|pms|pnt|pon|pqm|prg|pro|quc|qug|raj|rap|rar|rgn|rif|rof|rom|rtm|rue|rug|rup|rwk"

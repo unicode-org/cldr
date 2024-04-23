@@ -1,8 +1,7 @@
 package org.unicode.cldr.unittest;
 
-import com.google.common.collect.HashMultimap;
 import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.Multimap;
+import com.ibm.icu.util.MatchElementAttribute;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -695,34 +694,43 @@ public class TestPaths extends TestFmwkPlus {
         return counter;
     }
 
-    public class MatchElementAttribute {
-        private Multimap<String, String> matchElementAttribute =
-                HashMultimap.create(); // "" is a wildcard
-
-        public MatchElementAttribute add(String... elementAttributePairs) {
-            for (int i = 0; i < elementAttributePairs.length; i += 2) {
-                matchElementAttribute.put(elementAttributePairs[i], elementAttributePairs[i + 1]);
-            }
-            return this;
-        }
-
-        boolean matches(String element, String attribute) {
-            return matchElementAttribute.containsEntry(element, attribute)
-                    || matchElementAttribute.containsEntry("", attribute)
-                    || matchElementAttribute.containsEntry(element, "");
-        }
-    }
-
     public void testForUndefined() {
         DtdVisitor visitor =
                 new DtdVisitor() {
                     final MatchElementAttribute skipAttributeNames =
                             new MatchElementAttribute()
-                                    .add(
+                                    .add( // Add, once checking to make sure that these are safe.
+                                            // Pairs of element, attribute
                                             "", "references", //
                                             "", "cp", //
                                             "version", "", //
-                                            "ruleset", "type" //
+                                            // "ruleset", "type", //
+                                            "parseLenient", "", // UnicodeSet
+                                            "ruleset", "", // special structure
+                                            "casingItem", "", // Special structure
+                                            "unitIdComponent", "", // small, relatively fixed set
+                                            "unitConstant", "", // only used internally/...
+                                            "unitQuantity",
+                                                    "", // quantity and and baseUnit will be in
+                                            // validity/...
+                                            "convertUnit", "", // source and baseUnit will be in
+                                            // validity/...
+                                            "unitPreferences",
+                                                    "category", // category == quantity will be in
+                                            // validity/...
+                                            "unitPreferences",
+                                                    "usage", // usage will be in validity/...
+                                            "unitPreference", "", // not ids
+                                            "transform", "", // not ids
+                                            "numberingSystem", "rules", // rule format can't match
+                                            "coverageVariable", "", // no ids
+                                            "coverageLevel", "", // no ids
+                                            "approvalRequirement", "", // no ids
+                                            "pathMatch", "", // no ids
+                                            "languageMatch", "", // no ids
+                                            "rgPath", "", // no ids
+                                            "mapTimezones", "", // ids checked elsewhere
+                                            "mapZone", "" // ids checked elsewhere
                                             );
                     final Set<String> skipElementAndChildren = Set.of("keyboard3", "keyboardTest3");
 

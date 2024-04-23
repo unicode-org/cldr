@@ -378,7 +378,7 @@
 <thead>
 <tr>
 <th>Version</th>
-<th>45 (draft)</th>
+<th>46 (draft)</th>
 </tr>
 </thead>
 <tbody><tr>
@@ -956,7 +956,7 @@ For example the following values can be suffixes in a simple_unit identifier suc
 &lt;!ATTLIST unitPrefix symbol NMTOKEN #REQUIRED &gt;
 &lt;!ATTLIST unitPrefix power10 NMTOKEN #IMPLIED &gt;
 &lt;!ATTLIST unitPrefix power2 NMTOKEN #IMPLIED &gt;
-</code></pre><p>This data lists the SI prefixes that can be applied to units (typically limited to prefixable units), 
+</code></pre><p>This data lists the SI prefixes that can be applied to units (typically limited to prefixable units),
 such as the following:</p><pre><code class="language-xml">&lt;unitPrefixes&gt;
     &lt;unitPrefix type='quecto' symbol='q' power10='-30'/&gt;
 ...
@@ -969,11 +969,11 @@ such as the following:</p><pre><code class="language-xml">&lt;unitPrefixes&gt;
 ...
     &lt;unitPrefix type='yobi' symbol='Yi' power2='80'/&gt;
 &lt;/unitPrefixes&gt;
-</code></pre><p>The information includes the SI prefix and symbol, and the power of 10 or power of 2 
-(for binary prefixes, intended for use with digital units).</p><p>Note that the translated short form of a unit prefix is not the same as the localized symbol. 
-The localized symbol may be the same for most Latin-script languages, 
+</code></pre><p>The information includes the SI prefix and symbol, and the power of 10 or power of 2
+(for binary prefixes, intended for use with digital units).</p><p>Note that the translated short form of a unit prefix is not the same as the localized symbol.
+The localized symbol may be the same for most Latin-script languages,
 but depending on the customary use in a language they can be in a different script
-or use different letters even in Latin-script languages. They are, however, the same in the root locale.</p><p>The newer prefixes (quecto-, ronto-, -ronna, -quetta) are not yet being translated, 
+or use different letters even in Latin-script languages. They are, however, the same in the root locale.</p><p>The newer prefixes (quecto-, ronto-, -ronna, -quetta) are not yet being translated,
 because the appropriate translated versions have not yet been well established across languages.</p><h3>Constants</h3><pre><code class="language-xml">&lt;!ELEMENT unitConstants ( unitConstant* ) &gt;
 
 &lt;!ELEMENT unitConstant EMPTY &gt;
@@ -1172,9 +1172,9 @@ systems(mile-scandinavian-per-hour)
 2.  &lt;unitQuantity baseUnit='kilogram' quantity='mass' status='simple'/&gt;
 3.  &lt;unitQuantity baseUnit='meter' quantity='length' status='simple'/&gt;
 4.  …
-</code></pre><h2>Mixed Units</h2><p>Mixed units, or unit sequences, are units with the same base unit which are listed in sequence. 
+</code></pre><h2>Mixed Units</h2><p>Mixed units, or unit sequences, are units with the same base unit which are listed in sequence.
 Common examples are feet and inches; meters and centimeters; hours, minutes, and seconds; degrees, minutes, and seconds.
-Mixed unit identifiers are expressed using the "-and-" infix, as in "foot-and-inch", "meter-and-centimeter", "hour-and-minute-and-second", "degree-and-arc-minute-and-arc-second."</p><p>Scalar values for mixed units are expressed in the largest unit, according to the sort order discussed above in "Normalization". 
+Mixed unit identifiers are expressed using the "-and-" infix, as in "foot-and-inch", "meter-and-centimeter", "hour-and-minute-and-second", "degree-and-arc-minute-and-arc-second."</p><p>Scalar values for mixed units are expressed in the largest unit, according to the sort order discussed above in "Normalization".
 For example, numbers for "foot-and-inch" are expressed in feet.</p><p>Mixed unit identifiers should be from highest to lowest (eg foot-and-inch instead of inch-and-foot), and that is reflected in the display.
 If it turns out that some locales present certain mixed units in a different order, additional structure will be needed in CLDR.</p><p>Only the lowest unit can have decimal fractions; the higher units will be integers, so no "3.5 feet 3 inches".
 If a number is negative, then only the highest unit shows the minus sign: eg, "-3 hours 27 minutes".
@@ -1187,15 +1187,15 @@ However, this mechanisim has a couple of disadvantages, such as matching precisi
 <li>Locale B has an unnecessarily precise result: the equivalent of 1.52540 in precision.</li>
 </ul>
 </li>
-<li>An implementation could allow a percentage precision; 
+<li>An implementation could allow a percentage precision;
 thus 1612 meters with ±1% precision would be represented by <strong>1 mile</strong> rather than <strong>1 mile 9 feet</strong>.</li>
 </ul><p>The default behavior is to round the lowest unit to the nearest integer.
 Thus 1.99959 degree-and-arc-minute-and-arc-second would be (before rounding) <strong>1 degree 59 minutes 58.524 seconds</strong>.
-After rounding it would be <strong>1 degree 59 minutes 59 seconds</strong>. </p><p>If the lowest unit would round to zero, or round up to the size of the next higher unit, then the next higher unit is rounded instead, recursively.
+After rounding it would be <strong>1 degree 59 minutes 59 seconds</strong>.</p><p>If the lowest unit would round to zero, or round up to the size of the next higher unit, then the next higher unit is rounded instead, recursively.
 Thus 1.999862 degree-and-arc-minute-and-arc-second would be (before rounding) <strong>1 degree 59 minutes 59.5032 degrees</strong>.
 After rounding the last unit it would be <strong>1 degree 59 minutes 60 seconds</strong>, which rounds up to <strong>1 degree 60 minutes</strong>, which rounds up to  <strong>2 degrees</strong>.
 This behavior can be determined before having to compute the lower units:
-for example, where rounding to the second, if the remainder in degrees is below 1/120 degrees or above 119/120 degrees, then the degrees can be rounded without computing the minutes or seconds. </p><h2>Testing</h2><p>The files in the directory <a href="https://github.com/unicode-org/cldr/tree/main/common/testData/units">cldr/common/testData/units/</a> are provided for testing implementations. </p><ol>
+for example, where rounding to the second, if the remainder in degrees is below 1/120 degrees or above 119/120 degrees, then the degrees can be rounded without computing the minutes or seconds.</p><h2>Testing</h2><p>The files in the directory <a href="https://github.com/unicode-org/cldr/tree/main/common/testData/units">cldr/common/testData/units/</a> are provided for testing implementations.</p><ol>
 <li>The <a href="https://github.com/unicode-org/cldr/blob/main/common/testData/units/unitsTest.txt">unitsTest.txt</a> file supplies a list of all the CLDR units with conversions</li>
 <li>The <a href="https://github.com/unicode-org/cldr/blob/main/common/testData/units/unitPreferencesTest.txt">unitPreferencesTest.txt</a> file supplied tests for user preferences</li>
 <li>The <a href="https://github.com/unicode-org/cldr/blob/main/common/testData/units/unitLocalePreferencesTest.txt">unitLocalePreferencesTest.txt</a> file provides examples for testing the interactions between locale identifiers and unit preferences.</li>
@@ -1245,7 +1245,7 @@ For example:</p><table>
 <td>Fahrenheit</td>
 <td>because the likely region for en with no region is US</td>
 </tr>
-</tbody></table><p>If any key-values are invalid, then they are ignored. Thus the following constructs are ignored: </p><table>
+</tbody></table><p>If any key-values are invalid, then they are ignored. Thus the following constructs are ignored:</p><table>
 <thead>
 <tr>
 <th>subtags</th>
@@ -1268,7 +1268,7 @@ For example:</p><table>
 <td>-AA</td>
 <td>invalid region 'AA'</td>
 </tr>
-</tbody></table><p>‡ Only the region portion is currently used, so in -rg-usabcdef the "abcdef" is ignored, whether or not it is valid.</p><p>The following algorithm is used to compute the override units, regions, and category. 
+</tbody></table><p>‡ Only the region portion is currently used, so in -rg-usabcdef the "abcdef" is ignored, whether or not it is valid.</p><p>The following algorithm is used to compute the override units, regions, and category.
 The latter two items are used in the <a href="#Unit_Preferences_Data">Unit Preferences Data</a>.</p><h4>Compute override units</h4><p>If there is a valid -mu value then let the <strong>output unit</strong> be the that value, and return it.
 This terminates the algorithm; there is no need to use the unit preferences information.</p><h4>Compute  regions</h4><p>If there is no valid -mu value, the following steps are used to determine a region R from the <strong>input locale identifer</strong>.
 (and optionally a Unit Systems Match (USM)):</p><ol>
@@ -1276,7 +1276,7 @@ This terminates the algorithm; there is no need to use the unit preferences info
 Otherwise FR is not used. In either case continue with step 2.</li>
 <li>If there is a valid -rg region, let R be that region, and go to Compute the category.</li>
 <li>If there is a valid region in the locale, let R be that region, and go to Compute the category.</li>
-<li>Otherwise, compute the likely subtags for the locale. <ol>
+<li>Otherwise, compute the likely subtags for the locale.<ol>
 <li>If there is a likely region, then let R be that region, and go to Compute the category.</li>
 <li>Otherwise, let R be 001, and go to Compute the category</li>
 </ol>
@@ -1309,7 +1309,7 @@ Otherwise FR is not used. In either case continue with step 2.</li>
 <li>eg, for <code>pound-force</code> the baseUnit is <code>kilogram-meter-per-square-second</code>.</li>
 </ul>
 </li>
-<li>If there is no such base unit (such as for a an unusual unit like <code>ampere-pound-per-foot-square-minute</code>), 
+<li>If there is no such base unit (such as for a an unusual unit like <code>ampere-pound-per-foot-square-minute</code>),
 convert the input unit to a combination of base units, reduce to lowest terms, and normalize.
 Let the <strong>input base unit</strong> be that value.
 * eg, <code>ampere-pound-per-foot-square-minute</code> ⇒ <code>kilogram-ampere-per-meter-square-second</code></li>
@@ -1399,7 +1399,7 @@ For example, one set of units may be used for indicating the distance to the nex
 </li>
 </ol>
 </li>
-<li>Let ranked units be the result of a lookup of R in the category-usage preferences. There may be both region values and <a href="https://www.unicode.org/cldr/charts/latest/supplemental/territory_containment_un_m_49.html">containment regions</a>. <ol>
+<li>Let ranked units be the result of a lookup of R in the category-usage preferences. There may be both region values and <a href="https://www.unicode.org/cldr/charts/latest/supplemental/territory_containment_un_m_49.html">containment regions</a>.<ol>
 <li>If the lookup of R fails, set R to its containing region and repeat. (This will always terminate because 001 is always present.)<ul>
 <li>For example, CH (Switzerland) ⊂ 155 (Western Europe) ⊂ 150 (Europe) ⊂ 001 (World).</li>
 <li>This loop can be optimized to only include containing regions that occur in the data (eg, only 001 in LDML 45).</li>

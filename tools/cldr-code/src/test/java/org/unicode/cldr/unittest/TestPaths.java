@@ -463,6 +463,11 @@ public class TestPaths extends TestFmwkPlus {
                 ) {
                     continue;
                 }
+                if (dir2.getPath().contains("/keyboards/3.0")
+                        && logKnownIssue(
+                                "CLDR-17574", "With v46, parsing issues for keyboard xml files")) {
+                    continue;
+                }
 
                 Set<Pair<String, String>> seen = new HashSet<>();
                 Set<String> seenStarred = new HashSet<>();

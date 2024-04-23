@@ -2,7 +2,7 @@
 
 # Unicode Locale Data Markup Language (LDML)<br/>Part 9: Message Format
 
-|Version|45 (draft)              |
+|Version|46 (draft)              |
 |-------|------------------------|
 |Editors|Addison Phillips and [other CLDR committee members](tr35.md#Acknowledgments)|
 

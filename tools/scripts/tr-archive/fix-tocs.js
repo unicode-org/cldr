@@ -50,7 +50,7 @@ async function processFile(f) {
     const contents = await fs.readFile(f, 'utf-8');
 
     // now, reinsert
-    const lines = contents.split('\n');
+    const lines = contents.split(/(?:\r)?\n/);
 
     // new lines go into this array.
     const out = [];

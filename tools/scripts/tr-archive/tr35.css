@@ -1,0 +1,31 @@
+/* tr35.css */
+
+.markdown-alert {
+    border-left: 0.25em;
+    padding-left: .5em;
+    border-left-style: solid;
+}
+
+.markdown-alert-title {
+    font-weight: bold;
+}
+
+.markdown-alert-title svg {
+    margin-right: .5em;
+}
+
+.markdown-alert-note {
+    border-color: blue;
+}
+
+.markdown-alert-note .markdown-alert-title {
+    color: blue;
+}
+
+.markdown-alert-important {
+    border-color: blueviolet;
+}
+
+.markdown-alert-important .markdown-alert-title {
+    color: blueviolet;
+}

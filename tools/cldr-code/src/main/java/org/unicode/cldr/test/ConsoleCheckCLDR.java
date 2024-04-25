@@ -550,7 +550,6 @@ public class ConsoleCheckCLDR {
                         return; // get out, it's an error.
                     }
 
-                    List<CheckStatus> result = new ArrayList<>();
                     Set<PathHeader> paths = new TreeSet<>(); // CLDRFile.ldmlComparator);
                     Map<String, String> m = new TreeMap<>();
                     Map<String, String> options = new HashMap<>();
@@ -653,40 +652,12 @@ public class ConsoleCheckCLDR {
                             parent = new CLDRFile.TestUser(parent, user, isLanguageLocale);
                         }
                     }
-                    // checkCldr.setCldrFileToCheck(file, new Options(options), result);
 
                     subtotalCount.clear();
 
-                    for (Iterator<CheckStatus> it3 = result.iterator(); it3.hasNext(); ) {
-                        CheckStatus status = it3.next();
-                        String statusString = status.toString(); // com.ibm.icu.impl.Utility.escape(
-                        CheckStatus.Type statusType = status.getType();
+                    final Set<CheckStatus> possibleProblems = new TreeSet<>();
+                    possibleProblems.addAll(bundle.getPossibleProblems());
 
-                        if (errorsOnly) {
-                            if (!statusType.equals(CheckStatus.errorType)) continue;
-                        }
-
-                        if (subtypeFilter != null) {
-                            if (!subtypeFilter.contains(status.getSubtype())) {
-                                continue;
-                            }
-                        }
-
-                        if (checkOnSubmit) {
-                            if (!status.isCheckOnSubmit()
-                                    || !statusType.equals(CheckStatus.errorType)) continue;
-                        }
-                        showValue(
-                                file,
-                                null,
-                                localeID,
-                                null,
-                                null,
-                                null,
-                                null,
-                                statusString,
-                                status.getSubtype());
-                    }
                     paths.clear();
 
                     CoverageInfo covInfo = cldrConf.getCoverageInfo();
@@ -796,6 +767,7 @@ public class ConsoleCheckCLDR {
                         }
                         int limit = 1;
                         for (int jj = 0; jj < limit; ++jj) {
+                            final List<CheckStatus> result = new ArrayList<>();
                             if (jj == 0) {
                                 bundle.check(path, result, value);
                             } else {
@@ -805,6 +777,10 @@ public class ConsoleCheckCLDR {
                             boolean showedOne = false;
                             for (Iterator<CheckStatus> it3 = result.iterator(); it3.hasNext(); ) {
                                 CheckStatus status = it3.next();
+                                if (status.isEntireLocale()) {
+                                    possibleProblems.add(status);
+                                    continue;
+                                }
                                 String statusString =
                                         status.toString(); // com.ibm.icu.impl.Utility.escape(
                                 CheckStatus.Type statusType = status.getType();
@@ -887,6 +863,42 @@ public class ConsoleCheckCLDR {
                                     showedOne = true;
                                 }
                             }
+                        }
+                    }
+
+                    // handle possibleProblems (non path-based errors)
+                    {
+                        for (Iterator<CheckStatus> it3 = possibleProblems.iterator();
+                                it3.hasNext(); ) {
+                            CheckStatus status = it3.next();
+                            String statusString =
+                                    status.toString(); // com.ibm.icu.impl.Utility.escape(
+                            CheckStatus.Type statusType = status.getType();
+
+                            if (errorsOnly) {
+                                if (!statusType.equals(CheckStatus.errorType)) continue;
+                            }
+
+                            if (subtypeFilter != null) {
+                                if (!subtypeFilter.contains(status.getSubtype())) {
+                                    continue;
+                                }
+                            }
+
+                            if (checkOnSubmit) {
+                                if (!status.isCheckOnSubmit()
+                                        || !statusType.equals(CheckStatus.errorType)) continue;
+                            }
+                            showValue(
+                                    file,
+                                    null,
+                                    localeID,
+                                    null,
+                                    null,
+                                    null,
+                                    null,
+                                    statusString,
+                                    status.getSubtype());
                         }
                     }
 

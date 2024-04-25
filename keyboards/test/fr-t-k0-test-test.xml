@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE keyboardTest3 SYSTEM "../dtd/ldmlKeyboardTest3.dtd">
 <keyboardTest3 conformsTo="techpreview">
-    <info keyboard="fr-t-k0-azerty.xml" author="Team Keyboard" name="fr-test" />
+    <info keyboard="fr-t-k0-test.xml" author="Team Keyboard" name="fr-test" />
     <repertoire name="simple-repertoire" chars="[a b c d e \u{22}]" type="simple" /> <!-- verify that these outputs are all available from simple keys on any layer, for all form factors -->
     <repertoire name="chars-repertoire" chars="[á é ó]" type="gesture" /> <!-- verify that these outputs are all available from simple or gesture keys on any layer, for touch -->
     <tests name="key-tests">

@@ -3,6 +3,7 @@ const { marked } = require("marked");
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 const path = require("path");
+const markedAlert = require('marked-alert');
 
 // Setup some options for our markdown renderer
 marked.setOptions({
@@ -22,6 +23,8 @@ marked.setOptions({
   smartypants: false,
   xhtml: false,
 });
+
+marked.use(markedAlert());
 
 /**
  * Read the input .md file, and write to a corresponding .html file
@@ -53,7 +56,8 @@ async function renderit(infile) {
   head.innerHTML =
     head.innerHTML +
     `<meta charset="utf-8">\n` +
-    `<link rel='stylesheet' type='text/css' media='screen' href='../reports-v2.css'>\n`;
+    `<link rel='stylesheet' type='text/css' media='screen' href='../reports-v2.css'>\n` +
+    `<link rel='stylesheet' type='text/css' media='screen' href='tr35.css'>\n`;
 
   // Assume there's not already a title and that we need to add one.
   if (dom.window.document.getElementsByTagName("title").length >= 1) {
@@ -138,7 +142,7 @@ async function renderit(infile) {
   // put this last
   body.appendChild(getScript({
     // This invokes anchor.js
-    code: `anchors.add('h1, h2, h3, h4, h5, h6, caption');`
+    code: `anchors.add('h1, h2, h3, h4, h5, h6, caption, dfn');`
   }));
 
   // Now, fixup captions

@@ -607,6 +607,9 @@ public class UserRegistry {
         }
 
         public ClaSignature getCla() {
+            if (CLDRConfig.getInstance().getEnvironment() == Environment.UNITTEST) {
+                return new ClaSignature("UNITTEST");
+            }
             if (ClaSignature.CLA_ORGS.contains(getOrganization())) {
                 return new ClaSignature(getOrganization());
             }
@@ -1978,6 +1981,15 @@ public class UserRegistry {
             this.email = "";
             this.name = "Corporate CLA - " + o.name();
             this.employer = o.toString();
+            this.corporate = true;
+            this.signed = new Date(0);
+            this.readonly = true;
+        }
+
+        public ClaSignature(String string) {
+            this.email = "";
+            this.name = "Testing CLA: " + string;
+            this.employer = "Testing CLA";
             this.corporate = true;
             this.signed = new Date(0);
             this.readonly = true;

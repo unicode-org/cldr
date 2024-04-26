@@ -1133,7 +1133,7 @@ public abstract class CheckCLDR implements CheckAccessor {
         /**
          * @returns true if this status applies to the entire locale, not a single path
          */
-        public boolean isEntireLocale() {
+        public boolean getEntireLocale() {
             return entireLocale;
         }
 

@@ -777,7 +777,7 @@ public class ConsoleCheckCLDR {
                             boolean showedOne = false;
                             for (Iterator<CheckStatus> it3 = result.iterator(); it3.hasNext(); ) {
                                 CheckStatus status = it3.next();
-                                if (status.isEntireLocale()) {
+                                if (status.getEntireLocale()) {
                                     possibleProblems.add(status);
                                     continue;
                                 }

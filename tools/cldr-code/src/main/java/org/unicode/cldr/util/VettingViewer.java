@@ -197,7 +197,7 @@ public class VettingViewer<T> {
             StringBuilder errorMessage = new StringBuilder();
             factory.getTestCache().getBundle(options).check(path, result, value);
             for (CheckStatus checkStatus : result) {
-                if (checkStatus.isEntireLocale())
+                if (checkStatus.getEntireLocale())
                     continue; // these will show up in the Entire Locale (supplemental) report
                 final CheckCLDR cause = checkStatus.getCause();
                 /*

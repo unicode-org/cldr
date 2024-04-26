@@ -63,7 +63,7 @@ public class ChartSupplemental extends Chart {
                 List<CheckStatus> result = new ArrayList<CheckStatus>();
                 test.check(x, result, cldrFile.getStringValue(x));
                 for (final CheckStatus s : result) {
-                    if (s.isEntireLocale()) pp.add(s);
+                    if (s.getEntireLocale()) pp.add(s);
                 }
             }
 

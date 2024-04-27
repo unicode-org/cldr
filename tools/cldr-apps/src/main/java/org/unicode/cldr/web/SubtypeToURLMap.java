@@ -19,6 +19,7 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.security.GeneralSecurityException;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -29,13 +30,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRCacheDir;
-import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRTool;
 
 @CLDRTool(
@@ -46,29 +47,22 @@ public class SubtypeToURLMap {
     /**
      * Little tool for validating input data.
      *
-     * @param args list of files to validate, if empty runs against default data.
      * @throws IOException
      * @throws FileNotFoundException
+     * @throws GeneralSecurityException
      */
-    public static void main(String args[]) throws FileNotFoundException, IOException {
-        if (args.length == 0) {
-            System.err.println(
-                    "Usage: SubtypeToURLMap (url or file path). The default map is "
-                            + getDefaultUrl());
-            return;
-        } else {
-            int problems = 0;
-            for (final String fn : args) {
-                System.out.println("data: " + fn);
-                SubtypeToURLMap map = getInstance(new File(fn));
-                problems += map.dump();
-            }
-            if (problems > 0) {
-                throw new IllegalArgumentException(
-                        MessageFormat.format(
-                                "Total problem(s) found: {0} in {1} items(s)",
-                                problems, args.length));
-            }
+    public static void main(String... args)
+            throws FileNotFoundException, IOException, GeneralSecurityException {
+        // sublaunch to pickup dynamic part
+        ErrorSubtypeClient.main(args);
+
+        int problems = 0;
+        SubtypeToURLMap map = getInstance();
+        problems += map.dump();
+        if (problems > 0) {
+            throw new IllegalArgumentException(
+                    MessageFormat.format(
+                            "Total problem(s) found: {0} in {1} items(s)", problems, 1));
         }
     }
 
@@ -411,8 +405,6 @@ public class SubtypeToURLMap {
         }
     }
 
-    static final String DEFAULT_URL = "https://cldr.unicode.org/development/subtypes";
-
     private static String CACHE_SUBTYPE_FILE = "urlmap-cache.txt";
 
     private static final class SubtypeToURLMapHelper {
@@ -448,16 +440,9 @@ public class SubtypeToURLMap {
                 }
             }
             try {
-                map = makeDefaultInstance();
-                logger.info("Read new map from " + getDefaultUrl());
-                // now, write out the cache
-                writeToCache(map);
-            } catch (IllegalArgumentException | IOException | URISyntaxException e) {
-                logger.warning(
-                        "Could not initialize SubtypeToURLMap: "
-                                + e
-                                + " for URL "
-                                + getDefaultUrl());
+                map = reload();
+            } catch (Throwable e) {
+                logger.log(Level.SEVERE, "Could not read SubtypeToURLMap", e);
                 e.printStackTrace();
                 // If we loaded the cache file, we will still use it.
                 if (map == null) {
@@ -487,14 +472,20 @@ public class SubtypeToURLMap {
         }
     }
 
-    /**
-     * Fetch the URL used for the default map
-     *
-     * @return
-     */
-    public static String getDefaultUrl() {
-        return CLDRConfig.getInstance().getProperty("CLDR_SUBTYPE_URL", DEFAULT_URL);
+    public void readFromSheets() throws GeneralSecurityException, IOException {
+        ErrorSubtypeClient.updateAndReadSubtypeMap()
+                .forEach(
+                        subtypeAndUrl -> {
+                            if (subtypeAndUrl.isEmpty() || subtypeAndUrl.size() != 2) return;
+                            final String s = subtypeAndUrl.get(0).toString();
+                            final String u = subtypeAndUrl.get(1).toString();
+                            if (s == null || u == null || s.isBlank() || u.isBlank()) return;
+                            final Subtype t = Subtype.valueOf(s);
+                            urlList.add(u);
+                            map.put(t, u);
+                        });
     }
+
     /**
      * Get the default instance.
      *
@@ -504,12 +495,23 @@ public class SubtypeToURLMap {
         return SubtypeToURLMapHelper.INSTANCE;
     }
 
+    public static void setInstance(SubtypeToURLMap m) {
+        SubtypeToURLMapHelper.INSTANCE = m;
+    }
+
+    /** create a fresh instance from server data, write cache */
+    static SubtypeToURLMap reload() throws GeneralSecurityException, IOException {
+        SubtypeToURLMap map;
+        map = new SubtypeToURLMap();
+        map.readFromSheets();
+        logger.info("Read new map");
+        // now, write out the cache
+        SubtypeToURLMapHelper.writeToCache(map);
+        return map;
+    }
+
     public static String forSubtype(Subtype subtype) {
         if (SubtypeToURLMapHelper.INSTANCE == null) return null;
         return SubtypeToURLMapHelper.INSTANCE.get(subtype);
-    }
-
-    public static SubtypeToURLMap reload() {
-        return (SubtypeToURLMapHelper.INSTANCE = SubtypeToURLMapHelper.make());
     }
 }

@@ -239,6 +239,9 @@ public class Dashboard {
                         sm.getSupplementalDataInfo(), sourceFactory, new STUsersChoice(sm));
         EnumSet<NotificationCategory> choiceSet =
                 VettingViewer.getDashboardNotificationCategories(usersOrg);
+        if (UserRegistry.userIsTC(user)) {
+            choiceSet.remove(NotificationCategory.abstained);
+        }
         VettingParameters args = new VettingParameters(choiceSet, locale, coverageLevel);
         args.setUserAndOrganization(user.id, usersOrg);
         args.setFiles(locale, sourceFactory, sm.getDiskFactory());

@@ -1781,9 +1781,9 @@ public class ConsoleCheckCLDR {
     private static void showValue(
             CLDRFile cldrFile,
             String prettyPath,
-            String localeID,
+            final String localeID,
             String example,
-            String path,
+            final String path,
             String value,
             String fullPath,
             String statusString,
@@ -2031,27 +2031,30 @@ public class ConsoleCheckCLDR {
         final File base = new File(CLDRPaths.BASE_DIRECTORY);
         final String loc = locPath.getFirst();
         final String path = locPath.getSecond();
-        String subdir = "main";
-        if (path.startsWith("//ldml/annotations")) {
-            subdir = "annotations";
-        } else if (path.startsWith("//ldml/subdivisions")) {
-            subdir = "subdivisions";
-        }
-        File inCommon = new File(base, "common");
-        File subsub = new File(inCommon, subdir);
-        if (subsub.isDirectory()) {
-            File subFile = new File(subsub, loc + ".xml");
-            if (subFile.canRead())
-                return subFile.getAbsolutePath().substring(base.getAbsolutePath().length() + 1);
-        }
+        if (path != null) {
+            String subdir = "main";
+            if (path.startsWith("//ldml/annotations")) {
+                subdir = "annotations";
+            } else if (path.startsWith("//ldml/subdivisions")) {
+                subdir = "subdivisions";
+            }
+            File inCommon = new File(base, "common");
+            File subsub = new File(inCommon, subdir);
+            if (subsub.isDirectory()) {
+                File subFile = new File(subsub, loc + ".xml");
+                if (subFile.canRead())
+                    return subFile.getAbsolutePath().substring(base.getAbsolutePath().length() + 1);
+            }
 
-        File inSeed = new File(base, "seed");
-        subsub = new File(inSeed, subdir);
-        if (subsub.isDirectory()) {
-            File subFile = new File(subsub, loc + ".xml");
-            if (subFile.canRead())
-                return subFile.getAbsolutePath().substring(base.getAbsolutePath().length() + 1);
+            File inSeed = new File(base, "seed");
+            subsub = new File(inSeed, subdir);
+            if (subsub.isDirectory()) {
+                File subFile = new File(subsub, loc + ".xml");
+                if (subFile.canRead())
+                    return subFile.getAbsolutePath().substring(base.getAbsolutePath().length() + 1);
+            }
         }
+        // no XPath - could be an entire-locale error.
         return loc + ".xml";
     }
 

@@ -1,8 +1,19 @@
 name: CLDR LDML
+title: CLDR LDML
 
 markdown: kramdown
 input: GFM
 
+destination: ../_site
+
 # Google Analytics
 ga_tracking: UA-7672775-1
 ga_tracking_anonymize_ip: true # Use GDPR compliant Google Analytics settings
+
+exclude:
+  - charts/keyboard/node_modules
+  - charts/keyboard/node
+  - ldml
+
+#include:
+#  - site/

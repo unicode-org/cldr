@@ -1,4 +1,10 @@
+
 name: Publish to gh-pages
+
+permissions:
+  pages: write
+  deployments: write
+  id-token: write
 
 on:
   push:
@@ -53,22 +59,16 @@ jobs:
       - name: Build Jekyll part of the site
         run: |
           gem install bundler github-pages kramdown-parser-gfm  # should pull in jekyll, etc.
-          jekyll build -s docs -d _site
+          cd docs &&  github-pages build && mkdir -vp ../_site/ldml
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Rearrange stuff
         run: 'cp -vr tools/scripts/tr-archive/dist/* ./_site/ldml/ && cp tools/scripts/tr-archive/reports-v2.css ./_site/'
       - name: Deploy to GitHub Pages (main)
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        uses: Cecilapp/GitHub-Pages-deploy@v3
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          # email: username@domain.tld
-          build_dir: _site               # optional
-          branch: gh-pages                # optional
-          # cname: domain.tld              # optional
-          # jekyll: no                     # optional
-          commit_message: CLDR-00000 Automated Build of Pages # optional
+        uses: actions/upload-pages-artifact@v2
       - name: Deploy to Smoketest
+        if: github.repository == 'unicode-org/cldr'
         shell: bash
         env:
           RSA_KEY_CCC: ${{ secrets.RSA_KEY_CCC }}
@@ -86,6 +86,16 @@ jobs:
           rsync -cav --delete-after -e "ssh -o UserKnownHostsFile=${HOME}/.knownhosts -i ${HOME}/.key -p ${CCC_PORT}" ./_site/ ${CCC_USER}@${CCC_HOST}:spec/$(basename ${GITHUB_REF_NAME})/
           echo "::endgroup::"
           echo "Now go to https://cldr-smoke.unicode.org/spec/"$(basename ${GITHUB_REF_NAME})
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{steps.deployment.outputs.page_url}}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
 
 # only run one of these at a time
 concurrency:

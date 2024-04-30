@@ -360,7 +360,13 @@ export default {
     },
 
     catCheckmarkChanged(event, category) {
-      this.catIsHidden[category] = !event.target.checked;
+      // setTimeout solves a weakness in the Vue implementation: if the number of
+      // notifications is large, the checkbox in the header can take a second or more
+      // to change its visible state in response to the user's click, during which time
+      // the user may click again thinking the first click wasn't recognized. Postponing
+      // the DOM update of thousands of rows ensures that the header checkbox updates
+      // without delay.
+      setTimeout(() => (this.catIsHidden[category] = !event.target.checked), 0);
     },
 
     canBeHidden(cats) {

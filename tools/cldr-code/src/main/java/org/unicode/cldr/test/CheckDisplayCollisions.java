@@ -349,8 +349,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
 
         Matcher matcher = null;
         String message =
-                "Can't have same translation as {0}. Please change either this name or the other one. "
-                        + "See <a target='doc' href='http://cldr.unicode.org/translation/short-names-and-keywords#TOC-Unique-Names'>Unique-Names</a>.";
+                "Can't have same translation as {0}. Please change either this name or the other one.";
         Matcher currentAttributesToIgnore = ignoreAltAndCountAttributes;
         Set<String> paths;
         if (myType == Type.DECIMAL_FORMAT) {

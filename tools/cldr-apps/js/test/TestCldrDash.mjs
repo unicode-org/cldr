@@ -47,9 +47,15 @@ describe("cldrDash.updatePath", function () {
     assert.strictEqual(countEntriesForPath(data1, "710b6e70773e5764"), 1);
     assert.strictEqual(countEntriesForPath(data1, "64a8a83fbacdf836"), 1);
     // the entry for 710b6e70773e5764 should have 3 notifications
-    assert.strictEqual(countNotificationsForEntry(data1, "710b6e70773e5764"), 3);
+    assert.strictEqual(
+      countNotificationsForEntry(data1, "710b6e70773e5764"),
+      3
+    );
     // the entry for 64a8a83fbacdf836 should have 1 notification
-    assert.strictEqual(countNotificationsForEntry(data1, "64a8a83fbacdf836"), 1);
+    assert.strictEqual(
+      countNotificationsForEntry(data1, "64a8a83fbacdf836"),
+      1
+    );
   });
 
   it("should remove entries", function () {
@@ -61,7 +67,10 @@ describe("cldrDash.updatePath", function () {
     assert.strictEqual(countEntriesForPath(data2, "710b6e70773e5764"), 0);
     assert.strictEqual(countEntriesForPath(data2, "64a8a83fbacdf836"), 1);
     // the entry for 64a8a83fbacdf836 should have 1 notification
-    assert.strictEqual(countNotificationsForEntry(data2, "64a8a83fbacdf836"), 1);
+    assert.strictEqual(
+      countNotificationsForEntry(data2, "64a8a83fbacdf836"),
+      1
+    );
   });
 });
 

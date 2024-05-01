@@ -37,7 +37,8 @@ public class CheckWidths extends CheckCLDR {
     /** Controls for the warning about too many components, and for when to cause error. */
     public static final int WARN_COMPONENTS_PER_ANNOTATION = 10;
 
-    public static final int MAX_COMPONENTS_PER_ANNOTATION = 30;
+    // TBD lower this down after Meta data added
+    public static final int MAX_COMPONENTS_PER_ANNOTATION = 45;
 
     SupplementalDataInfo supplementalData;
 

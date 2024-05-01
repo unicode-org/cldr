@@ -27,6 +27,7 @@ import org.unicode.cldr.web.CookieSession;
 import org.unicode.cldr.web.Dashboard;
 import org.unicode.cldr.web.DataPage;
 import org.unicode.cldr.web.SubtypeToURLMap;
+import org.unicode.cldr.web.SurveyForum;
 import org.unicode.cldr.web.api.VoteAPIHelper.VoteEntry;
 
 @Path("/voting")
@@ -181,6 +182,7 @@ public class VoteAPI {
             public String rawEnglish;
             public Map<String, String> extraAttributes;
             public boolean flagged;
+            public SurveyForum.PathForumStatus forumStatus;
             public boolean hasVoted;
             public String helpHtml;
             public String inheritedLocale;

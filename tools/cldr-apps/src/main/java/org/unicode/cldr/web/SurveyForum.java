@@ -90,7 +90,7 @@ public class SurveyForum {
 
     private synchronized int getForumNumber(CLDRLocale locale) {
         String forum = localeToForum(locale);
-        if (forum.length() == 0 || LocaleNames.ROOT.equals(forum)) {
+        if (forum.isEmpty() || LocaleNames.ROOT.equals(forum)) {
             return NO_FORUM; // all forums
         }
         // make sure it is a valid src!
@@ -198,7 +198,7 @@ public class SurveyForum {
                     UserRegistry.User u = sm.reg.getInfo(uid);
                     if (u != null
                             && u.email != null
-                            && u.email.length() > 0
+                            && !u.email.isEmpty()
                             && !(UserRegistry.userIsLocked(u)
                                     || UserRegistry.userIsExactlyAnonymous(u))) {
                         if (UserRegistry.userIsVetter(u)) {
@@ -1559,7 +1559,7 @@ public class SurveyForum {
     }
 
     /** Status values associated with forum posts and threads */
-    enum PostType {
+    public enum PostType {
         CLOSE(0, "Close"),
         DISCUSS(1, "Discuss"),
         REQUEST(2, "Request"),
@@ -1626,6 +1626,54 @@ public class SurveyForum {
                 }
             }
             return defaultStatus;
+        }
+    }
+
+    public static class PathForumStatus {
+        public boolean hasPosts, hasOpenPosts;
+
+        public PathForumStatus(CLDRLocale locale, String xpath) {
+            Connection conn = null;
+            PreparedStatement ps = null;
+            final String tableName = DBUtils.Table.FORUM_POSTS.toString();
+            final String localeId = locale.getBaseName();
+            final int xpathId = CookieSession.sm.xpt.getByXpath(xpath);
+            try {
+                conn = DBUtils.getInstance().getAConnection();
+                if (conn == null) {
+                    return;
+                }
+                // Expect most paths have NO posts, so check first for ANY posts (open or not).
+                // "LIMIT 1" may improve performance; no need to distinguish 1 from larger numbers
+                ps =
+                        DBUtils.prepareForwardReadOnly(
+                                conn,
+                                "SELECT ID FROM " + tableName + " WHERE loc=? and xpath=? LIMIT 1");
+                ps.setString(1, localeId);
+                ps.setInt(2, xpathId);
+                if (DBUtils.sqlCount(ps) <= 0) { // sqlCount returns -1 (not 0) for none!
+                    this.hasPosts = this.hasOpenPosts = false;
+                    return;
+                }
+                this.hasPosts = true;
+                // Check for OPEN posts
+                ps =
+                        DBUtils.prepareForwardReadOnly(
+                                conn,
+                                "SELECT ID FROM "
+                                        + tableName
+                                        + " WHERE loc=? and xpath=? AND is_open=1 LIMIT 1");
+                ps.setString(1, localeId);
+                ps.setInt(2, xpathId);
+                this.hasOpenPosts = DBUtils.sqlCount(ps) > 0;
+            } catch (SQLException e) {
+                SurveyLog.logException(
+                        logger,
+                        e,
+                        "PathForumStatus for " + tableName + " " + locale + ":" + xpathId);
+            } finally {
+                DBUtils.close(ps, conn);
+            }
         }
     }
 }

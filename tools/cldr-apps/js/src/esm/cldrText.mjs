@@ -360,6 +360,10 @@ const strings = {
   forum_remember_vote:
     "⚠️ Please remember to vote – submitting a forum post does NOT cause any actual vote to be made.",
 
+  forum_path_has_posts: "This item has forum posts, ",
+  forum_path_has_open_posts: "some of which are open",
+  forum_path_has_only_closed_posts: "all of which are closed",
+
   generic_nolocale: "No locale chosen.",
   defaultContent_msg:
     "This locale, ${name} is the <i><a target='CLDR-ST-DOCS' href='https://cldr.unicode.org/translation/translation-guide-general/default-content'>default content locale</a></i> for <b><a class='notselected' href='#/${dcParent}'>${dcParentName}</a></b>, and thus editing or viewing is disabled.",

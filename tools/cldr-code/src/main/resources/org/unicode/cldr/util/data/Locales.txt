@@ -129,6 +129,7 @@ IBM	;	sw	;	basic
 IBM ; * ; moderate ; All Others, provisionally
 
 Google	;	af	;	modern	;	T3	Afrikaans
+Google  ; ak  ; moderate  ; Akan
 Google	;	am	;	modern	;	T4	Amharic
 Google	;	ar	;	modern	;	T1	Arabic
 Google	;	as	;	modern	;	T5	Assamese
@@ -160,12 +161,14 @@ Google	;	es_MX	;	modern	; TR Spanish (Mexico)
 Google	;	es_US	;	modern	; TR Spanish (United States)
 Google	;	et	;	modern	;	T3	Estonian
 Google	;	eu	;	modern	;	T5	Basque
+Google  ; ee  ; basic  ; Ewe
 Google	;	fa	;	modern	;	T2.1	Persian
 Google	;	fi	;	modern	;	T2	Finnish
 Google	;	fil	;	modern	;	T2	Filipino
 Google	;	fr	;	modern	;	T1	French
 Google	;	fr_CA	;	modern	; TR French (Canada)
 Google	;	ga	;	modern	;	T5	Irish
+Google  ; gaa  ; basic  ; Gaa
 Google	;	gl	;	modern	;	T5	Galician
 Google	;	gu	;	modern	;	T4	Gujarati
 Google	;	ha	;	modern	;	Hausa
@@ -205,9 +208,11 @@ Google	;	ne	;	modern	;	T3.1	Nepali
 Google	;	nl	;	modern	;	T1	Dutch
 Google	; nn	; Modern ; Nynorsk
 Google	;	no	;	modern	;	T2	Norwegian (Bokmål)
+Google  ; nso ; basic  ; Northern Sotho
+Google  ; om  ; basic  ; Oromo
 Google	;	or	;	modern	;	T5	Odia
 Google	;	pa	;	modern	;	T4.1	Punjabi
-Google	;	pcm	;	moderate	;	Nigerian Pidgin
+Google	;	pcm	;	modern	;	Nigerian Pidgin
 Google	;	pl	;	modern	;	T1	Polish
 Google	;	ps	;	modern	;	T5	Pashto
 Google	;	pt	;	modern	;	T1	Brazilian Portuguese
@@ -215,6 +220,7 @@ Google	;	pt_PT	;	modern	;	T2	European Portuguese
 Google	;	raj	;	basic	;	Rajasthani
 Google	;	ro	;	modern	;	T2	Romanian
 Google	;	ru	;	modern	;	T1	Russian
+Google  ; rw  ; basic  ; Kinyarwanda
 Google    ; sa ; basic ; Sanskrit
 Google	; sat ; basic ; Santali (Olck script)
 Google	;	sd	;	modern	;	T5	Sindhi
@@ -226,6 +232,7 @@ Google  ;   so  ;   modern    ;   Somali
 Google	;	sq	;	modern	;	T3.1	Albanian
 Google	;	sr	;	modern	;	T2	Serbian
 Google	;	sr_Latn	;	modern		;	Tx	Serbian (auto-generated)
+Google  ; st  ; basic  ; Sesotho
 Google	; su ; basic ; Sundanese (script TBD)
 Google	;	sv	;	modern	;	T2	Swedish
 Google	;	sw	;	modern	;	T3	Swahili
@@ -233,6 +240,7 @@ Google	;	ta	;	modern	;	T3	Tamil
 Google	;	te	;	modern	;	T4	Telugu
 Google	;	th	;	modern	;	T1	Thai
 Google	;	tk	;	modern	;	T5	Turkmen
+Google  ; tn  ; basic  ; Setswana
 Google	;	tr	;	modern	;	T1	Turkish
 Google	;	uk	;	modern	;	T2	Ukrainian
 Google	;	ur	;	modern	;	T4	Urdu
@@ -291,6 +299,7 @@ Apple	;	ms	;	modern
 Apple	;	nl	;	modern
 Apple	;	nn	;	modern
 Apple	;	no	;	modern
+Apple ; or  ; modern
 Apple	;	pa	;	modern
 Apple	;	pl	;	modern
 Apple	;	pt	;	modern
@@ -458,7 +467,8 @@ Cldr	;	uz	;	modern		;	T4	Uzbek	(Latin)
 # ext
 Cldr	;	bs	;	modern	;	T5	Bosnian
 Cldr	;	eu	;	modern	;	T5	Basque
-Cldr	;	gl	;	modern	;	T5	Galician
+Cldr	;	gl	;	modern	;	T5	Galicia
+Cldr	;	or	;	modern	;	Odia
 Cldr	;	zu	;	modern	;	T5	Zulu
 
 Cldr	;	ga	;	modern	;	T5	Irish
@@ -492,7 +502,6 @@ Cldr	;	zh_Hant_HK	;	modern
 Cldr	;	as	;	modern	;	Assamese
 Cldr  ; brx ; basic ; Bodo
 Cldr  ; ks  ; basic ; Kashmiri
-Cldr	;	or	;	modern	;	Odia
 Cldr	;	ps	;	modern	;	Pashto
 Cldr	;	sd	;	modern	;	Sindhi
 Cldr	;	tk	;	modern	;	Turkmen
@@ -502,8 +511,16 @@ Cldr	;	hi_Latn	; modern	;	hi_Latn
 Cldr	;	jv	;	modern	;	Javanese
 Cldr	;   so  ;   modern	;   Somali
 
+Cldr  ; ak  ; moderate  ; Akan
+Cldr  ; ee  ; basic  ; Ewe
+Cldr  ; gaa ; basic  ; Gaa
 Cldr	;	ha	;	modern	;	Hausa
 Cldr	;	ig	;	modern	;	Igbo
+Cldr  ; nso ; basic ; Northern Sotho
+Cldr  ; om  ; basic ; Oromo
+Cldr  ; rw  ; basic  ; Kinyarwanda
+Cldr  ; st  ; basic ; Sesotho
+Cldr  ; tn  ; basic  ; Setswana
 Cldr	;	yo	;	modern	;	Yoruba
 Cldr	;	ceb	;	moderate	;	Cebuano
 
@@ -516,7 +533,7 @@ Cldr	; su ; basic ; Sundanese (script TBD)
 Cldr  ; ks_Deva ; basic ; Kashmiri (Devanagari)
 Cldr	; sd_Deva ; basic ; Sindhi (Devanagari script)
 # Cldr	; cad ; basic ; Caddo
-Cldr	; pcm ; moderate ; Nigerian Pidgin
+Cldr	; pcm ; modern ; Nigerian Pidgin
 
 Cldr	;	bgc	;	basic	;	Haryanvi
 Cldr	;	bho	;	basic	;	Bhojpuri

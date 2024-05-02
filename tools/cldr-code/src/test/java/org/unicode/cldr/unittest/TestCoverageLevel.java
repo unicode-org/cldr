@@ -507,37 +507,6 @@ public class TestCoverageLevel extends TestFmwkPlus {
         final Pattern calendar100 =
                 PatternCache.get("(coptic|ethiopic-amete-alem|islamic-(rgsa|tbla|umalqura))");
 
-        // Warning: shorter strings must come AFTER longer ones. Can process with MinimizeRegex to
-        // reorder
-        final Pattern language100 =
-                PatternCache.get(
-                        "(" // start
-                                + "nds_NL|fa_AF|ro_MD|sr_ME|sw_CD"
-                                // Length 4
-                                + "|root"
-                                // Length 3
-                                + "|ace|ach|ada|ady|aeb|afh|agq|ain|akk|akz|ale|aln|alt|ang|ann|anp|apc|arc|arn|aro|arp|arq|ars|arw|ary|arz|asa|ase|atj|avk|awa"
-                                + "|bal|ban|bar|bax|bbc|bbj|bej|bem|bew|bez|bfd|bfq|bgc|bgn|bho|bik|bin|bjn|bkm|bla|blo|blt|bpy|bqi|bra|brh|bss|bua|bug|bum|byn|byv"
-                                + "|cad|car|cay|cch|ccp|cgg|chb|chg|chk|chm|chn|cho|chp|chy|cic|ckb|clc|cop|cps|crg|crh|crj|crk|crl|crm|crr|crs|csb|csw|cwd"
-                                + "|dak|dar|dav|del|den|dgr|din|dje|doi|dtp|dua|dum|dyo|dyu|dzg"
-                                + "|ebu|efi|egl|egy|eka|elx|enm|esu|ext|fan|fat|fit|fon|frc|frm|fro|frp|frr|frs|fur"
-                                + "|gaa|gag|gan|gay|gba|gbz|gez|gil|glk|gmh|goh|gom|gon|gor|got|grb|grc|gsw|guc|gur|guz|gwi"
-                                + "|hai|hak|haw|hax|hdn|hif|hil|hit|hnj|hsn|hup|hur|iba|ilo|inh|izh|jam|jbo|jgo|jmc|jpr|jrb|jut"
-                                + "|kaa|kab|kac|kaj|kam|kaw|kbd|kbl|kcg|kde|ken|kfo|kgp|kha|kho|khq|khw|kiu|kln|kmb|koi|kos|kpe|krc|kri|krj|krl|kru|ksb|ksf|ksh|kum|kut|kwk|kxv"
-                                + "|lad|lag|lah|lam|lez|lfn|lij|lil|liv|lkt|lld|lmo|lol|lou|loz|lrc|ltg|lua|lui|lun|luo|lus|luy|lzh|lzz"
-                                + "|mad|maf|mag|mai|mak|man|mas|mde|mdf|mdr|men|mer|mfe|mga|mgh|mgo|mhn|mic|min|mnc|mni|moe|moh|mos|mrj|mua|mus|mwl|mwr|mwv|mye|myv|mzn"
-                                + "|nan|nap|naq|nds|new|nia|niu|njo|nmg|nog|non|nov|nqo|nso|nus|nwc|nym|nyn|nyo|nzi|oka|osa|ota"
-                                + "|pag|pal|pam|pap|pau|pcd|pcm|pdc|pdt|peo|pfl|phn|pms|pnt|pon|pqm|prg|pro|quc|qug|raj|rap|rar|rgn|rif|rof|rom|rtm|rue|rug|rup|rwk"
-                                + "|sad|sam|saq|sas|sat|saz|sba|sbp|sdc|sdh|see|seh|sei|sel|ses|sga|sgs|shi|shn|shu|sid|skr|slh|sli|sly|sma|smj|smn|sms|snk|sog|srn|srr|stq|str|suk|sus|sux|swb|syc|syr|szl"
-                                + "|tce|tcy|tem|teo|ter|tet|tgx|tht|tig|tiv|tkl|tkr|tlh|tli|tly|tmh|tog|tok|tpi|tru|trv|trw|tsd|tsi|ttm|ttt|tum|tvl|tzm"
-                                + "|udm|uga|umb|vai|vec|vep|vls|vmf|vmw|vot|vro|vun|wae|wal|war|was|wbp|wuu|xal|xmf|xnr|xog|yao|yap|yrl|zap|zbl|zea|zen|zgh|zun|zza"
-                                + "|ike|ojg|ssy|pis|twq"
-                                // Length 2
-                                + "|aa|ab|ae|ak|an|av|ay|ba|bi|bm|bo|ce|ch|cr|cu|cv|dv|dz|ee|eo|fj|gn|gv|ho|hz|ie|ii|ik|io|iu|kg|ki|kj|kl|kv|kw|lg|li|ln|lu"
-                                + "|mg|mh|na|nb|nd|ng|no|nr|nv|oc|oj|om|os|pi|rn|rw|sc|se|sg|sh|sn|ss|tl|tn|ts|tw|ty|ve|vo|wa|yi|za"
-                                // end
-                                + ")");
-
         /**
          * Recommended scripts that are allowed for comprehensive coverage. Not-recommended scripts
          * (according to ScriptMetadata) are filtered out automatically.
@@ -670,7 +639,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
             } else if (xpp.containsElement("language")) {
                 // Comprehensive coverage is OK for some languages.
                 String languageType = xpp.findAttributeValue("language", "type");
-                if (language100.matcher(languageType).matches()) {
+                if (!SDI.getLanguageTcOrBasic().contains(languageType)) {
                     continue;
                 }
             } else if (xpp.containsElement("script")) {
@@ -1173,6 +1142,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
 
         // get CLDR locale IDs' codes
 
+        // the maps are from codes (like en) to the best level in the CLDR Organization.
         Map<String, Level> langs = new TreeMap<>();
         Map<String, Level> scripts = new TreeMap<>();
         Map<String, Level> regions = new TreeMap<>();
@@ -1197,6 +1167,15 @@ public class TestCoverageLevel extends TestFmwkPlus {
 
         Map<String, CoverageStatus> data = new TreeMap<>();
 
+        // This is a map from integers (representing language, script or region; should rewrite to
+        // use enums)
+        // to a row of data:
+        //      name,
+        //      map code => best cldr org level,
+        //      codes in root
+        //      expected coverage levels levels
+        // should change the row of data into a class; would be much easier to understand
+
         ImmutableMap<Integer, R4<String, Map<String, Level>, Set<String>, Level>> typeToInfo =
                 ImmutableMap.of(
                         CLDRFile.LANGUAGE_NAME,
@@ -1210,15 +1189,24 @@ public class TestCoverageLevel extends TestFmwkPlus {
                 typeToInfo.entrySet()) {
             int type = typeAndInfo.getKey();
             String name = typeAndInfo.getValue().get0();
-            Map<String, Level> idPartMap = typeAndInfo.getValue().get1();
-            Set<String> setRoot = typeAndInfo.getValue().get2();
-            Level targetLevel = typeAndInfo.getValue().get3();
+            Map<String, Level> idPartMap =
+                    typeAndInfo.getValue().get1(); // map from code to best cldr level
+            Set<String> setRoot = typeAndInfo.getValue().get2(); // set of codes in root
+            Level targetLevel =
+                    typeAndInfo.getValue().get3(); // it looks like the targetLevel is ignored
+
             for (String code : Sets.union(idPartMap.keySet(), setRoot)) {
                 String displayName = testInfo.getEnglish().getName(type, code);
                 String path = CLDRFile.getKey(type, code);
                 Level level = coverageLevel.getLevel(path);
                 data.put(
                         name + "\t" + code,
+
+                        // Level level;
+                        // boolean inRoot;
+                        // boolean inId;
+                        // Level languageLevel; best in cldr org
+                        // String displayName;
                         new CoverageStatus(
                                 level,
                                 setRoot.contains(code),
@@ -1263,6 +1251,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
             }
         }
 
+        // just check languages
         Set<String> ids = new TreeSet<>();
         Set<String> missing = new TreeSet<>();
         for (Entry<String, CoverageStatus> entry : data.entrySet()) {
@@ -1272,7 +1261,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
             }
             final CoverageStatus value = entry.getValue();
             if (value.inId) {
-                String[] parts = key.split("\t");
+                String[] parts = key.split("\t"); // split into language and code
                 ids.add(parts[1]);
                 if (!value.inRoot) {
                     missing.add(parts[1]);
@@ -1280,7 +1269,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
             }
         }
         if (!assertEquals(
-                "Language subtags that are in a CLDR locale's ID are in root ("
+                "Language subtags in a locale's ID must be in one of the attributeValueValidity.xml $language* sets, typically $languageNonTcLtBasic  ("
                         + missing.size()
                         + ")",
                 "",

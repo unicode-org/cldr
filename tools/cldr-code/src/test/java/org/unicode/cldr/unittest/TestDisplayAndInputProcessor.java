@@ -343,8 +343,8 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
         Exception[] internalException = new Exception[1];
         for (String path : cldrFile) {
             String value = cldrFile.getStringValue(path);
-            if (value.equals("[\\- , . % ‰ + 0-9]")) {
-                int debug = 0;
+            if (value == null) {
+                continue; // values may be null, from extraPaths
             }
             String display = daip.processForDisplay(path, value);
             internalException[0] = null;

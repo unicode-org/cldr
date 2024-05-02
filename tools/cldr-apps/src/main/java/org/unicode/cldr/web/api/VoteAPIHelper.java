@@ -243,6 +243,7 @@ public class VoteAPIHelper {
         row.rawEnglish = r.getRawEnglish();
         row.extraAttributes = r.getNonDistinguishingAttributes();
         row.flagged = r.isFlagged();
+        row.forumStatus = new SurveyForum.PathForumStatus(r.getLocale(), xpath);
         row.hasVoted = r.userHasVoted();
         row.helpHtml = r.getHelpHTML();
         row.inheritedLocale = r.getInheritedLocaleName();

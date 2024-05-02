@@ -147,7 +147,7 @@ function reloadMapHandler(json) {
   }
   el.innerHTML = html;
   if (json.err) {
-    const b = cldrDom.createLinkToFn('special_error_subtypes', load, 'button');
+    const b = cldrDom.createLinkToFn("special_error_subtypes", load, "button");
     el.appendChild(b);
   }
 }

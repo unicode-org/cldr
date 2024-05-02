@@ -352,6 +352,7 @@ public class VoteAPI {
         public String subtypeUrl;
         public Phase phase;
         public String cause;
+        public boolean entireLocale;
 
         public CheckStatusSummary(CheckStatus checkStatus) {
             this.message = checkStatus.getMessage();
@@ -366,6 +367,7 @@ public class VoteAPI {
             if (this.subtype != null) {
                 this.subtypeUrl = SubtypeToURLMap.forSubtype(this.subtype); // could be null.
             }
+            this.entireLocale = checkStatus.getEntireLocale();
         }
     }
 }

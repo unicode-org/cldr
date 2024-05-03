@@ -3,11 +3,14 @@
  * (this is mostly derived from old redesign.js and should be divided
  * into smaller more specific modules)
  */
+
 import * as cldrForum from "./cldrForum.mjs";
 import * as cldrGui from "./cldrGui.mjs";
 import * as cldrLoad from "./cldrLoad.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
 import * as cldrText from "./cldrText.mjs";
+
+import "jquery-ui/ui/widgets/tooltip.js";
 
 let sentenceFilter;
 
@@ -68,31 +71,33 @@ function startup() {
   });
 
   // example on hover
-  $("body").on(
-    "mouseenter",
-    ".vetting-page .d-example-img, .vetting-page .subSpan",
-    function () {
-      const example = $(this)
-        .closest(".d-disp,.d-item,.d-item-err,.d-item-warn")
-        .find(".d-example");
-      if (example) {
-        $(this)
-          .popover({
-            html: true,
-            placement: "top",
-            content: example.html(),
-          })
-          .popover("show");
+  $(document).ready(($) => {
+    $("body").on(
+      "mouseenter",
+      ".vetting-page .d-example-img, .vetting-page .subSpan",
+      function () {
+        const example = $(this)
+          .closest(".d-disp,.d-item,.d-item-err,.d-item-warn")
+          .find(".d-example");
+        if (example) {
+          $(this)
+            .popover({
+              html: true,
+              placement: "top",
+              content: example.html(),
+            })
+            .popover("show");
+        }
       }
-    }
-  );
-  $("body").on(
-    "mouseleave",
-    ".vetting-page .d-example-img, .vetting-page .subSpan",
-    function () {
-      $(this).popover("hide");
-    }
-  );
+    );
+    $("body").on(
+      "mouseleave",
+      ".vetting-page .d-example-img, .vetting-page .subSpan",
+      function () {
+        $(this).popover("hide");
+      }
+    );
+  });
 
   // translation hint on hover
   $("body").on(

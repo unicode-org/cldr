@@ -1,11 +1,19 @@
+/*
+ ____                                _           _
+|  _ \  ___ _ __  _ __ ___  ___ __ _| |_ ___  __| |
+| | | |/ _ \ '_ \| '__/ _ \/ __/ _` | __/ _ \/ _` |
+| |_| |  __/ |_) | | |  __/ (_| (_| | ||  __/ (_| |
+|____/ \___| .__/|_|  \___|\___\__,_|\__\___|\__,_|
+           |_|
+
+
+		   This is the FALLBACK css file.  See surveytool.css under tools/cldr-apps/src/css/survey.css
+
+*/
+
 /* Copyright (c) 2004-2013 IBM and others. All Rights Reserved. */
 /* Made with CSSEdit and Espresso2 */
 @charset "UTF-8";
-
-/* TODO: should load this locally via webpack, see https://unicode-org.atlassian.net/browse/CLDR-9195 */
-@import url("//fonts.googleapis.com/css?family=Noto+Sans:400italic,700italic,400,700");
-@import url("//fonts.googleapis.com/css?family=Noto+Sans+Symbols:400italic,700italic,400,700");
-@import url("//fonts.googleapis.com/css?family=Noto+Nastaliq+Urdu");
 
 span.age  {
 	font-weight: bold;
@@ -785,10 +793,10 @@ tr.warnrow {
     color:  silver;
 }
 
-.canmodify::before {
-	content:"\270f  "; /* pencil */
+/* .canmodify::before {
+	content:"\270f  ";
 	font-family: 'Glyphicons Halflings';
-}
+} */
 
 .locked::before {
     font-family:"Glyphicons Halflings";
@@ -1703,7 +1711,7 @@ The the following can work here:
 
 */
 
-/* Kashmiri and Urdu are typically in Nastaliq. Kashmiri in particular uses a letter that is 
+/* Kashmiri and Urdu are typically in Nastaliq. Kashmiri in particular uses a letter that is
    not rendered correctly in Noto Naskh (see CLDR-16595) */
 
 :lang(ks), :lang(ur) {

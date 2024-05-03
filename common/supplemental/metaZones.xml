@@ -57,6 +57,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<usesMetazone to="1984-03-16 00:00" mzone="Europe_Western"/>
 				<usesMetazone to="1985-12-31 23:00" from="1984-03-16 00:00" mzone="Europe_Central"/>
 				<usesMetazone to="2018-10-28 02:00" from="1985-12-31 23:00" mzone="Europe_Western"/>
+				<usesMetazone to="2018-10-28 02:00" mzone="Morocco"/>
 			</timezone>
 			<timezone type="Africa/Ceuta">
 				<usesMetazone to="1984-03-16 00:00" mzone="Europe_Western"/>
@@ -80,6 +81,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<timezone type="Africa/El_Aaiun">
 				<usesMetazone to="1976-04-14 01:00" mzone="Africa_FarWestern"/>
 				<usesMetazone to="2018-10-28 02:00" from="1976-04-14 01:00" mzone="Europe_Western"/>
+				<usesMetazone to="2018-10-28 02:00" mzone="Morocco"/>
 			</timezone>
 			<timezone type="Africa/Freetown">
 				<usesMetazone mzone="GMT"/>
@@ -1800,6 +1802,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="Mawson" territory="001" type="Antarctica/Mawson"/>
 			<mapZone other="Mexico_Pacific" territory="001" type="America/Mazatlan"/>
 			<mapZone other="Mongolia" territory="001" type="Asia/Ulaanbaatar"/>
+			<mapZone other="Morocco" territory="001" type="Africa/Casablanca"/>
 			<mapZone other="Moscow" territory="001" type="Europe/Moscow"/>
 			<mapZone other="Myanmar" territory="001" type="Asia/Rangoon"/>
 			<mapZone other="Nauru" territory="001" type="Pacific/Nauru"/>
@@ -1972,6 +1975,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazoneId shortId="maws" longId="Mawson" />
 			<metazoneId shortId="mepa" longId="Mexico_Pacific" />
 			<metazoneId shortId="mong" longId="Mongolia" />
+			<metazoneId shortId="moro" longId="Morocco" />
 			<metazoneId shortId="mosc" longId="Moscow" />
 			<metazoneId shortId="myan" longId="Myanmar" />
 			<metazoneId shortId="naur" longId="Nauru" />

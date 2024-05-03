@@ -3544,7 +3544,22 @@ public class TestUnits extends TestFmwk {
         has_grammar_X,
         add_grammar,
         skip_grammar,
-        skip_trans
+        skip_trans("\t— specific langs poss.)");
+
+        private TranslationStatus() {
+            outName = name();
+        }
+
+        private final String outName;
+
+        private TranslationStatus(String extra) {
+            outName = name() + extra;
+        }
+
+        @Override
+        public String toString() {
+            return outName;
+        }
     }
 
     /**
@@ -3555,7 +3570,8 @@ public class TestUnits extends TestFmwk {
         Set<String> toTranslate = GrammarInfo.getUnitsToAddGrammar();
         final CLDRConfig config = CLDRConfig.getInstance();
         final UnitConverter converter = config.getSupplementalDataInfo().getUnitConverter();
-        Map<String, TranslationStatus> shortUnitToTranslationStatus40 = new TreeMap<>();
+        Map<String, TranslationStatus> shortUnitToTranslationStatus40 =
+                new TreeMap<>(converter.getShortUnitIdComparator());
         for (String longUnit :
                 Validity.getInstance().getStatusToCodes(LstrType.unit).get(Status.regular)) {
             String shortUnit = converter.getShortId(longUnit);
@@ -3588,9 +3604,9 @@ public class TestUnits extends TestFmwk {
             TranslationStatus status40 = entry.getValue();
             if (isVerbose())
                 System.out.println(
-                        shortUnit
+                        converter.getQuantityFromUnit(shortUnit, false)
                                 + "\t"
-                                + converter.getQuantityFromUnit(shortUnit, false)
+                                + shortUnit
                                 + "\t"
                                 + converter.getSystemsEnum(shortUnit)
                                 + "\t"

@@ -745,21 +745,19 @@ public class GrammarInfo implements Freezable<GrammarInfo> {
                     "month",
                     "year");
 
+    // To see a list of the results for double-checking, run TestUnits with TestUnitsToTranslate -v
     static final Set<String> EXCLUDE_GRAMMAR =
             Set.of(
-                    "point",
-                    "dunam",
-                    "dot",
-                    "astronomical-unit",
-                    "nautical-mile",
-                    "knot",
-                    "dalton",
+                    "dot", // fallback is pixel
+                    "dot-per-centimeter", // fallback is pixel
+                    "dunam", // language-specific
+                    "astronomical-unit", // specialized
+                    "nautical-mile", // US/UK specific
+                    "knot", // US/UK specific
+                    "dalton", // specialized
+                    "electronvolt", // specialized
                     "kilocalorie",
-                    "electronvolt",
-                    // The following may be reinstated after 45.
-                    "dot-per-centimeter",
-                    "millimeter-ofhg",
-                    "milligram-ofglucose-per-deciliter");
+                    "point");
 
     public static Set<String> getSpecialsToTranslate() {
         return INCLUDE_OTHER;

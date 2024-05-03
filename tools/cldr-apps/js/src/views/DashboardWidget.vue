@@ -74,93 +74,99 @@
         </span>
       </header>
       <section id="DashboardScroller" class="sidebyside-scrollable">
-        <template
-          v-for="entry of data.entries"
-          :key="'template-' + entry.xpstrid"
-        >
-          <template v-if="anyCatIsShown(entry.cats)">
-            <p
-              v-if="!(hideChecked && entry.checked)"
-              :key="'dash-item-' + entry.xpstrid"
-              :id="'dash-item-' + entry.xpstrid"
-              :class="
-                'dash-' + (lastClicked === entry.xpstrid ? ' last-clicked' : '')
-              "
-            >
-              <span class="dashEntry">
-                <a
-                  v-bind:href="getLink(locale, entry)"
-                  @click="() => setLastClicked(entry.xpstrid)"
-                >
-                  <span v-bind:key="cat" v-for="cat of entry.cats">
-                    <span
-                      v-if="!catIsHidden[cat]"
-                      class="category"
-                      :title="describeAbbreviation(cat)"
-                      >{{ abbreviate(cat) }}</span
-                    >
-                  </span>
-                  <span class="section-page" title="section—page">{{
-                    humanize(entry.section + "—" + entry.page)
-                  }}</span>
-                  |
-                  <span
-                    v-if="entry.header"
-                    class="entry-header"
-                    title="entry header"
-                    >{{ entry.header }}</span
-                  >
-                  |
-                  <span class="code" title="code">{{ entry.code }}</span>
-                  |
-                  <cldr-value
-                    class="previous-english"
-                    title="previous English"
-                    lang="en"
-                    dir="ltr"
-                    v-if="entry.previousEnglish"
-                    >{{ entry.previousEnglish }} →</cldr-value
-                  >
-                  <cldr-value
-                    class="english"
-                    lang="en"
-                    dir="ltr"
-                    title="English"
-                    v-if="entry.english"
-                    >{{ entry.english }}</cldr-value
-                  >
-                  |
-                  <cldr-value
-                    v-if="entry.winning"
-                    class="winning"
-                    title="Winning"
-                    >{{ entry.winning }}</cldr-value
-                  >
-                  <template v-if="entry.comment">
-                    |
-                    <span v-html="entry.comment" title="comment"></span>
-                  </template>
-                  <span v-if="entry.cats.has('Reports')"
-                    >{{ humanizeReport(entry.code) }} Report</span
-                  >
-                </a>
-              </span>
-              <input
-                v-if="canBeHidden(entry.cats)"
-                type="checkbox"
-                class="right-control"
-                title="You can hide checked items with the hide checkbox above"
-                v-model="entry.checked"
-                @change="
-                  (event) => {
-                    entryCheckmarkChanged(event, entry);
-                  }
-                "
-              />
-            </p>
-          </template>
+        <template v-if="updatingVisibility">
+          <a-spin delay="1000" size="large" />
         </template>
-        <p class="bottom-padding">...</p>
+        <template v-else>
+          <template
+            v-for="entry of data.entries"
+            :key="'template-' + entry.xpstrid"
+          >
+            <template v-if="anyCatIsShown(entry.cats)">
+              <p
+                v-if="!(hideChecked && entry.checked)"
+                :key="'dash-item-' + entry.xpstrid"
+                :id="'dash-item-' + entry.xpstrid"
+                :class="
+                  'dash-' +
+                  (lastClicked === entry.xpstrid ? ' last-clicked' : '')
+                "
+              >
+                <span class="dashEntry">
+                  <a
+                    v-bind:href="getLink(locale, entry)"
+                    @click="() => setLastClicked(entry.xpstrid)"
+                  >
+                    <span v-bind:key="cat" v-for="cat of entry.cats">
+                      <span
+                        v-if="!catIsHidden[cat]"
+                        class="category"
+                        :title="describeAbbreviation(cat)"
+                        >{{ abbreviate(cat) }}</span
+                      >
+                    </span>
+                    <span class="section-page" title="section—page">{{
+                      humanize(entry.section + "—" + entry.page)
+                    }}</span>
+                    |
+                    <span
+                      v-if="entry.header"
+                      class="entry-header"
+                      title="entry header"
+                      >{{ entry.header }}</span
+                    >
+                    |
+                    <span class="code" title="code">{{ entry.code }}</span>
+                    |
+                    <cldr-value
+                      class="previous-english"
+                      title="previous English"
+                      lang="en"
+                      dir="ltr"
+                      v-if="entry.previousEnglish"
+                      >{{ entry.previousEnglish }} →</cldr-value
+                    >
+                    <cldr-value
+                      class="english"
+                      lang="en"
+                      dir="ltr"
+                      title="English"
+                      v-if="entry.english"
+                      >{{ entry.english }}</cldr-value
+                    >
+                    |
+                    <cldr-value
+                      v-if="entry.winning"
+                      class="winning"
+                      title="Winning"
+                      >{{ entry.winning }}</cldr-value
+                    >
+                    <template v-if="entry.comment">
+                      |
+                      <span v-html="entry.comment" title="comment"></span>
+                    </template>
+                    <span v-if="entry.cats.has('Reports')"
+                      >{{ humanizeReport(entry.code) }} Report</span
+                    >
+                  </a>
+                </span>
+                <input
+                  v-if="canBeHidden(entry.cats)"
+                  type="checkbox"
+                  class="right-control"
+                  title="You can hide checked items with the hide checkbox above"
+                  v-model="entry.checked"
+                  @change="
+                    (event) => {
+                      entryCheckmarkChanged(event, entry);
+                    }
+                  "
+                />
+              </p>
+            </template>
+          </template>
+          <p class="bottom-padding">...</p>
+        </template>
       </section>
     </template>
   </nav>
@@ -190,6 +196,7 @@ export default {
       level: null,
       downloadMessage: null,
       catIsHidden: {},
+      updatingVisibility: false,
     };
   },
 
@@ -366,7 +373,16 @@ export default {
       // the user may click again thinking the first click wasn't recognized. Postponing
       // the DOM update of thousands of rows ensures that the header checkbox updates
       // without delay.
-      setTimeout(() => (this.catIsHidden[category] = !event.target.checked), 0);
+      this.updatingVisibility = true;
+      setTimeout(
+        () => this.updateVisibility(event.target.checked, category),
+        0
+      );
+    },
+
+    updateVisibility(checked, category) {
+      this.catIsHidden[category] = !checked;
+      this.updatingVisibility = false;
     },
 
     canBeHidden(cats) {

@@ -24,6 +24,7 @@ import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.number.FormattedNumber;
 import com.ibm.icu.number.LocalizedNumberFormatter;
+import com.ibm.icu.number.Notation;
 import com.ibm.icu.number.NumberFormatter;
 import com.ibm.icu.number.NumberFormatter.UnitWidth;
 import com.ibm.icu.number.Precision;
@@ -3544,7 +3545,7 @@ public class TestUnits extends TestFmwk {
         has_grammar_X,
         add_grammar,
         skip_grammar,
-        skip_trans("\t— specific langs poss.)");
+        skip_trans("\tspecific langs poss.");
 
         private TranslationStatus() {
             outName = name();
@@ -3599,8 +3600,22 @@ public class TestUnits extends TestFmwk {
                                     : TranslationStatus.skip_grammar;
             shortUnitToTranslationStatus40.put(shortUnit, status);
         }
+        LocalizedNumberFormatter nf =
+                NumberFormatter.with()
+                        .notation(Notation.scientific())
+                        .precision(Precision.fixedSignificantDigits(7))
+                        .locale(Locale.ENGLISH);
+        Output<String> base = new Output<>();
         for (Entry<String, TranslationStatus> entry : shortUnitToTranslationStatus40.entrySet()) {
             String shortUnit = entry.getKey();
+            var conversionInfo = converter.parseUnitId(shortUnit, base, false);
+            String factor =
+                    conversionInfo == null || conversionInfo.special != null
+                            ? "n/a"
+                            : nf.format(conversionInfo.factor.doubleValue())
+                                    .toString()
+                                    .replace("E", " × 10^");
+
             TranslationStatus status40 = entry.getValue();
             if (isVerbose())
                 System.out.println(
@@ -3609,6 +3624,8 @@ public class TestUnits extends TestFmwk {
                                 + shortUnit
                                 + "\t"
                                 + converter.getSystemsEnum(shortUnit)
+                                + "\t"
+                                + factor
                                 + "\t"
                                 + (converter.isSimple(shortUnit) ? "simple" : "complex")
                                 + "\t"

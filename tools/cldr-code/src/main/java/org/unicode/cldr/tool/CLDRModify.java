@@ -650,7 +650,7 @@ public class CLDRModify {
                             + "Use -? for help.");
         }
         if (i == FIX && givenOptions.value != null) {
-            final UnicodeSet allowedFilters = new UnicodeSet().add('P').add('Q').add('V');
+            final UnicodeSet allowedFilters = new UnicodeSet().add('P').add('Q').add('V').add('k');
             for (char c : givenOptions.value.toCharArray()) {
                 if (!allowedFilters.contains(c)) {
                     throw new IllegalArgumentException(

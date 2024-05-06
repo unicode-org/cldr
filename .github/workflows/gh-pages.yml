@@ -38,7 +38,7 @@ jobs:
         # Note: will update ToC if out of date
         run: 'cd tools/scripts/tr-archive/ && npm ci && npm run build'
       - name: Run Kbd Charts
-        run: 'cd docs/charts/keyboard && npm ci && npm run build'
+        run: 'cd docs/charts/keyboards && npm ci && npm run build'
       - name: Upload tr35.zip
         uses: actions/upload-artifact@v4
         with:

@@ -1922,8 +1922,9 @@ public class UnitConverter implements Freezable<UnitConverter> {
         main:
         for (Map<String, Integer> unitsToPowers :
                 Arrays.asList(id.denUnitsToPowers, id.numUnitsToPowers)) {
-            for (String subunit : unitsToPowers.keySet()) {
-                subunit = UnitConverter.stripPrefix(subunit, null);
+            for (String rawSubunit : unitsToPowers.keySet()) {
+                String subunit = UnitConverter.stripPrefix(rawSubunit, null);
+
                 Set<UnitSystem> systems = new TreeSet<>(sourceToSystems.get(subunit));
                 if (systems.contains(UnitSystem.metric)) {
                     systems.add(UnitSystem.metric_adjacent);
@@ -1934,8 +1935,12 @@ public class UnitConverter implements Freezable<UnitConverter> {
 
                 if (result == null) {
                     result = systems; // first setting
+                    if (!subunit.equals(rawSubunit)) {
+                        result.remove(UnitSystem.prefixable);
+                    }
                 } else {
                     result.retainAll(systems);
+                    result.remove(UnitSystem.prefixable); // remove if more than one
                 }
                 if (result.isEmpty()) {
                     break main;

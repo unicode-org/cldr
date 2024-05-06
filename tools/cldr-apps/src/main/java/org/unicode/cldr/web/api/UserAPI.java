@@ -18,9 +18,9 @@ import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import org.unicode.cldr.util.VoteResolver.Level;
+import org.unicode.cldr.web.ClaSignature;
 import org.unicode.cldr.web.CookieSession;
 import org.unicode.cldr.web.UserRegistry;
-import org.unicode.cldr.web.UserRegistry.ClaSignature;
 import org.unicode.cldr.web.UserRegistry.User;
 
 @Path("/users")
@@ -107,12 +107,12 @@ public class UserAPI {
             })
     @Path("/cla")
     public Response signCla(
-            @HeaderParam(Auth.SESSION_HEADER) String session, UserRegistry.ClaSignature cla) {
+            @HeaderParam(Auth.SESSION_HEADER) String session, ClaSignature cla) {
         final CookieSession mySession = Auth.getSession(session);
         if (mySession == null || mySession.user == null) {
             return Response.status(401).build();
         }
-        if (UserRegistry.ClaSignature.CLA_ORGS.contains(mySession.user.getOrganization())) {
+        if (ClaSignature.CLA_ORGS.contains(mySession.user.getOrganization())) {
             return Response.status(423, "Cannot modify org CLA").build();
         }
         if (!cla.valid()) {
@@ -137,7 +137,7 @@ public class UserAPI {
         if (mySession == null || mySession.user == null) {
             return Response.status(401).build();
         }
-        if (UserRegistry.ClaSignature.CLA_ORGS.contains(mySession.user.getOrganization())) {
+        if (ClaSignature.CLA_ORGS.contains(mySession.user.getOrganization())) {
             return Response.status(423, "Cannot modify org CLA").build();
         }
         if (!mySession.user.revokeCla()) {

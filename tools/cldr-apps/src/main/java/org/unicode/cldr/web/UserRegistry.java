@@ -607,10 +607,14 @@ public class UserRegistry {
         }
 
         public ClaSignature getCla() {
-            if (CLDRConfig.getInstance().getEnvironment() == Environment.UNITTEST) {
+            CLDRConfig config = CLDRConfig.getInstance();
+            if (config.getEnvironment() == Environment.UNITTEST) {
                 return new ClaSignature("UNITTEST");
-            }
-            if (ClaSignature.CLA_ORGS.contains(getOrganization())) {
+            } else if (ClaSignature.DO_NOT_REQURE_CLA
+                    && !config.getProperty("REQUIRE_CLA", false)) {
+                // no CLA needed unless CLDR_NEED_CLA is true.
+                return new ClaSignature("DO_NOT_REQURE_CLA");
+            } else if (ClaSignature.CLA_ORGS.contains(getOrganization())) {
                 return new ClaSignature(getOrganization());
             }
             return settings().getJson(ClaSignature.CLA_KEY, ClaSignature.class);
@@ -1935,64 +1939,6 @@ public class UserRegistry {
 
         public String getReason() {
             return reason;
-        }
-    }
-
-    public static final class ClaSignature {
-        public static final String CLA_KEY = "SignedCla";
-        public String email;
-        public String name;
-        public String employer; // May be different than org!
-        public boolean corporate; // signed as corporate
-
-        @Schema(required = false)
-        public Date signed;
-
-        @Schema(
-                description = "CLA is fixed by organization and cannot be changed",
-                required = false)
-        public boolean readonly;
-
-        public boolean valid() {
-            if (email.isBlank()) return false;
-            if (name.isBlank()) return false;
-            if (employer.isBlank()) return false;
-            if (corporate && employer.equals("none")) return false;
-            return true;
-        }
-
-        public static final EnumSet<Organization> CLA_ORGS =
-                EnumSet.of(
-                        Organization.adobe,
-                        Organization.apple,
-                        Organization.cherokee,
-                        Organization.google,
-                        Organization.ibm,
-                        Organization.meta,
-                        Organization.microsoft,
-                        Organization.mozilla,
-                        Organization.sil,
-                        Organization.wikimedia,
-                        Organization.surveytool);
-
-        public ClaSignature() {}
-
-        public ClaSignature(Organization o) {
-            this.email = "";
-            this.name = "Corporate CLA - " + o.name();
-            this.employer = o.toString();
-            this.corporate = true;
-            this.signed = new Date(0);
-            this.readonly = true;
-        }
-
-        public ClaSignature(String string) {
-            this.email = "";
-            this.name = "Testing CLA: " + string;
-            this.employer = "Testing CLA";
-            this.corporate = true;
-            this.signed = new Date(0);
-            this.readonly = true;
         }
     }
 

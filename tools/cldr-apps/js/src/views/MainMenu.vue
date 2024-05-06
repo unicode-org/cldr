@@ -8,7 +8,7 @@
       <li>
         <ul>
           <li><a href="#account///">Account Settings</a></li>
-          <li><a href="#cla///">Sign CLA</a></li>
+          <!-- <li><a href="#cla///">Sign CLA</a></li> -->
         </ul>
       </li>
       <li v-if="!isAdmin && !accountLocked">

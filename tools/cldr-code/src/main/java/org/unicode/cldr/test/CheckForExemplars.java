@@ -851,13 +851,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
             }
             scriptString.append("}");
         }
-        final String helpUrl =
-                "http://cldr.unicode.org/translation/-core-data/exemplars#TOC-Handling-Warnings-in-Exemplar-characters";
-        final String message =
-                "The characters \u200E{0}\u200E {1} {2}. "
-                        + "For what to do, see <i>Handling Warnings</i> in <a target='CLDR-ST-DOCS' href='"
-                        + helpUrl
-                        + "'>Exemplar Characters</a>.";
+        final String message = "The characters \u200E{0}\u200E {1} {2}.";
         result.add(
                 new CheckStatus()
                         .setCause(this)

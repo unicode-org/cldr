@@ -67,6 +67,7 @@ public final class SurveyJSONWrapper {
                     put("subtype", subtype.name());
                     put("subtypeUrl", SubtypeToURLMap.forSubtype(subtype)); // could be null.
                 }
+                put("entireLocale", cs.getEntireLocale());
             }
         };
     }

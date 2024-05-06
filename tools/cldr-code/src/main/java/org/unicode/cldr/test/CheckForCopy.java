@@ -268,10 +268,7 @@ public class CheckForCopy extends FactoryCheckCLDR {
                                 .setSubtype(Subtype.sameAsEnglish)
                                 .setCheckOnSubmit(false)
                                 .setMessage(
-                                        "The value is the same as in English: see <a target='CLDR-ST-DOCS' href='"
-                                                + CLDRURLS.ERRORS_URL
-                                                + "'>Fixing Errors and Warnings</a>.",
-                                        new Object[] {}));
+                                        "The value is the same as in English.", new Object[] {}));
                 break;
             case same_as_code:
                 result.add(
@@ -281,10 +278,7 @@ public class CheckForCopy extends FactoryCheckCLDR {
                                 .setSubtype(Subtype.sameAsCode)
                                 .setCheckOnSubmit(false)
                                 .setMessage(
-                                        "The value is the same as the 'code': see <a target='CLDR-ST-DOCS' href='"
-                                                + CLDRURLS.ERRORS_URL
-                                                + "'>Fixing Errors and Warnings</a>.",
-                                        new Object[] {}));
+                                        "The value is the same as the 'code'.", new Object[] {}));
                 break;
             default:
         }

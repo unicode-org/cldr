@@ -9,6 +9,8 @@ import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.util.Arrays;
 import java.util.stream.Collectors;
+import org.unicode.cldr.test.CheckCLDR;
+import org.unicode.cldr.test.TestCache.TestResultBundle;
 import org.unicode.cldr.tool.FormattedFileWriter.Anchors;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -158,6 +160,18 @@ public abstract class Chart {
         throw new IllegalArgumentException("Not implemented yet");
     }
 
+    /**
+     * extended function with some additional parameters subclasses may optionally implement this.
+     */
+    public void writeContents(
+            Writer pw,
+            Factory factory,
+            TestResultBundle bundle,
+            CheckCLDR.SubtypeToURLProvider urlProvider)
+            throws IOException {
+        this.writeContents(pw, factory);
+    }
+
     private static final class AnalyticsHelper {
         private static final AnalyticsHelper INSTANCE = new AnalyticsHelper();
 
@@ -220,6 +234,8 @@ public abstract class Chart {
         switch (report) {
             case personnames:
                 return new ChartPersonName(locale);
+            case supplemental:
+                return new ChartSupplemental(locale);
             default:
                 return null;
         }

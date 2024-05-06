@@ -1,6 +1,5 @@
 package org.unicode.cldr.util;
 
-import com.google.common.base.CharMatcher;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
@@ -18,6 +17,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.PathHeader.PageId;
 
@@ -73,6 +74,8 @@ public class Emoji {
     static final UnicodeSet allRgi = new UnicodeSet();
     static final UnicodeSet allRgiNoES = new UnicodeSet();
 
+    // ߘ E1.0 grinning face
+
     static {
         /*
          * Example from emoji-test.txt:
@@ -80,9 +83,12 @@ public class Emoji {
          *   # subgroup: face-smiling
          *   1F600 ; fully-qualified # 😀 grinning face
          */
-        Splitter semi = Splitter.on(CharMatcher.anyOf(";#")).trimResults();
+        Splitter semi = Splitter.on(';').trimResults();
         String majorCategory = null;
         String minorCategory = null;
+        final Matcher commentMatcher =
+                Pattern.compile("\\s*[\\S]+\\s+(?:E\\d*.\\d+\\s+)(.*)").matcher("");
+
         for (String line : FileUtilities.in(Emoji.class, "data/emoji/emoji-test.txt")) {
             if (line.startsWith("#")) {
                 line = line.substring(1).trim();
@@ -103,20 +109,31 @@ public class Emoji {
 
             String emojiHex = it.next();
             String original = Utility.fromHex(emojiHex, 4, " ");
-            String type = it.next();
+            String typeRaw = it.next();
+            // fully-qualified     # #️⃣ E0.6 keycap: #
+            int hashPos = typeRaw.indexOf('#');
+            if (hashPos < 0) {
+                throw new IllegalArgumentException("unexpected comment format: " + typeRaw);
+            }
+            String type = typeRaw.substring(0, hashPos).trim();
             if (type.startsWith("fully-qualified")) {
                 allRgi.add(original);
                 allRgiNoES.add(original.replace(Emoji.EMOJI_VARIANT, ""));
             }
             emojiToMajorCategory.put(original, majorCategory);
             emojiToMinorCategory.put(original, minorCategory);
-            String comment = it.next();
+            String comment = typeRaw.substring(hashPos + 1);
+            if (!commentMatcher.reset(comment).matches()) {
+                throw new IllegalArgumentException("unexpected comment format");
+            }
+            String name = commentMatcher.group(1);
             // The comment is now of the form:  # 😁 E0.6 beaming face with smiling eyes
-            int spacePos = comment.indexOf(' ');
+            // int spacePos = comment.indexOf(' ');
             // The format changed in v15.1, so there is no version number.
             // Thus the following is commented out:
             // spacePos = comment.indexOf(' ', spacePos + 1); // get second space
-            String name = comment.substring(spacePos + 1).trim();
+            // String name = comment.substring(spacePos + 1).trim();
+
             toName.put(original, name);
 
             // add all the non-constructed values to a set for annotations

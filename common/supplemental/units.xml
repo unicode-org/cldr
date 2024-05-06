@@ -289,7 +289,7 @@ For terms of use, see http://www.unicode.org/copyright.html
         <convertUnit source='pascal' baseUnit='kilogram-per-meter-square-second' systems="si metric prefixable"/>
         <convertUnit source='bar' baseUnit='kilogram-per-meter-square-second' factor='100000' systems="si_acceptable metric prefixable"/>
         <convertUnit source='atmosphere' baseUnit='kilogram-per-meter-square-second' factor='101325' systems="ussystem uksystem "/>
-        <convertUnit source='gasoline-energy-density' baseUnit='kilogram-per-meter-square-second' factor='33.705 * 3600 * 1000/gal_to_m3'  systems="metric_adjacent ussystem uksystem" description="Constructed so that 1 gallon-gasoline-energy-density = 33.705 kWh as per https://www3.epa.gov/otaq/gvg/learn-more-technology.htm"/>
+        <convertUnit source='gasoline-energy-density' baseUnit='kilogram-per-meter-square-second' factor='33.705 * 3600 * 1000/gal_to_m3'  systems="ussystem uksystem" description="Constructed so that 1 gallon-gasoline-energy-density = 33.705 kWh as per https://www3.epa.gov/otaq/gvg/learn-more-technology.htm"/>
 
         <!-- pressure-per-length -->
         <convertUnit source='ofhg' baseUnit='kilogram-per-square-meter-square-second' factor='13595.1*gravity' systems="metric_adjacent uksystem ussystem"/>

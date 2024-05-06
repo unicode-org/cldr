@@ -7,7 +7,10 @@
 
 package org.unicode.cldr.test;
 
+import com.google.common.base.Supplier;
+import com.google.common.base.Suppliers;
 import com.google.common.collect.ComparisonChain;
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.impl.Row.R3;
@@ -23,6 +26,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.function.Function;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -718,10 +722,9 @@ public abstract class CheckCLDR implements CheckAccessor {
         // we must load filters here, as they are used by check()
 
         // Shortlist error filters for this locale.
-        loadFilters();
         String locale = cldrFileToCheck.getLocaleID();
         filtersForLocale.clear();
-        for (R3<Pattern, Subtype, Pattern> filter : allFilters) {
+        for (R3<Pattern, Subtype, Pattern> filter : getAllFilters()) {
             if (filter.get0() == null || !filter.get0().matcher(locale).matches()) continue;
             Subtype subtype = filter.get1();
             List<Pattern> xpaths = filtersForLocale.get(subtype);
@@ -783,6 +786,12 @@ public abstract class CheckCLDR implements CheckAccessor {
     List<CheckStatus> cachedPossibleErrors = new ArrayList<>();
 
     Options cachedOptions = null;
+
+    /**
+     * abstract interface for mapping from a Subtype to a "more details" URL. see
+     * org.unicode.cldr.web.SubtypeToURLMap
+     */
+    public interface SubtypeToURLProvider extends Function<Subtype, String> {}
 
     /** Status value returned from check */
     public static class CheckStatus implements Comparable<CheckStatus> {
@@ -1124,7 +1133,7 @@ public abstract class CheckCLDR implements CheckAccessor {
         /**
          * @returns true if this status applies to the entire locale, not a single path
          */
-        public boolean isEntireLocale() {
+        public boolean getEntireLocale() {
             return entireLocale;
         }
 
@@ -1563,26 +1572,32 @@ public abstract class CheckCLDR implements CheckAccessor {
     }
 
     /** A map of error/warning types to their filters. */
-    private static List<R3<Pattern, Subtype, Pattern>> allFilters;
+    private static Supplier<List<R3<Pattern, Subtype, Pattern>>> filterSupplier =
+            Suppliers.memoize(
+                    () -> {
+                        final List<R3<Pattern, Subtype, Pattern>> newFilters = new ArrayList<>();
+                        RegexFileParser fileParser = new RegexFileParser();
+                        fileParser.setLineParser(
+                                new RegexLineParser() {
+                                    @Override
+                                    public void parse(String line) {
+                                        String[] fields = line.split("\\s*;\\s*");
+                                        Subtype subtype = Subtype.valueOf(fields[0]);
+                                        Pattern locale = PatternCache.get(fields[1]);
+                                        Pattern xpathRegex =
+                                                PatternCache.get(
+                                                        fields[2].replaceAll("\\[@", "\\\\[@"));
+                                        newFilters.add(new R3<>(locale, subtype, xpathRegex));
+                                    }
+                                });
+                        fileParser.parse(
+                                CheckCLDR.class,
+                                "/org/unicode/cldr/util/data/CheckCLDR-exceptions.txt");
+                        return ImmutableList.copyOf(newFilters);
+                    });
 
-    /** Loads the set of filters used for CheckCLDR results. */
-    private void loadFilters() {
-        if (allFilters != null) return;
-        allFilters = new ArrayList<>();
-        RegexFileParser fileParser = new RegexFileParser();
-        fileParser.setLineParser(
-                new RegexLineParser() {
-                    @Override
-                    public void parse(String line) {
-                        String[] fields = line.split("\\s*;\\s*");
-                        Subtype subtype = Subtype.valueOf(fields[0]);
-                        Pattern locale = PatternCache.get(fields[1]);
-                        Pattern xpathRegex =
-                                PatternCache.get(fields[2].replaceAll("\\[@", "\\\\[@"));
-                        allFilters.add(new R3<>(locale, subtype, xpathRegex));
-                    }
-                });
-        fileParser.parse(CheckCLDR.class, "/org/unicode/cldr/util/data/CheckCLDR-exceptions.txt");
+    private static final List<R3<Pattern, Subtype, Pattern>> getAllFilters() {
+        return filterSupplier.get();
     }
 
     /**

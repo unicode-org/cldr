@@ -9,85 +9,85 @@
 			<!-- BCP 47 contains many more language codes than we are interested in maintaining as a part of the CLDR -->
 			<!-- This $language list contains ONLY those languages that TC Locale's IDs (after maximizing with LikelySubtags) -->
 			<variable id='$language' type='choice'>
-			    af am ar as az 
-			    be bg bgc bho bn brx bs 
-			    ca ceb cs cv cy 
-			    da de doi 
-			    el en es et eu 
-			    fa fi fil fr 
-			    ga gd gl gu 
-			    ha he hi hr hu hy 
-			    id ig is it 
-			    ja jv 
-			    ka kk km kn ko kok ks ky 
-			    lo lt lv 
-			    mai mi mk ml mn mni mr ms my 
-			    ne nl nn no 
-			    or 
-			    pa pcm pl ps pt 
-			    raj ro ru 
-			    sa sat sd si sk sl so sq sr su sv sw 
-			    ta te tg th ti tk tr tt 
-			    uk ur uz 
-			    vi 
-			    wo 
-			    xh 
-			    yo yue 
+			    af am ar as az
+			    be bg bgc bho bn brx bs
+			    ca ceb cs cv cy
+			    da de doi
+			    el en es et eu
+			    fa fi fil fr
+			    ga gd gl gu
+			    ha he hi hr hu hy
+			    id ig is it
+			    ja jv
+			    ka kk km kn ko kok ks ky
+			    lo lt lv
+			    mai mi mk ml mn mni mr ms my
+			    ne nl nn no
+			    or
+			    pa pcm pl ps pt
+			    raj ro ru
+			    sa sat sd si sk sl so sq sr su sv sw
+			    ta te tg th ti tk tr tt
+			    uk ur uz
+			    vi
+			    wo
+			    xh
+			    yo yue
 			    zh zu
 			</variable>
 			<!-- The following are non-TC locales that have reached at least Basic, plus specials mul root zxx und -->
 			<variable id='$languageNonTcGeqBasic' type='choice'>
-				ast 
-				blo br 
-				chr csw 
-				dsb 
-				eo 
-				ff fo fy 
-				hsb 
-				ia ie 
-				kea kgp ku kxv 
-				lb lij lmo 
-				mt 
-				nds nqo 
-				oc 
-				prg 
-				qu 
-				rm 
+				ast
+				blo br
+				chr csw
+				dsb
+				eo
+				ff fo fy
+				hsb
+				ia ie
+				kea kgp ku kxv
+				lb lij lmo
+				mt
+				nds nqo
+				oc
+				prg
+				qu
+				rm
 				sah sc syr szl
-				to 
-				ug 
-				vec vmw 
-				xnr 
+				to
+				ug
+				vec vmw
+				xnr
 				yrl
-				za   
-				mul root zxx und                                                              
+				za
+				mul root zxx und
 			</variable>
 			<!-- The following have not yet made it to Basic -->
 			<variable id='$languageNonTcLtBasic' type='choice'>
-				 aa ab agq ak an ann apc arn asa 
-				 ba bal bas bem bew bez bgn blt bm bo bss byn 
-				 cad cch ccp ce cgg cho cic ckb co cu 
-				 dav dje dua dv dyo dz 
-				 ebu ee ewo 
-				 ff frr fur 
-				 gaa gez gn gsw guz gv 
-				 haw hnj 
-				 ii io iu 
-				 jbo jgo jmc 
-				 kab kaj kam kcg kde ken khq ki kkj kl kln kpe ksb ksf ksh kw 
-				 la lag lg lkt lld ln lrc ltg lu luo luy 
-				 mas mdf mer mfe mhn mg mgh mgo mic moh mua mus myv mzn 
-				 naq nb nd nmg nnh nr nso nus nv ny nyn om 
-				 os osa 
-				 pap pis 
-				 quc 
-				 rhg rif rn rof rw rwk 
-				 saq sbp scn sdh se seh ses sg shi shn sid skr sma smj smn sms sn ss ssy st 
-				 teo tig tn tok tpi trv trw ts twq tyv tzm 
-				 vai ve vo vun 
-				 wa wae wal wbp 
-				 xog 
-				 yav yi 
+				 aa ab agq ak an ann apc arn asa
+				 ba bal bas bem bew bez bgn blt bm bo bss byn
+				 cad cch ccp ce cgg cho cic ckb co cu
+				 dav dje dua dv dyo dz
+				 ebu ee ewo
+				 ff frr fur
+				 gaa gez gn gsw guz gv
+				 haw hnj
+				 ii io iu
+				 jbo jgo jmc
+				 kaa kab kaj kam kcg kde ken khq ki kkj kl kln kpe ksb ksf ksh kw
+				 la lag lg lkt lld ln lrc ltg lu luo luy
+				 mas mdf mer mfe mhn mg mgh mgo mic moh mua mus myv mzn
+				 naq nb nd nmg nnh nr nso nus nv ny nyn om
+				 os osa
+				 pap pis
+				 quc
+				 rhg rif rn rof rw rwk
+				 saq sbp scn sdh se seh ses sg shi shn sid skr sma smj smn sms sn ss ssy st
+				 teo tig tn tok tpi trv trw ts twq tyv tzm
+				 vai ve vo vun
+				 wa wae wal wbp
+				 xog
+				 yav yi
 				 zgh
 			</variable>
 			<variable id='$scriptNonUnicode' type='choice'>Afak Aran Blis Cirt Cyrs Egyd Egyh Geok Inds Jurc Kitl Kpel Latf Latg Loma Maya Moon

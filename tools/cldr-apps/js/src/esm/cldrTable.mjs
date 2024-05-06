@@ -26,7 +26,7 @@ import * as cldrXPathUtils from "./cldrXpathUtils.mjs";
 const HEADER_ID_PREFIX = "header_";
 const ROW_ID_PREFIX = "row_"; // formerly "r@"
 
-const CLDR_TABLE_DEBUG = true;
+const CLDR_TABLE_DEBUG = false;
 
 /*
  * NO_WINNING_VALUE indicates the server delivered path data without a valid winning value.
@@ -763,7 +763,7 @@ function updateRowEnglishComparisonCell(tr, theRow, cell) {
   }
   const TRANS_HINT_ID = "en"; // expected to match SurveyMain.TRANS_HINT_ID
   cldrSurvey.setLang(cell, TRANS_HINT_ID);
-  if (theRow.displayExample || trHint) {
+  if (theRow.displayExample || trHint || theRow.forumStatus.hasPosts) {
     const infos = document.createElement("div");
     infos.className = "infos-code";
     if (trHint) {
@@ -771,6 +771,9 @@ function updateRowEnglishComparisonCell(tr, theRow, cell) {
     }
     if (theRow.displayExample) {
       appendExampleIcon(infos, theRow.displayExample, TRANS_HINT_ID);
+    }
+    if (theRow.forumStatus.hasPosts) {
+      appendForumStatus(infos, theRow.forumStatus, TRANS_HINT_ID);
     }
     cell.appendChild(infos);
   }
@@ -1111,6 +1114,19 @@ function appendTranslationHintIcon(parent, text, loc) {
   img.src = "hint.png";
   img.alt = "Translation hint";
   parent.appendChild(img);
+  return el;
+}
+
+function appendForumStatus(parent, forumStatus, loc) {
+  const el = document.createElement("span");
+  el.textContent = "💬" + (forumStatus.hasOpenPosts ? "?" : ".");
+  el.title =
+    cldrText.get("forum_path_has_posts") +
+    (forumStatus.hasOpenPosts
+      ? cldrText.get("forum_path_has_open_posts")
+      : cldrText.get("forum_path_has_only_closed_posts"));
+  cldrSurvey.setLang(el, loc);
+  parent.appendChild(el);
   return el;
 }
 

@@ -40,32 +40,65 @@ describe("cldrDash.updatePath", function () {
     // json0 has 1 entry for 710b6e70773e5764 and 1 entry for 64a8a83fbacdf836
     // json1 has 3 entries for 710b6e70773e5764
 
-    // the resulting data should have 3 entries for 710b6e70773e5764 and 1 entry for 64a8a83fbacdf836
-    const data = cldrDash.updatePath(json0, json1);
-    assert.strictEqual(countEntriesForPath(data, "710b6e70773e5764"), 3);
-    assert.strictEqual(countEntriesForPath(data, "64a8a83fbacdf836"), 1);
+    // the resulting data should have 1 (combined) entry for 710b6e70773e5764 and 1 entry for 64a8a83fbacdf836
+    // DashData should never have more than one entry per path
+    const data0 = cldrDash.setData(json0);
+    const data1 = cldrDash.updatePath(data0, json1);
+    assert.strictEqual(countEntriesForPath(data1, "710b6e70773e5764"), 1);
+    assert.strictEqual(countEntriesForPath(data1, "64a8a83fbacdf836"), 1);
+    // the entry for 710b6e70773e5764 should have 3 notifications
+    assert.strictEqual(
+      countNotificationsForEntry(data1, "710b6e70773e5764"),
+      3
+    );
+    // the entry for 64a8a83fbacdf836 should have 1 notification
+    assert.strictEqual(
+      countNotificationsForEntry(data1, "64a8a83fbacdf836"),
+      1
+    );
   });
 
   it("should remove entries", function () {
     // json0 has 1 entry for 710b6e70773e5764 and 1 entry for 64a8a83fbacdf836
     // json2 has 0 entries for 710b6e70773e5764
     // the resulting data should have 0 entries for 710b6e70773e5764 and 1 entry for 64a8a83fbacdf836
-    const data = cldrDash.updatePath(json0, json2);
-    assert.strictEqual(countEntriesForPath(data, "710b6e70773e5764"), 0);
-    assert.strictEqual(countEntriesForPath(data, "64a8a83fbacdf836"), 1);
+    const data0 = cldrDash.setData(json0);
+    const data2 = cldrDash.updatePath(data0, json2);
+    assert.strictEqual(countEntriesForPath(data2, "710b6e70773e5764"), 0);
+    assert.strictEqual(countEntriesForPath(data2, "64a8a83fbacdf836"), 1);
+    // the entry for 64a8a83fbacdf836 should have 1 notification
+    assert.strictEqual(
+      countNotificationsForEntry(data2, "64a8a83fbacdf836"),
+      1
+    );
   });
 });
 
+/**
+ * Count the number of entries for the given path in the given DashData; should be 0 or 1
+ *
+ * @param {Object} data the object of class DashData
+ * @param {String} xpstrid the xpath hex string id
+ * @returns the number of entries found in the data for this xpath
+ */
 function countEntriesForPath(data, xpstrid) {
   let count = 0;
-  for (let catData of data.notifications) {
-    for (let group of catData.groups) {
-      for (let entry of group.entries) {
-        if (entry.xpstrid === xpstrid) {
-          ++count;
-        }
-      }
+  for (let entry of data.entries) {
+    if (entry.xpstrid === xpstrid) {
+      ++count;
     }
   }
   return count;
+}
+
+/**
+ * Count the number of notifications for the given path in the given DashData
+ *
+ * @param {Object} data the object of class DashData
+ * @param {String} xpstrid the xpath hex string id
+ * @returns the number of notification categories found in the DashEntry for this xpath
+ */
+function countNotificationsForEntry(data, xpstrid) {
+  const entry = data.pathIndex[xpstrid];
+  return entry.cats.size;
 }

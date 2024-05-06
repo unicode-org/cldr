@@ -1348,6 +1348,8 @@ public class SupplementalDataInfo {
             }
         }
         CLDRScriptCodes = newScripts.build();
+        CLDRLanguageCodes = CldrUtility.protectCollection(CLDRLanguageCodes);
+        languageNonTcLtBasic = CldrUtility.protectCollection(languageNonTcLtBasic);
     }
 
     /**
@@ -2144,13 +2146,21 @@ public class SupplementalDataInfo {
                 String level3 = parts.getElement(3);
                 if (level3.equals("variable")) {
                     Map<String, String> attributes = parts.getAttributes(-1);
-                    validityInfo.put(attributes.get("id"), Row.of(attributes.get("type"), value));
-                    String idString = attributes.get("id");
-                    if (("$language".equals(idString)
-                                    || "$languageExceptions".equals(attributes.get("id")))
-                            && "choice".equals(attributes.get("type"))) {
-                        String[] validCodeArray = value.trim().split("\\s+");
-                        CLDRLanguageCodes.addAll(Arrays.asList(validCodeArray));
+                    final String idString = attributes.get("id");
+                    final String typeString = attributes.get("type");
+                    validityInfo.put(idString, Row.of(typeString, value));
+                    if ("choice".equals(typeString)) {
+                        if ("$language".equals(idString)
+                                || "$languageNonTcGeqBasic".equals(idString)) {
+                            String[] validCodeArray = value.trim().split("\\s+");
+                            CLDRLanguageCodes.addAll(Arrays.asList(validCodeArray));
+                        }
+                        if ("$languageNonTcLtBasic".equals(idString)) { // not yet basic
+                            String[] validCodeArray = value.trim().split("\\s+");
+                            final List<String> asList = Arrays.asList(validCodeArray);
+                            languageNonTcLtBasic.addAll(asList);
+                            CLDRLanguageCodes.addAll(asList);
+                        }
                     }
                     return true;
                 } else if (level3.equals("attributeValues")) {
@@ -2495,6 +2505,8 @@ public class SupplementalDataInfo {
     public Map<CLDRLocale, CLDRLocale> baseToDefaultContent; // wo -> wo_Arab_SN
     public Map<CLDRLocale, CLDRLocale> defaultContentToBase; // wo_Arab_SN -> wo
     private Set<String> CLDRLanguageCodes = new TreeSet<>();
+    private Set<String> languageNonTcLtBasic = new TreeSet<>();
+
     private Set<String> CLDRScriptCodes;
 
     /**
@@ -4793,8 +4805,19 @@ public class SupplementalDataInfo {
         return validityInfo;
     }
 
+    /** TC languages or at Basic or better, or worse than Basic (grandfathered or Core). */
     public Set<String> getCLDRLanguageCodes() {
         return CLDRLanguageCodes;
+    }
+
+    /** TC languages or those at Basic or better. */
+    public Set<String> getLanguageTcOrBasic() {
+        return Sets.difference(CLDRLanguageCodes, languageNonTcLtBasic);
+    }
+
+    /** Non TC languages that are worse than Basic (grandfathered or Core) */
+    public Set<String> getLanguageNonTcLtBasic() {
+        return languageNonTcLtBasic;
     }
 
     public boolean isCLDRLanguageCode(String code) {

@@ -27,7 +27,6 @@ import org.unicode.cldr.rdf.QueryClient;
 import org.unicode.cldr.test.CheckQuotes;
 import org.unicode.cldr.tool.Chart;
 import org.unicode.cldr.web.HttpStatusCache;
-import org.unicode.cldr.web.SubtypeToURLMap;
 
 /**
  * Tests for web link vitality. Disabled by default to avoid network traffic.
@@ -121,7 +120,6 @@ public class TestCLDRLinks {
         l.add(
                 Arguments.of(
                         CLDRURLS.PRIORITY_SUMMARY_HELP_URL, "CLDRURLS.PRIORITY_SUMMARY_HELP_URL"));
-        l.add(Arguments.of(SubtypeToURLMap.getDefaultUrl(), "SubtypeToURLMap.getDefaultURL()"));
         l.add(
                 Arguments.of(
                         UnicodeKnownIssues.UNICODE_JIRA_BROWSE,

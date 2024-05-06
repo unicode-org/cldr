@@ -752,8 +752,15 @@ function testsToHtml(tests) {
   if (!tests) {
     return newHtml;
   }
+  var hadEntireLocale = false;
+
   for (var i = 0; i < tests.length; i++) {
     var testItem = tests[i];
+    const { entireLocale } = testItem;
+    if (entireLocale) {
+      hadEntireLocale = true;
+      continue;
+    }
     newHtml += "<p class='trInfo tr_" + testItem.type;
     if (testItem.type == "Warning") {
       newHtml += " alert alert-warning fix-popover-help";
@@ -780,7 +787,12 @@ function testsToHtml(tests) {
       newHtml += ' <a href="' + testItem.subtypeUrl + '">(how to fix…)</a>';
     }
 
-    newHtml += "</p>";
+    newHtml += "</p>\n";
+  }
+  if (hadEntireLocale) {
+    newHtml += `<p class='trInfo tr_Warning alert alert-warning fix-popover-help'>See also <a href='#r_supplemental/${cldrStatus.getCurrentLocale()}//'>${cldrText.get(
+      "special_r_supplemental"
+    )}</a></p>\n`;
   }
   return newHtml;
 }

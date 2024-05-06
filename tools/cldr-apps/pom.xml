@@ -26,7 +26,7 @@
 	<parent>
 		<groupId>org.unicode.cldr</groupId>
 		<artifactId>cldr-all</artifactId>
-		<version>45.0-SNAPSHOT</version>
+		<version>46.0-SNAPSHOT</version>
 	</parent>
 
 	<dependencies>
@@ -169,6 +169,23 @@
 			<groupId>io.jsonwebtoken</groupId>
 			<artifactId>jjwt-gson</artifactId>
 			<scope>runtime</scope>
+		</dependency>
+
+		<!-- for sheets (subtype mapping) -->
+		<dependency>
+			<groupId>com.google.api-client</groupId>
+			<artifactId>google-api-client</artifactId>
+			<version>2.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.oauth-client</groupId>
+			<artifactId>google-oauth-client-jetty</artifactId>
+			<version>1.34.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.apis</groupId>
+			<artifactId>google-api-services-sheets</artifactId>
+			<version>v4-rev20220927-2.0.0</version>
 		</dependency>
 	</dependencies>
 	<build>

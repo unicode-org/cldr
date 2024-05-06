@@ -27,6 +27,7 @@ import org.unicode.cldr.web.CookieSession;
 import org.unicode.cldr.web.Dashboard;
 import org.unicode.cldr.web.DataPage;
 import org.unicode.cldr.web.SubtypeToURLMap;
+import org.unicode.cldr.web.SurveyForum;
 import org.unicode.cldr.web.UserRegistry.ModifyDenial;
 import org.unicode.cldr.web.api.VoteAPIHelper.VoteEntry;
 
@@ -182,6 +183,7 @@ public class VoteAPI {
             public String rawEnglish;
             public Map<String, String> extraAttributes;
             public boolean flagged;
+            public SurveyForum.PathForumStatus forumStatus;
             public boolean hasVoted;
             public String helpHtml;
             public String inheritedLocale;
@@ -360,6 +362,7 @@ public class VoteAPI {
         public String subtypeUrl;
         public Phase phase;
         public String cause;
+        public boolean entireLocale;
 
         public CheckStatusSummary(CheckStatus checkStatus) {
             this.message = checkStatus.getMessage();
@@ -374,6 +377,7 @@ public class VoteAPI {
             if (this.subtype != null) {
                 this.subtypeUrl = SubtypeToURLMap.forSubtype(this.subtype); // could be null.
             }
+            this.entireLocale = checkStatus.getEntireLocale();
         }
     }
 }

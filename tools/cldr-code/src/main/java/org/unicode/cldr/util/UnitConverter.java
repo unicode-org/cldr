@@ -13,7 +13,9 @@ import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
 import com.google.common.collect.TreeMultimap;
+import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.impl.Row.R4;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.number.UnlocalizedNumberFormatter;
 import com.ibm.icu.text.PluralRules;
@@ -29,6 +31,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.EnumSet;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
@@ -48,7 +51,9 @@ import org.unicode.cldr.util.GrammarDerivation.Values;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
 import org.unicode.cldr.util.Rational.FormatStyle;
 import org.unicode.cldr.util.Rational.RationalParser;
+import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
+import org.unicode.cldr.util.Validity.Status;
 
 public class UnitConverter implements Freezable<UnitConverter> {
     public static boolean DEBUG = false;
@@ -80,7 +85,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
     private Multimap<String, UnitSystem> sourceToSystems = TreeMultimap.create();
     private Set<String> baseUnits;
     private Multimap<String, Continuation> continuations = TreeMultimap.create();
-    private Comparator<String> quantityComparator;
+    private MapComparator<String> quantityComparator;
 
     private Map<String, String> fixDenormalized;
     private ImmutableMap<String, UnitId> idToUnitId;
@@ -91,6 +96,17 @@ public class UnitConverter implements Freezable<UnitConverter> {
     private boolean frozen = false;
 
     public TargetInfoComparator targetInfoComparator;
+
+    private final MapComparator<String> LongUnitIdOrder = new MapComparator<>();
+    private final MapComparator<String> ShortUnitIdOrder = new MapComparator<>();
+
+    public Comparator<String> getLongUnitIdComparator() {
+        return LongUnitIdOrder;
+    }
+
+    public Comparator<String> getShortUnitIdComparator() {
+        return ShortUnitIdOrder;
+    }
 
     /** Warning: ordering is important; determines the normalized output */
     public static final Set<String> BASE_UNITS =
@@ -198,6 +214,74 @@ public class UnitConverter implements Freezable<UnitConverter> {
                 }
             }
             idToUnitId = ImmutableMap.copyOf(_idToUnitId);
+
+            // build the map comparators
+
+            Set<R4<Integer, UnitSystem, Rational, String>> all = new TreeSet<>();
+            Set<String> baseSeen = new HashSet<>();
+            for (String longUnit :
+                    Validity.getInstance().getStatusToCodes(LstrType.unit).get(Status.regular)) {
+                Output<String> base = new Output<>();
+                String shortUnit = getShortId(longUnit);
+                ConversionInfo conversionInfo = parseUnitId(shortUnit, base, false);
+                if (conversionInfo == null) {
+                    if (longUnit.equals("temperature-generic")) {
+                        conversionInfo = parseUnitId("kelvin", base, false);
+                    }
+                }
+                String quantity = getQuantityFromUnit(base.value, false);
+                Integer quantityNumericOrder = quantityComparator.getNumericOrder(quantity);
+                if (quantityNumericOrder == null) { // try the inverse
+                    if (base.value.equals("meter-per-cubic-meter")) { // HACK
+                        quantityNumericOrder = quantityComparator.getNumericOrder("consumption");
+                    }
+                    if (quantityNumericOrder == null) {
+                        throw new IllegalArgumentException(
+                                "Missing quantity for: " + base.value + ", " + shortUnit);
+                    }
+                }
+
+                final EnumSet<UnitSystem> systems = EnumSet.copyOf(getSystemsEnum(shortUnit));
+
+                // to sort the right items together items together, put together a sort key
+                UnitSystem sortingSystem = systems.iterator().next();
+                switch (sortingSystem) {
+                    case metric:
+                    case si:
+                    case si_acceptable:
+                    case astronomical:
+                    case metric_adjacent:
+                    case person_age:
+                        sortingSystem = UnitSystem.metric;
+                        break;
+                        // country specific
+                    case other:
+                    case ussystem:
+                    case uksystem:
+                    case jpsystem:
+                        sortingSystem = UnitSystem.other;
+                        break;
+                    default:
+                        throw new IllegalArgumentException(
+                                "Add new unitSystem to a grouping: " + sortingSystem);
+                }
+                R4<Integer, UnitSystem, Rational, String> sortKey =
+                        Row.of(
+                                quantityNumericOrder,
+                                sortingSystem,
+                                conversionInfo.factor,
+                                shortUnit);
+                all.add(sortKey);
+            }
+            LongUnitIdOrder.setErrorOnMissing(true);
+            ShortUnitIdOrder.setErrorOnMissing(true);
+            for (R4<Integer, UnitSystem, Rational, String> item : all) {
+                String shortId = item.get3();
+                ShortUnitIdOrder.add(shortId);
+                LongUnitIdOrder.add(getLongId(shortId));
+            }
+            LongUnitIdOrder.freeze();
+            ShortUnitIdOrder.freeze();
         }
         return this;
     }
@@ -649,7 +733,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
         }
     }
 
-    private Comparator<String> getQuantityComparator(
+    private MapComparator<String> getQuantityComparator(
             Map<String, String> baseUnitToQuantity2, Map<String, String> baseUnitToStatus2) {
         // We want to sort all the quantities so that we have a natural ordering within compound
         // units. So kilowatt-hour, not hour-kilowatt.

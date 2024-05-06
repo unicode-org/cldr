@@ -2,7 +2,7 @@
 
 # Unicode Locale Data Markup Language (LDML)<br/>Part 6: Supplemental
 
-|Version|45 (draft) |
+|Version|46 (draft) |
 |-------|-----------|
 |Editors|Steven Loomis (<a href="mailto:srloomis@unicode.org">srloomis@unicode.org</a>) and <a href="tr35.md#Acknowledgments">other CLDR committee members|
 
@@ -828,7 +828,7 @@ For example the following values can be suffixes in a simple_unit identifier suc
 <!ATTLIST unitPrefix power2 NMTOKEN #IMPLIED >
 ```
 
-This data lists the SI prefixes that can be applied to units (typically limited to prefixable units), 
+This data lists the SI prefixes that can be applied to units (typically limited to prefixable units),
 such as the following:
 ```xml
 <unitPrefixes>
@@ -844,15 +844,15 @@ such as the following:
 	<unitPrefix type='yobi' symbol='Yi' power2='80'/>
 </unitPrefixes>
 ```
-The information includes the SI prefix and symbol, and the power of 10 or power of 2 
+The information includes the SI prefix and symbol, and the power of 10 or power of 2
 (for binary prefixes, intended for use with digital units).
 
-Note that the translated short form of a unit prefix is not the same as the localized symbol. 
-The localized symbol may be the same for most Latin-script languages, 
+Note that the translated short form of a unit prefix is not the same as the localized symbol.
+The localized symbol may be the same for most Latin-script languages,
 but depending on the customary use in a language they can be in a different script
 or use different letters even in Latin-script languages. They are, however, the same in the root locale.
 
-The newer prefixes (quecto-, ronto-, -ronna, -quetta) are not yet being translated, 
+The newer prefixes (quecto-, ronto-, -ronna, -quetta) are not yet being translated,
 because the appropriate translated versions have not yet been well established across languages.
 
 ### Constants
@@ -1162,11 +1162,11 @@ The examples in #4 are due to the following ordering of the `unitQuantity` eleme
 
 ## Mixed Units
 
-Mixed units, or unit sequences, are units with the same base unit which are listed in sequence. 
+Mixed units, or unit sequences, are units with the same base unit which are listed in sequence.
 Common examples are feet and inches; meters and centimeters; hours, minutes, and seconds; degrees, minutes, and seconds.
 Mixed unit identifiers are expressed using the "-and-" infix, as in "foot-and-inch", "meter-and-centimeter", "hour-and-minute-and-second", "degree-and-arc-minute-and-arc-second."
 
-Scalar values for mixed units are expressed in the largest unit, according to the sort order discussed above in "Normalization". 
+Scalar values for mixed units are expressed in the largest unit, according to the sort order discussed above in "Normalization".
 For example, numbers for "foot-and-inch" are expressed in feet.
 
 Mixed unit identifiers should be from highest to lowest (eg foot-and-inch instead of inch-and-foot), and that is reflected in the display.
@@ -1183,25 +1183,25 @@ Implementations may offer mechanisms to control the precision of the formatted m
     * Locale A uses decimal degrees and gets 1.53°.
     * Locale B uses degrees, minutes, seconds, and gets 1° 31′ 31.44″
 	* Locale B has an unnecessarily precise result: the equivalent of 1.52540 in precision.
-* An implementation could allow a percentage precision; 
-  thus 1612 meters with ±1% precision would be represented by **1 mile** rather than **1 mile 9 feet**. 
+* An implementation could allow a percentage precision;
+  thus 1612 meters with ±1% precision would be represented by **1 mile** rather than **1 mile 9 feet**.
 
 The default behavior is to round the lowest unit to the nearest integer.
 Thus 1.99959 degree-and-arc-minute-and-arc-second would be (before rounding) **1 degree 59 minutes 58.524 seconds**.
-After rounding it would be **1 degree 59 minutes 59 seconds**. 
+After rounding it would be **1 degree 59 minutes 59 seconds**.
 
 If the lowest unit would round to zero, or round up to the size of the next higher unit, then the next higher unit is rounded instead, recursively.
 Thus 1.999862 degree-and-arc-minute-and-arc-second would be (before rounding) **1 degree 59 minutes 59.5032 degrees**.
 After rounding the last unit it would be **1 degree 59 minutes 60 seconds**, which rounds up to **1 degree 60 minutes**, which rounds up to  **2 degrees**.
 This behavior can be determined before having to compute the lower units:
-for example, where rounding to the second, if the remainder in degrees is below 1/120 degrees or above 119/120 degrees, then the degrees can be rounded without computing the minutes or seconds. 
+for example, where rounding to the second, if the remainder in degrees is below 1/120 degrees or above 119/120 degrees, then the degrees can be rounded without computing the minutes or seconds.
 
 ## Testing
 
-The files in the directory [cldr/common/testData/units/](https://github.com/unicode-org/cldr/tree/main/common/testData/units) are provided for testing implementations. 
+The files in the directory [cldr/common/testData/units/](https://github.com/unicode-org/cldr/tree/main/common/testData/units) are provided for testing implementations.
 1. The [unitsTest.txt](https://github.com/unicode-org/cldr/blob/main/common/testData/units/unitsTest.txt) file supplies a list of all the CLDR units with conversions
 2. The [unitPreferencesTest.txt](https://github.com/unicode-org/cldr/blob/main/common/testData/units/unitPreferencesTest.txt) file supplied tests for user preferences
-3. The [unitLocalePreferencesTest.txt](https://github.com/unicode-org/cldr/blob/main/common/testData/units/unitLocalePreferencesTest.txt) file provides examples for testing the interactions between locale identifiers and unit preferences. 
+3. The [unitLocalePreferencesTest.txt](https://github.com/unicode-org/cldr/blob/main/common/testData/units/unitLocalePreferencesTest.txt) file provides examples for testing the interactions between locale identifiers and unit preferences.
 
 Instructions for use are supplied in the header of the file.
 
@@ -1229,7 +1229,7 @@ For example:
 | 4 | en-DE                                 | Celsius    | because explicit region is DE                                      |
 | 5 | en                                    | Fahrenheit | because the likely region for en with no region is US              |
 
-If any key-values are invalid, then they are ignored. Thus the following constructs are ignored: 
+If any key-values are invalid, then they are ignored. Thus the following constructs are ignored:
 
 | subtags | reason |
 | --- | --- |
@@ -1240,7 +1240,7 @@ If any key-values are invalid, then they are ignored. Thus the following constru
 
 ‡ Only the region portion is currently used, so in -rg-usabcdef the "abcdef" is ignored, whether or not it is valid.
 
-The following algorithm is used to compute the override units, regions, and category. 
+The following algorithm is used to compute the override units, regions, and category.
 The latter two items are used in the [Unit Preferences Data](#Unit_Preferences_Data).
 
 #### Compute override units
@@ -1255,7 +1255,7 @@ If there is no valid -mu value, the following steps are used to determine a regi
 Otherwise FR is not used. In either case continue with step 2.
 2. If there is a valid -rg region, let R be that region, and go to Compute the category.
 3. If there is a valid region in the locale, let R be that region, and go to Compute the category.
-4. Otherwise, compute the likely subtags for the locale. 
+4. Otherwise, compute the likely subtags for the locale.
      1. If there is a likely region, then let R be that region, and go to Compute the category.
 	 2. Otherwise, let R be 001, and go to Compute the category
 
@@ -1271,7 +1271,7 @@ A **category** is determined as follows from the input unit:
 
 1. From the input unit, use the conversion data in [baseUnit](tr35-info.md#Unit_Conversion) and let the **input base unit** be the baseUnit attribute value.
     * eg, for `pound-force` the baseUnit is `kilogram-meter-per-square-second`.
-2. If there is no such base unit (such as for a an unusual unit like `ampere-pound-per-foot-square-minute`), 
+2. If there is no such base unit (such as for a an unusual unit like `ampere-pound-per-foot-square-minute`),
    convert the input unit to a combination of base units, reduce to lowest terms, and normalize.
    Let the **input base unit** be that value.
        * eg, `ampere-pound-per-foot-square-minute` ⇒ `kilogram-ampere-per-meter-square-second`
@@ -1281,7 +1281,7 @@ A **category** is determined as follows from the input unit:
    An implementation may also set it to an equivalent metric/SI unit, as in the example below.
    This terminates the algorithm; there is no need to use the unit preferences information.
       * For example, for `ampere-pound-per-foot-square-minute` an implementation could return `kilogram-ampere-per-meter-square-second` or `pascal-ampere`.
-      * That is, an implementation can use shorter metric/SI units as long as long as the combination is equivalent in value.    
+      * That is, an implementation can use shorter metric/SI units as long as long as the combination is equivalent in value.
 
 ### <a name="Unit_Preferences_Data" href="#Unit_Preferences_Data">Unit Preferences Data</a>
 
@@ -1362,7 +1362,7 @@ The following is the algorithm for computing the preferred output unit from the 
     1. If the lookup fails, let the **input usage** be its containing usage, and repeat. (This will always terminate is always a 'default' usage for each category.)
     2. The containing usage is the result of truncating the last '-' and following text, if there is a '-', and other wise 'default'
         * For example, land-agriculture-grain ⊂ land-agriculture ⊂ land ⊂ default
-3. Let ranked units be the result of a lookup of R in the category-usage preferences. There may be both region values and [containment regions](https://www.unicode.org/cldr/charts/latest/supplemental/territory_containment_un_m_49.html). 
+3. Let ranked units be the result of a lookup of R in the category-usage preferences. There may be both region values and [containment regions](https://www.unicode.org/cldr/charts/latest/supplemental/territory_containment_un_m_49.html).
     1. If the lookup of R fails, set R to its containing region and repeat. (This will always terminate because 001 is always present.)
         * For example, CH (Switzerland) ⊂ 155 (Western Europe) ⊂ 150 (Europe) ⊂ 001 (World).
         * This loop can be optimized to only include containing regions that occur in the data (eg, only 001 in LDML 45).
@@ -1376,7 +1376,7 @@ The ranked units will be of the following form:
   <unitPreference regions="GB" geq="100.0" skeleton="precision-increment/50">yard</unitPreference>
   <unitPreference regions="GB">yard</unitPreference>
   ```
-  
+
 * The geq item gives the value for the unit in the element value (or for the largest unit for mixed units). For example,
   * `...geq="0.5">mile<...` is ≥ 0.5 miles
   * `...geq="100.0">foot-and-inch<...` is  ≥ 100 feet

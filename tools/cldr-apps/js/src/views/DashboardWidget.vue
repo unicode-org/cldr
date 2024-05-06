@@ -29,15 +29,27 @@
         >
           ↻
         </button>
-        <span v-for="catData of data.notifications" :key="catData.category">
-          <template v-if="catData.total">
+        <span v-for="cat of data.cats" :key="cat">
+          <template v-if="data.catSize[cat]">
+            <input
+              type="checkbox"
+              :title="describeShow(cat)"
+              :id="'dash-cat-checkbox-' + cat"
+              :checked="!catIsHidden[cat]"
+              @change="
+                (event) => {
+                  catCheckmarkChanged(event, cat);
+                }
+              "
+            />
             <button
-              :category="catData.category"
+              :category="cat"
               class="scrollto cldr-nav-btn"
               v-on:click.prevent="scrollToCategory"
-              :title="describe(catData.category)"
+              :title="describeScrollTo(cat)"
+              :disabled="catIsHidden[cat]"
             >
-              {{ humanize(catData.category) }} ({{ catData.total }})
+              {{ humanize(cat) }} ({{ data.catSize[cat] }})
             </button>
             &nbsp;&nbsp;
           </template>
@@ -58,59 +70,50 @@
             title="Hide checked items"
             id="hideChecked"
             v-model="hideChecked"
-          /><label for="hideChecked">hide</label>
+          /><label for="hideChecked">&nbsp;hide</label>
         </span>
       </header>
       <section id="DashboardScroller" class="sidebyside-scrollable">
-        <template
-          v-for="catData of data.notifications"
-          :key="'template-' + catData.category"
-        >
+        <template v-if="updatingVisibility">
+          <a-spin delay="1000" size="large" />
+        </template>
+        <template v-else>
           <template
-            v-for="group of catData.groups"
-            :key="group.section + group.page + group.header"
+            v-for="entry of data.entries"
+            :key="'template-' + entry.xpstrid"
           >
-            <template v-for="entry in group.entries">
+            <template v-if="anyCatIsShown(entry.cats)">
               <p
                 v-if="!(hideChecked && entry.checked)"
-                :key="'dash-item-' + entry.xpstrid + '-' + catData.category"
-                :id="'dash-item-' + entry.xpstrid + '-' + catData.category"
+                :key="'dash-item-' + entry.xpstrid"
+                :id="'dash-item-' + entry.xpstrid"
                 :class="
                   'dash-' +
-                  catData.category +
-                  (lastClicked === entry.xpstrid + '-' + catData.category
-                    ? ' last-clicked'
-                    : '')
+                  (lastClicked === entry.xpstrid ? ' last-clicked' : '')
                 "
               >
                 <span class="dashEntry">
                   <a
-                    v-bind:href="
-                      getLink(
-                        [locale, group.page, entry.xpstrid],
-                        catData.category,
-                        entry.code
-                      )
-                    "
-                    @click="
-                      () =>
-                        setLastClicked(entry.xpstrid + '-' + catData.category)
-                    "
+                    v-bind:href="getLink(locale, entry)"
+                    @click="() => setLastClicked(entry.xpstrid)"
                   >
-                    <span
-                      class="category"
-                      :title="describe(catData.category)"
-                      >{{ abbreviate(catData.category) }}</span
-                    >
+                    <span v-bind:key="cat" v-for="cat of entry.cats">
+                      <span
+                        v-if="!catIsHidden[cat]"
+                        class="category"
+                        :title="describeAbbreviation(cat)"
+                        >{{ abbreviate(cat) }}</span
+                      >
+                    </span>
                     <span class="section-page" title="section—page">{{
-                      humanize(group.section + "—" + group.page)
+                      humanize(entry.section + "—" + entry.page)
                     }}</span>
                     |
                     <span
-                      v-if="group.header"
+                      v-if="entry.header"
                       class="entry-header"
                       title="entry header"
-                      >{{ group.header }}</span
+                      >{{ entry.header }}</span
                     >
                     |
                     <span class="code" title="code">{{ entry.code }}</span>
@@ -142,13 +145,13 @@
                       |
                       <span v-html="entry.comment" title="comment"></span>
                     </template>
-                    <span v-if="catData.category === 'Reports'"
+                    <span v-if="entry.cats.has('Reports')"
                       >{{ humanizeReport(entry.code) }} Report</span
                     >
                   </a>
                 </span>
                 <input
-                  v-if="canBeHidden(catData.category)"
+                  v-if="canBeHidden(entry.cats)"
                   type="checkbox"
                   class="right-control"
                   title="You can hide checked items with the hide checkbox above"
@@ -162,15 +165,14 @@
               </p>
             </template>
           </template>
+          <p class="bottom-padding">...</p>
         </template>
-        <p class="bottom-padding">...</p>
       </section>
     </template>
   </nav>
 </template>
 
 <script>
-import * as cldrAjax from "../esm/cldrAjax.mjs";
 import * as cldrCoverage from "../esm/cldrCoverage.mjs";
 import * as cldrDash from "../esm/cldrDash.mjs";
 import * as cldrGui from "../esm/cldrGui.mjs";
@@ -193,6 +195,8 @@ export default {
       localeName: null,
       level: null,
       downloadMessage: null,
+      catIsHidden: {},
+      updatingVisibility: false,
     };
   },
 
@@ -201,25 +205,22 @@ export default {
   },
 
   methods: {
-    getLink(array, category, code) {
-      const [locale, page, xpstrid] = array;
-      if (category === "Reports") {
-        return `#r_${code}/${locale}`;
+    getLink(locale, entry) {
+      if (entry.cats.has("Reports")) {
+        return `#r_${entry.code}/${locale}`;
       } else {
-        return "#/" + array.join("/");
+        return `#/${locale}/${entry.page}/${entry.xpstrid}`;
       }
     },
+
     scrollToCategory(event) {
-      const whence = event.target.getAttribute("category");
-      if (this.data && this.data.notifications) {
-        for (let catData of this.data.notifications) {
-          if (catData.category == whence) {
-            const whither = document.querySelector(".dash-" + whence);
-            if (whither) {
-              whither.scrollIntoView(true);
-            }
-            return;
-          }
+      const cat = event.target.getAttribute("category");
+      const xpstrid = this.data.catFirst[cat];
+      if (xpstrid) {
+        const selector = "#dash-item-" + xpstrid;
+        const el = document.querySelector(selector);
+        if (el) {
+          el.scrollIntoView(true);
         }
       }
     },
@@ -257,40 +258,13 @@ export default {
       }
       this.localeName = cldrLoad.getLocaleName(this.locale);
       this.loadingMessage = `Loading ${this.localeName} dashboard at ${this.level} level`;
-      this.reallyFetch();
+      cldrDash.doFetch(this.setData);
+      this.fetchErr = cldrDash.getFetchError();
     },
 
-    reallyFetch() {
-      const url = `api/summary/dashboard/${this.locale}/${this.level}`;
-      cldrAjax
-        .doFetch(url)
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error(response.statusText);
-          }
-          return response;
-        })
-        .then((data) => data.json())
-        // hide items that TC does not need
-        .then((data) => {
-          const { userIsTC } = cldrStatus.getPermissions();
-          if (userIsTC) {
-            data.notifications = data.notifications.filter(
-              // skip this category for TC users
-              ({ category }) => category !== "Abstained"
-            );
-          }
-          return data;
-        })
-        .then((data) => {
-          this.data = cldrDash.setData(data);
-          this.resetScrolling();
-        })
-        .catch((err) => {
-          const msg = "Error loading Dashboard data: " + err;
-          console.error(msg);
-          this.fetchErr = msg;
-        });
+    setData(data) {
+      this.data = data;
+      this.resetScrolling();
     },
 
     downloadXlsx() {
@@ -345,6 +319,24 @@ export default {
       }
     },
 
+    describeShow(category) {
+      return `Show this notification category [${this.humanize(
+        category
+      )}]: ${this.describe(category)}`;
+    },
+
+    describeScrollTo(category) {
+      return `Scroll to this notification category [${this.humanize(
+        category
+      )}]: ${this.describe(category)}`;
+    },
+
+    describeAbbreviation(category) {
+      return `Notification category [${this.humanize(
+        category
+      )}]: ${this.describe(category)}`;
+    },
+
     describe(category) {
       // The category is like "English_Changed" or "English Changed"
       // The corresponding key is like "notification_category_english_changed"
@@ -374,11 +366,36 @@ export default {
       cldrDash.saveEntryCheckmark(event.target.checked, entry, this.locale);
     },
 
-    canBeHidden(category) {
-      if (category === "Error" || category === "Missing") {
-        return false;
-      }
-      return true;
+    catCheckmarkChanged(event, category) {
+      // setTimeout solves a weakness in the Vue implementation: if the number of
+      // notifications is large, the checkbox in the header can take a second or more
+      // to change its visible state in response to the user's click, during which time
+      // the user may click again thinking the first click wasn't recognized. Postponing
+      // the DOM update of thousands of rows ensures that the header checkbox updates
+      // without delay.
+      this.updatingVisibility = true;
+      setTimeout(
+        () => this.updateVisibility(event.target.checked, category),
+        0
+      );
+    },
+
+    updateVisibility(checked, category) {
+      this.catIsHidden[category] = !checked;
+      this.updatingVisibility = false;
+    },
+
+    canBeHidden(cats) {
+      // All categories can be hidden except Error and Missing
+      // cats is a Set, not an array
+      return !Array.from(cats).some(
+        (cat) => cat === "Error" || cat === "Missing"
+      );
+    },
+
+    anyCatIsShown(cats) {
+      // cats is a Set, not an array
+      return Array.from(cats).some((cat) => !this.catIsHidden[cat]);
     },
   },
 

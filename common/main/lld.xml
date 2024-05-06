@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="lld"/>
+	</identity>
+	<characters>
+		<exemplarCharacters>[a-z à á â è é ê ë í î ó ö ô ú ü ć]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[ì ò ù û ś ß ä ã å ç ï ð ñ õ ý ÿ ā ă ą ĉ ċ č ē ė ě ğ ī ń ň ō ŏ ő ŕ ř ŝ ş ū ů ű ź ż ž]</exemplarCharacters>
+		<exemplarCharacters type="numbers">[% + \- . 0-9 ‑ ‰]</exemplarCharacters>
+		<exemplarCharacters type="punctuation">[. \: \- ; ? ! ' ’ , / &gt; &lt; „ “ ” « » @ ( ) \[ \] \{ \} # * \&amp;]</exemplarCharacters>
+	</characters>
+</ldml>

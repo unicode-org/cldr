@@ -25,9 +25,7 @@
 			SNAPSHOT for the ICU version that we want, so this should only need updating
 			when the ICU version changes e.g. from 74.0.1, to 74.1, to 75.0.1, then to 75.1.
 			You can use github actions in icu to manually push the latest SNAPSHOT version. -->
-		<!-- <icu4j.version>76.0.1-SNAPSHOT</icu4j.version> -->
-		<!-- Temporary, so that the refactoring of cldr-utilities does not break this. -->
-		<icu4j.version>76.0.1-20240429.164423-1</icu4j.version>
+		<icu4j.version>76.0.1-SNAPSHOT</icu4j.version>
 		<junit.jupiter.version>5.8.2</junit.jupiter.version>
 		<maven-surefire-plugin-version>3.1.0</maven-surefire-plugin-version>
 		<assertj-version>3.11.1</assertj-version>
@@ -65,11 +63,6 @@
 			<dependency>
 				<groupId>com.ibm.icu</groupId>
 				<artifactId>icu4j</artifactId>
-				<version>${icu4j.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.ibm.icu</groupId>
-				<artifactId>utilities-for-cldr</artifactId>
 				<version>${icu4j.version}</version>
 			</dependency>
 

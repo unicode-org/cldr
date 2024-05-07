@@ -8,7 +8,7 @@
  */
 package org.unicode.cldr.icu;
 
-import com.ibm.icu.dev.tool.shared.UOption;
+import com.ibm.icu.dev.util.UOption;
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;

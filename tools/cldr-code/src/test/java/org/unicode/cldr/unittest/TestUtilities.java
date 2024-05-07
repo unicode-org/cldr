@@ -10,8 +10,8 @@ package org.unicode.cldr.unittest;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Ordering;
-import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.impl.Relation;
+import com.ibm.icu.impl.UnicodeMap;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;

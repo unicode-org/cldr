@@ -44,6 +44,7 @@ for additional details on how to create an issue.
 
 You must have an account in order to file tickets. If you do not have an account, you can [request a Jira account](https://id.atlassian.com/signup?continue=https%3A%2F%2Funicode-org.atlassian.net%2Flogin%3FredirectCount%3D1%26dest-url%3Dhttps%253A%252F%252Funicode-org.atlassian.net%252Fprojects%252FCLDR%252Fissues&application=jira). 
 
+
 ## When to fix in survey tool
 
 If you regularly use software in a language and would like to contribute and help fix/add data for that language, please use [the Survey Tool]( https://cldr.unicode.org/index/survey-tool)

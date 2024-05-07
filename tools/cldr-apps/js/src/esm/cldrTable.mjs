@@ -531,7 +531,7 @@ function reallyUpdateRow(tr, theRow) {
   /*
    * Set up the "comparison cell", a.k.a. the "English" column.
    */
-  if (comparisonCell && !comparisonCell.isSetup) {
+  if (comparisonCell) {
     updateRowEnglishComparisonCell(tr, theRow, comparisonCell);
   }
 
@@ -750,6 +750,7 @@ function updateRowCodeCell(tr, theRow, cell) {
  * Called by updateRow.
  */
 function updateRowEnglishComparisonCell(tr, theRow, cell) {
+  cldrDom.removeAllChildNodes(cell);
   let trHint = theRow.translationHint; // sometimes null
   if (theRow.displayName) {
     cell.appendChild(
@@ -1119,7 +1120,9 @@ function appendTranslationHintIcon(parent, text, loc) {
 
 function appendForumStatus(parent, forumStatus, loc) {
   const el = document.createElement("span");
-  el.textContent = "💬" + (forumStatus.hasOpenPosts ? "?" : ".");
+  el.textContent = forumStatus.hasOpenPosts
+    ? cldrText.get("forum_path_has_open_posts_icon")
+    : cldrText.get("forum_path_has_only_closed_posts_icon");
   el.title =
     cldrText.get("forum_path_has_posts") +
     (forumStatus.hasOpenPosts

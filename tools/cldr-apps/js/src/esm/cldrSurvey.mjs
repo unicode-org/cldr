@@ -80,10 +80,9 @@ const statusActionTable = {
 /**
  * How often to fetch updates. Default 15s.
  * Used only for delay in calling updateStatus.
- * @property timerSpeed
  */
-let timerSpeed = 15000; // 15 seconds
-let fastTimerSpeed = 3000; // 3 seconds
+const timerSpeed = 15000; // 15 seconds
+const fastTimerSpeed = 3000; // 3 seconds
 let statusTimeout = null;
 
 let overridedir = null;

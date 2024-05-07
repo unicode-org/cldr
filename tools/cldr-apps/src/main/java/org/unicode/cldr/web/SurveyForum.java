@@ -17,6 +17,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -46,6 +47,9 @@ public class SurveyForum {
     private static final String F_FORUM = "forum";
 
     public static final String F_XPATH = "xpath";
+
+    private static final ConcurrentHashMap<CLDRLocale, LocaleForumStatus> localeForumStatusMap =
+            new ConcurrentHashMap<>();
 
     /**
      * Make an "html-safe" version of the given string
@@ -1058,6 +1062,7 @@ public class SurveyForum {
             autoPostDecline(locale, user, xpathId, value);
             autoPostClose(locale, user, xpathId, value);
         }
+        localeForumStatusMap.remove(locale);
     }
 
     /**
@@ -1303,6 +1308,7 @@ public class SurveyForum {
         }
         CLDRLocale locale = postInfo.getLocale();
         sm.getSTFactory().get(locale).nextStamp();
+        localeForumStatusMap.remove(locale);
         return postId;
     }
 
@@ -1633,44 +1639,64 @@ public class SurveyForum {
         public boolean hasPosts, hasOpenPosts;
 
         public PathForumStatus(CLDRLocale locale, String xpath) {
+            LocaleForumStatus lfs =
+                    localeForumStatusMap.computeIfAbsent(locale, LocaleForumStatus::new);
+            if (lfs.pathsWithSomeOpenPosts.contains(xpath)) {
+                this.hasPosts = this.hasOpenPosts = true;
+            } else if (lfs.pathsWithOnlyClosedPosts.contains(xpath)) {
+                this.hasPosts = true;
+                this.hasOpenPosts = false;
+            } else {
+                this.hasPosts = this.hasOpenPosts = false;
+            }
+        }
+    }
+
+    public static class LocaleForumStatus {
+        Set<String> pathsWithSomeOpenPosts, pathsWithOnlyClosedPosts;
+
+        public LocaleForumStatus(CLDRLocale locale) {
+            this.pathsWithSomeOpenPosts = ConcurrentHashMap.newKeySet();
+            this.pathsWithOnlyClosedPosts = ConcurrentHashMap.newKeySet();
+
+            final String localeId = locale.getBaseName();
+            final String tableName = DBUtils.Table.FORUM_POSTS.toString();
+            final String query =
+                    "SELECT xpath, MAX(is_open) FROM " + tableName + " WHERE loc=? GROUP BY xpath";
             Connection conn = null;
             PreparedStatement ps = null;
-            final String tableName = DBUtils.Table.FORUM_POSTS.toString();
-            final String localeId = locale.getBaseName();
-            final int xpathId = CookieSession.sm.xpt.getByXpath(xpath);
             try {
                 conn = DBUtils.getInstance().getAConnection();
                 if (conn == null) {
                     return;
                 }
-                // Expect most paths have NO posts, so check first for ANY posts (open or not).
-                // "LIMIT 1" may improve performance; no need to distinguish 1 from larger numbers
-                ps =
-                        DBUtils.prepareForwardReadOnly(
-                                conn,
-                                "SELECT ID FROM " + tableName + " WHERE loc=? and xpath=? LIMIT 1");
+                ps = DBUtils.prepareForwardReadOnly(conn, query);
                 ps.setString(1, localeId);
-                ps.setInt(2, xpathId);
-                if (DBUtils.sqlCount(ps) <= 0) { // sqlCount returns -1 (not 0) for none!
-                    this.hasPosts = this.hasOpenPosts = false;
-                    return;
+                ResultSet rs = ps.executeQuery();
+                while (rs.next()) {
+                    int xp = rs.getInt(1);
+                    if (xp <= 0) {
+                        continue;
+                    }
+                    String xpath = CookieSession.sm.xpt.getById(xp);
+                    if (xpath == null) {
+                        continue;
+                    }
+                    int openCount = rs.getInt(2);
+                    if (openCount > 0) {
+                        this.pathsWithSomeOpenPosts.add(xpath);
+                    } else {
+                        this.pathsWithOnlyClosedPosts.add(xpath);
+                    }
                 }
-                this.hasPosts = true;
-                // Check for OPEN posts
-                ps =
-                        DBUtils.prepareForwardReadOnly(
-                                conn,
-                                "SELECT ID FROM "
-                                        + tableName
-                                        + " WHERE loc=? and xpath=? AND is_open=1 LIMIT 1");
-                ps.setString(1, localeId);
-                ps.setInt(2, xpathId);
-                this.hasOpenPosts = DBUtils.sqlCount(ps) > 0;
+                rs.close();
             } catch (SQLException e) {
-                SurveyLog.logException(
-                        logger,
-                        e,
-                        "PathForumStatus for " + tableName + " " + locale + ":" + xpathId);
+                String complaint =
+                        "SurveyForum: Error getting status for locale "
+                                + localeId
+                                + " - "
+                                + DBUtils.unchainSqlException(e);
+                logger.severe(complaint);
             } finally {
                 DBUtils.close(ps, conn);
             }

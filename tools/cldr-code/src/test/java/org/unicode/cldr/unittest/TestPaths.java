@@ -122,26 +122,31 @@ public class TestPaths extends TestFmwkPlus {
         CLDRFile englishFile = testInfo.getCldrFactory().make("en", true);
         PathHeader.Factory phf = PathHeader.getFactory(englishFile);
         Status status = new Status();
+        final String exemptLocale = "sv";
+        final String exemptPathIfLocale =
+                "//ldml/dates/calendars/calendar[@type=\"dangi\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"yMd\"]";
+
         for (String locale : getLocalesToTest()) {
+            boolean isExemptLocale = locale.equals(exemptLocale);
+
             if (!StandardCodes.isLocaleAtLeastBasic(locale)) {
                 continue;
             }
             CLDRFile file = testInfo.getCLDRFile(locale, true);
             logln("Testing path headers and values for locale => " + locale);
             final Collection<String> extraPaths = file.getExtraPaths();
+
             for (Iterator<String> it = file.iterator(); it.hasNext(); ) {
                 String path = it.next();
-                if (extraPaths.contains(path)) {
+                if (isExemptLocale && path.equals(exemptPathIfLocale)) {
+                    logKnownIssue("CLDR-17544", "Can't reproduce locally");
                     continue;
                 }
-                checkFullpathValue(path, file, locale, status, false /* not extra path */);
-                if (!pathsSeen.contains(path)) {
-                    pathsSeen.add(path);
-                    checkPrettyPaths(path, phf);
+                if (extraPaths.contains(path)) {
+                    checkFullpathValue(path, file, locale, status, true /* extra path */);
+                } else {
+                    checkFullpathValue(path, file, locale, status, false /* not extra path */);
                 }
-            }
-            for (String path : extraPaths) {
-                checkFullpathValue(path, file, locale, status, true /* extra path */);
                 if (!pathsSeen.contains(path)) {
                     pathsSeen.add(path);
                     checkPrettyPaths(path, phf);

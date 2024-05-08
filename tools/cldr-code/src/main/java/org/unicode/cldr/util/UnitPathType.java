@@ -120,6 +120,15 @@ public enum UnitPathType {
         throw new IllegalArgumentException("PathType: " + parts);
     }
 
+    public static String getDisplayNamePathFromLongId(String longUnitId, String width) {
+        return "//ldml/units/unitLength[@type=\""
+                + width
+                + "\"]/"
+                + "unit[@type=\""
+                + longUnitId
+                + "\"]/displayName";
+    }
+
     public String getTranslationPath(
             LocaleStringProvider resolvedFile,
             String width,

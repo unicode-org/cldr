@@ -6,6 +6,19 @@
  */
 package org.unicode.cldr.tool;
 
+import com.google.common.base.Joiner;
+import com.google.common.base.Splitter;
+import com.ibm.icu.dev.tool.shared.UOption;
+import com.ibm.icu.impl.Utility;
+import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.DateTimePatternGenerator;
+import com.ibm.icu.text.DateTimePatternGenerator.VariableField;
+import com.ibm.icu.text.Normalizer;
+import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.ICUException;
+import com.ibm.icu.util.Output;
+import com.ibm.icu.util.ULocale;
 import java.io.File;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -25,7 +38,6 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.CLDRTest;
 import org.unicode.cldr.test.CoverageLevel2;
@@ -73,20 +85,6 @@ import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.XPathParts.Comments;
 import org.unicode.cldr.util.XPathParts.Comments.CommentType;
 
-import com.google.common.base.Joiner;
-import com.google.common.base.Splitter;
-import com.ibm.icu.dev.tool.shared.UOption;
-import com.ibm.icu.impl.Utility;
-import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.DateTimePatternGenerator;
-import com.ibm.icu.text.DateTimePatternGenerator.VariableField;
-import com.ibm.icu.text.Normalizer;
-import com.ibm.icu.text.NumberFormat;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.ICUException;
-import com.ibm.icu.util.Output;
-import com.ibm.icu.util.ULocale;
-
 /**
  * Tool for applying modifications to the CLDR files. Use -h to see the options.
  *
@@ -98,6 +96,7 @@ import com.ibm.icu.util.ULocale;
         description =
                 "Tool for applying modifications to the CLDR files. Use -h to see the options.")
 public class CLDRModify {
+    private static final Splitter SPLIT_ON_SEMI = Splitter.onPattern("\\s*;\\s+");
     static final String DEBUG_PATHS = null; // ".*currency.*";
     static final boolean COMMENT_REMOVALS = false; // append removals as comments
     static final UnicodeSet whitespace = new UnicodeSet("[:whitespace:]").freeze();
@@ -2378,12 +2377,14 @@ public class CLDRModify {
                                     @Override
                                     protected boolean handleLine(int lineCount, String line) {
                                         line = line.trim();
-                                        Iterable<String> lineParts = Splitter.onPattern("\\s*;\\s+").split(line);
+                                        Iterable<String> lineParts = SPLIT_ON_SEMI.split(line);
                                         Map<ConfigKeys, ConfigMatch> keyValue =
                                                 new EnumMap<>(ConfigKeys.class);
                                         for (String linePart : lineParts) {
                                             int pos = linePart.indexOf('=');
                                             if (pos < 0) {
+                                                // WARNING; the code doesn't allow for ; within
+                                                // values; need to restructure for that.
                                                 throw new IllegalArgumentException(
                                                         lineCount
                                                                 + ":\t No = in command: «"

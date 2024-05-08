@@ -88,6 +88,7 @@ public class LogicalGrouping {
                     "Mexico_Northwest",
                     "Mexico_Pacific",
                     "Mongolia",
+                    "Morocco",
                     "Moscow",
                     "New_Caledonia",
                     "New_Zealand",

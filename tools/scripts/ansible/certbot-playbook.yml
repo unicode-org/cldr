@@ -15,3 +15,8 @@
         --keep --redirect --uir --hsts --staple-ocsp --must-staple
       args:
         creates: /etc/letsencrypt/renewal/{{ inventory_hostname }}.conf
+    - name: Speedup http2
+      replace:
+        path: /etc/nginx/sites-enabled/default
+        regexp: '^(\s*)listen 443 ssl;(.*)$'
+        replace: '\1listen 443 ssl http2;\2'

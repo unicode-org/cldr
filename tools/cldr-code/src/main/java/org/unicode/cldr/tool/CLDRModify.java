@@ -96,6 +96,7 @@ import org.unicode.cldr.util.XPathParts.Comments.CommentType;
         description =
                 "Tool for applying modifications to the CLDR files. Use -h to see the options.")
 public class CLDRModify {
+    private static final Splitter SPLIT_ON_SEMI = Splitter.onPattern("\\s*;\\s+");
     static final String DEBUG_PATHS = null; // ".*currency.*";
     static final boolean COMMENT_REMOVALS = false; // append removals as comments
     static final UnicodeSet whitespace = new UnicodeSet("[:whitespace:]").freeze();
@@ -650,7 +651,7 @@ public class CLDRModify {
                             + "Use -? for help.");
         }
         if (i == FIX && givenOptions.value != null) {
-            final UnicodeSet allowedFilters = new UnicodeSet().add('P').add('Q').add('V');
+            final UnicodeSet allowedFilters = new UnicodeSet().add('P').add('Q').add('V').add('k');
             for (char c : givenOptions.value.toCharArray()) {
                 if (!allowedFilters.contains(c)) {
                     throw new IllegalArgumentException(
@@ -2376,12 +2377,14 @@ public class CLDRModify {
                                     @Override
                                     protected boolean handleLine(int lineCount, String line) {
                                         line = line.trim();
-                                        String[] lineParts = line.split("\\s*;\\s*");
+                                        Iterable<String> lineParts = SPLIT_ON_SEMI.split(line);
                                         Map<ConfigKeys, ConfigMatch> keyValue =
                                                 new EnumMap<>(ConfigKeys.class);
                                         for (String linePart : lineParts) {
                                             int pos = linePart.indexOf('=');
                                             if (pos < 0) {
+                                                // WARNING; the code doesn't allow for ; within
+                                                // values; need to restructure for that.
                                                 throw new IllegalArgumentException(
                                                         lineCount
                                                                 + ":\t No = in command: «"

@@ -29,9 +29,6 @@ import org.unicode.cldr.util.*;
 import org.unicode.cldr.util.CLDRInfo.CandidateInfo;
 import org.unicode.cldr.util.CLDRInfo.PathValueInfo;
 import org.unicode.cldr.util.CLDRInfo.UserInfo;
-import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
-import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
-import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 import org.unicode.cldr.util.VoteResolver.Status;
@@ -566,8 +563,7 @@ public class DataPage {
 
         /** check to see if there are any 'fixed' values, i.e. no freeform input is allowed. */
         public void addFixedCandidates() {
-            Collection<String> candidates = getFixedCandidates();
-            // Could have other XPaths here
+            Collection<String> candidates = stFactory.getFixedCandidates(locale, xpath);
 
             if (candidates == null || candidates.isEmpty()) {
                 return;
@@ -576,18 +572,6 @@ public class DataPage {
             for (final String candidate : candidates) {
                 addItem(candidate, "fixed");
             }
-        }
-
-        private Collection<String> getFixedCandidates() {
-            if (PatternCache.get("^//ldml/units/unitLength.*/unit.*/gender")
-                    .matcher(xpath)
-                    .matches()) {
-                return grammarInfo.get(
-                        GrammaticalTarget.nominal,
-                        GrammaticalFeature.grammaticalGender,
-                        GrammaticalScope.units);
-            }
-            return Collections.emptySet();
         }
 
         /**
@@ -1445,6 +1429,7 @@ public class DataPage {
     private final XPathMatcher matcher;
     private final PageId pageId;
     private CLDRFile diskFile;
+    private final STFactory stFactory;
 
     private static final boolean DEBUG_DATA_PAGE = false;
     private String creationTime = null; // only used if DEBUG_DATA_PAGE
@@ -1456,7 +1441,9 @@ public class DataPage {
         this.sm = sm;
         this.matcher = matcher;
         xpathPrefix = prefix;
-        ballotBox = sm.getSTFactory().ballotBoxForLocale(locale);
+        this.stFactory = sm.getSTFactory();
+        ballotBox = stFactory.ballotBoxForLocale(locale);
+
         this.pageId = pageId;
 
         if (DEBUG_DATA_PAGE) {
@@ -1465,7 +1452,6 @@ public class DataPage {
                             .format(Calendar.getInstance().getTime());
             System.out.println("🌴 Created new DataPage for loc " + loc + " at " + creationTime);
         }
-        grammarInfo = sm.getSupplementalDataInfo().getGrammarInfo(locale.getBaseName());
     }
 
     /**

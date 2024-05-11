@@ -2734,14 +2734,17 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         ctx.redirect(vurl);
     }
 
-    private SupplementalDataInfo supplementalDataInfo = null;
+    private Supplier<SupplementalDataInfo> supplementalDataInfo =
+            Suppliers.memoize(
+                    () -> {
+                        final SupplementalDataInfo newSdi =
+                                SupplementalDataInfo.getInstance(getSupplementalDirectory());
+                        newSdi.setAsDefaultInstance();
+                        return newSdi;
+                    });
 
-    public final synchronized SupplementalDataInfo getSupplementalDataInfo() {
-        if (supplementalDataInfo == null) {
-            supplementalDataInfo = SupplementalDataInfo.getInstance(getSupplementalDirectory());
-            supplementalDataInfo.setAsDefaultInstance();
-        }
-        return supplementalDataInfo;
+    public final SupplementalDataInfo getSupplementalDataInfo() {
+        return supplementalDataInfo.get();
     }
 
     File getSupplementalDirectory() {

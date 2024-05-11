@@ -4,13 +4,13 @@
 #   Eg, if locale1 and locale2 use the same script, and locale1 has exemplars [abcd] and locale2 has [cdef],
 #   then the resulting set will be [af]
 #   If the set is [], it is omitted here.
-# It is cached here to avoid the cost of doing the derivation at runtime; possible because the CLDR exemplars don't change much in the ST, 
+# It is cached here to avoid the cost of doing the derivation at runtime; possible because the CLDR exemplars don't change much in the ST,
 #   and these are only hints.
 # LikelySubtagsTest.java
 # - Contains a test that verifies that this data correspond to the derivation from the CLDR data.
 # - Also has the details of the derivation from CLDR data, and shows how to refresh this data, if CLDR data changes.
 # - NOTE: We may tweak the derivation over time.
-Arab ;	105 ;	[ؠ-ئةثحخذص-غؽف-كه-ْٰٔٙٛٲٶٹ-ځڃ-ڊڌڍڏڑړڕږژ-ښڠڢڤڦک-ګڭگڱڳڵں-ھہۃۄۆ-ېےەݙݜݢݨݲ]
+Arab ;	106 ;	[ؠ-ئةثحخذص-غؽف-كه-ْٰٔٙٛٲٴٶٹ-ځڃ-ڊڌڍڏڑړڕږژ-ښڠڢڤڦک-ګڭگڱڳڵں-ھہۃۄۆ-ېےەݙݜݢݨݲ]
 Beng ;	12 ;	[ঌরঽৄৎৗৠ-ৣৰৱ]
 Cans ;	133 ;	[ᐁᐍᐏᐑᐓᐕᐘᐚᐟᐠᐢ-ᐤᐦᐨᐩᐯᐻᐽᐿᑁᑃᑅᑇᑉᑊᑌᑘᑚᑜᑞᑠᑢᑤᑦᑫᑵᑷᑹᑻᑽᑿᒁᒃᒉᒓᒕᒗᒙᒛᒝᒟᒡᒣᒭᒯᒱᒳᒵᒷᒹᒻᒼᓀᓊᓌᓎᓐᓕ-ᓘᓚᓛᓪᓭᓷᓹᓻᓽᓿᔁᔃᔅᔦᔰᔲᔴᔶᔸᔺᔼᔾᕆ-ᕉᕋᕌᕐᕕ-ᕚᕝᕿ-ᖃᖅᖏᖑ-ᖖᖠ-ᖦᙱ-ᙶ]
 Cyrl ;	109 ;	[ʼве-йфцш-яё-ќўџѡѣѧѫѯѱѳѵѷѻѽѿ҃҇ґғҕҗҙқҝҟҡңҥҩҫҭүұҳҵҷҹһҽҿӑӕӗәӡӣөӯӳӷԥⷠ-ⷪⷬⷭⷯⷱⷴⸯꙁꙋꙍꙗ꙽ꙿ{гӏ}{кӏ}{пӏ}{тӏ}{хӏ}{цӏ}{чӏ}]

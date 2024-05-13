@@ -751,13 +751,12 @@ public class GrammarInfo implements Freezable<GrammarInfo> {
                     "dot", // fallback is pixel
                     "dot-per-centimeter", // fallback is pixel
                     "dunam", // language-specific
-                    "astronomical-unit", // specialized
                     "nautical-mile", // US/UK specific
                     "knot", // US/UK specific
+                    "astronomical-unit", // specialized
                     "dalton", // specialized
-                    "electronvolt", // specialized
-                    "kilocalorie",
-                    "point");
+                    "electronvolt" // specialized
+                    );
 
     public static Set<String> getSpecialsToTranslate() {
         return INCLUDE_OTHER;

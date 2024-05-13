@@ -124,7 +124,8 @@ public class UnitConverter implements Freezable<UnitConverter> {
                     "pixel",
                     "em",
                     "revolution",
-                    "portion");
+                    "portion",
+                    "night");
 
     public void addQuantityInfo(String baseUnit, String quantity, String status) {
         if (baseUnitToQuantity.containsKey(baseUnit)) {

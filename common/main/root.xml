@@ -5222,6 +5222,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="duration-day-person">
 				<alias source="locale" path="../unit[@type='duration-day']"/>
 			</unit>
+			<unit type="duration-night">
+				<displayName>night</displayName>
+				<unitPattern count="other">{0} night</unitPattern>
+				<perUnitPattern>{0}/night</perUnitPattern>
+			</unit>
 			<unit type="duration-hour">
 				<displayName>hr</displayName>
 				<unitPattern count="other">{0} h</unitPattern>

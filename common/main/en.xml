@@ -7021,6 +7021,12 @@ annotations.
 				<unitPattern count="other">{0} days</unitPattern>
 				<perUnitPattern>{0} per day</perUnitPattern>
 			</unit>
+			<unit type="duration-night">
+				<displayName>nights</displayName>
+				<unitPattern count="one">{0} night</unitPattern>
+				<unitPattern count="other">{0} nights</unitPattern>
+				<perUnitPattern>{0}/night</perUnitPattern>
+			</unit>
 			<unit type="duration-hour">
 				<displayName>hours</displayName>
 				<unitPattern count="one">{0} hour</unitPattern>
@@ -8094,6 +8100,12 @@ annotations.
 				<unitPattern count="other">{0} days</unitPattern>
 				<perUnitPattern>{0}/d</perUnitPattern>
 			</unit>
+			<unit type="duration-night">
+				<displayName>nights</displayName>
+				<unitPattern count="one">{0} night</unitPattern>
+				<unitPattern count="other">{0} nights</unitPattern>
+				<perUnitPattern>{0}/night</perUnitPattern>
+			</unit>
 			<unit type="duration-hour">
 				<displayName>hours</displayName>
 				<unitPattern count="one">{0} hr</unitPattern>
@@ -9163,6 +9175,12 @@ annotations.
 				<unitPattern count="one">{0}d</unitPattern>
 				<unitPattern count="other">{0}d</unitPattern>
 				<perUnitPattern>{0}/d</perUnitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>nights</displayName>
+				<unitPattern count="one">{0}night</unitPattern>
+				<unitPattern count="other">{0}nights</unitPattern>
+				<perUnitPattern>{0}/night</perUnitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<displayName>hour</displayName>

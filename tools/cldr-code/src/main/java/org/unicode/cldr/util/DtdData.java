@@ -1869,7 +1869,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                                         "volume-sai",
                                         "volume-to-jp",
                                         "volume-koku",
-                                        "mass-fun"))
+                                        "mass-fun",
+                                        "duration-night"))
                         .freeze();
     }
 

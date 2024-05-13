@@ -891,6 +891,7 @@ public class TestUnits extends TestFmwk {
                     .put("newton-meter", "torque")
                     .put("pound-force-foot", "torque")
                     .put("solar-luminosity", "light")
+                    .put("night", "duration")
                     .build();
 
     public void TestUnitCategory() {
@@ -4627,13 +4628,18 @@ public class TestUnits extends TestFmwk {
                 actualUnit = e.getMessage();
                 actualValueFloat = Float.NaN;
             }
-            if (assertEquals(
-                    String.format(
-                            "ICU unit pref, %s %s %s %s",
-                            sourceUnit, sourceAmount, usage, languageTag),
-                    expectedUnit,
-                    actualUnit)) {
-                assertEquals("ICU value", (float) expectedAmount, actualValueFloat);
+            if (!expectedUnit.equals(actualUnit)) {
+                if (!logKnownIssue("CLDR-17581", "No null from unitPreferences")) {
+
+                    assertEquals(
+                            String.format(
+                                    "ICU unit pref, %s %s %s %s",
+                                    sourceUnit, sourceAmount, usage, languageTag),
+                            expectedUnit,
+                            actualUnit);
+                }
+            } else if (assertEquals("ICU value", (float) expectedAmount, actualValueFloat)) {
+                // no other action
             } else if (!comment.isBlank()) {
                 warnln(comment);
             }

@@ -124,7 +124,8 @@ public class UnitConverter implements Freezable<UnitConverter> {
                     "pixel",
                     "em",
                     "revolution",
-                    "portion");
+                    "portion",
+                    "night");
 
     public void addQuantityInfo(String baseUnit, String quantity, String status) {
         if (baseUnitToQuantity.containsKey(baseUnit)) {
@@ -230,6 +231,14 @@ public class UnitConverter implements Freezable<UnitConverter> {
                     }
                 }
                 String quantity = getQuantityFromUnit(base.value, false);
+                if (quantity == null) {
+                    if (base.value.equals("night")) {
+                        quantity = "duration";
+                    } else {
+                        throw new IllegalArgumentException(
+                                "Can't get quantity from : " + base.value);
+                    }
+                }
                 Integer quantityNumericOrder = quantityComparator.getNumericOrder(quantity);
                 if (quantityNumericOrder == null) { // try the inverse
                     if (base.value.equals("meter-per-cubic-meter")) { // HACK

@@ -1698,7 +1698,8 @@ public class SupplementalDataInfo {
             final String quantity = parts.getAttributeValue(-1, "quantity");
             final String status = parts.getAttributeValue(-1, "status");
             if (unitConverter == null) {
-                unitConverter = new UnitConverter(rationalParser, validity);
+                unitConverter =
+                        new UnitConverter(rationalParser, validity, x -> getUnitIdComponentType(x));
             }
             unitConverter.addQuantityInfo(baseUnit, quantity, status);
             return true;

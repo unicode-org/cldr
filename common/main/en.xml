@@ -7514,6 +7514,11 @@ annotations.
 				<unitPattern count="one">{0} knot</unitPattern>
 				<unitPattern count="other">{0} knots</unitPattern>
 			</unit>
+			<unit type="speed-light-speed">
+				<displayName>light</displayName>
+				<unitPattern count="one">{0} light</unitPattern>
+				<unitPattern count="other">{0} light</unitPattern>
+			</unit>
 			<unit type="speed-beaufort">
 				<displayName>Beaufort</displayName>
 				<unitPattern count="one">Beaufort {0}</unitPattern>
@@ -8593,6 +8598,11 @@ annotations.
 				<unitPattern count="one">{0} kn</unitPattern>
 				<unitPattern count="other">{0} kn</unitPattern>
 			</unit>
+			<unit type="speed-light-speed">
+				<displayName>light</displayName>
+				<unitPattern count="one">{0} light</unitPattern>
+				<unitPattern count="other">{0} light</unitPattern>
+			</unit>
 			<unit type="speed-beaufort">
 				<displayName>Bft</displayName>
 				<unitPattern count="one">B {0}</unitPattern>
@@ -9669,7 +9679,12 @@ annotations.
 				<unitPattern count="one">{0}kn</unitPattern>
 				<unitPattern count="other">{0}kn</unitPattern>
 			</unit>
-			<unit type="speed-beaufort">
+			<unit type="speed-light-speed">
+				<displayName>light</displayName>
+				<unitPattern count="one">{0}light</unitPattern>
+				<unitPattern count="other">{0}light</unitPattern>
+			</unit>
+ 			<unit type="speed-beaufort">
 				<displayName>Bft</displayName>
 				<unitPattern count="one">B{0}</unitPattern>
 				<unitPattern count="other">B{0}</unitPattern>

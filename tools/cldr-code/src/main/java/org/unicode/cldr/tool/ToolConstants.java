@@ -62,6 +62,11 @@ public class ToolConstants {
         return last;
     }
 
+    /** Version prior to the current DEV version */
+    public static VersionInfo previousVersion() {
+        return previousVersion(DEV_VERSION_VI);
+    }
+
     public static String previousVersion(String version, int minFields) {
         VersionInfo result = previousVersion(VersionInfo.getInstance(version));
         return result.getVersionString(minFields, 2);

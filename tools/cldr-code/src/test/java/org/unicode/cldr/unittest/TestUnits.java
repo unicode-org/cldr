@@ -3926,7 +3926,8 @@ public class TestUnits extends TestFmwk {
                                         "arc-second",
                                         "arc-minute",
                                         "degree",
-                                        "electronvolt"),
+                                        "electronvolt",
+                                        "light-speed"),
                                 UnitSystem.metric,
                                 true), //
                         new UnitSystemInvariant(

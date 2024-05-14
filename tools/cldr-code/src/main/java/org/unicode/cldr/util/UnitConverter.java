@@ -1073,6 +1073,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
     }
 
     Comparator<String> UNIT_COMPARATOR = new UnitComparator();
+    static final Pattern TRAILING_ZEROS = Pattern.compile("0+$");
 
     /** Only handles the canonical units; no kilo-, only normalized, etc. */
     // Thus we do not need to handle specials here
@@ -1174,7 +1175,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
             for (int i = 1; i >= 0; --i) { // two passes, numerator then den.
                 boolean positivePass = i > 0;
                 if (positivePass && !factor.numerator.equals(BigInteger.ONE)) {
-                    builder.append(factor.numerator);
+                    builder.append(shortConstant(factor.numerator));
                 }
 
                 Map<String, Integer> target = positivePass ? numUnitsToPowers : denUnitsToPowers;
@@ -1190,7 +1191,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
                             firstDenominator = false;
                             builder.append("per-");
                             if (!factor.denominator.equals(BigInteger.ONE)) {
-                                builder.append(factor.denominator).append('-');
+                                builder.append(shortConstant(factor.denominator)).append('-');
                             }
                         }
                     }
@@ -1213,8 +1214,33 @@ public class UnitConverter implements Freezable<UnitConverter> {
                     }
                     builder.append(unit);
                 }
+                if (!positivePass
+                        && firstDenominator
+                        && !factor.denominator.equals(BigInteger.ONE)) {
+                    builder.append("-per-").append(shortConstant(factor.denominator));
+                }
             }
             return builder.toString();
+        }
+
+        /**
+         * Return a string format. If larger than 7 digits, use 1eN format.
+         *
+         * @param source
+         * @return
+         */
+        public String shortConstant(BigInteger source) {
+            // don't bother optimizing
+            String result = source.toString();
+            if (result.length() < 8) {
+                return result;
+            }
+            Matcher matcher = TRAILING_ZEROS.matcher(result);
+            if (matcher.find()) {
+                int zeroCount = matcher.group().length();
+                return result.substring(0, result.length() - zeroCount) + "e" + zeroCount;
+            }
+            return result;
         }
 
         public String toString(

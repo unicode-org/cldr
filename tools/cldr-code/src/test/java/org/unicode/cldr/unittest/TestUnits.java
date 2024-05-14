@@ -1,41 +1,5 @@
 package org.unicode.cldr.unittest;
 
-import com.google.common.base.Joiner;
-import com.google.common.base.Splitter;
-import com.google.common.collect.BiMap;
-import com.google.common.collect.Comparators;
-import com.google.common.collect.ComparisonChain;
-import com.google.common.collect.HashMultimap;
-import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableMultimap;
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.ImmutableSortedSet;
-import com.google.common.collect.LinkedHashMultimap;
-import com.google.common.collect.Multimap;
-import com.google.common.collect.Multimaps;
-import com.google.common.collect.Ordering;
-import com.google.common.collect.Sets;
-import com.google.common.collect.Sets.SetView;
-import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.impl.Row;
-import com.ibm.icu.impl.Row.R2;
-import com.ibm.icu.impl.Row.R3;
-import com.ibm.icu.number.FormattedNumber;
-import com.ibm.icu.number.LocalizedNumberFormatter;
-import com.ibm.icu.number.Notation;
-import com.ibm.icu.number.NumberFormatter;
-import com.ibm.icu.number.NumberFormatter.UnitWidth;
-import com.ibm.icu.number.Precision;
-import com.ibm.icu.number.UnlocalizedNumberFormatter;
-import com.ibm.icu.text.PluralRules;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.ICUUncheckedIOException;
-import com.ibm.icu.util.Measure;
-import com.ibm.icu.util.MeasureUnit;
-import com.ibm.icu.util.Output;
-import com.ibm.icu.util.ULocale;
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
@@ -68,6 +32,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
+
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.Options;
@@ -123,6 +88,43 @@ import org.unicode.cldr.util.Validity.Status;
 import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
+
+import com.google.common.base.Joiner;
+import com.google.common.base.Splitter;
+import com.google.common.collect.BiMap;
+import com.google.common.collect.Comparators;
+import com.google.common.collect.ComparisonChain;
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableMultimap;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.ImmutableSortedSet;
+import com.google.common.collect.LinkedHashMultimap;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.Multimaps;
+import com.google.common.collect.Ordering;
+import com.google.common.collect.Sets;
+import com.google.common.collect.Sets.SetView;
+import com.google.common.collect.TreeMultimap;
+import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.impl.Row.R3;
+import com.ibm.icu.number.FormattedNumber;
+import com.ibm.icu.number.LocalizedNumberFormatter;
+import com.ibm.icu.number.Notation;
+import com.ibm.icu.number.NumberFormatter;
+import com.ibm.icu.number.NumberFormatter.UnitWidth;
+import com.ibm.icu.number.Precision;
+import com.ibm.icu.number.UnlocalizedNumberFormatter;
+import com.ibm.icu.text.PluralRules;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.ICUUncheckedIOException;
+import com.ibm.icu.util.Measure;
+import com.ibm.icu.util.MeasureUnit;
+import com.ibm.icu.util.Output;
+import com.ibm.icu.util.ULocale;
 
 public class TestUnits extends TestFmwk {
     private static final boolean DEBUG = System.getProperty("TestUnits:DEBUG") != null;
@@ -3197,6 +3199,10 @@ public class TestUnits extends TestFmwk {
 
         checkNormalization("test case", "newton-meter");
         checkNormalization("test case", "acre-foot");
+        checkNormalization("test case", "portion-per-1e9");
+        checkNormalization("test case", "portion-per-1000");
+        checkNormalization("test case", "1e9-meter");
+        checkNormalization("test case", "1000-meter");
 
         String stdAcre = converter.getStandardUnit("acre");
 

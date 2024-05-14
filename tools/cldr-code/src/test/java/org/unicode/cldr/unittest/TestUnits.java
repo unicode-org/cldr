@@ -3197,6 +3197,10 @@ public class TestUnits extends TestFmwk {
 
         checkNormalization("test case", "newton-meter");
         checkNormalization("test case", "acre-foot");
+        checkNormalization("test case", "portion-per-1e9");
+        checkNormalization("test case", "portion-per-1000");
+        checkNormalization("test case", "1e9-meter");
+        checkNormalization("test case", "1000-meter");
 
         String stdAcre = converter.getStandardUnit("acre");
 

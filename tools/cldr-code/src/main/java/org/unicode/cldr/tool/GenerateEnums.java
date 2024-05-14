@@ -26,8 +26,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-
-import jdk.internal.joptsimple.OptionSet;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
@@ -81,7 +79,8 @@ public class GenerateEnums {
 
     private Set<String> languages = new TreeSet<>();
 
-    final private Set<String> ignoreMissingAlpha3 = new TreeSet<>(Arrays.asList("EA", "EZ", "IC", "UN"));
+    private final Set<String> ignoreMissingAlpha3 =
+            new TreeSet<>(Arrays.asList("EA", "EZ", "IC", "UN"));
 
     public static void main(String[] args) throws IOException {
         GenerateEnums gen = new GenerateEnums();

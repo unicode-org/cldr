@@ -3882,7 +3882,7 @@ public class TestUnits extends TestFmwk {
                     || cldrSystems.contains(UnitSystem.si) && !nistSystems.contains(UnitSystem.si)
                     || cldrSystems.contains(UnitSystem.si_acceptable)
                             && !nistSystems.contains(UnitSystem.si_acceptable)) {
-                if (unit.equals("100-kilometer")) {
+                if (unit.equals("100-kilometer") || unit.equals("light-speed")) {
                     continue;
                 }
                 fails.add(
@@ -4459,14 +4459,32 @@ public class TestUnits extends TestFmwk {
             {"item-per-1e9-item", "item-per-item", "1/1000000000"},
             {"item-per-1e9", "item", "1/1000000000"},
         };
+        checkConversionToBase(tests);
+    }
+
+    public void checkConversionToBase(String[][] tests) {
+        int count = 0;
         for (String[] test : tests) {
+            ++count;
             Output<String> metric = new Output<>();
             final String inputUnit = test[0];
             final String expectedTarget = test[1];
             final Rational expectedFactor = Rational.of(test[2]);
             ConversionInfo unitId1 = converter.parseUnitId(inputUnit, metric, DEBUG);
-            assertEquals(inputUnit, expectedTarget, metric.value);
-            assertEquals(inputUnit, expectedFactor, unitId1.factor);
+            assertEquals(count + ")\t" + inputUnit + " to base", expectedTarget, metric.value);
+            assertEquals(count + ")\t" + inputUnit + " factor", expectedFactor, unitId1.factor);
         }
+    }
+
+    public void testLightSpeed() {
+        String[][] tests = {
+            {"light-speed", "meter-per-second", "299792458"},
+            {"light-speed-second", "meter-second-per-second", "299792458"},
+            {"light-speed-minute", "meter-second-per-second", "299792458*60"},
+            {"light-speed-hour", "meter-second-per-second", "299792458*3600"},
+            {"light-speed-day", "meter-second-per-second", "299792458*86400"},
+            {"light-speed-week", "meter-second-per-second", "299792458*604800"},
+        };
+        checkConversionToBase(tests);
     }
 }

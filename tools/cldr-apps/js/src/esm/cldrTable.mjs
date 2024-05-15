@@ -1128,6 +1128,8 @@ function appendForumStatus(parent, forumStatus, loc) {
     (forumStatus.hasOpenPosts
       ? cldrText.get("forum_path_has_open_posts")
       : cldrText.get("forum_path_has_only_closed_posts"));
+  el.style.backgroundColor = forumStatus.hasOpenPosts ? "orange" : "green";
+  el.style.padding = el.style.margin = ".5ex";
   cldrSurvey.setLang(el, loc);
   parent.appendChild(el);
   return el;

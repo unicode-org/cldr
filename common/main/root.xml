@@ -5101,10 +5101,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>ppm</displayName>
 				<unitPattern count="other">{0} ppm</unitPattern>
 			</unit>
-			<unit type="concentr-portion-per-1e9">
-				<displayName>ppb</displayName>
-				<unitPattern count="other">{0} ppb</unitPattern>
-			</unit>
 			<unit type="concentr-percent">
 				<displayName>%</displayName>
 				<unitPattern count="other">{0}%</unitPattern>
@@ -5225,11 +5221,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="duration-day-person">
 				<alias source="locale" path="../unit[@type='duration-day']"/>
-			</unit>
-			<unit type="duration-night">
-				<displayName>night</displayName>
-				<unitPattern count="other">{0} night</unitPattern>
-				<perUnitPattern>{0}/night</perUnitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<displayName>hr</displayName>
@@ -5619,10 +5610,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>kn</displayName>
 				<unitPattern count="other">{0} kn</unitPattern>
 			</unit>
-			<unit type="speed-light-speed">
-				<displayName>light</displayName>
-				<unitPattern count="other">{0} light</unitPattern>
-			</unit>
 			<unit type="speed-beaufort">
 				<displayName>Bft</displayName>
 				<unitPattern count="other">B {0}</unitPattern>
@@ -5791,6 +5778,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="volume-quart-imperial">
 				<displayName>qt Imp</displayName>
 				<unitPattern count="other">{0} qt Imp.</unitPattern>
+			</unit>
+			<unit type="speed-light-speed">
+				<displayName>light</displayName>
+				<unitPattern count="other">{0} light</unitPattern>
+			</unit>
+			<unit type="concentr-portion-per-1e9">
+				<displayName>ppb</displayName>
+				<unitPattern count="other">{0} ppb</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>night</displayName>
+				<unitPattern count="other">{0} night</unitPattern>
+				<perUnitPattern>{0}/night</perUnitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>direction</displayName>

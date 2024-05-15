@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2020 Unicode, Inc.
+<!-- Copyright © 1991-2024 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
-Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
@@ -25,8 +25,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	<characters>
 		<exemplarCharacters draft="contributed">[ٴ ا ب پ ت ج چ ح د ر ز س ش ع ف ق ك ڭ گ ل م ن ھ ە و ۆ ۇ ۋ ى ي]</exemplarCharacters>
 		<exemplarCharacters type="index" draft="contributed">[ٴ ا ب پ ت ج چ ح د ر ز س ش ع ف ق ك ڭ گ ل م ن ھ ە و ۆ ۇ ۋ ى ي]</exemplarCharacters>
-		<exemplarCharacters type="punctuation">[\- ‐ ‑ – — ، ؛ \: ! ؟ . … ' ‘ ’ &quot; “ ” « » ( ) \[ \] \{ \} § @ * / \&amp; #]</exemplarCharacters>
 		<exemplarCharacters type="numbers">[\- ‑ , . % ‰ + 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
+		<exemplarCharacters type="punctuation">[\- ‐ ‑ – — ، ؛ \: ! ؟ . … ' ‘ ’ &quot; “ ” « » ( ) \[ \] \{ \} § @ * / \&amp; #]</exemplarCharacters>
 		<ellipsis type="final">{0}…</ellipsis>
 		<ellipsis type="initial">…{0}</ellipsis>
 		<ellipsis type="medial">{0}…{1}</ellipsis>
@@ -37,12 +37,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<parseLenients scope="date" level="lenient">
 			<parseLenient sample="-" draft="contributed">↑↑↑</parseLenient>
 			<parseLenient sample=":" draft="contributed">↑↑↑</parseLenient>
+			<!-- <numbers>
+				 <minimalPairs>
+				 <pluralMinimalPairs count="other">سەبەتتە {0} الما بار. ولار سىزدىكى مە؟</pluralMinimalPairs>
+				 <ordinalMinimalPairs ordinal="other">{0}- بۇرىلىستان وڭعا بۇرىلىڭىز.</ordinalMinimalPairs>
+				 </minimalPairs>
+				 </numbers>
+			-->
 		</parseLenients>
 	</characters>
-        <!-- <numbers>
-		<minimalPairs>
-			<pluralMinimalPairs count="other">سەبەتتە {0} الما بار. ولار سىزدىكى مە؟</pluralMinimalPairs>
-			<ordinalMinimalPairs ordinal="other">{0}- بۇرىلىستان وڭعا بۇرىلىڭىز.</ordinalMinimalPairs>
-		</minimalPairs>
-       </numbers> -->
 </ldml>

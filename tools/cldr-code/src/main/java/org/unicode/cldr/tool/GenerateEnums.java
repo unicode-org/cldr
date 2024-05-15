@@ -79,6 +79,9 @@ public class GenerateEnums {
 
     private Set<String> languages = new TreeSet<>();
 
+    private final Set<String> ignoreMissingAlpha3 =
+            new TreeSet<>(Arrays.asList("EA", "EZ", "IC", "UN"));
+
     public static void main(String[] args) throws IOException {
         GenerateEnums gen = new GenerateEnums();
         gen.showLanguageInfo();
@@ -365,7 +368,7 @@ public class GenerateEnums {
                 enum_UN.put(enumName(region), region);
                 cldrCodes.add(region);
             } else {
-                if (enum_alpha3.get(region) == null) {
+                if (enum_alpha3.get(region) == null && !ignoreMissingAlpha3.contains(region)) {
                     System.out.println("Missing alpha3 for: " + region);
                 }
             }

@@ -137,10 +137,11 @@ public class GenerateBirth {
 
         String logDirectory = myOptions.get("log").getValue();
 
-        System.out.println("en");
+        System.out.println("en\tBegin");
         Births english = new Births("en");
         english.writeBirth(logDirectory, "en", null);
-        english.writeBirthValues(dataDirectory + "/" + OutdatedPaths.OUTDATED_ENGLISH_DATA);
+        String englishDataFile = dataDirectory + "/" + OutdatedPaths.OUTDATED_ENGLISH_DATA;
+        english.writeBirthValues(englishDataFile);
 
         Map<Long, Pair<CldrVersion, String>> pathToPrevious = new HashMap<>();
 
@@ -194,8 +195,9 @@ public class GenerateBirth {
                 if (!ltp.set(fileName).getRegion().isEmpty()) {
                     continue; // skip region locales
                 }
-                // TODO skip default content locales
-                System.out.println(fileName);
+                // TODO skip default content
+                System.out.println();
+                System.out.println(fileName + "\t" + "Begin");
                 Births other = new Births(fileName);
                 Set<String> newer = other.writeBirth(logDirectory, fileName, english);
 
@@ -254,11 +256,15 @@ public class GenerateBirth {
                 }
             }
         }
+        // give a reminder since the above will be lost
+        System.out.println("Wrote: " + englishDataFile);
         if (errorCount != 0) {
-            throw new IllegalArgumentException("Done, but " + errorCount + " errors");
+            throw new IllegalArgumentException(
+                    "Done, but " + errorCount + " errors writing to " + outputDataFile);
         } else {
-            System.out.println("Done, no errors");
+            System.out.println("Done, no errors writing to: " + outputDataFile);
         }
+        System.out.println("Please commit the above two files and start a PR.");
     }
 
     static class Births {
@@ -277,20 +283,21 @@ public class GenerateBirth {
             DisplayAndInputProcessor[] processors = new DisplayAndInputProcessor[factories.length];
 
             for (int i = 0; i < factories.length; ++i) {
+                final CldrVersion ver = CldrVersion.CLDR_VERSIONS_DESCENDING.get(i);
                 try {
                     files[i] = factories[i].make(file, USE_RESOLVED);
                     processors[i] = new DisplayAndInputProcessor(files[i], false);
-                } catch (Exception e) {
-                    // stop when we fail to find
+                } catch (SimpleFactory.NoSourceDirectoryException nsd) {
+                    // stop when we fail to find a dir
                     System.out.println(
-                            "Stopped at "
-                                    + file
-                                    + ", "
-                                    + CldrVersion.CLDR_VERSIONS_DESCENDING.get(i));
-                    // e.printStackTrace();
+                            String.format("%s\tEnd of source directories at v%s", file, ver));
                     break;
+                } catch (Throwable t) {
+                    throw new RuntimeException(
+                            "Exception while processing " + file + " v" + ver, t);
                 }
             }
+            System.out.println(String.format("%s\tDone", file));
             birthToPaths = Relation.of(new TreeMap<CldrVersion, Set<String>>(), TreeSet.class);
             pathToBirthCurrentPrevious = new HashMap<>();
             for (String xpath : files[0]) {

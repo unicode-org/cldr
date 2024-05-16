@@ -981,17 +981,17 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 <tr><td>prefixed_unit</td><td></td>
     <td>prefix base_component<ul><li><em>Example: </em>kilometer</li></ul></td></tr>
 
-<tr><td>prefix</td><td></td>
+<tr><td><a name='prefix' href='prefix'>prefix</a></td><td></td>
     <td>si_prefix | binary_prefix</td></tr>
 
 <tr><td>si_prefix</td><td>:=</td>
     <td>"deka" | "hecto" | "kilo", …
-        <ul><li><em>Note:</em> The values are those listed as types in &lt;unitPrefix type='…' … power10='…'&gt;. 
+        <ul><li><em>Constraint:</em> Must be an attribute value of the <code>type</code> in: &lt;unitPrefix type='…' … power10='…'&gt;. 
 			See also <a href="https://www.nist.gov/pml/special-publication-811">NIST special publication 811</a></li></ul></td></tr>
 
 <tr><td>binary_prefix</td><td>:=</td>
     <td>"kibi", "mebi", …
-        <ul><li><em>Note:</em> The values are those listed in the <code>type</code> attribute values in &lt;unitPrefix type='…' … power2='…'&gt;. 
+        <ul><li><em>Constraint:</em> Must be an attribute value of the <code>type</code> in: &lt;unitPrefix type='…' … power2='…'&gt;. 
 			See also <a href="https://physics.nist.gov/cuu/Units/binary.html">Prefixes for binary multiples</a></li></ul></td></tr>
 
 <tr><td>prefix_component</td><td>:=</td>

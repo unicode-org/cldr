@@ -909,12 +909,12 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 <!-- HTML: no header -->
 
 <table><tbody>
-<tr><td>unit_identifier</td><td>:=</td>
+<tr><td><a name='unit_identifier' href='unit_identifier'>unit_identifier</a></td><td>:=</td>
     <td>core_unit_identifier<br/>
         | mixed_unit_identifier<br/>
         | long_unit_identifier</td></tr>
 
-<tr><td>core_unit_identifier</td><td>:=</td>
+<tr><td><a name='core_unit_identifier' href='core_unit_identifier'>core_unit_identifier</a></td><td>:=</td>
     <td>product_unit ("-" per "-" product_unit)*<br/>
         | per "-" product_unit ("-" per "-" product_unit)*
         <ul><li><em>Examples:</em>
@@ -930,16 +930,16 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 			<li><em>Constraint:</em> The token 'per' is the single value in &lt;unitIdComponent type="per"&gt;</li>
 		</ul></td></tr>
 
-<tr><td>product_unit</td><td>:=</td>
+<tr><td><a name='product_unit' href='product_unit'>product_unit</a></td><td>:=</td>
         <td>single_unit ("-" single_unit)* ("-" pu_single_unit)*<br/>
             | pu_single_unit ("-" pu_single_unit)*
             <ul><li><em>Example:</em> foot-pound-force</li>
                 <li><em>Constraint:</em> No pu_single_unit may precede a single unit</li>
             </ul></td></tr>
 
-<tr><td>single_unit</td><td>:=</td>
-    <td>number_prefix? dimensionality_prefix? simple_unit
-        <ul><li><em>Examples: </em>square-meter, or 100-square-meter</li></ul></td></tr>
+<tr><td><a name='single_unit' href='single_unit'>single_unit</a></td><td>:=</td>
+    <td>dimensionality_prefix? simple_unit | unit_constant
+        <ul><li><em>Examples: </em>square-kilometer, or 100</li></ul></td></tr>
 
 <tr><td>pu_single_unit</td><td>:=</td>
     <td>"xxx-" single_unit | "x-" single_unit
@@ -948,17 +948,19 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
         <li>See <a href="#Private_Use_Units">Private-Use Units</a></li>
     </ul></td></tr>
 
-<tr><td>number_prefix</td><td>:=</td>
-    <td>("1"[0-9]+ | [2-9][0-9]*) "-"
+<tr><td><a name='unit_constant' href='unit_constant'>unit_constant</a></td><td>:=</td>
+    <td>("1"[0-9]+ | [2-9][0-9]*)("e" ("1"[0-9]+ | [2-9][0-9]*))?
         <ul><li><em>Examples:</em>
             <ul><li>kilowatt-hour-per-100-kilometer</li>
                 <li>gallon-per-100-mile</li>
                 <li>per-200-pound</li>
+                <li>per-12</li>
             </ul></li>
             <li><em>Note:</em> The number is an integer greater than one.</li>
+            <li><em>Note:</em> The <code>e</code> notation is optional: per-100-kilometer and per-1e2-kilometer are equivalent unit_identifiers.</li>
         </ul></td></tr>
 
-<tr><td>dimensionality_prefix</td><td>:=</td>
+<tr><td><a name='dimensionality_prefix' href='dimensionality_prefix'>dimensionality_prefix</a></td><td>:=</td>
     <td>"square-"<p>| "cubic-"<p>| "pow" ([2-9]|1[0-5]) "-"
         <ul>
 			<li><em>Constraint:</em> must be value in: &lt;unitIdComponent type="power"&gt;.</li>
@@ -966,7 +968,7 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 			<li><em>Note:</em> These are values in &lt;unitIdComponent type="power"&gt;</li>
 		</ul></td></tr>
 
-<tr><td>simple_unit</td><td>:=</td>
+<tr><td><a name='simple_unit' href='simple_unit'>simple_unit</a></td><td>:=</td>
     <td>(prefix_component "-")* (prefixed_unit | base_component) ("-" suffix_component)*<br/>
 		|  currency_unit<br/>
 		| "em" | "g" | "us" | "hg" | "of"
@@ -984,11 +986,13 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 
 <tr><td>si_prefix</td><td>:=</td>
     <td>"deka" | "hecto" | "kilo", …
-        <ul><li><em>Note:</em> See full list at <a href="https://www.nist.gov/pml/special-publication-811">NIST special publication 811</a></li></ul></td></tr>
+        <ul><li><em>Note:</em> The values are those listed as types in &lt;unitPrefix type='…' … power10='…'&gt;. 
+			See also <a href="https://www.nist.gov/pml/special-publication-811">NIST special publication 811</a></li></ul></td></tr>
 
 <tr><td>binary_prefix</td><td>:=</td>
     <td>"kibi", "mebi", …
-        <ul><li><em>Note:</em> See full list at <a href="https://physics.nist.gov/cuu/Units/binary.html">Prefixes for binary multiples</a></li></ul></td></tr>
+        <ul><li><em>Note:</em> The values are those listed in the <code>type</code> attribute values in &lt;unitPrefix type='…' … power2='…'&gt;. 
+			See also <a href="https://physics.nist.gov/cuu/Units/binary.html">Prefixes for binary multiples</a></li></ul></td></tr>
 
 <tr><td>prefix_component</td><td>:=</td>
     <td>[a-z]{3,∞}
@@ -1016,7 +1020,7 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 			<li><em>Constraint:</em> must be value in: &lt;unitIdComponent type="suffix"&gt;</li>
 		</ul></td></tr>
 
-<tr><td>mixed_unit_identifier</td><td>:=</td>
+<tr><td><a name='mixed_unit_identifier' href='mixed_unit_identifier'></a></td><td>:=</td>
     <td>(single_unit | pu_single_unit) ("-" and "-" (single_unit | pu_single_unit ))*
         <ul><li><em>Example: foot-and-inch</em></li>
 		</ul></td></tr>
@@ -1033,7 +1037,7 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 <tr><td>grouping</td><td>:=</td>
     <td>[a-z]{3,∞}</td></tr>
 
-<tr><td>currency_unit</td><td>:=</td>
+<tr><td><a name='currency_unit' href='currency_unit'>currency_unit</a></td><td>:=</td>
     <td>"curr-" [a-z]{3}
         <ul>
 			<li><em>Constraint:</em> The first part of the currency_unit is a standard prefix; the second part of the currency unit must be a valid <a href="tr35.md#UnicodeCurrencyIdentifier">Unicode currency identifier</a>.</li>
@@ -1047,7 +1051,9 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 
 </tbody></table>
 
-Note that while the syntax allows for number_prefixes in multiple places, the typical use case is only one instance, after a "-per-".
+Note that while the syntax allows for unit_constants in multiple places, the typical use case is only one instance, after a "-per-".
+The normalized form of a unit identifier has at most one unit_constant in the numerator and one in the denominator.
+For example, `2-kilowatt-7-hour-per-3-meter-5-second` has the equivalent normalized form `14-kilowatt-hour-per-15-meter-second`.
 
 The simple_unit structure does not allow for any two simple_units to overlap.
 That is, there are no cases where simple_unit1 consists of X-Y and simple_unit2 consists of Y-Z.
@@ -1322,12 +1328,12 @@ If there is no precomputed form, the following process in pseudocode is used to 
        2. set singlePluralCategory to be power0(singlePluralCategory)
        3. set singleCaseVariant to be power0(singleCaseVariant)
        4. remove the dimensionality_prefix from singleUnit
-   4.  if singleUnit starts with an si_prefix, such as 'centi' and/or a number_prefix such as '100'
+   4.  if singleUnit starts with an si_prefix, such as 'centi' and/or a unit_constant such as '100'
        1. set siPrefixPattern to be getValue(that si_prefix, locale, length), such as "centy{0}"
        2. set singlePluralCategory to be prefix0(singlePluralCategory)
        3. set singleCaseVariant to be prefix0(singleCaseVariant)
        4. remove the si_prefix from singleUnit
-	   5. set multiplier to be the locales integer numberFormat of number_prefix.
+	   5. set multiplier to be the locales integer numberFormat of unit_constant.
    5.  Set corePattern to be the getValue(singleUnit, locale, length, singlePluralCategory, singleCaseVariant), such as "{0} metrem"
    6.  Extract(corePattern, coreUnit, placeholder, placeholderPosition) from that pattern.
    7.  If the position is _middle_, then fail

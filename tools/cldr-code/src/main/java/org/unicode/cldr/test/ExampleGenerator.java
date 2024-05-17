@@ -482,6 +482,8 @@ public class ExampleGenerator {
                     result = handleDecimalFormat(parts, value, showContexts);
                 }
             }
+        } else if (parts.contains("minimumGroupingDigits")) {
+            result = handleMinimumGrouping(parts, value);
         } else if (parts.getElement(2).contains("symbols")) {
             result = handleNumberSymbol(parts, value);
         } else if (parts.contains("defaultNumberingSystem")
@@ -2143,6 +2145,26 @@ public class ExampleGenerator {
 
     public String countAttribute(Count count) {
         return "[@count=\"" + count + "\"]";
+    }
+
+    private String handleMinimumGrouping(XPathParts parts, String value) {
+        String numberSystem = cldrFile.getWinningValue("//ldml/numbers/defaultNumberingSystem");
+        String checkPath =
+                "//ldml/numbers/decimalFormats[@numberSystem=\""
+                        + numberSystem
+                        + "\"]/decimalFormatLength/decimalFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
+        String decimalFormat = cldrFile.getWinningValue(checkPath);
+        DecimalFormat numberFormat = icuServiceBuilder.getNumberFormat(decimalFormat, numberSystem);
+        numberFormat.setMinimumGroupingDigits(Integer.parseInt(value));
+
+        double sampleNum1 = 543.21;
+        double sampleNum2 = 6543.21;
+        double sampleNum3 = 76543.21;
+        String example = "";
+        example = addExampleResult(formatNumber(numberFormat, sampleNum1), example);
+        example = addExampleResult(formatNumber(numberFormat, sampleNum2), example);
+        example = addExampleResult(formatNumber(numberFormat, sampleNum3), example);
+        return example;
     }
 
     private String handleNumberSymbol(XPathParts parts, String value) {

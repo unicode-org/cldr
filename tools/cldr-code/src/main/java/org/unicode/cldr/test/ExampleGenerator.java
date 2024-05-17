@@ -2335,9 +2335,13 @@ public class ExampleGenerator {
             // ldml/dates/calendars/calendar[@type="*"]/dateTimeFormats/dateTimeFormatLength[@type="*"]/dateTimeFormat[@type="atTime"]/pattern[@type="standard"]
             String formatType =
                     parts.findAttributeValue("dateTimeFormat", "type"); // "standard" or "atTime"
+            String length =
+                    parts.findAttributeValue(
+                            "dateTimeFormatLength", "type"); // full, long, medium, short
 
             // For all types, show
-            // - date (of same length) with a single full time
+            // - date (of same length) with a single full time, or long time (abbreviated zone) if
+            // the date is short
             // - date (of same length) with a single short time
             // For the standard patterns, add
             // - date (of same length) with a short time range
@@ -2369,19 +2373,22 @@ public class ExampleGenerator {
                 return "";
             }
             String timeFormatXPathPrefix = timeFormatXPathForPrefix.substring(0, tfLengthOffset);
-            String timeFullFormatXPath =
-                    timeFormatXPathPrefix.concat(
-                            "timeFormatLength[@type=\"full\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]");
+            String timeLongerFormatXPath =
+                    (!length.equals("short"))
+                            ? timeFormatXPathPrefix.concat(
+                                    "timeFormatLength[@type=\"full\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]")
+                            : timeFormatXPathPrefix.concat(
+                                    "timeFormatLength[@type=\"long\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]");
             String timeShortFormatXPath =
                     timeFormatXPathPrefix.concat(
                             "timeFormatLength[@type=\"short\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]");
 
-            String timeFormatValue = cldrFile.getWinningValue(timeFullFormatXPath);
-            parts = XPathParts.getFrozenInstance(cldrFile.getFullXPath(timeFullFormatXPath));
+            String timeFormatValue = cldrFile.getWinningValue(timeLongerFormatXPath);
+            parts = XPathParts.getFrozenInstance(cldrFile.getFullXPath(timeLongerFormatXPath));
             String timeNumbersOverride = parts.findAttributeValue("pattern", "numbers");
-            SimpleDateFormat tff =
+            SimpleDateFormat tlf =
                     icuServiceBuilder.getDateFormat(calendar, timeFormatValue, timeNumbersOverride);
-            tff.setTimeZone(ZONE_SAMPLE);
+            tlf.setTimeZone(ZONE_SAMPLE);
 
             timeFormatValue = cldrFile.getWinningValue(timeShortFormatXPath);
             parts = XPathParts.getFrozenInstance(cldrFile.getFullXPath(timeShortFormatXPath));
@@ -2399,7 +2406,7 @@ public class ExampleGenerator {
             List<String> examples = new ArrayList<>();
 
             String dfResult = df.format(DATE_SAMPLE);
-            String tffResult = tff.format(DATE_SAMPLE);
+            String tlfResult = tlf.format(DATE_SAMPLE);
             String tsfResult = tsf.format(DATE_SAMPLE); // DATE_SAMPLE is in the afternoon
 
             // Handle date plus a single full time.
@@ -2414,7 +2421,7 @@ public class ExampleGenerator {
                                     value,
                                     (Object[])
                                             new String[] {
-                                                setBackground("'" + tffResult + "'"),
+                                                setBackground("'" + tlfResult + "'"),
                                                 setBackground("'" + dfResult + "'")
                                             }));
             examples.add(dtf.format(DATE_SAMPLE));

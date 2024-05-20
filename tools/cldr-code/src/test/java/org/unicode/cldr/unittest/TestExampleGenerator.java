@@ -812,6 +812,21 @@ public class TestExampleGenerator extends TestFmwk {
                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/dateTimeFormatLength[@type=\"long\"]/dateTimeFormat[@type=\"atTime\"]/pattern[@type=\"standard\"]");
     }
 
+    public void TestMinimumGroupingExamples() {
+        ExampleGenerator exampleGeneratorEn = getExampleGenerator("en"); // min grouping 1
+        ExampleGenerator exampleGeneratorEs = getExampleGenerator("es"); // min grouping 2
+        checkValue(
+                "MinimumGrouping en: 1",
+                "〖❬543.21❭〗〖❬6,543❭.❬21❭〗〖❬76,543❭.❬21❭〗",
+                exampleGeneratorEn,
+                "//ldml/numbers/minimumGroupingDigits");
+        checkValue(
+                "MinimumGrouping es: 2",
+                "〖❬543,21❭〗〖❬6543,21❭〗〖❬76.543❭,❬21❭〗",
+                exampleGeneratorEs,
+                "//ldml/numbers/minimumGroupingDigits");
+    }
+
     public void TestSymbols() {
         CLDRFile english = info.getEnglish();
         ExampleGenerator exampleGenerator = new ExampleGenerator(english, english);

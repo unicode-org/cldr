@@ -3,6 +3,7 @@ package org.unicode.cldr.util;
 import com.ibm.icu.text.CompactDecimalFormat;
 import com.ibm.icu.text.CompactDecimalFormat.CompactStyle;
 import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Currency;
 import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.ULocale;
@@ -35,6 +36,13 @@ public class VerifyCompactNumbers {
 
     private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
     private static final String DIR = CLDRPaths.VERIFY_DIR + "numbers/";
+    // The following is also in ExampleGenerator and DateTimeFormats; it and other shared constant
+    // sets should
+    // probably be moved to a common file of such things.
+    private static final UnicodeSet BIDI_MARKS = new UnicodeSet("[:Bidi_Control:]").freeze();
+    private static final String exampleSep = "<br>";
+    private static final String rtlStart = "<div dir='rtl'>";
+    private static final String rtlEnd = "</div>";
 
     static final Options myOptions = new Options();
 
@@ -146,12 +154,16 @@ public class VerifyCompactNumbers {
             Set<String> debugCreationErrors = new LinkedHashSet<>();
             Set<String> errors = new LinkedHashSet<>();
             String locale = cldrFile.getLocaleID();
+            String characterOrder =
+                    cldrFile.getStringValue("//ldml/layout/orientation/characterOrder");
+            boolean isRTL = (characterOrder != null && characterOrder.equals("right-to-left"));
 
             TablePrinter tablePrinter1 =
                     new TablePrinter()
                             // .setCaption("Timezone Formats")
                             .setTableAttributes("class='dtf-table'")
-                            .addColumn("Numeric Format")
+                            .addColumn(
+                                    "Numeric Format<br>(neutral context,<br>then RTL if relevant)")
                             .setHeaderCell(true)
                             .setHeaderAttributes("class='dtf-th'")
                             .setCellAttributes("class='dtf-s'")
@@ -241,6 +253,9 @@ public class VerifyCompactNumbers {
                     }
 
                     String formattedNumber = nf.format(source);
+                    if (isRTL || BIDI_MARKS.containsSome(formattedNumber)) {
+                        formattedNumber += exampleSep + rtlStart + formattedNumber + rtlEnd;
+                    }
                     String compactFormattedNumber = cdf == null ? "n/a" : cdf.format(source);
                     String compactLongFormattedNumber = cdfs == null ? "n/a" : cdfs.format(source);
                     String compactCurrFormattedNumber =
@@ -360,6 +375,13 @@ public class VerifyCompactNumbers {
         // samples.addAll(samples2);
 
         Set<Double> allSamples = new TreeSet<>();
+        // First add selected negative values and 0
+        allSamples.add(-123456.7d); // decimal sep, and grouping sep if used
+        allSamples.add(-123456d); // no decimal sep, grouping sep if used
+        allSamples.add(-12.3d); // decimal sep, no grouping sep
+        allSamples.add(-12d); // no decimal or grouping sep
+        allSamples.add(0d); // no decimal or grouping sep
+        // Then the larger set of positive values
         for (long i = 1; i <= 100000000000000L; i *= factor) {
             for (Double sample : samples) {
                 double source = i * sample;

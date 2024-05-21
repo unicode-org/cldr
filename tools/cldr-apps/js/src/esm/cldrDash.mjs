@@ -391,6 +391,9 @@ function getCheckmarkUrl(entry, locale) {
 async function downloadXlsx(data, locale, cb) {
   const xpathMap = cldrSurvey.getXpathMap();
   const { coverageLevel, entries } = data;
+  const coverageLevelName = (coverageLevel || "default").toLowerCase();
+  const xlsSheetName = `${locale}.${coverageLevelName}`;
+  const xlsFileName = `Dash_${locale}_${coverageLevelName}.xlsx`;
 
   // Fetch all XPaths in parallel since it'll take a while
   cb(`Loading…`);
@@ -425,7 +428,7 @@ async function downloadXlsx(data, locale, cb) {
 
   for (let e of entries) {
     const xpath =
-      section === "Reports" ? "-" : (await xpathMap.get(xpstrid)).path;
+      e.section === "Reports" ? "-" : (await xpathMap.get(e.xpstrid)).path;
     const url = `https://st.unicode.org/cldr-apps/v#/${e.locale}/${e.page}/${e.xpstrid}`;
     ws_data.push([
       e.cat,
@@ -445,13 +448,9 @@ async function downloadXlsx(data, locale, cb) {
   const ws = XLSX.utils.aoa_to_sheet(ws_data);
   // cldrXlsx.pushComment(ws, "C1", `As of ${new Date().toISOString()}`);
   const wb = XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(
-    wb,
-    ws,
-    `${locale}.${coverageLevel.toLowerCase()}`
-  );
+  XLSX.utils.book_append_sheet(wb, ws, xlsSheetName);
   cb(`Writing…`);
-  XLSX.writeFile(wb, `Dash_${locale}_${coverageLevel.toLowerCase()}.xlsx`);
+  XLSX.writeFile(wb, xlsFileName);
   cb(null);
 }
 

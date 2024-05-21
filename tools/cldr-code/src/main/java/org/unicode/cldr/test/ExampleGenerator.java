@@ -470,6 +470,8 @@ public class ExampleGenerator {
             result = handleCurrency(xpath, parts, value);
         } else if (parts.contains("dayPeriods")) {
             result = handleDayPeriod(parts, value);
+        } else if (parts.contains("monthContext")) {
+            result = handleDateSymbol(parts, value);
         } else if (parts.contains("pattern") || parts.contains("dateFormatItem")) {
             if (parts.contains("calendar")) {
                 result = handleDateFormatItem(xpath, value, showContexts);
@@ -1092,6 +1094,71 @@ public class ExampleGenerator {
             }
         }
         return formatExampleList(examples.toArray(new String[0]));
+    }
+
+    private String handleDateSymbol(XPathParts parts, String value) {
+        // Currently only called for month names, can expand in the future to handle other symbols.
+        // The idea is to show format months in a yMMMM?d date format, and stand-alone months in a
+        // yMMMM? format.
+        String length = parts.findAttributeValue("monthWidth", "type"); // wide, abbreviated, narrow
+        if (length.equals("narrow")) {
+            return null; // no examples for narrow
+        }
+        String context = parts.findAttributeValue("monthContext", "type"); // format, stand-alone
+        String calendarId =
+                parts.findAttributeValue("calendar", "type"); // gregorian, islamic, hebrew, ...
+        String monthNumId =
+                parts.findAttributeValue("month", "type"); // 1-based: 1, 2, 3, ... 12 or 13
+
+        final String[] skeletons = {"yMMMMd", "yMMMd", "yMMMM", "yMMM"};
+        int skeletonIndex = (length.equals("wide")) ? 0 : 1;
+        if (!context.equals("format")) {
+            skeletonIndex += 2;
+        }
+        String checkPath =
+                "//ldml/dates/calendars/calendar[@type=\""
+                        + calendarId
+                        + "\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\""
+                        + skeletons[skeletonIndex]
+                        + "\"]";
+        String dateFormat = cldrFile.getWinningValue(checkPath);
+        if (dateFormat == null || dateFormat.indexOf("MMM") < 0) {
+            // If we do not have the desired width (might be missing for MMMM) or
+            // the desired format does not have alpha months (in some locales liks 'cs'
+            // skeletons for MMM have pattern with M), then try the other width for same
+            // context by adjusting skeletonIndex.
+            skeletonIndex = (length.equals("wide")) ? skeletonIndex + 1 : skeletonIndex - 1;
+            checkPath =
+                    "//ldml/dates/calendars/calendar[@type=\""
+                            + calendarId
+                            + "\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\""
+                            + skeletons[skeletonIndex]
+                            + "\"]";
+            dateFormat = cldrFile.getWinningValue(checkPath);
+        }
+        if (dateFormat == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = icuServiceBuilder.getDateFormat(calendarId, dateFormat);
+        sdf.setTimeZone(ZONE_SAMPLE);
+        DateFormatSymbols dfs = sdf.getDateFormatSymbols();
+        // We do not know whether dateFormat is using MMMM, MMM, LLLL or LLL so
+        // override all of them in our DateFormatSymbols. The DATE_SAMPLE is for
+        // month 9 "September", offset of 8 in the months arrays, so override that.
+        String[] monthNames = dfs.getMonths(DateFormatSymbols.FORMAT, DateFormatSymbols.WIDE);
+        monthNames[8] = value;
+        dfs.setMonths(monthNames, DateFormatSymbols.FORMAT, DateFormatSymbols.WIDE);
+        monthNames = dfs.getMonths(DateFormatSymbols.FORMAT, DateFormatSymbols.ABBREVIATED);
+        monthNames[8] = value;
+        dfs.setMonths(monthNames, DateFormatSymbols.FORMAT, DateFormatSymbols.ABBREVIATED);
+        monthNames = dfs.getMonths(DateFormatSymbols.STANDALONE, DateFormatSymbols.WIDE);
+        monthNames[8] = value;
+        dfs.setMonths(monthNames, DateFormatSymbols.STANDALONE, DateFormatSymbols.WIDE);
+        monthNames = dfs.getMonths(DateFormatSymbols.STANDALONE, DateFormatSymbols.ABBREVIATED);
+        monthNames[8] = value;
+        dfs.setMonths(monthNames, DateFormatSymbols.STANDALONE, DateFormatSymbols.ABBREVIATED);
+        sdf.setDateFormatSymbols(dfs);
+        return sdf.format(DATE_SAMPLE);
     }
 
     private String handleMinimalPairs(XPathParts parts, String minimalPattern) {

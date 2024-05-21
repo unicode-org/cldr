@@ -812,6 +812,30 @@ public class TestExampleGenerator extends TestFmwk {
                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/dateTimeFormatLength[@type=\"long\"]/dateTimeFormat[@type=\"atTime\"]/pattern[@type=\"standard\"]");
     }
 
+    public void TestDateSymbols() {
+        ExampleGenerator exampleGenerator = getExampleGenerator("cs");
+        checkValue(
+                "cs format wide",
+                "〖5. června 1999〗",
+                exampleGenerator,
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"wide\"]/month[@type=\"6\"]");
+        checkValue(
+                "cs format abbreviated",
+                "〖5. čvn 1999〗",
+                exampleGenerator,
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"abbreviated\"]/month[@type=\"6\"]");
+        checkValue(
+                "cs stand-alone wide",
+                "〖červen 1999〗",
+                exampleGenerator,
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"stand-alone\"]/monthWidth[@type=\"wide\"]/month[@type=\"6\"]");
+        checkValue(
+                "cs stand-alone abbreviated",
+                "〖čvn 1999〗",
+                exampleGenerator,
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"stand-alone\"]/monthWidth[@type=\"abbreviated\"]/month[@type=\"6\"]");
+    }
+
     public void TestMinimumGroupingExamples() {
         ExampleGenerator exampleGeneratorEn = getExampleGenerator("en"); // min grouping 1
         ExampleGenerator exampleGeneratorEs = getExampleGenerator("es"); // min grouping 2

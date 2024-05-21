@@ -150,8 +150,6 @@ public class XPathTable {
 
     public Hashtable<String, Integer> stringToId =
             new Hashtable<>(4096); // public for statistics only
-    public Hashtable<Long, String> sidToString =
-            new Hashtable<>(4096); // public for statistics only
 
     public String statistics() {
         return "DB: "
@@ -375,7 +373,7 @@ public class XPathTable {
     public final void setById(int id, String xpath) {
         xpath = xpath.intern();
         stringToId.put(idToString_put(id, xpath), id);
-        sidToString.put(getStringID(xpath), xpath);
+        StringId.getId(xpath); // ensure in cache
     }
 
     /**
@@ -758,24 +756,7 @@ public class XPathTable {
         }
     }
 
-    String getByStringID(long l) {
-        String s = sidToString.get(l);
-        if (s != null) return s;
-        // slow way
-        for (String x : stringToId.keySet()) {
-            if (getStringID(x) == l) {
-                sidToString.put(l, x);
-                return x;
-            }
-        }
-        if (SurveyMain.isUnofficial()) {
-            logger.warning(
-                    "xpt: Couldn't find stringid "
-                            + Long.toHexString(l)
-                            + " - sid has "
-                            + sidToString.size());
-        }
-        // it may be
-        return null;
+    final String getByStringID(long l) {
+        return StringId.getStringFromId(l);
     }
 }

@@ -396,14 +396,22 @@ async function downloadXlsx(data, locale, cb) {
   const xlsFileName = `Dash_${locale}_${coverageLevelName}.xlsx`;
 
   // Fetch all XPaths in parallel since it'll take a while
-  cb(`Loading…`);
+  cb(`Loading rows…`);
   const allXpaths = [];
   for (let dashEntry of entries) {
     if (dashEntry.section === "Reports") {
       continue; // skip this
     }
     allXpaths.push(dashEntry.xpstrid);
+    try {
+      await xpathMap.get(dashEntry.xpstrid);
+    } catch (e) {
+      throw Error(
+        `${e}:  Could not load XPath for ${JSON.stringify(dashEntry)}`
+      );
+    }
   }
+  cb(`Loading xpaths…`);
   await Promise.all(allXpaths.map((x) => xpathMap.get(x)));
   cb(`Calculating…`);
 
@@ -427,8 +435,15 @@ async function downloadXlsx(data, locale, cb) {
   ];
 
   for (let e of entries) {
-    const xpath =
-      e.section === "Reports" ? "-" : (await xpathMap.get(e.xpstrid)).path;
+    async function getXpath() {
+      if (e.section === "Reports") return "-";
+      try {
+        return (await xpathMap.get(e.xpstrid)).path;
+      } catch (ex) {
+        throw Error(`${e}: Could not get xpath of ${JSON.stringify(e)}`);
+      }
+    }
+    const xpath = await getXpath();
     const url = `https://st.unicode.org/cldr-apps/v#/${e.locale}/${e.page}/${e.xpstrid}`;
     ws_data.push([
       e.cat,

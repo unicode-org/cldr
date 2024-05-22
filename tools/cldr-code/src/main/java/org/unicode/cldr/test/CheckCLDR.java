@@ -913,6 +913,7 @@ public abstract class CheckCLDR implements CheckAccessor {
             missingLanguage,
             namePlaceholderProblem,
             missingSpaceBetweenNameFields,
+            shortDateFieldInconsistentLength,
             illegalParameterValue,
             illegalAnnotationCode,
             illegalCharacter;
@@ -939,6 +940,7 @@ public abstract class CheckCLDR implements CheckAccessor {
                         Subtype.inconsistentPeriods,
                         Subtype.abbreviatedDateFieldTooWide,
                         Subtype.narrowDateFieldTooWide,
+                        Subtype.shortDateFieldInconsistentLength,
                         Subtype.coverageLevel);
 
         public static Set<Subtype> errorCodesPath =

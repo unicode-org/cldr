@@ -14,6 +14,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 
+@Deprecated
 public class ChartSupplemental extends Chart {
     private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
     static final CLDRFile ENGLISH = CLDR_CONFIG.getEnglish();

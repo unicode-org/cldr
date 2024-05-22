@@ -2,6 +2,7 @@
  * cldrDash: encapsulate dashboard data.
  */
 import * as cldrAjax from "./cldrAjax.mjs";
+import * as cldrClient from "./cldrClient.mjs";
 import * as cldrCoverage from "./cldrCoverage.mjs";
 import * as cldrNotify from "./cldrNotify.mjs";
 import * as cldrProgress from "./cldrProgress.mjs";
@@ -469,6 +470,15 @@ async function downloadXlsx(data, locale, cb) {
   cb(null);
 }
 
+/**
+ * @param {string} locale locale to list for
+ * @returns {Array<CheckStatusSummary>}
+ */
+async function getLocaleErrors(locale) {
+  const client = await cldrClient.getClient();
+  return await client.apis.voting.getLocaleErrors({ locale });
+}
+
 export {
   doFetch,
   getFetchError,
@@ -476,4 +486,5 @@ export {
   setData,
   updatePath,
   downloadXlsx,
+  getLocaleErrors,
 };

@@ -1,7 +1,11 @@
 package org.unicode.cldr.web.api;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -134,6 +138,34 @@ public class VoteAPI {
          *    https://cldr-smoke.unicode.org/cldr-apps/v#/zh_Hant/Alphabetic_Information/2703e9d07ab2ef3a
          */
         return VoteAPIHelper.handleGetOnePage(loc, session, page, xpstrid);
+    }
+
+    /** Array of status items. Only stores one example entry per subtype. */
+    public static final class EntireLocaleStatusResponse {
+        public EntireLocaleStatusResponse() {}
+
+        void addAll(Collection<CheckStatus> list) {
+            for (final CheckStatus c : list) {
+                add(c);
+            }
+        }
+
+        void add(CheckStatus c) {
+            if (!allSubtypes.contains(c.getSubtype())) {
+                tests.add(new CheckStatusSummary(c));
+                allSubtypes.add(c.getSubtype());
+            }
+        }
+
+        @Schema(description = "list of test results")
+        public List<CheckStatusSummary> tests = new ArrayList<>();
+
+        // we only want to store one example for each subtype.
+        private Set<CheckStatus.Subtype> allSubtypes = new HashSet<>();
+
+        boolean isEmpty() {
+            return tests.isEmpty();
+        }
     }
 
     public static final class RowResponse {
@@ -371,5 +403,41 @@ public class VoteAPI {
             }
             this.entireLocale = checkStatus.getEntireLocale();
         }
+    }
+
+    @GET
+    @Path("/{locale}/errors")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Operation(summary = "Get overall errors", description = "Get overall errors for a locale")
+    @APIResponses(
+            value = {
+                @APIResponse(
+                        responseCode = "200",
+                        description = "Error results",
+                        content =
+                                @Content(
+                                        mediaType = "application/json",
+                                        schema =
+                                                @Schema(
+                                                        implementation =
+                                                                EntireLocaleStatusResponse.class))),
+                @APIResponse(responseCode = "204", description = "No errors in this locale"),
+                @APIResponse(
+                        responseCode = "403",
+                        description = "Forbidden, no access to this data"),
+                @APIResponse(responseCode = "404", description = "Locale does not exist"),
+                @APIResponse(
+                        responseCode = "500",
+                        description = "Internal Server Error",
+                        content =
+                                @Content(
+                                        mediaType = "application/json",
+                                        schema = @Schema(implementation = STError.class))),
+            })
+    public Response getLocaleErrors(
+            @Parameter(required = true, example = "br", schema = @Schema(type = SchemaType.STRING))
+                    @PathParam("locale")
+                    String loc) {
+        return VoteAPIHelper.handleGetLocaleErrors(loc);
     }
 }

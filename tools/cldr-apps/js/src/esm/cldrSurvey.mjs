@@ -788,11 +788,6 @@ function testsToHtml(tests) {
 
     newHtml += "</p>\n";
   }
-  if (hadEntireLocale) {
-    newHtml += `<p class='trInfo tr_Warning alert alert-warning fix-popover-help'>See also <a href='#r_supplemental/${cldrStatus.getCurrentLocale()}//'>${cldrText.get(
-      "special_r_supplemental"
-    )}</a></p>\n`;
-  }
   return newHtml;
 }
 

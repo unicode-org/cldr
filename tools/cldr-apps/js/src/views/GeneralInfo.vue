@@ -10,6 +10,8 @@
     >
       Open Dashboard
     </button>
+
+    <cldr-overall-errors />
   </div>
 </template>
 

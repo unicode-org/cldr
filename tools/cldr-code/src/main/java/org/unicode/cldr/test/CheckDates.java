@@ -369,6 +369,7 @@ public class CheckDates extends FactoryCheckCLDR {
 
         try {
             if (path.indexOf("[@type=\"abbreviated\"]") >= 0) {
+                // ensures abbreviated <= wide for quarters, months, days, dayPeriods
                 String pathToWide = path.replace("[@type=\"abbreviated\"]", "[@type=\"wide\"]");
                 String wideValue = getCldrFileToCheck().getWinningValueWithBailey(pathToWide);
                 if (wideValue != null && isTooMuchWiderThan(value, wideValue)) {
@@ -420,6 +421,7 @@ public class CheckDates extends FactoryCheckCLDR {
                     }
                 }
             } else if (path.indexOf("[@type=\"narrow\"]") >= 0) {
+                // ensures narrow <= abbreviated for quarters, months, days, dayPeriods
                 String pathToAbbr = path.replace("[@type=\"narrow\"]", "[@type=\"abbreviated\"]");
                 String abbrValue = getCldrFileToCheck().getWinningValueWithBailey(pathToAbbr);
                 if (abbrValue != null && isTooMuchWiderThan(value, abbrValue)) {
@@ -436,7 +438,43 @@ public class CheckDates extends FactoryCheckCLDR {
                                             value, abbrValue);
                     result.add(item);
                 }
+            } else if (path.indexOf("[@type=\"short\"]") >= 0) {
+                // ensures short <= abbreviated and short >= narrow for days
+                String pathToAbbr = path.replace("[@type=\"short\"]", "[@type=\"abbreviated\"]");
+                String abbrValue = getCldrFileToCheck().getWinningValueWithBailey(pathToAbbr);
+                String pathToNarrow = path.replace("[@type=\"short\"]", "[@type=\"narrow\"]");
+                String narrowValue = getCldrFileToCheck().getWinningValueWithBailey(pathToNarrow);
+                if ((abbrValue != null
+                                && isTooMuchWiderThan(value, abbrValue)
+                                && value.length() > abbrValue.length())
+                        || (narrowValue != null
+                                && isTooMuchWiderThan(narrowValue, value)
+                                && narrowValue.length() > value.length())) {
+                    // Without the additional check on length() above, the test is too sensitive
+                    // and flags reasonable things like lettercase differences
+                    String message;
+                    String compareValue;
+                    if (abbrValue != null
+                            && isTooMuchWiderThan(value, abbrValue)
+                            && value.length() > abbrValue.length()) {
+                        message =
+                                "Short value \"{0}\" can't be longer than the corresponding abbreviated value \"{1}\"";
+                        compareValue = abbrValue;
+                    } else {
+                        message =
+                                "Short value \"{0}\" can't be shorter than the corresponding narrow value \"{1}\"";
+                        compareValue = narrowValue;
+                    }
+                    CheckStatus item =
+                            new CheckStatus()
+                                    .setCause(this)
+                                    .setMainType(CheckStatus.errorType)
+                                    .setSubtype(Subtype.shortDateFieldInconsistentLength)
+                                    .setMessage(message, value, compareValue);
+                    result.add(item);
+                }
             } else if (path.indexOf("/eraNarrow") >= 0) {
+                // ensures eraNarrow <= eraAbbr for eras
                 String pathToAbbr = path.replace("/eraNarrow", "/eraAbbr");
                 String abbrValue = getCldrFileToCheck().getWinningValueWithBailey(pathToAbbr);
                 if (abbrValue != null && isTooMuchWiderThan(value, abbrValue)) {
@@ -451,6 +489,7 @@ public class CheckDates extends FactoryCheckCLDR {
                     result.add(item);
                 }
             } else if (path.indexOf("/eraAbbr") >= 0) {
+                // ensures eraAbbr <= eraNames for eras
                 String pathToWide = path.replace("/eraAbbr", "/eraNames");
                 String wideValue = getCldrFileToCheck().getWinningValueWithBailey(pathToWide);
                 if (wideValue != null && isTooMuchWiderThan(value, wideValue)) {

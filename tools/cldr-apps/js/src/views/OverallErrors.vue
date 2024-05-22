@@ -35,10 +35,12 @@ async function loadData() {
 
 loadData().then(
   () => {},
-  (err) =>
+  (err) => {
+    console.error(err);
     cldrNotify.exception(
       err,
       "Loading overall errors for " + getCurrentLocale()
-    )
+    );
+  }
 );
 </script>

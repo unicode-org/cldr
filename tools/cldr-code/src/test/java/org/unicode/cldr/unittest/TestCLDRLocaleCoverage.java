@@ -393,16 +393,24 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
                     if (parent == null || parent.equals(LocaleNames.ROOT)) {
                         break;
                     }
-                    if (!defaultContentLocales.contains(parent) && !parent.equals("en_001")) { // en_001 is generated later from en_GB
+                    if (!defaultContentLocales.contains(parent)
+                            && !parent.equals("en_001")) { // en_001 is generated later from en_GB
                         Level parentLevel = localesToLevels.get(parent);
                         if (assertNotNull(
-                            String.format("Locales.txt: Entry '%s ; %s ; ...' is missing parent '%s ; %s ; ...'", organization, originalLocale, organization,
-                                parent),
-                            parentLevel)) {
+                                String.format(
+                                        "Locales.txt: Entry '%s ; %s ; ...' is missing parent '%s ; %s ; ...'",
+                                        organization, originalLocale, organization, parent),
+                                parentLevel)) {
                             assertTrue(
-                                String.format("Locales.txt: Entry '%s ; %s ; %s' should not be higher than parent '%s ; %s ; %s'",
-                                    organization, originalLocale, level, organization, parent, parentLevel),
-                                parentLevel.compareTo(level) >= 0);
+                                    String.format(
+                                            "Locales.txt: Entry '%s ; %s ; %s' should not be higher than parent '%s ; %s ; %s'",
+                                            organization,
+                                            originalLocale,
+                                            level,
+                                            organization,
+                                            parent,
+                                            parentLevel),
+                                    parentLevel.compareTo(level) >= 0);
                         }
                     }
                     locale = parent;

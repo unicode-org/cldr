@@ -12,6 +12,7 @@ import java.util.Set;
  */
 public enum Organization {
     // Please update Locales.txt for default coverage when adding an organization here.
+    airbnb("Airbnb"),
     adlam("Winden Jangen Adlam"),
     adobe("Adobe"),
     afghan_csa("Afghan CSA"),

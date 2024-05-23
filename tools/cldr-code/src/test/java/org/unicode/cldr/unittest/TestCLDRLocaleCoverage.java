@@ -376,33 +376,42 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
     }
 
     public void TestParentCoverage() {
+        final SupplementalDataInfo sd = SupplementalDataInfo.getInstance();
+        final Set<String> defaultContentLocales = sd.getDefaultContentLocales();
+
         for (Organization organization : sc.getLocaleCoverageOrganizations()) {
             if (organization == Organization.special) {
                 continue;
             }
             final Map<String, Level> localesToLevels = sc.getLocalesToLevelsFor(organization);
             for (Entry<String, Level> localeAndLevel : localesToLevels.entrySet()) {
-                String originalLevel = localeAndLevel.getKey();
+                String originalLocale = localeAndLevel.getKey();
                 Level level = localeAndLevel.getValue();
-                String locale = originalLevel;
+                String locale = originalLocale;
                 while (true) {
                     String parent = LocaleIDParser.getParent(locale);
                     if (parent == null || parent.equals(LocaleNames.ROOT)) {
                         break;
                     }
-                    if (!parent.equals("en_001")) { // en_001 is generated later from en_GB
+                    if (!defaultContentLocales.contains(parent)
+                            && !parent.equals("en_001")) { // en_001 is generated later from en_GB
                         Level parentLevel = localesToLevels.get(parent);
-                        assertTrue(
-                                organization
-                                        + "; locale="
-                                        + originalLevel
-                                        + "; level="
-                                        + level
-                                        + "; parent="
-                                        + parent
-                                        + "; level="
-                                        + parentLevel,
-                                parentLevel != null && parentLevel.compareTo(level) >= 0);
+                        if (assertNotNull(
+                                String.format(
+                                        "Locales.txt: Entry '%s ; %s ; ...' is missing parent '%s ; %s ; ...'",
+                                        organization, originalLocale, organization, parent),
+                                parentLevel)) {
+                            assertTrue(
+                                    String.format(
+                                            "Locales.txt: Entry '%s ; %s ; %s' should not be higher than parent '%s ; %s ; %s'",
+                                            organization,
+                                            originalLocale,
+                                            level,
+                                            organization,
+                                            parent,
+                                            parentLevel),
+                                    parentLevel.compareTo(level) >= 0);
+                        }
                     }
                     locale = parent;
                 }

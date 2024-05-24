@@ -21,7 +21,6 @@ public abstract class VoterReportStatus<T> {
      * 'Person Names' Also see {@link org.unicode.cldr.tool.Chart#forReport(ReportId, String)}
      */
     public enum ReportId {
-        supplemental, // non-Chart (Entire Locale)
         datetime, // non-Chart
         zones, // non-Chart
         compact, // non-Chart, aka 'numbers'

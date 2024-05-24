@@ -481,10 +481,10 @@ async function getLocaleErrors(locale) {
 
 export {
   doFetch,
+  downloadXlsx,
   getFetchError,
+  getLocaleErrors,
   saveEntryCheckmark,
   setData,
   updatePath,
-  downloadXlsx,
-  getLocaleErrors,
 };

@@ -19,26 +19,29 @@
 </template>
 
 <script>
-// import * as cldrLoad from "../esm/cldrLoad.mjs";
-// import * as cldrStatus from "../esm/cldrStatus.mjs";
 export default {
   computed: {
     myClass() {
       return `cldrError tr_${this.status.type} `;
     },
     subtypeString() {
-      return this.status.subtype
-        .split(/(?=[A-Z])/)
-        .map((s) => s)
-        .join(" ");
+      return this.status.subtype.split(/(?=[A-Z])/).join(" ");
     },
   },
   props: {
-    status: {
-      type: Object,
-      // any additional classes
-      default: "",
-    },
+    /**
+     * 'status' is a VoteAPI.CheckStatusSummary with these properties:
+     *
+     *  public String message;
+     *  public Type type;
+     *  public Subtype subtype;
+     *  public String subtypeUrl;
+     *  public Phase phase;
+     *  public String cause;
+     *  public boolean entireLocale;
+     *
+     * */
+    status: Object,
   },
 };
 </script>

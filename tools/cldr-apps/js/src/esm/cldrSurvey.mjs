@@ -751,14 +751,12 @@ function testsToHtml(tests) {
   if (!tests) {
     return newHtml;
   }
-  var hadEntireLocale = false;
 
   for (var i = 0; i < tests.length; i++) {
     var testItem = tests[i];
     const { entireLocale } = testItem;
     if (entireLocale) {
-      hadEntireLocale = true;
-      continue;
+      continue; // skip entireLocale errors
     }
     newHtml += "<p class='trInfo tr_" + testItem.type;
     if (testItem.type == "Warning") {

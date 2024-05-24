@@ -1,19 +1,23 @@
 <template>
   <div style="background: #ffffff; padding: 30px">
     <a-card hoverable :title="subtypeString">
+      <!-- TODO: Error details are commented out temporarily, see discussion at CLDR-17664 -->
       <template #extra
-        ><a-tag :title="status.subtype" :color="status.type.toLowerCase()">{{
-          status.type
-        }}</a-tag></template
-      >
-      <p>
-        {{ status.message }}
-      </p>
-      <template v-if="status.subtypeUrl" #actions
-        ><a class="warningReference" :href="status.subtypeUrl"
-          >How to Fix…</a
+        ><a-tag
+          :title="status.subtype"
+          :color="'error' || status.type.toLowerCase()"
+          >{{ "error" || status.type }}</a-tag
         ></template
       >
+      <!-- <p>
+        {{ status.message }}
+      </p> -->
+      <p>Information on how to fix this is forthcoming.</p>
+      <!--
+      <template v-if="status.subtypeUrl" #actions>
+          <a class="warningReference" :href="status.subtypeUrl">How to Fix…</a>
+      </template>
+        -->
     </a-card>
   </div>
 </template>

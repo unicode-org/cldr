@@ -1037,6 +1037,46 @@ public class TestCheckCLDR extends TestFmwk {
             testFile.remove(path1);
             testFile.remove(path2);
         }
+        // Test for CLDR-14865
+        testFile = new CLDRFile(new SimpleXMLSource("fi"));
+        testFactory.addFile(testFile);
+        String availableFormatTestPath =
+                "//ldml/dates/calendars/calendar[@type=\"generic\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"GyMd\"]";
+        String availableFormatValue = "d.m.y G"; // erroneous, should have M not m
+        testFile.add(availableFormatTestPath, availableFormatValue);
+        CheckCLDR c = new CheckDates(testFactory);
+        c.setCldrFileToCheck(testFile, options, result);
+        result.clear();
+        c.check(
+                availableFormatTestPath,
+                availableFormatTestPath,
+                availableFormatValue,
+                options,
+                result);
+        Subtype actualSubtype = Subtype.none;
+        String message = null;
+        for (CheckStatus status : result) {
+            actualSubtype = status.getSubtype();
+            message = status.getMessage();
+            break;
+        }
+        if (actualSubtype != Subtype.incorrectDatePattern
+                || message == null
+                || !message.contains("d.M.y G")) {
+            String errorMessage =
+                    "fi generic availableFormat for id=GyMd with value "
+                            + availableFormatValue
+                            + ":";
+            if (actualSubtype != Subtype.incorrectDatePattern) {
+                errorMessage +=
+                        " expected Subtype.incorrectDatePattern, got " + actualSubtype + " ;";
+            }
+            if (message == null || !message.contains("d.M.y G")) {
+                errorMessage += " expected message should contain suggested d.M.y G, got message: ";
+                errorMessage += (message == null) ? "(null)" : message;
+            }
+            errln(errorMessage);
+        }
     }
 
     /** Should be some CLDR locales, plus a locale specially allowed in limited submission */

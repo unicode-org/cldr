@@ -85,7 +85,7 @@ class DashData {
         const xpstrid = this.pageCombinedEntry[cat][page]; // not necessarily e.xpstrid
         if (!xpstrid) {
           console.error(
-            "Existing xpstrid not found in addAbstainedEntry for cat = " +
+            "Existing xpstrid not found in addCombinedEntry for cat = " +
               cat +
               ", page = " +
               page
@@ -95,7 +95,7 @@ class DashData {
         const dashEntry = this.pathIndex[xpstrid];
         if (!dashEntry) {
           console.error(
-            "Existing entry not found in addAbstainedEntry for cat = " +
+            "Existing entry not found in addCombinedEntry for cat = " +
               cat +
               ", page = " +
               page

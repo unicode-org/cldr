@@ -9,6 +9,13 @@ import * as cldrStatus from "./cldrStatus.mjs";
 import * as cldrSurvey from "./cldrSurvey.mjs";
 import * as XLSX from "xlsx";
 
+/**
+ * Notifications in these categories are combined so that there is not more than one per page.
+ * These categories can have well over 10,000 notifications, causing performance problems on
+ * the front end.
+ */
+const CATS_ONE_PER_PAGE = ["Abstained", "Missing"];
+
 class DashData {
   /**
    * Construct a new DashData object
@@ -23,6 +30,8 @@ class DashData {
     // An object whose keys are xpstrid (xpath hex IDs like "db7b4f2df0427e4"), and whose values are DashEntry objects
     this.pathIndex = {};
     this.hiddenObject = null;
+    this.pageCombinedCount = {}; // map page to number of notifications on that page
+    this.pageCombinedEntry = {}; // map page to representative notification entry xpstrid on that page
   }
 
   addEntriesFromJson(notifications) {
@@ -43,32 +52,97 @@ class DashData {
    * @param {Object} e (entry in old format, from json)
    */
   addEntry(cat, group, e) {
-    this.addCategory(cat);
-    this.catSize[cat]++;
-    if (!this.catFirst[cat]) {
-      this.catFirst[cat] = e.xpstrid;
+    try {
+      this.addCategory(cat);
+      this.catSize[cat]++;
+      if (!this.catFirst[cat]) {
+        this.catFirst[cat] = e.xpstrid;
+      }
+      if (CATS_ONE_PER_PAGE.includes(cat)) {
+        this.addCombinedEntry(cat, group, e);
+      } else if (this.pathIndex[e.xpstrid]) {
+        this.updateEntry(cat, group, e);
+      } else {
+        this.addNewEntry(cat, group, e);
+      }
+    } catch (err) {
+      console.error("Error in addEntry: " + err);
     }
-    if (this.pathIndex[e.xpstrid]) {
-      const dashEntry = this.pathIndex[e.xpstrid];
-      dashEntry.addCategory(cat);
-      dashEntry.setWinning(e.winning);
-      if (e.comment) {
-        dashEntry.setComment(e.comment);
+  }
+
+  addCombinedEntry(cat, group, e) {
+    try {
+      const page = group.page;
+      if (!this.pageCombinedCount[cat]) {
+        this.pageCombinedCount[cat] = {};
+        this.pageCombinedEntry[cat] = {};
       }
-      if (e.subtype) {
-        dashEntry.setSubtype(e.subtype);
+      if (!this.pageCombinedCount[cat][page]) {
+        this.pageCombinedCount[cat][page] = 1;
+        this.pageCombinedEntry[cat][page] = this.addNewEntry(cat, group, e);
+      } else {
+        this.pageCombinedCount[cat][page]++;
+        const xpstrid = this.pageCombinedEntry[cat][page]; // not necessarily e.xpstrid
+        if (!xpstrid) {
+          console.error(
+            "Existing xpstrid not found in addAbstainedEntry for cat = " +
+              cat +
+              ", page = " +
+              page
+          );
+          return;
+        }
+        const dashEntry = this.pathIndex[xpstrid];
+        if (!dashEntry) {
+          console.error(
+            "Existing entry not found in addAbstainedEntry for cat = " +
+              cat +
+              ", page = " +
+              page
+          );
+          return;
+        }
+        this.setComment(dashEntry, cat, page, null);
       }
-    } else {
-      const dashEntry = new DashEntry(e.xpstrid, e.code, e.english);
-      dashEntry.setSectionPageHeader(group.section, group.page, group.header);
-      dashEntry.addCategory(cat);
-      dashEntry.setWinning(e.winning);
-      dashEntry.setPreviousEnglish(e.previousEnglish);
-      dashEntry.setComment(e.comment);
+    } catch (err) {
+      console.error("Error in addCombinedEntry: " + err);
+    }
+  }
+
+  updateEntry(cat, group, e) {
+    const dashEntry = this.pathIndex[e.xpstrid];
+    dashEntry.addCategory(cat);
+    dashEntry.setWinning(e.winning);
+    this.setComment(dashEntry, cat, group.page, e.comment);
+    if (e.subtype) {
       dashEntry.setSubtype(e.subtype);
-      dashEntry.setChecked(this.itemIsChecked(e));
-      this.entries.push(dashEntry);
-      this.pathIndex[e.xpstrid] = dashEntry;
+    }
+  }
+
+  addNewEntry(cat, group, e) {
+    const dashEntry = new DashEntry(e.xpstrid, e.code, e.english);
+    dashEntry.setSectionPageHeader(group.section, group.page, group.header);
+    dashEntry.addCategory(cat);
+    dashEntry.setWinning(e.winning);
+    dashEntry.setPreviousEnglish(e.previousEnglish);
+    this.setComment(dashEntry, cat, group.page, e.comment);
+    dashEntry.setSubtype(e.subtype);
+    dashEntry.setChecked(this.itemIsChecked(e));
+    this.entries.push(dashEntry);
+    this.pathIndex[e.xpstrid] = dashEntry;
+    return e.xpstrid;
+  }
+
+  setComment(dashEntry, cat, page, comment) {
+    if (CATS_ONE_PER_PAGE.includes(cat)) {
+      dashEntry.setComment(
+        "Total " +
+          cat +
+          " entries on this page: " +
+          this.pageCombinedCount[cat][page]
+      );
+    } else {
+      dashEntry.setComment(comment);
     }
   }
 

@@ -223,9 +223,13 @@ class DashData {
   }
 
   removeEntry(dashEntry) {
+    const xpstrid = dashEntry.xpstrid;
     this.removeEntryCats(dashEntry);
-    const index = this.entries.indexOf(dashEntry);
-    this.entries.splice(index, 1);
+    // Changed xpstrid means the entry wasn't really removed but was kept as representative of combined category
+    if (xpstrid === dashEntry.xpstrid) {
+      const index = this.entries.indexOf(dashEntry);
+      this.entries.splice(index, 1);
+    }
   }
 
   removeEntryCats(dashEntry) {
@@ -236,14 +240,14 @@ class DashData {
         delete this.catSize[cat];
       }
       if (CATS_ONE_PER_PAGE.includes(cat)) {
-        this.removeCombinedEntryCats(dashEntry, cat);
+        this.removeCombinedEntryCat(dashEntry, cat);
       } else if (this.catFirst[cat] === dashEntry.xpstrid) {
         this.findCatFirst(cat);
       }
     });
   }
 
-  removeCombinedEntryCats(dashEntry, cat) {
+  removeCombinedEntryCat(dashEntry, cat) {
     const page = dashEntry.page;
     this.pageCombinedEntries[cat][page].shift();
     if (this.pageCombinedEntries[cat][page].length > 0) {

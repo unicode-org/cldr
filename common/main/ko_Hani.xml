@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2024 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+SPDX-License-Identifier: Unicode-3.0
+CLDR data files are interpreted according to the LDML specification
+(http://unicode.org/reports/tr35/)
+
+Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived
+annotations.
+-->
+<ldml>
+    <identity>
+        <version number="$Revision$" />
+        <language type="ko" />
+        <script type="Hani" />
+    </identity>
+    <characters>
+        <exemplarCharacters>[一-鿿 \u0020000-\u002EBEF 가-힣]</exemplarCharacters>
+        <exemplarCharacters type="auxiliary">[a-z]</exemplarCharacters>
+        <exemplarCharacters type="numbers">[0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
+        <exemplarCharacters type="punctuation">[. ? ! - · : ; " 「 」 『 』 《 》]</exemplarCharacters>
+    </characters>
+</ldml>

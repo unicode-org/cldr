@@ -204,6 +204,11 @@ export default {
   },
 
   created() {
+    if (cldrStatus.getPermissions()?.userIsTC) {
+      this.catIsHidden["Abstained"] = this.catCheckboxIsUnchecked[
+        "Abstained"
+      ] = true;
+    }
     this.fetchData();
   },
 

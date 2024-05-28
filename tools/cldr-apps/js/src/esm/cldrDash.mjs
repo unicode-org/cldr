@@ -30,8 +30,7 @@ class DashData {
     // An object whose keys are xpstrid (xpath hex IDs like "db7b4f2df0427e4"), and whose values are DashEntry objects
     this.pathIndex = {};
     this.hiddenObject = null;
-    this.pageCombinedCount = {}; // map page to number of notifications on that page
-    this.pageCombinedEntry = {}; // map page to representative notification entry xpstrid on that page
+    this.pageCombinedEntries = {}; // map page to array of notification xpstrid on that page
   }
 
   addEntriesFromJson(notifications) {
@@ -73,19 +72,20 @@ class DashData {
   addCombinedEntry(cat, group, e) {
     try {
       const page = group.page;
-      if (!this.pageCombinedCount[cat]) {
-        this.pageCombinedCount[cat] = {};
-        this.pageCombinedEntry[cat] = {};
+      if (!this.pageCombinedEntries[cat]) {
+        this.pageCombinedEntries[cat] = {};
       }
-      if (!this.pageCombinedCount[cat][page]) {
-        this.pageCombinedCount[cat][page] = 1;
-        this.pageCombinedEntry[cat][page] = this.addNewEntry(cat, group, e);
+      if (!this.pageCombinedEntries[cat][page]?.length) {
+        this.pageCombinedEntries[cat][page] = new Array(e.xpstrid);
+        this.addNewEntry(cat, group, e);
       } else {
-        this.pageCombinedCount[cat][page]++;
-        const xpstrid = this.pageCombinedEntry[cat][page]; // not necessarily e.xpstrid
+        this.pageCombinedEntries[cat][page].push(e.xpstrid);
+        // Use the FIRST item in the array as the representative,
+        // with its comment indicating the size of the array
+        const xpstrid = this.pageCombinedEntries[cat][page][0];
         if (!xpstrid) {
           console.error(
-            "Existing xpstrid not found in addCombinedEntry for cat = " +
+            "Existing xpstrid not found in addCombinedEntries for cat = " +
               cat +
               ", page = " +
               page
@@ -139,7 +139,7 @@ class DashData {
         "Total " +
           cat +
           " entries on this page: " +
-          this.pageCombinedCount[cat][page]
+          this.pageCombinedEntries[cat][page].length
       );
     } else {
       dashEntry.setComment(comment);
@@ -235,10 +235,26 @@ class DashData {
         this.cats.delete(cat);
         delete this.catSize[cat];
       }
-      if (this.catFirst[cat] === dashEntry.xpstrid) {
+      if (CATS_ONE_PER_PAGE.includes(cat)) {
+        this.removeCombinedEntryCats(dashEntry, cat);
+      } else if (this.catFirst[cat] === dashEntry.xpstrid) {
         this.findCatFirst(cat);
       }
     });
+  }
+
+  removeCombinedEntryCats(dashEntry, cat) {
+    const page = dashEntry.page;
+    this.pageCombinedEntries[cat][page].shift();
+    if (this.pageCombinedEntries[cat][page].length > 0) {
+      if (this.catFirst[cat] === dashEntry.xpstrid) {
+        const nextXpstrid = this.pageCombinedEntries[cat][page][0];
+        dashEntry.xpstrid = nextXpstrid;
+        delete this.pathIndex.xpstrid;
+        this.pathIndex[nextXpstrid] = dashEntry;
+        this.catFirst[cat] = nextXpstrid;
+      }
+    }
   }
 
   findCatFirst(cat) {

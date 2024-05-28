@@ -72,6 +72,65 @@ describe("cldrDash.updatePath", function () {
       1
     );
   });
+
+  it("should update combined entries", function () {
+    // jsonAbstain0 has 2 Abstained notifications on the same page.
+    // After the user votes for the first of those rows (which "represents" the
+    // Abstain category on that page), there should still be a combined notification
+    // for the page, with the remaining row as representative
+    const jsonTwoAbstained = {
+      hidden: {},
+      notifications: [
+        {
+          category: "Abstained",
+          groups: [
+            {
+              entries: [
+                {
+                  code: "codeA",
+                  comment: "",
+                  english: "a",
+                  old: "",
+                  subtype: "",
+                  winning: "a",
+                  xpstrid: "1234",
+                },
+                {
+                  code: "codeB",
+                  comment: "",
+                  english: "b",
+                  old: "",
+                  subtype: "",
+                  winning: "b",
+                  xpstrid: "abcd",
+                },
+              ],
+              header: "pint-metric",
+              page: "Volume",
+              section: "Units",
+            },
+          ],
+        },
+      ],
+    };
+
+    const jsonUpdate = {
+      xpstrid: "1234",
+      page: {
+        rows: {
+          _xctnmb: {
+            xpstrid: "1234",
+          },
+        },
+      },
+      notifications: [],
+    };
+
+    const dataBefore = cldrDash.setData(jsonTwoAbstained);
+    const dataAfter = cldrDash.updatePath(dataBefore, jsonUpdate);
+    assert.strictEqual(dataAfter.catSize["Abstained"], 1);
+    assert.strictEqual(dataAfter.catFirst["Abstained"], "abcd");
+  });
 });
 
 /**

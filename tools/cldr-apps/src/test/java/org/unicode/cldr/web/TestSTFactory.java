@@ -165,7 +165,10 @@ public class TestSTFactory {
 
     @Test
     public void TestBasicVote()
-            throws SQLException, IOException, InvalidXPathException, VoteNotAcceptedException,
+            throws SQLException,
+                    IOException,
+                    InvalidXPathException,
+                    VoteNotAcceptedException,
                     LogoutException {
         STFactory fac = getFactory();
 
@@ -354,7 +357,10 @@ public class TestSTFactory {
 
     @Test
     public void TestSparseVote()
-            throws SQLException, IOException, InvalidXPathException, SurveyException,
+            throws SQLException,
+                    IOException,
+                    InvalidXPathException,
+                    SurveyException,
                     LogoutException {
         STFactory fac = getFactory();
 
@@ -503,7 +509,10 @@ public class TestSTFactory {
 
     @Test
     public void TestVettingWithNonDistinguishing()
-            throws SQLException, IOException, InvalidXPathException, SurveyException,
+            throws SQLException,
+                    IOException,
+                    InvalidXPathException,
+                    SurveyException,
                     LogoutException {
         if (TestAll.skipIfNoDb()) return;
         STFactory fac = getFactory();

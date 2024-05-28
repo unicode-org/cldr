@@ -174,6 +174,7 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
     }
 
     final Matcher matchLocale; // fine-grained control for verbose
+
     // use -DUnicodeSetPrettyPrinterTest:showAnyway=.* for all
     {
         String matchString = System.getProperty("UnicodeSetPrettyPrinterTest:showAnyway");

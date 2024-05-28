@@ -1361,6 +1361,7 @@ public class SupplementalDataInfo {
 
         LanguageTagParser languageTagParser =
                 null; // postpone assignment until needed, to avoid re-entrance of
+
         // SupplementalDataInfo.getInstance
 
         /** Finish processing anything left hanging in the file. */

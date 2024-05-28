@@ -436,6 +436,7 @@ public class VoteAPIHelper {
             return new STError(se).build();
         }
     }
+
     /**
      * this function is the implementation of handleVote() but does not use any jax-rs, for unit
      * tests

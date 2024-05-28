@@ -33,15 +33,19 @@ public class ErrorSubtypeClient {
 
     /** range for the all-subtypes list. This will be written to */
     static final String ALL_SUBTYPES_RANGE = "AllSubtypes!A1:A";
+
     /** range for the subtype map. This will be read. Don't count the header. */
     static final String SUBTYPE_MAP_RANGE = "SubtypeToURLMap!A2:B";
 
     /** default name of credentials (service key) file */
     private static final String SUBTYPE_CREDENTIALS_JSON = "subtype-credentials.json";
+
     /** scopes needed */
     private static final List<String> SCOPES = Collections.singletonList(SheetsScopes.SPREADSHEETS);
+
     /** property indicating the full credential path */
     private static final String CLDR_SUBTYPE_CREDENTIAL_PATH = "CLDR_SUBTYPE_CREDENTIAL_PATH";
+
     /**
      * property indicating the Google Sheet ID of the spreadsheet. Spreadsheet must be shared with
      * the service credential for editing.

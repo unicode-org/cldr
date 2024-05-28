@@ -86,6 +86,7 @@ public class Units {
         public String type;
         public String core;
     }
+
     /**
      * Returns the type and core for a unit, be it long or short
      *

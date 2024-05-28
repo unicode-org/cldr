@@ -208,8 +208,10 @@ public class UTF16Util {
 
         return result;
     }
+
     /** The minimum value for Supplementary code points */
     public static final int SUPPLEMENTARY_MIN_VALUE = 0x10000;
+
     /**
      * Determines how many chars this char32 requires. If a validity check is required, use <code>
      * <a href="../UCharacter.html#isLegal(char)">isLegal()</a></code> on char32 before calling.
@@ -223,12 +225,14 @@ public class UTF16Util {
         }
         return 2;
     }
+
     /**
      * Lead surrogate maximum value
      *
      * @stable ICU 2.1
      */
     public static final int LEAD_SURROGATE_MAX_VALUE = 0xDBFF;
+
     /**
      * Lead surrogate minimum value
      *
@@ -242,12 +246,14 @@ public class UTF16Util {
      * @stable ICU 2.1
      */
     public static final int TRAIL_SURROGATE_MIN_VALUE = 0xDC00;
+
     /**
      * Trail surrogate maximum value
      *
      * @stable ICU 2.1
      */
     public static final int TRAIL_SURROGATE_MAX_VALUE = 0xDFFF;
+
     /**
      * Determines whether the code value is a surrogate.
      *
@@ -280,6 +286,7 @@ public class UTF16Util {
     public static boolean isLeadSurrogate(char char16) {
         return LEAD_SURROGATE_MIN_VALUE <= char16 && char16 <= LEAD_SURROGATE_MAX_VALUE;
     }
+
     /**
      * Extract a single UTF-32 value from a substring. Used when iterating forwards or backwards
      * (with <code>UTF16.getCharCount()</code>, as well as random access. If a validity check is
@@ -331,6 +338,7 @@ public class UTF16Util {
         }
         return single; // return unmatched surrogate
     }
+
     /** Shift value for lead surrogate to form a supplementary character. */
     private static final int LEAD_SURROGATE_SHIFT_ = 10;
 

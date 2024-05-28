@@ -42,6 +42,7 @@ abstract class FixedCandidateProvider
 
         protected abstract Collection<String> getCandidates();
     }
+
     /** Candidate provider for a single string (not regex) */
     abstract static class StringCandidateProvider extends FixedCandidateProvider {
         final String pattern;

@@ -14,7 +14,7 @@ import * as XLSX from "xlsx";
  * These categories can have well over 10,000 notifications, causing performance problems on
  * the front end.
  */
-const CATS_ONE_PER_PAGE = ["Abstained", "Missing"];
+const CATS_ONE_PER_PAGE = ["Abstained" /* , "Missing" */];
 
 class DashData {
   /**
@@ -31,6 +31,7 @@ class DashData {
     this.pathIndex = {};
     this.hiddenObject = null;
     this.pageCombinedEntries = {}; // map page to array of notification xpstrid on that page
+    this.updatingPath = false;
   }
 
   addEntriesFromJson(notifications) {
@@ -79,7 +80,16 @@ class DashData {
         this.pageCombinedEntries[cat][page] = new Array(e.xpstrid);
         this.addNewEntry(cat, group, e);
       } else {
-        this.pageCombinedEntries[cat][page].push(e.xpstrid);
+        // TODO: make this work. unshift instead of push may be appropriate
+        // during an update (following a vote), since the combined notification
+        // is temporarily removed then added back, and in this case it may belong
+        // at the start of the array, not the end.
+        // Reference: https://unicode-org.atlassian.net/browse/CLDR-17658
+        if (this.updatingPath) {
+          this.pageCombinedEntries[cat][page].unshift(e.xpstrid);
+        } else {
+          this.pageCombinedEntries[cat][page].push(e.xpstrid);
+        }
         // Use the FIRST item in the array as the representative,
         // with its comment indicating the size of the array
         const xpstrid = this.pageCombinedEntries[cat][page][0];
@@ -253,10 +263,24 @@ class DashData {
     if (this.pageCombinedEntries[cat][page].length > 0) {
       if (this.catFirst[cat] === dashEntry.xpstrid) {
         const nextXpstrid = this.pageCombinedEntries[cat][page][0];
-        dashEntry.xpstrid = nextXpstrid;
-        delete this.pathIndex.xpstrid;
-        this.pathIndex[nextXpstrid] = dashEntry;
-        this.catFirst[cat] = nextXpstrid;
+        // If this is the only category for this entry, then we can revise the
+        // entry to use the next xpstrid for the page -- unless that next xpstrid
+        // is already present for a different category...
+        if (dashEntry.cats.size === 1 && !this.pathIndex[nextXpstrid]) {
+          dashEntry.xpstrid = nextXpstrid;
+          delete this.pathIndex.xpstrid;
+          this.pathIndex[nextXpstrid] = dashEntry;
+          this.catFirst[cat] = nextXpstrid;
+          this.setComment(dashEntry, cat, page, null);
+        } else {
+          // TODO: fix this; work in progress
+          // Reference: https://unicode-org.atlassian.net/browse/CLDR-17658
+          // Remove this cat from the existing entry
+          dashEntry.cats.delete(cat);
+          // if (dashEntry.cats.size === 0) {
+          //  delete this.pathIndex.xpstrid;
+          // }
+        }
       }
     }
   }
@@ -428,6 +452,7 @@ function convertData(json) {
  *               containing notifications for a single path (old format)
  */
 function updatePath(dashData, json) {
+  this.updatingPath = true;
   try {
     if (json.xpstrid in dashData.pathIndex) {
       // We already have an entry for this path
@@ -445,6 +470,7 @@ function updatePath(dashData, json) {
   } catch (e) {
     cldrNotify.exception(e, "updating path for Dashboard");
   }
+  this.updatingPath = false;
   return dashData; // for unit test
 }
 

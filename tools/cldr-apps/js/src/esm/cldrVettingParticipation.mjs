@@ -56,12 +56,6 @@ const COLUMNS = [
 
   { title: COLUMN_TITLE_LEVEL, comment: "User level", default: null },
   {
-    title: COLUMN_TITLE_VOTES,
-    comment:
-      "User vote count, total number of path values in this locale that have a vote from this vetter, possibly including paths that are above the organization's coverage target for the locale (such as comprehensive)",
-    default: 0,
-  },
-  {
     title: COLUMN_TITLE_COVERAGE_COUNT,
     comment:
       "Total number of paths that are in CLDR's coverage target for this locale",
@@ -98,6 +92,30 @@ const COLUMNS = [
     default: "",
   },
   {
+    title: COLUMN_TITLE_COVERAGE_LEVEL,
+    comment: "Coverage level for this user's organization",
+    default: "",
+  },
+  {
+    title: COLUMN_TITLE_USER_ID,
+    comment: "User's account number",
+    default: null,
+  },
+  { title: COLUMN_TITLE_USER_EMAIL, comment: "User's email", default: null },
+  { title: COLUMN_TITLE_USER_NAME, comment: "User's name", default: null },
+  {
+    title: COLUMN_TITLE_LAST_SEEN,
+    comment: "When the user last logged in",
+    default: null,
+  },
+  // hide/delete after this
+  {
+    title: COLUMN_TITLE_VOTES,
+    comment:
+      "User vote count, total number of path values in this locale that have a vote from this vetter, possibly including paths that are above the organization's coverage target for the locale (such as comprehensive)",
+    default: 0,
+  },
+  {
     title: COLUMN_TITLE_VOTES_AUTO_IMPORT,
     comment:
       "Number of automatically-imported votes by this user within the organization coverage level",
@@ -121,24 +139,19 @@ const COLUMNS = [
       "Number of votes of unknown type by this user within the organization coverage level",
     default: "",
   },
-  {
-    title: COLUMN_TITLE_COVERAGE_LEVEL,
-    comment: "Coverage level for this user's organization",
-    default: "",
-  },
-  {
-    title: COLUMN_TITLE_USER_ID,
-    comment: "User's account number",
-    default: null,
-  },
-  { title: COLUMN_TITLE_USER_EMAIL, comment: "User's email", default: null },
-  { title: COLUMN_TITLE_USER_NAME, comment: "User's name", default: null },
-  {
-    title: COLUMN_TITLE_LAST_SEEN,
-    comment: "When the user last logged in",
-    default: null,
-  },
 ];
+
+// Google Sheets ignores the hidden column property, so delete them instead
+const DELETE_HIDDEN = true;
+const HIDDEN_COLUMNS = [
+  COLUMN_TITLE_VOTES,
+  COLUMN_TITLE_VOTES_MANUAL_IMPORT,
+  COLUMN_TITLE_VOTES_BULK_UPLOAD,
+  COLUMN_TITLE_VOTES_AUTO_IMPORT,
+  COLUMN_TITLE_VOTES_UNKNOWN,
+];
+const LAST_VISIBLE_COLUMN = COLUMN_TITLE_LAST_SEEN;
+const LAST_HIDDEN_COLUMN = COLUMN_TITLE_VOTES_UNKNOWN;
 
 const VOTE_TYPES = {
   DIRECT: COLUMN_TITLE_VOTES_DIRECT,
@@ -267,9 +280,46 @@ async function downloadVettingParticipation(opts) {
     }
   }
 
+  /** are we tracking this user? */
+  function isRegularVetter(user) {
+    if (user.allLocales) return false;
+    if (!user.locales) return false;
+    if (user.userlevelName === "vetter" || user.userlevelName === "guest")
+      return true;
+    return false; // some other level
+  }
+
+  // total count needed to fetch
+  let allToFetch = 0;
+  // number confirmed fetched
+  let fetched = 0;
+
+  /** preload voting results. we'll await the results later */
+  for (const [id, user] of Object.entries(uidToUser)) {
+    if (isRegularVetter(user)) {
+      user.data = {};
+      for (const locale of user.locales) {
+        const level = "org";
+        user.data[locale] = cldrAjax.doFetch(
+          `./api/summary/participation/for/${id}/${locale}/${level}`
+        );
+        allToFetch++;
+
+        user.data[locale].then(() => {
+          fetched++;
+          setProgress(fetched, allToFetch);
+          const fetchPercent = cldrProgress.friendlyPercent(
+            fetched,
+            allToFetch
+          );
+          setStatus(`(${fetchPercent}% of ${allToFetch} fetched)`);
+        });
+      }
+    }
+  }
+
   for (const [id, user] of Object.entries(uidToUser)) {
     userNo++;
-    setProgress(userNo, userCount);
     const row = getDefaultRow(id, user, columnIndex);
     if (user.allLocales) {
       row[columnIndex[COLUMN_TITLE_LOCALE_NAME]] = "ALL";
@@ -300,10 +350,8 @@ async function downloadVettingParticipation(opts) {
 
         if (user.userlevelName === "vetter" || user.userlevelName === "guest") {
           const level = "org";
-          setStatus(`Fetch ${id}/${locale}/${level}`);
-          const data = await cldrAjax.doFetch(
-            `./api/summary/participation/for/${id}/${locale}/${level}`
-          );
+          // here is where we block waiting on the results from above
+          const data = await user.data[locale];
           const json = await data.json();
           const { votablePathCount, votedPathCount, typeCount } =
             json.voterProgress;
@@ -343,15 +391,15 @@ async function downloadVettingParticipation(opts) {
   }
   // hide these columns
   ws["!cols"] = [];
-  for (const c of [
-    COLUMN_TITLE_VOTES,
-    COLUMN_TITLE_VOTES_MANUAL_IMPORT,
-    COLUMN_TITLE_VOTES_BULK_UPLOAD,
-    COLUMN_TITLE_VOTES_AUTO_IMPORT,
-    COLUMN_TITLE_VOTES_UNKNOWN,
-  ]) {
-    ws["!cols"][columnIndex[c]] = [{ hidden: true }];
+  for (const c of HIDDEN_COLUMNS) {
+    ws["!cols"][columnIndex[c]] = [{ hidden: true, wch: 0 }];
   }
+
+  // omit hidden columns
+  ws["!ref"] = ws["!ref"].replace(
+    XLSX.utils.encode_col(columnIndex[LAST_HIDDEN_COLUMN]),
+    XLSX.utils.encode_col(columnIndex[LAST_VISIBLE_COLUMN])
+  );
 
   XLSX.utils.book_append_sheet(wb, ws, ws_name);
 
@@ -360,7 +408,10 @@ async function downloadVettingParticipation(opts) {
 
   XLSX.writeFile(
     wb,
-    `survey_participation.${missingLocalesForOrg || "ALL"}.xlsx`
+    `survey_participation.${missingLocalesForOrg || "ALL"}.xlsx`,
+    {
+      cellStyles: true,
+    }
   );
   cldrDom.removeAllChildNodes(progressDiv);
 }

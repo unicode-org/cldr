@@ -22,7 +22,8 @@ const COLUMN_TITLE_VETTERS_PER_LOCALE = "/Vetters";
 const COLUMN_TITLE_LOCALES_PER_VETTER = "/Locales";
 const COLUMN_TITLE_LEVEL = "Level";
 const COLUMN_TITLE_VOTES = "Votes";
-const COLUMN_TITLE_COVERAGE_COUNT = "Cldr Coverage Count";
+const COLUMN_TITLE_CLDR_COVERAGE_COUNT = "Cldr Coverage Count";
+const COLUMN_TITLE_ORG_COVERAGE_COUNT = "Org Coverage Count";
 const COLUMN_TITLE_VOTED_PATH_COUNT = "Progress Vote";
 const COLUMN_TITLE_VOTABLE_PATH_COUNT = "Progress Count";
 const COLUMN_TITLE_PROGRESS_PERCENT = "Progress Percent";
@@ -56,9 +57,9 @@ const COLUMNS = [
 
   { title: COLUMN_TITLE_LEVEL, comment: "User level", default: null },
   {
-    title: COLUMN_TITLE_COVERAGE_COUNT,
+    title: COLUMN_TITLE_ORG_COVERAGE_COUNT,
     comment:
-      "Total number of paths that are in CLDR's coverage target for this locale",
+      "Total number of paths that are in Org's coverage target for this locale",
     default: 0,
   },
   {
@@ -116,6 +117,12 @@ const COLUMNS = [
     default: 0,
   },
   {
+    title: COLUMN_TITLE_CLDR_COVERAGE_COUNT,
+    comment:
+      "Total number of paths that are in CLDR's coverage target for this locale",
+    default: 0,
+  },
+  {
     title: COLUMN_TITLE_VOTES_AUTO_IMPORT,
     comment:
       "Number of automatically-imported votes by this user within the organization coverage level",
@@ -143,6 +150,7 @@ const COLUMNS = [
 
 // Google Sheets ignores the hidden column property, so delete them instead
 const DELETE_HIDDEN = true;
+
 const HIDDEN_COLUMNS = [
   COLUMN_TITLE_VOTES,
   COLUMN_TITLE_VOTES_MANUAL_IMPORT,
@@ -202,7 +210,7 @@ function loadHandler(json) {
 }
 
 function errorHandler(err) {
-  cldrRetry.handleDisconnect(err, json, "", "Loading forum participation data");
+  cldrRetry.handleDisconnect(err, {}, "", "Loading forum participation data");
 }
 
 /**
@@ -345,8 +353,10 @@ async function downloadVettingParticipation(opts) {
         row[columnIndex[COLUMN_TITLE_LOCALE_ID]] = locale;
         row[columnIndex[COLUMN_TITLE_VOTES]] =
           localeToData[locale].participation[id] || 0;
-        row[columnIndex[COLUMN_TITLE_COVERAGE_COUNT]] =
-          localeToData[locale].cov_count || 0;
+        row[columnIndex[COLUMN_TITLE_ORG_COVERAGE_COUNT]] =
+          localeToData[locale].org_count || 0;
+        row[columnIndex[COLUMN_TITLE_CLDR_COVERAGE_COUNT]] =
+          localeToData[locale].cldr_count || 0;
 
         if (user.userlevelName === "vetter" || user.userlevelName === "guest") {
           const level = "org";
@@ -389,17 +399,20 @@ async function downloadVettingParticipation(opts) {
     });
     XLSX.utils.cell_set_number_format(ws[cell], "0%");
   }
-  // hide these columns
-  ws["!cols"] = [];
-  for (const c of HIDDEN_COLUMNS) {
-    ws["!cols"][columnIndex[c]] = [{ hidden: true, wch: 0 }];
-  }
 
   // omit hidden columns
-  ws["!ref"] = ws["!ref"].replace(
-    XLSX.utils.encode_col(columnIndex[LAST_HIDDEN_COLUMN]),
-    XLSX.utils.encode_col(columnIndex[LAST_VISIBLE_COLUMN])
-  );
+  if (DELETE_HIDDEN) {
+    ws["!ref"] = ws["!ref"].replace(
+      XLSX.utils.encode_col(columnIndex[LAST_HIDDEN_COLUMN]),
+      XLSX.utils.encode_col(columnIndex[LAST_VISIBLE_COLUMN])
+    );
+  } else {
+    // hide these columns
+    ws["!cols"] = [];
+    for (const c of HIDDEN_COLUMNS) {
+      ws["!cols"][columnIndex[c]] = [{ hidden: true, wch: 0 }];
+    }
+  }
 
   XLSX.utils.book_append_sheet(wb, ws, ws_name);
 
@@ -737,12 +750,13 @@ function calculateData(json) {
   });
   // collect missing
   (languagesMissing || []).forEach((loc) => (getLocale(loc).missing = true));
-  participation.forEach(({ count, locale, user, cov_count }) => {
+  participation.forEach(({ count, locale, user, cldr_count, org_count }) => {
     const e = getLocale(locale);
     e.count += count;
     totalCount += count;
     e.participation[user] = count;
-    e.cov_count = cov_count; // cov_count is currently per-locale data.
+    e.org_count = org_count;
+    e.cldr_count = cldr_count;
   });
 
   return { localeToData, totalCount, uidToUser };

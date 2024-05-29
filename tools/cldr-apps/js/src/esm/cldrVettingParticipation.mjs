@@ -134,6 +134,11 @@ let nf = null; // Intl.NumberFormat initialized later
  * Called as special.load
  */
 function load() {
+  if (!cldrStatus.getSurveyUser()) {
+    // show error instead of hang if not logged in
+    cldrLoad.flipToOtherDiv(document.createTextNode("Not logged in."));
+    return;
+  }
   const url = getAjaxUrl();
   const xhrArgs = {
     url: url,

@@ -24,8 +24,7 @@ async function get() {
     .doFetch(url)
     .then(cldrAjax.handleFetchErrors)
     .then((r) => r.json())
-    .then(loadOrgs)
-    .catch((e) => console.error(`Error: ${e} ...`));
+    .then(loadOrgs);
 }
 
 function loadOrgs(json) {

@@ -27,6 +27,7 @@ const COLUMN_TITLE_VOTED_PATH_COUNT = "Progress Vote";
 const COLUMN_TITLE_VOTABLE_PATH_COUNT = "Progress Count";
 const COLUMN_TITLE_PROGRESS_PERCENT = "Progress Percent";
 const COLUMN_TITLE_VOTES_DIRECT = "Direct Votes";
+const COLUMN_TITLE_VOTES_NON_DIRECT = "Non Direct Votes";
 const COLUMN_TITLE_VOTES_AUTO_IMPORT = "Auto-imported Votes";
 const COLUMN_TITLE_VOTES_MANUAL_IMPORT = "Manually-imported Votes";
 const COLUMN_TITLE_VOTES_BULK_UPLOAD = "Bulk-uploaded Votes";
@@ -42,9 +43,16 @@ const COLUMNS = [
   { title: COLUMN_TITLE_LOCALE_NAME, comment: "User locale", default: null },
   { title: COLUMN_TITLE_LOCALE_ID, comment: "User locale code", default: null },
 
-  { title: COLUMN_TITLE_VETTERS_PER_LOCALE, comment: "Vetters per Locale", default: 0 },
-  { title: COLUMN_TITLE_LOCALES_PER_VETTER, comment: "Locales per this Vetter", default: 0 },
-
+  {
+    title: COLUMN_TITLE_VETTERS_PER_LOCALE,
+    comment: "Vetters per Locale",
+    default: 0,
+  },
+  {
+    title: COLUMN_TITLE_LOCALES_PER_VETTER,
+    comment: "Locales per this Vetter",
+    default: 0,
+  },
 
   { title: COLUMN_TITLE_LEVEL, comment: "User level", default: null },
   {
@@ -81,6 +89,12 @@ const COLUMNS = [
     title: COLUMN_TITLE_VOTES_DIRECT,
     comment:
       "Number of direct votes by this user within the organization coverage level",
+    default: "",
+  },
+  {
+    title: COLUMN_TITLE_VOTES_NON_DIRECT,
+    comment:
+      "Number of votes by this user that aren't direct, at the organization coverage level",
     default: "",
   },
   {
@@ -132,6 +146,7 @@ const VOTE_TYPES = {
   MANUAL_IMPORT: COLUMN_TITLE_VOTES_MANUAL_IMPORT,
   BULK_UPLOAD: COLUMN_TITLE_VOTES_BULK_UPLOAD,
   UNKNOWN: COLUMN_TITLE_VOTES_UNKNOWN,
+  NON_DIRECT: COLUMN_TITLE_VOTES_NON_DIRECT,
 };
 
 let nf = null; // Intl.NumberFormat initialized later
@@ -243,12 +258,12 @@ async function downloadVettingParticipation(opts) {
   let allLocalesCount = 0;
 
   const vettersPerLocale = [];
-  for (const [,{locales, allLocales}] of Object.entries(uidToUser)) {
-    for(const locale of locales ?? []) {
+  for (const [, { locales, allLocales }] of Object.entries(uidToUser)) {
+    for (const locale of locales ?? []) {
       vettersPerLocale[locale] = (vettersPerLocale[locale] ?? 0) + 1;
     }
     if (allLocales) {
-      allLocalesCount++:
+      allLocalesCount++;
     }
   }
 
@@ -273,7 +288,8 @@ async function downloadVettingParticipation(opts) {
     } else {
       row[columnIndex[COLUMN_TITLE_LOCALES_PER_VETTER]] = user.locales.length;
       for (const locale of user.locales) {
-        row[columnIndex[COLUMN_TITLE_VETTERS_PER_LOCALE]] = vettersPerLocale[locale];
+        row[columnIndex[COLUMN_TITLE_VETTERS_PER_LOCALE]] =
+          vettersPerLocale[locale];
         row[columnIndex[COLUMN_TITLE_LOCALE_NAME]] =
           cldrLoad.getLocaleName(locale);
         row[columnIndex[COLUMN_TITLE_LOCALE_ID]] = locale;
@@ -324,6 +340,17 @@ async function downloadVettingParticipation(opts) {
       c: columnIndex[COLUMN_TITLE_PROGRESS_PERCENT],
     });
     XLSX.utils.cell_set_number_format(ws[cell], "0%");
+  }
+  // hide these columns
+  ws["!cols"] = [];
+  for (const c of [
+    COLUMN_TITLE_VOTES,
+    COLUMN_TITLE_VOTES_MANUAL_IMPORT,
+    COLUMN_TITLE_VOTES_BULK_UPLOAD,
+    COLUMN_TITLE_VOTES_AUTO_IMPORT,
+    COLUMN_TITLE_VOTES_UNKNOWN,
+  ]) {
+    ws["!cols"][columnIndex[c]] = [{ hidden: true }];
   }
 
   XLSX.utils.book_append_sheet(wb, ws, ws_name);
@@ -488,7 +515,6 @@ function loadVettingParticipation(json, ourDiv) {
 
   const locmap = cldrLoad.getTheLocaleMap();
   const localeList = div.append($('<div class="locList" ></div>'));
-  // console.dir(localeToData);
   for (const loc of Object.keys(localeToData).sort()) {
     const e = localeToData[loc]; // consistency
     const li = $('<div class="locRow"></div>');
@@ -581,10 +607,14 @@ function addColumnComments(ws) {
 
 function getVoteTypes(row, columnIndex, typeCount) {
   if (typeCount) {
+    let nonDirect = 0;
     for (let key of Object.keys(VOTE_TYPES)) {
+      if (key === "NON_DIRECT") continue; // not a type
       const title = VOTE_TYPES[key];
       row[columnIndex[title]] = typeCount[key] || 0;
+      if (key !== "DIRECT") nonDirect += typeCount[key] || 0;
     }
+    row[columnIndex[VOTE_TYPES.NON_DIRECT]] = nonDirect;
     for (let key of Object.keys(typeCount)) {
       if (!VOTE_TYPES[key]) {
         console.warn("Unrecognized vote type in server response: " + key);

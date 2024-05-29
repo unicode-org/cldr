@@ -18,6 +18,8 @@ import * as XLSX from "xlsx";
 const COLUMN_TITLE_ORG = "Org";
 const COLUMN_TITLE_LOCALE_NAME = "Locale";
 const COLUMN_TITLE_LOCALE_ID = "Code";
+const COLUMN_TITLE_VETTERS_PER_LOCALE = "/Vetters";
+const COLUMN_TITLE_LOCALES_PER_VETTER = "/Locales";
 const COLUMN_TITLE_LEVEL = "Level";
 const COLUMN_TITLE_VOTES = "Votes";
 const COLUMN_TITLE_COVERAGE_COUNT = "Cldr Coverage Count";
@@ -39,6 +41,11 @@ const COLUMNS = [
   { title: COLUMN_TITLE_ORG, comment: "User organization", default: null },
   { title: COLUMN_TITLE_LOCALE_NAME, comment: "User locale", default: null },
   { title: COLUMN_TITLE_LOCALE_ID, comment: "User locale code", default: null },
+
+  { title: COLUMN_TITLE_VETTERS_PER_LOCALE, comment: "Vetters per Locale", default: 0 },
+  { title: COLUMN_TITLE_LOCALES_PER_VETTER, comment: "Locales per this Vetter", default: 0 },
+
+
   { title: COLUMN_TITLE_LEVEL, comment: "User level", default: null },
   {
     title: COLUMN_TITLE_VOTES,
@@ -233,6 +240,17 @@ async function downloadVettingParticipation(opts) {
 
   let userNo = 0;
   setProgress(0, userCount);
+  let allLocalesCount = 0;
+
+  const vettersPerLocale = [];
+  for (const [,{locales, allLocales}] of Object.entries(uidToUser)) {
+    for(const locale of locales ?? []) {
+      vettersPerLocale[locale] = (vettersPerLocale[locale] ?? 0) + 1;
+    }
+    if (allLocales) {
+      allLocalesCount++:
+    }
+  }
 
   for (const [id, user] of Object.entries(uidToUser)) {
     userNo++;
@@ -243,6 +261,7 @@ async function downloadVettingParticipation(opts) {
       row[columnIndex[COLUMN_TITLE_LOCALE_ID]] = "*";
       row[columnIndex[COLUMN_TITLE_VOTED_PATH_COUNT]] = "-";
       row[columnIndex[COLUMN_TITLE_VOTABLE_PATH_COUNT]] = "-";
+      row[columnIndex[COLUMN_TITLE_VETTERS_PER_LOCALE]] = allLocalesCount;
       ws_data.push(row);
     } else if (!user.locales) {
       // no locales?!
@@ -252,7 +271,9 @@ async function downloadVettingParticipation(opts) {
       row[columnIndex[COLUMN_TITLE_VOTABLE_PATH_COUNT]] = "-";
       ws_data.push(row);
     } else {
+      row[columnIndex[COLUMN_TITLE_LOCALES_PER_VETTER]] = user.locales.length;
       for (const locale of user.locales) {
+        row[columnIndex[COLUMN_TITLE_VETTERS_PER_LOCALE]] = vettersPerLocale[locale];
         row[columnIndex[COLUMN_TITLE_LOCALE_NAME]] =
           cldrLoad.getLocaleName(locale);
         row[columnIndex[COLUMN_TITLE_LOCALE_ID]] = locale;

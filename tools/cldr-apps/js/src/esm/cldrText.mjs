@@ -471,6 +471,14 @@ const strings = {
   report_notAcceptable: "Not Acceptable",
   report_missing: "Missing",
 
+  // for approval status, see VoteResolver.Status
+  status_approved: "✅",
+  status_contributed: "☑️",
+  status_provisional: "✖️",
+  status_unconfirmed: "❌",
+  status_missing: "❓️",
+  status_inherited: "↑",
+
   special_about: "About Survey Tool",
   special_announcements: "Announcements",
   special_account: "Account Settings",

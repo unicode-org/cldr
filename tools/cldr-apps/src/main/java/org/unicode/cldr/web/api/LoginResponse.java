@@ -10,9 +10,15 @@ public final class LoginResponse {
     @Schema(description = "CookieSession string id")
     public String sessionId;
 
-    // TODO: need to add User data here
-    // But it stopped being serializable.
-    // For now, just a boolean
     @Schema(description = "True if there is a user")
     public boolean user;
+
+    @Schema(description = "User name")
+    public String name;
+
+    @Schema(description = "User email")
+    public String email;
+
+    @Schema(description = "User id")
+    public int id;
 }

@@ -490,11 +490,13 @@ const strings = {
   special_list_emails: "List Email Addresses",
   special_list_users: "List Users",
   special_locales: "Locale List",
+  special_login: "Login from Email Link",
   special_lock_account: "Lock (Disable) My Account",
   special_lookup: "Look up a code or xpath",
   special_mail: "Notifications (SMOKETEST ONLY)",
   special_menu: "☰",
   special_oldvotes: "Import Old Votes",
+  special_reset: "Forgot Password",
   special_upload: "Upload (Bulk Import)",
   // The special_r_* are the names of reports, used by ReportResponse.vue and others
   special_r_compact: "Numbers",

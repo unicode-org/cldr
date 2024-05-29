@@ -9,6 +9,7 @@ import { App } from "vue";
 
 // local components
 import CldrError from "../views/CldrError.vue";
+import CldrUser from "../views/CldrUser.vue";
 import CldrValue from "../views/CldrValue.vue";
 import LoginButton from "../views/LoginButton.vue";
 import OverallErrors from "../views/OverallErrors.vue";
@@ -87,6 +88,7 @@ function setup(app) {
   app.component("cldr-overall-errors", OverallErrors);
   app.component("cldr-report-response", ReportResponse);
   app.component("cldr-searchbutton", SearchButton);
+  app.component("cldr-user", CldrUser);
   app.component("cldr-value", CldrValue);
 }
 

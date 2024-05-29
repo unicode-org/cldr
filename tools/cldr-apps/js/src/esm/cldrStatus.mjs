@@ -9,6 +9,7 @@ const refs = {
   surveyUser: ref(null),
   currentId: ref(null),
   sessionId: ref(null),
+  currentPieces: ref(null),
 };
 
 /**
@@ -144,6 +145,18 @@ function setContextPath(path) {
   }
 }
 
+/** An array of additional pieces of the hashes. */
+let currentPieces = [];
+
+function setCurrentPieces(pieces) {
+  currentPieces = pieces;
+  setRef("currentPieces", pieces);
+}
+
+function getCurrentPieces() {
+  return currentPieces;
+}
+
 /**
  * A string such as '' (empty), or '821c2a2fc5c206d' (identifying an xpath),
  * or '12345' (identifying a user) or other string (identifying a forum post)
@@ -154,6 +167,7 @@ function getCurrentId() {
   return currentId;
 }
 
+/** This also calls setPieces([]) */
 function setCurrentId(id) {
   if (!id) {
     currentId = "";
@@ -472,6 +486,7 @@ export {
   getCurrentLocale,
   getCurrentLocaleName,
   getCurrentPage,
+  getCurrentPieces,
   getCurrentSection,
   getCurrentSpecial,
   getIsPhaseBeta,
@@ -498,6 +513,7 @@ export {
   setCurrentLocale,
   setCurrentLocaleName,
   setCurrentPage,
+  setCurrentPieces,
   setCurrentSection,
   setCurrentSpecial,
   setIsDisconnected,

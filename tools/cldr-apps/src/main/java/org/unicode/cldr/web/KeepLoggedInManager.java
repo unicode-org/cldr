@@ -126,6 +126,22 @@ public class KeepLoggedInManager {
     }
 
     /**
+     * Create a JSON Web Token for the 'subject' (user ID #) specified, for resetting the password.
+     *
+     * @param subject a user id, in this case "1234"
+     * @return JWT, see <https://jwt.io> for decoder
+     */
+    public String createJwtForReset(String subject) {
+        final long now = System.currentTimeMillis();
+        return Jwts.builder()
+                .setSubject(subject)
+                .signWith(key)
+                .setIssuedAt(new Date(now))
+                .setExpiration(new Date(now + (3600 * 1000L))) // 1 hour link
+                .compact();
+    }
+
+    /**
      * Testing only. Generates a JWT that already expired.
      *
      * @param subject

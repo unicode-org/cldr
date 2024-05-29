@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.HeaderParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -15,6 +16,7 @@ import javax.ws.rs.core.Response.Status;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
+import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
@@ -59,12 +61,17 @@ public class Auth {
             @QueryParam("remember")
                     @Schema(defaultValue = "false", description = "If true, remember login")
                     boolean remember,
-            LoginRequest request) {
+            @RequestBody(required = true) LoginRequest request) {
 
-        // If there's no user/pass, try to fill one in from cookies.
-        if (request.isEmpty()) {
+        // If there's no user/pass, try to fill one in from jwt or cookies.
+        if (request.isEmpty() || (request.jwt != null && !request.jwt.isEmpty())) {
+            // try an explicit jwt
+            String jwt = request.jwt;
+
             // Also compare WebContext.setSession()
-            final String jwt = WebContext.getCookieValue(hreq, SurveyMain.COOKIE_SAVELOGIN);
+            if (jwt == null || jwt.isBlank()) {
+                jwt = WebContext.getCookieValue(hreq, SurveyMain.COOKIE_SAVELOGIN);
+            }
             if (jwt != null && !jwt.isBlank()) {
                 final String jwtId = CookieSession.sm.klm.getSubject(jwt);
                 if (jwtId != null && !jwtId.isBlank()) {
@@ -165,6 +172,15 @@ public class Auth {
         LoginResponse resp = new LoginResponse();
         resp.sessionId = session.id;
         resp.user = (session.user != null);
+        if (session.user != null) {
+            resp.email = session.user.email;
+            resp.name = session.user.name;
+            resp.id = session.user.id;
+        } else {
+            resp.email = null;
+            resp.name = null;
+            resp.id = 0;
+        }
         return resp;
     }
 
@@ -291,6 +307,73 @@ public class Auth {
         } else {
             return Response.status(500, "Failure").entity(new STError(lockResult)).build();
         }
+    }
+
+    public final class ResetResponse {
+        public String message;
+        public String ip;
+    }
+
+    @Path("/reset")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Operation(
+            summary = "Reset password",
+            description =
+                    "Reset password for an account. Note that a session, anonymous or not, is required.")
+    @APIResponses(
+            value = {
+                @APIResponse(
+                        responseCode = "200",
+                        description = "Reset OK",
+                        content =
+                                @Content(
+                                        mediaType = "application/json",
+                                        schema = @Schema(implementation = ResetResponse.class))),
+                @APIResponse(responseCode = "403", description = "Forbidden"),
+                @APIResponse(responseCode = "404", description = "Session not found"),
+                @APIResponse(responseCode = "417", description = "Invalid parameter"),
+                @APIResponse(responseCode = "500", description = "Failure"),
+            })
+    public Response reset(
+            @Context HttpServletRequest hreq,
+            @Context HttpServletResponse hresp,
+            ResetRequest request,
+            @HeaderParam(Auth.SESSION_HEADER) String session) {
+
+        if (request.email.isEmpty() || session.isEmpty()) {
+            return Response.status(417, "Missing parameter").build();
+        }
+        final CookieSession s = getSession(session);
+        if (s == null) {
+            return noSessionResponse();
+        } else if (s.user != null && !s.user.email.equals(request.email)) {
+            // don't use a logged-in session to reset password
+            return Response.status(417, "Invalid session").build();
+        } else if (request.email.equals(UserRegistry.ADMIN_EMAIL)) {
+            // nice try
+            return Response.status(403, "Forbidden").build();
+        }
+
+        // look up user. This is the real user to be reset.
+        // Note that this lookup might fail - in which case, we
+        // still tell the user we may have sent the reset.
+        // We don't want to allow 'probing' for valid emails here.
+        User user = CookieSession.sm.reg.get(request.email);
+
+        ResetResponse r = new ResetResponse();
+        r.ip = s.ip;
+
+        if (user != null) {
+            user.sendResetToken();
+        } else {
+            logger.warning(
+                    "Not sending reset for nonexistent " + request.email + " requested by " + r.ip);
+        }
+
+        // OK, send them a 1-hour link
+        return Response.ok().build();
     }
 
     /**

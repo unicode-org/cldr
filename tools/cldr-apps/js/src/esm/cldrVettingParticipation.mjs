@@ -4,8 +4,9 @@
 import * as cldrAccount from "./cldrAccount.mjs";
 import * as cldrAjax from "./cldrAjax.mjs";
 import * as cldrDom from "./cldrDom.mjs";
-import * as cldrInfo from "./cldrInfo.mjs";
 import * as cldrLoad from "./cldrLoad.mjs";
+import * as cldrNotify from "./cldrNotify.mjs";
+import * as cldrOrganizations from "./cldrOrganizations.mjs";
 import * as cldrProgress from "./cldrProgress.mjs";
 import * as cldrRetry from "./cldrRetry.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
@@ -276,7 +277,7 @@ async function downloadVettingParticipation(opts) {
             votedPathCount,
             votablePathCount
           );
-          row[columnIndex[COLUMN_TITLE_PROGRESS_PERCENT]] = perCent;
+          row[columnIndex[COLUMN_TITLE_PROGRESS_PERCENT]] = perCent / 100.0;
           getVoteTypes(row, columnIndex, typeCount);
           row[columnIndex[COLUMN_TITLE_COVERAGE_LEVEL]] = (
             coverageLevel || ""
@@ -295,13 +296,79 @@ async function downloadVettingParticipation(opts) {
   const ws = XLSX.utils.aoa_to_sheet(ws_data);
 
   addColumnComments(ws);
+  // set percent
+  for (let r = 1; r < ws_data.length; r++) {
+    const cell = XLSX.utils.encode_cell({
+      r,
+      c: columnIndex[COLUMN_TITLE_PROGRESS_PERCENT],
+    });
+    XLSX.utils.cell_set_number_format(ws[cell], "0%");
+  }
 
   XLSX.utils.book_append_sheet(wb, ws, ws_name);
+
+  // add the org sheet
+  await appendOrgSheet(wb);
+
   XLSX.writeFile(
     wb,
     `survey_participation.${missingLocalesForOrg || "ALL"}.xlsx`
   );
   cldrDom.removeAllChildNodes(progressDiv);
+}
+
+/** append a sheet with Organization metadata (Locales.txt) */
+async function appendOrgSheet(wb) {
+  const { shortToDisplay } = await cldrOrganizations.get();
+  const tcOrgs = cldrOrganizations.getTcOrgs();
+  const orgList = Object.keys(shortToDisplay).sort();
+
+  // write Organizations list
+  {
+    const ws_data = [["org", "name", "tc"]];
+    for (const org of orgList) {
+      ws_data.push([org, shortToDisplay[org], (await tcOrgs).includes(org)]);
+    }
+
+    const ws = XLSX.utils.aoa_to_sheet(ws_data);
+
+    cldrXlsx.pushComment(ws, { r: 0, c: 0 }, "Organization short name");
+    cldrXlsx.pushComment(ws, { r: 0, c: 1 }, "Organization long name");
+    cldrXlsx.pushComment(ws, { r: 0, c: 2 }, "true if TC organization");
+
+    XLSX.utils.book_append_sheet(wb, ws, "Organizations");
+  }
+
+  // write Coverage list
+  {
+    const orgToLocaleLevel = await cldrOrganizations.getOrgCoverage();
+
+    const ws_data = [["org", "name", "tc", "locale", "localeName", "coverage"]];
+    for (const org of orgList) {
+      const localeToCoverage = orgToLocaleLevel[org];
+      for (const [locale, level] of Object.entries(localeToCoverage)) {
+        ws_data.push([
+          org,
+          shortToDisplay[org],
+          (await tcOrgs).includes(org),
+          locale,
+          cldrLoad.getLocaleName(locale),
+          level.toLowerCase(),
+        ]);
+      }
+    }
+
+    const ws = XLSX.utils.aoa_to_sheet(ws_data);
+
+    cldrXlsx.pushComment(ws, { r: 0, c: 0 }, "Organization short name");
+    cldrXlsx.pushComment(ws, { r: 0, c: 1 }, "Organization long name");
+    cldrXlsx.pushComment(ws, { r: 0, c: 2 }, "true if TC organization");
+    cldrXlsx.pushComment(ws, { r: 0, c: 3 }, "locale id");
+    cldrXlsx.pushComment(ws, { r: 0, c: 4 }, "locale name");
+    cldrXlsx.pushComment(ws, { r: 0, c: 5 }, "coverage goal from Locales.txt");
+
+    XLSX.utils.book_append_sheet(wb, ws, "Coverage");
+  }
 }
 
 /**
@@ -352,7 +419,7 @@ function loadVettingParticipation(json, ourDiv) {
         downloadButton.disabled = false;
       },
       (err) => {
-        console.error(err);
+        cldrNotify.exception(err, `Downloading Vetting Participation`);
         downloadButton.disabled = false;
       }
     );

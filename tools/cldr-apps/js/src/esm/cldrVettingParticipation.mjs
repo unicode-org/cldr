@@ -271,7 +271,7 @@ async function downloadVettingParticipation(opts) {
             votedPathCount,
             votablePathCount
           );
-          row[columnIndex[COLUMN_TITLE_PROGRESS_PERCENT]] = `${perCent}%`;
+          row[columnIndex[COLUMN_TITLE_PROGRESS_PERCENT]] = perCent;
           getVoteTypes(row, columnIndex, typeCount);
           row[columnIndex[COLUMN_TITLE_COVERAGE_LEVEL]] = (
             coverageLevel || ""

@@ -2,12 +2,20 @@
  * cldrDash: encapsulate dashboard data.
  */
 import * as cldrAjax from "./cldrAjax.mjs";
+import * as cldrClient from "./cldrClient.mjs";
 import * as cldrCoverage from "./cldrCoverage.mjs";
 import * as cldrNotify from "./cldrNotify.mjs";
 import * as cldrProgress from "./cldrProgress.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
 import * as cldrSurvey from "./cldrSurvey.mjs";
 import * as XLSX from "xlsx";
+
+/**
+ * Notifications in these categories are combined so that there is not more than one per page.
+ * These categories can have well over 10,000 notifications, causing performance problems on
+ * the front end.
+ */
+const CATS_ONE_PER_PAGE = ["Abstained" /* , "Missing" */];
 
 class DashData {
   /**
@@ -23,6 +31,8 @@ class DashData {
     // An object whose keys are xpstrid (xpath hex IDs like "db7b4f2df0427e4"), and whose values are DashEntry objects
     this.pathIndex = {};
     this.hiddenObject = null;
+    this.pageCombinedEntries = {}; // map page to array of notification xpstrid on that page
+    this.updatingPath = false;
   }
 
   addEntriesFromJson(notifications) {
@@ -43,32 +53,107 @@ class DashData {
    * @param {Object} e (entry in old format, from json)
    */
   addEntry(cat, group, e) {
-    this.addCategory(cat);
-    this.catSize[cat]++;
-    if (!this.catFirst[cat]) {
-      this.catFirst[cat] = e.xpstrid;
+    try {
+      this.addCategory(cat);
+      this.catSize[cat]++;
+      if (!this.catFirst[cat]) {
+        this.catFirst[cat] = e.xpstrid;
+      }
+      if (CATS_ONE_PER_PAGE.includes(cat)) {
+        this.addCombinedEntry(cat, group, e);
+      } else if (this.pathIndex[e.xpstrid]) {
+        this.updateEntry(cat, group, e);
+      } else {
+        this.addNewEntry(cat, group, e);
+      }
+    } catch (err) {
+      console.error("Error in addEntry: " + err);
     }
-    if (this.pathIndex[e.xpstrid]) {
-      const dashEntry = this.pathIndex[e.xpstrid];
-      dashEntry.addCategory(cat);
-      dashEntry.setWinning(e.winning);
-      if (e.comment) {
-        dashEntry.setComment(e.comment);
+  }
+
+  addCombinedEntry(cat, group, e) {
+    try {
+      const page = group.page;
+      if (!this.pageCombinedEntries[cat]) {
+        this.pageCombinedEntries[cat] = {};
       }
-      if (e.subtype) {
-        dashEntry.setSubtype(e.subtype);
+      if (!this.pageCombinedEntries[cat][page]?.length) {
+        this.pageCombinedEntries[cat][page] = new Array(e.xpstrid);
+        this.addNewEntry(cat, group, e);
+      } else {
+        // TODO: make this work. unshift instead of push may be appropriate
+        // during an update (following a vote), since the combined notification
+        // is temporarily removed then added back, and in this case it may belong
+        // at the start of the array, not the end.
+        // Reference: https://unicode-org.atlassian.net/browse/CLDR-17658
+        if (this.updatingPath) {
+          this.pageCombinedEntries[cat][page].unshift(e.xpstrid);
+        } else {
+          this.pageCombinedEntries[cat][page].push(e.xpstrid);
+        }
+        // Use the FIRST item in the array as the representative,
+        // with its comment indicating the size of the array
+        const xpstrid = this.pageCombinedEntries[cat][page][0];
+        if (!xpstrid) {
+          console.error(
+            "Existing xpstrid not found in addCombinedEntries for cat = " +
+              cat +
+              ", page = " +
+              page
+          );
+          return;
+        }
+        const dashEntry = this.pathIndex[xpstrid];
+        if (!dashEntry) {
+          console.error(
+            "Existing entry not found in addCombinedEntry for cat = " +
+              cat +
+              ", page = " +
+              page
+          );
+          return;
+        }
+        this.setComment(dashEntry, cat, page, null);
       }
-    } else {
-      const dashEntry = new DashEntry(e.xpstrid, e.code, e.english);
-      dashEntry.setSectionPageHeader(group.section, group.page, group.header);
-      dashEntry.addCategory(cat);
-      dashEntry.setWinning(e.winning);
-      dashEntry.setPreviousEnglish(e.previousEnglish);
-      dashEntry.setComment(e.comment);
+    } catch (err) {
+      console.error("Error in addCombinedEntry: " + err);
+    }
+  }
+
+  updateEntry(cat, group, e) {
+    const dashEntry = this.pathIndex[e.xpstrid];
+    dashEntry.addCategory(cat);
+    dashEntry.setWinning(e.winning);
+    this.setComment(dashEntry, cat, group.page, e.comment);
+    if (e.subtype) {
       dashEntry.setSubtype(e.subtype);
-      dashEntry.setChecked(this.itemIsChecked(e));
-      this.entries.push(dashEntry);
-      this.pathIndex[e.xpstrid] = dashEntry;
+    }
+  }
+
+  addNewEntry(cat, group, e) {
+    const dashEntry = new DashEntry(e.xpstrid, e.code, e.english);
+    dashEntry.setSectionPageHeader(group.section, group.page, group.header);
+    dashEntry.addCategory(cat);
+    dashEntry.setWinning(e.winning);
+    dashEntry.setPreviousEnglish(e.previousEnglish);
+    this.setComment(dashEntry, cat, group.page, e.comment);
+    dashEntry.setSubtype(e.subtype);
+    dashEntry.setChecked(this.itemIsChecked(e));
+    this.entries.push(dashEntry);
+    this.pathIndex[e.xpstrid] = dashEntry;
+    return e.xpstrid;
+  }
+
+  setComment(dashEntry, cat, page, comment) {
+    if (CATS_ONE_PER_PAGE.includes(cat)) {
+      dashEntry.setComment(
+        "Total " +
+          cat +
+          " entries on this page: " +
+          this.pageCombinedEntries[cat][page].length
+      );
+    } else {
+      dashEntry.setComment(comment);
     }
   }
 
@@ -149,9 +234,13 @@ class DashData {
   }
 
   removeEntry(dashEntry) {
+    const xpstrid = dashEntry.xpstrid;
     this.removeEntryCats(dashEntry);
-    const index = this.entries.indexOf(dashEntry);
-    this.entries.splice(index, 1);
+    // Changed xpstrid means the entry wasn't really removed but was kept as representative of combined category
+    if (xpstrid === dashEntry.xpstrid) {
+      const index = this.entries.indexOf(dashEntry);
+      this.entries.splice(index, 1);
+    }
   }
 
   removeEntryCats(dashEntry) {
@@ -161,10 +250,40 @@ class DashData {
         this.cats.delete(cat);
         delete this.catSize[cat];
       }
-      if (this.catFirst[cat] === dashEntry.xpstrid) {
+      if (CATS_ONE_PER_PAGE.includes(cat)) {
+        this.removeCombinedEntryCat(dashEntry, cat);
+      } else if (this.catFirst[cat] === dashEntry.xpstrid) {
         this.findCatFirst(cat);
       }
     });
+  }
+
+  removeCombinedEntryCat(dashEntry, cat) {
+    const page = dashEntry.page;
+    this.pageCombinedEntries[cat][page].shift();
+    if (this.pageCombinedEntries[cat][page].length > 0) {
+      if (this.catFirst[cat] === dashEntry.xpstrid) {
+        const nextXpstrid = this.pageCombinedEntries[cat][page][0];
+        // If this is the only category for this entry, then we can revise the
+        // entry to use the next xpstrid for the page -- unless that next xpstrid
+        // is already present for a different category...
+        if (dashEntry.cats.size === 1 && !this.pathIndex[nextXpstrid]) {
+          dashEntry.xpstrid = nextXpstrid;
+          delete this.pathIndex.xpstrid;
+          this.pathIndex[nextXpstrid] = dashEntry;
+          this.catFirst[cat] = nextXpstrid;
+          this.setComment(dashEntry, cat, page, null);
+        } else {
+          // TODO: fix this; work in progress
+          // Reference: https://unicode-org.atlassian.net/browse/CLDR-17658
+          // Remove this cat from the existing entry
+          dashEntry.cats.delete(cat);
+          // if (dashEntry.cats.size === 0) {
+          //  delete this.pathIndex.xpstrid;
+          // }
+        }
+      }
+    }
   }
 
   findCatFirst(cat) {
@@ -334,6 +453,7 @@ function convertData(json) {
  *               containing notifications for a single path (old format)
  */
 function updatePath(dashData, json) {
+  this.updatingPath = true;
   try {
     if (json.xpstrid in dashData.pathIndex) {
       // We already have an entry for this path
@@ -351,6 +471,7 @@ function updatePath(dashData, json) {
   } catch (e) {
     cldrNotify.exception(e, "updating path for Dashboard");
   }
+  this.updatingPath = false;
   return dashData; // for unit test
 }
 
@@ -391,16 +512,27 @@ function getCheckmarkUrl(entry, locale) {
 async function downloadXlsx(data, locale, cb) {
   const xpathMap = cldrSurvey.getXpathMap();
   const { coverageLevel, entries } = data;
+  const coverageLevelName = (coverageLevel || "default").toLowerCase();
+  const xlsSheetName = `${locale}.${coverageLevelName}`;
+  const xlsFileName = `Dash_${locale}_${coverageLevelName}.xlsx`;
 
   // Fetch all XPaths in parallel since it'll take a while
-  cb(`Loading…`);
+  cb(`Loading rows…`);
   const allXpaths = [];
   for (let dashEntry of entries) {
     if (dashEntry.section === "Reports") {
       continue; // skip this
     }
     allXpaths.push(dashEntry.xpstrid);
+    try {
+      await xpathMap.get(dashEntry.xpstrid);
+    } catch (e) {
+      throw Error(
+        `${e}:  Could not load XPath for ${JSON.stringify(dashEntry)}`
+      );
+    }
   }
+  cb(`Loading xpaths…`);
   await Promise.all(allXpaths.map((x) => xpathMap.get(x)));
   cb(`Calculating…`);
 
@@ -424,8 +556,15 @@ async function downloadXlsx(data, locale, cb) {
   ];
 
   for (let e of entries) {
-    const xpath =
-      section === "Reports" ? "-" : (await xpathMap.get(xpstrid)).path;
+    async function getXpath() {
+      if (e.section === "Reports") return "-";
+      try {
+        return (await xpathMap.get(e.xpstrid)).path;
+      } catch (ex) {
+        throw Error(`${e}: Could not get xpath of ${JSON.stringify(e)}`);
+      }
+    }
+    const xpath = await getXpath();
     const url = `https://st.unicode.org/cldr-apps/v#/${e.locale}/${e.page}/${e.xpstrid}`;
     ws_data.push([
       e.cat,
@@ -445,21 +584,27 @@ async function downloadXlsx(data, locale, cb) {
   const ws = XLSX.utils.aoa_to_sheet(ws_data);
   // cldrXlsx.pushComment(ws, "C1", `As of ${new Date().toISOString()}`);
   const wb = XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(
-    wb,
-    ws,
-    `${locale}.${coverageLevel.toLowerCase()}`
-  );
+  XLSX.utils.book_append_sheet(wb, ws, xlsSheetName);
   cb(`Writing…`);
-  XLSX.writeFile(wb, `Dash_${locale}_${coverageLevel.toLowerCase()}.xlsx`);
+  XLSX.writeFile(wb, xlsFileName);
   cb(null);
+}
+
+/**
+ * @param {string} locale locale to list for
+ * @returns {Array<CheckStatusSummary>}
+ */
+async function getLocaleErrors(locale) {
+  const client = await cldrClient.getClient();
+  return await client.apis.voting.getLocaleErrors({ locale });
 }
 
 export {
   doFetch,
+  downloadXlsx,
   getFetchError,
+  getLocaleErrors,
   saveEntryCheckmark,
   setData,
   updatePath,
-  downloadXlsx,
 };

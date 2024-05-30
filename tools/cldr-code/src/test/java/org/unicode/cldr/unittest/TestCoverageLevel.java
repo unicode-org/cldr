@@ -115,62 +115,62 @@ public class TestCoverageLevel extends TestFmwkPlus {
             /* For German (de) these should be high-bar (20) per https://unicode-org.atlassian.net/browse/CLDR-14988 */
             {
                 "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"short\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"one\"]",
-                "modern",
+                "moderate",
                 TC_VOTES
             },
             {
                 "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"short\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"other\"]",
-                "modern",
+                "moderate",
                 TC_VOTES
             },
             {
                 "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"short\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"10000\"][@count=\"one\"]",
-                "modern",
+                "moderate",
                 TC_VOTES
             },
             {
                 "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"short\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"10000\"][@count=\"other\"]",
-                "modern",
+                "moderate",
                 TC_VOTES
             },
             {
                 "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"short\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"100000\"][@count=\"one\"]",
-                "modern",
+                "moderate",
                 TC_VOTES
             },
             {
                 "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"short\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"100000\"][@count=\"other\"]",
-                "modern",
+                "moderate",
                 TC_VOTES
             },
             {
                 "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength[@type=\"short\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"one\"]",
-                "modern",
+                "moderate",
                 TC_VOTES
             },
             {
                 "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength[@type=\"short\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"other\"]",
-                "modern",
+                "moderate",
                 TC_VOTES
             },
             {
                 "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength[@type=\"short\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"10000\"][@count=\"one\"]",
-                "modern",
+                "moderate",
                 TC_VOTES
             },
             {
                 "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength[@type=\"short\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"10000\"][@count=\"other\"]",
-                "modern",
+                "moderate",
                 TC_VOTES
             },
             {
                 "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength[@type=\"short\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"100000\"][@count=\"one\"]",
-                "modern",
+                "moderate",
                 TC_VOTES
             },
             {
                 "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength[@type=\"short\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"100000\"][@count=\"other\"]",
-                "modern",
+                "moderate",
                 TC_VOTES
             },
             /* not high-bar (20): wrong number of zeroes, or count many*/
@@ -181,12 +181,12 @@ public class TestCoverageLevel extends TestFmwkPlus {
             },
             {
                 "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength[@type=\"short\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"1000000\"][@count=\"other\"]",
-                "modern",
+                "moderate",
                 "8"
             },
             {
                 "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength[@type=\"short\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"many\"]",
-                "modern",
+                "moderate",
                 "8"
             },
         };
@@ -1333,6 +1333,108 @@ public class TestCoverageLevel extends TestFmwkPlus {
                             String.format(
                                     "%s\t%s\t%s\t%s\t%s",
                                     row.get0(), row.get1(), row.get2(), row.get3(), row.get4()));
+                }
+            }
+        }
+    }
+
+    public void TestNumberElementsCoverage() {
+        class NumPathCoverageItem {
+            public String numPath;
+            public Level defaultLevel;
+            public Level nativeLevel;
+            public Level financeLevel;
+
+            public NumPathCoverageItem(
+                    String path, Level defLevel, Level natLevel, Level finLevel) {
+                numPath = path;
+                defaultLevel = defLevel;
+                nativeLevel = natLevel;
+                financeLevel = finLevel;
+            }
+        }
+        final NumPathCoverageItem[] testItems = {
+            // number element path, then expected max coverage levels if  xxxx is replaced
+            // respectively by the default, native, and financial number system.
+            new NumPathCoverageItem(
+                    "//ldml/numbers/currencyFormats[@numberSystem=\"xxxx\"]/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+                    Level.MODERATE,
+                    Level.MODERATE,
+                    Level.MODERATE),
+            new NumPathCoverageItem(
+                    "//ldml/numbers/decimalFormats[@numberSystem=\"xxxx\"]/decimalFormatLength/decimalFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
+                    Level.MODERATE,
+                    Level.MODERATE,
+                    Level.MODERATE),
+            new NumPathCoverageItem(
+                    "//ldml/numbers/symbols[@numberSystem=\"xxxx\"]/decimal",
+                    Level.MODERATE,
+                    Level.MODERATE,
+                    Level.MODERATE),
+            new NumPathCoverageItem(
+                    "//ldml/numbers/symbols[@numberSystem=\"xxxx\"]/group",
+                    Level.MODERATE,
+                    Level.MODERATE,
+                    Level.MODERATE),
+            new NumPathCoverageItem(
+                    "//ldml/numbers/symbols[@numberSystem=\"xxxx\"]/infinity",
+                    Level.MODERN,
+                    Level.MODERN,
+                    Level.MODERN),
+            new NumPathCoverageItem(
+                    "//ldml/numbers/symbols[@numberSystem=\"xxxx\"]/perMille",
+                    Level.MODERN,
+                    Level.MODERN,
+                    Level.MODERN),
+        };
+        org.unicode.cldr.util.Factory factory = testInfo.getCldrFactory();
+        for (String localeId : factory.getAvailable()) {
+            CLDRFile cldrFile = factory.make(localeId, true);
+            String defaultNumberSystem =
+                    cldrFile.getStringValue("//ldml/numbers/defaultNumberingSystem");
+            String nativeNumberSystem =
+                    cldrFile.getStringValue("//ldml/numbers/otherNumberingSystems/native");
+            String financeNumberSystem =
+                    cldrFile.getStringValue(
+                            "//ldml/numbers/otherNumberingSystems/finance"); // could be null
+            for (NumPathCoverageItem item : testItems) {
+                String pathForDefault = item.numPath.replace("xxxx", defaultNumberSystem);
+                Level defaultLevel = SDI.getCoverageLevel(pathForDefault, localeId);
+                if (defaultLevel.compareTo(item.defaultLevel) > 0) {
+                    errln(
+                            localeId
+                                    + ", path "
+                                    + pathForDefault
+                                    + ", expected coverage for default system to be "
+                                    + item.defaultLevel.toString()
+                                    + " or lower, but got "
+                                    + defaultLevel.toString());
+                }
+                String pathForNative = item.numPath.replace("xxxx", nativeNumberSystem);
+                Level nativeLevel = SDI.getCoverageLevel(pathForNative, localeId);
+                if (nativeLevel.compareTo(item.nativeLevel) > 0) {
+                    errln(
+                            localeId
+                                    + ", path "
+                                    + pathForNative
+                                    + ", expected coverage for native system to be "
+                                    + item.nativeLevel.toString()
+                                    + " or lower, but got "
+                                    + nativeLevel.toString());
+                }
+                if (financeNumberSystem != null) {
+                    String pathForFinance = item.numPath.replace("xxxx", financeNumberSystem);
+                    Level financeLevel = SDI.getCoverageLevel(pathForFinance, localeId);
+                    if (financeLevel.compareTo(item.financeLevel) > 0) {
+                        errln(
+                                localeId
+                                        + ", path "
+                                        + pathForFinance
+                                        + ", expected coverage for finance system to be "
+                                        + item.financeLevel.toString()
+                                        + " or lower, but got "
+                                        + financeLevel.toString());
+                    }
                 }
             }
         }

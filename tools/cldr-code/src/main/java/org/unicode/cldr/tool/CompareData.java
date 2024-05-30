@@ -1,6 +1,6 @@
 package org.unicode.cldr.tool;
 
-import com.ibm.icu.dev.tool.shared.UOption;
+import com.ibm.icu.dev.util.UOption;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.util.ULocale;

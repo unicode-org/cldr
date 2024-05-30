@@ -21,6 +21,7 @@ import org.unicode.cldr.web.DataPage.DataRow;
 import org.unicode.cldr.web.DataPage.DataRow.CandidateItem;
 import org.unicode.cldr.web.SurveyException.ErrorCode;
 import org.unicode.cldr.web.UserRegistry.User;
+import org.unicode.cldr.web.api.VoteAPI.EntireLocaleStatusResponse;
 import org.unicode.cldr.web.api.VoteAPI.RowResponse;
 import org.unicode.cldr.web.api.VoteAPI.RowResponse.Row.Candidate;
 import org.unicode.cldr.web.api.VoteAPI.VoteResponse;
@@ -80,6 +81,45 @@ public class VoteAPIHelper {
         args.xpstrid = xpstrid;
         args.getDashboard = getDashboard;
         return handleGetRows(args);
+    }
+
+    static Response handleGetLocaleErrors(String loc) {
+        final SurveyMain sm = CookieSession.sm;
+        final CLDRLocale locale = CLDRLocale.getInstance(loc);
+        final STFactory factory = sm.getSTFactory();
+        if (!factory.getAvailableCLDRLocales().contains(locale)) {
+            // locale not found
+            return Response.status(404).build();
+        }
+
+        TestResultBundle test = factory.getTestResult(locale, DataPage.getSimpleOptions(locale));
+
+        CLDRFile cldrFile = factory.make(locale, true);
+
+        if (test != null) {
+            EntireLocaleStatusResponse resp = new VoteAPI.EntireLocaleStatusResponse();
+
+            // add any 'early' errors
+            resp.addAll(test.getPossibleProblems());
+
+            // add all non-path status
+            for (final String x : cldrFile) {
+                List<CheckStatus> result = new ArrayList<CheckStatus>();
+                test.check(x, result, cldrFile.getStringValue(x));
+                for (final CheckStatus s : result) {
+                    if (s.getEntireLocale()) resp.add(s);
+                }
+            }
+
+            if (resp.isEmpty()) {
+                // nothing.
+                return Response.noContent().build();
+            }
+
+            return Response.ok(resp).build();
+        } else {
+            return Response.status(500, "could not load test data").build();
+        }
     }
 
     static Response handleGetOnePage(String loc, String session, String page, String xpstrid) {

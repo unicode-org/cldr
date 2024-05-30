@@ -1,14 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2024 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+SPDX-License-Identifier: Unicode-3.0
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
 		<language type="lld"/>
 	</identity>
 	<characters>
-		<exemplarCharacters>[a-z à á â è é ê ë í î ó ö ô ú ü ć]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary">[ì ò ù û ś ß ä ã å ç ï ð ñ õ ý ÿ ā ă ą ĉ ċ č ē ė ě ğ ī ń ň ō ŏ ő ŕ ř ŝ ş ū ů ű ź ż ž]</exemplarCharacters>
-		<exemplarCharacters type="numbers">[% + \- . 0-9 ‑ ‰]</exemplarCharacters>
-		<exemplarCharacters type="punctuation">[. \: \- ; ? ! ' ’ , / &gt; &lt; „ “ ” « » @ ( ) \[ \] \{ \} # * \&amp;]</exemplarCharacters>
+		<exemplarCharacters>[aáàâ b cć d eéèêë f g h iíî j k l m n oóôö p q r s t uúü v w x y z]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[ăåäãąā ĉčċç ð ěėē ğ ìïī ńňñ òŏőõō ŕř śŝş ß ùûůűū ýÿ źžż]</exemplarCharacters>
+		<exemplarCharacters type="numbers">[\- ‑ . % ‰ + 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
+		<exemplarCharacters type="punctuation">[\- ‑ , ; \: ! ? . '’ “”„ « » ( ) \[ \] \{ \} @ * / \&amp; # &lt; &gt;]</exemplarCharacters>
 	</characters>
 </ldml>

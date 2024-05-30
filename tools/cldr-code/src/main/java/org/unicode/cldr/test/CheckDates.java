@@ -369,6 +369,7 @@ public class CheckDates extends FactoryCheckCLDR {
 
         try {
             if (path.indexOf("[@type=\"abbreviated\"]") >= 0) {
+                // ensures abbreviated <= wide for quarters, months, days, dayPeriods
                 String pathToWide = path.replace("[@type=\"abbreviated\"]", "[@type=\"wide\"]");
                 String wideValue = getCldrFileToCheck().getWinningValueWithBailey(pathToWide);
                 if (wideValue != null && isTooMuchWiderThan(value, wideValue)) {
@@ -420,6 +421,7 @@ public class CheckDates extends FactoryCheckCLDR {
                     }
                 }
             } else if (path.indexOf("[@type=\"narrow\"]") >= 0) {
+                // ensures narrow <= abbreviated for quarters, months, days, dayPeriods
                 String pathToAbbr = path.replace("[@type=\"narrow\"]", "[@type=\"abbreviated\"]");
                 String abbrValue = getCldrFileToCheck().getWinningValueWithBailey(pathToAbbr);
                 if (abbrValue != null && isTooMuchWiderThan(value, abbrValue)) {
@@ -436,7 +438,43 @@ public class CheckDates extends FactoryCheckCLDR {
                                             value, abbrValue);
                     result.add(item);
                 }
+            } else if (path.indexOf("[@type=\"short\"]") >= 0) {
+                // ensures short <= abbreviated and short >= narrow for days
+                String pathToAbbr = path.replace("[@type=\"short\"]", "[@type=\"abbreviated\"]");
+                String abbrValue = getCldrFileToCheck().getWinningValueWithBailey(pathToAbbr);
+                String pathToNarrow = path.replace("[@type=\"short\"]", "[@type=\"narrow\"]");
+                String narrowValue = getCldrFileToCheck().getWinningValueWithBailey(pathToNarrow);
+                if ((abbrValue != null
+                                && isTooMuchWiderThan(value, abbrValue)
+                                && value.length() > abbrValue.length())
+                        || (narrowValue != null
+                                && isTooMuchWiderThan(narrowValue, value)
+                                && narrowValue.length() > value.length())) {
+                    // Without the additional check on length() above, the test is too sensitive
+                    // and flags reasonable things like lettercase differences
+                    String message;
+                    String compareValue;
+                    if (abbrValue != null
+                            && isTooMuchWiderThan(value, abbrValue)
+                            && value.length() > abbrValue.length()) {
+                        message =
+                                "Short value \"{0}\" can't be longer than the corresponding abbreviated value \"{1}\"";
+                        compareValue = abbrValue;
+                    } else {
+                        message =
+                                "Short value \"{0}\" can't be shorter than the corresponding narrow value \"{1}\"";
+                        compareValue = narrowValue;
+                    }
+                    CheckStatus item =
+                            new CheckStatus()
+                                    .setCause(this)
+                                    .setMainType(CheckStatus.errorType)
+                                    .setSubtype(Subtype.shortDateFieldInconsistentLength)
+                                    .setMessage(message, value, compareValue);
+                    result.add(item);
+                }
             } else if (path.indexOf("/eraNarrow") >= 0) {
+                // ensures eraNarrow <= eraAbbr for eras
                 String pathToAbbr = path.replace("/eraNarrow", "/eraAbbr");
                 String abbrValue = getCldrFileToCheck().getWinningValueWithBailey(pathToAbbr);
                 if (abbrValue != null && isTooMuchWiderThan(value, abbrValue)) {
@@ -451,6 +489,7 @@ public class CheckDates extends FactoryCheckCLDR {
                     result.add(item);
                 }
             } else if (path.indexOf("/eraAbbr") >= 0) {
+                // ensures eraAbbr <= eraNames for eras
                 String pathToWide = path.replace("/eraAbbr", "/eraNames");
                 String wideValue = getCldrFileToCheck().getWinningValueWithBailey(pathToWide);
                 if (wideValue != null && isTooMuchWiderThan(value, wideValue)) {
@@ -820,6 +859,38 @@ public class CheckDates extends FactoryCheckCLDR {
     static long date4004BC = getDateTimeinMillis(-4004, 9, 23, 2, 0, 0);
     static Random random = new Random(0);
 
+    // We extend VariableField to implement a proper equals() method so we can use
+    // List methods remove() and get().
+    private class MyVariableField extends DateTimePatternGenerator.VariableField {
+        public MyVariableField(String string) {
+            super(string);
+        }
+
+        @Override
+        public boolean equals(Object object) {
+            if (!(object instanceof DateTimePatternGenerator.VariableField)) {
+                return false;
+            }
+            return (this.toString().equals(object.toString()));
+        }
+
+        @Override
+        public int hashCode() {
+            return this.toString().hashCode();
+        }
+    }
+
+    // In a List, replace DateTimePatternGenerator.VariableField items with MyVariableField
+    private List<Object> updateVariableFieldInList(List<Object> items) {
+        for (int itemIndex = 0; itemIndex < items.size(); itemIndex++) {
+            Object object = items.get(itemIndex);
+            if (object instanceof DateTimePatternGenerator.VariableField) {
+                items.set(itemIndex, new MyVariableField(object.toString()));
+            }
+        }
+        return items;
+    }
+
     private void checkPattern(
             DateTimePatternType dateTypePatternType,
             String path,
@@ -827,6 +898,8 @@ public class CheckDates extends FactoryCheckCLDR {
             String value,
             List<CheckStatus> result)
             throws ParseException {
+        // Map to skeleton including mapping to canonical pattern chars e.g. LLL -> MMM
+        // (ICU internal, for CLDR?)
         String skeleton = dateTimePatternGenerator.getSkeletonAllowingDuplicates(value);
         String skeletonCanonical =
                 dateTimePatternGenerator.getCanonicalSkeletonAllowingDuplicates(value);
@@ -866,6 +939,8 @@ public class CheckDates extends FactoryCheckCLDR {
 
         if (dateTypePatternType == DateTimePatternType.AVAILABLE
                 || dateTypePatternType == DateTimePatternType.INTERVAL) {
+            // Map to skeleton including mapping to canonical pattern chars e.g. LLL -> MMM
+            // (ICU internal, for CLDR?)
             String idCanonical =
                     dateTimePatternGenerator.getCanonicalSkeletonAllowingDuplicates(id);
             if (skeleton.isEmpty()) {
@@ -883,9 +958,108 @@ public class CheckDates extends FactoryCheckCLDR {
                                                 + ".",
                                         id,
                                         value));
-            } else if (!dateTimePatternGenerator.skeletonsAreSimilar(
+            } else if (!dateTimePatternGenerator.skeletonsAreSimilar( // ICU internal for CLDR
                     idCanonical, skeletonCanonical)) {
+                // Adjust pattern to match skeleton, but only width and subtype within
+                // canonical categories e.g. MMM -> LLLL, H -> HH. Will not change across
+                // canonical categories e.g. m -> M
                 String fixedValue = dateTimePatternGenerator.replaceFieldTypes(value, id);
+                // check to see if that was enough; if not, may need to do more work.
+                String fixedValueCanonical =
+                        dateTimePatternGenerator.getCanonicalSkeletonAllowingDuplicates(fixedValue);
+                String valueFromId = null;
+                if (!dateTimePatternGenerator.skeletonsAreSimilar(
+                        idCanonical, fixedValueCanonical)) {
+                    // Need to do more work. Try two things to get a reasonable suggestion:
+                    // - Getting the winning pattern (valueFromId) from availableFormats for id,
+                    // if it is not the same as the bad value we already have.
+                    // - Replace a pattern field in fixedValue twhose type does not match the
+                    // corresponding field from id.
+                    //
+                    // Here is the first thing, getting the winning pattern (valueFromId) from
+                    // availableFormats for id.
+                    String availableFormatPath =
+                            "//ldml/dates/calendars/calendar[@type=\""
+                                    + calendar
+                                    + "\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\""
+                                    + id
+                                    + "\"]";
+                    valueFromId =
+                            getCldrFileToCheck().getWinningValueWithBailey(availableFormatPath);
+                    if (valueFromId != null
+                            && (valueFromId.equals(value) || valueFromId.equals(fixedValue))) {
+                        valueFromId = null; // not useful in this case
+                    }
+                    //
+                    // Here is the second thing, replacing a pattern field that does not match.
+                    // We compare FormatParser Lists for idCanonical and fixedValueCanonical
+                    // and if a mismatch we update the FormatParser list for fixedValue and
+                    // generate an updated string from the FormatParser.
+                    DateTimePatternGenerator.FormatParser idCanonFormat =
+                            new DateTimePatternGenerator.FormatParser();
+                    idCanonFormat.set(idCanonical);
+                    List<Object> idCanonItems = updateVariableFieldInList(idCanonFormat.getItems());
+                    DateTimePatternGenerator.FormatParser fixedValueCanonFormat =
+                            new DateTimePatternGenerator.FormatParser();
+                    fixedValueCanonFormat.set(fixedValueCanonical);
+                    List<Object> fixedValueCanonItems =
+                            updateVariableFieldInList(fixedValueCanonFormat.getItems());
+                    DateTimePatternGenerator.FormatParser fixedValueFormat =
+                            new DateTimePatternGenerator.FormatParser();
+                    fixedValueFormat.set(fixedValue);
+                    List<Object> fixedValueItems =
+                            updateVariableFieldInList(fixedValueFormat.getItems());
+                    // For idCanonFormat and fixedValueCanonFormat we started with skeletons (no
+                    // literal text), so the items we are comparing will all be MyVariableField. We
+                    // iterate over idCanonItems stripping matching items from fixedValueCanonItems
+                    // until we hopefully have one remaining item in each that do not match each
+                    // other. Then in fixedValueItems we replace the mismatched item with the one
+                    // from idCanonItems.
+                    int itemIndex = idCanonItems.size();
+                    while (--itemIndex >= 0) {
+                        Object idCanonItem = idCanonItems.get(itemIndex);
+                        if (fixedValueCanonItems.remove(idCanonItem)) {
+                            // we have a match, removed it from fixedValueCanonItems, now remove
+                            // it from idCanonItems (ok since we are iterating backwards).
+                            idCanonItems.remove(itemIndex);
+                        }
+                    }
+                    // Hopefully this leaves us with one item in each list, the mismatch to fix.
+                    if (idCanonItems.size() == 1 && fixedValueCanonItems.size() == 1) {
+                        // In fixedValueItems, replace all occurrences of the single item in
+                        // fixedValueCanonItems (bad value) with the item in idCanonItems.
+                        // There might be more than one for e.g. intervalFormats.
+                        Object fixedValueCanonItem = fixedValueCanonItems.get(0); // replace this
+                        Object idCanonItem = idCanonItems.get(0); // with this
+                        boolean didUpdate = false;
+                        while ((itemIndex = fixedValueItems.indexOf(fixedValueCanonItem)) >= 0) {
+                            fixedValueItems.set(itemIndex, idCanonItem);
+                            didUpdate = true;
+                        }
+                        if (didUpdate) {
+                            // Now get the updated fixedValue with this replacement
+                            fixedValue = fixedValueFormat.toString();
+                            fixedValueCanonical =
+                                    dateTimePatternGenerator.getCanonicalSkeletonAllowingDuplicates(
+                                            fixedValue);
+                        }
+                    }
+                    // If this replacement attempt did not work, we give up on fixedValue
+                    if (!dateTimePatternGenerator.skeletonsAreSimilar(
+                            idCanonical, fixedValueCanonical)) {
+                        fixedValue = null;
+                    }
+                }
+                // Now report problem and suggested fix
+                String suggestion = "(no suggestion)";
+                if (fixedValue != null) {
+                    suggestion = "(" + fixedValue + ")";
+                    if (valueFromId != null && !valueFromId.equals(fixedValue)) {
+                        suggestion += " or (" + valueFromId + ")";
+                    }
+                } else if (valueFromId != null) {
+                    suggestion = "(" + valueFromId + ")";
+                }
                 result.add(
                         new CheckStatus()
                                 .setCause(this)
@@ -895,13 +1069,13 @@ public class CheckDates extends FactoryCheckCLDR {
                                 // ({2}). " +
                                 .setMessage(
                                         "Your pattern ({2}) doesn't correspond to what is asked for. Yours would be right for an ID ({1}) but not for the ID ({0}). "
-                                                + "Please change your pattern to match what was asked, such as ({3}), with the right punctuation and/or ordering for your language. See "
+                                                + "Please change your pattern to match what was asked, such as {3}, with the right punctuation and/or ordering for your language. See "
                                                 + CLDRURLS.DATE_TIME_PATTERNS_URL
                                                 + ".",
                                         id,
                                         skeletonCanonical,
                                         value,
-                                        fixedValue));
+                                        suggestion));
             }
             if (dateTypePatternType == DateTimePatternType.AVAILABLE) {
                 // index y+w+ must correpond to pattern containing only Y+ and w+

@@ -12,4 +12,36 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<script type="Hant"/>
 		<territory type="MY"/>
 	</identity>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<timeFormats>
+					<timeFormatLength type="full">
+						<timeFormat>
+							<pattern draft="contributed">zzzz ah:mm:ss</pattern>
+							<datetimeSkeleton draft="contributed">ahmmsszzzz</datetimeSkeleton>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="long">
+						<timeFormat>
+							<pattern draft="contributed">z ah:mm:ss</pattern>
+							<datetimeSkeleton draft="contributed">ahmmssz</datetimeSkeleton>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="medium">
+						<timeFormat>
+							<pattern draft="contributed">ah:mm:ss</pattern>
+							<datetimeSkeleton draft="contributed">ahmmss</datetimeSkeleton>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="short">
+						<timeFormat>
+							<pattern draft="contributed">ah:mm</pattern>
+							<datetimeSkeleton draft="contributed">ahmm</datetimeSkeleton>
+						</timeFormat>
+					</timeFormatLength>
+				</timeFormats>
+			</calendar>
+		</calendars>
+	</dates>
 </ldml>

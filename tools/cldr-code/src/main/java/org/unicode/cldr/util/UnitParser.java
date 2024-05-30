@@ -6,31 +6,48 @@ import com.ibm.icu.util.Output;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Function;
 import org.unicode.cldr.util.SupplementalDataInfo.UnitIdComponentType;
+import org.unicode.cldr.util.With.SimpleIterator;
 
-public class UnitParser {
-    private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
-    private static final CLDRConfig info = CLDR_CONFIG;
-    private static final SupplementalDataInfo SDI = info.getSupplementalDataInfo();
+public class UnitParser implements SimpleIterator<String> {
     public static final Splitter DASH_SPLITTER = Splitter.on('-');
     public static final Joiner DASH_JOIN = Joiner.on('-');
 
     private String bufferedItem = null;
     private UnitIdComponentType bufferedType = null;
     private Iterator<String> source;
+    private UnitIdComponentType type;
+    Function<String, UnitIdComponentType> componentTypeSupplier;
+    private String original;
 
-    public UnitParser set(Iterator<String> source) {
-        bufferedItem = null;
-        this.source = source;
-        return this;
+    // Provide this api for use inside of SupplementalDataInfo, to avoid circularity
+    public UnitParser(Function<String, UnitIdComponentType> componentTypeSupplier) {
+        this.componentTypeSupplier = componentTypeSupplier;
     }
 
-    public UnitParser set(Iterable<String> source) {
-        return set(source.iterator());
+    public UnitParser() {
+        this(CLDRConfig.getInstance().getSupplementalDataInfo()::getUnitIdComponentType);
     }
 
+    //    public UnitParser set(Iterator<String> source) {
+    //        bufferedItem = null;
+    //        this.source = source;
+    //        return this;
+    //    }
+    //
+    //    public UnitParser set(Iterable<String> source) {
+    //        return set(source.iterator());
+    //    }
+    //
     public UnitParser set(String source) {
-        return set(UnitParser.DASH_SPLITTER.split(source).iterator());
+        if (source == null) {
+            throw new IllegalArgumentException("Unit Parser doesn't handle null");
+        }
+        bufferedItem = null;
+        this.original = source;
+        this.source = UnitParser.DASH_SPLITTER.split(source).iterator();
+        return this;
     }
 
     private enum State {
@@ -58,7 +75,30 @@ public class UnitParser {
      * @return a unit segment of the form: prefix* base suffix*, and, per, or power; or null if no
      *     more remaining
      */
-    public String nextParse(Output<UnitIdComponentType> type) {
+    public String nextParse(Output<UnitIdComponentType> unitIdComponentType) {
+        String result = next();
+        unitIdComponentType.value = type;
+        return result;
+    }
+
+    /**
+     * Return the last UnitIdComponentType from a next() call.
+     *
+     * @return
+     */
+    public UnitIdComponentType getLastUnitIdComponentType() {
+        return type;
+    }
+
+    /**
+     * Parses the next segment in the source from set. The UnitIdComponentType can be retrieved
+     * after calling, from getLastUnitIdComponentType()
+     *
+     * @return a unit segment of the form: prefix* base suffix*, and, per, or power; or null if no
+     *     more remaining
+     */
+    @Override
+    public String next() {
         String output = null;
         State state = State.start;
         UnitIdComponentType outputType = null;
@@ -69,7 +109,7 @@ public class UnitParser {
                     break;
                 }
                 bufferedItem = source.next();
-                bufferedType = SDI.getUnitIdComponentType(bufferedItem);
+                bufferedType = componentTypeSupplier.apply(bufferedItem);
             }
             switch (bufferedType) {
                 case prefix:
@@ -80,7 +120,7 @@ public class UnitParser {
                         case havePrefix: // ok, continue
                             break;
                         case haveBaseOrSuffix:
-                            type.value =
+                            type =
                                     outputType == UnitIdComponentType.suffix
                                             ? UnitIdComponentType.base
                                             : outputType;
@@ -94,7 +134,7 @@ public class UnitParser {
                             state = State.haveBaseOrSuffix;
                             break;
                         case haveBaseOrSuffix: // have stuff to return
-                            type.value =
+                            type =
                                     outputType == UnitIdComponentType.suffix
                                             ? UnitIdComponentType.base
                                             : outputType;
@@ -107,6 +147,8 @@ public class UnitParser {
                         case havePrefix:
                             throw new IllegalArgumentException(
                                     "Unit suffix must follow base: "
+                                            + original
+                                            + " → "
                                             + output
                                             + " ❌ "
                                             + bufferedItem);
@@ -121,16 +163,18 @@ public class UnitParser {
                         case start: // return this item
                             output = bufferedItem;
                             bufferedItem = null;
-                            type.value = bufferedType;
+                            type = bufferedType;
                             return output;
                         case havePrefix:
                             throw new IllegalArgumentException(
                                     "Unit prefix must be followed with base: "
+                                            + original
+                                            + " → "
                                             + output
                                             + " ❌ "
                                             + bufferedItem);
                         case haveBaseOrSuffix: // have stuff to return
-                            type.value =
+                            type =
                                     outputType == UnitIdComponentType.suffix
                                             ? UnitIdComponentType.base
                                             : outputType;
@@ -148,9 +192,14 @@ public class UnitParser {
                 return null;
             case havePrefix:
                 throw new IllegalArgumentException(
-                        "Unit prefix must be followed with base: " + output + " ❌ " + bufferedItem);
+                        "Unit prefix must be followed with base: "
+                                + original
+                                + " → "
+                                + output
+                                + " ❌ "
+                                + bufferedItem);
             case haveBaseOrSuffix: // have stuff to return
-                type.value =
+                type =
                         outputType == UnitIdComponentType.suffix
                                 ? UnitIdComponentType.base
                                 : outputType;
@@ -160,6 +209,6 @@ public class UnitParser {
 
     // TODO create from custom map
     public UnitIdComponentType getUnitIdComponentType(String part) {
-        return SDI.getUnitIdComponentType(part);
+        return componentTypeSupplier.apply(part);
     }
 }

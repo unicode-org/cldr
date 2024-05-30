@@ -12,6 +12,7 @@ import com.ibm.icu.text.DateTimePatternGenerator.VariableField;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.SimpleDateFormat;
+import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Calendar;
 import com.ibm.icu.util.DateInterval;
 import com.ibm.icu.util.ICUUncheckedIOException;
@@ -71,6 +72,14 @@ public class DateTimeFormats {
 
     private static final TimeZone GMT = TimeZone.getTimeZone("GMT");
 
+    // The following is also in ExampleGenerator and VerifyCompactNumbers; it and other shared
+    // constant sets should
+    // probably be moved to a common file of such things.
+    private static final UnicodeSet BIDI_MARKS = new UnicodeSet("[:Bidi_Control:]").freeze();
+    private static final String exampleSep = "<br>";
+    private static final String rtlStart = "<div dir='rtl'>";
+    private static final String rtlEnd = "</div>";
+
     private static final String[] STOCK = {"short", "medium", "long", "full"};
     private static final String[] CALENDAR_FIELD_TO_PATTERN_LETTER = {
         "G", "y", "M",
@@ -97,7 +106,7 @@ public class DateTimeFormats {
                     .put("a", new Date(2012 - 1900, 0, 13, 2, 45, 59))
                     .put("h", new Date(2012 - 1900, 0, 13, 15, 45, 59))
                     .put("H", new Date(2012 - 1900, 0, 13, 15, 45, 59))
-                    .put("m", SAMPLE_DATE_DEFAULT_END)
+                    .put("m", new Date(2012 - 1900, 0, 13, 14, 46, 59))
                     .build();
     //        // "G", "y", "M",
     //        null, new Date(2013 - 1900, 0, 13, 14, 45, 59), new Date(2012 - 1900, 1, 13, 14, 45,
@@ -121,6 +130,7 @@ public class DateTimeFormats {
     private DateIntervalInfo dateIntervalInfo = new DateIntervalInfo();
     private String calendarID;
     private CLDRFile file;
+    private boolean isRTL;
 
     private static String surveyUrl =
             CLDRConfig.getInstance()
@@ -154,6 +164,8 @@ public class DateTimeFormats {
         generator = DateTimePatternGenerator.getEmptyInstance();
         this.calendarID = calendarID;
         boolean haveDefaultHourChar = false;
+        String characterOrder = file.getStringValue("//ldml/layout/orientation/characterOrder");
+        isRTL = (characterOrder != null && characterOrder.equals("right-to-left"));
 
         for (String stock : STOCK) {
             String path =
@@ -490,7 +502,7 @@ public class DateTimeFormats {
                     FIELDS_TITLE,
                     "Skeleton",
                     "English Example",
-                    "Native Example",
+                    "Native Example (neutral context,<br>then RTL if relevant)",
                     false);
             for (String[] nameAndSkeleton : NAME_AND_PATTERN) {
                 String name = nameAndSkeleton[0];
@@ -571,7 +583,7 @@ public class DateTimeFormats {
     private String getExample(String skeleton) {
         String example;
         if (skeleton.contains("®")) {
-            return getRelativeExampleFromSkeleton(skeleton);
+            example = getRelativeExampleFromSkeleton(skeleton);
         } else {
             int slashPos = skeleton.indexOf('/');
             if (slashPos >= 0) {
@@ -602,7 +614,11 @@ public class DateTimeFormats {
                 example = format.format(SAMPLE_DATE);
             }
         }
-        return TransliteratorUtilities.toHTML.transform(example);
+        String transformedExample = TransliteratorUtilities.toHTML.transform(example);
+        if (isRTL || BIDI_MARKS.containsSome(transformedExample)) {
+            transformedExample += exampleSep + rtlStart + transformedExample + rtlEnd;
+        }
+        return transformedExample;
     }
 
     static final Pattern RELATIVE_DATE =
@@ -675,19 +691,27 @@ public class DateTimeFormats {
             //                String length = skeleton.contains("MMMM") ? skeleton.contains("E") ?
             // "full" : "long"
             //                    : skeleton.contains("MMM") ? "medium" : "short";
-            String path2 = getDTSeparator("full");
-            String datetimePattern = file.getStringValue(path2).replace("'", "");
+            String path2 = getDTSeparator("full", "atType");
+            String datetimePattern =
+                    file.getStringValue(
+                            getDTSeparator("full", "atType")); // prefer the atType variant here
+            if (datetimePattern == null) {
+                datetimePattern = file.getStringValue(getDTSeparator("full", "standard"));
+            }
+            datetimePattern = datetimePattern.replace("'", "");
             return MessageFormat.format(datetimePattern, formattedTime, value);
         }
     }
 
-    private String getDTSeparator(String length) {
+    private String getDTSeparator(String length, String type) {
         String path =
                 "//ldml/dates/calendars/calendar[@type=\""
                         + calendarID
                         + "\"]/dateTimeFormats/dateTimeFormatLength[@type=\""
                         + length
-                        + "\"]/dateTimeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
+                        + "\"]/dateTimeFormat[@type=\""
+                        + type
+                        + "\"]/pattern[@type=\"standard\"]";
         return path;
     }
 

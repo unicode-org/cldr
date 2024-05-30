@@ -453,7 +453,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="UMMM">U MMM</dateFormatItem>
 						<dateFormatItem id="UMMMd">U MMM d</dateFormatItem>
 						<dateFormatItem id="y">r(U)</dateFormatItem>
-						<dateFormatItem id="yMd">r-MM-dd</dateFormatItem>
 						<dateFormatItem id="yyyy">r(U)</dateFormatItem>
 						<dateFormatItem id="yyyyM">r-MM</dateFormatItem>
 						<dateFormatItem id="yyyyMd">r-MM-dd</dateFormatItem>
@@ -5779,6 +5778,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="volume-quart-imperial">
 				<displayName>qt Imp</displayName>
 				<unitPattern count="other">{0} qt Imp.</unitPattern>
+			</unit>
+			<unit type="speed-light-speed">
+				<displayName>light</displayName>
+				<unitPattern count="other">{0} light</unitPattern>
+			</unit>
+			<unit type="concentr-portion-per-1e9">
+				<displayName>ppb</displayName>
+				<unitPattern count="other">{0} ppb</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>night</displayName>
+				<unitPattern count="other">{0} night</unitPattern>
+				<perUnitPattern>{0}/night</perUnitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>direction</displayName>

@@ -19,6 +19,7 @@ import java.sql.Timestamp;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.BitSet;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
@@ -341,7 +342,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             readonly = isReadOnlyLocale(locale);
             stamp = mintLocaleStamp(locale);
             pathsForFile = diskDataEntry.pathsForFile;
-
             if (readonly) {
                 rFile = diskDataEntry.diskFile;
                 xmlsource = diskDataEntry.diskData;
@@ -1219,7 +1219,9 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             progress.update("reload all users");
             sm.reg.getVoterInfoList();
             progress.update("setup pathheader factory");
-            diskDataCache = new DiskDataCache(sm.getDiskFactory(), sm.getEnglishFile());
+            diskDataCache =
+                    new DiskDataCache(
+                            sm.getDiskFactory(), sm.getEnglishFile(), sm.getSupplementalDataInfo());
         }
     }
 
@@ -1977,5 +1979,9 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     public static List<CheckStatus> removeExcludedChecks(List<CheckStatus> tests) {
         tests.removeIf((status) -> status.getSubtype() == Subtype.coverageLevel);
         return tests;
+    }
+
+    public Collection<String> getFixedCandidates(CLDRLocale locale, String xpath) {
+        return diskDataCache.get(locale).getFixedCandidates(xpath);
     }
 }

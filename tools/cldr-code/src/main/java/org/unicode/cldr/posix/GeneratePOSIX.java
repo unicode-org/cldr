@@ -8,7 +8,7 @@
  */
 package org.unicode.cldr.posix;
 
-import com.ibm.icu.dev.tool.shared.UOption;
+import com.ibm.icu.dev.util.UOption;
 import com.ibm.icu.text.UnicodeSet;
 import java.io.File;
 import java.io.PrintWriter;

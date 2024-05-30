@@ -1,6 +1,6 @@
 package org.unicode.cldr.tool;
 
-import com.ibm.icu.dev.tool.shared.UOption;
+import com.ibm.icu.dev.util.UOption;
 import org.unicode.cldr.util.CLDRTool;
 
 @CLDRTool(alias = "kbd", description = "Tool for working with CLDR Keyboard files")

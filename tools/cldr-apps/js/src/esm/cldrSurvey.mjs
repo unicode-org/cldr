@@ -80,10 +80,9 @@ const statusActionTable = {
 /**
  * How often to fetch updates. Default 15s.
  * Used only for delay in calling updateStatus.
- * @property timerSpeed
  */
-let timerSpeed = 15000; // 15 seconds
-let fastTimerSpeed = 3000; // 3 seconds
+const timerSpeed = 15000; // 15 seconds
+const fastTimerSpeed = 3000; // 3 seconds
 let statusTimeout = null;
 
 let overridedir = null;
@@ -752,14 +751,12 @@ function testsToHtml(tests) {
   if (!tests) {
     return newHtml;
   }
-  var hadEntireLocale = false;
 
   for (var i = 0; i < tests.length; i++) {
     var testItem = tests[i];
     const { entireLocale } = testItem;
     if (entireLocale) {
-      hadEntireLocale = true;
-      continue;
+      continue; // skip entireLocale errors
     }
     newHtml += "<p class='trInfo tr_" + testItem.type;
     if (testItem.type == "Warning") {
@@ -788,11 +785,6 @@ function testsToHtml(tests) {
     }
 
     newHtml += "</p>\n";
-  }
-  if (hadEntireLocale) {
-    newHtml += `<p class='trInfo tr_Warning alert alert-warning fix-popover-help'>See also <a href='#r_supplemental/${cldrStatus.getCurrentLocale()}//'>${cldrText.get(
-      "special_r_supplemental"
-    )}</a></p>\n`;
   }
   return newHtml;
 }

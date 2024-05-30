@@ -10,15 +10,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<version number="$Revision$"/>
 		<language type="kk"/>
 		<script type="Arab"/>
+		<territory type="CN"/>
 	</identity>
-	<layout>
-		<orientation>
-			<characterOrder>right-to-left</characterOrder>
-			<lineOrder>top-to-bottom</lineOrder>
-		</orientation>
-	</layout>
-	<characters>
-		<exemplarCharacters draft="unconfirmed">[ُ ٔ ٶ ٷ ئ ا ب پ ت ج چ ح د ر ز س ش ع ف ق ك ڭ گ ل م ن ھ ە و ۆ ۇ ۋ ى ي]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary" draft="unconfirmed">[\u200C\u200D\u200E\u200F]</exemplarCharacters>
-	</characters>
 </ldml>

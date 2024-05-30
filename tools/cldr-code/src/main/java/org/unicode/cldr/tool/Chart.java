@@ -234,8 +234,6 @@ public abstract class Chart {
         switch (report) {
             case personnames:
                 return new ChartPersonName(locale);
-            case supplemental:
-                return new ChartSupplemental(locale);
             default:
                 return null;
         }

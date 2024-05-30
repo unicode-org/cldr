@@ -1,5 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2024 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+SPDX-License-Identifier: Unicode-3.0
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -7,10 +12,10 @@
 		<script type="Latn"/>
 	</identity>
 	<characters>
-		<exemplarCharacters>[a á b d e f g ǵ h x ı i j k q l m n ń o ó p r s t u ú v w y z {sh} c {ch}]</exemplarCharacters>
+		<exemplarCharacters>[aá b c {ch} d e f gǵ h i ı j k l m nń oó p q r s {sh} t uú v w x y z]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[àăâåäãā æ ç éèĕêëē íìĭîïī ñ òŏôöøō œ ùŭûüū ÿ]</exemplarCharacters>
-		<exemplarCharacters type="index">[A Á B D E F G Ǵ H X Í I J K Q L M N Ń O Ó P R S T U Ú V W Y Z {Sh} C {Ch}]</exemplarCharacters>
+		<exemplarCharacters type="index">[AÁ B C {Ch} D E F GǴ H IÍ J K L M NŃ OÓ P Q R S {Sh} T UÚ V W X Y Z]</exemplarCharacters>
 		<exemplarCharacters type="numbers">[\- ‑ , % ‰ + 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
-		<exemplarCharacters type="punctuation">[\- ‐‑ – — , ; \: ! ? . … '‘’ "“” ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
+		<exemplarCharacters type="punctuation">[\- ‐‑ – — , ; \: ! ? . … '‘’ &quot;“” ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
 	</characters>
 </ldml>

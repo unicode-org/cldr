@@ -3,6 +3,10 @@ package org.unicode.cldr.tool;
 import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Sets;
+import com.google.common.collect.TreeMultimap;
+import com.ibm.icu.text.DateTimePatternGenerator;
+import com.ibm.icu.text.DateTimePatternGenerator.FormatParser;
+import com.ibm.icu.text.DateTimePatternGenerator.VariableField;
 import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.Output;
 import com.ibm.icu.util.VersionInfo;
@@ -27,6 +31,7 @@ import org.unicode.cldr.tool.SearchXml.ConfigOption;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Factory;
@@ -38,6 +43,7 @@ import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.XPathParts;
 
 public class SearchCLDR {
     // private static final int
@@ -77,6 +83,8 @@ public class SearchCLDR {
     // + "-s\t show English value"
     // ;
 
+    private static final CLDRConfig CONFIG = CLDRConfig.getInstance();
+
     enum PathStyle {
         none,
         path,
@@ -110,6 +118,11 @@ public class SearchCLDR {
                     .add("resolved", null, null, "use resolved locales")
                     .add("q-showParent", null, null, "show parent value")
                     .add("english", null, null, "show english value")
+                    .add(
+                            "RootUncovered" + "",
+                            null,
+                            "false",
+                            "filter to items that are in root but not overriden")
                     .add("Verbose", null, null, "verbose output")
                     .add(
                             "PathStyle",
@@ -135,6 +148,7 @@ public class SearchCLDR {
     private static boolean showSurveyToolUrl;
     private static Subtype subtype;
     private static CheckCLDR checkCldr;
+    private static boolean rootUncovered;
 
     static PathHeader.Factory pathHeaderFactory = PathHeader.getFactory();
 
@@ -160,15 +174,21 @@ public class SearchCLDR {
         Boolean valueExclude = exclude.value;
 
         countOnly = myOptions.get("count").doesOccur();
-        boolean resolved = myOptions.get("resolved").doesOccur();
+        final boolean resolved = myOptions.get("resolved").doesOccur();
 
         showPath = myOptions.get("z-showPath").doesOccur();
         String orgString = myOptions.get("organization").getValue();
         Organization organization = orgString == null ? null : Organization.fromString(orgString);
 
-        final CLDRFile english = CLDRConfig.getInstance().getEnglish();
+        final CLDRFile english = CONFIG.getEnglish();
 
         showPathHeader = PathStyle.valueOf(myOptions.get("PathStyle").getValue());
+
+        rootUncovered = myOptions.get("RootUncovered").doesOccur();
+        if (rootUncovered && resolved) {
+            throw new IllegalArgumentException(
+                    "Doesn't make sense to have both rootUncovered && resolved");
+        }
 
         showSurveyToolUrl = myOptions.get("SurveyTool").doesOccur();
 
@@ -236,8 +256,15 @@ public class SearchCLDR {
         Map<String, String> options = new HashMap<>();
 
         int totalCount = 0;
+        final CLDRFile ROOT = CONFIG.getRoot();
 
         for (String locale : locales) {
+            if (rootUncovered) { // only look at locales with parent=root)
+                CLDRLocale clocale = CLDRLocale.getInstance(locale);
+                if (!clocale.isParentRoot()) {
+                    continue;
+                }
+            }
             int localeCount = 0;
             //            Level organizationLevel = organization == null ? null
             //                : StandardCodes.make().getLocaleCoverageLevel(organization, locale);
@@ -274,14 +301,32 @@ public class SearchCLDR {
             level = CoverageLevel2.getInstance(locale);
             Status status = new Status();
             Set<PathHeader> sorted = new TreeSet<>();
-            for (String path : file.fullIterable()) {
-                if (locale.equals("eo") && path.contains("type=\"MK\"")) {
+            final Iterable<String> pathSource =
+                    rootUncovered ? (Iterable<String>) ROOT : file.fullIterable();
+            RelatedPaths relatedPathsWithNonNullValues = new RelatedPaths();
+
+            for (String path : pathSource) {
+                if (path.contains("yMd") && path.contains("chinese")) {
                     int debug = 0;
                 }
-                String stringValue = file.getStringValue(path);
-                if (stringValue == null) {
+                if (pathMatcher != null && !pathMatcher.find(path)) {
                     continue;
                 }
+                String stringValue = file.getStringValue(path);
+                if (rootUncovered) {
+                    if (stringValue != null) {
+                        // Record any cases where there are non-null, non-inherited values
+                        if (!stringValue.equals("↑↑↑")) {
+                            relatedPathsWithNonNullValues.addRelated(path);
+                        }
+                        continue;
+                    }
+                    // we will add the path if the value for this path is null
+                    // (uncovered in this file)
+                } else if (stringValue == null) {
+                    continue;
+                }
+
                 String diffStringValue;
                 if (diffFile != null) {
                     diffStringValue = diffFile.getWinningValueWithBailey(path);
@@ -300,16 +345,24 @@ public class SearchCLDR {
                 }
                 sorted.add(pathHeaderFactory.fromPath(path));
             }
+
             for (PathHeader pathHeader : sorted) {
                 String path = pathHeader.getOriginalPath();
+                String relatedNonNullKey = null;
+                if (rootUncovered) {
+                    // We've collected paths from root that are uncovered in this file.
+                    // That means they have a null value in this file, but non-null in root.
+                    // We want to skip away all of those UNLESS there is a related path in this file
+                    // that has a non-null value.
+                    relatedNonNullKey = relatedPathsWithNonNullValues.hasKeyFor(path);
+                    if (relatedNonNullKey == null) {
+                        continue;
+                    }
+                }
                 String fullPath = file.getFullXPath(path);
                 String value = file.getStringValue(path);
                 if (locale.equals("eo") && path.contains("type=\"MK\"")) {
                     int debug = 0;
-                }
-
-                if (pathMatcher != null && !pathMatcher.find(fullPath)) {
-                    continue;
                 }
 
                 {
@@ -409,6 +462,19 @@ public class SearchCLDR {
                             null,
                             null);
                 } else {
+                    String extra =
+                            !rootUncovered
+                                    ? ""
+                                    : "\t"
+                                            + relatedNonNullKey
+                                            + "\t"
+                                            + XPathParts.getFrozenInstance(path)
+                                                    .getAttributeValue(-1, "id")
+                                            + " → “"
+                                            + ROOT.getStringValue(path)
+                                            + "”\t"
+                                            + relatedPathsWithNonNullValues.show(
+                                                    file, relatedNonNullKey);
                     showLine(
                             showPathHeader,
                             showParent,
@@ -421,7 +487,7 @@ public class SearchCLDR {
                             !showParent ? null : english.getBaileyValue(path, null, null),
                             english == null ? null : english.getStringValue(path),
                             resolvedSource,
-                            Objects.toString(pathLevel));
+                            Objects.toString(pathLevel) + extra);
                 }
                 totalCount++;
                 localeCount++;
@@ -444,6 +510,64 @@ public class SearchCLDR {
                         + "Done -- Elapsed time: "
                         + ((System.currentTimeMillis() - startTime) / 60000.0)
                         + " minutes");
+    }
+
+    /**
+     * Related with related values that are not null. NOTE: For now this is quite specific to
+     * availableFormats
+     */
+    static class RelatedPaths {
+        TreeMultimap<String, String> skeletaToRelatedPathWithValue = TreeMultimap.create();
+        static final FormatParser parser = new DateTimePatternGenerator.FormatParser();
+
+        String getKey(String path) {
+            // ldml/dates/calendars/calendar[@type="chinese"]/dateTimeFormats/availableFormats/dateFormatItem[@id="d"]
+            XPathParts parts = XPathParts.getFrozenInstance(path);
+            if (parts.size() != 7 || !"availableFormats".equals(parts.getElement(5))) {
+                return null;
+            }
+            return parts.getAttributeValue(3, "type")
+                    + "|"
+                    + simplePattern(parts.getAttributeValue(-1, "id"));
+        }
+
+        public String hasKeyFor(String path) {
+            String key = getKey(path);
+            return skeletaToRelatedPathWithValue.containsKey(key) ? key : null;
+        }
+
+        public String show(CLDRFile file, String key) {
+            final List<String> sorted = new ArrayList<>();
+            skeletaToRelatedPathWithValue.get(key).stream()
+                    .forEach(
+                            x -> {
+                                String y = file.getStringValue(x);
+                                XPathParts parts = XPathParts.getFrozenInstance(x);
+                                sorted.add(parts.getAttributeValue(-1, "id") + " → “" + y + "”");
+                            });
+            return Joiner.on(", ").join(sorted);
+        }
+
+        private String simplePattern(String id) {
+            TreeSet<String> chars = new TreeSet<>();
+            for (Object item : parser.set(id).getItems()) {
+                if (item instanceof DateTimePatternGenerator.VariableField) {
+                    VariableField v = (DateTimePatternGenerator.VariableField) item;
+                    chars.add(
+                            VariableField.getCanonicalCode(v.getType())
+                                    + (v.isNumeric() ? "ⁿ" : "ˢ"));
+                }
+            }
+            return Joiner.on("").join(chars);
+        }
+
+        void addRelated(String path) {
+            skeletaToRelatedPathWithValue.put(getKey(path), path);
+        }
+
+        Set<String> getRelated(String path) {
+            return skeletaToRelatedPathWithValue.get(getKey(path));
+        }
     }
 
     private static File[] getCorrespondingDirectories(String base, Factory cldrFactory) {

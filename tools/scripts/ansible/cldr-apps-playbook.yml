@@ -53,6 +53,7 @@
         force: no
         update: no
         version: main
+        remote: origin
         # this is a deep clone because we will need to keep updating
         # it with history. It does not include LFS as that
         # is not needed for the surveytool.

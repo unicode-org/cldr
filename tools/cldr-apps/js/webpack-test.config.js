@@ -24,6 +24,10 @@ module.exports = {
         test: /\.vue$/,
         loader: "vue-loader",
       },
+      {
+        test: /.(jpg|jpeg|png|mp3|svg|gif)$/,
+        type: 'asset/source',
+      },
     ],
   },
   plugins: [

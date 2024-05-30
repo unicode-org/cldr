@@ -1180,10 +1180,12 @@ function toAddVoteButton(btn) {
   btn.title = "Add";
   btn.type = "submit";
   btn.innerHTML = '<span class="glyphicon glyphicon-plus"></span>';
-  $(btn).parent().popover("destroy");
-  $(btn).tooltip("destroy").tooltip();
-  $(btn).closest("form").next(".subSpan").show();
-  $(btn).parent().children("input").remove();
+  $.ready(($) => {
+    $(btn).parent().popover("destroy");
+    $(btn).tooltip("destroy").tooltip();
+    $(btn).closest("form").next(".subSpan").show();
+    $(btn).parent().children("input").remove();
+  });
 }
 
 /**

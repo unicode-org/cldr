@@ -1,50 +1,60 @@
 const path = require("path");
-const fs = require('fs');
+const fs = require("fs");
 const { VueLoaderPlugin } = require("vue-loader");
-const { DefinePlugin, Compiler } = require("webpack");
+const { ProvidePlugin, DefinePlugin, Compiler } = require("webpack");
 
 class SurveyToolPlugin {
-  constructor() {
-
-  }
+  constructor() {}
   /**
    *
    * @param {Compiler} compiler
    */
   apply(compiler) {
-    compiler.hooks.afterEmit.tap('SurveyToolPlugin', (compilation) => {
+    compiler.hooks.afterEmit.tap("SurveyToolPlugin", (compilation) => {
       const { assets } = compilation;
-      const jsfiles = Object.keys(assets).filter(s => /\.js$/.test(s));
-      const manifestFile = path.resolve(compiler.outputPath, 'manifest.json');
-      fs.writeFileSync(manifestFile, JSON.stringify({ jsfiles }), 'utf-8');
-      console.log('# SurveyToolPlugin Wrote: ', manifestFile);
+      const jsfiles = Object.keys(assets).filter((s) => /\.js$/.test(s));
+      const manifestFile = path.resolve(compiler.outputPath, "manifest.json");
+      fs.writeFileSync(manifestFile, JSON.stringify({ jsfiles }), "utf-8");
     });
   }
-};
+}
 
 module.exports = (env, argv) => {
-  const {mode} = argv;
-  const DEV = (mode === 'development');
+  const { mode } = argv;
+  const DEV = mode === "development";
   return {
-    entry: "./src/index.js",
+    entry: {
+      cldrBundle: {
+        import: "./src/index.js",
+        dependOn: 'cldrLibs',
+      },
+      cldrLibs: {
+        import: "./src/libs.js",
+      },
+    },
     cache: {
-      type: 'filesystem',
-      cacheDirectory: path.resolve(__dirname, '../target/webpack_cache'),
+      type: "filesystem",
+      cacheDirectory: path.resolve(__dirname, "../target/webpack_cache"),
     },
     output: {
       filename: "[name].[contenthash].js",
       path: path.resolve(__dirname, "..", "src", "main", "webapp", "dist"),
-      library: "cldrBundle",
+      library: "[name]",
       libraryTarget: "var",
       libraryExport: "default",
-      hashFunction: "xxhash64"
+      hashFunction: "xxhash64",
+      clean: true,
     },
-    devtool: DEV ? "eval-cheap-module-source-map" : "source-map",
+     devtool: DEV ? "eval-cheap-module-source-map" : "source-map",
     module: {
       rules: [
         {
           test: /\.css$/i,
           use: ["style-loader", "css-loader"],
+        },
+        {
+          test: /.(jpg|jpeg|png|mp3|svg|gif)$/,
+          type: 'asset/source',
         },
         {
           test: /\.vue$/,
@@ -54,8 +64,10 @@ module.exports = (env, argv) => {
     },
     resolve: {
       alias: {
-        vue: DEV ? "vue/dist/vue.runtime.esm-browser.js" : "vue/dist/vue.runtime.esm-browser.prod.js"
-      }
+        vue: DEV
+          ? "vue/dist/vue.runtime.esm-browser.js"
+          : "vue/dist/vue.runtime.esm-browser.prod.js",
+      },
     },
     plugins: [
       new VueLoaderPlugin(),
@@ -66,6 +78,12 @@ module.exports = (env, argv) => {
         __VUE_OPTIONS_API__: JSON.stringify(true),
       }),
       new SurveyToolPlugin(),
-    ]
+      // new ProvidePlugin({
+      //   $: "jquery",
+      //   "window.$": "jquery",
+      //   jQuery: "jquery",
+      //   "window.jQuery": "jquery",
+      // }),
+    ],
   };
 };

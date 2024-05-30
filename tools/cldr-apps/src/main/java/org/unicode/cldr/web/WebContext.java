@@ -1533,7 +1533,10 @@ public class WebContext implements Cloneable, Appendable {
                                 + sessionId);
             }
             if (sessionId != null) {
-                CookieSession.remove(sessionId);
+                final UserRegistry.User user = CookieSession.remove(sessionId);
+                if (user != null) {
+                    user.touch(); // update user last seen time to logout time
+                }
             }
             session.removeAttribute(SurveyMain.SURVEYTOOL_COOKIE_SESSION);
         }

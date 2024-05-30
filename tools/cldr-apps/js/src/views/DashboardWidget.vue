@@ -35,7 +35,7 @@
               type="checkbox"
               :title="describeShow(cat)"
               :id="'dash-cat-checkbox-' + cat"
-              :checked="!catIsHidden[cat]"
+              :checked="!catCheckboxIsUnchecked[cat]"
               @change="
                 (event) => {
                   catCheckmarkChanged(event, cat);
@@ -75,7 +75,8 @@
       </header>
       <section id="DashboardScroller" class="sidebyside-scrollable">
         <template v-if="updatingVisibility">
-          <a-spin delay="1000" size="large" />
+          <!-- for unknown reason, the a-spin fails to appear on current Chrome/Firefox if any :delay is specified here -->
+          <a-spin size="large" />
         </template>
         <template v-else>
           <template
@@ -181,6 +182,7 @@ import * as cldrNotify from "../esm/cldrNotify.mjs";
 import * as cldrReport from "../esm/cldrReport.mjs";
 import * as cldrStatus from "../esm/cldrStatus.mjs";
 import * as cldrText from "../esm/cldrText.mjs";
+import { nextTick } from "vue";
 
 export default {
   props: [],
@@ -195,12 +197,18 @@ export default {
       localeName: null,
       level: null,
       downloadMessage: null,
-      catIsHidden: {},
+      catCheckboxIsUnchecked: {}, // default unchecked = false, checked = true
+      catIsHidden: {}, // default hidden = false, visible = true
       updatingVisibility: false,
     };
   },
 
   created() {
+    if (cldrStatus.getPermissions()?.userIsTC) {
+      this.catIsHidden["Abstained"] = this.catCheckboxIsUnchecked[
+        "Abstained"
+      ] = true;
+    }
     this.fetchData();
   },
 
@@ -367,22 +375,47 @@ export default {
     },
 
     catCheckmarkChanged(event, category) {
-      // setTimeout solves a weakness in the Vue implementation: if the number of
-      // notifications is large, the checkbox in the header can take a second or more
+      // setTimeout is intended to solve a weakness in the Vue implementation: if the number of
+      // notifications is large, the checkbox in the header can take a second or even a minute
       // to change its visible state in response to the user's click, during which time
       // the user may click again thinking the first click wasn't recognized. Postponing
-      // the DOM update of thousands of rows ensures that the header checkbox updates
+      // the DOM update of thousands of rows should help ensure that the header checkbox updates
       // without delay.
-      this.updatingVisibility = true;
-      setTimeout(
-        () => this.updateVisibility(event.target.checked, category),
-        0
+      // Also the booleans catCheckboxIsUnchecked and catIsHidden are distinct in order for
+      // the checkbox itself to update immediately even if the rows for the corresponding
+      // category may take a long time to update.
+      // Unfortunately, neither of these mechanisms seems guaranteed to prevent a very very
+      // long delay between the time the user clicks the checkbox and the time that the checkbox
+      // changes its state.
+      this.catCheckboxIsUnchecked[category] = !event.target.checked; // redundant?
+      const USE_NEXT_TICK = true;
+      this.console.log(
+        "Starting catCheckmarkChanged; USE_NEXT_TICK = " + USE_NEXT_TICK
       );
+      this.updatingVisibility = true;
+      this.console.log("updatingVisibility = true");
+      if (USE_NEXT_TICK) {
+        nextTick().then(() => {
+          this.updateVisibility(event.target.checked, category);
+        });
+      } else {
+        const DELAY_FOR_VISIBILITY_UPDATE = 100; // milliseconds
+        this.console.log(
+          "DELAY_FOR_VISIBILITY_UPDATE = " + DELAY_FOR_VISIBILITY_UPDATE
+        );
+        setTimeout(
+          () => this.updateVisibility(event.target.checked, category),
+          DELAY_FOR_VISIBILITY_UPDATE
+        );
+      }
     },
 
     updateVisibility(checked, category) {
+      this.console.log("Starting updateVisibility");
       this.catIsHidden[category] = !checked;
       this.updatingVisibility = false;
+      this.console.log("updatingVisibility = false");
+      this.console.log("Ending updateVisibility");
     },
 
     canBeHidden(cats) {

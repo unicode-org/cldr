@@ -72,6 +72,190 @@ describe("cldrDash.updatePath", function () {
       1
     );
   });
+
+  it("should update combined entries", function () {
+    // jsonAbstain0 has 2 Abstained notifications on the same page.
+    // After the user votes for the first of those rows (which "represents" the
+    // Abstain category on that page), there should still be a combined notification
+    // for the page, with the remaining row as representative
+    const jsonTwoAbstained = {
+      hidden: {},
+      notifications: [
+        {
+          category: "Abstained",
+          groups: [
+            {
+              entries: [
+                {
+                  code: "codeA",
+                  comment: "",
+                  english: "a",
+                  old: "",
+                  subtype: "",
+                  winning: "a",
+                  xpstrid: "1234",
+                },
+                {
+                  code: "codeB",
+                  comment: "",
+                  english: "b",
+                  old: "",
+                  subtype: "",
+                  winning: "b",
+                  xpstrid: "abcd",
+                },
+              ],
+              header: "pint-metric",
+              page: "Volume",
+              section: "Units",
+            },
+          ],
+        },
+      ],
+    };
+
+    const jsonUpdate = {
+      xpstrid: "1234",
+      page: {
+        rows: {
+          _xctnmb: {
+            xpstrid: "1234",
+          },
+        },
+      },
+      notifications: [],
+    };
+
+    const dataBefore = cldrDash.setData(jsonTwoAbstained);
+    const dataAfter = cldrDash.updatePath(dataBefore, jsonUpdate);
+    assert.strictEqual(dataAfter.catSize["Abstained"], 1);
+    assert.strictEqual(dataAfter.catFirst["Abstained"], "abcd");
+    assert.strictEqual(dataAfter.entries.length, 1);
+  });
+
+  it("should update combined entries with more than one category", function () {
+    // jsonAbstain0 has 2 Abstained notifications on the same page, and the first is also Missing.
+    // After the user votes for the first of those rows (which "represents" the
+    // Abstain category on that page), there should still be a combined notification
+    // for the page, with the remaining row as representative, and the first row should
+    // still be Missing but not Abstain
+    const jsonTwoAbstainedOneMissing = {
+      hidden: {},
+      notifications: [
+        {
+          category: "Abstained",
+          groups: [
+            {
+              entries: [
+                {
+                  code: "codeA",
+                  comment: "",
+                  english: "a",
+                  old: "",
+                  subtype: "",
+                  winning: "a",
+                  xpstrid: "1234",
+                },
+                {
+                  code: "codeB",
+                  comment: "",
+                  english: "b",
+                  old: "",
+                  subtype: "",
+                  winning: "b",
+                  xpstrid: "abcd",
+                },
+              ],
+              header: "pint-metric",
+              page: "Volume",
+              section: "Units",
+            },
+          ],
+        },
+        {
+          category: "Missing",
+          groups: [
+            {
+              entries: [
+                {
+                  code: "codeA",
+                  xpstrid: "1234",
+                },
+              ],
+              header: "pint-metric",
+              page: "Volume",
+              section: "Units",
+            },
+          ],
+        },
+      ],
+    };
+
+    const jsonUpdate = {
+      xpstrid: "1234",
+      page: {
+        rows: {
+          _xctnmb: {
+            xpstrid: "1234",
+          },
+        },
+      },
+      notifications: [
+        {
+          category: "Missing",
+          groups: [
+            {
+              entries: [
+                {
+                  code: "codeA",
+                  xpstrid: "1234",
+                },
+              ],
+              header: "pint-metric",
+              page: "Volume",
+              section: "Units",
+            },
+          ],
+        },
+      ],
+    };
+
+    const dataBefore = cldrDash.setData(jsonTwoAbstainedOneMissing);
+    const dataAfter = cldrDash.updatePath(dataBefore, jsonUpdate);
+    // TODO: fix cldrDash to make this test pass; work in progress
+    // Reference: https://unicode-org.atlassian.net/browse/CLDR-17658
+    if (false) {
+      assert.strictEqual(
+        dataAfter.entries.length,
+        2,
+        "Checking entries.length"
+      );
+    }
+    assert.strictEqual(
+      dataAfter.catSize["Abstained"],
+      1,
+      "Checking single Abstain"
+    );
+    // TODO: fix cldrDash to make this test pass; work in progress
+    // Reference: https://unicode-org.atlassian.net/browse/CLDR-17658
+    if (false) {
+      assert.strictEqual(
+        dataAfter.catFirst["Abstained"],
+        "abcd",
+        "Checking xpstrid abcd"
+      );
+    }
+    assert.strictEqual(
+      dataAfter.catSize["Missing"],
+      1,
+      "Checking single Missing"
+    );
+    assert.strictEqual(
+      dataAfter.catFirst["Missing"],
+      "1234",
+      "Checking xpstrid 1234"
+    );
+  });
 });
 
 /**

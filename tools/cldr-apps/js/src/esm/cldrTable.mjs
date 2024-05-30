@@ -684,6 +684,7 @@ function getStatusIcon(statusClass) {
     case "inherited-unconfirmed":
       return (
         cldrText.get(`status_inherited`) +
+        "\u202F" +
         getStatusIcon(statusClass.split("-")[1])
       );
     default:

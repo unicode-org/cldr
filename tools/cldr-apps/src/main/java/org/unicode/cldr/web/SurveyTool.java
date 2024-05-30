@@ -209,21 +209,12 @@ public class SurveyTool extends HttpServlet {
 
     private void includeCss(HttpServletRequest request, PrintWriter out) {
         final String contextPath = request.getContextPath();
-        final String cb = getCacheBustingExtension(request);
-        out.write(
-                "<link rel='stylesheet' href='" + contextPath + "/surveytool" + cb + ".css' />\n");
         /*
          * Note: cldrForum.css is loaded through webpack
          */
         // bootstrap.min.css -- cf. bootstrap.min.js elsewhere in this file
         out.write(
                 "<link rel='stylesheet' href='//stackpath.bootstrapcdn.com/bootswatch/3.1.1/spacelab/bootstrap.min.css' />\n");
-        out.write(
-                "<link rel='stylesheet' href='"
-                        + contextPath
-                        + "/css/redesign"
-                        + cb
-                        + ".css' />\n");
     }
 
     private static final String DD_CLIENT_TOKEN = System.getenv("DD_CLIENT_TOKEN");

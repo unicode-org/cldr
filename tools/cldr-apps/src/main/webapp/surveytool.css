@@ -1703,7 +1703,7 @@ The the following can work here:
 
 */
 
-/* Kashmiri and Urdu are typically in Nastaliq. Kashmiri in particular uses a letter that is 
+/* Kashmiri and Urdu are typically in Nastaliq. Kashmiri in particular uses a letter that is
    not rendered correctly in Noto Naskh (see CLDR-16595) */
 
 :lang(ks), :lang(ur) {
@@ -2376,8 +2376,9 @@ span.pathChunk:after
 }
 
 .statuscell {
-	text-align: center;
-	font-weight: bold;
+	text-align: right;
+	font-family: emoji !important;
+	font-variant-emoji: emoji;
 }
 
 .voteDiv .winningStatus  {

@@ -195,12 +195,8 @@ function load() {
 
 function loadHandler(json) {
   if (json.err) {
-    cldrRetry.handleDisconnect(
-      json.err,
-      json,
-      "",
-      "Loading vetting participation data"
-    );
+    console.dir({ json });
+    cldrNotify.error("Err Loading Vetting Participation", json.err);
     return;
   }
   const ourDiv = document.createElement("div");
@@ -210,7 +206,7 @@ function loadHandler(json) {
 }
 
 function errorHandler(err) {
-  cldrRetry.handleDisconnect(err, {}, "", "Loading forum participation data");
+  cldrNotify.exception(err, "Loading vetting participation data");
 }
 
 /**

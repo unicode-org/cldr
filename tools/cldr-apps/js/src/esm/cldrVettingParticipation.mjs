@@ -37,7 +37,7 @@ const COLUMN_TITLE_USER_ID = "Vetter#";
 const COLUMN_TITLE_USER_EMAIL = "Email";
 const COLUMN_TITLE_USER_NAME = "Name";
 const COLUMN_TITLE_LAST_SEEN = "LastSeen";
-const COLUMN_TITLE_COVERAGE_LEVEL = "Coverage";
+const COLUMN_TITLE_COVERAGE_LEVEL = "Org Coverage";
 
 const COLUMNS = [
   { title: COLUMN_TITLE_ORG, comment: "User organization", default: null },

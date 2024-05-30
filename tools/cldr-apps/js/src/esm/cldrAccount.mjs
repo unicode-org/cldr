@@ -4,6 +4,7 @@
 import * as cldrAjax from "./cldrAjax.mjs";
 import * as cldrDom from "./cldrDom.mjs";
 import * as cldrLoad from "./cldrLoad.mjs";
+import * as cldrNotify from "./cldrNotify.mjs";
 import * as cldrOrganizations from "./cldrOrganizations.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
 import * as cldrSurvey from "./cldrSurvey.mjs";
@@ -194,7 +195,9 @@ function listSingleUser(email) {
 }
 
 function reallyLoad() {
-  getOrgsAndLevels().then(reallyReallyLoad);
+  getOrgsAndLevels()
+    .catch((e) => cldrNotify.exception(e, `loading Account Settings page`))
+    .then(reallyReallyLoad);
 }
 
 async function getOrgsAndLevels() {

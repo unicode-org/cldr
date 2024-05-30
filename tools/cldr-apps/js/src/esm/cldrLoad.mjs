@@ -598,7 +598,11 @@ function shower(itemLoadInfo) {
   cldrSurvey.showLoader(cldrText.get("loading"));
   const curSpecial = cldrStatus.getCurrentSpecial();
   cldrGui.setToptitleVisibility(curSpecial !== "menu");
-  specialLoad(itemLoadInfo, curSpecial, theDiv);
+  try {
+    specialLoad(itemLoadInfo, curSpecial, theDiv);
+  } catch (e) {
+    cldrNotify.exception(e, `Showing SurveyTool page ${curSpecial || ""}`);
+  }
 }
 
 function specialLoad(itemLoadInfo, curSpecial, theDiv) {

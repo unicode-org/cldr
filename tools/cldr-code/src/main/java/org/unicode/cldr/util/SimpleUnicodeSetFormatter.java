@@ -64,18 +64,17 @@ public class SimpleUnicodeSetFormatter implements FormatterParser<UnicodeSet> {
     public SimpleUnicodeSetFormatter(
             Comparator<String> col, UnicodeSet forceHex, int maxDisallowRanges) {
         // collate, but preserve non-equivalents
-        this.comparator = ComparatorUtilities.wrapForCodePoints(col);
+        this.comparator = col == null ? COLLATOR : ComparatorUtilities.wrapForCodePoints(col);
         this.forceHex = forceHex == null ? CodePointEscaper.FORCE_ESCAPE : forceHex.freeze();
         this.maxDisallowRanges = maxDisallowRanges;
     }
 
     static final int DEFAULT_MAX = 1024;
+    public static final Comparator<String> COLLATOR =
+            (Comparator) CLDRConfig.getInstance().getCollator();
 
     public static SimpleUnicodeSetFormatter fromIcuLocale(String localeId) {
-        return new SimpleUnicodeSetFormatter(
-                (Comparator) ComparatorUtilities.getIcuCollator(localeId, Collator.IDENTICAL),
-                null,
-                DEFAULT_MAX);
+        return new SimpleUnicodeSetFormatter(COLLATOR, null, DEFAULT_MAX);
     }
 
     public SimpleUnicodeSetFormatter(Comparator<String> col, UnicodeSet forceHex) {

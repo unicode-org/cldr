@@ -2620,28 +2620,68 @@ For more information, see version 5.0 or [UTR #51, Unicode Emoji](https://www.un
 <!ATTLIST annotation type (tts) #IMPLIED >
 ```
 
-There are two kinds of annotations: **short names**, and **keywords**.
+There are two kinds of annotations: **short names**, and **search keywords**.
 
-With an attribute `type="tts"`, the value is a **short name**, such as one that can be used for text-to-speech. It should be treated as one of the element values for other purposes.
+With an attribute `type="tts"`, the value is a **short name**, such as one that can be used for text-to-speech. 
+It should be treated as one of the element values for other purposes.
 
-When there is no `type` attribute, the value is a set of **keywords**, delimited by |. Spaces around each element are to be trimmed. The **keywords** are words associated with the character(s) that might be used in searching for the character, or in predictive typing on keyboards. The short name itself can be used as a keyword.
+When there is no `type` attribute, the value is a set of **keywords**, delimited by |. 
+Spaces around each element are to be trimmed. 
+The **keywords** are words associated with the character(s) that might be used in searching for the character, 
+or in predictive typing on keyboards. The short name itself can be used as a keyword.
 
 Here is an example from German:
 
 ```xml
-<annotation cp="👎">schlecht | Hand | Daumen | nach unten</annotation>
+<annotation cp="👎">schlecht | Hand | Daumen | nach | unten</annotation>
 <annotation cp="👎" type="tts">Daumen runter</annotation>
 ```
 
-The `cp` attribute value has two formats: either a single string, or if contained within \[…\] a UnicodeSet. The latter format can contain multiple code points or strings. A code point pr string can occur in multiple annotation element **cp** values, such as the following, which also contains the "thumbs down" character.
+These are intended as search keywords, and not for "triggering" (aka suggesting).
+
+- For triggering, the user is typing out a message and concurrently seeing a few emoji
+  displayed adjacent to the virtual keyboard. Selecting the emoji adds it to the message.
+  For example, you mention your birthday while writing, and an emoji cake pops up.
+  That is typically done with an LLM or similar advanced technology.
+- For searching, the user is looking for an emoji in a search box, 
+  and typing in in words that narrow down a displayed set of emoji.
+  For example, you type 'heart', but that has too many hits, so you add 'blue' and get the set of blue hearts.
+  
+### Usage Model
+
+The usage model for the search keywords is:
+
+- The user types one or more words in an emoji search field.
+- Each word successively narrows a number of emoji in a results box.
+    - heart → 🥰 😘 😻 💌 💘 💝 💖 💗 💓 💞 💕 💟 ❣️ 💔 ❤️‍🔥 ❤️‍🩹 ❤️ 🩷 🧡 💛 💚 💙 🩵 💜 🤎 🖤 🩶 🤍 💋 🫰 🫶 🫀 💏 💑 🏠 🏡 ♥️ 🩺
+    - blue → 🥶 😰 💙 🩵 🫐 👕 👖 📘 🧿 🔵 🟦 🔷 🔹 🏳️‍⚧️
+    - heart blue → 💙 🩵
+- A word with no hits is ignored
+    - [heart | blue | confabulation] is equivalent to [heart | blue]
+- As the user types a word, each character added to the word narrows the results.
+- Whenever the list is short enough to scan, the user will mouse-click on the right emoji — so it doesn’t have to be narrowed too far.
+    - In the following, the user would just click on 🎉 if that works for them.
+    - celebrate → 🥳 🥂 🎈 🎉 🎊 🪅
+- The order of words doesn’t matter.
+
+Multiword search keywords are typically broken up into separate parts, 
+because that works better with the usage model. So [hand | mouth | omg | open | over] covers the phrase "hand over mouth".
+
+### cp attribute
+
+The `cp` attribute value has two formats: either a single string, or if contained within \[…\] a UnicodeSet. 
+The latter format can contain multiple code points or strings. A code point pr string can occur in multiple annotation element **cp** values, such as the following, which also contains the "thumbs down" character.
 
 ```xml
 <annotation cp='[☝✊-✍👆-👐👫-👭💁🖐🖕🖖🙅🙆🙋🙌🙏🤘]'>hand</annotation>
 ```
 
-Both for short names and keywords, values do not have to match between different languages. They should be the most common values that people using _that_ language would associate with those characters. For example, a "black heart" might have the association of "wicked" in English, but not in some other languages.
+Both for short names and keywords, values do not have to match between different languages. 
+They should be the most common values that people using _that_ language would associate with those characters. 
+For example, a "black heart" might have the association of "wicked" in English, but not in some other languages.
 
-The cp value may contain sequences, but does not contain any Emoji or Text Variant (VS15 & VS16) characters. All such characters should be removed before looking up any short names and keywords.
+The cp value may contain sequences, but does not contain any Emoji or Text Variant (VS15 & VS16) characters. 
+All such characters should be removed before looking up any short names and keywords.
 
 ### <a name="SynthesizingNames" href="#SynthesizingNames">Synthesizing Sequence Names</a>
 

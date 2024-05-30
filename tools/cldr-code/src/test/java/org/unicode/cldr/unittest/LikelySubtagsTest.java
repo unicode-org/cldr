@@ -595,21 +595,10 @@ public class LikelySubtagsTest extends TestFmwk {
 
         if (!problemScripts.isEmpty()) {
             warnln(
-                    "Adjust the data in scriptToExemplars.txt. Use -DSHOW_EXEMPLARS to get a fresh copy, or reset to expected value for: "
+                    "Adjust the data in scriptToExemplars.txt. Use -DSHOW_EXEMPLARS to update, or reset to expected value for: "
                             + problemScripts);
             if (SHOW_EXEMPLARS) {
-                for (Entry<String, UnicodeSet> entry : expected.entrySet()) {
-                    String script = entry.getKey();
-                    UnicodeSet flattened = entry.getValue();
-                    if (!flattened.isEmpty()) {
-                        System.out.println(
-                                script
-                                        + " ;\t"
-                                        + flattened.size()
-                                        + " ;\t"
-                                        + flattened.toPattern(false));
-                    }
-                }
+                ScriptToExemplars.write(expected);
             }
         }
     }

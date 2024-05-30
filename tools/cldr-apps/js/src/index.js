@@ -4,6 +4,8 @@
 // global stylesheets
 import "./css/cldrForum.css";
 import "../../../cldr-code/src/main/resources/org/unicode/cldr/tool/reports.css";
+import "../../../cldr-apps/src/main/webapp/surveytool.css";
+import "../../../cldr-apps/src/main/webapp/css/redesign.css";
 
 // module stylesheets need to go here. See cldrVue.mjs
 // example: import 'someModule/dist/someModule.css'

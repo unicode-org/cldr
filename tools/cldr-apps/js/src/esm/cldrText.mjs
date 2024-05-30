@@ -476,8 +476,8 @@ const strings = {
   status_contributed: "☑️",
   status_provisional: "✖️",
   status_unconfirmed: "❌",
-  status_missing: "❓️",
-  status_inherited: "↑",
+  status_missing: "🕳️",
+  status_inherited: "⬆️",
 
   special_about: "About Survey Tool",
   special_announcements: "Announcements",

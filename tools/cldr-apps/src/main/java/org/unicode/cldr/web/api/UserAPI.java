@@ -106,8 +106,7 @@ public class UserAPI {
                 @APIResponse(responseCode = "423", description = "cannot modify org CLA")
             })
     @Path("/cla")
-    public Response signCla(
-            @HeaderParam(Auth.SESSION_HEADER) String session, ClaSignature cla) {
+    public Response signCla(@HeaderParam(Auth.SESSION_HEADER) String session, ClaSignature cla) {
         final CookieSession mySession = Auth.getSession(session);
         if (mySession == null || mySession.user == null) {
             return Response.status(401).build();

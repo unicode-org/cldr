@@ -6,7 +6,10 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.unicode.cldr.util.Organization;
 
 public final class ClaSignature {
-    /** if TRUE, then CLAs are NOT required by default. */
+    /**
+     * If TRUE, then CLAs are NOT required by default unless the REQUIRE_CLA property is set. At
+     * present (CLDR-16499) this facility is not activated by default.
+     */
     public static final boolean DO_NOT_REQURE_CLA = true;
 
     public static final String CLA_KEY = "SignedCla";
@@ -29,7 +32,10 @@ public final class ClaSignature {
         return true;
     }
 
-    /** Organizations which are known to have signed the CLA. */
+    /**
+     * Organizations which are known to have signed the CLA. Update this from
+     * https://www.unicode.org/policies/corporate-cla-list/
+     */
     public static final EnumSet<Organization> CLA_ORGS =
             EnumSet.of(
                     Organization.adobe,

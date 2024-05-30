@@ -10,7 +10,7 @@
 
   <!-- show user login -->
   <a-card hoverable v-if="jwtGood">
-    <cldr-user v-if="jwtGood && loginId" v-bind:uid="loginId" />
+    <cldr-user v-if="jwtGood && loginId && loginName && loginEmail" v-bind:uid="loginId" />
     <p>You are now logged in via the email link.</p>
     <a-button v-on:click="stay()">Keep me logged in.</a-button>
   </a-card>
@@ -69,5 +69,6 @@ async function doLogin() {
 function stay() {
   // just reload at the top level
   window.location.replace("v#");
+  window.location.reload();
 }
 </script>

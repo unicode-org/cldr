@@ -148,6 +148,7 @@ public class Auth {
             session.settings().set(SurveyMain.PREF_COVLEV, null);
             LoginResponse resp = createLoginResponse(session);
             WebContext.setSessionCookie(hresp, resp.sessionId);
+            session.user.touch(); // update last logged in time
             return Response.ok().entity(resp).header(SESSION_HEADER, session.id).build();
         } catch (LogoutException ioe) {
             return Response.status(403, "Login Failed").build();

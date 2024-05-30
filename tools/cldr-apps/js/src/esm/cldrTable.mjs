@@ -682,7 +682,10 @@ function getStatusIcon(statusClass) {
       return cldrText.get(`status_${statusClass}`);
     case "inherited-provisional":
     case "inherited-unconfirmed":
-      return cldrText.get("inherited");
+      return (
+        cldrText.get(`status_inherited`) +
+        getStatusIcon(statusClass.split("-")[1])
+      );
     default:
       return "\ufffd";
   }

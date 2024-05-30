@@ -472,10 +472,10 @@ const strings = {
   report_missing: "Missing",
 
   // for approval status, see VoteResolver.Status
-  status_approved: "✅",
+  status_approved: "✅\uFE0F",
   status_contributed: "☑️",
   status_provisional: "✖️",
-  status_unconfirmed: "❌",
+  status_unconfirmed: "❌\uFE0F",
   status_missing: "🕳️",
   status_inherited: "⬆️",
 

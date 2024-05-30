@@ -8,7 +8,7 @@
       <li>
         <ul>
           <li><a href="#account///">Account Settings</a></li>
-          <!-- <li><a href="#cla///">Sign CLA</a></li> -->
+          <li v-if="showClaMenu"><a href="#cla///">Sign CLA</a></li>
         </ul>
       </li>
       <li v-if="!isAdmin && !accountLocked">
@@ -139,6 +139,7 @@ export default {
       recentActivityUrl: null,
       uploadXmlUrl: null,
       userId: 0,
+      showClaMenu: false, // off by default, see CLDR-16499
     };
   },
 

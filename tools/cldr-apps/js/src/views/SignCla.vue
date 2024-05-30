@@ -93,12 +93,12 @@
 </template>
 
 <script setup>
-import * as cldrStatus from "../esm/cldrStatus.mjs";
-import * as cldrClient from "../esm/cldrClient.mjs";
+import * as cldrCla from "../esm/cldrCla.mjs";
+import { marked } from "../esm/cldrMarked.mjs";
 import * as cldrNotify from "../esm/cldrNotify.mjs";
+import * as cldrStatus from "../esm/cldrStatus.mjs";
 
 import { ref } from "vue";
-import { marked } from "../esm/cldrMarked.mjs";
 import claMd from "../md/cla.md";
 
 const claHtml = marked(claMd);
@@ -121,27 +121,15 @@ const radioStyle = {
 async function loadData() {
   if (!user) return;
   loading.value = true;
-  const client = await cldrClient.getClient();
-  try {
-    const { body } = await client.apis.user.getCla();
-    const { corporate, email, employer, name, readonly, signed } = body;
-    readonlyCla.value = readonly;
-    userName.value = name;
-    userEmail.value = email;
-    userEmployer.value = employer;
-    userSign.value = corporate ? 1 : 2;
-  } catch (e) {
-    loading.value = false;
-    if (e.statusCode === 401) {
-      return; // unauthorized, nothing to do
-    } else if (e.statusCode === 404) {
-      // not signed
-      return;
-    } else {
-      throw e;
-    }
-  }
+  const { corporate, email, employer, name, readonly, unauthorized, signed } =
+    await cldrCla.getCla();
   loading.value = false;
+  if (unauthorized || !signed) return;
+  readonlyCla.value = readonly;
+  userName.value = name;
+  userEmail.value = email;
+  userEmployer.value = employer;
+  userSign.value = corporate ? 1 : 2;
 }
 
 // load the existing signing data
@@ -153,18 +141,12 @@ loadData().then(
 async function sign() {
   loading.value = true;
   try {
-    const client = await cldrClient.getClient();
-    const result = await client.apis.user.signCla(
-      {},
-      {
-        requestBody: {
-          email: userEmail.value, // unwrap refs
-          name: userName.value,
-          employer: userEmployer.value,
-          corporate: userSign == 1,
-        },
-      }
-    );
+    await cldrCla.signCla({
+      email: userEmail.value, // unwrap refs
+      name: userName.value,
+      employer: userEmployer.value,
+      corporate: userSign == 1,
+    });
     user.claSigned = true; // update global user obj
     needCla.value = false;
     cldrNotify.open(
@@ -196,8 +178,7 @@ async function sign() {
 async function revoke() {
   loading.value = true;
   try {
-    const client = await cldrClient.getClient();
-    const result = await client.apis.user.revokeCla();
+    await cldrCla.revokeCla();
     needCla.value = true;
     user.claSigned = false; // update global user obj
     cldrNotify.open(`CLA Revoked`, `The CLA has been revoked.`);

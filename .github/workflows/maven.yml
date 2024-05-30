@@ -16,7 +16,7 @@ jobs:
     steps:
       # since we have to checkout all branches, cache here
       - name: Cache .git
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: .git
           key: git-${{ github.base_ref }}-${{ github.sha }}
@@ -32,7 +32,7 @@ jobs:
       - name: Lint GitHub Actions
         run: npx yaml-lint .github/workflows/*.yml
       - name: Cache local Maven repository
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.m2/repository
           key: ${{ runner.os }}-mavenspotless-${{ hashFiles('tools/**/pom.xml') }}
@@ -62,14 +62,14 @@ jobs:
           java-version: 11
           distribution: 'temurin'
       - name: Cache local Maven repository
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.m2/repository
           key: ${{ runner.os }}-maven-${{ hashFiles('tools/**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
       - name: Cache local npm repository
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
@@ -77,7 +77,7 @@ jobs:
             ${{ runner.os }}-node-
             node-
       - name: Cache webpack
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: tools/cldr-apps/target/webpack_cache
           key: ${{ runner.os }}-webpack-${{ hashFiles('tools/cldr-apps/package*') }}-${{ hashFiles('tools/cldr-apps/src/**') }}
@@ -103,12 +103,12 @@ jobs:
         run: >
           zip tools/cldr-apps/target/cldr-apps.zip  -d  wlp/usr/servers/cldr/apps/expanded/\*
       - name: Upload cldr-apps.zip
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: cldr-apps-server
           path: tools/cldr-apps/target/cldr-apps.zip
       - name: Upload cldr-code.jar
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: cldr-code
           path: tools/cldr-code/target/cldr-code.jar
@@ -175,7 +175,7 @@ jobs:
           java-version: 11
           distribution: 'temurin'
       - name: Cache local Maven repository
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.m2/repository
           key: ${{ runner.os }}-mavencheck-${{ hashFiles('tools/**/pom.xml') }}
@@ -187,7 +187,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: run CLDR console check
-        run: java -DCLDR_GITHUB_ANNOTATIONS=true -DCLDR_DIR=$(pwd) -Xmx6g -jar tools/cldr-code/target/cldr-code.jar check -S common,seed -e -z FINAL_TESTING
+        run: java -DCLDR_GITHUB_ANNOTATIONS=true -DCLDR_DIR=$(pwd) -Xmx6g -jar tools/cldr-code/target/cldr-code.jar check -S common,seed -e -z BUILD
   deploy:
     # don't run deploy on manual builds!
     if: github.repository == 'unicode-org/cldr' && github.event_name == 'push' && github.ref == 'refs/heads/main' && github.event.inputs.git-ref == ''
@@ -198,7 +198,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Download cldr-apps.zip
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         name: cldr-apps-server
     - name: Deploy to cldr-smoke

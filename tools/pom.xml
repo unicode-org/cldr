@@ -7,7 +7,7 @@
 
 	<groupId>org.unicode.cldr</groupId>
 	<artifactId>cldr-all</artifactId>
-	<version>45.0-SNAPSHOT</version>
+	<version>46.0-SNAPSHOT</version>
 	<name>CLDR All Tools</name>
 	<packaging>pom</packaging>
 	<licenses>
@@ -23,8 +23,9 @@
 		<!-- Note: see https://github.com/unicode-org/icu/packages/1954682/versions
 			for the icu4j.version tag to use. In general we should just use the latest
 			SNAPSHOT for the ICU version that we want, so this should only need updating
-			when the ICU version changes e.g. from 74.0.1, to 74.1, then to 75.0.1 -->
-		<icu4j.version>75.0.1-SNAPSHOT</icu4j.version>
+			when the ICU version changes e.g. from 74.0.1, to 74.1, to 75.0.1, then to 75.1.
+			You can use github actions in icu to manually push the latest SNAPSHOT version. -->
+		<icu4j.version>76.0.1-SNAPSHOT</icu4j.version>
 		<junit.jupiter.version>5.8.2</junit.jupiter.version>
 		<maven-surefire-plugin-version>3.1.0</maven-surefire-plugin-version>
 		<assertj-version>3.11.1</assertj-version>
@@ -41,7 +42,7 @@
 		<module>cldr-code</module>
 		<module>cldr-apps</module>
 		<module>cldr-rdf</module>
-		<module>../docs/charts/keyboard</module>
+		<module>../docs/charts/keyboards</module>
 	</modules>
 
 	<dependencyManagement>
@@ -62,11 +63,6 @@
 			<dependency>
 				<groupId>com.ibm.icu</groupId>
 				<artifactId>icu4j</artifactId>
-				<version>${icu4j.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.ibm.icu</groupId>
-				<artifactId>utilities-for-cldr</artifactId>
 				<version>${icu4j.version}</version>
 			</dependency>
 

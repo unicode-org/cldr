@@ -9,6 +9,8 @@ import org.unicode.cldr.util.CLDRPaths;
 
 public class GenerateKeyboardCharts {
 
+    static final String SUBDIR = "keyboards";
+
     public static void main(String args[]) throws IOException {
         final File mainDir = new File(CLDRPaths.CHART_DIRECTORY);
         if (mainDir.mkdirs()) {
@@ -17,7 +19,7 @@ public class GenerateKeyboardCharts {
         if (!mainDir.isDirectory()) {
             throw new IOException("Main dir doesn't exist: " + mainDir);
         }
-        final File kbdDir = new File(CLDRPaths.BASE_DIRECTORY, "docs/charts/keyboard");
+        final File kbdDir = new File(CLDRPaths.BASE_DIRECTORY, "docs/charts/" + SUBDIR);
         if (!kbdDir.exists()) {
             throw new IOException("Keyboards root dir doesn't exist: " + kbdDir);
         }
@@ -29,8 +31,8 @@ public class GenerateKeyboardCharts {
             System.err.println("See " + new File(kbdDir, "README.md") + " for help.");
             return;
         }
-        final File staticTarg = new File(mainDir, "keyboard/static");
-        final File staticDataTarg = new File(mainDir, "keyboard/static/data");
+        final File staticTarg = new File(mainDir, SUBDIR + "/static");
+        final File staticDataTarg = new File(mainDir, SUBDIR + "/static/data");
         if (staticDataTarg.mkdirs()) {
             System.err.println("Created: " + staticDataTarg);
         }
@@ -38,7 +40,7 @@ public class GenerateKeyboardCharts {
 
         Files.copy(
                 new File(kbdDir, "index.html").toPath(),
-                new File(mainDir, "keyboard/index.html").toPath(),
+                new File(mainDir, SUBDIR + "/index.html").toPath(),
                 StandardCopyOption.REPLACE_EXISTING);
         final String kbdStaticPrefix = kbdStatic.getAbsolutePath();
         Files.walk(kbdStatic.toPath())

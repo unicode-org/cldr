@@ -51,8 +51,10 @@ import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
 public class CheckForExemplars extends FactoryCheckCLDR {
-    private static final UnicodeSet RTL_CONTROLS =
-            new UnicodeSet("[\\u061C\\u200E\\u200F\\u202A-\\u202D\\u2066-\\u2069]");
+    private static final UnicodeSet RTL_CONTROLS = new UnicodeSet("[\\u061C\\u200E\\u200F]");
+
+    private static final UnicodeSet ILLEGAL_RTL_CONTROLS =
+            new UnicodeSet("[\\u202A-\\u202E\\u2066-\\u2069]");
 
     private static final UnicodeSet RTL = new UnicodeSet("[[:bc=AL:][:bc=R:]]");
 
@@ -318,6 +320,9 @@ public class CheckForExemplars extends FactoryCheckCLDR {
             // if (path.indexOf("/calendar") >= 0 && path.indexOf("gregorian") <= 0) return this;
         }
 
+        // Check all paths for illegal characters, even EXEMPLAR_SKIPS
+        checkIllegalCharacters(path, value, result);
+
         if (containsPart(path, EXEMPLAR_SKIPS)) {
             return this;
         }
@@ -566,6 +571,20 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         // .setMessage("This item must not contain two space characters in a row."));
         // }
         return this;
+    }
+
+    // Check for characters that are always illegal in values.
+    // Currently those are just the paired bidi marks.
+    private void checkIllegalCharacters(String path, String value, List<CheckStatus> result) {
+        if (ILLEGAL_RTL_CONTROLS.containsSome(value)) {
+            result.add(
+                    new CheckStatus()
+                            .setCause(this)
+                            .setMainType(CheckStatus.errorType)
+                            .setSubtype(Subtype.illegalCharacter)
+                            .setMessage(
+                                    "Bidi markup can only include LRM RLM ALM, not paired characters such as FSI PDI"));
+        }
     }
 
     private String checkAndReplacePlaceholders(
@@ -832,13 +851,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
             }
             scriptString.append("}");
         }
-        final String helpUrl =
-                "http://cldr.unicode.org/translation/-core-data/exemplars#TOC-Handling-Warnings-in-Exemplar-characters";
-        final String message =
-                "The characters \u200E{0}\u200E {1} {2}. "
-                        + "For what to do, see <i>Handling Warnings</i> in <a target='CLDR-ST-DOCS' href='"
-                        + helpUrl
-                        + "'>Exemplar Characters</a>.";
+        final String message = "The characters \u200E{0}\u200E {1} {2}.";
         result.add(
                 new CheckStatus()
                         .setCause(this)

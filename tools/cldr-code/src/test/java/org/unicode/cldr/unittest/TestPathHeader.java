@@ -1090,12 +1090,11 @@ public class TestPathHeader extends TestFmwkPlus {
         for (String item : threeLevel) {
             logln(item);
         }
-        LinkedHashMap<String, Set<String>> sectionsToPages =
-                org.unicode.cldr.util.PathHeader.Factory.getSectionsToPages();
-        logln("\nMenus:\t" + sectionsToPages.size());
-        for (Entry<String, Set<String>> item : sectionsToPages.entrySet()) {
-            final String section = item.getKey();
-            for (String page : item.getValue()) {
+        Relation<SectionId, PageId> s2p = PathHeader.Factory.getSectionIdsToPageIds();
+        logln("\nMenus:\t" + s2p.size());
+        for (Entry<SectionId, Set<PageId>> sectionAndPages : s2p.keyValuesSet()) {
+            final SectionId section = sectionAndPages.getKey();
+            for (PageId page : sectionAndPages.getValue()) {
                 logln("\t" + section + "\t" + page);
                 int count = 0;
                 for (String path : pathHeaderFactory.filterCldr(section, page, english)) {
@@ -1684,7 +1683,6 @@ public class TestPathHeader extends TestFmwkPlus {
         final long minError = 946; // above this, emit error
         final long minLog = 700; // otherwise above this, emit warning
         Factory factory = CLDRConfig.getInstance().getCommonAndSeedAndMainAndAnnotationsFactory();
-        // "en", "cs", "ar", "pl"
         List<String> locales =
                 StandardCodes.make()
                         .getLocaleCoverageLocales(Organization.cldr, ImmutableSet.of(Level.MODERN))
@@ -1692,6 +1690,7 @@ public class TestPathHeader extends TestFmwkPlus {
                         .filter(x -> CLDRLocale.getInstance(x).getCountry().isEmpty())
                         .collect(Collectors.toUnmodifiableList());
         List<Counter<PageId>> counters = new ArrayList<>();
+        final String thresholdExplanation = "log/error thresholds are " + minLog + "/" + minError;
         for (String locale : locales) {
             CLDRFile cldrFile = factory.make(locale, false);
             PathHeader.Factory phf = PathHeader.getFactory();
@@ -1703,23 +1702,20 @@ public class TestPathHeader extends TestFmwkPlus {
             }
             for (PageId entry : c.getKeysetSortedByKey()) {
                 long count = c.getCount(entry);
-                if (count > minError) {
-                    errln(
-                            locale
-                                    + "\t"
-                                    + entry.getSectionId()
-                                    + "\t"
-                                    + entry
-                                    + "\thas too many entries:\t"
-                                    + count);
-                } else if (count > minLog) {
-                    warnln(
-                            locale
-                                    + "\t"
-                                    + entry.getSectionId()
-                                    + "\t"
-                                    + "\thas too many entries:\t"
-                                    + count);
+                if (count > minLog) {
+                    final String message =
+                            String.format(
+                                    "%s\t%s\t%s\thas too many entries:\t%d\t(%s)",
+                                    locale,
+                                    entry.getSectionId().toString(),
+                                    entry,
+                                    count,
+                                    thresholdExplanation);
+                    if (count > minError) {
+                        errln(message);
+                    } else {
+                        warnln(message);
+                    }
                 }
             }
         }

@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    See CLDR-12026 for the real new azerty keyboard
+-->
+<keyboard3 xmlns="https://schemas.unicode.org/cldr/45/keyboard3" locale="fr-t-k0-test" conformsTo="45">
+	<locales>
+		<locale id="br" /> <!-- example of including Breton -->
+	</locales>
+	<!-- 'conformsTo' gives CLDR spec conformance. Distinguishes from prior
+		keyboard formats -->
+	<!-- 'version' element is now optional -->
+	<version number="1.0.0" />
+	<info name="French Test AZERTY" author="Team Keyboard" layout="AZERTY" indicator="FR" />
+
+	<displays>
+		<!-- Note: displays is only used for keycap presentation -->
+		<!-- this example is not required for this keyboard as we use the spacing
+			modifiers -->
+		<display output="\u{0300}" display="${grave}" /> <!-- display combining grave as modifier letter grave ˋ -->
+		<!-- Note: We discussed why the existing displayMap was used for display.
+			rather than adding something closer to the key layout. 1. This way we can
+			tell the renderer what to do. Could be double diacritics, spacing issues,
+			etc. 2. We expect that keys have output. Otherwise the input content is malformed.
+			3. Don't Repeat Yourself : multiple keys (i.e. on different symbol layers)
+			may have the same display. -->
+
+		<!-- Example of a display mapping for a key by id -->
+		<display keyId="symbol" display="@" />
+		<display keyId="numeric" display="123" />
+		<displayOptions baseCharacter="x" />
+	</displays>
+
+	<keys>
+		<import base="cldr" path="45/keys-Zyyy-punctuation.xml" />
+		<import base="cldr" path="45/keys-Zyyy-currency.xml" />
+
+		<!-- switch keys -->
+		<key id="shift" layerId="shift" />
+		<key id="numeric" layerId="numeric" />
+		<key id="symbol" layerId="symbol" />
+		<key id="base" layerId="base" />
+
+		<!--
+			TODO: need discussion
+		<key id="bksp" gap="true" /> -->
+		<key id="extra" gap="true" />
+		<!--
+			TODO: need discussion
+		<key id="enter" to="\u{000A}" />
+		-->
+		<key id="enter" gap="true" />
+
+		<!-- extra keys -->
+		<key id="u-grave" output="ü" />
+		<key id="e-grave" output="é" /> <!-- 2 -->
+		<key id="e-acute" output="è" /> <!-- 7 -->
+		<key id="c-cedilla" output="ç" /> <!-- 9 -->
+		<key id="a-grave" output="à"  />
+		<key id="a-acute" output="á" />
+		<key id="a-caret" output="â" />
+		<key id="a-umlaut" output="ä" />
+		<key id="a-tilde" output="ã" />
+		<key id="a-ring" output="å" />
+		<key id="a-caron" output="ā" />
+
+		<key id="A-grave" output="À" /> <!-- 0 -->
+		<key id="A-acute" output="Á" />
+		<key id="A-caret" output="Â" />
+		<key id="A-umlaut" output="Ä" />
+		<key id="A-tilde" output="Ã" />
+		<key id="A-ring" output="Å" />
+		<key id="A-caron" output="Ā" />
+
+
+		<!-- extra symbols -->
+		<key id="bullet" output="•" />
+		<key id="umlaut" output="¨" />
+		<key id="super-2" output="²" multiTapKeyIds="sub-2 2" /> <!-- taps produce: ² ₂ 2 -->
+		<key id="sub-2" output="₂" />
+
+		<!-- note that a-caret is the default-->
+		<key id="a" flickId="a" output="a"
+			longPressKeyIds="a-grave a-caret a-acute a-umlaut a-tilde a-ring a-caron"
+			longPressDefaultKeyId="a-caret" />
+		<!-- note that A-caret is the default-->
+		<key id="A" flickId="b" output="A"
+			longPressKeyIds="A-grave A-caret A-acute A-umlaut a-tilde A-ring A-caron"
+			longPressDefaultKeyId="A-caret" />
+	</keys>
+
+	<flicks>
+		<flick id="b">
+			<flickSegment directions="nw" keyId="A-grave" />
+			<flickSegment directions="nw se" keyId="A-acute" />
+			<flickSegment directions="e" keyId="A-caron" />
+			<flickSegment directions="s" keyId="numeric" /> <!-- layer shifting flick-->
+		</flick>
+		<flick id="a">
+			<flickSegment directions="nw" keyId="a-grave" />
+			<flickSegment directions="nw se" keyId="a-acute" />
+			<flickSegment directions="e" keyId="a-caron" />
+		</flick>
+	</flicks>
+
+	<layers formId="iso">
+		<!-- in DTD: required if conformsTo ≥ 41 -->
+		<layer modifiers="none">
+			<row
+				keys="super-2 amp e-grave double-quote apos open-paren hyphen e-acute underscore c-cedilla a-acute close-paren equal" />
+			<row keys="a z e r t y u i o p caret dollar" />
+			<row keys="q s d f g h j k l m u-grave asterisk" />
+			<row keys="open-angle w x c v b n comma semi-colon colon bang" />
+			<row keys="space" />
+		</layer>
+
+		<layer modifiers="shift">
+			<row keys="1 2 3 4 5 6 7 8 9 0 degree plus" />
+			<row keys="A Z E R T Y U I O P umlaut pound" />
+			<row keys="Q S D F G H J K L M percent micro" />
+			<row keys="close-angle W X C V B N question period slash section" />
+			<row keys="space" />
+		</layer>
+	</layers>
+
+	<layers formId="touch" minDeviceWidth="150">
+		<!-- optional attribute for min physical device size -->
+		<layer id="base">
+			<row keys="a z e r t y u i o p" />
+			<row keys="q s d f g h j k l m" />
+			<row keys="shift gap w x c v b n gap" /> <!--TODO:  + bksp -->
+			<row keys="numeric extra space enter" />
+		</layer>
+
+		<layer id="shift">
+			<row keys="A Z E R T Y U I O P" />
+			<row keys="Q S D F G H J K L M" />
+			<row keys="base W X C V B N" />  <!--TODO:  + bksp -->
+			<row keys="numeric extra space enter" />
+		</layer>
+
+		<layer id="numeric">
+			<row keys="1 2 3 4 5 6 7 8 9 0" />
+			<row
+				keys="hyphen slash colon semi-colon open-paren close-paren dollar amp at double-quote" />
+			<row keys="symbol period comma question bang double-quote" /> <!--TODO:  + bksp -->
+			<row keys="base extra space enter" />
+		</layer>
+
+		<layer id="symbol">
+			<row
+				keys="open-square close-square open-curly close-curly hash percent caret asterisk plus equal" />
+			<row keys="underscore backslash pipe tilde open-angle close-angle euro pound yen bullet" />
+			<row keys="numeric period comma question bang double-quote" /> <!--TODO:  + bksp -->
+			<row keys="base extra space enter" />
+		</layer>
+	</layers>
+
+	<variables>
+		<!-- spacing accents as string variables -->
+		<string id="grave"  value="`" />
+		<string id="caret"  value="^" />
+		<string id="umlaut" value="¨" />
+		<string id="tilde"  value="~" />
+
+		<!-- sets representing vowels and accented vowels.  -->
+		<!-- There's an extra space between the lower and upper case for visual separation -->
+		<!-- but, there are only 10 items in the following four sets -->
+		<set id="vowel"       value="a e i o u  A E I O U" />
+		<set id="graveVowel"  value="à è ì ò ù  À È Ì Ò Ù" />
+		<set id="caretVowel"  value="â ê î ô û  Â Ê Î Ô Û" />
+		<set id="umlautVowel" value="ä ë ï ö ü  Ä Ë Ï Ö Ü" />
+
+		<!-- a set containing all spacing accents -->
+		<set id="spacing_accent" value="${grave} ${caret} ${umlaut} ${tilde}" />
+	</variables>
+
+	<transforms type="simple">
+		<transformGroup>
+			<!-- use sets for those that fit neatly into sets -->
+			<transform from="${grave}($[vowel])"  to="$[1:graveVowel]" />
+			<transform from="${caret}($[vowel])"  to="$[1:caretVowel]" />
+			<transform from="${umlaut}($[vowel])" to="$[1:umlautVowel]" />
+
+			<!-- y also takes umlaut (in this sample) -->
+			<transform from="${umlaut}y" to="ÿ" />
+
+			<!-- tilde is on a subset, not all vowels, + n -->
+			<transform from="${tilde}a" to="ã" />
+			<transform from="${tilde}A" to="Ã" />
+			<transform from="${tilde}n" to="ñ" />
+			<transform from="${tilde}N" to="Ñ" />
+			<transform from="${tilde}o" to="õ" />
+			<transform from="${tilde}O" to="Õ" />
+
+			<!-- accent + space = spacing accent -->
+			<transform from="($[spacing_accent]) " to="$1" />
+		</transformGroup>
+		<transformGroup>
+			<!-- this is a reorder group -->
+			<!-- nod-Lana partial example -->
+			<reorder from="\u{1A60}" order="127" />
+			<reorder from="\u{1A6B}" order="42" />
+			<reorder from="[\u{1A75}-\u{1A79}]" order="55" />
+			<!-- ... partial example ... -->
+		</transformGroup>
+	</transforms>
+</keyboard3>

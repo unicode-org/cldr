@@ -31,7 +31,7 @@ public class ToolConstants {
                     "1.7.2", "1.8.1", "1.9.1", "2.0.1", "21.0", "22.1", "23.1", "24.0", "25.0",
                     "26.0", "27.0", "28.0", "29.0", "30.0", "31.0", "32.0", "33.0", "33.1", "34.0",
                     "35.0", "35.1", "36.0", "36.1", "37.0", "38.0", "38.1", "39.0", "40.0", "41.0",
-                    "42.0", "43.0", "44.0", "44.1"
+                    "42.0", "43.0", "44.0", "44.1", "45.0"
                     // add to this once the release is final!
                     );
     public static final Set<VersionInfo> CLDR_VERSIONS_VI =
@@ -40,7 +40,7 @@ public class ToolConstants {
                             .map(x -> VersionInfo.getInstance(x))
                             .collect(Collectors.toList()));
 
-    public static final String DEV_VERSION = "45";
+    public static final String DEV_VERSION = "46";
     public static final VersionInfo DEV_VERSION_VI = VersionInfo.getInstance(DEV_VERSION);
 
     public static final Set<String> CLDR_RELEASE_VERSION_SET =
@@ -60,6 +60,11 @@ public class ToolConstants {
             last = current;
         }
         return last;
+    }
+
+    /** Version prior to the current DEV version */
+    public static VersionInfo previousVersion() {
+        return previousVersion(DEV_VERSION_VI);
     }
 
     public static String previousVersion(String version, int minFields) {

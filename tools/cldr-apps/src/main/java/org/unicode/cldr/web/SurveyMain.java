@@ -10,6 +10,7 @@ import com.google.common.base.Suppliers;
 import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.ListFormatter;
+import com.ibm.icu.text.RelativeDateTimeFormatter;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 import java.io.BufferedReader;
@@ -41,6 +42,7 @@ import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
@@ -2734,14 +2736,17 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         ctx.redirect(vurl);
     }
 
-    private SupplementalDataInfo supplementalDataInfo = null;
+    private Supplier<SupplementalDataInfo> supplementalDataInfo =
+            Suppliers.memoize(
+                    () -> {
+                        final SupplementalDataInfo newSdi =
+                                SupplementalDataInfo.getInstance(getSupplementalDirectory());
+                        newSdi.setAsDefaultInstance();
+                        return newSdi;
+                    });
 
-    public final synchronized SupplementalDataInfo getSupplementalDataInfo() {
-        if (supplementalDataInfo == null) {
-            supplementalDataInfo = SupplementalDataInfo.getInstance(getSupplementalDirectory());
-            supplementalDataInfo.setAsDefaultInstance();
-        }
-        return supplementalDataInfo;
+    public final SupplementalDataInfo getSupplementalDataInfo() {
+        return supplementalDataInfo.get();
     }
 
     File getSupplementalDirectory() {
@@ -3503,18 +3508,25 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     private static String timeDiff(long a, long b) {
+
         final long ONE_DAY = 86400 * 1000;
-        final long A_LONG_TIME = ONE_DAY * 3;
+        final long A_LONG_TIME = ONE_DAY;
         if ((b - a) > (A_LONG_TIME)) {
             double del = (b - a);
             del /= ONE_DAY;
             int days = (int) del;
-            return days + " days";
+            return RelativeDateTimeFormatter.getInstance(Locale.ENGLISH)
+                    .format(
+                            days,
+                            RelativeDateTimeFormatter.Direction.LAST,
+                            RelativeDateTimeFormatter.RelativeUnit.DAYS);
         } else {
-            // round to even second, to avoid ElapsedTimer bug
-            a -= (a % 1000);
-            b -= (b % 1000);
-            return ElapsedTimer.elapsedTime(a, b);
+            final double hours = (b - a) / (3600.0 * 1000.0);
+            return RelativeDateTimeFormatter.getInstance(Locale.ENGLISH)
+                    .format(
+                            hours,
+                            RelativeDateTimeFormatter.Direction.LAST,
+                            RelativeDateTimeFormatter.RelativeUnit.HOURS);
         }
     }
 

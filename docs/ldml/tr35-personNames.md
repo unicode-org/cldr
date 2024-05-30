@@ -2,7 +2,7 @@
 
 # Unicode Locale Data Markup Language (LDML)<br/>Part 8: Person Names
 
-|Version|45 (draft)              |
+|Version|46 (draft)              |
 |-------|------------------------|
 |Editors|Mark Davis, Peter Edberg,  Rich Gillam, Alex Kolisnychenko, Mike McKenna and [other CLDR committee members](tr35.md#Acknowledgments)|
 
@@ -137,12 +137,6 @@ The following features are currently out of scope for Person Names formating:
   * Parsing out the other components of a name in a string, such as surname prefixes ([Tussenvoegsel](https://en.wikipedia.org/wiki/Tussenvoegsel) in Dutch).
 
 ### API Implementation
-
-A draft API for formatting personal names was first included in ICU4J 73 and has been updated for ICU4J 74 to reflect updates in this specification and associated data. (“Draft” means that the full functionality is present, but the API might be refined before it is stabilized.) The implementation can be found at the following:
-
-* [PersonName.java](https://github.com/unicode-org/icu/blob/main/icu4j/main/core/src/main/java/com/ibm/icu/text/PersonName.java)
-* [PersonNameFormatter.java](https://github.com/unicode-org/icu/blob/main/icu4j/main/core/src/main/java/com/ibm/icu/text/PersonNameFormatter.java)
-* [SimplePersonName.java](https://github.com/unicode-org/icu/blob/main/icu4j/main/core/src/main/java/com/ibm/icu/text/SimplePersonName.java)
 
 In addition to the settings in this document, it is recommended that implementations provide some additional features in their APIs to allow more control for clients, notably:
 

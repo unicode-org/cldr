@@ -29,7 +29,7 @@ public class ScriptMetadata {
     private static final int MAX_RANK = 33;
     private static final String DATA_FILE = "/org/unicode/cldr/util/data/Script_Metadata.csv";
     private static final VersionInfo UNICODE_VERSION =
-            VersionInfo.getInstance(CldrUtility.getProperty("SCRIPT_UNICODE_VERSION", "15"));
+            VersionInfo.getInstance(CldrUtility.getProperty("SCRIPT_UNICODE_VERSION", "16"));
 
     // To get the data, go do the Script MetaData spreadsheet
     // Download As Comma Separated Items into DATA_FILE
@@ -432,14 +432,14 @@ public class ScriptMetadata {
     }
 
     public static Transform<String, String> TO_SHORT_SCRIPT =
-            new Transform<String, String>() {
+            new Transform<>() {
                 @Override
                 public String transform(String source) {
                     return UScript.getShortName(UScript.getCodeFromName(source));
                 }
             };
     public static Transform<String, String> TO_LONG_SCRIPT =
-            new Transform<String, String>() {
+            new Transform<>() {
                 @Override
                 public String transform(String source) {
                     return UScript.getName(UScript.getCodeFromName(source));

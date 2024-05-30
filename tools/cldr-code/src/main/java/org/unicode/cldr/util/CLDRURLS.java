@@ -95,7 +95,7 @@ public abstract class CLDRURLS {
     public static final String DATE_TIME_HELP =
             "https://cldr.unicode.org/translation/date-time/date-time-names#h.ewzjebmpoi4k";
     public static final String DATE_TIME_NAMES =
-            "https://cldr.unicode.org/translation/date-time/datetime-names";
+            "https://cldr.unicode.org/translation/date-time/date-time-names";
     public static final String DATE_TIME_NAMES_CYCLIC =
             "https://cldr.unicode.org/translation/date-time/date-time-names#h.h0vy2eyzcj0n";
     public static final String DATE_TIME_NAMES_FIELD =

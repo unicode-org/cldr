@@ -1,6 +1,7 @@
 package org.unicode.cldr.util;
 
 import com.google.common.base.Splitter;
+import com.ibm.icu.util.VersionInfo;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.Collections;
@@ -8,11 +9,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.tool.ToolConstants;
 
 public class CalculatedCoverageLevels {
     /** Assumed level for root. CLDR-16420 */
     private static final Level DEFAULT_ROOT_LEVEL = Level.MODERN;
 
+    /** locale to level */
     final Map<String, Level> levels;
 
     protected CalculatedCoverageLevels(Map<String, Level> levels) {
@@ -63,11 +66,19 @@ public class CalculatedCoverageLevels {
 
     /** Read the coverage levels from the standard file */
     static CalculatedCoverageLevels fromFile() throws IOException {
+        return fromFile(CLDRPaths.COMMON_DIRECTORY);
+    }
+
+    /** Read the coverage levels from the specified dir */
+    static CalculatedCoverageLevels fromFile(final String dir) throws IOException {
         try (BufferedReader r =
-                FileUtilities.openUTF8Reader(
-                        CLDRPaths.COMMON_DIRECTORY + "properties/", "coverageLevels.txt"); ) {
+                FileUtilities.openUTF8Reader(dir + "properties/", "coverageLevels.txt"); ) {
             return fromReader(r);
         }
+    }
+
+    static CalculatedCoverageLevels forVersion(VersionInfo v) throws IOException {
+        return fromFile(ToolConstants.getBaseDirectory(v) + "/common/");
     }
 
     /**

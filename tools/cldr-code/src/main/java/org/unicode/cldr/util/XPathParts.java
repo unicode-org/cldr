@@ -34,6 +34,11 @@ import java.util.concurrent.ConcurrentHashMap;
  * //ldml/characters/exemplarCharacters[@type="auxiliary"] and a list of Element objects that depend
  * on xPath. Each Element object has an "element" string such as "ldml", "characters", or
  * "exemplarCharacters", plus attributes such as a Map from key "type" to value "auxiliary".
+ *
+ * <p>Caches values for fast lookup.
+ *
+ * <p>(If caching isn't needed, such as with supplemental data at static init time, see {@link
+ * SimpleXPathParts#getFrozenInstance(String)}
  */
 public final class XPathParts extends XPathParser
         implements Freezable<XPathParts>, Comparable<XPathParts> {
@@ -58,12 +63,7 @@ public final class XPathParts extends XPathParser
 
     /** See if the xpath contains an element */
     public boolean containsElement(String element) {
-        for (int i = 0; i < elements.size(); ++i) {
-            if (elements.get(i).getElement().equals(element)) {
-                return true;
-            }
-        }
-        return false;
+        return findElement(element) >= 0;
     }
 
     /**
@@ -362,6 +362,7 @@ public final class XPathParts extends XPathParser
     }
 
     /** Does this xpath contain the attribute at all? */
+    @Override
     public boolean containsAttribute(String attribute) {
         for (int i = 0; i < elements.size(); ++i) {
             Element element = elements.get(i);
@@ -381,7 +382,7 @@ public final class XPathParts extends XPathParser
         return false;
     }
 
-    /** How many elements are in this xpath? */
+    @Override
     public int size() {
         return elements.size();
     }
@@ -938,13 +939,11 @@ public final class XPathParts extends XPathParser
     }
 
     /**
-     * Determines if an elementName is contained in the path.
-     *
-     * @param elementName
-     * @return
+     * @deprecated use {@link #containsElement(String)}
      */
+    @Deprecated
     public boolean contains(String elementName) {
-        return findElement(elementName) >= 0;
+        return containsElement(elementName);
     }
 
     /** add a relative path to this XPathParts. */
@@ -1211,10 +1210,13 @@ public final class XPathParts extends XPathParser
     }
 
     public static XPathParts getFrozenInstance(String path) {
-        XPathParts result =
-                cache.computeIfAbsent(
-                        path,
-                        (String forPath) -> new XPathParts().addInternal(forPath, true).freeze());
+        XPathParts result = cache.get(path);
+        if (result == null) {
+            // CLDR-17504: This can recursively create new paths during creation so MUST NOT
+            // happen inside the lambda of computeIfAbsent(), but freezing the path is safe.
+            XPathParts unfrozen = new XPathParts().addInternal(path, true);
+            result = cache.computeIfAbsent(path, (String p) -> unfrozen.freeze());
+        }
         return result;
     }
 

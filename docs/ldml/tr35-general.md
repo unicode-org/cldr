@@ -2,7 +2,7 @@
 
 # Unicode Locale Data Markup Language (LDML)<br/>Part 2: General
 
-|Version|45 (draft)           |
+|Version|46 (draft)           |
 |-------|---------------------|
 |Editors|Yoshito Umaoka (<a href="mailto:yoshito_umaoka@us.ibm.com">yoshito_umaoka@us.ibm.com</a>) and <a href="tr35.md#Acknowledgments">other CLDR committee members|
 
@@ -909,12 +909,12 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 <!-- HTML: no header -->
 
 <table><tbody>
-<tr><td>unit_identifier</td><td>:=</td>
+<tr><td><a name='unit_identifier' href='unit_identifier'>unit_identifier</a></td><td>:=</td>
     <td>core_unit_identifier<br/>
         | mixed_unit_identifier<br/>
         | long_unit_identifier</td></tr>
 
-<tr><td>core_unit_identifier</td><td>:=</td>
+<tr><td><a name='core_unit_identifier' href='core_unit_identifier'>core_unit_identifier</a></td><td>:=</td>
     <td>product_unit ("-" per "-" product_unit)*<br/>
         | per "-" product_unit ("-" per "-" product_unit)*
         <ul><li><em>Examples:</em>
@@ -930,16 +930,16 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 			<li><em>Constraint:</em> The token 'per' is the single value in &lt;unitIdComponent type="per"&gt;</li>
 		</ul></td></tr>
 
-<tr><td>product_unit</td><td>:=</td>
+<tr><td><a name='product_unit' href='product_unit'>product_unit</a></td><td>:=</td>
         <td>single_unit ("-" single_unit)* ("-" pu_single_unit)*<br/>
             | pu_single_unit ("-" pu_single_unit)*
             <ul><li><em>Example:</em> foot-pound-force</li>
                 <li><em>Constraint:</em> No pu_single_unit may precede a single unit</li>
             </ul></td></tr>
 
-<tr><td>single_unit</td><td>:=</td>
-    <td>number_prefix? dimensionality_prefix? simple_unit
-        <ul><li><em>Examples: </em>square-meter, or 100-square-meter</li></ul></td></tr>
+<tr><td><a name='single_unit' href='single_unit'>single_unit</a></td><td>:=</td>
+    <td>dimensionality_prefix? simple_unit | unit_constant
+        <ul><li><em>Examples: </em>square-kilometer, or 100</li></ul></td></tr>
 
 <tr><td>pu_single_unit</td><td>:=</td>
     <td>"xxx-" single_unit | "x-" single_unit
@@ -948,17 +948,19 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
         <li>See <a href="#Private_Use_Units">Private-Use Units</a></li>
     </ul></td></tr>
 
-<tr><td>number_prefix</td><td>:=</td>
-    <td>("1"[0-9]+ | [2-9][0-9]*) "-"
+<tr><td><a name='unit_constant' href='unit_constant'>unit_constant</a></td><td>:=</td>
+    <td>("1"[0-9]+ | [2-9][0-9]*)("e" ("1"[0-9]+ | [2-9][0-9]*))?
         <ul><li><em>Examples:</em>
             <ul><li>kilowatt-hour-per-100-kilometer</li>
                 <li>gallon-per-100-mile</li>
                 <li>per-200-pound</li>
+                <li>per-12</li>
             </ul></li>
             <li><em>Note:</em> The number is an integer greater than one.</li>
+            <li><em>Note:</em> The <code>e</code> notation is optional: per-100-kilometer and per-1e2-kilometer are equivalent unit_identifiers.</li>
         </ul></td></tr>
 
-<tr><td>dimensionality_prefix</td><td>:=</td>
+<tr><td><a name='dimensionality_prefix' href='dimensionality_prefix'>dimensionality_prefix</a></td><td>:=</td>
     <td>"square-"<p>| "cubic-"<p>| "pow" ([2-9]|1[0-5]) "-"
         <ul>
 			<li><em>Constraint:</em> must be value in: &lt;unitIdComponent type="power"&gt;.</li>
@@ -966,7 +968,7 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 			<li><em>Note:</em> These are values in &lt;unitIdComponent type="power"&gt;</li>
 		</ul></td></tr>
 
-<tr><td>simple_unit</td><td>:=</td>
+<tr><td><a name='simple_unit' href='simple_unit'>simple_unit</a></td><td>:=</td>
     <td>(prefix_component "-")* (prefixed_unit | base_component) ("-" suffix_component)*<br/>
 		|  currency_unit<br/>
 		| "em" | "g" | "us" | "hg" | "of"
@@ -979,16 +981,18 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 <tr><td>prefixed_unit</td><td></td>
     <td>prefix base_component<ul><li><em>Example: </em>kilometer</li></ul></td></tr>
 
-<tr><td>prefix</td><td></td>
+<tr><td><a name='prefix' href='prefix'>prefix</a></td><td></td>
     <td>si_prefix | binary_prefix</td></tr>
 
 <tr><td>si_prefix</td><td>:=</td>
     <td>"deka" | "hecto" | "kilo", …
-        <ul><li><em>Note:</em> See full list at <a href="https://www.nist.gov/pml/special-publication-811">NIST special publication 811</a></li></ul></td></tr>
+        <ul><li><em>Constraint:</em> Must be an attribute value of the <code>type</code> in: &lt;unitPrefix type='…' … power10='…'&gt;. 
+			See also <a href="https://www.nist.gov/pml/special-publication-811">NIST special publication 811</a></li></ul></td></tr>
 
 <tr><td>binary_prefix</td><td>:=</td>
     <td>"kibi", "mebi", …
-        <ul><li><em>Note:</em> See full list at <a href="https://physics.nist.gov/cuu/Units/binary.html">Prefixes for binary multiples</a></li></ul></td></tr>
+        <ul><li><em>Constraint:</em> Must be an attribute value of the <code>type</code> in: &lt;unitPrefix type='…' … power2='…'&gt;. 
+			See also <a href="https://physics.nist.gov/cuu/Units/binary.html">Prefixes for binary multiples</a></li></ul></td></tr>
 
 <tr><td>prefix_component</td><td>:=</td>
     <td>[a-z]{3,∞}
@@ -1016,7 +1020,7 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 			<li><em>Constraint:</em> must be value in: &lt;unitIdComponent type="suffix"&gt;</li>
 		</ul></td></tr>
 
-<tr><td>mixed_unit_identifier</td><td>:=</td>
+<tr><td><a name='mixed_unit_identifier' href='mixed_unit_identifier'></a></td><td>:=</td>
     <td>(single_unit | pu_single_unit) ("-" and "-" (single_unit | pu_single_unit ))*
         <ul><li><em>Example: foot-and-inch</em></li>
 		</ul></td></tr>
@@ -1033,7 +1037,7 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 <tr><td>grouping</td><td>:=</td>
     <td>[a-z]{3,∞}</td></tr>
 
-<tr><td>currency_unit</td><td>:=</td>
+<tr><td><a name='currency_unit' href='currency_unit'>currency_unit</a></td><td>:=</td>
     <td>"curr-" [a-z]{3}
         <ul>
 			<li><em>Constraint:</em> The first part of the currency_unit is a standard prefix; the second part of the currency unit must be a valid <a href="tr35.md#UnicodeCurrencyIdentifier">Unicode currency identifier</a>.</li>
@@ -1047,7 +1051,9 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 
 </tbody></table>
 
-Note that while the syntax allows for number_prefixes in multiple places, the typical use case is only one instance, after a "-per-".
+Note that while the syntax allows for unit_constants in multiple places, the typical use case is only one instance, after a "-per-".
+The normalized form of a unit identifier has at most one unit_constant in the numerator and one in the denominator.
+For example, `2-kilowatt-7-hour-per-3-meter-5-second` has the equivalent normalized form `14-kilowatt-hour-per-15-meter-second`.
 
 The simple_unit structure does not allow for any two simple_units to overlap.
 That is, there are no cases where simple_unit1 consists of X-Y and simple_unit2 consists of Y-Z.
@@ -1322,12 +1328,12 @@ If there is no precomputed form, the following process in pseudocode is used to 
        2. set singlePluralCategory to be power0(singlePluralCategory)
        3. set singleCaseVariant to be power0(singleCaseVariant)
        4. remove the dimensionality_prefix from singleUnit
-   4.  if singleUnit starts with an si_prefix, such as 'centi' and/or a number_prefix such as '100'
+   4.  if singleUnit starts with an si_prefix, such as 'centi' and/or a unit_constant such as '100'
        1. set siPrefixPattern to be getValue(that si_prefix, locale, length), such as "centy{0}"
        2. set singlePluralCategory to be prefix0(singlePluralCategory)
        3. set singleCaseVariant to be prefix0(singleCaseVariant)
        4. remove the si_prefix from singleUnit
-	   5. set multiplier to be the locales integer numberFormat of number_prefix.
+	   5. set multiplier to be the locales integer numberFormat of unit_constant.
    5.  Set corePattern to be the getValue(singleUnit, locale, length, singlePluralCategory, singleCaseVariant), such as "{0} metrem"
    6.  Extract(corePattern, coreUnit, placeholder, placeholderPosition) from that pattern.
    7.  If the position is _middle_, then fail
@@ -2614,28 +2620,68 @@ For more information, see version 5.0 or [UTR #51, Unicode Emoji](https://www.un
 <!ATTLIST annotation type (tts) #IMPLIED >
 ```
 
-There are two kinds of annotations: **short names**, and **keywords**.
+There are two kinds of annotations: **short names**, and **search keywords**.
 
-With an attribute `type="tts"`, the value is a **short name**, such as one that can be used for text-to-speech. It should be treated as one of the element values for other purposes.
+With an attribute `type="tts"`, the value is a **short name**, such as one that can be used for text-to-speech. 
+It should be treated as one of the element values for other purposes.
 
-When there is no `type` attribute, the value is a set of **keywords**, delimited by |. Spaces around each element are to be trimmed. The **keywords** are words associated with the character(s) that might be used in searching for the character, or in predictive typing on keyboards. The short name itself can be used as a keyword.
+When there is no `type` attribute, the value is a set of **keywords**, delimited by |. 
+Spaces around each element are to be trimmed. 
+The **keywords** are words associated with the character(s) that might be used in searching for the character, 
+or in predictive typing on keyboards. The short name itself can be used as a keyword.
 
 Here is an example from German:
 
 ```xml
-<annotation cp="👎">schlecht | Hand | Daumen | nach unten</annotation>
+<annotation cp="👎">schlecht | Hand | Daumen | nach | unten</annotation>
 <annotation cp="👎" type="tts">Daumen runter</annotation>
 ```
 
-The `cp` attribute value has two formats: either a single string, or if contained within \[…\] a UnicodeSet. The latter format can contain multiple code points or strings. A code point pr string can occur in multiple annotation element **cp** values, such as the following, which also contains the "thumbs down" character.
+These are intended as search keywords, and not for "triggering" (aka suggesting).
+
+- For triggering, the user is typing out a message and concurrently seeing a few emoji
+  displayed adjacent to the virtual keyboard. Selecting the emoji adds it to the message.
+  For example, you mention your birthday while writing, and an emoji cake pops up.
+  That is typically done with an LLM or similar advanced technology.
+- For searching, the user is looking for an emoji in a search box, 
+  and typing in in words that narrow down a displayed set of emoji.
+  For example, you type 'heart', but that has too many hits, so you add 'blue' and get the set of blue hearts.
+  
+### Usage Model
+
+The usage model for the search keywords is:
+
+- The user types one or more words in an emoji search field.
+- Each word successively narrows a number of emoji in a results box.
+    - heart → 🥰 😘 😻 💌 💘 💝 💖 💗 💓 💞 💕 💟 ❣️ 💔 ❤️‍🔥 ❤️‍🩹 ❤️ 🩷 🧡 💛 💚 💙 🩵 💜 🤎 🖤 🩶 🤍 💋 🫰 🫶 🫀 💏 💑 🏠 🏡 ♥️ 🩺
+    - blue → 🥶 😰 💙 🩵 🫐 👕 👖 📘 🧿 🔵 🟦 🔷 🔹 🏳️‍⚧️
+    - heart blue → 💙 🩵
+- A word with no hits is ignored
+    - [heart | blue | confabulation] is equivalent to [heart | blue]
+- As the user types a word, each character added to the word narrows the results.
+- Whenever the list is short enough to scan, the user will mouse-click on the right emoji — so it doesn’t have to be narrowed too far.
+    - In the following, the user would just click on 🎉 if that works for them.
+    - celebrate → 🥳 🥂 🎈 🎉 🎊 🪅
+- The order of words doesn’t matter.
+
+Multiword search keywords are typically broken up into separate parts, 
+because that works better with the usage model. So [hand | mouth | omg | open | over] covers the phrase "hand over mouth".
+
+### cp attribute
+
+The `cp` attribute value has two formats: either a single string, or if contained within \[…\] a UnicodeSet. 
+The latter format can contain multiple code points or strings. A code point pr string can occur in multiple annotation element **cp** values, such as the following, which also contains the "thumbs down" character.
 
 ```xml
 <annotation cp='[☝✊-✍👆-👐👫-👭💁🖐🖕🖖🙅🙆🙋🙌🙏🤘]'>hand</annotation>
 ```
 
-Both for short names and keywords, values do not have to match between different languages. They should be the most common values that people using _that_ language would associate with those characters. For example, a "black heart" might have the association of "wicked" in English, but not in some other languages.
+Both for short names and keywords, values do not have to match between different languages. 
+They should be the most common values that people using _that_ language would associate with those characters. 
+For example, a "black heart" might have the association of "wicked" in English, but not in some other languages.
 
-The cp value may contain sequences, but does not contain any Emoji or Text Variant (VS15 & VS16) characters. All such characters should be removed before looking up any short names and keywords.
+The cp value may contain sequences, but does not contain any Emoji or Text Variant (VS15 & VS16) characters. 
+All such characters should be removed before looking up any short names and keywords.
 
 ### <a name="SynthesizingNames" href="#SynthesizingNames">Synthesizing Sequence Names</a>
 
@@ -2867,7 +2913,7 @@ The @scope attributes are targeted at messages created by computers, thus a feat
 Feature that classifies nouns in classes.
 This is grammatical gender, which may be assigned on the basis of sex in some languages, but may be completely separate in others.
 Also used to tag elements in CLDR that should agree with a particular gender of an associated noun.
-(adapted from: [linguistics-ontology.org/gold/2010/GenderProperty](http://linguistics-ontology.org/gold/2010/GenderProperty))
+(adapted from: [linguistics-ontology.org/gold/2010/GenderProperty](https://web.archive.org/20200115041525/linguistics-ontology.org/gold/2010/GenderProperty) - the links below go to an archived version. The original site is no longer available, as explained at <https://linguistlist.org/gold/>.)
 
 The term "gender" is somewhat of a misnomer, because CLDR treats "gender" as a broad term, equivalent to "noun class".
 Thus it bundles noun class categories such as gender and animacy into a single identifier, such as "feminine-animate".
@@ -2883,13 +2929,13 @@ Thus it bundles noun class categories such as gender and animacy into a single i
 
 | Value     | Definition | References |
 | --------- | ---------- | ---------- |
-| animate   | In an animate/inanimate gender system, gender that denotes human or animate entities. | description adapted from: [wikipedia.org/wiki/Grammatical_gender](https://en.wikipedia.org/wiki/Grammatical_gender), [linguistics-ontology.org/gold/2010/AnimateGender](http://linguistics-ontology.org/gold/2010/AnimateGender) |
-| inanimate | In an animate/inanimate gender system, gender that denotes object or inanimate entities .| adapted from: [wikipedia.org/wiki/Grammatical_gender](https://en.wikipedia.org/wiki/Grammatical_gender), [linguistics-ontology.org/gold/2010/InanimateGender](http://linguistics-ontology.org/gold/2010/InanimateGender) |
-| personal  | In an animate/inanimate gender system in some languages, gender that specifies the masculine gender of animate entities. | adapted from: [wikipedia.org/wiki/Grammatical_gender](https://en.wikipedia.org/wiki/Grammatical_gender), [linguistics-ontology.org/gold/2010/HumanGender](http://linguistics-ontology.org/gold/2010/HumanGender) |
+| animate   | In an animate/inanimate gender system, gender that denotes human or animate entities. | description adapted from: [wikipedia.org/wiki/Grammatical_gender](https://en.wikipedia.org/wiki/Grammatical_gender), [linguistics-ontology.org/gold/2010/AnimateGender](https://web.archive.org/20200115041525/linguistics-ontology.org/gold/2010/AnimateGender) |
+| inanimate | In an animate/inanimate gender system, gender that denotes object or inanimate entities .| adapted from: [wikipedia.org/wiki/Grammatical_gender](https://en.wikipedia.org/wiki/Grammatical_gender), [linguistics-ontology.org/gold/2010/InanimateGender](https://web.archive.org/20200115041525/linguistics-ontology.org/gold/2010/InanimateGender) |
+| personal  | In an animate/inanimate gender system in some languages, gender that specifies the masculine gender of animate entities. | adapted from: [wikipedia.org/wiki/Grammatical_gender](https://en.wikipedia.org/wiki/Grammatical_gender), [linguistics-ontology.org/gold/2010/HumanGender](https://web.archive.org/20200115041525/linguistics-ontology.org/gold/2010/HumanGender) |
 | common    | In a common/neuter gender system, gender that denotes human entities. | adapted from: [wikipedia.org/wiki/Grammatical_gender](https://en.wikipedia.org/wiki/Grammatical_gender) |
-| feminine  | In a masculine/feminine or in a masculine/feminine/neuter gender system, gender that denotes specifically female persons (or animals) or that is assigned arbitrarily to object. | adapted from: https://en.wikipedia.org/wiki/Grammatical_gender, [linguistics-ontology.org/gold/2010/FeminineGender](http://linguistics-ontology.org/gold/2010/FeminineGender) |
-| masculine | In a masculine/feminine or in a masculine/feminine/neuter gender system, gender that denotes specifically male persons (or animals) or that is assigned arbitrarily to object. | adapted from: [wikipedia.org/wiki/Grammatical_gender](https://en.wikipedia.org/wiki/Grammatical_gender), [linguistics-ontology.org/gold/2010/MasculineGender](http://linguistics-ontology.org/gold/2010/MasculineGender) |
-| neuter    | In a masculine/feminine/neuter or common/neuter gender system, gender that generally denotes an object. | adapted from: [wikipedia.org/wiki/Grammatical_gender](https://en.wikipedia.org/wiki/Grammatical_gender), [linguistics-ontology.org/gold/2010/NeuterGender](http://linguistics-ontology.org/gold/2010/NeuterGender) |
+| feminine  | In a masculine/feminine or in a masculine/feminine/neuter gender system, gender that denotes specifically female persons (or animals) or that is assigned arbitrarily to object. | adapted from: https://en.wikipedia.org/wiki/Grammatical_gender, [linguistics-ontology.org/gold/2010/FeminineGender](https://web.archive.org/20200115041525/linguistics-ontology.org/gold/2010/FeminineGender) |
+| masculine | In a masculine/feminine or in a masculine/feminine/neuter gender system, gender that denotes specifically male persons (or animals) or that is assigned arbitrarily to object. | adapted from: [wikipedia.org/wiki/Grammatical_gender](https://en.wikipedia.org/wiki/Grammatical_gender), [linguistics-ontology.org/gold/2010/MasculineGender](https://web.archive.org/20200115041525/linguistics-ontology.org/gold/2010/MasculineGender) |
+| neuter    | In a masculine/feminine/neuter or common/neuter gender system, gender that generally denotes an object. | adapted from: [wikipedia.org/wiki/Grammatical_gender](https://en.wikipedia.org/wiki/Grammatical_gender), [linguistics-ontology.org/gold/2010/NeuterGender](https://web.archive.org/20200115041525/linguistics-ontology.org/gold/2010/NeuterGender) |
 
 There are further simplifications in the identifiers.
 For example, consider a language that has 3 genders, and two levels of animacy, but only for masculine.
@@ -2915,7 +2961,7 @@ That is:
 
 #### Table: Case
 
-Feature that encodes the syntactic (and sometimes semantic) relationship of a noun with the other constituents of the sentence. (adapted from [linguistics-ontology.org/gold/2010/CaseProperty](http://linguistics-ontology.org/gold/2010/CaseProperty))
+Feature that encodes the syntactic (and sometimes semantic) relationship of a noun with the other constituents of the sentence. (adapted from [linguistics-ontology.org/gold/2010/CaseProperty](https://web.archive.org/20200115041525/linguistics-ontology.org/gold/2010/CaseProperty))
 
 ##### Example
 
@@ -2928,34 +2974,34 @@ Feature that encodes the syntactic (and sometimes semantic) relationship of a no
 
 | Value              | Definition | References |
 | ------------------ | ---------- | ---------- |
-| abessive          | The abessive case expresses the absence of the referent it marks. It has the meaning of 'without'. | [purl.org/olia/olia.owl#AbessiveCase](https://purl.org/olia/olia.owl#AbessiveCase) [linguistics-ontology.org/gold/2010/AbessiveCase](http://linguistics-ontology.org/gold/2010/AbessiveCase)|
-| ablative           | The ablative case expresses that the referent of the noun it marks is the location from which another referent is moving. It has the meaning 'from'. | [purl.org/olia/olia.owl#AblativeCase](https://purl.org/olia/olia.owl#AblativeCase), [linguistics-ontology.org/gold/2010/AblativeCase](http://linguistics-ontology.org/gold/2010/AblativeCase) |
-| accusative         | Accusative case marks certain syntactic functions, usually direct objects. | [purl.org/olia/olia.owl#Accusative](https://purl.org/olia/olia.owl#Accusative), [linguistics-ontology.org/gold/2010/AccusativeCase](http://linguistics-ontology.org/gold/2010/AccusativeCase) |
-| adessive  | The adessive case expresses that the referent of the noun it marks is the location near/at which another referent exists. It has the meaning of 'at' or 'near'. | [purl.org/olia/olia.owl#AdessiveCase](https://purl.org/olia/olia.owl#AdessiveCase), [linguistics-ontology.org/gold/2010/AdessiveCase](http://linguistics-ontology.org/gold/2010/AdessiveCase) |
-| allative | The allative case expresses motion to or toward the referent of the noun it marks. | [purl.org/olia/olia.owl#AllativeCase](https://purl.org/olia/olia.owl#AllativeCase), [linguistics-ontology.org/gold/2010/AllativeCase](http://linguistics-ontology.org/gold/2010/AllativeCase) |
+| abessive          | The abessive case expresses the absence of the referent it marks. It has the meaning of 'without'. | [purl.org/olia/olia.owl#AbessiveCase](https://purl.org/olia/olia.owl#AbessiveCase) [linguistics-ontology.org/gold/2010/AbessiveCase](https://web.archive.org/20200115041525/linguistics-ontology.org/gold/2010/AbessiveCase)|
+| ablative           | The ablative case expresses that the referent of the noun it marks is the location from which another referent is moving. It has the meaning 'from'. | [purl.org/olia/olia.owl#AblativeCase](https://purl.org/olia/olia.owl#AblativeCase), [linguistics-ontology.org/gold/2010/AblativeCase](https://web.archive.org/20200115041525/linguistics-ontology.org/gold/2010/AblativeCase) |
+| accusative         | Accusative case marks certain syntactic functions, usually direct objects. | [purl.org/olia/olia.owl#Accusative](https://purl.org/olia/olia.owl#Accusative), [linguistics-ontology.org/gold/2010/AccusativeCase](https://web.archive.org/20200115041525/linguistics-ontology.org/gold/2010/AccusativeCase) |
+| adessive  | The adessive case expresses that the referent of the noun it marks is the location near/at which another referent exists. It has the meaning of 'at' or 'near'. | [purl.org/olia/olia.owl#AdessiveCase](https://purl.org/olia/olia.owl#AdessiveCase), [linguistics-ontology.org/gold/2010/AdessiveCase](https://web.archive.org/20200115041525/linguistics-ontology.org/gold/2010/AdessiveCase) |
+| allative | The allative case expresses motion to or toward the referent of the noun it marks. | [purl.org/olia/olia.owl#AllativeCase](https://purl.org/olia/olia.owl#AllativeCase), [linguistics-ontology.org/gold/2010/AllativeCase](https://web.archive.org/20200115041525/linguistics-ontology.org/gold/2010/AllativeCase) |
 | causal | The causal (causal-final, not causative) case expresses that the marked noun is the objective or reason for something. It carries the meaning of 'for the purpose of'. | https://en.wikipedia.org/wiki/Causative#Causal-final_case, http://www.hungarianreference.com/Nouns/%C3%A9rt-causal-final.aspx |
-| comitative         | Comitative Case expresses accompaniment. It carries the meaning 'with' or 'accompanied by' . | [purl.org/olia/olia.owl#ComitativeCase](https://purl.org/olia/olia.owl#ComitativeCase), [linguistics-ontology.org/gold/2010/ComitativeCase](http://linguistics-ontology.org/gold/2010/ComitativeCase) |
-| dative             | Dative case marks indirect objects (for languages in which they are held to exist), or nouns having the role of a recipient (as of things given), a beneficiary of an action, or a possessor of an item. | [purl.org/olia/olia.owl#DativeCase](https://purl.org/olia/olia.owl#DativeCase), [linguistics-ontology.org/gold/2010/DativeCase](http://linguistics-ontology.org/gold/2010/DativeCase) |
-| delative | The delative case expresses motion downward from the referent of the noun it marks. | [purl.org/olia/olia.owl#DelativeCase](https://purl.org/olia/olia.owl#DelativeCase), [linguistics-ontology.org/gold/2010/DelativeCase](http://linguistics-ontology.org/gold/2010/DelativeCase) |
-| elative | The elative case expresses that the referent of the noun it marks is the location out of which another referent is moving. It has the meaning 'out of'. | [purl.org/olia/olia.owl#ElativeCase](https://purl.org/olia/olia.owl#ElativeCase), [linguistics-ontology.org/gold/2010/ElativeCase](http://linguistics-ontology.org/gold/2010/ElativeCase) |
-| ergative           | In ergative-absolutive languages, the ergative case identifies the subject of a transitive verb. | [purl.org/olia/olia.owl#ErgativeCase](https://purl.org/olia/olia.owl#ErgativeCase), [linguistics-ontology.org/gold/2010/ErgativeCase](http://linguistics-ontology.org/gold/2010/ErgativeCase) |
-| essive | The essive case expresses that the referent of the noun it marks is the location at which another referent exists. | [purl.org/olia/olia.owl#EssiveCase](https://purl.org/olia/olia.owl#EssiveCase), [linguistics-ontology.org/gold/2010/EssiveCase](http://linguistics-ontology.org/gold/2010/EssiveCase) |
-| genitive           | Genitive case signals that the referent of the marked noun is the possessor of the referent of another noun, e.g. "the man's foot". In some languages, genitive case may express an associative relation between the marked noun and another noun. | [purl.org/olia/olia.owl#GenitiveCase](https://purl.org/olia/olia.owl#GenitiveCase), [linguistics-ontology.org/gold/2010/GenitiveCase](http://linguistics-ontology.org/gold/2010/GenitiveCase) |
-| illative | The illative case expresses that the referent of the noun it marks is the location into which another referent is moving. It has the meaning 'into'. | [purl.org/olia/olia.owl#IllativeCase](https://purl.org/olia/olia.owl#IllativeCase), [linguistics-ontology.org/gold/2010/IllativeCase](http://linguistics-ontology.org/gold/2010/IllativeCase) |
-| inessive  | The inessive case expresses that the referent of the noun it marks is the location within which another referent exists. It has the meaning of 'within' or 'inside'.  | [purl.org/olia/olia.owl#InessiveCase](https://purl.org/olia/olia.owl#InessiveCase), [linguistics-ontology.org/gold/2010/InessiveCase](http://linguistics-ontology.org/gold/2010/InessiveCase) |
-| instrumental       | The instrumental case indicates that the referent of the noun it marks is the means of the accomplishment of the action expressed by the clause. | [purl.org/olia/olia.owl#InstrumentalCase](https://purl.org/olia/olia.owl#InstrumentalCase), [linguistics-ontology.org/gold/2010/InstrumentalCase](http://linguistics-ontology.org/gold/2010/InstrumentalCase) |
-| locative           | Case that indicates a final location of action or a time of the action. | [purl.org/olia/olia.owl#LocativeCase](https://purl.org/olia/olia.owl#LocativeCase), [linguistics-ontology.org/gold/2010/LocativeCase](http://linguistics-ontology.org/gold/2010/LocativeCase) |
+| comitative         | Comitative Case expresses accompaniment. It carries the meaning 'with' or 'accompanied by' . | [purl.org/olia/olia.owl#ComitativeCase](https://purl.org/olia/olia.owl#ComitativeCase), [linguistics-ontology.org/gold/2010/ComitativeCase](https://web.archive.org/20200115041525/linguistics-ontology.org/gold/2010/ComitativeCase) |
+| dative             | Dative case marks indirect objects (for languages in which they are held to exist), or nouns having the role of a recipient (as of things given), a beneficiary of an action, or a possessor of an item. | [purl.org/olia/olia.owl#DativeCase](https://purl.org/olia/olia.owl#DativeCase), [linguistics-ontology.org/gold/2010/DativeCase](https://web.archive.org/20200115041525/linguistics-ontology.org/gold/2010/DativeCase) |
+| delative | The delative case expresses motion downward from the referent of the noun it marks. | [purl.org/olia/olia.owl#DelativeCase](https://purl.org/olia/olia.owl#DelativeCase), [linguistics-ontology.org/gold/2010/DelativeCase](https://web.archive.org/20200115041525/linguistics-ontology.org/gold/2010/DelativeCase) |
+| elative | The elative case expresses that the referent of the noun it marks is the location out of which another referent is moving. It has the meaning 'out of'. | [purl.org/olia/olia.owl#ElativeCase](https://purl.org/olia/olia.owl#ElativeCase), [linguistics-ontology.org/gold/2010/ElativeCase](https://web.archive.org/20200115041525/linguistics-ontology.org/gold/2010/ElativeCase) |
+| ergative           | In ergative-absolutive languages, the ergative case identifies the subject of a transitive verb. | [purl.org/olia/olia.owl#ErgativeCase](https://purl.org/olia/olia.owl#ErgativeCase), [linguistics-ontology.org/gold/2010/ErgativeCase](https://web.archive.org/20200115041525/linguistics-ontology.org/gold/2010/ErgativeCase) |
+| essive | The essive case expresses that the referent of the noun it marks is the location at which another referent exists. | [purl.org/olia/olia.owl#EssiveCase](https://purl.org/olia/olia.owl#EssiveCase), [linguistics-ontology.org/gold/2010/EssiveCase](https://web.archive.org/20200115041525/linguistics-ontology.org/gold/2010/EssiveCase) |
+| genitive           | Genitive case signals that the referent of the marked noun is the possessor of the referent of another noun, e.g. "the man's foot". In some languages, genitive case may express an associative relation between the marked noun and another noun. | [purl.org/olia/olia.owl#GenitiveCase](https://purl.org/olia/olia.owl#GenitiveCase), [linguistics-ontology.org/gold/2010/GenitiveCase](https://web.archive.org/20200115041525/linguistics-ontology.org/gold/2010/GenitiveCase) |
+| illative | The illative case expresses that the referent of the noun it marks is the location into which another referent is moving. It has the meaning 'into'. | [purl.org/olia/olia.owl#IllativeCase](https://purl.org/olia/olia.owl#IllativeCase), [linguistics-ontology.org/gold/2010/IllativeCase](https://web.archive.org/20200115041525/linguistics-ontology.org/gold/2010/IllativeCase) |
+| inessive  | The inessive case expresses that the referent of the noun it marks is the location within which another referent exists. It has the meaning of 'within' or 'inside'.  | [purl.org/olia/olia.owl#InessiveCase](https://purl.org/olia/olia.owl#InessiveCase), [linguistics-ontology.org/gold/2010/InessiveCase](https://web.archive.org/20200115041525/linguistics-ontology.org/gold/2010/InessiveCase) |
+| instrumental       | The instrumental case indicates that the referent of the noun it marks is the means of the accomplishment of the action expressed by the clause. | [purl.org/olia/olia.owl#InstrumentalCase](https://purl.org/olia/olia.owl#InstrumentalCase), [linguistics-ontology.org/gold/2010/InstrumentalCase](https://web.archive.org/20200115041525/linguistics-ontology.org/gold/2010/InstrumentalCase) |
+| locative           | Case that indicates a final location of action or a time of the action. | [purl.org/olia/olia.owl#LocativeCase](https://purl.org/olia/olia.owl#LocativeCase), [linguistics-ontology.org/gold/2010/LocativeCase](https://web.archive.org/20200115041525/linguistics-ontology.org/gold/2010/LocativeCase) |
 | locativecopulative | Copulative Case marker that indicates a location. | TBD Add reference, example |
-| nominative         | In nominative-accusative languages, nominative case marks clausal subjects and is applied to nouns in isolation | [purl.org/olia/olia.owl#Nominative](https://purl.org/olia/olia.owl#Nominative), [linguistics-ontology.org/gold/2010/NominativeCase](http://linguistics-ontology.org/gold/2010/NominativeCase) |
+| nominative         | In nominative-accusative languages, nominative case marks clausal subjects and is applied to nouns in isolation | [purl.org/olia/olia.owl#Nominative](https://purl.org/olia/olia.owl#Nominative), [linguistics-ontology.org/gold/2010/NominativeCase](https://web.archive.org/20200115041525/linguistics-ontology.org/gold/2010/NominativeCase) |
 | oblique            | Case that is used when a noun is the object of a verb or a proposition, except for nominative and vocative case. | [purl.org/olia/olia.owl#ObliqueCase](https://purl.org/olia/olia.owl#ObliqueCase) |
-| partitive          | The partitive case is a grammatical case which denotes 'partialness', 'without result', or 'without specific identity'. | [purl.org/olia/olia.owl#PartitiveCase](https://purl.org/olia/olia.owl#PartitiveCase), [linguistics-ontology.org/gold/2010/PartitiveCase](http://linguistics-ontology.org/gold/2010/PartitiveCase) |
+| partitive          | The partitive case is a grammatical case which denotes 'partialness', 'without result', or 'without specific identity'. | [purl.org/olia/olia.owl#PartitiveCase](https://purl.org/olia/olia.owl#PartitiveCase), [linguistics-ontology.org/gold/2010/PartitiveCase](https://web.archive.org/20200115041525/linguistics-ontology.org/gold/2010/PartitiveCase) |
 | prepositional      | Prepositional case refers to case marking that only occurs in combination with prepositions. | [purl.org/olia/olia.owl#PrepositionalCase](https://purl.org/olia/olia.owl#PrepositionalCase) |
 | sociative          | Case related to the person in whose company the action is carried out, or to any belongings of people which take part in the action. | [purl.org/olia/olia.owl#SociativeCase](https://purl.org/olia/olia.owl#SociativeCase) |
-| sublative  | The sublative case expresses that the referent of the noun it marks is the location under which another referent is moving toward. It has the meaning 'towards the underneath of'. | [purl.org/olia/olia.owl#SublativeCase](https://purl.org/olia/olia.owl#SublativeCase), [linguistics-ontology.org/gold/2010/SublativeCase](http://linguistics-ontology.org/gold/2010/SublativeCase) |
-| superessive  | The superessive case expresses that the referent of the noun it marks is the location on which another referent exists. It has the meaning of 'on' or 'upon'. | [purl.org/olia/olia.owl#SuperessiveCase](https://purl.org/olia/olia.owl#SuperessiveCase), [linguistics-ontology.org/gold/2010/SuperessiveCase](http://linguistics-ontology.org/gold/2010/SuperessiveCase) |
-| terminative  | The terminative case expresses the motion of something into but not further than (ie, not through) the referent of the noun it marks. It has the meaning 'into but not through'.  | [purl.org/olia/olia.owl#TerminativeCase](https://purl.org/olia/olia.owl#TerminativeCase), [linguistics-ontology.org/gold/2010/TerminativeCase](http://linguistics-ontology.org/gold/2010/TerminativeCase) |
-| translative  | The translative case expresses that the referent of the noun that it marks is the result of a process of change. It has the meaning of 'becoming' or 'changing into'.  | [purl.org/olia/olia.owl#TranslativeCase](https://purl.org/olia/olia.owl#TranslativeCase), [linguistics-ontology.org/gold/2010/TranslativeCase](http://linguistics-ontology.org/gold/2010/TranslativeCase) |
-| vocative           | Vocative case marks a noun whose referent is being addressed. | [purl.org/olia/olia.owl#VocativeCase](https://purl.org/olia/olia.owl#VocativeCase), [linguistics-ontology.org/gold/2010/VocativeCase](http://linguistics-ontology.org/gold/2010/VocativeCase) |
+| sublative  | The sublative case expresses that the referent of the noun it marks is the location under which another referent is moving toward. It has the meaning 'towards the underneath of'. | [purl.org/olia/olia.owl#SublativeCase](https://purl.org/olia/olia.owl#SublativeCase), [linguistics-ontology.org/gold/2010/SublativeCase](https://web.archive.org/20200115041525/linguistics-ontology.org/gold/2010/SublativeCase) |
+| superessive  | The superessive case expresses that the referent of the noun it marks is the location on which another referent exists. It has the meaning of 'on' or 'upon'. | [purl.org/olia/olia.owl#SuperessiveCase](https://purl.org/olia/olia.owl#SuperessiveCase), [linguistics-ontology.org/gold/2010/SuperessiveCase](https://web.archive.org/20200115041525/linguistics-ontology.org/gold/2010/SuperessiveCase) |
+| terminative  | The terminative case expresses the motion of something into but not further than (ie, not through) the referent of the noun it marks. It has the meaning 'into but not through'.  | [purl.org/olia/olia.owl#TerminativeCase](https://purl.org/olia/olia.owl#TerminativeCase), [linguistics-ontology.org/gold/2010/TerminativeCase](https://web.archive.org/20200115041525/linguistics-ontology.org/gold/2010/TerminativeCase) |
+| translative  | The translative case expresses that the referent of the noun that it marks is the result of a process of change. It has the meaning of 'becoming' or 'changing into'.  | [purl.org/olia/olia.owl#TranslativeCase](https://purl.org/olia/olia.owl#TranslativeCase), [linguistics-ontology.org/gold/2010/TranslativeCase](https://web.archive.org/20200115041525/linguistics-ontology.org/gold/2010/TranslativeCase) |
+| vocative           | Vocative case marks a noun whose referent is being addressed. | [purl.org/olia/olia.owl#VocativeCase](https://purl.org/olia/olia.owl#VocativeCase), [linguistics-ontology.org/gold/2010/VocativeCase](https://web.archive.org/20200115041525/linguistics-ontology.org/gold/2010/VocativeCase) |
 
 ### Definiteness
 

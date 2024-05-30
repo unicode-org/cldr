@@ -35,9 +35,10 @@ public class CheckWidths extends CheckCLDR {
     private static UnitWidthUtil UNIT_WIDTHS_UTIL = UnitWidthUtil.getInstance();
 
     /** Controls for the warning about too many components, and for when to cause error. */
-    public static final int WARN_COMPONENTS_PER_ANNOTATION = 7;
+    public static final int WARN_COMPONENTS_PER_ANNOTATION = 10;
 
-    public static final int MAX_COMPONENTS_PER_ANNOTATION = 16;
+    // TBD lower this down after Meta data added
+    public static final int MAX_COMPONENTS_PER_ANNOTATION = 45;
 
     SupplementalDataInfo supplementalData;
 

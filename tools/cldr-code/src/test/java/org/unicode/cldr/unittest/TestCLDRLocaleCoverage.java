@@ -8,9 +8,9 @@ import com.google.common.collect.Multimap;
 import com.google.common.collect.Multimaps;
 import com.google.common.collect.Sets;
 import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.text.UnicodeSet;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.EnumSet;
 import java.util.LinkedHashSet;
 import java.util.Map;
@@ -57,207 +57,7 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
         // $languageExceptions
         // (both sets are included in SDI.getCLDRLanguageCodes() but we do not use that until
         // later).
-        Set<String> additionsToTranslate =
-                ImmutableSortedSet.of(
-                        LocaleNames.ZXX,
-                        LocaleNames.MUL,
-                        "ab",
-                        "ace",
-                        "ada",
-                        "ady",
-                        "ain",
-                        "ale",
-                        "alt",
-                        "an",
-                        "anp",
-                        "arn",
-                        "arp",
-                        "ars",
-                        "atj",
-                        "av",
-                        "awa",
-                        "ay",
-                        "ba",
-                        "ban",
-                        "bho",
-                        "bi",
-                        "bin",
-                        "bla",
-                        "bug",
-                        "byn",
-                        "cay",
-                        "ch",
-                        "chk",
-                        "chm",
-                        "cho",
-                        "chp",
-                        "chy",
-                        "clc",
-                        "co",
-                        "crg",
-                        "crj",
-                        "crk",
-                        "crl",
-                        "crm",
-                        "crr",
-                        "csw",
-                        "cv",
-                        "dak",
-                        "dar",
-                        "dgr",
-                        "dv",
-                        "dzg",
-                        "efi",
-                        "eka",
-                        "fj",
-                        "fon",
-                        "frc",
-                        "gaa",
-                        "gez",
-                        "gil",
-                        "gn",
-                        "gor",
-                        "gwi",
-                        "hai",
-                        "hax",
-                        "hil",
-                        "hmn",
-                        "ht",
-                        "hup",
-                        "hur",
-                        "hz",
-                        "iba",
-                        "ibb",
-                        "ikt",
-                        "ilo",
-                        "inh",
-                        "io",
-                        "iu",
-                        "jbo",
-                        "kac",
-                        "kaj",
-                        "kbd",
-                        "kcg",
-                        "kfo",
-                        "kha",
-                        "kj",
-                        "kmb",
-                        "kpe",
-                        "kr",
-                        "krc",
-                        "krl",
-                        "kru",
-                        "kum",
-                        "kv",
-                        "kwk",
-                        "la",
-                        "lad",
-                        "lez",
-                        "li",
-                        "lil",
-                        "lou",
-                        "loz",
-                        "lsm",
-                        "lua",
-                        "lun",
-                        "lus",
-                        "mad",
-                        "mag",
-                        "mak",
-                        "mdf",
-                        "men",
-                        "mh",
-                        "mic",
-                        "min",
-                        "moe",
-                        "moh",
-                        "mos",
-                        "mus",
-                        "mwl",
-                        "myv",
-                        "na",
-                        "nap",
-                        "new",
-                        "ng",
-                        "nia",
-                        "niu",
-                        "nog",
-                        "nqo",
-                        "nr",
-                        "nso",
-                        "nv",
-                        "ny",
-                        "oc",
-                        "ojb",
-                        "ojc",
-                        "ojs",
-                        "ojw",
-                        "oka",
-                        "pag",
-                        "pam",
-                        "pap",
-                        "pau",
-                        "pqm",
-                        "rap",
-                        "rar",
-                        "rhg",
-                        "rup",
-                        "sad",
-                        "sba",
-                        "scn",
-                        "sco",
-                        "shn",
-                        "slh",
-                        "sm",
-                        "snk",
-                        "srn",
-                        "ss",
-                        "st",
-                        "str",
-                        "suk",
-                        "swb",
-                        "syr",
-                        "tce",
-                        "tem",
-                        "tet",
-                        "tgx",
-                        "tht",
-                        "tig",
-                        "tlh",
-                        "tli",
-                        "tn",
-                        "tpi",
-                        "trv",
-                        "ts",
-                        "ttm",
-                        "tum",
-                        "tvl",
-                        "ty",
-                        "tyv",
-                        "udm",
-                        "umb",
-                        "ve",
-                        "wa",
-                        "wal",
-                        "war",
-                        "wuu",
-                        "xal",
-                        "ybb",
-                        "zun",
-                        "zza");
-
-        Set<String> removalsForLateBasics =
-                Set.of(
-                        "blo", "eo", "ie", "kxv", "lij", "lmo", "nds", "prg", "szl", "tok", "vec",
-                        "vmw", "xnr", "za");
-
-        warnln(
-                "Locale names added for translation; revisit each release:\n"
-                        + Joiner.on("\n")
-                                .join(
-                                        additionsToTranslate.stream()
-                                                .map(x -> x + "\t(" + ENGLISH.getName(x) + ")")
-                                                .collect(Collectors.toList())));
+        Set<String> additionsToTranslate = ImmutableSortedSet.of(LocaleNames.ZXX, LocaleNames.MUL);
 
         Map<String, Status> validity = Validity.getInstance().getCodeToStatus(LstrType.language);
         Multimap<Status, String> statusToLang =
@@ -288,7 +88,6 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
         Set<String> localesForNames = new TreeSet<>();
         localesForNames.addAll(mainLocales);
         localesForNames.addAll(additionsToTranslate);
-        localesForNames.removeAll(removalsForLateBasics);
         localesForNames = ImmutableSet.copyOf(localesForNames);
 
         assertContains("regularPlus.containsAll(mainLocales)", regularPlus, localesForNames);
@@ -311,10 +110,6 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
             coverageLocales.addAll(levelToLanguage.get(level));
         }
 
-        // added for CLDR-15888
-        coverageLocales.add("bgc");
-        coverageLocales.add("raj");
-
         // If this fails, it is because of a mismatch between coverage and the getCLDRLanguageCodes.
         // Usually a problem with coverage.
         boolean showRegex =
@@ -326,24 +121,28 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
                 !assertContains(
                         "coverageLocales.containsAll(localesForNames) - add to %language80 or lower under coverageLevels.xml?",
                         coverageLocales, localesForNames);
-        if (showRegex || true) {
+        if (showRegex) {
             String simplePattern = MinimizeRegex.simplePattern(localesForNames);
             warnln("Plain Regex for coverage:\n" + simplePattern);
-            warnln(
-                    "Compact Regex for coverage:\n"
-                            + MinimizeRegex.compressWith(localesForNames, new UnicodeSet("[a-z]")));
         }
 
         coverageLocales.addAll(SDI.getCLDRLanguageCodes());
 
         Map<String, Integer> official1M = getOfficial1M();
-        Set<String> official1MSet = new TreeSet<>();
-        for (String locale : official1M.keySet()) {
-            if (!localesForNames.contains(locale)) {
-                official1MSet.add(locale);
+        Map<Integer, String> official1MSetNames = new TreeMap<>(Comparator.reverseOrder());
+        for (Entry<String, Integer> localeAndSize : official1M.entrySet()) {
+            final String locale = localeAndSize.getKey();
+            if (!localesForNames.contains(locale)
+                    && CLDRLocale.getInstance(locale).getParent().equals(CLDRLocale.ROOT)) {
+                official1MSetNames.put(
+                        localeAndSize.getValue(), "\t" + locale + "\t" + ENGLISH.getName(locale));
             }
         }
-        warnln("Official with 1M+ speakers, need investigation of literacy: " + official1MSet);
+        if (!official1MSetNames.isEmpty()) {
+            logln(
+                    "Official with 1M+ speakers, need investigation of literacy:\n\t"
+                            + Joiner.on("\n\t").join(official1MSetNames.entrySet()));
+        }
 
         //        assertContains("sdiLocales contains oldModernLocales", sdiLocales,
         // oldModernLocales);
@@ -577,33 +376,42 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
     }
 
     public void TestParentCoverage() {
+        final SupplementalDataInfo sd = SupplementalDataInfo.getInstance();
+        final Set<String> defaultContentLocales = sd.getDefaultContentLocales();
+
         for (Organization organization : sc.getLocaleCoverageOrganizations()) {
             if (organization == Organization.special) {
                 continue;
             }
             final Map<String, Level> localesToLevels = sc.getLocalesToLevelsFor(organization);
             for (Entry<String, Level> localeAndLevel : localesToLevels.entrySet()) {
-                String originalLevel = localeAndLevel.getKey();
+                String originalLocale = localeAndLevel.getKey();
                 Level level = localeAndLevel.getValue();
-                String locale = originalLevel;
+                String locale = originalLocale;
                 while (true) {
                     String parent = LocaleIDParser.getParent(locale);
                     if (parent == null || parent.equals(LocaleNames.ROOT)) {
                         break;
                     }
-                    if (!parent.equals("en_001")) { // en_001 is generated later from en_GB
+                    if (!defaultContentLocales.contains(parent)
+                            && !parent.equals("en_001")) { // en_001 is generated later from en_GB
                         Level parentLevel = localesToLevels.get(parent);
-                        assertTrue(
-                                organization
-                                        + "; locale="
-                                        + originalLevel
-                                        + "; level="
-                                        + level
-                                        + "; parent="
-                                        + parent
-                                        + "; level="
-                                        + parentLevel,
-                                parentLevel != null && parentLevel.compareTo(level) >= 0);
+                        if (assertNotNull(
+                                String.format(
+                                        "Locales.txt: Entry '%s ; %s ; ...' is missing parent '%s ; %s ; ...'",
+                                        organization, originalLocale, organization, parent),
+                                parentLevel)) {
+                            assertTrue(
+                                    String.format(
+                                            "Locales.txt: Entry '%s ; %s ; %s' should not be higher than parent '%s ; %s ; %s'",
+                                            organization,
+                                            originalLocale,
+                                            level,
+                                            organization,
+                                            parent,
+                                            parentLevel),
+                                    parentLevel.compareTo(level) >= 0);
+                        }
                     }
                     locale = parent;
                 }

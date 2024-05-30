@@ -470,6 +470,8 @@ public class ExampleGenerator {
             result = handleCurrency(xpath, parts, value);
         } else if (parts.contains("dayPeriods")) {
             result = handleDayPeriod(parts, value);
+        } else if (parts.contains("monthContext")) {
+            result = handleDateSymbol(parts, value);
         } else if (parts.contains("pattern") || parts.contains("dateFormatItem")) {
             if (parts.contains("calendar")) {
                 result = handleDateFormatItem(xpath, value, showContexts);
@@ -482,6 +484,8 @@ public class ExampleGenerator {
                     result = handleDecimalFormat(parts, value, showContexts);
                 }
             }
+        } else if (parts.contains("minimumGroupingDigits")) {
+            result = handleMinimumGrouping(parts, value);
         } else if (parts.getElement(2).contains("symbols")) {
             result = handleNumberSymbol(parts, value);
         } else if (parts.contains("defaultNumberingSystem")
@@ -1090,6 +1094,71 @@ public class ExampleGenerator {
             }
         }
         return formatExampleList(examples.toArray(new String[0]));
+    }
+
+    private String handleDateSymbol(XPathParts parts, String value) {
+        // Currently only called for month names, can expand in the future to handle other symbols.
+        // The idea is to show format months in a yMMMM?d date format, and stand-alone months in a
+        // yMMMM? format.
+        String length = parts.findAttributeValue("monthWidth", "type"); // wide, abbreviated, narrow
+        if (length.equals("narrow")) {
+            return null; // no examples for narrow
+        }
+        String context = parts.findAttributeValue("monthContext", "type"); // format, stand-alone
+        String calendarId =
+                parts.findAttributeValue("calendar", "type"); // gregorian, islamic, hebrew, ...
+        String monthNumId =
+                parts.findAttributeValue("month", "type"); // 1-based: 1, 2, 3, ... 12 or 13
+
+        final String[] skeletons = {"yMMMMd", "yMMMd", "yMMMM", "yMMM"};
+        int skeletonIndex = (length.equals("wide")) ? 0 : 1;
+        if (!context.equals("format")) {
+            skeletonIndex += 2;
+        }
+        String checkPath =
+                "//ldml/dates/calendars/calendar[@type=\""
+                        + calendarId
+                        + "\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\""
+                        + skeletons[skeletonIndex]
+                        + "\"]";
+        String dateFormat = cldrFile.getWinningValue(checkPath);
+        if (dateFormat == null || dateFormat.indexOf("MMM") < 0) {
+            // If we do not have the desired width (might be missing for MMMM) or
+            // the desired format does not have alpha months (in some locales liks 'cs'
+            // skeletons for MMM have pattern with M), then try the other width for same
+            // context by adjusting skeletonIndex.
+            skeletonIndex = (length.equals("wide")) ? skeletonIndex + 1 : skeletonIndex - 1;
+            checkPath =
+                    "//ldml/dates/calendars/calendar[@type=\""
+                            + calendarId
+                            + "\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\""
+                            + skeletons[skeletonIndex]
+                            + "\"]";
+            dateFormat = cldrFile.getWinningValue(checkPath);
+        }
+        if (dateFormat == null) {
+            return null;
+        }
+        SimpleDateFormat sdf = icuServiceBuilder.getDateFormat(calendarId, dateFormat);
+        sdf.setTimeZone(ZONE_SAMPLE);
+        DateFormatSymbols dfs = sdf.getDateFormatSymbols();
+        // We do not know whether dateFormat is using MMMM, MMM, LLLL or LLL so
+        // override all of them in our DateFormatSymbols. The DATE_SAMPLE is for
+        // month 9 "September", offset of 8 in the months arrays, so override that.
+        String[] monthNames = dfs.getMonths(DateFormatSymbols.FORMAT, DateFormatSymbols.WIDE);
+        monthNames[8] = value;
+        dfs.setMonths(monthNames, DateFormatSymbols.FORMAT, DateFormatSymbols.WIDE);
+        monthNames = dfs.getMonths(DateFormatSymbols.FORMAT, DateFormatSymbols.ABBREVIATED);
+        monthNames[8] = value;
+        dfs.setMonths(monthNames, DateFormatSymbols.FORMAT, DateFormatSymbols.ABBREVIATED);
+        monthNames = dfs.getMonths(DateFormatSymbols.STANDALONE, DateFormatSymbols.WIDE);
+        monthNames[8] = value;
+        dfs.setMonths(monthNames, DateFormatSymbols.STANDALONE, DateFormatSymbols.WIDE);
+        monthNames = dfs.getMonths(DateFormatSymbols.STANDALONE, DateFormatSymbols.ABBREVIATED);
+        monthNames[8] = value;
+        dfs.setMonths(monthNames, DateFormatSymbols.STANDALONE, DateFormatSymbols.ABBREVIATED);
+        sdf.setDateFormatSymbols(dfs);
+        return sdf.format(DATE_SAMPLE);
     }
 
     private String handleMinimalPairs(XPathParts parts, String minimalPattern) {
@@ -2145,6 +2214,26 @@ public class ExampleGenerator {
         return "[@count=\"" + count + "\"]";
     }
 
+    private String handleMinimumGrouping(XPathParts parts, String value) {
+        String numberSystem = cldrFile.getWinningValue("//ldml/numbers/defaultNumberingSystem");
+        String checkPath =
+                "//ldml/numbers/decimalFormats[@numberSystem=\""
+                        + numberSystem
+                        + "\"]/decimalFormatLength/decimalFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
+        String decimalFormat = cldrFile.getWinningValue(checkPath);
+        DecimalFormat numberFormat = icuServiceBuilder.getNumberFormat(decimalFormat, numberSystem);
+        numberFormat.setMinimumGroupingDigits(Integer.parseInt(value));
+
+        double sampleNum1 = 543.21;
+        double sampleNum2 = 6543.21;
+        double sampleNum3 = 76543.21;
+        String example = "";
+        example = addExampleResult(formatNumber(numberFormat, sampleNum1), example);
+        example = addExampleResult(formatNumber(numberFormat, sampleNum2), example);
+        example = addExampleResult(formatNumber(numberFormat, sampleNum3), example);
+        return example;
+    }
+
     private String handleNumberSymbol(XPathParts parts, String value) {
         String symbolType = parts.getElement(-1);
         String numberSystem = parts.getAttributeValue(2, "numberSystem"); // null if not present
@@ -2335,9 +2424,13 @@ public class ExampleGenerator {
             // ldml/dates/calendars/calendar[@type="*"]/dateTimeFormats/dateTimeFormatLength[@type="*"]/dateTimeFormat[@type="atTime"]/pattern[@type="standard"]
             String formatType =
                     parts.findAttributeValue("dateTimeFormat", "type"); // "standard" or "atTime"
+            String length =
+                    parts.findAttributeValue(
+                            "dateTimeFormatLength", "type"); // full, long, medium, short
 
             // For all types, show
-            // - date (of same length) with a single full time
+            // - date (of same length) with a single full time, or long time (abbreviated zone) if
+            // the date is short
             // - date (of same length) with a single short time
             // For the standard patterns, add
             // - date (of same length) with a short time range
@@ -2369,19 +2462,22 @@ public class ExampleGenerator {
                 return "";
             }
             String timeFormatXPathPrefix = timeFormatXPathForPrefix.substring(0, tfLengthOffset);
-            String timeFullFormatXPath =
-                    timeFormatXPathPrefix.concat(
-                            "timeFormatLength[@type=\"full\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]");
+            String timeLongerFormatXPath =
+                    (!length.equals("short"))
+                            ? timeFormatXPathPrefix.concat(
+                                    "timeFormatLength[@type=\"full\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]")
+                            : timeFormatXPathPrefix.concat(
+                                    "timeFormatLength[@type=\"long\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]");
             String timeShortFormatXPath =
                     timeFormatXPathPrefix.concat(
                             "timeFormatLength[@type=\"short\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]");
 
-            String timeFormatValue = cldrFile.getWinningValue(timeFullFormatXPath);
-            parts = XPathParts.getFrozenInstance(cldrFile.getFullXPath(timeFullFormatXPath));
+            String timeFormatValue = cldrFile.getWinningValue(timeLongerFormatXPath);
+            parts = XPathParts.getFrozenInstance(cldrFile.getFullXPath(timeLongerFormatXPath));
             String timeNumbersOverride = parts.findAttributeValue("pattern", "numbers");
-            SimpleDateFormat tff =
+            SimpleDateFormat tlf =
                     icuServiceBuilder.getDateFormat(calendar, timeFormatValue, timeNumbersOverride);
-            tff.setTimeZone(ZONE_SAMPLE);
+            tlf.setTimeZone(ZONE_SAMPLE);
 
             timeFormatValue = cldrFile.getWinningValue(timeShortFormatXPath);
             parts = XPathParts.getFrozenInstance(cldrFile.getFullXPath(timeShortFormatXPath));
@@ -2399,7 +2495,7 @@ public class ExampleGenerator {
             List<String> examples = new ArrayList<>();
 
             String dfResult = df.format(DATE_SAMPLE);
-            String tffResult = tff.format(DATE_SAMPLE);
+            String tlfResult = tlf.format(DATE_SAMPLE);
             String tsfResult = tsf.format(DATE_SAMPLE); // DATE_SAMPLE is in the afternoon
 
             // Handle date plus a single full time.
@@ -2414,7 +2510,7 @@ public class ExampleGenerator {
                                     value,
                                     (Object[])
                                             new String[] {
-                                                setBackground("'" + tffResult + "'"),
+                                                setBackground("'" + tlfResult + "'"),
                                                 setBackground("'" + dfResult + "'")
                                             }));
             examples.add(dtf.format(DATE_SAMPLE));

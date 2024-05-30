@@ -59,7 +59,12 @@ public class Announcements {
                                         mediaType = "application/json",
                                         schema = @Schema(implementation = STError.class))),
             })
-    public Response getAnnouncements(@HeaderParam(Auth.SESSION_HEADER) String sessionString) {
+    public Response getAnnouncements(
+            @HeaderParam(Auth.SESSION_HEADER) String sessionString,
+            @QueryParam("alreadyGotId")
+                    @Schema(description = "The client already got this announcement ID")
+                    @DefaultValue("-1")
+                    int alreadyGotId) {
         CookieSession session = Auth.getSession(sessionString);
         if (session == null) {
             return Auth.noSessionResponse();
@@ -71,19 +76,43 @@ public class Announcements {
         if (SurveyMain.isBusted() || !SurveyMain.wasInitCalled() || !SurveyMain.triedToStartUp()) {
             return STError.surveyNotQuiteReady();
         }
-        AnnouncementResponse response = new AnnouncementResponse(session.user);
+        final int mostRecentId = AnnouncementData.getMostRecentAnnouncementId();
+        final Boolean unchanged = alreadyGotId != -1 && alreadyGotId == mostRecentId;
+        final AnnouncementResponse response =
+                new AnnouncementResponse(session.user, unchanged, mostRecentId);
         return Response.ok(response).build();
     }
 
     @Schema(description = "List of announcements")
     public static final class AnnouncementResponse {
+        @Schema(description = "unchanged (true if request specified ID matching most recent ID)")
+        public boolean unchanged;
+
+        /**
+         * This ID is for the most recent announcement ID even if that announcement is filtered out,
+         * for example to exclude locales that are not of interest to the user who made the request.
+         * (The timestamp of the most recent announcement could just as well be used.) This way, the
+         * client will not endlessly keep getting redundant filtered data when there are no new
+         * announcements. The client may get redundant filtered data when a new announcement is made
+         * that doesn't pass the user's filter, but this will not happen more than once per new
+         * announcement. Further optimization would seem to require the back end to keep track of
+         * the most recent announcement ID for each filter, or else to repeat the database query for
+         * each request even if the result would be unchanged -- with dubious benefits.
+         */
+        @Schema(description = "most recent announcement ID (even if filtered out)")
+        public int mostRecentId;
+
         @Schema(description = "announcements")
         public Announcement[] announcements;
 
-        public AnnouncementResponse(UserRegistry.User user) {
-            List<Announcement> announcementList = new ArrayList<>();
-            AnnouncementData.get(user, announcementList);
-            announcements = announcementList.toArray(new Announcement[0]);
+        public AnnouncementResponse(UserRegistry.User user, Boolean unchanged, int mostRecentId) {
+            this.unchanged = unchanged;
+            if (!unchanged) {
+                this.mostRecentId = mostRecentId;
+                List<Announcement> announcementList = new ArrayList<>();
+                AnnouncementData.get(user, announcementList);
+                announcements = announcementList.toArray(new Announcement[0]);
+            }
         }
     }
 

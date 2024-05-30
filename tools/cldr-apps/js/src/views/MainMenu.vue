@@ -84,9 +84,11 @@
           </li>
         </ul>
       </li>
-      <li>
+      <li v-if="isUnofficial">
         <ul>
-          <li><a href="#mail///">Notifications (SMOKETEST ONLY)</a></li>
+          <li>
+            <a href="#mail///">Simulate Email Notifications (SMOKETEST ONLY)</a>
+          </li>
         </ul>
       </li>
       <li v-if="isAdmin">
@@ -133,6 +135,7 @@ export default {
       canUseVettingSummary: false,
       isAdmin: false,
       isTC: false,
+      isUnofficial: false,
       loggedIn: false,
       org: null,
       recentActivityUrl: null,
@@ -156,6 +159,7 @@ export default {
       // this.canSeeStatistics will be false until there is a new implementation
       this.canUseVettingSummary = perm && perm.userCanUseVettingSummary;
       this.isAdmin = perm && perm.userIsAdmin;
+      this.isUnofficial = cldrStatus.getIsUnofficial();
       this.isTC = perm && perm.userIsTC;
 
       const user = cldrStatus.getSurveyUser();

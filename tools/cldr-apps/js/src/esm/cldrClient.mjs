@@ -4,6 +4,8 @@ import { SURVEY_TOOL_SESSION_HEADER } from "./cldrAjax.mjs";
 
 const OAS3_ROOT = "/openapi"; // Path to the 'openapi' (sibling to cldr-apps). Needs to be a host-relative URL.
 
+const RESOLVED_ROOT = new URL(OAS3_ROOT, document.baseURI);
+
 /**
  * Create a promise to a swagger client for ST operations.
  *
@@ -16,7 +18,8 @@ const OAS3_ROOT = "/openapi"; // Path to the 'openapi' (sibling to cldr-apps). N
  * @returns Promise<SwaggerClient>
  */
 function getClient() {
-  return new SwaggerClient(OAS3_ROOT, {
+  return new SwaggerClient({
+    url: RESOLVED_ROOT,
     requestInterceptor: (obj) => {
       // add the session header to each request
       obj.headers[SURVEY_TOOL_SESSION_HEADER] = getSessionId();

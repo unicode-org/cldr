@@ -1,15 +1,22 @@
 package org.unicode.cldr.util;
 
-import com.google.common.base.CharMatcher;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
-import com.ibm.icu.dev.util.UnicodeMap;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.Multimaps;
+import com.google.common.collect.Ordering;
+import com.google.common.collect.TreeMultimap;
+import com.ibm.icu.impl.UnicodeMap;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.CharSequences;
+import com.ibm.icu.text.Collator;
+import com.ibm.icu.text.Transliterator;
+import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ICUException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -18,15 +25,28 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.TreeMap;
+import java.util.TreeSet;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.PathHeader.PageId;
 
 public class Emoji {
+    public static final Collator COLLATOR = CLDRConfig.getInstance().getCollator();
     public static final String EMOJI_VARIANT = "\uFE0F";
+    public static final char JOINER = '\u200D';
+    public static final String JOINER_STR = "\u200D";
+
+    public static final String FEMALE = "\u2640";
+    public static final String MALE = "\u2642";
+    public static final String TRANSGENDER = "\u26A7";
+
     public static final String COMBINING_ENCLOSING_KEYCAP = "\u20E3";
     public static final String ZWJ = "\u200D";
     public static final UnicodeSet REGIONAL_INDICATORS = new UnicodeSet(0x1F1E6, 0x1F1FF).freeze();
-    public static final UnicodeSet MODIFIERS = new UnicodeSet("[🏻-🏿]").freeze();
+    public static final UnicodeSet SKIN_MODIFIERS = new UnicodeSet("[🏻-🏿]").freeze();
+    public static final UnicodeSet HAIR_MODIFIERS = new UnicodeSet("[🦰🦱🦳🦲]").freeze();
     public static final UnicodeSet TAGS = new UnicodeSet(0xE0000, 0xE007F).freeze();
     public static final UnicodeSet FAMILY = new UnicodeSet("[\u200D 👦-👩 💋 ❤]").freeze();
     public static final UnicodeSet GENDER = new UnicodeSet().add(0x2640).add(0x2642).freeze();
@@ -52,6 +72,57 @@ public class Emoji {
     static final UnicodeMap<String> emojiToMinorCategory = new UnicodeMap<>();
     static final UnicodeMap<String> toName = new UnicodeMap<>();
 
+    static final UnicodeSet NEUTRAL =
+            new UnicodeSet(
+                            "[⛷⛹🏂-🏄🏇🏊-🏎👤👥👪-👳👶👷👼💁💂💆💇💏💑🕴🕵🗣🙅-🙇🙋🙍🙎🚣🚴-🚶🛀🛌🤦🤰🤱🤵🤷-🤾🦸🦹🧑-🧟]")
+                    .freeze();
+    public static final String ZWJ_HANDSHAKE_ZWJ = JOINER_STR + UTF16.valueOf(0x1F91D) + JOINER_STR;
+    public static final String ZWJ_HEART_ZWJ = JOINER_STR + UTF16.valueOf(0x2764) + JOINER_STR;
+    public static final UnicodeSet FULL_ZWJ_GENDER_MARKERS =
+            new UnicodeSet()
+                    .add(JOINER + FEMALE)
+                    .add(JOINER + MALE)
+                    .add(JOINER + FEMALE + EMOJI_VARIANT)
+                    .add(JOINER + MALE + EMOJI_VARIANT)
+                    .freeze();
+
+    static final Transliterator NEUTER;
+
+    static {
+        final UnicodeMap<String> TO_NEUTRAL =
+                new UnicodeMap<String>()
+                        .put("👦", "🧒")
+                        .put("👧", "🧒")
+                        .put("👨", "🧑")
+                        .put("👩", "🧑")
+                        .put("👴", "🧓")
+                        .put("👵", "🧓")
+                        .put("🤴", "🧑\u200D👑")
+                        .put("👸", "🧑\u200D👑")
+                        .put("🎅", "🧑\u200D🎄")
+                        .put("🤶", "🧑\u200D🎄")
+                        .put("💃", "🧑\u200D🎶")
+                        .put("🕺", "🧑\u200D🎶")
+                        .put("👫", "🧑" + ZWJ_HANDSHAKE_ZWJ + "🧑")
+                        .put("👬", "🧑" + ZWJ_HANDSHAKE_ZWJ + "🧑")
+                        .put("👭", "🧑" + ZWJ_HANDSHAKE_ZWJ + "🧑")
+                        .put(JOINER + FEMALE + EMOJI_VARIANT, "")
+                        .put(JOINER + MALE + EMOJI_VARIANT, "")
+                        .put(JOINER + FEMALE, "")
+                        .put(JOINER + MALE, "")
+                        .freeze();
+        Map<String, String> results =
+                new TreeMap(Ordering.from(SupplementalDataInfo.LENGTH_FIRST).reversed());
+        for (Entry<String, String> entry : TO_NEUTRAL.entrySet()) {
+            results.put(entry.getKey(), entry.getValue());
+        }
+        StringBuilder sb = new StringBuilder();
+        for (Entry<String, String> entry : results.entrySet()) {
+            sb.append(entry.getKey()).append('→').append(entry.getValue()).append(";\n");
+        }
+        NEUTER = Transliterator.createFromRules("foo", sb.toString(), Transliterator.FORWARD);
+    }
+
     static {
         emojiToMajorCategory.setErrorOnReset(true);
         emojiToMinorCategory.setErrorOnReset(true);
@@ -73,6 +144,9 @@ public class Emoji {
     static final UnicodeSet allRgi = new UnicodeSet();
     static final UnicodeSet allRgiNoES = new UnicodeSet();
 
+    static final UnicodeMap<String> restoreVariants = new UnicodeMap<>();
+    static final Set<Set<String>> genderSets;
+    // ߘ E1.0 grinning face
     static {
         /*
          * Example from emoji-test.txt:
@@ -80,9 +154,13 @@ public class Emoji {
          *   # subgroup: face-smiling
          *   1F600 ; fully-qualified # 😀 grinning face
          */
-        Splitter semi = Splitter.on(CharMatcher.anyOf(";#")).trimResults();
+        Splitter semi = Splitter.on(';').trimResults();
         String majorCategory = null;
         String minorCategory = null;
+        final Matcher commentMatcher =
+                Pattern.compile("\\s*[\\S]+\\s+(?:E\\d*.\\d+\\s+)(.*)").matcher("");
+
+        Map<String, String> neutralAndGenderedToNeutral = new TreeMap<>();
         for (String line : FileUtilities.in(Emoji.class, "data/emoji/emoji-test.txt")) {
             if (line.startsWith("#")) {
                 line = line.substring(1).trim();
@@ -103,20 +181,45 @@ public class Emoji {
 
             String emojiHex = it.next();
             String original = Utility.fromHex(emojiHex, 4, " ");
-            String type = it.next();
+            String typeRaw = it.next();
+            // fully-qualified     # #️⃣ E0.6 keycap: #
+            int hashPos = typeRaw.indexOf('#');
+            if (hashPos < 0) {
+                throw new IllegalArgumentException("unexpected comment format: " + typeRaw);
+            }
+            String type = typeRaw.substring(0, hashPos).trim();
             if (type.startsWith("fully-qualified")) {
+                if (original.contains("♂")) {
+                    int debug = 0;
+                }
                 allRgi.add(original);
-                allRgiNoES.add(original.replace(Emoji.EMOJI_VARIANT, ""));
+                final String variantsRemoved = removeVariants(original);
+                allRgiNoES.add(variantsRemoved);
+                if (!original.equals(variantsRemoved)) {
+                    restoreVariants.put(variantsRemoved, original);
+                }
+                if (!SKIN_MODIFIERS.containsSome(original)) {
+                    String neutral = NEUTER.transform(original);
+                    if (!neutral.equals(original)) {
+                        neutralAndGenderedToNeutral.put(original, neutral);
+                        neutralAndGenderedToNeutral.put(neutral, neutral);
+                    }
+                }
             }
             emojiToMajorCategory.put(original, majorCategory);
             emojiToMinorCategory.put(original, minorCategory);
-            String comment = it.next();
+            String comment = typeRaw.substring(hashPos + 1);
+            if (!commentMatcher.reset(comment).matches()) {
+                throw new IllegalArgumentException("unexpected comment format");
+            }
+            String name = commentMatcher.group(1);
             // The comment is now of the form:  # 😁 E0.6 beaming face with smiling eyes
-            int spacePos = comment.indexOf(' ');
+            // int spacePos = comment.indexOf(' ');
             // The format changed in v15.1, so there is no version number.
             // Thus the following is commented out:
             // spacePos = comment.indexOf(' ', spacePos + 1); // get second space
-            String name = comment.substring(spacePos + 1).trim();
+            // String name = comment.substring(spacePos + 1).trim();
+
             toName.put(original, name);
 
             // add all the non-constructed values to a set for annotations
@@ -137,7 +240,7 @@ public class Emoji {
             if (minimal.contains(COMBINING_ENCLOSING_KEYCAP)
                     || REGIONAL_INDICATORS.containsSome(minimal)
                     || TAGS.containsSome(minimal)
-                    || !singleton && MODIFIERS.containsSome(minimal)
+                    || !singleton && SKIN_MODIFIERS.containsSome(minimal)
                     || !singleton && FAMILY.containsAll(minimal)) {
                 // do nothing
             } else if (minimal.contains(ZWJ)) { // only do certain ZWJ sequences
@@ -153,11 +256,45 @@ public class Emoji {
         }
         emojiToMajorCategory.freeze();
         emojiToMinorCategory.freeze();
-        nonConstructed.add(MODIFIERS); // needed for names
+        nonConstructed.add(SKIN_MODIFIERS); // needed for names
         nonConstructed.freeze();
         toName.freeze();
         allRgi.freeze();
-        allRgiNoES.freeze();
+        allRgiNoES.addAll(SKIN_MODIFIERS).addAll(HAIR_MODIFIERS).freeze();
+        // hack
+        for (String s :
+                new UnicodeSet(
+                        "[#*0-9©®‼⁉™ℹ↔-↙↩↪⌨⏏⏭-⏯ ⏱⏲⏸-⏺Ⓜ▪▫▶◀◻◼☀-☄☎☑☘☝☠☢ ☣☦☪☮☯☸-☺♀♂♟♠♣♥♦♨♻♾⚒⚔-⚗ ⚙⚛⚜⚠⚧⚰⚱⛈⛏⛑⛓⛩⛰⛱⛴⛷-⛹✂"
+                                + "✈✉ ✌✍✏✒✔✖✝✡✳✴❄❇❣❤➡⤴⤵⬅-⬇〰 〽㊗㊙🅰🅱🅾🅿🈂🈷🌡🌤-🌬🌶🍽🎖🎗🎙-🎛🎞 🎟🏋-🏎🏔-🏟🏳🏵🏷🐿👁📽🕉"
+                                + "🕊🕯🕰🕳-🕹🖇 🖊-🖍🖐🖥🖨🖱🖲🖼🗂-🗄🗑-🗓🗜-🗞🗡🗣🗨 🗯🗳🗺🛋🛍-🛏🛠-🛥🛩🛰🛳]")) {
+            restoreVariants.put(s, s + Emoji.EMOJI_VARIANT);
+        }
+        restoreVariants.freeze();
+        Multimap<String, String> neutralToOthers = TreeMultimap.create(COLLATOR, COLLATOR);
+        Multimaps.invertFrom(Multimaps.forMap(neutralAndGenderedToNeutral), neutralToOthers);
+        Set<Set<String>> toGenderGroup = new LinkedHashSet<>();
+        for (Collection<String> set : neutralToOthers.asMap().values()) {
+            TreeSet<String> s = new TreeSet<>(COLLATOR);
+            s.addAll(set);
+            toGenderGroup.add(ImmutableSet.copyOf(s));
+        }
+        genderSets = CldrUtility.protectCollection(toGenderGroup);
+    }
+
+    public static String removeVariants(String original) {
+        return original.replace(Emoji.EMOJI_VARIANT, "");
+    }
+
+    public static Set<Set<String>> getGenderGroups() {
+        return genderSets;
+    }
+
+    public static final String restoreVariants(String source) {
+        String restored = restoreVariants.get(source);
+        if (restored != null) {
+            int debug = 0;
+        }
+        return restored == null ? source : restored;
     }
 
     private static <K, V> void putUnique(Map<K, V> map, K key, V value) {

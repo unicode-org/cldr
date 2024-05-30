@@ -103,11 +103,11 @@ public class ElementAttributeInfo {
         addElementAttributeInfo(
                 result,
                 DtdType.keyboard3,
-                canonicalCommonDirectory + "/../keyboards/3.0/fr-t-k0-azerty.xml");
+                canonicalCommonDirectory + "/../keyboards/3.0/fr-t-k0-test.xml");
         addElementAttributeInfo(
                 result,
                 DtdType.keyboardTest3,
-                canonicalCommonDirectory + "/../keyboards/test/fr-t-k0-azerty-test.xml");
+                canonicalCommonDirectory + "/../keyboards/test/fr-t-k0-test-test.xml");
         return result;
     }
 

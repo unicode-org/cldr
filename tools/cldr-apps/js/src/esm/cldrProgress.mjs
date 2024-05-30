@@ -7,12 +7,17 @@ import * as cldrAjax from "./cldrAjax.mjs";
 import * as cldrCoverage from "./cldrCoverage.mjs";
 import * as cldrGui from "./cldrGui.mjs";
 import * as cldrNotify from "./cldrNotify.mjs";
+import * as cldrSchedule from "./cldrSchedule.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
 import * as cldrSurvey from "./cldrSurvey.mjs";
 import * as cldrText from "./cldrText.mjs";
 import * as cldrVue from "./cldrVue.mjs";
 
 import ProgressMeters from "../views/ProgressMeters.vue";
+
+const CLDR_PROGRESS_DEBUG = false;
+
+const LOCALE_METER_REFRESH_SECONDS = 60; // one minute
 
 let progressWrapper = null;
 
@@ -22,10 +27,11 @@ let localeProgressStats = null;
 
 let pageProgressRows = null;
 
-let timeLastRequestedLocaleData = 0;
-let timeLastReceivedLocaleData = 0;
-
-const LOCALE_METER_REFRESH_MS = 60 * 1000;
+const schedule = new cldrSchedule.FetchSchedule(
+  "cldrProgress",
+  LOCALE_METER_REFRESH_SECONDS,
+  CLDR_PROGRESS_DEBUG
+);
 
 class MeterData {
   /**
@@ -361,18 +367,10 @@ function fetchLocaleData(unlessLoaded) {
   if (!locale || locale === "USER") {
     return; // no locale
   }
-  if (
-    unlessLoaded &&
-    localeProgressStats &&
-    localeProgressStats.locale === locale
-  ) {
+  if (unlessLoaded && localeProgressStats?.locale === locale) {
     // LocaleMeter is already set
-    // Still refresh if it's been long enough since last request and last response
-    const now = Date.now();
-    if (
-      now < timeLastReceivedLocaleData + LOCALE_METER_REFRESH_MS &&
-      now < timeLastRequestedLocaleData + LOCALE_METER_REFRESH_MS
-    ) {
+    // Only refresh if it's been long enough since last request and last response
+    if (schedule.tooSoon()) {
       return;
     }
   }
@@ -381,7 +379,7 @@ function fetchLocaleData(unlessLoaded) {
 }
 
 function reallyFetchLocaleData(locale) {
-  timeLastRequestedLocaleData = Date.now();
+  schedule.setRequestTime();
   const url = `api/completion/locale/${locale}`;
   cldrAjax
     .doFetch(url)
@@ -394,9 +392,9 @@ function reallyFetchLocaleData(locale) {
     })
     .then((data) => data.json())
     .then((json) => {
+      schedule.setResponseTime();
       progressWrapper.setHidden(false);
       setLocaleProgressStatsFromJson(json, locale);
-      timeLastReceivedLocaleData = Date.now();
       refreshLocaleMeter();
     })
     .catch((err) => {

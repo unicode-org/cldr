@@ -267,6 +267,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<languageAlias type="gaz" replacement="om" reason="macrolanguage"/> <!-- Oromo, West Central ⇒ Oromo -->
 			<languageAlias type="gbo" replacement="grb" reason="macrolanguage"/> <!-- Northern Grebo ⇒ Grebo -->
 			<languageAlias type="gno" replacement="gon" reason="macrolanguage"/> <!-- Northern Gondi ⇒ Gondi -->
+			<languageAlias type="gom" replacement="kok" reason="macrolanguage"/> <!-- Goan Konkani (individual language) ⇒ Konkani -->
 			<languageAlias type="gug" replacement="gn" reason="macrolanguage"/> <!-- Paraguayan Guarani ⇒ Guarani -->
 			<languageAlias type="gya" replacement="gba" reason="macrolanguage"/> <!-- Northwest Gbaya ⇒ Gbaya (Central African Republic) -->
 			<languageAlias type="hdn" replacement="hai" reason="macrolanguage"/> <!-- Northern Haida ⇒ Haida -->
@@ -275,7 +276,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<languageAlias type="kmr" replacement="ku" reason="macrolanguage"/> <!-- Northern Kurdish ⇒ Kurdish -->
 			<languageAlias type="knc" replacement="kr" reason="macrolanguage"/> <!-- Central Kanuri ⇒ Kanuri -->
 			<languageAlias type="kng" replacement="kg" reason="macrolanguage"/> <!-- Koongo ⇒ Kongo -->
-			<languageAlias type="knn" replacement="kok" reason="macrolanguage"/> <!-- Konkani (individual language) ⇒ Konkani -->
 			<languageAlias type="kpv" replacement="kv" reason="macrolanguage"/> <!-- Komi-Zyrian ⇒ Komi -->
 			<languageAlias type="lvs" replacement="lv" reason="macrolanguage"/> <!-- Standard Latvian ⇒ Latvian -->
 			<languageAlias type="mhr" replacement="chm" reason="macrolanguage"/> <!-- Mari, Eastern ⇒ Mari (Russia) -->
@@ -1837,13 +1837,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 			hsb_DE hu_HU hy_AM
 			ia_001 id_ID ie_EE ife_TG ig_NG ii_CN io_001 is_IS it_IT iu_CA iu_Latn_CA
 			ja_JP jbo_001 jgo_CM jmc_TZ jv_ID
-			ka_GE kab_DZ kaj_NG kam_KE kcg_NG kde_TZ kea_CV ken_CM kgp_BR khq_ML ki_KE
-			kk_KZ kkj_CM kl_GL kln_KE km_KH kn_IN ko_KR kok_IN kpe_LR ks_Arab ks_Arab_IN
-			ks_Deva_IN ksb_TZ ksf_CM ksh_DE ku_TR kw_GB kxv_Deva_IN kxv_Latn kxv_Latn_IN
-			kxv_Orya_IN kxv_Telu_IN ky_KG
-			la_VA lag_TZ lb_LU lg_UG lij_IT lkt_US lmo_IT ln_CD lo_LA lrc_IR lt_LT lu_CD
-			luo_KE luy_KE lv_LV
-			mai_IN mas_KE mdf_RU mer_KE mfe_MU mg_MG mgh_MZ mgo_CM mi_NZ mic_CA mk_MK ml_IN
+			ka_GE kaa_Cyrl kaa_Cyrl_UZ kaa_Latn_UZ kab_DZ kaj_NG kam_KE kcg_NG kde_TZ kea_CV ken_CM kgp_BR
+			khq_ML ki_KE
+			kk_Arab_CN kk_Cyrl kk_Cyrl_KZ
+			kkj_CM kl_GL kln_KE km_KH kn_IN ko_KR kok_Deva kok_Deva_IN kok_Latn_IN kpe_LR ks_Arab
+			ks_Arab_IN ks_Deva_IN ksb_TZ ksf_CM ksh_DE ku_TR kw_GB kxv_Deva_IN kxv_Latn
+			kxv_Latn_IN	kxv_Orya_IN kxv_Telu_IN ky_KG
+			la_VA lag_TZ lb_LU lg_UG lij_IT lkt_US lld_IT lmo_IT ln_CD lo_LA lrc_IR
+			lt_LT ltg_LV lu_CD luo_KE luy_KE lv_LV
+			mai_IN mas_KE mdf_RU mer_KE mfe_MU mg_MG mgh_MZ mgo_CM mhn_IT mi_NZ mic_CA mk_MK ml_IN
 			mn_MN mn_Mong_CN mni_Beng mni_Beng_IN mni_Mtei_IN moh_CA mr_IN ms_Arab_MY ms_MY
 			mt_MT mua_CM mus_US my_MM myv_RU mzn_IR
 			naq_NA nb nb_NO nd_ZW nds_DE ne_NP nl_NL nmg_CM nn_NO nnh_CM nqo_GN nr_ZA
@@ -1864,7 +1866,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			wa_BE wae_CH wal_ET wbp_AU wo_SN
 			xh_ZA xnr_IN xog_UG
 			yav_CM yi_UA yo_NG yrl_BR yue_Hans_CN yue_Hant yue_Hant_HK
-			za_CN zgh_MA zh_Hans zh_Hans_CN zh_Hant_TW zu_ZA"
+			za_CN zgh_MA zh_Hans zh_Hans_CN zh_Hant_TW zh_Latn_CN zu_ZA"
 		/>
     </metadata>
 </supplementalData>

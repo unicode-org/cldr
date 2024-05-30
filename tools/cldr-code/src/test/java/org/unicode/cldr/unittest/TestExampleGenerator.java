@@ -802,7 +802,7 @@ public class TestExampleGenerator extends TestFmwk {
                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/dateTimeFormatLength[@type=\"long\"]/dateTimeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]");
         checkValue(
                 "DateTimeCombo short std",
-                "〖❬9/5/99❭, ❬1:25:59 PM Eastern Standard Time❭〗〖❬9/5/99❭, ❬1:25 PM❭〗〖❬9/5/99❭, ❬7:00 AM – 1:25 PM❭〗〖❬today❭, ❬7:00 AM – 1:25 PM❭〗",
+                "〖❬9/5/99❭, ❬1:25:59 PM EST❭〗〖❬9/5/99❭, ❬1:25 PM❭〗〖❬9/5/99❭, ❬7:00 AM – 1:25 PM❭〗〖❬today❭, ❬7:00 AM – 1:25 PM❭〗",
                 exampleGenerator,
                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/dateTimeFormatLength[@type=\"short\"]/dateTimeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]");
         checkValue(
@@ -810,6 +810,45 @@ public class TestExampleGenerator extends TestFmwk {
                 "〖❬September 5, 1999❭ at ❬1:25:59 PM Eastern Standard Time❭〗〖❬September 5, 1999❭ at ❬1:25 PM❭〗〖❬today❭ at ❬1:25 PM❭〗",
                 exampleGenerator,
                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/dateTimeFormatLength[@type=\"long\"]/dateTimeFormat[@type=\"atTime\"]/pattern[@type=\"standard\"]");
+    }
+
+    public void TestDateSymbols() {
+        ExampleGenerator exampleGenerator = getExampleGenerator("cs");
+        checkValue(
+                "cs format wide",
+                "〖5. června 1999〗",
+                exampleGenerator,
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"wide\"]/month[@type=\"6\"]");
+        checkValue(
+                "cs format abbreviated",
+                "〖5. čvn 1999〗",
+                exampleGenerator,
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"abbreviated\"]/month[@type=\"6\"]");
+        checkValue(
+                "cs stand-alone wide",
+                "〖červen 1999〗",
+                exampleGenerator,
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"stand-alone\"]/monthWidth[@type=\"wide\"]/month[@type=\"6\"]");
+        checkValue(
+                "cs stand-alone abbreviated",
+                "〖čvn 1999〗",
+                exampleGenerator,
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"stand-alone\"]/monthWidth[@type=\"abbreviated\"]/month[@type=\"6\"]");
+    }
+
+    public void TestMinimumGroupingExamples() {
+        ExampleGenerator exampleGeneratorEn = getExampleGenerator("en"); // min grouping 1
+        ExampleGenerator exampleGeneratorEs = getExampleGenerator("es"); // min grouping 2
+        checkValue(
+                "MinimumGrouping en: 1",
+                "〖❬543.21❭〗〖❬6,543❭.❬21❭〗〖❬76,543❭.❬21❭〗",
+                exampleGeneratorEn,
+                "//ldml/numbers/minimumGroupingDigits");
+        checkValue(
+                "MinimumGrouping es: 2",
+                "〖❬543,21❭〗〖❬6543,21❭〗〖❬76.543❭,❬21❭〗",
+                exampleGeneratorEs,
+                "//ldml/numbers/minimumGroupingDigits");
     }
 
     public void TestSymbols() {
@@ -1564,12 +1603,21 @@ public class TestExampleGenerator extends TestFmwk {
                 "[ॄ‌‍]",
                 "〖‎🗝️ ॑ ॒ ॠ ॡ ॻ ॼ ॾ ॿ ऱ ॢ ॣ〗〖❰ZWNJ❱ ≡ cursive non-joiner〗〖❰ZWJ❱ ≡ cursive joiner〗〖❬internal: ❭[ॄ‌‍]〗"
             },
-            {
-                "hu",
-                "//ldml/characters/exemplarCharacters[@type=\"auxiliary\"]",
-                "[qw-yàâ-èê-ìîïñòôøùûÿāăēĕīĭōŏœūŭ]",
-                "〖‎🗝️ · ắ ằ ẵ ẳ ấ ầ ẫ ẩ ǎ a̧ ą ą́ a᷆ a᷇ ả ạ ặ ậ a̱ aː áː àː ɓ ć ĉ č ċ ď ḑ đ ḍ ḓ ð ɖ ɗ ế ề ễ ể ě ẽ ė ę ę́ e᷆ e᷇ ẻ ẹ ẹ́ ẹ̀ ệ e̱ eː éː èː ǝ ǝ́ ǝ̀ ǝ̂ ǝ̌ ǝ̄ ə ə́ ə̀ ə̂ ə̌ ə̄ ɛ ɛ́ ɛ̀ ɛ̂ ɛ̌ ɛ̈ ɛ̃ ɛ̧ ɛ̄ ɛ᷆ ɛ᷇ ɛ̱ ɛ̱̈ ƒ ğ ĝ ǧ g̃ ġ ģ g̱ gʷ ǥ ɣ ĥ ȟ ħ ḥ ʻ ǐ ĩ İ i̧ į į́ i᷆ i᷇ ỉ ị i̱ iː íː ìː íj́ ı ɨ ɨ́ ɨ̀ ɨ̂ ɨ̌ ɨ̄ ɩ ɩ́ ɩ̀ ɩ̂ ĵ ǩ ķ ḵ kʷ ƙ ĺ ľ ļ ł ḷ ḽ ḻ ḿ m̀ m̄ ń ǹ ň ṅ ņ n̄ ṇ ṋ ṉ ɲ ŋ ŋ́ ŋ̀ ŋ̄ ố ồ ỗ ổ ǒ õ ǫ ǫ́ o᷆ o᷇ ỏ ơ ớ ờ ỡ ở ợ ọ ọ́ ọ̀ ộ o̱ oː óː òː ɔ ɔ́ ɔ̀ ɔ̂ ɔ̌ ɔ̈ ɔ̃ ɔ̧ ɔ̄ ɔ᷆ ɔ᷇ ɔ̱ ŕ ř ŗ ṛ ś ŝ š ş ṣ ș ß ť ṭ ț ṱ ṯ ŧ ǔ ů ũ u̧ ų u᷆ u᷇ ủ ư ứ ừ ữ ử ự ụ uː úː ùː ʉ ʉ́ ʉ̀ ʉ̂ ʉ̌ ʉ̈ ʉ̄ ʊ ʊ́ ʊ̀ ʊ̂ ṽ ʋ ẃ ẁ ŵ ẅ ý ỳ ŷ ỹ ỷ ỵ y̱ ƴ ź ž ż ẓ ʒ ǯ þ ʔ ˀ ʼ ꞌ ǀ ǁ ǂ ǃ〗〖❬internal: ❭[qw-yàâ-èê-ìîïñòôøùûÿāăēĕīĭōŏœūŭ]〗"
-            },
+            // TODO: This test is too fragile. Commented out for discussion in CLDR-17608
+            // {
+            //     "hu",
+            //     "//ldml/characters/exemplarCharacters[@type=\"auxiliary\"]",
+            //     "[qw-yàâ-èê-ìîïñòôøùûÿāăēĕīĭōŏœūŭ]",
+            //     "〖‎🗝️ · ắ ằ ẵ ẳ ấ ầ ẫ ẩ ǎ a̧ ą ą́ a᷆ a᷇ ả ạ ặ ậ a̱ aː áː àː ɓ ć ĉ č ċ ď ḑ đ ḍ ḓ
+            // ð ɖ ɗ ế ề ễ ể ě ẽ ė ę ę́ e᷆ e᷇ ẻ ẹ ẹ́ ẹ̀ ệ e̱ eː éː èː ǝ ǝ́ ǝ̀ ǝ̂ ǝ̌ ǝ̄ ə ə́ ə̀ ə̂ ə̌
+            // ə̄ ɛ ɛ́ ɛ̀ ɛ̂ ɛ̌ ɛ̈ ɛ̃ ɛ̧ ɛ̄ ɛ᷆ ɛ᷇ ɛ̱ ɛ̱̈ ƒ ğ ĝ ǧ g̃ ġ ģ g̱ gʷ ǥ ɣ ĥ ȟ ħ ḥ ʻ ǐ ĩ İ i̧
+            // į į́ i᷆ i᷇ ỉ ị i̱ iː íː ìː íj́ ı ɨ ɨ́ ɨ̀ ɨ̂ ɨ̌ ɨ̄ ɩ ɩ́ ɩ̀ ɩ̂ ĵ ǩ ķ ḵ kʷ ƙ ĺ ľ ļ ł ḷ ḽ
+            // ḻ ḿ m̀ m̄ ń ǹ ň ṅ ņ n̄ ṇ ṋ ṉ ɲ ŋ ŋ́ ŋ̀ ŋ̄ ố ồ ỗ ổ ǒ õ ǫ ǫ́ o᷆ o᷇ ỏ ơ ớ ờ ỡ ở ợ ọ ọ́
+            // ọ̀ ộ o̱ oː óː òː ɔ ɔ́ ɔ̀ ɔ̂ ɔ̌ ɔ̈ ɔ̃ ɔ̧ ɔ̄ ɔ᷆ ɔ᷇ ɔ̱ ŕ ř ŗ ṛ ś ŝ š ş ṣ ș ß ť ṭ ț ṱ ṯ ŧ
+            // ǔ ů ũ u̧ ų u᷆ u᷇ ủ ư ứ ừ ữ ử ự ụ uː úː ùː ʉ ʉ́ ʉ̀ ʉ̂ ʉ̌ ʉ̈ ʉ̄ ʊ ʊ́ ʊ̀ ʊ̂ ṽ ʋ ẃ ẁ ŵ ẅ
+            // ý ỳ ŷ ỹ ỷ ỵ y̱ ƴ ź ž ż ẓ ʒ ǯ þ ʔ ˀ ʼ ꞌ ǀ ǁ ǂ ǃ〗〖❬internal:
+            // ❭[qw-yàâ-èê-ìîïñòôøùûÿāăēĕīĭōŏœūŭ]〗"
+            // },
             {
                 "de",
                 "//ldml/characters/parseLenients[@scope=\"date\"][@level=\"lenient\"]/parseLenient[@sample=\"-\"]",

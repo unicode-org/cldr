@@ -74,6 +74,9 @@ public class TestUserRegistry extends TestFmwk {
      * @throws SQLException
      */
     public void TestOrgList() throws SQLException {
+        if (TestAll.skipIfNoDb()) {
+            return;
+        }
         TestSTFactory.getFactory(); // to setup the User Regitry.
         for (String name : UserRegistry.getOrgList()) {
             try {

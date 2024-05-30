@@ -743,7 +743,7 @@ function getUserSeen(u) {
     return "";
   }
   const what = u.data.active ? "active" : "seen";
-  let html = "<b>" + what + ": " + when + " ago</b>";
+  let html = "<b>" + what + ": " + when + "</b>";
   if (what === "seen") {
     html += "<br /><font size='-2'>" + u.data.lastlogin + "</font></td>";
   }

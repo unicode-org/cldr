@@ -432,6 +432,7 @@ function loadHandlerForSubmit(data) {
       cldrLoad.reloadV(); // main Forum page
     } else {
       cldrForumPanel.updatePosts(null); // Info Panel
+      cldrSurvey.expediteStatusUpdate(); // update forum icons (👁️‍🗨️, 💬) in the main table
     }
   } else {
     const post = $(".post").first();

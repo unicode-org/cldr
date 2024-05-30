@@ -80,10 +80,9 @@ const statusActionTable = {
 /**
  * How often to fetch updates. Default 15s.
  * Used only for delay in calling updateStatus.
- * @property timerSpeed
  */
-let timerSpeed = 15000; // 15 seconds
-let fastTimerSpeed = 3000; // 3 seconds
+const timerSpeed = 15000; // 15 seconds
+const fastTimerSpeed = 3000; // 3 seconds
 let statusTimeout = null;
 
 let overridedir = null;
@@ -752,8 +751,13 @@ function testsToHtml(tests) {
   if (!tests) {
     return newHtml;
   }
+
   for (var i = 0; i < tests.length; i++) {
     var testItem = tests[i];
+    const { entireLocale } = testItem;
+    if (entireLocale) {
+      continue; // skip entireLocale errors
+    }
     newHtml += "<p class='trInfo tr_" + testItem.type;
     if (testItem.type == "Warning") {
       newHtml += " alert alert-warning fix-popover-help";
@@ -780,7 +784,7 @@ function testsToHtml(tests) {
       newHtml += ' <a href="' + testItem.subtypeUrl + '">(how to fix…)</a>';
     }
 
-    newHtml += "</p>";
+    newHtml += "</p>\n";
   }
   return newHtml;
 }

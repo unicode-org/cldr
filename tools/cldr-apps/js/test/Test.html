@@ -16,17 +16,18 @@
       "
     >
       <h1>CLDR SurveyTool JavaScript Tests</h1>
-      <script>
-        if (location.protocol === "file:") {
-          document.write(
-            "<h1>Error</h1><p>The protocol should be <b>html:</b>, not <b>file:</b><br />A server is required; see <b>run.sh</b></p>"
-          );
-        }
-      </script>
-      <p>
-        <em>Important:</em> run with run.sh; open the browser console to check
-        for errors/warnings that are otherwise invisible!
-      </p>
+      <ul>
+        <li>in the 'js' directory, run <code>npm i</code> to install</li>
+        <li>To rebuild, run <code>npm run build-test</code></li>
+        <li>
+          If you want to continuously compile, keep
+          <code>npm run watch-test</code> (control-C to cancel)
+        </li>
+        <li>
+          open the browser console to check for errors/warnings that are
+          otherwise invisible!
+        </li>
+      </ul>
       <p><em>References:</em></p>
       <ul>
         <li>
@@ -43,7 +44,7 @@
       </ul>
     </div>
     <div id="mocha" style="margin-top: 12pt"></div>
-    <script src="https://unpkg.com/chai/chai.js"></script>
+    <script src="https://unpkg.com/chai@4.3.6/chai.js"></script>
     <script src="https://unpkg.com/mocha/mocha.js"></script>
     <script class="mocha-init">
       mocha.setup("bdd");

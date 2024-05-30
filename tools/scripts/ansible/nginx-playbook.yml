@@ -14,6 +14,18 @@
         group: root
         mode: '0644'
       notify: 'Restart Nginx'
+    - name: Setup gzip.conf
+      copy:
+        dest: /etc/nginx/conf.d/gzip.conf
+        owner: root
+        group: root
+        mode: '0644'
+        content: |
+          gzip on;
+          gzip_types      text/plain application/xml application/json text/javascript application/x-javascript;
+          gzip_proxied    no-cache no-store private expired auth;
+          gzip_min_length 1000;
+      notify: 'Restart Nginx'
     - name: Setup reverse proxy
       blockinfile:
         path: /etc/nginx/sites-enabled/default

@@ -360,6 +360,12 @@ const strings = {
   forum_remember_vote:
     "⚠️ Please remember to vote – submitting a forum post does NOT cause any actual vote to be made.",
 
+  forum_path_has_posts: "This item has one or more forum posts, ",
+  forum_path_has_open_posts: "some of which are open",
+  forum_path_has_only_closed_posts: "all of which are closed",
+  forum_path_has_open_posts_icon: "👁️‍🗨️",
+  forum_path_has_only_closed_posts_icon: "💬",
+
   generic_nolocale: "No locale chosen.",
   defaultContent_msg:
     "This locale, ${name} is the <i><a target='CLDR-ST-DOCS' href='https://cldr.unicode.org/translation/translation-guide-general/default-content'>default content locale</a></i> for <b><a class='notselected' href='#/${dcParent}'>${dcParentName}</a></b>, and thus editing or viewing is disabled.",
@@ -486,7 +492,7 @@ const strings = {
   special_locales: "Locale List",
   special_lock_account: "Lock (Disable) My Account",
   special_lookup: "Look up a code or xpath",
-  special_mail: "Notifications (SMOKETEST ONLY)",
+  special_mail: "Simulate Email Notifications (SMOKETEST ONLY)",
   special_menu: "☰",
   special_oldvotes: "Import Old Votes",
   special_upload: "Upload (Bulk Import)",
@@ -495,6 +501,7 @@ const strings = {
   special_r_datetime: "Datetime",
   special_r_zones: "Zones",
   special_r_personnames: "Person Names",
+  special_r_supplemental: "Entire Locale Errors",
   special_recent_activity: "Recent Activity",
   special_retry: "Retry",
   special_retry_inplace: "Retry",
@@ -523,6 +530,8 @@ const strings = {
   lock_account_err_reason: "The reason for the request must be filled in.",
   lock_account_success:
     "The account has been locked successfully. Thank you for using the Survey Tool. If you have difficulty still, contact the person who set up your account.",
+
+  mail_noMail: "No simulated notification emails.",
 
   notification_category_abstained:
     "You have abstained, or not yet voted for any value.",

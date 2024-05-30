@@ -8,7 +8,7 @@ import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.dev.util.UnicodeMap;
+import com.ibm.icu.impl.UnicodeMap;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
 import com.ibm.icu.lang.UScript;
@@ -402,6 +402,17 @@ public class LikelySubtagsTest extends TestFmwk {
                 // we minimize away und_X, when the code puts in en...US
                 continue;
             }
+            // Temporary exception for CLDR 46 Unicode 16 (CLDR-17226) because
+            // GenerateMaximalLocales is currently not usable.
+            if (script.equals("Aghb")) {
+                // The script metadata for Aghb=Caucasian_Albanian changed
+                // the likely region from Russia to Azerbaijan, and
+                // the likely language from udi=Udi to xag=Old Udi.
+                // Error: likelySubtags.xml has wrong language for script (und_Aghb).
+                // Should not be udi_Aghb_RU, but Script Metadata suggests something like:
+                // {"und_Aghb", "xag_Aghb_AZ"},
+                continue;
+            }
             Info i = ScriptMetadata.getInfo(script);
             // System.out.println(i);
             String likelyLanguage = i.likelyLanguage;
@@ -584,21 +595,10 @@ public class LikelySubtagsTest extends TestFmwk {
 
         if (!problemScripts.isEmpty()) {
             warnln(
-                    "Adjust the data in scriptToExemplars.txt. Use -DSHOW_EXEMPLARS to get a fresh copy, or reset to expected value for: "
+                    "Adjust the data in scriptToExemplars.txt. Use -DSHOW_EXEMPLARS to update, or reset to expected value for: "
                             + problemScripts);
             if (SHOW_EXEMPLARS) {
-                for (Entry<String, UnicodeSet> entry : expected.entrySet()) {
-                    String script = entry.getKey();
-                    UnicodeSet flattened = entry.getValue();
-                    if (!flattened.isEmpty()) {
-                        System.out.println(
-                                script
-                                        + " ;\t"
-                                        + flattened.size()
-                                        + " ;\t"
-                                        + flattened.toPattern(false));
-                    }
-                }
+                ScriptToExemplars.write(expected);
             }
         }
     }

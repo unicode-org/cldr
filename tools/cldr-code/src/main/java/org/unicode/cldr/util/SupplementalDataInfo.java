@@ -547,7 +547,7 @@ public class SupplementalDataInfo {
         public final String digits;
         public final String rules;
 
-        public NumberingSystemInfo(XPathParts parts) {
+        public NumberingSystemInfo(XPathValue parts) {
             name = parts.getAttributeValue(-1, "id");
             digits = parts.getAttributeValue(-1, "digits");
             rules = parts.getAttributeValue(-1, "rules");
@@ -1348,6 +1348,8 @@ public class SupplementalDataInfo {
             }
         }
         CLDRScriptCodes = newScripts.build();
+        CLDRLanguageCodes = CldrUtility.protectCollection(CLDRLanguageCodes);
+        languageNonTcLtBasic = CldrUtility.protectCollection(languageNonTcLtBasic);
     }
 
     /**
@@ -1372,7 +1374,7 @@ public class SupplementalDataInfo {
         @Override
         public void handlePathValue(String path, String value) {
             try {
-                XPathParts parts = XPathParts.getFrozenInstance(path);
+                XPathValue parts = SimpleXPathParts.getFrozenInstance(path);
                 String level0 = parts.getElement(0);
                 String level1 = parts.size() < 2 ? null : parts.getElement(1);
                 String level2 = parts.size() < 3 ? null : parts.getElement(2);
@@ -1533,7 +1535,7 @@ public class SupplementalDataInfo {
             }
         }
 
-        private boolean handleUnitPrefix(XPathParts parts) {
+        private boolean handleUnitPrefix(XPathValue parts) {
             //      <unitPrefix type='quecto' symbol='q' power10='-30'/>
             String power10 = parts.getAttributeValue(-1, "power10");
             String power2 = parts.getAttributeValue(-1, "power2");
@@ -1549,13 +1551,13 @@ public class SupplementalDataInfo {
             return true;
         }
 
-        private boolean handlePersonNamesDefaults(String value, XPathParts parts) {
+        private boolean handlePersonNamesDefaults(String value, XPathValue parts) {
             personNameOrder.putAll(
                     Order.from(parts.getAttributeValue(-1, "order")), split_space.split(value));
             return true;
         }
 
-        private boolean handleUnitUnitIdComponents(XPathParts parts) {
+        private boolean handleUnitUnitIdComponents(XPathValue parts) {
             //      <unitIdComponent type="prefix" values="arc british dessert fluid light
             // nautical"/>
             UnitIdComponentType type =
@@ -1569,7 +1571,7 @@ public class SupplementalDataInfo {
             return true;
         }
 
-        private boolean handleGrammaticalData(String value, XPathParts parts) {
+        private boolean handleGrammaticalData(String value, XPathValue parts) {
             /*
             <!ATTLIST grammaticalFeatures targets NMTOKENS #REQUIRED >
             <!ATTLIST grammaticalFeatures locales NMTOKENS #REQUIRED >
@@ -1638,7 +1640,7 @@ public class SupplementalDataInfo {
          *<unitPreference regions="001" draft="unconfirmed">square-centimeter</unitPreference>
          */
 
-        private boolean handleUnitPreferences(XPathParts parts, String value) {
+        private boolean handleUnitPreferences(XPathValue parts, String value) {
             String geq = parts.getAttributeValue(-1, "geq");
             String small = parts.getAttributeValue(-2, "scope");
             if (small != null) {
@@ -1654,14 +1656,14 @@ public class SupplementalDataInfo {
             return true;
         }
 
-        private boolean handleLanguageGroups(String value, XPathParts parts) {
+        private boolean handleLanguageGroups(String value, XPathValue parts) {
             String parent = parts.getAttributeValue(-1, "parent");
             List<String> children = WHITESPACE_SPLTTER.splitToList(value);
             languageGroups.putAll(parent, children);
             return true;
         }
 
-        private boolean handleMeasurementData(String level2, XPathParts parts) {
+        private boolean handleMeasurementData(String level2, XPathValue parts) {
             /**
              * <measurementSystem type="US" territories="LR MM US"/> <paperSize type="A4"
              * territories="001"/>
@@ -1679,7 +1681,7 @@ public class SupplementalDataInfo {
             return true;
         }
 
-        private boolean handleUnitConstants(XPathParts parts) {
+        private boolean handleUnitConstants(XPathValue parts) {
             //      <unitConstant constant="ft2m" value="0.3048"/>
 
             final String constant = parts.getAttributeValue(-1, "constant");
@@ -1689,20 +1691,21 @@ public class SupplementalDataInfo {
             return true;
         }
 
-        private boolean handleUnitQuantities(XPathParts parts) {
+        private boolean handleUnitQuantities(XPathValue parts) {
             //      <unitQuantity quantity='wave-number' baseUnit='reciprocal-meter'/>
 
             final String baseUnit = parts.getAttributeValue(-1, "baseUnit");
             final String quantity = parts.getAttributeValue(-1, "quantity");
             final String status = parts.getAttributeValue(-1, "status");
             if (unitConverter == null) {
-                unitConverter = new UnitConverter(rationalParser, validity);
+                unitConverter =
+                        new UnitConverter(rationalParser, validity, x -> getUnitIdComponentType(x));
             }
             unitConverter.addQuantityInfo(baseUnit, quantity, status);
             return true;
         }
 
-        private boolean handleUnitConversion(XPathParts parts) {
+        private boolean handleUnitConversion(XPathValue parts) {
             // <convertUnit source='acre' target='square-meter' factor='ft2m^2 * 43560'/>
 
             final String source = parts.getAttributeValue(-1, "source");
@@ -1719,7 +1722,7 @@ public class SupplementalDataInfo {
             return true;
         }
 
-        private boolean handleTimeData(XPathParts parts) {
+        private boolean handleTimeData(XPathValue parts) {
             /** <hours preferred="H" allowed="H" regions="IL RU"/> */
             String preferred = parts.getAttributeValue(-1, "preferred");
             PreferredAndAllowedHour preferredAndAllowedHour =
@@ -1734,7 +1737,7 @@ public class SupplementalDataInfo {
             return true;
         }
 
-        private boolean handleBcp47(String level1, XPathParts parts) {
+        private boolean handleBcp47(String level1, XPathValue parts) {
             if (level1.equals("version")
                     || level1.equals("generation")
                     || level1.equals("cldrVersion")) {
@@ -1822,7 +1825,7 @@ public class SupplementalDataInfo {
             return true;
         }
 
-        private boolean handleLanguageMatcher(XPathParts parts) {
+        private boolean handleLanguageMatcher(XPathValue parts) {
             String type = parts.getAttributeValue(2, "type");
             String alt = parts.getAttributeValue(2, "alt");
             if (alt != null) {
@@ -1867,7 +1870,7 @@ public class SupplementalDataInfo {
             return true;
         }
 
-        private boolean handleCodeMappings(String level2, XPathParts parts) {
+        private boolean handleCodeMappings(String level2, XPathValue parts) {
             if (level2.equals("territoryCodes")) {
                 // <territoryCodes type="VU" numeric="548" alpha3="VUT"/>
                 String type = parts.getAttributeValue(-1, "type");
@@ -1892,7 +1895,7 @@ public class SupplementalDataInfo {
             return false;
         }
 
-        private void handleNumberingSystems(XPathParts parts) {
+        private void handleNumberingSystems(XPathValue parts) {
             NumberingSystemInfo ns = new NumberingSystemInfo(parts);
             numberingSystems.put(ns.name, ns);
             if (ns.type == NumberingSystemType.numeric) {
@@ -1900,7 +1903,7 @@ public class SupplementalDataInfo {
             }
         }
 
-        private void handleCoverageLevels(XPathParts parts) {
+        private void handleCoverageLevels(XPathValue parts) {
             if (parts.containsElement("approvalRequirement")) {
                 approvalRequirements.add(parts.toString());
             } else if (parts.containsElement("coverageLevel")) {
@@ -1944,7 +1947,7 @@ public class SupplementalDataInfo {
 
         public static final String NONLIKELYSCRIPT = "nonlikelyScript";
 
-        private void handleParentLocales(XPathParts parts) {
+        private void handleParentLocales(XPathValue parts) {
             // CLDR-16253 added component-specific parents, which we ignore for now.
             // TODO(CLDR-16361): Figure out how to handle these in CLDR itself.
             String componentsString = parts.getAttributeValue(1, "component");
@@ -1996,7 +1999,7 @@ public class SupplementalDataInfo {
             }
         }
 
-        private void handleCalendarPreferenceData(XPathParts parts) {
+        private void handleCalendarPreferenceData(XPathValue parts) {
             String territoryString = parts.getAttributeValue(-1, "territories");
             String orderingString = parts.getAttributeValue(-1, "ordering");
             String[] calendars = orderingString.split(" ");
@@ -2007,7 +2010,7 @@ public class SupplementalDataInfo {
             }
         }
 
-        private void handleLikelySubtags(XPathParts parts) {
+        private void handleLikelySubtags(XPathValue parts) {
             String from = parts.getAttributeValue(-1, "from");
             String to = parts.getAttributeValue(-1, "to");
             String origin = parts.getAttributeValue(-1, "origin");
@@ -2035,7 +2038,7 @@ public class SupplementalDataInfo {
         /**
          * Only called if level2 = mapTimezones. Level 1 might be metaZones or might be windowsZones
          */
-        private boolean handleMetazoneData(String level3, XPathParts parts) {
+        private boolean handleMetazoneData(String level3, XPathValue parts) {
             if (level3.equals("mapZone")) {
                 String maintype = parts.getAttributeValue(2, "type");
                 if (maintype == null) {
@@ -2069,7 +2072,7 @@ public class SupplementalDataInfo {
         }
 
         private Collection<String> getSpaceDelimited(
-                int index, String attribute, Collection<String> defaultValue, XPathParts parts) {
+                int index, String attribute, Collection<String> defaultValue, XPathValue parts) {
             String temp = parts.getAttributeValue(index, attribute);
             Collection<String> elements =
                     temp == null ? defaultValue : Arrays.asList(temp.split("\\s+"));
@@ -2086,7 +2089,7 @@ public class SupplementalDataInfo {
          * <usesMetazone from="1991-09-22 20:00" mzone="Armenia"/>
          */
 
-        private boolean handleMetazoneInfo(String level3, XPathParts parts) {
+        private boolean handleMetazoneInfo(String level3, XPathValue parts) {
             if (level3.equals("timezone")) {
                 String zone = parts.getAttributeValue(3, "type");
                 String mzone = parts.getAttributeValue(4, "mzone");
@@ -2099,8 +2102,8 @@ public class SupplementalDataInfo {
             return false;
         }
 
-        private boolean handleMetadata(String level2, String value, XPathParts parts) {
-            if (parts.contains("defaultContent")) {
+        private boolean handleMetadata(String level2, String value, XPathValue parts) {
+            if (parts.containsElement("defaultContent")) {
                 String defContent = parts.getAttributeValue(-1, "locales").trim();
                 String[] defLocales = defContent.split("\\s+");
                 defaultContentLocales =
@@ -2144,13 +2147,21 @@ public class SupplementalDataInfo {
                 String level3 = parts.getElement(3);
                 if (level3.equals("variable")) {
                     Map<String, String> attributes = parts.getAttributes(-1);
-                    validityInfo.put(attributes.get("id"), Row.of(attributes.get("type"), value));
-                    String idString = attributes.get("id");
-                    if (("$language".equals(idString)
-                                    || "$languageExceptions".equals(attributes.get("id")))
-                            && "choice".equals(attributes.get("type"))) {
-                        String[] validCodeArray = value.trim().split("\\s+");
-                        CLDRLanguageCodes.addAll(Arrays.asList(validCodeArray));
+                    final String idString = attributes.get("id");
+                    final String typeString = attributes.get("type");
+                    validityInfo.put(idString, Row.of(typeString, value));
+                    if ("choice".equals(typeString)) {
+                        if ("$language".equals(idString)
+                                || "$languageNonTcGeqBasic".equals(idString)) {
+                            String[] validCodeArray = value.trim().split("\\s+");
+                            CLDRLanguageCodes.addAll(Arrays.asList(validCodeArray));
+                        }
+                        if ("$languageNonTcLtBasic".equals(idString)) { // not yet basic
+                            String[] validCodeArray = value.trim().split("\\s+");
+                            final List<String> asList = Arrays.asList(validCodeArray);
+                            languageNonTcLtBasic.addAll(asList);
+                            CLDRLanguageCodes.addAll(asList);
+                        }
                     }
                     return true;
                 } else if (level3.equals("attributeValues")) {
@@ -2187,7 +2198,7 @@ public class SupplementalDataInfo {
             return false;
         }
 
-        private boolean handleTerritoryInfo(XPathParts parts) {
+        private boolean handleTerritoryInfo(XPathValue parts) {
 
             // <territoryInfo>
             // <territory type="AD" gdp="1840000000" literacyPercent="100"
@@ -2308,7 +2319,7 @@ public class SupplementalDataInfo {
             return true;
         }
 
-        private boolean handleCurrencyData(String level2, XPathParts parts) {
+        private boolean handleCurrencyData(String level2, XPathValue parts) {
             if (level2.equals("fractions")) {
                 // <info iso4217="ADP" digits="0" rounding="0" cashRounding="5"/>
                 currencyToCurrencyNumberInfo.put(
@@ -2339,7 +2350,7 @@ public class SupplementalDataInfo {
             return false;
         }
 
-        private void handleTelephoneCodeData(XPathParts parts) {
+        private void handleTelephoneCodeData(XPathValue parts) {
             // element 2: codesByTerritory territory [draft] [references]
             String terr = parts.getAttributeValue(2, "territory");
             // element 3: telephoneCountryCode code [from] [to] [draft] [references] [alt]
@@ -2358,7 +2369,7 @@ public class SupplementalDataInfo {
             tcSet.add(tcInfo);
         }
 
-        private void handleTerritoryContainment(XPathParts parts) {
+        private void handleTerritoryContainment(XPathValue parts) {
             // <group type="001" contains="002 009 019 142 150"/>
             final String container = parts.getAttributeValue(-1, "type");
             final List<String> contained =
@@ -2379,7 +2390,7 @@ public class SupplementalDataInfo {
             }
         }
 
-        private void handleSubdivisionContainment(XPathParts parts) {
+        private void handleSubdivisionContainment(XPathValue parts) {
             //      <subgroup type="AL" subtype="04" contains="FR MK LU"/>
             final String country = parts.getAttributeValue(-1, "type");
             final String subtype = parts.getAttributeValue(-1, "subtype");
@@ -2394,7 +2405,7 @@ public class SupplementalDataInfo {
             }
         }
 
-        private void handleLanguageData(XPathParts parts) {
+        private void handleLanguageData(XPathValue parts) {
             // <languageData>
             // <language type="aa" scripts="Latn" territories="DJ ER ET"/> <!--
             // Reflecting submitted data, cldrbug #1013 -->
@@ -2495,6 +2506,8 @@ public class SupplementalDataInfo {
     public Map<CLDRLocale, CLDRLocale> baseToDefaultContent; // wo -> wo_Arab_SN
     public Map<CLDRLocale, CLDRLocale> defaultContentToBase; // wo_Arab_SN -> wo
     private Set<String> CLDRLanguageCodes = new TreeSet<>();
+    private Set<String> languageNonTcLtBasic = new TreeSet<>();
+
     private Set<String> CLDRScriptCodes;
 
     /**
@@ -3273,7 +3286,7 @@ public class SupplementalDataInfo {
         }
 
         ApprovalRequirementMatcher(String xpath) {
-            XPathParts parts = XPathParts.getFrozenInstance(xpath);
+            XPathValue parts = SimpleXPathParts.getFrozenInstance(xpath);
             if (parts.containsElement("approvalRequirement")) {
                 requiredVotes = getRequiredVotes(parts);
                 String localeAttrib = parts.getAttributeValue(-1, "locales");
@@ -3311,7 +3324,7 @@ public class SupplementalDataInfo {
             }
         }
 
-        static int getRequiredVotes(XPathParts parts) {
+        static int getRequiredVotes(XPathValue parts) {
             String votesStr = parts.getAttributeValue(-1, "votes");
             if (votesStr.charAt(0) == '=') {
                 votesStr = votesStr.substring(1);
@@ -3583,7 +3596,7 @@ public class SupplementalDataInfo {
     private transient DayPeriodInfo.Type lastDayPeriodType = null;
     private transient DayPeriodInfo.Builder dayPeriodBuilder = new DayPeriodInfo.Builder();
 
-    private void addDayPeriodPath(XPathParts path) {
+    private void addDayPeriodPath(XPathValue path) {
         // ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="am"]
         /*
          * <supplementalData>
@@ -3681,7 +3694,7 @@ public class SupplementalDataInfo {
     static String lastPluralRangesLocales = null;
     static PluralRanges lastPluralRanges = null;
 
-    private boolean addPluralPath(XPathParts path, String value) {
+    private boolean addPluralPath(XPathValue path, String value) {
         /*
         * Adding
         <pluralRanges locales="am">
@@ -4767,7 +4780,7 @@ public class SupplementalDataInfo {
 
     public boolean isDeprecated(DtdType type, String path) {
 
-        XPathParts parts = XPathParts.getFrozenInstance(path);
+        XPathValue parts = SimpleXPathParts.getFrozenInstance(path);
         for (int i = 0; i < parts.size(); ++i) {
             String element = parts.getElement(i);
             if (isDeprecated(type, element, "*", "*")) {
@@ -4793,8 +4806,19 @@ public class SupplementalDataInfo {
         return validityInfo;
     }
 
+    /** TC languages or at Basic or better, or worse than Basic (grandfathered or Core). */
     public Set<String> getCLDRLanguageCodes() {
         return CLDRLanguageCodes;
+    }
+
+    /** TC languages or those at Basic or better. */
+    public Set<String> getLanguageTcOrBasic() {
+        return Sets.difference(CLDRLanguageCodes, languageNonTcLtBasic);
+    }
+
+    /** Non TC languages that are worse than Basic (grandfathered or Core) */
+    public Set<String> getLanguageNonTcLtBasic() {
+        return languageNonTcLtBasic;
     }
 
     public boolean isCLDRLanguageCode(String code) {

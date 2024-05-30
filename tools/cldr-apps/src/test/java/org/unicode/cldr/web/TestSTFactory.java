@@ -50,6 +50,7 @@ public class TestSTFactory {
 
     @BeforeAll
     public static void setup() {
+        if (TestAll.skipIfNoDb()) return;
         TestAll.setupTestDb();
     }
 

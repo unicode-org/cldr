@@ -904,7 +904,7 @@ public class SurveyAjax extends HttpServlet {
         r.put("time_now", System.currentTimeMillis());
     }
 
-    private JSONArray searchResults(String q, CLDRLocale l) {
+    private JSONArray searchResults(String q, CLDRLocale l) throws JSONException {
         JSONArray results = new JSONArray();
 
         if (q != null) {
@@ -938,21 +938,20 @@ public class SurveyAjax extends HttpServlet {
         }
     }
 
-    private void searchPathheader(JSONArray results, CLDRLocale l, String q) {
+    private void searchPathheader(JSONArray results, CLDRLocale l, String q) throws JSONException {
         if (l == null) {
             return; // don't search with no locale
         }
-        try {
-            PathHeader.PageId page = PathHeader.PageId.valueOf(q);
+        PathHeader.PageId page = PathHeader.PageId.forString(q);
+        if (page != null) {
             results.put(
                     new JSONObject()
                             .put("page", page.name())
                             .put("section", page.getSectionId().name()));
-        } catch (Throwable t) {
-            //
         }
+
         try {
-            PathHeader.SectionId section = PathHeader.SectionId.valueOf(q);
+            PathHeader.SectionId section = PathHeader.SectionId.forString(q);
             results.put(new JSONObject().put("section", section.name()));
         } catch (Throwable t) {
             //

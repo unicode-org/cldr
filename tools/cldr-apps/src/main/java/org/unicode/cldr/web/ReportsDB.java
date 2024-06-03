@@ -91,10 +91,16 @@ public class ReportsDB extends VoterReportStatus<Integer> implements ReportStatu
                                 locale.getBaseName());
                 ResultSet rs = ps.executeQuery(); ) {
             while (rs.next()) {
-                final String report = rs.getString("report");
+                final String reportStr = rs.getString("report");
+                ReportId report = null;
+                try {
+                    report = ReportId.valueOf(reportStr);
+                } catch (IllegalArgumentException iae) {
+                    continue; // skip illegal enum values. may be a 'retired' enum
+                }
                 final Boolean completed = rs.getBoolean("completed");
                 final Boolean acceptable = rs.getBoolean("acceptable");
-                status.mark(ReportId.valueOf(report), completed, acceptable);
+                status.mark(report, completed, acceptable);
             }
         } catch (SQLException e) {
             SurveyLog.logException(e, "fetching reportStatus for " + user + ":" + locale);

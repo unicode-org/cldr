@@ -453,7 +453,7 @@ function convertData(json) {
  *               containing notifications for a single path (old format)
  */
 function updatePath(dashData, json) {
-  this.updatingPath = true;
+  dashData.updatingPath = true;
   try {
     if (json.xpstrid in dashData.pathIndex) {
       // We already have an entry for this path
@@ -471,7 +471,7 @@ function updatePath(dashData, json) {
   } catch (e) {
     cldrNotify.exception(e, "updating path for Dashboard");
   }
-  this.updatingPath = false;
+  dashData.updatingPath = false;
   return dashData; // for unit test
 }
 

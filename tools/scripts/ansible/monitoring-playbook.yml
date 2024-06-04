@@ -1,12 +1,12 @@
-- hosts: cldr-staging.unicode.org
+- hosts:
+    - cldr-staging.unicode.org
+    - st.unicode.org
   become: yes
   vars_files:
     - vars/main.yml
     - local-vars/local.yml
-  tasks:
-    - name: Import the Datadog Agent role from the Datadog collection
-      import_role:
-        name: datadog.dd.agent
+  roles:
+    - { role: datadog.datadog, become: yes }
   vars:
     datadog_api_key: "{{ dd_key }}"
     datadog_site: "{{ dd_site }}"

@@ -2,8 +2,14 @@
 cldr-smoke.unicode.org
 cldr-staging.unicode.org
 
+[staging:vars]
+ddenv=staging
+
 [prod]
 st.unicode.org
+
+[prod:vars]
+ddenv=prod
 
 # CLDR Commit Checker web hosting here
 [ccc]

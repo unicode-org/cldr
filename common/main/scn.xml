@@ -819,6 +819,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<symbols numberSystem="vaii">
 			<timeSeparator draft="unconfirmed">↑↑↑</timeSeparator>
 		</symbols>
+		<minimalPairs>
+			<pluralMinimalPairs count="one">↑↑↑</pluralMinimalPairs>
+			<pluralMinimalPairs count="many">↑↑↑</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">↑↑↑</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="many">↑↑↑</ordinalMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">↑↑↑</ordinalMinimalPairs>
+			<genderMinimalPairs gender="feminine">↑↑↑</genderMinimalPairs>
+			<genderMinimalPairs gender="masculine">↑↑↑</genderMinimalPairs>
+		</minimalPairs>
 	</numbers>
 	<posix>
 		<messages>

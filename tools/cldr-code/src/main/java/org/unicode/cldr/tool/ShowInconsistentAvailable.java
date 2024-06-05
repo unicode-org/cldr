@@ -1,30 +1,5 @@
 package org.unicode.cldr.tool;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import java.util.TreeMap;
-import java.util.TreeSet;
-import java.util.stream.Collectors;
-
-import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRFile.Status;
-import org.unicode.cldr.util.Factory;
-import org.unicode.cldr.util.Organization;
-import org.unicode.cldr.util.Pair;
-import org.unicode.cldr.util.PathHeader;
-import org.unicode.cldr.util.PathStarrer;
-import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.XPathParts;
-
 import com.google.common.base.Joiner;
 import com.google.common.base.Objects;
 import com.google.common.collect.Comparators;
@@ -37,6 +12,29 @@ import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.text.DateTimePatternGenerator;
 import com.ibm.icu.text.DateTimePatternGenerator.FormatParser;
 import com.ibm.icu.text.DateTimePatternGenerator.VariableField;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.TreeSet;
+import java.util.stream.Collectors;
+import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.Status;
+import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.Organization;
+import org.unicode.cldr.util.Pair;
+import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.PathStarrer;
+import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.XPathParts;
 
 public class ShowInconsistentAvailable {
     private static final CLDRConfig CONFIG = CLDRConfig.getInstance();
@@ -62,17 +60,22 @@ public class ShowInconsistentAvailable {
                         .replace(", ", "\t"));
         show("root");
         Set<String> cldrLocales = StandardCodes.make().getLocaleCoverageLocales(Organization.cldr);
-        Set<String> specialLocales = StandardCodes.make().getLocaleCoverageLocales(Organization.special);
+        Set<String> specialLocales =
+                StandardCodes.make().getLocaleCoverageLocales(Organization.special);
         for (String locale : Sets.difference(cldrLocales, specialLocales)) {
             show(locale);
         }
-        nullErrors = ImmutableSet.copyOf(nullErrors.stream().map(x -> ++counter + "\t" + x).collect(Collectors.toList()));
+        nullErrors =
+                ImmutableSet.copyOf(
+                        nullErrors.stream()
+                                .map(x -> ++counter + "\t" + x)
+                                .collect(Collectors.toList()));
         System.out.println(Joiner.on('\n').join(nullErrors));
     }
 
     private static void getRootPaths() {
         Multimap<String, String> skelToCals = TreeMultimap.create();
-        Map<Pair<String,String>, String> skelCalToSource = new HashMap<>();
+        Map<Pair<String, String>, String> skelCalToSource = new HashMap<>();
         Set<String> calendars = new TreeSet<>();
         final CLDRFile root = CONFIG.getRoot();
 
@@ -302,11 +305,11 @@ public class ShowInconsistentAvailable {
                 if (item instanceof DateTimePatternGenerator.VariableField) {
                     VariableField2 v = new VariableField2(item, true);
                     switch (v.getType()) {
-                    case DateTimePatternGenerator.ERA:
-                        if (!INCLUDE_ERA && !skeleton) {
-                            continue;
-                        }
-                        break;
+                        case DateTimePatternGenerator.ERA:
+                            if (!INCLUDE_ERA && !skeleton) {
+                                continue;
+                            }
+                            break;
                         case DateTimePatternGenerator.DAYPERIOD:
                             continue;
                         case DateTimePatternGenerator.YEAR: // handle r(U) by mapping U to r

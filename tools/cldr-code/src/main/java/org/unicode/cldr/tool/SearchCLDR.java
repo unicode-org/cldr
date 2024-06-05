@@ -303,7 +303,7 @@ public class SearchCLDR {
             Set<PathHeader> sorted = new TreeSet<>();
             final Iterable<String> pathSource =
                     rootUncovered ? (Iterable<String>) ROOT : file.fullIterable();
-            RelatedPaths relatedPathsWithNonNullValues = new RelatedPaths();
+            RelatedSkeletonPaths relatedPathsWithNonNullValues = new RelatedSkeletonPaths();
 
             for (String path : pathSource) {
                 if (path.contains("yMd") && path.contains("chinese")) {
@@ -516,7 +516,7 @@ public class SearchCLDR {
      * Related with related values that are not null. NOTE: For now this is quite specific to
      * availableFormats
      */
-    static class RelatedPaths {
+    static class RelatedSkeletonPaths {
         TreeMultimap<String, String> skeletaToRelatedPathWithValue = TreeMultimap.create();
         static final FormatParser parser = new DateTimePatternGenerator.FormatParser();
 
@@ -548,7 +548,7 @@ public class SearchCLDR {
             return Joiner.on(", ").join(sorted);
         }
 
-        private String simplePattern(String id) {
+        static String simplePattern(String id) {
             TreeSet<String> chars = new TreeSet<>();
             for (Object item : parser.set(id).getItems()) {
                 if (item instanceof DateTimePatternGenerator.VariableField) {

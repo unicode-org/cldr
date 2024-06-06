@@ -4,6 +4,7 @@
 // module stylesheets need to go here. See cldrVue.mjs
 // example: import 'someModule/dist/someModule.css'
 import "ant-design-vue/dist/antd.min.css";
+import "vue-virtual-scroller/dist/vue-virtual-scroller.css";
 
 // global stylesheets
 import "./css/cldrForum.css";

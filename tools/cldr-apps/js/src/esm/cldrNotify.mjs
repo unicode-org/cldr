@@ -36,12 +36,14 @@ const NO_TIMEOUT = 0;
  *
  * @param {String} message the title, displayed at the top
  * @param {String} description the more detailed description
+ * @param {Function} onClick optional function called when clicking
  */
-function open(message, description) {
+function open(message, description, onClick) {
   notification.open({
     message: message,
     description: description,
     duration: MEDIUM_DURATION,
+    onClick,
   });
 }
 

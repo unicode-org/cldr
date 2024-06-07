@@ -14,18 +14,17 @@ Status and Schedule
 The Survey Tool is now open for Submission until the start of Vetting on June 12th (schedule); then the Vetting phase lasts until June 30.
 Disconnect error. If you see a persistent Loading error with a disconnect message or other odd behavior, please empty your cache.
 Survey Tool email notification may be going to your spam folder. Check your spam folder regularly.
-"Same as code" errors - when translating codes for items such as languages, regions, scripts, and keys, it is normally an error to select the code itself as the translated name. If the error appears under Typography, you can ignore it. [CLDR-13552]
+“Same as code” errors - when translating codes for items such as languages, regions, scripts, and keys, it is normally an error to select the code itself as the translated name. If the error appears under Typography, you can ignore it. [CLDR-13552]
 New Areas (2024-05-30)
-alt-text
 Most of the following are relevant to locales at the Modern Coverage Level.
 New emoji
 Seven new emoji have been added (images above). These will be released in Unicode 16 in September, so they need short names and search keywords.
-Emoji search keywords
+Emoji search keywords 
 Important Notes
 The Additions from WhatsApp are not listed as Missing in the Dashboard.
-They are listed instead under the Abstained label, and show up with ☑️ in the main window in the A column.
+ They are listed instead under the Abstained label, and show up with ☑️ in the main window in the A column. 
 So be sure the Abstained label is checked.
-If you have too many Abstained items to deal with, handle the emoji first.
+ If you have too many Abstained items to deal with, handle the emoji first.
 The usage model is:
 The user types one or more words in an emoji search field.
 Each word successively narrows a number of emoji in a results box.
@@ -35,21 +34,21 @@ heart blue → 💙 🩵
 A word with no hits is ignored
 [heart | blue | confabulation] is equivalent to [heart | blue]
 As the user types a word, each character added to the word narrows the results.
-Whenever the list is short enough to scan, the user will mouse-click on the right emoji - so it doesn't have to be narrowed too far.
+Whenever the list is short enough to scan, the user will mouse-click on the right emoji — so it doesn’t have to be narrowed too far.
 In the following, the user would just click on 🎉 if that works for them.
 celebrate → 🥳 🥂 🎈 🎉 🎊 🪅
-The order of words doesn't matter; nor does upper- versus lowercase.
+The order of words doesn’t matter; nor does upper- versus lowercase.
 The limits on the number of keywords per emoji have been relaxed in the beginning, but will be decreased to the final limit (20) soon. So please work on reducing duplicates and breaking up multi-word search keywords.
-Don't follow the English emoji names and keywords literally; they are just for comparison. The names and keywords should reflect your cultural associations with the emoji images, and should match what users of your language are most likely to search in order to find emoji.
-English phrases like "give up" = surrender are often translated as single words in other languages. Don't just translate each word! For example, in [hold |… | shut |… | tongue |… | up |… | your], the corresponding phrases are "shut up" and "hold your tongue".
+Don’t follow the English emoji names and keywords literally; they are just for comparison. The names and keywords should reflect your cultural associations with the emoji images, and should match what users of your language are most likely to search in order to find emoji.
+English phrases like “give up” = surrender are often translated as single words in other languages. Don’t just translate each word! For example, in [hold |… | shut |… | tongue |… | up |… | your], the corresponding phrases are “shut up” and “hold your tongue”.
 Steps
 Break up multi-word keywords (see the usage model). For example,
 Where white flag (🏳️) has [white waving flag | white flag] , it is better to replace that with [white | waving | flag].
 Because of the usage model, this works far better.
-Reduce or remove "stopwords", except with close associations, such as [down] with thumbs down (👎)
-Reduce duplicates (and uncommon synonyms) in meaning. For example,
-If you see [jump | jumping | bounding | leaping | prancing], it is better to replace that with just [jump] unless you are confident people will frequently use the other forms.
-Because each character narrows the results, [jumping] is not necessary if you have [jump].
+Reduce or remove “stopwords”, except with close associations, such as [down] with thumbs down (👎)
+ Reduce duplicates (and uncommon synonyms) in meaning. For example,
+If you see [jump | jumping | bounding | leaping | prancing], it is better to replace that with just [jump] unless you are confident people will frequently use the other forms. 
+Because each character narrows the results, [jumping] is not necessary if you have [jump]. 
 Favor the prefixes: [jump] is better than [jumping]
 Keep forms where one character word is not the prefix of another, eg [race | racing] and [ride | riding]
 Add equivalents among gender alternates. For example,
@@ -58,8 +57,8 @@ Those equivalents may have different forms in your language, depending on the ge
 Avoid:
 Names of specific people or places except for close associations, such as [Japan | Japanese ] with map of Japan (🗾) or sushi (🍣).
 Fictional characters or places are ok, if first used before 1855.
-Certain other names have been verified to be in the public domain (Pinocchio, Dracula).
-Don't add others (post-1855) without verifying with the TC.
+Certain other names have been verified to be in the public domain (Pinocchio, Dracula). 
+Don’t add others (post-1855) without verifying with the TC.
 Intellectual Property (IP), such as trademarks or names of products, companies, books or movies
 Religious references, except for close associations, such as [Christian | church | chapel] with church ( ⛪), [cherub | church] with baby angel (👼), [islam | Muslim | ramadan] with star and crescent (☪️)
 Specific terms for sexuality, unless strongly associated with the emoji, eg [lgbt|lgbtq |... ] for rainbow (🌈), rainbow flag (🏳️‍🌈), and transgender flag (🏳️‍⚧️).
@@ -67,12 +66,12 @@ Note: The English values have also been reviewed and modified for these rules.
 New/expanded units
 Additional units:
 night, as in "your hotel reservation is for 3 nights".
-light-speed, a special unit used in combination with a duration, such as "light-second". Because of that limited usage, typically the "-speed" suffix is dropped, and the "light" typically doesn't change for inflections (incl. plurals) - but this may vary by language.
+light-speed, a special unit used in combination with a duration, such as “light-second”. Because of that limited usage, typically the “-speed” suffix is dropped, and the “light” typically doesn’t change for inflections (incl. plurals) — but this may vary by language.
 portion-per-1e9, which will normally be translated as something like parts per billion.
 Additional grammatical forms have been added for a few units.
-point - meaning the typographical measurement.
-milligram-ofglucose-per-deciliter - used for blood sugar measurement
-millimeter-ofhg - used for pressure measurements
+point — meaning the typographical measurement.
+milligram-ofglucose-per-deciliter — used for blood sugar measurement
+millimeter-ofhg — used for pressure measurements
 Beaufort - used for wind speed (only in certain countries)
 Language names
 As new locales reach Basic Coverage, their language names have been added for locales targeting modern coverage: Anii, Kuvi, …, Zhuang
@@ -82,8 +81,8 @@ Survey Tool (2024-05-30)
 Once trained and up to speed on Critical reminders (above), log in to the Survey Tool to begin your work.
 Survey Tool Changes
 There has been substantial performance work that will show up for the first time. If there are performance issues, please file a ticket with a row URL and an explanation for what happened.
-In the Dashboard, you can filter the messages instead of jumping to the first one. In the Dashboard header, each notification category (such as "Missing" or "Abstained") has a checkbox determining whether it is shown or hidden.
-In each row of the vetting page, there is now a visible icon when there are forum messages at the right side of the English column:
+In the Dashboard, you can filter the messages instead of jumping to the first one. In the Dashboard header, each notification category (such as “Missing” or “Abstained”) has a checkbox determining whether it is shown or hidden.
+In each row of the vetting page, there is now a visible icon when there are forum messages at the right side of the English column: 
 👁️‍🗨️ if there are any open posts
 💬 if there are posts, but all are closed
 For Units and a few other sections, the Pages have changed to reduce the size on the page to improve performance.
@@ -94,27 +93,21 @@ The symbols in the A column have been changed to be searchable in browsers (with
 more on the page. See below for a table. They override the symbols in Survey Tool Guide: Icons.
 Important Notes
 Some of the Page reorganization may continue.
-New Approve Status Icons
-Symbol	Status	Notes
-✅	Approved	Enough votes for use in implementations …
-☑️	Contributed	Enough votes for use in implementations …
-✖️	Provisional	Not enough votes for implementations …
-❌	Unconfirmed	Not enough votes for implementations …
-🕳️	Missing	Completely missing
-⬆️	Inherited	Used in combination with ✖️ and ❌
 Known Issues (2024-06-03)
-This list will be updated as fixes are made available in Survey Tool Production. If you find a problem, please file a ticket, but please review this list first to avoid creating duplicate tickets.
+This list will be updated as fixes are made available in Survey Tool Production. If you find a problem, please file a ticket, but please review this list first to avoid creating duplicate tickets. 
 CLDR-17694 - Back button in browser fails in forum under certain conditions
 CLDR-17693 SurveyTool fatal in getDBConnection
 CLDR-17658 - Dashboard slowness
-Images for the plain symbols. Non-emoji such as €, √, », ¹, §, ... do not have images in the info pane. [CLDR-13477]Workaround: Look at the Code column; unlike the new emoji, your browser should display them there.
-CLDR-17683 - Some items are not able to be flagged for TC review. This is being investigated.Meanwhile, Please enter forum posts meanwhile with any comments.
+Images for the plain symbols. Non-emoji such as €, √, », ¹, §, ... do not have images in the info pane. [CLDR-13477]
+Workaround: Look at the Code column; unlike the new emoji, your browser should display them there.
+CLDR-17683 - Some items are not able to be flagged for TC review. This is being investigated.
+Meanwhile, Please enter forum posts meanwhile with any comments.
 Resolved Issues
 CLDR-17465 - dashboard download fails
 CLDR-17671 - survey tool search fails
 CLDR-17652 - Manual import of votes fails
 Recent Changes
-CLDR-17658 - In the Dashboard, the Abstains items will only have one entry per page. You can use that entry to go to its page, and then fix Abstains on that page. Once you are done on that page, hit the Dashboard refresh button (↺). This fixes a performance problem for people with a large number of Abstains, and reduces clutter in the Dashboard.
+ CLDR-17658 -  In the Dashboard, the Abstains items will only have one entry per page. You can use that entry to go to its page, and then fix Abstains on that page. Once you are done on that page, hit the Dashboard refresh button (↺). This fixes a performance problem for people with a large number of Abstains, and reduces clutter in the Dashboard.
 CLDR training (for new linguists)
 Before getting started to contribute data in CLDR, and jumping in to using the Survey Tool, it is important that you understand the CLDR process & take the CLDR training. It takes about 2-3 hours to complete the training.
 Understand the basics about the CLDR process read the Survey Tool Guide and an overview of the Survey Tool Stages.
@@ -137,9 +130,9 @@ Critical reminders (for all linguists)
 You're already familiar with the CLDR process, but do keep the following in mind:
 Aim at commonly used language - CLDR should reflect common-usage standards not academic /official standards (unless commonly followed). Keep that perspective in mind.
 Carefully consider changes to existing standards - any change to an existing CLDR standard should be carefully considered and discussed with your fellow linguists in the CLDR Forum. Remember your change will be reflected across thousands of online products!
-Keep consistency across logical groups - ensure that all related entries are consistent. If you change the name of a weekday, make sure it's reflected across all related items. Check that the order of month and day are consistent in all the date formats, etc.
+Keep consistency across logical groups - ensure that all related entries are consistent. If you change the name of a weekday, make sure it’s reflected across all related items. Check that the order of month and day are consistent in all the date formats, etc.
 Tip: The Reports are a great way to validate consistency across related logical groups, e.g. translations of date formats. Use them to proofread your work for consistency.
-Avoid voting for English - for items that do not work in your language, don't simply use English. Find a solution that works for your language. For example, if your language doesn't have a concept of calendar "quarters", use a translation that describes the concept "three-month period" rather than "quarter-of-a-year".
+Avoid voting for English - for items that do not work in your language, don't simply use English. Find a solution that works for your language. For example, if your language doesn't have a concept of calendar "quarters", use a translation that describes the concept "three-month period" rather than “quarter-of-a-year”.
 Watch out for complex sections and read the instructions carefully if in doubt:
 Date & Time
 Names
@@ -147,4 +140,4 @@ Patterns
 Symbols
 Time zones
 Plural forms
-Tip: The links in the Info Panel will point you to relevant instructions for the entry you're editing/vetting. Use it if in doubt.
+Tip: The links in the Info Panel will point you to relevant instructions for the entry you’re editing/vetting. Use it if in doubt.

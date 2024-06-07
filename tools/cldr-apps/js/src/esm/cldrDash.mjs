@@ -446,8 +446,9 @@ async function downloadXlsx(data, locale, cb) {
     }
     const xpath = await getXpath();
     const url = `https://st.unicode.org/cldr-apps/v#/${e.locale}/${e.page}/${e.xpstrid}`;
+    const cats = Array.from(e.cats).join(", ");
     ws_data.push([
-      e.cat,
+      cats,
       e.header,
       e.page,
       e.section,

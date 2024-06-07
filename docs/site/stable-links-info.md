@@ -30,8 +30,8 @@ This page contains information about updating the various stable links to part o
 | specific (eg 22) | (will have specific links) | http://www.unicode.org/reports/tr35/tr35-27.html | nothing needed |
 |   |  |  |  |
 |  | ~~**Delta / Changes**~~ |  |  |
-| ~~development version~~ | ~~http://www.unicode.org/cldr/changes/dev~~ | ~~http://unicode.org/cldr/trac/report/63~~ | ~~Update Trac report #63 |
-| latest version~~ | ~~http://www.unicode.org/cldr/changes/latest~~ | ~~http://unicode.org/cldr/trac/report/62~~ | ~~Update Trac report #62~~ |
+| ~~development version~~ | ~~http://www.unicode.org/cldr/changes/dev~~ | ~~http://unicode.org/cldr/trac/report/63~~ | ~~Update Trac report #63~~ |
+| ~~latest version~~ | ~~http://www.unicode.org/cldr/changes/latest~~ | ~~http://unicode.org/cldr/trac/report/62~~ | ~~Update Trac report #62~~ |
 |   |  |  |  |
 |  | **~~SVN links to the repository~~ (THIS SECTION IS OBSOLETE AND WILL BE REMOVED LATER)** |  |  |
 | ~~development version~~ | ~~http://unicode.org/cldr/dev~~ | ~~http://unicode.org/repos/cldr/trunk~~ | ~~nothing needed~~ |

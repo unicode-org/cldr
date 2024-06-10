@@ -12,6 +12,7 @@ import java.util.Set;
 import java.util.concurrent.ExecutionException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.GrammarInfo;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Organization;
@@ -247,5 +248,18 @@ public final class SubmissionLocales {
 
     public static Set<ReportId> getReportsAvailableInLimited() {
         return LIMITED_SUBMISSION_REPORTS;
+    }
+
+    public static boolean isTcLocale(CLDRLocale loc) {
+        if (loc == CLDRLocale.ROOT
+                || SubmissionLocales.TC_ORG_LOCALES.contains(loc.getBaseName())) {
+            // root or explicitly listed locale is a TC locale
+            return true;
+        } else if (loc.isParentRoot()) {
+            // any sublocale of root not listed is not a tc locale
+            return false;
+        } else {
+            return isTcLocale(loc.getParent());
+        }
     }
 }

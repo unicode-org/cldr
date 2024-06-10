@@ -11,4 +11,13 @@
     datadog_api_key: "{{ dd_key }}"
     datadog_site: "{{ dd_site }}"
     datadog_apm_instrumentation_enabled: "host"  # docker not installed else 'all'
-
+  tasks:
+    - name: Update datadog.yaml for apm/env
+      blockinfile:
+        path: /etc/datadog-agent/datadog.yaml
+        block: |
+          # enable apm and set the env
+              enabled: true
+              env: {{ ddenv }}
+        marker: '# {mark} ANSIBLE MANAGED BLOCK'
+        insertafter: '^apm_config:'

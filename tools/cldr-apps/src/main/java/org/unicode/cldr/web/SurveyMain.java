@@ -209,6 +209,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     // ===== Configuration state
     private static Phase currentPhase = Phase.VETTING;
+    private static Phase currentDdlPhase = Phase.VETTING;
     /** set by CLDR_PHASE property. * */
     private static String oldVersion = "OLDVERSION";
 
@@ -2823,6 +2824,20 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                                     + phaseString);
                 }
                 currentPhase = newPhase;
+                String ddlPhaseString = survprops.getProperty("CLDR_DDL_PHASE", null);
+                Phase ddlPhase = null;
+                try {
+                    if (ddlPhaseString != null) {
+                        ddlPhase = (Phase.valueOf(ddlPhaseString));
+                    }
+                } catch (IllegalArgumentException iae) {
+                    logger.warning("Error trying to parse CLDR_DDL_PHASE: " + iae);
+                }
+                if (ddlPhase == null) {
+                    ddlPhase = newPhase;
+                    logger.warning("CLDR_DDL_PHASE matches main phase " + ddlPhase);
+                }
+                currentDdlPhase = ddlPhase;
             }
             logger.info("Phase: " + phase() + ", cPhase: " + phase().getCPhase());
             progress.update("Setup props..");
@@ -3570,6 +3585,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         return currentPhase;
     }
 
+    public static Phase getDDLPhase() {
+        return currentDdlPhase;
+    }
+
     public static String getOldVersion() {
         return oldVersion;
     }
@@ -3642,6 +3661,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         private final int pages = SurveyMain.pages;
         private Object permissions = null;
         private final Phase phase = phase();
+        private final Phase ddlPhase = getDDLPhase();
         private String sessionId = null;
         private final String specialHeader = getSpecialHeaderText();
         private final long surveyRunningStamp = SurveyMain.surveyRunningStamp.current();
@@ -3675,6 +3695,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                     .put("pages", pages)
                     .put("permissions", permissions)
                     .put("phase", phase)
+                    .put("ddlPhase", ddlPhase)
                     .put("sessionId", sessionId)
                     .put("sessionMessage", sessionMessage)
                     .put("specialHeader", specialHeader)

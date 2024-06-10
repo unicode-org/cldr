@@ -1092,6 +1092,7 @@ public class SurveyAjax extends HttpServlet {
         // locales will have info about each locale, including name
         JSONObject locales = new JSONObject();
         SupplementalDataInfo sdi = sm.getSupplementalDataInfo();
+        final StandardCodes sc = StandardCodes.make();
 
         Factory disk = sm.getDiskFactory();
 
@@ -1118,6 +1119,7 @@ public class SurveyAjax extends HttpServlet {
             locale.put("highestParent", loc.getHighestNonrootParent());
             locale.put("dcParent", dcParent);
             locale.put("dcChild", dcChild);
+            locale.put("tc", SubmissionLocales.TC_ORG_LOCALES.contains(loc.getBaseName()));
             locale.put(
                     "type",
                     Factory.getSourceTreeType(disk.getSourceDirectoryForLocale(loc.getBaseName())));

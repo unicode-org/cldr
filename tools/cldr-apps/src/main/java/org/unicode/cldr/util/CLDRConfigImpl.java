@@ -461,6 +461,11 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
     }
 
     @Override
+    public CheckCLDR.Phase getDDLPhase() {
+        return SurveyMain.getDDLPhase().getCPhase();
+    }
+
+    @Override
     public CLDRURLS internalGetUrls() {
         if (contextUrl == null) contextUrl = CLDRURLS.DEFAULT_PATH;
         return new StaticCLDRURLS(this.getProperty(CLDRURLS.CLDR_SURVEY_PATH, contextUrl));

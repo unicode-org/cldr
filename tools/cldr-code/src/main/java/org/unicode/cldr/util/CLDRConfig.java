@@ -400,6 +400,14 @@ public class CLDRConfig extends Properties {
         return phase;
     }
 
+    /**
+     * @returns the phase for DDL (non-TC) locales. Defaults to same as main phase.
+     */
+    public Phase getDDLPhase() {
+        // by default, same as main phase.
+        return getPhase();
+    }
+
     @Override
     public String getProperty(String key, String d) {
         String result = getProperty(key);

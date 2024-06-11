@@ -2,7 +2,11 @@
   <header id="st-header">
     <a-spin v-if="!loaded" :delay="250" />
     <ul>
-      <li>{{ stVersion }} {{ stPhase }}</li>
+      <li>{{ stVersion }} {{ stPhase }}
+        <span class="ddlException" v-if="ddlException" title="Note: As a non-TC DDL locale, this phase has been extended.">
+          (extended)
+        </span>
+      </li>
       <li>
         <a href="#menu///"><span class="main-menu-icon">☰</span></a>
       </li>
@@ -102,6 +106,7 @@ export default {
       stPhase: null,
       stVersion: null,
       tcLocale: true,
+      ddlException: false,
       unreadAnnouncementCount: 0,
       userName: null,
       voteCountMenu: null,
@@ -169,8 +174,14 @@ export default {
       this.tcLocale = cldrLoad?.getLocaleInfo(loc)?.tc;
       if (!loc || this.tcLocale) {
         this.stPhase = cldrStatus.getPhase();
+        this.ddlException = false;
       } else {
         this.stPhase = cldrStatus.getDdlPhase();
+        if (cldrStatus.getDdlPhase() != cldrStatus.getPhase()) {
+          this.ddlException = true;
+        } else {
+          this.ddlException = false;
+        }
       }
       cldrAnnounce.getUnreadCount(this.setUnreadCount);
     },
@@ -273,4 +284,9 @@ label {
 #coverageLevel {
   width: 16ch;
 }
+
+.ddlException {
+  background-color: yellow;
+}
+
 </style>

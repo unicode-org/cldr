@@ -988,8 +988,7 @@ public class DataPage {
          */
         public StatusAction getStatusAction(InputMethod inputMethod) {
             // null because this is for display.
-            return SurveyMain.phase()
-                    .getCPhase()
+            return SurveyMain.getCPhase(locale)
                     .getShowRowAction(this, inputMethod, getPathHeader(), userForVotelist);
         }
 

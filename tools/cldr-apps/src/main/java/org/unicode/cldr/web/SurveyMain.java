@@ -65,6 +65,7 @@ import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.test.HelpMessages;
+import org.unicode.cldr.test.SubmissionLocales;
 import org.unicode.cldr.util.CLDRCacheDir;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRConfigImpl;
@@ -2078,9 +2079,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         if (canModify) {
             rv = rv + (modifyThing(ctx));
             int odisp;
-            if ((SurveyMain.phase() == Phase.VETTING
-                            || SurveyMain.phase() == Phase.SUBMIT
-                            || isPhaseVettingClosed())
+            if ((SurveyMain.phase(locale) == Phase.VETTING
+                            || SurveyMain.phase(locale) == Phase.SUBMIT
+                            || isPhaseVettingClosed(locale))
                     && ((odisp = DisputePageManager.getOrgDisputeCount(ctx)) > 0)) {
                 rv = rv + ctx.iconHtml("disp", "(" + odisp + " org disputes)");
             }
@@ -2827,7 +2828,11 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 String ddlPhaseString = survprops.getProperty("CLDR_DDL_PHASE", null);
                 Phase ddlPhase = null;
                 try {
-                    if (ddlPhaseString != null) {
+                    if (ddlPhaseString != null && !ddlPhaseString.isEmpty()) {
+                        if (currentPhase == Phase.READONLY) {
+                            busted(
+                                    "Error: Cannot have a CLDR_DDL_PHASE when CLDR_PHASE=READONLY. Remove the CLDR_DDL_PHASE.");
+                        }
                         ddlPhase = (Phase.valueOf(ddlPhaseString));
                     }
                 } catch (IllegalArgumentException iae) {
@@ -3569,8 +3574,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     // ============= Following have to do with phases
 
-    public static boolean isPhaseVettingClosed() {
-        return phase() == Phase.VETTING_CLOSED;
+    public static boolean isPhaseVettingClosed(CLDRLocale locale) {
+        return phase(locale) == Phase.VETTING_CLOSED;
     }
 
     public static boolean isPhaseReadonly() {
@@ -3583,6 +3588,17 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     public static Phase phase() {
         return currentPhase;
+    }
+
+    public static Phase phase(CLDRLocale locale) {
+        return (SubmissionLocales.isTcLocale(locale) ? phase() : getDDLPhase());
+    }
+
+    /**
+     * @returns the current phase for the locale. This is the preferred API.
+     */
+    public static CheckCLDR.Phase getCPhase(CLDRLocale loc) {
+        return phase(loc).getCPhase();
     }
 
     public static Phase getDDLPhase() {

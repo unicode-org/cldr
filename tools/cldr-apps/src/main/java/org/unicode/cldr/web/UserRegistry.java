@@ -1978,7 +1978,7 @@ public class UserRegistry {
         if (userIsAdmin(u) || userIsTC(u)) return null;
 
         // Otherwise, if closed, deny
-        if (SurveyMain.isPhaseVettingClosed()) return ModifyDenial.DENY_PHASE_CLOSED;
+        if (SurveyMain.isPhaseVettingClosed(locale)) return ModifyDenial.DENY_PHASE_CLOSED;
         if (SurveyMain.isPhaseReadonly()) return ModifyDenial.DENY_PHASE_READONLY;
 
         return null;

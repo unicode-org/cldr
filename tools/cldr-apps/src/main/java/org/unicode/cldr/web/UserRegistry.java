@@ -1821,7 +1821,7 @@ public class UserRegistry {
     }
 
     static boolean userCanSubmit(User u, SurveyMain.Phase phase) {
-        return (u != null) && u.getLevel().canSubmit(phase.getCPhase());
+        return (u != null) && u.getLevel().canSubmit(phase.toCheckCLDRPhase());
     }
 
     /**

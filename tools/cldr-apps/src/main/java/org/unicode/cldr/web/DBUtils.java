@@ -53,7 +53,6 @@ import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.StackTracker;
-import org.unicode.cldr.web.SurveyMain.Phase;
 
 /** Singleton utility class for simple(r) DB access. */
 public class DBUtils {
@@ -963,8 +962,7 @@ public class DBUtils {
 
     /** Append a versioned string */
     public static StringBuilder appendVersionString(StringBuilder sb) {
-        return appendVersionString(
-                sb, SurveyMain.getNewVersion(), SurveyMain.phase() == SurveyMain.Phase.BETA);
+        return appendVersionString(sb, SurveyMain.getNewVersion(), SurveyMain.isPhaseBeta());
     }
 
     private static String[] arrayOfResult(ResultSet rs) throws SQLException {
@@ -1380,8 +1378,7 @@ public class DBUtils {
                             "Error: don't use Table.toString before CLDRConfig is setup.");
                 }
                 defaultString =
-                        forVersion(SurveyMain.getNewVersion(), SurveyMain.phase() == Phase.BETA)
-                                .toString();
+                        forVersion(SurveyMain.getNewVersion(), SurveyMain.isPhaseBeta()).toString();
             }
             return defaultString;
         }

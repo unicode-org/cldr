@@ -1092,7 +1092,6 @@ public class SurveyAjax extends HttpServlet {
         // locales will have info about each locale, including name
         JSONObject locales = new JSONObject();
         SupplementalDataInfo sdi = sm.getSupplementalDataInfo();
-        final StandardCodes sc = StandardCodes.make();
 
         Factory disk = sm.getDiskFactory();
 
@@ -2658,7 +2657,7 @@ public class SurveyAjax extends HttpServlet {
         final List<CheckCLDR.CheckStatus> checkResult = new ArrayList<>();
         TestCache.TestResultBundle cc = stf.getTestResult(loc, DataPage.getOptions(cs, loc));
         UserRegistry.User u = theirU;
-        CheckCLDR.Phase cPhase = SurveyMain.getCPhase(loc);
+        CheckCLDR.Phase cPhase = SurveyMain.checkCLDRPhase(loc);
         Set<String> allValidPaths = stf.getPathsForFile(loc);
         CLDRProgressTask progress = sm.openProgress("Bulk:" + loc, all.size());
         CLDRFile cldrUnresolved = cf.getUnresolved();

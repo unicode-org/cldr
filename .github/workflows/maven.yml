@@ -90,6 +90,11 @@ jobs:
           -DskipTests=true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: DataDog sourcemap upload
+        run: npx --package=@datadog/datadog-ci datadog-ci sourcemaps upload tools/cldr-apps/src/main/webapp/dist/ --minified-path-prefix=/cldr-apps/dist/ --release-version=r${{ github.event.inputs.git-ref }} --service=surveytool
+        env:
+          DATADOG_SITE: ${{ secrets.DATADOG_SITE }}
+          DATADOG_API_KEY: ${{ secrets.DATADOG_API_KEY }}
       - name: Checkout CLDR archive
         run: >
           mkdir -v ../cldr-archive && java -jar tools/cldr-code/target/cldr-code.jar checkout-archive

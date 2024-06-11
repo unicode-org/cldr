@@ -2,8 +2,13 @@
   <header id="st-header">
     <a-spin v-if="!loaded" :delay="250" />
     <ul>
-      <li>{{ stVersion }} {{ stPhase }}
-        <span class="ddlException" v-if="ddlException" title="Note: As a non-TC DDL locale, this phase has been extended.">
+      <li>
+        {{ stVersion }} {{ stPhase }}
+        <span
+          class="ddlException"
+          v-if="ddlException"
+          title="Note: As a non-TC DDL locale, this phase has been extended."
+        >
           (extended)
         </span>
       </li>
@@ -288,5 +293,4 @@ label {
 .ddlException {
   background-color: yellow;
 }
-
 </style>

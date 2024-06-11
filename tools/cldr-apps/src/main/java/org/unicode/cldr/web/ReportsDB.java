@@ -121,6 +121,12 @@ public class ReportsDB extends VoterReportStatus<Integer> implements ReportStatu
             while (rs.next()) {
                 final int user = rs.getInt("submitter");
                 final String report = rs.getString("report");
+                ReportId reportId;
+                try {
+                    reportId = ReportId.valueOf(report);
+                } catch (IllegalArgumentException iae) {
+                    continue; // skip illegal enum values. may be a 'retired' enum
+                }
                 final String locale = rs.getString("locale");
                 final Boolean completed = rs.getBoolean("completed");
                 final Boolean acceptable = rs.getBoolean("acceptable");
@@ -129,11 +135,7 @@ public class ReportsDB extends VoterReportStatus<Integer> implements ReportStatu
                 // now update it
                 UserReport userReport = l.computeIfAbsent(user, (i) -> new UserReport(i));
                 userReport.update(
-                        locale,
-                        ReportId.valueOf(report),
-                        completed,
-                        acceptable,
-                        new Date(last_mod.getTime()));
+                        locale, reportId, completed, acceptable, new Date(last_mod.getTime()));
             }
         }
         return l.values().toArray(new UserReport[l.size()]);
@@ -157,6 +159,12 @@ public class ReportsDB extends VoterReportStatus<Integer> implements ReportStatu
             while (rs.next()) {
                 final int user = rs.getInt("submitter");
                 final String report = rs.getString("report");
+                ReportId reportId;
+                try {
+                    reportId = ReportId.valueOf(report);
+                } catch (IllegalArgumentException iae) {
+                    continue; // skip illegal enum values. may be a 'retired' enum
+                }
                 final String locale = rs.getString("locale");
                 final Boolean completed = rs.getBoolean("completed");
                 final Boolean acceptable = rs.getBoolean("acceptable");
@@ -166,7 +174,7 @@ public class ReportsDB extends VoterReportStatus<Integer> implements ReportStatu
                 copy.markReportComplete(
                         user,
                         CLDRLocale.getInstance(locale),
-                        ReportId.valueOf(report),
+                        reportId,
                         completed,
                         acceptable,
                         new Date(last_mod.getTime()));

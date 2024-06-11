@@ -49,6 +49,10 @@ function on(type, callback) {
   getStatusTarget().addEventListener(type, callback);
 }
 
+/**
+ * Fire off an event manually
+ * @param type the type to dispatch
+ */
 function dispatchEvent(type) {
   return getStatusTarget().dispatchEvent(type);
 }
@@ -477,6 +481,7 @@ function setAutoImportBusy(busy) {
 }
 
 export {
+  dispatchEvent,
   getAutoImportBusy,
   getContextPath,
   getCurrentId,

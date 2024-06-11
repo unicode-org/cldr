@@ -3,13 +3,15 @@ cldr-smoke.unicode.org
 cldr-staging.unicode.org
 
 [staging:vars]
-ddenv=staging
+# dd_env is the DataDog environment, staging vs prod
+dd_env=staging
 
 [prod]
 st.unicode.org
 
 [prod:vars]
-ddenv=prod
+# dd_env is the DataDog environment, staging vs prod
+dd_env=prod
 
 # CLDR Commit Checker web hosting here
 [ccc]

@@ -18,6 +18,6 @@
         block: |
           # enable apm and set the env
               enabled: true
-              env: {{ ddenv }}
+              env: {{ dd_env }}
         marker: '# {mark} ANSIBLE MANAGED BLOCK'
         insertafter: '^apm_config:'

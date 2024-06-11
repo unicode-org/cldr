@@ -16,6 +16,9 @@
       <a-radio-group v-model:value="formState.orgs">
         <a-radio value="Mine" title="Only your own organization">Mine</a-radio>
         <a-radio value="TC" title="All TC organizations">TC Orgs</a-radio>
+        <a-radio value="NonTC" title="Non-TC organizations"
+          >Non-TC Orgs</a-radio
+        >
         <a-radio value="All" title="All organizations">All</a-radio>
       </a-radio-group>
     </a-form-item>
@@ -42,7 +45,7 @@
     <a-form-item class="formItems" label="Locales" name="locs">
       <a-input
         v-model:value="formState.locs"
-        placeholder="Optional list of locales (like: aa fr zh) (fr implies fr_CA/etc.) (empty for all locales)"
+        placeholder="Optional list of locales (like: aa fr zh) (fr implies fr_CA/etc.) (empty for all locales, '!' for non-TC)"
         @blur="validateLocales()"
       />
     </a-form-item>
@@ -158,6 +161,8 @@ export default defineComponent({
           return "all organizations";
         case "TC":
           return "TC organizations";
+        case "NonTC":
+          return "Non-TC organizations";
         case "Mine":
           return "your organization only";
         default:
@@ -166,12 +171,14 @@ export default defineComponent({
     },
 
     describeLocs() {
+      if (this.formState.locs === "!") return "Non-TC locales";
       return this.formState.locs === "" || this.formState.locs === "*"
         ? "all locales"
         : "the following locale(s): " + this.formState.locs;
     },
 
     validateLocales() {
+      if (this.formState.locs === "!") return;
       cldrAnnounce.combineAndValidateLocales(
         this.formState.locs,
         this.updateValidatedLocales

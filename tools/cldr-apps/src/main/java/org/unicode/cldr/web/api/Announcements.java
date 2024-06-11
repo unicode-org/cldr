@@ -26,14 +26,17 @@ public class Announcements {
 
     public static final String ORGS_MINE = "Mine";
     public static final String ORGS_TC = "TC";
+    public static final String ORGS_NON_TC = "NonTC";
     public static final String ORGS_ALL = "All";
+
+    public static final String LOCS_NON_TC = "!";
 
     private static final Set<String> validAudiences =
             new HashSet<>(
                     Arrays.asList(
                             AUDIENCE_TC, AUDIENCE_MANAGERS, AUDIENCE_VETTERS, AUDIENCE_EVERYONE));
     private static final Set<String> validOrgs =
-            new HashSet<>(Arrays.asList(ORGS_MINE, ORGS_TC, ORGS_ALL));
+            new HashSet<>(Arrays.asList(ORGS_MINE, ORGS_NON_TC, ORGS_TC, ORGS_ALL));
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -250,7 +253,7 @@ public class Announcements {
         }
 
         public void normalize() {
-            if (locs != null) {
+            if (locs != null && !locs.equals(LOCS_NON_TC)) {
                 String normalized = LocaleNormalizer.normalizeQuietly(locs);
                 LocaleSet locSet = LocaleNormalizer.setFromStringQuietly(normalized, null);
                 LocaleSet langSet = locSet.combineRegionalVariants();

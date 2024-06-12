@@ -99,18 +99,18 @@ public class TestSubmissionLocales {
 
     @ParameterizedTest
     @CsvSource({
-        // loc, isTc
-        "root, true",
-        "de, true",
-        "de_IT, true",
-        "csw, false",
-        "csw_CA, false",
-        "cho_US, false",
-        "zh, true",
-        "zh_Hant_MO, true",
-        "smj, false",
-        "smj_NO, false",
-        "smj_SE, false",
+        // loc, isExtended
+        "root, false",
+        "de, false",
+        "de_IT, false",
+        "csw, true",
+        "csw_CA, true",
+        "cho_US, true",
+        "zh, false",
+        "zh_Hant_MO, false",
+        "smj, true",
+        "smj_NO, true",
+        "smj_SE, true",
     })
     public void testIsExtendedSubmissionLocale(final String loc, final String tf) {
         final CLDRLocale l = CLDRLocale.getInstance(loc);

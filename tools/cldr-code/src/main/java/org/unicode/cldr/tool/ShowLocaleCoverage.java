@@ -40,6 +40,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CLDRURLS;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CoreCoverageInfo;
 import org.unicode.cldr.util.CoreCoverageInfo.CoreItems;
@@ -67,7 +68,7 @@ import org.unicode.cldr.util.VettingViewer.MissingStatus;
 public class ShowLocaleCoverage {
 
     private static final String TSV_BASE =
-            CLDR_STAGING_REPO_MAIN
+            CLDRURLS.CLDR_STAGING_REPO_MAIN
                     + "docs/charts/"
                     + ToolConstants.CHART_VI.getVersionString(1, 2)
                     + "/tsv/";

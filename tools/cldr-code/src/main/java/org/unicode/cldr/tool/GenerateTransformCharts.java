@@ -36,6 +36,7 @@ import org.unicode.cldr.test.TestTransformsSimple;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRTransforms;
 import org.unicode.cldr.util.CLDRTransforms.ParsedTransformID;
+import org.unicode.cldr.util.CLDRURLS;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.FileCopier;
 import org.unicode.cldr.util.Pair;
@@ -368,7 +369,7 @@ public class GenerateTransformCharts {
                         + "It also does not show other transforms that are available in CLDR, such as the casing transformations, "
                         + "full-width and half-width transformations, and specialized transformations such as IPA-XSampa. "
                         + "For the latest snapshot of the data files, see <a href='"
-                        + CLDR_REPO_BASE
+                        + CLDRURLS.CLDR_REPO_BASE
                         + "tree/main/common/transforms'>Transform XML Data</a>. "
                         + "For more information, see below.</blockquote>");
         index.flush();

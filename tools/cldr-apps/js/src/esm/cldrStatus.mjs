@@ -79,8 +79,8 @@ function updateAll(status) {
   if (status.phase) {
     setPhase(status.phase);
   }
-  if (status.ddlPhase) {
-    setDdlPhase(status.ddlPhase);
+  if (status.extendedPhase) {
+    setExtendedPhase(status.extendedPhase);
   }
   if (status.specialHeader) {
     setSpecialHeader(status.specialHeader);
@@ -303,16 +303,18 @@ function getPhase() {
   return phase;
 }
 
-let ddlPhase = "";
 function setPhase(p) {
   phase = p;
 }
-function getDdlPhase() {
-  return ddlPhase;
+
+let extendedPhase = "";
+
+function getExtendedPhase() {
+  return extendedPhase;
 }
 
-function setDdlPhase(p) {
-  ddlPhase = p;
+function setExtendedPhase(p) {
+  extendedPhase = p;
 }
 
 /**
@@ -490,12 +492,12 @@ export {
   getCurrentPage,
   getCurrentSection,
   getCurrentSpecial,
+  getExtendedPhase,
   getIsPhaseBeta,
   getIsUnofficial,
   getNewVersion,
   getOrganizationName,
   getPermissions,
-  getDdlPhase,
   getPhase,
   getRunningStamp,
   getSessionId,
@@ -517,6 +519,7 @@ export {
   setCurrentPage,
   setCurrentSection,
   setCurrentSpecial,
+  setExtendedPhase,
   setIsDisconnected,
   setIsPhaseBeta,
   setIsUnofficial,
@@ -524,7 +527,6 @@ export {
   setOrganizationName,
   setPermissions,
   setPhase,
-  setDdlPhase,
   setSessionId,
   setSessionMessage,
   setSpecialHeader,

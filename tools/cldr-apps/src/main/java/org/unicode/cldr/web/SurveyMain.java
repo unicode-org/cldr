@@ -210,7 +210,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     // ===== Configuration state
     private static Phase currentPhase = Phase.VETTING;
-    private static Phase currentDdlPhase = Phase.VETTING;
+    private static Phase currentExtendedPhase = Phase.VETTING;
     /** set by CLDR_PHASE property. * */
     private static String oldVersion = "OLDVERSION";
 
@@ -2825,30 +2825,35 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                                     + phaseString);
                 }
                 currentPhase = newPhase;
-                String ddlPhaseString = survprops.getProperty("CLDR_DDL_PHASE", null);
-                Phase ddlPhase = null;
+                String extendedPhaseString = survprops.getProperty("CLDR_EXTENDED_PHASE", null);
+                Phase extendedPhase = null;
                 try {
-                    if (ddlPhaseString != null && !ddlPhaseString.isEmpty()) {
+                    if (extendedPhaseString != null && !extendedPhaseString.isEmpty()) {
                         if (currentPhase == Phase.READONLY) {
                             busted(
-                                    "Error: Cannot have a CLDR_DDL_PHASE when CLDR_PHASE=READONLY. Remove the CLDR_DDL_PHASE.");
+                                    "Error: Cannot have a CLDR_EXTENDED_PHASE when CLDR_PHASE=READONLY. Remove the CLDR_EXTENDED_PHASE.");
                         }
-                        ddlPhase = (Phase.valueOf(ddlPhaseString));
+                        extendedPhase = (Phase.valueOf(extendedPhaseString));
                     }
                 } catch (IllegalArgumentException iae) {
-                    logger.warning("Error trying to parse CLDR_DDL_PHASE: " + iae);
+                    logger.warning("Error trying to parse CLDR_EXTENDED_PHASE: " + iae);
                 }
-                if (ddlPhase == null) {
-                    ddlPhase = newPhase;
-                    logger.warning("CLDR_DDL_PHASE matches main phase " + ddlPhase);
+                if (extendedPhase == null) {
+                    extendedPhase = newPhase;
+                    logger.warning("CLDR_EXTENDED_PHASE unset, so will use main phase " + newPhase);
                 }
-                currentDdlPhase = ddlPhase;
+                currentExtendedPhase = extendedPhase;
             }
             logger.info(
                     "Phase: "
                             + getOverallSurveyPhase()
                             + ", CheckCLDR Phase: "
-                            + getOverallSurveyPhase().toCheckCLDRPhase());
+                            + getOverallSurveyPhase().toCheckCLDRPhase()
+                            + ", Extended Phase: "
+                            + currentExtendedPhase);
+            logger.info(
+                    "CLDR_EXTENDED_SUBMISSION="
+                            + String.join(" ", SubmissionLocales.ADDITIONAL_EXTENDED_SUBMISSION));
             progress.update("Setup props..");
             newVersion = survprops.getProperty(CLDR_NEWVERSION, CLDR_NEWVERSION);
             oldVersion = survprops.getProperty(CLDR_OLDVERSION, CLDR_OLDVERSION);
@@ -3601,7 +3606,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     public static Phase surveyPhase(CLDRLocale locale) {
         return (SubmissionLocales.isTcLocale(locale)
                 ? getOverallSurveyPhase()
-                : getOverallDDLPhase());
+                : getOverallExtendedPhase());
     }
 
     /**
@@ -3615,8 +3620,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      * the DDL (non-TC) overall phase. It is preferred to use one of the phase functions which takes
      * a locale.
      */
-    public static Phase getOverallDDLPhase() {
-        return currentDdlPhase;
+    public static Phase getOverallExtendedPhase() {
+        return currentExtendedPhase;
     }
 
     public static String getOldVersion() {
@@ -3691,7 +3696,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         private final int pages = SurveyMain.pages;
         private Object permissions = null;
         private final Phase phase = getOverallSurveyPhase();
-        private final Phase ddlPhase = getOverallDDLPhase();
+        private final Phase extendedPhase = getOverallExtendedPhase();
         private String sessionId = null;
         private final String specialHeader = getSpecialHeaderText();
         private final long surveyRunningStamp = SurveyMain.surveyRunningStamp.current();
@@ -3725,7 +3730,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                     .put("pages", pages)
                     .put("permissions", permissions)
                     .put("phase", phase)
-                    .put("ddlPhase", ddlPhase)
+                    .put("extendedPhase", extendedPhase)
                     .put("sessionId", sessionId)
                     .put("sessionMessage", sessionMessage)
                     .put("specialHeader", specialHeader)

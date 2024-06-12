@@ -5,9 +5,9 @@
       <li>
         {{ stVersion }} {{ stPhase }}
         <span
-          class="ddlException"
-          v-if="ddlException"
-          title="Note: As a non-TC DDL locale, this phase has been extended."
+          class="extendedException"
+          v-if="extendedException"
+          title="Note: This phase has been extended for this locale."
         >
           (extended)
         </span>
@@ -111,7 +111,7 @@ export default {
       stPhase: null,
       stVersion: null,
       tcLocale: true,
-      ddlException: false,
+      extendedException: false,
       unreadAnnouncementCount: 0,
       userName: null,
       voteCountMenu: null,
@@ -176,17 +176,11 @@ export default {
       this.sessionMessage = cldrStatus.getSessionMessage();
       this.specialHeader = cldrStatus.getSpecialHeader();
       this.stVersion = "Survey Tool " + cldrStatus.getNewVersion();
-      this.tcLocale = cldrLoad?.getLocaleInfo(loc)?.tc;
-      if (!loc || this.tcLocale) {
+      this.extendedException = cldrLoad.getLocaleInfo(loc)?.extended;
+      if (!loc || !this.extendedException) {
         this.stPhase = cldrStatus.getPhase();
-        this.ddlException = false;
-      } else {
-        this.stPhase = cldrStatus.getDdlPhase();
-        if (cldrStatus.getDdlPhase() != cldrStatus.getPhase()) {
-          this.ddlException = true;
-        } else {
-          this.ddlException = false;
-        }
+      } else if (this.extendedException) {
+        this.stPhase = cldrStatus.getExtendedPhase();
       }
       cldrAnnounce.getUnreadCount(this.setUnreadCount);
     },
@@ -290,7 +284,7 @@ label {
   width: 16ch;
 }
 
-.ddlException {
+.extendedException {
   background-color: yellow;
 }
 </style>

@@ -1119,6 +1119,7 @@ public class SurveyAjax extends HttpServlet {
             locale.put("dcParent", dcParent);
             locale.put("dcChild", dcChild);
             locale.put("tc", SubmissionLocales.isTcLocale(loc));
+            locale.put("extended", SubmissionLocales.isOpenForExtendedSubmission(loc));
             locale.put(
                     "type",
                     Factory.getSourceTreeType(disk.getSourceDirectoryForLocale(loc.getBaseName())));

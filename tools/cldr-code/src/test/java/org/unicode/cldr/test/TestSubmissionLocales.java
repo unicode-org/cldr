@@ -8,6 +8,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assumptions.assumeFalse;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
+import java.util.List;
+import java.util.stream.Collectors;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
@@ -80,14 +82,58 @@ public class TestSubmissionLocales {
         "de, true",
         "de_IT, true",
         "csw, false",
+        "csw_CA, false",
         "cho_US, false",
         "zh, true",
         "zh_Hant_MO, true",
+        "smj, false",
+        "smj_NO, false",
+        "smj_SE, false",
     })
     public void testIsTcLocale(final String loc, final String tf) {
         final CLDRLocale l = CLDRLocale.getInstance(loc);
         assertNotNull(l, loc);
         final Boolean isCldr = Boolean.parseBoolean(tf);
         assertEquals(isCldr, SubmissionLocales.isTcLocale(l));
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+        // loc, isTc
+        "root, true",
+        "de, true",
+        "de_IT, true",
+        "csw, false",
+        "csw_CA, false",
+        "cho_US, false",
+        "zh, true",
+        "zh_Hant_MO, true",
+        "smj, false",
+        "smj_NO, false",
+        "smj_SE, false",
+    })
+    public void testIsExtendedSubmissionLocale(final String loc, final String tf) {
+        final CLDRLocale l = CLDRLocale.getInstance(loc);
+        assertNotNull(l, loc);
+        final Boolean isExtendedSubmission = Boolean.parseBoolean(tf);
+        assertEquals(isExtendedSubmission, SubmissionLocales.isOpenForExtendedSubmission(l));
+    }
+
+    @Test
+    public void textAdditionalVsTcLocale() {
+        final List<CLDRLocale> extendedSubmissionButNotTcLocales =
+                SubmissionLocales.ADDITIONAL_EXTENDED_SUBMISSION.stream()
+                        .map(l -> CLDRLocale.getInstance(l))
+                        .filter(l -> !SubmissionLocales.isTcLocale(l))
+                        .collect(Collectors.toList());
+        assertTrue(
+                extendedSubmissionButNotTcLocales.isEmpty(),
+                () ->
+                        "Locales in SubmissionLocales.ADDITIONAL_EXTENDED_SUBMISSION that should be removed as they are not TC locales: "
+                                + String.join(
+                                        " ",
+                                        extendedSubmissionButNotTcLocales.stream()
+                                                .map(l -> l.getBaseName())
+                                                .collect(Collectors.toList())));
     }
 }

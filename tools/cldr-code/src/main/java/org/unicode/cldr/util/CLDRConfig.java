@@ -401,9 +401,10 @@ public class CLDRConfig extends Properties {
     }
 
     /**
-     * @returns the phase for DDL (non-TC) locales. Defaults to same as main phase.
+     * @returns the phase for extended submission locales. Defaults to same as main phase. {@link
+     *     SubmissionLocales#isOpenForExtendedSubmission}
      */
-    public Phase getDDLPhase() {
+    public Phase getExtendedPhase() {
         // by default, same as main phase.
         return getPhase();
     }

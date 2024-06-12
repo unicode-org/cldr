@@ -4,8 +4,9 @@
 import * as cldrAccount from "./cldrAccount.mjs";
 import * as cldrAjax from "./cldrAjax.mjs";
 import * as cldrDom from "./cldrDom.mjs";
-import * as cldrInfo from "./cldrInfo.mjs";
 import * as cldrLoad from "./cldrLoad.mjs";
+import * as cldrNotify from "./cldrNotify.mjs";
+import * as cldrOrganizations from "./cldrOrganizations.mjs";
 import * as cldrProgress from "./cldrProgress.mjs";
 import * as cldrRetry from "./cldrRetry.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
@@ -17,13 +18,17 @@ import * as XLSX from "xlsx";
 const COLUMN_TITLE_ORG = "Org";
 const COLUMN_TITLE_LOCALE_NAME = "Locale";
 const COLUMN_TITLE_LOCALE_ID = "Code";
+const COLUMN_TITLE_VETTERS_PER_LOCALE = "/Vetters";
+const COLUMN_TITLE_LOCALES_PER_VETTER = "/Locales";
 const COLUMN_TITLE_LEVEL = "Level";
 const COLUMN_TITLE_VOTES = "Votes";
-const COLUMN_TITLE_COVERAGE_COUNT = "Cldr Coverage Count";
+const COLUMN_TITLE_CLDR_COVERAGE_COUNT = "Cldr Coverage Count";
+const COLUMN_TITLE_ORG_COVERAGE_COUNT = "Org Coverage Count";
 const COLUMN_TITLE_VOTED_PATH_COUNT = "Progress Vote";
 const COLUMN_TITLE_VOTABLE_PATH_COUNT = "Progress Count";
 const COLUMN_TITLE_PROGRESS_PERCENT = "Progress Percent";
 const COLUMN_TITLE_VOTES_DIRECT = "Direct Votes";
+const COLUMN_TITLE_VOTES_NON_DIRECT = "Non Direct Votes";
 const COLUMN_TITLE_VOTES_AUTO_IMPORT = "Auto-imported Votes";
 const COLUMN_TITLE_VOTES_MANUAL_IMPORT = "Manually-imported Votes";
 const COLUMN_TITLE_VOTES_BULK_UPLOAD = "Bulk-uploaded Votes";
@@ -32,23 +37,29 @@ const COLUMN_TITLE_USER_ID = "Vetter#";
 const COLUMN_TITLE_USER_EMAIL = "Email";
 const COLUMN_TITLE_USER_NAME = "Name";
 const COLUMN_TITLE_LAST_SEEN = "LastSeen";
-const COLUMN_TITLE_COVERAGE_LEVEL = "Coverage";
+const COLUMN_TITLE_COVERAGE_LEVEL = "Org Coverage";
 
 const COLUMNS = [
   { title: COLUMN_TITLE_ORG, comment: "User organization", default: null },
   { title: COLUMN_TITLE_LOCALE_NAME, comment: "User locale", default: null },
   { title: COLUMN_TITLE_LOCALE_ID, comment: "User locale code", default: null },
-  { title: COLUMN_TITLE_LEVEL, comment: "User level", default: null },
+
   {
-    title: COLUMN_TITLE_VOTES,
-    comment:
-      "User vote count, total number of path values in this locale that have a vote from this vetter, possibly including paths that are above the organization's coverage target for the locale (such as comprehensive)",
+    title: COLUMN_TITLE_VETTERS_PER_LOCALE,
+    comment: "Vetters per Locale",
     default: 0,
   },
   {
-    title: COLUMN_TITLE_COVERAGE_COUNT,
+    title: COLUMN_TITLE_LOCALES_PER_VETTER,
+    comment: "Locales per this Vetter",
+    default: 0,
+  },
+
+  { title: COLUMN_TITLE_LEVEL, comment: "User level", default: null },
+  {
+    title: COLUMN_TITLE_ORG_COVERAGE_COUNT,
     comment:
-      "Total number of paths that are in CLDR's coverage target for this locale",
+      "Total number of paths that are in Org's coverage target for this locale",
     default: 0,
   },
   {
@@ -76,6 +87,42 @@ const COLUMNS = [
     default: "",
   },
   {
+    title: COLUMN_TITLE_VOTES_NON_DIRECT,
+    comment:
+      "Number of votes by this user that aren't direct, at the organization coverage level",
+    default: "",
+  },
+  {
+    title: COLUMN_TITLE_COVERAGE_LEVEL,
+    comment: "Coverage level for this user's organization",
+    default: "",
+  },
+  {
+    title: COLUMN_TITLE_USER_ID,
+    comment: "User's account number",
+    default: null,
+  },
+  { title: COLUMN_TITLE_USER_EMAIL, comment: "User's email", default: null },
+  { title: COLUMN_TITLE_USER_NAME, comment: "User's name", default: null },
+  {
+    title: COLUMN_TITLE_LAST_SEEN,
+    comment: "When the user last logged in",
+    default: null,
+  },
+  // hide/delete after this
+  {
+    title: COLUMN_TITLE_VOTES,
+    comment:
+      "User vote count, total number of path values in this locale that have a vote from this vetter, possibly including paths that are above the organization's coverage target for the locale (such as comprehensive)",
+    default: 0,
+  },
+  {
+    title: COLUMN_TITLE_CLDR_COVERAGE_COUNT,
+    comment:
+      "Total number of paths that are in CLDR's coverage target for this locale",
+    default: 0,
+  },
+  {
     title: COLUMN_TITLE_VOTES_AUTO_IMPORT,
     comment:
       "Number of automatically-imported votes by this user within the organization coverage level",
@@ -99,24 +146,20 @@ const COLUMNS = [
       "Number of votes of unknown type by this user within the organization coverage level",
     default: "",
   },
-  {
-    title: COLUMN_TITLE_COVERAGE_LEVEL,
-    comment: "Coverage level for this user's organization",
-    default: "",
-  },
-  {
-    title: COLUMN_TITLE_USER_ID,
-    comment: "User's account number",
-    default: null,
-  },
-  { title: COLUMN_TITLE_USER_EMAIL, comment: "User's email", default: null },
-  { title: COLUMN_TITLE_USER_NAME, comment: "User's name", default: null },
-  {
-    title: COLUMN_TITLE_LAST_SEEN,
-    comment: "When the user last logged in",
-    default: null,
-  },
 ];
+
+// Google Sheets ignores the hidden column property, so delete them instead
+const DELETE_HIDDEN = true;
+
+const HIDDEN_COLUMNS = [
+  COLUMN_TITLE_VOTES,
+  COLUMN_TITLE_VOTES_MANUAL_IMPORT,
+  COLUMN_TITLE_VOTES_BULK_UPLOAD,
+  COLUMN_TITLE_VOTES_AUTO_IMPORT,
+  COLUMN_TITLE_VOTES_UNKNOWN,
+];
+const LAST_VISIBLE_COLUMN = COLUMN_TITLE_LAST_SEEN;
+const LAST_HIDDEN_COLUMN = COLUMN_TITLE_VOTES_UNKNOWN;
 
 const VOTE_TYPES = {
   DIRECT: COLUMN_TITLE_VOTES_DIRECT,
@@ -124,6 +167,7 @@ const VOTE_TYPES = {
   MANUAL_IMPORT: COLUMN_TITLE_VOTES_MANUAL_IMPORT,
   BULK_UPLOAD: COLUMN_TITLE_VOTES_BULK_UPLOAD,
   UNKNOWN: COLUMN_TITLE_VOTES_UNKNOWN,
+  NON_DIRECT: COLUMN_TITLE_VOTES_NON_DIRECT,
 };
 
 let nf = null; // Intl.NumberFormat initialized later
@@ -134,6 +178,11 @@ let nf = null; // Intl.NumberFormat initialized later
  * Called as special.load
  */
 function load() {
+  if (!cldrStatus.getSurveyUser()) {
+    // show error instead of hang if not logged in
+    cldrLoad.flipToOtherDiv(document.createTextNode("Not logged in."));
+    return;
+  }
   const url = getAjaxUrl();
   const xhrArgs = {
     url: url,
@@ -146,12 +195,8 @@ function load() {
 
 function loadHandler(json) {
   if (json.err) {
-    cldrRetry.handleDisconnect(
-      json.err,
-      json,
-      "",
-      "Loading vetting participation data"
-    );
+    console.dir({ json });
+    cldrNotify.error("Err Loading Vetting Participation", json.err);
     return;
   }
   const ourDiv = document.createElement("div");
@@ -161,7 +206,7 @@ function loadHandler(json) {
 }
 
 function errorHandler(err) {
-  cldrRetry.handleDisconnect(err, json, "", "Loading forum participation data");
+  cldrNotify.exception(err, "Loading vetting participation data");
 }
 
 /**
@@ -227,16 +272,65 @@ async function downloadVettingParticipation(opts) {
 
   let userNo = 0;
   setProgress(0, userCount);
+  let allLocalesCount = 0;
+
+  const vettersPerLocale = [];
+  for (const [, { locales, allLocales }] of Object.entries(uidToUser)) {
+    for (const locale of locales ?? []) {
+      vettersPerLocale[locale] = (vettersPerLocale[locale] ?? 0) + 1;
+    }
+    if (allLocales) {
+      allLocalesCount++;
+    }
+  }
+
+  /** are we tracking this user? */
+  function isRegularVetter(user) {
+    if (user.allLocales) return false;
+    if (!user.locales) return false;
+    if (user.userlevelName === "vetter" || user.userlevelName === "guest")
+      return true;
+    return false; // some other level
+  }
+
+  // total count needed to fetch
+  let allToFetch = 0;
+  // number confirmed fetched
+  let fetched = 0;
+
+  /** preload voting results. we'll await the results later */
+  for (const [id, user] of Object.entries(uidToUser)) {
+    if (isRegularVetter(user)) {
+      user.data = {};
+      for (const locale of user.locales) {
+        const level = "org";
+        user.data[locale] = cldrAjax.doFetch(
+          `./api/summary/participation/for/${id}/${locale}/${level}`
+        );
+        allToFetch++;
+
+        user.data[locale].then(() => {
+          fetched++;
+          setProgress(fetched, allToFetch);
+          const fetchPercent = cldrProgress.friendlyPercent(
+            fetched,
+            allToFetch
+          );
+          setStatus(`(${fetchPercent}% of ${allToFetch} fetched)`);
+        });
+      }
+    }
+  }
 
   for (const [id, user] of Object.entries(uidToUser)) {
     userNo++;
-    setProgress(userNo, userCount);
     const row = getDefaultRow(id, user, columnIndex);
     if (user.allLocales) {
       row[columnIndex[COLUMN_TITLE_LOCALE_NAME]] = "ALL";
       row[columnIndex[COLUMN_TITLE_LOCALE_ID]] = "*";
       row[columnIndex[COLUMN_TITLE_VOTED_PATH_COUNT]] = "-";
       row[columnIndex[COLUMN_TITLE_VOTABLE_PATH_COUNT]] = "-";
+      row[columnIndex[COLUMN_TITLE_VETTERS_PER_LOCALE]] = allLocalesCount;
       ws_data.push(row);
     } else if (!user.locales) {
       // no locales?!
@@ -246,21 +340,24 @@ async function downloadVettingParticipation(opts) {
       row[columnIndex[COLUMN_TITLE_VOTABLE_PATH_COUNT]] = "-";
       ws_data.push(row);
     } else {
+      row[columnIndex[COLUMN_TITLE_LOCALES_PER_VETTER]] = user.locales.length;
       for (const locale of user.locales) {
+        row[columnIndex[COLUMN_TITLE_VETTERS_PER_LOCALE]] =
+          vettersPerLocale[locale];
         row[columnIndex[COLUMN_TITLE_LOCALE_NAME]] =
           cldrLoad.getLocaleName(locale);
         row[columnIndex[COLUMN_TITLE_LOCALE_ID]] = locale;
         row[columnIndex[COLUMN_TITLE_VOTES]] =
           localeToData[locale].participation[id] || 0;
-        row[columnIndex[COLUMN_TITLE_COVERAGE_COUNT]] =
-          localeToData[locale].cov_count || 0;
+        row[columnIndex[COLUMN_TITLE_ORG_COVERAGE_COUNT]] =
+          localeToData[locale].org_count || 0;
+        row[columnIndex[COLUMN_TITLE_CLDR_COVERAGE_COUNT]] =
+          localeToData[locale].cldr_count || 0;
 
         if (user.userlevelName === "vetter" || user.userlevelName === "guest") {
           const level = "org";
-          setStatus(`Fetch ${id}/${locale}/${level}`);
-          const data = await cldrAjax.doFetch(
-            `./api/summary/participation/for/${id}/${locale}/${level}`
-          );
+          // here is where we block waiting on the results from above
+          const data = await user.data[locale];
           const json = await data.json();
           const { votablePathCount, votedPathCount, typeCount } =
             json.voterProgress;
@@ -271,7 +368,7 @@ async function downloadVettingParticipation(opts) {
             votedPathCount,
             votablePathCount
           );
-          row[columnIndex[COLUMN_TITLE_PROGRESS_PERCENT]] = `${perCent}%`;
+          row[columnIndex[COLUMN_TITLE_PROGRESS_PERCENT]] = perCent / 100.0;
           getVoteTypes(row, columnIndex, typeCount);
           row[columnIndex[COLUMN_TITLE_COVERAGE_LEVEL]] = (
             coverageLevel || ""
@@ -290,13 +387,96 @@ async function downloadVettingParticipation(opts) {
   const ws = XLSX.utils.aoa_to_sheet(ws_data);
 
   addColumnComments(ws);
+  // set percent
+  for (let r = 1; r < ws_data.length; r++) {
+    const cell = XLSX.utils.encode_cell({
+      r,
+      c: columnIndex[COLUMN_TITLE_PROGRESS_PERCENT],
+    });
+    XLSX.utils.cell_set_number_format(ws[cell], "0%");
+  }
+
+  // omit hidden columns
+  if (DELETE_HIDDEN) {
+    ws["!ref"] = ws["!ref"].replace(
+      XLSX.utils.encode_col(columnIndex[LAST_HIDDEN_COLUMN]),
+      XLSX.utils.encode_col(columnIndex[LAST_VISIBLE_COLUMN])
+    );
+  } else {
+    // hide these columns
+    ws["!cols"] = [];
+    for (const c of HIDDEN_COLUMNS) {
+      ws["!cols"][columnIndex[c]] = [{ hidden: true, wch: 0 }];
+    }
+  }
 
   XLSX.utils.book_append_sheet(wb, ws, ws_name);
+
+  // add the org sheet
+  await appendOrgSheet(wb);
+
   XLSX.writeFile(
     wb,
-    `survey_participation.${missingLocalesForOrg || "ALL"}.xlsx`
+    `survey_participation.${missingLocalesForOrg || "ALL"}.xlsx`,
+    {
+      cellStyles: true,
+    }
   );
   cldrDom.removeAllChildNodes(progressDiv);
+}
+
+/** append a sheet with Organization metadata (Locales.txt) */
+async function appendOrgSheet(wb) {
+  const { shortToDisplay } = await cldrOrganizations.get();
+  const tcOrgs = cldrOrganizations.getTcOrgs();
+  const orgList = Object.keys(shortToDisplay).sort();
+
+  // write Organizations list
+  {
+    const ws_data = [["org", "name", "tc"]];
+    for (const org of orgList) {
+      ws_data.push([org, shortToDisplay[org], (await tcOrgs).includes(org)]);
+    }
+
+    const ws = XLSX.utils.aoa_to_sheet(ws_data);
+
+    cldrXlsx.pushComment(ws, { r: 0, c: 0 }, "Organization short name");
+    cldrXlsx.pushComment(ws, { r: 0, c: 1 }, "Organization long name");
+    cldrXlsx.pushComment(ws, { r: 0, c: 2 }, "true if TC organization");
+
+    XLSX.utils.book_append_sheet(wb, ws, "Organizations");
+  }
+
+  // write Coverage list
+  {
+    const orgToLocaleLevel = await cldrOrganizations.getOrgCoverage();
+
+    const ws_data = [["org", "name", "tc", "locale", "localeName", "coverage"]];
+    for (const org of orgList) {
+      const localeToCoverage = orgToLocaleLevel[org];
+      for (const [locale, level] of Object.entries(localeToCoverage)) {
+        ws_data.push([
+          org,
+          shortToDisplay[org],
+          (await tcOrgs).includes(org),
+          locale,
+          cldrLoad.getLocaleName(locale),
+          level.toLowerCase(),
+        ]);
+      }
+    }
+
+    const ws = XLSX.utils.aoa_to_sheet(ws_data);
+
+    cldrXlsx.pushComment(ws, { r: 0, c: 0 }, "Organization short name");
+    cldrXlsx.pushComment(ws, { r: 0, c: 1 }, "Organization long name");
+    cldrXlsx.pushComment(ws, { r: 0, c: 2 }, "true if TC organization");
+    cldrXlsx.pushComment(ws, { r: 0, c: 3 }, "locale id");
+    cldrXlsx.pushComment(ws, { r: 0, c: 4 }, "locale name");
+    cldrXlsx.pushComment(ws, { r: 0, c: 5 }, "coverage goal from Locales.txt");
+
+    XLSX.utils.book_append_sheet(wb, ws, "Coverage");
+  }
 }
 
 /**
@@ -347,7 +527,7 @@ function loadVettingParticipation(json, ourDiv) {
         downloadButton.disabled = false;
       },
       (err) => {
-        console.error(err);
+        cldrNotify.exception(err, `Downloading Vetting Participation`);
         downloadButton.disabled = false;
       }
     );
@@ -395,7 +575,6 @@ function loadVettingParticipation(json, ourDiv) {
 
   const locmap = cldrLoad.getTheLocaleMap();
   const localeList = div.append($('<div class="locList" ></div>'));
-  // console.dir(localeToData);
   for (const loc of Object.keys(localeToData).sort()) {
     const e = localeToData[loc]; // consistency
     const li = $('<div class="locRow"></div>');
@@ -488,10 +667,14 @@ function addColumnComments(ws) {
 
 function getVoteTypes(row, columnIndex, typeCount) {
   if (typeCount) {
+    let nonDirect = 0;
     for (let key of Object.keys(VOTE_TYPES)) {
+      if (key === "NON_DIRECT") continue; // not a type
       const title = VOTE_TYPES[key];
       row[columnIndex[title]] = typeCount[key] || 0;
+      if (key !== "DIRECT") nonDirect += typeCount[key] || 0;
     }
+    row[columnIndex[VOTE_TYPES.NON_DIRECT]] = nonDirect;
     for (let key of Object.keys(typeCount)) {
       if (!VOTE_TYPES[key]) {
         console.warn("Unrecognized vote type in server response: " + key);
@@ -563,12 +746,13 @@ function calculateData(json) {
   });
   // collect missing
   (languagesMissing || []).forEach((loc) => (getLocale(loc).missing = true));
-  participation.forEach(({ count, locale, user, cov_count }) => {
+  participation.forEach(({ count, locale, user, cldr_count, org_count }) => {
     const e = getLocale(locale);
     e.count += count;
     totalCount += count;
     e.participation[user] = count;
-    e.cov_count = cov_count; // cov_count is currently per-locale data.
+    e.org_count = org_count;
+    e.cldr_count = cldr_count;
   });
 
   return { localeToData, totalCount, uidToUser };

@@ -4,7 +4,6 @@ import com.google.common.base.Splitter;
 import com.ibm.icu.lang.CharSequences;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.Normalizer2;
-import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 import java.util.ArrayList;
@@ -41,15 +40,25 @@ public class SimpleUnicodeSetFormatter implements FormatterParser<UnicodeSet> {
     public static Normalizer2 nfc = Normalizer2.getNFCInstance();
 
     public static final Comparator<String> BASIC_COLLATOR =
-            (Comparator) ComparatorUtilities.getIcuCollator(ULocale.ROOT, Collator.IDENTICAL);
+            (Comparator) CLDRConfig.getInstance().getCollator();
 
-    private static final int DEFAULT_MAX_DISALLOW_RANGES = 199;
+    public static final int DEFAULT_RANGES_ABOVE = 1024;
 
     private final Comparator<String> comparator;
     private final UnicodeSet forceHex;
-    private final int maxDisallowRanges;
-    private final UTF16.StringComparator codepointComparator =
-            new UTF16.StringComparator(true, false, 0);
+    private final int useRangesAbove;
+
+    public Comparator<String> getComparator() {
+        return comparator;
+    }
+
+    public UnicodeSet getToEscape() {
+        return forceHex;
+    }
+
+    public int getUseRangesAbove() {
+        return useRangesAbove;
+    }
 
     /**
      * Create a simple formatter, with a comparator for the ordering and a UnicodeSet of characters
@@ -58,38 +67,43 @@ public class SimpleUnicodeSetFormatter implements FormatterParser<UnicodeSet> {
      * @param col — collator. The default is BASIC_COLLATOR, which is the root collator.
      * @param forceHex - UnicodeSet to force to be hex. It will be frozen if not already. Warning:
      *     may not round-trip unless it includes all of CodePointEscaper.getNamedEscapes()
-     * @param maxDisallowRanges — under this number, there will be no ranges; at or above there may
-     *     be ranges, and the collator will be disregarded.
+     * @param useRangesAbove — under this number, there will be no ranges; at or above there may be
+     *     ranges, and the collator will be disregarded.
      */
     public SimpleUnicodeSetFormatter(
-            Comparator<String> col, UnicodeSet forceHex, int maxDisallowRanges) {
+            Comparator<String> col, UnicodeSet forceHex, int useRangesAbove) {
         // collate, but preserve non-equivalents
-        this.comparator = col == null ? COLLATOR : ComparatorUtilities.wrapForCodePoints(col);
+        this.comparator = col == null ? BASIC_COLLATOR : ComparatorUtilities.wrapForCodePoints(col);
         this.forceHex = forceHex == null ? CodePointEscaper.FORCE_ESCAPE : forceHex.freeze();
-        this.maxDisallowRanges = maxDisallowRanges;
+        this.useRangesAbove = useRangesAbove < 0 ? DEFAULT_RANGES_ABOVE : useRangesAbove;
     }
 
-    static final int DEFAULT_MAX = 1024;
-    public static final Comparator<String> COLLATOR =
-            (Comparator) CLDRConfig.getInstance().getCollator();
-
-    public static SimpleUnicodeSetFormatter fromIcuLocale(String localeId) {
-        return new SimpleUnicodeSetFormatter(COLLATOR, null, DEFAULT_MAX);
+    public static Comparator<String> getComparatorForLocale(String localeId) {
+        Comparator<String> collator = BASIC_COLLATOR;
+        try {
+            if (localeId != null) {
+                ICUServiceBuilder isb =
+                        ICUServiceBuilder.forLocale(CLDRLocale.getInstance(localeId));
+                collator = (Comparator) isb.getRuleBasedCollator();
+            }
+        } catch (Exception e) { // for our purposes, better to fall back to the default
+        }
+        return collator;
     }
 
     public SimpleUnicodeSetFormatter(Comparator<String> col, UnicodeSet forceHex) {
-        this(col, forceHex, DEFAULT_MAX_DISALLOW_RANGES);
+        this(col, forceHex, DEFAULT_RANGES_ABOVE);
     }
 
     public SimpleUnicodeSetFormatter(Comparator<String> col) {
-        this(col, null, DEFAULT_MAX);
+        this(col, null, DEFAULT_RANGES_ABOVE);
     }
 
     public SimpleUnicodeSetFormatter() {
         this(
                 (Comparator) ComparatorUtilities.getIcuCollator(ULocale.ROOT, Collator.IDENTICAL),
                 null,
-                DEFAULT_MAX);
+                DEFAULT_RANGES_ABOVE);
     }
 
     static class Lazy {
@@ -115,7 +129,7 @@ public class SimpleUnicodeSetFormatter implements FormatterParser<UnicodeSet> {
 
     @Override
     public String format(UnicodeSet input) {
-        final boolean allowRanges = input.size() > maxDisallowRanges;
+        final boolean allowRanges = input.size() > useRangesAbove;
         StringBuilder result = new StringBuilder();
         Collection<String> sorted =
                 input.addAllTo(allowRanges ? new ArrayList<>() : new TreeSet<>(comparator));

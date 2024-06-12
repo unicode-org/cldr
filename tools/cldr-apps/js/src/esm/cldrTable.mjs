@@ -676,16 +676,19 @@ function getStatusIcon(statusClass) {
   switch (statusClass) {
     case "approved":
     case "contributed":
-      return "✓"; // U+2713
     case "missing":
     case "provisional":
     case "unconfirmed":
-      return "✘"; // U+2718
+      return cldrText.get(`status_${statusClass}`);
     case "inherited-provisional":
     case "inherited-unconfirmed":
-      return "↑"; // U+2191
+      return (
+        cldrText.get(`status_inherited`) +
+        "\u200B" +
+        getStatusIcon(statusClass.split("-")[1])
+      );
     default:
-      return "?"; // U+003F
+      return "\ufffd";
   }
 }
 

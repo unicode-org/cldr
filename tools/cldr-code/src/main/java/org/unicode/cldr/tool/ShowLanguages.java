@@ -8,9 +8,10 @@ package org.unicode.cldr.tool;
 
 import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.ImmutableSortedSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Multimaps;
+import com.google.common.collect.Sets;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row.R2;
@@ -1362,7 +1363,7 @@ public class ShowLanguages {
         }
 
         private String getLanguageName(String languageCode) {
-            String result = english.getName(languageCode);
+            String result = english.getName(languageCode, true, CLDRFile.SHORT_ALTS);
             if (!result.equals(languageCode)) return result;
             Set<String> names = Iso639Data.getNames(languageCode);
             if (names != null && names.size() != 0) {
@@ -1372,37 +1373,18 @@ public class ShowLanguages {
         }
 
         static final Set<Organization> TC_Vendors =
-                ImmutableSet.of(
-                        Organization.apple,
-                        Organization.google,
-                        Organization.microsoft,
-                        Organization.cldr);
+                Sets.union(
+                        // this is a slightly odd construction, to add airbnb into the sorted items,
+                        // but then end with cldr
+                        ImmutableSortedSet.copyOf(
+                                Sets.union(Organization.getTCOrgs(), Set.of(Organization.airbnb))),
+                        Set.of(Organization.cldr));
 
         private void showCoverageGoals(PrintWriter pw) throws IOException {
             PrintWriter pw2 =
                     new PrintWriter(
                             new FormattedFileWriter(
-                                    null,
-                                    "Coverage Goals",
-                                    null
-                                    // "<p>" +
-                                    // "The following show default coverage goals for larger
-                                    // organizations. " +
-                                    // "<i>[n/a]</i> shows where there is no specific value for a
-                                    // given organization, " +
-                                    // "while <i>(...)</i> indicates that the goal is inherited from
-                                    // the parent. " +
-                                    // "A * is added if the goal differs from the parent locale's
-                                    // goal. " +
-                                    // "For information on what these goals mean (comprehensive,
-                                    // modern, moderate,...), see the LDML specification "
-                                    // +
-                                    // "<a
-                                    // href='http://www.unicode.org/reports/tr35/#Coverage_Levels'>Appendix M: Coverage Levels</a>. " +
-                                    // +
-                                    // "</p>"
-                                    ,
-                                    null));
+                                    null, "Coverage Goals", null, SUPPLEMENTAL_INDEX_ANCHORS));
 
             TablePrinter tablePrinter =
                     new TablePrinter()
@@ -1461,8 +1443,8 @@ public class ShowLanguages {
                     throw new IllegalArgumentException(
                             "Should use canonical form: " + locale + " => " + alias);
                 }
-                String baseLang = ltp.set(localeCode).getLanguage();
-                String baseLangName = getLanguageName(baseLang);
+                // String baseLang = ltp.set(localeCode).getLanguage();
+                String baseLangName = getLanguageName(localeCode);
                 list.add("und".equals(localeCode) ? "other" : baseLangName);
                 list.add(locale);
                 int defaultVotes =

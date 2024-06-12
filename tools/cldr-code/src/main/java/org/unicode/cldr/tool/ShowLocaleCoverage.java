@@ -887,7 +887,7 @@ public class ShowLocaleCoverage {
                     tablePrinter
                             .addRow()
                             .addCell(language)
-                            .addCell(ENGLISH.getName(language))
+                            .addCell(ENGLISH.getName(language, true, CLDRFile.SHORT_ALTS))
                             .addCell(file.getName(language))
                             .addCell(script)
                             .addCell(defRegion)

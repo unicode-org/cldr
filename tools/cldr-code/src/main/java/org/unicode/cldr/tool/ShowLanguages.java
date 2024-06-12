@@ -1399,7 +1399,9 @@ public class ShowLanguages {
                                 .addColumn(
                                         "Code",
                                         "class='source'",
-                                        "<a href=\"http://www.unicode.org/cldr/data/common/main/{0}.xml\">{0}</a>",
+                                        "<a href=\""
+                                                + CLDRURLS.CLDR_REPO_ROOT
+                                                + "/blob/main/common/main/{0}.xml\">{0}</a>",
                                         "class='source'",
                                         false)
                                 .addColumn(

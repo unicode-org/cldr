@@ -38,6 +38,7 @@ public class CLDRPaths {
     /** Maintained in GitHub, base directory for CLDR */
     public static final String BASE_DIRECTORY =
             CldrUtility.getPath(CldrUtility.getProperty(CldrUtility.DIR_KEY, null));
+
     /**
      * Get path to dtd2md dir
      *
@@ -158,6 +159,7 @@ public class CLDRPaths {
     @Deprecated
     public static final String SUPPLEMENTAL_DIRECTORY =
             CldrUtility.getPath(COMMON_DIRECTORY, "supplemental/");
+
     /** Only the default, if no other directory is specified. */
     public static final String DEFAULT_SUPPLEMENTAL_DIRECTORY =
             CldrUtility.getPath(COMMON_DIRECTORY, "supplemental/");

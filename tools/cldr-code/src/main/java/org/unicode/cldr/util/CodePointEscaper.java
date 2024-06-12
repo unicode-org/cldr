@@ -196,6 +196,7 @@ public enum CodePointEscaper {
                         });
         return result.toString();
     }
+
     /** Return unescaped string */
     public static String toUnescaped(String escaped) {
         if (escaped == null) {

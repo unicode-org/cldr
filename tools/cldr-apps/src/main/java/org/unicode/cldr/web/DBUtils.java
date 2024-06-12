@@ -68,6 +68,7 @@ public class DBUtils {
     private static final String JDBC_SURVEYTOOL = ("jdbc/SurveyTool");
     private static DataSource datasource = null;
     private String connectionUrl = null;
+
     /**
      * @Deprecated
      */
@@ -97,6 +98,7 @@ public class DBUtils {
     public static int db_number_open = 0;
     public static int db_number_used = 0;
     private static final int db_UnicodeType = java.sql.Types.BLOB;
+
     /** the StackTracker can track unclosed connections */
     private static final StackTracker tracker = DEBUG ? new StackTracker() : null;
 
@@ -623,6 +625,7 @@ public class DBUtils {
                                         && !s.getClassName().startsWith("java.")));
         return callerElement.toString();
     }
+
     /**
      * Get an Autocommit Connection. Will be AutoCommit=true
      *

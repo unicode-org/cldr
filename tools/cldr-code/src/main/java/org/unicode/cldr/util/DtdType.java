@@ -41,6 +41,7 @@ public enum DtdType {
     static Pattern FIRST_ELEMENT = PatternCache.get("//([^/\\[]*)");
 
     public final String dtdPath;
+
     /**
      * The actual root type used with the DTD. Used for ldmlICU.dtd which is used with the <ldml>
      * root type. This mechanism isn't used for keyboard2, which simply has a different element

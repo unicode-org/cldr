@@ -3604,9 +3604,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      * @returns the SurveyTool Phase for the locale
      */
     public static Phase surveyPhase(CLDRLocale locale) {
-        return (SubmissionLocales.isTcLocale(locale)
-                ? getOverallSurveyPhase()
-                : getOverallExtendedPhase());
+        return (SubmissionLocales.isOpenForExtendedSubmission(locale)
+                ? getOverallExtendedPhase()
+                : getOverallSurveyPhase());
     }
 
     /**

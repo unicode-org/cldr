@@ -8,7 +8,6 @@ package org.unicode.cldr.tool;
 
 import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableSortedSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Multimaps;
 import com.google.common.collect.Sets;
@@ -1374,10 +1373,8 @@ public class ShowLanguages {
 
         static final Set<Organization> TC_Vendors =
                 Sets.union(
-                        // this is a slightly odd construction, to add airbnb into the sorted items,
-                        // but then end with cldr
-                        ImmutableSortedSet.copyOf(
-                                Sets.union(Organization.getTCOrgs(), Set.of(Organization.airbnb))),
+                        Organization.getTCOrgs(),
+                        // This adds the CLDR org at the end of the list
                         Set.of(Organization.cldr));
 
         private void showCoverageGoals(PrintWriter pw) throws IOException {

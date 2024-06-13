@@ -228,7 +228,8 @@ public class PathHeader implements Comparable<PathHeader> {
         Measurement_Systems(SectionId.Units, "Measurement Systems"),
         Duration(SectionId.Units),
         Graphics(SectionId.Units),
-        Length(SectionId.Units),
+        Length_Metric(SectionId.Units, "Length Metric"),
+        Length_Other(SectionId.Units, "Length Other"),
         Area(SectionId.Units),
         Volume_Metric(SectionId.Units, "Volume Metric"),
         Volume_US(SectionId.Units, "Volume US"),
@@ -2221,12 +2222,7 @@ public class PathHeader implements Comparable<PathHeader> {
             while (true) {
                 int functionStart = input.indexOf('&', pos);
                 if (functionStart < 0) {
-                    if ("Volume".equals(input)) {
-                        return getVolumePageId(args.value[0] /* path */).toString();
-                    } else if ("Other Units".equals(input)) {
-                        return getOtherUnitsPageId(args.value[0] /* path */).toString();
-                    }
-                    return input;
+                    return adjustPageForPath(input, args.value[0] /* path */).toString();
                 }
                 int functionEnd = input.indexOf('(', functionStart);
                 int argEnd =
@@ -2246,11 +2242,34 @@ public class PathHeader implements Comparable<PathHeader> {
             }
         }
 
+        private static String adjustPageForPath(String input, String path) {
+            if ("Length".equals(input)) {
+                return getLengthPageId(path).toString();
+            }
+            if ("Other Units".equals(input)) {
+                return getOtherUnitsPageId(path).toString();
+            }
+            if ("Volume".equals(input)) {
+                return getVolumePageId(path).toString();
+            }
+            return input;
+        }
+
         private static Set<UnitConverter.UnitSystem> METRIC_UNITS =
                 Set.of(UnitConverter.UnitSystem.metric, UnitConverter.UnitSystem.metric_adjacent);
 
         private static Set<UnitConverter.UnitSystem> US_UNITS =
                 Set.of(UnitConverter.UnitSystem.ussystem);
+
+        private static PageId getLengthPageId(String path) {
+            final String shortUnitId = getShortUnitId(path);
+            if (isSystemUnit(shortUnitId, METRIC_UNITS)) {
+                return PageId.Length_Metric;
+            } else {
+                // Could further subdivide into US/Other with isSystemUnit(shortUnitId, US_UNITS)
+                return PageId.Length_Other;
+            }
+        }
 
         private static PageId getVolumePageId(String path) {
             final String shortUnitId = getShortUnitId(path);

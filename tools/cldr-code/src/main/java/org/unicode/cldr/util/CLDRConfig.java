@@ -400,6 +400,15 @@ public class CLDRConfig extends Properties {
         return phase;
     }
 
+    /**
+     * @returns the phase for extended submission locales. Defaults to same as main phase. {@link
+     *     SubmissionLocales#isOpenForExtendedSubmission}
+     */
+    public Phase getExtendedPhase() {
+        // by default, same as main phase.
+        return getPhase();
+    }
+
     @Override
     public String getProperty(String key, String d) {
         String result = getProperty(key);

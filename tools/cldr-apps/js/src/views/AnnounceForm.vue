@@ -43,11 +43,17 @@
     </a-form-item>
 
     <a-form-item class="formItems" label="Locales" name="locs">
-      <a-input
-        v-model:value="formState.locs"
-        placeholder="Optional list of locales (like: aa fr zh) (fr implies fr_CA/etc.) (empty for all locales, '!' for non-TC)"
-        @blur="validateLocales()"
-      />
+      <a-radio-group v-model:value="formState.localeType">
+        <a-radio value="all">All</a-radio>
+        <a-radio value="ddl">All DDL (non-TC) Locales</a-radio>
+        <a-radio value="choose">Choose…</a-radio>
+        <a-input
+          v-if="formState.localeType === 'choose'"
+          v-model:value="formState.locs"
+          placeholder="Required: list of locales, such as: “aa fr zh”. (fr implies fr_CA/etc.)"
+          @blur="validateLocales()"
+        />
+      </a-radio-group>
     </a-form-item>
     <a-form-item
       class="formItems"
@@ -76,7 +82,11 @@
       <a-form-item>
         <a-button html-type="cancel" @click="onCancel">Cancel</a-button>
         &nbsp;
-        <a-button type="primary" html-type="submit" @click="onPost"
+        <a-button
+          type="primary"
+          :disabled="!okToPost()"
+          html-type="submit"
+          @click="onPost"
           >Post</a-button
         >
       </a-form-item>
@@ -86,7 +96,7 @@
 
 <script>
 import * as cldrAnnounce from "../esm/cldrAnnounce.mjs";
-import { defineComponent, reactive } from "vue";
+import { defineComponent, reactive, ref } from "vue";
 
 export default defineComponent({
   props: ["formHasAllOrgs", "postOrCancel"],
@@ -98,6 +108,7 @@ export default defineComponent({
       locs: "",
       orgs: "Mine",
       subject: "",
+      localeType: "all",
     });
 
     const onFinish = (values) => {
@@ -123,9 +134,17 @@ export default defineComponent({
     onPost() {
       // onFinish or onFinishFailed should be called for validation.
       // Double-check that subject and body aren't empty.
-      if (this.formState.subject && this.formState.body) {
+      if (this.okToPost()) {
         this.postOrCancel(this.formState);
       }
+    },
+
+    /** @returns true only when the post button should be enabled */
+    okToPost() {
+      if (!this.formState.subject || !this.formState.body) return false;
+      if (this.formState.localeType != "choose") return true;
+      if (this.formState.locs != "") return true;
+      return false;
     },
 
     whatWillHappen() {
@@ -171,14 +190,17 @@ export default defineComponent({
     },
 
     describeLocs() {
-      if (this.formState.locs === "!") return "Non-TC locales";
-      return this.formState.locs === "" || this.formState.locs === "*"
-        ? "all locales"
-        : "the following locale(s): " + this.formState.locs;
+      if (this.formState.localeType === "ddl") return "DDL (Non-TC) locales";
+      if (
+        this.formState.localeType === "all" ||
+        this.formState.locs === "" ||
+        this.formState.locs === "*"
+      )
+        return "all locales";
+      return "the following locale(s): " + this.formState.locs;
     },
 
     validateLocales() {
-      if (this.formState.locs === "!") return;
       cldrAnnounce.combineAndValidateLocales(
         this.formState.locs,
         this.updateValidatedLocales

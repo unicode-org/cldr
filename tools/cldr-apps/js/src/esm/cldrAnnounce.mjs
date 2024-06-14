@@ -124,6 +124,9 @@ function canChooseAllOrgs() {
   return cldrStatus.getPermissions()?.userIsTC || false;
 }
 
+/**
+ * @param localeState 'ddl' or 'all' or 'choose'
+ */
 async function compose(formState, viewCallbackComposeResult) {
   resetSchedule();
   const init = cldrAjax.makePostData(formState);

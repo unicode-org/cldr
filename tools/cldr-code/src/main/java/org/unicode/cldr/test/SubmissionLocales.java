@@ -12,6 +12,8 @@ import java.util.Set;
 import java.util.concurrent.ExecutionException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.GrammarInfo;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Organization;
@@ -68,6 +70,16 @@ public final class SubmissionLocales {
 
     /** Subset of CLDR_LOCALES, minus special which are only those which are TC orgs */
     public static final Set<String> TC_ORG_LOCALES;
+
+    /** Space-separated list of TC locales to extend submission */
+    public static final String DEFAULT_EXTENDED_SUBMISSION = "";
+
+    /** Additional TC locales which have extended submission. Do not add non-tc locales here. */
+    public static final Set<String> ADDITIONAL_EXTENDED_SUBMISSION =
+            ImmutableSet.copyOf(
+                    CLDRConfig.getInstance()
+                            .getProperty("CLDR_EXTENDED_SUBMISSION", "")
+                            .split(" "));
 
     /**
      * Set to true iff ONLY grammar locales should be limited submission {@link
@@ -247,5 +259,44 @@ public final class SubmissionLocales {
 
     public static Set<ReportId> getReportsAvailableInLimited() {
         return LIMITED_SUBMISSION_REPORTS;
+    }
+
+    /**
+     * @returns true if the locale or its parent is considered a TC Org Locale. Returns true for
+     *     ROOT.
+     */
+    public static boolean isTcLocale(CLDRLocale loc) {
+        if (loc == CLDRLocale.ROOT
+                || SubmissionLocales.TC_ORG_LOCALES.contains(loc.getBaseName())) {
+            // root or explicitly listed locale is a TC locale
+            return true;
+        } else if (loc.isParentRoot()) {
+            // any sublocale of root not listed is not a tc locale
+            return false;
+        } else {
+            return isTcLocale(loc.getParent());
+        }
+    }
+
+    /**
+     * @returns true if the locale or its parent is considered a TC Org Locale. Returns true for
+     *     ROOT.
+     */
+    public static boolean isOpenForExtendedSubmission(CLDRLocale loc) {
+        if (loc == CLDRLocale.ROOT) {
+            return false; // root is never open
+        } else if (SubmissionLocales.ADDITIONAL_EXTENDED_SUBMISSION.contains(loc.getBaseName())) {
+            // explicitly listed locale is a open for additional
+            return true;
+        } else if (SubmissionLocales.TC_ORG_LOCALES.contains(loc.getBaseName())) {
+            // TC locale but not listed as extended - NOT open for extended submission.
+            return false;
+        } else if (loc.isParentRoot()) {
+            // Not a TC locale, so it's open.
+            return true;
+        } else {
+            // child locale of an open locale is open
+            return isOpenForExtendedSubmission(loc.getParent());
+        }
     }
 }

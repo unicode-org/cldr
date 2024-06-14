@@ -40,6 +40,8 @@ import {
   Tooltip,
   UploadDragger,
 } from "ant-design-vue";
+
+import VueVirtualScroller from "vue-virtual-scroller";
 // Note: 'notification' is a function and is imported as a function in cldrVue.mjs,
 // or within a specific app.
 
@@ -88,6 +90,9 @@ function setup(app) {
   app.component("cldr-report-response", ReportResponse);
   app.component("cldr-searchbutton", SearchButton);
   app.component("cldr-value", CldrValue);
+
+  // some plugins we can pull in wholesale
+  app.use(VueVirtualScroller);
 }
 
 export { setup };

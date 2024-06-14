@@ -154,6 +154,9 @@ public enum CodePointEscaper {
 
     /** Returns a code point from the escaped form <b>of a single code point</b> */
     public static int escapedToCodePoint(String value) {
+        if (value == null || value.isEmpty()) {
+            return 0xFFFD;
+        }
         if (value.codePointAt(0) != CodePointEscaper.ESCAPE_START
                 || value.codePointAt(value.length() - 1) != CodePointEscaper.ESCAPE_END) {
             throw new IllegalArgumentException(
@@ -177,6 +180,9 @@ public enum CodePointEscaper {
 
     /** Returns the escaped form from a string */
     public static String toEscaped(String unescaped, UnicodeSet toEscape) {
+        if (unescaped == null) {
+            return null;
+        }
         StringBuilder result = new StringBuilder();
         unescaped
                 .codePoints()
@@ -191,12 +197,15 @@ public enum CodePointEscaper {
         return result.toString();
     }
     /** Return unescaped string */
-    public static String toUnescaped(String value) {
+    public static String toUnescaped(String escaped) {
+        if (escaped == null) {
+            return null;
+        }
         StringBuilder result = null;
         int donePart = 0;
-        int found = value.indexOf(ESCAPE_START);
+        int found = escaped.indexOf(ESCAPE_START);
         while (found >= 0) {
-            int foundEnd = value.indexOf(ESCAPE_END, found);
+            int foundEnd = escaped.indexOf(ESCAPE_END, found);
             if (foundEnd < 0) {
                 throw new IllegalArgumentException(
                         "Malformed escaped string, missing: " + ESCAPE_END);
@@ -204,12 +213,14 @@ public enum CodePointEscaper {
             if (result == null) {
                 result = new StringBuilder();
             }
-            result.append(value, donePart, found);
+            result.append(escaped, donePart, found);
             donePart = ++foundEnd;
-            result.appendCodePoint(escapedToCodePoint(value.substring(found, foundEnd)));
-            found = value.indexOf(ESCAPE_START, foundEnd);
+            result.appendCodePoint(escapedToCodePoint(escaped.substring(found, foundEnd)));
+            found = escaped.indexOf(ESCAPE_START, foundEnd);
         }
-        return donePart == 0 ? value : result.append(value, donePart, value.length()).toString();
+        return donePart == 0
+                ? escaped
+                : result.append(escaped, donePart, escaped.length()).toString();
     }
 
     private static final String HAS_NAME = " ≡ ";
@@ -232,6 +243,9 @@ public enum CodePointEscaper {
      * brackets</b>
      */
     public static int rawEscapedToCodePoint(CharSequence value) {
+        if (value == null || value.length() == 0) {
+            return 0xFFFD;
+        }
         try {
             return valueOf(value.toString().toUpperCase(Locale.ROOT)).codePoint;
         } catch (Exception e) {

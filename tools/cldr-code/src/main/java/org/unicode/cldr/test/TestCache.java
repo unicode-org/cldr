@@ -42,7 +42,9 @@ public class TestCache implements XMLSource.Listener {
             options = cldrOptions;
             pathCache = new ConcurrentHashMap<>();
             file = getFactory().make(options.getLocale().getBaseName(), true);
-            cc.setCldrFileToCheck(file, options, possibleProblems);
+            synchronized (cc) {
+                cc.setCldrFileToCheck(file, options, possibleProblems);
+            }
         }
 
         /**
@@ -68,12 +70,14 @@ public class TestCache implements XMLSource.Listener {
                             key,
                             (Pair<String, String> k) -> {
                                 List<CheckStatus> l = new ArrayList<CheckStatus>();
-                                cc.check(
-                                        k.getFirst(),
-                                        file.getFullXPath(k.getFirst()),
-                                        k.getSecond(),
-                                        options,
-                                        l);
+                                synchronized (cc) {
+                                    cc.check(
+                                            k.getFirst(),
+                                            file.getFullXPath(k.getFirst()),
+                                            k.getSecond(),
+                                            options,
+                                            l);
+                                }
                                 return l;
                             });
             if (cachedResult != null) {
@@ -82,7 +86,9 @@ public class TestCache implements XMLSource.Listener {
         }
 
         public void getExamples(String path, String value, List<CheckStatus> result) {
-            cc.getExamples(path, file.getFullXPath(path), value, options, result);
+            synchronized (cc) {
+                cc.getExamples(path, file.getFullXPath(path), value, options, result);
+            }
         }
 
         public List<CheckStatus> getPossibleProblems() {

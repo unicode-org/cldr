@@ -1,7 +1,17 @@
 <template>
   <header id="st-header">
+    <a-spin v-if="!loaded" :delay="250" />
     <ul>
-      <li>{{ stVersionPhase }}</li>
+      <li>
+        {{ stVersion }} {{ stPhase }}
+        <span
+          class="extendedException"
+          v-if="extendedException"
+          title="Note: This phase has been extended for this locale."
+        >
+          (extended)
+        </span>
+      </li>
       <li>
         <a href="#menu///"><span class="main-menu-icon">☰</span></a>
       </li>
@@ -79,6 +89,7 @@
 <script>
 import * as cldrAnnounce from "../esm/cldrAnnounce.mjs";
 import * as cldrCoverage from "../esm/cldrCoverage.mjs";
+import * as cldrLoad from "../esm/cldrLoad.mjs";
 import * as cldrMenu from "../esm/cldrMenu.mjs";
 import * as cldrStatus from "../esm/cldrStatus.mjs";
 import * as cldrText from "../esm/cldrText.mjs";
@@ -87,6 +98,7 @@ import * as cldrVote from "../esm/cldrVote.mjs";
 export default {
   data() {
     return {
+      loaded: false,
       announcementsTitle: null,
       coverageLevel: null,
       coverageMenu: [],
@@ -96,7 +108,10 @@ export default {
       orgCoverage: null,
       sessionMessage: null,
       specialHeader: null,
-      stVersionPhase: null,
+      stPhase: null,
+      stVersion: null,
+      tcLocale: true,
+      extendedException: false,
       unreadAnnouncementCount: 0,
       userName: null,
       voteCountMenu: null,
@@ -105,7 +120,12 @@ export default {
   },
 
   mounted() {
-    this.updateData();
+    // load after the localemap is ready
+    cldrLoad.onLocaleMapReady(() => {
+      this.updateData();
+    });
+    // reload if locale changes
+    cldrStatus.on("locale", () => this.updateData());
   },
 
   methods: {
@@ -114,9 +134,9 @@ export default {
      * This function is called both locally, to initialize, and from other module(s), to update.
      */
     updateData() {
-      const orgCoverage = cldrCoverage.getSurveyOrgCov(
-        cldrStatus.getCurrentLocale()
-      );
+      this.loaded = true;
+      const loc = cldrStatus.getCurrentLocale();
+      const orgCoverage = cldrCoverage.getSurveyOrgCov(loc);
       if (orgCoverage != this.orgCoverage) {
         this.orgCoverage = orgCoverage;
       }
@@ -155,11 +175,13 @@ export default {
       }
       this.sessionMessage = cldrStatus.getSessionMessage();
       this.specialHeader = cldrStatus.getSpecialHeader();
-      this.stVersionPhase =
-        "Survey Tool " +
-        cldrStatus.getNewVersion() +
-        " " +
-        cldrStatus.getPhase();
+      this.stVersion = "Survey Tool " + cldrStatus.getNewVersion();
+      this.extendedException = cldrLoad.getLocaleInfo(loc)?.extended;
+      if (!loc || !this.extendedException) {
+        this.stPhase = cldrStatus.getPhase();
+      } else if (this.extendedException) {
+        this.stPhase = cldrStatus.getExtendedPhase();
+      }
       cldrAnnounce.getUnreadCount(this.setUnreadCount);
     },
 
@@ -260,5 +282,9 @@ label {
 
 #coverageLevel {
   width: 16ch;
+}
+
+.extendedException {
+  background-color: yellow;
 }
 </style>

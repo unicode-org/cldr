@@ -359,9 +359,9 @@ public class CookieSession {
     /** Note a direct user action. */
     public void userDidAction() {
         lastActionMillisSinceEpoch = System.currentTimeMillis();
-        if (user != null) {
-            user.touch(); // explicitly update user last login time
-        }
+        // if (user != null) {
+        //     user.touch(); // explicitly update user last login time
+        // }
     }
 
     /**

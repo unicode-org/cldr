@@ -8,9 +8,9 @@ package org.unicode.cldr.tool;
 
 import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Multimaps;
+import com.google.common.collect.Sets;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row.R2;
@@ -1362,7 +1362,7 @@ public class ShowLanguages {
         }
 
         private String getLanguageName(String languageCode) {
-            String result = english.getName(languageCode);
+            String result = english.getName(languageCode, true, CLDRFile.SHORT_ALTS);
             if (!result.equals(languageCode)) return result;
             Set<String> names = Iso639Data.getNames(languageCode);
             if (names != null && names.size() != 0) {
@@ -1372,171 +1372,189 @@ public class ShowLanguages {
         }
 
         static final Set<Organization> TC_Vendors =
-                ImmutableSet.of(
-                        Organization.apple,
-                        Organization.google,
-                        Organization.microsoft,
-                        Organization.cldr);
+                Sets.union(
+                        Organization.getTCOrgs(),
+                        // This adds the CLDR org at the end of the list
+                        Set.of(Organization.cldr));
 
         private void showCoverageGoals(PrintWriter pw) throws IOException {
-            PrintWriter pw2 =
-                    new PrintWriter(
-                            new FormattedFileWriter(
-                                    null,
-                                    "Coverage Goals",
-                                    null
-                                    // "<p>" +
-                                    // "The following show default coverage goals for larger
-                                    // organizations. " +
-                                    // "<i>[n/a]</i> shows where there is no specific value for a
-                                    // given organization, " +
-                                    // "while <i>(...)</i> indicates that the goal is inherited from
-                                    // the parent. " +
-                                    // "A * is added if the goal differs from the parent locale's
-                                    // goal. " +
-                                    // "For information on what these goals mean (comprehensive,
-                                    // modern, moderate,...), see the LDML specification "
-                                    // +
-                                    // "<a
-                                    // href='http://www.unicode.org/reports/tr35/#Coverage_Levels'>Appendix M: Coverage Levels</a>. " +
-                                    // +
-                                    // "</p>"
-                                    ,
-                                    null));
+            try (PrintWriter pw2 =
+                            new PrintWriter(
+                                    new FormattedFileWriter(
+                                            null,
+                                            "Coverage Goals",
+                                            null,
+                                            SUPPLEMENTAL_INDEX_ANCHORS));
+                    PrintWriter coverageGoalsTsv =
+                            FileUtilities.openUTF8Writer(
+                                    CLDRPaths.CHART_DIRECTORY + "tsv/", "coverage_goals.tsv"); ) {
 
-            TablePrinter tablePrinter =
-                    new TablePrinter()
-                            // tablePrinter.setSortPriorities(0,4)
-                            .addColumn("Language", "class='source'", null, "class='source'", false)
-                            .setSortPriority(0)
-                            .setBreakSpans(false)
+                TablePrinter tablePrinter =
+                        new TablePrinter()
+                                // tablePrinter.setSortPriorities(0,4)
+                                .addColumn(
+                                        "Language", "class='source'", null, "class='source'", false)
+                                .setSortPriority(0)
+                                .setBreakSpans(false)
+                                .addColumn(
+                                        "Code",
+                                        "class='source'",
+                                        "<a href=\""
+                                                + CLDRURLS.CLDR_REPO_ROOT
+                                                + "/blob/main/common/main/{0}.xml\">{0}</a>",
+                                        "class='source'",
+                                        false)
+                                .addColumn(
+                                        "D. Votes",
+                                        "class='target'",
+                                        null,
+                                        "class='target'",
+                                        false);
+
+                Map<Organization, Map<String, Level>> vendordata = sc.getLocaleTypes();
+                Set<String> locales = new TreeSet<>();
+                Set<Organization> vendors = new LinkedHashSet<>();
+                Set<Organization> smallVendors = new LinkedHashSet<>();
+
+                for (Organization organization : TC_Vendors) {
+                    // if (vendor.equals(Organization.java)) continue;
+                    Map<String, Level> data = vendordata.get(organization);
+                    vendors.add(organization);
+                    tablePrinter
                             .addColumn(
-                                    "Code",
-                                    "class='source'",
-                                    "<a href=\"http://www.unicode.org/cldr/data/common/main/{0}.xml\">{0}</a>",
-                                    "class='source'",
+                                    organization.getDisplayName(),
+                                    "class='target'",
+                                    null,
+                                    "class='target'",
                                     false)
-                            .addColumn("D. Votes", "class='target'", null, "class='target'", false);
-
-            Map<Organization, Map<String, Level>> vendordata = sc.getLocaleTypes();
-            Set<String> locales = new TreeSet<>();
-            Set<Organization> vendors = new LinkedHashSet<>();
-            Set<Organization> smallVendors = new LinkedHashSet<>();
-
-            for (Organization organization : TC_Vendors) {
-                // if (vendor.equals(Organization.java)) continue;
-                Map<String, Level> data = vendordata.get(organization);
-                vendors.add(organization);
-                tablePrinter
-                        .addColumn(
-                                organization.getDisplayName(),
-                                "class='target'",
-                                null,
-                                "class='target'",
-                                false)
-                        .setSpanRows(false);
-                locales.addAll(data.keySet());
-            }
-
-            for (Entry<Organization, Map<String, Level>> vendorData : vendordata.entrySet()) {
-                Organization vendor = vendorData.getKey();
-                if (!TC_Vendors.contains(vendor)) {
-                    smallVendors.add(vendor);
-                    continue;
+                            .setSpanRows(false);
+                    locales.addAll(data.keySet());
+                    showTabbedOrgLevels(coverageGoalsTsv, organization, data);
                 }
-            }
 
-            Collection<Comparable[]> data = new ArrayList<>();
-            List<String> list = new ArrayList<>();
-            LanguageTagParser ltp = new LanguageTagParser();
-            // String alias2 = getAlias("sh_YU");
-
-            pw2.append("<h2>TC Orgs</h2>");
-
-            for (String locale : locales) {
-                list.clear();
-                String localeCode = locale.equals("*") ? "und" : locale;
-                String alias = getAlias(localeCode);
-                if (!alias.equals(localeCode)) {
-                    throw new IllegalArgumentException(
-                            "Should use canonical form: " + locale + " => " + alias);
-                }
-                String baseLang = ltp.set(localeCode).getLanguage();
-                String baseLangName = getLanguageName(baseLang);
-                list.add("und".equals(localeCode) ? "other" : baseLangName);
-                list.add(locale);
-                int defaultVotes =
-                        supplementalDataInfo.getRequiredVotes(CLDRLocale.getInstance(locale), null);
-                list.add(String.valueOf(defaultVotes));
-                for (Organization vendor : vendors) {
-                    String status = getVendorStatus(locale, vendor, vendordata);
-                    //                    if (!baseLang.equals(locale) && !status.startsWith("<")) {
-                    //                        String langStatus = getVendorStatus(baseLang, vendor,
-                    // vendordata);
-                    //                        if (!langStatus.equals(status)) {
-                    //                            status += "*";
-                    //                        }
-                    //                    }
-                    list.add(status);
-                }
-                data.add(list.toArray(new String[list.size()]));
-            }
-            Comparable[][] flattened = data.toArray(new Comparable[data.size()][]);
-            String value = tablePrinter.addRows(flattened).toTable();
-            pw2.println(value);
-
-            pw2.append("<h2>Others</h2><div align='left'><ul>");
-
-            for (Organization vendor2 : smallVendors) {
-                pw2.append("<li><b>");
-                pw2.append(TransliteratorUtilities.toHTML.transform(vendor2.getDisplayName()))
-                        .append(": </b>");
-                boolean first1 = true;
-                for (Level level : Level.values()) {
-                    boolean first2 = true;
-                    Level other = null;
-                    for (Entry<String, Level> data2 : vendordata.get(vendor2).entrySet()) {
-                        String key = data2.getKey();
-                        Level level2 = data2.getValue();
-                        if (level != level2) {
-                            continue;
-                        }
-                        if (key.equals("*")) {
-                            other = level2;
-                            continue;
-                        }
-                        if (first2) {
-                            if (first1) {
-                                first1 = false;
-                            } else {
-                                pw2.append("; ");
-                            }
-                            pw2.append(level2.toString()).append(": ");
-                            first2 = false;
-                        } else {
-                            pw2.append(", ");
-                        }
-                        pw2.append(TransliteratorUtilities.toHTML.transform(key));
-                    }
-                    if (other != null) {
-                        if (first2) {
-                            if (first1) {
-                                first1 = false;
-                            } else {
-                                pw2.append("; ");
-                            }
-                            pw2.append(level.toString()).append(": ");
-                            first2 = false;
-                        } else {
-                            pw2.append(", ");
-                        }
-                        pw2.append("<i>other</i>");
+                for (Entry<Organization, Map<String, Level>> vendorData : vendordata.entrySet()) {
+                    Organization organization = vendorData.getKey();
+                    if (!TC_Vendors.contains(organization)) {
+                        smallVendors.add(organization);
+                        Map<String, Level> data = vendordata.get(organization);
+                        showTabbedOrgLevels(coverageGoalsTsv, organization, data);
+                        continue;
                     }
                 }
-                pw2.append("</li>");
+
+                Collection<Comparable[]> data = new ArrayList<>();
+                List<String> list = new ArrayList<>();
+                LanguageTagParser ltp = new LanguageTagParser();
+                // String alias2 = getAlias("sh_YU");
+
+                pw2.append("<h2>TC Orgs</h2>");
+
+                for (String locale : locales) {
+                    list.clear();
+                    String localeCode = locale.equals("*") ? "und" : locale;
+                    String alias = getAlias(localeCode);
+                    if (!alias.equals(localeCode)) {
+                        throw new IllegalArgumentException(
+                                "Should use canonical form: " + locale + " => " + alias);
+                    }
+                    // String baseLang = ltp.set(localeCode).getLanguage();
+                    String baseLangName = getLanguageName(localeCode);
+                    list.add("und".equals(localeCode) ? "other" : baseLangName);
+                    list.add(locale);
+                    int defaultVotes =
+                            supplementalDataInfo.getRequiredVotes(
+                                    CLDRLocale.getInstance(locale), null);
+                    list.add(String.valueOf(defaultVotes));
+                    for (Organization vendor : vendors) {
+                        String status = getVendorStatus(locale, vendor, vendordata);
+                        //                    if (!baseLang.equals(locale) &&
+                        // !status.startsWith("<")) {
+                        //                        String langStatus = getVendorStatus(baseLang,
+                        // vendor,
+                        // vendordata);
+                        //                        if (!langStatus.equals(status)) {
+                        //                            status += "*";
+                        //                        }
+                        //                    }
+                        list.add(status);
+                    }
+                    data.add(list.toArray(new String[list.size()]));
+                }
+                Comparable[][] flattened = data.toArray(new Comparable[data.size()][]);
+                String value = tablePrinter.addRows(flattened).toTable();
+                pw2.println(value);
+
+                pw2.append("<h2>Others</h2><div align='left'><ul>");
+
+                for (Organization vendor2 : smallVendors) {
+                    pw2.append("<li><b>");
+                    pw2.append(TransliteratorUtilities.toHTML.transform(vendor2.getDisplayName()))
+                            .append(": </b>");
+                    boolean first1 = true;
+                    for (Level level : Level.values()) {
+                        boolean first2 = true;
+                        Level other = null;
+                        for (Entry<String, Level> data2 : vendordata.get(vendor2).entrySet()) {
+                            String key = data2.getKey();
+                            Level level2 = data2.getValue();
+                            if (level != level2) {
+                                continue;
+                            }
+                            if (key.equals("*")) {
+                                other = level2;
+                                continue;
+                            }
+                            if (first2) {
+                                if (first1) {
+                                    first1 = false;
+                                } else {
+                                    pw2.append("; ");
+                                }
+                                pw2.append(level2.toString()).append(": ");
+                                first2 = false;
+                            } else {
+                                pw2.append(", ");
+                            }
+                            pw2.append(TransliteratorUtilities.toHTML.transform(key));
+                        }
+                        if (other != null) {
+                            if (first2) {
+                                if (first1) {
+                                    first1 = false;
+                                } else {
+                                    pw2.append("; ");
+                                }
+                                pw2.append(level.toString()).append(": ");
+                                first2 = false;
+                            } else {
+                                pw2.append(", ");
+                            }
+                            pw2.append("<i>other</i>");
+                        }
+                    }
+                    pw2.append("</li>");
+                }
+                pw2.append("</ul></div>");
             }
-            pw2.append("</ul></div>");
-            pw2.close();
+        }
+
+        public void showTabbedOrgLevels(
+                PrintWriter coverageGoalsTsv, Organization organization, Map<String, Level> data) {
+            coverageGoalsTsv.println(
+                    String.format(
+                            "\n#%s\t;\t%s\t;\t%s\t;\t%s\n",
+                            "Org", "Locale", "Level", "Locale Name"));
+            for (Entry<String, Level> entry : data.entrySet()) {
+                String locale = entry.getKey();
+                Level level = entry.getValue();
+                final String name =
+                        locale.equals("*")
+                                ? "ALL"
+                                : english.getName(locale, true, CLDRFile.SHORT_ALTS);
+                coverageGoalsTsv.println(
+                        String.format(
+                                "%s\t;\t%s\t;\t%s\t;\t%s", organization, locale, level, name));
+            }
         }
 
         LanguageTagParser lpt2 = new LanguageTagParser();

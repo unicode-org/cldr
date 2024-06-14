@@ -40,6 +40,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CLDRURLS;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CoreCoverageInfo;
 import org.unicode.cldr.util.CoreCoverageInfo.CoreItems;
@@ -67,7 +68,8 @@ import org.unicode.cldr.util.VettingViewer.MissingStatus;
 public class ShowLocaleCoverage {
 
     private static final String TSV_BASE =
-            "https://github.com/unicode-org/cldr-staging/blob/main/docs/charts/"
+            CLDRURLS.CLDR_STAGING_REPO_MAIN
+                    + "docs/charts/"
                     + ToolConstants.CHART_VI.getVersionString(1, 2)
                     + "/tsv/";
     public static final Splitter LF_SPLITTER = Splitter.on('\n');
@@ -887,7 +889,7 @@ public class ShowLocaleCoverage {
                     tablePrinter
                             .addRow()
                             .addCell(language)
-                            .addCell(ENGLISH.getName(language))
+                            .addCell(ENGLISH.getName(language, true, CLDRFile.SHORT_ALTS))
                             .addCell(file.getName(language))
                             .addCell(script)
                             .addCell(defRegion)

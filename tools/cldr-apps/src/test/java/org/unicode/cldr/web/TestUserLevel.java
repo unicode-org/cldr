@@ -302,7 +302,8 @@ public class TestUserLevel {
                 assertEquals(expected, l.canUseVettingSummary(), onFail);
                 break;
             case "userCanSubmit_SUBMIT":
-                assertEquals(expected, l.canSubmit(SurveyMain.Phase.SUBMIT.getCPhase()), onFail);
+                assertEquals(
+                        expected, l.canSubmit(SurveyMain.Phase.SUBMIT.toCheckCLDRPhase()), onFail);
                 break;
             case "userCanCreateSummarySnapshot":
                 assertEquals(expected, l.canCreateSummarySnapshot(), onFail);

@@ -1089,7 +1089,7 @@ public class WebContext implements Cloneable, Appendable {
      * @return true if the user can modify this locale
      */
     public Boolean canModify() {
-        if (STFactory.isReadOnlyLocale(locale) || SurveyMain.phase() == Phase.READONLY)
+        if (STFactory.isReadOnlyLocale(locale) || SurveyMain.surveyPhase(locale) == Phase.READONLY)
             return (canModify = false);
         if (canModify == null) {
             if (session != null && session.user != null) {

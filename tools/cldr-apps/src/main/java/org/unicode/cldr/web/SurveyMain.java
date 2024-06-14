@@ -65,6 +65,7 @@ import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.test.HelpMessages;
+import org.unicode.cldr.test.SubmissionLocales;
 import org.unicode.cldr.util.CLDRCacheDir;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRConfigImpl;
@@ -176,7 +177,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
          * @see org.unicode.cldr.test.CheckCLDR.Phase
          * @return the CheckCLDR.Phase
          */
-        public CheckCLDR.Phase getCPhase() {
+        public CheckCLDR.Phase toCheckCLDRPhase() {
             return cphase;
         }
     }
@@ -209,6 +210,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     // ===== Configuration state
     private static Phase currentPhase = Phase.VETTING;
+    private static Phase currentExtendedPhase = Phase.VETTING;
     /** set by CLDR_PHASE property. * */
     private static String oldVersion = "OLDVERSION";
 
@@ -2077,9 +2079,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         if (canModify) {
             rv = rv + (modifyThing(ctx));
             int odisp;
-            if ((SurveyMain.phase() == Phase.VETTING
-                            || SurveyMain.phase() == Phase.SUBMIT
-                            || isPhaseVettingClosed())
+            if ((SurveyMain.surveyPhase(locale) == Phase.VETTING
+                            || SurveyMain.surveyPhase(locale) == Phase.SUBMIT
+                            || isPhaseVettingClosed(locale))
                     && ((odisp = DisputePageManager.getOrgDisputeCount(ctx)) > 0)) {
                 rv = rv + ctx.iconHtml("disp", "(" + odisp + " org disputes)");
             }
@@ -2444,7 +2446,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      * @see org.unicode.cldr.test.CheckCoverage#check(String, String, String, Map, List)
      */
     public static org.unicode.cldr.test.CheckCLDR.Phase getTestPhase() {
-        return phase().getCPhase();
+        return getOverallSurveyPhase().toCheckCLDRPhase();
     }
 
     /**
@@ -2823,8 +2825,35 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                                     + phaseString);
                 }
                 currentPhase = newPhase;
+                String extendedPhaseString = survprops.getProperty("CLDR_EXTENDED_PHASE", null);
+                Phase extendedPhase = null;
+                try {
+                    if (extendedPhaseString != null && !extendedPhaseString.isEmpty()) {
+                        if (currentPhase == Phase.READONLY) {
+                            busted(
+                                    "Error: Cannot have a CLDR_EXTENDED_PHASE when CLDR_PHASE=READONLY. Remove the CLDR_EXTENDED_PHASE.");
+                        }
+                        extendedPhase = (Phase.valueOf(extendedPhaseString));
+                    }
+                } catch (IllegalArgumentException iae) {
+                    logger.warning("Error trying to parse CLDR_EXTENDED_PHASE: " + iae);
+                }
+                if (extendedPhase == null) {
+                    extendedPhase = newPhase;
+                    logger.warning("CLDR_EXTENDED_PHASE unset, so will use main phase " + newPhase);
+                }
+                currentExtendedPhase = extendedPhase;
             }
-            logger.info("Phase: " + phase() + ", cPhase: " + phase().getCPhase());
+            logger.info(
+                    "Phase: "
+                            + getOverallSurveyPhase()
+                            + ", CheckCLDR Phase: "
+                            + getOverallSurveyPhase().toCheckCLDRPhase()
+                            + ", Extended Phase: "
+                            + currentExtendedPhase);
+            logger.info(
+                    "CLDR_EXTENDED_SUBMISSION="
+                            + String.join(" ", SubmissionLocales.ADDITIONAL_EXTENDED_SUBMISSION));
             progress.update("Setup props..");
             newVersion = survprops.getProperty(CLDR_NEWVERSION, CLDR_NEWVERSION);
             oldVersion = survprops.getProperty(CLDR_OLDVERSION, CLDR_OLDVERSION);
@@ -3554,20 +3583,45 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     // ============= Following have to do with phases
 
-    public static boolean isPhaseVettingClosed() {
-        return phase() == Phase.VETTING_CLOSED;
+    public static boolean isPhaseVettingClosed(CLDRLocale locale) {
+        return surveyPhase(locale) == Phase.VETTING_CLOSED;
     }
 
     public static boolean isPhaseReadonly() {
-        return phase() == Phase.READONLY;
+        return getOverallSurveyPhase() == Phase.READONLY;
     }
 
     public static boolean isPhaseBeta() {
-        return phase() == Phase.BETA;
+        return getOverallSurveyPhase() == Phase.BETA;
     }
 
-    public static Phase phase() {
+    /** Internal- returns the overall phase. Not locale specific. */
+    public static Phase getOverallSurveyPhase() {
         return currentPhase;
+    }
+
+    /**
+     * @returns the SurveyTool Phase for the locale
+     */
+    public static Phase surveyPhase(CLDRLocale locale) {
+        return (SubmissionLocales.isOpenForExtendedSubmission(locale)
+                ? getOverallExtendedPhase()
+                : getOverallSurveyPhase());
+    }
+
+    /**
+     * @returns the current CheckCLDR phase for the locale. This is the preferred API.
+     */
+    public static CheckCLDR.Phase checkCLDRPhase(CLDRLocale loc) {
+        return surveyPhase(loc).toCheckCLDRPhase();
+    }
+
+    /**
+     * the DDL (non-TC) overall phase. It is preferred to use one of the phase functions which takes
+     * a locale.
+     */
+    public static Phase getOverallExtendedPhase() {
+        return currentExtendedPhase;
     }
 
     public static String getOldVersion() {
@@ -3641,7 +3695,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         private String organizationName = null;
         private final int pages = SurveyMain.pages;
         private Object permissions = null;
-        private final Phase phase = phase();
+        private final Phase phase = getOverallSurveyPhase();
+        private final Phase extendedPhase = getOverallExtendedPhase();
         private String sessionId = null;
         private final String specialHeader = getSpecialHeaderText();
         private final long surveyRunningStamp = SurveyMain.surveyRunningStamp.current();
@@ -3675,6 +3730,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                     .put("pages", pages)
                     .put("permissions", permissions)
                     .put("phase", phase)
+                    .put("extendedPhase", extendedPhase)
                     .put("sessionId", sessionId)
                     .put("sessionMessage", sessionMessage)
                     .put("specialHeader", specialHeader)

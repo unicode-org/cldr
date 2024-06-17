@@ -117,7 +117,8 @@ public class CheckWidths extends CheckCLDR {
                             this.subtype = Subtype.valueTooWide;
                             break;
                         case SET_ELEMENTS:
-                            this.message = "Expected no more than {0} items(s), but was {1}.";
+                            this.message =
+                                    "There cannot be more than {3} item(s), and it is recommended to not have more than {0} item(s). Found {1} item(s).";
                             this.subtype = Subtype.tooManyValues;
                             break;
                         default:
@@ -220,7 +221,12 @@ public class CheckWidths extends CheckCLDR {
                             .setCause(cause)
                             .setMainType(errorType)
                             .setSubtype(subtype)
-                            .setMessage(message, warningReference, valueMeasure, percent));
+                            .setMessage(
+                                    message,
+                                    warningReference,
+                                    valueMeasure,
+                                    percent,
+                                    errorReference));
             return true;
         }
     }

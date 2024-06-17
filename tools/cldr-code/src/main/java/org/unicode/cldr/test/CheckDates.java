@@ -376,7 +376,7 @@ public class CheckDates extends FactoryCheckCLDR {
                     CheckStatus item =
                             new CheckStatus()
                                     .setCause(this)
-                                    .setMainType(CheckStatus.errorType)
+                                    .setMainType(errorOrIfBuildWarning())
                                     .setSubtype(Subtype.abbreviatedDateFieldTooWide)
                                     .setMessage(
                                             "Abbreviated value \"{0}\" can't be longer than the corresponding wide value \"{1}\"",
@@ -468,7 +468,7 @@ public class CheckDates extends FactoryCheckCLDR {
                     CheckStatus item =
                             new CheckStatus()
                                     .setCause(this)
-                                    .setMainType(CheckStatus.errorType)
+                                    .setMainType(errorOrIfBuildWarning())
                                     .setSubtype(Subtype.shortDateFieldInconsistentLength)
                                     .setMessage(message, value, compareValue);
                     result.add(item);
@@ -481,7 +481,7 @@ public class CheckDates extends FactoryCheckCLDR {
                     CheckStatus item =
                             new CheckStatus()
                                     .setCause(this)
-                                    .setMainType(CheckStatus.errorType)
+                                    .setMainType(errorOrIfBuildWarning())
                                     .setSubtype(Subtype.narrowDateFieldTooWide)
                                     .setMessage(
                                             "Narrow value \"{0}\" can't be longer than the corresponding abbreviated value \"{1}\"",
@@ -496,7 +496,7 @@ public class CheckDates extends FactoryCheckCLDR {
                     CheckStatus item =
                             new CheckStatus()
                                     .setCause(this)
-                                    .setMainType(CheckStatus.errorType)
+                                    .setMainType(errorOrIfBuildWarning())
                                     .setSubtype(Subtype.abbreviatedDateFieldTooWide)
                                     .setMessage(
                                             "Abbreviated value \"{0}\" can't be longer than the corresponding wide value \"{1}\"",
@@ -510,7 +510,7 @@ public class CheckDates extends FactoryCheckCLDR {
                 result.add(
                         new CheckStatus()
                                 .setCause(this)
-                                .setMainType(CheckStatus.errorType)
+                                .setMainType(errorOrIfBuildWarning())
                                 .setSubtype(Subtype.illegalDatePattern)
                                 .setMessage(failure));
             }
@@ -727,6 +727,10 @@ public class CheckDates extends FactoryCheckCLDR {
             }
         }
         return this;
+    }
+
+    public org.unicode.cldr.test.CheckCLDR.CheckStatus.Type errorOrIfBuildWarning() {
+        return getPhase() != Phase.BUILD ? CheckStatus.errorType : CheckStatus.warningType;
     }
 
     private boolean isTooMuchWiderThan(String shortString, String longString) {

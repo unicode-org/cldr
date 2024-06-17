@@ -212,8 +212,17 @@ public class GenerateApproximateWidths extends JApplet implements Runnable {
             // result = 1;
             // adjusted.add(cp);
             // }
-            if (result > 31 || result < -2) { // just to catch odd results
-                throw new IllegalArgumentException("Value too large " + result);
+            if (result > 31 || result < 0) { // just to catch odd results
+                System.out.println(
+                        "Code point: "
+                                + Utility.hex(cp)
+                                + "; Value out of bounds (0..31)"
+                                + result);
+                if (result > 31) {
+                    result = 31;
+                } else if (result < 0) {
+                    result = 0;
+                }
             }
             return result;
         }

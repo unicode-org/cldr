@@ -1,0 +1,16 @@
+CLDR Development Site
+Some of the key pages for developers are:
+New CLDR Developers
+Maven Setup (for command line & Eclipse)
+Obsolete (but may still contain useful nuggets): Eclipse Setup
+Eclipse (survey tool)
+Handling Tickets (bugs/enhancements)
+Updating DTDs
+Editing CLDR Spec
+CLDR: Big Red Switch (checklist for release)
+Adding a new locale to CLDR
+The subpages listed give more information on internal CLDR development. See also: Sitemap.
+Note: when editing Sites pages it is often useful to clean up HTML in material pasted in from other sources, such as Word or Google Docs. Some useful regexes for that:
+<(font|span|div)[^>]+>         <$1>
+style="[^"]*"
+Also see the Google Docs to Markdown extension, by edbacher

@@ -29,7 +29,7 @@ add @ORDERED if it is must be ordered.
 read more details below.
 For each attribute
 add @VALUE or @METADATA to an !ATTLIST if the attribute is non-distinguishing. (See the spec for what this means)
-@VALUE should never occur except on leaf nodes!  (There are some cases before we realized this was a mistake.)
+@VALUE should never occur except on leaf nodes! (There are some cases before we realized this was a mistake.)
 If the attribute values are a closed set, you can add them explicitly, like:
 <!ATTLIST version draft (approved | contributed | provisional | unconfirmed) #IMPLIED>
 Otherwise
@@ -41,8 +41,8 @@ add @VALUE or @METADATA to an !ATTLIST if the attribute is non-distinguishing. (
 add @ORDERED to an !ELEMENT.
 Add the annotations.
 ldml.dtd
-Attribute Value. 
-Certain values have special sorting behavior. These are listed in CLDRFile.getAttributeValueComparator. They look like::  
+Attribute Value.
+Certain values have special sorting behavior. These are listed in CLDRFile.getAttributeValueComparator. They look like::
 attribute.equals("day")
 || attribute.equals("type") &&
 element.endsWith("FormatLength")
@@ -52,7 +52,7 @@ Those need to be updated, or an exception will be thrown when the items are proc
 To fix them, look at the code and find the right comparator, then modify. Example:
 widthOrder = (MapComparator) new MapComparator().add(new String[] {"abbreviated", "narrow", "short", "wide"}).freeze();
 Survey Tool Data. Add information so that the Survey Tool can display these properly to translators
-PathHeader.txt (tools/java/org/unicode/cldr/util/data/) - provides the information for what section of the Survey Tool this item shows up in, and how it sorts. 
+PathHeader.txt (tools/java/org/unicode/cldr/util/data/) - provides the information for what section of the Survey Tool this item shows up in, and how it sorts.
 Edit as described in PathHeader.
 PathDescription.txt (tools/java/org/unicode/cldr/util/data/) - provides a description of what the field is, for translators.
 If it needs more explanation, add a section (or perhaps a whole page) to the translation guide, eg http://cldr.org/translation/plurals.
@@ -67,7 +67,7 @@ Examples: For any value that has placeholders, or is used in other values that h
 Cleaning up input. If there are things you can do to fix the user data on entry, add to test/DisplayAndInputProcessor
 Survey Tool Tests. Add those needed to CheckCLDR
 In particular, add to CheckNew so that people see it [TBD, fix this advice]
-If the user's input could be bad, add a survey test to one or more of the tests subclassed from CheckCLDR, to check for bad user input. 
+If the user's input could be bad, add a survey test to one or more of the tests subclassed from CheckCLDR, to check for bad user input.
 Look at test/CheckDates to see how this is done.
 Run test/ConsoleCheckCLDR with various types of invalid input to make sure that they fail.
 To update the casing files used by CheckConsistentCasing , run org.unicode.cldr.test.CasingInfo -l <locale_regex> which will update the casing files in common/casing. When you check this in, sanity check the values, because in some cases we have have had different rules than just what the heuristics generate.
@@ -91,10 +91,10 @@ In our code, rule elements have their ordering preserved by adding a fake attrib
 The CLDRFile code has a list of these, in the right order, as orderedElements. If you ever add an rule element to a DTD, you MUST add it there. Be careful to preserve the above invariants.
 Note: we should change the name orderedElements for clarity.
 In order to write out an XML file correctly, we also have to know the valid ordering of paths for elements that are not ordered. This ordering is generated automatically from the DTD, constructed by merging. If there are any cycles in the ordering, then the CLDR tools will throw an exception, and you have to fix it. That also means that we cannot have complicated DTDs; each non-leaf node MUST be of the form:
-<!ELEMENT foo (alias (first?, second*, third?, ... special*))>. 
+<!ELEMENT foo (alias (first?, second*, third?, ... special*))>.
 The subelements of an element will vary between * and ?. Note however that all leaf nodes MUST allow for the attributes alt=... draft=... and references=.... So that the alt can work, the leaf nodes MUST occur in their parent as *, not ?, even if logically there can be only one. For example, even though logically there is only a single quotationStart, we see:
 <!ELEMENT delimiters (alias | (quotationStart*, ...
-Attributes 
+Attributes
 The attribute order is much more flexible, since it doesn't affect the validity of the file. That is, in XML the following are equal:
 <info iso4217="ADP" digits="0" rounding="0"/>
 <info digits="0" rounding="0" iso4217="ADP"/>
@@ -134,10 +134,10 @@ PathHeader
 PathHeader.txt determines the placement and ordering in SurveyTool. It consists of a sequence of regex lines of the following form:
 <regex> ; <section> ; <page> ; <header> ; <code>
 Here's an example:
-//ldml/dates/timeZoneNames/metazone[@type="%A"]/%E/%E       ; Timezones ; &metazone($1) ; $1 ; $3-$2
+//ldml/dates/timeZoneNames/metazone[@type="%A"]/%E/%E ; Timezones ; &metazone($1) ; $1 ; $3-$2
 Key Features
 These are also in the header of PathHeader.txt:
-# Be careful, order matters. It is used to determine the order on the page and in menus. Also, be sure to put longer matches first, unless terminated with $. 
+# Be careful, order matters. It is used to determine the order on the page and in menus. Also, be sure to put longer matches first, unless terminated with $.
 # The quoting of \[ is handled automatically, as is alt=X
 # If you add new paths, change @type="..." => @type="%A"
 # The syntax &function(data) means that a function generates both the string and the ordering. The functions MUST be supported in PathHeader.java
@@ -155,27 +155,27 @@ order = m;
 There is also a "suborder" used in a few cases for the code. You probably don't need to worry about this, but here is an example. Ask for help on the cldr-dev list if you need this.
 suborder = new SubstringOrder(source, 1);
 The return value is the appearance to the user. For example, the following changes integer months into strings for display:
-static String[] months = { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",  "Und" };
+static String[] months = { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Und" };
 ...
 return months[m - 1];
 Placeholders
 If a value has placeholders, edit Placeholders.txt:
-Add 1 item per placeholder, with the form 
-<regex> ; {0}=<message_name> <example>  ; {1}=<message_name> <example> ...
-^//ldml/units/unit\[@type="day%A"]/unitPattern ; {0}=NUMBER_OF_DAYS 3 
+Add 1 item per placeholder, with the form
+<regex> ; {0}=<message_name> <example> ; {1}=<message_name> <example> ...
+^//ldml/units/unit\[@type="day%A"]/unitPattern ; {0}=NUMBER_OF_DAYS 3
 There is a variable %A that will match attribute value syntax (or substrings).
 <example> may contain spaces, but <message_name> must not.
 For an example, see 8484
 Check that the ConsoleCheckCLDR CheckForExamplars fails if there are no placeholders in the value
 Note: we should switch methods so that we don't need to quote \[, etc, but we haven't yet.
 PathDescription
-This file provides a description of each kind of path, and a link to a section of https://sites.google.com/site/cldr/translation. Easiest is to take an existing description and modify.
+This file provides a description of each kind of path, and a link to a section of https://cldr.unicode.org/translation. Easiest is to take an existing description and modify.
 Coverage
-Coverage determines the minimum coverage level at which a given item will appear in the survey tool.  If a given field is not in coverage, then the item will not appear in the survey tool at all.  This data is required for the elements in /main/. 
-The file common/supplemental/coverageLevels.xml is a series of regular expressions describing the paths and the coverage levels associated with each.  The file also gives you the ability to define a "coverage variable", which can then be used as a placeholder in the regular expressions used for matching.  Always try to be as exact as possible and avoid using wildcards in the regular expressions, as they can impact lookup performance.
-Coverage values are currently numeric, although we may change them to be words in the near future in order to make them easier to understand.  The coverage level values are:
+Coverage determines the minimum coverage level at which a given item will appear in the survey tool. If a given field is not in coverage, then the item will not appear in the survey tool at all. This data is required for the elements in /main/.
+The file common/supplemental/coverageLevels.xml is a series of regular expressions describing the paths and the coverage levels associated with each. The file also gives you the ability to define a "coverage variable", which can then be used as a placeholder in the regular expressions used for matching. Always try to be as exact as possible and avoid using wildcards in the regular expressions, as they can impact lookup performance.
+Coverage values are currently numeric, although we may change them to be words in the near future in order to make them easier to understand. The coverage level values are:
 10 = Core data, 20 = POSIX, 30 = Minimal, 40 = Basic, 60 = Moderate, 80 = Modern, 100 = Comprehensive
-Example: The following two lines define the coverage for the exemplar characters items.  Note that "//ldml" is automatically prepended to the path names, in order to make the paths in this file smaller.
+Example: The following two lines define the coverage for the exemplar characters items. Note that "//ldml" is automatically prepended to the path names, in order to make the paths in this file smaller.
 <coverageVariable key="%exemplarTypes" value="(auxiliary|index|punctuation)"/>
 <coverageLevel value="10" match="characters/exemplarCharacters[@type='%exemplarTypes']"/>
 LDML2ICU
@@ -207,9 +207,9 @@ OK if Missing
 Certain paths don't have to be present in locales. They are not counted as Missing in the Dashboard and shouldn't have an effect on coverage. To handle these, modify the file missingOk.txt to provide a regex that captures those paths. Be careful, however, to not be overly inclusive: you want all and only those paths that are ok to skip. Typically those are paths for which root values are perfectly fine.
 Examples of DTD modifications
 The following is an example of the different files that may need to be modified. It has both count= and a placeholder, so it hits most of the kinds of changes.
-http://unicode.org/cldr/trac/changeset/12592
+https://cldr.unicode.org/index/bug-reports#TOC-Filing-a-Ticket
 Modifying English/Root
-Whenever you modify values in English or Root, be sure to run GenerateBirth as described on Updating English/Root and check in the results. That ensures that CheckNew works properly. This must be done before the Survey Tool starts or is in the Submission Phase. 
+Whenever you modify values in English or Root, be sure to run GenerateBirth as described on Updating English/Root and check in the results. That ensures that CheckNew works properly. This must be done before the Survey Tool starts or is in the Submission Phase.
 Validation
 Do the steps on Running Tests
 Debugging Regexes

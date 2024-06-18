@@ -10,7 +10,7 @@ Some of the key pages for developers are:
     1. [Maven Setup](https://cldr.unicode.org/development/maven) (for command line & Eclipse)
         1. Obsolete (but may still contain useful nuggets): [Eclipse Setup](https://cldr.unicode.org/development/eclipse-setup)      
     2. [Eclipse](https://cldr.unicode.org/development/running-survey-tool/building-and-running-the-survey-tool-on-eclipse) (survey tool)       
-2. [Handling Tickets (bugs/enhancements)](https://cldr.unicode.org/development/deve lopment-process)
+2. [Handling Tickets (bugs/enhancements)](https://cldr.unicode.org/development/development-process)
 3. [Updating DTDs](https://cldr.unicode.org/development/updating-dtds)
 4. [Editing CLDR Spec](https://cldr.unicode.org/development/editing-cldr-spec)
     1. [CLDR: Big Red Switch](https://cldr.unicode.org/development/cldr-big-red-switch) (checklist for release)
@@ -21,7 +21,7 @@ The subpages listed give more information on internal CLDR development. See also
 
 Note: when editing Sites pages it is often useful to clean up HTML in material pasted in from other sources, such as Word or Google Docs. Some useful regexes for that:
 
-\<(font|span|div)\[^>\]+> <$1>
+\<(font|span|div)\[^>\]+>         <$1>
 
 style="\[^"\]\*"
 

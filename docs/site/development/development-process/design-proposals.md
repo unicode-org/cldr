@@ -74,7 +74,7 @@ In each proposal, please add a header and a TOC if it is longer than a page. You
 
 [Path Filtering](https://cldr.unicode.org/development/development-process/design-proposals/path-filtering)
 
-[Pattern character for "related year"](https://cldr.unicode.org/development/development-process/design-proposals/pattern-character-for-related-year)
+[Pattern character for “related year”](https://cldr.unicode.org/development/development-process/design-proposals/pattern-character-for-related-year)
 
 [Pinyin Fixes](https://cldr.unicode.org/development/development-process/design-proposals/pinyin-fixes)
 

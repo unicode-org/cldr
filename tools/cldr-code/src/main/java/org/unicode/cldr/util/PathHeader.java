@@ -187,6 +187,7 @@ public class PathHeader implements Comparable<PathHeader> {
         Keys(SectionId.Locale_Display_Names),
 
         Fields(SectionId.DateTime),
+        Relative(SectionId.DateTime),
         Gregorian(SectionId.DateTime),
         Generic(SectionId.DateTime),
         Buddhist(SectionId.DateTime),
@@ -2243,6 +2244,9 @@ public class PathHeader implements Comparable<PathHeader> {
         }
 
         private static String adjustPageForPath(String input, String path) {
+            if ("Fields".equals(input)) {
+                return getFieldsPageId(path).toString();
+            }
             if ("Length".equals(input)) {
                 return getLengthPageId(path).toString();
             }
@@ -2253,6 +2257,15 @@ public class PathHeader implements Comparable<PathHeader> {
                 return getVolumePageId(path).toString();
             }
             return input;
+        }
+
+        private static PageId getFieldsPageId(String path) {
+            XPathParts parts = XPathParts.getFrozenInstance(path);
+            return (parts.containsElement("relative")
+                            || parts.containsElement("relativeTime")
+                            || parts.containsElement("relativePeriod"))
+                    ? PageId.Relative
+                    : PageId.Fields;
         }
 
         private static Set<UnitConverter.UnitSystem> METRIC_UNITS =

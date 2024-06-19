@@ -36,7 +36,7 @@ At a point towards the end of Survey Tool period, the Technical Committee will c
 ![alt-text](../../images/gettingStartedGuideOldWinningVotes.jpg)
 
 1. **Import old votes manually**. You can still import your old voted data that **DO NOT match** the last released data.
-    1. Go to the **G☰ Menu**, look under **My Votes**, and choose **Import Old** **V****otes**.
+    1. Go to the **☰ Menu**, look under **My Votes**, and choose **Import Old Votes**.
     ![alt-text](../../images/GettingStartedGuideImportOldVotes.png)
 
 ![alt-text](../../images/gettingStartedGuideImportSelectedItems.jpeg)
@@ -215,7 +215,7 @@ There are six columns in the Dashboard view.
 Following are guidelines on best practices for handling items under each category in Dashboard.
 
 - **Missing**
-    - The are items where there is no localization provided by any contributor. Click on the line to be taken to the item in the Survey Tool where items are highlighted and you can add a translation. When you fix a **Missing** item it will turn to **Changed**.
+    - These are items where there is no localization provided by any contributor. Click on the line to be taken to the item in the Survey Tool where items are highlighted and you can add a translation. When you fix a **Missing** item it will turn to **Changed**.
 
 ![alt-text](../../images/gettingStartedGuideMissing.png) 
 

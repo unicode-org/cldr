@@ -11,6 +11,8 @@ import java.io.PrintWriter;
 import java.util.Map;
 import java.util.TreeMap;
 import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.test.CheckCLDR;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRLocale;
@@ -462,6 +464,14 @@ final class DataDrivenSTTestHandler extends XMLFileReader.SimpleHandler {
         if (elem.equals("apiunvote")) {
             value = null;
         }
+        assertEquals(
+                CheckCLDR.Phase.BUILD,
+                SurveyMain.checkCLDRPhase(locale),
+                () -> "CheckCLDR Phase for " + locale);
+        assertEquals(
+                CheckCLDR.Phase.BUILD,
+                CLDRConfig.getInstance().getPhase(),
+                "CLDRConfig.getInstance().getPhase()");
         final CookieSession mySession = CookieSession.getTestSession(u);
         try {
             final VoteAPI.VoteResponse r =
@@ -485,7 +495,8 @@ final class DataDrivenSTTestHandler extends XMLFileReader.SimpleHandler {
                 System.out.println("Caught expected: " + iae);
             } else {
                 iae.printStackTrace();
-                fail("Unexpected exception: " + iae);
+                fail("Phase: " + SurveyMain.checkCLDRPhase(locale));
+                fail("in" + attrs + "/" + elem + " / " + xpath + ": Unexpected exception: " + iae);
             }
         }
     }

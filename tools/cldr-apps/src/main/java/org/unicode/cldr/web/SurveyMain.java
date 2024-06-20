@@ -3613,6 +3613,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      * @returns the current CheckCLDR phase for the locale. This is the preferred API.
      */
     public static CheckCLDR.Phase checkCLDRPhase(CLDRLocale loc) {
+        if (CLDRConfig.getInstance().getEnvironment() == CLDRConfig.Environment.UNITTEST) {
+            return CheckCLDR.Phase.BUILD;
+        }
         return surveyPhase(loc).toCheckCLDRPhase();
     }
 

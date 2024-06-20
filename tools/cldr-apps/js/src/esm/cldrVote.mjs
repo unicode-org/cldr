@@ -463,6 +463,10 @@ function getTestKind(testResults) {
   var theKind = null;
   for (var i = 0; i < testResults.length; i++) {
     var tr = testResults[i];
+    if (tr.entireLocale) {
+      // entire-locale tests don't affect the overall Kind.
+      continue;
+    }
     if (tr.type == "Warning") {
       theKind = tr.type;
     } else if (tr.type == "Error") {

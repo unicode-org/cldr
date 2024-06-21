@@ -1,7 +1,7 @@
 Plurals & Units
 Plurals
-In CLDR, Plurals are used for localized Units and Compact numbers (under Numbers). 
-In the Survey Tool for translation purpose, plural forms shown per language will differ as only those that are relevant to that language are shown. 
+In CLDR, Plurals are used for localized Units and Compact numbers (under Numbers).
+In the Survey Tool for translation purpose, plural forms shown per language will differ as only those that are relevant to that language are shown.
 For example, in French, the distinction of the One and Other are available. Please see Plural Rules, and file a ticket if you see a form in the Survey Tool that is not expected in your language.
 Note: Many of the sets of names form Logical Groups, and you need to make sure they have the same status or you will get error messages. See Logical Groups for more information.
 Localized Units
@@ -15,6 +15,13 @@ Dentro de {0} horas
 hace {0} años
 Each unit may have multiple plural forms, one for each category (see below). These are composed with numbers using a unitPattern. A formatted number will be substituted in place of the number placeholder.
 For example, for English if the unit is an hour and the number is 1234, then the number is looked up to get the rule category other. The number is then formatted into "1,234" and composed with the unitPattern for other to get the final result. Examples are in the table below for the unit hour.
+Locale	Number	Formatted number	Plural category	CLDR Unit Pattern	PH Unit Pattern	Final Result
+en	0	"0"	other	{0} hours	[NUMBER] hours	"0 hours"
+en	1	"1"	one	{0} hour	[NUMBER] hour	"1 hour"
+en	1234	"1,234"	other	{0} hours	[NUMBER] hours	"1,234 hours"
+fr	0	"0"	one	{0} heure	[NUMBER] heure	"0 heure"
+fr	1	"1"	one	{0} heure	[NUMBER] heure	"1 heure"
+fr	1234	"1 234"	other	{0} heures	[NUMBER] heures	"1 234 heures"
 Narrow and Short Forms
 Unit formats
 Whereas an expression like “{0} englische Meile pro Stunde” may be fine for the long form of the unit speed-mile-per-hour, it does not work for the short or narrow forms. In particular, the narrow form needs to be absolutely as short as possible. It is intended for circumstances where there is very little room in the UI. However, the message will have additional context. Thus the user will typically know, for example, that the units are speed or distance. So a much shorter abbreviation can be used than would work in general.
@@ -32,7 +39,7 @@ The short and narrow forms of the display names for a unit need not be as short 
 Past and Future
 Unit patterns for past and future (3 hours ago, In 4 hours) are related to Relative Dates, and occur in the same circumstances. They need to have the same casing behavior. That is, if the translation for "Yesterday" starts with an uppercase 'Y', then the translation for "In {0} hours" needs to start with an uppercase 'I' (if it doesn't start with the placeholder).
 Minimal Pairs
-Minimal pairs are used to verify the different grammatical features used by a language. These messages are not to be translated literally; do not simply translate the English! 
+Minimal pairs are used to verify the different grammatical features used by a language. These messages are not to be translated literally; do not simply translate the English!
 Plurals (cardinals) and Ordinals. See Determining Plural Categories.
 Grammatical Case and Gender. See Grammatical Inflection
 Compound Units

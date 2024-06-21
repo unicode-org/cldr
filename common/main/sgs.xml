@@ -1,0 +1,1544 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2024 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+SPDX-License-Identifier: Unicode-DFS-2016
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+
+Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="sgs"/>
+	</identity>
+	<localeDisplayNames>
+		<languages>
+			<language type="lt">lietuviu</language>
+			<language type="ltg">latgaliu</language>
+			<language type="lv">latviu</language>
+			<language type="sgs">žemaitiu</language>
+		</languages>
+		<scripts>
+			<script type="Latn">luotīnu</script>
+		</scripts>
+		<territories>
+			<territory type="LT">Lietova</territory>
+			<territory type="LV">Latvėjė</territory>
+		</territories>
+		<measurementSystemNames>
+			<measurementSystemName type="metric">metrėnė</measurementSystemName>
+			<measurementSystemName type="UK">JK</measurementSystemName>
+			<measurementSystemName type="US">JAV</measurementSystemName>
+		</measurementSystemNames>
+	</localeDisplayNames>
+	<characters>
+        <exemplarCharacters>[aā b c č d eē ėė̄ f g h iī j k l m n oō p r s š t uū v z ž]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[áàã{ą́}{ą̃} {ch} {dz} {dž} éèẽ{ę́}{ę̃}{ė́}{ė̃} í{i̇́}ì{i̇̀}ĩ{i̇̃}{į́}{į̇́}{į̃}{į̇̃} {j̃}{j̇̃} {l̃} {m̃} ñ óòõ q {r̃} úùũ{ų́}{ų̃}{ū́}{ū̃} w x]</exemplarCharacters>
+		<exemplarCharacters type="index">[AĀ B C Č D EĒ ĖĖ̄ F G H IĪ J K L M N OŌ P R S Š T UŪ V Z Ž]</exemplarCharacters>
+		<exemplarCharacters type="numbers">[  , % ‰ + − 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
+		<exemplarCharacters type="punctuation">[\- ‐‑ – — , ; \: ! ? . … “„ ( ) \[ \] \{ \}]</exemplarCharacters>
+	</characters>
+	<delimiters>
+		<quotationStart>„</quotationStart>
+		<quotationEnd>“</quotationEnd>
+		<alternateQuotationStart>„</alternateQuotationStart>
+		<alternateQuotationEnd>“</alternateQuotationEnd>
+	</delimiters>
+	<dates>
+		<calendars>
+			<calendar type="generic">
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>y MMMM d G, EEEE</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>y MMMM d G</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>y MMM d G</pattern>
+							<datetimeSkeleton>↑↑↑</datetimeSkeleton>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>y-MM-dd G</pattern>
+							<datetimeSkeleton>GyMMdd</datetimeSkeleton>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<dateTimeFormatLength type="full">
+						<dateTimeFormat>
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="long">
+						<dateTimeFormat>
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="medium">
+						<dateTimeFormat>
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<dateTimeFormatLength type="short">
+						<dateTimeFormat>
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+						<dateTimeFormat type="atTime">
+							<pattern>↑↑↑</pattern>
+						</dateTimeFormat>
+					</dateTimeFormatLength>
+					<availableFormats>
+						<dateFormatItem id="Bh">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Bhm">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Bhms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="d">↑↑↑</dateFormatItem>
+						<dateFormatItem id="E">↑↑↑</dateFormatItem>
+						<dateFormatItem id="EBhm">h:mm B, E</dateFormatItem>
+						<dateFormatItem id="EBhms">h:mm:ss B, E</dateFormatItem>
+						<dateFormatItem id="Ed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Ehm">h:mm a, E</dateFormatItem>
+						<dateFormatItem id="EHm">HH:mm, E</dateFormatItem>
+						<dateFormatItem id="Ehms">h:mm:ss a, E</dateFormatItem>
+						<dateFormatItem id="EHms">HH:mm:ss, E</dateFormatItem>
+						<dateFormatItem id="Gy">y G</dateFormatItem>
+						<dateFormatItem id="GyMd">y-MM-dd G</dateFormatItem>
+						<dateFormatItem id="GyMMM">y MMM G</dateFormatItem>
+						<dateFormatItem id="GyMMMd">y MMM d G</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">y MMM d G, E</dateFormatItem>
+						<dateFormatItem id="h">h a</dateFormatItem>
+						<dateFormatItem id="H">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hm">h:mm a</dateFormatItem>
+						<dateFormatItem id="Hm">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="Hms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="M">LL</dateFormatItem>
+						<dateFormatItem id="Md">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MEd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMdd">MM.dd</dateFormatItem>
+						<dateFormatItem id="MMM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMd">MMM-d</dateFormatItem>
+						<dateFormatItem id="MMMEd">MMM-d, E</dateFormatItem>
+						<dateFormatItem id="MMMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="ms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="y">y G</dateFormatItem>
+						<dateFormatItem id="yyyy">y G</dateFormatItem>
+						<dateFormatItem id="yyyyM">y MM G</dateFormatItem>
+						<dateFormatItem id="yyyyMd">y-MM-dd G</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">y-MM-dd G, E</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">y MMM G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">y MMM d G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">y MMM d G, E</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ">y G QQQ</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ">y G QQQQ</dateFormatItem>
+					</availableFormats>
+					<intervalFormats>
+						<intervalFormatFallback>↑↑↑</intervalFormatFallback>
+						<intervalFormatItem id="Bh">
+							<greatestDifference id="B">↑↑↑</greatestDifference>
+							<greatestDifference id="h">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Bhm">
+							<greatestDifference id="B">↑↑↑</greatestDifference>
+							<greatestDifference id="h">↑↑↑</greatestDifference>
+							<greatestDifference id="m">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="d">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Gy">
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyM">
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMEd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMM">
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMMMEd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="G">↑↑↑</greatestDifference>
+							<greatestDifference id="M">↑↑↑</greatestDifference>
+							<greatestDifference id="y">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="h">
+							<greatestDifference id="a">h a–h a</greatestDifference>
+							<greatestDifference id="h" draft="contributed">h–h a</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="H">
+							<greatestDifference id="H" draft="contributed">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hm">
+							<greatestDifference id="a">hh:mm a–hh:mm a</greatestDifference>
+							<greatestDifference id="h" draft="contributed">h:mm–h:mm a</greatestDifference>
+							<greatestDifference id="m" draft="contributed">h:mm–h:mm a</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hm">
+							<greatestDifference id="H" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="m" draft="contributed">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hmv">
+							<greatestDifference id="a">hh:mm a–hh:mm a v</greatestDifference>
+							<greatestDifference id="h" draft="contributed">h:mm–h:mm a v</greatestDifference>
+							<greatestDifference id="m" draft="contributed">h:mm–h:mm a v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hmv">
+							<greatestDifference id="H" draft="contributed">↑↑↑</greatestDifference>
+							<greatestDifference id="m" draft="contributed">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="hv">
+							<greatestDifference id="a">h a–h a v</greatestDifference>
+							<greatestDifference id="h" draft="contributed">h–h a v</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Hv">
+							<greatestDifference id="H" draft="contributed">↑↑↑</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="M">
+							<greatestDifference id="M">M–M</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Md">
+							<greatestDifference id="d">MM-dd–MM-dd</greatestDifference>
+							<greatestDifference id="M">MM-dd–MM-dd</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MEd">
+							<greatestDifference id="d">MM-dd, E – MM-dd, E</greatestDifference>
+							<greatestDifference id="M">MM-dd, E – MM-dd, E</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMM">
+							<greatestDifference id="M">MMM–MMM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMd">
+							<greatestDifference id="d">↑↑↑</greatestDifference>
+							<greatestDifference id="M">MMM d–MMM d</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MMMEd">
+							<greatestDifference id="d">MMM d, E – MMM d, E</greatestDifference>
+							<greatestDifference id="M">MMM d, E – MMM d, E</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="y">
+							<greatestDifference id="y">y–y G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yM">
+							<greatestDifference id="M">y-MM – y-MM G</greatestDifference>
+							<greatestDifference id="y">y-MM – y-MM G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMd">
+							<greatestDifference id="d">y-MM-dd–y-MM-dd G</greatestDifference>
+							<greatestDifference id="M">y-MM-dd– y-MM-dd G</greatestDifference>
+							<greatestDifference id="y">y-MM-dd – y-MM-dd G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMEd">
+							<greatestDifference id="d">y-MM-dd G, E – y-MM-dd G, E</greatestDifference>
+							<greatestDifference id="M">y-MM-dd G, E – y-MM-dd G, E</greatestDifference>
+							<greatestDifference id="y">y-MM-dd G, E – y-MM-dd G, E</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMM">
+							<greatestDifference id="M">y MMM–MMM G</greatestDifference>
+							<greatestDifference id="y">y-MM – y-MM G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMd">
+							<greatestDifference id="d">y 'm'. MMM d 'd'.–d 'd'. G</greatestDifference>
+							<greatestDifference id="M">y-MM-dd – MM-d G</greatestDifference>
+							<greatestDifference id="y">y-MM-dd – y-MM-dd G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMEd">
+							<greatestDifference id="d">y-MM-dd G, E – y-MM-dd G, E</greatestDifference>
+							<greatestDifference id="M">y-MM-dd G, E – y-MM-dd G, E</greatestDifference>
+							<greatestDifference id="y">y-MM-dd G, E – y-MM-dd G, E</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMMMM">
+							<greatestDifference id="M">y LLLL – y LLLL G</greatestDifference>
+							<greatestDifference id="y">y LLLL – y LLLL G</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+		<fields>
+			<field type="era">
+				<displayName>era</displayName>
+			</field>
+			<field type="era-short">
+				<displayName>↑↑↑</displayName>
+			</field>
+			<field type="era-narrow">
+				<displayName>↑↑↑</displayName>
+			</field>
+			<field type="year">
+                <displayName>metā</displayName>
+                <relative type="-1">praētās metās</relative>
+                <relative type="0">šėtās metās</relative>
+                <relative type="1">kėtās metās</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="two">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="many">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">pu {0} metu</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">prīš {0} metus</relativeTimePattern>
+					<relativeTimePattern count="two">prīš {0} metus</relativeTimePattern>
+					<relativeTimePattern count="few">prīš {0} metus</relativeTimePattern>
+					<relativeTimePattern count="many">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">prīš {0} metu</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="year-short">
+				<displayName>m.</displayName>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">pu {0} m.</relativeTimePattern>
+					<relativeTimePattern count="two">pu {0} m.</relativeTimePattern>
+					<relativeTimePattern count="few">pu {0} m.</relativeTimePattern>
+					<relativeTimePattern count="many">pu {0} m.</relativeTimePattern>
+					<relativeTimePattern count="other">pu {0} m.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">prīš {0} m.</relativeTimePattern>
+					<relativeTimePattern count="two">prīš {0} m.</relativeTimePattern>
+					<relativeTimePattern count="few">prīš {0} m.</relativeTimePattern>
+					<relativeTimePattern count="many">prīš {0} m.</relativeTimePattern>
+					<relativeTimePattern count="other">prīš {0} m.</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="year-narrow">
+				<displayName>↑↑↑</displayName>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="two">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="many">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="two">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="many">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="quarter">
+				<displayName>ketvirtis</displayName>
+				<relative type="-1">praēts ketvirtis</relative>
+				<relative type="0">šėts ketvirtis</relative>
+				<relative type="1">kėts ketvirtis</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">pu {0} ketvėrtė</relativeTimePattern>
+					<relativeTimePattern count="one">pu {0} ketvirtiu</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="many">pu {0} ketvirtiu</relativeTimePattern>
+					<relativeTimePattern count="other">pu {0} ketvirtiu</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">prīš {0} ketvirti</relativeTimePattern>
+					<relativeTimePattern count="two">prīš {0} ketvirtio</relativeTimePattern>
+					<relativeTimePattern count="few">prīš {0} ketvirtius</relativeTimePattern>
+					<relativeTimePattern count="many">prīš {0} ketvėrtė</relativeTimePattern>
+					<relativeTimePattern count="other">prīš {0} ketvirtiu</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="quarter-short">
+				<displayName>ketv.</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">pu {0} ketv.</relativeTimePattern>
+					<relativeTimePattern count="two">pu {0} ketv.</relativeTimePattern>
+					<relativeTimePattern count="few">pu {0} ketv.</relativeTimePattern>
+					<relativeTimePattern count="many">pu {0} ketv.</relativeTimePattern>
+					<relativeTimePattern count="other">pu {0} ketv.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">prīš {0} ketv.</relativeTimePattern>
+					<relativeTimePattern count="two">prīš {0} ketv.</relativeTimePattern>
+					<relativeTimePattern count="few">prīš {0} ketv.</relativeTimePattern>
+					<relativeTimePattern count="many">prīš {0} ketv.</relativeTimePattern>
+					<relativeTimePattern count="other">prīš {0} ketv.</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="quarter-narrow">
+				<displayName>↑↑↑</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="two">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="many">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="two">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="many">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="month">
+				<displayName>mienou</displayName>
+				<relative type="-1">praēta mienesi</relative>
+				<relative type="0">šėton mienesi</relative>
+				<relative type="1">kėta mienesi</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">pu {0} mienesė</relativeTimePattern>
+					<relativeTimePattern count="two">pu {0} mienesiu</relativeTimePattern>
+					<relativeTimePattern count="few">pu {0} mienesiu</relativeTimePattern>
+					<relativeTimePattern count="many">pu {0} mienesė</relativeTimePattern>
+					<relativeTimePattern count="other">pu {0} mienesiu</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">prīš {0} mienesi</relativeTimePattern>
+					<relativeTimePattern count="two">prīš {0} mienesio</relativeTimePattern>
+					<relativeTimePattern count="few">prīš {0} mienesius</relativeTimePattern>
+					<relativeTimePattern count="many">prīš {0} mienesė</relativeTimePattern>
+					<relativeTimePattern count="other">prīš {0} mienesiu</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="month-short">
+				<displayName>mien.</displayName>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">pu {0} mien.</relativeTimePattern>
+					<relativeTimePattern count="two">pu {0} mien.</relativeTimePattern>
+					<relativeTimePattern count="few">pu {0} mien.</relativeTimePattern>
+					<relativeTimePattern count="many">pu {0} mien.</relativeTimePattern>
+					<relativeTimePattern count="other">pu {0} mien.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">prīš {0} mien.</relativeTimePattern>
+					<relativeTimePattern count="two">prīš {0} mien.</relativeTimePattern>
+					<relativeTimePattern count="few">prīš {0} mien.</relativeTimePattern>
+					<relativeTimePattern count="many">prīš {0} mien.</relativeTimePattern>
+					<relativeTimePattern count="other">prīš {0} mien.</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="month-narrow">
+				<displayName>↑↑↑</displayName>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="two">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="many">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="two">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="many">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="week">
+				<displayName>savaitė</displayName>
+				<relative type="-1">praēta savaitė</relative>
+				<relative type="0">šėta savaitė</relative>
+				<relative type="1">kėta savaitė</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">pu {0} savaitės</relativeTimePattern>
+					<relativeTimePattern count="two">pu {0} savaitiu</relativeTimePattern>
+					<relativeTimePattern count="few">pu {0} savaitiu</relativeTimePattern>
+					<relativeTimePattern count="many">pu {0} savaitės</relativeTimePattern>
+					<relativeTimePattern count="other">pu {0} savaitiu</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">prīš {0} savaitė</relativeTimePattern>
+					<relativeTimePattern count="two">prīš {0} savaitė</relativeTimePattern>
+					<relativeTimePattern count="few">prīš {0} savaitės</relativeTimePattern>
+					<relativeTimePattern count="many">prīš {0} savaitės</relativeTimePattern>
+					<relativeTimePattern count="other">prīš {0} savaitiu</relativeTimePattern>
+				</relativeTime>
+				<relativePeriod>{0} savaitė</relativePeriod>
+			</field>
+			<field type="week-short">
+				<displayName>sav.</displayName>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">pu {0} sav.</relativeTimePattern>
+					<relativeTimePattern count="two">pu {0} sav.</relativeTimePattern>
+					<relativeTimePattern count="few">pu {0} sav.</relativeTimePattern>
+					<relativeTimePattern count="many">pu {0} sav.</relativeTimePattern>
+					<relativeTimePattern count="other">pu {0} sav.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">prīš {0} sav.</relativeTimePattern>
+					<relativeTimePattern count="two">prīš {0} sav.</relativeTimePattern>
+					<relativeTimePattern count="few">prīš {0} sav.</relativeTimePattern>
+					<relativeTimePattern count="many">prīš {0} sav.</relativeTimePattern>
+					<relativeTimePattern count="other">prīš {0} sav.</relativeTimePattern>
+				</relativeTime>
+				<relativePeriod>↑↑↑</relativePeriod>
+			</field>
+			<field type="week-narrow">
+				<displayName>↑↑↑</displayName>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="many">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="many">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+				</relativeTime>
+				<relativePeriod>↑↑↑</relativePeriod>
+			</field>
+			<field type="weekOfMonth">
+				<displayName>mienesė savaitė</displayName>
+			</field>
+			<field type="weekOfMonth-short">
+				<displayName>↑↑↑</displayName>
+			</field>
+			<field type="weekOfMonth-narrow">
+				<displayName>↑↑↑</displayName>
+			</field>
+			<field type="day">
+				<displayName>dėina</displayName>
+				<relative type="-2">užvakar</relative>
+				<relative type="-1">vakar</relative>
+				<relative type="0">šėndėin</relative>
+				<relative type="1">rītuo</relative>
+				<relative type="2">puorīt</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">pu {0} dėinuos</relativeTimePattern>
+					<relativeTimePattern count="two">pu {0} dėinū</relativeTimePattern>
+					<relativeTimePattern count="few">pu {0} dėinū</relativeTimePattern>
+					<relativeTimePattern count="many">pu {0} dėinū</relativeTimePattern>
+					<relativeTimePattern count="other">pu {0} dėinū</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">prieš {0} dėina</relativeTimePattern>
+					<relativeTimePattern count="two">prieš {0} dėinė</relativeTimePattern>
+					<relativeTimePattern count="few">prieš {0} dėinas</relativeTimePattern>
+					<relativeTimePattern count="many">prieš {0} dėinuos</relativeTimePattern>
+					<relativeTimePattern count="other">prieš {0} dėinū</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="day-short">
+				<displayName>d.</displayName>
+				<relative type="-2" draft="contributed">↑↑↑</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
+				<relative type="2" draft="contributed">↑↑↑</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">pu {0} d.</relativeTimePattern>
+					<relativeTimePattern count="two">pu {0} d.</relativeTimePattern>
+					<relativeTimePattern count="few">pu {0} d.</relativeTimePattern>
+					<relativeTimePattern count="many">pu {0} d.</relativeTimePattern>
+					<relativeTimePattern count="other">pu {0} d.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">prīš {0} d.</relativeTimePattern>
+					<relativeTimePattern count="two">prīš {0} d.</relativeTimePattern>
+					<relativeTimePattern count="few">prīš {0} d.</relativeTimePattern>
+					<relativeTimePattern count="many">prīš {0} d.</relativeTimePattern>
+					<relativeTimePattern count="other">prīš {0} d.</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="day-narrow">
+				<displayName>↑↑↑</displayName>
+				<relative type="-2" draft="contributed">↑↑↑</relative>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
+				<relative type="2" draft="contributed">↑↑↑</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="two">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="many">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="two">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="many">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="dayOfYear">
+				<displayName>metu dėina</displayName>
+			</field>
+			<field type="dayOfYear-short">
+				<displayName>↑↑↑</displayName>
+			</field>
+			<field type="dayOfYear-narrow">
+				<displayName>↑↑↑</displayName>
+			</field>
+			<field type="weekday">
+				<displayName>savaitės dėina</displayName>
+			</field>
+			<field type="weekday-short">
+				<displayName>↑↑↑</displayName>
+			</field>
+			<field type="weekday-narrow">
+				<displayName>↑↑↑</displayName>
+			</field>
+			<field type="weekdayOfMonth">
+				<displayName>mienesė savaitės dėina</displayName>
+			</field>
+			<field type="weekdayOfMonth-short">
+				<displayName>↑↑↑</displayName>
+			</field>
+			<field type="weekdayOfMonth-narrow">
+				<displayName>↑↑↑</displayName>
+			</field>
+			<field type="sun">
+				<relative type="-1">praēta sekmadėini</relative>
+				<relative type="0">šėta sekmadėini</relative>
+				<relative type="1">kėta sekmadėini</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">pu {0} sekmadėinė</relativeTimePattern>
+					<relativeTimePattern count="two">pu {0} sekmadėiniu</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="many">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">prīš {0} sekmadėini</relativeTimePattern>
+					<relativeTimePattern count="two">prīš {0} sekmadėinio</relativeTimePattern>
+					<relativeTimePattern count="few">prīš {0} sekmadėiniu</relativeTimePattern>
+					<relativeTimePattern count="many">prīš {0} sekmadėinius</relativeTimePattern>
+					<relativeTimePattern count="other">prīš {0} sekmadėiniu</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="sun-short">
+				<relative type="-1">praēta sekm.</relative>
+				<relative type="0">šėta sekm.</relative>
+				<relative type="1">kėta sekm.</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">pu {0} sekm.</relativeTimePattern>
+					<relativeTimePattern count="two">pu {0} sekm.</relativeTimePattern>
+					<relativeTimePattern count="few">pu {0} sekm.</relativeTimePattern>
+					<relativeTimePattern count="many">pu {0} sekm.</relativeTimePattern>
+					<relativeTimePattern count="other">pu {0} sekm.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">prīš {0} sekm.</relativeTimePattern>
+					<relativeTimePattern count="two">prīš {0} sekm.</relativeTimePattern>
+					<relativeTimePattern count="few">prīš {0} sekm.</relativeTimePattern>
+					<relativeTimePattern count="many">prīš {0} sekm.</relativeTimePattern>
+					<relativeTimePattern count="other">prīš {0} sekm.</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="sun-narrow">
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="two">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="many">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="two">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="many">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="mon">
+				<relative type="-1">praēta pėrmadėini</relative>
+				<relative type="0">šėta pėrmadėini</relative>
+				<relative type="1">kėta pėrmadėini</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">pu {0} pėrmadėinė</relativeTimePattern>
+					<relativeTimePattern count="two">pu {0} pėrmadėiniu</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="many">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">prīš {0} pėrmadėini</relativeTimePattern>
+					<relativeTimePattern count="two">prīš {0} pėrmadėinio</relativeTimePattern>
+					<relativeTimePattern count="few">prīš {0} pėrmadėiniu</relativeTimePattern>
+					<relativeTimePattern count="many">prīš {0} pėrmadėinius</relativeTimePattern>
+					<relativeTimePattern count="other">prīš {0} pėrmadėiniu</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="mon-short">
+				<relative type="-1">praēta pėrm.</relative>
+				<relative type="0">šėta pėrm.</relative>
+				<relative type="1">kėta pėrm.</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">pu {0} pėrm.</relativeTimePattern>
+					<relativeTimePattern count="two">pu {0} pėrm.</relativeTimePattern>
+					<relativeTimePattern count="few">pu {0} pėrm.</relativeTimePattern>
+					<relativeTimePattern count="many">pu {0} pėrm.</relativeTimePattern>
+					<relativeTimePattern count="other">pu {0} pėrm.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">prīš {0} pėrm.</relativeTimePattern>
+					<relativeTimePattern count="two">prīš {0} pėrm.</relativeTimePattern>
+					<relativeTimePattern count="few">prīš {0} pėrm.</relativeTimePattern>
+					<relativeTimePattern count="many">prīš {0} pėrm.</relativeTimePattern>
+					<relativeTimePattern count="other">prīš {0} pėrm.</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="mon-narrow">
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="two">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="many">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="two">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="many">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="tue">
+				<relative type="-1">praēta ontradėini</relative>
+				<relative type="0">šėta ontradėini</relative>
+				<relative type="1">kėta ontradėini</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">pu {0} ontradėinė</relativeTimePattern>
+					<relativeTimePattern count="two">pu {0} ontradėiniu</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="many">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">prīš {0} ontradėini</relativeTimePattern>
+					<relativeTimePattern count="two">prīš {0} ontradėinio</relativeTimePattern>
+					<relativeTimePattern count="few">prīš {0} ontradėiniu</relativeTimePattern>
+					<relativeTimePattern count="many">prīš {0} ontradėinius</relativeTimePattern>
+					<relativeTimePattern count="other">prīš {0} ontradėiniu</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="tue-short">
+				<relative type="-1">praēta ontr.</relative>
+				<relative type="0">šėta ontr.</relative>
+				<relative type="1">kėta ontr.</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">pu {0} ontr.</relativeTimePattern>
+					<relativeTimePattern count="two">pu {0} ontr.</relativeTimePattern>
+					<relativeTimePattern count="few">pu {0} ontr.</relativeTimePattern>
+					<relativeTimePattern count="many">pu {0} ontr.</relativeTimePattern>
+					<relativeTimePattern count="other">pu {0} ontr.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">prīš {0} ontr.</relativeTimePattern>
+					<relativeTimePattern count="two">prīš {0} ontr.</relativeTimePattern>
+					<relativeTimePattern count="few">prīš {0} ontr.</relativeTimePattern>
+					<relativeTimePattern count="many">prīš {0} ontr.</relativeTimePattern>
+					<relativeTimePattern count="other">prīš {0} ontr.</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="tue-narrow">
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="two">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="many">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="two">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="many">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="wed">
+				<relative type="-1">praēta trečiadėini</relative>
+				<relative type="0">šėta trečiadėini</relative>
+				<relative type="1">kėta trečiadėini</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">pu {0} trečiadėinė</relativeTimePattern>
+					<relativeTimePattern count="two">pu {0} trečiadėiniu</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="many">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">prīš {0} trečiadėini</relativeTimePattern>
+					<relativeTimePattern count="two">prīš {0} trečiadėinio</relativeTimePattern>
+					<relativeTimePattern count="few">prīš {0} trečiadėiniu</relativeTimePattern>
+					<relativeTimePattern count="many">prīš {0} trečiadėinius</relativeTimePattern>
+					<relativeTimePattern count="other">prīš {0} trečiadėiniu</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="wed-short">
+				<relative type="-1">praēta treč.</relative>
+				<relative type="0">šėta treč.</relative>
+				<relative type="1">kėta treč.</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">pu {0} treč.</relativeTimePattern>
+					<relativeTimePattern count="two">pu {0} treč.</relativeTimePattern>
+					<relativeTimePattern count="few">pu {0} treč.</relativeTimePattern>
+					<relativeTimePattern count="many">pu {0} treč.</relativeTimePattern>
+					<relativeTimePattern count="other">pu {0} treč.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">prīš {0} treč.</relativeTimePattern>
+					<relativeTimePattern count="two">prīš {0} treč.</relativeTimePattern>
+					<relativeTimePattern count="few">prīš {0} treč.</relativeTimePattern>
+					<relativeTimePattern count="many">prīš {0} treč.</relativeTimePattern>
+					<relativeTimePattern count="other">prīš {0} treč.</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="wed-narrow">
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="two">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="many">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="two">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="many">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="thu">
+				<relative type="-1">praēta ketvėrtadėini</relative>
+				<relative type="0">šėta ketvėrtadėini</relative>
+				<relative type="1">kėta ketvėrtadėini</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">pu {0} ketvėrtadėinė</relativeTimePattern>
+					<relativeTimePattern count="two">pu {0} ketvėrtadėiniu</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="many">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">prīš {0} ketvėrtadėini</relativeTimePattern>
+					<relativeTimePattern count="two">prīš {0} ketvėrtadėinio</relativeTimePattern>
+					<relativeTimePattern count="few">prīš {0} ketvėrtadėiniu</relativeTimePattern>
+					<relativeTimePattern count="many">prīš {0} ketvėrtadėinius</relativeTimePattern>
+					<relativeTimePattern count="other">prīš {0} ketvėrtadėiniu</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="thu-short">
+				<relative type="-1">praēta ketvėrt.</relative>
+				<relative type="0">šėta ketvėrt.</relative>
+				<relative type="1">kėta ketvėrt.</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">pu {0} ketvėrt.</relativeTimePattern>
+					<relativeTimePattern count="two">pu {0} ketvėrt.</relativeTimePattern>
+					<relativeTimePattern count="few">pu {0} ketvėrt.</relativeTimePattern>
+					<relativeTimePattern count="many">pu {0} ketvėrt.</relativeTimePattern>
+					<relativeTimePattern count="other">pu {0} ketvėrt.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">prīš {0} ketvėrt.</relativeTimePattern>
+					<relativeTimePattern count="two">prīš {0} ketvėrt.</relativeTimePattern>
+					<relativeTimePattern count="few">prīš {0} ketvėrt.</relativeTimePattern>
+					<relativeTimePattern count="many">prīš {0} ketvėrt.</relativeTimePattern>
+					<relativeTimePattern count="other">prīš {0} ketvėrt.</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="thu-narrow">
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="two">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="many">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="two">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="many">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="fri">
+				<relative type="-1">praēta pėnktadėini</relative>
+				<relative type="0">šėta pėnktadėini</relative>
+				<relative type="1">kėta pėnktadėini</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">pu {0} pėnktadėinė</relativeTimePattern>
+					<relativeTimePattern count="two">pu {0} pėnktadėiniu</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="many">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">prīš {0} pėnktadėini</relativeTimePattern>
+					<relativeTimePattern count="two">prīš {0} pėnktadėinio</relativeTimePattern>
+					<relativeTimePattern count="few">prīš {0} pėnktadėiniu</relativeTimePattern>
+					<relativeTimePattern count="many">prīš {0} pėnktadėinius</relativeTimePattern>
+					<relativeTimePattern count="other">prīš {0} pėnktadėiniu</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="fri-short">
+				<relative type="-1">praēta pėnkt.</relative>
+				<relative type="0">šėta pėnkt.</relative>
+				<relative type="1">kėta pėnkt.</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">pu {0} pėnkt.</relativeTimePattern>
+					<relativeTimePattern count="two">pu {0} pėnkt.</relativeTimePattern>
+					<relativeTimePattern count="few">pu {0} pėnkt.</relativeTimePattern>
+					<relativeTimePattern count="many">pu {0} pėnkt.</relativeTimePattern>
+					<relativeTimePattern count="other">pu {0} pėnkt.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">prīš {0} pėnkt.</relativeTimePattern>
+					<relativeTimePattern count="two">prīš {0} pėnkt.</relativeTimePattern>
+					<relativeTimePattern count="few">prīš {0} pėnkt.</relativeTimePattern>
+					<relativeTimePattern count="many">prīš {0} pėnkt.</relativeTimePattern>
+					<relativeTimePattern count="other">prīš {0} pėnkt.</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="fri-narrow">
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="two">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="many">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="two">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="many">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="sat">
+				<relative type="-1">praēta šeštadėini</relative>
+				<relative type="0">šėta šeštadėini</relative>
+				<relative type="1">kėta šeštadėini</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">pu {0} šeštadėinė</relativeTimePattern>
+					<relativeTimePattern count="two">pu {0} šeštadėiniu</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="many">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">prīš {0} šeštadėini</relativeTimePattern>
+					<relativeTimePattern count="two">prīš {0} šeštadėinio</relativeTimePattern>
+					<relativeTimePattern count="few">prīš {0} šeštadėiniu</relativeTimePattern>
+					<relativeTimePattern count="many">prīš {0} šeštadėinius</relativeTimePattern>
+					<relativeTimePattern count="other">prīš {0} šeštadėiniu</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="sat-short">
+				<relative type="-1">praēta šešt.</relative>
+				<relative type="0">šėta šešt.</relative>
+				<relative type="1">kėta šešt.</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">pu {0} šešt.</relativeTimePattern>
+					<relativeTimePattern count="two">pu {0} šešt.</relativeTimePattern>
+					<relativeTimePattern count="few">pu {0} šešt.</relativeTimePattern>
+					<relativeTimePattern count="many">pu {0} šešt.</relativeTimePattern>
+					<relativeTimePattern count="other">pu {0} šešt.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">prīš {0} šešt.</relativeTimePattern>
+					<relativeTimePattern count="two">prīš {0} šešt.</relativeTimePattern>
+					<relativeTimePattern count="few">prīš {0} šešt.</relativeTimePattern>
+					<relativeTimePattern count="many">prīš {0} šešt.</relativeTimePattern>
+					<relativeTimePattern count="other">prīš {0} šešt.</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="sat-narrow">
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="two">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="many">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="two">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="many">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="dayperiod-short">
+				<displayName>↑↑↑</displayName>
+			</field>
+			<field type="dayperiod">
+				<displayName>lėg pėitu / pu pėitu</displayName>
+			</field>
+			<field type="dayperiod-narrow">
+				<displayName>↑↑↑</displayName>
+			</field>
+			<field type="hour">
+				<displayName>adīna</displayName>
+				<relative type="0">šėta adīna</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">pu {0} adīnas</relativeTimePattern>
+					<relativeTimePattern count="two">pu {0} adīnu</relativeTimePattern>
+					<relativeTimePattern count="few">pu {0} adīnu</relativeTimePattern>
+					<relativeTimePattern count="many">pu {0} adīnu</relativeTimePattern>
+					<relativeTimePattern count="other">pu {0} adīnu</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">prīš {0} adīna</relativeTimePattern>
+					<relativeTimePattern count="two">prīš {0} adīnė</relativeTimePattern>
+					<relativeTimePattern count="few">prīš {0} adīnas</relativeTimePattern>
+					<relativeTimePattern count="many">prīš {0} adīnas</relativeTimePattern>
+					<relativeTimePattern count="other">prīš {0} adīnu</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="hour-short">
+				<displayName>ad.</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">pu {0} ad.</relativeTimePattern>
+					<relativeTimePattern count="two">pu {0} ad.</relativeTimePattern>
+					<relativeTimePattern count="few">pu {0} ad.</relativeTimePattern>
+					<relativeTimePattern count="many">pu {0} ad.</relativeTimePattern>
+					<relativeTimePattern count="other">pu {0} ad.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">prīš {0} ad.</relativeTimePattern>
+					<relativeTimePattern count="two">prīš {0} ad.</relativeTimePattern>
+					<relativeTimePattern count="few">prīš {0} ad.</relativeTimePattern>
+					<relativeTimePattern count="many">prīš {0} ad.</relativeTimePattern>
+					<relativeTimePattern count="other">prīš {0} ad.</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="hour-narrow">
+				<displayName>h</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="two">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="many">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="two">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="many">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="minute">
+				<displayName>mėnota</displayName>
+				<relative type="0">šėta mėnota</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">pu {0} mėnotas</relativeTimePattern>
+					<relativeTimePattern count="two">pu {0} mėnotu</relativeTimePattern>
+					<relativeTimePattern count="few">pu {0} mėnotu</relativeTimePattern>
+					<relativeTimePattern count="many">pu {0} mėnotu</relativeTimePattern>
+					<relativeTimePattern count="other">pu {0} mėnotas</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">prīš {0} mėnota</relativeTimePattern>
+					<relativeTimePattern count="two">prīš {0} mėnotė</relativeTimePattern>
+					<relativeTimePattern count="few">prīš {0} mėnotas</relativeTimePattern>
+					<relativeTimePattern count="many">prīš {0} mėnotu</relativeTimePattern>
+					<relativeTimePattern count="other">prīš {0} mėnotas</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="minute-short">
+				<displayName>min.</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">pu {0} min.</relativeTimePattern>
+					<relativeTimePattern count="two">pu {0} min.</relativeTimePattern>
+					<relativeTimePattern count="few">pu {0} min.</relativeTimePattern>
+					<relativeTimePattern count="many">pu {0} min.</relativeTimePattern>
+					<relativeTimePattern count="other">pu {0} min.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">prīš {0} min.</relativeTimePattern>
+					<relativeTimePattern count="two">prīš {0} min.</relativeTimePattern>
+					<relativeTimePattern count="few">prīš {0} min.</relativeTimePattern>
+					<relativeTimePattern count="many">prīš {0} min.</relativeTimePattern>
+					<relativeTimePattern count="other">prīš {0} min.</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="minute-narrow">
+				<displayName>↑↑↑</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="many">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="few">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="many">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="second">
+				<displayName>sekundė</displayName>
+				<relative type="0">dabar</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">pu {0} sekundės</relativeTimePattern>
+					<relativeTimePattern count="two">pu {0} sekundiu</relativeTimePattern>
+					<relativeTimePattern count="few">pu {0} sekundiu</relativeTimePattern>
+					<relativeTimePattern count="many">pu {0} sekundiu</relativeTimePattern>
+					<relativeTimePattern count="other">pu {0} sekundės</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">prīš {0} sekundė</relativeTimePattern>
+					<relativeTimePattern count="two">prīš {0} sekundė</relativeTimePattern>
+					<relativeTimePattern count="few">prīš {0} sekundės</relativeTimePattern>
+					<relativeTimePattern count="many">prīš {0} sekundiu</relativeTimePattern>
+					<relativeTimePattern count="other">prīš {0} sekundės</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="second-short">
+				<displayName>sek.</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">pu {0} sek.</relativeTimePattern>
+					<relativeTimePattern count="two">pu {0} sek.</relativeTimePattern>
+					<relativeTimePattern count="few">pu {0} sek.</relativeTimePattern>
+					<relativeTimePattern count="many">pu {0} sek.</relativeTimePattern>
+					<relativeTimePattern count="other">pu {0} sek.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">prīš {0} sek.</relativeTimePattern>
+					<relativeTimePattern count="two">prīš {0} sek.</relativeTimePattern>
+					<relativeTimePattern count="few">prīš {0} sek.</relativeTimePattern>
+					<relativeTimePattern count="many">prīš {0} sek.</relativeTimePattern>
+					<relativeTimePattern count="other">prīš {0} sek.</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="second-narrow">
+				<displayName>s</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">pu {0} s</relativeTimePattern>
+					<relativeTimePattern count="two">pu {0} s</relativeTimePattern>
+					<relativeTimePattern count="few">pu {0} s</relativeTimePattern>
+					<relativeTimePattern count="many">pu {0} s</relativeTimePattern>
+					<relativeTimePattern count="other">pu {0} s</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">prīš {0} s</relativeTimePattern>
+					<relativeTimePattern count="two">prīš {0} s</relativeTimePattern>
+					<relativeTimePattern count="few">prīš {0} s</relativeTimePattern>
+					<relativeTimePattern count="many">prīš {0} s</relativeTimePattern>
+					<relativeTimePattern count="other">prīš {0} s</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="zone">
+				<displayName>čiesa zuona</displayName>
+			</field>
+			<field type="zone-short">
+				<displayName>↑↑↑</displayName>
+			</field>
+			<field type="zone-narrow">
+				<displayName>↑↑↑</displayName>
+			</field>
+		</fields>
+		<timeZoneNames>
+			<hourFormat>+HH:mm;−HH:mm</hourFormat>
+			<gmtFormat>↑↑↑</gmtFormat>
+			<gmtZeroFormat>↑↑↑</gmtZeroFormat>
+			<regionFormat>Čiesos: {0}</regionFormat>
+			<regionFormat type="daylight">Vasaras čiesos: {0}</regionFormat>
+			<regionFormat type="standard">Žėimuos čiesos: {0}</regionFormat>
+			<fallbackFormat>↑↑↑</fallbackFormat>
+		</timeZoneNames>
+	</dates>
+	<numbers>
+		<defaultNumberingSystem>↑↑↑</defaultNumberingSystem>
+		<otherNumberingSystems>
+			<native>↑↑↑</native>
+		</otherNumberingSystems>
+		<minimumGroupingDigits>↑↑↑</minimumGroupingDigits>
+		<symbols numberSystem="latn">
+			<decimal>,</decimal>
+			<group> </group>
+			<list draft="contributed">↑↑↑</list>
+			<percentSign>↑↑↑</percentSign>
+			<plusSign>↑↑↑</plusSign>
+			<minusSign>−</minusSign>
+			<approximatelySign>∼</approximatelySign>
+			<exponential>×10^</exponential>
+			<superscriptingExponent>↑↑↑</superscriptingExponent>
+			<perMille>↑↑↑</perMille>
+			<infinity>↑↑↑</infinity>
+			<nan>↑↑↑</nan>
+			<timeSeparator>↑↑↑</timeSeparator>
+		</symbols>
+		<decimalFormats numberSystem="latn">
+			<decimalFormatLength>
+				<decimalFormat>
+					<pattern>↑↑↑</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+			<decimalFormatLength type="long">
+				<decimalFormat>
+					<pattern type="1000" count="one">0 tūkstontis</pattern>
+					<pattern type="1000" count="two">0 tūkstontio</pattern>
+					<pattern type="1000" count="few">0 tūkstontē</pattern>
+					<pattern type="1000" count="many">0 tūkstontiu</pattern>
+					<pattern type="1000" count="other">0 tūkstontė</pattern>
+					<pattern type="10000" count="one">00 tūkstontis</pattern>
+					<pattern type="10000" count="two">00 tūkstontio</pattern>
+					<pattern type="10000" count="few">00 tūkstontē</pattern>
+					<pattern type="10000" count="many">00 tūkstontiu</pattern>
+					<pattern type="10000" count="other">00 tūkstontė</pattern>
+					<pattern type="100000" count="one">000 tūkstontis</pattern>
+					<pattern type="100000" count="two">000 tūkstontio</pattern>
+					<pattern type="100000" count="few">000 tūkstontē</pattern>
+					<pattern type="100000" count="many">000 tūkstontiu</pattern>
+					<pattern type="100000" count="other">000 tūkstontė</pattern>
+					<pattern type="1000000" count="one">0 milijuons</pattern>
+					<pattern type="1000000" count="two">0 milijuono</pattern>
+					<pattern type="1000000" count="few">0 milijuonā</pattern>
+					<pattern type="1000000" count="many">0 milijuonu</pattern>
+					<pattern type="1000000" count="other">0 milijuona</pattern>
+					<pattern type="10000000" count="one">00 milijuons</pattern>
+					<pattern type="10000000" count="two">00 milijuono</pattern>
+					<pattern type="10000000" count="few">00 milijuonā</pattern>
+					<pattern type="10000000" count="many">00 milijuonu</pattern>
+					<pattern type="10000000" count="other">00 milijuona</pattern>
+					<pattern type="100000000" count="one">000 milijuons</pattern>
+					<pattern type="100000000" count="two">000 milijuono</pattern>
+					<pattern type="100000000" count="few">000 milijuonā</pattern>
+					<pattern type="100000000" count="many">000 milijuonu</pattern>
+					<pattern type="100000000" count="other">000 milijuona</pattern>
+					<pattern type="1000000000" count="one">0 milijards</pattern>
+					<pattern type="1000000000" count="two">0 milijardo</pattern>
+					<pattern type="1000000000" count="few">0 milijardā</pattern>
+					<pattern type="1000000000" count="many">0 milijardu</pattern>
+					<pattern type="1000000000" count="other">0 milijarda</pattern>
+					<pattern type="10000000000" count="one">00 milijards</pattern>
+					<pattern type="10000000000" count="two">00 milijardo</pattern>
+					<pattern type="10000000000" count="few">00 milijardā</pattern>
+					<pattern type="10000000000" count="many">00 milijardu</pattern>
+					<pattern type="10000000000" count="other">00 milijarda</pattern>
+					<pattern type="100000000000" count="one">000 milijards</pattern>
+					<pattern type="100000000000" count="two">000 milijardo</pattern>
+					<pattern type="100000000000" count="few">000 milijardā</pattern>
+					<pattern type="100000000000" count="many">000 milijardu</pattern>
+					<pattern type="100000000000" count="other">000 milijarda</pattern>
+					<pattern type="1000000000000" count="one">0 trilijuons</pattern>
+					<pattern type="1000000000000" count="two">0 trilijuono</pattern>
+					<pattern type="1000000000000" count="few">0 trilijuonā</pattern>
+					<pattern type="1000000000000" count="many">0 trilijuonu</pattern>
+					<pattern type="1000000000000" count="other">0 trilijuona</pattern>
+					<pattern type="10000000000000" count="one">00 trilijuons</pattern>
+					<pattern type="10000000000000" count="two">00 trilijuono</pattern>
+					<pattern type="10000000000000" count="few">00 trilijuonā</pattern>
+					<pattern type="10000000000000" count="many">00 trilijuonu</pattern>
+					<pattern type="10000000000000" count="other">00 trilijuona</pattern>
+					<pattern type="100000000000000" count="one">000 trilijuons</pattern>
+					<pattern type="100000000000000" count="two">000 trilijuono</pattern>
+					<pattern type="100000000000000" count="few">000 trilijuonā</pattern>
+					<pattern type="100000000000000" count="many">000 trilijuonu</pattern>
+					<pattern type="100000000000000" count="other">000 trilijuona</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000" count="one">↑↑↑</pattern>
+					<pattern type="1000" count="two">↑↑↑</pattern>
+					<pattern type="1000" count="few">↑↑↑</pattern>
+					<pattern type="1000" count="many">↑↑↑</pattern>
+					<pattern type="1000" count="other">0 tūkst'.'</pattern>
+					<pattern type="10000" count="one">↑↑↑</pattern>
+					<pattern type="10000" count="two">↑↑↑</pattern>
+					<pattern type="10000" count="few">↑↑↑</pattern>
+					<pattern type="10000" count="many">↑↑↑</pattern>
+					<pattern type="10000" count="other">00 tūkst'.'</pattern>
+					<pattern type="100000" count="one">↑↑↑</pattern>
+					<pattern type="100000" count="two">↑↑↑</pattern>
+					<pattern type="100000" count="few">↑↑↑</pattern>
+					<pattern type="100000" count="many">↑↑↑</pattern>
+					<pattern type="100000" count="other">000 tūkst'.'</pattern>
+					<pattern type="1000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000" count="two">↑↑↑</pattern>
+					<pattern type="1000000" count="few">↑↑↑</pattern>
+					<pattern type="1000000" count="many">↑↑↑</pattern>
+					<pattern type="1000000" count="other">0 mln'.'</pattern>
+					<pattern type="10000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000" count="two">↑↑↑</pattern>
+					<pattern type="10000000" count="few">↑↑↑</pattern>
+					<pattern type="10000000" count="many">↑↑↑</pattern>
+					<pattern type="10000000" count="other">00 mln'.'</pattern>
+					<pattern type="100000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000" count="two">↑↑↑</pattern>
+					<pattern type="100000000" count="few">↑↑↑</pattern>
+					<pattern type="100000000" count="many">↑↑↑</pattern>
+					<pattern type="100000000" count="other">000 mln'.'</pattern>
+					<pattern type="1000000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000000" count="two">↑↑↑</pattern>
+					<pattern type="1000000000" count="few">↑↑↑</pattern>
+					<pattern type="1000000000" count="many">↑↑↑</pattern>
+					<pattern type="1000000000" count="other">0 mlrd'.'</pattern>
+					<pattern type="10000000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000000" count="two">↑↑↑</pattern>
+					<pattern type="10000000000" count="few">↑↑↑</pattern>
+					<pattern type="10000000000" count="many">↑↑↑</pattern>
+					<pattern type="10000000000" count="other">00 mlrd'.'</pattern>
+					<pattern type="100000000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000000" count="two">↑↑↑</pattern>
+					<pattern type="100000000000" count="few">↑↑↑</pattern>
+					<pattern type="100000000000" count="many">↑↑↑</pattern>
+					<pattern type="100000000000" count="other">000 mlrd'.'</pattern>
+					<pattern type="1000000000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000000000" count="two">↑↑↑</pattern>
+					<pattern type="1000000000000" count="few">↑↑↑</pattern>
+					<pattern type="1000000000000" count="many">↑↑↑</pattern>
+					<pattern type="1000000000000" count="other">0 trln'.'</pattern>
+					<pattern type="10000000000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000000000" count="two">↑↑↑</pattern>
+					<pattern type="10000000000000" count="few">↑↑↑</pattern>
+					<pattern type="10000000000000" count="many">↑↑↑</pattern>
+					<pattern type="10000000000000" count="other">00 trln'.'</pattern>
+					<pattern type="100000000000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000000000" count="two">↑↑↑</pattern>
+					<pattern type="100000000000000" count="few">↑↑↑</pattern>
+					<pattern type="100000000000000" count="many">↑↑↑</pattern>
+					<pattern type="100000000000000" count="other">000 trln'.'</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<scientificFormats numberSystem="latn">
+			<scientificFormatLength>
+				<scientificFormat>
+					<pattern>↑↑↑</pattern>
+				</scientificFormat>
+			</scientificFormatLength>
+		</scientificFormats>
+		<percentFormats numberSystem="latn">
+			<percentFormatLength>
+				<percentFormat>
+					<pattern>#,##0 %</pattern>
+				</percentFormat>
+			</percentFormatLength>
+		</percentFormats>
+		<currencyFormats numberSystem="latn">
+			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern>#,##0.00 ¤</pattern>
+					<pattern alt="noCurrency" draft="provisional">↑↑↑</pattern>
+				</currencyFormat>
+				<currencyFormat type="accounting">
+					<pattern>↑↑↑</pattern>
+					<pattern alt="noCurrency">↑↑↑</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+			<currencyFormatLength type="short">
+				<currencyFormat type="standard">
+					<pattern type="1000" count="one">↑↑↑</pattern>
+					<pattern type="1000" count="two">↑↑↑</pattern>
+					<pattern type="1000" count="few">↑↑↑</pattern>
+					<pattern type="1000" count="many">↑↑↑</pattern>
+					<pattern type="1000" count="other">0 tūkst'.' ¤</pattern>
+					<pattern type="10000" count="one">↑↑↑</pattern>
+					<pattern type="10000" count="two">↑↑↑</pattern>
+					<pattern type="10000" count="few">↑↑↑</pattern>
+					<pattern type="10000" count="many">↑↑↑</pattern>
+					<pattern type="10000" count="other">00 tūkst'.' ¤</pattern>
+					<pattern type="100000" count="one">↑↑↑</pattern>
+					<pattern type="100000" count="two">↑↑↑</pattern>
+					<pattern type="100000" count="few">↑↑↑</pattern>
+					<pattern type="100000" count="many">↑↑↑</pattern>
+					<pattern type="100000" count="other">000 tūkst'.' ¤</pattern>
+					<pattern type="1000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000" count="two">↑↑↑</pattern>
+					<pattern type="1000000" count="few">↑↑↑</pattern>
+					<pattern type="1000000" count="many">↑↑↑</pattern>
+					<pattern type="1000000" count="other">0 mln'.' ¤</pattern>
+					<pattern type="10000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000" count="two">↑↑↑</pattern>
+					<pattern type="10000000" count="few">↑↑↑</pattern>
+					<pattern type="10000000" count="many">↑↑↑</pattern>
+					<pattern type="10000000" count="other">00 mln'.' ¤</pattern>
+					<pattern type="100000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000" count="two">↑↑↑</pattern>
+					<pattern type="100000000" count="few">↑↑↑</pattern>
+					<pattern type="100000000" count="many">↑↑↑</pattern>
+					<pattern type="100000000" count="other">000 mln'.' ¤</pattern>
+					<pattern type="1000000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000000" count="two">↑↑↑</pattern>
+					<pattern type="1000000000" count="few">↑↑↑</pattern>
+					<pattern type="1000000000" count="many">↑↑↑</pattern>
+					<pattern type="1000000000" count="other">0 mlrd'.' ¤</pattern>
+					<pattern type="10000000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000000" count="two">↑↑↑</pattern>
+					<pattern type="10000000000" count="few">↑↑↑</pattern>
+					<pattern type="10000000000" count="many">↑↑↑</pattern>
+					<pattern type="10000000000" count="other">00 mlrd'.' ¤</pattern>
+					<pattern type="100000000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000000" count="two">↑↑↑</pattern>
+					<pattern type="100000000000" count="few">↑↑↑</pattern>
+					<pattern type="100000000000" count="many">↑↑↑</pattern>
+					<pattern type="100000000000" count="other">000 mlrd'.' ¤</pattern>
+					<pattern type="1000000000000" count="one">↑↑↑</pattern>
+					<pattern type="1000000000000" count="two">↑↑↑</pattern>
+					<pattern type="1000000000000" count="few">↑↑↑</pattern>
+					<pattern type="1000000000000" count="many">↑↑↑</pattern>
+					<pattern type="1000000000000" count="other">0 trln'.' ¤</pattern>
+					<pattern type="10000000000000" count="one">↑↑↑</pattern>
+					<pattern type="10000000000000" count="two">↑↑↑</pattern>
+					<pattern type="10000000000000" count="few">↑↑↑</pattern>
+					<pattern type="10000000000000" count="many">↑↑↑</pattern>
+					<pattern type="10000000000000" count="other">00 trln'.' ¤</pattern>
+					<pattern type="100000000000000" count="one">↑↑↑</pattern>
+					<pattern type="100000000000000" count="two">↑↑↑</pattern>
+					<pattern type="100000000000000" count="few">↑↑↑</pattern>
+					<pattern type="100000000000000" count="many">↑↑↑</pattern>
+					<pattern type="100000000000000" count="other">000 trln'.' ¤</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
+			<unitPattern count="one">{0} {1}</unitPattern>
+			<unitPattern count="two">{0} {1}</unitPattern>
+			<unitPattern count="few">{0} {1}</unitPattern>
+			<unitPattern count="many">{0} {1}</unitPattern>
+			<unitPattern count="other">{0} {1}</unitPattern>
+		</currencyFormats>
+	</numbers>
+	<listPatterns>
+		<listPattern>
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">{0} ė {1}</listPatternPart>
+			<listPatternPart type="2">{0} ė {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="or">
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">{0} a {1}</listPatternPart>
+			<listPatternPart type="2">{0} a {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="or-narrow">
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
+		</listPattern>
+		<listPattern type="or-short">
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
+		</listPattern>
+		<listPattern type="standard-narrow">
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
+		</listPattern>
+		<listPattern type="standard-short">
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
+		</listPattern>
+		<listPattern type="unit">
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">{0} ė {1}</listPatternPart>
+			<listPatternPart type="2">{0} ė {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="unit-narrow">
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
+		</listPattern>
+		<listPattern type="unit-short">
+			<listPatternPart type="start">{0} {1}</listPatternPart>
+			<listPatternPart type="middle">{0} {1}</listPatternPart>
+			<listPatternPart type="end">{0} {1}</listPatternPart>
+			<listPatternPart type="2">{0} {1}</listPatternPart>
+		</listPattern>
+	</listPatterns>
+	<posix>
+		<messages>
+            <yesstr>tāp:t</yesstr>
+			<nostr>nē:n</nostr>
+		</messages>
+	</posix>
+</ldml>

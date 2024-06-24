@@ -8,6 +8,7 @@
 package com.ibm.icu.dev.util;
 
 import com.google.common.base.Stopwatch;
+import org.unicode.cldr.util.TimeDiff;
 
 /**
  * simple class to calculate elapsed times.
@@ -47,6 +48,6 @@ public class ElapsedTimer {
      */
     @Deprecated
     public static String elapsedTime(long startMs, long endMs) {
-        return String.format("[%d ms]", endMs - startMs);
+        return TimeDiff.timeDiff(startMs, endMs);
     }
 }

@@ -10,6 +10,7 @@ import java.util.logging.Logger;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.unicode.cldr.util.*;
+import org.unicode.cldr.util.TimeDiff;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
 import org.unicode.cldr.web.api.LocaleCompletion;
 
@@ -134,7 +135,7 @@ public class VettingViewerQueue {
             private String setRemStr(long now) {
                 double per = (double) (now - start) / (double) n;
                 long rem = (long) ((maxn - n) * per);
-                String remStr = ElapsedTimer.elapsedTime(now, now + rem) + " " + "remaining";
+                String remStr = "Estimated completion: " + TimeDiff.timeDiff(now, now - rem);
                 if (rem <= 1500) { // Less than 1.5 seconds remaining
                     remStr = "Finishing...";
                 }

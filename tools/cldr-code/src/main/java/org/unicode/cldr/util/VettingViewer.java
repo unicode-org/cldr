@@ -1084,8 +1084,6 @@ public class VettingViewer<T> {
 
     private Map<String, String> getSortedNames(Organization org, Level desiredLevel) {
         Map<String, String> sortedNames = new TreeMap<>(CLDRConfig.getInstance().getCollator());
-        LocalesWithExplicitLevel cldrLocale =
-                new LocalesWithExplicitLevel(Organization.cldr, desiredLevel);
 
         // A user in the Unaffiliated organization can access a list with all non-TC locales.
         if (org == Organization.unaffiliated && desiredLevel == Level.BASIC) {

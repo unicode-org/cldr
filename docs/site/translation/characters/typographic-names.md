@@ -21,7 +21,7 @@ The most common problem is giving the same name to two *different* fields. For e
 
 **Slant vs Italic**
 
-1. Slant is different than italic: in the latter, the characters are slanted, but also usually different shapes. See[Italic](http://cldr.unicode.org/translation/characters-emoji-symbols/typographic-names/italic.png).
+1. Slant is different than italic: in the latter, the characters are slanted, but also usually different shapes. See [Italic](http://cldr.unicode.org/translation/characters-emoji-symbols/typographic-names/italic.png).
 
 **Width vs Weight**
 
@@ -45,19 +45,19 @@ The **Weight axis** is used to vary text from lighter to bolder. See [here](http
 
 ![image](../../images/font-width.png)
 
-The **Width axis** is used to vary text from narrower to wider. Also called “stretch”. See[here](https://docs.microsoft.com/en-us/typography/opentype/spec/dvaraxistag_wdth).
+The **Width axis** is used to vary text from narrower to wider. Also called “stretch”. See [here](https://docs.microsoft.com/en-us/typography/opentype/spec/dvaraxistag_wdth).
 
 ### Italic
 
 ![image](../../images/italic.png)
 
-The **Italic axis** is used to vary text from upright/plain/regular to cursive/italic. See also [here](https://en.wikipedia.org/wiki/Italic_type) and[here](https://docs.microsoft.com/en-us/typography/opentype/spec/dvaraxistag_ital).
+The **Italic axis** is used to vary text from upright/plain/regular to cursive/italic. See also [here](https://en.wikipedia.org/wiki/Italic_type) and [here](https://docs.microsoft.com/en-us/typography/opentype/spec/dvaraxistag_ital).
 
 ### Slant
 
 ![image](../../images/oblique.png)
 
-The **Slant axis** is used to vary text from upright/plain/regular to slanted/oblique. See[here](https://docs.microsoft.com/en-us/typography/opentype/spec/dvaraxistag_slnt).
+The **Slant axis** is used to vary text from upright/plain/regular to slanted/oblique. See [here](https://docs.microsoft.com/en-us/typography/opentype/spec/dvaraxistag_slnt).
 
 ![image](../../images/reverse-oblique.png)
 
@@ -69,6 +69,6 @@ This style is called **reverse oblique, reverse slanted,** or **back slanted.**
 
 ![image](../../images/optical-size.png)
 
-The **Optical Size axis** is used to adjust letterforms to different text size, from fine print to large display type. See[here](https://en.wikipedia.org/wiki/Font#Optical_size),[here](https://docs.microsoft.com/en-us/typography/opentype/spec/dvaraxistag_opsz), or [here](http://wwwimages.adobe.com/www.adobe.com/content/dam/acom/en/products/type/pdfs/ArnoPro.pdf) (page 11) for a nice description.
+The **Optical Size axis** is used to adjust letterforms to different text size, from fine print to large display type. See [here](https://en.wikipedia.org/wiki/Font#Optical_size), [here](https://docs.microsoft.com/en-us/typography/opentype/spec/dvaraxistag_opsz), or [here](http://wwwimages.adobe.com/www.adobe.com/content/dam/acom/en/products/type/pdfs/ArnoPro.pdf) (page 11) for a nice description.
 
 ![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

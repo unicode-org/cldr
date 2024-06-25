@@ -68,7 +68,7 @@ Many of the emoji names are constructed, which means that in implementations emo
 - Avoid using words that may describe one's opinion or sentiments. Use unbiased descriptive words. (For example, do not use "faith" in relation to a religious emoji.)
 - Be careful not to be overly purist about keywords. The goal of keywords is to define what people might search for in addition to the defined name. This means that the keywords do not need to follow formal taxonomies.
 - For example, if a user is likely to type "plant" (or equivalent in their language) when searching for a mushroom, then the mushroom emoji should have "plant" as a keyword, even if that is not [biologically accurate](https://en.wikipedia.org/wiki/Fungus).
-- For the Character > Categories > Label (such as[French](https://st.unicode.org/cldr-apps/v#/fr/Category/19624f4413eaac8b)), whether or not a label is plural will depend on the label and the language. The pluralization choice will not necessarily follow the English.
+- For the Character > Categories > Label (such as [French](https://st.unicode.org/cldr-apps/v#/fr/Category/19624f4413eaac8b)), whether or not a label is plural will depend on the label and the language. The pluralization choice will not necessarily follow the English.
 ## Short Character Names
 
 In CLDR we provide descriptive but short names for the characters across languages. (For reference, see [Background: Unicode Std. vs CLDR names](https://cldr.unicode.org/translation/characters-emoji-symbols/short-names-and-keywords%23TOC-Background:-Unicode-Std.-vs-CLDR-names).)
@@ -106,7 +106,7 @@ Tips on how to handle unique names:
 ![image](../../images/Screen-Shot-2017-06-08-at-11.19.35.png)
 ![image](../../images/Screen-Shot-2017-06-08-at-11.19.47.png)
 
-Other common problem cases that must be distinguished. **NOTE that punctuation and uppercase vs lowercase distinctions are discarded when testing for uniqueness!**
+Other common problem cases that must be distinguished.  **NOTE that punctuation and uppercase vs lowercase distinctions are discarded when testing for uniqueness!**
 
 |   |   |
 |---|---|
@@ -129,11 +129,13 @@ There are different ways emoji may have gender.
 	- 1. Singletons (eg man) such as business man levitating.
 		2. Pairs (man, woman) such as prince and princess.
 		3. Full triples (man, woman, gender-neutral) such as man detective, woman detective, and just detective (either one).
+
 For the full triples, we need three unique names:
 
 - X1 (=male only; no females)
 - X2 (=female only; no males)
 - X3 (=either male or female)
+
 In some languages it may be tricky to do this, especially for the neutral case. 
 
 Gender-neutral forms
@@ -141,7 +143,7 @@ Gender-neutral forms
 - The label you use for a gender-neutral form must apply to either men or women in that role, and must have a different name than the "man" version or "woman" version.
 - For example
 	- German uses Feuerwehrmann for “fireman” (male fireman) and “Feuerwehrfrau” for ‘firewoman’ (female firefighter)
-		- When you add a gender-neutral name, you may get an error because it collides with the male or female forms. *Be sure to fix such error before leaving the page.*
+		- When you add a gender-neutral name, you may get an error because it collides with the male or female forms.  *Be sure to fix such error before leaving the page.*
 		- For example, you cannot add Feuerwehrmann as a name for ‘firefighter’ (gender neutral), because that would collide with Feuerwehrmann for ‘male fireman’.
 			- If your language only normally has two terms (eg "student" and "studentă") then there are a couple of possibilities:
 		- **A.** If the word "student" excludes females, and "studentă" excludes males, then you would use X1="student", X2="studentă", and then a phrase for X3 such as "student/studentă" (see below).
@@ -192,7 +194,7 @@ Emoji keywords are unique in the Survey Tool voting experience because it contai
 
 ## Background: Unicode Std. vs CLDR names
 
-The Unicode Name character property are part of the Unicode standard. They are immutable, unique IDs over all Unicode characters, and limited to uppercase ASCII letters, digits and hyphen. The names often do not apply well to the prevailing practice for emoji images, and are only available in English. Their main purpose is to serve as unique identifiers, and may not be particularly descriptive or short. Example: ɞ U+025E LATIN SMALL LETTER CLOSED REVERSED OPEN E. Because the Unicode Name is immutable, it cannot change to reflect that.
+The Unicode Name character property are part of the Unicode standard. They are immutable, unique IDs over all Unicode characters, and limited to uppercase ASCII letters, digits and hyphen. The names often do not apply well to the prevailing practice for emoji images, and are only available in English. Their main purpose is to serve as unique identifiers, and may not be particularly descriptive or short. Example: ɞ  U+025E LATIN SMALL LETTER CLOSED REVERSED OPEN E. Because the Unicode Name is immutable, it cannot change to reflect that.
 
 The Unicode Name may inform the English CLDR short names, and that is what we start with (for English) unless one of the other factors come into play. CLDR short names are not limited to ASCII or uppercase, even in English.
 
@@ -200,6 +202,6 @@ The Unicode Name may inform the English CLDR short names, and that is what we st
 
 A: For some animals, there are two different emoji, one of which has a name including the word “face”: for example, 🐕 U+1F415 *dog* and 🐶 U+1F436 *dog face*. In these cases, the use of “face” in the name is important for distinguishing the two emoji, and the name in your language should include an indication that it is the face rather than a whole or partial body.
 
-For other animals, there is no such distinction. For example, there is only one wolf: 🐺 U+1F43A*.* In that case, you don't need to use a term corresponding to “face” in your language, even if the English name has the word face (that is often due to historical accident.)
+For other animals, there is no such distinction. For example, there is only one wolf: 🐺 U+1F43A. In that case, you don't need to use a term corresponding to “face” in your language, even if the English name has the word face (that is often due to historical accident.)
 
 ![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

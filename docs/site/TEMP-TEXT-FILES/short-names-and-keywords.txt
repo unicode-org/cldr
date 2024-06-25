@@ -44,6 +44,12 @@ For the Character > Categories > Label (such as French), whether or not a label 
 Short Character Names
 In CLDR we provide descriptive but short names for the characters across languages. (For reference, see Background: Unicode Std. vs CLDR names.)
 Goals for the short names collected in CLDR are:
+Unique	Be unique among emoji names for that language. (You will receive an error in the survey tool if the name is already in use for another emoji.)
+Short	Be short (as much as possible), both written and spoken.
+Descriptive	Be descriptive of the prevailing color images. Don't be "over-descriptive", however. The descriptions only have to be enough to distinguish each image from the others: they shouldn't have any details beyond that.
+Consistent	Be consistent across images with similar features. (Don’t call 📫 a mailbox and 📬 a post box).
+Flexible	It is not a goal to be immutable: in future versions of CLDR, you can improve names by casing new suggestions if a more appropriate names are available.
+Not Literal	Names should not just be literal translations of the English-- the names should be based on associations to the image in your language. But you can be informed by the English names. (Exceptions to this when there is no equivalent in your language. See Emoji specific to a country/region)
 When voting on the emoji names and keywords:
 Follow the middle of sentence rule. See Capitalization guideline.
 As usual, the names in “en” are American English; where necessary those are customized for “en-GB”. For differences for sub-locale, see Regional Variant guideline.
@@ -58,6 +64,14 @@ Add "zodiac" only to the conflicting item (e.g. Scorpius Zodiac)
 Add a term to qualify the animal/bug
 Unique name conflicts will be different for every language; however, you could look at how other languages have handled similar conflicts and get ideas on how to get around unique name errors.
 Other common problem cases that must be distinguished.  NOTE that punctuation and uppercase vs lowercase distinctions are discarded when testing for uniqueness!
+🌀 🌪	Cyclone vs Tornado
+🌒 🌓 🌔 🌖 🌗 🌘 🌙	Different phases of the moon
+🎵 🎶	Different numbers of notes
+♏ 🦂	Symbol vs animal
+💃 🕺	Woman vs man
+😡 😬	Pouting vs grimacing
+🚽 🚻 🚾	Toilet vs restroom vs WC (water closet)
+🆙 🔼	"Up!" button vs upwards button.
 Gender
 There are different ways emoji may have gender.
 No specific gender
@@ -95,6 +109,13 @@ Be sure to review the way in which this has been done for other cases in your la
 Character Keywords
 Keywords are one or more words or short phrases that can be used to search for the character in your language.
 When picking keywords, remember the following goals:
+Not Unique	Unlike the short names, keywords do not have to be unique across different emoji. For example, in English "mailbox" is a keyword associated to any of ( 📫 📪 📬 📭).
+Not Short	Unlike the short names, the keywords need not be as short as possible. Don't go overboard in length, however!
+Number	Each keyword should help narrow down the choices among emoji. The goal is to provide the best set of keywords that are relevant to the emoji; be mindful of the number of keywords and try to limit the number of keywords below 5. (You will start to see a warning on keywords beyond 6.) Consumers of CLDR data typically generate synonyms and forms of the keywords that are supplied, so you shouldn't provide variant forms of keywords. For human emoji (such as "student"), the gender-inclusive form will automatically be fleshed out by adding the keywords of the male and female variants. Here are some tips on how to be mindful of the number of keywords: • Don't add grammatical variants or case inflections : pick one of {"walks", "walking"}; pick one of {sake, saké}. • Don’t add multiple forms with different gender variants: pick a representative form. • Don’t add keywords to the gender-neutral form that are already supplied for the male or female form. • Don’t add emoji names (these will be added automatically). • Don’t add repeats of words starting with the same starting word in the emoji name. For example, for "umbrella with rain drops" emoji, the set of keywords considered are {clothing | drop | rain | umbrella | umbrella with rain drops}; but, you do not need {umbrella} and {umbrella with rain drops}. Thus, the best set of keywords are {clothing | drop | rain}. Please follow these guidelines even if the source English does not.
+Separation	A " | " (pipe) character is used to separate each keyword when there are multiple keywords for an emoji (see screenshot below) . When you want to append another keyword, click the + to add, copy the Winning value, and append " | " before adding your new keyword.
+Ordering	The ordering of keywords are not significant . Do not add new suggestions only for the ordering of the keywords. Keywords are in "alphabetical order" (default Unicode ordering), and will override any ordering you provide in your suggestion.
+Not Literal	Like the short names, the keywords should not just be lite ral translations of the English — the keywords should be based on associations to the image in your language. It does not need to be the same number of keywords in your language as there are in English! But you can be informed by the English names.
+Not offensive	Do not add keywords for an emoji where the association of the two could be offensive to many people. For example, do not use “superstition” as a keyword for the emoji related to religion, or add a keyword for a particular nation to the goblin emoji (👺).
 Keywords vote calculation
 Emoji keywords are unique in the Survey Tool voting experience because it contains multiple item (words) in a single vote. The following enhancements to the Survey Tool are introduced starting in v34 to help improve the efficiency of keyword voting efforts.
 Keyword voting: The calculation of the winning set of keywords is now different. Beforehand, if you had the following choices, #1 would win. Now, the fact that #2 is a subset of #3 gives it a larger weight in voting, and #2 will win.

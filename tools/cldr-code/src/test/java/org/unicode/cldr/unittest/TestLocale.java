@@ -29,6 +29,7 @@ import org.unicode.cldr.util.AttributeValueValidity;
 import org.unicode.cldr.util.AttributeValueValidity.MatcherPattern;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
@@ -532,14 +533,14 @@ public class TestLocale extends TestFmwkPlus {
                     String[] parts = line.split("=");
                     switch (parts[0]) {
                         case "@locale":
-                            cldrFile = factory.make(parts[1], true);
+                            cldrFile = factory.make(parts[1], true, DraftStatus.contributed);
                             break;
-                        case "@compound":
+                        case "@languageDisplay":
                             switch (parts[1]) {
-                                case "true":
+                                case "standard":
                                     compound = true;
                                     break;
-                                case "false":
+                                case "dialect":
                                     compound = false;
                                     break;
                             }
@@ -582,7 +583,7 @@ public class TestLocale extends TestFmwkPlus {
                 //                assertEquals("LTP(BCP47)=>ICU=>BCP47", bcp47, roundTripId);
 
                 canonicalizer.transform(ltp);
-                String name = cldrFile.getName(ltp, true, null);
+                String name = cldrFile.getName(ltp, compound, null);
                 if (assertEquals(cldrFile.getLocaleID() + "; " + localeId, expected, name)) {
                     formattedExamplesForSpec
                             .append("<tr><td>")

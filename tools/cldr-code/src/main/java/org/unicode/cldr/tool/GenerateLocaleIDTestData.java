@@ -9,14 +9,20 @@ import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.text.UnicodeSet;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.TreeMap;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CalculatedCoverageLevels;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CoverageInfo;
+import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LsrvCanonicalizer;
 import org.unicode.cldr.util.LsrvCanonicalizer.TestDataTypes;
 import org.unicode.cldr.util.StandardCodes.LstrType;
@@ -24,11 +30,14 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.TempPrintWriter;
 
 public class GenerateLocaleIDTestData {
+
     private static final LsrvCanonicalizer rrs = LsrvCanonicalizer.getInstance();
     private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
     private static final CLDRFile ENGLISH = CLDR_CONFIG.getEnglish();
 
     public static void main(String[] args) throws IOException {
+        // localeCanonicalization.txt
+
         try (TempPrintWriter pw =
                 TempPrintWriter.openUTF8Writer(
                         CLDRPaths.TEST_DATA + "localeIdentifiers", "localeCanonicalization.txt")) {
@@ -78,6 +87,19 @@ public class GenerateLocaleIDTestData {
             }
         }
 
+        // localeDisplayName.txt
+
+        String[] testInputLocales = {
+            "es",
+            "es-419",
+            "es-Cyrl-MX",
+            "hi-Latn",
+            "nl-BE",
+            "nl-Latn-BE",
+            "en-MM",
+            "zh-Hans-fonipa"
+        };
+
         try (TempPrintWriter pw =
                 TempPrintWriter.openUTF8Writer(
                         CLDRPaths.TEST_DATA + "localeIdentifiers", "localeDisplayName.txt")) {
@@ -86,24 +108,32 @@ public class GenerateLocaleIDTestData {
                             + CldrUtility.getCopyrightString("#  ")
                             + "\n# Format:\n"
                             + "# @locale=<locale to display in>\n"
-                            + "# @compound=<whether to form compounds like \"Flemish\" for nl_BE>\n"
+                            + "# @languageDisplay=[standard|dialect]\n"
+                            + "#    standard - always display additional subtags like region in parentheses\n"
+                            + "#    dialect - form compounds like \"Flemish\" for nl_BE\n"
                             + "# <locale to display> ; <expected display name>\n"
                             + "\n"
                             + "@locale=en\n"
-                            + "@compound=false\n");
+                            + "@languageDisplay=standard\n");
             pw.println("\n# Simple cases: Language, script, region, variants\n");
-            showDisplayNames(pw, "es", "es-419", "es-Cyrl-MX", "hi-Latn");
+            showDisplayNames(pw, ENGLISH, true, testInputLocales);
             pw.println(
                     "\n#Note that the order of the variants is alphabetized before generating names\n");
-            showDisplayNames(pw, "en-Latn-GB-scouse-fonipa");
+            showDisplayNames(pw, ENGLISH, true, "en-Latn-GB-scouse-fonipa");
             pw.println("\n# Add extensions, and verify their order\n");
             showDisplayNames(
                     pw,
+                    ENGLISH,
+                    true,
                     "en-u-nu-thai-ca-islamic-civil",
                     "hi-u-nu-latn-t-en-h0-hybrid",
                     "en-u-nu-deva-t-de");
             pw.println("\n# Test ordering of extensions (include well-formed but invalid cases)\n");
-            showDisplayNames(pw, "fr-z-zz-zzz-v-vv-vvv-u-uu-uuu-t-ru-Cyrl-s-ss-sss-a-aa-aaa-x-u-x");
+            showDisplayNames(
+                    pw,
+                    ENGLISH,
+                    true,
+                    "fr-z-zz-zzz-v-vv-vvv-u-uu-uuu-t-ru-Cyrl-s-ss-sss-a-aa-aaa-x-u-x");
 
             pw.println(
                     "\n# Comprehensive list (mostly comprehensive: currencies, subdivisions, timezones have abbreviated lists)\n");
@@ -155,26 +185,74 @@ public class GenerateLocaleIDTestData {
                         if (upper.containsSome(value)) {
                             System.err.println("** FIX NAME: " + sampleLocale);
                         } else {
-                            showDisplayNames(pw, sampleLocale);
+                            showDisplayNames(pw, ENGLISH, true, sampleLocale);
                         }
                     }
+                }
+            }
+
+            pw.println();
+
+            Factory factory = CLDR_CONFIG.getCldrFactory();
+            CoverageInfo coverageInfo = CLDR_CONFIG.getCoverageInfo();
+            for (String locale : factory.getAvailableLanguages()) {
+                for (boolean onlyConstructCompound : List.of(true, false)) {
+                    CLDRFile cldrFile =
+                            factory.make(locale, true, DraftStatus.contributed); // don't include
+
+                    // This is the CLDR "effective coverage level"
+                    Level coverageLevel =
+                            CalculatedCoverageLevels.getInstance()
+                                    .getEffectiveCoverageLevel(locale);
+
+                    if (coverageLevel == null || !coverageLevel.isAtLeast(Level.MODERN)) {
+                        continue;
+                    }
+
+                    Map<String, String> displayNames =
+                            prepareDisplayNames(cldrFile, onlyConstructCompound, testInputLocales);
+
+                    pw.println("\n@locale=" + locale);
+                    String languageDisplayVal = onlyConstructCompound ? "standard" : "dialect";
+                    pw.println("@languageDisplay=" + languageDisplayVal + "\n");
+
+                    showDisplayNames(pw, displayNames);
+                    pw.println();
                 }
             }
         }
     }
 
-    private static void showDisplayNames(TempPrintWriter pw, String... locales) {
-        showDisplayNames(pw, Arrays.asList(locales));
-    }
-
-    private static void showDisplayNames(TempPrintWriter pw, Collection<String> locales) {
+    private static Map<String, String> prepareDisplayNames(
+            CLDRFile formattingLocaleFile, boolean onlyConstructCompound, String... locales) {
+        Map<String, String> displayNames = new TreeMap<>();
         for (String locale : locales) {
-            String name = ENGLISH.getName(locale, true);
+            String name = formattingLocaleFile.getName(locale, onlyConstructCompound);
             if (name.contains("null")) {
                 System.err.println("** REPLACE: " + locale + "; " + name);
             } else {
-                pw.println(locale + "; " + name);
+                displayNames.put(locale, name);
             }
+        }
+
+        if (displayNames.isEmpty()) {
+            return null;
+        }
+        return displayNames;
+    }
+
+    private static void showDisplayNames(
+            TempPrintWriter pw,
+            CLDRFile formattingLocaleFile,
+            boolean onlyConstructCompound,
+            String... locales) {
+        showDisplayNames(
+                pw, prepareDisplayNames(formattingLocaleFile, onlyConstructCompound, locales));
+    }
+
+    private static void showDisplayNames(TempPrintWriter pw, Map<String, String> displayNames) {
+        for (Entry<String, String> entry : displayNames.entrySet()) {
+            pw.println(entry.getKey() + "; " + entry.getValue());
         }
     }
 }

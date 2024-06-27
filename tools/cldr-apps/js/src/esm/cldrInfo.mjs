@@ -1017,7 +1017,6 @@ export {
   closePanel,
   initialize,
   listen,
-  openPanel,
   reset,
   showItemInfoFn,
   showMessage,

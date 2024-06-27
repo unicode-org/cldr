@@ -25,7 +25,7 @@ Codes are used to represent numbering systems in the Survey tool. Below are some
 | hant | Traditional Chinese numerals — non-decimal | algorithmic |
 | latn |  Latin digits |  0123456789 |
 
-For further reference, see the [complete list](http://www.unicode.org/repos/cldr/trunk/common/bcp47/number.xml) of numbering system codes and their corresponding[rules](http://www.unicode.org/repos/cldr/trunk/common/supplemental/numberingSystems.xml).
+For further reference, see the [complete list](http://www.unicode.org/repos/cldr/trunk/common/bcp47/number.xml) of numbering system codes and their corresponding [rules](http://www.unicode.org/repos/cldr/trunk/common/supplemental/numberingSystems.xml).
 
 ## Minimum digits for grouping
 

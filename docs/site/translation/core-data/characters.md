@@ -51,7 +51,7 @@ The English value is “?”, but another character might be better for your lan
 
 ## Delimiters
 
-The delimiters are the characters used for quoting text. For example, for English they are the “curly” right and left forms as in **“this phrase.”** The alternate forms are for embedded quotations, such as **“**He yelled **‘Stop!’**, and turned around.”
+The delimiters are the characters used for quoting text. For example, for English they are the “curly” right and left forms as in **“this phrase.”** The alternate forms are for embedded quotations, such as “He yelled **‘Stop!’**, and turned around.”
 
 *BIDI languages (Arabic, Hebrew,…):*
 

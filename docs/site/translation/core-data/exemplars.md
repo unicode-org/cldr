@@ -62,7 +62,7 @@ Certain fields have _**sets**_ of characters (and strings) as values, called **U
 
 In the info panel, a mouse hover over the non-winning values shows a comparison to the Winning value. The ➕ { } indicates that { and } are additions to the Winning value, and ➖ ‐ – … ' ‘ ’ " “ ” § @ \* / & # † ′ ″ indicates that ➖, ‐. –. …. and so on are subtractions from the Winning value. That makes it much easier to see what the difference in the outcome would be.
 
-The very last line shows an internal UnicodeSet format. You can normally ignore this. However, if you want more details about the characters you can copy the [...] from that line in the Info Panel and paste that into the Input box on [UnicodeSet](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp) (and hit Show Set) to see more information about the characters, such as [[!(),-.\:;?\[\]\{\}‑]](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B!%28%29,-.%5C:;?%5C%5B%5C%5D%5C%7B%5C%7D%E2%80%91%5D).
+The very last line shows an internal UnicodeSet format. You can normally ignore this. However, if you want more details about the characters you can copy the [...] from that line in the Info Panel and paste that into the Input box on [UnicodeSet](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp) (and hit Show Set) to see more information about the characters, such as [[!(),-.\\:;?\\[\\]\\{\\}‑]](https://util.unicode.org/UnicodeJsps/list-unicodeset.jsp?a=%5B!%28%29,-.%5C:;?%5C%5B%5C%5D%5C%7B%5C%7D%E2%80%91%5D).
 
 ![image](../../images/core-data/Screenshot-2024-06-27-at-3.59.26.png)
 
@@ -101,6 +101,7 @@ For example:
 
 - Suppose the currency code XAF is translated as "Φράγκο BEAC CFA" in Greek. That raises a warning because the "BEAC CFA" are not in the Greek exemplars.
 - Suppose that a currency symbol contains ৲ (BENGALI RUPEE MARK). That also raises a warning, even though it is a symbol and not a letter, because it has a script (Bengali).
+
 Three possible solutions:
 
 1. If the character really is used in the language, add it to the appropriate exemplar set (**standard, auxiliary,…**).

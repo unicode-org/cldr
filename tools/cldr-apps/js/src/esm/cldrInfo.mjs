@@ -189,6 +189,14 @@ function listen(str, tr, theObj, fn) {
   cldrDom.listenFor(theObj, "click", function (e) {
     if (panelShouldBeShown()) {
       show(str, tr, theObj /* hideIfLast */, fn);
+    } else if (tr?.sethash) {
+      // These methods, updateCurrentId and setLastShown may be called from show(), if
+      // panelShouldBeShown() returned true. If the Info Panel is hidden then they still
+      // need to be called. Since they don't involve the Info Panel, the implementation
+      // should be changed to make them independent of the Info Panel and they should be
+      // called from a different module, not cldrInfo.
+      cldrLoad.updateCurrentId(tr.sethash);
+      setLastShown(theObj);
     }
     cldrEvent.stopPropagation(e);
     return false;
@@ -1009,7 +1017,6 @@ export {
   closePanel,
   initialize,
   listen,
-  openPanel,
   reset,
   showItemInfoFn,
   showMessage,

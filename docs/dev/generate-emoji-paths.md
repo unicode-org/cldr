@@ -23,13 +23,13 @@ Where the current version is VV:
     2.  Ensure that the documentation of composition of names (for new components like hair styles) in LDML is updated to match what is in org.unicode.cldr.util.Annotations.
     3.  Make sure that org.unicode.tools.emoji.unittest.TestAll runs successfully, with -Demoji-beta.
 
-2.  Copy
+3.  Copy
 
     * /emoji/docs/Public/emoji/14.0/emoji-test.txt<br>
 	to
     * /cldr-code/src/main/resources/org/unicode/cldr/util/data/emoji/emoji-test.txt
 
-3.  Run unicode tools: org.unicode.tools.emoji.GenerateCldrData
+4.  Run unicode tools: org.unicode.tools.emoji.GenerateCldrData
 
     1.  Copy each list of data from the console into (respectively) as per instructions
     
@@ -38,12 +38,13 @@ Where the current version is VV:
 
     2.  Copy emoji-test.txt into org.unicode.cldr.util.data.emoji
 
-4.  Run org.unicode.tools.emoji.CopyImagesToCldr.java to add images to ... /cldr/tools/cldr-apps/src/main/webapp/images/emoji
+5.  Get the emoji images for the info panel of the survey tool
+    *  This used to be done by running org.unicode.tools.emoji.CopyImagesToCldr.java to add images to ... /cldr/tools/cldr-apps/src/main/webapp/images/emoji
+    *  They might be delivered from the ESR via a zip file.
+7. Update the collation/root.xml using unicode/draft/emoji/charts-VV/emoji-ordering-rules.txt
+    * Note: emoji-ordering-rules.txt should be moved into the repo (there's an issue for that)
 
-    * These are the ones that show up in the info panel of the survey tool.
-    * Update the collation/root.xml using unicode/draft/emoji/charts-VV/emoji-ordering-rules.txt
-
-5.  Run tests
+8.  Run tests
 
     1.  You may get an error in testAnnotationPaths.
 

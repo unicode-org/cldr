@@ -66,7 +66,7 @@ jobs:
         run: 'cp -vr tools/scripts/tr-archive/dist/* ./_site/ldml/ && cp tools/scripts/tr-archive/reports-v2.css ./_site/'
       - name: Deploy to GitHub Pages (main)
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3
       - name: Deploy to Smoketest
         if: github.repository == 'unicode-org/cldr'
         shell: bash

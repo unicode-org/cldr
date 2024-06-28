@@ -1,12 +1,14 @@
 import AboutPanel from "../views/AboutPanel.vue";
-import AnnouncePanel from "../views/AnnouncePanel.vue";
 import AddUser from "../views/AddUser.vue";
+import AnnouncePanel from "../views/AnnouncePanel.vue";
 import AutoImport from "../views/AutoImport.vue";
+import CldrLogin from "../views/CldrLogin.vue";
 import DowngradedVotes from "../views/DowngradedVotes.vue";
 import GeneralInfo from "../views/GeneralInfo.vue";
 import LockAccount from "../views/LockAccount.vue";
 import LookUp from "../views/LookUp.vue";
 import MainMenu from "../views/MainMenu.vue";
+import ResetPassword from "../views/ResetPassword.vue";
 import TestPanel from "../views/TestPanel.vue";
 import TransferVotes from "../views/TransferVotes.vue";
 import UnknownPanel from "../views/UnknownPanel.vue";
@@ -26,8 +28,10 @@ const specialToComponentMap = {
   downgraded: DowngradedVotes,
   general: GeneralInfo,
   lock_account: LockAccount,
+  login: CldrLogin,
   lookup: LookUp,
   menu: MainMenu,
+  reset: ResetPassword,
   retry: WaitingPanel,
   retry_inplace: WaitingPanel, // Like retry, but do NOT redirect after resume.
   test_panel: TestPanel, // for testing

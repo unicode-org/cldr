@@ -52,7 +52,7 @@ export default {
   },
   async created() {
     this.info = await cldrUsers.getUserInfo(this.uid);
-    const { org, name } = this.info;
+    const { org, name } = this.info ?? {};
     this.org = org || null;
     this.name = name || null;
     this.$emit("org", this.org);

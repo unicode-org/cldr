@@ -578,6 +578,32 @@ public class UserRegistry {
             }
             return null;
         }
+
+        /** Generate and send a link that will login with a link */
+        public void sendResetToken() {
+            logger.info("Sending reset for " + email + " #" + id + ", requested by " + ip);
+            // Create a 1-hour token
+            final String token = CookieSession.sm.klm.createJwtForReset(Integer.toString(id));
+            if (SurveyMain.isUnofficial()) {
+                // not official, print this out to the command line for testing
+                System.out.println("Requested Reset Token: " + token);
+            }
+
+            /* base URL */
+            final String defaultBase =
+                    CLDRConfig.getInstance().absoluteUrls().base() + "/v#login///";
+            final String url = defaultBase + token;
+            // compose the mail
+            final String subject = "CLDR Login Link for " + email;
+            final String body =
+                    String.format(
+                            "To access the CLDR Survey Tool, visit:\n"
+                                    + "<%s>\n"
+                                    + "This link will only be valid for one hour.\n",
+                            url);
+
+            MailSender.getInstance().queue(null, id, subject, body);
+        }
     }
 
     public static void printPasswordLink(WebContext ctx, String email, String password) {

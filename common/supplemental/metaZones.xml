@@ -1175,8 +1175,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<timezone type="Australia/Sydney">
 				<usesMetazone mzone="Australia_Eastern"/>
 			</timezone>
+			<timezone type="CET">
+				<usesMetazone mzone="Europe_Central"/>
+			</timezone>
 			<timezone type="CST6CDT">
 				<usesMetazone mzone="America_Central"/>
+			</timezone>
+			<timezone type="EET">
+				<usesMetazone mzone="Europe_Eastern"/>
 			</timezone>
 			<timezone type="Etc/GMT">
 				<usesMetazone mzone="GMT"/>
@@ -1547,6 +1553,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</timezone>
 			<timezone type="PST8PDT">
 				<usesMetazone mzone="America_Pacific"/>
+			</timezone>
+			<timezone type="WET">
+				<usesMetazone mzone="Europe_Western"/>
 			</timezone>
 		</metazoneInfo>
 

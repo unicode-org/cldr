@@ -125,6 +125,7 @@ For terms of use, see http://www.unicode.org/copyright.html
             <type name="cccck" description="Cocos (Keeling) Islands" alias="Indian/Cocos"/>
             <type name="cdfbm" description="Lubumbashi, Democratic Republic of the Congo" alias="Africa/Lubumbashi"/>
             <type name="cdfih" description="Kinshasa, Democratic Republic of the Congo" alias="Africa/Kinshasa"/>
+            <type name="cet" description="POSIX style time zone for Central Europe Time" alias="CET MET"/>
             <type name="cfbgf" description="Bangui, Central African Republic" alias="Africa/Bangui"/>
             <type name="cgbzv" description="Brazzaville, Republic of the Congo" alias="Africa/Brazzaville"/>
             <type name="chzrh" description="Zurich, Switzerland" alias="Europe/Zurich"/>
@@ -157,6 +158,7 @@ For terms of use, see http://www.unicode.org/copyright.html
             <type name="dzalg" description="Algiers, Algeria" alias="Africa/Algiers"/>
             <type name="ecgps" description="Galápagos Islands, Ecuador" alias="Pacific/Galapagos"/>
             <type name="ecgye" description="Guayaquil, Ecuador" alias="America/Guayaquil"/>
+            <type name="eet" description="POSIX style time zone for Eastern Europe Time" alias="EET"/>
             <type name="eetll" description="Tallinn, Estonia" alias="Europe/Tallinn"/>
             <type name="egcai" description="Cairo, Egypt" alias="Africa/Cairo Egypt"/>
             <type name="eheai" description="El Aaiún, Western Sahara" alias="Africa/El_Aaiun"/>
@@ -403,7 +405,7 @@ For terms of use, see http://www.unicode.org/copyright.html
             <type name="umawk" description="Wake Island, U.S. Minor Outlying Islands" alias="Pacific/Wake"/>
             <type name="umjon" description="Johnston Atoll, U.S. Minor Outlying Islands" deprecated="true" preferred="ushnl"/>
             <type name="ummdy" description="Midway Islands, U.S. Minor Outlying Islands" alias="Pacific/Midway"/>
-            <type name="unk" description="Unknown time zone" alias="Etc/Unknown"/>
+            <type name="unk" description="Unknown time zone" alias="Etc/Unknown Factory"/>
             <type name="usadk" description="Adak (Alaska), United States" alias="America/Adak America/Atka US/Aleutian"/>
             <type name="usaeg" description="Marengo (Indiana), United States" alias="America/Indiana/Marengo"/>
             <type name="usanc" description="Anchorage, United States" alias="America/Anchorage US/Alaska"/>
@@ -471,6 +473,7 @@ For terms of use, see http://www.unicode.org/copyright.html
             <type name="vistt" description="Saint Thomas, U.S. Virgin Islands" alias="America/St_Thomas America/Virgin"/>
             <type name="vnsgn" description="Ho Chi Minh City, Vietnam" alias="Asia/Saigon Asia/Ho_Chi_Minh" iana="Asia/Ho_Chi_Minh"/>
             <type name="vuvli" description="Efate, Vanuatu" alias="Pacific/Efate"/>
+            <type name="wet" description="POSIX style time zone for Western Europe Time" alias="WET"/>
             <type name="wfmau" description="Wallis Islands, Wallis and Futuna" alias="Pacific/Wallis"/>
             <type name="wsapw" description="Apia, Samoa" alias="Pacific/Apia"/>
             <type name="yeade" description="Aden, Yemen" alias="Asia/Aden"/>

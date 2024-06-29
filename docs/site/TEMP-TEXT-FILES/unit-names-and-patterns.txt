@@ -2,6 +2,7 @@ Unit Names and Patterns
 Display Names
 These are intended for stand-alone use such as the label of a field where values may be entered, for example Minutes and Seconds in the example below.
 Enter desired time to liftoff:
+Minutes :		Seconds :	
 The expectation is that the display names would be in nominative form for languages in which it makes a difference. There may be cases in which a display name could be used in contexts for which nominative would be inappropriate, but the hope is that CLDR clients would arrange the use of display names in user interfaces so that nominative form is not inappropriate.
 The unit data is provided in three widths:
 long: typically a fully spelled-out name
@@ -12,16 +13,31 @@ Simple Units
 Simple units are cases like "{0} mile" or "{0} miles". These have from 1 to 6 plural forms, depending on the language. Units also have a display name, such as "miles", used as labels in interfaces.
 Compound Units
 Some units are compound units, like "miles per hour". When formatting, software will first look for a specialized pattern (with the right plural form), then if that is not available, look for a compound unit and compose a fallback format. Hover over the English column and the Winning column to see examples. The following patterns are available:
+Pattern Examples	Formatted Examples	Description
+per	{0} per {1}	cm / s , centimeters per second	Used to compose units consisting of a division of two source units when there is no specialized pattern available. See perUnitPatterns.
+times	{0}-{1}	kW⋅h, kilowatt-hour	Used to compose units consisting of a multiplication of two source units when there is no specialized pattern available. See kilowatt hour .
+power (square, cubic)	square {0}	square meters	- Used to compose area or volume measures when there is no specialized pattern available. The width should correspond to the base unit's width, as in {0} square meter or {0} m².
+- The short form will typically be superscripts {0}² or {0}³; the long form may be the same or may be spelled out (as in English).
+- The long form should be spelled out. See Long Power.
+- Note that the base unit will be lowercased when there is no spacing around the {0}. Thus {0} Meter will be lowercased when composed with Quadrat{0}.
+prefix (milli-, kilo-,…)	milli{0}	milli meter	- Used to compose metric units when there is no specialized pattern available.
+- The width should correspond to the base unit's width, as in {0} decimeter or {0} dm.
+- Note that the base unit will be lowercased when there is no spacing around the {0}. Thus {0} Meter will be lowercased when composed with Milli{0}.
+- There are two different sets of prefixes:
+   - The standard prefixes are base 10, such as mega{0} = ×10⁶ = ×1,000,000.
+   - The binary prefixes are base 1024, such as mebi{0} = ×1024² = ×1,048,576. There are only a few of these, and they are only used with digital units such as byte or bit. See Mebibyte for more information.
 Using these patterns, names for complex units can be formed, such as gigawatt hour per square second. In common cases, these complex units will have an explicit translation that you supply such as kilowatt-hour. But for less common cases, the components will be used to form units, and you need to make sure that they are consistent.
 Common Problems with Compound Units
 Make sure that the prefix patterns are consistent with the explicit translations. Here are some common problems to watch for.
+Descriptions	Examples
+Prefix is the wrong format, such as having a hyphen when the explicit compound doesn't	«γιγα-{0}» produces «{0} γιγα-χερτζ», but the explicit translation is «{0} γιγαχέρτζ»
+The spacing for the simple unit pattern differs from the spacing for the explicit compound (including non-breaking vs breaking space)	«hecto{0}» produces «{0} hectopascals», but the explicit translation is «{0} hectopascals»
+The translation of the core unit is different than the translation of the explicit compound	«M{0}» produces «{0} M byte », but the explicit translation is «{0} MB» «n{0}» produces «{0} nsec», but the explicit translation is «{0} ns» «{0}²» produces «{0} μ.²», but the explicit translation is «{0} m²»
+The translation is incomplete, for example: the "one" form «{0} carré» was translated, but not the plural form, which inherits {0}² from root	«{0}²» produces «{0} mètres²», but the explicit translation is «{0} mètres carrés»
 Important: languages are complicated, and sometimes the composition of complex units cannot match what is grammatically correct for your language. Sometimes there are no fixes that you can make to fix the issue completely. So any indications of problems are warnings, not errors. For example, here is an issue that the translator can't fix:
-Descriptions
-The accent needs to shift when a prefix is added
-The internal algorithm for when to combine spacing needs adjustment.
-Examples
-«δεκατο{0}» produces «{0} δεκατολίτρα», but the explicit translation is «{0} δεκατόλιτρα»
-M{0}» produces «{0}M o», but the explicit translation is «{0} Mo»
+Descriptions	Examples
+The accent needs to shift when a prefix is added	«δεκατο{0}» produces «{0} δεκατολίτρα», but the explicit translation is «{0} δεκατόλιτρα»
+The internal algorithm for when to combine spacing needs adjustment.	M{0}» produces «{0}M o», but the explicit translation is «{0} Mo»
 Your goal is to make the composition work as well as you can, even it if is not perfect.
 Specialized Pattern
 The specialized patterns are needed where there is a special abbreviation, like "mph" instead of "m/hr".
@@ -35,10 +51,10 @@ Inflected alternatives. If it does list inflected alternatives, you should look 
 Length / Kilometer / long-other => {0} kilometers
 Area / Square-Kilometer / long-other => {0} square kilometers
 The pattern for power2 should be constructed so that if you take the word for "kilometers" and substituted it into the pattern, you get "square kilometers". So let's take an example from French:
-1. https://st.unicode.org/cldr-apps/v#/fr/Length/52e5f7e1046696e8 => {0} kilomètres
-2. https://st.unicode.org/cldr-apps/v#/fr/Area/18a3be1b1257d916 => {0} kilomètres carrés
+https://st.unicode.org/cldr-apps/v#/fr/Length/52e5f7e1046696e8 => {0} kilomètres
+https://st.unicode.org/cldr-apps/v#/fr/Area/18a3be1b1257d916 => {0} kilomètres carrés
 So the appropriate pattern for power2 would be:
-3. https://st.unicode.org/cldr-apps/v#/fr/CompoundUnits/15b049cba8052719 => {0} carrés
+https://st.unicode.org/cldr-apps/v#/fr/CompoundUnits/15b049cba8052719 => {0} carrés
 If we were to substitute "kilomètres" from the pattern in #1 into the pattern in #3, we would get "kilomètres carrés", which appears in pattern #2.
 Fallback Format: two units
 Some units are formed by combining other units. The most common of this is X per Y, such as "miles per hour". There is a "per" pattern that is used for this. For example, "{0} per {1}" might get replaced by "10 meters per second".
@@ -46,6 +62,10 @@ Given an amount, and two units, the process uses the available patterns to put t
 Special Units
 Points, dots, and pixels
 The measurements for points, dots, and pixels may be confusing. A point is a unit of length, and completely different than pixel or dot. A pixel and dot are closely related, and are not units of length. This table provides more information.
+Category	Name	ST Link	Description
+Units > Length	point	https://st.unicode.org/cldr-apps/v#/USER/Length/45da5a8ddcacb08f	Display name (long form) for “length-point”, referring to a typographic point , 1⁄72 inch or ≈ 0.353 mm. See wikipedia
+Units > Graphics	dot	https://st.unicode.org/cldr-apps/v#/USER/Graphics/6f52d9bd7df8af32	Display name (long form) for “graphics-dot”, used in measures of print or screen resolution, such as dots per inch or dots per centimeter. See wikipedia.org
+Units > Graphics	pixel	https://st.unicode.org/cldr-apps/v#/USER/Graphics/33686b8e75b9afad	Display name (long form) for “graphics-pixel”, used for counting the individual elements on a screen image. See wikipedia.
 💡 Translation Tips
 You can use the same name for dot and pixel.
 You cannot use the same name for point (a unit of length) and dot

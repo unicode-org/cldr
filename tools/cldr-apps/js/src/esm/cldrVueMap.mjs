@@ -4,6 +4,7 @@ import AddUser from "../views/AddUser.vue";
 import AutoImport from "../views/AutoImport.vue";
 import DowngradedVotes from "../views/DowngradedVotes.vue";
 import GeneralInfo from "../views/GeneralInfo.vue";
+import GenerateVxml from "../views/GenerateVxml.vue";
 import LockAccount from "../views/LockAccount.vue";
 import LookUp from "../views/LookUp.vue";
 import MainMenu from "../views/MainMenu.vue";
@@ -25,6 +26,7 @@ const specialToComponentMap = {
   auto_import: AutoImport,
   downgraded: DowngradedVotes,
   general: GeneralInfo,
+  generate_vxml: GenerateVxml,
   lock_account: LockAccount,
   lookup: LookUp,
   menu: MainMenu,

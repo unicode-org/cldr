@@ -22,13 +22,8 @@ import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 import java.nio.file.Files;
 import java.time.Instant;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
-import java.util.Set;
-import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Predicate;
 import javax.servlet.ServletException;
@@ -96,11 +91,6 @@ public class OutputFileManager {
      *
      * @param request the HttpServletRequest, used for "vap"
      * @param out the Writer, to receive HTML output
-     *     <p>Invoked by pasting a url like this into a browser:
-     *     http://localhost:8080/cldr-apps/admin-OutputAllFiles.jsp?vap=...
-     *     <p>This function was started using code moved here from admin-OutputAllFiles.jsp.
-     *     Reference: CLDR-12016 and CLDR-11877
-     *     <p>TODO: link to gear menu and use JavaScript for a front-end.
      */
     public static void outputAndVerifyAllFiles(HttpServletRequest request, Writer out) {
         String vap = request.getParameter("vap");
@@ -120,6 +110,26 @@ public class OutputFileManager {
                 out.write("verify=true/false<br>\n");
                 return;
             }
+            generateVxml(out, outputFiles, removeEmpty, verifyConsistent);
+        } catch (Exception e) {
+            System.err.println("Exception in outputAndVerifyAllFiles: " + e);
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Generate VXML
+     *
+     * <p>Called by legacy outputAndVerifyAllFiles and also by modern api/GenerateVxml
+     *
+     * @param out
+     * @param outputFiles
+     * @param removeEmpty
+     * @param verifyConsistent
+     */
+    public static void generateVxml(
+            Writer out, boolean outputFiles, boolean removeEmpty, boolean verifyConsistent) {
+        try {
             /*
              * Sync on OutputFileManager.class here prevents re-entrance if invoked repeatedly before completion.
              * Performance problem if run while Survey Tool has multiple users/requests?
@@ -157,9 +167,9 @@ public class OutputFileManager {
                     ofm.verifyAllFiles(out, vxmlDir);
                 }
             }
-            System.out.println("outputAndVerifyAllFiles finished");
+            System.out.println("reallyOutputAndVerifyAllFiles finished");
         } catch (Exception e) {
-            System.err.println("Exception in outputAndVerifyAllFiles: " + e);
+            System.err.println("Exception in reallyOutputAndVerifyAllFiles: " + e);
             e.printStackTrace();
         }
     }
@@ -253,12 +263,22 @@ public class OutputFileManager {
 
             Set<CLDRLocale> sortSet = new TreeSet<>();
             sortSet.addAll(SurveyMain.getLocalesSet());
+
             /*
              * skip "en" and "root", since they should never be changed by the Survey Tool
+             *
+             * TODO: "en.xml and root.xml ... should be copied verbatim."
+             * Reference: https://unicode-org.atlassian.net/browse/CLDR-14953
              */
             sortSet.remove(CLDRLocale.getInstance("en"));
             sortSet.remove(CLDRLocale.getInstance(LocaleNames.ROOT));
 
+            /*
+             * TODO: uncomment removeMulLocales, or something similar
+             *
+             * Reference: https://unicode-org.atlassian.net/browse/CLDR-14953
+             */
+            // removeMulLocales(sortSet);
             for (CLDRLocale loc : sortSet) {
                 out.write("<li>" + loc.getDisplayName() + "<br/>\n");
                 for (OutputFileManager.Kind kind : OutputFileManager.Kind.values()) {
@@ -319,6 +339,23 @@ public class OutputFileManager {
             return false;
         }
     }
+
+    /*
+     * TODO: uncomment removeMulLocales, or something similar
+     *
+     * Reference: https://unicode-org.atlassian.net/browse/CLDR-14953
+     *
+     * Remove "mul", "mul_ZZ", etc.
+     */
+    // private void removeMulLocales(Set<CLDRLocale> sortSet) {
+    //     Iterator<CLDRLocale> itr = sortSet.iterator();
+    //     while (itr.hasNext()) {
+    //         CLDRLocale loc = itr.next();
+    //         if (loc.getBaseName().startsWith(LocaleNames.MUL)) {
+    //             itr.remove();
+    //         }
+    //     }
+    // }
 
     /**
      * Write out the specified file(s).

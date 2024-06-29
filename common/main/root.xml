@@ -2442,6 +2442,73 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<alias source="locale" path="../../calendar[@type='generic']/dateTimeFormats"/>
 				</dateTimeFormats>
 			</calendar>
+			<calendar type="myanmar">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<alias source="locale" path="../monthWidth[@type='wide']"/>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<alias source="locale" path="../../monthContext[@type='stand-alone']/monthWidth[@type='narrow']"/>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">Tagu</month>
+							<month type="2">Kason</month>
+							<month type="3">Nayon</month>
+							<month type="4">Waso</month>
+							<month type="5">Second Waso</month>
+							<month type="6">Wagaung</month>
+							<month type="7">Tawthalin</month>
+							<month type="8">Thadingyut</month>
+							<month type="9">Tazaungmon</month>
+							<month type="10">Nadaw</month>
+							<month type="11">Pyatho</month>
+							<month type="12">Tabodwe</month>
+							<month type="13">Tabaung</month>
+							<month type="14">Late Tagu</month>
+							<month type="15">Late Kason</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='abbreviated']"/>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1">1</month>
+							<month type="2">2</month>
+							<month type="3">3</month>
+							<month type="4">4</month>
+							<month type="5">5</month>
+							<month type="6">6</month>
+							<month type="7">7</month>
+							<month type="8">8</month>
+							<month type="9">9</month>
+							<month type="10">10</month>
+							<month type="11">11</month>
+							<month type="12">12</month>
+							<month type="13">13</month>
+							<month type="14">14</month>
+							<month type="15">15</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<alias source="locale" path="../../monthContext[@type='format']/monthWidth[@type='wide']"/>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<eras>
+					<eraNames>
+						<alias source="locale" path="../eraAbbr"/>
+					</eraNames>
+					<eraAbbr>
+						<era type="0">ME</era>
+						<era type="1">ME</era>
+						<era type="2">ME</era>
+					</eraAbbr>
+					<eraNarrow>
+						<alias source="locale" path="../eraAbbr"/>
+					</eraNarrow>
+				</eras>
+			</calendar>
 			<calendar type="persian">
 				<months>
 					<monthContext type="format">

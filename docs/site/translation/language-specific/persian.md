@@ -8,7 +8,7 @@ title: Persian
 
 ### Orthography
 
-Please follow the orthography published by the Persian Academy (دستور خط فارسی). Since the rules are sometimes complicated and hard to decipher, refer to فرهنگ املایی خط فارسی, by Ali-Ashraf Sadeghi and Zahra Zandi-Moghaddam. (We have PDF versions[here](https://drive.google.com/file/d/1R2_7PMMxNzu_rYZvUQgWEGsFBA549Z1K/view?usp=sharing) and[here](https://drive.google.com/file/d/1bDIQ2XWGsahQbg9yZ3DqLKaFuh41RBxx/view?usp=sharing), but we don’t know if these PDFs are the latest editions or not. Refer to the latest printed versions, if you can.)
+Please follow the orthography published by the Persian Academy (دستور خط فارسی). Since the rules are sometimes complicated and hard to decipher, refer to فرهنگ املایی خط فارسی, by Ali-Ashraf Sadeghi and Zahra Zandi-Moghaddam. (We have PDF versions [here](https://drive.google.com/file/d/1R2_7PMMxNzu_rYZvUQgWEGsFBA549Z1K/view?usp=sharing) and [here](https://drive.google.com/file/d/1bDIQ2XWGsahQbg9yZ3DqLKaFuh41RBxx/view?usp=sharing), but we don’t know if these PDFs are the latest editions or not. Refer to the latest printed versions, if you can.)
 
 - Always write the *ezafe* over *he*, if it’s pronounced. For example, use مقدونیهٔ شمالی for North Macedonia.
 - For names of continents and their derived forms that could start with either *aa-ye baa-kolaah* (آ) or *alef* (ا), use *alef*: Africa should be افریقا and North America should be امریکای شمالی.

@@ -1,0 +1,184 @@
+Date/Time Patterns
+Last updated: 2018-May-14
+Patterns Introduction
+Pre-requisite topics to read:
+Date/Time Symbols
+Date/Time Names
+A date-time pattern is a string of characters in which fields representing date and time symbols are combined together with necessary "literal" strings that are used as is.
+There are two types of substrings that are combined in a pattern:
+Date/time fields, which are placeholders that represent particular calendar values such as month, weekday, year, etc..
+"Literal" strings used as-is. These are necessary to make the pattern flow naturally in a given language.
+For example:
+There are three aspects to patterns:
+A letter in the set {a-z; A-Z} indicates the type of calendar field: See Date/Time Symbols.
+For example:
+M for month
+d for week day
+y for year
+The number of letters indicate the form of the names to be used.
+Example use for month would be:
+Numeric representation: M or MM for 9 or 09, with leading 0. This is intended to be used in conjunction with a day number; thus, 9/12 or 09/12
+Abbreviated form: MMM  for Sep
+Full form: MMMM for September
+Narrow form: MMMMM (S)
+When formatting a particular date, non-numeric values (e.g. month names from Gregorian calendar) are substituted into the appropriate pattern substrings using the Date Format Symbols.
+For example:
+M replaced by “3” for March
+MMMM replaced by “March”.
+When parsing a date string, the pattern substrings will be converted into the appropriate numeric calendar data.
+See Date/Time Symbols for a brief summary of letters for different calendar fields, or Date Field Symbol Table for a more complete and detailed list.
+The "literal" text in the date-time pattern are used as-is when formatting, and are expected when parsing a date string. To include a single straight quote as part of the literal text, use two of them together: '' (either inside or outside a section of literal text enclosed in single straight quotes).
+To demonstrate how this work with examples, see the spec Date Format Pattern Examples.
+💡 Translation Tips
+For "literal" text that should be included in patterns, enclose it in single straight quotes if it includes letters A-Za-z or a single straight quote. For example, to include "o'clock" in a long time pattern (hh 'o''clock' a, zzzz). If you need to include the single straight quote itself in literal text, you can do that by doubling it as in the previous example.
+In order to provide the correct date and time patterns for your language, you may need to reorder the symbols.  For example, you would need to reorder the U.S. date pattern d/M/y to MM/dd/y if your locale puts the month first in short date patterns.
+For bidi scripts (e.g. Arabic and Hebrew), you may need to add directionality markers (U+200E (<LRM> LEFT-TO-RIGHT MARK, U+200F <RLM> RIGHT-TO-LEFT MARK, U+061C <ALM> ARABIC LETTER MARK). Typically these are most commonly needed in short (numeric) dates, usually before separators such as  '/' or '-'.
+For date formats in bidi scripts, the Survey Tool shows examples in both a right-to-left context and a neutral context. In the future it may show examples in a left-to-right contex as well.
+The hightest priority is to make the formats look correct in a right-to-left context; the next most important is to make them look correct in a a neutral cotext. If possible it is also a good idea to make them work in a left-to-right context.
+Always look at examples! Examples are in the Information Pane or hover over. When working with date and time formats, there are many substitution and dependencies to different calendar; therefore, the example are best representation to validate your intention on the end result.
+Synchronizing Date/Time Names and Patterns
+There is a tight coupling between the date/time patterns and the names that are used for date/time elements, described in Date/Time Names. Therefore, when supplying the data, it requires coordination between what you supply as the names and your intention on which name to use in patterns.
+When to use Standalone vs. Formatting
+Some types of names have two styles and these are differentiated in the survey tool section headings a Formatting and Standalone.
+Using the month names as examples:
+format style: Use formatting-style month names represented with "M" when month names is displayed with a day-of-the-month number (e.g. d MMMM y: 5 Monday January 1999).
+stand-alone style: Use the stand-alone month names represented with "L" when the month name is without a day-of-the month. (e.g. LLLL y: Monday 1999)
+Following are examples of differences and implications based on language:
+Some language (e.g. Catalan) use a preposition to combine the month and day number, e.g. “11 de setembre” (11 of September). If the month name begins with a vowel, the preposition is contracted, e.g. “12 d’octubre”.
+For these languages:
+The format month names should include the preposition in its correct form (contracted or not)
+And the stand-alone month names should NOT include the preposition
+And the patterns using the stand-alone should not include the preposition for month
+In some languages, the weekday name format forms (e.g. EEEE) and stand-alone forms (e.g. cccc) forms may also differ, and may require similar coordination between names and patterns.
+Below examples are with month names.
+💡 Translation Tips
+When working with patterns, look at the examples in the right information pane to validate your intention between the name and the pattern.
+In order to get the right formats for your language, you may need to change the ordering of the Date/Time Symbols, and change the text around them.
+You must match the names that should be used in patterns with intended forms of the names (wide or full, abbreviated and/or short, narrow forms)
+For example:
+If you specify the time format "h:mm a", by using "a" your intention is to use the Abbreviated formatting name for AM/PM; thus, the end result being 2:37 PM.
+If you specify the time format "h:mm aaaaa", by using "aaaaa", your intention is to use the Narrow formatting name for AM/PM; thus, the end result being 2:37 p.
+Understand the difference between formatting and standalone date and time names in your language and its intended usage in patterns.  For example, if you are working in Catalan (a locale that uses prepositions in formatting month names), and you provide “setembre” for the formatting month name instead of “de setembre,” then the pattern d MMMM will display as “12 septembre” instead of the correct pattern “12 de setembre.
+Some languages (e.g. Finnish and many Slavic languages) use a month name in nominative case when it is displayed without a day number, and use a different case (genitive, partitive, etc.) when the month is displayed with a day number. For these languages:
+The stand-alone month names should be in nominative case,
+And the format month names should be in genitive or a related case.
+Even for language that do not require such different forms it is a good idea, for consistency, to use ‘L’ for months in patterns without ‘d’, and ‘M’ for months in patterns with ‘d’.
+Basic Time Formats
+The standard formats include four basic time formats. See Survey Tool Formats-Standard-Time formats.
+full: Include hour (h/H), minute (mm), second (ss), and zone (zzzz).
+long: Include hour, minute, second, and zone (z)
+medium: Include hour, minute, second.
+short: Include hour, minute.
+Using 24 hour vs 12 hour symbols: The symbols you use in time format patterns depend on whether the main country/region of the language uses 12-hour time or 24 hour format.
+If the default country/region of the language use the 12-hour time clock, use patterns like "h:mm a" or "hh:mm a"
+h to mean a 12-hour clock cycle running 1 through 12 (midnight plus 1 minute is 12:01) with hh indicating leading zero to 2 digits
+K to mean a 12-hour clock cycle running 0 through 11 (midnight plus 1 minute is 0:01).
+a to get the equivalent of AM/PM
+b to add special representation of noon/midnight
+B to use day periods like “in the afternoon” instead of AM/PM.
+If the default country/region of the language uses the 24-hour time clock, use a pattern like "H:mm" or "HH:mm"
+H to mean a 24-hour clock cycle running 0 through 23 (midnight plus 1 minute is 0:01) with HH indicating zero-padding to 2 digits
+k to mean a 24-hour clock cycle running 1 through 24 (midnight plus 1 minute is 24:01).
+a, b, and B are same as usage in 12 hour formats, but are not normally used with 24-hour time.
+If a non-default country/region use a different time format than the default country/region for the language, then this difference should be added for the sub-locale. Also see Regional variants.
+For example, if es (= es_ES, Spanish as used in Spain) uses 24-hour time formats, but es_US (Spanish as used in United States) uses 12 hour time formats, then es would use "HH:mm/H:mm" and es_US would use the "h" formats as described above. .
+💡 Translation Tips
+Languages should always have translations for AM/PM/noon even if every country/region that the language is used in has 24 hour time.  Many computing systems provide the flexibility for users to specify either 12 or 24 hour time setting on their system (also known as User preference overrides). This is why CLDR provide the flexible formats for both 12 and 24 hour systems.
+Basic Date Formats
+The standard Date formats include four basic formats. See Survey Tool Formats-Standard-Date formats. (Note that the Month symbol especially may vary (M vs MM, or MMM vs LLL). For more information, see Date/Time Symbols.)
+Additional Date-Time Formats
+The basic formats as described in above sections provide a small subset of the combinations. To expand to fully cover all variations of date and time formats, a skeleton format is provided that uses the Date/Time Symbols (without order or punctuation) to indicate what fields are desired.
+An example usage of the flexible formats would be: a software program only needs the year and month information, the flexible pattern yMMM would be used to provide the desired year and month formatting as shown in the English and Japanese examples in this table.
+Standalone vs. Formatting in Flexible formats
+In languages that distinguish between nominative and genitive (or related form such as partitive), the use of symbols in flexible formats also specify the use of nominative forms or genitive (or related) forms of month and day names.
+month names when day is not included (e.g. skeleton: yMMM)
+Specify the nominative forms in the standalone month names.
+Use the symbol "LLL" or "LLLL" in the patter, therefore, "LLLLy"
+month names when day is included (e.g. skeleton: MMMd)
+Specify the genitive form (or a related form such as partitive) in format month names
+Use the symbol "MMM" or "MMMM"; therefore resulting in "d MMMM"
+day names may also vary for your language depending on the elements included in the pattern (e.g.  skeleton E for day only, or skeleton MEd for month, day, and numeric day)
+Use symbols "ccc" or "cccc" in patterns to use the standalone name
+Use the symbol  "E" or "EEEE" to use the format name
+To understand which pattern characters are used for standalone forms (nominative) versus format forms (genitive or related, such as partitive), see Stand-Alone vs Format Styles, see also the discussion above in Synchronizing Date/Time Names and Patterns.
+Supplied vs. Inferred patterns
+Some patterns supplied for each skeleton may be extended from the abbreviated form to an inferred full form by developers who use CLDR.
+Some Inferred patterns usage are incorrect, instead use the most closely associated skeletons that are available. Build on a chain of fallback options based on available patterns is a good practice.
+Example expansions:
+The correctness of inferred from abbreviated the full will differ by locale.
+In the examples above table, Inferred 2 and Inferred 3 examples are incorrect, because:
+English examples are incorrect, because you'd want a comma after the full day name EEEE (Tuesday, Apr 18).
+Japanese examples are incorrect, because the full day name should not be in parenthesis.
+Some languages do not use abbreviated months; therefore, a skeleton containing abbreviated month MMM is mapped to a pattern that uses numeric month M or MM. For example, skeleton yMMMd may be supplied with the numeric month d.M.y.
+💡 Translation Tips
+In the Survey tool, the skeleton formats are under Formats-Flexible-Date formats and Formats-Flexible-12/24 Time formats.
+The skeletons are listed in the Code column in Survey Tool.
+For each skeleton formats, provide the ordering and punctuation that would be used in your locale. For example:
+ordering could be, whether it is common to write month first (MMMy) or year first (yMMM)
+punctuation could be, a comma (,) that may be needed between month and day
+Follow the patterns in the survey tool and use the examples to understand the skeletons. Provide data for all flexible patterns.
+: If your language has different grammatical forms for date symbols such as month and day names, the nominative forms of the names should be in the Survey Tool section marked "Standalone", and the genitive or related forms should be in the Survey Tool section marked "Formatting".
+Day period patterns
+There are three pattern characters that can you can use to indicate the day period marker in 12-hour-cycle time formats:
+With skeletons (listed in the Code column in Survey Tool) that specify 'h' but no day period, the corresponding patterns are specified with a day period, normally 'a' or 'b'. The patterns can be used to infer how to handle a request for a different day period. For example:
+Beginning in CLDR 32, there are 5 additional time patterns that indicate how times should be formatted using day period ranges 'B'. This allows locales to have formats for day period ranges that can display the range symbol in a different position than might be used for symbols for AM, PM, noon, or midnight:
+These new patterns are available in Gregorian and Generic calendars, In these new fields, provide locale data by:
+💡 Translation Tips
+Examples in the Survey Tool show some day periods for the locale as shown in this screenshot below. If the examples for day period ranges show them in the wrong position, then the time formats specific to using day period ranges may be updated.
+Placing the pattern character ('B' in the example below) in the correct position.
+If it is equally good in two different positions, favor the position used for the 'a' pattern character.
+If the position needs to be different depending on the width of B, please file a ticket.
+For more information on the day periods used in your language:
+First see Day Periods (AM, PM, etc.) for a general discussion of how day periods work.
+See the Day Periods chart for your language.
+Date-Time Combined Formats
+The date-time pattern shows how to combine separate patterns for date (represented by {1}) and time (represented by {0}) into a single pattern. It usually doesn't need to be changed.
+What you want to pay attention to are:
+💡 Translation Tips
+Remove a space if your language does not use spaces, which is common for many East Asian languages
+Add a comma, or other punctuation that your language requires between the patterns
+There are four formats: full, long, medium, and short. Each of these may come in two variants:
+The “-atTime” variant, which specifies a date at a particular time, typically for an event. In the longer formats (such as full and long), this “-atTime” form may have a combining word betwen the date and the time, for example “{1} 'at' {0}” to produce an English example like “Sunday, September 25 at 1:30 PM”).
+The standard variant, which is used for multuple purposes and typically does not include any literal text, for example “{1}, {0}”. Usage examples include:
+Wall clock time: “Sunday, September 25, 1:30 PM”
+Combining a date with a time range: “Sunday, September 25, 1:30 – 3:00 PM”
+Before CLDR 42, there was only one variant for these. In English that variant used the “-atTime” style, as did many other locales. For CLDR 42, that  “-⁠atTime” data has been moved to the “-⁠atTime” variants, and the standard data has initially been extrapolated from the mediu or short formats without literal text. However, it needs to be checked.
+The determination of which to use by developers using CLDR data is normally based on the date style, for example:
+If the date has a full month and weekday name, use the full combining pattern.
+If the date has numeric month, use the short version of the combining pattern.
+Following are examples on how the data can be different by locale with different combinations of format length. (note: {1}=date format with {0}= time format)
+Another way to look at the example with original patterns and combined result:
+Week-Of Patterns
+The week-of date patterns were introduced in CLDR 30 for enumerating week count in larger periods, e.g. “week 15 of 2016” or “week 4 of April”. The Survey Tool fields and corresponding English entries are shown below:
+For developers who use CLDR data,
+The pattern can be selected based on the plural form associated with the week number, in case the form depends on the number.  (either -one or -other)
+Currently these patterns only support cardinal numbers; in the future they may be extended to support ordinal numbers for usages such as “2nd week of April”. In this case the distinction by plural form associated with week number may become more relevant.
+💡 Translation Tips
+If your language has a grammatical difference in the month names(aside from just the simple addition of a prefix or suffix), localizers will need to use a work-around construction (file a ticket if this is the case for your language).
+As described under Date/Time Names, CLDR also provides a relative week period pattern which is used for constructions such as “the week of April 11, 2016”. The English pattern that produces this is “the week of {0}”; the date format that replaces {0} is determined separately. Because the week-of patterns described here may appear in user interfaces that also show dates produced using the relative week period patterns, all of these patterns should be designed with consistent wording and structure.
+Flexible - Timezone Append
+timezone: {0} {1}
+See in Survey Tool.
+The flexible append format for Timezone is used to compose a time and a timezone, to get a result like "11:30 Pacific Time".
+{0} will be replaced by the localized time format.
+{1} will be replaced by the localized timezone.
+For almost all locales it is just "{0} {1}" , but some locales may change the order, add punctuation, or remove the space.
+Date/Time Intervals
+Interval patterns contain a start pattern and an end pattern (using the Date/Time Symbols). They are used for a range of dates or times, such as "Sept 10–12" (meaning the 10th of September through the 12th of September). The interval format is used where it is necessary to make the pattern as short as possible, and elide information that does not have to be repeated. For example, the pattern used to get "Sept 10–12" in English is "MMM d–d".
+Unlike simple Date/Time Patterns, these consist of two parts, typically separated by with some kind of punctuation mark (e.g. English uses en-dash " – "). Also, some fields in the second part are omitted (e.g. "d – d MMM" omits repeat of MMM for the second part). The first field that comes from the second date is marked with red in the examples below.
+Interval Formatting
+Greatest Difference
+Each combination of fields can be used with dates that differ by different amounts. For example, a format for the fields "yMMMd" (year, abbreviated month, and day) could be used with two dates that differ by year, month, or day.
+As the examples below indicate, for a given skeleton, each type of difference might need a different pattern.
+For example,
+when the greatest difference is a year, no part of the second pattern is omitted;
+when the greatest difference is a month, then the year is not repeated, since it would be the same for each pattern.
+Different Calendars
+Date and Time patterns are also available for other calendars in addition to the Gregorian calendar. For example, the Buddhist, Islamic, Hebrew, or Japanese calendars.
+Different calendars work with the data in Gregorian, and Generic in the following ways:
+Basic time formats for all calendars are inherited from the Gregorian time formats.
+In many locales, the main difference between date formats for Gregorian calendars and non-Gregorian calendars is that non-Gregorian calendars always include the calendar era with the year.
+To avoid having to do this separately for each non-Gregorian calendar, CLDR has a special “Generic” calendar to specify standard date formats for non-Gregorian calendars.
+If you specify the date formats for the “Generic” calendar, using year with a calendar era, then those data formats will be used for most non-Gregorian calendars unless those calendars explicitly specify their own date formats.
+Because the Generic calendar does not have real names for months, weekdays and eras, the Survey Tool examples generated for this calendar may be confusing.
+Calendars that do not inherit date formats from the Generic calendar are the East Asian lunar calendars: Chinese (lunar) and Dangi (Korean lunar). These have special formats involving cyclic names. The Dangu calendar inherits formats from the Chinese calendar data in the same locale, while the Chinese calendar inherits formats directly from the parent locale; that parent locale may be the root locale or inherit these formats directly from the root locale. For the lunar calendars, the root locale has formats that should be reasonable for use in most locales where the lunar calendars are not one of the primary calendars.

@@ -20,12 +20,12 @@ There are two types of substrings that are combined in a pattern:
 1. Date/time fields, which are placeholders that represent particular calendar values such as month, weekday, year, etc..
 2. "Literal" strings used as-is. These are necessary to make the pattern flow naturally in a given language.
 3. For example:
- There are three aspects to patterns: 
 
 | Skeleton format | English Pattern  | English Example  | Japanese Pattern | Japanese Example |
 |:---|---|---|---|---|
 | **yMMMd** | MMM e, y | Dec 5, 2010 | y年M月d 日 | 2010年12月5日 |
 
+There are three aspects to patterns: 
 - A letter in the set {a-z; A-Z} indicates the type of calendar field: See [Date/Time Symbols](https://cldr.unicode.org/translation/date-time/date-time-symbols).
 	- For example:
 		- M for month
@@ -288,7 +288,7 @@ What you want to pay attention to are:
 
 There are four formats: full, long, medium, and short. _Each of these may come in two variants_:
 
-- T_he “-atTime” variant, which specifies a date at a particular time, typically for an event. In the longer formats (such as full and long), this “-atTime” form may have a combining word betwen the date and the time, for example “{1} 'at' {0}” to produce an English example like “Sunday, September 25 at 1:30 PM”)._
+- _The “-atTime” variant, which specifies a date at a particular time, typically for an event. In the longer formats (such as full and long), this “-atTime” form may have a combining word betwen the date and the time, for example “{1} 'at' {0}” to produce an English example like “Sunday, September 25 at 1:30 PM”)._
 - _The standard variant, which is used for multuple purposes and typically does not include any literal text, for example “{1}, {0}”. Usage examples include:_
 	- _Wall clock time: “Sunday, September 25, 1:30 PM”_
 	- _Combining a date with a time range: “Sunday, September 25, 1:30 – 3:00 PM”_

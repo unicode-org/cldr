@@ -4,7 +4,7 @@ title: Date/Time Symbols
 
 # Date/Time Symbols
 
-Symbols is a required topic to work in[Date/Time Patterns](https://cldr.unicode.org/translation/date-time/date-time-patterns)
+Symbols is a required topic to work in [Date/Time Patterns](https://cldr.unicode.org/translation/date-time/date-time-patterns)
 
 More details on date/time symbols and patterns may be found in the Spec [Date Field Symbol Table](http://www.unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table). 
 

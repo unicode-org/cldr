@@ -13,15 +13,28 @@ Capitalization should follow the middle of a sentence rule. For more information
 <contextTransforms> data can specify the capitalization for other contexts; currently this is not available in the Survey Tool, so you must file a CLDR JIRA ticket to request a change.
 Most sets of names form Logical Groups, and you need to make sure they have the same contribution status (e.g. Status: Approved) or you will get error messages. See Logical Groups for more information.
 Date Field Names
-The date field names are used in user interfaces on computer systems as labels as shown in this table example, where  a user is asked to enter the year, month, and day:
-Year
-Month
-Day
-1942
-...
-...
+The date field names are used in user interfaces on computer systems as labels as shown in this table example, where  a user is asked to enter the year, month, and day:
+Year	1942
+Month	...
+Day	...
 The grammatical form should be whatever is typical for such isolated or stand-alone cases: generally it will be nominative singular. The letter casing should be appropriate for middle-of-sentence use, since there is now separate capitalization context data that can specify how these should be capitalized for use in a label. Also see the translation guide on Capitalization.
 There are three lengths: full, short, and narrow. They are listed below along with English examples and explanations (a few of the fields are not straightforward).
+Field name		English examples for different name widths		Explanation of the field being named, example as a label
+(full)	-short	-narrow	
+era	era	era	era	Name of the field that distinguishes different calendar epochs in a calendar, such as CE / BCE for the Gregorian calendar, or 平成 / 昭和 / 大正 for the Japanese calendar. Can be used as a popup menu label, e.g. “Era: CE ▾ ” to select CE for Gregorian calendar.
+year	year	yr.	yr.	Name of the field that designates years.
+quarter	quarter	qtr.	qtr.	Name of the field for a three-month “quarter” often used for reporting financial transactions. Can be used as a popup menu label, e.g. “Quarter: 2 ▾ ” to select the second quarter of the year.
+week	week	wk.	wk.	Name of the field for week number of the year. Can be used as a popup menu label, e.g. “Week: 20 ▾ ” to select the 20th week of the year for an event.
+weekOfMonth	week of month	wk. of mo.	wk. of mo.	Name of the field for the week number in the month. Can be used as a popup menu label, e.g. “Week of month: 3 ▾ ” to select the 3rd week of the month for an event.
+day	day	day	day	Name of the field for the day number in the month. Can be used as a popup menu label, e.g. “Day: 19 ▾ ” to select the 19th day of the month for an event.
+dayOfYear	day of year	day of yr.	day of yr.	Name of the field for the day number in the year. Can be used as a popup menu label, e.g. “Day of year: 139 ▾ ” to select the 139th day of the year for an event.
+weekday	day of the week	day of wk.	day of wk.	Name of the field for the day of the week. Can be used as a popup menu label, e.g. “Day of the Week: Friday ▾ ” to select Friday for an event.
+weekdayOfMonth	weekday of the month	wkday. of mo.	wkday. of mo.	Name of the field specifying the number of the occurrence of a particular weekday within the month. Can be used as a popup menu label, e.g. “Weekday of the month: 3 ▾ ” to select the 3rd Friday of the month for an event, assuming that Friday is specified with a different popup.
+dayperiod	AM/PM	AM/PM	AM/PM	Name of the field that designates range of time within a day. Can be used as a popup menu label, e.g. “AM/PM: morning ▾ ” to select the desired time for a flight departure; different values could be used to select other ranges such as "evening", "AM" or "PM", or particular points such as “noon” or “midnight” (The current English name is not necessarily the best example for this).
+hour	hour	hr.	hr.	Name of the field that designates hours.
+minute	minute	min.	min.	Name of the field that designates minutes.
+second	second	sec.	sec.	Name of the field that designates seconds.
+zone	time zone	zone	zone	Name of the field that designates the time zone. Can be used as a popup menu label, e.g. “Time zone: Pacific Time ▾ ” to select Pacific Time; different values could be used to select other time zones, such as “GMT” or “Beijing Time”.
 Eras
 Era names are in Gregorian Calendar and other calendars:
 There are only two values for an era in a Gregorian calendar.
@@ -72,6 +85,10 @@ You should see something like the following:
 It shows the time span (with a 24 hour clock) for the code, and then an example (for the format codes).
 You can also go to the web page Day Periods, and look for your language.
 For example, for Malayalam, you would go to ...day_periods.html#ml , and see that morning2 is the period that extends from 06:00 to 12:00.
+Code	English	German	Russian
+Standalone	morning1	morning	Morgen	утра
+Formatting	morning1	in the morning	morgens	утро
+formatting example	morning1	10:00 in the morning	10.00 morgens	10:00 утра
 The format version will be substituted into a time format, and should contain whatever inflections/prepositions are necessary for that.
 For example:
 DayPeriods are spans of time during the day. There are two forms for each possible period:
@@ -84,9 +101,23 @@ Fixed Periods
 The fixed periods have the same definition in each language. The codes am and pm must always exist, even if your language always uses 24 hour time and doesn't use am/pm in any patterns (they are required for testing). So use the best term you can. As long as the 24 hour symbol (H) is used in the patterns, they won't actually show up in formatted times and dates.
 Noon or midnight don't have to be present if the precise terms don't exist in your language. For example, many languages don't have a special term for precisely 12:00 noon. They may have a term for "midday" that spans from (say) 11:00-13:00, but not have unique term for exactly 12:00 noon or a noon hour. Such a language should not have a code for noon show up in the Survey Tool.
 In formatting, where your language has a term for midnight, it is used instead of the term for am for the point in time 00:00 (= 24:00) when the pattern uses ‘b’ instead of ‘a’. Similarly, where your language has a term for noon, it is used instead of pm for the point in time 12:00 when the pattern uses ‘b’.
+Code	English Examples	Span
+am	am	00:00–12:00 (noon)
+pm	pm	12:00–24:00
+midnight	midnight	The point in time at 00:00 midnight (to the degree of precision determined by the other fields shown)
+noon	noon	The point in time at precisely 12:00 noon ( to the degree of precision determined by the other fields shown)
 Locale-Specific Periods
 These mark approximate periods in the day, and those periods differ between languages. The codes are arbitrary, and don't have to match the English meaning for your language: the important feature is the time span. The spans are approximate; in reality they may vary with the time of year (they might be dependent on sunrise), or context (someone might say they went to bed at 2 at night, and later one say that they woke up at 2 in the morning).
 For a list of the day period IDs defined in CLDR for your language, see Day Periods. If you think the rules are wrong (or missing) for your language, please file a ticket and supply the missing information. Here are examples for English and Chinese.
+Code	English	Span	Chinese	Span
+morning1	morning	06:00–12:00	早上	05:00-08:00
+morning2	unused		上午	08:00-12:00
+afternoon1	afternoon	12:00–18:00	中午	12:00-13:00
+afternoon2	unused		下午	13:00-19:00
+evening1	evening1	18:00-21:00	晚上	19:00-00:00
+evening2	unused		unused	
+night1	night	21:00–06:00	凌晨	00:00-05:00
+night2	unused		unused	
 Narrow Date Fields
 The narrow date fields are the shortest possible names (in terms of width in common fonts), and are not guaranteed to be unique. Think of what you might find on a credit-card-sized wallet or checkbook calendar, such as in English for days of the week:
 S M T W T F S
@@ -101,9 +132,46 @@ For example, if today is Jan 10, then:
 When this month is used, it would be referring to January.
 When last month is used, it would be referring to December.
 When next month is used, it would be referring to February.
+Category	English Examples	Meaning
+next X	next month	Used in a context referring to an event that will occur in the next calendar month (day, etc)
+next month
+tomorrow ( next day in English )
+next year
+next Saturday
+etc..
+this X	this month, today	Used in a context referring to an event that will occur in the current calendar month (day, etc)
+this month
+today ( this day in English )
+this year
+this Saturday
+etc...
+last X	last month, yesterday	Used in a context referring to an event that occurred in the immediately last month (day, etc).
+last month
+yesterday ( next day in English )
+last year
+last Saturday
+etc...
+in X	in 3 days in 1 week in 3 Sunday	Used in a context referring to an event will occur in X number relative to immediate month (day, etc).
+in 1 month (see English example )
+in 1 week (see English example )
+in 3 days (see English example )
+in 3 Mondays (see English example )
+etc...
+X ago	4 days ago	Used in a context referring to an event that occurred in X number relative to immediate month (day, etc).
+1 month ago (see English example )
+1 week ago (see English example )
+3 days ago (see English example )
+3 Mondays ago (see English example )
+etc...
 When listing calendar events, or when emails arrived, an interface may abbreviate dates using relative names.
 For example, in the following table of sample emails, the emails up to 2 months ago are listed with explicit dates, while the closer ones use relative dates.
 Relative date usage examples:
+From	Subject	Date
+Rick	Re: Meeting in February	12:15
+Tom, Sarah,…	Avoiding taxes	Yesterday
+Nicole	Investment opportunities in Germany?	4 days ago
+Rick	Meeting in February	Last Month
+Jane	New Year's Eve Party!	Dec 12, 2009
 These relative names can be programmatically capitalized (using the contextTransform data) for different contexts, such as for listing in a menu of column of an interface.
 💡 Translation Tips
 There is a difference between unit patterns (see Plurals) such as "1 year ago" and relative names such as "Last Year".

@@ -14,7 +14,7 @@ For the simple language names, please follow these guidelines:
 - Don't use commas and don't invert the name (eg use "French Creole", not "French, Creole").
 - Don't use the characters "(" and ")", since they will be confusing in combination with countries or scripts in more complex language names. If you have to use brackets, use square ones: [ and ].
 - The most neutral grammatical form for the language name should be chosen.
-- Use the capitalization that would be appropriate for a language name in the middle of a sentence; the <contextTransforms> data can specify the capitalization for other contexts. For more information, see [Capitalization](https://cldr.unicode.org/translation/translation-guide-general/capitalization).
+- Use the capitalization that would be appropriate for a language name in the middle of a sentence; the \<contextTransforms> data can specify the capitalization for other contexts. For more information, see [Capitalization](https://cldr.unicode.org/translation/translation-guide-general/capitalization).
 
 ## Unique Names
 

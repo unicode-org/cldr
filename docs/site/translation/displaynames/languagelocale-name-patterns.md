@@ -1,6 +1,7 @@
 ---
 title: Language/Locale Name Patterns
 ---
+
 # Language/Locale Name Patterns
 
 Locale display patterns are used to format a compound language (locale) name such as 'en\_AU' or 'uz\_Arab'. The following patterns are used.

@@ -11,9 +11,10 @@ Country and region names (referred to as Territories in the Survey Tool) may be 
 Please follow these guidelines:
 
 1. Use the most neutral grammatical form for the country/region that is natural for these two usages above. If there is no single form that can accomplish that, favor the usage within UI menus.
-2. Use the capitalization that would be appropriate in the middle of a sentence; the <contextTransforms> data can specify the capitalization for other contexts. For more information, see [Capitalization](https://cldr.unicode.org/translation/translation-guide-general/capitalization).
+2. Use the capitalization that would be appropriate in the middle of a sentence; the \<contextTransforms> data can specify the capitalization for other contexts. For more information, see [Capitalization](https://cldr.unicode.org/translation/translation-guide-general/capitalization).
 3. Each of the names **must** be unique (see below).
 4. Don't use commas and don't invert the name (eg use "South Korea", not "Korea, South").
+
 ## Customary Names
 
 *The ISO names and the "official" names are often not necessarily the best ones.* The goal is the most customary name used in your language, even if it is not the official name. For example, for the territory name in English you would use "Switzerland" instead of "Swiss Confederation", and use "United Kingdom" instead of "The United Kingdom of Great Britain and Northern Ireland". One of the best sources for customary usage is to look at what common major publications such as newspapers and magazines do, the equivalents of *The Economist, NY Times, BBC, WSJ*, etc. in your language. You can look at style guides if available or at a sampling of pages, but favor publications’ rather than academic style guidelines. For example, to see how "Congo" is used in French, one might search [*for Congo on Le Monde*](http://www.google.com/search?q=Congo+site%3Alemonde.fr) and on other publications.
@@ -35,6 +36,7 @@ Some country/region names need special treatment to avoid geopolitical sensitivi
 	- Forms marked as "short" are typically more informal, and shorter than the default (non-alt) form, such as "US instead of "United States".
 	- Forms marked as "variant" represent alternate names that may be appropriate in certain context.
 - In general strive for names that will be acceptable to the largest audience, and that are least likely to be sensitive or to cause offense.
+
 The following is a summary of these issues for some key regions. Some of these may require parentheses in your language for disambiguation.
 
 | Code | Alt | English Name | Instructions/Comments |

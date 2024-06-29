@@ -9,6 +9,7 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSet.Builder;
+import com.google.common.collect.ImmutableSortedSet;
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
@@ -103,11 +104,11 @@ public class UnitConverter implements Freezable<UnitConverter> {
     private final MapComparator<String> LongUnitIdOrder = new MapComparator<>();
     private final MapComparator<String> ShortUnitIdOrder = new MapComparator<>();
 
-    public Comparator<String> getLongUnitIdComparator() {
+    public MapComparator<String> getLongUnitIdComparator() {
         return LongUnitIdOrder;
     }
 
-    public Comparator<String> getShortUnitIdComparator() {
+    public MapComparator<String> getShortUnitIdComparator() {
         return ShortUnitIdOrder;
     }
 
@@ -194,7 +195,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
     }
 
     public void buildMapComparators() {
-        Set<R4<Integer, UnitSystem, Rational, String>> all = new TreeSet<>();
+        Set<R4<Integer, Integer, Rational, String>> all = new TreeSet<>();
         Set<String> baseSeen = new HashSet<>();
         if (DEBUG) {
             UnitParser up = new UnitParser(componentTypeData);
@@ -259,37 +260,17 @@ public class UnitConverter implements Freezable<UnitConverter> {
                 }
             }
 
-            final EnumSet<UnitSystem> systems = EnumSet.copyOf(getSystemsEnum(shortUnit));
+            final Set<UnitSystem> systems = getSystemsEnum(shortUnit);
 
             // to sort the right items together items together, put together a sort key
-            UnitSystem sortingSystem = systems.iterator().next();
-            switch (sortingSystem) {
-                case metric:
-                case si:
-                case si_acceptable:
-                case astronomical:
-                case metric_adjacent:
-                case person_age:
-                    sortingSystem = UnitSystem.metric;
-                    break;
-                    // country specific
-                case other:
-                case ussystem:
-                case uksystem:
-                case jpsystem:
-                    sortingSystem = UnitSystem.other;
-                    break;
-                default:
-                    throw new IllegalArgumentException(
-                            "Add new unitSystem to a grouping: " + sortingSystem);
-            }
-            R4<Integer, UnitSystem, Rational, String> sortKey =
+            int sortingSystem = UnitSystem.getSortingGroup(systems);
+            R4<Integer, Integer, Rational, String> sortKey =
                     Row.of(quantityNumericOrder, sortingSystem, conversionInfo.factor, shortUnit);
             all.add(sortKey);
         }
         LongUnitIdOrder.setErrorOnMissing(true);
         ShortUnitIdOrder.setErrorOnMissing(true);
-        for (R4<Integer, UnitSystem, Rational, String> item : all) {
+        for (R4<Integer, Integer, Rational, String> item : all) {
             String shortId = item.get3();
             ShortUnitIdOrder.add(shortId);
             LongUnitIdOrder.add(getLongId(shortId));
@@ -840,6 +821,9 @@ public class UnitConverter implements Freezable<UnitConverter> {
      * @return
      */
     public String getStandardUnit(String unit) {
+        if (unit.equals("none")) {
+            return unit;
+        }
         Output<String> metricUnit = new Output<>();
         parseUnitId(unit, metricUnit, false);
         String result = sourceToStandard.get(metricUnit.value);
@@ -1887,7 +1871,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
         unit = fixDenormalized(unit);
         try {
             ConversionInfo unitInfo = parseUnitId(unit, metricUnit, showYourWork);
-            return metricUnit.value == null ? null : getQuantityFromBaseUnit(metricUnit.value);
+            return metricUnit.value == null ? "generic" : getQuantityFromBaseUnit(metricUnit.value);
         } catch (Exception e) {
             System.out.println("Failed with " + unit + ", " + metricUnit + "\t" + e);
             return null;
@@ -1946,26 +1930,39 @@ public class UnitConverter implements Freezable<UnitConverter> {
         si_acceptable,
         metric,
         metric_adjacent,
-        ussystem,
-        uksystem,
-        jpsystem,
-        astronomical,
         person_age,
-        other,
-        prefixable;
+        ussystem(5),
+        uksystem(5),
+        jpsystem(10),
+        astronomical(15),
+        other(20),
+        prefixable(1000);
+        public final int sortingGroup;
+
+        private UnitSystem() {
+            this.sortingGroup = 0;
+        }
+
+        private UnitSystem(int sortingGroup) {
+            this.sortingGroup = sortingGroup;
+        }
+
+        public static final Set<UnitSystem> ALL = ImmutableSet.copyOf(UnitSystem.values());
 
         public static final Set<UnitSystem> SiOrMetric =
-                ImmutableSet.of(
-                        UnitSystem.metric,
-                        UnitSystem.si,
-                        UnitSystem.metric_adjacent,
-                        UnitSystem.si_acceptable);
-        public static final Set<UnitSystem> ALL = ImmutableSet.copyOf(UnitSystem.values());
+                ImmutableSortedSet.copyOf(
+                        ALL.stream().filter(x -> x.sortingGroup > 0).collect(Collectors.toSet()));
 
         public static Set<UnitSystem> fromStringCollection(Collection<String> stringUnitSystems) {
             return stringUnitSystems.stream()
                     .map(x -> UnitSystem.valueOf(x))
                     .collect(Collectors.toSet());
+        }
+
+        public static int getSortingGroup(Set<UnitSystem> unitSystemSet) {
+            return unitSystemSet.isEmpty()
+                    ? Integer.MAX_VALUE
+                    : unitSystemSet.iterator().next().sortingGroup;
         }
 
         @Deprecated
@@ -2003,6 +2000,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
         return UnitSystem.toStringSet(getSystemsEnum(unit));
     }
 
+    /** Returns immutable sorted set in enum order */
     public Set<UnitSystem> getSystemsEnum(String unit) {
         Set<UnitSystem> result = null;
         UnitId id = createUnitId(unit);
@@ -2163,6 +2161,9 @@ public class UnitConverter implements Freezable<UnitConverter> {
     }
 
     public String getBaseUnitFromQuantity(String unitQuantity) {
+        if (unitQuantity.equals("generic")) {
+            return "none";
+        }
         boolean invert = false;
         if (unitQuantity.endsWith("-inverse")) {
             invert = true;
@@ -2463,5 +2464,78 @@ public class UnitConverter implements Freezable<UnitConverter> {
         String cldrFormattedNumber =
                 nf3.locale(uLocale).format(outputAmount.doubleValue()).toString();
         return com.ibm.icu.text.MessageFormat.format(pattern, cldrFormattedNumber);
+    }
+
+    public enum QuantityGroup {
+        Duration("duration", "year-duration"),
+        Length("length"),
+        Area("area"),
+        Volume_Metric("volume"),
+        Volume_US("volume"),
+        Volume_Other("volume"),
+        Mass("mass"),
+        SpeedAcceleration("acceleration", "speed"),
+        Energy("energy"),
+        ForcePower("power", "force", "ionizing-radiation", "radioactivity"),
+        Electrical(
+                "electric-capacitance",
+                "electric-charge",
+                "electric-conductance",
+                "electric-current", //
+                "electric-inductance",
+                "electric-resistance",
+                "voltage",
+                "frequency"),
+        LightMagnetism(
+                "illuminance",
+                "luminous-flux",
+                "luminous-intensity",
+                "magnetic-flux",
+                "magnetic-induction"),
+        TemperaturePressure("temperature", "generic", "pressure", "pressure-per-length"),
+        Graphics("graphics", "resolution", "typewidth"),
+        Digital("digital"),
+        Angle("angle", "solid-angle"),
+        OtherUnits(
+                "concentration",
+                "concentration-mass",
+                "consumption",
+                "consumption-inverse", //
+                "portion",
+                "substance-amount",
+                "catalytic-activity" //
+                );
+        private final List<String> quantities;
+
+        private QuantityGroup(String... quantities) {
+            this.quantities = Arrays.asList(quantities);
+        }
+
+        List<String> getQuantities() {
+            return quantities;
+        }
+
+        private static final Multimap<String, QuantityGroup> quantityToQuantityGroups;
+        private static final MapComparator<String> quantityCollator = new MapComparator<>();
+
+        static {
+            Multimap<String, QuantityGroup> temp = TreeMultimap.create();
+            for (QuantityGroup qg : QuantityGroup.values()) {
+                for (String quantity : qg.quantities) {
+                    temp.put(quantity, qg);
+                    quantityCollator.add(quantity);
+                }
+            }
+            quantityToQuantityGroups = ImmutableMultimap.copyOf(temp);
+            quantityCollator.freeze();
+        }
+
+        public static final List<QuantityGroup> getQuantityGroups(String quantity) {
+            return (List<QuantityGroup>) quantityToQuantityGroups.get(quantity);
+        }
+
+        public static final MapComparator<String> getQuantityCollator() {
+            return quantityCollator;
+        }
     }
 }

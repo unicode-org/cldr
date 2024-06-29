@@ -109,6 +109,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.UnitIdComponentType;
 import org.unicode.cldr.util.TempPrintWriter;
 import org.unicode.cldr.util.UnitConverter;
 import org.unicode.cldr.util.UnitConverter.ConversionInfo;
+import org.unicode.cldr.util.UnitConverter.QuantityGroup;
 import org.unicode.cldr.util.UnitConverter.TargetInfo;
 import org.unicode.cldr.util.UnitConverter.UnitComplexity;
 import org.unicode.cldr.util.UnitConverter.UnitId;
@@ -3393,6 +3394,11 @@ public class TestUnits extends TestFmwk {
                         .precision(Precision.fixedSignificantDigits(7))
                         .locale(Locale.ENGLISH);
         Output<String> base = new Output<>();
+        if (isVerbose()) {
+            System.out.println(
+                    "\nQuantity\tQ Order\tUnit\tLong Prefix\tST Page"
+                            + "\tRevision\tR Order\tFactor\tBase Unit\tSystems\tType\tTranslation Status\tComment");
+        }
         for (Entry<String, TranslationStatus> entry : shortUnitToTranslationStatus40.entrySet()) {
             String shortUnit = entry.getKey();
             var conversionInfo = converter.parseUnitId(shortUnit, base, false);
@@ -3404,19 +3410,40 @@ public class TestUnits extends TestFmwk {
                                     .replace("E", " × 10^");
 
             TranslationStatus status40 = entry.getValue();
-            if (isVerbose())
+            if (isVerbose()) {
+                final String longId = converter.getLongId(shortUnit);
+                String path = UnitPathType.getDisplayNamePathFromLongId(longId, "short");
+                PathHeader pf = PathHeader.getFactory().fromPath(path);
+                String quantity = converter.getQuantityFromUnit(shortUnit, false);
+                final QuantityGroup quantityGroup =
+                        UnitConverter.QuantityGroup.getQuantityGroups(quantity).iterator().next();
                 System.out.println(
-                        converter.getQuantityFromUnit(shortUnit, false)
+                        quantity
+                                + "\t"
+                                + UnitConverter.QuantityGroup.getQuantityCollator()
+                                        .getNumericOrder(quantity)
                                 + "\t"
                                 + shortUnit
                                 + "\t"
-                                + converter.getSystemsEnum(shortUnit)
+                                + Splitter.on('-').split(longId).iterator().next()
+                                + "\t"
+                                + pf.getPageId()
+                                + "\t"
+                                + quantityGroup
+                                + "\t"
+                                + quantityGroup.ordinal()
                                 + "\t"
                                 + factor
+                                + "\t"
+                                + converter.getStandardUnit(
+                                        converter.getBaseUnitFromQuantity(quantity))
+                                + "\t"
+                                + converter.getSystemsEnum(shortUnit)
                                 + "\t"
                                 + (converter.isSimple(shortUnit) ? "simple" : "complex")
                                 + "\t"
                                 + status40);
+            }
         }
     }
 

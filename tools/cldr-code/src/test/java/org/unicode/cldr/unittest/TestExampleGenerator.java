@@ -1,6 +1,13 @@
 package org.unicode.cldr.unittest;
 
+import com.google.common.base.Joiner;
+import com.google.common.base.Objects;
+import com.google.common.collect.ComparisonChain;
+import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Iterables;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.test.TestFmwk;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,13 +27,20 @@ import org.unicode.cldr.test.ExampleGenerator.UnitLength;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Counter;
+import org.unicode.cldr.util.DtdData;
+import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.GrammarInfo;
 import org.unicode.cldr.util.GrammarInfo.CaseValues;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
+import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Pair;
+import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.PathHeader.PageId;
+import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
@@ -34,8 +48,11 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.UnitPathType;
 import org.unicode.cldr.util.With;
+import org.unicode.cldr.util.XPathParts;
 
 public class TestExampleGenerator extends TestFmwk {
+
+    private static final Joiner TAB_JOINER = Joiner.on('\t');
 
     boolean showTranslationPaths =
             CldrUtility.getProperty("TestExampleGenerator:showTranslationPaths", false);
@@ -1644,5 +1661,139 @@ public class TestExampleGenerator extends TestFmwk {
                             exampleGenerator.getExampleHtml(path, value));
             assertEquals(locale + path + "=" + value, expected, actual);
         }
+    }
+
+    static final class MissingKey implements Comparable<MissingKey> {
+        final SectionId sectionId;
+        final PageId pageId;
+        final String starred;
+
+        public MissingKey(SectionId sectionId, PageId pageId, String starred) {
+            this.sectionId = sectionId;
+            this.pageId = pageId;
+            this.starred = starred;
+        }
+
+        @Override
+        public int compareTo(MissingKey o) {
+            return ComparisonChain.start()
+                    .compare(sectionId, o.sectionId)
+                    .compare(pageId, o.pageId)
+                    .compare(starred, o.starred)
+                    .result();
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            return compareTo((MissingKey) obj) == 0;
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hashCode(sectionId, pageId, starred);
+        }
+    }
+
+    static final Multimap<String, String> OK_IF_MISSING =
+            ImmutableMultimap.<String, String>builder()
+                    .put("//ldml/characters/moreInformation", "")
+                    // mul➔«Multiple languages»; zxx➔«No linguistic content»
+                    .putAll(
+                            "//ldml/localeDisplayNames/languages/language[@type=\"*\"]",
+                            "mul",
+                            "zxx")
+                    .build();
+
+    public void TestForMissing() {
+        CLDRFile cldrFile = info.getEnglish();
+        ExampleGenerator exampleGenerator =
+                new ExampleGenerator(info.getEnglish(), info.getEnglish());
+        PathStarrer ps = new PathStarrer();
+        ps.setSubstitutionPattern("*");
+        Counter<MissingKey> countWithExamples = new Counter<>();
+        Map<MissingKey, String> samplesForWith = new HashMap<>();
+        Counter<MissingKey> countWithoutExamples = new Counter<>();
+        Multimap<MissingKey, String> samplesForWithout = TreeMultimap.create();
+        DtdData dtdData = DtdData.getInstance(DtdType.ldml);
+        PathHeader.Factory phf = PathHeader.getFactory();
+        final String separator = "•";
+
+        for (String xpath : cldrFile.fullIterable()) {
+            if (xpath.endsWith("/alias")) {
+                continue;
+            }
+            final XPathParts parts = XPathParts.getFrozenInstance(xpath);
+            if (dtdData.isDeprecated(parts)) {
+                continue;
+            }
+            Level level = SDI.getCoverageLevel(xpath, "en");
+            if (level.compareTo(Level.COMPREHENSIVE) == 0) {
+                continue;
+            }
+            String value = cldrFile.getStringValue(xpath);
+            String starred = ps.set(xpath);
+            String attrs = ps.getAttributesString(separator);
+            if (OK_IF_MISSING.containsEntry(starred, attrs)) {
+                logln("OK if missing: " + starred + ";\t" + attrs);
+                continue;
+            }
+            String example = null;
+            PathHeader ph = phf.fromPath(xpath);
+            String heading = ph.getSection() + " > " + ph.getPageId();
+            SectionId section = ph.getSectionId();
+            MissingKey key = new MissingKey(ph.getSectionId(), ph.getPageId(), starred);
+            try {
+                example = exampleGenerator.getExampleHtml(xpath, value);
+            } catch (Exception e) {
+            }
+            if (example == null) {
+                samplesForWithout.put(key, sampleAttrAndValue(ps, separator, value));
+                countWithoutExamples.add(key, 1);
+            } else {
+                if (!samplesForWith.containsKey(key)) {
+                    samplesForWith.put(key, sampleAttrAndValue(ps, separator, value));
+                }
+                countWithExamples.add(key, 1);
+            }
+        }
+        Set<MissingKey> keys = new TreeSet<>();
+        keys.addAll(countWithoutExamples.keySet());
+        keys.addAll(countWithExamples.keySet());
+        List<String> missingItems = new ArrayList<>();
+        for (MissingKey key : keys) {
+            final long countWithout = countWithoutExamples.get(key);
+            if (countWithout == 0) { // ok, no missing
+                continue;
+            }
+            final Collection<String> sampleForWithoutItem = samplesForWithout.get(key);
+            final String sampleForWithItem = samplesForWith.get(key);
+            final long countWith = countWithExamples.get(key);
+            final double doneRatio = countWith / (double) (countWith + countWithout);
+            missingItems.add(
+                    TAB_JOINER.join(
+                            doneRatio,
+                            countWithout,
+                            (sampleForWithItem == null
+                                    ? sampleForWithoutItem.iterator().next()
+                                    : Joiner.on("; ")
+                                            .join(Iterables.limit(sampleForWithoutItem, 5))),
+                            countWith,
+                            (sampleForWithItem == null ? "n/a" : sampleForWithItem),
+                            key.sectionId,
+                            key.pageId,
+                            key.starred));
+        }
+        if (!missingItems.isEmpty()) {
+            errln(
+                    "Missing Examples:\t"
+                            + missingItems.size()
+                            + "\n"
+                            + "\nDone?\tWithout\tSample Attrs\tWith\tSample Attrs\tSection\tPage\tStarred Pattern\n"
+                            + Joiner.on("\n").join(missingItems));
+        }
+    }
+
+    public String sampleAttrAndValue(PathStarrer ps, final String separator, String value) {
+        return ps.getAttributesString(separator) + "➔«" + value + "»";
     }
 }

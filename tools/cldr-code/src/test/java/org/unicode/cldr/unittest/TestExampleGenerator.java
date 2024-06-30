@@ -1705,91 +1705,93 @@ public class TestExampleGenerator extends TestFmwk {
                     .build();
 
     public void TestForMissing() {
-        CLDRFile cldrFile = info.getEnglish();
-        ExampleGenerator exampleGenerator =
-                new ExampleGenerator(info.getEnglish(), info.getEnglish());
-        PathStarrer ps = new PathStarrer();
-        ps.setSubstitutionPattern("*");
-        Counter<MissingKey> countWithExamples = new Counter<>();
-        Map<MissingKey, String> samplesForWith = new HashMap<>();
-        Counter<MissingKey> countWithoutExamples = new Counter<>();
-        Multimap<MissingKey, String> samplesForWithout = TreeMultimap.create();
-        DtdData dtdData = DtdData.getInstance(DtdType.ldml);
-        PathHeader.Factory phf = PathHeader.getFactory();
-        final String separator = "•";
+        Factory factory = info.getCldrFactory(); // don't worry about examples for annotations
+        for (String localeId : List.of("en", "de")) {
+            CLDRFile cldrFile = factory.make(localeId, true);
+            ExampleGenerator exampleGenerator = new ExampleGenerator(cldrFile, info.getEnglish());
+            PathStarrer ps = new PathStarrer();
+            ps.setSubstitutionPattern("*");
+            Counter<MissingKey> countWithExamples = new Counter<>();
+            Map<MissingKey, String> samplesForWith = new HashMap<>();
+            Counter<MissingKey> countWithoutExamples = new Counter<>();
+            Multimap<MissingKey, String> samplesForWithout = TreeMultimap.create();
+            DtdData dtdData = DtdData.getInstance(DtdType.ldml);
+            PathHeader.Factory phf = PathHeader.getFactory();
+            final String separator = "•";
 
-        for (String xpath : cldrFile.fullIterable()) {
-            if (xpath.endsWith("/alias")) {
-                continue;
-            }
-            final XPathParts parts = XPathParts.getFrozenInstance(xpath);
-            if (dtdData.isDeprecated(parts)) {
-                continue;
-            }
-            Level level = SDI.getCoverageLevel(xpath, "en");
-            if (level.compareTo(Level.COMPREHENSIVE) == 0) {
-                continue;
-            }
-            String value = cldrFile.getStringValue(xpath);
-            String starred = ps.set(xpath);
-            String attrs = ps.getAttributesString(separator);
-            if (OK_IF_MISSING.containsEntry(starred, attrs)) {
-                logln("OK if missing: " + starred + ";\t" + attrs);
-                continue;
-            }
-            String example = null;
-            PathHeader ph = phf.fromPath(xpath);
-            String heading = ph.getSection() + " > " + ph.getPageId();
-            SectionId section = ph.getSectionId();
-            MissingKey key = new MissingKey(ph.getSectionId(), ph.getPageId(), starred);
-            try {
-                example = exampleGenerator.getExampleHtml(xpath, value);
-            } catch (Exception e) {
-            }
-            if (example == null) {
-                samplesForWithout.put(key, sampleAttrAndValue(ps, separator, value));
-                countWithoutExamples.add(key, 1);
-            } else {
-                if (!samplesForWith.containsKey(key)) {
-                    samplesForWith.put(key, sampleAttrAndValue(ps, separator, value));
+            // collect all of the strings in the file to test
+            for (String xpath : cldrFile.fullIterable()) {
+                if (xpath.endsWith("/alias")) {
+                    continue;
                 }
-                countWithExamples.add(key, 1);
+                final XPathParts parts = XPathParts.getFrozenInstance(xpath);
+                if (dtdData.isDeprecated(parts)) {
+                    continue;
+                }
+                Level level = SDI.getCoverageLevel(xpath, "en");
+                if (level.compareTo(Level.COMPREHENSIVE) == 0) {
+                    continue;
+                }
+                String value = cldrFile.getStringValue(xpath);
+                String starred = ps.set(xpath);
+                String attrs = ps.getAttributesString(separator);
+                if (OK_IF_MISSING.containsEntry(starred, attrs)) {
+                    logln("OK if missing: " + starred + ";\t" + attrs);
+                    continue;
+                }
+                String example = null;
+                PathHeader ph = phf.fromPath(xpath);
+                String heading = ph.getSection() + " > " + ph.getPageId();
+                SectionId section = ph.getSectionId();
+                MissingKey key = new MissingKey(ph.getSectionId(), ph.getPageId(), starred);
+                try {
+                    example = exampleGenerator.getExampleHtml(xpath, value);
+                } catch (Exception e) {
+                }
+                if (example == null) {
+                    samplesForWithout.put(key, sampleAttrAndValue(ps, separator, value));
+                    countWithoutExamples.add(key, 1);
+                } else {
+                    if (!samplesForWith.containsKey(key)) {
+                        samplesForWith.put(key, sampleAttrAndValue(ps, separator, value));
+                    }
+                    countWithExamples.add(key, 1);
+                }
             }
-        }
-        Set<MissingKey> keys = new TreeSet<>();
-        keys.addAll(countWithoutExamples.keySet());
-        keys.addAll(countWithExamples.keySet());
-        List<String> missingItems = new ArrayList<>();
-        for (MissingKey key : keys) {
-            final long countWithout = countWithoutExamples.get(key);
-            if (countWithout == 0) { // ok, no missing
-                continue;
+            Set<MissingKey> keys = new TreeSet<>();
+            keys.addAll(countWithoutExamples.keySet());
+            keys.addAll(countWithExamples.keySet());
+            List<String> missingItems = new ArrayList<>();
+            for (MissingKey key : keys) {
+                final long countWithout = countWithoutExamples.get(key);
+                if (countWithout == 0) { // ok, no missing
+                    continue;
+                }
+                final Collection<String> sampleForWithoutItem = samplesForWithout.get(key);
+                final String sampleForWithItem = samplesForWith.get(key);
+                final long countWith = countWithExamples.get(key);
+                final double doneRatio = countWith / (double) (countWith + countWithout);
+                missingItems.add(
+                        TAB_JOINER.join(
+                                doneRatio,
+                                countWithout,
+                                (sampleForWithItem == null
+                                        ? sampleForWithoutItem.iterator().next()
+                                        : Joiner.on("; ")
+                                                .join(Iterables.limit(sampleForWithoutItem, 5))),
+                                countWith,
+                                (sampleForWithItem == null ? "n/a" : sampleForWithItem),
+                                key.sectionId,
+                                key.pageId,
+                                key.starred));
             }
-            final Collection<String> sampleForWithoutItem = samplesForWithout.get(key);
-            final String sampleForWithItem = samplesForWith.get(key);
-            final long countWith = countWithExamples.get(key);
-            final double doneRatio = countWith / (double) (countWith + countWithout);
-            missingItems.add(
-                    TAB_JOINER.join(
-                            doneRatio,
-                            countWithout,
-                            (sampleForWithItem == null
-                                    ? sampleForWithoutItem.iterator().next()
-                                    : Joiner.on("; ")
-                                            .join(Iterables.limit(sampleForWithoutItem, 5))),
-                            countWith,
-                            (sampleForWithItem == null ? "n/a" : sampleForWithItem),
-                            key.sectionId,
-                            key.pageId,
-                            key.starred));
-        }
-        if (!missingItems.isEmpty()) {
-            errln(
-                    "Missing Examples:\t"
-                            + missingItems.size()
-                            + "\n"
-                            + "\nDone?\tWithout\tSample Attrs\tWith\tSample Attrs\tSection\tPage\tStarred Pattern\n"
-                            + Joiner.on("\n").join(missingItems));
+            if (!missingItems.isEmpty()) {
+                errln(
+                        TAB_JOINER.join(localeId, "missing examples:", missingItems.size())
+                                + "\n"
+                                + "\nDone?\tWithout\tSample Attrs\tWith\tSample Attrs\tSection\tPage\tStarred Pattern\n"
+                                + Joiner.on("\n").join(missingItems));
+            }
         }
     }
 

@@ -7,7 +7,6 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
-import java.util.logging.Logger;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.HeaderParam;
@@ -40,15 +39,12 @@ import org.unicode.cldr.web.ReportsDB.UserReport;
 import org.unicode.cldr.web.STFactory;
 import org.unicode.cldr.web.SubtypeToURLMap;
 import org.unicode.cldr.web.SurveyAjax;
-import org.unicode.cldr.web.SurveyLog;
 import org.unicode.cldr.web.SurveyMain;
 import org.unicode.cldr.web.UserRegistry;
 
 @Path("/voting/reports")
 @Tag(name = "voting", description = "APIs for voting and retrieving vote and row data")
 public class ReportAPI {
-    static final Logger logger = SurveyLog.forClass(ReportAPI.class);
-
     @GET
     @Path("/users/{user}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -195,7 +191,15 @@ public class ReportAPI {
         // set of all valid userids
         final Set<Integer> allUsers = CookieSession.sm.reg.getVoterToInfo().keySet();
         for (final CLDRLocale loc : locales) {
-            LocaleReportVettingResult rr = new LocaleReportVettingResult();
+            CheckCLDR.Phase phase = SurveyMain.checkCLDRPhase(loc);
+            CheckCLDR.StatusAction showRowAction =
+                    phase.getShowRowAction(
+                            null /* not path based */,
+                            CheckCLDR.InputMethod.DIRECT,
+                            null /* Not path based */,
+                            mySession.user);
+            final boolean canModify = UserRegistry.userCanModifyLocale(mySession.user, loc);
+            LocaleReportVettingResult rr = new LocaleReportVettingResult(showRowAction, canModify);
             rr.locale = loc.toString();
             for (final ReportId report : ReportId.getReportsAvailable()) {
                 Map<Integer, ReportAcceptability> votes = new TreeMap<>();
@@ -220,6 +224,9 @@ public class ReportAPI {
     }
 
     public static class LocaleReportVettingResult {
+        @Schema(description = "True if user is allowed to vote for this report.")
+        public final boolean canVote;
+
         public String locale;
         private Set<ReportVettingResult> reports = new HashSet<ReportVettingResult>();
 
@@ -236,6 +243,10 @@ public class ReportAPI {
         @Schema(description = "Total voters for this locale. Does not count abstentions.")
         public int getTotalVoters() {
             return allUsers.size();
+        }
+
+        public LocaleReportVettingResult(CheckCLDR.StatusAction action, boolean canModify) {
+            canVote = canModify && action.canVote();
         }
     }
 
@@ -346,7 +357,6 @@ public class ReportAPI {
                                 null /* Not path based */,
                                 mySession.user);
 
-        logger.info(() -> "ShowRowAction = " + showRowAction);
         if (!showRowAction.canVote()) {
             return Response.status(Status.FORBIDDEN).build();
         }

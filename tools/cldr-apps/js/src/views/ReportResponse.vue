@@ -10,7 +10,7 @@
       before continuing.
     </p>
 
-    <a-radio-group v-model:value="state" @change="changed">
+    <a-radio-group v-model:value="state" :disabled="!canVote" @change="changed">
       <a-radio :style="radioStyle" value="acceptable">
         I have reviewed the items below, and they are all acceptable</a-radio
       >
@@ -60,6 +60,7 @@ export default {
   ],
   data() {
     return {
+      canVote: false,
       completed: false,
       acceptable: false,
       loaded: false,
@@ -211,9 +212,10 @@ export default {
           completed: this.completed,
           acceptable: this.acceptable,
         });
-        this.reportStatus = await reportLocaleStatusResponse; // { status: approved, acceptability: acceptable }
-        console.dir(await reportLocaleStatusResponse);
+        const { report, canVote } = await reportLocaleStatusResponse;
+        this.reportStatus = report; // { status: approved, acceptability: acceptable }
         this.loaded = true;
+        this.canVote = canVote;
         this.error = null;
       } catch (e) {
         cldrNotify.exception(

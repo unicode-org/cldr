@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.logging.Logger;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.HeaderParam;
@@ -25,6 +26,7 @@ import org.eclipse.microprofile.openapi.annotations.parameters.Parameter;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
+import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.tool.Chart;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.VoteResolver;
@@ -38,12 +40,15 @@ import org.unicode.cldr.web.ReportsDB.UserReport;
 import org.unicode.cldr.web.STFactory;
 import org.unicode.cldr.web.SubtypeToURLMap;
 import org.unicode.cldr.web.SurveyAjax;
+import org.unicode.cldr.web.SurveyLog;
 import org.unicode.cldr.web.SurveyMain;
 import org.unicode.cldr.web.UserRegistry;
 
 @Path("/voting/reports")
 @Tag(name = "voting", description = "APIs for voting and retrieving vote and row data")
 public class ReportAPI {
+    static final Logger logger = SurveyLog.forClass(ReportAPI.class);
+
     @GET
     @Path("/users/{user}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -327,13 +332,27 @@ public class ReportAPI {
         if (!report.isAvailable()) {
             return Response.status(Status.FORBIDDEN).build();
         }
+        final CLDRLocale loc = CLDRLocale.getInstance(locale);
+        // apply the same standard as for vetting.
+        // First check whether they even have permission.
+        if (!UserRegistry.userCanModifyLocale(mySession.user, loc)) {
+            return Response.status(Status.FORBIDDEN).build();
+        }
+        CheckCLDR.StatusAction showRowAction =
+                SurveyMain.checkCLDRPhase(loc)
+                        .getShowRowAction(
+                                null /* not path based */,
+                                CheckCLDR.InputMethod.DIRECT,
+                                null /* Not path based */,
+                                mySession.user);
+
+        logger.info(() -> "ShowRowAction = " + showRowAction);
+        if (!showRowAction.canVote()) {
+            return Response.status(Status.FORBIDDEN).build();
+        }
+
         ReportsDB.getInstance()
-                .markReportComplete(
-                        user,
-                        CLDRLocale.getInstance(locale),
-                        report,
-                        update.completed,
-                        update.acceptable);
+                .markReportComplete(user, loc, report, update.completed, update.acceptable);
 
         return Response.status(Status.NO_CONTENT).build();
     }

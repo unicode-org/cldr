@@ -162,6 +162,16 @@ public abstract class CheckCLDR implements CheckAccessor {
         public boolean canShow() {
             return !isForbidden;
         }
+
+        public boolean canVote() {
+            // the one non-voting case
+            if (this == ALLOW_TICKET_ONLY) return false;
+            return !isForbidden();
+        }
+
+        public boolean canSubmit() {
+            return (this == ALLOW);
+        }
     }
 
     private static final HashMap<String, Phase> PHASE_NAMES = new HashMap<>();
@@ -195,9 +205,9 @@ public abstract class CheckCLDR implements CheckAccessor {
         /**
          * Return whether or not to show a row, and if so, how.
          *
-         * @param pathValueInfo
+         * @param pathValueInfo - may be null for a non-path entry.
          * @param inputMethod
-         * @param ph the path header
+         * @param ph the path header - may be null if it is a non-path entry
          * @param userInfo null if there is no userInfo (nobody logged in).
          * @return
          */
@@ -208,7 +218,14 @@ public abstract class CheckCLDR implements CheckAccessor {
                 UserInfo userInfo // can get voterInfo from this.
                 ) {
 
-            PathHeader.SurveyToolStatus status = ph.getSurveyToolStatus();
+            // default to read/write
+            PathHeader.SurveyToolStatus status = PathHeader.SurveyToolStatus.READ_WRITE;
+            boolean canReadAndWrite = true;
+
+            if (ph != null) {
+                status = ph.getSurveyToolStatus();
+                canReadAndWrite = ph.canReadAndWrite();
+            }
             /*
              * Always forbid DEPRECATED items - don't show.
              *
@@ -239,23 +256,26 @@ public abstract class CheckCLDR implements CheckAccessor {
                 return StatusAction.FORBID_READONLY;
             }
 
-            CandidateInfo winner = pathValueInfo.getCurrentItem();
-            ValueStatus valueStatus = getValueStatus(winner, ValueStatus.NONE, null);
+            ValueStatus valueStatus = ValueStatus.NONE;
+            if (pathValueInfo != null) {
+                CandidateInfo winner = pathValueInfo.getCurrentItem();
+                valueStatus = getValueStatus(winner, ValueStatus.NONE, null);
 
-            // if limited submission, and winner doesn't have an error, limit the values
+                // if limited submission, and winner doesn't have an error, limit the values
 
-            if (LIMITED_SUBMISSION) {
-                if (!SubmissionLocales.allowEvenIfLimited(
-                        pathValueInfo.getLocale().toString(),
-                        pathValueInfo.getXpath(),
-                        valueStatus == ValueStatus.ERROR,
-                        pathValueInfo.getBaselineStatus() == Status.missing)) {
-                    return StatusAction.FORBID_READONLY;
+                if (LIMITED_SUBMISSION) {
+                    if (!SubmissionLocales.allowEvenIfLimited(
+                            pathValueInfo.getLocale().toString(),
+                            pathValueInfo.getXpath(),
+                            valueStatus == ValueStatus.ERROR,
+                            pathValueInfo.getBaselineStatus() == Status.missing)) {
+                        return StatusAction.FORBID_READONLY;
+                    }
                 }
             }
 
             if (this == Phase.SUBMISSION || isUnitTest()) {
-                return (ph.canReadAndWrite())
+                return (canReadAndWrite)
                         ? StatusAction.ALLOW
                         : StatusAction.ALLOW_VOTING_AND_TICKET;
             }
@@ -265,7 +285,7 @@ public abstract class CheckCLDR implements CheckAccessor {
             // Only allow ADD if we have an error or warning
             // Only check winning value for errors/warnings per ticket #8677
             if (valueStatus != ValueStatus.NONE) {
-                return (ph.canReadAndWrite())
+                return (canReadAndWrite)
                         ? StatusAction.ALLOW
                         : StatusAction.ALLOW_VOTING_AND_TICKET;
             }

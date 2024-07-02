@@ -44,6 +44,7 @@
 
 <script>
 import * as cldrClient from "../esm/cldrClient.mjs";
+import * as cldrNotify from "../esm/cldrNotify.mjs";
 import * as cldrReport from "../esm/cldrReport.mjs";
 import * as cldrStatus from "../esm/cldrStatus.mjs";
 import * as cldrTable from "../esm/cldrTable.mjs";
@@ -172,7 +173,12 @@ export default {
         );
         await this.reload(); // will set loaded=true
       } catch (e) {
-        console.error(e);
+        cldrNotify.exception(
+          e,
+          `Trying to vote for report ${
+            this.report
+          } in ${cldrStatus.getCurrentLocale()}`
+        );
         this.error = e;
         this.loaded = true;
       }
@@ -210,7 +216,12 @@ export default {
         this.loaded = true;
         this.error = null;
       } catch (e) {
-        console.error(e);
+        cldrNotify.exception(
+          e,
+          `Trying to load report ${
+            this.report
+          } in ${cldrStatus.getCurrentLocale()}`
+        );
         this.error = e;
         this.loaded = true;
       }

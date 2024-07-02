@@ -482,9 +482,6 @@ public class Summary {
         if (cs == null) {
             return Auth.noSessionResponse();
         }
-        if (!UserRegistry.userCanModifyLocale(cs.user, loc)) {
-            return Response.status(403, "Forbidden").build();
-        }
         cs.userDidAction();
 
         // *Beware*  org.unicode.cldr.util.Level (coverage) ≠ VoteResolver.Level (user)

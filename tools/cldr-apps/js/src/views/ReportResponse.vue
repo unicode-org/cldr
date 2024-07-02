@@ -10,7 +10,7 @@
       before continuing.
     </p>
 
-    <a-radio-group v-model:value="state" @change="changed">
+    <a-radio-group v-model:value="state" :disabled="!canVote" @change="changed">
       <a-radio :style="radioStyle" value="acceptable">
         I have reviewed the items below, and they are all acceptable</a-radio
       >
@@ -44,6 +44,7 @@
 
 <script>
 import * as cldrClient from "../esm/cldrClient.mjs";
+import * as cldrNotify from "../esm/cldrNotify.mjs";
 import * as cldrReport from "../esm/cldrReport.mjs";
 import * as cldrStatus from "../esm/cldrStatus.mjs";
 import * as cldrTable from "../esm/cldrTable.mjs";
@@ -59,6 +60,7 @@ export default {
   ],
   data() {
     return {
+      canVote: false,
       completed: false,
       acceptable: false,
       loaded: false,
@@ -172,7 +174,12 @@ export default {
         );
         await this.reload(); // will set loaded=true
       } catch (e) {
-        console.error(e);
+        cldrNotify.exception(
+          e,
+          `Trying to vote for report ${
+            this.report
+          } in ${cldrStatus.getCurrentLocale()}`
+        );
         this.error = e;
         this.loaded = true;
       }
@@ -205,12 +212,18 @@ export default {
           completed: this.completed,
           acceptable: this.acceptable,
         });
-        this.reportStatus = await reportLocaleStatusResponse; // { status: approved, acceptability: acceptable }
-        console.dir(await reportLocaleStatusResponse);
+        const { report, canVote } = await reportLocaleStatusResponse;
+        this.reportStatus = report; // { status: approved, acceptability: acceptable }
         this.loaded = true;
+        this.canVote = canVote;
         this.error = null;
       } catch (e) {
-        console.error(e);
+        cldrNotify.exception(
+          e,
+          `Trying to load report ${
+            this.report
+          } in ${cldrStatus.getCurrentLocale()}`
+        );
         this.error = e;
         this.loaded = true;
       }

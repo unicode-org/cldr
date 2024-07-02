@@ -25,6 +25,7 @@ import org.eclipse.microprofile.openapi.annotations.parameters.Parameter;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
+import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.tool.Chart;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.VoteResolver;
@@ -190,7 +191,15 @@ public class ReportAPI {
         // set of all valid userids
         final Set<Integer> allUsers = CookieSession.sm.reg.getVoterToInfo().keySet();
         for (final CLDRLocale loc : locales) {
-            LocaleReportVettingResult rr = new LocaleReportVettingResult();
+            CheckCLDR.Phase phase = SurveyMain.checkCLDRPhase(loc);
+            CheckCLDR.StatusAction showRowAction =
+                    phase.getShowRowAction(
+                            null /* not path based */,
+                            CheckCLDR.InputMethod.DIRECT,
+                            null /* Not path based */,
+                            mySession.user);
+            final boolean canModify = UserRegistry.userCanModifyLocale(mySession.user, loc);
+            LocaleReportVettingResult rr = new LocaleReportVettingResult(showRowAction, canModify);
             rr.locale = loc.toString();
             for (final ReportId report : ReportId.getReportsAvailable()) {
                 Map<Integer, ReportAcceptability> votes = new TreeMap<>();
@@ -215,6 +224,9 @@ public class ReportAPI {
     }
 
     public static class LocaleReportVettingResult {
+        @Schema(description = "True if user is allowed to vote for this report.")
+        public final boolean canVote;
+
         public String locale;
         private Set<ReportVettingResult> reports = new HashSet<ReportVettingResult>();
 
@@ -231,6 +243,10 @@ public class ReportAPI {
         @Schema(description = "Total voters for this locale. Does not count abstentions.")
         public int getTotalVoters() {
             return allUsers.size();
+        }
+
+        public LocaleReportVettingResult(CheckCLDR.StatusAction action, boolean canModify) {
+            canVote = canModify && action.canVote();
         }
     }
 
@@ -327,13 +343,26 @@ public class ReportAPI {
         if (!report.isAvailable()) {
             return Response.status(Status.FORBIDDEN).build();
         }
+        final CLDRLocale loc = CLDRLocale.getInstance(locale);
+        // apply the same standard as for vetting.
+        // First check whether they even have permission.
+        if (!UserRegistry.userCanModifyLocale(mySession.user, loc)) {
+            return Response.status(Status.FORBIDDEN).build();
+        }
+        CheckCLDR.StatusAction showRowAction =
+                SurveyMain.checkCLDRPhase(loc)
+                        .getShowRowAction(
+                                null /* not path based */,
+                                CheckCLDR.InputMethod.DIRECT,
+                                null /* Not path based */,
+                                mySession.user);
+
+        if (!showRowAction.canVote()) {
+            return Response.status(Status.FORBIDDEN).build();
+        }
+
         ReportsDB.getInstance()
-                .markReportComplete(
-                        user,
-                        CLDRLocale.getInstance(locale),
-                        report,
-                        update.completed,
-                        update.acceptable);
+                .markReportComplete(user, loc, report, update.completed, update.acceptable);
 
         return Response.status(Status.NO_CONTENT).build();
     }

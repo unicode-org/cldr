@@ -39,6 +39,10 @@ public class CheckChildren<resolvedCldrFileToCheck> extends FactoryCheckCLDR {
             } catch (RuntimeException e) {
                 throw e;
             }
+            if (otherValue == null) {
+                // This child didn't even have a value. Path may be an 'extra path'.
+                continue;
+            }
             if (!otherValue.equals(CldrUtility.NO_INHERITANCE_MARKER)) {
                 tempSet.put(immediateChildren[i].getLocaleID(), otherValue);
             } else {

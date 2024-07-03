@@ -1108,6 +1108,10 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
         @Override
         public boolean userDidVote(User myUser, String somePath) {
+            if (myUser == null || myUser.id == UserRegistry.NO_USER) {
+                // if there is no user, by definition the user did not vote.
+                return false;
+            }
             PerXPathData xpd = peekXpathData(somePath);
             return (xpd != null && xpd.userDidVote(myUser));
         }

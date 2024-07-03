@@ -291,10 +291,6 @@ export default {
     },
 
     fetchData() {
-      if (!cldrStatus.getSurveyUser()) {
-        this.fetchErr = "Please log in to see the Dashboard.";
-        return;
-      }
       this.locale = cldrStatus.getCurrentLocale();
       this.level = cldrCoverage.effectiveName(this.locale);
       if (!this.locale || !this.level) {

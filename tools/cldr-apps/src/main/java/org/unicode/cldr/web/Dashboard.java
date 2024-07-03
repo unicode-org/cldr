@@ -232,7 +232,10 @@ public class Dashboard {
     public ReviewOutput get(
             CLDRLocale locale, UserRegistry.User user, Level coverageLevel, String xpath) {
         final SurveyMain sm = CookieSession.sm;
-        Organization usersOrg = Organization.fromString(user.voterOrg());
+        Organization usersOrg = Organization.unaffiliated;
+        if (user != null) {
+            usersOrg = Organization.fromString(user.voterOrg());
+        }
         STFactory sourceFactory = sm.getSTFactory();
         VettingViewer<Organization> vv =
                 new VettingViewer<>(
@@ -240,7 +243,11 @@ public class Dashboard {
         EnumSet<NotificationCategory> choiceSet =
                 VettingViewer.getDashboardNotificationCategories(usersOrg);
         VettingParameters args = new VettingParameters(choiceSet, locale, coverageLevel);
-        args.setUserAndOrganization(user.id, usersOrg);
+        if (user != null) {
+            args.setUserAndOrganization(user.id, usersOrg);
+        } else {
+            args.setUserAndOrganization(UserRegistry.NO_USER, usersOrg);
+        }
         args.setFiles(locale, sourceFactory, sm.getDiskFactory());
         if (xpath != null) {
             args.setXpath(xpath);
@@ -286,6 +293,10 @@ public class Dashboard {
 
             notification = getNextNotification(reviewOutput, notification, entry);
 
+            if (notification.category.equals("Abstained")
+                    && args.getUserId() == UserRegistry.NO_USER) {
+                continue; // don't show abstained when the user can't vote.
+            }
             addNotificationGroup(args, notification, englishFile, entry);
         }
     }

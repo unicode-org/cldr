@@ -1,0 +1,41 @@
+Time Zones and City names
+Time Zone Names
+Time zones (such as "Pacific Time" or "France Time") can be formatted in different ways:
+"metazone" names, such as "Pacific Time" or "Pacific Standard Time", that can apply to segments of a country or groups of countries.
+location (country or city) based names, such as "Paris Time" or "Japan Standard Time"
+These are constructed using patterns (see below), plus Country/Region Names and City Names.
+When a "metazone" name is absent, a location based name is used as a fallback.
+raw offsets, like "GMT+10:00"
+These are constructed using patterns (see below).
+Tips:
+When translating time zone names, include the Region information if the name can be ambiguous. For example, “Central time” would be ambiguous without the America_Central region context.
+When the English name can be ambiguous in your language, use the name that's most commonly used. For example, the English America_Mountain "Mountain time" can be ambiguous and including "Rocky" may be most commonly understood in your language; thus the translation would be for "Rocky Mountain time".
+For each of the first two, there are three choices:
+Winter (standard) time, such as "Atlantic Standard Time"
+Summer (daylight) time, such as "Atlantic Daylight Time"
+Generic time, such as "Atlantic Time". This is used for recurring times (such as in a Calendar program) that change between summer and winter.
+Time Zone Patterns
+The following special patterns are used in formatting timezones.
+City Names
+Please choose the most neutral grammatical form of the city name. The city name will typically be used to indicate a timezone, either in a menu, or in formatting a time.
+In a few cases, what is included in the list of cities for translation is actually a country name, such as the following. In those cases, use the name of the country instead.
+Costa Rica
+Cape Verde
+Faeroe (for the Faroe Islands)
+Usage
+A city may be used in a menu of timezone names, such as:
+...
+United States Time (Los Angeles)
+United States Time (New York)
+United Kingdom Time (London)
+...
+Timezones may also have a simpler format, depending on the language, such as:
+...
+United States (Los Angeles)
+United States (New York)
+United Kingdom (London)
+...
+The city name may also be used in formatted times, such as:
+12:51 AM France Time (Paris)
+Unique Names
+City names must be unique. See Country/Region Names for techniques.

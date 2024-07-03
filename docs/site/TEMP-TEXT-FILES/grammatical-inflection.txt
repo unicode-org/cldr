@@ -11,20 +11,20 @@ For example, the German phrase “Die {0} ist…” requires the noun/placeholde
 Each phrase must be different, and be suitable for a different noun or noun phrase — and if possible, should be suitable for substituting a unit of measurement.
 Don't worry about elision or mutation like changing la to l'; the phrases don't have to work for all items of that gender if there are side effects because of certain letters.
 Here is an example from German. Notice that the example needs the verb "ist" because otherwise for "Die" (feminine article), the unit could be plural of any gender.
-Miscellaneous > Minimal Pairs
-Minimal Pairs: Gender
-Minimal Pairs: Case
-Minimal Pairs: Plurals and Ordinals
-Units > Compound Units
-Units > ... > gender
-Units > ... > long-one-accusative
-English (inch-pound) units
-Samples for Sites
+German Case
+№	Case	Pattern	Sample phrase with right case	Composed value
+1	nominative	{0} kosten 13,50 € .	1 britischer Teelöffel und 3 britische Gallonen	1 britischer Teelöffel und 3 britische Gallonen kosten 13,50 € .
+2	accusative	… für {0} …	1 britischen Teeöffel und 3 britische Gallonen	… für 1 britischen Teelöffel und 3 britische Gallonen …
+3	dative	… mit {0} …	1 britischen Teelöffel und 3 britischen Gallonen	… mit 1 britischen Teelöffel und 3 britischen Gallonen …
+4	genitive	Anstatt {0} …	1 britischen Teelöffels und 3 britischer Gallonen	Anstatt 1 britischen Teelöffel s und 3 britischer Gallonen …
 You do not have to supply the sample unit (column 4) in the Survey Tool, but you should make sure that you could supply a possible sample unit.
 It is absolutely crucial that you make sure that each Pattern is constructed in a way so that none of the samples could also correctly fit in the Composed Value on a different row. For example, you couldn't put "Jahr" (a neuter unit from #3) into the pattern in #2, as the result - "Die Jahr ist …" - would not be grammatically correct (feminine article + neuter noun).
 In English, all of these would say "The {0} is...", with {0} e.g. being a day, a week, or a year (could be other units as well, doesn't have to be duration).
 English has only one gender for all common nouns, and thus the English column on the Survey Tool page is blank.
 The equivalent Italian patterns might be:
+#	Gender	Pattern	Sample unit with right gender	Composed value
+1	masculine	Il {0} è …	centimetri	Il centimetri è...
+2	feminine	La {0} è …	miglia	La miglia è …
 Minimal Pairs: Case
 Provide a phrase that requires the noun or noun/adjective placeholder to be in that specific case.
 For example, for German, “... mit {0} ...” requires the {0} to be in the dative case (for a noun phrase).
@@ -35,7 +35,11 @@ Don't worry about elision or mutation like changing la to l'; the phrases don't 
 Not all possible placeholder values will exhibit differences. For example, in German only masculine noun phrases are different in the accusative case (den Mann vs. der Mann). Sometimes you may need a combination of two different units (A and B), as in the example below.
 Here is an example from German. Notice that this case is more complicated than gender, because we need a noun phrase (with an adjective, "British") and two separate measures, because no single noun-adjective combination has differences in all 4 cases in German. The "British teaspoon" is different in 3 cases, but the genitive is the same as the dative. The "British gallons" is different in 3 cases, but the nominative and accusative are identical.
 It is absolutely crucial that you make sure that each Pattern is constructed in a way so that none of the samples could also correctly fit in the Composed Value on a different row. For example, in the table below the nominative sample phrase could not be correctly substituted into the accusative pattern. That would produce "für 1 britischer Teelöffel und 3 britische Gallonen", which would be incorrect.
-Tables for Sites2
+№	Case	Pattern	Sample phrase with right case	Composed value
+1	nominative	{0} kosten 13,50 € .	1 britischer Teelöffel und 3 britische Gallonen	1 britischer Teelöffel und 3 britische Gallonen kosten 13,50 € .
+2	accusative	… für {0} …	1 britischen Teeöffel und 3 britische Gallonen	… für 1 britischen Teelöffel und 3 britische Gallonen …
+3	dative	… mit {0} …	1 britischen Teelöffel und 3 britischen Gallonen	… mit 1 britischen Teelöffel und 3 britischen Gallonen …
+4	genitive	Anstatt {0} …	1 britischen Teelöffels und 3 britischer Gallonen	Anstatt 1 britischen Teelöffel s und 3 britischer Gallonen …
 You do not have to supply the sample phrase (column 4) in the Survey Tool, but you should make sure that you could supply one a possible sample phrase.
 Minimal Pairs: Plurals and Ordinals
 See Plural Rules

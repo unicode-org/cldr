@@ -71,6 +71,7 @@ Timezones may also have a simpler format, depending on the language, such as:
 The city name may also be used in formatted times, such as:
 
 - 12:51 AM France Time (Paris)
+
 **Unique Names**
 
 City names must be unique. See [Country/Region Names](https://cldr.unicode.org/translation/displaynames/countryregion-territory-names) for techniques.

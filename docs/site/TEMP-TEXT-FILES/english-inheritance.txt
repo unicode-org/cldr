@@ -1,0 +1,23 @@
+English Inheritance
+Summary
+This proposal intends to solve some of the problems that have come up during our review of the various regional locale variants.  The goal is to create a clear and understandable policy for the various English locales in CLDR.
+International English (en_001)
+A few releases back, we created the en_001 locale in CLDR, that was intended to remove much of the U.S. specific data that existed in the "en" locale at the time, and serve as the inheritance point for most English locales that didn't have a direct relationship to the U.S.   This was a good starting point, but in order to clean this up and make things more consistent worldwide, the following changes are recommended:
+Make en_001 be as country neutral as possible.  This would mean making en_001 have the following characteristics:
+Date formats - For full, long, medium formats use European style day, month, year.  For numeric dates, use ISO 8601 format.
+Time formats - Use 12 hour clock, as this is the predominant format for English speaking locales ( ref : https://en.wikipedia.org/wiki/Date_and_time_representation_by_country)
+Spelling of unit names - (metre vs. meter) - Since the BIPM spelling is "metre", "centimetre", etc., The "en_001" locale should prefer "metre" over the American spelling "meter".  Thus, much of the units data that is currently in en_GB would move from there to en_001, and en_GB would just inherit it.
+For units such as gallon that have both a “US” version and an “imperial” version: Both versions should have the qualifier (“US” or “imperial”), should not remove the “imperial” as in the GB versions.
+Time zone names: en_001 should us “∅∅∅” to cancel the short metazone names inherited from en, for example:
+<metazone type="America_Pacific">
+<short>
+<generic>∅∅∅</generic>
+<standard>∅∅∅</standard>
+<daylight>∅∅∅</daylight>
+</short>
+</metazone>
+Use en_001 as the basis for translation in the CLDR Survey Tool instead of en.
+Make en_CA (English - Canada) inherit from en_001 instead of en.  The en_CA locale should be reviewed to make sure that items that previously were correctly inherited from "en" (such as well understood time zone abbreviations ) are copied into the en_CA locale.
+Make sure that proper time formats are in place for en_XX locales, where XX is any country where 12 hour clock is customary according to CLDR's supplemental data.
+Review the inheritance table (below), making any necessary adjustments.  It has been suggested that en_ZA and en_ZW should inherit from en_GB instead of en_001.
+Reference: English locales and inheritance:

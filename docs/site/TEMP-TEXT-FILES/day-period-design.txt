@@ -4,24 +4,24 @@ The two part AM/PM day division is not universal and some cultures require great
 Proposal
 New dayPeriods.xml under Supplemental directory:
 <dayPeriodRuleSet>
-<dayPeriodRules locales = "locale1 locale2 ... ">
-<dayPeriodRule type = "typeName1" from | after = "HH:mm"   to | before =  "HH:mm"/>
-<dayPeriodRule type = "typeName2" at  = "HH:mm"/>
+ <dayPeriodRules locales = "locale1 locale2 ... ">
+  <dayPeriodRule type = "typeName1" from | after = "HH:mm" to | before = "HH:mm"/>
+  <dayPeriodRule type = "typeName2" at = "HH:mm"/>
 .....
-</dayPeriodRules>
-<dayPeriodRules locales = "..."  >
+ </dayPeriodRules>
+ <dayPeriodRules locales = "..." >
 ...
-</dayPeriodRules>
+ </dayPeriodRules>
 </dayPeriodRuleSet>
 New XML rules in locale xmls :
 <dayPeriods>
-<dayPeriodContext type="format">
-<dayPeriodWidth type="wide">
-<dayPeriod type = "typeName1"> translation for typeName1</dayPeriod>
-<dayPeriod type = "typeName2"> translation for typeName2</dayPeriod>
+ <dayPeriodContext type="format">
+  <dayPeriodWidth type="wide">
+   <dayPeriod type = "typeName1"> translation for typeName1</dayPeriod>
+   <dayPeriod type = "typeName2"> translation for typeName2</dayPeriod>
 ...
-</dayPeriodWidth>
-</dayPeriodContext>
+  </dayPeriodWidth>
+ </dayPeriodContext>
 ...
 </dayPeriods>
 On "dayPeriods" in the future we can add an optional type if we need it, to support multiple rules for the same locale. For now we won't support that.
@@ -48,77 +48,77 @@ Document that if people are rounding -- including the rounding done by the time 
 Examples:
 New xml file: Supplemental/dayPeriods.xml
 <dayPeriodRuleSet>
-<dayPeriodRules locales = "en">  <!--  default for any locales not listed under other dayPeriods -->
-<dayPeriodRule type = "am" from = "0:00" before="12:00"/>
-<dayPeriodRule type = "pm" from = "12:00" to="24:00"/>
-</dayPeriodRules>
-<dayPeriodRules locales = "de it fr">
-<dayPeriodRule type = "earlyMorning" from="0:00" before="9:00"/>
-<dayPeriodRule type = "morning" from="9:00" before="12:00"/>
-<dayPeriodRule type = "noon" at = "12:00"/>
-<dayPeriodRule type = "afternoon" after="12:00" before="17:00"/>
-<dayPeriodRule type = "evening" from="17:00" before="21:00"/>
-<dayPeriodRule type = "night" from="21:00" before="24:00"/>
-</dayPeriodRules>
-<dayPeriodRules locales = "zh">
-<dayPeriodRule type = "weeHours" from="00:00" before="4:00"/>
-<dayPeriodRule type = "earlyMorning" from="4:00" before="6:00"/>
-<dayPeriodRule type = "morning" from="6:00" before="12:00"/>
-<dayPeriodRule type = "midMay" from="12:00" before="13:00"/>
-<dayPeriodRule type = "afternoon" from="13:00" before="18:00"/>
-<dayPeriodRule type = "night" from="18:00" before="24:00"/>
-</dayPeriodRules>
+ <dayPeriodRules locales = "en"> <!-- default for any locales not listed under other dayPeriods -->
+  <dayPeriodRule type = "am" from = "0:00" before="12:00"/>
+  <dayPeriodRule type = "pm" from = "12:00" to="24:00"/>
+ </dayPeriodRules>
+ <dayPeriodRules locales = "de it fr">
+  <dayPeriodRule type = "earlyMorning" from="0:00" before="9:00"/>
+  <dayPeriodRule type = "morning" from="9:00" before="12:00"/>
+  <dayPeriodRule type = "noon" at = "12:00"/>
+  <dayPeriodRule type = "afternoon" after="12:00" before="17:00"/>
+  <dayPeriodRule type = "evening" from="17:00" before="21:00"/>
+  <dayPeriodRule type = "night" from="21:00" before="24:00"/>
+ </dayPeriodRules>
+ <dayPeriodRules locales = "zh">
+  <dayPeriodRule type = "weeHours" from="00:00" before="4:00"/>
+  <dayPeriodRule type = "earlyMorning" from="4:00" before="6:00"/>
+  <dayPeriodRule type = "morning" from="6:00" before="12:00"/>
+  <dayPeriodRule type = "midMay" from="12:00" before="13:00"/>
+  <dayPeriodRule type = "afternoon" from="13:00" before="18:00"/>
+  <dayPeriodRule type = "night" from="18:00" before="24:00"/>
+ </dayPeriodRules>
 . . .
 </dayPeriodRuleSet>
 Examples in locale XML files:
 In en locale file(en.xml)
 <dayPeriods>
-<dayPeriodContext type="format">
-<dayPeriodWidth type="wide">
-<dayPeriod type = "am">AM</dayPeriod>
-<dayPeriod type = "am" alt="variant">a.m.</dayPeriod>
-<dayPeriod type = "pm">PM</dayPeriod>
-<dayPeriod type = "pm" alt="variant">p.m.</dayPeriod>
-</dayPeriodWidth>
-</dayPeriodContext>
+ <dayPeriodContext type="format">
+  <dayPeriodWidth type="wide">
+   <dayPeriod type = "am">AM</dayPeriod>
+   <dayPeriod type = "am" alt="variant">a.m.</dayPeriod>
+   <dayPeriod type = "pm">PM</dayPeriod>
+   <dayPeriod type = "pm" alt="variant">p.m.</dayPeriod>
+  </dayPeriodWidth>
+ </dayPeriodContext>
 </dayPeriods>
 // was:
-<am>AM</am>
-<am alt="variant">a.m.</am>
-<pm>PM</pm>
-<pm alt="variant">p.m.</pm>
+  <am>AM</am>
+  <am alt="variant">a.m.</am>
+  <pm>PM</pm>
+  <pm alt="variant">p.m.</pm>
 Also, in root, replace all instances (except in Gregorian) of
-<am>AM</am>
-<pm>PM</pm>
+  <am>AM</am>
+  <pm>PM</pm>
 by
-<dayPeriods>
-<alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods"/>
-</dayPeriods>
+  <dayPeriods>
+   <alias source="locale" path="../../calendar[@type='gregorian']/dayPeriods"/>
+  </dayPeriods>
 In de locale file(de.xml):
 <dayPeriods>
-<dayPeriodContext type="format">
-<dayPeriodWidth type="wide">
-<dayPeriod type = "earlyMorning">morgens</dayPeriod>
-<dayPeriod type = "morning">vormittags</dayPeriod>
-<dayPeriod type = "noon">Mittag</dayPeriod>
-<dayPeriod type = "afternoon">nachmittags</dayPeriod>
-<dayPeriod type = "evening">abends</dayPeriod>
-<dayPeriod type = "night">nachts</dayPeriod>
-</dayPeriodWidth>
-</dayPeriodContext>
+ <dayPeriodContext type="format">
+  <dayPeriodWidth type="wide">
+   <dayPeriod type = "earlyMorning">morgens</dayPeriod>
+   <dayPeriod type = "morning">vormittags</dayPeriod>
+   <dayPeriod type = "noon">Mittag</dayPeriod>
+   <dayPeriod type = "afternoon">nachmittags</dayPeriod>
+   <dayPeriod type = "evening">abends</dayPeriod>
+   <dayPeriod type = "night">nachts</dayPeriod>
+  </dayPeriodWidth>
+ </dayPeriodContext>
 </dayPeriods>
 In zh locale file(zh.xml):
 <dayPeriods>
-<dayPeriodContext type="format">
-<dayPeriodWidth type="wide">
-<dayPeriod type = "weeHours">凌晨</dayPeriod>
-<dayPeriod type = "earlyMorning">清晨</dayPeriod>
-<dayPeriod type = "morning">上午</dayPeriod>
-<dayPeriod type = "midDay">中午</dayPeriod>
-<dayPeriod type = "afternoon">下午</dayPeriod>
-<dayPeriod type = "night">晚上</dayPeriod>
-</dayPeriodWidth>
-</dayPeriodContext>
+ <dayPeriodContext type="format">
+  <dayPeriodWidth type="wide">
+   <dayPeriod type = "weeHours">凌晨</dayPeriod>
+   <dayPeriod type = "earlyMorning">清晨</dayPeriod>
+   <dayPeriod type = "morning">上午</dayPeriod>
+   <dayPeriod type = "midDay">中午</dayPeriod>
+   <dayPeriod type = "afternoon">下午</dayPeriod>
+   <dayPeriod type = "night">晚上</dayPeriod>
+  </dayPeriodWidth>
+ </dayPeriodContext>
 </dayPeriods>
 Code changes
 The example code needs to be changed to get the AM/PM data from the new location (high priority)

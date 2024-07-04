@@ -22,7 +22,7 @@ Issues with current EOR rules:
 1. The ignoring rules for currency etc. should be filtered out in the CLDR context. ( Mark, John, Åke)
 2. The rule for U+029F SMALL CAPITAL L is missing (typo in standard). ( Åke )
 3. There are relevant comments by Kent Karlsson in ticket #[763](http://unicode.org/cldr/trac/ticket/763) (2010-10-27), with a modified proposal
-	1. --- \&#x20E9;(\&#x20E9; = [U+20E9](http://unicode.org/cldr/utility/character.jsp?a=20E9) ( ⃩ )) COMBINING WIDE BRIDGE ABOVE) is the (currently) weightiest, at level 2, non-letter general purpose combining mark
+	1. --- \&#x20E9;(\&#x20E9; = [U+20E9](http://unicode.org/cldr/utility/character.jsp?a=20E9) ( ⃩ ) COMBINING WIDE BRIDGE ABOVE) is the (currently) weightiest, at level 2, non-letter general purpose combining mark
 	2. --- \&#x20E9; is used in the proposal to make all "variants" come after all single-accented versions of letters
 	3. --- resetting to just A, B, etc. would make variant versions come before accented versions
 4. ( Åke ) The current reset rules work fine with MimerSQL, but I think you must check the ICU behaviour. Kent might have a vital point here.
@@ -33,7 +33,7 @@ Issues with current EOR rules:
 Questions
 
 1. Which EOR base to use? If EN13710 needs revisions, how do we make that happen?
-2. Should we use Kent's modified rules as attached to[http://unicode.org/cldr/trac/ticket/763](http://unicode.org/cldr/trac/ticket/763) ?
+2. Should we use Kent's modified rules as attached to http://unicode.org/cldr/trac/ticket/763 ?
 3. What locales should provide EOR based tailorings?
 4. Need to add EOR to BCP47. 
 

@@ -3,8 +3,8 @@ The European ordering rules feature is a new collation feature in CLDR which att
 A copy of a near-final draft (FprEN 13710:2010) is available to Unicode members in the UTC document register (L2/14-143).
 This document describes current issues in an attempt for us to have a clear picture of what level of EOR support will be contained within CLDR 21.
 Current Status
-EOR rules as defined by EN 13710:2011 Annex G ( March 2011 draft ) are currently included in the latest CLDR root locale as <collation type="eor">.  There are a number of issues with these rules as currently written, see below...
-EOR tailorings for specific languages should be relatively easy to create once we settle on the base EOR rules.  These should be able to be created by doing an import of the base EOR rules and then importing the language specific tailoring on top of that.
+EOR rules as defined by EN 13710:2011 Annex G ( March 2011 draft ) are currently included in the latest CLDR root locale as <collation type="eor">. There are a number of issues with these rules as currently written, see below...
+EOR tailorings for specific languages should be relatively easy to create once we settle on the base EOR rules. These should be able to be created by doing an import of the base EOR rules and then importing the language specific tailoring on top of that.
 The import feature in ICU is now considered to be stable and ready for use.
 Issues with current EOR rules:
 The ignoring rules for currency etc. should be filtered out in the CLDR context. ( Mark, John, Åke)
@@ -18,7 +18,7 @@ There are relevant comments by Kent Karlsson in ticket #763 (2010-10-27), with a
 ( Åke ) Kent is right, it should be tertiary difference. (EN13710 needs a revision).
 (Kent) -hv/hwair is a case pair and should be treated as such, not be given two different level 2 weights ( Åke ) I agree. (EN13710 needs a revision).
 Questions
-Which EOR base to use?  If EN13710 needs revisions, how do we make that happen?
+Which EOR base to use? If EN13710 needs revisions, how do we make that happen?
 Should we use Kent's modified rules as attached to http://unicode.org/cldr/trac/ticket/763 ?
 What locales should provide EOR based tailorings?
 Need to add EOR to BCP47.

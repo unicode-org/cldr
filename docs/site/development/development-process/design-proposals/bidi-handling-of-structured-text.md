@@ -94,7 +94,7 @@ The following table summarizes the recognized preferences for the proper display
 
 **6. Proposed additions to CLDR**
 
-The following schema is proposed for addition into CLDR, most likely as sub-elements under the <layout> category. This structure defines the sets of rules in CLDR necessary to describe proper display behavior for various types of structured text:
+The following schema is proposed for addition into CLDR, most likely as sub-elements under the \<layout> category. This structure defines the sets of rules in CLDR necessary to describe proper display behavior for various types of structured text:
 
 \<!-- Top level element is associated with STT type: email, xml, java ...-->
 

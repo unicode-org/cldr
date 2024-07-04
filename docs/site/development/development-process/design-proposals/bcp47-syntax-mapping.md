@@ -13,7 +13,7 @@ BCP 47 is undergoing a revision which should be done soon:
 
 Once we define formal representation of Unicode locale extensions in BCP47 syntax, we actually no longer have any good reasons to use @key1=type1;key2=type2... syntax for Unicode Locale Identifier other than backward compatibility reasons. This document proposes that we retire the proprietary syntax and fully migrate to the new syntax fully supported by BCP47 language tag.
 
-There are several options for representing keyword key/type pairs in BCP47 syntax. Examples in following proposal assume a letter "u" is reserved for the Unicode locale extensions; however we could go for any of the[possible extensions](http://inter-locale.com/ID/draft-ietf-ltru-4646bis-21.html#syntax): [0-9 a-w y z].
+There are several options for representing keyword key/type pairs in BCP47 syntax. Examples in following proposal assume a letter "u" is reserved for the Unicode locale extensions; however we could go for any of the [possible extensions](http://inter-locale.com/ID/draft-ietf-ltru-4646bis-21.html#syntax): [0-9 a-w y z].
 
 The table below shows the locale extension keys/values currently defined by the LDML specification.
 

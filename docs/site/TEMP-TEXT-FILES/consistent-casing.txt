@@ -48,15 +48,15 @@ In certain circumstances, one or more elements do not follow the rule of the maj
 The example below indicates that variant names are normally lower case with one exception.
 <inText type="languages">lowercase-words</inText>
 <variants>
-<variant type="1901">ortografia tradizionale tedesca</variant>
-<variant type="1996">ortografia tedesca del 1996</variant>
-<variant type="NEDIS" allow="verbatim">dialetto del Natisone</variant>
+ <variant type="1901">ortografia tradizionale tedesca</variant>
+ <variant type="1996">ortografia tedesca del 1996</variant>
+ <variant type="NEDIS" allow="verbatim">dialetto del Natisone</variant>
 </variants>
 Improved Testing
 As a part of bug http://www.unicode.org/cldr/bugs-private/locale-bugs-private/data?id=2227, I added a consistency test for casing. It just generates warnings for now, and the test is very simple: given a bucket of translations (eg language names), verify that everything have the same first-letter casing as the first item. Although simple (and not bulletproof!), it is revealing...
-cs [Czech]    warning    names|language|lb    〈Luxembourgish〉    【】    〈Lucemburština〉    «=»    【】    Warning: First letter case of <Lucemburština>=upper doesn't match that of <afarština>=lower (names|language|aa).
-cs [Czech]    warning    names|language|om    〈Oromo〉    【】    〈Oromo (Afan)〉    «=»    【】    Warning: First letter case of <Oromo (Afan)>=upper doesn't match that of <afarština>=lower (names|language|aa).
-cs [Czech]    warning    names|language|ps    〈Pashto〉    【】    〈Pashto (Pushto)〉    «=»    【】    Warning: First letter case of <Pashto (Pushto)>=upper doesn't match that of <afarština>=lower (names|language|aa).
+cs [Czech] warning names|language|lb 〈Luxembourgish〉 【】 〈Lucemburština〉 «=» 【】 Warning: First letter case of <Lucemburština>=upper doesn't match that of <afarština>=lower (names|language|aa).
+cs [Czech] warning names|language|om 〈Oromo〉 【】 〈Oromo (Afan)〉 «=» 【】 Warning: First letter case of <Oromo (Afan)>=upper doesn't match that of <afarština>=lower (names|language|aa).
+cs [Czech] warning names|language|ps 〈Pashto〉 【】 〈Pashto (Pushto)〉 «=» 【】 Warning: First letter case of <Pashto (Pushto)>=upper doesn't match that of <afarština>=lower (names|language|aa).
 I didn't use the inText or inList data, because I don't think we have enough data, nor that it has been vetted enough, to be reliable. Moreover, I don't think the buckes it uses are fine-grained enough.. I put the test output in 3 different files in http://www.unicode.org/cldr/data/dropbox/casing/
 The code is at http://www.unicode.org/cldr/data/tools/java/org/unicode/cldr/test/CheckConsistentCasing.java. Note that the buckets I used are defined in the code in typesICareAbout in the code.
 Feedback and Open Issues
@@ -71,8 +71,8 @@ Determining whether current structure is sufficient
 The attached "CasingContexts.pdf" is a first draft of a doc providing examples of various contexts for usage of date formats and date elements, language names, region names, and names of various other CLDR keys. This document is somewhat oriented to Mac OS X (since those were the examples at hand), so I would like to solicit other type of examples that may cover situations not depicted here. Suggestions welcome!
 What I hope to do with this (and very soon) is to send it out to localizers to solicit either sample translations for each item in context (so I can infer the various grammatical cases and capitalization cases that CLDR may need to support), or better yet, have the localizers let me know about all of the cases that are necessary.
 With that information I hope to:
-1. Determine what additional types (beyond form,at and standalone) may be necessary for date formatting, and
-2. See whether inText/inList are adequate to cover the capitalization cases, and if not, try to come up with something better.
+Determine what additional types (beyond form,at and standalone) may be necessary for date formatting, and
+See whether inText/inList are adequate to cover the capitalization cases, and if not, try to come up with something better.
 (from Peter E., 2009 Nov 22)
 I have attached "CasingContextsV2.pdf" which fixes the calendar menu example (thanks Kent!) and adds examples of currencies in text and various examples of units in text. I still need to add an example of currency in a dialog, along with overall instructions.
 (from Peter E., 2009 Nov 25)

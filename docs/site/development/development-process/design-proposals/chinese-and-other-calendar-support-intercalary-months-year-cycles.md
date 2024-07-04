@@ -74,7 +74,9 @@ Months are numbered 0-11 (the zero-based value of UCAL\_MONTH). When an intercal
 
 For purposes of add and set operations, month is treated as a tuple represented by UCAL\_MONTH and UCAL\_IS\_LEAP\_MONTH. If UCAL\_IS\_LEAP\_MONTH is 0 for a month that has a leap month following, then adding 1 month, or setting UCAL\_IS\_LEAP\_MONTH to 1, sets the calendar to the leap month (which has the same value for UCAL\_MONTH). If a month does not have a leap month following, then a set of UCAL\_IS\_LEAP\_MONTH to 1 is ignored.
 
-Years are numbered 1-60 (the value of UCAL\_YEAR) for each 60-year cycle. The era is incremented for each 60-year cycle, so we are currently in era 78. Current ICU4C formatting for the Chinese calendar is completely broken. For example, the short date format in root and zh is currently “y'x'G-Ml-d”; the result this produces for Chinese era 78, year 29, month 4 (non-leap or leap), day 2 is “29x-4-”: There is no era value or leap month indicator, and non-literal fields after the ‘l’ pattern character are skipped.
+Years are numbered 1-60 (the value of UCAL\_YEAR) for each 60-year cycle. The era is incremented for each 60-year cycle, so we are currently in era 78. 
+
+Current ICU4C formatting for the Chinese calendar is completely broken. For example, the short date format in root and zh is currently “y'x'G-Ml-d”; the result this produces for Chinese era 78, year 29, month 4 (non-leap or leap), day 2 is “29x-4-”: There is no era value or leap month indicator, and non-literal fields after the ‘l’ pattern character are skipped.
 
 In ICU4J the existing situation is bit better. Via data in data/xml/main/root.xml, ICU inserts its own "isLeapMonth" resource into the calendar bundle for "chinese"; this provides a leapMonthMarker of "\*". There is a public ChineseDateFormatSymbols subclass of DateFormatSymbols which uses the "isLeapMonth" resource, and a public ChineseDateFormat of SimpleDateFormat; using ChineseDateFormat, Chinese calendar date formats using 'G' and 'l' can be formatted and parsed successfully.
 
@@ -84,7 +86,9 @@ In a non-leap year, months run 0-4 (for months Tishri-Shevat), skip 5 (“Adar I
 
 ### 3. Coptic and Ethiopic calendars
 
-Months are numbered 0-12. ### 4. Other calendars listed above
+Months are numbered 0-12. 
+
+### 4. Other calendars listed above
 
 ICU does not currently support the Hindu, Vietnamese, or Tibetan calendars (it does support the quite different Indian Civil calendar).
 
@@ -117,6 +121,7 @@ The special pattern character ‘l’ (small L) is described as: “Special symb
 - There is currently no structure in CLDR to provide the value for ‘l’. But assuming we added it…
 - It is not clear how a client who wants month symbol names can get the name for a leap month - do they need to assemble it from two pieces? How would they know what order to use?
 - It is not clear why this mechanism needs to be different than the mechanism used for the Hebrew calendar.
+
 It seems unnecessary; the month naming could just be handled via the MMM+/LLL+ pattern, and CLDR data could provide complete month names both with and without the marker (distinguished using the something like the yeartype attribute). This would fit more smoothly into existing mechanisms.
 
 ## F. Proposal
@@ -168,9 +173,11 @@ And in the Chinese locale:
 For other calendars, the \<monthPattern> elements above could be replaced by others such as the following:
 
 - For the Hebrew calendar, in the Hebrew locale, one could have (for Adar I and II):
+
  \<monthPattern type=”leap”>{0} א׳\</monthPattern> \<monthPattern type=”standardAfterLeap”>{0} ב׳\</monthPattern>
 
 - For the Hindu calendar, in root (for a combined month, the name will be an affix plus a combination of two month names):
+
  \<monthPattern type=”leap”>adhik {0}\</monthPattern> \<monthPattern type=”standardAfterLeap”>nija {0}\</monthPattern> \<monthPattern type=”combined”>kshay {0}-{1}\</monthPattern>
 
 For the time being, at least, I don't think that we need to present this in the Survey Tool, and that may prove too complex and confusing anyway.
@@ -206,7 +213,7 @@ Option 1, \<years> element
 
 Add a \<years> element and sub-elements parallel to the current structure for \<months>, \<days>, and \<quarters>, as follows (with similar structure in ICU):
 
- \<years> \<yearContext type=”format”> \<yearWidth type=”abbreviated”> \<year type="1">Jia-Zi\</month> \<year type="2">Yi-Chou\</month> … \<year type="60">Gui-Hai\</month> \</yearWidth> \<yearWidth type=”narrow”> (defaults to abbreviated) \</yearWidth> \<yearWidth type=”wide”> (defaults to abbreviated) \</yearWidth> \</yearContext> \</years>
+\<years> \<yearContext type=”format”> \<yearWidth type=”abbreviated”> \<year type="1">Jia-Zi\</month> \<year type="2">Yi-Chou\</month> … \<year type="60">Gui-Hai\</month> \</yearWidth> \<yearWidth type=”narrow”> (defaults to abbreviated) \</yearWidth> \<yearWidth type=”wide”> (defaults to abbreviated) \</yearWidth> \</yearContext> \</years>
 
 Only the “format” context would be supported initially; other contexts could be added if needed.
 
@@ -268,32 +275,32 @@ Note that the convention of using a secondary calendar associated with a traditi
 
 The old CLDR and ICU tickets related to this are:
 
-- CLDR[#1507](http://unicode.org/cldr/trac/ticket/1507): intercalary marker missing from chinese calendar (refile) [includes detailed comments from Philippe Verdy, some anticipating ideas above]
-- CLDR[#2430](http://unicode.org/cldr/trac/ticket/2430): Illegal date-time field "l".
-- CLDR[#2558](http://unicode.org/cldr/trac/ticket/2558): Chinese calendar formatting does not look right
-- CLDR[#3672](http://unicode.org/cldr/trac/ticket/3672): Value inherited from "root" is in error
-- ICU[#6049](http://bugs.icu-project.org/trac/ticket/6049): Intercalary markers
+- CLDR [#1507](http://unicode.org/cldr/trac/ticket/1507): intercalary marker missing from chinese calendar (refile) [includes detailed comments from Philippe Verdy, some anticipating ideas above]
+- CLDR [#2430](http://unicode.org/cldr/trac/ticket/2430): Illegal date-time field "l".
+- CLDR [#2558](http://unicode.org/cldr/trac/ticket/2558): Chinese calendar formatting does not look right
+- CLDR [#3672](http://unicode.org/cldr/trac/ticket/3672): Value inherited from "root" is in error
+- ICU [#6049](http://bugs.icu-project.org/trac/ticket/6049): Intercalary markers
 
 New tickets related to this, which supersede the above, are:
 
-- CLDR[#4230](http://unicode.org/cldr/trac/ticket/4230): Add \<monthPattern> element for Chinese calendar support
+- CLDR [#4230](http://unicode.org/cldr/trac/ticket/4230): Add \<monthPattern> element for Chinese calendar support
 - CLDR [#4231](http://unicode.org/cldr/trac/ticket/4231): Add cyclic year name support for Chinese calendar
-- CLDR[#4232](http://unicode.org/cldr/trac/ticket/4232): Deprecate pattern character 'l', add pattern character 'U'
-- CLDR[#](http://goog_1707162891)[4237](http://unicode.org/cldr/trac/ticket/4237): Change Chinese calendar formats to use 'U' pattern char [must wait for ICU format/parse support]
-- CLDR[#4259](http://unicode.org/cldr/trac/ticket/4259): Chinese calendar data updates
+- CLDR [#4232](http://unicode.org/cldr/trac/ticket/4232): Deprecate pattern character 'l', add pattern character 'U'
+- CLDR [#](http://goog_1707162891)[4237](http://unicode.org/cldr/trac/ticket/4237): Change Chinese calendar formats to use 'U' pattern char [must wait for ICU format/parse support]
+- CLDR [#4259](http://unicode.org/cldr/trac/ticket/4259): Chinese calendar data updates
 - CLDR [#4277](http://unicode.org/cldr/trac/ticket/4277): Remove \<icu:isLeapMonth> processing from LDML2ICUConverter
-- CLDR[#4282](http://unicode.org/cldr/trac/ticket/4282): Chinese calendar formats need era, Gregorian year, or ?
-- CLDR[#4302](http://unicode.org/cldr/trac/ticket/4302): Fix spurious errors with chinese calendar (monthPatterns narrow, prettyPaths)
-- CLDR[#4321](http://unicode.org/cldr/trac/ticket/4321): Skip some date pattern tests for Chinese calendar ('U' and other differences from std)
-- CLDR[#4322](http://unicode.org/cldr/trac/ticket/4322): Fix test errors for monthPatterns
-- CLDR[#4325](http://unicode.org/cldr/trac/ticket/4325): Fix test errors for date patterns using U (availableFormats...)
-- ICU[#8958](http://bugs.icu-project.org/trac/ticket/8958): Use CLDR \<monthPatterns> data to format/parse Chinese cal dates
-- ICU[#8977](http://bugs.icu-project.org/trac/ticket/8977): Use CLDR \<monthPatterns> data to format/parse Chinese cal dates (J)
-- ICU[#8959](http://bugs.icu-project.org/trac/ticket/8959): Support new 'U' pattern char for formatting/parsing Chinese cal dates
-- ICU[#9034](http://bugs.icu-project.org/trac/ticket/9034): Delete obsolete \<icu:isLeapMonth> in data/xml/main/root.xml
-- ICU[#9035](http://bugs.icu-project.org/trac/ticket/9035): More ICU4C chinese calendar format/parse fixes
-- ICU[#9043](http://bugs.icu-project.org/trac/ticket/9043): Chinese cal dates can't always be parsed - design 2-cal solution
-- ICU[#9044](http://bugs.icu-project.org/trac/ticket/9044): Chinese cal dates can't always be parsed - document & fix tests
-- ICU[#9055](http://bugs.icu-project.org/trac/ticket/9055): Integrate Chinese cal pattern updates (cldrbug 4237), update tests
+- CLDR [#4282](http://unicode.org/cldr/trac/ticket/4282): Chinese calendar formats need era, Gregorian year, or ?
+- CLDR [#4302](http://unicode.org/cldr/trac/ticket/4302): Fix spurious errors with chinese calendar (monthPatterns narrow, prettyPaths)
+- CLDR [#4321](http://unicode.org/cldr/trac/ticket/4321): Skip some date pattern tests for Chinese calendar ('U' and other differences from std)
+- CLDR [#4322](http://unicode.org/cldr/trac/ticket/4322): Fix test errors for monthPatterns
+- CLDR [#4325](http://unicode.org/cldr/trac/ticket/4325): Fix test errors for date patterns using U (availableFormats...)
+- ICU [#8958](http://bugs.icu-project.org/trac/ticket/8958): Use CLDR \<monthPatterns> data to format/parse Chinese cal dates
+- ICU [#8977](http://bugs.icu-project.org/trac/ticket/8977): Use CLDR \<monthPatterns> data to format/parse Chinese cal dates (J)
+- ICU [#8959](http://bugs.icu-project.org/trac/ticket/8959): Support new 'U' pattern char for formatting/parsing Chinese cal dates
+- ICU [#9034](http://bugs.icu-project.org/trac/ticket/9034): Delete obsolete \<icu:isLeapMonth> in data/xml/main/root.xml
+- ICU [#9035](http://bugs.icu-project.org/trac/ticket/9035): More ICU4C chinese calendar format/parse fixes
+- ICU [#9043](http://bugs.icu-project.org/trac/ticket/9043): Chinese cal dates can't always be parsed - design 2-cal solution
+- ICU [#9044](http://bugs.icu-project.org/trac/ticket/9044): Chinese cal dates can't always be parsed - document & fix tests
+- ICU [#9055](http://bugs.icu-project.org/trac/ticket/9055): Integrate Chinese cal pattern updates (cldrbug 4237), update tests
 
 ![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

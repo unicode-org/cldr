@@ -47,6 +47,7 @@ I've been doing some more thinking about how to deal with coverage in CLDR. It s
 1). Filter out fields from the ST that we don't really need, since everything we do would be filtered based on a desired coverage level.
 
 2). Allow individual users to set the filtering in the survey tool based on one of the predefinedcoverage levels as we already have in the spec, or actually any other numeric coverage level that they desire.
+
 So with this in mind, I would like to propose the following structure to be added to the supplemental metadata:
 
 \<coverageLevels>

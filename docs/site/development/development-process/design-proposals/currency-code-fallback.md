@@ -19,7 +19,7 @@ Here are some recommendations.
 
 1. We don't have the character fallback element for any currency symbol that is used for different currency codes. That is, it is ok to have EUR for €, but not ok to use KRW for ₩, since ₩ is also used for KPW, and not to have JAY for ¥, since ¥ is also used for CNY.
 2. Even with this, we don't really want to use character fallback elements for currency substitution in general, since it is too coarse.
-3. We should try to remove all the currency symbols that use Unicode symbol characters from the locales, except where they have special plurals, or where we have symbol reversals (eg in the US, $ for USD and C$ for CAD, while in CA, $ for CAD and US$ for USD).
+3. We should try to remove all the currency symbols that use Unicode symbol characters from the locales, except where they have special plurals, or where we have symbol reversals (eg in the US, \$ for USD and C\$ for CAD, while in CA, \$ for CAD and US\$ for USD).
 
 Options
 

@@ -80,7 +80,8 @@ Based on the discussion above, the following changes/suggestions are proposed fo
 1. "gregorian" formats should change from "EGyMd Hms" order to "GyMdE Hms" order (and same for formats that use subsets of this). Note that this would be more consistent with the "d E" order already used for the Ed skeleton.
 2. "generic" formats should use "EdMyG Hms" order and subsets thereof ("chinese" formats should use "EdMU Hms" etc.).
 3. "generic" should provide non-numeric wide/abbreviated weekday names, probably "sunday"/"sun".."saturday"/"sat".
-4. If "generic" provides numeric strings for e.g. narrow weekday names, it should probably use "1" for Monday to be consistent with ISO 8601. 5. "gregorian" should provide non-numeric wide/abbreviated month names (it inherits the weekday names from "generic"). These could be e.g. "month1".."month12"/"mo1".."mo12" or "january".."december"/"jan".."dec". This will vastly improve legibility of some formats.
+4. If "generic" provides numeric strings for e.g. narrow weekday names, it should probably use "1" for Monday to be consistent with ISO 8601. 
+5. "gregorian" should provide non-numeric wide/abbreviated month names (it inherits the weekday names from "generic"). These could be e.g. "month1".."month12"/"mo1".."mo12" or "january".."december"/"jan".."dec". This will vastly improve legibility of some formats.
 6. "generic" should have generic but non-numeric wide/abbreviated month and era names, e.g. "month1"/"mo1".."month12"/"mo12", "era0".."era1".
 7. "chinese" should also provide generic but non-numeric month names.
 8. No formats in root should use "yyyy", any such occurrences should be changed to "y". And in fact, for the "generic" calendar, we probably want availableFormats items that convert a skeleton with "yyyy" into a pattern with just "y".

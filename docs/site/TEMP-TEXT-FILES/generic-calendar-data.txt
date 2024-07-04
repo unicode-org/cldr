@@ -1,4 +1,12 @@
 Generic calendar data
+Authors	Peter Edberg, Mark Davis
+Date	2012-Dec-10, 2012-Dec-18 update from 2012-Dec-12 TC discussion
+Status	Proposal
+Feedback to	pedberg (at) apple (dot) com
+Bugs	#5385 , Add generic calendar as the base for all non-gregorian calendars
+(and related bugs to at least partly address at the same time:)
+#5421 , Fix era positions
+#5490 , Clean up stock date/time formats
 Problem: The non-Gregorian calendars never receive the same attention from translators as the Gregorian one. This has led to a number of problems: gaps in the data, and consistency in the data. The problem with the gaps are that the root locale data “leaks through”, giving incorrect results in many cases. The consistency problems are because there is a large amount of data for people to review, and often the data entered is from different people. So there are inconsistencies within the same calendar, and gratuitous differences across calendars.
 Yet a very large part of the data for different calendars could be shared, because the calendar format data tends to basically differ only by month and era names, and whether the era is included or not.
 Proposal: I propose to use <calendar type="generic"> under <calendars> as a way to provide generic calendar format data; all other calendars will inherit most data (directly or indirectly) from this calendar. The main benefit of this is the ability to have a single place for a locale to specify date format patterns (standard formats, availableFormat, intervalFormats) for (nearly) all non-Gregorian calendars, to minimize effort and to ensure consistency.

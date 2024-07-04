@@ -1,4 +1,9 @@
 Grammar & capitalization forms for date/time elements and others
+Author	Peter Edberg, comments from others as noted
+Date	2011-11-17 through 2011-11-30, 2012-01-10to17
+Status	Proposal
+Feedback to	pedberg (at) apple (dot) com
+Bugs	See list of tickets in section D
 A. Issues
 There are at least 4 axes of variation for choosing the correct form of a date (or fragment thereof). Many of these issues also apply to choosing to other tasks such as choosing the correct form for the name of a language or region, or the correct form for a plural unit.
 In order to format a date/time (for example) properly, CLDR must support the necessary forms, a CLDR client such as ICU must have adequate information (e.g. from API options), and it must have a way to map this information to the appropriate CLDR data.
@@ -9,6 +14,11 @@ In a UI list or menu.
 As an isolated UI element. For dates, this might further break down as (a) an isolated complete date, or (b) an isolated single date element (e.g. a month or day name), though I don’t have clear evidence for this yet.
 At the beginning of complete sentences. As far as I know, all bicameral writing systems capitalize the first word in a complete sentence, so no separate data is needed; this can be done programmatically given the necessary context information.
 Certainly for month and day names we need separate data for cases 1, 2, and 3 above, since they may behave independently in some languages, though it may be the case that for other types of data such as language & region names, cases 2 & 3 above can be merged. Here are some examples of desired behavior for capitalization of month & day names:
+contexts → languages ↓	1, running text	2, UI list or menu	3b, isolated name (e.g. calendar heading)
+de, el, en, ms	capitalized	capitalized	capitalized
+da, fi, nb	lower	lower	lower
+cs, hr	lower	capitalized	lower
+fr	lower	lower (after a menu/list title ending in colon, e.g. “First day of week:”)	capitalized
 Mark: We need to know what the current data has. We have told vetters to use the style for a UI list or menu, but many have not followed this approach [Peter: A table in section E at the end of this document provides some data]. Mechanically it might be easiest to go from the middle-of-text style to the others.
 Steven: For collecting the data, if we had good scenarios, we could present current data on contexts: 1, 2, 3 and ask vetters which are correct/incorrect.
 2. Grammatical case (noun case)
@@ -16,6 +26,9 @@ Slavic languages, Greek, Finnish /Hungarian, and probably many other languages h
 For month and day names, one dimension of variation is whether the name is used by itself (nominative form) or is part of an expression like “on Monday” or “in January” (some variety of locative/ablative form). These forms are quite important. Expressions like “before January” or “about January” require additional grammatical forms of month names in some languages (e.g. Polish), but those are probably not as important and won’t be considered here.
 For month names, a second dimension is whether a day number is used with the month; all of the languages mentioned above have different grammatical forms for month name (genitive, partitive, locative, etc. depending on the language) when used with a day number.
 In current CLDR data, standalone is used for the nominative form, and format is used for one of the other possibilities. Here are examples for Finnish and Czech (bold forms are currently in CLDR):
+EEEE	MMMM	MMMMd
+“Saturday” = “ lauantai ” (fi, nominative) " sobota " (cs, nominative)	“January” = “ tammikuu ” (fi, nominative) “ leden ” (cs, nominative)	“January 31” = “31. tammikuuta ” (fi, partitive) “31. ledna ” (cs, genitive)
+“on Saturday” = “ lauantaina ” (fi, essive) "v sobotu" (cs, abla./locative)	“in January” = “tammikuussa” (fi, inessive) “v lednu” (cs, abla./locative)	“on January 31” = “tammikuun 31.” (fi, genitive) “31. ledna ” (cs, genitive)
 Many of these languages also have two grammatical forms for a time zone name, depending on whether it occurs by itself or with an actual time.
 Finally, for language names, some of these languages have many noun forms. Most of these are not relevant for the types of usage that CLDR supports. However, for some languages like Czech, names in a list of languages need to be either in noun form or adjective form depending on how the list is being used (e.g. adjective form in a list of keyboard languages). Mark: The adjective form is ugly, since it will need to agree with the noun.
 Note that there are similar issues for plural units, e.g. “3 hours” versus “in 3 hours”. Mark: Need to ensure that CLDR vetters and clients understand that the plural units are for durations (e.g. of a video), not a relative time.
@@ -43,7 +56,7 @@ The basic idea: Have a new <contextTransforms> element, with <contextTransform> 
 Note that the “titlecase-firstword” behavior does not exactly match any current ICU behavior; it should probably do something like capitalize the first non-punctuation non-symbol character in a string (if that character can be capitalized). Whether it should skip digits and capitalize the first letter after initial digits needs to be discussed (and may need to be an option).
 If no context-based name transforms are needed, the <contextTransforms> element can be absent.
 My initial thought was to include these elements (as many as necessary) inside each relevant name element: <languages>, <months>, <days>, etc. As an example for Czech:
-<months>         <monthContext type="format">             …             <contextTransforms>                 <contextTransform type="uiListOrMenu">titlecase-firstword</capitalizationContext>             </contextTransforms>         </monthContext>     </months>
+<months> <monthContext type="format"> … <contextTransforms> <contextTransform type="uiListOrMenu">titlecase-firstword</capitalizationContext> </contextTransforms> </monthContext> </months>
 This would involve additions to the DTD everywhere we wanted to add these, which is a bit cumbersome. An initial list of where these should be added:
 <languages>
 <scripts>
@@ -55,7 +68,7 @@ This would involve additions to the DTD everywhere we wanted to add these, which
 <calendar type=...><fields>
 <units>
 A better alternative is to collect all of these elements in one place, analogous to the <casing> element in the Casing Structure proposal (though that is meant to describe existing data, not desired behavior in different contexts), as implemented per cldrbug 4151 (r6311 and later). In that case we need an additional element - say <contextTransformUsage> - with a “type” attribute that indicates the set of items to which it applies, or the type "all" to indicate that it applies to all usages. The other sets for the type attribute would be the same as the buckets used for the <casing> element mentioned above, as described in this spreadsheet (with some fixes) - for example, "language", "month-format-except-narrow", "calendar-field" (the list of these, and the mapping between them and paths, is currently hardcoded in tools/java/org/unicode/cldr/test/CheckConsistentCasing.java). This would just require a single addition to the DTD and be more expandable:
-<contextTransforms>         <contextTransformUsage type="languages">              <contextTransform type="uiListOrMenu">titlecase-firstword</contextTransform>              <contextTransform type="stand-alone">titlecase-firstword</contextTransform>         </contextTransformUsage>         <contextTransformUsage type="month-format-except-narrow">              <contextTransform type="uiListOrMenu">titlecase-firstword</contextTransform>         </contextTransformUsage>         <contextTransformUsage type="month-standalone-except-narrow">              <contextTransform type="uiListOrMenu">titlecase-firstword</contextTransform>         </contextTransformUsage>     </contextTransforms>
+<contextTransforms> <contextTransformUsage type="languages"> <contextTransform type="uiListOrMenu">titlecase-firstword</contextTransform> <contextTransform type="stand-alone">titlecase-firstword</contextTransform> </contextTransformUsage> <contextTransformUsage type="month-format-except-narrow"> <contextTransform type="uiListOrMenu">titlecase-firstword</contextTransform> </contextTransformUsage> <contextTransformUsage type="month-standalone-except-narrow"> <contextTransform type="uiListOrMenu">titlecase-firstword</contextTransform> </contextTransformUsage> </contextTransforms>
 The <contextTransforms> data could be located in the same files as the <casing> data: common/casing/xx.xml. Note that the <casing> data is currently under a <behavior> element that cannot co-exist with other LDML elements; this needs to be changed, and the <behavior> element should be renamed something like <surveyToolSpeedupData>.
 As part of this, the existing inText and inList elements would be deprecated; they do not cover enough contexts and are not easily extensible (as <contextTransform> would be by adding more type attribute values).
 Again, ICU would need APIs that would take additional usage parameters indicating capitalization context, and would transform the data as appropriate for formatting.

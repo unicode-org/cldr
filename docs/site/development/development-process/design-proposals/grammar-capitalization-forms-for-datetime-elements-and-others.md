@@ -84,7 +84,7 @@ The current choice between “format” and “standalone” forms conflates all
 
 ### 2. inList, inText
 
-\<inList> “controls whether display names (lanage, territory, etc) are title cased in GUI menu lists and the like,” for languages that normally use lowercase for these; the options are "titlecase-words" or "titlecase-firstword", with special handling supposedly available by using alt="list" on elements that need it (what it does is not specified).
+\<inList> “controls whether display names (language, territory, etc) are title cased in GUI menu lists and the like,” for languages that normally use lowercase for these; the options are "titlecase-words" or "titlecase-firstword", with special handling supposedly available by using alt="list" on elements that need it (what it does is not specified).
 
 \<inText> “indicates the casing of the data in the category identified by the ... type attribute, when that data is written in text or how it would appear in a dictionary. For example, \<inText type="languages"> shows how to lettercase language names. The possible values are “lowercase-words”, “titlecase-words”, “titlecase-firstword”, and “mixed” (unknown).
 

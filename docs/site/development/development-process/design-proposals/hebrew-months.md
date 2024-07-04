@@ -12,7 +12,9 @@ Shevat = month 5, Adar = month 6, Nisan = Month 7
 
 while in a leap year:
 
-Shevat = month 5, Adar I = month 6, Adar II = month 7, and Nisan = month 8. According to Wikipedia, "Adar II" in a leap year is the "real" Adar, and "Adar I" is considered to be the "extra" month.
+Shevat = month 5, Adar I = month 6, Adar II = month 7, and Nisan = month 8. 
+
+According to Wikipedia, "Adar II" in a leap year is the "real" Adar, and "Adar I" is considered to be the "extra" month.
 
 I think we can get the desired representation without having to make it overly complex.
 

@@ -54,15 +54,15 @@ There is an optional data structure that can be used in some locales. All of the
 
 \<indexLabels>
 
-&emsp;\<indexSeparator>&nbsp;\</indexSeparator>
+&emsp;\<indexSeparator>\&nbsp;\</indexSeparator>
 
-&emsp;\<compressedIndexSeparator>&nbsp;•&nbsp;\</compressedIndexSeparator>
+&emsp;\<compressedIndexSeparator>\&nbsp;•\&nbsp;\</compressedIndexSeparator>
 
 &emsp;\<indexRangePattern>{0}-{1}\</indexRangePattern>
 
-&emsp;\<indexLabelBefore>&lt;1劃\</indexLabelBefore>
+&emsp;\<indexLabelBefore>\&lt;1劃\</indexLabelBefore>
 
-&emsp;\<indexLabelAfter>&gt;24劃\</indexLabelAfter>
+&emsp;\<indexLabelAfter>\&gt;24劃\</indexLabelAfter>
 
 &emsp;\<indexLabel indexSource="一" priority="1">1劃\</indexLabel>
 

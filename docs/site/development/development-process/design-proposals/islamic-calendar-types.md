@@ -34,7 +34,7 @@ Microsoft also provides two calendar types. In .NET, these are named HijriCalend
 
 MS's UmAlQuraCalendar supports Umm al-Qura calendar introduced by Saudi Arabia [http://www.staff.science.uu.nl/~gent0113/islam/ummalqura.htm].
 
-Recently, JSR-310 (formerly - Joda Time) was approved and the whole new date/time package will be integrated into Java 8. JSR-310 folks want to identify calendar type using BCP 47 locale extension. So they proposed to[add a few islamic calendar types](http://unicode.org/cldr/trac/ticket/5525) - one of Um al-Qura, one for Saudi Arabia sighting.
+Recently, JSR-310 (formerly - Joda Time) was approved and the whole new date/time package will be integrated into Java 8. JSR-310 folks want to identify calendar type using BCP 47 locale extension. So they proposed to [add a few islamic calendar types](http://unicode.org/cldr/trac/ticket/5525) - one of Um al-Qura, one for Saudi Arabia sighting.
 
 ## Islamic Calendar Variants
 
@@ -125,7 +125,7 @@ Below are the proposed calendar algorithmic variant values in this proposal
 2. **tbla** - Tabular Islamic calendar with leap years in 2nd, 5th, 7th, 13th, 16th, 18th, 21st, 24th, 26th and 29th year in each 30-year cycle with the Thursday ('a' - astronomical) epoch(Microsoft Hijri Calendar)
 3. **tblc** - Tabular Islamic calendar with leap years in 2nd, 5th, 7th, 13th, 16th, 18th, 21st, 24th, 26th and 29th year in each 30-year cycle with the Friday ('c' - civil) epoch ([Calendrica](http://emr.cs.iit.edu/home/reingold/calendar-book/Calendrica.html) Islamic - Arithmetic)
 
-In addition to above, other tabular calendar like Fatimid ("tbl27a" or "tbl27c") might be added if necessary. (See wikipedia article:[Tabular Islamic calendar](http://en.wikipedia.org/wiki/Tabular_Islamic_calendar))
+In addition to above, other tabular calendar like Fatimid ("tbl27a" or "tbl27c") might be added if necessary. (See wikipedia article: [Tabular Islamic calendar](http://en.wikipedia.org/wiki/Tabular_Islamic_calendar))
 
 For the religious (sighting) calendar, we could explicitly represent the location. For now, JSR-310 community wants one for Saudi Arabia. We could define such variants by defining a syntax like \<2-letter county code> + \<padding character '0'>, for example "cv-sa0" (sa = Saudi Arabia), but the idea was rejected by the CLDR TC in the CLDR TC meeting on 2013-Jan-30 for following reasons: 1) the subtag registry should define the exact list whenever possible, 2) such syntax may allow subtags that are not really used - for example, jp0 (jp = Japan) is practically useless, and 3) the region might not be presented by country code. The CLDR TC's agreement was to register "rgsa" for Saudi Arabia (prefix "rg" (region) + 2-letter country code "sa") explicitly. We may add other regions based on requests in future using the same convention. So in addition to algorithmic variants above, this proposal includes:
 

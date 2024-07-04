@@ -1,4 +1,8 @@
 Index Characters
+Author	Mark Davis
+Date	2009-06-23
+Status	Accepted
+Bugs	2224
 This is a proposal for structure to allow for index characters for UIs, on a per-language basis.
 Goal
 Index characters are an ordered list characters for use as a UI "index", that is, a list of clickable characters (or character sequences) that allow the user to see a segment of a larger "target" list. That is, each character corresponds to a bucket in the target list. One may have different kinds of index lists; one that produces an index list that is relatively static, and the other is a list that produces roughly equally-sized buckets. While we are mostly focused on the first, there is provision for supporting the second as well.
@@ -6,25 +10,30 @@ The static list would be presented as something like the following (either verti
 … A B C D E F G H CH I J K L M N O P Q R S T U V W X Y Z …
 Under "A" you would find all items that are greater than or equal to "A" in collation order, and less than any other item that is greater than "A". The use of the list requires that the target list be sorted according to the locale that is used to create that list. The … items are special, and is a bucket for everything else, either less or greater. Although we say "character" above, the index character could be a sequence, like "CH" above.
 In the UI, an index character could also be omitted or grayed out if its bucket is empty. For example, if there is nothing in the bucket for Q, then Q could be omitted. That would be up to the implementation. Additional buckets could be added if other characters are present. For example, we might see something like the following:
+Sample Greek Index	Contents
+Α Β Γ Δ Ε Ζ Η Θ Ι Κ Λ Μ Ν Ξ Ο Π Ρ Σ Τ Υ Φ Χ Ψ Ω	With only content beginning with Greek letters
+… Α Β Γ Δ Ε Ζ Η Θ Ι Κ Λ Μ Ν Ξ Ο Π Ρ Σ Τ Υ Φ Χ Ψ Ω …	With some content before or after
+… 9 Α Β Γ Δ Ε Ζ Η Θ Ι Κ Λ Μ Ν Ξ Ο Π Ρ Σ Τ Υ Φ Χ Ψ Ω …	With numbers, and nothing between 9 and Alpha
+… 9 A-Z Α Β Γ Δ Ε Ζ Η Θ Ι Κ Λ Μ Ν Ξ Ο Π Ρ Σ Τ Υ Φ Χ Ψ Ω …	With numbers, some Latin
 Proposal
 Because these have to be in collation order, the specification of the list can be an unordered set. So the proposal is to add a new kind of exemplar set to CLDR. Unlike other exemplar sets, the case is significant (we may have to change some of the spec language), since it is the preferred case for the language (although it can be changed, according to the implementation). For example, the above could be represented as:
-<characters>
-<exemplarCharacters type="index">[A-Z {CH}]</exemplarCharacters>
-</characters>
+ <characters>
+  <exemplarCharacters type="index">[A-Z {CH}]</exemplarCharacters>
+ </characters>
 Note that these are not simply uppercase versions of the exemplar characters, such as for Greek:
-<characters>
-<exemplarCharacters>[α ά β-ε έ ζ η ή θ ι ί ϊ ΐ κ-ο ό π ρ σ ς τ υ ύ ϋ ΰ φ-ω ώ]</exemplarCharacters>
-</characters>
+ <characters>
+  <exemplarCharacters>[α ά β-ε έ ζ η ή θ ι ί ϊ ΐ κ-ο ό π ρ σ ς τ υ ύ ϋ ΰ φ-ω ώ]</exemplarCharacters>
+ </characters>
 There is an optional data structure that can be used in some locales. All of these items are optional.
 <indexLabels>
-<indexSeparator>&nbsp;</indexSeparator>
-<compressedIndexSeparator>&nbsp;•&nbsp;</compressedIndexSeparator>
-<indexRangePattern>{0}-{1}</indexRangePattern>
-<indexLabelBefore>&lt;1劃</indexLabelBefore>
-<indexLabelAfter>&gt;24劃</indexLabelAfter>
-<indexLabel indexSource="一" priority="1">1劃</indexLabel>
-<indexLabel indexSource="二">2劃</indexLabel>
-<indexLabel indexSource="口">3劃</indexLabel>
+ <indexSeparator>&nbsp;</indexSeparator>
+ <compressedIndexSeparator>&nbsp;•&nbsp;</compressedIndexSeparator>
+ <indexRangePattern>{0}-{1}</indexRangePattern>
+ <indexLabelBefore>&lt;1劃</indexLabelBefore>
+ <indexLabelAfter>&gt;24劃</indexLabelAfter>
+ <indexLabel indexSource="一" priority="1">1劃</indexLabel>
+ <indexLabel indexSource="二">2劃</indexLabel>
+ <indexLabel indexSource="口">3劃</indexLabel>
 ...
 ...
 </indexLabels>

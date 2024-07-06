@@ -6,10 +6,10 @@ title: New Time Zone Patterns
 
 **This proposal was reviewed in the CLDR TC meetings on 2013-01-09 and 2013-01-16, and approved by the CLDR TC.**
 
-| Z | 1..3 | -0800 | Time Zone - RFC 822 GMT format. For more information about timezone formats, see Appendix J: Time Zone Display Names . |
+| Z | 1..3 | -0800 | Time Zone - RFC 822 GMT format. For more information about timezone formats, see [Appendix J: Time Zone Display Names](http://www.unicode.org/reports/tr35/#Time_Zone_Fallback) . |
 |---|---|---|---|
-| | 4 | HPG-8:00 | Time Zone - The localized GMT format. For more information about timezone formats, see Appendix J: Time Zone Display Names . |
-| | 5 | -08:00 | Time Zone - ISO8601 time zone format. For more information about timezone formats, see Appendix J: Time Zone Display Names . |
+| | 4 | HPG-8:00 | Time Zone - The localized GMT format. For more information about timezone formats, see [Appendix J: Time Zone Display Names](http://www.unicode.org/reports/tr35/#Time_Zone_Fallback) . |
+| | 5 | -08:00 | Time Zone - ISO8601 time zone format. For more information about timezone formats, see [Appendix J: Time Zone Display Names](http://www.unicode.org/reports/tr35/#Time_Zone_Fallback) . |
 
 ## Summary
 

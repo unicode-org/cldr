@@ -17,6 +17,14 @@ skip ; \[@alt="[^"]*proposed
 Specialized Wildcards
 There are a couple of extra features of the regex. For the coverage level (and perhaps others), we need some additional matches.
 [TBD - add more]
+Variable	Description
+$locale	the locale of the XML file in question
+$eu	the EU languages
+$localeScripts	the scripts used in this locale, eg (Latn|Cyrl|Arab)
+$modernCurrencies	currencies that are currently valid tender in some country
+$localeRegions	countries/regions that have the locale's language as an official language
+$localeCurrencies	modern currencies for the $localeRegions
+$modernMetazones	metazones ...
 Issue:
 I'm thinking that we may want to append the value to the path (eg .../_VALUE="...") to allow for matching on that.
 Use XML instead of ; format?

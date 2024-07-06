@@ -32,7 +32,7 @@ true ; exemplarCharacters
 
 You can also have special purpose pairs, such as the following to remove the alts at the front.
 
-skip ; \[@alt="[^"]\*proposed
+skip ; \\[@alt="[^"]\*proposed
 
 **Specialized Wildcards**
 

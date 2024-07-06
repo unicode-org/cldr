@@ -10,7 +10,7 @@ title: Pattern character for “related year”
 |  Date |  2014-Feb-11 |  |
 |  Status |  Proposal |  |
 |  Feedback to |  pedberg (at) apple (dot) com |  |
-|  Bugs |  # [6938](https://unicode-org.atlassian.net/browse/CLDR-6938) |  |
+|  Bugs |  # [6938](http://unicode.org/cldr/trac/ticket/6938) |  |
 
 In locales that use non-Gregorian calendars, it is often common to display some portion of a Gregorian or Gregorian-like date along with the formatted non-Gregorian date. This can take various forms:
 

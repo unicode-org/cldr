@@ -1,4 +1,9 @@
 Pattern character for “related year”
+Author	Peter Edberg	
+Date	2014-Feb-11	
+Status	Proposal	
+Feedback to	pedberg (at) apple (dot) com	
+Bugs	# 6938	
 In locales that use non-Gregorian calendars, it is often common to display some portion of a Gregorian or Gregorian-like date along with the formatted non-Gregorian date. This can take various forms:
 For non-Gregorian calendars that are “Gregorian-like” (only the current-era year is different) such as the Japanese emperor-year calendar, the Gregorian year may be shown along with the calendar’s current year. For example, using the Japanese calendar in the Japanese locale, a common display format would be something like “2012(平成24)年1月15日” (year portion in yellow).
 For non-Gregorian luni-solar calendars in which years are named in a 60-year cycle but eras are not used, the formatted date is ambiguous (it is not clear which era it belongs to, so it cannot be parsed reliably). Furthermore, users of the calendar may be unsure of the mapping between the named year and nearby years in the Gregorian or Gregorian-like calendar that they use for other purposes. To address this, there are two common conventions:

@@ -1,6 +1,6 @@
 XMB
 Introduction
-Adds tools to CLDR to convert to and from the XMB message format. The XMB format is basically a key-value pair list, with no deeper structure. It does have a mechanism for named placeholders, with descriptions and examples. The  messages for any given other language must correspond 1:1 with those of English.
+Adds tools to CLDR to convert to and from the XMB message format. The XMB format is basically a key-value pair list, with no deeper structure. It does have a mechanism for named placeholders, with descriptions and examples. The messages for any given other language must correspond 1:1 with those of English.
 The goal is to allow for bulk translation of CLDR files via existing translation tooling.
 Examples:
 ENGLISH
@@ -19,28 +19,32 @@ FRENCH
 The id is common across the different languages. The description, the placeholder names and the placeholder examples (<ex>) are visible to the translator, as is the text between placeholders, of course. The translator can change the order of the placeholders, but they cannot be removed (or added).
 The main tool for converting CLDR to this format is at GenerateXMB.java. It reads the en.xml file, and puts together a EnglishInfo object that has a mapping from paths to descriptions and placeholders. It also generates the English XMB file for translation. Next, each of the other CLDR locale files are read and their data is used to populate a separate XTB file for translation memory.
 Files:
-xmb-en.xml
-xtb-fr.xml
-The base English file, for translation into other languages
-Sample file (fr) for translation memory. Missing entries would be translated.
+xmb-en.xml	The base English file, for translation into other languages
+xtb-fr.xml	Sample file (fr) for translation memory. Missing entries would be translated.
 Others are at xmb/.
 The documentation files are at http://cldr.org/translation.
 Log Files
 The tool generates log files during processing, targeted at development and debugging.
 Examples:
+log/	en-missingDescriptions.txt	The paths that don't yet have descriptions in them, which need to be added to xmbHandling.txt .
+log/	en-paths.txt	The paths used for the base English file.
+filtered/	xmb-en.xml	A filtered xmb-en.xml file that contains exactly one item per "starred" path (where a starred path is one with attribute values removed). Useful for reviewing descriptions.
+filtered/	xtb-fr.xml	A filtered sample (fr) xml file.
+skipped/	xmb-en.txt	The paths that are skipped out of the base English file.
+skipped/	xtb-fr.txt	The paths that are skipped out of the sample (fr) file.
 Placeholders
 Replaces the placeholders ("{0}", "MMM", etc.) in patterns by variable names with examples. This is data-driven, using the file at xmbPlaceholders.txt.
 Format:
-path_regex ; variable=name example
+ path_regex ; variable=name example
 The name cannot contain spaces.
 Example:
-^//ldml/dates/.*(pattern|available|intervalFormatItem) ; EEEE=DAY_OF_WEEK_LONG Tuesday
+ ^//ldml/dates/.*(pattern|available|intervalFormatItem) ; EEEE=DAY_OF_WEEK_LONG Tuesday
 Filtering and descriptions
 Data driven, using the file xmbHandling.txt.
 Format:
-path_regex ; description
-path_regex ; SKIP
-path_regex ; ROOT type_value; description
+ path_regex ; description
+ path_regex ; SKIP
+ path_regex ; ROOT type_value; description
 If the value is SKIP, then the path is skipped.
 The description can have {0}-style variables in it. If so, then the (...) values in the path_regex are substituted for them.
 If the value starts with ROOT, then the path is skipped if the type_value is not in ROOT, where the type_value is from the first capture group. This is used to make sure that the type_value is in the major coverage requirements for: language, script, territory, currency, timezone, and metazone. The description can have placeholders, as in case 21.

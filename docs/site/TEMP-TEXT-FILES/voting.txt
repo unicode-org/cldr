@@ -23,5 +23,11 @@ For each value, each organization gets a vote based on the maximum (not cumulati
 If there is a dispute (votes for different values) within an organization, then the majority vote for that organization is chosen. If there is a tie, then no vote is counted for the organization.
 Let O be the optimal value's vote, N be the vote of the next best value, and G be the number of organizations that voted for the optimal value.
 Assign the draft status according to the first of the conditions below that applies:
+Resulting Draft Status	Condition
+approved - critical loc	O ≥ 8 and O > N
+approved - non-critical loc	O ≥ 4 and O > N
+contributed	O ≥ 2 and O > N and G ≥ 2
+provisional	O ≥ 2 and O ≥ N
+unconfirmed	otherwise
 If the draft status of the previously released value is better than the new draft status, then no change is made. Otherwise, the optimal value and its draft status are made part of the new release.
 In our previous version, approved required O ≥ 8.

@@ -84,7 +84,7 @@ Example:
 
 ### Filtering and descriptions
 
-Data driven, using the file[xmbHandling.txt](http://unicode.org/cldr/trac/browser/trunk/tools/java/org/unicode/cldr/tool/xmbHandling.txt).
+Data driven, using the file [xmbHandling.txt](http://unicode.org/cldr/trac/browser/trunk/tools/java/org/unicode/cldr/tool/xmbHandling.txt).
 
 Format:
 
@@ -100,9 +100,9 @@ Format:
 
 Example:
 
-^//ldml/dates/timeZoneNames/metazone\[@type=".\*"]/commonlyUsed ; SKIP
+^//ldml/dates/timeZoneNames/metazone\\[@type=".\*"]/commonlyUsed ; SKIP
 
-^//ldml/dates/timeZoneNames/zone\[@type=".\*"]/exemplarCity ; The name of a city in: {0}. See cldr.org/xxxx.
+^//ldml/dates/timeZoneNames/zone\\[@type=".\*"]/exemplarCity ; The name of a city in: {0}. See cldr.org/xxxx.
 
 ### Plurals
 
@@ -159,5 +159,5 @@ other {# weeks}}}}\</msg>
 - Do the conversion from xtb into cldr format to make sure we roundtrip.
 - Figure out how to do the differences between HH and hh, etc.
     - Current thoughts: don't let the translator choose, but make it part of the xtb-cldr processing.
-    
+
 ![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

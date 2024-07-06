@@ -26,7 +26,8 @@ This proposal adds some additional structure to CLDR's DTD to allow applications
 
 &emsp;\<!--@DEPRECATED:true, false-->
 
-2. Under the "otherNumberingSystems" element, add an additional numbering system called "math", that can be used to handle those situations where the default numbering system for the locales differs from the numbering system used in mathematical formulas. We can and should document in[tr35](http://www.unicode.org/reports/tr35/tr35-numbers.html#otherNumberingSystems) , that if the "math" numbering system is not defined for a locale, then the default numbering system should be used
+2. Under the "otherNumberingSystems" element, add an additional numbering system called "math", that can be used to handle those situations where the default numbering system for the locales differs from the numbering system used in mathematical formulas. We can and should document in [tr35](http://www.unicode.org/reports/tr35/tr35-numbers.html#otherNumberingSystems) , that if the "math" numbering system is not defined for a locale, then the default numbering system should be used
+
 \<!ELEMENT otherNumberingSystems ( alias | ( native\*, traditional\*, finance\*, **math\***, special\* ) ) >
 
 \<!ELEMENT math ( #PCDATA ) >

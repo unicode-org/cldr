@@ -58,7 +58,7 @@ Note that this doesn't have to be an N x M algorithm. Because there is a minimum
 Data Sample
 The data is designed to be relatively simple to understand. It would typically be processed into an internal format for fast processing. The data does not need to be exact; only the relative computed values are important. However, for keep the types of fields apart, they are given very different values. TODO: add values for ISO 636 Deprecation Requests - DRAFT
 <languageDistances>
-<!-- Essentially synonyms.  Note that true synonyms like he/iw are handled by default below. -->
+<!-- Essentially synonyms. Note that true synonyms like he/iw are handled by default below. -->
 <distance desired="tl" available="fil">8</distance>
 <distance desired="no" available="nb">1</distance>
 <distance desired="ro-MO" available="mo">1</distance>
@@ -82,9 +82,9 @@ The data is designed to be relatively simple to understand. It would typically b
 <distance desired="en-Zzzz-155" available="en-Zzzz-ZZ">64</distance> <!-- They aren't close to GB -->
 <distance desired="en-Zzzz-ZZ" available="en-Zzzz-ZZ">8</distance> <!-- All others are closer to GB, and each other -->
 <!-- default distances.
-Must be last!
-Note that deprecated differences in the alias file are given a weight of 1,
-and before this point. -->
+ Must be last!
+ Note that deprecated differences in the alias file are given a weight of 1,
+ and before this point. -->
 <distance desired="und" available="*">1024</distance> <!-- default language distance -->
 <distance desired="und-Zzzz" available="*">256</distance> <!-- default script distance -->
 <distance desired="und-Zzzz-ZZ" available="*">64</distance> <!-- default region distance -->

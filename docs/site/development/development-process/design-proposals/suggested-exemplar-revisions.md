@@ -8,7 +8,7 @@ I've been doing some analysis of character frequency, and on that basis have the
 
 As a reminder, the **main** exemplar characters are those that are required for native words in modern customary use. For example, "a-z" suffice for English. The **aux** exemplar characters include other characters that would not be unexpected in common non-technical publications: those that are native but not required (eg, *ö* as in *coöperate*, or "pronunced *dāvĭs*"), foreign loan words (eg, *résumé*). [A useful source of the aux letter are newspaper style guidelines.]
 
-There is a breakdown on [http://www.unicode.org/repos/cldr-tmp/trunk/dropbox/mark/exemplars/summary.html](http://www.unicode.org/repos/cldr-tmp/trunk/dropbox/mark/exemplars/summary.html). Note the following:
+There is a breakdown on http://www.unicode.org/repos/cldr-tmp/trunk/dropbox/mark/exemplars/summary.html. Note the following:
 
 - Characters (more precisely, combining character sequences) are given in rough frequency order, in boxes colored according to the relationship to the CLDR exemplar sets.
 - Some of the changes below have already been incorporated (marked in italic). Note that the characters inside the boxes are not ordered by frequency, but the boxes are (rightmost containing more frequent characters).
@@ -16,7 +16,7 @@ There is a breakdown on [http://www.unicode.org/repos/cldr-tmp/trunk/dropbox/mar
 - The characters are partially normalized (width, Arabic shapes, NFC).
 - The characters are from a sample of the web, about 800M docs, and 5T characters.
 
-Here are my suggestions. Please send feedback to [mark@macchiato.com](mailto:mark@macchiato.com) with any other suggestions, or add comments to [http://unicode.org/cldr/trac/ticket/2789](http://unicode.org/cldr/trac/ticket/2789).
+Here are my suggestions. Please send feedback to [mark@macchiato.com](mailto:mark@macchiato.com) with any other suggestions, or add comments to http://unicode.org/cldr/trac/ticket/2789.
 
 ### Suggestions
 

@@ -7,42 +7,42 @@ In the unlikely event that we have a collision between a special transform code 
 For the special codes, we should probably switch to aliases that have a low probability of collision, eg > 3 letters always.
 Language tag fallback
 If the source or target is a Unicode language ID, then a fallback is followed, with some additions.
-01. az_Arab_IR
-02. az_Arab
-03. az_IR
-04. az
-05. Arab
-06. Cyrl
+az_Arab_IR
+az_Arab
+az_IR
+az
+Arab
+Cyrl
 The fallback additions are:
 We fallback also through the country (03). This is along the lines we've otherwise discussed for BCP47 support, and that we should clarify in the spec.
 Once the language is reached, we fall back to script; first the specified script if there is one (05), then the likely script for lang (06 - if different than 05)
 Laddered fallback
 The source, target, and varient use "laddered" fallback. That is, in pseudo code:
 a. for variant in variant-chain
-b.   for target in target-chain
-c.      for source in source-chain
-transform = lookup source-target/variant
-if transform != null return transform
+b. for target in target-chain
+c. for source in source-chain
+ transform = lookup source-target/variant
+ if transform != null return transform
 ..
 For example, here is the chain for ru_RU-el_GR/BGN. I'm spacing out the source, target, and variant for clarity.
-01. ru_RU    - el_GR    /BGN
-02. ru       - el_GR    /BGN
-03. Cyrl     - el_GR    /BGN
-04. ru_RU    - el       /BGN
-05. ru       - el       /BGN
-06. Cyrl     - el       /BGN
-07. ru_RU    - Grek     /BGN
-08. ru       - Grek     /BGN
-09. Cyrl     - Grek     /BGN
-10. ru_RU    - el_GR
-11. ru       - el_GR
-12. Cyrl     - el_GR
-13. ru_RU    - el
-14. ru       - el
-15. Cyrl     - el
-16. ru_RU    - Grek
-17. ru       - Grek
-18. Cyrl     - Grek
+ru_RU - el_GR /BGN
+ru - el_GR /BGN
+Cyrl - el_GR /BGN
+ru_RU - el /BGN
+ru - el /BGN
+Cyrl - el /BGN
+ru_RU - Grek /BGN
+ru - Grek /BGN
+Cyrl - Grek /BGN
+ru_RU - el_GR
+ru - el_GR
+Cyrl - el_GR
+ru_RU - el
+ru - el
+Cyrl - el
+ru_RU - Grek
+ru - Grek
+Cyrl - Grek
 Comments:
 The above is not how ICU code works. That code actually discards the variant if the exact match is not found, so lines 02-09 are not queried at all. I think that is definitely a mistake.
 Personally, I think the above chain might not be optimal; that it would be better to have BGN be stronger than country difference, but not as strong as Script. However, in conversations with Markus, I was convinced that a simple story for how it works is probably the best, and the above is simpler to explain and easier to implement.

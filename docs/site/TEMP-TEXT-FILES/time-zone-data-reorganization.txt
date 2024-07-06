@@ -63,16 +63,16 @@ supplementalData.xml
 ...
 </mapTimezones>
 Hige Level Proposal
-- bcp47/timezone.xml must be there, because all keyword keys/types must reside in bcp47/*.xml.  Therefore, f) (2) <bcpKeywordMappings> should be deprecated (this is an invert mapping table)
-- The set of canonical Unicode time zone IDs is defined by bcp47/timezone.xml.  Because we do not want to maintain the set in multiple places, long ID aliases could be embedded in bcp47/timezone.xml.
-- Metazone tables (b and c) should be in a single file
-- Territory mapping is almost equivalent to zone.tab in tzdata (minor exception - zone.tab does not include deprecated zones).  I think it is not worth maintaining the data in CLDR.  Therefore, d) and e) should be deprecated / no corresponding data in 1.8
-- Windows tz mapping is independently maintained - it should be moved into a new file.  Side note: A single Windows tz could be mapped to multiple zones in future.
+bcp47/timezone.xml must be there, because all keyword keys/types must reside in bcp47/*.xml. Therefore, f) (2) <bcpKeywordMappings> should be deprecated (this is an invert mapping table)
+The set of canonical Unicode time zone IDs is defined by bcp47/timezone.xml. Because we do not want to maintain the set in multiple places, long ID aliases could be embedded in bcp47/timezone.xml.
+Metazone tables (b and c) should be in a single file
+Territory mapping is almost equivalent to zone.tab in tzdata (minor exception - zone.tab does not include deprecated zones). I think it is not worth maintaining the data in CLDR. Therefore, d) and e) should be deprecated / no corresponding data in 1.8
+Windows tz mapping is independently maintained - it should be moved into a new file. Side note: A single Windows tz could be mapped to multiple zones in future.
 New Data Organization
-1. bcp47/timezone.xml
+bcp47/timezone.xml
 Add long aliases - for example
 <type name="erasm" alias="Africa/Asmera Africa/Asmara"/>
-2. metazoneInfo.xml
+metazoneInfo.xml
 Add b) into this file
-3. wintz.xml (new)
+wintz.xml (new)
 Store only g).

@@ -151,7 +151,7 @@ For the other controls, including support of the CSS word-break property, I thin
 ```
 <key name="lc” description="Line break class remapping“>
 
-	<type name=“LB\_CLASS\_MAP\_CODE” description=“One or more linebreak class mapping codes, see xxx”/>
+	<type name=“LB_CLASS_MAP_CODE” description=“One or more linebreak class mapping codes, see xxx”/>
 ```
 
 where LB\_CLASS\_MAP\_CODE is a sequence of one or more of the following codes (separated by - or \_):
@@ -218,9 +218,9 @@ Current (2015-02-18) work under CLDR #[4931](http://unicode.org/cldr/trac/ticket
 3. In ICU icu/trunk/source/data/xml/brkitr/ files such as root.xml, fi.xml, and ja.xml, add lines mapping the line break types to corresponding rule files, e.g. in root:
 
 ```
-<icu:line alt="loose" icu:dependency="line\_loose.brk"/>
+<icu:line alt="loose" icu:dependency="line_loose.brk"/>
 
-<icu:line alt="normal" icu:dependency="line\_normal.brk"/>
+<icu:line alt="normal" icu:dependency="line_normal.brk"/>
 
 <icu:line alt="strict" icu:dependency="line.brk"/>
 ```
@@ -231,20 +231,20 @@ Current (2015-02-18) work under CLDR #[4931](http://unicode.org/cldr/trac/ticket
 5. In ICU, add 6 new line break rule files in source/data/brkitr/ (and delete line\_ja.txt):
 
 ```
-line\_loose.txt
+line_loose.txt
 
-line\_loose\_cj.txt
+line_loose_cj.txt
 
-line\_loose\_fi.txt
+line_loose_fi.txt
 
-line\_normal.txt
+line_normal.txt
 
-line\_normal\_cj.txt
+line_normal_cj.txt
 
-line\_normal\_fi.txt
+line_normal_fi.txt
 ```
 
-These result in an increase of about 630K bytes (2.5%) in the data file. These can be tailored out in cases for which it is a problem, either by deleting lines from the ICUdata/xml/brkitr/ files if building from CLDR data, or by deleting corresponding lines in the data/brkitr/<locale>.txt files and deleting the unused files from BRK\_SOURCE in data/brkitr/brkfiles.mk. #[11530](http://bugs.icu-project.org/trac/ticket/11530) is to investigate a more efficient way of representing the line break rule variants.
+These result in an increase of about 630K bytes (2.5%) in the data file. These can be tailored out in cases for which it is a problem, either by deleting lines from the ICUdata/xml/brkitr/ files if building from CLDR data, or by deleting corresponding lines in the data/brkitr/\<locale>.txt files and deleting the unused files from BRK\_SOURCE in data/brkitr/brkfiles.mk. #[11530](http://bugs.icu-project.org/trac/ticket/11530) is to investigate a more efficient way of representing the line break rule variants.
 
 Note that the CLDR representation of the line break rules have not yet been updated to match (they are currently ignored when generating ICU data).
 
@@ -297,7 +297,7 @@ Current default value is "none". In the future we hope to make the default "stan
 a) In ICU4C BreakIterator::makeInstance, for kind = UBRK\_SENTENCE, if locale has key "ss" with value "standard", then call FilteredBreakIteratorBuilder on the result of BreakIterator::buildInstance to produce a new BreakIterator\* which supports the sentence break exceptions. Notes:
 
 - Currently FilteredBreakIteratorBuilder does not have a way to support different segmentation suppression sets, it only supports the "standard" set.
-- A BreakIterator produced in this way currently supports the next() method but not the other BreakIterator methods for moving through text (see[class details](http://icu-project.org/apiref/icu4c/classicu_1_1FilteredBreakIteratorBuilder.html#details)). This should be fixed fairly soon.
+- A BreakIterator produced in this way currently supports the next() method but not the other BreakIterator methods for moving through text (see [class details](http://icu-project.org/apiref/icu4c/classicu_1_1FilteredBreakIteratorBuilder.html#details)). This should be fixed fairly soon.
 
 b) In ICU4C RuleBasedBreakIterator::handleNext and handlePrevious, for now we can implement an approximation of support for the key "lw" values by alteriing the character classes as follows (similar to the behavior in section D2 above):
 
@@ -342,7 +342,7 @@ Currently in CLDR we can have a structure locale-specific break iterator data ic
 			</suppressions
 ```
 
-We could an attribute "alt" for <segmentation> to specify the specific variant (corresponds to the value for the -gb or -lb keyword, for example), though this would currently be ignored for LDML to ICU conversion:
+We could an attribute "alt" for \<segmentation> to specify the specific variant (corresponds to the value for the -gb or -lb keyword, for example), though this would currently be ignored for LDML to ICU conversion:
 
 ```<segmentation type="LineBreak" alt="strict">```
 
@@ -367,7 +367,7 @@ and currently looks like this for root (any locale-specific data uses a subset o
 
 			<icu:word icu:dependency="word.brk"/>
 
-			<icu:line icu:dependency="line.brk"/> or e.g. "line\_xx.brk" in locale-specific data
+			<icu:line icu:dependency="line.brk"/> or e.g. "line_xx.brk" in locale-specific data
 
 			…
 
@@ -398,7 +398,7 @@ Note that the following attributes for the boundaries subelements (icu:word etc.
 
 ```icu:import NMTOKEN #IMPLIED```
 
-We could define an additional attribute "alt" and then use that to match the CLDR <segmentations> alt attribute:
+We could define an additional attribute "alt" and then use that to match the CLDR \<segmentations> alt attribute:
 
 ```
 <icu:boundaries>
@@ -407,7 +407,7 @@ We could define an additional attribute "alt" and then use that to match the CLD
 
 	<icu:grapheme alt="extended" icu:dependency="char.brk"/>
 
-	<icu:grapheme alt="legacy" icu:dependency="char\_legacy.brk"/>
+	<icu:grapheme alt="legacy" icu:dependency="char_legacy.brk"/>
 
 	…
 
@@ -415,7 +415,7 @@ We could define an additional attribute "alt" and then use that to match the CLD
 
 	<icu:line alt="normal" icu:dependency="line.brk"/>
 
-	<icu:line alt="strict" icu:dependency="line\_strict.brk"/>
+	<icu:line alt="strict" icu:dependency="line_strict.brk"/>
 
 	…
 
@@ -459,7 +459,7 @@ xx{
 
 	boundaries{
 
-		line:process(dependency){"line\_xx.brk"}
+		line:process(dependency){"line_xx.brk"}
 
 	}
 
@@ -487,17 +487,17 @@ boundaries{
 
 	grapheme:process(dependency){"char.brk"}
 
-	grapheme\_extended:process(dependency){"char.brk"}
+	grapheme_extended:process(dependency){"char.brk"}
 
-	grapheme\_legacy:process(dependency){"char\_legacy.brk"}
+	grapheme_legacy:process(dependency){"char_legacy.brk"}
 
 	…
 
 	line:process(dependency){"line.brk"}
 
-	line\_normal:process(dependency){"line.brk"}
+	line_normal:process(dependency){"line.brk"}
 
-	line\_strict:process(dependency){"line\_strict.brk"}
+	line_strict:process(dependency){"line_strict.brk"}
 
 	…
 
@@ -512,7 +512,7 @@ BreakIterator::buildInstance is called by BreakIterator::makeInstance, which pro
 
 The use of dictionary break depends on the existence in the rules of a variable "$dictionary" which defines the UnicodeSet of characters for which dictionary break should be used.
 
-For line break, this is defined as “```$dictionary = [:LineBreak = Complex\_Context:];```” where the Line\_Break property value Complex\_Context is equivalent to SA and applies to most letters, marks, and some other signs in Southeast Asian scripts: Thai, Lao, Myanmar, Khmer, Tai Le, New Tai Lue, Tai Tham, Tai Viet, etc. For word break, in addition to characters with Line\_Break property value SA, the $dictionary set includes characters with script Han, Hiragana, Katakana, as well as composed Hangul syllables in the range \uAC00-\uD7A3 (not sure why the latter are included, since we do not have dictionary support for them).
+For line break, this is defined as “```$dictionary = [:LineBreak = Complex_Context:];```” where the Line\_Break property value Complex\_Context is equivalent to SA and applies to most letters, marks, and some other signs in Southeast Asian scripts: Thai, Lao, Myanmar, Khmer, Tai Le, New Tai Lue, Tai Tham, Tai Viet, etc. For word break, in addition to characters with Line\_Break property value SA, the $dictionary set includes characters with script Han, Hiragana, Katakana, as well as composed Hangul syllables in the range \uAC00-\uD7A3 (not sure why the latter are included, since we do not have dictionary support for them).
 
 In both cases, the rules are defined to disallow breaks between characters in the $dictionary set. When determine the next or previous break, the iterator first determines the break using the normal rules (which will not break between characters in the $dictionary set); in the process it marks which characters are handled by a dictionary break engine (For each script that has a break dictionary, the associated break engine defines a more specific set of characters to which it applies). If characters handled by a dictionary break engine were encountered, the break iterator then invokes the dictionary break engines to determine breaks within the $dictionary-set span.
 

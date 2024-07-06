@@ -10,7 +10,7 @@ title: Secular/neutral eras
 | Date | 2013-04-23,24 |
 | Status | Proposal |
 | Feedback to | pedberg (at) apple (dot) com |
-| Bugs | - #649 Write up PRI on secular forms of Eras (eg CE)<br /> - #1574 Calendar-gregorian era : Add "CE" and "BCE" as additional alternate era terms<br /> - #4656 Calendar-gregorian era : Add "CE" and "BCE" as additional alternate era terms  |
+| Bugs | - [#649](http://unicode.org/cldr/trac/ticket/649) Write up PRI on secular forms of Eras (eg CE)<br /> - [#1574](http://unicode.org/cldr/trac/ticket/1574) Calendar-gregorian era : Add "CE" and "BCE" as additional alternate era terms<br /> - [#4656](http://unicode.org/cldr/trac/ticket/4656) Calendar-gregorian era : Add "CE" and "BCE" as additional alternate era terms  |
 
 Currently for gregorian we have the following in "root":
 

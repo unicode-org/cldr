@@ -9,7 +9,7 @@ title: Search collators
 | Author | Peter Edberg |
 | Date | 2010-04-06 |
 | Status | Proposal |
-| Bugs | 2182, 2160, 2257 |
+| Bugs | [2182](http://unicode.org/cldr/trac/ticket/2182), [2160](http://unicode.org/cldr/trac/ticket/2160), [2257](http://unicode.org/cldr/trac/ticket/2257) |
 
 ## Background
 

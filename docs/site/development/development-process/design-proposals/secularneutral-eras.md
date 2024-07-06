@@ -20,7 +20,7 @@ Currently for gregorian we have the following in "root":
         <alias source="locale" path="../eraAbbr"/>
     </eraNames>
     <eraAbbr>
-        <era type="0">BE\</era>
+        <era type="0">BE</era>
         <!-- = 544 BC gregorian. -->
     </eraAbbr>
     <eraNarrow>

@@ -1,4 +1,8 @@
 Proposed Collation Additions
+Author	Mark Davis, Markus Scherer, Michael Fairley
+Date	2009-06-23
+Status	Proposal
+Bugs	insert linked bug numbers here
 Script Reordering
 We would like to add script reordering as a new collation setting. This will allow, for example, sorting Greek before Latin, and digits after all letters, without listing all affected characters in the rules. Since this is a parameter, it can also be changed at runtime without changing any rules.
 This will be implemented via a permutation table for primary collation weights. See the original (somewhat outdated) ICU collation design doc for reference:

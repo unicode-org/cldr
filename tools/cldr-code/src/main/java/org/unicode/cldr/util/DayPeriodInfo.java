@@ -459,6 +459,42 @@ public class DayPeriodInfo {
             }
         }
 
+        // Fix for CLDR-16933, for format types only
+        // Let midnight match a non-fixed period that starts at, ends at, or contains midnight (both
+        // versions);
+        // Let noon match a non-fixed period that starts at, ends at, or contains noon (or just
+        // before noon);
+        if (type1 == Type.format && type2 == Type.format) {
+            if (dayPeriod1 == DayPeriod.midnight && !dayPeriod2.isFixed()) {
+                for (Span s : dayPeriodsToSpans.get(dayPeriod2)) {
+                    if (s.contains(MIDNIGHT) || s.contains(DAY_LIMIT)) {
+                        return false;
+                    }
+                }
+            }
+            if (dayPeriod2 == DayPeriod.midnight && !dayPeriod1.isFixed()) {
+                for (Span s : dayPeriodsToSpans.get(dayPeriod1)) {
+                    if (s.contains(MIDNIGHT) || s.contains(DAY_LIMIT)) {
+                        return false;
+                    }
+                }
+            }
+            if (dayPeriod1 == DayPeriod.noon && !dayPeriod2.isFixed()) {
+                for (Span s : dayPeriodsToSpans.get(dayPeriod2)) {
+                    if (s.contains(NOON) || s.contains(NOON - 1)) {
+                        return false;
+                    }
+                }
+            }
+            if (dayPeriod2 == DayPeriod.noon && !dayPeriod1.isFixed()) {
+                for (Span s : dayPeriodsToSpans.get(dayPeriod1)) {
+                    if (s.contains(NOON) || s.contains(NOON - 1)) {
+                        return false;
+                    }
+                }
+            }
+        }
+
         // we use the more lenient if they are mixed types
         if (type2 == Type.format) {
             type1 = Type.format;

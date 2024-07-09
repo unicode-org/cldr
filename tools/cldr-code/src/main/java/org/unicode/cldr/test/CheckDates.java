@@ -548,7 +548,9 @@ public class CheckDates extends FactoryCheckCLDR {
                 final boolean isDayPeriod = path.contains("dayPeriod");
                 if (isDayPeriod) {
                     XPathParts parts = XPathParts.getFrozenInstance(fullPath);
-                    type = Type.fromString(parts.getAttributeValue(5, "type"));
+                    type =
+                            Type.fromString(
+                                    parts.getAttributeValue(5, "type")); // format, stand-alone
                     dayPeriod = DayPeriod.valueOf(parts.getAttributeValue(-1, "type"));
                 }
 
@@ -577,7 +579,10 @@ public class CheckDates extends FactoryCheckCLDR {
                     }
                     if (isDayPeriod) {
                         // ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="am"]
-                        Type itemType = Type.fromString(itemParts.getAttributeValue(5, "type"));
+                        Type itemType =
+                                Type.fromString(
+                                        itemParts.getAttributeValue(
+                                                5, "type")); // format, stand-alone
                         DayPeriod itemDayPeriod =
                                 DayPeriod.valueOf(itemParts.getAttributeValue(-1, "type"));
 

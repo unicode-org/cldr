@@ -39,6 +39,8 @@ const NO_WINNING_VALUE = "no-winning-value";
  */
 const EMPTY_ELEMENT_VALUE = "❮EMPTY❯";
 
+let lastShown = null;
+
 /**
  * Prepare rows to be inserted into the table
  *
@@ -658,7 +660,7 @@ function updateRowStatusCell(tr, theRow, cell) {
   cell.className = "d-dr-" + statusClass + " statuscell";
   cell.innerHTML = getStatusIcon(statusClass);
   if (!cell.isSetup) {
-    cldrInfo.listen("", tr, cell, null);
+    listen("", tr, cell, null);
     cell.isSetup = true;
   }
 
@@ -738,7 +740,7 @@ function updateRowCodeCell(tr, theRow, cell) {
     cldrSurvey.appendExtraAttributes(cell, theRow);
   }
   if (!cell.isSetup) {
-    cldrInfo.listen("", tr, cell, null);
+    listen("", tr, cell, null);
     cell.isSetup = true;
   }
 }
@@ -781,7 +783,7 @@ function updateRowEnglishComparisonCell(tr, theRow, cell) {
     }
     cell.appendChild(infos);
   }
-  cldrInfo.listen(null, tr, cell, null);
+  listen(null, tr, cell, null);
   if (cldrStatus.getPermissions()?.userIsTC) {
     cldrAddAlt.addButton(cell, theRow.xpstrid);
   }
@@ -826,7 +828,7 @@ function updateRowProposedWinningCell(tr, theRow, cell, protoButton) {
   } else {
     cell.showFn = function () {}; // nothing else to show
   }
-  cldrInfo.listen(null, tr, cell, cell.showFn);
+  listen(null, tr, cell, cell.showFn);
 }
 
 /**
@@ -977,7 +979,7 @@ function updateRowOthersCell(tr, theRow, cell, protoButton, formAdd) {
   }
 
   if (!hadOtherItems /*!onIE*/) {
-    cldrInfo.listen(null, tr, cell);
+    listen(null, tr, cell);
   }
   if (
     tr.myProposal &&
@@ -1055,7 +1057,7 @@ function addVitem(td, tr, theRow, item, newButton) {
     const historyText = " ☛" + item.history;
     const historyTag = cldrDom.createChunk(historyText, "span", "");
     choiceField.appendChild(historyTag);
-    cldrInfo.listen(historyText, tr, historyTag, null);
+    listen(historyText, tr, historyTag, null);
   }
 
   const surveyUser = cldrStatus.getSurveyUser();
@@ -1077,14 +1079,28 @@ function addVitem(td, tr, theRow, item, newButton) {
   div.appendChild(choiceField);
 
   // wire up the onclick function for the Info Panel
-  td.showFn = item.showFn = cldrInfo.showItemInfoFn(theRow, item);
+  td.showFn = item.showFn = showItemInfoFn(theRow, item);
   div.popParent = tr;
-  cldrInfo.listen(null, tr, div, td.showFn);
+  listen(null, tr, div, td.showFn);
   td.appendChild(div);
 
   if (item.example && item.value != item.examples) {
     appendExample(div, item.example);
   }
+}
+
+/**
+ * Return a function that will set theRow.selectedItem, which will result in
+ * showing info for the given candidate item in the Info Panel.
+ *
+ * @param {Object} theRow the data row
+ * @param {JSON} item JSON of the specific candidate item we are adding
+ * @returns the function
+ */
+function showItemInfoFn(theRow, item) {
+  return function (td) {
+    theRow.selectedItem = item;
+  };
 }
 
 /**
@@ -1227,7 +1243,7 @@ function updateRowNoAbstainCell(tr, theRow, noCell, proposedCell, protoButton) {
     noOpinion.value = null;
     const wrap = cldrVote.wrapRadio(noOpinion);
     noCell.appendChild(wrap);
-    cldrInfo.listen(null, tr, noCell);
+    listen(null, tr, noCell);
   } else if (tr.ticketOnly) {
     // ticket link
     if (!tr.theTable.json.canModify) {
@@ -1334,6 +1350,71 @@ function goToHeaderId(headerId) {
   }
 }
 
+/**
+ * Make the object "theObj" respond to being clicked. Clicking a cell in the main
+ * vetting table should make the cell highlighted, update the URL bar to show
+ * the hex id of the path for the row in question, and update the Info Panel if
+ * the Info Panel is open.
+ *
+ * This function suffers from extreme tech debt. It was formerly in the cldrInfo module.
+ * The fn parameter (a.k.a. showFn) shouldn't need to be preconstructed for each item in
+ * each row, attached to DOM elements, and passed around as a parameter in such a complicated way.
+ *
+ * @param {String} str the string to display
+ * @param {Node} tr the TR element that is clicked
+ * @param {Node} theObj to listen to, a.k.a. "hideIfLast"
+ * @param {Function} fn the draw function
+ */
+function listen(str, tr, theObj, fn) {
+  cldrDom.listenFor(theObj, "click", function (e) {
+    if (cldrInfo.panelShouldBeShown()) {
+      cldrInfo.show(str, tr, theObj /* hideIfLast */, fn);
+    } else if (tr?.sethash) {
+      // These methods, updateCurrentId and setLastShown may be called from cldrInfo.show, if
+      // panelShouldBeShown() returned true. If the Info Panel is hidden then they still
+      // need to be called. Since they don't involve the Info Panel, the implementation
+      // should be changed to make them independent of the Info Panel and they should be
+      // called from a different module, not cldrInfo.
+      cldrLoad.updateCurrentId(tr.sethash);
+      setLastShown(theObj);
+    }
+    cldrEvent.stopPropagation(e);
+    return false;
+  });
+}
+
+function setLastShown(obj) {
+  if (lastShown && obj != lastShown) {
+    cldrDom.removeClass(lastShown, "pu-select");
+    const partr = parentOfType("TR", lastShown);
+    if (partr) {
+      cldrDom.removeClass(partr, "selectShow");
+    }
+  }
+  if (obj) {
+    cldrDom.addClass(obj, "pu-select");
+    const partr = parentOfType("TR", obj);
+    if (partr) {
+      cldrDom.addClass(partr, "selectShow");
+    }
+  }
+  lastShown = obj;
+}
+
+function resetLastShown() {
+  lastShown = null;
+}
+
+function parentOfType(tag, obj) {
+  if (!obj) {
+    return null;
+  }
+  if (obj.nodeName === tag) {
+    return obj;
+  }
+  return parentOfType(tag, obj.parentElement);
+}
+
 export {
   NO_WINNING_VALUE,
   EMPTY_ELEMENT_VALUE,
@@ -1344,8 +1425,11 @@ export {
   goToHeaderId,
   insertRows,
   isHeaderId,
+  listen,
   makeRowId,
   refreshSingleRow,
+  resetLastShown,
+  setLastShown,
   updateRow,
   /*
    * The following are meant to be accessible for unit testing only:

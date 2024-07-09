@@ -117,7 +117,7 @@ async function handleWiredClick(tr, theRow, vHash, newValue, button) {
     tr.myProposal = null; // mark any pending proposal as invalid.
   }
   tr.wait = true;
-  cldrInfo.reset();
+  cldrTable.resetLastShown();
   theRow.proposedResults = null;
   if (CLDR_VOTE_DEBUG) {
     logVote(tr.rowHash, vHash, value);
@@ -424,7 +424,7 @@ function showProposedItem(inTd, tr, theRow, value, tests, json) {
       }
       return retFn;
     };
-    cldrInfo.listen(null, tr, ourDiv, ourShowFn);
+    cldrTable.listen(null, tr, ourDiv, ourShowFn);
     cldrInfo.showRowObjFunc(tr, ourDiv, ourShowFn);
   }
   return false;

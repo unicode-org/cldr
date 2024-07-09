@@ -3,7 +3,6 @@
  */
 import * as cldrDeferHelp from "./cldrDeferHelp.mjs";
 import * as cldrDom from "./cldrDom.mjs";
-import * as cldrEvent from "./cldrEvent.mjs";
 import * as cldrForumPanel from "./cldrForumPanel.mjs";
 import * as cldrLoad from "./cldrLoad.mjs";
 import * as cldrNotify from "./cldrNotify.mjs";
@@ -28,7 +27,6 @@ let panelInitialized = false;
 let panelVisible = false;
 
 let unShow = null;
-let lastShown = null;
 
 let selectedItemWrapper = null;
 let regionalVariantsWrapper = null;
@@ -161,48 +159,6 @@ function updateOpenPanelButtons() {
   });
 }
 
-/**
- * Make the object "theObj" cause the info window to show when clicked.
- *
- * @param {String} str the string to display
- * @param {Node} tr the TR element that is clicked
- * @param {Node} theObj to listen to, a.k.a. "hideIfLast"
- * @param {Function} fn the draw function
- */
-// TODO: simplify this and related code to enable a cleaner and better organized
-// appearance using modern components. The fn parameter (a.k.a. showFn) shouldn't
-// need to be preconstructed for each item in each row, attached to DOM elements,
-// and passed around as a parameter in such a complicated way.
-// Reference: https://unicode-org.atlassian.net/browse/CLDR-7536
-// Currently this method is called as follows:
-// cldrTable.mjs:    cldrInfo.listen("", tr, cell, null);
-// cldrTable.mjs:    cldrInfo.listen(JSON.stringify(theRow), tr, js, null);
-// cldrTable.mjs:    cldrInfo.listen("", tr, cell, null);
-// cldrTable.mjs:    cldrInfo.listen(null, tr, cell, null);
-// cldrTable.mjs:    cldrInfo.listen(null, tr, cell, cell.showFn);
-// cldrTable.mjs:    cldrInfo.listen(null, tr, cell);
-// cldrTable.mjs:    cldrInfo.listen(historyText, tr, historyTag, null);
-// cldrTable.mjs:    cldrInfo.listen(null, tr, div, td.showFn);
-// cldrTable.mjs:    cldrInfo.listen(null, tr, noCell);
-// cldrVote.mjs:     cldrInfo.listen(null, tr, ourDiv, ourShowFn);
-function listen(str, tr, theObj, fn) {
-  cldrDom.listenFor(theObj, "click", function (e) {
-    if (panelShouldBeShown()) {
-      show(str, tr, theObj /* hideIfLast */, fn);
-    } else if (tr?.sethash) {
-      // These methods, updateCurrentId and setLastShown may be called from show(), if
-      // panelShouldBeShown() returned true. If the Info Panel is hidden then they still
-      // need to be called. Since they don't involve the Info Panel, the implementation
-      // should be changed to make them independent of the Info Panel and they should be
-      // called from a different module, not cldrInfo.
-      cldrLoad.updateCurrentId(tr.sethash);
-      setLastShown(theObj);
-    }
-    cldrEvent.stopPropagation(e);
-    return false;
-  });
-}
-
 // This method is now only used for getGuidanceMessage, for the Page table
 // before any row has been selected. Avoid using it for anything else.
 // cldrLoad.mjs: cldrInfo.showMessage(getGuidanceMessage(json.canModify));
@@ -212,11 +168,10 @@ function showMessage(str) {
   }
 }
 
-// TODO: simplify, similar problems to cldrInfo.listen. Reference: https://unicode-org.atlassian.net/browse/CLDR-7536
-// Currently called as follows:
-// cldrLoad.mjs:    cldrInfo.showRowObjFunc(xtr, xtr.proposedcell, xtr.proposedcell.showFn);
-// cldrTable.mjs:   cldrInfo.showRowObjFunc(tr, tr.proposedcell, tr.proposedcell.showFn);
-// cldrVote.mjs:    cldrInfo.showRowObjFunc(tr, ourDiv, ourShowFn);
+// Major tech debt here. Currently called as follows:
+// cldrLoad.mjs:   cldrInfo.showRowObjFunc(xtr, xtr.proposedcell, xtr.proposedcell.showFn);
+// cldrTable.mjs:  cldrInfo.showRowObjFunc(tr, tr.proposedcell, tr.proposedcell.showFn);
+// cldrVote.mjs:   cldrInfo.showRowObjFunc(tr, ourDiv, ourShowFn);
 function showRowObjFunc(tr, hideIfLast, fn) {
   if (panelShouldBeShown()) {
     show(null, tr, hideIfLast, fn);
@@ -257,10 +212,12 @@ function show(str, tr, hideIfLast, fn) {
     unShow();
     unShow = null;
   }
+  // Ideally, updateCurrentId and setLastShown should be called from cldrTable, not cldrInfo,
+  // however it's not clear whether they need to be called after openPanel and unShow
   if (tr?.sethash) {
     cldrLoad.updateCurrentId(tr.sethash);
   }
-  setLastShown(hideIfLast);
+  cldrTable.setLastShown(hideIfLast);
   addDeferredHelp(tr?.theRow); // if !tr.theRow, erase (as when click Next/Previous)
   addPlaceholderHelp(tr?.theRow); // ditto
   addInfoMessage(str);
@@ -517,38 +474,6 @@ function addVoterInfoHover() {
       $(this).closest("td").css("text-align", "left");
     }
   );
-}
-
-function setLastShown(obj) {
-  if (lastShown && obj != lastShown) {
-    cldrDom.removeClass(lastShown, "pu-select");
-    const partr = parentOfType("TR", lastShown);
-    if (partr) {
-      cldrDom.removeClass(partr, "selectShow");
-    }
-  }
-  if (obj) {
-    cldrDom.addClass(obj, "pu-select");
-    const partr = parentOfType("TR", obj);
-    if (partr) {
-      cldrDom.addClass(partr, "selectShow");
-    }
-  }
-  lastShown = obj;
-}
-
-function reset() {
-  lastShown = null;
-}
-
-function parentOfType(tag, obj) {
-  if (!obj) {
-    return null;
-  }
-  if (obj.nodeName === tag) {
-    return obj;
-  }
-  return parentOfType(tag, obj.parentElement);
 }
 
 /**
@@ -965,25 +890,6 @@ function createVoter(v) {
   return div;
 }
 
-/**
- * Return a function that will show info for the given item in the Info Panel.
- *
- * @param {Object} theRow the data row
- * @param {JSON} item JSON of the specific candidate item we are adding
- * @returns the function
- *
- * Called only by cldrTable.addVitem, as follows:
- *
- *   td.showFn = item.showFn = cldrInfo.showItemInfoFn(theRow, item);
- *   ...
- *   cldrInfo.listen(null, tr, div, td.showFn);
- */
-function showItemInfoFn(theRow, item) {
-  return function (td) {
-    theRow.selectedItem = item;
-  };
-}
-
 function getItemDescription(itemClass, inheritedLocale) {
   /*
    * itemClass may be "winner, "alias", "fallback", "fallback_code", "fallback_root", or "loser".
@@ -1016,9 +922,8 @@ export {
   clearCachesAndReload,
   closePanel,
   initialize,
-  listen,
-  reset,
-  showItemInfoFn,
+  panelShouldBeShown,
+  show,
   showMessage,
   showRowObjFunc,
   updateRowVoteInfo,

@@ -39,6 +39,11 @@ const NO_WINNING_VALUE = "no-winning-value";
  */
 const EMPTY_ELEMENT_VALUE = "❮EMPTY❯";
 
+/**
+ * Remember the element (HTMLTableCellElement or HTMLDivElement) that was most recently
+ * shown as "selected" (displayed with a thick border). When a new element gets selected,
+ * this is used for removing the border from the old one
+ */
 let lastShown = null;
 
 /**
@@ -1013,7 +1018,7 @@ function addVitem(td, tr, theRow, item, newButton) {
   const div = document.createElement("div");
   const isWinner = td == tr.proposedcell;
   const testKind = cldrVote.getTestKind(item.tests);
-  cldrVote.setDivClass(div, testKind);
+  setDivClass(div, testKind);
   item.div = div; // back link
 
   const choiceField = document.createElement("div");
@@ -1086,6 +1091,21 @@ function addVitem(td, tr, theRow, item, newButton) {
 
   if (item.example && item.value != item.examples) {
     appendExample(div, item.example);
+  }
+}
+
+function setDivClassSelected(div, testKind) {
+  setDivClass(div, testKind);
+  setLastShown(div); // add thick border and remove it from previous selected element
+}
+
+function setDivClass(div, testKind) {
+  if (testKind == "Warning") {
+    div.className = "d-item-warn";
+  } else if (testKind == "Error") {
+    div.className = "d-item-err";
+  } else {
+    div.className = "d-item";
   }
 }
 
@@ -1369,31 +1389,32 @@ function listen(str, tr, theObj, fn) {
   cldrDom.listenFor(theObj, "click", function (e) {
     if (cldrInfo.panelShouldBeShown()) {
       cldrInfo.show(str, tr, theObj /* hideIfLast */, fn);
-    } else if (tr?.sethash) {
-      // These methods, updateCurrentId and setLastShown may be called from cldrInfo.show, if
-      // panelShouldBeShown() returned true. If the Info Panel is hidden then they still
-      // need to be called. Since they don't involve the Info Panel, the implementation
-      // should be changed to make them independent of the Info Panel and they should be
-      // called from a different module, not cldrInfo.
-      cldrLoad.updateCurrentId(tr.sethash);
-      setLastShown(theObj);
+    } else {
+      updateSelectedRowAndCell(tr, theObj);
     }
     cldrEvent.stopPropagation(e);
     return false;
   });
 }
 
+function updateSelectedRowAndCell(tr, obj) {
+  if (tr?.sethash) {
+    cldrLoad.updateCurrentId(tr.sethash);
+  }
+  setLastShown(obj);
+}
+
 function setLastShown(obj) {
   if (lastShown && obj != lastShown) {
     cldrDom.removeClass(lastShown, "pu-select");
-    const partr = parentOfType("TR", lastShown);
+    const partr = cldrDom.parentOfType("TR", lastShown);
     if (partr) {
       cldrDom.removeClass(partr, "selectShow");
     }
   }
   if (obj) {
     cldrDom.addClass(obj, "pu-select");
-    const partr = parentOfType("TR", obj);
+    const partr = cldrDom.parentOfType("TR", obj);
     if (partr) {
       cldrDom.addClass(partr, "selectShow");
     }
@@ -1403,16 +1424,6 @@ function setLastShown(obj) {
 
 function resetLastShown() {
   lastShown = null;
-}
-
-function parentOfType(tag, obj) {
-  if (!obj) {
-    return null;
-  }
-  if (obj.nodeName === tag) {
-    return obj;
-  }
-  return parentOfType(tag, obj.parentElement);
 }
 
 export {
@@ -1429,8 +1440,10 @@ export {
   makeRowId,
   refreshSingleRow,
   resetLastShown,
+  setDivClassSelected,
   setLastShown,
   updateRow,
+  updateSelectedRowAndCell,
   /*
    * The following are meant to be accessible for unit testing only:
    */

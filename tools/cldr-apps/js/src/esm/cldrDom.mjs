@@ -227,6 +227,16 @@ function appendIcon(toElement, className, title) {
   return e;
 }
 
+function parentOfType(tag, obj) {
+  if (!obj) {
+    return null;
+  }
+  if (obj.nodeName === tag) {
+    return obj;
+  }
+  return parentOfType(tag, obj.parentElement);
+}
+
 export {
   addClass,
   appendIcon,
@@ -235,6 +245,7 @@ export {
   createChunk,
   createLinkToFn,
   listenFor,
+  parentOfType,
   removeAllChildNodes,
   removeClass,
   setDisplayed,

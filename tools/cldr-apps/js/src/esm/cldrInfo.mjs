@@ -203,7 +203,7 @@ function panelShouldBeShown() {
  * @param {String} str the string to show at the top
  * @param {Node} tr the <TR> of the row
  * @param {Object} hideIfLast mysterious parameter, a.k.a. theObj
- * @param {Function} fn the draw function, a.k.a. showFn, sometimes constructed by cldrInfo.showItemInfoFn,
+ * @param {Function} fn the draw function, a.k.a. showFn, sometimes constructed by cldrTable.showItemInfoFn,
  *                      sometimes ourShowFn in cldrVote.showProposedItem
  */
 function show(str, tr, hideIfLast, fn) {
@@ -212,12 +212,7 @@ function show(str, tr, hideIfLast, fn) {
     unShow();
     unShow = null;
   }
-  // Ideally, updateCurrentId and setLastShown should be called from cldrTable, not cldrInfo,
-  // however it's not clear whether they need to be called after openPanel and unShow
-  if (tr?.sethash) {
-    cldrLoad.updateCurrentId(tr.sethash);
-  }
-  cldrTable.setLastShown(hideIfLast);
+  cldrTable.updateSelectedRowAndCell(tr, hideIfLast);
   addDeferredHelp(tr?.theRow); // if !tr.theRow, erase (as when click Next/Previous)
   addPlaceholderHelp(tr?.theRow); // ditto
   addInfoMessage(str);

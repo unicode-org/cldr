@@ -378,7 +378,7 @@ function showProposedItem(inTd, tr, theRow, value, tests, json) {
     cldrNotify.error("Not submitted", description);
     return;
   } else {
-    setDivClass(ourDiv, testKind);
+    cldrTable.setDivClassSelected(ourDiv, testKind);
   }
 
   if (testKind || !ourItem) {
@@ -428,18 +428,6 @@ function showProposedItem(inTd, tr, theRow, value, tests, json) {
     cldrInfo.showRowObjFunc(tr, ourDiv, ourShowFn);
   }
   return false;
-}
-
-function setDivClass(div, testKind) {
-  if (!testKind) {
-    div.className = "d-item";
-  } else if (testKind == "Warning") {
-    div.className = "d-item-warn";
-  } else if (testKind == "Error") {
-    div.className = "d-item-err";
-  } else {
-    div.className = "d-item";
-  }
 }
 
 /**
@@ -607,7 +595,6 @@ export {
   getTestKind,
   handleWiredClick,
   isBusy,
-  setDivClass,
   setVoteLevelChanged,
   wireUpButton,
   wrapRadio,

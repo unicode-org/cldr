@@ -1089,7 +1089,7 @@ public class TestCheckCLDR extends TestFmwk {
 
         for (String locale : localesForRowAction) {
             DummyPathValueInfo dummyPathValueInfo = new DummyPathValueInfo();
-            dummyPathValueInfo.locale = CLDRLocale.getInstance(locale);
+            dummyPathValueInfo.setLocale(CLDRLocale.getInstance(locale));
             CLDRFile cldrFile = testInfo.getCldrFactory().make(locale, true);
             CLDRFile cldrFileUnresolved = testInfo.getCldrFactory().make(locale, false);
 
@@ -1107,8 +1107,9 @@ public class TestCheckCLDR extends TestFmwk {
                     for (PathHeader ph : sorted) {
                         String path = ph.getOriginalPath();
                         SurveyToolStatus surveyToolStatus = ph.getSurveyToolStatus();
-                        dummyPathValueInfo.xpath = path;
-                        dummyPathValueInfo.baselineValue = cldrFileUnresolved.getStringValue(path);
+                        dummyPathValueInfo.setXpath(path);
+                        dummyPathValueInfo.setBaselineValue(
+                                cldrFileUnresolved.getStringValue(path));
                         StatusAction action =
                                 phase.getShowRowAction(
                                         dummyPathValueInfo, InputMethod.DIRECT, ph, dummyUserInfo);
@@ -1126,7 +1127,7 @@ public class TestCheckCLDR extends TestFmwk {
                                         "vo ==> FORBID_READONLY",
                                         StatusAction.FORBID_READONLY,
                                         action);
-                            } else if (dummyPathValueInfo.baselineValue == null) {
+                            } else if (dummyPathValueInfo.getBaselineValue() == null) {
                                 if (!assertEquals(
                                         "missing ==> ALLOW", StatusAction.ALLOW, action)) {
                                     warnln("\t\t" + locale + "\t" + ph);
@@ -1150,7 +1151,9 @@ public class TestCheckCLDR extends TestFmwk {
                                 }
                                 actionToExamplePath.put(
                                         key,
-                                        Pair.of(dummyPathValueInfo.baselineValue != null, path));
+                                        Pair.of(
+                                                dummyPathValueInfo.getBaselineValue() != null,
+                                                path));
                             }
                         }
                     }
@@ -1210,7 +1213,7 @@ public class TestCheckCLDR extends TestFmwk {
                 }
             };
 
-    private static class DummyPathValueInfo implements PathValueInfo {
+    public static class DummyPathValueInfo implements PathValueInfo {
         private CLDRLocale locale;
         private String xpath;
         private String baselineValue;
@@ -1270,6 +1273,18 @@ public class TestCheckCLDR extends TestFmwk {
         @Override
         public String getXpath() {
             return xpath;
+        }
+
+        public void setLocale(CLDRLocale locale) {
+            this.locale = locale;
+        }
+
+        public void setXpath(String xpath) {
+            this.xpath = xpath;
+        }
+
+        public void setBaselineValue(String baselineValue) {
+            this.baselineValue = baselineValue;
         }
     }
 

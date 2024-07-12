@@ -24,7 +24,7 @@
 # We don't list roc, etc here because their months are hidden.
 %G = (gregorian)
 # all others use M## form months.
-%O = (coptic|dangi|ethiopic|hebrew|indian|islamic|persian)
+%O = (chinese|coptic|dangi|ethiopic|hebrew|indian|islamic|persian)
 %P = (future|past)
 %R = (gregorian|buddhist|coptic|ethiopic|ethiopic-amete-alem|hebrew|indian|islamic|japanese|persian|roc)
 %S = ([^/]*+)

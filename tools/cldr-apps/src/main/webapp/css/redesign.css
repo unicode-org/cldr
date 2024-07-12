@@ -231,6 +231,16 @@ h3.collapse-review > span:first-child {position: relative; top: -220px;display: 
 	margin-top: 5px;
 	font-weight: bold;
 	color: black;
+	border-collapse: separate;
+	background-color: #DFF;
+	display: inline-block;
+	margin: 1px;
+	padding: 1px;
+	border-radius: 5px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: flex;
+	border: 1px solid #0FF;
 }
 .data .visible-mark{
 	background-color: #d9edf7;

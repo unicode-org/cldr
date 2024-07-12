@@ -540,6 +540,7 @@ public class Ldml2JsonConverter {
         Matcher noNumberingSystemMatcher = LdmlConvertRules.NO_NUMBERING_SYSTEM_PATTERN.matcher("");
         Matcher numberingSystemMatcher = LdmlConvertRules.NUMBERING_SYSTEM_PATTERN.matcher("");
         Matcher rootIdentityMatcher = LdmlConvertRules.ROOT_IDENTITY_PATTERN.matcher("");
+        Matcher versionMatcher = LdmlConvertRules.VERSION_PATTERN.matcher("");
         Set<String> activeNumberingSystems = new TreeSet<>();
         activeNumberingSystems.add("latn"); // Always include latin script numbers
         for (String np : LdmlConvertRules.ACTIVE_NUMBERING_SYSTEM_XPATHS) {
@@ -588,8 +589,16 @@ public class Ldml2JsonConverter {
                 continue;
             }
             // Discard root identity element unless the locale is root
+            // TODO: CLDR-17790 this code should not be needed.
             rootIdentityMatcher.reset(fullPath);
             if (rootIdentityMatcher.matches() && !"root".equals(locID)) {
+                continue;
+            }
+
+            // discard version stuff
+            versionMatcher.reset(fullPath);
+            if (versionMatcher.matches()) {
+                // drop //ldml/identity/version entirely.
                 continue;
             }
 

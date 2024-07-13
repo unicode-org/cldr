@@ -600,6 +600,13 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
                 // PathSpaceData("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"narrow\"]/dayPeriod[@type=\"am\"]",
                 //    " pizza \u00A0\u202F cardboard ", "pizza\u202Fcardboard",
                 //    PathSpaceType.allowNNbsp),
+
+                // Verify that ZWSP u200B as symbol for PTE (in e.g. pt_PT) is not altered
+                new PathSpaceData(
+                        "//ldml/numbers/currencies/currency[@type=\"PTE\"]/symbol",
+                        "\u200B",
+                        "\u200B",
+                        PathSpaceType.allowSpOrNbsp),
             };
             return a;
         }

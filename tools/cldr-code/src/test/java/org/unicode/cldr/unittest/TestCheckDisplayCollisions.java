@@ -275,6 +275,19 @@ public class TestCheckDisplayCollisions extends TestFmwkPlus {
         checkDisplayCollisions("fil", filPathValuePairs, filFactory);
     }
 
+    public void checkCurrencySymbolCollisions() {
+        // CLDR-17792
+        Map<String, String> pt_PTPathValuePairs =
+                ImmutableMap.of(
+                        "ldml/numbers/currencies/currency[@type=\"EUR\"]/symbol", "€",
+                        "ldml/numbers/currencies/currency[@type=\"GBP\"]/symbol", "£",
+                        "ldml/numbers/currencies/currency[@type=\"PTE\"]/symbol", "\u200B",
+                        "ldml/numbers/currencies/currency[@type=\"PTE\"]/decimal", "$",
+                        "ldml/numbers/currencies/currency[@type=\"USD\"]/symbol", "US$");
+        TestFactory pt_PTFactory = makeFakeCldrFile("pt_PT", pt_PTPathValuePairs);
+        checkDisplayCollisions("pt_PT", pt_PTPathValuePairs, pt_PTFactory);
+    }
+
     public void checkDisplayCollisions(
             String locale, Map<String, String> pathValuePairs, TestFactory factory) {
         CheckDisplayCollisions cdc = new CheckDisplayCollisions(factory);

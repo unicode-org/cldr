@@ -170,10 +170,12 @@ public class SimpleXMLSource extends XMLSource {
     static final Normalizer2 NFKC = Normalizer2.getNFKCInstance();
 
     // The following includes letters, marks, numbers, currencies, and *selected*
-    // symbols/punctuation
+    // symbols/punctuation.
+    // Also \u200B ZWSP which has a special function, should not strip it when
+    // normalizing values for comparison.
     static final UnicodeSet NON_ALPHANUM =
             new UnicodeSet(
-                            "[^[:L:][:M:][:N:][:Sc:][\\u202F\uFFFF _ ¡ « ( ) \\- \\[ \\] \\{ \\} § / \\\\ % ٪ ‰ ؉ ‱-″ ` \\^ ¯ ¨ ° + ¬ | ¦ ~ − ⊕ ⍰ ☉ © ®]]")
+                            "[^[:L:][:M:][:N:][:Sc:][\\u200B\\u202F\uFFFF _ ¡ « ( ) \\- \\[ \\] \\{ \\} § / \\\\ % ٪ ‰ ؉ ‱-″ ` \\^ ¯ ¨ ° + ¬ | ¦ ~ − ⊕ ⍰ ☉ © ®]]")
                     .freeze();
 
     public static String normalize(String valueToMatch) {

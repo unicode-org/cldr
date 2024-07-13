@@ -1,17 +1,5 @@
 package org.unicode.cldr.tool;
 
-import java.util.Collection;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Objects;
-import java.util.Set;
-import java.util.TreeSet;
-import java.util.stream.Collectors;
-
-import org.unicode.cldr.util.CldrUtility;
-
 import com.google.common.base.Joiner;
 import com.google.common.collect.Comparators;
 import com.google.common.collect.ComparisonChain;
@@ -34,6 +22,18 @@ import com.ibm.icu.util.PersianCalendar;
 import com.ibm.icu.util.TaiwanCalendar;
 import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
+import java.util.Collection;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Objects;
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import org.unicode.cldr.util.CldrUtility;
 
 /** Utility to compute calendar groups based on months & days per month */
 public class ShowCalendarGroups {
@@ -60,16 +60,43 @@ public class ShowCalendarGroups {
         for (CalType calType : CalType.values()) {
             footprintToCalendar.put(new Footprint(calType), calType);
         }
-        System.out.println();
+        System.out.println(
+                "Calendars\tmax days/year\tmax months/year\tmax days/month\tdays/year\tmonths/year\tdays/month");
         for (Entry<Footprint, Collection<CalType>> entry : footprintToCalendar.asMap().entrySet()) {
             System.out.println(
-                    entry.getValue().stream().map(x -> x.getId()).collect(Collectors.toList())
+                    entry.getValue().stream().map(x -> x.getId()).collect(Collectors.joining(" "))
                             + "\t"
                             + entry.getKey());
         }
     }
 
+    public static class MultimapJoiner {
+        final Joiner entriesJoiner;
+        final Joiner entryJoiner;
+        final Joiner entryValueJoiner;
+
+        public MultimapJoiner(Joiner entriesJoiner, Joiner entryJoiner, Joiner entryValueJoiner) {
+            this.entriesJoiner = entriesJoiner;
+            this.entryJoiner = entryJoiner;
+            this.entryValueJoiner = entryValueJoiner;
+        }
+
+        public <K, V> String join(Multimap<K, V> multimap) {
+            Function<? super Map.Entry<K, Collection<V>>, String> fii =
+                    x -> entryJoiner.join(x.getKey(), entryValueJoiner.join(x.getValue()));
+            List<String> list =
+                    multimap.asMap().entrySet().stream().map(fii).collect(Collectors.toList());
+            return entriesJoiner.join(list);
+        }
+    }
+
     static class Footprint implements Comparable<Footprint> {
+        private static final Joiner SPACE_JOINER = Joiner.on(' ');
+        private static final Joiner EQ_JOINER = Joiner.on('=');
+        private static final Joiner COMMA_JOINER = Joiner.on(',');
+        private static final Joiner TAB_JOINER = Joiner.on("\t");
+        private static final MultimapJoiner MM_JOINER =
+                new MultimapJoiner(SPACE_JOINER, EQ_JOINER, COMMA_JOINER);
         final int maxMonthsPerYear;
         final Set<Integer> monthsInYear;
         final int maxDaysPerYear;
@@ -145,7 +172,7 @@ public class ShowCalendarGroups {
                     if (cal2.get(Calendar.MONTH) < oldMonth) { // we wrapped around
                         if (daysLeft != 0) {
                             // special hack for coptic, etc.
-                           System.out.println(calType + " " + (month + 1) + " " + daysLeft);
+                            System.out.println(calType + " " + (month + 1) + " " + daysLeft);
                         }
                         break;
                     }
@@ -195,16 +222,13 @@ public class ShowCalendarGroups {
 
         @Override
         public String toString() {
-            return "{"
-                    + Joiner.on("\t")
-                            .join( //
-                                    "maxDpY: ", maxDaysPerYear, //
-                                    "maxMpY: ", maxMonthsPerYear, //
-                                    "maxDpMs: ", maxDaysPerMonth,
-                                    "dpY: ", daysInYear,
-                                    "mpY: ", monthsInYear,
-                                    "dpMs: ", daysInMonths)
-                    + "}";
+            return TAB_JOINER.join(
+                    maxDaysPerYear,
+                    maxMonthsPerYear,
+                    maxDaysPerMonth,
+                    SPACE_JOINER.join(daysInYear),
+                    SPACE_JOINER.join(monthsInYear),
+                    MM_JOINER.join(daysInMonths));
         }
 
         private static final Comparator<Map.Entry<Integer, Integer>> ENTRY_COMP =

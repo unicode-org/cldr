@@ -1,5 +1,17 @@
 package org.unicode.cldr.tool;
 
+import java.util.Collection;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Objects;
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.stream.Collectors;
+
+import org.unicode.cldr.util.CldrUtility;
+
 import com.google.common.base.Joiner;
 import com.google.common.collect.Comparators;
 import com.google.common.collect.ComparisonChain;
@@ -22,15 +34,6 @@ import com.ibm.icu.util.PersianCalendar;
 import com.ibm.icu.util.TaiwanCalendar;
 import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
-import java.util.Collection;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Objects;
-import java.util.Set;
-import java.util.stream.Collectors;
-import org.unicode.cldr.util.CldrUtility;
 
 /** Utility to compute calendar groups based on months & days per month */
 public class ShowCalendarGroups {
@@ -55,9 +58,7 @@ public class ShowCalendarGroups {
     public static void main(String[] args) {
         TreeMultimap<Footprint, CalType> footprintToCalendar = TreeMultimap.create();
         for (CalType calType : CalType.values()) {
-            Calendar cal2 = makeCalendar(calType, TimeZone.GMT_ZONE, ULocale.ENGLISH);
-            Footprint footPrint = new Footprint(cal2);
-            footprintToCalendar.put(footPrint, calType);
+            footprintToCalendar.put(new Footprint(calType), calType);
         }
         System.out.println();
         for (Entry<Footprint, Collection<CalType>> entry : footprintToCalendar.asMap().entrySet()) {
@@ -69,32 +70,103 @@ public class ShowCalendarGroups {
     }
 
     static class Footprint implements Comparable<Footprint> {
-        final int maxMonths;
+        final int maxMonthsPerYear;
+        final Set<Integer> monthsInYear;
+        final int maxDaysPerYear;
+        final Set<Integer> daysInYear;
         final int maxDaysPerMonth;
-        final Multimap<Integer, Integer> daysInMonth;
+        final Multimap<Integer, Integer> daysInMonths;
+        final int hash;
 
-        static Date d = new Date(2000 - 1900, 0, 1, 0, 0, 0);
+        static Date d = new Date(1900 - 1900, 0, 1, 0, 0, 0);
 
-        public Footprint(Calendar cal2) {
-            maxMonths = cal2.getMaximum(Calendar.MONTH) + 1;
+        public Footprint(CalType calType) {
+            if (calType.equals(CalType.CHINESE)) {
+                int debug = 0;
+            }
+            Calendar cal2 = makeCalendar(calType, TimeZone.GMT_ZONE, ULocale.ENGLISH);
+
+            // HACK to get the right maximum number of months per year
+            // Two calendar systems don't make visible the Nth month of the year,
+            // and rather double up the number with a special affix.
+            // Plus, they do this inconsistently
+
+            int hack = cal2.getMaximum(Calendar.MONTH) + 1;
+            final boolean isChineseCalendarBased = cal2 instanceof ChineseCalendar;
+            final boolean isHebrewCalendarBased = cal2 instanceof HebrewCalendar;
+            if (isChineseCalendarBased) {
+                // Chinese Calendar does not allow access to the max number of months per year,
+                // just the highest month number.
+                hack += 1;
+                // Hebrew does allow access to the max number of months per year,
+                // but not the current number of months per year.
+                // That requires a further hack
+            }
+
+            maxMonthsPerYear = hack;
             maxDaysPerMonth = cal2.getMaximum(Calendar.DAY_OF_MONTH);
-            final Multimap<Integer, Integer> _daysInMonth = TreeMultimap.create();
+            maxDaysPerYear = cal2.getMaximum(Calendar.DAY_OF_YEAR);
+            final Set<Integer> _monthsInYear = new TreeSet<>();
+            final Set<Integer> _daysInYear = new TreeSet<>();
+            final Multimap<Integer, Integer> _daysInMonths = TreeMultimap.create();
             cal2.setTime(d); // year may not be gregorian
 
             final int startYear = cal2.get(Calendar.YEAR);
-            cal2.set(Calendar.DAY_OF_MONTH, 1);
-            for (int year = startYear; year < startYear + 100; ++year) {
-                cal2.set(Calendar.YEAR, year);
-                for (int month = 1; month <= maxMonths; ++month) {
-                    cal2.set(Calendar.MONTH, month - 1);
-                    _daysInMonth.put(month, cal2.getActualMaximum(Calendar.DAY_OF_MONTH));
+            int currYear = startYear;
+
+            for (int year = startYear; year < startYear + 5; ++year) {
+                cal2.set(Calendar.DAY_OF_MONTH, 1);
+                cal2.set(Calendar.MONTH, 0);
+
+                final int currDaysPerYear = cal2.getActualMaximum(Calendar.DAY_OF_YEAR);
+                int currMonthsInYear = cal2.getActualMaximum(Calendar.MONTH) + 1;
+
+                // Compensate for the Chinese & Hebrew Calendars not returning the actual number of
+                // months in a year
+                if (isChineseCalendarBased && currDaysPerYear >= 365) {
+                    currMonthsInYear += 1;
+                } else if (isHebrewCalendarBased && currDaysPerYear < 365) {
+                    currMonthsInYear -= 1;
+                }
+
+                _monthsInYear.add(currMonthsInYear);
+                _daysInYear.add(currDaysPerYear);
+                int daysLeft = currDaysPerYear;
+
+                // use clunky method because some months in Chinese / Arabic share a numeric value
+                // the 'month' variable is the nth month in the year, NOT the month with that number
+                for (int month = 0; ; ++month) {
+                    int daysInThisMonth = cal2.getActualMaximum(Calendar.DAY_OF_MONTH);
+                    _daysInMonths.put(month + 1, daysInThisMonth);
+                    daysLeft -= daysInThisMonth;
+
+                    int oldMonth = cal2.get(Calendar.MONTH);
+                    cal2.add(Calendar.MONTH, 1);
+                    if (cal2.get(Calendar.MONTH) < oldMonth) { // we wrapped around
+                        if (daysLeft != 0) {
+                            // special hack for coptic, etc.
+                           System.out.println(calType + " " + (month + 1) + " " + daysLeft);
+                        }
+                        break;
+                    }
                 }
             }
-            Set<Integer> maxSingleton = ImmutableSet.of(maxDaysPerMonth);
+            // make immutable
             // filter out cases where the month has only the max
-            final Multimap<Integer, Integer> _daysInMonth2 = TreeMultimap.create();
-            _daysInMonth.asMap().values().removeIf(value -> value.equals(maxSingleton));
-            daysInMonth = CldrUtility.protectCollection(_daysInMonth);
+            Set<Integer> maxSingleton = ImmutableSet.of(maxDaysPerMonth);
+            _daysInMonths.asMap().values().removeIf(value -> value.equals(maxSingleton));
+
+            daysInYear = ImmutableSet.copyOf(_daysInYear);
+            monthsInYear = ImmutableSet.copyOf(_monthsInYear);
+            daysInMonths = CldrUtility.protectCollection(_daysInMonths);
+            hash =
+                    Objects.hash(
+                            maxMonthsPerYear,
+                            maxDaysPerMonth,
+                            maxDaysPerYear,
+                            monthsInYear,
+                            daysInYear,
+                            daysInMonths);
         }
 
         @Override
@@ -104,24 +176,38 @@ public class ShowCalendarGroups {
 
         @Override
         public int hashCode() {
-            return Objects.hash(maxMonths, maxDaysPerMonth);
+            return hash;
         }
 
         @Override
         public int compareTo(Footprint o) {
             return ComparisonChain.start()
-                    .compare(maxMonths, o.maxMonths)
+                    // single fields first
+                    .compare(maxDaysPerYear, o.maxDaysPerYear)
+                    .compare(maxMonthsPerYear, o.maxMonthsPerYear)
                     .compare(maxDaysPerMonth, o.maxDaysPerMonth)
-                    .compare(daysInMonth.entries(), o.daysInMonth.entries(), LIST_ENTRY_COMP)
+                    // then structures
+                    .compare(daysInYear, o.daysInYear, LEX_NATURAL_INTEGER)
+                    .compare(monthsInYear, o.monthsInYear, LEX_NATURAL_INTEGER)
+                    .compare(daysInMonths.entries(), o.daysInMonths.entries(), LIST_ENTRY_COMP)
                     .result();
         }
 
         @Override
         public String toString() {
-            return "{" + Joiner.on(", ").join(maxMonths, maxDaysPerMonth, daysInMonth) + "}";
+            return "{"
+                    + Joiner.on("\t")
+                            .join( //
+                                    "maxDpY: ", maxDaysPerYear, //
+                                    "maxMpY: ", maxMonthsPerYear, //
+                                    "maxDpMs: ", maxDaysPerMonth,
+                                    "dpY: ", daysInYear,
+                                    "mpY: ", monthsInYear,
+                                    "dpMs: ", daysInMonths)
+                    + "}";
         }
 
-        static Comparator<Map.Entry<Integer, Integer>> ENTRY_COMP =
+        private static final Comparator<Map.Entry<Integer, Integer>> ENTRY_COMP =
                 new Comparator<>() {
                     @Override
                     public int compare(Entry<Integer, Integer> o1, Entry<Integer, Integer> o2) {
@@ -131,8 +217,10 @@ public class ShowCalendarGroups {
                                 .result();
                     }
                 };
-        static Comparator<Iterable<Map.Entry<Integer, Integer>>> LIST_ENTRY_COMP =
+        private static final Comparator<Iterable<Map.Entry<Integer, Integer>>> LIST_ENTRY_COMP =
                 Comparators.lexicographical(ENTRY_COMP);
+        private static final Comparator<Iterable<Integer>> LEX_NATURAL_INTEGER =
+                Comparators.lexicographical(Comparator.<Integer>naturalOrder());
     }
 
     // This is not visible in ICU, so cloning here

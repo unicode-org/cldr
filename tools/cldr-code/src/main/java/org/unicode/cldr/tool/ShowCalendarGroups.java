@@ -141,7 +141,7 @@ public class ShowCalendarGroups {
             final int startYear = cal2.get(Calendar.YEAR);
             int currYear = startYear;
 
-            for (int year = startYear; year < startYear + 5; ++year) {
+            for (int year = startYear; year < startYear + 1000; ++year) {
                 cal2.set(Calendar.DAY_OF_MONTH, 1);
                 cal2.set(Calendar.MONTH, 0);
 

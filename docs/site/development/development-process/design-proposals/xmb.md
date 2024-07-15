@@ -28,7 +28,7 @@ Examples:
 
 \<!-- English: Uzbekistan -->
 
-\<msg id='615EB568A2478EAF' 
+\<msg id='615EB568A2478EAF'
 
 \>**Ouzbékistan**\</msg>
 
@@ -70,7 +70,7 @@ Examples:
 
 ### Placeholders
 
-Replaces the placeholders ("{0}", "MMM", etc.) in patterns by variable names with examples. This is data-driven, using the file at [xmbPlaceholders.txt](http://unicode.org/cldr/trac/browser/trunk/tools/java/org/unicode/cldr/tool/xmbPlaceholders.txt). 
+Replaces the placeholders ("{0}", "MMM", etc.) in patterns by variable names with examples. This is data-driven, using the file at [xmbPlaceholders.txt](http://unicode.org/cldr/trac/browser/trunk/tools/java/org/unicode/cldr/tool/xmbPlaceholders.txt).
 
 Format:
 
@@ -96,7 +96,7 @@ Format:
 
 1. If the value is SKIP, then the path is skipped.
 2. The description can have {0}-style variables in it. If so, then the (...) values in the path\_regex are substituted for them.
-3. If the value starts with ROOT, then the path is skipped if the type\_value is not in ROOT, where the type\_value is from the first capture group. This is used to make sure that the type\_value is in the major coverage requirements for: language, script, territory, currency, timezone, and metazone. The description can have placeholders, as in case 21. 
+3. If the value starts with ROOT, then the path is skipped if the type\_value is not in ROOT, where the type\_value is from the first capture group. This is used to make sure that the type\_value is in the major coverage requirements for: language, script, territory, currency, timezone, and metazone. The description can have placeholders, as in case 21.
 
 Example:
 
@@ -108,11 +108,19 @@ Example:
 
 Plurals are represented with ICU Syntax, such as:
 
-\<msg id='4AC13E2DA211C113' desc='[ICU Syntax] The pattern used to compose plural for week, including abbreviated forms. These forms are special! Before translating, see cldr.org/translation/plurals.'
+<!--
+  {% raw %}
 
-\>{LENGTH, select,
+  Disable liquid parsing on this codeblock to prevent errors reading '{{'
+  See: https://talk.jekyllrb.com/t/code-block-is-improperly-handled-and-generates-liquid-syntax-error/7599/2
+-->
 
-abbreviated {{NUMBER\_OF\_WEEKS, plural,
+```xml
+<msg id='4AC13E2DA211C113' desc='[ICU Syntax] The pattern used to compose plural for week, including abbreviated forms. These forms are special! Before translating, see cldr.org/translation/plurals.'>
+
+{LENGTH, select,
+
+abbreviated {{NUMBER_OF_WEEKS, plural,
 
 =0 {0 wks}
 
@@ -130,7 +138,7 @@ many {# wks}
 
 other {# wks}}}
 
-other {{NUMBER\_OF\_WEEKS, plural,
+other {{NUMBER_OF_WEEKS, plural,
 
 =0 {0 weeks}
 
@@ -146,7 +154,10 @@ few {# weeks}
 
 many {# weeks}
 
-other {# weeks}}}}\</msg>
+other {# weeks}}}}</msg>
+```
+
+<!-- {% endraw %} -->
 
 ### TODO
 

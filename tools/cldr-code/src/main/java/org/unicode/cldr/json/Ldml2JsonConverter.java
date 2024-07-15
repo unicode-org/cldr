@@ -261,7 +261,7 @@ public class Ldml2JsonConverter {
                             "Modern",
                             'M',
                             "(true|false)",
-                            "true",
+                            "false",
                             "Whether to include the -modern tier")
                     // Primarily useful for non-Maven build systems where CldrUtility.LICENSE may
                     // not be available as it is put in place by pom.xml
@@ -1528,6 +1528,7 @@ public class Ldml2JsonConverter {
     }
 
     public void writePackageList(String outputDir) throws IOException {
+        final boolean includeModern = Boolean.parseBoolean(options.get("Modern").getValue());
         PrintWriter outf =
                 FileUtilities.openUTF8Writer(outputDir + "/cldr-core", "cldr-packages.json");
         System.out.println(
@@ -1582,7 +1583,7 @@ public class Ldml2JsonConverter {
                             packageEntry.get("name").getAsString(),
                             packageEntry.get("description").getAsString());
                 }
-                {
+                if (includeModern) {
                     JsonObject packageEntry = new JsonObject();
                     packageEntry.addProperty("description", e.getValue() + " modern (deprecated)");
                     packageEntry.addProperty("tier", "modern");

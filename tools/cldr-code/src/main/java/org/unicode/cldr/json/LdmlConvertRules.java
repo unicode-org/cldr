@@ -422,6 +422,12 @@ class LdmlConvertRules {
     public static final Pattern ROOT_IDENTITY_PATTERN =
             Pattern.compile("//ldml/identity/language\\[@type=\"root\"\\]");
 
+    /**
+     * Version (coming from DTD) should be discarded everywhere. This information is now in
+     * package.json.
+     */
+    public static final Pattern VERSION_PATTERN = Pattern.compile("//ldml/identity/version.*");
+
     /** A simple class to hold the specification of a path transformation. */
     public static class PathTransformSpec {
 

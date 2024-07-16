@@ -482,7 +482,7 @@ public class SurveyAjax extends HttpServlet {
                         mySession.userDidAction();
                         SurveyJSONWrapper r = newJSONStatus(request, sm);
                         r.put("what", what);
-                        if (UserRegistry.userIsVetter(mySession.user)) {
+                        if (UserRegistry.userIsManagerOrStronger(mySession.user)) {
                             String org = mySession.user.org;
                             if (UserRegistry.userCreateOtherOrgs(mySession.user)) {
                                 org = null; // all

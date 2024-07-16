@@ -270,7 +270,7 @@ function getHtml(json) {
       html += getOrgFilterMenu();
     }
   }
-  if (justUser) {
+  if (justUser && canListMultipleUsers()) {
     html += "<p>" + listMultipleUsersButton + "</p>\n";
   }
   if (!isJustMe) {
@@ -345,13 +345,19 @@ function getTableStart() {
 function getTableEnd(json) {
   let html = "</tbody></table>" + "<br />\n";
   if (justUser) {
-    html += listMultipleUsersButton;
+    if (canListMultipleUsers()) {
+      html += listMultipleUsersButton;
+    }
   } else {
     html += numberOfUsersShown(shownUsers ? shownUsers.length : 0);
     html += getEmailControls(json);
   }
   html += doActionButton + "</form>\n";
   return html;
+}
+
+function canListMultipleUsers() {
+  return !!cldrStatus.getPermissions()?.userIsManager;
 }
 
 function numberOfUsersShown(number) {

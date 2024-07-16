@@ -35,7 +35,19 @@
           </li>
         </ul>
       </li>
-      <li class="section-header">My Organization ({{ org }})</li>
+      <li
+        class="section-header"
+        v-if="
+          canUseVettingSummary ||
+          canListUsers ||
+          canMonitorForum ||
+          canMonitorVetting ||
+          accountLocked ||
+          isAdmin
+        "
+      >
+        My Organization ({{ org }})
+      </li>
       <li v-if="canUseVettingSummary">
         <ul>
           <li><a href="#vsummary///">Priority Items Summary</a></li>
@@ -84,7 +96,7 @@
           </li>
         </ul>
       </li>
-      <li v-if="isUnofficial">
+      <li v-if="canSeeUnofficialEmail">
         <ul>
           <li>
             <a href="#mail///">Simulate Email Notifications (SMOKETEST ONLY)</a>
@@ -135,7 +147,7 @@ export default {
       canUseVettingSummary: false,
       isAdmin: false,
       isTC: false,
-      isUnofficial: false,
+      canSeeUnofficialEmail: false,
       loggedIn: false,
       org: null,
       recentActivityUrl: null,
@@ -153,13 +165,13 @@ export default {
       const perm = cldrStatus.getPermissions();
       this.accountLocked = perm && perm.userIsLocked;
       this.canImportOldVotes = perm && perm.userCanImportOldVotes;
-      this.canListUsers = this.canMonitorVetting =
-        perm && (perm.userIsTC || perm.userIsVetter);
+      this.canListUsers = this.canMonitorVetting = !!perm?.userIsManager;
       this.canMonitorForum = perm && perm.userCanMonitorForum;
       // this.canSeeStatistics will be false until there is a new implementation
       this.canUseVettingSummary = perm && perm.userCanUseVettingSummary;
       this.isAdmin = perm && perm.userIsAdmin;
-      this.isUnofficial = cldrStatus.getIsUnofficial();
+      this.canSeeUnofficialEmail =
+        cldrStatus.getIsUnofficial() && !!perm?.userIsManager;
       this.isTC = perm && perm.userIsTC;
 
       const user = cldrStatus.getSurveyUser();

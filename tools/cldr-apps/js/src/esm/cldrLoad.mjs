@@ -612,7 +612,7 @@ function specialLoad(itemLoadInfo, curSpecial, theDiv) {
     if (curSpecial !== "general") {
       cldrGui.hideDashboard();
     }
-    cldrInfo.closePanel();
+    cldrInfo.closePanel(false /* userWantsHidden */);
     // Most special.load() functions do not use a parameter; an exception is
     // cldrGenericVue.load() which expects the special name as a parameter
     if (CLDR_LOAD_DEBUG) {

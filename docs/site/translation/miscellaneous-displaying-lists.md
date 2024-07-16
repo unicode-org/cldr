@@ -1,5 +1,5 @@
 ---
-title: Miscellaneous: Displaying Lists
+title: 'Miscellaneous: Displaying Lists'
 ---
 
 # Miscellaneous: Displaying Lists

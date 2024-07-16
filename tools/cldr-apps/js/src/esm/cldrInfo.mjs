@@ -24,7 +24,20 @@ let neighborId = null;
 let buttonClass = null;
 
 let panelInitialized = false;
+
+/**
+ * Is the Info Panel currently displayed?
+ */
 let panelVisible = false;
+
+/**
+ * Does the user want the Info Panel to be displayed when appropriate?
+ * The panel is hidden automatically when there is a "special" view for which
+ * the panel is inappropriate. When returning to the non-special vetting view,
+ * the panel should be displayed again, unless the user has indicated, by clicking
+ * its close box, that they don't want to see it.
+ */
+let panelWanted = true;
 
 let unShow = null;
 
@@ -113,16 +126,26 @@ function appendDiv(el, id) {
   el.appendChild(div);
 }
 
+/**
+ * Open the Info Panel
+ */
 function openPanel() {
   if (!panelVisible) {
-    panelVisible = true;
+    panelVisible = panelWanted = true;
     openOrClosePanel();
   }
 }
 
-function closePanel() {
+/**
+ * Close the Info Panel
+ *
+ * @param {Boolean} userWantsHidden true if closing because user clicked close box (or equivalent),
+ *       false if closing because switching to a "special" view where the Info Panel doesn't belong
+ */
+function closePanel(userWantsHidden) {
   if (panelVisible) {
     panelVisible = false;
+    panelWanted = !userWantsHidden;
     openOrClosePanel();
   }
 }
@@ -192,7 +215,7 @@ function panelShouldBeShown() {
     // Leave panelVisible = false until openPanel makes it true.
     return true;
   }
-  return panelVisible;
+  return panelWanted && !cldrStatus.getCurrentSpecial();
 }
 
 /**

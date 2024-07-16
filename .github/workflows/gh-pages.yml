@@ -7,6 +7,7 @@ permissions:
   id-token: write
 
 on:
+  pull_request:
   push:
     branches:
       - main
@@ -68,7 +69,7 @@ jobs:
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@v2
       - name: Deploy to Smoketest
-        if: github.repository == 'unicode-org/cldr'
+        if: github.repository == 'unicode-org/cldr' && github.event_name == 'push'
         shell: bash
         env:
           RSA_KEY_CCC: ${{ secrets.RSA_KEY_CCC }}
@@ -87,6 +88,7 @@ jobs:
           echo "::endgroup::"
           echo "Now go to https://cldr-smoke.unicode.org/spec/"$(basename ${GITHUB_REF_NAME})
   deploy:
+    if: github.repository == 'unicode-org/cldr' && github.event_name == 'push'
     environment:
       name: github-pages
       url: ${{steps.deployment.outputs.page_url}}
@@ -96,8 +98,7 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
-
-# only run one of these at a time
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+    # only run one deployment at once.
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: true

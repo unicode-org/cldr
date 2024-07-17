@@ -14,18 +14,45 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<localeDisplayPattern>
 			<localePattern>↑↑↑</localePattern>
 			<localeSeparator>↑↑↑</localeSeparator>
+			<localeKeyTypePattern>↑↑↑</localeKeyTypePattern>
 		</localeDisplayPattern>
 		<languages>
+			<language type="chr">ᒉᕒᐅᑫᐩ</language>
 			<language type="csw">ᓀᐦᐃᓇᐍᐏᐣ</language>
-			<language type="en">ᐊᑲᓇᓯᒧᐏᐣ</language>
-			<language type="en_CA">ᒧᓀᐅ ᐏᓂᓀᐤ ᐋᑲᓇᓯᓄᒯᐣ</language>
+			<language type="en">ᐊᑲᓈᓰᒧᐏᐣ</language>
+			<language type="en_AU">ᐊᑲᓈᓰᒧᐏᐣ (AU)</language>
+			<language type="en_CA">ᐊᑲᓈᓰᒧᐏᐣ (ᑳᓇᑕ)</language>
+			<language type="en_GB">ᐊᑲᓈᓰᒧᐏᐣ (GB)</language>
+			<language type="en_GB" alt="short">ᐊᑲᓈᓰᒧᐏᐣ (GB)</language>
+			<language type="en_US">ᐊᑲᓈᓰᒧᐏᐣ (US)</language>
+			<language type="en_US" alt="short">ᐊᑲᓈᓰᒧᐏᐣ (US)</language>
+			<language type="fr">ᐹᐦᑅᔦᓯᒧᐏᐣ</language>
+			<language type="fr_CA">ᐹᐦᑅᔦᓯᒧᐏᐣ (ᑲᓇᑕ)</language>
+			<language type="fr_CH">ᐹᐦᑅᔦᓯᒧᐏᐣ (CH)</language>
+			<language type="he">ᐦᐄᑊᕒᐅᐤ</language>
+			<language type="mul">ᒥᐦᒉᐟ ᐊᔭᒧᐏᓇ</language>
+			<language type="und">ᓇᒨᓇ ᐃᐦᑕᑿᐣ ᐊᔭᒧᐏᐣ</language>
 		</languages>
 		<scripts>
 			<script type="Cans">ᓀᐦᐃᔭᐊᐧᓯᓇᐦᐃᑳᑌᐤ</script>
+			<script type="Cher">ᒉᕒᐅᑫᐩ</script>
 		</scripts>
 		<territories>
+			<territory type="001">ᐊᐢᑭᐩ</territory>
+			<territory type="003">ᒥᐦᑳᓇᕽ ᒥᓂᐢᑎᐠ</territory>
+			<territory type="005">ᓵᐘᓄᕽ ᒥᐦᑳᓇᕽ ᒥᓂᐢᑎᐠ</territory>
+			<territory type="013">ᐋᐱᐦᑕᐤ ᒥᐦᑳᓇᕽ ᒥᓂᐢᑎᐠ</territory>
+			<territory type="021">ᑮᐍᑎᓄᕽ ᒥᐦᑳᓇᕽ ᒥᓂᐢᑎᐠ</territory>
 			<territory type="CA">ᑲᓇᑕ</territory>
+			<territory type="EU">ᐊᑳᒪᐢᑮᔭ</territory>
+			<territory type="EZ">ᐊᑳᒪᐢᑮᕽ</territory>
+			<territory type="UN">ᒫᒫᐏ ᐊᐢᑮᔭ</territory>
+			<territory type="US">ᑭᐦᒋ ᒨᑯᒫᓂᕽ</territory>
+			<territory type="US" alt="short">ᑭᐦᒋ ᒨᑯᒫᓂᕽ</territory>
 		</territories>
+		<keys>
+			<key type="calendar">ᐯᓯᒧᐊᓯᓇᐦᐃᑲᐣ</key>
+		</keys>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">↑↑↑</measurementSystemName>
 			<measurementSystemName type="UK">↑↑↑</measurementSystemName>
@@ -34,14 +61,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<codePatterns>
 			<codePattern type="language">ᐊᔭᒥᐏᐣ: {0}</codePattern>
 			<codePattern type="script">ᒪᓯᓇᐦᐃᑫᐃᐧᐣ: {0}</codePattern>
-			<codePattern type="territory">ᓀᐦᐃᔭᐊᐧᐢᑭᕀ: {0}</codePattern>
+			<codePattern type="territory">ᓀᐦᐃᔭᐘᐣᑭᐩ: {0}</codePattern>
 		</codePatterns>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters>[ᐁ ᐃ ᐄ ᐅ ᐆ ᐊ ᐋ ᐍ ᐏ ᐑ ᐓ ᐕ ᐘ ᐚ ᐟ ᐠ ᐢ ᐣ ᐤ ᐦ ᐨ ᐩ ᐯ ᐱ ᐲ ᐳ ᐴ ᐸ ᐹ ᐻ ᐽ ᐿ ᑁ ᑃ ᑅ ᑇ ᑊ ᑌ ᑎ ᑏ ᑐ ᑑ ᑕ ᑖ ᑘ ᑚ ᑜ ᑞ ᑠ ᑢ ᑤ ᑫ ᑭ ᑮ ᑯ ᑰ ᑲ ᑳ ᑵ ᑷ ᑹ ᑻ ᑽ ᑿ ᒁ ᒉ ᒋ ᒌ ᒍ ᒎ ᒐ ᒑ ᒓ ᒕ ᒗ ᒙ ᒛ ᒝ ᒟ ᒣ ᒥ ᒦ ᒧ ᒨ ᒪ ᒫ ᒭ ᒯ ᒱ ᒳ ᒵ ᒷ ᒹ ᒼ ᓀ ᓂ ᓃ ᓄ ᓅ ᓇ ᓈ ᓊ ᓌ ᓎ ᓭ ᓯ ᓰ ᓱ ᓲ ᓴ ᓵ ᓷ ᓹ ᓻ ᓽ ᓿ ᔁ ᔃ ᔦ ᔨ ᔩ ᔪ ᔫ ᔭ ᔮ ᔰ ᔲ ᔴ ᔶ ᔸ ᔺ ᔼ]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary">↑↑↑</exemplarCharacters>
+		<exemplarCharacters>[ᐁ ᐃ ᐄ ᐅ ᐆ ᐊ ᐋ ᐍ ᐏ ᐑ ᐓ ᐕ ᐘ ᐚ ᐟ ᐠ ᐢ ᐣ ᐤ ᐦ ᐨ ᐯ ᐱ ᐲ ᐳ ᐴ ᐸ ᐹ ᑊ ᑌ ᑎ ᑏ ᑐ ᑑ ᑕ ᑖ ᑫ ᑭ ᑮ ᑯ ᑰ ᑲ ᑳ ᒉ ᒋ ᒌ ᒍ ᒎ ᒐ ᒑ ᒣ ᒥ ᒦ ᒧ ᒨ ᒪ ᒫ ᒼ ᓀ ᓂ ᓃ ᓄ ᓅ ᓇ ᓈ ᓓ ᓕ ᓖ ᓗ ᓘ ᓚ ᓛ ᓫ ᓭ ᓯ ᓰ ᓱ ᓲ ᓴ ᓵ ᔦ ᔨ ᔩ ᔪ ᔫ ᔭ ᔮ ᕀ ᕃ ᕆ ᕇ ᕈ ᕉ ᕋ ᕌ ᕑ ᕽ]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[ᔐ ᔑ ᔒ ᔓ ᔔ ᔕ ᔖ]</exemplarCharacters>
 		<exemplarCharacters type="numbers">↑↑↑</exemplarCharacters>
-		<exemplarCharacters type="punctuation">↑↑↑</exemplarCharacters>
+		<exemplarCharacters type="punctuation">[\- ‐‑ – — , ; \: ! ? . … ᙮ '‘’ &quot;“” ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
 		<ellipsis type="final">↑↑↑</ellipsis>
 		<ellipsis type="initial">↑↑↑</ellipsis>
 		<ellipsis type="medial">↑↑↑</ellipsis>
@@ -85,35 +112,174 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">ᐅᒉᒥᑮᓯᑳᐏᐲᓯᒼ</month>
+							<month type="2">ᐸᐚᐦᒐᑭᓇᓰᐢ</month>
+							<month type="3">ᒥᑭᓯᐏᐲᓯᒼ</month>
+							<month type="4">ᓂᐢᑭᐲᓯᒼ</month>
+							<month type="5">ᐊᓃᑭᐲᓯᒼ</month>
+							<month type="6">ᐚᐏᐲᓯᒼ</month>
+							<month type="7">ᐹᐢᑲᐦᐋᐏᐲᓯᒼ</month>
+							<month type="8">ᐅᐸᐦᐅᐏᐲᓯᒼ</month>
+							<month type="9">ᓄᒌᑐᐏᐲᓯᒼ</month>
+							<month type="10">ᐱᓈᐢᑯᐏᐲᓯᒼ</month>
+							<month type="11">ᐹᐦᑿᑎᓄᐏᐲᓯᒼ</month>
+							<month type="12">ᒪᑯᓭᑮᓭᑳᐏᐲᓯᒼ</month>
+						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1">ᑭᓴᐱᓯᒼ</month>
-							<month type="2">ᒥᑭᓯᐏᐱᓯᒼ</month>
-							<month type="3">ᓂᐢᑭᐱᓯᒼ</month>
-							<month type="4">ᐊᓂᑭᐱᓯᒼ</month>
-							<month type="5">ᓴᑭᐸᑲᐏᐱᓯᒼ</month>
-							<month type="6">ᐸᐢᑲᐍᐦᐅᐱᓯᒼ</month>
-							<month type="7">ᐸᐢᑯᐏᐱᓯᒼ</month>
-							<month type="8">ᐅᐸᐦᐅᐏᐱᓯᒼ</month>
-							<month type="9">ᑕᐦᑿᑭᐱᓯᒼ</month>
-							<month type="10">ᐱᒪᐦᐊᒧᐏᐱᓯᒼ</month>
-							<month type="11">ᐊᑿᑎᓄᐏᐱᓯᒼ</month>
-							<month type="12">ᐸᐘᐢᒐᑲᓂᓹᐱᓯᒼ</month>
+							<month type="1">ᐅᒉᒥᑮᓯᑳᐏᐲᓯᒼ</month>
+							<month type="2">ᐸᐚᐦᒐᑭᓇᓰᐢ</month>
+							<month type="3">ᒥᑭᓯᐏᐲᓯᒼ</month>
+							<month type="4">ᓂᐢᑭᐲᓯᒼ</month>
+							<month type="5">ᐊᓃᑭᐲᓯᒼ</month>
+							<month type="6">ᐚᐏᐲᓯᒼ</month>
+							<month type="7">ᐹᐢᑲᐦᐋᐏᐲᓯᒼ</month>
+							<month type="8">ᐅᐸᐦᐅᐏᐲᓯᒼ</month>
+							<month type="9">ᓄᒌᑐᐏᐲᓯᒼ</month>
+							<month type="10">ᐱᓈᐢᑯᐏᐲᓯᒼ</month>
+							<month type="11">ᐹᐦᑿᑎᓄᐏᐲᓯᒼ</month>
+							<month type="12">ᒪᑯᓭᑮᓭᑳᐏᐲᓯᒼ</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1">ᐅᒉᒥᑮᓯᑳᐏᐲᓯᒼ</month>
+							<month type="2">ᐸᐚᐦᒐᑭᓇᓰᐢ</month>
+							<month type="3">ᒥᑭᓯᐏᐲᓯᒼ</month>
+							<month type="4">ᓂᐢᑭᐲᓯᒼ</month>
+							<month type="5">ᐊᓃᑭᐲᓯᒼ</month>
+							<month type="6">ᐚᐏᐲᓯᒼ</month>
+							<month type="7">ᐹᐢᑲᐦᐋᐏᐲᓯᒼ</month>
+							<month type="8">ᐅᐸᐦᐅᐏᐲᓯᒼ</month>
+							<month type="9">ᓄᒌᑐᐏᐲᓯᒼ</month>
+							<month type="10">ᐱᓈᐢᑯᐏᐲᓯᒼ</month>
+							<month type="11">ᐹᐦᑿᑎᓄᐏᐲᓯᒼ</month>
+							<month type="12">ᒪᑯᓭᑮᓭᑳᐏᐲᓯᒼ</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">ᐅᒉᒥᑮᓯᑳᐏᐲᓯᒼ</month>
+							<month type="2">ᐸᐚᐦᒐᑭᓇᓰᐢ</month>
+							<month type="3">ᒥᑭᓯᐏᐲᓯᒼ</month>
+							<month type="4">ᓂᐢᑭᐲᓯᒼ</month>
+							<month type="5">ᐊᓃᑭᐲᓯᒼ</month>
+							<month type="6">ᐚᐏᐲᓯᒼ</month>
+							<month type="7">ᐹᐢᑲᐦᐋᐏᐲᓯᒼ</month>
+							<month type="8">ᐅᐸᐦᐅᐏᐲᓯᒼ</month>
+							<month type="9">ᓄᒌᑐᐏᐲᓯᒼ</month>
+							<month type="10">ᐱᓈᐢᑯᐏᐲᓯᒼ</month>
+							<month type="11">ᐹᐦᑿᑎᓄᐏᐲᓯᒼ</month>
+							<month type="12">ᒪᑯᓭᑮᓭᑳᐏᐲᓯᒼ</month>
 						</monthWidth>
 					</monthContext>
 				</months>
 				<days>
 					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">ᐊᔭᒥᐦᐁᑮᓯᑳᐤ</day>
+							<day type="mon">ᐴᓂ ᐊᔭᒥᐦᐁᑮᓯᑳᐤ</day>
+							<day type="tue">ᓃᓱᑮᓯᑳᐤ</day>
+							<day type="wed">ᐋᐱᐦᑕᐘᐣ</day>
+							<day type="thu">ᐴᓂᐋᐱᐦᑕᐘᐣ</day>
+							<day type="fri">ᑫᑳᐨ ᒫᑎᓇᐍᑮᓯᑳᐤ</day>
+							<day type="sat">ᒫᑎᓇᐍᑮᓯᑳᐤ</day>
+						</dayWidth>
+						<dayWidth type="narrow">
+							<day type="sun">↑↑↑</day>
+							<day type="mon">↑↑↑</day>
+							<day type="tue">↑↑↑</day>
+							<day type="wed">↑↑↑</day>
+							<day type="thu">↑↑↑</day>
+							<day type="fri">↑↑↑</day>
+							<day type="sat">↑↑↑</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun">ᐊᔭᒥᐦᐁᑮᓯᑳᐤ</day>
+							<day type="mon">ᐴᓂ ᐊᔭᒥᐦᐁᑮᓯᑳᐤ</day>
+							<day type="tue">ᓃᓱᑮᓯᑳᐤ</day>
+							<day type="wed">ᐋᐱᐦᑕᐘᐣ</day>
+							<day type="thu">ᐴᓂᐋᐱᐦᑕᐘᐣ</day>
+							<day type="fri">ᑫᑳᐨ ᒫᑎᓇᐍᑮᓯᑳᐤ</day>
+							<day type="sat">ᒫᑎᓇᐍᑮᓯᑳᐤ</day>
+						</dayWidth>
 						<dayWidth type="wide">
-							<day type="sun">ᐊᔭᒥᐦᐁᐃ ᑭᓯᑲᐤ</day>
-							<day type="mon">ᐯᔭᐠᑭᓯᑲᐤ</day>
-							<day type="tue">ᓂᓱᑭᓯᑲᐤ</day>
-							<day type="wed">ᐊᐱᐦᑕᐘᐣ</day>
-							<day type="thu">ᓀᐓᑭᓯᑲᐤ</day>
-							<day type="fri">ᓂᔭᓇᓄᑭᓯᑲᐤ</day>
-							<day type="sat">ᒪᑎᓄᐏᑭᓯᑲᐤ</day>
+							<day type="sun">ᐊᔭᒥᐦᐁᑮᓯᑳᐤ</day>
+							<day type="mon">ᐴᓂ ᐊᔭᒥᐦᐁᑮᓯᑳᐤ</day>
+							<day type="tue">ᓃᓱᑮᓯᑳᐤ</day>
+							<day type="wed">ᐋᐱᐦᑕᐘᐣ</day>
+							<day type="thu">ᐴᓂᐋᐱᐦᑕᐘᐣ</day>
+							<day type="fri">ᑫᑳᐨ ᒫᑎᓇᐍᑮᓯᑳᐤ</day>
+							<day type="sat">ᒫᑎᓇᐍᑮᓯᑳᐤ</day>
+						</dayWidth>
+					</dayContext>
+					<dayContext type="stand-alone">
+						<dayWidth type="abbreviated">
+							<day type="sun">ᐊᔭᒥᐦᐁᑮᓯᑳᐤ</day>
+							<day type="mon">ᐴᓂ ᐊᔭᒥᐦᐁᑮᓯᑳᐤ</day>
+							<day type="tue">ᓃᓱᑮᓯᑳᐤ</day>
+							<day type="wed">ᐋᐱᐦᑕᐘᐣ</day>
+							<day type="thu">ᐴᓂᐋᐱᐦᑕᐘᐣ</day>
+							<day type="fri">ᑫᑳᐨ ᒫᑎᓇᐍᑮᓯᑳᐤ</day>
+							<day type="sat">ᒫᑎᓇᐍᑮᓯᑳᐤ</day>
+						</dayWidth>
+						<dayWidth type="narrow">
+							<day type="sun">↑↑↑</day>
+							<day type="mon">↑↑↑</day>
+							<day type="tue">↑↑↑</day>
+							<day type="wed">↑↑↑</day>
+							<day type="thu">↑↑↑</day>
+							<day type="fri">↑↑↑</day>
+							<day type="sat">↑↑↑</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun">ᐊᔭᒥᐦᐁᑮᓯᑳᐤ</day>
+							<day type="mon">ᐴᓂ ᐊᔭᒥᐦᐁᑮᓯᑳᐤ</day>
+							<day type="tue">ᓃᓱᑮᓯᑳᐤ</day>
+							<day type="wed">ᐋᐱᐦᑕᐘᐣ</day>
+							<day type="thu">ᐴᓂᐋᐱᐦᑕᐘᐣ</day>
+							<day type="fri">ᑫᑳᐨ ᒫᑎᓇᐍᑮᓯᑳᐤ</day>
+							<day type="sat">ᒫᑎᓇᐍᑮᓯᑳᐤ</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">ᐊᔭᒥᐦᐁᑮᓯᑳᐤ</day>
+							<day type="mon">ᐴᓂ ᐊᔭᒥᐦᐁᑮᓯᑳᐤ</day>
+							<day type="tue">ᓃᓱᑮᓯᑳᐤ</day>
+							<day type="wed">ᐋᐱᐦᑕᐘᐣ</day>
+							<day type="thu">ᐴᓂᐋᐱᐦᑕᐘᐣ</day>
+							<day type="fri">ᑫᑳᐨ ᒫᑎᓇᐍᑮᓯᑳᐤ</day>
+							<day type="sat">ᒫᑎᓇᐍᑮᓯᑳᐤ</day>
 						</dayWidth>
 					</dayContext>
 				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">↑↑↑</quarter>
+							<quarter type="2">↑↑↑</quarter>
+							<quarter type="3">↑↑↑</quarter>
+							<quarter type="4">↑↑↑</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">↑↑↑</quarter>
+							<quarter type="2">↑↑↑</quarter>
+							<quarter type="3">↑↑↑</quarter>
+							<quarter type="4">↑↑↑</quarter>
+						</quarterWidth>
+					</quarterContext>
+					<quarterContext type="stand-alone">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">↑↑↑</quarter>
+							<quarter type="2">↑↑↑</quarter>
+							<quarter type="3">↑↑↑</quarter>
+							<quarter type="4">↑↑↑</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">↑↑↑</quarter>
+							<quarter type="2">↑↑↑</quarter>
+							<quarter type="3">↑↑↑</quarter>
+							<quarter type="4">↑↑↑</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="wide">
@@ -171,38 +337,386 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</calendars>
 		<fields>
 			<field type="year">
-				<displayName>ᐊᐢᑭ</displayName>
+				<displayName>ᐊᐢᑭᐩ</displayName>
+				<relative type="-1">ᐃᐢᑳᐤᐨ ᐊᐢᑭᐩ</relative>
+				<relative type="0">ᐊᓄᐨ ᐊᐢᑫᐩ</relative>
+				<relative type="1">ᒦᓇ ᐊᐢᑭᐩ</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">ᓃᑳᐣ {0} ᐊᐢᑮᐊᐧᐦᑭ</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} ᑲᔮᐢ ᐊᐢᑭᐩ</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="year-short">
-				<displayName>↑↑↑</displayName>
+				<displayName>ᐊᐢᑭᐩ</displayName>
+				<relative type="-1">ᐃᐢᑳᐤᐨ ᐊᐢᑭᐩ</relative>
+				<relative type="0">ᐊᓄᐨ ᐊᐢᑫᐩ</relative>
+				<relative type="1">ᒦᓇ ᐊᐢᑭᐩ</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">ᓃᑳᐣ {0} ᐊᐢᑮᐊᐧᐦᑭ</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="year-narrow">
+				<displayName>ᐊᐢᑭᐩ</displayName>
+				<relative type="-1">ᐃᐢᑳᐤᐨ ᐊᐢᑭᐩ</relative>
+				<relative type="0">ᐊᓄᐨ ᐊᐢᑫᐩ</relative>
+				<relative type="1">ᒦᓇ ᐊᐢᑭᐩ</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">ᓃᑳᐣ {0}ᐊᐢᑮᐊᐧᐦᑭ</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="month">
 				<displayName>ᐱᓯᒧᐘᐠ</displayName>
+				<relative type="-1">ᐃᐢᑳᐤᐨ ᐲᓯᒼ</relative>
+				<relative type="0">ᐊᓄᐦᐨ ᐲᓯᒼ</relative>
+				<relative type="1">ᒦᓇ ᐲᓯᒼ</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">ᓃᑳᐣ {0} ᐲᓯᒧᐤᐊᐧᐦᑭ</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="month-short">
+				<displayName>↑↑↑</displayName>
+				<relative type="-1">ᐃᐢᑳᐤᐨ ᐲᓯᒼ</relative>
+				<relative type="0">ᐊᓄᐦᐨ ᐲᓯᒼ</relative>
+				<relative type="1">ᒦᓇ ᐲᓯᒼ</relative>
+			</field>
+			<field type="month-narrow">
+				<displayName>↑↑↑</displayName>
+				<relative type="-1">ᐃᐢᑳᐤᐨ ᐲᓯᒼ</relative>
+				<relative type="0">ᐊᓄᐦᐨ ᐲᓯᒼ</relative>
+				<relative type="1">ᒦᓇ ᐲᓯᒼ</relative>
 			</field>
 			<field type="week">
 				<displayName>ᑭᓯᑲᐘ</displayName>
+				<relative type="-1">ᐃᐢᐠᐚᐨ ᑳᐃᐢᐸᓂᐠ</relative>
+				<relative type="0">ᐊᓄᐦᐨ ᑳᐃᐢᐸᓂᐠ</relative>
+				<relative type="1">ᒦᓇ ᐃᐢᐸᓂᑭ</relative>
+			</field>
+			<field type="week-short">
+				<displayName>↑↑↑</displayName>
+				<relative type="-1">ᐃᐢᐠᐚᐨ ᑳᐃᐢᐸᓂᐠ</relative>
+				<relative type="0">ᐊᓄᐦᐨ ᑳᐃᐢᐸᓂᐠ</relative>
+				<relative type="1">ᒦᓇ ᐃᐢᐸᓂᑭ</relative>
+				<relativePeriod>↑↑↑</relativePeriod>
 			</field>
 			<field type="week-narrow">
 				<displayName>↑↑↑</displayName>
+				<relative type="-1">ᐃᐢᐠᐚᐨ ᑳᐃᐢᐸᓂᐠ</relative>
+				<relative type="0">ᐊᓄᐦᐨ ᑳᐃᐢᐸᓂᐠ</relative>
+				<relative type="1">ᒦᓇ ᐃᐢᐸᓂᑭ</relative>
+				<relativePeriod>↑↑↑</relativePeriod>
 			</field>
 			<field type="day">
 				<displayName>ᑭᓯᑲᐤ</displayName>
 				<relative type="-1">ᐅᑕᑯᓯᐠ</relative>
 				<relative type="0">ᐊᓄᐢᐨ</relative>
 				<relative type="1">ᐘᐸᐦᑫ</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">ᑕᐦᑐ {0} ᑮᓯᑳᑭ</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} ᑳᑕᐦᑐ ᑮᓯᑳᐠ</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="day-short">
+				<displayName>↑↑↑</displayName>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">ᑕᐦᑐ {0} ᑮᓯᑳᑭ</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} ᑳᑕᐦᑐ ᑮᓯᑳᐠ</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="day-narrow">
+				<displayName>↑↑↑</displayName>
+				<relative type="-1">↑↑↑</relative>
+				<relative type="0">↑↑↑</relative>
+				<relative type="1">↑↑↑</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">ᑕᐦᑐ {0} ᑮᓯᑳᑭ</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} ᑳᑕᐦᑐ ᑮᓯᑳᐠ</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="sun">
+				<relative type="-1">ᑳᐊᔭᒥᐦᑮᓯᑳᐠ</relative>
+				<relative type="0">ᐆᒪ ᐊᔭᒥᐦᐁ ᑮᓯᑳᐤ</relative>
+				<relative type="1">ᐊᔭᒥᐦᐁ ᑮᓯᑳᑭ</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">ᒦᓄ {0} ᐊᔭᒥᐦᐁ ᑮᓯᑳᐘ</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} ᑕᐦᑐ ᐊᔭᒥᐦᐁ ᑮᓯᑳᐘ</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="sun-short">
+				<relative type="-1">ᑳᐊᔭᒥᐦᑮᓯᑳᐠ</relative>
+				<relative type="0">ᐆᒪ ᐊᔭᒥᐦᐁ ᑮᓯᑳᐤ</relative>
+				<relative type="1">ᐊᔭᒥᐦᐁ ᑮᓯᑳᑭ</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">ᒦᓄ {0} ᐊᔭᒥᐦᐁ ᑮᓯᑳᐘ</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} ᑕᐦᑐ ᐊᔭᒥᐦᐁ ᑮᓯᑳᐘ</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="sun-narrow">
+				<relative type="-1">ᑳᐊᔭᒥᐦᑮᓯᑳᐠ</relative>
+				<relative type="0">ᐆᒪ ᐊᔭᒥᐦᐁ ᑮᓯᑳᐤ</relative>
+				<relative type="1">ᐊᔭᒥᐦᐁ ᑮᓯᑳᑭ</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">ᒦᓄ {0} ᐊᔭᒥᐦᐁ ᑮᓯᑳᐘ</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} ᑕᐦᑐ ᐊᔭᒥᐦᐁ ᑮᓯᑳᐘ</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="mon">
+				<relative type="-1">ᑳᐴᓂ ᐊᔭᒥᐦᐁ ᑮᓯᑳᐠ</relative>
+				<relative type="0">ᐆᒪ ᑳᐴᓂ ᐊᔭᒥᐦᐁ ᑮᓯᑳᐠ</relative>
+				<relative type="1">ᐴᓂ ᐊᔭᒥᐦᐁᑮᓯᑳᑭ</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">ᑕᐦᑐ {0} ᐴᓂᐊᔭᒥᐦᐁ ᑮᓯᑳᐘ</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} ᑳᑕᐦᑐ ᐴᓂᐊᔭᒥᐦᐁ ᑮᓯᑳᐠ</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="mon-short">
+				<relative type="-1">ᑳᐴᓂ ᐊᔭᒥᐦᐁ ᑮᓯᑳᐠ</relative>
+				<relative type="0">ᐆᒪ ᑳᐴᓂ ᐊᔭᒥᐦᐁ ᑮᓯᑳᐠ</relative>
+				<relative type="1">ᐴᓂ ᐊᔭᒥᐦᐁᑮᓯᑳᑭ</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">ᑕᐦᑐ {0} ᐴᓂᐊᔭᒥᐦᐁ ᑮᓯᑳᐘ</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} ᑳᑕᐦᑐ ᐴᓂᐊᔭᒥᐦᐁ ᑮᓯᑳᐠ</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="mon-narrow">
+				<relative type="-1">ᑳᐴᓂ ᐊᔭᒥᐦᐁ ᑮᓯᑳᐠ</relative>
+				<relative type="0">ᐆᒪ ᑳᐴᓂ ᐊᔭᒥᐦᐁ ᑮᓯᑳᐠ</relative>
+				<relative type="1">ᐴᓂ ᐊᔭᒥᐦᐁᑮᓯᑳᑭ</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">ᑕᐦᑐ {0} ᐴᓂᐊᔭᒥᐦᐁ ᑮᓯᑳᐘ</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} ᑳᑕᐦᑐ ᐴᓂᐊᔭᒥᐦᐁ ᑮᓯᑳᐠ</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="tue">
+				<relative type="-1">ᑳᓃᓱᑮᓯᑳᐠ</relative>
+				<relative type="0">ᐆᒪ ᓃᓱᑮᓯᑳᐠ</relative>
+				<relative type="1">ᓃᓯᑮᓯᑳᑭ</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">ᑕᐦᑐ {0} ᓃᓱᑮᓯᑳᐘ</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} ᑳᑕᐦᑐ ᓃᓱᑮᓯᑳᐠ</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="tue-short">
+				<relative type="-1">ᑳᓃᓱᑮᓯᑳᐠ</relative>
+				<relative type="0">ᐆᒪ ᓃᓱᑮᓯᑳᐠ</relative>
+				<relative type="1">ᓃᓯᑮᓯᑳᑭ</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">ᑕᐦᑐ {0} ᓃᓱᑮᓯᑳᐘ</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} ᑳᑕᐦᑐ ᓃᓱᑮᓯᑳᐠ</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="tue-narrow">
+				<relative type="-1">ᑳᓃᓱᑮᓯᑳᐠ</relative>
+				<relative type="0">ᐆᒪ ᓃᓱᑮᓯᑳᐠ</relative>
+				<relative type="1">ᓃᓯᑮᓯᑳᑭ</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">ᑕᐦᑐ {0} ᓃᓱᑮᓯᑳᐘ</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} ᑳᑕᐦᑐ ᓃᓱᑮᓯᑳᐠ</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="wed">
+				<relative type="-1">ᑳᐋᐱᐦᑕᐘᕽ</relative>
+				<relative type="0">ᐆᒪ ᑳᐋᐱᐦᑕᐘᕽ</relative>
+				<relative type="1">ᒦᓇ ᐋᐱᐦᑕᐘᐦᑭ</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">ᑕᐦᑐ {0} ᐋᐱᐦᑕᐘᐦᑭ</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} ᑳᑕᐦᑐ ᐋᐱᐦᑕᐘᕽ</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="wed-short">
+				<relative type="-1">ᑳᐋᐱᐦᑕᐘᕽ</relative>
+				<relative type="0">ᐆᒪ ᑳᐋᐱᐦᑕᐘᕽ</relative>
+				<relative type="1">ᒦᓇ ᐋᐱᐦᑕᐘᐦᑭ</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">ᑕᐦᑐ {0} ᐋᐱᐦᑕᐘᐦᑭ</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} ᑳᑕᐦᑐ ᐋᐱᐦᑕᐘᕽ</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="wed-narrow">
+				<relative type="-1">ᑳᐋᐱᐦᑕᐘᕽ</relative>
+				<relative type="0">ᐆᒪ ᑳᐋᐱᐦᑕᐘᕽ</relative>
+				<relative type="1">ᒦᓇ ᐋᐱᐦᑕᐘᐦᑭ</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">ᑕᐦᑐ {0} ᐋᐱᐦᑕᐘᐦᑭ</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} ᑳᑕᐦᑐ ᐋᐱᐦᑕᐘᕽ</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="thu">
+				<relative type="-1">ᑳᐴᓂ ᐋᐱᐦᑕᐘᕽ</relative>
+				<relative type="0">ᐆᒪ ᑳᐴᓂ ᐋᐱᐦᑕᐘᕽ</relative>
+				<relative type="1">ᒦᓇ ᐴᓂ ᐋᐱᐦᑕᐘᐦᑭ</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">ᑕᐦᑐ {0} ᐴᓂ ᐋᐱᐦᑕᐘᐦᑭ</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} ᑳᑕᐦᑐ ᐴᓂ ᐋᐱᐦᑕᐘᕽ</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="thu-short">
+				<relative type="-1">ᑳᐴᓂ ᐋᐱᐦᑕᐘᕽ</relative>
+				<relative type="0">ᐆᒪ ᑳᐴᓂ ᐋᐱᐦᑕᐘᕽ</relative>
+				<relative type="1">ᒦᓇ ᐴᓂ ᐋᐱᐦᑕᐘᐦᑭ</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">ᑕᐦᑐ {0} ᐴᓂ ᐋᐱᐦᑕᐘᐦᑭ</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} ᑳᑕᐦᑐ ᐴᓂ ᐋᐱᐦᑕᐘᕽ</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="thu-narrow">
+				<relative type="-1">ᑳᐴᓂ ᐋᐱᐦᑕᐘᕽ</relative>
+				<relative type="0">ᐆᒪ ᑳᐴᓂ ᐋᐱᐦᑕᐘᕽ</relative>
+				<relative type="1">ᒦᓇ ᐴᓂ ᐋᐱᐦᑕᐘᐦᑭ</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">ᑕᐦᑐ {0} ᐴᓂ ᐋᐱᐦᑕᐘᐦᑭ</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} ᑳᑕᐦᑐ ᐴᓂ ᐋᐱᐦᑕᐘᕽ</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="fri">
+				<relative type="-1">ᑫᑳᐨ ᑳᒫᑎᓇᐍ ᑮᓯᑳᐠ</relative>
+				<relative type="0">ᐆᒪ ᑫᑳᐨ ᑳᒫᑎᓇᐍ ᑮᓯᑳᐠ</relative>
+				<relative type="1">ᒦᓇ ᑫᑳᐨ ᒫᑎᓇᐍ ᑮᓯᑳᑭ</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">ᑕᐦᑐ {0} ᑫᑳᐨ ᒫᑎᓇᐍ ᑮᓯᑳᑭ</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} ᑳᑕᐦᑐ ᑫᑳᐨ ᑳᒫᑎᓇᐍ ᑮᓯᑳᐠ</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="fri-short">
+				<relative type="-1">ᑫᑳᐨ ᑳᒫᑎᓇᐍ ᑮᓯᑳᐠ</relative>
+				<relative type="0">ᐆᒪ ᑫᑳᐨ ᑳᒫᑎᓇᐍ ᑮᓯᑳᐠ</relative>
+				<relative type="1">ᒦᓇ ᑫᑳᐨ ᒫᑎᓇᐍ ᑮᓯᑳᑭ</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">ᑕᐦᑐ {0} ᑫᑳᐨ ᒫᑎᓇᐍ ᑮᓯᑳᑭ</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} ᑳᑕᐦᑐ ᑫᑳᐨ ᑳᒫᑎᓇᐍ ᑮᓯᑳᐠ</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="fri-narrow">
+				<relative type="-1">ᑫᑳᐨ ᑳᒫᑎᓇᐍ ᑮᓯᑳᐠ</relative>
+				<relative type="0">ᐆᒪ ᑫᑳᐨ ᑳᒫᑎᓇᐍ ᑮᓯᑳᐠ</relative>
+				<relative type="1">ᒦᓇ ᑫᑳᐨ ᒫᑎᓇᐍ ᑮᓯᑳᑭ</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">ᑕᐦᑐ {0} ᑫᑳᐨ ᒫᑎᓇᐍ ᑮᓯᑳᑭ</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} ᑳᑕᐦᑐ ᑫᑳᐨ ᑳᒫᑎᓇᐍ ᑮᓯᑳᐠ</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="sat">
+				<relative type="-1">ᑫᑳᐨ ᑳᒫᑎᓇᐍᑮᓯᑲᐠ</relative>
+				<relative type="0">ᒦᓇ ᑮᑳᐨᒪᑎᓇᐍᑮᓯᑳᐤ</relative>
+				<relative type="1">ᒦᓇ ᑮᑳᐨᒪᑎᓇᐍᑮᓯᑳᑭ</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">ᑕᐦᑐ {0} ᒫᑎᓇᐍᑮᓯᑳᐘ</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} ᑳᑕᐦᑐ ᒫᑎᓇᐍᑮᓯᑲᐠ</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="hour">
+				<displayName>ᐚᐢᑳᐸᓂᐤ</displayName>
+				<relative type="0">ᐆᒪ ᐘᐢᑳᐸᓄᐤ</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">ᑕᐦᑐ {0} ᐘᐢᑳᐸᓂᑭ</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} ᐘᐢᑳᐸᓂᑯᕽ</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="hour-short">
+				<displayName>ᐚᐢᑳᐸᓂᐤ</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">ᑕᐦᑐ {0} ᐘᐢᑳᐸᓂᑭ</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} ᐘᐢᑳᐸᓂᑯᕽ</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="hour-narrow">
+				<displayName>ᐚᐢᑳᐸᓂᐤ</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">ᑕᐦᑐ {0} ᐘᐢᑳᐸᓂᑭ</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} ᐘᐢᑳᐸᓂᑯᕽ</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="minute">
+				<displayName>ᑎᐸᐦᐃᑲᓂᐢ</displayName>
+				<relative type="0">ᐆᒪ ᑎᐸᐦᐃᑲᓂᐢ</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">ᑕᐦᑐ {0} ᑎᐸᐦᐃᑲᓂᓴ</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} ᑎᐸᐦᐃᑲᓂᓯᐦᑯᕽ</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="minute-short">
+				<displayName>ᑎᐸᐦᐃᑲᓂᐢ</displayName>
+			</field>
+			<field type="minute-narrow">
+				<displayName>ᑎᐸᐦᐃᑲᓂᐢ</displayName>
+			</field>
+			<field type="second">
+				<relative type="0">ᒣᐠᐚᐨ</relative>
 			</field>
 		</fields>
 		<timeZoneNames>
 			<hourFormat>↑↑↑</hourFormat>
 			<gmtFormat>↑↑↑</gmtFormat>
 			<gmtZeroFormat>↑↑↑</gmtZeroFormat>
-			<regionFormat>{0} ᐁᐃᐢᐸᓂᐟ</regionFormat>
-			<regionFormat type="daylight">{0} ᑮᓯᑳᐤ ᐁᐃᐢᐸᓂᐟ</regionFormat>
-			<regionFormat type="standard">{0} ᐯᔭᑯᐦᑕᐃᐧᐣ ᐁᐃᐢᐸᓂᐟ</regionFormat>
+			<regionFormat>{0} ᐁᐃᐢᐸᓂᐠ</regionFormat>
+			<regionFormat type="daylight">{0} ᑮᓯᑳᐤ ᐁᐃᐢᐸᓂᐠ</regionFormat>
+			<regionFormat type="standard">{0} ᐯᔭᑯᐦᑖᐏᐣ ᐁᐃᐢᐸᓂᐠ</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Etc/Unknown">
+				<exemplarCity>ᓇᒨᓇ ᑭᐢᑫᓂᑖᑿᐣ ᐃᐦᑖᐏᐣ</exemplarCity>
+			</zone>
+			<zone type="America/Winnipeg">
+				<exemplarCity>ᐑᓂᐯᐠ</exemplarCity>
+			</zone>
 			<metazone type="GMT">
 				<long>
-					<standard>ᕒᐁᐁᐣᐤᐏᐨ ᒣᐊᐣ ᐁᐃᐢᐸᓂᐟ</standard>
+					<standard>ᐠᕒᐁᓂᐨ ᐯᔭᑯᐦᑖᐏᐣ ᐁᐃᐢᐸᓂᐠ</standard>
 				</long>
 			</metazone>
 		</timeZoneNames>
@@ -212,12 +726,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<otherNumberingSystems>
 			<native draft="contributed">↑↑↑</native>
 		</otherNumberingSystems>
+		<minimumGroupingDigits draft="contributed">↑↑↑</minimumGroupingDigits>
 		<symbols numberSystem="latn">
 			<decimal>↑↑↑</decimal>
 			<group>↑↑↑</group>
 			<percentSign>↑↑↑</percentSign>
 			<plusSign>↑↑↑</plusSign>
 			<minusSign>↑↑↑</minusSign>
+			<approximatelySign>↑↑↑</approximatelySign>
+			<exponential>↑↑↑</exponential>
+			<superscriptingExponent>↑↑↑</superscriptingExponent>
+			<perMille>↑↑↑</perMille>
+			<infinity>↑↑↑</infinity>
+			<nan>↑↑↑</nan>
 		</symbols>
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength>

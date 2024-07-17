@@ -10,10 +10,88 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<version number="$Revision$"/>
 		<language type="kaa"/>
 	</identity>
+	<localeDisplayNames>
+		<localeDisplayPattern>
+			<localePattern draft="unconfirmed">↑↑↑</localePattern>
+			<localeSeparator draft="unconfirmed">↑↑↑</localeSeparator>
+			<localeKeyTypePattern draft="unconfirmed">↑↑↑</localeKeyTypePattern>
+		</localeDisplayPattern>
+		<languages>
+			<language type="en" draft="unconfirmed">Англичанша</language>
+			<language type="kaa" draft="unconfirmed">Қарақалпақ тили</language>
+			<language type="tr" draft="unconfirmed">түрк тили</language>
+			<language type="und" draft="unconfirmed">белгисиз тил</language>
+			<language type="zh" draft="unconfirmed">қытайша</language>
+			<language type="zh_Hans" draft="unconfirmed">қытайша (аңсатластырылған)</language>
+		</languages>
+		<scripts>
+			<script type="Latn" draft="unconfirmed">Латын</script>
+			<script type="Zxxx" draft="unconfirmed">Жазыўсыз</script>
+			<script type="Zzzz" draft="unconfirmed">Белгисиз жазыў</script>
+		</scripts>
+		<territories>
+			<territory type="002" draft="unconfirmed">Африка</territory>
+			<territory type="003" draft="unconfirmed">Арқа Америка</territory>
+			<territory type="005" draft="unconfirmed">Қубла Америка</territory>
+			<territory type="009" draft="unconfirmed">Океания</territory>
+			<territory type="019" draft="unconfirmed">Америка</territory>
+			<territory type="142" draft="unconfirmed">Азия</territory>
+			<territory type="150" draft="unconfirmed">Европа</territory>
+			<territory type="EU" draft="unconfirmed">Европа аўқамы</territory>
+			<territory type="EZ" draft="unconfirmed">Еврозона</territory>
+			<territory type="UN" draft="unconfirmed">Бирлескен Миллетлер Шөлкеми</territory>
+		</territories>
+		<codePatterns>
+			<codePattern type="language" draft="unconfirmed">Тил: {0}</codePattern>
+			<codePattern type="script" draft="unconfirmed">Жазыў: {0}</codePattern>
+			<codePattern type="territory" draft="unconfirmed">Аймақ: {0}</codePattern>
+		</codePatterns>
+	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[а ә б в г ғ д её ж з и й к қ л м н ң о ө п р с т уў ү ф х ҳ ц ч ш щ ъ ы ь э ю я]</exemplarCharacters>
 		<exemplarCharacters type="index">[А Ә Б В Г Ғ Д ЕЁ Ж З И Й К Қ Л М Н Ң О Ө П Р С Т УЎ Ү Ф Х Ҳ Ц Ч Ш Щ Ъ Ы Ь Э Ю Я]</exemplarCharacters>
 		<exemplarCharacters type="numbers">[\- ‑ , % ‰ + 0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[\- ‐‑ – — , ; \: ! ? . … '‘’ &quot;“” ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
 	</characters>
+	<dates>
+		<fields>
+			<field type="year">
+				<relative type="0" draft="unconfirmed">Усы жыл</relative>
+			</field>
+			<field type="month">
+				<displayName draft="unconfirmed">Ай</displayName>
+			</field>
+			<field type="week">
+				<displayName draft="unconfirmed">Ҳәпте</displayName>
+			</field>
+			<field type="day">
+				<displayName draft="unconfirmed">Күн</displayName>
+				<relative type="-1" draft="unconfirmed">Кеше</relative>
+				<relative type="0" draft="unconfirmed">Бүгин</relative>
+				<relative type="1" draft="unconfirmed">Ертең</relative>
+			</field>
+			<field type="day-short">
+				<relative type="-1" draft="unconfirmed">Бүгин</relative>
+				<relative type="0" draft="unconfirmed">Кеше</relative>
+				<relative type="1" draft="unconfirmed">Ертең</relative>
+			</field>
+			<field type="day-narrow">
+				<relative type="-1" draft="unconfirmed">Кеше</relative>
+				<relative type="0" draft="unconfirmed">Бүгин</relative>
+				<relative type="1" draft="unconfirmed">Ертең</relative>
+			</field>
+			<field type="weekday">
+				<displayName draft="unconfirmed">Ҳәпте күни</displayName>
+			</field>
+			<field type="hour">
+				<displayName draft="unconfirmed">Саат</displayName>
+			</field>
+			<field type="minute">
+				<displayName draft="unconfirmed">Минут</displayName>
+			</field>
+			<field type="second">
+				<displayName draft="unconfirmed">Секунд</displayName>
+			</field>
+		</fields>
+	</dates>
 </ldml>

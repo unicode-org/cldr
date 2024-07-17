@@ -32,7 +32,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="ann">Obolo Simi</language>
 			<language type="anp">Angika</language>
 			<language type="ar">Arabe Simi</language>
-			<language type="ar_001">↑↑↑</language>
+			<language type="ar_001">Musuq Estandar Arabe Simi</language>
 			<language type="arn">Mapuche Simi</language>
 			<language type="arp">Arapaho</language>
 			<language type="ars">Árabe Najdi Simi</language>
@@ -491,7 +491,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hebr">Hebreo Simi</script>
 			<script type="Hira">Hiragana</script>
 			<script type="Hrkt">Japones silabico sananpakuna</script>
-			<script type="Jamo">Jamo</script>
+			<script type="Jamo">↑↑↑</script>
 			<script type="Jpan">Japones Simi</script>
 			<script type="Kana">Katakana</script>
 			<script type="Khmr">Khmer</script>
@@ -1749,7 +1749,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="year">
-				<displayName>↑↑↑</displayName>
+				<displayName>wata</displayName>
 				<relative type="-1">qayna wata</relative>
 				<relative type="0">kunan wata</relative>
 				<relative type="1">hamuq wata</relative>
@@ -1761,7 +1761,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="year-short">
-				<displayName>↑↑↑</displayName>
+				<displayName>wata</displayName>
 				<relative type="-1">↑↑↑</relative>
 				<relative type="0">↑↑↑</relative>
 				<relative type="1">↑↑↑</relative>
@@ -1773,7 +1773,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="year-narrow">
-				<displayName>↑↑↑</displayName>
+				<displayName>wata</displayName>
 				<relative type="-1">↑↑↑</relative>
 				<relative type="0">↑↑↑</relative>
 				<relative type="1">↑↑↑</relative>
@@ -1785,7 +1785,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="quarter">
-				<displayName>↑↑↑</displayName>
+				<displayName>trimestral nisqa</displayName>
 				<relative type="-1">qayna kimsa killa</relative>
 				<relative type="0">kunan kimsa killa</relative>
 				<relative type="1">hamuq kimsa killa</relative>
@@ -1797,7 +1797,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="quarter-short">
-				<displayName>↑↑↑</displayName>
+				<displayName>trimestral nisqa</displayName>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
@@ -1806,7 +1806,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="quarter-narrow">
-				<displayName>↑↑↑</displayName>
+				<displayName>trimestral nisqa</displayName>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
@@ -1815,7 +1815,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="month">
-				<displayName>↑↑↑</displayName>
+				<displayName>killa</displayName>
 				<relative type="-1">qayna killa</relative>
 				<relative type="0">kunan killa</relative>
 				<relative type="1">hamuq killa</relative>
@@ -1827,7 +1827,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="month-short">
-				<displayName>↑↑↑</displayName>
+				<displayName>killa</displayName>
 				<relative type="-1">↑↑↑</relative>
 				<relative type="0">↑↑↑</relative>
 				<relative type="1">↑↑↑</relative>
@@ -1839,7 +1839,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="month-narrow">
-				<displayName>↑↑↑</displayName>
+				<displayName>killa</displayName>
 				<relative type="-1">↑↑↑</relative>
 				<relative type="0">↑↑↑</relative>
 				<relative type="1">↑↑↑</relative>
@@ -1851,7 +1851,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="week">
-				<displayName>↑↑↑</displayName>
+				<displayName>simana</displayName>
 				<relative type="-1">qayna semana</relative>
 				<relative type="0">kunan semana</relative>
 				<relative type="1">hamuq semana</relative>
@@ -1864,7 +1864,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relativePeriod>{0} semanapi</relativePeriod>
 			</field>
 			<field type="week-short">
-				<displayName>↑↑↑</displayName>
+				<displayName>simana</displayName>
 				<relative type="-1">↑↑↑</relative>
 				<relative type="0">↑↑↑</relative>
 				<relative type="1">↑↑↑</relative>
@@ -1877,7 +1877,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relativePeriod>↑↑↑</relativePeriod>
 			</field>
 			<field type="week-narrow">
-				<displayName>↑↑↑</displayName>
+				<displayName>simana</displayName>
 				<relative type="-1">↑↑↑</relative>
 				<relative type="0">↑↑↑</relative>
 				<relative type="1">↑↑↑</relative>
@@ -1899,7 +1899,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="day">
-				<displayName>↑↑↑</displayName>
+				<displayName>punchaw</displayName>
 				<relative type="-1">qayna punchaw</relative>
 				<relative type="0">kunan punchaw</relative>
 				<relative type="1">paqarin</relative>
@@ -1911,7 +1911,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="day-short">
-				<displayName>↑↑↑</displayName>
+				<displayName>punchaw</displayName>
 				<relative type="-1">↑↑↑</relative>
 				<relative type="0">↑↑↑</relative>
 				<relative type="1">↑↑↑</relative>
@@ -1923,7 +1923,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="day-narrow">
-				<displayName>↑↑↑</displayName>
+				<displayName>punchaw</displayName>
 				<relative type="-1">↑↑↑</relative>
 				<relative type="0">↑↑↑</relative>
 				<relative type="1">↑↑↑</relative>
@@ -2202,7 +2202,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 			</field>
 			<field type="hour">
-				<displayName>↑↑↑</displayName>
+				<displayName>ura</displayName>
 				<relative type="0">kay hora</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
@@ -2212,7 +2212,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="hour-short">
-				<displayName>↑↑↑</displayName>
+				<displayName>ura</displayName>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
@@ -2221,7 +2221,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="hour-narrow">
-				<displayName>↑↑↑</displayName>
+				<displayName>ura</displayName>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
@@ -2230,7 +2230,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="minute">
-				<displayName>↑↑↑</displayName>
+				<displayName>minutu</displayName>
 				<relative type="0">kay minuto</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
@@ -2240,7 +2240,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="minute-short">
-				<displayName>↑↑↑</displayName>
+				<displayName>minutu</displayName>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
@@ -2249,7 +2249,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="minute-narrow">
-				<displayName>↑↑↑</displayName>
+				<displayName>minutu</displayName>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
@@ -2258,7 +2258,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="second">
-				<displayName>↑↑↑</displayName>
+				<displayName>segundu</displayName>
 				<relative type="0">↑↑↑</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
@@ -2268,7 +2268,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="second-short">
-				<displayName>↑↑↑</displayName>
+				<displayName>segundu</displayName>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
@@ -2277,7 +2277,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</relativeTime>
 			</field>
 			<field type="second-narrow">
-				<displayName>↑↑↑</displayName>
+				<displayName>segundu</displayName>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
@@ -4034,6 +4034,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>Hora de Verano de Japón</daylight>
 				</long>
 			</metazone>
+			<metazone type="Kazakhstan">
+				<long>
+					<standard>Hora de Kazajistán</standard>
+				</long>
+			</metazone>
 			<metazone type="Kazakhstan_Eastern">
 				<long>
 					<standard>Hora de Kazajistán Oriental</standard>
@@ -4555,7 +4560,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencies>
 			<currency type="AED">
@@ -4960,6 +4965,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>Som Kirguís</displayName>
 				<displayName count="other">Som kirguís</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="KHR">
 				<displayName>Riel Camboyano</displayName>
@@ -5029,6 +5035,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="LSL">
 				<displayName>Lesoto Loti Qullqi</displayName>
 				<displayName count="other">Lesoto lotis qullqi</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="LYD">
 				<displayName>Dinar Libio</displayName>
@@ -5259,13 +5266,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="SLE">
-				<displayName>Leone de Sierra Leona</displayName>
-				<displayName count="other">Leone de sierra leona</displayName>
+				<displayName>Leone qullqi de Sierra Leona</displayName>
+				<displayName count="other">Leone qullqi de Sierra Leona</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="SLL">
-				<displayName>Leone de Sierra Leona (1964—2022)</displayName>
-				<displayName count="other">Leone de sierra leona (1964—2022)</displayName>
+				<displayName>Leone qullqi de Sierra Leona (1964–2022)</displayName>
+				<displayName count="other">Leones qullqi de Sierra Leona (1964–2022)</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="SOS">

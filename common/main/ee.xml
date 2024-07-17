@@ -12,8 +12,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</identity>
 	<localeDisplayNames>
 		<localeDisplayPattern>
-			<localePattern draft="unconfirmed">↑↑↑</localePattern>
-			<localeSeparator draft="unconfirmed">↑↑↑</localeSeparator>
+			<localePattern>↑↑↑</localePattern>
+			<localeSeparator>↑↑↑</localeSeparator>
 			<localeKeyTypePattern draft="unconfirmed">↑↑↑</localeKeyTypePattern>
 		</localeDisplayPattern>
 		<languages>
@@ -67,10 +67,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="dyo" draft="unconfirmed">dzola-fonyigbe</language>
 			<language type="dz">dzongkhagbe</language>
 			<language type="ebu">embugbe</language>
-			<language type="ee">Eʋegbe</language>
+			<language type="ee">eʋegbe</language>
 			<language type="efi">efigbe</language>
 			<language type="el">grisigbe</language>
-			<language type="en">Yevugbe</language>
+			<language type="en">iŋlisigbe</language>
 			<language type="en_AU">Yevugbe (Australia)</language>
 			<language type="en_CA">Yevugbe (Canada)</language>
 			<language type="en_GB">Yevugbe (Britain)</language>
@@ -339,7 +339,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Laoo">laogbeŋɔŋlɔ</script>
 			<script type="Latf" draft="unconfirmed">fraktur latin gbeŋɔŋlɔ</script>
 			<script type="Latg" draft="unconfirmed">gaelia latin gbeŋɔŋlɔ</script>
-			<script type="Latn">Latingbeŋɔŋlɔ</script>
+			<script type="Latn">latingbeŋɔŋlɔ</script>
 			<script type="Lepc" draft="unconfirmed">leptsa gbeŋɔŋlɔ</script>
 			<script type="Limb" draft="unconfirmed">limbu gbeŋɔŋlɔ</script>
 			<script type="Lina" draft="unconfirmed">linia a gbeŋɔŋlɔ</script>
@@ -801,14 +801,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="vaii" draft="unconfirmed">vaii digitwo</type>
 		</types>
 		<measurementSystemNames>
-			<measurementSystemName type="metric">metric</measurementSystemName>
+			<measurementSystemName type="metric">dzidzeti</measurementSystemName>
 			<measurementSystemName type="UK">uk</measurementSystemName>
 			<measurementSystemName type="US">us</measurementSystemName>
 		</measurementSystemNames>
 		<codePatterns>
 			<codePattern type="language">gbegbɔgblɔ {0}</codePattern>
 			<codePattern type="script">gbeŋɔŋlɔ {0}</codePattern>
-			<codePattern type="territory">memama {0}</codePattern>
+			<codePattern type="territory">nutome {0}</codePattern>
 		</codePatterns>
 	</localeDisplayNames>
 	<characters>
@@ -1276,7 +1276,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="2">dzodze</month>
 							<month type="3">tedoxe</month>
 							<month type="4">afɔfĩe</month>
-							<month type="5">dama</month>
+							<month type="5">dame</month>
 							<month type="6">masa</month>
 							<month type="7">siamlɔm</month>
 							<month type="8">deasiamime</month>
@@ -2305,9 +2305,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<hourFormat>↑↑↑</hourFormat>
 			<gmtFormat>{0} GMT</gmtFormat>
 			<gmtZeroFormat>↑↑↑</gmtZeroFormat>
-			<regionFormat>{0} gaƒoƒo me</regionFormat>
-			<regionFormat type="daylight">{0} kele gaƒoƒo me</regionFormat>
-			<regionFormat type="standard">{0} nutome gaƒoƒo me</regionFormat>
+			<regionFormat>{0} game</regionFormat>
+			<regionFormat type="daylight">{0} ŋkekemeɣeyiɣi</regionFormat>
+			<regionFormat type="standard">{0} game ɖoɖoea</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
 			<zone type="Etc/UTC">
 				<long>
@@ -3609,7 +3609,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="Africa_Western">
 				<long>
-					<generic>West Africa gaƒoƒo me</generic>
+					<generic>West Africa game</generic>
 					<standard>West Africa nutome gaƒoƒo me</standard>
 					<daylight>West Africa dzomeŋɔli gaƒoƒo me</daylight>
 				</long>
@@ -4515,6 +4515,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</timeZoneNames>
 	</dates>
 	<numbers>
+		<defaultNumberingSystem draft="contributed">↑↑↑</defaultNumberingSystem>
+		<otherNumberingSystems>
+			<native draft="contributed">↑↑↑</native>
+		</otherNumberingSystems>
 		<minimumGroupingDigits draft="contributed">3</minimumGroupingDigits>
 		<symbols numberSystem="latn">
 			<decimal>↑↑↑</decimal>

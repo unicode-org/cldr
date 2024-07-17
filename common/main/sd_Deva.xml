@@ -200,15 +200,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">जनवरी</month>
-							<month type="2">फरवरी</month>
+							<month type="2">फेबरवरी</month>
 							<month type="3">मार्चु</month>
-							<month type="4">अप्रैल</month>
+							<month type="4">अप्रेल</month>
 							<month type="5">मई</month>
 							<month type="6">जून</month>
 							<month type="7">जुलाई</month>
-							<month type="8">अगस्ट</month>
+							<month type="8">आगस्ट</month>
 							<month type="9">सप्टेंबर</month>
-							<month type="10">ओक्टोबर</month>
+							<month type="10">आक्टोबर</month>
 							<month type="11">नवंबर</month>
 							<month type="12">डिसंबर</month>
 						</monthWidth>
@@ -282,7 +282,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<day type="sun">आर्तवार</day>
 							<day type="mon">सूमर</day>
 							<day type="tue">मंगलु</day>
-							<day type="wed">बु॒धर</day>
+							<day type="wed">ॿुधर</day>
 							<day type="thu">विस्पत</day>
 							<day type="fri">जुमो</day>
 							<day type="sat">छंछर</day>
@@ -607,9 +607,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<hourFormat>↑↑↑</hourFormat>
 			<gmtFormat>जीएमटी{0}</gmtFormat>
 			<gmtZeroFormat>जीएमटी</gmtZeroFormat>
-			<regionFormat>{0} वक्त</regionFormat>
+			<regionFormat>{0} वक़्तु</regionFormat>
 			<regionFormat type="daylight">{0} दीं॒ह जो वक्त</regionFormat>
-			<regionFormat type="standard">{0} मअयारी वक्त</regionFormat>
+			<regionFormat type="standard">{0} मइयारी वक़्तु</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
 			<zone type="Etc/UTC">
 				<long>
@@ -677,7 +677,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</metazone>
 			<metazone type="GMT">
 				<long>
-					<standard>ग्रीनविच मीन वक्तु</standard>
+					<standard>ग्रीनविच मीन वक़्तु</standard>
 				</long>
 			</metazone>
 		</timeZoneNames>
@@ -687,6 +687,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<otherNumberingSystems>
 			<native draft="contributed">↑↑↑</native>
 		</otherNumberingSystems>
+		<symbols numberSystem="arab">
+			<decimal>↑↑↑</decimal>
+			<group>↑↑↑</group>
+			<percentSign>↑↑↑</percentSign>
+			<plusSign>↑↑↑</plusSign>
+			<minusSign>↑↑↑</minusSign>
+		</symbols>
+		<symbols numberSystem="arabext">
+			<decimal>.</decimal>
+			<group>↑↑↑</group>
+			<percentSign>↑↑↑</percentSign>
+			<plusSign>↑↑↑</plusSign>
+			<minusSign>↑↑↑</minusSign>
+		</symbols>
+		<symbols numberSystem="deva">
+			<decimal>↑↑↑</decimal>
+			<group>↑↑↑</group>
+			<percentSign>↑↑↑</percentSign>
+			<plusSign>↑↑↑</plusSign>
+			<minusSign>↑↑↑</minusSign>
+		</symbols>
 		<symbols numberSystem="latn">
 			<decimal>↑↑↑</decimal>
 			<group>↑↑↑</group>
@@ -694,6 +715,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<plusSign>↑↑↑</plusSign>
 			<minusSign>↑↑↑</minusSign>
 		</symbols>
+		<decimalFormats numberSystem="arab">
+			<decimalFormatLength>
+				<decimalFormat>
+					<pattern>↑↑↑</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<decimalFormats numberSystem="arabext">
+			<decimalFormatLength>
+				<decimalFormat>
+					<pattern>↑↑↑</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<decimalFormats numberSystem="deva">
+			<decimalFormatLength>
+				<decimalFormat>
+					<pattern>↑↑↑</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength>
 				<decimalFormat>
@@ -701,6 +743,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
+		<scientificFormats numberSystem="arab">
+			<scientificFormatLength>
+				<scientificFormat>
+					<pattern>↑↑↑</pattern>
+				</scientificFormat>
+			</scientificFormatLength>
+		</scientificFormats>
+		<scientificFormats numberSystem="arabext">
+			<scientificFormatLength>
+				<scientificFormat>
+					<pattern>↑↑↑</pattern>
+				</scientificFormat>
+			</scientificFormatLength>
+		</scientificFormats>
+		<scientificFormats numberSystem="deva">
+			<scientificFormatLength>
+				<scientificFormat>
+					<pattern>↑↑↑</pattern>
+				</scientificFormat>
+			</scientificFormatLength>
+		</scientificFormats>
 		<scientificFormats numberSystem="latn">
 			<scientificFormatLength>
 				<scientificFormat>
@@ -708,6 +771,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</scientificFormat>
 			</scientificFormatLength>
 		</scientificFormats>
+		<percentFormats numberSystem="arab">
+			<percentFormatLength>
+				<percentFormat>
+					<pattern>↑↑↑</pattern>
+				</percentFormat>
+			</percentFormatLength>
+		</percentFormats>
+		<percentFormats numberSystem="arabext">
+			<percentFormatLength>
+				<percentFormat>
+					<pattern>0%</pattern>
+				</percentFormat>
+			</percentFormatLength>
+		</percentFormats>
+		<percentFormats numberSystem="deva">
+			<percentFormatLength>
+				<percentFormat>
+					<pattern>0%</pattern>
+				</percentFormat>
+			</percentFormatLength>
+		</percentFormats>
 		<percentFormats numberSystem="latn">
 			<percentFormatLength>
 				<percentFormat>
@@ -715,18 +799,39 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</percentFormat>
 			</percentFormatLength>
 		</percentFormats>
+		<currencyFormats numberSystem="arab">
+			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern>↑↑↑</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
+		<currencyFormats numberSystem="arabext">
+			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern>↑↑↑</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
+		<currencyFormats numberSystem="deva">
+			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern>↑↑↑</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
 					<pattern>↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="shrd">
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencies>
 			<currency type="BRL">

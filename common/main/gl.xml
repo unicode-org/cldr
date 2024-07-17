@@ -63,6 +63,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="bi">bislama</language>
 			<language type="bin">bini</language>
 			<language type="bla">siksiká</language>
+			<language type="blo">anii</language>
 			<language type="bm">bambara</language>
 			<language type="bn">bengalí</language>
 			<language type="bo">tibetano</language>
@@ -190,6 +191,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="iba">iban</language>
 			<language type="ibb">ibibio</language>
 			<language type="id">indonesio</language>
+			<language type="ie">occidental</language>
 			<language type="ig">igbo</language>
 			<language type="ii">yi sichuanés</language>
 			<language type="ikt">inuktitut canadense occidental</language>
@@ -244,6 +246,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="kv">komi</language>
 			<language type="kw">córnico</language>
 			<language type="kwk">kwakiutl</language>
+			<language type="kxv">kuvi</language>
 			<language type="ky">kirguiz</language>
 			<language type="la">latín</language>
 			<language type="lad">ladino</language>
@@ -252,8 +255,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="lez">lezguio</language>
 			<language type="lg">ganda</language>
 			<language type="li">limburgués</language>
+			<language type="lij">lígur</language>
 			<language type="lil">lillooet</language>
 			<language type="lkt">lakota</language>
+			<language type="lmo">lombardo</language>
 			<language type="ln">lingala</language>
 			<language type="lo">laosiano</language>
 			<language type="lou">crioulo de Luisiana</language>
@@ -264,7 +269,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="lu">luba-katanga</language>
 			<language type="lua">luba-lulua</language>
 			<language type="lun">lunda</language>
-			<language type="luo">luo</language>
+			<language type="luo">↑↑↑</language>
 			<language type="lus">mizo</language>
 			<language type="luy">luyia</language>
 			<language type="lv">letón</language>
@@ -410,6 +415,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="sw_CD">suahili congolés</language>
 			<language type="swb">comoriano</language>
 			<language type="syr">siríaco</language>
+			<language type="szl">silesiano</language>
 			<language type="ta">támil</language>
 			<language type="tce">tutchone do sur</language>
 			<language type="te">telugu</language>
@@ -449,9 +455,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="und">lingua descoñecida</language>
 			<language type="ur">urdú</language>
 			<language type="uz">uzbeko</language>
-			<language type="vai">vai</language>
+			<language type="vai">↑↑↑</language>
 			<language type="ve">venda</language>
+			<language type="vec">véneto</language>
 			<language type="vi">vietnamita</language>
+			<language type="vmw">makua</language>
 			<language type="vo">volapuk</language>
 			<language type="vun">vunjo</language>
 			<language type="wa">valón</language>
@@ -463,6 +471,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="wuu">chinés wu</language>
 			<language type="xal">calmuco</language>
 			<language type="xh">xhosa</language>
+			<language type="xnr">kangri</language>
 			<language type="xog">soga</language>
 			<language type="yav">yangben</language>
 			<language type="ybb">yemba</language>
@@ -471,6 +480,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="yrl">nheengatu</language>
 			<language type="yue">cantonés</language>
 			<language type="yue" alt="menu">chinés cantonés</language>
+			<language type="za">zhuang</language>
 			<language type="zgh">tamazight marroquí estándar</language>
 			<language type="zh">chinés</language>
 			<language type="zh" alt="menu">chinés mandarín</language>
@@ -2931,7 +2941,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Cabo Verde</exemplarCity>
 			</zone>
 			<zone type="America/Curacao">
-				<exemplarCity>Curaçao</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Indian/Christmas">
 				<exemplarCity>Illa Christmas</exemplarCity>
@@ -3465,7 +3475,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Asuncion">
-				<exemplarCity>Asunción</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Qatar">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -3824,6 +3834,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<zone type="Africa/Harare">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
+			<metazone type="Acre">
+				<long>
+					<generic>hora de Acre</generic>
+				</long>
+			</metazone>
 			<metazone type="Afghanistan">
 				<long>
 					<standard>hora de Afganistán</standard>
@@ -3895,7 +3910,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Anadyr">
 				<long>
-					<generic>Horario de Anadir</generic>
+					<generic>hora de Anadyr</generic>
 					<standard>Horario estándar de Anadir</standard>
 					<daylight>Horario de verán de Anadir</daylight>
 				</long>
@@ -4311,9 +4326,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Kamchatka">
 				<long>
-					<generic>Horario de Petropávlovsk-Kamchatski</generic>
+					<generic>hora estándar de Petropavlovsk-Kamchatski</generic>
 					<standard>Horario estándar de Petropávlovsk-Kamchatski</standard>
 					<daylight>Horario de verán de Petropávlovsk-Kamchatski</daylight>
+				</long>
+			</metazone>
+			<metazone type="Kazakhstan">
+				<long>
+					<standard>hora de Kazakistán</standard>
 				</long>
 			</metazone>
 			<metazone type="Kazakhstan_Eastern">
@@ -4575,7 +4595,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Samara">
 				<long>
-					<generic>Horario de Samara</generic>
+					<generic>hora de Samara</generic>
 					<standard>Horario estándar de Samara</standard>
 					<daylight>Horario de verán de Samara</daylight>
 				</long>
@@ -4895,8 +4915,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>{0} ¤¤</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencies>
 			<currency type="ADP">
@@ -5491,7 +5511,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="one">som kirguiz</displayName>
 				<displayName count="other">soms kirguiz</displayName>
 				<symbol>↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="KHR">
 				<displayName>riel camboxano</displayName>
@@ -5909,9 +5929,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="SLL">
-				<displayName>leone de Serra Leoa (1964—2022)</displayName>
-				<displayName count="one">leone de Serra Leoa (1964—2022)</displayName>
-				<displayName count="other">leones de Serra Leoa (1964—2022)</displayName>
+				<displayName>leone de Serra Leoa (1964–2022)</displayName>
+				<displayName count="one">leone de Serra Leoa (1964–2022)</displayName>
+				<displayName count="other">leones de Serra Leoa (1964–2022)</displayName>
 				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="SOS">
@@ -7245,6 +7265,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} cuarto imperial</unitPattern>
 				<unitPattern count="other">{0} cuartos imperiais</unitPattern>
 			</unit>
+			<unit type="speed-light-speed">
+				<displayName>luz</displayName>
+				<unitPattern count="one">{0} luz</unitPattern>
+				<unitPattern count="other">{0} luz</unitPattern>
+			</unit>
+			<unit type="concentr-portion-per-1e9">
+				<displayName>partes por mil millóns</displayName>
+				<unitPattern count="one">{0} parte por mil millóns</unitPattern>
+				<unitPattern count="other">{0} partes por mil millóns</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>noites</displayName>
+				<unitPattern count="one">{0} noite</unitPattern>
+				<unitPattern count="other">{0} noites</unitPattern>
+				<perUnitPattern>{0} por noite</perUnitPattern>
+			</unit>
 			<coordinateUnit>
 				<displayName>punto cardinal</displayName>
 				<coordinateUnitPattern type="east">{0} leste</coordinateUnitPattern>
@@ -8313,6 +8349,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} cto. imp.</unitPattern>
 				<unitPattern count="other">{0} ctos. imp.</unitPattern>
 			</unit>
+			<unit type="speed-light-speed">
+				<displayName>luz</displayName>
+				<unitPattern count="one">{0} luz</unitPattern>
+				<unitPattern count="other">{0} luz</unitPattern>
+			</unit>
+			<unit type="concentr-portion-per-1e9">
+				<displayName>partes/mil millóns</displayName>
+				<unitPattern count="one">{0} ppmm</unitPattern>
+				<unitPattern count="other">{0} ppmm</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>noites</displayName>
+				<unitPattern count="one">{0} noite</unitPattern>
+				<unitPattern count="other">{0} noites</unitPattern>
+				<perUnitPattern>{0}/noite</perUnitPattern>
+			</unit>
 			<coordinateUnit>
 				<displayName>punto</displayName>
 				<coordinateUnitPattern type="east">{0} L</coordinateUnitPattern>
@@ -9380,6 +9432,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>cto. imp.</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="speed-light-speed">
+				<displayName>luz</displayName>
+				<unitPattern count="one">{0} luz</unitPattern>
+				<unitPattern count="other">{0} luz</unitPattern>
+			</unit>
+			<unit type="concentr-portion-per-1e9">
+				<displayName>ppmm</displayName>
+				<unitPattern count="one">{0} ppmm</unitPattern>
+				<unitPattern count="other">{0} ppmm</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>noites</displayName>
+				<unitPattern count="one">{0} noite</unitPattern>
+				<unitPattern count="other">{0} noites</unitPattern>
+				<perUnitPattern>{0}/noite</perUnitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>↑↑↑</displayName>

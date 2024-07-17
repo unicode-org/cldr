@@ -20,8 +20,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="af">Afrikaans</language>
 			<language type="am">Amharik</language>
 			<language type="ar">Araab</language>
+			<language type="ar_001">Araab</language>
 			<language type="as">Asame</language>
 			<language type="az">Aserbayjane</language>
+			<language type="az" alt="short">↑↑↑</language>
 			<language type="ba">Baskir</language>
 			<language type="ban">Bali</language>
 			<language type="be">Belaris</language>
@@ -78,6 +80,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="haw">Hawaye</language>
 			<language type="he">Ebrë</language>
 			<language type="hi">Endo</language>
+			<language type="hi_Latn">Hindī</language>
+			<language type="hi_Latn" alt="variant">Hindī bu Àngale</language>
 			<language type="hil">Hiligaynon</language>
 			<language type="hr">Krowat</language>
 			<language type="hsb">Sorab-Kaw</language>
@@ -123,6 +127,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="ne">Nepale</language>
 			<language type="niu">Niweyan</language>
 			<language type="nl">Neyerlànde</language>
+			<language type="nl_BE">Belsig</language>
 			<language type="no">Nerwesiye</language>
 			<language type="ny">Sewa</language>
 			<language type="oc">Ositan</language>
@@ -192,11 +197,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hans" alt="stand-alone">Han buñ woyofal</script>
 			<script type="Hant">Cosaan</script>
 			<script type="Hant" alt="stand-alone">Han u cosaan</script>
+			<script type="Jpan">Nihon no</script>
+			<script type="Kore">hangug-ui</script>
 			<script type="Latn">Latin</script>
 			<script type="Zxxx">Luñ bindul</script>
 			<script type="Zzzz">Mbind muñ xamul</script>
 		</scripts>
 		<territories>
+			<territory type="002">Africa</territory>
+			<territory type="019">Amerika</territory>
+			<territory type="142">Asia</territory>
+			<territory type="150">Europe</territory>
 			<territory type="AD">Andoor</territory>
 			<territory type="AE">Emira Arab Ini</territory>
 			<territory type="AF">Afganistaŋ</territory>
@@ -236,8 +247,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="CA">Kanadaa</territory>
 			<territory type="CC">Duni Koko (Kilin)</territory>
 			<territory type="CD">Kongo (R K D)</territory>
+			<territory type="CD" alt="variant">↑↑↑</territory>
 			<territory type="CF">Repiblik Sàntar Afrik</territory>
 			<territory type="CG">Réewum Kongo</territory>
+			<territory type="CG" alt="variant">↑↑↑</territory>
 			<territory type="CH">Siwis</territory>
 			<territory type="CI">Kodiwaar</territory>
 			<territory type="CK">Duni Kuuk</territory>
@@ -290,6 +303,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="GW">Gine-Bisaawóo</territory>
 			<territory type="GY">Giyaan</territory>
 			<territory type="HK">Ooŋ Koŋ</territory>
+			<territory type="HK" alt="short">↑↑↑</territory>
 			<territory type="HM">Duni Hërd ak Duni MakDonald</territory>
 			<territory type="HN">Onduraas</territory>
 			<territory type="HR">Korowasi</territory>
@@ -300,7 +314,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="IL">Israyel</territory>
 			<territory type="IM">Dunu Maan</territory>
 			<territory type="IN">End</territory>
-			<territory type="IO" draft="provisional">Terituwaaru Brëtaañ ci Oseyaa Enjeŋ</territory>
+			<territory type="IO">Terituwaaru Brëtaañ ci Oseyaa Enjeŋ</territory>
 			<territory type="IQ">Irag</territory>
 			<territory type="IR">Iraŋ</territory>
 			<territory type="IS">Islànd</territory>
@@ -342,6 +356,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="MM">Miyanmaar</territory>
 			<territory type="MN">Mongoli</territory>
 			<territory type="MO">Makaawo</territory>
+			<territory type="MO" alt="short">↑↑↑</territory>
 			<territory type="MP">Duni Mariyaan Noor</territory>
 			<territory type="MQ">Martinik</territory>
 			<territory type="MR">Mooritani</territory>
@@ -1944,10 +1959,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>↑↑↑</pattern>
-					<pattern alt="noCurrency" draft="provisional">↑↑↑</pattern>
+					<pattern alt="noCurrency">↑↑↑</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencies>
 			<currency type="BRL">
@@ -2975,6 +2990,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<compoundUnit type="per">
 				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
 			</compoundUnit>
+			<compoundUnit type="power2">
+				<compoundUnitPattern1 count="other">↑↑↑</compoundUnitPattern1>
+			</compoundUnit>
+			<compoundUnit type="power3">
+				<compoundUnitPattern1 count="other">↑↑↑</compoundUnitPattern1>
+			</compoundUnit>
 			<compoundUnit type="times">
 				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
 			</compoundUnit>
@@ -3832,6 +3853,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</compoundUnit>
 			<compoundUnit type="per">
 				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
+			</compoundUnit>
+			<compoundUnit type="power2">
+				<compoundUnitPattern1 count="other">↑↑↑</compoundUnitPattern1>
+			</compoundUnit>
+			<compoundUnit type="power3">
+				<compoundUnitPattern1 count="other">↑↑↑</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="times">
 				<compoundUnitPattern>↑↑↑</compoundUnitPattern>

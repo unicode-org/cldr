@@ -24,7 +24,28 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<exemplarCharacters>[a b t s e c k x i d q r f g o l m n u w h y]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[j p v z]</exemplarCharacters>
 		<exemplarCharacters type="index">[A B T S E C K X I D Q R F G O L M N U W H Y]</exemplarCharacters>
+		<exemplarCharacters type="punctuation">↑↑↑</exemplarCharacters>
+		<ellipsis type="final">↑↑↑</ellipsis>
+		<parseLenients scope="date" level="lenient">
+			<parseLenient sample="-">↑↑↑</parseLenient>
+		</parseLenients>
+		<parseLenients scope="general" level="lenient">
+			<parseLenient sample="¥">↑↑↑</parseLenient>
+			<parseLenient sample="₩">↑↑↑</parseLenient>
+			<parseLenient sample="₹">↑↑↑</parseLenient>
+		</parseLenients>
+		<parseLenients scope="number" level="lenient">
+			<parseLenient sample="-">↑↑↑</parseLenient>
+			<parseLenient sample=",">↑↑↑</parseLenient>
+			<parseLenient sample="+">↑↑↑</parseLenient>
+		</parseLenients>
+		<parseLenients scope="number" level="stricter">
+			<parseLenient sample=",">↑↑↑</parseLenient>
+		</parseLenients>
 	</characters>
+	<delimiters>
+		<quotationStart>↑↑↑</quotationStart>
+	</delimiters>
 	<dates>
 		<calendars>
 			<calendar type="generic">

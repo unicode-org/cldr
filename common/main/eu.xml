@@ -61,6 +61,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="bi">bislama</language>
 			<language type="bin">edoera</language>
 			<language type="bla">siksikera</language>
+			<language type="blo">aniiera</language>
 			<language type="bm">bambarera</language>
 			<language type="bn">bengalera</language>
 			<language type="bo">tibetera</language>
@@ -241,6 +242,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="kv">komiera</language>
 			<language type="kw">kornubiera</language>
 			<language type="kwk">kwakwala</language>
+			<language type="kxv">kuvia</language>
 			<language type="ky">kirgizera</language>
 			<language type="la">latina</language>
 			<language type="lad">ladinoa</language>
@@ -252,6 +254,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="lij">liguriera</language>
 			<language type="lil">lillooetera</language>
 			<language type="lkt">lakotera</language>
+			<language type="lmo">lombardiera</language>
 			<language type="ln">lingala</language>
 			<language type="lo">laosera</language>
 			<language type="lou">Louisianako kreolera</language>
@@ -407,6 +410,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="sw_CD">Kongoko swahilia</language>
 			<language type="swb">komoreera</language>
 			<language type="syr">asiriera</language>
+			<language type="szl">silesiera</language>
 			<language type="ta">tamilera</language>
 			<language type="tce">hegoaldeko tutchoneera</language>
 			<language type="te">telugua</language>
@@ -450,6 +454,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="ve">vendera</language>
 			<language type="vec">veneziera</language>
 			<language type="vi">vietnamera</language>
+			<language type="vmw">makhuwera</language>
 			<language type="vo">volapük</language>
 			<language type="vun">vunjoa</language>
 			<language type="wa">valoniera</language>
@@ -460,6 +465,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="wuu">wu txinera</language>
 			<language type="xal">kalmykera</language>
 			<language type="xh">xhosera</language>
+			<language type="xnr">kangrera</language>
 			<language type="xog">sogera</language>
 			<language type="yav">yangbenera</language>
 			<language type="ybb">yemba</language>
@@ -468,6 +474,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="yrl">nheengatua</language>
 			<language type="yue">kantonera</language>
 			<language type="yue" alt="menu">Kantongo txinera</language>
+			<language type="za">zhuangera</language>
 			<language type="zgh">amazigera estandarra</language>
 			<language type="zh">txinera</language>
 			<language type="zh" alt="menu">mandarinera</language>
@@ -815,7 +822,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="IN">India</territory>
 			<territory type="IO">Indiako Ozeanoko lurralde britainiarra</territory>
 			<territory type="IO" alt="biot">↑↑↑</territory>
-			<territory type="IO" alt="chagos">Chagos uhartedia</territory>
+			<territory type="IO" alt="chagos">Txagos uhartedia</territory>
 			<territory type="IQ">Irak</territory>
 			<territory type="IR">Iran</territory>
 			<territory type="IS">Islandia</territory>
@@ -1121,8 +1128,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="calendar" type="indian">Indiar egutegia</type>
 			<type key="calendar" type="islamic">Egutegi islamiarra</type>
 			<type key="calendar" type="islamic-civil">Egutegi islamiarra (taula-formakoa, garai zibilekoa)</type>
-			<type key="calendar" type="islamic-rgsa" draft="provisional">Islamiar egutegia (Saudi Arabia, ikuspegiak)</type>
-			<type key="calendar" type="islamic-tbla" draft="provisional">Islamiar egutegia (taula-formakoa, gai astronomikokoa)</type>
+			<type key="calendar" type="islamic-rgsa">Islamiar egutegia (Saudi Arabia, ikuspegiak)</type>
+			<type key="calendar" type="islamic-tbla">Islamiar egutegia (taula-formakoa, gai astronomikokoa)</type>
 			<type key="calendar" type="islamic-umalqura">Egutegi islamiarra (Umm al-Qura)</type>
 			<type key="calendar" type="iso8601">ISO-8601 egutegia</type>
 			<type key="calendar" type="japanese">Japoniar egutegia</type>
@@ -8899,7 +8906,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Cabo Verde</exemplarCity>
 			</zone>
 			<zone type="America/Curacao">
-				<exemplarCity>Curaçao</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Indian/Christmas">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -10360,6 +10367,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Petropavlovsk-Kamchatskiko ordua</generic>
 					<standard>Petropavlovsk-Kamchatskiko ordu estandarra</standard>
 					<daylight>Petropavlovsk-Kamchatskiko udako ordua</daylight>
+				</long>
+			</metazone>
+			<metazone type="Kazakhstan">
+				<long>
+					<standard>Kazakhstango ordua</standard>
 				</long>
 			</metazone>
 			<metazone type="Kazakhstan_Eastern">
@@ -12554,8 +12566,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="arab">
 			<currencyFormatLength>
@@ -12581,8 +12593,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="bali">
 			<currencyFormatLength>
@@ -12596,8 +12608,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="beng">
 			<currencyFormatLength>
@@ -12611,8 +12623,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="brah">
 			<currencyFormatLength>
@@ -12626,8 +12638,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="cakm">
 			<currencyFormatLength>
@@ -12641,8 +12653,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="cham">
 			<currencyFormatLength>
@@ -12656,8 +12668,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="deva">
 			<currencyFormatLength>
@@ -12671,8 +12683,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="fullwide">
 			<currencyFormatLength>
@@ -12686,8 +12698,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="gong">
 			<currencyFormatLength>
@@ -12701,8 +12713,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="gonm">
 			<currencyFormatLength>
@@ -12716,8 +12728,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="gujr">
 			<currencyFormatLength>
@@ -12731,8 +12743,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="guru">
 			<currencyFormatLength>
@@ -12746,8 +12758,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="hanidec">
 			<currencyFormatLength>
@@ -12761,8 +12773,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="java">
 			<currencyFormatLength>
@@ -12776,8 +12788,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="kali">
 			<currencyFormatLength>
@@ -12791,8 +12803,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="khmr">
 			<currencyFormatLength>
@@ -12806,8 +12818,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="knda">
 			<currencyFormatLength>
@@ -12821,8 +12833,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="lana">
 			<currencyFormatLength>
@@ -12836,8 +12848,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="lanatham">
 			<currencyFormatLength>
@@ -12851,8 +12863,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="laoo">
 			<currencyFormatLength>
@@ -12866,8 +12878,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
@@ -12909,8 +12921,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>{0} ¤¤</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="lepc">
 			<currencyFormatLength>
@@ -12924,8 +12936,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="limb">
 			<currencyFormatLength>
@@ -12939,8 +12951,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="mlym">
 			<currencyFormatLength>
@@ -12954,8 +12966,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="mong">
 			<currencyFormatLength>
@@ -12969,8 +12981,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="mtei">
 			<currencyFormatLength>
@@ -12984,8 +12996,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="mymr">
 			<currencyFormatLength>
@@ -12999,8 +13011,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="mymrshan">
 			<currencyFormatLength>
@@ -13014,8 +13026,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="nkoo">
 			<currencyFormatLength>
@@ -13029,8 +13041,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="olck">
 			<currencyFormatLength>
@@ -13044,8 +13056,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="orya">
 			<currencyFormatLength>
@@ -13059,8 +13071,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="osma">
 			<currencyFormatLength>
@@ -13074,8 +13086,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="rohg">
 			<currencyFormatLength>
@@ -13089,8 +13101,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="saur">
 			<currencyFormatLength>
@@ -13104,8 +13116,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="shrd">
 			<currencyFormatLength>
@@ -13119,8 +13131,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="sora">
 			<currencyFormatLength>
@@ -13134,8 +13146,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="sund">
 			<currencyFormatLength>
@@ -13149,8 +13161,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="takr">
 			<currencyFormatLength>
@@ -13164,8 +13176,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="talu">
 			<currencyFormatLength>
@@ -13179,8 +13191,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="tamldec">
 			<currencyFormatLength>
@@ -13194,8 +13206,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="telu">
 			<currencyFormatLength>
@@ -13209,8 +13221,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="thai">
 			<currencyFormatLength>
@@ -13224,8 +13236,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="tibt">
 			<currencyFormatLength>
@@ -13239,8 +13251,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="vaii">
 			<currencyFormatLength>
@@ -13254,8 +13266,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencies>
 			<currency type="ADP">
@@ -13912,7 +13924,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">cedi ghanatar</displayName>
 				<symbol>↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="GIP">
 				<displayName>libera gibraltartarra</displayName>
@@ -14119,6 +14131,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">som kirgizistandar</displayName>
 				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="KHR">
 				<displayName>riel kanbodiarra</displayName>
@@ -14693,7 +14706,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>leone sierraleonar berria</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">leone sierraleonar berri</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="SLL">
 				<displayName>leone sierraleonarra</displayName>
@@ -15512,7 +15525,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPrefixPattern>ronto{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-30">
-				<unitPrefixPattern>quecto{0}</unitPrefixPattern>
+				<unitPrefixPattern>kekto{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p1">
 				<unitPrefixPattern>deka{0}</unitPrefixPattern>
@@ -16536,6 +16549,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>laurden inperialak</displayName>
 				<unitPattern count="one">{0} laurden inperial</unitPattern>
 				<unitPattern count="other">{0} laurden inperial</unitPattern>
+			</unit>
+			<unit type="speed-light-speed">
+				<displayName>argia</displayName>
+				<unitPattern count="one">{0} argi</unitPattern>
+				<unitPattern count="other">{0} argi</unitPattern>
+			</unit>
+			<unit type="concentr-portion-per-1e9">
+				<displayName>zati mila milioiko</displayName>
+				<unitPattern count="one">{0} zati mila milioiko</unitPattern>
+				<unitPattern count="other">{0} zati mila milioiko</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>gauak</displayName>
+				<unitPattern count="one">{0} gau</unitPattern>
+				<unitPattern count="other">{0} gau</unitPattern>
+				<perUnitPattern>{0} gau bakoitzeko</perUnitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>puntu kardinala</displayName>
@@ -17605,6 +17634,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="speed-light-speed">
+				<displayName>argia</displayName>
+				<unitPattern count="one">{0} argi</unitPattern>
+				<unitPattern count="other">{0} argi</unitPattern>
+			</unit>
+			<unit type="concentr-portion-per-1e9">
+				<displayName>zati / mila milioi</displayName>
+				<unitPattern count="one">{0} zati / m. m.</unitPattern>
+				<unitPattern count="other">{0} zati / m. m.</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>gau</displayName>
+				<unitPattern count="one">{0} gau</unitPattern>
+				<unitPattern count="other">{0} gau</unitPattern>
+				<perUnitPattern>{0}/gau</perUnitPattern>
+			</unit>
 			<coordinateUnit>
 				<displayName>norabidea</displayName>
 				<coordinateUnitPattern type="east">{0} E</coordinateUnitPattern>
@@ -18672,6 +18717,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="speed-light-speed">
+				<displayName>argia</displayName>
+				<unitPattern count="one">{0} a.</unitPattern>
+				<unitPattern count="other">{0} a.</unitPattern>
+			</unit>
+			<unit type="concentr-portion-per-1e9">
+				<displayName>zati / m. m.</displayName>
+				<unitPattern count="one">{0} zati / m. m.</unitPattern>
+				<unitPattern count="other">{0} zati / m. m.</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>gau</displayName>
+				<unitPattern count="one">{0} g.</unitPattern>
+				<unitPattern count="other">{0} g.</unitPattern>
+				<perUnitPattern>{0}/gau</perUnitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>↑↑↑</displayName>

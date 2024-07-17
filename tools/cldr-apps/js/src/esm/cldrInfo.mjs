@@ -143,6 +143,9 @@ function openPanel() {
  *       false if closing because switching to a "special" view where the Info Panel doesn't belong
  */
 function closePanel(userWantsHidden) {
+  if (userWantsHidden === undefined) {
+    console.error("cldrInfo.closePanel was called with undefined parameter");
+  }
   if (panelVisible) {
     panelVisible = false;
     panelWanted = !userWantsHidden;

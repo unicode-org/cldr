@@ -8,6 +8,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
-		<language type="nb"/>
+		<language type="vec"/>
 	</identity>
+	<annotations>
+		<annotation cp="🍇">fruta | graspo | ua | vin</annotation>
+		<annotation cp="🍇" type="tts">ua</annotation>
+		<annotation cp="🍈">fruta | melon</annotation>
+		<annotation cp="🍈" type="tts">melon</annotation>
+	</annotations>
 </ldml>

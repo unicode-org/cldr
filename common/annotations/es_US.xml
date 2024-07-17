@@ -625,7 +625,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="◈">rombo vacío conteniendo un rombo relleno</annotation>
 		<annotation cp="◈" type="tts">rombo vacío conteniendo un rombo relleno</annotation>
 		<annotation cp="◉">círculo punteado | círculo vacío con círculo relleno dentro | círculo vacío conteniendo un círculo relleno | círculos concéntricos rellenos | división | ojo de pez</annotation>
-		<annotation cp="◉" type="tts">círculo vacío conteniendo un círculo relleno</annotation>
+		<annotation cp="◉" type="tts">círculo vacío con círculo relleno dentro</annotation>
 		<annotation cp="◊">↑↑↑</annotation>
 		<annotation cp="◊" type="tts">↑↑↑</annotation>
 		<annotation cp="○">↑↑↑</annotation>
@@ -649,7 +649,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="◔">círculo cuadrante superior derecho relleno</annotation>
 		<annotation cp="◔" type="tts">círculo cuadrante superior derecho relleno</annotation>
 		<annotation cp="◕">círculo relleno menos cuadrante superior izquierdo</annotation>
-		<annotation cp="◕" type="tts">círculo relleno menos cuadrante superior izquierdo</annotation>
+		<annotation cp="◕" type="tts">círculo sin cuadrante superior izquierdo</annotation>
 		<annotation cp="◖">medio círculo relleno a la izquierda</annotation>
 		<annotation cp="◖" type="tts">medio círculo relleno a la izquierda</annotation>
 		<annotation cp="◗">medio círculo relleno a la derecha</annotation>
@@ -710,6 +710,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="♭" type="tts">↑↑↑</annotation>
 		<annotation cp="♯">↑↑↑</annotation>
 		<annotation cp="♯" type="tts">↑↑↑</annotation>
+		<annotation cp="🪉">amor | cupido | instrumento | música | orquesta</annotation>
+		<annotation cp="🪉" type="tts">harpa</annotation>
+		<annotation cp="🪏">agujero | cuchara | pala | pica</annotation>
+		<annotation cp="🪏" type="tts">pala</annotation>
+		<annotation cp="🪾">árido | invierno | sequía</annotation>
+		<annotation cp="🪾" type="tts">árbol sin hojas</annotation>
+		<annotation cp="🫆">↑↑↑</annotation>
+		<annotation cp="🫆" type="tts">huella digital</annotation>
+		<annotation cp="🫜">betabel | jardín | nabo | raíz | vegetal</annotation>
+		<annotation cp="🫜" type="tts">betabel</annotation>
+		<annotation cp="🫟">mancha | pintura | salpicadura</annotation>
+		<annotation cp="🫟" type="tts">salpicadura</annotation>
+		<annotation cp="🫩">cansancio | exhausto | sueño</annotation>
+		<annotation cp="🫩" type="tts" draft="provisional">↑↑↑</annotation>
 		<annotation cp="😀">↑↑↑</annotation>
 		<annotation cp="😀" type="tts">↑↑↑</annotation>
 		<annotation cp="😃">abierta | boca | cara | cara sonriendo con ojos grandes | sonrisa</annotation>
@@ -722,7 +736,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😆" type="tts">cara sonriendo con los ojos cerrados</annotation>
 		<annotation cp="😅">abierta | cara | cara sonriendo con sudor frío | frío | sonrisa | sudor</annotation>
 		<annotation cp="😅" type="tts">cara sonriendo con sudor frío</annotation>
-		<annotation cp="🤣">↑↑↑</annotation>
+		<annotation cp="🤣">cara | cara llorando de risa | cara revolviéndose de la risa | carcajada | cómico | gracioso | jajajaja | jejejeje | llanto de felicidad | llanto de risa</annotation>
 		<annotation cp="🤣" type="tts">↑↑↑</annotation>
 		<annotation cp="😂">cara | cara llorando de felicidad | carcajada | felicidad | lágrima | sonrisa</annotation>
 		<annotation cp="😂" type="tts">cara llorando de felicidad</annotation>
@@ -738,11 +752,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😊" type="tts">cara feliz con ojos sonrientes</annotation>
 		<annotation cp="😇">ángel | aureola | cara | cara sonriendo con aureola | cara sonriente con aureola | inocente | sonriente con aureola | sonrisa</annotation>
 		<annotation cp="😇" type="tts">cara sonriente con aureola</annotation>
-		<annotation cp="🥰">↑↑↑</annotation>
+		<annotation cp="🥰">amor | cara | carita | carita feliz con 3 corazones | corazón | corazones | enamorada | enamorado | la adoro | lo adoro | me encanta</annotation>
 		<annotation cp="🥰" type="tts">↑↑↑</annotation>
 		<annotation cp="😍">amor | cara | cara sonriente con ojos de corazón | ojo | sonrisa</annotation>
 		<annotation cp="😍" type="tts">cara sonriente con ojos de corazón</annotation>
-		<annotation cp="🤩">↑↑↑</annotation>
+		<annotation cp="🤩">cara | emocionada | emocionado | emocionante | estrella | estrellados | hermosa | hermoso | increíble | ojos</annotation>
 		<annotation cp="🤩" type="tts">↑↑↑</annotation>
 		<annotation cp="😘">beso | cara | cara lanzando un beso</annotation>
 		<annotation cp="😘" type="tts">↑↑↑</annotation>
@@ -758,7 +772,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥲" type="tts">↑↑↑</annotation>
 		<annotation cp="😋">broma | cara saboreando comida | delicioso | rico | sonriente</annotation>
 		<annotation cp="😋" type="tts">cara saboreando comida</annotation>
-		<annotation cp="😛">↑↑↑</annotation>
+		<annotation cp="😛">broma | cara | cara feliz | cara sacando la lengua | divertido | lengua | lengua fuera | risa | sacar | sacar la lengua</annotation>
 		<annotation cp="😛" type="tts">↑↑↑</annotation>
 		<annotation cp="😜">↑↑↑</annotation>
 		<annotation cp="😜" type="tts">↑↑↑</annotation>
@@ -778,13 +792,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫣" type="tts">↑↑↑</annotation>
 		<annotation cp="🤫">↑↑↑</annotation>
 		<annotation cp="🤫" type="tts">↑↑↑</annotation>
-		<annotation cp="🤔">cara | cara pensante | cara pensativa | duda | pensar</annotation>
+		<annotation cp="🤔">↑↑↑</annotation>
 		<annotation cp="🤔" type="tts">cara pensativa</annotation>
 		<annotation cp="🫡">cara saludando | ejército | ok | saludo | si | soleado | tropas</annotation>
 		<annotation cp="🫡" type="tts">↑↑↑</annotation>
 		<annotation cp="🤐">boca | cara | cara con la boca cerrada con cierre | cara con la boca cerrada con cremallera | zipper</annotation>
 		<annotation cp="🤐" type="tts">↑↑↑</annotation>
-		<annotation cp="🤨">↑↑↑</annotation>
+		<annotation cp="🤨">cara | cara subiendo la ceja | ceja arriba | ceño fruncido | confundida | confundido | desacuerdo | duda | dudo | fruncir el ceño</annotation>
 		<annotation cp="🤨" type="tts">↑↑↑</annotation>
 		<annotation cp="😐">↑↑↑</annotation>
 		<annotation cp="😐" type="tts">↑↑↑</annotation>
@@ -798,7 +812,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😶‍🌫" type="tts">↑↑↑</annotation>
 		<annotation cp="😏">cara | cara sonriendo con superioridad | creído</annotation>
 		<annotation cp="😏" type="tts">↑↑↑</annotation>
-		<annotation cp="😒">↑↑↑</annotation>
+		<annotation cp="😒">aburrida | aburrido | cara | enojada | enojado | infeliz | molesta | molesto | mueca | poco divertido</annotation>
 		<annotation cp="😒" type="tts">↑↑↑</annotation>
 		<annotation cp="🙄">cara | cara con ojos en blanco | ojos | volteando | voltear los ojos</annotation>
 		<annotation cp="🙄" type="tts">cara con ojos en blanco</annotation>
@@ -850,13 +864,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤯" type="tts">↑↑↑</annotation>
 		<annotation cp="🤠">↑↑↑</annotation>
 		<annotation cp="🤠" type="tts">↑↑↑</annotation>
-		<annotation cp="🥳">↑↑↑</annotation>
+		<annotation cp="🥳">alegría | bonete | cara | cara de fiesta | celebración | celebrar | emoción | fiesta | viva | yupi</annotation>
 		<annotation cp="🥳" type="tts">↑↑↑</annotation>
 		<annotation cp="🥸">↑↑↑</annotation>
 		<annotation cp="🥸" type="tts">↑↑↑</annotation>
 		<annotation cp="😎">brillante | cara | cara sonriendo con lentes de sol | cool | gafas de sol | lentes de sol | sol</annotation>
 		<annotation cp="😎" type="tts">↑↑↑</annotation>
-		<annotation cp="🤓">↑↑↑</annotation>
+		<annotation cp="🤓">anteojos | cara | cara de nerd | emoticón | experto | friqui | gafas | geek | inteligente | lentes</annotation>
 		<annotation cp="🤓" type="tts">↑↑↑</annotation>
 		<annotation cp="🧐">↑↑↑</annotation>
 		<annotation cp="🧐" type="tts">↑↑↑</annotation>
@@ -874,11 +888,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😮" type="tts">↑↑↑</annotation>
 		<annotation cp="😯">↑↑↑</annotation>
 		<annotation cp="😯" type="tts">↑↑↑</annotation>
-		<annotation cp="😲">↑↑↑</annotation>
+		<annotation cp="😲">asombrada | asombrado | asombro | asustado | horrorizada | horrorizado | pasmado | sorprendida | sorprendido | sorpresa</annotation>
 		<annotation cp="😲" type="tts">↑↑↑</annotation>
 		<annotation cp="😳">↑↑↑</annotation>
 		<annotation cp="😳" type="tts">↑↑↑</annotation>
-		<annotation cp="🥺">↑↑↑</annotation>
+		<annotation cp="🥺">cara | cara de ruego | ojos de cachorro | ojos grandes | ojos llorosos | piedad | por favor | por qué no | rogar | triste</annotation>
 		<annotation cp="🥺" type="tts">↑↑↑</annotation>
 		<annotation cp="🥹">↑↑↑</annotation>
 		<annotation cp="🥹" type="tts">↑↑↑</annotation>
@@ -890,7 +904,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😨" type="tts">↑↑↑</annotation>
 		<annotation cp="😰">azul | cara | cara con ansiedad y sudor | frío | precipitado | sudor</annotation>
 		<annotation cp="😰" type="tts">↑↑↑</annotation>
-		<annotation cp="😥">↑↑↑</annotation>
+		<annotation cp="😥">aliviado | alivio | cara | cara triste pero aliviada | decepción | decepción y alivio | decepcionado | decepcionado pero aliviado | preocupacion | susto</annotation>
 		<annotation cp="😥" type="tts">↑↑↑</annotation>
 		<annotation cp="😢">cara llorando | llanto | llorar | triste | tristeza</annotation>
 		<annotation cp="😢" type="tts">cara llorando</annotation>
@@ -918,7 +932,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😡" type="tts">↑↑↑</annotation>
 		<annotation cp="😠">cara | cara enfadada | enojado | enojo</annotation>
 		<annotation cp="😠" type="tts">cara enfadada</annotation>
-		<annotation cp="🤬">↑↑↑</annotation>
+		<annotation cp="🤬">cara de enojo | decir groserías | decir malas palabras | disgusto | enfadada | enfadado | enojada | enojado | enojo | malas palabras | palabrotas</annotation>
 		<annotation cp="🤬" type="tts">↑↑↑</annotation>
 		<annotation cp="😈">cara | cara malvada sonriendo con cuernos | cuento de hadas | cuernos | fantasía | sonrisa</annotation>
 		<annotation cp="😈" type="tts">cara malvada sonriendo con cuernos</annotation>
@@ -948,9 +962,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😺" type="tts">↑↑↑</annotation>
 		<annotation cp="😸">cara | gato | gato sonriendo con ojos sonrientes | sonriente | sonrisa</annotation>
 		<annotation cp="😸" type="tts">↑↑↑</annotation>
-		<annotation cp="😹">↑↑↑</annotation>
+		<annotation cp="😹">alegría | cara de gato | gato | gato llorando de risa | lágrimas | llorando</annotation>
 		<annotation cp="😹" type="tts">↑↑↑</annotation>
-		<annotation cp="😻">↑↑↑</annotation>
+		<annotation cp="😻">animal | cara | cara de gato | cara de gato sonriendo con corazones en los ojos | corazón | corazones | enamorado | gato | gato sonriendo con ojos de corazón</annotation>
 		<annotation cp="😻" type="tts">↑↑↑</annotation>
 		<annotation cp="😼">↑↑↑</annotation>
 		<annotation cp="😼" type="tts">↑↑↑</annotation>
@@ -986,7 +1000,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💕" type="tts">↑↑↑</annotation>
 		<annotation cp="💟">↑↑↑</annotation>
 		<annotation cp="💟" type="tts">↑↑↑</annotation>
-		<annotation cp="❣">corazón | exclamación | exclamación con forma de corazón | puntuación</annotation>
+		<annotation cp="❣">↑↑↑</annotation>
 		<annotation cp="❣" type="tts">↑↑↑</annotation>
 		<annotation cp="💔">corazón roto | roto</annotation>
 		<annotation cp="💔" type="tts">↑↑↑</annotation>
@@ -1536,7 +1550,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="👨‍🦽" type="tts">↑↑↑</annotation>
 		<annotation cp="👩‍🦽">↑↑↑</annotation>
 		<annotation cp="👩‍🦽" type="tts">↑↑↑</annotation>
-		<annotation cp="🏃">↑↑↑</annotation>
+		<annotation cp="🏃">carrera | corredor | correr | deporte | deportista | maratón | persona | persona corriendo</annotation>
 		<annotation cp="🏃" type="tts">↑↑↑</annotation>
 		<annotation cp="🏃‍♂">↑↑↑</annotation>
 		<annotation cp="🏃‍♂" type="tts">↑↑↑</annotation>
@@ -3646,7 +3660,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⚕" type="tts">↑↑↑</annotation>
 		<annotation cp="♻">reciclar | símbolo de reciclaje</annotation>
 		<annotation cp="♻" type="tts">↑↑↑</annotation>
-		<annotation cp="⚜">flor de lis</annotation>
+		<annotation cp="⚜">↑↑↑</annotation>
 		<annotation cp="⚜" type="tts">↑↑↑</annotation>
 		<annotation cp="🔱">ancla | barco | emblema | emblema de tridente | herramienta | tridente</annotation>
 		<annotation cp="🔱" type="tts">↑↑↑</annotation>
@@ -3774,7 +3788,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔵" type="tts">↑↑↑</annotation>
 		<annotation cp="🟣">↑↑↑</annotation>
 		<annotation cp="🟣" type="tts">↑↑↑</annotation>
-		<annotation cp="🟤">café | círculo | marrón</annotation>
+		<annotation cp="🟤">↑↑↑</annotation>
 		<annotation cp="🟤" type="tts">círculo café</annotation>
 		<annotation cp="⚫">círculo | círculo negro | geométrico</annotation>
 		<annotation cp="⚫" type="tts">↑↑↑</annotation>
@@ -3840,7 +3854,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🏴" type="tts">↑↑↑</annotation>
 		<annotation cp="🏳">bandera blanca | ondear</annotation>
 		<annotation cp="🏳" type="tts">↑↑↑</annotation>
-		<annotation cp="🏳‍🌈">↑↑↑</annotation>
+		<annotation cp="🏳‍🌈">arcoiris | bandera | bisexual | gay | homesexual | lesbiana | lgbt | orgullo | trans | transgénero</annotation>
 		<annotation cp="🏳‍🌈" type="tts">↑↑↑</annotation>
 		<annotation cp="🏳‍⚧">↑↑↑</annotation>
 		<annotation cp="🏳‍⚧" type="tts">↑↑↑</annotation>

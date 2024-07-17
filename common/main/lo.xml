@@ -75,6 +75,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="bin">ບີນີ</language>
 			<language type="bkm">ກົມ</language>
 			<language type="bla">ຊິກຊິກາ</language>
+			<language type="blo">ອານີ</language>
 			<language type="bm">ບາມບາຣາ</language>
 			<language type="bn">ເບັງກາລີ</language>
 			<language type="bo">ທິເບທັນ</language>
@@ -302,6 +303,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="kv">ໂຄມິ</language>
 			<language type="kw">ຄໍນິຊ</language>
 			<language type="kwk">ຄວາກຄວາກລາ</language>
+			<language type="kxv">ຄູວີ</language>
 			<language type="ky">ເກຍກີສ</language>
 			<language type="la">ລາຕິນ</language>
 			<language type="lad">ລາດີໂນ</language>
@@ -312,8 +314,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="lez">ລີຊຽນ</language>
 			<language type="lg">ແກນດາ</language>
 			<language type="li">ລິມເບີກີຊ</language>
+			<language type="lij">ລີກູຣຽນ</language>
 			<language type="lil">ລິນລູເອັດ</language>
 			<language type="lkt">ລາໂກຕາ</language>
+			<language type="lmo">ລອມບາດ</language>
 			<language type="ln">ລິງກາລາ</language>
 			<language type="lo">ລາວ</language>
 			<language type="lol">ແມັງໂກ້</language>
@@ -507,6 +511,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="swb">ໂຄໂນຣຽນ</language>
 			<language type="syc">ຊີເລຍແບບດັ້ງເດີມ</language>
 			<language type="syr">ຊີເລຍ</language>
+			<language type="szl">ຊີເລສຊຽນ</language>
 			<language type="ta">ທາມິລ</language>
 			<language type="tce">ທຸດຊອນໃຕ້</language>
 			<language type="te">ເຕລູກູ</language>
@@ -555,7 +560,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="uz">ອຸສເບກ</language>
 			<language type="vai">ໄວ</language>
 			<language type="ve">ເວນດາ</language>
+			<language type="vec">ເວເນຊຽນ</language>
 			<language type="vi">ຫວຽດນາມ</language>
+			<language type="vmw">ມາຄູວາ</language>
 			<language type="vo">ໂວລາພັກ</language>
 			<language type="vot">ໂວຕິກ</language>
 			<language type="vun">ວັນໂຈ</language>
@@ -569,6 +576,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="wuu">ຈີນອູ</language>
 			<language type="xal">ການມິກ</language>
 			<language type="xh">ໂຮຊາ</language>
+			<language type="xnr">ຄັງຣີ</language>
 			<language type="xog">ໂຊກາ</language>
 			<language type="yao">ເຢົ້າ</language>
 			<language type="yap">ຢັບ</language>
@@ -1065,8 +1073,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<territory type="VU">ວານົວຕູ</territory>
 			<territory type="WF">ວາລລິສ ແລະ ຟູຕູນາ</territory>
 			<territory type="WS">ຊາມົວ</territory>
-			<territory type="XA">Pseudo-Accents</territory>
-			<territory type="XB">Pseudo-Bidi</territory>
+			<territory type="XA">ສຳນຽງຊູໂດ</territory>
+			<territory type="XB">ຊູໂດບີດີ</territory>
 			<territory type="XK">ໂຄໂຊໂວ</territory>
 			<territory type="YE">ເຢເມນ</territory>
 			<territory type="YT">ມາຢັອດ</territory>
@@ -2224,14 +2232,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<dayPeriod type="noon">ທ່ຽງ</dayPeriod>
 							<dayPeriod type="pm">↑↑↑</dayPeriod>
 							<dayPeriod type="morning1">​ເຊົ້າ</dayPeriod>
-							<dayPeriod type="afternoon1">ສວຍ</dayPeriod>
+							<dayPeriod type="afternoon1">ສວາຍ</dayPeriod>
 							<dayPeriod type="evening1">ແລງ</dayPeriod>
 							<dayPeriod type="night1">​ກາງ​ຄືນ</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
 							<dayPeriod type="midnight">↑↑↑</dayPeriod>
 							<dayPeriod type="am">↑↑↑</dayPeriod>
-							<dayPeriod type="noon">ຕອນທ່ຽງ</dayPeriod>
+							<dayPeriod type="noon">↑↑↑</dayPeriod>
 							<dayPeriod type="pm">↑↑↑</dayPeriod>
 							<dayPeriod type="morning1">↑↑↑</dayPeriod>
 							<dayPeriod type="afternoon1">ສ</dayPeriod>
@@ -2259,7 +2267,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					</eraNames>
 					<eraAbbr>
 						<era type="0">ກ່ອນ ຄ.ສ.</era>
-						<era type="0" alt="variant">ກ່ອນຍຸກ ຄ.ສ</era>
+						<era type="0" alt="variant">↑↑↑</era>
 						<era type="1">ຄ.ສ.</era>
 						<era type="1" alt="variant">ຍຸກ ຄ.ສ</era>
 					</eraAbbr>
@@ -2267,7 +2275,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>EEEE ທີ d MMMM G y</pattern>
+							<pattern>EEEE, d MMMM y</pattern>
 							<datetimeSkeleton>GyMMMMEEEEd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
@@ -2420,38 +2428,38 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<greatestDifference id="y">↑↑↑</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyM">
-							<greatestDifference id="G">GGGGG MM/y – GGGGG MM/y</greatestDifference>
-							<greatestDifference id="M">GGGGG MM/y – MM/y</greatestDifference>
-							<greatestDifference id="y">GGGGG MM/y – MM/y</greatestDifference>
+							<greatestDifference id="G">M/G y – M/G y</greatestDifference>
+							<greatestDifference id="M">M/y – M/G y</greatestDifference>
+							<greatestDifference id="y">M/y – M/G y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMd">
-							<greatestDifference id="d">GGGGG dd/MM/y – dd/MM/y</greatestDifference>
-							<greatestDifference id="G">GGGGG dd/MM/y – GGGGG dd/MM/y</greatestDifference>
-							<greatestDifference id="M">GGGGG dd/MM/y – dd/MM/y</greatestDifference>
-							<greatestDifference id="y">GGGGG dd/MM/y – dd/MM/y</greatestDifference>
+							<greatestDifference id="d">d/M/y – d/M/G y</greatestDifference>
+							<greatestDifference id="G">d/M/G y – d/M/G y</greatestDifference>
+							<greatestDifference id="M">d/M/y – d/M/G y</greatestDifference>
+							<greatestDifference id="y">d/M/y – d/M/G y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMEd">
-							<greatestDifference id="d">GGGGG E, dd/MM/y – E, dd/MM/y</greatestDifference>
-							<greatestDifference id="G">GGGGG E, dd/MM/y – GGGGG E, dd/MM/y</greatestDifference>
-							<greatestDifference id="M">GGGGG E, dd/MM/y – E, dd/MM/y</greatestDifference>
-							<greatestDifference id="y">GGGGG E, dd/MM/y – E, dd/MM/y</greatestDifference>
+							<greatestDifference id="d">E, d/M/G y – E, d/M/G y</greatestDifference>
+							<greatestDifference id="G">E, d/M/G y – E, d/M/G y</greatestDifference>
+							<greatestDifference id="M">E, d/M/y – E, d/M/G y</greatestDifference>
+							<greatestDifference id="y">E, d/M/G y – E, d/M/G y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMM">
-							<greatestDifference id="G">G MM/y – G MM/y</greatestDifference>
-							<greatestDifference id="M">G MM – MM/y</greatestDifference>
-							<greatestDifference id="y">G MM/y – MM/y</greatestDifference>
+							<greatestDifference id="G">MMM G y – MMM G y</greatestDifference>
+							<greatestDifference id="M">MMM – MMM G y</greatestDifference>
+							<greatestDifference id="y">MMM G y– MMM G y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMMd">
-							<greatestDifference id="d">G d–d/MM/y</greatestDifference>
-							<greatestDifference id="G">G dd/MM/y– G dd/MM/y</greatestDifference>
-							<greatestDifference id="M">G dd/MM/y – dd/MM</greatestDifference>
-							<greatestDifference id="y">G dd/MM/y – dd/MM/y</greatestDifference>
+							<greatestDifference id="d">d–d MMM G y</greatestDifference>
+							<greatestDifference id="G">d MMM G y – d MMM G y</greatestDifference>
+							<greatestDifference id="M">d MMM – d MMM G y</greatestDifference>
+							<greatestDifference id="y">d MMM G y – d MMM G y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="GyMMMEd">
-							<greatestDifference id="d">G E, dd/MM/y – E, dd/MM/y</greatestDifference>
-							<greatestDifference id="G">G E, dd/MM/y – G E, dd/MM/y</greatestDifference>
-							<greatestDifference id="M">G E, dd/MM/y – E, dd/MM/y</greatestDifference>
-							<greatestDifference id="y">G E, dd/MM/y – E, dd/MM/y</greatestDifference>
+							<greatestDifference id="d">E, d MMM – E, d MMM G y</greatestDifference>
+							<greatestDifference id="G">E, d MMM G y – E, d MMM G y</greatestDifference>
+							<greatestDifference id="M">E, d MMM – E, d MMM G y</greatestDifference>
+							<greatestDifference id="y">E, d MMM G y – E, d MMM G y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="h">
 							<greatestDifference id="a">↑↑↑</greatestDifference>
@@ -4688,7 +4696,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>ເຮບຣອນ</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Azores">
-				<exemplarCity>ອາຊໍເຣສ</exemplarCity>
+				<exemplarCity>ອາ​ໂຊ​ເຣ​ສ</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Madeira">
 				<exemplarCity>ມາເດຣາ</exemplarCity>
@@ -5506,7 +5514,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="Indian_Ocean">
 				<long>
-					<standard>ເວລາຫມະຫາສະຫມຸດອິນເດຍ</standard>
+					<standard>ເວລາມະຫາສະຫມຸດອິນເດຍ</standard>
 				</long>
 			</metazone>
 			<metazone type="Indochina">
@@ -5555,6 +5563,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>ເວ​ລາ​ຍີ່​ປຸ່ນ</generic>
 					<standard>ເວ​ລາ​ມາດ​ຕະ​ຖານ​ຍີ່​ປຸ່ນ</standard>
 					<daylight>ເວ​ລາ​ຕອນ​ທ່ຽງ​ຍີ່​ປຸ່ນ</daylight>
+				</long>
+			</metazone>
+			<metazone type="Kazakhstan">
+				<long>
+					<standard>ເວລາຄາຊັກສຖານ</standard>
 				</long>
 			</metazone>
 			<metazone type="Kazakhstan_Eastern">
@@ -6012,6 +6025,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<plusSign draft="contributed">↑↑↑</plusSign>
 			<minusSign draft="contributed">↑↑↑</minusSign>
 		</symbols>
+		<symbols numberSystem="laoo">
+			<decimal draft="contributed">↑↑↑</decimal>
+			<group draft="contributed">↑↑↑</group>
+			<percentSign>↑↑↑</percentSign>
+			<plusSign draft="contributed">↑↑↑</plusSign>
+			<minusSign draft="contributed">↑↑↑</minusSign>
+			<approximatelySign>↑↑↑</approximatelySign>
+			<exponential>↑↑↑</exponential>
+			<superscriptingExponent>↑↑↑</superscriptingExponent>
+			<perMille>↑↑↑</perMille>
+			<infinity>↑↑↑</infinity>
+			<nan>↑↑↑</nan>
+		</symbols>
 		<symbols numberSystem="latn">
 			<decimal>,</decimal>
 			<group>.</group>
@@ -6028,6 +6054,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<timeSeparator draft="contributed">↑↑↑</timeSeparator>
 		</symbols>
 		<decimalFormats numberSystem="laoo">
+			<decimalFormatLength>
+				<decimalFormat>
+					<pattern draft="contributed">↑↑↑</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
 			<decimalFormatLength type="long">
 				<decimalFormat>
 					<pattern type="1000" count="other">0ພັນ</pattern>
@@ -6087,7 +6118,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<decimalFormat>
 					<pattern type="1000" count="other">0 ພັນ</pattern>
 					<pattern type="10000" count="other">00 ພັນ</pattern>
-					<pattern type="100000" count="other">000 ກີບ</pattern>
+					<pattern type="100000" count="other">000 ພັນ</pattern>
 					<pattern type="1000000" count="other">0 ລ້ານ</pattern>
 					<pattern type="10000000" count="other">00 ລ້ານ</pattern>
 					<pattern type="100000000" count="other">000 ລ້ານ</pattern>
@@ -6100,6 +6131,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
+		<scientificFormats numberSystem="laoo">
+			<scientificFormatLength>
+				<scientificFormat>
+					<pattern>↑↑↑</pattern>
+				</scientificFormat>
+			</scientificFormatLength>
+		</scientificFormats>
 		<scientificFormats numberSystem="latn">
 			<scientificFormatLength>
 				<scientificFormat>
@@ -6107,6 +6145,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</scientificFormat>
 			</scientificFormatLength>
 		</scientificFormats>
+		<percentFormats numberSystem="laoo">
+			<percentFormatLength>
+				<percentFormat>
+					<pattern>↑↑↑</pattern>
+				</percentFormat>
+			</percentFormatLength>
+		</percentFormats>
 		<percentFormats numberSystem="latn">
 			<percentFormatLength>
 				<percentFormat>
@@ -6114,6 +6159,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</percentFormat>
 			</percentFormatLength>
 		</percentFormats>
+		<currencyFormats numberSystem="laoo">
+			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern alt="noCurrency">↑↑↑</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
@@ -6133,7 +6187,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern type="1000" count="other" alt="alphaNextToNumber">¤ 0 ພັນ</pattern>
 					<pattern type="10000" count="other">¤00 ພັນ</pattern>
 					<pattern type="10000" count="other" alt="alphaNextToNumber">¤ 00 ພັນ</pattern>
-					<pattern type="100000" count="other">¤000 ກີບ</pattern>
+					<pattern type="100000" count="other">¤000 ພັນ</pattern>
 					<pattern type="100000" count="other" alt="alphaNextToNumber">¤ 000 ພັນ</pattern>
 					<pattern type="1000000" count="other">¤0 ລ້ານ</pattern>
 					<pattern type="1000000" count="other" alt="alphaNextToNumber">¤ 0 ລ້ານ</pattern>
@@ -6156,7 +6210,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencies>
 			<currency type="ADP">
@@ -8363,6 +8417,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="speed-light-speed">
+				<displayName>ແສງ</displayName>
+				<unitPattern count="other">{0} ແສງ</unitPattern>
+			</unit>
+			<unit type="concentr-portion-per-1e9">
+				<displayName>ສ່ວນໃນພັນລ້ານສ່ວນ</displayName>
+				<unitPattern count="other">{0} ສ່ວນໃນພັນລ້ານສ່ວນ</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>ຄືນ</displayName>
+				<unitPattern count="other">{0} ຄືນ</unitPattern>
+				<perUnitPattern>{0}/ຄືນ</perUnitPattern>
+			</unit>
 			<coordinateUnit>
 				<displayName>ທິດທາງຕາມລຳດັບ</displayName>
 				<coordinateUnitPattern type="east">↑↑↑</coordinateUnitPattern>
@@ -8652,8 +8719,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-century">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>ສຕວ</displayName>
+				<unitPattern count="other">{0} ສຕວ</unitPattern>
 			</unit>
 			<unit type="duration-decade">
 				<displayName>ທົດສະວັດ</displayName>
@@ -9245,6 +9312,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="speed-light-speed">
+				<displayName>ແສງ</displayName>
+				<unitPattern count="other">{0} ແສງ</unitPattern>
+			</unit>
+			<unit type="concentr-portion-per-1e9">
+				<displayName>ສ່ວນ/ພັນລ້ານສ່ວນ</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>ຄືນ</displayName>
+				<unitPattern count="other">{0} ຄືນ</unitPattern>
+				<perUnitPattern>{0}/ຄືນ</perUnitPattern>
+			</unit>
 			<coordinateUnit>
 				<displayName>ທິດທາງ</displayName>
 				<coordinateUnitPattern type="east">↑↑↑</coordinateUnitPattern>
@@ -9459,6 +9539,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-permille">
+				<displayName>‰</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-permyriad">
@@ -9526,8 +9607,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-century">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<displayName>ສຕວ</displayName>
+				<unitPattern count="other">{0} ສຕວ</unitPattern>
 			</unit>
 			<unit type="duration-decade">
 				<displayName>↑↑↑</displayName>
@@ -9575,7 +9656,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="duration-millisecond">
 				<displayName>ມລວ</displayName>
-				<unitPattern count="other">{0} ມລ. ວິ.</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-microsecond">
 				<displayName>↑↑↑</displayName>
@@ -10118,6 +10199,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="volume-quart-imperial">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="speed-light-speed">
+				<displayName>ແສງ</displayName>
+				<unitPattern count="other">{0} ແສງ</unitPattern>
+			</unit>
+			<unit type="concentr-portion-per-1e9">
+				<displayName>ສ່ວນ/ພັນລ້ານສ່ວນ</displayName>
+				<unitPattern count="other">{0}ppb</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>ຄືນ</displayName>
+				<unitPattern count="other">{0} ຄືນ</unitPattern>
+				<perUnitPattern>{0}/ຄືນ</perUnitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>↑↑↑</displayName>

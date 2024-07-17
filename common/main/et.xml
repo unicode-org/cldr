@@ -89,7 +89,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="bjn">bandžari</language>
 			<language type="bkm">komi (Aafrika)</language>
 			<language type="bla">mustjalaindiaani</language>
-			<language type="blo" draft="contributed">anii</language>
+			<language type="blo">anii</language>
 			<language type="blt" draft="contributed">tai-dami</language>
 			<language type="bm">bambara</language>
 			<language type="bn">bengali</language>
@@ -220,7 +220,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="fur">friuuli</language>
 			<language type="fy">läänefriisi</language>
 			<language type="ga">iiri</language>
-			<language type="gaa">gaa</language>
+			<language type="gaa">↑↑↑</language>
 			<language type="gag">gagauusi</language>
 			<language type="gan">kani</language>
 			<language type="gay">gajo</language>
@@ -343,7 +343,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="kv">komi</language>
 			<language type="kw">korni</language>
 			<language type="kwk">kvakvala</language>
-			<language type="kxv" draft="contributed">kuvi</language>
+			<language type="kxv">kuvi</language>
 			<language type="ky">kirgiisi</language>
 			<language type="la">ladina</language>
 			<language type="lad">ladiino</language>
@@ -358,6 +358,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="lil">lillueti</language>
 			<language type="liv">liivi</language>
 			<language type="lkt">lakota</language>
+			<language type="lld" draft="contributed">ladiini</language>
 			<language type="lmo">lombardi</language>
 			<language type="ln">lingala</language>
 			<language type="lo">lao</language>
@@ -372,7 +373,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="lua">lulua</language>
 			<language type="lui">luisenjo</language>
 			<language type="lun">lunda</language>
-			<language type="luo">luo</language>
+			<language type="luo">↑↑↑</language>
 			<language type="lus">lušei</language>
 			<language type="luy">luhja</language>
 			<language type="lv">läti</language>
@@ -396,6 +397,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="mgh">makhuwa-meetto</language>
 			<language type="mgo">meta</language>
 			<language type="mh">maršalli</language>
+			<language type="mhn" draft="contributed">mohheni</language>
 			<language type="mi">maoori</language>
 			<language type="mic">mikmaki</language>
 			<language type="min">minangkabau</language>
@@ -632,14 +634,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="und">määramata keel</language>
 			<language type="ur">urdu</language>
 			<language type="uz">usbeki</language>
-			<language type="vai">vai</language>
+			<language type="vai">↑↑↑</language>
 			<language type="ve">venda</language>
 			<language type="vec">veneti</language>
 			<language type="vep">vepsa</language>
 			<language type="vi">vietnami</language>
 			<language type="vls">lääneflaami</language>
 			<language type="vmf">Maini frangi</language>
-			<language type="vmw" draft="contributed">makua</language>
+			<language type="vmw">makua</language>
 			<language type="vo">volapüki</language>
 			<language type="vot">vadja</language>
 			<language type="vro">võru</language>
@@ -655,6 +657,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="xal">kalmõki</language>
 			<language type="xh">koosa</language>
 			<language type="xmf">megreli</language>
+			<language type="xnr">kangri</language>
 			<language type="xog">soga</language>
 			<language type="yao">jao</language>
 			<language type="yap">japi</language>
@@ -726,6 +729,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<script type="Elba">Elbasani</script>
 			<script type="Elym" draft="contributed">elümi</script>
 			<script type="Ethi">etioopia</script>
+			<script type="Gara" draft="contributed">garai</script>
 			<script type="Geok">hutsuri</script>
 			<script type="Geor">gruusia</script>
 			<script type="Glag">glagoolitsa</script>
@@ -839,6 +843,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<script type="Sora">sora</script>
 			<script type="Soyo" draft="contributed">sojombo</script>
 			<script type="Sund">sunda</script>
+			<script type="Sunu" draft="contributed">sunvari</script>
 			<script type="Sylo">siloti</script>
 			<script type="Syrc">süüria</script>
 			<script type="Syre">süüria estrangelo</script>
@@ -1437,7 +1442,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<moreInformation>↑↑↑</moreInformation>
 		<parseLenients scope="date" level="lenient">
 			<parseLenient sample="-">↑↑↑</parseLenient>
-			<parseLenient sample=":">[\: ∶]</parseLenient>
+			<parseLenient sample=":">↑↑↑</parseLenient>
 		</parseLenients>
 		<parseLenients scope="general" level="lenient">
 			<parseLenient sample=".">↑↑↑</parseLenient>
@@ -1445,13 +1450,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<parseLenient sample="%">↑↑↑</parseLenient>
 			<parseLenient sample="‰">↑↑↑</parseLenient>
 			<parseLenient sample="$">↑↑↑</parseLenient>
-			<parseLenient sample="£">[£ ₤]</parseLenient>
+			<parseLenient sample="£">↑↑↑</parseLenient>
 			<parseLenient sample="¥">↑↑↑</parseLenient>
 			<parseLenient sample="₩">↑↑↑</parseLenient>
 			<parseLenient sample="₹">↑↑↑</parseLenient>
 		</parseLenients>
 		<parseLenients scope="number" level="lenient">
-			<parseLenient sample="-">[\-－﹣ ‑ ‒ −⁻₋ ➖]</parseLenient>
+			<parseLenient sample="-">↑↑↑</parseLenient>
 			<parseLenient sample=",">↑↑↑</parseLenient>
 			<parseLenient sample="+">↑↑↑</parseLenient>
 		</parseLenients>
@@ -3432,7 +3437,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Roheneemesaared</exemplarCity>
 			</zone>
 			<zone type="America/Curacao">
-				<exemplarCity>Curaçao</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Indian/Christmas">
 				<exemplarCity>Jõulusaar</exemplarCity>
@@ -3480,7 +3485,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Kairo</exemplarCity>
 			</zone>
 			<zone type="Africa/El_Aaiun">
-				<exemplarCity>↑↑↑</exemplarCity>
+				<exemplarCity>El Aaiún</exemplarCity>
 			</zone>
 			<zone type="Africa/Asmera">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -3672,7 +3677,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Enderbury</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kanton">
-				<exemplarCity draft="contributed">↑↑↑</exemplarCity>
+				<exemplarCity>Abariringa</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -3870,7 +3875,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Pacific/Noumea">
-				<exemplarCity>↑↑↑</exemplarCity>
+				<exemplarCity>Nouméa</exemplarCity>
 			</zone>
 			<zone type="Africa/Niamey">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -3966,13 +3971,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Belau</exemplarCity>
 			</zone>
 			<zone type="America/Asuncion">
-				<exemplarCity>Asunción</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Qatar">
 				<exemplarCity>Katar</exemplarCity>
 			</zone>
 			<zone type="Indian/Reunion">
-				<exemplarCity>Réunion</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/Bucharest">
 				<exemplarCity>Bukarest</exemplarCity>
@@ -4068,7 +4073,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Indian/Mahe">
-				<exemplarCity>↑↑↑</exemplarCity>
+				<exemplarCity>Mahé</exemplarCity>
 			</zone>
 			<zone type="Africa/Khartoum">
 				<exemplarCity>Hartum</exemplarCity>
@@ -4101,7 +4106,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Africa/Mogadishu">
-				<exemplarCity>↑↑↑</exemplarCity>
+				<exemplarCity>Muqdisho</exemplarCity>
 			</zone>
 			<zone type="America/Paramaribo">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -4110,7 +4115,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Africa/Sao_Tome">
-				<exemplarCity>São Tomé</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/El_Salvador">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -4134,7 +4139,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Africa/Lome">
-				<exemplarCity>↑↑↑</exemplarCity>
+				<exemplarCity>Lomé</exemplarCity>
 			</zone>
 			<zone type="Asia/Bangkok">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -4299,7 +4304,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Saint Thomas</exemplarCity>
 			</zone>
 			<zone type="Asia/Saigon">
-				<exemplarCity>↑↑↑</exemplarCity>
+				<exemplarCity>Hô Chi Minh</exemplarCity>
 			</zone>
 			<zone type="Pacific/Efate">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -4625,7 +4630,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</metazone>
 			<metazone type="DumontDUrville">
 				<long>
-					<standard>Dumont-d’Urville’i aeg</standard>
+					<standard>Dumont d’Urville’i aeg</standard>
 				</long>
 			</metazone>
 			<metazone type="East_Timor">
@@ -4720,6 +4725,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<metazone type="GMT">
 				<long>
 					<standard>Greenwichi aeg</standard>
+				</long>
+			</metazone>
+			<metazone type="Greenland">
+				<long>
+					<generic draft="contributed">Gröönimaa aeg</generic>
+					<standard draft="contributed">Gröönimaa standardaeg</standard>
+					<daylight draft="contributed">Gröönimaa suveaeg</daylight>
 				</long>
 			</metazone>
 			<metazone type="Greenland_Eastern">
@@ -4835,6 +4847,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic>Petropavlovsk-Kamtšatski aeg</generic>
 					<standard>Kamtšatka standardaeg</standard>
 					<daylight>Kamtšatka suveaeg</daylight>
+				</long>
+			</metazone>
+			<metazone type="Kazakhstan">
+				<long>
+					<standard>Kasahstani aeg</standard>
 				</long>
 			</metazone>
 			<metazone type="Kazakhstan_Eastern">
@@ -5390,7 +5407,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern>#,##0.00 ¤;(#,##0.00 ¤)</pattern>
-					<pattern alt="noCurrency" draft="contributed">#,##0.00;(#,##0.00)</pattern>
+					<pattern alt="noCurrency">#,##0.00;(#,##0.00)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyFormatLength type="short">
@@ -5422,8 +5439,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencies>
 			<currency type="ADP">
@@ -5589,6 +5606,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 			<currency type="BGL">
 				<displayName>Bulgaaria püsiv leev</displayName>
+				<displayName count="one" draft="contributed">Bulgaaria kõva leev</displayName>
+				<displayName count="other" draft="contributed">Bulgaaria kõva leevi</displayName>
 			</currency>
 			<currency type="BGN">
 				<displayName>Bulgaaria leev</displayName>
@@ -5786,6 +5805,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>Serbia dinaar (2002–2006)</displayName>
 				<displayName count="one">Serbia dinaar (2002–2006)</displayName>
 				<displayName count="other">Serbia dinaari (2002–2006)</displayName>
+			</currency>
+			<currency type="CSK">
+				<displayName draft="contributed">Tšehhoslovakkia kõva kroon</displayName>
+				<displayName count="one" draft="contributed">Tšehhoslovakkia kõva kroon</displayName>
+				<displayName count="other" draft="contributed">Tšehhoslovakkia kõva krooni</displayName>
 			</currency>
 			<currency type="CUC">
 				<displayName>Kuuba konverteeritav peeso</displayName>
@@ -6136,7 +6160,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="one">Kõrgõzstani somm</displayName>
 				<displayName count="other">Kõrgõzstani sommi</displayName>
 				<symbol>↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="KHR">
 				<displayName>Kambodža riaal</displayName>
@@ -6803,6 +6827,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 			<currency type="UAK">
 				<displayName>Ukraina karbovanets</displayName>
+				<displayName count="one" draft="contributed">↑↑↑</displayName>
+				<displayName count="other" draft="contributed">Ukraina karbovanetsi</displayName>
 			</currency>
 			<currency type="UGS">
 				<displayName>Uganda šilling (1966–1987)</displayName>
@@ -6981,6 +7007,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="YUD">
+				<displayName draft="contributed">Jugoslaavia kõva dinaar (1966–1990)</displayName>
+				<displayName count="one" draft="contributed">Jugoslaavia kõva dinaar (1966–1990)</displayName>
 				<displayName count="other">↑↑↑</displayName>
 			</currency>
 			<currency type="YUM">
@@ -6992,6 +7020,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>Jugoslaavia konverteeritav dinaar (1990–1992)</displayName>
 				<displayName count="one">Jugoslaavia konverteeritav dinaar (1990–1992)</displayName>
 				<displayName count="other">Jugoslaavia konverteeritavat dinaari (1990–1992)</displayName>
+			</currency>
+			<currency type="YUR">
+				<displayName draft="contributed">Jugoslaavia reformitud dinaar (1992–1993)</displayName>
+				<displayName count="one" draft="contributed">Jugoslaavia reformitud dinaar (1992–1993)</displayName>
+				<displayName count="other" draft="contributed">Jugoslaavia reformitud dinaari (1992–1993)</displayName>
 			</currency>
 			<currency type="ZAR">
 				<displayName>Lõuna-Aafrika rand</displayName>
@@ -7567,14 +7600,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} pikslit tolli kohta</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
-				<displayName draft="contributed">punkte sentimeetri kohta</displayName>
-				<unitPattern count="one" draft="contributed">{0} punkt sentimeetri kohta</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} punkti sentimeetri kohta</unitPattern>
+				<displayName>punkte sentimeetri kohta</displayName>
+				<unitPattern count="one">{0} punkt sentimeetri kohta</unitPattern>
+				<unitPattern count="other">{0} punkti sentimeetri kohta</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-inch">
-				<displayName draft="contributed">punkte tolli kohta</displayName>
-				<unitPattern count="one" draft="contributed">{0} punkt tolli kohta</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} punkti tolli kohta</unitPattern>
+				<displayName>punkte tolli kohta</displayName>
+				<unitPattern count="one">{0} punkt tolli kohta</unitPattern>
+				<unitPattern count="other">{0} punkti tolli kohta</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
 				<displayName>punktid</displayName>
@@ -8104,6 +8137,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>inglise kvart</displayName>
 				<unitPattern count="one">{0} inglise kvart</unitPattern>
 				<unitPattern count="other">{0} inglise kvarti</unitPattern>
+			</unit>
+			<unit type="speed-light-speed">
+				<displayName>valguskiirus</displayName>
+				<unitPattern count="one">{0} valguskiirus</unitPattern>
+				<unitPattern count="other">{0} valguskiirust</unitPattern>
+			</unit>
+			<unit type="concentr-portion-per-1e9">
+				<displayName>miljardikosa</displayName>
+				<unitPattern count="one">{0} miljardikosa</unitPattern>
+				<unitPattern count="other">{0} miljardikosa</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>ööd</displayName>
+				<unitPattern count="one">{0} öö</unitPattern>
+				<unitPattern count="other">{0} ööd</unitPattern>
+				<perUnitPattern>{0} öö kohta</perUnitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>põhiilmakaar</displayName>
@@ -8635,19 +8684,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">{0} dpcm</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} dpcm</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0} dpcm</unitPattern>
+				<unitPattern count="other">{0} dpcm</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-inch">
-				<displayName draft="contributed">dpi</displayName>
-				<unitPattern count="one" draft="contributed">{0} dpi</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} dpi</unitPattern>
+				<displayName>dpi</displayName>
+				<unitPattern count="one">{0} dpi</unitPattern>
+				<unitPattern count="other">{0} dpi</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
 				<displayName>p</displayName>
-				<unitPattern count="one" draft="contributed">{0} p</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} p</unitPattern>
+				<unitPattern count="one">{0} p</unitPattern>
+				<unitPattern count="other">{0} p</unitPattern>
 			</unit>
 			<unit type="length-earth-radius">
 				<displayName>↑↑↑</displayName>
@@ -9173,6 +9222,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} ingl kvart</unitPattern>
 				<unitPattern count="other">{0} ingl kvarti</unitPattern>
 			</unit>
+			<unit type="speed-light-speed">
+				<displayName>valguskiirus</displayName>
+				<unitPattern count="one">{0} valguskiirus</unitPattern>
+				<unitPattern count="other">{0} valguskiirust</unitPattern>
+			</unit>
+			<unit type="concentr-portion-per-1e9">
+				<displayName>osakesed/miljard</displayName>
+				<unitPattern count="one">{0} miljardikosa</unitPattern>
+				<unitPattern count="other">{0} miljardikosa</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>ööd</displayName>
+				<unitPattern count="one">{0} öö</unitPattern>
+				<unitPattern count="other">{0} ööd</unitPattern>
+				<perUnitPattern>{0}/öö</perUnitPattern>
+			</unit>
 			<coordinateUnit>
 				<displayName>ilmakaar</displayName>
 				<coordinateUnitPattern type="east">{0} ip</coordinateUnitPattern>
@@ -9213,10 +9278,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-27">
-				<unitPrefixPattern draft="contributed">↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-30">
-				<unitPrefixPattern draft="contributed">↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p1">
 				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
@@ -9249,10 +9314,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p27">
-				<unitPrefixPattern draft="contributed">↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p30">
-				<unitPrefixPattern draft="contributed">↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p1">
 				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
@@ -9703,19 +9768,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-inch">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-earth-radius">
 				<displayName>↑↑↑</displayName>
@@ -10240,6 +10305,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>qt Imp</displayName>
 				<unitPattern count="one">{0} qt Imp.</unitPattern>
 				<unitPattern count="other">{0} qt Imp.</unitPattern>
+			</unit>
+			<unit type="speed-light-speed">
+				<displayName>valguskiirus</displayName>
+				<unitPattern count="one">{0} valguskiirus</unitPattern>
+				<unitPattern count="other">{0} valguskiirust</unitPattern>
+			</unit>
+			<unit type="concentr-portion-per-1e9">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>ööd</displayName>
+				<unitPattern count="one">{0} öö</unitPattern>
+				<unitPattern count="other">{0} ööd</unitPattern>
+				<perUnitPattern>{0}/öö</perUnitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>↑↑↑</displayName>

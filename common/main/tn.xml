@@ -11,6 +11,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="tn"/>
 	</identity>
 	<localeDisplayNames>
+		<localeDisplayPattern>
+			<localePattern>↑↑↑</localePattern>
+			<localeSeparator>↑↑↑</localeSeparator>
+		</localeDisplayPattern>
 		<languages>
 			<language type="af" draft="unconfirmed">Seburu</language>
 			<language type="am" draft="unconfirmed">Amhariki</language>
@@ -26,7 +30,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="da" draft="unconfirmed">Danish</language>
 			<language type="de" draft="unconfirmed">German</language>
 			<language type="el" draft="unconfirmed">SeGerika</language>
-			<language type="en" draft="unconfirmed">Sekgoa</language>
+			<language type="en">Sekgoa</language>
 			<language type="eo" draft="unconfirmed">Esperanto</language>
 			<language type="es" draft="unconfirmed">Spanish</language>
 			<language type="et" draft="unconfirmed">Estonian</language>
@@ -83,7 +87,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="th" draft="unconfirmed">Thai</language>
 			<language type="ti" draft="unconfirmed">Tigrinya</language>
 			<language type="tlh" draft="unconfirmed">Klingon</language>
-			<language type="tn" draft="provisional">Setswana</language>
+			<language type="tn">Setswana</language>
 			<language type="tr" draft="unconfirmed">Turkish</language>
 			<language type="uk" draft="unconfirmed">Ukrainian</language>
 			<language type="ur" draft="unconfirmed">Urdu</language>
@@ -92,20 +96,36 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="xh" draft="unconfirmed">IsiXhosa</language>
 			<language type="zu" draft="unconfirmed">IsiZulu</language>
 		</languages>
+		<scripts>
+			<script type="Latn">Selatine</script>
+		</scripts>
 		<territories>
+			<territory type="BW">Botswana</territory>
 			<territory type="ZA">Aforika Borwa</territory>
 		</territories>
+		<measurementSystemNames>
+			<measurementSystemName type="metric">↑↑↑</measurementSystemName>
+			<measurementSystemName type="UK">↑↑↑</measurementSystemName>
+			<measurementSystemName type="US">↑↑↑</measurementSystemName>
+		</measurementSystemNames>
+		<codePatterns>
+			<codePattern type="language">↑↑↑</codePattern>
+			<codePattern type="script">↑↑↑</codePattern>
+			<codePattern type="territory">↑↑↑</codePattern>
+		</codePatterns>
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[a b d e ê f g h i j k l m n o ô p r s t u w y]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[c q v x z]</exemplarCharacters>
 		<exemplarCharacters type="index" draft="unconfirmed">[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z]</exemplarCharacters>
+		<exemplarCharacters type="numbers" draft="contributed">↑↑↑</exemplarCharacters>
+		<exemplarCharacters type="punctuation" draft="contributed">[\- ‐‑ – — , ; \: ! ? . … '‘’ &quot;“” ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
 	</characters>
 	<delimiters>
-		<quotationStart draft="unconfirmed">‘</quotationStart>
-		<quotationEnd draft="unconfirmed">’</quotationEnd>
-		<alternateQuotationStart draft="unconfirmed">“</alternateQuotationStart>
-		<alternateQuotationEnd draft="unconfirmed">”</alternateQuotationEnd>
+		<quotationStart>‘</quotationStart>
+		<quotationEnd>’</quotationEnd>
+		<alternateQuotationStart>“</alternateQuotationStart>
+		<alternateQuotationEnd>”</alternateQuotationEnd>
 	</delimiters>
 	<dates>
 		<calendars>
@@ -259,7 +279,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">Tshipi</day>
-							<day type="mon">Mosopulogo</day>
+							<day type="mon">Mosupologo</day>
 							<day type="tue">Labobedi</day>
 							<day type="wed">Laboraro</day>
 							<day type="thu">Labone</day>
@@ -585,12 +605,37 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
+		<fields>
+			<field type="year">
+				<relative type="-1">ngogola</relative>
+				<relative type="0">monongwaga</relative>
+				<relative type="1">ngwaga o tlang</relative>
+			</field>
+		</fields>
+		<timeZoneNames>
+			<hourFormat>↑↑↑</hourFormat>
+			<gmtFormat>↑↑↑</gmtFormat>
+			<gmtZeroFormat>↑↑↑</gmtZeroFormat>
+			<regionFormat>↑↑↑</regionFormat>
+			<regionFormat type="daylight">↑↑↑</regionFormat>
+			<regionFormat type="standard">↑↑↑</regionFormat>
+			<fallbackFormat>↑↑↑</fallbackFormat>
+			<metazone type="GMT">
+				<long>
+					<standard>Palogare ya nako ya ngwaga le ngwaga ya Greenwich</standard>
+				</long>
+			</metazone>
+		</timeZoneNames>
 	</dates>
 	<numbers>
+		<defaultNumberingSystem draft="contributed">↑↑↑</defaultNumberingSystem>
+		<otherNumberingSystems>
+			<native draft="contributed">↑↑↑</native>
+		</otherNumberingSystems>
 		<minimumGroupingDigits draft="contributed">↑↑↑</minimumGroupingDigits>
 		<symbols numberSystem="latn">
 			<decimal>↑↑↑</decimal>
-			<group> </group>
+			<group>’</group>
 			<percentSign>↑↑↑</percentSign>
 			<plusSign>↑↑↑</plusSign>
 			<minusSign>↑↑↑</minusSign>

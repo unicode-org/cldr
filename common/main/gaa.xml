@@ -12,8 +12,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</identity>
 	<localeDisplayNames>
 		<localeDisplayPattern>
-			<localePattern draft="unconfirmed">↑↑↑</localePattern>
-			<localeSeparator draft="unconfirmed">↑↑↑</localeSeparator>
+			<localePattern>↑↑↑</localePattern>
+			<localeSeparator>↑↑↑</localeSeparator>
 			<localeKeyTypePattern draft="unconfirmed">↑↑↑</localeKeyTypePattern>
 		</localeDisplayPattern>
 		<languages>
@@ -66,7 +66,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="de" draft="unconfirmed">German</language>
 			<language type="de_AT" draft="unconfirmed">Austria German</language>
 			<language type="de_CH" draft="unconfirmed">Switzerland German Krɔŋŋ</language>
-			<language type="en" draft="unconfirmed">Blɔfo</language>
+			<language type="en">Blɔfo</language>
 			<language type="en_AU" draft="unconfirmed">Australia Blɔfo</language>
 			<language type="en_CA" draft="unconfirmed">Kanada Blɔfo</language>
 			<language type="en_GB" draft="unconfirmed">Britain Blɔfo</language>
@@ -82,7 +82,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="fr_CA" draft="unconfirmed">Kanada Frɛntsi</language>
 			<language type="fr_CH" draft="unconfirmed">Switzerland Frɛntsi</language>
 			<language type="frc" draft="unconfirmed">Kajun Frɛntsi</language>
-			<language type="gaa" draft="contributed">Gã</language>
+			<language type="gaa">Gã</language>
 			<language type="hi" draft="unconfirmed">Hindi</language>
 			<language type="hy" draft="unconfirmed">Armenian</language>
 			<language type="id" draft="unconfirmed">Indonesian</language>
@@ -121,7 +121,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<script type="Hant" alt="stand-alone" draft="unconfirmed">Tsutsu Blema</script>
 			<script type="Jpan" draft="unconfirmed">Japanese</script>
 			<script type="Kore" draft="unconfirmed">Korean</script>
-			<script type="Latn" draft="unconfirmed">Niŋmaa Ni Asharaa Yiteŋ</script>
+			<script type="Latn">Niŋmaa Ni Asharaa Yiteŋ</script>
 			<script type="Zxxx" draft="unconfirmed">Aŋmaaa</script>
 			<script type="Zzzz" draft="unconfirmed">Niŋmaa Ni Aleee</script>
 		</scripts>
@@ -208,7 +208,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="GA" draft="unconfirmed">Gabon</territory>
 			<territory type="GD" draft="unconfirmed">Grenada</territory>
 			<territory type="GF" draft="unconfirmed">Frentsibii Guiana</territory>
-			<territory type="GH" draft="unconfirmed">Ghana</territory>
+			<territory type="GH">Ghana</territory>
 			<territory type="GL" draft="unconfirmed">Greenland</territory>
 			<territory type="GM" draft="unconfirmed">Gambia</territory>
 			<territory type="GN" draft="unconfirmed">Guinea</territory>
@@ -302,22 +302,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="numbers" type="latn" draft="unconfirmed">Blɔfomɛi Anɔmbai</type>
 		</types>
 		<measurementSystemNames>
-			<measurementSystemName type="metric" draft="unconfirmed">Susumɔnii</measurementSystemName>
-			<measurementSystemName type="UK" draft="unconfirmed">↑↑↑</measurementSystemName>
-			<measurementSystemName type="US" draft="unconfirmed">↑↑↑</measurementSystemName>
+			<measurementSystemName type="metric">Susumɔnii</measurementSystemName>
+			<measurementSystemName type="UK">↑↑↑</measurementSystemName>
+			<measurementSystemName type="US">↑↑↑</measurementSystemName>
 		</measurementSystemNames>
 		<codePatterns>
-			<codePattern type="language" draft="unconfirmed">Language: {0}</codePattern>
-			<codePattern type="script" draft="unconfirmed">Script: {0}</codePattern>
-			<codePattern type="territory" draft="unconfirmed">Region: {0}</codePattern>
+			<codePattern type="language">Wiemɔ {0}</codePattern>
+			<codePattern type="script">Woloŋmaa {0}</codePattern>
+			<codePattern type="territory">Kpokpaanɔ {0}</codePattern>
 		</codePatterns>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters draft="unconfirmed">[a b d e ɛ f g h i j k l m n ŋ o ɔ p q r s t u v w y z]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary" draft="unconfirmed">[áã é íĩ ó ũ]</exemplarCharacters>
+		<exemplarCharacters draft="contributed">[a b d e ɛ f g h i j k l m n ŋ o ɔ p r s t u v w y z]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary" draft="contributed">[áã é íĩ ó ũ]</exemplarCharacters>
 		<exemplarCharacters type="index" draft="unconfirmed">[A B D E Ɛ F G H I J K L M N Ŋ O Ɔ P Q R S T U V W Y Z]</exemplarCharacters>
-		<exemplarCharacters type="numbers" draft="unconfirmed">↑↑↑</exemplarCharacters>
-		<exemplarCharacters type="punctuation" draft="unconfirmed">[\- ‐‑ – — , ; \: ! ? . … '‘’ &quot;“” ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
+		<exemplarCharacters type="numbers" draft="contributed">↑↑↑</exemplarCharacters>
+		<exemplarCharacters type="punctuation" draft="contributed">[\- ‐‑ – — , ; \: ! ? . … '‘’ &quot;“” ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
 		<ellipsis type="final" draft="unconfirmed">↑↑↑</ellipsis>
 		<ellipsis type="initial" draft="unconfirmed">↑↑↑</ellipsis>
 		<ellipsis type="medial" draft="unconfirmed">↑↑↑</ellipsis>
@@ -351,10 +351,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</parseLenients>
 	</characters>
 	<delimiters>
-		<quotationStart draft="unconfirmed">↑↑↑</quotationStart>
-		<quotationEnd draft="unconfirmed">↑↑↑</quotationEnd>
-		<alternateQuotationStart draft="unconfirmed">↑↑↑</alternateQuotationStart>
-		<alternateQuotationEnd draft="unconfirmed">↑↑↑</alternateQuotationEnd>
+		<quotationStart>↑↑↑</quotationStart>
+		<quotationEnd>↑↑↑</quotationEnd>
+		<alternateQuotationStart>↑↑↑</alternateQuotationStart>
+		<alternateQuotationEnd>↑↑↑</alternateQuotationEnd>
 	</delimiters>
 	<dates>
 		<calendars>
@@ -579,18 +579,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="12" draft="unconfirmed">↑↑↑</month>
 						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1" draft="unconfirmed">Aharabata</month>
-							<month type="2" draft="unconfirmed">Oflɔ</month>
-							<month type="3" draft="unconfirmed">Otsokrikri</month>
-							<month type="4" draft="unconfirmed">Abeibe</month>
-							<month type="5" draft="unconfirmed">Agbiɛnaa</month>
-							<month type="6" draft="unconfirmed">Otukwajaŋ</month>
-							<month type="7" draft="unconfirmed">Maawɛ</month>
-							<month type="8" draft="unconfirmed">Manyawale</month>
-							<month type="9" draft="unconfirmed">Gbo</month>
-							<month type="10" draft="unconfirmed">Antɔŋ</month>
-							<month type="11" draft="unconfirmed">Alemle</month>
-							<month type="12" draft="unconfirmed">Afuabe</month>
+							<month type="1">Aharabata</month>
+							<month type="2">Oflɔ</month>
+							<month type="3">Otsokrikri</month>
+							<month type="4">Abɛibe</month>
+							<month type="5">Agbiɛnaa</month>
+							<month type="6">Otukwajaŋ</month>
+							<month type="7">Maawɛ</month>
+							<month type="8">Manyawale</month>
+							<month type="9">Gbo</month>
+							<month type="10">Antɔŋ</month>
+							<month type="11">Alemle</month>
+							<month type="12">Afuabe</month>
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
@@ -668,13 +668,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<day type="sat" draft="unconfirmed">↑↑↑</day>
 						</dayWidth>
 						<dayWidth type="wide">
-							<day type="sun" draft="unconfirmed">Hɔgbaa</day>
-							<day type="mon" draft="unconfirmed">Ju</day>
-							<day type="tue" draft="unconfirmed">Jufɔ</day>
-							<day type="wed" draft="unconfirmed">Shɔ</day>
-							<day type="thu" draft="unconfirmed">Soo</day>
-							<day type="fri" draft="unconfirmed">Sohaa</day>
-							<day type="sat" draft="unconfirmed">Hɔɔ</day>
+							<day type="sun">Hɔgbaa</day>
+							<day type="mon">Ju</day>
+							<day type="tue">Jufɔ</day>
+							<day type="wed">Shɔ</day>
+							<day type="thu">Soo</day>
+							<day type="fri">Sohaa</day>
+							<day type="sat">Hɔɔ</day>
 						</dayWidth>
 					</dayContext>
 					<dayContext type="stand-alone">
@@ -769,8 +769,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<dayPeriod type="pm" draft="unconfirmed">↑↑↑</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am" draft="unconfirmed">LEEBI</dayPeriod>
-							<dayPeriod type="pm" draft="unconfirmed">SHWANE</dayPeriod>
+							<dayPeriod type="am">LEEBI</dayPeriod>
+							<dayPeriod type="pm">SHWANE</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 					<dayPeriodContext type="stand-alone">
@@ -894,12 +894,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="GyMMMEd" draft="unconfirmed">E, MMM d, y G</dateFormatItem>
 						<dateFormatItem id="h" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="H" draft="unconfirmed">↑↑↑</dateFormatItem>
-						<dateFormatItem id="hm" draft="unconfirmed">↑↑↑</dateFormatItem>
-						<dateFormatItem id="Hm" draft="unconfirmed">↑↑↑</dateFormatItem>
-						<dateFormatItem id="hms" draft="unconfirmed">↑↑↑</dateFormatItem>
-						<dateFormatItem id="Hms" draft="unconfirmed">↑↑↑</dateFormatItem>
-						<dateFormatItem id="hmsv" draft="unconfirmed">↑↑↑</dateFormatItem>
-						<dateFormatItem id="Hmsv" draft="unconfirmed">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hm">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Hm">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Hms">↑↑↑</dateFormatItem>
+						<dateFormatItem id="hmsv">↑↑↑</dateFormatItem>
+						<dateFormatItem id="Hmsv">↑↑↑</dateFormatItem>
 						<dateFormatItem id="hmv" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Hmv" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="M" draft="unconfirmed">↑↑↑</dateFormatItem>
@@ -913,10 +913,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="ms" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="y" draft="unconfirmed">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yM" draft="unconfirmed">M/y</dateFormatItem>
-						<dateFormatItem id="yMd" draft="unconfirmed">M/d/y</dateFormatItem>
+						<dateFormatItem id="yMd">M/d/y</dateFormatItem>
 						<dateFormatItem id="yMEd" draft="unconfirmed">E, M/d/y</dateFormatItem>
 						<dateFormatItem id="yMMM" draft="unconfirmed">MMM y</dateFormatItem>
-						<dateFormatItem id="yMMMd" draft="unconfirmed">MMM d, y</dateFormatItem>
+						<dateFormatItem id="yMMMd">MMM d, y</dateFormatItem>
 						<dateFormatItem id="yMMMEd" draft="unconfirmed">E, MMM d, y</dateFormatItem>
 						<dateFormatItem id="yMMMM" draft="unconfirmed">MMMM y</dateFormatItem>
 						<dateFormatItem id="yQQQ" draft="unconfirmed">QQQ y</dateFormatItem>
@@ -927,7 +927,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<appendItem request="Timezone" draft="unconfirmed">↑↑↑</appendItem>
 					</appendItems>
 					<intervalFormats>
-						<intervalFormatFallback draft="unconfirmed">↑↑↑</intervalFormatFallback>
+						<intervalFormatFallback>↑↑↑</intervalFormatFallback>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d" draft="unconfirmed">↑↑↑</greatestDifference>
 						</intervalFormatItem>
@@ -1188,13 +1188,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</field>
 		</fields>
 		<timeZoneNames>
-			<hourFormat draft="unconfirmed">↑↑↑</hourFormat>
-			<gmtFormat draft="unconfirmed">↑↑↑</gmtFormat>
-			<gmtZeroFormat draft="unconfirmed">↑↑↑</gmtZeroFormat>
-			<regionFormat draft="unconfirmed">{0} Be</regionFormat>
-			<regionFormat type="daylight" draft="unconfirmed">{0} Be Yɛ Latsa Beiaŋ</regionFormat>
-			<regionFormat type="standard" draft="unconfirmed">{0} Be Yɛ Fɛi Beiaŋ</regionFormat>
-			<fallbackFormat draft="unconfirmed">↑↑↑</fallbackFormat>
+			<hourFormat>↑↑↑</hourFormat>
+			<gmtFormat>↑↑↑</gmtFormat>
+			<gmtZeroFormat>↑↑↑</gmtZeroFormat>
+			<regionFormat>{0} Be</regionFormat>
+			<regionFormat type="daylight">{0} Be Yɛ Latsa Beiaŋ</regionFormat>
+			<regionFormat type="standard">{0} Be Yɛ Fɛi Beiaŋ</regionFormat>
+			<fallbackFormat>↑↑↑</fallbackFormat>
 			<zone type="Etc/UTC">
 				<long>
 					<standard draft="unconfirmed">Be Ni Maji Ni Yɔɔ Jeŋ Fɛɛ Kɛtsuɔ Nii</standard>
@@ -2329,6 +2329,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<standard draft="unconfirmed">Antarktik Kɛ Wuoyigbɛbii Ni Wieɔ Frɛntsi Be</standard>
 				</long>
 			</metazone>
+			<metazone type="GMT">
+				<long>
+					<standard>Betsɔɔmɔ ni ka ŋɛlɛ kome nɔ</standard>
+				</long>
+			</metazone>
 			<metazone type="Greenland_Eastern">
 				<long>
 					<generic draft="unconfirmed">Greenland Bokãgbɛ Be</generic>
@@ -2396,17 +2401,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem draft="unconfirmed">↑↑↑</defaultNumberingSystem>
+		<defaultNumberingSystem draft="contributed">↑↑↑</defaultNumberingSystem>
 		<otherNumberingSystems>
-			<native draft="unconfirmed">↑↑↑</native>
+			<native draft="contributed">↑↑↑</native>
 		</otherNumberingSystems>
 		<minimumGroupingDigits draft="unconfirmed">↑↑↑</minimumGroupingDigits>
 		<symbols numberSystem="latn">
-			<decimal draft="unconfirmed">↑↑↑</decimal>
-			<group draft="unconfirmed">↑↑↑</group>
-			<percentSign draft="unconfirmed">↑↑↑</percentSign>
-			<plusSign draft="unconfirmed">↑↑↑</plusSign>
-			<minusSign draft="unconfirmed">↑↑↑</minusSign>
+			<decimal>↑↑↑</decimal>
+			<group>↑↑↑</group>
+			<percentSign>↑↑↑</percentSign>
+			<plusSign>↑↑↑</plusSign>
+			<minusSign>↑↑↑</minusSign>
 			<exponential draft="unconfirmed">↑↑↑</exponential>
 			<superscriptingExponent draft="unconfirmed">↑↑↑</superscriptingExponent>
 			<perMille draft="unconfirmed">↑↑↑</perMille>
@@ -2416,28 +2421,28 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength>
 				<decimalFormat>
-					<pattern draft="unconfirmed">↑↑↑</pattern>
+					<pattern>↑↑↑</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
 		<scientificFormats numberSystem="latn">
 			<scientificFormatLength>
 				<scientificFormat>
-					<pattern draft="unconfirmed">↑↑↑</pattern>
+					<pattern>↑↑↑</pattern>
 				</scientificFormat>
 			</scientificFormatLength>
 		</scientificFormats>
 		<percentFormats numberSystem="latn">
 			<percentFormatLength>
 				<percentFormat>
-					<pattern draft="unconfirmed">↑↑↑</pattern>
+					<pattern>↑↑↑</pattern>
 				</percentFormat>
 			</percentFormatLength>
 		</percentFormats>
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
-					<pattern draft="unconfirmed">↑↑↑</pattern>
+					<pattern>↑↑↑</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
 					<pattern draft="unconfirmed">¤#,##0.00;(¤#,##0.00)</pattern>
@@ -2999,8 +3004,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="range" draft="unconfirmed">↑↑↑</pattern>
 		</miscPatterns>
 		<minimalPairs>
-			<pluralMinimalPairs count="other" draft="unconfirmed">gbii {0}</pluralMinimalPairs>
-			<ordinalMinimalPairs ordinal="other" draft="unconfirmed">ni ji {0}</ordinalMinimalPairs>
+			<pluralMinimalPairs count="other" draft="contributed">gbii {0}</pluralMinimalPairs>
+			<ordinalMinimalPairs ordinal="other">ni ji {0}</ordinalMinimalPairs>
 		</minimalPairs>
 	</numbers>
 	<units>
@@ -3266,9 +3271,51 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		</durationUnit>
 	</units>
 	<listPatterns>
+		<listPattern>
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+		</listPattern>
+		<listPattern type="or">
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+		</listPattern>
+		<listPattern type="or-narrow">
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+		</listPattern>
+		<listPattern type="or-short">
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+		</listPattern>
+		<listPattern type="standard-narrow">
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
+		</listPattern>
 		<listPattern type="standard-short">
-			<listPatternPart type="end" draft="unconfirmed">{0}, kɛ {1}</listPatternPart>
-			<listPatternPart type="2" draft="unconfirmed">{0} kɛ {1}</listPatternPart>
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">{0}, kɛ {1}</listPatternPart>
+			<listPatternPart type="2">{0} kɛ {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="unit">
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
+		</listPattern>
+		<listPattern type="unit-narrow">
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
+		</listPattern>
+		<listPattern type="unit-short">
+			<listPatternPart type="start">↑↑↑</listPatternPart>
+			<listPatternPart type="middle">↑↑↑</listPatternPart>
+			<listPatternPart type="end">↑↑↑</listPatternPart>
+			<listPatternPart type="2">↑↑↑</listPatternPart>
 		</listPattern>
 	</listPatterns>
 	<posix>

@@ -679,6 +679,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="♭" type="tts">ጸፊሕ</annotation>
 		<annotation cp="♯">ሙዚቃ | በሊሕ | ዴሲስ | ዴስ | ጽሑፍ</annotation>
 		<annotation cp="♯" type="tts">በሊሕ</annotation>
+		<annotation cp="🪉">መሳርሒ ሙዚቃ | ሙዚቃ | በገና | ኦርኬስትራ | ኩፒድ | ፍቕሪ</annotation>
+		<annotation cp="🪉" type="tts">በገና</annotation>
+		<annotation cp="🪏">መቅበር | መቆፈር | ስካፕ | በረዶ | ተክል | አካፋ | የአትክልት ስፍራ | ጉድጓድ</annotation>
+		<annotation cp="🪏" type="tts">አካፋ</annotation>
+		<annotation cp="🪾">መኻን | ሞይቱ | ቆጽሊ ዘይብሉ | ክረምቲ | ዕርቃኑ ዝወጸ | ዕንጨይቲ | ድርቂ | ገረብ | ጉንዲ | ጨናፍር</annotation>
+		<annotation cp="🪾" type="tts">ቆጽሊ ዘይብሉ ገረብ</annotation>
+		<annotation cp="🫆">ሕትመት | መርማሪ | መንነት | ምስጢር | ኣሰር | ኣሰር ኣጻብዕቲ | ድሕነት | ገበን | ፍንጪ | ፎረንሲክስ</annotation>
+		<annotation cp="🫆" type="tts">ኣሰር ኣጻብዕቲ</annotation>
+		<annotation cp="🫜">መግቢ | ራዲሽ | ሰላጣ | ሱር | ቢትሮ | ቬጀቴሪያን ዝበሃሉ ምዃኖም ይፍለጥ | ተርኒፕ | ኣሕምልቲ | ጀርዲን</annotation>
+		<annotation cp="🫜" type="tts">ሱር ኣሕምልቲ</annotation>
+		<annotation cp="🫟">ምፍሳስ | ርስሓት | ስፕላተር | ቀለም | ንጣብ ንጣብ | ዕግርግር | ፈሳሲ</annotation>
+		<annotation cp="🫟" type="tts">ረሳሕ ፈሳሲ</annotation>
+		<annotation cp="🫩">ረፋድ | ቦርሳታት | ኣሰልቺዩዎ | ዓይኒ | ደኺሙ | ድቃስ ዝኸልእ | ገጽ</annotation>
+		<annotation cp="🫩" type="tts">ኣብ ትሕቲ ዓይኒ ቦርሳ ዘለዎ ገጽ</annotation>
 		<annotation cp="😀">ፍሽኽታ ዝመልኦ ገጽ</annotation>
 		<annotation cp="😀" type="tts">ፍሽኽታ ዝመልኦ ገጽ</annotation>
 		<annotation cp="😃">ኣፍ | ክፉት | ገጽ | ፍሽኽ ዝበለ ገጽ ምስ ዓበይቲ ኣዒንቲ | ፍሽኽታ</annotation>
@@ -875,7 +889,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="😞" type="tts">ዝሓረቐ ገጽ</annotation>
 		<annotation cp="😓">ረሃጽ | ዝሑል | ዝሓዘነ ገጽ ምስ ረሓጽ | ገጽ</annotation>
 		<annotation cp="😓" type="tts">ዝሓዘነ ገጽ ምስ ረሓጽ</annotation>
-		<annotation cp="😩">ዝደኸመ | ገጽ</annotation>
+		<annotation cp="😩">ሕጉስ ዘይኮነ | አይይ | እናበኸየ | ዕቡድ | ዘሕዝን | ይስምዓካ | ደኺሙ | ድቃስ ዝኸልእ | ገጽ | ጥሜት | ፍሽለት</annotation>
 		<annotation cp="😩" type="tts">ዝደኸመ ገጽ</annotation>
 		<annotation cp="😫">ዝደኸመ ገጽ | ድኹም ገጽ</annotation>
 		<annotation cp="😫" type="tts">ድኹም ገጽ</annotation>
@@ -1015,6 +1029,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="💭" type="tts">ፍሕኛ ሓሳብ</annotation>
 		<annotation cp="💤">ኮሚካዊ | ደሓን ሕደሩ | ድቃስ</annotation>
 		<annotation cp="💤" type="tts">ድቃስ</annotation>
+		<annotation cp="👋">bye | cya | g2g | gtg | hi | outie | ttfn | ttyl | ሄይ | ማዕበል | ሰላም | ሰላምታ | ናብ | ንስኻ | ኢድ | ድሒሩ</annotation>
+		<annotation cp="👋" type="tts">ኢዱ እናወዛወዘ</annotation>
 		<annotation cp="🫶">ፍቕሪ</annotation>
 		<annotation cp="👂">ኣካል | እዝኒ</annotation>
 		<annotation cp="👂" type="tts">እዝኒ</annotation>
@@ -1118,7 +1134,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🐆" type="tts">ልዮፓርድ</annotation>
 		<annotation cp="🐴">እንስሳ | ገጽ | ፈረስ</annotation>
 		<annotation cp="🐴" type="tts">ገጽ ፈረስ</annotation>
-		<annotation cp="🐎">ፈረስ</annotation>
+		<annotation cp="🐎">ሕርሻ | ናይ ውድድር ፈረስ | እንስሳ | ውድድር ውድድር | ፈረሰኛ | ፈረስ</annotation>
 		<annotation cp="🐎" type="tts">ፈረስ</annotation>
 		<annotation cp="🦓">ኣድጊ በረኻ | ዘብራ | ዜብራ</annotation>
 		<annotation cp="🦓" type="tts">ኣድጊ በረኻ</annotation>
@@ -1658,7 +1674,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🚾" type="tts">መዕቆሪ ማይ</annotation>
 		<annotation cp="🛂">ቁጽጽር | ናይ ፓስስፖርት ቁጽጽር | ፓስፖርት</annotation>
 		<annotation cp="🛂" type="tts">ናይ ፓስስፖርት ቁጽጽር</annotation>
-		<annotation cp="🛃">ጉምሩክ</annotation>
+		<annotation cp="🛃">ልምዲ | ምዕሻግ</annotation>
 		<annotation cp="🛃" type="tts">ጉምሩክ</annotation>
 		<annotation cp="🛄">መበጻጽሒ | መበጻጽሒ ሳንጣ | ባልጃ/ሳንጣ</annotation>
 		<annotation cp="🛄" type="tts">መበጻጽሒ ሳንጣ</annotation>
@@ -1758,6 +1774,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🕎" type="tts">7 ቀንዴል</annotation>
 		<annotation cp="🔯">ነጥብጣብ 6-ጫፍ ኮኾብ | ኮኾብ | ዕድል</annotation>
 		<annotation cp="🔯" type="tts">ነጥብጣብ 6-ጫፍ ኮኾብ</annotation>
+		<annotation cp="🪯">ሃይማኖት | ሲኪዝም | ሲክ | ቴግ | ካስላ | ካንዳ | ደግ | ፍትህ</annotation>
+		<annotation cp="🪯" type="tts">ካንዳ</annotation>
 		<annotation cp="♈">ራም | ኣሬስ | ዞድያክ</annotation>
 		<annotation cp="♈" type="tts">ኣሬስ</annotation>
 		<annotation cp="♉">Taurus | zodiac | ብዕራይ | ታውሩስ | ኣርሓ</annotation>
@@ -1828,6 +1846,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🔆" type="tts">ብሩህ መልጎም</annotation>
 		<annotation cp="📶">ሽራጥ | ተለፎን | ተንቀሳቃሲ ተለፎነ | ናይ ኣንተና ሽራጣት | ኣንተና</annotation>
 		<annotation cp="📶" type="tts">ናይ ኣንተና ሽራጣት</annotation>
+		<annotation cp="🛜">ገመድ ኣልቦ</annotation>
+		<annotation cp="🛜" type="tts">ገመድ ኣልቦ</annotation>
 		<annotation cp="📳">ሃለዋት | ተለፎን | ነዝነዝታ | ነዝነዝታዊ ሃለዋት</annotation>
 		<annotation cp="📳" type="tts">ነዝነዝታዊ ሃለዋት</annotation>
 		<annotation cp="📴">ምዕጻው | ተለፎን | ተንቀሳቃሲት ተለፎን ምዕጽው</annotation>
@@ -1846,6 +1866,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="➖" type="tts">ምጉዳል</annotation>
 		<annotation cp="➗">÷ | ሕሳብ | ምልክት | ምምቃል</annotation>
 		<annotation cp="➗" type="tts">ምምቃል</annotation>
+		<annotation cp="🟰">ሒሳብ | መልሲ | ማዕረ | ማዕርነት | ምልክት | ከቢድ</annotation>
+		<annotation cp="🟰" type="tts">ከቢድ ማዕረ ምልክት</annotation>
 		<annotation cp="♾">ዓለም-ለኻዊ | ደረት ኣልቦነት</annotation>
 		<annotation cp="♾" type="tts">ደረት ኣልቦነት</annotation>
 		<annotation cp="‼">! | !! | ምልክት | ስምዒት | ባንግባንግ | ድርብ ምልክት ስምዒት</annotation>
@@ -1870,8 +1892,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="⚕" type="tts">ኣርማ ሕክምና</annotation>
 		<annotation cp="♻">ረሳይክል | ኣርማ ረሳይክል</annotation>
 		<annotation cp="♻" type="tts">ኣርማ ረሳይክል</annotation>
-		<annotation cp="⚜">fleur-de-lis</annotation>
-		<annotation cp="⚜" type="tts">fleur-de-lis</annotation>
+		<annotation cp="⚜">ፍሉር-ደ-ሊስ</annotation>
+		<annotation cp="⚜" type="tts">ፍሉር-ደ-ሊስ</annotation>
 		<annotation cp="🔱">መልህቕ | መርክብ | መሳርሒ | ትሪደንት | ኣርማ</annotation>
 		<annotation cp="🔱" type="tts">ኣርማ ትሪደንት</annotation>
 		<annotation cp="📛">ሽም | ባድጀ</annotation>

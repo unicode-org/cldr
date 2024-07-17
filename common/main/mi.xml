@@ -32,7 +32,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="ann">Ōporo</language>
 			<language type="anp">Anahika</language>
 			<language type="ar">Ārapi</language>
-			<language type="ar_001">Ārapi Moroko</language>
+			<language type="ar_001">Ārapi Moroki</language>
 			<language type="arn">Mapūte</language>
 			<language type="arp">Arapaho</language>
 			<language type="ars">Arapika Nahāri</language>
@@ -164,7 +164,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="he">Hīperu</language>
 			<language type="hi">Hīni</language>
 			<language type="hi_Latn">↑↑↑</language>
-			<language type="hi_Latn" alt="variant">↑↑↑</language>
+			<language type="hi_Latn" alt="variant">Hīngarihi</language>
 			<language type="hil">Hirikaina</language>
 			<language type="hmn">Mōnga</language>
 			<language type="hr">Koroātiana</language>
@@ -530,7 +530,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="015">Āwherika ki te Raki</territory>
 			<territory type="017">Te Pokapū o Āwherika</territory>
 			<territory type="018">Āwherika Whakatetonga</territory>
-			<territory type="019">Amerika</territory>
+			<territory type="019">Ngā Amerika</territory>
 			<territory type="021">Te Raki o Amerika</territory>
 			<territory type="029">Karapīana</territory>
 			<territory type="030">Āhia ki te Rāwhiti</territory>
@@ -1795,7 +1795,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<relativeTimePattern count="other">+{0} Hwh</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="other">-{0} hwh</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="month">
@@ -1858,7 +1858,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relativeTime type="past">
 					<relativeTimePattern count="other">-{0} w</relativeTimePattern>
 				</relativeTime>
-				<relativePeriod>t w o {0}</relativePeriod>
+				<relativePeriod>↑↑↑</relativePeriod>
 			</field>
 			<field type="week-narrow">
 				<displayName>w</displayName>
@@ -4012,6 +4012,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>Wā Hapani Awatea</daylight>
 				</long>
 			</metazone>
+			<metazone type="Kazakhstan">
+				<long>
+					<standard>Wā Katatānga</standard>
+				</long>
+			</metazone>
 			<metazone type="Kazakhstan_Eastern">
 				<long>
 					<standard>Wā Katatānga ki te Rāwhiti</standard>
@@ -4528,7 +4533,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencies>
 			<currency type="AED">
@@ -5318,7 +5323,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</currency>
 			<currency type="TWD">
 				<displayName>Tāra Taiwana Hou</displayName>
-				<displayName count="other">tāra Taiwana hou</displayName>
+				<displayName count="other">tāra Taiwana Hou</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
@@ -5363,6 +5368,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="VND">
 				<displayName>Dong Whitināmu</displayName>
 				<displayName count="other">dong Whitināmu</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="VUV">
 				<displayName>Vatu Whenuatū</displayName>
@@ -5407,6 +5414,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<currency type="ZAR">
 				<displayName>Rand Āwherika ki te Tonga</displayName>
 				<displayName count="other">rand Āwherika ki te Tonga</displayName>
+				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="ZMW">
 				<displayName>Kwacha Tāmipia</displayName>
@@ -6659,6 +6668,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<coordinateUnit>
+				<displayName>↑↑↑</displayName>
+				<coordinateUnitPattern type="east">↑↑↑</coordinateUnitPattern>
+				<coordinateUnitPattern type="north">↑↑↑</coordinateUnitPattern>
+				<coordinateUnitPattern type="south">↑↑↑</coordinateUnitPattern>
+				<coordinateUnitPattern type="west">↑↑↑</coordinateUnitPattern>
+			</coordinateUnit>
 		</unitLength>
 		<durationUnit type="hm">
 			<durationUnitPattern>↑↑↑</durationUnitPattern>
@@ -6681,19 +6697,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<listPatternPart type="start">↑↑↑</listPatternPart>
 			<listPatternPart type="middle">↑↑↑</listPatternPart>
 			<listPatternPart type="end">{0}, {1} rānei</listPatternPart>
-			<listPatternPart type="2">{0} {1} rānei</listPatternPart>
+			<listPatternPart type="2">{0}, {1} rānei</listPatternPart>
 		</listPattern>
 		<listPattern type="or-narrow">
 			<listPatternPart type="start">↑↑↑</listPatternPart>
 			<listPatternPart type="middle">↑↑↑</listPatternPart>
 			<listPatternPart type="end">↑↑↑</listPatternPart>
-			<listPatternPart type="2">↑↑↑</listPatternPart>
+			<listPatternPart type="2">{0}, {1} rānei</listPatternPart>
 		</listPattern>
 		<listPattern type="or-short">
 			<listPatternPart type="start">↑↑↑</listPatternPart>
 			<listPatternPart type="middle">↑↑↑</listPatternPart>
 			<listPatternPart type="end">↑↑↑</listPatternPart>
-			<listPatternPart type="2">↑↑↑</listPatternPart>
+			<listPatternPart type="2">{0}, {1} rānei</listPatternPart>
 		</listPattern>
 		<listPattern type="standard-narrow">
 			<listPatternPart type="start">↑↑↑</listPatternPart>

@@ -61,6 +61,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="bi">bislama</language>
 			<language type="bin">bini</language>
 			<language type="bla">siksika</language>
+			<language type="blo">Anii</language>
 			<language type="bm">bambara</language>
 			<language type="bn">bengal</language>
 			<language type="bo">tibet</language>
@@ -187,6 +188,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="iba">iban</language>
 			<language type="ibb">ibibio</language>
 			<language type="id">indonez</language>
+			<language type="ie">interlingve</language>
 			<language type="ig">igbo</language>
 			<language type="ii">sichuan</language>
 			<language type="ikt">sharqiy-kanada inuktitut</language>
@@ -240,6 +242,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="kv">komi</language>
 			<language type="kw">korn</language>
 			<language type="kwk">kvakvala</language>
+			<language type="kxv">kuvi</language>
 			<language type="ky">qirgʻizcha</language>
 			<language type="la">lotincha</language>
 			<language type="lad">ladino</language>
@@ -248,8 +251,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="lez">lezgin</language>
 			<language type="lg">ganda</language>
 			<language type="li">limburg</language>
+			<language type="lij">liguryan</language>
 			<language type="lil">lilluet</language>
 			<language type="lkt">lakota</language>
+			<language type="lmo">lombard</language>
 			<language type="ln">lingala</language>
 			<language type="lo">laos</language>
 			<language type="lou">luiziana kreol</language>
@@ -260,7 +265,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="lu">luba-katanga</language>
 			<language type="lua">luba-lulua</language>
 			<language type="lun">lunda</language>
-			<language type="luo">luo</language>
+			<language type="luo">↑↑↑</language>
 			<language type="lus">lushay</language>
 			<language type="luy">luhya</language>
 			<language type="lv">latishcha</language>
@@ -405,6 +410,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="sw_CD">suaxili (Kongo)</language>
 			<language type="swb">qamar</language>
 			<language type="syr">suriyacha</language>
+			<language type="szl">silez</language>
 			<language type="ta">tamil</language>
 			<language type="tce">janubiy tutchone</language>
 			<language type="te">telugu</language>
@@ -442,9 +448,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="und">noma’lum til</language>
 			<language type="ur">urdu</language>
 			<language type="uz">o‘zbek</language>
-			<language type="vai">vai</language>
+			<language type="vai">↑↑↑</language>
 			<language type="ve">venda</language>
+			<language type="vec">venet</language>
 			<language type="vi">vyetnam</language>
+			<language type="vmw">makua</language>
 			<language type="vo">volapyuk</language>
 			<language type="vun">vunjo</language>
 			<language type="wa">vallon</language>
@@ -456,6 +464,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="wuu">vu xitoy</language>
 			<language type="xal">qalmoq</language>
 			<language type="xh">kxosa</language>
+			<language type="xnr">kangri</language>
 			<language type="xog">soga</language>
 			<language type="yav">yangben</language>
 			<language type="ybb">yemba</language>
@@ -464,10 +473,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="yrl">nyengatu</language>
 			<language type="yue">kanton</language>
 			<language type="yue" alt="menu">xitoy, kanton</language>
+			<language type="za">Chjuan</language>
 			<language type="zgh">tamazigxt</language>
 			<language type="zh">xitoy</language>
 			<language type="zh" alt="menu">xitoy, mandarin</language>
-			<language type="zh_Hans">↑↑↑</language>
+			<language type="zh_Hans">zh_Hans</language>
 			<language type="zh_Hans" alt="long">xitoy (soddalashtirilgan mandarin)</language>
 			<language type="zh_Hant">xitoy (an’anaviy)</language>
 			<language type="zh_Hant" alt="long">xitoy (an’anaviy mandarin)</language>
@@ -4429,6 +4439,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Yaponiya yozgi vaqti</daylight>
 				</long>
 			</metazone>
+			<metazone type="Kazakhstan">
+				<long>
+					<standard>Qozogʻiston vaqti</standard>
+				</long>
+			</metazone>
 			<metazone type="Kazakhstan_Eastern">
 				<long>
 					<standard>Sharqiy Qozogʻiston vaqti</standard>
@@ -4851,6 +4866,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<native>↑↑↑</native>
 		</otherNumberingSystems>
 		<minimumGroupingDigits>↑↑↑</minimumGroupingDigits>
+		<symbols numberSystem="arab">
+			<decimal>↑↑↑</decimal>
+			<group>↑↑↑</group>
+			<percentSign>↑↑↑</percentSign>
+			<plusSign>↑↑↑</plusSign>
+			<minusSign>↑↑↑</minusSign>
+			<approximatelySign>≈</approximatelySign>
+			<exponential>^</exponential>
+			<superscriptingExponent>↑↑↑</superscriptingExponent>
+			<perMille>↑↑↑</perMille>
+			<infinity>↑↑↑</infinity>
+			<nan>↑↑↑</nan>
+		</symbols>
 		<symbols numberSystem="arabext">
 			<decimal>↑↑↑</decimal>
 			<group>↑↑↑</group>
@@ -4879,6 +4907,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<nan>son emas</nan>
 			<timeSeparator>↑↑↑</timeSeparator>
 		</symbols>
+		<decimalFormats numberSystem="arab">
+			<decimalFormatLength>
+				<decimalFormat>
+					<pattern>↑↑↑</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
 		<decimalFormats numberSystem="arabext">
 			<decimalFormatLength>
 				<decimalFormat>
@@ -4949,6 +4984,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
+		<scientificFormats numberSystem="arab">
+			<scientificFormatLength>
+				<scientificFormat>
+					<pattern>↑↑↑</pattern>
+				</scientificFormat>
+			</scientificFormatLength>
+		</scientificFormats>
 		<scientificFormats numberSystem="arabext">
 			<scientificFormatLength>
 				<scientificFormat>
@@ -4963,6 +5005,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</scientificFormat>
 			</scientificFormatLength>
 		</scientificFormats>
+		<percentFormats numberSystem="arab">
+			<percentFormatLength>
+				<percentFormat>
+					<pattern>↑↑↑</pattern>
+				</percentFormat>
+			</percentFormatLength>
+		</percentFormats>
 		<percentFormats numberSystem="arabext">
 			<percentFormatLength>
 				<percentFormat>
@@ -4977,6 +5026,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</percentFormat>
 			</percentFormatLength>
 		</percentFormats>
+		<currencyFormats numberSystem="arab">
+			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern>↑↑↑</pattern>
+					<pattern alt="noCurrency">↑↑↑</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
 		<currencyFormats numberSystem="arabext">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
@@ -5025,8 +5082,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencies>
 			<currency type="AED">
@@ -5040,7 +5097,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
 				<symbol>↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="ALL">
 				<displayName>Albaniya leki</displayName>
@@ -5053,7 +5110,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
 				<symbol>↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="ANG">
 				<displayName>Niderlandiya antil guldeni</displayName>
@@ -5093,7 +5150,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
 				<symbol>↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="BAM">
 				<displayName>Bosniya va Gertsegovina ayirboshlash markasi</displayName>
@@ -5232,7 +5289,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>Xitoy yuani (ofshor)</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="CNY">
 				<displayName>Xitoy yuani</displayName>
@@ -5367,7 +5424,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
 				<symbol>↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="GIP">
 				<displayName>Gibraltar funti</displayName>
@@ -5508,6 +5565,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
 				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="KHR">
 				<displayName>Kambodja rieli</displayName>
@@ -5589,7 +5647,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>Lesoto lotisi</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="LTL">
 				<displayName>Litva liti</displayName>
@@ -5664,7 +5722,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>Mavritaniya uqiyasi</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="MUR">
 				<displayName>Mavritaniya rupiyasi</displayName>
@@ -5920,8 +5978,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>San-Tome va Prinsipi dobrasi</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
-				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
 			<currency type="SYP">
 				<displayName>Suriya funti</displayName>
@@ -6040,7 +6098,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>Venesuela bolivari</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>Vyetnam dongi</displayName>
@@ -6078,7 +6136,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>G‘arbiy Afrika CFA franki</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">↑↑↑</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="XPF">
 				<displayName>Fransuz Polineziyasi franki</displayName>
@@ -7185,6 +7243,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="speed-light-speed">
+				<displayName>yorug‘lik tezligi</displayName>
+				<unitPattern count="one">{0} yorug‘lik tezligi</unitPattern>
+				<unitPattern count="other">{0} yorug‘lik tezligi</unitPattern>
+			</unit>
+			<unit type="concentr-portion-per-1e9">
+				<displayName>qism/milliard</displayName>
+				<unitPattern count="one">{0} ta qism/milliard</unitPattern>
+				<unitPattern count="other">{0} ta qism/milliard</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>kecha</displayName>
+				<unitPattern count="one">{0} kecha</unitPattern>
+				<unitPattern count="other">{0} kecha</unitPattern>
+				<perUnitPattern>{0}/kecha</perUnitPattern>
+			</unit>
 			<coordinateUnit>
 				<displayName>↑↑↑</displayName>
 				<coordinateUnitPattern type="east">{0} sharqiy uzunlik</coordinateUnitPattern>
@@ -8253,6 +8327,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} imp. kvarta</unitPattern>
 			</unit>
+			<unit type="speed-light-speed">
+				<displayName>yorug‘lik tezligi</displayName>
+				<unitPattern count="one">{0} yorug‘lik tezligi</unitPattern>
+				<unitPattern count="other">{0} yorug‘lik tezligi</unitPattern>
+			</unit>
+			<unit type="concentr-portion-per-1e9">
+				<displayName>qism/milliard</displayName>
+				<unitPattern count="one">{0} ta qism/mlrd</unitPattern>
+				<unitPattern count="other">{0} ta qism/mlrd</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>kecha</displayName>
+				<unitPattern count="one">{0} kecha</unitPattern>
+				<unitPattern count="other">{0} kecha</unitPattern>
+				<perUnitPattern>{0}/kecha</perUnitPattern>
+			</unit>
 			<coordinateUnit>
 				<displayName>yo‘nalish</displayName>
 				<coordinateUnitPattern type="east">{0} shq. u.</coordinateUnitPattern>
@@ -9320,6 +9410,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="speed-light-speed">
+				<displayName>yorug‘lik tezligi</displayName>
+				<unitPattern count="one">{0} yorug‘lik tezligi</unitPattern>
+				<unitPattern count="other">{0} yorug‘lik tezligi</unitPattern>
+			</unit>
+			<unit type="concentr-portion-per-1e9">
+				<displayName>qism/milliard</displayName>
+				<unitPattern count="one">{0} ta qism/mlrd</unitPattern>
+				<unitPattern count="other">{0} ta qism/mlrd</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>kecha</displayName>
+				<unitPattern count="one">{0} kecha</unitPattern>
+				<unitPattern count="other">{0} kecha</unitPattern>
+				<perUnitPattern>{0}/nkecha</perUnitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>↑↑↑</displayName>

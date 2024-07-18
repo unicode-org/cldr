@@ -1,10 +1,10 @@
-import * as cldrDash from "../src/esm/cldrDash.mjs";
+import * as cldrDashData from "../src/esm/cldrDashData.mjs";
 
-export const TestCldrDash = "ok";
+export const TestCldrDashData = "ok";
 
 const assert = chai.assert;
 
-describe("cldrDash.setData", function () {
+describe("cldrDashData.setData", function () {
   let json = null;
 
   it("should have test data", function () {
@@ -16,11 +16,11 @@ describe("cldrDash.setData", function () {
   });
 
   it("should not crash", function () {
-    cldrDash.setData(json);
+    cldrDashData.setData(json);
   });
 });
 
-describe("cldrDash.updatePath", function () {
+describe("cldrDashData.updatePath", function () {
   let json0 = null,
     json1 = null,
     json2 = null;
@@ -42,8 +42,8 @@ describe("cldrDash.updatePath", function () {
 
     // the resulting data should have 1 (combined) entry for 710b6e70773e5764 and 1 entry for 64a8a83fbacdf836
     // DashData should never have more than one entry per path
-    const data0 = cldrDash.setData(json0);
-    const data1 = cldrDash.updatePath(data0, json1);
+    const data0 = cldrDashData.setData(json0);
+    const data1 = cldrDashData.updatePath(data0, json1);
     assert.strictEqual(countEntriesForPath(data1, "710b6e70773e5764"), 1);
     assert.strictEqual(countEntriesForPath(data1, "64a8a83fbacdf836"), 1);
     // the entry for 710b6e70773e5764 should have 3 notifications
@@ -62,8 +62,8 @@ describe("cldrDash.updatePath", function () {
     // json0 has 1 entry for 710b6e70773e5764 and 1 entry for 64a8a83fbacdf836
     // json2 has 0 entries for 710b6e70773e5764
     // the resulting data should have 0 entries for 710b6e70773e5764 and 1 entry for 64a8a83fbacdf836
-    const data0 = cldrDash.setData(json0);
-    const data2 = cldrDash.updatePath(data0, json2);
+    const data0 = cldrDashData.setData(json0);
+    const data2 = cldrDashData.updatePath(data0, json2);
     assert.strictEqual(countEntriesForPath(data2, "710b6e70773e5764"), 0);
     assert.strictEqual(countEntriesForPath(data2, "64a8a83fbacdf836"), 1);
     // the entry for 64a8a83fbacdf836 should have 1 notification

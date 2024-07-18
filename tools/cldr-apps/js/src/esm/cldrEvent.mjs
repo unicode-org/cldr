@@ -4,7 +4,7 @@
  * into smaller more specific modules)
  */
 import * as cldrForum from "./cldrForum.mjs";
-import * as cldrGui from "./cldrGui.mjs";
+import * as cldrDashContext from "./cldrDashContext.mjs";
 import * as cldrLoad from "./cldrLoad.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
 import * as cldrText from "./cldrText.mjs";
@@ -445,7 +445,7 @@ function unpackMenuSideBar(json) {
       // Note: setCurrentSpecial("general") is dubious here; it doesn't cause
       // the "general" page to be loaded; it doesn't hide whatever else was displayed.
       cldrStatus.setCurrentSpecial("general");
-      cldrGui.insertDashboard();
+      cldrDashContext.insert();
     } else {
       $("#OtherSection").hide(); // Don't hide the other section when showing the dashboard.
       cldrStatus.setCurrentSpecial(url);

@@ -5,7 +5,7 @@
  */
 import * as cldrAjax from "./cldrAjax.mjs";
 import * as cldrCoverage from "./cldrCoverage.mjs";
-import * as cldrGui from "./cldrGui.mjs";
+import * as cldrDashContext from "./cldrDashContext.mjs";
 import * as cldrNotify from "./cldrNotify.mjs";
 import * as cldrSchedule from "./cldrSchedule.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
@@ -172,7 +172,7 @@ function refreshPageMeter() {
 
 function refreshVoterMeter() {
   if (voterProgressStats) {
-    if (!cldrGui.dashboardIsVisible()) {
+    if (!cldrDashContext.isVisible()) {
       voterProgressStats = null;
       progressWrapper?.updateVoterMeter(new MeterData());
     } else {

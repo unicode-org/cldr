@@ -1,5 +1,5 @@
 /*
- * cldrDash: encapsulate dashboard data.
+ * cldrDashData: encapsulate dashboard data.
  */
 import * as cldrAjax from "./cldrAjax.mjs";
 import * as cldrClient from "./cldrClient.mjs";

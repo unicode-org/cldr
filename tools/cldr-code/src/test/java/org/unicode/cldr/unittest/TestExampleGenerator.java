@@ -1638,7 +1638,7 @@ public class TestExampleGenerator extends TestFmwk {
                 "hi",
                 "//ldml/characters/exemplarCharacters[@type=\"auxiliary\"]",
                 "[ॄ‌‍]",
-                "〖‎🗝️ ॑ ॒ ॠ ॡ ॻ ॼ ॾ ॿ ऱ ॢ ॣ〗〖❰ZWNJ❱ ≡ cursive non-joiner〗〖❰ZWJ❱ ≡ cursive joiner〗〖❬internal: ❭[ॄ‌‍]〗"
+                "〖‎🗝️ ॑ ॒ ॠ ॡ ॻ ॼ ॾ ॿ ॢ ॣ〗〖❰ZWNJ❱ ≡ cursive non-joiner〗〖❰ZWJ❱ ≡ cursive joiner〗〖❬internal: ❭[ॄ‌‍]〗"
             },
             // TODO: This test is too fragile. Commented out for discussion in CLDR-17608
             // {

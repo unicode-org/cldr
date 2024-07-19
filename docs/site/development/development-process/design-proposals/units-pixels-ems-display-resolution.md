@@ -1,5 +1,5 @@
 ---
-title: Units: pixels, ems, display resolution
+title: 'Units: pixels, ems, display resolution'
 ---
 
 # Units: pixels, ems, display resolution

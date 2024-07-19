@@ -1,0 +1,10 @@
+services:
+  site:
+    build: .
+    command: jekyll serve -s /src -d /tmp -p 4000 --watch
+    ports:
+    - 4000:4000
+    volumes:
+      - ../../../../docs:/src
+    environment:
+      - PAGES_REPO_NWO=unicode-org/cldr

@@ -1,8 +1,8 @@
 ---
-title: @General translation Guide
+title: General translation Guide
 ---
 
-# @General translation Guide
+# General translation Guide
 
 - [Capitalization](https://cldr.unicode.org/translation/translation-guide-general/capitalization)
 - [Default Content](https://cldr.unicode.org/translation/translation-guide-general/default-content)

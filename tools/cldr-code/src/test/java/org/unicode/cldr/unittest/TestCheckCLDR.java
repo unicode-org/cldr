@@ -424,11 +424,13 @@ public class TestCheckCLDR extends TestFmwk {
                 }
             } else { // not disallowed
                 if (!containsMessagePattern) {
+                    // The following error seems wrong if placeholderStatus is LOCALE_DEPENDENT
+                    // in which case some entries might not have placeholders; see CLDR-17820
                     errln(
                             cldrFileToTest.getLocaleID()
                                     + " Value ("
                                     + value
-                                    + ") contains placeholder, but placeholder info = «"
+                                    + ") does not contain placeholder, but placeholder info = «"
                                     + placeholderStatus
                                     + "»\t"
                                     + path);

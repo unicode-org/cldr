@@ -1243,14 +1243,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="-1">gaja gaboŋoka</relative>
 				<relative type="0">gaja ŋgaɖe</relative>
 				<relative type="1">gaja gafɔlɩ</relative>
-				<relativeTime type="future">
-					<relativeTimePattern count="one">gaja {0} nɩ</relativeTimePattern>
-					<relativeTimePattern count="other">bʊja {0} nɩ</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one">ɩ ɖoo gaja {0}</relativeTimePattern>
-					<relativeTimePattern count="other">ɩ ɖoo bʊja {0}</relativeTimePattern>
-				</relativeTime>
 			</field>
 			<field type="year-short">
 				<displayName>gj.</displayName>
@@ -1269,12 +1261,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="-1">ɩŋɔrɩriu ɩboŋoka</relative>
 				<relative type="0">ɩŋɔrɩriu nnɖe</relative>
 				<relative type="1">ɩŋɔrɩriu ɩfɔlɩ</relative>
-				<relativeTime type="future">
-					<relativeTimePattern count="one">ɩŋɔrɩriu {0} nɩ</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one">ɩ ɖoo ɩŋɔrɩriu {0}</relativeTimePattern>
-				</relativeTime>
 			</field>
 			<field type="quarter-short">
 				<displayName>ɩŋɔ.</displayName>
@@ -1287,14 +1273,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="-1">aŋɔrɔ aboŋoka</relative>
 				<relative type="0">aŋɔrɔ nnɖe</relative>
 				<relative type="1">aŋɔrɔ afɔlɩ</relative>
-				<relativeTime type="future">
-					<relativeTimePattern count="one">aŋɔrɔ {0} nɩ</relativeTimePattern>
-					<relativeTimePattern count="other">ɩŋɔrɔ {0} nɩ</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one">ɩ ɖoo aŋɔrɔ {0}</relativeTimePattern>
-					<relativeTimePattern count="other">ɩ ɖoo ɩŋɔrɔ {0}</relativeTimePattern>
-				</relativeTime>
 			</field>
 			<field type="month-short">
 				<displayName>aŋ.</displayName>
@@ -1313,14 +1291,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="-1">bɔkɔɩ aboŋoka</relative>
 				<relative type="0">bɔkɔɩ nnɖe</relative>
 				<relative type="1">bɔkɔɩ afɔlɩ</relative>
-				<relativeTime type="future">
-					<relativeTimePattern count="one">bɔkɔɩ {0} nɩ</relativeTimePattern>
-					<relativeTimePattern count="other">ɩbɔkɔɩ {0} nɩ</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one">ɩ ɖoo bɔkɔɩ {0}</relativeTimePattern>
-					<relativeTimePattern count="other">ɩ ɖoo ɩbɔkɔɩ {0}</relativeTimePattern>
-				</relativeTime>
 				<relativePeriod>{0} kabɔkɔɩ</relativePeriod>
 			</field>
 			<field type="week-short">
@@ -1345,14 +1315,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<relative type="-1">galaɩ</relative>
 				<relative type="0">ʊrɔŋ</relative>
 				<relative type="1">gacǝŋ</relative>
-				<relativeTime type="future">
-					<relativeTimePattern count="one">ʊshilé {0} nɩ</relativeTimePattern>
-					<relativeTimePattern count="other">ɩshilé {0} nɩ</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one">ɩ ɖoo ʊshilé {0}</relativeTimePattern>
-					<relativeTimePattern count="other">ɩ ɖoo ɩshilé {0}</relativeTimePattern>
-				</relativeTime>
 			</field>
 			<field type="day-short">
 				<displayName>ʊsh.</displayName>
@@ -1483,14 +1445,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="hour">
 				<displayName>gakɔŋkɔŋɔ̀</displayName>
 				<relative type="0">gakɔŋkɔŋɔ̀ ŋgaɖe</relative>
-				<relativeTime type="future">
-					<relativeTimePattern count="one">gakɔŋkɔŋɔ̀ {0} nɩ</relativeTimePattern>
-					<relativeTimePattern count="other">bʊkɔŋkɔŋɔ {0} nɩ</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one">ɩ ɖoo gakɔŋkɔŋɔ̀ {0}</relativeTimePattern>
-					<relativeTimePattern count="other">ɩ ɖoo bʊkɔŋkɔŋɔ̀ {0}</relativeTimePattern>
-				</relativeTime>
 			</field>
 			<field type="hour-short">
 				<displayName>gk.</displayName>
@@ -1501,14 +1455,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="minute">
 				<displayName>gʊnaŋa</displayName>
 				<relative type="0">gʊnaŋa ŋgʊɖe</relative>
-				<relativeTime type="future">
-					<relativeTimePattern count="one">gʊnaŋa {0} nɩ</relativeTimePattern>
-					<relativeTimePattern count="other">anaŋa {0} nɩ</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one">ɩ ɖoo gʊnaŋa {0}</relativeTimePattern>
-					<relativeTimePattern count="other">ɩ ɖoo anaŋa {0}</relativeTimePattern>
-				</relativeTime>
 			</field>
 			<field type="minute-short">
 				<displayName>gn.</displayName>
@@ -1519,14 +1465,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<field type="second">
 				<displayName>gɩpi</displayName>
 				<relative type="0">nnyǝmǝ</relative>
-				<relativeTime type="future">
-					<relativeTimePattern count="one">gɩpi {0} nɩ</relativeTimePattern>
-					<relativeTimePattern count="other">ɩpi {0} nɩ</relativeTimePattern>
-				</relativeTime>
-				<relativeTime type="past">
-					<relativeTimePattern count="one">ɩ ɖoo gɩpi {0}</relativeTimePattern>
-					<relativeTimePattern count="other">ɩ ɖoo ɩpi {0}</relativeTimePattern>
-				</relativeTime>
 			</field>
 			<field type="second-short">
 				<displayName>gp.</displayName>
@@ -5264,33 +5202,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="duration-century">
 				<displayName>bʊja-ɩshɩnʊn mána</displayName>
-				<unitPattern count="one">bʊja-ɩshɩnʊn {0}</unitPattern>
 			</unit>
 			<unit type="duration-decade">
 				<displayName>bʊja-tǝb mána</displayName>
-				<unitPattern count="one">bʊja-tǝb {0}</unitPattern>
 			</unit>
 			<unit type="duration-year">
 				<displayName>bʊja</displayName>
-				<unitPattern count="one">gaja {0}</unitPattern>
-				<unitPattern count="other">bʊja {0}</unitPattern>
 				<perUnitPattern>{0} gaja nɩ</perUnitPattern>
 			</unit>
 			<unit type="duration-quarter">
 				<displayName>ɩŋɔrɩriu mána</displayName>
-				<unitPattern count="one">ɩŋɔrɩriu {0}</unitPattern>
 				<perUnitPattern>{0} ɩŋɔrɩriu nɩ</perUnitPattern>
 			</unit>
 			<unit type="duration-month">
 				<displayName>ɩŋɔrɔ</displayName>
-				<unitPattern count="one">aŋɔrɔ {0}</unitPattern>
-				<unitPattern count="other">ɩŋɔrɔ {0}</unitPattern>
 				<perUnitPattern>{0} aŋɔrɔ nɩ</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
 				<displayName>ɩbɔkɔɩ</displayName>
-				<unitPattern count="one">bɔkɔɩ {0}</unitPattern>
-				<unitPattern count="other">ɩbɔkɔɩ {0}</unitPattern>
 				<perUnitPattern>{0} bɔkɔɩ nɩ</perUnitPattern>
 			</unit>
 			<unit type="duration-day">
@@ -5299,36 +5228,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="duration-hour">
 				<displayName>bʊkɔŋkɔŋɔ̀</displayName>
-				<unitPattern count="one">gakɔŋkɔŋɔ̀ {0}</unitPattern>
-				<unitPattern count="other">bʊkɔŋkɔŋɔ̀ {0}</unitPattern>
 				<perUnitPattern>{0} gakɔŋkɔŋɔ̀ nɩ</perUnitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<displayName>anaŋa</displayName>
-				<unitPattern count="one">gʊnaŋa {0}</unitPattern>
-				<unitPattern count="other">anaŋa {0}</unitPattern>
 				<perUnitPattern>{0} gʊnaŋa nɩ</perUnitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>ɩpi</displayName>
-				<unitPattern count="one">gɩpi {0}</unitPattern>
-				<unitPattern count="other">ɩpi {0}</unitPattern>
 				<perUnitPattern>{0} gɩpi nɩ</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<displayName>ɩsǝmpi</displayName>
-				<unitPattern count="one">gɩsǝmpi {0}</unitPattern>
-				<unitPattern count="other">ɩsǝmpi {0}</unitPattern>
 			</unit>
 			<unit type="duration-microsecond">
 				<displayName>ɩmikroosǝmpi</displayName>
-				<unitPattern count="one">gɩmikroosǝmpi {0}</unitPattern>
-				<unitPattern count="other">ɩmikroosǝmpi {0}</unitPattern>
 			</unit>
 			<unit type="duration-nanosecond">
 				<displayName>ɩnanoosǝmpi</displayName>
-				<unitPattern count="one">gɩnanoosǝmpi {0}</unitPattern>
-				<unitPattern count="other">ɩnanoosǝmpi {0}</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName>Ampɛɛr mána</displayName>
@@ -5658,8 +5575,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="mass-carat">
 				<displayName>wʊra karaatɩ mána</displayName>
-				<unitPattern count="zero">baa wʊra karaatɩ {0}</unitPattern>
-				<unitPattern count="one">wʊra karaatɩ {0}</unitPattern>
 			</unit>
 			<unit type="power-gigawatt">
 				<displayName>ɩjigaa-Waatɩ</displayName>
@@ -5955,7 +5870,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">pɔɩɩ {0}</unitPattern>
 			</unit>
 			<unit type="duration-night">
-				<unitPattern count="one">gɩjibɔŋɔ {0}</unitPattern>
 				<perUnitPattern>{0} gɩjibɔŋɔ nɩ</perUnitPattern>
 			</unit>
 			<coordinateUnit>
@@ -6256,13 +6170,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="zero">mpg Imp. {0}</unitPattern>
 				<unitPattern count="one">mpg Imp. {0}</unitPattern>
 				<unitPattern count="other">mpg Imp. {0}</unitPattern>
-			</unit>
-			<unit type="duration-decade">
-				<unitPattern count="one">↑↑↑</unitPattern>
-			</unit>
-			<unit type="duration-day">
-				<unitPattern count="one">ʊshilé {0}</unitPattern>
-				<unitPattern count="other">ɩshilé {0}</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
 				<displayName>↑↑↑</displayName>

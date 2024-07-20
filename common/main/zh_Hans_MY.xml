@@ -15,6 +15,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	<dates>
 		<calendars>
 			<calendar type="gregorian">
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="morning1" draft="unconfirmed">早上</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
 				<timeFormats>
 					<timeFormatLength type="full">
 						<timeFormat>
@@ -44,4 +51,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</calendar>
 		</calendars>
 	</dates>
+	<numbers>
+		<currencies>
+			<currency type="MYR">
+				<displayName draft="unconfirmed">马来西亚令吉</displayName>
+				<displayName count="other" draft="unconfirmed">马来西亚令吉</displayName>
+			</currency>
+		</currencies>
+	</numbers>
 </ldml>

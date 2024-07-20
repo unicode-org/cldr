@@ -89,6 +89,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="bjn">bandžarština</language>
 			<language type="bkm">kom</language>
 			<language type="bla">siksika</language>
+			<language type="blo">aniiština</language>
 			<language type="bm">bambarština</language>
 			<language type="bn">bengálština</language>
 			<language type="bo">tibetština</language>
@@ -342,6 +343,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="kv">komijština</language>
 			<language type="kw">kornština</language>
 			<language type="kwk">kvakiutština</language>
+			<language type="kxv">kúvi</language>
 			<language type="ky">kyrgyzština</language>
 			<language type="la">latina</language>
 			<language type="lad">ladinština</language>
@@ -631,13 +633,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="und">neznámý jazyk</language>
 			<language type="ur">urdština</language>
 			<language type="uz">uzbečtina</language>
-			<language type="vai">vai</language>
+			<language type="vai">↑↑↑</language>
 			<language type="ve">venda</language>
 			<language type="vec">benátština</language>
 			<language type="vep">vepština</language>
 			<language type="vi">vietnamština</language>
 			<language type="vls">vlámština (západní)</language>
 			<language type="vmf">němčina (mohansko-franské dialekty)</language>
+			<language type="vmw">makhuwština</language>
 			<language type="vo">volapük</language>
 			<language type="vot">votština</language>
 			<language type="vro">võruština</language>
@@ -653,6 +656,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="xal">kalmyčtina</language>
 			<language type="xh">xhoština</language>
 			<language type="xmf">mingrelština</language>
+			<language type="xnr">kángrí</language>
 			<language type="xog">sogština</language>
 			<language type="yao">jaoština</language>
 			<language type="yap">japština</language>
@@ -8002,7 +8006,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Kapverdy</exemplarCity>
 			</zone>
 			<zone type="America/Curacao">
-				<exemplarCity>Curaçao</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Indian/Christmas">
 				<exemplarCity>Vánoční ostrov</exemplarCity>
@@ -8536,13 +8540,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Asuncion">
-				<exemplarCity>Asunción</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Qatar">
 				<exemplarCity>Katar</exemplarCity>
 			</zone>
 			<zone type="Indian/Reunion">
-				<exemplarCity>Réunion</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/Bucharest">
 				<exemplarCity>Bukurešť</exemplarCity>
@@ -9447,6 +9451,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>petropavlovsko-kamčatský letní čas</daylight>
 				</long>
 			</metazone>
+			<metazone type="Kazakhstan">
+				<long>
+					<standard>kazachstánský čas</standard>
+				</long>
+			</metazone>
 			<metazone type="Kazakhstan_Eastern">
 				<long>
 					<standard>východokazachstánský čas</standard>
@@ -10253,10 +10262,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>{0} ¤¤</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="few">{0} {1}</unitPattern>
-			<unitPattern count="many">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="few">↑↑↑</unitPattern>
+			<unitPattern count="many">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencies>
 			<currency type="ADP">
@@ -12138,19 +12147,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="SLE">
-				<displayName>sierro-leonský leone</displayName>
-				<displayName count="one">sierro-leonský leone</displayName>
-				<displayName count="few">sierro-leonské leone</displayName>
-				<displayName count="many">sierro-leonského leone</displayName>
-				<displayName count="other">sierro-leonských leone</displayName>
+				<displayName>sierraleonský leone</displayName>
+				<displayName count="one">sierraleonský leone</displayName>
+				<displayName count="few">sierraleonské leone</displayName>
+				<displayName count="many">sierraleonského leone</displayName>
+				<displayName count="other">sierraleonských leone</displayName>
 				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="SLL">
-				<displayName>sierro-leonský leone (1964—2022)</displayName>
-				<displayName count="one">sierro-leonský leone (1964—2022)</displayName>
-				<displayName count="few">sierro-leonské leone (1964—2022)</displayName>
-				<displayName count="many">sierro-leonského leone (1964—2022)</displayName>
-				<displayName count="other">sierro-leonských leone (1964—2022)</displayName>
+				<displayName>sierraleonský leone (1964—2022)</displayName>
+				<displayName count="one">sierraleonský leone (1964—2022)</displayName>
+				<displayName count="few">sierraleonské leone (1964—2022)</displayName>
+				<displayName count="many">sierraleonského leone (1964—2022)</displayName>
+				<displayName count="other">sierraleonských leone (1964—2022)</displayName>
 				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="SOS">
@@ -13438,11 +13447,32 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="locative">{0} karátech</unitPattern>
 			</unit>
 			<unit type="concentr-milligram-ofglucose-per-deciliter">
+				<gender>inanimate</gender>
 				<displayName>miligramy na decilitr</displayName>
 				<unitPattern count="one">{0} miligram na decilitr</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">{0} miligramu na decilitr</unitPattern>
+				<unitPattern count="one" case="genitive">{0} miligramu na decilitr</unitPattern>
+				<unitPattern count="one" case="instrumental">{0} miligramem na decilitr</unitPattern>
+				<unitPattern count="one" case="locative">{0} miligramu na decilitr</unitPattern>
 				<unitPattern count="few">{0} miligramy na decilitr</unitPattern>
+				<unitPattern count="few" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="few" case="dative">{0} miligramům na decilitr</unitPattern>
+				<unitPattern count="few" case="genitive">{0} miligramů na decilitr</unitPattern>
+				<unitPattern count="few" case="instrumental">↑↑↑</unitPattern>
+				<unitPattern count="few" case="locative">{0} miligramech na decilitr</unitPattern>
 				<unitPattern count="many">{0} miligramu na decilitr</unitPattern>
+				<unitPattern count="many" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="many" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="many" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="many" case="instrumental">↑↑↑</unitPattern>
+				<unitPattern count="many" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} miligramů na decilitr</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">{0} miligramům na decilitr</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental">{0} miligramy na decilitr</unitPattern>
+				<unitPattern count="other" case="locative">{0} miligramech na decilitr</unitPattern>
 			</unit>
 			<unit type="concentr-millimole-per-liter">
 				<gender>inanimate</gender>
@@ -14522,11 +14552,32 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="locative">{0} voltech</unitPattern>
 			</unit>
 			<unit type="energy-kilocalorie">
+				<gender>feminine</gender>
 				<displayName>kilokalorie</displayName>
 				<unitPattern count="one">{0} kilokalorie</unitPattern>
+				<unitPattern count="one" case="accusative">{0} kilokalorii</unitPattern>
+				<unitPattern count="one" case="dative">{0} kilokalorii</unitPattern>
+				<unitPattern count="one" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="one" case="instrumental">{0} kilokalorií</unitPattern>
+				<unitPattern count="one" case="locative">{0} kilokalorii</unitPattern>
 				<unitPattern count="few">{0} kilokalorie</unitPattern>
+				<unitPattern count="few" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="few" case="dative">{0} kilokaloriím</unitPattern>
+				<unitPattern count="few" case="genitive">{0} kilokalorií</unitPattern>
+				<unitPattern count="few" case="instrumental">{0} kilokaloriemi</unitPattern>
+				<unitPattern count="few" case="locative">{0} kilokaloriích</unitPattern>
 				<unitPattern count="many">{0} kilokalorie</unitPattern>
+				<unitPattern count="many" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="many" case="dative">↑↑↑</unitPattern>
+				<unitPattern count="many" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="many" case="instrumental">↑↑↑</unitPattern>
+				<unitPattern count="many" case="locative">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} kilokalorií</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">{0} kilokaloriím</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental">{0} kilokaloriemi</unitPattern>
+				<unitPattern count="other" case="locative">{0} kilokaloriích</unitPattern>
 			</unit>
 			<unit type="energy-calorie">
 				<gender>feminine</gender>
@@ -15318,11 +15369,32 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="locative">{0} skandinávských mílích</unitPattern>
 			</unit>
 			<unit type="length-point">
+				<gender>inanimate</gender>
 				<displayName>body</displayName>
 				<unitPattern count="one">{0} bod</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">{0} bodu</unitPattern>
+				<unitPattern count="one" case="genitive">{0} bodu</unitPattern>
+				<unitPattern count="one" case="instrumental">{0} bodem</unitPattern>
+				<unitPattern count="one" case="locative">{0} bodu</unitPattern>
 				<unitPattern count="few">{0} body</unitPattern>
+				<unitPattern count="few" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="few" case="dative">{0} bodům</unitPattern>
+				<unitPattern count="few" case="genitive">{0} bodů</unitPattern>
+				<unitPattern count="few" case="instrumental">↑↑↑</unitPattern>
+				<unitPattern count="few" case="locative">{0} bodech</unitPattern>
 				<unitPattern count="many">{0} bodu</unitPattern>
+				<unitPattern count="many" case="accusative">{0} bodů</unitPattern>
+				<unitPattern count="many" case="dative">{0} bodům</unitPattern>
+				<unitPattern count="many" case="genitive">{0} bodů</unitPattern>
+				<unitPattern count="many" case="instrumental">{0} body</unitPattern>
+				<unitPattern count="many" case="locative">{0} bodech</unitPattern>
 				<unitPattern count="other">{0} bodů</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">{0} bodům</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental">{0} body</unitPattern>
+				<unitPattern count="other" case="locative">{0} bodech</unitPattern>
 			</unit>
 			<unit type="length-solar-radius">
 				<displayName>poloměr Slunce</displayName>
@@ -15805,11 +15877,32 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} koňských sil</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-ofhg">
+				<gender>inanimate</gender>
 				<displayName>milimetry rtuťového sloupce</displayName>
 				<unitPattern count="one">{0} milimetr rtuťového sloupce</unitPattern>
+				<unitPattern count="one" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="one" case="dative">{0} milimetru rtuťového sloupce</unitPattern>
+				<unitPattern count="one" case="genitive">{0} milimetru rtuťového sloupce</unitPattern>
+				<unitPattern count="one" case="instrumental">{0} milimetrem rtuťového sloupce</unitPattern>
+				<unitPattern count="one" case="locative">{0} milimetru rtuťového sloupce</unitPattern>
 				<unitPattern count="few">{0} milimetry rtuťového sloupce</unitPattern>
+				<unitPattern count="few" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="few" case="dative">{0} milimetrům rtuťového sloupce</unitPattern>
+				<unitPattern count="few" case="genitive">{0} milimetrů rtuťového sloupce</unitPattern>
+				<unitPattern count="few" case="instrumental">↑↑↑</unitPattern>
+				<unitPattern count="few" case="locative">{0} milimetrech rtuťového sloupce</unitPattern>
 				<unitPattern count="many">{0} milimetru rtuťového sloupce</unitPattern>
+				<unitPattern count="many" case="accusative">{0} milimetrů rtuťového sloupce</unitPattern>
+				<unitPattern count="many" case="dative">{0} milimetrům rtuťového sloupce</unitPattern>
+				<unitPattern count="many" case="genitive">{0} milimetrů rtuťového sloupce</unitPattern>
+				<unitPattern count="many" case="instrumental">{0} milimetry rtuťového sloupce</unitPattern>
+				<unitPattern count="many" case="locative">{0} milimetrech rtuťového sloupce</unitPattern>
 				<unitPattern count="other">{0} milimetrů rtuťového sloupce</unitPattern>
+				<unitPattern count="other" case="accusative">↑↑↑</unitPattern>
+				<unitPattern count="other" case="dative">{0} milimetrům rtuťového sloupce</unitPattern>
+				<unitPattern count="other" case="genitive">↑↑↑</unitPattern>
+				<unitPattern count="other" case="instrumental">{0} milimetry rtuťového sloupce</unitPattern>
+				<unitPattern count="other" case="locative">{0} milimetrech rtuťového sloupce</unitPattern>
 			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>libry na čtvereční palec</displayName>
@@ -16698,6 +16791,91 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="many">{0} britského kvartu</unitPattern>
 				<unitPattern count="other">{0} britských kvartů</unitPattern>
 			</unit>
+			<unit type="speed-light-speed">
+				<gender>neuter</gender>
+				<displayName>světlo</displayName>
+				<unitPattern count="one">{0} světlo</unitPattern>
+				<unitPattern count="one" case="accusative">{0} světlo</unitPattern>
+				<unitPattern count="one" case="dative">{0} světlu</unitPattern>
+				<unitPattern count="one" case="genitive">{0} světla</unitPattern>
+				<unitPattern count="one" case="instrumental">{0} světlem</unitPattern>
+				<unitPattern count="one" case="locative">{0} světle</unitPattern>
+				<unitPattern count="few">{0} světla</unitPattern>
+				<unitPattern count="few" case="accusative">{0} světla</unitPattern>
+				<unitPattern count="few" case="dative">{0} světlům</unitPattern>
+				<unitPattern count="few" case="genitive">{0} světel</unitPattern>
+				<unitPattern count="few" case="instrumental">{0} světly</unitPattern>
+				<unitPattern count="few" case="locative">{0} světlech</unitPattern>
+				<unitPattern count="many">{0} světla</unitPattern>
+				<unitPattern count="many" case="accusative">{0} světla</unitPattern>
+				<unitPattern count="many" case="dative">{0} světla</unitPattern>
+				<unitPattern count="many" case="genitive">{0} světla</unitPattern>
+				<unitPattern count="many" case="instrumental">{0} světla</unitPattern>
+				<unitPattern count="many" case="locative">{0} světla</unitPattern>
+				<unitPattern count="other">{0} světel</unitPattern>
+				<unitPattern count="other" case="accusative">{0} světel</unitPattern>
+				<unitPattern count="other" case="dative">{0} světlům</unitPattern>
+				<unitPattern count="other" case="genitive">{0} světel</unitPattern>
+				<unitPattern count="other" case="instrumental">{0} světly</unitPattern>
+				<unitPattern count="other" case="locative">{0} světlech</unitPattern>
+			</unit>
+			<unit type="concentr-portion-per-1e9">
+				<gender>feminine</gender>
+				<displayName>částice na miliardu</displayName>
+				<unitPattern count="one">{0} částice na miliardu</unitPattern>
+				<unitPattern count="one" case="accusative">{0} částici na miliardu</unitPattern>
+				<unitPattern count="one" case="dative">{0} částici na miliardu</unitPattern>
+				<unitPattern count="one" case="genitive">{0} částice na miliardu</unitPattern>
+				<unitPattern count="one" case="instrumental">{0} částicí na miliardu</unitPattern>
+				<unitPattern count="one" case="locative">{0} částici na miliardu</unitPattern>
+				<unitPattern count="few">{0} částice na miliardu</unitPattern>
+				<unitPattern count="few" case="accusative">{0} částice na miliardu</unitPattern>
+				<unitPattern count="few" case="dative">{0} částicím na miliardu</unitPattern>
+				<unitPattern count="few" case="genitive">{0} částic na miliardu</unitPattern>
+				<unitPattern count="few" case="instrumental">{0} částicemi na miliardu</unitPattern>
+				<unitPattern count="few" case="locative">{0} částicích na miliardu</unitPattern>
+				<unitPattern count="many">{0} částice na miliardu</unitPattern>
+				<unitPattern count="many" case="accusative">{0} částice na miliardu</unitPattern>
+				<unitPattern count="many" case="dative">{0} částice na miliardu</unitPattern>
+				<unitPattern count="many" case="genitive">{0} částice na miliardu</unitPattern>
+				<unitPattern count="many" case="instrumental">{0} částice na miliardu</unitPattern>
+				<unitPattern count="many" case="locative">{0} částice na miliardu</unitPattern>
+				<unitPattern count="other">{0} částic na miliardu</unitPattern>
+				<unitPattern count="other" case="accusative">{0} částic na miliardu</unitPattern>
+				<unitPattern count="other" case="dative">{0} částicím na miliardu</unitPattern>
+				<unitPattern count="other" case="genitive">{0} částic na miliardu</unitPattern>
+				<unitPattern count="other" case="instrumental">{0} částicemi na miliardu</unitPattern>
+				<unitPattern count="other" case="locative">{0} částicích na miliardu</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<gender>feminine</gender>
+				<displayName>noci</displayName>
+				<unitPattern count="one">{0} noc</unitPattern>
+				<unitPattern count="one" case="accusative">{0} noc</unitPattern>
+				<unitPattern count="one" case="dative">{0} noci</unitPattern>
+				<unitPattern count="one" case="genitive">{0} noci</unitPattern>
+				<unitPattern count="one" case="instrumental">{0} nocí</unitPattern>
+				<unitPattern count="one" case="locative">{0} noci</unitPattern>
+				<unitPattern count="few">{0} noci</unitPattern>
+				<unitPattern count="few" case="accusative">{0} noci</unitPattern>
+				<unitPattern count="few" case="dative">{0} nocím</unitPattern>
+				<unitPattern count="few" case="genitive">{0} nocí</unitPattern>
+				<unitPattern count="few" case="instrumental">{0} nocemi</unitPattern>
+				<unitPattern count="few" case="locative">{0} nocích</unitPattern>
+				<unitPattern count="many">{0} noci</unitPattern>
+				<unitPattern count="many" case="accusative">{0} noci</unitPattern>
+				<unitPattern count="many" case="dative">{0} noci</unitPattern>
+				<unitPattern count="many" case="genitive">{0} noci</unitPattern>
+				<unitPattern count="many" case="instrumental">{0} noci</unitPattern>
+				<unitPattern count="many" case="locative">{0} noci</unitPattern>
+				<unitPattern count="other">{0} nocí</unitPattern>
+				<unitPattern count="other" case="accusative">{0} nocí</unitPattern>
+				<unitPattern count="other" case="dative">{0} nocím</unitPattern>
+				<unitPattern count="other" case="genitive">{0} nocí</unitPattern>
+				<unitPattern count="other" case="instrumental">{0} nocemi</unitPattern>
+				<unitPattern count="other" case="locative">{0} nocích</unitPattern>
+				<perUnitPattern>{0} za noc</perUnitPattern>
+			</unit>
 			<coordinateUnit>
 				<displayName>světová strana</displayName>
 				<coordinateUnitPattern type="east">{0} východní délky</coordinateUnitPattern>
@@ -17556,7 +17734,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-point">
-				<displayName>↑↑↑</displayName>
+				<displayName>body</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="few">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
@@ -18137,6 +18315,28 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="speed-light-speed">
+				<displayName>světlo</displayName>
+				<unitPattern count="one">{0} světlo</unitPattern>
+				<unitPattern count="few">{0} světla</unitPattern>
+				<unitPattern count="many">{0} světla</unitPattern>
+				<unitPattern count="other">{0} světel</unitPattern>
+			</unit>
+			<unit type="concentr-portion-per-1e9">
+				<displayName>částic/mld.</displayName>
+				<unitPattern count="one">{0} částice na mld</unitPattern>
+				<unitPattern count="few">{0} částice na mld</unitPattern>
+				<unitPattern count="many">{0} částic na mld</unitPattern>
+				<unitPattern count="other">{0} částic na mld</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>noci</displayName>
+				<unitPattern count="one">{0} noc</unitPattern>
+				<unitPattern count="few">{0} noci</unitPattern>
+				<unitPattern count="many">{0} noci</unitPattern>
+				<unitPattern count="other">{0} nocí</unitPattern>
+				<perUnitPattern>{0}/noc</perUnitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>směr</displayName>
@@ -18996,7 +19196,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-point">
-				<displayName>↑↑↑</displayName>
+				<displayName>b.</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="few">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
@@ -19577,6 +19777,28 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="few">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="speed-light-speed">
+				<displayName>světlo</displayName>
+				<unitPattern count="one">{0} sv.</unitPattern>
+				<unitPattern count="few">{0} sv.</unitPattern>
+				<unitPattern count="many">{0} sv.</unitPattern>
+				<unitPattern count="other">{0} sv.</unitPattern>
+			</unit>
+			<unit type="concentr-portion-per-1e9">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="few">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>noci</displayName>
+				<unitPattern count="one">{0} noc</unitPattern>
+				<unitPattern count="few">{0} noci</unitPattern>
+				<unitPattern count="many">{0} noci</unitPattern>
+				<unitPattern count="other">{0} nocí</unitPattern>
+				<perUnitPattern>{0}/noc</perUnitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>↑↑↑</displayName>

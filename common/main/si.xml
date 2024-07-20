@@ -62,6 +62,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="bi">බිස්ලමා</language>
 			<language type="bin">බිනි</language>
 			<language type="bla">සික්සිකා</language>
+			<language type="blo">අනී</language>
 			<language type="bm">බම්බරා</language>
 			<language type="bn">බෙංගාලි</language>
 			<language type="bo">ටිබෙට්</language>
@@ -190,6 +191,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="iba">ඉබන්</language>
 			<language type="ibb">ඉබිබියො</language>
 			<language type="id">ඉන්දුනීසියානු</language>
+			<language type="ie">ඉන්ටර්ලින්ග්</language>
 			<language type="ig">ඉග්බෝ</language>
 			<language type="ii">සිචුආන් යී</language>
 			<language type="ikt">බටහිර කැනේඩියානු ඉනුක්ටිටුට්</language>
@@ -243,6 +245,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="kv">කොමි</language>
 			<language type="kw">කෝනීසියානු</language>
 			<language type="kwk">ක්වාක්වාලා</language>
+			<language type="kxv">කුවි</language>
 			<language type="ky">කිර්ගිස්</language>
 			<language type="la">ලතින්</language>
 			<language type="lad">ලඩිනො</language>
@@ -251,8 +254,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="lez">ලෙස්ගියන්</language>
 			<language type="lg">ගන්ඩා</language>
 			<language type="li">ලිම්බර්ගිශ්</language>
+			<language type="lij">ලිගුරියන්</language>
 			<language type="lil">ලිලූට්</language>
 			<language type="lkt">ලකොට</language>
+			<language type="lmo">ලොම්බාර්ඩ්</language>
 			<language type="ln">ලින්ගලා</language>
 			<language type="lo">ලාඕ</language>
 			<language type="lou">ලුසියානා ක්‍රියෝල්</language>
@@ -409,6 +414,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="sw_CD">කොංගෝ ස්වාහිලි</language>
 			<language type="swb">කොමොරියන්</language>
 			<language type="syr">ස්‍රයෑක්</language>
+			<language type="szl">සිලේසියානු</language>
 			<language type="ta">දෙමළ</language>
 			<language type="tce">දකුණු ටචෝන්</language>
 			<language type="te">තෙළිඟු</language>
@@ -448,7 +454,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="uz">උස්බෙක්</language>
 			<language type="vai">වයි</language>
 			<language type="ve">වෙන්ඩා</language>
+			<language type="vec">වැනේසියානු</language>
 			<language type="vi">වියට්නාම්</language>
+			<language type="vmw">මකුවා</language>
 			<language type="vo">වොලපූක්</language>
 			<language type="vun">වුන්ජෝ</language>
 			<language type="wa">වෑලූන්</language>
@@ -460,6 +468,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="wuu">වූ චයිනිස්</language>
 			<language type="xal">කල්මික්</language>
 			<language type="xh">ශෝසා</language>
+			<language type="xnr">කැන්ග්‍රි</language>
 			<language type="xog">සොගා</language>
 			<language type="yav">යන්ග්බෙන්</language>
 			<language type="ybb">යෙම්බා</language>
@@ -468,6 +477,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="yrl">නොහීඟටු</language>
 			<language type="yue">කැන්ටොනීස්</language>
 			<language type="yue" alt="menu">චීන, කැන්ටොනීස්</language>
+			<language type="za">ෂුවාං</language>
 			<language type="zgh">සම්මත මොරොක්කෝ ටමසිග්ත්</language>
 			<language type="zh">චීන</language>
 			<language type="zh" alt="menu">චීන, මැන්ඩරීන්</language>
@@ -4229,6 +4239,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>ජපාන දහවල් වේලාව</daylight>
 				</long>
 			</metazone>
+			<metazone type="Kazakhstan">
+				<long>
+					<standard>කසකස්තාන වේලාව</standard>
+				</long>
+			</metazone>
 			<metazone type="Kazakhstan_Eastern">
 				<long>
 					<standard>නැගෙනහිර කසකස්තාන වේලාව</standard>
@@ -7223,6 +7238,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} ඉම්පීරියල් නැළිය</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="speed-light-speed">
+				<displayName>ආලෝකය</displayName>
+				<unitPattern count="one">{0} ආලෝකය</unitPattern>
+				<unitPattern count="other">ආලෝකය {0}</unitPattern>
+			</unit>
+			<unit type="concentr-portion-per-1e9">
+				<displayName>බිලියනයකට කොටස්</displayName>
+				<unitPattern count="one">බිලියනයකට කොටස් {0}</unitPattern>
+				<unitPattern count="other">බිලියනයකට කොටස් {0}</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>රාත්‍රිය</displayName>
+				<unitPattern count="one">{0} රාත්‍රිය</unitPattern>
+				<unitPattern count="other">රාත්‍රිය {0}</unitPattern>
+				<perUnitPattern>{0}/රාත්‍රිය</perUnitPattern>
+			</unit>
 			<coordinateUnit>
 				<displayName>කාර්ඩිනල් දිශාව</displayName>
 				<coordinateUnitPattern type="east">↑↑↑</coordinateUnitPattern>
@@ -8291,6 +8322,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">ඉම්පීරියල් නැළි {0}</unitPattern>
 			</unit>
+			<unit type="speed-light-speed">
+				<displayName>ආලෝකය</displayName>
+				<unitPattern count="one">ආලෝකය {0}</unitPattern>
+				<unitPattern count="other">ආලෝකය {0}</unitPattern>
+			</unit>
+			<unit type="concentr-portion-per-1e9">
+				<displayName>කොටස්/බිලියනය</displayName>
+				<unitPattern count="one">බිකො {0}</unitPattern>
+				<unitPattern count="other">බිකො {0}</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>රාත්‍රිය</displayName>
+				<unitPattern count="one">රාත්‍රිය {0}</unitPattern>
+				<unitPattern count="other">රාත්‍රිය {0}</unitPattern>
+				<perUnitPattern>{0}/රාත්‍රිය</perUnitPattern>
+			</unit>
 			<coordinateUnit>
 				<displayName>දිශාව</displayName>
 				<coordinateUnitPattern type="east">{0}නැ</coordinateUnitPattern>
@@ -9358,6 +9405,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="speed-light-speed">
+				<displayName>ආලෝකය</displayName>
+				<unitPattern count="one">ආලෝකය {0}</unitPattern>
+				<unitPattern count="other">ආලෝකය {0}</unitPattern>
+			</unit>
+			<unit type="concentr-portion-per-1e9">
+				<displayName>බිකො</displayName>
+				<unitPattern count="one">බිකො {0}</unitPattern>
+				<unitPattern count="other">බිකො {0}</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>රාත්‍රිය</displayName>
+				<unitPattern count="one">රාත්‍රිය {0}</unitPattern>
+				<unitPattern count="other">රාත්‍රිය {0}</unitPattern>
+				<perUnitPattern>{0}/රාත්‍රිය</perUnitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>↑↑↑</displayName>

@@ -9,9 +9,12 @@ import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
 import com.google.common.collect.TreeMultimap;
+import com.ibm.icu.text.DateIntervalInfo;
+import com.ibm.icu.text.DateIntervalInfo.PatternInfo;
 import com.ibm.icu.text.DateTimePatternGenerator;
 import com.ibm.icu.text.DateTimePatternGenerator.FormatParser;
 import com.ibm.icu.text.DateTimePatternGenerator.VariableField;
+import com.ibm.icu.util.ULocale;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
@@ -24,6 +27,8 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
+import org.unicode.cldr.tool.Option.Options;
+import org.unicode.cldr.tool.Option.Params;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
@@ -37,14 +42,18 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XPathParts;
 
 public class ShowInconsistentAvailable {
+    private static final boolean SHOW_ORDERING = true;
+    private static final boolean SHOW_ROOT = false;
+
     private static final CLDRConfig CONFIG = CLDRConfig.getInstance();
-    static boolean INCLUDE_ERA = false;
+    static boolean INCLUDE_ERA = true;
     static boolean SHOW_PROGRESS_RAW = false;
     static boolean SHOW_PROGRESS = false;
     static String DEBUG_ONLY_CALENDAR = null; // "chinese"; // null == all
     static SupplementalDataInfo SDI = SupplementalDataInfo.getInstance();
 
     private static final Joiner TAB_JOINER = Joiner.on('\t');
+    private static final Joiner LF_JOINER = Joiner.on('\n');
     static FormatParser fp = new DateTimePatternGenerator.FormatParser();
     static Factory f = CONFIG.getCldrFactory();
     static PathHeader.Factory phf = PathHeader.getFactory();
@@ -52,18 +61,58 @@ public class ShowInconsistentAvailable {
     static int counter = 0;
     static Set<String> nullErrors = new LinkedHashSet<>();
 
+    private enum MyOptions {
+        ordering(
+                new Params()
+                        .setHelp("find the ordering of fields in availableFormats and intervals")),
+        inconsistencies(new Params().setHelp("find inconsistancies in available formatts")),
+        root(new Params().setHelp("find root paths"));
+
+        // BOILERPLATE TO COPY
+        final Option option;
+
+        private MyOptions(Params params) {
+            option = new Option(this, params);
+        }
+
+        private static Options myOptions = new Options();
+
+        static {
+            for (MyOptions option : MyOptions.values()) {
+                myOptions.add(option, option.option);
+            }
+        }
+
+        private static Set<String> parse(String[] args) {
+            return myOptions.parse(MyOptions.values()[0], args, true);
+        }
+    }
+
     public static void main(String[] args) {
-        getRootPaths();
-        if (true) return;
-        System.out.println(
-                "counter, locale, fLocale, calendar, skeleton, alt, coverage, value, sSimple, vSimple, error"
-                        .replace(", ", "\t"));
-        show("root");
+        MyOptions.parse(args);
         Set<String> cldrLocales = StandardCodes.make().getLocaleCoverageLocales(Organization.cldr);
         Set<String> specialLocales =
                 StandardCodes.make().getLocaleCoverageLocales(Organization.special);
-        for (String locale : Sets.difference(cldrLocales, specialLocales)) {
-            show(locale);
+        final Set<String> cldrLocalesWithoutSpecial = Sets.difference(cldrLocales, specialLocales);
+
+        if (MyOptions.ordering.option.doesOccur()) {
+            showOrdering(cldrLocalesWithoutSpecial);
+        }
+        if (MyOptions.root.option.doesOccur()) {
+            getRootPaths();
+        }
+        if (MyOptions.inconsistencies.option.doesOccur()) {
+            showInconsistencies(cldrLocalesWithoutSpecial);
+        }
+    }
+
+    public static void showInconsistencies(final Set<String> cldrLocalesWithoutSpecial) {
+        System.out.println(
+                "counter, locale, fLocale, calendar, skeleton, alt, coverage, value, sSimple, vSimple, error"
+                        .replace(", ", "\t"));
+        showInconsistenciesInLocale("root");
+        for (String locale : cldrLocalesWithoutSpecial) {
+            showInconsistenciesInLocale(locale);
         }
         nullErrors =
                 ImmutableSet.copyOf(
@@ -71,6 +120,92 @@ public class ShowInconsistentAvailable {
                                 .map(x -> ++counter + "\t" + x)
                                 .collect(Collectors.toList()));
         System.out.println(Joiner.on('\n').join(nullErrors));
+    }
+
+    public static void showOrdering(final Set<String> cldrLocalesWithoutSpecial) {
+        Multimap<String, SimplePattern> calendarToSPatterns = TreeMultimap.create();
+        for (String locale : cldrLocalesWithoutSpecial) {
+            getTCPaths(locale, calendarToSPatterns);
+        }
+        Set<SimplePattern> ts = new TreeSet<>();
+        ts.addAll(calendarToSPatterns.values());
+        ts = ImmutableSet.copyOf(ts);
+        Set<VariableField2> fields = new TreeSet<>();
+        for (SimplePattern xx : ts) {
+            fields.addAll(xx.internal);
+        }
+        fields.remove(VARIABLE_FIELD_U);
+
+        for (VariableField2 field : fields) {
+
+            System.out.print("\n∋Var\tCal");
+            for (SimplePattern p : ts) {
+                if (p.internal.contains(field)) {
+                    System.out.print("\t" + p);
+                }
+            }
+            System.out.println();
+            for (String cal : calendarToSPatterns.keySet()) {
+                System.out.print(SimplePattern.pretty(field) + "\t" + cal);
+                for (SimplePattern p : ts) {
+                    if (p.internal.contains(field)) {
+                        System.out.print(
+                                "\t" + (calendarToSPatterns.containsEntry(cal, p) ? "Y" : "-"));
+                    }
+                }
+                System.out.println();
+            }
+        }
+    }
+
+    private static void getTCPaths(
+            String locale, Multimap<String, SimplePattern> calendarToSPatterns) {
+        CLDRFile cldrFile = f.make(locale, false);
+        DateIntervalInfo fInfo = new DateIntervalInfo(new ULocale(locale)).freeze();
+
+        for (String path : cldrFile) {
+            String value = cldrFile.getStringValue(path);
+            if (value == null || value.isBlank() || value.equals("↑↑↑")) {
+                continue;
+            }
+            XPathParts parts = XPathParts.getFrozenInstance(path);
+            final String lastElement = parts.getElement(-1);
+            switch (lastElement) {
+                case "dateFormatItem":
+                    String calendar = parts.getAttributeValue(3, "type");
+                    SimplePattern valueSimplePattern =
+                            new SimplePattern(value, PatternType.pattern);
+                    calendarToSPatterns.put(calendar, valueSimplePattern);
+                    break;
+                case "greatestDifference":
+                    calendar = parts.getAttributeValue(3, "type");
+                    SimplePattern first = null;
+                    SimplePattern second = null;
+                    PatternInfo pattern = DateIntervalInfo.genPatternInfo(value, false);
+                    try {
+                        first = new SimplePattern(pattern.getFirstPart(), PatternType.pattern);
+                        second = new SimplePattern(pattern.getSecondPart(), PatternType.pattern);
+                    } catch (Exception e) {
+                    }
+                    if (first == null || second == null) {
+                        String skeleton = parts.getAttributeValue(-2, "id");
+                        String greatest = parts.getAttributeValue(-1, "id");
+                        System.out.println(
+                                TAB_JOINER.join(
+                                        "Error:",
+                                        locale,
+                                        calendar,
+                                        lastElement,
+                                        skeleton,
+                                        greatest,
+                                        value));
+                        continue;
+                    }
+                    calendarToSPatterns.put(calendar, first);
+                    calendarToSPatterns.put(calendar, second);
+                    break;
+            }
+        }
     }
 
     private static void getRootPaths() {
@@ -138,7 +273,7 @@ public class ShowInconsistentAvailable {
         }
     }
 
-    static void show(String locale) {
+    static void showInconsistenciesInLocale(String locale) {
         CLDRFile cldrFile = f.make(locale, true);
         Status out = new Status();
 
@@ -161,8 +296,9 @@ public class ShowInconsistentAvailable {
                 if (alt == null) {
                     alt = "";
                 }
-                SimplePattern skeletonSimplePattern = new SimplePattern(skeleton, true);
-                SimplePattern valueSimplePattern = new SimplePattern(value, false);
+                SimplePattern skeletonSimplePattern =
+                        new SimplePattern(skeleton, PatternType.skeleton);
+                SimplePattern valueSimplePattern = new SimplePattern(value, PatternType.pattern);
                 String fLocale = cldrFile.getSourceLocaleID(path, out);
                 String fPath = out.pathWhereFound;
 
@@ -209,8 +345,9 @@ public class ShowInconsistentAvailable {
                     continue;
                 }
 
-                SimplePattern skeletonSimplePattern = new SimplePattern(skeleton, true);
-                SimplePattern valueSimplePattern = new SimplePattern(value, false);
+                SimplePattern skeletonSimplePattern =
+                        new SimplePattern(skeleton, PatternType.skeleton);
+                SimplePattern valueSimplePattern = new SimplePattern(value, PatternType.pattern);
 
                 // we verify that for the same (calendar, skeletonSimplePattern), we only have one
                 // valueSimplePattern
@@ -294,44 +431,51 @@ public class ShowInconsistentAvailable {
         }
     }
 
+    public enum PatternType {
+        skeleton,
+        pattern
+    }
+
+    private static final VariableField2 VARIABLE_FIELD_U = new VariableField2("U", true);
+
     static class SimplePattern implements Comparable<SimplePattern> {
         static Comparator<Iterable<VariableField2>> comp =
                 Comparators.lexicographical(Comparator.<VariableField2>naturalOrder());
         Collection<VariableField2> internal;
 
-        SimplePattern(String id, boolean skeleton) {
-            internal = skeleton ? new TreeSet<>() : new LinkedHashSet<>();
+        SimplePattern(String id, PatternType patternType) {
+            internal =
+                    patternType == PatternType.skeleton ? new TreeSet<>() : new LinkedHashSet<>();
             for (Object item : fp.set(id).getItems()) {
                 if (item instanceof DateTimePatternGenerator.VariableField) {
                     VariableField2 v = new VariableField2(item, true);
                     switch (v.getType()) {
                         case DateTimePatternGenerator.ERA:
-                            if (!INCLUDE_ERA && !skeleton) {
+                            if (!INCLUDE_ERA && patternType == PatternType.pattern) {
                                 continue;
                             }
                             break;
                         case DateTimePatternGenerator.DAYPERIOD:
                             continue;
                         case DateTimePatternGenerator.YEAR: // handle r(U) by mapping U to r
-                            v = new VariableField2("U", true);
+                            v = VARIABLE_FIELD_U;
                             break;
                     }
                     internal.add(v);
                 }
             }
-            if (!skeleton) {
+            if (patternType == PatternType.pattern) {
                 internal = List.copyOf(internal);
             }
         }
 
         @Override
         public String toString() {
-            return internal.stream()
-                    .map(
-                            v ->
-                                    VariableField.getCanonicalCode(v.getType())
-                                            + (v.isNumeric() ? "ⁿ" : "ˢ"))
-                    .collect(Collectors.joining(""));
+            return internal.stream().map(v -> pretty(v)).collect(Collectors.joining(""));
+        }
+
+        public static String pretty(VariableField2 v) {
+            return VariableField.getCanonicalCode(v.getType()) + (v.isNumeric() ? "ⁿ" : "ˢ");
         }
 
         @Override

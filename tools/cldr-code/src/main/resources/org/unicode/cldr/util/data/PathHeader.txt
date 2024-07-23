@@ -20,7 +20,11 @@
 %L = (long|short|narrow)
 %M = (Alaska_Hawaii|Bering|Dominican|Goose_Bay|Greenland_Central|Dutch_Guiana|Africa_FarWestern|Liberia|British|Irish|Kuybyshev|Sverdlovsk|Baku|Tbilisi|Turkey|Yerevan|Aktyubinsk|Ashkhabad|Dushanbe|Frunze|Kizilorda|Oral|Samarkand|Shevchenko|Tashkent|Uralsk|Urumqi|Dacca|Karachi|Borneo|Malaya|Kwajalein)
 %N = (gregorian|generic|buddhist|chinese|coptic|dangi|ethiopic|hebrew|indian|islamic|japanese|persian|roc)
-%O = (gregorian|chinese|coptic|dangi|ethiopic|hebrew|indian|islamic|persian)
+# calendar systems that should use Gregorian months (just Gregorian)
+# We don't list roc, etc here because their months are hidden.
+%G = (gregorian)
+# all others use M## form months.
+%O = (chinese|coptic|dangi|ethiopic|hebrew|indian|islamic|persian)
 %P = (future|past)
 %R = (gregorian|buddhist|coptic|ethiopic|ethiopic-amete-alem|hebrew|indian|islamic|japanese|persian|roc)
 %S = ([^/]*+)
@@ -82,10 +86,14 @@
 //ldml/dates/calendars/calendar[@type="gregorian"]/quarters/quarterContext[@type="%A"]/quarterWidth[@type="%A"]/quarter[@type="%A"]    ; DateTime ; &calendar(gregorian) ; &calField(Quarters:$2:$1) ; $3
 //ldml/dates/calendars/calendar[@type="%A"]/quarters/quarterContext[@type="%A"]/quarterWidth[@type="%A"]/quarter[@type="%A"]    ; Special  ; Suppress ; &calendar($1) ; &calField(Quarters:$3:$2)-$4 ; HIDE
 
-//ldml/dates/calendars/calendar[@type="%O"]/months/monthContext[@type="%A"]/monthWidth[@type="%A"]/month[@type="%A"][@yeartype="%A"]  ; DateTime ; &calendar($1) ; &calField(Months:$3:$2) ; &month($4) (leap)
-//ldml/dates/calendars/calendar[@type="%O"]/months/monthContext[@type="%A"]/monthWidth[@type="%A"]/month[@type="%A"]            ; DateTime ; &calendar($1) ; &calField(Months:$3:$2) ; &month($4)
-//ldml/dates/calendars/calendar[@type="%A"]/months/monthContext[@type="%A"]/monthWidth[@type="%A"]/month[@type="%A"][@yeartype="%A"]  ; Special  ; Suppress ;  &calendar($1) ; &calField(Months:$3:$2)-&month($4) (leap) ; HIDE
-//ldml/dates/calendars/calendar[@type="%A"]/months/monthContext[@type="%A"]/monthWidth[@type="%A"]/month[@type="%A"]            ; Special  ; Suppress ;  &calendar($1) ; &calField(Months:$3:$2)-&month($4) ; HIDE
+# months that follow Gregorian - %G
+//ldml/dates/calendars/calendar[@type="%G"]/months/monthContext[@type="%A"]/monthWidth[@type="%A"]/month[@type="%A"][@yeartype="%A"]  ; DateTime ; &calendar($1) ; &calField(Months:$3:$2) ; &month($4) (leap)
+//ldml/dates/calendars/calendar[@type="%G"]/months/monthContext[@type="%A"]/monthWidth[@type="%A"]/month[@type="%A"]            ; DateTime ; &calendar($1) ; &calField(Months:$3:$2) ; &month($4)
+# All others just use "M#" form
+//ldml/dates/calendars/calendar[@type="%O"]/months/monthContext[@type="%A"]/monthWidth[@type="%A"]/month[@type="%A"][@yeartype="%A"]  ; DateTime ; &calendar($1) ; &calField(Months:$3:$2) ; M$4 (leap)
+//ldml/dates/calendars/calendar[@type="%O"]/months/monthContext[@type="%A"]/monthWidth[@type="%A"]/month[@type="%A"]            ; DateTime ; &calendar($1) ; &calField(Months:$3:$2) ; M$4
+//ldml/dates/calendars/calendar[@type="%A"]/months/monthContext[@type="%A"]/monthWidth[@type="%A"]/month[@type="%A"][@yeartype="%A"]  ; Special  ; Suppress ;  &calendar($1) ; &calField(Months:$3:$2)-M$4 (leap) ; HIDE
+//ldml/dates/calendars/calendar[@type="%A"]/months/monthContext[@type="%A"]/monthWidth[@type="%A"]/month[@type="%A"]            ; Special  ; Suppress ;  &calendar($1) ; &calField(Months:$3:$2)-M$4 ; HIDE
 
 //ldml/dates/calendars/calendar[@type="gregorian"]/days/dayContext[@type="%A"]/dayWidth[@type="%A"]/day[@type="%A"]                    ; DateTime ; &calendar(gregorian) ; &calField(Days:$2:$1) ; &day($3)
 //ldml/dates/calendars/calendar[@type="%A"]/days/dayContext[@type="%A"]/dayWidth[@type="%A"]/day[@type="%A"]                    ; Special  ; Suppress ; &calendar($1) ; &calField(Days:$3:$2)-&day($4) ; HIDE

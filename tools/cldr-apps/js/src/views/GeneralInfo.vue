@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import * as cldrGui from "../esm/cldrGui.mjs";
+import * as cldrDashContext from "../esm/cldrDashContext.mjs";
 import * as cldrLoad from "../esm/cldrLoad.mjs";
 import * as cldrStatus from "../esm/cldrStatus.mjs";
 import * as cldrText from "../esm/cldrText.mjs";
@@ -55,7 +55,7 @@ export default {
   },
   methods: {
     insertDashboard() {
-      cldrGui.insertDashboard();
+      cldrDashContext.insert();
     },
   },
 };

@@ -13,7 +13,7 @@
 
 <script setup>
 import { ref } from "vue";
-import { getLocaleErrors } from "../esm/cldrDash.mjs";
+import { getLocaleErrors } from "../esm/cldrDashData.mjs";
 import { getCurrentLocale } from "../esm/cldrStatus.mjs";
 import * as cldrNotify from "../esm/cldrNotify.mjs";
 

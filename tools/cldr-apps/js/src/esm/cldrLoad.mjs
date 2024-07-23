@@ -7,6 +7,7 @@ import * as cldrAjax from "./cldrAjax.mjs";
 import * as cldrBulkClosePosts from "./cldrBulkClosePosts.mjs";
 import * as cldrCoverage from "./cldrCoverage.mjs";
 import * as cldrCreateLogin from "./cldrCreateLogin.mjs";
+import * as cldrDashContext from "./cldrDashContext.mjs";
 import * as cldrDom from "./cldrDom.mjs";
 import * as cldrErrorSubtypes from "./cldrErrorSubtypes.mjs";
 import * as cldrEvent from "./cldrEvent.mjs";
@@ -109,7 +110,7 @@ function doHashChange(event) {
   const changedSpecial = oldSpecial != curSpecial;
   const changedPage = oldPage != trimNull(cldrStatus.getCurrentPage());
   if (changedLocale || (changedSpecial && curSpecial)) {
-    cldrGui.hideDashboard();
+    cldrDashContext.hide();
   }
   if (changedLocale || changedSpecial || changedPage) {
     console.log("# hash changed, (loc, etc) reloadingV..");
@@ -610,7 +611,7 @@ function specialLoad(itemLoadInfo, curSpecial, theDiv) {
   if (special && special.load) {
     cldrEvent.hideOverlayAndSidebar();
     if (curSpecial !== "general") {
-      cldrGui.hideDashboard();
+      cldrDashContext.hide();
     }
     cldrInfo.closePanel(false /* userWantsHidden */);
     // Most special.load() functions do not use a parameter; an exception is

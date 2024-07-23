@@ -11,6 +11,7 @@
 import * as cldrAddAlt from "./cldrAddAlt.mjs";
 import * as cldrAjax from "./cldrAjax.mjs";
 import * as cldrCoverage from "./cldrCoverage.mjs";
+import * as cldrDashContext from "./cldrDashContext.mjs";
 import * as cldrDom from "./cldrDom.mjs";
 import * as cldrEvent from "./cldrEvent.mjs";
 import * as cldrGui from "./cldrGui.mjs";
@@ -304,7 +305,7 @@ function refreshSingleRow(tr, theRow, onSuccess, onFailure) {
   cldrSurvey.showLoader(cldrText.get("loadingOneRow"));
 
   const xhrArgs = {
-    url: getSingleRowUrl(tr, theRow),
+    url: getSingleRowUrl(theRow),
     handleAs: "json",
     load: closureLoadHandler,
     error: closureErrHandler,
@@ -342,7 +343,7 @@ function singleRowLoadHandler(json, tr, theRow, onSuccess, onFailure) {
           "singleRowLoadHandler after onSuccess time = " + Date.now()
         );
       }
-      cldrGui.updateDashboardRow(json);
+      cldrDashContext.updateRow(json);
       cldrInfo.showRowObjFunc(tr, tr.proposedcell, tr.proposedcell.showFn);
       if (CLDR_TABLE_DEBUG) {
         console.log(
@@ -385,11 +386,11 @@ function singleRowErrHandler(err, tr, onFailure) {
   onFailure("err", err);
 }
 
-function getSingleRowUrl(tr, theRow) {
+function getSingleRowUrl(theRow) {
   const loc = cldrStatus.getCurrentLocale();
   const api = "voting/" + loc + "/row/" + theRow.xpstrid;
   let p = null;
-  if (cldrGui.dashboardIsVisible()) {
+  if (cldrDashContext.isVisible()) {
     p = new URLSearchParams();
     p.append("dashboard", "true");
   }

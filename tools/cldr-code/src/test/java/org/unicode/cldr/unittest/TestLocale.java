@@ -960,7 +960,7 @@ public class TestLocale extends TestFmwkPlus {
                         LstrType.extension,
                         new AllowedMatch(
                                 "tz",
-                                "aqams|aukns|caffs|camtr|canpg|capnt|cathu|cayzf|cnckg|cnhrb|cnkhg|gaza|mxstis|uaozh|uauzh|umjon|usnavajo"));
+                                "aqams|aukns|caffs|camtr|canpg|capnt|cathu|cayzf|cnckg|cnhrb|cnkhg|gaza|mxstis|uaozh|uauzh|umjon|usnavajo|est5edt|cst6cdt|mst7mdt|pst8pdt"));
 
         for (Entry<String, String> entry :
                 SUPPLEMENTAL_DATA_INFO.getBcp47Extension2Keys().entrySet()) {

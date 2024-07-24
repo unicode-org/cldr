@@ -3,6 +3,8 @@ package org.unicode.cldr.test;
 import com.google.common.base.Joiner;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.text.BreakIterator;
+import com.ibm.icu.text.DateIntervalInfo;
+import com.ibm.icu.text.DateIntervalInfo.PatternInfo;
 import com.ibm.icu.text.DateTimePatternGenerator;
 import com.ibm.icu.text.DateTimePatternGenerator.VariableField;
 import com.ibm.icu.text.MessageFormat;
@@ -1190,6 +1192,33 @@ public class CheckDates extends FactoryCheckCLDR {
                                     .setMessage(
                                             "Not enough year fields in interval pattern. Must have {0} but only found {1}",
                                             new Object[] {requiredYearFieldCount, yearFieldCount}));
+                }
+            }
+            // check PatternInfo, for CLDR-17827
+            // ICU-22835, DateIntervalInfo.genPatternInfo fails for intervals like LLL - MMM (in fa)
+            if (!(value.contains("LLL") && value.contains("MMM"))) {
+                PatternInfo pattern = DateIntervalInfo.genPatternInfo(value, false);
+                try {
+                    String first = pattern.getFirstPart();
+                    String second = pattern.getSecondPart();
+                    if (first == null || second == null) {
+                        result.add(
+                                new CheckStatus()
+                                        .setCause(this)
+                                        .setMainType(CheckStatus.errorType)
+                                        .setSubtype(Subtype.incorrectDatePattern)
+                                        .setMessage(
+                                                "DateIntervalInfo.PatternInfo returns null for first or second part"));
+                    }
+                } catch (Exception e) {
+                    result.add(
+                            new CheckStatus()
+                                    .setCause(this)
+                                    .setMainType(CheckStatus.errorType)
+                                    .setSubtype(Subtype.incorrectDatePattern)
+                                    .setMessage(
+                                            "DateIntervalInfo.PatternInfo exception {0}",
+                                            new Object[] {e}));
                 }
             }
         }

@@ -211,7 +211,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↤" type="tts">vasakule nool ribast</annotation>
 		<annotation cp="↥">ülesnool ribast</annotation>
 		<annotation cp="↥" type="tts">ülesnool ribast</annotation>
-		<annotation cp="↦">nool | paremale | riba</annotation>
+		<annotation cp="↦">nool | paremale | paremale nool ribast | riba</annotation>
 		<annotation cp="↦" type="tts">paremale nool ribast</annotation>
 		<annotation cp="↧">allanool ribast</annotation>
 		<annotation cp="↧" type="tts">allanool ribast</annotation>
@@ -243,27 +243,27 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↷" type="tts">päripäeva ülemise poolkaarega nool</annotation>
 		<annotation cp="↸">loodesse nool pika ribaga</annotation>
 		<annotation cp="↸" type="tts">loodesse nool pika ribaga</annotation>
-		<annotation cp="↹">nool | parem | peal | riba | vasak</annotation>
+		<annotation cp="↹">nool | parem | peal | riba | ribaga vasaknool ribaga paremnoole peal | vasak</annotation>
 		<annotation cp="↹" type="tts">ribaga vasaknool ribaga paremnoole peal</annotation>
 		<annotation cp="↺">avatud | nool | ringiga | vastupäeva</annotation>
 		<annotation cp="↺" type="tts">vastupäeva avatud ringiga nool</annotation>
 		<annotation cp="↻">avatud | nool | päripäeva | ringiga</annotation>
 		<annotation cp="↻" type="tts">päripäeva avatud ringiga nool</annotation>
-		<annotation cp="↼">harpuun | kisk | ülemine | vasak</annotation>
+		<annotation cp="↼">harpuun | kisk | ülemine | vasak | vasakule harpuun ülemise kiskuga</annotation>
 		<annotation cp="↼" type="tts">vasakule harpuun ülemise kiskuga</annotation>
-		<annotation cp="↽">alumine | harpuun | kisk | vasak</annotation>
+		<annotation cp="↽">alumine | harpuun | kisk | vasak | vasakule harpuun alumise kiskuga</annotation>
 		<annotation cp="↽" type="tts">vasakule harpuun alumise kiskuga</annotation>
-		<annotation cp="↾">harpuun | kisk | parem | üles</annotation>
+		<annotation cp="↾">harpuun | kisk | parem | üles | üles harpuun parema kiskuga</annotation>
 		<annotation cp="↾" type="tts">üles harpuun parema kiskuga</annotation>
 		<annotation cp="↿">kisk | üles harpuun vasaku kiskuga</annotation>
 		<annotation cp="↿" type="tts">üles harpuun vasaku kiskuga</annotation>
 		<annotation cp="⇀">kisk | paremale harpuun ülemise kiskuga</annotation>
 		<annotation cp="⇀" type="tts">paremale harpuun ülemise kiskuga</annotation>
-		<annotation cp="⇁">alumine | harpuun | kisk | parem</annotation>
+		<annotation cp="⇁">alumine | harpuun | kisk | parem | paremale harpuun alumise kiskuga</annotation>
 		<annotation cp="⇁" type="tts">paremale harpuun alumise kiskuga</annotation>
-		<annotation cp="⇂">alla | harpuun | kisk | parem</annotation>
+		<annotation cp="⇂">alla | alla harpuun parema kiskuga | harpuun | kisk | parem</annotation>
 		<annotation cp="⇂" type="tts">alla harpuun parema kiskuga</annotation>
-		<annotation cp="⇃">alla | harpuun | kisk | vasak</annotation>
+		<annotation cp="⇃">alla | alla harpuun vasaku kiskuga | harpuun | kisk | vasak</annotation>
 		<annotation cp="⇃" type="tts">alla harpuun vasaku kiskuga</annotation>
 		<annotation cp="⇄">paremnool vasaknoole kohal</annotation>
 		<annotation cp="⇄" type="tts">paremnool vasaknoole kohal</annotation>
@@ -289,15 +289,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⇍" type="tts">läbikriipsutatud topelt-vasaknool</annotation>
 		<annotation cp="⇑">topelt-ülesnool</annotation>
 		<annotation cp="⇑" type="tts">topelt-ülesnool</annotation>
-		<annotation cp="⇒">nool | parem | topelt</annotation>
+		<annotation cp="⇒">nool | parem | topelt | topelt-paremnool</annotation>
 		<annotation cp="⇒" type="tts">topelt-paremnool</annotation>
-		<annotation cp="⇏">läbikriipsutatud | nool | parem | topelt</annotation>
+		<annotation cp="⇏">läbikriipsutatud | läbikriipsutatud topelt-paremnool | nool | parem | topelt</annotation>
 		<annotation cp="⇏" type="tts">läbikriipsutatud topelt-paremnool</annotation>
 		<annotation cp="⇓">topelt-allanool</annotation>
 		<annotation cp="⇓" type="tts">topelt-allanool</annotation>
-		<annotation cp="⇔">nool | parem | topelt | vasak</annotation>
+		<annotation cp="⇔">nool | parem | topelt | vasak | vasakule-paremale topeltnool</annotation>
 		<annotation cp="⇔" type="tts">vasakule-paremale topeltnool</annotation>
-		<annotation cp="⇎">läbikriipsutatud | nool | parem | topelt | vasak</annotation>
+		<annotation cp="⇎">läbikriipsutatud | nool | parem | topelt | vasak | vasak-parem läbikriipsutatud topeltnool</annotation>
 		<annotation cp="⇎" type="tts">vasak-parem läbikriipsutatud topeltnool</annotation>
 		<annotation cp="⇖">topeltnool loodesse</annotation>
 		<annotation cp="⇖" type="tts">topeltnool loodesse</annotation>
@@ -341,7 +341,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⇩" type="tts">seest tühi allanool</annotation>
 		<annotation cp="⇪">seest tühi ülesnool tulbast</annotation>
 		<annotation cp="⇪" type="tts">seest tühi ülesnool tulbast</annotation>
-		<annotation cp="⇵">alla | nool | üles | vasak</annotation>
+		<annotation cp="⇵">alla | allanool vasakul ülesnool paremal | nool | üles | vasak</annotation>
 		<annotation cp="⇵" type="tts">allanool vasakul ülesnool paremal</annotation>
 		<annotation cp="∀">antud | kõigi jaoks | kõik | mis tahes | universaalne</annotation>
 		<annotation cp="∀" type="tts">kõigi jaoks</annotation>
@@ -349,7 +349,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="∂" type="tts">osatuletis</annotation>
 		<annotation cp="∃">on olemas</annotation>
 		<annotation cp="∃" type="tts">on olemas</annotation>
-		<annotation cp="∅">hulk | matemaatika | operaator | tühi</annotation>
+		<annotation cp="∅">hulk | matemaatika | operaator | tühi | tühihulk</annotation>
 		<annotation cp="∅" type="tts">tühihulk</annotation>
 		<annotation cp="∆">juurdekasv | kolmnurk</annotation>
 		<annotation cp="∆" type="tts">juurdekasv</annotation>
@@ -415,7 +415,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="∝" type="tts">proportsionaalne</annotation>
 		<annotation cp="∞">lõpmatus | lõpmatuse märk</annotation>
 		<annotation cp="∞" type="tts">lõpmatuse märk</annotation>
-		<annotation cp="∟">matemaatika | nurk | parem</annotation>
+		<annotation cp="∟">matemaatika | nurk | parem | paremnurk</annotation>
 		<annotation cp="∟" type="tts">paremnurk</annotation>
 		<annotation cp="∠">nurk | terav</annotation>
 		<annotation cp="∠" type="tts">nurk</annotation>
@@ -447,7 +447,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="∼" type="tts">tehtemärk tilde</annotation>
 		<annotation cp="∽">tagurpidi | tilde</annotation>
 		<annotation cp="∽" type="tts">tagurpidi tilde</annotation>
-		<annotation cp="∾">horisontaalne | pööratud | s</annotation>
+		<annotation cp="∾">horisontaal- ja pöördasendis s | horisontaalne | pööratud | s</annotation>
 		<annotation cp="∾" type="tts">horisontaal- ja pöördasendis s</annotation>
 		<annotation cp="≃">asümptoot | asümptootiliselt võrdne | matemaatika</annotation>
 		<annotation cp="≃" type="tts">asümptootiliselt võrdne</annotation>
@@ -459,7 +459,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="≌" type="tts">kõik võrdsed</annotation>
 		<annotation cp="≒">pilt ligikaudu võrdne</annotation>
 		<annotation cp="≒" type="tts">pilt ligikaudu võrdne</annotation>
-		<annotation cp="≖">matematika | ring | võrdusmärk</annotation>
+		<annotation cp="≖">matematika | ring | ringiga võrdusmärk | võrdusmärk</annotation>
 		<annotation cp="≖" type="tts">ringiga võrdusmärk</annotation>
 		<annotation cp="≡">identne | kolm kriipsu | täpselt</annotation>
 		<annotation cp="≡" type="tts">identne</annotation>
@@ -469,9 +469,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="≤" type="tts">väiksem või võrdne</annotation>
 		<annotation cp="≥">ebavõrdsus | suurem kui | suurem või võrdne | võrdne | võrdub</annotation>
 		<annotation cp="≥" type="tts">suurem või võrdne</annotation>
-		<annotation cp="≦">kui | matemaatika | väiksem | võrdne | võrdsus</annotation>
+		<annotation cp="≦">kui | matemaatika | väiksem | väiksem kui või võrdne | võrdne | võrdsus</annotation>
 		<annotation cp="≦" type="tts">väiksem kui või võrdne</annotation>
-		<annotation cp="≧">kui | matemaatika | suurem | võrdne | võrdsus</annotation>
+		<annotation cp="≧">kui | matemaatika | suurem | suurem kui või võrdne | võrdne | võrdsus</annotation>
 		<annotation cp="≧" type="tts">suurem kui või võrdne</annotation>
 		<annotation cp="≪">ebavõrdsus | kui | matemaatika | palju | väiksem</annotation>
 		<annotation cp="≪" type="tts">palju väiksem kui</annotation>
@@ -677,9 +677,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="◣" type="tts">täidetud kolmnurk all vasakul</annotation>
 		<annotation cp="◤">täidetud kolmnurk üleval vasakul</annotation>
 		<annotation cp="◤" type="tts">täidetud kolmnurk üleval vasakul</annotation>
-		<annotation cp="◥">kolmnurk | parem | täidetud | üleval</annotation>
+		<annotation cp="◥">kolmnurk | parem | täidetud | täidetud kolmnurk üleval paremal | üleval</annotation>
 		<annotation cp="◥" type="tts">täidetud kolmnurk üleval paremal</annotation>
-		<annotation cp="◦">täpp | tühi</annotation>
+		<annotation cp="◦">seest tühi täpp | täpp | tühi</annotation>
 		<annotation cp="◦" type="tts">seest tühi täpp</annotation>
 		<annotation cp="◯">ring | sõõr | suur tühi ring</annotation>
 		<annotation cp="◯" type="tts">suur tühi ring</annotation>
@@ -723,69 +723,69 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫜" type="tts">juurvili</annotation>
 		<annotation cp="🫟">holi | plärakas | plekk | pritse | värv</annotation>
 		<annotation cp="🫟" type="tts">plärakas</annotation>
-		<annotation cp="🫩">hilja | igav | kotid | kurnatud | nägu | silmad | tüdinud | tülpinud | unine | väsinud</annotation>
+		<annotation cp="🫩">hilja | igav | kotid | kurnatud | nägu | nägu kottidega silmade all | silmad | tüdinud | tülpinud | unine | väsinud</annotation>
 		<annotation cp="🫩" type="tts">nägu kottidega silmade all</annotation>
-		<annotation cp="😀">hambad | irve | irvitamine | naer | naeratamine | naeratus | nägu | õnnelik | rõõmsameelne | rõõmus | tore</annotation>
+		<annotation cp="😀">hambad | irve | irvitamine | laia naeratusega nägu | naer | naeratamine | naeratus | nägu | õnnelik | rõõmsameelne | rõõmus | tore</annotation>
 		<annotation cp="😀" type="tts">laia naeratusega nägu</annotation>
-		<annotation cp="😃">avatud | hambad | irve | irvitamine | jee | lahe | naeratamine | naeratus | nägu | rõõmus | silmad | suur</annotation>
+		<annotation cp="😃">avatud | hambad | irve | irvitamine | jee | lahe | naeratamine | naeratus | nägu | rõõmus | silmad | suur | suurte silmadega naerunägu</annotation>
 		<annotation cp="😃" type="tts">suurte silmadega naerunägu</annotation>
-		<annotation cp="😄">avatud | irve | irvitamine | lol | naer | naeratamine | naeratus | nägu | rõõmus | silm | silmad | suu</annotation>
+		<annotation cp="😄">avatud | avatud suu ja naeratavate silmadega naerunägu | irve | irvitamine | lol | naer | naeratamine | naeratus | nägu | rõõmus | silm | silmad | suu</annotation>
 		<annotation cp="😄" type="tts">avatud suu ja naeratavate silmadega naerunägu</annotation>
-		<annotation cp="😁">hambad | irve | irvitamine | naer | naeratamine | naerul | nägu | õnnelik | silm | silmad | tore</annotation>
+		<annotation cp="😁">hambad | irve | irvitamine | naer | naeratamine | naerul | naerul silmade ja laia naeratusega nägu | nägu | õnnelik | silm | silmad | tore</annotation>
 		<annotation cp="😁" type="tts">naerul silmade ja laia naeratusega nägu</annotation>
-		<annotation cp="😆">avatud | haha | hahaha | irve | kissitamine | lol | naer | naeratamine | naeratus | nägu | õnnelik | rofl | silmad | suletud | suu</annotation>
+		<annotation cp="😆">avatud | avatud suu ja suletud silmadega naerunägu | haha | hahaha | irve | kissitamine | lol | naer | naeratamine | naeratus | nägu | õnnelik | rofl | silmad | suletud | suu</annotation>
 		<annotation cp="😆" type="tts">avatud suu ja suletud silmadega naerunägu</annotation>
-		<annotation cp="😅">avatud | elevil | higi | külm | masendunud | naeratamine | naeratus | naermine | nägu | närvis | stress | stressis | suu</annotation>
+		<annotation cp="😅">avatud | elevil | higi | higipiisa ja avatud suuga naerunägu | külm | masendunud | naeratamine | naeratus | naermine | nägu | närvis | stress | stressis | suu</annotation>
 		<annotation cp="😅" type="tts">higipiisa ja avatud suuga naerunägu</annotation>
-		<annotation cp="🤣">haha | hehe | lmao | lol | naer | nägu | naljakas | nutmine | õnnelik | pisar | põrand | rofl | roflmao | rõõm | rullimine | ülinaljakas</annotation>
+		<annotation cp="🤣">haha | hehe | lmao | lol | naer | naerust kõveras | nägu | naljakas | nutmine | õnnelik | pisar | põrand | rofl | roflmao | rõõm | rullimine | ülinaljakas</annotation>
 		<annotation cp="🤣" type="tts">naerust kõveras</annotation>
-		<annotation cp="😂">haha | hehe | lmao | lol | naer | nägu | naljakas | nutmine | õnnelik | pisar | rofl | roflmao | rõõm | tunded | ülinaljakas</annotation>
+		<annotation cp="😂">haha | hehe | lmao | lol | naer | nägu | naljakas | nutmine | õnnelik | pisar | rofl | roflmao | rõõm | rõõmupisaratega nägu | tunded | ülinaljakas</annotation>
 		<annotation cp="😂" type="tts">rõõmupisaratega nägu</annotation>
-		<annotation cp="🙂">naeratamine | naeratus | nägu | õnnelik | pisut</annotation>
+		<annotation cp="🙂">naeratamine | naeratus | naeratusega nägu | nägu | õnnelik | pisut</annotation>
 		<annotation cp="🙂" type="tts">naeratusega nägu</annotation>
 		<annotation cp="🙃">hehe | naeratus | nägu | tagurpidi</annotation>
 		<annotation cp="🙃" type="tts">tagurpidi nägu</annotation>
-		<annotation cp="🫠">haha | kaduma | kuumus | lahustuma | lol | nägu | palav | piinlik | sarkasm | sarkastiline | sulama | sulamine | vedel</annotation>
+		<annotation cp="🫠">haha | kaduma | kuumus | lahustuma | lol | nägu | palav | piinlik | sarkasm | sarkastiline | sulama | sulamine | sulav nägu | vedel</annotation>
 		<annotation cp="🫠" type="tts">sulav nägu</annotation>
-		<annotation cp="😉">flirtima | libe | nägu | õrritama | pilgutama | pilgutav | seksikas | silmapilgutus | südametemurdja</annotation>
+		<annotation cp="😉">flirtima | libe | nägu | õrritama | pilgutama | pilgutav | seksikas | silma pilgutav nägu | silmapilgutus | südametemurdja</annotation>
 		<annotation cp="😉" type="tts">silma pilgutav nägu</annotation>
-		<annotation cp="😊">naeratamine | naeratus | nägu | punastama | rahul | rõõmus | silm | silmad</annotation>
+		<annotation cp="😊">naeratamine | naeratavate silmadega naerunägu | naeratus | nägu | punastama | rahul | rõõmus | silm | silmad</annotation>
 		<annotation cp="😊" type="tts">naeratavate silmadega naerunägu</annotation>
-		<annotation cp="😇">aupaiste | fantaasia | haldjas | ingel | ingellik | inglid | jutt | muinasjutt | naeratamine | naeratus | nägu | õnnelik | õnnistatud | rahulik | süütu | vaim</annotation>
+		<annotation cp="😇">aupaiste | aupaistega naerunägu | fantaasia | haldjas | ingel | ingellik | inglid | jutt | muinasjutt | naeratamine | naeratus | nägu | õnnelik | õnnistatud | rahulik | süütu | vaim</annotation>
 		<annotation cp="😇" type="tts">aupaistega naerunägu</annotation>
 		<annotation cp="🥰">armunud | imetlev | naeratav kolme südamega nägu | naeratav südametega nägu | sisse võetud</annotation>
 		<annotation cp="🥰" type="tts">naeratav südametega nägu</annotation>
-		<annotation cp="😍">armastus | naeratus | nägu | romantika | romantiline | silmad | südamed | südamekujulised silmad | suudlused | tunded | xoxo</annotation>
+		<annotation cp="😍">armastus | naeratus | nägu | romantika | romantiline | silmad | südamed | südamekujulised silmad | südamekujuliste silmadega naerunägu | suudlused | tunded | xoxo</annotation>
 		<annotation cp="😍" type="tts">südamekujuliste silmadega naerunägu</annotation>
 		<annotation cp="🤩">nägu | silmad | staar | staariga silmitsi | suu kõrvuni</annotation>
 		<annotation cp="🤩" type="tts">staariga silmitsi</annotation>
-		<annotation cp="😘">armas | armastan | armsam | flirtima | igatsema | muahh | musi | nägu | õhusuudlus | romantiline | sind | süda | suudlus | xoxo</annotation>
+		<annotation cp="😘">armas | armastan | armsam | flirtima | igatsema | muahh | musi | nägu | õhusuudlus | romantiline | sind | süda | suudlus | suudlust saatev nägu | xoxo</annotation>
 		<annotation cp="😘" type="tts">suudlust saatev nägu</annotation>
-		<annotation cp="😗">armastan | flirtima | kohtama | kohting | musi | musid | nägu | sind | suudlus | xoxo</annotation>
+		<annotation cp="😗">armastan | flirtima | kohtama | kohting | musi | musid | nägu | sind | suudlev nägu | suudlus | xoxo</annotation>
 		<annotation cp="😗" type="tts">suudlev nägu</annotation>
 		<annotation cp="☺">naeratus | naerunägu | nägu | piirjoon | rahulik</annotation>
 		<annotation cp="☺" type="tts">naerunägu</annotation>
-		<annotation cp="😚">flirtima | kohtama | kohting | musid | nägu | punastama | silm | silmad | suletud | suudlus | suudlused | xoxo</annotation>
+		<annotation cp="😚">flirtima | kohtama | kohting | musid | nägu | punastama | silm | silmad | suletud | suletud silmadega suudlev nägu | suudlus | suudlused | xoxo</annotation>
 		<annotation cp="😚" type="tts">suletud silmadega suudlev nägu</annotation>
-		<annotation cp="😙">armastus | flirtima | kohtama | kohting | naeratama | naeratus | nägu | öö | silm | silmad | suletud | suudlemine | suudlus | suudlused</annotation>
+		<annotation cp="😙">armastus | flirtima | kohtama | kohting | naeratama | naeratavate silmadega suudlev nägu | naeratus | nägu | öö | silm | silmad | suletud | suudlemine | suudlus | suudlused</annotation>
 		<annotation cp="😙" type="tts">naeratavate silmadega suudlev nägu</annotation>
 		<annotation cp="🥲">kergendus | liigutatud | naeratav | naeratav pisaraga nägu | naeratus | naerunägu | pisar | rõõm | tänulik | uhke | valu</annotation>
 		<annotation cp="🥲" type="tts">naeratav pisaraga nägu</annotation>
-		<annotation cp="😋">maitsev | naeratamine | naeratus | nägu | näljane | nautima | sööma | täis | toit</annotation>
+		<annotation cp="😋">maitsev | maitsvat toitu nautiv nägu | naeratamine | naeratus | nägu | näljane | nautima | sööma | täis | toit</annotation>
 		<annotation cp="😋" type="tts">maitsvat toitu nautiv nägu</annotation>
-		<annotation cp="😛">äge | keel | keel väljas | lahe | magus | nägu | pidu | vägev</annotation>
+		<annotation cp="😛">äge | keel | keel väljas | lahe | magus | nägu | pidu | suust väljas keelega nägu | vägev</annotation>
 		<annotation cp="😛" type="tts">suust väljas keelega nägu</annotation>
-		<annotation cp="😜">äge | hull | imelik | keel | keel väljas | nägu | nali | naljakas | pidu | pilgutus | segane | segi | silm | silmapilgutus | yolo</annotation>
+		<annotation cp="😜">äge | hull | imelik | keel | keel väljas | nägu | nali | naljakas | pidu | pilgutus | segane | segi | silm | silmapilgutus | suust väljas keelega ja silma pilgutav nägu | yolo</annotation>
 		<annotation cp="😜" type="tts">suust väljas keelega ja silma pilgutav nägu</annotation>
 		<annotation cp="🤪">pöörase ilmega nägu | silm | suur | väike</annotation>
 		<annotation cp="🤪" type="tts">pöörase ilmega nägu</annotation>
-		<annotation cp="😝">keel | keel väljajs | kissitamine | maitsma | mida iganes | nägu | omg | rõve | silm | silmad | suletud | vastik | yolo</annotation>
+		<annotation cp="😝">keel | keel väljajs | keelt näitav suletud silmadega nägu | kissitamine | maitsma | mida iganes | nägu | omg | rõve | silm | silmad | suletud | vastik | yolo</annotation>
 		<annotation cp="😝" type="tts">keelt näitav suletud silmadega nägu</annotation>
-		<annotation cp="🤑">nägu | palgapäev | raha | raha suus | suu</annotation>
+		<annotation cp="🤑">nägu | nägu, millel on raha suus | palgapäev | raha | raha suus | suu</annotation>
 		<annotation cp="🤑" type="tts">nägu, millel on raha suus</annotation>
-		<annotation cp="🤗">avatud | käed | kalli | kallistus | naeratus | nägu</annotation>
+		<annotation cp="🤗">avatud | käed | kalli | kallistav nägu | kallistus | naeratus | nägu</annotation>
 		<annotation cp="🤗" type="tts">kallistav nägu</annotation>
-		<annotation cp="🤭">avastus | itsitama | itsitamine | järsk | käsi | nägu | oih | saladus | šokk | suu | üllatus | ups</annotation>
+		<annotation cp="🤭">avastus | itsitama | itsitamine | järsk | käsi | kätt suul hoidev nägu | nägu | oih | saladus | šokk | suu | üllatus | ups</annotation>
 		<annotation cp="🤭" type="tts">kätt suul hoidev nägu</annotation>
 		<annotation cp="🫢">aukartus | hämming | kartlikkus | kätt suul hoidev pärani silmadega nägu | omg | piinlikkus | šokeeritud | šokk | üllatunud | üllatus | uskumatus | vaikne</annotation>
 		<annotation cp="🫢" type="tts">kätt suul hoidev pärani silmadega nägu</annotation>
@@ -793,33 +793,33 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫣" type="tts">käte vahelt piiluva silmaga nägu</annotation>
 		<annotation cp="🤫">kuss! | sõrme suul hoidev nägu | vaikust</annotation>
 		<annotation cp="🤫" type="tts">sõrme suul hoidev nägu</annotation>
-		<annotation cp="🤔">hmm | juurdlema | kaaluma | lõug | mõtisklema | mõtlema | nägu</annotation>
+		<annotation cp="🤔">hmm | juurdlema | kaaluma | lõug | mõtisklema | mõtlema | mõtlev nägu | nägu</annotation>
 		<annotation cp="🤔" type="tts">mõtlev nägu</annotation>
-		<annotation cp="🫡">au | au andma | edu | jah | just nii | nägu | OK | saluut | sõjavägi</annotation>
+		<annotation cp="🫡">au | au andev nägu | au andma | edu | jah | just nii | nägu | OK | saluut | sõjavägi</annotation>
 		<annotation cp="🫡" type="tts">au andev nägu</annotation>
 		<annotation cp="🤐">nägu | saladus | suletud | suu | tasa | tõmblukk | tõmblukusuuga nägu | vait</annotation>
 		<annotation cp="🤐" type="tts">tõmblukusuuga nägu</annotation>
-		<annotation cp="🤨">emotikon | hmm | kergitatud kulmuga nägu | kulm | mida | nägu | pahameel | skeptik | skeptiline | üllatunud | umbusaldav</annotation>
+		<annotation cp="🤨">emotikon | hmm | kergitatud kulmudega nägu | kergitatud kulmuga nägu | kulm | mida | nägu | pahameel | skeptik | skeptiline | üllatunud | umbusaldav</annotation>
 		<annotation cp="🤨" type="tts">kergitatud kulmudega nägu</annotation>
 		<annotation cp="😐">aa | ebamugav | emotsioonitu | erapooletu | igav | ilmetu | kade | meh | mida iganes | nägu | õnnetu | piinlik | sirge | tõsine | tühi</annotation>
 		<annotation cp="😐" type="tts">erapooletu nägu</annotation>
 		<annotation cp="😑">aa | emotsioonitu | igav | ilmetu | kade | meh | mida iganes | mittemidagiütlev | nägu | omg | õnnetu | piinlik | sirge | surnud | väheütlev</annotation>
 		<annotation cp="😑" type="tts">ilmetu nägu</annotation>
-		<annotation cp="😶">ilmetu | nägu | piinlik | saladus | sõnatu | suu | suuta | tasa | tühi | tumm | vaikne | vaikus</annotation>
+		<annotation cp="😶">ilma suuta nägu | ilmetu | nägu | piinlik | saladus | sõnatu | suu | suuta | tasa | tühi | tumm | vaikne | vaikus</annotation>
 		<annotation cp="😶" type="tts">ilma suuta nägu</annotation>
 		<annotation cp="🫥">depressiivne | introvertne | kaduma | masenduses | mis iganes | nähtamatu | peidus | peitma | punktiirjoonega nägu</annotation>
 		<annotation cp="🫥" type="tts">punktiirjoonega nägu</annotation>
 		<annotation cp="😶‍🌫">hajameelne | nägu pilvedes | nägu udus | pea pilvedes</annotation>
 		<annotation cp="😶‍🌫" type="tts">nägu pilvedes</annotation>
-		<annotation cp="😏">boss | flirtima | irvitama | kahtlane | kaval | kelmikas | lahe | libe | meeldiv | muie | muigama | nägu | nägus | nali | vennas</annotation>
+		<annotation cp="😏">boss | flirtima | irvitama | kahtlane | kaval | kelmikas | lahe | libe | meeldiv | muie | muigama | muigav nägu | nägu | nägus | nali | vennas</annotation>
 		<annotation cp="😏" type="tts">muigav nägu</annotation>
 		<annotation cp="😒">... | hästi | igavlev | imelik | kade | mida iganes | nägu | õnnetu | pahane | põlglik</annotation>
 		<annotation cp="😒" type="tts">põlglik nägu</annotation>
-		<annotation cp="🙄">mida iganes | nägu | pööritav | silmad | silmapööritus</annotation>
+		<annotation cp="🙄">mida iganes | nägu | pööritav | pööritavate silmadega nägu | silmad | silmapööritus</annotation>
 		<annotation cp="🙄" type="tts">pööritavate silmadega nägu</annotation>
 		<annotation cp="😬">grimass | grimassitav | hambaarst | irvitav | naeratav | naeratus | nägu | piinlik</annotation>
 		<annotation cp="😬" type="tts">grimassitav nägu</annotation>
-		<annotation cp="😮‍💨">kergendus | nägu | ohe | ohkamine | puhumine | sosistamine | suits | väljahingamine | väsinud | vilistamine</annotation>
+		<annotation cp="😮‍💨">kergendus | nägu | ohe | ohkamine | puhumine | sosistamine | suits | väljahingamine | väljahingav nägu | väsinud | vilistamine</annotation>
 		<annotation cp="😮‍💨" type="tts">väljahingav nägu</annotation>
 		<annotation cp="🤥">nägu | pinocchio | vale | valetaja | valetav</annotation>
 		<annotation cp="🤥" type="tts">valetav nägu</annotation>
@@ -829,7 +829,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙂‍↔" type="tts">pearaputus</annotation>
 		<annotation cp="🙂‍↕">jah | noogutus | pea | peanoogutus</annotation>
 		<annotation cp="🙂‍↕" type="tts">peanoogutus</annotation>
-		<annotation cp="😌">kergendunud | kergendus | nägu | rahu | rahulik | zen</annotation>
+		<annotation cp="😌">kergendunud | kergendus | kergendust tundev nägu | nägu | rahu | rahulik | zen</annotation>
 		<annotation cp="😌" type="tts">kergendust tundev nägu</annotation>
 		<annotation cp="😔">igav | jube | kaotamine | kaotus | kurb | mõtlik | nägu | nõme | nukker | pettnud | surnud</annotation>
 		<annotation cp="😔" type="tts">mõtlik nägu</annotation>
@@ -837,15 +837,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😪" type="tts">unine nägu</annotation>
 		<annotation cp="🤤">ilastav | nägu</annotation>
 		<annotation cp="🤤" type="tts">ilastav nägu</annotation>
-		<annotation cp="😴">haigutus | head | headööd | magamine | mida iganes | nägu | ööd | uinak | uneaeg | uni | väsinud | voodi | zzz</annotation>
+		<annotation cp="😴">haigutus | head | headööd | magamine | magav nägu | mida iganes | nägu | ööd | uinak | uneaeg | uni | väsinud | voodi | zzz</annotation>
 		<annotation cp="😴" type="tts">magav nägu</annotation>
-		<annotation cp="😷">arst | dermatoloog | doktor | haige | hambaarst | kirurg | mask | nägu | pisikud | ravim</annotation>
+		<annotation cp="😷">arst | dermatoloog | doktor | haige | hambaarst | kirurg | kirurgimaskiga kaetud nägu | mask | nägu | pisikud | ravim</annotation>
 		<annotation cp="😷" type="tts">kirurgimaskiga kaetud nägu</annotation>
-		<annotation cp="🤒">haige | kraadiklaas | nägu</annotation>
+		<annotation cp="🤒">haige | kraadiklaas | kraadiklaasiga nägu | nägu</annotation>
 		<annotation cp="🤒" type="tts">kraadiklaasiga nägu</annotation>
-		<annotation cp="🤕">ai | haige | kinniseotud | nägu | peaside | side | vigastus</annotation>
+		<annotation cp="🤕">ai | haige | kinniseotud | kinniseotud peaga nägu | nägu | peaside | side | vigastus</annotation>
 		<annotation cp="🤕" type="tts">kinniseotud peaga nägu</annotation>
-		<annotation cp="🤢">iiveldus | nägu | okse | paha | rõve | vastik</annotation>
+		<annotation cp="🤢">iiveldus | iiveldust tundev nägu | nägu | okse | paha | rõve | vastik</annotation>
 		<annotation cp="🤢" type="tts">iiveldust tundev nägu</annotation>
 		<annotation cp="🤮">iiveldus | okse | oksendav nägu</annotation>
 		<annotation cp="🤮" type="tts">oksendav nägu</annotation>
@@ -863,33 +863,33 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😵‍💫" type="tts">spiraalsilmadega nägu</annotation>
 		<annotation cp="🤯">plahvatav pea | šokeeritud</annotation>
 		<annotation cp="🤯" type="tts">plahvatav pea</annotation>
-		<annotation cp="🤠">kauboi | müts | nägu</annotation>
+		<annotation cp="🤠">kauboi | kauboimütsiga nägu | müts | nägu</annotation>
 		<annotation cp="🤠" type="tts">kauboimütsiga nägu</annotation>
-		<annotation cp="🥳">elev | hurraa | müts | nägu | õnnelik | palju õnne | pasun | peovile | pidu | pidutsemine | sünnipäev | tähistamine</annotation>
+		<annotation cp="🥳">elev | hurraa | müts | nägu | õnnelik | palju õnne | pasun | peovile | pidu | pidutsemine | pidutsev nägu | sünnipäev | tähistamine</annotation>
 		<annotation cp="🥳" type="tts">pidutsev nägu</annotation>
 		<annotation cp="🥸">inimene | inkognito | kulmud | maskeerima | maskeering | maskeeritud nägu | nägu | nina | prillid | spioon | vuntsid</annotation>
 		<annotation cp="🥸" type="tts">maskeeritud nägu</annotation>
-		<annotation cp="😎">äge | ere | lahe | naeratus | nägu | päikeseprillid | prillid | rand | stiil | vinge | võit</annotation>
+		<annotation cp="😎">äge | ere | lahe | naeratus | nägu | päikeseprillid | päikeseprillidega naerunägu | prillid | rand | stiil | vinge | võit</annotation>
 		<annotation cp="😎" type="tts">päikeseprillidega naerunägu</annotation>
-		<annotation cp="🤓">andekas | arukas | friik | intelligentne | nägu | nohik | nutikas | prillid | tark</annotation>
+		<annotation cp="🤓">andekas | arukas | friik | intelligentne | nägu | nohik | nohiku nägu | nutikas | prillid | tark</annotation>
 		<annotation cp="🤓" type="tts">nohiku nägu</annotation>
-		<annotation cp="🧐">elegantne | monokkel | nägu | rikas | uhke | vanamoeline</annotation>
+		<annotation cp="🧐">elegantne | monokkel | monokliga nägu | nägu | rikas | uhke | vanamoeline</annotation>
 		<annotation cp="🧐" type="tts">monokliga nägu</annotation>
 		<annotation cp="😕">ebakindel | ei tea | hmm | kulmukortsutus | kurb | meh | nägu | segaduses | segane | vabandust</annotation>
 		<annotation cp="😕" type="tts">segaduses nägu</annotation>
-		<annotation cp="🫤">diagonaal | frustratsioon | frustreerunud | kahtlev | kahtlus | meh | mida iganes | mis iganes | pettunud | segadus | segaduses | skeptiline | suu</annotation>
+		<annotation cp="🫤">diagonaal | diagonaalse suuga nägu | frustratsioon | frustreerunud | kahtlev | kahtlus | meh | mida iganes | mis iganes | pettunud | segadus | segaduses | skeptiline | suu</annotation>
 		<annotation cp="🫤" type="tts">diagonaalse suuga nägu</annotation>
 		<annotation cp="😟">ärevil | kurb | liblikad | mure | murelik | nägu | närvid | närviline | stress | stressis | üllatunud</annotation>
 		<annotation cp="😟" type="tts">murelik nägu</annotation>
-		<annotation cp="🙁">kortsutama | kulm | kurb | nägu | veidi</annotation>
+		<annotation cp="🙁">kortsutama | kulm | kurb | nägu | veidi | veidi kulmu kortsutav nägu</annotation>
 		<annotation cp="🙁" type="tts">veidi kulmu kortsutav nägu</annotation>
-		<annotation cp="☹">kortsutama | kulm | kurb | nägu</annotation>
+		<annotation cp="☹">kortsutama | kulm | kulmu kortsutav nägu | kurb | nägu</annotation>
 		<annotation cp="☹" type="tts">kulmu kortsutav nägu</annotation>
-		<annotation cp="😮">avatud | kaastunne | lahti | nägu | omg | šokeeritud | suu | üllatunud | unustasin | uskuma | uskumatu | vau</annotation>
+		<annotation cp="😮">avatud | avatud suuga nägu | kaastunne | lahti | nägu | omg | šokeeritud | suu | üllatunud | unustasin | uskuma | uskumatu | vau</annotation>
 		<annotation cp="😮" type="tts">avatud suuga nägu</annotation>
 		<annotation cp="😯">äge | hämmingus | nägu | omg | üllatunud | vaigistatud | vau</annotation>
 		<annotation cp="😯" type="tts">vaigistatud nägu</annotation>
-		<annotation cp="😲">ehmunud | hämmastus | löödud | nägu | omg</annotation>
+		<annotation cp="😲">ehmunud | hämmastunud nägu | hämmastus | löödud | nägu | omg</annotation>
 		<annotation cp="😲" type="tts">hämmastunud nägu</annotation>
 		<annotation cp="😳">hämmastunud | kuum | mida | nägu | palavus | piinlik | punastav | segaduses | segane | surnud | üllatunud | umbusk | vau</annotation>
 		<annotation cp="😳" type="tts">punastav nägu</annotation>
@@ -897,15 +897,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥺" type="tts">anuv nägu</annotation>
 		<annotation cp="🥹">imetlus | kurb | kurbus | nuttev | palun | piinlik | pisaraid tagasi hoidev nägu | rõõmupisarad | tänulik | tänulikkus | trotslik | tunded | uhke | vihane</annotation>
 		<annotation cp="🥹" type="tts">pisaraid tagasi hoidev nägu</annotation>
-		<annotation cp="😦">avatud | hirmul | hirmus | kulmukortsutamine | kulmukortsutus | mida | nägu | suu | tabatud | üllatus | valves | vau</annotation>
+		<annotation cp="😦">avatud | avatud suuga mossitav nägu | hirmul | hirmus | kulmukortsutamine | kulmukortsutus | mida | nägu | suu | tabatud | üllatus | valves | vau</annotation>
 		<annotation cp="😦" type="tts">avatud suuga mossitav nägu</annotation>
-		<annotation cp="😧">ahastus | hirmul | hirmus | mida | nägu | õnnetu | stressis | üllatunud | unustamine | vau</annotation>
+		<annotation cp="😧">ahastus | ahastuses nägu | hirmul | hirmus | mida | nägu | õnnetu | stressis | üllatunud | unustamine | vau</annotation>
 		<annotation cp="😧" type="tts">ahastuses nägu</annotation>
 		<annotation cp="😨">ärev | hirm | hirmunud nägu | hirmus | kartlik | murelik | nägu</annotation>
 		<annotation cp="😨" type="tts">hirmunud nägu</annotation>
-		<annotation cp="😰">ärev | ärevil | avatud | higi | hirmul | kiirustav | külm | nägu | sinine | suu</annotation>
+		<annotation cp="😰">ärev | ärevil | avatud | higi | hirmul | kiirustav | külm | külma higiga kaetud ja avatud suuga nägu | nägu | sinine | suu</annotation>
 		<annotation cp="😰" type="tts">külma higiga kaetud ja avatud suuga nägu</annotation>
-		<annotation cp="😥">aeg | ärev | higi | keeruline | kergendus | kõne | kurb | nägu | napikas | pettunud</annotation>
+		<annotation cp="😥">aeg | ärev | higi | keeruline | kergendus | kõne | kurb | nägu | napikas | pettunud | pettunud, kuid kergendust tundev nägu</annotation>
 		<annotation cp="😥" type="tts">pettunud, kuid kergendust tundev nägu</annotation>
 		<annotation cp="😢">igatsev | jube | kurb | nägu | nutt | nuttev | õnnetu | pisar | tunded</annotation>
 		<annotation cp="😢" type="tts">nuttev nägu</annotation>
@@ -919,7 +919,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😣" type="tts">sihikindel nägu</annotation>
 		<annotation cp="😞">ebaõnn | jube | kaotus | kurb | nägu | nukker | õnnetu | pettunud | süüdi</annotation>
 		<annotation cp="😞" type="tts">pettunud nägu</annotation>
-		<annotation cp="😓">higi | hirmul | külm | kurb | nägu | närvis | norgus | peavalu | suletud | tunded</annotation>
+		<annotation cp="😓">higi | hirmul | külm | külma higiga kaetud nägu | kurb | nägu | närvis | norgus | peavalu | suletud | tunded</annotation>
 		<annotation cp="😓" type="tts">külma higiga kaetud nägu</annotation>
 		<annotation cp="😩">ebaõnn | ei | kurb | nägu | näljane | nuttev | õnnetu | rammestunud | tunded | unine | väsinud | vihane</annotation>
 		<annotation cp="😩" type="tts">rammestunud nägu</annotation>
@@ -927,15 +927,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😫" type="tts">väsinud nägu</annotation>
 		<annotation cp="🥱">haigutav | haigutus | headööd | igav | mida iganes | nägu | öö | uinak | uneaeg | uni | unine | väsinud | zzz</annotation>
 		<annotation cp="🥱" type="tts">haigutav nägu</annotation>
-		<annotation cp="😤">aur | nägu | nina | õnnetu | pahane | raev | raevukas | suits | suitsev | triumf | tunded | viha | vihane | võit</annotation>
+		<annotation cp="😤">aur | nägu | nina | ninast auru ajav nägu | õnnetu | pahane | raev | raevukas | suits | suitsev | triumf | tunded | viha | vihane | võit</annotation>
 		<annotation cp="😤" type="tts">ninast auru ajav nägu</annotation>
 		<annotation cp="😡">ärritunud | mossitav | nägu | õnnetu | pahane | punane | raevunud | tige | tunded | viha | vihaleajav | vihane</annotation>
 		<annotation cp="😡" type="tts">mossitav nägu</annotation>
 		<annotation cp="😠">ärritunud | frustreerunud | nägu | õnnetu | pahane | raev | süüdi | tige | tunded | viha | vihaleajav | vihane</annotation>
 		<annotation cp="😠" type="tts">tige nägu</annotation>
-		<annotation cp="🤬">ärritunud | nägu | ropendav | sümbolid | suu | tsensuur | vanduv | vihane</annotation>
+		<annotation cp="🤬">ärritunud | nägu | ropendav | sümbolid | suu | suul olevate sümbolitega nägu | tsensuur | vanduv | vihane</annotation>
 		<annotation cp="🤬" type="tts">suul olevate sümbolitega nägu</annotation>
-		<annotation cp="😈">deemon | fantaasia | kuri | lilla | muinasjutt | naeratav | naeratus | nägu | saatan | sarved</annotation>
+		<annotation cp="😈">deemon | fantaasia | kuri | lilla | muinasjutt | naeratav | naeratus | nägu | saatan | sarved | sarviline naerunägu</annotation>
 		<annotation cp="😈" type="tts">sarviline naerunägu</annotation>
 		<annotation cp="👿">deemon | fantaasia | kurat | kuri | lilla | muinasjutt | nägu | saatan | sarved | vallatu | vihane</annotation>
 		<annotation cp="👿" type="tts">deemon</annotation>
@@ -1039,11 +1039,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💯" type="tts">sada punkti</annotation>
 		<annotation cp="💢">koomiks | tige | viha sümbol | vihane</annotation>
 		<annotation cp="💢" type="tts">viha sümbol</annotation>
-		<annotation cp="💥">kokkupõrge | koomiks | pauk | plahvatama | pomm | põrkuma</annotation>
+		<annotation cp="💥">kokkupõrge | koomiks | pauk | piraki | plahvatama | pomm | põrkuma</annotation>
 		<annotation cp="💥" type="tts">piraki</annotation>
 		<annotation cp="💫">koomiks | peadpööritav | täht</annotation>
 		<annotation cp="💫" type="tts">peadpööritav</annotation>
-		<annotation cp="💦">higi | koomiks | märg | piisad | piisk | pritsima | pritsimine | tilgad | tilk | töö | trenn | vesi</annotation>
+		<annotation cp="💦">higi | higipiisad | koomiks | märg | piisad | piisk | pritsima | pritsimine | tilgad | tilk | töö | trenn | vesi</annotation>
 		<annotation cp="💦" type="tts">higipiisad</annotation>
 		<annotation cp="💨">jooksmine | kiirustamine | koomiks</annotation>
 		<annotation cp="💨" type="tts">kiirustamine</annotation>
@@ -1083,7 +1083,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫷" type="tts">vasakule lükkav käsi</annotation>
 		<annotation cp="🫸">käsi | keeldu | keeldumine | lükka | lükkamine | oota | paremale | paremale lükkav käsi | stopp | viska viis</annotation>
 		<annotation cp="🫸" type="tts">paremale lükkav käsi</annotation>
-		<annotation cp="👌">äge | hästi | käsi | kindlasti | kolm | korras | näpistama | OK | okei | selge | vinge</annotation>
+		<annotation cp="👌">äge | hästi | käsi | kindlasti | kolm | korras | näpistama | OK | OK-käemärk | okei | selge | vinge</annotation>
 		<annotation cp="👌" type="tts">OK-käemärk</annotation>
 		<annotation cp="🤌">hoidma | kannatlkkus | käsi | kokkusurutud | küsima | lõõgastus | mida | sarkastiline | sõrmed | žest</annotation>
 		<annotation cp="🤌" type="tts">kokkusurutud sõrmed</annotation>
@@ -1095,9 +1095,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤞" type="tts">sõrmed risti</annotation>
 		<annotation cp="🫰">&lt;3 | armastus | kallis | käsi | nips | pöialt ja nimetissõrme risti hoidev käsi | raha | süda</annotation>
 		<annotation cp="🫰" type="tts">pöialt ja nimetissõrme risti hoidev käsi</annotation>
-		<annotation cp="🤟">armastan | armastus | käsi | kolm | sind | sõrmed | žest</annotation>
+		<annotation cp="🤟">armastan | armastus | armastust väljendav žest | käsi | kolm | sind | sõrmed | žest</annotation>
 		<annotation cp="🤟" type="tts">armastust väljendav žest</annotation>
-		<annotation cp="🤘">käsi | märk | rokk | sarved | sõrmed</annotation>
+		<annotation cp="🤘">käsi | märk | rokk | sarved | sarvede märk | sõrmed</annotation>
 		<annotation cp="🤘" type="tts">sarvede märk</annotation>
 		<annotation cp="🤙">helista | helista mulle | käsi</annotation>
 		<annotation cp="🤙" type="tts">helista mulle</annotation>
@@ -1147,7 +1147,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💅" type="tts">küünelakk</annotation>
 		<annotation cp="🤳">kaamera | käsi | selfi | telefon</annotation>
 		<annotation cp="🤳" type="tts">selfi</annotation>
-		<annotation cp="💪">biitseps | bro | fleksima | jõusaal | käsi | kasv | kätekõverdused | kulturist | lihas | lihaseline | loom | musklis | pink | press | tõstmine | tugev</annotation>
+		<annotation cp="💪">biitseps | bro | fleksima | jõusaal | käsi | kasv | kätekõverdused | kulturist | lihas | lihaseline | loom | musklis | pingutatud biitseps | pink | press | tõstmine | tugev</annotation>
 		<annotation cp="💪" type="tts">pingutatud biitseps</annotation>
 		<annotation cp="🦾">ligipääs | mehaaniline käsi | protees</annotation>
 		<annotation cp="🦾" type="tts">mehaaniline käsi</annotation>
@@ -1193,11 +1193,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👧" type="tts">tüdruk</annotation>
 		<annotation cp="🧑">inimene | täiskasvanu</annotation>
 		<annotation cp="🧑" type="tts">täiskasvanu</annotation>
-		<annotation cp="👱">blond | blondiin | inimene | isik</annotation>
+		<annotation cp="👱">blond | blondiin | inimene | inimene: blondide juustega | isik</annotation>
 		<annotation cp="👱" type="tts">inimene: blondide juustega</annotation>
 		<annotation cp="👨">mees | täiskasvanu | tüüp</annotation>
 		<annotation cp="👨" type="tts">mees</annotation>
-		<annotation cp="🧔">habe | habemega | inimene | vuntsid</annotation>
+		<annotation cp="🧔">habe | habemega | inimene | mees: habemega | vuntsid</annotation>
 		<annotation cp="🧔" type="tts">mees: habemega</annotation>
 		<annotation cp="🧔‍♂">habe | habemega mees | mees</annotation>
 		<annotation cp="🧔‍♂" type="tts">habemega mees</annotation>
@@ -1207,7 +1207,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👩" type="tts">naine</annotation>
 		<annotation cp="🧔‍♀">habe | habemega naine | naine</annotation>
 		<annotation cp="🧔‍♀" type="tts">habemega naine</annotation>
-		<annotation cp="👱‍♀">blond | blondiin | inimene | juuksed | naine</annotation>
+		<annotation cp="👱‍♀">blond | blondiin | inimene | juuksed | naine | naine: blond</annotation>
 		<annotation cp="👱‍♀" type="tts">naine: blond</annotation>
 		<annotation cp="🧓">eakas | isik | täiskasvanu | tark | vana | vanavanem</annotation>
 		<annotation cp="🧓" type="tts">eakas</annotation>
@@ -1229,19 +1229,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙎‍♀" type="tts">mossitav naine</annotation>
 		<annotation cp="🙅">ei | eitav | inimene | käsi | keelama | keelatud | žest</annotation>
 		<annotation cp="🙅" type="tts">eitav žest</annotation>
-		<annotation cp="🙅‍♂">ei | eitav | käsi | keelama | keelatud | mees | žest</annotation>
+		<annotation cp="🙅‍♂">ei | eitav | eitavat žesti näitav mees | käsi | keelama | keelatud | mees | žest</annotation>
 		<annotation cp="🙅‍♂" type="tts">eitavat žesti näitav mees</annotation>
 		<annotation cp="🙅‍♀">eitavat žesti näitav naine | käed ristis | keelatud | naine | žest</annotation>
 		<annotation cp="🙅‍♀" type="tts">eitavat žesti näitav naine</annotation>
-		<annotation cp="🙆">inimene | käsi | liigutus | OK | omg | võimlemine | žest</annotation>
+		<annotation cp="🙆">inimene | käsi | liigutus | nõustuv žest | OK | omg | võimlemine | žest</annotation>
 		<annotation cp="🙆" type="tts">nõustuv žest</annotation>
-		<annotation cp="🙆‍♂">käsi | liigutus | mees | OK | omg | võimlemine | žest</annotation>
+		<annotation cp="🙆‍♂">käsi | liigutus | mees | nõustuvat žesti näitav mees | OK | omg | võimlemine | žest</annotation>
 		<annotation cp="🙆‍♂" type="tts">nõustuvat žesti näitav mees</annotation>
 		<annotation cp="🙆‍♀">käed pea peal | korras | nõustuvat žesti näitav naine | ok | žest</annotation>
 		<annotation cp="🙆‍♀" type="tts">nõustuvat žesti näitav naine</annotation>
 		<annotation cp="💁">abi | info | infoleti töötaja | inimene | käsi | kõmu | kuulujutt | mida iganes | naine | sarkasm | sarkastiline | teave | tõsiselt</annotation>
 		<annotation cp="💁" type="tts">infoleti töötaja</annotation>
-		<annotation cp="💁‍♂">heitma | käsi | klatšima | mees | mida iganes | ninakas | nipsama | sarkasm | sarkastiline | tippima | tooma | tõsiselt</annotation>
+		<annotation cp="💁‍♂">heitma | infoleti meestöötaja | käsi | klatšima | mees | mida iganes | ninakas | nipsama | sarkasm | sarkastiline | tippima | tooma | tõsiselt</annotation>
 		<annotation cp="💁‍♂" type="tts">infoleti meestöötaja</annotation>
 		<annotation cp="💁‍♀">abi | infoleti naistöötaja | naine | teave</annotation>
 		<annotation cp="💁‍♀" type="tts">infoleti naistöötaja</annotation>
@@ -1261,13 +1261,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙇" type="tts">kummardav inimene</annotation>
 		<annotation cp="🙇‍♂">kummardus | mees | sügavalt kummarduv mees | vabandus | žest</annotation>
 		<annotation cp="🙇‍♂" type="tts">sügavalt kummarduv mees</annotation>
-		<annotation cp="🙇‍♀">haledus | inimene | kahetsus | kummardama | kummardus | kummarduv | küsima | meditatsioon | mediteerima | naine | paluma | vabandus | žest</annotation>
+		<annotation cp="🙇‍♀">haledus | inimene | kahetsus | kummardama | kummardus | kummarduv | küsima | meditatsioon | mediteerima | naine | paluma | sügavalt kummarduv naine | vabandus | žest</annotation>
 		<annotation cp="🙇‍♀" type="tts">sügavalt kummarduv naine</annotation>
 		<annotation cp="🤦">aa | ei | hämming | inimene | jälle | lööma | meeleheide | mitte | nägu | omg | segadus | šokk</annotation>
 		<annotation cp="🤦" type="tts">meeleheide</annotation>
-		<annotation cp="🤦‍♂">aa | ei | hämming | jälle | lööma | meeleheide | mees | mitte | nägu | omg | segadus | šokk</annotation>
+		<annotation cp="🤦‍♂">aa | ei | hämming | jälle | käega vastu pead lööv mees | lööma | meeleheide | mees | mitte | nägu | omg | segadus | šokk</annotation>
 		<annotation cp="🤦‍♂" type="tts">käega vastu pead lööv mees</annotation>
-		<annotation cp="🤦‍♀">aa | ei | hämming | jälle | lööma | meeleheide | mitte | nägu | naine | omg | segadus | šokk</annotation>
+		<annotation cp="🤦‍♀">aa | ei | hämming | jälle | käega vastu pead lööv naine | lööma | meeleheide | mitte | nägu | naine | omg | segadus | šokk</annotation>
 		<annotation cp="🤦‍♀" type="tts">käega vastu pead lööv naine</annotation>
 		<annotation cp="🤷">ei tea | idk | inimene | kehitus | kes teab | ma ei tea | mida iganes | õlakehitus | õlg | teadmatus | ükskõiksus | võib-olla</annotation>
 		<annotation cp="🤷" type="tts">õlakehitus</annotation>
@@ -1283,111 +1283,111 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👩‍⚕" type="tts">naisarst</annotation>
 		<annotation cp="🧑‍🎓">koolilõpetaja | õpilane</annotation>
 		<annotation cp="🧑‍🎓" type="tts">õpilane</annotation>
-		<annotation cp="👨‍🎓">lõpetaja | mees | õpilane</annotation>
+		<annotation cp="👨‍🎓">lõpetaja | mees | meesõpilane | õpilane</annotation>
 		<annotation cp="👨‍🎓" type="tts">meesõpilane</annotation>
-		<annotation cp="👩‍🎓">lõpetaja | naine | õpilane</annotation>
+		<annotation cp="👩‍🎓">lõpetaja | naine | naisõpilane | õpilane</annotation>
 		<annotation cp="👩‍🎓" type="tts">naisõpilane</annotation>
 		<annotation cp="🧑‍🏫">koolitaja | õpetaja | professor</annotation>
 		<annotation cp="🧑‍🏫" type="tts">õpetaja</annotation>
-		<annotation cp="👨‍🏫">juhendaja | mees | õpetaja | õppejõud | professor</annotation>
+		<annotation cp="👨‍🏫">juhendaja | mees | meesõpetaja | õpetaja | õppejõud | professor</annotation>
 		<annotation cp="👨‍🏫" type="tts">meesõpetaja</annotation>
-		<annotation cp="👩‍🏫">juhendaja | naine | õpetaja | õppejõud | professor</annotation>
+		<annotation cp="👩‍🏫">juhendaja | naine | naisõpetaja | õpetaja | õppejõud | professor</annotation>
 		<annotation cp="👩‍🏫" type="tts">naisõpetaja</annotation>
 		<annotation cp="🧑‍⚖">kohtunik | kohus | õigusemõistmine</annotation>
 		<annotation cp="🧑‍⚖" type="tts">kohtunik</annotation>
-		<annotation cp="👨‍⚖">kohtunik | kohus | mees | õigus | seadus</annotation>
+		<annotation cp="👨‍⚖">kohtunik | kohus | mees | meeskohtunik | õigus | seadus</annotation>
 		<annotation cp="👨‍⚖" type="tts">meeskohtunik</annotation>
-		<annotation cp="👩‍⚖">kohtunik | kohus | naine | õigus | seadus</annotation>
+		<annotation cp="👩‍⚖">kohtunik | kohus | naine | naiskohtunik | õigus | seadus</annotation>
 		<annotation cp="👩‍⚖" type="tts">naiskohtunik</annotation>
 		<annotation cp="🧑‍🌾">aednik | farmer | talunik</annotation>
 		<annotation cp="🧑‍🌾" type="tts">talunik</annotation>
-		<annotation cp="👨‍🌾">aednik | farmer | mees | põllumees | talunik</annotation>
+		<annotation cp="👨‍🌾">aednik | farmer | mees | meesfarmer | põllumees | talunik</annotation>
 		<annotation cp="👨‍🌾" type="tts">meesfarmer</annotation>
-		<annotation cp="👩‍🌾">aednik | farmer | naine | põllumees | talunik</annotation>
+		<annotation cp="👩‍🌾">aednik | farmer | naine | naisfarmer | põllumees | talunik</annotation>
 		<annotation cp="👩‍🌾" type="tts">naisfarmer</annotation>
 		<annotation cp="🧑‍🍳">kokk | peakokk</annotation>
 		<annotation cp="🧑‍🍳" type="tts">kokk</annotation>
-		<annotation cp="👨‍🍳">kokk | mees</annotation>
+		<annotation cp="👨‍🍳">kokk | mees | meeskokk</annotation>
 		<annotation cp="👨‍🍳" type="tts">meeskokk</annotation>
-		<annotation cp="👩‍🍳">kokk | naine</annotation>
+		<annotation cp="👩‍🍳">kokk | naine | naiskokk</annotation>
 		<annotation cp="👩‍🍳" type="tts">naiskokk</annotation>
 		<annotation cp="🧑‍🔧">elektrik | mehaanik | torulukksepp | torumees</annotation>
 		<annotation cp="🧑‍🔧" type="tts">mehaanik</annotation>
-		<annotation cp="👨‍🔧">elektrik | mees | mehaanik | torulukksepp | torumees</annotation>
+		<annotation cp="👨‍🔧">elektrik | mees | meesmehaanik | mehaanik | torulukksepp | torumees</annotation>
 		<annotation cp="👨‍🔧" type="tts">meesmehaanik</annotation>
-		<annotation cp="👩‍🔧">elektrik | mehaanik | naine | torulukksepp</annotation>
+		<annotation cp="👩‍🔧">elektrik | mehaanik | naine | naismehaanik | torulukksepp</annotation>
 		<annotation cp="👩‍🔧" type="tts">naismehaanik</annotation>
 		<annotation cp="🧑‍🏭">liinitööline | tehas | tehasetööline | tööline</annotation>
 		<annotation cp="🧑‍🏭" type="tts">tehasetööline</annotation>
-		<annotation cp="👨‍🏭">liinitööline | mees | tehas | tööline</annotation>
+		<annotation cp="👨‍🏭">liinitööline | mees | meessoost tehasetööline | tehas | tööline</annotation>
 		<annotation cp="👨‍🏭" type="tts">meessoost tehasetööline</annotation>
-		<annotation cp="👩‍🏭">liinitööline | naine | tehas | tööline</annotation>
+		<annotation cp="👩‍🏭">liinitööline | naine | naissoost tehasetööline | tehas | tööline</annotation>
 		<annotation cp="👩‍🏭" type="tts">naissoost tehasetööline</annotation>
 		<annotation cp="🧑‍💼">ametnik | arhitekt | ärimees | juhataja | kontoritöötaja | valgekrae</annotation>
 		<annotation cp="🧑‍💼" type="tts">kontoritöötaja</annotation>
-		<annotation cp="👨‍💼">arhitekt | äri | juhataja | kontor | mees | töötaja | valgekrae</annotation>
+		<annotation cp="👨‍💼">arhitekt | äri | juhataja | kontor | mees | meeskontoritöötaja | töötaja | valgekrae</annotation>
 		<annotation cp="👨‍💼" type="tts">meeskontoritöötaja</annotation>
-		<annotation cp="👩‍💼">arhitekt | äri | juhataja | kontor | naine | töötaja | valgekrae</annotation>
+		<annotation cp="👩‍💼">arhitekt | äri | juhataja | kontor | naine | naiskontoritöötaja | töötaja | valgekrae</annotation>
 		<annotation cp="👩‍💼" type="tts">naiskontoritöötaja</annotation>
 		<annotation cp="🧑‍🔬">bioloog | füüsik | insener | keemik | teadlane</annotation>
 		<annotation cp="🧑‍🔬" type="tts">teadlane</annotation>
-		<annotation cp="👨‍🔬">bioloog | füüsik | insener | keemik | matemaatik | mees | teadlane</annotation>
+		<annotation cp="👨‍🔬">bioloog | füüsik | insener | keemik | matemaatik | mees | meesteadlane | teadlane</annotation>
 		<annotation cp="👨‍🔬" type="tts">meesteadlane</annotation>
-		<annotation cp="👩‍🔬">bioloog | füüsik | insener | keemik | matemaatik | naine | teadlane</annotation>
+		<annotation cp="👩‍🔬">bioloog | füüsik | insener | keemik | matemaatik | naine | naisteadlane | teadlane</annotation>
 		<annotation cp="👩‍🔬" type="tts">naisteadlane</annotation>
 		<annotation cp="🧑‍💻">arendaja | programmeerija | tarkvara | tehnoloog</annotation>
 		<annotation cp="🧑‍💻" type="tts">programmeerija</annotation>
-		<annotation cp="👨‍💻">arendaja | arvuti | mees | programmeerija | tarkvara | tehnoloog</annotation>
+		<annotation cp="👨‍💻">arendaja | arvuti | mees | meesprogrammeerija | programmeerija | tarkvara | tehnoloog</annotation>
 		<annotation cp="👨‍💻" type="tts">meesprogrammeerija</annotation>
-		<annotation cp="👩‍💻">arendaja | arvuti | naine | programmeerija | tarkvara | tehnoloog</annotation>
+		<annotation cp="👩‍💻">arendaja | arvuti | naine | naisprogrammeerija | programmeerija | tarkvara | tehnoloog</annotation>
 		<annotation cp="👩‍💻" type="tts">naisprogrammeerija</annotation>
 		<annotation cp="🧑‍🎤">artist | laulja | meelelahutaja | staar</annotation>
 		<annotation cp="🧑‍🎤" type="tts">laulja</annotation>
-		<annotation cp="👨‍🎤">laulja | meelelahutaja | mees | näitleja | rokk | rokkstaar | staar</annotation>
+		<annotation cp="👨‍🎤">laulja | meelelahutaja | mees | meeslaulja | näitleja | rokk | rokkstaar | staar</annotation>
 		<annotation cp="👨‍🎤" type="tts">meeslaulja</annotation>
-		<annotation cp="👩‍🎤">laulja | meelelahutaja | naine | näitleja | rokk | rokkstaar | staar</annotation>
+		<annotation cp="👩‍🎤">laulja | meelelahutaja | naine | naislaulja | näitleja | rokk | rokkstaar | staar</annotation>
 		<annotation cp="👩‍🎤" type="tts">naislaulja</annotation>
 		<annotation cp="🧑‍🎨">kunstnik | palett</annotation>
 		<annotation cp="🧑‍🎨" type="tts">kunstnik</annotation>
-		<annotation cp="👨‍🎨">kunstnik | mees | palett</annotation>
+		<annotation cp="👨‍🎨">kunstnik | mees | meeskunstnik | palett</annotation>
 		<annotation cp="👨‍🎨" type="tts">meeskunstnik</annotation>
-		<annotation cp="👩‍🎨">kunstnik | naine | palett</annotation>
+		<annotation cp="👩‍🎨">kunstnik | naine | naiskunstnik | palett</annotation>
 		<annotation cp="👩‍🎨" type="tts">naiskunstnik</annotation>
 		<annotation cp="🧑‍✈">lennuk | piloot</annotation>
 		<annotation cp="🧑‍✈" type="tts">piloot</annotation>
-		<annotation cp="👨‍✈">lennuk | mees | piloot</annotation>
+		<annotation cp="👨‍✈">lennuk | mees | meespiloot | piloot</annotation>
 		<annotation cp="👨‍✈" type="tts">meespiloot</annotation>
-		<annotation cp="👩‍✈">lennuk | naine | piloot</annotation>
+		<annotation cp="👩‍✈">lennuk | naine | naispiloot | piloot</annotation>
 		<annotation cp="👩‍✈" type="tts">naispiloot</annotation>
 		<annotation cp="🧑‍🚀">astronaut | rakett</annotation>
 		<annotation cp="🧑‍🚀" type="tts">astronaut</annotation>
-		<annotation cp="👨‍🚀">astronaut | kosmos | mees | rakett</annotation>
+		<annotation cp="👨‍🚀">astronaut | kosmos | mees | meesastronaut | rakett</annotation>
 		<annotation cp="👨‍🚀" type="tts">meesastronaut</annotation>
-		<annotation cp="👩‍🚀">astronaut | kosmos | naine | rakett</annotation>
+		<annotation cp="👩‍🚀">astronaut | kosmos | naine | naisastronaut | rakett</annotation>
 		<annotation cp="👩‍🚀" type="tts">naisastronaut</annotation>
 		<annotation cp="🧑‍🚒">tuletõrjeauto | tuletõrjuja</annotation>
 		<annotation cp="🧑‍🚒" type="tts">tuletõrjuja</annotation>
-		<annotation cp="👨‍🚒">mees | tuletõrjeauto | tuletõrjuja | tuli</annotation>
+		<annotation cp="👨‍🚒">mees | meestuletõrjuja | tuletõrjeauto | tuletõrjuja | tuli</annotation>
 		<annotation cp="👨‍🚒" type="tts">meestuletõrjuja</annotation>
-		<annotation cp="👩‍🚒">naine | tuletõrjeauto | tuletõrjuja | tuli</annotation>
+		<annotation cp="👩‍🚒">naine | naistuletõrjuja | tuletõrjeauto | tuletõrjuja | tuli</annotation>
 		<annotation cp="👩‍🚒" type="tts">naistuletõrjuja</annotation>
 		<annotation cp="👮">arreteerimine | konstaabel | politsei | politseinik | salapolitseinik | seadus | tee äärde</annotation>
 		<annotation cp="👮" type="tts">politseinik</annotation>
 		<annotation cp="👮‍♂">konstaabel | mees | meespolitseinik | politseinik</annotation>
 		<annotation cp="👮‍♂" type="tts">meespolitseinik</annotation>
-		<annotation cp="👮‍♀">arreteerimine | konstaabel | naine | politsei | politseinik | salapolitseinik | seadus | tee äärde</annotation>
+		<annotation cp="👮‍♀">arreteerimine | konstaabel | naine | naispolitseinik | politsei | politseinik | salapolitseinik | seadus | tee äärde</annotation>
 		<annotation cp="👮‍♀" type="tts">naispolitseinik</annotation>
 		<annotation cp="🕵">detektiiv | spioon | uurija</annotation>
 		<annotation cp="🕵" type="tts">detektiiv</annotation>
 		<annotation cp="🕵‍♂">detektiiv | mees | meesdetektiiv | spioon | uurija</annotation>
 		<annotation cp="🕵‍♂" type="tts">meesdetektiiv</annotation>
-		<annotation cp="🕵‍♀">detektiiv | naine | spioon | uurija</annotation>
+		<annotation cp="🕵‍♀">detektiiv | naine | naisdetektiiv | spioon | uurija</annotation>
 		<annotation cp="🕵‍♀" type="tts">naisdetektiiv</annotation>
 		<annotation cp="💂">buckingham | kiiver | london | palee | valvur</annotation>
 		<annotation cp="💂" type="tts">valvur</annotation>
 		<annotation cp="💂‍♂">mees | meesvalvur | valvur</annotation>
 		<annotation cp="💂‍♂" type="tts">meesvalvur</annotation>
-		<annotation cp="💂‍♀">buckingham | kiiver | london | naine | palee | valvur</annotation>
+		<annotation cp="💂‍♀">buckingham | kiiver | london | naine | naisvalvur | palee | valvur</annotation>
 		<annotation cp="💂‍♀" type="tts">naisvalvur</annotation>
 		<annotation cp="🥷">inimene | ninja | oskused | palgamõrvar | peidetud | salajane | salakuulaja | sõda | sõdalane | võitleja | võitlus</annotation>
 		<annotation cp="🥷" type="tts">ninja</annotation>
@@ -1395,31 +1395,31 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👷" type="tts">ehitaja</annotation>
 		<annotation cp="👷‍♂">ehitaja | ehitus | kiiver | mees | meesehitaja</annotation>
 		<annotation cp="👷‍♂" type="tts">meesehitaja</annotation>
-		<annotation cp="👷‍♀">ehitaja | ehitus | inimene | kiiver | naine | parandus | remont | renvoeerimine | töö | tööline</annotation>
+		<annotation cp="👷‍♀">ehitaja | ehitus | inimene | kiiver | naine | naisehitaja | parandus | remont | renvoeerimine | töö | tööline</annotation>
 		<annotation cp="👷‍♀" type="tts">naisehitaja</annotation>
-		<annotation cp="🫅">inimene | kroon | kuninglik | monarh | valitseja</annotation>
+		<annotation cp="🫅">inimene | kroon | krooniga inimene | kuninglik | monarh | valitseja</annotation>
 		<annotation cp="🫅" type="tts">krooniga inimene</annotation>
 		<annotation cp="🤴">fantaasia | kroon | kuningas | kuninglik | muinasjutt | prints</annotation>
 		<annotation cp="🤴" type="tts">prints</annotation>
 		<annotation cp="👸">fantaasia | kroon | kuninganna | kuninglik | muinasjutt | printsess</annotation>
 		<annotation cp="👸" type="tts">printsess</annotation>
-		<annotation cp="👳">inimene | turban</annotation>
+		<annotation cp="👳">inimene | turban | turbaniga inimene</annotation>
 		<annotation cp="👳" type="tts">turbaniga inimene</annotation>
 		<annotation cp="👳‍♂">mees | mees turbaniga | turban</annotation>
 		<annotation cp="👳‍♂" type="tts">mees turbaniga</annotation>
-		<annotation cp="👳‍♀">naine | turban</annotation>
+		<annotation cp="👳‍♀">naine | naine turbaninga | turban</annotation>
 		<annotation cp="👳‍♀" type="tts">naine turbaninga</annotation>
-		<annotation cp="👲">gua | guapi | hiina | inimene | mao | müts | pi | pigimüts</annotation>
+		<annotation cp="👲">gua | guapi | hiina | Hiina mütsiga mees | inimene | mao | müts | pi | pigimüts</annotation>
 		<annotation cp="👲" type="tts">Hiina mütsiga mees</annotation>
-		<annotation cp="🧕">bandana | hijab | mantilla | naine | pea | pearätt | rätik | tichel</annotation>
+		<annotation cp="🧕">bandana | hijab | mantilla | naine | pea | pearätiga naine | pearätt | rätik | tichel</annotation>
 		<annotation cp="🧕" type="tts">pearätiga naine</annotation>
-		<annotation cp="🤵">inimene | pidulik | pulm | smoking</annotation>
+		<annotation cp="🤵">inimene | inimene smokingus | pidulik | pulm | smoking</annotation>
 		<annotation cp="🤵" type="tts">inimene smokingus</annotation>
 		<annotation cp="🤵‍♂">mees | mees smokingis | mees smokingus | smoking</annotation>
 		<annotation cp="🤵‍♂" type="tts">mees smokingis</annotation>
 		<annotation cp="🤵‍♀">naine | naine smokingus | smoking</annotation>
 		<annotation cp="🤵‍♀" type="tts">naine smokingus</annotation>
-		<annotation cp="👰">inmene | loor | pulm</annotation>
+		<annotation cp="👰">inmene | loor | loori kandev inimene | pulm</annotation>
 		<annotation cp="👰" type="tts">loori kandev inimene</annotation>
 		<annotation cp="👰‍♂">loor | mees | mees looriga</annotation>
 		<annotation cp="👰‍♂" type="tts">mees looriga</annotation>
@@ -1433,11 +1433,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫄" type="tts">rase inimene</annotation>
 		<annotation cp="🤱">ema | imetamine | imik | naine | rind | rinnaga toitmine</annotation>
 		<annotation cp="🤱" type="tts">rinnaga toitmine</annotation>
-		<annotation cp="👩‍🍼">beebi | ema | emme | imetamine | imik | lapsehoidja | naine | toitma | toitmine</annotation>
+		<annotation cp="👩‍🍼">beebi | beebit toitev naine | ema | emme | imetamine | imik | lapsehoidja | naine | toitma | toitmine</annotation>
 		<annotation cp="👩‍🍼" type="tts">beebit toitev naine</annotation>
-		<annotation cp="👨‍🍼">beebi | imik | isa | issi | lapsehoidja | mees | toitma | toitmine</annotation>
+		<annotation cp="👨‍🍼">beebi | beebit toitev mees | imik | isa | issi | lapsehoidja | mees | toitma | toitmine</annotation>
 		<annotation cp="👨‍🍼" type="tts">beebit toitev mees</annotation>
-		<annotation cp="🧑‍🍼">beebi | imetamine | imik | inimene | lapsehoidja | toitmine | vanem</annotation>
+		<annotation cp="🧑‍🍼">beebi | beebit toitev inimene | imetamine | imik | inimene | lapsehoidja | toitmine | vanem</annotation>
 		<annotation cp="🧑‍🍼" type="tts">beebit toitev inimene</annotation>
 		<annotation cp="👼">ingel | inglibeebi | inglilaps | laps | lapsenägu | muinasjutt</annotation>
 		<annotation cp="👼" type="tts">inglibeebi</annotation>
@@ -1445,7 +1445,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎅" type="tts">jõuluvana</annotation>
 		<annotation cp="🤶">abikaasa | ema | fantaasia | jõulud | jõuluvana | pühad | tähistamine</annotation>
 		<annotation cp="🤶" type="tts">jõuluvana abikaasa</annotation>
-		<annotation cp="🧑‍🎄">fantaasia | jõulud | päkapikk | pühad | tähistamine</annotation>
+		<annotation cp="🧑‍🎄">fantaasia | jõulud | päkapikk | päkats | pühad | tähistamine</annotation>
 		<annotation cp="🧑‍🎄" type="tts">päkats</annotation>
 		<annotation cp="🦸">hea | kangelane | superkangelane | supervõime</annotation>
 		<annotation cp="🦸" type="tts">superkangelane</annotation>
@@ -1505,13 +1505,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧌" type="tts">troll</annotation>
 		<annotation cp="💆">hooldus | inimene | lõõgastav | lõõgastus | massaaž | naine | näomassaaž | peavalu | pinge | salong | spaa | teraapia</annotation>
 		<annotation cp="💆" type="tts">näomassaaž</annotation>
-		<annotation cp="💆‍♂">inimene | lõõgastav | lõõgastuma | massaaž | mees | nägu | näomassaaž | pinge | rahustama | ravi | salong | spaa | teraapia</annotation>
+		<annotation cp="💆‍♂">inimene | lõõgastav | lõõgastuma | massaaž | mees | nägu | näomassaaž | näomassaaži saav mees | pinge | rahustama | ravi | salong | spaa | teraapia</annotation>
 		<annotation cp="💆‍♂" type="tts">näomassaaži saav mees</annotation>
 		<annotation cp="💆‍♀">massaaž | nägu | naine | näomassaaž | näomassaaži saav naine</annotation>
 		<annotation cp="💆‍♀" type="tts">näomassaaži saav naine</annotation>
 		<annotation cp="💇">ilu | ilusalong | inimene | juukselõikus | juuksur | juuste lõikamine | kosmetoloogia | salong | soengu tegemine | stiil</annotation>
 		<annotation cp="💇" type="tts">juukselõikus</annotation>
-		<annotation cp="💇‍♂">ilu | ilusalong | juukselõikus | juuksur | juuste lõikamine | kosmetoloogia | mees | salong | soengu tegemine | stiil</annotation>
+		<annotation cp="💇‍♂">ilu | ilusalong | juukselõikus | juuksur | juuste lõikamine | kosmetoloogia | mees | mees juuksuris | salong | soengu tegemine | stiil</annotation>
 		<annotation cp="💇‍♂" type="tts">mees juuksuris</annotation>
 		<annotation cp="💇‍♀">ilusalong | juukselõikus | juuksur | naine | naine juuksuris</annotation>
 		<annotation cp="💇‍♀" type="tts">naine juuksuris</annotation>
@@ -1541,15 +1541,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👩‍🦯" type="tts">valge kepiga naine</annotation>
 		<annotation cp="🧑‍🦼">elektrilises ratastoolis inimene | ligipääsetavus | ratastool</annotation>
 		<annotation cp="🧑‍🦼" type="tts">elektrilises ratastoolis inimene</annotation>
-		<annotation cp="👨‍🦼">elektri | ligipääs | mees | ratastool</annotation>
+		<annotation cp="👨‍🦼">elektri | elektriratastoolis olev mees | ligipääs | mees | ratastool</annotation>
 		<annotation cp="👨‍🦼" type="tts">elektriratastoolis olev mees</annotation>
-		<annotation cp="👩‍🦼">elektri | ligipääs | naine | ratastool</annotation>
+		<annotation cp="👩‍🦼">elektri | elektriratastoolis olev naine | ligipääs | naine | ratastool</annotation>
 		<annotation cp="👩‍🦼" type="tts">elektriratastoolis olev naine</annotation>
 		<annotation cp="🧑‍🦽">ligipääsetavus | manuaalses ratastoolis inimene | ratastool</annotation>
 		<annotation cp="🧑‍🦽" type="tts">manuaalses ratastoolis inimene</annotation>
-		<annotation cp="👨‍🦽">ligipääs | manuaal | mees | ratastool</annotation>
+		<annotation cp="👨‍🦽">ligipääs | manuaal | manuaalratastoolis olev mees | mees | ratastool</annotation>
 		<annotation cp="👨‍🦽" type="tts">manuaalratastoolis olev mees</annotation>
-		<annotation cp="👩‍🦽">elektri | ligipääs | naine | ratastool</annotation>
+		<annotation cp="👩‍🦽">elektri | ligipääs | manuaalratastoolis olev naine | naine | ratastool</annotation>
 		<annotation cp="👩‍🦽" type="tts">manuaalratastoolis olev naine</annotation>
 		<annotation cp="🏃">inimene | jooks | jooksja | jooksuvõistlus | kiire | kiirus | kiirustamine | liikumine | maraton</annotation>
 		<annotation cp="🏃" type="tts">jooksja</annotation>
@@ -1557,25 +1557,25 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏃‍♂" type="tts">jooksev mees</annotation>
 		<annotation cp="🏃‍♀">inimene | jooksev naine | jooksja | maraton | naine | võistlus</annotation>
 		<annotation cp="🏃‍♀" type="tts">jooksev naine</annotation>
-		<annotation cp="💃">elegantne | flamenko | inimene | naine | pidulik | salsa | tango | tants | tantsimine</annotation>
+		<annotation cp="💃">elegantne | flamenko | inimene | naine | pidulik | salsa | tango | tants | tantsimine | tantsiv naine</annotation>
 		<annotation cp="💃" type="tts">tantsiv naine</annotation>
-		<annotation cp="🕺">elegantne | flamenko | mees | naine | pidulik | salsa | tango | tants | tantsimine</annotation>
+		<annotation cp="🕺">elegantne | flamenko | mees | naine | pidulik | salsa | tango | tants | tantsimine | tantsiv mees</annotation>
 		<annotation cp="🕺" type="tts">tantsiv mees</annotation>
-		<annotation cp="🕴">äri | hõljuv | inimene | ülikond</annotation>
+		<annotation cp="🕴">äri | hõljuv | hõljuv ülikonnaga mees | inimene | ülikond</annotation>
 		<annotation cp="🕴" type="tts">hõljuv ülikonnaga mees</annotation>
-		<annotation cp="👯">hingesugulased | identne | inimesed | jänes | kaaslane | kaksik | kaksikud | kõrv | paar | parim | pidu | pidutsemine | sõber | tantsija | topelt</annotation>
+		<annotation cp="👯">hingesugulased | identne | inimesed | jänes | kaaslane | kaksik | kaksikud | kõrv | paar | parim | pidu | pidutsemine | pidutsevad jänesekõrvadega inimesed | sõber | tantsija | topelt</annotation>
 		<annotation cp="👯" type="tts">pidutsevad jänesekõrvadega inimesed</annotation>
-		<annotation cp="👯‍♂">hingesugulased | identne | inimesed | jänes | kaaslane | kaksik | kaksikud | kõrv | mehed | paar | parim | pidu | pidutsemine | sõber | tantsija | topelt</annotation>
+		<annotation cp="👯‍♂">hingesugulased | identne | inimesed | jänes | kaaslane | kaksik | kaksikud | kõrv | mehed | paar | parim | pidu | pidutsemine | pidutsevad jänesekõrvadega mehed | sõber | tantsija | topelt</annotation>
 		<annotation cp="👯‍♂" type="tts">pidutsevad jänesekõrvadega mehed</annotation>
 		<annotation cp="👯‍♀">jänku | kõrvad | naised | pidutsevad jänesekõrvadega naised | tants</annotation>
 		<annotation cp="👯‍♀" type="tts">pidutsevad jänesekõrvadega naised</annotation>
-		<annotation cp="🧖">aurusaun | hoolitsus | inimene | leil | lõõgastav | lõõgastus | luksuslik | päev | ruum | saun | spaa</annotation>
+		<annotation cp="🧖">aurusaun | hoolitsus | inimene | inimene leiliruumis | leil | lõõgastav | lõõgastus | luksuslik | päev | ruum | saun | spaa</annotation>
 		<annotation cp="🧖" type="tts">inimene leiliruumis</annotation>
 		<annotation cp="🧖‍♂">leiliruum | leiliruumis olev mees | saun</annotation>
 		<annotation cp="🧖‍♂" type="tts">leiliruumis olev mees</annotation>
 		<annotation cp="🧖‍♀">leiliruum | leiliruumis olev naine | naine leiliruumis | saun</annotation>
 		<annotation cp="🧖‍♀" type="tts">naine leiliruumis</annotation>
-		<annotation cp="🧗">alpinism | alpinist | mägi | mägironija | ronimine | üles</annotation>
+		<annotation cp="🧗">alpinism | alpinist | mägi | mägironija | mäkke roniv inimene | ronimine | üles</annotation>
 		<annotation cp="🧗" type="tts">mäkke roniv inimene</annotation>
 		<annotation cp="🧗‍♂">mägironija | mäkke roniv mees</annotation>
 		<annotation cp="🧗‍♂" type="tts">mäkke roniv mees</annotation>
@@ -1583,7 +1583,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧗‍♀" type="tts">mäkke roniv naine</annotation>
 		<annotation cp="🤺">inimene | mõõk | sport | vehkleja | vehklemine</annotation>
 		<annotation cp="🤺" type="tts">vehkleja</annotation>
-		<annotation cp="🏇">hobune | ratsutaja | ratsutamine | sport | võiduajamine</annotation>
+		<annotation cp="🏇">hobune | hobuste võiduajamine | ratsutaja | ratsutamine | sport | võiduajamine</annotation>
 		<annotation cp="🏇" type="tts">hobuste võiduajamine</annotation>
 		<annotation cp="⛷">lumi | suusataja | suusk</annotation>
 		<annotation cp="⛷" type="tts">suusataja</annotation>
@@ -1593,15 +1593,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏌" type="tts">golfimängija</annotation>
 		<annotation cp="🏌‍♂">golf | golfi mängiv mees | mees</annotation>
 		<annotation cp="🏌‍♂" type="tts">golfi mängiv mees</annotation>
-		<annotation cp="🏌‍♀">golf | golfikepp | golfimängija | griin | naine | pall | pga | tii</annotation>
+		<annotation cp="🏌‍♀">golf | golfi mängiv naine | golfikepp | golfimängija | griin | naine | pall | pga | tii</annotation>
 		<annotation cp="🏌‍♀" type="tts">golfi mängiv naine</annotation>
 		<annotation cp="🏄">inimene | lained | ookean | rand | sport | surfamine | surfar</annotation>
 		<annotation cp="🏄" type="tts">surfar</annotation>
 		<annotation cp="🏄‍♂">mees | meessurfar | surf | surfaja | surfar</annotation>
 		<annotation cp="🏄‍♂" type="tts">meessurfar</annotation>
-		<annotation cp="🏄‍♀">inimene | naine | surf | surfaja | surfar</annotation>
+		<annotation cp="🏄‍♀">inimene | naine | naissurfar | surf | surfaja | surfar</annotation>
 		<annotation cp="🏄‍♀" type="tts">naissurfar</annotation>
-		<annotation cp="🚣">aer | aerutamine | inimene | järv | kalapüük | kanuu | mõla | paadisõit | paat | parv | sõiduk</annotation>
+		<annotation cp="🚣">aer | aerupaadiga inimene | aerutamine | inimene | järv | kalapüük | kanuu | mõla | paadisõit | paat | parv | sõiduk</annotation>
 		<annotation cp="🚣" type="tts">aerupaadiga inimene</annotation>
 		<annotation cp="🚣‍♂">aerupaadiga mees | aerupaat | mees | paat</annotation>
 		<annotation cp="🚣‍♂" type="tts">aerupaadiga mees</annotation>
@@ -1611,37 +1611,37 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏊" type="tts">ujuja</annotation>
 		<annotation cp="🏊‍♂">mees | meesujuja | ujuja | ujumine</annotation>
 		<annotation cp="🏊‍♂" type="tts">meesujuja</annotation>
-		<annotation cp="🏊‍♀">mees | sport | triatlon | ujuja | ujumine</annotation>
+		<annotation cp="🏊‍♀">mees | naisujuja | sport | triatlon | ujuja | ujumine</annotation>
 		<annotation cp="🏊‍♀" type="tts">naisujuja</annotation>
-		<annotation cp="⛹">inimene | korv | korvpall | mängija | meistrivõistlused | pall | põrgatamine | sportlik | triblamine | viskama</annotation>
+		<annotation cp="⛹">inimene | inimene palliga | korv | korvpall | mängija | meistrivõistlused | pall | põrgatamine | sportlik | triblamine | viskama</annotation>
 		<annotation cp="⛹" type="tts">inimene palliga</annotation>
 		<annotation cp="⛹‍♂">mees | mees palliga | pall</annotation>
 		<annotation cp="⛹‍♂" type="tts">mees palliga</annotation>
-		<annotation cp="⛹‍♀">korv | korvpall | mängija | meistrivõistlused | naine | pall | põrgatamine | sportlik | triblamine | viskama</annotation>
+		<annotation cp="⛹‍♀">korv | korvpall | mängija | meistrivõistlused | naine | naine palliga | pall | põrgatamine | sportlik | triblamine | viskama</annotation>
 		<annotation cp="⛹‍♀" type="tts">naine palliga</annotation>
-		<annotation cp="🏋">inimene | jõutõstmine | jõutreening | kang | kulturist | raskused | tõstja | tõstmine | trenn</annotation>
+		<annotation cp="🏋">inimene | jõutõstja | jõutõstmine | jõutreening | kang | kulturist | raskused | tõstja | tõstmine | trenn</annotation>
 		<annotation cp="🏋" type="tts">jõutõstja</annotation>
 		<annotation cp="🏋‍♂">jõutõstja | kang | mees | meesjõutõstja | tõstja</annotation>
 		<annotation cp="🏋‍♂" type="tts">meesjõutõstja</annotation>
-		<annotation cp="🏋‍♀">jõutõstmine | jõutreening | kang | kulturist | naine | raskused | tõstja | tõstmine | trenn</annotation>
+		<annotation cp="🏋‍♀">jõutõstmine | jõutreening | kang | kulturist | naine | naisjõutõstja | raskused | tõstja | tõstmine | trenn</annotation>
 		<annotation cp="🏋‍♀" type="tts">naisjõutõstja</annotation>
 		<annotation cp="🚴">inimene | jalgratas | jalgrattur | ratas | rattur | sport</annotation>
 		<annotation cp="🚴" type="tts">jalgrattur</annotation>
 		<annotation cp="🚴‍♂">jalgratas | mees | meesrattur | ratas | rattur</annotation>
 		<annotation cp="🚴‍♂" type="tts">meesrattur</annotation>
-		<annotation cp="🚴‍♀">jalgratas | jalgrattur | naine | ratas | rattur | sport</annotation>
+		<annotation cp="🚴‍♀">jalgratas | jalgrattur | naine | naisrattur | ratas | rattur | sport</annotation>
 		<annotation cp="🚴‍♀" type="tts">naisrattur</annotation>
-		<annotation cp="🚵">jalgratas | jalgrattur | mees | ratas | rattur | sport</annotation>
+		<annotation cp="🚵">jalgratas | jalgrattur | mägirattur | mees | ratas | rattur | sport</annotation>
 		<annotation cp="🚵" type="tts">mägirattur</annotation>
 		<annotation cp="🚵‍♂">jalgratas | mägiratas | mees | meesmägirattur | rattur</annotation>
 		<annotation cp="🚵‍♂" type="tts">meesmägirattur</annotation>
-		<annotation cp="🚵‍♀">jalgratas | jalgrattur | mägi | naine | ratas | rattur | sport</annotation>
+		<annotation cp="🚵‍♀">jalgratas | jalgrattur | mägi | naine | naismägirattur | ratas | rattur | sport</annotation>
 		<annotation cp="🚵‍♀" type="tts">naismägirattur</annotation>
-		<annotation cp="🤸">aktiivne | elevil | iluvõimlemine | inimene | kukerpall | rõõmus | salto | sport</annotation>
+		<annotation cp="🤸">aktiivne | elevil | hundiratast viskav inimene | iluvõimlemine | inimene | kukerpall | rõõmus | salto | sport</annotation>
 		<annotation cp="🤸" type="tts">hundiratast viskav inimene</annotation>
-		<annotation cp="🤸‍♂">aktiivne | elevil | iluvõimlemine | kukerpall | mees | rõõmus | salto | sport</annotation>
+		<annotation cp="🤸‍♂">aktiivne | elevil | hundiratast viskav mees | iluvõimlemine | kukerpall | mees | rõõmus | salto | sport</annotation>
 		<annotation cp="🤸‍♂" type="tts">hundiratast viskav mees</annotation>
-		<annotation cp="🤸‍♀">aktiivne | elevil | iluvõimlemine | kukerpall | naine | rõõmus | salto | sport</annotation>
+		<annotation cp="🤸‍♀">aktiivne | elevil | hundiratast viskav naine | iluvõimlemine | kukerpall | naine | rõõmus | salto | sport</annotation>
 		<annotation cp="🤸‍♀" type="tts">hundiratast viskav naine</annotation>
 		<annotation cp="🤼">inimesed | kahevõitlus | maadlejad | maadlus | ringis | sport | turniir | võitlus</annotation>
 		<annotation cp="🤼" type="tts">maadlejad</annotation>
@@ -1649,23 +1649,23 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤼‍♂" type="tts">maadlevad mehed</annotation>
 		<annotation cp="🤼‍♀">inimene | inimesed | kahevõitlus | maadlemine | maadlevad naised | maadlus | maadlusturniir | naine | naised | ringis | sport | võitlus</annotation>
 		<annotation cp="🤼‍♀" type="tts">maadlevad naised</annotation>
-		<annotation cp="🤽">inimene | mängiv | polo | sport | ujumine | veepall | vesi</annotation>
+		<annotation cp="🤽">inimene | mängiv | polo | sport | ujumine | veepall | veepalli mängiv inimene | vesi</annotation>
 		<annotation cp="🤽" type="tts">veepalli mängiv inimene</annotation>
-		<annotation cp="🤽‍♂">mängiv | mees | polo | sport | ujumine | veepall | vesi</annotation>
+		<annotation cp="🤽‍♂">mängiv | mees | polo | sport | ujumine | veepall | veepalli mängiv mees | vesi</annotation>
 		<annotation cp="🤽‍♂" type="tts">veepalli mängiv mees</annotation>
-		<annotation cp="🤽‍♀">mängiv | naine | polo | sport | ujumine | veepall | vesi</annotation>
+		<annotation cp="🤽‍♀">mängiv | naine | polo | sport | ujumine | veepall | veepalli mängiv naine | vesi</annotation>
 		<annotation cp="🤽‍♀" type="tts">veepalli mängiv naine</annotation>
-		<annotation cp="🤾">heitmine | inimene | käsipall | loopimine | pall | püüdmine | sport | viskamine</annotation>
+		<annotation cp="🤾">heitmine | inimene | käsipall | käsipalli mängiv inimene | loopimine | pall | püüdmine | sport | viskamine</annotation>
 		<annotation cp="🤾" type="tts">käsipalli mängiv inimene</annotation>
-		<annotation cp="🤾‍♂">heitmine | käsipall | loopimine | mees | pall | püüdmine | sport | viskamine</annotation>
+		<annotation cp="🤾‍♂">heitmine | käsipall | käsipalli mängiv mees | loopimine | mees | pall | püüdmine | sport | viskamine</annotation>
 		<annotation cp="🤾‍♂" type="tts">käsipalli mängiv mees</annotation>
-		<annotation cp="🤾‍♀">heitmine | käsipall | loopimine | naine | pall | püüdmine | sport | viskamine</annotation>
+		<annotation cp="🤾‍♀">heitmine | käsipall | käsipalli mängiv naine | loopimine | naine | pall | püüdmine | sport | viskamine</annotation>
 		<annotation cp="🤾‍♀" type="tts">käsipalli mängiv naine</annotation>
 		<annotation cp="🤹">inimene | käsitsemine | oskused | rööprähklemine | tasakaal | tasakaalutrikk | žongleerimine | žonglöör</annotation>
 		<annotation cp="🤹" type="tts">žonglöör</annotation>
 		<annotation cp="🤹‍♂">käsitsemine | mees | meesžonglöör | oskused | rööprähklemine | tasakaal | žongleerimine | žonglöör</annotation>
 		<annotation cp="🤹‍♂" type="tts">meesžonglöör</annotation>
-		<annotation cp="🤹‍♀">käsitsemine | meesžonglöör | naine | oskused | rööprähklemine | tasakaal | žongleerimine | žonglöör</annotation>
+		<annotation cp="🤹‍♀">käsitsemine | meesžonglöör | naine | naisžonglöör | oskused | rööprähklemine | tasakaal | žongleerimine | žonglöör</annotation>
 		<annotation cp="🤹‍♀" type="tts">naisžonglöör</annotation>
 		<annotation cp="🧘">jalad risti | jooga | joogi | lõõgastav | lõõgastus | lootosasendis inimene | lootoseasendis inimene | meditatsioon | mediteerimine | rahu | rätsepaiste | rististe | zen</annotation>
 		<annotation cp="🧘" type="tts">lootosasendis inimene</annotation>
@@ -1679,11 +1679,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛌" type="tts">inimene voodis</annotation>
 		<annotation cp="🧑‍🤝‍🧑">hoiavad käest | hoiavad käest kinni | inimene | inimesed hoiavad käest kinni | käed | paar</annotation>
 		<annotation cp="🧑‍🤝‍🧑" type="tts">inimesed hoiavad käest kinni</annotation>
-		<annotation cp="👭">flirt | käed | kaksikd | kallim | kinni | kohting | naised | õed | paar | parim | sõber | sõbrad | tüdrukud</annotation>
+		<annotation cp="👭">flirt | käed | käest kinni hoidvad naised | kaksikd | kallim | kinni | kohting | naised | õed | paar | parim | sõber | sõbrad | tüdrukud</annotation>
 		<annotation cp="👭" type="tts">käest kinni hoidvad naised</annotation>
-		<annotation cp="👫">flirt | käed | kaksikud | kallim | kinni | kohting | naised | paar | parim | sõber | sõbrad | tüdrukud</annotation>
+		<annotation cp="👫">flirt | käed | kaksikud | kallim | kinni | kohting | mees ja naine hoiavad käest kinni | naised | paar | parim | sõber | sõbrad | tüdrukud</annotation>
 		<annotation cp="👫" type="tts">mees ja naine hoiavad käest kinni</annotation>
-		<annotation cp="👬">flirt | käed | kaksikud | kallim | kinni | kohting | mehed | paar | parim | sõber | sõbrad | vennad</annotation>
+		<annotation cp="👬">flirt | käed | käest kinni hoidvad mehed | kaksikud | kallim | kinni | kohting | mehed | paar | parim | sõber | sõbrad | vennad</annotation>
 		<annotation cp="👬" type="tts">käest kinni hoidvad mehed</annotation>
 		<annotation cp="💏">aastapäev | armastus | inimene | kallim | kohting | koos | muahh | musi | paar | romantika | süda | suudlus | xoxo</annotation>
 		<annotation cp="💏" type="tts">musi</annotation>
@@ -1691,21 +1691,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💑" type="tts">paarike südamega</annotation>
 		<annotation cp="🗣">kõnelev pea | nägu | pea | rääkimine | siluett</annotation>
 		<annotation cp="🗣" type="tts">kõnelev pea</annotation>
-		<annotation cp="👤">büst | salapärane | siluett | vari</annotation>
+		<annotation cp="👤">büst | büsti siluett | salapärane | siluett | vari</annotation>
 		<annotation cp="👤" type="tts">büsti siluett</annotation>
-		<annotation cp="👥">büst | büstid | inimesed | kõik | siluett | sõber | sõbrad</annotation>
+		<annotation cp="👥">büst | büstid | büstide siluetid | inimesed | kõik | siluett | sõber | sõbrad</annotation>
 		<annotation cp="👥" type="tts">büstide siluetid</annotation>
-		<annotation cp="🫂">aitäh | armastus | embus | hüvastijätt | inimesed | kallistus | mugavus | sõprus | tänu | tere | tervitus</annotation>
+		<annotation cp="🫂">aitäh | armastus | embus | hüvastijätt | inimesed | kallistavad inimesed | kallistus | mugavus | sõprus | tänu | tere | tervitus</annotation>
 		<annotation cp="🫂" type="tts">kallistavad inimesed</annotation>
 		<annotation cp="👪">laps | perekond</annotation>
 		<annotation cp="👪" type="tts">perekond</annotation>
-		<annotation cp="🧑‍🧑‍🧒">laps | perekond | täiskasvanu</annotation>
+		<annotation cp="🧑‍🧑‍🧒">laps | perekond | perekond: täiskasvanu, täiskasvanu, laps | täiskasvanu</annotation>
 		<annotation cp="🧑‍🧑‍🧒" type="tts">perekond: täiskasvanu, täiskasvanu, laps</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒">laps | pere | täiskasvanu</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">laps | pere | perekond: täiskasvanu, täiskasvanu, laps, laps | täiskasvanu</annotation>
 		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">perekond: täiskasvanu, täiskasvanu, laps, laps</annotation>
-		<annotation cp="🧑‍🧒">laps | pere | täiskasvanu</annotation>
+		<annotation cp="🧑‍🧒">laps | pere | perekond: täiskasvanu, laps | täiskasvanu</annotation>
 		<annotation cp="🧑‍🧒" type="tts">perekond: täiskasvanu, laps</annotation>
-		<annotation cp="🧑‍🧒‍🧒">laps | pere | täiskasvanu</annotation>
+		<annotation cp="🧑‍🧒‍🧒">laps | pere | perekond: täiskasvanu, laps, laps | täiskasvanu</annotation>
 		<annotation cp="🧑‍🧒‍🧒" type="tts">perekond: täiskasvanu, laps, laps</annotation>
 		<annotation cp="👣">jalajälg | jalajäljed | jälg | keha</annotation>
 		<annotation cp="👣" type="tts">jalajäljed</annotation>
@@ -1717,7 +1717,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦳" type="tts">heledad juuksed</annotation>
 		<annotation cp="🦲">juukseid pole | juusteta | keemiaravi | kiilaspea | raseeritud</annotation>
 		<annotation cp="🦲" type="tts">kiilaspea</annotation>
-		<annotation cp="🐵">ahv | banaan | loom | nägu</annotation>
+		<annotation cp="🐵">ahv | ahvi nägu | banaan | loom | nägu</annotation>
 		<annotation cp="🐵" type="tts">ahvi nägu</annotation>
 		<annotation cp="🐒">ahv | banaan | loom</annotation>
 		<annotation cp="🐒" type="tts">ahv</annotation>
@@ -1725,13 +1725,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦍" type="tts">gorilla</annotation>
 		<annotation cp="🦧">ahv | inimahv | loom | orangutan</annotation>
 		<annotation cp="🦧" type="tts">orangutan</annotation>
-		<annotation cp="🐶">armas | koer | kutsikas | lemmikloom | loom | nägu</annotation>
+		<annotation cp="🐶">armas | koer | koera nägu | kutsikas | lemmikloom | loom | nägu</annotation>
 		<annotation cp="🐶" type="tts">koera nägu</annotation>
 		<annotation cp="🐕">koer | lemmikloom | loom</annotation>
 		<annotation cp="🐕" type="tts">koer</annotation>
 		<annotation cp="🦮">abi | juht | juhtkoer | koer | pime | vaegnägija</annotation>
 		<annotation cp="🦮" type="tts">juhtkoer</annotation>
-		<annotation cp="🐕‍🦺">abi | koer | loom | teenistus</annotation>
+		<annotation cp="🐕‍🦺">abi | koer | loom | teenistus | teenistuskoer</annotation>
 		<annotation cp="🐕‍🦺" type="tts">teenistuskoer</annotation>
 		<annotation cp="🐩">koer | kohev | loom | puudel</annotation>
 		<annotation cp="🐩" type="tts">puudel</annotation>
@@ -1741,7 +1741,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦊" type="tts">rebane</annotation>
 		<annotation cp="🦝">kaval | loom | pesukaru | uudishimulik</annotation>
 		<annotation cp="🦝" type="tts">pesukaru</annotation>
-		<annotation cp="🐱">kass | kassipoeg | kiisu | lemmikloom | loom | nägu</annotation>
+		<annotation cp="🐱">kass | kassi nägu | kassipoeg | kiisu | lemmikloom | loom | nägu</annotation>
 		<annotation cp="🐱" type="tts">kassi nägu</annotation>
 		<annotation cp="🐈">kass | kassipoeg | koer | lemmikloom | loom</annotation>
 		<annotation cp="🐈" type="tts">kass</annotation>
@@ -1749,13 +1749,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐈‍⬛" type="tts">must kass</annotation>
 		<annotation cp="🦁">alfa | lakk | loom | lõvi | möire | nägu | safari | sodiaak | tähtkuju | tugev</annotation>
 		<annotation cp="🦁" type="tts">lõvi nägu</annotation>
-		<annotation cp="🐯">kiskja | loom | nägu | suur | tiiger</annotation>
+		<annotation cp="🐯">kiskja | loom | nägu | suur | tiiger | tiigri nägu</annotation>
 		<annotation cp="🐯" type="tts">tiigri nägu</annotation>
 		<annotation cp="🐅">kass | kiskja | loom | suur | tiiger | zoo</annotation>
 		<annotation cp="🐅" type="tts">tiiger</annotation>
 		<annotation cp="🐆">kass | kiskja | leopard | loom | suur | zoo</annotation>
 		<annotation cp="🐆" type="tts">leopard</annotation>
-		<annotation cp="🐴">farm | hobune | loom | nägu | ratsutamine</annotation>
+		<annotation cp="🐴">farm | hobune | hobuse nägu | loom | nägu | ratsutamine</annotation>
 		<annotation cp="🐴" type="tts">hobuse nägu</annotation>
 		<annotation cp="🫎">hirv | imetaja | loom | põder | sarved</annotation>
 		<annotation cp="🫎" type="tts">põder</annotation>
@@ -1771,21 +1771,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦌" type="tts">hirv</annotation>
 		<annotation cp="🦬">kari | loom | piison | pühvel | pürg</annotation>
 		<annotation cp="🦬" type="tts">piison</annotation>
-		<annotation cp="🐮">ammuu | farm | lehm | loom | nägu | piim</annotation>
+		<annotation cp="🐮">ammuu | farm | lehm | lehma nägu | loom | nägu | piim</annotation>
 		<annotation cp="🐮" type="tts">lehma nägu</annotation>
 		<annotation cp="🐂">farm | härg | loom | sodiaak | sõnn | tähtkuju | veis</annotation>
 		<annotation cp="🐂" type="tts">härg</annotation>
-		<annotation cp="🐃">loom | pühvel | vesi | zoo</annotation>
+		<annotation cp="🐃">loom | pühvel | vesi | vesipühvel | zoo</annotation>
 		<annotation cp="🐃" type="tts">vesipühvel</annotation>
 		<annotation cp="🐄">ammuu | farm | lehm | loom | piim</annotation>
 		<annotation cp="🐄" type="tts">lehm</annotation>
-		<annotation cp="🐷">farm | loom | nägu | peekon | siga</annotation>
+		<annotation cp="🐷">farm | loom | nägu | peekon | sea nägu | siga</annotation>
 		<annotation cp="🐷" type="tts">sea nägu</annotation>
 		<annotation cp="🐖">emis | farm | loom | peekon | siga</annotation>
 		<annotation cp="🐖" type="tts">siga</annotation>
 		<annotation cp="🐗">kult | loom | metssiga</annotation>
 		<annotation cp="🐗" type="tts">metssiga</annotation>
-		<annotation cp="🐽">farm | kärss | loom | nägu | nina | nuusutama | siga</annotation>
+		<annotation cp="🐽">farm | kärss | loom | nägu | nina | nuusutama | sea kärss | siga</annotation>
 		<annotation cp="🐽" type="tts">sea kärss</annotation>
 		<annotation cp="🐏">jäär | lammas | loom | oinas | sarved | sodiaak | tähtkuju | zoo</annotation>
 		<annotation cp="🐏" type="tts">oinas</annotation>
@@ -1809,7 +1809,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦏" type="tts">ninasarvik</annotation>
 		<annotation cp="🦛">jõehobu | jõehobuke | loom</annotation>
 		<annotation cp="🦛" type="tts">jõehobu</annotation>
-		<annotation cp="🐭">hiir | loom | nägu</annotation>
+		<annotation cp="🐭">hiir | hiire nägu | loom | nägu</annotation>
 		<annotation cp="🐭" type="tts">hiire nägu</annotation>
 		<annotation cp="🐁">hiir | loom</annotation>
 		<annotation cp="🐁" type="tts">hiir</annotation>
@@ -1817,7 +1817,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐀" type="tts">rott</annotation>
 		<annotation cp="🐹">hamster | lemmikloom | loom | nägu</annotation>
 		<annotation cp="🐹" type="tts">hamster</annotation>
-		<annotation cp="🐰">jänes | lemmikloom | loom | nägu</annotation>
+		<annotation cp="🐰">jänes | jänese nägu | lemmikloom | loom | nägu</annotation>
 		<annotation cp="🐰" type="tts">jänese nägu</annotation>
 		<annotation cp="🐇">jänes | lemmikloom | loom</annotation>
 		<annotation cp="🐇" type="tts">jänes</annotation>
@@ -1855,11 +1855,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐔" type="tts">kana</annotation>
 		<annotation cp="🐓">kukk | lind | loom | ornitoloogia</annotation>
 		<annotation cp="🐓" type="tts">kukk</annotation>
-		<annotation cp="🐣">koorumine | loom | muna | tibu</annotation>
+		<annotation cp="🐣">koorumine | kooruv tibu | loom | muna | tibu</annotation>
 		<annotation cp="🐣" type="tts">kooruv tibu</annotation>
-		<annotation cp="🐤">lind | loom | ornitoloogia | tibu</annotation>
+		<annotation cp="🐤">lind | loom | ornitoloogia | tibu | väike tibu</annotation>
 		<annotation cp="🐤" type="tts">väike tibu</annotation>
-		<annotation cp="🐥">eestvaates | lind | loom | ornitoloogia | tibu</annotation>
+		<annotation cp="🐥">eestvaates | lind | loom | ornitoloogia | tibu | väike tibu eestvaates</annotation>
 		<annotation cp="🐥" type="tts">väike tibu eestvaates</annotation>
 		<annotation cp="🐦">lind | loom | ornitoloogia</annotation>
 		<annotation cp="🐦" type="tts">lind</annotation>
@@ -1903,7 +1903,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦎" type="tts">sisalik</annotation>
 		<annotation cp="🐍">loom | madu | maokandja | sodiaak | tähtkuju</annotation>
 		<annotation cp="🐍" type="tts">madu</annotation>
-		<annotation cp="🐲">draakon | loom | muinasjutt | nägu</annotation>
+		<annotation cp="🐲">draakon | draakoni nägu | loom | muinasjutt | nägu</annotation>
 		<annotation cp="🐲" type="tts">draakoni nägu</annotation>
 		<annotation cp="🐉">draakon | lohe | loom | muinasjutt | rüütlid</annotation>
 		<annotation cp="🐉" type="tts">draakon</annotation>
@@ -1911,7 +1911,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦕" type="tts">sauropood</annotation>
 		<annotation cp="🦖">dinosaurus | loom | T-rex | türannosaurus</annotation>
 		<annotation cp="🦖" type="tts">türannosaurus</annotation>
-		<annotation cp="🐳">loom | nägu | ookean | rand | vaal | vesi</annotation>
+		<annotation cp="🐳">loom | nägu | ookean | rand | vaal | vesi | vett pritsiv vaal</annotation>
 		<annotation cp="🐳" type="tts">vett pritsiv vaal</annotation>
 		<annotation cp="🐋">loom | ookean | rand | vaal</annotation>
 		<annotation cp="🐋" type="tts">vaal</annotation>
@@ -1957,7 +1957,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🕷" type="tts">ämblik</annotation>
 		<annotation cp="🕸">ämblik | ämblikuvõrk | võrk</annotation>
 		<annotation cp="🕸" type="tts">ämblikuvõrk</annotation>
-		<annotation cp="🦂">loom | skorpion | sodiaak | tähtkuju</annotation>
+		<annotation cp="🦂">loom | skorpion | sodiaak | suur skorpion | tähtkuju</annotation>
 		<annotation cp="🦂" type="tts">suur skorpion</annotation>
 		<annotation cp="🦟">haigus | loom | malaaria | palavik | putukas | sääsk | viirus</annotation>
 		<annotation cp="🦟" type="tts">sääsk</annotation>
@@ -1999,7 +1999,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌲" type="tts">igihaljas puu</annotation>
 		<annotation cp="🌳">leht | lehtpuu | puu | taim</annotation>
 		<annotation cp="🌳" type="tts">lehtpuu</annotation>
-		<annotation cp="🌴">loom | palm | puu | rand | taim</annotation>
+		<annotation cp="🌴">loom | palm | palmipuu | puu | rand | taim</annotation>
 		<annotation cp="🌴" type="tts">palmipuu</annotation>
 		<annotation cp="🌵">kaktus | kõrb | loodus | põud | taim</annotation>
 		<annotation cp="🌵" type="tts">kaktus</annotation>
@@ -2019,7 +2019,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍃" type="tts">tuules lendlev leht</annotation>
 		<annotation cp="🪹">kodu | pesa | pesitsemine | tühi</annotation>
 		<annotation cp="🪹" type="tts">tühi pesa</annotation>
-		<annotation cp="🪺">lind | muna | munad | oks | pesa | pesitsemine</annotation>
+		<annotation cp="🪺">lind | muna | munad | munadega pesa | oks | pesa | pesitsemine</annotation>
 		<annotation cp="🪺" type="tts">munadega pesa</annotation>
 		<annotation cp="🍄">kärbseseen | mürgiseen | seen</annotation>
 		<annotation cp="🍄" type="tts">seen</annotation>
@@ -2117,7 +2117,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧇" type="tts">vahvel</annotation>
 		<annotation cp="🧀">juust | juustutükk</annotation>
 		<annotation cp="🧀" type="tts">juustutükk</annotation>
-		<annotation cp="🍖">kont | liha</annotation>
+		<annotation cp="🍖">kondiga liha | kont | liha</annotation>
 		<annotation cp="🍖" type="tts">kondiga liha</annotation>
 		<annotation cp="🍗">kalkun | kana | kanakoib | koib | kont | linnuliha | luu | söök</annotation>
 		<annotation cp="🍗" type="tts">kanakoib</annotation>
@@ -2127,7 +2127,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥓" type="tts">peekon</annotation>
 		<annotation cp="🍔">burger | hamburger | kiirtoit | näljane | söök</annotation>
 		<annotation cp="🍔" type="tts">hamburger</annotation>
-		<annotation cp="🍟">friikartul | kiirtoit | söök</annotation>
+		<annotation cp="🍟">friikartul | friikartulid | kiirtoit | söök</annotation>
 		<annotation cp="🍟" type="tts">friikartulid</annotation>
 		<annotation cp="🍕">juust | näljane | pepperoni | pitsa | pizza | söök | viil</annotation>
 		<annotation cp="🍕" type="tts">pitsa</annotation>
@@ -2151,11 +2151,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍳" type="tts">toiduvalmistamine</annotation>
 		<annotation cp="🥘">paella | panniroog | söök | toit | ühepajatoit</annotation>
 		<annotation cp="🥘" type="tts">panniroog</annotation>
-		<annotation cp="🍲">hautis | pott | söök | supp</annotation>
+		<annotation cp="🍲">hautis | potitäis toitu | pott | söök | supp</annotation>
 		<annotation cp="🍲" type="tts">potitäis toitu</annotation>
 		<annotation cp="🫕">fondüü | juust | nõu | šokolaad | sulatatud | šveitsi</annotation>
 		<annotation cp="🫕" type="tts">fondüü</annotation>
-		<annotation cp="🥣">helbed | hommikusöök | lusikas | puder | riisipuding | söök</annotation>
+		<annotation cp="🥣">helbed | hommikusöök | lusikaga kauss | lusikas | puder | riisipuding | söök</annotation>
 		<annotation cp="🥣" type="tts">lusikaga kauss</annotation>
 		<annotation cp="🥗">roheline | salat | söök | toit</annotation>
 		<annotation cp="🥗" type="tts">roheline salat</annotation>
@@ -2165,17 +2165,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧈" type="tts">või</annotation>
 		<annotation cp="🧂">maitseaine | sool | soolatoos</annotation>
 		<annotation cp="🧂" type="tts">sool</annotation>
-		<annotation cp="🥫">konserv | söök | toit</annotation>
+		<annotation cp="🥫">konserv | söök | toidukonserv | toit</annotation>
 		<annotation cp="🥫" type="tts">toidukonserv</annotation>
-		<annotation cp="🍱">bento | karp | söök | toit</annotation>
+		<annotation cp="🍱">bento | bento einekarp | karp | söök | toit</annotation>
 		<annotation cp="🍱" type="tts">bento einekarp</annotation>
-		<annotation cp="🍘">leib | riis | söök</annotation>
+		<annotation cp="🍘">leib | riis | riisiküpsis | söök</annotation>
 		<annotation cp="🍘" type="tts">riisiküpsis</annotation>
-		<annotation cp="🍙">jaapani | pall | riis | söök</annotation>
+		<annotation cp="🍙">jaapani | pall | riis | riisipall | söök</annotation>
 		<annotation cp="🍙" type="tts">riisipall</annotation>
 		<annotation cp="🍚">keedetud | riis | söök</annotation>
 		<annotation cp="🍚" type="tts">keedetud riis</annotation>
-		<annotation cp="🍛">karri | riis | söök</annotation>
+		<annotation cp="🍛">karri | karriga riis | riis | söök</annotation>
 		<annotation cp="🍛" type="tts">karriga riis</annotation>
 		<annotation cp="🍜">aurav | kauss | nuudlid | pho | pulgad | ramen | söök | supp</annotation>
 		<annotation cp="🍜" type="tts">aurav kauss</annotation>
@@ -2189,7 +2189,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍣" type="tts">suši</annotation>
 		<annotation cp="🍤">krevett | praetud | söök | tempura</annotation>
 		<annotation cp="🍤" type="tts">praetud krevett</annotation>
-		<annotation cp="🍥">kala | keerdudega | kook | kotlet | pirukas | restoran | söök | spiraal</annotation>
+		<annotation cp="🍥">kala | keerdudega | keerdudega kalakotlet | kook | kotlet | pirukas | restoran | söök | spiraal</annotation>
 		<annotation cp="🍥" type="tts">keerdudega kalakotlet</annotation>
 		<annotation cp="🥮">festival | kuukook | söök | sügis | yuèbǐng</annotation>
 		<annotation cp="🥮" type="tts">kuukook</annotation>
@@ -2223,7 +2223,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍪" type="tts">küpsis</annotation>
 		<annotation cp="🎂">kook | küünlad | magustoit | söök | sünnipäev | sünnipäevatort | tort</annotation>
 		<annotation cp="🎂" type="tts">sünnipäevatort</annotation>
-		<annotation cp="🍰">kook | lõik | magus | magustoit | söök</annotation>
+		<annotation cp="🍰">kook | liivataignakook | lõik | magus | magustoit | söök</annotation>
 		<annotation cp="🍰" type="tts">liivataignakook</annotation>
 		<annotation cp="🧁">magus | magustoit | muffin | pagaritoode | söök</annotation>
 		<annotation cp="🧁" type="tts">muffin</annotation>
@@ -2235,7 +2235,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍬" type="tts">komm</annotation>
 		<annotation cp="🍭">komm | magus | magustoit | pulgakomm | restoran | söök</annotation>
 		<annotation cp="🍭" type="tts">pulgakomm</annotation>
-		<annotation cp="🍮">magus | magustoit | puding | söök</annotation>
+		<annotation cp="🍮">magus | magustoit | puding | söök | vanillipuding</annotation>
 		<annotation cp="🍮" type="tts">vanillipuding</annotation>
 		<annotation cp="🍯">karu | magus | meepott | mesi | purk | söök</annotation>
 		<annotation cp="🍯" type="tts">meepott</annotation>
@@ -2247,7 +2247,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☕" type="tts">kuum jook</annotation>
 		<annotation cp="🫖">jooma | kann | tee | teekann | toit</annotation>
 		<annotation cp="🫖" type="tts">teekann</annotation>
-		<annotation cp="🍵">jook | tass | tee | teetass</annotation>
+		<annotation cp="🍵">jook | kõrvata teetass | tass | tee | teetass</annotation>
 		<annotation cp="🍵" type="tts">kõrvata teetass</annotation>
 		<annotation cp="🍶">baar | jook | pudel | riisiviin | tass</annotation>
 		<annotation cp="🍶" type="tts">riisiviin</annotation>
@@ -2263,13 +2263,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍺" type="tts">õllekann</annotation>
 		<annotation cp="🍻">baar | jook | kann | kõlisevad õllekannud | õlu</annotation>
 		<annotation cp="🍻" type="tts">kõlisevad õllekannud</annotation>
-		<annotation cp="🥂">jooma | klaasid | kõlisev | kõlks | šampanja | tähistama</annotation>
+		<annotation cp="🥂">jooma | klaasid | kõlisev | kõlisevad klaasid | kõlks | šampanja | tähistama</annotation>
 		<annotation cp="🥂" type="tts">kõlisevad klaasid</annotation>
 		<annotation cp="🥃">joogiklaas | napsuklaas | viskiklaas</annotation>
 		<annotation cp="🥃" type="tts">joogiklaas</annotation>
-		<annotation cp="🫗">jooma | kallama | klaas | oih | õnnetus | tühi | vesi</annotation>
+		<annotation cp="🫗">jooma | kallama | klaas | oih | õnnetus | tühi | vedeliku kallamine | vesi</annotation>
 		<annotation cp="🫗" type="tts">vedeliku kallamine</annotation>
-		<annotation cp="🥤">jook | kõrs | mahl | tops | vesi limonaad</annotation>
+		<annotation cp="🥤">jook | kõrrega tops | kõrs | mahl | tops | vesi limonaad</annotation>
 		<annotation cp="🥤" type="tts">kõrrega tops</annotation>
 		<annotation cp="🧋">mull | mullitee | pärl | pärlitee | piim | tee</annotation>
 		<annotation cp="🧋" type="tts">pärlitee</annotation>
@@ -2281,9 +2281,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧊" type="tts">jääkuubik</annotation>
 		<annotation cp="🥢">hashi | söögipulgad</annotation>
 		<annotation cp="🥢" type="tts">söögipulgad</annotation>
-		<annotation cp="🍽">kahvel | kokkamine | nuga | õhtusöök | söömine | taldrik</annotation>
+		<annotation cp="🍽">kahvel | kahvel, nuga ja taldrik | kokkamine | nuga | õhtusöök | söömine | taldrik</annotation>
 		<annotation cp="🍽" type="tts">kahvel, nuga ja taldrik</annotation>
-		<annotation cp="🍴">hommikusöök | kahvel | kokkamine | lõuna | maitsev | näljane | nuga | õhtusöök | restoran | söögiriistad | sööma | söömine | toit</annotation>
+		<annotation cp="🍴">hommikusöök | kahvel | kahvel ja nuga | kokkamine | lõuna | maitsev | näljane | nuga | õhtusöök | restoran | söögiriistad | sööma | söömine | toit</annotation>
 		<annotation cp="🍴" type="tts">kahvel ja nuga</annotation>
 		<annotation cp="🥄">lauanõud | lusikas | söök</annotation>
 		<annotation cp="🥄" type="tts">lusikas</annotation>
@@ -2293,17 +2293,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫙" type="tts">purk</annotation>
 		<annotation cp="🏺">amfora | jook | kann | vaas | veevalaja</annotation>
 		<annotation cp="🏺" type="tts">amfora</annotation>
-		<annotation cp="🌍">Aafrika | Euroopa | Euroopa-Aafrika | gloobus | maa | maailm</annotation>
+		<annotation cp="🌍">Aafrika | Euroopa | Euroopa ja Aafrika gloobusel | Euroopa-Aafrika | gloobus | maa | maailm</annotation>
 		<annotation cp="🌍" type="tts">Euroopa ja Aafrika gloobusel</annotation>
-		<annotation cp="🌎">Ameerika | gloobus | maa | maailm</annotation>
+		<annotation cp="🌎">Ameerika | Ameerika mandrid gloobusel | gloobus | maa | maailm</annotation>
 		<annotation cp="🌎" type="tts">Ameerika mandrid gloobusel</annotation>
-		<annotation cp="🌏">Aasia | Aasia-Austraalia | Austraalia | gloobus | maa | maailm</annotation>
+		<annotation cp="🌏">Aasia | Aasia ja Austraalia gloobusel | Aasia-Austraalia | Austraalia | gloobus | maa | maailm</annotation>
 		<annotation cp="🌏" type="tts">Aasia ja Austraalia gloobusel</annotation>
 		<annotation cp="🌐">gloobus | maa | maailm | meridiaanid | meridiaanidega gloobus</annotation>
 		<annotation cp="🌐" type="tts">meridiaanidega gloobus</annotation>
 		<annotation cp="🗺">kaart | maailm | maailmakaart</annotation>
 		<annotation cp="🗺" type="tts">maailmakaart</annotation>
-		<annotation cp="🗾">Jaapan | kaart</annotation>
+		<annotation cp="🗾">Jaapan | Jaapani kaart | kaart</annotation>
 		<annotation cp="🗾" type="tts">Jaapani kaart</annotation>
 		<annotation cp="🧭">kompass | magnetiline | navigeerimine | orienteerumine</annotation>
 		<annotation cp="🧭" type="tts">kompass</annotation>
@@ -2313,7 +2313,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⛰" type="tts">mägi</annotation>
 		<annotation cp="🌋">laava | mägi | purse | vulkaan</annotation>
 		<annotation cp="🌋" type="tts">vulkaan</annotation>
-		<annotation cp="🗻">fuji | Fuji | mägi</annotation>
+		<annotation cp="🗻">Fuji | mägi</annotation>
 		<annotation cp="🗻" type="tts">Fuji mägi</annotation>
 		<annotation cp="🏕">telk | telkimine</annotation>
 		<annotation cp="🏕" type="tts">telkimine</annotation>
@@ -2327,7 +2327,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏞" type="tts">rahvuspark</annotation>
 		<annotation cp="🏟">staadion</annotation>
 		<annotation cp="🏟" type="tts">staadion</annotation>
-		<annotation cp="🏛">hoone | klassikaline</annotation>
+		<annotation cp="🏛">antiikhoone | hoone | klassikaline</annotation>
 		<annotation cp="🏛" type="tts">antiikhoone</annotation>
 		<annotation cp="🏗">ehitus | kraana | maja</annotation>
 		<annotation cp="🏗" type="tts">ehitus</annotation>
@@ -2419,9 +2419,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛝" type="tts">liumägi</annotation>
 		<annotation cp="🎡">lõbustuspark | vaateratas</annotation>
 		<annotation cp="🎡" type="tts">vaateratas</annotation>
-		<annotation cp="🎢">ameerika | Ameerika | lõbustuspark | mäed</annotation>
+		<annotation cp="🎢">Ameerika | lõbustuspark | mäed</annotation>
 		<annotation cp="🎢" type="tts">Ameerika mäed</annotation>
-		<annotation cp="💈">habemeajaja | hambemeajamine | juukselõikus | lõikus | post</annotation>
+		<annotation cp="💈">habemeajaja | habemeajaja tähis | hambemeajamine | juukselõikus | lõikus | post</annotation>
 		<annotation cp="💈" type="tts">habemeajaja tähis</annotation>
 		<annotation cp="🎪">telk | tsirkus | tsirkusetelk</annotation>
 		<annotation cp="🎪" type="tts">tsirkusetelk</annotation>
@@ -2431,7 +2431,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚃" type="tts">rongivagun</annotation>
 		<annotation cp="🚄">kiirrong | kiirus | raudtee | rong | shinkansen</annotation>
 		<annotation cp="🚄" type="tts">kiirrong</annotation>
-		<annotation cp="🚅">kiirrong | nina | raudtee | rong | shinkansen | sõiduk | terav</annotation>
+		<annotation cp="🚅">kiirrong | nina | raudtee | rong | shinkansen | sõiduk | terav | terava ninaga kiirrong</annotation>
 		<annotation cp="🚅" type="tts">terava ninaga kiirrong</annotation>
 		<annotation cp="🚆">raudtee | rong | sõiduk</annotation>
 		<annotation cp="🚆" type="tts">rong</annotation>
@@ -2445,7 +2445,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚊" type="tts">tramm</annotation>
 		<annotation cp="🚝">raudtee | rong | sõiduk | üherööpmeline raudtee</annotation>
 		<annotation cp="🚝" type="tts">üherööpmeline raudtee</annotation>
-		<annotation cp="🚞">mägi | raudtee | reis | vagun</annotation>
+		<annotation cp="🚞">mägi | mägiraudtee | raudtee | reis | vagun</annotation>
 		<annotation cp="🚞" type="tts">mägiraudtee</annotation>
 		<annotation cp="🚋">tramm | trammivagun | troll | vagun</annotation>
 		<annotation cp="🚋" type="tts">trammivagun</annotation>
@@ -2509,7 +2509,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛣" type="tts">kiirtee</annotation>
 		<annotation cp="🛤">raudtee | raudteerööpad | rong | sõiduk</annotation>
 		<annotation cp="🛤" type="tts">raudteerööpad</annotation>
-		<annotation cp="🛢">õli | tünn</annotation>
+		<annotation cp="🛢">õli | õlitünn | tünn</annotation>
 		<annotation cp="🛢" type="tts">õlitünn</annotation>
 		<annotation cp="⛽">bensiin | diisel | kütus | tankla | tankur</annotation>
 		<annotation cp="⛽" type="tts">tankur</annotation>
@@ -2521,7 +2521,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚥" type="tts">horisontaalne foor</annotation>
 		<annotation cp="🚦">foor | liiklus | vertikaalne foor</annotation>
 		<annotation cp="🚦" type="tts">vertikaalne foor</annotation>
-		<annotation cp="🛑">kaheksanurk | märk | stopp</annotation>
+		<annotation cp="🛑">kaheksanurk | märk | stopp | stoppmärk</annotation>
 		<annotation cp="🛑" type="tts">stoppmärk</annotation>
 		<annotation cp="🚧">barjäär | ehitustööd | tõke</annotation>
 		<annotation cp="🚧" type="tts">ehitustööd</annotation>
@@ -2559,7 +2559,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚁" type="tts">helikopter</annotation>
 		<annotation cp="🚟">raudtee | rippraudtee | sõiduk | vagun</annotation>
 		<annotation cp="🚟" type="tts">rippraudtee</annotation>
-		<annotation cp="🚠">gondel | köis | köistee | mägi | suusatamine</annotation>
+		<annotation cp="🚠">gondel | köis | köistee | köistee mägedes | mägi | suusatamine</annotation>
 		<annotation cp="🚠" type="tts">köistee mägedes</annotation>
 		<annotation cp="🚡">gondel | köis | köisraudtee | raudtee | sõiduk | vagun</annotation>
 		<annotation cp="🚡" type="tts">köisraudtee</annotation>
@@ -2575,7 +2575,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧳" type="tts">kohver</annotation>
 		<annotation cp="⌛">kell | liiv | liivakell</annotation>
 		<annotation cp="⌛" type="tts">liivakell</annotation>
-		<annotation cp="⏳">kell | liiv | liivakell | ootamine | taimer | valmis | voolav | yolo</annotation>
+		<annotation cp="⏳">kell | liiv | liivakell | ootamine | taimer | valmis | voolav | voolava liivaga kell | yolo</annotation>
 		<annotation cp="⏳" type="tts">voolava liivaga kell</annotation>
 		<annotation cp="⌚">käekell | kell</annotation>
 		<annotation cp="⌚" type="tts">käekell</annotation>
@@ -2737,7 +2737,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎆" type="tts">ilutulestik</annotation>
 		<annotation cp="🎇">ilutulestik | säraküünal</annotation>
 		<annotation cp="🎇" type="tts">säraküünal</annotation>
-		<annotation cp="🧨">dünamiit | ilutulestik | lõhkeaine | pauk | rakett | säde | valgus</annotation>
+		<annotation cp="🧨">dünamiit | ilutulestik | ilutulestikurakett | lõhkeaine | pauk | rakett | säde | valgus</annotation>
 		<annotation cp="🧨" type="tts">ilutulestikurakett</annotation>
 		<annotation cp="✨">* | säde | sädemed | sära | täht</annotation>
 		<annotation cp="✨" type="tts">sädemed</annotation>
@@ -2777,11 +2777,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏆" type="tts">karikas</annotation>
 		<annotation cp="🏅">kuld | medal | sport | võit</annotation>
 		<annotation cp="🏅" type="tts">medal</annotation>
-		<annotation cp="🥇">esimene | koht | kuld | medal | võit</annotation>
+		<annotation cp="🥇">esimene | koht | kuld | kuldmedal | medal | võit</annotation>
 		<annotation cp="🥇" type="tts">kuldmedal</annotation>
-		<annotation cp="🥈">hõbe | koht | medal | teine</annotation>
+		<annotation cp="🥈">hõbe | hõbemedal | koht | medal | teine</annotation>
 		<annotation cp="🥈" type="tts">hõbemedal</annotation>
-		<annotation cp="🥉">koht | kolmas | medal | pronks</annotation>
+		<annotation cp="🥉">koht | kolmas | medal | pronks | pronksmedal</annotation>
 		<annotation cp="🥉" type="tts">pronksmedal</annotation>
 		<annotation cp="⚽">jalgpall | pall | sport</annotation>
 		<annotation cp="⚽" type="tts">jalgpall</annotation>
@@ -2795,19 +2795,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏐" type="tts">võrkpall</annotation>
 		<annotation cp="🏈">ameerika | jalgpall | pall | sport</annotation>
 		<annotation cp="🏈" type="tts">Ameerika jalgpall</annotation>
-		<annotation cp="🏉">jalgpall | pall | ragbi | sport</annotation>
+		<annotation cp="🏉">jalgpall | pall | ragbi | ragbipall | sport</annotation>
 		<annotation cp="🏉" type="tts">ragbipall</annotation>
 		<annotation cp="🎾">pall | reket | sport | tennis</annotation>
 		<annotation cp="🎾" type="tts">tennis</annotation>
-		<annotation cp="🥏">frisbi | lendav | taldrik</annotation>
+		<annotation cp="🥏">frisbi | lendav | taldrik | visketaldrik</annotation>
 		<annotation cp="🥏" type="tts">visketaldrik</annotation>
 		<annotation cp="🎳">keegel | kurikas | kuul | mäng | sport</annotation>
 		<annotation cp="🎳" type="tts">keegel</annotation>
 		<annotation cp="🏏">kriket | kurikas | mäng | pall | sport</annotation>
 		<annotation cp="🏏" type="tts">kriket</annotation>
-		<annotation cp="🏑">hoki | kepp | mäng | pall | sport | väljak</annotation>
+		<annotation cp="🏑">hoki | kepp | maahoki | mäng | pall | sport | väljak</annotation>
 		<annotation cp="🏑" type="tts">maahoki</annotation>
-		<annotation cp="🏒">hoki | jää | kepp | litter | mäng | sport</annotation>
+		<annotation cp="🏒">hoki | jää | jäähoki | kepp | litter | mäng | sport</annotation>
 		<annotation cp="🏒" type="tts">jäähoki</annotation>
 		<annotation cp="🥍">kahvpall | kahvpallikepp | kepp | pall | värav</annotation>
 		<annotation cp="🥍" type="tts">kahvpall</annotation>
@@ -2817,11 +2817,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏸" type="tts">sulgpall</annotation>
 		<annotation cp="🥊">kinnas | poks | poksikinnas | sport</annotation>
 		<annotation cp="🥊" type="tts">poksikinnas</annotation>
-		<annotation cp="🥋">judo | karate | riietus | taekwondo | võitluskunst</annotation>
+		<annotation cp="🥋">judo | karate | riietus | taekwondo | võitluskunst | võitluskunstide riietus</annotation>
 		<annotation cp="🥋" type="tts">võitluskunstide riietus</annotation>
 		<annotation cp="🥅">sport | värav | väravavõrk | võrk</annotation>
 		<annotation cp="🥅" type="tts">väravavõrk</annotation>
-		<annotation cp="⛳">auk | golf | lipp | sport</annotation>
+		<annotation cp="⛳">auk | golf | golfilipp | lipp | sport</annotation>
 		<annotation cp="⛳" type="tts">golfilipp</annotation>
 		<annotation cp="⛸">jää | uisk | uisutamine</annotation>
 		<annotation cp="⛸" type="tts">uisk</annotation>
@@ -2829,13 +2829,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎣" type="tts">õng</annotation>
 		<annotation cp="🤿">akvalang | snorgeldamine | sukeldumine | sukeldumismask</annotation>
 		<annotation cp="🤿" type="tts">sukeldumismask</annotation>
-		<annotation cp="🎽">jooks | kergejõustik | särk</annotation>
+		<annotation cp="🎽">jooks | jooksusärk | kergejõustik | särk</annotation>
 		<annotation cp="🎽" type="tts">jooksusärk</annotation>
 		<annotation cp="🎿">lumi | sport | suusad | suusk</annotation>
 		<annotation cp="🎿" type="tts">suusad</annotation>
 		<annotation cp="🛷">kelk | regi | saan</annotation>
 		<annotation cp="🛷" type="tts">kelk</annotation>
-		<annotation cp="🥌">curling | jääkeegel | kivi | mäng</annotation>
+		<annotation cp="🥌">curling | jääkeegel | jääkeegli kivi | kivi | mäng</annotation>
 		<annotation cp="🥌" type="tts">jääkeegli kivi</annotation>
 		<annotation cp="🎯">mäng | meelelahutus | noolemäng | sihtmärk | tabamus | täistabamus</annotation>
 		<annotation cp="🎯" type="tts">täistabamus</annotation>
@@ -2865,7 +2865,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧸" type="tts">mängukaru</annotation>
 		<annotation cp="🪅">kommid | mehhiko | peomäng | pidu | pinata | piñata</annotation>
 		<annotation cp="🪅" type="tts">piñata</annotation>
-		<annotation cp="🪩">disko | kera | kuul | peegel | pidu | sära | tants</annotation>
+		<annotation cp="🪩">disko | diskokera | kera | kuul | peegel | pidu | sära | tants</annotation>
 		<annotation cp="🪩" type="tts">diskokera</annotation>
 		<annotation cp="🪆">matrjoška | matrjoškad | nukk | vene</annotation>
 		<annotation cp="🪆" type="tts">matrjoška</annotation>
@@ -2883,7 +2883,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🃏" type="tts">jokker</annotation>
 		<annotation cp="🀄">mahjong | mahjongi punane draakon | mäng | punane</annotation>
 		<annotation cp="🀄" type="tts">mahjongi punane draakon</annotation>
-		<annotation cp="🎴">Jaapan | kaardid | kaart | lill | mäng</annotation>
+		<annotation cp="🎴">Jaapan | kaardid | kaart | lill | mäng | mängukaardid</annotation>
 		<annotation cp="🎴" type="tts">mängukaardid</annotation>
 		<annotation cp="🎭">kunst | lava | lavakunst | mask | teater</annotation>
 		<annotation cp="🎭" type="tts">lavakunst</annotation>
@@ -2893,7 +2893,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎨" type="tts">kunstniku palett</annotation>
 		<annotation cp="🧵">niidirull | niit | nõel | õmblemine</annotation>
 		<annotation cp="🧵" type="tts">niit</annotation>
-		<annotation cp="🪡">niit | nõel | õmblemine | õmblused | rätsep | tikkimine</annotation>
+		<annotation cp="🪡">niit | nõel | õmblemine | õmblused | õmblusnõel | rätsep | tikkimine</annotation>
 		<annotation cp="🪡" type="tts">õmblusnõel</annotation>
 		<annotation cp="🧶">heegeldamine | kera | kudumine | lõng | lõngakera</annotation>
 		<annotation cp="🧶" type="tts">lõng</annotation>
@@ -2911,7 +2911,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦺" type="tts">ohutusvest</annotation>
 		<annotation cp="👔">lips | riided</annotation>
 		<annotation cp="👔" type="tts">lips</annotation>
-		<annotation cp="👕">riided | särk | t-särk | T-särk</annotation>
+		<annotation cp="👕">riided | särk | T-särk</annotation>
 		<annotation cp="👕" type="tts">T-särk</annotation>
 		<annotation cp="👖">püksid | riided | teksad</annotation>
 		<annotation cp="👖" type="tts">teksad</annotation>
@@ -2939,7 +2939,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👙" type="tts">bikiinid</annotation>
 		<annotation cp="👚">naine | naisteriided | riided</annotation>
 		<annotation cp="👚" type="tts">naisteriided</annotation>
-		<annotation cp="🪭">flirt | häbelik | jahutav | jahutus | kuum | lehvik | palav | tants | tuul</annotation>
+		<annotation cp="🪭">flirt | häbelik | jahutav | jahutus | kuum | lehvik | palav | tants | tuul | volditav lehvik</annotation>
 		<annotation cp="🪭" type="tts">volditav lehvik</annotation>
 		<annotation cp="👛">käekott | kott | münt | ostma | rahakott | ridikül | riided | riietus</annotation>
 		<annotation cp="👛" type="tts">ridikül</annotation>
@@ -2979,9 +2979,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎩" type="tts">torukübar</annotation>
 		<annotation cp="🎓">koolilõpumüts | lõpetamine | müts | riided</annotation>
 		<annotation cp="🎓" type="tts">koolilõpumüts</annotation>
-		<annotation cp="🧢">müts | nokk | pesapall</annotation>
+		<annotation cp="🧢">müts | nokk | nokkmüts | pesapall</annotation>
 		<annotation cp="🧢" type="tts">nokkmüts</annotation>
-		<annotation cp="🪖">armee | kaitsevägi | kiiver | sõda | sõdur | sõjavägi</annotation>
+		<annotation cp="🪖">armee | kaitsevägi | kiiver | sõda | sõdur | sõdurikiiver | sõjavägi</annotation>
 		<annotation cp="🪖" type="tts">sõdurikiiver</annotation>
 		<annotation cp="⛑">abi | kiirabi | kiiver | müts | nägu | rist | valge ristiga kiiver</annotation>
 		<annotation cp="⛑" type="tts">valge ristiga kiiver</annotation>
@@ -2995,7 +2995,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💎" type="tts">kalliskivi</annotation>
 		<annotation cp="🔇">heli | kõlar | vaigistatud kõlar | vaikne</annotation>
 		<annotation cp="🔇" type="tts">vaigistatud kõlar</annotation>
-		<annotation cp="🔈">heli | kõlar | vaikne</annotation>
+		<annotation cp="🔈">heli | kõlar | vaikne | vaikse heliga kõlar</annotation>
 		<annotation cp="🔈" type="tts">vaikse heliga kõlar</annotation>
 		<annotation cp="🔉">heli | kõlar | poolvalju heliga kõlar | vaikne</annotation>
 		<annotation cp="🔉" type="tts">poolvalju heliga kõlar</annotation>
@@ -3065,7 +3065,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📠" type="tts">faksimasin</annotation>
 		<annotation cp="🔋">aku | patarei</annotation>
 		<annotation cp="🔋" type="tts">aku</annotation>
-		<annotation cp="🪫">aku | elektroonika | energia | tühi | vähe</annotation>
+		<annotation cp="🪫">aku | aku tühjeneb | elektroonika | energia | tühi | vähe</annotation>
 		<annotation cp="🪫" type="tts">aku tühjeneb</annotation>
 		<annotation cp="🔌">elekter | elektripistik | pistik</annotation>
 		<annotation cp="🔌" type="tts">elektripistik</annotation>
@@ -3201,7 +3201,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📭" type="tts">avatud postkast langetatud lipuga</annotation>
 		<annotation cp="📮">post | postkast</annotation>
 		<annotation cp="📮" type="tts">postkast</annotation>
-		<annotation cp="🗳">hääletus | kast</annotation>
+		<annotation cp="🗳">hääletus | hääletuskast | kast</annotation>
 		<annotation cp="🗳" type="tts">hääletuskast</annotation>
 		<annotation cp="✏">pliiats</annotation>
 		<annotation cp="✏" type="tts">pliiats</annotation>
@@ -3269,7 +3269,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔓" type="tts">avatud lukk</annotation>
 		<annotation cp="🔏">lukk | lukk ja pastakas | lukk ja sulepea | privaatsus | sulepea | tint</annotation>
 		<annotation cp="🔏" type="tts">lukk ja pastakas</annotation>
-		<annotation cp="🔐">lukk | lukus | suletud | tabalukk | võti</annotation>
+		<annotation cp="🔐">lukk | lukus | suletud | suletud lukk võtmega | tabalukk | võti</annotation>
 		<annotation cp="🔐" type="tts">suletud lukk võtmega</annotation>
 		<annotation cp="🔑">lukk | parool | võti</annotation>
 		<annotation cp="🔑" type="tts">võti</annotation>
@@ -3315,7 +3315,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦯" type="tts">valge kepp</annotation>
 		<annotation cp="🔗">ahel | lüli</annotation>
 		<annotation cp="🔗" type="tts">lüli</annotation>
-		<annotation cp="⛓‍💥">ahel | käerauad | katki | katkitegemine | kett | vabadus</annotation>
+		<annotation cp="⛓‍💥">ahel | käerauad | katki | katkine kett | katkitegemine | kett | vabadus</annotation>
 		<annotation cp="⛓‍💥" type="tts">katkine kett</annotation>
 		<annotation cp="⛓">ahel | ahelad | kett</annotation>
 		<annotation cp="⛓" type="tts">ahelad</annotation>
@@ -3343,7 +3343,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📡" type="tts">satelliitantenn</annotation>
 		<annotation cp="💉">arst | haigus | nõel | ravim | süstal</annotation>
 		<annotation cp="💉" type="tts">süstal</annotation>
-		<annotation cp="🩸">doonorlus | meditsiin | menstruatsioon | tilk | veri | vigastus</annotation>
+		<annotation cp="🩸">doonorlus | meditsiin | menstruatsioon | tilk | veretilk | veri | vigastus</annotation>
 		<annotation cp="🩸" type="tts">veretilk</annotation>
 		<annotation cp="💊">arst | haige | ravim | tablett</annotation>
 		<annotation cp="💊" type="tts">tablett</annotation>
@@ -3431,15 +3431,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚰" type="tts">joogivesi</annotation>
 		<annotation cp="♿">juurdepääs | ratastool</annotation>
 		<annotation cp="♿" type="tts">ratastool</annotation>
-		<annotation cp="🚹">mees | meeste | tualett | vets | WC</annotation>
+		<annotation cp="🚹">mees | meeste | meeste-WC | tualett | vets | WC</annotation>
 		<annotation cp="🚹" type="tts">meeste-WC</annotation>
-		<annotation cp="🚺">naine | naiste | tualett | vets | WC</annotation>
+		<annotation cp="🚺">naine | naiste | naiste-WC | tualett | vets | WC</annotation>
 		<annotation cp="🚺" type="tts">naiste-WC</annotation>
 		<annotation cp="🚻">tualett | wc</annotation>
 		<annotation cp="🚻" type="tts">tualett</annotation>
 		<annotation cp="🚼">beebi | beebi sümbol | imik | mähe</annotation>
 		<annotation cp="🚼" type="tts">beebi sümbol</annotation>
-		<annotation cp="🚾">tualett | vesi | wc | WC</annotation>
+		<annotation cp="🚾">tualett | vesi | WC</annotation>
 		<annotation cp="🚾" type="tts">WC</annotation>
 		<annotation cp="🛂">kontroll | pass | passikontroll</annotation>
 		<annotation cp="🛂" type="tts">passikontroll</annotation>
@@ -3573,9 +3573,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⛎" type="tts">Maokandja</annotation>
 		<annotation cp="🔀">juhuslik | juhusliku järjekorra nupp | nool | risti</annotation>
 		<annotation cp="🔀" type="tts">juhusliku järjekorra nupp</annotation>
-		<annotation cp="🔁">kordus | nool | nupp | päripäeva</annotation>
+		<annotation cp="🔁">kordamisnupp | kordus | nool | nupp | päripäeva</annotation>
 		<annotation cp="🔁" type="tts">kordamisnupp</annotation>
-		<annotation cp="🔂">kordus | nool | nupp | päripäeva | ühe</annotation>
+		<annotation cp="🔂">kordus | nool | nupp | päripäeva | ühe | ühe korduse nupp</annotation>
 		<annotation cp="🔂" type="tts">ühe korduse nupp</annotation>
 		<annotation cp="▶">esitamine | esitusnupp | kolmnurk | nool</annotation>
 		<annotation cp="▶" type="tts">esitusnupp</annotation>
@@ -3599,9 +3599,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔽" type="tts">allanupp</annotation>
 		<annotation cp="⏬">alla | kiirkerimine alla | nool | topelt</annotation>
 		<annotation cp="⏬" type="tts">kiirkerimine alla</annotation>
-		<annotation cp="⏸">nupp | paus | topelt | vertikaalne</annotation>
+		<annotation cp="⏸">nupp | paus | pausinupp | topelt | vertikaalne</annotation>
 		<annotation cp="⏸" type="tts">pausinupp</annotation>
-		<annotation cp="⏹">nupp | ruut | stopp</annotation>
+		<annotation cp="⏹">nupp | peatamisnupp | ruut | stopp</annotation>
 		<annotation cp="⏹" type="tts">peatamisnupp</annotation>
 		<annotation cp="⏺">ring | salvestamine | salvestusnupp</annotation>
 		<annotation cp="⏺" type="tts">salvestusnupp</annotation>
@@ -3639,7 +3639,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🟰" type="tts">tugev võrdusmärk</annotation>
 		<annotation cp="♾">igavesti | kõikehaarav | lõpmatu | lõpmatus</annotation>
 		<annotation cp="♾" type="tts">lõpmatus</annotation>
-		<annotation cp="‼">! | !! | hüüumärk | kirjavahemärk | märk | topelt</annotation>
+		<annotation cp="‼">! | !! | hüüumärk | kirjavahemärk | märk | topelt | topelthüüumärk</annotation>
 		<annotation cp="‼" type="tts">topelthüüumärk</annotation>
 		<annotation cp="⁉">! | !? | ? | hüüumärk | küsimärgiga hüüumärk | küsimärk</annotation>
 		<annotation cp="⁉" type="tts">küsimärgiga hüüumärk</annotation>
@@ -3659,11 +3659,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💲" type="tts">suur dollarimärk</annotation>
 		<annotation cp="⚕">Asklepios | meditsiin | meditsiinisümbol</annotation>
 		<annotation cp="⚕" type="tts">meditsiinisümbol</annotation>
-		<annotation cp="♻">nooled | sümbol | taaskasutus</annotation>
+		<annotation cp="♻">nooled | sümbol | taaskasutus | taaskasutuse sümbol</annotation>
 		<annotation cp="♻" type="tts">taaskasutuse sümbol</annotation>
 		<annotation cp="⚜">Bourbonide liilia | fleur-de-lis | prantsuse liilia | rüütlid</annotation>
 		<annotation cp="⚜" type="tts">prantsuse liilia</annotation>
-		<annotation cp="🔱">ankur | embleem | kolmhark | laev | poseidon | tööriist</annotation>
+		<annotation cp="🔱">ankur | embleem | kolmhargi sümbol | kolmhark | laev | poseidon | tööriist</annotation>
 		<annotation cp="🔱" type="tts">kolmhargi sümbol</annotation>
 		<annotation cp="📛">märk | nimesilt | nimi</annotation>
 		<annotation cp="📛" type="tts">nimesilt</annotation>
@@ -3671,7 +3671,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔰" type="tts">algaja sümbol</annotation>
 		<annotation cp="⭕">o | rõngas | seest tühi punane ringjoon | suur ringjoon</annotation>
 		<annotation cp="⭕" type="tts">seest tühi punane ringjoon</annotation>
-		<annotation cp="✅">✓ | korras | linnuke | märge | nupp | tehtud | valmis</annotation>
+		<annotation cp="✅">✓ | korras | linnuke | märge | märkenupp | nupp | tehtud | valmis</annotation>
 		<annotation cp="✅" type="tts">märkenupp</annotation>
 		<annotation cp="☑">✓ | hääletus | linnuke | märge | märgitud | ruut | tehtud</annotation>
 		<annotation cp="☑" type="tts">märgitud ruut</annotation>
@@ -3679,7 +3679,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="✔" type="tts">märge</annotation>
 		<annotation cp="❌">× | ei | korrutamine | korrutusmärk | rist | x</annotation>
 		<annotation cp="❌" type="tts">rist</annotation>
-		<annotation cp="❎">× | korrutus | märk | nupp | ruut | x</annotation>
+		<annotation cp="❎">× | korrutus | korrutusmärgiga nupp | märk | nupp | ruut | x</annotation>
 		<annotation cp="❎" type="tts">korrutusmärgiga nupp</annotation>
 		<annotation cp="➰">lokk | silmus</annotation>
 		<annotation cp="➰" type="tts">silmus</annotation>
@@ -3709,11 +3709,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔣" type="tts">sümbolid</annotation>
 		<annotation cp="🔤">abc | ladina | tähed | tähestik</annotation>
 		<annotation cp="🔤" type="tts">ladina tähed</annotation>
-		<annotation cp="🅰">nupp | tüüp | veri</annotation>
+		<annotation cp="🅰">nupp | nupp A (veregrupp) | tüüp | veri</annotation>
 		<annotation cp="🅰" type="tts">nupp A (veregrupp)</annotation>
-		<annotation cp="🆎">AB | nupp | tüüp | veri</annotation>
+		<annotation cp="🆎">AB | nupp | nupp AB (veregrupp) | tüüp | veri</annotation>
 		<annotation cp="🆎" type="tts">nupp AB (veregrupp)</annotation>
-		<annotation cp="🅱">B | nupp | tüüp | veri</annotation>
+		<annotation cp="🅱">B | nupp | nupp B (veregrupp) | tüüp | veri</annotation>
 		<annotation cp="🅱" type="tts">nupp B (veregrupp)</annotation>
 		<annotation cp="🆑">CL | nupp</annotation>
 		<annotation cp="🆑" type="tts">nupp CL</annotation>
@@ -3731,7 +3731,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🆕" type="tts">nupp NEW</annotation>
 		<annotation cp="🆖">ng | nupp</annotation>
 		<annotation cp="🆖" type="tts">nupp NG</annotation>
-		<annotation cp="🅾">nupp | O | tüüp | veri</annotation>
+		<annotation cp="🅾">nupp | nupp 0 (veregrupp) | O | tüüp | veri</annotation>
 		<annotation cp="🅾" type="tts">nupp 0 (veregrupp)</annotation>
 		<annotation cp="🆗">nupp OK | ok</annotation>
 		<annotation cp="🆗" type="tts">nupp OK</annotation>
@@ -3817,7 +3817,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="◼" type="tts">keskmine must ruut</annotation>
 		<annotation cp="◻">geomeetria | keskmine valge ruut | ruut</annotation>
 		<annotation cp="◻" type="tts">keskmine valge ruut</annotation>
-		<annotation cp="◾">geomeetria | keskmine | must | ruut | väike</annotation>
+		<annotation cp="◾">geomeetria | keskmine | must | ruut | väike | väiksem must ruut</annotation>
 		<annotation cp="◾" type="tts">väiksem must ruut</annotation>
 		<annotation cp="◽">geomeetria | ruut | väiksem valge ruut</annotation>
 		<annotation cp="◽" type="tts">väiksem valge ruut</annotation>
@@ -3825,7 +3825,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="▪" type="tts">väike must ruut</annotation>
 		<annotation cp="▫">geomeetria | ruut | väike | valge</annotation>
 		<annotation cp="▫" type="tts">väike valge ruut</annotation>
-		<annotation cp="🔶">geomeetria | oranž | suur | teemant</annotation>
+		<annotation cp="🔶">geomeetria | oranž | suur | suur oranž romb | teemant</annotation>
 		<annotation cp="🔶" type="tts">suur oranž romb</annotation>
 		<annotation cp="🔷">geomeetria | romb | sinine | suur sinine romb | teemant</annotation>
 		<annotation cp="🔷" type="tts">suur sinine romb</annotation>

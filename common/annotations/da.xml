@@ -559,9 +559,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="■" type="tts">udfyldt kvadrat</annotation>
 		<annotation cp="□">hult kvadrat</annotation>
 		<annotation cp="□" type="tts">hult kvadrat</annotation>
-		<annotation cp="▢">afrundede hjørner | hult | kvadrat</annotation>
+		<annotation cp="▢">afrundede hjørner | hult | hult kvadrat med afrundede hjørner | kvadrat</annotation>
 		<annotation cp="▢" type="tts">hult kvadrat med afrundede hjørner</annotation>
-		<annotation cp="▣">hult | indeholder udfyldt kvadrat | kvadrat | udfyldt</annotation>
+		<annotation cp="▣">hult | hult kvadrat, der indeholder udfyldt kvadrat | indeholder udfyldt kvadrat | kvadrat | udfyldt</annotation>
 		<annotation cp="▣" type="tts">hult kvadrat, der indeholder udfyldt kvadrat</annotation>
 		<annotation cp="▤">kvadrat med vandret udfyldning</annotation>
 		<annotation cp="▤" type="tts">kvadrat med vandret udfyldning</annotation>
@@ -719,7 +719,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪾" type="tts">træ uden blade</annotation>
 		<annotation cp="🫆">fingeraftryk | identitet | retsmedicin | sikkerhed</annotation>
 		<annotation cp="🫆" type="tts">fingeraftryk</annotation>
-		<annotation cp="🫜">grøntsag | have | majroe | rod | roe</annotation>
+		<annotation cp="🫜">grøntsag | have | majroe | rod | rodfrugt | roe</annotation>
 		<annotation cp="🫜" type="tts">rodfrugt</annotation>
 		<annotation cp="🫟">holi | klat | maling | plet | spild</annotation>
 		<annotation cp="🫟" type="tts">klat</annotation>
@@ -731,9 +731,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😃" type="tts">grinende ansigt med store øjne</annotation>
 		<annotation cp="😄">ansigt | glad | grinende ansigt med smilende øjne | smil | smileøjne | smiley</annotation>
 		<annotation cp="😄" type="tts">grinende ansigt med smilende øjne</annotation>
-		<annotation cp="😁">ansigt | glad | grin | grinende | smilende øjne | smiley | strålende | tænder | tandsmil</annotation>
+		<annotation cp="😁">ansigt | glad | grin | grinende | smilende øjne | smiley | strålende | strålende ansigt med smilende øjne | tænder | tandsmil</annotation>
 		<annotation cp="😁" type="tts">strålende ansigt med smilende øjne</annotation>
-		<annotation cp="😆">åben mund | ansigt | glad | grin | grinende | grineren | hahaha | lol | lukkede øjne | morsomt | sjovt | smil | stort smil</annotation>
+		<annotation cp="😆">åben mund | ansigt | glad | grin | grinende | grinende ansigt med lukkede øjne | grineren | hahaha | lol | lukkede øjne | morsomt | sjovt | smil | stort smil</annotation>
 		<annotation cp="😆" type="tts">grinende ansigt med lukkede øjne</annotation>
 		<annotation cp="😅">åben mund | ansigt | grine | grinende ansigt med sveddråbe | lettet | smilende ansigt med åben mund og koldsved | stress | stresset | sved</annotation>
 		<annotation cp="😅" type="tts">grinende ansigt med sveddråbe</annotation>
@@ -789,7 +789,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤭" type="tts">ansigt med hånd over munden</annotation>
 		<annotation cp="🫢">ærefrygt | ansigt med åbne øjne og hånden over munden | bange | chok | chokeret | du godeste | forbavselse | forbavset | forbløffelse | forbløffet | gisp | gisper | omg | overraskelse | pinlig | stille | ti stille</annotation>
 		<annotation cp="🫢" type="tts">ansigt med åbne øjne og hånden over munden</annotation>
-		<annotation cp="🫣">angst | ansigt | bange | fascineret | flov | gemme | genert | kigge frem | kigge ud | pinlig | skjule | smugkigger | stirre</annotation>
+		<annotation cp="🫣">angst | ansigt | ansigt, der smugkigger | bange | fascineret | flov | gemme | genert | kigge frem | kigge ud | pinlig | skjule | smugkigger | stirre</annotation>
 		<annotation cp="🫣" type="tts">ansigt, der smugkigger</annotation>
 		<annotation cp="🤫">ansigt | shh | stille | tysse | tyssende ansigt</annotation>
 		<annotation cp="🤫" type="tts">tyssende ansigt</annotation>
@@ -799,7 +799,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫡" type="tts">ansigt, der gør honnør</annotation>
 		<annotation cp="🤐">ansigt | ansigt med lynlåsmund | hemmelighed | lynlås | mund | mund lukket | siger intet | stille | tavs</annotation>
 		<annotation cp="🤐" type="tts">ansigt med lynlåsmund</annotation>
-		<annotation cp="🤨">ansigt | elevatorblik | hævet øjenbryn | hmm | løftede øjenbryn | mistro | overrasket | skepsis | skeptisk</annotation>
+		<annotation cp="🤨">ansigt | ansigt med løftet øjenbryn | elevatorblik | hævet øjenbryn | hmm | løftede øjenbryn | mistro | overrasket | skepsis | skeptisk</annotation>
 		<annotation cp="🤨" type="tts">ansigt med løftet øjenbryn</annotation>
 		<annotation cp="😐">ansigt | ikke sjovt | ingen kommentar | neutralt ansigt | pokeransigt | udtryksløst | uimponeret</annotation>
 		<annotation cp="😐" type="tts">neutralt ansigt</annotation>
@@ -827,7 +827,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫨" type="tts">rystende ansigt</annotation>
 		<annotation cp="🙂‍↔">hovedrysten | nej | ryster på hovedet vandret</annotation>
 		<annotation cp="🙂‍↔" type="tts">ryster på hovedet vandret</annotation>
-		<annotation cp="🙂‍↕">ja | nikke</annotation>
+		<annotation cp="🙂‍↕">ja | nikke | ryster på hovedet lodret</annotation>
 		<annotation cp="🙂‍↕" type="tts">ryster på hovedet lodret</annotation>
 		<annotation cp="😌">ansigt | fred | lettelse | lettet ansigt | ro</annotation>
 		<annotation cp="😌" type="tts">lettet ansigt</annotation>
@@ -861,7 +861,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😵" type="tts">svimmelt ansigt</annotation>
 		<annotation cp="😵‍💫">ansigt med spiraløjne | hypnose | hypnotiseret | problemer | spiral | svimmel</annotation>
 		<annotation cp="😵‍💫" type="tts">ansigt med spiraløjne</annotation>
-		<annotation cp="🤯">chokeret | eksploderer | hoved | no way | overrasket | what</annotation>
+		<annotation cp="🤯">chokeret | eksploderer | hoved | hoved, der eksploderer | no way | overrasket | what</annotation>
 		<annotation cp="🤯" type="tts">hoved, der eksploderer</annotation>
 		<annotation cp="🤠">ansigt | ansigt med cowboyhat | cowboy | cowboyhat | cowgirl | hat</annotation>
 		<annotation cp="🤠" type="tts">ansigt med cowboyhat</annotation>
@@ -885,7 +885,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🙁" type="tts">lidt trist ansigt</annotation>
 		<annotation cp="☹">ansigt | ked af det | sur | trist</annotation>
 		<annotation cp="☹" type="tts">trist ansigt</annotation>
-		<annotation cp="😮">åben mund | ansigt | chokeret | måbe | overrasket | ubegribeligt | utroligt | wow</annotation>
+		<annotation cp="😮">åben mund | ansigt | ansigt med åben mund | chokeret | måbe | overrasket | ubegribeligt | utroligt | wow</annotation>
 		<annotation cp="😮" type="tts">ansigt med åben mund</annotation>
 		<annotation cp="😯">ansigt | forbavset | overrasket | stille ansigt | tavst ansigt</annotation>
 		<annotation cp="😯" type="tts">tavst ansigt</annotation>
@@ -905,7 +905,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😨" type="tts">bange ansigt</annotation>
 		<annotation cp="😰">åben mund | ansigt med åben mund og koldsved | blå i ansigtet | koldsved</annotation>
 		<annotation cp="😰" type="tts">ansigt med åben mund og koldsved</annotation>
-		<annotation cp="😥">ansigt | ked | lettet | nervøs | puha | skuffet | skuffet men lettet | tæt på</annotation>
+		<annotation cp="😥">ansigt | ked | lettet | nervøs | puha | skuffet | skuffet men lettet | skuffet men lettet ansigt | tæt på</annotation>
 		<annotation cp="😥" type="tts">skuffet men lettet ansigt</annotation>
 		<annotation cp="😢">ansigt | grædende ansigt | ked af det | tårer</annotation>
 		<annotation cp="😢" type="tts">grædende ansigt</annotation>
@@ -1087,9 +1087,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👌" type="tts">ok-tegn</annotation>
 		<annotation cp="🤌">fingre | gestus | håndtegn | kom nu | samlede fingre | sammenknebne | sarkastisk | udspørge</annotation>
 		<annotation cp="🤌" type="tts">samlede fingre</annotation>
-		<annotation cp="🤏">en smule | fingre | hånd | lidt | lille smule | mængde | nive | pegefinger | tommelfinger</annotation>
+		<annotation cp="🤏">en smule | fingre | hånd | lidt | lidt vist med tommel- og pegefinger | lille smule | mængde | nive | pegefinger | tommelfinger</annotation>
 		<annotation cp="🤏" type="tts">lidt vist med tommel- og pegefinger</annotation>
-		<annotation cp="✌">fred | sejr | v-tegn | V-tegn | yeah</annotation>
+		<annotation cp="✌">fred | sejr | V-tegn | yeah</annotation>
 		<annotation cp="✌" type="tts">v-tegn</annotation>
 		<annotation cp="🤞">finger | håb | hånd | held og lykke | krop | krydsede fingre | krydser fingre</annotation>
 		<annotation cp="🤞" type="tts">krydsede fingre</annotation>
@@ -1215,7 +1215,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👴" type="tts">gammel mand</annotation>
 		<annotation cp="👵">bedstemor | farmor | gammel kvinde | kvinde | menneske | mormor</annotation>
 		<annotation cp="👵" type="tts">gammel kvinde</annotation>
-		<annotation cp="🙍">alvorlig mine | frustreret | gestus | ikke glad | irriteret | mut | oprørt | person med rynket pande | rynke panden | skuffet | udtryk | utilfreds | utilfreds person</annotation>
+		<annotation cp="🙍">alvorlig mine | frustreret | gestus | ikke glad | irriteret | mut | oprørt | person med rynket pande | rynke panden | skuffet | udtryk | utilfreds | Utilfreds person</annotation>
 		<annotation cp="🙍" type="tts">Utilfreds person</annotation>
 		<annotation cp="🙍‍♂">alvorlig | mand | mand med alvorlig mine | panderynken | utilfreds</annotation>
 		<annotation cp="🙍‍♂" type="tts">Utilfreds mand</annotation>
@@ -1245,7 +1245,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💁‍♂" type="tts">mand vender håndfladen op</annotation>
 		<annotation cp="💁‍♀">flabet | håndflade | hjælp | information | kvinde | kvinde vender håndfladen op</annotation>
 		<annotation cp="💁‍♀" type="tts">kvinde vender håndfladen op</annotation>
-		<annotation cp="🙋">fingeren oppe | hånd | hej | hilsen | i vejret | kvinde | løftet hånd | mand | person | spørgsmål | svare | vælg mig</annotation>
+		<annotation cp="🙋">fingeren oppe | hånd | hej | hilsen | i vejret | kvinde | løftet hånd | mand | person | person med løftet hånd | spørgsmål | svare | vælg mig</annotation>
 		<annotation cp="🙋" type="tts">person med løftet hånd</annotation>
 		<annotation cp="🙋‍♂">gestus | hej | hilsen | løftet hånd | mand | mand med løftet hånd | person</annotation>
 		<annotation cp="🙋‍♂" type="tts">mand med løftet hånd</annotation>
@@ -1257,13 +1257,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧏‍♂" type="tts">døv mand</annotation>
 		<annotation cp="🧏‍♀">døv | kvinde</annotation>
 		<annotation cp="🧏‍♀" type="tts">døv kvinde</annotation>
-		<annotation cp="🙇">bevægelse | bukkende person | bukker | fortrudt | fortryder | gestus | meditation | meditere | synd | synd for | tigger | tilgiv | tilgive | undskyld</annotation>
+		<annotation cp="🙇">bevægelse | bukkende person | bukker | fortrudt | fortryder | gestus | meditation | meditere | person bukker dybt | synd | synd for | tigger | tilgiv | tilgive | undskyld</annotation>
 		<annotation cp="🙇" type="tts">person bukker dybt</annotation>
 		<annotation cp="🙇‍♂">buk | mand | mand bukker dybt | undskyld | undskyldning</annotation>
 		<annotation cp="🙇‍♂" type="tts">mand bukker dybt</annotation>
 		<annotation cp="🙇‍♀">buk | kvinde | kvinde bukker dybt | meditation | undskyld | undskyldning</annotation>
 		<annotation cp="🙇‍♀" type="tts">kvinde bukker dybt</annotation>
-		<annotation cp="🤦">åh nej | ansigt | chok | dumt | facepalm | hånd | ikke igen | irritation | irriteret | omg | person | ryster på hovedet | skepsis | slår sig for panden</annotation>
+		<annotation cp="🤦">åh nej | ansigt | chok | dumt | facepalm | hånd | ikke igen | irritation | irriteret | omg | person | ryster på hovedet | skepsis | slå sig for panden | slår sig for panden</annotation>
 		<annotation cp="🤦" type="tts">slå sig for panden</annotation>
 		<annotation cp="🤦‍♂">åh nej | chok | facepalm | græmmes | håndflade | ikke igen | irritation | irriteret | mand | mand slår sig for panden | omg | skepsis | skuffelse</annotation>
 		<annotation cp="🤦‍♂" type="tts">mand slår sig for panden</annotation>
@@ -1615,7 +1615,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏊‍♀" type="tts">kvindelig svømmer</annotation>
 		<annotation cp="⛹">atletik | basketball | basketballspiller | bold | drible | dribler | dribler med en bold | mesterskab | person | person, der dribler med en bold</annotation>
 		<annotation cp="⛹" type="tts">person, der dribler med en bold</annotation>
-		<annotation cp="⛹‍♂">basketball | bold | boldspil | boldspiller | drible | dribler med en bold | håndbold | mand</annotation>
+		<annotation cp="⛹‍♂">basketball | bold | boldspil | boldspiller | drible | dribler med en bold | håndbold | mand | mand, der dribler med en bold</annotation>
 		<annotation cp="⛹‍♂" type="tts">mand, der dribler med en bold</annotation>
 		<annotation cp="⛹‍♀">basket | bold | boldspil | boldspiller | der dribler med en bold | håndbold | kvinde | kvinde, der dribler med en bold</annotation>
 		<annotation cp="⛹‍♀" type="tts">kvinde, der dribler med en bold</annotation>
@@ -1699,13 +1699,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫂" type="tts">knus</annotation>
 		<annotation cp="👪">barn | familie | far | menneske | mor | par</annotation>
 		<annotation cp="👪" type="tts">familie</annotation>
-		<annotation cp="🧑‍🧑‍🧒">barn | familie | forældre | menneske | voksen | voksne</annotation>
+		<annotation cp="🧑‍🧑‍🧒">barn | familie | familie: voksen, voksen, barn | forældre | menneske | voksen | voksne</annotation>
 		<annotation cp="🧑‍🧑‍🧒" type="tts">familie: voksen, voksen, barn</annotation>
-		<annotation cp="🧑‍🧑‍🧒‍🧒">barn | børn | familie | forældre | menneske | to | voksen | voksne</annotation>
+		<annotation cp="🧑‍🧑‍🧒‍🧒">barn | børn | familie | familie: voksen, voksen, barn, barn | forældre | menneske | to | voksen | voksne</annotation>
 		<annotation cp="🧑‍🧑‍🧒‍🧒" type="tts">familie: voksen, voksen, barn, barn</annotation>
-		<annotation cp="🧑‍🧒">barn | familie | forælder | menneske | voksen</annotation>
+		<annotation cp="🧑‍🧒">barn | familie | familie: voksen, barn | forælder | menneske | voksen</annotation>
 		<annotation cp="🧑‍🧒" type="tts">familie: voksen, barn</annotation>
-		<annotation cp="🧑‍🧒‍🧒">barn | børn | familie | forælder | menneske | voksen</annotation>
+		<annotation cp="🧑‍🧒‍🧒">barn | børn | familie | familie: voksen, barn, barn | forælder | menneske | voksen</annotation>
 		<annotation cp="🧑‍🧒‍🧒" type="tts">familie: voksen, barn, barn</annotation>
 		<annotation cp="👣">fødder | fodspor</annotation>
 		<annotation cp="👣" type="tts">fodspor</annotation>
@@ -1911,7 +1911,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦕" type="tts">sauropod</annotation>
 		<annotation cp="🦖">dinosaur | dinosaurus | T-Rex | Tyrannosaurus Rex</annotation>
 		<annotation cp="🦖" type="tts">T-Rex</annotation>
-		<annotation cp="🐳">blåhval | dyr | hav | hval | ocean | vandsprøjt</annotation>
+		<annotation cp="🐳">blåhval | dyr | hav | hval | hval med vandsprøjt | ocean | vandsprøjt</annotation>
 		<annotation cp="🐳" type="tts">hval med vandsprøjt</annotation>
 		<annotation cp="🐋">dyr | hval</annotation>
 		<annotation cp="🐋" type="tts">hval</annotation>
@@ -3539,7 +3539,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☪" type="tts">stjerne og halvmåne</annotation>
 		<annotation cp="☮">fred | fredssymbol</annotation>
 		<annotation cp="☮" type="tts">fredssymbol</annotation>
-		<annotation cp="🕎">hanukkah | jødisk | lysestage | menorah | niarmet lysestage | religion</annotation>
+		<annotation cp="🕎">hanukkah | jødisk | lysestage | menorah | niarmet lysestage | religion | syvarmet lysestage</annotation>
 		<annotation cp="🕎" type="tts">syvarmet lysestage</annotation>
 		<annotation cp="🔯">davidsstjerne | horoskop | jødisk | sekstakket stjerne med prik | stjerne</annotation>
 		<annotation cp="🔯" type="tts">sekstakket stjerne med prik</annotation>

@@ -469,9 +469,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="≤" type="tts">je menšie alebo rovné</annotation>
 		<annotation cp="≥">je väčšie alebo rovné | nerovnosť | rovná sa | viacej než</annotation>
 		<annotation cp="≥" type="tts">je väčšie alebo rovné</annotation>
-		<annotation cp="≦">menej | menej alebo rovná sa | menšie | menšie alebo rovná sa | než | rovná sa | rovné</annotation>
+		<annotation cp="≦">menej | menej alebo rovná sa | menšie | menšie ako nad rovná sa | menšie alebo rovná sa | než | rovná sa | rovné</annotation>
 		<annotation cp="≦" type="tts">menšie ako nad rovná sa</annotation>
-		<annotation cp="≧">než | rovná sa | rovné | väčšie | väčšie alebo rovná sa | viac | viac alebo rovná sa</annotation>
+		<annotation cp="≧">než | rovná sa | rovné | väčšie | väčšie ako nad rovná sa | väčšie alebo rovná sa | viac | viac alebo rovná sa</annotation>
 		<annotation cp="≧" type="tts">väčšie ako nad rovná sa</annotation>
 		<annotation cp="≪">oveľa menšie ako</annotation>
 		<annotation cp="≪" type="tts">oveľa menšie ako</annotation>
@@ -517,11 +517,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⊥" type="tts">kolmica otočená nahor</annotation>
 		<annotation cp="⊮">nevynucuje</annotation>
 		<annotation cp="⊮" type="tts">nevynucuje</annotation>
-		<annotation cp="⊰">matematika | operátor | predchádza | predchádza zdola | znamienko</annotation>
+		<annotation cp="⊰">matematika | operátor | predchádza | predchádza zdola | vzťah predchádza zdola | znamienko</annotation>
 		<annotation cp="⊰" type="tts">vzťah predchádza zdola</annotation>
-		<annotation cp="⊱">matematika | nasleduje | nasleduje zdola | operátor | znamienko</annotation>
+		<annotation cp="⊱">matematika | nasleduje | nasleduje zdola | operátor | vzťah nasleduje zdola | znamienko</annotation>
 		<annotation cp="⊱" type="tts">vzťah nasleduje zdola</annotation>
-		<annotation cp="⋭">ako | matematika | neobsahuje | operátor | podskupina | skupina | znamienko</annotation>
+		<annotation cp="⋭">ako | matematika | neobsahuje | neobsahuje ako normálnu podskupinu alebo rovná sa | operátor | podskupina | skupina | znamienko</annotation>
 		<annotation cp="⋭" type="tts">neobsahuje ako normálnu podskupinu alebo rovná sa</annotation>
 		<annotation cp="⊶">počiatok</annotation>
 		<annotation cp="⊶" type="tts">počiatok</annotation>
@@ -543,17 +543,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⋈" type="tts">prirodzené spojenie</annotation>
 		<annotation cp="⋒">dvojitý | matematika | množina | operátor | prienik | znamienko</annotation>
 		<annotation cp="⋒" type="tts">dvojitý prienik</annotation>
-		<annotation cp="⋘">matematika | nerovnosť | oveľa menej | veľmi menšie | výrazne menej | výrazne menšie</annotation>
+		<annotation cp="⋘">matematika | nerovnosť | o veľmi veľa menšie ako | oveľa menej | veľmi menšie | výrazne menej | výrazne menšie</annotation>
 		<annotation cp="⋘" type="tts">o veľmi veľa menšie ako</annotation>
-		<annotation cp="⋙">matematika | nerovnosť | oveľa viac | veľa | veľmi väčšie | výrazne väčšie | výrazne viac</annotation>
+		<annotation cp="⋙">matematika | nerovnosť | o veľmi veľa väčšie ako | oveľa viac | veľa | veľmi väčšie | výrazne väčšie | výrazne viac</annotation>
 		<annotation cp="⋙" type="tts">o veľmi veľa väčšie ako</annotation>
-		<annotation cp="⋮">elipsa | matematika | tri bodky | trojbodka | vertikálne | zvislo</annotation>
+		<annotation cp="⋮">elipsa | matematika | tri bodky | tri bodky zvislo | trojbodka | vertikálne | zvislo</annotation>
 		<annotation cp="⋮" type="tts">tri bodky zvislo</annotation>
-		<annotation cp="⋯">elipsa | horizontálne | tri bodky | trojbodka | v strede | vodorovne</annotation>
+		<annotation cp="⋯">elipsa | horizontálne | tri bodky | tri bodky vodorovne v strede | trojbodka | v strede | vodorovne</annotation>
 		<annotation cp="⋯" type="tts">tri bodky vodorovne v strede</annotation>
-		<annotation cp="⋰">diagonálne | elipsa | matematika | nahor | operátor | šikmo doprava | tri bodky | trojbodka | znamienko</annotation>
+		<annotation cp="⋰">diagonálne | elipsa | matematika | nahor | operátor | šikmo doprava | tri bodky | tri bodky šikmo doprava nahor | trojbodka | znamienko</annotation>
 		<annotation cp="⋰" type="tts">tri bodky šikmo doprava nahor</annotation>
-		<annotation cp="⋱">diagonálne | elipsa | matematika | nadol | operátor | šikmo doprava | tri bodky | trojbodka | znamienko</annotation>
+		<annotation cp="⋱">diagonálne | elipsa | matematika | nadol | operátor | šikmo doprava | tri bodky | tri bodky šikmo doprava nadol | trojbodka | znamienko</annotation>
 		<annotation cp="⋱" type="tts">tri bodky šikmo doprava nadol</annotation>
 		<annotation cp="■">plný štvorec</annotation>
 		<annotation cp="■" type="tts">plný štvorec</annotation>
@@ -591,7 +591,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="▴" type="tts">malý plný trojuholník smerujúci nahor</annotation>
 		<annotation cp="▵">malý prázdny trojuholník smerujúci nahor</annotation>
 		<annotation cp="▵" type="tts">malý prázdny trojuholník smerujúci nahor</annotation>
-		<annotation cp="▷">doprava | geometria | matematika | prázdny | smerujúci doprava | trojuholník | vpravo</annotation>
+		<annotation cp="▷">doprava | geometria | matematika | prázdny | prázdny trojuholník smerujúci doprava | smerujúci doprava | trojuholník | vpravo</annotation>
 		<annotation cp="▷" type="tts">prázdny trojuholník smerujúci doprava</annotation>
 		<annotation cp="▸">malý plný trojuholník smerujúci doprava</annotation>
 		<annotation cp="▸" type="tts">malý plný trojuholník smerujúci doprava</annotation>
@@ -609,7 +609,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="▾" type="tts">malý plný trojuholník smerujúci nadol</annotation>
 		<annotation cp="▿">malý prázdny trojuholník smerujúci nadol</annotation>
 		<annotation cp="▿" type="tts">malý prázdny trojuholník smerujúci nadol</annotation>
-		<annotation cp="◁">doľava | geometria | matematika | prázdny | smerujúci doľava | trojuholník | vľavo</annotation>
+		<annotation cp="◁">doľava | geometria | matematika | prázdny | prázdny trojuholník smerujúci doľava | smerujúci doľava | trojuholník | vľavo</annotation>
 		<annotation cp="◁" type="tts">prázdny trojuholník smerujúci doľava</annotation>
 		<annotation cp="◂">malý plný trojuholník smerujúci doľava</annotation>
 		<annotation cp="◂" type="tts">malý plný trojuholník smerujúci doľava</annotation>
@@ -691,21 +691,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="◿" type="tts">trojuholník vpravo dole</annotation>
 		<annotation cp="♪">hudba | osmina | osminová nota</annotation>
 		<annotation cp="♪" type="tts">osminová nota</annotation>
-		<annotation cp="⨧">+ | dva | matematika | operátor | plus | plus s dolným indexom | s dolným indexom | znamienko</annotation>
+		<annotation cp="⨧">+ | dva | matematika | operátor | plus | plus s dolným indexom | plus s dolným indexom dva | s dolným indexom | znamienko</annotation>
 		<annotation cp="⨧" type="tts">plus s dolným indexom dva</annotation>
 		<annotation cp="⨯">matematika | operátor | súčin | vektor | vektorový | znamienko</annotation>
 		<annotation cp="⨯" type="tts">vektorový súčin</annotation>
 		<annotation cp="⨼">matematika | operátor | skalárne | skalárny | súčin | vektory | znamienko</annotation>
 		<annotation cp="⨼" type="tts">skalárny súčin</annotation>
-		<annotation cp="⩣">alebo | dve čiary dole | dve čiary pod | logické alebo | matematika | operátor | s dvomi čiarami pod | znamienko</annotation>
+		<annotation cp="⩣">alebo | dve čiary dole | dve čiary pod | logické alebo | logické alebo s dvomi čiarami pod | matematika | operátor | s dvomi čiarami pod | znamienko</annotation>
 		<annotation cp="⩣" type="tts">logické alebo s dvomi čiarami pod</annotation>
-		<annotation cp="⩽">matematika | menšie ako | operátor | rovná sa | šikmé | šikmé rovná sa | znamienko</annotation>
+		<annotation cp="⩽">matematika | menšie ako | menšie ako šikmé rovná sa | operátor | rovná sa | šikmé | šikmé rovná sa | znamienko</annotation>
 		<annotation cp="⩽" type="tts">menšie ako šikmé rovná sa</annotation>
-		<annotation cp="⪍">matematika | menšie ako | nad podobné | operátor | rovná sa | znamienko</annotation>
+		<annotation cp="⪍">matematika | menšie ako | menšie ako nad podobné alebo rovná sa | nad podobné | operátor | rovná sa | znamienko</annotation>
 		<annotation cp="⪍" type="tts">menšie ako nad podobné alebo rovná sa</annotation>
-		<annotation cp="⪚">matematika | nad väčšie ako | operátor | rovná sa | väčšie | väčšie ako | znamienko</annotation>
+		<annotation cp="⪚">matematika | nad väčšie ako | operátor | rovná sa | rovná sa nad väčšie ako | väčšie | väčšie ako | znamienko</annotation>
 		<annotation cp="⪚" type="tts">rovná sa nad väčšie ako</annotation>
-		<annotation cp="⪺">matematika | nasleduje nad | nie je približne rovné | nie je rovné | operátor | približné | znamienko</annotation>
+		<annotation cp="⪺">matematika | nasleduje nad | nasleduje nad nie je približne rovné | nie je približne rovné | nie je rovné | operátor | približné | znamienko</annotation>
 		<annotation cp="⪺" type="tts">nasleduje nad nie je približne rovné</annotation>
 		<annotation cp="♭">béčko | hudba | posuvka | zníženie | zníženie tónu</annotation>
 		<annotation cp="♭" type="tts">zníženie tónu</annotation>
@@ -719,7 +719,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪾" type="tts">strom bez listov</annotation>
 		<annotation cp="🫆">bezpečnosť | forenzný | identita | odtlačok prsta</annotation>
 		<annotation cp="🫆" type="tts">odtlačok prsta</annotation>
-		<annotation cp="🫜">cvikla | repa | záhrada | zelenina</annotation>
+		<annotation cp="🫜">cvikla | koreňová zelenina | repa | záhrada | zelenina</annotation>
 		<annotation cp="🫜" type="tts">koreňová zelenina</annotation>
 		<annotation cp="🫟">fľak | machuľa | škvrna</annotation>
 		<annotation cp="🫟" type="tts">machuľa</annotation>
@@ -775,11 +775,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😋" type="tts">pochutnávajúca si tvár</annotation>
 		<annotation cp="😛">drzá | jazyk | party | smajlík | smajlík s vyplazeným jazykom | tvár | tvár s vyplazeným jazykom | zábava</annotation>
 		<annotation cp="😛" type="tts">tvár s vyplazeným jazykom</annotation>
-		<annotation cp="😜">bláznivý | divný | jazyk | mrk | oko | smajlík | sranda | tvár | tvár s vyplazeným jazykom a žmurkajúcim okom | vtip | vyplazený | žmurk | žmurkajúca tvár s vyplazeným jazykom | žmurkať | žmurknutie</annotation>
+		<annotation cp="😜">bláznivý | divný | jazyk | mrk | oko | smajlík | sranda | tvár | tvár s vyplazeným jazykom a žmurkajúcim okom | vtip | vyplazený | žmurk | žmurkajúca tvár s vyplazeným jazykom | žmurkajúca tvár s vyplazeným jazykom | žmurkať | žmurknutie</annotation>
 		<annotation cp="😜" type="tts">žmurkajúca tvár s vyplazeným jazykom</annotation>
 		<annotation cp="🤪">bláznivá | bláznivý | oči | šialená | šialenec | šialený | smajlík | smajlík s bláznivými očami | tvár</annotation>
 		<annotation cp="🤪" type="tts">bláznivá tvár</annotation>
-		<annotation cp="😝">chuť | fuj | hrozná | jazyk | nechutné | oko | omg | škúliaca tvár s jazykom | škúliť | smajlík | tvár | tvár s vyplazeným jazykom a privretými očami | vyplazený</annotation>
+		<annotation cp="😝">chuť | fuj | hrozná | jazyk | nechutné | oko | omg | škúliaca tvár s jazykom | škúliaca tvár s jazykom | škúliť | smajlík | tvár | tvár s vyplazeným jazykom a privretými očami | vyplazený</annotation>
 		<annotation cp="😝" type="tts">škúliaca tvár s jazykom</annotation>
 		<annotation cp="🤑">bohatstvo | peniaze | platiť | smajlík | tvár | tvár s peniazmi na jazyku | ústa | výplata</annotation>
 		<annotation cp="🤑" type="tts">tvár s peniazmi na jazyku</annotation>
@@ -791,7 +791,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫢" type="tts">tvár s otvorenými očami a rukou na ústach</annotation>
 		<annotation cp="🫣">kuk | ostýchavá | pokukávanie | skrývať sa | strach | tvár vykúkajúca pomedzi prsty | uchvátená | vystrašená | zízanie</annotation>
 		<annotation cp="🫣" type="tts">tvár vykúkajúca pomedzi prsty</annotation>
-		<annotation cp="🤫">buď ticho | čit | psst | pst | smajlík | ššš | ticho | tíšiaci smajlík | tvár | tvár s prstom na ústach</annotation>
+		<annotation cp="🤫">buď ticho | čit | psst | pst | smajlík | ššš | ticho | tíšiaci smajlík | tvár | tvár s prstom na ústach | tvár s prstom na ústach</annotation>
 		<annotation cp="🤫" type="tts">tvár s prstom na ústach</annotation>
 		<annotation cp="🤔">hmm | myslieť | premýšľajúca | premýšľať | smajlík | tvár | zamyslený</annotation>
 		<annotation cp="🤔" type="tts">premýšľajúca tvár</annotation>
@@ -815,7 +815,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😏" type="tts">samoľúba tvár</annotation>
 		<annotation cp="😒">divný | nespokojná | nešťastný | nuda | smajlík | tvár | žiarlivý | znechutený | znudená</annotation>
 		<annotation cp="😒" type="tts">znudená tvár</annotation>
-		<annotation cp="🙄">ach jaj | gúľa očami | oči | otrávený smajlík | prevracanie očami | prevracať | prevrátené | tvár</annotation>
+		<annotation cp="🙄">ach jaj | gúľa očami | oči | otrávený smajlík | prevracanie očami | prevracať | prevrátené | tvár | tvár prevracajúca oči</annotation>
 		<annotation cp="🙄" type="tts">tvár prevracajúca oči</annotation>
 		<annotation cp="😬">grimasa | trapas | trápny smajlík | tvár | tvár v grimase | úsmev | vyškerená | zubár | zubatý smajlík</annotation>
 		<annotation cp="😬" type="tts">vyškerená tvár</annotation>
@@ -823,13 +823,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😮‍💨" type="tts">vydychujúca tvár</annotation>
 		<annotation cp="🤥">dlhý | klamajúca tvár s dlhým nosom | klamár | klamať | klamstvo | lož | luhár | nos | Pinocchio | podvodník | smajlík | tvár | tvár s dlhým nosom</annotation>
 		<annotation cp="🤥" type="tts">tvár s dlhým nosom</annotation>
-		<annotation cp="🫨">prekvapenie | šok | trasenie | triaška | tvár | úžas | vibrovanie | zemetrasenie</annotation>
+		<annotation cp="🫨">prekvapenie | roztrasená tvár | šok | trasenie | triaška | tvár | úžas | vibrovanie | zemetrasenie</annotation>
 		<annotation cp="🫨" type="tts">roztrasená tvár</annotation>
 		<annotation cp="🙂‍↔">hlava krútiaca sa zo strany na stranu | krútenie | nie</annotation>
 		<annotation cp="🙂‍↔" type="tts">hlava krútiaca sa zo strany na stranu</annotation>
 		<annotation cp="🙂‍↕">áno | prikývnutie | prikyvujúca hlava</annotation>
 		<annotation cp="🙂‍↕" type="tts">prikyvujúca hlava</annotation>
-		<annotation cp="😌">spokojnosť | spokojný smajlík | tvár | úľava | upokojená | uvoľnená | uvoľnený smajlík | zen</annotation>
+		<annotation cp="😌">spokojnosť | spokojný smajlík | tvár | tvár vyjadrujúca úľavu | úľava | upokojená | uvoľnená | uvoľnený smajlík | zen</annotation>
 		<annotation cp="😌" type="tts">tvár vyjadrujúca úľavu</annotation>
 		<annotation cp="😔">deprimovaná | odmietnutá | sklamaný | skleslý | smajlík | smutný | stratený | tvár | zadumaná | zamyslená | znudený</annotation>
 		<annotation cp="😔" type="tts">zamyslená tvár</annotation>
@@ -853,7 +853,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤧" type="tts">kýchajúca tvár</annotation>
 		<annotation cp="🥵">červená tvár | horúci | horúčka | horúčkovitý | horúčkový | horúco | pot | potenie | prehriaty | rozhorúčená tvár | rozpálená tvár | rozpálený | smrť na jazyku | spotený | ťažko dýchať | tvár | úpal | vyplazený jazyk | zadýchaný | zadychčaný</annotation>
 		<annotation cp="🥵" type="tts">rozhorúčená tvár</annotation>
-		<annotation cp="🥶">cencúľ | cencúle | chlad | chladno | chladný | modrý | mráz | mrznúci | mrznúť | prezimený | triasť sa | uzimený | zima</annotation>
+		<annotation cp="🥶">cencúľ | cencúle | chlad | chladno | chladný | modrý | mráz | mrznúca tvár | mrznúci | mrznúť | prezimený | triasť sa | uzimený | zima</annotation>
 		<annotation cp="🥶" type="tts">mrznúca tvár</annotation>
 		<annotation cp="🥴">chytený | dezorientovaný | malátna tvár | mdloby | omámený | opilec | opitý | opojený | podnapitý | pripitý | závrat</annotation>
 		<annotation cp="🥴" type="tts">malátna tvár</annotation>
@@ -1069,7 +1069,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🖐" type="tts">roztiahnutá ruka</annotation>
 		<annotation cp="✋">5 | päť | pozdrav | ruka | stáť | stop | telo | zdvihnutá ruka | zodvihnutá ruka</annotation>
 		<annotation cp="✋" type="tts">zdvihnutá ruka</annotation>
-		<annotation cp="🖖">pozdrav | pozdrav kap. Spocka | prst | ruka | spock | Spock | star trek | telo | vulkán | Vulkán | vulkánsky pozdrav</annotation>
+		<annotation cp="🖖">pozdrav | pozdrav kap. Spocka | prst | ruka | Spock | star trek | telo | Vulkán | vulkánsky pozdrav</annotation>
 		<annotation cp="🖖" type="tts">vulkánsky pozdrav</annotation>
 		<annotation cp="🫱">doprava | podanie ruky | potrasenie rukou | pravá ruka | ruka | vpravo</annotation>
 		<annotation cp="🫱" type="tts">ruka doprava</annotation>
@@ -1095,7 +1095,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤞" type="tts">držím palce</annotation>
 		<annotation cp="🫰">drahé | láska | lusknutie | peniaze | ruka | ruka s prekríženým ukazovákom a palcom | srdce</annotation>
 		<annotation cp="🫰" type="tts">ruka s prekríženým ukazovákom a palcom</annotation>
-		<annotation cp="🤟">gesto Ľúbim ťa | ľúbim ťa | Ľúbim ťa | ľúbiť | prsty | ruka | tri prsty</annotation>
+		<annotation cp="🤟">gesto Ľúbim ťa | Ľúbim ťa | ľúbiť | prsty | ruka | tri prsty</annotation>
 		<annotation cp="🤟" type="tts">ľúbim ťa</annotation>
 		<annotation cp="🤘">gesto v tvare rohov | paroháč | prst | rock and roll | rock’n’roll | rock&amp;roll | ruka</annotation>
 		<annotation cp="🤘" type="tts">paroháč</annotation>
@@ -1441,7 +1441,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑‍🍼" type="tts">človek kŕmiaci bábätko</annotation>
 		<annotation cp="👼">anjel | anjelik | bábä | dieťa | fantastické | kostol | náboženstvo | osoba | rozprávka | tvár | viera</annotation>
 		<annotation cp="👼" type="tts">anjelik</annotation>
-		<annotation cp="🎅">darček | fantastické | mikuláš | muž | oslava | osoba | rozprávka | santa | Santa | Santa Claus | vianoce</annotation>
+		<annotation cp="🎅">darček | fantastické | mikuláš | muž | oslava | osoba | rozprávka | Santa | Santa Claus | vianoce</annotation>
 		<annotation cp="🎅" type="tts">Santa</annotation>
 		<annotation cp="🤶">babička | darček | oslava | osoba | pani Santová | santa | stará | starenka | vianoce | žena</annotation>
 		<annotation cp="🤶" type="tts">pani Santová</annotation>
@@ -1471,7 +1471,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧚‍♂" type="tts">škriatok</annotation>
 		<annotation cp="🧚‍♀">rozprávka | víla</annotation>
 		<annotation cp="🧚‍♀" type="tts">víla</annotation>
-		<annotation cp="🧛">drakula | Drakula | Halloween | kostým | krv | nemŕtvy | tesáky | Transylvánia | upír | upíri | upírska bytosť | vampír | zuby</annotation>
+		<annotation cp="🧛">Drakula | Halloween | kostým | krv | nemŕtvy | tesáky | Transylvánia | upír | upíri | upírska bytosť | vampír | zuby</annotation>
 		<annotation cp="🧛" type="tts">upírska bytosť</annotation>
 		<annotation cp="🧛‍♂">drakula | muž | upír</annotation>
 		<annotation cp="🧛‍♂" type="tts">upír</annotation>
@@ -1973,7 +1973,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌸" type="tts">čerešňový kvet</annotation>
 		<annotation cp="💮">biely kvet | japonský | kvetina | rastlina | romanca | výborná práca | znak dobre vykonanej práce</annotation>
 		<annotation cp="💮" type="tts">biely kvet</annotation>
-		<annotation cp="🪷">budhizmus | Budhizmus | čistota | hinduizmus | Hinduizmus | India | krása | kvet | lotos | mier | pokoj | Vietnam</annotation>
+		<annotation cp="🪷">Budhizmus | čistota | Hinduizmus | India | krása | kvet | lotos | mier | pokoj | Vietnam</annotation>
 		<annotation cp="🪷" type="tts">lotos</annotation>
 		<annotation cp="🏵">kvet | príroda | rastlina | rozeta | ružička</annotation>
 		<annotation cp="🏵" type="tts">ružička</annotation>
@@ -2303,7 +2303,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌐" type="tts">zemeguľa s poludníkmi</annotation>
 		<annotation cp="🗺">cestovanie | mapa | mapa sveta | svet</annotation>
 		<annotation cp="🗺" type="tts">mapa sveta</annotation>
-		<annotation cp="🗾">cestovanie | japonsko | mapa | mapa japonska | ostrov</annotation>
+		<annotation cp="🗾">cestovanie | japonsko | mapa | mapa Japonska | ostrov</annotation>
 		<annotation cp="🗾" type="tts">mapa Japonska</annotation>
 		<annotation cp="🧭">azimut | buzola | juh | kompas | magnet | magnetický | magnetka | navigácia | orientácia | orientačné preteky | orientačný beh | sever | smer | svetové strany | východ | západ</annotation>
 		<annotation cp="🧭" type="tts">kompas</annotation>
@@ -2957,7 +2957,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="👞" type="tts">pánska topánka</annotation>
 		<annotation cp="👟">beh | bežecká topánka | botaska | oblečenie | šport | športové | teniska | tennis | topánka</annotation>
 		<annotation cp="👟" type="tts">bežecká topánka</annotation>
-		<annotation cp="🥾">cestovanie | kempovanie | kempovať | pešia túra | šport | stanovanie | stanovať | táborenie | táboriť | topánka | túra</annotation>
+		<annotation cp="🥾">cestovanie | kempovanie | kempovať | pešia túra | pohorka | šport | stanovanie | stanovať | táborenie | táboriť | topánka | túra</annotation>
 		<annotation cp="🥾" type="tts">pohorka</annotation>
 		<annotation cp="🥿">balerína | balerínka | balerínky | baleríny | bez podpätkov | cvička | ľahká topánka | nazúvacie | nízka obuv | nízky | papučka | plochá obuv | pohodlie | pohodlné | rovná podrážka</annotation>
 		<annotation cp="🥿" type="tts">balerína</annotation>
@@ -3331,7 +3331,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⚗" type="tts">krivuľa</annotation>
 		<annotation cp="🧪">chémia | chemička | chemik | elixír | experiment | kvapalina | laboratórium | pokus | skúmavka | veda</annotation>
 		<annotation cp="🧪" type="tts">skúmavka</annotation>
-		<annotation cp="🧫">baktéria | biológ | biológia | biologička | bunky | chémia | experimenty | kultivácia | kultivovať | kultúra</annotation>
+		<annotation cp="🧫">baktéria | biológ | biológia | biologička | bunky | chémia | experimenty | kultivácia | kultivovať | kultúra | Petriho miska</annotation>
 		<annotation cp="🧫" type="tts">Petriho miska</annotation>
 		<annotation cp="🧬">biológ | biológia | biologička | deoxyribonukleová kyselina | DNA | dvojzávitnica | dvojzávitnicová špirála | evolúcia | gén | genetická informácia</annotation>
 		<annotation cp="🧬" type="tts">dna</annotation>
@@ -3381,7 +3381,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪤" type="tts">pasca na myši</annotation>
 		<annotation cp="🪒">britva | holenie | holiace | holiť | oholiť | ostrý</annotation>
 		<annotation cp="🪒" type="tts">britva</annotation>
-		<annotation cp="🧴">fľaštička | hydratačný krém | kondicionér | krém | nádobka | opaľovací krém | opaľovacie mlieko | pleťová voda | pleťové mlieko | šampón</annotation>
+		<annotation cp="🧴">fľaštička | fľaštička krému | hydratačný krém | kondicionér | krém | nádobka | opaľovací krém | opaľovacie mlieko | pleťová voda | pleťové mlieko | šampón</annotation>
 		<annotation cp="🧴" type="tts">fľaštička krému</annotation>
 		<annotation cp="🧷">krajčírstvo | pankáč | pankáčka | prišpendliť | šitíčko | spínací špendlík | zápinka | zapnúť | zatvárací špendlík | zicherka</annotation>
 		<annotation cp="🧷" type="tts">spínací špendlík</annotation>
@@ -3399,7 +3399,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫧" type="tts">bubliny</annotation>
 		<annotation cp="🪥">čistiť | kefka | kúpeľňa | vyčistiť | zubná kefka | zuby</annotation>
 		<annotation cp="🪥" type="tts">zubná kefka</annotation>
-		<annotation cp="🧽">čistenie | čistiť | huba | hubka | kúpať | nasiaknuť | penový | porézny | sajúci | savý</annotation>
+		<annotation cp="🧽">čistenie | čistiť | huba | hubka | kúpať | nasiaknuť | penový | porézny | sajúci | savý | špongia</annotation>
 		<annotation cp="🧽" type="tts">špongia</annotation>
 		<annotation cp="🧯">hasiaci prístroj | hasiť | oheň | požiar | uhasiť | zahasiť</annotation>
 		<annotation cp="🧯" type="tts">hasiaci prístroj</annotation>
@@ -3439,7 +3439,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚻" type="tts">toalety</annotation>
 		<annotation cp="🚼">dieťa | prebalenie | prebaľovacia miestnosť | značka</annotation>
 		<annotation cp="🚼" type="tts">prebaľovacia miestnosť</annotation>
-		<annotation cp="🚾">splachovací záchod | toaleta | voda | wc | WC | záchod</annotation>
+		<annotation cp="🚾">splachovací záchod | toaleta | voda | WC | záchod</annotation>
 		<annotation cp="🚾" type="tts">splachovací záchod</annotation>
 		<annotation cp="🛂">hranica | kontrola | letisko | pas | pasová kontrola</annotation>
 		<annotation cp="🛂" type="tts">pasová kontrola</annotation>
@@ -3469,7 +3469,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🚷" type="tts">zákaz chodcov</annotation>
 		<annotation cp="📵">bez mobilov | mobil | mobilný | nepovolené | telefón | zákaz | zákaz mobilov | zakázané | zakázaný</annotation>
 		<annotation cp="📵" type="tts">zákaz mobilov</annotation>
-		<annotation cp="🔞">18 | maloletí | nepovolené | nie | osemnásť | vekové obmedzenie | zákaz osobám mladším ako osemnásť rokov | zákaz vstupu osobám mladším ako osemnásť rokov | zakázané</annotation>
+		<annotation cp="🔞">18 | maloletí | nepovolené | nie | osemnásť | vekové obmedzenie | zákaz osobám mladším ako osemnásť rokov | zákaz vstupu do osemnásť rokov | zákaz vstupu osobám mladším ako osemnásť rokov | zakázané</annotation>
 		<annotation cp="🔞" type="tts">zákaz vstupu do osemnásť rokov</annotation>
 		<annotation cp="☢">rádioaktivita | značka</annotation>
 		<annotation cp="☢" type="tts">rádioaktivita</annotation>
@@ -3507,7 +3507,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⤵" type="tts">šípka doprava zakrivená nadol</annotation>
 		<annotation cp="🔃">hrať dokola | šípka | v smere hodinových ručičiek | znovu načítať | zvislé šípky v smere hodinových ručičiek</annotation>
 		<annotation cp="🔃" type="tts">zvislé šípky v smere hodinových ručičiek</annotation>
-		<annotation cp="🔄">dejavu | prehrať znovu | pretočiť | proti smeru hodinových ručičiek | šípka | tlačidlo so šípkami proti smeru hodinových ručičiek | znova</annotation>
+		<annotation cp="🔄">dejavu | prehrať znovu | pretočiť | proti smeru hodinových ručičiek | šípka | šípky proti smeru hodinových ručičiek | tlačidlo so šípkami proti smeru hodinových ručičiek | znova</annotation>
 		<annotation cp="🔄" type="tts">šípky proti smeru hodinových ručičiek</annotation>
 		<annotation cp="🔙">back | šípka | späť</annotation>
 		<annotation cp="🔙" type="tts">šípka BACK</annotation>
@@ -3515,7 +3515,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔚" type="tts">šípka END</annotation>
 		<annotation cp="🔛">šípka | šípka ON! | šípka vpred | šípka zapnuté! | zapnuté | značka</annotation>
 		<annotation cp="🔛" type="tts">šípka ON!</annotation>
-		<annotation cp="🔜">čoskoro | šípka | šípka soon | šípka SOON</annotation>
+		<annotation cp="🔜">čoskoro | šípka | šípka SOON</annotation>
 		<annotation cp="🔜" type="tts">šípka SOON</annotation>
 		<annotation cp="🔝">nahor | najlepší | navrch | šípka | šípka na začiatok | top</annotation>
 		<annotation cp="🔝" type="tts">šípka TOP</annotation>
@@ -3527,7 +3527,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🕉" type="tts">óm</annotation>
 		<annotation cp="✡">dávid | davidova hviezda | Dávidova hviezda | hviezda | judaizmus | náboženstvo | viera | žid | židovské | židovstvo</annotation>
 		<annotation cp="✡" type="tts">Dávidova hviezda</annotation>
-		<annotation cp="☸">budhista | dharma | koleso | koleso dharmy | koleso Dharmy | náboženstvo | viera</annotation>
+		<annotation cp="☸">budhista | dharma | koleso | koleso Dharmy | náboženstvo | viera</annotation>
 		<annotation cp="☸" type="tts">koleso dharmy</annotation>
 		<annotation cp="☯">jang | jin | jin a jang | náboženstvo | tao | taoista | viera</annotation>
 		<annotation cp="☯" type="tts">jin a jang</annotation>
@@ -3591,13 +3591,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⏪" type="tts">tlačidlo pretáčania späť</annotation>
 		<annotation cp="⏮">predchádzajúca položka | predchádzajúca skladba | predošlý | šípka | späť | tlačidlo | tlačidlo Posledná skladba | tlačidlo predošlej skladby | trojuholník</annotation>
 		<annotation cp="⏮" type="tts">tlačidlo predošlej skladby</annotation>
-		<annotation cp="🔼">červené | hore | šípka | tlačidlo | tlačidlo nahor | tlačidlo Nahor</annotation>
+		<annotation cp="🔼">červené | hore | šípka | tlačidlo | tlačidlo Nahor</annotation>
 		<annotation cp="🔼" type="tts">tlačidlo nahor</annotation>
-		<annotation cp="⏫">dvojitá | hore | nahor | Rýchlo nahor | šípka | tlačidlo rýchlo nahor | tlačidlo Rýchlo nahor</annotation>
+		<annotation cp="⏫">dvojitá | hore | nahor | Rýchlo nahor | šípka | tlačidlo Rýchlo nahor</annotation>
 		<annotation cp="⏫" type="tts">tlačidlo rýchlo nahor</annotation>
 		<annotation cp="🔽">červené | nadol | šípka | tlačidlo</annotation>
 		<annotation cp="🔽" type="tts">tlačidlo nadol</annotation>
-		<annotation cp="⏬">dole | dvojitá | nadol | šípka | tlačidlo rýchlo nadol | tlačidlo Rýchlo nadol</annotation>
+		<annotation cp="⏬">dole | dvojitá | nadol | šípka | tlačidlo Rýchlo nadol</annotation>
 		<annotation cp="⏬" type="tts">tlačidlo rýchlo nadol</annotation>
 		<annotation cp="⏸">dvojitý | pás | pauza | pozastaviť | tlačidlo | tlačidlo pozastavenia | zvislé</annotation>
 		<annotation cp="⏸" type="tts">tlačidlo pozastavenia</annotation>
@@ -3627,7 +3627,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="♂" type="tts">mužský symbol</annotation>
 		<annotation cp="⚧">transgender | transgenderový symbol</annotation>
 		<annotation cp="⚧" type="tts">transgenderový symbol</annotation>
-		<annotation cp="✖">× | hrubý znak násobenia | násobenie | násobiť | x | znak | zrušenie | zrušiť</annotation>
+		<annotation cp="✖">× | hrubý znak násobenia | krát | násobenie | násobiť | x | znak | zrušenie | zrušiť</annotation>
 		<annotation cp="✖" type="tts">krát</annotation>
 		<annotation cp="➕">+ | hrubý znak sčítania | matematika | plus | počítať | pripočítať | sčítať | znak | znak sčítania</annotation>
 		<annotation cp="➕" type="tts">plus</annotation>
@@ -3659,9 +3659,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💲" type="tts">znak dolára</annotation>
 		<annotation cp="⚕">asklépios | eskulap | farmácia | had | lekársky symbol | lekárstvo | medicína</annotation>
 		<annotation cp="⚕" type="tts">lekársky symbol</annotation>
-		<annotation cp="♻">recyklácia | recyklovanie | recyklovaný | recyklovať</annotation>
+		<annotation cp="♻">recyklácia | recyklovanie | recyklovaný | recyklovať | symbol recyklácie</annotation>
 		<annotation cp="♻" type="tts">symbol recyklácie</annotation>
-		<annotation cp="⚜">erb | heraldika | ľalia | rytier | skaut | symbol</annotation>
+		<annotation cp="⚜">erb | heraldický symbol ľalie | heraldika | ľalia | rytier | skaut | symbol</annotation>
 		<annotation cp="⚜" type="tts">heraldický symbol ľalie</annotation>
 		<annotation cp="🔱">emblém | emblém trojzubca | kotva | loď | nástroj | Poseidón | trojzubec | znak trojzubca</annotation>
 		<annotation cp="🔱" type="tts">emblém trojzubca</annotation>

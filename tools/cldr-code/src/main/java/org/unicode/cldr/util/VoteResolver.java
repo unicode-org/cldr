@@ -381,7 +381,7 @@ public class VoteResolver<T> {
         }
 
         public boolean canDoList() {
-            return isVetter();
+            return isManagerOrStronger();
         }
 
         public boolean canCreateUsers() {

@@ -238,9 +238,20 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</dates>
 	<numbers>
 		<symbols numberSystem="latn">
-			<decimal>↑↑↑</decimal>
-			<group>↑↑↑</group>
+			<decimal>,</decimal> 
+			<decimal alt="official">,</decimal>
+			<decimal alt="us">.</decimal>
+			<group> </group>
+			<group alt="official"> </group>
+			<group alt="us">,</group>
 		</symbols>
+		<currencyFormats numberSystem="latn">
+			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern alt="alphaNextToNumber">¤#,##0.00</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
 		<currencies>
 			<currency type="ZAR">
 				<symbol>R</symbol>

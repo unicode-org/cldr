@@ -1820,8 +1820,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<nameOrderLocales order="givenFirst" draft="unconfirmed">und pap</nameOrderLocales>
 		<nameOrderLocales order="surnameFirst" draft="unconfirmed">↑↑↑</nameOrderLocales>
 		<parameterDefault parameter="formality" draft="unconfirmed">↑↑↑</parameterDefault>
-		<nativeSpaceReplacement draft="unconfirmed">↑↑↑</nativeSpaceReplacement>
-		<foreignSpaceReplacement draft="unconfirmed">↑↑↑</foreignSpaceReplacement>
+		<nativeSpaceReplacement xml:space="preserve" draft="unconfirmed">↑↑↑</nativeSpaceReplacement>
+		<foreignSpaceReplacement xml:space="preserve" draft="unconfirmed">↑↑↑</foreignSpaceReplacement>
 		<initialPattern type="initial" draft="unconfirmed">↑↑↑</initialPattern>
 		<initialPattern type="initialSequence" draft="unconfirmed">{0}{1}</initialPattern>
 		<personName order="givenFirst" length="long" usage="referring" formality="formal">

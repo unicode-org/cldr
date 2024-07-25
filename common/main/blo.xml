@@ -7995,8 +7995,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<nameOrderLocales order="surnameFirst">↑↑↑</nameOrderLocales>
 		<parameterDefault parameter="formality">↑↑↑</parameterDefault>
 		<parameterDefault parameter="length">long</parameterDefault>
-		<nativeSpaceReplacement>↑↑↑</nativeSpaceReplacement>
-		<foreignSpaceReplacement>↑↑↑</foreignSpaceReplacement>
+		<nativeSpaceReplacement xml:space="preserve">↑↑↑</nativeSpaceReplacement>
+		<foreignSpaceReplacement xml:space="preserve">↑↑↑</foreignSpaceReplacement>
 		<initialPattern type="initial">↑↑↑</initialPattern>
 		<initialPattern type="initialSequence">{0}{1}</initialPattern>
 		<personName order="givenFirst" length="long" usage="referring" formality="formal">

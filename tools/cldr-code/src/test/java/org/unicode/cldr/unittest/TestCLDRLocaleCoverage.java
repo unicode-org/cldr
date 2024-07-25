@@ -117,13 +117,39 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
                         "localesForNames.containsAll(coverageLocales)",
                         localesForNames,
                         coverageLocales);
+
+        final int currentMajorVersion = SDI.getCldrVersion().getMajor();
+
+        // Updating coverageLevels.txt
+        //
+        // Languages that reach basic need to be added to coverage locales in the next release.
+        // In the meantime, this list is used to allow a new coverageLevels.txt to be included at
+        // the end of a release.
+        // Follow the instructions below.
+
+        // Set the version number to the current release number
+        final int exceptionMajorVersion = 46;
+
+        // Include all and only the locales that newly reached Basic coverage.
+        Set<String> exceptionsForCurrentVersion =
+                ImmutableSet.of("ak", "ee", "gaa", "ii", "nso", "om", "rw", "st", "tn");
+
         showRegex |=
                 !assertContains(
                         "coverageLocales.containsAll(localesForNames) - add to %language80 or lower under coverageLevels.xml?",
-                        coverageLocales, localesForNames);
+                        currentMajorVersion != exceptionMajorVersion
+                                ? coverageLocales
+                                : Sets.union(coverageLocales, exceptionsForCurrentVersion),
+                        localesForNames);
+
         if (showRegex) {
             String simplePattern = MinimizeRegex.simplePattern(localesForNames);
-            warnln("Plain Regex for coverage:\n" + simplePattern);
+            warnln(
+                    "Plain Regex for coverage:\n"
+                            + simplePattern
+                            + "\n\tWhen regenerating a new coverageLevels.txt,"
+                            + "\n\tsearch for 'Updating coverageLevels.txt in TestLanguageNameCoverageOpening, "
+                            + "and follow the instructions.");
         }
 
         coverageLocales.addAll(SDI.getCLDRLanguageCodes());

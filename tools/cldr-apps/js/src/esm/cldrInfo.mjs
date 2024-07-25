@@ -537,34 +537,14 @@ function updateRowVoteInfo(tr, theRow) {
         )
       );
     }
-    if (theRow.voteVhash !== theRow.winningVhash && theRow.canFlagOnLosing) {
-      if (!theRow.rowFlagged) {
-        cldrSurvey.addIcon(tr.voteDiv, "i-stop");
-        tr.voteDiv.appendChild(
-          cldrDom.createChunk(
-            cldrText.sub("mustflag_explain_msg", {}),
-            "p",
-            "helpContent"
-          )
-        );
-      } else {
-        cldrSurvey.addIcon(tr.voteDiv, "i-flag");
-        tr.voteDiv.appendChild(
-          cldrDom.createChunk(cldrText.get("flag_desc", "p", "helpContent"))
-        );
-      }
+    if (theRow.rowFlagged) {
+      cldrSurvey.addIcon(tr.voteDiv, "i-flag");
+      tr.voteDiv.appendChild(
+        cldrDom.createChunk(cldrText.get("flag_desc", "p", "helpContent"))
+      );
     }
   }
-  if (!theRow.rowFlagged && theRow.canFlagOnLosing) {
-    // TODO: display this message and the actual "Flag for Review" button in the same place; see forumNewPostFlagButton.
-    // Change to: ⚐ [for committee approval|Ask]
-    // and don't show unless it can be, of course.
-    // Reference: https://unicode-org.atlassian.net/browse/CLDR-7536
-    cldrSurvey.addIcon(tr.voteDiv, "i-flag-d");
-    tr.voteDiv.appendChild(
-      cldrDom.createChunk(cldrText.get("flag_d_desc", "p", "helpContent"))
-    );
-  }
+
   /*
    * The value_vote array has an even number of elements,
    * like [value0, vote0, value1, vote1, value2, vote2, ...].

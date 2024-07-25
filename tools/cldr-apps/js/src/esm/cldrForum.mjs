@@ -223,6 +223,7 @@ function openPostOrReply(params) {
     : rootPost && rootPost.value
     ? rootPost.value
     : null;
+  const willFlag = params?.willFlag || false;
   const root = isReply ? rootPost.id : -1;
   const open = isReply ? rootPost.open : true;
   const typeLabel = makePostTypeLabel(postType, isReply);
@@ -235,7 +236,8 @@ function openPostOrReply(params) {
     replyTo,
     root,
     open,
-    value
+    value,
+    willFlag
   );
   const text = prefillPostText(postType, value);
 
@@ -254,6 +256,7 @@ function openPostOrReply(params) {
  * @param root the post id of the original post in the thread, or -1
  * @param open true or false, is this thread open
  * @param value the value that was requested in the root post, or null
+ * @param willFlag {Boolean} if true, this post will cause the item to be flagged
  * @return the html
  */
 function makePostHtml(
@@ -265,12 +268,14 @@ function makePostHtml(
   replyTo,
   root,
   open,
-  value
+  value,
+  willFlag
 ) {
+  const reminder = willFlag ? "flag_must_have_reason" : "forum_remember_vote";
   let html = "";
 
   html += '<div id="postSubject" class="topicSubject">' + subject + "</div>\n";
-  html += "<div>" + cldrText.get("forum_remember_vote") + "</div>\n";
+  html += "<div>" + cldrText.get(reminder) + "</div>\n";
   html += '<div class="postTypeLabel">' + typeLabel + "</div>\n";
   html += '<form role="form" id="post-form">\n';
   html += '<div class="form-group">\n';
@@ -334,6 +339,7 @@ function prefillPostText(postType, value) {
  * Open a window displaying the form for creating a post
  *
  * @param html the main html for the form
+ * @param text the pre-filled user-editable text for the form
  * @param parentPost the post object, if any, to which this is a reply, for display at the bottom of the window
  *
  * Reference: Bootstrap.js post-modal: https://getbootstrap.com/docs/4.1/components/modal/
@@ -363,29 +369,43 @@ function openPostWindow(html, text, parentPost) {
  * @param event
  */
 function submitPost(event) {
-  const text = $("#post-form textarea[name=text]").val();
-  if (text) {
-    reallySubmitPost(text);
-  }
   event.preventDefault();
   event.stopPropagation();
+  const form = getFormValues();
+  if (formIsAcceptable(form)) {
+    $("#post-form button").fadeOut();
+    cldrForumPanel.clearCache();
+    sendPostRequest(form);
+  } else {
+    // Call the user's attention to the bogus text area by winking it
+    $("#post-form textarea").fadeTo(1000, 0).fadeTo(1000, 1);
+  }
 }
 
 /**
- * Submit a forum post
+ * Is the given form data acceptable?
  *
- * @param text the non-empty body of the message
+ * @param {Object} form
+ * @returns {Boolean} true if acceptable
  */
-function reallySubmitPost(text) {
-  $("#post-form button").fadeOut();
-  cldrForumPanel.clearCache();
-  const form = getFormValues(text);
-  sendPostRequest(form);
+function formIsAcceptable(form) {
+  if (!form.text.trim()) {
+    // the text field is empty or all whitespace
+    return false;
+  }
+  if (form.postType === cldrForumType.REQUEST) {
+    const prefill = cldrText.sub("forum_prefill_request", [form.value]);
+    if (form.text.trim() === prefill.trim()) {
+      // the text field for a Request matches the pre-fill
+      return false;
+    }
+  }
+  return true;
 }
 
-function getFormValues(text) {
+function getFormValues() {
   return {
-    text: text,
+    text: $("#post-form textarea[name=text]").val(),
     locale: $("#post-form input[name=_]").val(),
     open: $("#post-form input[name=open]").val(),
     postType: $("#post-form input[name=postType]").val(),
@@ -827,7 +847,15 @@ function addNewPostButtons(el, locale, couldFlag, xpstrid, code, value) {
     null /* rootPost */,
     value
   );
-
+  // Only an enabled REQUEST button can really cause a path to be flagged.
+  const reallyCanFlag =
+    couldFlag && value && Object.keys(options).includes(cldrForumType.REQUEST);
+  if (reallyCanFlag) {
+    const message = cldrText.get("mustflag_explain_msg");
+    cldrSurvey.addIcon(el, "i-stop");
+    el.appendChild(cldrDom.createChunk(message, "span", ""));
+    el.appendChild(document.createElement("p"));
+  }
   Object.keys(options).forEach(function (postType) {
     el.appendChild(
       makeOneNewPostButton(
@@ -877,9 +905,8 @@ function makeOneNewPostButton(
   // REQUEST is only enabled if there is a non-null value (which the user voted for).
   const disabled = postType === cldrForumType.REQUEST && value === null;
   // Only an enabled REQUEST button can really cause a path to be flagged.
-  const reallyCanFlag =
-    couldFlag && postType === cldrForumType.REQUEST && !disabled;
-  const buttonClass = reallyCanFlag
+  const willFlag = couldFlag && postType === cldrForumType.REQUEST && !disabled;
+  const buttonClass = willFlag
     ? "addPostButton forumNewPostFlagButton btn btn-default btn-sm"
     : "addPostButton forumNewButton btn btn-default btn-sm";
 
@@ -898,7 +925,7 @@ function makeOneNewPostButton(
           if (o.result && o.result.ph) {
             subj = xpathMap.formatPathHeader(o.result.ph);
           }
-          if (reallyCanFlag) {
+          if (willFlag) {
             subj += " (Flag for review)";
           }
           openPostOrReply({
@@ -907,6 +934,7 @@ function makeOneNewPostButton(
             subject: subj,
             postType: postType,
             value: value,
+            willFlag: willFlag,
           });
         }
       );

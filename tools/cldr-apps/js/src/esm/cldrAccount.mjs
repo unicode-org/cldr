@@ -357,7 +357,7 @@ function getTableEnd(json) {
 }
 
 function canListMultipleUsers() {
-  return !!cldrStatus.getPermissions()?.userIsManager;
+  return !!cldrStatus.getPermissions()?.userCanListUsers;
 }
 
 function numberOfUsersShown(number) {

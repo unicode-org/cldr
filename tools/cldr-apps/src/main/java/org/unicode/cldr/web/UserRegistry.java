@@ -13,7 +13,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.*;
-import javax.json.bind.annotation.JsonbProperty;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.json.JSONException;
@@ -504,35 +503,14 @@ public class UserRegistry {
                     .put("userCanImportOldVotes", canImportOldVotes())
                     .put("userCanUseVettingSummary", userCanUseVettingSummary(this))
                     .put("userCanCreateSummarySnapshot", userCanCreateSummarySnapshot(this))
+                    .put("userCanListUsers", userCanListUsers(this))
                     .put("userCanMonitorForum", userCanMonitorForum(this))
+                    .put("userCanUseVettingParticipation", userCanUseVettingParticipation(this))
                     .put("userIsAdmin", userIsAdmin(this))
                     .put("userIsManager", getLevel().canManageSomeUsers())
                     .put("userIsTC", userIsTC(this))
                     .put("userIsVetter", userIsVetter(this) && !userIsTC(this))
                     .put("userIsLocked", userIsLocked(this));
-        }
-
-        /**
-         * this property is called permissionsJson for compatiblity
-         *
-         * @return
-         */
-        @JsonbProperty("permissionsJson")
-        @Schema(description = "array of permissions for this user")
-        public Map<String, Boolean> getPermissions() {
-            Map<String, Boolean> m = new HashMap<>();
-
-            m.put("userCanImportOldVotes", canImportOldVotes());
-            m.put("userCanUseVettingSummary", userCanUseVettingSummary(this));
-            m.put("userCanCreateSummarySnapshot", userCanCreateSummarySnapshot(this));
-            m.put("userCanMonitorForum", userCanMonitorForum(this));
-            m.put("userIsAdmin", userIsAdmin(this));
-            m.put("userIsTC", userIsTC(this));
-            m.put("userIsManager", getLevel().canManageSomeUsers());
-            m.put("userIsVetter", userIsVetter(this) && !userIsTC(this));
-            m.put("userIsLocked", userIsLocked(this));
-
-            return m;
         }
 
         public void setPassword(String randomPass) {
@@ -1812,8 +1790,12 @@ public class UserRegistry {
                 && targetLevel > managerUser.userlevel;
     }
 
-    static boolean userCanDoList(User managerUser) {
-        return (managerUser != null) && managerUser.getLevel().canDoList();
+    static boolean userCanListUsers(User managerUser) {
+        return (managerUser != null) && managerUser.getLevel().canListUsers();
+    }
+
+    static boolean userCanUseVettingParticipation(User managerUser) {
+        return (managerUser != null) && managerUser.getLevel().canUseVettingParticipation();
     }
 
     public static boolean userCanCreateUsers(User u) {

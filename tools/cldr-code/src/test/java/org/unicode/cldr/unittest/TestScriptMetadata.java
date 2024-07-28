@@ -3,6 +3,7 @@ package org.unicode.cldr.unittest;
 import com.google.common.base.Joiner;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
 import com.ibm.icu.lang.UScript;
@@ -56,6 +57,8 @@ public class TestScriptMetadata extends TestFmwkPlus {
                         UScript.getScriptExtensions(info0.sampleChar.codePointAt(0), bitset);
                 assertTrue(
                         script
+                                + ", "
+                                + Utility.hex(info0.sampleChar)
                                 + ": The sample character must have a "
                                 + "single, valid script, no ScriptExtensions: "
                                 + scriptCode,

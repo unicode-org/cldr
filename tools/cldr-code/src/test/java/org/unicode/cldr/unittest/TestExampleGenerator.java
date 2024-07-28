@@ -827,7 +827,7 @@ public class TestExampleGenerator extends TestFmwk {
                         exampleGenerator.getExampleHtml(
                                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateFormats/dateFormatLength[@type=\"short\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"]",
                                 "d‏/M‏/y"));
-        assertEquals("Currency format example faulty", "【٥‏/٩‏/١٩٩٩〗【⃪٥‏/٩‏/١٩٩٩〗", actual);
+        assertEquals("Currency format example faulty", "【5‏/9‏/1999〗【⃪5‏/9‏/1999〗", actual);
     }
 
     public void TestDateTimeComboFormats() {

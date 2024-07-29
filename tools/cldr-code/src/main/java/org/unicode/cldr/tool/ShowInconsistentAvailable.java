@@ -42,9 +42,6 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XPathParts;
 
 public class ShowInconsistentAvailable {
-    private static final boolean SHOW_ORDERING = true;
-    private static final boolean SHOW_ROOT = false;
-
     private static final CLDRConfig CONFIG = CLDRConfig.getInstance();
     static boolean INCLUDE_ERA = true;
     static boolean SHOW_PROGRESS_RAW = false;
@@ -377,8 +374,22 @@ public class ShowInconsistentAvailable {
                 final SimplePattern skeletonSP = entry.getKey();
                 // if the multimap has multiple keys, then we have a problem
                 // that means that similar skeletons map to dissimilar values
-                boolean inconsistentValues = entry.getValue().keySet().size() > 1;
+                final Set<SimplePattern> valueSet = entry.getValue().keySet();
+                boolean inconsistentValues = valueSet.size() > 1;
 
+                // allow Ms to match Mn, if all else equal
+                // common with Slavics
+                if (inconsistentValues) {
+                    Set<String> neuteredMonths = new TreeSet<>();
+                    for (SimplePattern p : valueSet) {
+                        neuteredMonths.add(p.toString().replace("Mⁿ", "Mˢ"));
+                    }
+                    if (neuteredMonths.size() == 1) {
+                        inconsistentValues = false;
+                    }
+                }
+
+                // show the errors
                 for (Entry<SimplePattern, Collection<PatternData2>> entry2 :
                         entry.getValue().asMap().entrySet()) {
                     final SimplePattern valueSP = entry2.getKey();

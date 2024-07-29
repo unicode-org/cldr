@@ -1048,6 +1048,7 @@ function addVitem(td, tr, theRow, item, newButton) {
       !theRow.rowFlagged
     ) {
       const stopIcon = cldrSurvey.addIcon(choiceField, "i-stop");
+      stopIcon.setAttribute("dir", "ltr");
       stopIcon.title = cldrText.get("mustflag_explain_msg");
     }
   }

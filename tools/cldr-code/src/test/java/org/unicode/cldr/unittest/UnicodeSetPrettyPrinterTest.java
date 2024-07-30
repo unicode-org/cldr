@@ -439,4 +439,19 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
             assertEquals(expected, expectedRoundtrip, actualRoundtrip);
         }
     }
+
+    public void test17847() {
+        String path =
+                "//ldml/characters/parseLenients[@scope=\"general\"][@level=\"lenient\"]/parseLenient[@sample=\"$\"]";
+        String value = "[\\$＄﹩ \\uFFFF]";
+        UnicodeSet valueSet = new UnicodeSet(value).freeze();
+        UnicodeSet examples = new UnicodeSet();
+
+        // throws exception
+        if (valueSet.containsSome(CodePointEscaper.FORCE_ESCAPE)) {
+            for (String nsm : new UnicodeSet(valueSet).retainAll(CodePointEscaper.FORCE_ESCAPE)) {
+                assertNotNull(Utility.hex(nsm), CodePointEscaper.toExample(nsm.codePointAt(0)));
+            }
+        }
+    }
 }

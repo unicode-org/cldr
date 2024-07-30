@@ -116,7 +116,7 @@ public class SearchCLDR {
                     .add("organization", ".*", null, "show level for organization")
                     .add("z-showPath", null, null, "show paths")
                     .add("resolved", null, null, "use resolved locales")
-                    .add("q-showParent", null, null, "show parent value")
+                    .add("bailey", null, null, "show bailey value")
                     .add("english", null, null, "show english value")
                     .add(
                             "RootUncovered" + "",
@@ -174,7 +174,7 @@ public class SearchCLDR {
         Boolean valueExclude = exclude.value;
 
         countOnly = myOptions.get("count").doesOccur();
-        final boolean resolved = myOptions.get("resolved").doesOccur();
+        boolean resolved = myOptions.get("resolved").doesOccur();
 
         showPath = myOptions.get("z-showPath").doesOccur();
         String orgString = myOptions.get("organization").getValue();
@@ -192,7 +192,7 @@ public class SearchCLDR {
 
         showSurveyToolUrl = myOptions.get("SurveyTool").doesOccur();
 
-        boolean showParent = myOptions.get("q-showParent").doesOccur();
+        boolean showParent = myOptions.get("bailey").doesOccur();
 
         boolean showEnglish = myOptions.get("english").doesOccur();
 
@@ -430,7 +430,7 @@ public class SearchCLDR {
                                 "Path",
                                 "Full-Path",
                                 "Value",
-                                "Parent-Value",
+                                "Bailey-Value",
                                 "English-Value",
                                 "Source-Locale\tSource-Path",
                                 "Org-Level");
@@ -484,7 +484,7 @@ public class SearchCLDR {
                             path,
                             fullPath,
                             value,
-                            !showParent ? null : english.getBaileyValue(path, null, null),
+                            !showParent ? null : resolvedFile.getBaileyValue(path, null, null),
                             english == null ? null : english.getStringValue(path),
                             resolvedSource,
                             Objects.toString(pathLevel) + extra);

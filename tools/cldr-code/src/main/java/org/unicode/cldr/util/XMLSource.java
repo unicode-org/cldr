@@ -1595,7 +1595,22 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
         };
 
         private static final boolean SKIP_SINGLEZONES = false;
+
+        /**
+         * A special source for codes used as fallback. For example, the path
+         * //ldml/localeDisplayNames/languages/language[@type="blo"] gets a constructed value based
+         * on the code "blo".
+         */
         private static XMLSource constructedItems = new SimpleXMLSource(CODE_FALLBACK_ID);
+
+        /**
+         * Include special brackets in constructed values to distinguish them from regular values,
+         * For example, "vai" is a language code, and in some languages it is also the name of that
+         * language. "⟦vai⟧" is unambiguously a constructed value.
+         */
+        private static String CONSTRUCTED_VALUE_PREFIX = "⟦"; // U+27E6
+
+        private static String CONSTRUCTED_VALUE_SUFFIX = "⟧"; // U+27E7
 
         static {
             StandardCodes sc = StandardCodes.make();
@@ -1708,7 +1723,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                                 + "[@type=\""
                                 + keyDisplayNames[i]
                                 + "\"]",
-                        keyDisplayNames[i]);
+                        makeConstructedValue(keyDisplayNames[i]));
             }
             for (int i = 0; i < typeDisplayNames.length; ++i) {
                 constructedItems.putValueAtPath(
@@ -1719,7 +1734,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                                 + "[@type=\""
                                 + typeDisplayNames[i][0]
                                 + "\"]",
-                        typeDisplayNames[i][0]);
+                        makeConstructedValue(typeDisplayNames[i][0]));
             }
             constructedItems.freeze();
             allowDuplicates = Collections.unmodifiableMap(allowDuplicates);
@@ -1754,7 +1769,11 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                                 .insert(fullpathBuf.lastIndexOf("]") + 1, "[@alt=\"" + alt + "\"]")
                                 .toString();
             }
-            return constructedItems.putValueAtPath(fullpath, value);
+            return constructedItems.putValueAtPath(fullpath, makeConstructedValue(value));
+        }
+
+        private static String makeConstructedValue(String value) {
+            return CONSTRUCTED_VALUE_PREFIX + value + CONSTRUCTED_VALUE_SUFFIX;
         }
 
         @Override

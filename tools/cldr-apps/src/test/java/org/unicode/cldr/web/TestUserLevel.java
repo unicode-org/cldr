@@ -263,7 +263,7 @@ public class TestUserLevel {
             case "canImportOldVotesSUBMISSION":
                 assertEquals(expected, l.canImportOldVotes(CheckCLDR.Phase.SUBMISSION), onFail);
                 break;
-            case "canListUsers":
+            case "userCanListUsers":
                 assertEquals(expected, l.canListUsers(), onFail);
                 break;
             case "userCanUseVettingParticipation":

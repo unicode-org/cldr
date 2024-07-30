@@ -1,5 +1,15 @@
 package org.unicode.cldr.tool;
 
+import com.google.common.base.Joiner;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Sets;
+import com.google.common.collect.TreeMultimap;
+import com.ibm.icu.text.DateTimePatternGenerator;
+import com.ibm.icu.text.DateTimePatternGenerator.FormatParser;
+import com.ibm.icu.text.DateTimePatternGenerator.VariableField;
+import com.ibm.icu.util.ICUUncheckedIOException;
+import com.ibm.icu.util.Output;
+import com.ibm.icu.util.VersionInfo;
 import java.io.File;
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
@@ -12,7 +22,6 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
@@ -35,17 +44,6 @@ import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.XPathParts;
-
-import com.google.common.base.Joiner;
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.Sets;
-import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.text.DateTimePatternGenerator;
-import com.ibm.icu.text.DateTimePatternGenerator.FormatParser;
-import com.ibm.icu.text.DateTimePatternGenerator.VariableField;
-import com.ibm.icu.util.ICUUncheckedIOException;
-import com.ibm.icu.util.Output;
-import com.ibm.icu.util.VersionInfo;
 
 public class SearchCLDR {
     // private static final int

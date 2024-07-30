@@ -228,9 +228,10 @@ public enum CodePointEscaper {
     public static String toExample(int codePoint) {
         CodePointEscaper cpe = _fromCodePoint.get(codePoint);
         if (cpe == null) { // hex
+            final String name = UCharacter.getExtendedName(codePoint);
             return codePointToEscaped(codePoint)
                     + HAS_NAME
-                    + UCharacter.getName(codePoint).toLowerCase();
+                    + (name != null ? name.toLowerCase() : "");
         } else {
             return CodePointEscaper.codePointToEscaped(cpe.codePoint)
                     + HAS_NAME

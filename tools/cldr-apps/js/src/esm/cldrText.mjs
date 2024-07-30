@@ -179,7 +179,7 @@ const strings = {
   override_explain_msg:
     "You have voted for this item with ${overrideVotes} votes instead of the usual ${votes}",
   mustflag_explain_msg:
-    "The item you voted for is not winning. If you post a forum request, the item will be flagged for review by the CLDR Technical Committee.",
+    "The item you voted for requires TC approval to win. If you post a forum request, the item will be flagged for review by the CLDR Technical Committee.",
   flag_must_have_reason:
     "‼️ Your request will cause this item to be flagged for review by the CLDR Technical Committee. Your message MUST provide justification, e.g., examples of common usage‼️",
   flag_desc:

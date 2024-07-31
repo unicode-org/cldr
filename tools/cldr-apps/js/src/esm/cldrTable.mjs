@@ -811,9 +811,6 @@ function updateRowProposedWinningCell(tr, theRow, cell, protoButton) {
   if (theRow.rowFlagged) {
     const flagIcon = cldrSurvey.addIcon(cell, "s-flag");
     flagIcon.title = cldrText.get("flag_desc");
-  } else if (theRow.canFlagOnLosing) {
-    const flagIcon = cldrSurvey.addIcon(cell, "s-flag-d");
-    flagIcon.title = cldrText.get("flag_d_desc");
   }
   cldrSurvey.setLang(cell);
   tr.proposedcell = cell;
@@ -1050,7 +1047,9 @@ function addVitem(td, tr, theRow, item, newButton) {
       theRow.canFlagOnLosing &&
       !theRow.rowFlagged
     ) {
-      cldrSurvey.addIcon(choiceField, "i-stop"); // DEBUG
+      const stopIcon = cldrSurvey.addIcon(choiceField, "i-stop");
+      stopIcon.setAttribute("dir", "ltr");
+      stopIcon.title = cldrText.get("mustflag_explain_msg");
     }
   }
 

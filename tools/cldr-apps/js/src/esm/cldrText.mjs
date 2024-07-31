@@ -178,13 +178,12 @@ const strings = {
 
   override_explain_msg:
     "You have voted for this item with ${overrideVotes} votes instead of the usual ${votes}",
-  voteInfo_overrideExplain_desc: "",
   mustflag_explain_msg:
-    "The item you voted for is not winning. However, you may post a forum entry to flag the item for Committee review.",
-  voteInfo_mustflag_explain_desc: "",
+    "The item you voted for requires TC approval to win. If you post a forum request, the item will be flagged for review by the CLDR Technical Committee.",
+  flag_must_have_reason:
+    "‼️ Your request will cause this item to be flagged for review by the CLDR Technical Committee. Your message MUST provide justification, e.g., examples of common usage‼️",
   flag_desc:
     "This item has been flagged for review by the CLDR Technical Committee.",
-  flag_d_desc: "Losing items may be flagged for CLDR Committee review.",
   explainRequiredVotes: "Changes to this item require ${requiredVotes} votes.",
   valueIsLocked:
     "This item has been locked by the CLDR Technical Committee. See the forum entry.",

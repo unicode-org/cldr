@@ -98,7 +98,7 @@ public class UserList {
         }
         canShowLocked = UserRegistry.userIsExactlyManager(me) || UserRegistry.userIsTC(me);
         showLocked = canShowLocked && ctx.prefBool(PREF_SHOWLOCKED);
-        isValid = isJustMe || UserRegistry.userCanDoList(me);
+        isValid = isJustMe || UserRegistry.userCanListUsers(me);
     }
 
     public void getJson(SurveyJSONWrapper r) throws JSONException, SurveyException, IOException {

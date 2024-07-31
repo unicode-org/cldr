@@ -165,7 +165,8 @@ export default {
       const perm = cldrStatus.getPermissions();
       this.accountLocked = perm && perm.userIsLocked;
       this.canImportOldVotes = perm && perm.userCanImportOldVotes;
-      this.canListUsers = this.canMonitorVetting = !!perm?.userIsManager;
+      this.canListUsers = !!perm?.userCanListUsers;
+      this.canMonitorVetting = !!perm?.userCanUseVettingParticipation;
       this.canMonitorForum = perm && perm.userCanMonitorForum;
       // this.canSeeStatistics will be false until there is a new implementation
       this.canUseVettingSummary = perm && perm.userCanUseVettingSummary;

@@ -90,13 +90,14 @@ public class DateTimeFormats {
     private static final UnicodeSet BIDI_MARKS = new UnicodeSet("[:Bidi_Control:]").freeze();
 
     private static final String ltrBackground = "background-color:#EEE;";
-    private static final String tableBackground = " background-color:#DDF;";
+    private static final String tableBackground = "background-color:#DDF; border: 1px solid blue;";
 
     private static final String rtlStart = "<div dir='rtl'>";
-    private static final String ltrStart = "<div dir='ltr' style='" + ltrBackground + "'>";
+    private static final String autoLtrStart = "<div dir='auto' style='" + ltrBackground + "'>";
+    private static final String autoStart = "<div dir='auto'>";
     private static final String divEnd = "</div>";
     private static final String tableStyle =
-            "style='border-collapse: collapse;" + tableBackground + " margin: auto'";
+            "style='border-collapse: collapse;" + tableBackground + " margin: auto'"; //
 
     private static final String ltrSpan = "<span style='" + ltrBackground + "'>";
     private static final String tableSpan = "<span style='" + tableBackground + "'>";
@@ -522,8 +523,8 @@ public class DateTimeFormats {
                                     ? ""
                                     : "However, two examples are provided if the locale is right-to-left, like Arabic or Hebrew, "
                                             + "<i>and</i> the paragraph direction can cause a different display. "
-                                            + "The first has a RTL paragraph direction, "
-                                            + "while the second has a LTR paragraph direction "
+                                            + "The first has a <b>RTL</b> paragraph direction, "
+                                            + "while the second has a <b>auto</b> paragraph direction (LTR unless the first 'strong' character is RTL) "
                                             + ltrSpan
                                             + "<i>and</i> a different background"
                                             + spanEnd
@@ -663,18 +664,21 @@ public class DateTimeFormats {
         }
         String transformedExample = TransliteratorUtilities.toHTML.transform(example);
         if ((isRTL || BIDI_MARKS.containsSome(example)) && !example.contains(MISSING_PART)) {
-            Bidi bidiLTR = new Bidi(example, Bidi.DIRECTION_LEFT_TO_RIGHT);
+            Bidi bidiLTR = new Bidi(example, Bidi.DIRECTION_DEFAULT_LEFT_TO_RIGHT);
             String orderedLTR = bidiLTR.writeReordered(0);
             Bidi bidiRTL = new Bidi(example, Bidi.DIRECTION_RIGHT_TO_LEFT);
             String orderedRTL = bidiRTL.writeReordered(0);
             if (!orderedLTR.equals(orderedRTL)) {
                 // since this is RTL, we put it first
-                String rtlVersion = rtlStart + transformedExample + divEnd;
-                String ltrVersion = ltrStart + transformedExample + divEnd; // colored
+                String rtlVersion = rtlStart + transformedExample + divEnd; // not colored
+                String autoVersion = autoLtrStart + transformedExample + divEnd; // colored
                 Set<String> fieldsLTR = getFields(orderedLTR);
                 Set<String> fieldsRTL = getFields(orderedRTL);
                 String alert = fieldsLTR.equals(fieldsRTL) ? "" : " ⚠️ ";
-                transformedExample = rtlVersion + ltrVersion + alert;
+                transformedExample = rtlVersion + autoVersion + alert;
+            } else {
+                String autoVersion = autoStart + transformedExample + divEnd; // not colored
+                transformedExample = autoVersion;
             }
         }
 

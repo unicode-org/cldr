@@ -2,6 +2,7 @@ package org.unicode.cldr.util;
 
 import com.ibm.icu.impl.UnicodeMap;
 import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import java.util.Locale;
 
@@ -19,10 +20,13 @@ public enum CodePointEscaper {
     LF(0xA, "line feed"),
     CR(0xD, "carriage return"),
     SP(0x20, "space", "ASCII space"),
-    NSP(0x2009, "narrow/thin space", "Also known as ‘thin space’"),
+    TSP(0x2009, "thin space", "Aka ‘narrow space’"),
     NBSP(0xA0, "no-break space", "Same as space, but doesn’t line wrap."),
 
-    NNBSP(0x202F, "narrow/thin no-break space", "Same as narrow space, but doesn’t line wrap."),
+    NBTSP(
+            0x202F,
+            "no-break thin space",
+            "Same as thin space, but doesn’t line wrap. Aka 'narrow no-break space'"),
 
     WNJ(
             0x200B,
@@ -147,6 +151,11 @@ public enum CodePointEscaper {
         return codePoint;
     }
 
+    /** Return the string form of the code point for this character. */
+    public String getString() {
+        return UTF16.valueOf(codePoint);
+    }
+
     /** Returns the escaped form from the code point for this enum */
     public String codePointToEscaped() {
         return ESCAPE_START + rawCodePointToEscaped(codePoint) + ESCAPE_END;
@@ -196,6 +205,15 @@ public enum CodePointEscaper {
                         });
         return result.toString();
     }
+
+    public static String getEscaped(int cp, UnicodeSet toEscape) {
+        if (!toEscape.contains(cp)) {
+            return UTF16.valueOf(cp);
+        } else {
+            return codePointToEscaped(cp);
+        }
+    }
+
     /** Return unescaped string */
     public static String toUnescaped(String escaped) {
         if (escaped == null) {

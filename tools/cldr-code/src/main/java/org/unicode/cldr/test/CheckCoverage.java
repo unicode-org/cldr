@@ -10,6 +10,7 @@ import java.util.List;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.InternalCldrException;
 import org.unicode.cldr.util.LanguageTagParser;
@@ -156,6 +157,25 @@ public class CheckCoverage extends FactoryCheckCLDR {
 
         setSkipTest(false);
         latin = ValuePathStatus.isLatinScriptLocale(cldrFileToCheck);
+
+        // check whether the English name is present. See {@link
+        // LikelySubtagsTest#TestMissingInfoForLanguage}
+        {
+            final CLDRLocale locale = CLDRLocale.getInstance(localeID);
+            String path = CLDRFile.getKey(CLDRFile.LANGUAGE_NAME, locale.getLanguage());
+            // getEnglishFile() returns a resolved file, so just check isHere.
+            boolean englishName = getEnglishFile().isHere(path);
+            if (!englishName) {
+                possibleErrors.add(
+                        new CheckStatus()
+                                .setCause(this)
+                                .setMainType(CheckStatus.warningType)
+                                .setSubtype(Subtype.missingEnglishName)
+                                .setMessage(
+                                        "Missing English translation for " + locale.getLanguage(),
+                                        new Object[] {}));
+            }
+        }
 
         return this;
     }

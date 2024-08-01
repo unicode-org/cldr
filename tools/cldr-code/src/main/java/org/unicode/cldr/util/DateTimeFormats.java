@@ -1,7 +1,6 @@
 package org.unicode.cldr.util;
 
 import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.text.Bidi;
 import com.ibm.icu.text.DateFormat;
@@ -15,7 +14,6 @@ import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.text.UnicodeSet.SpanCondition;
 import com.ibm.icu.util.Calendar;
 import com.ibm.icu.util.DateInterval;
 import com.ibm.icu.util.ICUUncheckedIOException;
@@ -25,6 +23,7 @@ import com.ibm.icu.util.ULocale;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.EnumSet;
@@ -51,9 +50,6 @@ public class DateTimeFormats {
     private static final UnicodeSet TO_ESCAPE =
             new UnicodeSet(CodePointEscaper.FORCE_ESCAPE)
                     .remove(CodePointEscaper.SP.getCodePoint())
-                    .remove(CodePointEscaper.TSP.getCodePoint())
-                    .remove(CodePointEscaper.NBSP.getCodePoint())
-                    .remove(CodePointEscaper.NBTSP.getCodePoint())
                     .freeze();
     private static final String MISSING_PART = "ⓜⓘⓢⓢⓘⓝⓖ";
     private static final CLDRConfig CONFIG = CLDRConfig.getInstance();
@@ -513,12 +509,13 @@ public class DateTimeFormats {
      * @param output
      */
     public void addTable(DateTimeFormats comparison, Appendable output) {
+        UnicodeSet allEscapedCharactersFound = new UnicodeSet();
         try {
             output.append(
                     "<h2>"
                             + hackDoubleLinked("Patterns")
                             + "</h2>"
-                            + "<p>Normally, there is one line containing an example in each Native Example cell. "
+                            + "<p>Normally, there is a single line containing an example in each Native Example cell. "
                             + (!isRTL
                                     ? ""
                                     : "However, two examples are provided if the locale is right-to-left, like Arabic or Hebrew, "
@@ -528,14 +525,13 @@ public class DateTimeFormats {
                                             + ltrSpan
                                             + "<i>and</i> a different background"
                                             + spanEnd
-                                            + ". If the display of either example causes strings of letters or numbers to collide, "
-                                            + "then a ⚠️ is shown. ")
+                                            + ". If the display of either example appears to cause strings of letters or numbers to collide, "
+                                            + "then a ⚠️ is shown followed by differences (this is still experimental). ")
                             + "When an example has hidden characters, then "
                             + tableSpan
                             + "an extra line"
                             + spanEnd
-                            + " shows those characters "
-                            + "such as ❰RLM❱ for the invisible Right-to-Left Mark. "
+                            + " shows those characters with short IDs ❰…❱: see the <b>Key</b> below the table. "
                             + "So that the ordering of the characters in memory is clear, they are presented left-to-right one at a time. "
                             + "so that the placement is clear. "
                             + "When a pattern (or a component of a pattern) is missing, it is displayed as "
@@ -572,8 +568,8 @@ public class DateTimeFormats {
                             RowStyle.normal,
                             name,
                             skeleton,
-                            comparison.getExample(skeleton),
-                            getExample(skeleton),
+                            comparison.getExample(skeleton, allEscapedCharactersFound),
+                            getExample(skeleton, allEscapedCharactersFound),
                             diff.isPresent(skeleton));
                 }
             }
@@ -611,12 +607,21 @@ public class DateTimeFormats {
                             RowStyle.normal,
                             skeleton,
                             skeleton,
-                            comparison.getExample(skeleton),
-                            getExample(skeleton),
+                            comparison.getExample(skeleton, allEscapedCharactersFound),
+                            getExample(skeleton, allEscapedCharactersFound),
                             true);
                 }
             }
             output.append("</table>");
+            if (!allEscapedCharactersFound.isEmpty()) {
+                output.append("\n<h3>Key to Escaped Characters</h3>\n");
+                String keyToEscaped =
+                        CodePointEscaper.getHtmlRows(
+                                allEscapedCharactersFound,
+                                " style='border:1px solid blue; border-collapse: collapse'",
+                                " style='border:1px solid blue'");
+                output.append(keyToEscaped);
+            }
         } catch (IOException e) {
             throw new ICUUncheckedIOException(e);
         }
@@ -626,9 +631,10 @@ public class DateTimeFormats {
      * Get an example from the "enhanced" skeleton.
      *
      * @param skeleton
+     * @param escapedCharactersFound Any characters that were escaped are added to this.
      * @return
      */
-    private String getExample(String skeleton) {
+    private String getExample(String skeleton, UnicodeSet escapedCharactersFound) {
         String example;
         if (skeleton.contains("®")) {
             example = getRelativeExampleFromSkeleton(skeleton);
@@ -663,18 +669,17 @@ public class DateTimeFormats {
             }
         }
         String transformedExample = TransliteratorUtilities.toHTML.transform(example);
+        ArrayList<String> listOfReorderings = new ArrayList<>();
         if ((isRTL || BIDI_MARKS.containsSome(example)) && !example.contains(MISSING_PART)) {
-            Bidi bidiLTR = new Bidi(example, Bidi.DIRECTION_DEFAULT_LEFT_TO_RIGHT);
-            String orderedLTR = bidiLTR.writeReordered(0);
-            Bidi bidiRTL = new Bidi(example, Bidi.DIRECTION_RIGHT_TO_LEFT);
-            String orderedRTL = bidiRTL.writeReordered(0);
-            if (!orderedLTR.equals(orderedRTL)) {
-                // since this is RTL, we put it first
+            if (!BidiUtils.isOrderingUnchanged(
+                    example,
+                    listOfReorderings,
+                    Bidi.DIRECTION_DEFAULT_LEFT_TO_RIGHT,
+                    Bidi.DIRECTION_RIGHT_TO_LEFT)) {
+                // since this locale is RTL, we put it first
                 String rtlVersion = rtlStart + transformedExample + divEnd; // not colored
                 String autoVersion = autoLtrStart + transformedExample + divEnd; // colored
-                Set<String> fieldsLTR = getFields(orderedLTR);
-                Set<String> fieldsRTL = getFields(orderedRTL);
-                String alert = fieldsLTR.equals(fieldsRTL) ? "" : " ⚠️ ";
+                String alert = BidiUtils.getAlert(listOfReorderings);
                 transformedExample = rtlVersion + autoVersion + alert;
             } else {
                 String autoVersion = autoStart + transformedExample + divEnd; // not colored
@@ -696,44 +701,9 @@ public class DateTimeFormats {
                             });
 
             transformedExample += "<table " + tableStyle + "><tr>" + processed + "</tr></table>";
+            escapedCharactersFound.addAll(new UnicodeSet().addAll(example).retainAll(TO_ESCAPE));
         }
         return transformedExample;
-    }
-
-    /**
-     * Return a list of the fields, where each span is a sequence of:
-     *
-     * <ul>
-     *   <li>numbers (\p{N})
-     *   <li>letters & marks ([\p{L}\p{M}
-     *   <li>Other
-     * </ul>
-     *
-     * @param orderedLTR
-     * @return
-     */
-    static final UnicodeSet NUMBERS = new UnicodeSet("\\p{N}").freeze();
-
-    static final UnicodeSet LETTERS_MARKS = new UnicodeSet("[\\p{L}\\p{M}]").freeze();
-    static final UnicodeSet OTHERS =
-            new UnicodeSet(NUMBERS).addAll(LETTERS_MARKS).complement().freeze();
-    static final Set<UnicodeSet> ALL = ImmutableSet.of(NUMBERS, LETTERS_MARKS, OTHERS);
-
-    private Set<String> getFields(String ordered) {
-        Set<String> result =
-                new LinkedHashSet<>(); // doesn't have to be a LHS, but helps with debugging
-        int start = 0;
-        while (start < ordered.length()) {
-            for (UnicodeSet us : ALL) {
-                int end = us.span(ordered, start, SpanCondition.CONTAINED);
-                if (end != start) {
-                    result.add(ordered.substring(start, end));
-                    start = end;
-                    break;
-                }
-            }
-        }
-        return result;
     }
 
     static final Pattern RELATIVE_DATE =
@@ -1102,11 +1072,14 @@ public class DateTimeFormats {
 
         String organization = MyOptions.organization.option.getValue();
         String filter = MyOptions.filter.option.getValue();
+        boolean hasFilter = MyOptions.filter.option.doesOccur();
 
         CLDRFile englishFile = CONFIG.getEnglish();
 
         Factory factory = Factory.make(CLDRPaths.MAIN_DIRECTORY, filter);
-        System.out.println("Total locales: " + factory.getAvailableLanguages().size());
+        final Set<String> availableLocales =
+                hasFilter ? factory.getAvailable() : factory.getAvailableLanguages();
+        System.out.println("Total locales: " + availableLocales.size());
         DateTimeFormats english = new DateTimeFormats().set(englishFile, "gregorian");
 
         new File(DIR).mkdirs();
@@ -1118,7 +1091,7 @@ public class DateTimeFormats {
         Map<String, String> sorted = new TreeMap<>();
         SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
         Set<String> defaultContent = sdi.getDefaultContentLocales();
-        for (String localeID : factory.getAvailable()) {
+        for (String localeID : availableLocales) {
             Level level = StandardCodes.make().getLocaleCoverageLevel(organization, localeID);
             if (Level.MODERN.compareTo(level) > 0) {
                 continue;

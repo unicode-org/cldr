@@ -1,6 +1,7 @@
 package org.unicode.cldr.util;
 
 import com.ibm.icu.impl.UnicodeMap;
+import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
@@ -114,9 +115,7 @@ public enum CodePointEscaper {
     private final String description;
 
     private CodePointEscaper(int codePoint, String shortName) {
-        this.codePoint = codePoint;
-        this.shortName = shortName;
-        this.description = "";
+        this(codePoint, shortName, "");
     }
 
     private CodePointEscaper(int codePoint, String shortName, String description) {
@@ -290,5 +289,55 @@ public enum CodePointEscaper {
         return result == null
                 ? Integer.toString(codePoint, 16).toUpperCase(Locale.ROOT)
                 : result.toString();
+    }
+
+    public static final String getHtmlRows(
+            UnicodeSet escapesToShow, String tableOptions, String cellOptions) {
+        if (!escapesToShow.strings().isEmpty()) {
+            throw new IllegalArgumentException("No strings allowed in the unicode set.");
+        }
+        StringBuilder result = new StringBuilder("<table" + tableOptions + ">");
+        UnicodeSet remaining = new UnicodeSet(escapesToShow);
+        String tdPlus = "<td" + cellOptions + ">";
+        for (CodePointEscaper cpe : CodePointEscaper.values()) {
+            int cp = cpe.getCodePoint();
+            remaining.remove(cp);
+            if (escapesToShow.contains(cpe.getCodePoint())) {
+                final String id = cpe.name();
+                final String shortName = cpe.getShortName();
+                final String description = cpe.getDescription();
+                addREsult(result, tdPlus, id, shortName, description);
+            }
+        }
+        for (String cps : remaining) {
+            int cp = cps.codePointAt(0);
+            final String extendedName = UCharacter.getExtendedName(cp);
+            addREsult(
+                    result,
+                    tdPlus,
+                    Utility.hex(cp, 2),
+                    "",
+                    extendedName == null ? "" : extendedName.toLowerCase());
+        }
+        return result.append("</table>").toString();
+    }
+
+    public static void addREsult(
+            StringBuilder result,
+            String tdPlus,
+            final String id,
+            final String shortName,
+            final String description) {
+        result.append("<tr>")
+                .append(tdPlus)
+                .append(ESCAPE_START)
+                .append(id)
+                .append(ESCAPE_END + "</td>")
+                .append(tdPlus)
+                .append(shortName)
+                .append("</td>")
+                .append(tdPlus)
+                .append(description)
+                .append("</td><tr>");
     }
 }

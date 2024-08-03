@@ -15,9 +15,9 @@ const RESOLVED_ROOT = new URL(OAS3_ROOT, document.baseURI);
  *
  * <https://github.com/swagger-api/swagger-js/blob/master/docs/usage/tags-interface.md#openapi-v3x>
  *
- * @returns Promise<SwaggerClient>
+ * @returns {Promise<SwaggerClient>}
  */
-function getClient() {
+async function getClient() {
   return new SwaggerClient({
     url: RESOLVED_ROOT,
     requestInterceptor: (obj) => {

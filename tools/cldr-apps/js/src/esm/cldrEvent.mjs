@@ -274,7 +274,6 @@ function checkLocaleShow(element, size) {
  */
 function interceptLocale() {
   var name = $(this).text();
-  var source = $(this).attr("title");
 
   $("input.local-search").val(name);
   $("a.locName").removeClass("active");
@@ -434,6 +433,9 @@ function unpackMenuSideBar(json) {
     cldrLoad.reloadV();
     $("#left-sidebar").removeClass("active");
     toggleOverlay();
+    if (cldrDashContext.shouldBeShown()) {
+      cldrDashContext.insert();
+    }
   });
 
   // review link
@@ -442,9 +444,9 @@ function unpackMenuSideBar(json) {
     toggleOverlay();
     const url = $(this).data("url");
     if (url === "dashboard") {
-      // Note: setCurrentSpecial("general") is dubious here; it doesn't cause
+      // Note: setCurrentSpecial(cldrLoad.GENERAL_SPECIAL) is dubious here; it doesn't cause
       // the "general" page to be loaded; it doesn't hide whatever else was displayed.
-      cldrStatus.setCurrentSpecial("general");
+      cldrStatus.setCurrentSpecial(cldrLoad.GENERAL_SPECIAL);
       cldrDashContext.insert();
     } else {
       $("#OtherSection").hide(); // Don't hide the other section when showing the dashboard.

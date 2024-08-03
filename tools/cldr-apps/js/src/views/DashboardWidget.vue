@@ -291,7 +291,9 @@ export default {
       this.locale = cldrStatus.getCurrentLocale();
       this.level = cldrCoverage.effectiveName(this.locale);
       if (!this.locale || !this.level) {
-        this.fetchErr = "Please choose a locale and a coverage level first.";
+        // This sometimes happens when locale is defined but level is not yet defined,
+        // but it changes so quickly (the level gets defined) that it isn't visible
+        this.fetchErr = cldrText.get("dash_needs_locale_and_coverage");
         return;
       }
       this.localeName = cldrLoad.getLocaleName(this.locale);
@@ -359,7 +361,7 @@ export default {
     },
 
     closeDashboard() {
-      cldrDashContext.hide();
+      cldrDashContext.hide(true /* userWantsHidden */);
     },
 
     abbreviate(category) {

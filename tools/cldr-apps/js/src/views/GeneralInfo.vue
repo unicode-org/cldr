@@ -29,6 +29,7 @@ export default {
       specialGeneral: null,
     };
   },
+
   mounted() {
     const locmap = cldrLoad.getTheLocaleMap();
     const bund = locmap.getLocaleInfo(cldrStatus.getCurrentLocale());
@@ -52,8 +53,23 @@ export default {
     }
 
     this.specialGeneral = cldrText.get("generalSpecialGuidance");
+
+    this.showDashboardOrButton();
   },
+
   methods: {
+    showDashboardOrButton() {
+      // If Dashboard is already visible, hide the button for opening it.
+      if (cldrDashContext.isVisible()) {
+        const els = document.getElementsByClassName("general-open-dash");
+        for (let i = 0; i < els.length; i++) {
+          els[i].style.display = "none";
+        }
+      } else if (cldrDashContext.shouldBeShown()) {
+        this.insertDashboard();
+      }
+    },
+
     insertDashboard() {
       cldrDashContext.insert();
     },
@@ -65,5 +81,11 @@ export default {
 button.general-open-dash {
   /* We only want THIS button to float, not all Open Dashboard buttons. */
   float: right;
+}
+
+p.special_general {
+  margin: 1em;
+  padding: 1em;
+  border: 2px solid gray;
 }
 </style>

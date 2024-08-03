@@ -4,6 +4,9 @@
 const CLDR_TEXT_DEBUG = false;
 
 const strings = {
+  dash_needs_locale_and_coverage:
+    "Please choose a locale and a coverage level first.",
+
   downgradedDeletionSuccessHeader: "Success",
   downgradedDeletionSuccessDetail:
     "The imported votes for downgraded paths were successfully deleted",

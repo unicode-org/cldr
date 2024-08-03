@@ -255,7 +255,6 @@ function doFetch(callback) {
   const level = cldrCoverage.effectiveName(locale);
   if (!locale || !level) {
     fetchErr = cldrText.get("dash_needs_locale_and_coverage");
-    this.console.log("cldrDashData doFetch dash_needs_locale_and_coverage");
     return;
   }
   const url = `api/summary/dashboard/${locale}/${level}`;

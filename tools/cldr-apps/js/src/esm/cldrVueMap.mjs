@@ -1,3 +1,5 @@
+import * as cldrLoad from "./cldrLoad.mjs";
+
 import AboutPanel from "../views/AboutPanel.vue";
 import AnnouncePanel from "../views/AnnouncePanel.vue";
 import AddUser from "../views/AddUser.vue";
@@ -24,7 +26,7 @@ const specialToComponentMap = {
   add_user: AddUser,
   auto_import: AutoImport,
   downgraded: DowngradedVotes,
-  general: GeneralInfo,
+  general: GeneralInfo, // see cldrLoad.GENERAL_SPECIAL
   lock_account: LockAccount,
   lookup: LookUp,
   menu: MainMenu,

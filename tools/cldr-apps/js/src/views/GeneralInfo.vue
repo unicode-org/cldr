@@ -5,8 +5,9 @@
     <p class="special_general" v-if="specialGeneral" v-html="specialGeneral" />
     <button
       @click="insertDashboard"
-      class="cldr-nav-btn btn-primary open-dash general-open-dash"
+      class="cldr-nav-btn btn-primary open-dash"
       type="button"
+      v-if="!dashButtonShouldBeVisible()"
     >
       Open Dashboard
     </button>
@@ -54,20 +55,14 @@ export default {
 
     this.specialGeneral = cldrText.get("generalSpecialGuidance");
 
-    this.showDashboardOrButton();
+    if (cldrDashContext.shouldBeShown()) {
+      cldrDashContext.insert();
+    }
   },
 
   methods: {
-    showDashboardOrButton() {
-      // If Dashboard is already visible, hide the button for opening it.
-      if (cldrDashContext.isVisible()) {
-        const els = document.getElementsByClassName("general-open-dash");
-        for (let i = 0; i < els.length; i++) {
-          els[i].style.display = "none";
-        }
-      } else if (cldrDashContext.shouldBeShown()) {
-        this.insertDashboard();
-      }
+    dashButtonShouldBeVisible() {
+      return !cldrDashContext.isVisible();
     },
 
     insertDashboard() {
@@ -78,8 +73,7 @@ export default {
 </script>
 
 <style>
-button.general-open-dash {
-  /* We only want THIS button to float, not all Open Dashboard buttons. */
+button.open-dash {
   float: right;
 }
 

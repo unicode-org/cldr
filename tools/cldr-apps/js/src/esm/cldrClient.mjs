@@ -18,7 +18,7 @@ const RESOLVED_ROOT = new URL(OAS3_ROOT, document.baseURI);
  * @returns {Promise<SwaggerClient>}
  */
 async function getClient() {
-  return await SwaggerClient({
+  return SwaggerClient({
     url: RESOLVED_ROOT,
     requestInterceptor: (obj) => {
       // add the session header to each request

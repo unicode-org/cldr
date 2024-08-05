@@ -7,12 +7,12 @@
       @click="insertDashboard"
       class="cldr-nav-btn btn-primary open-dash"
       type="button"
-      v-if="!dashButtonShouldBeVisible()"
+      v-if="dashButtonShouldBeVisible()"
     >
       Open Dashboard
     </button>
 
-    <!-- <cldr-overall-errors /> -->
+    <cldr-overall-errors />
   </div>
 </template>
 

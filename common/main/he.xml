@@ -9015,7 +9015,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="concentr-karat">
 				<gender>masculine</gender>
 				<displayName>קראט</displayName>
-				<unitPattern count="one">קראט אחד</unitPattern>
+				<unitPattern count="one">{0} קראט</unitPattern>
 				<unitPattern count="two">{0} קראט</unitPattern>
 				<unitPattern count="many">{0} קראט</unitPattern>
 				<unitPattern count="other">{0} קראט</unitPattern>
@@ -9150,14 +9150,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender>masculine</gender>
 				<displayName>ג׳יגה-ביט</displayName>
 				<unitPattern count="one">{0} ג׳יגה-ביט</unitPattern>
-				<unitPattern count="two">{0} ג'יגה-ביט</unitPattern>
-				<unitPattern count="many">{0} ג'יגה-ביט</unitPattern>
-				<unitPattern count="other">{0} ג'יגה-ביט</unitPattern>
+				<unitPattern count="two">{0} ג׳יגה-ביט</unitPattern>
+				<unitPattern count="many">{0} ג׳יגה-ביט</unitPattern>
+				<unitPattern count="other">{0} ג׳יגה-ביט</unitPattern>
 			</unit>
 			<unit type="digital-megabyte">
 				<gender>masculine</gender>
 				<displayName>מגה-בייט</displayName>
-				<unitPattern count="one">מגה-בייט</unitPattern>
+				<unitPattern count="one">{0} מגה-בייט</unitPattern>
 				<unitPattern count="two">{0} מגה-בייט</unitPattern>
 				<unitPattern count="many">{0} מגה-בייט</unitPattern>
 				<unitPattern count="other">{0} מגה-בייט</unitPattern>
@@ -9197,7 +9197,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="digital-bit">
 				<gender>masculine</gender>
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">ביט {0}</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -9221,11 +9221,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="duration-year">
 				<gender>feminine</gender>
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">שנה</unitPattern>
-				<unitPattern count="two">שנתיים</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern>‏{0} לשנה</perUnitPattern>
+				<perUnitPattern>{0} לשנה</perUnitPattern>
 			</unit>
 			<unit type="duration-quarter">
 				<gender>masculine</gender>
@@ -9239,16 +9239,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="duration-month">
 				<gender>masculine</gender>
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} חודש</unitPattern>
+				<unitPattern count="two">חודשיים</unitPattern>
 				<unitPattern count="many">{0} חודשים</unitPattern>
 				<unitPattern count="other">{0} חודשים</unitPattern>
-				<perUnitPattern>‏{0} לחודש</perUnitPattern>
+				<perUnitPattern>{0} לחודש</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
 				<gender>masculine</gender>
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">שבוע</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -9257,7 +9257,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="duration-day">
 				<gender>masculine</gender>
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">יום {0}</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">{0} יום</unitPattern>
 				<unitPattern count="other">{0} ימים</unitPattern>
@@ -9278,7 +9278,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="duration-minute">
 				<gender>feminine</gender>
 				<displayName>דקות</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="one">{0} דקה</unitPattern>
 				<unitPattern count="two">שתי דקות</unitPattern>
 				<unitPattern count="many">{0} דקות</unitPattern>
 				<unitPattern count="other">{0} דקות</unitPattern>
@@ -9287,9 +9287,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="duration-second">
 				<gender>feminine</gender>
 				<displayName>שניות</displayName>
-				<unitPattern count="one">שניה</unitPattern>
+				<unitPattern count="one">{0} שניה</unitPattern>
 				<unitPattern count="two">שתי שניות</unitPattern>
-				<unitPattern count="many">‏{0} שניות</unitPattern>
+				<unitPattern count="many">{0} שניות</unitPattern>
 				<unitPattern count="other">{0} שניות</unitPattern>
 				<perUnitPattern>{0} לשניה</perUnitPattern>
 			</unit>
@@ -9367,8 +9367,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="energy-foodcalorie">
 				<displayName>קלוריות</displayName>
-				<unitPattern count="one">קלוריה אחת</unitPattern>
-				<unitPattern count="two">שתי קלוריות</unitPattern>
+				<unitPattern count="one">{0} קלוריה</unitPattern>
+				<unitPattern count="two">{0} קלוריות</unitPattern>
 				<unitPattern count="many">{0} קלוריות</unitPattern>
 				<unitPattern count="other">{0} קלוריות</unitPattern>
 			</unit>
@@ -9478,7 +9478,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">‎{0} ems ‎</unitPattern>
+				<unitPattern count="other">{0} ems</unitPattern>
 			</unit>
 			<unit type="graphics-pixel">
 				<gender>masculine</gender>
@@ -9507,15 +9507,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="graphics-pixel-per-inch">
 				<displayName>פיקסלים לאינץ׳</displayName>
 				<unitPattern count="one">{0} פיקסל לאינץ'</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="two">{0} פיקסלים לאינץ'</unitPattern>
+				<unitPattern count="many">{0} פיקסלים לאינץ'</unitPattern>
 				<unitPattern count="other">{0} פיקסלים לאינץ'</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
 				<displayName>נקודות לסנטימטר</displayName>
 				<unitPattern count="one">נקודה {0} לסנטימטר</unitPattern>
-				<unitPattern count="two">‎{0} נקודות לסנטימטר</unitPattern>
-				<unitPattern count="many">‎{0} נקודות לסנטימטר</unitPattern>
+				<unitPattern count="two">{0} נקודות לסנטימטר</unitPattern>
+				<unitPattern count="many">{0} נקודות לסנטימטר</unitPattern>
 				<unitPattern count="other">{0} נקודות לסנטימטר</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-inch">
@@ -9523,7 +9523,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">נקודה לאינץ׳</unitPattern>
 				<unitPattern count="two">{0} נקודות לאינץ׳</unitPattern>
 				<unitPattern count="many">{0} נקודות לאינץ׳</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} נקודות לאינץ׳</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
 				<displayName>נקודות קטנות</displayName>
@@ -9534,7 +9534,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="length-earth-radius">
 				<displayName>רדיוס כדור-הארץ</displayName>
-				<unitPattern count="one">רדיוס כדור-הארץ</unitPattern>
+				<unitPattern count="one">{0} רדיוס כדור-הארץ</unitPattern>
 				<unitPattern count="two">{0} רדיוס כדור-הארץ</unitPattern>
 				<unitPattern count="many">{0} רדיוס כדור-הארץ</unitPattern>
 				<unitPattern count="other">{0} רדיוס כדור-הארץ</unitPattern>
@@ -9560,7 +9560,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="length-decimeter">
 				<gender>masculine</gender>
 				<displayName>דצימטר</displayName>
-				<unitPattern count="one">דצימטר אחד</unitPattern>
+				<unitPattern count="one">דצימטר {0}</unitPattern>
 				<unitPattern count="two">{0} דצימטרים</unitPattern>
 				<unitPattern count="many">{0} דצימטרים</unitPattern>
 				<unitPattern count="other">{0} דצימטרים</unitPattern>
@@ -9608,7 +9608,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="length-mile">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">מייל {0}</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -9689,9 +9689,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="length-point">
 				<gender>feminine</gender>
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">נקודה</unitPattern>
+				<unitPattern count="one">נקודה {0}</unitPattern>
 				<unitPattern count="two">{0} נקודות</unitPattern>
-				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="many">{0} נקודות</unitPattern>
 				<unitPattern count="other">{0} נקודות</unitPattern>
 			</unit>
 			<unit type="length-solar-radius">
@@ -9704,7 +9704,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="light-lux">
 				<gender>masculine</gender>
 				<displayName>לוקס</displayName>
-				<unitPattern count="one">לוקס אחד</unitPattern>
+				<unitPattern count="one">{0} לוקס</unitPattern>
 				<unitPattern count="two">{0} לוקס</unitPattern>
 				<unitPattern count="many">{0} לוקס</unitPattern>
 				<unitPattern count="other">{0} לוקס</unitPattern>
@@ -9712,7 +9712,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="light-candela">
 				<gender>feminine</gender>
 				<displayName>קנדלה</displayName>
-				<unitPattern count="one">קנדלה</unitPattern>
+				<unitPattern count="one">{0} קנדלה</unitPattern>
 				<unitPattern count="two">{0} קנדלה</unitPattern>
 				<unitPattern count="many">{0} קנדלה</unitPattern>
 				<unitPattern count="other">{0} קנדלה</unitPattern>
@@ -9735,8 +9735,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="mass-tonne">
 				<gender>masculine</gender>
 				<displayName>טון מטרי</displayName>
-				<unitPattern count="one">טון מטרי אחד</unitPattern>
-				<unitPattern count="two">שני טון מטרי</unitPattern>
+				<unitPattern count="one">{0} טון מטרי</unitPattern>
+				<unitPattern count="two">{0} טון מטרי</unitPattern>
 				<unitPattern count="many">{0} טון מטרי</unitPattern>
 				<unitPattern count="other">{0} טון מטרי</unitPattern>
 			</unit>
@@ -9761,23 +9761,23 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="mass-milligram">
 				<gender>masculine</gender>
 				<displayName>מיליגרם</displayName>
-				<unitPattern count="one">מיליגרם אחד</unitPattern>
-				<unitPattern count="two">שני מיליגרם</unitPattern>
+				<unitPattern count="one">{0} מיליגרם</unitPattern>
+				<unitPattern count="two">{0} מיליגרם</unitPattern>
 				<unitPattern count="many">{0} מיליגרם</unitPattern>
 				<unitPattern count="other">{0} מיליגרם</unitPattern>
 			</unit>
 			<unit type="mass-microgram">
 				<gender>masculine</gender>
 				<displayName>מיקרוגרם</displayName>
-				<unitPattern count="one">מיקרוגרם אחד</unitPattern>
-				<unitPattern count="two">שני מיקרוגרם</unitPattern>
+				<unitPattern count="one">{0} מיקרוגרם</unitPattern>
+				<unitPattern count="two">{0} מיקרוגרם</unitPattern>
 				<unitPattern count="many">{0} מיקרוגרם</unitPattern>
 				<unitPattern count="other">{0} מיקרוגרם</unitPattern>
 			</unit>
 			<unit type="mass-ton">
 				<displayName>טונות</displayName>
-				<unitPattern count="one">טונה אחת</unitPattern>
-				<unitPattern count="two">שתי טונות</unitPattern>
+				<unitPattern count="one">טונה {0}</unitPattern>
+				<unitPattern count="two">{0} טונות</unitPattern>
 				<unitPattern count="many">{0} טונות</unitPattern>
 				<unitPattern count="other">{0} טונות</unitPattern>
 			</unit>
@@ -9790,8 +9790,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="mass-pound">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">פאונד אחד</unitPattern>
-				<unitPattern count="two">שני פאונד</unitPattern>
+				<unitPattern count="one">{0} פאונד</unitPattern>
+				<unitPattern count="two">{0} פאונד</unitPattern>
 				<unitPattern count="many">{0} פאונד</unitPattern>
 				<unitPattern count="other">{0} פאונד</unitPattern>
 				<perUnitPattern>{0}/פאונד</perUnitPattern>
@@ -9806,16 +9806,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="mass-ounce-troy">
 				<displayName>אונקיות טרוי</displayName>
-				<unitPattern count="one">אונקיית טרוי אחת</unitPattern>
-				<unitPattern count="two">שתי אונקיות טרוי</unitPattern>
+				<unitPattern count="one">אונקיית טרוי {0}</unitPattern>
+				<unitPattern count="two">{0} אונקיות טרוי</unitPattern>
 				<unitPattern count="many">{0} אונקיות טרוי</unitPattern>
 				<unitPattern count="other">{0} אונקיות טרוי</unitPattern>
 			</unit>
 			<unit type="mass-carat">
 				<gender>masculine</gender>
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">קרט אחד</unitPattern>
-				<unitPattern count="two">שני קרט</unitPattern>
+				<unitPattern count="one">{0} קרט</unitPattern>
+				<unitPattern count="two">{0} קרט</unitPattern>
 				<unitPattern count="many">{0} קרט</unitPattern>
 				<unitPattern count="other">{0} קרט</unitPattern>
 			</unit>
@@ -9831,7 +9831,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} מסת כדור הארץ</unitPattern>
 				<unitPattern count="two">{0} מסות כדור הארץ</unitPattern>
 				<unitPattern count="many">{0} מסות כדור הארץ</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} מסות כדור הארץ</unitPattern>
 			</unit>
 			<unit type="mass-solar-mass">
 				<displayName>מסת השמש</displayName>
@@ -9897,15 +9897,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="pressure-millimeter-ofhg">
 				<gender>masculine</gender>
 				<displayName>מילימטר כספית</displayName>
-				<unitPattern count="one">מילימטר כספית אחד</unitPattern>
-				<unitPattern count="two">שני מילימטר כספית</unitPattern>
+				<unitPattern count="one">{0} מילימטר כספית</unitPattern>
+				<unitPattern count="two">{0} מילימטר כספית</unitPattern>
 				<unitPattern count="many">{0} מילימטר כספית</unitPattern>
 				<unitPattern count="other">{0} מילימטר כספית</unitPattern>
 			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>פאונד לאינץ׳ רבוע</displayName>
-				<unitPattern count="one">פאונד אחד לאינץ׳ רבוע</unitPattern>
-				<unitPattern count="two">שני פאונד לאינץ׳ רבוע</unitPattern>
+				<unitPattern count="one">פאונד {0} לאינץ׳ רבוע</unitPattern>
+				<unitPattern count="two">{0} פאונד לאינץ׳ רבוע</unitPattern>
 				<unitPattern count="many">{0} פאונד לאינץ׳ רבוע</unitPattern>
 				<unitPattern count="other">{0} פאונד לאינץ׳ רבוע</unitPattern>
 			</unit>
@@ -9997,15 +9997,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="speed-knot">
 				<displayName>קשר</displayName>
-				<unitPattern count="one">קשר אחד</unitPattern>
-				<unitPattern count="two">שני קשר</unitPattern>
+				<unitPattern count="one">{0} קשר</unitPattern>
+				<unitPattern count="two">{0} קשר</unitPattern>
 				<unitPattern count="many">{0} קשר</unitPattern>
 				<unitPattern count="other">{0} קשר</unitPattern>
 			</unit>
 			<unit type="speed-beaufort">
 				<displayName>בופורט</displayName>
 				<unitPattern count="one">בופורט {0}</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="two">בופורט {0}</unitPattern>
 				<unitPattern count="other">בופורט {0}</unitPattern>
 			</unit>
 			<unit type="temperature-generic">
@@ -10240,8 +10240,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-tablespoon">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">כף אחת</unitPattern>
-				<unitPattern count="two">שתי כפות</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">{0} כפות</unitPattern>
 				<unitPattern count="many">{0} כפות</unitPattern>
 				<unitPattern count="other">{0} כפות</unitPattern>
 			</unit>
@@ -10261,14 +10261,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-dessert-spoon">
 				<displayName>כפית קינוחים</displayName>
-				<unitPattern count="one">כפית קינוחים</unitPattern>
+				<unitPattern count="one">{0} כפית קינוחים</unitPattern>
 				<unitPattern count="two">{0} כפיות קינוחים</unitPattern>
 				<unitPattern count="many">{0} כפיות קינוחים</unitPattern>
 				<unitPattern count="other">{0} כפיות קינוחים</unitPattern>
 			</unit>
 			<unit type="volume-dessert-spoon-imperial">
 				<displayName>כפית קינוחים בארה״ב</displayName>
-				<unitPattern count="one">כפית קינוחים בארה״ב</unitPattern>
+				<unitPattern count="one">{0} כפית קינוחים בארה״ב</unitPattern>
 				<unitPattern count="two">{0} כפיות קינוחים בארה&quot;ב</unitPattern>
 				<unitPattern count="many">{0} כפיות קינוחים בארה&quot;ב</unitPattern>
 				<unitPattern count="other">{0} כפיות קינוחים בארה&quot;ב</unitPattern>
@@ -10457,7 +10457,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</compoundUnit>
 			<unit type="acceleration-g-force">
 				<displayName>כוח ג׳י</displayName>
-				<unitPattern count="one">G ‏{0}</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -10517,11 +10517,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">‎{0} ha</unitPattern>
+				<unitPattern count="other">{0} ha</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
 				<displayName>מ״ר</displayName>
-				<unitPattern count="one">מ״ר {0}</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} מ״ר</unitPattern>
@@ -10540,37 +10540,37 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">‎{0} sq mi</unitPattern>
-				<perUnitPattern>‎{0}/mi²</perUnitPattern>
+				<unitPattern count="other">{0} sq mi</unitPattern>
+				<perUnitPattern>{0}/mi²</perUnitPattern>
 			</unit>
 			<unit type="area-acre">
 				<displayName>אקר</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">{0} ac</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">‎{0} ac</unitPattern>
+				<unitPattern count="other">{0} אקר</unitPattern>
 			</unit>
 			<unit type="area-square-yard">
 				<displayName>yards²</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">‎{0} yd²</unitPattern>
+				<unitPattern count="other">{0} yd²</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">‎{0} sq ft</unitPattern>
+				<unitPattern count="other">{0} sq ft</unitPattern>
 			</unit>
 			<unit type="area-square-inch">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">‎{0} in²</unitPattern>
-				<perUnitPattern>‎{0}/in²</perUnitPattern>
+				<unitPattern count="other">{0} in²</unitPattern>
+				<perUnitPattern>{0}/in²</perUnitPattern>
 			</unit>
 			<unit type="area-dunam">
 				<displayName>דונם</displayName>
@@ -10584,14 +10584,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
 			<unit type="concentr-milligram-ofglucose-per-deciliter">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} mg/dL</unitPattern>
 			</unit>
 			<unit type="concentr-millimole-per-liter">
 				<displayName>↑↑↑</displayName>
@@ -10651,7 +10651,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="consumption-liter-per-100-kilometer">
 				<displayName>ל׳/100 ק״מ</displayName>
-				<unitPattern count="one">ל׳ {0}/100 ק״מ</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ל׳/100 ק״מ</unitPattern>
@@ -10700,7 +10700,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="digital-gigabit">
 				<displayName>Gbit</displayName>
-				<unitPattern count="one">‎ {0} Gb</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -10779,8 +10779,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="duration-month">
 				<displayName>חודשים</displayName>
-				<unitPattern count="one">חודש</unitPattern>
-				<unitPattern count="two">חודשיים</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ח׳</unitPattern>
 				<perUnitPattern>{0}/חודש</perUnitPattern>
@@ -10795,7 +10795,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="duration-day">
 				<displayName>ימים</displayName>
-				<unitPattern count="one">יום</unitPattern>
+				<unitPattern count="one">יום {0}</unitPattern>
 				<unitPattern count="two">יומיים</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} ימ׳</unitPattern>
@@ -10803,7 +10803,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="duration-hour">
 				<displayName>שע׳</displayName>
-				<unitPattern count="one">שעה</unitPattern>
+				<unitPattern count="one">{0} שעה</unitPattern>
 				<unitPattern count="two">שעתיים</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} שע׳</unitPattern>
@@ -10811,16 +10811,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="duration-minute">
 				<displayName>דק׳</displayName>
-				<unitPattern count="one">דקה</unitPattern>
-				<unitPattern count="two">שתי דק׳</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} דק׳</unitPattern>
 				<perUnitPattern>{0}/ד׳</perUnitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>שנ׳</displayName>
-				<unitPattern count="one">שנ׳</unitPattern>
-				<unitPattern count="two">שתי שנ׳</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} שנ׳</unitPattern>
 				<perUnitPattern>{0}/שנ׳</perUnitPattern>
@@ -10890,8 +10890,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="energy-foodcalorie">
 				<displayName>קלו׳</displayName>
-				<unitPattern count="one">קלו׳ אחת</unitPattern>
-				<unitPattern count="two">שתי קלו׳</unitPattern>
+				<unitPattern count="one">{0} קלו׳</unitPattern>
+				<unitPattern count="two">{0} קלו׳</unitPattern>
 				<unitPattern count="many">{0} קלו׳</unitPattern>
 				<unitPattern count="other">{0} קלו׳</unitPattern>
 			</unit>
@@ -10991,35 +10991,35 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">‎{0} em ‎</unitPattern>
+				<unitPattern count="other">{0} em</unitPattern>
 			</unit>
 			<unit type="graphics-pixel">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">‎{0} px ‎</unitPattern>
+				<unitPattern count="other">{0} px</unitPattern>
 			</unit>
 			<unit type="graphics-megapixel">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">‎{0} MP ‎</unitPattern>
+				<unitPattern count="other">{0} MP</unitPattern>
 			</unit>
 			<unit type="graphics-pixel-per-centimeter">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">‎{0} ppcm‎</unitPattern>
+				<unitPattern count="other">{0} ppcm</unitPattern>
 			</unit>
 			<unit type="graphics-pixel-per-inch">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">‎{0} ppi‎</unitPattern>
+				<unitPattern count="other">{0} ppi</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
 				<displayName>↑↑↑</displayName>
@@ -11030,10 +11030,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="graphics-dot-per-inch">
 				<displayName>dpi</displayName>
-				<unitPattern count="one">{0} dpi</unitPattern>
-				<unitPattern count="two">‎{0} dpi‎</unitPattern>
-				<unitPattern count="many">‎{0} dpi</unitPattern>
-				<unitPattern count="other">‎{0} dpi‎</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">{0} dpi</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
 				<displayName>נקודה קטנה</displayName>
@@ -11538,7 +11538,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">‎{0} m³</unitPattern>
+				<unitPattern count="other">{0} m³</unitPattern>
 				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="volume-cubic-centimeter">
@@ -11554,42 +11554,42 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">‎{0} mi³</unitPattern>
+				<unitPattern count="other">{0} mi³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-yard">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">‎{0} yd³</unitPattern>
+				<unitPattern count="other">{0} yd³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-foot">
 				<displayName>feet³</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">‎{0} ft³</unitPattern>
+				<unitPattern count="other">{0} ft³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-inch">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">‎{0} in³</unitPattern>
+				<unitPattern count="other">{0} in³</unitPattern>
 			</unit>
 			<unit type="volume-megaliter">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">‎{0} ML</unitPattern>
+				<unitPattern count="other">{0} ML</unitPattern>
 			</unit>
 			<unit type="volume-hectoliter">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">‎{0} hL</unitPattern>
+				<unitPattern count="other">{0} hL</unitPattern>
 			</unit>
 			<unit type="volume-liter">
 				<displayName>ליטר</displayName>
@@ -11611,7 +11611,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">‎{0} cL</unitPattern>
+				<unitPattern count="other">{0} cL</unitPattern>
 			</unit>
 			<unit type="volume-milliliter">
 				<displayName>מ״ל</displayName>
@@ -11625,21 +11625,21 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">‎{0} mpt</unitPattern>
+				<unitPattern count="other">{0} mpt</unitPattern>
 			</unit>
 			<unit type="volume-cup-metric">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">‎{0} mc</unitPattern>
+				<unitPattern count="other">{0} mc</unitPattern>
 			</unit>
 			<unit type="volume-acre-foot">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">‎{0} ac ft</unitPattern>
+				<unitPattern count="other">{0} ac ft</unitPattern>
 			</unit>
 			<unit type="volume-bushel">
 				<displayName>↑↑↑</displayName>
@@ -11669,14 +11669,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">‎{0} qt</unitPattern>
+				<unitPattern count="other">{0} qt</unitPattern>
 			</unit>
 			<unit type="volume-pint">
 				<displayName>פינט</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">‎{0} pt</unitPattern>
+				<unitPattern count="other">{0} pt</unitPattern>
 			</unit>
 			<unit type="volume-cup">
 				<displayName>כוסות</displayName>
@@ -11690,14 +11690,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">‎{0} fl oz</unitPattern>
+				<unitPattern count="other">{0} fl oz</unitPattern>
 			</unit>
 			<unit type="volume-fluid-ounce-imperial">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">‎{0} fl oz Imp.‎</unitPattern>
+				<unitPattern count="other">{0} fl oz Imp.</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
 				<displayName>כפות</displayName>
@@ -11718,7 +11718,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">‎{0} bbl</unitPattern>
+				<unitPattern count="other">{0} bbl</unitPattern>
 			</unit>
 			<unit type="volume-dessert-spoon">
 				<displayName>↑↑↑</displayName>
@@ -11973,9 +11973,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="area-hectare">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">{0} הקטאר</unitPattern>
-				<unitPattern count="many">{0} הקטאר</unitPattern>
-				<unitPattern count="other">{0} הקטאר</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
 				<displayName>↑↑↑</displayName>
@@ -11995,18 +11995,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="area-square-mile">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">מייל רבוע {0}</unitPattern>
-				<unitPattern count="two">{0} מייל רבוע</unitPattern>
-				<unitPattern count="many">{0} מייל רבוע</unitPattern>
-				<unitPattern count="other">{0} מייל רבוע</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="area-acre">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">אקר {0}</unitPattern>
-				<unitPattern count="two">{0} אקר</unitPattern>
-				<unitPattern count="many">{0} אקר</unitPattern>
-				<unitPattern count="other">{0} אקר</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-yard">
 				<displayName>↑↑↑</displayName>
@@ -12017,10 +12017,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="area-square-foot">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">רגל רבועה {0}</unitPattern>
-				<unitPattern count="two">{0} רגל רבועה</unitPattern>
-				<unitPattern count="many">{0} רגל רבועה</unitPattern>
-				<unitPattern count="other">{0} רגל רבועה</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="area-square-inch">
 				<displayName>↑↑↑</displayName>
@@ -12150,25 +12150,25 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-gigabyte">
-				<displayName>ג״ב</displayName>
-				<unitPattern count="one">{0} ג״ב</unitPattern>
-				<unitPattern count="two">{0} ג״ב</unitPattern>
-				<unitPattern count="many">{0} ג״ב</unitPattern>
-				<unitPattern count="other">{0} ג״ב</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-gigabit">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">‎{0}Gb</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-megabyte">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} מ״ב</unitPattern>
-				<unitPattern count="two">{0} מ״ב</unitPattern>
-				<unitPattern count="many">{0} מ״ב</unitPattern>
-				<unitPattern count="other">{0} מ״ב</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-megabit">
 				<displayName>↑↑↑</displayName>
@@ -12178,11 +12178,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-kilobyte">
-				<displayName>ק״ב</displayName>
-				<unitPattern count="one">ק״ב {0}</unitPattern>
-				<unitPattern count="two">{0} ק״ב</unitPattern>
-				<unitPattern count="many">{0} ק״ב</unitPattern>
-				<unitPattern count="other">{0} ק״ב</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="digital-kilobit">
 				<displayName>↑↑↑</displayName>
@@ -12237,8 +12237,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="duration-month">
 				<displayName>ח׳</displayName>
-				<unitPattern count="one">ח׳ {0}</unitPattern>
-				<unitPattern count="two">{0} ח׳</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 				<perUnitPattern>↑↑↑</perUnitPattern>
@@ -12253,7 +12253,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="duration-day">
 				<displayName>יום</displayName>
-				<unitPattern count="one">י׳</unitPattern>
+				<unitPattern count="one">{0} י׳</unitPattern>
 				<unitPattern count="two">{0} י׳</unitPattern>
 				<unitPattern count="many">{0} י׳</unitPattern>
 				<unitPattern count="other">{0} י׳</unitPattern>
@@ -12277,7 +12277,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="duration-second">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">שניה</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -12348,8 +12348,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="energy-foodcalorie">
 				<displayName>קל׳</displayName>
-				<unitPattern count="one">{0} קלו׳</unitPattern>
-				<unitPattern count="two">{0} קלו׳</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
@@ -12484,13 +12484,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
-				<unitPattern count="other">‎{0} נק׳ ס״מ</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-inch">
-				<displayName>dpi</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">{0} ppi</unitPattern>
-				<unitPattern count="many">{0} ppi</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
@@ -12518,7 +12518,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="length-meter">
 				<displayName>מטר</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">{0} מ′</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 				<perUnitPattern>↑↑↑</perUnitPattern>
@@ -12540,7 +12540,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="length-millimeter">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">מ״מ {0}</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -12548,27 +12548,27 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="length-micrometer">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">{0} μm</unitPattern>
-				<unitPattern count="many">{0} μm</unitPattern>
-				<unitPattern count="other">{0} μm</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-nanometer">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">{0} nm</unitPattern>
-				<unitPattern count="many">{0} nm</unitPattern>
-				<unitPattern count="other">{0} nm</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-picometer">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">pm ‏{0}</unitPattern>
-				<unitPattern count="two">{0} פיקומטר</unitPattern>
-				<unitPattern count="many">{0} פיקומטר</unitPattern>
-				<unitPattern count="other">{0} פיקומטר</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-mile">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">מייל {0}</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -12583,25 +12583,25 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="length-foot">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">{0} רגל</unitPattern>
-				<unitPattern count="many">{0} רגל</unitPattern>
-				<unitPattern count="other">{0} רגל</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="length-inch">
 				<displayName>in</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="two">{0} אינץ׳</unitPattern>
-				<unitPattern count="many">{0} אינץ׳</unitPattern>
-				<unitPattern count="other">{0} אינץ׳</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="length-parsec">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} pc</unitPattern>
-				<unitPattern count="two">{0} pc</unitPattern>
-				<unitPattern count="many">{0} pc</unitPattern>
-				<unitPattern count="other">{0} pc</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-light-year">
 				<displayName>↑↑↑</displayName>
@@ -12612,10 +12612,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="length-astronomical-unit">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} au</unitPattern>
-				<unitPattern count="two">{0} au</unitPattern>
-				<unitPattern count="many">{0} au</unitPattern>
-				<unitPattern count="other">{0} au</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-furlong">
 				<displayName>↑↑↑</displayName>
@@ -12647,9 +12647,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="length-point">
 				<displayName>נק׳</displayName>
-				<unitPattern count="one">נק׳ {0}</unitPattern>
-				<unitPattern count="two">{0} נק׳</unitPattern>
-				<unitPattern count="many">{0} נק׳</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-solar-radius">
@@ -12719,7 +12719,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="mass-microgram">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">מק״ג {0}</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -12869,9 +12869,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="pressure-millibar">
 				<displayName>מ״ב</displayName>
 				<unitPattern count="one">{0} מ″ב</unitPattern>
-				<unitPattern count="two">{0} מיליבר</unitPattern>
-				<unitPattern count="many">{0} מיליבר</unitPattern>
-				<unitPattern count="other">{0} מיליבר</unitPattern>
+				<unitPattern count="two">{0} מ″ב</unitPattern>
+				<unitPattern count="many">{0} מ″ב</unitPattern>
+				<unitPattern count="other">{0} מ″ב</unitPattern>
 			</unit>
 			<unit type="pressure-atmosphere">
 				<displayName>↑↑↑</displayName>
@@ -12939,7 +12939,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="speed-beaufort">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">B{0}</unitPattern>
-				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="two">B{0}</unitPattern>
 				<unitPattern count="other">B{0}</unitPattern>
 			</unit>
 			<unit type="temperature-generic">
@@ -12986,7 +12986,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} קמ״ק</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -13009,10 +13009,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-cubic-mile">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} mi³</unitPattern>
-				<unitPattern count="two">{0} mi³</unitPattern>
-				<unitPattern count="many">{0} mi³</unitPattern>
-				<unitPattern count="other">{0} mi³</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="many">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-cubic-yard">
 				<displayName>↑↑↑</displayName>
@@ -13051,7 +13051,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-liter">
 				<displayName>↑↑↑</displayName>
-				<unitPattern count="one">{0} ל׳</unitPattern>
+				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="two">↑↑↑</unitPattern>
 				<unitPattern count="many">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
@@ -13189,7 +13189,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0}dsp-Imp</unitPattern>
 				<unitPattern count="two">{0}dsp-Imp</unitPattern>
-				<unitPattern count="many">{0} dstspn</unitPattern>
+				<unitPattern count="many">{0}dsp-Imp</unitPattern>
 				<unitPattern count="other">{0}dsp-Imp</unitPattern>
 			</unit>
 			<unit type="volume-drop">
@@ -13228,10 +13228,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="speed-light-speed">
-				<displayName>אור</displayName>
-				<unitPattern count="one">{0} אור</unitPattern>
-				<unitPattern count="two">{0} אור</unitPattern>
-				<unitPattern count="other">{0} אור</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="concentr-portion-per-1e9">
 				<displayName>↑↑↑</displayName>
@@ -13240,11 +13240,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-night">
-				<displayName>לילות</displayName>
-				<unitPattern count="one">{0} לילה</unitPattern>
-				<unitPattern count="two">{0} לילות</unitPattern>
-				<unitPattern count="other">{0} לילות</unitPattern>
-				<perUnitPattern>{0}/לילה</perUnitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="two">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>↑↑↑</displayName>

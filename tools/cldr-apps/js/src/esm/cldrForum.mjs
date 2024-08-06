@@ -260,7 +260,7 @@ function openPostOrReply(pi) {
     pi.value,
     pi.willFlag
   );
-  const text = prefillPostText(postType, value);
+  const text = prefillPostText(pi.postType, value);
 
   openPostWindow(html, text, pi.parentPost);
 }

@@ -10,10 +10,52 @@ import * as cldrForumFilter from "./cldrForumFilter.mjs";
 import * as cldrForumPanel from "./cldrForumPanel.mjs";
 import * as cldrForumType from "./cldrForumType.mjs";
 import * as cldrLoad from "./cldrLoad.mjs";
-import * as cldrRetry from "./cldrRetry.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
 import * as cldrSurvey from "./cldrSurvey.mjs";
 import * as cldrText from "./cldrText.mjs";
+
+class PostInfo {
+  constructor(postType) {
+    this.postType = postType;
+
+    this.locale = null;
+    this.xpstrid = null;
+    this.value = null;
+    this.subject = "";
+    this.willFlag = false;
+    this.replyTo = -1;
+    this.parentPost = null;
+  }
+
+  /**
+   * Set the parent data for a reply.
+   *
+   * @param {Object} post - the data (as received from the back end) for the post to which
+   * this is a reply. It is NOT a PostInfo object!
+   */
+  setReplyTo(post) {
+    this.replyTo = post.id;
+    this.parentPost = post;
+    // Copy these values from the parent.
+    this.setLocalePathValueSubject(
+      post.locale,
+      post.xpath,
+      post.value,
+      post.subject
+    );
+  }
+
+  setLocalePathValueSubject(locale, xpstrid, value, subject) {
+    this.locale = locale;
+    this.xpstrid = xpstrid;
+    this.value = value;
+    this.subject = subject;
+  }
+
+  setWillFlagTrue() {
+    this.willFlag = true;
+  }
+}
 
 /**
  * Encapsulate this class name -- caution: it's used literally in surveytool.css
@@ -85,15 +127,7 @@ function load() {
     });
     const surveyUser = cldrStatus.getSurveyUser();
     const userId = surveyUser && surveyUser.id ? surveyUser.id : 0;
-    const params = {
-      name: "forum",
-      exports: {
-        appendLocaleLink: cldrLoad.appendLocaleLink,
-        handleDisconnect: cldrRetry.handleDisconnect,
-        clickToSelect: cldrDom.clickToSelect,
-      },
-    };
-    loadForum(curLocale, userId, forumMessage, params);
+    loadForum(curLocale, userId, forumMessage);
   }
 }
 
@@ -103,9 +137,8 @@ function load() {
  * @param locale the locale string, like "fr_CA" (cldrStatus.getCurrentLocale())
  * @param userId the id of the current user
  * @param forumMessage the forum message
- * @param params an object with various properties such as exports, special, name, ...
  */
-function loadForum(locale, userId, forumMessage, params) {
+function loadForum(locale, userId, forumMessage) {
   setLocale(locale);
   const url = getLoadForumUrl();
   const errorHandler = function (err) {
@@ -206,42 +239,30 @@ function setUserCanPost(canPost) {
 /**
  * Make a new forum post or a reply.
  *
- * @param params the object containing various parameters: locale, xpath, replyTo, replyData, ...
+ * @param {PostInfo} pi
  */
-function openPostOrReply(params) {
-  const isReply = params.replyTo && params.replyTo >= 0 ? true : false;
-  const replyTo = isReply ? params.replyTo : -1;
-  const parentPost = isReply && params.replyData ? params.replyData : null;
-  const rootPost = parentPost ? getThreadRootPost(parentPost) : null;
-  const locale = isReply ? rootPost.locale : params.locale ? params.locale : "";
-  const xpath = isReply ? rootPost.xpath : params.xpath ? params.xpath : "";
-  const subjectParam = params.subject ? params.subject : "";
-  const postType = params.postType ? params.postType : null;
-  const subject = makePostSubject(isReply, rootPost, subjectParam);
-  const value = params.value
-    ? params.value
-    : rootPost && rootPost.value
-    ? rootPost.value
-    : null;
-  const willFlag = params?.willFlag || false;
+function openPostOrReply(pi) {
+  const isReply = pi.replyTo > 0;
+  const rootPost = isReply ? getThreadRootPost(pi.parentPost) : null;
+  const subject = makePostSubject(isReply, rootPost, pi.subject);
   const root = isReply ? rootPost.id : -1;
   const open = isReply ? rootPost.open : true;
   const typeLabel = makePostTypeLabel(postType, isReply);
   const html = makePostHtml(
-    postType,
+    pi.postType,
     typeLabel,
-    locale,
-    xpath,
+    pi.locale,
+    pi.xpstrid,
     subject,
-    replyTo,
+    pi.replyTo,
     root,
     open,
-    value,
-    willFlag
+    pi.value,
+    pi.willFlag
   );
   const text = prefillPostText(postType, value);
 
-  openPostWindow(html, text, parentPost);
+  openPostWindow(html, text, pi.parentPost);
 }
 
 /**
@@ -928,14 +949,12 @@ function makeOneNewPostButton(
           if (willFlag) {
             subj += " (Flag for review)";
           }
-          openPostOrReply({
-            locale: locale,
-            xpath: xpstrid,
-            subject: subj,
-            postType: postType,
-            value: value,
-            willFlag: willFlag,
-          });
+          const pi = new PostInfo(postType);
+          pi.setLocalePathValueSubject(locale, xpstrid, value, subj);
+          if (willFlag) {
+            pi.setWillFlagTrue();
+          }
+          openPostOrReply(pi);
         }
       );
       cldrEvent.stopPropagation(e);
@@ -952,15 +971,9 @@ function makeOneReplyButton(post, postType, label) {
     "addPostButton btn btn-default btn-sm"
   );
   cldrDom.listenFor(replyButton, "click", function (e) {
-    openPostOrReply({
-      /*
-       * Don't specify locale/xpath/subject/value/open for reply. Instead they will be set to
-       * match the original post in the thread.
-       */
-      replyTo: post.id,
-      replyData: post,
-      postType: postType,
-    });
+    const pi = new PostInfo(postType);
+    pi.setReplyTo(post);
+    openPostOrReply(pi);
     cldrEvent.stopPropagation(e);
     return false;
   });

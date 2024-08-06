@@ -247,7 +247,7 @@ function openPostOrReply(pi) {
   const subject = makePostSubject(isReply, rootPost, pi.subject);
   const root = isReply ? rootPost.id : -1;
   const open = isReply ? rootPost.open : true;
-  const typeLabel = makePostTypeLabel(postType, isReply);
+  const typeLabel = makePostTypeLabel(pi.postType, isReply);
   const html = makePostHtml(
     pi.postType,
     typeLabel,

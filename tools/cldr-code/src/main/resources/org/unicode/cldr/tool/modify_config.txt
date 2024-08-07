@@ -1,304 +1,134 @@
-# Modify non-emoji
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="_"]; new_value=dash | line | low | underdash | underline
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="―"]; new_value=bar | dash | horizontal | line
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="・"]; new_value=dot | dots | interpunct | katakana | middle | middot
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="؛"]; new_value=arabic | semi-colon | semicolon
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="!"]; new_value=bang | exclamation | mark | point
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="¡"]; new_value=bang | exclamation | inverted | mark | point
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="?"]; new_value=mark | question
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="¿"]; new_value=inverted | mark | question
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="؟"]; new_value=arabic | mark | question
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="."]; new_value=dot | full | period | stop
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="。"]; new_value=full | ideographic | period | stop
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="'"]; new_value=apostrophe | quote | single | typewriter
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="‘"]; new_value=apostrophe | left | quote | single | smart
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="’"]; new_value=apostrophe | quote | right | single | smart
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="‚"]; new_value=apostrophe | low | quote | right
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="“"]; new_value=double | left | mark | quotation | quote | smart
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="”"]; new_value=double | mark | quotation | quote | right | smart
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="„"]; new_value=double | low | mark | quotation | quote | right | smart
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="«"]; new_value=angle | brackets | carets | chevron | guillemet | left | quote
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="»"]; new_value=angle | brackets | carets | chevron | guillemet | quote | right
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp=")"]; new_value=bracket | close | paren | parens | parenthesis | round
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="["]; new_value=bracket | crotchet | open | square
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="]"]; new_value=bracket | close | crotchet | square
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="{"]; new_value=brace | bracket | curly | gullwing | open
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="}"]; new_value=brace | bracket | close | curly | gullwing
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="〈"]; new_value=angle | bracket | brackets | chevron | diamond | open | pointy | tuple
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="〉"]; new_value=angle | bracket | brackets | chevron | close | diamond | pointy | tuple
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="《"]; new_value=angle | bracket | double | open
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="》"]; new_value=angle | bracket | close | double
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="「"]; new_value=bracket | corner | open
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="」"]; new_value=bracket | close | corner
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="『"]; new_value=bracket | corner | hollow | open
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="』"]; new_value=bracket | close | corner | hollow
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="【"]; new_value=black | bracket | lens | lenticular | open
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="】"]; new_value=black | bracket | close | lens | lenticular
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="〔"]; new_value=bracket | open | shell | tortoise
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="〕"]; new_value=bracket | close | shell | tortoise
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="〖"]; new_value=bracket | hollow | lens | lenticular | open
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="〗"]; new_value=bracket | close | hollow | lens | lenticular
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="¶"]; new_value=alinea | mark | paragraph | paraph | pilcrow
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="@"]; new_value=ampersat | arobase | arroba | at | at-sign | commercial | mark | sign | strudel
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="\"]; new_value=backslash | reverse | solidus | whack
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="%"]; new_value=cent | per | per-cent | percent
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="‰"]; new_value=mil | mille | per | permil | permille
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="†"]; new_value=dagger | obelisk | obelus | sign
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="‡"]; new_value=dagger | double | obelisk | obelus | sign
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="‧"]; new_value=dash | hyphen | hyphenation | point
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="″"]; new_value=double | prime
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="‴"]; new_value=prime | triple
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="※"]; new_value=mark | reference
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="^"]; new_value=accent | caret | chevron | circumflex | control | hat | pointer | power | sign | wedge | xor
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="←"]; new_value=arrow | left | left-pointing
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↚"]; new_value=arrow | leftwards | stroke
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="→"]; new_value=arrow | right | right-pointing
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↛"]; new_value=arrow | rightwards | stroke
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↑"]; new_value=arrow | up | up-pointing
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↓"]; new_value=arrow | down | down-pointing
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↜"]; new_value=arrow | leftwards | wave
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↝"]; new_value=arrow | rightwards | wave
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↞"]; new_value=arrow | headed | leftwards | two
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↟"]; new_value=arrow | headed | two | upwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↠"]; new_value=arrow | headed | rightwards | two
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↡"]; new_value=arrow | downwards | headed | two
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↢"]; new_value=arrow | leftwards | tail
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↣"]; new_value=arrow | rightwards | tail
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↤"]; new_value=arrow | bar | from | leftwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↥"]; new_value=arrow | bar | from | upwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↦"]; new_value=arrow | bar | from | rightwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↧"]; new_value=arrow | bar | downwards | from
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↨"]; new_value=arrow | base | down | up | with
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↫"]; new_value=arrow | leftwards | loop
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↬"]; new_value=arrow | loop | rightwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↭"]; new_value=arrow | left | right | wave
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↯"]; new_value=arrow | downwards | zigzag
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↰"]; new_value=arrow | leftwards | tip | upwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↱"]; new_value=arrow | rightwards | tip | upwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↲"]; new_value=arrow | downwards | leftwards | tip
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↳"]; new_value=arrow | downwards | rightwards | tip
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↴"]; new_value=arrow | corner | downwards | rightwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↵"]; new_value=arrow | corner | downwards | leftwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↶"]; new_value=anticlockwise | arrow | semicircle | top
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↷"]; new_value=arrow | clockwise | semicircle | top
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↸"]; new_value=arrow | bar | long | north | west
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↹"]; new_value=arrow | bar | bars | leftwards | over | rightwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↺"]; new_value=anticlockwise | arrow | circle | open
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↻"]; new_value=arrow | circle | clockwise | open
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↼"]; new_value=barb | harpoon | leftwards | upwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↽"]; new_value=barb | downwards | harpoon | leftwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↾"]; new_value=barb | harpoon | rightwards | upwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↿"]; new_value=barb | harpoon | leftwards | upwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇀"]; new_value=barb | harpoon | rightwards | upwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇁"]; new_value=barb | downwards | harpoon | rightwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇂"]; new_value=barb | downwards | harpoon | rightwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇃"]; new_value=barb | downwards | harpoon | leftwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇄"]; new_value=arrow | leftwards | over | rightwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇅"]; new_value=and | arrow | arrows | down | down-pointing | up | up-pointing
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇆"]; new_value=arrow | arrows | left | left-pointing | over | right | right-pointing
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇇"]; new_value=arrows | leftwards | paired
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇈"]; new_value=arrows | paired | upwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇉"]; new_value=arrows | paired | rightwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇊"]; new_value=arrows | downwards | paired
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇋"]; new_value=harpoon | leftwards | over | rightwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇌"]; new_value=harpoon | leftwards | over | rightwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇐"]; new_value=arrow | double | leftwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇍"]; new_value=arrow | double | leftwards | stroke
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇑"]; new_value=arrow | double | upwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇒"]; new_value=arrow | double | rightwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇏"]; new_value=arrow | double | rightwards | stroke
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇓"]; new_value=arrow | double | downwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇔"]; new_value=arrow | double | left | right
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇎"]; new_value=arrow | double | left | right | stroke
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇖"]; new_value=arrow | double | north | west
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇗"]; new_value=arrow | double | east | north
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇘"]; new_value=arrow | double | east | south
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇙"]; new_value=arrow | double | south | west
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇚"]; new_value=arrow | leftwards | triple
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇛"]; new_value=arrow | rightwards | triple
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇜"]; new_value=arrow | leftwards | squiggle
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇝"]; new_value=arrow | rightwards | squiggle
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇞"]; new_value=arrow | double | stroke | upwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇟"]; new_value=arrow | double | downwards | stroke
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇠"]; new_value=arrow | dashed | leftwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇡"]; new_value=arrow | dashed | upwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇢"]; new_value=arrow | dashed | rightwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇣"]; new_value=arrow | dashed | downwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇤"]; new_value=arrow | bar | leftwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇥"]; new_value=arrow | bar | rightwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇦"]; new_value=arrow | hollow | leftwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇧"]; new_value=arrow | hollow | upwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇨"]; new_value=arrow | hollow | rightwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇩"]; new_value=arrow | downwards | hollow
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇪"]; new_value=arrow | bar | from | hollow | upwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⇵"]; new_value=arrow | downwards | leftwards | upwards
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="∀"]; new_value=all | any | for | given | universal
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="∂"]; new_value=differential | partial
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="∃"]; new_value=exists | there
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="∅"]; new_value=empty | mathematics | operator | set
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="∈"]; new_value=contains | element | membership | of | set
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="∉"]; new_value=an | element | not
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="∋"]; new_value=as | contains | element | member
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="∎"]; new_value=end | halmos | proof | q.e.d. | qed | tombstone
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="∏"]; new_value=logic | n-ary | product
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="∑"]; new_value=mathematics | n-ary | summation
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="+"]; new_value=add | plus | sign
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="÷"]; new_value=divide | division | obelus | sign
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="×"]; new_value=multiplication | multiply | sign | times
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="<"]; new_value=less | less-than | open | tag | than
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="≮"]; new_value=inequality | less-than | mathematics | not
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="≠"]; new_value=equal | inequality | inequation | not
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp=">"]; new_value=close | greater | greater-than | tag | than
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="≯"]; new_value=greater-than | inequality | mathematics | not
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="|"]; new_value=bar | line | pike | pipe | sheffer | stick | stroke | vbar | vertical
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="−"]; new_value=minus | sign | subtract
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="∕"]; new_value=division | slash | stroke | virgule
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⁄"]; new_value=fraction | slash | stroke | virgule
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="∗"]; new_value=asterisk | operator | star
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="∘"]; new_value=composition | operator | ring
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="∙"]; new_value=bullet | operator
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="∞"]; new_value=infinity | sign
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="∟"]; new_value=angle | mathematics | right
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="∧"]; new_value=ac | and | atque | logical | wedge
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="∬"]; new_value=calculus | double | integral
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="∮"]; new_value=contour | integral
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="∼"]; new_value=operator | tilde
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="∽"]; new_value=reversed | tilde
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="∾"]; new_value=inverted | lazy | s
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="≃"]; new_value=asymptote | asymptotically | equal | mathematics
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="≅"]; new_value=approximately | congruence | equal | equality | isomorphism | mathematics
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="≈"]; new_value=almost | approximate | approximation | equal
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="≌"]; new_value=all | equal | equality | mathematics
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="≒"]; new_value=approximately | equal | image | the
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="≖"]; new_value=equal | equality | in | mathematics | ring
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="≡"]; new_value=exact | identical | to | triple
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="≣"]; new_value=equality | equivalent | mathematics | strictly
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="≤"]; new_value=equal | equals | inequality | less-than | or
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="≥"]; new_value=equal | equals | greater-than | inequality | or
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="≦"]; new_value=equal | inequality | less-than | mathematics | over
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="≧"]; new_value=equal | greater-than | inequality | mathematics | over
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="≪"]; new_value=inequality | less-than | mathematics | much
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="≫"]; new_value=greater-than | inequality | mathematics | much
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="≳"]; new_value=equivalent | greater-than | inequality | mathematics
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="≺"]; new_value=mathematics | operator | precedes | set
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="≻"]; new_value=mathematics | operator | set | succeeds
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⊁"]; new_value=does | mathematics | not | operator | set | succeed
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⊂"]; new_value=of | set | subset
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⊃"]; new_value=mathematics | operator | set | superset
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⊆"]; new_value=equal | subset
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⊇"]; new_value=equal | equality | mathematics | superset
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⊕"]; new_value=circled | plus
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⊖"]; new_value=circled | difference | erosion | minus | symmetric
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⊗"]; new_value=circled | product | tensor | times
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⊘"]; new_value=circled | division | division-like | mathematics | slash
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⊙"]; new_value=circled | dot | operator | XNOR
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⊚"]; new_value=circled | operator | ring
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⊛"]; new_value=asterisk | circled | operator
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⊞"]; new_value=addition-like | mathematics | plus | squared
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⊟"]; new_value=mathematics | minus | squared | subtraction-like
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⊥"]; new_value=eet | falsum | tack | up
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⊮"]; new_value=does | force | not
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⊰"]; new_value=mathematics | operator | precedes | relation | set | under
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⊱"]; new_value=mathematics | operator | relation | set | succeeds | under
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⋭"]; new_value=as | contain | does | equal | group | mathematics | normal | not | subgroup | theory
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⊹"]; new_value=conjugate | hermitian | mathematics | matrix | self-adjoint | square
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⊿"]; new_value=mathematics | right | right-angled | triangle
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⋁"]; new_value=disjunction | logic | logical | n-ary | or
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⋂"]; new_value=intersection | mathematics | n-ary | operator | set
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⋃"]; new_value=mathematics | n-ary | operator | set | union
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⋅"]; new_value=dot | operator
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⋆"]; new_value=operator | star
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⋈"]; new_value=binary | bowtie | join | natural | operator
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⋒"]; new_value=double | intersection | mathematics | operator | set
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⋘"]; new_value=inequality | less-than | mathematics | much | very
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⋙"]; new_value=greater-than | inequality | mathematics | much | very
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⋮"]; new_value=ellipsis | mathematics | vertical
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⋯"]; new_value=ellipsis | horizontal | midline
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⋰"]; new_value=diagonal | ellipsis | mathematics | right | up
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⋱"]; new_value=diagonal | down | ellipsis | mathematics | right
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="■"]; new_value=filled | square
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="□"]; new_value=hollow | square
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="▢"]; new_value=corners | hollow | rounded | square | with
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="▣"]; new_value=containing | filled | hollow | square
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="▤"]; new_value=fill | horizontal | square | with
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="▥"]; new_value=fill | square | vertical | with
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="▦"]; new_value=crosshatch | fill | orthogonal | square
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="▧"]; new_value=fill | left | lower | right | square | upper
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="▨"]; new_value=fill | left | lower | right | square | upper
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="▩"]; new_value=crosshatch | diagonal | fill | square
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="▬"]; new_value=filled | rectangle
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="▭"]; new_value=hollow | rectangle
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="▮"]; new_value=filled | rectangle | vertical
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="▰"]; new_value=filled | parallelogram
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="▲"]; new_value=arrow | filled | triangle | up | up-pointing
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="△"]; new_value=hollow | triangle | up-pointing
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="▴"]; new_value=filled | small | triangle | up-pointing
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="▵"]; new_value=hollow | small | triangle | up-pointing
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="▷"]; new_value=hollow | right-pointing | triangle
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="▸"]; new_value=filled | right-pointing | small | triangle
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="▹"]; new_value=hollow | right-pointing | small | triangle
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="►"]; new_value=filled | pointer | right-pointing
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="▻"]; new_value=hollow | pointer | right-pointing
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="▼"]; new_value=arrow | down | down-pointing | filled | triangle
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="▽"]; new_value=down-pointing | hollow | triangle
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="▾"]; new_value=down-pointing | filled | small | triangle
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="▿"]; new_value=down-pointing | hollow | small | triangle
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◁"]; new_value=hollow | left-pointing | triangle
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◂"]; new_value=filled | left-pointing | small | triangle
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◃"]; new_value=hollow | left-pointing | small | triangle
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◄"]; new_value=filled | left-pointing | pointer
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◅"]; new_value=hollow | left-pointing | pointer
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◆"]; new_value=diamond | filled
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◇"]; new_value=diamond | hollow
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◈"]; new_value=containing | diamond | filled | hollow
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◉"]; new_value=cicles | circle | circled | concentric | containing | dot | filled | fisheye | hollow | ward
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="○"]; new_value=circle | hollow | ring
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◌"]; new_value=circle | dotted
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◍"]; new_value=circle | fill | vertical | with
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◎"]; new_value=circle | circles | concentric | double | target
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="●"]; new_value=circle | filled
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◐"]; new_value=circle | filled | half | left
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◑"]; new_value=circle | filled | half | right
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◒"]; new_value=circle | filled | half | lower
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◓"]; new_value=circle | filled | half | upper
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◔"]; new_value=circle | filled | quadrant | right | upper
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◕"]; new_value=all | but | circle | filled | left | quadrant | upper
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◖"]; new_value=circle | filled | half | left
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◗"]; new_value=circle | filled | half | right
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◘"]; new_value=bullet | inverse
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◙"]; new_value=circle | containing | filled | hollow | inverse | square
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◜"]; new_value=arc | circular | left | quadrant | upper
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◝"]; new_value=arc | circular | quadrant | right | upper
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◞"]; new_value=arc | circular | lower | quadrant | right
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◟"]; new_value=arc | circular | left | lower | quadrant
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◠"]; new_value=circle | half | upper
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◡"]; new_value=circle | half | lower
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◢"]; new_value=filled | lower | right | triangle
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◣"]; new_value=filled | left | lower | triangle
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◤"]; new_value=filled | left | triangle | upper
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◥"]; new_value=filled | right | triangle | upper
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◦"]; new_value=bullet | hollow
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◯"]; new_value=circle | hollow | large | ring
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◳"]; new_value=hollow | quadrant | right | square | upper
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◷"]; new_value=circle | hollow | quadrant | right | upper | with
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="◿"]; new_value=lower | right | triangle
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⨧"]; new_value=plus | subscript | two
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⨯"]; new_value=cross | product | vector
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⨼"]; new_value=interior | product
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⩣"]; new_value=double | logical | or | underbar
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⩽"]; new_value=equal | less-than | slanted
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⪍"]; new_value=above | equal | less-than | similar
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⪚"]; new_value=double-line | equal | greater-than | inequality | mathematics
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="⪺"]; new_value=above | almost | equal | not | succeeds
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="↮"]; new_value=arrow | left | right | stroke
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="₣"]; new_value=currency | franc | french
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="₰"]; new_value=currency | german | penny | pfennig
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="₶"]; new_value=currency | livre | tournois
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="₹"]; new_value=currency | indian | rupee
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="µ"]; new_value=measure | micro | sign
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="♯"]; new_value=dièse | diesis | music | note | sharp
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="$"]; new_value=dollar | money | peso | USD
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="£"]; new_value=currency | EGP | GBP | pound
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="¥"]; new_value=CNY | currency | JPY | yen | yuan
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="€"]; new_value=currency | EUR | euro
-locale=en; action=add; new_path=//ldml/annotations/annotation[@cp="₿"]; new_value=bitcoin | BTC
+# Fix hebrew units
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-jigger"]/unitPattern[@count="one"];	new_value={0} ג׳יגר
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-pinch"]/unitPattern[@count="one"];	new_value={0} פינץ׳
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="duration-hour"]/unitPattern[@count="one"];	new_value={0} שע׳
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="length-solar-radius"]/unitPattern[@count="other"];	new_value={0} R☉\x{200E}
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="length-foot"]/perUnitPattern;	new_value={0} \x{200E}/ft
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="length-inch"]/perUnitPattern;	new_value={0} \x{200E}/in
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="length-micrometer"]/unitPattern[@count="other"];	new_value={0} μm
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="mass-tonne"]/unitPattern[@count="one"];	new_value={0} t
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="angle-revolution"]/unitPattern[@count="one"];	new_value={0} סיבוב
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="angle-arc-minute"]/unitPattern[@count="one"];	new_value={0} דקת קשת
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="angle-arc-second"]/unitPattern[@count="one"];	new_value={0} שניית קשת
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="area-square-kilometer"]/unitPattern[@count="one"];	new_value={0} קילומטר רבוע
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="area-hectare"]/unitPattern[@count="one"];	new_value={0} הקטאר
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="area-square-meter"]/unitPattern[@count="one"];	new_value={0} מטר רבוע
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="area-square-centimeter"]/unitPattern[@count="one"];	new_value={0} סנטימטר רבוע
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="area-square-mile"]/unitPattern[@count="one"];	new_value={0} מייל רבוע
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="area-acre"]/unitPattern[@count="one"];	new_value={0} אקר
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="area-square-yard"]/unitPattern[@count="one"];	new_value={0} יארד רבוע
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="area-square-foot"]/unitPattern[@count="one"];	new_value={0} רגל רבועה
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="area-square-inch"]/unitPattern[@count="one"];	new_value={0} אינץ׳ רבוע
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="concentr-permyriad"]/unitPattern[@count="one"];	new_value={0} רבבית
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="digital-terabyte"]/unitPattern[@count="one"];	new_value={0} טרה-בייט
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="digital-terabyte"]/unitPattern[@count="two"];	new_value={0} טרה-בייט
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="digital-terabyte"]/unitPattern[@count="many"];	new_value={0} טרה-בייט
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="digital-terabyte"]/unitPattern[@count="other"];	new_value={0} טרה-בייט
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="duration-millisecond"]/unitPattern[@count="one"];	new_value={0} אלפית שנייה
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="electric-ampere"]/unitPattern[@count="one"];	new_value={0} אמפר
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="electric-milliampere"]/unitPattern[@count="one"];	new_value={0} מיליאמפר
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="electric-volt"]/unitPattern[@count="one"];	new_value={0} וולט
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="energy-kilocalorie"]/unitPattern[@count="one"];	new_value={0} קילו קלוריה
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="energy-calorie"]/unitPattern[@count="one"];	new_value={0} קלוריה
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="energy-kilojoule"]/unitPattern[@count="one"];	new_value={0} קילו ג׳אול
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="energy-kilowatt-hour"]/unitPattern[@count="one"];	new_value={0} קילוואט־שעה
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="frequency-gigahertz"]/unitPattern[@count="one"];	new_value={0} ג׳יגה-הרץ
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="frequency-megahertz"]/unitPattern[@count="one"];	new_value={0} מגה-הרץ
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="frequency-kilohertz"]/unitPattern[@count="one"];	new_value={0} קילו-הרץ
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="frequency-hertz"]/unitPattern[@count="one"];	new_value={0} הרץ
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="graphics-dot-per-centimeter"]/unitPattern[@count="one"];	new_value={0} נקודהלסנטימטר
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-kilometer"]/unitPattern[@count="one"];	new_value={0} קילומטר
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-meter"]/unitPattern[@count="one"];	new_value={0} מטר
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-decimeter"]/unitPattern[@count="one"];	new_value={0} דצימטר
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-centimeter"]/unitPattern[@count="one"];	new_value={0} סנטימטר
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-millimeter"]/unitPattern[@count="one"];	new_value={0} מילימטר
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-micrometer"]/unitPattern[@count="one"];	new_value={0} מיקרומטר
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-nanometer"]/unitPattern[@count="one"];	new_value={0} ננומטר
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-picometer"]/unitPattern[@count="one"];	new_value={0} פיקומטר
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-foot"]/unitPattern[@count="one"];	new_value={0} רגל
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-inch"]/unitPattern[@count="one"];	new_value={0} אינץ׳
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-astronomical-unit"]/unitPattern[@count="one"];	new_value={0} יחידה אסטרונומית
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-nautical-mile"]/unitPattern[@count="one"];	new_value={0} מייל ימי
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-mile-scandinavian"]/unitPattern[@count="one"];	new_value={0} מייל-סקנדינביה
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-point"]/unitPattern[@count="one"];	new_value={0} נקודה
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="light-lumen"]/unitPattern[@count="one"];	new_value={0} לומן
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="mass-kilogram"]/unitPattern[@count="one"];	new_value={0} קילוגרם
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="mass-gram"]/unitPattern[@count="one"];	new_value={0} גרם
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="mass-ton"]/unitPattern[@count="one"];	new_value={0} טונה
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="mass-ounce"]/unitPattern[@count="one"];	new_value={0} אונקיה
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="mass-ounce-troy"]/unitPattern[@count="one"];	new_value={0} אונקיית טרוי
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="power-gigawatt"]/unitPattern[@count="one"];	new_value={0} ג׳יגה ואט
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="power-megawatt"]/unitPattern[@count="one"];	new_value={0} מגה ואט
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="power-kilowatt"]/unitPattern[@count="one"];	new_value={0} קילוואט
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="power-watt"]/unitPattern[@count="one"];	new_value={0} ואט
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="power-milliwatt"]/unitPattern[@count="one"];	new_value={0} מיליוואט
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="power-horsepower"]/unitPattern[@count="one"];	new_value={0} כוח סוס
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="pressure-pound-force-per-square-inch"]/unitPattern[@count="one"];	new_value={0} פאונדלאינץ׳ רבוע
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="pressure-inch-ofhg"]/unitPattern[@count="one"];	new_value={0} אינץ׳ כספית
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="pressure-hectopascal"]/unitPattern[@count="one"];	new_value={0} הקטופסקל
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-beaufort"]/unitPattern[@count="one"];	new_value={0} בופורט
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-beaufort"]/unitPattern[@count="two"];	new_value={0} בופורט
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-beaufort"]/unitPattern[@count="other"];	new_value={0} בופורט
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="temperature-celsius"]/unitPattern[@count="one"];	new_value={0} מעלת צלזיוס
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="temperature-fahrenheit"]/unitPattern[@count="one"];	new_value={0} מעלת פרנהייט
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="temperature-kelvin"]/unitPattern[@count="one"];	new_value={0} קלווין
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-cubic-kilometer"]/unitPattern[@count="one"];	new_value={0} קילומטר מעוקב
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-cubic-meter"]/unitPattern[@count="one"];	new_value={0} מטר מעוקב
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-cubic-centimeter"]/unitPattern[@count="one"];	new_value={0} סנטימטר מעוקב
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-cubic-mile"]/unitPattern[@count="one"];	new_value={0} מייל מעוקב
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-cubic-foot"]/unitPattern[@count="one"];	new_value={0} רגל מעוקב
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-cubic-inch"]/unitPattern[@count="one"];	new_value={0} אינץ׳ מעוקב
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-megaliter"]/unitPattern[@count="one"];	new_value={0} מגה ליטר
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-hectoliter"]/unitPattern[@count="one"];	new_value={0} הקטוליטר
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-liter"]/unitPattern[@count="one"];	new_value={0} ליטר
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-deciliter"]/unitPattern[@count="one"];	new_value={0} דציליטר
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-centiliter"]/unitPattern[@count="one"];	new_value={0} סנטיליטר
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-milliliter"]/unitPattern[@count="one"];	new_value={0} מיליליטר
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-pint-metric"]/unitPattern[@count="one"];	new_value={0} פינט מטרי
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-cup-metric"]/unitPattern[@count="one"];	new_value={0} כוס מידה מטרית
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-acre-foot"]/unitPattern[@count="one"];	new_value={0} אקר-רגל
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-gallon"]/unitPattern[@count="one"];	new_value={0} גלון
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-gallon-imperial"]/unitPattern[@count="one"];	new_value={0} גלון אימפריאלי
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-quart"]/unitPattern[@count="one"];	new_value={0} קווארטה
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-pint"]/unitPattern[@count="one"];	new_value={0} פינט
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-cup"]/unitPattern[@count="one"];	new_value={0} כוס
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-fluid-ounce"]/unitPattern[@count="one"];	new_value={0} אונקיית נוזלים
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-teaspoon"]/unitPattern[@count="one"];	new_value={0} כפית
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-dram"]/unitPattern[@count="one"];	new_value={0} דראם אלכוהול
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-quart-imperial"]/unitPattern[@count="one"];	new_value={0} קווארט אימפריאלי
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="angle-arc-minute"]/unitPattern[@count="one"];	new_value={0} ד׳ קשת
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="angle-arc-second"]/unitPattern[@count="one"];	new_value={0} שנ׳ קשת
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="concentr-item"]/unitPattern[@count="one"];	new_value={0} פריט
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="duration-century"]/unitPattern[@count="one"];	new_value={0} מאה
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="duration-decade"]/unitPattern[@count="one"];	new_value={0} עשור
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="duration-year"]/unitPattern[@count="one"];	new_value={0} שנה
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="duration-week"]/unitPattern[@count="one"];	new_value={0} שבוע
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="duration-day"]/unitPattern[@count="one"];	new_value={0} יום
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="length-millimeter"]/unitPattern[@count="one"];	new_value={0} מ″מ
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="length-nanometer"]/unitPattern[@count="other"];	new_value={0} nm
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="length-picometer"]/unitPattern[@count="one"];	new_value={0} פ“מ
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="length-yard"]/unitPattern[@count="one"];	new_value={0} יארד
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="length-foot"]/unitPattern[@count="other"];	new_value={0} ft
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="length-inch"]/unitPattern[@count="other"];	new_value={0} in
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="length-parsec"]/unitPattern[@count="other"];	new_value={0} pc
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="length-light-year"]/unitPattern[@count="one"];	new_value={0} שנת אור
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="length-astronomical-unit"]/unitPattern[@count="other"];	new_value={0} au
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="length-point"]/unitPattern[@count="one"];	new_value={0} נק׳
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="mass-kilogram"]/unitPattern[@count="one"];	new_value={0} ק״ג
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="mass-gram"]/unitPattern[@count="one"];	new_value={0} גר׳
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="mass-ton"]/unitPattern[@count="one"];	new_value={0} ט׳
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="mass-stone"]/unitPattern[@count="one"];	new_value={0} סטון
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="mass-grain"]/unitPattern[@count="one"];	new_value={0} גרעין
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="power-horsepower"]/unitPattern[@count="one"];	new_value={0} כ״ס
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="volume-cubic-kilometer"]/unitPattern[@count="one"];	new_value={0} קמ״ק
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="volume-liter"]/unitPattern[@count="one"];	new_value={0} ל׳
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="volume-milliliter"]/unitPattern[@count="one"];	new_value={0} מ״ל
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="volume-cup"]/unitPattern[@count="one"];	new_value={0} כ׳
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="angle-arc-minute"]/unitPattern[@count="one"];	new_value={0} דקה
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="angle-arc-second"]/unitPattern[@count="one"];	new_value={0} שנ׳
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="area-square-kilometer"]/unitPattern[@count="one"];	new_value={0} קמ״ר
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="duration-year"]/unitPattern[@count="one"];	new_value={0} ש′
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="duration-week"]/unitPattern[@count="one"];	new_value={0} ש′
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-beaufort"]/unitPattern[@count="one"];	new_value={0} B
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-beaufort"]/unitPattern[@count="two"];	new_value={0} B
+locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-beaufort"]/unitPattern[@count="other"];	new_value={0} B

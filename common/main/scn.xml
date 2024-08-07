@@ -5426,8 +5426,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<pattern type="range" draft="unconfirmed">↑↑↑</pattern>
 		</miscPatterns>
 		<minimalPairs>
-			<pluralMinimalPairs count="one" draft="unconfirmed">{0} jornu</pluralMinimalPairs>
-			<pluralMinimalPairs count="other" draft="unconfirmed">{0} jorna</pluralMinimalPairs>
+			<pluralMinimalPairs count="one">{0} jornu</pluralMinimalPairs>
+			<pluralMinimalPairs count="many">{0} di jorna</pluralMinimalPairs>
+			<pluralMinimalPairs count="other">{0} jorna</pluralMinimalPairs>
 		</minimalPairs>
 	</numbers>
 	<units>

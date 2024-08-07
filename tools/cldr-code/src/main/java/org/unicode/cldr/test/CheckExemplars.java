@@ -302,6 +302,16 @@ public class CheckExemplars extends FactoryCheckCLDR {
 
     private void checkParse(
             String path, String fullPath, String value, Options options, List<CheckStatus> result) {
+        if (value == null) {
+            CheckStatus message =
+                    new CheckStatus()
+                            .setCause(this)
+                            .setMainType(CheckStatus.errorType)
+                            .setSubtype(Subtype.badParseLenient)
+                            .setMessage("null value");
+            result.add(message);
+            return;
+        }
         try {
             XPathParts oparts = XPathParts.getFrozenInstance(path);
             // only thing we do is make sure that the sample is in the value

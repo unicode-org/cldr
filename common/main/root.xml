@@ -64,7 +64,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<parseLenient sample="£">[£￡ ₤]</parseLenient>
 			<parseLenient sample="¥">[¥￥]</parseLenient>
 			<parseLenient sample="₩">[₩￦]</parseLenient>
-			<parseLenient sample="₹">[₹ ₨ {Rp} {Rs}]</parseLenient>
+			<parseLenient sample="₹">[₹ {Rp} {Rs}₨]</parseLenient>
 		</parseLenients>
 		<parseLenients scope="number" level="lenient">
 			<parseLenient sample="-">[\-－﹣ ‐‑ ‒ – −⁻₋ ➖]</parseLenient>

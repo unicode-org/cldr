@@ -664,7 +664,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[a b d e ɛ f g h i k l m n o ɔ p r s t u w y]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary">[c j q v z á ä ã é ë í ó ö ü]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[áäã c éë í j óö q ü v z]</exemplarCharacters>
 		<exemplarCharacters type="index">[A B C D E Ɛ F G H I J K L M N O Ɔ P Q R S T U V W X Y Z]</exemplarCharacters>
 		<exemplarCharacters type="numbers">↑↑↑</exemplarCharacters>
 		<exemplarCharacters type="punctuation" draft="contributed">↑↑↑</exemplarCharacters>
@@ -1246,7 +1246,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<pattern>{1}, {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>{1} 'w'ɔ {0}</pattern>
+							<pattern>{1} 'wɔ' {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
@@ -1254,7 +1254,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<pattern>{1}, {0}</pattern>
 						</dateTimeFormat>
 						<dateTimeFormat type="atTime">
-							<pattern>{1} 'w'ɔ {0}</pattern>
+							<pattern>{1} 'wɔ' {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">

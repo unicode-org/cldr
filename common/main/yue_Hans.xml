@@ -88,6 +88,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="bjn">班亚尔文</language>
 			<language type="bkm">康姆文</language>
 			<language type="bla">锡克锡卡文</language>
+			<language type="blo">阿尼文</language>
 			<language type="bm">班巴拉文</language>
 			<language type="bn">孟加拉文</language>
 			<language type="bo">藏文</language>
@@ -341,6 +342,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="kv">科米文</language>
 			<language type="kw">康瓦耳文</language>
 			<language type="kwk">夸夸瓦拉文</language>
+			<language type="kxv">库维文</language>
 			<language type="ky">吉尔吉斯文</language>
 			<language type="la">拉丁文</language>
 			<language type="lad">拉迪诺文</language>
@@ -637,6 +639,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="vi">越南文</language>
 			<language type="vls">西佛兰德文</language>
 			<language type="vmf">美茵-法兰克尼亚文</language>
+			<language type="vmw">马库瓦文</language>
 			<language type="vo">沃拉普克文</language>
 			<language type="vot">沃提克文</language>
 			<language type="vro">佛罗文</language>
@@ -652,6 +655,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="xal">卡尔梅克文</language>
 			<language type="xh">科萨文</language>
 			<language type="xmf">明格列尔文</language>
+			<language type="xnr">康格里文</language>
 			<language type="xog">索加文</language>
 			<language type="yao">瑶文</language>
 			<language type="yap">雅浦文</language>
@@ -6373,6 +6377,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 					<daylight>彼得罗巴甫洛夫斯克日光节约时间</daylight>
 				</long>
 			</metazone>
+			<metazone type="Kazakhstan">
+				<long>
+					<standard>哈萨克时间</standard>
+				</long>
+			</metazone>
 			<metazone type="Kazakhstan_Eastern">
 				<long>
 					<standard>东哈萨克时间</standard>
@@ -9473,6 +9482,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="speed-light-speed">
+				<displayName>光速</displayName>
+				<unitPattern count="other">{0} 光速</unitPattern>
+			</unit>
+			<unit type="concentr-portion-per-1e9">
+				<displayName>十亿分点浓度</displayName>
+				<unitPattern count="other">{0} 十亿分点浓度</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>晚</displayName>
+				<unitPattern count="other">{0} 晚</unitPattern>
+				<perUnitPattern>{0}/晚</perUnitPattern>
+			</unit>
 			<coordinateUnit>
 				<displayName>↑↑↑</displayName>
 				<coordinateUnitPattern type="east">↑↑↑</coordinateUnitPattern>
@@ -10355,6 +10377,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>英制夸脱</displayName>
 				<unitPattern count="other">{0} 英制夸脱</unitPattern>
 			</unit>
+			<unit type="speed-light-speed">
+				<displayName>光速</displayName>
+				<unitPattern count="other">{0} 光速</unitPattern>
+			</unit>
+			<unit type="concentr-portion-per-1e9">
+				<displayName>浓度/十亿</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>晚</displayName>
+				<unitPattern count="other">{0} 晚</unitPattern>
+				<perUnitPattern>{0}/晚</perUnitPattern>
+			</unit>
 			<coordinateUnit>
 				<displayName>方向</displayName>
 				<coordinateUnitPattern type="east">东经{0}</coordinateUnitPattern>
@@ -11236,6 +11271,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="volume-quart-imperial">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="speed-light-speed">
+				<displayName>光速</displayName>
+				<unitPattern count="other">{0}光速</unitPattern>
+			</unit>
+			<unit type="concentr-portion-per-1e9">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">{0}ppb</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>晚</displayName>
+				<unitPattern count="other">{0}晚</unitPattern>
+				<perUnitPattern>{0}/晚</perUnitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>↑↑↑</displayName>

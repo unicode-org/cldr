@@ -3357,18 +3357,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<otherNumberingSystems>
 			<native draft="contributed">↑↑↑</native>
 		</otherNumberingSystems>
-		<symbols numberSystem="latn">
-			<decimal>↑↑↑</decimal>
-			<group>↑↑↑</group>
-			<percentSign>↑↑↑</percentSign>
-			<plusSign>↑↑↑</plusSign>
-			<minusSign>↑↑↑</minusSign>
-			<exponential>↑↑↑</exponential>
-			<superscriptingExponent>↑↑↑</superscriptingExponent>
-			<perMille>↑↑↑</perMille>
-			<infinity>↑↑↑</infinity>
-			<nan>↑↑↑</nan>
-		</symbols>
 		<symbols numberSystem="deva">
 			<decimal>↑↑↑</decimal>
 			<group>↑↑↑</group>
@@ -3381,6 +3369,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<infinity>↑↑↑</infinity>
 			<nan>↑↑↑</nan>
 		</symbols>
+		<symbols numberSystem="latn">
+			<decimal>↑↑↑</decimal>
+			<group>↑↑↑</group>
+			<percentSign>↑↑↑</percentSign>
+			<plusSign>↑↑↑</plusSign>
+			<minusSign>↑↑↑</minusSign>
+			<exponential>↑↑↑</exponential>
+			<superscriptingExponent>↑↑↑</superscriptingExponent>
+			<perMille>↑↑↑</perMille>
+			<infinity>↑↑↑</infinity>
+			<nan>↑↑↑</nan>
+		</symbols>
+		<decimalFormats numberSystem="deva">
+			<decimalFormatLength>
+				<decimalFormat>
+					<pattern>↑↑↑</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength>
 				<decimalFormat>
@@ -3420,20 +3427,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
-		<decimalFormats numberSystem="deva">
-			<decimalFormatLength>
-				<decimalFormat>
-					<pattern>↑↑↑</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-		</decimalFormats>
-		<scientificFormats numberSystem="latn">
-			<scientificFormatLength>
-				<scientificFormat>
-					<pattern>↑↑↑</pattern>
-				</scientificFormat>
-			</scientificFormatLength>
-		</scientificFormats>
 		<scientificFormats numberSystem="deva">
 			<scientificFormatLength>
 				<scientificFormat>
@@ -3441,13 +3434,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</scientificFormat>
 			</scientificFormatLength>
 		</scientificFormats>
-		<percentFormats numberSystem="latn">
-			<percentFormatLength>
-				<percentFormat>
+		<scientificFormats numberSystem="latn">
+			<scientificFormatLength>
+				<scientificFormat>
 					<pattern>↑↑↑</pattern>
-				</percentFormat>
-			</percentFormatLength>
-		</percentFormats>
+				</scientificFormat>
+			</scientificFormatLength>
+		</scientificFormats>
 		<percentFormats numberSystem="deva">
 			<percentFormatLength>
 				<percentFormat>
@@ -3455,6 +3448,22 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</percentFormat>
 			</percentFormatLength>
 		</percentFormats>
+		<percentFormats numberSystem="latn">
+			<percentFormatLength>
+				<percentFormat>
+					<pattern>↑↑↑</pattern>
+				</percentFormat>
+			</percentFormatLength>
+		</percentFormats>
+		<currencyFormats numberSystem="deva">
+			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern>↑↑↑</pattern>
+					<pattern alt="alphaNextToNumber">↑↑↑</pattern>
+					<pattern alt="noCurrency">↑↑↑</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
@@ -3482,15 +3491,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</currencyFormat>
 			</currencyFormatLength>
 			<unitPattern count="other">↑↑↑</unitPattern>
-		</currencyFormats>
-		<currencyFormats numberSystem="deva">
-			<currencyFormatLength>
-				<currencyFormat type="standard">
-					<pattern>↑↑↑</pattern>
-					<pattern alt="alphaNextToNumber">↑↑↑</pattern>
-					<pattern alt="noCurrency">↑↑↑</pattern>
-				</currencyFormat>
-			</currencyFormatLength>
 		</currencyFormats>
 		<currencies>
 			<currency type="BRL">

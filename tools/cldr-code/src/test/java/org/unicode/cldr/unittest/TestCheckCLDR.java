@@ -469,26 +469,7 @@ public class TestCheckCLDR extends TestFmwk {
         checkLocale(test, localeID, "?", null);
     }
 
-    /** adjust the logging level of checks */
-    public java.util.logging.Level pushCheckLevel() {
-        java.util.logging.Level oldLevel = null;
-        if (logKnownIssue(
-                "CLDR-17320",
-                "turning off CheckCLDR logging to avoid thousands of log messages, please fix internal stack traces")) {
-            oldLevel = CheckCLDR.setLoggerLevel(java.util.logging.Level.OFF);
-        }
-        return oldLevel;
-    }
-
-    /** undo the effect of a pushCheckLevel */
-    public void popCheckLevel(java.util.logging.Level oldLevel) {
-        if (oldLevel != null) {
-            CheckCLDR.setLoggerLevel(oldLevel);
-        }
-    }
-
     public void TestAllLocales() {
-        java.util.logging.Level oldLevel = pushCheckLevel();
         CheckCLDR test = CheckCLDR.getCheckAll(factory, INDIVIDUAL_TESTS);
         CheckCLDR.setDisplayInformation(english);
         Set<String> unique = new HashSet<>();
@@ -508,18 +489,14 @@ public class TestCheckCLDR extends TestFmwk {
         // (And in fact this test seems faster without it)
         locales.forEach(locale -> checkLocale(test, locale, null, unique));
         logln("Count:\t" + locales.size());
-        popCheckLevel(oldLevel);
     }
 
     public void TestA() {
-        final java.util.logging.Level oldLevel = pushCheckLevel();
-
         CheckCLDR test = CheckCLDR.getCheckAll(factory, INDIVIDUAL_TESTS);
         CheckCLDR.setDisplayInformation(english);
         Set<String> unique = new HashSet<>();
 
         checkLocale(test, "ko", null, unique);
-        popCheckLevel(oldLevel);
     }
 
     public void checkLocale(

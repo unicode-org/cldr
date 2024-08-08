@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2024 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+SPDX-License-Identifier: Unicode-DFS-2016
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="ht"/>
+	</identity>
+	<localeDisplayNames>
+		<languages>
+			<language type="ht">Kreyòl Ayisyen</language>
+		</languages>
+	</localeDisplayNames>
+	<characters>
+		<exemplarCharacters>[a {an} b {ch} d e è {en} f g h i j k l m n {ng} o ò {on} {ou} {oun} p r s t {ui} v w y z]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[x]</exemplarCharacters>
+		<exemplarCharacters type="numbers">[0 1 2 3 4 5 6 7 8 9]</exemplarCharacters>
+		<exemplarCharacters type="punctuation">[, ; \: ! ? . … ‘ ' ’ ′ ″ “ &quot; ” ( ) \[ \] / @ \&amp; # § \- %]</exemplarCharacters>
+	</characters>
+	<numbers>
+		<symbols numberSystem="latn">
+			<decimal>,</decimal>
+			<group> </group>
+			<percentSign>%</percentSign>
+			<minusSign>-</minusSign>
+		</symbols>
+	</numbers>
+</ldml>

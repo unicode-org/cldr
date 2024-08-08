@@ -1123,6 +1123,56 @@ public class TestExampleGenerator extends TestFmwk {
         checkPathValue(exampleGenerator, path, cldrFile.getStringValue(path), expected);
     }
 
+    public void TestAllDayPeriods() { 
+        // excludes midnight, see ICU-12278 
+        String[][] tests = {
+            {
+                "en",
+                "//ldml/dates/calendars/calendar"
+                        + "[@type=\"gregorian\"]/dateTimeFormats/"
+                        + "availableFormats/dateFormatItem"
+                        + "[@id=\"Bhm\"]",
+                "en day periods pattern \"Bhm\"",
+                "〖3:00 at night〗〖9:00 in the morning〗〖12:00 noon〗〖3:00 in the afternoon〗〖7:30 in the evening〗"
+            },
+            {
+                "it",
+                "//ldml/dates/calendars/calendar"
+                        + "[@type=\"gregorian\"]/dateTimeFormats/"
+                        + "availableFormats/dateFormatItem"
+                        + "[@id=\"Bhm\"]",
+                "it day periods pattern \"Bhm\"",
+                "〖3:00 di notte〗〖9:00 di mattina〗〖12:00 mezzogiorno〗〖3:00 di pomeriggio〗〖9:00 di sera〗"
+            }, 
+            {
+                "de",
+                "//ldml/dates/calendars/calendar"
+                        + "[@type=\"gregorian\"]/dateTimeFormats/"
+                        + "availableFormats/dateFormatItem"
+                        + "[@id=\"Bhm\"]",
+                "de day periods pattern \"Bhm\"",
+                "〖2:30 nachts〗〖7:30 morgens〗〖11:00 vorm.〗〖12:30 mittags〗〖3:30 nachm.〗〖9:00 abends〗"
+            },
+            {
+                "zh",
+                "//ldml/dates/calendars/calendar"
+                        + "[@type=\"gregorian\"]/dateTimeFormats/"
+                        + "availableFormats/dateFormatItem"
+                        + "[@id=\"Bhm\"]",
+                "zh day periods pattern \"Bhm\"",
+                "〖凌晨2:30〗〖早上6:30〗〖上午10:00〗〖中午12:30〗〖下午4:00〗〖晚上9:30〗"
+            },
+        };
+        for (String[] test : tests) {
+            final String locale = test[0];
+            final String path = test[1];
+            final String message = test[2];
+            final String expected = test[3];
+            ExampleGenerator exampleGenerator = getExampleGenerator(locale);
+            checkValue(message, expected, exampleGenerator, path);
+        }
+    }
+
     /**
      * Test that getExampleHtml returns same output for same input regardless of order in which it
      * is called with different inputs.

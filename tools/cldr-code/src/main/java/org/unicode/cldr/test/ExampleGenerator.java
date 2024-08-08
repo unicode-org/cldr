@@ -2597,7 +2597,6 @@ public class ExampleGenerator {
                 String numbersOverride = parts.findAttributeValue("pattern", "numbers");
                 SimpleDateFormat sdf =
                         icuServiceBuilder.getDateFormat(calendar, value, numbersOverride);
-                sdf.setTimeZone(ZONE_SAMPLE);
                 String defaultNumberingSystem =
                         cldrFile.getWinningValue("//ldml/numbers/defaultNumberingSystem");
                 String timeSeparator =
@@ -2609,6 +2608,7 @@ public class ExampleGenerator {
                 dfs.setTimeSeparatorString(timeSeparator);
                 sdf.setDateFormatSymbols(dfs);
                 if (id == null || id.indexOf('B') < 0) {
+                    sdf.setTimeZone(ZONE_SAMPLE);
                     // Standard date/time format, or availableFormat without dayPeriod
                     if (value.contains("MMM") || value.contains("LLL")) {
                         // alpha month, do not need context examples
@@ -2626,9 +2626,19 @@ public class ExampleGenerator {
                     }
                 } else {
                     List<String> examples = new ArrayList<>();
-                    examples.add(sdf.format(DATE_SAMPLE3));
-                    examples.add(sdf.format(DATE_SAMPLE));
-                    examples.add(sdf.format(DATE_SAMPLE4));
+                    DayPeriodInfo dayPeriodInfo = supplementalDataInfo.getDayPeriods(DayPeriodInfo.Type.format, cldrFile.getLocaleID());
+                    Set<DayPeriod> dayPeriods = new LinkedHashSet<DayPeriod>(dayPeriodInfo.getPeriods());
+                    for (DayPeriod dayPeriod : dayPeriods) {
+                        if (dayPeriod.equals(DayPeriod.midnight)) { // suppress midnight, see ICU-12278 bug
+                            continue;
+                        }
+                        R3<Integer, Integer, Boolean> info = dayPeriodInfo.getFirstDayPeriodInfo(dayPeriod);
+                        if (info != null) {
+                            int time = ((info.get0() + info.get1()) / 2); // time midpoint 
+                            String formatted = sdf.format(time);                      
+                            examples.add(formatted);
+                        }
+                    }
                     return formatExampleList(examples.toArray(new String[0]));
                 }
             }

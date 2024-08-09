@@ -168,7 +168,6 @@ public class ExampleGenerator {
 
     private static final Date DATE_SAMPLE2;
     private static final Date DATE_SAMPLE3;
-    private static final Date DATE_SAMPLE4;
 
     static {
         Calendar calendar = Calendar.getInstance(ZONE_SAMPLE, ULocale.ENGLISH);
@@ -180,8 +179,6 @@ public class ExampleGenerator {
 
         calendar.set(1999, 8, 5, 7, 0, 0); // 1999-09-05 07:00:00
         DATE_SAMPLE3 = calendar.getTime();
-        calendar.set(1999, 8, 5, 23, 0, 0); // 1999-09-05 23:00:00
-        DATE_SAMPLE4 = calendar.getTime();
     }
 
     static final List<DecimalQuantity> CURRENCY_SAMPLES =
@@ -2634,8 +2631,8 @@ public class ExampleGenerator {
                         }
                         R3<Integer, Integer, Boolean> info = dayPeriodInfo.getFirstDayPeriodInfo(dayPeriod);
                         if (info != null) {
-                            int time = ((info.get0() + info.get1()) / 2); // time midpoint 
-                            String formatted = sdf.format(time);                      
+                            int time = ((info.get0() + info.get1()) / 2); // dayPeriod endpoints overlap, midpoint to disambiguate
+                            String formatted = sdf.format(time);
                             examples.add(formatted);
                         }
                     }

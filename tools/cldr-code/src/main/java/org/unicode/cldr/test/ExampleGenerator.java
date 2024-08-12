@@ -2623,15 +2623,23 @@ public class ExampleGenerator {
                     }
                 } else {
                     List<String> examples = new ArrayList<>();
-                    DayPeriodInfo dayPeriodInfo = supplementalDataInfo.getDayPeriods(DayPeriodInfo.Type.format, cldrFile.getLocaleID());
-                    Set<DayPeriod> dayPeriods = new LinkedHashSet<DayPeriod>(dayPeriodInfo.getPeriods());
+                    DayPeriodInfo dayPeriodInfo =
+                            supplementalDataInfo.getDayPeriods(
+                                    DayPeriodInfo.Type.format, cldrFile.getLocaleID());
+                    Set<DayPeriod> dayPeriods =
+                            new LinkedHashSet<DayPeriod>(dayPeriodInfo.getPeriods());
                     for (DayPeriod dayPeriod : dayPeriods) {
-                        if (dayPeriod.equals(DayPeriod.midnight)) { // suppress midnight, see ICU-12278 bug
+                        if (dayPeriod.equals(
+                                DayPeriod.midnight)) { // suppress midnight, see ICU-12278 bug
                             continue;
                         }
-                        R3<Integer, Integer, Boolean> info = dayPeriodInfo.getFirstDayPeriodInfo(dayPeriod);
+                        R3<Integer, Integer, Boolean> info =
+                                dayPeriodInfo.getFirstDayPeriodInfo(dayPeriod);
                         if (info != null) {
-                            int time = ((info.get0() + info.get1()) / 2); // dayPeriod endpoints overlap, midpoint to disambiguate
+                            int time =
+                                    ((info.get0() + info.get1())
+                                            / 2); // dayPeriod endpoints overlap, midpoint to
+                            // disambiguate
                             String formatted = sdf.format(time);
                             examples.add(formatted);
                         }

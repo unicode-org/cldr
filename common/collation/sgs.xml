@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!--
+Copyright © 1991-2024 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$" />
+		<language type="sgs" /> 
+	</identity>
+    <collations>
+        <collation type="standard" references="Juozas Pabrėža: Žemaičių kalba ir rašyba ISBN 978-609-8179-10-1">
+            <cr><![CDATA[
+                &A<ā<<ā<<<Ā<<Ā
+                &C<č<<<Č
+                &E<ē<<ē<<<Ē<<Ē<ė<<<Ė<ė̄<<<Ė̄
+                &I<ī<<ī<<<Ī<<Ī
+                &O<ō<<ō<<<Ō<<Ō
+                &S<š<<<Š
+                &U<ū<<ū<<<Ū<<Ū
+                &Z<ž<<<Ž
+            ]]></cr>
+        </collation>
+    </collations>
+</ldml>
+
+<!--
+There are ideas to add more letters but untill it is not official it would be skipped.
+These letters are: ëůéóêȧǡ
+-->

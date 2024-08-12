@@ -687,6 +687,9 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             {"it", "many", ""}, // e = 0 and i != 0 and i % 1000000 = 0 and v = 0 or e != 0..5
             {"pt", "many", ""}, // e = 0 and i != 0 and i % 1000000 = 0 and v = 0 or e != 0..5
             {"pt_PT", "many", ""}, // e = 0 and i != 0 and i % 1000000 = 0 and v = 0 or e != 0..5
+            {"sgs", "one", "0,00,000,0000"}, // n mod 10 is 1 and n mod 100
+            // not in 11..19
+            {"sgs", "two", "0"}, // n is 2
         };
         // parse out the exceptions
         Map<PluralInfo, Relation<Count, Integer>> exceptions = new HashMap<>();

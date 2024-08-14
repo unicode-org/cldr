@@ -338,19 +338,24 @@ Provides the version number of the UCA table.
 Lists the ranges of Unified_Ideograph characters in collation order. (New in CLDR 24.) They map to collation elements with [implicit (constructed) primary weights](https://www.unicode.org/reports/tr10/#Implicit_Weights).
 
 ```
-[radical 6=⼅亅:亅𠄌了𠄍-𠄐亇𠄑予㐧𠄒-𠄔争𠀩𠄕亊𠄖-𠄘𪜜事㐨𠄙-𠄛𪜝𠄜𠄝]
-[radical 210=⿑齊:齊𪗄𪗅齋䶒䶓𪗆齌𠆜𪗇𪗈齍𪗉-𪗌齎𪗎𪗍齏𪗏-𪗓]
-[radical 210'=⻬齐:齐齑]
+[radical 6=⼅亅:亅𠄌了𠄍-𠄐亇𠄑𬼶-𬼸予㐧𠄒-𠄔𰁒争𠀩𠄕𬼹亊𠄖-𠄘𪜜事㐨𠄙𬼺𠄚𰁓𰁔𠄛𪜝𬼻𠄜𱎑𠄝𬼼]
+[radical 210=⿑齊⻬齐⻫斉:齊𪗄𬹱𮮺-𮮼齐𪗅齋䶒䶓𪗆齌𠆜𪗇𪗈𬹳𱌗齍𪗉𪗊𬹲𱌘𪗋𪗌𱌙齎𪗎𪗍齏齑𪗏-𪗓]
 [radical end]
 ```
 
-Data for Unihan radical-stroke order. (New in CLDR 26.) Following the [Unified_Ideograph] line, a section of `[radical ...]` lines defines a radical-stroke order of the Unified_Ideograph characters.
+Data for Unihan radical-stroke order. (New in CLDR 26, modified in CLDR 46.) Following the `[Unified_Ideograph]` line, a section of `[radical ...]` lines defines a radical-stroke order of the Unified_Ideograph characters.
 
-For Han characters, an implementation may choose either to implement the order defined in the UCA and the [Unified_Ideograph] data, or to implement the order defined by the `[radical ...]` lines. Beginning with CLDR 26, the CJK type="unihan" tailorings assume that the root collation order sorts Han characters in Unihan radical-stroke order according to the `[radical ...]` data. The CollationTest_CLDR files only contain Han characters that are in the same relative order using implicit weights or the radical-stroke order.
+For Han characters, an implementation may choose either to implement the order defined in the UCA and the `[Unified_Ideograph]` data, or to implement the order defined by the `[radical ...]` lines. Beginning with CLDR 26, the CJK `type="unihan"` tailorings assume that the root collation order sorts Han characters in Unihan radical-stroke order according to the `[radical ...]` data. The CollationTest_CLDR files only contain Han characters that are in the same relative order using implicit weights or the radical-stroke order.
 
-The root collation radical-stroke order is derived from the first (normative) values of the [Unihan kRSUnicode](https://www.unicode.org/reports/tr38/#kRSUnicode) field for each Han character. Han characters are ordered by radical, with traditional forms sorting before simplified ones. Characters with the same radical are ordered by residual stroke count. Characters with the same radical-stroke values are ordered by block and code point, as for [UCA implicit weights](https://www.unicode.org/reports/tr10/#Implicit_Weights).
+The root collation radical-stroke order is derived from the first (normative) values of the [Unihan kRSUnicode](https://www.unicode.org/reports/tr38/#kRSUnicode) field for each Han character. Han characters are ordered by radical. Characters with the same radical are ordered by residual stroke count.
+
+Starting with CLDR 46, this radical-stroke order matches that of the [UAX #38 section 2.1.2 Sorting Algorithm Used by the Radical-Stroke Indexes](https://www.unicode.org/reports/tr38/#SortingAlgorithm). The distinction between traditional and simplified radicals has been moved from a level above the number of residual strokes (always sorting traditional forms before simplified ones) to a level below the number of residual strokes. This also makes only the traditional forms of the radicals usable for grouping and indexing.
+
+Before CLDR 46, characters with the same radical-stroke values were ordered by block and code point, as for [UCA implicit weights](https://www.unicode.org/reports/tr10/#Implicit_Weights). Since CLDR 46, for the radical-stroke order, the order of CJK blocks now follows UAX #38 as well.
 
 There is one `[radical ...]` line per radical, in the order of radical numbers. Each line shows the radical number and the representative characters from the [UCD file CJKRadicals.txt](https://www.unicode.org/reports/tr44/#UCD_Files_Table), followed by a colon (“:”) and the Han characters with that radical in the order as described above. A range like `万-丌` indicates that the code points in that range sort in code point order.
+
+Starting with CLDR 46, the representative characters for all of the traditional and simplified forms of the radical are included on the same line.
 
 The radical number and characters are informational. The sort order is established only by the order of the `[radical ...]` lines, and within each line by the characters and ranges between the colon (“:”) and the bracket (“]”).
 

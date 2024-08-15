@@ -183,7 +183,8 @@ public class UnLiteracyParser extends XMLFileReader.SimpleHandler {
         final Long new_value = getLongValue();
         final Long old_value = pa.perLiteracy.put(literacy, new_value);
         if (old_value != null) {
-            // Suriname is known to include duplicate records, 1 normal and 1 "Excluding the institutional population"
+            // Suriname is known to include duplicate records, 1 normal and 1 "Excluding the
+            // institutional population"
             // Resolve this by taking higher value
             if (country.equals("Suriname")) {
                 pa.perLiteracy.put(literacy, Math.max(old_value, new_value));

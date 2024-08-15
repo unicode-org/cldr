@@ -203,8 +203,8 @@ public class AddPopulationData {
     }
 
     /**
-     * Gets the percent of people that can read in a particular country
-     * Values are in the range 0 to 100
+     * Gets the percent of people that can read in a particular country. Values are in the range 0
+     * to 100
      */
     public static Double getLiteracy(String country) {
         return firstNonZero(
@@ -282,7 +282,7 @@ public class AddPopulationData {
                     @Override
                     public boolean handle(String line) {
                         String[] pieces = splitCommaSeparated(line);
-                        String countryName =  FactbookLine.CountryName.get(pieces);
+                        String countryName = FactbookLine.CountryName.get(pieces);
                         if (countryName.equals("name")) {
                             return false;
                         }
@@ -398,7 +398,9 @@ public class AddPopulationData {
                             return false;
                         }
                         code = code.toUpperCase(Locale.ENGLISH);
-                        String valueString = FBLiteracy.Percent.get(pieces).trim(); // Values are in the range 0 to 100
+                        String valueString =
+                                FBLiteracy.Percent.get(pieces)
+                                        .trim(); // Values are in the range 0 to 100
                         double percent = Double.parseDouble(valueString);
                         factbook_literacy.put(code, percent);
                         if (ADD_POP) {
@@ -524,7 +526,10 @@ public class AddPopulationData {
                 continue;
             }
             double total = literate + illiterate;
-            double percent = ((double) literate) * 100 / total; // Multiply by 100 to put values in range 0 to 100
+            double percent =
+                    ((double) literate)
+                            * 100
+                            / total; // Multiply by 100 to put values in range 0 to 100
             result.add(Pair.of(code, percent));
         }
         if (result.isEmpty()) {

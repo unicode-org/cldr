@@ -162,6 +162,13 @@ jobs:
           '-Dorg.unicode.cldr.api.testArgs=-e10 -n'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: JUnit report
+        uses: scacap/action-surefire-report@v1
+        with:
+          create_check: false
+          fail_if_no_tests: false
+          fail_on_test_failures: false
+        if: github.event.inputs.git-ref != ''
   check:
     runs-on: ubuntu-latest
     steps:

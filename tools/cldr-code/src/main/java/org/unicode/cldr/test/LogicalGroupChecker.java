@@ -121,11 +121,13 @@ public class LogicalGroupChecker {
         values.clear();
         Set<CheckLogicalGroupings.Fingerprint> fingerprints = new HashSet<>();
         for (String path1 : paths) {
+            final String valueToCheck = pathToCheck.contentEquals(path1)
+                                    ? value
+                                    : cldrFile.getWinningValue(path1);
+            if (valueToCheck == null) continue;
             final String pathValue =
                     CheckLogicalGroupings.cleanSpaces(
-                            pathToCheck.contentEquals(path1)
-                                    ? value
-                                    : cldrFile.getWinningValue(path1));
+                            valueToCheck);
             values.add(pathValue);
             fingerprints.add(CheckLogicalGroupings.Fingerprint.make(pathValue));
         }

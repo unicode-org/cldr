@@ -200,6 +200,10 @@ public class AddPopulationData {
                         + percent.format(getLiteracy(country) / 100));
     }
 
+    /**
+     * Gets the percent of people that can read in a particular country
+     * Values are in the range 0 to 100
+     */
     public static Double getLiteracy(String country) {
         return firstNonZero(
                 factbook_literacy.getCount(country),
@@ -395,7 +399,7 @@ public class AddPopulationData {
                             return false;
                         }
                         code = code.toUpperCase(Locale.ENGLISH);
-                        String valueString = FBLiteracy.Percent.get(pieces).trim();
+                        String valueString = FBLiteracy.Percent.get(pieces).trim(); // Values are in the range 0 to 100
                         double percent = Double.parseDouble(valueString);
                         factbook_literacy.put(code, percent);
                         if (ADD_POP) {
@@ -521,7 +525,7 @@ public class AddPopulationData {
                 continue;
             }
             double total = literate + illiterate;
-            double percent = ((double) literate) / total;
+            double percent = ((double) literate) * 100 / total; // Multiply by 100 to put values in range 0 to 100
             result.add(Pair.of(code, percent));
         }
         if (result.isEmpty()) {

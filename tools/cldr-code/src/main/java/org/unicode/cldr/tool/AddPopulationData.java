@@ -85,11 +85,13 @@ public class AddPopulationData {
         }
     }
 
-    enum FBLine {
-        Rank,
-        Country,
+    enum FactbookLine {
+        CountryName,
+        CountrySlug,
         Value,
-        Year;
+        DateOfInformation,
+        Ranking,
+        Region;
 
         String get(String[] pieces) {
             return pieces[ordinal()];
@@ -200,6 +202,10 @@ public class AddPopulationData {
                         + percent.format(getLiteracy(country) / 100));
     }
 
+    /**
+     * Gets the percent of people that can read in a particular country. Values are in the range 0
+     * to 100
+     */
     public static Double getLiteracy(String country) {
         return firstNonZero(
                 factbook_literacy.getCount(country),
@@ -275,16 +281,13 @@ public class AddPopulationData {
                 new LineHandler() {
                     @Override
                     public boolean handle(String line) {
-                        if (line.length() == 0
-                                || line.startsWith("This tab")
-                                || line.startsWith("Rank")
-                                || line.startsWith(" This file")) {
+                        String[] pieces = splitCommaSeparated(line);
+                        String countryName = FactbookLine.CountryName.get(pieces);
+                        if (countryName.equals("name")) {
                             return false;
                         }
-                        String[] pieces = line.split("\\s{2,}");
                         String code =
-                                CountryCodeConverter.getCodeFromName(
-                                        FBLine.Country.get(pieces), true, missing);
+                                CountryCodeConverter.getCodeFromName(countryName, true, missing);
                         if (code == null) {
                             return false;
                         }
@@ -295,7 +298,7 @@ public class AddPopulationData {
                             return false;
                         }
                         code = code.toUpperCase(Locale.ENGLISH);
-                        String valueString = FBLine.Value.get(pieces).trim();
+                        String valueString = FactbookLine.Value.get(pieces).trim();
                         if (valueString.startsWith("$")) {
                             valueString = valueString.substring(1);
                         }
@@ -395,7 +398,9 @@ public class AddPopulationData {
                             return false;
                         }
                         code = code.toUpperCase(Locale.ENGLISH);
-                        String valueString = FBLiteracy.Percent.get(pieces).trim();
+                        String valueString =
+                                FBLiteracy.Percent.get(pieces)
+                                        .trim(); // Values are in the range 0 to 100
                         double percent = Double.parseDouble(valueString);
                         factbook_literacy.put(code, percent);
                         if (ADD_POP) {
@@ -521,7 +526,10 @@ public class AddPopulationData {
                 continue;
             }
             double total = literate + illiterate;
-            double percent = ((double) literate) / total;
+            double percent =
+                    ((double) literate)
+                            * 100
+                            / total; // Multiply by 100 to put values in range 0 to 100
             result.add(Pair.of(code, percent));
         }
         if (result.isEmpty()) {
@@ -535,8 +543,8 @@ public class AddPopulationData {
             loadFactbookLiteracy();
             loadUnLiteracy();
 
-            loadFactbookInfo("external/factbook_gdp_ppp.txt", factbook_gdp);
-            loadFactbookInfo("external/factbook_population.txt", factbook_population);
+            loadFactbookInfo("external/factbook_gdp_ppp.csv", factbook_gdp);
+            loadFactbookInfo("external/factbook_population.csv", factbook_population);
             CldrUtility.handleFile("external/other_country_data.txt", new MyLineHandler(other));
 
             loadWorldBankInfo();
@@ -577,7 +585,7 @@ public class AddPopulationData {
             }
             if (myErrors.length() != 0) {
                 throw new IllegalArgumentException(
-                        "Missing Country values, the following and add to external/other_country_data to fix, chaning the 0 to the real value:"
+                        "Missing Country values, the following and add to external/other_country_data to fix, changing the 0 to the real value:"
                                 + myErrors);
             }
         } catch (IOException e) {

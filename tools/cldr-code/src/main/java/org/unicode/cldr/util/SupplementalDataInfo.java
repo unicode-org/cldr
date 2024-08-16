@@ -451,7 +451,7 @@ public class SupplementalDataInfo {
                 throw new IllegalArgumentException("Illegal Script: " + script);
             }
             if (scripts == Collections.EMPTY_SET) {
-                scripts = new TreeSet<>();
+                scripts = new LinkedHashSet<>(); // retain order
             }
             scripts.add(script);
             return this;

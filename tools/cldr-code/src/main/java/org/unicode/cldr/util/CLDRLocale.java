@@ -672,4 +672,16 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
             return 1 + getParent().getRank();
         }
     }
+
+    // Non-optimized version for now
+    public static CLDRLocale getInstance(String lang, String script, String region) {
+        return getInstance(
+                (lang.isEmpty() || lang.equals("root") ? "und" : lang)
+                        + (script.isEmpty() ? "" : "_" + script)
+                        + (region.isEmpty() ? "" : "_" + region));
+    }
+
+    public String getRegion() {
+        return getCountry();
+    }
 }

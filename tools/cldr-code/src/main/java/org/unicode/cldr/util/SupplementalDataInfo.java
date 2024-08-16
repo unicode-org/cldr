@@ -463,7 +463,7 @@ public class SupplementalDataInfo {
                 throw new IllegalArgumentException("Illegal Territory: " + territory);
             }
             if (territories == Collections.EMPTY_SET) {
-                territories = new TreeSet<>();
+                territories = new LinkedHashSet<>();
             }
             territories.add(territory);
             return this;

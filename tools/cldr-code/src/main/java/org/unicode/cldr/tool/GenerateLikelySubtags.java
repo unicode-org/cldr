@@ -1309,7 +1309,7 @@ public class GenerateLikelySubtags {
     static final String arrow = OUTPUT_STYLE == OutputStyle.PLAINTEXT ? "\t⇒\t" : "\t➡ ";
 
     private static File printLikelySubtags(Map<String, String> fluffup) throws IOException {
-        final File genDir = new File(CLDRPaths.GEN_DIRECTORY, "supplemental");
+        final File genDir = new File(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
         final File genFile =
                 new File(
                         genDir,

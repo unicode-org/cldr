@@ -30,7 +30,7 @@ import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.tool.GenerateMaximalLocales.LocaleOverride;
 import org.unicode.cldr.tool.GenerateMaximalLocales.LocaleStringComparator;
-import org.unicode.cldr.tool.LangTagsData.LSRSource;
+import org.unicode.cldr.tool.LangTagsData.Errors;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.tool.Option.Params;
 import org.unicode.cldr.util.CLDRConfig;
@@ -101,6 +101,7 @@ public class GenerateLikelySubtags {
         population(new Params().setHelp("Show population data used")),
         order(new Params().setHelp("Show the priority order for langauge data")),
         debug(new Params().setHelp("Show other debug info")),
+        json(new Params().setHelp("Show json error data")),
         watch(
                 new Params()
                         .setHelp(
@@ -154,6 +155,11 @@ public class GenerateLikelySubtags {
                     .forEach(x -> temp.put(x, getTypeFromCasedSubtag(x)));
             WATCH_PAIRS = ImmutableMap.copyOf(temp);
         }
+        boolean json = MyOptions.json.option.doesOccur();
+        if (json) {
+            Errors jsonErrors = LangTagsData.getProcessErrors();
+            jsonErrors.printAll();
+        }
 
         Map<String, String> old = supplementalData.getLikelySubtags();
         Map<String, String> oldOrigins = supplementalData.getLikelyOrigins();
@@ -180,6 +186,13 @@ public class GenerateLikelySubtags {
             String oldValue = old.get(source);
             String newValue = result.get(source);
             String removal = itemsRemoved.get(source);
+
+            if (newValue == null) {
+                LSRSource silValue = silData.get(source);
+                if (silValue != null) {
+                    newValue = silValue.getLsrString();
+                }
+            }
 
             if (Objects.equal(oldValue, newValue)) {
                 continue;
@@ -384,8 +397,8 @@ public class GenerateLikelySubtags {
                                 {"und_005", "pt_Latn_BR"},
                                 {"vo", "vo_Latn_001"},
                                 {"vo_Latn", "vo_Latn_001"},
-                                {"yi", "yi_Hebr_001"},
-                                {"yi_Hebr", "yi_Hebr_001"},
+                                //                                {"yi", "yi_Hebr_001"},
+                                //                                {"yi_Hebr", "yi_Hebr_001"},
                                 {"yue", "yue_Hant_HK"},
                                 {"yue_Hant", "yue_Hant_HK"},
                                 {"yue_Hans", "yue_Hans_CN"},
@@ -441,6 +454,13 @@ public class GenerateLikelySubtags {
                                 {"oc_ES", "oc_Latn_ES"},
                                 {"os", "os_Cyrl_GE"},
                                 {"os_Cyrl", "os_Cyrl_GE"},
+
+                                // new additions for compatibility with old
+                                {"und_419", "es_Latn_419"},
+                                {"und_ZM", "bem_Latn_ZM"},
+                                {"und_CC", "ms_Arab_CC"},
+                                {"und_SL", "kri_Latn_SL"},
+                                {"und_SS", "ar_Arab_SS"},
                             });
 
     /**
@@ -630,6 +650,8 @@ public class GenerateLikelySubtags {
 
     private static final Joiner JOIN_SPACE = Joiner.on(' ');
 
+    private static final Joiner JOIN_LS = Joiner.on(CldrUtility.LINE_SEPARATOR);
+
     private static Map<String, String> generatePopulationData(Map<String, String> toMaximized) {
         // we are going to try a different approach.
         // first gather counts for maximized values
@@ -699,8 +721,13 @@ public class GenerateLikelySubtags {
                 if (script == null) {
                     script = LocaleScriptInfo.getScriptFromLocaleOrSupplemental(writtenLanguage);
                     if (script == null) {
-                        noPopulationData.add(writtenLanguage);
-                        continue;
+                        LSRSource silLSR = silData.get(writtenLanguage);
+                        if (silLSR != null) {
+                            script = silLSR.getScript();
+                        } else {
+                            noPopulationData.add(writtenLanguage);
+                            continue;
+                        }
                     }
                     localeToScriptCache.put(writtenLanguage, script);
                 }
@@ -714,22 +741,7 @@ public class GenerateLikelySubtags {
             }
         }
         if (!noPopulationData.isEmpty()) {
-            System.out.println("script data to add");
-            Set<String> stillBad = new TreeSet<>();
             for (String lang : noPopulationData) {
-                LSRSource silLSR = silData.get(lang);
-                if (silLSR == null) {
-                    stillBad.add(lang);
-                } else {
-                    System.out.println(
-                            "        <language type=\""
-                                    + lang
-                                    + "\" scripts=\""
-                                    + silLSR.data.get1()
-                                    + "\"/>");
-                }
-            }
-            for (String lang : stillBad) {
                 System.out.println(
                         JOIN_TAB.join("No script in pop. data for", lang, getNameSafe(lang)));
             }
@@ -1287,6 +1299,15 @@ public class GenerateLikelySubtags {
                         : english.getName(CLDRFile.TERRITORY_NAME, region)));
     }
 
+    static final String SEPARATOR =
+            OUTPUT_STYLE == OutputStyle.C || OUTPUT_STYLE == OutputStyle.C_ALT
+                    ? CldrUtility.LINE_SEPARATOR
+                    : "\t";
+    static final Joiner spacing =
+            Joiner.on(OUTPUT_STYLE == OutputStyle.PLAINTEXT ? "\t" : "‧").useForNull("∅");
+
+    static final String arrow = OUTPUT_STYLE == OutputStyle.PLAINTEXT ? "\t⇒\t" : "\t➡ ";
+
     private static File printLikelySubtags(Map<String, String> fluffup) throws IOException {
         final File genDir = new File(CLDRPaths.GEN_DIRECTORY, "supplemental");
         final File genFile =
@@ -1296,45 +1317,24 @@ public class GenerateLikelySubtags {
         System.out.println("Writing to " + genFile);
 
         // set based on above
-        final String SEPARATOR =
-                OUTPUT_STYLE == OutputStyle.C || OUTPUT_STYLE == OutputStyle.C_ALT
-                        ? CldrUtility.LINE_SEPARATOR
-                        : "\t";
-        Joiner spacing =
-                Joiner.on(OUTPUT_STYLE == OutputStyle.PLAINTEXT ? "\t" : " ‧ ").useForNull("∅");
-
-        final String arrow = OUTPUT_STYLE == OutputStyle.PLAINTEXT ? "\t⇒\t" : "\t➡ ";
-
         try (PrintWriter out = FileUtilities.openUTF8Writer(genFile)) {
             String header =
                     OUTPUT_STYLE != OutputStyle.XML
                             ? "const MapToMaximalSubtags default_subtags[] = {"
-                            : "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>"
-                                    + CldrUtility.LINE_SEPARATOR
-                                    + "<!DOCTYPE supplementalData SYSTEM \"../../common/dtd/ldmlSupplemental.dtd\">"
-                                    + CldrUtility.LINE_SEPARATOR
-                                    + "<!--"
-                                    + CldrUtility.LINE_SEPARATOR
-                                    + CldrUtility.getCopyrightString()
-                                    + CldrUtility.LINE_SEPARATOR
-                                    + "-->"
-                                    + CldrUtility.LINE_SEPARATOR
-                                    + "<!--"
-                                    + CldrUtility.LINE_SEPARATOR
-                                    + "Likely subtags data is generated programatically from CLDR's language/territory/population"
-                                    + CldrUtility.LINE_SEPARATOR
-                                    + "data using the GenerateMaximalLocales tool. Under normal circumstances, this file should"
-                                    + CldrUtility.LINE_SEPARATOR
-                                    + "not be patched by hand, as any changes made in that fashion may be lost."
-                                    + CldrUtility.LINE_SEPARATOR
-                                    + "-->"
-                                    + CldrUtility.LINE_SEPARATOR
-                                    + "<supplementalData>"
-                                    + CldrUtility.LINE_SEPARATOR
-                                    + "    <version number=\"$"
-                                    + "Revision$\"/>"
-                                    + CldrUtility.LINE_SEPARATOR
-                                    + "    <likelySubtags>";
+                            : JOIN_LS.join(
+                                    "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>",
+                                    "<!DOCTYPE supplementalData SYSTEM \"../../common/dtd/ldmlSupplemental.dtd\">",
+                                    "<!--",
+                                    CldrUtility.getCopyrightString(),
+                                    "-->",
+                                    "<!--",
+                                    "Likely subtags data is generated programatically from CLDR's language/territory/population",
+                                    "data using the GenerateMaximalLocales tool. Under normal circumstances this file should",
+                                    "not be patched by hand, as any changes made in that fashion may be lost.",
+                                    "-->",
+                                    "<supplementalData>",
+                                    "    <version number=\"$" + "Revision$\"/>",
+                                    "    <likelySubtags>");
             String footer =
                     OUTPUT_STYLE != OutputStyle.XML
                             ? SEPARATOR + "};"
@@ -1343,61 +1343,101 @@ public class GenerateLikelySubtags {
                                     + "</supplementalData>";
             out.println(header);
             boolean first = true;
-            Set<String> keys = new TreeSet<>(new LocaleStringComparator());
-            keys.addAll(fluffup.keySet());
-            for (String printingLocale : keys) {
-                String printingTarget = fluffup.get(printingLocale);
-                String comment =
-                        printingName(printingLocale, spacing)
-                                + arrow
-                                + printingName(printingTarget, spacing);
+            printLine(fluffup, Map.of(), first, out);
 
-                if (OUTPUT_STYLE == OutputStyle.XML) {
-                    out.println(
-                            "\t\t<likelySubtag from=\""
-                                    + printingLocale
-                                    + "\" to=\""
-                                    + printingTarget
-                                    + "\""
-                                    + "/>"
-                                    + "\t\t"
-                                    + "<!--"
-                                    + comment
-                                    + "-->");
-                } else {
-                    if (first) {
-                        first = false;
-                    } else {
-                        out.print(",");
+            if (OUTPUT_STYLE == OutputStyle.XML) {
+                out.println("       <!-- Data donated by SIL -->");
+            }
+
+            // Now add from silData
+            // filter to only languages that are not already in
+            Map<String, String> silMap = new HashMap<>();
+            Map<String, String> silOrigins = new HashMap<>();
+
+            for (Entry<String, LSRSource> entry : silData.entrySet()) {
+                CLDRLocale source = CLDRLocale.getInstance(entry.getKey());
+                String lang = source.getLanguage();
+                if (!fluffup.containsKey(lang)) {
+                    silMap.put(entry.getKey(), entry.getValue().getLsrString());
+                    if (!entry.getValue().getSources().isEmpty()) {
+                        silOrigins.put(entry.getKey(), entry.getValue().getSourceString());
                     }
-                    if (comment.length() > 70 && SEPARATOR.equals(CldrUtility.LINE_SEPARATOR)) {
-                        comment =
-                                printingName(printingLocale, spacing)
-                                        + SEPARATOR
-                                        + "    // "
-                                        + arrow
-                                        + printingName(printingTarget, spacing);
-                    }
-                    out.print(
-                            "  {"
-                                    + SEPARATOR
-                                    + "    // "
-                                    + comment
-                                    + SEPARATOR
-                                    + "    \""
-                                    + printingLocale
-                                    + "\","
-                                    + SEPARATOR
-                                    + "    \""
-                                    + printingTarget
-                                    + "\""
-                                    + CldrUtility.LINE_SEPARATOR
-                                    + "  }");
                 }
             }
+            printLine(silMap, silOrigins, first, out);
+
             out.println(footer);
             out.close();
         }
         return genFile;
+    }
+
+    public static void printLine(
+            Map<String, String> toPrint,
+            Map<String, String> origins,
+            boolean first,
+            PrintWriter out) {
+        Set<String> keys = new TreeSet<>(new LocaleStringComparator());
+        keys.addAll(toPrint.keySet());
+        boolean noUndYet = true;
+        for (String printingLocale : keys) {
+            String printingTarget = toPrint.get(printingLocale);
+            String origin = origins.get(printingLocale);
+            String comment =
+                    printingName(printingLocale, spacing)
+                            + arrow
+                            + printingName(printingTarget, spacing);
+
+            if (OUTPUT_STYLE == OutputStyle.XML) {
+                if (noUndYet) {
+                    if (printingLocale.startsWith("und")) {
+                        noUndYet = false;
+                        out.println(
+                                "       <!-- Data to find likely language; some implementations may omit -->");
+                    }
+                }
+                out.println(
+                        "\t\t<likelySubtag from=\""
+                                + printingLocale
+                                + "\" to=\""
+                                + printingTarget
+                                + "\""
+                                + (origin == null ? "" : " origin=\"" + origin + "\"")
+                                + "/>"
+                                + "\t\t"
+                                + "<!--"
+                                + comment
+                                + "-->");
+            } else {
+                if (first) {
+                    first = false;
+                } else {
+                    out.print(",");
+                }
+                if (comment.length() > 70 && SEPARATOR.equals(CldrUtility.LINE_SEPARATOR)) {
+                    comment =
+                            printingName(printingLocale, spacing)
+                                    + SEPARATOR
+                                    + "    // "
+                                    + arrow
+                                    + printingName(printingTarget, spacing);
+                }
+                out.print(
+                        "  {"
+                                + SEPARATOR
+                                + "    // "
+                                + comment
+                                + SEPARATOR
+                                + "    \""
+                                + printingLocale
+                                + "\","
+                                + SEPARATOR
+                                + "    \""
+                                + printingTarget
+                                + "\""
+                                + CldrUtility.LINE_SEPARATOR
+                                + "  }");
+            }
+        }
     }
 }

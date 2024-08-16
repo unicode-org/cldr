@@ -70,6 +70,7 @@ public class LocaleScriptInfo {
 
     /**
      * Get the script code (aka short property name, like Latn) from the supplemental languageData.
+     * Take the first one if there are 2.
      *
      * @param locale
      * @return null if fails
@@ -82,10 +83,7 @@ public class LocaleScriptInfo {
             for (BasicLanguageData datum : basicLanguageData.values()) {
                 final Set<String> scripts = datum.getScripts();
                 boolean isPrimary = datum.getType() == BasicLanguageData.Type.primary;
-                if (scripts.size() != 1) {
-                    if (scripts.size() > 1 && isPrimary) {
-                        break;
-                    }
+                if (scripts.isEmpty()) {
                     continue;
                 }
                 String script = scripts.iterator().next();

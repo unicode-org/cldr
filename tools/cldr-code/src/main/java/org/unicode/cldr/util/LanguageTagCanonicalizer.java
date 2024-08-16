@@ -29,24 +29,35 @@ public class LanguageTagCanonicalizer implements StringTransform {
     private final LanguageTagParser ltp1 = new LanguageTagParser();
     private final LanguageTagParser ltp2 = new LanguageTagParser();
 
+    /** Use a parameter to specify LIKELY_FAVOR_SCRIPT or no minimization */
     public LanguageTagCanonicalizer() {
         this(LstrType.script);
     }
 
+    @Deprecated
     public LanguageTagCanonicalizer(boolean favorRegion) {
         this(favorRegion ? LstrType.region : LstrType.script);
     }
 
-    public LanguageTagCanonicalizer(LstrType lstrType) {
-        switch (lstrType) {
-            case region:
-                likely = LIKELY_FAVOR_REGION;
-                break;
-            case script:
-                likely = LIKELY_FAVOR_SCRIPT;
-                break;
-            default:
-                likely = null;
+    /**
+     * Choose the style of minimization, or null for none.
+     *
+     * @param minimizationTypeOrNull
+     */
+    public LanguageTagCanonicalizer(LstrType minimizationTypeOrNull) {
+        if (minimizationTypeOrNull == null) {
+            likely = null; // don't minimize.
+        } else {
+            switch (minimizationTypeOrNull) {
+                case region:
+                    likely = LIKELY_FAVOR_REGION;
+                    break;
+                case script:
+                    likely = LIKELY_FAVOR_SCRIPT;
+                    break;
+                default:
+                    likely = null;
+            }
         }
     }
 

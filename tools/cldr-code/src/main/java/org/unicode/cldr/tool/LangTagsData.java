@@ -1,10 +1,10 @@
 package org.unicode.cldr.tool;
 
 import com.google.common.base.Splitter;
+import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.impl.Row;
 import com.ibm.icu.util.Output;
 import java.io.IOException;
 import java.io.UncheckedIOException;
@@ -12,6 +12,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Collection;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -21,9 +22,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.Iso639Data.Type;
+import org.unicode.cldr.util.LanguageTagCanonicalizer;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.Validity;
@@ -40,7 +44,7 @@ public class LangTagsData {
     private final Validity validity = Validity.getInstance();
 
     private static final CLDRConfig CLDR_CONFIG = CLDRConfig.getInstance();
-    private static final CLDRFile english = CLDR_CONFIG.getEnglish();
+    static final CLDRFile english = CLDR_CONFIG.getEnglish();
 
     private static final LangTagsData INSTANCE = new LangTagsData();
 
@@ -84,6 +88,7 @@ public class LangTagsData {
 
         Output<String> lastFull = new Output<>();
         Map<String, LSRSource> result = new TreeMap<>();
+        LanguageTagCanonicalizer langCanoner = new LanguageTagCanonicalizer(null);
         try {
             Files.lines(path)
                     .forEach(
@@ -99,20 +104,42 @@ public class LangTagsData {
                                             lastFull.value = value;
                                             break;
                                         case "tag":
+                                            if (lastFull.value == null) {
+                                                break;
+                                            }
                                             try {
-                                                String fullLang =
-                                                        ltpFull.set(lastFull.value).getLanguage();
+                                                ltpFull.set(lastFull.value);
+                                                ltpTag.set(value);
                                                 if (isIllFormed(lastFull.value, ltpFull)
-                                                        || isIllFormed(value, ltpTag.set(value))) {
+                                                        || isIllFormed(value, ltpTag)) {
                                                     processErrors.put(
                                                             Errors.Type.ill_formed_tags,
                                                             value,
                                                             lastFull.value,
                                                             "");
                                                 } else {
-                                                    String reference = SIL;
+                                                    final String fixedTag =
+                                                            langCanoner.transform(value);
+                                                    final String fixedFull =
+                                                            langCanoner.transform(lastFull.value);
+                                                    if (!fixedTag.equals(value)
+                                                            || !fixedFull.equals(lastFull.value)) {
+                                                        processErrors.put(
+                                                                Errors.Type.canonicalizing,
+                                                                value,
+                                                                lastFull.value,
+                                                                "mapped to: "
+                                                                        + fixedTag
+                                                                        + " ➡ "
+                                                                        + fixedFull);
+                                                        ltpTag.set(fixedTag);
+                                                        ltpFull.set(fixedFull);
+                                                    }
+                                                    String fullLang = ltpFull.getLanguage();
                                                     final String fullScript = ltpFull.getScript();
                                                     String fullRegion = ltpFull.getRegion();
+
+                                                    String reference = SIL;
                                                     if (fullRegion.equals("ZZ")
                                                             || fullRegion.equals("001")) {
                                                         Collection<String> tempRegions =
@@ -125,11 +152,18 @@ public class LangTagsData {
                                                         }
                                                     }
 
-                                                    String tagLang = ltpTag.getLanguage();
-                                                    String tagScript = ltpTag.getScript();
-                                                    String tagRegion = ltpTag.getRegion();
+                                                    final String tagLang = ltpTag.getLanguage();
+                                                    final String tagScript = ltpTag.getScript();
+                                                    final String tagRegion = ltpTag.getRegion();
 
-                                                    if (!tagLang.equals(fullLang)
+                                                    if (!tagScript.isEmpty()
+                                                            && !tagRegion.isEmpty()) {
+                                                        processErrors.put(
+                                                                Errors.Type.tag_is_full,
+                                                                value,
+                                                                lastFull.value,
+                                                                "");
+                                                    } else if (!tagLang.equals(fullLang)
                                                             || (!tagScript.isEmpty()
                                                                     && !tagScript.equals(
                                                                             fullScript))
@@ -149,7 +183,7 @@ public class LangTagsData {
                                                                 errors)) {
                                                             add(
                                                                     result,
-                                                                    value,
+                                                                    fixedTag,
                                                                     fullLang,
                                                                     fullScript,
                                                                     fullRegion,
@@ -176,7 +210,55 @@ public class LangTagsData {
                                     }
                                 }
                             });
-            return result;
+
+            // check for items that need context
+
+            Set<String> toRemove = new LinkedHashSet<>();
+            for (Entry<String, LSRSource> entry : result.entrySet()) {
+                // if we have lang_script or lang_region, we must have lang
+                final String source = entry.getKey();
+                if (source.equals("lfn_Cyrl")) {
+                    int debug = 0;
+                }
+                if (source.contains("_")) {
+                    // we have either aaa_Dddd or aaa_EEE (we know the source can't have 3 fields)
+                    CLDRLocale clocale = CLDRLocale.getInstance(source);
+                    final String language = clocale.getLanguage();
+                    LSRSource fullForLanguage = result.get(language);
+                    if (fullForLanguage == null) {
+                        toRemove.add(source);
+                        processErrors.put(
+                                Errors.Type.language_of_tag_missing,
+                                source,
+                                entry.getValue().getLsrString(),
+                                "but no mapping for " + language);
+                    } else {
+                        CLDRLocale targetForLanguage = fullForLanguage.getCldrLocale();
+                        CLDRLocale target = entry.getValue().getCldrLocale();
+                        // The missing value in LSRSource must not be the same as what would come in
+                        // that is, if we have aaa => aaa_Bbbb_CC, then we cannot have:
+                        // aaa_Dddd => aaa_Dddd_CC, nor
+                        // aaa_EE => aaa_Bbbb_EE, nor
+                        if (target.getLanguage().equals(targetForLanguage.getLanguage())
+                                || target.getScript().equals(targetForLanguage.getScript())) {
+                            toRemove.add(source);
+                            processErrors.put(
+                                    Errors.Type.redundant_mapping,
+                                    source,
+                                    entry.getValue().getLsrString(),
+                                    "because: " + language + " ➡ " + targetForLanguage);
+                        }
+                    }
+                }
+            }
+            for (String badKey : toRemove) {
+                result.remove(badKey);
+            }
+
+            // protect the results
+
+            processErrors.data = CldrUtility.protectCollection(processErrors.data);
+            return CldrUtility.protectCollection(result);
         } catch (IOException ex) {
             throw new UncheckedIOException(ex);
         }
@@ -235,7 +317,7 @@ public class LangTagsData {
         } catch (IOException ex) {
             throw new UncheckedIOException(ex);
         }
-        return result;
+        return ImmutableMultimap.copyOf(result);
     }
 
     private void add(
@@ -254,13 +336,18 @@ public class LangTagsData {
         result.put(source, newVersion);
     }
 
-    private static class Errors {
+    public static class Errors {
         public enum Type {
             ill_formed_tags("Ill-formed tags"),
             already_CLDR("Language already in CLDR"),
             tag_not_in_full("tag ⊄ full"),
             exception("exception"),
-            skipping_scope("Skipping scope, SIL");
+            skipping_scope("Skipping scope, SIL"),
+            tag_is_full("Tag must not have both script and region"),
+            language_of_tag_missing("Missing tag for just the language"),
+            redundant_mapping(
+                    "aaa => aaa_Bbbb_CC makes redundant aaa_Dddd => aaa_Dddd_CC & aaa_EE => aaa_Bbbb_EE"),
+            canonicalizing("either the source or target are not canonical");
 
             private final String printable;
 
@@ -269,7 +356,11 @@ public class LangTagsData {
             }
         }
 
-        public Multimap<Type, String> data = TreeMultimap.create();
+        private Multimap<Type, String> data = TreeMultimap.create();
+
+        public Multimap<Type, String> getData() {
+            return data;
+        }
 
         public void put(
                 Type illFormedTags, String tagValue, String fullValue, String errorMessage) {
@@ -291,65 +382,6 @@ public class LangTagsData {
                     System.out.println(type + "\t" + message);
                 }
             }
-        }
-    }
-
-    static class LSRSource implements Comparable<LSRSource> {
-        final Row.R4<String, String, String, String> data;
-
-        LSRSource(String lang, String script, String region, String source) {
-            if (script.contains("Soyo") || region.contains("Soyo")) {
-                int debug = 0;
-            }
-            data = Row.of(lang, script, region, source);
-            data.freeze();
-        }
-
-        @Override
-        public String toString() {
-            return combineLSR(data.get0(), data.get1(), data.get2()) + " // " + data.get3();
-        }
-
-        @Override
-        public int compareTo(LSRSource o) {
-            return data.compareTo(o.data);
-        }
-
-        @Override
-        public int hashCode() {
-            return data.hashCode();
-        }
-
-        @Override
-        public boolean equals(Object obj) {
-            return data.equals(obj);
-        }
-
-        public String line(String source) {
-            // TODO Auto-generated method stub
-            //      <likelySubtag from="aa" to="aa_Latn_ET"/>
-            // <!--{ Afar; ?; ? } => { Afar; Latin; Ethiopia }-->
-            final String target = combineLSR(data.get0(), data.get1(), data.get2());
-            final String origin = data.get3();
-            final String result =
-                    "<likelySubtag from=\""
-                            + source
-                            + "\" to=\""
-                            + target
-                            + (origin.isBlank() ? "" : "\" origin=\"" + origin)
-                            + "\"/>"
-                            + "\t<!-- "
-                            + english.getName(source)
-                            + " ➡︎ "
-                            + english.getName(target)
-                            + " -->";
-            return result;
-        }
-
-        public static String combineLSR(String lang, String script, String region) {
-            return lang
-                    + (script.isEmpty() ? "" : "_" + script)
-                    + (region.isEmpty() ? "" : "_" + region);
         }
     }
 }

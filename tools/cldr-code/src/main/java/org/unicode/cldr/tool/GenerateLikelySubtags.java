@@ -6,6 +6,7 @@ import com.google.common.collect.ComparisonChain;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Sets;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
@@ -13,12 +14,14 @@ import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.impl.locale.XCldrStub.Splitter;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.util.Output;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -44,6 +47,7 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.LocaleScriptInfo;
+import org.unicode.cldr.util.LocaleValidator;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.LstrType;
@@ -65,6 +69,8 @@ public class GenerateLikelySubtags {
 
     private static final Map<String, Status> LANGUAGE_CODE_TO_STATUS =
             Validity.getInstance().getCodeToStatus(LstrType.language);
+    private static final Map<String, Status> SCRIPT_CODE_TO_STATUS =
+            Validity.getInstance().getCodeToStatus(LstrType.script);
 
     private static final String TEMP_UNKNOWN_REGION = "XZ";
 
@@ -96,7 +102,7 @@ public class GenerateLikelySubtags {
     private static boolean DROP_HARDCODED = false;
 
     private enum MyOptions {
-        minimize(new Params().setHelp("Show minimization actions")),
+        minimize(new Params().setHelp("Show minimization actions (")),
         add(new Params().setHelp("Show additions")),
         population(new Params().setHelp("Show population data used")),
         order(new Params().setHelp("Show the priority order for langauge data")),
@@ -141,6 +147,7 @@ public class GenerateLikelySubtags {
     static final Map<String, LSRSource> silData = LangTagsData.getJsonData();
 
     public static void main(String[] args) throws IOException {
+        System.out.println("Use options to track progress, -w to narrow to specific subtags.");
         MyOptions.parse(args);
         SHOW_ADD = MyOptions.add.option.doesOccur();
         SHOW_MIN = MyOptions.minimize.option.doesOccur();
@@ -161,50 +168,77 @@ public class GenerateLikelySubtags {
             jsonErrors.printAll();
         }
 
-        Map<String, String> old = supplementalData.getLikelySubtags();
         Map<String, String> oldOrigins = supplementalData.getLikelyOrigins();
         System.out.println("origins: " + new TreeSet<>(oldOrigins.values()));
 
-        Map<String, String> toMaximized = generatePopulationData(new TreeMap<>(LOCALE_SOURCE));
+        Map<String, String> baseMappings = generatePopulationData(new TreeMap<>(LOCALE_SOURCE));
+        System.out.println(JOIN_TAB.join("\nBase data:", baseMappings.size()));
 
         Map<String, String> itemsRemoved = new TreeMap<>();
 
-        Map<String, String> result = minimize(toMaximized, itemsRemoved);
+        Map<String, String> minimizedMappings = minimize(baseMappings, itemsRemoved);
+        System.out.println(JOIN_TAB.join("\nMinimized:", minimizedMappings.size()));
 
-        Set<String> newAdditions = new TreeSet();
-        Set<String> newMissing = new TreeSet();
+        // Verify that the minimized version produces the same results
+
+        LikelySubtags max = new LikelySubtags(baseMappings);
+        LikelySubtags min = new LikelySubtags(minimizedMappings);
+
+        Map<String, String> minFailures = new TreeMap<>(LOCALE_SOURCE);
+        int failures = 0;
+        System.out.println(
+                "\nVerifying that Minimizing doesn't change function\n"
+                        + JOIN_TAB.join("status, source, maxTarg, minTarg".split(", ")));
+        for (String source : baseMappings.keySet()) {
+            String orgTarg = max.maximize(source);
+            String minTarg = min.maximize(source);
+            if (!orgTarg.equals(minTarg)) {
+                minFailures.put(source, orgTarg);
+                System.out.println(JOIN_TAB.join("Fail", source, orgTarg, minTarg));
+                failures++;
+            } else {
+                if (watching(SHOW_MIN, source, orgTarg, minTarg)) {
+                    System.out.println(JOIN_TAB.join("Watch", source, orgTarg, minTarg));
+                }
+            }
+        }
+        if (failures != 0) {
+            throw new IllegalArgumentException();
+        }
+
+        Set<String> newAdditions = new TreeSet<>();
+        Set<String> newMissing = new TreeSet<>();
 
         // Check against last version
 
-        System.out.println(JOIN_TAB.join("Source", "Name", "oldValue", "Name", "newValue", "Name"));
+        System.out.println("\nReading old supplemental: may have unrelated errors.");
+        final SupplementalDataInfo oldSupplementalInfo =
+                SupplementalDataInfo.getInstance(
+                        CldrUtility.getPath(CLDRPaths.LAST_COMMON_DIRECTORY, "supplemental/"));
+        final Map<String, String> oldLikelyData = oldSupplementalInfo.getLikelySubtags();
+        final Map<String, String> oldLikelyOrigins = oldSupplementalInfo.getLikelyOrigins();
+        LikelySubtags oldLikely = new LikelySubtags(oldLikelyData);
 
         Set<String> sorted = new TreeSet<>(LOCALE_SOURCE);
-        sorted.addAll(result.keySet());
-        sorted.addAll(old.keySet());
+        sorted.addAll(minimizedMappings.keySet());
+        sorted.addAll(oldLikelyData.keySet());
+
+        System.out.println(
+                "\nCheck against last version\n"
+                        + JOIN_TAB.join("Source", "Name", "oldValue", "Name", "newValue", "Name"));
 
         for (String source : sorted) {
-            String oldValue = old.get(source);
-            String newValue = result.get(source);
-            String removal = itemsRemoved.get(source);
-
-            if (newValue == null) {
-                LSRSource silValue = silData.get(source);
-                if (silValue != null) {
-                    newValue = silValue.getLsrString();
-                }
+            String oldValue = oldLikely.maximize(source);
+            String oldOrigin = oldLikelyOrigins.get(source);
+            if (oldOrigin != null && oldOrigin.contains("sil1")) {
+                continue; // we don't control variations in sil data
             }
+            String newValue = min.maximize(source);
+            String removal = itemsRemoved.get(source);
 
             if (Objects.equal(oldValue, newValue)) {
                 continue;
             }
-
-            // SKIP the sil values; those will be recreated
-
-            final String origins = oldOrigins.get(source);
-            if (origins != null && origins.contains("sil1")) {
-                continue; // skip for now
-            }
-
             // skip new values, or oldValues that are specifically removed
 
             if (oldValue == null || oldValue.equals(removal)) {
@@ -231,7 +265,7 @@ public class GenerateLikelySubtags {
         }
         System.out.println("new missing\t" + newMissing);
 
-        printLikelySubtags(result);
+        printLikelySubtags(minimizedMappings);
     }
 
     static {
@@ -247,7 +281,7 @@ public class GenerateLikelySubtags {
     }
 
     private static final List<String> KEEP_TARGETS =
-            DROP_HARDCODED ? List.of() : List.of("und_Arab_PK", "und_Latn_ET", "hi_Latn");
+            DROP_HARDCODED ? List.of() : List.of("und_Arab_PK", "und_Latn_ET");
 
     private static final ImmutableSet<String> deprecatedISONotInLST =
             DROP_HARDCODED ? ImmutableSet.of() : ImmutableSet.of("scc", "scr");
@@ -295,7 +329,6 @@ public class GenerateLikelySubtags {
                             "ojs_Cans_CA",
                             "oka_Latn_CA",
                             "pqm_Latn_CA",
-                            "hi_Latn_IN",
                             "no_Latn_NO",
                             "tok_Latn_001",
                             "prg_Latn_PL",
@@ -306,7 +339,9 @@ public class GenerateLikelySubtags {
      * results. Safer is to add to MAX_ADDITIONS. However, if you add, add both the language and
      * language+script mappings.
      */
+
     // Many of the overrides below can be removed once the language/pop/country data is updated.
+
     private static final Map<String, String> LANGUAGE_OVERRIDES =
             CldrUtility.asMap(
                     DROP_HARDCODED
@@ -361,7 +396,7 @@ public class GenerateLikelySubtags {
                                 {"sr_Latn", "sr_Latn_RS"},
                                 {"ss", "ss_Latn_ZA"},
                                 {"ss_Latn", "ss_Latn_ZA"},
-                                {"swc", "swc_Latn_CD"},
+                                // {"swc", "swc_Latn_CD"},
                                 {"ti", "ti_Ethi_ET"},
                                 {"ti_Ethi", "ti_Ethi_ET"},
                                 {LocaleNames.UND, "en_Latn_US"},
@@ -371,7 +406,6 @@ public class GenerateLikelySubtags {
                                 {"und_Arab_PK", "ur_Arab_PK"},
                                 {"und_Bopo", "zh_Bopo_TW"},
                                 {"und_Deva_FJ", "hif_Deva_FJ"},
-                                {"und_EZ", "de_Latn_EZ"},
                                 {"und_Hani", "zh_Hani_CN"},
                                 {"und_Hani_CN", "zh_Hani_CN"},
                                 {"und_Kana", "ja_Kana_JP"},
@@ -393,8 +427,6 @@ public class GenerateLikelySubtags {
                                 {"und_SO", "so_Latn_SO"},
                                 {"und_SS", "en_Latn_SS"},
                                 {"und_TK", "tkl_Latn_TK"},
-                                {"und_UN", "en_Latn_UN"},
-                                {"und_005", "pt_Latn_BR"},
                                 {"vo", "vo_Latn_001"},
                                 {"vo_Latn", "vo_Latn_001"},
                                 //                                {"yi", "yi_Hebr_001"},
@@ -441,7 +473,6 @@ public class GenerateLikelySubtags {
                                 //        { "mis_Medf", "mis_Medf_NG" },
 
                                 {"ku_Yezi", "ku_Yezi_GE"},
-                                {"und_EU", "en_Latn_IE"},
                                 {"hnj", "hnj_Hmnp_US"}, // preferred lang/script in CLDR
                                 {"hnj_Hmnp", "hnj_Hmnp_US"},
                                 {"und_Hmnp", "hnj_Hmnp_US"},
@@ -461,6 +492,25 @@ public class GenerateLikelySubtags {
                                 {"und_CC", "ms_Arab_CC"},
                                 {"und_SL", "kri_Latn_SL"},
                                 {"und_SS", "ar_Arab_SS"},
+
+                                // additions for missing values from LikelySubtagsText
+                                {"und_Arab_AF", "fa_Arab_AF"},
+                                {"und_Cyrl_BG", "bg_Cyrl_BG"},
+                                {"und_Tibt_BT", "dz_Tibt_BT"},
+                                {"und_Cyrl_BY", "be_Cyrl_BY"},
+                                {"und_Arab_CC", "ms_Arab_CC"},
+                                {"und_Ethi_ER", "ti_Ethi_ER"},
+                                {"und_Arab_IR", "fa_Arab_IR"},
+                                {"und_Cyrl_KG", "ky_Cyrl_KG"},
+                                {"und_Cyrl_MK", "mk_Cyrl_MK"},
+                                {"und_Cyrl_MN", "mn_Cyrl_MN"},
+                                {"und_Deva_NP", "ne_Deva_NP"},
+                                {"und_Cyrl_RS", "sr_Cyrl_RS"},
+                                {"und_Cyrl_TJ", "tg_Cyrl_TJ"},
+                                {"und_Cyrl_UA", "uk_Cyrl_UA"},
+                                {"arc_Hatr", "arc_Hatr_IQ"},
+                                {"hnj_Hmng", "hnj_Hmng_LA"},
+                                {"bap_Krai", "bap_Krai_IN"},
                             });
 
     /**
@@ -658,8 +708,11 @@ public class GenerateLikelySubtags {
         // Set<Row.R3<String,String,String>,Double> rowsToCounts = new TreeMap();
         MaxData maxData = new MaxData();
         Set<String> cldrLocales = factory.getAvailable();
+        // skip ZZ
         Set<String> otherTerritories =
-                new TreeSet<>(standardCodes.getGoodAvailableCodes("territory"));
+                new TreeSet<>(
+                        Sets.difference(
+                                standardCodes.getGoodAvailableCodes("territory"), Set.of("ZZ")));
 
         // process all the information to get the top values for each triple.
         // each of the combinations of 1 or 2 components gets to be a key.
@@ -691,23 +744,26 @@ public class GenerateLikelySubtags {
 
                 if (data.getOfficialStatus() == OfficialStatus.unknown) {
                     final String locale = writtenLanguage + "_" + region;
-                    if (literatePopulation >= minimalLiteratePopulation) {
-                        // ok, skip
-                    } else if (literatePopulation >= MIN_UNOFFICIAL_CLDR_LANGUAGE_SIZE
-                            && cldrLocales.contains(locale)) {
-                        // ok, skip
-                    } else {
-                        // if (SHOW_ADD)
-                        // System.out.println("Skipping:\t" + writtenLanguage + "\t" + region + "\t"
-                        // + english.getName(locale)
-                        // + "\t-- too small:\t" + number.format(literatePopulation));
-                        // continue;
-                    }
+                    //                    if (literatePopulation >= minimalLiteratePopulation) {
+                    //                        // ok, skip
+                    //                    } else if (literatePopulation >=
+                    // MIN_UNOFFICIAL_CLDR_LANGUAGE_SIZE
+                    //                            && cldrLocales.contains(locale)) {
+                    //                        // ok, skip
+                    //                    } else {
+                    //                        // if (SHOW_ADD)
+                    //                        // System.out.println("Skipping:\t" + writtenLanguage
+                    // + "\t" + region + "\t"
+                    //                        // + english.getName(locale)
+                    //                        // + "\t-- too small:\t" +
+                    // number.format(literatePopulation));
+                    //                        // continue;
+                    //                    }
                     order *= UNOFFICIAL_SCALE_DOWN;
                     if (watching(SHOW_POP, writtenLanguage))
                         System.out.println(
                                 JOIN_TAB.join(
-                                        "Pop:",
+                                        "Scaling unofficial: ",
                                         writtenLanguage,
                                         region,
                                         getNameSafe(locale),
@@ -778,7 +834,10 @@ public class GenerateLikelySubtags {
 
         // add others, with English default
         for (String region : otherTerritories) {
-            if (region.length() == 3) continue; // FIX ONCE WE ADD REGIONS
+            if (!LocaleValidator.ALLOW_IN_LIKELY.isAllowed(LstrType.region, region, null, null)) {
+                continue;
+            }
+            if (region.length() == 3) continue; // handled with exceptions
             maxData.add("en", "Latn", region, 1.0);
         }
 
@@ -797,23 +856,36 @@ public class GenerateLikelySubtags {
             if (replacements == null) {
                 continue;
             }
-            String goodLanguage = replacements.get(0);
 
             String badLanguage = str.getKey();
-            if (badLanguage.contains("_")) {
+            if (badLanguage.contains("_")) { // only single subtag
                 continue;
             }
+
             if (deprecatedISONotInLST.contains(badLanguage)) {
                 continue;
             }
+
+            if (LANGUAGE_CODE_TO_STATUS.get(badLanguage) != Validity.Status.regular) {
+                if (!LocaleValidator.ALLOW_IN_LIKELY.isAllowed(
+                        LstrType.language, badLanguage, null, null)) {
+                    continue;
+                }
+            }
+
+            // see what the values are for the replacements
+
+            String goodLanguage = replacements.get(0);
             Set<R3<Double, String, String>> goodLanguageData =
                     maxData.languages.getAll(goodLanguage);
             if (goodLanguageData == null) {
                 continue;
             }
+
             R3<Double, String, String> value = goodLanguageData.iterator().next();
             final String script = value.get1();
             final String region = value.get2();
+
             maxData.add(badLanguage, script, region, 1.0);
             System.out.println(
                     "Adding aliases: "
@@ -829,8 +901,8 @@ public class GenerateLikelySubtags {
         // now, get the best for each one
         for (String language : maxData.languages.keySet()) {
             R3<Double, String, String> value = maxData.languages.getAll(language).iterator().next();
-            final Comparable<String> script = value.get1();
-            final Comparable<String> region = value.get2();
+            final String script = value.get1();
+            final String region = value.get2();
             add(
                     language,
                     language + "_" + script + "_" + region,
@@ -992,12 +1064,29 @@ public class GenerateLikelySubtags {
 
         TreeSet<String> sorted = new TreeSet<>(ScriptMetadata.getScripts());
         for (String script : sorted) {
+            switch (SCRIPT_CODE_TO_STATUS.get(script)) {
+                case special:
+                case unknown:
+                    continue;
+                default:
+                    break;
+            }
             Info i = ScriptMetadata.getInfo(script);
             String likelyLanguage = i.likelyLanguage;
+            String originCountry = i.originCountry;
             if (LANGUAGE_CODE_TO_STATUS.get(likelyLanguage) == Status.special) {
                 likelyLanguage = LocaleNames.UND;
             }
-            String originCountry = i.originCountry;
+            LanguageTagParser ltp =
+                    new LanguageTagParser()
+                            .setLanguage(likelyLanguage)
+                            .setScript(script)
+                            .setRegion(originCountry);
+            Set<String> errors = new LinkedHashSet<>();
+            if (!LocaleValidator.isValid(ltp, LocaleValidator.ALLOW_IN_LIKELY, errors)) {
+                System.out.println(JOIN_LS.join("Failure in ScriptMetaData: " + ltp, errors));
+                continue;
+            }
             final String result = likelyLanguage + "_" + script + "_" + originCountry;
             add("und_" + script, result, toMaximized, "S->LR•", LocaleOverride.KEEP_EXISTING);
             add(likelyLanguage, result, toMaximized, "L->SR•", LocaleOverride.KEEP_EXISTING);
@@ -1044,7 +1133,7 @@ public class GenerateLikelySubtags {
                 toMaximized.remove(row.get(0));
             }
         }
-        return toMaximized;
+        return CldrUtility.protectCollection(toMaximized);
     }
 
     /** Class for maximizing data sources */
@@ -1090,6 +1179,17 @@ public class GenerateLikelySubtags {
          * @param order
          */
         void add(String language, String script, String region, Double order) {
+            // check for bad codes sneaking in
+            LanguageTagParser ltp =
+                    new LanguageTagParser()
+                            .setLanguage(language)
+                            .setScript(script)
+                            .setRegion(region);
+            Set<String> errors = new LinkedHashSet<>();
+            if (!LocaleValidator.isValid(ltp, LocaleValidator.ALLOW_IN_LIKELY, errors)) {
+                System.out.println(JOIN_LS.join("Bad Add of " + ltp, errors));
+            }
+
             if (watching(SHOW_ORDER, language))
                 System.out.println(
                         JOIN_TAB.join(
@@ -1161,12 +1261,8 @@ public class GenerateLikelySubtags {
                                 "",
                                 kind));
             }
-        } else if (override == LocaleOverride.KEEP_EXISTING || value.equals(oldValue)) {
-            // if (showAction) {
-            // System.out.println("Skipping:\t" + key + "\t→\t" + value + "\t\t\t\t" + kind);
-            // }
-            return;
-        } else {
+            toAdd.put(key, value);
+        } else if (override != LocaleOverride.KEEP_EXISTING && !value.equals(oldValue)) {
             if (watching(showAction, key, value)) {
                 System.out.println(
                         JOIN_TAB.join(
@@ -1182,8 +1278,8 @@ public class GenerateLikelySubtags {
                                 getNameSafe(oldValue),
                                 kind));
             }
+            toAdd.put(key, value);
         }
-        toAdd.put(key, value);
     }
 
     public static String truncateLongString(Object data, int maxLen) {
@@ -1197,65 +1293,177 @@ public class GenerateLikelySubtags {
         return info;
     }
 
+    enum LsrType {
+        LSR,
+        LS,
+        LR,
+        SR,
+        L,
+        S,
+        R
+    }
+
+    /**
+     * Minimize<br>
+     * We know that the following algorithm will be used in the lookup, so we remove mappings that
+     * are redundant. https://cldr-smoke.unicode.org/spec/main/ldml/tr35.html#likely-subtags<br>
+     * A subtag is called empty if it is a missing script or region subtag, or it is a base language
+     * subtag with the value "und". In the description below, a subscript on a subtag x indicates
+     * which tag it is from: xs is in the source, xm is in a match, and xr is in the final result.
+     *
+     * <p>Lookup. Look up each of the following in order, and stop on the first match:
+     *
+     * <ol>
+     *   <li>languages_scripts_regions
+     *   <li>languages_scripts
+     *   <li>languages_regions
+     *   <li>languages
+     * </ol>
+     *
+     * <p>Return
+     *
+     * <p>
+     *
+     * <ol>
+     *   <li>If there is no match, signal an error and stop.
+     *   <li>Otherwise there is a match = languagem_scriptm_regionm
+     *   <li>Let xr = xs if xs is neither empty nor 'und', and xm otherwise.
+     *   <li>Return the language tag composed of languager_scriptr_regionr + variants + extensions.
+     * </ol>
+     */
     public static Map<String, String> minimize(
-            Map<String, String> fluffup, Map<String, String> itemsRemoved) {
-        LanguageTagParser parser = new LanguageTagParser();
-        LanguageTagParser targetParser = new LanguageTagParser();
-        Map<String, String> removals = new TreeMap<>();
+            Map<String, String> max, Map<String, String> itemsRemoved) {
+
+        final LanguageTagParser sourceParser = new LanguageTagParser();
+        final Map<String, String> removals = new TreeMap<>();
+        final Map<String, String> toMinimize = new TreeMap<>(LOCALE_SOURCE);
+        final Output<String> intermediate = new Output<>();
+
+        toMinimize.putAll(max);
+
+        // Remove redundant mappings.
+        // For example, suppose we have the following mappings:
+        // {aa=aa_Latn_ET, aa_DJ=aa_Latn_DJ, aa_ER=aa_Latn_ER}
+        // Using the algorithm above if aa_DJ=aa_Latn_DJ were not there we would
+        // 1. check for aa_DJ, fail
+        // 2. check for aa, get aa_Latn_ET, and substitute DJ for ET, getting the right answer.
+        // So aa_DJ is redundant
+
+        // Dependencies
+        // We should never have an LocaleScriptInfo.UNKNOWN_REGION, or
+        // LocaleScriptInfo.UNKNOWN_SCRIPT
+        // The unit tests will guarantee this if somehow we slip up
+        // Similarly, we should never have the target have language="und", or be missing script or
+        // region
+        // We also know that the source never has 3 full fields (ie, never L≠und && S≠"" && R≠"")
+
+        // Make multiple passes if necessary
         for (int pass = 0; ; ++pass) {
             removals.clear();
-            for (Entry<String, String> entry : fluffup.entrySet()) {
-                String locale = entry.getKey();
+            for (Entry<String, String> entry : toMinimize.entrySet()) {
+                String source = entry.getKey();
+                if (source.equals("und")) {
+                    continue; // never remove
+                }
                 String target = entry.getValue();
-
-                if (targetParser.set(target).getRegion().equals(LocaleScriptInfo.UNKNOWN_REGION)) {
-                    removals.put(locale, target);
-                    showRemoving(pass, locale, target, "Unknown Region in target");
-                    continue;
+                if (source.equals("aa_DJ") || source.equals("und_Arab_AF")) {
+                    int debug = 0;
                 }
-                if (targetParser.getScript().equals(LocaleScriptInfo.UNKNOWN_SCRIPT)) {
-                    removals.put(locale, target);
-                    showRemoving(pass, locale, target, "Unknown Script in target");
-                    continue;
+                sourceParser.set(source);
+
+                if (!sourceParser.getLanguage().equals("und")
+                        && !sourceParser.getScript().isEmpty()
+                        && !sourceParser.getRegion().isEmpty()) {
+                    throw new IllegalArgumentException("Bogus source: " + source);
                 }
 
-                String region = parser.set(locale).getRegion();
-                if (region.length() != 0) {
-                    if (region.equals(LocaleScriptInfo.UNKNOWN_REGION)) {
-                        removals.put(locale, target);
-                        showRemoving(pass, locale, target, "Unknown Region in source");
-                        continue;
-                    }
-                    parser.setRegion("");
-                    String newLocale = parser.toString();
-                    String newTarget = fluffup.get(newLocale);
-                    if (newTarget != null) {
-                        newTarget = targetParser.set(newTarget).setRegion(region).toString();
-                        if (target.equals(newTarget) && !KEEP_TARGETS.contains(locale)) {
-                            removals.put(locale, target);
-                            showRemoving(pass, locale, target, "Redundant with\t" + newLocale);
+                // The following has some redundant checks, but it makes the
+                // code more convoluted to catch them, and perf is not an issue.
+
+                String trial;
+
+                // und_Cyrl_RU => ru_Cyrl_RU, but und_Cyrl => ru_Cyrl_RU
+                // und_Latn_DE => de_Latn_DE, but und_DE => de_Latn_DE
+                // und_Latn_US => en_Latn_US, but und => en_Latn_US
+
+                if (!sourceParser.getScript().isEmpty() && !sourceParser.getRegion().isEmpty()) {
+                    trial =
+                            compose(
+                                    sourceParser.getLanguage(),
+                                    sourceParser.getScript(),
+                                    sourceParser.getRegion());
+                    if (!trial.equals(source)) {
+                        String result =
+                                matchAndFill(
+                                        sourceParser, trial, removals, toMinimize, intermediate);
+                        if (target.equals(result)) {
+                            removals.put(source, target);
+                            showRemoving(LsrType.LSR, source, target, trial, intermediate.value);
                             continue;
                         }
                     }
                 }
-                String script = parser.set(locale).getScript();
-                if (locale.equals(DEBUG_ADD_KEY)) {
-                    System.out.println("*debug*");
-                }
-                if (script.length() != 0) {
-                    if (script.equals(LocaleScriptInfo.UNKNOWN_SCRIPT)) {
-                        removals.put(locale, target);
-                        showRemoving(pass, locale, target, "Unknown Script");
-                        continue;
+
+                // de_Latn => de_Latn_DE, but de => de_Latn_DE
+                // und_Cyrl => ru_Cyrl_RU, but ru_Cyrl => ru_Cyrl_RU
+
+                if (!sourceParser.getScript().isEmpty()) {
+                    trial = compose(sourceParser.getLanguage(), sourceParser.getScript(), "");
+                    if (!trial.equals(source)) {
+                        String result =
+                                matchAndFill(
+                                        sourceParser, trial, removals, toMinimize, intermediate);
+                        if (target.equals(result)) {
+                            removals.put(source, target);
+                            showRemoving(LsrType.LS, source, target, trial, intermediate.value);
+                            continue;
+                        }
                     }
-                    parser.setScript("");
-                    String newLocale = parser.toString();
-                    String newTarget = fluffup.get(newLocale);
-                    if (newTarget != null) {
-                        newTarget = targetParser.set(newTarget).setScript(script).toString();
-                        if (target.equals(newTarget) && !KEEP_TARGETS.contains(locale)) {
-                            removals.put(locale, target);
-                            showRemoving(pass, locale, target, "Redundant with\t" + newLocale);
+                }
+
+                // de_DE => de_Latn_DE, but de => de_Latn_DE
+                // und_RU => ru_Cyrl_RU, but ru_RU => ru_Cyrl_RU
+
+                if (!sourceParser.getRegion().isEmpty()) {
+                    trial = compose(sourceParser.getLanguage(), "", sourceParser.getRegion());
+                    if (!trial.equals(source)) {
+
+                        String result =
+                                matchAndFill(
+                                        sourceParser, trial, removals, toMinimize, intermediate);
+                        if (target.equals(result)
+                                && !fieldChangesLanguage(
+                                        LsrType.S, sourceParser, removals, toMinimize)) {
+                            removals.put(source, target);
+                            showRemoving(LsrType.LR, source, target, trial, intermediate.value);
+                            continue;
+                        }
+                    }
+                }
+
+                // ultimate fallback
+
+                if (true) {
+                    trial = sourceParser.getLanguage();
+                    if (!trial.equals(source)) {
+                        String result =
+                                matchAndFill(
+                                        sourceParser, trial, removals, toMinimize, intermediate);
+                        if (target.equals(result)
+                                && (sourceParser.getScript().isEmpty()
+                                        || sourceParser.getRegion().isEmpty()
+                                        || (!fieldChangesLanguage(
+                                                        LsrType.S,
+                                                        sourceParser,
+                                                        removals,
+                                                        toMinimize)
+                                                && !fieldChangesLanguage(
+                                                        LsrType.R,
+                                                        sourceParser,
+                                                        removals,
+                                                        toMinimize)))) {
+                            removals.put(source, target);
+                            showRemoving(LsrType.L, source, target, trial, intermediate.value);
                             continue;
                         }
                     }
@@ -1266,16 +1474,141 @@ public class GenerateLikelySubtags {
             }
             itemsRemoved.putAll(removals);
             for (String locale : removals.keySet()) {
-                fluffup.remove(locale);
+                toMinimize.remove(locale);
             }
         }
-        return fluffup;
+        return CldrUtility.protectCollection(toMinimize);
+    }
+
+    public static boolean fieldChangesLanguage(
+            LsrType lsrType,
+            final LanguageTagParser sourceParser,
+            final Map<String, String> removals,
+            final Map<String, String> toMinimize) {
+        if (!isEmpty(sourceParser, lsrType)) {
+            final LanguageTagParser tempParser = new LanguageTagParser();
+            copyFrom(tempParser, LsrType.L, sourceParser);
+            copyFrom(tempParser, lsrType, sourceParser);
+
+            // Special Check!
+            // Suppose we have
+            // (A) und_Arab_AF => fa_Arab_AF
+            // It appears we can remove (A) because we have
+            // (B) und_AF ==> fa_Arab_AF
+            // However, because script is checked before region
+            // We will have a first have a hit on
+            // (C) und_Arab => ar_Arab_xx
+            // Which will result in the wrong answer (ar_Arab_AF).
+
+            String trial2 =
+                    compose(sourceParser.getLanguage(), getField(sourceParser, lsrType), "");
+            String result2 = matchAndFill(sourceParser, trial2, removals, toMinimize, null);
+            if (result2 != null) {
+                final LanguageTagParser tempParser2 = new LanguageTagParser();
+                tempParser2.set(result2);
+                String lang2 = tempParser2.getLanguage();
+                String tempLang = tempParser.getLanguage();
+                if (tempLang != lang2) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    // Some of these would be useful on LanguageTagParser
+
+    public static String getField(LanguageTagParser fromParser, LsrType lsr) {
+        switch (lsr) {
+            case L:
+                return fromParser.getLanguage();
+            case S:
+                return fromParser.getScript();
+            case R:
+                return fromParser.getRegion();
+            default:
+                throw new IllegalArgumentException();
+        }
+    }
+
+    public static LanguageTagParser copyFrom(
+            LanguageTagParser intoParser, LsrType lsr, LanguageTagParser fromParser) {
+        switch (lsr) {
+            case L:
+                intoParser.setLanguage(fromParser.getLanguage());
+                break;
+            case S:
+                intoParser.setScript(fromParser.getScript());
+                break;
+            case R:
+                intoParser.setRegion(fromParser.getRegion());
+                break;
+            default:
+                throw new IllegalArgumentException();
+        }
+        return intoParser;
+    }
+
+    public static LanguageTagParser ifEmptyCopyFrom(
+            LanguageTagParser intoParser, LsrType lsr, LanguageTagParser fromParser) {
+        return isEmpty(intoParser, lsr) ? intoParser : copyFrom(intoParser, lsr, fromParser);
+    }
+
+    public static boolean isEmpty(LanguageTagParser intoParser, LsrType lsr) {
+        return getField(intoParser, lsr).equals(lsr == LsrType.L ? "und" : "");
+    }
+
+    public static String matchAndFill(
+            LanguageTagParser sourceParser,
+            String trial,
+            Map<String, String> removals,
+            Map<String, String> toMinimize,
+            Output<String> intermediate) {
+        String possibleSuper;
+        String result;
+        possibleSuper = removals.containsKey(trial) ? null : toMinimize.get(trial);
+        result = null;
+        if (possibleSuper != null) {
+            LanguageTagParser tempParser3 = new LanguageTagParser();
+            tempParser3.set(possibleSuper);
+            if (!sourceParser.getLanguage().equals("und")) {
+                tempParser3.setLanguage(sourceParser.getLanguage());
+            }
+            if (!getField(sourceParser, LsrType.S).isEmpty()) {
+                copyFrom(tempParser3, LsrType.S, sourceParser);
+            }
+            if (!sourceParser.getRegion().isEmpty()) {
+                tempParser3.setRegion(sourceParser.getRegion());
+            }
+            result = tempParser3.toString();
+        }
+        if (intermediate != null) {
+            intermediate.value = possibleSuper;
+        }
+        return result;
+    }
+
+    private static String compose(String lang, String script, String region) {
+        String result = lang;
+        if (!script.isEmpty()) {
+            result += "_" + script;
+        }
+        if (!region.isEmpty()) {
+            result += "_" + region;
+        }
+        return result;
+    }
+
+    static class MapView<K, V> {
+        K skip;
     }
 
     public static void showRemoving(
-            Object pass, String locale, String target, final String reason) {
-        if (watching(SHOW_MIN, target)) {
-            System.out.println(JOIN_TAB.join(pass, "Removing:", locale, "→", target, "", reason));
+            Object pass, String locale, String target, String fallback, String fallbackTarget) {
+        if (watching(SHOW_MIN, locale, target, fallback, fallbackTarget)) {
+            System.out.println(
+                    JOIN_TAB.join(
+                            pass, "Removing: ", locale, "→", target, fallback, fallbackTarget));
         }
     }
 
@@ -1309,7 +1642,7 @@ public class GenerateLikelySubtags {
     static final String arrow = OUTPUT_STYLE == OutputStyle.PLAINTEXT ? "\t⇒\t" : "\t➡ ";
 
     private static File printLikelySubtags(Map<String, String> fluffup) throws IOException {
-        final File genDir = new File(CLDRPaths.GEN_DIRECTORY, "supplemental");
+        final File genDir = new File(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
         final File genFile =
                 new File(
                         genDir,

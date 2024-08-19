@@ -23,6 +23,9 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Containment;
 import org.unicode.cldr.util.SemiFileReader;
 import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.StandardCodes.LstrType;
+import org.unicode.cldr.util.Validity;
+import org.unicode.cldr.util.Validity.Status;
 import org.unicode.cldr.util.With;
 
 public class ScriptMetadata {
@@ -139,6 +142,12 @@ public class ScriptMetadata {
 
     public static final class SkipNewUnicodeException extends ICUException {}
 
+    /**
+     * Scripts that either have no known languages as yet (Cpmn) or are used for any language
+     * (Brai).
+     */
+    public static final Set<String> SCRIPTS_WITH_NO_LANGUAGES = Set.of("Brai", "Cpmn");
+
     public static class Info implements Comparable<Info> {
         public final int rank;
         public final VersionInfo age;
@@ -173,6 +182,7 @@ public class ScriptMetadata {
             ime = trinaryLookup.forString(Column.IME.getItem(items));
             hasCase = trinaryLookup.forString(Column.HAS_CASE.getItem(items));
             density = Column.DENSITY.getInt(items, -1);
+            String script = items[2];
 
             final String countryRaw = Column.ORIGIN_COUNTRY.getItem(items);
             String country = CountryCodeConverter.getCodeFromName(countryRaw, false);
@@ -191,6 +201,39 @@ public class ScriptMetadata {
                 langCode = null;
             }
             likelyLanguage = langCode == null ? "und" : langCode;
+
+            // check for bad countries, bad languages
+
+            final Status scriptStatus =
+                    Validity.getInstance().getCodeToStatus(LstrType.script).get(script);
+            if (!(scriptStatus == Status.special || scriptStatus == Status.unknown)) {
+                final Status countryStatus =
+                        Validity.getInstance().getCodeToStatus(LstrType.region).get(originCountry);
+                if (countryStatus != Status.regular) {
+                    errors.add(
+                            "ScriptMetadata.java: the country ("
+                                    + originCountry
+                                    + ") for "
+                                    + script
+                                    + " is not valid: "
+                                    + countryStatus);
+                }
+                final Status languageStatus =
+                        Validity.getInstance()
+                                .getCodeToStatus(LstrType.language)
+                                .get(likelyLanguage);
+                if (languageStatus != Status.regular
+                        // make exception for scripts that has no known languages
+                        && !SCRIPTS_WITH_NO_LANGUAGES.contains(script)) {
+                    errors.add(
+                            "ScriptMetadata.java: the likely language ("
+                                    + likelyLanguage
+                                    + ") for "
+                                    + script
+                                    + " is not valid: "
+                                    + languageStatus);
+                }
+            }
         }
 
         public Info(Info other, String string, String sampleCharacter) {

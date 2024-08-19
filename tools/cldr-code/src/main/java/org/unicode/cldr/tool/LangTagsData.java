@@ -5,9 +5,9 @@ import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
+import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.Output;
 import java.io.IOException;
-import java.io.UncheckedIOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -260,7 +260,7 @@ public class LangTagsData {
             processErrors.data = CldrUtility.protectCollection(processErrors.data);
             return CldrUtility.protectCollection(result);
         } catch (IOException ex) {
-            throw new UncheckedIOException(ex);
+            throw new ICUUncheckedIOException(ex);
         }
     }
 
@@ -315,7 +315,7 @@ public class LangTagsData {
                                 }
                             });
         } catch (IOException ex) {
-            throw new UncheckedIOException(ex);
+            throw new ICUUncheckedIOException(ex);
         }
         return ImmutableMultimap.copyOf(result);
     }

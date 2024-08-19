@@ -1,9 +1,10 @@
+package org.unicode.cldr.util;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
-import org.unicode.cldr.util.*;
 
 public class TestPathHeader {
     static final String GREGORIAN = "gregorian";

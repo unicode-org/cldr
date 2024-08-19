@@ -2,8 +2,8 @@ package org.unicode.cldr.unittest;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
+import com.ibm.icu.util.ICUUncheckedIOException;
 import java.io.IOException;
-import java.io.UncheckedIOException;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -52,7 +52,7 @@ public class TestDataTest extends TestFmwkPlus {
         try (DirectoryStream<Path> filepath = Files.newDirectoryStream(PERSON_NAMES_DIR)) {
             filepath.forEach(x -> checkPersonNameTests(x));
         } catch (IOException e) {
-            throw new UncheckedIOException(e);
+            throw new ICUUncheckedIOException(e);
         }
         FILES_CHECKED.add(PERSON_NAMES_DIR);
     }
@@ -217,7 +217,7 @@ public class TestDataTest extends TestFmwkPlus {
         try (DirectoryStream<Path> filepath = Files.newDirectoryStream(Paths.get(TEST_DATA_DIR))) {
             filepath.forEach(x -> checkDirectories(x, missing));
         } catch (IOException e) {
-            throw new UncheckedIOException(e);
+            throw new ICUUncheckedIOException(e);
         }
         // TODO once we get full tests, turn this on
         //        if (!assertEquals("Files all tested", 0, missing.size())) {
@@ -241,7 +241,7 @@ public class TestDataTest extends TestFmwkPlus {
                 try (DirectoryStream<Path> filepath2 = Files.newDirectoryStream(filepath)) {
                     filepath2.forEach(x -> checkDirectories(x, missing));
                 } catch (IOException e) {
-                    throw new UncheckedIOException(e);
+                    throw new ICUUncheckedIOException(e);
                 }
             }
         } else {

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2024 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+SPDX-License-Identifier: Unicode-3.0
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+
+Derived short names and annotations, using GenerateDerivedAnnotations.java. See warnings in /annotations/ file.
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="ca"/>
+		<territory type="ES"/>
+		<variant type="VALENCIA"/>
+	</identity>
+	<annotations>
+		<annotation cp="👶🏻">bebé | bebés | embarassada | jove | nadó | nounat | pell molt clara</annotation>
+		<annotation cp="👶🏼">bebé | bebés | embarassada | jove | nadó | nounat | pell bastant clara</annotation>
+		<annotation cp="👶🏽">bebé | bebés | embarassada | jove | nadó | nounat | pell morena</annotation>
+		<annotation cp="👶🏾">bebé | bebés | embarassada | jove | nadó | nounat | pell fosca</annotation>
+		<annotation cp="👶🏿">bebé | bebés | embarassada | jove | nadó | nounat | pell molt fosca</annotation>
+		<annotation cp="؋" type="tts">afgani afganés</annotation>
+		<annotation cp="฿" type="tts">baht tailandés</annotation>
+		<annotation cp="₵" type="tts">cedi ghanés</annotation>
+		<annotation cp="₼" type="tts">manat azerbaidjanés</annotation>
+	</annotations>
+</ldml>

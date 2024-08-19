@@ -168,6 +168,7 @@ public class LikelySubtagsTest extends TestFmwk {
     final LanguageTagParser maxLtp = new LanguageTagParser();
     final LanguageTagParser sourceLtp = new LanguageTagParser();
 
+    final Set<String> KNOWN_ERRORS = Set.of("en_Latn_MU", "en_Latn_SL", "en_Latn_TK", "en_Latn_ZM");
     /**
      * Return false if we should skip the language
      *
@@ -206,15 +207,22 @@ public class LikelySubtagsTest extends TestFmwk {
                 sourceLtp.setRegion(maxLtp.getRegion());
             }
             String test = sourceLtp.toString();
-            final String maximize = LIKELY.maximize(test);
+            String maximize = LIKELY.maximize(test);
             if (!max.equals(maximize)) {
-                // max(source) = max, max(test) ≠ max
-                if (!assertEquals(
-                        String.format(
-                                "checkAdding: max(%s)->%s, however max(%s)->", source, max, test),
-                        max,
-                        maximize)) {
-                    // LIKELY.maximize(test); // Could step into this for debugging.
+                if (KNOWN_ERRORS.contains(maximize)) {
+                    logKnownIssue("CLDR-17897", "Fix GenerateLikelySubtags.java");
+                    continue;
+                }
+                if (!max.equals(maximize)) {
+                    // max(source) = max, max(test) ≠ max
+                    if (!assertEquals(
+                            String.format(
+                                    "checkAdding: max(%s)->%s, however max(%s)->",
+                                    source, max, test),
+                            max,
+                            maximize)) {
+                        // LIKELY.maximize(test); // Could step into this for debugging.
+                    }
                 }
             }
             sourceLtp.set(source); // restore

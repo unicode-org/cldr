@@ -48,6 +48,7 @@ import java.util.Set;
 import java.util.function.Function;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.AnnotationUtil;
 import org.unicode.cldr.util.CLDRConfig;
@@ -91,6 +92,36 @@ import org.unicode.cldr.util.personname.PersonNameFormatter.FormatParameters;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NameObject;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NamePattern;
 import org.unicode.cldr.util.personname.SimpleNameObject;
+
+import com.google.common.base.Joiner;
+import com.google.common.collect.ImmutableList;
+import com.ibm.icu.impl.Row.R3;
+import com.ibm.icu.impl.Utility;
+import com.ibm.icu.impl.number.DecimalQuantity;
+import com.ibm.icu.impl.number.DecimalQuantity_DualStorageBCD;
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.text.BreakIterator;
+import com.ibm.icu.text.DateFormat;
+import com.ibm.icu.text.DateFormatSymbols;
+import com.ibm.icu.text.DateTimePatternGenerator;
+import com.ibm.icu.text.DecimalFormat;
+import com.ibm.icu.text.DecimalFormatSymbols;
+import com.ibm.icu.text.ListFormatter;
+import com.ibm.icu.text.MessageFormat;
+import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.text.PluralRules;
+import com.ibm.icu.text.PluralRules.DecimalQuantitySamples;
+import com.ibm.icu.text.PluralRules.DecimalQuantitySamplesRange;
+import com.ibm.icu.text.PluralRules.Operand;
+import com.ibm.icu.text.PluralRules.SampleType;
+import com.ibm.icu.text.SimpleDateFormat;
+import com.ibm.icu.text.SimpleFormatter;
+import com.ibm.icu.text.UTF16;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.Calendar;
+import com.ibm.icu.util.Output;
+import com.ibm.icu.util.TimeZone;
+import com.ibm.icu.util.ULocale;
 
 /**
  * Class to generate examples and help messages for the Survey tool (or console version).
@@ -169,6 +200,9 @@ public class ExampleGenerator {
 
     private static final Date DATE_SAMPLE2;
     private static final Date DATE_SAMPLE3;
+    private static final Date DATE_SAMPLE4;
+    private static final Date DATE_SAMPLE5;
+    
 
     static {
         Calendar calendar = Calendar.getInstance(ZONE_SAMPLE, ULocale.ENGLISH);
@@ -179,6 +213,11 @@ public class ExampleGenerator {
         DATE_SAMPLE2 = calendar.getTime();
         calendar.set(1999, 8, 5, 7, 0, 0); // 1999-09-05 07:00:00
         DATE_SAMPLE3 = calendar.getTime();
+        calendar.set(1999, 8, 5, 23, 0, 0); // 1999-09-05 23:00:00
+        DATE_SAMPLE4 = calendar.getTime();
+
+        calendar.set(1999, 8, 5, 3, 25, 59); // 1999-09-05 03:25:59
+        DATE_SAMPLE5 = calendar.getTime();
     }
 
     static final List<DecimalQuantity> CURRENCY_SAMPLES =
@@ -2670,7 +2709,12 @@ public class ExampleGenerator {
                                                 + contextheader
                                                 + exampleEndSymbol
                                         : "";
-                        example = addExampleResult(sdf.format(DATE_SAMPLE), example, showContexts);
+                        String sup_twelve_example = sdf.format(DATE_SAMPLE);
+                        String sub_ten_example = sdf.format(DATE_SAMPLE5);
+                        example = addExampleResult(sup_twelve_example, example, showContexts);
+                        if (!sup_twelve_example.equals(sub_ten_example)) {
+                            example = addExampleResult(sub_ten_example, example, showContexts);
+                        }
                         return example;
                     }
                 } else {

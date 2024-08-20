@@ -1574,7 +1574,7 @@ XXX Code for transations where no currency is involved
 		<language type="fon" scripts="Latn"/>
 		<language type="fon" territories="BJ" alt="secondary"/>
 		<language type="fr" scripts="Latn" territories="BE BF BI BJ BL CA CD CF CG CH CI CM DJ DZ FR GA GF GN GP GQ HT KM LU MA MC MF MG ML MQ MU NC NE PF PM RE RW SC SN SY TD TG TN VU WF YT"/>
-		<language type="fr" scripts="Dupl" territories="DE GB IT NL PT RO TF US" alt="secondary"/>
+		<language type="fr" scripts="Dupl" territories="DE GB IT LB NL PT RO TF US" alt="secondary"/>
 		<language type="frc" scripts="Latn"/>
 		<language type="frm" scripts="Latn" alt="secondary"/>
 		<language type="fro" scripts="Latn" alt="secondary"/>
@@ -2740,9 +2740,9 @@ XXX Code for transations where no currency is involved
 		</territory>
 		<territory type="CH" gdp="733800000000" literacyPercent="99" population="8860570">	<!--Switzerland-->
 			<languagePopulation type="de" populationPercent="73" officialStatus="official"/>	<!--German-->
+			<languagePopulation type="fr" populationPercent="67" officialStatus="official" references="R1030"/>	<!--French-->
 			<languagePopulation type="gsw" writingPercent="5" populationPercent="65" officialStatus="de_facto_official" references="R1006"/>	<!--Swiss German-->
 			<languagePopulation type="en" populationPercent="61" references="R1137"/>	<!--English-->
-			<languagePopulation type="fr" populationPercent="21" officialStatus="official" references="R1137"/>	<!--French-->
 			<languagePopulation type="it" populationPercent="4.3" officialStatus="official"/>	<!--Italian-->
 			<languagePopulation type="lmo" writingPercent="5" populationPercent="4.1" references="R1086"/>	<!--Lombard-->
 			<languagePopulation type="pt" populationPercent="3.4" references="R1316"/>	<!--Portuguese-->
@@ -2900,10 +2900,10 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="en" populationPercent="99" officialStatus="de_facto_official" references="R1065"/>	<!--English-->
 		</territory>
 		<territory type="DJ" gdp="7380000000" literacyPercent="67.9" population="994974">	<!--Djibouti-->
+			<languagePopulation type="fr" populationPercent="50" officialStatus="official" references="R1030"/>	<!--French-->
 			<languagePopulation type="aa" populationPercent="42"/>	<!--Afar-->
 			<languagePopulation type="so" populationPercent="41"/>	<!--Somali-->
 			<languagePopulation type="ar" populationPercent="7.3" officialStatus="official"/>	<!--Arabic-->
-			<languagePopulation type="fr" populationPercent="2.1" officialStatus="official"/>	<!--French-->
 		</territory>
 		<territory type="DK" gdp="428400000000" literacyPercent="99" population="5973140">	<!--Denmark-->
 			<languagePopulation type="da" populationPercent="93" officialStatus="official"/>	<!--Danish-->
@@ -3189,7 +3189,7 @@ XXX Code for transations where no currency is involved
 		</territory>
 		<territory type="HT" gdp="34410000000" literacyPercent="48.7" population="11753900">	<!--Haiti-->
 			<languagePopulation type="ht" populationPercent="81" officialStatus="official" references="R1029"/>	<!--Haitian Creole-->
-			<languagePopulation type="fr" literacyPercent="100" populationPercent="4.7" officialStatus="official" references="R1030"/>	<!--French-->
+			<languagePopulation type="fr" literacyPercent="100" populationPercent="42" officialStatus="official" references="R1030"/>	<!--French-->
 		</territory>
 		<territory type="HU" gdp="388900000000" literacyPercent="99" population="9855750">	<!--Hungary-->
 			<languagePopulation type="hu" populationPercent="100" officialStatus="official"/>	<!--Hungarian-->
@@ -3496,9 +3496,9 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="apc" populationPercent="100" references="R1173"/>	<!--Levantine Arabic-->
 			<languagePopulation type="ar" populationPercent="86" officialStatus="official"/>	<!--Arabic-->
 			<languagePopulation type="en" populationPercent="40"/>	<!--English-->
+			<languagePopulation type="fr" populationPercent="38" references="R1030"/>	<!--French-->
 			<languagePopulation type="hy" populationPercent="5.2"/>	<!--Armenian-->
 			<languagePopulation type="ku_Arab" populationPercent="1.7"/>	<!--Kurdish (Arabic)-->
-			<languagePopulation type="fr" populationPercent="0.37"/>	<!--French-->
 		</territory>
 		<territory type="LC" gdp="4083000000" literacyPercent="90.1" population="168038">	<!--St. Lucia-->
 			<languagePopulation type="en" populationPercent="90" officialStatus="official"/>	<!--English-->
@@ -3555,8 +3555,8 @@ XXX Code for transations where no currency is involved
 		<territory type="MA" gdp="337500000000" literacyPercent="67.1" population="37387600">	<!--Morocco-->
 			<languagePopulation type="ary" populationPercent="87"/>	<!--Moroccan Arabic-->
 			<languagePopulation type="ar" populationPercent="62" officialStatus="official"/>	<!--Arabic-->
+			<languagePopulation type="fr" populationPercent="35" officialStatus="de_facto_official" references="R1030"/>	<!--French-->
 			<languagePopulation type="zgh" populationPercent="22" references="R1254"/>	<!--Standard Moroccan Tamazight-->
-			<languagePopulation type="fr" populationPercent="20" officialStatus="de_facto_official" references="R1050"/>	<!--French-->
 			<languagePopulation type="en" populationPercent="14" references="R1050"/>	<!--English-->
 			<languagePopulation type="tzm" literacyPercent="25" populationPercent="9.8" officialStatus="official"/>	<!--Central Atlas Tamazight-->
 			<languagePopulation type="shi" populationPercent="8.7"/>	<!--Tachelhit-->
@@ -3660,10 +3660,10 @@ XXX Code for transations where no currency is involved
 		</territory>
 		<territory type="MU" gdp="33530000000" literacyPercent="88.8" population="1310500">	<!--Mauritius-->
 			<languagePopulation type="mfe" populationPercent="90"/>	<!--Morisyen-->
+			<languagePopulation type="fr" populationPercent="73" officialStatus="official" references="R1030"/>	<!--French-->
 			<languagePopulation type="en" populationPercent="72" officialStatus="official" references="R1152"/>	<!--English-->
 			<languagePopulation type="bho" populationPercent="27"/>	<!--Bhojpuri-->
 			<languagePopulation type="ur" populationPercent="5.2"/>	<!--Urdu-->
-			<languagePopulation type="fr" populationPercent="3" officialStatus="official"/>	<!--French-->
 			<languagePopulation type="ta" populationPercent="2.5"/>	<!--Tamil-->
 		</territory>
 		<territory type="MV" gdp="11650000000" literacyPercent="98.4" population="388858">	<!--Maldives-->
@@ -4226,7 +4226,7 @@ XXX Code for transations where no currency is involved
 		<territory type="TN" gdp="153600000000" literacyPercent="79.1" population="12048800">	<!--Tunisia-->
 			<languagePopulation type="aeb" populationPercent="90"/>	<!--Tunisian Arabic-->
 			<languagePopulation type="ar" populationPercent="90" officialStatus="official"/>	<!--Arabic-->
-			<languagePopulation type="fr" populationPercent="74" officialStatus="official" references="R1132"/>	<!--French-->
+			<languagePopulation type="fr" populationPercent="52" officialStatus="official" references="R1030"/>	<!--French-->
 		</territory>
 		<territory type="TO" gdp="700400000" literacyPercent="99" population="104889">	<!--Tonga-->
 			<languagePopulation type="to" populationPercent="95" officialStatus="official"/>	<!--Tongan-->
@@ -5518,7 +5518,7 @@ XXX Code for transations where no currency is involved
 		<reference type="R1027" uri="https://www.cia.gov/cia/publications/factbook/geos/pu.html">Many minor langs; Portuguese official</reference>
 		<reference type="R1028" uri="http://www.seasite.niu.edu/tagalog/essays_on_philippine_languages.htm">In this and other sources, such as Ethnologue, there is no estimate for number of users. http://en.wikipedia.org/wiki/Filipino_language http://www.ethnologue.com/show_language.asp?code=fil </reference>
 		<reference type="R1029" uri="http://www.ethnologue.com/show_language.asp?code=hat">Most of the population uses Creole; see also http://www.country-studies.com/haiti/creole,-literacy,-and-education.html http://en.wikipedia.org/wiki/French_language#Haiti</reference>
-		<reference type="R1030" uri="http://www.ethnologue.com/show_language.asp?code=fra">400k 2nd language speakers</reference>
+		<reference type="R1030" uri="https://www.francophonie.org/sites/default/files/2021-04/LFDM-20Edition-2019-La-langue-fran%C3%A7aise-dans-le-monde.pdf">[missing]</reference>
 		<reference type="R1031" uri="http://www.ethnologue.com/show_country.asp?name=CV">Official language, 37-77% literacy</reference>
 		<reference type="R1032" uri="http://www.ethnologue.com/show_country.asp?name=ER">Official language, used in some schools.</reference>
 		<reference type="R1033" uri="http://www.ciil.org/Main/Announcement/MBE_Programme/paper/paper2.htm">http://www.censusindia.net/cendat/datatable26.html</reference>
@@ -5620,7 +5620,6 @@ XXX Code for transations where no currency is involved
 		<reference type="R1129" uri="http://www.ethnologue.com/show_language.asp?code=skr">[missing]</reference>
 		<reference type="R1130" uri="http://en.wikipedia.org/wiki/R%C3%A9union">- Education is in French; using literacy rate * pop for French-using population</reference>
 		<reference type="R1131" uri="http://en.wikipedia.org/wiki/Singapore">  English is the first language learned by half the children by the time they reach preschool age; using 92.6% of pop for the English figure</reference>
-		<reference type="R1132" uri="http://en.wikipedia.org/wiki/Tunisia#Language">- using pop * literacy rate</reference>
 		<reference type="R1133" uri="http://en.wikipedia.org/wiki/Swahili_language">- 90 percent of approximately 39 million Tanzanians speak Swahili</reference>
 		<reference type="R1134" uri="http://en.wikipedia.org/wiki/Swahili_language">- Baganda generally don't speak Swahili, but it is in common use among the 25 million people elsewhere in the country, and is currently being implemented in schools nationwide (use 75% of Cpop for this figure)</reference>
 		<reference type="R1135" uri="https://en.wikipedia.org/wiki/Talian_dialect">[missing]</reference>

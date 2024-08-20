@@ -14,7 +14,6 @@ import com.ibm.icu.util.ULocale;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.io.UncheckedIOException;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
@@ -53,7 +52,7 @@ public class ShowPlurals {
         try {
             new ShowPlurals().printPlurals(english, null, pw, cldrFactory);
         } catch (IOException e) {
-            throw new UncheckedIOException(e);
+            throw new ICUUncheckedIOException(e);
         }
     }
 

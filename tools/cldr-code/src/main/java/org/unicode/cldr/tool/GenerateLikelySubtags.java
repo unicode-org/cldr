@@ -31,8 +31,6 @@ import java.util.TreeSet;
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
-import org.unicode.cldr.tool.GenerateMaximalLocales.LocaleOverride;
-import org.unicode.cldr.tool.GenerateMaximalLocales.LocaleStringComparator;
 import org.unicode.cldr.tool.LangTagsData.Errors;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.tool.Option.Params;
@@ -62,6 +60,18 @@ import org.unicode.cldr.util.Validity.Status;
  * GenerateLikelyAdditions.
  */
 public class GenerateLikelySubtags {
+
+    public enum OutputStyle {
+        PLAINTEXT,
+        C,
+        C_ALT,
+        XML
+    }
+
+    public enum LocaleOverride {
+        KEEP_EXISTING,
+        REPLACE_EXISTING
+    }
 
     private static final Joiner JOIN_TAB = Joiner.on('\t').useForNull("∅");
 
@@ -626,11 +636,8 @@ public class GenerateLikelySubtags {
         }
     }
 
-    /**
-     * Compare locales, first by count of components (handling und), then by language, script, and
-     * finally region
-     */
-    static Comparator<String> LOCALE_SOURCE =
+    /** Compare locales, putting und.* last. */
+    public static Comparator<String> LOCALE_SOURCE =
             new Comparator<>() {
 
                 @Override
@@ -640,7 +647,6 @@ public class GenerateLikelySubtags {
                     // sort items with 0 components first, then 1, then 2 (there won't be 3)
                     int result =
                             ComparisonChain.start()
-                                    // .compare(getMask(l1), getMask(l2))
                                     .compare(getLanguage(l1), getLanguage(l2))
                                     .compare(getScript(l1), getScript(l2))
                                     .compare(getRegion(l1), getRegion(l2))
@@ -684,13 +690,6 @@ public class GenerateLikelySubtags {
         } catch (Exception e) {
         }
         return "n/a";
-    }
-
-    enum OutputStyle {
-        PLAINTEXT,
-        C,
-        C_ALT,
-        XML
     }
 
     private static OutputStyle OUTPUT_STYLE =
@@ -1710,7 +1709,7 @@ public class GenerateLikelySubtags {
             Map<String, String> origins,
             boolean first,
             PrintWriter out) {
-        Set<String> keys = new TreeSet<>(new LocaleStringComparator());
+        Set<String> keys = new TreeSet<>(LOCALE_SOURCE);
         keys.addAll(toPrint.keySet());
         boolean noUndYet = true;
         for (String printingLocale : keys) {

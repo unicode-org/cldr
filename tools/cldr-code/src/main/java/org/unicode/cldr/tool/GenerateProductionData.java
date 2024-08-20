@@ -7,12 +7,12 @@ import com.google.common.collect.ImmutableSortedSet;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
 import com.google.common.io.Files;
+import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.Output;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.UncheckedIOException;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
@@ -530,7 +530,7 @@ public class GenerateProductionData {
                 stats.retained += toRetain.size();
                 stats.remaining += count;
             } catch (FileNotFoundException e) {
-                throw new UncheckedIOException(
+                throw new ICUUncheckedIOException(
                         "Can't copy " + sourceFile + " to " + destinationFile + " — ", e);
             }
             return !gotOne;

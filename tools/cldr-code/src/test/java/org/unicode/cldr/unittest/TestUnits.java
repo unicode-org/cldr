@@ -40,7 +40,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-import java.io.UncheckedIOException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.MathContext;
@@ -4173,7 +4172,7 @@ public class TestUnits extends TestFmwk {
                 warnln("Mixed unit identifiers not yet checked, count=" + warnings.size());
             }
         } catch (IOException e) {
-            throw new UncheckedIOException(e);
+            throw new ICUUncheckedIOException(e);
         }
     }
 
@@ -4247,7 +4246,7 @@ public class TestUnits extends TestFmwk {
             Files.lines(Path.of(CLDRPaths.TEST_DATA + "units/unitsTest.txt"))
                     .forEach(line -> checkUnitsTest(line));
         } catch (IOException e) {
-            throw new UncheckedIOException(e);
+            throw new ICUUncheckedIOException(e);
         }
     }
 
@@ -4292,7 +4291,7 @@ public class TestUnits extends TestFmwk {
             Files.lines(Path.of(CLDRPaths.TEST_DATA + "units/unitLocalePreferencesTest.txt"))
                     .forEach(line -> checkUnitLocalePreferencesTest(line));
         } catch (IOException e) {
-            throw new UncheckedIOException(e);
+            throw new ICUUncheckedIOException(e);
         }
     }
 
@@ -4373,7 +4372,7 @@ public class TestUnits extends TestFmwk {
                 Files.lines(Path.of(CLDRPaths.TEST_DATA + "units/unitLocalePreferencesTest.txt"))
                         .forEach(line -> checkUnitLocalePreferencesTestIcu(line));
             } catch (IOException e) {
-                throw new UncheckedIOException(e);
+                throw new ICUUncheckedIOException(e);
             }
         } else {
             warnln("Skipping ICU test. To enable, set -DTestUnits:TEST_ICU");

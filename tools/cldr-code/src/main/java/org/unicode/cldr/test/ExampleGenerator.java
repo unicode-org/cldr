@@ -1,34 +1,5 @@
 package org.unicode.cldr.test;
 
-import com.google.common.base.Joiner;
-import com.google.common.collect.ImmutableList;
-import com.ibm.icu.impl.Row.R3;
-import com.ibm.icu.impl.Utility;
-import com.ibm.icu.impl.number.DecimalQuantity;
-import com.ibm.icu.impl.number.DecimalQuantity_DualStorageBCD;
-import com.ibm.icu.lang.UCharacter;
-import com.ibm.icu.text.BreakIterator;
-import com.ibm.icu.text.DateFormat;
-import com.ibm.icu.text.DateFormatSymbols;
-import com.ibm.icu.text.DateTimePatternGenerator;
-import com.ibm.icu.text.DecimalFormat;
-import com.ibm.icu.text.DecimalFormatSymbols;
-import com.ibm.icu.text.ListFormatter;
-import com.ibm.icu.text.MessageFormat;
-import com.ibm.icu.text.NumberFormat;
-import com.ibm.icu.text.PluralRules;
-import com.ibm.icu.text.PluralRules.DecimalQuantitySamples;
-import com.ibm.icu.text.PluralRules.DecimalQuantitySamplesRange;
-import com.ibm.icu.text.PluralRules.Operand;
-import com.ibm.icu.text.PluralRules.SampleType;
-import com.ibm.icu.text.SimpleDateFormat;
-import com.ibm.icu.text.SimpleFormatter;
-import com.ibm.icu.text.UTF16;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.Calendar;
-import com.ibm.icu.util.Output;
-import com.ibm.icu.util.TimeZone;
-import com.ibm.icu.util.ULocale;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.text.ChoiceFormat;
@@ -47,6 +18,7 @@ import java.util.Set;
 import java.util.function.Function;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.AnnotationUtil;
 import org.unicode.cldr.util.CLDRConfig;
@@ -90,6 +62,36 @@ import org.unicode.cldr.util.personname.PersonNameFormatter.FormatParameters;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NameObject;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NamePattern;
 import org.unicode.cldr.util.personname.SimpleNameObject;
+
+import com.google.common.base.Joiner;
+import com.google.common.collect.ImmutableList;
+import com.ibm.icu.impl.Row.R3;
+import com.ibm.icu.impl.Utility;
+import com.ibm.icu.impl.number.DecimalQuantity;
+import com.ibm.icu.impl.number.DecimalQuantity_DualStorageBCD;
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.text.BreakIterator;
+import com.ibm.icu.text.DateFormat;
+import com.ibm.icu.text.DateFormatSymbols;
+import com.ibm.icu.text.DateTimePatternGenerator;
+import com.ibm.icu.text.DecimalFormat;
+import com.ibm.icu.text.DecimalFormatSymbols;
+import com.ibm.icu.text.ListFormatter;
+import com.ibm.icu.text.MessageFormat;
+import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.text.PluralRules;
+import com.ibm.icu.text.PluralRules.DecimalQuantitySamples;
+import com.ibm.icu.text.PluralRules.DecimalQuantitySamplesRange;
+import com.ibm.icu.text.PluralRules.Operand;
+import com.ibm.icu.text.PluralRules.SampleType;
+import com.ibm.icu.text.SimpleDateFormat;
+import com.ibm.icu.text.SimpleFormatter;
+import com.ibm.icu.text.UTF16;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.Calendar;
+import com.ibm.icu.util.Output;
+import com.ibm.icu.util.TimeZone;
+import com.ibm.icu.util.ULocale;
 
 /**
  * Class to generate examples and help messages for the Survey tool (or console version).
@@ -2681,35 +2683,37 @@ public class ExampleGenerator {
 
         String numberSystem = parts.getAttributeValue(2, "numberSystem"); // null if not present
 
-        DecimalFormat df =
-                icuServiceBuilder.getCurrencyFormat(currency, currencySymbol, numberSystem);
-        df.applyPattern(value);
-
         String countValue = parts.getAttributeValue(-1, "count");
         if (countValue != null) {
+            DecimalFormat df =
+                icuServiceBuilder.getCurrencyFormat(currency, currencySymbol, numberSystem);
+            df.applyPattern(value);
             return formatCountDecimal(df, countValue);
         }
 
-        double sampleAmount = 1295.00;
-        example = addExampleResult(formatNumber(df, sampleAmount), example, showContexts);
-        example = addExampleResult(formatNumber(df, -sampleAmount), example, showContexts);
-
-        if (showContexts && !altAlpha) {
-            // If this example is not for alt="alphaNextToNumber", then if the currency symbol
-            // above has letters (strong dir) add another example with non-letter symbol
-            // (weak or neutral), or vice versa
-            if (symbolIsLetters(currencySymbol, false)) {
-                currency = "EUR";
-                checkPath = "//ldml/numbers/currencies/currency[@type=\"" + currency + "\"]/symbol";
-                currencySymbol = cldrFile.getWinningValue(checkPath);
-            } else {
-                currencySymbol = currency;
-            }
-            df = icuServiceBuilder.getCurrencyFormat(currency, currencySymbol, numberSystem);
-            df.applyPattern(value);
-            example = addExampleResult(formatNumber(df, sampleAmount), example, showContexts);
-            example = addExampleResult(formatNumber(df, -sampleAmount), example, showContexts);
+        String symbol_eur;
+        String symbol_usd;
+        boolean symbol_first = value.charAt(0) == '¤';
+        if (altAlpha) {
+            symbol_eur = "EUR";
+            symbol_usd = symbol_first ? "$USD" : "USD$";
         }
+        else {
+            symbol_eur = "€";
+            symbol_usd = symbol_first ? "USD$" : "$USD";
+        }
+        
+        String pattern_eur = value.replace("¤", symbol_eur);
+        String pattern_usd = value.replace("¤", symbol_usd);
+       
+        DecimalFormat df_eur = icuServiceBuilder.getNumberFormat(pattern_eur, numberSystem);
+        DecimalFormat df_usd = icuServiceBuilder.getNumberFormat(pattern_usd, numberSystem);
+
+        double sampleAmount = 1295.00;
+        example = addExampleResult(formatNumber(df_eur, sampleAmount), example, showContexts);
+        example = addExampleResult(formatNumber(df_eur, -sampleAmount), example, showContexts);
+        example = addExampleResult(formatNumber(df_usd, sampleAmount), example, showContexts);
+        example = addExampleResult(formatNumber(df_usd, -sampleAmount), example, showContexts);
 
         return example;
     }

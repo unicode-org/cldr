@@ -11,14 +11,17 @@ CLDR data is used by all [major software systems](https://cldr.unicode.org/index
 
 The largest changes in this release were the updates to Unicode 16.0 and substantial additions of Emoji search keyword data.
 
-± | New Coverage Level | Locales
+### Changed Coverage Levels
+± | New Level | Locales
 -- | --|--
 📈 | Modern | Nigerian Pidgin, Tigrinya
 📈 | Moderate | Akan, Baluchi (Latin), Kangri, Tajik, Tatar, Wolof
 📈 | Basic | Ewe, Ga, Kinyarwanda, Konkani (Latin), Northern Sotho, Oromo, Sichuan Yi, Southern Sotho, Tswana
 📉 | Basic* | Chuvash, Anii
 
-\* Note: Above Basic, the ‘bar’ for each release increases. So locales without active contributors may backslide
+\* Note: Above Basic, the ‘bar’ raises for each release. So locales without active contributors may backslide.
+
+For a full listing, see [Coverage Levels](https://unicode.org/cldr/charts/46/supplemental/locale_coverage.html)
 
 ## [Specification Changes](http://www.unicode.org/reports/tr35/tr35.html)
 

@@ -442,6 +442,13 @@ public class ExampleGenerator {
         return result;
     }
 
+    // New method that supplies a list
+    private String constructExampleHtml(String xpath, String value, boolean nonTrivial) {
+        List<String> examples = new ArrayList<>();
+        constructExampleHtmlExtended(xpath, value, nonTrivial, examples); // would be void once all handlers are modified
+        return formatExampleList(examples);
+    }
+
     /**
      * Do the main work of getExampleHtml given that the result was not found in the cache.
      *
@@ -451,7 +458,7 @@ public class ExampleGenerator {
      *     markup)
      * @return the example HTML, or null
      */
-    private String constructExampleHtml(String xpath, String value, boolean nonTrivial) {
+    private String constructExampleHtmlExtended(String xpath, String value, boolean nonTrivial, List<String> examples) {
         String result = null;
         boolean showContexts =
                 isRTL || BIDI_MARKS.containsSome(value); // only used for certain example types
@@ -461,7 +468,7 @@ public class ExampleGenerator {
          */
         XPathParts parts = XPathParts.getFrozenInstance(xpath).cloneAsThawed();
         if (parts.contains("dateRangePattern")) { // {0} - {1}
-            result = handleDateRangePattern(value);
+            handleDateRangePattern(value, examples); // modified to add lines to examples, void
         } else if (parts.contains("timeZoneNames")) {
             result = handleTimeZoneName(parts, value);
         } else if (parts.contains("localeDisplayNames")) {
@@ -2850,15 +2857,12 @@ public class ExampleGenerator {
         return null;
     }
 
-    private String handleDateRangePattern(String value) {
-        String result;
+    private void handleDateRangePattern(String value, List<String> examples) {
         SimpleDateFormat dateFormat = icuServiceBuilder.getDateFormat("gregorian", 2, 0);
-        result =
-                format(
-                        value,
-                        setBackground(dateFormat.format(DATE_SAMPLE)),
-                        setBackground(dateFormat.format(DATE_SAMPLE2)));
-        return result;
+        examples.add(format(
+            value,
+            setBackground(dateFormat.format(DATE_SAMPLE)),
+            setBackground(dateFormat.format(DATE_SAMPLE2))));
     }
 
     /**

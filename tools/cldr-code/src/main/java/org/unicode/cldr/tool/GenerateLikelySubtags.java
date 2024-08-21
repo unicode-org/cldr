@@ -421,9 +421,9 @@ public class GenerateLikelySubtags {
                                 {"und_Kana", "ja_Kana_JP"},
                                 {"und_Kana_JP", "ja_Kana_JP"},
                                 {"und_Latn", "en_Latn_US"},
-                                {"und_001", "en_Latn_US"}, // to not be overridden by tok_Latn_001
+                                {"und_001", "en_Latn_001"}, // to not be overridden by tok_Latn_001
                                 {
-                                    "und_Latn_001", "en_Latn_US"
+                                    "und_Latn_001", "en_Latn_001"
                                 }, // to not be overridden by tok_Latn_001
                                 {"und_Latn_ET", "en_Latn_ET"},
                                 {"und_Latn_NE", "ha_Latn_NE"},

@@ -15,6 +15,7 @@ import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
+@Deprecated
 public class GenerateLikelySubtagTests {
     private static final String SEPARATOR = CldrUtility.LINE_SEPARATOR;
     private static final OutputStyle OUTPUT_STYLE = OutputStyle.XML;
@@ -25,6 +26,10 @@ public class GenerateLikelySubtagTests {
     private static final String VERSION = CLDRFile.GEN_VERSION;
 
     public static void main(String[] args) throws IOException {
+        if (true) {
+            throw new IllegalArgumentException(
+                    "Deprecated — it appears that we don't need this, but keeping until we are sure.");
+        }
         out =
                 FileUtilities.openUTF8Writer(
                         CLDRPaths.GEN_DIRECTORY,

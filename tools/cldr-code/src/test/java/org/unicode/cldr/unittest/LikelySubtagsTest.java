@@ -890,4 +890,24 @@ public class LikelySubtagsTest extends TestFmwk {
             }
         }
     }
+
+    public void testConflicts() {
+        // All explicit codes must be in the maximum value
+
+        for (Entry<String, String> entry : likely.entrySet()) {
+            final CLDRLocale source = CLDRLocale.getInstance(entry.getKey());
+            final CLDRLocale target = CLDRLocale.getInstance(entry.getValue());
+            final String info = entry.getKey() + " ➡︎ " + entry.getValue();
+
+            if (!source.getLanguage().equals("und")) {
+                assertEquals("Language: " + info, source.getLanguage(), target.getLanguage());
+            }
+            if (!source.getScript().isEmpty()) {
+                assertEquals("Script: " + info, source.getScript(), target.getScript());
+            }
+            if (!source.getRegion().isEmpty()) {
+                assertEquals("Region: " + info, source.getRegion(), target.getRegion());
+            }
+        }
+    }
 }

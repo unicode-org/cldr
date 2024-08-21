@@ -333,7 +333,6 @@ public class TestDataTest extends TestFmwkPlus {
 
                  */
         String source = parts.get(0);
-
         final String expectedMax = parts.get(1);
 
         // if the maxLang is empty, we have no data for the language

@@ -25,10 +25,6 @@ public class GenerateLikelySubtagTests {
     private static final String VERSION = CLDRFile.GEN_VERSION;
 
     public static void main(String[] args) throws IOException {
-        if (true) {
-            throw new IllegalArgumentException(
-                    "This tool should not be used in its current state.");
-        }
         out =
                 FileUtilities.openUTF8Writer(
                         CLDRPaths.GEN_DIRECTORY,

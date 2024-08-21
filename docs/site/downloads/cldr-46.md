@@ -9,7 +9,7 @@
 Unicode CLDR provides key building blocks for software supporting the world's languages. 
 CLDR data is used by all [major software systems](https://cldr.unicode.org/index#TOC-Who-uses-CLDR-) (including all mobile phones) for their software internationalization and localization, adapting software to the conventions of different languages.
 
-The largest changes in this release were the updates to Unicode 16.0 and substantial additions of Emoji search keyword data.
+The largest changes in this release were the updates to Unicode 16.0, substantial additions of Emoji search keyword data, and ‘upleveling’ the locale coverage.
 
 ### Locale Coverage Status
 #### Current Levels

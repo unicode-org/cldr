@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2023 Unicode, Inc.
-SPDX-License-Identifier: Unicode-3.0
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
-For terms of use, see http://www.unicode.org/copyright.html
+Copyright © 1991-2024 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (https://unicode.org/reports/tr35/)
+For terms of use and license, see https://www.unicode.org/terms_of_use.html
 -->
 <ldml>
 	<identity>
@@ -115,7 +114,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<variable id="$ZWJ">\p{Line_Break=ZWJ}</variable>
 				<variable id="$QU_Pi">[$QU &amp; \p{gc=Pi}]</variable>
 				<variable id="$QU_Pf">[$QU &amp; \p{gc=Pf}]</variable>
+				<variable id="$QUmPi">[$QU - \p{gc=Pi}]</variable>
+				<variable id="$QUmPf">[$QU - \p{gc=Pf}]</variable>
+				<variable id="$NotEastAsian">[^\p{ea=F}\p{ea=W}\p{ea=H}]</variable>
+				<variable id="$NonEastAsianBA">[$BA &amp; $NotEastAsian]</variable>
 				<variable id="$DottedCircle">◌</variable>
+				<variable id="$Hyphen">[\u2010]</variable>
 				<variable id="$CP30">[$CP-[\p{ea=F}\p{ea=W}\p{ea=H}]]</variable>
 				<variable id="$OP30">[$OP-[\p{ea=F}\p{ea=W}\p{ea=H}]]</variable>
 				<variable id="$ExtPictUnassigned">[\p{Extended_Pictographic}&amp;\p{gc=Cn}]</variable>
@@ -184,12 +188,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<variable id="$ZWJ">($ZWJ $X)</variable>
 				<variable id="$QU_Pi">($QU_Pi $X)</variable>
 				<variable id="$QU_Pf">($QU_Pf $X)</variable>
+				<variable id="$QUmPi">($QUmPi $X)</variable>
+				<variable id="$QUmPf">($QUmPf $X)</variable>
+				<variable id="$NotEastAsian">( $NotEastAsian | [$NotEastAsian - $Spec1_] $X)</variable>
+				<variable id="$NonEastAsianBA">(NonEastAsianBA $X)</variable>
 				<variable id="$DottedCircle">($DottedCircle $X)</variable>
+				<variable id="$Hyphen">($Hyphen $X)</variable>
 				<variable id="$CP30">($CP30 $X)</variable>
 				<variable id="$OP30">($OP30 $X)</variable>
 				<!-- OUT OF ORDER ON PURPOSE -->
-				<!-- LB 10  Treat any remaining combining mark as AL. -->
+				<!-- LB 10  Treat any remaining combining mark as AL and non-$EastAsian. -->
 				<variable id="$AL">($AL | ^ $CM | (?&lt;=$Spec1_) $CM)</variable>
+				<variable id="$NotEastAsian">( $NotEastAsian | ^ $CM | (?&lt;=$Spec1_) $CM )</variable>
 			</variables>
 			<segmentRules>
 				<!-- RULES -->
@@ -220,11 +230,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<rule id="12.2"> $Spec3b_ $CM+ × $GL </rule>
 				<rule id="12.3"> ^ $CM+ × $GL </rule>
 				<!-- LB 13  Do not break before \u2018]\u2019 or \u2018!\u2019 or \u2018;\u2019 or \u2018/\u2019, even after spaces. -->
-				<!-- Using customization 7. -->
 				<rule id="13.01"> × $EX </rule>
-				<rule id="13.02"> $Spec4_ × ($CL | $CP | $IS | $SY) </rule>
-				<rule id="13.03"> $Spec4_ $CM+ × ($CL | $CP | $IS | $SY) </rule>
-				<rule id="13.04"> ^ $CM+ × ($CL | $CP | $IS | $SY) </rule>
+				<rule id="13.02"> × $CL </rule>
+				<rule id="13.03"> × $CP </rule>
+				<rule id="13.04"> × $SY </rule>
 				<!-- LB 14  Do not break after \u2018[\u2019, even after spaces. -->
 				<rule id="14"> $OP $SP* × </rule>
 				<!-- LB 15a Do not break after an unresolved initial punctuation that lies at the start of the line, -->
@@ -234,6 +243,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<!-- LB 15b Do not break before an unresolved final punctuation that lies at the end of the line, before -->
 				<!-- a space, before a prohibited break, or before an unresolved quotation mark, even before spaces. -->
 				<rule id="15.21"> × $QU_Pf ( $SP | $GL | $WJ | $CL | $QU | $CP | $EX | $IS | $SY | $BK | $CR | $LF | $NL | $ZW | $eot ) </rule>
+				<!-- LB 15c Break before numbers starting with a decimal mark. -->
+				<rule id="15.3"> $SP ÷ $IS $NU </rule>
+				<!-- LB 15d Otherwise, do not break before commas or full stops. -->
+				<rule id="15.4"> × $IS </rule>
 				<!-- LB 16  Do not break between closing punctuation and a nonstarter (lb=NS), even with intervening spaces. -->
 				<rule id="16"> ($CL | $CP) $SP* × $NS </rule>
 				<!-- LB 17  Do not break within \u2018\u2014\u2014\u2019, even with intervening spaces. -->
@@ -241,18 +254,25 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<!-- LB 18  Break after spaces. -->
 				<rule id="18"> $SP ÷ </rule>
 				<!-- LB 19  Do not break before or after \u2018\"\u2019. -->
-				<rule id="19.01"> × $QU </rule>
-				<rule id="19.02"> $QU × </rule>
+				<rule id="19.01"> × $QUmPi </rule>
+				<rule id="19.02"> $QUmPf × </rule>
+				<!-- LB 19a Unless surrounded by East Asian Characters, do not break either side of any unresolved quotation marks. -->
+				<rule id="19.1"> $NotEastAsian × $QU </rule>
+				<rule id="19.11"> × $QU ( $NotEastAsian | $eot ) </rule>
+				<rule id="19.12"> $QU × $NotEastAsian </rule>
+				<rule id="19.13"> ( $sot | $NotEastAsian ) $QU × </rule>
 				<!-- LB 20  Break before and after unresolved CB. -->
 				<rule id="20.01"> ÷ $CB </rule>
 				<rule id="20.02"> $CB ÷ </rule>
+				<!-- LB 20a Do not break after a hyphen that follows break opportunity, a space, or the start of text. -->
+				<rule id="20.1"> ( $sot | $BK | $CR | $LF | $NL | $SP | $ZW | $CB | $GL ) ( $HY | $Hyphen ) × $AL </rule>
 				<!-- LB 21  Do not break before hyphen-minus, other hyphens, fixed-width spaces, small kana and other non-starters, or after acute accents. -->
 				<rule id="21.01"> × $BA </rule>
 				<rule id="21.02"> × $HY </rule>
 				<rule id="21.03"> × $NS </rule>
 				<rule id="21.04"> $BB × </rule>
-				<!-- LB 21a  Don't break after Hebrew + Hyphen. -->
-				<rule id="21.1"> $HL ($HY | $BA) × </rule>
+				<!-- LB 21a Do not break after the hyphen in Hebrew-hyphen-non-Hebrew. -->
+				<rule id="21.1"> $HL ($HY | $NonEastAsianBA) × [^$HL] </rule>
 				<!-- LB 21b Don’t break between Solidus and Hebrew letters. -->
 				<rule id="21.2"> $SY × $HL </rule>
 				<!-- LB 22  Do not break before ellipses. -->
@@ -266,14 +286,22 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<!-- LB24 Do not break between numeric prefix/postfix and letters, or between letters and prefix/postfix. -->
 				<rule id="24.02"> ($PR | $PO) × ($AL | $HL) </rule>
 				<rule id="24.03"> ($AL | $HL) × ($PR | $PO) </rule>
-				<!-- Using customization 7 -->
-				<!-- LB Alternative: ( PR | PO) ? ( OP | HY ) ? NU (NU | SY | IS) * (CL | CP) ? ( PR | PO) ? -->
-				<!-- Insert × every place it could go. However, make sure that at least one thing is concrete, otherwise would cause $NU to not break before or after -->
-				<rule id="25.01"> ($PR | $PO) × ( $OP | $HY )? $NU </rule>
-				<rule id="25.02"> ( $OP | $HY ) × $NU </rule>
-				<rule id="25.03"> $NU × ($NU | $SY | $IS) </rule>
-				<rule id="25.04"> $NU ($NU | $SY | $IS)* × ($NU | $SY | $IS | $CL | $CP) </rule>
-				<rule id="25.05"> $NU ($NU | $SY | $IS)* ($CL | $CP)? × ($PO | $PR) </rule>
+				<!-- LB 25 Do not break numbers. -->
+				<rule id="25.01"> $NU ( $SY | $IS )* $CL × $PO </rule>
+				<rule id="25.02"> $NU ( $SY | $IS )* $CP × $PO </rule>
+				<rule id="25.03"> $NU ( $SY | $IS )* $CL × $PR </rule>
+				<rule id="25.04"> $NU ( $SY | $IS )* $CP × $PR </rule>
+				<rule id="25.05"> $NU ( $SY | $IS )* × $PO </rule>
+				<rule id="25.06"> $NU ( $SY | $IS )* × $PR </rule>
+				<rule id="25.07"> $PO × $OP $NU </rule>
+				<rule id="25.08"> $PO × $OP $IS $NU </rule>
+				<rule id="25.09"> $PO × $NU </rule>
+				<rule id="25.1"> $PR × $OP $NU </rule>
+				<rule id="25.11"> $PR × $OP $IS $NU </rule>
+				<rule id="25.12"> $PR × $NU </rule>
+				<rule id="25.13"> $HY × $NU </rule>
+				<rule id="25.14"> $IS × $NU </rule>
+				<rule id="25.15"> $NU ( $SY | $IS )* × $NU </rule>
 				<!-- LB 26 Do not break a Korean syllable. -->
 				<rule id="26.01"> $JL × $JL | $JV | $H2 | $H3 </rule>
 				<rule id="26.02"> $JV | $H2 × $JV | $JT </rule>
@@ -376,7 +404,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<variable id="$Format">[\p{Word_Break=Format}]</variable>
 				<variable id="$Katakana">\p{Word_Break=Katakana}</variable>
 				<variable id="$ALetter">\p{Word_Break=ALetter}</variable>
-				<variable id="$MidLetter">[\p{Word_Break = MidLetter} - [\: \uFE55 \uFF1A]]</variable>
+				<variable id="$MidLetter">\p{Word_Break=MidLetter}</variable>
 				<variable id="$MidNum">\p{Word_Break=MidNum}</variable>
 				<variable id="$MidNumLet">\p{Word_Break=MidNumLet}</variable>
 				<variable id="$Numeric">\p{Word_Break=Numeric}</variable>

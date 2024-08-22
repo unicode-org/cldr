@@ -471,6 +471,16 @@ public class GenerateLanguageContainment {
         // childNames + "\t" + parentNames);
         //        }
         QUERY_HELPER.writeTsvs();
+        
+        writeDifferences(parentToChild);
+    }
+
+    private void writeDifferences(Multimap<String, String> parentToChild) {
+        System.out.println("\nReading old supplemental: may have unrelated errors.");
+        final SupplementalDataInfo oldSupplementalInfo =
+                SupplementalDataInfo.getInstance(
+                        CldrUtility.getPath(CLDRPaths.LAST_COMMON_DIRECTORY, "supplemental/"));
+        oldSupplementalInfo.contain
     }
 
     private static void showEntityLists(String title, Set<List<String>> ancestors) {

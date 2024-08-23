@@ -279,13 +279,13 @@ public class DiffLanguageGroups {
         }
     }
 
-    static String show(String languageCode) {
-        return languageCode.equals("mul")
-                ? "Ω"
-                : ENGLISH.getName(CLDRFile.LANGUAGE_NAME, languageCode).replace(" (Other)", "")
-                        + " ⁅"
-                        + languageCode
-                        + "⁆";
+    public static String show(String languageCode) {
+        return languageCode.equals("mul") ? "Ω" : getName(languageCode) + " ⁅" + languageCode + "⁆";
+    }
+
+    public static String getName(String languageCode) {
+        String result = ENGLISH.getName(CLDRFile.LANGUAGE_NAME, languageCode);
+        return result == null ? "(no name)" : result.replace(" (Other)", "");
     }
 
     public static void showErrors(String title, Multimap<String, String> oldErrors) {

@@ -77,6 +77,18 @@ For a full listing, see [¤¤BCP47 Delta](https://unicode.org/cldr/charts/46/del
 
 For a full listing, see [Delta Data](https://unicode.org/cldr/charts/46/delta/index.html)
 
+### Collation Data Changes
+There are two significant changes to the CLDR root collation (CLDR default sort order).
+#### Realigned With DUCET
+The [DUCET](https://www.unicode.org/reports/tr10/#Default_Unicode_Collation_Element_Table) is the Unicode Collation Algorithm default sort order. The [CLDR root collation](https://www.unicode.org/reports/tr35/tr35-collation.html#Root_Collation) is a tailoring of the DUCET. These sort orders have differed in the relative order of groups of characters including extenders, currency symbols, and non-decimal-digit numeric characters.
+
+Starting with CLDR 46 and Unicode 16.0, the order of these groups is the same. In both sort orders, non-decimal-digit numeric characters now sort after decimal digits, and the CLDR root collation no longer tailors any currency symbols (making some of them sort like letter sequences, as in the DUCET).
+
+These changes eliminate sort order differences among almost all regular characters between the CLDR root collation and the DUCET. See the [CLDR root collation](https://www.unicode.org/reports/tr35/tr35-collation.html#Root_Collation) documentation for details.
+
+#### Improved Han Radical-Stroke Order
+CLDR includes [data for sorting Han (CJK) characters in radical-stroke order](tr35-collation.md#File_Format_FractionalUCA_txt). It used to distinguish traditional and simplified forms of radicals on a higher level than sorting by the number of residual strokes. Starting with CLDR 46, the CLDR radical-stroke order matches that of the [Unicode Radical-Stroke Index (large PDF)](https://www.unicode.org/Public/UCD/latest/charts/RSIndex.pdf). [Its sorting algorithm is defined in UAX #38](https://www.unicode.org/reports/tr38/#SortingAlgorithm). Traditional vs. simplified forms of radicals are distinguished on a lower level than the number of residual strokes. This also has an effect on [alphabetic indexes](tr35-collation.md#Collation_Indexes) for radical-stroke sort orders, where only the traditional forms of radicals are now available as index characters.
+
 ### JSON Data Changes
 
 **TBD**

@@ -1,3 +1,7 @@
+---
+title: CLDR 46 Release Note
+---
+
 # CLDR 46 Release Note
 
 | No. |    Date    | Rel. Note |  Data  |  Charts  | Spec |   Delta  | GitHub Tag | Delta DTD | CLDR JSON |
@@ -6,7 +10,7 @@
 
 ## Overview
 
-Unicode CLDR provides key building blocks for software supporting the world's languages. 
+Unicode CLDR provides key building blocks for software supporting the world's languages.
 CLDR data is used by all [major software systems](https://cldr.unicode.org/index#TOC-Who-uses-CLDR-) (including all mobile phones) for their software internationalization and localization, adapting software to the conventions of different languages.
 
 The largest changes in this release were the updates to Unicode 16.0, substantial additions of Emoji search keyword data, and ‘upleveling’ the locale coverage.
@@ -21,12 +25,13 @@ Count | Level | Usage | Examples
 55 | Basic | Suitable for locale selection, eg. choice of language on mobile phone | Basa Sunda, emakhuwa, Esperanto, eʋegbe, Frysk, Malti, босански (ћирилица), କୁୱି (ଅଡ଼ିଆ), కువి (తెలుగు), ᱥᱟᱱᱛᱟᱲᱤ, ᓀᐦᐃᓇᐍᐏᐣ‬, ꆈꌠꉙ‎, …
 
 #### Changes
-± | New Level | Locales
--- | --|--
-📈 | Modern | Nigerian Pidgin, Tigrinya
-📈 | Moderate | Akan, Baluchi (Latin), Kangri, Tajik, Tatar, Wolof
-📈 | Basic | Ewe, Ga, Kinyarwanda, Konkani (Latin), Northern Sotho, Oromo, Sichuan Yi, Southern Sotho, Tswana
-📉 | Basic* | Chuvash, Anii
+
+| ± | New Level | Locales |
+| -- | -- | -- |
+| 📈 | Modern | Nigerian Pidgin, Tigrinya |
+| 📈 | Moderate | Akan, Baluchi (Latin), Kangri, Tajik, Tatar, Wolof |
+| 📈 | Basic | Ewe, Ga, Kinyarwanda, Konkani (Latin), Northern Sotho, Oromo, Sichuan Yi, Southern Sotho, Tswana |
+| 📉 | Basic* | Chuvash, Anii |
 
 \* Note: Above Basic, the ‘bar’ raises for each release. So locales without active contributors may backslide.
 
@@ -38,7 +43,7 @@ For a full listing, see [Coverage Levels](https://unicode.org/cldr/charts/46/sup
 
 ## Data Changes
 
-### DTD Changes 
+### DTD Changes
 
 1. Added alt='official' to represent cases where an official value differs from the customary value. Currently added for a small number of language names, decimal separators, and grouping separators
 **TBD**
@@ -72,7 +77,7 @@ For a full listing, see [¤¤BCP47 Delta](https://unicode.org/cldr/charts/46/del
 	3. Revision of many search keywords to break up phrases
 2. Major changes to Chinese collation, reflecting new data in Unicode 16.0
 3. Other changes
-    a. Locales also had smaller improvements agreed to by translators. 
+    a. Locales also had smaller improvements agreed to by translators.
 **TBD**
 
 For a full listing, see [Delta Data](https://unicode.org/cldr/charts/46/delta/index.html)
@@ -121,5 +126,3 @@ Many people have made significant contributions to CLDR and LDML; see the [Ackno
 The Unicode [Terms of Use](https://unicode.org/copyright.html) apply to CLDR data; in particular, see [Exhibit 1](https://unicode.org/copyright.html#Exhibit1).
 
 For web pages with different views of CLDR data, see [http://cldr.unicode.org/index/charts](https://cldr.unicode.org/index/charts).
-
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>{{ page.title }}</title>
+	<link rel="stylesheet" href="/site/assets/css/reports-v2.css" />
+	<link rel="stylesheet" href="/site/assets/css/page.css" />
+</head>
+
+<body>
+	<!-- <h1>{{ page.title }}</h1> -->
+	<header>
+		<div class="icon"><a href="http://www.unicode.org/"> <img border="0"
+					src="http://www.unicode.org/webscripts/logo60s2.gif" align="middle" alt="[Unicode]" width="34"
+					height="33"></a>&nbsp;&nbsp;
+			<a class="bar" href="/">
+				<font size="3">
+					CLDR Site / {{page.title}}
+				</font>
+			</a>
+		</div>
+		<div class="bar"><a href="http://www.unicode.org" class="bar">Home</a>
+			| <a href="http://www.unicode.org/sitemap/" class="bar">Site
+				Map</a> | <a href="http://www.unicode.org/search/" class="bar">Search</a></div>
+	</header>
+
+	<section class="body">
+		{{ content }}
+	</section>
+	<footer>
+		© 1991-2024 Unicode, Inc. Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries. See <a href="https://www.unicode.org/copyright.html">Terms of Use</a>.
+	</footer>
+</body>
+
+</html>

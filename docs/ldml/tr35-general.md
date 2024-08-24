@@ -107,6 +107,8 @@ The LDML specification is divided into the following parts:
   * Table: [Element contextTransformUsage type attribute values](#contextTransformUsage_type_attribute_values)
 * [Choice Patterns](#Choice_Patterns)
 * [Annotations and Labels](#Annotations)
+  * [Usage Model](#usage-model)
+  * [cp attribute](#cp-attribute)
   * [Synthesizing Sequence Names](#SynthesizingNames)
     * [Table: Synthesized Emoji Sequence Names](#table-synthesized-emoji-sequence-names)
   * [Annotations Character Labels](#Character_Labels)

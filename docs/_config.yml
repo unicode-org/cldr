@@ -17,3 +17,16 @@ exclude:
 
 #include:
 #  - site/
+
+# _config.yml
+
+# everything under 'site' should default to the 'page' layout
+defaults:
+  - scope:
+      path: 'site'
+    values:
+      layout: page
+
+collections:
+  site:
+    output: true

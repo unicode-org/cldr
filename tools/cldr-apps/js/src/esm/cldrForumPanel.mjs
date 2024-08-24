@@ -12,6 +12,11 @@ import * as cldrSurvey from "./cldrSurvey.mjs";
 import * as cldrTable from "./cldrTable.mjs";
 import * as cldrText from "./cldrText.mjs";
 
+/**
+ * Encapsulate this class name -- caution: it's used literally in surveytool.css
+ */
+const FORUM_DIV_CLASS = "forumDiv";
+
 const forumCache = new cldrCache.LRU();
 
 /**
@@ -38,7 +43,7 @@ function loadInfo(frag, tr, theRow) {
   cldrForum.setUserCanPost(tr.theTable.json.canModify);
   addTopButtons(theRow, frag);
   const div = document.createElement("div");
-  div.className = cldrForum.FORUM_DIV_CLASS;
+  div.className = FORUM_DIV_CLASS;
   const cachedData = forumCache.get(makeCacheKey(theRow.xpstrid));
   if (cachedData) {
     setPostsFromData(frag, div, cachedData, theRow.xpstrid);
@@ -174,9 +179,9 @@ function updatePosts(tr) {
         const content = getForumContent(posts, theRow.xpstrid);
 
         /*
-         * Update the first element whose class is cldrForum.FORUM_DIV_CLASS.
+         * Update the first element whose class is FORUM_DIV_CLASS.
          */
-        $("." + cldrForum.FORUM_DIV_CLASS)
+        $("." + FORUM_DIV_CLASS)
           .first()
           .html(content);
       }

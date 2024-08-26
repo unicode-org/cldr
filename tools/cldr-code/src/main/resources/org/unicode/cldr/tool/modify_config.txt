@@ -1,134 +1,487 @@
-# Fix hebrew units
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-jigger"]/unitPattern[@count="one"];	new_value={0} ג׳יגר
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-pinch"]/unitPattern[@count="one"];	new_value={0} פינץ׳
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="duration-hour"]/unitPattern[@count="one"];	new_value={0} שע׳
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="length-solar-radius"]/unitPattern[@count="other"];	new_value={0} R☉\x{200E}
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="length-foot"]/perUnitPattern;	new_value={0} \x{200E}/ft
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="length-inch"]/perUnitPattern;	new_value={0} \x{200E}/in
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="length-micrometer"]/unitPattern[@count="other"];	new_value={0} μm
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="mass-tonne"]/unitPattern[@count="one"];	new_value={0} t
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="angle-revolution"]/unitPattern[@count="one"];	new_value={0} סיבוב
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="angle-arc-minute"]/unitPattern[@count="one"];	new_value={0} דקת קשת
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="angle-arc-second"]/unitPattern[@count="one"];	new_value={0} שניית קשת
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="area-square-kilometer"]/unitPattern[@count="one"];	new_value={0} קילומטר רבוע
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="area-hectare"]/unitPattern[@count="one"];	new_value={0} הקטאר
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="area-square-meter"]/unitPattern[@count="one"];	new_value={0} מטר רבוע
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="area-square-centimeter"]/unitPattern[@count="one"];	new_value={0} סנטימטר רבוע
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="area-square-mile"]/unitPattern[@count="one"];	new_value={0} מייל רבוע
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="area-acre"]/unitPattern[@count="one"];	new_value={0} אקר
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="area-square-yard"]/unitPattern[@count="one"];	new_value={0} יארד רבוע
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="area-square-foot"]/unitPattern[@count="one"];	new_value={0} רגל רבועה
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="area-square-inch"]/unitPattern[@count="one"];	new_value={0} אינץ׳ רבוע
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="concentr-permyriad"]/unitPattern[@count="one"];	new_value={0} רבבית
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="digital-terabyte"]/unitPattern[@count="one"];	new_value={0} טרה-בייט
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="digital-terabyte"]/unitPattern[@count="two"];	new_value={0} טרה-בייט
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="digital-terabyte"]/unitPattern[@count="many"];	new_value={0} טרה-בייט
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="digital-terabyte"]/unitPattern[@count="other"];	new_value={0} טרה-בייט
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="duration-millisecond"]/unitPattern[@count="one"];	new_value={0} אלפית שנייה
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="electric-ampere"]/unitPattern[@count="one"];	new_value={0} אמפר
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="electric-milliampere"]/unitPattern[@count="one"];	new_value={0} מיליאמפר
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="electric-volt"]/unitPattern[@count="one"];	new_value={0} וולט
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="energy-kilocalorie"]/unitPattern[@count="one"];	new_value={0} קילו קלוריה
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="energy-calorie"]/unitPattern[@count="one"];	new_value={0} קלוריה
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="energy-kilojoule"]/unitPattern[@count="one"];	new_value={0} קילו ג׳אול
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="energy-kilowatt-hour"]/unitPattern[@count="one"];	new_value={0} קילוואט־שעה
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="frequency-gigahertz"]/unitPattern[@count="one"];	new_value={0} ג׳יגה-הרץ
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="frequency-megahertz"]/unitPattern[@count="one"];	new_value={0} מגה-הרץ
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="frequency-kilohertz"]/unitPattern[@count="one"];	new_value={0} קילו-הרץ
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="frequency-hertz"]/unitPattern[@count="one"];	new_value={0} הרץ
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="graphics-dot-per-centimeter"]/unitPattern[@count="one"];	new_value={0} נקודהלסנטימטר
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-kilometer"]/unitPattern[@count="one"];	new_value={0} קילומטר
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-meter"]/unitPattern[@count="one"];	new_value={0} מטר
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-decimeter"]/unitPattern[@count="one"];	new_value={0} דצימטר
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-centimeter"]/unitPattern[@count="one"];	new_value={0} סנטימטר
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-millimeter"]/unitPattern[@count="one"];	new_value={0} מילימטר
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-micrometer"]/unitPattern[@count="one"];	new_value={0} מיקרומטר
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-nanometer"]/unitPattern[@count="one"];	new_value={0} ננומטר
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-picometer"]/unitPattern[@count="one"];	new_value={0} פיקומטר
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-foot"]/unitPattern[@count="one"];	new_value={0} רגל
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-inch"]/unitPattern[@count="one"];	new_value={0} אינץ׳
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-astronomical-unit"]/unitPattern[@count="one"];	new_value={0} יחידה אסטרונומית
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-nautical-mile"]/unitPattern[@count="one"];	new_value={0} מייל ימי
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-mile-scandinavian"]/unitPattern[@count="one"];	new_value={0} מייל-סקנדינביה
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="length-point"]/unitPattern[@count="one"];	new_value={0} נקודה
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="light-lumen"]/unitPattern[@count="one"];	new_value={0} לומן
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="mass-kilogram"]/unitPattern[@count="one"];	new_value={0} קילוגרם
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="mass-gram"]/unitPattern[@count="one"];	new_value={0} גרם
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="mass-ton"]/unitPattern[@count="one"];	new_value={0} טונה
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="mass-ounce"]/unitPattern[@count="one"];	new_value={0} אונקיה
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="mass-ounce-troy"]/unitPattern[@count="one"];	new_value={0} אונקיית טרוי
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="power-gigawatt"]/unitPattern[@count="one"];	new_value={0} ג׳יגה ואט
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="power-megawatt"]/unitPattern[@count="one"];	new_value={0} מגה ואט
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="power-kilowatt"]/unitPattern[@count="one"];	new_value={0} קילוואט
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="power-watt"]/unitPattern[@count="one"];	new_value={0} ואט
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="power-milliwatt"]/unitPattern[@count="one"];	new_value={0} מיליוואט
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="power-horsepower"]/unitPattern[@count="one"];	new_value={0} כוח סוס
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="pressure-pound-force-per-square-inch"]/unitPattern[@count="one"];	new_value={0} פאונדלאינץ׳ רבוע
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="pressure-inch-ofhg"]/unitPattern[@count="one"];	new_value={0} אינץ׳ כספית
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="pressure-hectopascal"]/unitPattern[@count="one"];	new_value={0} הקטופסקל
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-beaufort"]/unitPattern[@count="one"];	new_value={0} בופורט
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-beaufort"]/unitPattern[@count="two"];	new_value={0} בופורט
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-beaufort"]/unitPattern[@count="other"];	new_value={0} בופורט
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="temperature-celsius"]/unitPattern[@count="one"];	new_value={0} מעלת צלזיוס
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="temperature-fahrenheit"]/unitPattern[@count="one"];	new_value={0} מעלת פרנהייט
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="temperature-kelvin"]/unitPattern[@count="one"];	new_value={0} קלווין
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-cubic-kilometer"]/unitPattern[@count="one"];	new_value={0} קילומטר מעוקב
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-cubic-meter"]/unitPattern[@count="one"];	new_value={0} מטר מעוקב
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-cubic-centimeter"]/unitPattern[@count="one"];	new_value={0} סנטימטר מעוקב
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-cubic-mile"]/unitPattern[@count="one"];	new_value={0} מייל מעוקב
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-cubic-foot"]/unitPattern[@count="one"];	new_value={0} רגל מעוקב
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-cubic-inch"]/unitPattern[@count="one"];	new_value={0} אינץ׳ מעוקב
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-megaliter"]/unitPattern[@count="one"];	new_value={0} מגה ליטר
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-hectoliter"]/unitPattern[@count="one"];	new_value={0} הקטוליטר
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-liter"]/unitPattern[@count="one"];	new_value={0} ליטר
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-deciliter"]/unitPattern[@count="one"];	new_value={0} דציליטר
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-centiliter"]/unitPattern[@count="one"];	new_value={0} סנטיליטר
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-milliliter"]/unitPattern[@count="one"];	new_value={0} מיליליטר
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-pint-metric"]/unitPattern[@count="one"];	new_value={0} פינט מטרי
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-cup-metric"]/unitPattern[@count="one"];	new_value={0} כוס מידה מטרית
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-acre-foot"]/unitPattern[@count="one"];	new_value={0} אקר-רגל
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-gallon"]/unitPattern[@count="one"];	new_value={0} גלון
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-gallon-imperial"]/unitPattern[@count="one"];	new_value={0} גלון אימפריאלי
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-quart"]/unitPattern[@count="one"];	new_value={0} קווארטה
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-pint"]/unitPattern[@count="one"];	new_value={0} פינט
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-cup"]/unitPattern[@count="one"];	new_value={0} כוס
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-fluid-ounce"]/unitPattern[@count="one"];	new_value={0} אונקיית נוזלים
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-teaspoon"]/unitPattern[@count="one"];	new_value={0} כפית
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-dram"]/unitPattern[@count="one"];	new_value={0} דראם אלכוהול
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="volume-quart-imperial"]/unitPattern[@count="one"];	new_value={0} קווארט אימפריאלי
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="angle-arc-minute"]/unitPattern[@count="one"];	new_value={0} ד׳ קשת
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="angle-arc-second"]/unitPattern[@count="one"];	new_value={0} שנ׳ קשת
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="concentr-item"]/unitPattern[@count="one"];	new_value={0} פריט
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="duration-century"]/unitPattern[@count="one"];	new_value={0} מאה
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="duration-decade"]/unitPattern[@count="one"];	new_value={0} עשור
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="duration-year"]/unitPattern[@count="one"];	new_value={0} שנה
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="duration-week"]/unitPattern[@count="one"];	new_value={0} שבוע
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="duration-day"]/unitPattern[@count="one"];	new_value={0} יום
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="length-millimeter"]/unitPattern[@count="one"];	new_value={0} מ″מ
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="length-nanometer"]/unitPattern[@count="other"];	new_value={0} nm
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="length-picometer"]/unitPattern[@count="one"];	new_value={0} פ“מ
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="length-yard"]/unitPattern[@count="one"];	new_value={0} יארד
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="length-foot"]/unitPattern[@count="other"];	new_value={0} ft
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="length-inch"]/unitPattern[@count="other"];	new_value={0} in
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="length-parsec"]/unitPattern[@count="other"];	new_value={0} pc
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="length-light-year"]/unitPattern[@count="one"];	new_value={0} שנת אור
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="length-astronomical-unit"]/unitPattern[@count="other"];	new_value={0} au
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="length-point"]/unitPattern[@count="one"];	new_value={0} נק׳
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="mass-kilogram"]/unitPattern[@count="one"];	new_value={0} ק״ג
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="mass-gram"]/unitPattern[@count="one"];	new_value={0} גר׳
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="mass-ton"]/unitPattern[@count="one"];	new_value={0} ט׳
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="mass-stone"]/unitPattern[@count="one"];	new_value={0} סטון
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="mass-grain"]/unitPattern[@count="one"];	new_value={0} גרעין
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="power-horsepower"]/unitPattern[@count="one"];	new_value={0} כ״ס
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="volume-cubic-kilometer"]/unitPattern[@count="one"];	new_value={0} קמ״ק
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="volume-liter"]/unitPattern[@count="one"];	new_value={0} ל׳
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="volume-milliliter"]/unitPattern[@count="one"];	new_value={0} מ״ל
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="volume-cup"]/unitPattern[@count="one"];	new_value={0} כ׳
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="angle-arc-minute"]/unitPattern[@count="one"];	new_value={0} דקה
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="angle-arc-second"]/unitPattern[@count="one"];	new_value={0} שנ׳
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="area-square-kilometer"]/unitPattern[@count="one"];	new_value={0} קמ״ר
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="duration-year"]/unitPattern[@count="one"];	new_value={0} ש′
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="duration-week"]/unitPattern[@count="one"];	new_value={0} ש′
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-beaufort"]/unitPattern[@count="one"];	new_value={0} B
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-beaufort"]/unitPattern[@count="two"];	new_value={0} B
-locale=he;	action=add;	new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-beaufort"]/unitPattern[@count="other"];	new_value={0} B
+#Locale	Action=add;	Path	Value
+#Locale	Action=add;	Value	Path
+locale=ak;	action=add;	new_value=mfeɛ {0};	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="duration-year"]/unitPattern[@count="one"]
+locale=ak;	action=add;	new_value=mfeɛ {0};	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="duration-year"]/unitPattern[@count="other"]
+locale=cs;	action=add;	new_value=↑↑↑;	new_path=//ldml/units/unitLength[@type="short"]/compoundUnit[@type="times"]/compoundUnitPattern
+locale=da;	action=add;	new_value=↑↑↑;	new_path=//ldml/units/unitLength[@type="long"]/compoundUnit[@type="times"]/compoundUnitPattern
+locale=da;	action=add;	new_value=↑↑↑;	new_path=//ldml/units/unitLength[@type="narrow"]/compoundUnit[@type="times"]/compoundUnitPattern
+locale=da;	action=add;	new_value=↑↑↑;	new_path=//ldml/units/unitLength[@type="short"]/compoundUnit[@type="times"]/compoundUnitPattern
+locale=ig;	action=add;	new_value=Ọtụtụ Afọ;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="duration-year"]/displayName
+locale=ig;	action=add;	new_value={0} Ọtụtụ Afọ;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="duration-year"]/unitPattern[@count="other"]
+locale=it;	action=add;	new_value=↑↑↑;	new_path=//ldml/units/unitLength[@type="long"]/compoundUnit[@type="times"]/compoundUnitPattern
+locale=nl;	action=add;	new_value=↑↑↑;	new_path=//ldml/units/unitLength[@type="short"]/compoundUnit[@type="times"]/compoundUnitPattern
+locale=nn;	action=add;	new_value=↑↑↑;	new_path=//ldml/units/unitLength[@type="short"]/compoundUnit[@type="times"]/compoundUnitPattern
+locale=sk;	action=add;	new_value=↑↑↑;	new_path=//ldml/units/unitLength[@type="short"]/compoundUnit[@type="times"]/compoundUnitPattern
+locale=ti;	action=add;	new_value=ዓመታት;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="duration-year"]/displayName
+locale=ti;	action=add;	new_value={0}/ዓመታት;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="duration-year"]/perUnitPattern
+locale=ti;	action=add;	new_value={0} ዓመት;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="duration-year"]/unitPattern[@count="one"]
+locale=ti;	action=add;	new_value={0} ዓመታት;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="duration-year"]/unitPattern[@count="other"]
+locale=ti;	action=add;	new_value=ዓመታት;	new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="duration-year"]/displayName
+locale=ti;	action=add;	new_value={0}/ዓመት;	new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="duration-year"]/perUnitPattern
+locale=ti;	action=add;	new_value={0} ዓመት;	new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="duration-year"]/unitPattern[@count="one"]
+locale=ti;	action=add;	new_value={0}ዓመት;	new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="duration-year"]/unitPattern[@count="other"]
+locale=ti;	action=add;	new_value=ዓመታት;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="duration-year"]/displayName
+locale=ti;	action=add;	new_value={0}/ዓመት;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="duration-year"]/perUnitPattern
+locale=ti;	action=add;	new_value={0} ዓመት;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="duration-year"]/unitPattern[@count="one"]
+locale=ti;	action=add;	new_value={0} ዓመታት;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="duration-year"]/unitPattern[@count="other"]
+locale=yo;	action=add;	new_value=ọ̀dún;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="duration-year"]/displayName
+locale=yo;	action=add;	new_value={0} ọ̀dún;	new_path=//ldml/units/unitLength[@type="long"]/unit[@type="duration-year"]/unitPattern[@count="other"]
+locale=yo;	action=add;	new_value=ọd;	new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="duration-year"]/displayName
+locale=yo;	action=add;	new_value={0} ọd;	new_path=//ldml/units/unitLength[@type="narrow"]/unit[@type="duration-year"]/unitPattern[@count="other"]
+locale=yo;	action=add;	new_value=ọd;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="duration-year"]/displayName
+locale=yo;	action=add;	new_value={0} ọd;	new_path=//ldml/units/unitLength[@type="short"]/unit[@type="duration-year"]/unitPattern[@count="other"]
+locale=ar;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=ar;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/gender
+locale=ar;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"]
+locale=ar;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"]
+locale=ar;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=ar;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=ar;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="two"]
+locale=ar;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="zero"]
+locale=ar;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=ar;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"]
+locale=ar;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"]
+locale=ar;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=ar;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=ar;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="two"]
+locale=ar;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="zero"]
+locale=ar;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=ar;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"]
+locale=ar;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"]
+locale=ar;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=ar;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=ar;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="two"]
+locale=ar;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="zero"]
+locale=be;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=be;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"]
+locale=be;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"]
+locale=be;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=be;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=be;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=be;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"]
+locale=be;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"]
+locale=be;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=be;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=be;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=be;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"]
+locale=be;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"]
+locale=be;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=be;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=bn;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=bn;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=bn;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=bn;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=bn;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=bn;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=bn;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=bn;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=bn;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=bs;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=bs;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"]
+locale=bs;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=bs;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=bs;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=bs;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"]
+locale=bs;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=bs;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=bs;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=bs;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"]
+locale=bs;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=bs;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=da;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=da;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/gender
+locale=da;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=da;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="genitive"]
+locale=da;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=da;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="genitive"]
+locale=da;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=da;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=da;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=da;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=da;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=da;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=de;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=de;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/gender
+locale=de;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=de;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="accusative"]
+locale=de;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="dative"]
+locale=de;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="genitive"]
+locale=de;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=de;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="accusative"]
+locale=de;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="dative"]
+locale=de;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="genitive"]
+locale=de;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=de;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=de;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=de;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=de;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=de;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=et;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=et;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=et;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=et;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=et;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=et;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=et;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=et;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=et;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=fa;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=fa;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=fa;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=fa;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=fa;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=fa;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=fa;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=fa;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=fa;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=fi;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=fi;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=fi;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="elative"]
+locale=fi;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="genitive"]
+locale=fi;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="illative"]
+locale=fi;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="partitive"]
+locale=fi;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=fi;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="elative"]
+locale=fi;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="genitive"]
+locale=fi;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="illative"]
+locale=fi;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="partitive"]
+locale=fi;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=fi;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=fi;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=fi;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=fi;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=fi;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=fil;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=fil;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=fil;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=fil;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=fil;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=fil;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=fil;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=fil;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=fil;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=ga;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=ga;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"]
+locale=ga;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"]
+locale=ga;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=ga;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=ga;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="two"]
+locale=ga;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=ga;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"]
+locale=ga;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"]
+locale=ga;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=ga;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=ga;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="two"]
+locale=ga;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=ga;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"]
+locale=ga;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"]
+locale=ga;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=ga;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=ga;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="two"]
+locale=hu;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName[@draft="contributed"]
+locale=hu;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="accusative"][@draft="contributed"]
+locale=hu;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="instrumental"][@draft="contributed"]
+locale=hu;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="terminative"][@draft="contributed"]
+locale=hu;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="translative"][@draft="contributed"]
+locale=hu;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@draft="contributed"]
+locale=hu;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="accusative"][@draft="contributed"]
+locale=hu;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="instrumental"][@draft="contributed"]
+locale=hu;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="terminative"][@draft="contributed"]
+locale=hu;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="translative"][@draft="contributed"]
+locale=hu;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@draft="contributed"]
+locale=hu;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName[@draft="contributed"]
+locale=hu;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@draft="contributed"]
+locale=hu;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@draft="contributed"]
+locale=hu;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName[@draft="contributed"]
+locale=hu;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@draft="contributed"]
+locale=hu;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@draft="contributed"]
+locale=hy;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=hy;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=hy;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="ablative"]
+locale=hy;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="dative"]
+locale=hy;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="instrumental"]
+locale=hy;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="locative"]
+locale=hy;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=hy;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="ablative"]
+locale=hy;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="dative"]
+locale=hy;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="instrumental"]
+locale=hy;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="locative"]
+locale=hy;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=hy;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=hy;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=hy;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=hy;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=hy;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=ig;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="duration-year"]/perUnitPattern
+locale=ig;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="duration-year"]/displayName
+locale=ig;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="duration-year"]/perUnitPattern
+locale=ig;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="duration-year"]/unitPattern[@count="other"]
+locale=ig;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="duration-year"]/displayName
+locale=ig;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="duration-year"]/perUnitPattern
+locale=ig;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="duration-year"]/unitPattern[@count="other"]
+locale=is;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=is;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/gender
+locale=is;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=is;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="accusative"]
+locale=is;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="dative"]
+locale=is;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="genitive"]
+locale=is;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=is;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="accusative"]
+locale=is;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="dative"]
+locale=is;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="genitive"]
+locale=is;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=is;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=is;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=is;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=is;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=is;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=it;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=it;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/gender[@draft="contributed"]
+locale=it;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@draft="contributed"]
+locale=it;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@draft="contributed"]
+locale=it;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=it;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@draft="contributed"]
+locale=it;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@draft="contributed"]
+locale=it;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=it;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@draft="contributed"]
+locale=it;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@draft="contributed"]
+locale=ka;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=ka;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=ka;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=ka;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=ka;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=ka;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=ka;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=ka;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=ka;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=ko;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=ko;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=ko;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=ko;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=ko;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=ko;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/gender
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"][@case="accusative"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"][@case="dative"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"][@case="genitive"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"][@case="instrumental"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"][@case="locative"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"][@case="accusative"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"][@case="dative"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"][@case="genitive"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"][@case="instrumental"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"][@case="locative"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="accusative"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="dative"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="genitive"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="instrumental"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="locative"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="accusative"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="dative"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="genitive"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="instrumental"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="locative"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=lt;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=ml;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=ml;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=ml;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=ml;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=ml;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=ml;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=ml;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=ml;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=ml;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=mn;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=mn;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=mn;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=mn;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=mn;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=mn;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=mn;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=mn;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=mn;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=ps;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=ps;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=ps;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=ps;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=ps;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=ps;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=ps;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=ps;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=ps;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/gender
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"][@case="accusative"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"][@case="dative"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"][@case="genitive"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"][@case="instrumental"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"][@case="prepositional"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"][@case="accusative"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"][@case="dative"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"][@case="genitive"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"][@case="instrumental"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"][@case="prepositional"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="accusative"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="dative"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="genitive"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="instrumental"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="prepositional"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="accusative"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="dative"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="genitive"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="instrumental"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="prepositional"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=ru;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/gender
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"][@case="accusative"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"][@case="dative"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"][@case="genitive"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"][@case="instrumental"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"][@case="locative"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"][@case="accusative"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"][@case="dative"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"][@case="genitive"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"][@case="instrumental"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"][@case="locative"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="accusative"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="dative"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="genitive"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="instrumental"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="locative"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="accusative"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="dative"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="genitive"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="instrumental"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="locative"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=sk;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=sq;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=sq;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=sq;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=sq;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=sq;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=sq;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=sq;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=sq;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=sq;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/gender
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"][@case="accusative"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"][@case="dative"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"][@case="genitive"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"][@case="instrumental"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"][@case="locative"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"][@case="accusative"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"][@case="dative"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"][@case="genitive"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"][@case="instrumental"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"][@case="locative"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="accusative"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="dative"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="genitive"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="instrumental"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"][@case="locative"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="accusative"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="dative"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="genitive"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="instrumental"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"][@case="locative"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="few"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="many"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=uk;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=uz;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=uz;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=uz;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=uz;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=uz;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=uz;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=uz;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=uz;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=uz;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=vi;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=vi;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=vi;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=vi;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=vi;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=vi;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=yo;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="duration-year"]/perUnitPattern
+locale=yo;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="duration-year"]/perUnitPattern
+locale=yo;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="duration-year"]/perUnitPattern
+locale=zh_Hant;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=zh_Hant;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=zh_Hant;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=zh_Hant;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=zh_Hant;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=zh_Hant;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=zu;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="duration-year"]/displayName
+locale=zu;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="duration-year"]/perUnitPattern
+locale=zu;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="duration-year"]/unitPattern[@count="one"]
+locale=zu;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="duration-year"]/unitPattern[@count="other"]
+locale=zu;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/displayName
+locale=zu;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=zu;	action=delete;		path=//ldml/units/unitLength[@type="long"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=zu;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="duration-year"]/displayName
+locale=zu;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="duration-year"]/perUnitPattern
+locale=zu;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="duration-year"]/unitPattern[@count="one"]
+locale=zu;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="duration-year"]/unitPattern[@count="other"]
+locale=zu;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/displayName
+locale=zu;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=zu;	action=delete;		path=//ldml/units/unitLength[@type="narrow"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]
+locale=zu;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="duration-year"]/displayName
+locale=zu;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="duration-year"]/perUnitPattern
+locale=zu;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="duration-year"]/unitPattern[@count="one"]
+locale=zu;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="duration-year"]/unitPattern[@count="other"]
+locale=zu;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/displayName
+locale=zu;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="one"]
+locale=zu;	action=delete;		path=//ldml/units/unitLength[@type="short"]/unit[@type="speed-light-speed"]/unitPattern[@count="other"]

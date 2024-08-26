@@ -76,7 +76,6 @@ import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StringId;
 import org.unicode.cldr.util.SupplementalDataInfo;
-// import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.VoteResolver;
@@ -2324,9 +2323,8 @@ public class CLDRModify {
                                             || newPath == null
                                             || newValue == null) {
                                         throw new IllegalArgumentException(
-                                                "Bad arguments, must have non-null for one of:"
-                                                        + "path, value, new_path, new_value "
-                                                        + ":\n\t"
+                                                action.action
+                                                        + ": must have no path nor value = null AND new_path or new_value:\n\t"
                                                         + entry);
                                     }
                                     String newPathString = newPath.getPath(getResolved());
@@ -2345,8 +2343,8 @@ public class CLDRModify {
                                     if ((pathMatch == null && valueMatch == null)
                                             || (newPath == null && newValue == null)) {
                                         throw new IllegalArgumentException(
-                                                "Bad arguments, must have "
-                                                        + "(path!=null OR value=null) AND (new_path!=null OR new_value!=null):\n\t"
+                                                action.action
+                                                        + ": must have (path or value) AND (new_path or new_value):\n\t"
                                                         + entry);
                                     }
                                     break;
@@ -2354,8 +2352,8 @@ public class CLDRModify {
                                 case delete:
                                     if (newPath != null || newValue != null) {
                                         throw new IllegalArgumentException(
-                                                "Bad arguments, must have "
-                                                        + "newPath=null, newValue=null"
+                                                action.action
+                                                        + ": must have no new_path nor new_value:\n\t"
                                                         + entry);
                                     }
                                     break;

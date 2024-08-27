@@ -5814,8 +5814,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</unit>
 			<unit type="duration-year">
 				<displayName>ọ̀dún</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern>{0} ọd</perUnitPattern>
+				<unitPattern count="other">{0} ọ̀dún</unitPattern>
 			</unit>
 			<unit type="duration-quarter">
 				<displayName>idamerin</displayName>
@@ -6710,7 +6709,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<unit type="duration-year">
 				<displayName>ọd</displayName>
 				<unitPattern count="other">{0} ọd</unitPattern>
-				<perUnitPattern>{0}/ọd</perUnitPattern>
 			</unit>
 			<unit type="duration-quarter">
 				<displayName>idame</displayName>
@@ -7603,9 +7601,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="duration-year">
-				<displayName>↑↑↑</displayName>
-				<unitPattern count="other">↑↑↑</unitPattern>
-				<perUnitPattern>↑↑↑</perUnitPattern>
+				<displayName>ọd</displayName>
+				<unitPattern count="other">{0} ọd</unitPattern>
 			</unit>
 			<unit type="duration-quarter">
 				<displayName>↑↑↑</displayName>

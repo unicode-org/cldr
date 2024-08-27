@@ -912,7 +912,7 @@ public class TestCLDRFile extends TestFmwk {
                 continue;
             }
             String value = swissHighGerman.getStringValue(xpath);
-            if (value.indexOf('ß') >= 0) {
+            if (value != null && value.indexOf('ß') >= 0) {
                 warnln("«" + value + "» contains ß at " + xpath);
             }
         }

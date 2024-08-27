@@ -1799,6 +1799,25 @@ public class TestExampleGenerator extends TestFmwk {
                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/quarters/quarterContext[@type=\"stand-alone\"]/quarterWidth[@type=\"abbreviated\"]/quarter[@type=\"4\"]");
     }
 
+    public void TestRelative() {
+        ExampleGenerator exampleGenerator = getExampleGenerator("it");
+        checkValue(
+                "it relative day type 2",
+                "〖Dopodomani (5 settembre)〗〖5 settembre (dopodomani)〗",
+                exampleGenerator,
+                "//ldml/dates/fields/field[@type=\"day\"]/relative[@type=\"2\"]");
+        checkValue(
+                "it relative hour future-other",
+                "〖Tra ❬10❭ ore (18:25)〗〖18:25 (tra ❬10❭ ore)〗",
+                exampleGenerator,
+                "//ldml/dates/fields/field[@type=\"hour\"]/relativeTime[@type=\"future\"]/relativeTimePattern[@count=\"other\"]");
+        checkValue(
+                "it relative year past-one",
+                "〖❬1❭ anno fa (settembre 1999)〗〖settembre 1999 (❬1❭ anno fa)〗",
+                exampleGenerator,
+                "//ldml/dates/fields/field[@type=\"year\"]/relativeTime[@type=\"past\"]/relativeTimePattern[@count=\"one\"]");
+    }
+
     static final class MissingKey implements Comparable<MissingKey> {
         final SectionId sectionId;
         final PageId pageId;

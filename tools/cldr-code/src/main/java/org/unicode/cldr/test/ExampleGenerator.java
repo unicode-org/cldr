@@ -319,6 +319,19 @@ public class ExampleGenerator {
                 }
             };
 
+    // map relativeTimePattern counts to numeric examples
+    public static final Map<String, String> COUNTS =
+            new HashMap<String, String>() {
+                {
+                    put("zero", "0");
+                    put("one", "1");
+                    put("two", "2");
+                    put("few", "3");
+                    put("many", "5");
+                    put("other", "10");
+                }
+            };
+
     public CLDRFile getCldrFile() {
         return cldrFile;
     }
@@ -517,6 +530,10 @@ public class ExampleGenerator {
             result = handleEras(parts, value);
         } else if (parts.contains("quarters")) {
             result = handleQuarters(parts, value);
+        } else if (parts.contains("relative")
+                || parts.contains("relativeTime")
+                || parts.contains("relativePeriod")) {
+            result = handleRelative(xpath, parts, value);
         } else if (parts.contains("dayPeriods")) {
             result = handleDayPeriod(parts, value);
         } else if (parts.contains("monthContext")) {
@@ -3006,6 +3023,48 @@ public class ExampleGenerator {
         calendar.set(1999, month, 5, 13, 25, 59);
         Date sample = calendar.getTime();
         return sdf.format(sample);
+    }
+
+    /* Add relative date/time examples, choosing appropriate
+     * patterns as needed for relative dates vs relative times.
+     * Additionally, for relativeTimePattern items, ensure that
+     * numeric example corresponds to the count represented by the item.
+     */
+    private String handleRelative(String xpath, XPathParts parts, String value) {
+        List<String> examples = new ArrayList<>();
+        String skeleton;
+        String type = parts.findAttributeValue("field", "type");
+        if (type.startsWith("hour")) {
+            skeleton = "Hm";
+        } else if (type.startsWith("minute") || type.startsWith("second")) {
+            skeleton = "ms";
+        } else if (type.startsWith("year")
+                || type.startsWith("month")
+                || type.startsWith("quarter")) {
+            skeleton = "yMMMM";
+        } else {
+            skeleton = "MMMMd";
+        }
+        String checkPath =
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\""
+                        + skeleton
+                        + "\"]";
+        String dateFormat = cldrFile.getWinningValue(checkPath);
+        SimpleDateFormat sdf = icuServiceBuilder.getDateFormat("gregorian", dateFormat);
+        String sampleDate = sdf.format(DATE_SAMPLE);
+        String example1 =
+                value.substring(0, 1).toUpperCase() + value.substring(1) + " (" + sampleDate + ")";
+        String example2 = sampleDate + " (" + value + ")";
+        if (parts.contains("relativeTimePattern")) { // has placeholder
+            String count = parts.getAttributeValue(-1, "count");
+            String exampleCount = COUNTS.get(count);
+            examples.add(invertBackground(format(setBackground(example1), exampleCount)));
+            examples.add(invertBackground(format(setBackground(example2), exampleCount)));
+        } else {
+            examples.add(format(example1));
+            examples.add(format(example2));
+        }
+        return formatExampleList(examples);
     }
 
     /**

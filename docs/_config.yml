@@ -1,5 +1,7 @@
-name: CLDR LDML
-title: CLDR LDML
+# this config file is for NON-spec, NON-site stuff.  That is, RFC and ??
+
+name: CLDR LDML Top Matter
+title: CLDR LDML Top Matter
 
 markdown: kramdown
 input: GFM
@@ -14,19 +16,4 @@ exclude:
   - charts/keyboards/node_modules
   - charts/keyboards/node
   - ldml
-
-#include:
-#  - site/
-
-# _config.yml
-
-# everything under 'site' should default to the 'page' layout
-defaults:
-  - scope:
-      path: 'site'
-    values:
-      layout: page
-
-collections:
-  site:
-    output: true
+  - site

@@ -1,0 +1,64 @@
+name: CLDR Site
+
+permissions:
+  deployments: write
+  id-token: write
+  pull-requests: write
+
+on:
+    pull_request:
+        paths:
+        #  - "tools/scripts/tr-archive/**"
+         - "docs/site/**"
+         - '.github/workflows/site.yml'
+    push:
+        branches:
+         - main
+        # Only run if docs change.
+        paths:
+        #  - "tools/scripts/tr-archive/**"
+         - "docs/site/**"
+         - '.github/workflows/site.yml'
+
+jobs:
+  cloudflare:
+    runs-on: ubuntu-latest
+    environment: cloudflare
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        lfs: false
+    - uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 3.2
+        bundler-cache: true
+    - name: Setup Jekyll
+      run: 'gem install bundler jekyll kramdown-parser-gfm webrick'
+    - name: Build cldr.pages.dev
+      run: 'cd docs/site && jekyll build'
+    - name: Pre-install Wrangler
+      run: npm i -g wrangler@3.x
+      # see https://github.com/cloudflare/wrangler-action/issues/286
+    - name: Deploy cldr.pages.dev
+      id: deploy
+      uses: cloudflare/wrangler-action@v3
+      with:
+        apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        command: pages deploy ./_site --project-name=cldr
+    - name: Add deploy comment to PR
+      uses: actions/github-script@v7
+      with:
+        script: |
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: '✨ deployed to <${{ steps.deploy.outputs.deployment-url }}>'
+            })
+          github.rest.issues.addLabels({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            labels: ['Site Update']
+            })

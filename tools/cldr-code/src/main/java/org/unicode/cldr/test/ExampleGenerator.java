@@ -2646,7 +2646,11 @@ public class ExampleGenerator {
                 dfs.setTimeSeparatorString(timeSeparator);
                 sdf.setDateFormatSymbols(dfs);
                 if (parts.contains("availableFormats")) {
-                    String example = addExampleResult(sdf.format(DATE_SAMPLE) + ", " + sdf.format(DATE_SAMPLE5), "", showContexts);
+                    String defaultExample = sdf.format(DATE_SAMPLE);
+                    if (!sdf.format(DATE_SAMPLE).equals(sdf.format(DATE_SAMPLE5))) {
+                        defaultExample += ", " + sdf.format(DATE_SAMPLE);
+                    }
+                    String example = addExampleResult(defaultExample, "", showContexts);
                     String altId = generateAltPattern(id);
                     if (!altId.equals(id)) {
                         String altXpath = "//ldml/dates/calendars/calendar[@type=\""
@@ -2656,8 +2660,7 @@ public class ExampleGenerator {
                             + "\"]";
                         String forcedAltValue = cldrFile.getWinningValue(altXpath);
                         String unforcedAltValue = generateAltPattern(value);
-                        String forcePrefix = forcedAltValue != null ? "" : EXAMPLE_OF_INCORRECT;
-                        
+                        String forcePrefix = forcedAltValue != null ? EXAMPLE_OF_INCORRECT : "";
                         
                         sdf =
                             icuServiceBuilder.getDateFormat(calendar, unforcedAltValue, numbersOverride);

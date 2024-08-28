@@ -359,7 +359,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="∈" type="tts">element al</annotation>
 		<annotation cp="∉">element | nu aparține lui | nu este un element al</annotation>
 		<annotation cp="∉" type="tts">nu aparține lui</annotation>
-		<annotation cp="∋">conține ca element | element | include</annotation>
+		<annotation cp="∋">conține ca element | element | include | include ca element</annotation>
 		<annotation cp="∋" type="tts">include ca element</annotation>
 		<annotation cp="∎">ceea ce era de demonstrat | q.e.d. | sfârșitul demonstrației</annotation>
 		<annotation cp="∎" type="tts">sfârșitul demonstrației</annotation>
@@ -491,9 +491,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⊂" type="tts">submulțime a</annotation>
 		<annotation cp="⊃">este o supramulțime pentru | este supramulțime a lui | include | matematică | operator de mulțimi</annotation>
 		<annotation cp="⊃" type="tts">este o supramulțime pentru</annotation>
-		<annotation cp="⊆">este inclusă sau egală cu | este o submulțime pentru | este submulțime a lui</annotation>
+		<annotation cp="⊆">este inclusă sau egală cu | este o submulțime pentru | este o submulțime pentru sau egală cu | este submulțime a lui</annotation>
 		<annotation cp="⊆" type="tts">este o submulțime pentru sau egală cu</annotation>
-		<annotation cp="⊇">egalitate | include sau este egală cu | matematică</annotation>
+		<annotation cp="⊇">egalitate | este o supramulțime pentru sau egală cu | include sau este egală cu | matematică</annotation>
 		<annotation cp="⊇" type="tts">este o supramulțime pentru sau egală cu</annotation>
 		<annotation cp="⊕">dilatare binară | plus | plus încercuit</annotation>
 		<annotation cp="⊕" type="tts">plus încercuit</annotation>
@@ -715,15 +715,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪉" type="tts">harpă</annotation>
 		<annotation cp="🪏">cazma | excavare | groapă | lopată | săpa | săpături</annotation>
 		<annotation cp="🪏" type="tts">lopată</annotation>
-		<annotation cp="🪾">arid | copac fără frunze | iarnă | nefertil | neroditor | secetă | sterp</annotation>
+		<annotation cp="🪾">arid | copac desfrunzit | copac fără frunze | iarnă | nefertil | neroditor | secetă | sterp</annotation>
 		<annotation cp="🪾" type="tts">copac desfrunzit</annotation>
 		<annotation cp="🫆">amprentă | criminalistică | identitate | investigație | siguranță</annotation>
 		<annotation cp="🫆" type="tts">amprentă</annotation>
-		<annotation cp="🫜">gădină | legumă | nap | păstârnac | rădăcină | sfeclă | țelină</annotation>
+		<annotation cp="🫜">gădină | legumă | legumă rădăcinoasă | nap | păstârnac | rădăcină | sfeclă | țelină</annotation>
 		<annotation cp="🫜" type="tts">legumă rădăcinoasă</annotation>
 		<annotation cp="🫟">holi | împroșcare | pată | stropi | vărsa | vopsea</annotation>
 		<annotation cp="🫟" type="tts">împroșcare</annotation>
-		<annotation cp="🫩">adormit | epuizare | epuizat | extenuare | extenuat | față cu pungi sub ochi | oboseală | obosit</annotation>
+		<annotation cp="🫩">adormit | epuizare | epuizat | extenuare | extenuat | față cu cearcăne | față cu pungi sub ochi | oboseală | obosit</annotation>
 		<annotation cp="🫩" type="tts">față cu cearcăne</annotation>
 		<annotation cp="😀">bucurie | bucuros | dinți | drăguț | față | față încântată | față zâmbitoare | fericire | fericit | încântare | râs | râset | vesel | veselie | zâmbet larg</annotation>
 		<annotation cp="😀" type="tts">față încântată</annotation>
@@ -737,9 +737,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😆" type="tts">față încântată cu ochii întredeschiși</annotation>
 		<annotation cp="😅">dezamăgire | dezamăgit | emoționant | entuziasmat | față | față încântată cu sudoare rece | față zâmbitoare cu gura deschisă și sudoare rece | gură deschisă | rece | stres | stresat | sudoare | transpirație | zâmbet</annotation>
 		<annotation cp="😅" type="tts">față încântată cu sudoare rece</annotation>
-		<annotation cp="🤣">amuzant | față | haha | hehe | jos | lacrimi | leșin | lmao | lmfao | lol | lololol | mă tăvălesc | mor de râs | mortal | pe jos de râs | râde | râs | râset | roflmao</annotation>
+		<annotation cp="🤣">amuzant | față | haha | hehe | jos | lacrimi | leșin | lmao | lmfao | lol | lololol | mă tăvălesc | mor de râs | mortal | pe jos de râs | râde | râs | râset | roflmao | tăvălindu-se pe jos de râs</annotation>
 		<annotation cp="🤣" type="tts">tăvălindu-se pe jos de râs</annotation>
-		<annotation cp="😂">amuzant | bucurie | față | fericire | haha | hazliu | hehe | hilar | lacrimi | leșin | lmao | lmfao | lololol | mortal | plâns | râde | râs cu lacrimi | râset | roflmao | veselie</annotation>
+		<annotation cp="😂">amuzant | bucurie | față | față cu lacrimi de bucurie | fericire | haha | hazliu | hehe | hilar | lacrimi | leșin | lmao | lmfao | lololol | mortal | plâns | râde | râs cu lacrimi | râset | roflmao | veselie</annotation>
 		<annotation cp="😂" type="tts">față cu lacrimi de bucurie</annotation>
 		<annotation cp="🙂">față | față ușor zâmbitoare | fericire | fericit | zâmbet | zâmbet discret | zâmbitor</annotation>
 		<annotation cp="🙂" type="tts">față ușor zâmbitoare</annotation>
@@ -775,7 +775,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="😋" type="tts">față savurând mâncare delicioasă</annotation>
 		<annotation cp="😛">drăguț | față | față cu limba scoasă | limbă | limbă scoasă | mișto | petrecere | super | tare</annotation>
 		<annotation cp="😛" type="tts">față cu limba scoasă</annotation>
-		<annotation cp="😜">aiurea | aiurit | amuzant | banc | ciudat | distracție | făcând cu ochiul | face cu ochiul | față | glumă | limbă | limbă scoasă | mișto | nebun | nebunatic | ochi | petrecere | semn cu ochiul</annotation>
+		<annotation cp="😜">aiurea | aiurit | amuzant | banc | ciudat | distracție | făcând cu ochiul | face cu ochiul | față | față cu limba scoasă, făcând cu ochiul | glumă | limbă | limbă scoasă | mișto | nebun | nebunatic | ochi | petrecere | semn cu ochiul</annotation>
 		<annotation cp="😜" type="tts">față cu limba scoasă, făcând cu ochiul</annotation>
 		<annotation cp="🤪">ciudat | dubios | dus | față de nebun | față nebună | mare | mic | nebun | ochi | trăsnit | zurliu</annotation>
 		<annotation cp="🤪" type="tts">față nebună</annotation>
@@ -803,7 +803,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤨" type="tts">față cu sprânceană ridicată</annotation>
 		<annotation cp="😐">aiurea | direct | expresie goală | fără expresie | față | față neutră | gelos | invidie | invidios | mă rog | mască | mda | nasol | neimpresionat | neplăcut | neutru | rău | să zicem | serios | stânjenitor</annotation>
 		<annotation cp="😐" type="tts">față neutră</annotation>
-		<annotation cp="😑">aiurea | doamne ferește | expresie goală | fără expresie | față | gelos | gelozie | indiferență | inexpresiv | invidie | invidios | mă rog | mda | mort | nasol | nefericit | neplăcut | să zicem | stânjenitor</annotation>
+		<annotation cp="😑">aiurea | doamne ferește | expresie goală | fără expresie | față | față fără expresie | gelos | gelozie | indiferență | inexpresiv | invidie | invidios | mă rog | mda | mort | nasol | nefericit | neplăcut | să zicem | stânjenitor</annotation>
 		<annotation cp="😑" type="tts">față fără expresie</annotation>
 		<annotation cp="😶">aiurea | fără cuvinte | fără expresie | fără gură | față | față fără gură | gură | incomod | inexpresiv | liniște | mască | mut | neplăcut | secret | stânjenitor | tăcut</annotation>
 		<annotation cp="😶" type="tts">față fără gură</annotation>
@@ -811,7 +811,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫥" type="tts">față cu contur punctat</annotation>
 		<annotation cp="😶‍🌫">absent | capul în nori | față în ceață | față în nori</annotation>
 		<annotation cp="😶‍🌫" type="tts">față în nori</annotation>
-		<annotation cp="😏">afectare | amic | arogant | boss | față | fin | flirt | glumă | încrezut | mișto | miștocar | rânjet | șic | șmecher | subtil | superioritate | suspicios | tovarăș | tupeu | zâmbet</annotation>
+		<annotation cp="😏">afectare | amic | arogant | boss | față | față cu zâmbet superior | fin | flirt | glumă | încrezut | mișto | miștocar | rânjet | șic | șmecher | subtil | superioritate | suspicios | tovarăș | tupeu | zâmbet</annotation>
 		<annotation cp="😏" type="tts">față cu zâmbet superior</annotation>
 		<annotation cp="😒">aiurea | ce naiba | dubios | enervat | față | gelos | gelozie | invidie | invidios | mă rog | mda | morocănoasă | nefericire | nefericit | nemulțumire | neplăcere | nervi | nervos | plictiseală | plictisit</annotation>
 		<annotation cp="😒" type="tts">față morocănoasă</annotation>
@@ -869,7 +869,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥳" type="tts">față de petrecere</annotation>
 		<annotation cp="🥸">deghizare | față | față deghizată | incognito | mustață | nas | ochelari | persoană | smiley | spion | sprâncene</annotation>
 		<annotation cp="🥸" type="tts">față deghizată</annotation>
-		<annotation cp="😎">boss | bro | chill | cool | față | însorit | mișto | mortal | ochelari | ochelari de soare | relaxare | relaxat | senin | soare | stil | stilat | strălucitor | super | tare | zâmbet</annotation>
+		<annotation cp="😎">boss | bro | chill | cool | față | față zâmbitoare cu ochelari de soare | însorit | mișto | mortal | ochelari | ochelari de soare | relaxare | relaxat | senin | soare | stil | stilat | strălucitor | super | tare | zâmbet</annotation>
 		<annotation cp="😎" type="tts">față zâmbitoare cu ochelari de soare</annotation>
 		<annotation cp="🤓">deștept | expert | față | față de tocilar | inteligent | ochelari | superdotat | tocilar</annotation>
 		<annotation cp="🤓" type="tts">față de tocilar</annotation>
@@ -1045,7 +1045,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💫" type="tts">amețit</annotation>
 		<annotation cp="💦">amuzant | apă | bandă desenată | benzi desenate | comic | desene | efort | picătură | picături | picături de transpirație | sală | sport | stropi | stropit | sudoare | transpirație</annotation>
 		<annotation cp="💦" type="tts">picături de transpirație</annotation>
-		<annotation cp="💨">alergare | am șters-o | bandă desenată | dispar | dispărut | dus | fug | fugă | fum | grabă | nor | nor de praf | pârț | praf | rapid | vânt | viteză</annotation>
+		<annotation cp="💨">alergare | am șters-o | bandă desenată | dispar | dispărut | dus | fug | fugă | fum | grabă | nor | nor de praf | pârț | praf | rapid | ștergând-o rapid | vânt | viteză</annotation>
 		<annotation cp="💨" type="tts">ștergând-o rapid</annotation>
 		<annotation cp="🕳">gaură | groapă | hău</annotation>
 		<annotation cp="🕳" type="tts">gaură</annotation>
@@ -1441,7 +1441,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑‍🍼" type="tts">persoană hrănind un bebeluș</annotation>
 		<annotation cp="👼">aripi | aură | aureolă | basm | bebeluș | biserică | copil | fantezie | față | înger | îngeraș | poveste</annotation>
 		<annotation cp="👼" type="tts">bebeluș îngeraș</annotation>
-		<annotation cp="🎅">basm | crăciun | Crăciun | moș | moș gerilă | moșul | poveste | sărbătoare</annotation>
+		<annotation cp="🎅">basm | Crăciun | moș | moș gerilă | moșul | poveste | sărbătoare</annotation>
 		<annotation cp="🎅" type="tts">Moș Crăciun</annotation>
 		<annotation cp="🤶">Crăciun | crăciuniță | doamna | mamă | sărbătoare</annotation>
 		<annotation cp="🤶" type="tts">Doamna Crăciun</annotation>
@@ -1561,7 +1561,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💃" type="tts">dansatoare</annotation>
 		<annotation cp="🕺">bărbat | bărbat care dansează | dans | dansator | elegant | femeie | festiv | flamenco | hai la dans | ritm | salsa | tango</annotation>
 		<annotation cp="🕺" type="tts">dansator</annotation>
-		<annotation cp="🕴">afaceri | costum | om de afaceri | persoană | persoană în costum, care levitează | persoană în costum, care plutește | persoană la costum | persoană la costum, levitând</annotation>
+		<annotation cp="🕴">afaceri | costum | om de afaceri | persoană | persoană în costum, care levitează | persoană în costum, care plutește | persoană în costum, levitând | persoană la costum | persoană la costum, levitând</annotation>
 		<annotation cp="🕴" type="tts">persoană în costum, levitând</annotation>
 		<annotation cp="👯">bff | dans | dansatoare | distracție | fete petrecărețe | gemene | identice | la fel | pereche | persoane care poartă urechi de iepuraș | petrecere | suflete pereche | urechi de iepuraș</annotation>
 		<annotation cp="👯" type="tts">persoane care poartă urechi de iepuraș</annotation>
@@ -1679,11 +1679,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🛌" type="tts">persoană în pat</annotation>
 		<annotation cp="🧑‍🤝‍🧑">a se ține de mână | cuplu | mână | persoană | persoane care se țin de mână | persoane ținându-se de mână | ținându-se de mână | ține | ținut de mână</annotation>
 		<annotation cp="🧑‍🤝‍🧑" type="tts">persoane ținându-se de mână</annotation>
-		<annotation cp="👭">afecțiune | amice | bff | cele mai bune prietene | cuplu | femei | fete | flirt | gemene | iubi | legătură | mână | prietene | prietenie | relație | soră | surioară | surori | ținându-se de mână</annotation>
+		<annotation cp="👭">afecțiune | amice | bff | cele mai bune prietene | cuplu | femei | femei ținându-se de mână | fete | flirt | gemene | iubi | legătură | mână | prietene | prietenie | relație | soră | surioară | surori | ținându-se de mână</annotation>
 		<annotation cp="👭" type="tts">femei ținându-se de mână</annotation>
 		<annotation cp="👫">amici | bărbat | bărbat și femeie ținându-se de mână | cuplu | femeie | flirt | îndrăgostiți | iubi | iubire | iubiți | mână | prieteni | ținându-se de mână | ține</annotation>
 		<annotation cp="👫" type="tts">bărbat și femeie ținându-se de mână</annotation>
-		<annotation cp="👬">afecțiune | amici | băieți | bărbați | bff | cei mai buni prieteni | cuplu | flirt | frate | frați | frățior | gemeni | iubi | legătură | mână | prieteni | prietenie | relație | ținându-se de mână</annotation>
+		<annotation cp="👬">afecțiune | amici | băieți | bărbați | bărbați ținându-se de mână | bff | cei mai buni prieteni | cuplu | flirt | frate | frați | frățior | gemeni | iubi | legătură | mână | prieteni | prietenie | relație | ținându-se de mână</annotation>
 		<annotation cp="👬" type="tts">bărbați ținându-se de mână</annotation>
 		<annotation cp="💏">aniversare | cuplu | dragoste | inimă | întâlnire | iubire | pupic | romantic | sărut</annotation>
 		<annotation cp="💏" type="tts">sărut</annotation>
@@ -1747,7 +1747,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐈" type="tts">pisică</annotation>
 		<annotation cp="🐈‍⬛">animal | felină | ghinion | mâță | miau | miorlăit | motan | neagră | negru | pisică</annotation>
 		<annotation cp="🐈‍⬛" type="tts">pisică neagră</annotation>
-		<annotation cp="🦁">animal | cap de leu | coamă | față | față de leu | horoscop | leu | Leu | puternic | răget | rege | sălbatic | zodiac | zodie</annotation>
+		<annotation cp="🦁">animal | cap de leu | coamă | față | față de leu | horoscop | Leu | puternic | răget | rege | sălbatic | zodiac | zodie</annotation>
 		<annotation cp="🦁" type="tts">leu</annotation>
 		<annotation cp="🐯">animal | animal de pradă | cap de tigru | față | față de tigru | felină | tigru</annotation>
 		<annotation cp="🐯" type="tts">față de tigru</annotation>
@@ -1791,7 +1791,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🐏" type="tts">berbec</annotation>
 		<annotation cp="🐑">animal | animal domestic | berbec | fermă | lână | miel | mioară | oaie | pufos</annotation>
 		<annotation cp="🐑" type="tts">oaie</annotation>
-		<annotation cp="🐐">animal | animal domestic | animale | capră | capricorn | Capricorn | fermă | lapte | țap | zodiac</annotation>
+		<annotation cp="🐐">animal | animal domestic | animale | capră | Capricorn | fermă | lapte | țap | zodiac</annotation>
 		<annotation cp="🐐" type="tts">capră</annotation>
 		<annotation cp="🐪">animal | cămilă | cocoașă | deșert | dromader</annotation>
 		<annotation cp="🐪" type="tts">dromader</annotation>
@@ -1843,7 +1843,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🦦" type="tts">vidră</annotation>
 		<annotation cp="🦨">împuțit | miros urât | mirositor | puți | sconcs | urât mirositor</annotation>
 		<annotation cp="🦨" type="tts">sconcs</annotation>
-		<annotation cp="🦘">animal | australia | Australia | cangur | marsupial | salt | săritură | țopăit</annotation>
+		<annotation cp="🦘">animal | Australia | cangur | marsupial | salt | săritură | țopăit</annotation>
 		<annotation cp="🦘" type="tts">cangur</annotation>
 		<annotation cp="🦡">animal | bursuc | pacoste | viezure | viezure melivor</annotation>
 		<annotation cp="🦡" type="tts">bursuc</annotation>
@@ -2171,7 +2171,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍱" type="tts">mâncare japoneză la pachet</annotation>
 		<annotation cp="🍘">biscuit | biscuit de orez | mâncare | orez</annotation>
 		<annotation cp="🍘" type="tts">biscuit de orez</annotation>
-		<annotation cp="🍙">chifteluțe | chifteluțe de orez | gălușcă de orez | găluște de orez | japonez | japonia | Japonia | mâncare | orez | perișoare</annotation>
+		<annotation cp="🍙">chifteluțe | chifteluțe de orez | gălușcă de orez | găluște de orez | japonez | Japonia | mâncare | orez | perișoare</annotation>
 		<annotation cp="🍙" type="tts">chifteluțe de orez</annotation>
 		<annotation cp="🍚">mâncare | orez | orez gătit | preparare</annotation>
 		<annotation cp="🍚" type="tts">orez gătit</annotation>
@@ -2193,7 +2193,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🍥" type="tts">ruladă japoneză cu pește</annotation>
 		<annotation cp="🥮">festival | mâncare | mooncake | prăjitură chinezească | prăjitură cu dovleac | prăjitura lunii | toamnă</annotation>
 		<annotation cp="🥮" type="tts">prăjitura lunii</annotation>
-		<annotation cp="🍡">băț | desert | dulce | dulciuri | frigărui | frigăruie | gălușcă japoneză dango | găluște japoneze pe băț | japonia | Japonia</annotation>
+		<annotation cp="🍡">băț | desert | dulce | dulciuri | frigărui | frigăruie | gălușcă japoneză dango | găluște japoneze pe băț | Japonia</annotation>
 		<annotation cp="🍡" type="tts">găluște japoneze pe băț</annotation>
 		<annotation cp="🥟">empanada | gălușcă | găluște chinezești | gyōza | jiaozi | pierogi | potsticker | umplutură</annotation>
 		<annotation cp="🥟" type="tts">găluște chinezești</annotation>
@@ -2201,7 +2201,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥠" type="tts">prăjiturele cu răvaș</annotation>
 		<annotation cp="🥡">bețișoare | livrare | mâncare chinezească | mâncare chinezească la pachet | mâncare la pachet | mâncare livrată la domiciliu</annotation>
 		<annotation cp="🥡" type="tts">mâncare la pachet</annotation>
-		<annotation cp="🦀">crab | horoscop | rac | Rac | zodiac | zodie</annotation>
+		<annotation cp="🦀">crab | horoscop | Rac | zodiac | zodie</annotation>
 		<annotation cp="🦀" type="tts">rac</annotation>
 		<annotation cp="🦞">animal | bisque | clești | fructe de mare | homar | homar european | homar roșu | supă cremă de crustacee</annotation>
 		<annotation cp="🦞" type="tts">homar</annotation>
@@ -2291,19 +2291,19 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔪" type="tts">cuțit de bucătărie</annotation>
 		<annotation cp="🫙">borcan | condiment | depozitare | gol | recipient | sos</annotation>
 		<annotation cp="🫙" type="tts">borcan</annotation>
-		<annotation cp="🏺">amforă | băut | gătit | horoscop | ulcior | urcior | vărsător | Vărsător | vas | vază | zodiac | zodie</annotation>
+		<annotation cp="🏺">amforă | băut | gătit | horoscop | ulcior | urcior | Vărsător | vas | vază | zodiac | zodie</annotation>
 		<annotation cp="🏺" type="tts">amforă</annotation>
-		<annotation cp="🌍">africa | Africa | europa | Europa | Europa și Africa pe glob | glob | glob pământesc | globul pământesc | lume | pământ | Pământ | planetă | Terra</annotation>
+		<annotation cp="🌍">Africa | Europa | Europa și Africa pe glob | glob | glob pământesc | globul pământesc | lume | Pământ | planetă | Terra</annotation>
 		<annotation cp="🌍" type="tts">Europa și Africa pe glob</annotation>
-		<annotation cp="🌎">Americi | Americile pe glob | glob | glob pământesc | lume | pământ | Pământ | planetă | Terra</annotation>
+		<annotation cp="🌎">Americi | Americile pe glob | glob | glob pământesc | lume | Pământ | planetă | Terra</annotation>
 		<annotation cp="🌎" type="tts">Americile pe glob</annotation>
-		<annotation cp="🌏">asia | Asia | Asia și Australia pe glob | australia | Australia | glob | glob pământesc | globul pământesc | lume | pământ | planetă | Terra</annotation>
+		<annotation cp="🌏">Asia | Asia și Australia pe glob | Australia | glob | glob pământesc | globul pământesc | lume | pământ | planetă | Terra</annotation>
 		<annotation cp="🌏" type="tts">Asia și Australia pe glob</annotation>
-		<annotation cp="🌐">glob | glob cu meridiane | glob cu meridianele | glob pământesc | internet | lume | meridiane | pământ | Pământ | web</annotation>
+		<annotation cp="🌐">glob | glob cu meridiane | glob cu meridianele | glob pământesc | internet | lume | meridiane | Pământ | web</annotation>
 		<annotation cp="🌐" type="tts">glob cu meridiane</annotation>
 		<annotation cp="🗺">hartă | harta lumii | lume</annotation>
 		<annotation cp="🗺" type="tts">harta lumii</annotation>
-		<annotation cp="🗾">hartă | harta japoniei | harta Japoniei | japonia | Japonia</annotation>
+		<annotation cp="🗾">hartă | harta Japoniei | Japonia</annotation>
 		<annotation cp="🗾" type="tts">harta Japoniei</annotation>
 		<annotation cp="🧭">busolă | compas | direcție | magnetic | navigație | orientare | pol</annotation>
 		<annotation cp="🧭" type="tts">busolă</annotation>
@@ -2313,7 +2313,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⛰" type="tts">munte</annotation>
 		<annotation cp="🌋">erupție | lavă | munte | natură | vulcan</annotation>
 		<annotation cp="🌋" type="tts">vulcan</annotation>
-		<annotation cp="🗻">fuji | Fuji | munte | muntele fuji | muntele Fuji | natură</annotation>
+		<annotation cp="🗻">Fuji | munte | muntele Fuji | natură</annotation>
 		<annotation cp="🗻" type="tts">muntele Fuji</annotation>
 		<annotation cp="🏕">a merge cu cortul | camping | cort | la cort</annotation>
 		<annotation cp="🏕" type="tts">camping</annotation>
@@ -2349,9 +2349,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏡" type="tts">casă cu grădină</annotation>
 		<annotation cp="🏢">birouri | bloc | bloc de birouri | clădire | clădire de birouri | corporatiști | job | muncă | office | slujbă</annotation>
 		<annotation cp="🏢" type="tts">clădire de birouri</annotation>
-		<annotation cp="🏣">clădire | japonez | japonia | Japonia | oficiu poștal japonez | poștă | poștă japoneză</annotation>
+		<annotation cp="🏣">clădire | japonez | Japonia | oficiu poștal japonez | poștă | poștă japoneză</annotation>
 		<annotation cp="🏣" type="tts">oficiu poștal japonez</annotation>
-		<annotation cp="🏤">clădire | europa | Europa | european | oficiu poștal | poștă</annotation>
+		<annotation cp="🏤">clădire | Europa | european | oficiu poștal | poștă</annotation>
 		<annotation cp="🏤" type="tts">oficiu poștal</annotation>
 		<annotation cp="🏥">clădire | doctor | medic | medicină | sănătate | spital</annotation>
 		<annotation cp="🏥" type="tts">spital</annotation>
@@ -2369,17 +2369,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏬" type="tts">magazin universal</annotation>
 		<annotation cp="🏭">clădire | fabrică | producție | uzină</annotation>
 		<annotation cp="🏭" type="tts">fabrică</annotation>
-		<annotation cp="🏯">castel | clădire | japonez | japonia | Japonia</annotation>
+		<annotation cp="🏯">castel | clădire | japonez | Japonia</annotation>
 		<annotation cp="🏯" type="tts">castel japonez</annotation>
-		<annotation cp="🏰">castel | clădire | europa | Europa | european</annotation>
+		<annotation cp="🏰">castel | clădire | Europa | european</annotation>
 		<annotation cp="🏰" type="tts">castel</annotation>
 		<annotation cp="💒">biserică | capelă | ceremonie nupțială | inimă | nuntă | religie | romantic</annotation>
 		<annotation cp="💒" type="tts">nuntă</annotation>
-		<annotation cp="🗼">tokio | Tokio | Tokyo | turn | turnul Tokio</annotation>
+		<annotation cp="🗼">Tokio | Tokyo | turn | turnul Tokio</annotation>
 		<annotation cp="🗼" type="tts">turnul Tokio</annotation>
-		<annotation cp="🗽">libertate | new york | ny | nyc | statuia libertății | Statuia Libertății | statuie</annotation>
+		<annotation cp="🗽">libertate | new york | ny | nyc | Statuia Libertății | statuie</annotation>
 		<annotation cp="🗽" type="tts">Statuia Libertății</annotation>
-		<annotation cp="⛪">binecuvântare | biserică | capelă | clădire | creștin | creștinism | Creștinism | cruce | religie | rugăciune</annotation>
+		<annotation cp="⛪">binecuvântare | biserică | capelă | clădire | creștin | Creștinism | cruce | religie | rugăciune</annotation>
 		<annotation cp="⛪" type="tts">biserică</annotation>
 		<annotation cp="🕌">cult | islam | masjid | moschee | musulman | religie</annotation>
 		<annotation cp="🕌" type="tts">moschee</annotation>
@@ -2675,7 +2675,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🌟" type="tts">stea strălucitoare</annotation>
 		<annotation cp="🌠">cădere | cer | cometă | meteor | noapte | spațiu | stea | stea căzătoare</annotation>
 		<annotation cp="🌠" type="tts">stea căzătoare</annotation>
-		<annotation cp="🌌">calea lactee | Calea Lactee | constelație | spațiu | stele</annotation>
+		<annotation cp="🌌">Calea Lactee | constelație | spațiu | stele</annotation>
 		<annotation cp="🌌" type="tts">Calea Lactee</annotation>
 		<annotation cp="☁">înnorat | meteo | nor | norișor | vreme</annotation>
 		<annotation cp="☁" type="tts">nor</annotation>
@@ -2729,7 +2729,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="💧" type="tts">picătură</annotation>
 		<annotation cp="🌊">apă | mare | natură | ocean | surf | surfer | val</annotation>
 		<annotation cp="🌊" type="tts">val</annotation>
-		<annotation cp="🎃">bostan | dovleac | dovleac cu felinar | față | felinar | halloween | Halloween | jack-o-lantern | lanternă din dovleac | lumânare | sărbătoare</annotation>
+		<annotation cp="🎃">bostan | dovleac | dovleac cu felinar | față | felinar | Halloween | jack-o-lantern | lanternă din dovleac | lumânare | sărbătoare</annotation>
 		<annotation cp="🎃" type="tts">dovleac cu felinar</annotation>
 		<annotation cp="🎄">brad | brad de Crăciun | Crăciun | pom de crăciun | sărbătoare</annotation>
 		<annotation cp="🎄" type="tts">brad de Crăciun</annotation>
@@ -2747,7 +2747,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎉" type="tts">tun cu confetti</annotation>
 		<annotation cp="🎊">aniversare | confeti | confetti | minge cu confetti | petrecere | sărbătoare</annotation>
 		<annotation cp="🎊" type="tts">minge cu confetti</annotation>
-		<annotation cp="🎋">copac | copac tanabata | japonez | japonia | Japonia | sărbătoare | steag</annotation>
+		<annotation cp="🎋">copac | copac tanabata | japonez | Japonia | sărbătoare | steag</annotation>
 		<annotation cp="🎋" type="tts">copac tanabata</annotation>
 		<annotation cp="🎍">bambus | decor | decorațiune de pin | decorațiune japoneză de pin | japonez | japoneză | pin | plantă | sărbătoare</annotation>
 		<annotation cp="🎍" type="tts">decorațiune japoneză de pin</annotation>
@@ -2883,7 +2883,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🃏" type="tts">joker</annotation>
 		<annotation cp="🀄">dragon roșu la mahjong | joc | mahjong | roșu</annotation>
 		<annotation cp="🀄" type="tts">dragon roșu la mahjong</annotation>
-		<annotation cp="🎴">carte | carte de joc japoneză pentru august | cărți de joc | cărți de joc cu flori | floare | japonia | Japonia | joc</annotation>
+		<annotation cp="🎴">carte | carte de joc japoneză pentru august | cărți de joc | cărți de joc cu flori | floare | Japonia | joc</annotation>
 		<annotation cp="🎴" type="tts">cărți de joc cu flori</annotation>
 		<annotation cp="🎭">actor | actriță | artă | arte interpretative | divertisment | mască | măști | shakespeare | spectacol | teatru</annotation>
 		<annotation cp="🎭" type="tts">arte interpretative</annotation>
@@ -2999,7 +2999,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔈" type="tts">volum scăzut al difuzorului</annotation>
 		<annotation cp="🔉">difuzor activat | difuzor pornit | sunet | sunet mediu | volum mediu | volum mediu al difuzorului</annotation>
 		<annotation cp="🔉" type="tts">volum mediu al difuzorului</annotation>
-		<annotation cp="🔊">dat tare | difuzor | difuzor cu sunet puternic | gălăgie | muzică | sunet | sunet puternic | volum mare | volum ridicat</annotation>
+		<annotation cp="🔊">dat tare | difuzor | difuzor cu sunet puternic | gălăgie | muzică | sunet | sunet puternic | volum mare | volum ridicat | volum ridicat al difuzorului</annotation>
 		<annotation cp="🔊" type="tts">volum ridicat al difuzorului</annotation>
 		<annotation cp="📢">comunicare | difuzare | difuzor | mesaj public | portavoce | sunet</annotation>
 		<annotation cp="📢" type="tts">portavoce</annotation>
@@ -3069,7 +3069,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪫" type="tts">baterie slabă</annotation>
 		<annotation cp="🔌">electric | electricitate | fișă | fișă electrică | priză | ștecher</annotation>
 		<annotation cp="🔌" type="tts">fișă electrică</annotation>
-		<annotation cp="💻">birou | calculator | computer | computer personal | laptop | notebook | pc | PC | portabil</annotation>
+		<annotation cp="💻">birou | calculator | computer | computer personal | laptop | notebook | PC | portabil</annotation>
 		<annotation cp="💻" type="tts">computer laptop</annotation>
 		<annotation cp="🖥">birou | calculator | computer | computer de birou | desktop | monitor</annotation>
 		<annotation cp="🖥" type="tts">computer desktop</annotation>
@@ -3107,7 +3107,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="📸" type="tts">cameră foto cu bliț</annotation>
 		<annotation cp="📹">amator | cameră | filmare | video</annotation>
 		<annotation cp="📹" type="tts">cameră video</annotation>
-		<annotation cp="📼">casetă | modă veche | vhs | VHS | video | vintage</annotation>
+		<annotation cp="📼">casetă | modă veche | VHS | video | vintage</annotation>
 		<annotation cp="📼" type="tts">casetă video</annotation>
 		<annotation cp="🔍">căutare | instrument | laborator | lupă | lupă înclinată spre stânga | lupă orientată spre stânga | mărire | sticlă | știință | unealtă</annotation>
 		<annotation cp="🔍" type="tts">lupă înclinată spre stânga</annotation>
@@ -3525,7 +3525,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⚛" type="tts">simbol pentru atom</annotation>
 		<annotation cp="🕉">hindusă | religie | simbol hindus om</annotation>
 		<annotation cp="🕉" type="tts">simbol hindus om</annotation>
-		<annotation cp="✡">david | David | evreu | iudaism | religie | stea | steaua lui david | steaua lui David</annotation>
+		<annotation cp="✡">David | evreu | iudaism | religie | stea | steaua lui David</annotation>
 		<annotation cp="✡" type="tts">steaua lui David</annotation>
 		<annotation cp="☸">budism | budist | dharma | religie | roată | roata dharma | roata dharmei</annotation>
 		<annotation cp="☸" type="tts">roata dharmei</annotation>
@@ -3533,7 +3533,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="☯" type="tts">yin yang</annotation>
 		<annotation cp="✝">creștin | creștinism | cristos | cruce | cruce latină | hristos | religie</annotation>
 		<annotation cp="✝" type="tts">cruce latină</annotation>
-		<annotation cp="☦">creștin | Creștin | creștinism | cruce | cruce ortodoxă | ortodoxie | religie</annotation>
+		<annotation cp="☦">Creștin | creștinism | cruce | cruce ortodoxă | ortodoxie | religie</annotation>
 		<annotation cp="☦" type="tts">cruce ortodoxă</annotation>
 		<annotation cp="☪">islam | islamism | musulman | musulmană | ramadan | religie | semilună | stea | stea și semilună</annotation>
 		<annotation cp="☪" type="tts">stea și semilună</annotation>
@@ -3545,31 +3545,31 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔯" type="tts">stea cu șase colțuri și punct în centru</annotation>
 		<annotation cp="🪯">khanda | religie | sikh</annotation>
 		<annotation cp="🪯" type="tts">khanda</annotation>
-		<annotation cp="♈">berbec | horoscop | zodia berbec | zodia Berbec | zodiac | zodie</annotation>
+		<annotation cp="♈">berbec | horoscop | zodia Berbec | zodiac | zodie</annotation>
 		<annotation cp="♈" type="tts">zodia Berbec</annotation>
-		<annotation cp="♉">horoscop | taur | Taur | zodia taur | zodia Taur | zodiac | zodie</annotation>
+		<annotation cp="♉">horoscop | Taur | zodia Taur | zodiac | zodie</annotation>
 		<annotation cp="♉" type="tts">zodia Taur</annotation>
-		<annotation cp="♊">gemeni | horoscop | zodia gemeni | zodia Gemeni | zodiac | zodie</annotation>
+		<annotation cp="♊">gemeni | horoscop | zodia Gemeni | zodiac | zodie</annotation>
 		<annotation cp="♊" type="tts">zodia Gemeni</annotation>
-		<annotation cp="♋">horoscop | rac | zodia rac | zodia Rac | zodiac | zodie</annotation>
+		<annotation cp="♋">horoscop | rac | zodia Rac | zodiac | zodie</annotation>
 		<annotation cp="♋" type="tts">zodia Rac</annotation>
-		<annotation cp="♌">horoscop | leu | zodia leu | zodia Leu | zodiac | zodie</annotation>
+		<annotation cp="♌">horoscop | leu | zodia Leu | zodiac | zodie</annotation>
 		<annotation cp="♌" type="tts">zodia Leu</annotation>
-		<annotation cp="♍">fecioară | horoscop | zodia fecioară | zodia Fecioară | zodiac | zodie</annotation>
+		<annotation cp="♍">fecioară | horoscop | zodia Fecioară | zodiac | zodie</annotation>
 		<annotation cp="♍" type="tts">zodia Fecioară</annotation>
-		<annotation cp="♎">balanță | horoscop | justiție | taler | zodia balanță | zodia Balanță | zodiac | zodie</annotation>
+		<annotation cp="♎">balanță | horoscop | justiție | taler | zodia Balanță | zodiac | zodie</annotation>
 		<annotation cp="♎" type="tts">zodia Balanță</annotation>
-		<annotation cp="♏">horoscop | scorpion | Scorpion | zodia scorpion | zodia Scorpion | zodiac | zodie</annotation>
+		<annotation cp="♏">horoscop | Scorpion | zodia Scorpion | zodiac | zodie</annotation>
 		<annotation cp="♏" type="tts">zodia Scorpion</annotation>
-		<annotation cp="♐">arcaș | horoscop | săgetător | zodia săgetător | zodia Săgetător | zodiac | zodie</annotation>
+		<annotation cp="♐">arcaș | horoscop | săgetător | zodia Săgetător | zodiac | zodie</annotation>
 		<annotation cp="♐" type="tts">zodia Săgetător</annotation>
-		<annotation cp="♑">capră | capricorn | horoscop | zodia capricorn | zodia Capricorn | zodiac | zodie</annotation>
+		<annotation cp="♑">capră | capricorn | horoscop | zodia Capricorn | zodiac | zodie</annotation>
 		<annotation cp="♑" type="tts">zodia Capricorn</annotation>
-		<annotation cp="♒">apă | horoscop | vărsător | zodia vărsător | zodia Vărsător | zodiac | zodie</annotation>
+		<annotation cp="♒">apă | horoscop | vărsător | zodia Vărsător | zodiac | zodie</annotation>
 		<annotation cp="♒" type="tts">zodia Vărsător</annotation>
-		<annotation cp="♓">horoscop | pești | zodia pești | zodia Pești | zodiac | zodie</annotation>
+		<annotation cp="♓">horoscop | pești | zodia Pești | zodiac | zodie</annotation>
 		<annotation cp="♓" type="tts">zodia Pești</annotation>
-		<annotation cp="⛎">ofiucus | Ofiucus | șarpe | zodia Ofiucus | zodia ophicus | zodiac | zodie</annotation>
+		<annotation cp="⛎">Ofiucus | șarpe | zodia Ofiucus | zodia ophicus | zodiac | zodie</annotation>
 		<annotation cp="⛎" type="tts">zodia Ofiucus</annotation>
 		<annotation cp="🔀">amestecare | buton de redare aleatorie | încrucișare | săgeți</annotation>
 		<annotation cp="🔀" type="tts">buton de redare aleatorie</annotation>
@@ -3667,7 +3667,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🔱" type="tts">emblemă trident</annotation>
 		<annotation cp="📛">ecuson | ecuson cu nume | legitimație | nume</annotation>
 		<annotation cp="📛" type="tts">ecuson cu nume</annotation>
-		<annotation cp="🔰">chevron | frunză | începător | începător în japonia | japonez | japonia | Japonia | simbol începător japoneză | simbol japonez pentru începător</annotation>
+		<annotation cp="🔰">chevron | frunză | începător | începător în japonia | japonez | Japonia | simbol începător japoneză | simbol japonez pentru începător</annotation>
 		<annotation cp="🔰" type="tts">simbol japonez pentru începător</annotation>
 		<annotation cp="⭕">cerc | cerc mare îngroșat | cerc roșu gol | mare | o | roșu</annotation>
 		<annotation cp="⭕" type="tts">cerc roșu gol</annotation>
@@ -3723,9 +3723,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🆓" type="tts">buton cu textul FREE</annotation>
 		<annotation cp="ℹ">i | informații | punct de informații | sursă de informații</annotation>
 		<annotation cp="ℹ" type="tts">informații</annotation>
-		<annotation cp="🆔">buton | id | ID | identitate</annotation>
+		<annotation cp="🆔">buton | ID | identitate</annotation>
 		<annotation cp="🆔" type="tts">buton ID</annotation>
-		<annotation cp="Ⓜ">cerc | litera m într-un cerc | litera M într-un cerc | m | m în cerc</annotation>
+		<annotation cp="Ⓜ">cerc | litera M într-un cerc | m | m în cerc</annotation>
 		<annotation cp="Ⓜ" type="tts">litera M într-un cerc</annotation>
 		<annotation cp="🆕">buton cu textul NEW | buton NEW | nou</annotation>
 		<annotation cp="🆕" type="tts">buton cu textul NEW</annotation>
@@ -3749,7 +3749,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🈂" type="tts">buton cu semnificația „taxă pentru serviciu” în japoneză</annotation>
 		<annotation cp="🈷">„valoare lunară” | buton cu semnificația „valoare lunară” în japoneză | ideogramă | japoneză | valoare lunară | 月</annotation>
 		<annotation cp="🈷" type="tts">buton cu semnificația „valoare lunară” în japoneză</annotation>
-		<annotation cp="🈶">„contra cost” | buton cu semnificația „contra cost” în japoneză | ideogramă | japoneză | nu e gratis | 有</annotation>
+		<annotation cp="🈶">„contra cost” | buton cu semnificația „contra cost” în japoneză | buton cu semnificația „contra cost” japoneză | ideogramă | japoneză | nu e gratis | 有</annotation>
 		<annotation cp="🈶" type="tts">buton cu semnificația „contra cost” japoneză</annotation>
 		<annotation cp="🈯">„rezervat” | buton cu semnificația „rezervat” în japoneză | ideogramă | japoneză | rezervat | 指</annotation>
 		<annotation cp="🈯" type="tts">buton cu semnificația „rezervat” în japoneză</annotation>
@@ -3769,9 +3769,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🈴" type="tts">buton cu semnificația „notă de trecere” în japoneză</annotation>
 		<annotation cp="🈳">„locuri libere” | buton cu semnificația „locuri libere” în japoneză | disponibil | ideogramă | japoneză</annotation>
 		<annotation cp="🈳" type="tts">buton cu semnificația „locuri libere” în japoneză</annotation>
-		<annotation cp="㊗">„felicitări” | buton cu semnificația „felicitări” în japoneză | ideogramă | japoneză | Japoneză | 祝</annotation>
+		<annotation cp="㊗">„felicitări” | buton cu semnificația „felicitări” în japoneză | ideogramă | Japoneză | 祝</annotation>
 		<annotation cp="㊗" type="tts">buton cu semnificația „felicitări” în japoneză</annotation>
-		<annotation cp="㊙">„secret” | buton cu semnificația „secret” în japoneză | ideogramă | japoneză | Japoneză | 秘</annotation>
+		<annotation cp="㊙">„secret” | buton cu semnificația „secret” în japoneză | ideogramă | Japoneză | 秘</annotation>
 		<annotation cp="㊙" type="tts">buton cu semnificația „secret” în japoneză</annotation>
 		<annotation cp="🈺">„deschis pentru afaceri” | buton cu semnificația „deschis pentru afaceri” în japoneză | deschis pentru business | ideogramă | ideogramă deschis | japoneză | 営</annotation>
 		<annotation cp="🈺" type="tts">buton cu semnificația „deschis pentru afaceri” în japoneză</annotation>
@@ -3849,13 +3849,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🏁" type="tts">steag cu pătrățele</annotation>
 		<annotation cp="🚩">fanion | golf | steag | steag triunghiular | steguleț | triunghi</annotation>
 		<annotation cp="🚩" type="tts">steag triunghiular</annotation>
-		<annotation cp="🎌">încrucișare | încrucișat | japonez | japonia | Japonia | sărbătorire | steag | steaguri încrucișate</annotation>
+		<annotation cp="🎌">încrucișare | încrucișat | japonez | Japonia | sărbătorire | steag | steaguri încrucișate</annotation>
 		<annotation cp="🎌" type="tts">steaguri încrucișate</annotation>
-		<annotation cp="🏴">fluturând | steag</annotation>
+		<annotation cp="🏴">fluturând | steag | steag negru</annotation>
 		<annotation cp="🏴" type="tts">steag negru</annotation>
 		<annotation cp="🏳">alb | fluturând | pace | steag</annotation>
 		<annotation cp="🏳" type="tts">steag alb</annotation>
-		<annotation cp="🏳‍🌈">bisexual | curcubeu | gay | homosexual | lesbiană | lgbt | lgbtq | mândrie | pride | queer | transgen | transsexual</annotation>
+		<annotation cp="🏳‍🌈">bisexual | curcubeu | gay | homosexual | lesbiană | lgbt | lgbtq | mândrie | pride | queer | steag curcubeu | transgen | transsexual</annotation>
 		<annotation cp="🏳‍🌈" type="tts">steag curcubeu</annotation>
 		<annotation cp="🏳‍⚧">alb | albastru deschis | roz | steag | transgender</annotation>
 		<annotation cp="🏳‍⚧" type="tts">steag transgender</annotation>

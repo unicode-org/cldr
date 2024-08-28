@@ -248,10 +248,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="bd11" draft="provisional">ناحية كوكس بازار</subdivision>
 			<subdivision type="bd13" draft="provisional">ناحية دكا</subdivision>
 			<subdivision type="bd15" draft="provisional">ناحية فريدبور</subdivision>
+			<subdivision type="bd22" draft="provisional">قضاء جسر</subdivision>
 			<subdivision type="bd35" draft="provisional">مونشيجاني</subdivision>
 			<subdivision type="bd36" draft="provisional">ناحية مداربور</subdivision>
 			<subdivision type="bd39" draft="provisional">مهربور</subdivision>
+			<subdivision type="bd48" draft="provisional">منطقة ناوغاون</subdivision>
 			<subdivision type="bd49" draft="provisional">مقاطعة بابنا</subdivision>
+			<subdivision type="bd50" draft="provisional">فيروزبور</subdivision>
 			<subdivision type="bd54" draft="provisional">مقاطعة رايشاهي</subdivision>
 			<subdivision type="bd55" draft="provisional">مقاطعة رانجبور</subdivision>
 			<subdivision type="bd58" draft="provisional">شات خيرا</subdivision>
@@ -532,6 +535,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="cdbc" draft="provisional">الكونغو الوسطى</subdivision>
 			<subdivision type="cdeq" draft="provisional">إكواتور</subdivision>
 			<subdivision type="cdhl" draft="provisional">أوت لومامي</subdivision>
+			<subdivision type="cdit" draft="provisional">إدارة إيتوري المؤقتة</subdivision>
 			<subdivision type="cdke" draft="provisional">كاساي الشرقية</subdivision>
 			<subdivision type="cdkn" draft="provisional">كينشاسا</subdivision>
 			<subdivision type="cdma" draft="provisional">مانيما</subdivision>
@@ -948,6 +952,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="dz46" draft="provisional">ولاية عين تموشنت</subdivision>
 			<subdivision type="dz47" draft="provisional">ولاية غرداية</subdivision>
 			<subdivision type="dz48" draft="provisional">ولاية غليزان</subdivision>
+			<subdivision type="dz49" draft="provisional">ولاية تيميمون</subdivision>
+			<subdivision type="dz50" draft="provisional">ولاية برج باجي مختار</subdivision>
+			<subdivision type="dz51" draft="provisional">ولاية أولاد جلال</subdivision>
+			<subdivision type="dz52" draft="provisional">ولاية بني عباس</subdivision>
+			<subdivision type="dz53" draft="provisional">ولاية عين صالح</subdivision>
+			<subdivision type="dz54" draft="provisional">ولاية عين قزام</subdivision>
+			<subdivision type="dz55" draft="provisional">ولاية تقرت</subdivision>
+			<subdivision type="dz56" draft="provisional">ولاية جانت</subdivision>
+			<subdivision type="dz57" draft="provisional">ولاية المغير الجزائرية</subdivision>
+			<subdivision type="dz58" draft="provisional">ولاية المنيعة</subdivision>
 			<subdivision type="eca" draft="provisional">مقاطعة أزواي</subdivision>
 			<subdivision type="ecb" draft="provisional">مقاطعة بوليفار</subdivision>
 			<subdivision type="ecc" draft="provisional">مقاطعة كارتشي</subdivision>
@@ -974,19 +988,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ecz" draft="provisional">مقاطعة زامورا تشينتشيبه</subdivision>
 			<subdivision type="ee37" draft="provisional">مقاطعة هاريو</subdivision>
 			<subdivision type="ee39" draft="provisional">مقاطعة هيو</subdivision>
-			<subdivision type="ee44" draft="provisional">مقاطعة إيدا فيرو</subdivision>
-			<subdivision type="ee49" draft="provisional">مقاطعة يوجيفا</subdivision>
-			<subdivision type="ee51" draft="provisional">مقاطعة يارفا</subdivision>
-			<subdivision type="ee57" draft="provisional">مقاطعة لانا</subdivision>
-			<subdivision type="ee59" draft="provisional">مقاطعة لين-فيرو</subdivision>
-			<subdivision type="ee65" draft="provisional">مقاطعة بولفا</subdivision>
-			<subdivision type="ee67" draft="provisional">مقاطعة بارنو</subdivision>
-			<subdivision type="ee70" draft="provisional">مقاطعة رابلا</subdivision>
+			<subdivision type="ee45" draft="provisional">مقاطعة إيدا فيرو</subdivision>
+			<subdivision type="ee50" draft="provisional">مقاطعة يوجيفا</subdivision>
+			<subdivision type="ee52" draft="provisional">مقاطعة يارفا</subdivision>
+			<subdivision type="ee56" draft="provisional">مقاطعة لانا</subdivision>
+			<subdivision type="ee60" draft="provisional">مقاطعة لين-فيرو</subdivision>
+			<subdivision type="ee64" draft="provisional">مقاطعة بولفا</subdivision>
+			<subdivision type="ee68" draft="provisional">مقاطعة بارنو</subdivision>
+			<subdivision type="ee71" draft="provisional">مقاطعة رابلا</subdivision>
 			<subdivision type="ee74" draft="provisional">مقاطعة سار</subdivision>
-			<subdivision type="ee78" draft="provisional">مقاطعة تارتو</subdivision>
-			<subdivision type="ee82" draft="provisional">مقاطعة فالغا</subdivision>
+			<subdivision type="ee79" draft="provisional">مقاطعة تارتو</subdivision>
+			<subdivision type="ee81" draft="provisional">مقاطعة فالغا</subdivision>
 			<subdivision type="ee84" draft="provisional">مقاطعة فيلياندي</subdivision>
-			<subdivision type="ee86" draft="provisional">مقاطعة فورو</subdivision>
+			<subdivision type="ee87" draft="provisional">مقاطعة فورو</subdivision>
+			<subdivision type="ee321" draft="provisional">كوتلا-يارفي</subdivision>
+			<subdivision type="ee735" draft="provisional">سيلاما</subdivision>
 			<subdivision type="egalx" draft="provisional">الإسكندرية</subdivision>
 			<subdivision type="egasn" draft="provisional">محافظة أسوان</subdivision>
 			<subdivision type="egast" draft="provisional">أسيوط</subdivision>
@@ -1095,8 +1111,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="etga" draft="provisional">جامبيلا</subdivision>
 			<subdivision type="etha" draft="provisional">إقليم هراري</subdivision>
 			<subdivision type="etor" draft="provisional">أوروميا</subdivision>
+			<subdivision type="etsi" draft="provisional">ولاية سيداما</subdivision>
 			<subdivision type="etsn" draft="provisional">الأمم الجنوبية</subdivision>
 			<subdivision type="etso" draft="provisional">المنطقة الصومالية</subdivision>
+			<subdivision type="etsw" draft="provisional">منطقة شعب جنوب غرب إثيوبيا</subdivision>
 			<subdivision type="etti" draft="provisional">تيغراي</subdivision>
 			<subdivision type="fi02" draft="provisional">كاريليا الجنوبية</subdivision>
 			<subdivision type="fi03" draft="provisional">بوهيانما الجنوبية</subdivision>
@@ -1135,6 +1153,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr04" draft="provisional">ألب البروفنس العليا</subdivision>
 			<subdivision type="fr05" draft="provisional">الألب العليا</subdivision>
 			<subdivision type="fr06" draft="provisional">الألب البحرية</subdivision>
+			<subdivision type="fr6ae" draft="provisional">ألزس</subdivision>
 			<subdivision type="fr07" draft="provisional">الأرديش</subdivision>
 			<subdivision type="fr08" draft="provisional">الأردين</subdivision>
 			<subdivision type="fr09" draft="provisional">أرييج</subdivision>
@@ -1225,6 +1244,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr94" draft="provisional">فال دو مارن</subdivision>
 			<subdivision type="fr95" draft="provisional">فال دواز</subdivision>
 			<subdivision type="fr971" draft="provisional">غوادلوب</subdivision>
+			<subdivision type="fr972" draft="provisional">مارتينيك</subdivision>
+			<subdivision type="fr973" draft="provisional">غويانا الفرنسية</subdivision>
+			<subdivision type="fr974" draft="provisional">ريونيون</subdivision>
 			<subdivision type="frara" draft="provisional">أوفرن-رون ألب</subdivision>
 			<subdivision type="frbfc" draft="provisional">تصنيف:بورغوني- فرانش كومتيه</subdivision>
 			<subdivision type="frbre" draft="provisional">بريتاني</subdivision>
@@ -1261,9 +1283,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbbry" draft="provisional">منطقة بروملي</subdivision>
 			<subdivision type="gbbst" draft="provisional">برستل</subdivision>
 			<subdivision type="gbcam" draft="provisional">كامبريدجشير</subdivision>
+			<subdivision type="gbcay" draft="provisional">كايرفلي</subdivision>
 			<subdivision type="gbche" draft="provisional">تشيشير إيست</subdivision>
 			<subdivision type="gbclk" draft="provisional">كلاكمانشاير</subdivision>
 			<subdivision type="gbcma" draft="provisional">كامبريا</subdivision>
+			<subdivision type="gbcmd" draft="provisional">لندن بورو كامدن</subdivision>
 			<subdivision type="gbcon" draft="provisional">كورنوال</subdivision>
 			<subdivision type="gbcov" draft="provisional">كوفنتري</subdivision>
 			<subdivision type="gbcrf" draft="provisional">كارديف</subdivision>
@@ -1291,6 +1315,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbgbn" draft="provisional">بريطانيا العظمى</subdivision>
 			<subdivision type="gbglg" draft="provisional">غلاسكو</subdivision>
 			<subdivision type="gbgls" draft="provisional">غلوسترشير</subdivision>
+			<subdivision type="gbgre" draft="provisional">حي غرينتش الملكي</subdivision>
 			<subdivision type="gbgwn" draft="provisional">جوينيد</subdivision>
 			<subdivision type="gbham" draft="provisional">هامبشاير</subdivision>
 			<subdivision type="gbhck" draft="provisional">حي هكني في لندن</subdivision>
@@ -1648,7 +1673,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="idnu" draft="provisional">جزر سوندا الصغرى</subdivision>
 			<subdivision type="idpa" draft="provisional">بابوا</subdivision>
 			<subdivision type="idpb" draft="provisional">بابوا الغربية</subdivision>
+			<subdivision type="idpd" draft="provisional">بابوا الجنوبية الغربية</subdivision>
+			<subdivision type="idpe" draft="provisional">بابوا الجبلية</subdivision>
 			<subdivision type="idpp" draft="provisional">غرب غينيا الجديدة</subdivision>
+			<subdivision type="idps" draft="provisional">بابوا الجنوبية</subdivision>
+			<subdivision type="idpt" draft="provisional">بابوا الوسطى</subdivision>
 			<subdivision type="idri" draft="provisional">رياو</subdivision>
 			<subdivision type="idsa" draft="provisional">سولاوسي الشمالية</subdivision>
 			<subdivision type="idsb" draft="provisional">سومطرة الغربية</subdivision>
@@ -1702,6 +1731,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="inar" draft="provisional">أروناجل برديش</subdivision>
 			<subdivision type="inas" draft="provisional">أسام</subdivision>
 			<subdivision type="inbr" draft="provisional">بيهار</subdivision>
+			<subdivision type="incg" draft="provisional">جَتِشْغار</subdivision>
 			<subdivision type="inch" draft="provisional">شانديغار</subdivision>
 			<subdivision type="inct" draft="provisional">تشاتيسغار</subdivision>
 			<subdivision type="indd" draft="provisional">دمن وديو</subdivision>
@@ -1724,6 +1754,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="inmp" draft="provisional">ماديا براديش</subdivision>
 			<subdivision type="inmz" draft="provisional">ميزورام</subdivision>
 			<subdivision type="innl" draft="provisional">ناجالاند</subdivision>
+			<subdivision type="inod" draft="provisional">أديشا</subdivision>
 			<subdivision type="inor" draft="provisional">أوريسا</subdivision>
 			<subdivision type="inpb" draft="provisional">بنجاب</subdivision>
 			<subdivision type="inpy" draft="provisional">بودوتشيري</subdivision>
@@ -1732,6 +1763,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="intg" draft="provisional">تيلانغانا</subdivision>
 			<subdivision type="intn" draft="provisional">تامل نادو</subdivision>
 			<subdivision type="intr" draft="provisional">ترايبورا</subdivision>
+			<subdivision type="ints" draft="provisional">تلنغانة</subdivision>
+			<subdivision type="inuk" draft="provisional">أُتَراخُند</subdivision>
 			<subdivision type="inup" draft="provisional">أتر برديش</subdivision>
 			<subdivision type="inut" draft="provisional">أوتاراخند</subdivision>
 			<subdivision type="inwb" draft="provisional">بنغال الغربية</subdivision>
@@ -1797,7 +1830,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="isakn" draft="provisional">أكرانيس</subdivision>
 			<subdivision type="isaku" draft="provisional">أكوريري</subdivision>
 			<subdivision type="isfjd" draft="provisional">فياردابيغد</subdivision>
+			<subdivision type="isgar" draft="provisional">غارذاباير</subdivision>
+			<subdivision type="ishaf" draft="provisional">هافنارفيوردور</subdivision>
+			<subdivision type="iskop" draft="provisional">كوبافوغور</subdivision>
+			<subdivision type="isrkv" draft="provisional">ريكيافيك</subdivision>
 			<subdivision type="issfa" draft="provisional">أربورغ</subdivision>
+			<subdivision type="isvem" draft="provisional">يستمان</subdivision>
 			<subdivision type="it21" draft="provisional">بييمونتي</subdivision>
 			<subdivision type="it23" draft="provisional">وادي أوستا</subdivision>
 			<subdivision type="it25" draft="provisional">لومبارديا</subdivision>
@@ -2002,9 +2040,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="jp45" draft="provisional">ميازاكي</subdivision>
 			<subdivision type="jp46" draft="provisional">كاغوشيما</subdivision>
 			<subdivision type="jp47" draft="provisional">أوكيناوا</subdivision>
+			<subdivision type="ke07" draft="provisional">محافظة غاريسا</subdivision>
+			<subdivision type="ke10" draft="provisional">مقاطعة كاجيادو</subdivision>
 			<subdivision type="ke17" draft="provisional">منطقة كيزيمو</subdivision>
+			<subdivision type="ke24" draft="provisional">محافظة مانطيرا</subdivision>
 			<subdivision type="ke30" draft="provisional">مقاطعة نايروبي</subdivision>
 			<subdivision type="ke43" draft="provisional">توركانا</subdivision>
+			<subdivision type="ke46" draft="provisional">محافظة وجير</subdivision>
 			<subdivision type="kgb" draft="provisional">باتكين أوبلاستي</subdivision>
 			<subdivision type="kgc" draft="provisional">تشوي أوبلاستي</subdivision>
 			<subdivision type="kggb" draft="provisional">بيشكك</subdivision>
@@ -2071,6 +2113,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="kp10" draft="provisional">مقاطعة ريانغانغ</subdivision>
 			<subdivision type="kp13" draft="provisional">راسون</subdivision>
 			<subdivision type="kp14" draft="provisional">نامبو</subdivision>
+			<subdivision type="kp15" draft="provisional">كايسونغ</subdivision>
 			<subdivision type="kr11" draft="provisional">سول</subdivision>
 			<subdivision type="kr26" draft="provisional">بوسان</subdivision>
 			<subdivision type="kr27" draft="provisional">دايغو</subdivision>
@@ -2094,24 +2137,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="kwja" draft="provisional">محافظة الجهراء</subdivision>
 			<subdivision type="kwku" draft="provisional">محافظة العاصمة</subdivision>
 			<subdivision type="kwmu" draft="provisional">محافظة مبارك الكبير</subdivision>
+			<subdivision type="kz11" draft="provisional">أوبليس أقملا</subdivision>
+			<subdivision type="kz15" draft="provisional">أوبليس أكتوبي</subdivision>
+			<subdivision type="kz19" draft="provisional">أوبليس ألماتي</subdivision>
+			<subdivision type="kz23" draft="provisional">أوبليس أتيراو</subdivision>
+			<subdivision type="kz27" draft="provisional">كازاخستان الغربية</subdivision>
+			<subdivision type="kz31" draft="provisional">أوبليس جامبيل</subdivision>
+			<subdivision type="kz35" draft="provisional">أوبليس كراغندي</subdivision>
+			<subdivision type="kz39" draft="provisional">أوبليس كوستناي</subdivision>
+			<subdivision type="kz43" draft="provisional">أوبليس كيزيلوردا</subdivision>
+			<subdivision type="kz47" draft="provisional">أوبليس مانكيستاو</subdivision>
+			<subdivision type="kz55" draft="provisional">أوبليس بافلودار</subdivision>
+			<subdivision type="kz59" draft="provisional">أوبليس كازاخستان الشمالي</subdivision>
+			<subdivision type="kz61" draft="provisional">أوبليس كازاخستان الجنوبي</subdivision>
+			<subdivision type="kz63" draft="provisional">أوبليس كازاخستان الشرقي</subdivision>
+			<subdivision type="kz71" draft="provisional">أستانا</subdivision>
+			<subdivision type="kz75" draft="provisional">ألماتي</subdivision>
+			<subdivision type="kz79" draft="provisional">شيمكنت</subdivision>
 			<subdivision type="kzakm" draft="provisional">أوبليس أكمولا</subdivision>
-			<subdivision type="kzakt" draft="provisional">أوبليس أكتوبي</subdivision>
-			<subdivision type="kzala" draft="provisional">ألماتي</subdivision>
 			<subdivision type="kzalm" draft="provisional">أوبليس ألماطي</subdivision>
-			<subdivision type="kzast" draft="provisional">أستانا</subdivision>
 			<subdivision type="kzaty" draft="provisional">أوبليس أتييرو</subdivision>
 			<subdivision type="kzbay" draft="provisional">بايكونور</subdivision>
-			<subdivision type="kzkar" draft="provisional">أوبليس كراغندي</subdivision>
-			<subdivision type="kzkus" draft="provisional">أوبليس كوستناي</subdivision>
-			<subdivision type="kzkzy" draft="provisional">أوبليس كيزيلوردا</subdivision>
-			<subdivision type="kzman" draft="provisional">أوبليس مانكيستاو</subdivision>
-			<subdivision type="kzpav" draft="provisional">أوبليس بافلودار</subdivision>
-			<subdivision type="kzsev" draft="provisional">أوبليس كازاخستان الشمالي</subdivision>
-			<subdivision type="kzshy" draft="provisional">شيمكنت</subdivision>
-			<subdivision type="kzvos" draft="provisional">أوبليس كازاخستان الشرقي</subdivision>
-			<subdivision type="kzyuz" draft="provisional">أوبليس كازاخستان الجنوبي</subdivision>
-			<subdivision type="kzzap" draft="provisional">كازاخستان الغربية</subdivision>
-			<subdivision type="kzzha" draft="provisional">أوبليس جامبيل</subdivision>
 			<subdivision type="laat" draft="provisional">محافظة أتابيو</subdivision>
 			<subdivision type="labk" draft="provisional">محافظة بوكيو</subdivision>
 			<subdivision type="labl" draft="provisional">محافظة بوليخاماسي</subdivision>
@@ -2225,6 +2271,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ltte" draft="provisional">مقاطعة تيلسياي</subdivision>
 			<subdivision type="ltut" draft="provisional">مقاطعة أوتينا</subdivision>
 			<subdivision type="ltvl" draft="provisional">مقاطعة فيلنيوس</subdivision>
+			<subdivision type="luca" draft="provisional">كانتونة كابيلين</subdivision>
+			<subdivision type="lucl" draft="provisional">كانتونة كليرفوكس</subdivision>
+			<subdivision type="luwi" draft="provisional">ويلتز (لوكسمبورغ)</subdivision>
 			<subdivision type="lv001" draft="provisional">بلدية أغلونا</subdivision>
 			<subdivision type="lv002" draft="provisional">بلدية إيزكروكل</subdivision>
 			<subdivision type="lv003" draft="provisional">بلدية آيزبوته</subdivision>
@@ -2596,6 +2645,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ml6" draft="provisional">منطقة تمبكتو</subdivision>
 			<subdivision type="ml7" draft="provisional">منطقة غاو</subdivision>
 			<subdivision type="ml8" draft="provisional">منطقة كيدال</subdivision>
+			<subdivision type="ml9" draft="provisional">منطقة ميناكا</subdivision>
 			<subdivision type="ml10" draft="provisional">منطقة تودني</subdivision>
 			<subdivision type="mlbko" draft="provisional">باماكو</subdivision>
 			<subdivision type="mm01" draft="provisional">إقليم ساجينغ</subdivision>
@@ -3071,7 +3121,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ph07" draft="provisional">بيسايا الوسطى</subdivision>
 			<subdivision type="ph09" draft="provisional">شبه جزيرة زامبوانجا</subdivision>
 			<subdivision type="ph10" draft="provisional">مينداناو الشمالية</subdivision>
+			<subdivision type="ph13" draft="provisional">كاراجا</subdivision>
 			<subdivision type="ph14" draft="provisional">الحكم الذاتي الاقليمي لمسلمي مندناو</subdivision>
+			<subdivision type="ph40" draft="provisional">كالابارزون</subdivision>
 			<subdivision type="ph41" draft="provisional">ميماروبا</subdivision>
 			<subdivision type="phabr" draft="provisional">أبرا</subdivision>
 			<subdivision type="phagn" draft="provisional">أغوسان ديل نورت</subdivision>
@@ -3102,6 +3154,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="phdao" draft="provisional">دافاو أورينتال</subdivision>
 			<subdivision type="phdas" draft="provisional">دافاو ديل سور</subdivision>
 			<subdivision type="phdav" draft="provisional">دافاو ديل نورت</subdivision>
+			<subdivision type="phdin" draft="provisional">جزر ديناغات</subdivision>
 			<subdivision type="pheas" draft="provisional">سامار الشرقية</subdivision>
 			<subdivision type="phgui" draft="provisional">غيماراس</subdivision>
 			<subdivision type="phifu" draft="provisional">ايفوغايو</subdivision>
@@ -4061,6 +4114,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="twyun" draft="provisional">مقاطعة يونلين</subdivision>
 			<subdivision type="tz01" draft="provisional">إقليم أروشا</subdivision>
 			<subdivision type="tz02" draft="provisional">إقليم دار السلام</subdivision>
+			<subdivision type="tz03" draft="provisional">إقليم دودوما</subdivision>
 			<subdivision type="tz04" draft="provisional">إقليم إيرينغا</subdivision>
 			<subdivision type="tz05" draft="provisional">إقليم كاجيرا</subdivision>
 			<subdivision type="tz06" draft="provisional">إقليم شمال بيمبا</subdivision>
@@ -4068,9 +4122,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="tz08" draft="provisional">إقليم كيغوما</subdivision>
 			<subdivision type="tz09" draft="provisional">مقاطعة كليمنجارو</subdivision>
 			<subdivision type="tz10" draft="provisional">إقليم جنوب بيمبا</subdivision>
+			<subdivision type="tz11" draft="provisional">إقليم جنوب أونغوجا</subdivision>
 			<subdivision type="tz12" draft="provisional">إقليم ليندي</subdivision>
 			<subdivision type="tz13" draft="provisional">اقليم مارا</subdivision>
 			<subdivision type="tz14" draft="provisional">إقليم مبيا</subdivision>
+			<subdivision type="tz15" draft="provisional">زنجبار</subdivision>
 			<subdivision type="tz16" draft="provisional">إقليم موروغورو</subdivision>
 			<subdivision type="tz17" draft="provisional">إقليم متوارا</subdivision>
 			<subdivision type="tz18" draft="provisional">إقليم موانزا</subdivision>
@@ -4086,6 +4142,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="tz28" draft="provisional">إقليم كاتافي</subdivision>
 			<subdivision type="tz29" draft="provisional">إقليم نجومبي</subdivision>
 			<subdivision type="tz30" draft="provisional">اقليم سيميو</subdivision>
+			<subdivision type="tz31" draft="provisional">إقليم سونجوي</subdivision>
 			<subdivision type="ua05" draft="provisional">فينيتسا أوبلاست</subdivision>
 			<subdivision type="ua07" draft="provisional">فولين أوبلاست</subdivision>
 			<subdivision type="ua09" draft="provisional">لوهانسك أوبلاست</subdivision>
@@ -4222,7 +4279,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ug424" draft="provisional">مقاطعة نتوروكو</subdivision>
 			<subdivision type="ug425" draft="provisional">مقاطعة روبيريزي</subdivision>
 			<subdivision type="ug426" draft="provisional">مقاطعة شيما</subdivision>
+			<subdivision type="ugc" draft="provisional">المنطقة الوسطى</subdivision>
 			<subdivision type="uge" draft="provisional">المنطقة الشرقية (أوغندا)</subdivision>
+			<subdivision type="ugn" draft="provisional">المنطقة الشمالية</subdivision>
+			<subdivision type="ugw" draft="provisional">المنطقة الغربية</subdivision>
 			<subdivision type="um67" draft="provisional">جزيرة جونستون المرجانية</subdivision>
 			<subdivision type="um71" draft="provisional">جزر الميدواي</subdivision>
 			<subdivision type="um76" draft="provisional">جزيرة نافاسا</subdivision>

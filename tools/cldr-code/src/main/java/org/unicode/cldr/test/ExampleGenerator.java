@@ -2678,9 +2678,7 @@ public class ExampleGenerator {
 
                         example = addExampleResult(forcePrefix + sdf.format(DATE_SAMPLE) + ", " + sdf.format(DATE_SAMPLE5), example, showContexts);
                     }
-                    String test = "branch will not push";
-                    return test;
-                    // return example;
+                    return example;
                 }
                 else if (id == null || id.indexOf('B') < 0) {
                     // Standard date/time format, or availableFormat without dayPeriod

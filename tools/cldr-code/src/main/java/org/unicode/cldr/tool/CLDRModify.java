@@ -654,7 +654,9 @@ public class CLDRModify {
             for (char c : givenOptions.value.toCharArray()) {
                 if (!allowedFilters.contains(c)) {
                     throw new IllegalArgumentException(
-                            "The filter " + c + " is currently disabled, see CLDR-17144 and CLDR-17765");
+                            "The filter "
+                                    + c
+                                    + " is currently disabled, see CLDR-17144 and CLDR-17765");
                 }
             }
         }

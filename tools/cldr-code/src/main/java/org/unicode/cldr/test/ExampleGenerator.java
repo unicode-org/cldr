@@ -1,34 +1,5 @@
 package org.unicode.cldr.test;
 
-import com.google.common.base.Joiner;
-import com.google.common.collect.ImmutableList;
-import com.ibm.icu.impl.Row.R3;
-import com.ibm.icu.impl.Utility;
-import com.ibm.icu.impl.number.DecimalQuantity;
-import com.ibm.icu.impl.number.DecimalQuantity_DualStorageBCD;
-import com.ibm.icu.lang.UCharacter;
-import com.ibm.icu.text.BreakIterator;
-import com.ibm.icu.text.DateFormat;
-import com.ibm.icu.text.DateFormatSymbols;
-import com.ibm.icu.text.DateTimePatternGenerator;
-import com.ibm.icu.text.DecimalFormat;
-import com.ibm.icu.text.DecimalFormatSymbols;
-import com.ibm.icu.text.ListFormatter;
-import com.ibm.icu.text.MessageFormat;
-import com.ibm.icu.text.NumberFormat;
-import com.ibm.icu.text.PluralRules;
-import com.ibm.icu.text.PluralRules.DecimalQuantitySamples;
-import com.ibm.icu.text.PluralRules.DecimalQuantitySamplesRange;
-import com.ibm.icu.text.PluralRules.Operand;
-import com.ibm.icu.text.PluralRules.SampleType;
-import com.ibm.icu.text.SimpleDateFormat;
-import com.ibm.icu.text.SimpleFormatter;
-import com.ibm.icu.text.UTF16;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.Calendar;
-import com.ibm.icu.util.Output;
-import com.ibm.icu.util.TimeZone;
-import com.ibm.icu.util.ULocale;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.text.ChoiceFormat;
@@ -47,6 +18,7 @@ import java.util.Set;
 import java.util.function.Function;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.AnnotationUtil;
 import org.unicode.cldr.util.CLDRConfig;
@@ -90,6 +62,36 @@ import org.unicode.cldr.util.personname.PersonNameFormatter.FormatParameters;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NameObject;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NamePattern;
 import org.unicode.cldr.util.personname.SimpleNameObject;
+
+import com.google.common.base.Joiner;
+import com.google.common.collect.ImmutableList;
+import com.ibm.icu.impl.Row.R3;
+import com.ibm.icu.impl.Utility;
+import com.ibm.icu.impl.number.DecimalQuantity;
+import com.ibm.icu.impl.number.DecimalQuantity_DualStorageBCD;
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.text.BreakIterator;
+import com.ibm.icu.text.DateFormat;
+import com.ibm.icu.text.DateFormatSymbols;
+import com.ibm.icu.text.DateTimePatternGenerator;
+import com.ibm.icu.text.DecimalFormat;
+import com.ibm.icu.text.DecimalFormatSymbols;
+import com.ibm.icu.text.ListFormatter;
+import com.ibm.icu.text.MessageFormat;
+import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.text.PluralRules;
+import com.ibm.icu.text.PluralRules.DecimalQuantitySamples;
+import com.ibm.icu.text.PluralRules.DecimalQuantitySamplesRange;
+import com.ibm.icu.text.PluralRules.Operand;
+import com.ibm.icu.text.PluralRules.SampleType;
+import com.ibm.icu.text.SimpleDateFormat;
+import com.ibm.icu.text.SimpleFormatter;
+import com.ibm.icu.text.UTF16;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.Calendar;
+import com.ibm.icu.util.Output;
+import com.ibm.icu.util.TimeZone;
+import com.ibm.icu.util.ULocale;
 
 /**
  * Class to generate examples and help messages for the Survey tool (or console version).
@@ -169,6 +171,7 @@ public class ExampleGenerator {
     private static final Date DATE_SAMPLE2;
     private static final Date DATE_SAMPLE3;
     private static final Date DATE_SAMPLE4;
+    private static final Date DATE_SAMPLE5;
 
     static {
         Calendar calendar = Calendar.getInstance(ZONE_SAMPLE, ULocale.ENGLISH);
@@ -182,7 +185,11 @@ public class ExampleGenerator {
         DATE_SAMPLE3 = calendar.getTime();
         calendar.set(1999, 8, 5, 23, 0, 0); // 1999-09-05 23:00:00
         DATE_SAMPLE4 = calendar.getTime();
+        calendar.set(1999, 8, 5, 3, 25, 59); // 1999-09-05 03:25:59
+        DATE_SAMPLE5 = calendar.getTime();
     }
+
+    public static DateTimePatternGenerator.FormatParser fp = new DateTimePatternGenerator.FormatParser();
 
     static final List<DecimalQuantity> CURRENCY_SAMPLES =
             ImmutableList.of(
@@ -2411,6 +2418,36 @@ public class ExampleGenerator {
         return result;
     }
 
+    private String generateAltPattern(String dateTimeValue) {
+        fp.set(dateTimeValue);
+            StringBuilder altPatternBuilder = new StringBuilder();
+            for (Object item : fp.getItems()) {
+                if (item instanceof DateTimePatternGenerator.VariableField) {
+                    DateTimePatternGenerator.VariableField field = (DateTimePatternGenerator.VariableField) item;
+                    switch (field.toString()) {
+                        case "h":
+                            altPatternBuilder.append("hh");
+                            break;
+                        case "H":
+                            altPatternBuilder.append("HH");
+                            break;
+                        case "hh":
+                            altPatternBuilder.append("h");
+                            break;
+                        case "HH":
+                            altPatternBuilder.append("H");
+                            break;
+                        default:
+                            altPatternBuilder.append(field.toString());
+                            break;
+                    }
+                } else {
+                    altPatternBuilder.append(item);
+                }
+            }
+        return altPatternBuilder.toString();
+    }
+
     @SuppressWarnings("deprecation")
     private String handleDateFormatItem(String xpath, String value, boolean showContexts) {
         // Get here if parts contains "calendar" and either of "pattern", "dateFormatItem"
@@ -2608,7 +2645,39 @@ public class ExampleGenerator {
                 DateFormatSymbols dfs = sdf.getDateFormatSymbols();
                 dfs.setTimeSeparatorString(timeSeparator);
                 sdf.setDateFormatSymbols(dfs);
-                if (id == null || id.indexOf('B') < 0) {
+                if (parts.contains("availableFormats")) {
+                    String example = addExampleResult(sdf.format(DATE_SAMPLE) + ", " + sdf.format(DATE_SAMPLE5), "", showContexts);
+                    String altId = generateAltPattern(id);
+                    if (!altId.equals(id)) {
+                        String altXpath = "//ldml/dates/calendars/calendar[@type=\""
+                            + calendar
+                            + "\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\""
+                            + altId
+                            + "\"]";
+                        String forcedAltValue = cldrFile.getWinningValue(altXpath);
+                        String unforcedAltValue = generateAltPattern(value);
+                        String forcePrefix = forcedAltValue != null ? "" : EXAMPLE_OF_INCORRECT;
+                        
+                        
+                        sdf =
+                            icuServiceBuilder.getDateFormat(calendar, unforcedAltValue, numbersOverride);
+                        sdf.setTimeZone(ZONE_SAMPLE);
+                        defaultNumberingSystem =
+                                cldrFile.getWinningValue("//ldml/numbers/defaultNumberingSystem");
+                        timeSeparator =
+                                cldrFile.getWinningValue(
+                                        "//ldml/numbers/symbols[@numberSystem='"
+                                                + defaultNumberingSystem
+                                                + "']/timeSeparator");
+                        dfs = sdf.getDateFormatSymbols();
+                        dfs.setTimeSeparatorString(timeSeparator);
+                        sdf.setDateFormatSymbols(dfs);
+
+                        example = addExampleResult(forcePrefix + sdf.format(DATE_SAMPLE) + ", " + sdf.format(DATE_SAMPLE5), example, showContexts);
+                    }    
+                    return example;
+                }
+                else if (id == null || id.indexOf('B') < 0) {
                     // Standard date/time format, or availableFormat without dayPeriod
                     if (value.contains("MMM") || value.contains("LLL")) {
                         // alpha month, do not need context examples

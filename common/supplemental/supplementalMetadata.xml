@@ -1397,15 +1397,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<subdivisionAlias type="frg" replacement="frges" reason="deprecated"/> <!-- ??? => Grand-Est -->
 			<subdivisionAlias type="frgf" replacement="GF" reason="overlong"/> <!-- French Guiana => French Guiana -->
 			<subdivisionAlias type="frgp" replacement="GP" reason="overlong"/> <!-- Guadeloupe => Guadeloupe -->
-			<!-- <subdivisionAlias type="frgua" replacement="fr?" reason="deprecated"/> <!- - Guadeloupe => ?? -->
+			<subdivisionAlias type="frgua" replacement="GP" reason="deprecated"/> <!-- Guadeloupe -->
 			<subdivisionAlias type="frh" replacement="frcor" reason="deprecated"/> <!-- ??? => Corsica -->
 			<subdivisionAlias type="fri" replacement="frbfc" reason="deprecated"/> <!-- ??? => Burgundy-Franche-Comté -->
 			<subdivisionAlias type="frj" replacement="fridf" reason="deprecated"/> <!-- ??? => Île-de-France² -->
 			<subdivisionAlias type="frk" replacement="frocc" reason="deprecated"/> <!-- ??? => Occitanie -->
 			<subdivisionAlias type="frl" replacement="frnaq" reason="deprecated"/> <!-- ??? => Nouvelle-Aquitaine -->
-			<!-- <subdivisionAlias type="frlre" replacement="fr?" reason="deprecated"/> <!- - La Réunion => ?? -->
+			<subdivisionAlias type="frlre" replacement="RE" reason="deprecated"/> <!-- La Réunion -->
 			<subdivisionAlias type="frm" replacement="frges" reason="deprecated"/> <!-- ??? => Grand-Est -->
-			<!-- <subdivisionAlias type="frmay" replacement="fr?" reason="deprecated"/> <!- - Mayotte => ?? -->
+			<subdivisionAlias type="frmay" replacement="YT" reason="deprecated"/> <!-- Mayotte => -->
 			<subdivisionAlias type="frmq" replacement="MQ" reason="overlong"/> <!-- Martinique => Martinique -->
 			<subdivisionAlias type="frn" replacement="frocc" reason="deprecated"/> <!-- ??? => Occitanie -->
 			<subdivisionAlias type="fro" replacement="frhdf" reason="deprecated"/> <!-- ??? => Hauts-de-France -->
@@ -1443,6 +1443,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<!-- <subdivisionAlias type="gbmyl" replacement="gb?" reason="deprecated"/> <!- - Moyle => ?? -->
 			<!-- <subdivisionAlias type="gbndn" replacement="gb?" reason="deprecated"/> <!- - North Down => ?? -->
 			<!-- <subdivisionAlias type="gbnta" replacement="gb?" reason="deprecated"/> <!- - Newtownabbey => ?? -->
+			<!-- <subdivisionAlias type="gbnth" replacement="gb?" reason="deprecated"/> <!- - Northamptonshire => ?? -->
 			<!-- <subdivisionAlias type="gbnym" replacement="gb?" reason="deprecated"/> <!- - Newry and Mourne => ?? -->
 			<!-- <subdivisionAlias type="gbomh" replacement="gb?" reason="deprecated"/> <!- - Omagh => ?? -->
 			<!-- <subdivisionAlias type="gbpol" replacement="gb?" reason="deprecated"/> <!- - Poole => ?? -->
@@ -1525,20 +1526,47 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<!-- <subdivisionAlias type="gtza" replacement="gt?" reason="deprecated"/> <!- - Zacapa => ?? -->
 			<!-- <subdivisionAlias type="indd" replacement="in?" reason="deprecated"/> <!- - Daman and Diu => ?? -->
 			<!-- <subdivisionAlias type="indn" replacement="in?" reason="deprecated"/> <!- - Dadra and Nagar Haveli => ?? -->
+			<!-- <subdivisionAlias type="inor" replacement="in?" reason="deprecated"/> <!- - Odisha => ?? -->
+			<!-- <subdivisionAlias type="intg" replacement="in?" reason="deprecated"/> <!- - Telangana => ?? -->
+			<!-- <subdivisionAlias type="inut" replacement="in?" reason="deprecated"/> <!- - Uttarakhand => ?? -->
 			<!-- <subdivisionAlias type="ir31" replacement="ir?" reason="deprecated"/> <!- - North Khorasan => ?? -->
 			<!-- <subdivisionAlias type="ir32" replacement="ir?" reason="deprecated"/> <!- - Alborz => ?? -->
 			<!-- <subdivisionAlias type="is0" replacement="is?" reason="deprecated"/> <!- - Reykjavík => ?? -->
+			<!-- <subdivisionAlias type="isakh" replacement="is?" reason="deprecated"/> <!- - Akrahreppur => ?? -->
 			<!-- <subdivisionAlias type="isbfj" replacement="is?" reason="deprecated"/> <!- - Borgarfjarðarhreppur => ?? -->
+			<!-- <subdivisionAlias type="isblo" replacement="is?" reason="deprecated"/> <!- - Blönduósbær => ?? -->
 			<!-- <subdivisionAlias type="isdju" replacement="is?" reason="deprecated"/> <!- - Djúpavogshreppur => ?? -->
 			<!-- <subdivisionAlias type="isfld" replacement="is?" reason="deprecated"/> <!- - Fljótsdalshérað => ?? -->
+			<!-- <subdivisionAlias type="ishel" replacement="is?" reason="deprecated"/> <!- - Helgafellssveit => ?? -->
+			<!-- <subdivisionAlias type="ishut" replacement="is?" reason="deprecated"/> <!- - Húnavatnshreppur => ?? -->
+			<!-- <subdivisionAlias type="issbh" replacement="is?" reason="deprecated"/> <!- - Svalbarðshreppur => ?? -->
 			<!-- <subdivisionAlias type="issey" replacement="is?" reason="deprecated"/> <!- - Seyðisfjarðarkaupstaður => ?? -->
+			<!-- <subdivisionAlias type="issku" replacement="is?" reason="deprecated"/> <!- - Skútustaðahreppur => ?? -->
+			<!-- <subdivisionAlias type="isssf" replacement="is?" reason="deprecated"/> <!- - Sveitarfélagið Skagafjörður => ?? -->
 			<!-- <subdivisionAlias type="itao" replacement="it?" reason="deprecated"/> <!- - Aosta => ?? -->
 			<!-- <subdivisionAlias type="itci" replacement="it?" reason="deprecated"/> <!- - Carbonia-Iglesias => ?? -->
 			<!-- <subdivisionAlias type="itog" replacement="it?" reason="deprecated"/> <!- - Ogliastra => ?? -->
 			<!-- <subdivisionAlias type="itot" replacement="it?" reason="deprecated"/> <!- - Olbia-Tempio => ?? -->
 			<!-- <subdivisionAlias type="itsd" replacement="it?" reason="deprecated"/> <!- - Sud Sardegna => ?? -->
 			<!-- <subdivisionAlias type="itvs" replacement="it?" reason="deprecated"/> <!- - Medio Campidano => ?? -->
+			<!-- <subdivisionAlias type="kzakm" replacement="kz?" reason="deprecated"/> <!- - Akmola => ?? -->
+			<!-- <subdivisionAlias type="kzakt" replacement="kz?" reason="deprecated"/> <!- - Aktobe => ?? -->
+			<!-- <subdivisionAlias type="kzala" replacement="kz?" reason="deprecated"/> <!- - Almaty => ?? -->
+			<!-- <subdivisionAlias type="kzalm" replacement="kz?" reason="deprecated"/> <!- - Almaty Region => ?? -->
+			<!-- <subdivisionAlias type="kzast" replacement="kz?" reason="deprecated"/> <!- - Astana => ?? -->
+			<!-- <subdivisionAlias type="kzaty" replacement="kz?" reason="deprecated"/> <!- - Atyrau => ?? -->
 			<!-- <subdivisionAlias type="kzbay" replacement="kz?" reason="deprecated"/> <!- - Bayqongyr => ?? -->
+			<!-- <subdivisionAlias type="kzkar" replacement="kz?" reason="deprecated"/> <!- - Karagandy => ?? -->
+			<!-- <subdivisionAlias type="kzkus" replacement="kz?" reason="deprecated"/> <!- - Kostanay => ?? -->
+			<!-- <subdivisionAlias type="kzkzy" replacement="kz?" reason="deprecated"/> <!- - Kyzylorda => ?? -->
+			<!-- <subdivisionAlias type="kzman" replacement="kz?" reason="deprecated"/> <!- - Mangystau => ?? -->
+			<!-- <subdivisionAlias type="kzpav" replacement="kz?" reason="deprecated"/> <!- - Pavlodar => ?? -->
+			<!-- <subdivisionAlias type="kzsev" replacement="kz?" reason="deprecated"/> <!- - North Kazakhstan => ?? -->
+			<!-- <subdivisionAlias type="kzshy" replacement="kz?" reason="deprecated"/> <!- - Shymkent => ?? -->
+			<!-- <subdivisionAlias type="kzvos" replacement="kz?" reason="deprecated"/> <!- - East Kazakhstan => ?? -->
+			<!-- <subdivisionAlias type="kzyuz" replacement="kz?" reason="deprecated"/> <!- - South Kazakhstan => ?? -->
+			<!-- <subdivisionAlias type="kzzap" replacement="kz?" reason="deprecated"/> <!- - West Kazakhstan => ?? -->
+			<!-- <subdivisionAlias type="kzzha" replacement="kz?" reason="deprecated"/> <!- - Jambyl => ?? -->
 			<subdivisionAlias type="laxn" replacement="laxs" reason="deprecated"/> <!-- ??? => Xaisomboun -->
 			<subdivisionAlias type="lud" replacement="lucl ludi lurd luvd luwi" reason="deprecated"/> <!-- ??? => Clervaux, Diekirch, Redange, Vianden, Wiltz -->
 			<subdivisionAlias type="lug" replacement="luec lugr lurm" reason="deprecated"/> <!-- ??? => Echternach, Grevenmacher, Remich -->
@@ -1744,10 +1772,30 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<!-- <subdivisionAlias type="no19" replacement="no?" reason="deprecated"/> <!- - Troms => ?? -->
 			<!-- <subdivisionAlias type="no20" replacement="no?" reason="deprecated"/> <!- - Finnmark => ?? -->
 			<subdivisionAlias type="no23" replacement="no50" reason="deprecated"/> <!-- Trøndelag => Trøndelag -->
+			<!-- <subdivisionAlias type="np1" replacement="np?" reason="deprecated"/> <!- - Central => ?? -->
+			<!-- <subdivisionAlias type="np2" replacement="np?" reason="deprecated"/> <!- - Madhya Pashchimanchal => ?? -->
+			<!-- <subdivisionAlias type="np3" replacement="np?" reason="deprecated"/> <!- - Western => ?? -->
+			<!-- <subdivisionAlias type="np4" replacement="np?" reason="deprecated"/> <!- - Purwanchal => ?? -->
+			<!-- <subdivisionAlias type="np5" replacement="np?" reason="deprecated"/> <!- - Sudur Pashchimanchal => ?? -->
+			<!-- <subdivisionAlias type="npba" replacement="np?" reason="deprecated"/> <!- - Bagmati => ?? -->
+			<!-- <subdivisionAlias type="npbh" replacement="np?" reason="deprecated"/> <!- - Bheri => ?? -->
+			<!-- <subdivisionAlias type="npdh" replacement="np?" reason="deprecated"/> <!- - Dhawalagiri => ?? -->
+			<!-- <subdivisionAlias type="npga" replacement="np?" reason="deprecated"/> <!- - Gandaki => ?? -->
+			<!-- <subdivisionAlias type="npja" replacement="np?" reason="deprecated"/> <!- - Janakpur => ?? -->
+			<!-- <subdivisionAlias type="npka" replacement="np?" reason="deprecated"/> <!- - Karnali => ?? -->
+			<!-- <subdivisionAlias type="npko" replacement="np?" reason="deprecated"/> <!- - Kosi => ?? -->
+			<!-- <subdivisionAlias type="nplu" replacement="np?" reason="deprecated"/> <!- - Lumbini => ?? -->
+			<!-- <subdivisionAlias type="npma" replacement="np?" reason="deprecated"/> <!- - Mahakali => ?? -->
+			<!-- <subdivisionAlias type="npme" replacement="np?" reason="deprecated"/> <!- - Mechi => ?? -->
+			<!-- <subdivisionAlias type="npna" replacement="np?" reason="deprecated"/> <!- - Narayani => ?? -->
+			<!-- <subdivisionAlias type="npra" replacement="np?" reason="deprecated"/> <!- - Rapti => ?? -->
+			<!-- <subdivisionAlias type="npsa" replacement="np?" reason="deprecated"/> <!- - Sagarmatha => ?? -->
+			<!-- <subdivisionAlias type="npse" replacement="np?" reason="deprecated"/> <!- - Seti => ?? -->
 			<subdivisionAlias type="nzn" replacement="nzauk nzbop nzgis nzhkb nzmwt nzntl nztki nzwgn nzwko" reason="deprecated"/> <!-- ??? => Auckland, Bay of Plenty, Gisborne, Hawke’s Bay, Manawatu-Wanganui, Northland, Taranaki, Wellington, Waikato -->
 			<subdivisionAlias type="nzs" replacement="nzcan nzmbh nznsn nzota nzstl nztas nzwtc" reason="deprecated"/> <!-- ??? => Canterbury, Marl, Nelson, Otago, Southland, Tasman, West Coast -->
 			<subdivisionAlias type="omba" replacement="ombj ombs" reason="deprecated"/> <!-- ??? => Janub al Batinah, Shamal al Batinah -->
 			<subdivisionAlias type="omsh" replacement="omsj omss" reason="deprecated"/> <!-- ??? => Janub ash Sharqiyah, Shamal ash Sharqiyah -->
+			<!-- <subdivisionAlias type="phmag" replacement="ph?" reason="deprecated"/> <!- - Maguindanao => ?? -->
 			<!-- <subdivisionAlias type="pkta" replacement="pk?" reason="deprecated"/> <!- - Federally Administered Tribal Areas => ?? -->
 			<subdivisionAlias type="plds" replacement="pl02" reason="deprecated"/> <!-- ??? => Lower Silesia -->
 			<subdivisionAlias type="plkp" replacement="pl04" reason="deprecated"/> <!-- ??? => Kuyavia-Pomerania -->

@@ -8,20 +8,17 @@ permissions:
 on:
     pull_request:
         paths:
-         - "tools/scripts/tr-archive/**"
-         - "docs/**"
-         - '.github/workflows/gh-pages.yml'
+        #  - "tools/scripts/tr-archive/**"
+         - "docs/site/**"
+         - '.github/workflows/site.yml'
     push:
         branches:
          - main
-         - "maint/maint-*"
-        tags:
-         - "release-*"
         # Only run if docs change.
         paths:
-         - "tools/scripts/tr-archive/**"
-         - "docs/**"
-         - '.github/workflows/gh-pages.yml'
+        #  - "tools/scripts/tr-archive/**"
+         - "docs/site/**"
+         - '.github/workflows/site.yml'
 
 jobs:
   cloudflare:
@@ -38,7 +35,7 @@ jobs:
     - name: Setup Jekyll
       run: 'gem install bundler jekyll kramdown-parser-gfm webrick'
     - name: Build cldr.pages.dev
-      run: 'cd docs/site && jekyll build'
+      run: 'cd docs/site && jekyll build && git status'
     - name: Deploy cldr.pages.dev
       id: deploy
       uses: cloudflare/wrangler-action@v3

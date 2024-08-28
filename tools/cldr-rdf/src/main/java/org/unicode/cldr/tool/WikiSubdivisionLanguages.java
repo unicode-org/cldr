@@ -182,7 +182,7 @@ public final class WikiSubdivisionLanguages {
     }
 
     private static String getSubdivisionPath(String subdivision) {
-        return BEFORE_TYPE + subdivision + "\"][@draft=\"contributed\"]";
+        return BEFORE_TYPE + subdivision + "\"][@draft=\"provisional\"]";
     }
 
     private static String getSubdivisionFromPath(String path) {

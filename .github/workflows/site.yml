@@ -36,6 +36,9 @@ jobs:
       run: 'gem install bundler jekyll kramdown-parser-gfm webrick'
     - name: Build cldr.pages.dev
       run: 'cd docs/site && jekyll build'
+    - name: Pre-install Wrangler
+      run: npm i -g wrangler@3.x
+      # see https://github.com/cloudflare/wrangler-action/issues/286
     - name: Deploy cldr.pages.dev
       id: deploy
       uses: cloudflare/wrangler-action@v3
@@ -59,5 +62,3 @@ jobs:
             repo: context.repo.repo,
             labels: ['Site Update']
             })
-    - name: Check for Dirty Files
-      run: 'git status'

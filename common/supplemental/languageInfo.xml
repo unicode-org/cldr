@@ -145,8 +145,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<languageMatch desired="tum"	supported="en"	distance="30"	oneway="true"/>	<!-- Tumbuka: tum ⇒ en -->
 			<languageMatch desired="ug"	supported="zh"	distance="20"	oneway="true"/>	<!-- Uighur: ug ⇒ zh -->
 			
-			<languageMatch desired="uk"	supported="en"	distance="30"	oneway="true"/>	<!-- Ukrainian ⇒ English -->
-			<!-- CLDR-17382: languageMatch: Ukrainian should not fall back to Russian -->
+			<!-- CLDR-17382: Ukrainian should not fall back to Russian -->
+			<!-- languageMatch desired="uk" supported="ru" distance="20" oneway="true"/--> <!-- Ukrainian ⇒ Russian -->
 
 			<languageMatch desired="ur"	supported="en"	distance="30"	oneway="true"/>	<!-- Urdu: ur ⇒ en -->
 			<languageMatch desired="uz"	supported="ru"	distance="30"	oneway="true"/>	<!-- Uzbek: uz ⇒ ru -->

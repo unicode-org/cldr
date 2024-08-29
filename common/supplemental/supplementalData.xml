@@ -1647,7 +1647,7 @@ XXX Code for transations where no currency is involved
 		<language type="ha" scripts="Arab Latn"/>
 		<language type="ha" territories="NE NG" alt="secondary"/>
 		<language type="hai" scripts="Latn"/>
-		<language type="hak" scripts="Hans"/>
+		<language type="hak" scripts="Hans Hant" territories="TW"/>
 		<language type="hak" territories="CN" alt="secondary"/>
 		<language type="haw" scripts="Latn"/>
 		<language type="haw" territories="US" alt="secondary"/>
@@ -1890,7 +1890,7 @@ XXX Code for transations where no currency is involved
 		<language type="lv" scripts="Latn" territories="LV"/>
 		<language type="lwl" scripts="Thai"/>
 		<language type="lzh" scripts="Hans" alt="secondary"/>
-		<language type="lzz" scripts="Latn Geor"/>
+		<language type="lzz" scripts="Geor Latn"/>
 		<language type="mad" scripts="Latn"/>
 		<language type="mad" territories="ID" alt="secondary"/>
 		<language type="maf" scripts="Latn"/>
@@ -1979,7 +1979,7 @@ XXX Code for transations where no currency is involved
 		<language type="mzn" scripts="Arab"/>
 		<language type="mzn" territories="IR" alt="secondary"/>
 		<language type="na" scripts="Latn" territories="NR"/>
-		<language type="nan" scripts="Hans"/>
+		<language type="nan" scripts="Hans Hant" territories="TW"/>
 		<language type="nan" territories="CN" alt="secondary"/>
 		<language type="nap" scripts="Latn"/>
 		<language type="naq" scripts="Latn"/>
@@ -2070,14 +2070,15 @@ XXX Code for transations where no currency is involved
 		<language type="peo" scripts="Xpeo" alt="secondary"/>
 		<language type="pfl" scripts="Latn"/>
 		<language type="phn" scripts="Phnx" alt="secondary"/>
-		<language type="pi" scripts="Deva Sinh Thai" alt="secondary"/>
+		<language type="pi" scripts="Deva Mymr Sinh Thai" alt="secondary"/>
 		<language type="pis" scripts="Latn"/>
 		<language type="pis" territories="SB" alt="secondary"/>
 		<language type="pko" scripts="Latn"/>
 		<language type="pl" scripts="Latn" territories="PL"/>
 		<language type="pl" territories="GB" alt="secondary"/>
 		<language type="pms" scripts="Latn"/>
-		<language type="pnt" scripts="Grek Cyrl Latn"/>
+		<language type="pnt" scripts="Grek"/>
+		<language type="pnt" scripts="Cyrl Latn" alt="secondary"/>
 		<language type="pon" scripts="Latn"/>
 		<language type="pon" territories="FM" alt="secondary"/>
 		<language type="pqm" scripts="Latn"/>
@@ -2277,10 +2278,10 @@ XXX Code for transations where no currency is involved
 		<language type="tk" scripts="Arab Cyrl Latn" territories="TM"/>
 		<language type="tk" territories="AF IR" alt="secondary"/>
 		<language type="tkl" scripts="Latn" territories="TK"/>
-		<language type="tkr" scripts="Latn Cyrl"/>
+		<language type="tkr" scripts="Cyrl Latn"/>
 		<language type="tkt" scripts="Deva"/>
 		<language type="tli" scripts="Latn"/>
-		<language type="tly" scripts="Latn Arab Cyrl"/>
+		<language type="tly" scripts="Arab Cyrl Latn"/>
 		<language type="tly" territories="AZ" alt="secondary"/>
 		<language type="tmh" scripts="Latn"/>
 		<language type="tmh" territories="NE" alt="secondary"/>
@@ -2309,7 +2310,7 @@ XXX Code for transations where no currency is involved
 		<language type="ttj" scripts="Latn"/>
 		<language type="tts" scripts="Thai"/>
 		<language type="tts" territories="TH" alt="secondary"/>
-		<language type="ttt" scripts="Latn Cyrl"/>
+		<language type="ttt" scripts="Cyrl Latn"/>
 		<language type="ttt" scripts="Arab" alt="secondary"/>
 		<language type="tum" scripts="Latn"/>
 		<language type="tum" territories="MW" alt="secondary"/>
@@ -4226,7 +4227,6 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="ku" populationPercent="5.5"/>	<!--Kurdish-->
 			<languagePopulation type="apc" populationPercent="5.2" references="R1173"/>	<!--Levantine Arabic-->
 			<languagePopulation type="zza" populationPercent="1.4"/>	<!--Zaza-->
-			<languagePopulation type="kaa" populationPercent="0.1" references="R1199"/>	<!--Kara-Kalpak-->
 			<languagePopulation type="kbd" populationPercent="0.77"/>	<!--Kabardian-->
 			<languagePopulation type="az" populationPercent="0.74"/>	<!--Azerbaijani-->
 			<languagePopulation type="az_Arab" populationPercent="0.65"/>	<!--Azerbaijani (Arabic)-->
@@ -4235,6 +4235,7 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="bg" populationPercent="0.42"/>	<!--Bulgarian-->
 			<languagePopulation type="ady" populationPercent="0.39"/>	<!--Adyghe-->
 			<languagePopulation type="kiu" populationPercent="0.19"/>	<!--Kirmanjki-->
+			<languagePopulation type="kaa" populationPercent="0.1" references="R1199"/>	<!--Kara-Kalpak-->
 			<languagePopulation type="hy" populationPercent="0.056"/>	<!--Armenian-->
 			<languagePopulation type="ka" populationPercent="0.056"/>	<!--Georgian-->
 			<languagePopulation type="sr_Latn" writingPercent="5" populationPercent="0.028" references="R1017"/>	<!--Serbian (Latin)-->
@@ -4257,6 +4258,8 @@ XXX Code for transations where no currency is involved
 		</territory>
 		<territory type="TW" gdp="1143000000000" literacyPercent="96.1" population="23595300">	<!--Taiwan-->
 			<languagePopulation type="zh_Hant" populationPercent="95" officialStatus="official"/>	<!--Chinese (Traditional)-->
+			<languagePopulation type="nan" populationPercent="57" officialStatus="official" references="R1219"/>	<!--Min Nan Chinese-->
+			<languagePopulation type="hak" populationPercent="11" officialStatus="official" references="R1333"/>	<!--Hakka Chinese-->
 			<languagePopulation type="trv" populationPercent="0.02"/>	<!--Taroko-->
 		</territory>
 		<territory type="TZ" gdp="234100000000" literacyPercent="67.8" population="67462100">	<!--Tanzania-->
@@ -5692,6 +5695,7 @@ XXX Code for transations where no currency is involved
 		<reference type="R1216">This is base pop for &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;fub&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot; lang code; ff shows as a macrolanguage</reference>
 		<reference type="R1217" uri="http://www.ethnologue.com/language/bkm">[missing]</reference>
 		<reference type="R1218" uri="http://en.wikipedia.org/wiki/Vietnamese_language">(could be higher if 2nd lang included; no data yet)</reference>
+		<reference type="R1219" uri="https://en.wikipedia.org/wiki/Taiwanese_Hokkien">[missing]</reference>
 		<reference type="R1220" uri="http://www.ethnologue.com/18/language/knf/">[missing]</reference>
 		<reference type="R1221" uri="https://www.cia.gov/library/publications/the-world-factbook/geos/cc.html">[missing]</reference>
 		<reference type="R1222" uri="http://www.ethnologue.com/show_language.asp?code=dsb">pop 7k. Figure is questionable writing pop artificially set to 5% see also http://en.wikipedia.org/wiki/Lower_Sorbian</reference>
@@ -5805,5 +5809,6 @@ XXX Code for transations where no currency is involved
 		<reference type="R1330" uri="https://en.wikipedia.org/wiki/Languages_of_the_United_Kingdom">Analyzed from 2011 UK census and other sources</reference>
 		<reference type="R1331" uri="https://en.wikipedia.org/wiki/Languages_of_Canada">In total 86.2% of Canadians have working knowledge of English while 29.8% have a working knowledge of French.</reference>
 		<reference type="R1332" uri="https://statisticsmaldives.gov.mv/statistical-release-iii-education">2014 Maldives: 98% literacy in Divehi, 75% in English</reference>
+		<reference type="R1333" uri="https://en.wikipedia.org/wiki/Taiwanese_Hakka">[missing]</reference>
 	</references>
 </supplementalData>

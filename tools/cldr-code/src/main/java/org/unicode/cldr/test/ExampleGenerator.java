@@ -2727,6 +2727,7 @@ public class ExampleGenerator {
                         formatNumber(df, -sampleAmount).replace("¤", currencySymbol),
                         example,
                         showContexts);
+        String test = "";
 
         return example;
     }

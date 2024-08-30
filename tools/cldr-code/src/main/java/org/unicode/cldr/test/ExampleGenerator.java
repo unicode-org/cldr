@@ -2715,6 +2715,19 @@ public class ExampleGenerator {
         example = addExampleResult(formatNumber(df_usd, sampleAmount), example, showContexts);
         example = addExampleResult(formatNumber(df_usd, -sampleAmount), example, showContexts);
 
+        DecimalFormat df = icuServiceBuilder.getCurrencyFormat(currency, "¤", numberSystem);
+        df.applyPattern(value);
+        example =
+                addExampleResult(
+                        formatNumber(df, sampleAmount).replace("¤", currencySymbol),
+                        example,
+                        showContexts);
+        example =
+                addExampleResult(
+                        formatNumber(df, -sampleAmount).replace("¤", currencySymbol),
+                        example,
+                        showContexts);
+
         return example;
     }
 

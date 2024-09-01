@@ -1,0 +1,18 @@
+Updating Subdivision Translations
+Make sure that that the subdivisions are updated first as per Updating Subdivision Codes
+Make sure you have completed Maven Setup
+Run tool WikiSubdivisionLanguages
+mvn -DCLDR_DIR=________/cldr  -Dexec.mainClass=org.unicode.cldr.tool.GenerateLanguageContainment exec:java -pl cldr-rdf
+STEVEN LOOMIS 2022-0829 - this does not make sense here.
+Sanity check result, run tests.
+NOTES
+Should only add values, never change what is there beforehand.
+Currently excludes items:
+That fail exemplar check (broad test, allows any letters in script).
+Many of these are reparable, but need manual work.
+Currently renames items that collide within country.
+Uses superscript 2, 3 for alternates. More than 3 alternates, it excludes since there is probably a more serious problem.
+Needs a couple more locales: zh_Hant, de_CH, fil not working yet.
+The Language List is in the query file {workspace}cldr/tools/cldr-rdf/src/main/resources/org/unicode/cldr/rdf/sparql/wikidata-wikisubdivisionLanguages.sparql
+Check in
+Make sure you also check in {workspace}/cldr/tools/cldr-rdf/external/*.tsv ( intermediate tables, for tracking)

@@ -1,0 +1,63 @@
+Updating Script Metadata
+New Unicode scripts
+We should work on script metadata early for a Unicode version, so that it is available for tools (such as Mark's "UCA" tools).
+Unicode 9/CLDR 29: New scripts in CLDR but not yet in ICU caused trouble.
+Unicode 10: Working on a pre-CLDR-31 branch, plan to merge into CLDR trunk after CLDR 31 is done.
+Should the script metadata code live in the Unicode Tools, so that we don't need a CLDR branch during early Unicode next-version work?
+If the new Unicode version's PropertyValueAliases.txt does not have lines for Block and Script properties yet, then create a preliminary version. Diff the Blocks.txt file and UnicodeData.txt to find new scripts. Get the script codes from http://www.unicode.org/iso15924/codelists.html . Follow existing patterns for block and script names, especially for abbreviations. Do not add abbreviations (which differ from the long forms) unless there is a well-established pattern in the existing data.
+Aside from instructions below for all script metadata changes, new script codes need English names (common/main/en.xml) and need to be added to common/supplemental/coverageLevels, under key %script100, so that the new script names will show up in the survey tool. For example, see the changes for new Unicode 8 scripts.
+Can we add new scripts in CLDR trunk before or only after adding them to CLDR's copy of ICU4J? We did add new Unicode 9 scripts in CLDR 29 before adding them to ICU4J. The CLDR unit tests do not fail any more for scripts that are newer than the Unicode version in CLDR's copy of ICU.
+Sample characters
+We need sample characters for the "UCA" tools for generating FractionalUCA.txt.
+Look for patterns of what kinds of characters we have picked for other scripts, for example the script's letter "KA". We basically want a character where people say "that looks Greek", and the same shape should not be used in multiple scripts. So for Latin we use "L", not "A". We usually prefer consonants, if applicable, but it is more important that a character look unique across scripts. It does want to be a letter, and if possible should not be a combining mark. It would be nice if the letters were commonly used in the majority language, if there are multiple. Compare with the charts for existing scripts, especially related ones.
+Editing the spreadsheet
+Google Spreadsheet: Script Metadata
+Use and copy cell formulas rather than duplicating contents, if possible. Look for which cells have formulas in existing data, especially for Unicode 1.1 and 7.0 scripts.
+For example,
+Script names should only be entered on the LikelyLanguage sheet. Other sheets should use a formula to map from the script code.
+On the Samples sheet, use a formula to map from the code point to the actual character. This is especially important for avoiding mistakes since almost no one will have font support for the new scripts, which means that most people will see "Tofu" glyphs for the sample characters.
+Script Metadata properties file
+Go to the spreadsheet Script Metadata
+File>Download as>Comma Separated Values
+Location/Name = {CLDR}/tools/cldr-code/src/main/resources/org/unicode/cldr/util/data/Script_Metadata.csv
+Refresh files (eclipse), then compare with previous version for sanity check. If there are no new scripts for target Unicode version of CLDR release you're working on, then skip the rest of steps below. For example, script "Toto" is ignore for CLDR 39 because target Unicode release of CLDR 39 is Unicode 13 and "Toto" will be added in Unicode 14.
+Note: VM arguments
+Each tool (and test) needs   -DCLDR_DIR=/usr/local/google/home/mscherer/cldr/uni/src   (or wherever your repo root is)
+It is easiest to set this once in the global Preferences, rather than in the Run Configuration for each tool.
+Most of these tools also need   -DSCRIPT_UNICODE_VERSION=14   (set to the upcoming Unicode version), but it is easier to edit the ScriptMetadata.java line that sets the UNICODE_VERSION variable.
+Run {cldr}/tools/cldr-code/src/test/java/org/unicode/cldr/unittest/TestScriptMetadata.java
+A common error is if some of the data from the spreadsheet is missing, or has incorrect values.
+Run GenerateScriptMetadata, which will produce a modified common/properties/scriptMetadata.txt file.
+If this ignores the new scripts: Check the -DSCRIPT_UNICODE_VERSION or the ScriptMetadata.java UNICODE_VERSION.
+Add the English script names (from the script metadata spreadsheet) to common/main/en.xml.
+Add the French script names from ISO 15924 to common/main/fr.xml, but mark them as draft="provisional".
+Add the script codes to common/supplemental/coverageLevels.xml (under key %script100) so that the new script names will show up in the CLDR survey tool.
+See #8109#comment:4 r11491
+See changes for Unicode 10: http://unicode.org/cldr/trac/review/9882
+See changes for Unicode 12: CLDR-11478 commit/647ce01
+Maybe add the script codes to TestCoverageLevel.java variable script100.
+Starting with cldr/pull/1296 we should not need to list a script here explicitly unless it is Identifier_Type=Recommended.
+Remove new script codes from $scriptNonUnicode in common/supplemental/attributeValueValidity.xml if needed
+For the following step to work as expected, the CLDR copy of the IANA BCP 47 language subtag registry must be updated (at least with the new script codes).
+Copy the latest version of https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry to {CLDR}/tools/cldr-code/src/main/resources/org/unicode/cldr/util/data/language-subtag-registry
+Consider copying only the new script subtags (and making a note near the top of the CLDR file, or lines like "Comments: Unicode 14 script manually added 2021-06-01") to avoid having to update other parts of CLDR.
+Run GenerateValidityXML.java like this:
+See Update Validity XML
+This needs the previous version of CLDR in a sibling folder.
+see Creating the Archive for details on running the CheckoutArchive tool
+Now run GenerateValidityXML.java
+If this crashes with a NullPointerException trying to create a Validity object, check that ToolConstants.LAST_RELEASE_VERSION is set to the actual last release.
+Currently, the CHART_VERSION must be a simple integer, no ".1" suffix.
+At least script.xml should show the new scripts. The generator overwrites the source data file; use git diff or git difftool to make sure the new scripts have been added.
+Run GenerateMaximalLocales, as described on the likelysubtags page, which generates another two files.
+Compare the latest git master files with the generated ones:  meld  common/supplemental  ../Generated/cldr/supplemental
+Copy likelySubtags.xml and supplementalMetadata.xml to the latest git master if they have changes.
+Compare generated files with previous versions for sanity check.
+Run the CLDR unit tests.
+Project cldr-core: Debug As > Maven test
+These tests have sometimes failed:
+LikelySubtagsTest
+TestInheritance
+They may need special adjustments, for example in GenerateMaximalLocales.java adding an extra entry to its MAX_ADDITIONS or LANGUAGE_OVERRIDES.
+Check in the updated files.
+Problems are typically because a non-standard name is used for a territory name. That can be fixed and the process rerun.

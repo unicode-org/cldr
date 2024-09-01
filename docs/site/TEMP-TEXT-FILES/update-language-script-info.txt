@@ -9,7 +9,7 @@ The world bank, un, and factbook data should be updated as per Updating Populati
 Note that there is an auxiliary file util/data/external/other_country_data.txt, which contains data that supplements the others. If there are errors below because the country population is less than the language population, then that file may need updating.
 Run the tool ConvertLanguageData.
 -DADD_POP=true; for error messages.
-If there are any different country names, you'll get an error:  edit external/alternate_country_names.txt to add them.
+If there are any different country names, you'll get an error:  edit external/alternate_country_names.txt to add them.
 Look for failures in the language vs script data, following the line:
 Problems in language_script.tsv
 Look for Territory Language data, following the line:
@@ -20,12 +20,12 @@ Look for general problems, following the line:
 Failures in Output.
 It will also warn if a country doesn't have an official or de facto official language.
 Work until resolved.
-The tool updates in place  {cldrdata}/common/supplemental/supplementalData.xml
+The tool updates in place {cldrdata}/common/supplemental/supplementalData.xml
 Carefully diff
 Then run QuickCheck to verify that the DTD is in order, and commit.
 Update the supplementalData.xml <territoryContainment>
 For UN M.49 codes, see Updating UN Codes
-For the UN, go to http://www.un.org/en/member-states/index.html. Copy the table, and paste into util/data/external/un_member_states_raw.txt. Diff with old. BROKEN LINK
+For the UN, go to https://www.un.org/en/member-states/index.html. Copy the table, and paste into util/data/external/un_member_states_raw.txt. Diff with old. BROKEN LINK
 For the EU, see instructions on Updating UN Codes
-For the EZ, do the same with http://ec.europa.eu/economy_finance/euro/adoption/euro_area/index_en.htm, into util/data/external/ez_member_states_raw.txt  BROKEN LINK
+For the EZ, do the same with http://ec.europa.eu/economy_finance/euro/adoption/euro_area/index_en.htm, into util/data/external/ez_member_states_raw.txt  BROKEN LINK
 If there are changes, update <territoryContainment>

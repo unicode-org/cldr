@@ -1,7 +1,7 @@
 Update Language/Script/Region Subtags
 Updated 2021-02-17 by Yoshito Umaoka
 This updates language codes, script codes, and territory codes.
-First get the latest ISO 639-3 from http://www-01.sil.org/iso639-3/download.asp
+First get the latest ISO 639-3 from https://iso639-3.sil.org/code_tables/download_tables
 Download the zip file containing the UTF-8 tables, it will have a name like iso-639-3_Code_Tables_20210202.zip
 Unpack the zip file and update files below with the latest version:
 {CLDR}/tools/cldr-code/src/main/resources/org/unicode/cldr/util/data/iso-639-3.tab
@@ -10,7 +10,7 @@ Unpack the zip file and update files below with the latest version:
 {CLDR}/tools/cldr-code/src/main/resources/org/unicode/cldr/util/data/iso-639-3_Retirements.tab
 Take the latest version number of the zip files (e.g. iso-639-3_Code_Tables_20210202.zip), and paste into
 {CLDR}/tools/cldr-code/src/main/resources/org/unicode/cldr/util/data/iso-639-3-version.tab
-Go to http://www.iana.org/assignments/language-subtag-registry
+Go to http://www.iana.org/assignments/language-subtag-registry/language-subtag-registry
 (you can set up a watch for changes in this page with http://www.watchthatpage.com )
 Save as {CLDR}/tools/cldr-code/src/main/resources/org/unicode/cldr/util/data/language-subtag-registry
 Go to http://data.iana.org/TLD/
@@ -25,7 +25,7 @@ Go to https://www.iso.org/obp/ui/#iso:pub:PUB500001:en
 Click Full List of Country Codes
 Run the tool CompareIso3166_1Status
 Click on the "Officially Assigned" code type and also the "Other Codes" code type
-Compare total counts with tool output:  example "formerly_used ||  22"  coinciding with 22 Formerly Used codes
+Compare total counts with tool output:  example "formerly_used ||  22"  coinciding with 22 Formerly Used codes
 If something is wrong, you'll have to scroll through the code list and/or dig around for the updates
 Check if ISO has done something destabilizing with codes: you need to handle it specially.
 Record the version: See Updating External Metadata

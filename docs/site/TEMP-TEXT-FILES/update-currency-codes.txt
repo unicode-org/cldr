@@ -1,9 +1,9 @@
 Update Currency Codes
 Go to https://www.six-group.com/en/products-services/financial-information/data-standards.html#scrollTo=currency-codes
-Take the link for "Current Currency and Funds":  "List one (XML)"
+Take the link for "Current Currency and Funds": "List one (XML)"
 Save the page as {cldr}/tools/cldr-code/src/main/resources/org/unicode/cldr/util/data/dl_iso_table_a1.xml
 curl 'https://www.six-group.com/dam/download/financial-information/data-center/iso-currrency/lists/list_one.xml' > tools/cldr-code/src/main/resources/org/unicode/cldr/util/data/dl_iso_table_a1.xml
-Take the link for "Historic denominations":  "List three (XML)"
+Take the link for "Historic denominations": "List three (XML)"
 Save the page as {cldr}/tools/cldr-code/src/main/resources/org/unicode/cldr/util/data/dl_iso_table_a3.xml
 curl 'https://www.six-group.com/dam/download/financial-information/data-center/iso-currrency/lists/list_three.xml' > tools/cldr-code/src/main/resources/org/unicode/cldr/util/data/dl_iso_table_a3.xml
 Use git diff to sanity check the two XML files against the old, and check them in.
@@ -20,10 +20,10 @@ Run CountItems -Dmethod=generateCurrencyItems to generate the new currency list.
 If any currency is missing from ISO4217.txt, the program will throw an exception and will print a list of items at the end that need to be added to the ISO4217.txt file. Add as described below.
 Once the necessary codes are added to ISO4217.txt, repeat the CountItems -Dmethod=generateCurrencyItems until it runs cleanly.
 If any country changes the use of a currency, verify that there is a corresponding entry in SupplementalData
-Since ISO doesn't publish the exact date change (usually just a month), you may need to do some additional research to see if you can determine the exact date when a new currency becomes active, or when an old currency becomes inactive.  If you can't find the exact date, use the last day of the month ISO publishes for an old currency expiring.
+Since ISO doesn't publish the exact date change (usually just a month), you may need to do some additional research to see if you can determine the exact date when a new currency becomes active, or when an old currency becomes inactive. If you can't find the exact date, use the last day of the month ISO publishes for an old currency expiring.
 For new stuff, see below.
 Adding a currency:
-Make sure the new code exists in common/bcp47/currency.xml.  The currency code should be in lower case, and make sure the "since" release corresponds to the next release of CLDR that will publish using this data.
+Make sure the new code exists in common/bcp47/currency.xml. The currency code should be in lower case, and make sure the "since" release corresponds to the next release of CLDR that will publish using this data.
 In SupplementalData:
 If it has unusual rounding or number of digits, add to:
 <fractions>

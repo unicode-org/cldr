@@ -1,0 +1,17 @@
+LikelySubtags and Default Content
+First make sure that you do Update Language/Script/Region Subtags first
+Run GenerateMaximalLocales with VM argument -DCLDR_DIR set to your cldr directory to generate the likely subtag data AND the default content locales.
+If you are trying to debug, add the VM argument -DGenerateMaximalLocalesDebug
+Input data:
+Data comes from territory/language information in supplemental data.
+However, it is supplemented by LANGUAGE_OVERRIDES in GenerateMaximalLocales.java
+If there is no territory/language information in supplemental data for a language, add it to LANGUAGE_OVERRIDES.
+If the mapping changes when it shouldn't (there are some special cases), add to LANGUAGE_OVERRIDES.
+Output:
+Creates {CLDR_DIR}/../Generated/cldr/supplemental/likelySubtags.xml and {CLDR_DIR}/../Generated/cldr/supplemental/supplementalMetadata.xml
+Diff with {CLDR_DIR}/common/supplemental/likelySubtags.xml and {CLDR_DIR}/common/supplemental/supplementalMetadata.xml
+Be very careful to diff everything and check for errors.
+Watch especially for backwards incompatible changes; that is, changes rather than just additions.
+Look at the above to handle that with LANGUAGE_OVERRIDES.
+Run tests, fix input data, and iterate as necessary.
+Copy into the svn workspace and commit.

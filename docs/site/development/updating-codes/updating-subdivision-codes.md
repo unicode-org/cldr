@@ -53,7 +53,7 @@ title: Updating Subdivision Codes
 	2. A code may move to deprecated, but it should never disappear. If you find that, then revisit \#4 (supplementalMetadata) above
 4. Run the tests
 	1. You may get some collisions in English. Those need to be fixed.
-	2. Google various combinations like \[country code \<first\> \<second\>] to find articles like[ISO\_3166\-2:UG](https://en.wikipedia.org/wiki/ISO_3166-2:UG), then make a fix.
+	2. Google various combinations like \[country code \<first\> \<second\>] to find articles like [ISO\_3166\-2:UG](https://en.wikipedia.org/wiki/ISO_3166-2:UG), then make a fix.
 	3. Often a sub\-subdivision has the same name as a subdivision. When that is the case add a qualifier to the lesser know one, like "City" or "District".
 	4. Sometimes a name will change in ISO to correct a mistake, which can cause a collision.
 5. Fix the ?? in supplemental data (where possible; see below)
@@ -108,7 +108,7 @@ title: Updating Subdivision Codes
 
 ### Exact matches
 
-From this, we can see that items have been renamed. Easiest to add the type values and contains values to a[spreadsheet](https://docs.google.com/spreadsheets/d/1i3YAhD9ADP6d4j6p4s3lY0psNdlOuknBr4ZrX1mihCw/edit) (use regex to extract), marking with old/new. Then sort, and pick out the ones that match.
+From this, we can see that items have been renamed. Easiest to add the type values and contains values to a [spreadsheet](https://docs.google.com/spreadsheets/d/1i3YAhD9ADP6d4j6p4s3lY0psNdlOuknBr4ZrX1mihCw/edit) (use regex to extract), marking with old/new. Then sort, and pick out the ones that match.
 
 | Source |  | old | new | contents | Mechanical |
 |---|---|---|---|---|---|

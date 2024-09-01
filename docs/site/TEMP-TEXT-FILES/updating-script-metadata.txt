@@ -22,9 +22,9 @@ File>Download as>Comma Separated Values
 Location/Name = {CLDR}/tools/cldr-code/src/main/resources/org/unicode/cldr/util/data/Script_Metadata.csv
 Refresh files (eclipse), then compare with previous version for sanity check. If there are no new scripts for target Unicode version of CLDR release you're working on, then skip the rest of steps below. For example, script "Toto" is ignore for CLDR 39 because target Unicode release of CLDR 39 is Unicode 13 and "Toto" will be added in Unicode 14.
 Note: VM arguments
-Each tool (and test) needs   -DCLDR_DIR=/usr/local/google/home/mscherer/cldr/uni/src   (or wherever your repo root is)
+Each tool (and test) needs   -DCLDR_DIR=/usr/local/google/home/mscherer/cldr/uni/src   (or wherever your repo root is)
 It is easiest to set this once in the global Preferences, rather than in the Run Configuration for each tool.
-Most of these tools also need   -DSCRIPT_UNICODE_VERSION=14   (set to the upcoming Unicode version), but it is easier to edit the ScriptMetadata.java line that sets the UNICODE_VERSION variable.
+Most of these tools also need   -DSCRIPT_UNICODE_VERSION=14   (set to the upcoming Unicode version), but it is easier to edit the ScriptMetadata.java line that sets the UNICODE_VERSION variable.
 Run {cldr}/tools/cldr-code/src/test/java/org/unicode/cldr/unittest/TestScriptMetadata.java
 A common error is if some of the data from the spreadsheet is missing, or has incorrect values.
 Run GenerateScriptMetadata, which will produce a modified common/properties/scriptMetadata.txt file.
@@ -50,7 +50,7 @@ If this crashes with a NullPointerException trying to create a Validity object, 
 Currently, the CHART_VERSION must be a simple integer, no ".1" suffix.
 At least script.xml should show the new scripts. The generator overwrites the source data file; use git diff or git difftool to make sure the new scripts have been added.
 Run GenerateMaximalLocales, as described on the likelysubtags page, which generates another two files.
-Compare the latest git master files with the generated ones:  meld  common/supplemental  ../Generated/cldr/supplemental
+Compare the latest git master files with the generated ones:  meld  common/supplemental  ../Generated/cldr/supplemental
 Copy likelySubtags.xml and supplementalMetadata.xml to the latest git master if they have changes.
 Compare generated files with previous versions for sanity check.
 Run the CLDR unit tests.

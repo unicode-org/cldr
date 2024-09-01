@@ -81,5 +81,13 @@ New data
 ...
 Exact matches
 From this, we can see that items have been renamed. Easiest to add the type values and contains values to a spreadsheet (use regex to extract), marking with old/new. Then sort, and pick out the ones that match.
+Source		old	new	contents	Mechanical
+<subgroup type="FR" subtype="H" contains="2A 2B"/>	FR	"H"		"2A 2B"	<subdivisionAlias type="FR-H" replacement="FR-COR" reason="deprecated"/>
+<subgroup type="FR" subtype="COR" contains="2A 2B"/>	FR		"COR"	"2A 2B"	
 Partial Matches
 Rearrange the leftovers to see if there is any OLD => NEW1+NEW2... cases or OLD1 = NEW, OLD2=NEW cases. For example, for FR we get Q=>NOR and P=>NOR. Remember that these are "best fit", so there may be small discrepancies.
+Source		old	new	contents	Mechanical	
+Source		old	new	contents	Mechanical	Fixed ?? cases
+<subgroup type="FR" subtype="Q" contains="27 76"/>	FR	"Q"		"27 76"	<subdivisionAlias type="FR-Q" replacement="FR-?? reason="deprecated"/>	<subdivisionAlias type="FR-Q" replacement="FR-NOR" reason="deprecated"/>
+<subgroup type="FR" subtype="P" contains="14 50 61"/>	FR	"P"		"14 50 61"	<subdivisionAlias type="FR-P" replacement="FR-?? reason="deprecated"/>	<subdivisionAlias type="FR-P" replacement="FR-NOR" reason="deprecated"/>
+<subgroup type="FR" subtype="NOR" contains="14 27 50 61 76"/>	FR		"NOR"	"14 27 50 61 76"	

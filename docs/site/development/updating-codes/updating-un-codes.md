@@ -25,6 +25,6 @@ title: Updating UN Codes
 	4. ~~Q: Not sure how or where to do this?~~
 
 ### Run TestUnContainment
-1. ```mvn \-Dorg.unicode.cldr.unittest.testArgs\='\-n \-q \-filter:TestUnContainment'  \-\-file\=tools/pom.xml \-pl cldr\-code test \-Dtest\=TestShim```
+1. ```mvn -Dorg.unicode.cldr.unittest.testArgs='-n -q -filter:TestUnContainment'  --file=tools/pom.xml -pl cldr-code test -Dtest=TestShim```
 
 ![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

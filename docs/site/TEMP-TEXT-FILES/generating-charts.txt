@@ -10,7 +10,7 @@ On each of the subpages, take the first chart on each page, recursively.
 Use the "Index" link to go back up (not the back button), and make sure it goes to the right version of the page.
 Check into github on cldr-staging
 Start Release
-Make sure the version  (eg 99) is right in ToolConstants
+Make sure the version  (eg 99) is right in ToolConstants
 Make sure the last number (eg 99.0) is in CLDR_VERSIONS
 Set DEFAULT_CHART_VERSION = "99";
 Add an new folder with that number, such as cldr-staging/docs/charts/99
@@ -40,12 +40,5 @@ Modifying the chart programs
 The chart programs have grown over time, and need some cleanup. For example, the supplemental charts duplicate code that is now in SupplementalDataInfo.
 ShowLanguages.
 The messages that they use are in a file util/data/chart_messages.html. The right cell contains the key, which is extracted by lines like:
-PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, "Zone \u2192 Tzid", null));
+ PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, "Zone \u2192 Tzid", null));
 The key will be zone_tzid, in this case.
-Generate
-Start Release
-Mid-release
-Prefinal Release
-Final Release
-Modifying the chart programs
-ShowLanguages.

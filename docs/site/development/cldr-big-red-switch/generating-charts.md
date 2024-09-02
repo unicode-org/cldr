@@ -30,7 +30,7 @@ The input for this is the cldr\-staging/production file, and the output is in gi
 
 1. Use the VM arguements
 	1. \-DCHART\_VERSION\=**99**
-	2. \-DCHART\_STATUS\=**beta** // \=*default*, uses trunk, calls it β'
+	2. \-DCHART\_STATUS\=**beta** // \=*default*, uses trunk, calls it β
 
 ## Prefinal Release
 

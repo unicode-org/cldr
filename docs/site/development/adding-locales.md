@@ -12,7 +12,7 @@ If you are just adding a new country locale (eg we have a locale for the languag
 
 ### Minimal Structure
 
-Before adding a new locale, you must have the core data: see[Core Data for New Locales](https://cldr.unicode.org/index/cldr-spec/core-data-for-new-locales) for the process.
+Before adding a new locale, you must have the core data: see [Core Data for New Locales](https://cldr.unicode.org/index/cldr-spec/core-data-for-new-locales) for the process.
 
 Here is an example: https://github.com/unicode-org/cldr/pull/59/files
 

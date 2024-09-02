@@ -8,7 +8,7 @@ title: CLDR: Big Red Switch
 
 *All: remember to make sure that the* ***target: X*** *is set on all the X bugs, otherwise the Release Changes link won't pick them up.*
 
-*Items marked \* are for the "Little Red Switch": dot\-dot releases (*supplemental data, ids, timezones, small spec fixes). Items marked \*\* are only done for a LRS if there was a DTD change.
+*Items marked \* are for the "Little Red Switch": dot\-dot releases (supplemental data, ids, timezones, small spec fixes). Items marked \*\* are only done for a LRS if there was a DTD change.*
 
 ### Trial New Version (Let us know if you need write access!)
 

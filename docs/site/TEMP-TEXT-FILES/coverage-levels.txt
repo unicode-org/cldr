@@ -1,0 +1,76 @@
+Coverage Levels
+There are four main coverage levels as defined in the UTS #35: Unicode Locale Data Markup Language (LDML) Part 6: Supplemental: 8 Coverage Levels. They are described more fully below.
+Usage
+You can use the file common/properties/coverageLevels.txt (added in v41) for a given release to filter the locales that they support. For example, see coverageLevels.txt. (This and other links to data files are to the development versions; see the specific version for the release you are working with.) For a detailed chart of the coverage levels, see the locale_coverage.html file for the respective release.
+The file format is semicolon delimited, with 3 fields per line.
+Locale ID ; Coverage Level ; Name
+Each locale ID also covers all the locales that inherit from it. So to get locales at a desired coverage level or above, the following process is used.
+Always include the root locale file, root.xml
+Include all of the locale files listed in coverageLevels.txt at that level or above.
+Recursively include all other files that inherit from the files in #2.
+Warning: Inheritance is not simple truncation; the parentLocale information in supplementalData.xml needs to be applied also. See Parent_Locales.
+For example, if you include fr.xml in #2, you would also include fr_CA.xml; if you include no.xml in #2 you would also include nn.xml.
+Filtering
+To filter "at that level or above", you use the fact that basic ⊂ moderate ⊂ modern, so
+to filter for basic and above, filter for basic|moderate|modern
+to filter for moderate and above, filter for moderate|modern
+Migration
+As of v43, the files in /seed/ have been moved to /common/. Older versions of CLDR separated some locale files into a 'seed' directory. Some implementations used for filtering, but the criteria for moving from seed to common were not rigorous. To maintain compatibility with the set of locales used from previous versions, an implementation may use the above process for Basic and above, but then also add locales that were previously included. For more information, see CLDR 43 Release Note.
+Usage
+Filtering
+Migration
+Core Data
+Basic Data
+Moderate Data
+Modern Data
+References
+Core Data
+The data needed for a new locale to be added. See Core Data for New Locales for details on Core Data and how to submit for new locales.
+It is expected that during the next Survey Tool cycle after a new locale is added, the data for the Basic Coverage Level will be supplied.
+Basic Data
+Suitable for locale selection and minimal support, eg. choice of language on mobile phone
+This includes very minimal data for support of the language: basic dates, times, autonyms:
+Delimiter Data —Quotation start/end, including alternates
+Numbering system — default numbering system + native numbering system (if default = Latin and native ≠ Latin)
+Locale Pattern Info — Locale pattern and separator, and code pattern
+Language Names — in the native language for the native language and for English
+Script Name(s) — Scripts customarily used to write the language
+Country Name(s) — For countries where commonly used (see "Core XML Data")
+Measurement System — metric vs UK vs US
+Full Month and Day of Week names
+AM/PM period names
+Date and Time formats
+Date/Time interval patterns — fallback
+Timezone baseline formats — region, gmt, gmt-zero, hour, fallback
+Number symbols — decimal and grouping separators; plus, minus, percent sign (for Latin number system, plus native if different)
+Number patterns — decimal, currency, percent, scientific
+Moderate Data
+Suitable for “document content” internationalization, eg. content in a spreadsheet
+Before submitting data above the Basic Level, the following must be in place:
+Plural and Ordinal rules
+As in [supplemental/plurals.xml] and [supplemental/ordinals.xml]
+Must also include minimal pairs
+For more information, see cldr-spec/plural-rules.
+Casing information (only where the language uses a cased scripts according to ScriptMetadata.txt)
+This will go into common/casing
+Collation rules [non-Survey Tool]
+This can be supplied as a list of characters, or as rule file.
+The list is a space-delimited list of the characters used by the language (in the given script). The list may include multiple-character strings, where those are treated specially. For example, if "ch" is sorted after "h" one might see "a b c d .. g h ch i j ..."
+More sophisticated users can do a better job, supplying a file of rules as in cldr-spec/collation-guidelines.
+The result will be a file like: common/collation/ar.xml or common/collation/da.xml.
+The data for the Moderate Level includes subsets of the Modern data, both in depth and breadth.
+Modern Data
+Suitable for full UI internationalization
+Before submitting data at the Moderate Level, the following must be in place:
+Grammatical Features
+The grammatical cases and other information, as in supplemental/grammaticalFeatures.xml
+Must include minimal pair values.
+Romanization table (non-Latin scripts only)
+This can be supplied as a spreadsheet or as a rule file.
+If a spreadsheet, for each letter (or sequence) in the exemplars, what is the corresponding Latin letter (or sequence).
+More sophisticated users can do a better job, supplying a file of rules like transforms/Arabic-Latin-BGN.xml.
+The data for the Modern Level includes:
+### TBD
+References
+For the coverage in the latest released version of CLDR, see Locale Coverage Chart.
+To see the development version of the rules used to determine coverage, see coverageLevels.xml. For a list of the locales at a given level, see coverageLevels.txt.

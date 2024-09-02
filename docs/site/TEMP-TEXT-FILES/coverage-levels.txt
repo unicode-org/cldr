@@ -16,14 +16,6 @@ to filter for basic and above, filter for basic|moderate|modern
 to filter for moderate and above, filter for moderate|modern
 Migration
 As of v43, the files in /seed/ have been moved to /common/. Older versions of CLDR separated some locale files into a 'seed' directory. Some implementations used for filtering, but the criteria for moving from seed to common were not rigorous. To maintain compatibility with the set of locales used from previous versions, an implementation may use the above process for Basic and above, but then also add locales that were previously included. For more information, see CLDR 43 Release Note.
-Usage
-Filtering
-Migration
-Core Data
-Basic Data
-Moderate Data
-Modern Data
-References
 Core Data
 The data needed for a new locale to be added. See Core Data for New Locales for details on Core Data and how to submit for new locales.
 It is expected that during the next Survey Tool cycle after a new locale is added, the data for the Basic Coverage Level will be supplied.

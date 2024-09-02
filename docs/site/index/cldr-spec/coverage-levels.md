@@ -78,6 +78,7 @@ Before submitting data above the Basic Level, the following must be in place:
 	- The list is a space\-delimited list of the characters used by the language (in the given script). The list may include multiple\-character strings, where those are treated specially. For example, if "ch" is sorted after "h" one might see "a b c d .. g h ch i j ..."
 	- More sophisticated users can do a better job, supplying a file of rules as in [cldr\-spec/collation\-guidelines](https://cldr.unicode.org/index/cldr-spec/collation-guidelines).
 4. The result will be a file like: [common/collation/ar.xml](https://home.unicode.org/basic-info/projects/#!/repos/cldr/trunk/common/collation/ar.xml) or [common/collation/da.xml](https://home.unicode.org/basic-info/projects/#!/repos/cldr/trunk/common/collation/da.xml).
+
 The data for the Moderate Level includes subsets of the Modern data, both in depth and breadth.
 
 ## Modern Data

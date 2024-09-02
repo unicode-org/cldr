@@ -27,6 +27,9 @@ Determining Plural Categories
 The CLDR plural categories do not necessarily match the traditional grammatical categories. Instead, the categories are determined by changes required in a phrase or sentence if a numeric placeholder changes value.
 Minimal pairs
 The categories are verified by looking a minimal pairs: where a change in numeric value (expressed in digits) forces a change in the other words. For example, the following is a minimal pair for English, establishing a difference in category between "1" and "2".
+Category	Resolved String	Minimal Pair Template
+one	1 day	{NUMBER} day
+other	2 day s	{NUMBER} day s
 Warning for Vetters
 The Category (Code) values indicate a certain range of numbers that differ between languages. To see the meaning of each Code value for your language see Language Plural Rules chart.
 The minimal pairs in the Survey Tool are not direct translations of English. They may be translations of English, such as in German, but must be different if those words or terms do not show the right plural differences for your language. For example, if we look at Belarusian, they are quite different, corresponding to “{0} books in {0} days”, while Welsh has the equivalent of “{0} dog, {0} cat”. Be sure to read the following examples carefully and pay attention to error messages.
@@ -43,25 +46,37 @@ you should then have the phrase for "one"
 Gender is irrelevant. Do not contort your phrasing so that it could cover some (unspecified) item of a different gender. (Eg, don't have “Prenez la {0}re à droite; Prenez le {0}er à droite.”) The exception to that is where two nouns of different genders to cover all plural categories, such as Russian “из {0} книг за {0} дня”.
 Non-inflecting Nouns—Verbs
 Some languages, like Bengali, do not change the form of the following noun when the numeric value changes. Even where nouns are invariant, other parts of a sentence might change. That is sufficient to establish a minimal pair. For example, even if all nouns in English were invariant (like 'fish' or 'sheep'), the verb changes are sufficient to establish a minimal pair:
+Category	Resolved String	Minimal Pair Template
+one	1 fish is swimming	{NUMBER} fish is swimming
+other	2 fish are swimming	{NUMBER} fish are swimming
 Non-inflecting Nouns—Pronouns
 In other cases, even the verb doesn't change, but referents (such as pronouns) change. So a minimal pair in such a language might look something like:
+Category	Resolved String	Minimal Pair Template
+one	You have 1 fish in your cart; do you want to buy it?	You have {NUMBER} fish in your cart; do you want to buy it?
+other	You have 2 fish in your cart; do you want to buy them?	You have {NUMBER} fish in your cart; do you want to buy them?
 Multiple Nouns
 In many cases, a single noun doesn't exhibit all the numeric forms. For example, in Welsh the following is a minimal pair that separates 1 and 2:
-Category
-one
-two
-Resolved String
-1 ci
-2 gi
+Category	Resolved String
+one	1 ci
+two	2 gi
 But the form of this word is the same for 1 and 4. We need a separate word to get a minimal pair that separates 1 and 4:
-Category
-one
-two
-Resolved String
-1 gath
-1 cath
+Category	Resolved String
+one	1 gath
+two	1 cath
 These combine into a single Minimal Pair Template that can be used to separate all 6 forms in Welsh.
+Category	Resolved String	Minimal Pair Template
+zero	0 cŵn, 0 cathod	{NUMBER} cŵn, {NUMBER} cathod
+one	1 ci, 1 gath	{NUMBER} ci, {NUMBER} gath
+two	2 gi, 2 gath	{NUMBER} gi, {NUMBER} gath
+few	3 chi, 3 cath	{NUMBER} chi, {NUMBER} cath
+many	6 chi, 6 chath	{NUMBER} chi, {NUMBER} chath
+other	4 ci, 4 cath	{NUMBER} ci, {NUMBER} cath
 Russian is similar, needing two different nouns:
+Category	Resolved String	Minimal Pair Template
+one	из 1 книги за 1 день	из {NUMBER} книги за {NUMBER} день
+few	из 2 книг за 2 дня	из {NUMBER} книг за {NUMBER} дня
+many	из 5 книг за 5 дней	из {NUMBER} книг за {NUMBER} дней
+other	из 1,5 книги за 1,5 дня	из {NUMBER} книги за {NUMBER} дня
 The minimal pairs are those that are required for correct grammar. So because 0 and 1 don't have to form a minimal pair (it is ok—even though often not optimal—to say "0 people") , 0 doesn't establish a separate category. However, implementations are encouraged to provide the ability to have special plural messages for 0 in particular, so that more natural language can be used:
 None of your friends are online.
 rather than
@@ -95,7 +110,7 @@ These categories are only mnemonics -- the names don't necessarily imply the exa
 This is worth emphasizing: A common mistake is to think that "one" is only for only the number 1. Instead, "one" is a category for any number that behaves like 1. So in some languages, for example, one → numbers that end in "1" (like 1, 21, 151) but that don't end in 11 (like "11, 111, 10311).
 Note that these categories may be different from the forms used for pronouns or other parts of speech. In particular, they are solely concerned with changes that would need to be made if different numbers, expressed with decimal digits, are used with a sentence. If there is a dual form in the language, but it isn't used with decimal numbers, it should not be reflected in the categories. That is, the key feature to look for is:
 If you were to substitute a different number for "1" in a sentence or phrase, would the rest of the text be required to change? For example, in a caption for a video:
-"Duration: 1 hour" → "Duration: 3.2 hours"
+ "Duration: 1 hour" → "Duration: 3.2 hours"
 Plural Rule Syntax
 See LDML Language Plural Rules.
 Plural Message Migration
@@ -110,11 +125,11 @@ OLD Rules & OLD Messages
 one: book
 two: books
 other: books
-1  ➞ book, 2 ➞ books, 3 ➞ ​ books​
+1  ➞ book, 2 ➞ books, 3 ➞ ​ books​
 NEW Rules & OLD or NEW Messages
 one: book
 other: books
-1  ➞ book, 2 ➞ books, 3  ➞​ books​
+1  ➞ book, 2 ➞ books, 3  ➞​ books​
 This is fairly harmless; merging two of the categories shouldn't affect anyone because the messages for the merged category should not have material differences. The old messages for 'two' are ignored in processing. They could be deleted if desired.
 This was done in CLDR 24 for Russian, for example.
 Splitting Other
@@ -124,49 +139,49 @@ In this case, the other message is appropriate for the other case, and not for t
 OLD Rules & OLD Messages
 one: book
 other: books
-1  ➞ book, 2 ➞ books, 3  ➞​ books​
+1  ➞ book, 2 ➞ books, 3  ➞​ books​
 NEW Rules & OLD Messages
 one: book
 two: books
 other: books
-1  ➞ book, 2 ➞ books, 3  ➞​ books​
+1  ➞ book, 2 ➞ books, 3  ➞​ books​
 The quality is no different than previously. The message can be improved by adding the correct message for 'two', so that the result is:
 NEW Rules & NEW Messages
 one: book
 two: booku
 other: books
-1  ➞ book, 2 ➞ booku, 3  ➞​ books​
+1  ➞ book, 2 ➞ booku, 3  ➞​ books​
 However, if the translated message is not missing, but has some special text like "UNUSED MESSAGE", then it will need to be fixed; otherwise the special text will show up to users!
 Generic Other Message
 In this case, the other message was written to be generic by trying to handle (with parentheses or some other textual device) both the plural and dual categories.
 OLD Rules & OLD Messages
 one: book
 other: book(u/s)
-1  ➞ book, 2 ➞ book(u/s), 3  ➞​ book(u/s)
+1  ➞ book, 2 ➞ book(u/s), 3  ➞​ book(u/s)
 NEW Rules & OLD Messages
 one: book
 two: book(u/s)
 other: book(u/s)
-1  ➞ book, 2 ➞ book(u/s), 3  ➞​ book(u/s)
+1  ➞ book, 2 ➞ book(u/s), 3  ➞​ book(u/s)
 The message can be improved by adding a message for 'two', and fixing the message for 'other' to not have the (u/s) workaround:
 NEW Rules & NEW Messages
 one: book
 two: booku
 other: books
-1  ➞ book, 2 ➞ booku, 3  ➞​ books
+1  ➞ book, 2 ➞ booku, 3  ➞​ books
 Splitting Non-Other
 In this case, the 'one' category needs to be fixed by moving some numbers to a 'two' category.
 OLD Rules & OLD Messages
 one: book/u
 other: books
-1  ➞ book/u, 2 ➞ book/u, 3  ➞​ books​
+1  ➞ book/u, 2 ➞ book/u, 3  ➞​ books​
 NEW Rules & OLD Messages
 one: book/u
 other: books
-1  ➞ book/u, 2 ➞ books, 3  ➞​ books​
+1  ➞ book/u, 2 ➞ books, 3  ➞​ books​
 This is the one case where there is a regression in quality. In order to fix the problem, the message for 'two' needs to be fixed. If the messages for 'one' was written to be generic, then it needs to be fixed as well.
 NEW Rules & NEW Messages
 one: book
 two: booku
 other: books
-1  ➞ book, 2 ➞ booku, 3  ➞​ books​
+1  ➞ book, 2 ➞ booku, 3  ➞​ books​

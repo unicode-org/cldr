@@ -1,0 +1,53 @@
+Updating English/Root
+Whenever you update English or Root, there is one additional step that needs to be done for the vetting viewer and tests to work properly.
+Update CldrVersion.java to have the newest release in the list.
+Run GenerateBirth
+The tool is in tools/java/org/unicode/cldr/tool/GenerateBirth.java. It requires a set of sources from all previous major CLDR release, trunk, and a generation directory. These three directories must be structured as follows. The tool takes environment parameters for the second two.
+cldr (set with -t <target>, default=CldrUtility.BASE_DIRECTORY, set with environment variable -DCLDR_DIR)
+... common/ ... tools/ java/ (apps such as GenerateBirth are run from here) ...
+CldrUtility.ARCHIVE_DIRECTORY
+Create the archive (Creating the Archive) with all releases (if you don't have it already)
+The archive directory should have the latest version of every major and minor version (where versions before 21.0 have the major version split across the top two fields).
+You will probably need to modify both CldrVersion.java and ToolConstants.java to bring them up to date.
+log (set with -l <log>, default=CldrUtility.UTIL_DATA_DIR, set with CLDR_DIR
+Pass an argument for -t to specify the output directory. Takes a few minutes to run (and make sure you have set Java with enough memory)!
+The tool generates (among other things) the following two binary files (among others) in the output directory specified with -t:
+outdated.data
+outdatedEnglish.data
+Replacing the previous versions in /cldr/tools/java/org/unicode/cldr/util/data/births/. These files are used to support OutdatedPaths.java, which is used in CheckNew.
+Readable data is found in https://github.com/unicode-org/cldr-staging/tree/master/births/* That should also be checked in, for comparison over time. Easiest to read if you paste into a spreadsheet!
+Binary File Format
+outdatedEnglish.data
+outdated.data
+int:size
+long:pathId str:oldValue
+long:pathId str:oldValue
+...
+str:locale
+int:size
+long:pathId
+long:pathId
+...
+str:locale
+int:size
+long:pathId
+long:pathId
+…
+$END$
+~50KB
+$END$
+~100KB
+In a limited release, the file SubmissionLocales.java is set up to allow just certain locales and paths in those locales.
+Testing
+Make sure TestOutdatedPaths.java passes. It may take some modifications, since it depends on the exact data.
+Run TestCheckCLDR and TestBasic with the option -prop:logKnownIssue=false (that option is important!). This checks that the Limited Submission is set up properly and that SubmissionLocales are correct.
+If you run into any problems, look below at debugging.
+Check in the files
+Eg https://github.com/unicode-org/cldr/pull/243
+Debugging
+It also generates readable log files for double checking. These will be in {workspace}/cldr-aux/births/<version>/, that is: CLDRPaths.AUX_DIRECTORY + "births/" + trunkVersion. Examples: https://unicode.org/repos/cldr-aux/births/35.0/en.txt, https://unicode.org/repos/cldr-aux/births/35.0/fr.txt.
+Their format is the following (TSV = tab-delimited-values) — to view, it is probably easier to copy the files into a spreadsheet.
+English doesn't have the E... values, but is a complete record.
+Other languages only have lines where the English value is more recently changed (younger) than the native’s.
+So what the first line below says is that French has "bengali" dating back to version 1.1.1, while English has "Bangla" dating back to version 30.
+A value of � indicates that there is no value for that version.

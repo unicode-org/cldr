@@ -1,0 +1,18 @@
+{
+  "name": "@unicode-org/cldr-site",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node assets/js/build.mjs"
+  },
+  "keywords": [],
+  "author": "Steven R. Loomis <srloomis@unicode.org>",
+  "license": "Unicode-3.0",
+  "description": "Static Assets for CLDR Site",
+  "private": true,
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "petite-vue": "^0.4.1"
+  }
+}

@@ -17,6 +17,10 @@ header > div {
     display: table-cell;
 }
 
+header > div.nav {
+    display: block !important;
+}
+
 header > div.icon {
     flex-grow: 1;
 }

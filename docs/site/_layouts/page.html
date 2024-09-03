@@ -23,6 +23,13 @@
 		<div class="bar"><a href="http://www.unicode.org" class="bar">Home</a>
 			| <a href="http://www.unicode.org/sitemap/" class="bar">Site
 				Map</a> | <a href="http://www.unicode.org/search/" class="bar">Search</a></div>
+
+			<div class="nav">
+				<div v-scope="{ cc: 999 }">
+					{{click}}
+					<button @click="cc++">inc</button>
+				</div>
+			</div>
 	</header>
 
 	<section class="body">

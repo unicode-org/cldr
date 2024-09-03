@@ -469,14 +469,9 @@ public class GenerateLikelySubtags {
                                 //        {"cr", "cr_Cans_CA"},
                                 //        {"hif", "hif_Latn_FJ"},
                                 //        {"gon", "gon_Telu_IN"},
-                                //        {"lzz", "lzz_Latn_TR"},
                                 //        {"lif", "lif_Deva_NP"},
                                 //        {"unx", "unx_Beng_IN"},
                                 //        {"unr", "unr_Beng_IN"},
-                                //        {"ttt", "ttt_Latn_AZ"},
-                                //        {"pnt", "pnt_Grek_GR"},
-                                //        {"tly", "tly_Latn_AZ"},
-                                //        {"tkr", "tkr_Latn_AZ"},
                                 //        {"bsq", "bsq_Bass_LR"},
                                 //        {"ccp", "ccp_Cakm_BD"},
                                 //        {"blt", "blt_Tavt_VN"},
@@ -505,6 +500,7 @@ public class GenerateLikelySubtags {
 
                                 // additions for missing values from LikelySubtagsText
                                 {"und_Arab_AF", "fa_Arab_AF"},
+                                {"und_Arab_AZ", "az_Arab_AZ"},
                                 {"und_Cyrl_BG", "bg_Cyrl_BG"},
                                 {"und_Tibt_BT", "dz_Tibt_BT"},
                                 {"und_Cyrl_BY", "be_Cyrl_BY"},

@@ -136,7 +136,15 @@ const app = Vue.createApp(
       // list of pages for siblings of this dir
       siblingPages() {
         if (!this.tree?.value) return [];
-        const dirForPage = this.ourDir;
+        let dirForPage = this.ourDir;
+        if (this.tree.value.allIndexes.indexOf(this.mdPath) != -1) {
+            const dirPages = Object.entries(this.tree?.value?.allDirs)
+            .filter(([k, {index}]) => index == this.mdPath)[0];
+            if (dirPages) {
+                // our page is an index -so, show the subpages instead of the siblings.
+                dirForPage = dirPages[0]; // the adjusted index
+            }
+        }
         let thePages = this.tree?.value?.allDirs[dirForPage].pages ?? [];
         if (dirForPage === "") {
           thePages = [...thePages, ...this.tree?.value?.allDirs["index"].pages];
@@ -185,17 +193,17 @@ const app = Vue.createApp(
   }
 );
 
-app.component("CldrPage", {
-  setup() {},
-  template: `<p>Hello</p>
-        `,
-});
+// app.component("CldrPage", {
+//   setup() {},
+//   template: `<p>Hello</p>
+//         `,
+// });
 
-app.component("CldrList", {
-  setup() {},
-  template: `
-        <p>Hullo</p>
-        `,
-});
+// app.component("CldrList", {
+//   setup() {},
+//   template: `
+//         <p>Hullo</p>
+//         `,
+// });
 
 app.mount("#nav");

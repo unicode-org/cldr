@@ -224,8 +224,15 @@ public class VxmlQueue {
             results.status = Status.STOPPED;
             return VXML_MESSAGE_STOPPED_ON_REQUEST;
         } else if (entry.done) {
-            setPercent(100);
-            results.status = Status.READY;
+            if (entry.verificationStatus == VxmlGenerator.VerificationStatus.SUCCESSFUL) {
+                results.status = Status.READY;
+                setPercent(100);
+            } else {
+                results.status = Status.STOPPED;
+                if (getPercent() > 99) {
+                    setPercent(99);
+                }
+            }
             stop(entry);
             return entry.verificationStatus.toString();
         }

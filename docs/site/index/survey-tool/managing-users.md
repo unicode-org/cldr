@@ -31,7 +31,7 @@ Set the name, email, and locales responsible. To see the locale codes, go to htt
 ![image](../../images/index/managingUsers3.jpg)
 
 Set the Userlevel based on your assessment of the person's skill. Normally this is "Vetter". You can use "Street" for volunteers whom you don't know. People don't have to come from your organization as long as you have confidence in them.
-- See the[CLDR Process](https://cldr.unicode.org/index/process) page for a description of the user levels and their privileges.
+- See the [CLDR Process](https://cldr.unicode.org/index/process) page for a description of the user levels and their privileges.
 
 *Known bug: if you try to create a user when the user already has an account, you get an unknown error message. Often this is because the user is locked. Click on "Show locked users", find the person, and change the status (see below).*
 

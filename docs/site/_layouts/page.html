@@ -14,23 +14,16 @@
 		<div class="icon"><a href="http://www.unicode.org/"> <img border="0"
 					src="http://www.unicode.org/webscripts/logo60s2.gif" align="middle" alt="[Unicode]" width="34"
 					height="33"></a>&nbsp;&nbsp;
-			<a class="bar" href="/">
-				<font size="3">
-					CLDR Site / {{page.title}}
-				</font>
-			</a>
-		</div>
-		<div class="bar"><a href="http://www.unicode.org" class="bar">Home</a>
-			| <a href="http://www.unicode.org/sitemap/" class="bar">Site
-				Map</a> | <a href="http://www.unicode.org/search/" class="bar">Search</a></div>
 
-			<div class="nav">
-				<div v-scope="{ cc: 999 }">
-					{{click}}
-					<button @click="cc++">inc</button>
-				</div>
-			</div>
+					<div id="nav" class="nav">
+						<!-- Vue mount here -->
+					</div>
+		</div>
+		<!-- <div class="bar"><a href="http://www.unicode.org" class="bar">Home</a>
+			| <a href="http://www.unicode.org/search/" class="bar">Search</a></div> -->
 	</header>
+
+
 
 	<section class="body">
 		{{ content }}
@@ -38,7 +31,8 @@
 	<footer>
 		© 1991-2024 Unicode, Inc. Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries. See <a href="https://www.unicode.org/copyright.html">Terms of Use</a>.
 	</footer>
-	<script defer init src="/node_modules/petite-vue/dist/petite-vue.iife.js"/>
+	<script src="/node_modules/vue/dist/vue.global.prod.js"></script>
+	<script src="/assets/js/cldrsite.js"></script>
 </body>
 
 </html>

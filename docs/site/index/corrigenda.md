@@ -1,5 +1,5 @@
 ---
-title: CLDR Releases/Downloads
+title: Corrigenda and Errata
 ---
 
 # Corrigenda and Errata

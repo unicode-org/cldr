@@ -1,4 +1,8 @@
 CLDR 44 Release Note
+No.	Date	Rel. Note	Data	Charts	Spec	Delta Tickets	GitHub Tag	JSON Tag	Delta DTD
+44	2023-10-31	v44	CLDR44	Charts44	LDML44	Δ44	release-44	44.0.0*	ΔDtd44
+44.1	2023-12-13	v44.1	n/a	n/a	LDML44.1	Δ44.1	release-44-1	44.1.0	See 44.1 Changes
+See Key To Header Links *Note: For NPM, the JSON data uses version 44.0.1
 Overview
 Unicode CLDR provides key building blocks for software supporting the world's languages. CLDR data is used by all major software systems (including all mobile phones) for their software internationalization and localization, adapting software to the conventions of different languages.
 In CLDR 44, the focus is on:
@@ -13,32 +17,13 @@ Locale Coverage Status
 The coverage status determines how well languages are supported on laptops, phones, and other computing devices. In particular, qualifying at a Basic level is typically a requirement just for being selectable on phones as a language. Note that for each language there are typically multiple locales, so 90 languages at Modern coverage corresponds to more than 350 locales at that coverage.
 Below is the coverage in this release:
 CLDR v44 Coverage
-Overview
-Locale Coverage Status
-Version 44.1 Changes
-DTD Changes
-Specification Changes
-Data Changes
-Data Changes
-DTD Changes
-BCP47 Changes
-Supplemental Data Changes
-Locale Changes
-File Changes
-JSON Data Changes
-Keyboard Changes
-Specification Changes
-Growth
-Migration
-Known Issues
-Acknowledgments
 Version 44.1 Changes
 DTD Changes
 In ldmlSupplemental.dtd, unicodeVersion was corrected to be 15.1.0 (CLDR-17225).
 In ldmlKeyboard3.dtd, the locale element id attribute was incorrectly flagged as @VALUE, fixed (CLDR-17204).
 Specification Changes
 The description of the syntax for the -u-dx locale ID key was improved to resolve some ambiguities (CLDR-17194).
-The section on synthesizing emoji sequence names was updated to  cover emoji names and keywords for emoji facing-right sequences (CLDR-17230).
+The section on synthesizing emoji sequence names was updated to  cover emoji names and keywords for emoji facing-right sequences (CLDR-17230).
 Data Changes
 Annotations for emoji facing-right sequences were added (CLDR-17230).
 CLDR tooling was improved to better fix cases when multiple spaces of different types were used instead of single space, and was then used to find and fix cases where a normal space was used in combination with NARROW NO-BREAK SPACE or THIN SPACE (CLDR-17233). This affected 6 locales: fr, hi_Latn, ku, pap, syr, vi.
@@ -48,7 +33,7 @@ The following is a summary of the DTD changes which reflect changes in the struc
 LDML
 characterLabels - characterLabelPattern addition of 'facing-left' and 'facing-right' to support Unicode 15.1 emoji that can face different directions.
 contextTransformUsage - many more values allowed for the type attribute (previously it only supported a subset of the documented values)
-dateFormatItem and intervalFormatItem - many more skeletons allowed for the id attribute, for example  EEEEd,  GyMEEEEd, GyMMMEEEEd, GyMMMMEd …
+dateFormatItem and intervalFormatItem - many more skeletons allowed for the id attribute, for example  EEEEd,  GyMEEEEd, GyMMMEEEEd, GyMMMMEd …
 territory - added two alternative names for the territory "IO": "British Indian Ocean Territory" and "Chagos Archipelago"
 personNames
 Added two new parameter defaults for length and formality. These allow users to set the most customary values used in their language for common usage.
@@ -113,7 +98,7 @@ Old format keyboards were removed (see Migration):
 /keyboards/
 JSON Data Changes
 Available at: https://github.com/unicode-org/cldr-json/releases/tag/44.0.0
-Note that the version number in npm is "44.0.1" instead of "44.0.0".  The version
+Note that the version number in npm is "44.0.1" instead of "44.0.0".  The version
 Keyboard Changes
 Keyboard has a new DTD (keyboard3.dtd and the <keyboard3> element). This is a complete rewrite of the specification by the Keyboard Subcommittee, and is available as a technical preview in CLDR version 44. See TR35 Part 7: Keyboards. The prior DTDs are included in CLDR but are not used by CLDR data or tooling. Note: prior keyboard data files are not compatible, were not maintained and have also been removed.
 Note that there are additional sample keyboard data files in progress which were not complete for v44, but may be consulted as samples:
@@ -155,7 +140,7 @@ The spec for -u-dx bcp47 subtag syntax requires further clarification. See CLDR-
 Subdivision translations were only updated on a limited basis.
 Use 44.0.1 for CLDR 44 JSON NPM since 44.0.0 was tagged incorrectly.
 unicodeVersion in ldmlSupplemental.dtd was not updated to 15.1 See CLDR-17225. This is fixed in version 44.1.
-Missing derived emoji annotations CLDR-17230.  This is fixed in version 44.1.
+Missing derived emoji annotations CLDR-17230.  This is fixed in version 44.1.
 There was an error in the Keyboard3 DTD in the <locale> element. It is corrected in version 44.1, see CLDR-17204
 The keyboard charts were not able to generate properly due to DTD changes. It is corrected in version 44.1. (This fixed code was used to generate the charts for version 44.) CLDR-17205
 Acknowledgments

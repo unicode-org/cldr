@@ -209,6 +209,7 @@ Similar behavior occurs with plural forms for units, where some plural forms may
 	- The day that should be shown as the first day of the week in a calendar view.
 	- The first day of the week (day 1\) for weekday numbering.
 	- The first day of the week for week\-of\-year calendar calculations.
+
 These are not always the same. In the future, some of these functions will be separated out; see [CLDR\-17095](https://unicode-org.atlassian.net/browse/CLDR-17095).
 - The test data file likelySubtags.txt has an error for input "qaa\-Cyrl\-CH"; the result should not be empty string as shown, it should either be FAIL or the input string (pending spec clarification). See [CLDR\-17150](https://unicode-org.atlassian.net/browse/CLDR-17150).
 - The spec for \-u\-dx bcp47 subtag syntax requires further clarification. See [CLDR\-17194](https://unicode-org.atlassian.net/browse/CLDR-17194) . This is fixed in [version 44\.1](https://cldr.unicode.org/index/downloads/cldr-44#h.nvqx283jwsx).

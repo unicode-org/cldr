@@ -21,7 +21,7 @@ In many languages, that means that the stand\-alone month names should be in nom
 
 In this case, date formats will also reflect that, using the format form MMMM in a format such as “d MMMM y”, and the stand\-alone form LLLL in a format such as “LLLL y”.
 
-**Note:** Narrow forms for items such as month and day names are typically too short to reflect differences between grammatical forms. For capitalization purposes,format narrow names should be capitalized according to the normal conventions for their use in running text, and stand\-alone narrow names should be capitalized according to conventions for stand\-alone use.
+**Note:** Narrow forms for items such as month and day names are typically too short to reflect differences between grammatical forms. For capitalization purposes, format narrow names should be capitalized according to the normal conventions for their use in running text, and stand\-alone narrow names should be capitalized according to conventions for stand\-alone use.
 
 The new \<contextTransforms\> element now indicates how to change the capitalization for use in a menu, or for stand\-alone use such as in the title of a calendar page (the \<contextTransforms\> data cannot currently be edited in the Survey Tool; please file a bug for any necessary changes).
 

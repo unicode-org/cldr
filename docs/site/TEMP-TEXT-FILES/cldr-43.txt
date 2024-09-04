@@ -1,4 +1,8 @@
 CLDR 43 Release Note
+No.	Date	Rel. Note	Data	Charts	Spec	Delta Tickets	GitHub Tag	Delta DTD	CLDR JSON
+43	2023-04-12	v43	CLDR43	Charts43	LDML43	ΔV43	release-43	ΔDtd43	43.0.0
+43.1	2023-06-15	v43.1	n/a	n/a	LDML43.1	ΔV43.1	release-43-1	See note in 43.1 Changes	43.1.0
+See Key to Header Links
 Overview
 Unicode CLDR provides key building blocks for software supporting the world's languages. CLDR data is used by all major software systems (including all mobile phones) for their software internationalization and localization, adapting software to the conventions of different languages. It is important to review the Migration section for changes that might require action by implementations using CLDR directly or indirectly (eg, via ICU).
 CLDR 43.1 is a dot release focused on fixing specific issues. For more details for see Version 43.1 Changes.
@@ -23,24 +27,6 @@ Treating various quote marks as equivalent at a Primary strength, also including
 For details, see below.
 Locale Status
 The bar for each coverage level increases each release. Faroese (fo) increased from Basic to Moderate, while Cherokee (chr), Lower Sorbian (dsb), and Upper Sorbian (hsb) dropped from Modern to Moderate.
-Overview
-Locale Status
-Version 43.1 Changes
-GB18030-2022 Compliance
-Compatibility
-Other
-Data Changes
-DTD Changes
-BCP47 Data Changes
-Supplemental Data Changes
-Locale Changes
-File Changes
-JSON Data Changes
-Specification Changes
-Growth
-Migration
-Known Issues
-Acknowledgments
 CLDR v43 Coverage
 Version 43.1 Changes
 Version 43.1 currently in Beta. It is planned to be a dot release that addresses the following issues. The main changes are for compatibility (including parser compatibility and GB 18030-2022 Level 2 support). To access the release data, use the release tag or the json link. The following tickets are included:
@@ -56,9 +42,9 @@ CLDR-16623 Fix the LDML specification for the locale to use for name formatting
 CLDR-16643 Cyrl ↔︎ Latn should use Kh instead of Ḫ
 The only DTD change is the additional of alt="ascii" for time formats:
 <!ATTLIST pattern alt NMTOKENS #IMPLIED >
-<!--@MATCH:literal/alphaNextToNumber, ascii, noCurrency, variant-->
+    <!--@MATCH:literal/alphaNextToNumber, ascii, noCurrency, variant-->
 <!ATTLIST dateFormatItem alt NMTOKENS #IMPLIED >
-<!--@MATCH:literal/ascii, variant-->
+    <!--@MATCH:literal/ascii, variant-->
 Data Changes
 DTD Changes
 Person Names (formerly in tech preview in CLDR 42)
@@ -79,7 +65,7 @@ Units
 A new unit was added for the Beaufort scale. Translations are only provided for a few locales that are known to use it.
 Unit preferences were added for floor area, rainfall speed, and snowfall speed. See Units for differences.
 Locales
-Special parentLocales are added for collations and segmentations.  See Locale > Parent… for the differences.
+Special parentLocales are added for collations and segmentations.  See Locale > Parent… for the differences.
 Many new likely subtag mappings were added, thanks to contributions from SIL. See Likely > Subtag for differences.
 Transforms
 Aliases for certain Ethiopic transliterators were added.
@@ -133,7 +119,7 @@ There is an "effectiveCoverageLevels" key in coverageLevels.json which contains 
 parentLocales.json now has new keys for collations and segmentations parent information (CLDR-16425)
 coverageLevels.json has a new key, effectiveCoverageLevels, with calculated coverage levels for sublocales (CLDR-16425)
 unitIdComponents.json, now the _values keys are arrays instead of space-separated strings (CLDR-16373 )
-languages.json and other files no longer include some code-fallback data, such as "apc": "apc" where the translation is the same as the code.  (CLDR-16468)
+languages.json and other files no longer include some code-fallback data, such as "apc": "apc" where the translation is the same as the code.  (CLDR-16468)
 For time zone names, clients will need to construct the fallback exemplar city per spec. For example, America/Los_Angeles → "Los Angeles" (last field of the TZID, and turn _ into space).
 For language names, see the locale display name algorithm. The "composed" forms are no longer automatically included in the data. For example, purely composed forms such as "en_GB": "en (GB)" or "en_GB": "English (United Kingdom)" are no longer present in the JSON data, unless there is an explicit translation such as "en_GB":"British English".
 Implementations should be aware that some und.json files may now be completely missing due to this change.
@@ -175,7 +161,7 @@ CLDR has data for language matching, as in this chart. The purpose and usage is 
 So how is this used? Consider a user whose first language is Breton. If they open an application that only has localizations for English, German, and French, then Breton will not be available. In that case, the data in CLDR can be used to select French as a fallback localization — in the absence of other information.
 That last clause is important. The CLDR data is based on the likelihood that a person using language X understands text written in language Y, but large portions of the population for X might prefer other languages.
 The CLDR language matching data can and should be overridden whenever there is more information available from a user that allows an implementation to do a better job. It is strongly recommended that systems allow users to not only specify their preferred language, but also any secondary languages in order of priority. Thus a person speaking Kazakh who also knows French could specify French as a secondary language, and get a French localization for an app instead of the CLDR match. This has been done on both Android and iOS, for example.
-Important:  language matching is different from the CLDR inheritance mechanism: they serve different purposes, and are not aligned. The CLDR inheritance mechanism is how CLDR organizes localized data, and should not be used for language matching. Applications do not need to follow the CLDR inheritance chain.
+Important:  language matching is different from the CLDR inheritance mechanism: they serve different purposes, and are not aligned. The CLDR inheritance mechanism is how CLDR organizes localized data, and should not be used for language matching. Applications do not need to follow the CLDR inheritance chain.
 References: LDML Language Matching, LDML Inheritance vs Related Information, ICU4J Locale Matcher, ICU4C Locale Matcher
 Migration
 Seed has been merged into Common (CLDR-6396)
@@ -196,7 +182,7 @@ Locale Inheritance
 The parentLocales now have an optional component attribute. This attribute MUST not simply be ignored; otherwise data from different components could override the main parentLocale data. The attribute specifies inheritance adjustments that should be used for segmentations or collations. For example, zh_Hant does not normally inherit from zh (since people would get mixed scripts). However, collations can be designed to handle sets of characters for multiple writing systems.
 Items marked as rgScope should have different inheritance lookup, which is recommended for the best results. However, implementations that use the general inheritance lookup will see no changes.
 Other New Attributes
-Calendar metadata now has new era attributes (code & aliases), and element inheritEras, all of which may be ignored if not supported.  (CLDR-16469)
+Calendar metadata now has new era attributes (code & aliases), and element inheritEras, all of which may be ignored if not supported.  (CLDR-16469)
 Likely Subtags now have an attribute to indicate the origin of the data. This is informational, and typically be ignored by implementations.
 Turkey / Türkiye
 In v42, the customary English name for the country code TR was "Turkey", and an alternate name was "Türkiye". In v43, the customary English name was changed to "Türkiye", and the alternate name was set to "Turkey". Translators were advised of the change, and reviewed the names in their locales to see if any needed adjustment. Implementations that wish to retain the English name "Turkey" may choose to use the alternate form.

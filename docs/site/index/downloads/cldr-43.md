@@ -92,6 +92,7 @@ The only **DTD change** is the additional of alt\="ascii" for time formats:
 ### [BCP47 Data Changes](https://www.unicode.org/cldr/charts/43/delta/bcp47.html)
 
 - A new timezone short id was added (tz\-mxcjs, for Ciudad Juárez), and the description for Istanbul updated the country spelling to Türkiye.
+
 ### [Supplemental Data Changes](https://www.unicode.org/cldr/charts/43/delta/supplemental-data.html)
 
 - **Units**
@@ -102,7 +103,7 @@ The only **DTD change** is the additional of alt\="ascii" for time formats:
 	- Many new likely subtag mappings were added, thanks to contributions from SIL. See [Likely \> Subtag](https://cldr-smoke.unicode.org/staging-dev/charts/43/delta/supplemental-data.html#Likely) for differences.
 - **Transforms**
 	- Aliases for certain Ethiopic transliterators were added.
-	- New *8* transliterators for Jpan, Khmr, Laoo, and Sinh scripts were added. These are intended for testing, not for production (especially for Jpan scripts, which requires NLP for acceptable results).
+	- New **test** transliterators for Jpan, Khmr, Laoo, and Sinh scripts were added. These are intended for testing, not for production (especially for Jpan scripts, which requires NLP for acceptable results).
 	- See [Transforms](https://www.unicode.org/cldr/charts/43/delta/supplemental-data.html#Transform) for the differences.
 - **Language Info**
 	- Preferred hours were changed for CW (Curaçao).

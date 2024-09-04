@@ -4,7 +4,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node assets/js/build.mjs"
+    "build": "node assets/js/build.mjs",
+    "postinstall": "cp node_modules/vue/dist/vue.global.prod.js node_modules/vue/dist/vue_global_prod.js"
   },
   "keywords": [],
   "author": "Steven R. Loomis <srloomis@unicode.org>",

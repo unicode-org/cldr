@@ -392,6 +392,10 @@ public class GenerateLikelySubtags {
                                 {"mro", "mro_Mroo_BD"},
                                 {"mro_BD", "mro_Mroo_BD"},
                                 {"ms_Arab", "ms_Arab_MY"},
+                                {"nan", "nan_Hant_TW"},
+                                {"nan_Hant", "nan_Hant_TW"},
+                                {"nan_Hans", "nan_Hans_CN"},
+                                {"nan_TW", "nan_Hant_TW"},
                                 {"pap", "pap_Latn_CW"},
                                 {"pap_Latn", "pap_Latn_CW"},
                                 {
@@ -514,6 +518,7 @@ public class GenerateLikelySubtags {
                                 {"und_Cyrl_RS", "sr_Cyrl_RS"},
                                 {"und_Cyrl_TJ", "tg_Cyrl_TJ"},
                                 {"und_Cyrl_UA", "uk_Cyrl_UA"},
+                                {"und_Hans_TW", "zh_Hans_TW"},
                                 {"arc_Hatr", "arc_Hatr_IQ"},
                                 {"hnj_Hmng", "hnj_Hmng_LA"},
                                 {"bap_Krai", "bap_Krai_IN"},

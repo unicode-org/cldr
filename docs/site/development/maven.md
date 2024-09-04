@@ -6,11 +6,11 @@ title: Maven Setup
 
 ## Introduction
 
-For a number of reasons, CLDR has switched to[Maven](https://maven.apache.org/).
+For a number of reasons, CLDR has switched to [Maven](https://maven.apache.org/).
 
 The purpose of this document is to assist with initial configuration of Maven.
 
-CLDR pulls pre\-release[ICU](https://icu-project.org)4J jars from ICU's GitHub Maven repository.
+CLDR pulls pre\-release [ICU](https://icu-project.org)4J jars from ICU's GitHub Maven repository.
 
 At present, GitHub requires authentication even for publicly accessible repositories.
 
@@ -41,7 +41,7 @@ Otherwise, install the "maven" package from your OS or other package manager, or
 
 ### Configuring Maven
 
-It might be helpful to refer to th [GitHub documentation](https://docs.github.com/en/packages/using-github-packages-with-your-projects-ecosystem/configuring-apache-maven-for-use-with-github-packages) and the [Maven documentation](https://maven.apache.org/settings.html#Servers) for settings during this step.
+It might be helpful to refer to the [GitHub documentation](https://docs.github.com/en/packages/using-github-packages-with-your-projects-ecosystem/configuring-apache-maven-for-use-with-github-packages) and the [Maven documentation](https://maven.apache.org/settings.html#Servers) for settings during this step.
 
 The file you will be modifying is .m2/settings.xml (the .m2 directory is in your HOME directory, create it if it does not exist).
 
@@ -114,7 +114,6 @@ mvn -DCLDR_DIR=$HOME/src/cldr exec:java -pl cldr-code -Dexec.mainClass=org.unico
 2. To run the SurveyTool components you will need the IDE for Enterprise Developers, you can download this from https://www.eclipse.org/downloads/packages/
 3. Make sure the config files are set up first ([**3.2** Configuring Maven](https://cldr.unicode.org/development/maven)), and that CLDR is checked out locally from git in some directory.
 4. Go to File \-\> Import, choose Maven and import Existing Maven Projects (see image at right)
-ma
 
 ![image](../images/development/maven1.png)
 

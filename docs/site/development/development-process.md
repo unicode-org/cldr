@@ -116,7 +116,7 @@ If there is a test failure that is due to a bug that cannot be fixed right now (
 ***Once the statuses are all READY, anyone can push to production:***
 
 1. ***Important!*** *Make sure the statuses are all PUSHED or READY and that the "Last Built Rev" isn't later than any items on the list*
-	1. *If there are any untested commits, double check the*[*timeline*](http://unicode.org/cldr/trac/timeline) *and make sure something isn't slipping in!*
+	1. *If there are any untested commits, double check the [timeline](http://unicode.org/cldr/trac/timeline) and make sure something isn't slipping in!*
 2. ***Check*** [http://unicode.org/cldr/trac/timeline?changeset\=on\&build\=on\&daysback\=8](http://unicode.org/cldr/trac/timeline?changeset=on&build=on&daysback=8) to verify that no changes "slipped in"
 3. ***Add a line PUSHING***
 4. ***Push to production***
@@ -143,7 +143,7 @@ If there is a test failure that is due to a bug that cannot be fixed right now (
 	1. In the top right, under View Tickets, you'll see "Review \<x\> commits." Click on that to see the changed files. (Often best to to see side\-by\-side, with right\-click \> open in new window.)
 	2. In the **Changes** column, click on each of the items (eg, [edit](http://unicode.org/cldr/trac/changeset?old=11625&old_path=trunk%2Ftools%2Fcldr-apps&new_path=trunk%2Ftools%2Fcldr-apps&new=11627)) in each of the cells, and make sure that the implementation matches the description.
 	3. For data tickets, the goal is to verify that the data in the ticket matches what is entered in.
-		1. For spec tickets, it is often easier to go to the[Modifications section](http://unicode.org/repos/cldr/trunk/specs/ldml/tr35.html) of the latest proposed spec update, search for the modifications entry with the ticket number for the change that you are reviewing, and then click in that entry’s link to the relevant portion of the spec. The modifications in that section will be shown in yellow, and that is what you need to review.
+		1. For spec tickets, it is often easier to go to the [Modifications section](http://unicode.org/repos/cldr/trunk/specs/ldml/tr35.html) of the latest proposed spec update, search for the modifications entry with the ticket number for the change that you are reviewing, and then click in that entry’s link to the relevant portion of the spec. The modifications in that section will be shown in yellow, and that is what you need to review.
 	4. Once you are done, go back to the original ticket (you can click on it at the top), and hit "Modify Ticket" near the bottom.
 		1. If the implementation looks good:
 		- click "REVIEWER: Close as fixed", then

@@ -47,6 +47,7 @@ async function main() {
         all: [],
         dirs: {},
     };
+    await fs.mkdir('assets/json/', { recursive: true });
     await traverse('.', out);
     await fs.writeFile('assets/json/tree.json', JSON.stringify(out, null, ' '));
 }

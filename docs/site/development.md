@@ -1,5 +1,7 @@
 ---
-title: CLDR Development
+title: Internal Development
 ---
 
-Development pages
+# Internal Development
+
+![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

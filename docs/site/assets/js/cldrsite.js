@@ -2,6 +2,11 @@ const { ref } = Vue;
 
 // site management
 
+let myPath = window.location.pathname.slice(1) || "index.html"
+if (!/\.html/.test(myPath)) {
+    myPath = `${myPath}.html`; // cloudflare likes to drop the .html
+}
+
 /** replace a/b/c.md with a/b */
 function path2dir(p) {
   const dir = p.split("/").slice(0, -1).join("/");
@@ -189,7 +194,7 @@ const app = Vue.createApp(
   },
   {
     // path of / goes to /index.html
-    path: window.location.pathname.slice(1) || "index.html",
+    path: myPath,
   }
 );
 

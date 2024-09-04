@@ -497,6 +497,7 @@ const strings = {
   special_forum: "Forum Posts",
   special_forum_participation: "Forum Participation",
   special_general: "General Info",
+  special_generate_vxml: "Generate VXML",
   special_list_emails: "List Email Addresses",
   special_list_users: "List Users",
   special_locales: "Locale List",

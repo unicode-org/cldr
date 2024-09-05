@@ -7,6 +7,7 @@ import * as cldrAjax from "./cldrAjax.mjs";
 import * as cldrBulkClosePosts from "./cldrBulkClosePosts.mjs";
 import * as cldrCoverage from "./cldrCoverage.mjs";
 import * as cldrCreateLogin from "./cldrCreateLogin.mjs";
+import * as cldrDashContext from "./cldrDashContext.mjs";
 import * as cldrDom from "./cldrDom.mjs";
 import * as cldrErrorSubtypes from "./cldrErrorSubtypes.mjs";
 import * as cldrEvent from "./cldrEvent.mjs";
@@ -38,6 +39,13 @@ import * as cldrVueMap from "./cldrVueMap.mjs";
 import { h } from "vue";
 
 const CLDR_LOAD_DEBUG = false;
+
+/**
+ * This value for the "special" page description, as returned by cldrStatus.getCurrentSpecial(),
+ * corresponds to the situation in which a locale has been chosen but no section/page has been
+ * chosen for that locale. It corresponds to GeneralInfo.vue.
+ */
+const GENERAL_SPECIAL = "general";
 
 let locmap = new LocaleMap(null); // a localemap that always returns the code
 // locmap will be modified later with locmap = new LocaleMap(json.locmap)
@@ -109,11 +117,14 @@ function doHashChange(event) {
   const changedSpecial = oldSpecial != curSpecial;
   const changedPage = oldPage != trimNull(cldrStatus.getCurrentPage());
   if (changedLocale || (changedSpecial && curSpecial)) {
-    cldrGui.hideDashboard();
+    cldrDashContext.hide(false /* userWantsHidden */);
   }
   if (changedLocale || changedSpecial || changedPage) {
     console.log("# hash changed, (loc, etc) reloadingV..");
     reloadV();
+    if (cldrDashContext.shouldBeShown()) {
+      cldrDashContext.insert();
+    }
   } else if (
     oldId != cldrStatus.getCurrentId() &&
     cldrStatus.getCurrentId() != ""
@@ -598,17 +609,21 @@ function shower(itemLoadInfo) {
   cldrSurvey.showLoader(cldrText.get("loading"));
   const curSpecial = cldrStatus.getCurrentSpecial();
   cldrGui.setToptitleVisibility(curSpecial !== "menu");
-  specialLoad(itemLoadInfo, curSpecial, theDiv);
+  try {
+    specialLoad(itemLoadInfo, curSpecial, theDiv);
+  } catch (e) {
+    cldrNotify.exception(e, `Showing SurveyTool page ${curSpecial || ""}`);
+  }
 }
 
 function specialLoad(itemLoadInfo, curSpecial, theDiv) {
   const special = getSpecial(curSpecial); // special is an object; curSpecial is a string
   if (special && special.load) {
     cldrEvent.hideOverlayAndSidebar();
-    if (curSpecial !== "general") {
-      cldrGui.hideDashboard();
+    if (curSpecial !== GENERAL_SPECIAL) {
+      cldrDashContext.hide(false /* userWantsHidden */);
     }
-    cldrInfo.closePanel();
+    cldrInfo.closePanel(false /* userWantsHidden */);
     // Most special.load() functions do not use a parameter; an exception is
     // cldrGenericVue.load() which expects the special name as a parameter
     if (CLDR_LOAD_DEBUG) {
@@ -617,11 +632,11 @@ function specialLoad(itemLoadInfo, curSpecial, theDiv) {
       );
     }
     special.load(curSpecial);
-  } else if (curSpecial !== "general") {
+  } else if (curSpecial !== GENERAL_SPECIAL) {
     // Avoid recursion.
     unspecialLoad(itemLoadInfo, theDiv);
   } else {
-    // This will only be called if 'general' is a missing special.
+    // This will only be called if 'general' (GENERAL_SPECIAL) is a missing special.
     handleMissingSpecial(curSpecial);
   }
 }
@@ -636,8 +651,8 @@ function unspecialLoad(itemLoadInfo, theDiv) {
       if (CLDR_LOAD_DEBUG) {
         console.log("cldrLoad.unspecialLoad: running specialLoad(general)");
       }
-      cldrStatus.setCurrentSpecial("general");
-      specialLoad(itemLoadInfo, "general", theDiv);
+      cldrStatus.setCurrentSpecial(GENERAL_SPECIAL);
+      specialLoad(itemLoadInfo, GENERAL_SPECIAL, theDiv);
     } else if (curId === "!") {
       // TODO: clarify when and why this would happen
       if (CLDR_LOAD_DEBUG) {
@@ -1045,10 +1060,30 @@ function getLocaleDir(locale) {
   return localeDir;
 }
 
-function setTheLocaleMap(lm) {
-  locmap = lm;
+/** @returns true if locmap has been loaded from data */
+function localeMapReady() {
+  return !!locmap.locmap;
 }
 
+/** event ID for localeMap changes */
+const LOCALEMAP_EVENT = "localeMapReady";
+
+/**
+ * Calls the callback when the localeMap is ready (with real data).
+ * Calls right away if the localeMap was already loaded.
+ */
+function onLocaleMapReady(callback) {
+  if (localeMapReady()) {
+    callback();
+  } else {
+    cldrStatus.on(LOCALEMAP_EVENT, callback);
+  }
+}
+
+function setTheLocaleMap(lm) {
+  locmap = lm;
+  cldrStatus.dispatchEvent(new Event(LOCALEMAP_EVENT));
+}
 /**
  * Convenience for calling getTheLocaleMap().getLocaleName(loc)
  * @param {String} loc
@@ -1056,6 +1091,10 @@ function setTheLocaleMap(lm) {
  */
 function getLocaleName(loc) {
   return locmap.getLocaleName(loc);
+}
+
+function getLocaleInfo(loc) {
+  return locmap.getLocaleInfo(loc);
 }
 
 /**
@@ -1114,7 +1153,14 @@ function flipToEmptyOther() {
 
 function coverageUpdate() {
   cldrCoverage.updateCoverage(flipper.get(pages.data));
-  handleCoverageChanged(cldrCoverage.effectiveName());
+  const curLocale = cldrStatus.getCurrentLocale();
+  if (!curLocale) {
+    console.error(
+      "cldrLoad.coverageUpdate called when current locale not defined"
+    );
+    return;
+  }
+  handleCoverageChanged(cldrCoverage.effectiveName(curLocale));
 }
 
 function setLoading(loading) {
@@ -1139,8 +1185,10 @@ export {
   flipToEmptyOther,
   flipToGenericNoLocale,
   flipToOtherDiv,
+  GENERAL_SPECIAL,
   getHash,
   getLocaleDir,
+  getLocaleInfo,
   getLocaleName,
   getTheLocaleMap,
   handleCoverageChanged,
@@ -1148,6 +1196,7 @@ export {
   linkToLocale,
   localeSpecialNote,
   myLoad,
+  onLocaleMapReady,
   parseHashAndUpdate,
   reloadV,
   replaceHash,

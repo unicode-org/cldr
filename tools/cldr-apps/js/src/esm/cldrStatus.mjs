@@ -49,6 +49,10 @@ function on(type, callback) {
   getStatusTarget().addEventListener(type, callback);
 }
 
+/**
+ * Fire off an event manually
+ * @param type the type to dispatch
+ */
 function dispatchEvent(type) {
   return getStatusTarget().dispatchEvent(type);
 }
@@ -74,6 +78,9 @@ function updateAll(status) {
   }
   if (status.phase) {
     setPhase(status.phase);
+  }
+  if (status.extendedPhase) {
+    setExtendedPhase(status.extendedPhase);
   }
   if (status.specialHeader) {
     setSpecialHeader(status.specialHeader);
@@ -300,6 +307,16 @@ function setPhase(p) {
   phase = p;
 }
 
+let extendedPhase = "";
+
+function getExtendedPhase() {
+  return extendedPhase;
+}
+
+function setExtendedPhase(p) {
+  extendedPhase = p;
+}
+
 /**
  * Is this a "beta" phase of Survey Tool? (Boolean)
  */
@@ -466,6 +483,7 @@ function setAutoImportBusy(busy) {
 }
 
 export {
+  dispatchEvent,
   getAutoImportBusy,
   getContextPath,
   getCurrentId,
@@ -474,6 +492,7 @@ export {
   getCurrentPage,
   getCurrentSection,
   getCurrentSpecial,
+  getExtendedPhase,
   getIsPhaseBeta,
   getIsUnofficial,
   getNewVersion,
@@ -500,6 +519,7 @@ export {
   setCurrentPage,
   setCurrentSection,
   setCurrentSpecial,
+  setExtendedPhase,
   setIsDisconnected,
   setIsPhaseBeta,
   setIsUnofficial,

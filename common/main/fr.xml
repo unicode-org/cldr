@@ -89,6 +89,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="bjn">banjar</language>
 			<language type="bkm">kom</language>
 			<language type="bla">siksika</language>
+			<language type="blo">anii</language>
 			<language type="bm">bambara</language>
 			<language type="bn">bengali</language>
 			<language type="bo">tibétain</language>
@@ -342,6 +343,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="kv">komi</language>
 			<language type="kw">cornique</language>
 			<language type="kwk">kwak’wala</language>
+			<language type="kxv">kuvi</language>
 			<language type="ky">kirghize</language>
 			<language type="la">latin</language>
 			<language type="lad">ladino</language>
@@ -371,7 +373,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="lua">luba-kasaï (ciluba)</language>
 			<language type="lui">luiseño</language>
 			<language type="lun">lunda</language>
-			<language type="luo">luo</language>
+			<language type="luo">↑↑↑</language>
 			<language type="lus">lushaï</language>
 			<language type="luy">luyia</language>
 			<language type="lv">letton</language>
@@ -640,6 +642,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="vi">vietnamien</language>
 			<language type="vls">flamand occidental</language>
 			<language type="vmf">franconien du Main</language>
+			<language type="vmw">macua</language>
 			<language type="vo">volapük</language>
 			<language type="vot">vote</language>
 			<language type="vro">võro</language>
@@ -655,6 +658,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="xal">kalmouk</language>
 			<language type="xh">xhosa</language>
 			<language type="xmf">mingrélien</language>
+			<language type="xnr">kangri</language>
 			<language type="xog">soga</language>
 			<language type="yao">yao</language>
 			<language type="yap">yapois</language>
@@ -1558,7 +1562,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<parseLenient sample="%">↑↑↑</parseLenient>
 			<parseLenient sample="‰">↑↑↑</parseLenient>
 			<parseLenient sample="$">↑↑↑</parseLenient>
-			<parseLenient sample="£">[£ ₤]</parseLenient>
+			<parseLenient sample="£">[£￡ ₤]</parseLenient>
 			<parseLenient sample="¥">↑↑↑</parseLenient>
 			<parseLenient sample="₩">↑↑↑</parseLenient>
 			<parseLenient sample="₹">↑↑↑</parseLenient>
@@ -5836,7 +5840,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Cap-Vert</exemplarCity>
 			</zone>
 			<zone type="America/Curacao">
-				<exemplarCity>Curaçao</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Indian/Christmas">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -6370,7 +6374,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Palaos</exemplarCity>
 			</zone>
 			<zone type="America/Asuncion">
-				<exemplarCity>Asunción</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Qatar">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -6514,7 +6518,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Africa/Sao_Tome">
-				<exemplarCity>São Tomé</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/El_Salvador">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -7309,6 +7313,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>heure d’été de Petropavlovsk-Kamchatski</daylight>
 				</long>
 			</metazone>
+			<metazone type="Kazakhstan">
+				<long>
+					<standard>heure du Kazakhstan</standard>
+				</long>
+			</metazone>
 			<metazone type="Kazakhstan_Eastern">
 				<long>
 					<standard>heure de l’Est du Kazakhstan</standard>
@@ -8066,8 +8075,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencies>
 			<currency type="ADP">
@@ -10249,6 +10258,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} carats</unitPattern>
 			</unit>
 			<unit type="concentr-milligram-ofglucose-per-deciliter">
+				<gender>masculine</gender>
 				<displayName>milligrammes par décilitre</displayName>
 				<unitPattern count="one">{0} milligramme par décilitre</unitPattern>
 				<unitPattern count="other">{0} milligrammes par décilitre</unitPattern>
@@ -10754,6 +10764,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} milles scandinaves</unitPattern>
 			</unit>
 			<unit type="length-point">
+				<gender>masculine</gender>
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0} point typographique</unitPattern>
 				<unitPattern count="other">{0} points typographiques</unitPattern>
@@ -10915,6 +10926,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} chevaux-vapeur</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-ofhg">
+				<gender>masculine</gender>
 				<displayName>millimètres de mercure</displayName>
 				<unitPattern count="one">{0} millimètre de mercure</unitPattern>
 				<unitPattern count="other">{0} millimètres de mercure</unitPattern>
@@ -11237,6 +11249,25 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>quarts impériaux</displayName>
 				<unitPattern count="one">{0} quart impérial</unitPattern>
 				<unitPattern count="other">{0} quarts impériaux</unitPattern>
+			</unit>
+			<unit type="speed-light-speed">
+				<gender>feminine</gender>
+				<displayName>lumière</displayName>
+				<unitPattern count="one">{0} lumière</unitPattern>
+				<unitPattern count="other">{0} lumière</unitPattern>
+			</unit>
+			<unit type="concentr-portion-per-1e9">
+				<gender>feminine</gender>
+				<displayName>parts par milliard</displayName>
+				<unitPattern count="one">{0} part par milliard</unitPattern>
+				<unitPattern count="other">{0} parts par milliard</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<gender>feminine</gender>
+				<displayName>nuits</displayName>
+				<unitPattern count="one">{0} nuit</unitPattern>
+				<unitPattern count="other">{0} nuits</unitPattern>
+				<perUnitPattern>{0} par nuit</perUnitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>↑↑↑</displayName>
@@ -12306,6 +12337,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} qt imp.</unitPattern>
 			</unit>
+			<unit type="speed-light-speed">
+				<displayName>lumière</displayName>
+				<unitPattern count="one">{0} lumière</unitPattern>
+				<unitPattern count="other">{0} lumière</unitPattern>
+			</unit>
+			<unit type="concentr-portion-per-1e9">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>nuits</displayName>
+				<unitPattern count="one">{0} nuit</unitPattern>
+				<unitPattern count="other">{0} nuits</unitPattern>
+				<perUnitPattern>{0}/nuit</perUnitPattern>
+			</unit>
 			<coordinateUnit>
 				<displayName>↑↑↑</displayName>
 				<coordinateUnitPattern type="east">{0} E</coordinateUnitPattern>
@@ -13373,6 +13420,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0}qt imp.</unitPattern>
 				<unitPattern count="other">{0}qt imp.</unitPattern>
+			</unit>
+			<unit type="speed-light-speed">
+				<displayName>lumière</displayName>
+				<unitPattern count="one">{0} lumière</unitPattern>
+				<unitPattern count="other">{0} lumière</unitPattern>
+			</unit>
+			<unit type="concentr-portion-per-1e9">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}ppb</unitPattern>
+				<unitPattern count="other">{0}ppb</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>nuits</displayName>
+				<unitPattern count="one">{0}nuit</unitPattern>
+				<unitPattern count="other">{0}nuits</unitPattern>
+				<perUnitPattern>{0}/nuit</perUnitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>↑↑↑</displayName>

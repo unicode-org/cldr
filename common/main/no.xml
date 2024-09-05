@@ -90,6 +90,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="bjn">banjar</language>
 			<language type="bkm">kom</language>
 			<language type="bla">siksika</language>
+			<language type="blo">anii</language>
 			<language type="bm">bambara</language>
 			<language type="bn">bengali</language>
 			<language type="bo">tibetansk</language>
@@ -343,6 +344,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="kv">komi</language>
 			<language type="kw">kornisk</language>
 			<language type="kwk">kwak̓wala</language>
+			<language type="kxv">kuvi</language>
 			<language type="ky">kirgisisk</language>
 			<language type="la">latin</language>
 			<language type="lad">ladinsk</language>
@@ -372,7 +374,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="lua">luba-lulua</language>
 			<language type="lui">luiseno</language>
 			<language type="lun">lunda</language>
-			<language type="luo">luo</language>
+			<language type="luo">↑↑↑</language>
 			<language type="lus">mizo</language>
 			<language type="luy">luhya</language>
 			<language type="lv">latvisk</language>
@@ -633,13 +635,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="und">ukjent språk</language>
 			<language type="ur">urdu</language>
 			<language type="uz">usbekisk</language>
-			<language type="vai">vai</language>
+			<language type="vai">↑↑↑</language>
 			<language type="ve">venda</language>
 			<language type="vec">venetiansk</language>
 			<language type="vep">vepsisk</language>
 			<language type="vi">vietnamesisk</language>
 			<language type="vls">vestflamsk</language>
 			<language type="vmf">Main-frankisk</language>
+			<language type="vmw">makhuwa</language>
 			<language type="vo">volapyk</language>
 			<language type="vot">votisk</language>
 			<language type="vro">sørestisk</language>
@@ -655,6 +658,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="xal">kalmukkisk</language>
 			<language type="xh">xhosa</language>
 			<language type="xmf">mingrelsk</language>
+			<language type="xnr">kangri</language>
 			<language type="xog">soga</language>
 			<language type="yao">yao</language>
 			<language type="yap">yapesisk</language>
@@ -1285,8 +1289,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="calendar" type="indian">indisk nasjonalkalender</type>
 			<type key="calendar" type="islamic">hijrikalender</type>
 			<type key="calendar" type="islamic-civil">hijrikalender (tabell, sivil)</type>
-			<type key="calendar" type="islamic-rgsa" draft="provisional">islamsk kalender (Saudi-Arabia, observasjon)</type>
-			<type key="calendar" type="islamic-tbla" draft="provisional">islamsk kalender (tabell, astronomisk)</type>
+			<type key="calendar" type="islamic-rgsa" draft="contributed">islamsk kalender (Saudi-Arabia, observasjon)</type>
+			<type key="calendar" type="islamic-tbla" draft="contributed">islamsk kalender (tabell, astronomisk)</type>
 			<type key="calendar" type="islamic-umalqura">hijrikalender (Umm al-Qura)</type>
 			<type key="calendar" type="iso8601">ISO 8601-kalender</type>
 			<type key="calendar" type="japanese">japansk kalender</type>
@@ -7113,14 +7117,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<relative type="0">↑↑↑</relative>
 				<relative type="1">↑↑↑</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="one">+{0} u.</relativeTimePattern>
-					<relativeTimePattern count="other">+{0} u.</relativeTimePattern>
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="one">-{0} u.</relativeTimePattern>
-					<relativeTimePattern count="other">-{0} u.</relativeTimePattern>
+					<relativeTimePattern count="one">↑↑↑</relativeTimePattern>
+					<relativeTimePattern count="other">↑↑↑</relativeTimePattern>
 				</relativeTime>
-				<relativePeriod>u. {0}</relativePeriod>
+				<relativePeriod>↑↑↑</relativePeriod>
 			</field>
 			<field type="weekOfMonth">
 				<displayName>uke i måneden</displayName>
@@ -7991,7 +7995,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>Kapp Verde</exemplarCity>
 			</zone>
 			<zone type="America/Curacao">
-				<exemplarCity>Curaçao</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Indian/Christmas">
 				<exemplarCity>Christmasøya</exemplarCity>
@@ -8525,13 +8529,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Asuncion">
-				<exemplarCity>Asunción</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Qatar">
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Indian/Reunion">
-				<exemplarCity>Réunion</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Europe/Bucharest">
 				<exemplarCity>București</exemplarCity>
@@ -8669,7 +8673,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Africa/Sao_Tome">
-				<exemplarCity>São Tomé</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/El_Salvador">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -9452,6 +9456,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<generic draft="contributed">Russisk (Petropavlovsk-Kamtsjatskij) tid</generic>
 					<standard draft="contributed">Russisk (Petropavlovsk-Kamtsjatskij) normaltid</standard>
 					<daylight draft="contributed">Russisk (Petropavlovsk-Kamtsjatskij) sommertid</daylight>
+				</long>
+			</metazone>
+			<metazone type="Kazakhstan">
+				<long>
+					<standard>kasakhstansk tid</standard>
 				</long>
 			</metazone>
 			<metazone type="Kazakhstan_Eastern">
@@ -11415,8 +11424,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern draft="contributed">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+			<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="bali">
 			<currencyFormatLength>
@@ -11427,8 +11436,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern draft="contributed">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+			<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="beng">
 			<currencyFormatLength>
@@ -11439,8 +11448,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern draft="contributed">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+			<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="brah">
 			<currencyFormatLength>
@@ -11451,8 +11460,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern draft="contributed">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+			<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="cakm">
 			<currencyFormatLength>
@@ -11463,8 +11472,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern draft="contributed">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+			<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="cham">
 			<currencyFormatLength>
@@ -11475,8 +11484,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern draft="contributed">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+			<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="deva">
 			<currencyFormatLength>
@@ -11487,8 +11496,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern draft="contributed">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+			<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="fullwide">
 			<currencyFormatLength>
@@ -11499,8 +11508,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern draft="contributed">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+			<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="gujr">
 			<currencyFormatLength>
@@ -11511,8 +11520,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern draft="contributed">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+			<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="guru">
 			<currencyFormatLength>
@@ -11523,8 +11532,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern draft="contributed">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+			<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="hanidec">
 			<currencyFormatLength>
@@ -11535,8 +11544,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern draft="contributed">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+			<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="java">
 			<currencyFormatLength>
@@ -11547,8 +11556,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern draft="contributed">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+			<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="kali">
 			<currencyFormatLength>
@@ -11559,8 +11568,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern draft="contributed">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+			<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="khmr">
 			<currencyFormatLength>
@@ -11571,8 +11580,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern draft="contributed">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+			<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="knda">
 			<currencyFormatLength>
@@ -11583,8 +11592,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern draft="contributed">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+			<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="lana">
 			<currencyFormatLength>
@@ -11595,8 +11604,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern draft="contributed">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+			<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="lanatham">
 			<currencyFormatLength>
@@ -11607,8 +11616,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern draft="contributed">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+			<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="laoo">
 			<currencyFormatLength>
@@ -11619,8 +11628,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern draft="contributed">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+			<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
@@ -11661,8 +11670,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="lepc">
 			<currencyFormatLength>
@@ -11673,8 +11682,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern draft="contributed">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+			<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="limb">
 			<currencyFormatLength>
@@ -11685,8 +11694,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern draft="contributed">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+			<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="mlym">
 			<currencyFormatLength>
@@ -11697,8 +11706,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern draft="contributed">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+			<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="mong">
 			<currencyFormatLength>
@@ -11709,8 +11718,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern draft="contributed">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+			<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="mtei">
 			<currencyFormatLength>
@@ -11721,8 +11730,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern draft="contributed">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+			<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="mymr">
 			<currencyFormatLength>
@@ -11733,8 +11742,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern draft="contributed">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+			<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="mymrshan">
 			<currencyFormatLength>
@@ -11745,8 +11754,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern draft="contributed">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+			<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="nkoo">
 			<currencyFormatLength>
@@ -11757,8 +11766,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern draft="contributed">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+			<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="olck">
 			<currencyFormatLength>
@@ -11769,8 +11778,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern draft="contributed">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+			<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="orya">
 			<currencyFormatLength>
@@ -11781,8 +11790,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern draft="contributed">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+			<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="osma">
 			<currencyFormatLength>
@@ -11793,8 +11802,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern draft="contributed">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+			<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="saur">
 			<currencyFormatLength>
@@ -11805,8 +11814,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern draft="contributed">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+			<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="shrd">
 			<currencyFormatLength>
@@ -11817,8 +11826,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern draft="contributed">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+			<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="sora">
 			<currencyFormatLength>
@@ -11829,8 +11838,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern draft="contributed">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+			<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="sund">
 			<currencyFormatLength>
@@ -11841,8 +11850,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern draft="contributed">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+			<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="takr">
 			<currencyFormatLength>
@@ -11853,8 +11862,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern draft="contributed">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+			<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="talu">
 			<currencyFormatLength>
@@ -11865,8 +11874,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern draft="contributed">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+			<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="tamldec">
 			<currencyFormatLength>
@@ -11877,8 +11886,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern draft="contributed">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+			<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="telu">
 			<currencyFormatLength>
@@ -11889,8 +11898,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern draft="contributed">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+			<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="thai">
 			<currencyFormatLength>
@@ -11901,8 +11910,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern draft="contributed">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+			<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="tibt">
 			<currencyFormatLength>
@@ -11913,8 +11922,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern draft="contributed">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+			<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencyFormats numberSystem="vaii">
 			<currencyFormatLength>
@@ -11925,8 +11934,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<pattern draft="contributed">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
-			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
-			<unitPattern count="other" draft="contributed">{0} {1}</unitPattern>
+			<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
+			<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencies>
 			<currency type="ADP">
@@ -12303,8 +12312,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 			<currency type="CHE">
 				<displayName>WIR euro</displayName>
-				<displayName count="one" draft="contributed">↑↑↑</displayName>
-				<displayName count="other" draft="contributed">WIR-euro</displayName>
+				<displayName count="one">↑↑↑</displayName>
+				<displayName count="other">WIR-euro</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="CHF">
@@ -12315,8 +12324,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</currency>
 			<currency type="CHW">
 				<displayName>WIR franc</displayName>
-				<displayName count="one" draft="contributed">↑↑↑</displayName>
-				<displayName count="other" draft="contributed">WIR-franc</displayName>
+				<displayName count="one">↑↑↑</displayName>
+				<displayName count="other">WIR-franc</displayName>
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="CLE">
@@ -13356,15 +13365,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="SLE">
-				<displayName>sierraleonske leone</displayName>
+				<displayName>sierraleonsk leone</displayName>
 				<displayName count="one">sierraleonsk leone</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName count="other">sierraleonske leoner</displayName>
 				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="SLL">
-				<displayName>sierraleonske leone (1964—2022)</displayName>
-				<displayName count="one">sierraleonsk leone (1964—2022)</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName>sierraleonsk leone (1964–2022)</displayName>
+				<displayName count="one">sierraleonsk leone (1964–2022)</displayName>
+				<displayName count="other">sierraleonske leoner (1964–2022)</displayName>
 				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="SOS">
@@ -14130,32 +14139,32 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<compoundUnit type="power2">
 				<compoundUnitPattern1>kvadrat{0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one">kvadrat{0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" case="genitive">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" case="genitive">kvadrat{0}s</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one" gender="feminine">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="feminine" case="genitive">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="feminine" case="genitive">kvadrat{0}s</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one" gender="masculine">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="masculine" case="genitive">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="masculine" case="genitive">kvadrat{0}s</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other">kvadrat{0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" case="genitive">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" case="genitive">kvadrat{0}s</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" gender="feminine">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" gender="feminine" case="genitive">kvadrat{0}s</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" gender="masculine">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="masculine" case="genitive">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="masculine" case="genitive">kvadrat{0}s</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="power3">
 				<compoundUnitPattern1>kubikk{0}</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one">kubikk{0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" case="genitive">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" case="genitive">kubikk{0}s</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one" gender="feminine">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one" gender="feminine" case="genitive">kubikk{0}s</compoundUnitPattern1>
 				<compoundUnitPattern1 count="one" gender="masculine">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="one" gender="masculine" case="genitive">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="one" gender="masculine" case="genitive">kubikk{0}s</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other">kubikk{0}</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" case="genitive">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" case="genitive">kubikk{0}s</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" gender="feminine">↑↑↑</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" gender="feminine" case="genitive">kubikk{0}s</compoundUnitPattern1>
 				<compoundUnitPattern1 count="other" gender="masculine">↑↑↑</compoundUnitPattern1>
-				<compoundUnitPattern1 count="other" gender="masculine" case="genitive">↑↑↑</compoundUnitPattern1>
+				<compoundUnitPattern1 count="other" gender="masculine" case="genitive">kubikk{0}s</compoundUnitPattern1>
 			</compoundUnit>
 			<compoundUnit type="times">
 				<compoundUnitPattern>↑↑↑</compoundUnitPattern>
@@ -14295,9 +14304,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="genitive">{0} karats</unitPattern>
 			</unit>
 			<unit type="concentr-milligram-ofglucose-per-deciliter">
+				<gender>neuter</gender>
 				<displayName>milligram per desiliter</displayName>
 				<unitPattern count="one">{0} milligram per desiliter</unitPattern>
+				<unitPattern count="one" case="genitive">{0} milligram per desiliters</unitPattern>
 				<unitPattern count="other">{0} milligram per desiliter</unitPattern>
+				<unitPattern count="other" case="genitive">{0} milligram per desiliters</unitPattern>
 			</unit>
 			<unit type="concentr-millimole-per-liter">
 				<gender>masculine</gender>
@@ -14317,11 +14329,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="concentr-permillion">
 				<gender>masculine</gender>
-				<displayName>milliondeler</displayName>
-				<unitPattern count="one">{0} milliondel</unitPattern>
-				<unitPattern count="one" case="genitive">{0} milliondels</unitPattern>
+				<displayName>deler per million</displayName>
+				<unitPattern count="one">{0} del per million</unitPattern>
+				<unitPattern count="one" case="genitive">{0} del per millions</unitPattern>
 				<unitPattern count="other">{0} deler per million</unitPattern>
-				<unitPattern count="other" case="genitive">{0} milliondelers</unitPattern>
+				<unitPattern count="other" case="genitive">{0} deler per millions</unitPattern>
 			</unit>
 			<unit type="concentr-percent">
 				<gender>masculine</gender>
@@ -14619,7 +14631,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<gender>masculine</gender>
 				<displayName>kilokalorier</displayName>
 				<unitPattern count="one">{0} kilokalori</unitPattern>
+				<unitPattern count="one" case="genitive">{0} kilokaloris</unitPattern>
 				<unitPattern count="other">{0} kilokalorier</unitPattern>
+				<unitPattern count="other" case="genitive">{0} kilokaloriers</unitPattern>
 			</unit>
 			<unit type="energy-calorie">
 				<gender>masculine</gender>
@@ -14917,9 +14931,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" case="genitive">{0} mils</unitPattern>
 			</unit>
 			<unit type="length-point">
+				<gender>neuter</gender>
 				<displayName>typografiske punkter</displayName>
 				<unitPattern count="one">{0} typografisk punkt</unitPattern>
+				<unitPattern count="one" case="genitive">{0} typografisk punkts</unitPattern>
 				<unitPattern count="other">{0} typografiske punkter</unitPattern>
+				<unitPattern count="other" case="genitive">{0} typografiske punkters</unitPattern>
 			</unit>
 			<unit type="length-solar-radius">
 				<gender>masculine</gender>
@@ -15106,9 +15123,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} hestekrefter</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-ofhg">
+				<gender>masculine</gender>
 				<displayName>millimeter kvikksølv</displayName>
 				<unitPattern count="one">{0} millimeter kvikksølv</unitPattern>
+				<unitPattern count="one" case="genitive">{0} millimeter kvikksølvs</unitPattern>
 				<unitPattern count="other">{0} millimeter kvikksølv</unitPattern>
+				<unitPattern count="other" case="genitive">{0} millimeter kvikksølvs</unitPattern>
 			</unit>
 			<unit type="pressure-pound-force-per-square-inch">
 				<displayName>pund per kvadrattomme</displayName>
@@ -15478,6 +15498,31 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>britisk quart</displayName>
 				<unitPattern count="one">{0} britisk quart</unitPattern>
 				<unitPattern count="other">{0} britiske quart</unitPattern>
+			</unit>
+			<unit type="speed-light-speed">
+				<gender>neuter</gender>
+				<displayName>lys</displayName>
+				<unitPattern count="one">{0} lys</unitPattern>
+				<unitPattern count="one" case="genitive">{0} lys'</unitPattern>
+				<unitPattern count="other">{0} lys</unitPattern>
+				<unitPattern count="other" case="genitive">{0} lys'</unitPattern>
+			</unit>
+			<unit type="concentr-portion-per-1e9">
+				<gender>masculine</gender>
+				<displayName>deler per milliard</displayName>
+				<unitPattern count="one">{0} del per milliard</unitPattern>
+				<unitPattern count="one" case="genitive">{0} del per milliards</unitPattern>
+				<unitPattern count="other">{0} deler per milliard</unitPattern>
+				<unitPattern count="other" case="genitive">{0} deler per milliards</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<gender>masculine</gender>
+				<displayName>netter</displayName>
+				<unitPattern count="one">{0} natt</unitPattern>
+				<unitPattern count="one" case="genitive">{0} natts</unitPattern>
+				<unitPattern count="other">{0} netter</unitPattern>
+				<unitPattern count="other" case="genitive">{0} netters</unitPattern>
+				<perUnitPattern>{0} per natt</perUnitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>himmelretning</displayName>
@@ -16540,12 +16585,28 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<unit type="volume-pinch">
 				<displayName>klype</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">{0} klype</unitPattern>
+				<unitPattern count="other">{0} klyper</unitPattern>
 			</unit>
 			<unit type="volume-quart-imperial">
 				<displayName>imp. quart</displayName>
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} imp. quart</unitPattern>
+			</unit>
+			<unit type="speed-light-speed">
+				<displayName>lys</displayName>
+				<unitPattern count="one">{0} lys</unitPattern>
+				<unitPattern count="other">{0} lys</unitPattern>
+			</unit>
+			<unit type="concentr-portion-per-1e9">
+				<displayName>deler/milliard</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>netter</displayName>
+				<unitPattern count="one">{0} natt</unitPattern>
+				<unitPattern count="other">{0} netter</unitPattern>
+				<perUnitPattern>{0}/natt</perUnitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>retning</displayName>
@@ -16785,18 +16846,18 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="concentr-percent">
 				<displayName>%</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="one">{0}%</unitPattern>
+				<unitPattern count="other">{0}%</unitPattern>
 			</unit>
 			<unit type="concentr-permille">
 				<displayName>‰</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="one">{0}‰</unitPattern>
+				<unitPattern count="other">{0}‰</unitPattern>
 			</unit>
 			<unit type="concentr-permyriad">
 				<displayName>‱</displayName>
-				<unitPattern count="one">↑↑↑</unitPattern>
-				<unitPattern count="other">↑↑↑</unitPattern>
+				<unitPattern count="one">{0}‱</unitPattern>
+				<unitPattern count="other">{0}‱</unitPattern>
 			</unit>
 			<unit type="concentr-mole">
 				<displayName>↑↑↑</displayName>
@@ -16810,8 +16871,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="consumption-liter-per-100-kilometer">
 				<displayName>l/100km</displayName>
-				<unitPattern count="one">{0} l/100km</unitPattern>
-				<unitPattern count="other">{0} l/100km</unitPattern>
+				<unitPattern count="one">{0}l/100km</unitPattern>
+				<unitPattern count="other">{0}l/100km</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<displayName>↑↑↑</displayName>
@@ -16928,7 +16989,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0}m</unitPattern>
 				<unitPattern count="other">{0}m</unitPattern>
-				<perUnitPattern>{0}/m</perUnitPattern>
+				<perUnitPattern>↑↑↑</perUnitPattern>
 			</unit>
 			<unit type="duration-second">
 				<displayName>↑↑↑</displayName>
@@ -17606,7 +17667,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-pinch">
-				<displayName>↑↑↑</displayName>
+				<displayName>kl.</displayName>
 				<unitPattern count="one">{0} kl.</unitPattern>
 				<unitPattern count="other">{0} kl.</unitPattern>
 			</unit>
@@ -17614,6 +17675,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="one">{0} qt. Imp.</unitPattern>
 				<unitPattern count="other">{0} qt. Imp.</unitPattern>
+			</unit>
+			<unit type="speed-light-speed">
+				<displayName>lys</displayName>
+				<unitPattern count="one">{0}lys</unitPattern>
+				<unitPattern count="other">{0}lys</unitPattern>
+			</unit>
+			<unit type="concentr-portion-per-1e9">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">{0}ppb</unitPattern>
+				<unitPattern count="other">{0}ppb</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>netter</displayName>
+				<unitPattern count="one">{0} natt</unitPattern>
+				<unitPattern count="other">{0} netter</unitPattern>
+				<perUnitPattern>{0}/natt</perUnitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>↑↑↑</displayName>

@@ -35,10 +35,10 @@ public class CheckWidths extends CheckCLDR {
     private static UnitWidthUtil UNIT_WIDTHS_UTIL = UnitWidthUtil.getInstance();
 
     /** Controls for the warning about too many components, and for when to cause error. */
-    public static final int WARN_COMPONENTS_PER_ANNOTATION = 10;
+    public static final int WARN_COMPONENTS_PER_ANNOTATION = 12;
 
     // TBD lower this down after Meta data added
-    public static final int MAX_COMPONENTS_PER_ANNOTATION = 45;
+    public static final int MAX_COMPONENTS_PER_ANNOTATION = 20;
 
     SupplementalDataInfo supplementalData;
 
@@ -117,7 +117,8 @@ public class CheckWidths extends CheckCLDR {
                             this.subtype = Subtype.valueTooWide;
                             break;
                         case SET_ELEMENTS:
-                            this.message = "Expected no more than {0} items(s), but was {1}.";
+                            this.message =
+                                    "There cannot be more than {3} item(s), and it is recommended to not have more than {0} item(s). Found {1} item(s).";
                             this.subtype = Subtype.tooManyValues;
                             break;
                         default:
@@ -220,7 +221,12 @@ public class CheckWidths extends CheckCLDR {
                             .setCause(cause)
                             .setMainType(errorType)
                             .setSubtype(subtype)
-                            .setMessage(message, warningReference, valueMeasure, percent));
+                            .setMessage(
+                                    message,
+                                    warningReference,
+                                    valueMeasure,
+                                    percent,
+                                    errorReference));
             return true;
         }
     }

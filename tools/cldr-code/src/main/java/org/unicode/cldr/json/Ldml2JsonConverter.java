@@ -261,7 +261,7 @@ public class Ldml2JsonConverter {
                             "Modern",
                             'M',
                             "(true|false)",
-                            "true",
+                            "false",
                             "Whether to include the -modern tier")
                     // Primarily useful for non-Maven build systems where CldrUtility.LICENSE may
                     // not be available as it is put in place by pom.xml
@@ -540,6 +540,7 @@ public class Ldml2JsonConverter {
         Matcher noNumberingSystemMatcher = LdmlConvertRules.NO_NUMBERING_SYSTEM_PATTERN.matcher("");
         Matcher numberingSystemMatcher = LdmlConvertRules.NUMBERING_SYSTEM_PATTERN.matcher("");
         Matcher rootIdentityMatcher = LdmlConvertRules.ROOT_IDENTITY_PATTERN.matcher("");
+        Matcher versionMatcher = LdmlConvertRules.VERSION_PATTERN.matcher("");
         Set<String> activeNumberingSystems = new TreeSet<>();
         activeNumberingSystems.add("latn"); // Always include latin script numbers
         for (String np : LdmlConvertRules.ACTIVE_NUMBERING_SYSTEM_XPATHS) {
@@ -588,8 +589,16 @@ public class Ldml2JsonConverter {
                 continue;
             }
             // Discard root identity element unless the locale is root
+            // TODO: CLDR-17790 this code should not be needed.
             rootIdentityMatcher.reset(fullPath);
             if (rootIdentityMatcher.matches() && !"root".equals(locID)) {
+                continue;
+            }
+
+            // discard version stuff
+            versionMatcher.reset(fullPath);
+            if (versionMatcher.matches()) {
+                // drop //ldml/identity/version entirely.
                 continue;
             }
 
@@ -1528,6 +1537,7 @@ public class Ldml2JsonConverter {
     }
 
     public void writePackageList(String outputDir) throws IOException {
+        final boolean includeModern = Boolean.parseBoolean(options.get("Modern").getValue());
         PrintWriter outf =
                 FileUtilities.openUTF8Writer(outputDir + "/cldr-core", "cldr-packages.json");
         System.out.println(
@@ -1582,7 +1592,7 @@ public class Ldml2JsonConverter {
                             packageEntry.get("name").getAsString(),
                             packageEntry.get("description").getAsString());
                 }
-                {
+                if (includeModern) {
                     JsonObject packageEntry = new JsonObject();
                     packageEntry.addProperty("description", e.getValue() + " modern (deprecated)");
                     packageEntry.addProperty("tier", "modern");

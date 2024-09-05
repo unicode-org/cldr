@@ -60,7 +60,7 @@ public class TestAliases extends TestFmwk {
                 "//ldml/characterLabels/characterLabelPattern[@type=\"strokes\"][@count=\"one\"]",
             },
             {
-                "ak",
+                "wo",
                 "//ldml/characterLabels/characterLabelPattern[@type=\"strokes\"][@count=\"one\"]",
                 "root",
                 "//ldml/characterLabels/characterLabelPattern[@type=\"strokes\"][@count=\"other\"]",

@@ -16,6 +16,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 	<localeDisplayNames>
 		<languages>
 			<language type="bla">Siksika</language>
+			<language type="ff">Fula</language>
 			<language type="mus" draft="contributed">Creek</language>
 			<language type="nds_NL">West Low German</language>
 			<language type="sah">↑↑↑</language>
@@ -1062,7 +1063,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">{0} kilowatt-hour</unitPattern>
 			</unit>
 			<unit type="force-kilowatt-hour-per-100-kilometer">
-				<displayName>kilowatt-hour per 100 kilometres</displayName>
+				<displayName>kilowatt-hours per 100 kilometres</displayName>
 				<unitPattern count="one">{0} kilowatt-hour per 100 kilometres</unitPattern>
 				<unitPattern count="other">{0} kilowatt-hours per 100 kilometres</unitPattern>
 			</unit>
@@ -1095,7 +1096,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<perUnitPattern>{0} per metre</perUnitPattern>
 			</unit>
 			<unit type="length-decimeter">
-				<displayName>decimetre</displayName>
+				<displayName>decimetres</displayName>
 				<unitPattern count="one">{0} decimetre</unitPattern>
 				<unitPattern count="other">{0} decimetres</unitPattern>
 			</unit>
@@ -1111,7 +1112,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} millimetres</unitPattern>
 			</unit>
 			<unit type="length-micrometer">
-				<displayName>micrometre</displayName>
+				<displayName>micrometres</displayName>
 				<unitPattern count="one">{0} micrometre</unitPattern>
 				<unitPattern count="other">{0} micrometres</unitPattern>
 			</unit>
@@ -1165,7 +1166,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} metres per second</unitPattern>
 			</unit>
 			<unit type="temperature-generic">
-				<displayName>degree</displayName>
+				<displayName>degrees</displayName>
 			</unit>
 			<unit type="temperature-kelvin">
 				<displayName>kelvin</displayName>
@@ -1253,12 +1254,12 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} fluid ounces</unitPattern>
 			</unit>
 			<unit type="volume-dessert-spoon">
-				<displayName>US dessertspoon</displayName>
+				<displayName>US dessertspoons</displayName>
 				<unitPattern count="one">{0} US dessertspoon</unitPattern>
 				<unitPattern count="other">{0} US dessertspoons</unitPattern>
 			</unit>
 			<unit type="volume-dessert-spoon-imperial">
-				<displayName>dessertspoon</displayName>
+				<displayName>dessertspoons</displayName>
 				<unitPattern count="one">{0} dessertspoon</unitPattern>
 				<unitPattern count="other">{0} dessertspoons</unitPattern>
 			</unit>
@@ -1275,7 +1276,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-quart-imperial">
-				<displayName>quart</displayName>
+				<displayName>quarts</displayName>
 				<unitPattern count="one">{0} quart</unitPattern>
 				<unitPattern count="other">{0} quarts</unitPattern>
 			</unit>
@@ -1288,7 +1289,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} revs</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
-				<displayName>metres²</displayName>
+				<displayName>m²</displayName>
 			</unit>
 			<unit type="concentr-karat">
 				<displayName>carats</displayName>
@@ -1355,7 +1356,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="provisional">↑↑↑</unitPattern>
 			</unit>
 			<unit type="length-meter">
-				<displayName>metres</displayName>
+				<displayName>m</displayName>
 			</unit>
 			<unit type="length-micrometer">
 				<displayName>μmetres</displayName>
@@ -1368,8 +1369,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} ct</unitPattern>
 			</unit>
 			<unit type="mass-grain">
-				<unitPattern count="one">{0} grains</unitPattern>
-				<unitPattern count="other">{0} grains</unitPattern>
+				<unitPattern count="one">{0} gr</unitPattern>
+				<unitPattern count="other">{0} gr</unitPattern>
 			</unit>
 			<unit type="pressure-millimeter-ofhg">
 				<displayName>↑↑↑</displayName>
@@ -1451,7 +1452,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0} dstspn</unitPattern>
 			</unit>
 			<unit type="volume-drop">
-				<unitPattern count="one">{0} drops</unitPattern>
+				<unitPattern count="one">{0} drop</unitPattern>
 				<unitPattern count="other">{0} drops</unitPattern>
 			</unit>
 			<unit type="volume-dram">
@@ -1464,7 +1465,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="volume-pinch">
-				<unitPattern count="one">{0} pinches</unitPattern>
+				<unitPattern count="one">{0} pinch</unitPattern>
 				<unitPattern count="other">{0} pinches</unitPattern>
 			</unit>
 			<unit type="volume-quart-imperial">
@@ -1474,8 +1475,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 		</unitLength>
 		<unitLength type="narrow">
+			<unit type="acceleration-g-force">
+				<unitPattern count="other">{0}G</unitPattern>
+			</unit>
 			<unit type="area-square-meter">
-				<displayName draft="contributed">metres²</displayName>
+				<displayName draft="contributed">m²</displayName>
 			</unit>
 			<unit type="concentr-karat">
 				<displayName>carat</displayName>
@@ -1513,11 +1517,15 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">{0}mpg</unitPattern>
 			</unit>
 			<unit type="length-meter">
-				<displayName>metre</displayName>
+				<displayName>m</displayName>
 			</unit>
 			<unit type="mass-pound">
 				<unitPattern count="one">{0}lb</unitPattern>
 				<unitPattern count="other">{0}lb</unitPattern>
+			</unit>
+			<unit type="mass-carat">
+				<unitPattern count="one">{0}ct</unitPattern>
+				<unitPattern count="other">{0}ct</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>
@@ -1526,8 +1534,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>mph</displayName>
 			</unit>
 			<unit type="temperature-celsius">
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
+				<unitPattern count="one">{0}°C</unitPattern>
+				<unitPattern count="other">{0}°C</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
 				<unitPattern count="one">{0}°F</unitPattern>
@@ -1566,15 +1574,20 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</unit>
 			<unit type="volume-gallon">
 				<displayName>US gal</displayName>
-				<unitPattern count="one">{0}galUS</unitPattern>
-				<unitPattern count="other">{0}galUS</unitPattern>
-				<perUnitPattern>{0}/galUS</perUnitPattern>
+				<unitPattern count="one">{0}USgal</unitPattern>
+				<unitPattern count="other">{0}USgal</unitPattern>
+				<perUnitPattern>{0}/USgal</perUnitPattern>
 			</unit>
 			<unit type="volume-gallon-imperial">
 				<displayName>gal</displayName>
 				<unitPattern count="one">{0}gal</unitPattern>
 				<unitPattern count="other">{0}gal</unitPattern>
 				<perUnitPattern>{0}/gal</perUnitPattern>
+			</unit>
+			<unit type="volume-quart">
+				<displayName>USqt</displayName>
+				<unitPattern count="one">{0}USqt</unitPattern>
+				<unitPattern count="other">{0}USqt</unitPattern>
 			</unit>
 			<unit type="volume-fluid-ounce">
 				<displayName>US fl oz</displayName>

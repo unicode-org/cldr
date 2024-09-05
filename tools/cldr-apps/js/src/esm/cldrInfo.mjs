@@ -3,7 +3,6 @@
  */
 import * as cldrDeferHelp from "./cldrDeferHelp.mjs";
 import * as cldrDom from "./cldrDom.mjs";
-import * as cldrEvent from "./cldrEvent.mjs";
 import * as cldrForumPanel from "./cldrForumPanel.mjs";
 import * as cldrLoad from "./cldrLoad.mjs";
 import * as cldrNotify from "./cldrNotify.mjs";
@@ -25,10 +24,22 @@ let neighborId = null;
 let buttonClass = null;
 
 let panelInitialized = false;
+
+/**
+ * Is the Info Panel currently displayed?
+ */
 let panelVisible = false;
 
+/**
+ * Does the user want the Info Panel to be displayed when appropriate?
+ * The panel is hidden automatically when there is a "special" view for which
+ * the panel is inappropriate. When returning to the non-special vetting view,
+ * the panel should be displayed again, unless the user has indicated, by clicking
+ * its close box, that they don't want to see it.
+ */
+let panelWanted = true;
+
 let unShow = null;
-let lastShown = null;
 
 let selectedItemWrapper = null;
 let regionalVariantsWrapper = null;
@@ -44,6 +55,7 @@ const INFO_VOTE_TICKET_ID = "info-panel-vote-and-ticket";
 const INFO_REGIONAL_ID = "info-panel-regional";
 const INFO_FORUM_ID = "info-panel-forum";
 const INFO_XPATH_ID = "info-panel-xpath";
+const INFO_BOTTOM_ID = "info-panel-bottom";
 
 /**
  * Initialize the Info Panel
@@ -107,6 +119,7 @@ function insertLegacyElement(containerEl) {
   appendDiv(el, INFO_REGIONAL_ID);
   appendDiv(el, INFO_FORUM_ID);
   appendDiv(el, INFO_XPATH_ID);
+  appendDiv(el, INFO_BOTTOM_ID);
 }
 
 function appendDiv(el, id) {
@@ -115,16 +128,29 @@ function appendDiv(el, id) {
   el.appendChild(div);
 }
 
+/**
+ * Open the Info Panel
+ */
 function openPanel() {
   if (!panelVisible) {
-    panelVisible = true;
+    panelVisible = panelWanted = true;
     openOrClosePanel();
   }
 }
 
-function closePanel() {
+/**
+ * Close the Info Panel
+ *
+ * @param {Boolean} userWantsHidden true if closing because user clicked close box (or equivalent),
+ *       false if closing because switching to a "special" view where the Info Panel doesn't belong
+ */
+function closePanel(userWantsHidden) {
+  if (userWantsHidden === undefined) {
+    console.error("cldrInfo.closePanel was called with undefined parameter");
+  }
   if (panelVisible) {
     panelVisible = false;
+    panelWanted = !userWantsHidden;
     openOrClosePanel();
   }
 }
@@ -161,40 +187,6 @@ function updateOpenPanelButtons() {
   });
 }
 
-/**
- * Make the object "theObj" cause the info window to show when clicked.
- *
- * @param {String} str the string to display
- * @param {Node} tr the TR element that is clicked
- * @param {Node} theObj to listen to, a.k.a. "hideIfLast"
- * @param {Function} fn the draw function
- */
-// TODO: simplify this and related code to enable a cleaner and better organized
-// appearance using modern components. The fn parameter (a.k.a. showFn) shouldn't
-// need to be preconstructed for each item in each row, attached to DOM elements,
-// and passed around as a parameter in such a complicated way.
-// Reference: https://unicode-org.atlassian.net/browse/CLDR-7536
-// Currently this method is called as follows:
-// cldrTable.mjs:    cldrInfo.listen("", tr, cell, null);
-// cldrTable.mjs:    cldrInfo.listen(JSON.stringify(theRow), tr, js, null);
-// cldrTable.mjs:    cldrInfo.listen("", tr, cell, null);
-// cldrTable.mjs:    cldrInfo.listen(null, tr, cell, null);
-// cldrTable.mjs:    cldrInfo.listen(null, tr, cell, cell.showFn);
-// cldrTable.mjs:    cldrInfo.listen(null, tr, cell);
-// cldrTable.mjs:    cldrInfo.listen(historyText, tr, historyTag, null);
-// cldrTable.mjs:    cldrInfo.listen(null, tr, div, td.showFn);
-// cldrTable.mjs:    cldrInfo.listen(null, tr, noCell);
-// cldrVote.mjs:     cldrInfo.listen(null, tr, ourDiv, ourShowFn);
-function listen(str, tr, theObj, fn) {
-  cldrDom.listenFor(theObj, "click", function (e) {
-    if (panelShouldBeShown()) {
-      show(str, tr, theObj /* hideIfLast */, fn);
-    }
-    cldrEvent.stopPropagation(e);
-    return false;
-  });
-}
-
 // This method is now only used for getGuidanceMessage, for the Page table
 // before any row has been selected. Avoid using it for anything else.
 // cldrLoad.mjs: cldrInfo.showMessage(getGuidanceMessage(json.canModify));
@@ -204,11 +196,10 @@ function showMessage(str) {
   }
 }
 
-// TODO: simplify, similar problems to cldrInfo.listen. Reference: https://unicode-org.atlassian.net/browse/CLDR-7536
-// Currently called as follows:
-// cldrLoad.mjs:    cldrInfo.showRowObjFunc(xtr, xtr.proposedcell, xtr.proposedcell.showFn);
-// cldrTable.mjs:   cldrInfo.showRowObjFunc(tr, tr.proposedcell, tr.proposedcell.showFn);
-// cldrVote.mjs:    cldrInfo.showRowObjFunc(tr, ourDiv, ourShowFn);
+// Major tech debt here. Currently called as follows:
+// cldrLoad.mjs:   cldrInfo.showRowObjFunc(xtr, xtr.proposedcell, xtr.proposedcell.showFn);
+// cldrTable.mjs:  cldrInfo.showRowObjFunc(tr, tr.proposedcell, tr.proposedcell.showFn);
+// cldrVote.mjs:   cldrInfo.showRowObjFunc(tr, ourDiv, ourShowFn);
 function showRowObjFunc(tr, hideIfLast, fn) {
   if (panelShouldBeShown()) {
     show(null, tr, hideIfLast, fn);
@@ -229,7 +220,7 @@ function panelShouldBeShown() {
     // Leave panelVisible = false until openPanel makes it true.
     return true;
   }
-  return panelVisible;
+  return panelWanted && !cldrStatus.getCurrentSpecial();
 }
 
 /**
@@ -240,7 +231,7 @@ function panelShouldBeShown() {
  * @param {String} str the string to show at the top
  * @param {Node} tr the <TR> of the row
  * @param {Object} hideIfLast mysterious parameter, a.k.a. theObj
- * @param {Function} fn the draw function, a.k.a. showFn, sometimes constructed by cldrInfo.showItemInfoFn,
+ * @param {Function} fn the draw function, a.k.a. showFn, sometimes constructed by cldrTable.showItemInfoFn,
  *                      sometimes ourShowFn in cldrVote.showProposedItem
  */
 function show(str, tr, hideIfLast, fn) {
@@ -249,10 +240,7 @@ function show(str, tr, hideIfLast, fn) {
     unShow();
     unShow = null;
   }
-  if (tr?.sethash) {
-    cldrLoad.updateCurrentId(tr.sethash);
-  }
-  setLastShown(hideIfLast);
+  cldrTable.updateSelectedRowAndCell(tr, hideIfLast);
   addDeferredHelp(tr?.theRow); // if !tr.theRow, erase (as when click Next/Previous)
   addPlaceholderHelp(tr?.theRow); // ditto
   addInfoMessage(str);
@@ -261,6 +249,7 @@ function show(str, tr, hideIfLast, fn) {
   addRegionalSidewaysMenu(tr);
   addForumPanel(tr);
   addXpath(tr);
+  addBottom();
   addVoterInfoHover();
 }
 
@@ -466,6 +455,19 @@ function addForumPanel(tr) {
   }
 }
 
+/**
+ * An empty paragraph at the bottom of the info panel enables scrolling
+ * to bring the bottom content fully into view without being overlapped
+ * by the xpath shown by addXpath
+ */
+function addBottom() {
+  const el = document.getElementById(INFO_BOTTOM_ID);
+  if (!el) {
+    return;
+  }
+  el.innerHTML = "<p>&nbsp;</p>";
+}
+
 function addXpath(tr) {
   const el = document.getElementById(INFO_XPATH_ID);
   if (!el) {
@@ -511,38 +513,6 @@ function addVoterInfoHover() {
   );
 }
 
-function setLastShown(obj) {
-  if (lastShown && obj != lastShown) {
-    cldrDom.removeClass(lastShown, "pu-select");
-    const partr = parentOfType("TR", lastShown);
-    if (partr) {
-      cldrDom.removeClass(partr, "selectShow");
-    }
-  }
-  if (obj) {
-    cldrDom.addClass(obj, "pu-select");
-    const partr = parentOfType("TR", obj);
-    if (partr) {
-      cldrDom.addClass(partr, "selectShow");
-    }
-  }
-  lastShown = obj;
-}
-
-function reset() {
-  lastShown = null;
-}
-
-function parentOfType(tag, obj) {
-  if (!obj) {
-    return null;
-  }
-  if (obj.nodeName === tag) {
-    return obj;
-  }
-  return parentOfType(tag, obj.parentElement);
-}
-
 /**
  * Update the vote info for this row.
  *
@@ -583,34 +553,14 @@ function updateRowVoteInfo(tr, theRow) {
         )
       );
     }
-    if (theRow.voteVhash !== theRow.winningVhash && theRow.canFlagOnLosing) {
-      if (!theRow.rowFlagged) {
-        cldrSurvey.addIcon(tr.voteDiv, "i-stop");
-        tr.voteDiv.appendChild(
-          cldrDom.createChunk(
-            cldrText.sub("mustflag_explain_msg", {}),
-            "p",
-            "helpContent"
-          )
-        );
-      } else {
-        cldrSurvey.addIcon(tr.voteDiv, "i-flag");
-        tr.voteDiv.appendChild(
-          cldrDom.createChunk(cldrText.get("flag_desc", "p", "helpContent"))
-        );
-      }
+    if (theRow.rowFlagged) {
+      cldrSurvey.addIcon(tr.voteDiv, "i-flag");
+      tr.voteDiv.appendChild(
+        cldrDom.createChunk(cldrText.get("flag_desc", "p", "helpContent"))
+      );
     }
   }
-  if (!theRow.rowFlagged && theRow.canFlagOnLosing) {
-    // TODO: display this message and the actual "Flag for Review" button in the same place; see forumNewPostFlagButton.
-    // Change to: ⚐ [for committee approval|Ask]
-    // and don't show unless it can be, of course.
-    // Reference: https://unicode-org.atlassian.net/browse/CLDR-7536
-    cldrSurvey.addIcon(tr.voteDiv, "i-flag-d");
-    tr.voteDiv.appendChild(
-      cldrDom.createChunk(cldrText.get("flag_d_desc", "p", "helpContent"))
-    );
-  }
+
   /*
    * The value_vote array has an even number of elements,
    * like [value0, vote0, value1, vote1, value2, vote2, ...].
@@ -957,25 +907,6 @@ function createVoter(v) {
   return div;
 }
 
-/**
- * Return a function that will show info for the given item in the Info Panel.
- *
- * @param {Object} theRow the data row
- * @param {JSON} item JSON of the specific candidate item we are adding
- * @returns the function
- *
- * Called only by cldrTable.addVitem, as follows:
- *
- *   td.showFn = item.showFn = cldrInfo.showItemInfoFn(theRow, item);
- *   ...
- *   cldrInfo.listen(null, tr, div, td.showFn);
- */
-function showItemInfoFn(theRow, item) {
-  return function (td) {
-    theRow.selectedItem = item;
-  };
-}
-
 function getItemDescription(itemClass, inheritedLocale) {
   /*
    * itemClass may be "winner, "alias", "fallback", "fallback_code", "fallback_root", or "loser".
@@ -1008,10 +939,8 @@ export {
   clearCachesAndReload,
   closePanel,
   initialize,
-  listen,
-  openPanel,
-  reset,
-  showItemInfoFn,
+  panelShouldBeShown,
+  show,
   showMessage,
   showRowObjFunc,
   updateRowVoteInfo,

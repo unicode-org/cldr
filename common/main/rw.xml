@@ -11,6 +11,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="rw"/>
 	</identity>
 	<localeDisplayNames>
+		<localeDisplayPattern>
+			<localePattern>↑↑↑</localePattern>
+			<localeSeparator>↑↑↑</localeSeparator>
+		</localeDisplayPattern>
 		<languages>
 			<language type="af">Ikinyafurikaneri</language>
 			<language type="am">Inyamuhariki</language>
@@ -87,7 +91,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="pt_PT">Inyeporutigali (Igiporutigali)</language>
 			<language type="ro">Ikinyarumaniya</language>
 			<language type="ru">Ikirusiya</language>
-			<language type="rw">Kinyarwanda</language>
+			<language type="rw">Ikinyarwanda</language>
 			<language type="sa">Igisansikiri</language>
 			<language type="sd">Igisindi</language>
 			<language type="sh">Inyeseribiya na Korowasiya</language>
@@ -118,16 +122,31 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<language type="yi">Inyeyidishi</language>
 			<language type="zu">Inyezulu</language>
 		</languages>
+		<scripts>
+			<script type="Latn">Latin</script>
+		</scripts>
 		<territories>
 			<territory type="MK">Masedoniya y’Amajyaruguru</territory>
 			<territory type="RW">U Rwanda</territory>
 			<territory type="TO">Tonga</territory>
 		</territories>
+		<measurementSystemNames>
+			<measurementSystemName type="metric">↑↑↑</measurementSystemName>
+			<measurementSystemName type="UK">↑↑↑</measurementSystemName>
+			<measurementSystemName type="US">↑↑↑</measurementSystemName>
+		</measurementSystemNames>
+		<codePatterns>
+			<codePattern type="language">↑↑↑</codePattern>
+			<codePattern type="script">↑↑↑</codePattern>
+			<codePattern type="territory">↑↑↑</codePattern>
+		</codePatterns>
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[a b c d e f g h i j k l m n o p q r s t u v w x y z]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary" draft="contributed">↑↑↑</exemplarCharacters>
 		<exemplarCharacters type="index">[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z]</exemplarCharacters>
 		<exemplarCharacters type="numbers">↑↑↑</exemplarCharacters>
+		<exemplarCharacters type="punctuation" draft="contributed">↑↑↑</exemplarCharacters>
 	</characters>
 	<delimiters>
 		<quotationStart>«</quotationStart>
@@ -205,7 +224,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="6">Kamena</month>
 							<month type="7">Nyakanga</month>
 							<month type="8">Kanama</month>
-							<month type="9">Nzeli</month>
+							<month type="9">Nzeri</month>
 							<month type="10">Ukwakira</month>
 							<month type="11">Ugushyingo</month>
 							<month type="12">Ukuboza</month>
@@ -522,10 +541,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="ms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="y">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yM">↑↑↑</dateFormatItem>
-						<dateFormatItem id="yMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMd">dd-MM-y</dateFormatItem>
 						<dateFormatItem id="yMEd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yMMM">↑↑↑</dateFormatItem>
-						<dateFormatItem id="yMMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yMMMd">d MMMM y</dateFormatItem>
 						<dateFormatItem id="yMMMEd">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yMMMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yQQQ">↑↑↑</dateFormatItem>
@@ -636,9 +655,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<timeZoneNames>
 			<hourFormat>↑↑↑</hourFormat>
 			<gmtFormat>↑↑↑</gmtFormat>
+			<gmtZeroFormat>↑↑↑</gmtZeroFormat>
+			<regionFormat>↑↑↑</regionFormat>
+			<regionFormat type="daylight">↑↑↑</regionFormat>
+			<regionFormat type="standard">↑↑↑</regionFormat>
+			<fallbackFormat>↑↑↑</fallbackFormat>
+			<metazone type="GMT">
+				<long>
+					<standard>Greenwich Mean Time</standard>
+				</long>
+			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>
+		<defaultNumberingSystem draft="contributed">↑↑↑</defaultNumberingSystem>
+		<otherNumberingSystems>
+			<native draft="contributed">↑↑↑</native>
+		</otherNumberingSystems>
 		<minimumGroupingDigits draft="contributed">↑↑↑</minimumGroupingDigits>
 		<symbols numberSystem="latn">
 			<decimal>,</decimal>

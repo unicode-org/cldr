@@ -4,6 +4,7 @@
 import * as cldrAjax from "./cldrAjax.mjs";
 import * as cldrDom from "./cldrDom.mjs";
 import * as cldrLoad from "./cldrLoad.mjs";
+import * as cldrNotify from "./cldrNotify.mjs";
 import * as cldrOrganizations from "./cldrOrganizations.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
 import * as cldrSurvey from "./cldrSurvey.mjs";
@@ -194,7 +195,9 @@ function listSingleUser(email) {
 }
 
 function reallyLoad() {
-  getOrgsAndLevels().then(reallyReallyLoad);
+  getOrgsAndLevels()
+    .catch((e) => cldrNotify.exception(e, `loading Account Settings page`))
+    .then(reallyReallyLoad);
 }
 
 async function getOrgsAndLevels() {
@@ -267,7 +270,7 @@ function getHtml(json) {
       html += getOrgFilterMenu();
     }
   }
-  if (justUser) {
+  if (justUser && canListMultipleUsers()) {
     html += "<p>" + listMultipleUsersButton + "</p>\n";
   }
   if (!isJustMe) {
@@ -342,13 +345,19 @@ function getTableStart() {
 function getTableEnd(json) {
   let html = "</tbody></table>" + "<br />\n";
   if (justUser) {
-    html += listMultipleUsersButton;
+    if (canListMultipleUsers()) {
+      html += listMultipleUsersButton;
+    }
   } else {
     html += numberOfUsersShown(shownUsers ? shownUsers.length : 0);
     html += getEmailControls(json);
   }
   html += doActionButton + "</form>\n";
   return html;
+}
+
+function canListMultipleUsers() {
+  return !!cldrStatus.getPermissions()?.userCanListUsers;
 }
 
 function numberOfUsersShown(number) {
@@ -743,7 +752,7 @@ function getUserSeen(u) {
     return "";
   }
   const what = u.data.active ? "active" : "seen";
-  let html = "<b>" + what + ": " + when + " ago</b>";
+  let html = "<b>" + what + ": " + when + "</b>";
   if (what === "seen") {
     html += "<br /><font size='-2'>" + u.data.lastlogin + "</font></td>";
   }

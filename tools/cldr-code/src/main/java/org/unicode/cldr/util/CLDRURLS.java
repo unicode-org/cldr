@@ -10,9 +10,13 @@ public abstract class CLDRURLS {
     public static final String CLDR_SCHEMA_BASE = "https://schemas.unicode.org/cldr";
     public static final String CLDR_CURVER_BASE = CLDR_SCHEMA_BASE + "/" + CLDRFile.GEN_VERSION;
     /** Base URL for the CLDR repository */
-    public static final String CLDR_REPO_BASE = "https://github.com/unicode-org/cldr";
+    public static final String CLDR_REPO_BASE = "https://github.com/unicode-org/cldr/";
 
-    public static final String DEFAULT_COMMIT_BASE = CLDR_REPO_BASE + "/commit/";
+    public static final String CLDR_REPO_MAIN = CLDR_REPO_BASE + "blob/main/";
+    public static final String CLDR_STAGING_REPO_MAIN =
+            "https://github.com/unicode-org/cldr-staging/blob/main/";
+
+    public static final String DEFAULT_COMMIT_BASE = CLDR_REPO_BASE + "commit/";
     /** Hostname for the Survey Tool */
     public static final String DEFAULT_HOST = "st.unicode.org";
 

@@ -116,16 +116,20 @@ public class SurveyVettingParticipation {
                 int count = rs.getInt("count");
                 String locale = rs.getString("v.locale");
                 String last_mod = DBUtils.toISOString(rs.getTimestamp("last_mod"));
-                final int cov_count =
+                final int cldr_count =
                         covcounter.countPathsInCoverage(
                                 Organization.cldr, CLDRLocale.getInstance(locale));
+                final Organization userOrg = sm.reg.getInfo(theirId).getOrganization();
+                final int org_count =
+                        covcounter.countPathsInCoverage(userOrg, CLDRLocale.getInstance(locale));
                 participationObj.put(
                         new JSONObject()
                                 .put("user", theirId)
                                 .put("count", count)
                                 .put("locale", locale)
                                 .put("last_mod", last_mod)
-                                .put("cov_count", cov_count));
+                                .put("cldr_count", cldr_count)
+                                .put("org_count", org_count));
             }
             rs.close();
         } finally {

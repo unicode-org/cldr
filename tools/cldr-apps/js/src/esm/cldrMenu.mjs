@@ -348,9 +348,9 @@ function getMenusFromServer() {
       return; // busted?
     }
     // Note: since the url has "locmap=false", we never get json.locmap or json.canmodify here
-    const covName = cldrCoverage.effectiveName();
+    const covName = cldrCoverage.effectiveName(curLocale);
     cldrCoverage.updateCovFromJson(json);
-    if (cldrCoverage.effectiveName() !== covName) {
+    if (cldrCoverage.effectiveName(curLocale) !== covName) {
       cldrLoad.coverageUpdate();
     }
     unpackMenus(json);

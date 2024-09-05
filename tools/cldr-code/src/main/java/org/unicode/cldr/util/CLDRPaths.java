@@ -88,6 +88,9 @@ public class CLDRPaths {
 
     public static final String EXEMPLARS_DIRECTORY =
             CldrUtility.getPath(CLDRPaths.BASE_DIRECTORY, "exemplars/" + MAIN_SUBDIR);
+    public static final String UTIL_SRC_DATA_DIR =
+            CldrUtility.getPath(
+                    BASE_DIRECTORY, "tools/cldr-code/src/main/resources/org/unicode/cldr/util");
     public static final String BIRTH_DATA_DIR =
             CldrUtility.getPath(
                     BASE_DIRECTORY,

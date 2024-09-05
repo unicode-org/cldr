@@ -131,9 +131,9 @@ public class CheckCoverage extends FactoryCheckCLDR {
             supplementalData =
                     SupplementalDataInfo.getInstance(cldrFileToCheck.getSupplementalDirectory());
             coverageLevel = CoverageLevel2.getInstance(supplementalData, localeID);
-            PluralInfo pluralInfo = supplementalData.getPlurals(PluralType.cardinal, localeID);
-            if (pluralInfo == supplementalData.getPlurals(PluralType.cardinal, LocaleNames.ROOT)
-                    && !SpecialLocales.isScratchLocale(localeID)) {
+            PluralInfo pluralInfo =
+                    supplementalData.getPlurals(PluralType.cardinal, localeID, false);
+            if (pluralInfo == null && !SpecialLocales.isScratchLocale(localeID)) {
                 possibleErrors.add(
                         new CheckStatus()
                                 .setCause(this)

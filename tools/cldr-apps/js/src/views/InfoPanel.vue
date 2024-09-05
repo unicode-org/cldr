@@ -54,7 +54,7 @@ export default {
   },
   methods: {
     closeInfoPanel() {
-      cldrInfo.closePanel();
+      cldrInfo.closePanel(true /* userWantsHidden */);
     },
 
     reloadInfoPanel() {

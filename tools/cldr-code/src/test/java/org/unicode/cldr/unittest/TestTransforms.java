@@ -32,6 +32,7 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.CLDRConfig;
@@ -860,6 +861,8 @@ public class TestTransforms extends TestFmwkPlus {
             CLDRTransforms.getInstance().registerModified();
         }
 
+        Set<Pair<String, String>> badLocaleScript = new TreeSet<>();
+
         for (String locale : modernCldr) {
             if (special.contains(locale)) {
                 continue;
@@ -900,6 +903,7 @@ public class TestTransforms extends TestFmwkPlus {
                                 + " code points:\n"
                                 + badPlusSample);
                 allMissing.addAll(badPlusSample);
+                badLocaleScript.add(Pair.of(locale, script));
             }
         }
         if (!allMissing.isEmpty()) {
@@ -922,8 +926,21 @@ public class TestTransforms extends TestFmwkPlus {
                             + allMissing.dataSet.keySet().toPattern(false)
                             + "="
                             + allMissing.dataSet.keySet());
+            // Suppress Common/Inherited characters that are given scx properties
+            UnicodeSet suppressHack =
+                    new UnicodeSet(
+                                    "[\u0301\u0300\u0306\u0302\u030C\u030A\u0308\u0303\u0307\u0304\u0309\u0310\u0323-\u0325\u0330\u0331 \u00B7 \u02BC]")
+                            .freeze();
+            for (String s : suppressHack) {
+                allMissing.scriptMissing.remove(s);
+            }
             for (String script : allMissing.scriptMissing.values()) {
                 UnicodeSet missingFoScript = allMissing.scriptMissing.getKeys(script);
+                String localeForScript =
+                        badLocaleScript.stream()
+                                .filter(p -> p.getSecond().equals((script)))
+                                .map(p -> p.getFirst())
+                                .collect(Collectors.joining(","));
                 errln(
                         "Transliterator for\t"
                                 + script
@@ -932,7 +949,9 @@ public class TestTransforms extends TestFmwkPlus {
                                 + ":\t"
                                 + missingFoScript.toPattern(false)
                                 + "="
-                                + missingFoScript);
+                                + missingFoScript
+                                + " - needed for locales: "
+                                + localeForScript);
             }
         }
     }

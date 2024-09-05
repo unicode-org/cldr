@@ -90,6 +90,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="bjn">バンジャル語</language>
 			<language type="bkm">コム語</language>
 			<language type="bla">シクシカ語</language>
+			<language type="blo">アニ語 (blo)</language>
 			<language type="bm">バンバラ語</language>
 			<language type="bn">ベンガル語</language>
 			<language type="bo">チベット語</language>
@@ -343,6 +344,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="kv">コミ語</language>
 			<language type="kw">コーンウォール語</language>
 			<language type="kwk">クヮキゥワラ語</language>
+			<language type="kxv">クーヴィンガ語</language>
 			<language type="ky">キルギス語</language>
 			<language type="la">ラテン語</language>
 			<language type="lad">ラディノ語</language>
@@ -640,6 +642,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="vi">ベトナム語</language>
 			<language type="vls">西フラマン語</language>
 			<language type="vmf">マインフランク語</language>
+			<language type="vmw">マクア語</language>
 			<language type="vo">ヴォラピュク語</language>
 			<language type="vot">ヴォート語</language>
 			<language type="vro">ヴォロ語</language>
@@ -655,6 +658,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="xal">カルムイク語</language>
 			<language type="xh">コサ語</language>
 			<language type="xmf">メグレル語</language>
+			<language type="xnr">カーングリー語</language>
 			<language type="xog">ソガ語</language>
 			<language type="yao">ヤオ語</language>
 			<language type="yap">ヤップ語</language>
@@ -1423,7 +1427,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<parseLenient sample="%">↑↑↑</parseLenient>
 			<parseLenient sample="‰">↑↑↑</parseLenient>
 			<parseLenient sample="$">↑↑↑</parseLenient>
-			<parseLenient sample="£">[£ ₤]</parseLenient>
+			<parseLenient sample="£">[£￡ ₤]</parseLenient>
 			<parseLenient sample="¥">↑↑↑</parseLenient>
 			<parseLenient sample="₩">↑↑↑</parseLenient>
 			<parseLenient sample="₹">↑↑↑</parseLenient>
@@ -6756,6 +6760,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>ペトロパブロフスク・カムチャツキー夏時間</daylight>
 				</long>
 			</metazone>
+			<metazone type="Kazakhstan">
+				<long>
+					<standard>カザフスタン時間</standard>
+				</long>
+			</metazone>
 			<metazone type="Kazakhstan_Eastern">
 				<long>
 					<standard>東カザフスタン時間</standard>
@@ -8466,8 +8475,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol alt="narrow">レイ</symbol>
 			</currency>
 			<currency type="RSD">
-				<displayName>ディナール (セルビア)</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName>セルビア ディナール</displayName>
+				<displayName count="other">セルビア ディナール</displayName>
 				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="RUB">
@@ -8682,8 +8691,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="UAH">
-				<displayName>ウクライナ グリブナ</displayName>
-				<displayName count="other">↑↑↑</displayName>
+				<displayName>ウクライナ フリヴニャ</displayName>
+				<displayName count="other">ウクライナ フリヴニャ</displayName>
 				<symbol>↑↑↑</symbol>
 				<symbol alt="narrow">↑↑↑</symbol>
 			</currency>
@@ -9914,9 +9923,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="speed-light-speed">
+				<displayName>光</displayName>
+				<unitPattern count="other">{0} 光</unitPattern>
+			</unit>
 			<unit type="mass-fun">
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="concentr-portion-per-1e9">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>泊</displayName>
+				<unitPattern count="other">{0} 泊</unitPattern>
+				<perUnitPattern>{0}/泊</perUnitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>↑↑↑</displayName>
@@ -10868,9 +10890,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>石</displayName>
 				<unitPattern count="other">{0} 石</unitPattern>
 			</unit>
+			<unit type="speed-light-speed">
+				<displayName>光</displayName>
+				<unitPattern count="other">{0} 光</unitPattern>
+			</unit>
 			<unit type="mass-fun">
 				<displayName>分 - 質量</displayName>
 				<unitPattern count="other">{0} 分 - 質量</unitPattern>
+			</unit>
+			<unit type="concentr-portion-per-1e9">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>泊</displayName>
+				<unitPattern count="other">{0} 泊</unitPattern>
+				<perUnitPattern>{0}/泊</perUnitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>方位</displayName>
@@ -11822,9 +11857,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>↑↑↑</displayName>
 				<unitPattern count="other">{0}石</unitPattern>
 			</unit>
+			<unit type="speed-light-speed">
+				<displayName>光</displayName>
+				<unitPattern count="other">{0}光</unitPattern>
+			</unit>
 			<unit type="mass-fun">
 				<displayName>分</displayName>
 				<unitPattern count="other">{0}分</unitPattern>
+			</unit>
+			<unit type="concentr-portion-per-1e9">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="other">{0}ppb</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>泊</displayName>
+				<unitPattern count="other">{0}泊</unitPattern>
+				<perUnitPattern>{0}/泊</perUnitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>↑↑↑</displayName>

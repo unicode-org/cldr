@@ -53,7 +53,6 @@ import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.StackTracker;
-import org.unicode.cldr.web.SurveyMain.Phase;
 
 /** Singleton utility class for simple(r) DB access. */
 public class DBUtils {
@@ -94,6 +93,9 @@ public class DBUtils {
     public static final String DB_SQL_BINCOLLATE = " COLLATE latin1_bin ";
     public static final String DB_SQL_ENGINE_INNO = "ENGINE=InnoDB";
     public static final String DB_SQL_MB4 = " CHARACTER SET utf8mb4 COLLATE utf8mb4_bin";
+
+    // This could be useful for debugging but is not accurate, since it is not decremented
+    // when a connection is auto-closed as with "try (Connection conn = ...)"
     public static int db_number_open = 0;
     public static int db_number_used = 0;
     private static final int db_UnicodeType = java.sql.Types.BLOB;
@@ -636,10 +638,11 @@ public class DBUtils {
                 c.setAutoCommit(true);
                 return c;
             }
+            db_number_open++;
             return datasource.getConnection();
         } catch (SQLException se) {
             se.printStackTrace();
-            SurveyMain.busted("Fatal in getConnection()", se);
+            SurveyMain.busted("Fatal in getAConnection()", se);
             return null;
         }
     }
@@ -652,6 +655,7 @@ public class DBUtils {
      */
     private static Connection getDBConnectionFor(final String connectionUrl) {
         try {
+            db_number_open++;
             return DriverManager.getConnection(connectionUrl);
         } catch (SQLException e) {
             throw new RuntimeException("getConnection() failed for url", e);
@@ -963,8 +967,7 @@ public class DBUtils {
 
     /** Append a versioned string */
     public static StringBuilder appendVersionString(StringBuilder sb) {
-        return appendVersionString(
-                sb, SurveyMain.getNewVersion(), SurveyMain.phase() == SurveyMain.Phase.BETA);
+        return appendVersionString(sb, SurveyMain.getNewVersion(), SurveyMain.isPhaseBeta());
     }
 
     private static String[] arrayOfResult(ResultSet rs) throws SQLException {
@@ -1380,8 +1383,7 @@ public class DBUtils {
                             "Error: don't use Table.toString before CLDRConfig is setup.");
                 }
                 defaultString =
-                        forVersion(SurveyMain.getNewVersion(), SurveyMain.phase() == Phase.BETA)
-                                .toString();
+                        forVersion(SurveyMain.getNewVersion(), SurveyMain.isPhaseBeta()).toString();
             }
             return defaultString;
         }

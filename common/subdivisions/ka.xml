@@ -60,8 +60,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="afwar" draft="provisional">მაიდან-ვარდაკის პროვინცია</subdivision>
 			<subdivision type="afzab" draft="provisional">ზაბულის პროვინცია</subdivision>
 			<subdivision type="al01" draft="provisional">ბერატის ოლქი</subdivision>
+			<subdivision type="al02" draft="provisional">დურესის ოლქი</subdivision>
+			<subdivision type="al03" draft="provisional">ელბასანის ოლქი</subdivision>
+			<subdivision type="al04" draft="provisional">ფიერის ოლქი</subdivision>
 			<subdivision type="al05" draft="provisional">გიროკასტრის ოლქი</subdivision>
+			<subdivision type="al06" draft="provisional">კორჩის ოლქი</subdivision>
+			<subdivision type="al07" draft="provisional">კუკესის ოლქი</subdivision>
+			<subdivision type="al08" draft="provisional">ლეჟის ოლქი</subdivision>
 			<subdivision type="al09" draft="provisional">დიბრის ოლქი</subdivision>
+			<subdivision type="al10" draft="provisional">შკოდერის ოლქი</subdivision>
 			<subdivision type="al11" draft="provisional">ტირანის ოლქი</subdivision>
 			<subdivision type="al12" draft="provisional">ვლორის ოლქი</subdivision>
 			<subdivision type="amag" draft="provisional">არაგაწოტნის პროვინცია</subdivision>
@@ -375,6 +382,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="cdhk" draft="provisional">ზემო კატანგის პროვინცია</subdivision>
 			<subdivision type="cdhl" draft="provisional">ზემო ლომამის პროვინცია</subdivision>
 			<subdivision type="cdhu" draft="provisional">ზემო უელეს პროვინცია</subdivision>
+			<subdivision type="cdit" draft="provisional">იტურის პროვინცია</subdivision>
 			<subdivision type="cdkc" draft="provisional">ლულუის პროვინცია</subdivision>
 			<subdivision type="cdke" draft="provisional">აღმოსავლეთ კასაის პროვინცია</subdivision>
 			<subdivision type="cdkg" draft="provisional">კუანგოს პროვინცია</subdivision>
@@ -766,19 +774,25 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ecz" draft="provisional">სამორა-ჩინჩიპეს პროვინცია</subdivision>
 			<subdivision type="ee37" draft="provisional">ჰარიუმაა</subdivision>
 			<subdivision type="ee39" draft="provisional">ჰიიუმაა</subdivision>
-			<subdivision type="ee44" draft="provisional">იდა-ვირუმაა</subdivision>
-			<subdivision type="ee49" draft="provisional">იიგევამაა</subdivision>
-			<subdivision type="ee51" draft="provisional">იარვამაა</subdivision>
-			<subdivision type="ee57" draft="provisional">ლიაენემაა</subdivision>
-			<subdivision type="ee59" draft="provisional">ლიაენე-ვირუმაა</subdivision>
-			<subdivision type="ee65" draft="provisional">პილვამაა</subdivision>
-			<subdivision type="ee67" draft="provisional">პიარნუმაა</subdivision>
-			<subdivision type="ee70" draft="provisional">რაპლამაა</subdivision>
+			<subdivision type="ee45" draft="provisional">იდა-ვირუმაა</subdivision>
+			<subdivision type="ee50" draft="provisional">იიგევამაა</subdivision>
+			<subdivision type="ee52" draft="provisional">იარვამაა</subdivision>
+			<subdivision type="ee56" draft="provisional">ლიაენემაა</subdivision>
+			<subdivision type="ee60" draft="provisional">ლიაენე-ვირუმაა</subdivision>
+			<subdivision type="ee64" draft="provisional">პილვამაა</subdivision>
+			<subdivision type="ee68" draft="provisional">პიარნუმაა</subdivision>
+			<subdivision type="ee71" draft="provisional">რაპლამაა</subdivision>
 			<subdivision type="ee74" draft="provisional">საარემაა</subdivision>
-			<subdivision type="ee78" draft="provisional">ტარტუმაა</subdivision>
-			<subdivision type="ee82" draft="provisional">ვალგამაა</subdivision>
+			<subdivision type="ee79" draft="provisional">ტარტუმაა</subdivision>
+			<subdivision type="ee81" draft="provisional">ვალგამაა</subdivision>
 			<subdivision type="ee84" draft="provisional">ვილიანდიმაა</subdivision>
-			<subdivision type="ee86" draft="provisional">ვირუმაა</subdivision>
+			<subdivision type="ee87" draft="provisional">ვირუმაა</subdivision>
+			<subdivision type="ee245" draft="provisional">იიელიაჰტმეს მუნიციპალიტეტი</subdivision>
+			<subdivision type="ee251" draft="provisional">იიჰვის მუნიციპალიტეტი</subdivision>
+			<subdivision type="ee321" draft="provisional">კოხტლა-იარვე</subdivision>
+			<subdivision type="ee735" draft="provisional">სილამიაე</subdivision>
+			<subdivision type="ee834" draft="provisional">ტიურის მუნიციპალიტეტი</subdivision>
+			<subdivision type="ee928" draft="provisional">ვიაიკე-მაარიის მუნიციპალიტეტი</subdivision>
 			<subdivision type="egalx" draft="provisional">ალექსანდრიის მუჰაფაზა</subdivision>
 			<subdivision type="egasn" draft="provisional">ასუანის მუჰაფაზა</subdivision>
 			<subdivision type="egast" draft="provisional">ასიუტის მუჰაფაზა</subdivision>
@@ -928,6 +942,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr04" draft="provisional">ზემო პროვანსის ალპები</subdivision>
 			<subdivision type="fr05" draft="provisional">ზემო ალპები</subdivision>
 			<subdivision type="fr06" draft="provisional">ზღვისპირა ალპები</subdivision>
+			<subdivision type="fr6ae" draft="provisional">ელზასი</subdivision>
 			<subdivision type="fr07" draft="provisional">არდეში</subdivision>
 			<subdivision type="fr08" draft="provisional">არდენი</subdivision>
 			<subdivision type="fr09" draft="provisional">არეჟი</subdivision>
@@ -1015,6 +1030,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr93" draft="provisional">სენა-სენ-დენი</subdivision>
 			<subdivision type="fr94" draft="provisional">ვალ-დე-მარნი</subdivision>
 			<subdivision type="fr971" draft="provisional">გვადელუპა</subdivision>
+			<subdivision type="fr972" draft="provisional">მარტინიკა</subdivision>
+			<subdivision type="fr973" draft="provisional">საფრანგეთის გვიანა</subdivision>
+			<subdivision type="fr974" draft="provisional">რეიუნიონი</subdivision>
 			<subdivision type="frbre" draft="provisional">ბრეტანი</subdivision>
 			<subdivision type="frcvl" draft="provisional">ცენტრი</subdivision>
 			<subdivision type="fridf" draft="provisional">ილ-დე-ფრანსი</subdivision>
@@ -1157,6 +1175,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gt21" draft="provisional">ხალაპის დეპარტამენტი</subdivision>
 			<subdivision type="gt22" draft="provisional">ხუტიაპის დეპარტამენტი</subdivision>
 			<subdivision type="gwbs" draft="provisional">ბისაუ</subdivision>
+			<subdivision type="gyde" draft="provisional">დემერარა-მაჰაიკა</subdivision>
 			<subdivision type="hnat" draft="provisional">ატლანტიდის დეპარტამენტი</subdivision>
 			<subdivision type="hnch" draft="provisional">ჩოლუტეკის დეპარტამენტი</subdivision>
 			<subdivision type="hncl" draft="provisional">კოლონის დეპარტამენტი</subdivision>
@@ -1250,7 +1269,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="idnu" draft="provisional">მცირე ზონდის კუნძულები</subdivision>
 			<subdivision type="idpa" draft="provisional">პაპუა</subdivision>
 			<subdivision type="idpb" draft="provisional">დასავლეთი პაპუა</subdivision>
+			<subdivision type="idpd" draft="provisional">სამხრეთ-დასავლეთი პაპუა</subdivision>
+			<subdivision type="idpe" draft="provisional">პაპუა-პეგუნუნგანი</subdivision>
 			<subdivision type="idpp" draft="provisional">დასავლეთი ახალი გვინეა</subdivision>
+			<subdivision type="idps" draft="provisional">სამხრეთი პაპუა</subdivision>
+			<subdivision type="idpt" draft="provisional">ცენტრალური პაპუა</subdivision>
 			<subdivision type="idri" draft="provisional">რიაუ</subdivision>
 			<subdivision type="idsa" draft="provisional">ჩრდილოეთი სულავესი</subdivision>
 			<subdivision type="idsb" draft="provisional">დასავლეთი სუმატრა</subdivision>
@@ -1302,8 +1325,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="inar" draft="provisional">არუნაჩალ-პრადეში</subdivision>
 			<subdivision type="inas" draft="provisional">ასამი</subdivision>
 			<subdivision type="inbr" draft="provisional">ბიჰარი</subdivision>
+			<subdivision type="incg" draft="provisional">ჩატისგარჰი</subdivision>
 			<subdivision type="inch" draft="provisional">ჩანდიგარჰი</subdivision>
-			<subdivision type="inct" draft="provisional">ჩატისგარჰი</subdivision>
 			<subdivision type="indd" draft="provisional">დამანი და დიუ</subdivision>
 			<subdivision type="indl" draft="provisional">დელი</subdivision>
 			<subdivision type="indn" draft="provisional">დადრა და ნაგარ-ჰაველი</subdivision>
@@ -1323,16 +1346,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="inmp" draft="provisional">მადჰია-პრადეში</subdivision>
 			<subdivision type="inmz" draft="provisional">მიზორამი</subdivision>
 			<subdivision type="innl" draft="provisional">ნაგალენდი</subdivision>
-			<subdivision type="inor" draft="provisional">ორისა</subdivision>
+			<subdivision type="inod" draft="provisional">ორისა</subdivision>
 			<subdivision type="inpb" draft="provisional">პენჯაბი</subdivision>
 			<subdivision type="inpy" draft="provisional">პონდიშერი</subdivision>
 			<subdivision type="inrj" draft="provisional">რაჯასტანი</subdivision>
 			<subdivision type="insk" draft="provisional">სიკიმი</subdivision>
-			<subdivision type="intg" draft="provisional">ტელანგანა</subdivision>
 			<subdivision type="intn" draft="provisional">ტამილნადუ</subdivision>
 			<subdivision type="intr" draft="provisional">ტრიპურა</subdivision>
+			<subdivision type="ints" draft="provisional">ტელანგანა</subdivision>
+			<subdivision type="inuk" draft="provisional">უტარაკჰანდი</subdivision>
 			<subdivision type="inup" draft="provisional">უტარ-პრადეში</subdivision>
-			<subdivision type="inut" draft="provisional">უტარაკჰანდი</subdivision>
 			<subdivision type="inwb" draft="provisional">დასავლეთი ბენგალი</subdivision>
 			<subdivision type="iqan" draft="provisional">ანბარის მუჰაფაზა</subdivision>
 			<subdivision type="iqar" draft="provisional">ერბილის მუჰაფაზა</subdivision>
@@ -1398,6 +1421,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="isblo" draft="provisional">ბლენდუოუსი</subdivision>
 			<subdivision type="isbol" draft="provisional">ბოლუნგავიკი</subdivision>
 			<subdivision type="isfjl" draft="provisional">ფიალაბიგდი</subdivision>
+			<subdivision type="isgar" draft="provisional">ჰარდაბაირი</subdivision>
+			<subdivision type="ishaf" draft="provisional">ჰაბნარფიორდური</subdivision>
+			<subdivision type="iskop" draft="provisional">კუპავოგური</subdivision>
+			<subdivision type="isrkv" draft="provisional">რეიკიავიკი</subdivision>
+			<subdivision type="issel" draft="provisional">სელტიარნარნესი</subdivision>
 			<subdivision type="it21" draft="provisional">პიემონტი</subdivision>
 			<subdivision type="it25" draft="provisional">ლომბარდია</subdivision>
 			<subdivision type="it32" draft="provisional">ტრენტინო-ალტო-ადიჯე</subdivision>
@@ -1535,11 +1563,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="jp07" draft="provisional">ფუკუსიმის პრეფექტურა</subdivision>
 			<subdivision type="jp08" draft="provisional">იბარაკის პრეფექტურა</subdivision>
 			<subdivision type="jp09" draft="provisional">ტოტიგის პრეფექტურა</subdivision>
+			<subdivision type="jp10" draft="provisional">გუმის პრეფექტურა</subdivision>
 			<subdivision type="jp11" draft="provisional">საიტამის პრეფექტურა</subdivision>
 			<subdivision type="jp12" draft="provisional">ტიბის პრეფექტურა</subdivision>
 			<subdivision type="jp13" draft="provisional">ტოკიო</subdivision>
 			<subdivision type="jp14" draft="provisional">კანაგავის პრეფექტურა</subdivision>
 			<subdivision type="jp15" draft="provisional">ნიიგატის პრეფექტურა</subdivision>
+			<subdivision type="jp16" draft="provisional">ტოიამის პრეფექტურა</subdivision>
 			<subdivision type="jp17" draft="provisional">ისიკავის პრეფექტურა</subdivision>
 			<subdivision type="jp18" draft="provisional">ფუკუის პრეფექტურა</subdivision>
 			<subdivision type="jp19" draft="provisional">იამანასის პრეფექტურა</subdivision>
@@ -1559,8 +1589,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="jp33" draft="provisional">ოკაიამის პრეფექტურა</subdivision>
 			<subdivision type="jp34" draft="provisional">ჰიროსიმის პრეფექტურა</subdivision>
 			<subdivision type="jp35" draft="provisional">იამაგუტის პრეფექტურა</subdivision>
+			<subdivision type="jp36" draft="provisional">ტოკუსიმის პრეფექტურა</subdivision>
 			<subdivision type="jp37" draft="provisional">კაგავის პრეფექტურა</subdivision>
 			<subdivision type="jp38" draft="provisional">ეჰიმეს პრეფექტურა</subdivision>
+			<subdivision type="jp39" draft="provisional">კოტის პრეფექტურა</subdivision>
+			<subdivision type="jp40" draft="provisional">ფუკუოკის პრეფექტურა</subdivision>
 			<subdivision type="jp41" draft="provisional">საგის პრეფექტურა</subdivision>
 			<subdivision type="jp42" draft="provisional">ნაგასაკის პრეფექტურა</subdivision>
 			<subdivision type="jp43" draft="provisional">კუმამოტოს პრეფექტურა</subdivision>
@@ -1584,30 +1617,31 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="kmg" draft="provisional">ნგაზიჯა</subdivision>
 			<subdivision type="kmm" draft="provisional">მვალი</subdivision>
 			<subdivision type="kp01" draft="provisional">ფხენიანი</subdivision>
+			<subdivision type="kp15" draft="provisional">კესონი</subdivision>
 			<subdivision type="kr11" draft="provisional">სეული</subdivision>
 			<subdivision type="kr26" draft="provisional">პუსანი</subdivision>
 			<subdivision type="kr27" draft="provisional">ტეგუ</subdivision>
 			<subdivision type="kr28" draft="provisional">ინჩხონი</subdivision>
 			<subdivision type="kr41" draft="provisional">კიონგიდო</subdivision>
 			<subdivision type="kr49" draft="provisional">ჩეჯუს პროვინცია</subdivision>
-			<subdivision type="kzakm" draft="provisional">აკმოლის ოლქი</subdivision>
-			<subdivision type="kzakt" draft="provisional">აქტობეს ოლქი</subdivision>
-			<subdivision type="kzala" draft="provisional">ალმათი</subdivision>
-			<subdivision type="kzalm" draft="provisional">ალმათის ოლქი</subdivision>
-			<subdivision type="kzast" draft="provisional">ასტანა</subdivision>
-			<subdivision type="kzaty" draft="provisional">ატირაუს ოლქი</subdivision>
+			<subdivision type="kz11" draft="provisional">აკმოლის ოლქი</subdivision>
+			<subdivision type="kz15" draft="provisional">აქტობეს ოლქი</subdivision>
+			<subdivision type="kz19" draft="provisional">ალმათის ოლქი</subdivision>
+			<subdivision type="kz23" draft="provisional">ატირაუს ოლქი</subdivision>
+			<subdivision type="kz27" draft="provisional">დასავლეთ ყაზახეთის ოლქი</subdivision>
+			<subdivision type="kz31" draft="provisional">ჟამბილის ოლქი</subdivision>
+			<subdivision type="kz35" draft="provisional">ყარაღანდის ოლქი</subdivision>
+			<subdivision type="kz39" draft="provisional">კოსტანაის ოლქი</subdivision>
+			<subdivision type="kz43" draft="provisional">ყიზილორდის ოლქი</subdivision>
+			<subdivision type="kz47" draft="provisional">მანგისთაუს ოლქი</subdivision>
+			<subdivision type="kz55" draft="provisional">პავლოდარის ოლქი</subdivision>
+			<subdivision type="kz59" draft="provisional">ჩრდილოეთ ყაზახეთის ოლქი</subdivision>
+			<subdivision type="kz61" draft="provisional">სამხრეთ ყაზახეთის ოლქი</subdivision>
+			<subdivision type="kz63" draft="provisional">აღმოსავლეთ ყაზახეთის ოლქი</subdivision>
+			<subdivision type="kz71" draft="provisional">ასტანა</subdivision>
+			<subdivision type="kz75" draft="provisional">ალმათი</subdivision>
+			<subdivision type="kz79" draft="provisional">შიმქენთი</subdivision>
 			<subdivision type="kzbay" draft="provisional">ბაიკონური</subdivision>
-			<subdivision type="kzkar" draft="provisional">ყარაღანდის ოლქი</subdivision>
-			<subdivision type="kzkus" draft="provisional">კოსტანაის ოლქი</subdivision>
-			<subdivision type="kzkzy" draft="provisional">ყიზილორდის ოლქი</subdivision>
-			<subdivision type="kzman" draft="provisional">მანგისთაუს ოლქი</subdivision>
-			<subdivision type="kzpav" draft="provisional">პავლოდარის ოლქი</subdivision>
-			<subdivision type="kzsev" draft="provisional">ჩრდილოეთ ყაზახეთის ოლქი</subdivision>
-			<subdivision type="kzshy" draft="provisional">შიმქენთი</subdivision>
-			<subdivision type="kzvos" draft="provisional">აღმოსავლეთ ყაზახეთის ოლქი</subdivision>
-			<subdivision type="kzyuz" draft="provisional">სამხრეთ ყაზახეთის ოლქი</subdivision>
-			<subdivision type="kzzap" draft="provisional">დასავლეთ ყაზახეთის ოლქი</subdivision>
-			<subdivision type="kzzha" draft="provisional">ჟამბილის ოლქი</subdivision>
 			<subdivision type="laat" draft="provisional">ატაპეუს პროვინცია</subdivision>
 			<subdivision type="labk" draft="provisional">ბოკეოს პროვინცია</subdivision>
 			<subdivision type="lbak" draft="provisional">აკარის მუჰაფაზა</subdivision>
@@ -1863,8 +1897,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="maagd" draft="provisional">აგადირი</subdivision>
 			<subdivision type="macas" draft="provisional">კასაბლანკა</subdivision>
 			<subdivision type="mafes" draft="provisional">ფესი</subdivision>
+			<subdivision type="mamar" draft="provisional">მარაკეში</subdivision>
 			<subdivision type="mamek" draft="provisional">მეკნესი</subdivision>
-			<subdivision type="mammd" draft="provisional">მარაკეში</subdivision>
 			<subdivision type="mammn" draft="provisional">მარაკეში²</subdivision>
 			<subdivision type="marab" draft="provisional">რაბატი</subdivision>
 			<subdivision type="masyb" draft="provisional">მარაკეში³</subdivision>
@@ -2142,9 +2176,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mxyuc" draft="provisional">იუკატანის შტატი</subdivision>
 			<subdivision type="mxzac" draft="provisional">საკატეკასის შტატი</subdivision>
 			<subdivision type="my01" draft="provisional">ჯოჰორი</subdivision>
+			<subdivision type="my02" draft="provisional">კედაჰი</subdivision>
+			<subdivision type="my03" draft="provisional">კელანტანი</subdivision>
+			<subdivision type="my04" draft="provisional">მალაკა (შტატი)</subdivision>
+			<subdivision type="my05" draft="provisional">ნეგერი-სემბილანი</subdivision>
+			<subdivision type="my06" draft="provisional">პაჰანგი</subdivision>
+			<subdivision type="my07" draft="provisional">პინანგი</subdivision>
 			<subdivision type="my08" draft="provisional">პერაკი</subdivision>
 			<subdivision type="my09" draft="provisional">პერლისი</subdivision>
+			<subdivision type="my10" draft="provisional">სელანგორი</subdivision>
+			<subdivision type="my11" draft="provisional">ტერენგანუ</subdivision>
 			<subdivision type="my12" draft="provisional">საბაჰი</subdivision>
+			<subdivision type="my13" draft="provisional">სარავაკი</subdivision>
 			<subdivision type="my14" draft="provisional">კუალა-ლუმპური</subdivision>
 			<subdivision type="my15" draft="provisional">ლაბუანი</subdivision>
 			<subdivision type="my16" draft="provisional">პუტრაჯაია</subdivision>
@@ -2407,6 +2450,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="phdav" draft="provisional">ჩრდილოეთი დავაო</subdivision>
 			<subdivision type="phdin" draft="provisional">დინაგატის კუნძულები</subdivision>
 			<subdivision type="phdvo" draft="provisional">დასავლეთი დავაო</subdivision>
+			<subdivision type="pheas" draft="provisional">აღმოსავლეთი სამარი</subdivision>
 			<subdivision type="phgui" draft="provisional">გიმარასი</subdivision>
 			<subdivision type="phifu" draft="provisional">იფუგაო</subdivision>
 			<subdivision type="phili" draft="provisional">ილოილო (პროვინცია)</subdivision>
@@ -2476,6 +2520,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="pl30" draft="provisional">ველიკოპოლსკის სავოევოდო</subdivision>
 			<subdivision type="pl32" draft="provisional">დასავლეთ პომერანიის სავოევოდო</subdivision>
 			<subdivision type="pt03" draft="provisional">ბრაგა</subdivision>
+			<subdivision type="pt15" draft="provisional">სეტუბალის მუნიციპალიტეტი</subdivision>
 			<subdivision type="pt16" draft="provisional">ვიანა-დუ-კაშტელუ</subdivision>
 			<subdivision type="pt20" draft="provisional">აზორის კუნძულები</subdivision>
 			<subdivision type="pt30" draft="provisional">მადეირა</subdivision>
@@ -2666,6 +2711,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="rw03" draft="provisional">ჩრდილოეთი პროვინცია</subdivision>
 			<subdivision type="rw04" draft="provisional">დასავლეთი პროვინცია</subdivision>
 			<subdivision type="rw05" draft="provisional">სამხრეთი პროვინცია</subdivision>
+			<subdivision type="sa02" draft="provisional">მექას პროვინცია</subdivision>
 			<subdivision type="sa04" draft="provisional">ეშ-შარკია</subdivision>
 			<subdivision type="sa05" draft="provisional">ელ-ქაზიმი</subdivision>
 			<subdivision type="sa06" draft="provisional">ჰაილის პროვინცია</subdivision>
@@ -3074,6 +3120,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ua71" draft="provisional">ჩერკასის ოლქი</subdivision>
 			<subdivision type="ua74" draft="provisional">ჩერნიგოვის ოლქი</subdivision>
 			<subdivision type="ua77" draft="provisional">ჩერნოვცის ოლქი</subdivision>
+			<subdivision type="ug207" draft="provisional">კატაკვის რაიონი</subdivision>
 			<subdivision type="ugc" draft="provisional">ცენტრალური რეგიონი</subdivision>
 			<subdivision type="uge" draft="provisional">აღმოსავლეთის რეგიონი</subdivision>
 			<subdivision type="ugn" draft="provisional">ჩრდილოეთის რეგიონი</subdivision>

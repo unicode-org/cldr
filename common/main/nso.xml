@@ -11,23 +11,43 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="nso"/>
 	</identity>
 	<localeDisplayNames>
+		<localeDisplayPattern>
+			<localePattern>↑↑↑</localePattern>
+			<localeSeparator>↑↑↑</localeSeparator>
+		</localeDisplayPattern>
 		<languages>
-			<language type="nso" draft="provisional">Sesotho sa Leboa</language>
+			<language type="en">Seisimane</language>
+			<language type="nso">Sesotho sa Leboa</language>
 		</languages>
+		<scripts>
+			<script type="Latn">SeLatina</script>
+		</scripts>
 		<territories>
 			<territory type="ZA">Afrika Borwa</territory>
 		</territories>
+		<measurementSystemNames>
+			<measurementSystemName type="metric">Metriki</measurementSystemName>
+			<measurementSystemName type="UK">↑↑↑</measurementSystemName>
+			<measurementSystemName type="US">↑↑↑</measurementSystemName>
+		</measurementSystemNames>
+		<codePatterns>
+			<codePattern type="language">Polelo: {0}</codePattern>
+			<codePattern type="script">Mongwalo: {0}</codePattern>
+			<codePattern type="territory">Tikologo: {0}</codePattern>
+		</codePatterns>
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[a b d e ê f g h i j k l m n o ô p r s š t u w x y]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[c q v z]</exemplarCharacters>
 		<exemplarCharacters type="index" draft="unconfirmed">[A B C D E F G H I J K L M N O P Q R S T U V W X Y Z]</exemplarCharacters>
+		<exemplarCharacters type="numbers" draft="contributed">↑↑↑</exemplarCharacters>
+		<exemplarCharacters type="punctuation" draft="contributed">↑↑↑</exemplarCharacters>
 	</characters>
 	<delimiters>
-		<quotationStart draft="unconfirmed">‘</quotationStart>
-		<quotationEnd draft="unconfirmed">’</quotationEnd>
-		<alternateQuotationStart draft="unconfirmed">“</alternateQuotationStart>
-		<alternateQuotationEnd draft="unconfirmed">”</alternateQuotationEnd>
+		<quotationStart>‘</quotationStart>
+		<quotationEnd>’</quotationEnd>
+		<alternateQuotationStart>“</alternateQuotationStart>
+		<alternateQuotationEnd>”</alternateQuotationEnd>
 	</delimiters>
 	<dates>
 		<calendars>
@@ -39,7 +59,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="2">Dibo</month>
 							<month type="3">Hlak</month>
 							<month type="4">Mora</month>
-							<month type="5">Mopi</month>
+							<month type="5">Mei</month>
 							<month type="6">↑↑↑</month>
 							<month type="7">Mose</month>
 							<month type="8">↑↑↑</month>
@@ -63,18 +83,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 							<month type="12">↑↑↑</month>
 						</monthWidth>
 						<monthWidth type="wide">
-							<month type="1">Pherekgong</month>
-							<month type="2">Dibokwane</month>
-							<month type="3">Hlakola</month>
-							<month type="4">Moranang</month>
-							<month type="5">Mopitlo</month>
-							<month type="6">Phupu</month>
-							<month type="7">Mosegemanye</month>
-							<month type="8">Phato</month>
-							<month type="9">Lewedi</month>
-							<month type="10">Diphalane</month>
-							<month type="11">Dibatsela</month>
-							<month type="12">Manthole</month>
+							<month type="1">Janeware</month>
+							<month type="2">Febereware</month>
+							<month type="3">Matšhe</month>
+							<month type="4">Aporele</month>
+							<month type="5">Mei</month>
+							<month type="6">June</month>
+							<month type="7">Julae</month>
+							<month type="8">Agosetose</month>
+							<month type="9">Setemere</month>
+							<month type="10">Oktobore</month>
+							<month type="11">Nofemere</month>
+							<month type="12">Disemere</month>
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
@@ -153,7 +173,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">Lamorena</day>
-							<day type="mon">Musopologo</day>
+							<day type="mon">Mošupologo</day>
 							<day type="tue">Labobedi</day>
 							<day type="wed">Laboraro</day>
 							<day type="thu">Labone</day>
@@ -499,8 +519,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</dateTimeFormats>
 			</calendar>
 		</calendars>
+		<timeZoneNames>
+			<hourFormat>↑↑↑</hourFormat>
+			<gmtFormat>↑↑↑</gmtFormat>
+			<gmtZeroFormat>↑↑↑</gmtZeroFormat>
+			<regionFormat>↑↑↑</regionFormat>
+			<regionFormat type="daylight">↑↑↑</regionFormat>
+			<regionFormat type="standard">↑↑↑</regionFormat>
+			<fallbackFormat>↑↑↑</fallbackFormat>
+			<metazone type="GMT">
+				<long>
+					<standard>Nako Palogare ya Greenwich</standard>
+				</long>
+			</metazone>
+		</timeZoneNames>
 	</dates>
 	<numbers>
+		<defaultNumberingSystem draft="contributed">↑↑↑</defaultNumberingSystem>
+		<otherNumberingSystems>
+			<native draft="contributed">↑↑↑</native>
+		</otherNumberingSystems>
 		<minimumGroupingDigits draft="contributed">↑↑↑</minimumGroupingDigits>
 		<symbols numberSystem="latn">
 			<decimal>↑↑↑</decimal>

@@ -216,6 +216,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="cdbc" draft="provisional">Rhanbarth Bas-Congo</subdivision>
 			<subdivision type="cdeq" draft="provisional">Talaith Équateur</subdivision>
 			<subdivision type="cdhk" draft="provisional">Talaith Haut-Katanga</subdivision>
+			<subdivision type="cdit" draft="provisional">Talaith Ituri</subdivision>
 			<subdivision type="cdkg" draft="provisional">Talaith Kwango</subdivision>
 			<subdivision type="cdkn" draft="provisional">Kinshasa</subdivision>
 			<subdivision type="cdlo" draft="provisional">Talaith Lomami</subdivision>
@@ -251,6 +252,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="chzh" draft="provisional">Zürich</subdivision>
 			<subdivision type="ciab" draft="provisional">Abidjan</subdivision>
 			<subdivision type="ciym" draft="provisional">Yamoussoukro</subdivision>
+			<subdivision type="clat" draft="provisional">Rhanbarth Atacama</subdivision>
 			<subdivision type="clbi" draft="provisional">Bío Bío Region</subdivision>
 			<subdivision type="cnah" draft="provisional">Anhui</subdivision>
 			<subdivision type="cnbj" draft="provisional">Beijing</subdivision>
@@ -430,8 +432,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ecz" draft="provisional">Talaith Zamora-Chinchipe</subdivision>
 			<subdivision type="ee37" draft="provisional">Sir Harju</subdivision>
 			<subdivision type="ee39" draft="provisional">Sir Hiiu</subdivision>
+			<subdivision type="ee45" draft="provisional">Sir Ida-Viru</subdivision>
+			<subdivision type="ee50" draft="provisional">Sir Jõgeva</subdivision>
+			<subdivision type="ee52" draft="provisional">Sir Järva</subdivision>
+			<subdivision type="ee56" draft="provisional">Sir Lääne</subdivision>
+			<subdivision type="ee60" draft="provisional">Sir Lääne-Viru</subdivision>
+			<subdivision type="ee64" draft="provisional">Sir Põlva</subdivision>
+			<subdivision type="ee68" draft="provisional">Sir Pärnu</subdivision>
+			<subdivision type="ee71" draft="provisional">Sir Rapla</subdivision>
 			<subdivision type="ee74" draft="provisional">Sir Saare</subdivision>
+			<subdivision type="ee79" draft="provisional">Sir Tartu</subdivision>
+			<subdivision type="ee81" draft="provisional">Sir Valga</subdivision>
 			<subdivision type="ee84" draft="provisional">Sir Viljandi</subdivision>
+			<subdivision type="ee87" draft="provisional">Sir Võru</subdivision>
+			<subdivision type="ee171" draft="provisional">Bwrdeistref Gwledig Elva</subdivision>
+			<subdivision type="ee928" draft="provisional">Väike-Maarja Plwyf</subdivision>
 			<subdivision type="egc" draft="provisional">Llywodraethiaeth Cairo</subdivision>
 			<subdivision type="eggh" draft="provisional">Gharbia Governorate</subdivision>
 			<subdivision type="egsuz" draft="provisional">Llywodraethiaeth Suez</subdivision>
@@ -512,6 +527,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr04" draft="provisional">Alpes-de-Haute-Provence</subdivision>
 			<subdivision type="fr05" draft="provisional">Hautes-Alpes</subdivision>
 			<subdivision type="fr06" draft="provisional">Alpes-Maritimes</subdivision>
+			<subdivision type="fr6ae" draft="provisional">Alsace</subdivision>
 			<subdivision type="fr07" draft="provisional">Ardèche</subdivision>
 			<subdivision type="fr08" draft="provisional">Ardennes</subdivision>
 			<subdivision type="fr09" draft="provisional">Ariège</subdivision>
@@ -602,6 +618,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr94" draft="provisional">Val-de-Marne</subdivision>
 			<subdivision type="fr95" draft="provisional">Val-d’Oise</subdivision>
 			<subdivision type="fr971" draft="provisional">Guadeloupe</subdivision>
+			<subdivision type="fr972" draft="provisional">Martinique</subdivision>
+			<subdivision type="fr973" draft="provisional">Gaiana Ffrengig</subdivision>
+			<subdivision type="fr974" draft="provisional">Réunion</subdivision>
+			<subdivision type="fr976" draft="provisional">Mayotte</subdivision>
 			<subdivision type="frara" draft="provisional">Auvergne-Rhône-Alpes</subdivision>
 			<subdivision type="frbfc" draft="provisional">Bourgogne-Franche-Comté</subdivision>
 			<subdivision type="frbre" draft="provisional">Bretagne</subdivision>
@@ -983,7 +1003,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="inar" draft="provisional">Arunachal Pradesh</subdivision>
 			<subdivision type="inas" draft="provisional">Assam</subdivision>
 			<subdivision type="inbr" draft="provisional">Bihar</subdivision>
-			<subdivision type="inct" draft="provisional">Chhattisgarh</subdivision>
+			<subdivision type="incg" draft="provisional">Chhattisgarh</subdivision>
 			<subdivision type="indl" draft="provisional">Delhi</subdivision>
 			<subdivision type="indn" draft="provisional">Dadra a Nagar Haveli</subdivision>
 			<subdivision type="inga" draft="provisional">Goa</subdivision>
@@ -1000,16 +1020,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="inmp" draft="provisional">Madhya Pradesh</subdivision>
 			<subdivision type="inmz" draft="provisional">Mizoram</subdivision>
 			<subdivision type="innl" draft="provisional">Nagaland</subdivision>
+			<subdivision type="inod" draft="provisional">Orissa</subdivision>
 			<subdivision type="inor" draft="provisional">Odisha</subdivision>
 			<subdivision type="inpb" draft="provisional">Punjab</subdivision>
 			<subdivision type="inpy" draft="provisional">Puducherry</subdivision>
 			<subdivision type="inrj" draft="provisional">Rajasthan</subdivision>
 			<subdivision type="insk" draft="provisional">Sikkim</subdivision>
-			<subdivision type="intg" draft="provisional">Telangana</subdivision>
 			<subdivision type="intn" draft="provisional">Tamil Nadu</subdivision>
 			<subdivision type="intr" draft="provisional">Tripura</subdivision>
+			<subdivision type="ints" draft="provisional">Telangana</subdivision>
+			<subdivision type="inuk" draft="provisional">Uttarakhand</subdivision>
 			<subdivision type="inup" draft="provisional">Uttar Pradesh</subdivision>
-			<subdivision type="inut" draft="provisional">Uttarakhand</subdivision>
 			<subdivision type="inwb" draft="provisional">Gorllewin Bengal</subdivision>
 			<subdivision type="iqan" draft="provisional">Al Anbar</subdivision>
 			<subdivision type="iqar" draft="provisional">Arbil</subdivision>
@@ -1053,9 +1074,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="isaku" draft="provisional">Akureyri</subdivision>
 			<subdivision type="isblo" draft="provisional">Blönduós</subdivision>
 			<subdivision type="isfjd" draft="provisional">Fjarðabyggð</subdivision>
+			<subdivision type="isgar" draft="provisional">Garðabær</subdivision>
 			<subdivision type="isgru" draft="provisional">Grundarfjarðarbær</subdivision>
+			<subdivision type="ishaf" draft="provisional">Hafnarfjörður</subdivision>
+			<subdivision type="ishve" draft="provisional">Hveragerði</subdivision>
+			<subdivision type="iskop" draft="provisional">Kópavogur</subdivision>
+			<subdivision type="isrkv" draft="provisional">Reykjavík</subdivision>
+			<subdivision type="issel" draft="provisional">Seltjarnarnes</subdivision>
 			<subdivision type="issfa" draft="provisional">Árborg</subdivision>
 			<subdivision type="issss" draft="provisional">Sveitarfélagið Skagaströnd</subdivision>
+			<subdivision type="isvem" draft="provisional">Vestmannaeyjar</subdivision>
 			<subdivision type="it21" draft="provisional">Piemonte</subdivision>
 			<subdivision type="it23" draft="provisional">Valle d’Aosta</subdivision>
 			<subdivision type="it25" draft="provisional">Lombardia</subdivision>
@@ -1076,31 +1104,106 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="it78" draft="provisional">Calabria</subdivision>
 			<subdivision type="it82" draft="provisional">Sisili</subdivision>
 			<subdivision type="it88" draft="provisional">Sardinia</subdivision>
+			<subdivision type="ital" draft="provisional">Talaith Alessandria</subdivision>
 			<subdivision type="itan" draft="provisional">Talaith Ancona</subdivision>
+			<subdivision type="itap" draft="provisional">Talaith Ascoli Piceno</subdivision>
+			<subdivision type="itaq" draft="provisional">Talaith L’Aquila</subdivision>
 			<subdivision type="itar" draft="provisional">Talaith Arezzo</subdivision>
+			<subdivision type="itat" draft="provisional">Talaith Asti</subdivision>
+			<subdivision type="itav" draft="provisional">Talaith Avellino</subdivision>
+			<subdivision type="itba" draft="provisional">Dinas Fetropolitan Bari</subdivision>
 			<subdivision type="itbg" draft="provisional">Talaith Bergamo</subdivision>
+			<subdivision type="itbi" draft="provisional">Talaith Biella</subdivision>
+			<subdivision type="itbl" draft="provisional">Talaith Belluno</subdivision>
 			<subdivision type="itbn" draft="provisional">Talaith Benevento</subdivision>
 			<subdivision type="itbo" draft="provisional">Talaith Bologna</subdivision>
+			<subdivision type="itbr" draft="provisional">Talaith Brindisi</subdivision>
+			<subdivision type="itbs" draft="provisional">Talaith Brescia</subdivision>
+			<subdivision type="itbt" draft="provisional">Talaith Barletta-Andria-Trani</subdivision>
 			<subdivision type="itbz" draft="provisional">Bolzano</subdivision>
+			<subdivision type="itca" draft="provisional">Dinas Fetropolitan Cagliari</subdivision>
+			<subdivision type="itcb" draft="provisional">Talaith Campobasso</subdivision>
+			<subdivision type="itce" draft="provisional">Talaith Caserta</subdivision>
+			<subdivision type="itch" draft="provisional">Talaith Chieti</subdivision>
 			<subdivision type="itcn" draft="provisional">Talaith Cuneo</subdivision>
+			<subdivision type="itco" draft="provisional">Talaith Como</subdivision>
 			<subdivision type="itcr" draft="provisional">Talaith Cremona</subdivision>
+			<subdivision type="itcs" draft="provisional">Talaith Cosenza</subdivision>
+			<subdivision type="itct" draft="provisional">Dinas Fetropolitan Catania</subdivision>
+			<subdivision type="itcz" draft="provisional">Talaith Catanzaro</subdivision>
 			<subdivision type="itfc" draft="provisional">Talaith Forlì-Cesena</subdivision>
 			<subdivision type="itfe" draft="provisional">Talaith Ferrara</subdivision>
+			<subdivision type="itfg" draft="provisional">Talaith Foggia</subdivision>
+			<subdivision type="itfi" draft="provisional">Dinas Fetropolitan Fflorens</subdivision>
+			<subdivision type="itfm" draft="provisional">Talaith Fermo</subdivision>
+			<subdivision type="itfr" draft="provisional">Talaith Frosinone</subdivision>
+			<subdivision type="itge" draft="provisional">Dinas Fetropolitan Genova</subdivision>
+			<subdivision type="itgo" draft="provisional">Talaith Gorizia</subdivision>
+			<subdivision type="itgr" draft="provisional">Talaith Grosseto</subdivision>
+			<subdivision type="itim" draft="provisional">Talaith Imperia</subdivision>
+			<subdivision type="itis" draft="provisional">Talaith Isernia</subdivision>
+			<subdivision type="itkr" draft="provisional">Talaith Crotone</subdivision>
+			<subdivision type="itlc" draft="provisional">Talaith Lecco</subdivision>
+			<subdivision type="itle" draft="provisional">Talaith Lecce</subdivision>
 			<subdivision type="itli" draft="provisional">Talaith Livorno</subdivision>
+			<subdivision type="itlo" draft="provisional">Talaith Lodi</subdivision>
+			<subdivision type="itlt" draft="provisional">Talaith Latina</subdivision>
+			<subdivision type="itlu" draft="provisional">Talaith Lucca</subdivision>
+			<subdivision type="itmb" draft="provisional">Talaith Monza a Brianza</subdivision>
+			<subdivision type="itmc" draft="provisional">Talaith Macerata</subdivision>
+			<subdivision type="itme" draft="provisional">Dinas Fetropolitan Messina</subdivision>
+			<subdivision type="itmi" draft="provisional">Dinas Fetropolitan Milan</subdivision>
 			<subdivision type="itmn" draft="provisional">Talaith Mantova</subdivision>
+			<subdivision type="itmo" draft="provisional">Talaith Modena</subdivision>
+			<subdivision type="itms" draft="provisional">Talaith Massa-Carrara</subdivision>
+			<subdivision type="itmt" draft="provisional">Talaith Matera</subdivision>
+			<subdivision type="itna" draft="provisional">Dinas Fetropolitan Napoli</subdivision>
+			<subdivision type="itno" draft="provisional">Talaith Novara</subdivision>
+			<subdivision type="itnu" draft="provisional">Talaith Nuoro</subdivision>
+			<subdivision type="itor" draft="provisional">Talaith Oristano</subdivision>
+			<subdivision type="itpa" draft="provisional">Dinas Fetropolitan Palermo</subdivision>
 			<subdivision type="itpc" draft="provisional">Talaith Piacenza</subdivision>
 			<subdivision type="itpd" draft="provisional">Talaith Padova</subdivision>
+			<subdivision type="itpe" draft="provisional">Talaith Pescara</subdivision>
 			<subdivision type="itpg" draft="provisional">Talaith Perugia</subdivision>
+			<subdivision type="itpi" draft="provisional">Talaith Pisa</subdivision>
+			<subdivision type="itpn" draft="provisional">Talaith Pordenone</subdivision>
+			<subdivision type="itpo" draft="provisional">Talaith Prato</subdivision>
 			<subdivision type="itpr" draft="provisional">Talaith Parma</subdivision>
+			<subdivision type="itpt" draft="provisional">Talaith Pistoia</subdivision>
 			<subdivision type="itpu" draft="provisional">Talaith Pesaro ac Urbino</subdivision>
+			<subdivision type="itpv" draft="provisional">Talaith Pavia</subdivision>
+			<subdivision type="itpz" draft="provisional">Talaith Potenza</subdivision>
 			<subdivision type="itra" draft="provisional">Talaith Ravenna</subdivision>
+			<subdivision type="itrc" draft="provisional">Dinas Fetropolitan Reggio Calabria</subdivision>
+			<subdivision type="itre" draft="provisional">Talaith Reggio Emilia</subdivision>
+			<subdivision type="itri" draft="provisional">Talaith Rieti</subdivision>
+			<subdivision type="itrm" draft="provisional">Dinas Fetropolitan Rhufain</subdivision>
+			<subdivision type="itrn" draft="provisional">Talaith Rimini</subdivision>
+			<subdivision type="itro" draft="provisional">Talaith Rovigo</subdivision>
+			<subdivision type="itsa" draft="provisional">Talaith Salerno</subdivision>
 			<subdivision type="itsi" draft="provisional">Talaith Siena</subdivision>
 			<subdivision type="itso" draft="provisional">Rhanbarth Sondrio</subdivision>
+			<subdivision type="itsp" draft="provisional">Talaith La Spezia</subdivision>
+			<subdivision type="itss" draft="provisional">Talaith Sassari</subdivision>
+			<subdivision type="itsu" draft="provisional">Talaith De Sardinia</subdivision>
+			<subdivision type="itsv" draft="provisional">Talaith Savona</subdivision>
+			<subdivision type="itta" draft="provisional">Talaith Taranto</subdivision>
+			<subdivision type="itte" draft="provisional">Talaith Teramo</subdivision>
 			<subdivision type="ittn" draft="provisional">Trentino</subdivision>
 			<subdivision type="itto" draft="provisional">Talaith Torino</subdivision>
 			<subdivision type="ittr" draft="provisional">Talaith Terni</subdivision>
 			<subdivision type="itts" draft="provisional">Talaith Trieste</subdivision>
+			<subdivision type="ittv" draft="provisional">Talaith Treviso</subdivision>
+			<subdivision type="itud" draft="provisional">Talaith Udine</subdivision>
+			<subdivision type="itva" draft="provisional">Talaith Varese</subdivision>
+			<subdivision type="itvb" draft="provisional">Talaith Verbano-Cusio-Ossola</subdivision>
+			<subdivision type="itvc" draft="provisional">Talaith Vercelli</subdivision>
+			<subdivision type="itve" draft="provisional">Dinas Fetropolitan Fenis</subdivision>
 			<subdivision type="itvi" draft="provisional">Talaith Vicenza</subdivision>
+			<subdivision type="itvr" draft="provisional">Talaith Verona</subdivision>
+			<subdivision type="itvt" draft="provisional">Talaith Viterbo</subdivision>
+			<subdivision type="itvv" draft="provisional">Talaith Vibo Valentia</subdivision>
 			<subdivision type="jm02" draft="provisional">Saint Andrew</subdivision>
 			<subdivision type="jm07" draft="provisional">Trelawny</subdivision>
 			<subdivision type="joaj" draft="provisional">Ardal Lywodraethol Ajlwn</subdivision>
@@ -1230,6 +1333,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="kh25" draft="provisional">Talaith Tbong Khmum</subdivision>
 			<subdivision type="kig" draft="provisional">Ynysoedd Gilbert</subdivision>
 			<subdivision type="knk" draft="provisional">Saint Kitts</subdivision>
+			<subdivision type="knn" draft="provisional">Nevis</subdivision>
 			<subdivision type="kp01" draft="provisional">P’yŏngyang</subdivision>
 			<subdivision type="kp02" draft="provisional">Talaith De Pyongan</subdivision>
 			<subdivision type="kp03" draft="provisional">Talaith Gogledd Pyongan</subdivision>
@@ -1252,12 +1356,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="kr47" draft="provisional">Talaith Gogledd Gyeongsang</subdivision>
 			<subdivision type="kr48" draft="provisional">Talaith De Gyeongsang</subdivision>
 			<subdivision type="kr49" draft="provisional">Talaith Jeju</subdivision>
-			<subdivision type="kzakm" draft="provisional">Ardal Akmola</subdivision>
-			<subdivision type="kzala" draft="provisional">Almaty</subdivision>
-			<subdivision type="kzast" draft="provisional">Astana</subdivision>
-			<subdivision type="kzsev" draft="provisional">Ardal Gogledd Casachstan</subdivision>
-			<subdivision type="kzvos" draft="provisional">Ardal Dwyrain Kazakhstan</subdivision>
-			<subdivision type="kzzap" draft="provisional">Ardal Gorllewin Casachstan</subdivision>
+			<subdivision type="kz11" draft="provisional">Ardal Akmola</subdivision>
+			<subdivision type="kz27" draft="provisional">Ardal Gorllewin Casachstan</subdivision>
+			<subdivision type="kz39" draft="provisional">Ardal Kostanay</subdivision>
+			<subdivision type="kz59" draft="provisional">Ardal Gogledd Casachstan</subdivision>
+			<subdivision type="kz63" draft="provisional">Ardal Dwyrain Kazakhstan</subdivision>
+			<subdivision type="kz71" draft="provisional">Astana</subdivision>
+			<subdivision type="kz75" draft="provisional">Almaty</subdivision>
 			<subdivision type="laat" draft="provisional">Talaith Attapeu</subdivision>
 			<subdivision type="labk" draft="provisional">Talaith Bokeo</subdivision>
 			<subdivision type="labl" draft="provisional">Talaith Bolikhamsai</subdivision>
@@ -1289,6 +1394,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="lrmy" draft="provisional">Sir Maryland</subdivision>
 			<subdivision type="lrsi" draft="provisional">Sir Sinoe</subdivision>
 			<subdivision type="lt02" draft="provisional">Alytus</subdivision>
+			<subdivision type="lt07" draft="provisional">Druskininkai</subdivision>
 			<subdivision type="lt15" draft="provisional">Kaunas</subdivision>
 			<subdivision type="lt28" draft="provisional">Bwrdeistref Neringa</subdivision>
 			<subdivision type="lt43" draft="provisional">Bwrdeisdref Šiauliai</subdivision>
@@ -1392,7 +1498,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="makhe" draft="provisional">Talaith Khémisset</subdivision>
 			<subdivision type="makhn" draft="provisional">Talaith Khénifra</subdivision>
 			<subdivision type="makho" draft="provisional">Talaith Khouribga</subdivision>
+			<subdivision type="malaa" draft="provisional">Talaith Laâyoune</subdivision>
 			<subdivision type="malar" draft="provisional">Talaith Larache</subdivision>
+			<subdivision type="mamar" draft="provisional">Marrakech</subdivision>
 			<subdivision type="mamed" draft="provisional">Talaith Mediouna</subdivision>
 			<subdivision type="mamek" draft="provisional">Meknès</subdivision>
 			<subdivision type="mamoh" draft="provisional">Mohammédia</subdivision>
@@ -1423,6 +1531,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="matnt" draft="provisional">Talaith Tan-Tan</subdivision>
 			<subdivision type="mazag" draft="provisional">Talaith Zagora</subdivision>
 			<subdivision type="mcmc" draft="provisional">Monte-Carlo</subdivision>
+			<subdivision type="mcmo" draft="provisional">Dinas Monaco</subdivision>
 			<subdivision type="mdba" draft="provisional">Bălţi</subdivision>
 			<subdivision type="mdbd" draft="provisional">Bender</subdivision>
 			<subdivision type="mdcu" draft="provisional">Chişinău</subdivision>
@@ -1448,6 +1557,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="me20" draft="provisional">Bwrdeistref Ulcinj</subdivision>
 			<subdivision type="me21" draft="provisional">Bwrdeistref Žabljak</subdivision>
 			<subdivision type="me23" draft="provisional">Bwrdeistref Petnjica</subdivision>
+			<subdivision type="me24" draft="provisional">Bwrdeistref Tuzi</subdivision>
 			<subdivision type="mga" draft="provisional">Talaith Toamasina</subdivision>
 			<subdivision type="mgd" draft="provisional">Talaith Antsiranana</subdivision>
 			<subdivision type="mgf" draft="provisional">Talaith Fianarantsoa</subdivision>
@@ -1537,6 +1647,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mk816" draft="provisional">Bwrdeistref Čučer-Sandevo</subdivision>
 			<subdivision type="mk817" draft="provisional">Bwrdeistref Šuto Orizari</subdivision>
 			<subdivision type="ml5" draft="provisional">rhanbarth Mopti</subdivision>
+			<subdivision type="ml6" draft="provisional">Rhanbarth Tombouctou</subdivision>
 			<subdivision type="mlbko" draft="provisional">Bamako</subdivision>
 			<subdivision type="mm06" draft="provisional">Ardal Yangon</subdivision>
 			<subdivision type="mm11" draft="provisional">Talaith Kachin</subdivision>
@@ -1639,6 +1750,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="no22" draft="provisional">Jan Mayen</subdivision>
 			<subdivision type="no34" draft="provisional">Innlandet</subdivision>
 			<subdivision type="nr14" draft="provisional">Yaren</subdivision>
+			<subdivision type="nzbop" draft="provisional">Bae Digonedd</subdivision>
 			<subdivision type="nzhkb" draft="provisional">Te Matau-a-Māui</subdivision>
 			<subdivision type="nzmbh" draft="provisional">Marlborough</subdivision>
 			<subdivision type="nzota" draft="provisional">Otago</subdivision>
@@ -2090,6 +2202,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="tn81" draft="provisional">Gabès</subdivision>
 			<subdivision type="tn82" draft="provisional">Médenine</subdivision>
 			<subdivision type="tn83" draft="provisional">Tataouine</subdivision>
+			<subdivision type="to04" draft="provisional">Tongatapu</subdivision>
+			<subdivision type="to05" draft="provisional">Vava’u</subdivision>
 			<subdivision type="tr01" draft="provisional">Adana</subdivision>
 			<subdivision type="tr02" draft="provisional">Adıyaman</subdivision>
 			<subdivision type="tr03" draft="provisional">Afyonkarahisar</subdivision>
@@ -2250,6 +2364,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="uysj" draft="provisional">San José</subdivision>
 			<subdivision type="uzqr" draft="provisional">Karakalpakstan</subdivision>
 			<subdivision type="uztk" draft="provisional">Tashkent</subdivision>
+			<subdivision type="ves" draft="provisional">Táchira</subdivision>
 			<subdivision type="vn01" draft="provisional">Lai Châu</subdivision>
 			<subdivision type="vn59" draft="provisional">Cà Mau</subdivision>
 			<subdivision type="vndn" draft="provisional">Da Nang</subdivision>

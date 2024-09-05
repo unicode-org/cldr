@@ -117,7 +117,7 @@ public class SurveyTool extends HttpServlet {
                         + "  cldrBundle.showPanel('retry', '#app');\n"
                         + "} catch(e) {\n"
                         + "  console.error(e);\n"
-                        + "  document.getElementById('loading-err').innerText='Error: Could not CLDR ST Retry Panel. Try reloading? ' + e + '\\n' + e.stack;\n"
+                        + "  document.getElementById('loading-err').innerText='Error: Could not load the SurveyTool startup page. Try reloading?\\n\\n' + e + '\\n' + e.stack;\n"
                         + "}\n"
                         + "</script>\n");
         out.write("</body>");
@@ -128,9 +128,9 @@ public class SurveyTool extends HttpServlet {
                 "<div class=\"navbar navbar-fixed-top\" role=\"navigation\">\n"
                         + "  <div class=\"container\">\n"
                         + "    <div class=\"navbar-header\">\n"
-                        + "      <p id=\"loading-err\" class=\"navbar-brand\">\n"
+                        + "      <div id=\"loading-err\" class=\"navbar-brand\">\n"
                         + "        <a href=\"http://cldr.unicode.org\">CLDR</a> SurveyTool\n"
-                        + "      </p>\n"
+                        + "      </div>\n"
                         + "    </div>\n"
                         + "    <div class=\"collapse navbar-collapse  navbar-right\">\n"
                         + "      <ul class=\"nav navbar-nav\">\n"
@@ -194,8 +194,9 @@ public class SurveyTool extends HttpServlet {
                 "<script>\n"
                         + "function stRunGuiErr(e) {\n"
                         + "  console.error(e);\n"
-                        + "  document.write('<h1>&#x26A0; Error: Could not load CLDR ST GUI. Try reloading?</h1> '"
-                        + " + e + '\\n<hr />\\n<pre>' + (e.stack||'') + '</pre>');\n"
+                        + "  document.getElementById('st-run-gui').innerHTML = '<h1>&#x26A0; Error: Could not load CLDR ST GUI. Try reloading?</h1> <pre>'"
+                        + " + e + '</pre>\\n<hr />\\n<pre>' + (e.stack||'') + '</pre>';\n"
+                        + "  doc"
                         + "}\n"
                         + "try {\n"
                         + "  cldrBundle.runGui()\n"
@@ -209,21 +210,12 @@ public class SurveyTool extends HttpServlet {
 
     private void includeCss(HttpServletRequest request, PrintWriter out) {
         final String contextPath = request.getContextPath();
-        final String cb = getCacheBustingExtension(request);
-        out.write(
-                "<link rel='stylesheet' href='" + contextPath + "/surveytool" + cb + ".css' />\n");
         /*
          * Note: cldrForum.css is loaded through webpack
          */
         // bootstrap.min.css -- cf. bootstrap.min.js elsewhere in this file
         out.write(
                 "<link rel='stylesheet' href='//stackpath.bootstrapcdn.com/bootswatch/3.1.1/spacelab/bootstrap.min.css' />\n");
-        out.write(
-                "<link rel='stylesheet' href='"
-                        + contextPath
-                        + "/css/redesign"
-                        + cb
-                        + ".css' />\n");
     }
 
     private static final String DD_CLIENT_TOKEN = System.getenv("DD_CLIENT_TOKEN");

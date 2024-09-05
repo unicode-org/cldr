@@ -26,7 +26,7 @@ function makeClient() {
  *
  * <https://github.com/swagger-api/swagger-js/blob/master/docs/usage/tags-interface.md#openapi-v3x>
  *
- * @returns Promise<SwaggerClient>
+ * @returns {Promise<SwaggerClient>}
  */
 function getClient() {
   if (!client) {

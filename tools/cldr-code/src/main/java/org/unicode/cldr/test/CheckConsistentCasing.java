@@ -64,18 +64,18 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
             } catch (Exception e) {
                 types = Collections.emptyMap();
             }
+            if ((types == null || types.isEmpty()) && !SpecialLocales.isScratchLocale(locale)) {
+                possibleErrors.add(
+                        new CheckStatus()
+                                .setCause(this)
+                                .setMainType(CheckStatus.warningType)
+                                .setSubtype(Subtype.incorrectCasing)
+                                .setMessage("Could not load casing info for {0}", locale));
+            }
         } else {
             // no casing info - since the types Map is global, and null checks aren't done,
             // we are better off  with an empty map here
             types = Collections.emptyMap();
-        }
-        if ((types == null || types.isEmpty()) && !SpecialLocales.isScratchLocale(locale)) {
-            possibleErrors.add(
-                    new CheckStatus()
-                            .setCause(this)
-                            .setMainType(CheckStatus.warningType)
-                            .setSubtype(Subtype.incorrectCasing)
-                            .setMessage("Could not load casing info for {0}", locale));
         }
         // types may be null, avoid NPE
         hasCasingInfo = (types == null) ? false : types.size() > 0;

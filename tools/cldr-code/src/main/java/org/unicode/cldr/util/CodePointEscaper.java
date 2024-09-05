@@ -1,7 +1,9 @@
 package org.unicode.cldr.util;
 
 import com.ibm.icu.impl.UnicodeMap;
+import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import java.util.Locale;
 
@@ -19,10 +21,13 @@ public enum CodePointEscaper {
     LF(0xA, "line feed"),
     CR(0xD, "carriage return"),
     SP(0x20, "space", "ASCII space"),
-    NSP(0x2009, "narrow/thin space", "Also known as ‘thin space’"),
+    TSP(0x2009, "thin space", "Aka ‘narrow space’"),
     NBSP(0xA0, "no-break space", "Same as space, but doesn’t line wrap."),
 
-    NNBSP(0x202F, "narrow/thin no-break space", "Same as narrow space, but doesn’t line wrap."),
+    NBTSP(
+            0x202F,
+            "no-break thin space",
+            "Same as thin space, but doesn’t line wrap. Aka 'narrow no-break space'"),
 
     WNJ(
             0x200B,
@@ -110,9 +115,7 @@ public enum CodePointEscaper {
     private final String description;
 
     private CodePointEscaper(int codePoint, String shortName) {
-        this.codePoint = codePoint;
-        this.shortName = shortName;
-        this.description = "";
+        this(codePoint, shortName, "");
     }
 
     private CodePointEscaper(int codePoint, String shortName, String description) {
@@ -147,6 +150,11 @@ public enum CodePointEscaper {
         return codePoint;
     }
 
+    /** Return the string form of the code point for this character. */
+    public String getString() {
+        return UTF16.valueOf(codePoint);
+    }
+
     /** Returns the escaped form from the code point for this enum */
     public String codePointToEscaped() {
         return ESCAPE_START + rawCodePointToEscaped(codePoint) + ESCAPE_END;
@@ -154,6 +162,9 @@ public enum CodePointEscaper {
 
     /** Returns a code point from the escaped form <b>of a single code point</b> */
     public static int escapedToCodePoint(String value) {
+        if (value == null || value.isEmpty()) {
+            return 0xFFFD;
+        }
         if (value.codePointAt(0) != CodePointEscaper.ESCAPE_START
                 || value.codePointAt(value.length() - 1) != CodePointEscaper.ESCAPE_END) {
             throw new IllegalArgumentException(
@@ -177,6 +188,9 @@ public enum CodePointEscaper {
 
     /** Returns the escaped form from a string */
     public static String toEscaped(String unescaped, UnicodeSet toEscape) {
+        if (unescaped == null) {
+            return null;
+        }
         StringBuilder result = new StringBuilder();
         unescaped
                 .codePoints()
@@ -190,13 +204,25 @@ public enum CodePointEscaper {
                         });
         return result.toString();
     }
+
+    public static String getEscaped(int cp, UnicodeSet toEscape) {
+        if (!toEscape.contains(cp)) {
+            return UTF16.valueOf(cp);
+        } else {
+            return codePointToEscaped(cp);
+        }
+    }
+
     /** Return unescaped string */
-    public static String toUnescaped(String value) {
+    public static String toUnescaped(String escaped) {
+        if (escaped == null) {
+            return null;
+        }
         StringBuilder result = null;
         int donePart = 0;
-        int found = value.indexOf(ESCAPE_START);
+        int found = escaped.indexOf(ESCAPE_START);
         while (found >= 0) {
-            int foundEnd = value.indexOf(ESCAPE_END, found);
+            int foundEnd = escaped.indexOf(ESCAPE_END, found);
             if (foundEnd < 0) {
                 throw new IllegalArgumentException(
                         "Malformed escaped string, missing: " + ESCAPE_END);
@@ -204,12 +230,14 @@ public enum CodePointEscaper {
             if (result == null) {
                 result = new StringBuilder();
             }
-            result.append(value, donePart, found);
+            result.append(escaped, donePart, found);
             donePart = ++foundEnd;
-            result.appendCodePoint(escapedToCodePoint(value.substring(found, foundEnd)));
-            found = value.indexOf(ESCAPE_START, foundEnd);
+            result.appendCodePoint(escapedToCodePoint(escaped.substring(found, foundEnd)));
+            found = escaped.indexOf(ESCAPE_START, foundEnd);
         }
-        return donePart == 0 ? value : result.append(value, donePart, value.length()).toString();
+        return donePart == 0
+                ? escaped
+                : result.append(escaped, donePart, escaped.length()).toString();
     }
 
     private static final String HAS_NAME = " ≡ ";
@@ -217,9 +245,10 @@ public enum CodePointEscaper {
     public static String toExample(int codePoint) {
         CodePointEscaper cpe = _fromCodePoint.get(codePoint);
         if (cpe == null) { // hex
+            final String name = UCharacter.getExtendedName(codePoint);
             return codePointToEscaped(codePoint)
                     + HAS_NAME
-                    + UCharacter.getName(codePoint).toLowerCase();
+                    + (name != null ? name.toLowerCase() : "");
         } else {
             return CodePointEscaper.codePointToEscaped(cpe.codePoint)
                     + HAS_NAME
@@ -232,6 +261,9 @@ public enum CodePointEscaper {
      * brackets</b>
      */
     public static int rawEscapedToCodePoint(CharSequence value) {
+        if (value == null || value.length() == 0) {
+            return 0xFFFD;
+        }
         try {
             return valueOf(value.toString().toUpperCase(Locale.ROOT)).codePoint;
         } catch (Exception e) {
@@ -257,5 +289,55 @@ public enum CodePointEscaper {
         return result == null
                 ? Integer.toString(codePoint, 16).toUpperCase(Locale.ROOT)
                 : result.toString();
+    }
+
+    public static final String getHtmlRows(
+            UnicodeSet escapesToShow, String tableOptions, String cellOptions) {
+        if (!escapesToShow.strings().isEmpty()) {
+            throw new IllegalArgumentException("No strings allowed in the unicode set.");
+        }
+        StringBuilder result = new StringBuilder("<table" + tableOptions + ">");
+        UnicodeSet remaining = new UnicodeSet(escapesToShow);
+        String tdPlus = "<td" + cellOptions + ">";
+        for (CodePointEscaper cpe : CodePointEscaper.values()) {
+            int cp = cpe.getCodePoint();
+            remaining.remove(cp);
+            if (escapesToShow.contains(cpe.getCodePoint())) {
+                final String id = cpe.name();
+                final String shortName = cpe.getShortName();
+                final String description = cpe.getDescription();
+                addREsult(result, tdPlus, id, shortName, description);
+            }
+        }
+        for (String cps : remaining) {
+            int cp = cps.codePointAt(0);
+            final String extendedName = UCharacter.getExtendedName(cp);
+            addREsult(
+                    result,
+                    tdPlus,
+                    Utility.hex(cp, 2),
+                    "",
+                    extendedName == null ? "" : extendedName.toLowerCase());
+        }
+        return result.append("</table>").toString();
+    }
+
+    public static void addREsult(
+            StringBuilder result,
+            String tdPlus,
+            final String id,
+            final String shortName,
+            final String description) {
+        result.append("<tr>")
+                .append(tdPlus)
+                .append(ESCAPE_START)
+                .append(id)
+                .append(ESCAPE_END + "</td>")
+                .append(tdPlus)
+                .append(shortName)
+                .append("</td>")
+                .append(tdPlus)
+                .append(description)
+                .append("</td><tr>");
     }
 }

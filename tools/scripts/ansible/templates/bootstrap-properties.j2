@@ -5,3 +5,12 @@
 # the full path to the config dir.
 # It requires a code update in CLDRConfigImpl.
 org.unicode.cldr.util.CLDRConfigImpl.cldrHome="{{ cldr_path }}"
+
+# datadog things
+dd.dynamic.instrumentation.enabled=true
+dd.logs.injection=true
+dd.env={{ dd_env }}
+
+# for DD: use json!
+com.ibm.ws.logging.message.format=json
+com.ibm.ws.logging.message.source=message,trace,accessLog,ffdc,audit

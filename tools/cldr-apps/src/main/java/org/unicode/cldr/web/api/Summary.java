@@ -336,7 +336,7 @@ public class Summary {
     private void makeAutoPriorityItemsSnapshot() throws IOException, JSONException {
         boolean summarizeAllLocales = false;
         if (ENABLE_ALL_LOCALE_SUMMARY) {
-            final SurveyMain.Phase phase = SurveyMain.phase();
+            final SurveyMain.Phase phase = SurveyMain.getOverallSurveyPhase();
             summarizeAllLocales =
                     (phase == SurveyMain.Phase.VETTING || phase == SurveyMain.Phase.VETTING_CLOSED);
         }
@@ -481,9 +481,6 @@ public class Summary {
         CookieSession cs = Auth.getSession(sessionString);
         if (cs == null) {
             return Auth.noSessionResponse();
-        }
-        if (!UserRegistry.userCanModifyLocale(cs.user, loc)) {
-            return Response.status(403, "Forbidden").build();
         }
         cs.userDidAction();
 

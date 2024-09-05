@@ -439,7 +439,9 @@ The former `am`/`pm` elements have been deprecated, and replaced by the more fle
 
 These behave like months, days, and so on in terms of having context and width. Each locale has an associated dayPeriodRuleSet in the supplemental data, rules that specify when the day periods start and end for that locale. Each type in the rules needs to have a translation in a dayPeriod (but if translation data is missing for a particular variable dayPeriod in the locale’s language and script, formatting should fall back to using the am/pm values). For more information, see _[Day Period Rules](#Day_Period_Rules)_.
 
-The dayPeriod names should be distinct within each of the context/width combinations, including narrow; as with era names, there is less disambiguating information for them, and they are more likely to be used in a format that requires parsing. In some unambiguous cases, it is acceptable for certain overlapping dayPeriods to be the same, such as the names for "am" and "morning", or the names for "pm" and "afternoon".
+The dayPeriod names should be distinct within each of the context/width combinations, including narrow; as with era names, there is less disambiguating information for them, and they are more likely to be used in a format that requires parsing. In some unambiguous cases, it is acceptable for certain overlapping dayPeriods to be the same, such as the names for `am` and `morning`, or the names for `pm` and `afternoon`.
+
+If dayPeriods are specified for `noon` and `midnight`, they can often be formatted without also specifying the numeric time, e.g. "May 6, noon" instead of "May 6, 12:00 noon" or "May 6, 12:00 PM". To prevent parse issues, this should only be done if the names for `noon` and `midnight` are not also used for any other day periods, such as for `morning2` or `night1`.
 
 Example:
 

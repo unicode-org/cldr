@@ -457,7 +457,12 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
 
     @Override
     public CheckCLDR.Phase getPhase() {
-        return SurveyMain.phase().getCPhase();
+        return SurveyMain.getOverallSurveyPhase().toCheckCLDRPhase();
+    }
+
+    @Override
+    public CheckCLDR.Phase getExtendedPhase() {
+        return SurveyMain.getOverallExtendedPhase().toCheckCLDRPhase();
     }
 
     @Override

@@ -666,6 +666,7 @@ public class CheckPlaceHolders extends CheckCLDR {
         // ldml/listPatterns/listPattern[@type="standard-short"]/listPatternPart[@type="2"]
         if (path.startsWith("//ldml/listPatterns/listPattern")) {
             XPathParts parts = XPathParts.getFrozenInstance(path);
+            if (parts.containsElement("alias")) return; // skip alias XPaths
             // check order, {0} must be before {1}
 
             switch (parts.getAttributeValue(-1, "type")) {

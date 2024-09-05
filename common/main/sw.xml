@@ -71,6 +71,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="bin">Kibini</language>
 			<language type="bkm">Kikom</language>
 			<language type="bla">Kisiksika</language>
+			<language type="blo" draft="contributed">Kianii</language>
 			<language type="bm">Kibambara</language>
 			<language type="bn">Kibengali</language>
 			<language type="bo">Kitibeti</language>
@@ -262,6 +263,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="kv">Kikomi</language>
 			<language type="kw">Kikorni</language>
 			<language type="kwk">Kikwakʼwala</language>
+			<language type="kxv" draft="contributed">Kikuvi</language>
 			<language type="ky">Kikyrgyz</language>
 			<language type="la">Kilatini</language>
 			<language type="lad">Kiladino</language>
@@ -271,8 +273,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="lez">Kilezighian</language>
 			<language type="lg">Kiganda</language>
 			<language type="li">Limburgish</language>
+			<language type="lij" draft="contributed">Kiliguria</language>
 			<language type="lil">Kilillooet</language>
 			<language type="lkt">Kilakota</language>
+			<language type="lmo" draft="contributed">Kilongobardi</language>
 			<language type="ln">Kilingala</language>
 			<language type="lo">Kilaosi</language>
 			<language type="lol">Kimongo</language>
@@ -439,6 +443,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="sw">Kiswahili</language>
 			<language type="swb">Shikomor</language>
 			<language type="syr">Lugha ya Syriac</language>
+			<language type="szl" draft="contributed">Kisilesia</language>
 			<language type="ta">Kitamili</language>
 			<language type="tce">Kitutchone cha Kusini</language>
 			<language type="te">Kitelugu</language>
@@ -479,7 +484,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="uz">Kiuzbeki</language>
 			<language type="vai">Kivai</language>
 			<language type="ve">Kivenda</language>
+			<language type="vec" draft="contributed">Kivenisi</language>
 			<language type="vi">Kivietinamu</language>
+			<language type="vmw" draft="contributed">Kimakhuwa</language>
 			<language type="vo">Kivolapuk</language>
 			<language type="vun">Kivunjo</language>
 			<language type="wa">Kiwaloon</language>
@@ -491,6 +498,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="wuu">Kichina cha Wu</language>
 			<language type="xal">Kikalmyk</language>
 			<language type="xh">Kixhosa</language>
+			<language type="xnr" draft="contributed">Kikangri</language>
 			<language type="xog">Kisoga</language>
 			<language type="yao">Kiyao</language>
 			<language type="yav">Kiyangben</language>
@@ -500,6 +508,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="yrl">Kinheengatu</language>
 			<language type="yue">Kikantoni</language>
 			<language type="yue" alt="menu">Kichina, Kikantoni</language>
+			<language type="za" draft="contributed">Kizhuang</language>
 			<language type="zgh">Kiberber Sanifu cha Moroko</language>
 			<language type="zh">Kichina</language>
 			<language type="zh" alt="menu">Kichina sanifu</language>
@@ -1060,7 +1069,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<parseLenient sample="%">↑↑↑</parseLenient>
 			<parseLenient sample="‰">↑↑↑</parseLenient>
 			<parseLenient sample="$">↑↑↑</parseLenient>
-			<parseLenient sample="£">[£ ₤]</parseLenient>
+			<parseLenient sample="£">[£￡ ₤]</parseLenient>
 			<parseLenient sample="¥">↑↑↑</parseLenient>
 			<parseLenient sample="₩">↑↑↑</parseLenient>
 			<parseLenient sample="₹">↑↑↑</parseLenient>
@@ -1761,7 +1770,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="yMMMd">d MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMEd">E, d MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
-						<dateFormatItem id="yQQQ">↑↑↑</dateFormatItem>
+						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
 						<dateFormatItem id="yw" count="one">↑↑↑</dateFormatItem>
 						<dateFormatItem id="yw" count="other">'wiki' w 'ya' Y</dateFormatItem>
@@ -4320,6 +4329,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Saa za Kiangazi za Petropavlovsk-Kamchatski</daylight>
 				</long>
 			</metazone>
+			<metazone type="Kazakhstan">
+				<long>
+					<standard>Saa za Kazakhstan</standard>
+				</long>
+			</metazone>
 			<metazone type="Kazakhstan_Eastern">
 				<long>
 					<standard>Saa za Kazakhstan Mashariki</standard>
@@ -5370,6 +5384,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName count="one">som ya Kyrgystan</displayName>
 				<displayName count="other">som za Kyrgystan</displayName>
 				<symbol>↑↑↑</symbol>
+				<symbol alt="narrow" draft="contributed">↑↑↑</symbol>
 			</currency>
 			<currency type="KHR">
 				<displayName>Riel ya Kambodia</displayName>
@@ -6035,10 +6050,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-27">
-				<unitPrefixPattern draft="contributed">↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-30">
-				<unitPrefixPattern draft="contributed">↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p1">
 				<unitPrefixPattern>deka{0}</unitPrefixPattern>
@@ -6071,10 +6086,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p27">
-				<unitPrefixPattern draft="contributed">↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p30">
-				<unitPrefixPattern draft="contributed">↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p1">
 				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
@@ -6430,7 +6445,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="energy-foodcalorie">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
@@ -6525,14 +6540,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">pikseli {0} kwa kila inchi</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
-				<displayName draft="contributed">vitone kwa kila sentimita</displayName>
-				<unitPattern count="one" draft="contributed">kitone {0} kwa kila sentimita</unitPattern>
-				<unitPattern count="other" draft="contributed">vitone {0} kwa kila sentimita</unitPattern>
+				<displayName>vitone kwa kila sentimita</displayName>
+				<unitPattern count="one">kitone {0} kwa kila sentimita</unitPattern>
+				<unitPattern count="other">vitone {0} kwa kila sentimita</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-inch">
-				<displayName draft="contributed">vitone kwa kila inchi</displayName>
-				<unitPattern count="one" draft="contributed">kitone {0} kwa kila inchi</unitPattern>
-				<unitPattern count="other" draft="contributed">vitone {0} kwa kila inchi</unitPattern>
+				<displayName>vitone kwa kila inchi</displayName>
+				<unitPattern count="one">kitone {0} kwa kila inchi</unitPattern>
+				<unitPattern count="other">vitone {0} kwa kila inchi</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
 				<displayName draft="contributed">↑↑↑</displayName>
@@ -7063,6 +7078,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">kwati {0} ya Uingereza</unitPattern>
 				<unitPattern count="other">kwati {0} za Uingereza</unitPattern>
 			</unit>
+			<unit type="speed-light-speed">
+				<displayName>mwanga</displayName>
+				<unitPattern count="one">mwanga {0}</unitPattern>
+				<unitPattern count="other">mianga {0}</unitPattern>
+			</unit>
+			<unit type="concentr-portion-per-1e9">
+				<displayName>sehemu kwa kila bilioni</displayName>
+				<unitPattern count="one">sehemu {0} kwa kila bilioni</unitPattern>
+				<unitPattern count="other">sehemu {0} kwa kila bilioni</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>usiku</displayName>
+				<unitPattern count="one">usiku {0}</unitPattern>
+				<unitPattern count="other">usiku {0}</unitPattern>
+				<perUnitPattern>{0} kila usiku</perUnitPattern>
+			</unit>
 			<coordinateUnit>
 				<displayName>sehemu kuu za dira</displayName>
 				<coordinateUnitPattern type="east">↑↑↑</coordinateUnitPattern>
@@ -7103,10 +7134,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPrefixPattern>yokto{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-27">
-				<unitPrefixPattern draft="contributed">↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-30">
-				<unitPrefixPattern draft="contributed">↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p1">
 				<unitPrefixPattern>de{0}</unitPrefixPattern>
@@ -7139,10 +7170,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPrefixPattern>yotta{0}</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p27">
-				<unitPrefixPattern draft="contributed">↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p30">
-				<unitPrefixPattern draft="contributed">↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="1024p1">
 				<unitPrefixPattern>kibi{0}</unitPrefixPattern>
@@ -7498,9 +7529,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">kalori {0}</unitPattern>
 			</unit>
 			<unit type="energy-foodcalorie">
-				<displayName draft="contributed">kalori</displayName>
-				<unitPattern count="one" draft="contributed">kalori {0}</unitPattern>
-				<unitPattern count="other" draft="contributed">kalori {0}</unitPattern>
+				<displayName>kalori</displayName>
+				<unitPattern count="one">kalori {0}</unitPattern>
+				<unitPattern count="other">kalori {0}</unitPattern>
 			</unit>
 			<unit type="energy-kilojoule">
 				<displayName>kilojuli</displayName>
@@ -7598,14 +7629,14 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other" draft="contributed">dpcm {0}</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-inch">
-				<displayName draft="contributed">↑↑↑</displayName>
-				<unitPattern count="one" draft="contributed">dpi {0}</unitPattern>
-				<unitPattern count="other" draft="contributed">dpi {0}</unitPattern>
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">dpi {0}</unitPattern>
+				<unitPattern count="other">dpi {0}</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
-				<displayName draft="contributed">kitone</displayName>
-				<unitPattern count="one" draft="contributed">kitone {0}</unitPattern>
-				<unitPattern count="other" draft="contributed">vitone {0}</unitPattern>
+				<displayName>kitone</displayName>
+				<unitPattern count="one">kitone {0}</unitPattern>
+				<unitPattern count="other">vitone {0}</unitPattern>
 			</unit>
 			<unit type="length-earth-radius">
 				<displayName>↑↑↑</displayName>
@@ -8131,6 +8162,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">qt Imp. {0}</unitPattern>
 			</unit>
+			<unit type="speed-light-speed">
+				<displayName>mwanga</displayName>
+				<unitPattern count="one">mwanga {0}</unitPattern>
+				<unitPattern count="other">mianga {0}</unitPattern>
+			</unit>
+			<unit type="concentr-portion-per-1e9">
+				<displayName>sehemu kwa bilioni</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>usiku</displayName>
+				<unitPattern count="one">usiku {0}</unitPattern>
+				<unitPattern count="other">usiku {0}</unitPattern>
+				<perUnitPattern>{0}/usiku</perUnitPattern>
+			</unit>
 			<coordinateUnit>
 				<displayName>mwelekeo</displayName>
 				<coordinateUnitPattern type="east">{0} Mashariki</coordinateUnitPattern>
@@ -8171,10 +8218,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-27">
-				<unitPrefixPattern draft="contributed">↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p-30">
-				<unitPrefixPattern draft="contributed">↑↑↑</unitPrefixPattern>
+				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p1">
 				<unitPrefixPattern>deka{0}</unitPrefixPattern>
@@ -8205,6 +8252,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</compoundUnit>
 			<compoundUnit type="10p24">
 				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
+			</compoundUnit>
+			<compoundUnit type="10p27">
+				<unitPrefixPattern draft="contributed">↑↑↑</unitPrefixPattern>
 			</compoundUnit>
 			<compoundUnit type="10p30">
 				<unitPrefixPattern>↑↑↑</unitPrefixPattern>
@@ -8658,17 +8708,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-centimeter">
-				<displayName draft="contributed">dpcm</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>dpcm</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot-per-inch">
-				<displayName draft="contributed">dpi</displayName>
-				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
-				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
+				<displayName>dpi</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
 			<unit type="graphics-dot">
-				<displayName draft="contributed">↑↑↑</displayName>
+				<displayName>↑↑↑</displayName>
 				<unitPattern count="one" draft="contributed">↑↑↑</unitPattern>
 				<unitPattern count="other" draft="contributed">↑↑↑</unitPattern>
 			</unit>
@@ -9196,6 +9246,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="speed-light-speed">
+				<displayName>mwanga</displayName>
+				<unitPattern count="one">mwanga {0}</unitPattern>
+				<unitPattern count="other">mianga {0}</unitPattern>
+			</unit>
+			<unit type="concentr-portion-per-1e9">
+				<displayName>sehemu kwa kila bilioni</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>usiku</displayName>
+				<unitPattern count="one">usiku {0}</unitPattern>
+				<unitPattern count="other">usiku {0}</unitPattern>
+				<perUnitPattern>{0}/usiku</perUnitPattern>
+			</unit>
 			<coordinateUnit>
 				<displayName>↑↑↑</displayName>
 				<coordinateUnitPattern type="east">↑↑↑</coordinateUnitPattern>
@@ -9282,8 +9348,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<characterLabelPattern type="compatibility">{0} — uwiano</characterLabelPattern>
 		<characterLabelPattern type="enclosed">{0} — finyu</characterLabelPattern>
 		<characterLabelPattern type="extended">{0} — pana</characterLabelPattern>
-		<characterLabelPattern type="facing-left" draft="contributed">{0} inayoangalia kushoto</characterLabelPattern>
-		<characterLabelPattern type="facing-right" draft="contributed">{0} inayoangalia kulia</characterLabelPattern>
+		<characterLabelPattern type="facing-left">{0} inayoangalia kushoto</characterLabelPattern>
+		<characterLabelPattern type="facing-right">{0} inayoangalia kulia</characterLabelPattern>
 		<characterLabelPattern type="historic">{0} — ya kihistoria</characterLabelPattern>
 		<characterLabelPattern type="miscellaneous">{0} — ziada</characterLabelPattern>
 		<characterLabelPattern type="other">{0} — nyingine</characterLabelPattern>
@@ -9608,25 +9674,25 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<nameField type="credentials">MB</nameField>
 		</sampleName>
 		<sampleName item="foreignG">
-			<nameField type="given" draft="contributed">Kevin</nameField>
+			<nameField type="given">Kevin</nameField>
 		</sampleName>
 		<sampleName item="foreignGS">
-			<nameField type="given" draft="contributed">John</nameField>
-			<nameField type="surname" draft="contributed">Mkwawa</nameField>
+			<nameField type="given">John</nameField>
+			<nameField type="surname">Mkwawa</nameField>
 		</sampleName>
 		<sampleName item="foreignGGS">
-			<nameField type="given" draft="contributed">Zamara</nameField>
-			<nameField type="given2" draft="contributed">Imani</nameField>
-			<nameField type="surname" draft="contributed">Bukenya</nameField>
+			<nameField type="given">Zamara</nameField>
+			<nameField type="given2">Imani</nameField>
+			<nameField type="surname">Bukenya</nameField>
 		</sampleName>
 		<sampleName item="foreignFull">
 			<nameField type="title">Prof. Dk.</nameField>
-			<nameField type="given" draft="contributed">Salima</nameField>
-			<nameField type="given-informal" draft="contributed">Sarah</nameField>
-			<nameField type="given2" draft="contributed">Farida</nameField>
-			<nameField type="surname-prefix" draft="contributed">mwana</nameField>
-			<nameField type="surname-core" draft="contributed">Hamisi</nameField>
-			<nameField type="surname2" draft="contributed">Musa</nameField>
+			<nameField type="given">Salima</nameField>
+			<nameField type="given-informal">Sarah</nameField>
+			<nameField type="given2">Farida</nameField>
+			<nameField type="surname-prefix">mwana</nameField>
+			<nameField type="surname-core">Hamisi</nameField>
+			<nameField type="surname2">Musa</nameField>
 			<nameField type="generation">Jr</nameField>
 			<nameField type="credentials">M.D. Ph.D.</nameField>
 		</sampleName>

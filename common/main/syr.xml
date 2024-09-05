@@ -278,7 +278,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="IL">ܐܝܣܪܐܝܠ</territory>
 			<territory type="IM">ܓܙܪܬܐ ܕܡܐܢ</territory>
 			<territory type="IN">ܗܢܕܘ</territory>
-			<territory type="IO" draft="provisional">ܩܠܝܡܐ ܕܒܪܝܛܢܝܐ ܓܘ ܐܘܩܝܢܘܣ ܗܢܕܘܝܐ</territory>
+			<territory type="IO">ܩܠܝܡܐ ܕܒܪܝܛܢܝܐ ܓܘ ܐܘܩܝܢܘܣ ܗܢܕܘܝܐ</territory>
 			<territory type="IQ">ܥܝܪܩ</territory>
 			<territory type="IR">ܐܝܪܐܢ</territory>
 			<territory type="IS">ܐܝܣܠܢܕ</territory>
@@ -453,8 +453,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="calendar" type="gregorian">ܣܘܪܓܕܐ ܓܪܝܓܘܪܝܐ</type>
 			<type key="calendar" type="hebrew">ܣܘܪܓܕܐ ܝܗܘܕܝܐ</type>
 			<type key="calendar" type="indian">ܣܘܪܓܕܐ ܐܘܡܬܢܝܐ ܗܢܕܘܝܐ</type>
-			<type key="calendar" type="islamic" draft="provisional">ܣܘܪܓܕܐ ܡܫܠܡܢܝܐ</type>
-			<type key="calendar" type="islamic-civil" draft="provisional">ܣܘܪܓܕܐ ܡܫܠܡܢܝܐ ܡܕܝܢܝܐ</type>
+			<type key="calendar" type="islamic">ܣܘܪܓܕܐ ܡܫܠܡܢܝܐ</type>
+			<type key="calendar" type="islamic-civil">ܣܘܪܓܕܐ ܡܫܠܡܢܝܐ ܡܕܝܢܝܐ</type>
 			<type key="calendar" type="iso8601">ܣܘܪܓܕܐ ISO-8601</type>
 			<type key="calendar" type="japanese">ܣܘܪܓܕܐ ܝܦܢܝܐ</type>
 			<type key="calendar" type="persian">ܣܘܪܓܕܐ ܦܪܣܝܐ</type>
@@ -522,7 +522,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<parseLenient sample="%" draft="contributed">↑↑↑</parseLenient>
 			<parseLenient sample="‰" draft="contributed">↑↑↑</parseLenient>
 			<parseLenient sample="$" draft="contributed">↑↑↑</parseLenient>
-			<parseLenient sample="£" draft="contributed">[£ ₤]</parseLenient>
+			<parseLenient sample="£" draft="contributed">[£￡ ₤]</parseLenient>
 			<parseLenient sample="¥" draft="contributed">↑↑↑</parseLenient>
 			<parseLenient sample="₩" draft="contributed">↑↑↑</parseLenient>
 			<parseLenient sample="₹" draft="contributed">↑↑↑</parseLenient>
@@ -1200,7 +1200,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<appendItem request="Timezone">↑↑↑</appendItem>
 					</appendItems>
 					<intervalFormats>
-						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
+						<intervalFormatFallback>↑↑↑</intervalFormatFallback>
 						<intervalFormatItem id="Bh">
 							<greatestDifference id="B">↑↑↑</greatestDifference>
 							<greatestDifference id="h">↑↑↑</greatestDifference>

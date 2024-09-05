@@ -380,8 +380,8 @@ public class VoteResolver<T> {
             return isVetter() && (inPhase == Phase.SUBMISSION);
         }
 
-        public boolean canDoList() {
-            return isVetter();
+        public boolean canListUsers() {
+            return isManagerOrStronger();
         }
 
         public boolean canCreateUsers() {
@@ -433,6 +433,10 @@ public class VoteResolver<T> {
         /** If true, can delete users at their user level or lower. */
         public boolean canDeleteUsers() {
             return isAdmin();
+        }
+
+        public boolean canUseVettingParticipation() {
+            return isManagerOrStronger();
         }
     }
 

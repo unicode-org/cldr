@@ -11,6 +11,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<language type="ku"/>
 	</identity>
 	<annotations>
+		<annotation cp=",">bêhnok | vîrgul</annotation>
+		<annotation cp="," type="tts">vîrgul</annotation>
+		<annotation cp="،">erebî | vîrgul</annotation>
+		<annotation cp="،" type="tts">vîrgula erebî</annotation>
+		<annotation cp="、">îdeografîk | vîrgul</annotation>
+		<annotation cp="、" type="tts">vîrgula îdeografîk</annotation>
+		<annotation cp=";">niqtebêhnok | niqtebihnok</annotation>
+		<annotation cp=";" type="tts">niqtebihnok</annotation>
+		<annotation cp="§">beş | nîşana beşê | paragraf | qism</annotation>
+		<annotation cp="§" type="tts">beş</annotation>
+		<annotation cp="†">kama | nîşan | obelisk | xaç</annotation>
+		<annotation cp="†" type="tts">nîşana kamayê</annotation>
+		<annotation cp="‡" type="tts">nîşana kamayê ya cot</annotation>
 		<annotation cp="🧒">zarok</annotation>
 		<annotation cp="🧒" type="tts">zarok</annotation>
 		<annotation cp="👧">keç</annotation>

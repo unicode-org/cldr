@@ -451,7 +451,7 @@ public class SupplementalDataInfo {
                 throw new IllegalArgumentException("Illegal Script: " + script);
             }
             if (scripts == Collections.EMPTY_SET) {
-                scripts = new TreeSet<>();
+                scripts = new LinkedHashSet<>(); // retain order
             }
             scripts.add(script);
             return this;
@@ -463,7 +463,7 @@ public class SupplementalDataInfo {
                 throw new IllegalArgumentException("Illegal Territory: " + territory);
             }
             if (territories == Collections.EMPTY_SET) {
-                territories = new TreeSet<>();
+                territories = new LinkedHashSet<>();
             }
             territories.add(territory);
             return this;

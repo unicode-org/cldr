@@ -2,8 +2,8 @@ package org.unicode.cldr.util;
 
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableList;
+import com.ibm.icu.util.ICUUncheckedIOException;
 import java.io.IOException;
-import java.io.UncheckedIOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -70,7 +70,7 @@ public class LocalePathValueListMatcher {
         try {
             return load(Files.lines(path));
         } catch (IOException ex) {
-            throw new UncheckedIOException(ex);
+            throw new ICUUncheckedIOException(ex);
         }
     }
 

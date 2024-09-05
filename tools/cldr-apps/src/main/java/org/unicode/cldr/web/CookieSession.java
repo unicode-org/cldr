@@ -359,10 +359,17 @@ public class CookieSession {
     /** Note a direct user action. */
     public void userDidAction() {
         lastActionMillisSinceEpoch = System.currentTimeMillis();
+        // if (user != null) {
+        //     user.touch(); // explicitly update user last login time
+        // }
     }
 
-    /** Delete a session. */
-    public void remove() {
+    /**
+     * Delete a session.
+     *
+     * @return the user that was deleted, if any
+     */
+    public UserRegistry.User remove() {
         synchronized (gHash) {
             if (user != null) {
                 uHash.remove(user.email);
@@ -370,18 +377,21 @@ public class CookieSession {
             gHash.remove(id);
         }
         if (DEBUG_INOUT) System.out.println("S: Removing session: " + id + " - " + user);
+        return user;
     }
 
     /**
-     * Remove a specific session
+     * Remove a specific session (and return if found)
      *
      * @param sessionId
+     * @return the user that was logged out, if any
      */
-    public static void remove(String sessionId) {
+    public static UserRegistry.User remove(String sessionId) {
         CookieSession sess = CookieSession.retrieveWithoutTouch(sessionId);
         if (sess != null) {
-            sess.remove(); // forcibly remove session
+            return sess.remove(); // forcibly remove session
         }
+        return null;
     }
 
     /**

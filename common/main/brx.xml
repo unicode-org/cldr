@@ -851,7 +851,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<territory type="IL">इज्राईल</territory>
 			<territory type="IM">आयोल अफ मेन</territory>
 			<territory type="IN">भारत</territory>
-			<territory type="IO" draft="provisional">ब्रिटिशनि भारतारि लैथो बाहागो</territory>
+			<territory type="IO">ब्रिटिशनि भारतारि लैथो बाहागो</territory>
 			<territory type="IQ">ईराक</territory>
 			<territory type="IR">ईरान</territory>
 			<territory type="IS">आइसलेण्ड</territory>
@@ -1054,9 +1054,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<type key="calendar" type="gregorian">ग्रेग’रियान फान्जामुथि</type>
 			<type key="calendar" type="hebrew">हिब्रिउ फान्जामुथि</type>
 			<type key="calendar" type="indian">भारतनि हादोरनां फान्जामुथि</type>
-			<type key="calendar" type="islamic" draft="provisional">इस्लामिक फान्जामुथि</type>
-			<type key="calendar" type="islamic-civil" draft="provisional">इस्लामिक फान्जामुथि ( फारि, हादोरारि मुगा)</type>
-			<type key="calendar" type="islamic-umalqura" draft="provisional">इस्लामिक फान्जामुथि( ऊम आल-कूरा)</type>
+			<type key="calendar" type="islamic">इस्लामिक फान्जामुथि</type>
+			<type key="calendar" type="islamic-civil">इस्लामिक फान्जामुथि ( फारि, हादोरारि मुगा)</type>
+			<type key="calendar" type="islamic-umalqura">इस्लामिक फान्जामुथि( ऊम आल-कूरा)</type>
 			<type key="calendar" type="iso8601">आइ.एस.अ-8601 फान्जामुथि</type>
 			<type key="calendar" type="japanese">जापानीज फान्जामुथि</type>
 			<type key="calendar" type="persian">पार्सियान फान्जामुथि</type>
@@ -1747,7 +1747,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 						<dateFormatItem id="MMM">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMd">d-MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, MMM d</dateFormatItem>
-						<dateFormatItem id="MMMMd">↑↑↑</dateFormatItem>
+						<dateFormatItem id="MMMMd">MMMM d</dateFormatItem>
 						<dateFormatItem id="MMMMEd">E, MMMM d</dateFormatItem>
 						<dateFormatItem id="MMMMW" count="one">↑↑↑</dateFormatItem>
 						<dateFormatItem id="MMMMW" count="other">↑↑↑</dateFormatItem>
@@ -4896,6 +4896,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<native>deva</native>
 		</otherNumberingSystems>
 		<minimumGroupingDigits draft="contributed">↑↑↑</minimumGroupingDigits>
+		<symbols numberSystem="deva">
+			<decimal>↑↑↑</decimal>
+			<group>↑↑↑</group>
+			<percentSign>↑↑↑</percentSign>
+			<plusSign>↑↑↑</plusSign>
+			<minusSign>↑↑↑</minusSign>
+		</symbols>
 		<symbols numberSystem="latn">
 			<decimal>↑↑↑</decimal>
 			<group>↑↑↑</group>
@@ -4910,6 +4917,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<infinity>↑↑↑</infinity>
 			<nan>↑↑↑</nan>
 		</symbols>
+		<decimalFormats numberSystem="deva">
+			<decimalFormatLength>
+				<decimalFormat>
+					<pattern>↑↑↑</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength>
 				<decimalFormat>
@@ -4973,6 +4987,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
+		<scientificFormats numberSystem="deva">
+			<scientificFormatLength>
+				<scientificFormat>
+					<pattern>↑↑↑</pattern>
+				</scientificFormat>
+			</scientificFormatLength>
+		</scientificFormats>
 		<scientificFormats numberSystem="latn">
 			<scientificFormatLength>
 				<scientificFormat>
@@ -4980,6 +5001,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</scientificFormat>
 			</scientificFormatLength>
 		</scientificFormats>
+		<percentFormats numberSystem="deva">
+			<percentFormatLength>
+				<percentFormat>
+					<pattern>↑↑↑</pattern>
+				</percentFormat>
+			</percentFormatLength>
+		</percentFormats>
 		<percentFormats numberSystem="latn">
 			<percentFormatLength>
 				<percentFormat>
@@ -4987,6 +5015,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</percentFormat>
 			</percentFormatLength>
 		</percentFormats>
+		<currencyFormats numberSystem="deva">
+			<currencyFormatLength>
+				<currencyFormat type="standard">
+					<pattern>↑↑↑</pattern>
+				</currencyFormat>
+			</currencyFormatLength>
+		</currencyFormats>
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
@@ -5027,8 +5062,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>{0} ¤¤</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencies>
 			<currency type="ADP">
@@ -6262,7 +6297,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				<displayName>सोनाब आफ्रिकानि सि.एफ.ए फ्रांक</displayName>
 				<displayName count="one">↑↑↑</displayName>
 				<displayName count="other">↑↑↑</displayName>
-				<symbol draft="contributed">एफ सि.एफ.ए</symbol>
+				<symbol>↑↑↑</symbol>
 			</currency>
 			<currency type="XPD">
 				<displayName>पैलेडियम</displayName>

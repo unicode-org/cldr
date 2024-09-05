@@ -41,8 +41,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="[">bracket | crotchet | left square bracket | open square bracket | square bracket</annotation>
 		<annotation cp="]">bracket | close square bracket | crotchet | right square bracket | square bracket</annotation>
 		<annotation cp="}">brace | bracket | close curly bracket | curly brace | curly bracket | gullwing | right curly bracket</annotation>
-		<annotation cp="〈">angle bracket | bracket | chevron | diamond brackets | left angle bracket | open angle bracket | pointy bracket | tuple</annotation>
-		<annotation cp="〉">angle bracket | bracket | chevron | close angle bracket | diamond brackets | pointy bracket | right angle bracket | tuple</annotation>
+		<annotation cp="〈">angle bracket | chevron | diamond bracket | left angle bracket | open angle bracket | pointy bracket | tuple</annotation>
+		<annotation cp="〉">angle bracket | chevron | close angle bracket | diamond bracket | pointy bracket | right angle bracket | tuple</annotation>
 		<annotation cp="《">bracket | double angle bracket | left double angle bracket | open double angle bracket</annotation>
 		<annotation cp="》">bracket | close double angle bracket | double angle bracket | right double angle bracket</annotation>
 		<annotation cp="「">bracket | corner bracket | left corner bracket | open corner bracket</annotation>
@@ -80,7 +80,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↠" type="tts">rightwards two-headed arrow</annotation>
 		<annotation cp="↡">downwards two-headed arrow</annotation>
 		<annotation cp="↡" type="tts">downwards two-headed arrow</annotation>
-		<annotation cp="↢">arrow | arrow with tail | left | leftwards arrow with tail</annotation>
+		<annotation cp="↢">leftwards arrow with tail</annotation>
 		<annotation cp="↢" type="tts">leftwards arrow with tail</annotation>
 		<annotation cp="↣">rightwards arrow with tail</annotation>
 		<annotation cp="↣" type="tts">rightwards arrow with tail</annotation>
@@ -100,10 +100,10 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="↲" type="tts">downwards arrow with leftwards tip</annotation>
 		<annotation cp="↳">downwards arrow with rightwards tip</annotation>
 		<annotation cp="↳" type="tts">downwards arrow with rightwards tip</annotation>
-		<annotation cp="↴">rightwards arrow with corner downwards</annotation>
-		<annotation cp="↴" type="tts">rightwards arrow with corner downwards</annotation>
-		<annotation cp="↵">downwards arrow with corner leftwards</annotation>
-		<annotation cp="↵" type="tts">downwards arrow with corner leftwards</annotation>
+		<annotation cp="↴">rightwards arrow with downwards corner</annotation>
+		<annotation cp="↴" type="tts">rightwards arrow with downwards corner</annotation>
+		<annotation cp="↵">downwards arrow with leftwards corner</annotation>
+		<annotation cp="↵" type="tts">downwards arrow with leftwards corner</annotation>
 		<annotation cp="↶">anticlockwise top-semicircle arrow</annotation>
 		<annotation cp="↶" type="tts">anticlockwise top-semicircle arrow</annotation>
 		<annotation cp="↷">clockwise top-semicircle arrow</annotation>
@@ -302,65 +302,102 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="⪍" type="tts">less-than above similar or equal</annotation>
 		<annotation cp="⪚">double-line equal to or greater-than | inequality | mathematics</annotation>
 		<annotation cp="⪚" type="tts">double-line equal to or greater-than</annotation>
-		<annotation cp="😋">delicious | face | face savoring food | face savouring food | savouring | smile | yum</annotation>
+		<annotation cp="🫆">clue | crime | detective | fingerprint | forensics | identity | mystery | print | safety | security | trace</annotation>
+		<annotation cp="🫜">beetroot | garden | root | turnip | vegetable</annotation>
+		<annotation cp="😘">adorbs | bae | blowing | face | flirt | heart | ily | kiss | love | lover | miss | muah | mwah | romantic | smooch | xoxo | you</annotation>
+		<annotation cp="😋">delicious | face | face savouring food | savouring | smile | yum</annotation>
 		<annotation cp="😋" type="tts">face savouring food</annotation>
-		<annotation cp="🤭">embarrassed | face with hand over mouth | oops | whoops</annotation>
-		<annotation cp="🤐">face | mouth | zip | zip-mouth face</annotation>
+		<annotation cp="🤭">embarrassed | face | giggle | giggling | hand | mouth | oops | realisation | secret | shock | sudden | surprise | whoops</annotation>
+		<annotation cp="🤐">face | keep | mouth | quiet | secret | shut | zip</annotation>
 		<annotation cp="🤐" type="tts">zip-mouth face</annotation>
-		<annotation cp="🤨">distrust | face with raised eyebrow | sceptic</annotation>
+		<annotation cp="🤨">disapproval | disbelief | distrust | emoji | eyebrow | face | hmm | mild | raised | sceptic | sceptical | scepticism | surprise | what</annotation>
 		<annotation cp="😶‍🌫">absent-minded | face in clouds | face in the fog | head in clouds</annotation>
-		<annotation cp="😷">cold | doctor | face with medical mask | ill | mask | medicine | poorly | sick</annotation>
-		<annotation cp="😵‍💫">dizzy | face with spiral eyes | hypnotised | spiral | trouble | whoa</annotation>
+		<annotation cp="😷">cold | dentist | dermatologist | doctor | dr | face | germs | mask | medical | medicine | poorly | sick</annotation>
+		<annotation cp="😵‍💫">confused | dizzy | eyes | face | hypnotised | omg | smiley | spiral | trouble | whoa | woah | woozy</annotation>
 		<annotation cp="🫤">disappointed | face with diagonal mouth | meh | sceptical | unsure</annotation>
-		<annotation cp="😤">angry | face | face with steam from nose | frustration | triumph | won</annotation>
+		<annotation cp="😮">believe | face | forgot | mouth | omg | open | shocked | surprised | sympathy | unbelievable | unreal | whoa | woah | wow | you</annotation>
+		<annotation cp="😤">anger | angry | face | feels | frustration | fume | fuming | furious | fury | mad | nose | steam | triumph | unhappy | won</annotation>
+		<annotation cp="🙈">embarrassed | evil | face | forbidden | forgot | gesture | hide | monkey | no | omg | prohibited | scared | secret | see | smh | watch</annotation>
+		<annotation cp="💗">143 | emotion | excited | growing | heart | heartpulse | ily | kisses | muah | mwah | nervous | pulse | xoxo</annotation>
 		<annotation cp="🩶">grey | heart | silver | slate</annotation>
-		<annotation cp="💬">balloon | bubble | comic | dialogue | speech</annotation>
+		<annotation cp="💬">balloon | bubble | comic | dialogue | message | sms | speech | talk | text | typing</annotation>
 		<annotation cp="🗨">balloon | bubble | dialogue | left speech bubble | speech</annotation>
+		<annotation cp="💭">balloon | bubble | cartoon | cloud | comic | daydream | decisions | dream | idea | invent | invention | realise | think | thoughts | wonder</annotation>
 		<annotation cp="🙌">celebration | gesture | hand | hooray | raising hands | woo hoo | yay</annotation>
-		<annotation cp="🙏">ask | hand | high 5 | high five | please | pray | thanks</annotation>
-		<annotation cp="🫀">anatomical heart | cardiology | heart | organ | pulse</annotation>
-		<annotation cp="🙇‍♂">apology | bowing | favour | gesture | man | sorry</annotation>
-		<annotation cp="🙇‍♀">apology | bowing | favour | gesture | sorry | woman</annotation>
+		<annotation cp="🙏">appreciate | ask | beg | blessed | bow | cmon | five | folded | gesture | hand | high | please | pray | thanks | thx</annotation>
+		<annotation cp="👃">body | nose | noses | nosey | odour | smell | smells</annotation>
+		<annotation cp="🫀">anatomical | beat | cardiology | heart | heartbeat | organ | pulse | red</annotation>
+		<annotation cp="🙇">apology | ask | beg | bow | bowing | favour | forgive | gesture | meditate | meditation | person | pity | regret | sorry</annotation>
+		<annotation cp="🙇‍♂">apology | ask | beg | bow | bowing | favour | forgive | gesture | man | meditate | meditation | pity | regret | sorry</annotation>
+		<annotation cp="🙇‍♀">apology | ask | beg | bow | bowing | favour | forgive | gesture | meditate | meditation | pity | regret | sorry | woman</annotation>
 		<annotation cp="🧑‍🏫">instructor | lecturer | professor | teacher</annotation>
 		<annotation cp="👨‍🏫">instructor | lecturer | man | professor | teacher</annotation>
 		<annotation cp="👩‍🏫">instructor | lecturer | professor | teacher | woman</annotation>
 		<annotation cp="🧑‍⚖">judge | law</annotation>
 		<annotation cp="👨‍⚖">judge | justice | law | man</annotation>
 		<annotation cp="👩‍⚖">judge | justice | law | woman</annotation>
+		<annotation cp="🧑‍🌾">farmer | gardener</annotation>
+		<annotation cp="👨‍🌾">farmer | gardener | man</annotation>
+		<annotation cp="👩‍🌾">farmer | gardener | woman</annotation>
 		<annotation cp="🧑‍🚒">fire engine | fire truck | firefighter</annotation>
-		<annotation cp="👨‍🚒">fire | fire truck | firefighter | man</annotation>
-		<annotation cp="👩‍🚒">fire | fire truck | firefighter | woman</annotation>
+		<annotation cp="👨‍🚒">fire truck | firefighter | man</annotation>
+		<annotation cp="👩‍🚒">fire truck | firefighter | woman</annotation>
+		<annotation cp="👷">build | construction | fix | hard hat | hat | man | person | rebuild | remodel | repair | work | worker</annotation>
+		<annotation cp="👷‍♂">build | construction | fix | hard hat | hat | man | rebuild | remodel | repair | work | worker</annotation>
+		<annotation cp="👷‍♀">build | construction | fix | hard hat | hat | man | rebuild | remodel | repair | woman | work | worker</annotation>
 		<annotation cp="🤵">groom | person | person in tux | person in tuxedo | tuxedo</annotation>
 		<annotation cp="🤵‍♂">man | man in tux | man in tuxedo | tuxedo</annotation>
 		<annotation cp="🤵‍♀">tuxedo | woman | woman in tux | woman in tuxedo</annotation>
-		<annotation cp="💇">barber | beauty | haircut | parlour | person getting haircut</annotation>
+		<annotation cp="🤶">celebration | Christmas | claus | mother | Mrs</annotation>
+		<annotation cp="🤶" type="tts">Mrs Claus</annotation>
+		<annotation cp="💇">barber | beauty | chop | cosmetology | cut | groom | hair | haircut | parlour | person | shears | style</annotation>
+		<annotation cp="💇‍♂">barber | beauty | chop | cosmetology | cut | groom | hair | haircut | man | parlour | person | shears | style</annotation>
+		<annotation cp="💇‍♀">barber | beauty | chop | cosmetology | cut | groom | hair | haircut | parlour | person | shears | style | woman</annotation>
 		<annotation cp="🧑‍🦯">accessibility | blind | person with guide cane | person with white cane</annotation>
 		<annotation cp="🧑‍🦯" type="tts">person with guide cane</annotation>
 		<annotation cp="👨‍🦯">accessibility | blind | man | man with guide cane</annotation>
 		<annotation cp="👨‍🦯" type="tts">man with guide cane</annotation>
 		<annotation cp="👩‍🦯">accessibility | blind | woman | woman with guide cane</annotation>
 		<annotation cp="👩‍🦯" type="tts">woman with guide cane</annotation>
-		<annotation cp="🧑‍🦼">accessibility | person in motorized wheelchair | person in powered wheelchair | wheelchair</annotation>
+		<annotation cp="🧑‍🦼">accessibility | person in motorised wheelchair | person in powered wheelchair | wheelchair</annotation>
 		<annotation cp="🧑‍🦼" type="tts">person in powered wheelchair</annotation>
 		<annotation cp="👨‍🦼">accessibility | man | man in powered wheelchair | wheelchair</annotation>
 		<annotation cp="👨‍🦼" type="tts">man in powered wheelchair</annotation>
 		<annotation cp="👩‍🦼">accessibility | wheelchair | woman | woman in powered wheelchair</annotation>
 		<annotation cp="👩‍🦼" type="tts">woman in powered wheelchair</annotation>
+		<annotation cp="🕺">dance | dancer | dancing | disco | elegant | festive | flair | flamenco | groove | let’s | man | salsa | tango</annotation>
+		<annotation cp="🧖">day | luxurious | pamper | person | relax | room | sauna | spa | steam | steam bath | unwind</annotation>
+		<annotation cp="🧖‍♂">day | luxurious | man | pamper | relax | room | sauna | spa | steam | steam bath | unwind</annotation>
+		<annotation cp="🧖‍♀">day | luxurious | pamper | relax | room | sauna | spa | steam | steam bath | unwind | woman</annotation>
+		<annotation cp="🏌">ball | birdie | caddy | driving | golf | golfing | green | person | putt | range | tee</annotation>
+		<annotation cp="🏌‍♂">ball | birdie | caddy | driving | golf | golfing | green | man | putt | range | tee</annotation>
+		<annotation cp="🏌‍♀">ball | birdie | caddy | driving | golf | golfing | green | putt | range | tee | woman</annotation>
 		<annotation cp="👬">couple | Gemini | holding hands | man | men holding hands | twins | zodiac</annotation>
+		<annotation cp="💏">anniversary | babe | bae | couple | date | dating | heart | kiss | love | muah | mwah | person | romance | together | xoxo</annotation>
 		<annotation cp="🦳">grey | hair | old | white</annotation>
+		<annotation cp="🦣">animal | extinction | large | mammoth | tusk | woolly | wooly</annotation>
+		<annotation cp="🦚">animal | bird | colourful | ornithology | ostentatious | peacock | peahen | pretty | proud</annotation>
+		<annotation cp="🐦‍⬛" type="tts">blackbird</annotation>
+		<annotation cp="🐦‍🔥">fantasy | firebird | phoenix | rebirth | reincarnation</annotation>
 		<annotation cp="🪴">grow | house | nurturing | plant | potted plant</annotation>
 		<annotation cp="🫑">bell pepper | capsicum | pepper | sweet pepper | vegetable</annotation>
 		<annotation cp="🫑" type="tts">pepper</annotation>
 		<annotation cp="🥬">bok choy | cabbage | kale | leafy green | lettuce | pak choi</annotation>
 		<annotation cp="🧄">flavouring | garlic</annotation>
 		<annotation cp="🧅">flavouring | onion</annotation>
+		<annotation cp="🫚">beer | ginger root | root | root ginger | spice</annotation>
+		<annotation cp="🫚" type="tts">root ginger</annotation>
 		<annotation cp="🧇">breakfast | iron | unclear | vague | waffle</annotation>
 		<annotation cp="🥩">chop | cut of meat | lamb chop | pork chop | steak</annotation>
+		<annotation cp="🧂">condiment | flavour | mad | salt | salty | shaker | taste | upset</annotation>
+		<annotation cp="🥫" type="tts">tinned food</annotation>
 		<annotation cp="🍥">cake | fish | fish cake with swirl | narutomaki | pastry | swirl</annotation>
 		<annotation cp="🥡">oyster pail | takeaway box | takeout box</annotation>
+		<annotation cp="🦑">animal | food | mollusc | squid</annotation>
 		<annotation cp="🍶">bar | beverage | bottle | cup | drink | sake | saké</annotation>
 		<annotation cp="🧉">drink | maté</annotation>
 		<annotation cp="🧉" type="tts">maté</annotation>
+		<annotation cp="🍴">breakfast | brekkie | cooking | cutlery | delicious | dinner | eat | feed | food | fork | hungry | knife | lunch | restaurant | yum | yummy</annotation>
 		<annotation cp="🏺">amphora | Aquarius | drink | jar | jug | zodiac</annotation>
 		<annotation cp="🗻">Fuji | Mount Fuji | mountain</annotation>
 		<annotation cp="🗻" type="tts">Mount Fuji</annotation>
@@ -374,7 +411,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🎡">amusement park | ferris | theme park | wheel</annotation>
 		<annotation cp="🎢">amusement park | coaster | roller | theme park</annotation>
 		<annotation cp="🚃">car | electric | railway | railway carriage | train | tram | trolleybus</annotation>
-		<annotation cp="🚙">4x4 | off-road vehicle | sport utility | sport utility vehicle</annotation>
+		<annotation cp="🚙">4x4 | car | drive | off-road | recreational | sport | sportutility | suv | utility | vehicle</annotation>
 		<annotation cp="🦼">accessibility | powered wheelchair</annotation>
 		<annotation cp="🦼" type="tts">powered wheelchair</annotation>
 		<annotation cp="🛺">auto rickshaw | tuk tuk | tuk-tuk</annotation>
@@ -396,18 +433,26 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🕥">10:30 | 10.30 | clock | half past ten | ten-thirty</annotation>
 		<annotation cp="🕦">11:30 | 11.30 | clock | eleven-thirty | half past eleven</annotation>
 		<annotation cp="🎏">carp | carp wind sock | celebration | Japanese wind socks | koinobori | streamer</annotation>
+		<annotation cp="⚽" type="tts">football</annotation>
+		<annotation cp="🏓" type="tts">table tennis</annotation>
+		<annotation cp="🤿">diving | mask | scuba | snorkelling</annotation>
+		<annotation cp="🛷" type="tts">sledge</annotation>
 		<annotation cp="🔫" type="tts">↑↑↑</annotation>
 		<annotation cp="🪆">babushka | doll | matryoshka | nesting dolls | russia | Russian dolls</annotation>
 		<annotation cp="🪆" type="tts">Russian dolls</annotation>
+		<annotation cp="🎨">art | artist | artsy | arty | colourful | creative | entertainment | museum | painter | painting | palette</annotation>
 		<annotation cp="🦺">emergency | hi-vis | high-vis | jacket | life jacket | safety | vest</annotation>
 		<annotation cp="👔" type="tts">tie</annotation>
+		<annotation cp="👕">blue | casual | clothes | clothing | collar | dressed | green | shirt | shopping | t shirt | t-shirt | tshirt | weekend</annotation>
 		<annotation cp="🩱">bathing suit | one-piece swimsuit | swimming costume</annotation>
 		<annotation cp="🩲">bathing suit | briefs | one-piece | pants | swimsuit | underwear</annotation>
 		<annotation cp="🩳">bathing suit | boardshorts | shorts | swim shorts | underwear</annotation>
 		<annotation cp="🩴">beach sandals | flip-flop | flipflop | sandals | thong sandals | thongs | zori</annotation>
 		<annotation cp="🩴" type="tts">flip-flop</annotation>
+		<annotation cp="👟">athletic | clothes | clothing | fast | kick | running | shoe | shoes | shopping | sneaker | tennis | trainers</annotation>
 		<annotation cp="🥿">ballet flat | flat shoe | pump | slip-on | slipper</annotation>
 		<annotation cp="📯" type="tts">post horn</annotation>
+		<annotation cp="🎸">guitar | instrument | music</annotation>
 		<annotation cp="🪘" type="tts">conga drum</annotation>
 		<annotation cp="💷">banknote | bill | currency | money | note | pound | sterling</annotation>
 		<annotation cp="📫">closed postbox with raised flag | letterbox | mail | mailbox | post | post box | postbox</annotation>
@@ -428,11 +473,17 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧴">lotion | lotion bottle | moisturiser | shampoo | sunscreen</annotation>
 		<annotation cp="🧷">nappy | punk rock | safety pin</annotation>
 		<annotation cp="🧻">paper towels | roll of paper | toilet paper | toilet roll</annotation>
+		<annotation cp="🧼">bar | bathing | clean | cleaning | lather | soap | soap dish</annotation>
 		<annotation cp="🪪">credentials | driving | ID | identification card | licence | security</annotation>
+		<annotation cp="🏧">ATM | automated | bank | cash | cashpoint | money | sign | teller</annotation>
+		<annotation cp="🚹">bathroom | lavatory | loo | man | men’s | room | toilet | WC</annotation>
+		<annotation cp="🚺">bathroom | lavatory | loo | room | toilet | WC | woman | women’s</annotation>
+		<annotation cp="🚻" type="tts">toilets</annotation>
 		<annotation cp="🚾">closet | lavatory | restroom | toilet | water | wc</annotation>
 		<annotation cp="↮">left-right arrow with stroke</annotation>
 		<annotation cp="↮" type="tts">left-right arrow with stroke</annotation>
-		<annotation cp="🔄">anticlockwise | anticlockwise arrows button | arrow | counterclockwise | counterclockwise arrows button | withershins</annotation>
+		<annotation cp="🔄">again | anticlockwise | arrow | arrows | button | counterclockwise | deja | refresh | rewind | vu</annotation>
+		<annotation cp="🔄" type="tts">anticlockwise arrows button</annotation>
 		<annotation cp="✡">David | Jewish | Judaism | religion | star | Star of David</annotation>
 		<annotation cp="✡" type="tts">Star of David</annotation>
 		<annotation cp="✝">Christian | cross | Latin cross | religion</annotation>
@@ -446,7 +497,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="➕">+ | math | maths | plus | sign</annotation>
 		<annotation cp="➖">- | − | heavy minus sign | math | maths | minus | sign</annotation>
 		<annotation cp="🟰">equality | heavy equals sign | math | maths</annotation>
-		<annotation cp="⁉">! | !? | ? | exclamation question mark | interrobang | mark | punctuation | question</annotation>
+		<annotation cp="⁉">! | !? | ? | exclamation question mark | interrobang | punctuation | question</annotation>
 		<annotation cp="✅">✓ | button | mark | tick</annotation>
 		<annotation cp="✅" type="tts">tick button</annotation>
 		<annotation cp="☑">✓ | box | tick | tick box with tick</annotation>
@@ -456,6 +507,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="®">r | registered | trademark</annotation>
 		<annotation cp="🚩">post | red flag | triangular flag</annotation>
 		<annotation cp="🏳">surrender | waving | white flag</annotation>
+		<annotation cp="🏳‍🌈">bisexual | flag | gay | genderqueer | glbt | glbtq | lesbian | lgbt | lgbtq | lgbtq+ | lgbtqia | pride | queer | rainbow | trans | transgender</annotation>
 		<annotation cp="🏳‍⚧">flag | light blue | pink | trans | transgender | white</annotation>
 		<annotation cp="£">currency | EGP | GBP | pound | quid | sterling</annotation>
 		<annotation cp="₢">Brazil | BRB | cruzeiro | currency</annotation>

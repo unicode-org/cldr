@@ -51,7 +51,8 @@ public class TestUserLevel {
     @CsvSource({
         // List of all operations of the form UserRegistry.<operation>(null)
         // org, null, operation, expStr, otherOrg, otherLevel
-        "adlam, null, userCanDoList, false, wod_nko, vetter",
+        "adlam, null, userCanListUsers, false, wod_nko, vetter",
+        "adlam, null, userCanUseVettingParticipation, false, wod_nko, vetter",
         "adlam, null, userCanCreateUsers, false, wod_nko, vetter",
         "adlam, null, userCanEmailUsers, false, wod_nko, vetter",
         "adlam, null, userCanModifyUsers, false, wod_nko, vetter",
@@ -123,8 +124,11 @@ public class TestUserLevel {
             case "canImportOldVotesSUBMISSION":
                 assertEquals(expected, u.canImportOldVotes(CheckCLDR.Phase.SUBMISSION), onFail);
                 break;
-            case "userCanDoList":
-                assertEquals(expected, UserRegistry.userCanDoList(u), onFail);
+            case "userCanListUsers":
+                assertEquals(expected, UserRegistry.userCanListUsers(u), onFail);
+                break;
+            case "userCanUseVettingParticipation":
+                assertEquals(expected, UserRegistry.userCanUseVettingParticipation(u), onFail);
                 break;
             case "userCanCreateUsers":
                 assertEquals(expected, UserRegistry.userCanCreateUsers(u), onFail);
@@ -259,8 +263,11 @@ public class TestUserLevel {
             case "canImportOldVotesSUBMISSION":
                 assertEquals(expected, l.canImportOldVotes(CheckCLDR.Phase.SUBMISSION), onFail);
                 break;
-            case "userCanDoList":
-                assertEquals(expected, l.canDoList(), onFail);
+            case "userCanListUsers":
+                assertEquals(expected, l.canListUsers(), onFail);
+                break;
+            case "userCanUseVettingParticipation":
+                assertEquals(expected, l.canUseVettingParticipation(), onFail);
                 break;
             case "userCanCreateUsers":
                 assertEquals(expected, l.canCreateUsers(), onFail);
@@ -302,7 +309,8 @@ public class TestUserLevel {
                 assertEquals(expected, l.canUseVettingSummary(), onFail);
                 break;
             case "userCanSubmit_SUBMIT":
-                assertEquals(expected, l.canSubmit(SurveyMain.Phase.SUBMIT.getCPhase()), onFail);
+                assertEquals(
+                        expected, l.canSubmit(SurveyMain.Phase.SUBMIT.toCheckCLDRPhase()), onFail);
                 break;
             case "userCanCreateSummarySnapshot":
                 assertEquals(expected, l.canCreateSummarySnapshot(), onFail);

@@ -1286,17 +1286,14 @@ div.forumDiv div.subpost .postHeader {
 	display:  table-cell;
 }
 
-button.forumNewButton {
-
-}
-
 button.forumNewPostFlagButton {
     padding-left: 2em;
+    background: url(flag-d.png) no-repeat left center;
 }
 
 button.forumNewPostFlagButton:hover {
     padding-left: 2em;
-    background: url(flag.png) no-repeat;
+    background: url(flag.png) no-repeat left center;
 }
 
 div.forumDiv .adminUserUser {
@@ -1703,7 +1700,7 @@ The the following can work here:
 
 */
 
-/* Kashmiri and Urdu are typically in Nastaliq. Kashmiri in particular uses a letter that is 
+/* Kashmiri and Urdu are typically in Nastaliq. Kashmiri in particular uses a letter that is
    not rendered correctly in Noto Naskh (see CLDR-16595) */
 
 :lang(ks), :lang(ur) {
@@ -2256,14 +2253,6 @@ h2.v-oldvotes-sub {
     border-top:  2px solid silver;
 }
 
-/*
- Unknown status
-*/
-
-tr.tr_unknown {
-
-}
-
 div.helpHtml, .helpContent {
     background: #eed;
     font: medium Georgia, "Times New Roman", Times, serif;
@@ -2376,8 +2365,9 @@ span.pathChunk:after
 }
 
 .statuscell {
-	text-align: center;
-	font-weight: bold;
+	text-align: right;
+	font-family: emoji !important;
+	font-variant-emoji: emoji;
 }
 
 .voteDiv .winningStatus  {
@@ -2684,12 +2674,6 @@ transition: background-color 0.2s;
 	height: 17px;
 	background: url(flag.png) no-repeat center center;
 }
-.i-flag-d {
-	padding: 2px;
-	width: 17px;
-	height: 17px;
-	background: url(flag-d.png) no-repeat center center;
-}
 
 .s-flag {
 	width: 17px;
@@ -2697,11 +2681,6 @@ transition: background-color 0.2s;
 	background: url(flag.png) no-repeat center center ;
 }
 
-.s-flag-d {
-	width: 17px;
-	height: 30px;
-	background: url(flag-d.png) no-repeat center center ;
-}
 td.d-change,td.d-change-err,td.d-change-warn {
 	white-space: nowrap;
 }
@@ -2902,12 +2881,6 @@ td.v-path {
 
 #oldVotesAcceptList {
     border-collapse: collapse;
-}
-
-#OtherSection p.special_general {
-    padding:  3em;
-	background: url(vote.png) no-repeat 1em center;
-	line-height: 2em
 }
 
 #oldVotesAcceptList td {

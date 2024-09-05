@@ -491,6 +491,15 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
             if (path.contains("/decimal") || path.contains("/group")) {
                 return this;
             }
+            // Currency symbol value \u200B (ZWSP) is allowed to match other paths; when it is used,
+            // the actual currency symbol must be in a decimal element for the specific currency.
+            if (path.contains("/symbol") && value.equals("\\u200B")) {
+                String decimalPath = path.replace("/symbol", "/decimal");
+                String decimalValue = getResolvedCldrFileToCheck().getWinningValue(decimalPath);
+                if (decimalValue != null && decimalValue.length() > 0) {
+                    return this;
+                }
+            }
             XPathParts parts = XPathParts.getFrozenInstance(path);
             String currency = parts.getAttributeValue(-2, "type");
             Iterator<String> iterator = paths.iterator();

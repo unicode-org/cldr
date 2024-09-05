@@ -9,6 +9,8 @@ import com.google.common.collect.ImmutableSet.Builder;
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Multimaps;
+import com.google.common.collect.Sets;
+import com.google.common.collect.Sets.SetView;
 import com.google.common.collect.SortedSetMultimap;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.impl.Row.R2;
@@ -35,10 +37,20 @@ import org.apache.jena.query.ResultSet;
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.rdf.QueryClient;
 import org.unicode.cldr.rdf.TsvWriter;
-import org.unicode.cldr.util.*;
+import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.Containment;
+import org.unicode.cldr.util.DiffLanguageGroups;
+import org.unicode.cldr.util.DtdType;
+import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.Iso639Data.Type;
+import org.unicode.cldr.util.LocaleNames;
+import org.unicode.cldr.util.SimpleXMLSource;
+import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.LstrField;
 import org.unicode.cldr.util.StandardCodes.LstrType;
+import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
 
 /**
@@ -89,6 +101,7 @@ public class GenerateLanguageContainment {
     private static final QueryClient queryClient = QueryClient.getInstance();
 
     static final Splitter TAB = Splitter.on('\t').trimResults();
+    private static final Joiner JOIN_TAB = Joiner.on('\t');
     static final CLDRFile ENGLISH = CONFIG.getEnglish();
     static final String relDir = "../util/data/languages/";
     static final Map<String, R2<List<String>, String>> ALIAS_MAP =
@@ -250,8 +263,18 @@ public class GenerateLanguageContainment {
     }
 
     /** To add parent-child relations to Wikidata */
-    static final Multimap<String, String> EXTRA_PARENT_CHILDREN =
+    static final Multimap<String, String> RESET_PARENT_CHILDREN =
             ImmutableMultimap.<String, String>builder()
+                    .put(LocaleNames.MUL, LocaleNames.UND) // anomaly
+                    .put(LocaleNames.MUL, "art") // no containing language family
+                    .put(LocaleNames.MUL, "euq") // no containing language family
+                    .put(LocaleNames.MUL, "jpx") // no containing language family
+                    .put(LocaleNames.MUL, "tai") // no containing language family
+                    .put(
+                            LocaleNames.MUL,
+                            "ko") // no containing language family (Altaic is too controversial)
+                    .put(LocaleNames.MUL, "crp") // no containing language family
+                    .put(LocaleNames.MUL, "kgp") // no containing language family
                     .put("alv", "agq")
                     .put("alv", "cch") // Atlantic–Congo <= cch [Atsam]
                     .put("alv", "kcg") // Atlantic–Congo <= kcg [Tyap]
@@ -277,8 +300,7 @@ public class GenerateLanguageContainment {
                     .put("bnt", "xog")
                     .put("cpp", "kea")
                     .put("euq", "eu")
-                    // gmw = West Germanic
-                    .put("gmw", "ksh")
+                    .put("gmw", "ksh") // gmw = West Germanic
                     .put("gmw", "lb")
                     .put("gmw", "wae")
                     .put("grk", "el")
@@ -288,13 +310,8 @@ public class GenerateLanguageContainment {
                     .put("ira", "bgn") // Iranian <= Western Balochi
                     .put("inc", "trw") // Indo-Aryan <= Torwali
                     .put("jpx", "ja")
-                    .put(LocaleNames.MUL, "art")
-                    .put(LocaleNames.MUL, "euq")
-                    .put(LocaleNames.MUL, "jpx")
-                    .put(LocaleNames.MUL, "tai")
                     .put("ngb", "sg")
                     .put("roa", "cpf")
-                    .put("roa", "cpp")
                     .put("roa", "cpp")
                     .put("sdv", "saq")
                     .put("son", "khq")
@@ -303,11 +320,32 @@ public class GenerateLanguageContainment {
                     .put("tai", "lo")
                     .put("tai", "th")
                     .put("zlw", "szl") // West Slavic <= Silesian
+
+                    // Restoring languages removed in 2024-08 wikidata
+                    .put("inc", "ur") // Urdu is indic
+                    .put("inc", "pa") // Punjabi is indic
+                    .put("inc", "skr") // Saraiki is indic
+                    .put("zls", "bs") // South Slavic (sh has problems)
+                    .put("zls", "hr") // South Slavic (sh has problems)
+                    .put("zls", "sr") // South Slavic (sh has problems)
+                    .put("inc", "hi") // Indic
+                    .put("inc", "kok") // Indic
+                    .put("inc", "ks") // Indic
+                    .put("inc", "mr") // Indic
+                    .put("inc", "sd") // Indic
+                    .put("cr", "csw") // Cree
+                    .put("tai", "za") // Tai
+                    .put("fiu", "hu") // Finno-Ugric
+                    .put("alg", "cr") // Algonquin
+                    .put("sit", "bo") // Sino-Tibetan
+                    .put("poz", "mg") // Malayo-Polynesian languages
+                    .put("esx", "iu") // Eskimo-Aleut languages
+                    .put("esx", "kl") // Eskimo-Aleut languages
                     .build();
 
     /**
      * To remove parent-child relations from Wikidata, eg if a child has two parents (where that
-     * causes problems)
+     * causes problems). Don't do it if there is an explicit parent above.
      */
     static final Multimap<String, String> REMOVE_PARENT_CHILDREN =
             ImmutableMultimap.<String, String>builder()
@@ -321,27 +359,34 @@ public class GenerateLanguageContainment {
                     // [Pitcairn-Norfolk]
                     .put("inc", "rmg")
                     // Indo-European
-                    .put("ine", "el")
-                    .put("ine", "gmy")
-                    .put("ine", "grc")
-                    .put("ine", "trw") // inc [Indic] <= trw [Torwali]
-                    .put(LocaleNames.MUL, "crp")
-                    .put(LocaleNames.MUL, "cpp") // Creoles and pidgins, Portuguese-based
-                    .put(LocaleNames.MUL, LocaleNames.UND) // anomaly
                     .put("nic", "kcp") // ssa [Nilo-Saharan] <= kcp [Kanga]
                     .put("nic", "kec") // ssa [Nilo-Saharan] <= kec [Keiga]
                     .put("nic", "kgo") // ssa [Nilo-Saharan] <= kgo [Krongo]
-                    .put("nic", "rof") // ssa [Nilo-Saharan] <= rof [Rombo]
                     .put("nic", "tbr") // ssa [Nilo-Saharan] <= tbr [Tumtum]
                     .put("nic", "tey") // ssa [Nilo-Saharan] <= tey [Tulishi]
-                    .put("sit", "th") // sit <= tbq <= th
                     .put("sit", "dz") // sit <= tbq <= dz
                     .put("sit", "zh")
                     .put("sla", "cu")
-                    .put("tbq", "psq") // paa [Papuan]; for	psq [Pasi] - not tbq [Tibeto-Burman
-                    // languages]; 	(There is also a variety of the Sino-Tibetan Adi
+                    .put("tbq", "psq") // paa [Papuan]; for psq [Pasi] - not tbq [Tibeto-Burman
+                    // languages]; (There is also a variety of the Sino-Tibetan Adi
                     // language called Pasi.
                     .build();
+
+    static {
+        // If a child is in RESET_PARENT_CHILDREN, it should not be in
+        // REMOVE_PARENT_CHILDREN
+        // That is because the RESET_PARENT_CHILDREN will cause the removal of any other
+        // parents anyway.
+        SetView<String> bad =
+                Sets.intersection(
+                        Set.copyOf(RESET_PARENT_CHILDREN.values()),
+                        Set.copyOf(REMOVE_PARENT_CHILDREN.values()));
+        if (!bad.isEmpty())
+            System.err.println(
+                    "Remove from REMOVE_PARENT_CHILDREN, child values: \""
+                            + Joiner.on("\",\"").join(bad)
+                            + "\"");
+    }
 
     public static void main(String[] args) throws IOException {
         new GenerateLanguageContainment().run(args);
@@ -384,9 +429,9 @@ public class GenerateLanguageContainment {
             if (code.compareTo("hdz") > 0) {
                 int debug = 0;
             }
-            //            if (COLLECTIONS.contains(code)) {
-            //                continue;
-            //            }
+            // if (COLLECTIONS.contains(code)) {
+            // continue;
+            // }
             Collection<String> entities = QUERY_HELPER.codeToEntity.get(code);
             if (entities.isEmpty()) {
                 continue;
@@ -417,18 +462,80 @@ public class GenerateLanguageContainment {
             skipping.forEach(e -> w.println(e));
         }
 
-        for (Entry<String, Collection<String>> entity : REMOVE_PARENT_CHILDREN.asMap().entrySet()) {
-            String key = entity.getKey();
-            for (String value : entity.getValue()) {
-                if (value.equals("*")) {
-                    _parentToChild.removeAll(key);
+        // preflight
+        DiffLanguageGroups.show("en");
+
+        Multimap<String, String> _childToParents =
+                Multimaps.invertFrom(_parentToChild, TreeMultimap.create());
+
+        System.out.println("\nOVERRIDE Remove parent");
+        System.out.println("OVERRIDE\tParent\tChild\tNew Parents");
+        for (Entry<String, String> entry : REMOVE_PARENT_CHILDREN.entries()) {
+            final String parent = entry.getKey();
+            final String child = entry.getValue();
+            Set<String> oldChildren = _parentToChild.get(parent);
+            String type;
+            if (child.equals("*")) {
+                if (oldChildren == null) {
+                    type = "No remove";
                 } else {
-                    _parentToChild.remove(key, value);
+                    type = "Removing parent";
+                    _parentToChild.removeAll(parent);
+                    _childToParents = Multimaps.invertFrom(_parentToChild, TreeMultimap.create());
+                }
+            } else {
+                if (oldChildren != null && oldChildren.contains(child)) {
+                    _parentToChild.remove(parent, child);
+                    _childToParents = Multimaps.invertFrom(_parentToChild, TreeMultimap.create());
+                    type = "Removing parent";
+                } else {
+                    type = "No remove";
                 }
             }
+            System.out.println(
+                    JOIN_TAB.join(
+                            type,
+                            DiffLanguageGroups.show(parent),
+                            DiffLanguageGroups.show(child),
+                            _childToParents.get(child)));
         }
 
-        _parentToChild.putAll(EXTRA_PARENT_CHILDREN);
+        System.out.println("\nOVERRIDE Replace Parent");
+        System.out.println("OVERRIDE\tParent\tChild");
+        for (Entry<String, String> entry : RESET_PARENT_CHILDREN.entries()) {
+            final String parent = entry.getKey();
+            final String child = entry.getValue();
+            Set<String> oldValues = _parentToChild.get(parent);
+            Set<String> removals = new LinkedHashSet<>();
+
+            String type;
+            if (oldValues != null && oldValues.contains(child)) {
+                type = "Redundant add";
+            } else {
+                type = "Changing";
+                _parentToChild.put(parent, child);
+                _childToParents = Multimaps.invertFrom(_parentToChild, TreeMultimap.create());
+                Collection<String> newParents = _childToParents.get(child);
+                if (newParents.size() > 1) {
+                    for (String parent2 : newParents) {
+                        if (!parent2.equals(parent)) {
+                            _parentToChild.remove(parent2, child);
+                            removals.add(parent2);
+                        }
+                        // rebuild
+                        _childToParents =
+                                Multimaps.invertFrom(_parentToChild, TreeMultimap.create());
+                    }
+                }
+            }
+            System.out.println(
+                    JOIN_TAB.join(
+                            type,
+                            DiffLanguageGroups.show(parent),
+                            DiffLanguageGroups.show(child),
+                            _childToParents.get(child),
+                            removals));
+        }
 
         // special code for artificial
         for (String code : Iso639Data.getAvailable()) {
@@ -464,13 +571,14 @@ public class GenerateLanguageContainment {
             throw new ICUUncheckedIOException("Can't write to languageGroup.xml", e1);
         }
 
-        //        for (Entry<String,String> entry : childToParent.entries()) {
-        //            String childNames = getName(entityToCode, entityToLabel, entry.getKey());
-        //            String parentNames = getName(entityToCode, entityToLabel, entry.getValue());
-        //            System.out.println(entry.getKey() + "\t" + entry.getValue() + "\t" +
+        // for (Entry<String,String> entry : childToParent.entries()) {
+        // String childNames = getName(entityToCode, entityToLabel, entry.getKey());
+        // String parentNames = getName(entityToCode, entityToLabel, entry.getValue());
+        // System.out.println(entry.getKey() + "\t" + entry.getValue() + "\t" +
         // childNames + "\t" + parentNames);
-        //        }
+        // }
         QUERY_HELPER.writeTsvs();
+        DiffLanguageGroups.main(new String[] {});
     }
 
     private static void showEntityLists(String title, Set<List<String>> ancestors) {
@@ -603,67 +711,67 @@ public class GenerateLanguageContainment {
         }
         return itemsFixed;
         // TODO: delete this commented-out code?
-        //        while (true) {
-        //            String code = entityToCode.get(leaf);
-        //            if (code != null) {
-        //                chain.add(code);
-        //            }
-        //            Collection<String> parents = childToParent.get(leaf);
-        //            if (parents.isEmpty()) {
-        //                // clean up duplicates
-        //                chain = new ArrayList<>(new LinkedHashSet<>(chain));
-        //                // wikipedia has non-collections as parents. Remove those if they are not
+        // while (true) {
+        // String code = entityToCode.get(leaf);
+        // if (code != null) {
+        // chain.add(code);
+        // }
+        // Collection<String> parents = childToParent.get(leaf);
+        // if (parents.isEmpty()) {
+        // // clean up duplicates
+        // chain = new ArrayList<>(new LinkedHashSet<>(chain));
+        // // wikipedia has non-collections as parents. Remove those if they are not
         // first.
-        //                break;
-        //            }
-        //            leaf = getBest(parents);
-        //        }
-        //        String last = chain.get(0);
-        //        for (int i = 1; i < chain.size(); ++i) {
-        //            String item = chain.get(i);
-        //            if (!COLLECTIONS.contains(item)) {
-        //                chain.set(i, item.equals("zh") ? "zhx" : "");
-        //                DROPPED_PARENTS_TO_CHILDREN.put(item, last);
-        //            } else {
-        //                last = item;
-        //            }
-        //        }
-        //        chain.removeIf(x -> x.isEmpty());
-        //        if ("zh".equals(chain.get(0))) {
-        //            chain.add(1,"zhx");
-        //        }
-        //        last = chain.get(chain.size()-1);
-        //        if (!LocaleNames.MUL.equals(last)) {
-        //            chain.add(LocaleNames.MUL); // make sure we have root.
-        //        }
-        //        if (chain.size() == 2) {
-        //            chain.add(1,LocaleNames.UND);
-        //        }
-        //        return chain;
+        // break;
+        // }
+        // leaf = getBest(parents);
+        // }
+        // String last = chain.get(0);
+        // for (int i = 1; i < chain.size(); ++i) {
+        // String item = chain.get(i);
+        // if (!COLLECTIONS.contains(item)) {
+        // chain.set(i, item.equals("zh") ? "zhx" : "");
+        // DROPPED_PARENTS_TO_CHILDREN.put(item, last);
+        // } else {
+        // last = item;
+        // }
+        // }
+        // chain.removeIf(x -> x.isEmpty());
+        // if ("zh".equals(chain.get(0))) {
+        // chain.add(1,"zhx");
+        // }
+        // last = chain.get(chain.size()-1);
+        // if (!LocaleNames.MUL.equals(last)) {
+        // chain.add(LocaleNames.MUL); // make sure we have root.
+        // }
+        // if (chain.size() == 2) {
+        // chain.add(1,LocaleNames.UND);
+        // }
+        // return chain;
     }
 
     private static void log(String string) {
         System.out.println(string);
-        //        for (Entry<String, String> e : DROPPED_PARENTS_TO_CHILDREN.entries()) {
-        //            System.out.println(NAME.apply(e.getKey()) + "\t" + NAME.apply(e.getValue())
-        //                );
-        //        }
+        // for (Entry<String, String> e : DROPPED_PARENTS_TO_CHILDREN.entries()) {
+        // System.out.println(NAME.apply(e.getKey()) + "\t" + NAME.apply(e.getValue())
+        // );
+        // }
     }
 
     // TODO: This function is only called by other commented-out code above.
-    //    private static String getBest(Collection<String> parents) {
-    //        for (String parent : parents) {
-    //            String code = QUERY_HELPER.entityToCode.get(parent);
-    //            if (code == null) continue;
-    //            Type type = Iso639Data.getType(code);
-    //            if (type != Type.Living) {
-    //                continue;
-    //            }
-    //            return parent;
-    //        }
-    //        // failed
-    //        return parents.iterator().next();
-    //    }
+    // private static String getBest(Collection<String> parents) {
+    // for (String parent : parents) {
+    // String code = QUERY_HELPER.entityToCode.get(parent);
+    // if (code == null) continue;
+    // Type type = Iso639Data.getType(code);
+    // if (type != Type.Living) {
+    // continue;
+    // }
+    // return parent;
+    // }
+    // // failed
+    // return parents.iterator().next();
+    // }
 
     private static Multimap<String, String> loadQueryPairs(
             Class<?> class1,

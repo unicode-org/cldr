@@ -90,6 +90,13 @@ jobs:
           -DskipTests=true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: DataDog sourcemap upload
+        # only on push to main!
+        if: github.repository == 'unicode-org/cldr' && github.event_name == 'push' && github.ref == 'refs/heads/main' && github.event.inputs.git-ref == ''
+        run: npx --package=@datadog/datadog-ci datadog-ci sourcemaps upload tools/cldr-apps/src/main/webapp/dist/ --minified-path-prefix=/cldr-apps/dist/ --release-version=r${{ github.sha }} --service=surveytool
+        env:
+          DATADOG_SITE: ${{ secrets.DATADOG_SITE }}
+          DATADOG_API_KEY: ${{ secrets.DATADOG_API_KEY }}
       - name: Checkout CLDR archive
         run: >
           mkdir -v ../cldr-archive && java -jar tools/cldr-code/target/cldr-code.jar checkout-archive
@@ -187,7 +194,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: run CLDR console check
-        run: java -DCLDR_GITHUB_ANNOTATIONS=true -DCLDR_DIR=$(pwd) -Xmx6g -jar tools/cldr-code/target/cldr-code.jar check -S common,seed -e -z BUILD
+        run: java -DCLDR_GITHUB_ANNOTATIONS=true -DCLDR_DIR=$(pwd) -Xmx6g -jar tools/cldr-code/target/cldr-code.jar check -S common,seed -e -z FINAL_TESTING
   deploy:
     # don't run deploy on manual builds!
     if: github.repository == 'unicode-org/cldr' && github.event_name == 'push' && github.ref == 'refs/heads/main' && github.event.inputs.git-ref == ''

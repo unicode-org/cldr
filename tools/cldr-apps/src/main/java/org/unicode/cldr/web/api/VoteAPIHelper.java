@@ -486,8 +486,7 @@ public class VoteAPIHelper {
                     CandidateInfo ci = calculateCandidateItem(result, val, dataRow);
                     // Now, recalculate the statusAction for accepting the new item
                     r.statusAction =
-                            CLDRConfig.getInstance()
-                                    .getPhase()
+                            SurveyMain.checkCLDRPhase(locale)
                                     .getAcceptNewItemAction(
                                             ci,
                                             dataRow,

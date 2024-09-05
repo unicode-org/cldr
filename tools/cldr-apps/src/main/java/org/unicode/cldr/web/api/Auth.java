@@ -148,6 +148,9 @@ public class Auth {
             session.settings().set(SurveyMain.PREF_COVLEV, null);
             LoginResponse resp = createLoginResponse(session);
             WebContext.setSessionCookie(hresp, resp.sessionId);
+            if (session.user != null) {
+                session.user.touch(); // update last logged in time
+            }
             return Response.ok().entity(resp).header(SESSION_HEADER, session.id).build();
         } catch (LogoutException ioe) {
             return Response.status(403, "Login Failed").build();
@@ -188,7 +191,15 @@ public class Auth {
             @Context HttpServletResponse hresp,
             @QueryParam("session") @Schema(required = true, description = "Session ID to logout")
                     final String session) {
-
+        final CookieSession cs = CookieSession.retrieveWithoutTouch(session);
+        if (cs != null) {
+            final UserRegistry.User u = cs.remove();
+            if (u != null) {
+                u.touch(); // mark as logged out
+            }
+        }
+        // next line is to clear cookies, especially if there was a different
+        // session cookie for some reason.
         // TODO: move Cookie management out of WebContext and into Auth.java
         WebContext.logout(hreq, hresp);
 

@@ -13,7 +13,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	<localeDisplayNames>
 		<subdivisions>
 			<subdivision type="ad07" draft="provisional">Andorra-la-Velya</subdivision>
+			<subdivision type="aeaj" draft="provisional">Ajman amirligi</subdivision>
+			<subdivision type="aeaz" draft="provisional">Abu-Dabi (amirlik)</subdivision>
 			<subdivision type="aedu" draft="provisional">Dubay</subdivision>
+			<subdivision type="aefu" draft="provisional">Fujayra amirligi</subdivision>
+			<subdivision type="aesh" draft="provisional">Sharja amirligi</subdivision>
 			<subdivision type="afbal" draft="provisional">Balx</subdivision>
 			<subdivision type="afbam" draft="provisional">Bomiyon</subdivision>
 			<subdivision type="afbdg" draft="provisional">Badgʻis</subdivision>
@@ -29,9 +33,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="afjow" draft="provisional">Joʻzjon</subdivision>
 			<subdivision type="afkab" draft="provisional">Kobul viloyati</subdivision>
 			<subdivision type="afkan" draft="provisional">Qandahor viloyati</subdivision>
+			<subdivision type="afkap" draft="provisional">Kapisa viloyati</subdivision>
 			<subdivision type="afkdz" draft="provisional">Qunduz viloyati</subdivision>
 			<subdivision type="afkho" draft="provisional">Xust viloyati</subdivision>
 			<subdivision type="afknr" draft="provisional">Kunar</subdivision>
+			<subdivision type="aflag" draft="provisional">Lagʻmon viloyati</subdivision>
 			<subdivision type="aflog" draft="provisional">Luvgar</subdivision>
 			<subdivision type="afnan" draft="provisional">Nangarhor</subdivision>
 			<subdivision type="afnim" draft="provisional">Nimroz</subdivision>
@@ -42,10 +48,31 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="afpka" draft="provisional">Paktika Province</subdivision>
 			<subdivision type="afsam" draft="provisional">Samangan</subdivision>
 			<subdivision type="afsar" draft="provisional">Sarupul viloyati</subdivision>
+			<subdivision type="aftak" draft="provisional">Taxor viloyati, Afgʼoniston</subdivision>
 			<subdivision type="afuru" draft="provisional">Uroʻzgon viloyati</subdivision>
 			<subdivision type="afwar" draft="provisional">Vardak viloyati</subdivision>
+			<subdivision type="afzab" draft="provisional">Zobul viloyati</subdivision>
+			<subdivision type="amav" draft="provisional">Andoza:Armavir viloyati</subdivision>
 			<subdivision type="amer" draft="provisional">Yerevan</subdivision>
+			<subdivision type="amlo" draft="provisional">Lori viloyati</subdivision>
+			<subdivision type="amsh" draft="provisional">Shirak Viloyati</subdivision>
+			<subdivision type="amtv" draft="provisional">Tavush viloyati</subdivision>
+			<subdivision type="aobgu" draft="provisional">Benguela viloyati</subdivision>
+			<subdivision type="aocab" draft="provisional">Cabinda Province</subdivision>
+			<subdivision type="aocno" draft="provisional">Cuanza Norte provinsiyasi</subdivision>
+			<subdivision type="aocus" draft="provisional">Cuanza Sul provinsiyasi</subdivision>
+			<subdivision type="aohua" draft="provisional">Huambo</subdivision>
+			<subdivision type="aohui" draft="provisional">Huíla provinsiyasi</subdivision>
+			<subdivision type="aolno" draft="provisional">Lunda Norte provinsiyasi</subdivision>
+			<subdivision type="aolsu" draft="provisional">Lunda Sul provinsiyasi</subdivision>
+			<subdivision type="aolua" draft="provisional">Luanda provinsiyasi</subdivision>
+			<subdivision type="aomal" draft="provisional">Malanje</subdivision>
+			<subdivision type="aomox" draft="provisional">Moxico provinsiyasi</subdivision>
+			<subdivision type="aouig" draft="provisional">Uíge provinsiyasi</subdivision>
 			<subdivision type="arc" draft="provisional">Buenos Ayres</subdivision>
+			<subdivision type="ary" draft="provisional">Turkum:Jujuy aholi punktlari</subdivision>
+			<subdivision type="at6" draft="provisional">Shtiriya</subdivision>
+			<subdivision type="at7" draft="provisional">Tirol (federal yer)</subdivision>
 			<subdivision type="at9" draft="provisional">Vena</subdivision>
 			<subdivision type="aunsw" draft="provisional">Yangi janubiy uels</subdivision>
 			<subdivision type="auqld" draft="provisional">Kvinslend</subdivision>
@@ -57,29 +84,47 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="azagm" draft="provisional">Agʻdam tumani</subdivision>
 			<subdivision type="azba" draft="provisional">Boku</subdivision>
 			<subdivision type="azcab" draft="provisional">Jabrayil tumani</subdivision>
+			<subdivision type="azcal" draft="provisional">Jalilabad tumani</subdivision>
+			<subdivision type="azdas" draft="provisional">Dashkasan tumani</subdivision>
 			<subdivision type="azfuz" draft="provisional">Fuzuliy tumani</subdivision>
 			<subdivision type="azga" draft="provisional">Ganja</subdivision>
+			<subdivision type="azgoy" draft="provisional">Goychay tumani</subdivision>
+			<subdivision type="azimi" draft="provisional">Andoza:Imishli tumani hududiy birliklari</subdivision>
+			<subdivision type="azism" draft="provisional">Andoza:Ismayilli tumani hududiy birliklari</subdivision>
 			<subdivision type="azkal" draft="provisional">Kalbajar tumani</subdivision>
+			<subdivision type="azla" draft="provisional">Lenkoran²</subdivision>
+			<subdivision type="azlac" draft="provisional">Andoza:Lachin tumani hududiy birliklari</subdivision>
 			<subdivision type="azlan" draft="provisional">Lenkoran</subdivision>
 			<subdivision type="azmi" draft="provisional">Mingechaur</subdivision>
 			<subdivision type="aznv" draft="provisional">Naxichevan (shahar)</subdivision>
 			<subdivision type="aznx" draft="provisional">Naxichevan</subdivision>
 			<subdivision type="azqab" draft="provisional">Qabala tumani</subdivision>
 			<subdivision type="azqax" draft="provisional">Qax tumani</subdivision>
+			<subdivision type="azqaz" draft="provisional">Qazax tumani</subdivision>
 			<subdivision type="azqba" draft="provisional">Quba tumani</subdivision>
 			<subdivision type="azqbi" draft="provisional">Gubadli tumani</subdivision>
+			<subdivision type="azqob" draft="provisional">Gobustan tumani</subdivision>
 			<subdivision type="azqus" draft="provisional">Qusar tumani</subdivision>
 			<subdivision type="azsa" draft="provisional">Sheki</subdivision>
 			<subdivision type="azsab" draft="provisional">Sabirobod</subdivision>
 			<subdivision type="azsm" draft="provisional">Sumgait</subdivision>
 			<subdivision type="azsus" draft="provisional">Shusha tumani</subdivision>
+			<subdivision type="azuca" draft="provisional">Ujar tumani</subdivision>
 			<subdivision type="azxa" draft="provisional">Xonkendi</subdivision>
+			<subdivision type="azxiz" draft="provisional">Xizi tumani</subdivision>
 			<subdivision type="azzan" draft="provisional">Zangilan tumani</subdivision>
 			<subdivision type="azzaq" draft="provisional">Zaqatala tumani</subdivision>
 			<subdivision type="bebru" draft="provisional">Brussel Poytaxt Regioni</subdivision>
+			<subdivision type="bevbr" draft="provisional">Flemish Brabant</subdivision>
 			<subdivision type="bevlg" draft="provisional">Flamand regioni</subdivision>
 			<subdivision type="bg02" draft="provisional">Burgas</subdivision>
 			<subdivision type="bg23" draft="provisional">Sofiya</subdivision>
+			<subdivision type="biky" draft="provisional">Kayanza viloyati</subdivision>
+			<subdivision type="bimw" draft="provisional">Mwaro Province</subdivision>
+			<subdivision type="bing" draft="provisional">Ngozi Province</subdivision>
+			<subdivision type="birm" draft="provisional">Rumonge Province</subdivision>
+			<subdivision type="birt" draft="provisional">Rutana Province</subdivision>
+			<subdivision type="biry" draft="provisional">Ruyigi Province</subdivision>
 			<subdivision type="bjzo" draft="provisional">Zu</subdivision>
 			<subdivision type="bqbo" draft="provisional">Bonayre</subdivision>
 			<subdivision type="brac" draft="provisional">Akri</subdivision>
@@ -110,6 +155,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="brsp" draft="provisional">San Paulu</subdivision>
 			<subdivision type="brto" draft="provisional">Tokantins</subdivision>
 			<subdivision type="bwga" draft="provisional">Gaborone</subdivision>
+			<subdivision type="bwkl" draft="provisional">Turkum:Kgatleng tumanidagi aholi punktlari</subdivision>
 			<subdivision type="bybr" draft="provisional">Brest viloyati</subdivision>
 			<subdivision type="byhm" draft="provisional">Minsk</subdivision>
 			<subdivision type="byho" draft="provisional">Gomel viloyati</subdivision>
@@ -130,10 +176,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="caqc" draft="provisional">Kvebek</subdivision>
 			<subdivision type="cask" draft="provisional">Saskachevan</subdivision>
 			<subdivision type="cayt" draft="provisional">Yukon</subdivision>
+			<subdivision type="cdbu" draft="provisional">Bas-Uélé</subdivision>
+			<subdivision type="cdeq" draft="provisional">Province of Équateur</subdivision>
+			<subdivision type="cdhk" draft="provisional">Haut-Katanga Province</subdivision>
+			<subdivision type="cdkl" draft="provisional">Kwilu Province</subdivision>
 			<subdivision type="cdkn" draft="provisional">Kinshasa</subdivision>
 			<subdivision type="cdsk" draft="provisional">Janubiy Kivu</subdivision>
+			<subdivision type="cdtu" draft="provisional">Tshuapa</subdivision>
 			<subdivision type="cfbgf" draft="provisional">Bangi</subdivision>
 			<subdivision type="cgbzv" draft="provisional">Brazzavil</subdivision>
+			<subdivision type="chgl" draft="provisional">Glarus</subdivision>
 			<subdivision type="ciab" draft="provisional">Abidjan</subdivision>
 			<subdivision type="ciym" draft="provisional">Yamusukro</subdivision>
 			<subdivision type="clta" draft="provisional">Tarapacá viloyati</subdivision>
@@ -172,7 +224,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="cnzj" draft="provisional">Chjetszyan</subdivision>
 			<subdivision type="coant" draft="provisional">Antyokiya</subdivision>
 			<subdivision type="codc" draft="provisional">Bogota</subdivision>
+			<subdivision type="conar" draft="provisional">Nariño (Antioquia)</subdivision>
+			<subdivision type="cu09" draft="provisional">Kamaguey viloyati</subdivision>
 			<subdivision type="cz10" draft="provisional">Praga</subdivision>
+			<subdivision type="cz311" draft="provisional">České Budějovice</subdivision>
+			<subdivision type="cz646" draft="provisional">Andoza:Vyskov Tumani shaharlari va qishloqlari</subdivision>
 			<subdivision type="debb" draft="provisional">Brandenburg</subdivision>
 			<subdivision type="debe" draft="provisional">Berlin</subdivision>
 			<subdivision type="debw" draft="provisional">Baden-Vyurtemberg</subdivision>
@@ -183,16 +239,35 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="demv" draft="provisional">Meklenburg-Old Pomeraniya</subdivision>
 			<subdivision type="deni" draft="provisional">Niedersachsen</subdivision>
 			<subdivision type="denw" draft="provisional">Shimoliy Reyn-Vestfaliya</subdivision>
+			<subdivision type="derp" draft="provisional">Rheinland-Pfalz</subdivision>
 			<subdivision type="desh" draft="provisional">Schleswig-Holstein</subdivision>
 			<subdivision type="desl" draft="provisional">Saarland</subdivision>
 			<subdivision type="desn" draft="provisional">Saksoniya</subdivision>
 			<subdivision type="dest" draft="provisional">Saksoniya-Anhalt</subdivision>
 			<subdivision type="deth" draft="provisional">Turingiya</subdivision>
 			<subdivision type="djdj" draft="provisional">Jibuti</subdivision>
+			<subdivision type="do01" draft="provisional">Distrito Nacional</subdivision>
+			<subdivision type="dz10" draft="provisional">Buira viloyati</subdivision>
+			<subdivision type="dz13" draft="provisional">Tlemsen viloyati</subdivision>
+			<subdivision type="dz18" draft="provisional">Jijel viloyati</subdivision>
 			<subdivision type="dz23" draft="provisional">Annoba viloyati</subdivision>
 			<subdivision type="dz25" draft="provisional">Qusantina viloyati</subdivision>
+			<subdivision type="dz26" draft="provisional">Medea viloyati</subdivision>
+			<subdivision type="dz27" draft="provisional">Mostaganem viloyati</subdivision>
+			<subdivision type="dz29" draft="provisional">Mascara viloyati</subdivision>
 			<subdivision type="dz31" draft="provisional">Vahron viloyati</subdivision>
+			<subdivision type="dz40" draft="provisional">Khenchela viloyati</subdivision>
+			<subdivision type="dz46" draft="provisional">Aïn Témouchent viloyati</subdivision>
+			<subdivision type="ee68" draft="provisional">Pärnu tumani</subdivision>
+			<subdivision type="ee141" draft="provisional">Anija</subdivision>
+			<subdivision type="ee142" draft="provisional">Antsla Parish</subdivision>
+			<subdivision type="ee247" draft="provisional">Jõgeva Parish</subdivision>
+			<subdivision type="ee442" draft="provisional">Lüganuse</subdivision>
+			<subdivision type="ee698" draft="provisional">Rõuge Parish</subdivision>
+			<subdivision type="ee928" draft="provisional">Väike-Maarja</subdivision>
+			<subdivision type="eggh" draft="provisional">Gʻarbiya muhofazasi</subdivision>
 			<subdivision type="egpts" draft="provisional">Port Said Gubernatorligi</subdivision>
+			<subdivision type="egshr" draft="provisional">Sharqiy viloyat</subdivision>
 			<subdivision type="esa" draft="provisional">Alicante</subdivision>
 			<subdivision type="esab" draft="provisional">Albacete</subdivision>
 			<subdivision type="esal" draft="provisional">Almería</subdivision>
@@ -260,16 +335,86 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="esza" draft="provisional">Zamora</subdivision>
 			<subdivision type="etaa" draft="provisional">Addis-Abeba</subdivision>
 			<subdivision type="etdd" draft="provisional">Diredava</subdivision>
+			<subdivision type="fr02" draft="provisional">Aisne</subdivision>
+			<subdivision type="fr2b" draft="provisional">Haute-Corse</subdivision>
+			<subdivision type="fr06" draft="provisional">Alpes-Maritimes</subdivision>
+			<subdivision type="fr07" draft="provisional">Ardeche</subdivision>
+			<subdivision type="fr08" draft="provisional">Ardennes (departament)</subdivision>
+			<subdivision type="fr09" draft="provisional">Ariège (departament)</subdivision>
+			<subdivision type="fr10" draft="provisional">Aube</subdivision>
+			<subdivision type="fr11" draft="provisional">Aude</subdivision>
+			<subdivision type="fr12" draft="provisional">Aveyron</subdivision>
+			<subdivision type="fr13" draft="provisional">Bouches-du-Rhône</subdivision>
+			<subdivision type="fr14" draft="provisional">Calvados (departament)</subdivision>
+			<subdivision type="fr15" draft="provisional">Cantal</subdivision>
+			<subdivision type="fr16" draft="provisional">Charente</subdivision>
+			<subdivision type="fr18" draft="provisional">Cher (departament)</subdivision>
+			<subdivision type="fr19" draft="provisional">Corrèze</subdivision>
 			<subdivision type="fr20r" draft="provisional">Korsika</subdivision>
+			<subdivision type="fr22" draft="provisional">Côtes-dʼArmor</subdivision>
+			<subdivision type="fr25" draft="provisional">Doubs</subdivision>
+			<subdivision type="fr26" draft="provisional">Drôme</subdivision>
+			<subdivision type="fr28" draft="provisional">Eure-et-Loir</subdivision>
+			<subdivision type="fr29" draft="provisional">Finistère</subdivision>
+			<subdivision type="fr35" draft="provisional">Ille-et-Vilaine</subdivision>
+			<subdivision type="fr36" draft="provisional">Indre</subdivision>
+			<subdivision type="fr37" draft="provisional">Indre-et-Loire</subdivision>
+			<subdivision type="fr38" draft="provisional">Isère</subdivision>
+			<subdivision type="fr39" draft="provisional">Jura (departament)</subdivision>
+			<subdivision type="fr41" draft="provisional">Loir-et-Cher</subdivision>
+			<subdivision type="fr42" draft="provisional">Luara (departament)</subdivision>
+			<subdivision type="fr43" draft="provisional">Haute-Loire</subdivision>
+			<subdivision type="fr45" draft="provisional">Loiret</subdivision>
+			<subdivision type="fr51" draft="provisional">Marne (departament)</subdivision>
+			<subdivision type="fr52" draft="provisional">Haute-Marne</subdivision>
+			<subdivision type="fr53" draft="provisional">Mayenne</subdivision>
+			<subdivision type="fr54" draft="provisional">Meurthe-et-Moselle</subdivision>
+			<subdivision type="fr55" draft="provisional">Meuse (departament)</subdivision>
+			<subdivision type="fr56" draft="provisional">Morbihan (departament)</subdivision>
+			<subdivision type="fr57" draft="provisional">Moselle (departament)</subdivision>
+			<subdivision type="fr58" draft="provisional">Nièvre</subdivision>
+			<subdivision type="fr59" draft="provisional">Nord (Fransiya departamenti)</subdivision>
+			<subdivision type="fr62" draft="provisional">Pas-de-Calais</subdivision>
+			<subdivision type="fr63" draft="provisional">Puy-de-Dome</subdivision>
+			<subdivision type="fr67" draft="provisional">Bas-Rhin</subdivision>
+			<subdivision type="fr68" draft="provisional">Haut-Rhin</subdivision>
+			<subdivision type="fr70" draft="provisional">Haute-Saone</subdivision>
+			<subdivision type="fr71" draft="provisional">Saône-et-Loire</subdivision>
+			<subdivision type="fr72" draft="provisional">Sarthe</subdivision>
+			<subdivision type="fr73" draft="provisional">Savoie</subdivision>
+			<subdivision type="fr74" draft="provisional">Haute-Savoie</subdivision>
 			<subdivision type="fr75c" draft="provisional">Parij</subdivision>
+			<subdivision type="fr77" draft="provisional">Seine-et-Marne</subdivision>
+			<subdivision type="fr78" draft="provisional">Yvelines</subdivision>
+			<subdivision type="fr85" draft="provisional">Vendee</subdivision>
+			<subdivision type="fr88" draft="provisional">Vosges (departament)</subdivision>
+			<subdivision type="fr89" draft="provisional">Yonne</subdivision>
+			<subdivision type="fr91" draft="provisional">Essonne</subdivision>
+			<subdivision type="fr92" draft="provisional">Hauts-de-Seine</subdivision>
+			<subdivision type="fr93" draft="provisional">Seine-Saint-Denis</subdivision>
+			<subdivision type="fr94" draft="provisional">Val-de-Marn</subdivision>
+			<subdivision type="fr95" draft="provisional">Val-dʼOise</subdivision>
 			<subdivision type="fr971" draft="provisional">Gvadelupa</subdivision>
+			<subdivision type="fr972" draft="provisional">Martinika</subdivision>
+			<subdivision type="fr973" draft="provisional">Fransiya Gvianasi</subdivision>
+			<subdivision type="fr974" draft="provisional">Reyunion</subdivision>
 			<subdivision type="frbre" draft="provisional">Bretan</subdivision>
 			<subdivision type="fridf" draft="provisional">Il-de-frans</subdivision>
 			<subdivision type="frnaq" draft="provisional">Yangi Akvitaniya</subdivision>
+			<subdivision type="ga1" draft="provisional">Estuaire provinsiyasi</subdivision>
+			<subdivision type="ga2" draft="provisional">Haut-Ogooué provinsiyasi</subdivision>
+			<subdivision type="ga3" draft="provisional">Moyen-Ogooué provinsiyasi</subdivision>
+			<subdivision type="ga4" draft="provisional">Ngounié provinsiyasi</subdivision>
+			<subdivision type="ga5" draft="provisional">Nyanga provinsiyasi</subdivision>
+			<subdivision type="ga6" draft="provisional">Ogooué-Ivindo provinsiyasi</subdivision>
+			<subdivision type="ga7" draft="provisional">Ogooué-Lolo provinsiyasi</subdivision>
+			<subdivision type="ga8" draft="provisional">Ogooué-Maritime provinsiyasi</subdivision>
+			<subdivision type="ga9" draft="provisional">Woleu-Ntem provinsiyasi</subdivision>
 			<subdivision type="gbabe" draft="provisional">Aberdin</subdivision>
 			<subdivision type="gbbpl" draft="provisional">Blekpul</subdivision>
 			<subdivision type="gbbst" draft="provisional">Bristol</subdivision>
 			<subdivision type="gbcrf" draft="provisional">Kardiff</subdivision>
+			<subdivision type="gbdby" draft="provisional">Derbyshire</subdivision>
 			<subdivision type="gbdnd" draft="provisional">Dandi</subdivision>
 			<subdivision type="gbedh" draft="provisional">Edinburg</subdivision>
 			<subdivision type="gbeng" draft="provisional">Angliya</subdivision>
@@ -279,29 +424,62 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gbgre" draft="provisional">Grinvich</subdivision>
 			<subdivision type="gbken" draft="provisional">Kent</subdivision>
 			<subdivision type="gblnd" draft="provisional">London</subdivision>
+			<subdivision type="gbnbl" draft="provisional">Northumberland</subdivision>
 			<subdivision type="gbngm" draft="provisional">Nottingem</subdivision>
 			<subdivision type="gbnir" draft="provisional">Shimoliy Irlandiya</subdivision>
 			<subdivision type="gboxf" draft="provisional">Oksford</subdivision>
 			<subdivision type="gbpor" draft="provisional">Portsmut</subdivision>
 			<subdivision type="gbsct" draft="provisional">Shotlandiya</subdivision>
+			<subdivision type="gbtrf" draft="provisional">Trafford</subdivision>
 			<subdivision type="gbukm" draft="provisional">Birlashgan Qirollik</subdivision>
 			<subdivision type="gbwls" draft="provisional">Uels</subdivision>
 			<subdivision type="gbzet" draft="provisional">Shetlend orollari</subdivision>
 			<subdivision type="geaj" draft="provisional">Ajariya</subdivision>
 			<subdivision type="gegu" draft="provisional">Guria</subdivision>
+			<subdivision type="geim" draft="provisional">Imeretiya</subdivision>
 			<subdivision type="geka" draft="provisional">Kaxeti</subdivision>
+			<subdivision type="gekk" draft="provisional">Kvemo-Kartli</subdivision>
+			<subdivision type="gemm" draft="provisional">Mtsxeta-Mtianeti</subdivision>
+			<subdivision type="gerl" draft="provisional">Racha-Lechxumi va Quyi Svanetiya</subdivision>
+			<subdivision type="gesj" draft="provisional">Samtsxe-Javaxeti</subdivision>
+			<subdivision type="gesk" draft="provisional">Shida-Kartli</subdivision>
+			<subdivision type="gesz" draft="provisional">Samegrelo-Yuqori Svanetiya</subdivision>
 			<subdivision type="getb" draft="provisional">Tbilisi</subdivision>
+			<subdivision type="glav" draft="provisional">Avannaata (Grenlandiya)</subdivision>
+			<subdivision type="glsm" draft="provisional">Sermersooq</subdivision>
 			<subdivision type="gmb" draft="provisional">Banjul</subdivision>
 			<subdivision type="gnc" draft="provisional">Konakri</subdivision>
+			<subdivision type="gqan" draft="provisional">Annobón</subdivision>
+			<subdivision type="gqbn" draft="provisional">Bioko Norte</subdivision>
+			<subdivision type="gqcs" draft="provisional">Centro Sur</subdivision>
+			<subdivision type="gqdj" draft="provisional">Djibloho</subdivision>
+			<subdivision type="gqkn" draft="provisional">Kié-Ntem</subdivision>
+			<subdivision type="gqwn" draft="provisional">Wele-Nzas</subdivision>
+			<subdivision type="grj" draft="provisional">Peloponnese</subdivision>
+			<subdivision type="gt15" draft="provisional">Baja Verapaz boʼlimi</subdivision>
 			<subdivision type="gwbs" draft="provisional">Bisau</subdivision>
 			<subdivision type="hr21" draft="provisional">Zagreb</subdivision>
+			<subdivision type="hubc" draft="provisional">Bekeshchaba</subdivision>
 			<subdivision type="hubu" draft="provisional">Budapesht</subdivision>
 			<subdivision type="hude" draft="provisional">Debretsen</subdivision>
+			<subdivision type="hudu" draft="provisional">Dunaújváros</subdivision>
+			<subdivision type="hueg" draft="provisional">Eger</subdivision>
 			<subdivision type="hugy" draft="provisional">Dyor</subdivision>
+			<subdivision type="hukm" draft="provisional">Kecskemét</subdivision>
 			<subdivision type="hukv" draft="provisional">Kaposhvar</subdivision>
+			<subdivision type="humi" draft="provisional">Mishkols</subdivision>
+			<subdivision type="huny" draft="provisional">Niredxaza</subdivision>
 			<subdivision type="hups" draft="provisional">Pech</subdivision>
+			<subdivision type="husd" draft="provisional">Seged</subdivision>
+			<subdivision type="husf" draft="provisional">Sekeshfexervar</subdivision>
+			<subdivision type="hush" draft="provisional">Sombatxey</subdivision>
+			<subdivision type="husk" draft="provisional">Solnok</subdivision>
+			<subdivision type="hutb" draft="provisional">Tatabanya</subdivision>
+			<subdivision type="huvm" draft="provisional">Vesprem</subdivision>
+			<subdivision type="huze" draft="provisional">Zalaegerseg</subdivision>
 			<subdivision type="idac" draft="provisional">Achex</subdivision>
 			<subdivision type="idbb" draft="provisional">Bangka-Belitung</subdivision>
+			<subdivision type="idgo" draft="provisional">Gorontalo</subdivision>
 			<subdivision type="idjk" draft="provisional">Jakarta</subdivision>
 			<subdivision type="idjw" draft="provisional">Yava</subdivision>
 			<subdivision type="idka" draft="provisional">Kalimantan</subdivision>
@@ -316,8 +494,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="inar" draft="provisional">Arunachal-Pradesh</subdivision>
 			<subdivision type="inas" draft="provisional">Accom</subdivision>
 			<subdivision type="inbr" draft="provisional">Bihar</subdivision>
+			<subdivision type="incg" draft="provisional">Chhattisgarh</subdivision>
 			<subdivision type="inch" draft="provisional">Chandigarh</subdivision>
-			<subdivision type="inct" draft="provisional">Chhattisgarh</subdivision>
 			<subdivision type="indd" draft="provisional">Daman va diu</subdivision>
 			<subdivision type="indl" draft="provisional">Dehli</subdivision>
 			<subdivision type="indn" draft="provisional">Dadra va nagarhaveli</subdivision>
@@ -336,6 +514,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="inmp" draft="provisional">Madhya-pradesh</subdivision>
 			<subdivision type="inmz" draft="provisional">Mizoram</subdivision>
 			<subdivision type="innl" draft="provisional">Nagalend</subdivision>
+			<subdivision type="inod" draft="provisional">Orissa</subdivision>
 			<subdivision type="inor" draft="provisional">Odisha</subdivision>
 			<subdivision type="inpb" draft="provisional">Panjob</subdivision>
 			<subdivision type="inrj" draft="provisional">Rojasthon</subdivision>
@@ -344,12 +523,29 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="intr" draft="provisional">Tripura</subdivision>
 			<subdivision type="inup" draft="provisional">Uttarpradesh</subdivision>
 			<subdivision type="inwb" draft="provisional">Gʻarbiy bengaliya</subdivision>
+			<subdivision type="iqan" draft="provisional">Al Anbar muhofazoti</subdivision>
+			<subdivision type="iqar" draft="provisional">Arbil muhofazasi</subdivision>
+			<subdivision type="iqba" draft="provisional">Basra muhofazasi</subdivision>
+			<subdivision type="iqbb" draft="provisional">Bobil muhofazasi</subdivision>
+			<subdivision type="iqda" draft="provisional">Duhok muhofazasi</subdivision>
+			<subdivision type="iqdi" draft="provisional">Diyola muhofazasi</subdivision>
+			<subdivision type="iqdq" draft="provisional">Zi Qor muhofazasi</subdivision>
+			<subdivision type="iqka" draft="provisional">Karbalo muhofazasi</subdivision>
+			<subdivision type="iqki" draft="provisional">Kirkuk muhofazasi</subdivision>
+			<subdivision type="iqma" draft="provisional">Mayson muhofazasi</subdivision>
+			<subdivision type="iqmu" draft="provisional">Musanno muhofazasi</subdivision>
+			<subdivision type="iqna" draft="provisional">Najaf muhofazasi</subdivision>
+			<subdivision type="iqsd" draft="provisional">Saladin muhofazoti</subdivision>
+			<subdivision type="iqwa" draft="provisional">Vosit muhofazasi</subdivision>
+			<subdivision type="ir00" draft="provisional">Markaziy ustoni</subdivision>
 			<subdivision type="ir01" draft="provisional">Sharqiy Ozarbayjon ustoni</subdivision>
 			<subdivision type="ir02" draft="provisional">Gʻarbiy Ozarbayjon ustoni</subdivision>
 			<subdivision type="ir03" draft="provisional">Sharqiy Ozarbayjon ustoni²</subdivision>
 			<subdivision type="ir04" draft="provisional">Gʻarbiy Ozarbayjon ustoni²</subdivision>
+			<subdivision type="ir05" draft="provisional">Kirmonshoh viloyati</subdivision>
 			<subdivision type="ir06" draft="provisional">Xuziston ustoni²</subdivision>
 			<subdivision type="ir07" draft="provisional">Fors²</subdivision>
+			<subdivision type="ir08" draft="provisional">Kirmon viloyati</subdivision>
 			<subdivision type="ir09" draft="provisional">Xurosoni Rizoviy ustoni²</subdivision>
 			<subdivision type="ir10" draft="provisional">Xuziston ustoni</subdivision>
 			<subdivision type="ir11" draft="provisional">Zanjon ustoni</subdivision>
@@ -358,14 +554,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ir14" draft="provisional">Fors</subdivision>
 			<subdivision type="ir15" draft="provisional">Luriston²</subdivision>
 			<subdivision type="ir16" draft="provisional">Kurdiston ustoni</subdivision>
+			<subdivision type="ir17" draft="provisional">Koʻhgiluya va Buyir-Ahmad ustoni</subdivision>
+			<subdivision type="ir18" draft="provisional">Bushehr (viloyat)</subdivision>
 			<subdivision type="ir19" draft="provisional">Gilon</subdivision>
 			<subdivision type="ir20" draft="provisional">Luriston</subdivision>
 			<subdivision type="ir21" draft="provisional">Mozandaron</subdivision>
+			<subdivision type="ir22" draft="provisional">Hurmuzgon ustoni</subdivision>
+			<subdivision type="ir23" draft="provisional">Tehron ustoni</subdivision>
+			<subdivision type="ir25" draft="provisional">Qum ustoni</subdivision>
+			<subdivision type="ir26" draft="provisional">Qazvin province</subdivision>
 			<subdivision type="ir27" draft="provisional">Guliston ustoni</subdivision>
 			<subdivision type="ir28" draft="provisional">Shimoliy Xuroson ustoni</subdivision>
 			<subdivision type="ir29" draft="provisional">Janubiy Xuroson ustoni</subdivision>
 			<subdivision type="ir30" draft="provisional">Xurosoni Rizoviy ustoni</subdivision>
+			<subdivision type="isaku" draft="provisional">Akureyri</subdivision>
+			<subdivision type="isrkv" draft="provisional">Reykyavik</subdivision>
+			<subdivision type="it25" draft="provisional">Lombardia</subdivision>
 			<subdivision type="it78" draft="provisional">Kalabriya</subdivision>
+			<subdivision type="it82" draft="provisional">Sitsiliya (orol)</subdivision>
 			<subdivision type="it88" draft="provisional">Sardiniya</subdivision>
 			<subdivision type="itag" draft="provisional">Agrigento</subdivision>
 			<subdivision type="ital" draft="provisional">Alessandria</subdivision>
@@ -470,9 +676,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="itvs" draft="provisional">Medio Campidano</subdivision>
 			<subdivision type="itvt" draft="provisional">Viterbo</subdivision>
 			<subdivision type="itvv" draft="provisional">Vibo Valentia</subdivision>
+			<subdivision type="joaj" draft="provisional">Ajloun gubernatorligi</subdivision>
+			<subdivision type="joir" draft="provisional">Irbid gubernatorligi</subdivision>
 			<subdivision type="jp04" draft="provisional">Miyagi prefekturasi</subdivision>
+			<subdivision type="jp06" draft="provisional">Yamagata</subdivision>
+			<subdivision type="jp08" draft="provisional">Ibaraki prefekturasi</subdivision>
 			<subdivision type="jp11" draft="provisional">Saitama</subdivision>
 			<subdivision type="jp13" draft="provisional">Tokio</subdivision>
+			<subdivision type="ke01" draft="provisional">Baringo (okrug)</subdivision>
+			<subdivision type="ke05" draft="provisional">Elgeyo-Marakwet (okrug)</subdivision>
 			<subdivision type="kgb" draft="provisional">Botken</subdivision>
 			<subdivision type="kgc" draft="provisional">Chuy</subdivision>
 			<subdivision type="kggb" draft="provisional">Bishkek</subdivision>
@@ -483,34 +695,45 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="kgt" draft="provisional">Talas</subdivision>
 			<subdivision type="kgy" draft="provisional">Issiq-Koʻl</subdivision>
 			<subdivision type="kh12" draft="provisional">Pnompen</subdivision>
+			<subdivision type="kh22" draft="provisional">Oddar Meanchey viloyati</subdivision>
 			<subdivision type="kig" draft="provisional">Gilbert orollari</subdivision>
 			<subdivision type="kp01" draft="provisional">Pxenyan</subdivision>
+			<subdivision type="kp04" draft="provisional">Chagang provinsiyasi</subdivision>
 			<subdivision type="kp14" draft="provisional">Nampxo</subdivision>
+			<subdivision type="kp15" draft="provisional">Keson</subdivision>
 			<subdivision type="kr11" draft="provisional">Seul</subdivision>
 			<subdivision type="kr26" draft="provisional">Pusan</subdivision>
+			<subdivision type="kr27" draft="provisional">Degu</subdivision>
 			<subdivision type="kr28" draft="provisional">Inchxon</subdivision>
 			<subdivision type="kr29" draft="provisional">Kvanju</subdivision>
 			<subdivision type="kr30" draft="provisional">Daejeon</subdivision>
 			<subdivision type="kr31" draft="provisional">Ulsan</subdivision>
-			<subdivision type="kzakm" draft="provisional">Akmola viloyati</subdivision>
-			<subdivision type="kzakt" draft="provisional">Aqtoʻbe viloyati</subdivision>
-			<subdivision type="kzala" draft="provisional">Almati</subdivision>
+			<subdivision type="kz10" draft="provisional">Abay viloyati</subdivision>
+			<subdivision type="kz11" draft="provisional">Akmola viloyati</subdivision>
+			<subdivision type="kz15" draft="provisional">Aqtoʻbe viloyati</subdivision>
+			<subdivision type="kz19" draft="provisional">Almati</subdivision>
+			<subdivision type="kz23" draft="provisional">Atirau viloyati</subdivision>
+			<subdivision type="kz27" draft="provisional">Gʻarbiy Qozogʻiston viloyati</subdivision>
+			<subdivision type="kz31" draft="provisional">Jambul viloyati</subdivision>
+			<subdivision type="kz33" draft="provisional">Yettisuv viloyati</subdivision>
+			<subdivision type="kz35" draft="provisional">Qaragʻandi viloyati</subdivision>
+			<subdivision type="kz39" draft="provisional">Qoʻstanoy viloyati</subdivision>
+			<subdivision type="kz43" draft="provisional">Qiziloʼrda viloyati</subdivision>
+			<subdivision type="kz47" draft="provisional">Mangʻishloq viloyati</subdivision>
+			<subdivision type="kz55" draft="provisional">Pavlodar viloyati</subdivision>
+			<subdivision type="kz59" draft="provisional">Shimoliy Qozogʻiston viloyati</subdivision>
+			<subdivision type="kz61" draft="provisional">Turkiston viloyati</subdivision>
+			<subdivision type="kz62" draft="provisional">Ulitau (viloyat)</subdivision>
+			<subdivision type="kz63" draft="provisional">Sharqiy Qozogʻiston viloyati</subdivision>
+			<subdivision type="kz71" draft="provisional">Ostona</subdivision>
+			<subdivision type="kz75" draft="provisional">Almati²</subdivision>
+			<subdivision type="kz79" draft="provisional">Chimkent</subdivision>
 			<subdivision type="kzalm" draft="provisional">Almati²</subdivision>
-			<subdivision type="kzast" draft="provisional">Ostona</subdivision>
-			<subdivision type="kzaty" draft="provisional">Atirau viloyati</subdivision>
 			<subdivision type="kzbay" draft="provisional">Boyqoʻngʻir</subdivision>
-			<subdivision type="kzkar" draft="provisional">Qaragʻandi viloyati</subdivision>
-			<subdivision type="kzkus" draft="provisional">Qoʻstanoy viloyati</subdivision>
-			<subdivision type="kzkzy" draft="provisional">Qiziloʼrda viloyati</subdivision>
 			<subdivision type="kzman" draft="provisional">Mangʻistov viloyati</subdivision>
-			<subdivision type="kzpav" draft="provisional">Pavlodar viloyati</subdivision>
-			<subdivision type="kzsev" draft="provisional">Shimoliy Qozogʻiston viloyati</subdivision>
-			<subdivision type="kzshy" draft="provisional">Chimkent</subdivision>
-			<subdivision type="kzvos" draft="provisional">Sharqiy Qozogʻiston viloyati</subdivision>
-			<subdivision type="kzyuz" draft="provisional">Turkiston viloyati</subdivision>
-			<subdivision type="kzzap" draft="provisional">Gʻarbiy Qozogʻiston viloyati</subdivision>
-			<subdivision type="kzzha" draft="provisional">Jambul viloyati</subdivision>
 			<subdivision type="li11" draft="provisional">Vaduz</subdivision>
+			<subdivision type="lk2" draft="provisional">Markaziy provinsiya (Shri-Lanka)</subdivision>
+			<subdivision type="lk21" draft="provisional">Kandy tumani</subdivision>
 			<subdivision type="lrbg" draft="provisional">Bong okrugi</subdivision>
 			<subdivision type="lrbm" draft="provisional">Bomi okrugi</subdivision>
 			<subdivision type="lrlo" draft="provisional">Lofa okrugi</subdivision>
@@ -525,17 +748,38 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="lvrix" draft="provisional">Riga</subdivision>
 			<subdivision type="lvven" draft="provisional">Ventspils</subdivision>
 			<subdivision type="lyba" draft="provisional">Bingʻozi</subdivision>
+			<subdivision type="ma01" draft="provisional">Tanger-Tetouan-Al Hoceima</subdivision>
+			<subdivision type="ma02" draft="provisional">Gharb-Chrarda-Béni Hssen</subdivision>
+			<subdivision type="ma03" draft="provisional">Taza-Al Hoceima-Taounate</subdivision>
+			<subdivision type="ma04" draft="provisional">Rabat-Salé-Kénitra</subdivision>
+			<subdivision type="ma05" draft="provisional">Béni Mellal-Khénifra</subdivision>
+			<subdivision type="ma06" draft="provisional">Casablanca-Settat</subdivision>
+			<subdivision type="ma07" draft="provisional">Marrakech-Safi</subdivision>
+			<subdivision type="ma08" draft="provisional">Drâa-Tafilalet</subdivision>
+			<subdivision type="ma09" draft="provisional">Souss-Massa</subdivision>
+			<subdivision type="ma10" draft="provisional">Guelmim-Oued Noun</subdivision>
+			<subdivision type="ma11" draft="provisional">Laâyoune-Sakia El Hamra</subdivision>
+			<subdivision type="ma12" draft="provisional">Dakhla-Oued Ed-Dahab</subdivision>
 			<subdivision type="maagd" draft="provisional">Agadir</subdivision>
+			<subdivision type="maazi" draft="provisional">Azilal viloyati</subdivision>
+			<subdivision type="mabem" draft="provisional">Beni-Mellal viloyati</subdivision>
 			<subdivision type="macas" draft="provisional">Kasablanka</subdivision>
 			<subdivision type="mafes" draft="provisional">Fos</subdivision>
+			<subdivision type="mafqh" draft="provisional">Fquih Ben Salah viloyati</subdivision>
+			<subdivision type="mamar" draft="provisional">Marokash</subdivision>
 			<subdivision type="mamek" draft="provisional">Miknas</subdivision>
 			<subdivision type="marab" draft="provisional">Rabot</subdivision>
 			<subdivision type="matng" draft="provisional">Tanjer</subdivision>
+			<subdivision type="mcfo" draft="provisional">Fontvieille, Monaco</subdivision>
+			<subdivision type="mcje" draft="provisional">Jardin Exotique</subdivision>
+			<subdivision type="mcla" draft="provisional">Larvotto</subdivision>
 			<subdivision type="mcmc" draft="provisional">Montekarlo</subdivision>
+			<subdivision type="mcmg" draft="provisional">Les Moneghetti</subdivision>
 			<subdivision type="mcmo" draft="provisional">Monako</subdivision>
 			<subdivision type="mdba" draft="provisional">Bălţi</subdivision>
 			<subdivision type="mdbd" draft="provisional">Bender</subdivision>
 			<subdivision type="mdcu" draft="provisional">Kishinyov</subdivision>
+			<subdivision type="mdga" draft="provisional">Gagauziya</subdivision>
 			<subdivision type="mga" draft="provisional">Tuamasina</subdivision>
 			<subdivision type="mgd" draft="provisional">Antsiranana</subdivision>
 			<subdivision type="mgf" draft="provisional">Fianarantsua</subdivision>
@@ -544,10 +788,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mgu" draft="provisional">Tuliara</subdivision>
 			<subdivision type="mhmaj" draft="provisional">Majuro</subdivision>
 			<subdivision type="mk85" draft="provisional">Skopye</subdivision>
+			<subdivision type="ml6" draft="provisional">Tombouctou Region</subdivision>
 			<subdivision type="mlbko" draft="provisional">Bamako</subdivision>
 			<subdivision type="mn1" draft="provisional">Ulan-Bator</subdivision>
+			<subdivision type="mr06" draft="provisional">Trarza viloyati</subdivision>
+			<subdivision type="mr07" draft="provisional">Adrar viloyati</subdivision>
+			<subdivision type="mt52" draft="provisional">Sannat</subdivision>
 			<subdivision type="mt60" draft="provisional">Valletta</subdivision>
 			<subdivision type="mupu" draft="provisional">Port-Lui</subdivision>
+			<subdivision type="mv14" draft="provisional">Faafu Atoll</subdivision>
 			<subdivision type="mvmle" draft="provisional">Male</subdivision>
 			<subdivision type="mxagu" draft="provisional">Aguaskalentes</subdivision>
 			<subdivision type="mxbcn" draft="provisional">Quyi shimoliy Kaliforniya</subdivision>
@@ -582,24 +831,78 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mxyuc" draft="provisional">Yukatan</subdivision>
 			<subdivision type="mxzac" draft="provisional">Sakatekas</subdivision>
 			<subdivision type="my01" draft="provisional">Johor</subdivision>
+			<subdivision type="my09" draft="provisional">Perlis</subdivision>
+			<subdivision type="my13" draft="provisional">Saravak</subdivision>
 			<subdivision type="my14" draft="provisional">Kuala Lumpur</subdivision>
 			<subdivision type="mzmpm" draft="provisional">Maputu</subdivision>
 			<subdivision type="ne8" draft="provisional">Niamey</subdivision>
+			<subdivision type="ngim" draft="provisional">Imo shtati</subdivision>
 			<subdivision type="nlbq1" draft="provisional">Bonayre</subdivision>
+			<subdivision type="nldr" draft="provisional">Drenthe</subdivision>
+			<subdivision type="nlfr" draft="provisional">Flevoland</subdivision>
+			<subdivision type="nlge" draft="provisional">Gelderland</subdivision>
+			<subdivision type="nlgr" draft="provisional">Groningen (provinsiya)</subdivision>
 			<subdivision type="no03" draft="provisional">Oslo</subdivision>
 			<subdivision type="no21" draft="provisional">Shpitsbergen</subdivision>
+			<subdivision type="no22" draft="provisional">Yan Mayen</subdivision>
 			<subdivision type="no34" draft="provisional">Innlandet</subdivision>
+			<subdivision type="no46" draft="provisional">Vestland</subdivision>
+			<subdivision type="nr14" draft="provisional">Yaren</subdivision>
 			<subdivision type="nzcit" draft="provisional">Chatem</subdivision>
+			<subdivision type="ombj" draft="provisional">Janubiy Botina muhofazasi</subdivision>
+			<subdivision type="ombs" draft="provisional">Shimoliy Botina muhofazasi</subdivision>
+			<subdivision type="ombu" draft="provisional">Buraymiy muhofazasi</subdivision>
+			<subdivision type="omda" draft="provisional">Doxiliya muhofazasi</subdivision>
+			<subdivision type="omma" draft="provisional">Maskat muhofazasi</subdivision>
+			<subdivision type="ommu" draft="provisional">Musandam muhofazasi</subdivision>
+			<subdivision type="omsj" draft="provisional">Janubiy Sharqiya muhofazasi</subdivision>
+			<subdivision type="omss" draft="provisional">Shimoliy Sharqiya muhofazasi</subdivision>
+			<subdivision type="omwu" draft="provisional">Vusto muhofazasi</subdivision>
+			<subdivision type="omza" draft="provisional">Zohira muhofazasi</subdivision>
+			<subdivision type="omzu" draft="provisional">Zufor muhofazasi</subdivision>
+			<subdivision type="pgcpk" draft="provisional">Chimbu provinsiyasi</subdivision>
+			<subdivision type="pgebr" draft="provisional">Sharqiy Yangi Britaniya provinsiyasi</subdivision>
+			<subdivision type="pgehg" draft="provisional">Sharqiy Highlands provinsiyasi</subdivision>
+			<subdivision type="pgepw" draft="provisional">Enga provinsiyasi</subdivision>
+			<subdivision type="pghla" draft="provisional">Hela provinsiyasi</subdivision>
+			<subdivision type="pgmrl" draft="provisional">Manus provinsiyasi</subdivision>
 			<subdivision type="pgncd" draft="provisional">Port Morsbi</subdivision>
+			<subdivision type="pgnsb" draft="provisional">Autonomous Region of Bougainville</subdivision>
+			<subdivision type="pgshm" draft="provisional">Janubiy Highlands provinsiyasi</subdivision>
+			<subdivision type="pgwbk" draft="provisional">West New Britain provinsiyasi</subdivision>
+			<subdivision type="pgwhm" draft="provisional">Gʻarbiy Highlands provinsiyasi</subdivision>
+			<subdivision type="phabr" draft="provisional">Abra</subdivision>
 			<subdivision type="pkba" draft="provisional">Balujiston</subdivision>
 			<subdivision type="pkkp" draft="provisional">Shimoliy-gʻarbiy chegara viloyati</subdivision>
 			<subdivision type="pkpb" draft="provisional">Panjob (viloyat)</subdivision>
 			<subdivision type="pksd" draft="provisional">Sind</subdivision>
+			<subdivision type="pl32" draft="provisional">Gʻarbiy Pomeran Voivodligi</subdivision>
+			<subdivision type="psgza" draft="provisional">Gʼazo gubernatorligi</subdivision>
+			<subdivision type="pskys" draft="provisional">Xon Yunis gubernatorligi</subdivision>
+			<subdivision type="psrfh" draft="provisional">Rafah gubernatorligi</subdivision>
+			<subdivision type="pstkm" draft="provisional">Tulkarm gubernatorligi</subdivision>
 			<subdivision type="pt20" draft="provisional">Azor orollari</subdivision>
 			<subdivision type="pw150" draft="provisional">Koror</subdivision>
 			<subdivision type="pyasu" draft="provisional">Asunsyon</subdivision>
 			<subdivision type="qada" draft="provisional">Doha</subdivision>
+			<subdivision type="roab" draft="provisional">Alba okrugi</subdivision>
 			<subdivision type="rob" draft="provisional">Buharest</subdivision>
+			<subdivision type="robc" draft="provisional">Bacău okrugi</subdivision>
+			<subdivision type="robh" draft="provisional">Bihor okrugi</subdivision>
+			<subdivision type="robn" draft="provisional">Bistrita-Nasăud okrugi</subdivision>
+			<subdivision type="robt" draft="provisional">Botoșani okrugi</subdivision>
+			<subdivision type="robz" draft="provisional">Buzău okrugi</subdivision>
+			<subdivision type="rocl" draft="provisional">Călărași okrugi</subdivision>
+			<subdivision type="roct" draft="provisional">Constanța okrugi</subdivision>
+			<subdivision type="rois" draft="provisional">Iași okrugi</subdivision>
+			<subdivision type="romh" draft="provisional">Mehedinți okrugi</subdivision>
+			<subdivision type="ront" draft="provisional">Neamț okrugi</subdivision>
+			<subdivision type="roph" draft="provisional">Prahova okrugi</subdivision>
+			<subdivision type="rosb" draft="provisional">Sibiu okrugi</subdivision>
+			<subdivision type="rosj" draft="provisional">Sălaj okrugi</subdivision>
+			<subdivision type="rosv" draft="provisional">Suceava okrugi</subdivision>
+			<subdivision type="rotl" draft="provisional">Tulcea okrugi</subdivision>
+			<subdivision type="rotr" draft="provisional">Teleorman okrugi</subdivision>
 			<subdivision type="rs00" draft="provisional">Belgrad</subdivision>
 			<subdivision type="rskm" draft="provisional">Kosovo va metoxiya</subdivision>
 			<subdivision type="rsvo" draft="provisional">Voyevodina</subdivision>
@@ -696,8 +999,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="sa09" draft="provisional">Jizan viloyati</subdivision>
 			<subdivision type="sa10" draft="provisional">Najron viloyati</subdivision>
 			<subdivision type="sa11" draft="provisional">Al-Baha viloyati</subdivision>
+			<subdivision type="sa14" draft="provisional">Asir viloyati</subdivision>
 			<subdivision type="sbct" draft="provisional">Xoniara</subdivision>
 			<subdivision type="shac" draft="provisional">Vozneseniye oroli</subdivision>
+			<subdivision type="shhl" draft="provisional">Muqaddas Yelena oroli</subdivision>
+			<subdivision type="si016" draft="provisional">Haloze</subdivision>
+			<subdivision type="si052" draft="provisional">Kranj Munitsipaliteti</subdivision>
+			<subdivision type="si148" draft="provisional">Benedikt</subdivision>
+			<subdivision type="skbc" draft="provisional">Banská Bystrica viloyati</subdivision>
+			<subdivision type="skki" draft="provisional">Košice viloyati</subdivision>
+			<subdivision type="skta" draft="provisional">uz</subdivision>
+			<subdivision type="skzi" draft="provisional">Žilina viloyati</subdivision>
 			<subdivision type="sm07" draft="provisional">San-Marino</subdivision>
 			<subdivision type="ssbn" draft="provisional">Shimoliy Baxr-al-Gʼazal</subdivision>
 			<subdivision type="ssec" draft="provisional">Markaziy Ekvatoriya</subdivision>
@@ -706,8 +1018,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="sslk" draft="provisional">Koʼl</subdivision>
 			<subdivision type="ssnu" draft="provisional">Yuqori Nil</subdivision>
 			<subdivision type="sswr" draft="provisional">Varab</subdivision>
+			<subdivision type="sydr" draft="provisional">Darʼo gubernatorligi</subdivision>
+			<subdivision type="syla" draft="provisional">Loziqiya muhofazasi</subdivision>
 			<subdivision type="tdnd" draft="provisional">Njamena</subdivision>
 			<subdivision type="th10" draft="provisional">Bangkok</subdivision>
+			<subdivision type="th12" draft="provisional">Nonthaburi provinsiyasi</subdivision>
 			<subdivision type="th32" draft="provisional">Surin provinsiyasi</subdivision>
 			<subdivision type="th83" draft="provisional">Phuket province</subdivision>
 			<subdivision type="ths" draft="provisional">Pattaya</subdivision>
@@ -722,6 +1037,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="tml" draft="provisional">Lebap viloyati</subdivision>
 			<subdivision type="tmm" draft="provisional">Mari viloyati</subdivision>
 			<subdivision type="tms" draft="provisional">Ashxobod</subdivision>
+			<subdivision type="tn12" draft="provisional">Ariana gubernatorligi</subdivision>
 			<subdivision type="tn41" draft="provisional">Qayravon viloyati</subdivision>
 			<subdivision type="tr01" draft="provisional">Adana</subdivision>
 			<subdivision type="tr02" draft="provisional">Adıyaman</subdivision>
@@ -770,13 +1086,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="tr45" draft="provisional">Manisa</subdivision>
 			<subdivision type="tr46" draft="provisional">Kahramanmaraş</subdivision>
 			<subdivision type="tr47" draft="provisional">Mardin (viloyat)</subdivision>
+			<subdivision type="tr48" draft="provisional">Muğla viloyati</subdivision>
+			<subdivision type="tr49" draft="provisional">Muş (viloyat)</subdivision>
 			<subdivision type="tr50" draft="provisional">Nevşehir</subdivision>
+			<subdivision type="tr51" draft="provisional">Nigʼde viloyati</subdivision>
 			<subdivision type="tr52" draft="provisional">Ordu</subdivision>
 			<subdivision type="tr53" draft="provisional">Rize</subdivision>
 			<subdivision type="tr54" draft="provisional">Sakarya</subdivision>
 			<subdivision type="tr55" draft="provisional">Samsun</subdivision>
 			<subdivision type="tr56" draft="provisional">Siirt</subdivision>
 			<subdivision type="tr58" draft="provisional">Sivas</subdivision>
+			<subdivision type="tr59" draft="provisional">Tekirdağ viloyati</subdivision>
 			<subdivision type="tr60" draft="provisional">Tokat</subdivision>
 			<subdivision type="tr61" draft="provisional">Trabzon</subdivision>
 			<subdivision type="tr62" draft="provisional">Tunceli</subdivision>
@@ -797,10 +1117,12 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="tr79" draft="provisional">Kilis (viloyat)</subdivision>
 			<subdivision type="tr80" draft="provisional">Osmaniye</subdivision>
 			<subdivision type="tr81" draft="provisional">Düzce</subdivision>
+			<subdivision type="ttcha" draft="provisional">Chaguanas</subdivision>
 			<subdivision type="ttpos" draft="provisional">Port-of-speyn</subdivision>
 			<subdivision type="tttob" draft="provisional">Tobago</subdivision>
 			<subdivision type="tvfun" draft="provisional">Funafuti</subdivision>
 			<subdivision type="twtpe" draft="provisional">Taypey</subdivision>
+			<subdivision type="tz23" draft="provisional">Andoza:Singida</subdivision>
 			<subdivision type="ua05" draft="provisional">Vinnitsa viloyati</subdivision>
 			<subdivision type="ua07" draft="provisional">Volin viloyati</subdivision>
 			<subdivision type="ua09" draft="provisional">Lugansk viloyati</subdivision>
@@ -828,7 +1150,51 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ua71" draft="provisional">Cherkasi viloyati</subdivision>
 			<subdivision type="ua74" draft="provisional">Chernigiv viloyati</subdivision>
 			<subdivision type="ua77" draft="provisional">Chernivsi viloyati</subdivision>
+			<subdivision type="ug101" draft="provisional">Kalangala tumani</subdivision>
+			<subdivision type="ug104" draft="provisional">Luweero tumani</subdivision>
+			<subdivision type="ug105" draft="provisional">Masaka tumani</subdivision>
+			<subdivision type="ug108" draft="provisional">Mukono tumani</subdivision>
+			<subdivision type="ug115" draft="provisional">Mityana tumani</subdivision>
+			<subdivision type="ug117" draft="provisional">Buikwe tumani</subdivision>
+			<subdivision type="ug118" draft="provisional">Bukomansimbi tumani</subdivision>
+			<subdivision type="ug119" draft="provisional">Butambala tumani</subdivision>
+			<subdivision type="ug120" draft="provisional">Buvuma tumani</subdivision>
+			<subdivision type="ug122" draft="provisional">Kalungu tumani</subdivision>
+			<subdivision type="ug124" draft="provisional">Lwengo tumani</subdivision>
+			<subdivision type="ug202" draft="provisional">Busia tumani</subdivision>
+			<subdivision type="ug204" draft="provisional">Jinja tumani</subdivision>
+			<subdivision type="ug208" draft="provisional">Kumi tumani</subdivision>
+			<subdivision type="ug210" draft="provisional">Pallisa tumani</subdivision>
+			<subdivision type="ug211" draft="provisional">Soroti tumani</subdivision>
+			<subdivision type="ug212" draft="provisional">Tororo tumani</subdivision>
+			<subdivision type="ug228" draft="provisional">Kven tumani</subdivision>
+			<subdivision type="ug232" draft="provisional">Serere tumani</subdivision>
+			<subdivision type="ug234" draft="provisional">Namisindwa tumani</subdivision>
+			<subdivision type="ug303" draft="provisional">Arua tumani</subdivision>
+			<subdivision type="ug307" draft="provisional">Lira tumani</subdivision>
+			<subdivision type="ug309" draft="provisional">Moyo tumani</subdivision>
+			<subdivision type="ug314" draft="provisional">Abim tumani</subdivision>
+			<subdivision type="ug316" draft="provisional">Amuru tumani</subdivision>
+			<subdivision type="ug321" draft="provisional">Oyam tumani</subdivision>
+			<subdivision type="ug322" draft="provisional">Agago tumani</subdivision>
+			<subdivision type="ug324" draft="provisional">Amudat tumani</subdivision>
+			<subdivision type="ug326" draft="provisional">Lamvo tumani</subdivision>
+			<subdivision type="ug329" draft="provisional">Otuke tumani</subdivision>
+			<subdivision type="ug330" draft="provisional">Zombo tumani</subdivision>
+			<subdivision type="ug331" draft="provisional">Omoro tumani</subdivision>
+			<subdivision type="ug332" draft="provisional">Pakwach tumani</subdivision>
+			<subdivision type="ug404" draft="provisional">Kabale tumani</subdivision>
+			<subdivision type="ug405" draft="provisional">Kabarole tumani</subdivision>
+			<subdivision type="ug408" draft="provisional">Kisoro</subdivision>
+			<subdivision type="ug415" draft="provisional">Kyenjojo tumani</subdivision>
+			<subdivision type="ug416" draft="provisional">Buliisa</subdivision>
+			<subdivision type="ug426" draft="provisional">Sheema tumani</subdivision>
+			<subdivision type="ug428" draft="provisional">Kakumiro tumani</subdivision>
+			<subdivision type="ug430" draft="provisional">Bunyangabu</subdivision>
+			<subdivision type="ugc" draft="provisional">Buganda kommunasi</subdivision>
 			<subdivision type="um71" draft="provisional">Midway</subdivision>
+			<subdivision type="um76" draft="provisional">Navassa oroli</subdivision>
+			<subdivision type="um86" draft="provisional">Jarvis oroli</subdivision>
 			<subdivision type="usak" draft="provisional">Alyaska</subdivision>
 			<subdivision type="usal" draft="provisional">Alabama</subdivision>
 			<subdivision type="usar" draft="provisional">Arkanzas</subdivision>
@@ -879,7 +1245,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="uswa" draft="provisional">Vashington shtati</subdivision>
 			<subdivision type="uswi" draft="provisional">Viskonsin</subdivision>
 			<subdivision type="uswy" draft="provisional">Vayoming</subdivision>
+			<subdivision type="uyar" draft="provisional">Artigas departamenti</subdivision>
+			<subdivision type="uydu" draft="provisional">Durazno boʼlimi</subdivision>
 			<subdivision type="uymo" draft="provisional">Montevideo</subdivision>
+			<subdivision type="uypa" draft="provisional">Paysandu departamenti</subdivision>
 			<subdivision type="uzan" draft="provisional">Andijon</subdivision>
 			<subdivision type="uzbu" draft="provisional">Buxoro viloyati</subdivision>
 			<subdivision type="uzfa" draft="provisional">Fargʻona viloyati</subdivision>
@@ -894,10 +1263,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="uztk" draft="provisional">Toshkent</subdivision>
 			<subdivision type="uzto" draft="provisional">Toshkent viloyati</subdivision>
 			<subdivision type="uzxo" draft="provisional">Xorazm viloyati</subdivision>
+			<subdivision type="vn44" draft="provisional">An Giang provinsiyasi</subdivision>
+			<subdivision type="vn47" draft="provisional">Kien Giang</subdivision>
 			<subdivision type="vndn" draft="provisional">Danang</subdivision>
 			<subdivision type="vnhn" draft="provisional">Xanoy</subdivision>
 			<subdivision type="vnhp" draft="provisional">Xayfon</subdivision>
 			<subdivision type="vnsg" draft="provisional">Xoshimin</subdivision>
+			<subdivision type="yeab" draft="provisional">Abyan</subdivision>
 			<subdivision type="yesa" draft="provisional">Sano</subdivision>
 		</subdivisions>
 	</localeDisplayNames>

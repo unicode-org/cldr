@@ -233,6 +233,61 @@ public class TestCheckDisplayCollisions extends TestFmwkPlus {
         checkDisplayCollisions("de", pathValuePairs, factory);
     }
 
+    public void checkDayPeriodCollisions() {
+        // CLDR-16933 (uk, ...)
+        // Let midnight match a non-fixed period that starts at, ends at, or contains midnight (both
+        // versions);
+        // Let noon match a non-fixed period that starts at, ends at, or contains noon (or just
+        // before noon);
+        Map<String, String> ukPathValuePairs =
+                ImmutableMap.of(
+                        "ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"abbreviated\"]/dayPeriod[@type=\"midnight\"]",
+                                "ночі",
+                        "ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"abbreviated\"]/dayPeriod[@type=\"night1\"]",
+                                "ночі",
+                        "ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"abbreviated\"]/dayPeriod[@type=\"noon\"]",
+                                "дня",
+                        "ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"abbreviated\"]/dayPeriod[@type=\"afternoon1\"]",
+                                "дня");
+        TestFactory ukFactory = makeFakeCldrFile("uk", ukPathValuePairs);
+        checkDisplayCollisions("uk", ukPathValuePairs, ukFactory);
+
+        // CLDR-17132 (fr, ...)
+        // Let night1 have the same name as morning1/am if night1 starts at 00:00
+        Map<String, String> frPathValuePairs =
+                ImmutableMap.of(
+                        "ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"abbreviated\"]/dayPeriod[@type=\"morning1\"]",
+                                "matin",
+                        "ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"abbreviated\"]/dayPeriod[@type=\"night1\"]",
+                                "matin");
+        TestFactory frFactory = makeFakeCldrFile("fr", frPathValuePairs);
+        checkDisplayCollisions("fr", frPathValuePairs, frFactory);
+
+        // CLDR-17139 (fil, ...)
+        // Let night1 have the same name as evening1 if night1 ends at 24:00
+        Map<String, String> filPathValuePairs =
+                ImmutableMap.of(
+                        "ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"abbreviated\"]/dayPeriod[@type=\"evening1\"]",
+                                "ng gabi",
+                        "ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"abbreviated\"]/dayPeriod[@type=\"night1\"]",
+                                "ng gabi");
+        TestFactory filFactory = makeFakeCldrFile("fil", filPathValuePairs);
+        checkDisplayCollisions("fil", filPathValuePairs, filFactory);
+    }
+
+    public void checkCurrencySymbolCollisions() {
+        // CLDR-17792
+        Map<String, String> pt_PTPathValuePairs =
+                ImmutableMap.of(
+                        "ldml/numbers/currencies/currency[@type=\"EUR\"]/symbol", "€",
+                        "ldml/numbers/currencies/currency[@type=\"GBP\"]/symbol", "£",
+                        "ldml/numbers/currencies/currency[@type=\"PTE\"]/symbol", "\u200B",
+                        "ldml/numbers/currencies/currency[@type=\"PTE\"]/decimal", "$",
+                        "ldml/numbers/currencies/currency[@type=\"USD\"]/symbol", "US$");
+        TestFactory pt_PTFactory = makeFakeCldrFile("pt_PT", pt_PTPathValuePairs);
+        checkDisplayCollisions("pt_PT", pt_PTPathValuePairs, pt_PTFactory);
+    }
+
     public void checkDisplayCollisions(
             String locale, Map<String, String> pathValuePairs, TestFactory factory) {
         CheckDisplayCollisions cdc = new CheckDisplayCollisions(factory);

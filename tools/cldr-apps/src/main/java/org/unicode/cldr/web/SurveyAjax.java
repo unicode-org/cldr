@@ -482,7 +482,7 @@ public class SurveyAjax extends HttpServlet {
                         mySession.userDidAction();
                         SurveyJSONWrapper r = newJSONStatus(request, sm);
                         r.put("what", what);
-                        if (UserRegistry.userIsVetter(mySession.user)) {
+                        if (UserRegistry.userCanUseVettingParticipation(mySession.user)) {
                             String org = mySession.user.org;
                             if (UserRegistry.userCreateOtherOrgs(mySession.user)) {
                                 org = null; // all
@@ -1118,6 +1118,8 @@ public class SurveyAjax extends HttpServlet {
             locale.put("highestParent", loc.getHighestNonrootParent());
             locale.put("dcParent", dcParent);
             locale.put("dcChild", dcChild);
+            locale.put("tc", SubmissionLocales.isTcLocale(loc));
+            locale.put("extended", SubmissionLocales.isOpenForExtendedSubmission(loc));
             locale.put(
                     "type",
                     Factory.getSourceTreeType(disk.getSourceDirectoryForLocale(loc.getBaseName())));
@@ -2656,7 +2658,7 @@ public class SurveyAjax extends HttpServlet {
         final List<CheckCLDR.CheckStatus> checkResult = new ArrayList<>();
         TestCache.TestResultBundle cc = stf.getTestResult(loc, DataPage.getOptions(cs, loc));
         UserRegistry.User u = theirU;
-        CheckCLDR.Phase cPhase = CLDRConfig.getInstance().getPhase();
+        CheckCLDR.Phase cPhase = SurveyMain.checkCLDRPhase(loc);
         Set<String> allValidPaths = stf.getPathsForFile(loc);
         CLDRProgressTask progress = sm.openProgress("Bulk:" + loc, all.size());
         CLDRFile cldrUnresolved = cf.getUnresolved();

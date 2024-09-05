@@ -200,7 +200,7 @@ public class XPathTable {
         Connection conn = null;
         PreparedStatement queryStmt = null;
         try {
-            conn = DBUtils.getInstance().getDBConnection();
+            conn = DBUtils.getInstance().getAConnection();
             if (!DEBUG) {
                 addXpaths(unloadedXpaths, conn);
             } else {
@@ -226,7 +226,7 @@ public class XPathTable {
      * Add a set of xpaths to the database.
      *
      * @param xpaths
-     * @param conn
+     * @param conn the connection (auto-commit)
      * @throws SQLException
      */
     private synchronized void addXpaths(Set<String> xpaths, Connection conn) throws SQLException {
@@ -244,7 +244,6 @@ public class XPathTable {
             stat_dbAdd++;
         }
         insertStmt.executeBatch();
-        conn.commit();
         insertStmt.close();
 
         // PreparedStatement.getGeneratedKeys() only returns the ID of the

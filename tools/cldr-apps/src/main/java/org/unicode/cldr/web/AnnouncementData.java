@@ -2,10 +2,11 @@ package org.unicode.cldr.web;
 
 import com.ibm.icu.dev.util.ElapsedTimer;
 import java.sql.*;
-import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
+import org.unicode.cldr.test.SubmissionLocales;
 import org.unicode.cldr.util.*;
 import org.unicode.cldr.web.api.Announcements;
 
@@ -148,6 +149,7 @@ public class AnnouncementData {
         }
         String subject = "CLDR Survey Tool announcement: " + request.subject;
         String locs = (request.locs == null || request.locs.isEmpty()) ? "All" : request.locs;
+        if (locs.equals(Announcements.LOCS_NON_TC)) locs = "(DDL Locales)";
         String body =
                 "From: "
                         + poster.name
@@ -223,7 +225,16 @@ public class AnnouncementData {
         AnnouncementFilter aFilter = new AnnouncementFilter(user);
         Announcements.Announcement a =
                 new Announcements.Announcement(0, poster.id, null, null, null);
-        a.setFilters(request.locs, request.orgs, request.audience);
+        String filterLocs = request.locs;
+        if (filterLocs != null && filterLocs.equals(Announcements.LOCS_NON_TC)) {
+            // expand the filter
+            filterLocs =
+                    SurveyMain.getLocalesSet().stream()
+                            .filter(loc -> !SubmissionLocales.isTcLocale(loc))
+                            .map(l -> l.getBaseName())
+                            .collect(Collectors.joining(" "));
+        }
+        a.setFilters(filterLocs, request.orgs, request.audience);
         if (aFilter.passes(a)) {
             logger.fine("In AnnouncementData.addRecipientIfPasses, adding recipient: " + user.id);
             recipients.add(user.id);
@@ -470,6 +481,8 @@ public class AnnouncementData {
                 return true;
             } else if (Announcements.ORGS_TC.equals(orgs)) {
                 return user.getOrganization().isTCOrg();
+            } else if (Announcements.ORGS_NON_TC.equals(orgs)) {
+                return !user.getOrganization().isTCOrg();
             } else if (Announcements.ORGS_MINE.equals(orgs)) {
                 UserRegistry.User posterUser = CookieSession.sm.reg.getInfo(posterId);
                 return posterUser != null && posterUser.isSameOrg(user);

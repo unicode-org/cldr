@@ -91,6 +91,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="bjn">Banjar Dili</language>
 			<language type="bkm">Kom</language>
 			<language type="bla">Karaayak dili</language>
+			<language type="blo">Aniice</language>
 			<language type="bm">Bambara</language>
 			<language type="bn">Bengalce</language>
 			<language type="bo">Tibetçe</language>
@@ -344,6 +345,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="kv">Komi</language>
 			<language type="kw">Kernevekçe</language>
 			<language type="kwk">Kwakʼwala dili</language>
+			<language type="kxv">Kuvi</language>
 			<language type="ky">Kırgızca</language>
 			<language type="la">Latince</language>
 			<language type="lad">Ladino</language>
@@ -640,6 +642,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="vi">Vietnamca</language>
 			<language type="vls">Batı Flamanca</language>
 			<language type="vmf">Main Frankonya Dili</language>
+			<language type="vmw">Makuaca</language>
 			<language type="vo">Volapük</language>
 			<language type="vot">Votça</language>
 			<language type="vro">Võro</language>
@@ -655,6 +658,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<language type="xal">Kalmıkça</language>
 			<language type="xh">Zosa dili</language>
 			<language type="xmf">Megrelce</language>
+			<language type="xnr">Kangrice</language>
 			<language type="xog">Soga</language>
 			<language type="yao">Yao</language>
 			<language type="yap">Yapça</language>
@@ -706,7 +710,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<script type="Cakm">Chakma</script>
 			<script type="Cans">UCAS</script>
 			<script type="Cari">Karya</script>
-			<script type="Cham">Cham</script>
+			<script type="Cham">↑↑↑</script>
 			<script type="Cher">Çeroki</script>
 			<script type="Cirt">Cirth</script>
 			<script type="Copt">Kıpti</script>
@@ -745,7 +749,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<script type="Hung">Eski Macar</script>
 			<script type="Inds">Indus</script>
 			<script type="Ital">Eski İtalyan</script>
-			<script type="Jamo">Jamo</script>
+			<script type="Jamo">↑↑↑</script>
 			<script type="Java">Cava Dili</script>
 			<script type="Jpan">Japon</script>
 			<script type="Jurc">Jurchen</script>
@@ -779,7 +783,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<script type="Merc">Meroitik El Yazısı</script>
 			<script type="Mero">Meroitik</script>
 			<script type="Mlym">Malayalam</script>
-			<script type="Modi">Modi</script>
+			<script type="Modi">↑↑↑</script>
 			<script type="Mong">Moğol</script>
 			<script type="Moon">Moon</script>
 			<script type="Mroo">Mro</script>
@@ -1243,7 +1247,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<type key="calendar" type="indian">Ulusal Hint Takvimi</type>
 			<type key="calendar" type="islamic">Hicri Takvim</type>
 			<type key="calendar" type="islamic-civil">Hicri Takvim (16 Temmuz 622)</type>
-			<type key="calendar" type="islamic-rgsa" draft="provisional">Hicri Takvim (Suudi)</type>
+			<type key="calendar" type="islamic-rgsa">Hicri Takvim (Suudi)</type>
 			<type key="calendar" type="islamic-tbla">Hicri Takvim (15 Temmuz 622)</type>
 			<type key="calendar" type="islamic-umalqura">Hicri Takvim (Ümmü-l Kurra Takvimi)</type>
 			<type key="calendar" type="iso8601">ISO-8601 Takvimi</type>
@@ -1416,7 +1420,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<moreInformation>↑↑↑</moreInformation>
 		<parseLenients scope="date" level="lenient">
 			<parseLenient sample="-">↑↑↑</parseLenient>
-			<parseLenient sample=":">[\: ∶]</parseLenient>
+			<parseLenient sample=":">↑↑↑</parseLenient>
 		</parseLenients>
 		<parseLenients scope="general" level="lenient">
 			<parseLenient sample=".">↑↑↑</parseLenient>
@@ -1424,7 +1428,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<parseLenient sample="%">↑↑↑</parseLenient>
 			<parseLenient sample="‰">↑↑↑</parseLenient>
 			<parseLenient sample="$">↑↑↑</parseLenient>
-			<parseLenient sample="£">[£ ₤]</parseLenient>
+			<parseLenient sample="£">↑↑↑</parseLenient>
 			<parseLenient sample="¥">↑↑↑</parseLenient>
 			<parseLenient sample="₩">↑↑↑</parseLenient>
 			<parseLenient sample="₹">↑↑↑</parseLenient>
@@ -2283,7 +2287,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 						<dateFormatItem id="Ehms">E a h:mm:ss</dateFormatItem>
 						<dateFormatItem id="EHms">↑↑↑</dateFormatItem>
 						<dateFormatItem id="Gy">↑↑↑</dateFormatItem>
-						<dateFormatItem id="GyMd">d/M/y GGGGG</dateFormatItem>
+						<dateFormatItem id="GyMd">GGGGG dd.MM.y</dateFormatItem>
 						<dateFormatItem id="GyMMM">G MMM y</dateFormatItem>
 						<dateFormatItem id="GyMMMd">G d MMM y</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">G d MMM y E</dateFormatItem>
@@ -2528,6 +2532,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 							<month type="2">↑↑↑</month>
 							<month type="3">↑↑↑</month>
 							<month type="4">↑↑↑</month>
+							<month type="5" draft="contributed">↑↑↑</month>
+							<month type="6" draft="contributed">↑↑↑</month>
+							<month type="7" draft="contributed">↑↑↑</month>
+							<month type="7" yeartype="leap" draft="contributed">↑↑↑</month>
+							<month type="8" draft="contributed">↑↑↑</month>
+							<month type="9" draft="contributed">↑↑↑</month>
+							<month type="10" draft="contributed">↑↑↑</month>
+							<month type="11" draft="contributed">↑↑↑</month>
+							<month type="12" draft="contributed">↑↑↑</month>
+							<month type="13" draft="contributed">↑↑↑</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="contributed">↑↑↑</month>
@@ -3871,7 +3885,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Curacao">
-				<exemplarCity>Curaçao</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Indian/Christmas">
 				<exemplarCity>↑↑↑</exemplarCity>
@@ -4405,7 +4419,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="America/Asuncion">
-				<exemplarCity>Asunción</exemplarCity>
+				<exemplarCity>↑↑↑</exemplarCity>
 			</zone>
 			<zone type="Asia/Qatar">
 				<exemplarCity>Katar</exemplarCity>
@@ -5276,6 +5290,11 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<daylight>Petropavlovsk-Kamçatski Yaz Saati</daylight>
 				</long>
 			</metazone>
+			<metazone type="Kazakhstan">
+				<long>
+					<standard>Kazakistan Saati</standard>
+				</long>
+			</metazone>
 			<metazone type="Kazakhstan_Eastern">
 				<long>
 					<standard>Doğu Kazakistan Saati</standard>
@@ -5995,8 +6014,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				</currencyFormat>
 			</currencyFormatLength>
 			<currencyPatternAppendISO>↑↑↑</currencyPatternAppendISO>
-			<unitPattern count="one">{0} {1}</unitPattern>
-			<unitPattern count="other">{0} {1}</unitPattern>
+			<unitPattern count="one">↑↑↑</unitPattern>
+			<unitPattern count="other">↑↑↑</unitPattern>
 		</currencyFormats>
 		<currencies>
 			<currency type="ADP">
@@ -8894,6 +8913,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">↑↑↑</unitPattern>
 			</unit>
+			<unit type="speed-light-speed">
+				<displayName>ışık</displayName>
+				<unitPattern count="one">{0} ışık</unitPattern>
+				<unitPattern count="other">{0} ışık</unitPattern>
+			</unit>
+			<unit type="concentr-portion-per-1e9">
+				<displayName>parça/milyar</displayName>
+				<unitPattern count="one">{0} parça/milyar</unitPattern>
+				<unitPattern count="other">{0} parça/milyar</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>gece</displayName>
+				<unitPattern count="one">{0} gece</unitPattern>
+				<unitPattern count="other">{0} gece</unitPattern>
+				<perUnitPattern>{0}/gece</perUnitPattern>
+			</unit>
 			<coordinateUnit>
 				<displayName>ana yön</displayName>
 				<coordinateUnitPattern type="east">{0}Doğu</coordinateUnitPattern>
@@ -9962,6 +9997,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<unitPattern count="one">↑↑↑</unitPattern>
 				<unitPattern count="other">{0} İng. quart</unitPattern>
 			</unit>
+			<unit type="speed-light-speed">
+				<displayName>ışık</displayName>
+				<unitPattern count="one">{0} ışık</unitPattern>
+				<unitPattern count="other">{0} ışık</unitPattern>
+			</unit>
+			<unit type="concentr-portion-per-1e9">
+				<displayName>parça/milyar</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>gece</displayName>
+				<unitPattern count="one">{0} gece</unitPattern>
+				<unitPattern count="other">{0} gece</unitPattern>
+				<perUnitPattern>{0}/gece</perUnitPattern>
+			</unit>
 			<coordinateUnit>
 				<displayName>yön</displayName>
 				<coordinateUnitPattern type="east">{0}D</coordinateUnitPattern>
@@ -11029,6 +11080,22 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 				<displayName>İng. qt</displayName>
 				<unitPattern count="one">{0} İng. qt.</unitPattern>
 				<unitPattern count="other">{0} İng. qt.</unitPattern>
+			</unit>
+			<unit type="speed-light-speed">
+				<displayName>ışık</displayName>
+				<unitPattern count="one">{0} ışık</unitPattern>
+				<unitPattern count="other">{0} ışık</unitPattern>
+			</unit>
+			<unit type="concentr-portion-per-1e9">
+				<displayName>↑↑↑</displayName>
+				<unitPattern count="one">↑↑↑</unitPattern>
+				<unitPattern count="other">↑↑↑</unitPattern>
+			</unit>
+			<unit type="duration-night">
+				<displayName>gece</displayName>
+				<unitPattern count="one">{0} gece</unitPattern>
+				<unitPattern count="other">{0} gece</unitPattern>
+				<perUnitPattern>{0}/gece</perUnitPattern>
 			</unit>
 			<coordinateUnit>
 				<displayName>↑↑↑</displayName>

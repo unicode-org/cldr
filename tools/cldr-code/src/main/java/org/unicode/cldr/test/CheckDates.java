@@ -3,6 +3,8 @@ package org.unicode.cldr.test;
 import com.google.common.base.Joiner;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.text.BreakIterator;
+import com.ibm.icu.text.DateIntervalInfo;
+import com.ibm.icu.text.DateIntervalInfo.PatternInfo;
 import com.ibm.icu.text.DateTimePatternGenerator;
 import com.ibm.icu.text.DateTimePatternGenerator.VariableField;
 import com.ibm.icu.text.MessageFormat;
@@ -376,7 +378,7 @@ public class CheckDates extends FactoryCheckCLDR {
                     CheckStatus item =
                             new CheckStatus()
                                     .setCause(this)
-                                    .setMainType(CheckStatus.errorType)
+                                    .setMainType(errorOrIfBuildWarning())
                                     .setSubtype(Subtype.abbreviatedDateFieldTooWide)
                                     .setMessage(
                                             "Abbreviated value \"{0}\" can't be longer than the corresponding wide value \"{1}\"",
@@ -468,7 +470,7 @@ public class CheckDates extends FactoryCheckCLDR {
                     CheckStatus item =
                             new CheckStatus()
                                     .setCause(this)
-                                    .setMainType(CheckStatus.errorType)
+                                    .setMainType(errorOrIfBuildWarning())
                                     .setSubtype(Subtype.shortDateFieldInconsistentLength)
                                     .setMessage(message, value, compareValue);
                     result.add(item);
@@ -481,7 +483,7 @@ public class CheckDates extends FactoryCheckCLDR {
                     CheckStatus item =
                             new CheckStatus()
                                     .setCause(this)
-                                    .setMainType(CheckStatus.errorType)
+                                    .setMainType(errorOrIfBuildWarning())
                                     .setSubtype(Subtype.narrowDateFieldTooWide)
                                     .setMessage(
                                             "Narrow value \"{0}\" can't be longer than the corresponding abbreviated value \"{1}\"",
@@ -496,7 +498,7 @@ public class CheckDates extends FactoryCheckCLDR {
                     CheckStatus item =
                             new CheckStatus()
                                     .setCause(this)
-                                    .setMainType(CheckStatus.errorType)
+                                    .setMainType(errorOrIfBuildWarning())
                                     .setSubtype(Subtype.abbreviatedDateFieldTooWide)
                                     .setMessage(
                                             "Abbreviated value \"{0}\" can't be longer than the corresponding wide value \"{1}\"",
@@ -510,7 +512,7 @@ public class CheckDates extends FactoryCheckCLDR {
                 result.add(
                         new CheckStatus()
                                 .setCause(this)
-                                .setMainType(CheckStatus.errorType)
+                                .setMainType(errorOrIfBuildWarning())
                                 .setSubtype(Subtype.illegalDatePattern)
                                 .setMessage(failure));
             }
@@ -548,7 +550,9 @@ public class CheckDates extends FactoryCheckCLDR {
                 final boolean isDayPeriod = path.contains("dayPeriod");
                 if (isDayPeriod) {
                     XPathParts parts = XPathParts.getFrozenInstance(fullPath);
-                    type = Type.fromString(parts.getAttributeValue(5, "type"));
+                    type =
+                            Type.fromString(
+                                    parts.getAttributeValue(5, "type")); // format, stand-alone
                     dayPeriod = DayPeriod.valueOf(parts.getAttributeValue(-1, "type"));
                 }
 
@@ -577,7 +581,10 @@ public class CheckDates extends FactoryCheckCLDR {
                     }
                     if (isDayPeriod) {
                         // ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="am"]
-                        Type itemType = Type.fromString(itemParts.getAttributeValue(5, "type"));
+                        Type itemType =
+                                Type.fromString(
+                                        itemParts.getAttributeValue(
+                                                5, "type")); // format, stand-alone
                         DayPeriod itemDayPeriod =
                                 DayPeriod.valueOf(itemParts.getAttributeValue(-1, "type"));
 
@@ -727,6 +734,10 @@ public class CheckDates extends FactoryCheckCLDR {
             }
         }
         return this;
+    }
+
+    public org.unicode.cldr.test.CheckCLDR.CheckStatus.Type errorOrIfBuildWarning() {
+        return getPhase() != Phase.BUILD ? CheckStatus.errorType : CheckStatus.warningType;
     }
 
     private boolean isTooMuchWiderThan(String shortString, String longString) {
@@ -1181,6 +1192,33 @@ public class CheckDates extends FactoryCheckCLDR {
                                     .setMessage(
                                             "Not enough year fields in interval pattern. Must have {0} but only found {1}",
                                             new Object[] {requiredYearFieldCount, yearFieldCount}));
+                }
+            }
+            // check PatternInfo, for CLDR-17827
+            // ICU-22835, DateIntervalInfo.genPatternInfo fails for intervals like LLL - MMM (in fa)
+            if (!(value.contains("LLL") && value.contains("MMM"))) {
+                PatternInfo pattern = DateIntervalInfo.genPatternInfo(value, false);
+                try {
+                    String first = pattern.getFirstPart();
+                    String second = pattern.getSecondPart();
+                    if (first == null || second == null) {
+                        result.add(
+                                new CheckStatus()
+                                        .setCause(this)
+                                        .setMainType(CheckStatus.errorType)
+                                        .setSubtype(Subtype.incorrectDatePattern)
+                                        .setMessage(
+                                                "DateIntervalInfo.PatternInfo returns null for first or second part"));
+                    }
+                } catch (Exception e) {
+                    result.add(
+                            new CheckStatus()
+                                    .setCause(this)
+                                    .setMainType(CheckStatus.errorType)
+                                    .setSubtype(Subtype.incorrectDatePattern)
+                                    .setMessage(
+                                            "DateIntervalInfo.PatternInfo exception {0}",
+                                            new Object[] {e}));
                 }
             }
         }

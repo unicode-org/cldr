@@ -25,7 +25,7 @@ jobs:
       - name: Calculate Tag Name
         id: tagname
         run: >
-          echo "::set-output name=tag::$(env TZ=UTC date +'production/%Y-%m-%d-%H%Mz')"
+          echo "tag=$(env TZ=UTC date +'production/%Y-%m-%d-%H%Mz')" >> $GITHUB_OUTPUT
       - name: Set up JDK
         uses: actions/setup-java@v4
         with:
@@ -52,6 +52,11 @@ jobs:
           -DskipTests=true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: DataDog sourcemap upload
+        run: npx --package=@datadog/datadog-ci datadog-ci sourcemaps upload tools/cldr-apps/src/main/webapp/dist/ --minified-path-prefix=/cldr-apps/dist/ --release-version=r${{ github.event.inputs.git-ref }} --service=surveytool
+        env:
+          DATADOG_SITE: ${{ secrets.DATADOG_SITE }}
+          DATADOG_API_KEY: ${{ secrets.DATADOG_API_KEY }}
       - name: Build liberty server
         run: >
           mvn -s .github/workflows/mvn-settings.xml -B  -pl cldr-apps liberty:create liberty:deploy liberty:package -Dinclude=usr --file tools/pom.xml

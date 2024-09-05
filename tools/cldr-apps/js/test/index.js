@@ -5,7 +5,7 @@ import { TestCldrCache } from "./TestCldrCache.mjs";
 import { TestCldrChecksum } from "./TestCldrChecksum.mjs";
 import { TestCldrCreateLogin } from "./TestCldrCreateLogin.mjs";
 import { TestCldrCsvFromTable } from "./TestCldrCsvFromTable.mjs";
-import { TestCldrDash } from "./TestCldrDash.mjs";
+import { TestCldrDashData } from "./TestCldrDashData.mjs";
 import { TestCldrErrorSubtypes } from "./TestCldrErrorSubtypes.mjs";
 import { TestCldrForum } from "./TestCldrForum.mjs";
 import { TestCldrForumFilter } from "./TestCldrForumFilter.mjs";
@@ -27,7 +27,7 @@ export default {
   TestCldrChecksum,
   TestCldrCreateLogin,
   TestCldrCsvFromTable,
-  TestCldrDash,
+  TestCldrDashData,
   TestCldrErrorSubtypes,
   TestCldrForum,
   TestCldrForumFilter,

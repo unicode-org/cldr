@@ -112,7 +112,7 @@ async function getOneLocaleStatus(locale) {
       `getOneLocaleStatus(${locale}) expected an array of one item but got ${obj.locales.length}`
     );
   }
-  return obj.locales[0].reports;
+  return obj.locales[0];
 }
 
 /**
@@ -122,9 +122,9 @@ async function getOneLocaleStatus(locale) {
  * @returns
  */
 async function getOneReportLocaleStatus(locale, onlyReport) {
-  const reports = await getOneLocaleStatus(locale);
-  const myReport = reports.filter(({ report }) => report === onlyReport)[0];
-  return myReport;
+  const { reports, canVote } = await getOneLocaleStatus(locale);
+  const report = reports.filter(({ report }) => report === onlyReport)[0];
+  return { report, canVote };
 }
 
 /**

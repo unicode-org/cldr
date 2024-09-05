@@ -70,102 +70,113 @@
             title="Hide checked items"
             id="hideChecked"
             v-model="hideChecked"
+            @change="hideCheckedChanged"
           /><label for="hideChecked">&nbsp;hide</label>
         </span>
       </header>
-      <section id="DashboardScroller" class="sidebyside-scrollable">
+      <section id="DashboardScroller">
         <template v-if="updatingVisibility">
           <!-- for unknown reason, the a-spin fails to appear on current Chrome/Firefox if any :delay is specified here -->
           <a-spin size="large" />
         </template>
         <template v-else>
-          <template
-            v-for="entry of data.entries"
-            :key="'template-' + entry.xpstrid"
+          <!-- Use "item" instead of "entry" here for compatibility with DynamicScroller -->
+          <DynamicScroller
+            class="scroller"
+            :items="filteredEntries"
+            key-field="xpstrid"
+            :min-item-size="54"
+            ref="dynamicScrollerRef"
           >
-            <template v-if="anyCatIsShown(entry.cats)">
-              <p
-                v-if="!(hideChecked && entry.checked)"
-                :key="'dash-item-' + entry.xpstrid"
-                :id="'dash-item-' + entry.xpstrid"
-                :class="
-                  'dash-' +
-                  (lastClicked === entry.xpstrid ? ' last-clicked' : '')
-                "
+            <template v-slot="{ item, index, active }">
+              <DynamicScrollerItem
+                :item="item"
+                :active="active"
+                :size-dependencies="[item.comment, item.english, item.winning]"
+                :data-index="index"
               >
-                <span class="dashEntry">
-                  <a
-                    v-bind:href="getLink(locale, entry)"
-                    @click="() => setLastClicked(entry.xpstrid)"
-                  >
-                    <span v-bind:key="cat" v-for="cat of entry.cats">
-                      <span
-                        v-if="!catIsHidden[cat]"
-                        class="category"
-                        :title="describeAbbreviation(cat)"
-                        >{{ abbreviate(cat) }}</span
-                      >
-                    </span>
-                    <span class="section-page" title="section—page">{{
-                      humanize(entry.section + "—" + entry.page)
-                    }}</span>
-                    |
-                    <span
-                      v-if="entry.header"
-                      class="entry-header"
-                      title="entry header"
-                      >{{ entry.header }}</span
-                    >
-                    |
-                    <span class="code" title="code">{{ entry.code }}</span>
-                    |
-                    <cldr-value
-                      class="previous-english"
-                      title="previous English"
-                      lang="en"
-                      dir="ltr"
-                      v-if="entry.previousEnglish"
-                      >{{ entry.previousEnglish }} →</cldr-value
-                    >
-                    <cldr-value
-                      class="english"
-                      lang="en"
-                      dir="ltr"
-                      title="English"
-                      v-if="entry.english"
-                      >{{ entry.english }}</cldr-value
-                    >
-                    |
-                    <cldr-value
-                      v-if="entry.winning"
-                      class="winning"
-                      title="Winning"
-                      >{{ entry.winning }}</cldr-value
-                    >
-                    <template v-if="entry.comment">
-                      |
-                      <span v-html="entry.comment" title="comment"></span>
-                    </template>
-                    <span v-if="entry.cats.has('Reports')"
-                      >{{ humanizeReport(entry.code) }} Report</span
-                    >
-                  </a>
-                </span>
-                <input
-                  v-if="canBeHidden(entry.cats)"
-                  type="checkbox"
-                  class="right-control"
-                  title="You can hide checked items with the hide checkbox above"
-                  v-model="entry.checked"
-                  @change="
-                    (event) => {
-                      entryCheckmarkChanged(event, entry);
-                    }
+                <p
+                  :class="
+                    'dash-' +
+                    (lastClicked === item.xpstrid ? ' last-clicked' : '')
                   "
-                />
-              </p>
+                  :key="'dash-item-' + item.xpstrid"
+                  :id="'dash-item-' + item.xpstrid"
+                >
+                  <span class="dashEntry">
+                    <a
+                      v-bind:href="getLink(locale, item)"
+                      @click="() => setLastClicked(item.xpstrid)"
+                    >
+                      <span v-bind:key="cat" v-for="cat of item.cats">
+                        <span
+                          v-if="!catIsHidden[cat]"
+                          class="category"
+                          :title="describeAbbreviation(cat)"
+                          >{{ abbreviate(cat) }}</span
+                        >
+                      </span>
+                      <span class="section-page" title="section—page">{{
+                        humanize(item.section + "—" + item.page)
+                      }}</span>
+                      |
+                      <span
+                        v-if="item.header"
+                        class="entry-header"
+                        title="entry header"
+                        >{{ item.header }}</span
+                      >
+                      |
+                      <span class="code" title="code">{{ item.code }}</span>
+                      |
+                      <cldr-value
+                        class="previous-english"
+                        title="previous English"
+                        lang="en"
+                        dir="ltr"
+                        v-if="item.previousEnglish"
+                        >{{ item.previousEnglish }} →</cldr-value
+                      >
+                      <cldr-value
+                        class="english"
+                        lang="en"
+                        dir="ltr"
+                        title="English"
+                        v-if="item.english"
+                        >{{ item.english }}</cldr-value
+                      >
+                      |
+                      <cldr-value
+                        v-if="item.winning"
+                        class="winning"
+                        title="Winning"
+                        >{{ item.winning }}</cldr-value
+                      >
+                      <template v-if="item.comment">
+                        |
+                        <span v-html="item.comment" title="comment"></span>
+                      </template>
+                      <span v-if="item.cats.has('Reports')"
+                        >{{ humanizeReport(item.code) }} Report</span
+                      >
+                    </a>
+                  </span>
+                  <input
+                    v-if="canBeHidden(item.cats)"
+                    type="checkbox"
+                    class="right-control"
+                    title="You can hide checked items with the hide checkbox above"
+                    v-model="item.checked"
+                    @change="
+                      (event) => {
+                        entryCheckmarkChanged(event, item);
+                      }
+                    "
+                  />
+                </p>
+              </DynamicScrollerItem>
             </template>
-          </template>
+          </DynamicScroller>
           <p class="bottom-padding">...</p>
         </template>
       </section>
@@ -175,8 +186,8 @@
 
 <script>
 import * as cldrCoverage from "../esm/cldrCoverage.mjs";
-import * as cldrDash from "../esm/cldrDash.mjs";
-import * as cldrGui from "../esm/cldrGui.mjs";
+import * as cldrDashContext from "../esm/cldrDashContext.mjs";
+import * as cldrDashData from "../esm/cldrDashData.mjs";
 import * as cldrLoad from "../esm/cldrLoad.mjs";
 import * as cldrNotify from "../esm/cldrNotify.mjs";
 import * as cldrReport from "../esm/cldrReport.mjs";
@@ -185,11 +196,14 @@ import * as cldrText from "../esm/cldrText.mjs";
 import { nextTick } from "vue";
 
 export default {
-  props: [],
+  props: {
+    items: Array,
+  },
   data() {
     return {
       data: null,
       fetchErr: null,
+      filteredEntries: null,
       hideChecked: false,
       lastClicked: null,
       loadingMessage: "Loading Dashboard…",
@@ -229,6 +243,26 @@ export default {
         const el = document.querySelector(selector);
         if (el) {
           el.scrollIntoView(true);
+        } else {
+          // Generally el is null with DynamicScroller so try this instead.
+          // The method scrollToItem appears to be internal, undocumented, but this works.
+          for (let i = 0; i < this.filteredEntries.length; i++) {
+            const entry = this.filteredEntries[i];
+            if (entry.xpstrid == xpstrid) {
+              const scroller = this.$refs.dynamicScrollerRef;
+              if (!scroller) {
+                this.console.warn("No scroller for scrollToCategory");
+              } else if (!scroller.scrollToItem) {
+                this.console.warn(
+                  "No scroller.scrollToItem for scrollToCategory"
+                );
+              } else {
+                scroller.scrollToItem(i);
+              }
+              return;
+            }
+          }
+          this.console.warn("No xpstrid for scrollToCategory");
         }
       }
     },
@@ -254,29 +288,40 @@ export default {
     },
 
     fetchData() {
-      if (!cldrStatus.getSurveyUser()) {
-        this.fetchErr = "Please log in to see the Dashboard.";
-        return;
-      }
       this.locale = cldrStatus.getCurrentLocale();
       this.level = cldrCoverage.effectiveName(this.locale);
       if (!this.locale || !this.level) {
-        this.fetchErr = "Please choose a locale and a coverage level first.";
+        // This sometimes happens when locale is defined but level is not yet defined,
+        // but it changes so quickly (the level gets defined) that it isn't visible
+        this.fetchErr = cldrText.get("dash_needs_locale_and_coverage");
         return;
       }
       this.localeName = cldrLoad.getLocaleName(this.locale);
       this.loadingMessage = `Loading ${this.localeName} dashboard at ${this.level} level`;
-      cldrDash.doFetch(this.setData);
-      this.fetchErr = cldrDash.getFetchError();
+      cldrDashData.doFetch(this.setData);
+      this.fetchErr = cldrDashData.getFetchError();
     },
 
     setData(data) {
       this.data = data;
+      this.filterEntries();
       this.resetScrolling();
     },
 
+    filterEntries() {
+      this.filteredEntries = new Array();
+      for (let entry of this.data.entries) {
+        if (
+          this.anyCatIsShown(entry.cats) &&
+          !(this.hideChecked && entry.checked)
+        ) {
+          this.filteredEntries.push(entry);
+        }
+      }
+    },
+
     downloadXlsx() {
-      cldrDash
+      cldrDashData
         .downloadXlsx(
           this.data,
           this.locale,
@@ -298,7 +343,8 @@ export default {
      * @param json - the response to a request by cldrTable.refreshSingleRow
      */
     updatePath(json) {
-      cldrDash.updatePath(this.data, json);
+      cldrDashData.updatePath(this.data, json);
+      this.filterEntries();
     },
 
     resetScrolling() {
@@ -315,7 +361,7 @@ export default {
     },
 
     closeDashboard() {
-      cldrGui.hideDashboard();
+      cldrDashContext.hide(true /* userWantsHidden */);
     },
 
     abbreviate(category) {
@@ -371,7 +417,7 @@ export default {
     },
 
     entryCheckmarkChanged(event, entry) {
-      cldrDash.saveEntryCheckmark(event.target.checked, entry, this.locale);
+      cldrDashData.saveEntryCheckmark(event.target.checked, entry, this.locale);
     },
 
     catCheckmarkChanged(event, category) {
@@ -387,22 +433,16 @@ export default {
       // Unfortunately, neither of these mechanisms seems guaranteed to prevent a very very
       // long delay between the time the user clicks the checkbox and the time that the checkbox
       // changes its state.
+      // NOTE: this complication may be unnecessary now that DashboardScroller is in use.
       this.catCheckboxIsUnchecked[category] = !event.target.checked; // redundant?
       const USE_NEXT_TICK = true;
-      this.console.log(
-        "Starting catCheckmarkChanged; USE_NEXT_TICK = " + USE_NEXT_TICK
-      );
       this.updatingVisibility = true;
-      this.console.log("updatingVisibility = true");
       if (USE_NEXT_TICK) {
         nextTick().then(() => {
           this.updateVisibility(event.target.checked, category);
         });
       } else {
         const DELAY_FOR_VISIBILITY_UPDATE = 100; // milliseconds
-        this.console.log(
-          "DELAY_FOR_VISIBILITY_UPDATE = " + DELAY_FOR_VISIBILITY_UPDATE
-        );
         setTimeout(
           () => this.updateVisibility(event.target.checked, category),
           DELAY_FOR_VISIBILITY_UPDATE
@@ -411,11 +451,13 @@ export default {
     },
 
     updateVisibility(checked, category) {
-      this.console.log("Starting updateVisibility");
       this.catIsHidden[category] = !checked;
+      this.filterEntries();
       this.updatingVisibility = false;
-      this.console.log("updatingVisibility = false");
-      this.console.log("Ending updateVisibility");
+    },
+
+    hideCheckedChanged() {
+      this.filterEntries();
     },
 
     canBeHidden(cats) {
@@ -439,6 +481,10 @@ export default {
 </script>
 
 <style scoped>
+.scroller {
+  height: 100%;
+}
+
 .st-sad {
   font-style: italic;
   border: 1px dashed red;
@@ -448,6 +494,13 @@ export default {
 #DashboardSection {
   border-top: 4px solid #cfeaf8;
   font-size: small;
+}
+
+#DashboardScroller {
+  /* Compare sidebyside-scrollable in redesign.css
+   Here we want overflow: hidden not auto, since DynamicScroller provides its own scrollbar */
+  overflow: hidden;
+  margin: 4px;
 }
 
 .while-loading {

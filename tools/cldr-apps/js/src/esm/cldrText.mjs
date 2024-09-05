@@ -4,6 +4,9 @@
 const CLDR_TEXT_DEBUG = false;
 
 const strings = {
+  dash_needs_locale_and_coverage:
+    "Please choose a locale and a coverage level first.",
+
   downgradedDeletionSuccessHeader: "Success",
   downgradedDeletionSuccessDetail:
     "The imported votes for downgraded paths were successfully deleted",
@@ -178,13 +181,12 @@ const strings = {
 
   override_explain_msg:
     "You have voted for this item with ${overrideVotes} votes instead of the usual ${votes}",
-  voteInfo_overrideExplain_desc: "",
   mustflag_explain_msg:
-    "The item you voted for is not winning. However, you may post a forum entry to flag the item for Committee review.",
-  voteInfo_mustflag_explain_desc: "",
+    "The item you voted for requires TC approval to win. If you post a forum request, the item will be flagged for review by the CLDR Technical Committee.",
+  flag_must_have_reason:
+    "‼️ Your request will cause this item to be flagged for review by the CLDR Technical Committee. Your message MUST provide justification, e.g., examples of common usage‼️",
   flag_desc:
     "This item has been flagged for review by the CLDR Technical Committee.",
-  flag_d_desc: "Losing items may be flagged for CLDR Committee review.",
   explainRequiredVotes: "Changes to this item require ${requiredVotes} votes.",
   valueIsLocked:
     "This item has been locked by the CLDR Technical Committee. See the forum entry.",
@@ -471,6 +473,14 @@ const strings = {
   report_notAcceptable: "Not Acceptable",
   report_missing: "Missing",
 
+  // for approval status, see VoteResolver.Status
+  status_approved: "✅\uFE0F",
+  status_contributed: "☑️",
+  status_provisional: "✖️",
+  status_unconfirmed: "❌\uFE0F",
+  status_missing: "🕳️",
+  status_inherited: "⬆️",
+
   special_about: "About Survey Tool",
   special_announcements: "Announcements",
   special_account: "Account Settings",
@@ -488,12 +498,13 @@ const strings = {
   special_forum: "Forum Posts",
   special_forum_participation: "Forum Participation",
   special_general: "General Info",
+  special_generate_vxml: "Generate VXML",
   special_list_emails: "List Email Addresses",
   special_list_users: "List Users",
   special_locales: "Locale List",
   special_lock_account: "Lock (Disable) My Account",
   special_lookup: "Look up a code or xpath",
-  special_mail: "Notifications (SMOKETEST ONLY)",
+  special_mail: "Simulate Email Notifications (SMOKETEST ONLY)",
   special_menu: "☰",
   special_oldvotes: "Import Old Votes",
   special_upload: "Upload (Bulk Import)",
@@ -531,6 +542,8 @@ const strings = {
   lock_account_err_reason: "The reason for the request must be filled in.",
   lock_account_success:
     "The account has been locked successfully. Thank you for using the Survey Tool. If you have difficulty still, contact the person who set up your account.",
+
+  mail_noMail: "No simulated notification emails.",
 
   notification_category_abstained:
     "You have abstained, or not yet voted for any value.",

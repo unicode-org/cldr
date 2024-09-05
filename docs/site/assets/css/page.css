@@ -6,23 +6,28 @@ section.body {
 header {
     width: "100%";
     background-color: #5555ff;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
     border-bottom: 0.5em solid #EEEEFE;
     padding: 0.5em;
 }
 
-header > div {
+header div.navparent {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+header .navparent  a.icon {
+    display: table-cell;
+    margin-top: 40;
+}
+
+header .navparent > div {
     display: table-cell;
 }
 
-header > div.icon {
-    flex-grow: 1;
-}
-
 header .title {
-    color: white;
+    display: table-cell;
+    color: yellow;
     font-size: 1.5em;
 }
 
@@ -30,12 +35,33 @@ header .nav, header .nav > div {
     display: inline;
 }
 
-header .nav a, header .nav .title {
+header .nav a {
     color: white;
 }
 
 header .nav ul b {
-    color: yellow;
+    color: gray;
+}
+
+header .nav .crumb {
+    color: white;
+    margin: .5em;
+}
+
+header .nav ul {
+    display: inline-flexbox;
+    width: 90%;
+}
+
+header .nav ul li {
+    display: inline-flex;
+    padding: .5em;
+    margin: 0;
+}
+
+header .message {
+    color: lightblue;
+    display: list-item;
 }
 
 footer {

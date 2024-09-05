@@ -21,6 +21,23 @@ header > div.icon {
     flex-grow: 1;
 }
 
+header .title {
+    color: white;
+    font-size: 1.5em;
+}
+
+header .nav, header .nav > div {
+    display: inline;
+}
+
+header .nav a, header .nav .title {
+    color: white;
+}
+
+header .nav ul b {
+    color: yellow;
+}
+
 footer {
     width: 100%;
     margin-left: auto;

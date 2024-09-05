@@ -22,7 +22,7 @@ title: Update Language/Script/Region Subtags
     - Save as {CLDR}/tools/cldr\-code/src/main/resources/org/unicode/cldr/util/data/language\-subtag\-registry
 - Go to http://data.iana.org/TLD/
     - Right\-click on [tlds\-alpha\-by\-domain.txt](http://data.iana.org/TLD/tlds-alpha-by-domain.txt) save as
-    - {{CLDR}/tools/cldr\-code/src/main/resources/org/unicode/cldr/util//data/[tlds\-alpha\-by\-domain.txt](http://data.iana.org/TLD/tlds-alpha-by-domain.txt)
+    - {CLDR}/tools/cldr\-code/src/main/resources/org/unicode/cldr/util//data/[tlds\-alpha\-by\-domain.txt](http://data.iana.org/TLD/tlds-alpha-by-domain.txt)
 - If using Eclipse, refresh the files
 - Diff each with the old copy to check for consistency
     - Certain of the steps below require that you note certain differences.
@@ -65,9 +65,9 @@ title: Update Language/Script/Region Subtags
         - ~~Todo: fix GenerateEnums around Utility.getUTF8Data("territory\_codes.txt");~~
 - Then run GenerateEnums.java, and make sure it completes with no exceptions. Fix any necessary results.
     - Missing alpha3 for: xx, or "In RFC 4646 but not in CLDR: \[EA, EZ, IC, UN]"
-    - Ignore if it is {EA, EZ, IC, UN} Otherwise means you needed to do "For new territories" above
+    - Ignore if it is `{EA, EZ, IC, UN}` Otherwise means you needed to do "For new territories" above
 - Collision with: xx
-    - Ignore if it is {{MM, BU, 104}, {TP, TL, 626}, {YU, CS, 891}, {ZR, CD, 180}}
+    - Ignore if it is `{MM, BU, 104}, {TP, TL, 626}, {YU, CS, 891}, {ZR, CD, 180}`
 - Not in World but in CLDR: \[002, 003, 005, 009, 011, 013, 014, 015, 017\... Ignore 3\-digit coes
     - (should have exception lists in tool for the Ignore's above)
 - Run **ConsoleCheckCLDR \-f en \-z FINAL\_TESTING \-e**

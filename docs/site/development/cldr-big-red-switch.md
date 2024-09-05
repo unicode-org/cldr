@@ -1,5 +1,5 @@
 ---
-title: CLDR: Big Red Switch
+title: 'CLDR: Big Red Switch'
 ---
 
 # CLDR: Big Red Switch
@@ -12,7 +12,7 @@ title: CLDR: Big Red Switch
 
 ### Trial New Version (Let us know if you need write access!)
 
-(For editors: [List View of BRS](https://cldr.unicode.org/development/cldr-big-red-switch/list-view-of-brs), [Spreadsheet View](https://docs.google.com/spreadsheets/d/1dIOLxKX2gW7BRDVdMBH9qr1GdxpPj8Bc1Pe-02p_92k/edit#gid=0)) 
+(For editors: [List View of BRS](https://cldr.unicode.org/development/cldr-big-red-switch/list-view-of-brs), [Spreadsheet View](https://docs.google.com/spreadsheets/d/1dIOLxKX2gW7BRDVdMBH9qr1GdxpPj8Bc1Pe-02p_92k/edit#gid=0))
 
 ## Contributor Message
 

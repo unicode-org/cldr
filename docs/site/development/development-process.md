@@ -11,9 +11,9 @@ title: Handling Tickets (bugs/enhancements)
 
 ### Pre\-Assessment for Weekly Triage
 
-*There is a pre\-assessment of tickets to make the triage flow faster. This pre\-assessment should be done off\-line prior to every Wednesday in time for the TC triage. DO NOT fix a bug until it's been approved by the TC in triage.* 
+*There is a pre\-assessment of tickets to make the triage flow faster. This pre\-assessment should be done off\-line prior to every Wednesday in time for the TC triage. DO NOT fix a bug until it's been approved by the TC in triage.*
 
-*The triage is a part of Monday and Wednesday meetings.* 
+*The triage is a part of Monday and Wednesday meetings.*
 
 1. Ticket comes in, and the default is **Priority**\=assess, **Milestone**\=to\-assess
 	1. If user sets Component (we always should!) automatically assigns the Owner based on the component owner for the pre\-assessment. \[Add link to Components and Owner]
@@ -22,7 +22,7 @@ title: Handling Tickets (bugs/enhancements)
 2. All TC members, look at [To\-assess by Owner / Component](https://unicode.org/cldr/trac/report/100) before each triage day.
 	1. Assess the **to\-assess** tickets assigned to you.
 	2. You can close bugs as duplicate or if user misunderstanding if it is very clear without committee discussion. Always include a comment if you close the ticket.
-	3. If the component is wrong, change component and reassign to the right component owner. 
+	3. If the component is wrong, change component and reassign to the right component owner.
 		1. (TODO: copy components to that page, and add notes to clarify; if possible, link to list of components \+ descriptions at top of new ticket). http://cldr.unicode.org/index/bug\-reports
 	4. Add your assessment information:
 		1. Change **Milestone** to “assessed”
@@ -36,7 +36,7 @@ title: Handling Tickets (bugs/enhancements)
 	1. Follow the triage practice by making changes to all fields, Owner, Component, Priority, … or closing the ticket.
 	2. Update Milestone to one of the following (VV \= the current milestone, eg 35\)
 		1. **VV** if the (new) Owner agrees that it is a priority — and has some level of commitment to fix during release
-		2. **VV\-optional**, eg 35\-optional 
+		2. **VV\-optional**, eg 35\-optional
 			1. A **future** milestone
 		3. Triage decides whether it's for Design or Accepted. (**design** indicates for more discussion needed. See design section below.).
 5. Other ticket handling practices:
@@ -48,7 +48,7 @@ title: Handling Tickets (bugs/enhancements)
 
 ### Design
 
-When a ticket is in design, the owner is responsible for bringing back to the committee to approve the design before any lasting (aside from tests, instrumentation, etc.) work is checked in. 
+When a ticket is in design, the owner is responsible for bringing back to the committee to approve the design before any lasting (aside from tests, instrumentation, etc.) work is checked in.
 
 1. The Owner is responsible for documenting the results of the discussion in the TC in comments in the ticket.
 2. The Reviewer is responsible for verifying that the design was accepted by the TC before accepting.

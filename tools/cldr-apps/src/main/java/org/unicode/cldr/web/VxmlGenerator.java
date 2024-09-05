@@ -9,13 +9,7 @@ public class VxmlGenerator {
     public void generate(Set<CLDRLocale> sortSet, Writer out) throws ExecutionException {
         this.sortSet = sortSet;
         try {
-            // TODO: get the booleans somewhere, or remove the parameters
-            // -- in practice, we want them all true
-            // Reference: https://unicode-org.atlassian.net/browse/CLDR-14913
-            OutputFileManager.generateVxml(
-                    this, out, true, // outputFiles
-                    true, // removeEmpty
-                    true); // verifyConsistent
+            OutputFileManager.generateVxml(this, out);
         } catch (Exception e) {
             throw new ExecutionException(e);
         }

@@ -155,29 +155,54 @@ const app = Vue.createApp(
           thePages = [...thePages, ...this.tree?.value?.allDirs["index"].pages];
         }
         const c = new Intl.Collator([]);
+        const t = this;
         return thePages
           .map((path) => ({
             path,
             html: md2html(path),
             title: this.tree.value.title[path] ?? path,
           }))
-          .sort((a, b) => c.compare(a.title, b.title));
+          .sort((a, b) => c.compare(a.title, b.title))
+          .filter(({html}) => html != t.path); // skip showing the index page in the subpage list
       },
+      ancestorPages() {
+        const pages = [];
+        // if we are not loaded, or if we're at the root, then exit
+        if (!this.tree?.value || !this.path || this.path == 'index.html') return pages;
+        // traverse
+        let path = this.path;
+        do {
+          // calculate the immediate ancestor
+          const pathMd = html2md(path);
+          const dir = path2dir(path);
+          const nextIndex = this.tree.value.allDirs[dir].index || 'index.md'; // falls back to top
+          const nextIndexHtml = md2html(nextIndex);
+          const nextIndexTitle = this.tree.value.title[nextIndex];
+          // prepend
+          pages.push({
+            href: '/'+nextIndexHtml,
+            title: nextIndexTitle,
+          });
+          if (nextIndexHtml == path) {
+            console.error('Loop detected from ' + this.path);
+            path = 'index.html'; // exit
+          }
+          path = nextIndexHtml;
+        } while(path && path != 'index.html'); // we iterate over 'path', so html
+        pages.reverse();
+        return pages;
+      }
     },
     template: `<div>
         <div class='status' v-if="status">{{ status }}</div>
         <div class='status' v-if="!tree">Loading…</div>
-        <span v-if="path !== 'index.html'">
-        <a class='uplink' href="/">{{ rootTitle }}</a> |
-        </span>
 
-        <span v-if="path !== '' && ourIndexHtml && (ourIndexHtml != path) && (ourIndexHtml != 'index.html')">
-            <a class='uplink'
-                v-bind:href="'/'+ourIndexHtml"
-                >
-                {{ ourIndexTitle }}
-            </a>
-            |
+       <a class="icon" href="http://www.unicode.org/"> <img border="0"
+					src="/assets/img/logo60s2.gif"  alt="[Unicode]" width="34"
+					height="33"></a>&nbsp;&nbsp;
+
+        <span class="ancestor" v-for="ancestor of ancestorPages" :key="ancestor.href">
+          <a class="uplink" v-bind:href="ancestor.href">{{ ancestor.title }}</a><span class="crumb">❱</span>
         </span>
         <span class="title"> {{ ourTitle }} </span>
         <ul class="subpages">

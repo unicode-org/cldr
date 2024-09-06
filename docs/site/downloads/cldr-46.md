@@ -8,6 +8,10 @@ title: CLDR 46 Release Note
 |:---:|:----------:|:---------:|:------:|:--------:|:------------:|:---:|:----------:|:---------:|:---------:|
 |  46 | 2024-10-~~XX~~ |    ~~[v46]()~~   | ~~[CLDR46](http://unicode.org/Public/cldr/46/)~~ | [Charts46](http://unicode.org/cldr/charts/dev) |    [LDML46](http://www.unicode.org/reports/tr35/proposed.html)    | [Δ46](https://unicode-org.atlassian.net/issues/?jql=project+%3D+CLDR+AND+status+%3D+Done+AND+resolution+%3D+Fixed+AND+fixVersion+%3D+%2246%22+ORDER+BY+priority+DESC) | ~~[release-46]()~~ |   [ΔDtd46](https://www.unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html)  |   ~~[46.0.0](https://github.com/unicode-org/cldr-json/releases/tag/46.0.0)~~  |
 
+<span style="color:red; font-weight: bold;">This is an alpha version of CLDR v46.</span>
+
+It only covers the data, which is available at [release-46-alpha3](https://github.com/unicode-org/cldr/releases/tag/release-46-alpha3). An update targeted at September 25 will include includes specification changes and fix other TBDs. Feedback is welcome via [tickets](https://github.com/unicode-org/cldr/blob/main/docs/requesting_changes.md#requesting-updates-to-locale-data-through-a-ticket). (The CLDR site is undergoing a migration to Markdown, so the UI for navigation is temporary.)
+
 ## Overview
 
 Unicode CLDR provides key building blocks for software supporting the world's languages.
@@ -15,7 +19,12 @@ CLDR data is used by all [major software systems](https://cldr.unicode.org/index
 (including all mobile phones) for their software internationalization and localization, 
 adapting software to the conventions of different languages.
 
-The largest changes in this release were the updates to Unicode 16.0, substantial additions of Emoji search keyword data, and ‘upleveling’ the locale coverage.
+The most significant changes in this release were:
+
+- Updates to Unicode 16.0 (including major changes to collation), 
+- Further revisions to the Message Format 2.0 tech preview, 
+- Substantial additions and modifications of Emoji search keyword data, 
+- ‘Upleveling’ the locale coverage.
 
 ### Locale Coverage Status
 #### Current Levels
@@ -39,11 +48,9 @@ Count | Level | Usage | Examples
 
 For a full listing, see [Coverage Levels](https://unicode.org/cldr/charts/46/supplemental/locale_coverage.html)
 
-## [Specification Changes](http://www.unicode.org/reports/tr35/tr35.html)
+## [Specification Changes](https://www.unicode.org/reports/tr35/proposed.html)
 
 **TBD: Add the specification changes by Sept 25**
-
-**Note: This will include Message Format 2.0 specification changes. A draft is at https://github.com/unicode-org/message-format-wg/tree/main/spec**
 
 ## Data Changes
 
@@ -76,8 +83,8 @@ For the reason why, see the algorithm in [Likely Subtags](https://cldr-smoke.uni
         - Note: A fallback language is used when the user's primary language is unavailable,
 and either the user doesn't have any secondaries language in their settings (as on Android or iOS) or those secondary languages are also not available.
 As a result of this change, when the primary and secondary languages are not available, the fallback language would be the system default instead of Russian.
-    - Added the mapping `desired="scn" → supported="it"`.
-    - Changed the deprecated code `knn` to `gom`.
+    - Added the mapping `desired="scn" → supported="it"` (Sicilian → Italian).
+    - Changed the deprecated code Goan Konkani (`gom`) to Konkani (`kok`).
 7. Transforms
     1. Major update to `Han → Latn`, reflecting new data in Unicode 16.0
     2. Fixes for Arabic numbers, and a Farsi vowel
@@ -85,19 +92,19 @@ As a result of this change, when the primary and secondary languages are not ava
     1. Additional numbering systems
     2. Additional scripts and script identifiers
     3. ScriptMeta has been expanded for Unicode 16.0
-9. Locale identifiers
+9. Other updates
     1. The subdivision identifiers have been updated to the latest available from ISO
         - The removed identifiers have been deprecated
         - Missing names have been added (from Wikidata)
     2. The language subtags, script subtags, and variant subtags have been updated to the latest from IANA
-        - Some codes have been deprecated
-    3. Parent and DefaultContent mappings have been added for kaa and kok;  DefaultContent mappings added for `kk`, `lld`, `ltg`, `mhn`, and `zh_Latn_CN`
-10. Territory Info has been updated from World Bank and other sources: gdp, population, languages.
-11. LanguageGroup info has been updated from Wikidata
-12. Plural rules have been added for some new locales
-13. Week data
-    - The first day of the week has been changed for `AE`
-    - Hour preferences (12 v 24) have been added for `en_H`K, `en_MY`, `en_IL`
+       - Some codes have been deprecated
+    3. Parent and defaultContent mappings have been added for Kara-Kalpak (`kaa`) and Konkani (`kok`); defaultContent mappings have bee added for Kazakh (`kk`), Ladin (`lld`), Latgalian (`ltg`), Mócheno (`mhn`), and Chinese (Latin, China) (`zh_Latn_CN`).
+    4. Territory Info (gdp, population, languages) has been updated from World Bank and other sources.
+    5. LanguageGroup info has been updated from Wikidata
+    6. Plural rules have been added for some new locales
+    7. Week data
+        - The first day of the week has been changed for `AE`
+        - Hour preferences (12 v 24) have been added for English as used in Hong Kong, Malaysia, and Israel (`en_HK`, `en_MY`, `en_IL`)
 
 For a full listing, see [¤¤BCP47 Delta](https://unicode.org/cldr/charts/46/delta/bcp47.html) and [¤¤Supplemental Delta](https://unicode.org/cldr/charts/46/delta/supplemental-data.html)
 
@@ -147,7 +154,7 @@ These changes eliminate sort order differences among almost all regular characte
 See the [CLDR root collation](https://www.unicode.org/reports/tr35/tr35-collation.html#Root_Collation) documentation for details.
 
 #### Improved Han Radical-Stroke Order
-CLDR includes [data for sorting Han (CJK) characters in radical-stroke order](tr35-collation.md#File_Format_FractionalUCA_txt). 
+CLDR includes [data for sorting Han (CJK) characters in radical-stroke order](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-collation.md#File_Format_FractionalUCA_txt). 
 It used to distinguish traditional and simplified forms of radicals on a higher level than sorting by the number of residual strokes. 
 Starting with CLDR 46, the CLDR radical-stroke order matches that of the [Unicode Radical-Stroke Index (large PDF)](https://www.unicode.org/Public/UCD/latest/charts/RSIndex.pdf). 
 [Its sorting algorithm is defined in UAX #38](https://www.unicode.org/reports/tr38/#SortingAlgorithm). 
@@ -170,13 +177,18 @@ This process should be completed before release.
 ### File Changes
 
 Most files added in this release were for new locales.
-There were the following new test files: **TBD***
+There were the following new test files: 
+
+**TBD***
 
 ### Tooling Changes
 
 **TBD**
 
 ## Migration
+
+1. Databases that use collation keys are sensitive to any changes in collation, and will need reindexing.
+This can happen with any CLDR release (especially those for a new version of Unicode), but more characters are affected in this release: see above.
 
 **TBD**
 

@@ -148,9 +148,13 @@ const app = Vue.createApp(
             if (dirPages) {
                 // our page is an index -so, show the subpages instead of the siblings.
                 dirForPage = dirPages[0]; // the adjusted index
-            }
-        }
-        let thePages = this.tree?.value?.allDirs[dirForPage].pages ?? [];
+              } else {
+                return []; // no sibling pages;
+              }
+          } else {
+            return []; // no sibling pages
+          }
+          let thePages = this.tree?.value?.allDirs[dirForPage].pages ?? [];
         if (dirForPage === "") {
           thePages = [...thePages, ...this.tree?.value?.allDirs["index"].pages];
         }

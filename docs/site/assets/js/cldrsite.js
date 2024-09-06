@@ -204,8 +204,11 @@ const app = Vue.createApp(
         <span class="ancestor" v-for="ancestor of ancestorPages" :key="ancestor.href">
           <a class="uplink" v-bind:href="ancestor.href">{{ ancestor.title }}</a><span class="crumb">❱</span>
         </span>
-        <span class="title"> {{ ourTitle }} </span>
-        <ul class="subpages">
+        <div v-if="!siblingPages || !siblingPages.length" class="title"> {{ ourTitle }} </div>
+        <div v-else class="title"><span class="hamburger">≡</span>
+
+        {{ ourTitle }}
+                 <ul class="subpages">
             <li v-for="subpage of siblingPages" :key="subpage.path">
                 <span v-if="path == subpage.html">
                     <b>{{ subpage.title }}</b>
@@ -215,6 +218,8 @@ const app = Vue.createApp(
                 </a>
             </li>
         </ul>
+  </div>
+
     </div>`,
   },
   {

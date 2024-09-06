@@ -43,20 +43,36 @@ header .nav ul b {
     color: gray;
 }
 
+.title ul.subpages {
+    display: none;
+}
+
+.title:hover ul.subpages {
+    display: block;
+}
+
 header .nav .crumb {
     color: white;
     margin: .5em;
 }
 
 header .nav ul {
-    display: inline-flexbox;
-    width: 90%;
+    display: inline;
+    /* width: 90%; */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    background-color: navy;
+    /* background-color: white;
+    position: absolute; */
+    padding: 0.5３m；
 }
 
 header .nav ul li {
-    display: inline-flex;
+    display: block;
     padding: .5em;
+    font-size: medium;
     margin: 0;
+    /* color: black !important; */
 }
 
 header .message {

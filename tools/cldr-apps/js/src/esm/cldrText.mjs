@@ -488,6 +488,7 @@ const strings = {
   special_add_user: "Add a Survey Tool user",
   special_auto_import: "Import Old Winning Votes",
   special_bulk_close_posts: "Bulk Close Posts",
+  special_cla: "Contributor License Agreement",
   special_createAndLogin: "Create and Login",
   special_default: "Missing Page",
   special_dashboard: "Dashboard",

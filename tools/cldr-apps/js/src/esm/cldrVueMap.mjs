@@ -8,6 +8,7 @@ import GenerateVxml from "../views/GenerateVxml.vue";
 import LockAccount from "../views/LockAccount.vue";
 import LookUp from "../views/LookUp.vue";
 import MainMenu from "../views/MainMenu.vue";
+import SignCla from "../views/SignCla.vue";
 import TestPanel from "../views/TestPanel.vue";
 import TransferVotes from "../views/TransferVotes.vue";
 import UnknownPanel from "../views/UnknownPanel.vue";
@@ -37,6 +38,7 @@ const specialToComponentMap = {
   upload: UploadPanel,
   vetting_participation2: VettingParticipation2,
   vsummary: VettingSummary,
+  cla: SignCla,
   // If no match, end up here
   default: UnknownPanel,
 };

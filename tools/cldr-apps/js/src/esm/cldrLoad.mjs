@@ -5,6 +5,7 @@ import * as cldrAccount from "./cldrAccount.mjs";
 import * as cldrAdmin from "./cldrAdmin.mjs";
 import * as cldrAjax from "./cldrAjax.mjs";
 import * as cldrBulkClosePosts from "./cldrBulkClosePosts.mjs";
+import * as cldrClient from "./cldrClient.mjs";
 import * as cldrCoverage from "./cldrCoverage.mjs";
 import * as cldrCreateLogin from "./cldrCreateLogin.mjs";
 import * as cldrDashContext from "./cldrDashContext.mjs";
@@ -145,6 +146,8 @@ function doHashChange(event) {
 function parseHashAndUpdate(hash) {
   if (hash) {
     const pieces = hash.split("/");
+    // always set the pieces
+    cldrStatus.setCurrentPieces(pieces);
     // pieces[1] is ALWAYS assumed to be locale or empty
     if (pieces.length > 1) {
       cldrStatus.setCurrentLocale(pieces[1]); // could be null
@@ -170,6 +173,7 @@ function parseHashAndUpdate(hash) {
     cldrStatus.setCurrentId("");
     cldrStatus.setCurrentPage("");
     cldrStatus.setCurrentSection("");
+    cldrStatus.setCurrentPieces([]);
   }
   updateWindowTitle();
 
@@ -1178,6 +1182,39 @@ function linkToLocale(subLoc) {
   );
 }
 
+/**
+ * Login with emailed jwt. returns {sessionId, user}
+ * @param {String} jwt
+ */
+async function loginWithJwt(jwt) {
+  const client = await cldrClient.getClient();
+
+  const r = await client.apis.auth.login(
+    { remember: true },
+    { requestBody: { jwt } }
+  );
+  if (!r) {
+    throw Error(`Error: login() did not return a value.`);
+  }
+  const { body } = r;
+  if (!body) {
+    throw Error(`Error: body was not returned from login() API`);
+  }
+  return body;
+}
+
+/**
+ * Send a reset hash
+ * @param {String} email
+ * @param {String} session
+ */
+async function sendResetHash(email, session) {
+  const client = await cldrClient.getClient();
+
+  const r = await client.apis.auth.reset({}, { requestBody: { email } });
+  return;
+}
+
 export {
   appendLocaleLink,
   continueInitializing,
@@ -1195,11 +1232,13 @@ export {
   insertLocaleSpecialNote,
   linkToLocale,
   localeSpecialNote,
+  loginWithJwt,
   myLoad,
   onLocaleMapReady,
   parseHashAndUpdate,
   reloadV,
   replaceHash,
+  sendResetHash,
   setLoading,
   setTheLocaleMap,
   showCurrentId,

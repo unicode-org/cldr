@@ -22,10 +22,20 @@
       <a-checkbox v-model:checked="remember">Stay Logged In</a-checkbox>
       &nbsp;
       <a-alert
-        v-if="loginErrorMessage"
+        v-if="incorrectPassword"
         type="error"
-        v-model:message="loginErrorMessage"
-      />
+        message="Username or Password Incorrect"
+        description="Please check the email address and password carefully."
+      >
+      </a-alert>
+      <a-button
+        class="cldr-nav-btn"
+        v-on:click="resetpw()"
+        v-if="incorrectPassword"
+        size="small"
+        type="ghost"
+        >Forgot Password</a-button
+      >
     </template>
     <a-tooltip placement="bottomRight">
       <template #title>
@@ -47,10 +57,10 @@ import { ref } from "vue";
 export default {
   setup() {
     const loginShown = ref(false);
-    const loginErrorMessage = ref(null);
+    const incorrectPassword = ref(false);
     return {
       loginShown,
-      loginErrorMessage,
+      incorrectPassword,
     };
   },
   created: function () {
@@ -84,6 +94,7 @@ export default {
      * Log out
      */
     async logout() {
+      this.incorrectPassword = false;
       await fetch(`api/auth/logout?session=${cldrStatus.getSessionId()}`);
       // now reload this page now that we've logged out
       await window.location.reload();
@@ -92,6 +103,7 @@ export default {
      * Log in (from header button)
      */
     async login() {
+      this.incorrectPassword = false;
       function errBox(message) {
         console.error("LoginButton.vue: " + message);
         notification.error({
@@ -100,7 +112,6 @@ export default {
         });
       }
 
-      this.loginErrorMessage = null;
       if (this.userName && this.password) {
         try {
           const response = await fetch(
@@ -119,7 +130,7 @@ export default {
           );
           if (!response.ok) {
             if (response.status == 403) {
-              return errBox("Unauthorized:\nCheck the username and password.");
+              this.incorrectPassword = true; // show the reset instructions
             } else {
               return errBox(`Login failed: HTTP ${response.status}`);
             }
@@ -153,9 +164,7 @@ export default {
     async loginout() {
       if (this.loginShown) {
         // cancel
-        this.loginShown = false;
-        this.logText = "Log In";
-        this.logTitle = null;
+        this.cancel();
       } else if (!this.loggedIn) {
         // Log In (show popup)
         this.loginShown = true;
@@ -164,6 +173,15 @@ export default {
       } else {
         await this.logout();
       }
+    },
+    cancel() {
+      this.loginShown = false;
+      this.logText = "Log In";
+      this.logTitle = null;
+    },
+    resetpw() {
+      this.cancel();
+      window.location.replace("v#reset");
     },
   },
   data() {

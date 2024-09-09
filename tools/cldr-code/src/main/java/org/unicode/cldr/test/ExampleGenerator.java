@@ -2463,7 +2463,7 @@ public class ExampleGenerator {
                     cldrFile.getWinningPath(xpath.replaceAll("dateTimeFormat", "timeFormat"));
             int tfLengthOffset = timeFormatXPathForPrefix.indexOf("timeFormatLength");
             if (tfLengthOffset < 0) {
-                examples.add("");
+                // examples.add("");
                 return;
             }
             String timeFormatXPathPrefix = timeFormatXPathForPrefix.substring(0, tfLengthOffset);

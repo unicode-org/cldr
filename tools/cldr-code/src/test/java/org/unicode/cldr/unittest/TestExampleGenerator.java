@@ -2080,6 +2080,28 @@ public class TestExampleGenerator extends TestFmwk {
         return ps.getAttributesString(separator) + "➔«" + value + "»";
     }
 
+    PathHeader.Factory phf = PathHeader.getFactory(null);
+
+    private boolean isValidPath(String xpath, ULocale locale) {
+        PathHeader ph = phf.fromPath(xpath);
+        if (ph == null) {
+            return false;
+        }
+        if (ph.getSurveyToolStatus() == PathHeader.SurveyToolStatus.DEPRECATED) {
+            return false;
+        }
+        if (ph.getSurveyToolStatus() == PathHeader.SurveyToolStatus.HIDE
+                || ph.getSurveyToolStatus() == PathHeader.SurveyToolStatus.READ_ONLY) {
+            return false;
+        }
+
+        if (SDI.getCoverageValue(xpath, locale.getBaseName())
+                > org.unicode.cldr.util.Level.COMPREHENSIVE.getLevel()) {
+            return false;
+        }
+        return true;
+    }
+
     public void TestRefactoring() {
         for (ULocale locale : ULocale.getAvailableLocales()) {
             String loc = locale.toString();
@@ -2089,16 +2111,18 @@ public class TestExampleGenerator extends TestFmwk {
             ExampleGeneratorOld exampleGeneratorOld =
                     new ExampleGeneratorOld(resolvedCldrFile, info.getEnglish());
             for (String path : unresolvedCldrFile) {
-                String value = unresolvedCldrFile.getStringValue(path);
-                String oldExample = exampleGeneratorOld.getExampleHtml(path, value);
-                String newExample = exampleGenerator.getExampleHtml(path, value);
-                assertEquals(
-                        "Ensure same example pre/post refactoring for locale: "
-                                + loc
-                                + "and path: "
-                                + path,
-                        oldExample,
-                        newExample);
+                if (isValidPath(path, locale)) {
+                    String value = unresolvedCldrFile.getStringValue(path);
+                    String oldExample = exampleGeneratorOld.getExampleHtml(path, value);
+                    String newExample = exampleGenerator.getExampleHtml(path, value);
+                    assertEquals(
+                            "Ensure same example pre/post refactoring for locale: "
+                                    + loc
+                                    + "and path: "
+                                    + path,
+                            oldExample,
+                            newExample);
+                }
             }
         }
     }

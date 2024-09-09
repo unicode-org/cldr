@@ -2110,7 +2110,7 @@ public class TestExampleGenerator extends TestFmwk {
             ExampleGeneratorOld exampleGeneratorOld =
                     new ExampleGeneratorOld(resolvedCldrFile, info.getEnglish());
             for (String path : unresolvedCldrFile) {
-                if (isValidPath(path, locale)) {
+                if (isValidPath(path, loc)) {
                     String value = unresolvedCldrFile.getStringValue(path);
                     String oldExample = exampleGeneratorOld.getExampleHtml(path, value);
                     String newExample = exampleGenerator.getExampleHtml(path, value);

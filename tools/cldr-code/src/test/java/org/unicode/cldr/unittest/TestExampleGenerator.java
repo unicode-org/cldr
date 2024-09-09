@@ -9,7 +9,6 @@ import com.google.common.collect.Iterables;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.util.ULocale;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -29,7 +28,6 @@ import org.unicode.cldr.test.CheckCLDR.Phase;
 import org.unicode.cldr.test.CheckCLDR.StatusAction;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.test.ExampleGenerator.UnitLength;
-import org.unicode.cldr.test.ExampleGeneratorOld;
 import org.unicode.cldr.unittest.TestCheckCLDR.DummyPathValueInfo;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -2078,51 +2076,5 @@ public class TestExampleGenerator extends TestFmwk {
 
     public String sampleAttrAndValue(PathStarrer ps, final String separator, String value) {
         return ps.getAttributesString(separator) + "➔«" + value + "»";
-    }
-
-    PathHeader.Factory phf = PathHeader.getFactory(null);
-
-    private boolean isValidPath(String xpath, ULocale locale) {
-        PathHeader ph = phf.fromPath(xpath);
-        if (ph == null) {
-            return false;
-        }
-        if (ph.getSurveyToolStatus() == PathHeader.SurveyToolStatus.DEPRECATED) {
-            return false;
-        }
-        if (ph.getSurveyToolStatus() == PathHeader.SurveyToolStatus.HIDE
-                || ph.getSurveyToolStatus() == PathHeader.SurveyToolStatus.READ_ONLY) {
-            return false;
-        }
-
-        if (SDI.getCoverageValue(xpath, locale.getBaseName())
-                > org.unicode.cldr.util.Level.COMPREHENSIVE.getLevel()) {
-            return false;
-        }
-        return true;
-    }
-
-    public void TestRefactoring() {
-        for (final String loc : info.getCldrFactory().getAvailable()) {
-            CLDRFile resolvedCldrFile = info.getCLDRFile(loc, true);
-            CLDRFile unresolvedCldrFile = info.getCLDRFile(loc, false);
-            ExampleGenerator exampleGenerator = getExampleGenerator(loc);
-            ExampleGeneratorOld exampleGeneratorOld =
-                    new ExampleGeneratorOld(resolvedCldrFile, info.getEnglish());
-            for (String path : unresolvedCldrFile) {
-                if (isValidPath(path, loc)) {
-                    String value = unresolvedCldrFile.getStringValue(path);
-                    String oldExample = exampleGeneratorOld.getExampleHtml(path, value);
-                    String newExample = exampleGenerator.getExampleHtml(path, value);
-                    assertEquals(
-                            "Ensure same example pre/post refactoring for locale: "
-                                    + loc
-                                    + "and path: "
-                                    + path,
-                            oldExample,
-                            newExample);
-                }
-            }
-        }
     }
 }

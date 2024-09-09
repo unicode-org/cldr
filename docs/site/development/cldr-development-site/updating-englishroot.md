@@ -22,11 +22,11 @@ The tool is in tools/java/org/unicode/cldr/tool/GenerateBirth.java. It requires 
 2. The archive directory should have the latest version of every major and minor version (where versions before 21\.0 have the major version split across the top two fields).
 3. You will probably need to modify both CldrVersion.java and ToolConstants.java to bring them up to date.
 
-**log (set with \-l \<log\>, default\=CldrUtility.UTIL\_DATA\_DIR, set with CLDR\_DIR** 
+**log (set with \-l \<log\>, default\=CldrUtility.UTIL\_DATA\_DIR, set with CLDR\_DIR**
 
 Pass an argument for \-t to specify the output directory. Takes a few minutes to run (and make sure you have set Java with enough memory)!
 
-The tool generates (among other things) the following two binary files (among others) in the output directory specified with \-t: 
+The tool generates (among other things) the following two binary files (among others) in the output directory specified with \-t:
 
 - **outdated.data**
 - **outdatedEnglish.data**
@@ -60,7 +60,7 @@ Make sure TestOutdatedPaths.java passes. It may take some modifications, since i
 
 Run TestCheckCLDR and TestBasic with the option **\-prop:logKnownIssue\=false** (that option is important!). This checks that the Limited Submission is set up properly and that SubmissionLocales are correct.
 
- 
+
 
 If you run into any problems, look below at debugging.
 
@@ -72,7 +72,7 @@ Eg https://github.com/unicode-org/cldr/pull/243
 
 It also generates readable log files for double checking. These will be in {workspace}/cldr\-aux/births/\<version\>/, that is: CLDRPaths.AUX\_DIRECTORY \+ "births/" \+ trunkVersion. Examples: https://unicode.org/repos/cldr-aux/births/35.0/en.txt, https://unicode.org/repos/cldr-aux/births/35.0/fr.txt.
 
-Their format is the following (TSV \= tab\-delimited\-values) — to view, it is probably easier to copy the files into a spreadsheet. 
+Their format is the following (TSV \= tab\-delimited\-values) — to view, it is probably easier to copy the files into a spreadsheet.
 
 - English doesn't have the E... values, but is a complete record.
 - Other languages only have lines where the English value is more recently changed (younger) than the native’s.
@@ -94,4 +94,3 @@ Their format is the following (TSV \= tab\-delimited\-values) — to view, it is
 
 A value of � indicates that there is no value for that version.
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

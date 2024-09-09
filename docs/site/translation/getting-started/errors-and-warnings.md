@@ -26,13 +26,13 @@ You can find some guidance under "Unique Names" in the following pages:
 - [Country/Region Names](https://cldr.unicode.org/translation/displaynames/countryregion-territory-names),
 - [City Names](https://cldr.unicode.org/translation/timezones#TOC-City-Names),
 - [Currency Symbols & Names](https://cldr.unicode.org/translation/currency-names-and-symbols/currency-names)
-        
+
 **The characters ‎\[…\]‎ should not be used (Must fix)**
 
 For what to do, see [Characters](https://cldr.unicode.org/translation/-core-data/exemplars#TOC-Handing-Warnings-in-Exemplar-characters), in the section Handling Warnings. _While these are categorized as warnings, every effort should be made to fix them._
 
 **Unquoted special character '.' in pattern (Must fix)**
-    
+
 
 Number patterns can only contain an unquoted . when it is the decimal separator.
 
@@ -58,4 +58,3 @@ Another common mistake is to copy a code value, such as "cs" for Czech, instead 
 
 This may not be an error, because it is often perfectly legitimate to have an identical string.For example the script code for "Thai" is "Thai", which matches the English word exactly. So this warning is just to call your attention to the text in case it needs to be changed.
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

@@ -127,7 +127,7 @@ The time span associated with each code is different for different languages!
 
 - It shows the time span (with a 24 hour clock) for the code, and then an example (for the format codes).
 	- You can also go to the web page [Day Periods](https://www.unicode.org/cldr/charts/45/supplemental/day_periods.html), and look for your language.
-	- For example, for Malayalam, you would go to ...[day\_periods.html#ml](https://www.unicode.org/cldr/charts/45/supplemental/day_periods.html#ml) , and see that **morning2** is the period that extends from **06:00** to **12:00**. 
+	- For example, for Malayalam, you would go to ...[day\_periods.html#ml](https://www.unicode.org/cldr/charts/45/supplemental/day_periods.html#ml) , and see that **morning2** is the period that extends from **06:00** to **12:00**.
 
 |   | Code | English | German | Russian |
 |---|---|---|---|---|
@@ -249,4 +249,3 @@ There are a number of patterns like “the week of {0}” used for constructions
 \<dateFormatItem id="MMMMW" count="one">'week' W 'of' MMM\</dateFormatItem>
 
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

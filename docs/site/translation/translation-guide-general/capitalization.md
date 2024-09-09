@@ -29,4 +29,3 @@ However, it is also important to ensure that there is consistent casing for all 
 
 To provide warnings when the capitalization of an item differs from what is intended for items in a given category, the Survey Tool now checks capitalization of items against the \<casingData\> within the \<metadata\> element; data for this comes from xml files in the CLDR common/casing/ directory. This data cannot be changed using the Survey Tool; if it is incorrect, please file a bug (initial data was created based on the predominant capitalization of items in each category within a locale, and may be wrong).
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

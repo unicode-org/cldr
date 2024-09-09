@@ -6,7 +6,7 @@ title: Alphabetic Information
 
 ## Ellipsis Patterns
 
-Ellipsis patterns are used in a display when the text is too long to be shown. It will be used in environments where there is very little space, so it should be just one character; where that really can't work, it should be as short as possible. 
+Ellipsis patterns are used in a display when the text is too long to be shown. It will be used in environments where there is very little space, so it should be just one character; where that really can't work, it should be as short as possible.
 
 There are three different possible patterns that need to be translated. Typically the same character is used in all three, but three choices are provided just in case different characters would be appropriate in different contexts, for some languages.
 
@@ -75,4 +75,3 @@ There are special versions of "Yes" and "No" used in POSIX (Portable Operating S
 | No | no:n |
 
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

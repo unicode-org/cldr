@@ -66,34 +66,34 @@ Here are my suggestions. Please send feedback to [mark@macchiato.com](mailto:mar
 
 From Bug 1947, for reference.
 
-The exemplar character set for ja appears to be too small. 
+The exemplar character set for ja appears to be too small.
 
-1. It contains about 2,000 characters (Kanji, Hiragana and Katakana). 
+1. It contains about 2,000 characters (Kanji, Hiragana and Katakana).
 2. If Exemplar Character set is limited to the most widely used one (Level 1
 Kanji? in JIS X 208), I expected Auxiliary Exemplar Character set to contain the
 
-rest of 
+rest of
 
-JIS X 0208 (plus JIS X 212 / 213). However, it contains only 5 characters. 
+JIS X 0208 (plus JIS X 212 / 213). However, it contains only 5 characters.
 
 3. It does not contain \<U+30F7, U+30FA> ('composed Katakana letters'), U+30FB and U+30FC (conjunction and length marks).
 
-For instance, characters like U+4EDD,U+66D9, U+7DBE are not included although they're used in Japanese IDN names (which is an indicator that they're pretty widely used. See <http://code.google.com/p/chromium/issues/detail?id=3158> ) 
+For instance, characters like U+4EDD,U+66D9, U+7DBE are not included although they're used in Japanese IDN names (which is an indicator that they're pretty widely used. See <http://code.google.com/p/chromium/issues/detail?id=3158> )
 
 While I was at it, I also looked at zh\* and ko. All of them have about 2000 characters (in case of 2350 which is the number of Hangul syllables in KS X 1001). The auxiliary sets for zh\* have only tens of characters (26 for zh\_Hans
-and 33 for zh\_Hant). 
+and 33 for zh\_Hant).
 
-It's rather inconvenient to type hundreds (if not thousands) of characters in the CLDR survey tool. Perhaps, we have to fill in those values ('candidate sets' for vetting) using cvs before the next round of CLDR survey. 
+It's rather inconvenient to type hundreds (if not thousands) of characters in the CLDR survey tool. Perhaps, we have to fill in those values ('candidate sets' for vetting) using cvs before the next round of CLDR survey.
 
 ...
 
 Jungshik and I discussed this, and there are three possible sources (for each of Chinese (S+T), Japanese, and Korean) that we could tie the exemplars to:
 
-1. charsets (in the case of Japanese, this would be probably: JIS 208 + 212 + 213. (This would be a large set, and 
+1. charsets (in the case of Japanese, this would be probably: JIS 208 + 212 + 213. (This would be a large set, and
 contain many rarely-used characters).<br /><br />
 1a. Only use JIS 208. (The current approach appears to be JIS 208, but only level 1.)
 
-2. Use the educational standards in each country/territory for primary+secondary requirements. We'd have to 
+2. Use the educational standards in each country/territory for primary+secondary requirements. We'd have to
 look up sources for these.
 
 3. Use the NIC restrictions for each country.
@@ -104,4 +104,3 @@ There is a fourth possibility: Use the characters that are supported by the comm
 
 platforms for these languages (e.g. the characters that are in the cmaps for [TrueType?](#BAD_URL) fonts).
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

@@ -20,4 +20,3 @@ Official languages for a country are not necessarily the same as those with offi
 
 ***official minority language*** \- a language that has some official governmental status, but is not an official language of the country or of a substantial region.
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

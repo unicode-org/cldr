@@ -21,4 +21,3 @@ title: LikelySubtags and Default Content
 	4. Run tests, fix input data, and iterate as necessary.
 		1. Copy into the svn workspace and commit.
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

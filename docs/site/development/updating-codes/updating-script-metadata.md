@@ -82,4 +82,3 @@ For example,
 
 Problems are typically because a non\-standard name is used for a territory name. That can be fixed and the process rerun.
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

@@ -79,4 +79,4 @@ title: Update Language/Script/Region Subtags
     - You may also have to fix the coverageLevels.txt file for an error like:
     - Error: (TestCoverageLevel.java:604\) Comprehensive \& no exception for path \=\> //ldml/localeDisplayNames/territories/territory\[@type\="202"]
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)
+

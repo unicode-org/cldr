@@ -26,4 +26,3 @@ For the purposes of this document, / and \\ are equivalent. Note: Directories mu
 | Generating Statistics | CountItems | Generate something like:<br> &emsp;Total Items 66,319<br> &emsp;Total Resolved Items 1,025,077<br> &emsp;Unique Paths 4,717<br> &emsp;Unique Values 45,226<br> &emsp;Unique Full Paths 9,301 | -Dmethod=countItems<br> -DSOURCE={cldrdata}\cldr_1_4\main<br><br> -Dmethod=countItems -DSOURCE={cldrdata}\incoming\vetted\main |
 |  Build most charts |  ShowLanguages |   |  TBD |
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

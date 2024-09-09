@@ -30,4 +30,3 @@ Collect and submit the following data, using the [Core Data Submission Form](htt
 
 For more information on the other coverage levels refer to [Coverage Levels](https://cldr.unicode.org/index/cldr-spec/coverage-levels) 
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

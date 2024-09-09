@@ -154,4 +154,3 @@ Add b) into this file
 
 Store only g).
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

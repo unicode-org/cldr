@@ -34,7 +34,7 @@ Once you are there, generate a file by using the following steps. There are 3 co
 	- Select "CSV"
 	- Instruct your browser to the save the file.
 - You will receive a ZIP file named "**Data\_Extract\_From\_World\_Development\_Indicators.zip**".
-	- Unpack this zip file. It will contain two files. 
+	- Unpack this zip file. It will contain two files.
 		- (From a unix command line, you can unpack it with
 		- "unzip \-j \-a \-a **Data\_Extract\_From\_World\_Development\_Indicators.zip"**
 			- to junk subdirectories and force the file to LF line endings.)
@@ -78,7 +78,7 @@ Once you are there, generate a file by using the following steps. There are 3 co
 1. All files are saved in **cldr/tools/java/org/unicode/cldr/util/data/external/**
 2. Goto: https://www.cia.gov/library/publications/the-world-factbook/index.html
 3. Goto the "References" tab, and click on "Guide to Country Comparisons"
-4. Expand "People and Society" and click on "Population" \- 
+4. Expand "People and Society" and click on "Population" \-
 	1. There's a "download" icon in the right side of the header. Right click it, Save Link As... call it
 	2. **factbook\_population.txt**
 	3. **You may need to delete header lines. The first line should begin with "1 China … " or similar.**
@@ -105,4 +105,3 @@ Once you are there, generate a file by using the following steps. There are 3 co
 5. Once everything looks ok, check everything in to git.
 6. Once done, then run the ConvertLanguageData tool as on [Update Language Script Info](https://cldr.unicode.org/development/updating-codes/update-language-script-info)
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

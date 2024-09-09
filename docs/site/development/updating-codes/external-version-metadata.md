@@ -6,11 +6,11 @@ title: Updating External Version Metadata
 
 ## Updating Metadata
 
-[CLDR\-15005](https://unicode-org.atlassian.net/browse/CLDR-15005) is for updating the process for external metadata versions. The following table is out of date with [common/properties/external\_data\_versions.tsv](https://github.com/unicode-org/cldr/blob/main/common/properties/external_data_versions.tsv) 
+[CLDR\-15005](https://unicode-org.atlassian.net/browse/CLDR-15005) is for updating the process for external metadata versions. The following table is out of date with [common/properties/external\_data\_versions.tsv](https://github.com/unicode-org/cldr/blob/main/common/properties/external_data_versions.tsv)
 
 ### TODO: Need to add instructions for updating external metadata
 
-~~The following tells how to get the version info for imported data used in a CLDR release.~~ 
+~~The following tells how to get the version info for imported data used in a CLDR release.~~
 
 | Data | File | Version Info | Date |
 |---|---|---|---|
@@ -25,5 +25,4 @@ title: Updating External Version Metadata
 | Top level domains | [tlds-alpha-by-domain.txt](https://github.com/unicode-org/cldr/blob/master/tools/java/org/unicode/cldr/util/data/tlds-alpha-by-domain.txt) | Date at top | 2021-02-17 |
 | Language Groups | TBD | Record when downloaded   in TBD |   |
 | UN / EU Codes | TBD | Record when downloaded   in TBD |   |
- 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)
+

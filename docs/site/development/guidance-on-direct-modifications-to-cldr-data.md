@@ -50,4 +50,3 @@ So the following is ok, but would be better if one of the attribute values were 
 
 \<!ATTLIST fields casing ( titlecase-words | titlecase-firstword | lowercase-words | mixed ) #IMPLIED \>
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

@@ -64,4 +64,3 @@ Locales by Tier as of CLDR 26 (for reference purposes only)
 | full | All other locales. |
 
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

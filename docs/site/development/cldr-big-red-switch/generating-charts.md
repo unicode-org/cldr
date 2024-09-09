@@ -64,4 +64,3 @@ The messages that they use are in a file util/data/chart\_messages.html. The rig
 
 The key will be zone\_tzid, in this case.
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

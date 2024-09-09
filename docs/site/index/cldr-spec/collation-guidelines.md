@@ -4,9 +4,9 @@ title: Collation Guidelines
 
 # Collation Guidelines
 
-Collation sequences can be quite tricky to specify. 
+Collation sequences can be quite tricky to specify.
 
-The locale\-based collation rules in Unicode CLDR specify customizations of the standard data for [UTS \#10: Unicode Collation Algorithm](http://www.unicode.org/reports/tr10/#Introduction) (UCA). Requests to change the collation order for a given locale, or to supply additional variants, need to follow the guidelines in this document. 
+The locale\-based collation rules in Unicode CLDR specify customizations of the standard data for [UTS \#10: Unicode Collation Algorithm](http://www.unicode.org/reports/tr10/#Introduction) (UCA). Requests to change the collation order for a given locale, or to supply additional variants, need to follow the guidelines in this document.
 
 ## Filing a Request
 
@@ -90,7 +90,7 @@ Primary Test
 1. ...α...Z
 2. ...β...A
 
-That is, the words are identical except for α, β, A, and Z, *and* you know that A and Z have a clear primary difference. If we get the above ordering in dictionaries and other sources, you know that the difference between α and β is a primary difference. If we get the opposite ordering than 1,2 above, then you only know that the difference between α and β is *not* a primary difference: it may be secondary or tertiary. 
+That is, the words are identical except for α, β, A, and Z, *and* you know that A and Z have a clear primary difference. If we get the above ordering in dictionaries and other sources, you know that the difference between α and β is a primary difference. If we get the opposite ordering than 1,2 above, then you only know that the difference between α and β is *not* a primary difference: it may be secondary or tertiary.
 
 You now need to distinguish which of the non\-primary level differences you could have. So try again, this time seeing if you can find examples of two words that of the following form, where you know that A and Á have a clear secondary difference in the script.
 
@@ -245,4 +245,3 @@ There are a number of pitfalls with collation, so be careful. In some cases, suc
 2. **Blocking Contractions.** Contractions can be blocked with CGJ, as described in the Unicode Standard and in the [Characters and Combining Marks FAQ](http://www.unicode.org/faq/char_combmark.html).
 3. **Case Combinations.** The lowercase, titlecase, and uppercase variants of contractions need to be supplied, with tertiary differences in that order (regardless of the caseFirst setting). That is, if *ch* is a contraction, then you would have the rules `... ch <<< Ch <<< CH`. Other case variants such as *cH* are excluded because they are unlikely to represent the contraction, for example in *McHugh*. (Therefore, *mchugh* and *McHugh* will be primary different if *ch* adds a primary difference.) \[[\#8248](http://unicode.org/cldr/trac/ticket/8248)]
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

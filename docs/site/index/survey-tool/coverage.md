@@ -41,4 +41,3 @@ As part of CLDR v35, the coverage level has been refined further. See ticket \#[
 	1. *Basic Level* : Cebuano (ceb), Hausa (ha), Igbo (ig), Yoruba (yo)
 	2. *Modern Level*: Somali (so), Javanese (jv)
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

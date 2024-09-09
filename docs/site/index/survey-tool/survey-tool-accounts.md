@@ -23,4 +23,3 @@ When you request an account, you must list all of the locale(s) that you would l
 
 Once you have an account, open the [Unicode CLDR Survey Tool](http://unicode.org/cldr/apps/survey), click the 'Login' button and fill in your email address and password.
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

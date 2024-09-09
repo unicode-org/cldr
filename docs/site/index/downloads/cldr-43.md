@@ -68,9 +68,9 @@ The following changes are included to allow for better compatibility with certai
 
 The only **DTD change** is the additional of alt\="ascii" for time formats:
 
-\<!ATTLIST pattern alt NMTOKENS \#IMPLIED \>  
-    \<!\-\-@MATCH:literal/alphaNextToNumber, **ascii**, noCurrency, variant\-\-\>  
-\<!ATTLIST dateFormatItem alt NMTOKENS \#IMPLIED \>  
+\<!ATTLIST pattern alt NMTOKENS \#IMPLIED \>
+    \<!\-\-@MATCH:literal/alphaNextToNumber, **ascii**, noCurrency, variant\-\-\>
+\<!ATTLIST dateFormatItem alt NMTOKENS \#IMPLIED \>
     \<!\-\-@MATCH:literal/**ascii**, variant\-\-\>
 
 ## Data Changes
@@ -171,7 +171,7 @@ See the Migration section for general data changes.
 ## Specification Changes
 
 Please see [Modifications](https://www.unicode.org/reports/tr35/tr35-68/tr35.html#Modifications) section in the LDML for full list of items:
-  
+
 - Removed numbering from sections, to allow for more flexible reorganization of the specification in the future.
 - [Person Names](https://www.unicode.org/reports/tr35/tr35-68/tr35-personNames.html#Contents)
 	- Brought Person Name Formatting out of tech preview.
@@ -256,10 +256,9 @@ None currently.
 
 Many people have made significant contributions to CLDR and LDML; see the [Acknowledgments](https://cldr.unicode.org/index/acknowledgments) page for a full listing.
 
-  
+
 The Unicode [Terms of Use](https://unicode.org/copyright.html) apply to CLDR data; in particular, see [Exhibit 1](https://unicode.org/copyright.html#Exhibit1).
 
 For web pages with different views of CLDR data, see <https://cldr.unicode.org/index/charts>.
 
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

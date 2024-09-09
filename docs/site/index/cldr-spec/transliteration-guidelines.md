@@ -351,4 +351,3 @@ For more information, see:
 - [ISCII\-91](http://www.cdacindia.com/html/gist/down/iscii_d.asp)
 - [UTS \#35: Locale Data Markup Language (LDML)](http://www.unicode.org/reports/tr35/)
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

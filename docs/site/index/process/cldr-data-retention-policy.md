@@ -11,4 +11,3 @@ The following guidelines have been discussed by the CLDR technical committee and
 1. Territory Names ( //ldml/localeDisplayNames/territories/territory\[@type\="XX"] ) \- Data is to remain in the CLDR for a period of 5 years after the territory code for territory "XX" is deprecated in the IANA Subtag Registry.
 2. Metazone Names ( //ldml/dates/timeZoneNames/metazone\[@type\="ZoneName"] \- Data is to remain in the CLDR for a period of 20 years after the metazone becomes "inactive" ( i.e. The zone name is not used in ANY country ). A spreadsheet listing the Inactive Metazones in CLDR and the dates when they became inactive can be found [here](https://docs.google.com/spreadsheets/d/1Oj1IVo2Vg6wtAhk0Xd3HcA04HKZmSPxksIpvduvSYw8/edit#gid=0).
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

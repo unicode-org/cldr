@@ -154,4 +154,3 @@ I have attached "CasingContextsV2.pdf" which fixes the calendar menu example (th
 Updated to "[CasingContextsV3.pdf](https://drive.google.com/file/d/1mvXlCSPhU87nl9owW_ZeCYHy_pJ-RqHL/view?usp=sharing)" which adds an overall explanation of the purpose of this document as well as instructions for localizers to provide feedback.
 
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

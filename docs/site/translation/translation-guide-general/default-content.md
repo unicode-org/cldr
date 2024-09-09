@@ -4,11 +4,11 @@ title: Default Content
 
 # Default Content
 
-Locales are primarily identified by their ***base*** language. For example, English \[en], Arabic \[ar] or German \[de]. 
+Locales are primarily identified by their ***base*** language. For example, English \[en], Arabic \[ar] or German \[de].
 
 We also label scripts explicitly, where a language is typically written in multiple scripts, such as Cyrillic or Latin. For example, Serbian (Cyrillic) \[sr\_Cyrl] and Serbian (Latin) \[sr\_Latn].
 
-Each language \+ script combination is treated as a unit. (i.e. People do not mix different script in the same data set.) 
+Each language \+ script combination is treated as a unit. (i.e. People do not mix different script in the same data set.)
 
 If a language is ***not*** typically written in multiple scripts, then the script sub\-tag is omitted. For example, en\_US or ko\_KR.
 
@@ -35,4 +35,3 @@ For example:
 	- Spanish (Mexico) \[es\_MX] differences from Spanish (Latin America) \[es\_419]
 	- Arabic (Egypt) \[ar\_EG] that are different from Arabic (World) \[ar\_001]
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

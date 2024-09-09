@@ -38,4 +38,3 @@ title: Update Language Script Info
 4. For the EZ, do the same with <http://ec.europa.eu/economy_finance/euro/adoption/euro_area/index_en.htm>, into util/data/external/ez\_member\_states\_raw.txt  **BROKEN LINK**
 	1. If there are changes, update \<territoryContainment\>
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

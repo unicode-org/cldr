@@ -6,37 +6,37 @@ title: Unicode CLDR Project
 
 ## News
 
-- **2024-05-14 CLDR v46 - [Survey tool open for general submission](https://cldr.unicode.org/translation)**    
-- **2024-04-17 [CLDR v45](https://cldr.unicode.org/index/downloads/cldr-45) released**    
-- **2023-12-13 [CLDR v44.1](https://cldr.unicode.org/index/downloads/cldr-44#h.nvqx283jwsx) released (an update to CLDR v44)**    
+- **2024-05-14 CLDR v46 - [Survey tool open for general submission](https://cldr.unicode.org/translation)**
+- **2024-04-17 [CLDR v45](https://cldr.unicode.org/index/downloads/cldr-45) released**
+- **2023-12-13 [CLDR v44.1](https://cldr.unicode.org/index/downloads/cldr-44#h.nvqx283jwsx) released (an update to CLDR v44)**
 - **2023-10-31 [CLDR v44](https://cldr.unicode.org/index/downloads/cldr-44) released**
-    
+
 
 ## What is CLDR?
 
 The Unicode Common Locale Data Repository (CLDR) provides key building blocks for software to support the world's languages, with the largest and most extensive standard repository of locale data available. This data is used by a [wide spectrum of companies](https://cldr.unicode.org/index#h.ezpykkomyltl) for their software internationalization and localization, adapting software to the conventions of different languages for such common software tasks. It includes:
-- **Locale-specific patterns for formatting and parsing:** dates, times, timezones, numbers and currency values, measurement units,…    
-- **Translations of names:** languages, scripts, countries and regions, currencies, eras, months, weekdays, day periods, time zones, cities, and time units, emoji characters and sequences (and search keywords),…    
-- **Language & script information:** characters used; plural cases; gender of lists; capitalization; rules for sorting & searching; writing direction; transliteration rules; rules for spelling out numbers; rules for segmenting text into graphemes, words, and sentences; keyboard layouts…    
-- **Country information:** language usage, currency information, calendar preference, week conventions,…    
+- **Locale-specific patterns for formatting and parsing:** dates, times, timezones, numbers and currency values, measurement units,…
+- **Translations of names:** languages, scripts, countries and regions, currencies, eras, months, weekdays, day periods, time zones, cities, and time units, emoji characters and sequences (and search keywords),…
+- **Language & script information:** characters used; plural cases; gender of lists; capitalization; rules for sorting & searching; writing direction; transliteration rules; rules for spelling out numbers; rules for segmenting text into graphemes, words, and sentences; keyboard layouts…
+- **Country information:** language usage, currency information, calendar preference, week conventions,…
 - **Validity:** Definitions, aliases, and validity information for Unicode locales, languages, scripts, regions, and extensions,…
-    
+
 
 CLDR uses the XML format provided by [UTS #35: Unicode Locale Data Markup Language (LDML)](http://www.unicode.org/reports/tr35/). LDML is a format used not only for CLDR, but also for general interchange of locale data, such as in Microsoft's .NET.
 
 ## Who uses CLDR?
 
 Some of the companies and organizations that use CLDR are:
--   Apple (macOS, iOS, watchOS, tvOS, and several applications; Apple Mobile Device Support and iTunes for Windows; …)    
--   Google (Web Search, Chrome, Android, Adwords, Google+, Google Maps, Blogger, Google Analytics, …)   
--   IBM (DB2, Lotus, Websphere, Tivoli, Rational, AIX, i/OS, z/OS, …)   
+-   Apple (macOS, iOS, watchOS, tvOS, and several applications; Apple Mobile Device Support and iTunes for Windows; …)
+-   Google (Web Search, Chrome, Android, Adwords, Google+, Google Maps, Blogger, Google Analytics, …)
+-   IBM (DB2, Lotus, Websphere, Tivoli, Rational, AIX, i/OS, z/OS, …)
 -   Meta (Facebook, Messenger, WhatsApp, …)
 -   Microsoft (Windows, Office, Visual Studio, …)
 
     *and many others, including:*
 
 -   ABAS Software, Adobe, Amazon (Kindle), Amdocs, Apache, Appian, Argonne National Laboratory, Avaya, Babel (Pocoo library), BAE Systems Geospatial eXploitation Products, BEA, BluePhoenix Solutions, BMC Software, Boost, BroadJump, Business Objects, caris, CERN, CLDR Engine, Debian Linux, Dell, Eclipse, eBay, elixir-cldr, EMC Corporation, ESRI, Firebird RDBMS, FreeBSD, Gentoo Linux, GroundWork Open Source, GTK+, Harman/Becker Automotive Systems GmbH, HP, Hyperion, Inktomi, Innodata Isogen, Informatica, Intel, Interlogics, IONA, IXOS, Jikes, jQuery, Library of Congress, Mathworks, Mozilla, Netezza, OpenOffice, Oracle (Solaris, Java), Lawson Software, Leica Geosystems GIS & Mapping LLC, Mandrake Linux, OCLC, Perl, Progress Software, Python, Qt, QNX, Rogue Wave, SAP, Shutterstock, SIL, SPSS, Software AG, SuSE, Symantec, Teradata (NCR), ToolAware, Trend Micro, Twitter, Virage, webMethods, Wikimedia Foundation (Wikipedia), Wine, WMS Gaming, XyEnterprise, Yahoo!, Yelp
-    
+
 
 There are other projects which consume cldr-json directly, see [here](https://github.com/unicode-org/cldr-json/blob/master/USERS.md#projects) for a list.
 
@@ -81,8 +81,7 @@ The two important periods for translators are:
 
 - Submission: translators are asked to flesh out missing data, and check for consistency.
 - Vetting: translators are asked to review all changed or conflicted values, and reach consensus.
-        
+
 
 The details for the current release are found in [Current CLDR Cycle](https://docs.google.com/spreadsheets/d/1N6inI5R84UoYlRwuCNPBOAP7ri4q2CmJmh8DC5g-S6c/edit#gid=1680747936).
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

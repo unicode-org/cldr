@@ -43,4 +43,3 @@ Additional parameters:
 
 Assuming your tools’s alias is *myalias,* create a new subpage with the URL http://cldr.unicode.org/tools/myalias (a subpage of [CLDR Tools](https://cldr.unicode.org/development/cldr-tools)). Fill this page out with information about how to use your tool.
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

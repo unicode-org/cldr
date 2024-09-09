@@ -179,4 +179,4 @@ For the Unsync'd issues, the older English value is listed below the new one, an
 
 Once you have completed your items, review the Priority Items again to see that all the changes are as expected.
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)
+

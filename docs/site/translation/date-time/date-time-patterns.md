@@ -395,4 +395,3 @@ Different calendars work with the data in Gregorian, and Generic in the followin
 	- Because the Generic calendar does not have real names for months, weekdays and eras, the Survey Tool examples generated for this calendar may be confusing.
 - Calendars that do not inherit date formats from the Generic calendar are the **East Asian lunar calendars**: Chinese (lunar) and Dangi (Korean lunar). These have special formats involving cyclic names. The Dangu calendar inherits formats from the Chinese calendar data in the same locale, while the Chinese calendar inherits formats directly from the parent locale; that parent locale may be the root locale or inherit these formats directly from the root locale. For the lunar calendars, the root locale has formats that should be reasonable for use in most locales where the lunar calendars are not one of the primary calendars.
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

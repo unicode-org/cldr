@@ -38,10 +38,10 @@ pathId → valueInfo+
 *// ordered by voteCount then UCA (so first is winning, second is ‘next best’)*
 
 &emsp;valueInfo = value, isInherited, coverageLevel, voteCount, voter*, errorStatus*, example?
-     
+
 &emsp;*// that is, a value like “Sontag”, whether the value is inherited, what the coverage level is (computed algorithmically), what the voteCount is (computed from the voters: computed and cached), the errorStatus (computed and cached), and the example text (computed and cached). Maybe add dependentPaths* (see below).*
 
-&emsp;errorStatus = error/warningID, message 
+&emsp;errorStatus = error/warningID, message
 
 value → pathId*
 
@@ -80,4 +80,3 @@ Issue: the Voter map changes occasionally. For new users, we don’t have to do 
 
 Issue: With multiple machines (or app engine) we could shard the processing; divide up the locales by base language, and divy them out to different machines. (Clumps would have to be slightly larger where we have sibling aliases.)
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

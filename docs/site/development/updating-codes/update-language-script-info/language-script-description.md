@@ -20,4 +20,3 @@ Files in https://github.com/unicode-org/cldr/tree/main/tools/cldr-code/src/main/
 1. country\_language\_population.tsv
 2. language\_script.tsv
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

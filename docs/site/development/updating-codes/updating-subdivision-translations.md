@@ -23,4 +23,3 @@ title: Updating Subdivision Translations
 2. Check in
 	1. Make sure you also check in **{workspace}/cldr/tools/cldr\-rdf/external/\*.tsv** ( intermediate tables, for tracking)
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

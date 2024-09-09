@@ -124,4 +124,3 @@ Later on, in the vetting phase, you can send messages with the outstanding dispu
 		2. OR (unusual case) under languages in http://www.ietf.org/internet\-drafts/draft\-ietf\-ltru\-4645bis\-04\.txt
 		3. However, watch for mistakes, eg someone using "tw" to mean Taiwanese, when it actually means "Twi"
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

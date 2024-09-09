@@ -59,4 +59,3 @@ title: Update Currency Codes
         - common/supplemental/supplementalData.xml
 - ***Note: We no longer maintain the list of currency in supplementalMetadata.xml (***[***\#4298***](http://unicode.org/cldr/trac/ticket/4298)***). The list is currently maintained by bcp47/currency.xml. We need to move the code used for checking list of ISO currency (and its numeric code mapping) currently in ICU tools repository (http://source.icu-project.org/repos/icu/tools/trunk/currency/).***
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

@@ -9,7 +9,7 @@ This design proposal is intended to solve the problem that sometimes the desired
 \<!ATTLIST pattern numbers CDATA #IMPLIED >
 
 The numbers attribute is used to indicate that numeric quantities in the pattern are to be rendered using a numbering system other than then default numbering system defined for the given locale. The attribute can be in one of two forms. If the alternate numbering system is intended to apply to ALL numeric quantities in the pattern, then simply use the numbering system ID as found in Section C.13 [Numbering Systems](http://www.unicode.org/reports/tr35/#Numbering_Systems). To apply the alternate numbering system only to a single field, the syntax "\<letter>=\<numberingSystem>" can be used one or more times, separated by semicolons.
- 
+
 Examples:
 
 \<pattern numbers="hebr">dd/mm/yyyy\</pattern>
@@ -28,4 +28,3 @@ Examples:
 
 In addition to the syntax, allow symbol or string replacements of the form "\<string>=\<numberingSystem>=\<replacementString>"
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

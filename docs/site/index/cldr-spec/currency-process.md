@@ -15,4 +15,3 @@ There are three stages for new currency symbols (such as the recent Russian, Ind
 For more information, see [Currency Symbols \& Names](https://cldr.unicode.org/translation/currency-names-and-symbols/currency-names).
 
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

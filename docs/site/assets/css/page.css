@@ -36,20 +36,31 @@ header .nav > div {
   display: inline;
 }
 
-header .nav a {
+header .nav a.uplink {
   color: white;
+}
+
+header .nav div.subpages {
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    background-color: white;
+    position: absolute;
+    color: black;
+    padding: 0.5em;
+}
+
+div.subpages .hamburger {
+    left: 1em;
+    top: 1em;
+    color: darkslateblue;
+}
+
+.subpages .hamburger:hover {
+    color: gray;
 }
 
 header .nav ul b {
   color: gray;
-}
-
-.title ul.subpages {
-  display: none;
-}
-
-.title:hover ul.subpages {
-  display: block;
 }
 
 header .nav .crumb {
@@ -59,17 +70,17 @@ header .nav .crumb {
 
 header .nav ul {
   display: inline;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-  background-color: navy;
-  padding: 0.5em;
 }
 
 header .nav ul li {
   display: block;
-  padding: 0.5em;
+  padding: 0.25em;
   font-size: medium;
   margin: 0;
+}
+
+.subpages .li a {
+    color: black !important;
 }
 
 header .message {

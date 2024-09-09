@@ -73,12 +73,17 @@ async function siteData() {
 const app = Vue.createApp(
   {
     setup(props) {
+      // the tree.json data
       const tree = ref({});
+      // loading status for tree.json
       const status = ref(null);
+      // is the popup menu shown?
+      const popup = ref(false);
 
       return {
         tree,
         status,
+        popup,
       };
     },
     mounted() {
@@ -211,18 +216,24 @@ const app = Vue.createApp(
          <a class="uplink" v-bind:href="ancestor.href">{{ ancestor.title }}</a><span class="crumb">❱</span>
        </span>
        <div v-if="!siblingPages || !siblingPages.length" class="title"> {{ ourTitle }} </div>
-       <div v-else class="title"><span class="hamburger">≡</span>
+       <div v-else class="title"  @mouseover="popup = true"><span class="hamburger" @click="popup = !popup">≡</span>
             {{ ourTitle }}
-        <ul class="subpages">
-            <li v-for="subpage of siblingPages" :key="subpage.path">
-                <span v-if="path == subpage.html">
-                    <b>{{ subpage.title }}</b>
-                </span>
-                <a v-else v-bind:href="'/'+subpage.html">
-                    {{ subpage.title }}
-                </a>
-            </li>
-        </ul>
+
+        <div class="subpages" v-if="popup">
+          <span class="hamburger" @click="popup=false">✕</span>
+          <ul class="subpages" >
+              <li v-for="subpage of siblingPages" :key="subpage.path">
+                  <span v-if="path == subpage.html">
+                      <b>{{ subpage.title }}</b>
+                  </span>
+                  <a v-else v-bind:href="'/'+subpage.html">
+                      {{ subpage.title }}
+                  </a>
+              </li>
+          </ul>
+        </div>
+
+
       </div>
 
     </div>`,

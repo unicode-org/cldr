@@ -1,120 +1,142 @@
 /* mirror of div.body */
 section.body {
-    margin: 3em;
+  margin: 3em;
 }
 
 header {
-    width: "100%";
-    background-color: #5555ff;
-    border-bottom: 0.5em solid #EEEEFE;
-    padding: 0.5em;
+  width: "100%";
+  background-color: #5555ff;
+  border-bottom: 0.5em solid #eeeefe;
+  padding: 0.5em;
 }
 
 header div.navparent {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-header .navparent  a.icon {
-    display: table-cell;
-    margin-top: 40;
+header .navparent a.icon {
+  display: table-cell;
+  margin-top: 40;
 }
 
 header .navparent > div {
-    display: table-cell;
+  display: table-cell;
 }
 
 header .title {
-    display: table-cell;
-    color: yellow;
-    font-size: 1.5em;
+  display: table-cell;
+  color: yellow;
+  font-size: 1.5em;
 }
 
-header .nav, header .nav > div {
-    display: inline;
+header .nav,
+header .nav > div {
+  display: inline;
 }
 
 header .nav a {
-    color: white;
+  color: white;
 }
 
 header .nav ul b {
-    color: gray;
+  color: gray;
+}
+
+.title ul.subpages {
+  display: none;
+}
+
+.title:hover ul.subpages {
+  display: block;
 }
 
 header .nav .crumb {
-    color: white;
-    margin: .5em;
+  color: white;
+  margin: 0.5em;
 }
 
 header .nav ul {
-    display: inline-flexbox;
-    width: 90%;
+  display: inline;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  background-color: navy;
+  padding: 0.5em;
 }
 
 header .nav ul li {
-    display: inline-flex;
-    padding: .5em;
-    margin: 0;
+  display: block;
+  padding: 0.5em;
+  font-size: medium;
+  margin: 0;
 }
 
 header .message {
-    color: lightblue;
-    display: list-item;
+  color: lightblue;
+  display: list-item;
 }
 
 footer {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    border-top: 0.5em solid #eeeefe;
-    font-size: smaller;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  border-top: 0.5em solid #eeeefe;
+  font-size: smaller;
 }
-
 
 /* copied from tr35.css */
 
 .markdown-alert {
-    border-left: 0.25em;
-    padding-left: .5em;
-    border-left-style: solid;
+  border-left: 0.25em;
+  padding-left: 0.5em;
+  border-left-style: solid;
 }
 
 .markdown-alert-title {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .markdown-alert-title svg {
-    margin-right: .5em;
+  margin-right: 0.5em;
 }
 
 .markdown-alert-note {
-    border-color: blue;
+  border-color: blue;
 }
 
 .markdown-alert-note .markdown-alert-title {
-    color: blue;
+  color: blue;
 }
 
 .markdown-alert-important {
-    border-color: blueviolet;
+  border-color: blueviolet;
 }
 
 .markdown-alert-important .markdown-alert-title {
-    color: blueviolet;
+  color: blueviolet;
 }
 
 /* unusable header and stuff from old Sites. */
-svg.K4B8Y, div.Xb9hP, div.hBW7Hb, div.WIdY2d, span.Lw7GHd,  svg.K4B8Y, path.MrYMx, path.K4B8Y, span.Ce1Y1c, svg.hmuWb, svg.wFCWne {
-    display: none;
+svg.K4B8Y,
+div.Xb9hP,
+div.hBW7Hb,
+div.WIdY2d,
+span.Lw7GHd,
+svg.K4B8Y,
+path.MrYMx,
+path.K4B8Y,
+span.Ce1Y1c,
+svg.hmuWb,
+svg.wFCWne {
+  display: none;
 }
 
 header#atViewHeader {
-    display: none !important;
+  display: none !important;
 }
 
 div > header {
-    display: none !important;
+  display: none !important;
 }

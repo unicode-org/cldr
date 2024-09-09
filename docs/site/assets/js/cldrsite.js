@@ -2,9 +2,9 @@ const { ref } = Vue;
 
 // site management
 
-let myPath = window.location.pathname.slice(1) || "index.html"
+let myPath = window.location.pathname.slice(1) || "index.html";
 if (!/\.html/.test(myPath)) {
-    myPath = `${myPath}.html`; // cloudflare likes to drop the .html
+  myPath = `${myPath}.html`; // cloudflare likes to drop the .html
 }
 
 /** replace a/b/c.md with a/b */
@@ -143,18 +143,19 @@ const app = Vue.createApp(
         if (!this.tree?.value) return [];
         let dirForPage = this.ourDir;
         if (this.tree.value.allIndexes.indexOf(this.mdPath) != -1) {
-            const dirPages = Object.entries(this.tree?.value?.allDirs)
-            .filter(([k, {index}]) => index == this.mdPath)[0];
-            if (dirPages) {
-                // our page is an index -so, show the subpages instead of the siblings.
-                dirForPage = dirPages[0]; // the adjusted index
-              } else {
-                return []; // no sibling pages;
-              }
+          const dirPages = Object.entries(this.tree?.value?.allDirs).filter(
+            ([k, { index }]) => index == this.mdPath
+          )[0];
+          if (dirPages) {
+            // our page is an index -so, show the subpages instead of the siblings.
+            dirForPage = dirPages[0]; // the adjusted index
           } else {
-            return []; // no sibling pages
+            return []; // no sibling pages;
           }
-          let thePages = this.tree?.value?.allDirs[dirForPage].pages ?? [];
+        } else {
+          return []; // no sibling pages
+        }
+        let thePages = this.tree?.value?.allDirs[dirForPage].pages ?? [];
         if (dirForPage === "") {
           thePages = [...thePages, ...this.tree?.value?.allDirs["index"].pages];
         }
@@ -167,48 +168,51 @@ const app = Vue.createApp(
             title: this.tree.value.title[path] ?? path,
           }))
           .sort((a, b) => c.compare(a.title, b.title))
-          .filter(({html}) => html != t.path); // skip showing the index page in the subpage list
+          .filter(({ html }) => html != t.path); // skip showing the index page in the subpage list
       },
       ancestorPages() {
         const pages = [];
         // if we are not loaded, or if we're at the root, then exit
-        if (!this.tree?.value || !this.path || this.path == 'index.html') return pages;
+        if (!this.tree?.value || !this.path || this.path == "index.html")
+          return pages;
         // traverse
         let path = this.path;
         do {
           // calculate the immediate ancestor
           const pathMd = html2md(path);
           const dir = path2dir(path);
-          const nextIndex = this.tree.value.allDirs[dir].index || 'index.md'; // falls back to top
+          const nextIndex = this.tree.value.allDirs[dir].index || "index.md"; // falls back to top
           const nextIndexHtml = md2html(nextIndex);
           const nextIndexTitle = this.tree.value.title[nextIndex];
           // prepend
           pages.push({
-            href: '/'+nextIndexHtml,
+            href: "/" + nextIndexHtml,
             title: nextIndexTitle,
           });
           if (nextIndexHtml == path) {
-            console.error('Loop detected from ' + this.path);
-            path = 'index.html'; // exit
+            console.error("Loop detected from " + this.path);
+            path = "index.html"; // exit
           }
           path = nextIndexHtml;
-        } while(path && path != 'index.html'); // we iterate over 'path', so html
+        } while (path && path != "index.html"); // we iterate over 'path', so html
         pages.reverse();
         return pages;
-      }
+      },
     },
-    template: `<div>
-        <div class='status' v-if="status">{{ status }}</div>
-        <div class='status' v-if="!tree">Loading…</div>
-
+    template: `
+    <div>
+       <div class='status' v-if="status">{{ status }}</div>
+       <div class='status' v-if="!tree">Loading…</div>
        <a class="icon" href="http://www.unicode.org/"> <img border="0"
 					src="/assets/img/logo60s2.gif"  alt="[Unicode]" width="34"
 					height="33"></a>&nbsp;&nbsp;
 
-        <span class="ancestor" v-for="ancestor of ancestorPages" :key="ancestor.href">
-          <a class="uplink" v-bind:href="ancestor.href">{{ ancestor.title }}</a><span class="crumb">❱</span>
-        </span>
-        <span class="title"> {{ ourTitle }} </span>
+       <span class="ancestor" v-for="ancestor of ancestorPages" :key="ancestor.href">
+         <a class="uplink" v-bind:href="ancestor.href">{{ ancestor.title }}</a><span class="crumb">❱</span>
+       </span>
+       <div v-if="!siblingPages || !siblingPages.length" class="title"> {{ ourTitle }} </div>
+       <div v-else class="title"><span class="hamburger">≡</span>
+            {{ ourTitle }}
         <ul class="subpages">
             <li v-for="subpage of siblingPages" :key="subpage.path">
                 <span v-if="path == subpage.html">
@@ -219,6 +223,8 @@ const app = Vue.createApp(
                 </a>
             </li>
         </ul>
+      </div>
+
     </div>`,
   },
   {

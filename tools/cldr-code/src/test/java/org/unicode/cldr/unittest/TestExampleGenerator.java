@@ -2103,8 +2103,7 @@ public class TestExampleGenerator extends TestFmwk {
     }
 
     public void TestRefactoring() {
-        for (ULocale locale : ULocale.getAvailableLocales()) {
-            String loc = locale.toString();
+        for (final String loc : info.getCldrFactory().getAvailable()) {
             CLDRFile resolvedCldrFile = info.getCLDRFile(loc, true);
             CLDRFile unresolvedCldrFile = info.getCLDRFile(loc, false);
             ExampleGenerator exampleGenerator = getExampleGenerator(loc);

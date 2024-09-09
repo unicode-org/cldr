@@ -62,11 +62,10 @@ If you have further questions, or problems with the Survey Tool, send a message 
 
 ## Known Bugs, Issues, Restrictions
 
-The following are general known bugs and issues. For known issues in the current release, see [Translation Guidelines](https://cldr.unicode.org/translation). 
+The following are general known bugs and issues. For known issues in the current release, see [Translation Guidelines](https://cldr.unicode.org/translation).
 
 1. The description of bulk uploading (http://cldr.unicode.org/index/survey-tool/upload) has not yet been updated for the new UI.
 2. The description of managing users (http://cldr.unicode.org/index/survey-tool/managing-users) has not yet been updated for the new UI.
 
 If you find additional problems, please [file a ticket](http://unicode.org/cldr/trac/newticket).
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

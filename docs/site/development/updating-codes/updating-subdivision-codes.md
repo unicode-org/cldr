@@ -126,4 +126,3 @@ Rearrange the leftovers to see if there is any OLD \=\> NEW1\+NEW2\... cases or 
 | \<subgroup type="FR" subtype="P" contains="14 50 61"/\> | FR | "P" |  | "14 50 61" | \<subdivisionAlias type="FR-P" replacement="FR-?? reason="deprecated"/\> | \<subdivisionAlias type="FR-P" replacement="FR-NOR" reason="deprecated"/\> |
 | \<subgroup type="FR" subtype="NOR" contains="14 27 50 61 76"/\> | FR |  | "NOR" | "14 27 50 61 76" |  |  |
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

@@ -18,14 +18,14 @@ Here are the instructions for a bulk upload (of an XML file in LDML format) to t
 6. Click **Choose File** to pick the XML file for that locale on your locale disk
 7. Click **Upload as my Submission/Vetting choices**
 8. You will see a raw listing of lines in XML, and an error line if the file doesn't validate.
-	1. If the file does not validate, fix the file, hit the back button, and go to Step 4. 	
+	1. If the file does not validate, fix the file, hit the back button, and go to Step 4.
 	2. If the file does validate, you'll see a list of XML paths and values.
 9. Click **Submit \<locale\>**.
 10. You will see a detailed list of the test results for the items you're submitting.
 	- You can click on an item's path link (left hand side) to view that item in the surveytool
 	- Any items with an error icon  will not be submitted.
 	- If the message is "Item is not writable in the Survey Tool. Please file a ticket." then you will need to [file a ticket](https://cldr.unicode.org/index/bug-reports#TOC-Filing-a-Ticket) instead. These can be filed in a single ticket. Include all the paths and the respective values.
-	1. Press "Really Submit As My Vote" to submit all passing items as your vote, or revise the file and start back at Step 4. 
+	1. Press "Really Submit As My Vote" to submit all passing items as your vote, or revise the file and start back at Step 4.
 
 ### Example XML:
 
@@ -70,7 +70,7 @@ Here are the instructions for a bulk upload (of an XML file in LDML format) to t
 
       <script alt="proposed-ABCDEF" type="0" draft="unconfirmed">Latin</script>    <!-- ERR: bad 'type' -->
 
-    </scripts>            
+    </scripts>
 
   </localeDisplayNames>
 
@@ -91,4 +91,3 @@ Note: the filename of the XML file doesn't matter
 
 ![image](../../images/index/bulkDataUpload0.png)
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

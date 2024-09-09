@@ -40,4 +40,3 @@ Here is an example: https://github.com/unicode-org/cldr/pull/59/files
 - Commit your work to a branch and create a Pull Request.
 - The new locale will be included in Smoketest when the PR is merged, and will be in production once a push to production occurs.
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

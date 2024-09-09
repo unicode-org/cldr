@@ -12,7 +12,7 @@ Shevat = month 5, Adar = month 6, Nisan = Month 7
 
 while in a leap year:
 
-Shevat = month 5, Adar I = month 6, Adar II = month 7, and Nisan = month 8. 
+Shevat = month 5, Adar I = month 6, Adar II = month 7, and Nisan = month 8.
 
 According to Wikipedia, "Adar II" in a leap year is the "real" Adar, and "Adar I" is considered to be the "extra" month.
 
@@ -90,8 +90,7 @@ a). It is only a one line change from the existing data, which means minimal dis
 
 b). It is technically more accurate according to the Wikipedia, since "Adar II" in a leap year is considered the equivalent month as "Adar" in a non-leap year. That is to say, "Adar II" is the "real" Adar, not "Adar I".
 
-c). Calendaring applications have a relatively easy way to go through the data in numeric order. In a non-leap year, just use 1-5 and 7-12. In a leap year, use 1-6, + 7 alt + 8-12. 
+c). Calendaring applications have a relatively easy way to go through the data in numeric order. In a non-leap year, just use 1-5 and 7-12. In a leap year, use 1-6, + 7 alt + 8-12.
 
 The new attribute "yeartype" was chosed as opposed to using "alt", since ICU's build process excludes all "@alt" data by default.
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

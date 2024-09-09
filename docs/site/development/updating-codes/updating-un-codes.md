@@ -27,4 +27,3 @@ title: Updating UN Codes
 ### Run TestUnContainment
 1. ```mvn -Dorg.unicode.cldr.unittest.testArgs='-n -q -filter:TestUnContainment'  --file=tools/pom.xml -pl cldr-code test -Dtest=TestShim```
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

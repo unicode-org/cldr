@@ -28,4 +28,3 @@ We have a set of tests for consistency in the data for language, script, and cou
 
 Likely Subtags are built from the language-country population data, plus the script metadata, plus an exception list.
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

@@ -19,5 +19,4 @@ title: Update Validity XML
 	5. Run the following (you must have all the archived versions loaded, back to cldr\-28\.0!)
 		1. TestValidity \-e9
 	6. If they are ok, replace and checkin
-	
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)
+

@@ -31,4 +31,3 @@ For English regional locales (e.g. en\_DE) where English is not the primary lang
 
 ![image](../../images/number-currency-formats/number-symbol.JPG)
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

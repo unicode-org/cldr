@@ -12,7 +12,7 @@ You can use the file **common/properties/coverageLevels.txt** (added in v41\) fo
 
 The file format is semicolon delimited, with 3 fields per line.
 
-  
+
 ```Locale ID ; Coverage Level ; Name```
 
 Each locale ID also covers all the locales that inherit from it. So to get locales at a desired coverage level or above, the following process is used.
@@ -105,4 +105,3 @@ For the coverage in the latest released version of CLDR, see [Locale Coverage Ch
 
 To see the development version of the rules used to determine coverage, see [coverageLevels.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/coverageLevels.xml). For a list of the locales at a given level, see [coverageLevels.txt](https://github.com/unicode-org/cldr/blob/main/common/properties/coverageLevels.txt). 
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

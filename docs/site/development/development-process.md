@@ -166,4 +166,4 @@ If there is a test failure that is due to a bug that cannot be fixed right now (
 1. The future folder tickets are moved to the discuss folder
 2. Unscheduled tickets (with no release number) are re\-evaluated.
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)
+

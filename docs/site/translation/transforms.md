@@ -14,7 +14,7 @@ Transforms describe ways of converting text. Most often these are transliteratio
 
 For those, the name of the language or script is used.
 
-There are a few others that have special purposes, listed below. Note that whatever translation is used, it should be short (a few words at most). 
+There are a few others that have special purposes, listed below. Note that whatever translation is used, it should be short (a few words at most).
 
 For the specialized acronyms (marked with \*):
 
@@ -34,4 +34,3 @@ For the specialized acronyms (marked with \*):
 | Fullwidth | Full-width or "wide" characters, such as  Ａ and  ォ |
 | Halfwidth | Half-width or "narrow" characters, such as A and  ｫ   |
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

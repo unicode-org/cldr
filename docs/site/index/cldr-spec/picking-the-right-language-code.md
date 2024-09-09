@@ -90,4 +90,3 @@ The Ethnologue is a great source of information, but it must be approached with 
 
 Wikipedia is also a great source of information, but it must be approached with a certain degree of caution as well. Be sure to follow up on references, not just look at articles.
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

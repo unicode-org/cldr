@@ -88,7 +88,7 @@ This will run all tests and create the all\-in\-one **tools/cldr\-code/target/cl
 Example to run only one test from the main unit tests and one test in the web tests: (one long command line, two separate parameters)
 
 ```
-mvn test '-Dorg.unicode.cldr.unittest.testArgs=-f:TestUntimedCounter -n -q' 
+mvn test '-Dorg.unicode.cldr.unittest.testArgs=-f:TestUntimedCounter -n -q'
          '-Dorg.unicode.cldr.unittest.web.testArgs=-f:TestMisc -n -q'
 ```
 
@@ -125,4 +125,3 @@ mvn -DCLDR_DIR=$HOME/src/cldr exec:java -pl cldr-code -Dexec.mainClass=org.unico
 
 1. To start up the Survey Tool, right\-click on 'cldr\-apps' and choose 'Run As… Run On Server'. Create a Tomcat 9 server.
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

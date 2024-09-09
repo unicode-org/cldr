@@ -23,4 +23,4 @@ There may be some variance within the language. For example, there are two diffe
 
 Pick the most neutral formulation you can, so that it works with as many kinds of noun phrases as possible.
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)
+

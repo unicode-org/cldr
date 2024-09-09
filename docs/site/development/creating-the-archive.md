@@ -43,10 +43,10 @@ A number of the tools in CLDR depend on access to older versions. These tools in
 4. Now, run the tool **org.unicode.cldr.tool.CheckoutArchive**
 	- Or from the command line:<br>
 	**mvn \-DCLDR\_DIR\=** *path\_to/cldr* **\-\-file\=tools/pom.xml \-pl cldr\-code compile \-DskipTests\=true exec:java \-Dexec.mainClass\=org.unicode.cldr.tool.CheckoutArchive  \-Dexec.args\=""**
-	- Note other options for this tool:  
-	  *\-\-help* will give help  
-	  *\-\-prune* will run a 'git workspace prune' before proceeding  
-	  *\-\-echo* will just show the commands that would be run, without running anything  
+	- Note other options for this tool:
+	  *\-\-help* will give help
+	  *\-\-prune* will run a 'git workspace prune' before proceeding
+	  *\-\-echo* will just show the commands that would be run, without running anything
 	(For example,  **\-Dexec.args\="\-\-prune"** in the above command line)
 
 The end result (where you need all of the releases) looks something like the following:
@@ -58,4 +58,3 @@ The end result (where you need all of the releases) looks something like the fol
 - You can set the property  **\-DCLDR\_ARCHIVE** to point to a different parent directory for the archive
 - You can set **\-DCLDR\_HAS\_ARCHIVE\=false** to tell unit tests and tools not to look for the archive
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

@@ -52,7 +52,7 @@ For other languages, there should be similar guides for major publications.
 ### Collation
 
 - http://www.omniglot.com/writing/
-	- http://www.alphabets-world.com/ 
+	- http://www.alphabets-world.com/
 - https://developer.mimer.com
 
 ### Dates and Times
@@ -70,4 +70,3 @@ For other languages, there should be similar guides for major publications.
 - [ISO\-15915 (Kannada)](http://ee.www.ee/transliteration/pdf/Kannada.pdf)
 - [ISCII\-91](http://www.cdacindia.com/html/gist/down/iscii_d.asp)
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

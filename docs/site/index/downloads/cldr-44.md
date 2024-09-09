@@ -195,11 +195,11 @@ There were generally a relatively small number of additions this cycle; the focu
 - **PersonNames**: In the process of moving out of Tech Preview, there were structure additions but also changes:
 	- The nameField type prefix was replaced with title, and the nameField type suffix was replaced with two new types generation and credentials.
 	- The sampleName types givenOnly, givenSurnameOnly, given12Surname, full were replaced with new types separating samples for names in the locale from samples for foreign names: nativeG, nativeGS, nativeGGS, nativeFull, foreignG, foreignGS, foreignGGS, foreignFull
-- **Redundant values that inherit “sideways” may be removed in production data**: Some data values inherit “sideways” from another element with the same parent, in the same locale. For example, consider the following items in the en locale, some added in CLDR 44 to provide clients a way to explicitly select a particular variant across locales (instead of using the default):<br> 
+- **Redundant values that inherit “sideways” may be removed in production data**: Some data values inherit “sideways” from another element with the same parent, in the same locale. For example, consider the following items in the en locale, some added in CLDR 44 to provide clients a way to explicitly select a particular variant across locales (instead of using the default):<br>
 \<territory type\="IO"\>British Indian Ocean Territory\</territory\> \<!\-\- The locale default, matches one of the alt forms \-\-\><br>
-\<territory type\="IO" alt\="biot"\>British Indian Ocean Territory\</territory\> \<!\-\- explicit "biot" variant" \-\-\><br> 
-\<territory type\="IO" alt\="chagos"\>Chagos Archipelago\</territory\> \<!\-\- explicit "chagos" variant" \-\-\>  
-Both alt forms inherit sideways from the non\-alt form. Thus in this case, the "biot" variant is redundant and will be removed in production data. Clients that are trying to select the "biot" variant but find it missing should fall back to the non\-alt form.  
+\<territory type\="IO" alt\="biot"\>British Indian Ocean Territory\</territory\> \<!\-\- explicit "biot" variant" \-\-\><br>
+\<territory type\="IO" alt\="chagos"\>Chagos Archipelago\</territory\> \<!\-\- explicit "chagos" variant" \-\-\>
+Both alt forms inherit sideways from the non\-alt form. Thus in this case, the "biot" variant is redundant and will be removed in production data. Clients that are trying to select the "biot" variant but find it missing should fall back to the non\-alt form.
 Similar behavior occurs with plural forms for units, where some plural forms may match and thus fall back to the "other" form.
 - *Since the last release, Unicode updated its outbound license from the "[Unicode, Inc. License \- Data Files and Software](https://opensource.org/license/unicode-inc-license-agreement-data-files-and-software)" to the "[Unicode License v3](https://opensource.org/license/unicode-license-v3)". All of the substantive terms of the license remain the same. The only changes made were non\-substantive technical edits. The new license is OSI\-approved and has been assigned the SPDX Identifier Unicode\-3\.0\.*
 
@@ -228,4 +228,3 @@ The Unicode [Terms of Use](https://unicode.org/copyright.html) apply to CLDR dat
 
 For web pages with different views of CLDR data, see <http://cldr.unicode.org/index/charts>.
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

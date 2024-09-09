@@ -332,4 +332,3 @@ other: books
 
 1  ➞ **book**, 2 ➞ **booku**, 3  ➞​ books​
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

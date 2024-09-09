@@ -66,4 +66,3 @@ And to the new 'function-based' breaks:
 - #[2406](http://unicode.org/cldr/trac/ticket/2406), Add locale keywords to specify the type (or variant) of word & grapheme break (pedberg, 2.0)
 - There is also the suggestion to add another type which is beyond the scope of CLDR - a cluster type that treats ligatures as single clusters. This depends on font behavior.
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

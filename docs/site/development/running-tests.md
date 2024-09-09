@@ -8,7 +8,7 @@ You will always need to run tests when you do a check\-in.
 
 1. Preconditions
 	- If you change the DTD, be sure to read and follow [Updating DTDs](https://cldr.unicode.org/development/updating-dtds) first.
-	- If you added a new feature or fixed a significant bug, add a unit test for it. 
+	- If you added a new feature or fixed a significant bug, add a unit test for it.
 		- See unittest/NumberingSystemsTest as an example.
 		- Remember to add to unittest/TestAll
 2. Run **TestAll \-e**
@@ -33,7 +33,7 @@ $ cd $CLDR_DIR/tools/java && ant all
 $ cd $CLDR_DIR/tools/cldr-unittest && ant unittestExhaustive datacheck
 ```
 
-\[TODO: add more commands here; can't we automate all this into a single build rule for ant?] TODO: [TODOL ticket:8864](http://unicode.org/cldr/trac/ticket/8864) 
+\[TODO: add more commands here; can't we automate all this into a single build rule for ant?] TODO: [TODOL ticket:8864](http://unicode.org/cldr/trac/ticket/8864)
 
 ## Debugging
 
@@ -46,4 +46,3 @@ We use a lot of regexes!
 1. There is org.unicode.cldr.util.RegexUtilities.showMismatch (and related methods) that are really useful in debugging cases where regexes fail. You hand it a pattern or matcher and a string, and it shows how far the regex got before it failed.
 2. To debug RegexLookup, there is a special call you can make where you pass in a set. On return, that set is filled with a set of strings showing how far each of the regex patterns progressed. You can thus see why a string didn't match as expected.
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

@@ -15,4 +15,4 @@ At this time, there is only one Corrigendum:
 
 Each release of CLDR is a stable release and may be used as reference material or cited as a normative reference by other specifications. Each version, once published, is absolutely stable and will never change. However, implementations may - and are encouraged to - apply fixes for corrigenda and errata to their use of an appropriate version. For example, an implementation may claim conformance to "CLDR 1.3, as amended by Corrigendum 1".
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)
+

@@ -48,10 +48,10 @@ Keyboard support is part of a multi-step, often multi-year process of enabling a
 
 Three critical parts of initial support for a language in content are:
 
-- Encoding, in [the Unicode Standard](https://www.unicode.org/standard/standard.html)   
+- Encoding, in [the Unicode Standard](https://www.unicode.org/standard/standard.html)
 - Display, including fonts and text layout
 - Input
-    
+
 
 Today, the vast majority of the languages of the world are already in the Unicode encoding. The open-source Noto font provides a wide range of fonts to support display, and the Unicode character properties play a vital role in display. However, input support often lags many years behind when a script is added to Unicode.
 
@@ -74,9 +74,8 @@ Updates to LDML (UTS#35) Part 7: Keyboards are scheduled to be released as part 
 Implementations
 
 - The [SIL Keyman](https://keyman.com/ldml/) project is actively working on an open-source implementation of the LDML format.
-    
+
 ### How can I get involved?
 
 If you want to be engaged in this workgroup, please contact the CLDR Keyboard Subcommittee via the [Unicode contact form](https://corp.unicode.org/reporting/staff-contact.html).
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

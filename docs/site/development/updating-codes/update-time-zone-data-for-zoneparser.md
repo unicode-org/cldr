@@ -32,4 +32,3 @@ Note: This is usually done as a part of full time zone data update process.
     - This file contains just one line text specifying a version of Time Zone Database, e.g. 2021a.
 5. **Record the version: See** [**Updating External Metadata**](https://cldr.unicode.org/development/updating-codes/external-version-metadata)
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

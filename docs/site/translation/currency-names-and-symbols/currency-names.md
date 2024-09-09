@@ -24,4 +24,3 @@ Note: in some cases, the English currency symbol may appear as box, typically be
 | ![image](../../images/currency-names-and-symbols/u20BD.png) | U+20BD Ruble symbol (Russia...) | Unicode 7, June 2014 |
 | ![image](../../images/currency-names-and-symbols/u20BE.png) | U+20BE Lari  symbol (Georgia) | Unicode 8, June 2015 |
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

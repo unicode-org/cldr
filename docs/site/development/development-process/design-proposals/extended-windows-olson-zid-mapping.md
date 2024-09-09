@@ -4,7 +4,7 @@ title: Extended Windows-Olson zid mapping
 
 # Extended Windows-Olson zid mapping
 
-**This proposal was approved by the CLDR TC on 2012-01-11 with some minor updates. See update comments.** 
+**This proposal was approved by the CLDR TC on 2012-01-11 with some minor updates. See update comments.**
 
 ## Background
 
@@ -70,7 +70,7 @@ metaZones.xml already contains multiple mapping per single meta zone by region l
 
 &emsp;&emsp;\<mapZone other="Africa\_Central" territory="ZW" type="Africa/Harare"/>
 
-So we could use the same scheme for representing Windows-Olson mapping. For example, mapping data for Windows "Central America Standard Time" could be represented as below - 
+So we could use the same scheme for representing Windows-Olson mapping. For example, mapping data for Windows "Central America Standard Time" could be represented as below -
 
 &emsp;&emsp;\<mapZone other="Central America Standard Time" territory="BZ" type="America/Belize"/>
 
@@ -100,7 +100,7 @@ Design Option 1 - New attribute to indicate global/regional default
 
 Adding a new attribute "defaultfor" to \<mapZone> element. The value of "defaultfor" attribute is either "all" or "region"
 
-For example, the mapping data for Windows time zone (UTC-05:00) Esstern Time (US & Canada) (ID: Eastern Standard Time) look like below - 
+For example, the mapping data for Windows time zone (UTC-05:00) Esstern Time (US & Canada) (ID: Eastern Standard Time) look like below -
 
 &emsp;&emsp;\<!-- (UTC-05:00) Eastern Time (US & Canada)-->
 
@@ -305,4 +305,3 @@ ICU Time Zone Data
 
 We currently generate an ICU resource file from supplemental/windowsZones.xml. The mapping data in the current form (1-to-1 map) is used by ICU4C to detect the default system time zone on Windows platform. This implementation has been there for several releases. When a new Olson time zone data version is published, ICU team ships updated data to ICU users, including the mapping data generated from windowsZones.xml. We want to use the same resource for past ICU releases, we cannot change the current ICU resource format. Therefore, LDML2ICUConverter must filter non-default mappings once windowsZones.xml is updated. For future ICU use, LDML2ICUConverter may generate two tables, one in the current format, another for additional mappings.
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

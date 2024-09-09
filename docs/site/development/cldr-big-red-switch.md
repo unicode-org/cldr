@@ -28,4 +28,4 @@ However, names are not automatically entered there, since some people may not wi
 2. e\-mail that list **on BCC:** the above message with a subject line of "\[CLDR X.Y Contributor Message]", and a request to please keep the subject line intact.
 3. Then, the subject line can be used to filter/locate the contributor requests.
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)
+

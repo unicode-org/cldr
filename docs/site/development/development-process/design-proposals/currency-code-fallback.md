@@ -31,4 +31,3 @@ I'm leaning towards #1, just for simplicity.
 
 However, see also: http://www.unicode.org/cldr/bugs/locale-bugs?findid=2244
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

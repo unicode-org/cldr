@@ -14,4 +14,3 @@ title: CLDR Specifications
 - [Collation Guidelines](https://cldr.unicode.org/index/cldr-spec/collation-guidelines) - how to construct collation rules
 - [JSON Bindings for CLDR Data](https://cldr.unicode.org/index/cldr-spec/cldr-json-bindings)
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

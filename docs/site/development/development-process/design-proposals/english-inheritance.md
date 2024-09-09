@@ -36,7 +36,7 @@ A few releases back, we created the en\_001 locale in CLDR, that was intended to
 - Use en\_001 as the basis for translation in the CLDR Survey Tool instead of en.
 - Make en\_CA (English - Canada) inherit from en\_001 instead of en. The en\_CA locale should be reviewed to make sure that items that previously were correctly inherited from "en" (such as well understood time zone abbreviations ) are copied into the en\_CA locale.
 - Make sure that proper time formats are in place for en\_XX locales, where XX is any country where 12 hour clock is customary according to CLDR's supplemental data.
-- Review the inheritance table (below), making any necessary adjustments. It has been suggested that en\_ZA and en\_ZW should inherit from en\_GB instead of en\_001. 
+- Review the inheritance table (below), making any necessary adjustments. It has been suggested that en\_ZA and en\_ZW should inherit from en\_GB instead of en\_001.
 
 ### Reference: English locales and inheritance:
 
@@ -134,4 +134,3 @@ A few releases back, we created the en\_001 locale in CLDR, that was intended to
 |  en_ZM |  Zambia |  en_001 |
 |  en_ZW |  Zimbabwe |  en_001 |
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

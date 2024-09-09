@@ -29,4 +29,3 @@ The data and format requirements for section 2.2 above are more complex and not 
 
 See also the earlier discussion of these issues in section F.11 of the proposal “[Chinese (and other) calendar support, intercalary months, year cycles](https://cldr.unicode.org/development/development-process/design-proposals/chinese-and-other-calendar-support-intercalary-months-year-cycles).”
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

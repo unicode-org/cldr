@@ -392,7 +392,7 @@ public class GenerateLikelySubtags {
                                 {"mro", "mro_Mroo_BD"},
                                 {"mro_BD", "mro_Mroo_BD"},
                                 {"ms_Arab", "ms_Arab_MY"},
-                                {"nan", "nan_Hant_TW"},
+                                {"nan", "nan_Hans_CN"},
                                 {"nan_Hant", "nan_Hant_TW"},
                                 {"nan_Hans", "nan_Hans_CN"},
                                 {"nan_TW", "nan_Hant_TW"},

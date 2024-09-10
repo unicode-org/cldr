@@ -13,4 +13,3 @@ title: Displaynames
 Displaynames category include the names of the fundamental data in internationalization: Languages and Country/Regions
 
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

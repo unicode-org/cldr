@@ -2,12 +2,14 @@
   <ul>
     <template v-if="loggedIn">
       <li v-if="isAdmin"><a href="#admin///">Admin Panel</a></li>
+      <li v-if="isAdmin"><a href="#generate_vxml///">Generate VXML</a></li>
       <!-- My Account only has border-top (section-header) if Admin Panel is shown -->
       <li v-if="isAdmin" class="section-header">My Account</li>
       <li v-else>My Account</li>
       <li>
         <ul>
           <li><a href="#account///">Account Settings</a></li>
+          <li v-if="showClaMenu"><a href="#cla///">Sign CLA</a></li>
         </ul>
       </li>
       <li v-if="!isAdmin && !accountLocked">
@@ -153,6 +155,7 @@ export default {
       recentActivityUrl: null,
       uploadXmlUrl: null,
       userId: 0,
+      showClaMenu: false, // off by default, see CLDR-16499
     };
   },
 

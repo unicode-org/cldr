@@ -79,4 +79,3 @@ Possible Bug - needs investigation.
 
 ![image](../../../images/design-proposals/site_bug.png)
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

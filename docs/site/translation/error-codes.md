@@ -30,4 +30,3 @@ They allow for, and often need, duplicate placeholders.
 - For plurals and ordinals, make sure to read [Determining Plural Categories](http://cldr.unicode.org/index/cldr-spec/plural-rules#TOC-Determining-Plural-Categories).
 - For case and gender, make sure read [Grammatical Inflection](https://cldr.unicode.org/translation/grammatical-inflection).
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

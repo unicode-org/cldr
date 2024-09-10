@@ -10,4 +10,3 @@ CLDR covers many different types of data, but not everything. Here are some info
 |---|---|---|---|
 | libphonenumber | https://opensource.google.com/projects/libphonenumber | https://unicode-org.atlassian.net/browse/CLDR-188 | Phone Number database |
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

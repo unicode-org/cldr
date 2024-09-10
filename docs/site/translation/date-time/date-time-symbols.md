@@ -6,15 +6,15 @@ title: Date/Time Symbols
 
 Symbols is a required topic to work in [Date/Time Patterns](https://cldr.unicode.org/translation/date-time/date-time-patterns)
 
-More details on date/time symbols and patterns may be found in the Spec [Date Field Symbol Table](http://www.unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table). 
+More details on date/time symbols and patterns may be found in the Spec [Date Field Symbol Table](http://www.unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table).
 
 ## About Symbols
 
-Dates and times are formatted using patterns, like "mm-dd". Within these patterns, each field, like the month or the hour, is represented by a sequence of letters (“pattern characters”) in the range A–Z or a–z. For example, sequences consisting of one or more ‘M‘ or ‘L‘ stand for various forms of a month name or number. 
+Dates and times are formatted using patterns, like "mm-dd". Within these patterns, each field, like the month or the hour, is represented by a sequence of letters (“pattern characters”) in the range A–Z or a–z. For example, sequences consisting of one or more ‘M‘ or ‘L‘ stand for various forms of a month name or number.
 
-When the software formats a date for your language, a value will be substituted for each field, according to the following table. Examples of the pattern usage you may see in an every day use may be on the lock screen on a mobile device showing the date or time, or as a date stamp on an email. 
+When the software formats a date for your language, a value will be substituted for each field, according to the following table. Examples of the pattern usage you may see in an every day use may be on the lock screen on a mobile device showing the date or time, or as a date stamp on an email.
 
-Notice in the table below that there are different pattern characters for standalone and formatting. For example M to indicate the formatting and L to indicate the standalone month names. 
+Notice in the table below that there are different pattern characters for standalone and formatting. For example M to indicate the formatting and L to indicate the standalone month names.
 
 Make sure you understand the difference between standalone and formatting patterns and use the appropriate symbols in patterns. See [when to use standalone vs. formatting](https://cldr.unicode.org/translation/date-time/date-time-patterns) in Date and Time patterns.
 
@@ -52,7 +52,7 @@ Make sure you understand the difference between standalone and formatting patter
 
 ## Symbol Length
 
-The number of letters in a field indicates the **format.** 
+The number of letters in a field indicates the **format.**
 
 The number of letters used to indicate the format is the same for all date fields EXCEPT for the year. (See table above for y and yy).
 
@@ -62,7 +62,7 @@ The longer forms are only relevant for the fields that are non-numeric, such as 
 
 ## Standalone vs. Format Styles
 
- This section is relevant to [When to use standalone vs. Formatting](https://cldr.unicode.org/translation/date-time/date-time-patterns) in date/time patterns. 
+ This section is relevant to [When to use standalone vs. Formatting](https://cldr.unicode.org/translation/date-time/date-time-patterns) in date/time patterns.
 
 Some languages use two different forms of strings (*standalone* and *format*) depending on the context. Typically the *standalone* version is the nominative form of the word, and the *format* version is in the genitive (or related form).
 
@@ -107,5 +107,4 @@ Precede months with de or d’ - coordinate with the formats strings, which can'
 |  | 2008-4-14 | abril |
 | d MMMM 'de' y | 2008-1-14 | 14 de gener de 2008 |
 |  | 2008-4-14 | 14 d’abril de 2008 |
- 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)
+

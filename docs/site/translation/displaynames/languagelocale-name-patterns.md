@@ -20,4 +20,3 @@ For certain compound language (locale) names, you can also supply specific trans
 
 Code patterns are used to format a language, script or locale for display. For example, the language code pattern would be translated from "Language: {0}" in English to "langue : {0}" in French, and would be used to format the language "ouzbek" into "langue : ouzbek".
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

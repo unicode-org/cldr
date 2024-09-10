@@ -34,4 +34,3 @@ To see a summary of the new fields that will be in the next version of CLDR, see
 
 For developers, see the [development pages](https://cldr.unicode.org/development/cldr-development-site).
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

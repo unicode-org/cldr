@@ -30,4 +30,3 @@ The Unicode extension key **tm** is a keyword specifying the mechanism for the t
 
 Any final subtype of 4, 6, or 8 digits represents a date in the format yyyy(MM(dd)?)?, such as 2010, or 201009, or 20100930. So, for example, und-Latn-t-und-hebr-tm-ungegn-2007 represents the transliteration as described in http://www.eki.ee/wgrs/rom1\_he.htm. The date should only be used where necessary, and if present only be as specific as necessary. So if the only dated variants for the given mechanism, source, and result are 1977 and 2007, the month and day in 2007 should not be present.
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

@@ -21,7 +21,7 @@ In CLDR 22, elements used for localized GMT format are below:
 
 - \<hourFormat> Format patterns used for representing UTC offset. This item is a single string containing two patterns, one for positive offset and another for negative offset, separated by semicolon (;). For example, "+HH:mm;-HH:mm". Each pattern must contain "H" (0-based 24 hours field) and "m" (minutes field).
 - \<gmtFormat> Message format pattern such as "GMT{0}" used for localized GMT format. The variable part is replaced with UTC offset representation created by \<hourFormat> above.
-- \<gmtZeroFormat> The string used for UTC (GMT) itself, such as "GMT". The string is used only when UTC offset is 0. 
+- \<gmtZeroFormat> The string used for UTC (GMT) itself, such as "GMT". The string is used only when UTC offset is 0.
 
 ### Proposed Changes
 
@@ -97,4 +97,3 @@ There are some locales using relatively long patterns. If long/short distinction
 
 Because of another level of abstraction (separator, actual pattern width by context), this proposal may need a little bit more work on CLDR ST.
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

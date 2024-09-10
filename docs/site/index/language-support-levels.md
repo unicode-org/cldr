@@ -6,13 +6,13 @@ title: Language Support Levels
 
 People often ask whether some device or application supports their language. This seems like a simple question: yes or no. But the reality is that there are different levels of support for a language, ranging from allowing the user to read their language on the platform all the way up to having a voice assistant in their language.
 
-This page defines a common set of terminology for language support levels for platforms such as operating systems, browsers, etc. The goal is to have consistent terminology so that people can clearly indicate the level of support for a given language. 
+This page defines a common set of terminology for language support levels for platforms such as operating systems, browsers, etc. The goal is to have consistent terminology so that people can clearly indicate the level of support for a given language.
 
 The focus here is on the incremental changes necessary to add a language to a platform that is already a Unicode-Enabled Platform. Note that the term 'language' is used for familiarity, but what needs to be supported are [locales](https://www.google.com/url?q=https://unicode-org.github.io/cldr/ldml/tr35.html%23Unicode_Language_and_Locale_Identifiers&sa=D&source=editors&ust=1717551026933717&usg=AOvVaw3RPCbCtWzpEK4qpEXVzEtJ).
 
 ## Support Levels
 
-1. Display - Text in the language can be read by users of the platform. 
+1. Display - Text in the language can be read by users of the platform.
     - **Characters** needed for the language are in Unicode.
     - **Fonts** supporting those characters are installed (or installable) on the platform
     - **The rendering system** supports the language’s script.
@@ -126,4 +126,3 @@ Below are examples of selecting Cherokee on different systems. (Cherokee in Cher
 
 Cherokee is not typically a UI language for the OS, meaning the system isn't translated into it. So in practice a user must also select an alternative language such as English that will appear in the UI for any applications that don't support Cherokee.
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

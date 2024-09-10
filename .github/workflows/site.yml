@@ -34,6 +34,8 @@ jobs:
         bundler-cache: true
     - name: Setup Jekyll
       run: 'gem install bundler jekyll kramdown-parser-gfm webrick'
+    - name: Setup assets
+      run: 'cd docs/site/assets && npm ci && npm run build'
     - name: Build cldr.pages.dev
       run: 'cd docs/site && jekyll build'
     - name: Pre-install Wrangler

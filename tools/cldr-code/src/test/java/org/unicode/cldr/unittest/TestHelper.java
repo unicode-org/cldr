@@ -1,12 +1,4 @@
 package org.unicode.cldr.unittest;
-/*
- * TODO: rename this file and class to avoid confusion with org.unicode.cldr.util TestUtilities.java
- * When Eclipse console shows an error such as
- *    Error: (TestUtilities.java:1154) : 8 value: expected "old-value", got null
- * the link wrongly opens the wrong file named TestUtilities.java. The two files are:
- * cldr/tools/cldr-code/src/main/java/org/unicode/cldr/util/TestUtilities.java
- * cldr/tools/cldr-code/src/test/java/org/unicode/cldr/unittest/TestUtilities.java
- */
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Ordering;
@@ -47,7 +39,7 @@ import org.unicode.cldr.util.VoteResolver.VoteStatus;
 import org.unicode.cldr.util.VoteResolver.VoterInfo;
 import org.unicode.cldr.util.props.ICUPropertyFactory;
 
-public class TestUtilities extends TestFmwkPlus {
+public class TestHelper extends TestFmwkPlus {
     public static boolean DEBUG = true;
 
     private static final UnicodeSet DIGITS = new UnicodeSet("[0-9]");
@@ -60,7 +52,7 @@ public class TestUtilities extends TestFmwkPlus {
     final int TWO_VETTER_BAR = VoteResolver.LOWER_BAR;
 
     public static void main(String[] args) {
-        new TestUtilities().run(args);
+        new TestHelper().run(args);
     }
 
     public void TestPluralSamples() {

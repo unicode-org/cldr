@@ -21,4 +21,4 @@ Before getting started to contribute data in CLDR, and jumping in to using the S
 
 \*If you (individual or your organization) have not established a connection with the CLDR technical committee, start with [Survey Tool Accounts](https://cldr.unicode.org/index/survey-tool/survey-tool-accounts).
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)
+

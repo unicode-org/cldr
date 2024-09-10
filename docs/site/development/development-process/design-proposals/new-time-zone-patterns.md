@@ -17,7 +17,7 @@ This design proposal includes following new pattern letters in the LDML date for
 
 1. **X** and **x** for ISO 8601 style non localizable UTC offset format
 	1. 'X' uses UTC designator "Z" when UTC offset is 0
-	2. 'x' uses difference between local time and UTC always - i.e. format like "+0000" is used when UTC offset is 0. 
+	2. 'x' uses difference between local time and UTC always - i.e. format like "+0000" is used when UTC offset is 0.
 2. **O** for localized GMT format variations
 3. **V** for time zone ID (V - short / VV - IANA) and exemplar city (VVV).
 
@@ -52,7 +52,7 @@ In LDML, we could define "ZZZZZZ" (6 'Z's), "ZZZZZZZ" (7 'Z's)... to support the
 The JSR-310 definition (compatible with JDK 7 SimpleDateFormat, with some enhancements for seconds field) might be used also for LDML, but I think there are several issues.
 
 - Single 'X' is used for limiting offset to be hour field only. Such usage is practically questionable. There are some active time zones using offsets with non-zero minutes field. So such format is highly discouraged when a zone has non-zero minutes field. ISO8601 specification also says "The minutes time element of the difference may only be omitted if the difference between the time scales is exactly an integral number of hours.".
-- When non-zero minutes (or seconds) field is truncated and hour field is 0, the output becomes +00/-00/+0000/-0000/+00:00/-00:00. Use of negative sign for offset equivalent to UTC (-00/-0000/-00:00) is illegal in ISO8601. 
+- When non-zero minutes (or seconds) field is truncated and hour field is 0, the output becomes +00/-00/+0000/-0000/+00:00/-00:00. Use of negative sign for offset equivalent to UTC (-00/-0000/-00:00) is illegal in ISO8601.
 
 When to use "Z" or "+00"/"+0000"/"+00:00" is also a design question. JSR-310 seems to extend pattern letter Z to support format without ISO8601 UTC indicator "Z".
 
@@ -136,5 +136,4 @@ In CLDR, we're afraid of burning one letter just for this purpose. In the CLDR T
 | **V** | 1 | uslax<br /> utc | Short time zone identifier (BCP 47 unicode locale extension, time zone value)<br /><br /> fallback: If there is no mapping to BCP 47 time zone value, format for pattern "xxxx" is used as a fallback, such as "-0500" |
 |  | 2 | America/Los_Angeles<br /> Etc/GMT | Time zone identifier (IANA Time Zone Database, or user defined ID) |
 |  | 3 | Los Angeles<br /> 東京 | Localized exemplar location (city) name for time zone<br /><br />  If a time zone is not associated with any specific locations (e.g. Etc/GMT+1), localized exemplar city name for time zone "Etc/Unknown" is used. |
-   
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)
+

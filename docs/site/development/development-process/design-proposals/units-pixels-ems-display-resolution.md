@@ -37,4 +37,4 @@ Some reference material:
 - https://en.wikipedia.org/wiki/Pixel_density
 - https://en.wikipedia.org/wiki/Em_(typography)
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)
+

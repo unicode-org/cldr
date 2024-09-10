@@ -4,7 +4,7 @@ title: Locale Option Names (Key)
 
 # Locale Option Names (Key)
 
-Locales can have special variants, to indicate the use of particular calendars, or other features. They be used to select among different options in menus, and also display which options are in effect for the user. 
+Locales can have special variants, to indicate the use of particular calendars, or other features. They be used to select among different options in menus, and also display which options are in effect for the user.
 
 ## Locale Option Names
 
@@ -41,4 +41,3 @@ The following are some examples of Option+Value combinations that need translati
 For transform names (BGN, Numeric, Tone, UNGEGN, x-Accents, x-Fullwidth, x-Halfwidth, x-Jamo, x-Pinyin, x-Publishing), see [Transforms](https://cldr.unicode.org/translation/transforms).
 
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

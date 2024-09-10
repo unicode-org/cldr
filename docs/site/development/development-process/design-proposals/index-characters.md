@@ -89,7 +89,7 @@ The indexLabel is used to display characters (if it is available). That is, when
 
 Note that the indexLabels can be used both with contiguous ranges and non-contiguous ranges. For German we might have [A-S Sch Sci St Su T-Z] as the index characters, and the following labels:
 
- 
+
 
 \<indexLabel item="Sci">S\</indexLabel>
 
@@ -134,4 +134,3 @@ Where multiple character sequences sort the same at a primary level, the automat
 *WARNING: the automatic generation would only be a draft, for translators to tune, so any shortcomings could be fixed.*
 
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

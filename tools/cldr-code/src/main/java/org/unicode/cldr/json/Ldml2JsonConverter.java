@@ -49,6 +49,7 @@ import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRTool;
+import org.unicode.cldr.util.CLDRTransforms;
 import org.unicode.cldr.util.CLDRURLS;
 import org.unicode.cldr.util.CalculatedCoverageLevels;
 import org.unicode.cldr.util.CldrUtility;
@@ -88,6 +89,7 @@ public class Ldml2JsonConverter {
     private static final String CLDR_PKG_PREFIX = "cldr-";
     private static final String FULL_TIER_SUFFIX = "-full";
     private static final String MODERN_TIER_SUFFIX = "-modern";
+    private static final String TRANSFORM_RAW_SUFFIX = ".txt";
     private static Logger logger = Logger.getLogger(Ldml2JsonConverter.class.getName());
 
     enum RunType {
@@ -98,7 +100,8 @@ public class Ldml2JsonConverter {
         rbnf(false, true),
         annotations,
         annotationsDerived,
-        bcp47(false, false);
+        bcp47(false, false),
+        transforms(false, false);
 
         private final boolean isTiered;
         private final boolean hasLocales;
@@ -739,6 +742,8 @@ public class Ldml2JsonConverter {
                 outFilename = filenameAsLangTag + ".json";
             } else if (type == RunType.bcp47) {
                 outFilename = filename + ".json";
+            } else if (type == RunType.transforms) {
+                outFilename = filename + ".json";
             } else if (js.section.equals("other")) {
                 // If you see other-___.json, it means items that were missing from
                 // JSON_config_*.txt
@@ -775,11 +780,11 @@ public class Ldml2JsonConverter {
                         if (type == RunType.main) {
                             avl.full.add(filenameAsLangTag);
                         }
-                    } else if (type == RunType.rbnf) {
-                        js.packageName = "rbnf";
-                        tier = "";
-                    } else if (type == RunType.bcp47) {
-                        js.packageName = "bcp47";
+                    } else if (type == RunType.rbnf
+                            || type == RunType.bcp47
+                            || type == RunType.transforms) {
+                        // untiered, just use the name
+                        js.packageName = type.name();
                         tier = "";
                     }
                     if (js.packageName != null) {
@@ -882,6 +887,28 @@ public class Ldml2JsonConverter {
                                 }
                                 previousIdentityPath = parts[0];
                             }
+                        }
+
+                        if (item.getUntransformedPath()
+                                .startsWith("//supplementalData/transforms")) {
+                            // here, write the raw data
+                            final String rawTransformFile = filename + TRANSFORM_RAW_SUFFIX;
+                            try (PrintWriter outf =
+                                    FileUtilities.openUTF8Writer(outputDir, rawTransformFile)) {
+                                outf.println(item.getValue());
+                                // note: not logging the write here- it will be logged when the
+                                // .json file is written.
+                            }
+                            // the value is now the raw filename
+                            item.setValue(rawTransformFile);
+                            item.setPath(
+                                    item.getPath()
+                                            .replaceAll("\\]/tRule.*$", "]/_rulesFile")
+                                            .replace("/transforms/", "/"));
+                            item.setFullPath(
+                                    item.getFullPath()
+                                            .replaceAll("\\]/tRule.*$", "]/_rulesFile")
+                                            .replace("/transforms/", "/"));
                         }
 
                         // some items need to be split to multiple item before processing. None
@@ -1449,6 +1476,24 @@ public class Ldml2JsonConverter {
                         + "defaultContent.json");
         JsonObject obj = new JsonObject();
         obj.add("defaultContent", gson.toJsonTree(skippedDefaultContentLocales));
+        outf.println(gson.toJson(obj));
+        outf.close();
+    }
+
+    public void writeTransformMetadata(String outputDir) throws IOException {
+        final String dirName = outputDir + "/cldr-" + RunType.transforms.name();
+        final String fileName = RunType.transforms.name() + ".json";
+        PrintWriter outf = FileUtilities.openUTF8Writer(dirName, fileName);
+        System.out.println(
+                PACKAGE_ICON
+                        + " Creating packaging file => "
+                        + dirName
+                        + File.separator
+                        + fileName);
+        JsonObject obj = new JsonObject();
+        obj.add(
+                RunType.transforms.name(),
+                gson.toJsonTree(CLDRTransforms.getInstance().getJsonIndex()));
         outf.println(gson.toJson(obj));
         outf.close();
     }
@@ -2225,6 +2270,8 @@ public class Ldml2JsonConverter {
                 if (Boolean.parseBoolean(options.get("packagelist").getValue())) {
                     writePackageList(outputDir);
                 }
+            } else if (type == RunType.transforms) {
+                writeTransformMetadata(outputDir);
             }
         }
     }

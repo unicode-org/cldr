@@ -154,7 +154,14 @@ class LdmlConvertRules {
                     "identity:variant:type",
 
                     // in common/bcp47/*.xml
-                    "keyword:key:name");
+                    "keyword:key:name",
+
+                    // transforms
+
+                    // transforms
+                    "transforms:transform:source",
+                    "transforms:transform:target",
+                    "transforms:transform:direction");
 
     /**
      * The set of element:attribute pair in which the attribute should be treated as value. All the

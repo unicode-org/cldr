@@ -96,7 +96,7 @@ CLDR includes [data for sorting Han (CJK) characters in radical-stroke order](tr
 
 ### JSON Data Changes
 
-**TBD**
+- Transliteration (transform) data is now available in the `cldr-transforms` package. The JSON file contains transform metadata, and the `_rulesFile` key indicates an external (`.txt`) file containing the actual rules. [CLDR-17620][].
 
 ### File Changes
 The following files were added:
@@ -126,3 +126,5 @@ Many people have made significant contributions to CLDR and LDML; see the [Ackno
 The Unicode [Terms of Use](https://unicode.org/copyright.html) apply to CLDR data; in particular, see [Exhibit 1](https://unicode.org/copyright.html#Exhibit1).
 
 For web pages with different views of CLDR data, see [http://cldr.unicode.org/index/charts](https://cldr.unicode.org/index/charts).
+
+[CLDR-17620]: https://unicode-org.atlassian.net/issues/CLDR-17620

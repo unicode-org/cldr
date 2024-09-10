@@ -213,7 +213,7 @@
 	     Note: this test assumes and requires that the .../minimumGroupingDigits path
 	     is "contributed" in fr.xml, and that the .../decimal path is "approved" in fr.xml.
 	     Ideally this test might mock the data to avoid the assumption.
-	     Compare TestUtilities.TestVoteResolver where it is possible to set oldStatus, etc. -->
+	     Compare TestHelper.TestVoteResolver where it is possible to set oldStatus, etc. -->
 
 	<user name="TwenA" org="apple" level="vetter" locales="*"/>
 	<user name="TwenB" org="ibm" level="vetter" locales="*"/>

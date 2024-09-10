@@ -1546,7 +1546,7 @@ XXX Code for transations where no currency is involved
 		<language type="enm" scripts="Latn" alt="secondary"/>
 		<language type="eo" scripts="Latn"/>
 		<language type="es" scripts="Latn" territories="AR BO CL CO CR CU DO EA EC ES GQ GT HN IC MX NI PA PE PR PY SV UY VE"/>
-		<language type="es" territories="AD BZ DE FR GB GI PH PT RO US" alt="secondary"/>
+		<language type="es" territories="AD BZ CA DE FR GB GI PH PT RO US" alt="secondary"/>
 		<language type="esu" scripts="Latn"/>
 		<language type="et" scripts="Latn" territories="EE"/>
 		<language type="ett" scripts="Ital Latn" alt="secondary"/>
@@ -2059,7 +2059,7 @@ XXX Code for transations where no currency is involved
 		<language type="osc" scripts="Ital Latn" alt="secondary"/>
 		<language type="otk" scripts="Orkh" alt="secondary"/>
 		<language type="pa" scripts="Arab Guru"/>
-		<language type="pa" territories="GB IN PK" alt="secondary"/>
+		<language type="pa" territories="CA GB IN PK" alt="secondary"/>
 		<language type="pag" scripts="Latn"/>
 		<language type="pag" territories="PH" alt="secondary"/>
 		<language type="pal" scripts="Phli Phlp" alt="secondary"/>
@@ -2428,7 +2428,7 @@ XXX Code for transations where no currency is involved
 		<language type="zgh" scripts="Tfng"/>
 		<language type="zgh" territories="MA" alt="secondary"/>
 		<language type="zh" scripts="Hans Hant" territories="CN HK MO SG TW"/>
-		<language type="zh" scripts="Bopo Latn Phag" territories="ID MY TH US VN" alt="secondary"/>
+		<language type="zh" scripts="Bopo Latn Phag" territories="CA ID MY TH US VN" alt="secondary"/>
 		<language type="zmi" scripts="Latn"/>
 		<language type="zu" scripts="Latn"/>
 		<language type="zu" territories="ZA" alt="secondary"/>
@@ -2660,65 +2660,67 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="es" populationPercent="28"/>	<!--Spanish-->
 		</territory>
 		<territory type="CA" gdp="2238000000000" literacyPercent="99" population="38794800">	<!--Canada-->
-			<languagePopulation type="en" populationPercent="86" officialStatus="official" references="R1331"/>	<!--English-->
+			<languagePopulation type="en" populationPercent="87" officialStatus="official" references="R1019"/>	<!--English-->
 			<languagePopulation type="fr" populationPercent="29" officialStatus="official" references="R1341"/>	<!--French-->
-			<languagePopulation type="zh" populationPercent="1.8" references="R1329"/>	<!--Chinese-->
-			<languagePopulation type="yue" populationPercent="1.7" references="R1329"/>	<!--Cantonese-->
-			<languagePopulation type="es" populationPercent="1.6" references="R1329"/>	<!--Spanish-->
-			<languagePopulation type="pa" populationPercent="1.6" references="R1329"/>	<!--Punjabi-->
-			<languagePopulation type="ar" populationPercent="1.5" references="R1329"/>	<!--Arabic-->
-			<languagePopulation type="fil" populationPercent="1.5" references="R1329"/>	<!--Filipino-->
-			<languagePopulation type="it" populationPercent="0.91" references="R1329"/>	<!--Italian-->
-			<languagePopulation type="de" populationPercent="0.78" references="R1329"/>	<!--German-->
-			<languagePopulation type="ur" populationPercent="0.76" references="R1329"/>	<!--Urdu-->
-			<languagePopulation type="fa" populationPercent="0.65" references="R1329"/>	<!--Persian-->
-			<languagePopulation type="pt" populationPercent="0.61" references="R1329"/>	<!--Portuguese-->
-			<languagePopulation type="ru" populationPercent="0.56" references="R1329"/>	<!--Russian-->
-			<languagePopulation type="hi" populationPercent="0.5" references="R1329"/>	<!--Hindi-->
-			<languagePopulation type="ta" populationPercent="0.49" references="R1329"/>	<!--Tamil-->
-			<languagePopulation type="vi" populationPercent="0.49" references="R1329"/>	<!--Vietnamese-->
-			<languagePopulation type="pl" populationPercent="0.46" references="R1329"/>	<!--Polish-->
-			<languagePopulation type="ko" populationPercent="0.45" references="R1329"/>	<!--Korean-->
-			<languagePopulation type="gu" populationPercent="0.36" references="R1329"/>	<!--Gujarati-->
-			<languagePopulation type="el" populationPercent="0.33" references="R1329"/>	<!--Greek-->
-			<languagePopulation type="ro" populationPercent="0.27" references="R1329"/>	<!--Romanian-->
-			<languagePopulation type="bn" populationPercent="0.24" references="R1329"/>	<!--Bangla-->
-			<languagePopulation type="pdt" populationPercent="0.24" references="R1329"/>	<!--Plautdietsch-->
-			<languagePopulation type="uk" populationPercent="0.2" references="R1329"/>	<!--Ukrainian-->
-			<languagePopulation type="sr" populationPercent="0.17" references="R1329"/>	<!--Serbian-->
-			<languagePopulation type="nl" populationPercent="0.15" references="R1329"/>	<!--Dutch-->
-			<languagePopulation type="ja" populationPercent="0.14" references="R1329"/>	<!--Japanese-->
-			<languagePopulation type="hu" populationPercent="0.13" references="R1329"/>	<!--Hungarian-->
-			<languagePopulation type="so" populationPercent="0.13" references="R1329"/>	<!--Somali-->
-			<languagePopulation type="hr" populationPercent="0.12" references="R1329"/>	<!--Croatian-->
-			<languagePopulation type="iu" literacyPercent="30" populationPercent="0.12" officialStatus="official_regional" references="R1329"/>	<!--Inuktitut-->
-			<languagePopulation type="iu_Latn" literacyPercent="30" populationPercent="0.12" officialStatus="official_regional" references="R1329"/>	<!--Inuktitut (Latin)-->
-			<languagePopulation type="tr" populationPercent="0.1" references="R1329"/>	<!--Turkish-->
-			<languagePopulation type="oj" populationPercent="0.063" references="R1329"/>	<!--Ojibwa-->
-			<languagePopulation type="ojs" populationPercent="0.04" references="R1329"/>	<!--Oji-Cree-->
-			<languagePopulation type="chp" populationPercent="0.034" officialStatus="official_regional" references="R1329"/>	<!--Chipewyan-->
-			<languagePopulation type="moe" populationPercent="0.032" references="R1329"/>	<!--Innu-aimun-->
-			<languagePopulation type="cr" populationPercent="0.023" officialStatus="official_regional" references="R1329"/>	<!--Cree-->
-			<languagePopulation type="mic" populationPercent="0.02" references="R1329"/>	<!--Mi'kmaw-->
-			<languagePopulation type="atj" populationPercent="0.017" references="R1329"/>	<!--Atikamekw-->
-			<languagePopulation type="bla" populationPercent="0.013" references="R1329"/>	<!--Siksiká-->
-			<languagePopulation type="crk" populationPercent="0.011" references="R1329"/>	<!--Plains Cree-->
-			<languagePopulation type="den" populationPercent="0.0059" officialStatus="official_regional" references="R1329"/>	<!--Slave-->
-			<languagePopulation type="dgr" populationPercent="0.0055" officialStatus="official_regional" references="R1329"/>	<!--Dogrib-->
-			<languagePopulation type="csw" populationPercent="0.0046" references="R1329"/>	<!--Swampy Cree-->
-			<languagePopulation type="moh" populationPercent="0.0045" references="R1329"/>	<!--Mohawk-->
-			<languagePopulation type="nsk" populationPercent="0.0036" references="R1329"/>	<!--Naskapi-->
-			<languagePopulation type="dak" populationPercent="0.0031" references="R1329"/>	<!--Dakota-->
-			<languagePopulation type="clc" populationPercent="0.0022" references="R1329"/>	<!--Chilcotin-->
-			<languagePopulation type="hur" populationPercent="0.0018" references="R1329"/>	<!--Halkomelem-->
-			<languagePopulation type="crg" populationPercent="0.0018" references="R1329"/>	<!--Michif-->
-			<languagePopulation type="war" populationPercent="0.0018" references="R1329"/>	<!--Waray-->
-			<languagePopulation type="lil" populationPercent="0.0014" references="R1329"/>	<!--Lillooet-->
-			<languagePopulation type="oka" populationPercent="0.0013" references="R1329"/>	<!--Okanagan-->
-			<languagePopulation type="pqm" populationPercent="0.0013" references="R1329"/>	<!--Maliseet-Passamaquoddy-->
-			<languagePopulation type="crl" populationPercent="0.001" references="R1329"/>	<!--Northern East Cree-->
-			<languagePopulation type="kwk" populationPercent="0.001" references="R1329"/>	<!--Kwakʼwala-->
-			<languagePopulation type="gwi" populationPercent="0.0007" officialStatus="official_regional" references="R1329"/>	<!--Gwichʼin-->
+			<languagePopulation type="es" populationPercent="3.2" references="R1019"/>	<!--Spanish-->
+			<languagePopulation type="zh" populationPercent="2.7" references="R1019"/>	<!--Chinese-->
+			<languagePopulation type="pa" populationPercent="2.6" references="R1019"/>	<!--Punjabi-->
+			<languagePopulation type="ar" populationPercent="2.3" references="R1019"/>	<!--Arabic-->
+			<languagePopulation type="hi" populationPercent="2.1" references="R1019"/>	<!--Hindi-->
+			<languagePopulation type="fil" populationPercent="2" references="R1019"/>	<!--Filipino-->
+			<languagePopulation type="yue" populationPercent="2" references="R1019"/>	<!--Cantonese-->
+			<languagePopulation type="it" populationPercent="1.5" references="R1019"/>	<!--Italian-->
+			<languagePopulation type="de" populationPercent="1.2" references="R1019"/>	<!--German-->
+			<languagePopulation type="ur" populationPercent="1.1" references="R1019"/>	<!--Urdu-->
+			<languagePopulation type="pt" populationPercent="0.93" references="R1019"/>	<!--Portuguese-->
+			<languagePopulation type="ru" populationPercent="0.85" references="R1019"/>	<!--Russian-->
+			<languagePopulation type="ta" populationPercent="0.65" references="R1019"/>	<!--Tamil-->
+			<languagePopulation type="vi" populationPercent="0.64" references="R1019"/>	<!--Vietnamese-->
+			<languagePopulation type="fa" populationPercent="0.61" references="R1019"/>	<!--Persian-->
+			<languagePopulation type="gu" populationPercent="0.58" references="R1019"/>	<!--Gujarati-->
+			<languagePopulation type="pl" populationPercent="0.56" references="R1019"/>	<!--Polish-->
+			<languagePopulation type="ko" populationPercent="0.56" references="R1019"/>	<!--Korean-->
+			<languagePopulation type="el" populationPercent="0.4" references="R1019"/>	<!--Greek-->
+			<languagePopulation type="uk" populationPercent="0.36" references="R1019"/>	<!--Ukrainian-->
+			<languagePopulation type="bn" populationPercent="0.33" references="R1019"/>	<!--Bangla-->
+			<languagePopulation type="ro" populationPercent="0.32" references="R1019"/>	<!--Romanian-->
+			<languagePopulation type="nl" populationPercent="0.3" references="R1019"/>	<!--Dutch-->
+			<languagePopulation type="ja" populationPercent="0.27" references="R1019"/>	<!--Japanese-->
+			<languagePopulation type="cr" populationPercent="0.24" officialStatus="official_regional" references="R1019"/>	<!--Cree-->
+			<languagePopulation type="sr" populationPercent="0.23" references="R1019"/>	<!--Serbian-->
+			<languagePopulation type="tr" populationPercent="0.22" references="R1019"/>	<!--Turkish-->
+			<languagePopulation type="hr" populationPercent="0.2" references="R1019"/>	<!--Croatian-->
+			<languagePopulation type="hu" populationPercent="0.18" references="R1019"/>	<!--Hungarian-->
+			<languagePopulation type="so" populationPercent="0.16" references="R1019"/>	<!--Somali-->
+			<languagePopulation type="iu" literacyPercent="30" populationPercent="0.11" officialStatus="official_regional" references="R1019"/>	<!--Inuktitut-->
+			<languagePopulation type="iu_Latn" literacyPercent="30" populationPercent="0.11" officialStatus="official_regional" references="R1019"/>	<!--Inuktitut (Latin)-->
+			<languagePopulation type="pdt" populationPercent="0.11" references="R1019"/>	<!--Plautdietsch-->
+			<languagePopulation type="oj" populationPercent="0.072" references="R1019"/>	<!--Ojibwa-->
+			<languagePopulation type="ojs" populationPercent="0.042" references="R1019"/>	<!--Oji-Cree-->
+			<languagePopulation type="crk" populationPercent="0.033" references="R1019"/>	<!--Plains Cree-->
+			<languagePopulation type="chp" populationPercent="0.032" officialStatus="official_regional" references="R1019"/>	<!--Chipewyan-->
+			<languagePopulation type="moe" populationPercent="0.03" references="R1019"/>	<!--Innu-aimun-->
+			<languagePopulation type="mic" populationPercent="0.024" references="R1019"/>	<!--Mi'kmaw-->
+			<languagePopulation type="atj" populationPercent="0.018" references="R1019"/>	<!--Atikamekw-->
+			<languagePopulation type="bla" populationPercent="0.017" references="R1019"/>	<!--Siksiká-->
+			<languagePopulation type="cr" populationPercent="0.013" references="R1019"/>	<!--Cree-->
+			<languagePopulation type="crl" populationPercent="0.013" references="R1019"/>	<!--Northern East Cree-->
+			<languagePopulation type="csw" populationPercent="0.012" references="R1019"/>	<!--Swampy Cree-->
+			<languagePopulation type="war" populationPercent="0.012" references="R1019"/>	<!--Waray-->
+			<languagePopulation type="ojw" populationPercent="0.0094" references="R1019"/>	<!--Western Ojibwa-->
+			<languagePopulation type="den" populationPercent="0.006" officialStatus="official_regional" references="R1019"/>	<!--Slave-->
+			<languagePopulation type="dgr" populationPercent="0.0055" officialStatus="official_regional" references="R1019"/>	<!--Dogrib-->
+			<languagePopulation type="crg" populationPercent="0.0049" references="R1019"/>	<!--Michif-->
+			<languagePopulation type="moh" populationPercent="0.0041" references="R1019"/>	<!--Mohawk-->
+			<languagePopulation type="dak" populationPercent="0.0039" references="R1019"/>	<!--Dakota-->
+			<languagePopulation type="hur" populationPercent="0.0036" references="R1019"/>	<!--Halkomelem-->
+			<languagePopulation type="nsk" populationPercent="0.0027" references="R1019"/>	<!--Naskapi-->
+			<languagePopulation type="clc" populationPercent="0.0022" references="R1019"/>	<!--Chilcotin-->
+			<languagePopulation type="kwk" populationPercent="0.0021" references="R1019"/>	<!--Kwakʼwala-->
+			<languagePopulation type="pqm" populationPercent="0.0021" references="R1019"/>	<!--Maliseet-Passamaquoddy-->
+			<languagePopulation type="oka" populationPercent="0.0018" references="R1019"/>	<!--Okanagan-->
+			<languagePopulation type="lil" populationPercent="0.0015" references="R1019"/>	<!--Lillooet-->
+			<languagePopulation type="gwi" populationPercent="0.0008" officialStatus="official_regional" references="R1019"/>	<!--Gwichʼin-->
 		</territory>
 		<territory type="CC" gdp="35090000" literacyPercent="99" population="593">	<!--Cocos (Keeling) Islands-->
 			<languagePopulation type="ms_Arab" populationPercent="84"/>	<!--Malay (Arabic)-->
@@ -5530,6 +5532,7 @@ XXX Code for transations where no currency is involved
 		<reference type="R1016" uri="http://www.ethnologue.com/show_language.asp?code=sco">100k+ native, plus 1.5 mil 2nd lang speakers. For languages not customarily written, the writing population is artificially set to 5% in the absence of better information.</reference>
 		<reference type="R1017">For languages not customarily written, the writing population is artificially set to 5% in the absence of better information.</reference>
 		<reference type="R1018" uri="https://www.cia.gov/cia/publications/factbook/geos/gj.html">English official; the figure is derived from literacy * lang pop</reference>
+		<reference type="R1019" uri="https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=9810021601">Canada 2021 Census language &quot;Knowledge of Language&quot;; official status from Wikipedia Languages_of_Canada</reference>
 		<reference type="R1020" uri="http://en.wikipedia.org/wiki/Ascension_Island">[missing]</reference>
 		<reference type="R1022" uri="https://www.cia.gov/cia/publications/factbook/geos/gi.html">English official, the figure is derived from literacy * lang pop</reference>
 		<reference type="R1024" uri="http://www.ethnologue.com/show_language.asp?code=ltz">Some 99% of users are literate in French or German. For languages not customarily written, the writing population is artificially set to 5% in the absence of better information.</reference>
@@ -5827,9 +5830,7 @@ XXX Code for transations where no currency is involved
 		<reference type="R1326" uri="https://www.ethnologue.com/language/osa">[missing]</reference>
 		<reference type="R1327" uri="https://pt.wikipedia.org/wiki/Nheengatu">[missing]</reference>
 		<reference type="R1328">Mainly in Guangdong Prov, ~70-80 million. Script unspecified so both listed</reference>
-		<reference type="R1329" uri="https://www12.statcan.gc.ca/census-recensement/2016/dp-pd/dt-td/Rp-eng.cfm?TABID=2&amp;Lang=E&amp;APATH=3&amp;DETAIL=0&amp;DIM=0&amp;FL=A&amp;FREE=0&amp;GC=0&amp;GID=1235625&amp;GK=0&amp;GRP=1&amp;PID=110212&amp;PRID=10&amp;PTYPE=109445&amp;S=0&amp;SHOWALL=0&amp;SUB=0&amp;Temporal=2016&amp;THEME=118&amp;VID=0&amp;VNAMEE=&amp;VNAMEF=&amp;D1=0&amp;D2=0&amp;D3=0&amp;D4=0&amp;D5=0&amp;D6=0">Canada 2016 census language data; official status from Wikipedia Languages_of_Canada</reference>
 		<reference type="R1330" uri="https://en.wikipedia.org/wiki/Languages_of_the_United_Kingdom">Analyzed from 2011 UK census and other sources</reference>
-		<reference type="R1331" uri="https://en.wikipedia.org/wiki/Languages_of_Canada">In total 86.2% of Canadians have working knowledge of English while 29.8% have a working knowledge of French.</reference>
 		<reference type="R1332" uri="https://statisticsmaldives.gov.mv/statistical-release-iii-education">2014 Maldives: 98% literacy in Divehi, 75% in English</reference>
 		<reference type="R1333" uri="https://en.wikipedia.org/wiki/Taiwanese_Hakka">[missing]</reference>
 		<reference type="R1334" uri="https://en.wikipedia.org/wiki/Laz_people#cite_note-ethnologue-1">[missing]</reference>

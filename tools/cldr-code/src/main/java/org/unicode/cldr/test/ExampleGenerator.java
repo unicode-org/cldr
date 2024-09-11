@@ -48,7 +48,6 @@ import java.util.Set;
 import java.util.function.Function;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.AnnotationUtil;
 import org.unicode.cldr.util.CLDRConfig;
@@ -92,36 +91,6 @@ import org.unicode.cldr.util.personname.PersonNameFormatter.FormatParameters;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NameObject;
 import org.unicode.cldr.util.personname.PersonNameFormatter.NamePattern;
 import org.unicode.cldr.util.personname.SimpleNameObject;
-
-import com.google.common.base.Joiner;
-import com.google.common.collect.ImmutableList;
-import com.ibm.icu.impl.Row.R3;
-import com.ibm.icu.impl.Utility;
-import com.ibm.icu.impl.number.DecimalQuantity;
-import com.ibm.icu.impl.number.DecimalQuantity_DualStorageBCD;
-import com.ibm.icu.lang.UCharacter;
-import com.ibm.icu.text.BreakIterator;
-import com.ibm.icu.text.DateFormat;
-import com.ibm.icu.text.DateFormatSymbols;
-import com.ibm.icu.text.DateTimePatternGenerator;
-import com.ibm.icu.text.DecimalFormat;
-import com.ibm.icu.text.DecimalFormatSymbols;
-import com.ibm.icu.text.ListFormatter;
-import com.ibm.icu.text.MessageFormat;
-import com.ibm.icu.text.NumberFormat;
-import com.ibm.icu.text.PluralRules;
-import com.ibm.icu.text.PluralRules.DecimalQuantitySamples;
-import com.ibm.icu.text.PluralRules.DecimalQuantitySamplesRange;
-import com.ibm.icu.text.PluralRules.Operand;
-import com.ibm.icu.text.PluralRules.SampleType;
-import com.ibm.icu.text.SimpleDateFormat;
-import com.ibm.icu.text.SimpleFormatter;
-import com.ibm.icu.text.UTF16;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.Calendar;
-import com.ibm.icu.util.Output;
-import com.ibm.icu.util.TimeZone;
-import com.ibm.icu.util.ULocale;
 
 /**
  * Class to generate examples and help messages for the Survey tool (or console version).
@@ -202,7 +171,6 @@ public class ExampleGenerator {
     private static final Date DATE_SAMPLE3;
     private static final Date DATE_SAMPLE4;
     private static final Date DATE_SAMPLE5;
-    
 
     static {
         Calendar calendar = Calendar.getInstance(ZONE_SAMPLE, ULocale.ENGLISH);

@@ -98,7 +98,7 @@ function writeSiteMapSheet({ all, allDirs }, path, outsheet) {
   // 'path' is '' or 'foo/' or 'foo/bar/baz/' at this point.
   const slashes = path.replace(/[^\/]+/g, ""); // foo/bar/ => //
   const indent = tabs(slashes.length); // number of slashes => number of tabs
-  outsheet.push(`${indent}${title}\t${mkurl(indexPath)}`);
+  outsheet.push(`${indent}${dropmd(indexPath)}`);
 
   // now, gather the children.
   const children = all.filter(({ fullPath }) => {
@@ -111,7 +111,7 @@ function writeSiteMapSheet({ all, allDirs }, path, outsheet) {
     return false;
   });
 
-  children.sort((a, b) => coll.compare(a.fullPath, b.fullPath));
+  children.sort((a, b) => coll.compare(a.title, b.title));
 
   children.forEach(({ title, fullPath }) => {
     // if an index, recurse instead.
@@ -121,7 +121,7 @@ function writeSiteMapSheet({ all, allDirs }, path, outsheet) {
       writeSiteMapSheet({ all, allDirs }, `${baseName}/`, outsheet);
     } else {
       // write leaf (non-index) child pages
-      outsheet.push(`${indent}\t${title}\t${mkurl(fullPath)}`);
+      outsheet.push(`${indent}\t${baseName}`);
     }
   });
 }

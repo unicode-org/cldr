@@ -6,7 +6,7 @@ title: Unicode CLDR Project
 
 ## News
 
-- **2024-05-14 CLDR v46 - [Survey tool open for general submission](https://cldr.unicode.org/translation)**
+- **2024-09-05 [CLDR v46 Alpha](https://blog.unicode.org/2024/09/unicode-cldr-v46-alpha-available-for.html)  available for testing**
 - **2024-04-17 [CLDR v45](https://cldr.unicode.org/index/downloads/cldr-45) released**
 - **2023-12-13 [CLDR v44.1](https://cldr.unicode.org/index/downloads/cldr-44#h.nvqx283jwsx) released (an update to CLDR v44)**
 - **2023-10-31 [CLDR v44](https://cldr.unicode.org/index/downloads/cldr-44) released**

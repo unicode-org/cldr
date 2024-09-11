@@ -169,6 +169,8 @@ public class ExampleGenerator {
 
     private static final Date DATE_SAMPLE2;
     private static final Date DATE_SAMPLE3;
+    private static final Date DATE_SAMPLE4;
+    private static final Date DATE_SAMPLE5;
 
     static {
         Calendar calendar = Calendar.getInstance(ZONE_SAMPLE, ULocale.ENGLISH);
@@ -179,6 +181,11 @@ public class ExampleGenerator {
         DATE_SAMPLE2 = calendar.getTime();
         calendar.set(1999, 8, 5, 7, 0, 0); // 1999-09-05 07:00:00
         DATE_SAMPLE3 = calendar.getTime();
+        calendar.set(1999, 8, 5, 23, 0, 0); // 1999-09-05 23:00:00
+        DATE_SAMPLE4 = calendar.getTime();
+
+        calendar.set(1999, 8, 5, 3, 25, 59); // 1999-09-05 03:25:59
+        DATE_SAMPLE5 = calendar.getTime();
     }
 
     static final List<DecimalQuantity> CURRENCY_SAMPLES =
@@ -2670,7 +2677,12 @@ public class ExampleGenerator {
                                                 + contextheader
                                                 + exampleEndSymbol
                                         : "";
-                        example = addExampleResult(sdf.format(DATE_SAMPLE), example, showContexts);
+                        String sup_twelve_example = sdf.format(DATE_SAMPLE);
+                        String sub_ten_example = sdf.format(DATE_SAMPLE5);
+                        example = addExampleResult(sup_twelve_example, example, showContexts);
+                        if (!sup_twelve_example.equals(sub_ten_example)) {
+                            example = addExampleResult(sub_ten_example, example, showContexts);
+                        }
                         return example;
                     }
                 } else {

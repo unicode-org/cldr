@@ -1,3 +1,10 @@
+# CLDR Site Map.
+# This is a comment.
+# The file is a TSV, tab separated value.
+# There must be a single 'index' entry here at the root.
+# Every page must be listed.   index/charts means index/charts.md for example.
+# If an item has 'sub items' it becomes a directory parent.
+# You can comment out lines, but an error will be given at build time if a page is missing.
 index
 	index/acknowledgments
 	index/charts

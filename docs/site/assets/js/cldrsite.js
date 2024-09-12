@@ -48,45 +48,6 @@ async function siteData() {
   const j = await d.json();
   const { usermap } = j;
 
-  // TODO: we want to phase out j.all in the deployment. So, we only unmarshall usermap.
-
-  // // 'all' is an array of { title, fullPath } entries.
-  // // Flat list of paths
-  // const allPaths = Object.keys(usermap);
-  // // Find all 'directories' (ending with /)
-  // const allDirs = new Set();
-  // allPaths.forEach((p) => {
-  //   const segs = p.split("/").slice(0, -1); // ['', 'dir1']
-  //   for (let n = 0; n <= segs.length; n++) {
-  //     // add all parent paths, so: '', dir1, dir1/dir2 etc.
-  //     const subpath = segs.slice(0, n).join("/");
-  //     allDirs.add(subpath);
-  //   }
-  // });
-  // j.allDirs = {};
-  // j.allIndexes = [];
-  // // allDirs:  '', index, downloads, etc…
-  // allDirs.forEach((dir) => {
-  //   // presumed index page:  /downloads -> /downloads.md
-  //   // also / -> /index.md
-  //   const dirIndex = `${dir || "index"}.md`;
-  //   // console.dir({dir, dirIndex});
-  //   if (allPaths.indexOf(dirIndex) !== -1) {
-  //     j.allDirs[dir] = { index: dirIndex };
-  //     j.allIndexes.push(dirIndex);
-  //   } else {
-  //     console.error(`No index page: ${dirIndex}`);
-  //     j.allDirs[dir] = {};
-  //   }
-  //   j.allDirs[dir].pages = [];
-  // });
-  // allPaths.forEach((p) => {
-  //   const dir = path2dir(p);
-  //   j.allDirs[dir].pages.push(p);
-  // });
-  // // map md -> title
-  // j.title = {};
-  // all.forEach(({ title, fullPath }) => (j.title[fullPath] = title));
   return j;
 }
 
@@ -225,19 +186,6 @@ const app = Vue.createApp(
     path: myPath,
   }
 );
-
-// app.component("CldrPage", {
-//   setup() {},
-//   template: `<p>Hello</p>
-//         `,
-// });
-
-// app.component("CldrList", {
-//   setup() {},
-//   template: `
-//         <p>Hullo</p>
-//         `,
-// });
 
 app.mount("#nav");
 

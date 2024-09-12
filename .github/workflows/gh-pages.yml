@@ -1,5 +1,13 @@
 
-name: Publish to gh-pages
+name: gh-pages
+
+# Note: we have a foot in two camps here, maybe more
+#
+# - docs/ldml is the spec, and it gets special handling and generation. Ends up cldr-smoke for now
+# - docs/rfc needs to end up somewhere. for now, generate to github.io
+
+# - docs/site is an entire 'site' that gets deployed to what will be cldr.unicode.org
+#    This is now handled in site.yml
 
 permissions:
   pages: write
@@ -57,7 +65,7 @@ jobs:
         with:
           ruby-version: 3.2
           bundler-cache: true
-      - name: Build Jekyll part of the site
+      - name: Build Jekyll part of the site (not spec, not site/)
         run: |
           gem install bundler github-pages kramdown-parser-gfm  # should pull in jekyll, etc.
           cd docs &&  github-pages build && mkdir -vp ../_site/ldml
@@ -87,6 +95,7 @@ jobs:
           rsync -cav --delete-after -e "ssh -o UserKnownHostsFile=${HOME}/.knownhosts -i ${HOME}/.key -p ${CCC_PORT}" ./_site/ ${CCC_USER}@${CCC_HOST}:spec/$(basename ${GITHUB_REF_NAME})/
           echo "::endgroup::"
           echo "Now go to https://cldr-smoke.unicode.org/spec/"$(basename ${GITHUB_REF_NAME})
+
   deploy:
     if: github.repository == 'unicode-org/cldr' && github.event_name == 'push'
     environment:

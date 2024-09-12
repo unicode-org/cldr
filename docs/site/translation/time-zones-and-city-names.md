@@ -76,4 +76,3 @@ The city name may also be used in formatted times, such as:
 
 City names must be unique. See [Country/Region Names](https://cldr.unicode.org/translation/displaynames/countryregion-territory-names) for techniques.
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

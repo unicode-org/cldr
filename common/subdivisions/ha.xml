@@ -12,20 +12,28 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</identity>
 	<localeDisplayNames>
 		<subdivisions>
+			<subdivision type="ad07" draft="provisional">Andorra la Vella</subdivision>
 			<subdivision type="aeaz" draft="provisional">Abu Dhabi (Masarauta)</subdivision>
 			<subdivision type="aedu" draft="provisional">Dubai</subdivision>
+			<subdivision type="amer" draft="provisional">Yerevan</subdivision>
 			<subdivision type="arc" draft="provisional">Buenos Aires</subdivision>
 			<subdivision type="at9" draft="provisional">Vienna</subdivision>
 			<subdivision type="azba" draft="provisional">Baku</subdivision>
+			<subdivision type="azxa" draft="provisional">Khankendi</subdivision>
 			<subdivision type="azxvd" draft="provisional">Dərəkənd, Khojavend</subdivision>
+			<subdivision type="brap" draft="provisional">Amapá</subdivision>
+			<subdivision type="brpa" draft="provisional">Pará</subdivision>
 			<subdivision type="bwga" draft="provisional">Gaborone</subdivision>
 			<subdivision type="byhm" draft="provisional">Miniska</subdivision>
+			<subdivision type="cabc" draft="provisional">British Columbia</subdivision>
 			<subdivision type="caqc" draft="provisional">Kebek</subdivision>
 			<subdivision type="cdkn" draft="provisional">Kinshasa</subdivision>
 			<subdivision type="cfbgf" draft="provisional">Bangui</subdivision>
+			<subdivision type="cfuk" draft="provisional">Ouaka</subdivision>
 			<subdivision type="cgbzv" draft="provisional">Brazzaville</subdivision>
 			<subdivision type="ciab" draft="provisional">Abidjan</subdivision>
 			<subdivision type="ciym" draft="provisional">Yamoussoukro</subdivision>
+			<subdivision type="cmad" draft="provisional">Jihar Adamawa</subdivision>
 			<subdivision type="cnbj" draft="provisional">Beijing</subdivision>
 			<subdivision type="cncq" draft="provisional">Chongqing</subdivision>
 			<subdivision type="cnhk" draft="provisional">Hong Kong</subdivision>
@@ -37,45 +45,64 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="cz10" draft="provisional">Prag</subdivision>
 			<subdivision type="debe" draft="provisional">Berlin</subdivision>
 			<subdivision type="dehh" draft="provisional">Hamburg</subdivision>
+			<subdivision type="deni" draft="provisional">Lower Saxony</subdivision>
 			<subdivision type="djdj" draft="provisional">Jibuti</subdivision>
+			<subdivision type="dz23" draft="provisional">Lardin Annaba</subdivision>
+			<subdivision type="esan" draft="provisional">Andalusia</subdivision>
+			<subdivision type="esce" draft="provisional">Ceuta</subdivision>
 			<subdivision type="escn" draft="provisional">Canary Islands</subdivision>
 			<subdivision type="esct" draft="provisional">Katalunya</subdivision>
+			<subdivision type="esga" draft="provisional">Galicia (Spain)</subdivision>
 			<subdivision type="etaa" draft="provisional">Addis Ababa</subdivision>
 			<subdivision type="etdd" draft="provisional">Dire Dawa</subdivision>
 			<subdivision type="fr20r" draft="provisional">Korsika</subdivision>
+			<subdivision type="fr70" draft="provisional">Haute-Saône</subdivision>
 			<subdivision type="fr75" draft="provisional">Pariis</subdivision>
 			<subdivision type="fr75c" draft="provisional">Faris</subdivision>
+			<subdivision type="frbfc" draft="provisional">Bourgogne-Franche-Comté</subdivision>
 			<subdivision type="frnor" draft="provisional">Normandie</subdivision>
 			<subdivision type="frocc" draft="provisional">Occitanie</subdivision>
 			<subdivision type="frpdl" draft="provisional">Pays de la Loire</subdivision>
 			<subdivision type="gbbst" draft="provisional">Bristol</subdivision>
+			<subdivision type="gbedh" draft="provisional">Edinburgh</subdivision>
 			<subdivision type="gbeng" draft="contributed">Ingila</subdivision>
 			<subdivision type="gbglg" draft="provisional">Glasgow</subdivision>
 			<subdivision type="gblnd" draft="provisional">Landan</subdivision>
 			<subdivision type="gbngm" draft="provisional">Nottingham</subdivision>
+			<subdivision type="gbnir" draft="provisional">Ireland ta Arewa</subdivision>
 			<subdivision type="gbpor" draft="provisional">Portsmouth</subdivision>
+			<subdivision type="gbrfw" draft="provisional">Renfrewshire</subdivision>
 			<subdivision type="gbsth" draft="provisional">Southampton</subdivision>
 			<subdivision type="gbukm" draft="provisional">Birtaniya</subdivision>
+			<subdivision type="gbwls" draft="provisional">Wales</subdivision>
 			<subdivision type="geaj" draft="provisional">Adjara</subdivision>
 			<subdivision type="gegu" draft="provisional">Guria</subdivision>
 			<subdivision type="geim" draft="provisional">Imereti</subdivision>
 			<subdivision type="ghaa" draft="provisional">Yankin Greater Accra</subdivision>
+			<subdivision type="ghaf" draft="provisional">Yankin Ahafo</subdivision>
 			<subdivision type="ghah" draft="provisional">Yankin Ashanti</subdivision>
 			<subdivision type="ghba" draft="provisional">Yankin Brong-Ahafo</subdivision>
+			<subdivision type="ghbe" draft="provisional">Yankin Bono gabas</subdivision>
 			<subdivision type="ghbo" draft="provisional">Yankin Bono</subdivision>
 			<subdivision type="ghcp" draft="provisional">Yankin Tsakiya (Ghana)</subdivision>
 			<subdivision type="ghep" draft="provisional">Yankin Gabashi (Ghana)</subdivision>
+			<subdivision type="ghne" draft="provisional">North East Region</subdivision>
 			<subdivision type="ghnp" draft="provisional">Yankin Arewaci (Ghana)</subdivision>
+			<subdivision type="ghot" draft="provisional">Oti Region</subdivision>
 			<subdivision type="ghsv" draft="provisional">Yankin Savannah</subdivision>
 			<subdivision type="ghtv" draft="provisional">Yankin Volta</subdivision>
 			<subdivision type="ghue" draft="provisional">Yankin Upper East</subdivision>
 			<subdivision type="ghuw" draft="provisional">Yankin Upper West</subdivision>
+			<subdivision type="ghwn" draft="provisional">Yankin arewa maso yamma</subdivision>
 			<subdivision type="ghwp" draft="provisional">Yankin Yammaci, Ghana</subdivision>
 			<subdivision type="gmb" draft="provisional">Banjul</subdivision>
 			<subdivision type="gnc" draft="provisional">Conakry</subdivision>
+			<subdivision type="gri" draft="provisional">Atika (yanki)</subdivision>
 			<subdivision type="gwbs" draft="provisional">Bisau</subdivision>
 			<subdivision type="hr21" draft="provisional">Zagreb</subdivision>
 			<subdivision type="hubu" draft="provisional">Budapest</subdivision>
+			<subdivision type="huhb" draft="provisional">Hajdú-Bihar County</subdivision>
+			<subdivision type="husn" draft="provisional">Sopron</subdivision>
 			<subdivision type="idjk" draft="provisional">Jakarta</subdivision>
 			<subdivision type="idjw" draft="provisional">Java</subdivision>
 			<subdivision type="idsl" draft="provisional">Sulawesi</subdivision>
@@ -85,7 +112,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="inar" draft="provisional">Arunachal Pradesh</subdivision>
 			<subdivision type="inas" draft="provisional">Assam</subdivision>
 			<subdivision type="inbr" draft="provisional">Bihar</subdivision>
-			<subdivision type="inct" draft="provisional">Chhattisgarh</subdivision>
+			<subdivision type="incg" draft="provisional">Chhattisgarh</subdivision>
 			<subdivision type="inga" draft="provisional">Goa</subdivision>
 			<subdivision type="ingj" draft="provisional">Gujarat</subdivision>
 			<subdivision type="inhp" draft="provisional">Himachal Pradesh</subdivision>
@@ -100,25 +127,28 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="inmp" draft="provisional">Madhya Pradesh</subdivision>
 			<subdivision type="inmz" draft="provisional">Mizoram</subdivision>
 			<subdivision type="innl" draft="provisional">Nagaland</subdivision>
-			<subdivision type="inor" draft="provisional">Odisha</subdivision>
+			<subdivision type="inod" draft="provisional">Odisha</subdivision>
 			<subdivision type="inpb" draft="provisional">Punjab (Indiya)</subdivision>
 			<subdivision type="inpy" draft="provisional">Puducherry (yanki)</subdivision>
 			<subdivision type="inrj" draft="provisional">Rajasthan</subdivision>
 			<subdivision type="insk" draft="provisional">Sikkim</subdivision>
-			<subdivision type="intg" draft="provisional">Telangana</subdivision>
 			<subdivision type="intn" draft="provisional">Tamil Nadu</subdivision>
 			<subdivision type="intr" draft="provisional">Tripura</subdivision>
+			<subdivision type="ints" draft="provisional">Telangana</subdivision>
+			<subdivision type="inuk" draft="provisional">Uttarakhand</subdivision>
 			<subdivision type="inup" draft="provisional">Uttar Pradesh</subdivision>
-			<subdivision type="inut" draft="provisional">Uttarakhand</subdivision>
 			<subdivision type="inwb" draft="provisional">Bengal ta Yamma</subdivision>
 			<subdivision type="iqka" draft="provisional">Karbala Governorate</subdivision>
 			<subdivision type="iqsd" draft="provisional">Saladin Governorate</subdivision>
 			<subdivision type="ir10" draft="provisional">Isfahan (Lardi)</subdivision>
+			<subdivision type="it62" draft="provisional">Lazio</subdivision>
 			<subdivision type="it75" draft="provisional">Apulia</subdivision>
 			<subdivision type="it78" draft="provisional">Calabria</subdivision>
 			<subdivision type="it82" draft="provisional">Sisiliya</subdivision>
 			<subdivision type="it88" draft="provisional">Sardiniya</subdivision>
+			<subdivision type="itve" draft="provisional">Venezia</subdivision>
 			<subdivision type="jp13" draft="provisional">Tokyo</subdivision>
+			<subdivision type="ke24" draft="provisional">Mandera County</subdivision>
 			<subdivision type="kggb" draft="provisional">Bishkek</subdivision>
 			<subdivision type="kh12" draft="provisional">Phnom Penh</subdivision>
 			<subdivision type="kmg" draft="provisional">Grande Comore</subdivision>
@@ -128,11 +158,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="kr27" draft="provisional">Daegu</subdivision>
 			<subdivision type="kr28" draft="provisional">Incheon</subdivision>
 			<subdivision type="kr30" draft="provisional">Daejeon</subdivision>
+			<subdivision type="kz71" draft="provisional">Astana</subdivision>
 			<subdivision type="kzast" draft="provisional">Nur-Sultan</subdivision>
 			<subdivision type="lvrix" draft="provisional">Riga</subdivision>
 			<subdivision type="lyba" draft="provisional">Benghazi</subdivision>
+			<subdivision type="ma01" draft="provisional">Tanger-Tetouan-Al Hoceima</subdivision>
 			<subdivision type="macas" draft="provisional">Casablanca</subdivision>
 			<subdivision type="mafes" draft="provisional">Fas</subdivision>
+			<subdivision type="mamar" draft="provisional">Marrakesh</subdivision>
 			<subdivision type="marab" draft="provisional">Rabat</subdivision>
 			<subdivision type="masal" draft="provisional">Salé</subdivision>
 			<subdivision type="matng" draft="provisional">Tanja</subdivision>
@@ -140,9 +173,17 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ml8" draft="provisional">Yankin Kidal</subdivision>
 			<subdivision type="mlbko" draft="provisional">Bamako</subdivision>
 			<subdivision type="mn1" draft="provisional">Ulan Bato</subdivision>
+			<subdivision type="mt23" draft="provisional">Kirkop</subdivision>
+			<subdivision type="mt25" draft="provisional">Luqa</subdivision>
+			<subdivision type="mt43" draft="provisional">Qormi</subdivision>
 			<subdivision type="mt58" draft="provisional">Taʼ Xbiex</subdivision>
+			<subdivision type="mt59" draft="provisional">Tarxien</subdivision>
+			<subdivision type="mt60" draft="provisional">Valletta</subdivision>
 			<subdivision type="mupu" draft="provisional">Port Louis</subdivision>
+			<subdivision type="mvmle" draft="provisional">Malé</subdivision>
 			<subdivision type="mxcmx" draft="provisional">Mexico</subdivision>
+			<subdivision type="mxpue" draft="provisional">Puebla</subdivision>
+			<subdivision type="my02" draft="provisional">Kedah</subdivision>
 			<subdivision type="my14" draft="provisional">Kuala Lumpur</subdivision>
 			<subdivision type="mzmpm" draft="provisional">Maputo</subdivision>
 			<subdivision type="ne1" draft="provisional">Yankin Agadez</subdivision>
@@ -192,23 +233,50 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ngza" draft="provisional">Zamfara</subdivision>
 			<subdivision type="no03" draft="provisional">Oslo</subdivision>
 			<subdivision type="no34" draft="provisional">Innlandet</subdivision>
+			<subdivision type="nr03" draft="provisional">Gundumar Anetan</subdivision>
+			<subdivision type="nr04" draft="provisional">Gundumar Anibare</subdivision>
+			<subdivision type="nr05" draft="provisional">Gundumar Baitsi</subdivision>
+			<subdivision type="nr10" draft="provisional">Gundumar Ijuw</subdivision>
+			<subdivision type="nr11" draft="provisional">Gundumar Meneng</subdivision>
+			<subdivision type="nr12" draft="provisional">Gundumar Nibok</subdivision>
+			<subdivision type="nr13" draft="provisional">Gundumar Uaboe</subdivision>
+			<subdivision type="pgncd" draft="provisional">Port Moresby</subdivision>
 			<subdivision type="pgsan" draft="provisional">Sandaun Province</subdivision>
+			<subdivision type="pkba" draft="provisional">Balochistan</subdivision>
 			<subdivision type="pyasu" draft="provisional">Asunción</subdivision>
 			<subdivision type="qada" draft="provisional">Doha</subdivision>
+			<subdivision type="qakh" draft="provisional">Al Khor</subdivision>
+			<subdivision type="qawa" draft="provisional">Al Wakrah</subdivision>
 			<subdivision type="rob" draft="provisional">Bukarest</subdivision>
+			<subdivision type="rual" draft="provisional">Altai Republic</subdivision>
+			<subdivision type="ruamu" draft="provisional">Amur Region</subdivision>
+			<subdivision type="ruark" draft="provisional">Arkhangelsk Oblast</subdivision>
+			<subdivision type="ruast" draft="provisional">Astrakhan Oblast</subdivision>
+			<subdivision type="ruda" draft="provisional">Dagestan</subdivision>
+			<subdivision type="rukgd" draft="provisional">Kaliningrad Oblast</subdivision>
+			<subdivision type="rukl" draft="provisional">Kalmykia</subdivision>
 			<subdivision type="rumow" draft="provisional">Moscow</subdivision>
 			<subdivision type="ruspe" draft="provisional">Saint-Petersburg</subdivision>
 			<subdivision type="rw01" draft="provisional">Kigali</subdivision>
 			<subdivision type="sa02" draft="provisional">yankin Makka</subdivision>
 			<subdivision type="sa05" draft="provisional">Yankin Al-Qassim</subdivision>
+			<subdivision type="sc08" draft="provisional">Beau Vallon, Seychelles</subdivision>
+			<subdivision type="sdnb" draft="provisional">Blue Nile (jihar)</subdivision>
+			<subdivision type="shac" draft="provisional">Ascension Island</subdivision>
 			<subdivision type="sndb" draft="provisional">Yankin Diourbel</subdivision>
+			<subdivision type="tdbg" draft="provisional">Bahr el Gazel</subdivision>
+			<subdivision type="tdka" draft="provisional">Kanem</subdivision>
 			<subdivision type="tdmc" draft="provisional">Moyen-Chari (yanki)</subdivision>
 			<subdivision type="tdnd" draft="provisional">Ndjamena</subdivision>
 			<subdivision type="tdod" draft="provisional">Yankin Ouaddai</subdivision>
 			<subdivision type="th10" draft="provisional">Bangkok</subdivision>
+			<subdivision type="tjdu" draft="provisional">Dushanbe</subdivision>
+			<subdivision type="tms" draft="provisional">Ashgabat</subdivision>
 			<subdivision type="tr77" draft="provisional">Lardin Yalova</subdivision>
 			<subdivision type="ttpos" draft="provisional">Port of Spain</subdivision>
 			<subdivision type="tttob" draft="provisional">Tobago</subdivision>
+			<subdivision type="tvfun" draft="provisional">Funafuti</subdivision>
+			<subdivision type="twhsz" draft="provisional">Hsinchu</subdivision>
 			<subdivision type="twkhh" draft="provisional">Kaohsiung</subdivision>
 			<subdivision type="twtao" draft="provisional">Taoyuan</subdivision>
 			<subdivision type="twtnn" draft="provisional">Tainan</subdivision>
@@ -271,6 +339,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="vnhn" draft="provisional">Hanoi</subdivision>
 			<subdivision type="vnhp" draft="provisional">Haiphong</subdivision>
 			<subdivision type="vnsg" draft="provisional">Birnin Ho Chi Minh</subdivision>
+			<subdivision type="wfsg" draft="provisional">Sigave</subdivision>
+			<subdivision type="yeam" draft="provisional">ʼAmran Governorate</subdivision>
 		</subdivisions>
 	</localeDisplayNames>
 </ldml>

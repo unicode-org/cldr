@@ -588,6 +588,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="cdhk" draft="provisional">Верхняя Катанга</subdivision>
 			<subdivision type="cdhl" draft="provisional">Верхнее Ломами</subdivision>
 			<subdivision type="cdhu" draft="provisional">Верхнее Уэле</subdivision>
+			<subdivision type="cdit" draft="provisional">Итури</subdivision>
 			<subdivision type="cdkc" draft="provisional">Лулуа</subdivision>
 			<subdivision type="cdke" draft="provisional">Чиленге</subdivision>
 			<subdivision type="cdkg" draft="provisional">Кванго</subdivision>
@@ -667,6 +668,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="cidn" draft="provisional">Денгеле</subdivision>
 			<subdivision type="cigd" draft="provisional">Гох-Джибоа</subdivision>
 			<subdivision type="cilc" draft="provisional">Лак</subdivision>
+			<subdivision type="cilg" draft="provisional">Лагюн</subdivision>
 			<subdivision type="cimg" draft="provisional">округ Монтань</subdivision>
 			<subdivision type="cism" draft="provisional">Сассандра-Марахуэ</subdivision>
 			<subdivision type="cisv" draft="provisional">Саван</subdivision>
@@ -954,6 +956,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="dm09" draft="provisional">Приход Сент-Патрик</subdivision>
 			<subdivision type="dm10" draft="provisional">Приход Сент-Пол</subdivision>
 			<subdivision type="dm11" draft="provisional">Приход Сент-Питер</subdivision>
+			<subdivision type="do01" draft="provisional">Национальный округ</subdivision>
 			<subdivision type="do02" draft="provisional">Асуа</subdivision>
 			<subdivision type="do03" draft="provisional">Баоруко</subdivision>
 			<subdivision type="do04" draft="provisional">Бараона</subdivision>
@@ -1033,6 +1036,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="dz46" draft="provisional">Айн-Темушент</subdivision>
 			<subdivision type="dz47" draft="provisional">Гардая</subdivision>
 			<subdivision type="dz48" draft="provisional">Релизан</subdivision>
+			<subdivision type="dz49" draft="provisional">Тимимун</subdivision>
+			<subdivision type="dz51" draft="provisional">Улед-Джеллал</subdivision>
+			<subdivision type="dz53" draft="provisional">Ин Сала</subdivision>
+			<subdivision type="dz54" draft="provisional">Ин-Геззам</subdivision>
+			<subdivision type="dz55" draft="provisional">Туггурт</subdivision>
 			<subdivision type="eca" draft="provisional">Асуай</subdivision>
 			<subdivision type="ecb" draft="provisional">Боливар</subdivision>
 			<subdivision type="ecc" draft="provisional">Карчи</subdivision>
@@ -1060,18 +1068,45 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ee37" draft="provisional">Харьюмаа</subdivision>
 			<subdivision type="ee39" draft="provisional">Хийумаа</subdivision>
 			<subdivision type="ee44" draft="provisional">Восточная Эстония</subdivision>
-			<subdivision type="ee49" draft="provisional">Йыгевамаа</subdivision>
-			<subdivision type="ee51" draft="provisional">Ярвамаа</subdivision>
-			<subdivision type="ee57" draft="provisional">Ляэнемаа</subdivision>
-			<subdivision type="ee59" draft="provisional">Ляэне-Вирумаа</subdivision>
-			<subdivision type="ee65" draft="provisional">Пылвамаа</subdivision>
-			<subdivision type="ee67" draft="provisional">Пярнумаа</subdivision>
-			<subdivision type="ee70" draft="provisional">Рапламаа</subdivision>
+			<subdivision type="ee45" draft="provisional">Ида-Вирумаа</subdivision>
+			<subdivision type="ee50" draft="provisional">Йыгевамаа</subdivision>
+			<subdivision type="ee52" draft="provisional">Ярвамаа</subdivision>
+			<subdivision type="ee56" draft="provisional">Ляэнемаа</subdivision>
+			<subdivision type="ee60" draft="provisional">Ляэне-Вирумаа</subdivision>
+			<subdivision type="ee64" draft="provisional">Пылвамаа</subdivision>
+			<subdivision type="ee68" draft="provisional">Пярнумаа</subdivision>
+			<subdivision type="ee71" draft="provisional">Рапламаа</subdivision>
 			<subdivision type="ee74" draft="provisional">Сааремаа</subdivision>
-			<subdivision type="ee78" draft="provisional">Тартумаа</subdivision>
-			<subdivision type="ee82" draft="provisional">Валгамаа</subdivision>
+			<subdivision type="ee79" draft="provisional">Тартумаа</subdivision>
+			<subdivision type="ee81" draft="provisional">Валгамаа</subdivision>
 			<subdivision type="ee84" draft="provisional">Вильяндимаа</subdivision>
-			<subdivision type="ee86" draft="provisional">Вырумаа</subdivision>
+			<subdivision type="ee87" draft="provisional">Вырумаа</subdivision>
+			<subdivision type="ee130" draft="provisional">Алутагузе</subdivision>
+			<subdivision type="ee141" draft="provisional">Ания (волость, 2017)</subdivision>
+			<subdivision type="ee142" draft="provisional">Антсла (волость, 2017)</subdivision>
+			<subdivision type="ee171" draft="provisional">Элва (волость)</subdivision>
+			<subdivision type="ee205" draft="provisional">Хийумаа²</subdivision>
+			<subdivision type="ee214" draft="provisional">Хяэдемеэсте (волость, 2017)</subdivision>
+			<subdivision type="ee245" draft="provisional">Йыэляхтме</subdivision>
+			<subdivision type="ee247" draft="provisional">Йыгева</subdivision>
+			<subdivision type="ee251" draft="provisional">Йыхви</subdivision>
+			<subdivision type="ee255" draft="provisional">Ярва</subdivision>
+			<subdivision type="ee321" draft="provisional">Кохтла-Ярве</subdivision>
+			<subdivision type="ee430" draft="provisional">Ляэнеранна</subdivision>
+			<subdivision type="ee431" draft="provisional">Ляэне-Харью</subdivision>
+			<subdivision type="ee441" draft="provisional">Ляэне-Нигула</subdivision>
+			<subdivision type="ee442" draft="provisional">Люганузе (волость, 2017)</subdivision>
+			<subdivision type="ee514" draft="provisional">Нарва-Йыэсуу</subdivision>
+			<subdivision type="ee557" draft="provisional">Отепя (волость, 2017)</subdivision>
+			<subdivision type="ee586" draft="provisional">Пейпсиээре (волость, 2017)</subdivision>
+			<subdivision type="ee615" draft="provisional">Пыхья-Сакала (волость)</subdivision>
+			<subdivision type="ee618" draft="provisional">Пылтсамаа (волость, 2017)</subdivision>
+			<subdivision type="ee638" draft="provisional">Пыхья-Пярнумаа</subdivision>
+			<subdivision type="ee698" draft="provisional">Рыуге</subdivision>
+			<subdivision type="ee735" draft="provisional">Силламяэ</subdivision>
+			<subdivision type="ee809" draft="provisional">Тори (волость, 2017)</subdivision>
+			<subdivision type="ee834" draft="provisional">Тюри</subdivision>
+			<subdivision type="ee928" draft="provisional">Вяйке-Маарья</subdivision>
 			<subdivision type="egalx" draft="provisional">Александрия</subdivision>
 			<subdivision type="egasn" draft="provisional">Асуан</subdivision>
 			<subdivision type="egast" draft="provisional">Асьют</subdivision>
@@ -1181,8 +1216,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="etga" draft="provisional">Гамбела</subdivision>
 			<subdivision type="etha" draft="provisional">Харари</subdivision>
 			<subdivision type="etor" draft="provisional">Оромия</subdivision>
+			<subdivision type="etsi" draft="provisional">Сидама</subdivision>
 			<subdivision type="etsn" draft="provisional">Регион Народов и народностей юга</subdivision>
 			<subdivision type="etso" draft="provisional">Сомали</subdivision>
+			<subdivision type="etsw" draft="provisional">Юго-западный регион</subdivision>
 			<subdivision type="etti" draft="provisional">Тыграй</subdivision>
 			<subdivision type="fi02" draft="provisional">Южная Карелия</subdivision>
 			<subdivision type="fi03" draft="provisional">Южная Остроботния</subdivision>
@@ -1227,6 +1264,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr04" draft="provisional">Альпы Верхнего Прованса</subdivision>
 			<subdivision type="fr05" draft="provisional">Верхние Альпы</subdivision>
 			<subdivision type="fr06" draft="provisional">Приморские Альпы</subdivision>
+			<subdivision type="fr6ae" draft="provisional">Эльзас</subdivision>
 			<subdivision type="fr07" draft="provisional">Ардеш</subdivision>
 			<subdivision type="fr08" draft="provisional">Арденны</subdivision>
 			<subdivision type="fr09" draft="provisional">Арьеж</subdivision>
@@ -1314,6 +1352,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="fr93" draft="provisional">Сен-Сен-Дени</subdivision>
 			<subdivision type="fr94" draft="provisional">Валь-де-Марн</subdivision>
 			<subdivision type="fr971" draft="provisional">Гваделупа</subdivision>
+			<subdivision type="fr972" draft="provisional">Мартиника</subdivision>
+			<subdivision type="fr973" draft="provisional">Французская Гвиана</subdivision>
+			<subdivision type="fr974" draft="provisional">Реюньон</subdivision>
+			<subdivision type="fr976" draft="provisional">Майотта</subdivision>
 			<subdivision type="frara" draft="provisional">Овернь — Рона — Альпы</subdivision>
 			<subdivision type="frbfc" draft="provisional">Бургундия — Франш-Конте</subdivision>
 			<subdivision type="frbre" draft="provisional">Бретань</subdivision>
@@ -1609,6 +1651,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gnb" draft="provisional">Боке</subdivision>
 			<subdivision type="gnbe" draft="provisional">Префектура Бейла</subdivision>
 			<subdivision type="gnbf" draft="provisional">Префектура Боффа</subdivision>
+			<subdivision type="gnbk" draft="provisional">Боке²</subdivision>
 			<subdivision type="gnc" draft="provisional">Конакри</subdivision>
 			<subdivision type="gnco" draft="provisional">Префектура Койя</subdivision>
 			<subdivision type="gnd" draft="provisional">Киндия</subdivision>
@@ -1617,11 +1660,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gndl" draft="provisional">Префектура Далаба</subdivision>
 			<subdivision type="gndu" draft="provisional">Префектура Дубрека</subdivision>
 			<subdivision type="gnf" draft="provisional">Фарана</subdivision>
+			<subdivision type="gnfa" draft="provisional">Фарана²</subdivision>
+			<subdivision type="gnfo" draft="provisional">Форекариа</subdivision>
 			<subdivision type="gnfr" draft="provisional">Префектура Фрия</subdivision>
 			<subdivision type="gnga" draft="provisional">Префектура Гауаль</subdivision>
 			<subdivision type="gngu" draft="provisional">Префектура Гекеду</subdivision>
 			<subdivision type="gnk" draft="provisional">Канкан</subdivision>
+			<subdivision type="gnka" draft="provisional">Канкан²</subdivision>
 			<subdivision type="gnkb" draft="provisional">Префектура Кубия</subdivision>
+			<subdivision type="gnkd" draft="provisional">Киндиа</subdivision>
 			<subdivision type="gnke" draft="provisional">Префектура Керуане</subdivision>
 			<subdivision type="gnkn" draft="provisional">Префектюр-де-Кундара</subdivision>
 			<subdivision type="gnko" draft="provisional">Префектура Курусса</subdivision>
@@ -1636,6 +1683,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="gnml" draft="provisional">Префектура Мали</subdivision>
 			<subdivision type="gnmm" draft="provisional">Маму²</subdivision>
 			<subdivision type="gnn" draft="provisional">Нзерекоре</subdivision>
+			<subdivision type="gnnz" draft="provisional">Нзерекоре²</subdivision>
 			<subdivision type="gnpi" draft="provisional">Префектура Пита</subdivision>
 			<subdivision type="gnsi" draft="provisional">Префектура Сигири</subdivision>
 			<subdivision type="gnte" draft="provisional">Префектура Телимеле</subdivision>
@@ -1829,7 +1877,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="idnu" draft="provisional">Малые Зондские острова</subdivision>
 			<subdivision type="idpa" draft="provisional">Папуа</subdivision>
 			<subdivision type="idpb" draft="provisional">Западное Папуа</subdivision>
+			<subdivision type="idpd" draft="provisional">Юго-Западное Папуа</subdivision>
+			<subdivision type="idpe" draft="provisional">Папуа Пегунунган (провинция Индонезии)</subdivision>
 			<subdivision type="idpp" draft="provisional">Западная Новая Гвинея</subdivision>
+			<subdivision type="idps" draft="provisional">Южное Папуа (провинция Индонезии)</subdivision>
+			<subdivision type="idpt" draft="provisional">Центральное Папуа (провинция Индонезии)</subdivision>
 			<subdivision type="idri" draft="provisional">Риау</subdivision>
 			<subdivision type="idsa" draft="provisional">Северный Сулавеси</subdivision>
 			<subdivision type="idsb" draft="provisional">Западная Суматра</subdivision>
@@ -1883,8 +1935,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="inar" draft="provisional">Аруначал-Прадеш</subdivision>
 			<subdivision type="inas" draft="provisional">Ассам</subdivision>
 			<subdivision type="inbr" draft="provisional">Бихар</subdivision>
+			<subdivision type="incg" draft="provisional">Чхаттисгарх</subdivision>
 			<subdivision type="inch" draft="provisional">Чандигарх</subdivision>
-			<subdivision type="inct" draft="provisional">Чхаттисгарх</subdivision>
 			<subdivision type="indd" draft="provisional">Даман и Диу</subdivision>
 			<subdivision type="indh" draft="provisional">Дадра и Нагар-Хавели и Даман и Диу</subdivision>
 			<subdivision type="indl" draft="provisional">Дели</subdivision>
@@ -1905,6 +1957,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="inmp" draft="provisional">Мадхья-Прадеш</subdivision>
 			<subdivision type="inmz" draft="provisional">Мизорам</subdivision>
 			<subdivision type="innl" draft="provisional">Нагаленд</subdivision>
+			<subdivision type="inod" draft="provisional">Одиша</subdivision>
 			<subdivision type="inor" draft="provisional">Орисса</subdivision>
 			<subdivision type="inpb" draft="provisional">Пенджаб</subdivision>
 			<subdivision type="inpy" draft="provisional">Пондичерри</subdivision>
@@ -1913,8 +1966,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="intg" draft="provisional">Телангана</subdivision>
 			<subdivision type="intn" draft="provisional">Тамилнад</subdivision>
 			<subdivision type="intr" draft="provisional">Трипура</subdivision>
+			<subdivision type="ints" draft="provisional">Телингана</subdivision>
+			<subdivision type="inuk" draft="provisional">Уттаракханд</subdivision>
 			<subdivision type="inup" draft="provisional">Уттар-Прадеш</subdivision>
-			<subdivision type="inut" draft="provisional">Уттаракханд</subdivision>
 			<subdivision type="inwb" draft="provisional">Западная Бенгалия</subdivision>
 			<subdivision type="iqan" draft="provisional">Анбар</subdivision>
 			<subdivision type="iqar" draft="provisional">Эрбиль</subdivision>
@@ -1989,13 +2043,26 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="iseyf" draft="provisional">Эйяфьярдарсвейт</subdivision>
 			<subdivision type="isfjd" draft="provisional">Фьярдабиггд</subdivision>
 			<subdivision type="isflr" draft="provisional">Фльоутсдальсхреппюр</subdivision>
+			<subdivision type="isgar" draft="provisional">Гардабайр</subdivision>
 			<subdivision type="isgrn" draft="provisional">Гриндавикюрбайр</subdivision>
 			<subdivision type="isgru" draft="provisional">Грюндарфьярдарбай</subdivision>
+			<subdivision type="ishaf" draft="provisional">Хабнарфьордюр</subdivision>
+			<subdivision type="ishug" draft="provisional">Хунабиггд</subdivision>
 			<subdivision type="ishuv" draft="provisional">Хунатинг-Вестра</subdivision>
+			<subdivision type="ishve" draft="provisional">Кверагерди</subdivision>
+			<subdivision type="iskop" draft="provisional">Коупавогюр</subdivision>
 			<subdivision type="ismul" draft="provisional">Мулатинг</subdivision>
+			<subdivision type="isrkv" draft="provisional">Рейкьявик</subdivision>
+			<subdivision type="issdn" draft="provisional">Сюдюрнесьябайр</subdivision>
 			<subdivision type="issdv" draft="provisional">Судавикюрхреппюр</subdivision>
+			<subdivision type="issel" draft="provisional">Селтьярнарнес</subdivision>
 			<subdivision type="issfa" draft="provisional">Аурборг</subdivision>
+			<subdivision type="isskr" draft="provisional">Скагафьордюр</subdivision>
+			<subdivision type="issol" draft="provisional">Эльфюс</subdivision>
 			<subdivision type="issss" draft="provisional">Община Скагастрёнд</subdivision>
+			<subdivision type="isstr" draft="provisional">Страндабиггд</subdivision>
+			<subdivision type="issvg" draft="provisional">Вогар (община)</subdivision>
+			<subdivision type="isvem" draft="provisional">Вестманнаэйяр</subdivision>
 			<subdivision type="it21" draft="provisional">Пьемонт</subdivision>
 			<subdivision type="it25" draft="provisional">Ломбардия</subdivision>
 			<subdivision type="it32" draft="provisional">Трентино — Альто-Адидже</subdivision>
@@ -2313,6 +2380,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="kp10" draft="provisional">Янгандо</subdivision>
 			<subdivision type="kp13" draft="provisional">Насон</subdivision>
 			<subdivision type="kp14" draft="provisional">Нампхо</subdivision>
+			<subdivision type="kp15" draft="provisional">Кэсон</subdivision>
 			<subdivision type="kr11" draft="provisional">Сеул</subdivision>
 			<subdivision type="kr26" draft="provisional">Пусан</subdivision>
 			<subdivision type="kr27" draft="provisional">Тэгу</subdivision>
@@ -2336,24 +2404,28 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="kwja" draft="provisional">Эль-Джахра</subdivision>
 			<subdivision type="kwku" draft="provisional">Эль-Асима</subdivision>
 			<subdivision type="kwmu" draft="provisional">Мубарак аль-Кабир</subdivision>
-			<subdivision type="kzakm" draft="provisional">Акмолинская область</subdivision>
-			<subdivision type="kzakt" draft="provisional">Актюбинская область</subdivision>
-			<subdivision type="kzala" draft="provisional">Алматы</subdivision>
-			<subdivision type="kzalm" draft="provisional">Алматинская область</subdivision>
-			<subdivision type="kzast" draft="provisional">Астана</subdivision>
-			<subdivision type="kzaty" draft="provisional">Атырауская область</subdivision>
+			<subdivision type="kz10" draft="provisional">Абайская область</subdivision>
+			<subdivision type="kz11" draft="provisional">Акмолинская область</subdivision>
+			<subdivision type="kz15" draft="provisional">Актюбинская область</subdivision>
+			<subdivision type="kz19" draft="provisional">Алматинская область</subdivision>
+			<subdivision type="kz23" draft="provisional">Атырауская область</subdivision>
+			<subdivision type="kz27" draft="provisional">Западно-Казахстанская область</subdivision>
+			<subdivision type="kz31" draft="provisional">Жамбылская область</subdivision>
+			<subdivision type="kz33" draft="provisional">Жетысуская область</subdivision>
+			<subdivision type="kz35" draft="provisional">Карагандинская область</subdivision>
+			<subdivision type="kz39" draft="provisional">Костанайская область</subdivision>
+			<subdivision type="kz43" draft="provisional">Кызылординская область</subdivision>
+			<subdivision type="kz47" draft="provisional">Мангистауская область</subdivision>
+			<subdivision type="kz55" draft="provisional">Павлодарская область</subdivision>
+			<subdivision type="kz59" draft="provisional">Северо-Казахстанская область</subdivision>
+			<subdivision type="kz61" draft="provisional">Туркестанская область</subdivision>
+			<subdivision type="kz62" draft="provisional">Улытауская область</subdivision>
+			<subdivision type="kz63" draft="provisional">Восточно-Казахстанская область</subdivision>
+			<subdivision type="kz71" draft="provisional">Астана</subdivision>
+			<subdivision type="kz75" draft="provisional">Алматы</subdivision>
+			<subdivision type="kz79" draft="provisional">Шымкент</subdivision>
 			<subdivision type="kzbay" draft="provisional">Байконур</subdivision>
-			<subdivision type="kzkar" draft="provisional">Карагандинская область</subdivision>
-			<subdivision type="kzkus" draft="provisional">Костанайская область</subdivision>
-			<subdivision type="kzkzy" draft="provisional">Кызылординская область</subdivision>
-			<subdivision type="kzman" draft="provisional">Мангистауская область</subdivision>
-			<subdivision type="kzpav" draft="provisional">Павлодарская область</subdivision>
-			<subdivision type="kzsev" draft="provisional">Северо-Казахстанская область</subdivision>
-			<subdivision type="kzshy" draft="provisional">Шымкент</subdivision>
-			<subdivision type="kzvos" draft="provisional">Восточно-Казахстанская область</subdivision>
 			<subdivision type="kzyuz" draft="provisional">Южно-Казахстанская область</subdivision>
-			<subdivision type="kzzap" draft="provisional">Западно-Казахстанская область</subdivision>
-			<subdivision type="kzzha" draft="provisional">Жамбылская область</subdivision>
 			<subdivision type="laat" draft="provisional">Аттапы</subdivision>
 			<subdivision type="labk" draft="provisional">Бокео</subdivision>
 			<subdivision type="labl" draft="provisional">Борикхамсай</subdivision>
@@ -2651,6 +2723,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="lv108" draft="provisional">Вилякский край</subdivision>
 			<subdivision type="lv109" draft="provisional">Вилянский край</subdivision>
 			<subdivision type="lv110" draft="provisional">Зилупский край</subdivision>
+			<subdivision type="lv111" draft="provisional">Аугшдаугавский край</subdivision>
+			<subdivision type="lv112" draft="provisional">Южно-Курземский край</subdivision>
+			<subdivision type="lv113" draft="provisional">Валмиерский край</subdivision>
 			<subdivision type="lvdgv" draft="provisional">Даугавпилс</subdivision>
 			<subdivision type="lvjel" draft="provisional">Елгава</subdivision>
 			<subdivision type="lvjkb" draft="provisional">Екабпилс</subdivision>
@@ -2702,6 +2777,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mabes" draft="provisional">Бен-Слиман</subdivision>
 			<subdivision type="mabod" draft="provisional">Буждур</subdivision>
 			<subdivision type="macas" draft="provisional">Касабланка</subdivision>
+			<subdivision type="madri" draft="provisional">Дриуш</subdivision>
+			<subdivision type="maerr" draft="provisional">Эррахидия</subdivision>
 			<subdivision type="maesm" draft="provisional">Эс-Семара</subdivision>
 			<subdivision type="mafes" draft="provisional">Фес</subdivision>
 			<subdivision type="mafig" draft="provisional">Фигиг</subdivision>
@@ -2805,6 +2882,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="me21" draft="provisional">Жабляк</subdivision>
 			<subdivision type="me22" draft="provisional">Гусине</subdivision>
 			<subdivision type="me23" draft="provisional">Петница</subdivision>
+			<subdivision type="me24" draft="provisional">Тузи</subdivision>
 			<subdivision type="mga" draft="provisional">Туамасина</subdivision>
 			<subdivision type="mgd" draft="provisional">Анциранана</subdivision>
 			<subdivision type="mgf" draft="provisional">Фианаранцуа</subdivision>
@@ -2929,6 +3007,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="ml6" draft="provisional">Томбукту</subdivision>
 			<subdivision type="ml7" draft="provisional">Гао</subdivision>
 			<subdivision type="ml8" draft="provisional">Кидаль</subdivision>
+			<subdivision type="ml9" draft="provisional">Менака</subdivision>
 			<subdivision type="ml10" draft="provisional">Таоденни</subdivision>
 			<subdivision type="mlbko" draft="provisional">Бамако</subdivision>
 			<subdivision type="mm01" draft="provisional">Сикайн</subdivision>
@@ -3292,6 +3371,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="no30" draft="provisional">Викен</subdivision>
 			<subdivision type="no34" draft="provisional">Иннландет</subdivision>
 			<subdivision type="no38" draft="provisional">Вестфолл-ог-Телемарк</subdivision>
+			<subdivision type="no42" draft="provisional">Агдер</subdivision>
 			<subdivision type="no46" draft="provisional">Вестланн</subdivision>
 			<subdivision type="no50" draft="provisional">Трёнделаг</subdivision>
 			<subdivision type="no54" draft="provisional">Тромс-ог-Финнмарк</subdivision>
@@ -3311,6 +3391,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="npma" draft="provisional">Махакали</subdivision>
 			<subdivision type="npme" draft="provisional">Мечи</subdivision>
 			<subdivision type="npna" draft="provisional">Нараяни</subdivision>
+			<subdivision type="npp1" draft="provisional">1-я провинция</subdivision>
+			<subdivision type="npp2" draft="provisional">2-я провинция</subdivision>
+			<subdivision type="npp5" draft="provisional">5-я провинция</subdivision>
+			<subdivision type="npp6" draft="provisional">Карнали-Прадеш</subdivision>
+			<subdivision type="npp7" draft="provisional">7-я провинция</subdivision>
 			<subdivision type="npra" draft="provisional">Рапти</subdivision>
 			<subdivision type="npsa" draft="provisional">Сагарматха</subdivision>
 			<subdivision type="npse" draft="provisional">Сетхи</subdivision>
@@ -3687,6 +3772,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="rs25" draft="provisional">Косовский округ</subdivision>
 			<subdivision type="rs26" draft="provisional">Печский округ</subdivision>
 			<subdivision type="rs27" draft="provisional">Призренский округ</subdivision>
+			<subdivision type="rs28" draft="provisional">Косовско-Митровицкий округ</subdivision>
 			<subdivision type="rs29" draft="provisional">Косовско-Поморавский округ</subdivision>
 			<subdivision type="rskm" draft="provisional">Косово и Метохия</subdivision>
 			<subdivision type="rsvo" draft="provisional">Воеводина</subdivision>
@@ -3963,6 +4049,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="si094" draft="provisional">Постойна</subdivision>
 			<subdivision type="si095" draft="provisional">Преддвор</subdivision>
 			<subdivision type="si096" draft="provisional">Птуй</subdivision>
+			<subdivision type="si097" draft="provisional">Пуцонци</subdivision>
 			<subdivision type="si098" draft="provisional">Раче-Фрам</subdivision>
 			<subdivision type="si099" draft="provisional">Радече</subdivision>
 			<subdivision type="si100" draft="provisional">Раденци</subdivision>
@@ -4085,6 +4172,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="skzi" draft="provisional">Жилинский край</subdivision>
 			<subdivision type="sle" draft="provisional">Восточная провинция</subdivision>
 			<subdivision type="sln" draft="provisional">Северная провинция</subdivision>
+			<subdivision type="slnw" draft="provisional">Северо-Западная провинция</subdivision>
 			<subdivision type="sls" draft="provisional">Южная провинция</subdivision>
 			<subdivision type="slw" draft="provisional">Западная область</subdivision>
 			<subdivision type="sm01" draft="provisional">Аккуавива</subdivision>
@@ -4502,6 +4590,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="tz28" draft="provisional">Катави</subdivision>
 			<subdivision type="tz29" draft="provisional">Нджомб</subdivision>
 			<subdivision type="tz30" draft="provisional">Симию</subdivision>
+			<subdivision type="tz31" draft="provisional">Сонгве</subdivision>
 			<subdivision type="ua05" draft="provisional">Винницкая область</subdivision>
 			<subdivision type="ua07" draft="provisional">Волынская область</subdivision>
 			<subdivision type="ua09" draft="provisional">Луганская область</subdivision>

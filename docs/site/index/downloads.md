@@ -99,7 +99,7 @@ Access to the latest working snapshot of CLDR, and access to data collected for 
 ## JSON Data
 
 -   The JSON data is available at https://github.com/unicode-cldr/cldr-json - see that page for more information.
-    
+
 
 ## Repository Access
 
@@ -116,14 +116,14 @@ For browsing a particular file for a particular version, or revision history of 
 - Go to the latest French LDML file at https://github.com/unicode-org/cldr/blob/master/common/main/fr.xml.
 - See all the files in a directory structure using https://github.com/unicode-org/cldr.
 - Find a file using https://github.com/unicode-org/cldr/find/master (click after "cldr /" above the blue box).
-    
+
 
 ### Advanced Git Access
 
 For more access to the source repository, you can use an git client to check out or export LDML files directory from the repository at https://github.com/unicode-org/cldr.git
 
 -   You will need "git-lfs" installed to be able to compile the CLDR tools. See https://git-lfs.github.com or use the [Github Desktop](https://desktop.github.com) client.
-    
+
 
 ## Repository Organization
 
@@ -131,42 +131,42 @@ At the top level of each GitHub repository tree, there are a number of special f
 
 - *common* — CLDR data corresponding to the release
     - *annotations* — annotations and TTS names for characters
-        - *annotationsDerived* — names algorithmically derived based on structure    
-    - *bcp47* — data for unicode locale extensions     
-    - *casing* — intended capitalization for various categories in each language, for use by the Survey Tool      
-    - *collation* — collation LDML files       
-    - *dtd* — the latest XML DTD files for the release        
-    - *main* — the main locale-dependent LDML files        
-    - *properties* — property files in UCD format        
-    - *rbnf* — rule-based number formats        
-    - *segments* — rules for segmenting text        
-    - *subdivisions* — names of region (country) subdivisions.        
-    - *supplemental* — additional files with non-linguistic data.        
-    - *testData* — folders of test data for implementations.        
-    - *transforms* — data for transliteration and other text transforms        
-    - *uca* — customized Unicode collation data        
+        - *annotationsDerived* — names algorithmically derived based on structure
+    - *bcp47* — data for unicode locale extensions
+    - *casing* — intended capitalization for various categories in each language, for use by the Survey Tool
+    - *collation* — collation LDML files
+    - *dtd* — the latest XML DTD files for the release
+    - *main* — the main locale-dependent LDML files
+    - *properties* — property files in UCD format
+    - *rbnf* — rule-based number formats
+    - *segments* — rules for segmenting text
+    - *subdivisions* — names of region (country) subdivisions.
+    - *supplemental* — additional files with non-linguistic data.
+    - *testData* — folders of test data for implementations.
+    - *transforms* — data for transliteration and other text transforms
+    - *uca* — customized Unicode collation data
     - *validity* — data for validating BCP47 identifiers
-- *docs* — the source of the LDML spec and other documents    
-- *exemplars/main* — preliminary exemplar character data for locales which do not hav e    
-- *keyboards* — source files for the CLDR keyboard data  
-    - *seed* — preliminary locales that do not yet have sufficient vetted data.        
-    - *annotations*        
-    - *casing*        
-    - *collation*        
-    - *main*        
-    - *rbnf*        
-        - *transforms* — these folders have the same structure as their counterparts in common. Note that supplemental is not duplicated.            
+- *docs* — the source of the LDML spec and other documents
+- *exemplars/main* — preliminary exemplar character data for locales which do not hav e
+- *keyboards* — source files for the CLDR keyboard data
+    - *seed* — preliminary locales that do not yet have sufficient vetted data.
+    - *annotations*
+    - *casing*
+    - *collation*
+    - *main*
+    - *rbnf*
+        - *transforms* — these folders have the same structure as their counterparts in common. Note that supplemental is not duplicated.
 - *~~specs~~* — deprecated, with contents moved to docs.
-- [*tools*](https://github.com/unicode-org/cldr/tree/master/tools) — source for internal tools for processing CLDR data   
-    - *SurveyConsole* — (not currently deployed) This is a tool providing an operational dashboard for the Survey Tool        
-    - c/*genldml* — The only C language tool, this was used to convert ICU format data into LDML.        
-    - *cldr-apps-watcher* — (not currently deployed) This is a tool which will watch the Survey Tool and ensure that it remains operational.        
-    - [*cldr-apps*](https://github.com/unicode-org/cldr/tree/master/tools/cldr-apps) — Survey Tool source code        
-    - *cldr-unittest* — Unit tests against the CLDR code in the “java” directory. (Not to be confused with CheckCLDR tests.)        
-    - [*java*](https://github.com/unicode-org/cldr/tree/master/tools/java) — main source code for the CLDR tooling        
-    - *python* — utility Python code        
+- [*tools*](https://github.com/unicode-org/cldr/tree/master/tools) — source for internal tools for processing CLDR data
+    - *SurveyConsole* — (not currently deployed) This is a tool providing an operational dashboard for the Survey Tool
+    - c/*genldml* — The only C language tool, this was used to convert ICU format data into LDML.
+    - *cldr-apps-watcher* — (not currently deployed) This is a tool which will watch the Survey Tool and ensure that it remains operational.
+    - [*cldr-apps*](https://github.com/unicode-org/cldr/tree/master/tools/cldr-apps) — Survey Tool source code
+    - *cldr-unittest* — Unit tests against the CLDR code in the “java” directory. (Not to be confused with CheckCLDR tests.)
+    - [*java*](https://github.com/unicode-org/cldr/tree/master/tools/java) — main source code for the CLDR tooling
+    - *python* — utility Python code
     - *scripts* — accessory shell scripts, used for CLDR process and Survey Tool deployment
-        
+
 
 The common, dtd, and tools folders are in each release.
 
@@ -190,4 +190,3 @@ The 1.0 version of CLDR is described here for historical interest only. It was h
 | 1.0 DTDs: | http://www.openi18n.org/spec/ldml/1.0/ldml.dtd |
 |  | http://www.openi18n.org/spec/ldml/1.0/ldmlSupplemental.dtd |
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

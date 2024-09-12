@@ -117,7 +117,7 @@ Note that this doesn't have to be an N x M algorithm. Because there is a minimum
 
 The data is designed to be relatively simple to understand. It would typically be processed into an internal format for fast processing. The data does not need to be exact; only the relative computed values are important. However, for keep the types of fields apart, they are given very different values. TODO: add values for [ISO 636 Deprecation Requests - DRAFT](https://cldr.unicode.org/development/development-process/design-proposals/iso-636-deprecation-requests-draft)
 
-\<languageDistances> 
+\<languageDistances>
 
 \<!-- Essentially synonyms. Note that true synonyms like he/iw are handled by default below. -->
 
@@ -159,7 +159,7 @@ The data is designed to be relatively simple to understand. It would typically b
 
 \<!-- English: US and Canada are close; everything else closer to GB -->
 
-\<distance desired="en-Zzzz-155" available="en-Zzzz-155">8\</distance> \<!-- Expand to cover the Americas --> 
+\<distance desired="en-Zzzz-155" available="en-Zzzz-155">8\</distance> \<!-- Expand to cover the Americas -->
 
 \<distance desired="en-Zzzz-155" available="en-Zzzz-ZZ">64\</distance> \<!-- They aren't close to GB -->
 
@@ -181,7 +181,7 @@ The data is designed to be relatively simple to understand. It would typically b
 
 \<distance desired="und-Zzzz-ZZ-UNKNOWN" available="\*">16\</distance> \<!-- default variant distance -->
 
-\<languageDistances> 
+\<languageDistances>
 
 ## Interpreting the Format
 
@@ -196,4 +196,3 @@ Issues
 - Should we have the values be symbolic rather than literal numbers? eg: L, S, R, ... instead of 1024, 256, 64,...
 - The "\*" is a bit of a hack. Other thoughts for syntax?
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

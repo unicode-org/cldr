@@ -1,3 +1,7 @@
+---
+title: CLDR 45 Release Note
+---
+
 # CLDR 45 Release Note
 
 | No. |    Date    | Rel. Note |  Data  |  Charts  | Spec |   Delta  | GitHub Tag | Delta DTD | CLDR JSON |
@@ -26,7 +30,7 @@ Many tooling changes are difficult to accommodate in a data-submission release, 
 
 ## Data Changes
 
-### DTD Changes 
+### DTD Changes
 
 -   **Units**
     -   Addition of the `special` attribute to convertUnit, indicating a conversion that cannot be described using just `factor` and `offset`; it may be table-based, non-linear, or may have other special characteristics.
@@ -80,7 +84,7 @@ The following files were added:
 -   The packages ending in "-modern" are deprecated and will be dropped in v46. Use the "-full" packages instead. ([CLDR-16465](https://unicode-org.atlassian.net/browse/CLDR-16465))
 -   The SPDX license for all packages is now Unicode-3.0 ([CLDR-17400](https://unicode-org.atlassian.net/browse/CLDR-17400))
 -   cldr-core/supplemental/units.json now has unitPrefixes ([CLDR-16939](https://unicode-org.atlassian.net/browse/CLDR-16939))
--   All package.json files now have  a "cldrVersion" and a "unicodeVersion" property.    
+-   All package.json files now have  a "cldrVersion" and a "unicodeVersion" property.
     The "\_cldrVersion" and "\_unicodeVersion" properties will be removed in a future CLDR release. ([CLDR-17285](https://unicode-org.atlassian.net/browse/CLDR-17285))
 
 ## [Specification Changes](https://www.unicode.org/reports/tr35/tr35-72/tr35.html)
@@ -117,9 +121,9 @@ For this release there are no appreciable changes.
 4.  Keyboard has a new DTD (keyboard3.dtd and the `<keyboard3>` element). There have been some incompatible changes between the tech preview and the stable version now in v44.
 5.  Redundant values that inherit “laterally” may be removed in production data: Some data values inherit “sideways” from another element with the same parent, in the same locale. This has been long specified in [LDML: Lateral\_Inheritance](https://www.unicode.org/reports/tr35/#Lateral_Inheritance), but some clients may not implement to the specification, and get the wrong answers. For example, consider the following items in the en locale, some added in CLDR 44 to provide clients a way to explicitly select a particular variant across locales (instead of using the default):
 ```
-<territory type="IO">British Indian Ocean Territory</territory> <!-- The locale default, matches one of the alt forms -->  
-<territory type="IO" alt="biot">British Indian Ocean Territory</territory> <!-- explicit "biot" variant" -->  
-<territory type="IO" alt="chagos">Chagos Archipelago</territory> <!-- explicit "chagos" variant" --> 
+<territory type="IO">British Indian Ocean Territory</territory> <!-- The locale default, matches one of the alt forms -->
+<territory type="IO" alt="biot">British Indian Ocean Territory</territory> <!-- explicit "biot" variant" -->
+<territory type="IO" alt="chagos">Chagos Archipelago</territory> <!-- explicit "chagos" variant" -->
 ```
     Both `alt` forms inherit sideways from the non-`alt` form. Thus in this case, the "`biot`" variant is redundant and will be removed in production data. Clients that are trying to select the "`biot`" variant but find it missing should fall back to the non-`alt` form. Similar behavior occurs with plural forms for units, where some plural forms may match and thus fall back to the "`other`" form.
 
@@ -139,5 +143,3 @@ Many people have made significant contributions to CLDR and LDML; see the [Ackno
 The Unicode [Terms of Use](https://unicode.org/copyright.html) apply to CLDR data; in particular, see [Exhibit 1](https://unicode.org/copyright.html#Exhibit1).
 
 For web pages with different views of CLDR data, see [http://cldr.unicode.org/index/charts](https://cldr.unicode.org/index/charts).
-
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

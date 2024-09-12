@@ -5,6 +5,7 @@ services:
     ports:
     - 4000:4000
     volumes:
-      - ../../../../docs:/src
+      - ../../../../docs/site:/src:rw
+      - ./_site/:/_site:rw
     environment:
       - PAGES_REPO_NWO=unicode-org/cldr

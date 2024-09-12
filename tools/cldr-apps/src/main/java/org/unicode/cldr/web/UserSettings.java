@@ -2,6 +2,8 @@
 
 package org.unicode.cldr.web;
 
+import com.google.gson.Gson;
+
 public abstract class UserSettings implements Comparable<UserSettings> {
     /**
      * Get a string, or the default
@@ -87,5 +89,17 @@ public abstract class UserSettings implements Comparable<UserSettings> {
 
     public boolean persistent() {
         return false;
+    }
+
+    public void setJson(String name, Object o) {
+        final Gson gson = new Gson();
+        set(name, gson.toJson(o));
+    }
+
+    public <T> T getJson(String name, Class<T> clazz) {
+        final Gson gson = new Gson();
+        final String j = get(name, null);
+        if (j == null || j.isBlank()) return null;
+        return gson.fromJson(j, clazz);
     }
 }

@@ -9,10 +9,12 @@ import com.google.common.collect.Iterables;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.impl.Relation;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -154,7 +156,7 @@ public class TestExampleGenerator extends TestFmwk {
                     "//ldml/characters/parseLenients.*",
                     "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/months/monthContext[@type=\"([^\"]*+)\"]/monthWidth[@type=\"([^\"]*+)\"]/month[@type=\"([^\"]*+)\"]",
                     "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/days/dayContext[@type=\"([^\"]*+)\"]/dayWidth[@type=\"([^\"]*+)\"]/day[@type=\"([^\"]*+)\"]",
-                    "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/quarters/quarterContext[@type=\"([^\"]*+)\"]/quarterWidth[@type=\"([^\"]*+)\"]/quarter[@type=\"([^\"]*+)\"]",
+                    "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/quarters/quarterContext[@type=\"([^\"]*+)\"]/quarterWidth[@type=\"([^\"]*+)\"]/quarter[@type=\"([^\"]*+)\"]", // examples only for gregorian
                     "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/displayName",
                     "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/relative[@type=\"([^\"]*+)\"]",
                     "//ldml/dates/fields/field[@type=\"([^\"]*+)\"]/relativeTime[@type=\"([^\"]*+)\"]/relativeTimePattern[@count=\"([^\"]*+)\"]",
@@ -201,7 +203,7 @@ public class TestExampleGenerator extends TestFmwk {
                     "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/dateTimeFormats/appendItems/appendItem[@request=\"([^\"]*+)\"]",
                     "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/dateTimeFormats/intervalFormats/intervalFormatFallback",
                     "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"([^\"]*+)\"]/greatestDifference[@id=\"([^\"]*+)\"]",
-                    "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/eras/eraNames/era[@type=\"([^\"]*+)\"][@alt=\"([^\"]*+)\"]",
+                    "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/eras/eraNames/era[@type=\"([^\"]*+)\"][@alt=\"([^\"]*+)\"]", // examples only for two closest eras to 2025
                     "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/eras/eraAbbr/era[@type=\"([^\"]*+)\"][@alt=\"([^\"]*+)\"]",
                     "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/eras/eraNarrow/era[@type=\"([^\"]*+)\"][@alt=\"([^\"]*+)\"]",
                     "//ldml/dates/calendars/calendar[@type=\"([^\"]*+)\"]/months/monthContext[@type=\"([^\"]*+)\"]/monthWidth[@type=\"([^\"]*+)\"]/month[@type=\"([^\"]*+)\"][@yeartype=\"([^\"]*+)\"]",
@@ -1124,6 +1126,42 @@ public class TestExampleGenerator extends TestFmwk {
         checkPathValue(exampleGenerator, path, cldrFile.getStringValue(path), expected);
     }
 
+    public void TestAllDayPeriods() { // excludes midnight, see ICU-12278
+        checkDayPeriodsForLocale(
+                "en",
+                "Bhm",
+                "〖3:00 at night〗〖9:00 in the morning〗〖12:00 noon〗〖3:00 in the afternoon〗〖7:30 in the evening〗");
+        checkDayPeriodsForLocale(
+                "it",
+                "Bhm",
+                "〖3:00 di notte〗〖9:00 di mattina〗〖12:00 mezzogiorno〗〖3:00 di pomeriggio〗〖9:00 di sera〗");
+        checkDayPeriodsForLocale(
+                "de",
+                "Bhm",
+                "〖2:30 nachts〗〖7:30 morgens〗〖11:00 vorm.〗〖12:30 mittags〗〖3:30 nachm.〗〖9:00 abends〗");
+        checkDayPeriodsForLocale("zh", "Bhm", "〖凌晨2:30〗〖早上6:30〗〖上午10:00〗〖中午12:30〗〖下午4:00〗〖晚上9:30〗");
+        checkDayPeriodsForLocale(
+                "am",
+                "EBhm",
+                "〖ሐሙስ በሌሊት 3:00〗〖ሐሙስ ጥዋት 9:00〗〖ሐሙስ ቀትር 12:00〗〖ሐሙስ ከሰዓት 3:00〗〖ሐሙስ በምሽት 9:00〗");
+        checkDayPeriodsForLocale(
+                "hi",
+                "EBhms",
+                "〖गुरु रात 2:00:00〗〖गुरु सुबह 8:00:00〗〖गुरु दोपहर 2:00:00〗〖गुरु शाम 6:00:00〗");
+    }
+
+    public void checkDayPeriodsForLocale(String localeId, String pattern, String expected) {
+        ExampleGenerator exampleGenerator = getExampleGenerator(localeId);
+        String path =
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]"
+                        + "/dateTimeFormats/availableFormats/dateFormatItem"
+                        + "[@id=\""
+                        + pattern
+                        + "\"]";
+        String message = "Day periods with pattern \"" + pattern + "\"";
+        checkValue(message, expected, exampleGenerator, path);
+    }
+
     /**
      * Test that getExampleHtml returns same output for same input regardless of order in which it
      * is called with different inputs.
@@ -1682,6 +1720,84 @@ public class TestExampleGenerator extends TestFmwk {
                             exampleGenerator.getExampleHtml(path, value));
             assertEquals(locale + path + "=" + value, expected, actual);
         }
+    }
+
+    public void TestEraMap() {
+        ExampleGenerator exampleGenerator = getExampleGenerator("en");
+        Relation<String, String> keyToSubtypes = SupplementalDataInfo.getInstance().getBcp47Keys();
+        Set<String> calendars = keyToSubtypes.get("ca"); // gets calendar codes
+        Map<String, String> codeToType =
+                new HashMap<String, String>() {
+                    { // calendars where code != type
+                        put("gregory", "gregorian");
+                        put("iso8601", "gregorian");
+                        put("ethioaa", "ethiopic-amete-alem");
+                        put("islamic-civil", "islamic");
+                        put("islamic-rgsa", "islamic");
+                        put("islamic-tbla", "islamic");
+                        put("islamic-umalqura", "islamic");
+                        put("islamicc", "islamic");
+                    }
+                };
+        for (String id : calendars) {
+            if (codeToType.containsKey(id)) {
+                id = codeToType.get(id);
+            }
+            Map<String, List<Date>> calendarMap = exampleGenerator.CALENDAR_ERAS;
+            assertTrue(
+                    "CALENDAR_ERAS map contains calendar type \"" + id + "\"",
+                    calendarMap.containsKey(id));
+        }
+    }
+
+    public void TestEraFormats() {
+        ExampleGenerator exampleGeneratorJa = getExampleGenerator("ja");
+        ExampleGenerator exampleGeneratorEs = getExampleGenerator("es");
+        ExampleGenerator exampleGeneratorZh = getExampleGenerator("zh");
+        checkValue(
+                "japanese type=235 abbreviated",
+                "〖平成1年〗",
+                exampleGeneratorJa,
+                "//ldml/dates/calendars/calendar[@type=\"japanese\"]/eras/eraAbbr/era[@type=\"235\"]");
+        checkValue(
+                "gregorian type=0 wide",
+                "〖1 antes de Cristo〗",
+                exampleGeneratorEs,
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/eras/eraNames/era[@type=\"0\"]");
+        checkValue(
+                "gregorian type=0-variant wide",
+                "〖1 antes de la era común〗",
+                exampleGeneratorEs,
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/eras/eraNames/era[@type=\"0\"][@alt=\"variant\"]");
+        checkValue(
+                "roc type=1 abbreviated",
+                "〖民国1年〗",
+                exampleGeneratorZh,
+                "//ldml/dates/calendars/calendar[@type=\"roc\"]/eras/eraAbbr/era[@type=\"1\"]");
+    }
+
+    public void TestQuarterFormats() {
+        ExampleGenerator exampleGenerator = getExampleGenerator("ti");
+        checkValue(
+                "ti Q2 format wide",
+                "〖2ይ ርብዒ 1999〗",
+                exampleGenerator,
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/quarters/quarterContext[@type=\"format\"]/quarterWidth[@type=\"wide\"]/quarter[@type=\"2\"]");
+        checkValue(
+                "ti Q2 format abbreviated",
+                "〖ር2 1999〗",
+                exampleGenerator,
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/quarters/quarterContext[@type=\"format\"]/quarterWidth[@type=\"abbreviated\"]/quarter[@type=\"2\"]");
+        checkValue(
+                "ti Q4 stand-alone wide",
+                "〖4ይ ርብዒ 1999〗",
+                exampleGenerator,
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/quarters/quarterContext[@type=\"stand-alone\"]/quarterWidth[@type=\"wide\"]/quarter[@type=\"4\"]");
+        checkValue(
+                "ti Q4 stand-alone abbreviated",
+                "〖ር4 1999〗",
+                exampleGenerator,
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/quarters/quarterContext[@type=\"stand-alone\"]/quarterWidth[@type=\"abbreviated\"]/quarter[@type=\"4\"]");
     }
 
     static final class MissingKey implements Comparable<MissingKey> {

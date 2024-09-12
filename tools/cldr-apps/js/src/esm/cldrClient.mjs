@@ -3,8 +3,19 @@ import { getSessionId } from "./cldrStatus.mjs";
 import { SURVEY_TOOL_SESSION_HEADER } from "./cldrAjax.mjs";
 
 const OAS3_ROOT = "/openapi"; // Path to the 'openapi' (sibling to cldr-apps). Needs to be a host-relative URL.
+let client = null; // cached client object
+const RESOLVED_ROOT = new URL(OAS3_ROOT, document.baseURI); // workaround relative resolution issues
 
-const RESOLVED_ROOT = new URL(OAS3_ROOT, document.baseURI);
+function makeClient() {
+  return SwaggerClient({
+    url: RESOLVED_ROOT,
+    requestInterceptor: (obj) => {
+      // add the session header to each request
+      obj.headers[SURVEY_TOOL_SESSION_HEADER] = getSessionId();
+      return obj;
+    },
+  });
+}
 
 /**
  * Create a promise to a swagger client for ST operations.
@@ -17,15 +28,11 @@ const RESOLVED_ROOT = new URL(OAS3_ROOT, document.baseURI);
  *
  * @returns {Promise<SwaggerClient>}
  */
-async function getClient() {
-  return SwaggerClient({
-    url: RESOLVED_ROOT,
-    requestInterceptor: (obj) => {
-      // add the session header to each request
-      obj.headers[SURVEY_TOOL_SESSION_HEADER] = getSessionId();
-      return obj;
-    },
-  });
+function getClient() {
+  if (!client) {
+    client = makeClient();
+  }
+  return client;
 }
 
 export { getClient };

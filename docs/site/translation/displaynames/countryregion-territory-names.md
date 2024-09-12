@@ -4,7 +4,7 @@ title: Country/Region (Territory) Names
 
 # Country/Region (Territory) Names
 
-Country and region names (referred to as Territories in the Survey Tool) may be used as part of [Language/Locale Names](https://cldr.unicode.org/translation/displaynames/languagelocale-names), or may be used in UI menus and lists to select countries or regions. 
+Country and region names (referred to as Territories in the Survey Tool) may be used as part of [Language/Locale Names](https://cldr.unicode.org/translation/displaynames/languagelocale-names), or may be used in UI menus and lists to select countries or regions.
 
 ## General Guidelines
 
@@ -19,11 +19,11 @@ Please follow these guidelines:
 
 *The ISO names and the "official" names are often not necessarily the best ones.* The goal is the most customary name used in your language, even if it is not the official name. For example, for the territory name in English you would use "Switzerland" instead of "Swiss Confederation", and use "United Kingdom" instead of "The United Kingdom of Great Britain and Northern Ireland". One of the best sources for customary usage is to look at what common major publications such as newspapers and magazines do, the equivalents of *The Economist, NY Times, BBC, WSJ*, etc. in your language. You can look at style guides if available or at a sampling of pages, but favor publications’ rather than academic style guidelines. For example, to see how "Congo" is used in French, one might search [*for Congo on Le Monde*](http://www.google.com/search?q=Congo+site%3Alemonde.fr) and on other publications.
 
-Also look at frequency data: for example, at the time of this writing, "Côte d’Ivoire" has [117M](https://www.google.com/search?hl=en&q=%22C%C3%B4te%20d%27Ivoire%22) hits on Google in English, while "Ivory Coast" has [99M](https://www.google.com/search?hl=en&q=%22Ivory%20Coast%22). That makes them roughly equal, and other factors come into play. Favor shorter names, all other things being (roughly) equal, and consider carefully politically sensitive names (see below). The most customary name may change over time, but this tends to happen slowly; we do not want changes between versions without good cause. 
+Also look at frequency data: for example, at the time of this writing, "Côte d’Ivoire" has [117M](https://www.google.com/search?hl=en&q=%22C%C3%B4te%20d%27Ivoire%22) hits on Google in English, while "Ivory Coast" has [99M](https://www.google.com/search?hl=en&q=%22Ivory%20Coast%22). That makes them roughly equal, and other factors come into play. Favor shorter names, all other things being (roughly) equal, and consider carefully politically sensitive names (see below). The most customary name may change over time, but this tends to happen slowly; we do not want changes between versions without good cause.
 
 ## Geopolitically Sensitive Names
 
-Some country/region names need special treatment to avoid geopolitical sensitivity or ambiguity. 
+Some country/region names need special treatment to avoid geopolitical sensitivity or ambiguity.
 
 - In some cases, parentheses are used purely to disambiguate. For example:
 	- Cocos (Keeling) Islands
@@ -77,9 +77,9 @@ The following is a summary of these issues for some key regions. Some of these m
 
 ## Unique Names
 
-**All names must be unique within a given category:** Names include countries, some parts of countries (such as Hong Kong) with special status, and so-called *macroregions*: continents and subcontinents, as defined by a UN standard. 
+**All names must be unique within a given category:** Names include countries, some parts of countries (such as Hong Kong) with special status, and so-called *macroregions*: continents and subcontinents, as defined by a UN standard.
 
-Therefore, you cannot use the same translated names for different codes. For example: 
+Therefore, you cannot use the same translated names for different codes. For example:
 
 - For the codes CD and CG, *only one can be called "Congo".*
 - For the codes 018 and ZA, you can't give the same name to *South Africa* (the country) and to *Southern Africa* (the southern region of the continent of Africa), even though there may be no distinction in your language between the terms for "*South*" and "*Southern*".
@@ -109,7 +109,7 @@ These override the normal constructions, which would be:
 | 1 | English (United States) | en_US |  |
 | 2 | English (US) | en_US | alt=short |
 
-If a particular language would just use the normal constructions, such as in the following, then the code "en\_US" should be the contents. 
+If a particular language would just use the normal constructions, such as in the following, then the code "en\_US" should be the contents.
 
 |  |  |  |  |
 |---|---|---|---|
@@ -147,7 +147,7 @@ The names follow the same basic considerations as for Country/Region names. Ther
 	1. In general, favor making better-known entity be the shorter one. In some cases, it may be necessary to add a category to both of the names.
 	2. The category may be added in parentheses after the main name; just make sure it would look ok in the form in a list.
 
-**Note:** There are three subdivisions in **Locale Display Names / Territories (Europe):** England, Scotland, and Wales. 
+**Note:** There are three subdivisions in **Locale Display Names / Territories (Europe):** England, Scotland, and Wales.
 
 Tip on translating these, for example, see [French](http://st.unicode.org/cldr-apps/v#/fr/T_Europe/). Distinguish the name for “England” from the name for “United Kingdom”, which includes England, Scotland, Wales, and Northern Ireland
 
@@ -163,4 +163,3 @@ There are two special region names used for Pseudo Locales. These are special lo
 If there is no good term for "Pseudo" in your language, some options are the equivalent of "Fake" or "Artificial" in your language.
 
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

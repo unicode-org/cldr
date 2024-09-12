@@ -9,9 +9,9 @@ import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSetMultimap;
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
+import com.ibm.icu.util.ICUUncheckedIOException;
 import java.io.File;
 import java.io.IOException;
-import java.io.UncheckedIOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Set;
@@ -268,7 +268,7 @@ public abstract class CldrDataSupplier {
             try {
                 return Files.walk(dir).filter(IS_XML_FILE);
             } catch (IOException e) {
-                throw new UncheckedIOException(e);
+                throw new ICUUncheckedIOException(e);
             }
         }
 

@@ -37,4 +37,3 @@ This page contains information about updating the various stable links to part o
 | ~~development version~~ | ~~http://unicode.org/cldr/dev~~ | ~~http://unicode.org/repos/cldr/trunk~~ | ~~nothing needed~~ |
 | ~~latest version~~ | ~~http://unicode.org/cldr/latest~~ | ~~http://unicode.org/repos/cldr/tags/latest~~ | ~~Need to " svn delete latest " and then " svn copy 24 latest "~~ |
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

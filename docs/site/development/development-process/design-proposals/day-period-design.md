@@ -238,4 +238,3 @@ Code changes
 - We need to have a chart for the dayPeriodRules, like we do for plurals.
 - Add invariant testing in CheckAttributes.
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

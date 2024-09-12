@@ -77,6 +77,5 @@ We have the implicit requirement that no variant is populated unless there is a 
 
 Case 1. only fa-Latn/BGN. Add an alias from fa-Latn to fa-Latn/BGN
 
-Case 2. only foo-Latn. Rename to foo-Latn/SOMETHING, and then do Case 1. 
+Case 2. only foo-Latn. Rename to foo-Latn/SOMETHING, and then do Case 1.
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

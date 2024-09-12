@@ -12,6 +12,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 	</identity>
 	<localeDisplayNames>
 		<subdivisions>
+			<subdivision type="aeaz" draft="provisional">ابوظبۍ (امارت)</subdivision>
 			<subdivision type="afbal" draft="provisional">بلخ ولايت</subdivision>
 			<subdivision type="afbam" draft="provisional">باميان ولايت</subdivision>
 			<subdivision type="afbdg" draft="provisional">بادغيس ولايت</subdivision>
@@ -71,6 +72,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="bdf" draft="provisional">رنگپور ډويژن</subdivision>
 			<subdivision type="bdg" draft="provisional">سلهټ ډويژن</subdivision>
 			<subdivision type="bebru" draft="provisional">بروکسل</subdivision>
+			<subdivision type="bevbr" draft="provisional">فلېميش برابانت</subdivision>
+			<subdivision type="bewbr" draft="provisional">والون برابانت ولايت</subdivision>
+			<subdivision type="bewht" draft="provisional">هايناوت ولايت</subdivision>
+			<subdivision type="bewlg" draft="provisional">ليېژ ولايت</subdivision>
+			<subdivision type="bewna" draft="provisional">نامور ولايت</subdivision>
 			<subdivision type="bh13" draft="provisional">محافظه پلازمېنه(بحرين)</subdivision>
 			<subdivision type="bh14" draft="provisional">محافظه جنوبيه</subdivision>
 			<subdivision type="bh15" draft="provisional">محافظه محرق</subdivision>
@@ -102,7 +108,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="byhm" draft="provisional">مینسک</subdivision>
 			<subdivision type="caab" draft="provisional">آلبرتا</subdivision>
 			<subdivision type="cabc" draft="provisional">برتانوي کولمبيا</subdivision>
+			<subdivision type="camb" draft="provisional">مانيتوبا</subdivision>
 			<subdivision type="caon" draft="provisional">آنټاریو</subdivision>
+			<subdivision type="cask" draft="provisional">سسکچوان</subdivision>
 			<subdivision type="cdkn" draft="provisional">کینشاسا</subdivision>
 			<subdivision type="cfbgf" draft="provisional">بانګویی</subdivision>
 			<subdivision type="cgbzv" draft="provisional">برازاویل</subdivision>
@@ -110,7 +118,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="chai" draft="provisional">آفنڅل یننر هودن</subdivision>
 			<subdivision type="char" draft="provisional">آفنڅل اوزر هودن</subdivision>
 			<subdivision type="chbl" draft="provisional">بازل</subdivision>
+			<subdivision type="chfr" draft="provisional">فريبورګ</subdivision>
 			<subdivision type="chgr" draft="provisional">ګراو بوندن</subdivision>
+			<subdivision type="chju" draft="provisional">جورا</subdivision>
 			<subdivision type="chne" draft="provisional">نوین بورګ</subdivision>
 			<subdivision type="chnw" draft="provisional">نید والدن</subdivision>
 			<subdivision type="chow" draft="provisional">اوب والدن</subdivision>
@@ -120,10 +130,14 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="chvs" draft="provisional">والیز</subdivision>
 			<subdivision type="ciab" draft="provisional">ابیجان</subdivision>
 			<subdivision type="ciym" draft="provisional">یاموسوکرو</subdivision>
+			<subdivision type="cmno" draft="provisional">شمالي سيمه</subdivision>
+			<subdivision type="cmou" draft="provisional">لوېديځه سيمه</subdivision>
 			<subdivision type="cnbj" draft="provisional">بېجنګ</subdivision>
+			<subdivision type="cngx" draft="provisional">ګوانګشي</subdivision>
 			<subdivision type="cnhk" draft="provisional">هانګ کانګ</subdivision>
 			<subdivision type="cnmo" draft="provisional">مکاو</subdivision>
 			<subdivision type="cnsh" draft="provisional">شانګهای</subdivision>
+			<subdivision type="cnsx" draft="provisional">شانشي</subdivision>
 			<subdivision type="cnxj" draft="provisional">سینګیانګ</subdivision>
 			<subdivision type="codc" draft="provisional">بوګوتا</subdivision>
 			<subdivision type="cz10" draft="provisional">پراګ</subdivision>
@@ -139,15 +153,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="desn" draft="provisional">زاخسن</subdivision>
 			<subdivision type="deth" draft="provisional">تورینګن</subdivision>
 			<subdivision type="eca" draft="provisional">ازوای ولایت</subdivision>
+			<subdivision type="ee45" draft="provisional">ایدا</subdivision>
+			<subdivision type="ersk" draft="provisional">شمالي سور سمندر سیمه</subdivision>
 			<subdivision type="esce" draft="provisional">سیوتا</subdivision>
 			<subdivision type="esct" draft="provisional">کاتالونیا</subdivision>
 			<subdivision type="esml" draft="provisional">ملیلیه</subdivision>
+			<subdivision type="espv" draft="provisional">باسک سيمه</subdivision>
 			<subdivision type="etaa" draft="provisional">آدیس آبابا</subdivision>
+			<subdivision type="fr20r" draft="provisional">کروسيکا</subdivision>
 			<subdivision type="fr75c" draft="provisional">پاريس</subdivision>
+			<subdivision type="fr971" draft="provisional">ګوادېلوپ</subdivision>
+			<subdivision type="fr973" draft="provisional">فرانسوي ګيانا</subdivision>
+			<subdivision type="fr974" draft="provisional">رېيونين</subdivision>
 			<subdivision type="gbbge" draft="provisional">بریډ جند</subdivision>
+			<subdivision type="gbedh" draft="provisional">ایدینبرګ</subdivision>
 			<subdivision type="gbeng" draft="provisional">انګلېنډ</subdivision>
 			<subdivision type="gbglg" draft="provisional">ګلاسګو</subdivision>
 			<subdivision type="gblnd" draft="provisional">لندن</subdivision>
+			<subdivision type="gbnir" draft="provisional">شمالي ایرلنډ</subdivision>
 			<subdivision type="gbork" draft="provisional">اورکني</subdivision>
 			<subdivision type="gbsct" draft="provisional">سکاټ لينډ</subdivision>
 			<subdivision type="gbukm" draft="provisional">بريتانيا</subdivision>
@@ -169,19 +192,27 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="husd" draft="provisional">سګد</subdivision>
 			<subdivision type="husf" draft="provisional">سیکشفهروار</subdivision>
 			<subdivision type="hush" draft="provisional">سمباتهي</subdivision>
+			<subdivision type="idba" draft="provisional">بالي</subdivision>
 			<subdivision type="idjk" draft="provisional">جکارتا</subdivision>
+			<subdivision type="idka" draft="provisional">کاليمانتان</subdivision>
 			<subdivision type="idnt" draft="provisional">ختیځ سوندای</subdivision>
 			<subdivision type="iec" draft="provisional">کناخت</subdivision>
 			<subdivision type="iel" draft="provisional">لینستر</subdivision>
 			<subdivision type="iem" draft="provisional">مونسټر (آیرلنډ)</subdivision>
 			<subdivision type="ieu" draft="provisional">اولسټر</subdivision>
+			<subdivision type="ild" draft="provisional">د اسراييلو سوېلي ولسوالۍ</subdivision>
+			<subdivision type="ilha" draft="provisional">حيفا ولسوالۍ</subdivision>
+			<subdivision type="iljm" draft="provisional">يروشلم ولسوالۍ</subdivision>
+			<subdivision type="ilm" draft="provisional">د اسراييلو مرکزي ولسوالۍ</subdivision>
+			<subdivision type="ilta" draft="provisional">تل ابيب ولسوالۍ</subdivision>
+			<subdivision type="ilz" draft="provisional">د اسراييلو شمالي ولسوالۍ</subdivision>
 			<subdivision type="inan" draft="provisional">اندامان او نیکوبار ټاپو</subdivision>
 			<subdivision type="inap" draft="provisional">آندرا پرديش</subdivision>
 			<subdivision type="inar" draft="provisional">اروناچل پرديش</subdivision>
 			<subdivision type="inas" draft="provisional">آسام</subdivision>
 			<subdivision type="inbr" draft="provisional">بهار</subdivision>
+			<subdivision type="incg" draft="provisional">چتيس گړ</subdivision>
 			<subdivision type="inch" draft="provisional">چندي گړ</subdivision>
-			<subdivision type="inct" draft="provisional">چتيس گړ</subdivision>
 			<subdivision type="indl" draft="provisional">ډېلي</subdivision>
 			<subdivision type="inga" draft="provisional">گوا</subdivision>
 			<subdivision type="ingj" draft="provisional">گوجرات</subdivision>
@@ -191,21 +222,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="injk" draft="provisional">جمو او کشمير</subdivision>
 			<subdivision type="inka" draft="provisional">کرناټک</subdivision>
 			<subdivision type="inkl" draft="provisional">کيرالا</subdivision>
+			<subdivision type="inld" draft="provisional">لاکشادويپ</subdivision>
 			<subdivision type="inmh" draft="provisional">مهاراشترا</subdivision>
 			<subdivision type="inml" draft="provisional">ميگالايا</subdivision>
 			<subdivision type="inmn" draft="provisional">منيپور</subdivision>
 			<subdivision type="inmp" draft="provisional">مدهيه پرديش</subdivision>
 			<subdivision type="inmz" draft="provisional">ميزورام</subdivision>
 			<subdivision type="innl" draft="provisional">ناگالېډ</subdivision>
-			<subdivision type="inor" draft="provisional">اوړېشه</subdivision>
+			<subdivision type="inod" draft="provisional">اوړېشه</subdivision>
 			<subdivision type="inpb" draft="provisional">پنجاب</subdivision>
+			<subdivision type="inpy" draft="provisional">پودوچېري</subdivision>
 			<subdivision type="inrj" draft="provisional">راجستهان</subdivision>
 			<subdivision type="insk" draft="provisional">سيکيم</subdivision>
 			<subdivision type="intn" draft="provisional">تامل ناډو</subdivision>
 			<subdivision type="intr" draft="provisional">تريپوره</subdivision>
+			<subdivision type="inuk" draft="provisional">اتر کنډ</subdivision>
 			<subdivision type="inup" draft="provisional">اتر پرديش</subdivision>
-			<subdivision type="inut" draft="provisional">اتر کنډ</subdivision>
 			<subdivision type="inwb" draft="provisional">مغربي بنگال</subdivision>
+			<subdivision type="iqan" draft="provisional">انبار</subdivision>
 			<subdivision type="ir00" draft="provisional">مرکزي²</subdivision>
 			<subdivision type="ir01" draft="provisional">مشرقي ازربايجان</subdivision>
 			<subdivision type="ir02" draft="provisional">مغربي ازربايجان</subdivision>
@@ -253,15 +287,19 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="it75" draft="provisional">پولیا</subdivision>
 			<subdivision type="it77" draft="provisional">باسیلیکاتا</subdivision>
 			<subdivision type="it82" draft="provisional">سيسيلي</subdivision>
+			<subdivision type="it88" draft="provisional">ساردينيا</subdivision>
+			<subdivision type="itve" draft="provisional">وېنيس</subdivision>
 			<subdivision type="jp13" draft="provisional">توکيو</subdivision>
+			<subdivision type="jp32" draft="provisional">شیمانه</subdivision>
 			<subdivision type="kggb" draft="provisional">بشکیک</subdivision>
 			<subdivision type="kgo" draft="provisional">اوش ولایت</subdivision>
 			<subdivision type="kh12" draft="provisional">پنوم پن</subdivision>
 			<subdivision type="kp01" draft="provisional">پيونګيانګ</subdivision>
 			<subdivision type="kr11" draft="provisional">سيول</subdivision>
-			<subdivision type="kzala" draft="provisional">الماته</subdivision>
-			<subdivision type="kzast" draft="provisional">استانه</subdivision>
-			<subdivision type="kzzap" draft="provisional">لویدیځ قزاقستان ولایت</subdivision>
+			<subdivision type="kz27" draft="provisional">لویدیځ قزاقستان ولایت</subdivision>
+			<subdivision type="kz59" draft="provisional">شمالي قزاقستان ولایت</subdivision>
+			<subdivision type="kz71" draft="provisional">استانه</subdivision>
+			<subdivision type="kz75" draft="provisional">الماته</subdivision>
 			<subdivision type="li01" draft="provisional">بالزرس</subdivision>
 			<subdivision type="li05" draft="provisional">پلانکن</subdivision>
 			<subdivision type="li06" draft="provisional">روګل</subdivision>
@@ -273,6 +311,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="lvrix" draft="provisional">ریګا</subdivision>
 			<subdivision type="lyba" draft="provisional">بنغازی</subdivision>
 			<subdivision type="lykf" draft="provisional">کفره</subdivision>
+			<subdivision type="macas" draft="provisional">کازابلانکا</subdivision>
 			<subdivision type="marab" draft="provisional">ربات</subdivision>
 			<subdivision type="mcmc" draft="provisional">مونت کارلو</subdivision>
 			<subdivision type="mcmo" draft="provisional">موناکو ویل</subdivision>
@@ -297,9 +336,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="mt68" draft="provisional">زوریک</subdivision>
 			<subdivision type="muag" draft="provisional">آګالګا ټاپوګان</subdivision>
 			<subdivision type="mvmle" draft="provisional">ماله</subdivision>
+			<subdivision type="mwba" draft="provisional">بالاکا</subdivision>
+			<subdivision type="mxcmx" draft="provisional">مکسیکو ښار</subdivision>
+			<subdivision type="mxjal" draft="provisional">جلیسکو</subdivision>
 			<subdivision type="mxyuc" draft="provisional">یوکاتان</subdivision>
 			<subdivision type="my14" draft="provisional">کوالالامپور</subdivision>
 			<subdivision type="mza" draft="provisional">نیاسا</subdivision>
+			<subdivision type="mzq" draft="provisional">زامبېزيا ولايت</subdivision>
 			<subdivision type="ne8" draft="provisional">نیامی</subdivision>
 			<subdivision type="nldr" draft="provisional">درنته</subdivision>
 			<subdivision type="nlge" draft="provisional">خلدرلنډ</subdivision>
@@ -345,15 +388,91 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="psngz" draft="provisional">محافظه شمالي غزه</subdivision>
 			<subdivision type="psrfh" draft="provisional">محافظه رفح</subdivision>
 			<subdivision type="pt10" draft="provisional">لیریا ولایت</subdivision>
+			<subdivision type="pt20" draft="provisional">ازور</subdivision>
+			<subdivision type="pyasu" draft="provisional">اسونسيون</subdivision>
 			<subdivision type="qada" draft="provisional">دوها</subdivision>
 			<subdivision type="rob" draft="provisional">بخارست</subdivision>
+			<subdivision type="romm" draft="provisional">مارامورش ښارګی</subdivision>
+			<subdivision type="rosv" draft="provisional">سوچاوا ښارګی</subdivision>
 			<subdivision type="rsvo" draft="provisional">ویوودینا</subdivision>
+			<subdivision type="ruad" draft="provisional">اډيګيا</subdivision>
 			<subdivision type="rual" draft="provisional">التای جمهوریت</subdivision>
 			<subdivision type="ruamu" draft="provisional">آمور</subdivision>
+			<subdivision type="ruark" draft="provisional">د ارخانګلسک ولايت</subdivision>
+			<subdivision type="ruast" draft="provisional">استراخان اوبلاست</subdivision>
+			<subdivision type="ruba" draft="provisional">باشکيرستان</subdivision>
 			<subdivision type="rubel" draft="provisional">بلګورود</subdivision>
 			<subdivision type="rubry" draft="provisional">بریانسک</subdivision>
+			<subdivision type="rubu" draft="provisional">بورياتيا جمهوريت</subdivision>
 			<subdivision type="ruce" draft="provisional">چيچنيا</subdivision>
+			<subdivision type="ruche" draft="provisional">چيليابنسک ولايت</subdivision>
+			<subdivision type="ruchu" draft="provisional">چکوتکا خپلواک اګرک</subdivision>
+			<subdivision type="rucu" draft="provisional">چواشيا</subdivision>
+			<subdivision type="ruda" draft="provisional">داغستان جمهوريت</subdivision>
+			<subdivision type="ruin" draft="provisional">انګوشتيا</subdivision>
+			<subdivision type="ruirk" draft="provisional">ايرکتسک اوبلاست</subdivision>
+			<subdivision type="ruiva" draft="provisional">ایوانوو ولايت</subdivision>
+			<subdivision type="rukam" draft="provisional">کامچاټکا سيمه</subdivision>
+			<subdivision type="rukb" draft="provisional">کبار دينو بالکار جمهوريت</subdivision>
+			<subdivision type="rukc" draft="provisional">کراچای چېرکېس جمهوريت</subdivision>
+			<subdivision type="rukda" draft="provisional">کراسنودار سيمه</subdivision>
+			<subdivision type="rukem" draft="provisional">کيميروو ولايت</subdivision>
+			<subdivision type="rukgd" draft="provisional">کالينينګراډ ولايت</subdivision>
+			<subdivision type="rukgn" draft="provisional">کورګان ولايت</subdivision>
+			<subdivision type="rukha" draft="provisional">خاباروسک سيمه</subdivision>
+			<subdivision type="rukhm" draft="provisional">خانتي مانسي په ځان بسيا ښار</subdivision>
+			<subdivision type="rukir" draft="provisional">کيروف ولايت</subdivision>
+			<subdivision type="rukk" draft="provisional">خاکسیا جمهوريت</subdivision>
+			<subdivision type="rukl" draft="provisional">کلمیکیا جمهوریت</subdivision>
+			<subdivision type="ruklu" draft="provisional">کالوګا ولايت</subdivision>
+			<subdivision type="ruko" draft="provisional">کومي جمهوريت</subdivision>
+			<subdivision type="rukos" draft="provisional">کوسټروما ولايت</subdivision>
+			<subdivision type="rukr" draft="provisional">کارېليا جمهوريت</subdivision>
+			<subdivision type="rukrs" draft="provisional">کورسک ولايت</subdivision>
+			<subdivision type="rukya" draft="provisional">کراسنويارسک ولايت</subdivision>
+			<subdivision type="rulen" draft="provisional">ليننګراد ولايت</subdivision>
+			<subdivision type="rulip" draft="provisional">ليپتسک ولايت</subdivision>
+			<subdivision type="rumag" draft="provisional">ماګادان ولايت</subdivision>
+			<subdivision type="rume" draft="provisional">ماري اېل جمهوريت</subdivision>
+			<subdivision type="rumo" draft="provisional">موردوويا</subdivision>
+			<subdivision type="rumos" draft="provisional">مسکو ولايت</subdivision>
 			<subdivision type="rumow" draft="provisional">مسکو</subdivision>
+			<subdivision type="rumur" draft="provisional">مورمانسک ولايت</subdivision>
+			<subdivision type="runen" draft="provisional">نينيتس په ځان بسيا ښار</subdivision>
+			<subdivision type="rungr" draft="provisional">نووګورود ولايت</subdivision>
+			<subdivision type="runiz" draft="provisional">نېزني نوګورود ولايت</subdivision>
+			<subdivision type="ruore" draft="provisional">اورینبورګ اوبلاست</subdivision>
+			<subdivision type="ruorl" draft="provisional">اوريول ولايت</subdivision>
+			<subdivision type="ruper" draft="provisional">پیرم کرائی</subdivision>
+			<subdivision type="rupnz" draft="provisional">پېنزا ولايت</subdivision>
+			<subdivision type="rupri" draft="provisional">پريمورسکي سيمه</subdivision>
+			<subdivision type="rupsk" draft="provisional">پسکوف ولايت</subdivision>
+			<subdivision type="ruros" draft="provisional">روستوف اوبلاست</subdivision>
+			<subdivision type="rurya" draft="provisional">ريازان ولايت</subdivision>
+			<subdivision type="rusa" draft="provisional">د ياکوتيا جمهوريت</subdivision>
+			<subdivision type="rusak" draft="provisional">سخالين اوبلاست</subdivision>
+			<subdivision type="rusam" draft="provisional">سمارا ولايت</subdivision>
+			<subdivision type="rusar" draft="provisional">سراتوف اوبلاست</subdivision>
+			<subdivision type="ruse" draft="provisional">شمالي اوسېتيا الانيا</subdivision>
+			<subdivision type="rusmo" draft="provisional">سمولينسک ولايت</subdivision>
+			<subdivision type="ruspe" draft="provisional">سینټ پیټرزبورګ</subdivision>
+			<subdivision type="rusta" draft="provisional">سټاوروپول سيمه</subdivision>
+			<subdivision type="rusve" draft="provisional">سوېردلوسک اوبلاست</subdivision>
+			<subdivision type="ruta" draft="provisional">تاتارستان</subdivision>
+			<subdivision type="rutam" draft="provisional">تامبوف ولايت</subdivision>
+			<subdivision type="rutul" draft="provisional">تولا ولايت</subdivision>
+			<subdivision type="rutve" draft="provisional">توېر ولايت</subdivision>
+			<subdivision type="ruty" draft="provisional">تووا</subdivision>
+			<subdivision type="rutyu" draft="provisional">تيومن ولايت</subdivision>
+			<subdivision type="ruud" draft="provisional">ادمورتيا جمهوريت</subdivision>
+			<subdivision type="ruuly" draft="provisional">اوليانوسک ولايت</subdivision>
+			<subdivision type="ruvgg" draft="provisional">وولګوګراد ولايت</subdivision>
+			<subdivision type="ruvla" draft="provisional">ولاديمير اوبلاست</subdivision>
+			<subdivision type="ruvlg" draft="provisional">وولوګودا ولايت</subdivision>
+			<subdivision type="ruvor" draft="provisional">ورونيش ولايت</subdivision>
+			<subdivision type="ruyan" draft="provisional">يامالو نينيتس په ځان بسيا ښار</subdivision>
+			<subdivision type="ruyar" draft="provisional">ياروسلاول ولايت</subdivision>
+			<subdivision type="ruyev" draft="provisional">يهودي خپلواک ولايت</subdivision>
 			<subdivision type="rw01" draft="provisional">کیګالی</subdivision>
 			<subdivision type="sa02" draft="provisional">مکه معظمه</subdivision>
 			<subdivision type="sbct" draft="provisional">هونیارا</subdivision>
@@ -371,6 +490,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="tdnd" draft="provisional">انجامنا</subdivision>
 			<subdivision type="th10" draft="provisional">بانګکوک</subdivision>
 			<subdivision type="tjdu" draft="provisional">دوشنبه</subdivision>
+			<subdivision type="tjgb" draft="provisional">بدخشان ګورنو خپلواک ولايت</subdivision>
+			<subdivision type="tjkt" draft="provisional">ختلان ولايت</subdivision>
+			<subdivision type="tjra" draft="provisional">جمهوریت واک لاندې ولسوالۍ</subdivision>
+			<subdivision type="tjsu" draft="provisional">سغد ولایت</subdivision>
 			<subdivision type="tma" draft="provisional">آخال ولايت</subdivision>
 			<subdivision type="tmb" draft="provisional">بلخان ولايت</subdivision>
 			<subdivision type="tmd" draft="provisional">داشوغوز ولايت</subdivision>
@@ -380,11 +503,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="tr76" draft="provisional">ايګدير</subdivision>
 			<subdivision type="tvfun" draft="provisional">فونافوتي</subdivision>
 			<subdivision type="twtpe" draft="provisional">تایپي</subdivision>
+			<subdivision type="ua21" draft="provisional">زاکارپاتيا ولايت</subdivision>
 			<subdivision type="ua30" draft="provisional">کيېف</subdivision>
+			<subdivision type="ua40" draft="provisional">سواستوپول</subdivision>
+			<subdivision type="usak" draft="provisional">الاسکا</subdivision>
 			<subdivision type="usal" draft="provisional">آلاباما</subdivision>
+			<subdivision type="usar" draft="provisional">ارکنزاس</subdivision>
+			<subdivision type="usaz" draft="provisional">اریزونا</subdivision>
 			<subdivision type="usca" draft="provisional">کالېفورنیا</subdivision>
 			<subdivision type="usco" draft="provisional">کلراډو</subdivision>
 			<subdivision type="usdc" draft="provisional">واشنګټن ډي سي</subdivision>
+			<subdivision type="usfl" draft="provisional">فلوريډا</subdivision>
+			<subdivision type="usga" draft="provisional">جورجيا (د امريکا ايالت)</subdivision>
 			<subdivision type="ushi" draft="provisional">هاوایی</subdivision>
 			<subdivision type="usia" draft="provisional">آیووا</subdivision>
 			<subdivision type="usks" draft="provisional">کانزاس</subdivision>
@@ -421,13 +551,24 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="uswv" draft="provisional">لویدیځه ویرجینیا</subdivision>
 			<subdivision type="uswy" draft="provisional">وایومینګ</subdivision>
 			<subdivision type="uymo" draft="provisional">مونټي ویډو</subdivision>
+			<subdivision type="uzan" draft="provisional">انديجان ولايت</subdivision>
+			<subdivision type="uzbu" draft="provisional">بخارا ولايت</subdivision>
+			<subdivision type="uzfa" draft="provisional">فرغانه ولايت</subdivision>
+			<subdivision type="uzji" draft="provisional">جيزک ولايت</subdivision>
+			<subdivision type="uzng" draft="provisional">نمنګان ولايت</subdivision>
+			<subdivision type="uzqr" draft="provisional">کراکل پاکستان</subdivision>
+			<subdivision type="uzsu" draft="provisional">سرخان دريا ولايت</subdivision>
 			<subdivision type="uztk" draft="provisional">تاشکند</subdivision>
+			<subdivision type="uzto" draft="provisional">تاشکند ولايت</subdivision>
+			<subdivision type="uzxo" draft="provisional">خوارزم ولايت</subdivision>
 			<subdivision type="veb" draft="provisional">آنسوآتګی</subdivision>
 			<subdivision type="ved" draft="provisional">آراګوآ آیالات</subdivision>
 			<subdivision type="vep" draft="provisional">پورتوګسا آیالات</subdivision>
 			<subdivision type="ves" draft="provisional">تاچیرا آیالات</subdivision>
+			<subdivision type="vew" draft="provisional">فدرالي انحصاري سيمې</subdivision>
 			<subdivision type="vnhn" draft="provisional">هانوی</subdivision>
 			<subdivision type="yesa" draft="provisional">صنعا</subdivision>
+			<subdivision type="zafs" draft="provisional">خپلواک ايالت</subdivision>
 		</subdivisions>
 	</localeDisplayNames>
 </ldml>

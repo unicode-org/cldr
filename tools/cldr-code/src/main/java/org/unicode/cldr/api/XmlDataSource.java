@@ -14,9 +14,9 @@ import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSortedMap;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Multiset;
+import com.ibm.icu.util.ICUUncheckedIOException;
 import java.io.IOException;
 import java.io.Reader;
-import java.io.UncheckedIOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -139,7 +139,7 @@ final class XmlDataSource implements CldrData {
         try {
             return Files.newBufferedReader(p);
         } catch (IOException e) {
-            throw new UncheckedIOException(e);
+            throw new ICUUncheckedIOException(e);
         }
     }
 
@@ -158,7 +158,7 @@ final class XmlDataSource implements CldrData {
                 src.setSystemId(p.toString());
                 parseXml(xmlReader, src, p);
             } catch (IOException e) {
-                throw new UncheckedIOException(e);
+                throw new ICUUncheckedIOException(e);
             }
         }
     }

@@ -35,7 +35,7 @@ You do not have to supply the *sample unit (column 4)* in the Survey Tool, but y
 
 ***It is absolutely crucial that you make sure that each Pattern is constructed in a way so that none of the samples could also correctly fit in the Composed Value on a different row.*** For example, you couldn't put "Jahr" (a neuter unit from #3) into the pattern in #2, as the result - "Die Jahr ist …" - would not be grammatically correct (feminine article + neuter noun).
 
-In English, all of these would say "The {0} is...", with {0} e.g. being a day, a week, or a year (could be other units as well, doesn't have to be duration). 
+In English, all of these would say "The {0} is...", with {0} e.g. being a day, a week, or a year (could be other units as well, doesn't have to be duration).
 
 English has only one gender for all common nouns, and thus the English column on the Survey Tool page is blank.
 
@@ -56,7 +56,7 @@ The equivalent Italian patterns might be:
 	- ***Don't worry about elision or mutation like changing la to l'****;* the phrases **don't have to** work for **all** items of that gender if there are side effects because of certain letters.
 	- Not all possible placeholder values will exhibit differences. For example, in German only masculine noun phrases are different in the accusative case (*den* Mann vs. *der* Mann). Sometimes you may need a combination of two different units (A *and* B), as in the example below.
 
-Here is an example from [German](https://st.unicode.org/cldr-apps/v#/de/MinimalPairs). Notice that this case is more complicated than gender, because we need a noun phrase (with an adjective, "British") and two separate measures, because no single noun-adjective combination has differences in all 4 cases in German. The "British teaspoon" is different in 3 cases, but the genitive is the same as the dative. The "British gallons" is different in 3 cases, but the nominative and accusative are identical. 
+Here is an example from [German](https://st.unicode.org/cldr-apps/v#/de/MinimalPairs). Notice that this case is more complicated than gender, because we need a noun phrase (with an adjective, "British") and two separate measures, because no single noun-adjective combination has differences in all 4 cases in German. The "British teaspoon" is different in 3 cases, but the genitive is the same as the dative. The "British gallons" is different in 3 cases, but the nominative and accusative are identical.
 
 ***It is absolutely crucial that you make sure that each Pattern is constructed in a way so that none of the samples could also correctly fit in the Composed Value on a different row.*** *For example, in the table below the nominative sample phrase could not be correctly substituted into the accusative pattern.* That would produce "für 1 britisch**er** Teelöffel und 3 britische Gallonen", which would be incorrect.
 
@@ -83,7 +83,7 @@ The Code is now longer, allowing for case and gender:
 - If your language doesn’t have gender, it will be “dgender”.
 - That is also used for a selected instance for gendered languages: either *neuter* or *masculine* (if the language has no neuter).
 
-For examples, see [French Compound Units](https://st.unicode.org/cldr-apps/v#/fr/CompoundUnits/) 
+For examples, see [French Compound Units](https://st.unicode.org/cldr-apps/v#/fr/CompoundUnits/)
 
 - **long-one-nominative-dgender** requests the **masculine** case in French
 - **long-one-nominative-feminine** requests the **feminine** case in French
@@ -92,7 +92,7 @@ For examples, see [French Compound Units](https://st.unicode.org/cldr-apps/v#/fr
 
 ## Units > ... > gender
 
-For example, see [French gender for Liter](https://st.unicode.org/cldr-apps/v#/de/Volume/1027df24bd31941e) 
+For example, see [French gender for Liter](https://st.unicode.org/cldr-apps/v#/de/Volume/1027df24bd31941e)
 
 If your language supports gender for units of measure, you’ll see a new element for the gender of each relevant unit. For example, a Liter in German is masculine. If you try to put in an incompatible value, you’ll get a message that lists the valid values for your locale, such as
 
@@ -138,4 +138,3 @@ Hovering over the winning value will also show an example of how the prefix or p
 
 ![image](../images/translation/Screen-Shot-2021-06-10-at-22.07.00.png)
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

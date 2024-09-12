@@ -1,14 +1,14 @@
-import * as cldrLoad from "./cldrLoad.mjs";
-
 import AboutPanel from "../views/AboutPanel.vue";
 import AnnouncePanel from "../views/AnnouncePanel.vue";
 import AddUser from "../views/AddUser.vue";
 import AutoImport from "../views/AutoImport.vue";
 import DowngradedVotes from "../views/DowngradedVotes.vue";
 import GeneralInfo from "../views/GeneralInfo.vue";
+import GenerateVxml from "../views/GenerateVxml.vue";
 import LockAccount from "../views/LockAccount.vue";
 import LookUp from "../views/LookUp.vue";
 import MainMenu from "../views/MainMenu.vue";
+import SignCla from "../views/SignCla.vue";
 import TestPanel from "../views/TestPanel.vue";
 import TransferVotes from "../views/TransferVotes.vue";
 import UnknownPanel from "../views/UnknownPanel.vue";
@@ -27,6 +27,7 @@ const specialToComponentMap = {
   auto_import: AutoImport,
   downgraded: DowngradedVotes,
   general: GeneralInfo, // see cldrLoad.GENERAL_SPECIAL
+  generate_vxml: GenerateVxml,
   lock_account: LockAccount,
   lookup: LookUp,
   menu: MainMenu,
@@ -37,6 +38,7 @@ const specialToComponentMap = {
   upload: UploadPanel,
   vetting_participation2: VettingParticipation2,
   vsummary: VettingSummary,
+  cla: SignCla,
   // If no match, end up here
   default: UnknownPanel,
 };

@@ -1031,9 +1031,6 @@ function addVitem(td, tr, theRow, item, newButton) {
   subSpan.className = "subSpan";
   cldrVote.appendItem(subSpan, displayValue, item.pClass);
   choiceField.appendChild(subSpan);
-
-  checkLRmarker(choiceField, item.value);
-
   if (item.isBaselineValue == true) {
     cldrDom.appendIcon(
       choiceField,
@@ -1041,6 +1038,7 @@ function addVitem(td, tr, theRow, item, newButton) {
       cldrText.get("voteInfo_baseline_desc")
     );
   }
+  checkLRmarker(choiceField, item.value);
   if (item.votes && !isWinner) {
     if (
       item.valueHash == theRow.voteVhash &&
@@ -1185,7 +1183,6 @@ function appendExampleIcon(parent, text, loc) {
   return el;
 }
 
-// caution: this is called from other modules as well as by appendExampleIcon
 function appendExample(parent, text, loc) {
   const el = document.createElement("div");
   el.className = "d-example well well-sm";
@@ -1429,7 +1426,6 @@ function resetLastShown() {
 export {
   NO_WINNING_VALUE,
   EMPTY_ELEMENT_VALUE,
-  appendExample,
   getPageUrl,
   getRowApprovalStatusClass,
   getStatusIcon,

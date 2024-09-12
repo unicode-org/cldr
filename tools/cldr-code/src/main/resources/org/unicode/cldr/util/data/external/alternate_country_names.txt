@@ -142,13 +142,17 @@ SY; Syria; Syrian Arab Republic
 SZ; Eswatini; eSwatini; Swaziland
 SZ; Eswatini;	Swaziland
 
+SH; Saint Helena;	Saint Helena
+SH; Saint Helena;	St. Helena
 SH; Saint Helena; Saint Helena, Ascension, and Tristan da Cunha
+SH; Saint Helena; Saint Helena, Ascension and Tristan da Cunha
 SH; Saint Helena; Saint Helena ex. dep.
 
 TL; East Timor; Timor-Leste
 TL; East Timor; East Timor
 
 TR; Turkey; Turkiye
+TR; Turkey; Turkey (Turkiye)
 TR; ; Turkey
 
 
@@ -198,11 +202,11 @@ RE; ;	Reunion
 PS; ;	Palestinian Territory
 CD; ;	Congo, Democratic Republic
 FX; ;	France, Metropolitan
-SH; ;	St. Helena
 SJ; ;	Svalbard and Jan Mayen Islands
 VA; ;	Vatican
 CW; ;	Netherlands Antilles
 WF; ;	Wallis and Futuna Islands
+WF; ;	Wallis and Futuna
 HM; ;	Heard and McDonald Islands
 PM; ;	St. Pierre and Miquelon
 
@@ -220,34 +224,9 @@ UK;; U.K.
 RS;; Yugoslavia
 KM;; Comros
 
-skip;	skip;	Arab World
-skip;	skip;	Caribbean small states
-skip;	skip;	Country Name
-skip;	skip;	East Asia & Pacific (all income levels)
-skip;	skip;	East Asia & Pacific (developing only)
-skip;	skip;	Euro area
-skip;	skip;	Europe & Central Asia (all income levels)
-skip;	skip;	Europe & Central Asia (developing only)
-skip;	skip;	Heavily indebted poor countries (HIPC)
-skip;	skip;	High income
-skip;	skip;	High income: nonOECD
-skip;	skip;	High income: OECD
-skip;	skip;	Latin America & Caribbean (all income levels)
-skip;	skip;	Latin America & Caribbean (developing only)
-skip;	skip;	Least developed countries: UN classification
-skip;	skip;	Low & middle income
-skip;	skip;	Low income
-skip;	skip;	Lower middle income
-skip;	skip;	Middle East & North Africa (all income levels)
-skip;	skip;	Middle East & North Africa (developing only)
-skip;	skip;	Middle income
-skip;	skip;	OECD members
-skip;	skip;	Other small states
-skip;	skip;	Pacific island small states
-skip;	skip;	Small states
-skip;	skip;	South Asia
-skip;	skip;	Sub-Saharan Africa (all income levels)
-skip;	skip;	Sub-Saharan Africa (developing only)
-skip;	skip;	Sudan (pre-secession)
-skip;	skip;	Upper middle income
+419;	Latin America & Caribbean;	Latin America & Caribbean
+419;	Latin America & Caribbean;	Latin America & the Caribbean
+
+# Many of the skipped values below are aggregates from world_bank_data that we can ignore since they don't correspond to UN country groups
+
 skip;	skip;	Paracel Islands

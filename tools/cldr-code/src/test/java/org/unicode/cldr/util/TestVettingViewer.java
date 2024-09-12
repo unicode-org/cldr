@@ -9,11 +9,12 @@ import java.util.EnumSet;
 import java.util.Map.Entry;
 import org.junit.jupiter.api.Test;
 import org.unicode.cldr.test.OutdatedPaths;
+import org.unicode.cldr.unittest.TestHelper;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.VoteResolver.VoteStatus;
 
-/** Also see {@link org.unicode.cldr.unittest.TestUtilities} */
+/** Also see {@link TestHelper} */
 class TestVettingViewer {
     @Test
     void testDashboardEnglishChanged() {

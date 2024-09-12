@@ -1,5 +1,6 @@
 package org.unicode.cldr.util;
 
+import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSetMultimap;
 import com.google.common.collect.ImmutableSortedMap;
@@ -7,8 +8,11 @@ import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
 import com.google.common.collect.Sets.SetView;
 import com.google.common.collect.TreeMultimap;
+import com.ibm.icu.impl.locale.XCldrStub.ImmutableMap;
+import com.ibm.icu.util.VersionInfo;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -17,61 +21,147 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
+import org.unicode.cldr.tool.ToolConstants;
 import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.Validity.Status;
 
 public class DiffLanguageGroups {
-    static final String OLD = "OLD";
-    static final String NEW = "NEW";
+    private static final Joiner JOIN_TAB = Joiner.on('\t');
     private static final String IN = " ➡︎ ";
     static final CLDRConfig CONFIG = CLDRConfig.getInstance();
     static final SupplementalDataInfo SDI = CONFIG.getSupplementalDataInfo();
     static final CLDRFile ENGLISH = CONFIG.getEnglish();
-    static final Set<String> CLDR_ORG_LANGUAGES =
-            StandardCodes.make().getLocaleCoverageLocales(Organization.cldr).stream()
-                    .filter(x -> !x.contains("_"))
-                    .collect(Collectors.toUnmodifiableSet());
-    static final Set<String> OTHER_CLDR_LANGUAGES =
-            Sets.difference(
-                    CONFIG.getCldrFactory().getAvailableLanguages().stream()
-                            .filter(x -> !x.contains("_") && !x.equals("root"))
-                            .collect(Collectors.toUnmodifiableSet()),
-                    CLDR_ORG_LANGUAGES);
 
-    public static void main(String[] args) {
-        String newPath = CLDRPaths.COMMON_DIRECTORY + "supplemental/languageGroup.xml";
-        String oldPath = CLDRPaths.COMMON_DIRECTORY + "supplemental-temp/languageGroup43.xml";
-        if (args.length > 0) {
-            newPath = args[0];
-            if (args.length > 1) {
-                oldPath = args[1];
-            }
+    enum LanguageStatus {
+        TC("TC"),
+        OTHER_BASIC_PLUS("OB"),
+        OTHER_CLDR("OC"),
+        NON_CLDR("NC"),
+        NON_REGULAR("XX");
+
+        public final String abbr;
+
+        private LanguageStatus(String s) {
+            abbr = s;
         }
-        final Set<String> validRegular =
-                Sets.union(
+
+        static final Set<LanguageStatus> SKIP_MISSING =
+                Set.of(LanguageStatus.NON_CLDR, LanguageStatus.NON_REGULAR);
+    }
+
+    static final Map<String, LanguageStatus> LanguageToStatus;
+    static final Map<LanguageStatus, Set<String>> StatusToLanguages;
+
+    static {
+        // add items to the map, most general first so the others can override
+        Map<String, LanguageStatus> temp = new TreeMap<>();
+
+        Sets.union(
                         Validity.getInstance()
                                 .getStatusToCodes(LstrType.language)
                                 .get(Status.regular),
-                        Set.of("mul"));
+                        Set.of("mul"))
+                .stream()
+                .forEach(x -> temp.put(x, LanguageStatus.NON_CLDR));
+
+        CONFIG.getCldrFactory().getAvailableLanguages().stream()
+                .forEach(
+                        x -> {
+                            if (!x.contains("_") && !x.equals("root"))
+                                temp.put(x, LanguageStatus.OTHER_CLDR);
+                        });
+
+        CalculatedCoverageLevels.getInstance().getLevels().entrySet().stream()
+                .forEach(
+                        x -> {
+                            if (!x.getKey().contains("_"))
+                                temp.put(x.getKey(), LanguageStatus.OTHER_BASIC_PLUS);
+                        });
+
+        Sets.difference(
+                        StandardCodes.make().getLocaleCoverageLocales(Organization.cldr),
+                        StandardCodes.make().getLocaleCoverageLocales(Organization.special))
+                .stream()
+                .forEach(
+                        x -> {
+                            if (!x.contains("_")) temp.put(x, LanguageStatus.TC);
+                        });
+        LanguageToStatus = ImmutableMap.copyOf(temp);
+
+        Multimap<LanguageStatus, String> temp2 = TreeMultimap.create();
+        LanguageToStatus.entrySet().stream().forEach(x -> temp2.put(x.getValue(), x.getKey()));
+        Map<LanguageStatus, Set<String>> temp3 = new LinkedHashMap<>();
+        temp2.asMap().entrySet().forEach(x -> temp3.put(x.getKey(), new TreeSet<>(x.getValue())));
+        StatusToLanguages = CldrUtility.protectCollection(temp3);
+    }
+
+    public static LanguageStatus getStatusForLanguage(String joint) {
+        return CldrUtility.ifNull(LanguageToStatus.get(joint), LanguageStatus.NON_REGULAR);
+    }
+
+    static String OLD = "OLD";
+    static String NEW = "NEW";
+
+    public static void main(String[] args) {
+        System.out.println(
+                "Args are OLD and NEW CLDR versions. Defaults: OLD = last release, NEW = current data. Format is X.Y, eg: "
+                        + ToolConstants.LAST_RELEASE_VERSION_WITH0);
+        System.out.println("\nReading old supplemental: may have unrelated errors.");
+        final SupplementalDataInfo oldSupplementalInfo =
+                SupplementalDataInfo.getInstance(
+                        CldrUtility.getPath(CLDRPaths.LAST_COMMON_DIRECTORY, "supplemental/"));
+        System.out.println();
+
+        VersionInfo oldVersion = oldSupplementalInfo.getCldrVersion();
+
+        String oldBase = ToolConstants.LAST_RELEASE_VERSION_WITH0;
+        String newBase = null;
+
+        if (args.length > 0) {
+            oldBase = args[0];
+            if (args.length > 1) {
+                newBase = args[1];
+            }
+        }
+        String oldPath =
+                CLDRPaths.ARCHIVE_DIRECTORY
+                        + "cldr-"
+                        + oldBase
+                        + "/common/supplemental/languageGroup.xml";
+        String newPath =
+                newBase == null
+                        ? CLDRPaths.COMMON_DIRECTORY + "supplemental/languageGroup.xml"
+                        : CLDRPaths.ARCHIVE_DIRECTORY
+                                + "cldr-"
+                                + newBase
+                                + "/common/supplemental/languageGroup.xml";
+
+        OLD = "v" + oldVersion.getVersionString(1, 2);
+        NEW = "V" + SDI.getCldrVersion().getVersionString(1, 2);
+
+        System.out.println("* KEY");
+        for (LanguageStatus status : LanguageStatus.values()) {
+            System.out.println("\t" + status.abbr + "\t" + status.toString());
+        }
+        System.out.println();
 
         // Get OLD information
 
-        System.out.println("* " + OLD + " = " + "v43\t\t");
         Multimap<String, String> oldErrors = TreeMultimap.create();
-
         SortedMap<String, String> oldChildToParent =
                 invertToMap(loadLanguageGroups(oldPath), oldErrors);
         if (!oldErrors.isEmpty()) {
             showErrors(OLD, oldErrors);
         }
         Set<String> oldSet = getAllKeysAndValues(oldChildToParent);
-        checkAgainstReference(OLD + " Missing", "∉ CLDR_ORG", CLDR_ORG_LANGUAGES, oldSet);
-        checkAgainstReference(OLD + " Missing", "∉ CLDR_Other", OTHER_CLDR_LANGUAGES, oldSet);
-        checkAgainstReference(OLD + " Invalid", "", oldSet, validRegular);
+
+        // Old info
+        for (Entry<LanguageStatus, Set<String>> entry : StatusToLanguages.entrySet()) {
+            checkAgainstReference(OLD, entry.getKey(), entry.getValue(), oldSet);
+        }
 
         // get NEW information
 
-        System.out.println("* " + NEW + " = " + "PR\t\t");
         Multimap<String, String> newErrors = TreeMultimap.create();
         SortedMap<String, String> newChildToParent =
                 invertToMap(loadLanguageGroups(newPath), newErrors);
@@ -80,25 +170,48 @@ public class DiffLanguageGroups {
         }
 
         Set<String> newSet = getAllKeysAndValues(newChildToParent);
-        checkAgainstReference(NEW + " Missing", "∉ CLDR_ORG", CLDR_ORG_LANGUAGES, newSet);
-        checkAgainstReference(NEW + " Missing", "∉ CLDR_Other", OTHER_CLDR_LANGUAGES, newSet);
-        checkAgainstReference(NEW + " Invalid", "", newSet, validRegular);
+        for (Entry<LanguageStatus, Set<String>> entry : StatusToLanguages.entrySet()) {
+            checkAgainstReference(NEW, entry.getKey(), entry.getValue(), newSet);
+        }
 
         // Show differences
 
-        showDiff("Δ Removing (" + OLD + "-" + NEW + ")", Sets.difference(oldSet, newSet));
+        // showDiff("Δ Removing (" + OLD + "-" + NEW + ")", Sets.difference(oldSet, newSet));
+        for (LanguageStatus status : LanguageStatus.values()) {
+            for (String joint : Sets.difference(oldSet, newSet)) {
+                if (getStatusForLanguage(joint) != status) {
+                    continue;
+                }
+                List<String> childToParent = getChain(joint, oldChildToParent, new ArrayList<>());
+                System.out.println(
+                        JOIN_TAB.join(
+                                OLD,
+                                getStatusForLanguage(joint).abbr,
+                                show(joint),
+                                "Removed",
+                                childToParent.stream()
+                                        .map(x -> show(x))
+                                        .collect(Collectors.joining(IN))));
+            }
+        }
 
-        showDiff("Δ Adding (" + NEW + "-" + OLD + ")", Sets.difference(newSet, oldSet));
-        for (String joint : Sets.difference(newSet, oldSet)) {
-            List<String> newChain = getChain(joint, newChildToParent, new ArrayList<>());
-            System.out.println(
-                    NEW
-                            + " Added"
-                            + "\t"
-                            + show(joint)
-                            + "\t"
-                            + IN
-                            + newChain.stream().map(x -> show(x)).collect(Collectors.joining(IN)));
+        // showDiff("Δ Adding (" + NEW + "-" + OLD + ")", Sets.difference(newSet, oldSet));
+        for (LanguageStatus status : LanguageStatus.values()) {
+            for (String joint : Sets.difference(newSet, oldSet)) {
+                if (getStatusForLanguage(joint) != status) {
+                    continue;
+                }
+                List<String> childToParent = getChain(joint, newChildToParent, new ArrayList<>());
+                System.out.println(
+                        JOIN_TAB.join(
+                                NEW,
+                                getStatusForLanguage(joint).abbr,
+                                show(joint),
+                                "Added",
+                                childToParent.stream()
+                                        .map(x -> show(x))
+                                        .collect(Collectors.joining(IN))));
+            }
         }
 
         Set<String> changed = new TreeSet<>();
@@ -109,40 +222,47 @@ public class DiffLanguageGroups {
                 changed.add(joint);
             }
         }
-        showDiff("Δ Moving (" + OLD + " to " + NEW + ")", changed);
+        // showDiff("Δ Moving (" + OLD + " to " + NEW + ")", changed);
 
-        for (String joint : changed) {
-            List<String> oldChain = getChain(joint, oldChildToParent, new ArrayList<>());
-            List<String> newChain = getChain(joint, newChildToParent, new ArrayList<>());
-            System.out.println(
-                    OLD
-                            + " Removed "
-                            + "\t"
-                            + show(joint)
-                            + "\t"
-                            + IN
-                            + oldChain.stream().map(x -> show(x)).collect(Collectors.joining(IN)));
-            System.out.println(
-                    NEW
-                            + " Moved to "
-                            + "\t"
-                            + show(joint)
-                            + "\t"
-                            + IN
-                            + newChain.stream().map(x -> show(x)).collect(Collectors.joining(IN)));
+        for (LanguageStatus status : LanguageStatus.values()) {
+            for (String joint : changed) {
+                if (getStatusForLanguage(joint) != status) {
+                    continue;
+                }
+                List<String> oldChain = getChain(joint, oldChildToParent, new ArrayList<>());
+                List<String> newChain = getChain(joint, newChildToParent, new ArrayList<>());
+                System.out.println(
+                        JOIN_TAB.join(
+                                OLD + "-" + NEW,
+                                getStatusForLanguage(joint).abbr,
+                                show(joint),
+                                "Moved FROM",
+                                oldChain.stream().map(x -> show(x)).collect(Collectors.joining(IN)),
+                                "TO",
+                                newChain.stream()
+                                        .map(x -> show(x))
+                                        .collect(Collectors.joining(IN))));
+            }
         }
     }
 
     private static void checkAgainstReference(
-            String col1, String col2, Set<String> cldrLanguages, Set<String> oldSet) {
+            String version,
+            LanguageStatus languageStatus,
+            Set<String> cldrLanguages,
+            Set<String> oldSet) {
+        if (LanguageStatus.SKIP_MISSING.contains(languageStatus)) {
+            return;
+        }
         SetView<String> missing = Sets.difference(cldrLanguages, oldSet);
         if (!missing.isEmpty()) {
             System.out.println(
-                    col1
-                            + "\t"
-                            + col2
-                            + "\t"
-                            + missing.stream().map(x -> show(x)).collect(Collectors.joining(", ")));
+                    JOIN_TAB.join(
+                            version,
+                            languageStatus.abbr,
+                            "…",
+                            "Missing",
+                            missing.stream().map(x -> show(x)).collect(Collectors.joining(", "))));
         }
     }
 
@@ -159,23 +279,30 @@ public class DiffLanguageGroups {
         }
     }
 
-    static String show(String languageCode) {
-        return languageCode.equals("mul")
-                ? "Ω"
-                : ENGLISH.getName(CLDRFile.LANGUAGE_NAME, languageCode) + " ⁅" + languageCode + "⁆";
+    public static String show(String languageCode) {
+        return languageCode.equals("mul") ? "Ω" : getName(languageCode) + " ⁅" + languageCode + "⁆";
+    }
+
+    public static String getName(String languageCode) {
+        String result = ENGLISH.getName(CLDRFile.LANGUAGE_NAME, languageCode);
+        return result == null ? "(no name)" : result.replace(" (Other)", "");
     }
 
     public static void showErrors(String title, Multimap<String, String> oldErrors) {
-        for (Entry<String, Collection<String>> entry : oldErrors.asMap().entrySet()) {
-            System.out.println(
-                    title
-                            + " Multiple parents"
-                            + "\t"
-                            + show(entry.getKey())
-                            + "\t"
-                            + entry.getValue().stream()
-                                    .map(x -> show(x))
-                                    .collect(Collectors.joining(" 𝐯𝐬 ")));
+        for (LanguageStatus status : LanguageStatus.values()) {
+            for (Entry<String, Collection<String>> entry : oldErrors.asMap().entrySet()) {
+                if (getStatusForLanguage(entry.getKey()) != status) {
+                    continue;
+                }
+                System.out.println(
+                        formatMessage(
+                                title,
+                                entry.getKey(),
+                                "Multiple parents",
+                                entry.getValue().stream()
+                                        .map(x -> show(x))
+                                        .collect(Collectors.joining(" 𝐯𝐬 "))));
+            }
         }
     }
 
@@ -231,5 +358,10 @@ public class DiffLanguageGroups {
         List<String> children = SupplementalDataInfo.WHITESPACE_SPLTTER.splitToList(value);
         languageGroups.putAll(parent, children);
         return true;
+    }
+
+    static String formatMessage(String version, String language, String issue, String data) {
+        return JOIN_TAB.join(
+                version, getStatusForLanguage(language).abbr, show(language), issue, data);
     }
 }

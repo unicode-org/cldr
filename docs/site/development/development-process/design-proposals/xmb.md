@@ -171,4 +171,4 @@ other {# weeks}}}}</msg>
 - Figure out how to do the differences between HH and hh, etc.
     - Current thoughts: don't let the translator choose, but make it part of the xtb-cldr processing.
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)
+

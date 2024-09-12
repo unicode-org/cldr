@@ -26,6 +26,7 @@ import com.ibm.icu.text.SimpleFormatter;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Calendar;
+import com.ibm.icu.util.GregorianCalendar;
 import com.ibm.icu.util.Output;
 import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
@@ -169,6 +170,7 @@ public class ExampleGenerator {
     private static final Date DATE_SAMPLE2;
     private static final Date DATE_SAMPLE3;
     private static final Date DATE_SAMPLE4;
+    private static final Date DATE_SAMPLE5;
 
     static {
         Calendar calendar = Calendar.getInstance(ZONE_SAMPLE, ULocale.ENGLISH);
@@ -177,11 +179,13 @@ public class ExampleGenerator {
         DATE_SAMPLE = calendar.getTime();
         calendar.set(1999, 9, 27, 13, 25, 59); // 1999-10-27 13:25:59
         DATE_SAMPLE2 = calendar.getTime();
-
         calendar.set(1999, 8, 5, 7, 0, 0); // 1999-09-05 07:00:00
         DATE_SAMPLE3 = calendar.getTime();
         calendar.set(1999, 8, 5, 23, 0, 0); // 1999-09-05 23:00:00
         DATE_SAMPLE4 = calendar.getTime();
+
+        calendar.set(1999, 8, 5, 3, 25, 59); // 1999-09-05 03:25:59
+        DATE_SAMPLE5 = calendar.getTime();
     }
 
     static final List<DecimalQuantity> CURRENCY_SAMPLES =
@@ -273,6 +277,54 @@ public class ExampleGenerator {
     private final boolean isRTL;
 
     HelpMessages helpMessages;
+
+    /* For each calendar type, maps the closest two eras to 2025
+     * defined in that calendar to their corresponding start/end date.
+     * Dates are adjusted to be 2 days after official era start date and
+     * 2 days before era end date to avoid time zone issues.
+     * TODO: include methods for calendarData in supplementalDataInfo API
+     * to extract this data directly from supplementaldata.xml
+     */
+    public static final Map<String, List<Date>> CALENDAR_ERAS =
+            new HashMap<String, List<Date>>() {
+                { // month 0-indexed. start/end days adjusted by +/- 2, respectively
+                    put(
+                            "gregorian",
+                            List.of(
+                                    new GregorianCalendar(0, 11, 29).getTime(),
+                                    new GregorianCalendar(1, 0, 03).getTime()));
+                    put(
+                            "japanese",
+                            List.of(
+                                    new GregorianCalendar(1989, 0, 10).getTime(),
+                                    new GregorianCalendar(2019, 4, 3).getTime()));
+                    put("islamic", List.of(new GregorianCalendar(622, 6, 17).getTime()));
+                    put("chinese", List.of(new GregorianCalendar(-2636, 0, 03).getTime()));
+                    put("hebrew", List.of(new GregorianCalendar(-3760, 9, 9).getTime()));
+                    put("buddhist", List.of(new GregorianCalendar(-542, 0, 03).getTime()));
+                    put(
+                            "coptic",
+                            List.of(
+                                    new GregorianCalendar(284, 07, 26).getTime(),
+                                    new GregorianCalendar(284, 07, 31).getTime()));
+                    put("persian", List.of(new GregorianCalendar(622, 0, 03).getTime()));
+                    put("dangi", List.of(new GregorianCalendar(-2332, 0, 03).getTime()));
+                    put(
+                            "ethiopic",
+                            List.of(
+                                    new GregorianCalendar(8, 07, 26).getTime(),
+                                    new GregorianCalendar(8, 07, 31).getTime()));
+                    put(
+                            "ethiopic-amete-alem",
+                            List.of(new GregorianCalendar(-5492, 07, 27).getTime()));
+                    put("indian", List.of(new GregorianCalendar(79, 0, 03).getTime()));
+                    put(
+                            "roc",
+                            List.of(
+                                    new GregorianCalendar(1911, 11, 29).getTime(),
+                                    new GregorianCalendar(1912, 0, 03).getTime()));
+                }
+            };
 
     public CLDRFile getCldrFile() {
         return cldrFile;
@@ -484,6 +536,10 @@ public class ExampleGenerator {
             handleDisplayNames(xpath, parts, value, examples);
         } else if (parts.contains("currency")) {
             handleCurrency(xpath, parts, value, examples);
+        } else if (parts.contains("eras")) {
+            handleEras(parts, value, examples);
+        } else if (parts.contains("quarters")) {
+            handleQuarters(parts, value, examples);
         } else if (parts.contains("dayPeriods")) {
             handleDayPeriod(parts, value, examples);
         } else if (parts.contains("monthContext")) {
@@ -2600,7 +2656,6 @@ public class ExampleGenerator {
                 String numbersOverride = parts.findAttributeValue("pattern", "numbers");
                 SimpleDateFormat sdf =
                         icuServiceBuilder.getDateFormat(calendar, value, numbersOverride);
-                sdf.setTimeZone(ZONE_SAMPLE);
                 String defaultNumberingSystem =
                         cldrFile.getWinningValue("//ldml/numbers/defaultNumberingSystem");
                 String timeSeparator =
@@ -2612,6 +2667,7 @@ public class ExampleGenerator {
                 dfs.setTimeSeparatorString(timeSeparator);
                 sdf.setDateFormatSymbols(dfs);
                 if (id == null || id.indexOf('B') < 0) {
+                    sdf.setTimeZone(ZONE_SAMPLE);
                     // Standard date/time format, or availableFormat without dayPeriod
                     if (value.contains("MMM") || value.contains("LLL")) {
                         // alpha month, do not need context examples
@@ -2625,14 +2681,38 @@ public class ExampleGenerator {
                                                 + contextheader
                                                 + exampleEndSymbol
                                         : "";
-                        example = addExampleResult(sdf.format(DATE_SAMPLE), example, showContexts);
+                        String sup_twelve_example = sdf.format(DATE_SAMPLE);
+                        String sub_ten_example = sdf.format(DATE_SAMPLE5);
+                        example = addExampleResult(sup_twelve_example, example, showContexts);
+                        if (!sup_twelve_example.equals(sub_ten_example)) {
+                            example = addExampleResult(sub_ten_example, example, showContexts);
+                        }
                         examples.add(example);
                         return;
                     }
                 } else {
-                    examples.add(sdf.format(DATE_SAMPLE3));
-                    examples.add(sdf.format(DATE_SAMPLE));
-                    examples.add(sdf.format(DATE_SAMPLE4));
+                    DayPeriodInfo dayPeriodInfo =
+                            supplementalDataInfo.getDayPeriods(
+                                    DayPeriodInfo.Type.format, cldrFile.getLocaleID());
+                    Set<DayPeriod> dayPeriods =
+                            new LinkedHashSet<DayPeriod>(dayPeriodInfo.getPeriods());
+                    for (DayPeriod dayPeriod : dayPeriods) {
+                        if (dayPeriod.equals(
+                                DayPeriod.midnight)) { // suppress midnight, see ICU-12278 bug
+                            continue;
+                        }
+                        R3<Integer, Integer, Boolean> info =
+                                dayPeriodInfo.getFirstDayPeriodInfo(dayPeriod);
+                        if (info != null) {
+                            int time =
+                                    ((info.get0() + info.get1())
+                                            / 2); // dayPeriod endpoints overlap, midpoint to
+                            // disambiguate
+                            String formatted = sdf.format(time);
+                            examples.add(formatted);
+                        }
+                    }
+                    return;
                 }
             }
         }
@@ -2865,6 +2945,86 @@ public class ExampleGenerator {
                         value,
                         setBackground(dateFormat.format(DATE_SAMPLE)),
                         setBackground(dateFormat.format(DATE_SAMPLE2))));
+    }
+
+    /**
+     * Add examples for eras. First checks if there is info for this calendar type and this era type
+     * in the CALENDAR_ERAS map, then generates a sample date based on this info and formats it
+     */
+    private void handleEras(XPathParts parts, String value, List<String> examples) {
+        String calendarId = parts.getAttributeValue(3, "type");
+        String type = parts.getAttributeValue(-1, "type");
+        String id =
+                (calendarId.startsWith("islamic"))
+                        ? "islamic"
+                        : calendarId; // islamic variations map to same sample
+        if (!CALENDAR_ERAS.containsKey(id)) {
+            return;
+        }
+        int typeIndex = Integer.parseInt(type);
+        if (calendarId.equals("japanese")) {
+            if (typeIndex < 235) { // examples only for 2 most recent eras
+                return;
+            } else {
+                typeIndex %= 235; // map to length 2 list
+            }
+        }
+        List<Date> eraDates = CALENDAR_ERAS.get(id);
+        Date sample = eraDates.get(typeIndex);
+        String skeleton = "Gy";
+        String checkPath =
+                "//ldml/dates/calendars/calendar[@type=\""
+                        + calendarId
+                        + "\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\""
+                        + skeleton
+                        + "\"]";
+        String dateFormat = cldrFile.getWinningValue(checkPath);
+        SimpleDateFormat sdf = icuServiceBuilder.getDateFormat(calendarId, dateFormat);
+        DateFormatSymbols dfs = sdf.getDateFormatSymbols();
+        String[] eraNames = dfs.getEras();
+        eraNames[typeIndex] = value; // overwrite era to current value
+        dfs.setEras(eraNames);
+        sdf.setDateFormatSymbols(dfs);
+        examples.add(sdf.format(sample));
+    }
+
+    /**
+     * Add examples for quarters for the gregorian calendar, matching each quarter type (1, 2, 3, 4)
+     * to a corresponding sample month and formatting an example with that date
+     */
+    void handleQuarters(XPathParts parts, String value, List<String> examples) {
+        String calendarId = parts.getAttributeValue(3, "type");
+        if (!calendarId.equals("gregorian")) {
+            return;
+        }
+        String width = parts.findAttributeValue("quarterWidth", "type");
+        if (width.equals("narrow")) {
+            return;
+        }
+        String context = parts.findAttributeValue("quarterContext", "type");
+        String type = parts.getAttributeValue(-1, "type"); // 1-indexed
+        int quarterIndex = Integer.parseInt(type) - 1;
+        String skeleton = (width.equals("wide")) ? "yQQQQ" : "yQQQ";
+        String checkPath =
+                "//ldml/dates/calendars/calendar[@type=\""
+                        + calendarId
+                        + "\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\""
+                        + skeleton
+                        + "\"]";
+        String dateFormat = cldrFile.getWinningValue(checkPath);
+        SimpleDateFormat sdf = icuServiceBuilder.getDateFormat(calendarId, dateFormat);
+        DateFormatSymbols dfs = sdf.getDateFormatSymbols();
+        int widthVal = width.equals("abbreviated") ? 0 : 1;
+        String[] quarterNames = dfs.getQuarters(0, widthVal); // 0 for formatting
+        quarterNames[quarterIndex] = value;
+        dfs.setQuarters(quarterNames, 0, widthVal);
+        sdf.setDateFormatSymbols(dfs);
+        sdf.setTimeZone(ZONE_SAMPLE);
+        final int[] monthSamples = new int[] {1, 4, 7, 10}; // {feb, may, oct, nov}
+        int month = monthSamples[quarterIndex];
+        calendar.set(1999, month, 5, 13, 25, 59);
+        Date sample = calendar.getTime();
+        examples.add(sdf.format(sample));
     }
 
     /**

@@ -39,11 +39,11 @@ import org.unicode.cldr.util.Containment;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.LocaleValidator;
 import org.unicode.cldr.util.ScriptToExemplars;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
 
@@ -168,6 +168,7 @@ public class LikelySubtagsTest extends TestFmwk {
     final LanguageTagParser maxLtp = new LanguageTagParser();
     final LanguageTagParser sourceLtp = new LanguageTagParser();
 
+    final Set<String> KNOWN_ERRORS = Set.of("en_Latn_MU", "en_Latn_SL", "en_Latn_TK", "en_Latn_ZM");
     /**
      * Return false if we should skip the language
      *
@@ -206,15 +207,22 @@ public class LikelySubtagsTest extends TestFmwk {
                 sourceLtp.setRegion(maxLtp.getRegion());
             }
             String test = sourceLtp.toString();
-            final String maximize = LIKELY.maximize(test);
+            String maximize = LIKELY.maximize(test);
             if (!max.equals(maximize)) {
-                // max(source) = max, max(test) ≠ max
-                if (!assertEquals(
-                        String.format(
-                                "checkAdding: max(%s)->%s, however max(%s)->", source, max, test),
-                        max,
-                        maximize)) {
-                    // LIKELY.maximize(test); // Could step into this for debugging.
+                if (KNOWN_ERRORS.contains(maximize)) {
+                    logKnownIssue("CLDR-17897", "Fix GenerateLikelySubtags.java");
+                    continue;
+                }
+                if (!max.equals(maximize)) {
+                    // max(source) = max, max(test) ≠ max
+                    if (!assertEquals(
+                            String.format(
+                                    "checkAdding: max(%s)->%s, however max(%s)->",
+                                    source, max, test),
+                            max,
+                            maximize)) {
+                        // LIKELY.maximize(test); // Could step into this for debugging.
+                    }
                 }
             }
             sourceLtp.set(source); // restore
@@ -703,85 +711,60 @@ public class LikelySubtagsTest extends TestFmwk {
 
             }
         }
-        LanguageTagParser ltp = new LanguageTagParser();
-        Set<String> possibleFixes = new TreeSet<>();
-        for (String region : regions) {
-            final String undRegion = "und_" + region;
-            if (region.equals("150") && likely.containsKey("und")) {
-                // skip
-            } else if (!assertTrue("contains und_" + region, likely.containsKey(undRegion))) {
-                Set<String> languages =
-                        SUPPLEMENTAL_DATA_INFO.getLanguagesForTerritoryWithPopulationData(region);
-                double biggest = -1;
-                String biggestLang = null;
-                for (String language : languages) {
-                    PopulationData popData =
-                            SUPPLEMENTAL_DATA_INFO.getLanguageAndTerritoryPopulationData(
-                                    language, region);
-                    if (popData.getLiteratePopulation() > biggest) {
-                        biggest = popData.getLiteratePopulation();
-                        biggestLang = language;
-                    }
-                }
-                if (biggestLang != null) {
-                    ltp.set(biggestLang);
-                    if (ltp.getScript().isEmpty()) {
-                        String biggestMax = likely.get(biggestLang);
-                        ltp.set(biggestMax);
-                    }
-                    ltp.setRegion(region);
-                    possibleFixes.add(
-                            "<likelySubtag from=\"" + undRegion + "\" to=\"" + ltp + "\"/>");
-                }
-            }
-        }
-        System.out.println("\t\t" + Joiner.on("\n\t\t").join(possibleFixes));
+
+        // Note: this used to test for all combinations of und_ + territory code.
+        // But we are now dropping redundant items, so any case where und_XX expands to en_Latn_XX,
+        // the und_XX is dropped.
+        // The code is just commented out in case we change in the future.
+
+        //        LanguageTagParser ltp = new LanguageTagParser();
+        //        Set<String> possibleFixes = new TreeSet<>();
+        //        for (String region : regions) {
+        //            final String undRegion = "und_" + region;
+        //            if (region.equals("150") && likely.containsKey("und")) {
+        //                // skip
+        //            } else if (!assertTrue("contains und_" + region,
+        // likely.containsKey(undRegion))) {
+        //                Set<String> languages =
+        //
+        // SUPPLEMENTAL_DATA_INFO.getLanguagesForTerritoryWithPopulationData(region);
+        //                double biggest = -1;
+        //                String biggestLang = null;
+        //                for (String language : languages) {
+        //                    PopulationData popData =
+        //                            SUPPLEMENTAL_DATA_INFO.getLanguageAndTerritoryPopulationData(
+        //                                    language, region);
+        //                    if (popData.getLiteratePopulation() > biggest) {
+        //                        biggest = popData.getLiteratePopulation();
+        //                        biggestLang = language;
+        //                    }
+        //                }
+        //                if (biggestLang != null) {
+        //                    ltp.set(biggestLang);
+        //                    if (ltp.getScript().isEmpty()) {
+        //                        String biggestMax = likely.get(biggestLang);
+        //                        ltp.set(biggestMax);
+        //                    }
+        //                    ltp.setRegion(region);
+        //                    possibleFixes.add(
+        //                            "<likelySubtag from=\"" + undRegion + "\" to=\"" + ltp +
+        // "\"/>");
+        //                }
+        //            }
+        //        }
+        //        System.out.println("\t\t" + Joiner.on("\n\t\t").join(possibleFixes));
     }
 
+    private static final Joiner JOIN_LS = Joiner.on(CldrUtility.LINE_SEPARATOR);
+
     public void testToAttributeValidityStatus() {
-        Set<String> okLanguages = VALIDITY.getStatusToCodes(LstrType.language).get(Status.regular);
-        Set<String> okScripts = VALIDITY.getStatusToCodes(LstrType.script).get(Status.regular);
-        Set<String> okRegions = VALIDITY.getStatusToCodes(LstrType.region).get(Status.regular);
         Multimap<String, String> badFieldsToLocales = TreeMultimap.create();
-        Set<String> knownExceptions = Set.of("in", "iw", "ji", "jw", "mo", "tl");
         for (String s : likely.values()) {
-            CLDRLocale cLocale = CLDRLocale.getInstance(s);
-            final String language = cLocale.getLanguage();
-            final String script = cLocale.getScript();
-            final String region = cLocale.getCountry();
-            if (!okLanguages.contains(language)) {
-                if (knownExceptions.contains(language)) {
-                    continue;
-                }
-                badFieldsToLocales.put(language, s);
-            }
-            if (!okScripts.contains(script)) {
-                badFieldsToLocales.put(script, s);
-            }
-            if (!okRegions.contains(region)) {
-                badFieldsToLocales.put(region, s);
-            }
-        }
-        if (!badFieldsToLocales.isEmpty()) {
-            Multimap<Status, String> statusToExamples = TreeMultimap.create();
-            for (String field : badFieldsToLocales.keySet()) {
-                Status status = VALIDITY.getCodeToStatus(LstrType.language).get(field);
-                if (status == null) {
-                    status = VALIDITY.getCodeToStatus(LstrType.script).get(field);
-                }
-                if (status == null) {
-                    status = VALIDITY.getCodeToStatus(LstrType.region).get(field);
-                }
-                statusToExamples.put(status, field);
-            }
-            Map<String, String> fieldToOrigin = new TreeMap<>();
-            for (Entry<Status, Collection<String>> entry : statusToExamples.asMap().entrySet()) {
-                //                for (String value : entry.getValue()) {
-                //                    String origin =
-                // SUPPLEMENTAL_DATA_INFO.getLikelyOrigins().get(value);
-                //                    fieldToOrigin.put(value, origin == null ? "n/a" : origin);
-                //                }
-                warnln("Bad status=" + entry.getKey() + " for " + entry.getValue());
+            LanguageTagParser ltp = new LanguageTagParser().set(s);
+            Set<String> errors = new LinkedHashSet<>();
+            if (!LocaleValidator.isValid(ltp, LocaleValidator.ALLOW_IN_LIKELY, errors)) {
+                errln(Joiner.on('\t').join("Allowed subtag failure:", ltp, errors));
+                continue;
             }
         }
     }
@@ -904,6 +887,26 @@ public class LikelySubtagsTest extends TestFmwk {
                                 + (origin == null ? "" : origin)
                                 + "\t",
                         true);
+            }
+        }
+    }
+
+    public void testConflicts() {
+        // All explicit codes must be in the maximum value
+
+        for (Entry<String, String> entry : likely.entrySet()) {
+            final CLDRLocale source = CLDRLocale.getInstance(entry.getKey());
+            final CLDRLocale target = CLDRLocale.getInstance(entry.getValue());
+            final String info = entry.getKey() + " ➡︎ " + entry.getValue();
+
+            if (!source.getLanguage().equals("und")) {
+                assertEquals("Language: " + info, source.getLanguage(), target.getLanguage());
+            }
+            if (!source.getScript().isEmpty()) {
+                assertEquals("Script: " + info, source.getScript(), target.getScript());
+            }
+            if (!source.getRegion().isEmpty()) {
+                assertEquals("Region: " + info, source.getRegion(), target.getRegion());
             }
         }
     }

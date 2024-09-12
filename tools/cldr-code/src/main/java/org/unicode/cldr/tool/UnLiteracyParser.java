@@ -180,9 +180,17 @@ public class UnLiteracyParser extends XMLFileReader.SimpleHandler {
             throw new IllegalArgumentException(
                     "Inconsistent reliability " + reliability + " for " + thisRecord);
         }
-        final Long old = pa.perLiteracy.put(literacy, getLongValue());
-        if (old != null) {
-            System.err.println("Duplicate record " + country + " " + year + " " + age);
+        final Long new_value = getLongValue();
+        final Long old_value = pa.perLiteracy.put(literacy, new_value);
+        if (old_value != null) {
+            // Suriname is known to include duplicate records, 1 normal and 1 "Excluding the
+            // institutional population"
+            // Resolve this by taking higher value
+            if (country.equals("Suriname")) {
+                pa.perLiteracy.put(literacy, Math.max(old_value, new_value));
+            } else {
+                System.err.println("Duplicate record " + country + " " + year + " " + age);
+            }
         }
     }
 

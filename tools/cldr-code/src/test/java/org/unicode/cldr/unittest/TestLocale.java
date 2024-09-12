@@ -900,14 +900,6 @@ public class TestLocale extends TestFmwkPlus {
 
         // likely subtags
 
-        LocaleValidator.AllowedValid allow001 =
-                new LocaleValidator.AllowedValid(
-                        null,
-                        LstrType.region,
-                        new LocaleValidator.AllowedMatch("001|419"),
-                        LstrType.language,
-                        new LocaleValidator.AllowedMatch("und|in|iw|ji|jw|mo|tl"));
-
         Map<String, String> exceptions =
                 Map.of(
                         //                "und_QO", "Disallowed region=QO, status=macroregion"
@@ -918,13 +910,13 @@ public class TestLocale extends TestFmwkPlus {
             final String value = entry.getValue();
 
             String expected = CldrUtility.ifNull(exceptions.get(key), "");
-            LocaleValidator.isValid(ltp.set(key), allow001, errors);
+            LocaleValidator.isValid(ltp.set(key), LocaleValidator.ALLOW_IN_LIKELY, errors);
             assertEquals(key, expected, Joiner.on("; ").join(errors));
             if (!expected.isEmpty()) {
                 warnln("Likely subtags, skipping " + ltp + ", " + expected);
             }
 
-            LocaleValidator.isValid(ltp.set(value), allow001, errors);
+            LocaleValidator.isValid(ltp.set(value), LocaleValidator.ALLOW_IN_LIKELY, errors);
             assertEquals(value, "", Joiner.on("; ").join(errors));
         }
 

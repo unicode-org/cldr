@@ -16,15 +16,15 @@ For CLDR purposes, the language data focus on the usefulness with computer inter
 
 Requests to add or change language/population data must provide the following basic information:
 
-- language name    
-- 2 or 3-letter language code    
-- applicable country/region name    
-- applicable country/region code  
-- official status (and justification)    
-- language population in the region    
-- literacy in the language, where possible    
+- language name
+- 2 or 3-letter language code
+- applicable country/region name
+- applicable country/region code
+- official status (and justification)
+- language population in the region
+- literacy in the language, where possible
 - links to reliable sources for population/literacy data
-    
+
 
 Reliable sources for population data and official status are required for population updates and additions. While [Ethnologue](https://www.google.com/url?q=https%3A%2F%2Fwww.ethnologue.com%2F&sa=D&sntz=1&usg=AOvVaw02Rajsyksb8nOu8MESVtKi) may be a good source for "mother tongue" or native speaker data for more common languages, it is not a sufficient source on its own for population data on most languages. Recent government or NGO-sponsored census data are typically better sources.
 
@@ -42,4 +42,3 @@ http://unicode.org/cldr/trac/ticket/9609
 
 http://unicode.org/cldr/trac/ticket/9601#comment:2
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

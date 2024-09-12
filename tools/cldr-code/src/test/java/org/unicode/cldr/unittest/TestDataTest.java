@@ -2,8 +2,8 @@ package org.unicode.cldr.unittest;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
+import com.ibm.icu.util.ICUUncheckedIOException;
 import java.io.IOException;
-import java.io.UncheckedIOException;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -14,18 +14,36 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
+import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.personname.PersonNameFormatter;
 import org.unicode.cldr.util.personname.PersonNameFormatter.FormatParameters;
 import org.unicode.cldr.util.personname.SimpleNameObject;
 
+/**
+ * Check that all of the test data files (in common/testData) are themselves tested in CLDR.
+ *
+ * <ul>
+ *   <li>Call skipFile(name) when processing each file, to skip files that shouldn't be processed
+ *   <li>Otherwise, add the files to FILES_CHECKED, so that the final test can check that all files
+ *       are processed.
+ *   <li>For debugging, you can set TestDataTest:SHOW_PROGRESS to see the progress.
+ *   <li>You can set TestDataTest:FILE_FILTER to just focus on particular files.
+ * </ul>
+ */
 public class TestDataTest extends TestFmwkPlus {
-
     static final boolean SHOW_PROGRESS = System.getProperty("TestDataTest:SHOW_PROGRESS") != null;
-    static final String FILE_FILTER = System.getProperty("TestDataTest:FILE_FILTER");
+    static final Pattern FILE_FILTER;
+
+    static {
+        String prop = System.getProperty("TestDataTest:FILE_FILTER");
+        FILE_FILTER = prop == null ? null : Pattern.compile(prop);
+    }
 
     private static final String TEST_DATA_DIR = CLDRPaths.COMMON_DIRECTORY + "testData/";
 
@@ -33,11 +51,26 @@ public class TestDataTest extends TestFmwkPlus {
     static Factory FACTORY = testInfo.getCldrFactory();
     private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO =
             testInfo.getSupplementalDataInfo();
+
     static final Splitter SEMI_SPLIT = Splitter.on(';').trimResults();
     static final Splitter COMMA_SPLIT = Splitter.on(',').trimResults();
 
     public static void main(String[] args) {
         new TestDataTest().run(args);
+    }
+
+    /** Call this when processing files, and skip if null (which will be doc files, etc) */
+    public String getFileName(Path filePath) {
+        String name = filePath.toFile().getName();
+        final boolean skip =
+                name.startsWith("_")
+                        || name.startsWith(".")
+                        || name.endsWith(".md")
+                        || (FILE_FILTER != null && !FILE_FILTER.matcher(name).matches());
+        if (!skip && SHOW_PROGRESS) {
+            System.out.println(filePath);
+        }
+        return skip ? null : name;
     }
 
     /** List of directories in testData/ that are tested. Each test adds the ones it handles. */
@@ -48,21 +81,18 @@ public class TestDataTest extends TestFmwkPlus {
         if (SHOW_PROGRESS) {
             System.out.println();
         }
-        Path PERSON_NAMES_DIR = Paths.get(TEST_DATA_DIR + "personNameTest");
+        Path PERSON_NAMES_DIR = Paths.get(TEST_DATA_DIR, "personNameTest");
         try (DirectoryStream<Path> filepath = Files.newDirectoryStream(PERSON_NAMES_DIR)) {
             filepath.forEach(x -> checkPersonNameTests(x));
         } catch (IOException e) {
-            throw new UncheckedIOException(e);
+            throw new ICUUncheckedIOException(e);
         }
         FILES_CHECKED.add(PERSON_NAMES_DIR);
     }
 
     private void checkPersonNameTests(Path filePath) {
-        String name = filePath.toFile().getName();
-        if (name.startsWith("_") || !name.endsWith(".txt")) {
-            return;
-        }
-        if (FILE_FILTER != null && !Pattern.compile(FILE_FILTER).matcher(name).matches()) {
+        String name = getFileName(filePath);
+        if (name == null) {
             return;
         }
         String localeId = name.substring(0, name.length() - 4);
@@ -217,13 +247,23 @@ public class TestDataTest extends TestFmwkPlus {
         try (DirectoryStream<Path> filepath = Files.newDirectoryStream(Paths.get(TEST_DATA_DIR))) {
             filepath.forEach(x -> checkDirectories(x, missing));
         } catch (IOException e) {
-            throw new UncheckedIOException(e);
+            throw new ICUUncheckedIOException(e);
         }
         // TODO once we get full tests, turn this on
         //        if (!assertEquals("Files all tested", 0, missing.size())) {
         //            warnln("\n\t" + Joiner.on("\n\t").join(missing));
         //        }
-        warnln("Files or Directories missing tests:\n\t" + Joiner.on("\n\t").join(missing));
+        if (!missing.isEmpty()) {
+            if (logKnownIssue("CLDR-17910", "Missing tests for files in common/testData/")) {
+                warnln("Files or Directories missing tests:\n\t" + Joiner.on("\n\t").join(missing));
+            } else {
+                errln("Files or Directories missing tests:\n\t" + Joiner.on("\n\t").join(missing));
+            }
+        } else if (FILE_FILTER != null) {
+            warnln(
+                    "Files or Directories missing tests are not checked unless they match the filter: "
+                            + FILE_FILTER.pattern());
+        }
     }
 
     /**
@@ -231,8 +271,8 @@ public class TestDataTest extends TestFmwkPlus {
      * what is missing, we can stop at directories that are not in FILES_CHECKED.
      */
     private void checkDirectories(Path filepath, Set<Path> missing) {
-        final String name = filepath.getFileName().toString();
-        if (name.startsWith(".") || name.startsWith("_")) {
+        String name = getFileName(filepath);
+        if (name == null) {
             return;
         }
         if (FILES_CHECKED.contains(filepath)) {
@@ -241,11 +281,86 @@ public class TestDataTest extends TestFmwkPlus {
                 try (DirectoryStream<Path> filepath2 = Files.newDirectoryStream(filepath)) {
                     filepath2.forEach(x -> checkDirectories(x, missing));
                 } catch (IOException e) {
-                    throw new UncheckedIOException(e);
+                    throw new ICUUncheckedIOException(e);
                 }
             }
         } else {
             missing.add(filepath);
         }
+    }
+
+    public void testLikelySubtags() {
+        if (SHOW_PROGRESS) {
+            System.out.println();
+        }
+        Path likelySubtagsPath = Paths.get(TEST_DATA_DIR, "localeIdentifiers", "likelySubtags.txt");
+        LikelySubtags likelyFavorRegion =
+                new LikelySubtags(SUPPLEMENTAL_DATA_INFO.getLikelySubtags()).setFavorRegion(true);
+        LikelySubtags likelyFavorScript =
+                new LikelySubtags(SUPPLEMENTAL_DATA_INFO.getLikelySubtags()).setFavorRegion(false);
+
+        String name = getFileName(likelySubtagsPath);
+        if (name == null) {
+            return;
+        }
+        try {
+            // # Source ;   AddLikely ; RemoveFavorScript ; RemoveFavorRegion
+            Files.lines(likelySubtagsPath)
+                    .forEach(line -> checkLikely(likelyFavorRegion, likelyFavorScript, line));
+            FILES_CHECKED.add(likelySubtagsPath);
+        } catch (Exception e) {
+            errln(e.getMessage());
+        }
+    }
+
+    private void checkLikely(
+            LikelySubtags likelyFavorRegion, LikelySubtags likelyFavorScript, String line) {
+        // # Source ;   AddLikely ; RemoveFavorScript ; RemoveFavorRegion
+        if (line.isBlank() || line.startsWith("#")) {
+            return;
+        }
+        List<String> parts = SEMI_SPLIT.splitToList(line);
+        if (parts.size() != 4) {
+            errln("Too few items on line: " + line);
+        }
+        /*
+        #   AddLikely: the result of the Add Likely Subtags.
+        #                      If Add Likely Subtags fails, then “FAIL”.
+        #   RemoveFavorScript: Remove Likely Subtags, when the script is favored.
+        #                      Only included when different than AddLikely.
+        #   RemoveFavorRegion: Remove Likely Subtags, when the region is favored.
+        #                      Only included when different than RemoveFavorScript.
+
+                 */
+        String source = parts.get(0);
+        final String expectedMax = parts.get(1);
+
+        // if the maxLang is empty, we have no data for the language
+        String lang = CLDRLocale.getInstance(source.replace('-', '_')).getLanguage();
+        String maxLang = likelyFavorScript.maximize(lang);
+        final boolean fails = maxLang == null;
+
+        final String maximized = fails ? null : likelyFavorScript.maximize(source);
+        final String minimizedFavorRegion = fails ? null : likelyFavorRegion.minimize(source);
+        final String minimizedFavorScript = fails ? null : likelyFavorScript.minimize(source);
+
+        assertEquals("Maximizing " + source, expectedMax, checkNullAndFix(maximized));
+
+        final String expectedMinFavorScript = CldrUtility.ifEqual(parts.get(2), "", expectedMax);
+        assertEquals(
+                "Minimizing (favor script) " + source,
+                expectedMinFavorScript,
+                checkNullAndFix(minimizedFavorScript));
+
+        final String expectedMinFavorRegion =
+                CldrUtility.ifEqual(parts.get(3), "", expectedMinFavorScript);
+        assertEquals(
+                "Minimizing (favor region) " + source,
+                expectedMinFavorRegion,
+                checkNullAndFix(minimizedFavorRegion));
+    }
+
+    public String checkNullAndFix(final String likelyResult) {
+        return likelyResult == null ? "FAIL" : likelyResult.replace('_', '-');
     }
 }

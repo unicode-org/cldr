@@ -22,6 +22,15 @@ import org.unicode.cldr.util.StandardCodes.LstrType;
 public class LocaleValidator {
     static final SupplementalDataInfo SDI = SupplementalDataInfo.getInstance();
 
+    /** For backwards compatibility, certain non-regular codes are allowed in LikelySubtags. */
+    public static final LocaleValidator.AllowedValid ALLOW_IN_LIKELY =
+            new LocaleValidator.AllowedValid(
+                    null,
+                    LstrType.region,
+                    new LocaleValidator.AllowedMatch("001|419"),
+                    LstrType.language,
+                    new LocaleValidator.AllowedMatch("und|in|iw|ji|jw|mo|tl"));
+
     static final Validity VALIDITY = Validity.getInstance();
     static final Set<LstrType> FIELD_ALLOWS_EMPTY = Set.of(LstrType.script, LstrType.region);
     // Map<LstrType, Map<String, Map<LstrField, String>>>
@@ -100,18 +109,21 @@ public class LocaleValidator {
         private final Set<Validity.Status> allowedStatus; // allowed without exception
         private final Multimap<LstrType, AllowedMatch> allowedExceptions;
 
-        boolean isAllowed(Validity.Status status) {
+        public boolean isAllowed(Validity.Status status) {
             return allowedStatus.contains(status);
         }
 
         /** Only called if isAllowed is not true */
-        boolean isAllowed(LstrType lstrType, String key, String value, Validity.Status status) {
+        public boolean isAllowed(
+                LstrType lstrType, String key, String value, Validity.Status status) {
             Collection<AllowedMatch> allowedMatches = allowedExceptions.get(lstrType);
             if (allowedMatches == null) {
                 return false;
             }
             for (AllowedMatch allowedMatch : allowedMatches) {
-                if (allowedMatch.matches(key, value, status)) return true;
+                if (allowedMatch.matches(key, value, status)) {
+                    return true;
+                }
             }
             return false;
         }

@@ -32,6 +32,7 @@ import org.unicode.cldr.web.Dashboard;
 import org.unicode.cldr.web.DataPage;
 import org.unicode.cldr.web.SubtypeToURLMap;
 import org.unicode.cldr.web.SurveyForum;
+import org.unicode.cldr.web.UserRegistry.ModifyDenial;
 import org.unicode.cldr.web.api.VoteAPIHelper.VoteEntry;
 
 @Path("/voting")
@@ -302,7 +303,8 @@ public class VoteAPI {
                         description = "Authorization required, send a valid session id"),
                 @APIResponse(
                         responseCode = "403",
-                        description = "Forbidden, no access to make this vote"),
+                        description =
+                                "Forbidden, no access to make this vote (also used when CLA not signed)"),
                 @APIResponse(
                         responseCode = "500",
                         description = "Internal Server Error",
@@ -331,6 +333,12 @@ public class VoteAPI {
         final String xp = CookieSession.sm.xpt.getByStringID(xpstrid);
         if (xp == null) {
             return Response.status(Response.Status.NOT_FOUND).build(); // no XPath found
+        }
+        if (!mySession.user.claSigned) {
+            return Response.status(
+                            Response.Status.FORBIDDEN.getStatusCode(),
+                            ModifyDenial.DENY_CLA_NOT_SIGNED.getReason())
+                    .build();
         }
         return VoteAPIHelper.handleVote(
                 loc,

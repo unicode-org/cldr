@@ -15,7 +15,6 @@ import com.ibm.icu.text.UnicodeFilter;
 import com.ibm.icu.util.ICUUncheckedIOException;
 import java.io.File;
 import java.io.IOException;
-import java.io.UncheckedIOException;
 import java.io.Writer;
 import java.util.Arrays;
 import java.util.Collection;
@@ -927,7 +926,7 @@ public class CLDRTransforms {
                 }
             }
         } catch (IOException e) {
-            throw new UncheckedIOException(e);
+            throw new ICUUncheckedIOException(e);
         }
         return output;
     }

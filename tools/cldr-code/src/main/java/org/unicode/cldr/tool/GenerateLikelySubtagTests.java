@@ -6,24 +6,29 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import org.unicode.cldr.draft.FileUtilities;
-import org.unicode.cldr.tool.GenerateMaximalLocales.OutputStyle;
+import org.unicode.cldr.tool.GenerateLikelySubtags.OutputStyle;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
+@Deprecated
 public class GenerateLikelySubtagTests {
     private static final String SEPARATOR = CldrUtility.LINE_SEPARATOR;
     private static final OutputStyle OUTPUT_STYLE = OutputStyle.XML;
     private static PrintWriter out;
+    private static CLDRConfig CONFIG = CLDRConfig.getInstance();
+    private static CLDRFile ENGLISH = CONFIG.getEnglish();
 
     private static final String VERSION = CLDRFile.GEN_VERSION;
 
     public static void main(String[] args) throws IOException {
         if (true) {
             throw new IllegalArgumentException(
-                    "This tool should not be used in its current state.");
+                    "Deprecated — it appears that we don't need this, but keeping until we are sure.");
         }
         out =
                 FileUtilities.openUTF8Writer(
@@ -133,7 +138,7 @@ public class GenerateLikelySubtagTests {
     }
 
     private static String printNameOrError(final String maxFrom) {
-        String result = GenerateMaximalLocales.printingName(maxFrom, "");
+        String result = printingName(maxFrom, "");
         if (result == null) {
             return "ERROR";
         }
@@ -141,7 +146,7 @@ public class GenerateLikelySubtagTests {
     }
 
     private static String getNameOrError(final String from) {
-        String result = GenerateMaximalLocales.toAlt(from, true);
+        String result = toAlt(from, true);
         if (result == null) {
             return "ERROR";
         }
@@ -154,5 +159,59 @@ public class GenerateLikelySubtagTests {
             return null;
         }
         return "\"" + toAlt + "\"";
+    }
+
+    private static final String[][] ALT_REVERSAL = {
+        // { "no", "nb" },
+        // { "nb", "no" },
+        {"he", "iw"},
+        {"iw", "he"},
+    };
+
+    public static String toAlt(String locale, boolean change) {
+        if (!change || locale == null) {
+            return locale;
+        }
+        String firstTag = getFirstTag(locale);
+        for (String[] pair : ALT_REVERSAL) {
+            if (firstTag.equals(pair[0])) {
+                locale = pair[1] + locale.substring(pair[1].length());
+                break;
+            }
+        }
+        locale = locale.replace("_", "-");
+        return locale;
+    }
+
+    private static String getFirstTag(String locale) {
+        int pos = locale.indexOf('_');
+        return pos < 0 ? locale : locale.substring(0, pos);
+    }
+
+    public static String printingName(String locale, String spacing) {
+        if (locale == null) {
+            return null;
+        }
+        LanguageTagParser parser = new LanguageTagParser().set(locale);
+        String lang = parser.getLanguage();
+        String script = parser.getScript();
+        String region = parser.getRegion();
+        return "{"
+                + spacing
+                + (lang.equals(LocaleNames.UND)
+                        ? "?"
+                        : ENGLISH.getName(CLDRFile.LANGUAGE_NAME, lang))
+                + ";"
+                + spacing
+                + (script == null || script.equals("")
+                        ? "?"
+                        : ENGLISH.getName(CLDRFile.SCRIPT_NAME, script))
+                + ";"
+                + spacing
+                + (region == null || region.equals("")
+                        ? "?"
+                        : ENGLISH.getName(CLDRFile.TERRITORY_NAME, region))
+                + spacing
+                + "}";
     }
 }

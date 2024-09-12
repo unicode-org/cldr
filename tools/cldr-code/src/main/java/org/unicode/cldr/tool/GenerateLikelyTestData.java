@@ -59,9 +59,6 @@ public class GenerateLikelyTestData {
             Set<String> testCases = getTestCases(data);
 
             for (String testRaw : testCases) {
-                if (testRaw.startsWith("qaa")) {
-                    int debug = 0;
-                }
                 final CLDRLocale source = CLDRLocale.getInstance(testRaw);
                 final String test = source.toLanguageTag();
 

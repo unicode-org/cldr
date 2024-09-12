@@ -39,4 +39,3 @@ If your standard translation of the language name already puts the family name f
 
 Some languages may have other variant forms. For example, “ckb” may in English be called “Central Kurdish” or “Sorani Kurdish”; the former is used as the standard name for English, and the latter is the variant. In other languages the equivalent of “Sorani Kurdish” may be used as the standard name; if there is also an equivalent for “Central Kurdish” it may be supplied as the variant. If there is only one form in your language, please use it for both the standard and the variant form.
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

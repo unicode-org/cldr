@@ -39,4 +39,3 @@ Thinking about this some more (and discussing with others at Apple), what we rea
 - The normal Polish collator makes primary-level distinctions among certain accented characters and vs the baseform without accent. For search we do not want these distinctions; we want something like default UCA behavior for Latin letters. If Polish does not provide a search collator, then requesting a search variant for Polish collation will fall back to the root search collator, which would provide the desired search behavior for Polish.
 - (more to be provided)
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

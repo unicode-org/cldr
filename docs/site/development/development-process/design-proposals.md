@@ -114,4 +114,3 @@ In each proposal, please add a header and a TOC if it is longer than a page. You
 
 [XMB](https://cldr.unicode.org/development/development-process/design-proposals/xmb)
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

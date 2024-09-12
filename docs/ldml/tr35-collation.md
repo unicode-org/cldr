@@ -229,34 +229,17 @@ Starting with CLDR 1.9, CLDR uses modified tables for the root collation order. 
 
 ### <a name="grouping_classes_of_characters" href="#grouping_classes_of_characters">Grouping classes of characters</a>
 
-As of Version 6.1.0, the DUCET puts characters into the following ordering:
+CLDR groups the characters that sort below letters like this: Whitespace, punctuation, general symbols, currency symbols, and numbers. Letters are grouped by script.
 
-* First "common characters": whitespace, punctuation, general symbols, some numbers, currency symbols, and other numbers.
-* Then "script characters": Latin, Greek, and the rest of the scripts.
+Users can parametrically reorder the groups. (The CLDR data adds special values to mark their boundaries.) For example, users can reorder numbers after all scripts, or reorder Greek before Latin. See [Collation Reordering](#Script_Reordering) for details.
 
-(There are a few exceptions to this general ordering.)
-
-The CLDR root locale modifies the DUCET tailoring by ordering the common characters more strictly by category:
-
-* whitespace, punctuation, general symbols, currency symbols, and numbers.
-
-What the regrouping allows is for users to parametrically reorder the groups. For example, users can reorder numbers after all scripts, or reorder Greek before Latin.
-
-The relative order within each of these groups still matches the DUCET. Symbols, punctuation, and numbers that are grouped with a particular script stay with that script. The differences between CLDR and the DUCET order are:
-
-1. CLDR groups the numbers together after currency symbols, instead of splitting them with some before and some after. Thus the following are put _after_ currencies and just before all the other numbers.
-
-    U+09F4 ( ৴ ) [No] BENGALI CURRENCY NUMERATOR ONE
-    ...
-    U+1D371 ( 𝍱 ) [No] COUNTING ROD TENS DIGIT NINE
-
-2. CLDR handles a few other characters differently
-   1. U+10A7F ( 𐩿 ) [Po] OLD SOUTH ARABIAN NUMERIC INDICATOR is put with punctuation, not symbols
-   2. U+20A8 ( ₨ ) [Sc] RUPEE SIGN and U+FDFC ( ﷼ ) [Sc] RIAL SIGN are put with currency signs, not with R and REH.
+Starting with CLDR 46 and Unicode 16.0, the _order_ of characters in the CLDR root collation is the same as in the UCA DUCET (except for the CLDR addition of ten Tibetan contractions, see below). In earlier versions, the order of some below-letter characters differed, and CLDR had also tailored some currency symbols. Both sort orders have been changed to now sort the same.
 
 ### <a name="non_variable_symbols" href="#non_variable_symbols">Non-variable symbols</a>
 
-There are multiple [Variable-Weighting](https://www.unicode.org/reports/tr10/#Variable_Weighting) options in the UCA for symbols and punctuation, including _non-ignorable_ and _shifted_. With the _shifted_ option, almost all symbols and punctuation are ignored—except at a fourth level. The CLDR root locale ordering is modified so that symbols are not affected by the _shifted_ option. That is, by default, symbols are not “variable” in CLDR. So _shifted_ only causes whitespace and punctuation to be ignored, but not symbols (like ♥). The DUCET behavior can be specified with a locale ID using the "kv" keyword, to set the Variable section to include all of the symbols below it, or be set parametrically where implementations allow access.
+There are multiple [Variable-Weighting](https://www.unicode.org/reports/tr10/#Variable_Weighting) options in the UCA for symbols and punctuation, including _non-ignorable_ and _shifted_. With the _shifted_ (`-u-ka-shifted`) option, almost all symbols and punctuation are ignored—except at a fourth level. The CLDR root locale ordering is modified so that symbols are not affected by the _shifted_ option. That is, by default, symbols are not “variable” in CLDR. So _shifted_ only causes whitespace and punctuation to be ignored, but not symbols (like ♥). The DUCET behavior can be approximated with a locale ID using the "kv" keyword, to set the Variable section to include all of the symbols below it (`-u-kv-symbol`), or be set parametrically where implementations allow access.
+
+Note that the CLDR “symbols” group includes at its end certain “extender” characters which are non-variable in the DUCET; one would also need to tailor the “extenders” into the “currency” group for achieving the exact same _shifted_ behavior.
 
 See also:
 
@@ -271,9 +254,8 @@ Ten contractions are added for Tibetan: Two to fulfill [well-formedness conditio
 
 U+FFFE and U+FFFF have special tailorings:
 
-> **U+FFFF:** This code point is tailored to have a primary weight higher than all other characters. This allows the reliable specification of a range, such as “Sch” ≤ X ≤ “Sch\\uFFFF”, to include all strings starting with "sch" or equivalent.
->
-> **U+FFFE:** This code point produces a CE with minimal, unique weights on primary and identical levels. For details see the _[CLDR Collation Algorithm](#Algorithm_FFFE)_ above.
+* **U+FFFF:** This code point is tailored to have a primary weight higher than all other characters. This allows the reliable specification of a range, such as “Sch” ≤ X ≤ “Sch\\uFFFF”, to include all strings starting with "sch" or equivalent.
+* **U+FFFE:** This code point produces a CE with minimal, unique weights on primary and identical levels. For details see the _[CLDR Collation Algorithm](#Algorithm_FFFE)_ above.
 
 UCA (beginning with version 6.3) also maps **U+FFFD** to a special collation element with a very high primary weight, so that it is reliably non-[variable](https://www.unicode.org/reports/tr10/#Variable_Weighting), for use with [ill-formed code unit sequences](https://www.unicode.org/reports/tr10/#Handling_Illformed).
 
@@ -338,19 +320,24 @@ Provides the version number of the UCA table.
 Lists the ranges of Unified_Ideograph characters in collation order. (New in CLDR 24.) They map to collation elements with [implicit (constructed) primary weights](https://www.unicode.org/reports/tr10/#Implicit_Weights).
 
 ```
-[radical 6=⼅亅:亅𠄌了𠄍-𠄐亇𠄑予㐧𠄒-𠄔争𠀩𠄕亊𠄖-𠄘𪜜事㐨𠄙-𠄛𪜝𠄜𠄝]
-[radical 210=⿑齊:齊𪗄𪗅齋䶒䶓𪗆齌𠆜𪗇𪗈齍𪗉-𪗌齎𪗎𪗍齏𪗏-𪗓]
-[radical 210'=⻬齐:齐齑]
+[radical 6=⼅亅:亅𠄌了𠄍-𠄐亇𠄑𬼶-𬼸予㐧𠄒-𠄔𰁒争𠀩𠄕𬼹亊𠄖-𠄘𪜜事㐨𠄙𬼺𠄚𰁓𰁔𠄛𪜝𬼻𠄜𱎑𠄝𬼼]
+[radical 210=⿑齊⻬齐⻫斉:齊𪗄𬹱𮮺-𮮼齐𪗅齋䶒䶓𪗆齌𠆜𪗇𪗈𬹳𱌗齍𪗉𪗊𬹲𱌘𪗋𪗌𱌙齎𪗎𪗍齏齑𪗏-𪗓]
 [radical end]
 ```
 
-Data for Unihan radical-stroke order. (New in CLDR 26.) Following the [Unified_Ideograph] line, a section of `[radical ...]` lines defines a radical-stroke order of the Unified_Ideograph characters.
+Data for Unihan radical-stroke order. (New in CLDR 26, modified in CLDR 46.) Following the `[Unified_Ideograph]` line, a section of `[radical ...]` lines defines a radical-stroke order of the Unified_Ideograph characters.
 
-For Han characters, an implementation may choose either to implement the order defined in the UCA and the [Unified_Ideograph] data, or to implement the order defined by the `[radical ...]` lines. Beginning with CLDR 26, the CJK type="unihan" tailorings assume that the root collation order sorts Han characters in Unihan radical-stroke order according to the `[radical ...]` data. The CollationTest_CLDR files only contain Han characters that are in the same relative order using implicit weights or the radical-stroke order.
+For Han characters, an implementation may choose either to implement the order defined in the UCA and the `[Unified_Ideograph]` data, or to implement the order defined by the `[radical ...]` lines. Beginning with CLDR 26, the CJK `type="unihan"` tailorings assume that the root collation order sorts Han characters in Unihan radical-stroke order according to the `[radical ...]` data. The CollationTest_CLDR files only contain Han characters that are in the same relative order using implicit weights or the radical-stroke order.
 
-The root collation radical-stroke order is derived from the first (normative) values of the [Unihan kRSUnicode](https://www.unicode.org/reports/tr38/#kRSUnicode) field for each Han character. Han characters are ordered by radical, with traditional forms sorting before simplified ones. Characters with the same radical are ordered by residual stroke count. Characters with the same radical-stroke values are ordered by block and code point, as for [UCA implicit weights](https://www.unicode.org/reports/tr10/#Implicit_Weights).
+The root collation radical-stroke order is derived from the first (normative) values of the [Unihan kRSUnicode](https://www.unicode.org/reports/tr38/#kRSUnicode) field for each Han character. Han characters are ordered by radical. Characters with the same radical are ordered by residual stroke count.
+
+Starting with CLDR 46, this radical-stroke order matches that of the [UAX #38 section 2.1.2 Sorting Algorithm Used by the Radical-Stroke Indexes](https://www.unicode.org/reports/tr38/#SortingAlgorithm). The distinction between traditional and simplified radicals has been moved from a level above the number of residual strokes (always sorting traditional forms before simplified ones) to a level below the number of residual strokes. This also makes only the traditional forms of the radicals usable for grouping and indexing.
+
+Before CLDR 46, characters with the same radical-stroke values were ordered by block and code point, as for [UCA implicit weights](https://www.unicode.org/reports/tr10/#Implicit_Weights). Since CLDR 46, for the radical-stroke order, the order of CJK blocks now follows UAX #38 as well.
 
 There is one `[radical ...]` line per radical, in the order of radical numbers. Each line shows the radical number and the representative characters from the [UCD file CJKRadicals.txt](https://www.unicode.org/reports/tr44/#UCD_Files_Table), followed by a colon (“:”) and the Han characters with that radical in the order as described above. A range like `万-丌` indicates that the code points in that range sort in code point order.
+
+Starting with CLDR 46, the representative characters for all of the traditional and simplified forms of the radical are included on the same line.
 
 The radical number and characters are informational. The sort order is established only by the order of the `[radical ...]` lines, and within each line by the characters and ranges between the colon (“:”) and the bracket (“]”).
 
@@ -478,7 +465,7 @@ This table summarizes ranges of important groups of characters for implementatio
 ...
 ```
 
-This table defines the reordering groups, for script reordering. The table maps from the first bytes of the fractional weights to a reordering token. The format is "[top_byte " byte-value reordering-token "COMPRESS"? "]". The "COMPRESS" value is present when there is only one byte in the reordering token, and primary-weight compression can be applied. Most reordering tokens are script values; others are special-purpose values, such as PUNCTUATION. Beginning with CLDR 24, this table precedes the regular mappings, so that parsers can use this information while processing and optimizing mappings. Beginning with CLDR 27, most of this data is irrelevant because single scripts can be reordered. Only the "COMPRESS" data is still useful.
+This table is mostly irrelevant, except for the "COMPRESS" data. The table defines reordering group for simple script reordering by primary lead bytes. The table maps from the first bytes of the fractional weights to a reordering token. The format is `"[top_byte " byte-value reordering-token "COMPRESS"? "]"`. The "COMPRESS" value is present when there is only one byte in the reordering token, and primary-weight compression can be applied. Most reordering tokens are script values; others are special-purpose values, such as PUNCTUATION. Beginning with CLDR 24, this table precedes the regular mappings, so that parsers can use this information while processing and optimizing mappings. Beginning with CLDR 27, most of this data is irrelevant because single scripts can be reordered. Only the "COMPRESS" data is still useful.
 
 ```
 # Reordering Tokens => Top Bytes
@@ -489,7 +476,7 @@ This table defines the reordering groups, for script reordering. The table maps 
 ...
 ```
 
-This table is an inverse mapping from reordering token to top byte(s). In terms like "61=910", the first value is the top byte, while the second is informational, indicating the number of primaries assigned with that top byte.
+This table is informational; it is an inverse mapping from reordering token to top byte(s). In terms like "61=910", the first value is the top byte, while the second indicates the number of primaries assigned with that top byte.
 
 ```
 # General Categories => Top Byte

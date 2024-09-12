@@ -14,6 +14,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<subdivisions>
 			<subdivision type="amer" draft="provisional">ယေရေဗန်</subdivision>
 			<subdivision type="arc" draft="provisional">ဗျူနိုအေးရိစ်မြို့</subdivision>
+			<subdivision type="arz" draft="provisional">လော့စ်ဂလက်ဆရားရက်စ် အမျိုးသားဥယျာဉ်</subdivision>
 			<subdivision type="at9" draft="provisional">ဗီယင်နာမြို့</subdivision>
 			<subdivision type="aunsw" draft="provisional">နယူးဆောက်ဝေးပြည်နယ်</subdivision>
 			<subdivision type="aunt" draft="provisional">မြောက်ဩစတြေးလျပြည်နယ်</subdivision>
@@ -25,6 +26,15 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="azba" draft="provisional">ဗားကူးမြို့</subdivision>
 			<subdivision type="basrp" draft="provisional">ဆာ့ပ်စ်ကာသမ္မတနိုင်ငံ</subdivision>
 			<subdivision type="bebru" draft="provisional">ဘရပ်ဆဲလ်မြို့</subdivision>
+			<subdivision type="bram" draft="provisional">အမေဇုံနက်စ်ပြည်နယ် (ဘရာဇီး ပြည်နယ်)</subdivision>
+			<subdivision type="brba" draft="provisional">ဘာဟီယာပြည်နယ်</subdivision>
+			<subdivision type="brce" draft="provisional">ဆီအာရာပြည်နယ်</subdivision>
+			<subdivision type="brpa" draft="provisional">ပါရာပြည်နယ်</subdivision>
+			<subdivision type="brpb" draft="provisional">ပါရိုင်ဘာပြည်နယ်</subdivision>
+			<subdivision type="brpe" draft="provisional">ပါနမ်ဘူကိုပြည်နယ်</subdivision>
+			<subdivision type="brpr" draft="provisional">ပါရာနာပြည်နယ်</subdivision>
+			<subdivision type="brrj" draft="provisional">ရီယိုဒီဂျနေးရိုးပြည်နယ်</subdivision>
+			<subdivision type="brrs" draft="provisional">ရီယိုဂရန်းဒေးဒိုဆူလ်ပြည်နယ်</subdivision>
 			<subdivision type="brsp" draft="provisional">ဆောပိုလိုမြို့</subdivision>
 			<subdivision type="bt41" draft="provisional">တြာရှီဂန်ခရိုင်</subdivision>
 			<subdivision type="bt45" draft="provisional">ဆမ်ဒြပ်ဂျုံခါရ် ခရိုင်</subdivision>
@@ -68,9 +78,11 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="escn" draft="provisional">ကနေရီကျွန်းစု</subdivision>
 			<subdivision type="esct" draft="provisional">ကက်တလိုနီးယားနိုင်ငံ</subdivision>
 			<subdivision type="etaa" draft="provisional">အာဒစ် အာဘာဘာမြို့</subdivision>
+			<subdivision type="fmtrk" draft="provisional">ချုခ်ပြည်နယ်</subdivision>
 			<subdivision type="fr20r" draft="provisional">ကော်စီကာ</subdivision>
 			<subdivision type="fr75c" draft="provisional">ပါရီမြို့</subdivision>
 			<subdivision type="fr971" draft="provisional">ဂွါဒလ်ကျွန်း</subdivision>
+			<subdivision type="fr972" draft="provisional">မာတီနစ်</subdivision>
 			<subdivision type="gbabe" draft="provisional">အဘာဒင်းမြို့</subdivision>
 			<subdivision type="gbans" draft="provisional">အားအန်ဂက်စ်၊ စကော့တလန်</subdivision>
 			<subdivision type="gbcrf" draft="provisional">ကားဒစ်မြို့</subdivision>
@@ -99,27 +111,36 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="idsm" draft="provisional">ဆူမတြာကျွန်း</subdivision>
 			<subdivision type="inan" draft="provisional">ကပ္ပလီကျွန်း</subdivision>
 			<subdivision type="inap" draft="provisional">အန်ဒရာပရာဒစ် ပြည်နယ်</subdivision>
+			<subdivision type="inar" draft="provisional">အရုဏာစလပဒေသပြည်နယ်</subdivision>
 			<subdivision type="inas" draft="provisional">အာသံပြည်နယ်</subdivision>
 			<subdivision type="inbr" draft="provisional">ဘီဟာပြည်နယ်</subdivision>
+			<subdivision type="incg" draft="provisional">ဆတ္တိံသဂြဟပြည်နယ်</subdivision>
 			<subdivision type="indl" draft="provisional">ဒေလီမြို့</subdivision>
 			<subdivision type="inga" draft="provisional">ဂိုအာ</subdivision>
 			<subdivision type="ingj" draft="provisional">ဂုဇရာတ်</subdivision>
+			<subdivision type="inhp" draft="provisional">ဟိမာစလပဒေသပြည်နယ်</subdivision>
+			<subdivision type="inhr" draft="provisional">ဟရိယာဏာပြည်နယ်</subdivision>
+			<subdivision type="injh" draft="provisional">ဈာရခဏ္ဍပြည်နယ်</subdivision>
 			<subdivision type="injk" draft="provisional">ဂျမ်မူး နှင့် ကက်ရှမီးယားပြည်နယ်</subdivision>
 			<subdivision type="inka" draft="provisional">ကာနာတာကာပြည်နယ်</subdivision>
 			<subdivision type="inla" draft="provisional">လာတက်</subdivision>
+			<subdivision type="inmh" draft="provisional">မဟာရဋ္ဌပြည်နယ်</subdivision>
 			<subdivision type="inml" draft="provisional">မေဃာလယ</subdivision>
 			<subdivision type="inmn" draft="provisional">မဏိပူရပြည်နယ်</subdivision>
 			<subdivision type="inmp" draft="provisional">မဇ္ဈဒေသ ပြည်နယ်</subdivision>
 			<subdivision type="inmz" draft="provisional">မီဇိုရမ်ပြည်နယ်</subdivision>
 			<subdivision type="innl" draft="provisional">နာဂလန်ပြည်နယ်</subdivision>
-			<subdivision type="inor" draft="provisional">သြရိဿပြည်နယ်</subdivision>
+			<subdivision type="inod" draft="provisional">သြရိဿပြည်နယ်</subdivision>
 			<subdivision type="inrj" draft="provisional">ရာဇဌာန်ပြည်နယ်</subdivision>
 			<subdivision type="insk" draft="provisional">ဆစ်ကင်ပြည်နယ်</subdivision>
 			<subdivision type="intn" draft="provisional">မဒရပ်ပြည်နယ်</subdivision>
+			<subdivision type="intr" draft="provisional">တြိပူရပြည်နယ်</subdivision>
+			<subdivision type="ints" draft="provisional">တေလံဂါနာပြည်နယ်</subdivision>
 			<subdivision type="inup" draft="provisional">ဥတ်တရဒသေ</subdivision>
 			<subdivision type="it62" draft="provisional">လာဇီယို</subdivision>
 			<subdivision type="it82" draft="provisional">စစ္စလီကျွန်း</subdivision>
 			<subdivision type="it88" draft="provisional">ဆာဒင်းနီးယားကျွန်း</subdivision>
+			<subdivision type="itve" draft="provisional">ဗင်းနစ်မြို့</subdivision>
 			<subdivision type="jp02" draft="provisional">အအိုမိုရိခရိုင်</subdivision>
 			<subdivision type="jp13" draft="provisional">တိုကျိုမြို့</subdivision>
 			<subdivision type="jp25" draft="provisional">ရှိဂါ့စီရင်စု</subdivision>
@@ -128,12 +149,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="kp01" draft="provisional">ပြုံယမ်းမြို့</subdivision>
 			<subdivision type="kr11" draft="provisional">ဆိုးလ်မြို့</subdivision>
 			<subdivision type="kr26" draft="provisional">ဘူဆန်မြို့</subdivision>
+			<subdivision type="kr27" draft="provisional">ဒယ်ဂူမြို့</subdivision>
 			<subdivision type="kr28" draft="provisional">အင်ချွန်းမြို့</subdivision>
+			<subdivision type="kr29" draft="provisional">ဂွမ်းဂျူမြို့</subdivision>
+			<subdivision type="kr30" draft="provisional">ဒယ်ဂျောန်မြို့</subdivision>
 			<subdivision type="kr31" draft="provisional">အောလ်ဆန်မြို့</subdivision>
-			<subdivision type="kzast" draft="provisional">နျူ-ဆူလ်တန်မြို့</subdivision>
+			<subdivision type="kr41" draft="provisional">ဂယောင်းဂီတိုင်း</subdivision>
+			<subdivision type="kr50" draft="provisional">ဆဲဂျွံမြို့</subdivision>
+			<subdivision type="kz71" draft="provisional">နျူ-ဆူလ်တန်မြို့</subdivision>
 			<subdivision type="lalm" draft="provisional">လွမ်နမ်ထာပြည်နယ်</subdivision>
 			<subdivision type="lvrix" draft="provisional">ရီဂါမြို့</subdivision>
 			<subdivision type="macas" draft="provisional">ကာဆာဘလန်ကာမြို့</subdivision>
+			<subdivision type="mamar" draft="provisional">မာရကက်ရှ်မြို့</subdivision>
 			<subdivision type="matng" draft="provisional">တန်ဂျီးယားမြို့</subdivision>
 			<subdivision type="mcmc" draft="provisional">မွန်တီကာလိုမြို့</subdivision>
 			<subdivision type="mm01" draft="provisional">စစ်ကိုင်းတိုင်း</subdivision>
@@ -182,6 +209,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="th12" draft="provisional">နွန်ထဘူရီပြည်နယ်</subdivision>
 			<subdivision type="th14" draft="provisional">ဘုရာ့နခွန်စီအယုဓယပြည်နယ်</subdivision>
 			<subdivision type="th20" draft="provisional">ချွန်ဘူရီ ပြည်နယ်</subdivision>
+			<subdivision type="th46" draft="provisional">ကာဠသိန္ဓုပြည်နယ်</subdivision>
 			<subdivision type="th55" draft="provisional">နန်းပြည်နယ်</subdivision>
 			<subdivision type="th61" draft="provisional">ဥဒယဌာနီပြည်နယ်</subdivision>
 			<subdivision type="th63" draft="provisional">တာ့ခ်ခရိုင်</subdivision>
@@ -251,6 +279,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<subdivision type="vn02" draft="provisional">လောင်ကိုင်ပြည်နယ်</subdivision>
 			<subdivision type="vn03" draft="provisional">ဟာကျန်ပြည်နယ်</subdivision>
 			<subdivision type="vn07" draft="provisional">တူယန်ကွမ်းပြည်နယ်</subdivision>
+			<subdivision type="vnct" draft="provisional">ကန်သို</subdivision>
 			<subdivision type="vndn" draft="provisional">ဒါနန်မြို့</subdivision>
 			<subdivision type="vnhn" draft="provisional">ဟနွိုင်းမြို့</subdivision>
 			<subdivision type="vnsg" draft="provisional">ဟိုချီမင်းစီးတီး</subdivision>

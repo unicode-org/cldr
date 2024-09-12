@@ -9,12 +9,12 @@ import java.util.Date;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import org.unicode.cldr.unittest.TestUtilities;
+import org.unicode.cldr.unittest.TestHelper;
 import org.unicode.cldr.util.VoteResolver.Status;
 
 /**
- * @see org.unicode.cldr.unittest.TestUtilities
- * @see org.unicode.cldr.unittest.TestUtilities#TestUser
+ * @see TestHelper
+ * @see TestHelper#TestUser
  */
 public class TestVoteResolver {
 
@@ -34,11 +34,11 @@ public class TestVoteResolver {
         assertTrue(t0.before(t1));
 
         // Vote with a date in the past, this will lose the org dispute
-        vr.add("Bouvet", TestUtilities.TestUser.googleV.voterId, null, t0);
+        vr.add("Bouvet", TestHelper.TestUser.googleV.voterId, null, t0);
 
-        vr.add("Illa Bouvet", TestUtilities.TestUser.googleV2.voterId, null, t1);
-        vr.add("Illa Bouvet", TestUtilities.TestUser.appleV.voterId, null, t1);
-        vr.add("Illa Bouvet", TestUtilities.TestUser.unaffiliatedS.voterId, null, t1);
+        vr.add("Illa Bouvet", TestHelper.TestUser.googleV2.voterId, null, t1);
+        vr.add("Illa Bouvet", TestHelper.TestUser.appleV.voterId, null, t1);
+        vr.add("Illa Bouvet", TestHelper.TestUser.unaffiliatedS.voterId, null, t1);
         assertAll(
                 "Verify the outcome",
                 () -> assertEquals("Illa Bouvet", vr.getWinningValue()),
@@ -60,10 +60,10 @@ public class TestVoteResolver {
                     CLDRLocale.getInstance("fr"), null); // NB: pathHeader is needed for annotations
             vr.setBaseline("bafut", Status.unconfirmed);
             vr.setBaileyValue("bfd");
-            vr.add("bambara", TestUtilities.TestUser.appleV.voterId);
-            vr.add("bafia", TestUtilities.TestUser.googleV.voterId);
-            vr.add("bassa", TestUtilities.TestUser.googleV2.voterId);
-            vr.add("bafut", TestUtilities.TestUser.unaffiliatedS.voterId);
+            vr.add("bambara", TestHelper.TestUser.appleV.voterId);
+            vr.add("bafia", TestHelper.TestUser.googleV.voterId);
+            vr.add("bassa", TestHelper.TestUser.googleV2.voterId);
+            vr.add("bafut", TestHelper.TestUser.unaffiliatedS.voterId);
 
             assertAll(
                     "Verify the outcome",
@@ -88,10 +88,10 @@ public class TestVoteResolver {
                 CLDRLocale.getInstance("fr"), null); // NB: pathHeader is needed for annotations
         vr.setBaseline("bafut", Status.unconfirmed);
         vr.setBaileyValue("bfd");
-        vr.add("bambara", TestUtilities.TestUser.appleV.voterId);
-        vr.add("bafia", TestUtilities.TestUser.googleV.voterId);
-        vr.add("bassa", TestUtilities.TestUser.googleV2.voterId);
-        vr.add("bafut", TestUtilities.TestUser.unaffiliatedS.voterId);
+        vr.add("bambara", TestHelper.TestUser.appleV.voterId);
+        vr.add("bafia", TestHelper.TestUser.googleV.voterId);
+        vr.add("bassa", TestHelper.TestUser.googleV2.voterId);
+        vr.add("bafut", TestHelper.TestUser.unaffiliatedS.voterId);
 
         vr.enableTranscript(); // Should be recalculated from here.
         assertAll(
@@ -107,7 +107,7 @@ public class TestVoteResolver {
     }
 
     private VoteResolver<String> getStringResolver() {
-        return new VoteResolver<String>(TestUtilities.getTestVoterInfoList());
+        return new VoteResolver<String>(TestHelper.getTestVoterInfoList());
     }
 
     /**

@@ -21,7 +21,6 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
-import org.unicode.cldr.tool.GenerateMaximalLocales;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRConfig;
@@ -885,50 +884,6 @@ public class TestInheritance extends TestFmwk {
     LanguageTagParser ltp = new LanguageTagParser();
 
     Matcher aliasMatcher = PatternCache.get("//ldml.*/alias.*").matcher("");
-
-    private String minimize(Map<String, String> likelySubtags, String locale) {
-        String result = GenerateMaximalLocales.minimize(locale, likelySubtags, false);
-        if (result == null) {
-            LanguageTagParser ltp3 = new LanguageTagParser().set(locale);
-            List<String> variants = ltp3.getVariants();
-            Map<String, String> extensions = ltp3.getExtensions();
-            Set<String> emptySet = Collections.emptySet();
-            ltp3.setVariants(emptySet);
-            Map<String, String> emptyMap = Collections.emptyMap();
-            ltp3.setExtensions(emptyMap);
-            String newLocale = ltp3.toString();
-            result = GenerateMaximalLocales.minimize(newLocale, likelySubtags, false);
-            if (result != null) {
-                ltp3.set(result);
-                ltp3.setVariants(variants);
-                ltp3.setExtensions(extensions);
-                result = ltp3.toString();
-            }
-        }
-        return result;
-    }
-
-    private String maximize(Map<String, String> likelySubtags, String locale) {
-        String result = GenerateMaximalLocales.maximize(locale, likelySubtags);
-        if (result == null) {
-            LanguageTagParser ltp3 = new LanguageTagParser().set(locale);
-            List<String> variants = ltp3.getVariants();
-            Map<String, String> extensions = ltp3.getExtensions();
-            Set<String> emptySet = Collections.emptySet();
-            ltp3.setVariants(emptySet);
-            Map<String, String> emptyMap = Collections.emptyMap();
-            ltp3.setExtensions(emptyMap);
-            String newLocale = ltp3.toString();
-            result = GenerateMaximalLocales.maximize(newLocale, likelySubtags);
-            if (result != null) {
-                ltp3.set(result);
-                ltp3.setVariants(variants);
-                ltp3.setExtensions(extensions);
-                result = ltp3.toString();
-            }
-        }
-        return result;
-    }
 
     // TODO move this into central utilities
     public static boolean equals(CharSequence string, int codePoint) {

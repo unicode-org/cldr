@@ -29,6 +29,7 @@ import com.ibm.icu.number.NumberFormatter;
 import com.ibm.icu.number.NumberFormatter.UnitWidth;
 import com.ibm.icu.number.Precision;
 import com.ibm.icu.number.UnlocalizedNumberFormatter;
+import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ICUUncheckedIOException;
@@ -40,7 +41,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-import java.io.UncheckedIOException;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.MathContext;
@@ -89,6 +89,7 @@ import org.unicode.cldr.util.GrammarInfo;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalFeature;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalScope;
 import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
+import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleStringProvider;
 import org.unicode.cldr.util.MapComparator;
 import org.unicode.cldr.util.Organization;
@@ -125,6 +126,8 @@ import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
 public class TestUnits extends TestFmwk {
+    private static final Joiner JOIN_TAB = Joiner.on('\t').useForNull("∅");
+    private static final StandardCodes STANDARD_CODES = StandardCodes.make();
     private static final boolean DEBUG = System.getProperty("TestUnits:DEBUG") != null;
     private static final boolean TEST_ICU = System.getProperty("TestUnits:TEST_ICU") != null;
 
@@ -2695,7 +2698,7 @@ public class TestUnits extends TestFmwk {
 
         // first gather all the  examples
         Set<String> skippedUnits = new LinkedHashSet<>();
-        Set<String> testSet = StandardCodes.make().getLocaleCoverageLocales(Organization.cldr);
+        Set<String> testSet = STANDARD_CODES.getLocaleCoverageLocales(Organization.cldr);
         Counter<String> localeToErrorCount = new Counter<>();
         main:
         for (String localeId : testSet) {
@@ -3314,7 +3317,7 @@ public class TestUnits extends TestFmwk {
                 if (pluralForm == null) {
                     errln("Have display name but no plural: " + pluralFormPath);
                 } else {
-                    String cleaned = pluralForm.replace("{0}", "").trim();
+                    String cleaned = clean(pluralForm);
                     assertEquals(
                             "Unit display name should correspond to plural in English "
                                     + width
@@ -4173,7 +4176,7 @@ public class TestUnits extends TestFmwk {
                 warnln("Mixed unit identifiers not yet checked, count=" + warnings.size());
             }
         } catch (IOException e) {
-            throw new UncheckedIOException(e);
+            throw new ICUUncheckedIOException(e);
         }
     }
 
@@ -4247,7 +4250,7 @@ public class TestUnits extends TestFmwk {
             Files.lines(Path.of(CLDRPaths.TEST_DATA + "units/unitsTest.txt"))
                     .forEach(line -> checkUnitsTest(line));
         } catch (IOException e) {
-            throw new UncheckedIOException(e);
+            throw new ICUUncheckedIOException(e);
         }
     }
 
@@ -4292,7 +4295,7 @@ public class TestUnits extends TestFmwk {
             Files.lines(Path.of(CLDRPaths.TEST_DATA + "units/unitLocalePreferencesTest.txt"))
                     .forEach(line -> checkUnitLocalePreferencesTest(line));
         } catch (IOException e) {
-            throw new UncheckedIOException(e);
+            throw new ICUUncheckedIOException(e);
         }
     }
 
@@ -4373,7 +4376,7 @@ public class TestUnits extends TestFmwk {
                 Files.lines(Path.of(CLDRPaths.TEST_DATA + "units/unitLocalePreferencesTest.txt"))
                         .forEach(line -> checkUnitLocalePreferencesTestIcu(line));
             } catch (IOException e) {
-                throw new UncheckedIOException(e);
+                throw new ICUUncheckedIOException(e);
             }
         } else {
             warnln("Skipping ICU test. To enable, set -DTestUnits:TEST_ICU");
@@ -4491,5 +4494,57 @@ public class TestUnits extends TestFmwk {
             {"light-speed-week", "meter-second-per-second", "299792458*604800"},
         };
         checkConversionToBase(tests);
+
+        Factory factory = CLDR_CONFIG.getFullCldrFactory();
+        Set<String> available = factory.getAvailableLanguages();
+        Set<String> TC =
+                Sets.intersection(
+                        available,
+                        Sets.difference(
+                                STANDARD_CODES.getLocaleCoverageLocales(Organization.cldr),
+                                STANDARD_CODES.getLocaleCoverageLocales(Organization.special)));
+        // UnitId id = converter.createUnitId("light-speed-second");
+        // String lightSeconds1 = id.toString(cldrFile,"long", "other", "nominative", null, true);
+        if (isVerbose()) {
+            System.out.println(
+                    "\nlocale, times, light, years, lightYears, lightYearsC".replace(", ", "\t"));
+        }
+        Set<Level> neededCoverageLevel = Set.of(Level.MODERATE, Level.MODERN, Level.COMPREHENSIVE);
+        for (String locale : TC) {
+            Level coverage = STANDARD_CODES.getLocaleCoverageLevel(Organization.cldr, locale);
+            if (!neededCoverageLevel.contains(coverage)) {
+                continue;
+            }
+            CLDRFile cldrFile = factory.make(locale, true);
+            String lightYears =
+                    clean(
+                            cldrFile.getStringValue(
+                                    "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"length-light-year\"]/unitPattern[@count=\"other\"]"));
+            String years =
+                    clean(
+                            cldrFile.getStringValue(
+                                    "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-year\"]/unitPattern[@count=\"other\"]"));
+            String light =
+                    clean(
+                            cldrFile.getStringValue(
+                                    "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"speed-light-speed\"]/unitPattern[@count=\"one\"]"));
+            String times =
+                    cldrFile.getStringValue(
+                            "//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"times\"]/compoundUnitPattern");
+            String lightYearsC = MessageFormat.format(times, light, clean(years));
+            // String seconds =
+            // clean(cldrFile.getStringValue("//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"duration-second\"]/unitPattern[@count=\"other\"]"));
+            // String lightSecondsC = MessageFormat.format(times, light, clean(seconds));
+
+            times = clean(times);
+            if (isVerbose()) {
+                System.out.println(
+                        JOIN_TAB.join(locale, times, light, years, lightYears, lightYearsC));
+            }
+        }
+    }
+
+    public String clean(String unitPattern) {
+        return unitPattern.replace("{0}", "").replace("{1}", "").trim();
     }
 }

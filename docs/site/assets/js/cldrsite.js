@@ -38,7 +38,7 @@ function dropmd(p) {
 
 /** replace a/b/c.html with a/b/c */
 function drophtml(p) {
-  return p.replace(/\.html$/, "");
+  return p.replace(/\.html$/, "").replace(/\/$/, "");
 }
 
 /** load and cook the site data */
@@ -147,6 +147,7 @@ const app = Vue.createApp(
           path,
           href: path2url(path),
           title: usermap[path]?.title || path,
+          children: (usermap[path].children ?? []).length > 0,
         }));
       },
       ancestorPages() {
@@ -208,6 +209,7 @@ const app = Vue.createApp(
               <li v-for="subpage of children" :key="subpage.path">
                   <a v-bind:href="subpage.href">
                       {{ subpage.title }}
+                       <span class="hamburger" v-if="subpage.children">❱</span>
                   </a>
               </li>
           </ul>

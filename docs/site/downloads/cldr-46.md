@@ -68,8 +68,8 @@ For a full listing, see [Delta DTDs](https://unicode.org/cldr/charts/46/suppleme
     1. New currency code `ZWG` added — because it was late in the cycle, many locales will just support the code (no symbol or name).
 2. Dates & Times
     1. Added a new calendar type, `iso8601`.
-This is not the same as the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) standard format, which is designed just for data interchange.
-It is all ASCII, doesn't have all the options for fields (like "Sunday", "BC", or "AM").
+This is not the same as the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) standard format, which is designed just for data interchange:
+it is all ASCII, doesn't have all the options for fields (like "Sunday", "BC", or "AM"), and does not contain spaces.
 The CLDR `iso8601` calendar uses patterns in the order: era, year, month, day, day-of-week, hour, minute, second, day-period, timezone 
 	2. Changed the metazone for Kazakhstan to reflect removal of Asia/Almaty, thus dropping the distinction among different regions in Kazakhstan.
     3. Added support for deprecated timezone codes by remapping: `CST6CDT → America/Chicago`, `EST → America/Panama`, `EST5EDT → America/New_York`, `MST7MDT → America/Denver`, `PST8PDT → America/Los_Angeles`.

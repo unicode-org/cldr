@@ -235,13 +235,13 @@ async function readTsvSiteMap(out) {
 async function main() {
   const out = {
     all: [],
-    dirs: {},
   };
   await fs.mkdir("assets/json/", { recursive: true });
   await traverse(".", out);
   await writeXmlSiteMap(out);
   await readTsvSiteMap(out);
   // write final json asset
+  delete out.all; //not needed at this phase, so trim out of the deploy
   await fs.writeFile("assets/json/tree.json", JSON.stringify(out, null, " "));
   console.log("Wrote assets/json/tree.json");
 }

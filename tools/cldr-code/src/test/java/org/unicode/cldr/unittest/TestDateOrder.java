@@ -134,7 +134,7 @@ public class TestDateOrder extends TestFmwk {
                 int debug = 0;
             }
         }
-        Date sample = Date.from(Instant.parse("2024-01-13T07:08:09Z"));
+        Date sample = Date.from(Instant.parse("2024-01-13T19:08:09Z"));
         SimpleDateFormat neutralFormat =
                 new SimpleDateFormat("G yyyy-MM-dd HH:mm:ss X", Locale.ROOT);
         neutralFormat.setTimeZone(TimeZone.GMT_ZONE);
@@ -184,7 +184,7 @@ public class TestDateOrder extends TestFmwk {
                         break;
                     case "a":
                     case "B":
-                        sample2.setHours(sample.getHours() + 12);
+                        sample1.setHours(sample.getHours() - 12);
                         break;
                     case "m":
                         sample2.setMinutes(sample.getMinutes() + 1);
@@ -228,6 +228,7 @@ public class TestDateOrder extends TestFmwk {
                 canFormatted = caFormat.format(sample);
             }
             if (printout != null) {
+                canFormatted = canFormatted.replace("a.m.", "AM").replace("p.m.", "PM");
                 printout.add(
                         JOIN_TAB.join(
                                 code,

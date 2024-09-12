@@ -11,7 +11,8 @@
 
 ^//ldml/dates/calendars/calendar\[@type="%A"]/dateTimeFormats/dateTimeFormatLength\[@type="%A"]/dateTimeFormat\[@type="%A"]/pattern\[@type="%A"] ; {1}=DATE Dec 10, 2010 ; {0}=TIME 3:59
 
-# strange values
+# The code does not currently allow for showing the placeholders in datetime formats
+
 #^//ldml/dates/.*(pattern|available|intervalFormatItem) ; cccc=UNKNOWN ?
 #^//ldml/dates/.*(pattern|available|intervalFormatItem) ; ccc=UNKNOWN ?
 #

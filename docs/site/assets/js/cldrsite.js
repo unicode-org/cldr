@@ -51,8 +51,107 @@ async function siteData() {
   return j;
 }
 
+const AncestorPages = {
+  props: ["ancestorPages"],
+  setup() {},
+  template: `
+       <span class="ancestor" v-for="ancestor of ancestorPages" :key="ancestor.href">
+         <a class="uplink" v-bind:href="ancestor.href">{{ ancestor.title }}</a><span class="crumb">❱</span>
+       </span>
+`,
+};
+
+const SubPagesPopup = {
+  props: {
+    children: {
+      type: Object,
+      required: true,
+    },
+  },
+  emits: ["hide"], // when user clicks hide
+  setup() {},
+  methods: {
+    hide() {
+      this.$emit("hide");
+    },
+  },
+  template: `
+          <div class="subpages">
+          <span class="hamburger" @click="hide()">✕</span>
+          <ul class="subpages" >
+              <li v-for="subpage of children" :key="subpage.path">
+                  <a v-bind:href="subpage.href">
+                      {{ subpage.title }}
+                       <span class="hamburger" v-if="subpage.children">❱</span>
+                  </a>
+              </li>
+          </ul>
+        </div>
+`,
+};
+
+const SubMap = {
+  name: "SubMap",
+  props: {
+    usermap: {
+      type: Object,
+      required: true,
+    },
+    path: String,
+  },
+  setup() {},
+  computed: {
+    title() {
+      return this.usermap[this.path].title;
+    },
+    children() {
+      return this.usermap[this.path].children || [];
+    },
+    href() {
+      return path2url(this.path);
+    },
+  },
+  template: `
+    <div class="submap">
+      <a v-bind:href="href" v-bind:title="path">{{title}}</a>
+      <SubMap v-for="child in children" :key="child" :usermap="usermap" :path="child" />
+    </div>
+  `,
+};
+
+const SiteMap = {
+  props: {
+    tree: {
+      type: Object,
+      required: true,
+    },
+  },
+  components: {
+    SubMap,
+  },
+  emits: ["hide"],
+  setup() {},
+  methods: {
+    hide() {
+      this.$emit("hide");
+    },
+  },
+  template: `
+    <div class="sitemap">
+          <span class="hamburger" @click="hide()">✕</span>
+          <b>Site Map</b><hr/>
+          <SubMap :usermap="tree.value.usermap" path="index"/>
+    </div>
+  `,
+};
+
 const app = Vue.createApp(
   {
+    components: {
+      AncestorPages,
+      SubPagesPopup,
+      SiteMap,
+    },
     setup(props) {
       // the tree.json data
       const tree = ref({});
@@ -60,11 +159,14 @@ const app = Vue.createApp(
       const status = ref(null);
       // is the popup menu shown?
       const popup = ref(false);
+      // is the site map shown?
+      const showmap = ref(false);
 
       return {
         tree,
         status,
         popup,
+        showmap,
       };
     },
     mounted() {
@@ -157,27 +259,19 @@ const app = Vue.createApp(
 					src="/assets/img/logo60s2.gif"  alt="[Unicode]" width="34"
 					height="33"></a>&nbsp;&nbsp;
 
-       <span class="ancestor" v-for="ancestor of ancestorPages" :key="ancestor.href">
-         <a class="uplink" v-bind:href="ancestor.href">{{ ancestor.title }}</a><span class="crumb">❱</span>
-       </span>
+       <AncestorPages :ancestorPages="ancestorPages"/>
+
        <div v-if="!children || !children.length" class="title"> {{ ourTitle }} </div>
-       <div v-else class="title"  @mouseover="popup = true"><span class="hamburger" @click="popup = !popup">≡</span>
+
+       <div v-else class="title"  @mouseover="popup = true"><span class="hamburger" @click="showmap=false,popup = !popup">≡</span>
+
             {{ ourTitle }}
 
-        <div class="subpages" v-if="popup">
-          <span class="hamburger" @click="popup=false">✕</span>
-          <ul class="subpages" >
-              <li v-for="subpage of children" :key="subpage.path">
-                  <a v-bind:href="subpage.href">
-                      {{ subpage.title }}
-                       <span class="hamburger" v-if="subpage.children">❱</span>
-                  </a>
-              </li>
-          </ul>
-        </div>
-
+        <SubPagesPopup v-if="popup && !showmap" @hide="popup = false" :children="children"/>
 
       </div>
+        <div class="showmap" v-if="!showmap" @click="popup=false,showmap = true">Site Map</div>
+        <SiteMap v-if="tree && showmap" :tree="tree" @hide="showmap = popup = false"  />
 
     </div>`,
   },

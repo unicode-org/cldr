@@ -40,19 +40,48 @@ header .nav a.uplink {
   color: white;
 }
 
-header .nav div.subpages {
+div.showmap {
+  position: absolute;
+  right: 1em;
+  color: white;
+}
+
+div.showmap:hover {
+  text-decoration: underline;
+  color: white;
+}
+
+header .nav div.subpages,
+div.sitemap {
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   background-color: white;
-  position: absolute;
+  position: fixed;
   color: black;
   padding: 0.5em;
 }
 
-div.subpages .hamburger {
-  left: 1em;
+div.submap {
+  margin-left: 1em;
+  border-left: 1px solid gray;
+  padding-left: 0.5em;
+}
+
+div.subpages > .hamburger,
+div.sitemap .hamburger {
+  position: absolute;
+  right: 1em;
   top: 1em;
   color: darkslateblue;
+}
+
+div.sitemap {
+  height: 90%;
+}
+
+div.sitemap > div.submap {
+  height: 95%;
+  overflow-y: scroll;
 }
 
 .subpages .hamburger:hover {

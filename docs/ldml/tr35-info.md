@@ -1247,7 +1247,7 @@ The table below shows when the region portion is valid or not.
 | --- | --- | --- | --- |
 | usut | US | Yes | Both the region portion (US) are valid and the subdivision portion (Utah) are value.  |
 | usabc | US | Yes | The region portion (US) is valid, but the subdivision portion is not. |
-| ab... | AB | No, ignored | The region portion (AB) is invalid, and thus the subdivision portion must also be. |
+| abzzzz | AB | No, ignored | The region portion (AB) is invalid, and thus the subdivision portion is invalid, no matter what it is. |
 
 The following algorithm is used to compute the override units, regions, and category.
 The latter two items are used in the [Unit Preferences Data](#Unit_Preferences_Data).

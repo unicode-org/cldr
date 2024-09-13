@@ -34,7 +34,7 @@ jobs:
             ${{ runner.os }}-nodekbd-
             nodekbd-
       - name: Install kmc
-        run: npm install -g @keymanapp/kmc@alpha
+        run: npm install -g @keymanapp/kmc@beta
       - name: Compile Keyboards
         run: kmc --error-reporting build keyboards/3.0/*.xml
       - name: Run Kbd Charts

@@ -135,7 +135,6 @@ public enum CldrVersion {
         return compareTo(other) <= 0;
     }
 
-
     private CldrVersion() {
         String oldName = name();
         if (oldName.charAt(0) == 'v') {

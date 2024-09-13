@@ -1248,7 +1248,8 @@ public class TestBasic extends TestFmwkPlus {
                 continue; // DTD didn't exist in last release
             }
             if (dtd == DtdType.ldmlICU) continue;
-            if (dtd == DtdType.keyboard3 && CldrVersion.LAST_RELEASE_VERSION.isAsOldOrOlderThan(CldrVersion.v45_0)) {
+            if (dtd == DtdType.keyboard3
+                    && CldrVersion.LAST_RELEASE_VERSION.isAsOldOrOlderThan(CldrVersion.v45_0)) {
                 // Sample file did not have a DTD in v45, moved to a new location in v46+
                 continue;
             }

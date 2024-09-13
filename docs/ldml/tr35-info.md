@@ -1243,11 +1243,12 @@ The -rg-abzzzz is ignored because AB is invalid;
 if it were -rg-ustuvxy, it would not be ignored because US is valid.
 The table below shows when the region portion is valid or not.
 
-| Subdivision Code | Region | -rg used? | Comment |
+| Key-value | Region | Valid? | Comment |
 | --- | --- | --- | --- |
-| usut | US | Yes | Both the region portion (US) are valid and the subdivision portion (Utah) are value.  |
-| usabc | US | Yes | The region portion (US) is valid, but the subdivision portion is not. |
-| abzzzz | AB | No, ignored | The region portion (AB) is invalid, and thus the subdivision portion is invalid, no matter what it is. |
+| -rg-usut | US | Yes | Both the region portion (US) and the subdivision portion (ut = Utah) are valid. |
+| -rg-uszzzz | US | Yes | Both the region portion (US) and the subdivision portion (zzzz = all) are valid. |
+| -rg-usabc | US | Yes | The region portion (US) is valid, but the subdivision portion (abc) is not. |
+| -rg-abzzzz | AB | No, ignored | The region portion (AB) is invalid, and thus the -rg is ignored, not matter that the subdivision portion (zzzz) is. |
 
 The following algorithm is used to compute the override units, regions, and category.
 The latter two items are used in the [Unit Preferences Data](#Unit_Preferences_Data).
@@ -1262,7 +1263,7 @@ If there is no valid -mu value, the following steps are used to determine a regi
 
 1. If there is a valid -ms value then let USM  be the corresponding value in column 2 of the table below.
 Otherwise FR is not used. In either case continue with step 2.
-2. If there is a valid -rg region code portion of the rg value, let R be that region, and go to Compute the category.
+2. If there is a valid -rg region portion of the rg value, let R be that region, and go to Compute the category.
 	* See the table above for the examples `usut`, `usabc`, and `abcdef`
 4. If there is a valid region in the locale, let R be that region, and go to Compute the category.
 5. Otherwise, compute the likely subtags for the locale.

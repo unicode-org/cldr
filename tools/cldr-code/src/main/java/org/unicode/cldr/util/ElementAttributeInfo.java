@@ -103,7 +103,7 @@ public class ElementAttributeInfo {
         addElementAttributeInfo(
                 result,
                 DtdType.keyboard3,
-                canonicalCommonDirectory + "/../keyboards/3.0/fr-t-k0-test.xml");
+                canonicalCommonDirectory + "/../tools/cldr-code/src/main/resources/org/unicode/cldr/util/data/und-t-k0-none.xml");
         addElementAttributeInfo(
                 result,
                 DtdType.keyboardTest3,

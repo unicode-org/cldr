@@ -192,10 +192,6 @@ public class TestBasic extends TestFmwkPlus {
                 continue;
             } else if (fileName.isDirectory()) {
                 checkDtds(fileName, level + 1, foundAttributes, data);
-            } else if (fileName.getPath().contains("/keyboards/3.0/")
-                    && logKnownIssue(
-                            "CLDR-17574", "With v46, parsing issues for keyboard xml files")) {
-                ; // do nothing, skip test
             } else if (name.endsWith(".xml")) {
                 data.add(check(fileName));
                 if (deepCheck // takes too long to do all the time
@@ -1252,6 +1248,10 @@ public class TestBasic extends TestFmwkPlus {
                 continue; // DTD didn't exist in last release
             }
             if (dtd == DtdType.ldmlICU) continue;
+            if (dtd == DtdType.keyboard3 && CldrVersion.LAST_RELEASE_VERSION.isAsOldOrOlderThan(CldrVersion.v45_0)) {
+                // Sample file did not have a DTD in v45, moved to a new location in v46+
+                continue;
+            }
             try {
                 ElementAttributeInfo oldDtd = ElementAttributeInfo.getInstance(oldCommon, dtd);
                 ElementAttributeInfo newDtd = ElementAttributeInfo.getInstance(dtd);
@@ -1565,11 +1565,6 @@ public class TestBasic extends TestFmwkPlus {
             if (file.getParentFile().getName().equals("import")
                     && file.getParentFile().getParentFile().getName().equals("keyboards")) {
                 return; // skip imports
-            }
-            if (file.getPath().contains("/keyboards/3.0/")
-                    && logKnownIssue(
-                            "CLDR-17574", "With v46, parsing issues for keyboard xml files")) {
-                continue;
             }
             checkDtdComparatorFor(file, null);
         }

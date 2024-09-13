@@ -192,6 +192,7 @@ public class TestCLDRFile extends TestFmwk {
                                     || path.contains("/gender")
                                     || path.startsWith("//ldml/numbers/currencies/currency")
                                     || path.startsWith("//ldml/personNames/sampleName")
+                                    || path.contains("/availableFormats")
                             ? PlaceholderStatus.DISALLOWED
                             : path.contains("/compoundUnitPattern1")
                                     ? PlaceholderStatus.REQUIRED

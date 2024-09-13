@@ -189,6 +189,7 @@ public class PathHeader implements Comparable<PathHeader> {
         Fields(SectionId.DateTime),
         Relative(SectionId.DateTime),
         Gregorian(SectionId.DateTime),
+        ISO8601(SectionId.DateTime, "ISO 8601"),
         Generic(SectionId.DateTime),
         Buddhist(SectionId.DateTime),
         Chinese(SectionId.DateTime),

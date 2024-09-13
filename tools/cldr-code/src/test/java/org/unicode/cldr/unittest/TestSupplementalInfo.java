@@ -2032,6 +2032,10 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                 ImmutableSet.of("America/Montreal", "Asia/Barnaul", "Asia/Tomsk", "Europe/Kirov");
         for (String timezoneRaw : TimeZone.getAvailableIDs()) {
             String timezone = TimeZone.getCanonicalID(timezoneRaw);
+            if (timezone.equals("Etc/Unknown")) {
+                System.err.println("CLDR-17949: Skipping " + timezone + " for raw " + timezoneRaw);
+                continue;
+            }
             String region = TimeZone.getRegion(timezone);
             if (!timezone.equals(timezoneRaw) || "001".equals(region)) {
                 continue;

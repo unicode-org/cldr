@@ -66,9 +66,13 @@ For a full listing, see [Delta DTDs](https://unicode.org/cldr/charts/46/suppleme
 
 1. Currency
     1. New currency code `ZWG` added — because it was late in the cycle, many locales will just support the code (no symbol or name).
-2. Timezones and Metazones
-    1. Changed the metazone for Kazakhstan to reflect removal of Asia/Almaty, thus dropping the distinction among different regions in Kazakhstan.
-    2. Added support for deprecated codes by remapping: `CST6CDT → America/Chicago`, `EST → America/Panama`, `EST5EDT → America/New_York`, `MST7MDT → America/Denver`, `PST8PDT → America/Los_Angeles`.
+2. Dates & Times
+    1. Added a new calendar type, `iso8601`.
+This is not the same as the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) standard format, which is designed just for data interchange:
+it is all ASCII, doesn't have all the options for fields (like "Sunday", "BC", or "AM"), and does not contain spaces.
+The CLDR `iso8601` calendar uses patterns in the order: era, year, month, day, day-of-week, hour, minute, second, day-period, timezone 
+	2. Changed the metazone for Kazakhstan to reflect removal of Asia/Almaty, thus dropping the distinction among different regions in Kazakhstan.
+    3. Added support for deprecated timezone codes by remapping: `CST6CDT → America/Chicago`, `EST → America/Panama`, `EST5EDT → America/New_York`, `MST7MDT → America/Denver`, `PST8PDT → America/Los_Angeles`.
 3. Units
     1. Added units: `portion-per-1e9` (aka per-billion), `night` (for hotel stays), `light-speed` (as an internal prefix for **light-second**, **light-minute**, etc.)
     2. Changed preferred wind speed preference for some locales to `meter-per-second`.
@@ -112,7 +116,11 @@ For a full listing, see [¤¤BCP47 Delta](https://unicode.org/cldr/charts/46/del
 
 1. Major changes to emoji search keywords and short names (see below)
 2. Major changes to Chinese collation, reflecting new data in Unicode 16.0
-3. Other changes
+3. Added iso8601 patterns to root. 
+These will use localized months, days of the week, day periods, and timezones.
+In this first version, the separators are not localized, and will use "-" within numeric dates, ":" within times, and " " or ", " between major elements.
+Full localization will await the next submission phase for CLDR.
+4. Other changes
     1. Various locales also had smaller improvements agreed to by translators.
     2. Additional test files have been added.
 

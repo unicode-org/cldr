@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<keyboard3 xmlns="https://schemas.unicode.org/cldr/45/keyboard3" locale="pt-t-k0-abnt2" conformsTo="45">
+<keyboard3 xmlns="https://schemas.unicode.org/cldr/46/keyboard3" locale="pt-t-k0-abnt2" conformsTo="46">
 	<locales>
 		<locale id="pt" />
 	</locales>
@@ -14,8 +14,8 @@
 	</displays>
 
 	<keys>
-		<import base="cldr" path="45/keys-Zyyy-punctuation.xml" />
-		<import base="cldr" path="45/keys-Zyyy-currency.xml" />
+		<import base="cldr" path="46/keys-Zyyy-punctuation.xml" />
+		<import base="cldr" path="46/keys-Zyyy-currency.xml" />
 
 		<!-- TODO: using the proposed deadkey format -->
 		<key id="d-acute"  output="\m{acute}"/>

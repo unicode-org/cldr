@@ -27,7 +27,7 @@ header .navparent > div {
 
 header .title {
   display: table-cell;
-  color: yellow;
+  color: white;
   font-size: 1.5em;
 }
 
@@ -41,22 +41,22 @@ header .nav a.uplink {
 }
 
 header .nav div.subpages {
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    background-color: white;
-    position: absolute;
-    color: black;
-    padding: 0.5em;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  background-color: white;
+  position: absolute;
+  color: black;
+  padding: 0.5em;
 }
 
 div.subpages .hamburger {
-    left: 1em;
-    top: 1em;
-    color: darkslateblue;
+  left: 1em;
+  top: 1em;
+  color: darkslateblue;
 }
 
 .subpages .hamburger:hover {
-    color: gray;
+  color: gray;
 }
 
 header .nav ul b {
@@ -80,7 +80,7 @@ header .nav ul li {
 }
 
 .subpages .li a {
-    color: black !important;
+  color: black !important;
 }
 
 header .message {

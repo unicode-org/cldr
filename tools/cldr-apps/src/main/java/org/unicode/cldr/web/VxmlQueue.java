@@ -1,7 +1,6 @@
 package org.unicode.cldr.web;
 
-import java.io.IOException;
-import java.io.StringWriter;
+import java.io.File;
 import java.time.LocalTime;
 import java.util.*;
 import java.util.concurrent.ExecutionException;
@@ -13,6 +12,13 @@ public class VxmlQueue {
     private static final Logger logger = SurveyLog.forClass(VxmlQueue.class);
 
     private static final String WAITING_IN_LINE_MESSAGE = "Waiting in line";
+    private static final String VXML_MESSAGE_STOPPED_ON_REQUEST = "Stopped on request";
+    private static final String VXML_MESSAGE_STARTED = "Started new task";
+    private static final String VXML_MESSAGE_PROGRESS = "In Progress";
+    private static final String VXML_MESSAGE_STOPPED_STUCK = "Stopped (refresh if stuck)";
+    private static final String VXML_MESSAGE_NOT_LOADING = "Not loading";
+    private static final String VXML_MESSAGE_SUCCESS = "Successful completion";
+    private static final String VXML_MESSAGE_PROBLEM = "Problem(s) occurred";
 
     private static final class VxmlQueueHelper {
         static VxmlQueue instance = new VxmlQueue();
@@ -30,33 +36,36 @@ public class VxmlQueue {
     /** A unique key for storing QueueEntry objects in QueueMemberId objects */
     private static final String KEY = VxmlQueue.class.getName();
 
-    /** Status of a Task */
     public enum Status {
         /** Waiting on other users/tasks */
         WAITING,
         /** Processing in progress */
         PROCESSING,
-        /** Contents are available */
-        READY,
-        /** Stopped, due to error or cancellation (LoadingPolicy.STOP) */
+        /** Contents are available and successfully validated */
+        SUCCEEDED,
+        /** Stopped, due to error, validation failure, or cancellation */
         STOPPED,
     }
 
-    /** What policy should be used when querying the queue? */
-    public enum LoadingPolicy {
+    public enum RequestType {
         /** Start a new VXML generation task */
         START,
         /** Continue the task already in progress and get its status */
         CONTINUE,
-        /** Stop (cancel) the task in progress. */
-        STOP
+        /** Cancel (stop) the task */
+        CANCEL
     }
 
     private static class QueueEntry {
-        public VxmlGenerator.VerificationStatus verificationStatus =
-                VxmlGenerator.VerificationStatus.INCOMPLETE;
+        public Results results = new Results();
         private Task currentTask = null;
         private Boolean done = false;
+
+        void reset() {
+            results = new Results();
+            currentTask = null;
+            done = false;
+        }
     }
 
     /** Semaphore to ensure that only one vetter generates VXML at a time. */
@@ -84,7 +93,8 @@ public class VxmlQueue {
                 if (!myThread.isAlive()) {
                     throw new RuntimeException("The thread is not running. Stop now.");
                 }
-                setStatus(loc.getDisplayName());
+                setLocale(loc);
+                setStatusMessage("Writing VXML files");
                 n++;
             }
 
@@ -99,107 +109,144 @@ public class VxmlQueue {
         private final QueueEntry entry;
         private int maxn;
         private int n = 0;
-        private String status = WAITING_IN_LINE_MESSAGE;
         private Status statusCode = Status.WAITING;
+        private String statusMessage = WAITING_IN_LINE_MESSAGE;
 
-        private void setStatus(String status) {
-            this.status = status;
+        private void setStatusMessage(String status) {
+            this.statusMessage = status;
         }
 
-        private final StringWriter output = new StringWriter();
+        private CLDRLocale loc;
+
+        public CLDRLocale getLocale() {
+            return loc;
+        }
+
+        private void setLocale(CLDRLocale loc) {
+            this.loc = loc;
+        }
 
         @Override
         public void run() {
             statusCode = Status.WAITING;
             try {
-                status = "Waiting...";
+                setStatusMessage("Waiting...");
                 OnlyOneVetter.acquire();
                 try {
-                    if (stop) {
-                        doStop();
-                        return;
-                    }
-                    processCriticalWork();
-                    if (stop) {
-                        doStop();
-                        return;
-                    }
+                    makeVxml();
                 } finally {
                     OnlyOneVetter.release();
                 }
-                status = "Finished.";
-                statusCode = Status.READY;
+                if (stop) {
+                    setStatusMessage("Stopped on request.");
+                    statusCode = Status.STOPPED;
+                } else {
+                    setStatusMessage("Finished.");
+                    statusCode = Status.SUCCEEDED;
+                }
             } catch (RuntimeException | InterruptedException | ExecutionException re) {
                 SurveyLog.logException(logger, re, "While generating VXML, " + taskDescription());
-                status = "Exception! " + re + ", " + taskDescription();
+                setStatusMessage("Exception! " + re + ", " + taskDescription());
                 statusCode = Status.STOPPED;
             }
         }
 
-        private void doStop() {
-            status = "Stopped on request.";
-            statusCode = Status.STOPPED;
+        private void makeVxml() throws ExecutionException {
+            setStatusMessage("Beginning");
+            statusCode = Status.PROCESSING;
+            VxmlGenerator vg = new VxmlGenerator();
+            n = 0;
+            maxn = vg.getLocales().size();
+            vg.setProgressCallback(new VxmlProgressCallback(Thread.currentThread()));
+            vg.generate(entry.results);
+            entry.done = true;
         }
 
         private String taskDescription() {
             return "thread " + myThread.getId() + ", " + LocalTime.now();
         }
 
-        private void processCriticalWork() throws ExecutionException {
-            status = "Beginning";
-            Set<CLDRLocale> sortSet = OutputFileManager.createVxmlLocaleSet();
-            maxn = sortSet.size();
-            statusCode = Status.PROCESSING;
-            n = 0;
-            VxmlGenerator vg = new VxmlGenerator();
-            vg.setProgressCallback(new VxmlProgressCallback(Thread.currentThread()));
-            vg.generate(sortSet, output);
-            entry.verificationStatus = vg.getVerificationStatus();
-            entry.done = true;
-        }
-
         private int getPercent() {
-            if (n <= 0 || maxn <= 0) {
-                return 0;
-            } else if (n >= maxn) {
-                return 100;
-            } else {
-                int p = (n * 100) / maxn;
-                return (p > 0) ? p : 1;
-            }
+            return CompletionPercent.calculate(n, maxn);
         }
     }
 
-    /** Arguments for getOutput */
     public static class Args {
         private final QueueMemberId qmi;
-        private final LoadingPolicy loadingPolicy;
+        private final RequestType requestType;
 
-        public Args(QueueMemberId qmi, LoadingPolicy loadingPolicy) {
+        public Args(QueueMemberId qmi, RequestType requestType) {
             this.qmi = qmi;
-            this.loadingPolicy = loadingPolicy;
+            this.requestType = requestType;
         }
     }
 
-    /**
-     * Results for getOutput
-     *
-     * <p>These fields get filled in by getOutput, and referenced by the caller after getOutput
-     * returns
-     */
     public static class Results {
         public Status status = Status.WAITING;
-        public Appendable output = new StringBuilder();
-    }
 
-    /*
-     * Messages returned by getOutput
-     */
-    private static final String VXML_MESSAGE_STOPPED_ON_REQUEST = "Stopped on request";
-    private static final String VXML_MESSAGE_PROGRESS = "In Progress";
-    private static final String VXML_MESSAGE_STOPPED_STUCK = "Stopped (refresh if stuck)";
-    private static final String VXML_MESSAGE_NOT_LOADING = "Not loading. Click the button to load.";
-    private static final String VXML_MESSAGE_STARTED = "Started new task";
+        public String generationMessage;
+
+        public File directory;
+
+        private int percent = 0;
+
+        public Number getPercent() {
+            return this.percent;
+        }
+
+        public void setPercent(int i) {
+            this.percent = i;
+        }
+
+        private CLDRLocale locale;
+
+        public CLDRLocale getLocale() {
+            return locale;
+        }
+
+        public void setLocale(CLDRLocale locale) {
+            this.locale = locale;
+        }
+
+        private int localesDone = 0;
+
+        public int getLocalesDone() {
+            return localesDone;
+        }
+
+        public void setLocalesDone(int n) {
+            localesDone = n;
+        }
+
+        private int localesTotal = 0;
+
+        public int getLocalesTotal() {
+            return localesTotal;
+        }
+
+        public void setLocalesTotal(int n) {
+            localesTotal = n;
+        }
+
+        public VxmlGenerator.VerificationStatus verificationStatus =
+                VxmlGenerator.VerificationStatus.INCOMPLETE;
+
+        public void setVerificationStatus(VxmlGenerator.VerificationStatus vStatus) {
+            this.verificationStatus = vStatus;
+        }
+
+        public ArrayList<String> verificationFailures = new ArrayList<>();
+
+        public ArrayList<String> verificationWarnings = new ArrayList<>();
+
+        public void addVerificationFailure(String s) {
+            verificationFailures.add(s);
+        }
+
+        public void addVerificationWarning(String s) {
+            verificationWarnings.add(s);
+        }
+    }
 
     /**
      * Start running, or continue running, the long-running task that generates VXML. This is called
@@ -207,70 +254,82 @@ public class VxmlQueue {
      * subsequent requests that query the status or trigger early termination of the task.
      *
      * @param args the VxmlQueue.Args
-     * @param results the VxmlQueue.Results
-     * @return the status message
-     * @throws IOException if thrown by results.output.append
+     * @return the Results
      */
-    public synchronized String getOutput(Args args, Results results) throws IOException {
+    public synchronized Results getResults(Args args) {
         QueueEntry entry = getEntry(args.qmi);
-        Task t = entry.currentTask;
-        if (t == null) {
-            logger.info("Got null Task in getOutput");
+        if (args.requestType == RequestType.START) {
+            getResultsStart(entry);
+        } else if (args.requestType == RequestType.CONTINUE) {
+            getResultsContinue(entry);
+        } else if (args.requestType == RequestType.CANCEL) {
+            getResultsStop(entry);
         } else {
-            results.output.append(t.output.toString());
+            logger.severe("Invalid request type for VXML, treating as STOP: " + args.requestType);
+            getResultsStop(entry);
         }
-        if (args.loadingPolicy == LoadingPolicy.STOP) {
-            stop(entry);
-            results.status = Status.STOPPED;
-            return VXML_MESSAGE_STOPPED_ON_REQUEST;
-        } else if (entry.done) {
-            if (entry.verificationStatus == VxmlGenerator.VerificationStatus.SUCCESSFUL) {
-                results.status = Status.READY;
-                setPercent(100);
-            } else {
-                results.status = Status.STOPPED;
-                if (getPercent() > 99) {
-                    setPercent(99);
-                }
-            }
-            stop(entry);
-            return entry.verificationStatus.toString();
-        }
-        if (t != null) {
-            String waiting = waitingString();
-            results.status = Status.PROCESSING;
-            if (t.myThread.isAlive()) {
-                results.status = t.statusCode;
-                if (results.status != Status.WAITING) {
-                    waiting = "";
-                }
-                setPercent(t.getPercent());
-                return VXML_MESSAGE_PROGRESS + ": " + waiting + t.status;
-            } else {
-                setPercent(0);
-                return VXML_MESSAGE_STOPPED_STUCK + " " + t.status;
-            }
-        }
-        if (args.loadingPolicy == LoadingPolicy.CONTINUE) {
-            results.status = Status.STOPPED;
-            setPercent(0);
-            return VXML_MESSAGE_NOT_LOADING;
-        }
+        return entry.results;
+    }
 
+    private void getResultsStart(QueueEntry entry) {
+        entry.reset();
         // Note: similar code in VettingViewerQueue.getPriorityItemsSummaryOutput includes
         // a comment suggesting an alternative: SurveyThreadManager.getExecutorService().invoke()
-        t = entry.currentTask = new Task(entry);
+        Task t = entry.currentTask = new Task(entry);
         t.myThread = SurveyThreadManager.getThreadFactory().newThread(t);
         t.myThread.start();
-
-        results.status = Status.PROCESSING;
-        setPercent(0);
+        entry.results.status = Status.PROCESSING;
         final String waitStr = waitingString();
-        if (WAITING_IN_LINE_MESSAGE.equals(t.status) && waitStr.isEmpty()) {
+        if (WAITING_IN_LINE_MESSAGE.equals(t.statusMessage) && waitStr.isEmpty()) {
             // Simplify “Started new task: Waiting in line” to "Waiting in line"
-            return WAITING_IN_LINE_MESSAGE;
+            entry.results.generationMessage = WAITING_IN_LINE_MESSAGE;
+        } else {
+            entry.results.generationMessage =
+                    VXML_MESSAGE_STARTED + ": " + waitStr + t.statusMessage;
         }
-        return VXML_MESSAGE_STARTED + ": " + waitStr + t.status;
+    }
+
+    private void getResultsContinue(QueueEntry entry) {
+        Task t = entry.currentTask;
+        if (t != null) {
+            entry.results.setLocale(t.getLocale());
+            entry.results.setLocalesDone(t.n);
+            entry.results.setLocalesTotal(t.maxn);
+            entry.results.setPercent(t.getPercent());
+        }
+        if (entry.done) {
+            if (entry.results.verificationStatus == VxmlGenerator.VerificationStatus.SUCCESSFUL) {
+                entry.results.status = Status.SUCCEEDED;
+                entry.results.generationMessage = VXML_MESSAGE_SUCCESS;
+            } else {
+                entry.results.status = Status.STOPPED;
+                entry.results.generationMessage = VXML_MESSAGE_PROBLEM;
+            }
+            stop(entry);
+        } else if (t == null) {
+            entry.results.status = Status.STOPPED;
+            entry.results.generationMessage = VXML_MESSAGE_NOT_LOADING;
+        } else {
+            String waiting = waitingString();
+            entry.results.status = Status.PROCESSING;
+            if (t.myThread.isAlive()) {
+                entry.results.status = t.statusCode;
+                if (entry.results.status != Status.WAITING) {
+                    waiting = "";
+                }
+                entry.results.generationMessage =
+                        VXML_MESSAGE_PROGRESS + ": " + waiting + t.statusMessage;
+            } else {
+                entry.results.generationMessage =
+                        VXML_MESSAGE_STOPPED_STUCK + " " + t.statusMessage;
+            }
+        }
+    }
+
+    private void getResultsStop(QueueEntry entry) {
+        stop(entry);
+        entry.results.status = Status.STOPPED;
+        entry.results.generationMessage = VXML_MESSAGE_STOPPED_ON_REQUEST;
     }
 
     private String waitingString() {
@@ -286,7 +345,6 @@ public class VxmlQueue {
                 t.myThread.interrupt();
             }
             entry.currentTask = null;
-            entry.done = true;
         }
     }
 
@@ -297,16 +355,5 @@ public class VxmlQueue {
             qmi.put(KEY, entry);
         }
         return entry;
-    }
-
-    /** Estimated percentage complete for VXML generation */
-    private int percent = 0;
-
-    private void setPercent(int p) {
-        percent = p;
-    }
-
-    public int getPercent() {
-        return percent;
     }
 }

@@ -8,15 +8,15 @@ import * as cldrStatus from "./cldrStatus.mjs";
 
 const SECONDS_IN_MS = 1000;
 
-const NORMAL_RETRY = 10 * SECONDS_IN_MS; // "Normal" retry: starting or about to start
+const REQUEST_TIMER = 5 * SECONDS_IN_MS; // Fetch status this often
 
 const VXML_URL = "api/vxml";
 
 // These must match the back end; used in requests
-class LoadingPolicy {
+class RequestType {
   static START = "START"; // start generating vxml
   static CONTINUE = "CONTINUE"; // continue generating vxml
-  static STOP = "STOP"; // stop (cancel) generating vxml
+  static CANCEL = "CANCEL"; // cancel (stop) generating vxml
 }
 
 // These must match the back end; used in responses
@@ -24,8 +24,8 @@ class Status {
   static INIT = "INIT"; // before making a request (back end does not have INIT)
   static WAITING = "WAITING"; // waiting on other users/tasks
   static PROCESSING = "PROCESSING"; // in progress
-  static READY = "READY"; // finished successfully
-  static STOPPED = "STOPPED"; // due to error or cancellation (LoadingPolicy.STOP)
+  static SUCCEEDED = "SUCCEEDED"; // finished successfully
+  static STOPPED = "STOPPED"; // due to error, verification failure, or cancellation
 }
 
 let canGenerate = false;
@@ -45,23 +45,23 @@ function viewMounted(setData) {
 function start() {
   // Disable announcements during VXML generation to reduce risk of interference
   cldrAnnounce.enableAnnouncements(false);
-  requestVxml(LoadingPolicy.START);
+  requestVxml(RequestType.START);
 }
 
 function fetchStatus() {
   if (!canGenerate || "generate_vxml" !== cldrStatus.getCurrentSpecial()) {
     canGenerate = false;
   } else if (canGenerate) {
-    requestVxml(LoadingPolicy.CONTINUE);
+    requestVxml(RequestType.CONTINUE);
   }
 }
 
-function stop() {
-  requestVxml(LoadingPolicy.STOP);
+function cancel() {
+  requestVxml(RequestType.CANCEL);
 }
 
-function requestVxml(loadingPolicy) {
-  const args = { loadingPolicy: loadingPolicy };
+function requestVxml(requestType) {
+  const args = { requestType: requestType };
   const init = cldrAjax.makePostData(args);
   cldrAjax
     .doFetch(VXML_URL, init)
@@ -79,10 +79,13 @@ function setVxmlData(data) {
   }
   callbackToSetData(data);
   if (data.status === Status.WAITING || data.status === Status.PROCESSING) {
-    window.setTimeout(fetchStatus.bind(this), NORMAL_RETRY);
-  } else if (data.status === Status.READY || data.status === Status.STOPPED) {
+    window.setTimeout(fetchStatus.bind(this), REQUEST_TIMER);
+  } else if (
+    data.status === Status.SUCCEEDED ||
+    data.status === Status.STOPPED
+  ) {
     cldrAnnounce.enableAnnouncements(true); // restore
   }
 }
 
-export { Status, canGenerateVxml, start, stop, viewMounted };
+export { Status, cancel, canGenerateVxml, start, viewMounted };

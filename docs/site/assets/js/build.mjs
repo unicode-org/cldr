@@ -31,6 +31,7 @@ const coll = new Intl.Collator(["und"]);
 async function processFile(d, fullPath, out) {
   const f = await fs.readFile(fullPath, "utf-8");
   const m = matter(f);
+  fullPath = fullPath.replace(/\\/g, '/'); // backslash with slash, for win
   if (m && m.data) {
     const { data } = m;
     out.all.push({ ...data, fullPath });

@@ -516,7 +516,7 @@ public class Ldml2JsonConverter {
                 }
             } else if (result.startsWith("//cldr/transforms/transforms")) {
                 result = fixXpathBcp47(result, "transform", "source", "target");
-            }    
+            }
         } else if (result.contains("languages")
                 || result.contains("languageAlias")
                 || result.contains("languageMatches")

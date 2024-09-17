@@ -1,8 +1,8 @@
-# TL;DR
+---
+title: Run GenerateTestData.java
+---
 
-Run GenerateTestData.java.
-
-# Structure
+# Run GenerateTestData.java
 
 There are currently 5 directories in common/testData.
 Each also has a _readme.txt with copyright information for all the files in that directory. 

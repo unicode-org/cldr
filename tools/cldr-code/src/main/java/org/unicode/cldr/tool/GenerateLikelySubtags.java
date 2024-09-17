@@ -458,7 +458,6 @@ public class GenerateLikelySubtags {
                                 {"cu_Glag", "cu_Glag_BG"},
                                 {"sd_Khoj", "sd_Khoj_IN"},
                                 {"lif_Limb", "lif_Limb_IN"},
-                                {"grc_Linb", "grc_Linb_GR"},
                                 {"arc_Nbat", "arc_Nbat_JO"},
                                 {"arc_Palm", "arc_Palm_SY"},
                                 {"pal_Phlp", "pal_Phlp_CN"},

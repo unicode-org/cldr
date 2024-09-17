@@ -514,8 +514,6 @@ public class Ldml2JsonConverter {
                 if (!oldResult.equals(result)) {
                     logger.fine(oldResult + " => " + result);
                 }
-            } else if (result.startsWith("//cldr/transforms/transforms")) {
-                result = fixXpathBcp47(result, "transform", "source", "target");
             }
         } else if (result.contains("languages")
                 || result.contains("languageAlias")

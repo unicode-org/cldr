@@ -1134,6 +1134,7 @@ public class CLDRTransforms {
         public String[] available =
                 getAvailableIds().stream()
                         .map((String id) -> id.replace(".xml", ""))
+                        .sorted()
                         .collect(Collectors.toList())
                         .toArray(new String[0]);
     }

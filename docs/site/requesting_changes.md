@@ -1,3 +1,7 @@
+---
+title: Requesting Changes
+---
+
 # Requesting Changes
 
 There are two ways to request changes (for bug fixes or new features). Filing a ticket and fixing in the Survey Tool.

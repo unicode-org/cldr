@@ -1,5 +1,6 @@
-Update emoji translations & ordering
-====================================
+---
+title: Update emoji translations & ordering
+---
 
 SBRS (at the start of the release):
 -----

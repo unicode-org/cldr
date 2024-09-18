@@ -18,8 +18,8 @@ index
 	downloads		
 		downloads/cldr-46	
 		downloads/cldr-45	
-		index/downloads/cldr-44	
-		index/downloads/cldr-43	
+		downloads/cldr-44	
+		downloads/cldr-43	
 		index/json-format-data	
 		downloads/previous-releases	
 			downloads/cldr-42
@@ -37,6 +37,8 @@ index
 			downloads/cldr-31
 	index/charts		
 	index/draft-schedule		
+	requesting_changes
+	index/bcp47-extension		
 	cldr-tc		
 		cldr-tc/design-wg	
 		cldr-tc/message-format-wg	
@@ -55,7 +57,6 @@ index
 		index/cldr-presentations	
 		index/corrigenda	
 		index/acknowledgments	
-	index/bcp47-extension		
 	translation		
 		translation/getting-started	
 			translation/getting-started/data-stability
@@ -134,6 +135,7 @@ index
 			development/coding-cldr-tools
 			development/coding-cldr-tools/documenting-cldr-tools
 			development/coding-cldr-tools/cldr-file
+			development/GenerateTestData
 		development/cldr-big-red-switch	
 			development/cldr-big-red-switch/generating-charts
 			downloads/brs-copy-en_gb-to-en_001
@@ -162,6 +164,8 @@ index
 			development/updating-codes/updating-subdivision-translations
 			development/updating-codes/updating-un-codes
 			development/updating-codes/updating-language-groups
+			development/updating-codes/generate-emoji-paths
+			development/updating-codes/un-literacy
 		development/development-process/design-proposals	
 			development/development-process/design-proposals/alternate-time-formats
 			development/development-process/design-proposals/bcp-47-changes-draft

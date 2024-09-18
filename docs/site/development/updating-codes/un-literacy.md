@@ -1,6 +1,8 @@
+---
+title: UN Literacy Data (CLDR BRS)
+---
+
 # UN Literacy Data (CLDR BRS)
-
-
 
 1. Goto <https://data.un.org/Data.aspx?d=POP&f=tableCode:31>
 2. On the left tab under filters:

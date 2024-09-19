@@ -342,20 +342,8 @@ function showProposedItem(inTd, tr, theRow, value, tests, json) {
       ];
     }
 
-    var input = $(inTd).closest("tr").find(".input-add");
-    if (input) {
-      input.closest(".form-group").addClass("has-error");
-      input
-        .popover("destroy")
-        .popover({
-          placement: "bottom",
-          html: true,
-          content: cldrSurvey.testsToHtml(tests),
-          trigger: "hover",
-        })
-        .popover("show");
-      if (tr.myProposal) tr.myProposal.style.display = "none";
-    }
+    const description = cldrSurvey.testsToHtml(tests);
+    cldrNotify.openWithHtml("Response to voting", description);
     if (ourItem || (replaceErrors && value === "") /* Abstain */) {
       const message = cldrText.sub(
         "StatusAction_msg",

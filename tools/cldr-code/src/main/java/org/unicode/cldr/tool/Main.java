@@ -49,7 +49,9 @@ class Main {
     }
 
     public static void invoke(Class<?> c, final String[] args2)
-            throws NoSuchMethodException, IllegalArgumentException, IllegalAccessException,
+            throws NoSuchMethodException,
+                    IllegalArgumentException,
+                    IllegalAccessException,
                     InvocationTargetException {
         final Method main = getStaticMain(c);
         if (main == null) {

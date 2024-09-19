@@ -9,6 +9,7 @@ package org.unicode.cldr.util;
 public abstract class CLDRURLS {
     public static final String CLDR_SCHEMA_BASE = "https://schemas.unicode.org/cldr";
     public static final String CLDR_CURVER_BASE = CLDR_SCHEMA_BASE + "/" + CLDRFile.GEN_VERSION;
+
     /** Base URL for the CLDR repository */
     public static final String CLDR_REPO_BASE = "https://github.com/unicode-org/cldr/";
 
@@ -17,11 +18,13 @@ public abstract class CLDRURLS {
             "https://github.com/unicode-org/cldr-staging/blob/main/";
 
     public static final String DEFAULT_COMMIT_BASE = CLDR_REPO_BASE + "commit/";
+
     /** Hostname for the Survey Tool */
     public static final String DEFAULT_HOST = "st.unicode.org";
 
     public static final String DEFAULT_PATH = "/cldr-apps";
     public static final String DEFAULT_BASE = "https://" + DEFAULT_HOST + DEFAULT_PATH;
+
     /** URL for filing a new ticket */
     public static final String CLDR_NEWTICKET_URL =
             "https://cldr.unicode.org/index/bug-reports#TOC-Filing-a-Ticket";
@@ -30,18 +33,22 @@ public abstract class CLDRURLS {
     public static final String CLDR_HOMEPAGE = "https://cldr.unicode.org";
     public static final String UNICODE_CONSORTIUM = "The Unicode Consortium";
     public static final String CLDR_UPDATINGDTD_URL = CLDR_HOMEPAGE + "/development/updating-dtds";
+
     /** Our license, in SPDX format */
     public static final String UNICODE_SPDX = "Unicode-3.0";
+
     /**
      * See:
      * https://spdx.github.io/spdx-spec/appendix-V-using-SPDX-short-identifiers-in-source-files/
      */
     public static final String UNICODE_SPDX_HEADER = "SPDX-License-Identifier: " + UNICODE_SPDX;
+
     /**
      * Override this property if you want to change the absolute URL to the SurveyTool base from
      * DEFAULT_BASE
      */
     public static final String CLDR_SURVEY_BASE = "CLDR_SURVEY_BASE";
+
     /**
      * Override this property if you want to change the relative URL to the SurveyTool base from
      * DEFAULT_PATH (within SurveyTool only)
@@ -78,6 +85,7 @@ public abstract class CLDRURLS {
     }
 
     protected static String VPATH = "/v#";
+
     /** Constant for an unknown git revision. Use the same in the builders. */
     public static final String UNKNOWN_REVISION = "(unknown)";
 

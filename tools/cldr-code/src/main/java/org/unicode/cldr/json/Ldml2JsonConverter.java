@@ -112,6 +112,7 @@ public class Ldml2JsonConverter {
             this.isTiered = isTiered;
             this.hasLocales = hasLocales;
         }
+
         /**
          * Is it split into modern/full?
          *
@@ -120,6 +121,7 @@ public class Ldml2JsonConverter {
         public boolean tiered() {
             return isTiered;
         }
+
         /**
          * Does it have locale IDs?
          *
@@ -128,6 +130,7 @@ public class Ldml2JsonConverter {
         public boolean locales() {
             return hasLocales;
         }
+
         /**
          * return the options as a pipe-delimited list
          *
@@ -1036,6 +1039,7 @@ public class Ldml2JsonConverter {
     }
 
     Pattern IS_REGION_CODE = PatternCache.get("([A-Z][A-Z])|([0-9][0-9][0-9])");
+
     /**
      * Bottleneck for converting Unicode Locale ID (root, ca_ES_VALENCIA) to String for filename or
      * data item. If strictBcp47 is true (default) then it will convert to (und, ca-ES-valencia)

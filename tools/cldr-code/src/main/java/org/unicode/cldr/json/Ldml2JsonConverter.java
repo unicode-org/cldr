@@ -901,14 +901,6 @@ public class Ldml2JsonConverter {
                             }
                             // the value is now the raw filename
                             item.setValue(rawTransformFile);
-                            item.setPath(
-                                    item.getPath()
-                                            .replaceAll("\\]/tRule.*$", "]/_rulesFile")
-                                            .replace("/transforms/", "/"));
-                            item.setFullPath(
-                                    item.getFullPath()
-                                            .replaceAll("\\]/tRule.*$", "]/_rulesFile")
-                                            .replace("/transforms/", "/"));
                         }
 
                         // some items need to be split to multiple item before processing. None
@@ -970,7 +962,31 @@ public class Ldml2JsonConverter {
                         outputUnitPreferenceData(js, theItems, out, nodesForLastItem);
                     }
 
-                    // closeNodes(out, nodesForLastItem.size() - 2, 0);
+                    // Special processing for transforms.
+                    if (type == RunType.transforms) {
+                        final JsonObject jo = out.getAsJsonObject("transforms");
+                        if (jo == null || jo.isEmpty()) {
+                            throw new RuntimeException(
+                                    "Could not get transforms object in " + filename);
+                        }
+                        @SuppressWarnings("unchecked")
+                        final Entry<String, JsonElement>[] s = jo.entrySet().toArray(new Entry[0]);
+                        if (s == null || s.length != 1) {
+                            throw new RuntimeException(
+                                    "Could not get 1 subelement of transforms in " + filename);
+                        }
+                        // key doesn't matter.
+                        // move subitem up
+                        out = s[0].getValue().getAsJsonObject();
+                        final Entry<String, JsonElement>[] s2 =
+                                out.entrySet().toArray(new Entry[0]);
+                        if (s2 == null || s2.length != 1) {
+                            throw new RuntimeException(
+                                    "Could not get 1 sub-subelement of transforms in " + filename);
+                        }
+                        // move sub-subitem up.
+                        out = s2[0].getValue().getAsJsonObject();
+                    }
 
                     // write JSON
                     try (PrintWriter outf = FileUtilities.openUTF8Writer(outputDir, outFilename)) {

@@ -171,5 +171,5 @@
 > $1/$2$4
 
 # Transform - drop terminal tRule element
-< (.*)/tRule.*
-> $1
+< //supplementalData/transforms/transform(.*)/tRule.*$
+> //supplementalData/transforms/transform$1/_rulesFile

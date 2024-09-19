@@ -22,6 +22,7 @@ public class UnLiteracyParser extends XMLFileReader.SimpleHandler {
     static final String ILLITERATE = "Illiterate";
     private static final String UNKNOWN = "Unknown";
     private static final String TOTAL = "Total";
+
     // Debug stuff
     public static void main(String args[]) {
         final UnLiteracyParser ulp = new UnLiteracyParser().read();

@@ -23,6 +23,7 @@ public class JspWebContext extends WebContext {
     }
 
     MainFormState mainFormState = MainFormState.CLOSED;
+
     /** List of xpaths indicating the types of data being submitted (numbers, currency, etc) */
     Set<String> podBases = null;
 

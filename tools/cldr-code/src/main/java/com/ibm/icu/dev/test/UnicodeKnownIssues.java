@@ -15,6 +15,7 @@ import java.util.regex.Pattern;
  */
 public class UnicodeKnownIssues {
     private Map<String, List<String>> knownIssues = new TreeMap<>();
+
     /**
      * Max number of lines to show by default (including the "more") unless -allKnownIssues is
      * given. Must be at least 2.

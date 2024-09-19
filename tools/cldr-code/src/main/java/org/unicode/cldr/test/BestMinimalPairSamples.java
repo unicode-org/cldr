@@ -369,6 +369,7 @@ public class BestMinimalPairSamples {
                     "duration-day",
                     "duration-hour",
                     "duration-minute");
+
     /**
      * better result is smaller
      *

@@ -169,6 +169,7 @@ public class LikelySubtagsTest extends TestFmwk {
     final LanguageTagParser sourceLtp = new LanguageTagParser();
 
     final Set<String> KNOWN_ERRORS = Set.of("en_Latn_MU", "en_Latn_SL", "en_Latn_TK", "en_Latn_ZM");
+
     /**
      * Return false if we should skip the language
      *

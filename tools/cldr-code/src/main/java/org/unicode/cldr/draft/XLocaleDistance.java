@@ -1056,8 +1056,10 @@ public class XLocaleDistance {
          * contains a variable, we replace that rule by multiple rules for the partitions.
          */
         final Multimap<String, String> variableToPartition;
+
         /** Used for executing the rules. We map a region to a partition before processing. */
         final Map<String, String> regionToPartition;
+
         /**
          * Used to support es_419 compared to es_AR, etc.
          *
@@ -1065,6 +1067,7 @@ public class XLocaleDistance {
          * @param regionToPartitionIn
          */
         final Multimap<String, String> macroToPartitions;
+
         /** Used to get the paradigm region for a cluster, if there is one */
         final ImmutableSet<ULocale> paradigms;
 

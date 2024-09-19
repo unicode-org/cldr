@@ -166,6 +166,7 @@ public class TestExampleGenerator extends TestFmwk {
                     "//ldml/numbers/minimalPairs/pluralMinimalPairs[@count=\"([^\"]*+)\"]",
                     "//ldml/numbers/minimalPairs/ordinalMinimalPairs[@ordinal=\"([^\"]*+)\"]",
                     "//ldml/characters/parseLenients[@scope=\"([^\"]*+)\"][@level=\"([^\"]*+)\"]/parseLenient[@sample=\"([^\"]*+)\"]");
+
     // Only add to above if the example should NEVER appear.
 
     /**
@@ -243,6 +244,7 @@ public class TestExampleGenerator extends TestFmwk {
                     "//ldml/personNames/parameterDefault[@parameter=\"([^\"]*+)\"]" // TODO
                     // CLDR-15384
                     );
+
     // Add to above if the example SHOULD appear, but we don't have it yet. TODO Add later
 
     /**
@@ -274,6 +276,7 @@ public class TestExampleGenerator extends TestFmwk {
                     "//ldml/dates/timeZoneNames/metazone[@type=\"([^\"]*+)\"]/long/standard",
                     "//ldml/dates/timeZoneNames/metazone[@type=\"([^\"]*+)\"]/long/daylight",
                     "//ldml/units/durationUnit[@type=\"([^\"]*+)\"]/durationUnitPattern");
+
     // Only add to above if the background should NEVER appear.
 
     /**

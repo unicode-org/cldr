@@ -95,6 +95,7 @@ public class ExemplarInfo {
         languageToExemplars.put(
                 "gn", new ExemplarInfo("[a-vx-zá é í ó ú ý ñ ã ẽ ĩ õ ũ ỹ {g\u0303}]", "[a-z]"));
     }
+
     // http://ja.wikipedia.org/wiki/学年別漢字配当表, http://kanji-a.seesaa.net/category/2203790-1.html
     private static UnicodeMap<String> JapaneseEducationLevels =
             new UnicodeMap<String>()

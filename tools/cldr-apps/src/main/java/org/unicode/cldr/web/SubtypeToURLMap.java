@@ -45,6 +45,7 @@ import org.unicode.cldr.util.CLDRTool;
         description = "parse each of the params as a path or URL to a subtype map and check.")
 public class SubtypeToURLMap implements SubtypeToURLProvider {
     static final Logger logger = SurveyLog.forClass(SubtypeToURLMap.class);
+
     /**
      * Little tool for validating input data.
      *
@@ -283,6 +284,7 @@ public class SubtypeToURLMap implements SubtypeToURLProvider {
     public List<String> getUrls() {
         return urlList;
     }
+
     /** get the subtypes that match a certain URL */
     public Set<Subtype> getSubtypesForUrl(final String url) {
         Set<Subtype> set = new TreeSet<>();
@@ -453,6 +455,7 @@ public class SubtypeToURLMap implements SubtypeToURLProvider {
             }
             return map;
         }
+
         /**
          * The date before which a cache's contents are invalid.
          *

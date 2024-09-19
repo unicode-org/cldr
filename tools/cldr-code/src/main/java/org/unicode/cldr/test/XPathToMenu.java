@@ -220,7 +220,6 @@ final class XPathToMenu {
         "America_Central", "America",
         "Alaska", "America",
         "Georgia", "Asia",
-        "Choibalsan", "Asia",
         "Sakhalin", "Asia",
         "Anadyr", "Asia",
         "Dushanbe", "Asia",

@@ -23,6 +23,7 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -899,6 +900,10 @@ public class Ldml2JsonConverter {
                                 // note: not logging the write here- it will be logged when the
                                 // .json file is written.
                             }
+                            final String path = item.getPath();
+                            item.setPath(fixTransformPath(path));
+                            final String fullPath = item.getFullPath();
+                            item.setFullPath(fixTransformPath(fullPath));
                             // the value is now the raw filename
                             item.setValue(rawTransformFile);
                         }
@@ -1031,6 +1036,51 @@ public class Ldml2JsonConverter {
             System.out.print(outStr);
         }
         return totalItemsInFile;
+    }
+
+    /**
+     * Fixup an XPathParts with a specific transform element
+     *
+     * @param xpp the XPathParts to modify
+     * @param attribute the attribute name, such as "alias"
+     */
+    private static final void fixTransformPath(final XPathParts xpp, final String attribute) {
+        final String v = xpp.getAttributeValue(-2, attribute); // on penultimate element
+        if (v == null) return;
+        final Set<String> aliases = new HashSet<>();
+        final Set<String> bcpAliases = new HashSet<>();
+        for (final String s : v.split(" ")) {
+            final String q = Locale.forLanguageTag(s).toLanguageTag();
+            if (s.equals(q)) {
+                // bcp47 round trips- add to bcp list
+                bcpAliases.add(s);
+            } else {
+                // different - add to other aliases.
+                aliases.add(s);
+            }
+        }
+        if (aliases.isEmpty()) {
+            xpp.removeAttribute(-2, attribute);
+        } else {
+            xpp.setAttribute(-2, attribute, String.join(" ", aliases.toArray(new String[0])));
+        }
+        if (bcpAliases.isEmpty()) {
+            xpp.removeAttribute(-2, attribute + "Bcp47");
+        } else {
+            xpp.setAttribute(
+                    -2, attribute + "Bcp47", String.join(" ", bcpAliases.toArray(new String[0])));
+        }
+    }
+
+    /**
+     * Fixup a transform path, expanding the alias and backwardAlias into bcp47 and non-bcp47
+     * attributes.
+     */
+    private static final String fixTransformPath(final String path) {
+        final XPathParts xpp = XPathParts.getFrozenInstance(path).cloneAsThawed();
+        fixTransformPath(xpp, "alias");
+        fixTransformPath(xpp, "backwardAlias");
+        return xpp.toString();
     }
 
     private static String valueSectionsFormat(int values, int sections) {

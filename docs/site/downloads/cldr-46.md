@@ -15,15 +15,15 @@ It only covers the data, which is available at [release-46-alpha3](https://githu
 ## Overview
 
 Unicode CLDR provides key building blocks for software supporting the world's languages.
-CLDR data is used by all [major software systems](https://cldr.unicode.org/index#TOC-Who-uses-CLDR-) 
-(including all mobile phones) for their software internationalization and localization, 
+CLDR data is used by all [major software systems](https://cldr.unicode.org/index#TOC-Who-uses-CLDR-)
+(including all mobile phones) for their software internationalization and localization,
 adapting software to the conventions of different languages.
 
 The most significant changes in this release were:
 
-- Updates to Unicode 16.0 (including major changes to collation), 
-- Further revisions to the Message Format 2.0 tech preview, 
-- Substantial additions and modifications of Emoji search keyword data, 
+- Updates to Unicode 16.0 (including major changes to collation),
+- Further revisions to the Message Format 2.0 tech preview,
+- Substantial additions and modifications of Emoji search keyword data,
 - ‘Upleveling’ the locale coverage.
 
 ### Locale Coverage Status
@@ -127,7 +127,7 @@ Full localization will await the next submission phase for CLDR.
 For a full listing, see [Delta Data](https://unicode.org/cldr/charts/46/delta/index.html)
 
 ### Emoji Search Keywords
-The usage model for emoji search keywords is that 
+The usage model for emoji search keywords is that
 - The user types one or more words in an emoji search field. The order of words doesn't matter; nor does upper- versus lowercase.
 - Each word successively narrows a number of emoji in a results box
     - heart → 🥰 😘 😻 💌 💘 💝 💖 💗 💓 💞 💕 💟 ❣️ 💔 ❤️‍🔥 ❤️‍🩹 ❤️ 🩷 🧡 💛 💚 💙 🩵 💜 🤎 🖤 🩶 🤍 💋 🫰 🫶 🫀 💏 💑 🏠 🏡 ♥️ 🩺
@@ -139,11 +139,11 @@ The usage model for emoji search keywords is that
 Thus in the following, the user would just click on 🎉 if that works for them.
     - celebrate → 🥳 🥂 🎈 🎉 🎊 🪅
 
-In this release WhatsApp emoji search keyword data has been incorporated. 
+In this release WhatsApp emoji search keyword data has been incorporated.
 In the process of doing that, the maximum number of search keywords per emoji has been increased,
-and the keywords have been simplified in most locales by breaking up multi-word keywords. 
-An example would be white flag (🏳️), formerly having 3 keyword phrases of [white waving flag | white flag | waving flag], 
-now being replaced by the simpler 3 single keywords [white | waving | flag]. 
+and the keywords have been simplified in most locales by breaking up multi-word keywords.
+An example would be white flag (🏳️), formerly having 3 keyword phrases of [white waving flag | white flag | waving flag],
+now being replaced by the simpler 3 single keywords [white | waving | flag].
 The simpler version typically works as well or better in practice.
 
 ### Collation Data Changes
@@ -151,29 +151,29 @@ There are two significant changes to the CLDR root collation (CLDR default sort 
 
 #### Realigned With DUCET
 The [DUCET](https://www.unicode.org/reports/tr10/#Default_Unicode_Collation_Element_Table) is the Unicode Collation Algorithm default sort order.
-The [CLDR root collation](https://www.unicode.org/reports/tr35/tr35-collation.html#Root_Collation) is a tailoring of the DUCET. 
+The [CLDR root collation](https://www.unicode.org/reports/tr35/tr35-collation.html#Root_Collation) is a tailoring of the DUCET.
 These sort orders have differed in the relative order of groups of characters including extenders, currency symbols, and non-decimal-digit numeric characters.
 
-Starting with CLDR 46 and Unicode 16.0, the order of these groups is the same. 
-In both sort orders, non-decimal-digit numeric characters now sort after decimal digits, 
+Starting with CLDR 46 and Unicode 16.0, the order of these groups is the same.
+In both sort orders, non-decimal-digit numeric characters now sort after decimal digits,
 and the CLDR root collation no longer tailors any currency symbols (making some of them sort like letter sequences, as in the DUCET).
 
-These changes eliminate sort order differences among almost all regular characters between the CLDR root collation and the DUCET. 
+These changes eliminate sort order differences among almost all regular characters between the CLDR root collation and the DUCET.
 See the [CLDR root collation](https://www.unicode.org/reports/tr35/tr35-collation.html#Root_Collation) documentation for details.
 
 #### Improved Han Radical-Stroke Order
-CLDR includes [data for sorting Han (CJK) characters in radical-stroke order](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-collation.md#File_Format_FractionalUCA_txt). 
-It used to distinguish traditional and simplified forms of radicals on a higher level than sorting by the number of residual strokes. 
-Starting with CLDR 46, the CLDR radical-stroke order matches that of the [Unicode Radical-Stroke Index (large PDF)](https://www.unicode.org/Public/UCD/latest/charts/RSIndex.pdf). 
-[Its sorting algorithm is defined in UAX #38](https://www.unicode.org/reports/tr38/#SortingAlgorithm). 
-Traditional vs. simplified forms of radicals are distinguished on a lower level than the number of residual strokes. 
-This also has an effect on [alphabetic indexes](tr35-collation.md#Collation_Indexes) for radical-stroke sort orders, 
+CLDR includes [data for sorting Han (CJK) characters in radical-stroke order](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-collation.md#File_Format_FractionalUCA_txt).
+It used to distinguish traditional and simplified forms of radicals on a higher level than sorting by the number of residual strokes.
+Starting with CLDR 46, the CLDR radical-stroke order matches that of the [Unicode Radical-Stroke Index (large PDF)](https://www.unicode.org/Public/UCD/latest/charts/RSIndex.pdf).
+[Its sorting algorithm is defined in UAX #38](https://www.unicode.org/reports/tr38/#SortingAlgorithm).
+Traditional vs. simplified forms of radicals are distinguished on a lower level than the number of residual strokes.
+This also has an effect on [alphabetic indexes](tr35-collation.md#Collation_Indexes) for radical-stroke sort orders,
 where only the traditional forms of radicals are now available as index characters.
 
 ### JSON Data Changes
 
-1. Separate modern packages were dropped [CLDR-16465] 
-2. Adding transliteration rules [CLDR-16720] (In progress)
+1. Separate modern packages were dropped [CLDR-16465]
+2. Transliteration (transform) data is now available in the `cldr-transforms` package. The JSON file contains transform metadata, and the `_rulesFile` key indicates an external (`.txt`) file containing the actual rules. [CLDR-16720][].
 
 ### Markdown ###
 
@@ -185,7 +185,7 @@ This process should be completed before release.
 ### File Changes
 
 Most files added in this release were for new locales.
-There were the following new test files: 
+There were the following new test files:
 
 **TBD***
 
@@ -215,3 +215,5 @@ Many people have made significant contributions to CLDR and LDML; see the [Ackno
 The Unicode [Terms of Use](https://unicode.org/copyright.html) apply to CLDR data; in particular, see [Exhibit 1](https://unicode.org/copyright.html#Exhibit1).
 
 For web pages with different views of CLDR data, see [http://cldr.unicode.org/index/charts](https://cldr.unicode.org/index/charts).
+
+[CLDR-16720]: https://unicode-org.atlassian.net/issues/CLDR-16720

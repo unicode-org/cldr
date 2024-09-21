@@ -1128,4 +1128,20 @@ public class CLDRTransforms {
         }
         return "";
     }
+
+    public class CLDRTransformsJsonIndex {
+        /** raw list of available IDs */
+        public String[] available =
+                getAvailableIds().stream()
+                        .map((String id) -> id.replace(".xml", ""))
+                        .sorted()
+                        .collect(Collectors.toList())
+                        .toArray(new String[0]);
+    }
+
+    /** This gets the metadata (index file) exposed as cldr-json/cldr-transforms/transforms.json */
+    public CLDRTransformsJsonIndex getJsonIndex() {
+        final CLDRTransformsJsonIndex index = new CLDRTransformsJsonIndex();
+        return index;
+    }
 }

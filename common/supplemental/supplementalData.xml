@@ -1540,7 +1540,7 @@ XXX Code for transations where no currency is involved
 		<language type="eka" scripts="Latn"/>
 		<language type="eky" scripts="Kali"/>
 		<language type="el" scripts="Grek" territories="CY GR"/>
-		<language type="en" scripts="Latn" territories="AG AI AS AU BB BI BM BS BW BZ CA CC CK CM CQ CX DG DM ER FJ FK FM GB GD GG GH GI GM GU GY HK IE IM IN IO JE JM KE KI KN KY LC LR LS MG MH MP MS MT MU MW NA NF NG NR NU NZ PG PH PK PN PR PW RW SB SC SD SG SH SL SS SX SZ TC TK TO TT TV TZ UG UM US VC VG VI VU WS ZA ZM ZW"/>
+		<language type="en" scripts="Latn" territories="AG AI AS AU BB BI BM BS BW BZ CA CC CK CM CQ CX DG DM ER FJ FK FM GB GD GG GH GI GM GS GU GY HK IE IM IN IO JE JM KE KI KN KY LC LR LS MG MH MP MS MT MU MW NA NF NG NR NU NZ PG PH PK PN PR PW RW SB SC SD SG SH SL SS SX SZ TC TK TO TT TV TZ UG UM US VC VG VI VU WS ZA ZM ZW"/>
 		<language type="en" scripts="Dsrt Shaw" territories="AC AE AR AT BA BD BE BG BR CH CL CY CZ DE DK DZ EE EG ES ET FI FR GR HR HU IL IQ IT JO KZ LB LK LT LU LV MA MV MX MY NL PL PT RO SE SI SK TA TH TR YE" alt="secondary"/>
 		<language type="enm" scripts="Latn" alt="secondary"/>
 		<language type="eo" scripts="Latn"/>
@@ -2013,6 +2013,7 @@ XXX Code for transations where no currency is involved
 		<language type="nn" scripts="Latn" territories="NO"/>
 		<language type="nnh" scripts="Latn"/>
 		<language type="no" scripts="Latn" territories="NO"/>
+		<language type="no" territories="BV" alt="secondary"/>
 		<language type="nod" scripts="Lana"/>
 		<language type="nod" territories="TH" alt="secondary"/>
 		<language type="noe" scripts="Deva"/>
@@ -2334,7 +2335,7 @@ XXX Code for transations where no currency is involved
 		<language type="uli" scripts="Latn"/>
 		<language type="umb" scripts="Latn"/>
 		<language type="umb" territories="AO" alt="secondary"/>
-		<language type="und" territories="AQ BV CP GS HM" alt="secondary"/>
+		<language type="und" territories="AQ CP HM" alt="secondary"/>
 		<language type="unr" scripts="Beng Deva"/>
 		<language type="unr" territories="IN" alt="secondary"/>
 		<language type="unx" scripts="Beng Deva"/>
@@ -2638,7 +2639,7 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="lep" populationPercent="3.9"/>	<!--Lepcha-->
 		</territory>
 		<territory type="BV" gdp="54050" literacyPercent="99" population="1">	<!--Bouvet Island-->
-			<languagePopulation type="und" populationPercent="100"/>	<!--Unknown language-->
+			<languagePopulation type="no" populationPercent="100" references="R1062"/>	<!--Norwegian-->
 		</territory>
 		<territory type="BW" gdp="46740000000" literacyPercent="85.1" population="2450670">	<!--Botswana-->
 			<languagePopulation type="en" populationPercent="81" officialStatus="official" references="R1009"/>	<!--English-->
@@ -2830,7 +2831,7 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="yrl" populationPercent="0.006" references="R1327"/>	<!--Nheengatu-->
 		</territory>
 		<territory type="CP" gdp="55050" literacyPercent="99" population="1">	<!--Clipperton Island-->
-			<languagePopulation type="und" populationPercent="100" references="R1062"/>	<!--Unknown language-->
+			<languagePopulation type="und" populationPercent="100" references="R1178"/>	<!--Unknown language-->
 		</territory>
 		<territory type="CQ" gdp="21940000" literacyPercent="99" population="492">	<!--Sark-->
 			<languagePopulation type="en" populationPercent="98" officialStatus="official" references="R1166"/>	<!--English-->
@@ -3148,7 +3149,7 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="tsd" populationPercent="0.0019"/>	<!--Tsakonian-->
 		</territory>
 		<territory type="GS" gdp="1081000" literacyPercent="99" population="20">	<!--South Georgia & South Sandwich Islands-->
-			<languagePopulation type="und" literacyPercent="100" populationPercent="100" references="R1178"/>	<!--Unknown language-->
+			<languagePopulation type="en" populationPercent="100" officialStatus="official" references="R1338"/>	<!--English-->
 		</territory>
 		<territory type="GT" gdp="223200000000" literacyPercent="75.9" population="18255200">	<!--Guatemala-->
 			<languagePopulation type="es" populationPercent="93" officialStatus="official" references="R1227"/>	<!--Spanish-->
@@ -5462,7 +5463,7 @@ XXX Code for transations where no currency is involved
 
 	<parentLocales>
 		<parentLocale parent="root" localeRules="nonlikelyScript" locales="az_Arab az_Cyrl bal_Latn blt_Latn bm_Nkoo bs_Cyrl byn_Latn cu_Glag dje_Arab dyo_Arab en_Dsrt en_Shaw ff_Adlm ff_Arab ha_Arab iu_Latn kaa_Latn kk_Arab kok_Latn ks_Deva ku_Arab kxv_Deva kxv_Orya kxv_Telu ky_Arab ky_Latn ml_Arab mn_Mong mni_Mtei ms_Arab pa_Arab sat_Deva sd_Deva sd_Khoj sd_Sind shi_Latn so_Arab sr_Latn sw_Arab tg_Arab ug_Cyrl uz_Arab uz_Cyrl vai_Latn wo_Arab yo_Arab yue_Hans zh_Hant"/>
-		<parentLocale parent="en_001" locales="en_150 en_AG en_AI en_AU en_BB en_BM en_BS en_BW en_BZ en_CC en_CK en_CM en_CX en_CY en_DG en_DM en_ER en_FJ en_FK en_FM en_GB en_GD en_GG en_GH en_GI en_GM en_GY en_HK en_ID en_IE en_IL en_IM en_IN en_IO en_JE en_JM en_KE en_KI en_KN en_KY en_LC en_LR en_LS en_MG en_MO en_MS en_MT en_MU en_MV en_MW en_MY en_NA en_NF en_NG en_NR en_NU en_NZ en_PG en_PK en_PN en_PW en_RW en_SB en_SC en_SD en_SG en_SH en_SL en_SS en_SX en_SZ en_TC en_TK en_TO en_TT en_TV en_TZ en_UG en_VC en_VG en_VU en_WS en_ZA en_ZM en_ZW"/>
+		<parentLocale parent="en_001" locales="en_150 en_AG en_AI en_AU en_BB en_BM en_BS en_BW en_BZ en_CC en_CK en_CM en_CX en_CY en_DG en_DM en_ER en_FJ en_FK en_FM en_GB en_GD en_GG en_GH en_GI en_GM en_GS en_GY en_HK en_ID en_IE en_IL en_IM en_IN en_IO en_JE en_JM en_KE en_KI en_KN en_KY en_LC en_LR en_LS en_MG en_MO en_MS en_MT en_MU en_MV en_MW en_MY en_NA en_NF en_NG en_NR en_NU en_NZ en_PG en_PK en_PN en_PW en_RW en_SB en_SC en_SD en_SG en_SH en_SL en_SS en_SX en_SZ en_TC en_TK en_TO en_TT en_TV en_TZ en_UG en_VC en_VG en_VU en_WS en_ZA en_ZM en_ZW"/>
 		<parentLocale parent="en_150" locales="en_AT en_BE en_CH en_DE en_DK en_FI en_NL en_SE en_SI"/>
 		<parentLocale parent="en_IN" locales="hi_Latn"/>
 		<parentLocale parent="es_419" locales="es_AR es_BO es_BR es_BZ es_CL es_CO es_CR es_CU es_DO es_EC es_GT es_HN es_JP es_MX es_NI es_PA es_PE es_PR es_PY es_SV es_US es_UY es_VE"/>
@@ -5549,7 +5550,7 @@ XXX Code for transations where no currency is involved
 		<reference type="R1059" uri="https://www.cia.gov/cia/publications/factbook/fields/2098.html">English official on some islands, total 9.4%</reference>
 		<reference type="R1060" uri="http://www.nsf.gov/od/opp/support/southp.jsp">http://astro.uchicago.edu/cara/vtour/mcmurdo/ http://www.usap.gov/videoclipsandmaps/mcmwebcam.cfm Winter population is listed.</reference>
 		<reference type="R1061" uri="http://www.ethnologue.com/show_language.asp?code=tem">1.2mil 1st lang + 240k 2nd lang users, low literacy</reference>
-		<reference type="R1062" uri="http://en.wikipedia.org/wiki/Clipperton_Island">[missing]</reference>
+		<reference type="R1062" uri="https://en.wikipedia.org/wiki/Bouvet_Island">Has rotating Norwegian population at Norvegia Station</reference>
 		<reference type="R1063" uri="http://www.flw.com/languages/creoleseychelles.htm">http://www.mavicanet.com/directory/eng/2436.html</reference>
 		<reference type="R1064" uri="https://www.cia.gov/cia/publications/factbook/geos/hm.html">Uninhabited, barren, sub-Antarctic islands</reference>
 		<reference type="R1065" uri="http://en.wikipedia.org/wiki/Diego_Garcia">[missing]</reference>
@@ -5665,7 +5666,7 @@ XXX Code for transations where no currency is involved
 		<reference type="R1175" uri="http://en.wikipedia.org/wiki/Saho_language">[missing]</reference>
 		<reference type="R1176" uri="http://en.wikipedia.org/wiki/Spanish_language#Spain">98.8% speak Spanish. Also, https://www.cia.gov/library/publications/the-world-factbook/geos/sp.html</reference>
 		<reference type="R1177" uri="https://www.cia.gov/library/publications/the-world-factbook/geos/sp.html">[missing]</reference>
-		<reference type="R1178" uri="https://www.cia.gov/cia/publications/factbook/geos/sx.html">No indigenous inhabitants. http://en.wikipedia.org/wiki/Heard_Island_and_McDonald_Islands</reference>
+		<reference type="R1178" uri="http://en.wikipedia.org/wiki/Clipperton_Island">Colony of France but uninhabited</reference>
 		<reference type="R1179" uri="https://www.cia.gov/cia/publications/factbook/geos/io.html">No indigenous inhabitants. http://en.wikipedia.org/wiki/British_Indian_Ocean_Territory</reference>
 		<reference type="R1180" uri="http://www.ethnologue.com/show_language.asp?code=saq">Many also use Swahili</reference>
 		<reference type="R1181" uri="http://www.ethnologue.com/show_language.asp?code=shi">Latin is not shown as being used, rather Arabic</reference>
@@ -5825,5 +5826,6 @@ XXX Code for transations where no currency is involved
 		<reference type="R1335" uri="https://en.wikipedia.org/wiki/Greeks_in_Russia_and_Ukraine#cite_ref-15">Greek population in Russia -- most ancestrally used Pontic Greek -- modern usage almost certainly has dropped off but we don't have clear statistics on current usage.</reference>
 		<reference type="R1336" uri="https://joshuaproject.net/people_groups/14444/TU">[missing]</reference>
 		<reference type="R1337" uri="https://www.wsj.com/articles/BL-263B-3637">Lower estimate of Coptic population, actual language literacy unknown </reference>
+		<reference type="R1338" uri="https://commonwealthchamber.com/associated-territories/south-georgia-and-the-south-sandwich-islands/">[missing]</reference>
 	</references>
 </supplementalData>

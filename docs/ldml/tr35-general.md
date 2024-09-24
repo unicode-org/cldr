@@ -959,10 +959,9 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
                 <li>per-12</li>
             </ul></li>
             <li><em>Constraint:</em> The numeric value of the unit constant must be an integer greater than one.</li>
-            <li><em>Note:</em> The normal interpretation of <code>e</code>code> is used, where 2e6 = 2×10`</li>
-            <li><em>Note:</em> The <code>e</code> notation is optional: per-100-kilometer and per-1e2-kilometer are equivalent unit_identifiers.
-		    However, for clarity the exponents should be greater than 3 and multiples of 3.
-	    </li>
+            <li><em>Note:</em> The normal interpretation of <code>e</code> is used, where 2e6 = 2×10⁶.</li>
+            <li><em>Note:</em> The <code>e</code> notation is optional: per-100-kilometer and per-1e2-kilometer are equivalent unit_identifiers.</li>
+            <li><em>Note:</em> When constructing identifiers, exponents should be greater than 3 and multiples of 3, even though parsers must accept the wider range.</li>
         </ul></td></tr>
 
 <tr><td><a name='dimensionality_prefix' href='dimensionality_prefix'>dimensionality_prefix</a></td><td>:=</td>

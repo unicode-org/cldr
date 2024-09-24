@@ -958,9 +958,9 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
                 <li>per-200-pound</li>
                 <li>per-12</li>
             </ul></li>
-            <li><em>Constraint:</em> The number must be an integer greater than one.</li>
-            <li><em>Note:</em> The normal interpretation of e is used, where 2e6 = 2×10⁶</li>
-            <li><em>Note:</em> The <code>e</code> notation is optional: per-100-kilometer and per-1e2-kilometer are equivalent unit_identifiers.
+            <li><em>Constraint:</em> The numeric value of the unit constant must be an integer greater than one.</li>
+            <li><em>Note:</em> The normal interpretation of `e` is used, where `2e6` = `2×10⁶`</li>
+            <li><em>Note:</em> The <code>e</code> notation is optional: `per-100-kilometer` and `per-1e2-kilometer` are equivalent unit_identifiers.
 		    However, for clarity the exponents should be greater than 3 and multiples of 3.
 	    </li>
         </ul></td></tr>

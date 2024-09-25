@@ -308,7 +308,7 @@ The design goals of the syntax specification are as follows:
 1. The syntax should leverage the familiarity with ICU MessageFormat 1.0
    in order to lower the barrier to entry and increase the chance of adoption.
    At the same time,
-   the syntax should fix the [pain points of ICU MessageFormat 1.0](../docs/why_mf_next.md).
+the syntax should fix the [pain points of ICU MessageFormat 1.0](https://github.com/unicode-org/message-format-wg/blob/main/docs/why_mf_next.md).
 
    - _Non-Goal_: Be backwards-compatible with the ICU MessageFormat 1.0 syntax.
 

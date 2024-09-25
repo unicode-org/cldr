@@ -12,12 +12,12 @@ title: CLDR 46 Release Note
 
 The data is available at [release-46-beta2](https://github.com/unicode-org/cldr/releases/tag/release-46-beta2),
 and the specification is available at [tr35/proposed.html](https://www.unicode.org/reports/tr35/proposed.html).
-Feedback is welcome via [tickets](https://github.com/unicode-org/cldr/blob/main/docs/requesting_changes.md#requesting-updates-to-locale-data-through-a-ticket). (The CLDR site is undergoing a migration to Markdown, so the UI for navigation is temporary.)
+Feedback is welcome via [tickets](https://cldr.unicode.org/requesting_changes). (The CLDR site is undergoing a migration to Markdown, so the UI for navigation is temporary.)
 
 ## Overview
 
 Unicode CLDR provides key building blocks for software supporting the world's languages.
-CLDR data is used by all [major software systems](https://cldr.unicode.org/index#TOC-Who-uses-CLDR-)
+CLDR data is used by all [major software systems](https://cldr.unicode.org/index#who-uses-cldr)
 (including all mobile phones) for their software internationalization and localization,
 adapting software to the conventions of different languages.
 
@@ -138,7 +138,7 @@ For a full listing, see [¤¤BCP47 Delta](https://unicode.org/cldr/charts/46/del
 
 ### [Locale Changes](https://unicode.org/cldr/charts/46/delta/index.html)
 
-1. Major changes to emoji search keywords and short names (see below)
+1. Major changes to emoji search keywords and short names ([see below](#emoji-search-keywords))
 2. Major changes to Chinese collation, reflecting new data in Unicode 16.0
 3. Added iso8601 patterns to root. 
 These will use localized months, days of the week, day periods, and timezones.
@@ -151,7 +151,7 @@ Full localization will await the next submission phase for CLDR.
 For a full listing, see [Delta Data](https://unicode.org/cldr/charts/46/delta/index.html)
 
 ### Message Format Specification
-The CLDR Technical Committee decided to continue the tech preview phase for Message Format in version 46.
+The CLDR Technical Committee decided to continue the tech preview phase for [Message Format](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-messageFormat.html#Contents) in version 46.
 The plan is to have a final version of the specification in a 46.1 release before the end of 2024.
 
 Implementers should be aware of the following normative changes after the start of the tech review period.

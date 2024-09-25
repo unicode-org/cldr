@@ -2,7 +2,7 @@
 
 # Unicode Locale Data Markup Language (LDML)<br/>Part 7: Keyboards
 
-|Version|45           |
+|Version|46 (draft)   |
 |-------|-------------|
 |Editors|Steven Loomis (<a href="mailto:srloomis@unicode.org">srloomis@unicode.org</a>) and <a href="tr35.md#Acknowledgments">other CLDR committee members</a>|
 
@@ -21,12 +21,12 @@ See <https://cldr.unicode.org> for up-to-date CLDR release data.
 
 ### _Status_
 
-<!-- _This is a draft document which may be updated, replaced, or superseded by other documents at any time.
+_This is a draft document which may be updated, replaced, or superseded by other documents at any time.
 Publication does not imply endorsement by the Unicode Consortium.
-This is not a stable document; it is inappropriate to cite this document as other than a work in progress._ -->
+This is not a stable document; it is inappropriate to cite this document as other than a work in progress._
 
-_This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium.
-This is a stable document and may be used as reference material or cited as a normative reference by other specifications._
+<!-- _This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium.
+This is a stable document and may be used as reference material or cited as a normative reference by other specifications._ -->
 
 > _**A Unicode Technical Standard (UTS)** is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS._
 
@@ -632,7 +632,7 @@ and it also specifies the minimum CLDR major version required.
 This attribute value must be a whole number of `45` or greater. See [`cldrVersion`](tr35-info.md#version-information)
 
 ```xml
-<keyboard3 … conformsTo="45"/>
+<keyboard3 … conformsTo="45"/>
 ```
 
 _Attribute:_ `locale` (required)
@@ -2208,7 +2208,7 @@ _Attribute:_ `from` (required)
     `{x,y}`
 
     `x` and `y` are required single digits representing the minimum and maximum number of occurrences.
-    `x` must be ≥ 0, `y` must be ≥ x and ≥ 1
+    `x` must be ≥ 0, `y` must be ≥ x and ≥ 1
 
 - **Optional Specifier**
 
@@ -2365,7 +2365,7 @@ Used in the `to=`
 
 - **Insert the specified capture group**
 
-    `$1 $2 $3 … $9`
+    `$1 $2 $3 … $9`
 
 - **Insert an entire variable**
 
@@ -2399,7 +2399,7 @@ Used in the `to=`
 
     1. The portion of the input context, such as `CC`, is matched against the above calculated pattern.
 
-    2. The position within the `from=` variable (`upper`) is calculated. The regex match may not have this information, but the matched substring `CC` can be compared against the tokenized input variable: `A`, `B`, `CC`, `D`, … to find that the 3rd item matches exactly.
+    2. The position within the `from=` variable (`upper`) is calculated. The regex match may not have this information, but the matched substring `CC` can be compared against the tokenized input variable: `A`, `B`, `CC`, `D`, … to find that the 3rd item matches exactly.
 
     3. The same position within the `to=` variable (`lower`) is calculated. The 3rd item is `c`.
 
@@ -2646,9 +2646,9 @@ First, a partial example from Khmer where split vowels are combined after reorde
 ```xml
 …
 <transformGroup>
-    <reorder … />
-    <reorder … />
-    <reorder … />
+    <reorder … />
+    <reorder … />
+    <reorder … />
     …
 </transformGroup>
 <transformGroup>
@@ -2662,9 +2662,9 @@ Another partial example allows a keyboard implementation to prevent people typin
 ```xml
 …
 <transformGroup>
-    <reorder … />
-    <reorder … />
-    <reorder … />
+    <reorder … />
+    <reorder … />
+    <reorder … />
     …
 </transformGroup>
 <transformGroup>
@@ -2816,7 +2816,7 @@ The following are the design principles for the IDs.
 
 1. BCP47 compliant.
    1. Eg, `en`, `sr-Cyrl`, or `en-t-k0-extended`.
-2. Use the minimal language id based on `likelySubtags` (see [Part 1: Likely Subtags](tr35.md#Likely_Subtags))
+2. Use the minimal language id based on `likelySubtags` (see [Part 1: Likely Subtags](tr35.md#Likely_Subtags))
    1. Eg, instead of `fa-Arab`, use `fa`.
    2. The data is in <https://github.com/unicode-org/cldr/blob/main/common/supplemental/likelySubtags.xml>
 3. Keyboard files should be platform-independent, however, if included, a platform id is the first subtag after `-t-k0-`. If a keyboard on the platform changes over time, both are dated, eg `bg-t-k0-chromeos-2011`. When selecting, if there is no date, it means the latest one.

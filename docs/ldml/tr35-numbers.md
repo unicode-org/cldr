@@ -2,7 +2,7 @@
 
 # Unicode Locale Data Markup Language (LDML)<br/>Part 3: Numbers
 
-|Version|45        |
+|Version|46 (draft)|
 |-------|----------|
 |Editors|Shane F. Carr (<a href="mailto:shane@unicode.org">shane@unicode.org</a>) and <a href="tr35.md#Acknowledgments">other CLDR committee members|
 
@@ -16,12 +16,12 @@ This is a partial document, describing only those parts of the LDML that are rel
 
 ### _Status_
 
-<!-- _This is a draft document which may be updated, replaced, or superseded by other documents at any time.
+_This is a draft document which may be updated, replaced, or superseded by other documents at any time.
 Publication does not imply endorsement by the Unicode Consortium.
-This is not a stable document; it is inappropriate to cite this document as other than a work in progress._ -->
+This is not a stable document; it is inappropriate to cite this document as other than a work in progress._
 
-_This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium.
-This is a stable document and may be used as reference material or cited as a normative reference by other specifications._
+<!-- _This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium.
+This is a stable document and may be used as reference material or cited as a normative reference by other specifications._ -->
 
 > _**A Unicode Technical Standard (UTS)** is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS._
 
@@ -439,24 +439,24 @@ In addition to a standard currency format, in which negative currency amounts mi
     <currencyFormatLength>
         <currencyFormat type="standard">
             <pattern>¤#,##0.00</pattern>
-            <pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
+            <pattern alt="alphaNextToNumber">¤ #,##0.00</pattern>
             <pattern alt="noCurrency">#,##0.00</pattern>
         </currencyFormat>
         <currencyFormat type="accounting">
             <pattern>¤#,##0.00;(¤#,##0.00)</pattern>
-            <pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
+            <pattern alt="alphaNextToNumber">¤ #,##0.00;(¤ #,##0.00)</pattern>
             <pattern alt="noCurrency">#,##0.00;(#,##0.00)</pattern>
         </currencyFormat>
     </currencyFormatLength>
     <currencyFormatLength type="short">
         <currencyFormat type="standard">
             <pattern type="1000" count="one">¤0K</pattern>
-            <pattern type="1000" count="one" alt="alphaNextToNumber">¤ 0K</pattern>
+            <pattern type="1000" count="one" alt="alphaNextToNumber">¤ 0K</pattern>
             <pattern type="1000" count="other">¤0K</pattern>
-            <pattern type="1000" count="other" alt="alphaNextToNumber">¤ 0K</pattern>
+            <pattern type="1000" count="other" alt="alphaNextToNumber">¤ 0K</pattern>
             ...
             <pattern type="100000000000000" count="other">¤000T</pattern>
-            <pattern type="100000000000000" count="other" alt="alphaNextToNumber">¤ 000T</pattern>
+            <pattern type="100000000000000" count="other" alt="alphaNextToNumber">¤ 000T</pattern>
         </currencyFormat>
     </currencyFormatLength>
 </currencyFormats>
@@ -467,7 +467,7 @@ The `alt="alphaNextToNumber"` pattern, if available, should be used instead of t
 The `alt="noCurrency"` pattern can be used when a currency-style format is desired but without the currency symbol. This sort of display may be used when formatting a large column of values all in the same currency, for example. For compact currency formats (`<currencyFormatLength type="short">`), the compact decimal format (`<decimalFormatLength type="short">`) should be used if no `alt="noCurrency"` pattern is present (so the `alt="noCurrency"` pattern is typically not needed for compact currency formats).
 
 ```xml
-<currencyPatternAppendISO>{0} ¤¤</currencyPatternAppendISO>
+<currencyPatternAppendISO>{0} ¤¤</currencyPatternAppendISO>
 ```
 
 The `currencyPatternAppendISO` element provides a pattern that can be used to combine currency format that uses a currency symbol (¤ or ¤¤¤¤¤) with the ISO 4217 3-letter code for the same currency (¤¤), to produce a result such as “$1,432.00 USD”. Using such a format is only recommended to resolve ambiguity when:

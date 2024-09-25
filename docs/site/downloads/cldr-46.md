@@ -10,7 +10,9 @@ title: CLDR 46 Release Note
 
 <span style="color:red; font-weight: bold;">This is a beta version of CLDR v46.</span>
 
-It only covers the data, which is available at [release-46-alpha3](https://github.com/unicode-org/cldr/releases/tag/release-46-alpha3). Feedback is welcome via [tickets](https://github.com/unicode-org/cldr/blob/main/docs/requesting_changes.md#requesting-updates-to-locale-data-through-a-ticket). (The CLDR site is undergoing a migration to Markdown, so the UI for navigation is temporary.)
+The data is available at [release-46-beta2](https://github.com/unicode-org/cldr/releases/tag/release-46-beta2),
+and the specification is available at [tr35/proposed.html](https://www.unicode.org/reports/tr35/proposed.html).
+Feedback is welcome via [tickets](https://github.com/unicode-org/cldr/blob/main/docs/requesting_changes.md#requesting-updates-to-locale-data-through-a-ticket). (The CLDR site is undergoing a migration to Markdown, so the UI for navigation is temporary.)
 
 ## Overview
 
@@ -252,6 +254,8 @@ There were the following new test files:
 
 1. Databases that use collation keys are sensitive to any changes in collation, and will need reindexing.
 This can happen with any CLDR release (especially those for a new version of Unicode), but more characters are affected in this release: see above.
+2. Two collation variants are to be dropped in a v46.1 release: zh-u-co-gb2312 and zh-u-co-big5han.
+These matched the ordering of two legacy character encodings.
 
 **TBD**
 

@@ -1,8 +1,8 @@
-﻿## Unicode Technical Standard #35
+## Unicode Technical Standard #35
 
 # Unicode Locale Data Markup Language (LDML)<br/>Part 6: Supplemental
 
-|Version|45         |
+|Version|46 (draft) |
 |-------|-----------|
 |Editors|Steven Loomis (<a href="mailto:srloomis@unicode.org">srloomis@unicode.org</a>) and <a href="tr35.md#Acknowledgments">other CLDR committee members|
 
@@ -21,12 +21,12 @@ See <https://cldr.unicode.org> for up-to-date CLDR release data.
 
 ### _Status_
 
-<!-- _This is a draft document which may be updated, replaced, or superseded by other documents at any time.
+_This is a draft document which may be updated, replaced, or superseded by other documents at any time.
 Publication does not imply endorsement by the Unicode Consortium.
-This is not a stable document; it is inappropriate to cite this document as other than a work in progress._ -->
+This is not a stable document; it is inappropriate to cite this document as other than a work in progress._
 
-_This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium.
-This is a stable document and may be used as reference material or cited as a normative reference by other specifications._
+<!-- _This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium.
+This is a stable document and may be used as reference material or cited as a normative reference by other specifications._ -->
 
 > _**A Unicode Technical Standard (UTS)** is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS._
 
@@ -1235,10 +1235,20 @@ If any key-values are invalid, then they are ignored. Thus the following constru
 | --- | --- |
 | -mu-smoot | invalid unit |
 | -ms-stanford | invalid unit system |
-| -rg-aazzzz | invalid region 'AA' ‡|
-| -AA | invalid region 'AA'|
+| -rg-abzzzz | invalid region 'AB' ‡|
+| -AB | invalid region 'AB'|
 
-‡ Only the region portion is currently used, so in -rg-usabcdef the "abcdef" is ignored, whether or not it is valid.
+‡ Only the region portion is currently used.
+The -rg-abzzzz is ignored because AB is invalid; 
+if it were -rg-ustuvxy, it would not be ignored because US is valid.
+The table below shows when the region portion is valid or not.
+
+| Key-value | Region | Valid? | Comment |
+| --- | --- | --- | --- |
+| -rg-usut | US | Yes | Both the region portion (US) and the subdivision portion (ut = Utah) are valid. |
+| -rg-uszzzz | US | Yes | Both the region portion (US) and the subdivision portion (zzzz = all) are valid. |
+| -rg-usabc | US | Yes | The region portion (US) is valid, but the subdivision portion (abc) is not. |
+| -rg-abzzzz | AB | No, ignored | The region portion (AB) is invalid, and thus the -rg is ignored, not matter that the subdivision portion (zzzz) is. |
 
 The following algorithm is used to compute the override units, regions, and category.
 The latter two items are used in the [Unit Preferences Data](#Unit_Preferences_Data).
@@ -1253,9 +1263,10 @@ If there is no valid -mu value, the following steps are used to determine a regi
 
 1. If there is a valid -ms value then let USM  be the corresponding value in column 2 of the table below.
 Otherwise FR is not used. In either case continue with step 2.
-2. If there is a valid -rg region, let R be that region, and go to Compute the category.
-3. If there is a valid region in the locale, let R be that region, and go to Compute the category.
-4. Otherwise, compute the likely subtags for the locale.
+2. If there is a valid -rg region portion of the rg value, let R be that region, and go to Compute the category.
+	* See the table above for the examples `usut`, `usabc`, and `abcdef`
+4. If there is a valid region in the locale, let R be that region, and go to Compute the category.
+5. Otherwise, compute the likely subtags for the locale.
      1. If there is a likely region, then let R be that region, and go to Compute the category.
 	 2. Otherwise, let R be 001, and go to Compute the category
 

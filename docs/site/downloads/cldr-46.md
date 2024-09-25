@@ -50,6 +50,8 @@ For a full listing, see [Coverage Levels](https://unicode.org/cldr/charts/46/sup
 
 ## [Specification Changes](https://www.unicode.org/reports/tr35/proposed.html)
 
+The following are the most significant changes to the specification.
+
 1. Significant updates to [Message Format](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-messageFormat.html#Contents) (see below for details)
 2. Updates to [LDML Conformance](https://cldr-smoke.unicode.org/spec/main/ldml/tr35.html#Conformance) including
    - clarification of conformance requirements
@@ -58,11 +60,19 @@ For a full listing, see [Coverage Levels](https://unicode.org/cldr/charts/46/sup
    - a summary of conformance data files
 3. Clarified definitions of _Unicode BCP 47 locale identifier_ and _Unicode CLDR locale identifier_, moving them to [Unicode CLDR locale identifier](https://cldr-smoke.unicode.org/spec/main/ldml/tr35.html#unicode-locale-identifier)
 4. Clarified useage of [Special Script Codes](https://cldr-smoke.unicode.org/spec/main/ldml/tr35.html#unicode-locale-identifier).
-5. Added definition of [Ordered Elements](https://cldr-smoke.unicode.org/spec/main/ldml/tr35.html#definitions).
+5. Added definition of [Ordered Elements](https://cldr-smoke.unicode.org/spec/main/ldml/tr35.html#definitions), replacing the obsolete definition of _blocking_ elements.
 6. In [Element dayPeriods](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-dates.html#dayPeriods), added a note on special formatting usable with dayPeriods `noon` and `midnight`.
-7. Added [unit_constant](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-general.html#syntax) to generalize expressions like liter-per-100-kilometers.
+7. Changed the EBNF for [`unit_identifier`](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-general.html#Annotations):
+    1. Replacing  `number_prefix` by [unit_constant](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-general.html#syntax) to generalize expressions like liter-per-100-kilometers, and provide a compact form for longer constants (such as 1e9).
+    2. Adding EBNF constraints on `si_prefix` and `binary_prefix`, and adding links to more named components.
+8. Clarified the use of -rg for [computing regions](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-info.html#compute-regions) in user preferences
+9. Clarified the usage model for [emoji search keywords](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-general.html#Annotations).
+10. Added a tech preview section on [semantic skeletons](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-dates.html#Semantic_Skeletons), allowing for less data and faster performance in formatting dates.
+11. Clarified that if [dayPeriods](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-collation.html#grouping_classes_of_characters) are specified for `noon` and `midnight`, they can often be formatted without also specifying the numeric time
+12. In collation, modified [Grouping classes of characters](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-collation.html#grouping_classes_of_characters) to reflect the changes in collation listed below.
+13. Clarified the usage of the `path` attribute with [aliases](https://cldr-smoke.unicode.org/spec/main/ldml/tr35.html#element-alias).
 
-Note: the [Modifications section](https://cldr-smoke.unicode.org/spec/main/ldml/tr35.html#Modifications) is not yet updated.
+TBD: the [Modifications section](https://cldr-smoke.unicode.org/spec/main/ldml/tr35.html#Modifications) is not yet updated.
 
 ## Data Changes
 

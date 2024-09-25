@@ -367,7 +367,7 @@ variables that modify _external variables_.
 
 This part of the MessageFormat specification defines the syntax for a _message_,
 along with the concepts and terminology needed when processing a _message_
-during the [formatting](#formatting.md) of a _message_ at runtime.
+during the [formatting](#formatting) of a _message_ at runtime.
 
 The complete formal syntax of a _message_ is described by the [ABNF](#complete.abnf).
 
@@ -516,7 +516,7 @@ external input value does not appear in a previous _declaration_.
 > 0 {{The selector can apply a different function to {$var} for the purposes of selection}}
 > * {{A placeholder in a pattern can apply a different function to {$var :number maximumFractionDigits=3}}}
 > ```
-> (See the [Errors](#errors.md) section for examples of invalid messages)
+> (See the [Errors](#errors) section for examples of invalid messages)
 
 ### Complex Body
 
@@ -814,7 +814,7 @@ whether an _operand_ is required,
 what form the values of an _operand_ can take,
 what _options_ and _option_ values are acceptable,
 and what outputs might result.
-See [function registry](#registry.md) for more information.
+See [function registry](#registry) for more information.
 
 A _function_ starts with a prefix sigil `:` followed by an _identifier_.
 The _identifier_ MAY be followed by one or more _options_.
@@ -1802,7 +1802,7 @@ The function `:string` has no options.
 
 #### Selection
 
-When implementing [`MatchSelectorKeys(resolvedSelector, keys)`](/spec/formatting.md#resolve-preferences)
+When implementing [`MatchSelectorKeys(resolvedSelector, keys)`](#resolve-preferences)
 where `resolvedSelector` is the resolved value of a _selector_
 and `keys` is a list of strings,
 the `:string` selector function performs as described below.
@@ -2155,7 +2155,7 @@ Number selection has three modes:
 - `ordinal` selection matches the operand to explicit numeric keys exactly
   followed by an ordinal rule category if there is no explicit match
 
-When implementing [`MatchSelectorKeys(resolvedSelector, keys)`](/spec/formatting.md#resolve-preferences)
+When implementing [`MatchSelectorKeys(resolvedSelector, keys)`](#resolve-preferences)
 where `resolvedSelector` is the resolved value of a _selector_
 and `keys` is a list of strings,
 numeric selectors perform as described below.
@@ -2481,7 +2481,7 @@ When the offset is not present, implementations SHOULD use a floating time type
 For more information, see [Working with Timezones](https://w3c.github.io/timezone).
 
 > [!IMPORTANT]
-> The [ABNF](/spec/message.abnf) and [syntax](/spec/syntax.md) of MF2
+> The [ABNF](#complete.abnf) and [syntax](#syntax) of MF2
 > do not formally define date/time literals. 
 > This means that a _message_ can be syntactically valid but produce
 > a _Bad Operand_ error at runtime.
@@ -3422,7 +3422,7 @@ declarations, options, and attributes to be optional rather than required proper
 
 > [!IMPORTANT]
 > The data model uses the field name `name` to denote various interface identifiers.
-> In the MessageFormat 2 [syntax](/spec/syntax.md), the source for these `name` fields
+> In the MessageFormat 2 [syntax](#syntax), the source for these `name` fields
 > sometimes uses the production `identifier`.
 > This happens when the named item, such as a _function_, supports namespacing.
 >

@@ -8,9 +8,11 @@ title: CLDR 46 Release Note
 |:---:|:----------:|:---------:|:------:|:--------:|:------------:|:---:|:----------:|:---------:|:---------:|
 |  46 | 2024-10-~~XX~~ |    ~~[v46]()~~   | ~~[CLDR46](http://unicode.org/Public/cldr/46/)~~ | [Charts46](http://unicode.org/cldr/charts/dev) |    [LDML46](http://www.unicode.org/reports/tr35/proposed.html)    | [Δ46](https://unicode-org.atlassian.net/issues/?jql=project+%3D+CLDR+AND+status+%3D+Done+AND+resolution+%3D+Fixed+AND+fixVersion+%3D+%2246%22+ORDER+BY+priority+DESC) | ~~[release-46]()~~ |   [ΔDtd46](https://www.unicode.org/cldr/charts/dev/supplemental/dtd_deltas.html)  |   ~~[46.0.0](https://github.com/unicode-org/cldr-json/releases/tag/46.0.0)~~  |
 
-<span style="color:red; font-weight: bold;">This is an alpha version of CLDR v46.</span>
+<span style="color:red; font-weight: bold;">This is a beta version of CLDR v46.</span>
 
-It only covers the data, which is available at [release-46-alpha3](https://github.com/unicode-org/cldr/releases/tag/release-46-alpha3). An update targeted at September 25 will include includes specification changes and fix other TBDs. Feedback is welcome via [tickets](https://github.com/unicode-org/cldr/blob/main/docs/requesting_changes.md#requesting-updates-to-locale-data-through-a-ticket). (The CLDR site is undergoing a migration to Markdown, so the UI for navigation is temporary.)
+The data is available at [release-46-beta2](https://github.com/unicode-org/cldr/releases/tag/release-46-beta2),
+and the specification is available at [tr35/proposed.html](https://www.unicode.org/reports/tr35/proposed.html).
+Feedback is welcome via [tickets](https://github.com/unicode-org/cldr/blob/main/docs/requesting_changes.md#requesting-updates-to-locale-data-through-a-ticket). (The CLDR site is undergoing a migration to Markdown, so the UI for navigation is temporary.)
 
 ## Overview
 
@@ -50,7 +52,29 @@ For a full listing, see [Coverage Levels](https://unicode.org/cldr/charts/46/sup
 
 ## [Specification Changes](https://www.unicode.org/reports/tr35/proposed.html)
 
-**TBD: Add the specification changes by Sept 25**
+The following are the most significant changes to the specification.
+
+1. Significant updates to [Message Format](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-messageFormat.html#Contents) (see below for details)
+2. Updates to [LDML Conformance](https://cldr-smoke.unicode.org/spec/main/ldml/tr35.html#Conformance) including
+   - clarification of conformance requirements
+   - an expanded list of major sections
+   - details about customization
+   - a summary of conformance data files
+3. Clarified definitions of _Unicode BCP 47 locale identifier_ and _Unicode CLDR locale identifier_, moving them to [Unicode CLDR locale identifier](https://cldr-smoke.unicode.org/spec/main/ldml/tr35.html#unicode-locale-identifier)
+4. Clarified useage of [Special Script Codes](https://cldr-smoke.unicode.org/spec/main/ldml/tr35.html#unicode-locale-identifier).
+5. Added definition of [Ordered Elements](https://cldr-smoke.unicode.org/spec/main/ldml/tr35.html#definitions), replacing the obsolete definition of _blocking_ elements.
+6. In [Element dayPeriods](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-dates.html#dayPeriods), added a note on special formatting usable with dayPeriods `noon` and `midnight`.
+7. Changed the EBNF for [`unit_identifier`](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-general.html#Annotations):
+    1. Replacing  `number_prefix` by [unit_constant](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-general.html#syntax) to generalize expressions like liter-per-100-kilometers, and provide a compact form for longer constants (such as 1e9).
+    2. Adding EBNF constraints on `si_prefix` and `binary_prefix`, and adding links to more named components.
+8. Clarified the use of -rg for [computing regions](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-info.html#compute-regions) in user preferences
+9. Clarified the usage model for [emoji search keywords](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-general.html#Annotations).
+10. Added a tech preview section on [semantic skeletons](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-dates.html#Semantic_Skeletons), allowing for less data and faster performance in formatting dates.
+11. Clarified that if [dayPeriods](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-collation.html#grouping_classes_of_characters) are specified for `noon` and `midnight`, they can often be formatted without also specifying the numeric time
+12. In collation, modified [Grouping classes of characters](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-collation.html#grouping_classes_of_characters) to reflect the changes in collation listed below.
+13. Clarified the usage of the `path` attribute with [aliases](https://cldr-smoke.unicode.org/spec/main/ldml/tr35.html#element-alias).
+
+TBD: the [Modifications section](https://cldr-smoke.unicode.org/spec/main/ldml/tr35.html#Modifications) is not yet updated.
 
 ## Data Changes
 
@@ -126,6 +150,39 @@ Full localization will await the next submission phase for CLDR.
 
 For a full listing, see [Delta Data](https://unicode.org/cldr/charts/46/delta/index.html)
 
+### Message Format Specification
+The CLDR Technical Committee decided to continue the tech preview phase for Message Format in version 46.
+The plan is to have a final version of the specification in a 46.1 release before the end of 2024.
+
+Implementers should be aware of the following normative changes after the start of the tech review period.
+
+* [\#885](https://github.com/unicode-org/message-format-wg/issues/885) Address equality of `name` and `literal` values, including requiring keys to use NFC  
+* [\#884](https://github.com/unicode-org/message-format-wg/issues/884) Add support for bidirectional isolates and strong marks in syntax and address UAX31/UTS55 requirements  
+* [\#883](https://github.com/unicode-org/message-format-wg/issues/883) Remove forward-compatibility promise and all reserved/private syntax.  
+* [\#882](https://github.com/unicode-org/message-format-wg/issues/882) Specify `bad-option` error for bad digit size options in `:number` and `:integer` functions  
+* [\#878](https://github.com/unicode-org/message-format-wg/issues/878) Clarify "rule" selection in `:number` and `:integer` functions  
+* [\#877](https://github.com/unicode-org/message-format-wg/issues/877) Match on variables instead of expressions.  
+* [\#854](https://github.com/unicode-org/message-format-wg/issues/854) Allow whitespace at complex message start  
+* [\#853](https://github.com/unicode-org/message-format-wg/issues/853) Add a "duplicate-variant" error  
+* [\#845](https://github.com/unicode-org/message-format-wg/issues/845) Define "attributes" feature  
+* [\#834](https://github.com/unicode-org/message-format-wg/issues/834) Modify the stability policy (not currently in effect due to Tech Preview)  
+* [\#816](https://github.com/unicode-org/message-format-wg/issues/816) Refine error handling  
+* [\#815](https://github.com/unicode-org/message-format-wg/issues/815) Removed machine-readable function registry as a deliverable  
+* [\#813](https://github.com/unicode-org/message-format-wg/issues/813) Change default of `:date` and `:datetime` date formatting from `short` to `medium`  
+* [\#812](https://github.com/unicode-org/message-format-wg/issues/812) Allow trailing whitespace for complex messages  
+* [\#793](https://github.com/unicode-org/message-format-wg/issues/793) Recommend the use of escapes only when necessary  
+* [\#775](https://github.com/unicode-org/message-format-wg/issues/775) Add formal definitions for variable, external variable, and local variable  
+* [\#774](https://github.com/unicode-org/message-format-wg/issues/774) Refactor errors, adding Message Function Errors  
+* [\#771](https://github.com/unicode-org/message-format-wg/issues/771) Remove inappropriate normative statement from errors.md  
+* [\#767](https://github.com/unicode-org/message-format-wg/issues/767) Add a test schema and [\#778](https://github.com/unicode-org/message-format-wg/issues/778) validate tests against it  
+* [\#775](https://github.com/unicode-org/message-format-wg/issues/775) Add a definition for `variable`  
+* [\#774](https://github.com/unicode-org/message-format-wg/issues/774) Refactor error types, adding a *Message Function Error* type (and subtypes)  
+* [\#769](https://github.com/unicode-org/message-format-wg/issues/769) Add `:test:function`, `:test:select` and `:test:format` functions for implementation testing  
+* [\#743](https://github.com/unicode-org/message-format-wg/issues/743) Collapse all escape sequence rules into one (affects the ABNF)
+
+In addition to the above, the test suite is significantly modified and updated. There will be updated tech preview implementations available in ICU (Java and C++) and in Javascript.
+
+
 ### Emoji Search Keywords
 The usage model for emoji search keywords is that
 - The user types one or more words in an emoji search field. The order of words doesn't matter; nor does upper- versus lowercase.
@@ -197,6 +254,8 @@ There were the following new test files:
 
 1. Databases that use collation keys are sensitive to any changes in collation, and will need reindexing.
 This can happen with any CLDR release (especially those for a new version of Unicode), but more characters are affected in this release: see above.
+2. Two collation variants are to be dropped in a v46.1 release: zh-u-co-gb2312 and zh-u-co-big5han.
+These matched the ordering of two legacy character encodings.
 
 **TBD**
 

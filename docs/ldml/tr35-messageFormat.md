@@ -297,8 +297,6 @@ based on this version being invalid.
 
 This section defines the formal grammar describing the syntax of a single message.
 
-This section defines the formal grammar describing the syntax of a single message.
-
 ### Design Goals
 
 _This section is non-normative._

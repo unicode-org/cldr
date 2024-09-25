@@ -2,7 +2,7 @@
 
 # Unicode Locale Data Markup Language (LDML)<br/>Part 2: General
 
-|Version|45                   |
+|Version|46 (draft)           |
 |-------|---------------------|
 |Editors|Yoshito Umaoka (<a href="mailto:yoshito_umaoka@us.ibm.com">yoshito_umaoka@us.ibm.com</a>) and <a href="tr35.md#Acknowledgments">other CLDR committee members|
 
@@ -21,12 +21,12 @@ See <https://cldr.unicode.org> for up-to-date CLDR release data.
 
 ### _Status_
 
-<!-- _This is a draft document which may be updated, replaced, or superseded by other documents at any time.
+_This is a draft document which may be updated, replaced, or superseded by other documents at any time.
 Publication does not imply endorsement by the Unicode Consortium.
-This is not a stable document; it is inappropriate to cite this document as other than a work in progress._ -->
+This is not a stable document; it is inappropriate to cite this document as other than a work in progress._
 
-_This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium.
-This is a stable document and may be used as reference material or cited as a normative reference by other specifications._
+<!-- _This document has been reviewed by Unicode members and other interested parties, and has been approved for publication by the Unicode Consortium.
+This is a stable document and may be used as reference material or cited as a normative reference by other specifications._ -->
 
 > _**A Unicode Technical Standard (UTS)** is an independent specification. Conformance to the Unicode Standard does not imply conformance to any UTS._
 
@@ -107,6 +107,8 @@ The LDML specification is divided into the following parts:
   * Table: [Element contextTransformUsage type attribute values](#contextTransformUsage_type_attribute_values)
 * [Choice Patterns](#Choice_Patterns)
 * [Annotations and Labels](#Annotations)
+  * [Usage Model](#usage-model)
+  * [cp attribute](#cp-attribute)
   * [Synthesizing Sequence Names](#SynthesizingNames)
     * [Table: Synthesized Emoji Sequence Names](#table-synthesized-emoji-sequence-names)
   * [Annotations Character Labels](#Character_Labels)
@@ -909,12 +911,12 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 <!-- HTML: no header -->
 
 <table><tbody>
-<tr><td>unit_identifier</td><td>:=</td>
+<tr><td><a name='unit_identifier' href='unit_identifier'>unit_identifier</a></td><td>:=</td>
     <td>core_unit_identifier<br/>
         | mixed_unit_identifier<br/>
         | long_unit_identifier</td></tr>
 
-<tr><td>core_unit_identifier</td><td>:=</td>
+<tr><td><a name='core_unit_identifier' href='core_unit_identifier'>core_unit_identifier</a></td><td>:=</td>
     <td>product_unit ("-" per "-" product_unit)*<br/>
         | per "-" product_unit ("-" per "-" product_unit)*
         <ul><li><em>Examples:</em>
@@ -930,16 +932,16 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 			<li><em>Constraint:</em> The token 'per' is the single value in &lt;unitIdComponent type="per"&gt;</li>
 		</ul></td></tr>
 
-<tr><td>product_unit</td><td>:=</td>
+<tr><td><a name='product_unit' href='product_unit'>product_unit</a></td><td>:=</td>
         <td>single_unit ("-" single_unit)* ("-" pu_single_unit)*<br/>
             | pu_single_unit ("-" pu_single_unit)*
             <ul><li><em>Example:</em> foot-pound-force</li>
                 <li><em>Constraint:</em> No pu_single_unit may precede a single unit</li>
             </ul></td></tr>
 
-<tr><td>single_unit</td><td>:=</td>
-    <td>number_prefix? dimensionality_prefix? simple_unit
-        <ul><li><em>Examples: </em>square-meter, or 100-square-meter</li></ul></td></tr>
+<tr><td><a name='single_unit' href='single_unit'>single_unit</a></td><td>:=</td>
+    <td>dimensionality_prefix? simple_unit | unit_constant
+        <ul><li><em>Examples: </em>square-kilometer, or 100</li></ul></td></tr>
 
 <tr><td>pu_single_unit</td><td>:=</td>
     <td>"xxx-" single_unit | "x-" single_unit
@@ -948,17 +950,21 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
         <li>See <a href="#Private_Use_Units">Private-Use Units</a></li>
     </ul></td></tr>
 
-<tr><td>number_prefix</td><td>:=</td>
-    <td>("1"[0-9]+ | [2-9][0-9]*) "-"
+<tr><td><a name='unit_constant' href='unit_constant'>unit_constant</a></td><td>:=</td>
+    <td>[1-9][0-9]* ("e" [1-9][0-9]*)?
         <ul><li><em>Examples:</em>
             <ul><li>kilowatt-hour-per-100-kilometer</li>
                 <li>gallon-per-100-mile</li>
                 <li>per-200-pound</li>
+                <li>per-12</li>
             </ul></li>
-            <li><em>Note:</em> The number is an integer greater than one.</li>
+            <li><em>Constraint:</em> The numeric value of the unit constant must be an integer greater than one.</li>
+            <li><em>Note:</em> The normal interpretation of <code>e</code> is used, where 2e6 = 2×10⁶.</li>
+            <li><em>Note:</em> The <code>e</code> notation is optional: per-100-kilometer and per-1e2-kilometer are equivalent unit_identifiers.</li>
+            <li><em>Note:</em> When constructing identifiers, exponents should be greater than 3 and multiples of 3, even though parsers must accept the wider range.</li>
         </ul></td></tr>
 
-<tr><td>dimensionality_prefix</td><td>:=</td>
+<tr><td><a name='dimensionality_prefix' href='dimensionality_prefix'>dimensionality_prefix</a></td><td>:=</td>
     <td>"square-"<p>| "cubic-"<p>| "pow" ([2-9]|1[0-5]) "-"
         <ul>
 			<li><em>Constraint:</em> must be value in: &lt;unitIdComponent type="power"&gt;.</li>
@@ -966,7 +972,7 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 			<li><em>Note:</em> These are values in &lt;unitIdComponent type="power"&gt;</li>
 		</ul></td></tr>
 
-<tr><td>simple_unit</td><td>:=</td>
+<tr><td><a name='simple_unit' href='simple_unit'>simple_unit</a></td><td>:=</td>
     <td>(prefix_component "-")* (prefixed_unit | base_component) ("-" suffix_component)*<br/>
 		|  currency_unit<br/>
 		| "em" | "g" | "us" | "hg" | "of"
@@ -979,16 +985,18 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 <tr><td>prefixed_unit</td><td></td>
     <td>prefix base_component<ul><li><em>Example: </em>kilometer</li></ul></td></tr>
 
-<tr><td>prefix</td><td></td>
+<tr><td><a name='prefix' href='prefix'>prefix</a></td><td></td>
     <td>si_prefix | binary_prefix</td></tr>
 
 <tr><td>si_prefix</td><td>:=</td>
     <td>"deka" | "hecto" | "kilo", …
-        <ul><li><em>Note:</em> See full list at <a href="https://www.nist.gov/pml/special-publication-811">NIST special publication 811</a></li></ul></td></tr>
+        <ul><li><em>Constraint:</em> Must be an attribute value of the <code>type</code> in: &lt;unitPrefix type='…' … power10='…'&gt;. 
+			See also <a href="https://www.nist.gov/pml/special-publication-811">NIST special publication 811</a></li></ul></td></tr>
 
 <tr><td>binary_prefix</td><td>:=</td>
     <td>"kibi", "mebi", …
-        <ul><li><em>Note:</em> See full list at <a href="https://physics.nist.gov/cuu/Units/binary.html">Prefixes for binary multiples</a></li></ul></td></tr>
+        <ul><li><em>Constraint:</em> Must be an attribute value of the <code>type</code> in: &lt;unitPrefix type='…' … power2='…'&gt;. 
+			See also <a href="https://physics.nist.gov/cuu/Units/binary.html">Prefixes for binary multiples</a></li></ul></td></tr>
 
 <tr><td>prefix_component</td><td>:=</td>
     <td>[a-z]{3,∞}
@@ -1016,7 +1024,7 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 			<li><em>Constraint:</em> must be value in: &lt;unitIdComponent type="suffix"&gt;</li>
 		</ul></td></tr>
 
-<tr><td>mixed_unit_identifier</td><td>:=</td>
+<tr><td><a name='mixed_unit_identifier' href='mixed_unit_identifier'></a></td><td>:=</td>
     <td>(single_unit | pu_single_unit) ("-" and "-" (single_unit | pu_single_unit ))*
         <ul><li><em>Example: foot-and-inch</em></li>
 		</ul></td></tr>
@@ -1033,7 +1041,7 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 <tr><td>grouping</td><td>:=</td>
     <td>[a-z]{3,∞}</td></tr>
 
-<tr><td>currency_unit</td><td>:=</td>
+<tr><td><a name='currency_unit' href='currency_unit'>currency_unit</a></td><td>:=</td>
     <td>"curr-" [a-z]{3}
         <ul>
 			<li><em>Constraint:</em> The first part of the currency_unit is a standard prefix; the second part of the currency unit must be a valid <a href="tr35.md#UnicodeCurrencyIdentifier">Unicode currency identifier</a>.</li>
@@ -1047,7 +1055,9 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 
 </tbody></table>
 
-Note that while the syntax allows for number_prefixes in multiple places, the typical use case is only one instance, after a "-per-".
+Note that while the syntax allows for unit_constants in multiple places, the typical use case is only one instance, after a "-per-".
+The normalized form of a unit identifier has at most one unit_constant in the numerator and one in the denominator.
+For example, `2-kilowatt-7-hour-per-3-meter-5-second` has the equivalent normalized form `14-kilowatt-hour-per-15-meter-second`.
 
 The simple_unit structure does not allow for any two simple_units to overlap.
 That is, there are no cases where simple_unit1 consists of X-Y and simple_unit2 consists of Y-Z.
@@ -1322,12 +1332,12 @@ If there is no precomputed form, the following process in pseudocode is used to 
        2. set singlePluralCategory to be power0(singlePluralCategory)
        3. set singleCaseVariant to be power0(singleCaseVariant)
        4. remove the dimensionality_prefix from singleUnit
-   4.  if singleUnit starts with an si_prefix, such as 'centi' and/or a number_prefix such as '100'
+   4.  if singleUnit starts with an si_prefix, such as 'centi' and/or a unit_constant such as '100'
        1. set siPrefixPattern to be getValue(that si_prefix, locale, length), such as "centy{0}"
        2. set singlePluralCategory to be prefix0(singlePluralCategory)
        3. set singleCaseVariant to be prefix0(singleCaseVariant)
        4. remove the si_prefix from singleUnit
-	   5. set multiplier to be the locales integer numberFormat of number_prefix.
+	   5. set multiplier to be the locales integer numberFormat of unit_constant.
    5.  Set corePattern to be the getValue(singleUnit, locale, length, singlePluralCategory, singleCaseVariant), such as "{0} metrem"
    6.  Extract(corePattern, coreUnit, placeholder, placeholderPosition) from that pattern.
    7.  If the position is _middle_, then fail
@@ -2614,28 +2624,68 @@ For more information, see version 5.0 or [UTR #51, Unicode Emoji](https://www.un
 <!ATTLIST annotation type (tts) #IMPLIED >
 ```
 
-There are two kinds of annotations: **short names**, and **keywords**.
+There are two kinds of annotations: **short names**, and **search keywords**.
 
-With an attribute `type="tts"`, the value is a **short name**, such as one that can be used for text-to-speech. It should be treated as one of the element values for other purposes.
+With an attribute `type="tts"`, the value is a **short name**, such as one that can be used for text-to-speech. 
+It should be treated as one of the element values for other purposes.
 
-When there is no `type` attribute, the value is a set of **keywords**, delimited by |. Spaces around each element are to be trimmed. The **keywords** are words associated with the character(s) that might be used in searching for the character, or in predictive typing on keyboards. The short name itself can be used as a keyword.
+When there is no `type` attribute, the value is a set of **keywords**, delimited by |. 
+Spaces around each element are to be trimmed. 
+The **keywords** are words associated with the character(s) that might be used in searching for the character, 
+or in predictive typing on keyboards. The short name itself can be used as a keyword.
 
 Here is an example from German:
 
 ```xml
-<annotation cp="👎">schlecht | Hand | Daumen | nach unten</annotation>
+<annotation cp="👎">schlecht | Hand | Daumen | nach | unten</annotation>
 <annotation cp="👎" type="tts">Daumen runter</annotation>
 ```
 
-The `cp` attribute value has two formats: either a single string, or if contained within \[…\] a UnicodeSet. The latter format can contain multiple code points or strings. A code point pr string can occur in multiple annotation element **cp** values, such as the following, which also contains the "thumbs down" character.
+These are intended as search keywords, and not for "triggering" (aka suggesting).
+
+- For triggering, the user is typing out a message and concurrently seeing a few emoji
+  displayed adjacent to the virtual keyboard. Selecting the emoji adds it to the message.
+  For example, you mention your birthday while writing, and an emoji cake pops up.
+  That is typically done with an LLM or similar advanced technology.
+- For searching, the user is looking for an emoji in a search box, 
+  and typing in in words that narrow down a displayed set of emoji.
+  For example, you type 'heart', but that has too many hits, so you add 'blue' and get the set of blue hearts.
+  
+### Usage Model
+
+The usage model for the search keywords is:
+
+- The user types one or more words in an emoji search field.
+- Each word successively narrows a number of emoji in a results box.
+    - heart → 🥰 😘 😻 💌 💘 💝 💖 💗 💓 💞 💕 💟 ❣️ 💔 ❤️‍🔥 ❤️‍🩹 ❤️ 🩷 🧡 💛 💚 💙 🩵 💜 🤎 🖤 🩶 🤍 💋 🫰 🫶 🫀 💏 💑 🏠 🏡 ♥️ 🩺
+    - blue → 🥶 😰 💙 🩵 🫐 👕 👖 📘 🧿 🔵 🟦 🔷 🔹 🏳️‍⚧️
+    - heart blue → 💙 🩵
+- A word with no hits is ignored
+    - [heart | blue | confabulation] is equivalent to [heart | blue]
+- As the user types a word, each character added to the word narrows the results.
+- Whenever the list is short enough to scan, the user will mouse-click on the right emoji — so it doesn’t have to be narrowed too far.
+    - In the following, the user would just click on 🎉 if that works for them.
+    - celebrate → 🥳 🥂 🎈 🎉 🎊 🪅
+- The order of words doesn’t matter.
+
+Multiword search keywords are typically broken up into separate parts, 
+because that works better with the usage model. So [hand | mouth | omg | open | over] covers the phrase "hand over mouth".
+
+### cp attribute
+
+The `cp` attribute value has two formats: either a single string, or if contained within \[…\] a UnicodeSet. 
+The latter format can contain multiple code points or strings. A code point pr string can occur in multiple annotation element **cp** values, such as the following, which also contains the "thumbs down" character.
 
 ```xml
 <annotation cp='[☝✊-✍👆-👐👫-👭💁🖐🖕🖖🙅🙆🙋🙌🙏🤘]'>hand</annotation>
 ```
 
-Both for short names and keywords, values do not have to match between different languages. They should be the most common values that people using _that_ language would associate with those characters. For example, a "black heart" might have the association of "wicked" in English, but not in some other languages.
+Both for short names and keywords, values do not have to match between different languages. 
+They should be the most common values that people using _that_ language would associate with those characters. 
+For example, a "black heart" might have the association of "wicked" in English, but not in some other languages.
 
-The cp value may contain sequences, but does not contain any Emoji or Text Variant (VS15 & VS16) characters. All such characters should be removed before looking up any short names and keywords.
+The cp value may contain sequences, but does not contain any Emoji or Text Variant (VS15 & VS16) characters. 
+All such characters should be removed before looking up any short names and keywords.
 
 ### <a name="SynthesizingNames" href="#SynthesizingNames">Synthesizing Sequence Names</a>
 

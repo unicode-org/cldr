@@ -198,7 +198,10 @@ public class GenerateLocaleIDTestData {
             for (String locale : factory.getAvailableLanguages()) {
                 for (boolean onlyConstructCompound : List.of(true, false)) {
                     CLDRFile cldrFile =
-                            factory.make(locale, true, DraftStatus.contributed); // don't include
+                            factory.make(
+                                    locale,
+                                    true,
+                                    DraftStatus.contributed); // don't include provisional data
 
                     // This is the CLDR "effective coverage level"
                     Level coverageLevel =

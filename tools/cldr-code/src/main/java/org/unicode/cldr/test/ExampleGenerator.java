@@ -2500,50 +2500,23 @@ public class ExampleGenerator {
 
             // ldml/dates/calendars/calendar[@type="*"]/dateFormats/dateFormatLength[@type="*"]/dateFormat[@type="standard"]/pattern[@type="standard"]
             // ldml/dates/calendars/calendar[@type="*"]/dateFormats/dateFormatLength[@type="*"]/dateFormat[@type="standard"]/pattern[@type="standard"][@numbers="*"]
-            String dateFormatXPath = // Get standard dateFmt for same calendar & length as this
-                    // dateTimePattern
-                    cldrFile.getWinningPath(
-                            xpath.replaceAll("dateTimeFormat", "dateFormat")
-                                    .replaceAll("atTime", "standard"));
-
-            String dateFormatValue = cldrFile.getWinningValue(dateFormatXPath);
-            parts = XPathParts.getFrozenInstance(cldrFile.getFullXPath(dateFormatXPath));
-            String dateNumbersOverride = parts.findAttributeValue("pattern", "numbers");
-            SimpleDateFormat df =
-                    icuServiceBuilder.getDateFormat(calendar, dateFormatValue, dateNumbersOverride);
+            SimpleDateFormat df = cldrFile.getDateFormat(calendar, length, icuServiceBuilder);
             df.setTimeZone(ZONE_SAMPLE);
 
             // ldml/dates/calendars/calendar[@type="*"]/timeFormats/timeFormatLength[@type="*"]/timeFormat[@type="standard"]/pattern[@type="standard"]
             // ldml/dates/calendars/calendar[@type="*"]/timeFormats/timeFormatLength[@type="*"]/timeFormat[@type="standard"]/pattern[@type="standard"][@numbers="*"] // not currently used
-            String timeFormatXPathForPrefix =
-                    cldrFile.getWinningPath(xpath.replaceAll("dateTimeFormat", "timeFormat"));
-            int tfLengthOffset = timeFormatXPathForPrefix.indexOf("timeFormatLength");
-            if (tfLengthOffset < 0) {
+            SimpleDateFormat tlf =
+                    (!length.equals("short"))
+                            ? cldrFile.getTimeFormat(calendar, "full", icuServiceBuilder)
+                            : cldrFile.getTimeFormat(calendar, "long", icuServiceBuilder);
+
+            if (tlf == null) {
                 return;
             }
-            String timeFormatXPathPrefix = timeFormatXPathForPrefix.substring(0, tfLengthOffset);
-            String timeLongerFormatXPath =
-                    (!length.equals("short"))
-                            ? timeFormatXPathPrefix.concat(
-                                    "timeFormatLength[@type=\"full\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]")
-                            : timeFormatXPathPrefix.concat(
-                                    "timeFormatLength[@type=\"long\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]");
-            String timeShortFormatXPath =
-                    timeFormatXPathPrefix.concat(
-                            "timeFormatLength[@type=\"short\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]");
 
-            String timeFormatValue = cldrFile.getWinningValue(timeLongerFormatXPath);
-            parts = XPathParts.getFrozenInstance(cldrFile.getFullXPath(timeLongerFormatXPath));
-            String timeNumbersOverride = parts.findAttributeValue("pattern", "numbers");
-            SimpleDateFormat tlf =
-                    icuServiceBuilder.getDateFormat(calendar, timeFormatValue, timeNumbersOverride);
             tlf.setTimeZone(ZONE_SAMPLE);
 
-            timeFormatValue = cldrFile.getWinningValue(timeShortFormatXPath);
-            parts = XPathParts.getFrozenInstance(cldrFile.getFullXPath(timeShortFormatXPath));
-            timeNumbersOverride = parts.findAttributeValue("pattern", "numbers");
-            SimpleDateFormat tsf =
-                    icuServiceBuilder.getDateFormat(calendar, timeFormatValue, timeNumbersOverride);
+            SimpleDateFormat tsf = cldrFile.getTimeFormat(calendar, "short", icuServiceBuilder);
             tsf.setTimeZone(ZONE_SAMPLE);
 
             // ldml/dates/fields/field[@type="day"]/relative[@type="0"] // "today"
@@ -2561,30 +2534,22 @@ public class ExampleGenerator {
             // so
             // we handle it with SimpleDateFormat, plugging the date and time formats in as literal
             // text.
-            SimpleDateFormat dtf =
-                    icuServiceBuilder.getDateFormat(
+            examples.add(
+                    cldrFile.glueDateTimeFormatWithGluePattern(
+                            setBackground(dfResult),
+                            setBackground(tlfResult),
                             calendar,
-                            MessageFormat.format(
-                                    value,
-                                    (Object[])
-                                            new String[] {
-                                                setBackground("'" + tlfResult + "'"),
-                                                setBackground("'" + dfResult + "'")
-                                            }));
-            examples.add(dtf.format(DATE_SAMPLE));
+                            value,
+                            icuServiceBuilder));
 
             // Handle date plus a single short time.
-            dtf =
-                    icuServiceBuilder.getDateFormat(
+            examples.add(
+                    cldrFile.glueDateTimeFormatWithGluePattern(
+                            setBackground(dfResult),
+                            setBackground(tsfResult),
                             calendar,
-                            MessageFormat.format(
-                                    value,
-                                    (Object[])
-                                            new String[] {
-                                                setBackground("'" + tsfResult + "'"),
-                                                setBackground("'" + dfResult + "'")
-                                            }));
-            examples.add(dtf.format(DATE_SAMPLE));
+                            value,
+                            icuServiceBuilder));
 
             if (!formatType.contentEquals("atTime")) {
                 // Examples for standard pattern
@@ -2604,46 +2569,35 @@ public class ExampleGenerator {
                     String timeRange = format(intervalFormatFallbackValue, tsfAMResult, tsfResult);
 
                     // Handle date plus short time range
-                    dtf =
-                            icuServiceBuilder.getDateFormat(
+
+                    examples.add(
+                            cldrFile.glueDateTimeFormatWithGluePattern(
+                                    setBackground(dfResult),
+                                    setBackground(timeRange),
                                     calendar,
-                                    MessageFormat.format(
-                                            value,
-                                            (Object[])
-                                                    new String[] {
-                                                        setBackground("'" + timeRange + "'"),
-                                                        setBackground("'" + dfResult + "'")
-                                                    }));
-                    examples.add(dtf.format(DATE_SAMPLE));
+                                    value,
+                                    icuServiceBuilder));
 
                     // Handle relative date plus short time range
-                    dtf =
-                            icuServiceBuilder.getDateFormat(
+                    examples.add(
+                            cldrFile.glueDateTimeFormatWithGluePattern(
+                                    setBackground(relativeDayValue),
+                                    setBackground(timeRange),
                                     calendar,
-                                    MessageFormat.format(
-                                            value,
-                                            (Object[])
-                                                    new String[] {
-                                                        setBackground("'" + timeRange + "'"),
-                                                        setBackground("'" + relativeDayValue + "'")
-                                                    }));
-                    examples.add(dtf.format(DATE_SAMPLE));
+                                    value,
+                                    icuServiceBuilder));
                 }
             } else {
                 // Examples for atTime pattern
 
                 // Handle relative date plus a single short time.
-                dtf =
-                        icuServiceBuilder.getDateFormat(
+                examples.add(
+                        cldrFile.glueDateTimeFormatWithGluePattern(
+                                setBackground(relativeDayValue),
+                                setBackground(tsfResult),
                                 calendar,
-                                MessageFormat.format(
-                                        value,
-                                        (Object[])
-                                                new String[] {
-                                                    setBackground("'" + tsfResult + "'"),
-                                                    setBackground("'" + relativeDayValue + "'")
-                                                }));
-                examples.add(dtf.format(DATE_SAMPLE));
+                                value,
+                                icuServiceBuilder));
             }
 
             return;

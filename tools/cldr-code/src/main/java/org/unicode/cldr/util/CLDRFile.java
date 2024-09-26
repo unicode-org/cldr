@@ -27,6 +27,7 @@ import com.ibm.icu.util.Calendar;
 import com.ibm.icu.util.Freezable;
 import com.ibm.icu.util.ICUUncheckedIOException;
 import com.ibm.icu.util.Output;
+import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
 import com.ibm.icu.util.VersionInfo;
 import java.io.File;
@@ -1260,6 +1261,124 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
             }
         }
         return lb.build().toString(); // TODO: CLDRLocale ?
+    }
+
+    /**
+     * Create xpaths for DateFormat that look like
+     *
+     * <pre>
+     * //ldml/dates/calendars/calendar[@type="*"]/dateFormats/dateFormatLength[@type="*"]/dateFormat[@type="standard"]/pattern[@type="standard"]
+     * //ldml/dates/calendars/calendar[@type="*"]/dateFormats/dateFormatLength[@type="*"]/dateFormat[@type="standard"]/pattern[@type="standard"][@numbers="*"]
+     * </pre>
+     *
+     * @param calendar Calendar system identifier
+     * @param length full, long, medium, short. "*" is a wildcard selector for XPath
+     * @return
+     */
+    private String getDateFormatXpath(String calendar, String length) {
+        String formatPattern =
+                "//ldml/dates/calendars/calendar[@type=\"%s\"]/dateFormats/dateFormatLength[@type=\"%s\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
+        return String.format(formatPattern, calendar, length);
+    }
+
+    /**
+     * Create xpaths for TimeFormat that look like
+     *
+     * <pre>
+     * //ldml/dates/calendars/calendar[@type="*"]/timeFormats/timeFormatLength[@type="*"]/timeFormat[@type="standard"]/pattern[@type="standard"]
+     * //ldml/dates/calendars/calendar[@type="*"]/timeFormats/timeFormatLength[@type="*"]/timeFormat[@type="standard"]/pattern[@type="standard"][@numbers="*"] // not currently used
+     * </pre>
+     *
+     * @param calendar Calendar system idenfitier
+     * @param length full, long, medium, short. "*" is a wildcard selector for XPath
+     * @return
+     */
+    private String getTimeFormatXpath(String calendar, String length) {
+        String formatPattern =
+                "//ldml/dates/calendars/calendar[@type=\"%s\"]/timeFormats/timeFormatLength[@type=\"%s\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
+        return String.format(formatPattern, calendar, length);
+    }
+
+    /**
+     * Create xpaths for the glue pattern from DateTimeFormat that look like
+     *
+     * <pre>
+     *   //ldml/dates/calendars/calendar[@type="*"]/dateTimeFormats/dateTimeFormatLength[@type="*"]/dateTimeFormat[@type="standard"]/pattern[@type="standard"]
+     *   //ldml/dates/calendars/calendar[@type="*"]/dateTimeFormats/dateTimeFormatLength[@type="*"]/dateTimeFormat[@type="atTime"]/pattern[@type="standard"]
+     * </pre>
+     *
+     * @param calendar
+     * @param length
+     * @param formatType "standard" or "atTime"
+     * @return
+     */
+    private String getDateTimeFormatXpath(String calendar, String length, String formatType) {
+        String formatPattern =
+                "//ldml/dates/calendars/calendar[@type=\"%s\"]/dateTimeFormats/dateTimeFormatLength[@type=\"%s\"]/dateTimeFormat[@type=\"%s\"]/pattern[@type=\"standard\"]";
+        return String.format(formatPattern, calendar, length, formatType);
+    }
+
+    public SimpleDateFormat getDateFormat(
+            String calendar, String length, ICUServiceBuilder icuServiceBuilder) {
+        String dateFormatXPath = // Get standard dateFmt for same calendar & length as this
+                // dateTimePattern
+                this.getDateFormatXpath(calendar, length);
+        String dateFormatValue = this.getWinningValue(dateFormatXPath);
+
+        if (dateFormatValue == null) {
+            return null;
+        }
+
+        XPathParts parts = XPathParts.getFrozenInstance(this.getFullXPath(dateFormatXPath));
+        String dateNumbersOverride = parts.findAttributeValue("pattern", "numbers");
+        return icuServiceBuilder.getDateFormat(calendar, dateFormatValue, dateNumbersOverride);
+    }
+
+    public SimpleDateFormat getTimeFormat(
+            String calendar, String length, ICUServiceBuilder icuServiceBuilder) {
+        String timeFormatXPath = this.getTimeFormatXpath(calendar, length);
+        String timeFormatValue = this.getWinningValue(timeFormatXPath);
+
+        if (timeFormatValue == null) {
+            return null;
+        }
+
+        XPathParts parts = XPathParts.getFrozenInstance(this.getFullXPath(timeFormatXPath));
+        String timeNumbersOverride = parts.findAttributeValue("pattern", "numbers");
+        return icuServiceBuilder.getDateFormat(calendar, timeFormatValue, timeNumbersOverride);
+    }
+
+    public String glueDateTimeFormat(
+            String date,
+            String time,
+            String calendar,
+            String length,
+            String formatType,
+            ICUServiceBuilder icuServiceBuilder) {
+        // calls getDateTimeFormatXpath, load the glue pattern, then call
+        // glueDateTimeFormatWithGluePattern
+        String xpath = this.getDateTimeFormatXpath(calendar, length, formatType);
+        String fullpath = this.getFullXPath(xpath);
+        String gluePattern = this.getWinningValue(xpath);
+        return this.glueDateTimeFormatWithGluePattern(
+                date, time, calendar, gluePattern, icuServiceBuilder);
+    }
+
+    public String glueDateTimeFormatWithGluePattern(
+            String date,
+            String time,
+            String calendar,
+            String gluePattern,
+            ICUServiceBuilder icuServiceBuilder) {
+        // uses SimpleDateFormat to get rid of quotes
+        SimpleDateFormat temp = icuServiceBuilder.getDateFormat(calendar, gluePattern, null);
+        TimeZone tempTimeZone = TimeZone.GMT_ZONE;
+        Calendar tempCalendar = Calendar.getInstance(tempTimeZone, ULocale.ENGLISH);
+        Date tempDate = tempCalendar.getTime();
+        String gluePatternWithoutQuotes = temp.format(tempDate);
+
+        // uses MessageFormat to interpret the placeholders in the glue pattern
+        return MessageFormat.format(gluePatternWithoutQuotes, (Object[]) new String[] {time, date});
     }
 
     /**

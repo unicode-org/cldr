@@ -23,10 +23,13 @@ adapting software to the conventions of different languages.
 
 The most significant changes in this release were:
 
-- Updates to Unicode 16.0 (including major changes to collation),
-- Further revisions to the Message Format 2.0 tech preview,
-- Substantial additions and modifications of Emoji search keyword data,
-- ‘Upleveling’ the locale coverage.
+- Updates to Unicode 16.0 (including major changes to collation)
+- Further revisions to the Message Format 2.0 tech preview
+- Substantial additions and modifications of Emoji search keyword data
+- ‘Upleveling’ the locale coverage
+- Important changes to the specification
+
+For more details, see below.
 
 ### Locale Coverage Status
 #### Current Levels
@@ -52,29 +55,16 @@ For a full listing, see [Coverage Levels](https://unicode.org/cldr/charts/46/sup
 
 ## [Specification Changes](https://www.unicode.org/reports/tr35/proposed.html)
 
-The following are the most significant changes to the specification.
+The following are the most significant changes to the specification (LDML).
 
-1. Significant updates to [Message Format](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-messageFormat.html#Contents) (see below for details)
-2. Updates to [LDML Conformance](https://cldr-smoke.unicode.org/spec/main/ldml/tr35.html#Conformance) including
-   - clarification of conformance requirements
-   - an expanded list of major sections
-   - details about customization
-   - a summary of conformance data files
-3. Clarified definitions of _Unicode BCP 47 locale identifier_ and _Unicode CLDR locale identifier_, moving them to [Unicode CLDR locale identifier](https://cldr-smoke.unicode.org/spec/main/ldml/tr35.html#unicode-locale-identifier)
-4. Clarified useage of [Special Script Codes](https://cldr-smoke.unicode.org/spec/main/ldml/tr35.html#unicode-locale-identifier).
-5. Added definition of [Ordered Elements](https://cldr-smoke.unicode.org/spec/main/ldml/tr35.html#definitions), replacing the obsolete definition of _blocking_ elements.
-6. In [Element dayPeriods](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-dates.html#dayPeriods), added a note on special formatting usable with dayPeriods `noon` and `midnight`.
-7. Changed the EBNF for [`unit_identifier`](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-general.html#Annotations):
-    1. Replacing  `number_prefix` by [unit_constant](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-general.html#syntax) to generalize expressions like liter-per-100-kilometers, and provide a compact form for longer constants (such as 1e9).
-    2. Adding EBNF constraints on `si_prefix` and `binary_prefix`, and adding links to more named components.
-8. Clarified the use of -rg for [computing regions](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-info.html#compute-regions) in user preferences
-9. Clarified the usage model for [emoji search keywords](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-general.html#Annotations).
-10. Added a tech preview section on [semantic skeletons](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-dates.html#Semantic_Skeletons), allowing for less data and faster performance in formatting dates.
-11. Clarified that if [dayPeriods](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-collation.html#grouping_classes_of_characters) are specified for `noon` and `midnight`, they can often be formatted without also specifying the numeric time
-12. In collation, modified [Grouping classes of characters](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-collation.html#grouping_classes_of_characters) to reflect the changes in collation listed below.
-13. Clarified the usage of the `path` attribute with [aliases](https://cldr-smoke.unicode.org/spec/main/ldml/tr35.html#element-alias).
+1. [Message Format](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-messageFormat.html#Contents) (see below for details)
+2. [LDML Conformance](https://cldr-smoke.unicode.org/spec/main/ldml/tr35.html#Conformance)
+3. [emoji search keywords](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-general.html#Annotations)
+4. [semantic skeletons](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-dates.html#Semantic_Skeletons)
+5. [Grouping classes of characters](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-collation.html#grouping_classes_of_characters) and other collation changes listed below.
 
-TBD: the [Modifications section](https://cldr-smoke.unicode.org/spec/main/ldml/tr35.html#Modifications) is not yet updated.
+There are many more changes that are important to implementations, such as changes to certain identifier syntax and various algorithms. 
+See the [Modifications section](https://cldr-smoke.unicode.org/spec/main/ldml/tr35.html#Modifications) of the specification for details.
 
 ## Data Changes
 
@@ -154,6 +144,13 @@ For a full listing, see [Delta Data](https://unicode.org/cldr/charts/46/delta/in
 The CLDR Technical Committee decided to continue the tech preview phase for [Message Format](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-messageFormat.html#Contents) in version 46.
 The plan is to have a final version of the specification in a 46.1 release before the end of 2024.
 
+The most significant changes since v45 were:
+- Removed all of the reserved and private use syntax constructs, simplifying the grammar.
+- Changed the structure of the .match (selector) to require use of local or input declarations.
+This is a breaking change for existing v45 messages.
+- Added support for bidirectional isolates and marks and clarified whitespace handling,
+to better enable messages that contains right-to-left identifiers and text.
+
 Implementers should be aware of the following normative changes after the start of the tech review period.
 
 * [\#885](https://github.com/unicode-org/message-format-wg/issues/885) Address equality of `name` and `literal` values, including requiring keys to use NFC  
@@ -181,7 +178,6 @@ Implementers should be aware of the following normative changes after the start 
 * [\#743](https://github.com/unicode-org/message-format-wg/issues/743) Collapse all escape sequence rules into one (affects the ABNF)
 
 In addition to the above, the test suite is significantly modified and updated. There will be updated tech preview implementations available in ICU (Java and C++) and in Javascript.
-
 
 ### Emoji Search Keywords
 The usage model for emoji search keywords is that
@@ -241,10 +237,8 @@ This process should be completed before release.
 
 ### File Changes
 
-Most files added in this release were for new locales.
-There were the following new test files:
-
-**TBD***
+Most files added in this release were for new locales, with some files being added for existing locales that increased coverage,
+such as /testData/personNameTest/ak.txt.
 
 ### Tooling Changes
 
@@ -256,8 +250,7 @@ There were the following new test files:
 This can happen with any CLDR release (especially those for a new version of Unicode), but more characters are affected in this release: see above.
 2. Two collation variants are to be dropped in a v46.1 release: zh-u-co-gb2312 and zh-u-co-big5han.
 These matched the ordering of two legacy character encodings.
-
-**TBD**
+3. **TBD**
 
 ## [Known Issues](https://unicode-org.atlassian.net/issues/CLDR-17535?jql=project%20%3D%20cldr%20and%20labels%20%3D%20%22ReleaseKnownIssue%22%20and%20status%20!%3D%20done)
 
@@ -265,14 +258,14 @@ These matched the ordering of two legacy character encodings.
     - The day that should be shown as the first day of the week in a calendar view.
     - The first day of the week (day 1) for weekday numbering.
     - The first day of the week for week-of-year calendar calculations.
-2. CLDR-17505. Blocking items are obsolete: the spec needs to be corrected to use @ORDERED
 
 ## Acknowledgments
 
-Many people have made significant contributions to CLDR and LDML; see the [Acknowledgments](https://cldr.unicode.org/index/acknowledgments) page for a full listing. We'd also like to acknowledge the work done by interns this release: **TBD**
+Many people have made significant contributions to CLDR and LDML;
+see the [Acknowledgments](https://cldr.unicode.org/index/acknowledgments) page for a full listing.
+We'd especially like to acknowledge the work done by interns this release: Chris Pyle and Helena Aytenfisu (ህሊና የሺጥላ አይተንፍሱ).
 
-The Unicode [Terms of Use](https://unicode.org/copyright.html) apply to CLDR data; in particular, see [Exhibit 1](https://unicode.org/copyright.html#Exhibit1).
+The Unicode [Terms of Use](https://unicode.org/copyright.html) apply to CLDR data; 
+in particular, see [Exhibit 1](https://unicode.org/copyright.html#Exhibit1).
 
 For web pages with different views of CLDR data, see [http://cldr.unicode.org/index/charts](https://cldr.unicode.org/index/charts).
-
-[CLDR-16720]: https://unicode-org.atlassian.net/issues/CLDR-16720

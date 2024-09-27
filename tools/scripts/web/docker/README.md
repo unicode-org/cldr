@@ -1,5 +1,9 @@
 # Docker for CLDR Site
 
+## Installing assets
+
+1. run `npm i` and `npm run build` in `docs/site`
+
 ## Previewing locally
 
 1. install https://docker.io

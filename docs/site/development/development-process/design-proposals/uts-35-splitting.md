@@ -47,4 +47,3 @@ Important features
 			1. Could only approximate the TR format.
 			2. CSS doesn't yet work.
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

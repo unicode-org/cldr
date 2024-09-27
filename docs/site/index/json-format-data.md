@@ -18,4 +18,3 @@ The JSON specification for CLDR data can be found [here](https://cldr.unicode.or
 
 To access the CLDR 22.1 data in the JSON format, click [HERE](http://www.google.com/url?q=http%3A%2F%2Fwww.unicode.org%2Frepos%2Fcldr-aux%2Fjson%2F22.1%2F&sa=D&sntz=1&usg=AOvVaw3a81SHdsJi_Nf1zWGhF3rs)
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

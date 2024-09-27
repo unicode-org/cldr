@@ -70,4 +70,3 @@ The easiest way to do this is just provide \<eras alt="variant">l in locales tha
 (We could use other names for the alt form such as "secular" or "neutral" but "variant" is more general and already widely supported.)
 
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

@@ -6,12 +6,6 @@ import * as cldrAjax from "./cldrAjax.mjs";
 import * as cldrSchedule from "./cldrSchedule.mjs";
 import * as cldrStatus from "./cldrStatus.mjs";
 
-/**
- * This should be false for production. It can be made true during debugging, which
- * may be useful for performance testing.
- */
-const DISABLE_ANNOUNCEMENTS = false;
-
 const CLDR_ANNOUNCE_DEBUG = false;
 
 const ANNOUNCE_REFRESH_SECONDS = 60; // one minute
@@ -39,6 +33,16 @@ const MOST_RECENT_ID_UNKNOWN = -1; // must be less than zero
 let alreadyGotId = MOST_RECENT_ID_UNKNOWN;
 
 /**
+ * Ordinarily announcements are enabled. They may be temporarily disabled during
+ * critical operations such as VXML generation, or for debugging.
+ */
+let announcementsEnabled = true;
+
+function enableAnnouncements(enable) {
+  announcementsEnabled = Boolean(enable);
+}
+
+/**
  * Get the number of unread announcements, to display in the main menu
  *
  * @param {Function} setUnreadCount the callback function for setting the unread count
@@ -60,7 +64,7 @@ async function getUnreadCount(setUnreadCount) {
  * we're only getting the number of unread announcements to display in the main header
  */
 async function refresh(viewCallbackSetData, viewCallbackSetCounts) {
-  if (DISABLE_ANNOUNCEMENTS) {
+  if (!announcementsEnabled) {
     return;
   }
   if (viewCallbackSetData) {
@@ -185,6 +189,7 @@ export {
   canAnnounce,
   canChooseAllOrgs,
   compose,
+  enableAnnouncements,
   getUnreadCount,
   refresh,
   resetSchedule,

@@ -10,7 +10,7 @@ The following is a proposal for how to handle the delimiter issues in CLDR, rais
 
 There are qute a number of problems in our delimiter data. Most of these are in the ‘lesser vetted’ languages, but some are in major languages. Problems include use of ASCII quotes, and obvious inconsistencies in data.
 
-The goal for the v49 release is to at least have consistent data, then have the translators look at the changes in the data submission phase for v50. 
+The goal for the v49 release is to at least have consistent data, then have the translators look at the changes in the data submission phase for v50.
 
 **Data Cleanup.** I went through the data, and cleaned up obvious problems (such as a generic ASCII quote on one side, and a curly quote on the other). I then compared it to the Wikipedia data where available; if there was a difference between CLDR and Wikipedia, I looked for original sources on the web. It is often a bit tricky, since there are be variant practices in many languages. The goal is to have it to be the most customary usage, but often it may not be clear which variant predominates.
 
@@ -21,7 +21,7 @@ Note that for a great many locales (especially African ones), there isn’t much
 1. Use the ASCII ugly quotes
 2. Reverse the two, which would be correct with all BIDI or with correct markup.
 
-Personally, I lean towards #2. 
+Personally, I lean towards #2.
 
 The first sheet has recommendations for changing; the others are just scratch sheets.
 
@@ -32,4 +32,3 @@ The first sheet has recommendations for changing; the others are just scratch sh
 
 [**Quotation (Delimiter) Proposal**](https://docs.google.com/spreadsheets/d/1_7vjBSmjlmevIQfpM4xX1yMGYQdibd6h8PTrQEPzzkQ/edit?gid=2#gid=2)
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

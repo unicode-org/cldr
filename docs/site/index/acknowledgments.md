@@ -2068,4 +2068,3 @@ The first CLDR version under the sponsorship of the Unicode Consortium was versi
 
 Thanks to the following people for their contributions to the CLDR 1.0 and LDML 1.0: Helena Shih Chapman, Mark Davis, Simon Dean, Deborah Goldsmith, Steven R Loomis, Kentaroh Noji, George Rhoten, Baldev Soor, Michael Twomey, Ram Viswanadha and Vladimir Weinstein. Special thanks to Akio Kido, Hideki Hiura, Tom Garland, and the OpenI18N organization for the sponsorship of this activity, and to the ICU team for hosting the CVS repository and collecting and managing the data for the project.
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

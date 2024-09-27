@@ -158,4 +158,3 @@ Note that we may get requests for some other calendar types/variations such as:
 - Turkish variant of Islamic calendar
 - Other regional variants of Islamic calendar
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

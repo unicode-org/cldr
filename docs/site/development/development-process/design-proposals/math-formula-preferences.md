@@ -46,4 +46,3 @@ mathFormulaDirection = "left-to-right", while ar.xml would have "right-to-left",
 
 Similarly, the vast majority of Arabic speaking locales would simply inherit their "math" numbering system from the default numbering system for the locale, and we would only need to explicitly specify a "math" numbering system where it differs from the default, for example, Yemen, Oman, Iraq.
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

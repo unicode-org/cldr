@@ -73,11 +73,11 @@ In many languages, the "per Y" part is inflected, and the dividing unit can't be
 
 ### Long Power
 
-If your language is inflected for case or gender: 
+If your language is inflected for case or gender:
 
 - **No inflected alternatives.** If it doesn't list inflected alternatives for square or cubic yet, choose the most neutral form inflection. For many locales, an abbreviated form may work the best, so that there is no visible inflection.
 - **Inflected alternatives.** If it does list inflected alternatives, you should look at some of the compound units with "square" and "cubic" that are already translated, to see how to translate power2 and power3. For example, for English, we see
-    - Length / Kilometer / long-other => {0} kilometers 
+    - Length / Kilometer / long-other => {0} kilometers
     - Area / Square-Kilometer / long-other => {0} square kilometers
 - The pattern for power2 should be constructed so that if you take the word for "kilometers" and substituted it into the pattern, you get "square kilometers". So let's take an example from French:
 
@@ -86,11 +86,11 @@ If your language is inflected for case or gender:
 - So the appropriate pattern for power2 would be:
 
     3. [https://st.unicode.org/cldr-apps/v#/fr/CompoundUnits/15b049cba8052719](https://st.unicode.org/cldr-apps/v#/fr/CompoundUnits/15b049cba8052719) => **{0} carrés**
-- If we were to substitute "kilomètres" from the pattern in #1 into the pattern in #3, we would get "kilomètres carrés", which appears in pattern #2. 
+- If we were to substitute "kilomètres" from the pattern in #1 into the pattern in #3, we would get "kilomètres carrés", which appears in pattern #2.
 
 ### Fallback Format: two units
 
-Some units are formed by combining other units. The most common of this is X per Y, such as "miles per hour". There is a "per" pattern that is used for this. For example, "{0} per {1}" might get replaced by "*10 meters* **per** *second*". 
+Some units are formed by combining other units. The most common of this is X per Y, such as "miles per hour". There is a "per" pattern that is used for this. For example, "{0} per {1}" might get replaced by "*10 meters* **per** *second*".
 
 Given an amount, and two units, the process uses the available patterns to put together a result, as described on [perUnitPatterns](http://www.unicode.org/reports/tr35/tr35-general.html#perUnitPatterns). (e.g. "3 kilograms" + "{0} per second" → "3 kilograms per second")
 
@@ -114,7 +114,7 @@ The measurements for *points, dots,* and *pixels* may be confusing. A *point* is
 
 If the natural word for both "point" and "dot" is the same, such as *punkt*, then there are a few different options to solve the conflict. Italic will be used for native words.
 
-**Changing the name for *point*.** 
+**Changing the name for *point*.**
 
 1. Use the equivalent of “*punkt length*” in your language for **point**.
 2. Use the equivalent of “*typographic punkt*” in your language for **point**.
@@ -129,4 +129,3 @@ If the natural word for both "point" and "dot" is the same, such as *punkt*, the
 A few languages have special words for **year, month, week,** or **day** when they are used in context of a person's age. Other languages may simply use the same terms for each one, and do not require separate translation.
 
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

@@ -35,9 +35,9 @@ Shakedown is on an invitation basis. If you have not received an invitation to p
 
 You should know in this stage:
 
-- The survey tool is **live and all data that you enter will be saved and used.**   
-- You can start work  
-- Expect a churn: there may be additional Tooling fixes and Data additions during this period.  
+- The survey tool is **live and all data that you enter will be saved and used.**
+- You can start work
+- Expect a churn: there may be additional Tooling fixes and Data additions during this period. 
 - Tool may be taken down for updates more frequently during general submission
 - You are expected to look for issues with the Survey tool and any other problems you encounter as a vetter. Please [file a ticket](https://cldr.unicode.org/index/bug-reports).
 
@@ -49,9 +49,9 @@ For new locales or ones where the goal is to increase the level, it is best to p
 
 Then please focus on the [Dashboard](https://cldr.unicode.org/translation/getting-started/guide#h.bmzr9ejnlv1u) view,
 
-1. Get all **Missing**† items entered 
-2. Vote for all **Provisional** items (where you haven't already voted) 
-3. Address any remaining **Errors\***  
+1. Get all **Missing**† items entered
+2. Vote for all **Provisional** items (where you haven't already voted)
+3. Address any remaining **Errors\***
 4. Review the **English Changed** (where the English value changed, but your locale's value didn't. These may need adjustment.)
     - \* Note that if the committee finds systematic errors in data, new tests can be added during the submission period, resulting in new **Errors**.
     - † Among the _**Missing**_ are are new items for translation. (On the [Dashboard](https://cldr.unicode.org/translation/getting-started/guide#h.bmzr9ejnlv1u), **New** means winning values that have changed since the last release.)
@@ -66,10 +66,9 @@ All contributors are encourage to move their focus to the [Dashboard](https://cl
 2. Open the Dashboard, and resolve all of the Errors, Provisional Items, Disputed items, and finish Reports
     1. Consider other's opinions, by reviewing the **Disputed** and the **Losing**. See guidelines for handling [Disputed](http://cldr.unicode.org/translation/getting-started/guide#TOC-Disputed) and [Losing](http://cldr.unicode.org/translation/getting-started/guide#TOC-Losing).
 3. Review all open Requests and Discussions in the [Forums](https://cldr.unicode.org/translation/getting-started/guide#h.fx4wl2fl31az), and respond.
-        
+
 
 ### Resolution (Closed to vetters)
 
 The vetting is done, and further work is being done by the CLDR committee to resolve problems. You should periodically take a couple of minutes to check your [Forums](https://cldr.unicode.org/translation/getting-started/guide#h.fx4wl2fl31az) to see if there are any questions about language-specific items that came up.
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

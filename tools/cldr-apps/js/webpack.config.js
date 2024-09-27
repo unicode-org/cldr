@@ -42,6 +42,7 @@ module.exports = (env, argv) => {
     devtool: DEV ? "eval-cheap-module-source-map" : "source-map",
     module: {
       rules: [
+        // keep in sync with webpack-test.config.js
         {
           test: /\.css$/i,
           use: ["style-loader", "css-loader"],
@@ -49,6 +50,10 @@ module.exports = (env, argv) => {
         {
           test: /\.vue$/,
           loader: "vue-loader",
+        },
+        {
+          test: /\.md$/,
+          type: 'asset/source',
         },
       ],
     },

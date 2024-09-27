@@ -504,9 +504,10 @@ public class TestExampleGenerator extends TestFmwk {
     private void checkCompoundUnits(String locale, String[][] tests) {
         ExampleGenerator exampleGenerator = getExampleGenerator(locale);
         for (String[] test : tests) {
-            String actual =
-                    exampleGenerator.handleCompoundUnit(
-                            UnitLength.valueOf(test[1]), test[0], Count.valueOf(test[2]));
+            List<String> examples = new ArrayList<>();
+            exampleGenerator.handleCompoundUnit(
+                    UnitLength.valueOf(test[1]), test[0], Count.valueOf(test[2]), examples);
+            String actual = exampleGenerator.formatExampleList(examples);
             assertEquals("CompoundUnit", test[3], ExampleGenerator.simplify(actual, true));
         }
     }
@@ -566,10 +567,10 @@ public class TestExampleGenerator extends TestFmwk {
         for (String[] test : tests) {
 
             ExampleGenerator exampleGenerator = getExampleGenerator(test[0]);
-
-            String actual =
-                    exampleGenerator.handleCompoundUnit1(
-                            UnitLength.valueOf(test[1]), Count.valueOf(test[2]), test[3]);
+            List<String> examples = new ArrayList<>();
+            exampleGenerator.handleCompoundUnit1(
+                    UnitLength.valueOf(test[1]), Count.valueOf(test[2]), test[3], examples);
+            String actual = exampleGenerator.formatExampleList(examples);
             assertEquals("CompoundUnit", test[4], ExampleGenerator.simplify(actual, true));
         }
     }

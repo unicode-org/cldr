@@ -31,7 +31,7 @@ As well as being used for durations, like "3.5 hours", they can also be used for
 
 1. **D**entro de {0} horas
 2. **h**ace {0} años
-    
+
 Each unit may have multiple plural forms, one for each category (see below). These are composed with numbers using a _unitPattern_. A formatted number will be substituted in place of the number placeholder.
 
 For example, for English if the unit is an hour and the number is 1234, then the number is looked up to get the rule category _other_. The number is then formatted into "1,234" and composed with the unitPattern for _other_ to get the final result. Examples are in the table below for the unit **hour**.
@@ -60,7 +60,7 @@ Some techniques for shortening the _narrow_ or _short_ form include:
 1. Drop the space between the value and the unit: “{0}km” instead of “{0} km”.
 2. Use symbols like km² or / instead of longer terms like “Quadrat” or “ pro ”.
 3. Use symbols that would be understood in context: eg “/h” for “ per hour” when the topic is speed, or "Mi" for mile(s) when the topic is distance.
-4. Replace the qualifiers "English" or "American" by an abbreviation (UK, US), or drop if most people would understand that the measurement would be an English unit (and not, say, an obsolete German or French one). 
+4. Replace the qualifiers "English" or "American" by an abbreviation (UK, US), or drop if most people would understand that the measurement would be an English unit (and not, say, an obsolete German or French one).
 5. Use narrow symbols for CJK languages, such as “/” instead of “／”.
 
 Which of these techniques you can use will depend on your language, of course.
@@ -79,10 +79,9 @@ Minimal pairs are used to verify the different grammatical features used by a la
 
 - **Plurals (cardinals) and Ordinals.** See [Determining Plural Categories](https://cldr.unicode.org/index/cldr-spec/plural-rules#TOC-Determining-Plural-Categories).
 - **Grammatical Case and Gender.** See [Grammatical Inflection](https://cldr.unicode.org/translation/grammatical-inflection)
-    
+
 
 ## Compound Units
 
 Units of measurement can be formed from other units and other components. For more information, see [Compound Units](https://cldr.unicode.org/translation/units/unit-names-and-patterns).
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

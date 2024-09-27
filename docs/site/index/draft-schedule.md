@@ -1,39 +1,11 @@
 ---
-title: Draft Schedule
+title: Schedule
 ---
 
-# Draft Schedule
+# Schedule
 
-1.  We are planning on a different process for the future, with the following changes: A consistent release schedule each year.
-2.  Two releases per year: Spring and Fall
-3.  Making the survey tool open most of the year.
+Two releases are regularly scheduled each year, currently one in mid-October, and one in mid-March. 
+The March release is intended to be less data-intensive, and sometimes involves little or no vetting.
 
-|  | Q2-Q3 Phase |  |  |
-|---|---|---|---|
-| Apr | Submission |  |  |
-| May | Submission |  |  |
-| Jun | Vetting |  |  |
-| Jul | Resolution |  |  |
-| Aug | Production | 15 | Final candidate tagged |
-| Sep | Production | 15 | Release |
-|  |  | 30 | Survey Tool updated |
-
-|  | Q4-Q1 Phase |  |  |
-|---|---|---|---|
-| Oct | Submission |  |  |
-| Nov | Submission |  |  |
-| Dec | Vetting |  |  |
-| Jan | Resolution |  |  |
-| Feb | Production | 15 | Final candidate tagged |
-| Mar | Production | 15 | Release |
-|  |  | 30 | Survey Tool updated |
-        
-
-The Spring release is intended to be less data-intensive, with a shorter vetting period because of the December holidays. The 2013 Spring release has just a limited internal data phase, because it needs to be shortened to adjust to the new schedule.
-
-Rather than having the Survey tool unavailable except during the Main Submission and Vetting periods, it would be available most of the year: It would be taken down during the Resolution phase, and occasionally for a week for updates or structural changes before the Main Submission phase. The two important periods for translators would be:
-
--   Submission: translators are asked to flesh out missing data, and check for consistency. 
--   Vetting: translators are asked to review all changed or conflicted values, and reach consensus.
-
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)
+The current release is found at [Current CLDR Dev Version](https://docs.google.com/spreadsheets/d/1N6inI5R84UoYlRwuCNPBOAP7ri4q2CmJmh8DC5g-S6c/edit?gid=1680747936#gid=1680747936).
+For more information about the various phases of the release, see [Survey Tool stages](../translation/getting-started/survey-tool-phases.md)

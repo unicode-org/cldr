@@ -10,4 +10,3 @@ The following pages have guidance for specific languages:
 - [Odia](https://cldr.unicode.org/translation/language-specific/odia)
 - [Persian](https://cldr.unicode.org/translation/language-specific/persian)
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

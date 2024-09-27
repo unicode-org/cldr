@@ -74,7 +74,7 @@ Months are numbered 0-11 (the zero-based value of UCAL\_MONTH). When an intercal
 
 For purposes of add and set operations, month is treated as a tuple represented by UCAL\_MONTH and UCAL\_IS\_LEAP\_MONTH. If UCAL\_IS\_LEAP\_MONTH is 0 for a month that has a leap month following, then adding 1 month, or setting UCAL\_IS\_LEAP\_MONTH to 1, sets the calendar to the leap month (which has the same value for UCAL\_MONTH). If a month does not have a leap month following, then a set of UCAL\_IS\_LEAP\_MONTH to 1 is ignored.
 
-Years are numbered 1-60 (the value of UCAL\_YEAR) for each 60-year cycle. The era is incremented for each 60-year cycle, so we are currently in era 78. 
+Years are numbered 1-60 (the value of UCAL\_YEAR) for each 60-year cycle. The era is incremented for each 60-year cycle, so we are currently in era 78.
 
 Current ICU4C formatting for the Chinese calendar is completely broken. For example, the short date format in root and zh is currently “y'x'G-Ml-d”; the result this produces for Chinese era 78, year 29, month 4 (non-leap or leap), day 2 is “29x-4-”: There is no era value or leap month indicator, and non-literal fields after the ‘l’ pattern character are skipped.
 
@@ -86,7 +86,7 @@ In a non-leap year, months run 0-4 (for months Tishri-Shevat), skip 5 (“Adar I
 
 ### 3. Coptic and Ethiopic calendars
 
-Months are numbered 0-12. 
+Months are numbered 0-12.
 
 ### 4. Other calendars listed above
 
@@ -303,4 +303,3 @@ New tickets related to this, which supersede the above, are:
 - ICU [#9044](http://bugs.icu-project.org/trac/ticket/9044): Chinese cal dates can't always be parsed - document & fix tests
 - ICU [#9055](http://bugs.icu-project.org/trac/ticket/9055): Integrate Chinese cal pattern updates (cldrbug 4237), update tests
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

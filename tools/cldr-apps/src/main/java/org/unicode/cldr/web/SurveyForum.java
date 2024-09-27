@@ -37,13 +37,6 @@ public class SurveyForum {
 
     private static final String DB_FORA = "sf_fora"; // forum name -> id
 
-    // TODO: Remove DB_LOC2FORUM (sf_loc2forum) -- a table that's created or recreated every time on
-    // start-up, but is never read -- at least the name is private to SurveyForum and SurveyForm
-    // only writes it, never reads it. Searching for "sf_loc2forum" in IntelliJ, it is not found
-    // anywhere else. Also remove reloadLocales.
-    // Reference: https://unicode-org.atlassian.net/browse/CLDR-13962
-    private static final String DB_LOC2FORUM = "sf_loc2forum"; // locale -> forum.. for selects.
-
     private static final String F_FORUM = "forum";
 
     public static final String F_XPATH = "xpath";
@@ -427,72 +420,6 @@ public class SurveyForum {
 
     private Date oldOnOrBefore = null;
 
-    /**
-     * Re-create DB_LOC2FORUM table from scratch, called at start-up
-     *
-     * @param conn
-     * @throws SQLException
-     */
-    private void reloadLocales(Connection conn) throws SQLException {
-        String sql;
-        synchronized (conn) {
-            Statement s = conn.createStatement();
-            if (!DBUtils.hasTable(DB_LOC2FORUM)) { // user attribute
-                sql =
-                        "CREATE TABLE "
-                                + DB_LOC2FORUM
-                                + " ( "
-                                + " locale VARCHAR(255) NOT NULL, "
-                                + " forum VARCHAR(255) NOT NULL"
-                                + " )";
-                s.execute(sql);
-                sql =
-                        "CREATE UNIQUE INDEX "
-                                + DB_LOC2FORUM
-                                + "_loc ON "
-                                + DB_LOC2FORUM
-                                + " (locale) ";
-                s.execute(sql);
-                sql = "CREATE INDEX " + DB_LOC2FORUM + "_f ON " + DB_LOC2FORUM + " (forum) ";
-                s.execute(sql);
-            } else {
-                s.executeUpdate("delete from " + DB_LOC2FORUM);
-            }
-            s.close();
-
-            PreparedStatement initbl =
-                    DBUtils.prepareStatement(
-                            conn,
-                            "initbl",
-                            "INSERT INTO " + DB_LOC2FORUM + " (locale,forum) VALUES (?,?)");
-            int errs = 0;
-            for (CLDRLocale l : SurveyMain.getLocalesSet()) {
-                initbl.setString(1, l.toString());
-                String forum = localeToForum(l);
-                initbl.setString(2, forum);
-                try {
-                    initbl.executeUpdate();
-                } catch (SQLException se) {
-                    if (errs == 0) {
-                        System.err.println(
-                                "While updating "
-                                        + DB_LOC2FORUM
-                                        + " -  "
-                                        + DBUtils.unchainSqlException(se)
-                                        + " - "
-                                        + l
-                                        + ":"
-                                        + forum
-                                        + ",  [This and further errors, ignored]");
-                    }
-                    errs++;
-                }
-            }
-            initbl.close();
-            conn.commit();
-        }
-    }
-
     /** internal - called to setup db */
     private void setupDB(Connection conn) throws SQLException {
         String onOrBefore =
@@ -625,7 +552,6 @@ public class SurveyForum {
             s.close();
             conn.commit();
         }
-        reloadLocales(conn);
         SurveyThreadManager.getExecutorService().submit(() -> new SurveyForumCheck(sm).run());
     }
 
@@ -680,32 +606,12 @@ public class SurveyForum {
                 "SELECT uid from " + UserRegistry.CLDR_INTEREST + " where forum=?");
     }
 
-    // TODO: remove this function, see localeToForum.
-    // Reference: https://unicode-org.atlassian.net/browse/CLDR-13962
-    private static String uLocaleToForum(ULocale locale) {
-        return locale.getLanguage();
-    }
-
     private static String localeToForum(CLDRLocale locale) {
-        // TODO: for encapsulation (and efficiency?) call locale.getLanguage() instead of
-        // locale.toULocale().getLanguage(). That is, call
-        // org.unicode.cldr.util.CLDRLocale.getLanguage instead of
-        // com.ibm.icu.util.ULocale.getLanguage.
-        // As of 2023-05-23, the results are the same, for all sets
-        // returned by SurveyMain.getLocalesSet(), with the single exception of "root",
-        // for which ULocale.getLanguage returns empty string instead of "root".
-        // Reference: https://unicode-org.atlassian.net/browse/CLDR-13962
-        // if (LocaleNames.ROOT.equals(locale.getBaseName())) {
-        //    return "";
-        // } else {
-        //    String test1 = locale.getLanguage();
-        //    String test2 = locale.toULocale().getLanguage();
-        //    if (!test1.equals(test2)) { // this does not happen
-        //        throw new RuntimeException("localeToForum: " + locale + " " + test1 + " " +
-        // test2);
-        //    }
-        // }
-        return uLocaleToForum(locale.toULocale());
+        if (LocaleNames.ROOT.equals(locale.getBaseName())) {
+            return "";
+        } else {
+            return locale.getLanguage();
+        }
     }
 
     /**

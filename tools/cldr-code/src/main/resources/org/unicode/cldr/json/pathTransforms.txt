@@ -131,10 +131,6 @@
 >
 
 #
-< (.*/transforms/transform[^/]*)/(.*)
-> $1/tRules/$2
-
-#
 < (.*)\[@territories="([^"]*)"\](.*)\[@alt="variant"\](.*)
 > $1\[@territories="$2-alt-variant"\]
 
@@ -173,3 +169,7 @@
 # ParentLocales
 < (.*/parentLocales)\[@component="([^"]*)"\]/(parentLocale)(.*)$
 > $1/$2$4
+
+# Transform - drop terminal tRule element
+< //supplementalData/transforms/transform(.*)/tRule.*$
+> //supplementalData/transforms/transform$1/_rulesFile

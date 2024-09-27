@@ -8,7 +8,7 @@ The European ordering rules feature is a new collation feature in CLDR which att
 
 A copy of a near-final draft (FprEN 13710:2010) is available to Unicode members in the [UTC document register](http://www.unicode.org/L2/L-curdoc.htm) (L2/14-143).
 
-This document describes current issues in an attempt for us to have a clear picture of what level of EOR support will be contained within CLDR 21. 
+This document describes current issues in an attempt for us to have a clear picture of what level of EOR support will be contained within CLDR 21.
 
 Current Status
 
@@ -35,7 +35,7 @@ Questions
 1. Which EOR base to use? If EN13710 needs revisions, how do we make that happen?
 2. Should we use Kent's modified rules as attached to http://unicode.org/cldr/trac/ticket/763 ?
 3. What locales should provide EOR based tailorings?
-4. Need to add EOR to BCP47. 
+4. Need to add EOR to BCP47.
 
 Choices
 
@@ -43,4 +43,3 @@ Choices
 2. Put in a fixed version ourselves
 3. Put in the "stock" version, knowing about the problems.
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

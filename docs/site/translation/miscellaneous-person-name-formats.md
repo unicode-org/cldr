@@ -18,4 +18,3 @@ The main topics are:
 - [Sample Name Fields For X](https://docs.google.com/document/d/1mjxIHsb97Og8ub6BKWxOihcHz7zjU4GdFkIxWHGAtes/edit#heading=h.qr8y56vvjgr8)
 - [Name Patterns](https://docs.google.com/document/d/1mjxIHsb97Og8ub6BKWxOihcHz7zjU4GdFkIxWHGAtes/edit#heading=h.3me9x0ulvxtz)
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

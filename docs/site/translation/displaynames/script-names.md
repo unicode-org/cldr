@@ -11,7 +11,7 @@ Languages may be written with different scripts (aka writing systems). For examp
 - Chinese (Simplified)
 - Chinese (Traditional)
 
-The most important scripts for this purpose are Cyrillic, Arabic, and Latin, plus the special codes Hant (Traditional) and Hans (Simplified). 
+The most important scripts for this purpose are Cyrillic, Arabic, and Latin, plus the special codes Hant (Traditional) and Hans (Simplified).
 
 Scripts may also be listed in a menu by themselves.
 
@@ -26,4 +26,3 @@ For the script names, please follow these guidelines:
 See also [Language Names](https://cldr.unicode.org/translation/displaynames/languagelocale-names).
 
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

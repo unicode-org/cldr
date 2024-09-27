@@ -14,4 +14,3 @@ Contributors for Digitally Disadvantaged Languages (DDL) face unique challenges.
 
 The DDL Subcommittee has started to meet every other week as of June, 2023.
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

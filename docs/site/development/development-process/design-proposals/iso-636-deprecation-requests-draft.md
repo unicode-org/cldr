@@ -16,4 +16,3 @@ The current cases in question are listed below. However we need to collate and o
 | [hbs](http://www.sil.org/iso639-3/documentation.asp?id=hbs) (sh) Serbo-Croatian | [bos](http://www.sil.org/iso639-3/documentation.asp?id=bos) (bs) Bosnian; [hrv](http://www.sil.org/iso639-3/documentation.asp?id=hrv) (hr) Croatian; [srp](http://www.sil.org/iso639-3/documentation.asp?id=srp) (sr) Serbian | These are all mutually comprehensible according to many native speakers. | Ideally, we would deprecate bos, hrv, srp; add the names to 'hbs'; however, there is probably too much installed base to do this. |
 
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

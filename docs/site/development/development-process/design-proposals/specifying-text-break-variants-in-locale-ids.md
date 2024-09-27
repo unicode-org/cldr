@@ -51,7 +51,7 @@ We need a locale keyword to control use of ULI suppressions data (i.e. to determ
 Currently ICU uses dictionary-based break for text in SE Asian scripts only. The two most important needs for line break control are:
 
 - For Japanese text, control whether line breaks are allowed before small kana and before the prolonged sound mark 30FC; this corresponds to (most of) the distinction between CSS level 3 strict and normal line break (see below), and is implemented by treating LineBreak property value CJ as either NS (strict) or ID (normal).
-- For Korean text, control whether the line break style is E. Asian style (breaks can occur in the middle of words) or “Western” style (breaks are space based), as described in UAX 14. 
+- For Korean text, control whether the line break style is E. Asian style (breaks can occur in the middle of words) or “Western” style (breaks are space based), as described in UAX 14.
 
 Other desirable capabilities include:
 
@@ -504,7 +504,7 @@ boundaries{
 }
 ```
 
-BreakIterator::buildInstance is called by BreakIterator::makeInstance, which provides the type keys "grapheme", "line", etc. It could use the locale to construct the resource keys with extensions. 
+BreakIterator::buildInstance is called by BreakIterator::makeInstance, which provides the type keys "grapheme", "line", etc. It could use the locale to construct the resource keys with extensions.
 
 ### D. Current dictionary break implementation
 
@@ -533,4 +533,3 @@ It would be nice for a given locale to be able to specify, for each break type, 
 Thanks to Koji Ishii and the CLDR team for feedback on this document.
 
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

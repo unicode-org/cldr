@@ -56,4 +56,3 @@ Drivers marked in [...]. Drivers are to file bugs, put together plan for how to 
 	7. Leverage QuickSteps in rest of survey tool; allow Example column in QS, etc. **[Steven, John]**
 	8. Vetters used to better tools, able to group. (sort/group/filter) **[Steven, John]**
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

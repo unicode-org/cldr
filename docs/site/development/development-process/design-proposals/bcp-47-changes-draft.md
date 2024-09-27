@@ -72,7 +72,7 @@ Macrolanguage Table
 | Kurdish 'ku' | Northern Kurdish 'kmr'? | We probably want to change the default content locale to ku-Latn |
 | Akan ' ak ' | Twi ' tw ' and Fanti ' fat' | This appears to be a mistake in ISO 639. See: ISO 636 Deprecation Requests . |
 | Persian  fas (fa) | Western Farsi pes and prs Dari | This appears to be a mistake in ISO 639. See: ISO 636 Deprecation Requests . |
- 
+
 These would also go into the \<alias> element of the supplemental metadata. We may add more such aliases over time, as we find new predominant forms. Note that we still need to offer both aliases for translation in many cases. For example, we want to show both 'no' and 'nb'.
 
 ## Lenient Parsing
@@ -90,7 +90,7 @@ There are many circumstances where we get less than perfect language identifiers
 	2. Remove the base language
 	3. This avoids having to store which languages are also extlangs, and what their prefixes are.
 
-People have to do #1. We should recommend #2, and make it easy to support #3. 
+People have to do #1. We should recommend #2, and make it easy to support #3.
 
 See demo at [http://unicode.org/cldr/utility/languageid.jsp](http://unicode.org/cldr/utility/languageid.jsp)
 
@@ -211,4 +211,3 @@ The languages are listed in the format Abkhazian [ab]-OR, where [xx] is the code
 - Yao [yao]-U, Yiddish [yi]-U, Yupik Language [ypk]-U
 - Zande [znd]-U, Zapotec [zap]-U, Zaza [zza]-U, Zenaga [zen]-U, Zuni [zun]-U
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

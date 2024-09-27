@@ -10,4 +10,3 @@ The atLeast pattern is used to indicate a number that falls within a range with 
 
 The **range** pattern is used to indicate a range of numbers.
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

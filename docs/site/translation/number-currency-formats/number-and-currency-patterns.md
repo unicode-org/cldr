@@ -43,7 +43,7 @@ Whenever any of these symbols are in the English pattern, they **must be retaine
 - Move the the currency symbol (¤) or percent sign (%), if it is used in a different position.
 	- To deal with CLDR's default automatic space handling in place for currency symbol when using a currency code(e.g. USD):
 	- Do NOT add a space ¤#,##0.### for result: $12 and USD 12.
-	- ADD a manual space ¤ #,##0.### for result: $ 12 and USD 12. 
+	- ADD a manual space ¤ #,##0.### for result: $ 12 and USD 12.
 	- Always verify with examples in the right information pane and see how the data from number symbols are used in formatting numbers. The final results of the number formatting will show the correct symbols for decimal, grouping, etc... from [Number Symbols](https://st.unicode.org/cldr-apps/v#/USER/Symbols/) in your locale.
 - For bidi scripts (e.g. Arabic and Hebrew) you may need to add directionality markers (U+200E (\<LRM> LEFT-TO-RIGHT MARK, U+200F \<RLM> RIGHT-TO-LEFT MARK, U+061C \<ALM> ARABIC LETTER MARK)
 	- For number formats in bidi scripts, the Survey Tool shows examples in both a right-to-left context and a neutral context (with both positive and negative numeric values). In the future it may show examples in a left-to-right contex as well.
@@ -103,7 +103,7 @@ There are also patterns for compact forms of numbers, such as the such as "1M" a
 | 14-digit-short-one (10000000000000) | **10,000,000,000,000**   |  00T | 12T | 00兆 | 12兆 |
 | 15-digit-short-one (100000000000000) | **100,000,000,000,000** | 000T | 123T | 000兆 | 123兆 |
 
-  
+
 When computer programs use CLDR, the number of decimals can be changed by computer programs according to the task its designed for. For example, the pattern for 10,000 in the table below (00K for English, 0万 for Japanese) may be modified to have more or fewer decimals — it could be changed to have 3 digits of accuracy: 00.0K for English, 0.00万 for Japanese.
 
 💡 **Translation Tips**
@@ -128,4 +128,3 @@ X digit-two
 
 Xdigit-other
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

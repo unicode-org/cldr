@@ -10,4 +10,3 @@ CLDR has different types of character labels.
 - **Annotations** are used for more specific features of characters, such as “cactus”. Annotations do not need to be unique. They can be used in predictive typing, such as when typing “p i z” shows🍕 in a suggestion box.
 - **TTS Labels** are used for Text-to-Speech support, where a character is read aloud. They are typically a shortened and sometimes reworded version of the formal Unicode name. They may be combined with a Category Label for disambiguation. The names may not be unique, although they should be unique within a category.
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

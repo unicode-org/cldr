@@ -13,7 +13,7 @@ CLDR maintains typographic terms for apps like word processors, graphic design a
 
 A quick web search or Wikipedia lookup will usually not find the correct terms. Most native speakers do not know the correct terminology unless they work in the graphics industry. For some languages, there’s also special-interest sites on the web that care about correct terminology; for example, [typolexikon.de](http://www.typolexikon.de/) in German.
 
-The most common problem is giving the same name to two *different* fields. For example, you must *not* give the same name to [wght-400 (English=“regular”)](http://st.unicode.org/cldr-apps/v#/de/Typography/147d124e18ef76e9) and [wdth-100 (English=“normal”)](http://st.unicode.org/cldr-apps/v#/de/Typography/29a3de4cf27e33c6). 
+The most common problem is giving the same name to two *different* fields. For example, you must *not* give the same name to [wght-400 (English=“regular”)](http://st.unicode.org/cldr-apps/v#/de/Typography/147d124e18ef76e9) and [wdth-100 (English=“normal”)](http://st.unicode.org/cldr-apps/v#/de/Typography/29a3de4cf27e33c6).
 
 **However, there is an important exception for Feature fields that have a suffix after a number ("-heavy"), such as** [**wght-900-heavy (English=“heavy”)**](http://st.unicode.org/cldr-apps/v#/de/Typography/292fe4e98aa53cfe)**. You can** ***(and often should)*** **give the same name in your language to these as you give to the Code without a suffix.**
 
@@ -71,4 +71,3 @@ This style is called **reverse oblique, reverse slanted,** or **back slanted.**
 
 The **Optical Size axis** is used to adjust letterforms to different text size, from fine print to large display type. See [here](https://en.wikipedia.org/wiki/Font#Optical_size), [here](https://docs.microsoft.com/en-us/typography/opentype/spec/dvaraxistag_opsz), or [here](http://wwwimages.adobe.com/www.adobe.com/content/dam/acom/en/products/type/pdfs/ArnoPro.pdf) (page 11) for a nice description.
 
-![Unicode copyright](https://www.unicode.org/img/hb_notice.gif)

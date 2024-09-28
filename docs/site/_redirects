@@ -1,5 +1,9 @@
 # CLDR Redirects
 # Note: See <https://developers.cloudflare.com/pages/configuration/redirects/> for docs!
 
+# redirect latest and dev pages
+/downloads/dev*  /downloads/cldr-46
+/downloads/latest* /downloads/cldr-45
+
 # redirect old download pages [CLDR-17977]
 /index/downloads/* /downloads/:splat

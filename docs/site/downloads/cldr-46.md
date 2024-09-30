@@ -240,6 +240,36 @@ This process should be completed before release.
 Most files added in this release were for new locales, with some files being added for existing locales that increased coverage,
 such as /testData/personNameTest/ak.txt.
 
+The following new /common/testData/ files have been added:
+
+- datetime/
+    - README.md
+    - datetime.json
+- messageFormat/
+    - schemas/v0/tests.schema.json
+    - messageFormat/tests/
+        - data-model-errors.json
+        - functions/
+            - date.json
+            - datetime.json
+            - integer.json
+            - number.json
+            - string.json
+            - time.json
+       - pattern-selection.json
+       - syntax-errors.json
+       - syntax.json
+
+A few /common/testData/ files have been replaced:
+
+- messageFormat/
+    - data-model-errors.json
+    - syntax-errors.json
+    - test-core.json
+    - test-core.json.d.ts
+    - test-functions.json
+    - test-functions.json.d.ts
+
 ### Tooling Changes
 
 **TBD**
@@ -263,7 +293,7 @@ These matched the ordering of two legacy character encodings.
 
 Many people have made significant contributions to CLDR and LDML;
 see the [Acknowledgments](https://cldr.unicode.org/index/acknowledgments) page for a full listing.
-We'd especially like to acknowledge the work done by interns this release: Chris Pyle and Helena Aytenfisu (ህሊና የሺጥላ አይተንፍሱ).
+We'd especially like to acknowledge the work done by interns this release: Chris Pyle, Helena Aytenfisu (ህሊና የሺጥላ አይተንፍሱ), and Emiyare Cyril Ikwut-Ukwa.
 
 The Unicode [Terms of Use](https://unicode.org/copyright.html) apply to CLDR data; 
 in particular, see [Exhibit 1](https://unicode.org/copyright.html#Exhibit1).

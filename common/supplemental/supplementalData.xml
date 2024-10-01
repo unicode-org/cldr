@@ -1472,7 +1472,7 @@ XXX Code for transations where no currency is involved
 		<language type="ckt" scripts="Cyrl"/>
 		<language type="clc" scripts="Latn"/>
 		<language type="co" scripts="Latn"/>
-		<language type="cop" scripts="Arab Copt Grek" alt="secondary"/>
+		<language type="cop" scripts="Arab Copt Grek" territories="EG" alt="secondary"/>
 		<language type="cps" scripts="Latn"/>
 		<language type="cr" scripts="Cans Latn"/>
 		<language type="cr" territories="CA" alt="secondary"/>
@@ -2947,6 +2947,7 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="ar" populationPercent="94" officialStatus="official"/>	<!--Arabic-->
 			<languagePopulation type="arz" populationPercent="64"/>	<!--Egyptian Arabic-->
 			<languagePopulation type="en" populationPercent="35"/>	<!--English-->
+			<languagePopulation type="cop" populationPercent="6" references="R1337"/>	<!--Coptic-->
 			<languagePopulation type="el" populationPercent="0.061"/>	<!--Greek-->
 		</territory>
 		<territory type="EH" gdp="906500000" literacyPercent="50" population="652271">	<!--Western Sahara-->
@@ -5823,5 +5824,6 @@ XXX Code for transations where no currency is involved
 		<reference type="R1334" uri="https://en.wikipedia.org/wiki/Laz_people#cite_note-ethnologue-1">[missing]</reference>
 		<reference type="R1335" uri="https://en.wikipedia.org/wiki/Greeks_in_Russia_and_Ukraine#cite_ref-15">Greek population in Russia -- most ancestrally used Pontic Greek -- modern usage almost certainly has dropped off but we don't have clear statistics on current usage.</reference>
 		<reference type="R1336" uri="https://joshuaproject.net/people_groups/14444/TU">[missing]</reference>
+		<reference type="R1337" uri="https://www.wsj.com/articles/BL-263B-3637">Lower estimate of Coptic population, actual language literacy unknown </reference>
 	</references>
 </supplementalData>

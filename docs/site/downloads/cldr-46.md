@@ -57,11 +57,11 @@ For a full listing, see [Coverage Levels](https://unicode.org/cldr/charts/46/sup
 
 The following are the most significant changes to the specification (LDML).
 
-1. [Message Format](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-messageFormat.html#Contents) (see below for details)
+1. [Message Format](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-messageFormat.html#Contents) — see a summary [below](#message-format-specification)
 2. [LDML Conformance](https://cldr-smoke.unicode.org/spec/main/ldml/tr35.html#Conformance)
-3. [emoji search keywords](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-general.html#Annotations)
+3. [emoji search keywords](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-general.html#Annotations) in tech preview — see a summary [below](#emoji-search-keywords)
 4. [semantic skeletons](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-dates.html#Semantic_Skeletons)
-5. [Grouping classes of characters](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-collation.html#grouping_classes_of_characters) and other collation changes listed below.
+5. [Grouping classes of characters](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-collation.html#grouping_classes_of_characters) and other collation changes — see a summary [below](#collation-data-changes)
 
 There are many more changes that are important to implementations, such as changes to certain identifier syntax and various algorithms. 
 See the [Modifications section](https://cldr-smoke.unicode.org/spec/main/ldml/tr35.html#Modifications) of the specification for details.
@@ -277,7 +277,7 @@ A few /common/testData/ files have been replaced:
 ## Migration
 
 1. Databases that use collation keys are sensitive to any changes in collation, and will need reindexing.
-This can happen with any CLDR release (especially those for a new version of Unicode), but more characters are affected in this release: see above.
+This can happen with any CLDR release (especially those for a new version of Unicode), but more characters are affected in this release: see a summary [above](#collation-data-changes).
 2. Two collation variants are to be dropped in a v46.1 release: zh-u-co-gb2312 and zh-u-co-big5han.
 These matched the ordering of two legacy character encodings.
 3. The `light-speed` data was withdrawn from many locales, because the purpose (as an internal prefix for **light-second**, **light-minute**, etc.) was misunderstood. Implementations may hold off supporting it until the data is complete — expected for CLDR v47.

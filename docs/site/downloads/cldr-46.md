@@ -278,8 +278,8 @@ A few /common/testData/ files have been replaced:
 
 1. Databases that use collation keys are sensitive to any changes in collation, and will need reindexing.
 This can happen with any CLDR release (especially those for a new version of Unicode), but more characters are affected in this release: see a summary [above](#collation-data-changes).
-2. Two collation variants are to be dropped in a v46.1 release: zh-u-co-gb2312 and zh-u-co-big5han.
-These matched the ordering of two legacy character encodings.
+2. Two collation variants are to be dropped in CLDR 47 release: zh-u-co-gb2312 and zh-u-co-big5han.
+These matched the ordering of two legacy character encodings. [CLDR-16062](https://unicode-org.atlassian.net/browse/CLDR-16062)
 3. The `light-speed` data was withdrawn from many locales, because the purpose (as an internal prefix for **light-second**, **light-minute**, etc.) was misunderstood. Implementations may hold off supporting it until the data is complete — expected for CLDR v47.
 
 ## [Known Issues](https://unicode-org.atlassian.net/issues/CLDR-17535?jql=project%20%3D%20cldr%20and%20labels%20%3D%20%22ReleaseKnownIssue%22%20and%20status%20!%3D%20done)

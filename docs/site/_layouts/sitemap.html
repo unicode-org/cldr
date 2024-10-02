@@ -8,22 +8,26 @@
 	<link rel="stylesheet" href="/assets/css/page.css" />
 </head>
 
-<body class="page">
+<body class="sitemappage">
 	<!-- <h1>{{ page.title }}</h1> -->
-	<header class="pageheader">
+	<header>
 		<div class="navparent">
 			<div id="nav" class="nav">
-				<!-- Vue mount here -->
+				<!-- Vue mount here for normal navigation -->
 			</div>
 		</div>
 		<div class="message"><i>This navigation UI is temporary, just to give access to the pages.</i></div>
+		<!-- <div class="bar"><a href="/sitemap" class="bar">Site Map</a></div> -->
 	</header>
-
-
 
 	<section class="body">
 		{{ content }}
 	</section>
+
+	<div id="sitemap">
+		<!-- sitemap goes here-->
+	</div>
+
 	<footer>
 		© 1991-2024 Unicode, Inc. Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries. See <a href="https://www.unicode.org/copyright.html">Terms of Use</a>.
 	</footer>

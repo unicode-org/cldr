@@ -77,7 +77,6 @@ const SubPagesPopup = {
   },
   template: `
           <div class="subpages">
-          <span class="hamburger" @click="hide()">✕</span>
           <ul class="subpages" >
               <li v-for="subpage of children" :key="subpage.path">
                   <a v-bind:href="subpage.href">
@@ -270,8 +269,7 @@ const app = Vue.createApp(
         <SubPagesPopup v-if="popup && !showmap" @hide="popup = false" :children="children"/>
 
       </div>
-        <div class="showmap" v-if="!showmap" @click="popup=false,showmap = true">Site Map</div>
-        <SiteMap v-if="tree && showmap" :tree="tree" @hide="showmap = popup = false"  />
+        <a class="showmap" href="/sitemap">Site Map</a>
 
     </div>`,
   },
@@ -282,6 +280,75 @@ const app = Vue.createApp(
 );
 
 app.mount("#nav");
+
+if (myPath === "sitemap.html") {
+  // for now: duplicate app including sitemap
+  const sapp = Vue.createApp(
+    {
+      components: {
+        SiteMap,
+      },
+      setup(props) {
+        // the tree.json data
+        const tree = ref({});
+        // loading status for tree.json
+        const status = ref(null);
+        // is the site map shown?
+        const showmap = ref(true);
+
+        return {
+          tree,
+          status,
+          showmap,
+        };
+      },
+      mounted() {
+        const t = this;
+        siteData().then(
+          (d) => (t.tree.value = d),
+          (e) => (t.status = e)
+        );
+      },
+      props: {
+        path: String,
+      },
+      computed: {
+        /** base path:  'index' or 'downloads/cldr-33' */
+        base() {
+          if (this.path) {
+            return drophtml(this.path);
+          } else {
+            return "index"; // '' => 'index'
+          }
+          return null;
+        },
+        ourTitle() {
+          if (this.tree?.value) {
+            if (this.path === "") return this.rootTitle;
+            return this?.tree?.value?.usermap[this.base]?.title;
+          }
+        },
+        // title of root
+        rootTitle() {
+          const usermap = this?.tree?.value?.usermap ?? {};
+          return usermap?.index?.title ?? "CLDR";
+        },
+      },
+      template: `
+      <div>
+         <div class='status' v-if="status">{{ status }}</div>
+         <div class='status' v-if="!tree">Loading…</div>
+          <SiteMap v-if="true" :tree="tree" @hide="showmap = popup = false"  />
+
+      </div>`,
+    },
+    {
+      // path of / goes to /index.html
+      path: myPath,
+    }
+  );
+  sapp.mount("#sitemap");
+}
 
 // load anchor.js
 anchors.add("h1, h2, h3, h4, h5, h6, caption, dfn");

@@ -40,18 +40,15 @@ header .nav a.uplink {
   color: white;
 }
 
-body.page .showmap a,
-body.page .showmap a:visited {
+body.page a.showmap {
   color: white;
-  text-decoration-color: white;
-  text-decoration-style: none;
+  text-decoration: none;
 }
 
-body.sitemappage .showmap a,
-body.sitemappage .showmap a:visited {
-  color: gray;
-  text-decoration-color: gray;
-  font-weight: bold;
+body.sitemappage a.showmap,
+body.sitemappage a.showmap:visited {
+  color: lightgray;
+  text-decoration: none;
 }
 
 .showmap {
@@ -59,7 +56,7 @@ body.sitemappage .showmap a:visited {
   right: 1em;
 }
 
-.showmap:hover {
+body.page a.showmap:hover {
   text-decoration: underline;
   color: white;
 }

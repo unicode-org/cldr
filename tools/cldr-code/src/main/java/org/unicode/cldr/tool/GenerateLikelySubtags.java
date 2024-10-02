@@ -433,15 +433,11 @@ public class GenerateLikelySubtags {
                                 {"und_Latn_PH", "fil_Latn_PH"},
                                 {"und_ML", "bm_Latn_ML"},
                                 {"und_Latn_ML", "bm_Latn_ML"},
-                                {"und_MU", "mfe_Latn_MU"},
-                                {"und_Latn_MU", "mfe_Latn_MU"},
                                 {"und_NE", "ha_Latn_NE"},
                                 {"und_PH", "fil_Latn_PH"},
                                 {"und_PK", "ur_Arab_PK"},
                                 {"und_SO", "so_Latn_SO"},
                                 {"und_SS", "en_Latn_SS"},
-                                {"und_TK", "tkl_Latn_TK"},
-                                {"und_Latn_TK", "tkl_Latn_TK"},
                                 {"vo", "vo_Latn_001"},
                                 {"vo_Latn", "vo_Latn_001"},
                                 //                                {"yi", "yi_Hebr_001"},
@@ -497,11 +493,7 @@ public class GenerateLikelySubtags {
 
                                 // new additions for compatibility with old
                                 {"und_419", "es_Latn_419"},
-                                {"und_ZM", "bem_Latn_ZM"},
-                                {"und_Latn_ZM", "bem_Latn_ZM"},
                                 {"und_CC", "ms_Arab_CC"},
-                                {"und_SL", "kri_Latn_SL"},
-                                {"und_Latn_SL", "kri_Latn_SL"},
                                 {"und_SS", "ar_Arab_SS"},
 
                                 // additions for missing values from LikelySubtagsText

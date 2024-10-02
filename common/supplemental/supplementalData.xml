@@ -1541,7 +1541,7 @@ XXX Code for transations where no currency is involved
 		<language type="eky" scripts="Kali"/>
 		<language type="el" scripts="Grek" territories="CY GR"/>
 		<language type="en" scripts="Latn" territories="AG AI AS AU BB BI BM BS BW BZ CA CC CK CM CQ CX DG DM ER FJ FK FM GB GD GG GH GI GM GU GY HK IE IM IN IO JE JM KE KI KN KY LC LR LS MG MH MP MS MT MU MW NA NF NG NR NU NZ PG PH PK PN PR PW RW SB SC SD SG SH SL SS SX SZ TC TK TO TT TV TZ UG UM US VC VG VI VU WS ZA ZM ZW"/>
-		<language type="en" scripts="Dsrt Shaw" territories="AC AE AR AT BA BD BE BG BR CH CL CY CZ DE DK DZ EE EG ES ET FI FR GR HR HU IL IQ IT JO KZ LB LK LT LU LV MA MV MX MY NL PL PT RO SE SI SK TA TH TR YE" alt="secondary"/>
+		<language type="en" scripts="Dsrt Shaw" territories="AC AE AR AT BA BD BE BG BR CH CL CY CZ DE DK DZ EE EG ES ET FI FR GR HR HU IL IQ IT JO KZ LB LK LT LU LV MA MO MV MX MY NL PL PT RO SE SI SK TA TH TR YE" alt="secondary"/>
 		<language type="enm" scripts="Latn" alt="secondary"/>
 		<language type="eo" scripts="Latn"/>
 		<language type="es" scripts="Latn" territories="AR BO CL CO CR CU DO EA EC ES GQ GT HN IC MX NI PA PE PR PY SV UY VE"/>
@@ -2410,7 +2410,7 @@ XXX Code for transations where no currency is involved
 		<language type="yrk" scripts="Cyrl"/>
 		<language type="yrl" scripts="Latn"/>
 		<language type="yua" scripts="Latn"/>
-		<language type="yue" scripts="Hans Hant"/>
+		<language type="yue" scripts="Hans Hant" territories="MO"/>
 		<language type="yue" territories="CN HK" alt="secondary"/>
 		<language type="za" scripts="Latn"/>
 		<language type="za" scripts="Hans" territories="CN" alt="secondary"/>
@@ -3629,9 +3629,12 @@ XXX Code for transations where no currency is involved
 		</territory>
 		<territory type="MO" gdp="71840000000" literacyPercent="95.6" population="644426">	<!--Macao SAR China-->
 			<languagePopulation type="zh_Hant" populationPercent="98" officialStatus="official"/>	<!--Chinese (Traditional)-->
-			<languagePopulation type="pt" populationPercent="5" officialStatus="official" references="R1085"/>	<!--Portuguese-->
+			<languagePopulation type="yue" populationPercent="86" officialStatus="de_facto_official" references="R1337"/>	<!--Cantonese-->
+			<languagePopulation type="en" populationPercent="23" references="R1337"/>	<!--English-->
 			<languagePopulation type="zh" populationPercent="5" references="R1143"/>	<!--Chinese-->
-			<languagePopulation type="en" populationPercent="2.3" references="R1273"/>	<!--English-->
+			<languagePopulation type="nan" populationPercent="3.7" references="R1338"/>	<!--Min Nan Chinese-->
+			<languagePopulation type="fil" populationPercent="3.1" references="R1337"/>	<!--Filipino-->
+			<languagePopulation type="pt" populationPercent="2.3" officialStatus="official" references="R1337"/>	<!--Portuguese-->
 		</territory>
 		<territory type="MP" gdp="1242000000" literacyPercent="97" population="51118">	<!--Northern Mariana Islands-->
 			<languagePopulation type="en" populationPercent="97" officialStatus="de_facto_official"/>	<!--English-->
@@ -5571,7 +5574,6 @@ XXX Code for transations where no currency is involved
 		<reference type="R1082" uri="http://www.ethnologue.com/show_language.asp?code=eng">Ethnologue lists 1 million 2nd lang users of English; no other good figures found.</reference>
 		<reference type="R1083" uri="http://www.bhas.ba/index.php?option=com_content&amp;view=article&amp;id=52&amp;itemid=80&amp;lang=en&amp;Itemid="> also: http://en.wikipedia.org/wiki/Bosnian_language</reference>
 		<reference type="R1084" uri="http://www.nationsonline.org/oneworld/equatorial_guinea.htm">French is a minority official language. Crude estimate of usage based on import partner data.</reference>
-		<reference type="R1085" uri="http://en.wikipedia.org/wiki/Geographic_distribution_of_Portuguese">Macao reported 5% native Portuguese speakers.</reference>
 		<reference type="R1086">5% writing pop estimated in absence of other data</reference>
 		<reference type="R1087" uri="http://www.ethnologue.com/show_language.asp?code=rkt">[missing]</reference>
 		<reference type="R1088" uri="http://www.nationsonline.org/oneworld/syria.htm">Crude estimate based on import partner data.</reference>
@@ -5759,7 +5761,6 @@ XXX Code for transations where no currency is involved
 		<reference type="R1270">Mainly unwritten</reference>
 		<reference type="R1271">Vai script is the main script for this language.</reference>
 		<reference type="R1272">Latin listed as being used (Scriptsource) but no pop figures available.</reference>
-		<reference type="R1273" uri="https://www.cia.gov/library/publications/the-world-factbook/geos/mc.html">and https://en.wikipedia.org/wiki/Macau</reference>
 		<reference type="R1274" uri="http://www.ethnologue.com/language/mgh">but no literacy data</reference>
 		<reference type="R1275" uri="http://www.ethnologue.com/language/pcm">Including 1st and 2nd lang speakers</reference>
 		<reference type="R1276" uri="http://www.ethnologue.com/show_language.asp?code=bin">[missing]</reference>
@@ -5823,5 +5824,6 @@ XXX Code for transations where no currency is involved
 		<reference type="R1334" uri="https://en.wikipedia.org/wiki/Laz_people#cite_note-ethnologue-1">[missing]</reference>
 		<reference type="R1335" uri="https://en.wikipedia.org/wiki/Greeks_in_Russia_and_Ukraine#cite_ref-15">Greek population in Russia -- most ancestrally used Pontic Greek -- modern usage almost certainly has dropped off but we don't have clear statistics on current usage.</reference>
 		<reference type="R1336" uri="https://joshuaproject.net/people_groups/14444/TU">[missing]</reference>
+		<reference type="R1337" uri="https://stat.gov.pl/spisy-powszechne/nsp-2021/nsp-2021-wyniki-ostateczne/">Languages spoken at home in the 2021 Polish Census</reference>
 	</references>
 </supplementalData>

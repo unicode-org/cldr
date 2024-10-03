@@ -896,7 +896,7 @@ public class Ldml2JsonConverter {
                             final String rawTransformFile = filename + TRANSFORM_RAW_SUFFIX;
                             try (PrintWriter outf =
                                     FileUtilities.openUTF8Writer(outputDir, rawTransformFile)) {
-                                outf.println(item.getValue());
+                                outf.println(item.getValue().trim());
                                 // note: not logging the write here- it will be logged when the
                                 // .json file is written.
                             }

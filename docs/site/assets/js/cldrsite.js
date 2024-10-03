@@ -77,6 +77,7 @@ const SubPagesPopup = {
   },
   template: `
           <div class="subpages">
+          <span class="hamburger" @click="hide()">✕</span>
           <ul class="subpages" >
               <li v-for="subpage of children" :key="subpage.path">
                   <a v-bind:href="subpage.href">
@@ -137,8 +138,6 @@ const SiteMap = {
   },
   template: `
     <div class="sitemap">
-          <span class="hamburger" @click="hide()">✕</span>
-          <b>Site Map</b><hr/>
           <SubMap :usermap="tree.value.usermap" path="index"/>
     </div>
   `,

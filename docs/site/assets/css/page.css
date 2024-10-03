@@ -1,6 +1,22 @@
 /* mirror of div.body */
-section.body {
+body.page section.body {
   margin: 3em;
+}
+
+/* If there is any content on the sitemap.md page, left indent it to fit with the rest,
+but don't create a big space for it.  */
+body.sitemappage section.body {
+  margin-left: 3em;
+}
+
+body.page header .subpages a:link {
+  text-decoration: none;
+}
+body.page header .subpages a:visited {
+  text-decoration: none;
+}
+body.page header .subpages a:hover {
+  text-decoration: underline;
 }
 
 header {
@@ -80,10 +96,6 @@ div.submap {
   padding-left: 0.5em;
 }
 
-div.sitemap .hamburger {
-  display: none;
-}
-
 div.subpages > .hamburger {
   position: absolute;
   right: 1em;
@@ -102,6 +114,7 @@ div.sitemap > div.submap {
 
 .subpages .hamburger:hover {
   color: gray;
+  text-shadow: 1px 1px 3px gray;
 }
 
 header .nav ul b {

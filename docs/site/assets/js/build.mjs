@@ -11,7 +11,7 @@ import { Dirent } from "node:fs";
 // utilities and constants
 
 // files to skip
-const SKIP_THESE = /(node_modules|\.jekyll-cache|^sitemap.*)/;
+const SKIP_THESE = /(node_modules|\.jekyll-cache|^sitemap.tsv)/;
 
 // final URL of site
 const SITE = "https://cldr.unicode.org";
@@ -31,7 +31,7 @@ const coll = new Intl.Collator(["und"]);
 async function processFile(d, fullPath, out) {
   const f = await fs.readFile(fullPath, "utf-8");
   const m = matter(f);
-  fullPath = fullPath.replace(/\\/g, '/'); // backslash with slash, for win
+  fullPath = fullPath.replace(/\\/g, "/"); // backslash with slash, for win
   if (m && m.data) {
     const { data } = m;
     out.all.push({ ...data, fullPath });

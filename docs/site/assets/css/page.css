@@ -1,6 +1,22 @@
 /* mirror of div.body */
-section.body {
+body.page section.body {
   margin: 3em;
+}
+
+/* If there is any content on the sitemap.md page, left indent it to fit with the rest,
+but don't create a big space for it.  */
+body.sitemappage section.body {
+  margin-left: 3em;
+}
+
+body.page header .subpages a:link {
+  text-decoration: none;
+}
+body.page header .subpages a:visited {
+  text-decoration: none;
+}
+body.page header .subpages a:hover {
+  text-decoration: underline;
 }
 
 header {
@@ -40,19 +56,28 @@ header .nav a.uplink {
   color: white;
 }
 
-div.showmap {
-  position: absolute;
-  right: 1em;
+body.page a.showmap {
   color: white;
+  text-decoration: none;
 }
 
-div.showmap:hover {
+body.sitemappage a.showmap,
+body.sitemappage a.showmap:visited {
+  color: lightgray;
+  text-decoration: none;
+}
+
+.showmap {
+  position: absolute;
+  right: 1em;
+}
+
+body.page a.showmap:hover {
   text-decoration: underline;
   color: white;
 }
 
-header .nav div.subpages,
-div.sitemap {
+header .nav div.subpages {
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   background-color: white;
@@ -61,14 +86,17 @@ div.sitemap {
   padding: 0.5em;
 }
 
+div.sitemap {
+  padding: 1em;
+}
+
 div.submap {
   margin-left: 1em;
   border-left: 1px solid gray;
   padding-left: 0.5em;
 }
 
-div.subpages > .hamburger,
-div.sitemap .hamburger {
+div.subpages > .hamburger {
   position: absolute;
   right: 1em;
   top: 1em;
@@ -86,6 +114,7 @@ div.sitemap > div.submap {
 
 .subpages .hamburger:hover {
   color: gray;
+  text-shadow: 1px 1px 3px gray;
 }
 
 header .nav ul b {

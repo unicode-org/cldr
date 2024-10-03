@@ -1387,7 +1387,7 @@ XXX Code for transations where no currency is involved
 		<language type="bhi" scripts="Deva"/>
 		<language type="bhi" territories="IN" alt="secondary"/>
 		<language type="bho" scripts="Deva"/>
-		<language type="bho" territories="IN MU NP" alt="secondary"/>
+		<language type="bho" territories="IN NP" alt="secondary"/>
 		<language type="bi" scripts="Latn" territories="VU"/>
 		<language type="bik" scripts="Latn"/>
 		<language type="bik" territories="PH" alt="secondary"/>
@@ -2195,6 +2195,7 @@ XXX Code for transations where no currency is involved
 		<language type="sli" scripts="Latn"/>
 		<language type="sly" scripts="Latn"/>
 		<language type="sm" scripts="Latn" territories="AS WS"/>
+		<language type="sm" territories="TK" alt="secondary"/>
 		<language type="sma" scripts="Latn"/>
 		<language type="smj" scripts="Latn"/>
 		<language type="smn" scripts="Latn"/>
@@ -2293,6 +2294,7 @@ XXX Code for transations where no currency is involved
 		<language type="tnr" territories="SN" alt="secondary"/>
 		<language type="to" scripts="Latn" territories="TO"/>
 		<language type="tog" scripts="Latn"/>
+		<language type="toi" territories="ZM" alt="secondary"/>
 		<language type="tok" scripts="Latn" alt="secondary"/>
 		<language type="tpi" scripts="Latn" territories="PG"/>
 		<language type="tr" scripts="Latn" territories="CY TR"/>
@@ -3657,11 +3659,11 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="fr" populationPercent="11"/>	<!--French-->
 		</territory>
 		<territory type="MU" gdp="33530000000" literacyPercent="88.8" population="1310500">	<!--Mauritius-->
-			<languagePopulation type="mfe" populationPercent="90"/>	<!--Morisyen-->
+			<languagePopulation type="mfe" populationPercent="90" references="R1185"/>	<!--Morisyen-->
 			<languagePopulation type="en" populationPercent="72" officialStatus="official" references="R1152"/>	<!--English-->
-			<languagePopulation type="bho" populationPercent="27"/>	<!--Bhojpuri-->
+			<languagePopulation type="bho" populationPercent="8.6"/>	<!--Bhojpuri-->
 			<languagePopulation type="ur" populationPercent="5.2"/>	<!--Urdu-->
-			<languagePopulation type="fr" populationPercent="3" officialStatus="official"/>	<!--French-->
+			<languagePopulation type="fr" populationPercent="4.4" officialStatus="official" references="R1185"/>	<!--French-->
 			<languagePopulation type="ta" populationPercent="2.5"/>	<!--Tamil-->
 		</territory>
 		<territory type="MV" gdp="11650000000" literacyPercent="98.4" population="388858">	<!--Maldives-->
@@ -4207,8 +4209,9 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="ar" populationPercent="0.0096"/>	<!--Arabic-->
 		</territory>
 		<territory type="TK" gdp="7712000" literacyPercent="99.6" population="1647">	<!--Tokelau-->
-			<languagePopulation type="en" populationPercent="78" officialStatus="official"/>	<!--English-->
-			<languagePopulation type="tkl" writingPercent="5" populationPercent="78" officialStatus="official" references="R1185"/>	<!--Tokelau-->
+			<languagePopulation type="tkl" literacyPercent="71" populationPercent="69" officialStatus="official" references="R1337"/>	<!--Tokelau-->
+			<languagePopulation type="en" literacyPercent="90" populationPercent="38" officialStatus="official" references="R1337"/>	<!--English-->
+			<languagePopulation type="sm" populationPercent="20" references="R1337"/>	<!--Samoan-->
 		</territory>
 		<territory type="TL" gdp="6265000000" literacyPercent="58.3" population="1506910">	<!--Timor-Leste-->
 			<languagePopulation type="pt" literacyPercent="100" populationPercent="59" officialStatus="official" references="R1049"/>	<!--Portuguese-->
@@ -4432,10 +4435,17 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="sw" literacyPercent="50" populationPercent="0.0017"/>	<!--Swahili-->
 		</territory>
 		<territory type="ZM" gdp="76490000000" literacyPercent="61.4" population="20799100">	<!--Zambia-->
-			<languagePopulation type="bem" populationPercent="31" references="R1104"/>	<!--Bemba-->
+			<languagePopulation type="bem" populationPercent="34" references="R1338"/>	<!--Bemba-->
+			<languagePopulation type="ny" populationPercent="19" references="R1338"/>	<!--Nyanja-->
 			<languagePopulation type="en" populationPercent="16" officialStatus="official"/>	<!--English-->
-			<languagePopulation type="ny" populationPercent="15"/>	<!--Nyanja-->
-			<languagePopulation type="loz" populationPercent="6" references="R1285"/>	<!--Lozi-->
+			<languagePopulation type="toi" populationPercent="11" references="R1338"/>	<!--Tonga [Zambia]-->
+			<languagePopulation type="loz" populationPercent="5.5" references="R1338"/>	<!--Lozi-->
+			<languagePopulation type="nse" populationPercent="3" references="R1338"/>	<!--Nsenga-->
+			<languagePopulation type="leb" populationPercent="2.8" references="R1338"/>	<!--Lala-Bisa-->
+			<languagePopulation type="tum" populationPercent="2.6" references="R1338"/>	<!--Tumbuka-->
+			<languagePopulation type="kqn" populationPercent="1.9" references="R1338"/>	<!--Kaonde-->
+			<languagePopulation type="lun" populationPercent="1.9" references="R1338"/>	<!--Lunda-->
+			<languagePopulation type="lue" populationPercent="1.5" references="R1338"/>	<!--Luvale-->
 		</territory>
 		<territory type="ZW" gdp="58580000000" literacyPercent="83.6" population="17150400">	<!--Zimbabwe-->
 			<languagePopulation type="sn" populationPercent="81" officialStatus="official"/>	<!--Shona-->
@@ -5590,7 +5600,6 @@ XXX Code for transations where no currency is involved
 		<reference type="R1101" uri="http://www.ethnologue.com/show_language.asp?code=mhr">[missing]</reference>
 		<reference type="R1102" uri="https://en.wikipedia.org/wiki/Languages_with_official_status_in_India#Writing_systems">Deva is the official script for sd in India; set to 55%. Arab, Guru, Khoj also used.</reference>
 		<reference type="R1103" uri="http://www.ethnologue.com/show_language.asp?code=srn">The lingua franca of 80% of the population</reference>
-		<reference type="R1104" uri="http://www.ethnologue.com/show_language.asp?code=bem">[missing]</reference>
 		<reference type="R1105" uri="https://www.ethnologue.com/language/mro">and https://en.wikipedia.org/wiki/Mru_language</reference>
 		<reference type="R1106" uri="http://en.wikipedia.org/wiki/Languages_of_Pakistan">- More than 95% of Pakistanis can speak or understand Urdu as their second or third language</reference>
 		<reference type="R1107" uri="https://joshuaproject.net/languages/hnj">[missing]</reference>
@@ -5671,7 +5680,7 @@ XXX Code for transations where no currency is involved
 		<reference type="R1182" uri="http://www.ethnologue.com/show_language.asp?code=naq">Used in schools up to University.</reference>
 		<reference type="R1183" uri="http://en.wikipedia.org/wiki/Sakha_language">Also called Sakha.</reference>
 		<reference type="R1184" uri="https://www.cia.gov/cia/publications/factbook/geos/fs.html">No indigenous inhabitants. http://en.wikipedia.org/wiki/French_Southern_Territories</reference>
-		<reference type="R1185" uri="https://www.cia.gov/library/publications/the-world-factbook/geos/tl.html">[missing]</reference>
+		<reference type="R1185" uri="https://statsmauritius.govmu.org/Documents/Statistics/ESI/2022/EI1687/2022%20Population%20Census_Main%20Results_18112022.pdf">2022 Census language spoken at home</reference>
 		<reference type="R1186" uri="http://www.ethnologue.com/show_language.asp?code=mas">Shows 50% literacy</reference>
 		<reference type="R1187" uri="http://www.ethnologue.com/show_language.asp?code=asa">Most also use Swahili with 50% literacy. Only 5% monolingual.</reference>
 		<reference type="R1188" uri="http://www.ethnologue.com/show_language.asp?code=lag">Most also use Swahili</reference>
@@ -5771,7 +5780,6 @@ XXX Code for transations where no currency is involved
 		<reference type="R1282" uri="http://www.ethnologue.com/language/sbp">near zero literacy; pop ~80000 (2009) see David Lawrence, Tanzania and its People, page 121, Google books</reference>
 		<reference type="R1283" uri="http://www.ethnologue.com/language/ACH/">(baseline)</reference>
 		<reference type="R1284" uri="http://news.bbc.co.uk/2/hi/europe/4475099.stm">No population figure yet on use of Latin in Vatican. Estimate 100% of Vatican residents can use Latin.</reference>
-		<reference type="R1285" uri="https://en.wikipedia.org/wiki/Lozi_language">[missing]</reference>
 		<reference type="R1286">No figures available for this language.  Estimating at 5%.</reference>
 		<reference type="R1287" uri="http://en.wikipedia.org/wiki/Mapuche_language">[missing]</reference>
 		<reference type="R1288" uri="http://en.wikipedia.org/wiki/Quechua_language">[missing]</reference>
@@ -5823,5 +5831,7 @@ XXX Code for transations where no currency is involved
 		<reference type="R1334" uri="https://en.wikipedia.org/wiki/Laz_people#cite_note-ethnologue-1">[missing]</reference>
 		<reference type="R1335" uri="https://en.wikipedia.org/wiki/Greeks_in_Russia_and_Ukraine#cite_ref-15">Greek population in Russia -- most ancestrally used Pontic Greek -- modern usage almost certainly has dropped off but we don't have clear statistics on current usage.</reference>
 		<reference type="R1336" uri="https://joshuaproject.net/people_groups/14444/TU">[missing]</reference>
+		<reference type="R1337" uri="http://www.tokelau.org.nz/Stats.html">2016 Census</reference>
+		<reference type="R1338" uri="http://www.zamstats.gov.zm/phocadownload/2010_Census/2010%20Census%20of%20Population%20National%20Analytical%20Report.pdf">2010 Census: Widely Spoken Language of Communication</reference>
 	</references>
 </supplementalData>

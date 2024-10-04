@@ -8,14 +8,14 @@ title: Unicode CLDR Project
 
 - **2024-09-26 [CLDR 46 Beta](https://blog.unicode.org/2024/09/unicode-cldr-46-beta-available-for.html) available for testing and specification review**
 - **2024-09-05 [CLDR 46 Alpha](https://blog.unicode.org/2024/09/unicode-cldr-v46-alpha-available-for.html)  available for testing**
-- **2024-04-17 [CLDR 45](https://cldr.unicode.org/index/downloads/cldr-45) released**
-- **2023-12-13 [CLDR 44.1](https://cldr.unicode.org/index/downloads/cldr-44#h.nvqx283jwsx) released (an update to CLDR v44)**
-- **2023-10-31 [CLDR 44](https://cldr.unicode.org/index/downloads/cldr-44) released**
+- **2024-04-17 [CLDR 45](/index/downloads/cldr-45) released**
+- **2023-12-13 [CLDR 44.1](/index/downloads/cldr-44#h.nvqx283jwsx) released (an update to CLDR v44)**
+- **2023-10-31 [CLDR 44](/index/downloads/cldr-44) released**
 
 
 ## What is CLDR?
 
-The Unicode Common Locale Data Repository (CLDR) provides key building blocks for software to support the world's languages, with the largest and most extensive standard repository of locale data available. This data is used by a [wide spectrum of companies](https://cldr.unicode.org/index#h.ezpykkomyltl) for their software internationalization and localization, adapting software to the conventions of different languages for such common software tasks. It includes:
+The Unicode Common Locale Data Repository (CLDR) provides key building blocks for software to support the world's languages, with the largest and most extensive standard repository of locale data available. This data is used by a [wide spectrum of companies](/index#h.ezpykkomyltl) for their software internationalization and localization, adapting software to the conventions of different languages for such common software tasks. It includes:
 - **Locale-specific patterns for formatting and parsing:** dates, times, timezones, numbers and currency values, measurement units,…
 - **Translations of names:** languages, scripts, countries and regions, currencies, eras, months, weekdays, day periods, time zones, cities, and time units, emoji characters and sequences (and search keywords),…
 - **Language & script information:** characters used; plural cases; gender of lists; capitalization; rules for sorting & searching; writing direction; transliteration rules; rules for spelling out numbers; rules for segmenting text into graphemes, words, and sentences; keyboard layouts…
@@ -45,7 +45,7 @@ There are other projects which consume cldr-json directly, see [here](https://gi
 
 Most developers will use CLDR indirectly, via a set of software libraries, such as [ICU](https://icu.unicode.org/), [Closure](https://github.com/google/closure-library), or [TwitterCLDR](https://blog.x.com/engineering/en_us/a/2012/twittercldr-improving-internationalization-support-in-ruby). These libraries typically compile the CLDR data into a format that is compact and easy for the library to load and use.
 
-For those interested in the source CLDR data, it is available for each release in the XML format specified by [LDML](http://www.unicode.org/reports/tr35/). There are also tools that will convert to JSON and POSIX format. For more information, see [CLDR Releases/Downloads](https://cldr.unicode.org/index/downloads).
+For those interested in the source CLDR data, it is available for each release in the XML format specified by [LDML](http://www.unicode.org/reports/tr35/). There are also tools that will convert to JSON and POSIX format. For more information, see [CLDR Releases/Downloads](/index/downloads).
 
 ## How to Contribute?
 
@@ -53,9 +53,9 @@ CLDR is a collaborative project, which benefits by having people join and contri
 
 #### Translations and other language data
 
-CLDR has an online tool to gather data, the [Survey Tool](https://cldr.unicode.org/index/survey-tool). The Survey Tool is open twice a year to gather data for new structure, and make corrections in previously-released data.
+CLDR has an online tool to gather data, the [Survey Tool](/index/survey-tool). The Survey Tool is open twice a year to gather data for new structure, and make corrections in previously-released data.
 
-- For languages that are already available in the Survey Tool, see [picking a locale](https://cldr.unicode.org/translation/getting-started/guide#h.6f2x50entpdr). If your locale is not already available in the Survey Tool, see [Adding new locales](https://github.com/unicode-org/cldr/blob/main/docs/requesting_changes.md#adding-new-locales).
+- For languages that are already available in the Survey Tool, see [picking a locale](/translation/getting-started/guide#h.6f2x50entpdr). If your locale is not already available in the Survey Tool, see [Adding new locales](https://github.com/unicode-org/cldr/blob/main/docs/requesting_changes.md#adding-new-locales).
     -   Contribute as an individual (vetter) for your language by [setting up an account](/index/survey-tool/survey-tool-accounts)
     -   Qualifying organizations (companies, governments, institutions, etc) can request for an Organization level contribution status. Please file a [ticket](https://github.com/unicode-org/cldr/blob/main/docs/requesting_changes.md#how-to-file-a-ticket) if you need organization set up.
 - Unicode [voting members](https://home.unicode.org/membership/members/) can join the technical committee for bigger impact. The CLDR Technical committee is responsible for assessing the Survey Tool features, proposals for additions or changes to structure, bug fixes, and final resolution of each release of CLDR.

@@ -26,7 +26,7 @@ Note that if in your locale certain abbreviations are always understood to mean 
 
 ## Simple Units
 
-Simple units are cases like "{0} mile" or "{0} miles". These have from 1 to 6 [plural forms](https://cldr.unicode.org/translation/getting-started/plurals), depending on the language. Units also have a display name, such as "miles", used as labels in interfaces.
+Simple units are cases like "{0} mile" or "{0} miles". These have from 1 to 6 [plural forms](/translation/getting-started/plurals), depending on the language. Units also have a display name, such as "miles", used as labels in interfaces.
 
 ## Compound Units
 

@@ -8,7 +8,7 @@ title: Survey Tool Guide
 
 _2022-11-28 Updated several images and instructions to reflect improvements, such as revised menus, buttons,regional inheritance, and the Dashboard and Forum._
 
-[**Survey Tool**](https://st.unicode.org/cldr-apps/v#locales///) **|** [**Accounts**](https://cldr.unicode.org/index/survey-tool/survey-tool-accounts) **|** [**Guide**](https://cldr.unicode.org/translation/getting-started/guide) **|** [**FAQ and Known Bugs**](https://cldr.unicode.org/index/survey-tool/faq-and-known-bugs)
+[**Survey Tool**](https://st.unicode.org/cldr-apps/v#locales///) **|** [**Accounts**](/index/survey-tool/survey-tool-accounts) **|** [**Guide**](/translation/getting-started/guide) **|** [**FAQ and Known Bugs**](/index/survey-tool/faq-and-known-bugs)
 
 The Survey tool is a web based tool for collecting CLDR data and includes various features that the contributors (vetters) should know before getting started.
 
@@ -16,12 +16,12 @@ Note that the exact appearance in screenshots may change as the tool is enhanced
 
 ### 💡 Helpful Tips
 
-- Please read the home page of the [Translation Guidelines](https://cldr.unicode.org/translation) before starting your data contribution.
+- Please read the home page of the [Translation Guidelines](/translation) before starting your data contribution.
     - If you experience a **Loading...** problem with the Survey Tool, try clearing your browser cache. See [Reloading JavaScript](https://www.filecloud.com/blog/2015/03/tech-tip-how-to-do-hard-refresh-in-browsers/#.XOjGNtMzbuM).
 - **Browser support** for Survey Tool includes the latest versions of Edge, Safari, Chrome, and Firefox.
-- Use [Reports](https://cldr.unicode.org/translation/getting-started/guide#TOC-Reports) at the beginning to review the data in your language in a holistic manner for Date & time, Zones, and Numbers.
-    - Capitalization: Translations should be what is most appropriate for ”middle-of-sentence” use. So, for example, if your language normally doesn't spell languages with a capital letter, then you shouldn’t do that here. Please see [Capitalization](https://cldr.unicode.org/translation/translation-guide-general/capitalization) for more details.
-    - Plurals: For important information regarding the use of plural forms for your language, please read [Plurals](https://cldr.unicode.org/translation/getting-started/plurals).
+- Use [Reports](/translation/getting-started/guide#TOC-Reports) at the beginning to review the data in your language in a holistic manner for Date & time, Zones, and Numbers.
+    - Capitalization: Translations should be what is most appropriate for ”middle-of-sentence” use. So, for example, if your language normally doesn't spell languages with a capital letter, then you shouldn’t do that here. Please see [Capitalization](/translation/translation-guide-general/capitalization) for more details.
+    - Plurals: For important information regarding the use of plural forms for your language, please read [Plurals](/translation/getting-started/plurals).
 
 ### Vetting Phase
 
@@ -60,12 +60,12 @@ At a point towards the end of Survey Tool period, the Technical Committee will c
 1.  Only those of you working on a specific variant language (or "sub-locale") will pick a non-default region. If you work on Mexican Spanish, pick **Mexico**. (This should already be pre-selected for you.)
 
 
-_Make sure that you haven't mistakenly turned the Information Panel off! See_ [_**No Information Panel**_](https://cldr.unicode.org/translation/getting-started/guide%23TOC-No-Information-Panel)_**.**_
+_Make sure that you haven't mistakenly turned the Information Panel off! See_ [_**No Information Panel**_](/translation/getting-started/guide%23TOC-No-Information-Panel)_**.**_
 
 ### Voting view
 
 1. Once you have selected your locale, more options show up in the left sidebar. (You’ll note that the sidebar only shows if you mouse over the **\>** character on the left.)
-2. If the locale is relatively new and very complete, start working on the **Core Data** section and go through the rest of the sections. If the locale is mostly complete, then go to [**Dashboard**](https://cldr.unicode.org/translation/getting-started/guide) below.
+2. If the locale is relatively new and very complete, start working on the **Core Data** section and go through the rest of the sections. If the locale is mostly complete, then go to [**Dashboard**](/translation/getting-started/guide) below.
 3. Once you have selected a section, you'll see a table to enter votes in. The main table has these columns:
     - **Code**: the code CLDR uses to identify this data point.
     - **English**: the plain English value of the data point (the text you are to translate).
@@ -77,7 +77,7 @@ _Make sure that you haven't mistakenly turned the Information Panel off! See_ [_
     - **Others**: other suggested values, not currently winning, but available to vote for.
 4. Click on one of the radio buttons to make your vote. The winning status changes in real-time so depending on vote requirements and existing votes, your vote may move your desired value to the winning column right away.
     1. Look at the Regional Variants to see if any should be changed: see **Information Panel** below.
-5. Once you are done with all the sections, go to the [**Dashboard**](https://cldr.unicode.org/translation/getting-started/guide)**.**
+5. Once you are done with all the sections, go to the [**Dashboard**](/translation/getting-started/guide)**.**
 6. Under the English column, look for "**i**" for additional information and "**e**" for an example.
 ![alt-text](../../images/gettingStartedGuideArabic.png)
 ![alt-text](../../images/gettingStartedGuideEnglish.jpg)
@@ -88,7 +88,7 @@ The main panel uses icons to indicate important information and possible problem
 
 ![alt-text](../../images/gettingStartedGuideIcon.png)
 
-(Icons for the **Dashboard** are listed in the [**Dashboard Icons**](https://cldr.unicode.org/translation/getting-started/guide) section below.)
+(Icons for the **Dashboard** are listed in the [**Dashboard Icons**](/translation/getting-started/guide) section below.)
 
 ### Examples
 
@@ -104,7 +104,7 @@ An example with an ❌ shows a case where the pattern has an inappropriate plac
 6. Below that, you'll see an example. This is the same as you get by hovering over the item in the center section.
 7. If there are votes, you'll see a breakdown of them; you also see the number of votes required to change the value. Unicode organization members usually have 4 votes; _vetters which are not representing a Unicode organization usually have 1 vote_. Your vote value and the vote value required for change will show on the right navigation for the selected item as shown in this screenshot (4 and 8 respectively in this case).
 8. Near the bottom, you'll see a pulldown menu that shows the values for different regional Variants. Here, you can quickly compare the values and go to different sub-locales to correct inconsistencies.
-9. You'll also see the New Forum Post button (as shown in the screenshot _to the right_). This is the easiest way to post discussions for the selected item. Remember that the Forum posts are at language level and not at Sub-locale level. For more information, see [Forum](https://cldr.unicode.org/translation/getting-started/guide).
+9. You'll also see the New Forum Post button (as shown in the screenshot _to the right_). This is the easiest way to post discussions for the selected item. Remember that the Forum posts are at language level and not at Sub-locale level. For more information, see [Forum](/translation/getting-started/guide).
 10. **No Information Panel?**
     - If you click on the **Code** cell and there is no **Information Panel**, you may have turned it off accidentally. Click on the **Open Info Panel** button near the top right of the window.
 
@@ -187,7 +187,7 @@ The Dashboard will show you a list of data items with warnings of different kind
 
 ![alt-text](../../images/gettingStartedGuideDashboard.png)
 
-The goal is that you should work the Dashboard down to show zero items, then review the [**Reports**](https://cldr.unicode.org/index/survey-tool/guide#TOC-Reports), below.
+The goal is that you should work the Dashboard down to show zero items, then review the [**Reports**](/index/survey-tool/guide#TOC-Reports), below.
 
 _The first priority is to fix all the_ _**Missing**_ _items by supplying the correct translations._
 
@@ -273,7 +273,7 @@ You may see a message like the following when trying to modify a regional locale
 
 ![alt-text](../../images/gettingStartedGuideBrazil.png)
 
-The reason that Brazil is grayed out is that it is the default content locale for Portuguese. So to modify pt-BR, you need to simply click on Portuguese. If you do click on Brazil, you will get to a page with the following at the top. Clicking on [default content locale](https://cldr.unicode.org/translation/translation-guide-general/default-content) will explain in more detail.
+The reason that Brazil is grayed out is that it is the default content locale for Portuguese. So to modify pt-BR, you need to simply click on Portuguese. If you do click on Brazil, you will get to a page with the following at the top. Clicking on [default content locale](/translation/translation-guide-general/default-content) will explain in more detail.
 
 ![alt-text](../../images/gettingStartedGuideGeneralInfo.png)
 
@@ -328,7 +328,7 @@ A forum post can be specific to a particular data point or a general issue. In e
 - A general issue that impacts multiple data points. In a general case that impacts multiple data points, you do not need to post new forum posts for every item impacted. The general issue should be flagged to other vetters and once a consensus is reached, it is expected that vetters update their votes on all impacted items. New forum posts can be used to flag to other vetters if others fail to update their votes on all impacted items. ONLY request if others have missed or have not updated consistently.
 
 
-**Create forum posts from the** [**Information pane**](https://cldr.unicode.org/translation/getting-started/guide#TOC-Information-Panel)**l in the voting window.**
+**Create forum posts from the** [**Information pane**](/translation/getting-started/guide#TOC-Information-Panel)**l in the voting window.**
 
 1. Vote on an item (or add new +) for the item you want to suggest changing.
 
@@ -353,9 +353,9 @@ A forum post can be specific to a particular data point or a general issue. In e
 
 There are two ways to respond to forum posts:
 - Info Panel (This is the recommended option.)
-- In the Forum view (See [Working in the Forum view](https://cldr.unicode.org/translation/getting-started/guide#TOC-Working-in-the-Forum-view-))
+- In the Forum view (See [Working in the Forum view](/translation/getting-started/guide#TOC-Working-in-the-Forum-view-))
 
-**Respond from the** [**Info Panel**](https://cldr.unicode.org/translation/getting-started/guide#TOC-Information-Panel) **in the voting window.**
+**Respond from the** [**Info Panel**](/translation/getting-started/guide#TOC-Information-Panel) **in the voting window.**
 
 In the **Info Panel**, select the **Comment** button
 - Each posted response is labeled in Red and its response type: Agree, Decline or Comment.
@@ -375,10 +375,10 @@ In the **Info Panel**, select the **Comment** button
 
 There are two ways to respond to new forum post:
 - Info Panel (This is the recommended option.)
-- In the Forum view (See [Working in the Forum view](https://cldr.unicode.org/translation/getting-started/guide#TOC-Working-in-the-Forum-view-))
+- In the Forum view (See [Working in the Forum view](/translation/getting-started/guide#TOC-Working-in-the-Forum-view-))
 
 
-**Respond to forum posts from the** [**Info Panel**](https://cldr.unicode.org/translation/getting-started/guide#TOC-Information-Panel) **in the voting window.**
+**Respond to forum posts from the** [**Info Panel**](/translation/getting-started/guide#TOC-Information-Panel) **in the voting window.**
 1. In the Info Panel click the **Comment** button and add your input to the open discussion.
 2. The label **Discuss** in Red indicates that this is a Discuss post (to distinguish from Request posts)
 
@@ -408,13 +408,13 @@ In the Forum view, you can respond to Request and Discuss posts.
 
 For **Request posts**, you can select your decision using the 3 available buttons: **Agree, Decline, Comment.**
 
-See [Responding to Request posts in Information Pane](https://cldr.unicode.org/translation/getting-started/guide#TOC-Responding-to-Request-posts).
+See [Responding to Request posts in Information Pane](/translation/getting-started/guide#TOC-Responding-to-Request-posts).
 
 ![alt-text](../../images/gettingStartedGuideForumPosts.png)
 
 ## Reporting Survey Tool issues
 
-If you run into a problem with the Survey Tool functionalities, please see [FAQ & Known Bugs](https://cldr.unicode.org/index/survey-tool/faq-and-known-bugs) to see whether it has already been reported (and whether there is a work-around). If not, or if you have suggestions for improvements, please file a bug using the Feedback link at the bottom of each window. If you encounter problems or have enhancement suggestions for the survey tool, please [file a ticket](https://cldr.unicode.org/index/bug-reports#TOC-Filing-a-Ticket).
+If you run into a problem with the Survey Tool functionalities, please see [FAQ & Known Bugs](/index/survey-tool/faq-and-known-bugs) to see whether it has already been reported (and whether there is a work-around). If not, or if you have suggestions for improvements, please file a bug using the Feedback link at the bottom of each window. If you encounter problems or have enhancement suggestions for the survey tool, please [file a ticket](/index/bug-reports#TOC-Filing-a-Ticket).
 
 ![alt-text](../../images/gettingStartedGuideCoverage.png)
 
@@ -438,8 +438,8 @@ The goal is to bring it to the attention to all linguists contributing in a part
 
 ## Advanced Features
 
-1. Users familiar with CLDR XML format can upload votes (and submissions) for multiple items at once. See [**Bulk Data Upload**](https://cldr.unicode.org/index/survey-tool/bulk-data-upload)**.**
-2. Organization managers can manage users for their organization (add, remove, send passwords, set locales, etc.) For more information, see [**Managing Users**](https://cldr.unicode.org/index/survey-tool/managing-users)**.**
+1. Users familiar with CLDR XML format can upload votes (and submissions) for multiple items at once. See [**Bulk Data Upload**](/index/survey-tool/bulk-data-upload)**.**
+2. Organization managers can manage users for their organization (add, remove, send passwords, set locales, etc.) For more information, see [**Managing Users**](/index/survey-tool/managing-users)**.**
     1. Some users may want to reset their Coverage Level, with the menu that looks like the image to the right.
     2. The Coverage Level determines the items that you will see for translation: the minimal level has the highest priority items. You normally start with the level marked "Default" (which will vary by your organization and locale). Each successively higher level adds more items, at successively lower priorities. You will not normally go beyond "Modern", unless you have special instructions for your organization.
     3. _Note that some companies won't use the data until it is complete at a certain coverage level, typically_ _**Modern**._

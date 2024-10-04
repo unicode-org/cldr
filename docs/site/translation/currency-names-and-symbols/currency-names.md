@@ -4,7 +4,7 @@ title: Currency Symbols
 
 # Currency Symbols
 
-Each currency code such as USD or EUR can be represented in several ways, as given in the table below. Be sure to look at the international symbol to see which currency is being translated. For example, the English examples below are for USD. The Symbol and International code will be used in number patterns, as shown in the Examples of Usage. For more information, see [Number Patterns](https://cldr.unicode.org/translation/number-currency-formats/number-and-currency-patterns).
+Each currency code such as USD or EUR can be represented in several ways, as given in the table below. Be sure to look at the international symbol to see which currency is being translated. For example, the English examples below are for USD. The Symbol and International code will be used in number patterns, as shown in the Examples of Usage. For more information, see [Number Patterns](/translation/number-currency-formats/number-and-currency-patterns).
 
 | Type | Code | Example | Examples of Usage | Meaning |
 |---|---|---|---|---|
@@ -14,7 +14,7 @@ Each currency code such as USD or EUR can be represented in several ways, as giv
 | International Code | USD | n/a | **USD** 12,345.68   | International symbol used in formatting currency amounts. Normally, this is not under translator control, so you won't even see these presented for translation, but they can be specified by the programmer. |
 | International Code | EUR | n/a | **EUR** 12,345.68   | ... |
 | Name | USD | **US Dollar** | **Dollar des États-Unis** | Descriptive name of the currency. It should be the most neutral grammatical form for your language, appropriate for menus. Typically this is nominative singular, but the conventions may be different for your language.<br /> To provide greatest flexibility, this should use capitalization appropriate for the **middle of a sentence** . CLDR has separate contextTransforms data to specify how this should be programmatically capitalized (if at all) for different contexts such as use in menus, stand-alone use (e.g. a web page title), etc. |
-| Plural forms (e.g. name-other, name-one, name-few, ...) | USD | 1 **US dollar** vs 2 **US dollars** | 1 **US dollar** vs 2 **US dollars** | Use the plural  fields such as name-other and possibly name-one, name-few, etc. to indicate the different plural form(s) if plural forms are used in your language. If they are not used, typically only the name-other plural form will be shown. Follow the general [capitalization guidance](https://cldr.unicode.org/translation/translation-guide-general/capitalization) . Also see Plurals  for general information on plural handling in CLDR. |
+| Plural forms (e.g. name-other, name-one, name-few, ...) | USD | 1 **US dollar** vs 2 **US dollars** | 1 **US dollar** vs 2 **US dollars** | Use the plural  fields such as name-other and possibly name-one, name-few, etc. to indicate the different plural form(s) if plural forms are used in your language. If they are not used, typically only the name-other plural form will be shown. Follow the general [capitalization guidance](/translation/translation-guide-general/capitalization) . Also see Plurals  for general information on plural handling in CLDR. |
 
 Note: in some cases, the English currency symbol may appear as box, typically because you don't have fonts for all of the characters. This is especially the case for currency symbols recently added to Unicode, such as the following:
 

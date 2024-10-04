@@ -35,9 +35,9 @@ title: Update Language/Script/Region Subtags
     - Compare total counts with tool output:  example "*formerly\_used \|\|  22*"  coinciding with 22 Formerly Used codes
     - If something is wrong, you'll have to scroll through the code list and/or dig around for the updates
 - Check if ISO has done something destabilizing with codes: you need to handle it specially.
-- **Record the version: See [Updating External Metadata](https://cldr.unicode.org/development/updating-codes/external-version-metadata)**
-- Do validity checks and regenerate: for details see [Validity](https://cldr.unicode.org/development/updating-codes/update-validity-xml)
-    - You'll have to do this again in [Updating Subdivision Codes](https://cldr.unicode.org/development/updating-codes/updating-subdivision-codes).
+- **Record the version: See [Updating External Metadata](/development/updating-codes/external-version-metadata)**
+- Do validity checks and regenerate: for details see [Validity](/development/updating-codes/update-validity-xml)
+    - You'll have to do this again in [Updating Subdivision Codes](/development/updating-codes/updating-subdivision-codes).
 - Edit common/main/en.xml to add any new names, based on the Descriptions in the registry file.
     - *You only need to add new languages and scripts that we add to supplementalMetaData.*
         - But you need all territories.

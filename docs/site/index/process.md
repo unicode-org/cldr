@@ -103,7 +103,7 @@ For each release, there is one optimal field value determined by the following:
 2. If the oldStatus is better than the new draft status, then no change is made. Otherwise, the optimal value and its draft status are made part of the new release.
     - For example, if the new optimal value does not have the status of **approved**, and the previous release had an **approved** value (one that does not have an error and is not a fallback), then that previously-released value stays **approved** and replaces the optimal value in the following steps.
 
-It is difficult to develop a formulation that provides for stability, yet allows people to make needed changes. The CLDR committee welcomes suggestions for tuning this mechanism. Such suggestions can be made by filing a [new ticket](https://cldr.unicode.org/index/bug-reports#TOC-Filing-a-Ticket).
+It is difficult to develop a formulation that provides for stability, yet allows people to make needed changes. The CLDR committee welcomes suggestions for tuning this mechanism. Such suggestions can be made by filing a [new ticket](/index/bug-reports#TOC-Filing-a-Ticket).
 
 ## Data- Resolution
 

@@ -18,7 +18,7 @@ The tool is in tools/java/org/unicode/cldr/tool/GenerateBirth.java. It requires 
 
 **CldrUtility.ARCHIVE\_DIRECTORY**
 
-1. Create the archive ([Creating the Archive](https://cldr.unicode.org/development/creating-the-archive)) with all releases (if you don't have it already)
+1. Create the archive ([Creating the Archive](/development/creating-the-archive)) with all releases (if you don't have it already)
 2. The archive directory should have the latest version of every major and minor version (where versions before 21\.0 have the major version split across the top two fields).
 3. You will probably need to modify both CldrVersion.java and ToolConstants.java to bring them up to date.
 

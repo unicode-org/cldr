@@ -4,7 +4,7 @@ title: Date/Time Symbols
 
 # Date/Time Symbols
 
-Symbols is a required topic to work in [Date/Time Patterns](https://cldr.unicode.org/translation/date-time/date-time-patterns)
+Symbols is a required topic to work in [Date/Time Patterns](/translation/date-time/date-time-patterns)
 
 More details on date/time symbols and patterns may be found in the Spec [Date Field Symbol Table](http://www.unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table).
 
@@ -16,7 +16,7 @@ When the software formats a date for your language, a value will be substituted 
 
 Notice in the table below that there are different pattern characters for standalone and formatting. For example M to indicate the formatting and L to indicate the standalone month names.
 
-Make sure you understand the difference between standalone and formatting patterns and use the appropriate symbols in patterns. See [when to use standalone vs. formatting](https://cldr.unicode.org/translation/date-time/date-time-patterns) in Date and Time patterns.
+Make sure you understand the difference between standalone and formatting patterns and use the appropriate symbols in patterns. See [when to use standalone vs. formatting](/translation/date-time/date-time-patterns) in Date and Time patterns.
 
 | Symbol | Meaning  | English example  | Special note | Usage in pattern example |
 |:---:|---|---|---|---|
@@ -30,7 +30,7 @@ Make sure you understand the difference between standalone and formatting patter
 | h<br /> H<br /> K<br /> k | Hour | 12 | h- hour in a 12 hour clock<br /> H-hour in a 24 hour clock system using 0-23<br /> K -12 hour cycle using 0 through 11<br /> k - 24 hour cycle using 1 though 24 | h:mm a = 3:25 PM<br /> HH:mm = 15:25<br /> K:mm a = 0:25 AM<br /> kk:mm = 24:25 |
 | m | minute | 49 |  | hh:mm a = 03:25 PM |
 | s | second | 49 |  | h:mm:ss = 3:25:01 PM |
-| a<br /> b<br /> B | day period | AM noon in the morning | a- AM or PM b-am, noon, pm, or midnight<br /> B-"in the morning", "in the evening" (see [Day period names](https://cldr.unicode.org/translation/date-time-1/date-time-names#TOC-Day-Periods-AM-PM-etc.-))<br /><br /> ONLY  used with "h" or K" for all a, b and B See [date/time patterns about flexible time formats](https://st.unicode.org/cldr-apps/v#/fr/Gregorian/7a365a21694f0127) even if your language does not use 12-hour time clock Also see date/time day period patterns. | h:mm a = 3:25 PM<br /><br />  h:mm b = 12:00 noon<br /><br />  h:mm B= 3:25 in the afternoon |
+| a<br /> b<br /> B | day period | AM noon in the morning | a- AM or PM b-am, noon, pm, or midnight<br /> B-"in the morning", "in the evening" (see [Day period names](/translation/date-time-1/date-time-names#TOC-Day-Periods-AM-PM-etc.-))<br /><br /> ONLY  used with "h" or K" for all a, b and B See [date/time patterns about flexible time formats](https://st.unicode.org/cldr-apps/v#/fr/Gregorian/7a365a21694f0127) even if your language does not use 12-hour time clock Also see date/time day period patterns. | h:mm a = 3:25 PM<br /><br />  h:mm b = 12:00 noon<br /><br />  h:mm B= 3:25 in the afternoon |
 | z / v | timezone | Pacific Time, Paris Time | Don't change v to z or vice versa; just leave either z or v as in English. | h a – h a v = 5 AM – 5 PM GMT |
 | ' |  |  | If you want a sequence of one or more real letters A–Z or a–z within a pattern, you need to put it in single quotes, such as 'ta'. This is because l etters included in a format have special meaning.<br /> For a real single quote, use '' (that is, two adjacent ' characters). | German example for skeleton h h 'Uhr' a = 1 Uhr PM  |
 | Q | Quarter (a concept of 3 months period) |  | These are calendar quarters not fiscal quarters.<br /><br /> 4 Quarters in United States for example would be Jan-Mar, Apr-June, July-Sep, Sep-Dec. Also see 💡 **Translation Tips**  below | QQQ y = Q3 1999 |
@@ -62,7 +62,7 @@ The longer forms are only relevant for the fields that are non-numeric, such as 
 
 ## Standalone vs. Format Styles
 
- This section is relevant to [When to use standalone vs. Formatting](https://cldr.unicode.org/translation/date-time/date-time-patterns) in date/time patterns.
+ This section is relevant to [When to use standalone vs. Formatting](/translation/date-time/date-time-patterns) in date/time patterns.
 
 Some languages use two different forms of strings (*standalone* and *format*) depending on the context. Typically the *standalone* version is the nominative form of the word, and the *format* version is in the genitive (or related form).
 
@@ -75,7 +75,7 @@ Two different characters are used:
 
 💡 **Translation Tips**
 
-- Standalone and Format names must be coordinated with the format strings. See [When to use standalone vs. Formatting](https://cldr.unicode.org/translation/date-time/date-time-patterns) in date/time patterns.
+- Standalone and Format names must be coordinated with the format strings. See [When to use standalone vs. Formatting](/translation/date-time/date-time-patterns) in date/time patterns.
 - If your language uses two different form, be sure to provide the correct forms under Standalone and Formatting. For example in Brazilian Portuguese
 	- "Dezembro" for December when standing alone; thus use LLLL
 	- "Dezembru" when referencing December with a date (e.g. to mean "the nth day of that month"); thus, use MMMM
@@ -87,7 +87,7 @@ Two different characters are used:
 | de gener | gener |
 | d'abril | abril |
 
-These days, standalone names should not be used merely to provide capitalized forms. There are other solutions for capitalizing date symbols which provide finer control over capitalization, see [capitalization guidelines](https://cldr.unicode.org/translation/translation-guide-general/capitalization).
+These days, standalone names should not be used merely to provide capitalized forms. There are other solutions for capitalizing date symbols which provide finer control over capitalization, see [capitalization guidelines](/translation/translation-guide-general/capitalization).
 
 ### Examples:
 

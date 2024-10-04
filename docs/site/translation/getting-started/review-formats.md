@@ -46,7 +46,7 @@ Check for consistency between different forms by looking at them side by side.
 
 ### Person Name tips
 
-1. Please read the [Miscellaneous: Person Name Formats](https://cldr.unicode.org/translation/miscellaneous-person-name-formats) under "**Review Report**".
+1. Please read the [Miscellaneous: Person Name Formats](/translation/miscellaneous-person-name-formats) under "**Review Report**".
 
 
 ### Date & Time Review Tips

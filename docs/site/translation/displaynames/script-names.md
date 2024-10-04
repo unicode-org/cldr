@@ -23,6 +23,6 @@ For the script names, please follow these guidelines:
 - The most neutral grammatical form for the script that is natural for these two usages should be chosen. If there is no single form that can accomplish that, favor the usage within language names (inside parentheses).
 - Use the capitalization that would be appropriate in the middle of a sentence; the \<contextTransforms> data can specify the capitalization for other contexts. For more information, see [Capitalization](http://cldr.unicode.org/translation/capitalization).
 
-See also [Language Names](https://cldr.unicode.org/translation/displaynames/languagelocale-names).
+See also [Language Names](/translation/displaynames/languagelocale-names).
 
 

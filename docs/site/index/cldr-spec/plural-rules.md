@@ -19,7 +19,7 @@ These categories are used to provide localized units, with a more natural ways o
 
 ## Reporting Defects
 
-When you find errors or omissions in this data, please report the information with a [bug report](https://cldr.unicode.org/index/bug-reports#TOC-Filing-a-Ticket). Please give examples of how the forms may differ. You don't have to give the exact rules, but it is extremely helpful! Here's an example:  
+When you find errors or omissions in this data, please report the information with a [bug report](/index/bug-reports#TOC-Filing-a-Ticket). Please give examples of how the forms may differ. You don't have to give the exact rules, but it is extremely helpful! Here's an example:  
 
 **Sample Bug Report**
 
@@ -192,7 +192,7 @@ See [LDML Language Plural Rules](http://unicode.org/reports/tr35/tr35-numbers.ht
 
 ## Plural Message Migration
 
-The plural categories are used not only within CLDR, but also for localizing messages for different products. When the plural rules change (such as in [CLDR 24](https://cldr.unicode.org/index/downloads/cldr-24-release-note)), the following issues should be considered. Fractional support in plurals is new in CLDR 24\. Because the fractions didn't work before, the changes in categories from 23 to 24 should not cause an issue for implementations. The other changes can be categorized as Splitting or Merging categories.
+The plural categories are used not only within CLDR, but also for localizing messages for different products. When the plural rules change (such as in [CLDR 24](/index/downloads/cldr-24-release-note)), the following issues should be considered. Fractional support in plurals is new in CLDR 24\. Because the fractions didn't work before, the changes in categories from 23 to 24 should not cause an issue for implementations. The other changes can be categorized as Splitting or Merging categories.
 
 There are some more complicated cases, but the following outlines the main issues to watch for, using examples. For illustration, assume a language uses "" for singular, "u" for dual, and "s" for other.​ ​
 

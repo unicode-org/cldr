@@ -6,7 +6,7 @@ title: Setting Default Coverage Levels
 ## Introduction to Coverage Level
 
 - For an introduction to coverage level, see the appropriate section in TR\#35, "[Coverage Levels](https://www.unicode.org/reports/tr35/tr35-info.html#Coverage_Levels)".
-- To see how coverage level is used in the Survey Tool, see "[Advanced Features](https://cldr.unicode.org/translation/getting-started/guide#TOC-Advanced-Features)" in the Survey Tool guide
+- To see how coverage level is used in the Survey Tool, see "[Advanced Features](/translation/getting-started/guide#TOC-Advanced-Features)" in the Survey Tool guide
 
 ## To set your organization's default coverage levels
 
@@ -31,7 +31,7 @@ An organization that focuses on a small number of locales will probably want to 
 
 Breton ; br ; modern Breton ; \*  ; moderate
 
-To request a change in the default coverage for your locale, file a [new ticket](https://cldr.unicode.org/index/bug-reports#TOC-Filing-a-Ticket).
+To request a change in the default coverage for your locale, file a [new ticket](/index/bug-reports#TOC-Filing-a-Ticket).
 
 As part of CLDR v35, the coverage level has been refined further. See ticket \#[11498](https://unicode-org.atlassian.net/browse/CLDR-11498)
 

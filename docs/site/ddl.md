@@ -4,7 +4,7 @@ title: CLDR DDL Subcommittee
 
 # CLDR DDL Subcommittee
 
-The Common Locale Data Repository (CLDR) is [widely used](https://cldr.unicode.org/index), and the content has grown dramatically over the years with participation by organizations of all types and sizes, as well as many individual contributors.
+The Common Locale Data Repository (CLDR) is [widely used](/index), and the content has grown dramatically over the years with participation by organizations of all types and sizes, as well as many individual contributors.
 
 Contributors for Digitally Disadvantaged Languages (DDL) face unique challenges. The CLDR-DDL subcommittee has been formed to evaluate mechanisms to make it easier for contributors for DDLs to:
 

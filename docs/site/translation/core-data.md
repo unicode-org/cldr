@@ -6,7 +6,7 @@ title: Core Data
 
 These pages describe certain core data needed by CLDR.
 
-- [Alphabetic Information](https://cldr.unicode.org/translation/core-data/characters)
-- [Exemplar Characters](https://cldr.unicode.org/translation/core-data/exemplars)
-- [Numbering Systems](https://cldr.unicode.org/translation/core-data/numbering-systems)
+- [Alphabetic Information](/translation/core-data/characters)
+- [Exemplar Characters](/translation/core-data/exemplars)
+- [Numbering Systems](/translation/core-data/numbering-systems)
 

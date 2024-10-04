@@ -16,7 +16,7 @@ The CLDR Keyboard Subcommittee is developing a new cross-platform standard XML f
 
 **CLDR (Common Locale Data Repository)**
 
-Computing devices have become increasingly personal and increasingly affordable to the point that they are now within reach of most people on the planet. The diverse linguistic requirements of the world's 7+ billion people do not scale to traditional models of software development. In response to this, Unicode [CLDR](https://cldr.unicode.org/) has emerged as a standards-based solution that empowers specialist and community input, as a means of balancing the needs of language communities with the technologies of major platform and service providers.
+Computing devices have become increasingly personal and increasingly affordable to the point that they are now within reach of most people on the planet. The diverse linguistic requirements of the world's 7+ billion people do not scale to traditional models of software development. In response to this, Unicode [CLDR](/) has emerged as a standards-based solution that empowers specialist and community input, as a means of balancing the needs of language communities with the technologies of major platform and service providers.
 
 ![alt-text](../images/keyboard-workgroup-keyboards.jpeg)
 
@@ -69,7 +69,7 @@ The CLDR Keyboard Subcommittee was formed and has been meeting since mid-2020. I
 
 Release
 
-Updates to LDML (UTS#35) Part 7: Keyboards are scheduled to be released as part of [CLDR v45](https://cldr.unicode.org/index/downloads/cldr-45).
+Updates to LDML (UTS#35) Part 7: Keyboards are scheduled to be released as part of [CLDR v45](/index/downloads/cldr-45).
 
 Implementations
 

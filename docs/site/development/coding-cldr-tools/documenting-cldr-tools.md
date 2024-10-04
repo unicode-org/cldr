@@ -8,7 +8,7 @@ title: Documenting CLDR Tools
 
 You can add the @CLDRTool annotation to any class in cldr\-code that has a main() function, and it will be documented as part of the JAR cldr\-code.jar is used.
 
-See [CLDR Tools](https://cldr.unicode.org/development/cldr-tools) for general information about obtaining and using CLDR tools.
+See [CLDR Tools](/development/cldr-tools) for general information about obtaining and using CLDR tools.
 
 ## Coding it
 
@@ -41,5 +41,5 @@ Additional parameters:
 - **hidden** \- if non\-empty, this specifies a reason to *not* show the tool when running "java \-jar" without "\-l". For example, the main() function may be a less\-useful internal tool, or a test.
 ## Documenting it
 
-Assuming your tools’s alias is *myalias,* create a new subpage with the URL http://cldr.unicode.org/tools/myalias (a subpage of [CLDR Tools](https://cldr.unicode.org/development/cldr-tools)). Fill this page out with information about how to use your tool.
+Assuming your tools’s alias is *myalias,* create a new subpage with the URL http://cldr.unicode.org/tools/myalias (a subpage of [CLDR Tools](/development/cldr-tools)). Fill this page out with information about how to use your tool.
 

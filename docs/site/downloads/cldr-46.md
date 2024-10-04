@@ -12,12 +12,12 @@ title: CLDR 46 Release Note
 
 The data is available at [release-46-beta2](https://github.com/unicode-org/cldr/releases/tag/release-46-beta2),
 and the specification is available at [tr35/proposed.html](https://www.unicode.org/reports/tr35/proposed.html).
-Feedback is welcome via [tickets](https://cldr.unicode.org/requesting_changes). (The CLDR site is undergoing a migration to Markdown, so the UI for navigation is temporary.)
+Feedback is welcome via [tickets](/requesting_changes). (The CLDR site is undergoing a migration to Markdown, so the UI for navigation is temporary.)
 
 ## Overview
 
 Unicode CLDR provides key building blocks for software supporting the world's languages.
-CLDR data is used by all [major software systems](https://cldr.unicode.org/index#who-uses-cldr)
+CLDR data is used by all [major software systems](/index#who-uses-cldr)
 (including all mobile phones) for their software internationalization and localization,
 adapting software to the conventions of different languages.
 
@@ -63,7 +63,7 @@ The following are the most significant changes to the specification (LDML).
 4. [semantic skeletons](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-dates.html#Semantic_Skeletons)
 5. [Grouping classes of characters](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-collation.html#grouping_classes_of_characters) and other collation changes — see a summary [below](#collation-data-changes)
 
-There are many more changes that are important to implementations, such as changes to certain identifier syntax and various algorithms. 
+There are many more changes that are important to implementations, such as changes to certain identifier syntax and various algorithms.
 See the [Modifications section](https://cldr-smoke.unicode.org/spec/main/ldml/tr35.html#Modifications) of the specification for details.
 
 ## Data Changes
@@ -84,7 +84,7 @@ For a full listing, see [Delta DTDs](https://unicode.org/cldr/charts/46/suppleme
     1. Added a new calendar type, `iso8601`.
 This is not the same as the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) standard format, which is designed just for data interchange:
 it is all ASCII, doesn't have all the options for fields (like "Sunday", "BC", or "AM"), and does not contain spaces.
-The CLDR `iso8601` calendar uses patterns in the order: era, year, month, day, day-of-week, hour, minute, second, day-period, timezone 
+The CLDR `iso8601` calendar uses patterns in the order: era, year, month, day, day-of-week, hour, minute, second, day-period, timezone
 	2. Changed the metazone for Kazakhstan to reflect removal of Asia/Almaty, thus dropping the distinction among different regions in Kazakhstan.
     3. Added support for deprecated timezone codes by remapping: `CST6CDT → America/Chicago`, `EST → America/Panama`, `EST5EDT → America/New_York`, `MST7MDT → America/Denver`, `PST8PDT → America/Los_Angeles`.
 3. Units
@@ -130,7 +130,7 @@ For a full listing, see [¤¤BCP47 Delta](https://unicode.org/cldr/charts/46/del
 
 1. Major changes to emoji search keywords and short names ([see below](#emoji-search-keywords))
 2. Major changes to Chinese collation, reflecting new data in Unicode 16.0
-3. Added iso8601 patterns to root. 
+3. Added iso8601 patterns to root.
 These will use localized months, days of the week, day periods, and timezones.
 In this first version, the separators are not localized, and will use "-" within numeric dates, ":" within times, and " " or ", " between major elements.
 Full localization will await the next submission phase for CLDR.
@@ -153,28 +153,28 @@ to better enable messages that contains right-to-left identifiers and text.
 
 Implementers should be aware of the following normative changes after the start of the tech review period.
 
-* [\#885](https://github.com/unicode-org/message-format-wg/issues/885) Address equality of `name` and `literal` values, including requiring keys to use NFC  
-* [\#884](https://github.com/unicode-org/message-format-wg/issues/884) Add support for bidirectional isolates and strong marks in syntax and address UAX31/UTS55 requirements  
-* [\#883](https://github.com/unicode-org/message-format-wg/issues/883) Remove forward-compatibility promise and all reserved/private syntax.  
-* [\#882](https://github.com/unicode-org/message-format-wg/issues/882) Specify `bad-option` error for bad digit size options in `:number` and `:integer` functions  
-* [\#878](https://github.com/unicode-org/message-format-wg/issues/878) Clarify "rule" selection in `:number` and `:integer` functions  
-* [\#877](https://github.com/unicode-org/message-format-wg/issues/877) Match on variables instead of expressions.  
-* [\#854](https://github.com/unicode-org/message-format-wg/issues/854) Allow whitespace at complex message start  
-* [\#853](https://github.com/unicode-org/message-format-wg/issues/853) Add a "duplicate-variant" error  
-* [\#845](https://github.com/unicode-org/message-format-wg/issues/845) Define "attributes" feature  
-* [\#834](https://github.com/unicode-org/message-format-wg/issues/834) Modify the stability policy (not currently in effect due to Tech Preview)  
-* [\#816](https://github.com/unicode-org/message-format-wg/issues/816) Refine error handling  
-* [\#815](https://github.com/unicode-org/message-format-wg/issues/815) Removed machine-readable function registry as a deliverable  
-* [\#813](https://github.com/unicode-org/message-format-wg/issues/813) Change default of `:date` and `:datetime` date formatting from `short` to `medium`  
-* [\#812](https://github.com/unicode-org/message-format-wg/issues/812) Allow trailing whitespace for complex messages  
-* [\#793](https://github.com/unicode-org/message-format-wg/issues/793) Recommend the use of escapes only when necessary  
-* [\#775](https://github.com/unicode-org/message-format-wg/issues/775) Add formal definitions for variable, external variable, and local variable  
-* [\#774](https://github.com/unicode-org/message-format-wg/issues/774) Refactor errors, adding Message Function Errors  
-* [\#771](https://github.com/unicode-org/message-format-wg/issues/771) Remove inappropriate normative statement from errors.md  
-* [\#767](https://github.com/unicode-org/message-format-wg/issues/767) Add a test schema and [\#778](https://github.com/unicode-org/message-format-wg/issues/778) validate tests against it  
-* [\#775](https://github.com/unicode-org/message-format-wg/issues/775) Add a definition for `variable`  
-* [\#774](https://github.com/unicode-org/message-format-wg/issues/774) Refactor error types, adding a *Message Function Error* type (and subtypes)  
-* [\#769](https://github.com/unicode-org/message-format-wg/issues/769) Add `:test:function`, `:test:select` and `:test:format` functions for implementation testing  
+* [\#885](https://github.com/unicode-org/message-format-wg/issues/885) Address equality of `name` and `literal` values, including requiring keys to use NFC
+* [\#884](https://github.com/unicode-org/message-format-wg/issues/884) Add support for bidirectional isolates and strong marks in syntax and address UAX31/UTS55 requirements
+* [\#883](https://github.com/unicode-org/message-format-wg/issues/883) Remove forward-compatibility promise and all reserved/private syntax.
+* [\#882](https://github.com/unicode-org/message-format-wg/issues/882) Specify `bad-option` error for bad digit size options in `:number` and `:integer` functions
+* [\#878](https://github.com/unicode-org/message-format-wg/issues/878) Clarify "rule" selection in `:number` and `:integer` functions
+* [\#877](https://github.com/unicode-org/message-format-wg/issues/877) Match on variables instead of expressions.
+* [\#854](https://github.com/unicode-org/message-format-wg/issues/854) Allow whitespace at complex message start
+* [\#853](https://github.com/unicode-org/message-format-wg/issues/853) Add a "duplicate-variant" error
+* [\#845](https://github.com/unicode-org/message-format-wg/issues/845) Define "attributes" feature
+* [\#834](https://github.com/unicode-org/message-format-wg/issues/834) Modify the stability policy (not currently in effect due to Tech Preview)
+* [\#816](https://github.com/unicode-org/message-format-wg/issues/816) Refine error handling
+* [\#815](https://github.com/unicode-org/message-format-wg/issues/815) Removed machine-readable function registry as a deliverable
+* [\#813](https://github.com/unicode-org/message-format-wg/issues/813) Change default of `:date` and `:datetime` date formatting from `short` to `medium`
+* [\#812](https://github.com/unicode-org/message-format-wg/issues/812) Allow trailing whitespace for complex messages
+* [\#793](https://github.com/unicode-org/message-format-wg/issues/793) Recommend the use of escapes only when necessary
+* [\#775](https://github.com/unicode-org/message-format-wg/issues/775) Add formal definitions for variable, external variable, and local variable
+* [\#774](https://github.com/unicode-org/message-format-wg/issues/774) Refactor errors, adding Message Function Errors
+* [\#771](https://github.com/unicode-org/message-format-wg/issues/771) Remove inappropriate normative statement from errors.md
+* [\#767](https://github.com/unicode-org/message-format-wg/issues/767) Add a test schema and [\#778](https://github.com/unicode-org/message-format-wg/issues/778) validate tests against it
+* [\#775](https://github.com/unicode-org/message-format-wg/issues/775) Add a definition for `variable`
+* [\#774](https://github.com/unicode-org/message-format-wg/issues/774) Refactor error types, adding a *Message Function Error* type (and subtypes)
+* [\#769](https://github.com/unicode-org/message-format-wg/issues/769) Add `:test:function`, `:test:select` and `:test:format` functions for implementation testing
 * [\#743](https://github.com/unicode-org/message-format-wg/issues/743) Collapse all escape sequence rules into one (affects the ABNF)
 
 In addition to the above, the test suite is significantly modified and updated. There will be updated tech preview implementations available in ICU (Java and C++) and in Javascript.
@@ -292,10 +292,10 @@ These matched the ordering of two legacy character encodings.
 ## Acknowledgments
 
 Many people have made significant contributions to CLDR and LDML;
-see the [Acknowledgments](https://cldr.unicode.org/index/acknowledgments) page for a full listing.
+see the [Acknowledgments](/index/acknowledgments) page for a full listing.
 We'd especially like to acknowledge the work done by interns this release: Chris Pyle, Helena Aytenfisu (ህሊና የሺጥላ አይተንፍሱ), and Emiyare Cyril Ikwut-Ukwa.
 
-The Unicode [Terms of Use](https://unicode.org/copyright.html) apply to CLDR data; 
+The Unicode [Terms of Use](https://unicode.org/copyright.html) apply to CLDR data;
 in particular, see [Exhibit 1](https://unicode.org/copyright.html#Exhibit1).
 
-For web pages with different views of CLDR data, see [http://cldr.unicode.org/index/charts](https://cldr.unicode.org/index/charts).
+For web pages with different views of CLDR data, see [http://cldr.unicode.org/index/charts](/index/charts).

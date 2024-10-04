@@ -4,8 +4,8 @@ title: General translation Guide
 
 # General translation Guide
 
-- [Capitalization](https://cldr.unicode.org/translation/translation-guide-general/capitalization)
-- [Default Content](https://cldr.unicode.org/translation/translation-guide-general/default-content)
-- [References](https://cldr.unicode.org/translation/translation-guide-general/references)
+- [Capitalization](/translation/translation-guide-general/capitalization)
+- [Default Content](/translation/translation-guide-general/default-content)
+- [References](/translation/translation-guide-general/references)
 
 

@@ -7,7 +7,7 @@ title: Running Tests
 You will always need to run tests when you do a check\-in.
 
 1. Preconditions
-	- If you change the DTD, be sure to read and follow [Updating DTDs](https://cldr.unicode.org/development/updating-dtds) first.
+	- If you change the DTD, be sure to read and follow [Updating DTDs](/development/updating-dtds) first.
 	- If you added a new feature or fixed a significant bug, add a unit test for it.
 		- See unittest/NumberingSystemsTest as an example.
 		- Remember to add to unittest/TestAll
@@ -19,8 +19,8 @@ You will always need to run tests when you do a check\-in.
 	- If you know what you are doing, you can run a set of filtered tests.
 4. Other tests
 	1. The unit tests are not complete, so you get a better workout if you are doing anything fancy by running:
-	2. [**NewLdml2IcuConverter**](https://cldr.unicode.org/development/coding-cldr-tools/newldml2icuconverter)
-	3. [**Generating Charts**](https://cldr.unicode.org/development/cldr-big-red-switch/generating-charts)
+	2. [**NewLdml2IcuConverter**](/development/coding-cldr-tools/newldml2icuconverter)
+	3. [**Generating Charts**](/development/cldr-big-red-switch/generating-charts)
 		1. If you have interesting new data, write a chart for it. See subclasses of Chart.java for examples.
 
 ## Running tests on the command line

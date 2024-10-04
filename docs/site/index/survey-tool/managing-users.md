@@ -6,7 +6,7 @@ title: Managing Users
 
 If you have a TC or Manager level account, you can manage other translators (users). When data submission starts, you'll want to Lock the users who are no longer active, add new users, and send messages to your users. For the old users you'll want to resend passwords \-\- it is simplest just to do that for everyone once you've added new users.
 
-When you create users, you give them permissions and choose which locales they are to work on. It is also important that you set your organization's coverage levels appropriately, see "[Setting your Organization's Coverage levels](https://cldr.unicode.org/index/survey-tool/coverage)".
+When you create users, you give them permissions and choose which locales they are to work on. It is also important that you set your organization's coverage levels appropriately, see "[Setting your Organization's Coverage levels](/index/survey-tool/coverage)".
 
 ## Managing Users
 
@@ -31,7 +31,7 @@ Set the name, email, and locales responsible. To see the locale codes, go to htt
 ![image](../../images/index/managingUsers3.jpg)
 
 Set the Userlevel based on your assessment of the person's skill. Normally this is "Vetter". You can use "Street" for volunteers whom you don't know. People don't have to come from your organization as long as you have confidence in them.
-- See the [CLDR Process](https://cldr.unicode.org/index/process) page for a description of the user levels and their privileges.
+- See the [CLDR Process](/index/process) page for a description of the user levels and their privileges.
 
 *Known bug: if you try to create a user when the user already has an account, you get an unknown error message. Often this is because the user is locked. Click on "Show locked users", find the person, and change the status (see below).*
 
@@ -92,7 +92,7 @@ Later on, in the vetting phase, you can send messages with the outstanding dispu
 ## To check that all of your important locales have vetters assigned
 
 1. Click the "Show Vetting Participation" link at the left, under the top gray bar.
-2. The Gray locales are ones that are not a priority for your organization according to coverage information. (If that's wrong, see "[Changing Your Organization's Coverage Levels](https://cldr.unicode.org/index/survey-tool/coverage)" )
+2. The Gray locales are ones that are not a priority for your organization according to coverage information. (If that's wrong, see "[Changing Your Organization's Coverage Levels](/index/survey-tool/coverage)" )
 3. If you need new locales added, let your committee representative know.
 4. To see what the participation of your vetters has been recently, click on the Participation Shown link at the top
 	1. Note: this has a bug currently where the table becomes very wide \-\- you'll have to scroll or expand your window.

@@ -64,7 +64,7 @@ CLDR has an online tool to gather data, the [Survey Tool](/index/survey-tool). T
 
 The CLDR tooling supports the interactive Survey Tool, plus all of the tooling necessary to test and process the release. Programmers interested in contributing to the tooling are welcome; they may also be interested in contributing to [ICU](http://site.icu-project.org/), which uses CLDR data. For more information, see http://cldr.unicode.org/development.
 
-CLDR covers many different types of data, but not everything. For projects which may cover other types of data, see [Other Projects](http://cldr.unicode.org/covered-by-other-projects).
+CLDR covers many different types of data, but not everything. For projects which may cover other types of data, see [Other Projects](/covered-by-other-projects).
 
 #### Tickets
 
@@ -72,7 +72,7 @@ People may file [tickets](https://github.com/unicode-org/cldr/blob/main/docs/req
 
 ## Who has contributed?
 
-Many people have made significant contributions to CLDR and LDML; see the [Acknowledgments](http://cldr.unicode.org/index/acknowledgments) page for a full listing.
+Many people have made significant contributions to CLDR and LDML; see the [Acknowledgments](/index/acknowledgments) page for a full listing.
 
 ## What is the Schedule?
 

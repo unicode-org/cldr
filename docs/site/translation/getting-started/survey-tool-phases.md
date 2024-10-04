@@ -64,7 +64,7 @@ All contributors are encourage to move their focus to the [Dashboard](/translati
 1. Any [Flagged entries](https://st.unicode.org/cldr-apps/v#flagged///) in your locale may have questions in the Forum from TC members; please add additional information to help the TC resolve them.
     1. To see the Flagged items, click on the **Menu** icon in the upper left corner, under the **Forum** header see **Flagged items**:
 2. Open the Dashboard, and resolve all of the Errors, Provisional Items, Disputed items, and finish Reports
-    1. Consider other's opinions, by reviewing the **Disputed** and the **Losing**. See guidelines for handling [Disputed](http://cldr.unicode.org/translation/getting-started/guide#TOC-Disputed) and [Losing](http://cldr.unicode.org/translation/getting-started/guide#TOC-Losing).
+    1. Consider other's opinions, by reviewing the **Disputed** and the **Losing**. See guidelines for handling [Disputed](/translation/getting-started/guide#TOC-Disputed) and [Losing](/translation/getting-started/guide#TOC-Losing).
 3. Review all open Requests and Discussions in the [Forums](/translation/getting-started/guide#h.fx4wl2fl31az), and respond.
 
 

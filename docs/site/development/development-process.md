@@ -120,7 +120,7 @@ If there is a test failure that is due to a bug that cannot be fixed right now (
 2. ***Check*** [http://unicode.org/cldr/trac/timeline?changeset\=on\&build\=on\&daysback\=8](http://unicode.org/cldr/trac/timeline?changeset=on&build=on&daysback=8) to verify that no changes "slipped in"
 3. ***Add a line PUSHING***
 4. ***Push to production***
-5. *If there were noticeable changes, put them in* [*http://cldr.unicode.org/index/survey\-tool\#TOC\-Latest\-Updates*](http://cldr.unicode.org/index/survey-tool#TOC-Latest-Updates) ***(move the old items up to Tool Updates).***
+5. *If there were noticeable changes, put them in* [*http://cldr.unicode.org/index/survey\-tool\#TOC\-Latest\-Updates*](/index/survey-tool#TOC-Latest-Updates) ***(move the old items up to Tool Updates).***
 6. *If it was a Known Bug, remove from* [*https://sites.google.com/site/cldr/index/survey\-tool/known\-bugs*](/index/survey-tool/faq-and-known-bugs)***.***
 7. ***Change status of all READY and PUSHING items to PUSHED.***
 8. ***You can delete some older items that are no longer relevant.***

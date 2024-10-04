@@ -8,7 +8,7 @@ title: CLDR Process
 
 This document describes the Unicode CLDR Technical Committee's process for data collection, resolution, public feedback and release.
 
-- The process is designed to be light-weight; in particular, the meetings are frequent, short, and informal. Most of the work is by email or phone, with a database recording requested changes (See [change request](http://cldr.unicode.org/index/bug-reports)).
+- The process is designed to be light-weight; in particular, the meetings are frequent, short, and informal. Most of the work is by email or phone, with a database recording requested changes (See [change request](/index/bug-reports)).
 - When gathering data for a region and language, it is important to have multiple sources for that data to produce the most commonly used data. The initial versions of the data were based on best available sources, and updates with new and improvements are released twice a year with work by contributors inside and outside of the Unicode Consortium.
 - It is important to note that CLDR is a Repository, not a Registration. That is, contributors should NOT expect that their suggestions will simply be adopted into the repository; instead, it will be vetted by other contributors.
 - The [CLDR Survey Tool](http://www.unicode.org/cldr/survey_tool.html) is the main channel for collecting data, and bug/feature request are tracked in a database ([CLDR Bug Reports](http://www.unicode.org/cldr/filing_bug_reports.html)).
@@ -32,8 +32,8 @@ The contributors of locale data are expected to be language speakers residing in
 
 There are two types of data in the repository:
 
-- **Core data** (See [Core data for new locales](http://cldr.unicode.org/index/cldr-spec/minimaldata)): The content is collected from language experts typically with a CLDR Technical Committee member involvement, and is reviewed by the committee. This is required for a new language to be added in CLDR. See also [Exemplar Character Sources](http://www.unicode.org/cldr/filing_bug_reports.html#Exemplar_Characters).
-- **Common locale data**: This is the bulk of the CLDR data and data collection occurs twice a year using the Survey tool. (See [How to Contribute](http://cldr.unicode.org/#TOC-How-to-Contribute-).)
+- **Core data** (See [Core data for new locales](/index/cldr-spec/minimaldata)): The content is collected from language experts typically with a CLDR Technical Committee member involvement, and is reviewed by the committee. This is required for a new language to be added in CLDR. See also [Exemplar Character Sources](http://www.unicode.org/cldr/filing_bug_reports.html#Exemplar_Characters).
+- **Common locale data**: This is the bulk of the CLDR data and data collection occurs twice a year using the Survey tool. (See [How to Contribute](/#TOC-How-to-Contribute-).)
 
 
 The following 4 states are used to differentiate the data contribution levels. The initial data contributions are normally marked as draft; this may be changed once the data is vetted.
@@ -171,7 +171,7 @@ Be aware that changes and updates to CLDR will only be taken in response to info
 
 ### Version Numbering
 
-The locale data is frozen per version. Once a version is released, it is never modified. Any changes, however minor, will mean a newer version of the locale data being released. The version numbering scheme is "xy.z", where z is incremented for maintenance releases, and xy is incremented for regular semi-annual releases as defined by the [regular semi-annual schedule](http://cldr.unicode.org/index#TOC-General-Schedule-)
+The locale data is frozen per version. Once a version is released, it is never modified. Any changes, however minor, will mean a newer version of the locale data being released. The version numbering scheme is "xy.z", where z is incremented for maintenance releases, and xy is incremented for regular semi-annual releases as defined by the [regular semi-annual schedule](/index#TOC-General-Schedule-)
 
 ### Release Schedule
 

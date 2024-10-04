@@ -11,7 +11,7 @@ Here are the instructions for a bulk upload (of an XML file in LDML format) to t
 2. The locale must exist. 
 	- If not, see [Adding New Locales](/index/bug-reports#New_Locales).
 3. You must be logged in, and under an account with permission to write to it.
-	- If you don't have an account, see [Survey Tool Accounts](http://cldr.unicode.org/index/survey-tool/accounts).
+	- If you don't have an account, see [Survey Tool Accounts](/index/survey-tool/accounts).
 	- Managers and TC Members can submit on behalf of another user.
 4. Go to the menu, under the **Upload ( Bulk Import)**  section. Choose **Upload XML as your Vote**.
 5. Put in your email address to submit as yourself. If you manage other users, you may put the email address associated with their survey tool account in to submit a vote as that user.

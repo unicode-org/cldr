@@ -10,7 +10,7 @@ title: FAQ and Known Bugs
 
 ***Q. Should I preserve the case of English words, like names of languages?***
 
-A. Beginning with CLDR 22, the new guidance is that names of items such as languages, regions, calendar and collation types, as well as names of months and weekdays in calendar data, should be capitalized as appropriate for the middle of body text. For more information, see the [Capitalization](/translation/translation-guide-general/capitalization) section in the [Translation Guidelines](http://cldr.unicode.org/translation/).
+A. Beginning with CLDR 22, the new guidance is that names of items such as languages, regions, calendar and collation types, as well as names of months and weekdays in calendar data, should be capitalized as appropriate for the middle of body text. For more information, see the [Capitalization](/translation/translation-guide-general/capitalization) section in the [Translation Guidelines](/translation/).
 
 ***Q. What about the warning about parentheses being discouraged in cases such as "(other)"***
 

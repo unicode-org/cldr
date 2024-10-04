@@ -76,6 +76,7 @@ import org.unicode.cldr.util.Rational.FormatStyle;
 import org.unicode.cldr.util.ScriptToExemplars;
 import org.unicode.cldr.util.SimpleUnicodeSetFormatter;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.SupplementalDataInfo.CurrencyNumberInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
@@ -2739,6 +2740,14 @@ public class ExampleGenerator {
         DecimalFormat df =
                 icuServiceBuilder.getCurrencyFormat(currency, currencySymbol, numberSystem);
         df.applyPattern(value);
+
+        // getCurrencyFormat sets digits, but applyPattern seems to overwrite it, so fix it again
+        // here
+        SupplementalDataInfo supplementalData = CONFIG.getSupplementalDataInfo();
+        CurrencyNumberInfo info = supplementalData.getCurrencyNumberInfo(currency);
+        int digits = info.getDigits();
+        df.setMinimumFractionDigits(digits);
+        df.setMaximumFractionDigits(digits);
 
         String countValue = parts.getAttributeValue(-1, "count");
         if (countValue != null) {

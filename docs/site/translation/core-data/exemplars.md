@@ -110,7 +110,7 @@ Three possible solutions:
 2. For currencies, if the character is part of a 'gloss', that is, it is parenthetically included for reference, and the gloss is all ASCII, then include it in brackets. You can use [square brackets] or (parentheses) in currencies. Everywhere else, please use only square brackets.
 	- So the XAF above can be fixed by changing it to "Φράγκο [BEAC CFA]" or "Φράγκο (BEAC CFA)". For the timezone name "ACT (Ακρ)", the fix is to change to "Ακρ [ACT]".
 3. If neither of these approaches is appropriate, try rephrasing the translated item to avoid the character.
-4. If it really can't be avoided, then please file a [new ticket](https://cldr.unicode.org/index/bug-reports#TOC-Filing-a-Ticket) describing the problem.
+4. If it really can't be avoided, then please file a [new ticket](/index/bug-reports#TOC-Filing-a-Ticket) describing the problem.
 
 **B. The exemplar characters shouldn't contain a particular character.**
 

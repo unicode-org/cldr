@@ -103,5 +103,5 @@ Once you are there, generate a file by using the following steps. There are 3 co
 	1. Run "AddPopulationData *\-DADD\_POP*\=**true"** and look for errors.
 4. **java \-jar \-DADD\_POP\=true \-DCLDR\_DIR\=${HOME}/src/cldr cldr.jar org.unicode.cldr.tool.AddPopulationData**
 5. Once everything looks ok, check everything in to git.
-6. Once done, then run the ConvertLanguageData tool as on [Update Language Script Info](https://cldr.unicode.org/development/updating-codes/update-language-script-info)
+6. Once done, then run the ConvertLanguageData tool as on [Update Language Script Info](/development/updating-codes/update-language-script-info)
 

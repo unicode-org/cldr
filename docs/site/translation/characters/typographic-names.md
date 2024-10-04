@@ -21,11 +21,11 @@ The most common problem is giving the same name to two *different* fields. For e
 
 **Slant vs Italic**
 
-1. Slant is different than italic: in the latter, the characters are slanted, but also usually different shapes. See [Italic](http://cldr.unicode.org/translation/characters-emoji-symbols/typographic-names/italic.png).
+1. Slant is different than italic: in the latter, the characters are slanted, but also usually different shapes. See [Italic](/translation/characters-emoji-symbols/typographic-names/italic.png).
 
 **Width vs Weight**
 
-1. The wdth-100 and wght-400 (which are *normal* and *regular* in English) must have different names: *normal* is width (how wide the character is — see [Width](http://cldr.unicode.org/translation/characters-emoji-symbols/typographic-names/optical-size.png)), and *regular* is boldness (how heavy the lines in the character are — see [Weight](http://cldr.unicode.org/translation/characters-emoji-symbols/typographic-names/font-weight-2.png)). If there is not a distinction in your language, you can qualify, eg *normal-width*
+1. The wdth-100 and wght-400 (which are *normal* and *regular* in English) must have different names: *normal* is width (how wide the character is — see [Width](/translation/characters-emoji-symbols/typographic-names/optical-size.png)), and *regular* is boldness (how heavy the lines in the character are — see [Weight](/translation/characters-emoji-symbols/typographic-names/font-weight-2.png)). If there is not a distinction in your language, you can qualify, eg *normal-width*
 2. Similarly wdth-125 and wght-700 (in English: *wide* and *bold*) need to be different (width vs boldness)
 3. However, only the first two parts of the code make a difference (up to and including the number). The last part (after the number) is purely optional. You only need to have different names for the optional ones if your language really has alternative names for the same feature. That means that you can give the same names to each of the following:
 	- wdth-50

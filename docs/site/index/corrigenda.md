@@ -4,7 +4,7 @@ title: Corrigenda and Errata
 
 # Corrigenda and Errata
 
-The Corrigenda and Errata are found on the corresponding release pages. Issues that can cause significant problems are considered corrigenda, and are listed on the corresponding release page. Problems that do not rise to the level of a corrigendum are considered errata, and are listed on the corresponding release page without being listed here. For example, errata for CLDR 1.9 may be found on [CLDR Release 1.9, Errata](https://cldr.unicode.org/index/downloads/cldr-1-9-release-note).
+The Corrigenda and Errata are found on the corresponding release pages. Issues that can cause significant problems are considered corrigenda, and are listed on the corresponding release page. Problems that do not rise to the level of a corrigendum are considered errata, and are listed on the corresponding release page without being listed here. For example, errata for CLDR 1.9 may be found on [CLDR Release 1.9, Errata](/index/downloads/cldr-1-9-release-note).
 
 At this time, there is only one Corrigendum:
 

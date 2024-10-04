@@ -15,7 +15,7 @@ If you are looking at a prospective language code, like "swh", the process is si
 ## Choosing the Base Language Code
 
 1. Go to [iso639\-3](http://www-01.sil.org/iso639-3/codes.asp) to find the language. Typically you'll look under **Name** starting with **G** for Ganda.
-2. There may be multiple entries for the item you want, so you'll need to look at all of them. For example, on the page for names starting with “P”, there are three records: “Panjabi”, “Mirpur Panjabi” and “Western Panjabi” (it is the last of these that corresponds to Lahnda). You can also try a search, but be [careful](https://cldr.unicode.org/index/cldr-spec/picking-the-right-language-code).
+2. There may be multiple entries for the item you want, so you'll need to look at all of them. For example, on the page for names starting with “P”, there are three records: “Panjabi”, “Mirpur Panjabi” and “Western Panjabi” (it is the last of these that corresponds to Lahnda). You can also try a search, but be [careful](/index/cldr-spec/picking-the-right-language-code).
 3. You'll find an entry like:
 
 &emsp;lug&emsp; lug&emsp; **lg**&emsp; Ganda&emsp; Individual&emsp; Living&emsp; more ...
@@ -27,7 +27,7 @@ While you may think that you are done, you have to verify that the three\-letter
 3. Verify that is indeed the language:
 	1. Look at the information on the ethnologue page
 	2. Check Wikipedia and other web sources
-4. ***AND IMPORTANTLY: Review [Caution!](https://cldr.unicode.org/index/cldr-spec/picking-the-right-language-code) below***
+4. ***AND IMPORTANTLY: Review [Caution!](/index/cldr-spec/picking-the-right-language-code) below***
 
 Once you have the right three\-letter code, you are still not done. Unicode (and BCP 47\) uses the 2 letter ISO code if it exists. Unicode also uses the "macro language" where suitable. *So*
 
@@ -38,7 +38,7 @@ Once you have the right three\-letter code, you are still not done. Unicode (and
 
 ## Choosing Script/Territory Subtags
 
-If you need a particular variant of a language, then you'll add additional subtags, typically script or territory. Consult [Sample Subtags](http://unicode.org/cldr/utility/sample_subtags.html) for the most common choices. ***Again, review*** [***Caution!***](https://cldr.unicode.org/index/cldr-spec/picking-the-right-language-code) ***below.***
+If you need a particular variant of a language, then you'll add additional subtags, typically script or territory. Consult [Sample Subtags](http://unicode.org/cldr/utility/sample_subtags.html) for the most common choices. ***Again, review*** [***Caution!***](/index/cldr-spec/picking-the-right-language-code) ***below.***
 
 ## Verifying Your Choice
 
@@ -46,7 +46,7 @@ If you need a particular variant of a language, then you'll add additional subta
 2. You need to fix the identifier and try again in *any* if the demo shows any of the following:
 	1. the language identifer is illegal, or
 	2. one of the subtags is invalid, or
-	3. there are any replacement values. [\*\*](https://cldr.unicode.org/index/cldr-spec/picking-the-right-language-code)
+	3. there are any replacement values. [\*\*](/index/cldr-spec/picking-the-right-language-code)
 
 ## Documenting Your Choice
 
@@ -76,7 +76,7 @@ For compatibility, it is strongly recommended that all implementations accept bo
 
 ### Macrolanguages
 
-ISO (and hence BCP 47\) has the notion of an individual language (like en \= English) versus a Collection or Macrolanguage. For compatibility, Unicode language and locale identifiers always use the Macrolanguage to identify the predominant form. Thus the Macrolanguage subtag "zh" (Chinese) is used instead of "cmn" (Mandarin). Similarly, suppose that you are looking for Kurdish written in Latin letters, as in Turkey. It is a mistake to think that because that is in the north, that you should use the subtag 'kmr' for Northern Kurdish. You should instead use [ku\-Latn\-TR](http://ku-latn/). See also: [ISO 636 Deprecation Requests](https://cldr.unicode.org/development/development-process/design-proposals/iso-636-deprecation-requests-draft).
+ISO (and hence BCP 47\) has the notion of an individual language (like en \= English) versus a Collection or Macrolanguage. For compatibility, Unicode language and locale identifiers always use the Macrolanguage to identify the predominant form. Thus the Macrolanguage subtag "zh" (Chinese) is used instead of "cmn" (Mandarin). Similarly, suppose that you are looking for Kurdish written in Latin letters, as in Turkey. It is a mistake to think that because that is in the north, that you should use the subtag 'kmr' for Northern Kurdish. You should instead use [ku\-Latn\-TR](http://ku-latn/). See also: [ISO 636 Deprecation Requests](/development/development-process/design-proposals/iso-636-deprecation-requests-draft).
 
 Unicode language identifiers do not allow the "extlang" form defined in BCP 47\. For example, use "yue" instead of "zh\-yue" for Cantonese.
 

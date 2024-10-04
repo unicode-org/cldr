@@ -12,6 +12,6 @@ There are three stages for new currency symbols (such as the recent Russian, Ind
 | 2 | Adopted widely in fonts and keyboards used in the relevant locales. | It is added it to the relevant locales as the standard version. |
 | 3 | Widely recognized outside of the locales, and in most operating systems (Android, iOS, Windows, Mac — not just the latest versions, but also older ones that have significant market share). | Added to root as the standard version. |
 
-For more information, see [Currency Symbols \& Names](https://cldr.unicode.org/translation/currency-names-and-symbols/currency-names).
+For more information, see [Currency Symbols \& Names](/translation/currency-names-and-symbols/currency-names).
 
 

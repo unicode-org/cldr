@@ -16,7 +16,7 @@ In summary, when you add an element, attribute, or new kind of attribute value, 
 
 ### New Alt Values
 
-If you are only adding new alt values, it is much easier. You still need to change related information, otherwise your strings won't show up properly in the Survey Tool, or the right default values won't be set. So go to [Root Aliases](https://cldr.unicode.org/development/updating-dtds).
+If you are only adding new alt values, it is much easier. You still need to change related information, otherwise your strings won't show up properly in the Survey Tool, or the right default values won't be set. So go to [Root Aliases](/development/updating-dtds).
 
 ## Changing DTDs
 
@@ -75,12 +75,12 @@ Add the annotations.
         - widthOrder = (MapComparator) new MapComparator().add(new String\[\] {"abbreviated", "narrow", "short", "wide"}).freeze();
 2. **Survey Tool Data.** Add information so that the Survey Tool can display these properly to translators
     1. PathHeader.txt (tools/java/org/unicode/cldr/util/data/) - provides the information for what section of the Survey Tool this item shows up in, and how it sorts.
-        1. Edit as described in [PathHeader](https://cldr.unicode.org/development/updating-dtds).
+        1. Edit as described in [PathHeader](/development/updating-dtds).
     2.  PathDescription.txt (tools/java/org/unicode/cldr/util/data/) - provides a description of what the field is, for translators.
         1. If it needs more explanation, add a section (or perhaps a whole page) to the translation guide, eg http://cldr.org/translation/plurals.
-        2. For an example, see [8479](https://cldr.unicode.org/index/bug-reports#TOC-Filing-a-Ticket)
+        2. For an example, see [8479](/index/bug-reports#TOC-Filing-a-Ticket)
     3. Placeholders.txt - provides information about the placeholders, if there can be any.
-         1. If the value has placeholders ({0}, {1},...) then edit this file as described in [Placeholders](https://cldr.unicode.org/development/updating-dtds).
+         1. If the value has placeholders ({0}, {1},...) then edit this file as described in [Placeholders](/development/updating-dtds).
     4. The coverageLevels.xml (common/supplemental/coverageLevels) - sets the coverage level for the path.
         1. **\[TBD - John\]**
     5. *Making sure paths are visible.*
@@ -93,7 +93,7 @@ Add the annotations.
             1. Look at test/**CheckDates** to see how this is done.
             2. Run test/**ConsoleCheckCLDR** with various types of invalid input to make sure that they fail.
     2. To update the casing files used by CheckConsistentCasing , run org.unicode.cldr.test.CasingInfo -l \<locale\_regex> which will update the casing files in common/casing. When you check this in, sanity check the values, because in some cases we have have had different rules than just what the heuristics generate.
-    3. TEST out the **SurveyTool** to verify that you can see/edit the new items. If users should be able to input data and are not able to, the item has not been properly added to CLDR. See [Running the Survey Tool in Eclipse](https://cldr.unicode.org/development/running-survey-tool).
+    3. TEST out the **SurveyTool** to verify that you can see/edit the new items. If users should be able to input data and are not able to, the item has not been properly added to CLDR. See [Running the Survey Tool in Eclipse](/development/running-survey-tool).
 4.  **Data.**
     1. Add necessary data to root and English.
     2. (Optional) add additional data for locales (if part of main). If the data is just seed data (that you aren't sure of), make sure that you have draft="unconfirmed" on the leaf nodes.
@@ -253,7 +253,7 @@ If a value has placeholders, edit Placeholders.txt:
     - ^//ldml/units/unit\\\[@type="day%A"\]/unitPattern ; {0}=NUMBER\_OF\_DAYS 3
 2. There is a variable %A that will match attribute value syntax (or substrings).
 3. \<example> may contain spaces, but \<message\_name> must not.
-4. For an example, see [8484](https://cldr.unicode.org/index/bug-reports#TOC-Filing-a-Ticket)
+4. For an example, see [8484](/index/bug-reports#TOC-Filing-a-Ticket)
 5. Check that the ConsoleCheckCLDR **CheckForExamplars** fails if there are no placeholders in the value
 6. Note: we should switch methods so that we don't need to quote \\\[, etc, but we haven't yet.
 
@@ -322,7 +322,7 @@ There are three ways for paths to show up in the Survey Tool (and in other tooli
 
 ### OK if Missing
 
-Certain paths don't have to be present in locales. They are not counted as Missing in the Dashboard and shouldn't have an effect on coverage. To handle these, modify the file [missingOk.txt](https://cldr.unicode.org/index/bug-reports#TOC-Filing-a-Ticket) to provide a regex that captures those paths. Be careful, however, to not be overly inclusive: you want all and only those paths that are ok to skip. Typically those are paths for which root values are perfectly fine.
+Certain paths don't have to be present in locales. They are not counted as Missing in the Dashboard and shouldn't have an effect on coverage. To handle these, modify the file [missingOk.txt](/index/bug-reports#TOC-Filing-a-Ticket) to provide a regex that captures those paths. Be careful, however, to not be overly inclusive: you want all and only those paths that are ok to skip. Typically those are paths for which root values are perfectly fine.
 
 ## Examples of DTD modifications
 
@@ -332,14 +332,14 @@ The following is an example of the different files that may need to be modified.
 
 ## Modifying English/Root
 
-Whenever you modify values in English or Root, be sure to run GenerateBirth as described on [Updating English/Root](https://cldr.unicode.org/development/cldr-development-site/updating-englishroot) and check in the results. That ensures that CheckNew works properly. This must be done before the Survey Tool starts or is in the Submission Phase.
+Whenever you modify values in English or Root, be sure to run GenerateBirth as described on [Updating English/Root](/development/cldr-development-site/updating-englishroot) and check in the results. That ensures that CheckNew works properly. This must be done before the Survey Tool starts or is in the Submission Phase.
 
 ## Validation
 
-- **Do the steps on** [**Running Tests**](https://cldr.unicode.org/development/running-tests)
+- **Do the steps on** [**Running Tests**](/development/running-tests)
 
 
 ## Debugging Regexes
 
-- Moved to [**Running Tests**](https://cldr.unicode.org/development/running-tests)
+- Moved to [**Running Tests**](/development/running-tests)
 

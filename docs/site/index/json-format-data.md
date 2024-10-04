@@ -14,7 +14,7 @@ In addition, we now have a conversion utility that can be used to convert LDML i
 
 The CLDR committee welcomes comments on this specification and the data itself. Our hope is that as more people realize that there is a standard format for CLDR data in JSON, it will become the best practice way to use CLDR data in the Javascript environment.
 
-The JSON specification for CLDR data can be found [here](https://cldr.unicode.org/index/cldr-spec/cldr-json-bindings).
+The JSON specification for CLDR data can be found [here](/index/cldr-spec/cldr-json-bindings).
 
 To access the CLDR 22.1 data in the JSON format, click [HERE](http://www.google.com/url?q=http%3A%2F%2Fwww.unicode.org%2Frepos%2Fcldr-aux%2Fjson%2F22.1%2F&sa=D&sntz=1&usg=AOvVaw3a81SHdsJi_Nf1zWGhF3rs)
 

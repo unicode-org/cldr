@@ -10,11 +10,11 @@ The locale\-based collation rules in Unicode CLDR specify customizations of the 
 
 ## Filing a Request
 
-Requests to change the collation order for a given locale, or to supply additional variants should be filed as CLDR bug tickets. See [CLDR Change Requests](https://cldr.unicode.org/index/bug-reports)
+Requests to change the collation order for a given locale, or to supply additional variants should be filed as CLDR bug tickets. See [CLDR Change Requests](/index/bug-reports)
 
 ### Rules
 
-The request should present the precise change expressed as rules. The rules must be supplied in the syntax as specified in [http://www.unicode.org/reports/tr35/tr35\-collation.html\#Rules](http://www.unicode.org/reports/tr35/tr35-collation.html#Rules). (This used to be called the "basic syntax".) The rules must also be [Minimal Rules](https://cldr.unicode.org/index/cldr-spec/collation-guidelines) as described below: *only* differences from [http://unicode.org/charts/uca/](http://unicode.org/charts/uca/) should be specified.
+The request should present the precise change expressed as rules. The rules must be supplied in the syntax as specified in [http://www.unicode.org/reports/tr35/tr35\-collation.html\#Rules](http://www.unicode.org/reports/tr35/tr35-collation.html#Rules). (This used to be called the "basic syntax".) The rules must also be [Minimal Rules](/index/cldr-spec/collation-guidelines) as described below: *only* differences from [http://unicode.org/charts/uca/](http://unicode.org/charts/uca/) should be specified.
 
 *\& c \< cs*
 

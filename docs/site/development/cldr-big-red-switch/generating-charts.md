@@ -23,7 +23,7 @@ The input for this is the cldr\-staging/production file, and the output is in gi
 	1. Make sure the *last* number (eg **99\.0**) is in CLDR\_VERSIONS
 	2. Set DEFAULT\_CHART\_VERSION \= "99";
 2. Add an new folder with that number, such as cldr\-staging/docs/charts/**99**
-3. Create the archive ([Creating the Archive](https://cldr.unicode.org/development/creating-the-archive)) with at least the last release (if you don't have it already)
+3. Create the archive ([Creating the Archive](/development/creating-the-archive)) with at least the last release (if you don't have it already)
 4. **Use the same VM arguments as Mid\-Release**
 
 ## Mid\-release
@@ -49,7 +49,7 @@ The input for this is the cldr\-staging/production file, and the output is in gi
 	1. \-DCHART\_VERSION\=**99**
 	2. \-DCHART\_STATUS\=**release** (only uses the cldr\-archive, no β)
 2. Change the page <http://cldr.unicode.org/index/charts> to add the new release
-3. Check the redirection links on [test\-chart\-links](https://cldr.unicode.org/development/cldr-big-red-switch/test-chart-links).
+3. Check the redirection links on [test\-chart\-links](/development/cldr-big-red-switch/test-chart-links).
 4. On index.html; open it, and fix the version (eg to 25β \=\> 25\)
 
 ## Modifying the chart programs

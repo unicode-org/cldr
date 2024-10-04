@@ -6,15 +6,15 @@ title: CLDR Development Site
 
 Some of the key pages for developers are:
 
-1. [New CLDR Developers](https://cldr.unicode.org/development/new-cldr-developers)
-    1. [Maven Setup](https://cldr.unicode.org/development/maven) (for command line & Eclipse)
-        1. Obsolete (but may still contain useful nuggets): [Eclipse Setup](https://cldr.unicode.org/development/eclipse-setup)
-    2. [Eclipse](https://cldr.unicode.org/development/running-survey-tool/building-and-running-the-survey-tool-on-eclipse) (survey tool)
-2. [Handling Tickets (bugs/enhancements)](https://cldr.unicode.org/development/development-process)
-3. [Updating DTDs](https://cldr.unicode.org/development/updating-dtds)
-4. [Editing CLDR Spec](https://cldr.unicode.org/development/editing-cldr-spec)
-    1. [CLDR: Big Red Switch](https://cldr.unicode.org/development/cldr-big-red-switch) (checklist for release)
-5. [Adding a new locale to CLDR](https://cldr.unicode.org/development/adding-locales)
+1. [New CLDR Developers](/development/new-cldr-developers)
+    1. [Maven Setup](/development/maven) (for command line & Eclipse)
+        1. Obsolete (but may still contain useful nuggets): [Eclipse Setup](/development/eclipse-setup)
+    2. [Eclipse](/development/running-survey-tool/building-and-running-the-survey-tool-on-eclipse) (survey tool)
+2. [Handling Tickets (bugs/enhancements)](/development/development-process)
+3. [Updating DTDs](/development/updating-dtds)
+4. [Editing CLDR Spec](/development/editing-cldr-spec)
+    1. [CLDR: Big Red Switch](/development/cldr-big-red-switch) (checklist for release)
+5. [Adding a new locale to CLDR](/development/adding-locales)
 
 
 The subpages listed give more information on internal CLDR development. See also: [Sitemap](https://sites.google.com/site/cldr/system/app/pages/sitemap/hierarchy).

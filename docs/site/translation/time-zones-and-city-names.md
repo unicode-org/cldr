@@ -10,7 +10,7 @@ Time zones (such as "Pacific Time" or "France Time") can be formatted in differe
 
 - "metazone" names, such as "Pacific Time" or "Pacific Standard Time", that can apply to segments of a country or groups of countries.
 - location (country or city) based names, such as "Paris Time" or "Japan Standard Time"
-    - These are constructed using patterns (see below), plus [Country/Region Names](https://cldr.unicode.org/translation/displaynames/countryregion-territory-names) and City Names.
+    - These are constructed using patterns (see below), plus [Country/Region Names](/translation/displaynames/countryregion-territory-names) and City Names.
     - When a "metazone" name is absent, a location based name is used as a fallback.
 - raw offsets, like "GMT+10:00"
     - These are constructed using patterns (see below).
@@ -74,5 +74,5 @@ The city name may also be used in formatted times, such as:
 
 **Unique Names**
 
-City names must be unique. See [Country/Region Names](https://cldr.unicode.org/translation/displaynames/countryregion-territory-names) for techniques.
+City names must be unique. See [Country/Region Names](/translation/displaynames/countryregion-territory-names) for techniques.
 

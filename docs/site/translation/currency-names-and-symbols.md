@@ -25,7 +25,7 @@ Guidelines:
 
 ## Symbols
 
-The following general guidelines are used for currency symbols. These guidelines are also subject to the CLDR [Currency Process](https://cldr.unicode.org/index/cldr-spec/currency-process).
+The following general guidelines are used for currency symbols. These guidelines are also subject to the CLDR [Currency Process](/index/cldr-spec/currency-process).
 
 1. If a symbol is not widely recognized around the world (eg shekel ₪)
 	1. Where the currency is official in a country, use that symbol in locales with that country (eg IL)

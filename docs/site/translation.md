@@ -6,7 +6,7 @@ title: Information Hub for Linguists
 
 ### Starting Submission
 
-During Submission, please read the CLDR Training (if new to the survey tool), please focus on the missing, provisional, and errors. Please read the [**Announcements and Updates**](https://cldr.unicode.org/translation#h.pfa5snbaw7ds). For more information about the priorities during Submission, see [Survey Tool stages](https://cldr.unicode.org/translation/getting-started/survey-tool-phases) under **Survey Tool phase: General Submission**. The [Submission phase](https://cldr.unicode.org/translation/getting-started/survey-tool-phases#h.wqmb27e55b4l) lasts until **June 11**; then the [Vetting phase](https://cldr.unicode.org/translation/getting-started/survey-tool-phases#h.ddjb4w32ki37) lasts until **June 30**.
+During Submission, please read the CLDR Training (if new to the survey tool), please focus on the missing, provisional, and errors. Please read the [**Announcements and Updates**](/translation#h.pfa5snbaw7ds). For more information about the priorities during Submission, see [Survey Tool stages](/translation/getting-started/survey-tool-phases) under **Survey Tool phase: General Submission**. The [Submission phase](/translation/getting-started/survey-tool-phases#h.wqmb27e55b4l) lasts until **June 11**; then the [Vetting phase](/translation/getting-started/survey-tool-phases#h.ddjb4w32ki37) lasts until **June 30**.
 
 ### Prerequisites
 
@@ -24,9 +24,9 @@ When a section below changes, the date will be in the header.
 
 ## Status and Schedule
 
-The Survey Tool is now open for [Submission](https://cldr.unicode.org/translation/getting-started/survey-tool-phases#h.wqmb27e55b4l) until the start of [Vetting](https://cldr.unicode.org/translation/getting-started/survey-tool-phases#h.ddjb4w32ki37) on June 12th ([schedule](https://docs.google.com/spreadsheets/d/1N6inI5R84UoYlRwuCNPBOAP7ri4q2CmJmh8DC5g-S6c/edit#gid=1680747936)); then the [Vetting phase](https://cldr.unicode.org/translation/getting-started/survey-tool-phases#h.ddjb4w32ki37) lasts until **June 30**.
+The Survey Tool is now open for [Submission](/translation/getting-started/survey-tool-phases#h.wqmb27e55b4l) until the start of [Vetting](/translation/getting-started/survey-tool-phases#h.ddjb4w32ki37) on June 12th ([schedule](https://docs.google.com/spreadsheets/d/1N6inI5R84UoYlRwuCNPBOAP7ri4q2CmJmh8DC5g-S6c/edit#gid=1680747936)); then the [Vetting phase](/translation/getting-started/survey-tool-phases#h.ddjb4w32ki37) lasts until **June 30**.
 
-- **Disconnect error**. If you see a persistent Loading error with a disconnect message or other odd behavior, please [empty your cache](https://cldr.unicode.org/translation).
+- **Disconnect error**. If you see a persistent Loading error with a disconnect message or other odd behavior, please [empty your cache](/translation).
 - Survey Tool email notification may be going to your spam folder. Check your spam folder regularly.
 - "**Same as code**" errors - when translating codes for items such as languages, regions, scripts, and keys, it is normally an error to select the code itself as the translated name. If the error appears under Typography, you can ignore it. \[[CLDR-13552](https://unicode-org.atlassian.net/browse/CLDR-13552)\]
 
@@ -126,7 +126,7 @@ Once trained and up to speed on Critical reminders (above), log in to the [Surve
 6. The symbols in the A column have been changed to be searchable in browsers (with *Find in Page*) and stand out
 
 
-more on the page. See below for a table. They override the symbols in [Survey Tool Guide: Icons](https://cldr.unicode.org/translation/getting-started/guide#h.fbq7vldvjuz4).
+more on the page. See below for a table. They override the symbols in [Survey Tool Guide: Icons](/translation/getting-started/guide#h.fbq7vldvjuz4).
 
 ### Important Notes
 
@@ -169,41 +169,41 @@ This list will be updated as fixes are made available in Survey Tool Production.
 
 Before getting started to contribute data in CLDR, and jumping in to using the Survey Tool, it is important that you understand the CLDR process & take the CLDR training. It takes about 2-3 hours to complete the training.
 
-1. **Understand the basics about the CLDR process** read the [Survey Tool Guide](https://cldr.unicode.org/translation/getting-started/guide) and an overview of the [Survey Tool Stages](https://cldr.unicode.org/translation/getting-started/survey-tool-phases).
+1. **Understand the basics about the CLDR process** read the [Survey Tool Guide](/translation/getting-started/guide) and an overview of the [Survey Tool Stages](/translation/getting-started/survey-tool-phases).
     - New: A [video is available](https://www.youtube.com/watch?v=Wxs0TZl7Ljk) which shows how to login and begin contributing data for your locale.
 2. **Read the Getting Started topics** on the Information Hub:
     - General translation guide
-        - [Capitalization](https://cldr.unicode.org/translation/translation-guide-general/capitalization)
-        - [Default Content](https://cldr.unicode.org/translation/translation-guide-general/default-content)
-        - [References](https://cldr.unicode.org/translation/translation-guide-general/references)
-    - [Handling Errors and Warnings](https://cldr.unicode.org/translation/getting-started/errors-and-warnings)
-    - [Handling Logical Group Errors](https://cldr.unicode.org/translation/getting-started/resolving-errors)
-    - [Plurals & Units](https://cldr.unicode.org/translation/getting-started/plurals)
-    - [Review Date & Time](https://cldr.unicode.org/translation/date-time)
-    - [Review Numbers](https://cldr.unicode.org/translation/number-currency-formats)
-    - [Review Zones](https://cldr.unicode.org/translation/time-zones-and-city-names)
-    - [Data stability](https://cldr.unicode.org/translation/getting-started/data-stability)
-    - [Empty cache](https://cldr.unicode.org/translation/getting-started/empty-cache)
+        - [Capitalization](/translation/translation-guide-general/capitalization)
+        - [Default Content](/translation/translation-guide-general/default-content)
+        - [References](/translation/translation-guide-general/references)
+    - [Handling Errors and Warnings](/translation/getting-started/errors-and-warnings)
+    - [Handling Logical Group Errors](/translation/getting-started/resolving-errors)
+    - [Plurals & Units](/translation/getting-started/plurals)
+    - [Review Date & Time](/translation/date-time)
+    - [Review Numbers](/translation/number-currency-formats)
+    - [Review Zones](/translation/time-zones-and-city-names)
+    - [Data stability](/translation/getting-started/data-stability)
+    - [Empty cache](/translation/getting-started/empty-cache)
 
-\*If you (individual or your organization) have not established a connection with the CLDR technical committee, start with [Survey Tool Accounts](https://cldr.unicode.org/index/survey-tool/survey-tool-accounts).
+\*If you (individual or your organization) have not established a connection with the CLDR technical committee, start with [Survey Tool Accounts](/index/survey-tool/survey-tool-accounts).
 
 ## Critical reminders (for all linguists)
 
 You're already familiar with the CLDR process, but do keep the following in mind:
 
 1. **Aim at commonly used language** - CLDR should reflect *common-usage* standards **not** *academic /official* standards (unless commonly followed). Keep that perspective in mind.
-2. **Carefully consider changes to existing standards** - any change to an existing CLDR standard should be carefully considered and discussed with your fellow linguists in the CLDR [Forum](https://cldr.unicode.org/translation/getting-started/guide#h.fx4wl2fl31az). Remember your change will be reflected across thousands of online products!
+2. **Carefully consider changes to existing standards** - any change to an existing CLDR standard should be carefully considered and discussed with your fellow linguists in the CLDR [Forum](/translation/getting-started/guide#h.fx4wl2fl31az). Remember your change will be reflected across thousands of online products!
 3. **Keep consistency across logical groups** - ensure that all related entries are consistent. If you change the name of a weekday, make sure it's reflected across all related items. Check that the order of month and day are consistent in all the date formats, etc.
-    - *Tip: The [Reports](https://cldr.unicode.org/translation/getting-started/review-formats) are a great way to validate consistency across related logical groups, e.g. translations of date formats. Use them to proofread your work for consistency.*
+    - *Tip: The [Reports](/translation/getting-started/review-formats) are a great way to validate consistency across related logical groups, e.g. translations of date formats. Use them to proofread your work for consistency.*
 4. **Avoid voting for English** - for items that do not work in your language, don't simply use English. Find a solution that works for your language. For example, if your language doesn't have a concept of calendar "quarters", use a translation that describes the concept "three-month period" rather than "quarter-of-a-year".
 5. **Watch out for complex sections** and read the instructions carefully if in doubt:
-    1. [Date & Time](https://cldr.unicode.org/translation/date-time/date-time-names)
-        - [Names](https://cldr.unicode.org/translation/date-time/date-time-names)
-        - [Patterns](https://cldr.unicode.org/translation/date-time)
-        - [Symbols](https://cldr.unicode.org/translation/date-time/date-time-symbols)
-    2. [Time zones](https://cldr.unicode.org/translation/time-zones-and-city-names)
-    3. [Plural forms](https://cldr.unicode.org/translation/getting-started/plurals)
+    1. [Date & Time](/translation/date-time/date-time-names)
+        - [Names](/translation/date-time/date-time-names)
+        - [Patterns](/translation/date-time)
+        - [Symbols](/translation/date-time/date-time-symbols)
+    2. [Time zones](/translation/time-zones-and-city-names)
+    3. [Plural forms](/translation/getting-started/plurals)
 
 
-*Tip: The links in the [Info Panel](https://cldr.unicode.org/translation/getting-started/guide#h.2jch1980f8sy) will point you to relevant instructions for the entry you're editing/vetting. Use it if in doubt.*
+*Tip: The links in the [Info Panel](/translation/getting-started/guide#h.2jch1980f8sy) will point you to relevant instructions for the entry you're editing/vetting. Use it if in doubt.*
 

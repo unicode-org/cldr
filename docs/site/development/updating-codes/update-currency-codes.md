@@ -19,7 +19,7 @@ title: Update Currency Codes
     - *Review all amendments that are dated after the previous update , and patch the XML files and the* ```supplementalData.xml``` *as below.*
     - *Record the last number viewed in the URL above.*
     - *(There is a "download all amendments" link now that has a spreadsheet summary.)*
-    - **Record the version: See** [**Updating External Metadata**](https://cldr.unicode.org/development/updating-codes/external-version-metadata)
+    - **Record the version: See** [**Updating External Metadata**](/development/updating-codes/external-version-metadata)
     - If there are no diffs in the two iso tables, and no relevant changes in the amendments, you are done.
     - Run ```CountItems -Dmethod=generateCurrencyItems``` to generate the new currency list.
         - If any currency is missing from ISO4217\.txt, the program will throw an exception and will print a list of items at the end that need to be added to the ISO4217\.txt file. Add as described below.

@@ -6,7 +6,7 @@ title: Δ - Language Specific Guidance
 
 The following pages have guidance for specific languages:
 
-- [Lakota](https://cldr.unicode.org/translation/language-specific/lakota)
-- [Odia](https://cldr.unicode.org/translation/language-specific/odia)
-- [Persian](https://cldr.unicode.org/translation/language-specific/persian)
+- [Lakota](/translation/language-specific/lakota)
+- [Odia](/translation/language-specific/odia)
+- [Persian](/translation/language-specific/persian)
 

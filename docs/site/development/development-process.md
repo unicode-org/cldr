@@ -87,12 +87,12 @@ When a ticket is in design, the owner is responsible for bringing back to the co
 
 ### DTD Changes
 
-- **If you are making any DTD changes, please follow the instructions on** [**Updating DTDs**](https://cldr.unicode.org/development/updating-dtds)**.**
+- **If you are making any DTD changes, please follow the instructions on** [**Updating DTDs**](/development/updating-dtds)**.**
 
 ### Testing!
 
 - Add unit tests for changes you make, then
-- **Make sure to run the tests in** [**Running Tests**](https://cldr.unicode.org/development/running-tests)**!**
+- **Make sure to run the tests in** [**Running Tests**](/development/running-tests)**!**
 
 Skipping test failures
 
@@ -120,8 +120,8 @@ If there is a test failure that is due to a bug that cannot be fixed right now (
 2. ***Check*** [http://unicode.org/cldr/trac/timeline?changeset\=on\&build\=on\&daysback\=8](http://unicode.org/cldr/trac/timeline?changeset=on&build=on&daysback=8) to verify that no changes "slipped in"
 3. ***Add a line PUSHING***
 4. ***Push to production***
-5. *If there were noticeable changes, put them in* [*http://cldr.unicode.org/index/survey\-tool\#TOC\-Latest\-Updates*](http://cldr.unicode.org/index/survey-tool#TOC-Latest-Updates) ***(move the old items up to Tool Updates).***
-6. *If it was a Known Bug, remove from* [*https://sites.google.com/site/cldr/index/survey\-tool/known\-bugs*](https://cldr.unicode.org/index/survey-tool/faq-and-known-bugs)***.***
+5. *If there were noticeable changes, put them in* [*http://cldr.unicode.org/index/survey\-tool\#TOC\-Latest\-Updates*](/index/survey-tool#TOC-Latest-Updates) ***(move the old items up to Tool Updates).***
+6. *If it was a Known Bug, remove from* [*https://sites.google.com/site/cldr/index/survey\-tool/known\-bugs*](/index/survey-tool/faq-and-known-bugs)***.***
 7. ***Change status of all READY and PUSHING items to PUSHED.***
 8. ***You can delete some older items that are no longer relevant.***
 9. ***If the spreadsheet data seems stale, switch to the BuildsCheckins tab, and increment the 'to update' cell. \[ If anyone knows a better way to structure the spreadsheet, please feel free.. \-srl]***

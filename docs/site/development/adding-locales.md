@@ -4,7 +4,7 @@ title: Adding a new locale to CLDR
 
 # Adding a new locale to CLDR
 
-NOTE: this is an internal page for TC developers. Others should see [Core Data for New Locales](https://cldr.unicode.org/index/cldr-spec/core-data-for-new-locales).
+NOTE: this is an internal page for TC developers. Others should see [Core Data for New Locales](/index/cldr-spec/core-data-for-new-locales).
 
 ### Country Locales
 
@@ -12,7 +12,7 @@ If you are just adding a new country locale (eg we have a locale for the languag
 
 ### Minimal Structure
 
-Before adding a new locale, you must have the core data: see [Core Data for New Locales](https://cldr.unicode.org/index/cldr-spec/core-data-for-new-locales) for the process.
+Before adding a new locale, you must have the core data: see [Core Data for New Locales](/index/cldr-spec/core-data-for-new-locales) for the process.
 
 Here is an example: https://github.com/unicode-org/cldr/pull/59/files
 
@@ -33,7 +33,7 @@ Here is an example: https://github.com/unicode-org/cldr/pull/59/files
 	- The default content locale is usually the locale where the most people speak the language in question.
 	- If the language is not already in common/supplemental/likelySubtags.xml
 		- Send the literate pop information to Rick, or file a bug, if the language is not already in the supplemental data.
-		- Once he has added, run the tool in [LikelySubtags and Default Content](https://cldr.unicode.org/development/updating-codes/likelysubtags-and-default-content) to add the new language and its associated subtags to common/supplemental/likelySubtags.xml
+		- Once he has added, run the tool in [LikelySubtags and Default Content](/development/updating-codes/likelysubtags-and-default-content) to add the new language and its associated subtags to common/supplemental/likelySubtags.xml
 	- Also add the English translation for any new languages in **common/main/en.xml**
 - If requested, add to vendor targets (Locale.txt), and to Cldr where resources are committed.
 - Run the tests (will be done automatically when a PR is created)

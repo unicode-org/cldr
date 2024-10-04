@@ -6,15 +6,15 @@ title: CLDR 44 Release Note
 
 | No. | Date | Rel. Note | Data | Charts | Spec | Delta Tickets | GitHub Tag | JSON Tag | Delta DTD |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| 44 | 2023‑10‑31 | [v44](http://cldr.unicode.org/index/downloads/cldr-44) | [CLDR44](http://unicode.org/Public/cldr/44/) | [Charts44](https://unicode.org/cldr/charts/44/) | [LDML44](https://www.unicode.org/reports/tr35/tr35-70/tr35.html) | [Δ44](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2244%22%20ORDER%20BY%20component%20ASC%2C%20priority%20DESC%2C%20created%20ASC) | [release-44](https://github.com/unicode-org/cldr/tree/release-44) | [44.0.0](https://github.com/unicode-org/cldr-json/releases/tag/44.0.0)* | [ΔDtd44](https://unicode.org/cldr/charts/44/supplemental/dtd_deltas.html) |
-| 44.1 | 2023‑12‑13 | [v44.1](http://cldr.unicode.org/index/downloads/cldr-44#h.nvqx283jwsx) | n/a | n/a | [LDML44.1](https://www.unicode.org/reports/tr35/tr35-71/tr35.html) | [Δ44.1](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2244%2E1%22%20ORDER%20BY%20component%20ASC%2C%20priority%20DESC%2C%20created%20ASC) | [release-44-1](https://github.com/unicode-org/cldr/tree/release-44-1) | [44.1.0](https://github.com/unicode-org/cldr-json/releases/tag/44.1.0) | See [44.1 Changes](http://cldr.unicode.org/index/downloads/cldr-44#h.nvqx283jwsx) |
+| 44 | 2023‑10‑31 | [v44](/index/downloads/cldr-44) | [CLDR44](http://unicode.org/Public/cldr/44/) | [Charts44](https://unicode.org/cldr/charts/44/) | [LDML44](https://www.unicode.org/reports/tr35/tr35-70/tr35.html) | [Δ44](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2244%22%20ORDER%20BY%20component%20ASC%2C%20priority%20DESC%2C%20created%20ASC) | [release-44](https://github.com/unicode-org/cldr/tree/release-44) | [44.0.0](https://github.com/unicode-org/cldr-json/releases/tag/44.0.0)* | [ΔDtd44](https://unicode.org/cldr/charts/44/supplemental/dtd_deltas.html) |
+| 44.1 | 2023‑12‑13 | [v44.1](/index/downloads/cldr-44#h.nvqx283jwsx) | n/a | n/a | [LDML44.1](https://www.unicode.org/reports/tr35/tr35-71/tr35.html) | [Δ44.1](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20%3D%20Fixed%20AND%20fixVersion%20%3D%20%2244%2E1%22%20ORDER%20BY%20component%20ASC%2C%20priority%20DESC%2C%20created%20ASC) | [release-44-1](https://github.com/unicode-org/cldr/tree/release-44-1) | [44.1.0](https://github.com/unicode-org/cldr-json/releases/tag/44.1.0) | See [44.1 Changes](/index/downloads/cldr-44#h.nvqx283jwsx) |
 
-See [Key To Header Links](https://cldr.unicode.org/index/downloads#h.xq13gabuoy9w)
+See [Key To Header Links](/index/downloads#h.xq13gabuoy9w)
 *Note: For NPM, the JSON data uses version 44.0.1
 
 ## Overview
 
-Unicode CLDR provides key building blocks for software supporting the world's languages. CLDR data is used by all [major software systems](https://cldr.unicode.org/index#h.ezpykkomyltl) (including all mobile phones) for their software internationalization and localization, adapting software to the conventions of different languages.
+Unicode CLDR provides key building blocks for software supporting the world's languages. CLDR data is used by all [major software systems](/index#h.ezpykkomyltl) (including all mobile phones) for their software internationalization and localization, adapting software to the conventions of different languages.
 
 In CLDR 44, the focus is on:
 
@@ -212,17 +212,17 @@ Similar behavior occurs with plural forms for units, where some plural forms may
 
 These are not always the same. In the future, some of these functions will be separated out; see [CLDR\-17095](https://unicode-org.atlassian.net/browse/CLDR-17095).
 - The test data file likelySubtags.txt has an error for input "qaa\-Cyrl\-CH"; the result should not be empty string as shown, it should either be FAIL or the input string (pending spec clarification). See [CLDR\-17150](https://unicode-org.atlassian.net/browse/CLDR-17150).
-- The spec for \-u\-dx bcp47 subtag syntax requires further clarification. See [CLDR\-17194](https://unicode-org.atlassian.net/browse/CLDR-17194) . This is fixed in [version 44\.1](https://cldr.unicode.org/index/downloads/cldr-44#h.nvqx283jwsx).
+- The spec for \-u\-dx bcp47 subtag syntax requires further clarification. See [CLDR\-17194](https://unicode-org.atlassian.net/browse/CLDR-17194) . This is fixed in [version 44\.1](/index/downloads/cldr-44#h.nvqx283jwsx).
 - Subdivision translations were only updated on a limited basis.
 - Use 44\.0\.1 for CLDR 44 JSON NPM since 44\.0\.0 was tagged incorrectly.
-- unicodeVersion in ldmlSupplemental.dtd [was not updated to 15\.1 See CLDR\-17225](https://unicode-org.atlassian.net/browse/CLDR-17225). This is fixed in [version 44\.1](https://cldr.unicode.org/index/downloads/cldr-44#h.nvqx283jwsx).
-- Missing derived emoji annotations [CLDR\-17230](https://unicode-org.atlassian.net/browse/CLDR-17230).  This is fixed in [version 44\.1](https://cldr.unicode.org/index/downloads/cldr-44#h.nvqx283jwsx).
-- There was an error in the Keyboard3 DTD in the \<locale\> element. It is corrected in [version 44\.1](https://cldr.unicode.org/index/downloads/cldr-44#h.nvqx283jwsx), see [CLDR\-17204](https://unicode-org.atlassian.net/browse/CLDR-17204)
-- The keyboard charts were not able to generate properly due to DTD changes. It is corrected in [version 44\.1](https://cldr.unicode.org/index/downloads/cldr-44#h.nvqx283jwsx). (This fixed code was used to generate the charts for version 44\.) [CLDR\-17205](https://unicode-org.atlassian.net/browse/CLDR-17205)
+- unicodeVersion in ldmlSupplemental.dtd [was not updated to 15\.1 See CLDR\-17225](https://unicode-org.atlassian.net/browse/CLDR-17225). This is fixed in [version 44\.1](/index/downloads/cldr-44#h.nvqx283jwsx).
+- Missing derived emoji annotations [CLDR\-17230](https://unicode-org.atlassian.net/browse/CLDR-17230).  This is fixed in [version 44\.1](/index/downloads/cldr-44#h.nvqx283jwsx).
+- There was an error in the Keyboard3 DTD in the \<locale\> element. It is corrected in [version 44\.1](/index/downloads/cldr-44#h.nvqx283jwsx), see [CLDR\-17204](https://unicode-org.atlassian.net/browse/CLDR-17204)
+- The keyboard charts were not able to generate properly due to DTD changes. It is corrected in [version 44\.1](/index/downloads/cldr-44#h.nvqx283jwsx). (This fixed code was used to generate the charts for version 44\.) [CLDR\-17205](https://unicode-org.atlassian.net/browse/CLDR-17205)
 
 ## Acknowledgments
 
-Many people have made significant contributions to CLDR and LDML; see the [Acknowledgments](https://cldr.unicode.org/index/acknowledgments) page for a full listing.
+Many people have made significant contributions to CLDR and LDML; see the [Acknowledgments](/index/acknowledgments) page for a full listing.
 
 The Unicode [Terms of Use](https://unicode.org/copyright.html) apply to CLDR data; in particular, see [Exhibit 1](https://unicode.org/copyright.html#Exhibit1).
 

@@ -63,7 +63,7 @@ Currently the CLDR survey tool checks input delimiters against a predefined set 
 
 ‘  U+2018 LEFT SINGLE QUOTATION MARK ’  U+2019 RIGHT SINGLE QUOTATION MARK ‚  U+201A SINGLE LOW-9 QUOTATION MARK “  U+201C LEFT DOUBLE QUOTATION MARK ”  U+201D RIGHT DOUBLE QUOTATION MARK „  U+201E DOUBLE LOW-9 QUOTATION MARK 「  U+300C LEFT CORNER BRACKET 」  U+300D RIGHT CORNER BRACKET 『  U+300E LEFT WHITE CORNER BRACKET 』  U+300F RIGHT WHITE CORNER BRACKET ‹  U+2039 SINGLE LEFT-POINTING ANGLE QUOTATION MARK ›  U+203A SINGLE RIGHT-POINTING ANGLE QUOTATION MARK «  U+00AB LEFT-POINTING DOUBLE ANGLE QUOTATION MARK »  U+00BB RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
 
-If you need to enter a delimiter that is not one of the characters on this list, please file a new ticket by following [these instructions](https://cldr.unicode.org/index/bug-reports).
+If you need to enter a delimiter that is not one of the characters on this list, please file a new ticket by following [these instructions](/index/bug-reports).
 
 ## Yes/No
 

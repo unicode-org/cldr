@@ -6,7 +6,7 @@ title: CLDR 45 Release Note
 
 | No. |    Date    | Rel. Note |  Data  |  Charts  | Spec |   Delta  | GitHub Tag | Delta DTD | CLDR JSON |
 |:---:|:----------:|:---------:|:------:|:--------:|:------------:|:---:|:----------:|:---------:|:---------:|
-|  45 | 2024-04-17 |    [v45](http://cldr.unicode.org/index/downloads/cldr-45)    | [CLDR45](http://unicode.org/Public/cldr/45/) | [Charts45](https://unicode.org/cldr/charts/45/) |    [LDML45](https://www.unicode.org/reports/tr35/tr35-72/tr35.html)    | [Δ45](https://unicode-org.atlassian.net/issues/?jql=project+%3D+CLDR+AND+status+%3D+Done+AND+resolution+%3D+Fixed+AND+fixVersion+%3D+%2245%22+ORDER+BY+component+ASC%2C+priority+DESC%2C+created+ASC) | [release-45](https://github.com/unicode-org/cldr/releases/tag/release-45) |   [ΔDtd45](https://www.unicode.org/cldr/charts/45/supplemental/dtd_deltas.html)  |   [45.0.0](https://github.com/unicode-org/cldr-json/releases/tag/45.0.0)  |
+|  45 | 2024-04-17 |    [v45](/index/downloads/cldr-45)    | [CLDR45](http://unicode.org/Public/cldr/45/) | [Charts45](https://unicode.org/cldr/charts/45/) |    [LDML45](https://www.unicode.org/reports/tr35/tr35-72/tr35.html)    | [Δ45](https://unicode-org.atlassian.net/issues/?jql=project+%3D+CLDR+AND+status+%3D+Done+AND+resolution+%3D+Fixed+AND+fixVersion+%3D+%2245%22+ORDER+BY+component+ASC%2C+priority+DESC%2C+created+ASC) | [release-45](https://github.com/unicode-org/cldr/releases/tag/release-45) |   [ΔDtd45](https://www.unicode.org/cldr/charts/45/supplemental/dtd_deltas.html)  |   [45.0.0](https://github.com/unicode-org/cldr-json/releases/tag/45.0.0)  |
 
 ## Overview
 
@@ -138,8 +138,8 @@ For this release there are no appreciable changes.
 
 ## Acknowledgments
 
-Many people have made significant contributions to CLDR and LDML; see the [Acknowledgments](https://cldr.unicode.org/index/acknowledgments) page for a full listing.
+Many people have made significant contributions to CLDR and LDML; see the [Acknowledgments](/index/acknowledgments) page for a full listing.
 
 The Unicode [Terms of Use](https://unicode.org/copyright.html) apply to CLDR data; in particular, see [Exhibit 1](https://unicode.org/copyright.html#Exhibit1).
 
-For web pages with different views of CLDR data, see [http://cldr.unicode.org/index/charts](https://cldr.unicode.org/index/charts).
+For web pages with different views of CLDR data, see [http://cldr.unicode.org/index/charts](/index/charts).

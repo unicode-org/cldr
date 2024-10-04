@@ -4,7 +4,7 @@ title: LikelySubtags and Default Content
 
 # LikelySubtags and Default Content
 
-1. First make sure that you do [Update Language/Script/Region Subtags](https://cldr.unicode.org/development/updating-codes/update-languagescriptregion-subtags) first
+1. First make sure that you do [Update Language/Script/Region Subtags](/development/updating-codes/update-languagescriptregion-subtags) first
 2. Run GenerateMaximalLocales with VM argument ```-DCLDR_DIR``` set to your cldr directory to generate the likely subtag data **AND** the default content locales.
 	1. If you are trying to debug, add the VM argument ```-DGenerateMaximalLocalesDebug```
 3. Input data:

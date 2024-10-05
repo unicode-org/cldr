@@ -650,7 +650,7 @@ public class CLDRModify {
                             + "Use -? for help.");
         }
         if (i == FIX && givenOptions.value != null) {
-            final UnicodeSet allowedFilters = new UnicodeSet().add('P').add('k');
+            final UnicodeSet allowedFilters = new UnicodeSet().add('P').add('k').add('E');
             for (char c : givenOptions.value.toCharArray()) {
                 if (!allowedFilters.contains(c)) {
                     throw new IllegalArgumentException(
@@ -3006,6 +3006,59 @@ public class CLDRModify {
                             if (!pathsHandled.contains(path)) {
                                 handlePath(path);
                             }
+                        }
+                    }
+                });
+
+        fixList.add(
+                'E',
+                "Fix null/blank/inherited values in en.xml",
+                new CLDRFilter() {
+                    final SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
+                    final String LOCALE_ID = "en";
+                    final CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(sdi, LOCALE_ID);
+                    boolean skip = false;
+
+                    @Override
+                    public void handleStart() {
+                        skip = !getLocaleID().equals(LOCALE_ID);
+                    }
+
+                    @Override
+                    public void handlePath(String xpath) {
+                        if (skip) {
+                            return;
+                        }
+                        if (coverageLevel.getLevel(xpath).getLevel() > Level.MODERN.getLevel()) {
+                            return;
+                        }
+                        String value = cldrFileToFilter.getStringValue(xpath);
+                        String message;
+                        if (value == null) {
+                            message = "fix null";
+                        } else if (value.isBlank()
+                                && !DisplayAndInputProcessor.FSR_START_PATH.equals(xpath)
+                                && !DisplayAndInputProcessor.NSR_START_PATH.equals(xpath)) {
+                            message = "fix blank";
+                        } else if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
+                            message = "fix inheritance marker";
+                        } else {
+                            return;
+                        }
+                        String resolvedValue = getResolved().getStringValue(xpath);
+                        if (resolvedValue != null) {
+                            String fullPath = cldrFileToFilter.getFullXPath(xpath);
+                            replace(fullPath, fullPath, resolvedValue, message);
+                        }
+                    }
+
+                    @Override
+                    public void handleEnd() {
+                        if (skip) {
+                            return;
+                        }
+                        for (final String xpath : cldrFileToFilter.getExtraPaths()) {
+                            handlePath(xpath);
                         }
                     }
                 });

@@ -2393,7 +2393,7 @@ Used in the `to=`
 
     - The `from=` and `to=` sides of the pattern must both be using `set` variables. There is no way to insert a set literal on either side and avoid using a variable.
 
-    - The two variables (here `upper` and `lower`) must have exactly the same number of whitespace-separated items. Leading and trailing space (such as at the end of `lower`) is ignored. A variable without any spaces is considered to be a set variable of exactly one item.
+    - The two variables (here `upper` and `lower`) must have exactly the same number of whitespace-separated items. Leading and trailing space is ignored. A variable without any spaces is considered to be a set variable of exactly one item.
 
     - As described in [Additional Features](#additional-features), the `upper` set variable as used here matches as if it is `((?:A|B|CC|D|E|FF|G))`, showing the enclosing capturing group. When text from the input context matches this expression, and all above conditions are met, the mapping proceeds as follows:
 

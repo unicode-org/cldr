@@ -512,7 +512,7 @@ See [UAX #15](https://www.unicode.org/reports/tr15/#Description_Norm) for an ove
 
 #### Example Normalization with Markers
 
-**Example 1**
+**Example 1a**
 
 Consider this example, without markers:
 
@@ -521,7 +521,7 @@ Consider this example, without markers:
 
 The combining marks are reordered.
 
-**Example 2**
+**Example 1b**
 
 If we add markers:
 
@@ -1825,7 +1825,7 @@ These may be then used in multiple contexts:
 <key id="acute_key" output="${acute}" />
 …
 <!-- Display ´ instead of the non-displayable marker -->
-<display output="${acute}" display="${backquote}" />
+<display output="${grave}" display="${backquote}" />
 ```
 
 * * *
@@ -2704,7 +2704,7 @@ Keyboarding applications typically work, but are not required to, in one of two 
 
 **_text editing_**
 
-> text editing happens when a user moves the cursor into some previously entered text which may have been entered by someone else. As such, there is no way to know in which order things were typed, but a user will still want appropriate behaviour when they press backspace. This may involve deleting more than one character or replacing a sequence of characters with a different sequence.
+> text editing happens when a user moves the cursor into some previously entered text which may have been entered by someone else. As such, there is no way to know in which order things were typed, but a user will still want appropriate behavior when they press backspace. This may involve deleting more than one character or replacing a sequence of characters with a different sequence.
 
 In text editing mode, different keyboard layouts may behave differently in the same textual context. The backspace transform allows the keyboard layout to specify the effect of pressing backspace in a particular textual context. This is done by specifying a set of backspace rules that match a string before the cursor and replace it with another string. The rules are expressed within a `transforms type="backspace"` element.
 

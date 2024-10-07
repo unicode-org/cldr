@@ -1806,10 +1806,10 @@ _Attribute:_ `value` (required)
 <variables>
     <string id="cluster_hi" value="हि" /> <!-- a string -->
     <string id="zwnj" value="\u{200C}"/> <!-- single codepoint -->
-    <string id="acute" value="\m{acute}"/> <!-- refer to a marker -->
+    <string id="grave" value="\m{grave}"/> <!-- refer to a marker -->
     <string id="backquote" value="`"/>
-    <string id="zwnj_acute" value="${zwnj}${acute}"  /> <!-- Combine two variables -->
-    <string id="zwnj_sp_acute" value="${zwnj}\u{0020}${acute}"  /> <!-- Combine two variables -->
+    <string id="zwnj_grave" value="${zwnj}${grave}"  /> <!-- Combine two variables -->
+    <string id="zwnj_sp_grave" value="${zwnj}\u{0020}${grave}"  /> <!-- Combine two variables -->
 </variables>
 ```
 
@@ -1822,9 +1822,9 @@ These may be then used in multiple contexts:
 …
 <!-- as part of a key bag  -->
 <key id="hi_key" output="${cluster_hi}" />
-<key id="acute_key" output="${acute}" />
+<key id="grave_key" output="${grave}" />
 …
-<!-- Display ´ instead of the non-displayable marker -->
+<!-- Display ` instead of the non-displayable marker -->
 <display output="${grave}" display="${backquote}" />
 ```
 

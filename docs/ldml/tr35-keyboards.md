@@ -626,10 +626,13 @@ This is the top level element. All other elements defined below are under this e
 
 _Attribute:_ `conformsTo` (required)
 
-This attribute value distinguishes the keyboard from prior versions,
-and it also specifies the minimum CLDR major version required.
+This attribute value specifies the minimum supported CLDR major version required to properly interpret this keyboard.
 
-This attribute value must be a whole number of `45` or greater. See [`cldrVersion`](tr35-info.md#version-information)
+The value must be a whole number of `45` or greater. See [`cldrVersion`](tr35-info.md#version-information)
+
+CLDR's stability policy is such that keyboards which conform to a CLDR version automatically are conformant to all future versions. In other words, a layout with `conformsTo="45"` could be changed to `conformsTo="46"` with no other changes and the layout would remain conformant.
+
+To promote wider interchange, authors and tooling should use the minimum `conformsTo` value necessary to support the keyboard.
 
 ```xml
 <keyboard3 … conformsTo="45"/>

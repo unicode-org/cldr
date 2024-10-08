@@ -1,6 +1,6 @@
-----
+---
 title: Archived Pages
-----
+---
 
 # Archived Pages
 

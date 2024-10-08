@@ -4,7 +4,8 @@ title: CLDR Specifications
 
 # CLDR Specifications
 
-- [UTS #35: Unicode Locale Data Markup Language (LDML)](http://www.google.com/url?q=http%3A%2F%2Fwww.unicode.org%2Freports%2Ftr35%2F&sa=D&sntz=1&usg=AOvVaw3nQVa5S_8phVZOG1xv85Ie) is the specification of the XML format used for CLDR data, including the interpretation of the CLDR data.
+- [UTS #35: Unicode Locale Data Markup Language (LDML)](https://www.unicode.org/reports/tr35/) is the latest released specification of the CLDR XML format and algorithms, including the interpretation of the CLDR data.
+    - [**Development version**](http://www.unicode.org/reports/tr35/proposed.html)
 - [Definitions](/index/cldr-spec/definitions) - common definitions used in CLDR
 - [Unicode Locale Extension (‘u’) for BCP 47](/index/bcp47-extension) - an overview of the -u- extension
 - [CLDR Survey Tool](/index/survey-tool) - how to use the Survey Tool

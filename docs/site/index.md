@@ -49,10 +49,10 @@ CLDR is a collaborative project, which benefits by having people join and contri
 
 #### Translations and other language data
 
-CLDR has an online tool to gather data, the [Survey Tool](survey-tool). The Survey Tool is open twice a year to gather data for new structure, and make corrections in previously-released data.
+CLDR has an online tool to gather data, the [Survey Tool](index/survey-tool). The Survey Tool is open twice a year to gather data for new structure, and make corrections in previously-released data.
 
 - For languages that are already available in the Survey Tool, see [picking a locale](translation/getting-started/guide#picking-locales). If your locale is not already available in the Survey Tool, see [Adding new locales](requesting_changes#adding-new-locales).
-    -   Contribute as an individual (vetter) for your language by [setting up an account](survey-tool/survey-tool-accounts)
+    -   Contribute as an individual (vetter) for your language by [setting up an account](index/survey-tool/survey-tool-accounts)
     -   Qualifying organizations (companies, governments, institutions, etc) can request for an Organization level contribution status. Please file a [ticket](requesting_changes#how-to-file-a-ticket) if you need organization set up.
 - Unicode [voting members](https://home.unicode.org/membership/members/) can join the technical committee for bigger impact. The CLDR Technical committee is responsible for assessing the Survey Tool features, proposals for additions or changes to structure, bug fixes, and final resolution of each release of CLDR.
 
@@ -68,7 +68,7 @@ People may file [tickets](requesting_changes) with bug fixes or feature requests
 
 ## Who has contributed?
 
-Many people have made significant contributions to CLDR and LDML; see the [Acknowledgments](acknowledgments) page for a full listing.
+Many people have made significant contributions to CLDR and LDML; see the [Acknowledgments](index/acknowledgments) page for a full listing.
 
 ## What is the Schedule?
 

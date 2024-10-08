@@ -6,7 +6,7 @@ title: Information Hub for Linguists
 
 ### Starting Submission
 
-During Submission, please read the CLDR Training (if new to the survey tool), please focus on the missing, provisional, and errors. Please read the [Updates](#updates). For more information about the priorities during Submission, see [Survey Tool stages](getting-started/survey-tool-phases).
+During Submission, please read the CLDR Training (if new to the survey tool), please focus on the missing, provisional, and errors. Please read the [Updates](#updates). For more information about the priorities during Submission, see [Survey Tool stages](translation/getting-started/survey-tool-phases).
 
 ### Prerequisites
 
@@ -24,9 +24,9 @@ When a section below changes, the date will be in the header.
 
 ## Status and Schedule
 
-The Survey Tool has been closed for version 46. For version 47, it is not yet open for [General Submission](getting-started/survey-tool-phases#survey-tool-phase-general-submission). The General Submission phase will be followed by the [Vetting phase](getting-started/survey-tool-phases#survey-tool-phase-vetting).
+The Survey Tool has been closed for version 46. For version 47, it is not yet open for [General Submission](translation/getting-started/survey-tool-phases#survey-tool-phase-general-submission). The General Submission phase will be followed by the [Vetting phase](translation/getting-started/survey-tool-phases#survey-tool-phase-vetting).
 
-- **Disconnect error**. If you see a persistent Loading error with a disconnect message or other odd behavior, please [empty your cache](getting-started/empty-cache).
+- **Disconnect error**. If you see a persistent Loading error with a disconnect message or other odd behavior, please [empty your cache](translation/getting-started/empty-cache).
 - Survey Tool email notification may be going to your spam folder. Check your spam folder regularly.
 - "**Same as code**" errors - when translating codes for items such as languages, regions, scripts, and keys, it is normally an error to select the code itself as the translated name. If the error appears under Typography, you can ignore it. \[[CLDR-13552](https://unicode-org.atlassian.net/browse/CLDR-13552)\]
 
@@ -121,7 +121,7 @@ Once trained and up to speed on [Critical reminders](#critical-reminders-for-all
     1. Pages may be split, and/or retitled
     2. Rows may move to a different page.
 5. In the Dashboard, the Abstains items will now only have one entry per page. You can use that entry to go to its page, and then fix Abstains on that page. Once you are done on that page, hit the Dashboard refresh button (↺). This fixes a performance problem for people with a large number of Abstains, and reduces clutter in the Dashboard.
-6. The symbols in the A column have been changed to be searchable in browsers (with *Find in Page*) and stand out more on the page. See below for a table. They override the symbols in [Survey Tool Guide: Icons](getting-started/guide#icons).
+6. The symbols in the A column have been changed to be searchable in browsers (with *Find in Page*) and stand out more on the page. See below for a table. They override the symbols in [Survey Tool Guide: Icons](translation/getting-started/guide#icons).
 
 ### Important Notes
 
@@ -162,21 +162,21 @@ This list will be updated as fixes are made available in Survey Tool Production.
 
 Before getting started to contribute data in CLDR, and jumping in to using the Survey Tool, it is important that you understand the CLDR process & take the CLDR training. It takes about 2-3 hours to complete the training.
 
-1. **Understand the basics about the CLDR process** read the [Survey Tool Guide](getting-started/guide) and an overview of the [Survey Tool Stages](getting-started/survey-tool-phases).
+1. **Understand the basics about the CLDR process** read the [Survey Tool Guide](translation/getting-started/guide) and an overview of the [Survey Tool Stages](translation/getting-started/survey-tool-phases).
     - New: A [video is available](https://www.youtube.com/watch?v=Wxs0TZl7Ljk) which shows how to login and begin contributing data for your locale.
 2. **Read the Getting Started topics** on the Information Hub:
     - General translation guide
-        - [Capitalization](translation-guide-general/capitalization)
-        - [Default Content](translation-guide-general/default-content)
-        - [References](translation-guide-general/references)
-    - [Handling Errors and Warnings](getting-started/errors-and-warnings)
-    - [Handling Logical Group Errors](getting-started/resolving-errors)
-    - [Plurals & Units](getting-started/plurals)
-    - [Review Date & Time](date-time)
-    - [Review Numbers](number-currency-formats)
-    - [Review Zones](time-zones-and-city-names)
-    - [Data stability](getting-started/data-stability)
-    - [Empty cache](getting-started/empty-cache)
+        - [Capitalization](translation/translation-guide-general/capitalization)
+        - [Default Content](translation/translation-guide-general/default-content)
+        - [References](translation/translation-guide-general/references)
+    - [Handling Errors and Warnings](translation/getting-started/errors-and-warnings)
+    - [Handling Logical Group Errors](translation/getting-started/resolving-errors)
+    - [Plurals & Units](translation/getting-started/plurals)
+    - [Review Date & Time](translation/date-time)
+    - [Review Numbers](translation/number-currency-formats)
+    - [Review Zones](translation/time-zones-and-city-names)
+    - [Data stability](translation/getting-started/data-stability)
+    - [Empty cache](translation/getting-started/empty-cache)
 
 \*If you (individual or your organization) have not established a connection with the CLDR technical committee, start with [Survey Tool Accounts](index/survey-tool/survey-tool-accounts).
 
@@ -185,16 +185,16 @@ Before getting started to contribute data in CLDR, and jumping in to using the S
 You're already familiar with the CLDR process, but do keep the following in mind:
 
 1. **Aim at commonly used language** - CLDR should reflect *common-usage* standards **not** *academic /official* standards (unless commonly followed). Keep that perspective in mind.
-2. **Carefully consider changes to existing standards** - any change to an existing CLDR standard should be carefully considered and discussed with your fellow linguists in the CLDR [Forum](getting-started/guide#forum). Remember your change will be reflected across thousands of online products!
+2. **Carefully consider changes to existing standards** - any change to an existing CLDR standard should be carefully considered and discussed with your fellow linguists in the CLDR [Forum](translation/getting-started/guide#forum). Remember your change will be reflected across thousands of online products!
 3. **Keep consistency across logical groups** - ensure that all related entries are consistent. If you change the name of a weekday, make sure it's reflected across all related items. Check that the order of month and day are consistent in all the date formats, etc.
-    - *Tip: The [Reports](getting-started/review-formats) are a great way to validate consistency across related logical groups, e.g. translations of date formats. Use them to proofread your work for consistency.*
+    - *Tip: The [Reports](translation/getting-started/review-formats) are a great way to validate consistency across related logical groups, e.g. translations of date formats. Use them to proofread your work for consistency.*
 4. **Avoid voting for English** - for items that do not work in your language, don't simply use English. Find a solution that works for your language. For example, if your language doesn't have a concept of calendar "quarters", use a translation that describes the concept "three-month period" rather than "quarter-of-a-year".
 5. **Watch out for complex sections** and read the instructions carefully if in doubt:
-    1. [Date & Time](date-time/date-time-names)
-        - [Names](date-time/date-time-names)
-        - [Patterns](date-time)
-        - [Symbols](date-time/date-time-symbols)
-    2. [Time zones](time-zones-and-city-names)
-    3. [Plural forms](getting-started/plurals)
+    1. [Date & Time](translation/date-time/date-time-names)
+        - [Names](translation/date-time/date-time-names)
+        - [Patterns](translation/date-time)
+        - [Symbols](translation/date-time/date-time-symbols)
+    2. [Time zones](translation/time-zones-and-city-names)
+    3. [Plural forms](translation/getting-started/plurals)
 
-*Tip: The links in the [Info Panell](getting-started/guide#info-panel) will point you to relevant instructions for the entry you're editing/vetting. Use it if in doubt.*
+*Tip: The links in the [Info Panell](translation/getting-started/guide#info-panel) will point you to relevant instructions for the entry you're editing/vetting. Use it if in doubt.*

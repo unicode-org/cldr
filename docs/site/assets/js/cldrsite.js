@@ -87,7 +87,7 @@ const SubPagesPopup = {
               <li v-for="subpage of children" :key="subpage.path">
                   <a v-bind:href="subpage.href">
                       {{ subpage.title }}
-                       <span class="hamburger" v-if="subpage.children">❱</span>
+                       <span class="hasChildren" v-if="subpage.children">❱</span>
                   </a>
               </li>
           </ul>

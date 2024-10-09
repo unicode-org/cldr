@@ -197,4 +197,4 @@ You're already familiar with the CLDR process, but do keep the following in mind
     2. [Time zones](translation/time-zones-and-city-names)
     3. [Plural forms](translation/getting-started/plurals)
 
-*Tip: The links in the [Info Panell](translation/getting-started/guide#info-panel) will point you to relevant instructions for the entry you're editing/vetting. Use it if in doubt.*
+*Tip: The links in the [Info Panel](translation/getting-started/guide#info-panel) will point you to relevant instructions for the entry you're editing/vetting. Use it if in doubt.*

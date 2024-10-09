@@ -772,6 +772,23 @@ body.page header .subpages a:hover {
   text-decoration: underline;
 }
 
+.navHeader {
+  font-weight: bold;
+}
+
+.navBar {
+  float: right;
+  height: 100%;
+  background-color: #ddf;
+  color: black;
+  top: 0.5em;
+  left: 0.5em;
+  margin: 0em 1em 0em 0em;
+  padding: 0.3em;
+  max-width: 30%;
+  border: 1pt solid #99f;
+}
+
 header {
   width: "100%";
   background-color: #5555ff;

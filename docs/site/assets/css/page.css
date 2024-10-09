@@ -789,13 +789,15 @@ body.page header .subpages a:hover {
   border: 1pt solid #99f;
 }
 
-.navBar .subpages {
+.navBar .subpages,
+.navBar .submap {
   list-style: none;
   margin: 0.3em;
   padding: 0;
 }
 
-.navBar .subpages li {
+.navBar .subpages li,
+.pagecontents .submap {
   /* hanging indent if the subpage content wraps */
   padding-left: 1em;
   text-indent: -1em;
@@ -877,10 +879,14 @@ div.sitemap {
   padding: 1em;
 }
 
-div.submap {
+.sitemap div.submap {
   margin-left: 1em;
   border-left: 1px solid gray;
   padding-left: 0.5em;
+}
+
+.submap a {
+  padding-left: 0.25em;
 }
 
 div.sitemap {

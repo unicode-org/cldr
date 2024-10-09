@@ -310,8 +310,6 @@ const app = Vue.createApp(
             {{ ourTitle }}
 
       </div>
-        <a class="showmap" href="/sitemap">Site Map</a>
-
     </div>`,
   },
   {

@@ -5,6 +5,9 @@ const message = ref("");
 const description = ref("");
 const formIsVisible = ref(false);
 
+// TODO: modernize to obviate cldrSurvey.testsToHtml, v-html, and this entire file
+// Reference: https://unicode-org.atlassian.net/browse/CLDR-18013
+
 /**
  * Display a notification
  *

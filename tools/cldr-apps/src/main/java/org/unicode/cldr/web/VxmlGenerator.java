@@ -1,40 +1,33 @@
 package org.unicode.cldr.web;
 
-import java.io.Writer;
 import java.util.Set;
 import java.util.concurrent.ExecutionException;
 import org.unicode.cldr.util.CLDRLocale;
 
 public class VxmlGenerator {
-    public void generate(Set<CLDRLocale> sortSet, Writer out) throws ExecutionException {
-        this.sortSet = sortSet;
+
+    private final Set<CLDRLocale> locales;
+
+    public VxmlGenerator() {
+        this.locales = OutputFileManager.createVxmlLocaleSet();
+    }
+
+    public void generate(VxmlQueue.Results results) throws ExecutionException {
         try {
-            OutputFileManager.generateVxml(this, out);
+            OutputFileManager.generateVxml(this, results);
         } catch (Exception e) {
             throw new ExecutionException(e);
         }
     }
 
-    private Set<CLDRLocale> sortSet = null;
-
-    public Set<CLDRLocale> getSortSet() {
-        return sortSet;
+    public Set<CLDRLocale> getLocales() {
+        return locales;
     }
 
     public enum VerificationStatus {
         SUCCESSFUL,
         FAILED,
         INCOMPLETE
-    }
-
-    private VerificationStatus verificationStatus = VerificationStatus.INCOMPLETE;
-
-    public VerificationStatus getVerificationStatus() {
-        return verificationStatus;
-    }
-
-    public void setVerificationStatus(VerificationStatus status) {
-        verificationStatus = status;
     }
 
     /**

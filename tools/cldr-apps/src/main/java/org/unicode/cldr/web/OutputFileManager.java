@@ -18,7 +18,6 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
-import java.io.Writer;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.time.Instant;
@@ -86,9 +85,9 @@ public class OutputFileManager {
      * Generate VXML
      *
      * @param vxmlGenerator the VxmlGenerator
-     * @param out the Writer to receive output
+     * @param results the VxmlQueue.Results
      */
-    public static void generateVxml(VxmlGenerator vxmlGenerator, Writer out) {
+    public static void generateVxml(VxmlGenerator vxmlGenerator, VxmlQueue.Results results) {
         try {
             /*
              * Sync on OutputFileManager.class here prevents re-entrance if invoked repeatedly before completion.
@@ -96,27 +95,22 @@ public class OutputFileManager {
             synchronized (OutputFileManager.class) {
                 SurveyMain sm = CookieSession.sm;
                 OutputFileManager ofm = sm.getOutputFileManager();
-                File vetdataDir = sm.getVetdir();
-                vetdataDir = createNewManualVetdataDir(vetdataDir);
-                if (vetdataDir == null) {
-                    out.write("Directory creation for vetting data failed.");
+                results.directory = createNewManualVetdataDir(sm.getVetdir());
+                if (results.directory == null) {
+                    results.generationMessage = "Directory creation for vetting data failed.";
                     return;
                 }
-                // TODO: make the directory name a separate field of the http response.
-                // In the meantime, it is still part of the html written to "out".
-                // Reference: https://unicode-org.atlassian.net/browse/CLDR-14913
-                out.write("<p>Created new directory: " + vetdataDir + "</p>");
-                if (!ofm.outputAllFiles(vxmlGenerator, out, vetdataDir)) {
-                    out.write("File output failed.");
+                if (!ofm.outputAllFiles(vxmlGenerator, results)) {
+                    results.generationMessage = "File output failed.";
                     return;
                 }
-                if (!ofm.copyDtd(vetdataDir)) {
-                    out.write("Copying DTD failed.");
+                if (!ofm.copyDtd(results.directory)) {
+                    results.generationMessage = "Copying DTD failed.";
                     return;
                 }
-                File vxmlDir = new File(vetdataDir + "/" + Kind.vxml.name());
+                File vxmlDir = new File(results.directory + "/" + Kind.vxml.name());
                 ofm.removeEmptyFiles(vxmlDir);
-                ofm.verifyAllFiles(vxmlGenerator, out, vxmlDir);
+                ofm.verifyAllFiles(results, vxmlDir);
             }
             logger.log(Level.WARNING, "generateVxml finished");
         } catch (Exception e) {
@@ -196,36 +190,21 @@ public class OutputFileManager {
      * Output all files (VXML, etc.)
      *
      * @param vxmlGenerator the VxmlGenerator
-     * @param out the Writer, to receive HTML output
-     * @param vetDataDir the folder in which to write
+     * @param results the VxmlQueue.Results
      * @return true for success, false for failure
      */
-    private boolean outputAllFiles(VxmlGenerator vxmlGenerator, Writer out, File vetDataDir) {
+    private boolean outputAllFiles(VxmlGenerator vxmlGenerator, VxmlQueue.Results results) {
         try {
-            // TODO: instead of generating html on the back end, send structured data to the
-            // front end, including the generated list of locales as an array; or possibly just
-            // the number of locales written so far, along with most recent locale name.
-            // In the meantime, write a paragraph containing a comma-separated list of locale base
-            // names.
-            // Reference: https://unicode-org.atlassian.net/browse/CLDR-14913
-            out.write("<p>");
-            Set<CLDRLocale> sortSet = vxmlGenerator.getSortSet();
-            int i = 0;
-            for (CLDRLocale loc : sortSet) {
-                if (i++ > 0) {
-                    out.write(", ");
-                }
-                out.write(loc.getBaseName());
+            for (CLDRLocale loc : vxmlGenerator.getLocales()) {
                 for (OutputFileManager.Kind kind : OutputFileManager.Kind.values()) {
                     if (kind == OutputFileManager.Kind.vxml
                             || kind == OutputFileManager.Kind.pxml) {
                         logger.log(Level.WARNING, "Writing " + loc.getDisplayName() + ":" + kind);
-                        writeManualOutputFile(vetDataDir, loc, kind);
+                        writeManualOutputFile(results.directory, loc, kind);
                     }
                 }
                 vxmlGenerator.update(loc);
             }
-            out.write("</p>");
             return true;
         } catch (Exception e) {
             logger.log(Level.SEVERE, "outputAllFiles: " + e.getMessage(), e);
@@ -319,7 +298,7 @@ public class OutputFileManager {
      * Remove "empty" VXML files in the given directory
      *
      * @param dirFile the given directory
-     * @throws IOException
+     * @throws IOException failed IO
      */
     private void removeEmptyFilesOneDir(File dirFile) throws IOException {
         Set<String> treatAsNonEmpty = new HashSet<>();
@@ -370,7 +349,7 @@ public class OutputFileManager {
     /**
      * Add the given name, and the names of its ancestors (except root), to the given set
      *
-     * @param treatAsNonEmpty
+     * @param treatAsNonEmpty the set to be modified
      * @param name the xml file name (without the .xml extension)
      */
     private static void addNameAndParents(Set<String> treatAsNonEmpty, String name) {
@@ -384,51 +363,35 @@ public class OutputFileManager {
     /**
      * Verify all VXML files
      *
-     * @param vxmlGenerator the VxmlGenerator
-     * @param out the Writer, to receive HTML output
+     * @param results the VxmlQueue.Results
      *     <p>The following need to be verified on the server when generating vxml: • The same file
      *     must not occur in both the common/X and seed/X directories, for any X=main|annotations •
      *     If a parent locale (except for root) must occur in the same directory as the child locale
      *     • Every file in trunk (common|seed/X) must have a corresponding vxml file • Every file in
      *     vxml (common|seed/X) must have a corresponding trunk file This should fail with clear
      *     warning to the user that there is a major problem. Reference: CLDR-12016
-     * @throws IOException
-     *     <p>vetdata └── vxml    ├── common    │   ├── annotations    │   └── main    └── seed ├──
-     *     annotations    └── main
      */
-    private void verifyAllFiles(VxmlGenerator vxmlGenerator, Writer out, File vxmlDir)
-            throws IOException {
-        int failureCount = 0;
-
+    private void verifyAllFiles(VxmlQueue.Results results, File vxmlDir) {
         /*
          * The same file must not occur in both the common/X and seed/X directories, for any X=main|annotations
          */
-        if (!verifyNoDuplicatesInCommonAndSeed(out, vxmlDir)) {
-            ++failureCount;
-        }
+        verifyNoDuplicatesInCommonAndSeed(results, vxmlDir);
+
         /*
          * A parent locale (except for root) must occur in the same directory as the child locale
          */
-        if (!verifyParentChildSameDirectory(out, vxmlDir)) {
-            ++failureCount;
-        }
+        verifyParentChildSameDirectory(results, vxmlDir);
+
         /*
          * Every file in trunk (common|seed/X) must have a corresponding vxml file
          * Every file in vxml (common|seed/X) must have a corresponding trunk file
          */
-        if (!verifyVxmlAndBaselineFilesCorrespond(out, vxmlDir)) {
-            ++failureCount;
-        }
+        verifyVxmlAndBaselineFilesCorrespond(results, vxmlDir);
 
-        if (failureCount == 0) {
-            out.write("<h1>✅ VXML verification succeeded</h1>\nOK<br>");
-            vxmlGenerator.setVerificationStatus(VxmlGenerator.VerificationStatus.SUCCESSFUL);
+        if (results.verificationFailures.isEmpty()) {
+            results.setVerificationStatus(VxmlGenerator.VerificationStatus.SUCCESSFUL);
         } else {
-            out.write(
-                    "<h1>❌ VXML verification failed!</h1>\nFailure count = "
-                            + failureCount
-                            + "<br>");
-            vxmlGenerator.setVerificationStatus(VxmlGenerator.VerificationStatus.FAILED);
+            results.setVerificationStatus(VxmlGenerator.VerificationStatus.FAILED);
         }
     }
 
@@ -436,12 +399,9 @@ public class OutputFileManager {
      * Verify that the same file does not occur in both the common/X and seed/X directories, for any
      * X=main|annotations
      *
-     * @param out the Writer, to receive HTML output
-     * @return true if verification succeeded, false for failure
-     * @throws IOException
+     * @param results the VxmlQueue.Results
      */
-    private boolean verifyNoDuplicatesInCommonAndSeed(Writer out, File vxmlDir) throws IOException {
-
+    private void verifyNoDuplicatesInCommonAndSeed(VxmlQueue.Results results, File vxmlDir) {
         for (String m : DirNames.mainAndAnnotations) {
             String commonDirName = vxmlDir + "/" + DirNames.justCommon + "/" + m;
             String seedDirName = vxmlDir + "/" + DirNames.justSeed + "/" + m;
@@ -453,18 +413,13 @@ public class OutputFileManager {
                     String seedPathName = seedDirName + "/" + commonName;
                     File fSeed = new File(seedPathName);
                     if (fSeed.exists()) {
-                        out.write(
-                                "<h2>Verification failure, found duplicates</h2>\n"
-                                        + commonPathName
-                                        + "<br>\n"
-                                        + seedPathName
-                                        + "<br>\n");
-                        return false;
+                        results.addVerificationFailure(
+                                "Found duplicates: " + commonPathName + " - " + seedPathName);
+                        return;
                     }
                 }
             }
         }
-        return true;
     }
 
     /**
@@ -475,12 +430,9 @@ public class OutputFileManager {
      * "ff_Adlm_BF.xml" we should have "ff_Adlm.xml" in the same folder Note handling of two
      * underscores in "ff_Adlm_BF.xml"
      *
-     * @param out the Writer, to receive HTML output
-     * @return true if verification succeeded, false for failure
-     * @throws IOException
+     * @param results the VxmlQueue.Results
      */
-    private boolean verifyParentChildSameDirectory(Writer out, File vxmlDir) throws IOException {
-
+    private void verifyParentChildSameDirectory(VxmlQueue.Results results, File vxmlDir) {
         for (String c : DirNames.commonAndSeed) {
             for (String m : DirNames.mainAndAnnotations) {
                 String dirName = vxmlDir + "/" + c + "/" + m;
@@ -498,11 +450,9 @@ public class OutputFileManager {
                     String localeName = childName.replaceFirst("\\.xml$", "");
                     CLDRLocale childLoc = CLDRLocale.getInstance(localeName);
                     if (childLoc == null) {
-                        out.write(
-                                "<h2>Verification failure, locale not recognized from file name</h2>\n"
-                                        + childPathName
-                                        + "<br>\n");
-                        return false;
+                        results.addVerificationFailure(
+                                "Locale not recognized from file name: " + childPathName);
+                        return;
                     }
                     CLDRLocale parLoc = childLoc.getParent();
                     if (parLoc != null) {
@@ -513,22 +463,20 @@ public class OutputFileManager {
                             String parentPathName = dirName + "/" + parentName;
                             File fParent = new File(parentPathName);
                             if (!fParent.exists() && !otherParentExists(parentPathName, c)) {
-                                out.write(
-                                        "<h2>Verification failure, child without parent</h2>\n"
+                                results.addVerificationFailure(
+                                        "Child without parent. "
                                                 + "Child, present: "
                                                 + childPathName
-                                                + "<br>\n"
+                                                + " - "
                                                 + "Parent, absent: "
-                                                + parentPathName
-                                                + "<br>\n");
-                                return false;
+                                                + parentPathName);
+                                return;
                             }
                         }
                     }
                 }
             }
         }
-        return true;
     }
 
     /**
@@ -566,13 +514,9 @@ public class OutputFileManager {
      * required, and only results in a notification (new files in vxml are to be expected from time
      * to time).
      *
-     * @param out the Writer, to receive HTML output
-     * @return true if verification succeeded, false for failure
-     * @throws IOException
+     * @param results the VxmlQueue.Results
      */
-    private boolean verifyVxmlAndBaselineFilesCorrespond(Writer out, File vxmlDir)
-            throws IOException {
-
+    private void verifyVxmlAndBaselineFilesCorrespond(VxmlQueue.Results results, File vxmlDir) {
         String bxmlDir = CLDRConfig.getInstance().getCldrBaseDirectory().toString();
         ArrayList<String> vxmlFiles = new ArrayList<>();
         ArrayList<String> bxmlFiles = new ArrayList<>(); /* bxml = baseline cldr xml */
@@ -609,33 +553,33 @@ public class OutputFileManager {
                 /*
                  * Notification only, not a failure
                  */
-                out.write(
-                        "<h2>Verification notice, file(s) present in vxml but not in baseline</h2>\n");
+                StringBuilder message =
+                        new StringBuilder("File(s) present in VXML but not in baseline:");
                 for (String name : diff) {
                     if (vxmlFiles.contains(name)) {
-                        out.write(name + "<br>\n");
+                        message.append(" ").append(name);
                     }
                 }
+                results.addVerificationWarning(message.toString());
             }
             if (someOnlyInBxml) {
-                out.write(
-                        "<h2>Verification failure, file(s) present in baseline but not in vxml</h2>\n");
+                StringBuilder message =
+                        new StringBuilder("File(s) present in baseline but not in VXML:");
                 for (String name : diff) {
                     if (bxmlFiles.contains(name)) {
-                        out.write(name + "<br>\n");
+                        message.append(" ").append(name);
                     }
                 }
-                return false;
+                results.addVerificationFailure(message.toString());
             }
         }
-        return true;
     }
 
     /**
      * Return the set of all strings that are in one list but not the other
      *
-     * @param list1
-     * @param list2
+     * @param list1 the first list
+     * @param list2 the second list
      * @return the Set
      */
     private static Set<String> symmetricDifference(
@@ -660,8 +604,8 @@ public class OutputFileManager {
      *
      * @param file the CLDRFile for reading
      * @param outFile the File for "main"; another file will be created in "annotations"
-     * @throws UnsupportedEncodingException
-     * @throws FileNotFoundException
+     * @throws UnsupportedEncodingException for bad encoding, unlikely for UTF-8
+     * @throws FileNotFoundException for file error
      */
     private void doWriteFile(CLDRFile file, Kind kind, File outFile)
             throws UnsupportedEncodingException, FileNotFoundException {
@@ -702,10 +646,10 @@ public class OutputFileManager {
     /**
      * For a request like ".../cldr-apps/survey/vxml/main/aa.xml", respond with the xml
      *
-     * @param request
-     * @param response
+     * @param request the HttpServletRequest
+     * @param response the HttpServletResponse
      * @return true if request is for a kind of xml we can provide, else false.
-     * @throws IOException
+     * @throws IOException for WebContext failure
      */
     public boolean doRawXml(HttpServletRequest request, HttpServletResponse response)
             throws IOException {

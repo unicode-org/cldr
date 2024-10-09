@@ -2237,12 +2237,13 @@ tr.tr_err {
 }
 
 /*
-  ready to submit
-  TODO: when/where/why is this tr_submit used? Or is it unused?
-  */
-
+ * tr_submit highlights a row when a dialog is open for submitting a new value.
+ * Usually the position of the dialog is a good indicator of the row to which it corresponds. However,
+ * if the row is near the top or bottom of the window, the dialog may be positioned higher or lower in
+ * order to be completely visible. The distinctive style of the row may then help to avoid confusion.
+ */
 tr.tr_submit {
-	background-color: #dfd;
+	background-color: #dfd; /* pale green */
 }
 
 div.v-oldVotes-subDiv {

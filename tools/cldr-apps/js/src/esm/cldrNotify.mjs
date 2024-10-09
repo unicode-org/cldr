@@ -14,6 +14,10 @@
  * such as 8 seconds here, 10 seconds there; top-left here and top-right there; ...
  */
 
+import * as cldrVue from "./cldrVue.mjs";
+
+import NotificationPopup from "../views/NotificationPopup.vue";
+
 // Reference: https://www.antdv.com/components/notification
 import { notification } from "ant-design-vue";
 import { datadogLogs } from "@datadog/browser-logs";
@@ -119,4 +123,31 @@ function exception(e, context) {
   });
 }
 
-export { error, errorWithCallback, exception, open, warning };
+/**
+ * Display an error notification, possibly containing HTML, with a custom dialog
+ *
+ * @param {String} message the title, displayed at the top (plain text)
+ * @param {String} description a description of the problem, possibly HTML
+ */
+function openWithHtml(message, description) {
+  if (hasDataDog) {
+    datadogLogs.logger.error(message, { description });
+  }
+  try {
+    const NotificationPopupWrapper = cldrVue.mount(
+      NotificationPopup,
+      document.body
+    );
+    NotificationPopupWrapper.openWithMessageAndDescription(
+      message,
+      description
+    );
+  } catch (e) {
+    console.error(
+      "Error loading Notification Popup vue " + e.message + " / " + e.name
+    );
+    exception(e, "while loading NotificationPopup");
+  }
+}
+
+export { error, errorWithCallback, exception, open, openWithHtml, warning };

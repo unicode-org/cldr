@@ -29,6 +29,7 @@ import {
   Form,
   Input,
   List,
+  Modal,
   Popover,
   Progress,
   Radio,
@@ -71,6 +72,7 @@ function setup(app) {
   app.component("a-list-item-meta", List.Item.Meta);
   app.component("a-list-item", List.Item);
   app.component("a-list", List);
+  app.component("a-modal", Modal);
   app.component("a-popover", Popover);
   app.component("a-progress", Progress);
   app.component("a-radio-group", Radio.Group);

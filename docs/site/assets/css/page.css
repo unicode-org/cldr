@@ -772,6 +772,14 @@ body.page header .subpages a:hover {
   text-decoration: underline;
 }
 
+.pageheader a.uplink {
+  text-decoration: none;
+}
+
+.pageheader a.uplink:hover {
+  text-decoration: underline;
+}
+
 .navHeader {
   font-weight: bold;
 }
@@ -818,7 +826,6 @@ header div.navparent {
 
 header .navparent a.icon {
   display: table-cell;
-  margin-top: 40;
 }
 
 header .navparent > div {
@@ -826,9 +833,8 @@ header .navparent > div {
 }
 
 header .title {
-  display: table-cell;
+  display: inline;
   color: white;
-  font-size: 1.5em;
 }
 
 header .nav,

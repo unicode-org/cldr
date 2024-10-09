@@ -297,7 +297,7 @@ const app = Vue.createApp(
     <div>
        <div class='status' v-if="status">{{ status }}</div>
        <div class='status' v-if="!tree">Loading…</div>
-       <a class="icon" href="http://www.unicode.org/"> <img border="0"
+       <a class="icon" href="https://www.unicode.org/"> <img border="0"
 					src="/assets/img/logo60s2.gif"  alt="[Unicode]" width="34"
 					height="33"></a>&nbsp;&nbsp;
 

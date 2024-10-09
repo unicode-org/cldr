@@ -70,12 +70,37 @@ const AncestorPages = {
 `,
 };
 
+const SubPageEntry = {
+  props: {
+    children: Boolean,
+    title: String,
+    href: String,
+  },
+  computed: {
+    style() {
+      if (this.children) {
+        return "hasChildren";
+      } else {
+        return "";
+      }
+    },
+  },
+  template: `
+      <a v-bind:href="href" v-bind:class="style">
+        {{ title }}
+      </a>
+  `,
+};
+
 const SubPagesPopup = {
   props: {
     children: {
       type: Object,
       required: true,
     },
+  },
+  components: {
+    SubPageEntry,
   },
   emits: ["hide"], // when user clicks hide
   setup() {},
@@ -89,10 +114,7 @@ const SubPagesPopup = {
           <div class="navHeader">Subpages</div>
           <ul class="subpages" >
               <li v-for="subpage of children" :key="subpage.path">
-                  <a v-bind:href="subpage.href">
-                      {{ subpage.title }}
-                       <span class="hasChildren" v-if="subpage.children">&nbsp;❱</span>
-                  </a>
+                <SubPageEntry :children="subpage.children" :title="subpage.title" :href="subpage.href" />
               </li>
           </ul>
         </div>
@@ -111,12 +133,15 @@ const SubMap = {
   setup() {},
   computed: {
     title() {
-      return this.usermap[this.path].title;
+      if (!this.usermap) return "";
+      return this.usermap[this.path]?.title;
     },
     children() {
-      return this.usermap[this.path].children || [];
+      if (!this.usermap) return [];
+      return this.usermap[this.path]?.children || [];
     },
     href() {
+      if (!this.usermap) return "";
       return path2url(this.path);
     },
   },
@@ -134,6 +159,7 @@ const SubContents = {
     title: String,
     href: String,
     children: Object,
+    path: String,
   },
   setup() {},
   template: `
@@ -163,7 +189,7 @@ const SiteMap = {
   },
   template: `
     <div class="sitemap">
-          <SubMap :usermap="tree.value.usermap" path="index"/>
+          <SubMap :usermap="tree?.value?.usermap" path="index"/>
     </div>
   `,
 };

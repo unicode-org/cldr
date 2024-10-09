@@ -772,6 +772,10 @@ body.page header .subpages a:hover {
   text-decoration: underline;
 }
 
+body.page .subpages a.hasChildren:after {
+  content: " »";
+}
+
 .navHeader {
   font-weight: bold;
 }

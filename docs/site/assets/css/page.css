@@ -772,6 +772,39 @@ body.page header .subpages a:hover {
   text-decoration: underline;
 }
 
+.navHeader {
+  font-weight: bold;
+}
+
+.navBar {
+  float: right;
+  height: 100%;
+  background-color: #ddf;
+  color: black;
+  top: 0.5em;
+  left: 0.5em;
+  margin: 0em 1em 0em 0em;
+  padding: 0.3em;
+  max-width: 30%;
+  border: 1pt solid #99f;
+}
+
+.navBar .subpages {
+  list-style: none;
+  margin: 0.3em;
+  padding: 0;
+}
+
+.navBar .subpages li {
+  /* hanging indent if the subpage content wraps */
+  padding-left: 1em;
+  text-indent: -1em;
+}
+
+.subpages .hasChildren {
+  float: right;
+}
+
 header {
   width: "100%";
   background-color: #5555ff;
@@ -849,13 +882,6 @@ div.submap {
   padding-left: 0.5em;
 }
 
-div.subpages > .hamburger {
-  position: absolute;
-  right: 1em;
-  top: 1em;
-  color: darkslateblue;
-}
-
 div.sitemap {
   height: 90%;
 }
@@ -863,11 +889,6 @@ div.sitemap {
 div.sitemap > div.submap {
   height: 95%;
   overflow-y: scroll;
-}
-
-.subpages .hamburger:hover {
-  color: gray;
-  text-shadow: 1px 1px 3px gray;
 }
 
 header .nav ul b {

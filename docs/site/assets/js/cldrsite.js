@@ -85,13 +85,13 @@ const SubPagesPopup = {
     },
   },
   template: `
-          <div class="subpageList>
+          <div class="subpageList">
           <div class="navHeader">Subpages</div>
           <ul class="subpages" >
               <li v-for="subpage of children" :key="subpage.path">
                   <a v-bind:href="subpage.href">
                       {{ subpage.title }}
-                       <span class="hasChildren" v-if="subpage.children">❱</span>
+                       <span class="hasChildren" v-if="subpage.children">&nbsp;❱</span>
                   </a>
               </li>
           </ul>
@@ -454,7 +454,6 @@ if (myPath === "sitemap.html") {
             children: null,
           }));
           if (!objects?.length) return null;
-          console.dir({ objects });
           return objects;
         },
         ourTitle() {

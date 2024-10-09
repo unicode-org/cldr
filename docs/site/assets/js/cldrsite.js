@@ -301,15 +301,17 @@ const app = Vue.createApp(
 					src="/assets/img/logo60s2.gif"  alt="[Unicode]" width="34"
 					height="33"></a>&nbsp;&nbsp;
 
-       <AncestorPages :ancestorPages="ancestorPages"/>
+       <div class="breadcrumb">
+        <AncestorPages :ancestorPages="ancestorPages"/>
 
-       <div v-if="!children || !children.length" class="title"> {{ ourTitle }} </div>
+        <div v-if="!children || !children.length" class="title"> {{ ourTitle }} </div>
 
-       <div v-else class="title" >
+        <div v-else class="title" >
 
-            {{ ourTitle }}
+              {{ ourTitle }}
 
-      </div>
+        </div>
+       </div>
     </div>`,
   },
   {

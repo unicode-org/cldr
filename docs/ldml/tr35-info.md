@@ -1264,12 +1264,12 @@ If there is no valid -mu value, the following steps are used to determine a regi
 1. If there is a valid -ms value then let USM  be the corresponding value in column 2 of the table below.
 Otherwise FR is not used. In either case continue with step 2.
 2. If there is a valid -rg region portion of the rg value, let R be that region, and go to Compute the category.
-	* This would handle the examples `usut`, `uszzzz`, and `usabc` in the table above, resulting in R = US.
-        * Because the example `abzzzz` has an invalid region portion, no region is found here and processing continues with step 3.
+    * In the table above, this would handle the examples `usut`, `uszzzz`, and `usabc`, resulting in R = US.
+    * Because the example `abzzzz` has an invalid region portion, no region is found and processing continues with step 3.
 3. If there is a valid region in the locale, let R be that region, and go to Compute the category.
 4. Otherwise, compute the likely subtags for the locale.
-     1. If there is a likely region, then let R be that region, and go to Compute the category.
-	 2. Otherwise, let R be 001, and go to Compute the category
+    1. If there is a likely region, then let R be that region, and go to Compute the category.
+    2. Otherwise, let R be 001, and go to Compute the category
 
 | Key-Value   | Unit Systems Match          | Fallback Region for Unit Preferences |
 |-------------|-----------------------------|--------------------------------------|

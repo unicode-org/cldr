@@ -85,7 +85,7 @@ const SubPagesPopup = {
     },
   },
   template: `
-          <div class="subpages">
+          <div class="subpageList>
           <div class="navHeader">Subpages</div>
           <ul class="subpages" >
               <li v-for="subpage of children" :key="subpage.path">

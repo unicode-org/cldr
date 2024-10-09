@@ -2,7 +2,7 @@ const { ref } = Vue;
 
 // load anchor.js - must be before the sidebar loads. might as well do this
 // first thing.
-anchors.add("h1, h2, h3, h4, h5, h6, caption, dfn");
+anchors.add("h1, h2, h3, h4, h5, h6");
 
 // site management
 
@@ -160,10 +160,11 @@ const SubContents = {
     href: String,
     children: Object,
     path: String,
+    style: String,
   },
   setup() {},
   template: `
-    <div class="submap">
+    <div class="submap" v-bind:class="style">
       <a v-bind:href="href" v-bind:title="path">{{title}}</a>
       <SubContents v-if="children && children.length" v-for="child in children" :key="child.href" :title="child.title" :href="child.href" :children="child.children" />
     </div>
@@ -208,7 +209,7 @@ const PageContents = {
   template: `
     <div class="pagecontents">
         <div class="navHeader">Contents</div>
-        <SubContents v-if="children && children.length" v-for="child in children" :key="child.href" :title="child.title" :href="child.href" :children="child.children" />
+        <SubContents v-if="children && children.length" v-for="child in children" :key="child.href" :style="child.style" :title="child.title" :href="child.href" :children="child.children" />
     </div>
   `,
 };
@@ -474,11 +475,14 @@ if (myPath === "sitemap.html") {
         contents() {
           // For now we generate a flat map
           // this
-          const objects = this.anchorElements?.map(({ textContent, id }) => ({
-            title: textContent,
-            href: `#${id}`,
-            children: null,
-          }));
+          const objects = this.anchorElements?.map(
+            ({ textContent, id, tagName }) => ({
+              title: textContent,
+              href: `#${id}`,
+              children: null,
+              style: `heading${tagName}`,
+            })
+          );
           if (!objects?.length) return null;
           return objects;
         },

@@ -807,6 +807,26 @@ body.page .subpages a.hasChildren:after {
   text-indent: -1em;
 }
 
+/* these are the ToC entries in the sidebar, according to what element they came from originally. */
+.pagecontents .headingH1 {
+  margin-left: 0em;
+}
+.pagecontents .headingH2 {
+  margin-left: 1em;
+}
+.pagecontents .headingH3 {
+  margin-left: 2em;
+}
+.pagecontents .headingH4 {
+  margin-left: 3em;
+}
+.pagecontents .headingH5 {
+  margin-left: 4em;
+}
+.pagecontents .headingH6 {
+  margin-left: 5em;
+}
+
 header {
   width: "100%";
   background-color: #5555ff;

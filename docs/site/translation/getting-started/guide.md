@@ -16,8 +16,8 @@ Note that the exact appearance in screenshots may change as the tool is enhanced
     - If you experience a **Loading...** problem with the Survey Tool, try clearing your browser cache. See [Reloading JavaScript](https://www.filecloud.com/blog/2015/03/tech-tip-how-to-do-hard-refresh-in-browsers/#.XOjGNtMzbuM).
 - **Browser support** for Survey Tool includes the latest versions of Edge, Safari, Chrome, and Firefox.
 - Use [Reports](#reports) at the beginning to review the data in your language in a holistic manner for Date & time, Zones, and Numbers.
-    - Capitalization: Translations should be what is most appropriate for ”middle-of-sentence” use. So, for example, if your language normally doesn't spell languages with a capital letter, then you shouldn’t do that here. Please see [Capitalization](../translation-guide-general/capitalization) for more details.
-    - Plurals: For important information regarding the use of plural forms for your language, please read [Plurals](getting-started/plurals).
+    - Capitalization: Translations should be what is most appropriate for ”middle-of-sentence” use. So, for example, if your language normally doesn't spell languages with a capital letter, then you shouldn’t do that here. Please see [Capitalization](/translation/translation-guide-general/capitalization) for more details.
+    - Plurals: For important information regarding the use of plural forms for your language, please read [Plurals](/translation/getting-started/plurals).
 
 ### Vetting Phase
 
@@ -264,7 +264,7 @@ You may see a message like the following when trying to modify a regional locale
 
 ![alt-text](../../images/gettingStartedGuideBrazil.png)
 
-The reason that Brazil is grayed out is that it is the default content locale for Portuguese. So to modify pt-BR, you need to simply click on Portuguese. If you do click on Brazil, you will get to a page with the following at the top. Clicking on [default content locale](../translation-guide-general/default-content) will explain in more detail.
+The reason that Brazil is grayed out is that it is the default content locale for Portuguese. So to modify pt-BR, you need to simply click on Portuguese. If you do click on Brazil, you will get to a page with the following at the top. Clicking on [default content locale](/translation/translation-guide-general/default-content) will explain in more detail.
 
 ![alt-text](../../images/gettingStartedGuideGeneralInfo.png)
 
@@ -414,7 +414,7 @@ If you run into a problem with the Survey Tool functionalities, please see [FAQ 
 
 ### Forum posts for CLDR ticket feedback
 
-CLDR users can send in data feedback using [JIRA](../requesting_changes). Tickets filed in JIRA will be processed as described below. Please expect to see posts by CLDR Technical Committee members (TCs) in Forums, and participate by providing your response to any tickets needing your input.
+CLDR users can send in data feedback using [JIRA](/requesting_changes). Tickets filed in JIRA will be processed as described below. Please expect to see posts by CLDR Technical Committee members (TCs) in Forums, and participate by providing your response to any tickets needing your input.
 
 The goal is to bring it to the attention to all linguists contributing in a particular language, and gather their input, so an informed decision can be made and/or suggested.
 
@@ -425,8 +425,8 @@ The goal is to bring it to the attention to all linguists contributing in a part
 
 ## Advanced Features
 
-1. Users familiar with CLDR XML format can upload votes (and submissions) for multiple items at once. See [Bulk Data Upload](../../index/survey-tool/bulk-data-upload).
-2. Organization managers can manage users for their organization (add, remove, send passwords, set locales, etc.) For more information, see [Managing Users](../../index/survey-tool/managing-users).
+1. Users familiar with CLDR XML format can upload votes (and submissions) for multiple items at once. See [Bulk Data Upload](/index/survey-tool/bulk-data-upload).
+2. Organization managers can manage users for their organization (add, remove, send passwords, set locales, etc.) For more information, see [Managing Users](/index/survey-tool/managing-users).
     1. Some users may want to reset their Coverage Level, with the menu that looks like the image to the right.
     2. The Coverage Level determines the items that you will see for translation: the minimal level has the highest priority items. You normally start with the level marked "Default" (which will vary by your organization and locale). Each successively higher level adds more items, at successively lower priorities. You will not normally go beyond "Modern", unless you have special instructions for your organization.
     3. _Note that some companies won't use the data until it is complete at a certain coverage level, typically_ _**Modern**._

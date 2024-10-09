@@ -1,5 +1,9 @@
 const { ref } = Vue;
 
+// load anchor.js - must be before the sidebar loads. might as well do this
+// first thing.
+anchors.add("h1, h2, h3, h4, h5, h6, caption, dfn");
+
 // site management
 
 let myPath = window.location.pathname.slice(1) || "index.html";
@@ -81,13 +85,13 @@ const SubPagesPopup = {
     },
   },
   template: `
-          <div class="subpages">
+          <div class="subpageList">
           <div class="navHeader">Subpages</div>
           <ul class="subpages" >
               <li v-for="subpage of children" :key="subpage.path">
                   <a v-bind:href="subpage.href">
                       {{ subpage.title }}
-                       <span class="hasChildren" v-if="subpage.children">❱</span>
+                       <span class="hasChildren" v-if="subpage.children">&nbsp;❱</span>
                   </a>
               </li>
           </ul>
@@ -124,6 +128,22 @@ const SubMap = {
   `,
 };
 
+const SubContents = {
+  name: "SubContents",
+  props: {
+    title: String,
+    href: String,
+    children: Object,
+  },
+  setup() {},
+  template: `
+    <div class="submap">
+      <a v-bind:href="href" v-bind:title="path">{{title}}</a>
+      <SubContents v-if="children && children.length" v-for="child in children" :key="child.href" :title="child.title" :href="child.href" :children="child.children" />
+    </div>
+  `,
+};
+
 const SiteMap = {
   props: {
     tree: {
@@ -149,8 +169,11 @@ const SiteMap = {
 };
 
 const PageContents = {
+  components: {
+    SubContents,
+  },
   props: {
-    tree: {
+    children: {
       type: Object,
       required: true,
     },
@@ -159,6 +182,7 @@ const PageContents = {
   template: `
     <div class="pagecontents">
         <div class="navHeader">Contents</div>
+        <SubContents v-if="children && children.length" v-for="child in children" :key="child.href" :title="child.title" :href="child.href" :children="child.children" />
     </div>
   `,
 };
@@ -381,13 +405,10 @@ if (myPath === "sitemap.html") {
         // is the site map shown?
         const showmap = ref(true);
 
-        const contents = ref(null);
-
         return {
           tree,
           status,
           showmap,
-          contents,
         };
       },
       mounted() {
@@ -399,6 +420,7 @@ if (myPath === "sitemap.html") {
       },
       props: {
         path: String,
+        anchorElements: Object,
       },
       computed: {
         /** base path:  'index' or 'downloads/cldr-33' */
@@ -423,6 +445,17 @@ if (myPath === "sitemap.html") {
             children: (usermap[path].children ?? []).length > 0,
           }));
         },
+        contents() {
+          // For now we generate a flat map
+          // this
+          const objects = this.anchorElements?.map(({ textContent, id }) => ({
+            title: textContent,
+            href: `#${id}`,
+            children: null,
+          }));
+          if (!objects?.length) return null;
+          return objects;
+        },
         ourTitle() {
           if (this.tree?.value) {
             if (this.path === "") return this.rootTitle;
@@ -437,17 +470,15 @@ if (myPath === "sitemap.html") {
       },
       template: `
       <div class="navBar" v-if="contents || (children.length)">
-        <PageContents v-if="contents" />
+        <PageContents v-if="contents" :children="contents" />
         <SubPagesPopup v-if="children.length" :children="children"/>
       </div>`,
     },
     {
       // path of / goes to /index.html
       path: myPath,
+      anchorElements: anchors.elements,
     }
   );
   sapp.mount("#sidebar");
 }
-
-// load anchor.js
-anchors.add("h1, h2, h3, h4, h5, h6, caption, dfn");

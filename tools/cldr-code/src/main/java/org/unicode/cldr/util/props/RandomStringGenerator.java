@@ -24,6 +24,7 @@ public class RandomStringGenerator {
      * debugging.
      */
     public static UnicodeSet DEBUG_REDUCE_SET_SIZE = null; // new
+
     // UnicodeSet("[\\u0000-\\u00FF\\u0300-\\u03FF\\u2000-\\u20FF]");
     // // new UnicodeSet("[\\u0000-\\u00FF\\u2000-\\u20FF]"); //
     // or null

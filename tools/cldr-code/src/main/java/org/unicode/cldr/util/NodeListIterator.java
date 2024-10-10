@@ -15,6 +15,7 @@ import org.w3c.dom.NodeList;
 public class NodeListIterator implements Iterator<Node> {
     /** The NodeList to work on */
     private NodeList nodeList;
+
     /** Since node lists are indexed by position, the current position */
     private int currentPos = 0;
 

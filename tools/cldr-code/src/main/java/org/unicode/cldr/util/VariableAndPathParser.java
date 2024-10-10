@@ -52,6 +52,7 @@ public class VariableAndPathParser<E, F> {
 
     /** XPathExpressionParser, used internally */
     private final XPathExpressionParser xpExpParser;
+
     /** pointer to the implementation of the interface called for variable extraction */
     private ExtractableVariable variableExtractor;
 

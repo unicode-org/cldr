@@ -477,6 +477,7 @@ public final class XPathParts extends XPathParser
     protected void handleAddElement(String element) {
         addElement(element);
     }
+
     /**
      * Add an Element object to this XPathParts, using the given element name. If this is the first
      * Element in this XPathParts, also set dtdData. Do not set any attributes.

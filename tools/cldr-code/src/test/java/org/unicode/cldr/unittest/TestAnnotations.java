@@ -215,6 +215,7 @@ public class TestAnnotations extends TestFmwkPlus {
 
     static final UnicodeSet symbols =
             new UnicodeSet(Emoji.EXTRA_SYMBOL_MINOR_CATEGORIES.keySet()).freeze();
+
     /** The English name should line up with the emoji-test.txt file */
     public void TestNamesVsEmojiData() {
         for (Entry<String, Annotations> s : eng.getExplicitValues().entrySet()) {

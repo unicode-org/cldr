@@ -91,22 +91,31 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     public final class PerLocaleData implements Comparable<PerLocaleData>, BallotBox<User> {
         /** Locale of this PLD */
         private final CLDRLocale locale;
+
         /** For readonly locales, there's no DB */
         private final boolean readonly;
+
         /** Stamp that tracks if this locale has been modified (by a vote) */
         private final MutableStamp stamp;
+
         /** unresolved XMLSource backed by the DB, or null for readonly */
         private final BallotBoxXMLSource<User> dataBackedSource;
+
         /** unresolved XMLSource: == dataBackedSource, or for readonly == diskData */
         private final XMLSource xmlsource;
+
         /** Unresolved CLDRFile backed by {@link #xmlsource} */
         private final CLDRFile file;
+
         /** Resolved CLDRFile backed by {@link #xmlsource} */
         private final CLDRFile rFile;
+
         /** List of all XPaths present. Only mutated by makeSureInPathsForFile */
         private Set<String> pathsForFile;
+
         /** which XPaths had votes? */
         BitSet votesSometimeThisRelease = null;
+
         /** Voting information for each XPath */
         private final Map<String, PerXPathData> xpathToData = new HashMap<>();
 
@@ -124,6 +133,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             private final class PerUserData {
                 /** What is this user voting for? */
                 String vote;
+
                 /** What is this user's override strength? */
                 Integer override;
 
@@ -1254,6 +1264,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     /** Config: # of hours before a locale is expired from the cache */
     private final int CLDR_LOCALE_CACHE_HOURS =
             CLDRConfig.getInstance().getProperty("CLDR_LOCALE_EXPIRE_HOURS", 12);
+
     /** Config: Max # of concurrent locales/sublocales in teh cache */
     private final int CLDR_LOCALE_CACHE_MAX =
             CLDRConfig.getInstance().getProperty("CLDR_LOCALE_CACHE_MAX", 100);
@@ -1827,6 +1838,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     public SurveyMenus getSurveyMenus() {
         return surveyMenus.get();
     }
+
     /**
      * Resolving disk file, or null if none.
      *

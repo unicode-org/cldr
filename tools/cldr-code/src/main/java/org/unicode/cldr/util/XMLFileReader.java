@@ -43,6 +43,7 @@ import org.xml.sax.helpers.XMLReaderFactory;
  */
 public class XMLFileReader {
     static final boolean SHOW_ALL = false;
+
     /** Handlers to use in read() */
     public static int CONTENT_HANDLER = 1,
             ERROR_HANDLER = 2,

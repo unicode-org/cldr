@@ -15,6 +15,7 @@ public class BallotBoxXMLSource<T> extends DelegateXMLSource {
     static final Logger logger = SurveyLog.forClass(BallotBoxXMLSource.class);
 
     BallotBox<T> ballotBox;
+
     /** original data before any votes */
     XMLSource diskData;
 

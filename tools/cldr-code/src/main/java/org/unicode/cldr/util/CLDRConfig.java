@@ -37,6 +37,7 @@ public class CLDRConfig extends Properties {
     public static boolean SKIP_SEED = System.getProperty("CLDR_SKIP_SEED") != null;
     private static final long serialVersionUID = -2605254975303398336L;
     public static boolean DEBUG = false;
+
     /** This is the special implementation which will be used, i.e. CLDRConfigImpl */
     public static final String SUBCLASS = CLDRConfig.class.getName() + "Impl";
 
@@ -554,6 +555,7 @@ public class CLDRConfig extends Properties {
         public File getCldrDir() {
             return this.cldrDir;
         }
+
         // singleton
         private static FileWrapper fileWrapperInstance = new FileWrapper();
 
@@ -604,10 +606,13 @@ public class CLDRConfig extends Properties {
 
     /** TODO: better place for these constants? */
     private static final String COMMON_DIR = "common";
+
     /** TODO: better place for these constants? */
     private static final String EXEMPLARS_DIR = "exemplars";
+
     /** TODO: better place for these constants? */
     private static final String SEED_DIR = "seed";
+
     /** TODO: better place for these constants? */
     private static final String KEYBOARDS_DIR = "keyboards";
 

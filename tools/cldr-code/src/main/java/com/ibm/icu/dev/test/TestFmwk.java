@@ -135,6 +135,7 @@ public class TestFmwk extends AbstractTestLog {
             errln(sourceLocation(ex) + ex.toString() + '\n' + msg);
         }
     }
+
     // use this instead of new random so we get a consistent seed
     // for our tests
     protected Random createRandom() {

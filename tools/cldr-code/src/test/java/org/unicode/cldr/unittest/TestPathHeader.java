@@ -1571,6 +1571,7 @@ public class TestPathHeader extends TestFmwkPlus {
             assertEquals("No quotes in pathheader", false, trial.toString().contains("\""));
         }
     }
+
     /**
      * Make sure that the PathHeader sort order is consistent with the grammatical feature orders
      * "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"volume-liter\"]/displayName"

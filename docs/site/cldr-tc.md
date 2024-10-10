@@ -1,5 +1,5 @@
 ---
-title: CLDR Technical Committee
+title: CLDR Technical Committee (TC)
 ---
 
 # CLDR Technical Committee (TC)

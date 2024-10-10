@@ -816,23 +816,21 @@ body.page .subpages a.hasChildren:after {
 }
 
 /* these are the ToC entries in the sidebar, according to what element they came from originally. */
-.pagecontents .headingH1 {
+.pagecontents .headingH1,
+.pagecontents .headingH2 {
   margin-left: 0em;
 }
-.pagecontents .headingH2 {
+.pagecontents .headingH3 {
   margin-left: 1em;
 }
-.pagecontents .headingH3 {
+.pagecontents .headingH4 {
   margin-left: 2em;
 }
-.pagecontents .headingH4 {
+.pagecontents .headingH5 {
   margin-left: 3em;
 }
-.pagecontents .headingH5 {
-  margin-left: 4em;
-}
 .pagecontents .headingH6 {
-  margin-left: 5em;
+  margin-left: 4em;
 }
 
 header {
@@ -905,6 +903,10 @@ div.sitemap {
 
 .submap a {
   padding-left: 0.25em;
+}
+
+.topTitle {
+  display: none;
 }
 
 div.sitemap {
@@ -1007,6 +1009,14 @@ header#atViewHeader {
 
 div > header {
   display: none !important;
+}
+
+section.body h1.title {
+  text-align: center;
+}
+
+section.body h1.redundantTitle {
+  display: none;
 }
 
 section.body h1 {

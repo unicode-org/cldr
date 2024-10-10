@@ -331,12 +331,6 @@ const app = Vue.createApp(
        <div class="breadcrumb">
         <AncestorPages :ancestorPages="ancestorPages"/>
 
-        <div v-if="!children || !children.length" class="title"> {{ ourTitle }} </div>
-
-        <div v-else class="title" >
-
-              {{ ourTitle }}
-
         </div>
        </div>
     </div>`,
@@ -441,7 +435,13 @@ if (myPath === "sitemap.html") {
       mounted() {
         const t = this;
         siteDataPromise.then(
-          (d) => (t.tree.value = d),
+          (d) => {
+            t.tree.value = d;
+            // set style on first header if redundant
+            if (this.anchorElements[0]?.textContent === this.ourTitle) {
+              this.anchorElements[0].className = "redundantTitle";
+            }
+          },
           (e) => (t.status = e)
         );
       },
@@ -475,7 +475,7 @@ if (myPath === "sitemap.html") {
         contents() {
           // For now we generate a flat map
           // this
-          const objects = this.anchorElements?.map(
+          let objects = this.anchorElements?.map(
             ({ textContent, id, tagName }) => ({
               title: textContent,
               href: `#${id}`,
@@ -483,6 +483,9 @@ if (myPath === "sitemap.html") {
               style: `heading${tagName}`,
             })
           );
+          if (objects[0]?.title === this.ourTitle) {
+            objects = objects.slice(1);
+          }
           if (!objects?.length) return null;
           return objects;
         },
@@ -499,9 +502,12 @@ if (myPath === "sitemap.html") {
         },
       },
       template: `
+      <div>
       <div class="navBar" v-if="contents || (children.length)">
         <PageContents v-if="contents" :children="contents" />
         <SubPagesPopup v-if="children.length" :children="children"/>
+      </div>
+      <h1 class="title">{{ ourTitle }}</h1>
       </div>`,
     },
     {

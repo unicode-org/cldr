@@ -1,5 +1,5 @@
 ---
-title: JSON Packaging (Approved by the CLDR TC on 2015-03-25)
+title: 'JSON Packaging (Approved by the CLDR TC on 2015-03-25)'
 ---
 
 # JSON Packaging (Approved by the CLDR TC on 2015-03-25)

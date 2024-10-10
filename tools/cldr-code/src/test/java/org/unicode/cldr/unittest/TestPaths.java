@@ -244,7 +244,7 @@ public class TestPaths extends TestFmwkPlus {
      *     updating (to allow null for other paths) if that function changes.
      *     <p>Reference: https://unicode-org.atlassian.net/browse/CLDR-11238
      */
-    private boolean extraPathAllowsNullValue(String path) {
+    public static boolean extraPathAllowsNullValue(String path) {
         if (path.contains("/timeZoneNames/metazone")
                 || path.contains("/timeZoneNames/zone")
                 || path.contains("/dayPeriods/dayPeriodContext")

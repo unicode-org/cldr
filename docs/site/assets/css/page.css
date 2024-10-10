@@ -772,6 +772,14 @@ body.page header .subpages a:hover {
   text-decoration: underline;
 }
 
+.pageheader a.uplink {
+  text-decoration: none;
+}
+
+.pageheader a.uplink:hover {
+  text-decoration: underline;
+}
+
 body.page .subpages a.hasChildren:after {
   content: " »";
 }
@@ -834,25 +842,16 @@ header {
   padding: 0.5em;
 }
 
-header div.navparent {
+header div.navparent .nav > div {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-}
-
-header .navparent a.icon {
-  display: table-cell;
-  margin-top: 40;
-}
-
-header .navparent > div {
-  display: table-cell;
+  align-items: center;
 }
 
 header .title {
-  display: table-cell;
+  display: inline;
   color: white;
-  font-size: 1.5em;
 }
 
 header .nav,

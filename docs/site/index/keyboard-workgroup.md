@@ -2,15 +2,9 @@
 title: CLDR Keyboard Subcommittee
 ---
 
-# CLDR Keyboard Subcommittee
+# CLDR Keyboard Workgroup
 
-The CLDR Keyboard Subcommittee is developing a new cross-platform standard XML format for use by keyboard authors for inclusion in the CLDR source repository.
-
-## News
-
-2023-Feb-29: The CLDR-TC has authorized the proposed specification to be released as stable (out of Technical Preview).
-
-2023-May-15: The CLDR-TC has authorized [Public Review Issue #476](https://www.unicode.org/review/pri476/) of the proposed specification, as a "Technical Preview." The PRI closed on 2023-Jul-15.
+The CLDR Keyboard Subcommittee is responsible for the development and maintenance of a standard cross-platform XML format for use by keyboard authors.
 
 ## Background
 

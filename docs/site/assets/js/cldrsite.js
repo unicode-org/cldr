@@ -330,14 +330,7 @@ const app = Vue.createApp(
 
        <AncestorPages :ancestorPages="ancestorPages"/>
 
-       <div v-if="!children || !children.length" class="title"> {{ ourTitle }} </div>
-
-       <div v-else class="title" >
-
-            {{ ourTitle }}
-
-      </div>
-        <a class="showmap" href="/sitemap">Site Map</a>
+       <a class="showmap" href="/sitemap">Site Map</a>
 
     </div>`,
   },
@@ -489,23 +482,10 @@ if (myPath === "sitemap.html") {
               style: `heading${tagName}`,
             })
           );
-          if (!objects?.length) return null;
-          if (objects[0].title === this.ourTitle) {
-            // redundant title - change the link to go to the entire page
-            objects[0].style = "headingH1 topTitle";
-            objects[0].href = "";
-          } else {
-            // synthesize a title entry in the ToC
-            objects = [
-              {
-                title: this.ourTitle,
-                href: "",
-                children: null,
-                style: "headingH1 topTitle",
-              },
-              ...objects,
-            ];
+          if (objects[0]?.title === this.ourTitle) {
+            objects = objects.slice(1);
           }
+          if (!objects?.length) return null;
           return objects;
         },
         ourTitle() {
@@ -521,9 +501,12 @@ if (myPath === "sitemap.html") {
         },
       },
       template: `
+      <div>
       <div class="navBar" v-if="contents || (children.length)">
         <PageContents v-if="contents" :children="contents" />
         <SubPagesPopup v-if="children.length" :children="children"/>
+      </div>
+      <h1 class="title">{{ ourTitle }}</h1>
       </div>`,
     },
     {

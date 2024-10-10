@@ -1,8 +1,8 @@
 ---
-title: CLDR Keyboard Subcommittee
+title: CLDR Keyboard Working Group
 ---
 
-# CLDR Keyboard Workgroup
+# CLDR Keyboard Working Group
 
 The CLDR Keyboard Subcommittee is responsible for the development and maintenance of a standard cross-platform XML format for use by keyboard authors.
 

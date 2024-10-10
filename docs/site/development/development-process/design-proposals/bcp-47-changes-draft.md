@@ -1,5 +1,5 @@
 ---
-title: BCP 47 Changes (DRAFT)
+title: 'BCP 47 Changes (DRAFT)'
 ---
 
 # BCP 47 Changes (DRAFT)

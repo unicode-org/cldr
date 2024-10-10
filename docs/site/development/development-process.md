@@ -1,5 +1,5 @@
 ---
-title: Handling Tickets (bugs/enhancements)
+title: 'Handling Tickets (bugs/enhancements)'
 ---
 
 # Handling Tickets (bugs/enhancements)

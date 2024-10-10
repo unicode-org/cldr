@@ -1,5 +1,5 @@
 ---
-title: Locale Option Names (Key)
+title: 'Locale Option Names (Key)'
 ---
 
 # Locale Option Names (Key)

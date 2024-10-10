@@ -772,6 +772,10 @@ body.page header .subpages a:hover {
   text-decoration: underline;
 }
 
+body.page .subpages a.hasChildren:after {
+  content: " »";
+}
+
 .navHeader {
   font-weight: bold;
 }
@@ -783,7 +787,7 @@ body.page header .subpages a:hover {
   color: black;
   top: 0.5em;
   left: 0.5em;
-  margin: 0em 1em 0em 0em;
+  margin: 0em;
   padding: 0.3em;
   max-width: 30%;
   border: 1pt solid #99f;
@@ -801,6 +805,26 @@ body.page header .subpages a:hover {
   /* hanging indent if the subpage content wraps */
   padding-left: 1em;
   text-indent: -1em;
+}
+
+/* these are the ToC entries in the sidebar, according to what element they came from originally. */
+.pagecontents .headingH1 {
+  margin-left: 0em;
+}
+.pagecontents .headingH2 {
+  margin-left: 1em;
+}
+.pagecontents .headingH3 {
+  margin-left: 2em;
+}
+.pagecontents .headingH4 {
+  margin-left: 3em;
+}
+.pagecontents .headingH5 {
+  margin-left: 4em;
+}
+.pagecontents .headingH6 {
+  margin-left: 5em;
 }
 
 header {

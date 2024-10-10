@@ -2,7 +2,7 @@ const { ref } = Vue;
 
 // load anchor.js - must be before the sidebar loads. might as well do this
 // first thing.
-anchors.add("h1, h2, h3, h4, h5, h6, caption, dfn");
+anchors.add("h1, h2, h3, h4, h5, h6");
 
 // site management
 
@@ -70,12 +70,37 @@ const AncestorPages = {
 `,
 };
 
+const SubPageEntry = {
+  props: {
+    children: Boolean,
+    title: String,
+    href: String,
+  },
+  computed: {
+    style() {
+      if (this.children) {
+        return "hasChildren";
+      } else {
+        return "";
+      }
+    },
+  },
+  template: `
+      <a v-bind:href="href" v-bind:class="style">
+        {{ title }}
+      </a>
+  `,
+};
+
 const SubPagesPopup = {
   props: {
     children: {
       type: Object,
       required: true,
     },
+  },
+  components: {
+    SubPageEntry,
   },
   emits: ["hide"], // when user clicks hide
   setup() {},
@@ -89,10 +114,7 @@ const SubPagesPopup = {
           <div class="navHeader">Subpages</div>
           <ul class="subpages" >
               <li v-for="subpage of children" :key="subpage.path">
-                  <a v-bind:href="subpage.href">
-                      {{ subpage.title }}
-                       <span class="hasChildren" v-if="subpage.children">&nbsp;❱</span>
-                  </a>
+                <SubPageEntry :children="subpage.children" :title="subpage.title" :href="subpage.href" />
               </li>
           </ul>
         </div>
@@ -111,12 +133,15 @@ const SubMap = {
   setup() {},
   computed: {
     title() {
-      return this.usermap[this.path].title;
+      if (!this.usermap) return "";
+      return this.usermap[this.path]?.title;
     },
     children() {
-      return this.usermap[this.path].children || [];
+      if (!this.usermap) return [];
+      return this.usermap[this.path]?.children || [];
     },
     href() {
+      if (!this.usermap) return "";
       return path2url(this.path);
     },
   },
@@ -134,10 +159,12 @@ const SubContents = {
     title: String,
     href: String,
     children: Object,
+    path: String,
+    style: String,
   },
   setup() {},
   template: `
-    <div class="submap">
+    <div class="submap" v-bind:class="style">
       <a v-bind:href="href" v-bind:title="path">{{title}}</a>
       <SubContents v-if="children && children.length" v-for="child in children" :key="child.href" :title="child.title" :href="child.href" :children="child.children" />
     </div>
@@ -163,7 +190,7 @@ const SiteMap = {
   },
   template: `
     <div class="sitemap">
-          <SubMap :usermap="tree.value.usermap" path="index"/>
+          <SubMap :usermap="tree?.value?.usermap" path="index"/>
     </div>
   `,
 };
@@ -182,7 +209,7 @@ const PageContents = {
   template: `
     <div class="pagecontents">
         <div class="navHeader">Contents</div>
-        <SubContents v-if="children && children.length" v-for="child in children" :key="child.href" :title="child.title" :href="child.href" :children="child.children" />
+        <SubContents v-if="children && children.length" v-for="child in children" :key="child.href" :style="child.style" :title="child.title" :href="child.href" :children="child.children" />
     </div>
   `,
 };
@@ -448,11 +475,14 @@ if (myPath === "sitemap.html") {
         contents() {
           // For now we generate a flat map
           // this
-          const objects = this.anchorElements?.map(({ textContent, id }) => ({
-            title: textContent,
-            href: `#${id}`,
-            children: null,
-          }));
+          const objects = this.anchorElements?.map(
+            ({ textContent, id, tagName }) => ({
+              title: textContent,
+              href: `#${id}`,
+              children: null,
+              style: `heading${tagName}`,
+            })
+          );
           if (!objects?.length) return null;
           return objects;
         },

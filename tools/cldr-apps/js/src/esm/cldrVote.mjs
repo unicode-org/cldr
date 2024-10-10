@@ -342,6 +342,8 @@ function showProposedItem(inTd, tr, theRow, value, tests, json) {
       ];
     }
 
+    // TODO: modernize to obviate cldrSurvey.testsToHtml
+    // Reference: https://unicode-org.atlassian.net/browse/CLDR-18013
     const description = cldrSurvey.testsToHtml(tests);
     cldrNotify.openWithHtml("Response to voting", description);
     if (ourItem || (replaceErrors && value === "") /* Abstain */) {

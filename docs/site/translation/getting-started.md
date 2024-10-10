@@ -20,5 +20,3 @@ Before getting started to contribute data in CLDR, and jumping in to using the S
     - [Empty cache](/translation/getting-started/empty-cache)
 
 \*If you (individual or your organization) have not established a connection with the CLDR technical committee, start with [Survey Tool Accounts](/index/survey-tool/survey-tool-accounts).
-
-

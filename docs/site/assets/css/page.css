@@ -842,23 +842,11 @@ header {
   padding: 0.5em;
 }
 
-header div.navparent {
+header div.navparent .nav > div {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-}
-
-header .navparent a.icon {
-  display: table-cell;
-}
-
-.navparent .breadcrumb {
-  vertical-align: middle;
-  display: table-cell;
-}
-
-header .navparent > div {
-  display: table-cell;
+  align-items: center;
 }
 
 header .title {

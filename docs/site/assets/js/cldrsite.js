@@ -441,7 +441,13 @@ if (myPath === "sitemap.html") {
       mounted() {
         const t = this;
         siteDataPromise.then(
-          (d) => (t.tree.value = d),
+          (d) => {
+            t.tree.value = d;
+            // set style on first header if redundant
+            if (this.anchorElements[0]?.textContent === this.ourTitle) {
+              this.anchorElements[0].className = "redundantTitle";
+            }
+          },
           (e) => (t.status = e)
         );
       },
@@ -475,7 +481,7 @@ if (myPath === "sitemap.html") {
         contents() {
           // For now we generate a flat map
           // this
-          const objects = this.anchorElements?.map(
+          let objects = this.anchorElements?.map(
             ({ textContent, id, tagName }) => ({
               title: textContent,
               href: `#${id}`,
@@ -484,6 +490,22 @@ if (myPath === "sitemap.html") {
             })
           );
           if (!objects?.length) return null;
+          if (objects[0].title === this.ourTitle) {
+            // redundant title - change the link to go to the entire page
+            objects[0].style = "headingH1 topTitle";
+            objects[0].href = "";
+          } else {
+            // synthesize a title entry in the ToC
+            objects = [
+              {
+                title: this.ourTitle,
+                href: "",
+                children: null,
+                style: "headingH1 topTitle",
+              },
+              ...objects,
+            ];
+          }
           return objects;
         },
         ourTitle() {

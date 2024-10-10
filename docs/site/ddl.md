@@ -1,8 +1,8 @@
 ---
-title: CLDR DDL Work Group
+title: CLDR DDL Working Group
 ---
 
-# CLDR DDL Work Group
+# CLDR DDL Working Group
 
 The Common Locale Data Repository (CLDR) is [widely used](/index), and the content has grown dramatically over the years with participation by organizations of all types and sizes, as well as many individual contributors.
 

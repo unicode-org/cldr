@@ -592,11 +592,11 @@ The ordering of the characters in the set is irrelevant, but for readability in 
 
 ### ~~<a name="Character_Mapping" href="#Character_Mapping">Mapping</a>~~
 
-**This element has been deprecated.** For information on its structure and how it was intended to specify locale-specific preferred encodings for various purposes (e-mail, web), see the [Mapping](https://www.unicode.org/reports/tr35/tr35-39/tr35-general.html#Character_Mapping) section from the CLDR 27 version of the LDML Specification.
+**This element has been deprecated.** For information on its structure and how it was intended to specify locale-specific preferred encodings for various purposes (e-mail, web), see the [Mapping](tr35-general.html#Character_Mapping) section from the CLDR 27 version of the LDML Specification.
 
 ### ~~<a name="IndexLabels" href="#IndexLabels">Index Labels</a>~~
 
-**This element and its subelements have been deprecated.** For information on its structure and how it was intended to provide data for a compressed display of index exemplar characters where space is limited, see the [Index Labels](https://www.unicode.org/reports/tr35/tr35-39/tr35-general.html#IndexLabels) section from the CLDR 27 version of the LDML Specification.
+**This element and its subelements have been deprecated.** For information on its structure and how it was intended to provide data for a compressed display of index exemplar characters where space is limited, see the [Index Labels](tr35-general.html#IndexLabels) section from the CLDR 27 version of the LDML Specification.
 
 ```xml
 <!ELEMENT indexLabels (indexSeparator*, compressedIndexSeparator*, indexRangePattern*, indexLabelBefore*, indexLabelAfter*, indexLabel*) >
@@ -911,12 +911,12 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 <!-- HTML: no header -->
 
 <table><tbody>
-<tr><td><a name='unit_identifier' href='unit_identifier'>unit_identifier</a></td><td>:=</td>
+<tr><td><a name='unit_identifier' href='#unit_identifier'>unit_identifier</a></td><td>:=</td>
     <td>core_unit_identifier<br/>
         | mixed_unit_identifier<br/>
         | long_unit_identifier</td></tr>
 
-<tr><td><a name='core_unit_identifier' href='core_unit_identifier'>core_unit_identifier</a></td><td>:=</td>
+<tr><td><a name='core_unit_identifier' href='#core_unit_identifier'>core_unit_identifier</a></td><td>:=</td>
     <td>product_unit ("-" per "-" product_unit)*<br/>
         | per "-" product_unit ("-" per "-" product_unit)*
         <ul><li><em>Examples:</em>
@@ -932,25 +932,25 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 			<li><em>Constraint:</em> The token 'per' is the single value in &lt;unitIdComponent type="per"&gt;</li>
 		</ul></td></tr>
 
-<tr><td><a name='product_unit' href='product_unit'>product_unit</a></td><td>:=</td>
+<tr><td><a name='product_unit' href='#product_unit'>product_unit</a></td><td>:=</td>
         <td>single_unit ("-" single_unit)* ("-" pu_single_unit)*<br/>
             | pu_single_unit ("-" pu_single_unit)*
             <ul><li><em>Example:</em> foot-pound-force</li>
                 <li><em>Constraint:</em> No pu_single_unit may precede a single unit</li>
             </ul></td></tr>
 
-<tr><td><a name='single_unit' href='single_unit'>single_unit</a></td><td>:=</td>
+<tr><td><a name='single_unit' href='#single_unit'>single_unit</a></td><td>:=</td>
     <td>dimensionality_prefix? simple_unit | unit_constant
         <ul><li><em>Examples: </em>square-kilometer, or 100</li></ul></td></tr>
 
-<tr><td>pu_single_unit</td><td>:=</td>
+<tr><td><a name='pu_single_unit' href='#pu_single_unit'>pu_single_unit</a></td><td>:=</td>
     <td>"xxx-" single_unit | "x-" single_unit
     <ul><li><em>Example:</em> xxx-square-knuts (a Harry Potter unit)</li>
         <li><em>Note:</em> "x-" is only for backwards compatibility</li>
         <li>See <a href="#Private_Use_Units">Private-Use Units</a></li>
     </ul></td></tr>
 
-<tr><td><a name='unit_constant' href='unit_constant'>unit_constant</a></td><td>:=</td>
+<tr><td><a name='unit_constant' href='#unit_constant'>unit_constant</a></td><td>:=</td>
     <td>[1-9][0-9]* ("e" [1-9][0-9]*)?
         <ul><li><em>Examples:</em>
             <ul><li>kilowatt-hour-per-100-kilometer</li>
@@ -964,7 +964,7 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
             <li><em>Note:</em> When constructing identifiers, exponents should be greater than 3 and multiples of 3, even though parsers must accept the wider range.</li>
         </ul></td></tr>
 
-<tr><td><a name='dimensionality_prefix' href='dimensionality_prefix'>dimensionality_prefix</a></td><td>:=</td>
+<tr><td><a name='dimensionality_prefix' href='#dimensionality_prefix'>dimensionality_prefix</a></td><td>:=</td>
     <td>"square-"<p>| "cubic-"<p>| "pow" ([2-9]|1[0-5]) "-"
         <ul>
 			<li><em>Constraint:</em> must be value in: &lt;unitIdComponent type="power"&gt;.</li>
@@ -972,7 +972,7 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 			<li><em>Note:</em> These are values in &lt;unitIdComponent type="power"&gt;</li>
 		</ul></td></tr>
 
-<tr><td><a name='simple_unit' href='simple_unit'>simple_unit</a></td><td>:=</td>
+<tr><td><a name='simple_unit' href='#simple_unit'>simple_unit</a></td><td>:=</td>
     <td>(prefix_component "-")* (prefixed_unit | base_component) ("-" suffix_component)*<br/>
 		|  currency_unit<br/>
 		| "em" | "g" | "us" | "hg" | "of"
@@ -982,27 +982,27 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 			We will likely deprecate those and add conformant aliases in the future: the "hg" and "of" are already only in deprecated simple_units.</li>
         </ul></td></tr>
 
-<tr><td>prefixed_unit</td><td></td>
+<tr><td><a name='prefixed_unit' href='#prefixed_unit'>prefixed_unit</a></td><td></td>
     <td>prefix base_component<ul><li><em>Example: </em>kilometer</li></ul></td></tr>
 
-<tr><td><a name='prefix' href='prefix'>prefix</a></td><td></td>
+<tr><td><a name='prefix' href='#prefix'>prefix</a></td><td></td>
     <td>si_prefix | binary_prefix</td></tr>
 
-<tr><td>si_prefix</td><td>:=</td>
+<tr><td><a name='si_prefix' href='#si_prefix'>si_prefix</a></td><td>:=</td>
     <td>"deka" | "hecto" | "kilo", …
         <ul><li><em>Constraint:</em> Must be an attribute value of the <code>type</code> in: &lt;unitPrefix type='…' … power10='…'&gt;. 
 			See also <a href="https://www.nist.gov/pml/special-publication-811">NIST special publication 811</a></li></ul></td></tr>
 
-<tr><td>binary_prefix</td><td>:=</td>
+<tr><td><a name='binary_prefix' href='#binary_prefix'>binary_prefix</a></td><td>:=</td>
     <td>"kibi", "mebi", …
         <ul><li><em>Constraint:</em> Must be an attribute value of the <code>type</code> in: &lt;unitPrefix type='…' … power2='…'&gt;. 
 			See also <a href="https://physics.nist.gov/cuu/Units/binary.html">Prefixes for binary multiples</a></li></ul></td></tr>
 
-<tr><td>prefix_component</td><td>:=</td>
+<tr><td><a name='prefix_component' href='#prefix_component'>prefix_component</a></td><td>:=</td>
     <td>[a-z]{3,∞}
         <ul><li><em>Constraint:</em> must be value in: &lt;unitIdComponent type="prefix"&gt;.</li></ul></td></tr>
 
-<tr><td>base_component</td><td>:=</td>
+<tr><td><a name='base_component' href='#base_component'>base_component</a></td><td>:=</td>
     <td>[a-z]{3,∞}
         <ul><li><em>Constraint:</em> must not be a value in any of the following:<br>
 			&lt;unitIdComponent type="prefix"&gt;<br>
@@ -1018,13 +1018,13 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 		</ul>
 	</td></tr>
 
-<tr><td>suffix_component</td><td>:=</td>
+<tr><td><a name='suffix_component' href='#suffix_component'>suffix_component</a></td><td>:=</td>
     <td>[a-z]{3,∞}
         <ul>
 			<li><em>Constraint:</em> must be value in: &lt;unitIdComponent type="suffix"&gt;</li>
 		</ul></td></tr>
 
-<tr><td><a name='mixed_unit_identifier' href='mixed_unit_identifier'></a></td><td>:=</td>
+<tr><td><a name='mixed_unit_identifier' href='#mixed_unit_identifier'></a></td><td>:=</td>
     <td>(single_unit | pu_single_unit) ("-" and "-" (single_unit | pu_single_unit ))*
         <ul><li><em>Example: foot-and-inch</em></li>
 		</ul></td></tr>
@@ -1035,13 +1035,13 @@ Some of the constraints reference data from the unitIdComponents in [Unit_Conver
 			<li><em>Constraint:</em> The token 'and' is the single value in &lt;unitIdComponent type="and"&gt;</li>
 		</ul></td></tr>
 
-<tr><td>long_unit_identifier</td><td>:=</td>
+<tr><td><a name='long_unit_identifier' href='#long_unit_identifier'>long_unit_identifier</a></td><td>:=</td>
     <td>grouping "-" core_unit_identifier</td></tr>
 
 <tr><td>grouping</td><td>:=</td>
     <td>[a-z]{3,∞}</td></tr>
 
-<tr><td><a name='currency_unit' href='currency_unit'>currency_unit</a></td><td>:=</td>
+<tr><td><a name='currency_unit' href='#currency_unit'>currency_unit</a></td><td>:=</td>
     <td>"curr-" [a-z]{3}
         <ul>
 			<li><em>Constraint:</em> The first part of the currency_unit is a standard prefix; the second part of the currency unit must be a valid <a href="tr35.md#UnicodeCurrencyIdentifier">Unicode currency identifier</a>.</li>
@@ -2689,7 +2689,7 @@ All such characters should be removed before looking up any short names and keyw
 
 ### <a name="SynthesizingNames" href="#SynthesizingNames">Synthesizing Sequence Names</a>
 
-Many emoji are represented by sequences of characters. When there are no `annotation` elements for that string, the short name can be synthesized as follows. **Note:** The process details may change after the release of this specification, and may further change in the future if other sequences are added. Please see the [Known Issues](https://cldr.unicode.org/index/downloads/cldr-41#h.qa3jolg7zi2s) section of the CLDR download page for any updates.
+Many emoji are represented by sequences of characters. When there are no `annotation` elements for that string, the short name can be synthesized as follows. **Note:** The process details may change after the release of this specification, and may further change in the future if other sequences are added.
 
 1.  If **sequence** is an **emoji flag sequence**, look up the territory name in CLDR for the corresponding ASCII characters and return as the short name. For example, the regional indicator symbols P+F would map to “Französisch-Polynesien” in German.
 2.  If **sequence** is an **emoji tag sequence**, look up the subdivision name in CLDR for the corresponding ASCII characters and return as the short name. For example, the TAG characters gbsct would map to “Schottland” in German.

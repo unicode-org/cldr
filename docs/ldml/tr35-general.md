@@ -1477,7 +1477,7 @@ nostr "no:n"
 The generated yesexpr and noexpr would be:
 
 ```
-yesexpr "^([yY] ([eE][sS])?)"
+yesexpr "^([yY]​([eE][sS])?)"
 ```
 
 This would match y,Y,yes,yeS,yEs,yES,Yes,YeS,YEs,YES.

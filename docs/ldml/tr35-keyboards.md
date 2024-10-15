@@ -2229,7 +2229,7 @@ _Attribute:_ `from` (required)
 
 - **Nested capturing groups**
 
-    `(?:[abc]​([def]))|(?:[ghi])`
+    `(?:[abc]([def]))|(?:[ghi])`
 
     Capture groups may be nested, however only the innermost group is allowed to be a capture group. The outer group must be a non-capturing group.
 

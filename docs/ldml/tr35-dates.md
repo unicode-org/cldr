@@ -1345,7 +1345,7 @@ The dayPeriodRule may span two days, such as where **night1** is [21:00, 06:00).
 
 If rounding is done—including the rounding done by the time format—then it needs to be done before the dayperiod is computed, so that the correct format is shown.
 
-For examples, see [Day Periods Chart](https://unicode-org.github.io/cldr-staging/charts/38/supplemental/day_periods.html).
+For examples, see [Day Periods Chart](https://www.unicode.org/cldr/charts/46/supplemental/day_periods.html).
 
 ## <a name="Time_Zone_Names" href="#Time_Zone_Names">Time Zone Names</a>
 

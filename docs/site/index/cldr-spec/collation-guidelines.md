@@ -14,7 +14,7 @@ Requests to change the collation order for a given locale, or to supply addition
 
 ### Rules
 
-The request should present the precise change expressed as rules. The rules must be supplied in the syntax as specified in [https://www.unicode.org/reports/tr35/tr35\-collation.html\#Rules](https://www.unicode.org/reports/tr35/tr35-collation.html#Rules). (This used to be called the "basic syntax".) The rules must also be [Minimal Rules](#minimal-rules) as described below: *only* differences from [https://unicode.org/charts/uca/](https://unicode.org/charts/uca/) should be specified.
+The request should present the precise change expressed as rules. The rules must be supplied in the syntax as specified in [https://www.unicode.org/reports/tr35/tr35\-collation.html\#Rules](https://www.unicode.org/reports/tr35/tr35-collation.html#Rules). (This used to be called the "basic syntax".) The rules must also be [Minimal Rules](#minimal-rules) as described below: *only* differences from [https://www.unicode.org/charts/collation](https://www.unicode.org/charts/collation/) should be specified.
 
 *\& c \< cs*
 
@@ -192,7 +192,7 @@ It would be possible instead to have rules that list every letter used by Slovak
 1. Every time a character is tailored, the data for that character takes up more room in typical implementations. That means that the data for collation is larger, downloads of collation libraries with that data are slower, sort keys are longer, and performance is slower; sometimes very much so.
 2. Related characters in the same script are in a peculiar order. For example, if the Slovak tailoring omits ƀ, then it would show up as after z.
 
-You can see what the UCA currently does with a given script by looking at the charts at [Unicode Collation Charts](https://www.unicode.org/charts/collation/), or at the [UCA in ICU\-style rules](https://unicode.org/cldr/data/diff/collation/UCA.txt). For example, suppose that U\+0D89 SINHALA LETTER IYANNA and U\+0D8A SINHALA LETTER IIYANNA needed to come after U\+0D96 SINHALA LETTER AUYANNA, in primary order, and that otherwise DUCET was ok. Then you would give the following rules:
+You can see what the UCA currently does with a given script by looking at the charts at [Unicode Collation Charts](https://www.unicode.org/charts/collation/). For example, suppose that U\+0D89 SINHALA LETTER IYANNA and U\+0D8A SINHALA LETTER IIYANNA needed to come after U\+0D96 SINHALA LETTER AUYANNA, in primary order, and that otherwise DUCET was ok. Then you would give the following rules:
 
 \& ඖ \# U\+0D96 SINHALA LETTER AUYANNA
 

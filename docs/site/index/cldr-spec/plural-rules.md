@@ -13,7 +13,7 @@ Languages vary in how they handle plurals of nouns or unit expressions ("hour" v
 - many (also used for fractions if they have a separate class)
 - other (required—general plural form—also used if the language only has a single form)
 
-*See [Language Plural Rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html) for the categories for each language in CLDR.*
+*See [Language Plural Rules](https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html) for the categories for each language in CLDR.*
 
 These categories are used to provide localized units, with a more natural ways of expressing phrases that vary in plural form, such as "1 hour" vs "2 hours". While they cannot express all the intricacies of natural languages, they allow for more natural phrasing than constructions like "1 hour(s)".
 
@@ -57,7 +57,7 @@ The categories are verified by looking a minimal pairs: where a change in numeri
 
 Warning for Vetters
 
-The Category (Code) values indicate a certain range of numbers that differ between languages. To see the meaning of each Code value for your language see [Language Plural Rules](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html) chart.
+The Category (Code) values indicate a certain range of numbers that differ between languages. To see the meaning of each Code value for your language see [Language Plural Rules](https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html) chart.
 
 *The minimal pairs in the Survey Tool are not direct translations of English*. They *may* be translations of English, such as in [German](https://st.unicode.org/cldr-apps/v#/de/MinimalPairs/), but must be different if those words or terms do not show the right plural differences for your language. For example, if we look at [Belarusian](https://st.unicode.org/cldr-apps/v#/be/MinimalPairs/), they are quite different, corresponding to “{0} books in {0} days”, while [Welsh](https://st.unicode.org/cldr-apps/v#/cy/MinimalPairs/43b7793f1f673abe) has the equivalent of “{0} dog, {0} cat”. *Be sure to read the following examples carefully and pay attention to error messages.*
 
@@ -172,7 +172,7 @@ In some sense, the names for the categories are somewhat arbitrary. Yet for cons
 	- If there needs to be a category for items only have fractional values, use '**many**'
 8. If there are more categories needed for the language, describe what those categories need to cover in the bug report.
 
-See [*Language Plural Rules*](https://www.unicode.org/cldr/data/charts/supplemental/language_plural_rules.html) for examples of rules, such as for [Czech](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html#cs), and for [comparisons of values](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html#cs-comp). Note that in the integer comparison chart, most languages have 'x' (other—gray) for most integers. There are some exceptions (Russian and Arabic, for example), where the categories of 'many' and 'other' should have been swapped when they were defined, but are too late now to change.
+See [*Language Plural Rules*](https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html) for examples of rules, such as for [Czech](https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html#cs), and for [comparisons of values](https://www.unicode.org/cldr/charts/latest/supplemental/language_plural_rules.html#cs-comp). Note that in the integer comparison chart, most languages have 'x' (other—gray) for most integers. There are some exceptions (Russian and Arabic, for example), where the categories of 'many' and 'other' should have been swapped when they were defined, but are too late now to change.
 
 ## Important Notes
 

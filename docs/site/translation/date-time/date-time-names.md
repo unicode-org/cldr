@@ -14,7 +14,7 @@ Certain calendar fields can have both numeric and textual forms. **Textual forms
 	- Wide (e.g. Sunday)
 	- Abbreviated (e.g Sun)
 	- Narrow (e.g. S)
-	- There are two styles. For more information, see [When to use standalone vs. formatting](/translation/date-time-1/date-time-patterns#TOC-When-to-use-Standalone-vs.-Formatting) in Date/Time patterns.
+	- There are two styles. For more information, see [When to use standalone vs. formatting](/translation/date-time/date-time-patterns#when-to-use-standalone-vs-formatting) in Date/Time patterns.
 		- Formatting
 		- Standalone
 - Capitalization should follow the middle of a sentence rule. For more information, see [Capitalization](/translation/translation-guide-general/capitalization).  
@@ -60,7 +60,7 @@ Era names are in Gregorian Calendar and other calendars:
 - There are only two values for an era in a Gregorian calendar.
 	- The common use of these era names in English are more for religious forms. "BC" (Before Christ) and AD (Anno Domini)" - from the Latin for "The year of our Lord".
 	- The secular equivalents of these two era names are "BCE" (Before Common Era) and "CE" (Common Era).
-- Other calendars (see [Different calendars in Date/Time patterns](/translation/date-time-1/date-time-patterns#TOC-Different-Calendars-)) have a different numbers of eras.
+- Other calendars (see [Different calendars in Date/Time patterns](/translation/date-time/date-time-patterns#different-calendars)) have a different numbers of eras.
 	- The names for eras are often specific to the given calendar, such as the Japanese era names.
 	- If other calendars are in common use in one of the countries/regions that use your language, other calendars will show under the modern coverage level.
 
@@ -86,7 +86,7 @@ This field is one of the months of the year, such as January or February. 
 	- Used in patterns with a day number. (e.g. Finnish, and many Slavic languages distinguish between nominative and genitive/related)
 - Use the type such as the nominative case for **Standalone** month names.
 	- Used in pattern without a day number.
-- The specific values that are used in the format and stand-alone names need to be closely co-ordinated with the date patterns that will use them. See [When to use standalone vs. format names](/translation/date-time-1/date-time-patterns#TOC-When-to-use-Standalone-vs.-Formatting) in Date/Time patterns.
+- The specific values that are used in the format and stand-alone names need to be closely co-ordinated with the date patterns that will use them. See [When to use standalone vs. format names](/translation/date-time/date-time-patterns#when-to-use-standalone-vs-formatting) in Date/Time patterns.
 	- Some languages (for example, Catalan) use a preposition to combine the month and day number like in the format “11 de setembre” (11 of September). If the month name begins with a vowel, the preposition is contracted, for example, “12 d’octubre
 		- Include the preposition in its correct form (contracted or not) for formatting month names
 		- DO NOT include the preposition for standalone month names and in patterns that use standalone month names
@@ -95,7 +95,7 @@ This field is one of the months of the year, such as January or February. 
 
 This field is one of the days of the week: Monday, Tuesday, Wednesday, etc...
 
-Same as month names, you need to use different symbols to coordinate use of standalone (e.g. cccc) and format names (e.g. EEEE) in patterns. See [When to use standalone vs. format names](/translation/date-time-1/date-time-patterns#TOC-When-to-use-Standalone-vs.-Formatting) in Date/Time patterns.
+Same as month names, you need to use different symbols to coordinate use of standalone (e.g. cccc) and format names (e.g. EEEE) in patterns. See [When to use standalone vs. format names](/translation/date-time/date-time-patterns#when-to-use-standalone-vs-formatting) in Date/Time patterns.
 
 💡 **Translation Tips**
 
@@ -107,7 +107,7 @@ Same as month names, you need to use different symbols to coordinate use of stan
 
 AM/PM (special handling for locales using 24 hrs)
 
-Also see [Additional Date/time formats](/translation/date-time-1/date-time-patterns#TOC-Additional-Date-Time-Formats). 
+Also see [Additional Date/time formats](/translation/date-time/date-time-patterns#additional-date-time-formats). 
 
 💡 **Translation Tips**
 
@@ -169,7 +169,7 @@ In formatting, where your language has a term for midnight, it is used instead o
 
 These mark approximate periods in the day, _and those periods differ between languages_. The codes are arbitrary, and don't have to match the English meaning for your language: the important feature is the time span. The spans are approximate; in reality they may vary with the time of year (they might be dependent on sunrise), or context (someone might say they went to bed at 2 at night, and later one say that they woke up at 2 in the morning). 
 
-**For a list of the day period IDs defined in CLDR for your language, see [Day Periods](https://www.unicode.org/cldr/charts/45/supplemental/day_periods.html)**. If you think the rules are wrong (or missing) for your language, please [file a ticket](/index/bug-reports#TOC-Filing-a-Ticket) and supply the missing information. Here are examples for English and Chinese.
+**For a list of the day period IDs defined in CLDR for your language, see [Day Periods](https://www.unicode.org/cldr/charts/45/supplemental/day_periods.html)**. If you think the rules are wrong (or missing) for your language, please [file a ticket](/requesting_changes#how-to-file-a-ticket) and supply the missing information. Here are examples for English and Chinese.
 
 | Code | English | Span | Chinese | Span |
 |---|---|---|---|---|

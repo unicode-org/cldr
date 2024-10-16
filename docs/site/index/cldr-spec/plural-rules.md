@@ -19,7 +19,7 @@ These categories are used to provide localized units, with a more natural ways o
 
 ## Reporting Defects
 
-When you find errors or omissions in this data, please report the information with a [bug report](/index/bug-reports#TOC-Filing-a-Ticket). Please give examples of how the forms may differ. You don't have to give the exact rules, but it is extremely helpful! Here's an example:  
+When you find errors or omissions in this data, please report the information by [filing a ticket](/requesting_changes#how-to-file-a-ticket). Please give examples of how the forms may differ. You don't have to give the exact rules, but it is extremely helpful! Here's an example:  
 
 **Sample Bug Report**
 
@@ -172,7 +172,7 @@ In some sense, the names for the categories are somewhat arbitrary. Yet for cons
 	- If there needs to be a category for items only have fractional values, use '**many**'
 8. If there are more categories needed for the language, describe what those categories need to cover in the bug report.
 
-See [*Language Plural Rules*](http://www.unicode.org/cldr/data/charts/supplemental/language_plural_rules.html) for examples of rules, such as for [Czech](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html#cs), and for [comparisons of values](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html#cs-comp). Note that in the integer comparison chart, most languages have 'x' (other—gray) for most integers. There are some exceptions (Russian and Arabic, for example), where the categories of 'many' and 'other' should have been swapped when they were defined, but are too late now to change.
+See [*Language Plural Rules*](https://www.unicode.org/cldr/data/charts/supplemental/language_plural_rules.html) for examples of rules, such as for [Czech](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html#cs), and for [comparisons of values](https://www.unicode.org/cldr/charts/45/supplemental/language_plural_rules.html#cs-comp). Note that in the integer comparison chart, most languages have 'x' (other—gray) for most integers. There are some exceptions (Russian and Arabic, for example), where the categories of 'many' and 'other' should have been swapped when they were defined, but are too late now to change.
 
 ## Important Notes
 
@@ -188,7 +188,7 @@ If you were to substitute a different number for "1" in a sentence or phrase, wo
 
 ## Plural Rule Syntax
 
-See [LDML Language Plural Rules](http://unicode.org/reports/tr35/tr35-numbers.html#Language_Plural_Rules).
+See [LDML Language Plural Rules](https://unicode.org/reports/tr35/tr35-numbers.html#Language_Plural_Rules).
 
 ## Plural Message Migration
 

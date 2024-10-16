@@ -135,7 +135,7 @@ For more information see the key links in [CLDR Survey Tool](https://st.unicode.
         - For transforms, see the XML data at [https://unicode.org/cldr/data/common/transforms/](https://unicode.org/cldr/data/common/transforms/)
     - Non-linguistic locale data:
         - XML data: [https://unicode.org/cldr/data/common/supplemental/](https://unicode.org/cldr/data/common/supplemental/)
-        - HTML view: [https://www.unicode.org/cldr/data/diff/supplemental/supplemental.html](https://www.unicode.org/cldr/data/diff/supplemental/supplemental.html)
+        - HTML view: [https://www.unicode.org/cldr/charts/latest/supplemental/](https://www.unicode.org/cldr/charts/latest/supplemental/)
 
 ### Prioritization
 

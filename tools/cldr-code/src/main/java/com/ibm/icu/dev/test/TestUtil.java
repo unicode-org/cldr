@@ -52,6 +52,7 @@ public final class TestUtil {
         '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',
         'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
     };
+
     /**
      * Return true if the character is NOT printable ASCII. The tab, newline and linefeed characters
      * are considered unprintable.
@@ -59,6 +60,7 @@ public final class TestUtil {
     public static boolean isUnprintable(int c) {
         return !(c >= 0x20 && c <= 0x7E);
     }
+
     /**
      * Escape unprintable characters using <backslash>uxxxx notation for U+0000 to U+FFFF and
      * <backslash>Uxxxxxxxx for U+10000 and above. If the character is printable ASCII, then do

@@ -17,10 +17,12 @@ public class DoctypeXmlStreamWrapper {
     private static final byte DOCTYPE_BYTES[] = DOCTYPE.getBytes(StandardCharsets.UTF_8);
     // the string to look for:  xmlns="
     private static final String XMLNS_EQUALS = LDMLConstants.XMLNS + "=\"";
+
     /**
      * Size of the input buffer, needs to be able to handle any expansion when the header is updated
      */
     public static int BUFFER_MAX_SIZE = 1024;
+
     /** Size of the first read, needs to contain xmlns="..." and be less than BUFFER_MAX_SIZE */
     public static int BUFFER_READ_SIZE = 512;
 

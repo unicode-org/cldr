@@ -61,13 +61,17 @@ The CLDR Keyboard Subcommittee was formed and has been meeting since mid-2020. I
 
 ### What is the current status?
 
+Discussion
+
+- The Keyboard WG is actively working on requirements and processes for the repository of CLDR Keyboard data [CLDR-17254](https://unicode-org.atlassian.net/browse/CLDR-17254)
+
 Release
 
-Updates to LDML (UTS#35) Part 7: Keyboards are scheduled to be released as part of [CLDR v45](/index/downloads/cldr-45).
+- Updates to LDML (UTS#35) Part 7: Keyboards have been released as part of [CLDR v45](/index/downloads/cldr-45).
 
 Implementations
 
-- The [SIL Keyman](https://keyman.com/ldml/) project is actively working on an open-source implementation of the LDML format.
+- The [SIL Keyman](https://keyman.com/ldml/) project has shipped an open-source implementation of the LDML format in Keyman 17.0 (Desktop, and Developer tools).
 
 ### How can I get involved?
 

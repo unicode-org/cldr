@@ -59,6 +59,7 @@ public enum Organization {
     rumantscha("Lia Rumantscha"),
     sardware("Sardware", "Sardware"),
     sil("SIL", "SIL International"),
+    silicon("Stanford SILICON"),
     special("High Coverage and Generated"),
     srilanka("Sri Lanka ICTA", "Sri Lanka"),
     surveytool("Survey Tool"),

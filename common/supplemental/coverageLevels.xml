@@ -215,6 +215,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageVariable key="%tibtDefaultLanguages" value="(dz)"/>
 		<coverageVariable key="%tibtNativeLanguages" value="(bo)"/>
 		<coverageVariable key="%vaiiNativeLanguages" value="(vai)"/> <!-- regardless of script -->
+		<coverageVariable key="%yiiiNativeLanguages" value="(ii)"/>
 
 		<!-- Additional variables for the restructuring -->
 
@@ -555,7 +556,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel	value="moderate"	inLanguage="%tibtDefaultLanguages"	match="numbers/currencyFormats[@numberSystem='tibt']/currencyFormatLength/currencyFormat%stdPattern[@alt='%anyAttribute']"/>
 		<coverageLevel	value="basic"		inLanguage="%tibtDefaultLanguages"	match="numbers/currencyFormats[@numberSystem='tibt']/currencyFormatLength/currencyFormat%stdPattern"/>
 		<coverageLevel	value="moderate"	inLanguage="%tibtDefaultLanguages"	match="numbers/currencyFormats[@numberSystem='tibt']/currencyFormatLength[@type='short']/currencyFormat[@type='standard']/pattern[@type='%compactDecimalTypes']"/>
-	
+
 		<coverageLevel	value="moderate"	inScript="%adlmDefaultScripts"	match="numbers/decimalFormats[@numberSystem='adlm']/decimalFormatLength[@type='%shortLong']/decimalFormat[@type='standard']/pattern[@type='%compactDecimalTypes']"/>
 		<coverageLevel	value="basic"		inScript="%adlmDefaultScripts"	match="numbers/decimalFormats[@numberSystem='adlm']/decimalFormatLength/decimalFormat%stdPattern"/>
 		<coverageLevel	value="moderate"	inLanguage="%arabDefaultLanguages" inScript="Arab" match="numbers/decimalFormats[@numberSystem='arab']/decimalFormatLength[@type='%shortLong']/decimalFormat[@type='standard']/pattern[@type='%compactDecimalTypes']"/>
@@ -885,6 +886,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel inLanguage="%vaiiNativeLanguages" value="moderate" match="numbers/scientificFormats[@numberSystem='vaii']/scientificFormatLength/scientificFormat%stdPattern"/>
 		<coverageLevel inLanguage="%vaiiNativeLanguages" value="moderate" match="numbers/percentFormats[@numberSystem='vaii']/percentFormatLength/percentFormat%stdPattern"/>
 		<coverageLevel inLanguage="%vaiiNativeLanguages" value="moderate" match="numbers/decimalFormats[@numberSystem='vaii']/decimalFormatLength[@type='%shortLong']/decimalFormat[@type='standard']/pattern[@type='%compactDecimalTypes']"/>
+		<coverageLevel inLanguage="%yiiiNativeLanguages" value="moderate" match="numbers/symbols[@numberSystem='yiii']/decimal"/>
+		<coverageLevel inLanguage="%yiiiNativeLanguages" value="moderate" match="numbers/symbols[@numberSystem='yiii']/group"/>
+		<coverageLevel inLanguage="%yiiiNativeLanguages" value="moderate" match="numbers/symbols[@numberSystem='yiii']/plusSign"/>
+		<coverageLevel inLanguage="%yiiiNativeLanguages" value="moderate" match="numbers/symbols[@numberSystem='yiii']/minusSign"/>
+		<coverageLevel inLanguage="%yiiiNativeLanguages" value="moderate" match="numbers/symbols[@numberSystem='yiii']/percentSign"/>
+		<coverageLevel inLanguage="%yiiiNativeLanguages" value="moderate" match="numbers/decimalFormats[@numberSystem='yiii']/decimalFormatLength/decimalFormat%stdPattern"/>
+		<coverageLevel inLanguage="%yiiiNativeLanguages" value="moderate" match="numbers/currencyFormats[@numberSystem='yiii']/currencyFormatLength/currencyFormat%stdPattern"/>
+		<coverageLevel inLanguage="%yiiiNativeLanguages" value="moderate" match="numbers/currencyFormats[@numberSystem='yiii']/currencyFormatLength/currencyFormat%stdPattern[@alt='%anyAttribute']"/>
+		<coverageLevel inLanguage="%yiiiNativeLanguages" value="moderate" match="numbers/scientificFormats[@numberSystem='yiii']/scientificFormatLength/scientificFormat%stdPattern"/>
+		<coverageLevel inLanguage="%yiiiNativeLanguages" value="moderate" match="numbers/percentFormats[@numberSystem='yiii']/percentFormatLength/percentFormat%stdPattern"/>
+		<coverageLevel inLanguage="%yiiiNativeLanguages" value="moderate" match="numbers/decimalFormats[@numberSystem='yiii']/decimalFormatLength[@type='%shortLong']/decimalFormat[@type='standard']/pattern[@type='%compactDecimalTypes']"/>
 
 		<coverageLevel value="moderate" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/appendItems/appendItem[@request='Timezone']"/>
 		<coverageLevel value="moderate" match="dates/calendars/calendar[@type='generic']/dateTimeFormats/availableFormats/dateFormatItem[@id='%dateFormatItems']"/>

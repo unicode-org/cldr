@@ -32,6 +32,7 @@ marked.use(markedAlert());
  * @returns {Promise<string>} name of output file (for status update)
  */
 async function renderit(infile) {
+  const gtag = (await fs.readFile('gtag.html', 'utf-8')).trim();
   console.log(`Reading ${infile}`);
   basename = path.basename(infile, ".md");
   const outfile = path.join(path.dirname(infile), `${basename}.html`);
@@ -55,6 +56,7 @@ async function renderit(infile) {
   // add CSS to HEAD
   head.innerHTML =
     head.innerHTML +
+    gtag + '\n' +
     `<meta charset="utf-8">\n` +
     `<link rel='stylesheet' type='text/css' media='screen' href='../reports-v2.css'>\n` +
     `<link rel='stylesheet' type='text/css' media='screen' href='tr35.css'>\n`;

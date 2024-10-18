@@ -4,7 +4,7 @@ Copyright © 1991-2024 Unicode, Inc.
 SPDX-License-Identifier: Unicode-3.0
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
-<keyboard3 xmlns="https://schemas.unicode.org/cldr/45/keyboard3" locale="mt" conformsTo="45">
+<keyboard3 xmlns="https://schemas.unicode.org/cldr/46/keyboard3" locale="mt" conformsTo="46">
     <locales>
         <!-- English is also an official language in Malta.-->
         <locale id="en" />
@@ -14,8 +14,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 
     <keys>
         <!-- imports -->
-        <import base="cldr" path="45/keys-Zyyy-punctuation.xml"/>
-        <import base="cldr" path="45/keys-Zyyy-currency.xml"/>
+        <import base="cldr" path="46/keys-Zyyy-punctuation.xml"/>
+        <import base="cldr" path="46/keys-Zyyy-currency.xml"/>
 
         <!-- accent grave -->
         <key id="a-grave" output="à" />

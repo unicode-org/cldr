@@ -104,6 +104,7 @@ public class StandardCodes {
     private static final class StandardCodesHelper {
         static final StandardCodes SINGLETON = new StandardCodes();
     }
+
     /** Get the singleton copy of the standard codes. */
     public static synchronized StandardCodes make() {
         return StandardCodesHelper.SINGLETON;

@@ -45,6 +45,7 @@ public class CalculateLocaleCoverage {
         public boolean icu = false;
         public int sumFound;
         public int sumUnconfirmed;
+
         /** in order of the Level enum */
         public double proportions[] = new double[Level.values().length];
 

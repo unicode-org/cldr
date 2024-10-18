@@ -480,6 +480,7 @@ public class VoteResolver<T> {
         private Organization organization;
         private Level level;
         private String name;
+
         /**
          * A set of locales associated with this voter; it is often empty (as when the user has "*"
          * for their set of locales); it may not serve any purpose in ordinary operation of Survey
@@ -587,12 +588,14 @@ public class VoteResolver<T> {
     private class OrganizationToValueAndVote<T> {
         private final Map<Organization, MaxCounter<T>> orgToVotes =
                 new EnumMap<>(Organization.class);
+
         /**
          * All votes, even those that aren't any org's vote because they lost an intra-org dispute
          */
         private final Counter<T> allVotesIncludingIntraOrgDispute = new Counter<>();
 
         private final Map<Organization, Integer> orgToMax = new EnumMap<>(Organization.class);
+
         /** The result of {@link #getTotals(EnumSet)} */
         private final Counter<T> totals = new Counter<>(true);
 
@@ -2256,6 +2259,7 @@ public class VoteResolver<T> {
         }
         return status;
     }
+
     /**
      * Get the possibly modified value. If value matches the bailey value or inheritance marker,
      * possibly change it from bailey value to inheritance marker, or vice-versa, as needed to meet

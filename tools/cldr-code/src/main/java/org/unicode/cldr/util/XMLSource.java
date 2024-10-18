@@ -299,6 +299,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
         static final Pattern aliasPattern =
                 Pattern.compile(
                         "(?:\\[@source=\"([^\"]*)\"])?(?:\\[@path=\"([^\"]*)\"])?(?:\\[@draft=\"([^\"]*)\"])?");
+
         // constant, so no need to sync
 
         public static Alias make(String aliasPath) {

@@ -48,6 +48,7 @@ public class BidiUtils {
             }
         }
     }
+
     /**
      * Checks the ordering of the example, under the specified bidiDirectionOptions;
      *

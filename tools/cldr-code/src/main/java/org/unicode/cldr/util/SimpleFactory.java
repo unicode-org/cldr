@@ -41,6 +41,7 @@ public class SimpleFactory extends Factory {
 
     /** Object that is used for synchronization when looking up simple factories */
     private static final Object FACTORY_LOOKUP_SYNC = new Object();
+
     /**
      * The maximum cache size the caches in 15 is a safe limit for instances with limited amounts of
      * memory (around 128MB). Larger numbers are tolerable if more memory is available. This

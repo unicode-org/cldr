@@ -29,6 +29,7 @@ import java.util.regex.Pattern;
 public class RegexLogger {
     /** Should debugging be done? - if not, a null implementation will be used */
     private static final boolean DEBUG = false;
+
     /** Instance */
     private static RegexLoggerInterface instance = null;
 

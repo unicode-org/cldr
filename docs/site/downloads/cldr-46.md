@@ -215,20 +215,20 @@ These changes eliminate sort order differences among almost all regular characte
 See the [CLDR root collation](https://www.unicode.org/reports/tr35/tr35-collation.html#Root_Collation) documentation for details.
 
 #### Improved Han Radical-Stroke Order
-CLDR includes [data for sorting Han (CJK) characters in radical-stroke order](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-collation.md#File_Format_FractionalUCA_txt).
+CLDR includes [data for sorting Han (CJK) characters in radical-stroke order](https://www.unicode.org/reports/tr35/46/tr35-collation.html#File_Format_FractionalUCA_txt).
 It used to distinguish traditional and simplified forms of radicals on a higher level than sorting by the number of residual strokes.
 Starting with CLDR 46, the CLDR radical-stroke order matches that of the [Unicode Radical-Stroke Index (large PDF)](https://www.unicode.org/Public/UCD/latest/charts/RSIndex.pdf).
 [Its sorting algorithm is defined in UAX #38](https://www.unicode.org/reports/tr38/#SortingAlgorithm).
 Traditional vs. simplified forms of radicals are distinguished on a lower level than the number of residual strokes.
-This also has an effect on [alphabetic indexes](tr35-collation.md#Collation_Indexes) for radical-stroke sort orders,
+This also has an effect on [alphabetic indexes](https://www.unicode.org/reports/tr35/46/tr35-collation.html#Collation_Indexes) for radical-stroke sort orders,
 where only the traditional forms of radicals are now available as index characters.
 
 ### JSON Data Changes
 
-1. Separate modern packages were dropped [CLDR-16465]
+1. Separate modern packages were dropped [CLDR-16465][]
 2. Transliteration (transform) data is now available in the `cldr-transforms` package. The JSON file contains transform metadata, and the `_rulesFile` key indicates an external (`.txt`) file containing the actual rules. [CLDR-16720][].
 
-### Markdown ###
+### Markdown
 
 The CLDR site is in the process of being moved to markdown source (GFM),
 which will regularize the formatting and make it easier to maintain and extend than with Google Sites.
@@ -274,17 +274,21 @@ A few /common/testData/ files have been replaced:
 
 **TBD**
 
+### Keyboard Changes
+
+- Clarified that `conformsTo=` does not need to be updated when a new CLDR version is released. [CLDR-17948][]
+
 ## Migration
 
 1. Databases that use collation keys are sensitive to any changes in collation, and will need reindexing.
 This can happen with any CLDR release (especially those for a new version of Unicode), but more characters are affected in this release: see a summary [above](#collation-data-changes).
 2. Two collation variants are to be dropped in CLDR 47 release: zh-u-co-gb2312 and zh-u-co-big5han.
-These matched the ordering of two legacy character encodings. [CLDR-16062](https://unicode-org.atlassian.net/browse/CLDR-16062)
+These matched the ordering of two legacy character encodings. [CLDR-16062][]
 3. The `light-speed` data was withdrawn from many locales, because the purpose (as an internal prefix for **light-second**, **light-minute**, etc.) was misunderstood. Implementations may hold off supporting it until the data is complete — expected for CLDR v47.
 
 ## [Known Issues](https://unicode-org.atlassian.net/issues/CLDR-17535?jql=project%20%3D%20cldr%20and%20labels%20%3D%20%22ReleaseKnownIssue%22%20and%20status%20!%3D%20done)
 
-1. CLDR-17095. The region-based firstDay value (see weekData) is currently used for several different purposes. In the future, some of these functions will be separated out:
+1. [CLDR-17095]. The region-based firstDay value (see weekData) is currently used for several different purposes. In the future, some of these functions will be separated out:
     - The day that should be shown as the first day of the week in a calendar view.
     - The first day of the week (day 1) for weekday numbering.
     - The first day of the week for week-of-year calendar calculations.
@@ -299,3 +303,9 @@ The Unicode [Terms of Use](https://unicode.org/copyright.html) apply to CLDR dat
 in particular, see [Exhibit 1](https://unicode.org/copyright.html#Exhibit1).
 
 For web pages with different views of CLDR data, see [http://cldr.unicode.org/index/charts](/index/charts).
+
+[CLDR-16062]: https://unicode-org.atlassian.net/browse/CLDR-16062
+[CLDR-16465]: https://unicode-org.atlassian.net/browse/CLDR-16465
+[CLDR-16720]: https://unicode-org.atlassian.net/browse/CLDR-16720
+[CLDR-17095]: https://unicode-org.atlassian.net/browse/CLDR-17095
+[CLDR-17948]: https://unicode-org.atlassian.net/browse/CLDR-17948

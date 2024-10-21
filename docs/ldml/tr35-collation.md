@@ -537,7 +537,7 @@ A collation type name that starts with "private-", for example, "private-kana", 
 
 > 👉 **Note**: There is an on-line demonstration of collation at [[LocaleExplorer](tr35.md#LocaleExplorer)] that uses the same rule syntax. (Pick the locale and scroll to "Collation Rules", near the end.)
 
-> 👉 **Note**: In CLDR 23 and before, LDML collation files used an XML format. Starting with CLDR 24, the XML collation syntax is deprecated and no longer used. See the _[CLDR 23 version of this document](tr35-collation.html#Collation_Tailorings)_ for details about the XML collation syntax.
+> 👉 **Note**: In CLDR 23 and before, LDML collation files used an XML format. Starting with CLDR 24, the XML collation syntax is deprecated and no longer used. See the _[CLDR 23 version of this document](tr35-collation.md#Collation_Tailorings)_ for details about the XML collation syntax.
 
 #### <a name="Collation_Type_Fallback" href="#Collation_Type_Fallback">Collation Type Fallback</a>
 

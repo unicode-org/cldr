@@ -12,7 +12,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<tRule>
 # The rules that convert space into semicolon are in this file;
 # since they have to come BEFORE the break iterator.
-$thai = [[:thai:] ก-ฺเ-๛] ;
+$thai = [[:Thai:] ก-ฺเ-๛] ;
 $thai { ' ' } $thai → '; ' ;
 			</tRule>
 		</transform>

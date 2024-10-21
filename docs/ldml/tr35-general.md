@@ -2437,7 +2437,7 @@ More sophisticated implementations can customize the process to improve the resu
                     <li><i>10 <b>o</b> 111,</i> not <i>10 <b>u</b> 111</i></li></ol>
             </li></ol></td></tr>
 
-<tr><td colspan="2">See <a href="https://www.rae.es/espanol-al-dia/cambio-de-la-y-copulativa-en-e-0">Cambio de la y copulativa en e</a><br><b>Note: </b>more advanced implementations may also consider the pronunciation, such as foreign words where the ‘h’ is not mute.</td></tr>
+<tr><td colspan="2">See <a href="http://web.archive.org/web/20240525091135/https://www.rae.es/espanol-al-dia/cambio-de-la-y-copulativa-en-e-0" title="Archived from https://www.rae.es/espanol-al-dia/cambio-de-la-y-copulativa-en-e-0">Cambio de la y copulativa en e</a><br><b>Note: </b>more advanced implementations may also consider the pronunciation, such as foreign words where the ‘h’ is not mute.</td></tr>
 
 <tr><td rowspan="2">Hebrew</td><td>AND</td>
     <td>Use ‘-ו’ instead of ‘ו’ in the listPatternPart for "end" and "2" in the following case:

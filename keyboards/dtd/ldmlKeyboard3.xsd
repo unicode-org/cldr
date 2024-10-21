@@ -35,6 +35,7 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
         <xs:simpleType>
           <xs:restriction base="xs:token">
             <xs:enumeration value="45"/>
+            <xs:enumeration value="46"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>

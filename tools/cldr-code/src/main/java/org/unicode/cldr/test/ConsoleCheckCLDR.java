@@ -43,6 +43,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRConfig.Environment;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRTool;
 import org.unicode.cldr.util.CldrUtility;
@@ -51,7 +52,6 @@ import org.unicode.cldr.util.CoverageInfo;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
-import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.LogicalGrouping;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.Pair;
@@ -270,15 +270,12 @@ public class ConsoleCheckCLDR {
         UOption.create("singleThread", '1', UOption.NO_ARG)
     };
 
-    private static final Comparator<String> baseFirstCollator =
+    private static final Comparator<CLDRLocale> baseFirstCollator =
             new Comparator<>() {
-                LanguageTagParser languageTagParser1 = new LanguageTagParser();
-                LanguageTagParser languageTagParser2 = new LanguageTagParser();
-
                 @Override
-                public int compare(String o1, String o2) {
-                    String ls1 = languageTagParser1.set(o1).getLanguageScript();
-                    String ls2 = languageTagParser2.set(o2).getLanguageScript();
+                public int compare(CLDRLocale o1, CLDRLocale o2) {
+                    String ls1 = o1.getLanguageScript();
+                    String ls2 = o2.getLanguageScript();
                     int result = ls1.compareTo(ls2);
                     if (result != 0) return result;
                     return o1.compareTo(o2);
@@ -501,16 +498,15 @@ public class ConsoleCheckCLDR {
         PathShower pathShower = new PathShower();
 
         // call on the files
-        Set<String> locales = new TreeSet<>(baseFirstCollator);
-        locales.addAll(cldrFactory.getAvailable());
+        Set<CLDRLocale> locales = new TreeSet<>(baseFirstCollator);
+        locales.addAll(cldrFactory.getAvailableCLDRLocales());
 
-        Set<String> fatalErrors = new TreeSet<>();
+        Set<CLDRLocale> fatalErrors = new TreeSet<>(baseFirstCollator);
 
         showHeaderLine();
 
         supplementalDataInfo = SupplementalDataInfo.getInstance(CLDRPaths.SUPPLEMENTAL_DIRECTORY);
 
-        LocaleIDParser localeIDParser = new LocaleIDParser();
         PathHeader.Factory pathHeaderFactory = PathHeader.getFactory(english);
 
         final Map<String, Level> locale_status =
@@ -534,7 +530,7 @@ public class ConsoleCheckCLDR {
         // final Set<String> englishPaths = Collections.unmodifiableSet(ep); // for robustness
 
         // Set up our stream to use. It will be parallel usually, or sequential for HTML.
-        Stream<String> stream;
+        Stream<CLDRLocale> stream;
 
         if (sequential) {
             System.err.println("# Note: running in sequential mode.");
@@ -545,10 +541,11 @@ public class ConsoleCheckCLDR {
 
         // now, run it
         stream.forEach(
-                localeID -> {
+                locale -> {
                     if (ErrorFile.writeError != null) {
                         return; // get out, it's an error.
                     }
+                    final String localeID = locale.toString();
 
                     Set<PathHeader> paths = new TreeSet<>(); // CLDRFile.ldmlComparator);
                     Map<String, String> m = new TreeMap<>();
@@ -567,9 +564,7 @@ public class ConsoleCheckCLDR {
                         System.out.println("# Skipping special purpose locale: " + localeID);
                         return;
                     }
-
-                    boolean isLanguageLocale =
-                            localeID.equals(localeIDParser.set(localeID).getLanguageScript());
+                    final boolean isLanguageLocale = locale.isLanguageLocale();
                     options.clear();
 
                     if (MyOptions.exemplarError.option.doesOccur()) {
@@ -612,12 +607,12 @@ public class ConsoleCheckCLDR {
                         if (ErrorFile.voteFactory != null) {
                             ErrorFile.voteFile = ErrorFile.voteFactory.make(localeID, true);
                         }
-                        final String parentID = LocaleIDParser.getParent(localeID);
+                        final CLDRLocale parentID = locale.getParent();
                         if (parentID != null) {
-                            parent = cldrFactory.make(parentID, true);
+                            parent = cldrFactory.make(parentID.toString(), true);
                         }
                     } catch (RuntimeException e) {
-                        fatalErrors.add(localeID);
+                        fatalErrors.add(locale);
                         System.out.println("FATAL ERROR: " + localeID);
                         e.printStackTrace(System.out);
                         return;
@@ -627,7 +622,7 @@ public class ConsoleCheckCLDR {
 
                     // generate HTML if asked for
                     if (ErrorFile.generated_html_directory != null) {
-                        String baseLanguage = localeIDParser.set(localeID).getLanguageScript();
+                        String baseLanguage = locale.getLanguageScript();
 
                         if (!baseLanguage.equals(ErrorFile.lastBaseLanguage)) {
                             ErrorFile.lastBaseLanguage = baseLanguage;
@@ -1958,8 +1953,8 @@ public class ConsoleCheckCLDR {
         public void set(String localeID) {
             this.localeID = localeID;
             newLocale = true;
-            LocaleIDParser localeIDParser = new LocaleIDParser();
-            showEnglish = !localeIDParser.set(localeID).getLanguageScript().equals("en");
+            CLDRLocale locale = CLDRLocale.getInstance(localeID);
+            showEnglish = !locale.getLanguage().equals("en");
             lastPath = null;
             lastSplitPath = null;
         }

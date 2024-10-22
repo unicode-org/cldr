@@ -309,4 +309,3 @@ For web pages with different views of CLDR data, see [http://cldr.unicode.org/in
 [CLDR-16720]: https://unicode-org.atlassian.net/browse/CLDR-16720
 [CLDR-17095]: https://unicode-org.atlassian.net/browse/CLDR-17095
 [CLDR-17948]: https://unicode-org.atlassian.net/browse/CLDR-17948
-[CLDR-17990]: https://unicode-org.atlassian.net/issues/CLDR-17990

@@ -286,9 +286,9 @@ This can happen with any CLDR release (especially those for a new version of Uni
 These matched the ordering of two legacy character encodings. [CLDR-16062][]
 3. The `light-speed` data was withdrawn from many locales, because the purpose (as an internal prefix for **light-second**, **light-minute**, etc.) was misunderstood. Implementations may hold off supporting it until the data is complete — expected for CLDR v47.
 
-## [Known Issues](https://unicode-org.atlassian.net/issues/CLDR-17535?jql=project%20%3D%20cldr%20and%20labels%20%3D%20%22ReleaseKnownIssue%22%20and%20status%20!%3D%20done)
+## Known Issues
 
-1. [CLDR-17095]. The region-based firstDay value (see weekData) is currently used for several different purposes. In the future, some of these functions will be separated out:
+1. [CLDR-17095] The region-based firstDay value (see weekData) is currently used for several different purposes. In the future, some of these functions will be separated out:
     - The day that should be shown as the first day of the week in a calendar view.
     - The first day of the week (day 1) for weekday numbering.
     - The first day of the week for week-of-year calendar calculations.
@@ -309,3 +309,4 @@ For web pages with different views of CLDR data, see [http://cldr.unicode.org/in
 [CLDR-16720]: https://unicode-org.atlassian.net/browse/CLDR-16720
 [CLDR-17095]: https://unicode-org.atlassian.net/browse/CLDR-17095
 [CLDR-17948]: https://unicode-org.atlassian.net/browse/CLDR-17948
+[CLDR-17990]: https://unicode-org.atlassian.net/issues/CLDR-17990

@@ -161,7 +161,8 @@ class LdmlConvertRules {
                     // transforms
                     "transforms:transform:source",
                     "transforms:transform:target",
-                    "transforms:transform:direction");
+                    "transforms:transform:direction",
+                    "transforms:transform:variant");
 
     /**
      * The set of element:attribute pair in which the attribute should be treated as value. All the

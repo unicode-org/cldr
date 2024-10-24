@@ -10,11 +10,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<transforms>
 		<transform source="Latn" target="Jamo" direction="forward" alias="Latin-Jamo und-Jamo-t-und-latn">
 			<tRule>
-::[[:script=Latin:][:M:]-];
+::[[:Script=Latin:][:M:]-];
 ::NFD;
 ::Lower;
 ::Latin-ConjoiningJamo;
-::[[:script=Latin:][:M:]] NFC;
+::[[:Script=Latin:][:M:]] NFC;
 			</tRule>
 		</transform>
 	</transforms>

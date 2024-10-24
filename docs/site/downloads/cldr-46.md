@@ -10,18 +10,15 @@ title: CLDR 46 Release Note
 
 ## Overview
 
-Unicode CLDR provides key building blocks for software supporting the world's languages.
-CLDR data is used by all [major software systems](/index#who-uses-cldr)
-(including all mobile phones) for their software internationalization and localization,
-adapting software to the conventions of different languages.
+Unicode CLDR provides key building blocks for software supporting the world's languages. CLDR data is used by all [major software systems](/index#who-uses-cldr) (including all mobile phones) for their software internationalization and localization, adapting software to the conventions of different languages.
 
 The most significant changes in this release were:
 
-- Updates to Unicode 16.0 (including major changes to collation)
+- Updated to Unicode 16.0 (including major changes to collation)
 - Further revisions to the Message Format 2.0 tech preview
 - Substantial additions and modifications of Emoji search keyword data
 - ‘Upleveling’ the locale coverage
-- Important changes to the specification
+- Important changes to the [specification](#specification-changes)
 
 For more details, see below.
 
@@ -31,8 +28,8 @@ For more details, see below.
 Count | Level | Usage | Examples
 -- | -- | -- | --
 97 | Modern | Suitable for full UI internationalization | čeština, Ελληνικά‎, Беларуская‎, ‎ᏣᎳᎩ‎, Ქართული‎, ‎Հայերեն‎, ‎עברית‎, ‎اردو‎, አማርኛ‎, ‎नेपाली‎, অসমীয়া‎, ‎বাংলা‎, ‎ਪੰਜਾਬੀ‎, ‎ગુજરાતી‎, ‎ଓଡ଼ିଆ‎, தமிழ்‎, ‎తెలుగు‎, ‎ಕನ್ನಡ‎, ‎മലയാളം‎, ‎සිංහල‎, ‎ไทย‎, ‎ລາວ‎, မြန်မာ‎, ‎ខ្មែរ‎, ‎한국어‎, 中文, 日本語‎, … ‎
-16 | Moderate | Suitable for “document content” internationalization, eg. in spreadsheet | Akan, Balóchi [Látin], brezhoneg, Cebuano, føroyskt, IsiXhosa, Māori, sardu, veneto, Wolof, татар, тоҷикӣ, कांगड़ी‎, …
-55 | Basic | Suitable for locale selection, eg. choice of language on mobile phone | Basa Sunda, emakhuwa, Esperanto, eʋegbe, Frysk, Malti, босански (ћирилица), କୁୱି (ଅଡ଼ିଆ), కువి (తెలుగు), ᱥᱟᱱᱛᱟᱲᱤ, ᓀᐦᐃᓇᐍᐏᐣ‬, ꆈꌠꉙ‎, …
+16 | Moderate | Suitable for “document content” internationalization, e.g. in spreadsheets | Akan, Balóchi [Látin], brezhoneg, Cebuano, føroyskt, IsiXhosa, Māori, sardu, veneto, Wolof, татар, тоҷикӣ, कांगड़ी‎, …
+55 | Basic | Suitable for locale selection, e.g. choice of language on mobile phone | Basa Sunda, emakhuwa, Esperanto, eʋegbe, Frysk, Malti, босански (ћирилица), କୁୱି (ଅଡ଼ିଆ), కువి (తెలుగు), ᱥᱟᱱᱛᱟᱲᱤ, ᓀᐦᐃᓇᐍᐏᐣ‬, ꆈꌠꉙ‎, …
 
 #### Changes
 
@@ -43,18 +40,18 @@ Count | Level | Usage | Examples
 | 📈 | Basic | Ewe, Ga, Kinyarwanda, Konkani (Latin), Northern Sotho, Oromo, Sichuan Yi, Southern Sotho, Tswana |
 | 📉 | Basic* | Chuvash, Anii |
 
-\* Note: Each release, the number of items needed for Modern and Moderate increases. So locales without active contributors may drop down in coverage level.
+\* Note: The number of items needed for Modern and Moderate increases every release. Therefore, locales without active contributors may drop in coverage level.
 
-For a full listing, see [Coverage Levels](https://unicode.org/cldr/charts/46/supplemental/locale_coverage.html)
+For a full listing, see [Coverage Levels](https://unicode.org/cldr/charts/46/supplemental/locale_coverage.html).
 
 ## [Specification Changes](https://www.unicode.org/reports/tr35/proposed.html)
 
-The following are the most significant changes to the specification (LDML).
+The following are the most significant changes to the specification (LDML):
 
 1. [Message Format](https://www.unicode.org/reports/tr35/tr35-73/tr35-messageFormat.html#Contents) — see a summary [below](#message-format-specification)
 2. [LDML Conformance](https://www.unicode.org/reports/tr35/tr35-73/tr35.html#Conformance)
-3. [emoji search keywords](https://www.unicode.org/reports/tr35/tr35-73/tr35-general.html#Annotations) in tech preview — see a summary [below](#emoji-search-keywords)
-4. [semantic skeletons](https://www.unicode.org/reports/tr35/tr35-73/tr35-dates.html#Semantic_Skeletons)
+3. [Emoji search keywords](https://www.unicode.org/reports/tr35/tr35-73/tr35-general.html#Annotations) in tech preview — see a summary [below](#emoji-search-keywords)
+4. [Semantic skeletons](https://www.unicode.org/reports/tr35/tr35-73/tr35-dates.html#Semantic_Skeletons)
 5. [Grouping classes of characters](https://www.unicode.org/reports/tr35/tr35-73/tr35-collation.html#grouping_classes_of_characters) and other collation changes — see a summary [below](#collation-data-changes)
 
 There are many more changes that are important to implementations, such as changes to certain identifier syntax and various algorithms.
@@ -64,8 +61,7 @@ See the [Modifications section](https://www.unicode.org/reports/tr35/tr35-73/tr3
 
 ### DTD Changes
 
-1. Added `alt='official'` to represent cases where an official value differs from the customary value.
-Currently added for a small number of language names, decimal separators, and grouping separators.
+1. Added `alt='official'` to represent cases where an official value differs from the customary value. Currently added for a small number of language names, decimal separators, and grouping separators.
 2. Added new numbering systems from Unicode 16.0.
 
 For a full listing, see [Delta DTDs](https://unicode.org/cldr/charts/46/supplemental/dtd_deltas.html).
@@ -77,8 +73,8 @@ For a full listing, see [Delta DTDs](https://unicode.org/cldr/charts/46/suppleme
 2. Dates & Times
     1. Added a new calendar type, `iso8601`.
 This is not the same as the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) standard format, which is designed just for data interchange:
-it is all ASCII, doesn't have all the options for fields (like "Sunday", "BC", or "AM"), and does not contain spaces.
-The CLDR `iso8601` calendar uses patterns in the order: era, year, month, day, day-of-week, hour, minute, second, day-period, timezone
+it is all ASCII, does not have all the options for fields (like "Sunday", "BC", or "AM"), and does not contain spaces.
+The CLDR `iso8601` calendar uses patterns in the order: era, year, month, day, day-of-week, hour, minute, second, day-period, timezone.
 	2. Changed the metazone for Kazakhstan to reflect removal of Asia/Almaty, thus dropping the distinction among different regions in Kazakhstan.
     3. Added support for deprecated timezone codes by remapping: `CST6CDT → America/Chicago`, `EST → America/Panama`, `EST5EDT → America/New_York`, `MST7MDT → America/Denver`, `PST8PDT → America/Los_Angeles`.
 3. Units
@@ -88,35 +84,35 @@ More preference changes are planned for the next release.
 4. Minimization for likelySubtags removes many additional redundant mappings.
     - For example, the mapping `acy_Grek → acy_Grek_CY` is unnecessary, because the mapping `acy → acy_Latn_CY` is sufficient.
 For the reason why, see the algorithm in [Likely Subtags](https://www.unicode.org/reports/tr35/tr35-73/tr35.html#likely-subtags).
-    - The ordering in the file is more consistent; first the main mappings, then the mapping from region and/or script to likely language, then the data contributed by SIL.
+    - The ordering in the file is more consistent: first the main mappings, then the mapping from region and/or script to likely language, then the data contributed by SIL.
     - The regions have been cleaned up: there are no entries with `ZZ`, and `001` is limited to artifical languages such as Interlingua. The only other macroregion code is in `und_419 → es_Latn_419` (Spanish‧Latin‧Latin America)
 5. Language matching
     - Dropped the fallback mapping `desired="uk" → supported="ru"` (so that Ukrainian (`uk`) doesn't fall back to Russian (`ru`)).
         - Note: A fallback language is used when the user's primary language is unavailable,
-and either the user doesn't have any secondaries language in their settings (as on Android or iOS) or those secondary languages are also not available.
-As a result of this change, when the primary and secondary languages are not available, the fallback language would be the system default instead of Russian.
+and either the user does not have a secondary language in their settings (as on Android or iOS) or the secondary languages are also not available.
+As a result of this change, when the primary and secondary languages are not available, the fallback language for Ukrainian would be the system default instead of Russian.
     - Added the mapping `desired="scn" → supported="it"` (Sicilian → Italian).
     - Changed the deprecated code Goan Konkani (`gom`) to Konkani (`kok`).
-7. Transforms
+6. Transforms
     1. Major update to `Han → Latn`, reflecting new data in Unicode 16.0
-    2. Fixes for Arabic numbers, and a Farsi vowel
-8. Other Unicode 16.0 changes
+    2. Fixes for Arabic numbers and a Farsi vowel
+7. Other Unicode 16.0 changes
     1. Additional numbering systems
     2. Additional scripts and script identifiers
     3. ScriptMeta has been expanded for Unicode 16.0
-9. Other updates
-    1. The subdivision identifiers have been updated to the latest available from ISO
-        - The removed identifiers have been deprecated
-        - Missing names have been added (from Wikidata)
-    2. The language subtags, script subtags, and variant subtags have been updated to the latest from IANA
-       - Some codes have been deprecated
+8. Other updates
+    1. The subdivision identifiers have been updated to the latest available from ISO.
+        - The removed identifiers have been deprecated.
+        - Missing names have been added (from Wikidata).
+    2. The language subtags, script subtags, and variant subtags have been updated to the latest from IANA.
+       - Some codes have been deprecated.
     3. Parent and defaultContent mappings have been added for Kara-Kalpak (`kaa`) and Konkani (`kok`); defaultContent mappings have bee added for Kazakh (`kk`), Ladin (`lld`), Latgalian (`ltg`), Mócheno (`mhn`), and Chinese (Latin, China) (`zh_Latn_CN`).
-    4. Territory Info (gdp, population, languages) has been updated from World Bank and other sources.
-    5. LanguageGroup info has been updated from Wikidata
-    6. Plural rules have been added for some new locales
+    4. Territory Info (GDP, population, languages) has been updated from World Bank and other sources.
+    5. LanguageGroup info has been updated from Wikidata.
+    6. Plural rules have been added for some new locales.
     7. Week data
-        - The first day of the week has been changed for `AE`
-        - Hour preferences (12 v 24) have been added for English as used in Hong Kong, Malaysia, and Israel (`en_HK`, `en_MY`, `en_IL`)
+        - The first day of the week has been changed for `AE`.
+        - Hour preferences (12 v 24) have been added for English as used in Hong Kong, Malaysia, and Israel (`en_HK`, `en_MY`, `en_IL`).
 
 For a full listing, see [¤¤BCP47 Delta](https://unicode.org/cldr/charts/46/delta/bcp47.html) and [¤¤Supplemental Delta](https://unicode.org/cldr/charts/46/delta/supplemental-data.html)
 
@@ -174,7 +170,7 @@ Implementers should be aware of the following normative changes after the start 
 In addition to the above, the test suite is significantly modified and updated. There will be updated tech preview implementations available in ICU (Java and C++) and in Javascript.
 
 ### Emoji Search Keywords
-The usage model for emoji search keywords is that
+The usage model for emoji search keywords is that:
 - The user types one or more words in an emoji search field. The order of words doesn't matter; nor does upper- versus lowercase.
 - Each word successively narrows a number of emoji in a results box
     - heart → 🥰 😘 😻 💌 💘 💝 💖 💗 💓 💞 💕 💟 ❣️ 💔 ❤️‍🔥 ❤️‍🩹 ❤️ 🩷 🧡 💛 💚 💙 🩵 💜 🤎 🖤 🩶 🤍 💋 🫰 🫶 🫀 💏 💑 🏠 🏡 ♥️ 🩺
@@ -186,27 +182,17 @@ The usage model for emoji search keywords is that
 Thus in the following, the user would just click on 🎉 if that works for them.
     - celebrate → 🥳 🥂 🎈 🎉 🎊 🪅
 
-In this release WhatsApp emoji search keyword data has been incorporated.
-In the process of doing that, the maximum number of search keywords per emoji has been increased,
-and the keywords have been simplified in most locales by breaking up multi-word keywords.
-An example would be white flag (🏳️), formerly having 3 keyword phrases of [white waving flag | white flag | waving flag],
-now being replaced by the simpler 3 single keywords [white | waving | flag].
-The simpler version typically works as well or better in practice.
+In this release WhatsApp emoji search keyword data has been incorporated. In the process of doing that, the maximum number of search keywords per emoji has been increased, and the keywords have been simplified in most locales by breaking up multi-word keywords. An example would be white flag (🏳️), formerly having 3 keyword phrases of [white waving flag | white flag | waving flag], now being replaced by the simpler 3 single keywords [white | waving | flag]. The simpler version typically works as well or better in practice.
 
 ### Collation Data Changes
 There are two significant changes to the CLDR root collation (CLDR default sort order).
 
 #### Realigned With DUCET
-The [DUCET](https://www.unicode.org/reports/tr10/#Default_Unicode_Collation_Element_Table) is the Unicode Collation Algorithm default sort order.
-The [CLDR root collation](https://www.unicode.org/reports/tr35/tr35-collation.html#Root_Collation) is a tailoring of the DUCET.
-These sort orders have differed in the relative order of groups of characters including extenders, currency symbols, and non-decimal-digit numeric characters.
+The [DUCET](https://www.unicode.org/reports/tr10/#Default_Unicode_Collation_Element_Table) is the Unicode Collation Algorithm default sort order. The [CLDR root collation](https://www.unicode.org/reports/tr35/tr35-collation.html#Root_Collation) is a tailoring of the DUCET. These sort orders have differed in the relative order of groups of characters including extenders, currency symbols, and non-decimal-digit numeric characters.
 
-Starting with CLDR 46 and Unicode 16.0, the order of these groups is the same.
-In both sort orders, non-decimal-digit numeric characters now sort after decimal digits,
-and the CLDR root collation no longer tailors any currency symbols (making some of them sort like letter sequences, as in the DUCET).
+Starting with CLDR 46 and Unicode 16.0, the order of these groups is the same. In both sort orders, non-decimal-digit numeric characters now sort after decimal digits, and the CLDR root collation no longer tailors any currency symbols (making some of them sort like letter sequences, as in the DUCET).
 
-These changes eliminate sort order differences among almost all regular characters between the CLDR root collation and the DUCET.
-See the [CLDR root collation](https://www.unicode.org/reports/tr35/tr35-collation.html#Root_Collation) documentation for details.
+These changes eliminate sort order differences among almost all regular characters between the CLDR root collation and the DUCET. See the [CLDR root collation](https://www.unicode.org/reports/tr35/tr35-collation.html#Root_Collation) documentation for details.
 
 #### Improved Han Radical-Stroke Order
 CLDR includes [data for sorting Han (CJK) characters in radical-stroke order](https://www.unicode.org/reports/tr35/46/tr35-collation.html#File_Format_FractionalUCA_txt).
@@ -219,7 +205,7 @@ where only the traditional forms of radicals are now available as index characte
 
 ### JSON Data Changes
 
-1. Separate modern packages were dropped [CLDR-16465][]
+1. Separate modern packages were dropped. [CLDR-16465][]
 2. Transliteration (transform) data is now available in the `cldr-transforms` package. The JSON file contains transform metadata, and the `_rulesFile` key indicates an external (`.txt`) file containing the actual rules. [CLDR-16720][].
 
 ### Markdown
@@ -231,8 +217,7 @@ This process should be completed before release.
 
 ### File Changes
 
-Most files added in this release were for new locales, with some files being added for existing locales that increased coverage,
-such as /testData/personNameTest/ak.txt.
+Most files added in this release were for new locales, with some files being added for existing locales that increased coverage, such as /testData/personNameTest/ak.txt.
 
 The following new /common/testData/ files have been added:
 
@@ -266,7 +251,9 @@ A few /common/testData/ files have been replaced:
 
 ### Tooling Changes
 
-**TBD**
+- Added and improved runtime examples
+- Ability for certain languages to stay in submission mode longer
+- General performance improvements to Survey Tool
 
 ### Keyboard Changes
 
@@ -276,9 +263,9 @@ A few /common/testData/ files have been replaced:
 
 1. Databases that use collation keys are sensitive to any changes in collation, and will need reindexing.
 This can happen with any CLDR release (especially those for a new version of Unicode), but more characters are affected in this release: see a summary [above](#collation-data-changes).
-2. Two collation variants are to be dropped in CLDR 47 release: zh-u-co-gb2312 and zh-u-co-big5han.
+2. Two collation variants are to be dropped in the CLDR 47 release: zh-u-co-gb2312 and zh-u-co-big5han.
 These matched the ordering of two legacy character encodings. [CLDR-16062][]
-3. The `light-speed` data was withdrawn from many locales, because the purpose (as an internal prefix for **light-second**, **light-minute**, etc.) was misunderstood. Implementations may hold off supporting it until the data is complete — expected for CLDR v47.
+3. The `light-speed` data was withdrawn from many locales, because the purpose (as an internal prefix for **light-second**, **light-minute**, etc.) was misunderstood. Implementations may hold off supporting it until the data is complete — expected for CLDR 47.
 
 ## Known Issues
 

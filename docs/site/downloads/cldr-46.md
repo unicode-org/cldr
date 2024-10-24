@@ -8,12 +8,6 @@ title: CLDR 46 Release Note
 |:---:|:----------:|:---------:|:------:|:--------:|:------------:|:---:|:----------:|:---------:|:---------:|
 |  46 | 2024-10-24 | [v46](/index/downloads/cldr-46) | [CLDR46](https://unicode.org/Public/cldr/46/) | [Charts46](https://unicode.org/cldr/charts/46/) | [LDML46](https://www.unicode.org/reports/tr35/tr35-73/tr35.html) | [Δ46](https://unicode-org.atlassian.net/issues/?jql=project+%3D+CLDR+AND+status+%3D+Done+AND+resolution+%3D+Fixed+AND+fixVersion+%3D+%2246%22+ORDER+BY+priority+DESC) | [release-46](https://github.com/unicode-org/cldr/releases/tag/release-46) | [ΔDtd46](https://www.unicode.org/cldr/charts/46/supplemental/dtd_deltas.html) | [46.0.0](https://github.com/unicode-org/cldr-json/releases/tag/46.0.0) |
 
-<span style="color:red; font-weight: bold;">This is a beta version of CLDR v46.</span>
-
-The data is available at [release-46-beta2](https://github.com/unicode-org/cldr/releases/tag/release-46-beta2),
-and the specification is available at [tr35/proposed.html](https://www.unicode.org/reports/tr35/proposed.html).
-Feedback is welcome via [tickets](/requesting_changes). (The CLDR site is undergoing a migration to Markdown, so the UI for navigation is temporary.)
-
 ## Overview
 
 Unicode CLDR provides key building blocks for software supporting the world's languages.
@@ -57,14 +51,14 @@ For a full listing, see [Coverage Levels](https://unicode.org/cldr/charts/46/sup
 
 The following are the most significant changes to the specification (LDML).
 
-1. [Message Format](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-messageFormat.html#Contents) — see a summary [below](#message-format-specification)
-2. [LDML Conformance](https://cldr-smoke.unicode.org/spec/main/ldml/tr35.html#Conformance)
-3. [emoji search keywords](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-general.html#Annotations) in tech preview — see a summary [below](#emoji-search-keywords)
-4. [semantic skeletons](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-dates.html#Semantic_Skeletons)
-5. [Grouping classes of characters](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-collation.html#grouping_classes_of_characters) and other collation changes — see a summary [below](#collation-data-changes)
+1. [Message Format](https://www.unicode.org/reports/tr35/tr35-73/tr35-messageFormat.html#Contents) — see a summary [below](#message-format-specification)
+2. [LDML Conformance](https://www.unicode.org/reports/tr35/tr35-73/tr35.html#Conformance)
+3. [emoji search keywords](https://www.unicode.org/reports/tr35/tr35-73/tr35-general.html#Annotations) in tech preview — see a summary [below](#emoji-search-keywords)
+4. [semantic skeletons](https://www.unicode.org/reports/tr35/tr35-73/tr35-dates.html#Semantic_Skeletons)
+5. [Grouping classes of characters](https://www.unicode.org/reports/tr35/tr35-73/tr35-collation.html#grouping_classes_of_characters) and other collation changes — see a summary [below](#collation-data-changes)
 
 There are many more changes that are important to implementations, such as changes to certain identifier syntax and various algorithms.
-See the [Modifications section](https://cldr-smoke.unicode.org/spec/main/ldml/tr35.html#Modifications) of the specification for details.
+See the [Modifications section](https://www.unicode.org/reports/tr35/tr35-73/tr35.html#Modifications) of the specification for details.
 
 ## Data Changes
 
@@ -93,7 +87,7 @@ The CLDR `iso8601` calendar uses patterns in the order: era, year, month, day, d
 More preference changes are planned for the next release.
 4. Minimization for likelySubtags removes many additional redundant mappings.
     - For example, the mapping `acy_Grek → acy_Grek_CY` is unnecessary, because the mapping `acy → acy_Latn_CY` is sufficient.
-For the reason why, see the algorithm in [Likely Subtags](https://cldr-smoke.unicode.org/spec/main/ldml/tr35.html#likely-subtags).
+For the reason why, see the algorithm in [Likely Subtags](https://www.unicode.org/reports/tr35/tr35-73/tr35.html#likely-subtags).
     - The ordering in the file is more consistent; first the main mappings, then the mapping from region and/or script to likely language, then the data contributed by SIL.
     - The regions have been cleaned up: there are no entries with `ZZ`, and `001` is limited to artifical languages such as Interlingua. The only other macroregion code is in `und_419 → es_Latn_419` (Spanish‧Latin‧Latin America)
 5. Language matching
@@ -141,7 +135,7 @@ Full localization will await the next submission phase for CLDR.
 For a full listing, see [Delta Data](https://unicode.org/cldr/charts/46/delta/index.html)
 
 ### Message Format Specification
-The CLDR Technical Committee decided to continue the tech preview phase for [Message Format](https://cldr-smoke.unicode.org/spec/main/ldml/tr35-messageFormat.html#Contents) in version 46.
+The CLDR Technical Committee decided to continue the tech preview phase for [Message Format](https://www.unicode.org/reports/tr35/tr35-73/tr35-messageFormat.html#Contents) in version 46.
 The plan is to have a final version of the specification in a 46.1 release before the end of 2024.
 
 The most significant changes since v45 were:

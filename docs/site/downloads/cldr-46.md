@@ -14,7 +14,7 @@ Unicode CLDR provides key building blocks for software supporting the world's la
 
 The most significant changes in this release were:
 
-- Updates to Unicode 16.0 (including major changes to collation)
+- Updated to Unicode 16.0 (including major changes to collation)
 - Further revisions to the Message Format 2.0 tech preview
 - Substantial additions and modifications of Emoji search keyword data
 - ‘Upleveling’ the locale coverage

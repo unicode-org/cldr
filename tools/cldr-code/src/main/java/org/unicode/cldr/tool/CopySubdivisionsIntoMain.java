@@ -28,6 +28,7 @@ public class CopySubdivisionsIntoMain {
 
     private static final String SUBDIVISION_TARGET_DIR =
             CLDRPaths.SUBDIVISIONS_DIRECTORY; // CLDRPaths.SUBDIVISIONS_DIRECTORY;
+
     // for testing, CLDRPaths.GEN_DIRECTORY + "test_subdivisions/";
 
     enum MyOptions {

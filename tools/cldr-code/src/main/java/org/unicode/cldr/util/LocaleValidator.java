@@ -210,6 +210,7 @@ public class LocaleValidator {
         abort,
         keepOn
     }
+
     /**
      * Returns true if it doesn't validate and errors == null (allows for fast rejection)
      *

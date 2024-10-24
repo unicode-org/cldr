@@ -55,6 +55,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
         }
         AlwaysOK.freeze();
     }
+
     // TODO Fix some of these characters
     private static final UnicodeSet SPECIAL_ALLOW =
             new UnicodeSet(

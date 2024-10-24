@@ -34,6 +34,7 @@ public class ElementAttributeInfo {
             Relation.of(new LinkedHashMap<String, Set<String>>(), LinkedHashSet.class);
 
     static Map<String, Map<DtdType, ElementAttributeInfo>> cache = new HashMap<>(); // new
+
     // HashMap<DtdType,
     // Data>();
 

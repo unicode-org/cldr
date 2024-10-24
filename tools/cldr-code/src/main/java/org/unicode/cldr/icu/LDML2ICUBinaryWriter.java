@@ -38,6 +38,7 @@ public class LDML2ICUBinaryWriter {
     private static final byte MAGIC2 = 0x27;
 
     private static boolean INCLUDE_COPYRIGHT = false;
+
     /** The number of bytes it takes to write magic number 1. */
     private static final short BYTES_TAKEN_BY_MAGIC1 = 1;
 

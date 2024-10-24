@@ -67,6 +67,7 @@ public class CookieSession {
 
     public Hashtable<String, Comparable> prefs = new Hashtable<>(); // user prefs
     public UserRegistry.User user = null;
+
     /**
      * CookieSession.sm was formerly deprecated: "need to refactor anything that uses this." But,
      * refactor how?? One possibility: "sm = SurveyMain.getInstance(request)" as in

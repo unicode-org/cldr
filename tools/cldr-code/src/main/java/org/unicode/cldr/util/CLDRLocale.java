@@ -227,10 +227,13 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
 
     /** Cached ICU format locale */
     private ULocale ulocale;
+
     /** base name, 'without parameters'. Currently same as fullname. */
     private String basename;
+
     /** Full name */
     private String fullname;
+
     /** The LocaleIDParser interprets the various parts (language, country, script, etc). */
     private LocaleIDParser parts = null;
 

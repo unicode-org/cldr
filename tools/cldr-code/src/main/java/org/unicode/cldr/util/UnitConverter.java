@@ -2185,6 +2185,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
     }
 
     private ConcurrentHashMap<String, UnitComplexity> COMPLEXITY = new ConcurrentHashMap<>();
+
     // TODO This is safe but should use regular cache
 
     public UnitComplexity getComplexity(String longOrShortId) {

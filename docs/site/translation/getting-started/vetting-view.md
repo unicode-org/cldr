@@ -53,13 +53,13 @@ The following are legacy tools to review votes, but the Priority Items tool is d
 
 **Review:** Priority Items |Date/Time | Zones | Numbers
 
-You can also see a video walkthrough of the review sections on [Walkthrough](https://cldr.unicode.org/index/survey-tool/walkthrough).
+You can also see a video walkthrough of the review sections on [Walkthrough](/index/survey-tool/walkthrough).
 
-The rest of this page discusses how to do the Priority Items. Once you have done the Priority Items, [Review reports](https://cldr.unicode.org/translation/getting-started/review-formats).
+The rest of this page discusses how to do the Priority Items. Once you have done the Priority Items, [Review reports](/translation/getting-started/review-formats).
 
 Remember to periodically look at the Forum for your locale.
 
-1. On any page in your locale, near the top there is a link "[Forum](https://cldr.unicode.org/translation/getting-started/guide#TOC-Forum)".
+1. On any page in your locale, near the top there is a link "[Forum](/translation/getting-started/guide#TOC-Forum)".
 2. Click on it and go through the comments.
 3. If there is a request to change values or votes, either respond on the Forum with why you disagree, or change your vote.
 4. Some issues may be general, such as the capitalization of language names. _In the vetting period, please try to resolve these in accordance with the other items in the locale for consistency; leave anything else for the next release._
@@ -118,7 +118,7 @@ Vetting Phase
 
 _Go through the summary list, clicking the checkbox (☑) to show the issues of type you're working on._ You can click several at once if you find that easier. That will then expose the issues of that type below the summary.
 
-After the data submission phase, any differences in the submitted data will be resolved according to the [data resolution process](https://cldr.unicode.org/index/process#TOC-Data--Resolution).
+After the data submission phase, any differences in the submitted data will be resolved according to the [data resolution process](/index/process#TOC-Data--Resolution).
 
 ### How to Handle
 
@@ -134,13 +134,13 @@ Handle each of the types of issues as follows:
 
 1. Go to the item (by clicking the **Fix?** link).
 2. Error items will be removed from the release, so they are a priority in the vetting phase.
-3. Review the warning items; most of them need fixing but not all. See [Fixing Errors and Warnings](https://cldr.unicode.org/translation/getting-started/errors-and-warnings)
+3. Review the warning items; most of them need fixing but not all. See [Fixing Errors and Warnings](/translation/getting-started/errors-and-warnings)
 
 
 ### Losing\*, Disputed\*
 
 1. See if the winning value is ok. If so, change your vote to it, and go to the next item.
-2. Otherwise, post a message to the [Forum](https://cldr.unicode.org/translation/getting-started/guide#TOC-Forum).
+2. Otherwise, post a message to the [Forum](/translation/getting-started/guide#TOC-Forum).
     1. State why you think the item should be changed.
     2. If there are a number of items that have the same characteristic (such as the wrong capitalization), you can make that case in a single posting rather than multiple ones.
 

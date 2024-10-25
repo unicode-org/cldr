@@ -6,22 +6,18 @@ title: Survey Tool Guide
 
 ### _News_
 
-_2022-11-28 Updated several images and instructions to reflect improvements, such as revised menus, buttons,regional inheritance, and the Dashboard and Forum._
-
-[**Survey Tool**](https://st.unicode.org/cldr-apps/v#locales///) **|** [**Accounts**](https://cldr.unicode.org/index/survey-tool/survey-tool-accounts) **|** [**Guide**](https://cldr.unicode.org/translation/getting-started/guide) **|** [**FAQ and Known Bugs**](https://cldr.unicode.org/index/survey-tool/faq-and-known-bugs)
-
 The Survey tool is a web based tool for collecting CLDR data and includes various features that the contributors (vetters) should know before getting started.
 
 Note that the exact appearance in screenshots may change as the tool is enhanced over time and based on your vetter level.
 
 ### 💡 Helpful Tips
 
-- Please read the home page of the [Translation Guidelines](https://cldr.unicode.org/translation) before starting your data contribution.
+- Please read the home page of the [Translation Guidelines](/translation) before starting your data contribution.
     - If you experience a **Loading...** problem with the Survey Tool, try clearing your browser cache. See [Reloading JavaScript](https://www.filecloud.com/blog/2015/03/tech-tip-how-to-do-hard-refresh-in-browsers/#.XOjGNtMzbuM).
 - **Browser support** for Survey Tool includes the latest versions of Edge, Safari, Chrome, and Firefox.
-- Use [Reports](https://cldr.unicode.org/translation/getting-started/guide#TOC-Reports) at the beginning to review the data in your language in a holistic manner for Date & time, Zones, and Numbers.
-    - Capitalization: Translations should be what is most appropriate for ”middle-of-sentence” use. So, for example, if your language normally doesn't spell languages with a capital letter, then you shouldn’t do that here. Please see [Capitalization](https://cldr.unicode.org/translation/translation-guide-general/capitalization) for more details.
-    - Plurals: For important information regarding the use of plural forms for your language, please read [Plurals](https://cldr.unicode.org/translation/getting-started/plurals).
+- Use [Reports](#reports) at the beginning to review the data in your language in a holistic manner for Date & time, Zones, and Numbers.
+    - Capitalization: Translations should be what is most appropriate for ”middle-of-sentence” use. So, for example, if your language normally doesn't spell languages with a capital letter, then you shouldn’t do that here. Please see [Capitalization](/translation/translation-guide-general/capitalization) for more details.
+    - Plurals: For important information regarding the use of plural forms for your language, please read [Plurals](/translation/getting-started/plurals).
 
 ### Vetting Phase
 
@@ -29,7 +25,7 @@ At a point towards the end of Survey Tool period, the Technical Committee will c
 
 ## Login and Import of old votes
 
-1. Go to http://st.unicode.org/cldr-apps/survey/ and log in.
+1. Go to https://st.unicode.org/cldr-apps/survey/ and log in.
 ![alt-text](../../images/gettingStartedGuideNotOpenYet.jpeg)
 1. **Import of old votes** is automatically handled when you log in for all your votes **matching** the latest released data. If you have voted previously, upon first log-in, you will see a message showing the number of your votes that matched the currently winning votes that have been auto-imported.
 2. Import of your old votes will take some time, but this will be done at 1st log-in only.
@@ -46,7 +42,6 @@ At a point towards the end of Survey Tool period, the Technical Committee will c
 3. Go to the data categories in the Survey tool where you have imported your old votes, these will show up in the Others column with no votes.
 4. Review and add your vote. The best practice is to create a forum entry explaining why this is the data that should be changed to and drive to gain consensus with other vetters.
 
-
 ### Picking Locales
 
 1. On the left sidebar, you will see the CLDR locale(s). Your default view will be the languages you have permissions for. All the locales that you have permission to contribute submissions to are marked with PENCIL icon. You can view the others but not submit contributions. For example, if you have permissions to the default language Afrikaans (af), you will not have permissions to Afrikaans (Namibia), and vice versa.
@@ -59,13 +54,12 @@ At a point towards the end of Survey Tool period, the Technical Committee will c
 
 1.  Only those of you working on a specific variant language (or "sub-locale") will pick a non-default region. If you work on Mexican Spanish, pick **Mexico**. (This should already be pre-selected for you.)
 
-
-_Make sure that you haven't mistakenly turned the Information Panel off! See_ [_**No Information Panel**_](https://cldr.unicode.org/translation/getting-started/guide%23TOC-No-Information-Panel)_**.**_
+_If the [Info Panel](#info-panel) was turned off, click on the **Open Info Panel** button near the top right of the window._
 
 ### Voting view
 
 1. Once you have selected your locale, more options show up in the left sidebar. (You’ll note that the sidebar only shows if you mouse over the **\>** character on the left.)
-2. If the locale is relatively new and very complete, start working on the **Core Data** section and go through the rest of the sections. If the locale is mostly complete, then go to [**Dashboard**](https://cldr.unicode.org/translation/getting-started/guide) below.
+2. If the locale is relatively new and very complete, start working on the **Core Data** section and go through the rest of the sections. If the locale is mostly complete, then go to the [Dashboard](#dashboard) (below).
 3. Once you have selected a section, you'll see a table to enter votes in. The main table has these columns:
     - **Code**: the code CLDR uses to identify this data point.
     - **English**: the plain English value of the data point (the text you are to translate).
@@ -76,8 +70,8 @@ _Make sure that you haven't mistakenly turned the Information Panel off! See_ [_
         - If what you want is a variation of what is in Winning or Others, you can cut & paste, and then modify.
     - **Others**: other suggested values, not currently winning, but available to vote for.
 4. Click on one of the radio buttons to make your vote. The winning status changes in real-time so depending on vote requirements and existing votes, your vote may move your desired value to the winning column right away.
-    1. Look at the Regional Variants to see if any should be changed: see **Information Panel** below.
-5. Once you are done with all the sections, go to the [**Dashboard**](https://cldr.unicode.org/translation/getting-started/guide)**.**
+    1. Look at the Regional Variants to see if any should be changed: see **Info Panel** below.
+5. Once you are done with all the sections, go to [Dashboard](#dashboard) (below).
 6. Under the English column, look for "**i**" for additional information and "**e**" for an example.
 ![alt-text](../../images/gettingStartedGuideArabic.png)
 ![alt-text](../../images/gettingStartedGuideEnglish.jpg)
@@ -88,25 +82,25 @@ The main panel uses icons to indicate important information and possible problem
 
 ![alt-text](../../images/gettingStartedGuideIcon.png)
 
-(Icons for the **Dashboard** are listed in the [**Dashboard Icons**](https://cldr.unicode.org/translation/getting-started/guide) section below.)
+(Icons for the **Dashboard** are listed in the [Dashboard Icons](#dashboard-icons) section below.)
 
 ### Examples
 
 An example with an ❌ shows a case where the pattern has an inappropriate placeholder substituted. That example should be ungrammatical; if it is grammatical, then either the translated unit or the minimal pair pattern itself is incorrect. The example will show in the Info Panel, and also if you hover over the item.
 
-### Information Panel
+### Info Panel
 
 1. If you hover over an item (including the English item), a tooltip will appear showing a sample value and usage of the item in context. The item itself will have a white background; other text in context will have a gray background.
-2.  When you select an item (the text, **NOT** the radio button), additional information will show in the right-hand **Information Panel**. See screenshot below.
+2.  When you select an item (the text, **NOT** the radio button), additional information will show in the right-hand **Info Panel**. See screenshot below.
 3. Make sure you use a wide-screen monitor and enlarge your window until you can see it, something like the image below.
 4. The box at the top shows information about the code you are translating. _It also has a link that you should click on the first type you encounter that kind of item that will explain any "gotchas"._
 5. If there is an error or warning for the item, you see that in the middle.
 6. Below that, you'll see an example. This is the same as you get by hovering over the item in the center section.
 7. If there are votes, you'll see a breakdown of them; you also see the number of votes required to change the value. Unicode organization members usually have 4 votes; _vetters which are not representing a Unicode organization usually have 1 vote_. Your vote value and the vote value required for change will show on the right navigation for the selected item as shown in this screenshot (4 and 8 respectively in this case).
 8. Near the bottom, you'll see a pulldown menu that shows the values for different regional Variants. Here, you can quickly compare the values and go to different sub-locales to correct inconsistencies.
-9. You'll also see the New Forum Post button (as shown in the screenshot _to the right_). This is the easiest way to post discussions for the selected item. Remember that the Forum posts are at language level and not at Sub-locale level. For more information, see [Forum](https://cldr.unicode.org/translation/getting-started/guide).
-10. **No Information Panel?**
-    - If you click on the **Code** cell and there is no **Information Panel**, you may have turned it off accidentally. Click on the **Open Info Panel** button near the top right of the window.
+9. You'll also see the New Forum Post button (as shown in the screenshot _to the right_). This is the easiest way to post discussions for the selected item. Remember that the Forum posts are at language level and not at Sub-locale level. For more information, see [Forum](#forum).
+10. **No Info Panel?**
+    - If you click on the **Code** cell and there is no **Info Panel**, you may have turned it off accidentally. Click on the **Open Info Panel** button near the top right of the window.
 
 ![alt-text](../../images/gettingStartedGuideSideBar.png)
 ![alt-text](../../images/gettingStartedGuideCookies.png)
@@ -133,8 +127,7 @@ Language variants by Region are differentiated as Parent-locale and sub-locales.
 
 -   **Spanish (Argentina) es\_AR** is one of the sub-locales for Spanish (Latin America). Votes on inheritance will ensure that it will only contain content that is different than what is in Spanish (Latin America)
 
-
-The regional variants menu for a data point is shown on the right navigation information pane. It will look something like the following (the exact appearance depends on the browser).
+The regional variants menu for a data point is shown on the right navigation Info Panel. It will look something like the following (the exact appearance depends on the browser).
 
 When you pull it down, it will show which regional variants have different values than the main language locale. The current locale will show as darker gray as shown in the screenshot on the right.
 
@@ -174,7 +167,6 @@ _**Note:**_ _The total progress widget is currently only visible when the dashbo
 _Progress bar shows progress of items on page for your coverage level._
 ![alt-text](../../images/gettingStartedGuidePageProgress.png)
 
-
 ### _Overall progress_
 
 _Progress bar shows progress of items overall for your coverage level._
@@ -187,7 +179,7 @@ The Dashboard will show you a list of data items with warnings of different kind
 
 ![alt-text](../../images/gettingStartedGuideDashboard.png)
 
-The goal is that you should work the Dashboard down to show zero items, then review the [**Reports**](https://cldr.unicode.org/index/survey-tool/guide#TOC-Reports), below.
+The goal is that you should work the Dashboard down to show zero items, then review the [Reports](#reports) (below).
 
 _The first priority is to fix all the_ _**Missing**_ _items by supplying the correct translations._
 
@@ -246,7 +238,6 @@ There are two ways to clear items from the **Dashboard** list:
         - _Click on the orange eye button in the line (a “Show" tooltip will appear)._
         - _Hide all the lines again by clicking the top eye button._
 
-
 ## Reports
 
 The reports show lists of items that need to be reviewed for consistency. You should look through these after you do the **Dashboard** to make sure that the items are consistent, when viewed in the context of others. Each of them has a link to instructions at the top. Please read these before continuing.
@@ -273,7 +264,7 @@ You may see a message like the following when trying to modify a regional locale
 
 ![alt-text](../../images/gettingStartedGuideBrazil.png)
 
-The reason that Brazil is grayed out is that it is the default content locale for Portuguese. So to modify pt-BR, you need to simply click on Portuguese. If you do click on Brazil, you will get to a page with the following at the top. Clicking on [default content locale](https://cldr.unicode.org/translation/translation-guide-general/default-content) will explain in more detail.
+The reason that Brazil is grayed out is that it is the default content locale for Portuguese. So to modify pt-BR, you need to simply click on Portuguese. If you do click on Brazil, you will get to a page with the following at the top. Clicking on [default content locale](/translation/translation-guide-general/default-content) will explain in more detail.
 
 ![alt-text](../../images/gettingStartedGuideGeneralInfo.png)
 
@@ -319,7 +310,6 @@ Forum posts work with the following workflow:
 2. Responses by other vetters in your language with Agree, Decline, or Comment.
 3. Once resolved, the creators of the the initial Request or Discuss closes the post.
 
-
 ### How to create a new forum post
 
 A forum post can be specific to a particular data point or a general issue. In either case, create a new forum post to an item.
@@ -327,14 +317,13 @@ A forum post can be specific to a particular data point or a general issue. In e
 - A post that is specific to a particular data point.
 - A general issue that impacts multiple data points. In a general case that impacts multiple data points, you do not need to post new forum posts for every item impacted. The general issue should be flagged to other vetters and once a consensus is reached, it is expected that vetters update their votes on all impacted items. New forum posts can be used to flag to other vetters if others fail to update their votes on all impacted items. ONLY request if others have missed or have not updated consistently.
 
-
-**Create forum posts from the** [**Information pane**](https://cldr.unicode.org/translation/getting-started/guide#TOC-Information-Panel)**l in the voting window.**
+**Create forum posts from the [Info Panel](#info-panel) in the voting window.**
 
 1. Vote on an item (or add new +) for the item you want to suggest changing.
 
 ![alt-text](../../images/gettingStartedGuideVote.png)
 
-2. In the Information panel on the right, there are two buttons to indicate the type of forum posts:
+2. In the Info Panel on the right, there are two buttons to indicate the type of forum posts:
     1. **Request** You have voted on a non-winning item, and you want to Request others to change their votes.
     2. **Discuss -** Currently only TC members can make discuss posts.
 
@@ -353,9 +342,9 @@ A forum post can be specific to a particular data point or a general issue. In e
 
 There are two ways to respond to forum posts:
 - Info Panel (This is the recommended option.)
-- In the Forum view (See [Working in the Forum view](https://cldr.unicode.org/translation/getting-started/guide#TOC-Working-in-the-Forum-view-))
+- In the Forum view (See [Working in the Forum view](#working-in-the-forum-view))
 
-**Respond from the** [**Info Panel**](https://cldr.unicode.org/translation/getting-started/guide#TOC-Information-Panel) **in the voting window.**
+**Respond from the [Info Panel](#info-panel) in the voting window.**
 
 In the **Info Panel**, select the **Comment** button
 - Each posted response is labeled in Red and its response type: Agree, Decline or Comment.
@@ -375,10 +364,9 @@ In the **Info Panel**, select the **Comment** button
 
 There are two ways to respond to new forum post:
 - Info Panel (This is the recommended option.)
-- In the Forum view (See [Working in the Forum view](https://cldr.unicode.org/translation/getting-started/guide#TOC-Working-in-the-Forum-view-))
+- In the Forum view (See [Working in the Forum view](#working-in-the-forum-view))
 
-
-**Respond to forum posts from the** [**Info Panel**](https://cldr.unicode.org/translation/getting-started/guide#TOC-Information-Panel) **in the voting window.**
+**Respond to forum posts from the [Info Panel](#info-panel) in the voting window.**
 1. In the Info Panel click the **Comment** button and add your input to the open discussion.
 2. The label **Discuss** in Red indicates that this is a Discuss post (to distinguish from Request posts)
 
@@ -387,6 +375,7 @@ There are two ways to respond to new forum post:
 ### Working in the Forum view
 
 In the Survey Tool [Forum](https://st.unicode.org/cldr-apps/v#forum/fr//) view, there are multiple filtering options available for you to work more effectively.
+
 1. The Forum view can be accessed from the left navigation **Forum.**
 
 ![alt-text](../../images/gettingStartedGuideForum.jpeg)
@@ -408,13 +397,13 @@ In the Forum view, you can respond to Request and Discuss posts.
 
 For **Request posts**, you can select your decision using the 3 available buttons: **Agree, Decline, Comment.**
 
-See [Responding to Request posts in Information Pane](https://cldr.unicode.org/translation/getting-started/guide#TOC-Responding-to-Request-posts).
+See [Responding to Request posts in Info Panel](#responding-to-request-posts).
 
 ![alt-text](../../images/gettingStartedGuideForumPosts.png)
 
 ## Reporting Survey Tool issues
 
-If you run into a problem with the Survey Tool functionalities, please see [FAQ & Known Bugs](https://cldr.unicode.org/index/survey-tool/faq-and-known-bugs) to see whether it has already been reported (and whether there is a work-around). If not, or if you have suggestions for improvements, please file a bug using the Feedback link at the bottom of each window. If you encounter problems or have enhancement suggestions for the survey tool, please [file a ticket](https://cldr.unicode.org/index/bug-reports#TOC-Filing-a-Ticket).
+If you run into a problem with the Survey Tool functionalities, please see [FAQ & Known Bugs](../../index/survey-tool/faq-and-known-bugs) to see whether it has already been reported (and whether there is a work-around). If not, or if you have suggestions for improvements, please file a bug using the Feedback link at the bottom of each window. If you encounter problems or have enhancement suggestions for the survey tool, please [file a ticket](../requesting_changes#how-to-file-a-ticket).
 
 ![alt-text](../../images/gettingStartedGuideCoverage.png)
 
@@ -423,10 +412,9 @@ If you run into a problem with the Survey Tool functionalities, please see [FAQ 
 1. Another way to check for posts that may need your attention is to review email notifications to the e-mail account for your locale. You can delete these notifications if they are for changes initiated by you. You can open the post directly from a link in the email.
 2. When you make a forum entry, it will be emailed to all other linguists working on locales with the same language, parent or sub-locale (i.e. **forum is at Language level and not at sub-locale level**). If you are talking about a translation in a sub-locale, be sure that you are clear about that.
 
-
 ### Forum posts for CLDR ticket feedback
 
-CLDR users can send in data feedback using [JIRA](https://github.com/unicode-org/cldr/blob/main/docs/requesting_changes.md). Tickets filed in JIRA will be processed as described below. Please expect to see posts by CLDR Technical Committee members (TCs) in Forums, and participate by providing your response to any tickets needing your input.
+CLDR users can send in data feedback using [JIRA](/requesting_changes). Tickets filed in JIRA will be processed as described below. Please expect to see posts by CLDR Technical Committee members (TCs) in Forums, and participate by providing your response to any tickets needing your input.
 
 The goal is to bring it to the attention to all linguists contributing in a particular language, and gather their input, so an informed decision can be made and/or suggested.
 
@@ -435,12 +423,10 @@ The goal is to bring it to the attention to all linguists contributing in a part
 3. A reason for not changing could be for example that it is a reasonable change, but doesn't exceed the 'stability' bar in the translation guidelines.
 4. TC members will monitor the forum discussion/change during the Submission phase, and will close the JIRA ticket after the forum discussion is concluded.
 
-
 ## Advanced Features
 
-1. Users familiar with CLDR XML format can upload votes (and submissions) for multiple items at once. See [**Bulk Data Upload**](https://cldr.unicode.org/index/survey-tool/bulk-data-upload)**.**
-2. Organization managers can manage users for their organization (add, remove, send passwords, set locales, etc.) For more information, see [**Managing Users**](https://cldr.unicode.org/index/survey-tool/managing-users)**.**
+1. Users familiar with CLDR XML format can upload votes (and submissions) for multiple items at once. See [Bulk Data Upload](/index/survey-tool/bulk-data-upload).
+2. Organization managers can manage users for their organization (add, remove, send passwords, set locales, etc.) For more information, see [Managing Users](/index/survey-tool/managing-users).
     1. Some users may want to reset their Coverage Level, with the menu that looks like the image to the right.
     2. The Coverage Level determines the items that you will see for translation: the minimal level has the highest priority items. You normally start with the level marked "Default" (which will vary by your organization and locale). Each successively higher level adds more items, at successively lower priorities. You will not normally go beyond "Modern", unless you have special instructions for your organization.
     3. _Note that some companies won't use the data until it is complete at a certain coverage level, typically_ _**Modern**._
-

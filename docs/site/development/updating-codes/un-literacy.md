@@ -1,5 +1,5 @@
 ---
-title: UN Literacy Data (CLDR BRS)
+title: 'UN Literacy Data (CLDR BRS)'
 ---
 
 # UN Literacy Data (CLDR BRS)

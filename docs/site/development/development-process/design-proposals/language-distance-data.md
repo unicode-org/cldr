@@ -115,7 +115,7 @@ Note that this doesn't have to be an N x M algorithm. Because there is a minimum
 
 ## Data Sample
 
-The data is designed to be relatively simple to understand. It would typically be processed into an internal format for fast processing. The data does not need to be exact; only the relative computed values are important. However, for keep the types of fields apart, they are given very different values. TODO: add values for [ISO 636 Deprecation Requests - DRAFT](https://cldr.unicode.org/development/development-process/design-proposals/iso-636-deprecation-requests-draft)
+The data is designed to be relatively simple to understand. It would typically be processed into an internal format for fast processing. The data does not need to be exact; only the relative computed values are important. However, for keep the types of fields apart, they are given very different values. TODO: add values for [ISO 636 Deprecation Requests - DRAFT](/development/development-process/design-proposals/iso-636-deprecation-requests-draft)
 
 \<languageDistances>
 

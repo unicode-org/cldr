@@ -19,8 +19,8 @@ In CLDR Bug Reports, please try to give as much information as possible to help 
 
 A few areas are particularly tricky.
 
-* For the sort order of a language, see [Collation Guidelines](https://cldr.unicode.org/index/cldr-spec/collation-guidelines)
-* For plural rules (ordinals and cardinals), see [Plural Rules](https://cldr.unicode.org/index/cldr-spec/plural-rules)
+* For the sort order of a language, see [Collation Guidelines](/index/cldr-spec/collation-guidelines)
+* For plural rules (ordinals and cardinals), see [Plural Rules](/index/cldr-spec/plural-rules)
 
 ### Requesting updates to locale data through a ticket
 
@@ -37,7 +37,7 @@ Helpful information include:
 
 Please file all tickets in English since the people who are reviewing your ticket are likely to not speak your language. You can use automated translation software if you don't speak English well enough, and include the same text in your native language as well.
 
-Note: If you are a regular user of that language you can also contribute directly through the Survey Tool. [More information about the process including opening an account.](https://cldr.unicode.org/index/survey-tool)
+Note: If you are a regular user of that language you can also contribute directly through the Survey Tool. [More information about the process including opening an account.](/index/survey-tool)
 
 ### How to File a Ticket
 
@@ -46,7 +46,7 @@ The CLDR tickets are located at: https://unicode-org.atlassian.net/projects/CLDR
 To file a ticket, click the red "Create" button on the top navigation bar. See [Jira documentation](https://support.atlassian.com/jira-work-management/docs/create-issues-and-subtasks/)
 for additional details on how to create an issue.
 
-You must have an account in order to file tickets. If you do not have an account, you can [request a Jira account](https://id.atlassian.com/signup?continue=https%3A%2F%2Funicode-org.atlassian.net%2Flogin%3FredirectCount%3D1%26dest-url%3Dhttps%253A%252F%252Funicode-org.atlassian.net%252Fprojects%252FCLDR%252Fissues&application=jira). 
+You must have an account in order to file tickets. If you do not have an account, you can [request a Jira account](https://id.atlassian.com/signup?continue=https%3A%2F%2Funicode-org.atlassian.net%2Flogin%3FredirectCount%3D1%26dest-url%3Dhttps%253A%252F%252Funicode-org.atlassian.net%252Fprojects%252FCLDR%252Fissues&application=jira).
 
 ## When to fix in survey tool
 
@@ -55,8 +55,8 @@ during the regular CLDR development cycle.
 
 ## Adding New Locales
 
-If you would like to add data for a new locale: 
+If you would like to add data for a new locale:
 
-* Make sure that you pick the right locale code for the new data. See [Picking the Right Language Code](https://cldr.unicode.org/index/cldr-spec/picking-the-right-language-code)
-* Gather the [Core Data for New Locales](https://cldr.unicode.org/index/cldr-spec/core-data-for-new-locales). A new locale is only added if someone commits to supplying/maintaining the data.
+* Make sure that you pick the right locale code for the new data. See [Picking the Right Language Code](/index/cldr-spec/picking-the-right-language-code)
+* Gather the [Core Data for New Locales](/index/cldr-spec/core-data-for-new-locales). A new locale is only added if someone commits to supplying/maintaining the data.
 * Follow the instructions above to file a ticket, requesting the addition.  Add the language code (#1) and core data (#2) in the ticket)

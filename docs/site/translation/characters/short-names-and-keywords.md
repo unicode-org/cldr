@@ -71,7 +71,7 @@ Many of the emoji names are constructed, which means that in implementations emo
 - For the Character > Categories > Label (such as [French](https://st.unicode.org/cldr-apps/v#/fr/Category/19624f4413eaac8b)), whether or not a label is plural will depend on the label and the language. The pluralization choice will not necessarily follow the English.
 ## Short Character Names
 
-In CLDR we provide descriptive but short names for the characters across languages. (For reference, see [Background: Unicode Std. vs CLDR names](https://cldr.unicode.org/translation/characters-emoji-symbols/short-names-and-keywords%23TOC-Background:-Unicode-Std.-vs-CLDR-names).)
+In CLDR we provide descriptive but short names for the characters across languages. (For reference, see [Background: Unicode Std. vs CLDR names](/translation/characters-emoji-symbols/short-names-and-keywords%23TOC-Background:-Unicode-Std.-vs-CLDR-names).)
 
 Goals for the short names collected in CLDR are:
 
@@ -82,12 +82,12 @@ Goals for the short names collected in CLDR are:
 | **Descriptive** | Be descriptive of the prevailing color images. Don't be "over-descriptive", however. The descriptions only have to be enough to distinguish each image from the others: they shouldn't have any details beyond that. |
 | **Consistent** | Be consistent across images with similar features. (Don’t call 📫 a _mailbox_ and 📬 a _post box_).  |
 | **Flexible** | It is **not a goal** to be immutable: in future versions of CLDR, you can improve names by casing new suggestions if a more appropriate names are available. |
-| **Not Literal** | Names should **not just be literal translations** of the English-- the names should be based on associations to the image _in your language._ But you can be _informed_ by the English names. (Exceptions to this when there is no equivalent in your language. See [Emoji specific to a country/region](https://cldr.unicode.org/translation/characters-emoji-symbols/short-names-and-keywords#TOC-FAQ-Tips-for-character-names-and-keywords)) |
+| **Not Literal** | Names should **not just be literal translations** of the English-- the names should be based on associations to the image _in your language._ But you can be _informed_ by the English names. (Exceptions to this when there is no equivalent in your language. See [Emoji specific to a country/region](/translation/characters-emoji-symbols/short-names-and-keywords#TOC-FAQ-Tips-for-character-names-and-keywords)) |
 
 When voting on the emoji names and keywords:
 
-- Follow the middle of sentence rule. See [Capitalization](https://cldr.unicode.org/translation/translation-guide-general/capitalization) guideline.
-- As usual, the names in “en” are American English; where necessary those are customized for “en-GB”. For differences for sub-locale, see [Regional Variant](https://cldr.unicode.org/translation/getting-started/guide#TOC-Regional-Variants-also-known-as-Sub-locales-) guideline.
+- Follow the middle of sentence rule. See [Capitalization](/translation/translation-guide-general/capitalization) guideline.
+- As usual, the names in “en” are American English; where necessary those are customized for “en-GB”. For differences for sub-locale, see [Regional Variant](/translation/getting-started/guide#TOC-Regional-Variants-also-known-as-Sub-locales-) guideline.
 
 ### Unique Names
 

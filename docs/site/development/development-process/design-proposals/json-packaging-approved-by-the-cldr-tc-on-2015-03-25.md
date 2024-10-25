@@ -1,10 +1,10 @@
 ---
-title: JSON Packaging (Approved by the CLDR TC on 2015-03-25)
+title: 'JSON Packaging (Approved by the CLDR TC on 2015-03-25)'
 ---
 
 # JSON Packaging (Approved by the CLDR TC on 2015-03-25)
 
-***This page is out of date, see*** [***http://cldr.unicode.org/index/downloads#TOC-JSON-Data***](http://cldr.unicode.org/index/downloads#TOC-JSON-Data) ***for details of the JSON data.***
+***This page is out of date, see*** [***http://cldr.unicode.org/index/downloads#TOC-JSON-Data***](/index/downloads#TOC-JSON-Data) ***for details of the JSON data.***
 
 ## Overview
 

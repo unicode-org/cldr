@@ -6,9 +6,9 @@ title: Checking out the CLDR Archive
 
 A number of the tools in CLDR depend on access to older versions. These tools include:
 
-- [Generating Charts](https://cldr.unicode.org/development/cldr-big-red-switch/generating-charts)
-- [Update Validity XML](https://cldr.unicode.org/development/updating-codes/update-validity-xml)
-- [Updating English/Root](https://cldr.unicode.org/development/cldr-development-site/updating-englishroot)
+- [Generating Charts](/development/cldr-big-red-switch/generating-charts)
+- [Update Validity XML](/development/updating-codes/update-validity-xml)
+- [Updating English/Root](/development/cldr-development-site/updating-englishroot)
 	- \[Note: add others when we find them]
 	- Some tests
 		- TestCompatibility.java
@@ -20,7 +20,7 @@ A number of the tools in CLDR depend on access to older versions. These tools in
 
 ### Here's how to do that.
 
-1. Create an archive directory **cldr\-archive**. The Simplest is if it on the same level as your local CLDR repository. In other words, if your [CLDR\_DIR](https://cldr.unicode.org/development/cldr-development-site/running-cldr-tools) is .../workspace/cldr, then create the directory  **…/workspace/cldr\-archive** <br>
+1. Create an archive directory **cldr\-archive**. The Simplest is if it on the same level as your local CLDR repository. In other words, if your [CLDR\_DIR](/development/cldr-development-site/running-cldr-tools) is .../workspace/cldr, then create the directory  **…/workspace/cldr\-archive** <br>
 (Note: The Java property **ARCHIVE** can be used to overide the path to cldr\-archive).
 2. Open up ToolConstants.java and look at ToolConstants.CLDR\_VERSIONS. You'll see something like:
 	1. **public static final** List\<String\> ***CLDR\_VERSIONS*** \= ImmutableList.of(

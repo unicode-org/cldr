@@ -1,5 +1,9 @@
 const { ref } = Vue;
 
+// load anchor.js - must be before the sidebar loads. might as well do this
+// first thing.
+anchors.add("h1, h2, h3, h4, h5, h6");
+
 // site management
 
 let myPath = window.location.pathname.slice(1) || "index.html";
@@ -51,6 +55,11 @@ async function siteData() {
   return j;
 }
 
+/**
+ * Single Promise for site data.
+ */
+const siteDataPromise = siteData();
+
 const AncestorPages = {
   props: ["ancestorPages"],
   setup() {},
@@ -61,12 +70,37 @@ const AncestorPages = {
 `,
 };
 
+const SubPageEntry = {
+  props: {
+    children: Boolean,
+    title: String,
+    href: String,
+  },
+  computed: {
+    style() {
+      if (this.children) {
+        return "hasChildren";
+      } else {
+        return "";
+      }
+    },
+  },
+  template: `
+      <a v-bind:href="href" v-bind:class="style">
+        {{ title }}
+      </a>
+  `,
+};
+
 const SubPagesPopup = {
   props: {
     children: {
       type: Object,
       required: true,
     },
+  },
+  components: {
+    SubPageEntry,
   },
   emits: ["hide"], // when user clicks hide
   setup() {},
@@ -76,14 +110,11 @@ const SubPagesPopup = {
     },
   },
   template: `
-          <div class="subpages">
-          <span class="hamburger" @click="hide()">✕</span>
+          <div class="subpageList">
+          <div class="navHeader">Subpages</div>
           <ul class="subpages" >
               <li v-for="subpage of children" :key="subpage.path">
-                  <a v-bind:href="subpage.href">
-                      {{ subpage.title }}
-                       <span class="hamburger" v-if="subpage.children">❱</span>
-                  </a>
+                <SubPageEntry :children="subpage.children" :title="subpage.title" :href="subpage.href" />
               </li>
           </ul>
         </div>
@@ -102,12 +133,15 @@ const SubMap = {
   setup() {},
   computed: {
     title() {
-      return this.usermap[this.path].title;
+      if (!this.usermap) return "";
+      return this.usermap[this.path]?.title;
     },
     children() {
-      return this.usermap[this.path].children || [];
+      if (!this.usermap) return [];
+      return this.usermap[this.path]?.children || [];
     },
     href() {
+      if (!this.usermap) return "";
       return path2url(this.path);
     },
   },
@@ -115,6 +149,24 @@ const SubMap = {
     <div class="submap">
       <a v-bind:href="href" v-bind:title="path">{{title}}</a>
       <SubMap v-for="child in children" :key="child" :usermap="usermap" :path="child" />
+    </div>
+  `,
+};
+
+const SubContents = {
+  name: "SubContents",
+  props: {
+    title: String,
+    href: String,
+    children: Object,
+    path: String,
+    style: String,
+  },
+  setup() {},
+  template: `
+    <div class="submap" v-bind:class="style">
+      <a v-bind:href="href" v-bind:title="path">{{title}}</a>
+      <SubContents v-if="children && children.length" v-for="child in children" :key="child.href" :title="child.title" :href="child.href" :children="child.children" />
     </div>
   `,
 };
@@ -138,9 +190,26 @@ const SiteMap = {
   },
   template: `
     <div class="sitemap">
-          <span class="hamburger" @click="hide()">✕</span>
-          <b>Site Map</b><hr/>
-          <SubMap :usermap="tree.value.usermap" path="index"/>
+          <SubMap :usermap="tree?.value?.usermap" path="index"/>
+    </div>
+  `,
+};
+
+const PageContents = {
+  components: {
+    SubContents,
+  },
+  props: {
+    children: {
+      type: Object,
+      required: true,
+    },
+  },
+  setup() {},
+  template: `
+    <div class="pagecontents">
+        <div class="navHeader">Contents</div>
+        <SubContents v-if="children && children.length" v-for="child in children" :key="child.href" :style="child.style" :title="child.title" :href="child.href" :children="child.children" />
     </div>
   `,
 };
@@ -171,7 +240,7 @@ const app = Vue.createApp(
     },
     mounted() {
       const t = this;
-      siteData().then(
+      siteDataPromise.then(
         (d) => (t.tree.value = d),
         (e) => (t.status = e)
       );
@@ -255,24 +324,15 @@ const app = Vue.createApp(
     <div>
        <div class='status' v-if="status">{{ status }}</div>
        <div class='status' v-if="!tree">Loading…</div>
-       <a class="icon" href="http://www.unicode.org/"> <img border="0"
+       <a class="icon" href="https://www.unicode.org/"> <img border="0"
 					src="/assets/img/logo60s2.gif"  alt="[Unicode]" width="34"
 					height="33"></a>&nbsp;&nbsp;
 
-       <AncestorPages :ancestorPages="ancestorPages"/>
+       <div class="breadcrumb">
+        <AncestorPages :ancestorPages="ancestorPages"/>
 
-       <div v-if="!children || !children.length" class="title"> {{ ourTitle }} </div>
-
-       <div v-else class="title"  @mouseover="popup = true"><span class="hamburger" @click="showmap=false,popup = !popup">≡</span>
-
-            {{ ourTitle }}
-
-        <SubPagesPopup v-if="popup && !showmap" @hide="popup = false" :children="children"/>
-
-      </div>
-        <div class="showmap" v-if="!showmap" @click="popup=false,showmap = true">Site Map</div>
-        <SiteMap v-if="tree && showmap" :tree="tree" @hide="showmap = popup = false"  />
-
+        </div>
+       </div>
     </div>`,
   },
   {
@@ -283,5 +343,178 @@ const app = Vue.createApp(
 
 app.mount("#nav");
 
-// load anchor.js
-anchors.add("h1, h2, h3, h4, h5, h6, caption, dfn");
+if (myPath === "sitemap.html") {
+  // for now: duplicate app including sitemap
+  const sapp = Vue.createApp(
+    {
+      components: {
+        SiteMap,
+      },
+      setup(props) {
+        // the tree.json data
+        const tree = ref({});
+        // loading status for tree.json
+        const status = ref(null);
+        // is the site map shown?
+        const showmap = ref(true);
+
+        return {
+          tree,
+          status,
+          showmap,
+        };
+      },
+      mounted() {
+        const t = this;
+        siteDataPromise.then(
+          (d) => (t.tree.value = d),
+          (e) => (t.status = e)
+        );
+      },
+      props: {
+        path: String,
+      },
+      computed: {
+        /** base path:  'index' or 'downloads/cldr-33' */
+        base() {
+          if (this.path) {
+            return drophtml(this.path);
+          } else {
+            return "index"; // '' => 'index'
+          }
+          return null;
+        },
+        ourTitle() {
+          if (this.tree?.value) {
+            if (this.path === "") return this.rootTitle;
+            return this?.tree?.value?.usermap[this.base]?.title;
+          }
+        },
+        // title of root
+        rootTitle() {
+          const usermap = this?.tree?.value?.usermap ?? {};
+          return usermap?.index?.title ?? "CLDR";
+        },
+      },
+      template: `
+      <div>
+         <div class='status' v-if="status">{{ status }}</div>
+         <div class='status' v-if="!tree">Loading…</div>
+          <SiteMap v-if="true" :tree="tree" @hide="showmap = popup = false"  />
+
+      </div>`,
+    },
+    {
+      // path of / goes to /index.html
+      path: myPath,
+    }
+  );
+  sapp.mount("#sitemap");
+} else {
+  // NOT in sitemap - mount the view app for the in-page sidebar
+  const sapp = Vue.createApp(
+    {
+      components: {
+        PageContents,
+        SubPagesPopup,
+      },
+      setup(props) {
+        // the tree.json data
+        const tree = ref({});
+        // loading status for tree.json
+        const status = ref(null);
+        // is the site map shown?
+        const showmap = ref(true);
+
+        return {
+          tree,
+          status,
+          showmap,
+        };
+      },
+      mounted() {
+        const t = this;
+        siteDataPromise.then(
+          (d) => {
+            t.tree.value = d;
+            // set style on first header if redundant
+            if (this.anchorElements[0]?.textContent === this.ourTitle) {
+              this.anchorElements[0].className = "redundantTitle";
+            }
+          },
+          (e) => (t.status = e)
+        );
+      },
+      props: {
+        path: String,
+        anchorElements: Object,
+      },
+      computed: {
+        /** base path:  'index' or 'downloads/cldr-33' */
+        base() {
+          if (this.path) {
+            return drophtml(this.path);
+          } else {
+            return "index"; // '' => 'index'
+          }
+          return null;
+        },
+        children() {
+          const usermap = this?.tree?.value?.usermap;
+          if (!usermap) return []; // no children
+          const entry = usermap[this.base];
+          const children = entry?.children;
+          if (!children || !children.length) return [];
+          return children.map((path) => ({
+            path,
+            href: path2url(path),
+            title: usermap[path]?.title || path,
+            children: (usermap[path].children ?? []).length > 0,
+          }));
+        },
+        contents() {
+          // For now we generate a flat map
+          // this
+          let objects = this.anchorElements?.map(
+            ({ textContent, id, tagName }) => ({
+              title: textContent,
+              href: `#${id}`,
+              children: null,
+              style: `heading${tagName}`,
+            })
+          );
+          if (objects[0]?.title === this.ourTitle) {
+            objects = objects.slice(1);
+          }
+          if (!objects?.length) return null;
+          return objects;
+        },
+        ourTitle() {
+          if (this.tree?.value) {
+            if (this.path === "") return this.rootTitle;
+            return this?.tree?.value?.usermap[this.base]?.title;
+          }
+        },
+        // title of root
+        rootTitle() {
+          const usermap = this?.tree?.value?.usermap ?? {};
+          return usermap?.index?.title ?? "CLDR";
+        },
+      },
+      template: `
+      <div>
+      <div class="navBar" v-if="contents || (children.length)">
+        <PageContents v-if="contents" :children="contents" />
+        <SubPagesPopup v-if="children.length" :children="children"/>
+      </div>
+      <h1 class="title">{{ ourTitle }}</h1>
+      </div>`,
+    },
+    {
+      // path of / goes to /index.html
+      path: myPath,
+      anchorElements: anchors.elements,
+    }
+  );
+  sapp.mount("#sidebar");
+}

@@ -76,6 +76,7 @@ import org.unicode.cldr.util.Rational.FormatStyle;
 import org.unicode.cldr.util.ScriptToExemplars;
 import org.unicode.cldr.util.SimpleUnicodeSetFormatter;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.SupplementalDataInfo.CurrencyNumberInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
@@ -326,6 +327,19 @@ public class ExampleGenerator {
                 }
             };
 
+    // map relativeTimePattern counts to numeric examples
+    public static final Map<String, String> COUNTS =
+            new HashMap<String, String>() {
+                {
+                    put("zero", "0");
+                    put("one", "1");
+                    put("two", "2");
+                    put("few", "3");
+                    put("many", "5");
+                    put("other", "10");
+                }
+            };
+
     public CLDRFile getCldrFile() {
         return cldrFile;
     }
@@ -540,6 +554,10 @@ public class ExampleGenerator {
             handleEras(parts, value, examples);
         } else if (parts.contains("quarters")) {
             handleQuarters(parts, value, examples);
+        } else if (parts.contains("relative")
+                || parts.contains("relativeTime")
+                || parts.contains("relativePeriod")) {
+            handleRelative(xpath, parts, value, examples);
         } else if (parts.contains("dayPeriods")) {
             handleDayPeriod(parts, value, examples);
         } else if (parts.contains("monthContext")) {
@@ -2723,6 +2741,14 @@ public class ExampleGenerator {
                 icuServiceBuilder.getCurrencyFormat(currency, currencySymbol, numberSystem);
         df.applyPattern(value);
 
+        // getCurrencyFormat sets digits, but applyPattern seems to overwrite it, so fix it again
+        // here
+        SupplementalDataInfo supplementalData = CONFIG.getSupplementalDataInfo();
+        CurrencyNumberInfo info = supplementalData.getCurrencyNumberInfo(currency);
+        int digits = info.getDigits();
+        df.setMinimumFractionDigits(digits);
+        df.setMaximumFractionDigits(digits);
+
         String countValue = parts.getAttributeValue(-1, "count");
         if (countValue != null) {
             examples.add(formatCountDecimal(df, countValue));
@@ -2979,6 +3005,47 @@ public class ExampleGenerator {
         calendar.set(1999, month, 5, 13, 25, 59);
         Date sample = calendar.getTime();
         examples.add(sdf.format(sample));
+    }
+
+    /* Add relative date/time examples, choosing appropriate
+     * patterns as needed for relative dates vs relative times.
+     * Additionally, for relativeTimePattern items, ensure that
+     * numeric example corresponds to the count represented by the item.
+     */
+    private void handleRelative(
+            String xpath, XPathParts parts, String value, List<String> examples) {
+        String skeleton;
+        String type = parts.findAttributeValue("field", "type");
+        if (type.startsWith("hour")) {
+            skeleton = "Hm";
+        } else if (type.startsWith("minute") || type.startsWith("second")) {
+            skeleton = "ms";
+        } else if (type.startsWith("year")
+                || type.startsWith("month")
+                || type.startsWith("quarter")) {
+            skeleton = "yMMMM";
+        } else {
+            skeleton = "MMMMd";
+        }
+        String checkPath =
+                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\""
+                        + skeleton
+                        + "\"]";
+        String dateFormat = cldrFile.getWinningValue(checkPath);
+        SimpleDateFormat sdf = icuServiceBuilder.getDateFormat("gregorian", dateFormat);
+        String sampleDate = sdf.format(DATE_SAMPLE);
+        String example1 =
+                value.substring(0, 1).toUpperCase() + value.substring(1) + " (" + sampleDate + ")";
+        String example2 = sampleDate + " (" + value + ")";
+        if (parts.contains("relativeTimePattern")) { // has placeholder
+            String count = parts.getAttributeValue(-1, "count");
+            String exampleCount = COUNTS.get(count);
+            examples.add(invertBackground(format(setBackground(example1), exampleCount)));
+            examples.add(invertBackground(format(setBackground(example2), exampleCount)));
+        } else {
+            examples.add(format(example1));
+            examples.add(format(example2));
+        }
     }
 
     /**

@@ -512,7 +512,7 @@ See [UAX #15](https://www.unicode.org/reports/tr15/#Description_Norm) for an ove
 
 #### Example Normalization with Markers
 
-**Example 1**
+**Example 1a**
 
 Consider this example, without markers:
 
@@ -521,7 +521,7 @@ Consider this example, without markers:
 
 The combining marks are reordered.
 
-**Example 2**
+**Example 1b**
 
 If we add markers:
 
@@ -1806,10 +1806,10 @@ _Attribute:_ `value` (required)
 <variables>
     <string id="cluster_hi" value="हि" /> <!-- a string -->
     <string id="zwnj" value="\u{200C}"/> <!-- single codepoint -->
-    <string id="acute" value="\m{acute}"/> <!-- refer to a marker -->
+    <string id="grave" value="\m{grave}"/> <!-- refer to a marker -->
     <string id="backquote" value="`"/>
-    <string id="zwnj_acute" value="${zwnj}${acute}"  /> <!-- Combine two variables -->
-    <string id="zwnj_sp_acute" value="${zwnj}\u{0020}${acute}"  /> <!-- Combine two variables -->
+    <string id="zwnj_grave" value="${zwnj}${grave}"  /> <!-- Combine two variables -->
+    <string id="zwnj_sp_grave" value="${zwnj}\u{0020}${grave}"  /> <!-- Combine two variables -->
 </variables>
 ```
 
@@ -1822,10 +1822,10 @@ These may be then used in multiple contexts:
 …
 <!-- as part of a key bag  -->
 <key id="hi_key" output="${cluster_hi}" />
-<key id="acute_key" output="${acute}" />
+<key id="grave_key" output="${grave}" />
 …
-<!-- Display ´ instead of the non-displayable marker -->
-<display output="${acute}" display="${backquote}" />
+<!-- Display ` instead of the non-displayable marker -->
+<display output="${grave}" display="${backquote}" />
 ```
 
 * * *
@@ -2393,7 +2393,7 @@ Used in the `to=`
 
     - The `from=` and `to=` sides of the pattern must both be using `set` variables. There is no way to insert a set literal on either side and avoid using a variable.
 
-    - The two variables (here `upper` and `lower`) must have exactly the same number of whitespace-separated items. Leading and trailing space (such as at the end of `lower`) is ignored. A variable without any spaces is considered to be a set variable of exactly one item.
+    - The two variables (here `upper` and `lower`) must have exactly the same number of whitespace-separated items. Leading and trailing space is ignored. A variable without any spaces is considered to be a set variable of exactly one item.
 
     - As described in [Additional Features](#additional-features), the `upper` set variable as used here matches as if it is `((?:A|B|CC|D|E|FF|G))`, showing the enclosing capturing group. When text from the input context matches this expression, and all above conditions are met, the mapping proceeds as follows:
 
@@ -2704,7 +2704,7 @@ Keyboarding applications typically work, but are not required to, in one of two 
 
 **_text editing_**
 
-> text editing happens when a user moves the cursor into some previously entered text which may have been entered by someone else. As such, there is no way to know in which order things were typed, but a user will still want appropriate behaviour when they press backspace. This may involve deleting more than one character or replacing a sequence of characters with a different sequence.
+> text editing happens when a user moves the cursor into some previously entered text which may have been entered by someone else. As such, there is no way to know in which order things were typed, but a user will still want appropriate behavior when they press backspace. This may involve deleting more than one character or replacing a sequence of characters with a different sequence.
 
 In text editing mode, different keyboard layouts may behave differently in the same textual context. The backspace transform allows the keyboard layout to specify the effect of pressing backspace in a particular textual context. This is done by specifying a set of backspace rules that match a string before the cursor and replace it with another string. The rules are expressed within a `transforms type="backspace"` element.
 

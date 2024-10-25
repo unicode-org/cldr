@@ -4,7 +4,7 @@ title: Change to Sites?
 
 # Change to Sites?
 
-We are using Sites ([http://cldr.unicode.org/](http://cldr.unicode.org/)) to host all of the CLDR development web pages. I took a look at the cldr pages, and the following are not in Sites. The question is, should we move them (or some of them) to Sites?
+We are using Sites ([http://cldr.unicode.org/](/)) to host all of the CLDR development web pages. I took a look at the cldr pages, and the following are not in Sites. The question is, should we move them (or some of them) to Sites?
 
 Advantages
 

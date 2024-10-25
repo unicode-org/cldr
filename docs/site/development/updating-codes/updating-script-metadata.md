@@ -61,14 +61,14 @@ For example,
 		1. Copy the latest version of https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry to {CLDR}/tools/cldr\-code/src/main/resources/org/unicode/cldr/util/data/language\-subtag\-registry
 		2. Consider copying only the new script subtags (and making a note near the top of the CLDR file, or lines like "Comments: Unicode 14 script manually added 2021\-06\-01") to avoid having to update other parts of CLDR.
 	8. Run GenerateValidityXML.java like this:
-		1. See [Update Validity XML](https://cldr.unicode.org/development/updating-codes/update-validity-xml)
+		1. See [Update Validity XML](/development/updating-codes/update-validity-xml)
 		2. This needs the previous version of CLDR in a sibling folder.
-			1. see [Creating the Archive](https://cldr.unicode.org/development/creating-the-archive) for details on running the CheckoutArchive tool
+			1. see [Creating the Archive](/development/creating-the-archive) for details on running the CheckoutArchive tool
 		3. Now run GenerateValidityXML.java
 		4. If this crashes with a NullPointerException trying to create a Validity object, check that ToolConstants.LAST\_RELEASE\_VERSION is set to the actual last release.
 			1. Currently, the CHART\_VERSION must be a simple integer, no ".1" suffix.
 	9. At least script.xml should show the new scripts. The generator overwrites the source data file; use ```git diff``` or ```git difftool``` to make sure the new scripts have been added.
-	10. Run GenerateMaximalLocales, [as described on the likelysubtags page](https://cldr.unicode.org/development/updating-codes/likelysubtags-and-default-content), which generates another two files.
+	10. Run GenerateMaximalLocales, [as described on the likelysubtags page](/development/updating-codes/likelysubtags-and-default-content), which generates another two files.
 	11. Compare the latest git master files with the generated ones:  meld  common/supplemental  ../Generated/cldr/supplemental
 		1. Copy likelySubtags.xml and supplementalMetadata.xml to the latest git master if they have changes.
 	12. Compare generated files with previous versions for sanity check.

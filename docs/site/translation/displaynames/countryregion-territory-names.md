@@ -1,17 +1,17 @@
 ---
-title: Country/Region (Territory) Names
+title: 'Country/Region (Territory) Names'
 ---
 
 # Country/Region (Territory) Names
 
-Country and region names (referred to as Territories in the Survey Tool) may be used as part of [Language/Locale Names](https://cldr.unicode.org/translation/displaynames/languagelocale-names), or may be used in UI menus and lists to select countries or regions.
+Country and region names (referred to as Territories in the Survey Tool) may be used as part of [Language/Locale Names](/translation/displaynames/languagelocale-names), or may be used in UI menus and lists to select countries or regions.
 
 ## General Guidelines
 
 Please follow these guidelines:
 
 1. Use the most neutral grammatical form for the country/region that is natural for these two usages above. If there is no single form that can accomplish that, favor the usage within UI menus.
-2. Use the capitalization that would be appropriate in the middle of a sentence; the \<contextTransforms> data can specify the capitalization for other contexts. For more information, see [Capitalization](https://cldr.unicode.org/translation/translation-guide-general/capitalization).
+2. Use the capitalization that would be appropriate in the middle of a sentence; the \<contextTransforms> data can specify the capitalization for other contexts. For more information, see [Capitalization](/translation/translation-guide-general/capitalization).
 3. Each of the names **must** be unique (see below).
 4. Don't use commas and don't invert the name (eg use "South Korea", not "Korea, South").
 

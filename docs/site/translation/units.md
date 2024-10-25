@@ -4,6 +4,6 @@ title: Units
 
 # Units
 
-- [Measurement systems](https://cldr.unicode.org/translation/units/measurement-systems)
-- [Unit Names and Patterns](https://cldr.unicode.org/translation/units/unit-names-and-patterns)
+- [Measurement systems](/translation/units/measurement-systems)
+- [Unit Names and Patterns](/translation/units/unit-names-and-patterns)
 

@@ -1,26 +1,29 @@
-# CLDR Site Map.
-# This is a comment.
-# The file is a TSV, tab separated value.
-# There must be a single 'index' entry here at the root.
-# Every page must be listed.   index/charts means index/charts.md for example.
-# If an item has 'sub items' it becomes a directory parent.
-# You can comment out lines, but an error will be given at build time if a page is missing.
+#	CLDR Site Map		
+#	The file is a TSV, tab separated value.	Keep 3 tabs, for 4 columns (trailing tabs as needed).	
+#	Lines starting with # are comments.		
+#	Every page must be listed that is under:	https://github.com/unicode-org/cldr/tree/main/docs/site	
+#	Don't include the .md suffix.	eg, index/charts means .../docs/site/index/charts.md	
+#	You can comment out lines, but missing files cause errors.		
+#	If an item has 'sub items' it becomes a directory parent.		
+#	There must be a single 'index' entry here at the root.		
 index			
 	index/cldr-spec		
 		index/cldr-spec/core-data-for-new-locales	
 		index/cldr-spec/coverage-levels	
 		index/cldr-spec/collation-guidelines	
-		index/cldr-spec/currency-process	
 		index/cldr-spec/picking-the-right-language-code	
 		index/cldr-spec/plural-rules	
 		index/cldr-spec/transliteration-guidelines	
 		index/cldr-spec/definitions	
+		index/bcp47-extension	
 	index/downloads		
+		downloads/cldr-47	
 		downloads/cldr-46	
 		downloads/cldr-45	
 		downloads/cldr-44	
 		downloads/cldr-43	
 		index/json-format-data	
+			index/cldr-spec/cldr-json-bindings
 		downloads/previous-releases	
 			downloads/cldr-42
 			downloads/cldr-41
@@ -35,10 +38,10 @@ index
 			downloads/cldr-33
 			downloads/cldr-32
 			downloads/cldr-31
-	index/charts		
 	index/draft-schedule		
-	requesting_changes
-	index/bcp47-extension		
+	requesting_changes		
+	index/charts		
+	index/acknowledgments		
 	cldr-tc		
 		cldr-tc/design-wg	
 		cldr-tc/message-format-wg	
@@ -52,11 +55,9 @@ index
 		index/process	
 		index/process/cldr-data-retention-policy	
 		index/requesting-additionsupdates-to-cldr-languagepopulation-data	
-		stable-links-info	
 		covered-by-other-projects	
-		index/cldr-presentations	
-		index/corrigenda	
-		index/acknowledgments	
+			
+			
 	translation		
 		translation/getting-started	
 			translation/getting-started/data-stability
@@ -142,8 +143,10 @@ index
 			development/cldr-big-red-switch/cldrmodify-passes
 			development/cldr-big-red-switch/cldrmodify-using-config-file
 			development/cldr-big-red-switch/brs-post-items
+			stable-links-info
 		development/updating	
 			development/updating-dtds
+			index/cldr-spec/currency-process
 			development/cldr-development-site/updating-englishroot
 			development/adding-locales
 			development/updating-codes/adding-new-territory
@@ -166,6 +169,9 @@ index
 			development/updating-codes/updating-language-groups
 			development/updating-codes/generate-emoji-paths
 			development/updating-codes/un-literacy
+	archive		
+		index/cldr-presentations	
+		index/corrigenda	
 		development/development-process/design-proposals	
 			development/development-process/design-proposals/alternate-time-formats
 			development/development-process/design-proposals/bcp-47-changes-draft
@@ -220,3 +226,4 @@ index
 			development/development-process/design-proposals/uts-35-splitting
 			development/development-process/design-proposals/voting
 			development/development-process/design-proposals/xmb
+	sitemap		

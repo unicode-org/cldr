@@ -1,10 +1,10 @@
 ---
-title: BCP 47 Changes (DRAFT)
+title: 'BCP 47 Changes (DRAFT)'
 ---
 
 # BCP 47 Changes (DRAFT)
 
-With the new release of the new version of [BCP 47](http://www.inter-locale.com/ID/draft-ietf-ltru-4646bis-18.html), there are various changes we need to make in Unicode CLDR and LDML. Already in CLDR 1.7 we have made modifications anticipating the release: see [BCP 47 Tag Conversion](http://unicode.org/reports/tr35/#BCP_47_Tag_Conversion) in the spec (and the orginal [design proposal](https://cldr.unicode.org/development/development-process/design-proposals/bcp47-syntax-mapping)), but more changes need to be made.
+With the new release of the new version of [BCP 47](http://www.inter-locale.com/ID/draft-ietf-ltru-4646bis-18.html), there are various changes we need to make in Unicode CLDR and LDML. Already in CLDR 1.7 we have made modifications anticipating the release: see [BCP 47 Tag Conversion](http://unicode.org/reports/tr35/#BCP_47_Tag_Conversion) in the spec (and the orginal [design proposal](/development/development-process/design-proposals/bcp47-syntax-mapping)), but more changes need to be made.
 
 ## Formula
 
@@ -37,10 +37,10 @@ B. We show a script code S for translation if and only if it is one of the scrip
 
 \* *official status* means official, de facto official, official regional, or de facto official regional.
 
-† *population* means literate 14-day active users (well, theoretically - we can only get an approximation of that), based on  [CLDR figures](http://www.unicode.org/cldr/data/charts/supplemental/language_territory_information.html). Our concern is with written language, not spoken, and so we don't focus on variants that don't have much written usage; moreover, the population figures we want to focus on are the literate population. For this reason and others, we don't rely on the Ethnologue figures. See also [Picking the Right Language Code](https://cldr.unicode.org/index/cldr-spec/picking-the-right-language-code).
+† *population* means literate 14-day active users (well, theoretically - we can only get an approximation of that), based on  [CLDR figures](http://www.unicode.org/cldr/data/charts/supplemental/language_territory_information.html). Our concern is with written language, not spoken, and so we don't focus on variants that don't have much written usage; moreover, the population figures we want to focus on are the literate population. For this reason and others, we don't rely on the Ethnologue figures. See also [Picking the Right Language Code](/index/cldr-spec/picking-the-right-language-code).
 
 
-**Please review the generated lists in** [**Filtered Scripts and Languages**](https://cldr.unicode.org/development/development-process/design-proposals/bcp-47-changes-draft)**.** A spreadsheet with some details is on<http://spreadsheets.google.com/pub?key=rORMJfeNEUR37PlS8HIa_rQ>. The first column is the language, 2rd is the world population of the language (literate), and the remaining columns are the reasons (data for 1.1, 1.2, 1.3 from the above).
+**Please review the generated lists in** [**Filtered Scripts and Languages**](/development/development-process/design-proposals/bcp-47-changes-draft)**.** A spreadsheet with some details is on<http://spreadsheets.google.com/pub?key=rORMJfeNEUR37PlS8HIa_rQ>. The first column is the language, 2rd is the world population of the language (literate), and the remaining columns are the reasons (data for 1.1, 1.2, 1.3 from the above).
 
 Known issues:
 
@@ -55,7 +55,7 @@ We would add the lists to the supplemental metadata for access by the tools. The
 
 ## Other Changes
 
-We also need to make other changes to the spec in regards to the new version of BCP 47. In particular, those [macrolanguages](http://www.sil.org/iso639-3/macrolanguages.asp) with an encompassed language that is a "predominant form", CLDR treats the predominant form and the macrolanguage as aliases. See [Locale Field Definitions](http://unicode.org/reports/tr35/#Locale_Field_Definitions) in the spec. We need to flesh that table out to include all of the [macrolanguages](http://www.sil.org/iso639-3/macrolanguages.asp) that are in the [Included Languages](https://cldr.unicode.org/development/development-process/design-proposals/bcp-47-changes-draft), such as Azerbaijani. Here is a start at that (but still just draft). The first part of this list is from a draft of BCP 47bis. The last three are codes that are in the current (2006) version of BCP 47.
+We also need to make other changes to the spec in regards to the new version of BCP 47. In particular, those [macrolanguages](http://www.sil.org/iso639-3/macrolanguages.asp) with an encompassed language that is a "predominant form", CLDR treats the predominant form and the macrolanguage as aliases. See [Locale Field Definitions](http://unicode.org/reports/tr35/#Locale_Field_Definitions) in the spec. We need to flesh that table out to include all of the [macrolanguages](http://www.sil.org/iso639-3/macrolanguages.asp) that are in the [Included Languages](/development/development-process/design-proposals/bcp-47-changes-draft), such as Azerbaijani. Here is a start at that (but still just draft). The first part of this list is from a draft of BCP 47bis. The last three are codes that are in the current (2006) version of BCP 47.
 
 Macrolanguage Table
 
@@ -98,7 +98,7 @@ Also, we should consider modifying the canonical form of language identifiers so
 
 ## Filtered Scripts and Languages
 
-The following script/language names would be included (/excluded) from default translation. For the method used to get this list, see [Formula](https://cldr.unicode.org/development/development-process/design-proposals/bcp-47-changes-draft).
+The following script/language names would be included (/excluded) from default translation. For the method used to get this list, see [Formula](/development/development-process/design-proposals/bcp-47-changes-draft).
 
 The languages are listed in the format Abkhazian [ab]-OR, where [xx] is the code, and "OR" is the abbreviated "best" status in some territory: **U**nknown, **O**fficial **R**egional, **O**fficial **M**inority, **D**e facto official, **O**fficial.
 

@@ -11,6 +11,7 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponses;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.web.*;
 
 @ApplicationScoped
@@ -59,7 +60,7 @@ public class GenerateVxml {
             // concurrently with the vxml worker thread.
             CookieSession.sm.getSTFactory().setupDB();
             cs.userDidAction();
-            VxmlResponse vr = getVxmlResponse(request.loadingPolicy, cs);
+            VxmlResponse vr = getVxmlResponse(request.requestType, cs);
             return Response.ok(vr).build();
         } catch (Exception e) {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
@@ -69,29 +70,36 @@ public class GenerateVxml {
     /**
      * Get the response for VXML
      *
-     * @param loadingPolicy the LoadingPolicy
+     * @param requestType the RequestType
      * @param cs the CookieSession
      * @return the VxmlResponse
-     * @throws IOException if thrown by VxmlQueue.getOutput
+     * @throws IOException for getCanonicalPath failure
      */
-    private VxmlResponse getVxmlResponse(VxmlQueue.LoadingPolicy loadingPolicy, CookieSession cs)
+    private VxmlResponse getVxmlResponse(VxmlQueue.RequestType requestType, CookieSession cs)
             throws IOException {
         VxmlQueue queue = VxmlQueue.getInstance();
         QueueMemberId qmi = new QueueMemberId(cs);
         VxmlResponse response = new VxmlResponse();
-        VxmlQueue.Args args = new VxmlQueue.Args(qmi, loadingPolicy);
-        VxmlQueue.Results results = new VxmlQueue.Results();
-        response.message = queue.getOutput(args, results);
-        response.percent = queue.getPercent();
+        VxmlQueue.Args args = new VxmlQueue.Args(qmi, requestType);
+        VxmlQueue.Results results = queue.getResults(args);
+        response.message = results.generationMessage;
         response.status = results.status;
-        response.output = results.output.toString();
+        response.directory = results.directory == null ? "" : results.directory.getCanonicalPath();
+        CLDRLocale loc = results.getLocale();
+        response.localeId = loc == null ? "" : loc.getBaseName();
+        response.localesDone = results.getLocalesDone();
+        response.localesTotal = results.getLocalesTotal();
+        response.percent = results.getPercent();
+        response.verificationStatus = results.verificationStatus;
+        response.verificationFailures = results.verificationFailures.toArray(new String[0]);
+        response.verificationWarnings = results.verificationWarnings.toArray(new String[0]);
         return response;
     }
 
     @Schema(description = "VXML Request")
     public static final class VxmlRequest {
-        @Schema(implementation = VxmlQueue.LoadingPolicy.class)
-        public VxmlQueue.LoadingPolicy loadingPolicy;
+        @Schema(implementation = VxmlQueue.RequestType.class)
+        public VxmlQueue.RequestType requestType;
     }
 
     @Schema(description = "VXML Response")
@@ -102,10 +110,28 @@ public class GenerateVxml {
         @Schema(description = "Current status message")
         public String message = "";
 
+        @Schema(description = "Directory newly created to contain generated files")
+        public String directory;
+
+        @Schema(description = "Latest locale written")
+        public String localeId;
+
+        @Schema(description = "Locales written")
+        public int localesDone;
+
+        @Schema(description = "Total number of locales")
+        public int localesTotal;
+
         @Schema(description = "Estimated percentage complete")
         public Number percent;
 
-        @Schema(description = "Output on success")
-        public String output;
+        @Schema(description = "Verification status enum")
+        public VxmlGenerator.VerificationStatus verificationStatus;
+
+        @Schema(description = "Verification failure messages")
+        public String[] verificationFailures;
+
+        @Schema(description = "Verification warning messages")
+        public String[] verificationWarnings;
     }
 }

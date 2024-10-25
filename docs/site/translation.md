@@ -6,14 +6,14 @@ title: Information Hub for Linguists
 
 ### Starting Submission
 
-During Submission, please read the CLDR Training (if new to the survey tool), please focus on the missing, provisional, and errors. Please read the [**Announcements and Updates**](https://cldr.unicode.org/translation#h.pfa5snbaw7ds). For more information about the priorities during Submission, see [Survey Tool stages](https://cldr.unicode.org/translation/getting-started/survey-tool-phases) under **Survey Tool phase: General Submission**. The [Submission phase](https://cldr.unicode.org/translation/getting-started/survey-tool-phases#h.wqmb27e55b4l) lasts until **June 11**; then the [Vetting phase](https://cldr.unicode.org/translation/getting-started/survey-tool-phases#h.ddjb4w32ki37) lasts until **June 30**.
+During Submission, please read the CLDR Training (if new to the survey tool), please focus on the missing, provisional, and errors. Please read the [Updates](#updates). For more information about the priorities during Submission, see [Survey Tool stages](translation/getting-started/survey-tool-phases).
 
 ### Prerequisites
 
 1. If you're **new to CLDR**, take the CLDR training below.
-2. If you're already **experienced with CLDR**, read the Critical reminders section (mandatory).
-3. Review the **Status and Schedule, New Areas, Survey Tool**, and **Known Issues**.
-4. Once you are ready, go to the [**Survey Tool**](https://st.unicode.org/cldr-apps/) and log in.
+2. If you're already **experienced with CLDR**, read the [Critical reminders](#critical-reminders-for-all-linguists) section (mandatory).
+3. Review the [Status and Schedule](#status-and-schedule), [New Areas](#new-areas), [Survey Tool](#survey-tool), and [Known Issues](#known-issues).
+4. Once you are ready, go to the [Survey Tool](https://st.unicode.org/cldr-apps/) and log in.
 
 ### Updates
 
@@ -24,13 +24,13 @@ When a section below changes, the date will be in the header.
 
 ## Status and Schedule
 
-The Survey Tool is now open for [Submission](https://cldr.unicode.org/translation/getting-started/survey-tool-phases#h.wqmb27e55b4l) until the start of [Vetting](https://cldr.unicode.org/translation/getting-started/survey-tool-phases#h.ddjb4w32ki37) on June 12th ([schedule](https://docs.google.com/spreadsheets/d/1N6inI5R84UoYlRwuCNPBOAP7ri4q2CmJmh8DC5g-S6c/edit#gid=1680747936)); then the [Vetting phase](https://cldr.unicode.org/translation/getting-started/survey-tool-phases#h.ddjb4w32ki37) lasts until **June 30**.
+The Survey Tool has been closed for version 46. For version 47, it is not yet open for [General Submission](translation/getting-started/survey-tool-phases#survey-tool-phase-general-submission). The General Submission phase will be followed by the [Vetting phase](translation/getting-started/survey-tool-phases#survey-tool-phase-vetting).
 
-- **Disconnect error**. If you see a persistent Loading error with a disconnect message or other odd behavior, please [empty your cache](https://cldr.unicode.org/translation).
+- **Disconnect error**. If you see a persistent Loading error with a disconnect message or other odd behavior, please [empty your cache](translation/getting-started/empty-cache).
 - Survey Tool email notification may be going to your spam folder. Check your spam folder regularly.
 - "**Same as code**" errors - when translating codes for items such as languages, regions, scripts, and keys, it is normally an error to select the code itself as the translated name. If the error appears under Typography, you can ignore it. \[[CLDR-13552](https://unicode-org.atlassian.net/browse/CLDR-13552)\]
 
-## New Areas (2024-05-30)
+## New Areas
 
 ![alt-text](./images/translation-horizontal-emojis.png)
 
@@ -38,7 +38,7 @@ Most of the following are relevant to locales at the Modern Coverage Level.
 
 ### New emoji
 
-Seven new emoji have been added (images above). These will be released in Unicode 16 in September, so they need short names and search keywords.
+Seven new emoji have been added (images above). These were released in Unicode 16 in September 2024.
 
 ### Emoji search keywords
 
@@ -86,7 +86,6 @@ Seven new emoji have been added (images above). These will be released in Unicod
         4. Specific terms for sexuality, unless strongly associated with the emoji, eg \[lgbt|lgbtq |... \] for *rainbow* (🌈), *rainbow flag* (🏳️‍🌈), and *transgender flag* (🏳️‍⚧️).
     5.  **Note:** The English values have also been reviewed and modified for these rules.
 
-
 ### New/expanded units
 
 1. Additional units:
@@ -99,7 +98,6 @@ Seven new emoji have been added (images above). These will be released in Unicod
     3. millimeter-ofhg - used for pressure measurements
     4. Beaufort - used for [wind speed](https://en.wikipedia.org/wiki/Beaufort_scale) (only in certain countries)
 
-
 ### Language names
 
 As new locales reach Basic Coverage, their language names have been added for locales targeting modern coverage: Anii, Kuvi, …, Zhuang
@@ -108,9 +106,9 @@ As new locales reach Basic Coverage, their language names have been added for lo
 
 There is a new metazone for Kazakhstan (which merged its two time zones).
 
-## Survey Tool (2024-05-30)
+## Survey Tool
 
-Once trained and up to speed on Critical reminders (above), log in to the [Survey Tool](https://st.unicode.org/cldr-apps/) to begin your work.
+Once trained and up to speed on [Critical reminders](#critical-reminders-for-all-linguists) (below), log in to the [Survey Tool](https://st.unicode.org/cldr-apps/) to begin your work.
 
 ### Survey Tool Changes
 
@@ -123,10 +121,7 @@ Once trained and up to speed on Critical reminders (above), log in to the [Surve
     1. Pages may be split, and/or retitled
     2. Rows may move to a different page.
 5. In the Dashboard, the Abstains items will now only have one entry per page. You can use that entry to go to its page, and then fix Abstains on that page. Once you are done on that page, hit the Dashboard refresh button (↺). This fixes a performance problem for people with a large number of Abstains, and reduces clutter in the Dashboard.
-6. The symbols in the A column have been changed to be searchable in browsers (with *Find in Page*) and stand out
-
-
-more on the page. See below for a table. They override the symbols in [Survey Tool Guide: Icons](https://cldr.unicode.org/translation/getting-started/guide#h.fbq7vldvjuz4).
+6. The symbols in the A column have been changed to be searchable in browsers (with *Find in Page*) and stand out more on the page. See below for a table. They override the symbols in [Survey Tool Guide: Icons](translation/getting-started/guide#icons).
 
 ### Important Notes
 
@@ -143,23 +138,21 @@ more on the page. See below for a table. They override the symbols in [Survey To
 |  🕳️ | Missing | Completely missing |
 | ⬆️ | Inherited | Used in combination with ✖️ and ❌ |
 
-## Known Issues (2024-06-03)
+## Known Issues
 
-This list will be updated as fixes are made available in Survey Tool Production. If you find a problem, please [file a ticket](https://github.com/unicode-org/cldr/blob/main/docs/requesting_changes.md), but please review this list first to avoid creating duplicate tickets.
+This list will be updated as fixes are made available in Survey Tool Production. If you find a problem, please [file a ticket](requesting_changes), but please review this list first to avoid creating duplicate tickets.
 
 1. [CLDR-17694](https://unicode-org.atlassian.net/browse/CLDR-17694) - Back button in browser fails in forum under certain conditions
 2. [CLDR-17693](https://unicode-org.atlassian.net/browse/CLDR-17693) SurveyTool fatal in getDBConnection
 3. [CLDR-17658](https://unicode-org.atlassian.net/browse/CLDR-17658) - Dashboard slowness
-4. Images for the plain symbols. Non-emoji such as [€](https://cldr-smoke.unicode.org/smoketest/v#/fr/Symbols2/47925556fd2904b5), √, », ¹, §, ... do not have images in the info pane. \[[CLDR-13477](https://unicode-org.atlassian.net/browse/CLDR-13477)\]**Workaround**: Look at the Code column; unlike the new emoji, your browser should display them there.
+4. Images for the plain symbols. Non-emoji such as [€](https://cldr-smoke.unicode.org/smoketest/v#/fr/Symbols2/47925556fd2904b5), √, », ¹, §, ... do not have images in the Info Panell. \[[CLDR-13477](https://unicode-org.atlassian.net/browse/CLDR-13477)\]**Workaround**: Look at the Code column; unlike the new emoji, your browser should display them there.
 5. [CLDR-17683](https://unicode-org.atlassian.net/browse/CLDR-17683) - Some items are not able to be flagged for TC review. This is being investigated.Meanwhile, Please enter forum posts meanwhile with any comments.
-
 
 ## Resolved Issues
 
 1. [CLDR-17465](https://unicode-org.atlassian.net/browse/CLDR-17465) - dashboard download fails
 2. [CLDR-17671](https://unicode-org.atlassian.net/browse/CLDR-17671) - survey tool search fails
 3. [CLDR-17652](https://unicode-org.atlassian.net/browse/CLDR-17652) - Manual import of votes fails
-
 
 ## Recent Changes
 
@@ -169,41 +162,39 @@ This list will be updated as fixes are made available in Survey Tool Production.
 
 Before getting started to contribute data in CLDR, and jumping in to using the Survey Tool, it is important that you understand the CLDR process & take the CLDR training. It takes about 2-3 hours to complete the training.
 
-1. **Understand the basics about the CLDR process** read the [Survey Tool Guide](https://cldr.unicode.org/translation/getting-started/guide) and an overview of the [Survey Tool Stages](https://cldr.unicode.org/translation/getting-started/survey-tool-phases).
+1. **Understand the basics about the CLDR process** read the [Survey Tool Guide](translation/getting-started/guide) and an overview of the [Survey Tool Stages](translation/getting-started/survey-tool-phases).
     - New: A [video is available](https://www.youtube.com/watch?v=Wxs0TZl7Ljk) which shows how to login and begin contributing data for your locale.
 2. **Read the Getting Started topics** on the Information Hub:
     - General translation guide
-        - [Capitalization](https://cldr.unicode.org/translation/translation-guide-general/capitalization)
-        - [Default Content](https://cldr.unicode.org/translation/translation-guide-general/default-content)
-        - [References](https://cldr.unicode.org/translation/translation-guide-general/references)
-    - [Handling Errors and Warnings](https://cldr.unicode.org/translation/getting-started/errors-and-warnings)
-    - [Handling Logical Group Errors](https://cldr.unicode.org/translation/getting-started/resolving-errors)
-    - [Plurals & Units](https://cldr.unicode.org/translation/getting-started/plurals)
-    - [Review Date & Time](https://cldr.unicode.org/translation/date-time)
-    - [Review Numbers](https://cldr.unicode.org/translation/number-currency-formats)
-    - [Review Zones](https://cldr.unicode.org/translation/time-zones-and-city-names)
-    - [Data stability](https://cldr.unicode.org/translation/getting-started/data-stability)
-    - [Empty cache](https://cldr.unicode.org/translation/getting-started/empty-cache)
+        - [Capitalization](translation/translation-guide-general/capitalization)
+        - [Default Content](translation/translation-guide-general/default-content)
+        - [References](translation/translation-guide-general/references)
+    - [Handling Errors and Warnings](translation/getting-started/errors-and-warnings)
+    - [Handling Logical Group Errors](translation/getting-started/resolving-errors)
+    - [Plurals & Units](translation/getting-started/plurals)
+    - [Review Date & Time](translation/date-time)
+    - [Review Numbers](translation/number-currency-formats)
+    - [Review Zones](translation/time-zones-and-city-names)
+    - [Data stability](translation/getting-started/data-stability)
+    - [Empty cache](translation/getting-started/empty-cache)
 
-\*If you (individual or your organization) have not established a connection with the CLDR technical committee, start with [Survey Tool Accounts](https://cldr.unicode.org/index/survey-tool/survey-tool-accounts).
+\*If you (individual or your organization) have not established a connection with the CLDR technical committee, start with [Survey Tool Accounts](index/survey-tool/survey-tool-accounts).
 
 ## Critical reminders (for all linguists)
 
 You're already familiar with the CLDR process, but do keep the following in mind:
 
 1. **Aim at commonly used language** - CLDR should reflect *common-usage* standards **not** *academic /official* standards (unless commonly followed). Keep that perspective in mind.
-2. **Carefully consider changes to existing standards** - any change to an existing CLDR standard should be carefully considered and discussed with your fellow linguists in the CLDR [Forum](https://cldr.unicode.org/translation/getting-started/guide#h.fx4wl2fl31az). Remember your change will be reflected across thousands of online products!
+2. **Carefully consider changes to existing standards** - any change to an existing CLDR standard should be carefully considered and discussed with your fellow linguists in the CLDR [Forum](translation/getting-started/guide#forum). Remember your change will be reflected across thousands of online products!
 3. **Keep consistency across logical groups** - ensure that all related entries are consistent. If you change the name of a weekday, make sure it's reflected across all related items. Check that the order of month and day are consistent in all the date formats, etc.
-    - *Tip: The [Reports](https://cldr.unicode.org/translation/getting-started/review-formats) are a great way to validate consistency across related logical groups, e.g. translations of date formats. Use them to proofread your work for consistency.*
+    - *Tip: The [Reports](translation/getting-started/review-formats) are a great way to validate consistency across related logical groups, e.g. translations of date formats. Use them to proofread your work for consistency.*
 4. **Avoid voting for English** - for items that do not work in your language, don't simply use English. Find a solution that works for your language. For example, if your language doesn't have a concept of calendar "quarters", use a translation that describes the concept "three-month period" rather than "quarter-of-a-year".
 5. **Watch out for complex sections** and read the instructions carefully if in doubt:
-    1. [Date & Time](https://cldr.unicode.org/translation/date-time/date-time-names)
-        - [Names](https://cldr.unicode.org/translation/date-time/date-time-names)
-        - [Patterns](https://cldr.unicode.org/translation/date-time)
-        - [Symbols](https://cldr.unicode.org/translation/date-time/date-time-symbols)
-    2. [Time zones](https://cldr.unicode.org/translation/time-zones-and-city-names)
-    3. [Plural forms](https://cldr.unicode.org/translation/getting-started/plurals)
+    1. [Date & Time](translation/date-time/date-time-names)
+        - [Names](translation/date-time/date-time-names)
+        - [Patterns](translation/date-time)
+        - [Symbols](translation/date-time/date-time-symbols)
+    2. [Time zones](translation/time-zones-and-city-names)
+    3. [Plural forms](translation/getting-started/plurals)
 
-
-*Tip: The links in the [Info Panel](https://cldr.unicode.org/translation/getting-started/guide#h.2jch1980f8sy) will point you to relevant instructions for the entry you're editing/vetting. Use it if in doubt.*
-
+*Tip: The links in the [Info Panel](translation/getting-started/guide#info-panel) will point you to relevant instructions for the entry you're editing/vetting. Use it if in doubt.*

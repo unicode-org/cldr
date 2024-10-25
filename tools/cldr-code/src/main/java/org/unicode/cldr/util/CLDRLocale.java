@@ -311,6 +311,13 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
     }
 
     /**
+     * @return the language-script (or language) part of a tag.
+     */
+    public String getLanguageScript() {
+        return parts == null ? fullname : parts.getLanguageScript();
+    }
+
+    /**
      * internal: process a string from ICU to CLDR form. For now, just collapse double underscores.
      *
      * @param baseName

@@ -90,7 +90,7 @@ The current choice between “format” and “standalone” forms conflates all
 
 ### 3. Related docs
 
-Mark had some [discussion and ideas](https://cldr.unicode.org/development/development-process/design-proposals/consistent-casing) in [#2269](http://unicode.org/cldr/trac/ticket/2269).
+Mark had some [discussion and ideas](/development/development-process/design-proposals/consistent-casing) in [#2269](http://unicode.org/cldr/trac/ticket/2269).
 
 ## C. Outline of proposed solution
 

@@ -4,7 +4,7 @@ title: CLDR Survey Tool
 
 # CLDR Survey Tool
 
-[**Survey Tool**](https://st.unicode.org/cldr-apps/v#locales///) **|** [**Accounts**](https://cldr.unicode.org/index/survey-tool/survey-tool-accounts) **|** [**Guide**](https://cldr.unicode.org/translation/getting-started/guide) **|** [**FAQ and Known Bugs**](https://cldr.unicode.org/index/survey-tool/faq-and-known-bugs)
+[**Survey Tool**](https://st.unicode.org/cldr-apps/v#locales///) **|** [**Accounts**](/index/survey-tool/survey-tool-accounts) **|** [**Guide**](/translation/getting-started/guide) **|** [**FAQ and Known Bugs**](/index/survey-tool/faq-and-known-bugs)
 
 ### Introduction
 
@@ -20,11 +20,11 @@ For the Milestone schedule, see the navigation bar on the left.
 
 ### Accounts
 
-You don't need an account to view data for a particular language. If you wish to propose changes or additions, you will need an account. For how to get one, see [Survey Tool Accounts](https://cldr.unicode.org/index/survey-tool/survey-tool-accounts). If you would like to add data for a new locale, see [Adding New Locales](https://github.com/unicode-org/cldr/blob/main/docs/requesting_changes.md#adding-new-locales).
+You don't need an account to view data for a particular language. If you wish to propose changes or additions, you will need an account. For how to get one, see [Survey Tool Accounts](/index/survey-tool/survey-tool-accounts). If you would like to add data for a new locale, see [Adding New Locales](https://github.com/unicode-org/cldr/blob/main/docs/requesting_changes.md#adding-new-locales).
 
 ### Guide
 
-For an overview of how the Survey Tool works, see the [Survey Tool Guide](https://cldr.unicode.org/translation/getting-started/guide).
+For an overview of how the Survey Tool works, see the [Survey Tool Guide](/translation/getting-started/guide).
 
 ### New Fields
 
@@ -32,5 +32,5 @@ To see a summary of the new fields that will be in the next version of CLDR, see
 
 ### Development
 
-For developers, see the [development pages](https://cldr.unicode.org/development/cldr-development-site).
+For developers, see the [development pages](/development/cldr-development-site).
 

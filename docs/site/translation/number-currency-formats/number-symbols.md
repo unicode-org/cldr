@@ -4,7 +4,7 @@ title: Number Symbols
 
 # Number Symbols
 
-The following symbols are used to format numbers. The Approved symbols for the locale will be substituted for the placeholders described in [Number Patterns](https://cldr.unicode.org/translation/number-currency-formats/number-and-currency-patterns). 
+The following symbols are used to format numbers. The Approved symbols for the locale will be substituted for the placeholders described in [Number Patterns](/translation/number-currency-formats/number-and-currency-patterns). 
 
 For English regional locales (e.g. en\_DE) where English is not the primary language of the country/region (e.g. en\_DE; English as used in Germany), the number formats and date formats should follow the **English formatting usage** in that country/region. Often, the formatting usage in English tend to follow the British or American formatting rather than the formatting of the primary language. Consult with the English versions of prominent magazines or newspapers for guidance on date and number format usage.
 

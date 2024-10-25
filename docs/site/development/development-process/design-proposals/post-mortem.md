@@ -11,7 +11,7 @@ Drivers marked in [...]. Drivers are to file bugs, put together plan for how to 
 1. Spec done late, little review, little time for public review. We should have a formal release and announcement ahead of time. Splitting up the spec into functional pieces, maintained in Sites, could let us put the introductory info into the pieces at the start. Move the design doc into the spec once approved. Point the survey tool to relevant parts of the spec. Sync up spec for each milestone. **[Peter, Mark]**
 2. How to get metazone translated. Not enough coverage. We ask for translations that are not needed in the survey tool; those also contribute to the lack of coverage.
 	1. Make coverage be data driven.
-	2. Make metazone coverage exclude items that never need coverage; be dependant on the language (and the territories that use it). [http://cldr.unicode.org/development/design-proposals/coverage-revision](http://cldr.unicode.org/development/design-proposals/coverage-revision)
+	2. Make metazone coverage exclude items that never need coverage; be dependant on the language (and the territories that use it). [http://cldr.unicode.org/development/design-proposals/coverage-revision](/development/design-proposals/coverage-revision)
 	3. Make coverage visible in ST.
 	4. Make metazones easier to understand in the ST. Better examples of how they affect zones.
 	5. CommonlyUsed can't be effectively entered in ST.

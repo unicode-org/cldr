@@ -10,7 +10,7 @@ That guide is embedded below, but it may be easier just to open up the [Person N
 
 The main topics are:
 
-- [Version 44 Changes](https://cldr.unicode.org/translation/miscellaneous-person-name-formats) — *this section is important; please read carefully.*
+- [Version 44 Changes](/translation/miscellaneous-person-name-formats) — *this section is important; please read carefully.*
 - [Why do we need formatting for people’s names?](https://docs.google.com/document/d/1mjxIHsb97Og8ub6BKWxOihcHz7zjU4GdFkIxWHGAtes/edit#heading=h.wqpdugycqnvg)
 - [Starting out](https://docs.google.com/document/d/1mjxIHsb97Og8ub6BKWxOihcHz7zjU4GdFkIxWHGAtes/edit#heading=h.q7f5rnykj886)
 - [Name Order For Locales](https://docs.google.com/document/d/1mjxIHsb97Og8ub6BKWxOihcHz7zjU4GdFkIxWHGAtes/edit#heading=h.xquzeu24o1qf)

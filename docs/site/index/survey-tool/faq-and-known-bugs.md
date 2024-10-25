@@ -4,13 +4,13 @@ title: FAQ and Known Bugs
 
 # FAQ and Known Bugs
 
-[**Survey Tool**](http://st.unicode.org/cldr-apps/survey) **\|** [**Accounts**](https://cldr.unicode.org/index/survey-tool/survey-tool-accounts) **\|** [**Guide**](https://cldr.unicode.org/translation/getting-started/guide) **\|** [**FAQ and Known Bugs**](https://cldr.unicode.org/index/survey-tool/faq-and-known-bugs)
+[**Survey Tool**](http://st.unicode.org/cldr-apps/survey) **\|** [**Accounts**](/index/survey-tool/survey-tool-accounts) **\|** [**Guide**](/translation/getting-started/guide) **\|** [**FAQ and Known Bugs**](/index/survey-tool/faq-and-known-bugs)
 
 ## FAQ (Frequently Asked Questions)
 
 ***Q. Should I preserve the case of English words, like names of languages?***
 
-A. Beginning with CLDR 22, the new guidance is that names of items such as languages, regions, calendar and collation types, as well as names of months and weekdays in calendar data, should be capitalized as appropriate for the middle of body text. For more information, see the [Capitalization](https://cldr.unicode.org/translation/translation-guide-general/capitalization) section in the [Translation Guidelines](http://cldr.unicode.org/translation/).
+A. Beginning with CLDR 22, the new guidance is that names of items such as languages, regions, calendar and collation types, as well as names of months and weekdays in calendar data, should be capitalized as appropriate for the middle of body text. For more information, see the [Capitalization](/translation/translation-guide-general/capitalization) section in the [Translation Guidelines](/translation/).
 
 ***Q. What about the warning about parentheses being discouraged in cases such as "(other)"***
 
@@ -24,7 +24,7 @@ If you feel a task is taking an unusual amount of time, and it is a consistent p
 
 ***Q. How are votes weighted and the "best" item picked?***
 
-A. You basically want to get multiple organizations to agree on the best value. For details on the voting process, see [Resolution Procedure](https://cldr.unicode.org/index/process).
+A. You basically want to get multiple organizations to agree on the best value. For details on the voting process, see [Resolution Procedure](/index/process).
 
 ***Q. In the key, it says that the red box is a fallback. What does that mean?***
 
@@ -56,13 +56,13 @@ A. You should click on the items you have questions about, and read the informat
 
 *In many cases, even seemingly straightforward translations like the language, script, and territory names have issues.*
 
-You can also go directly to the [Translation Guidelines](https://cldr.unicode.org/translation).
+You can also go directly to the [Translation Guidelines](/translation).
 
 If you have further questions, or problems with the Survey Tool, send a message to [cldr\-users@unicode.org](mailto:cldr-users@unicode.org).
 
 ## Known Bugs, Issues, Restrictions
 
-The following are general known bugs and issues. For known issues in the current release, see [Translation Guidelines](https://cldr.unicode.org/translation).
+The following are general known bugs and issues. For known issues in the current release, see [Translation Guidelines](/translation).
 
 1. The description of bulk uploading (http://cldr.unicode.org/index/survey-tool/upload) has not yet been updated for the new UI.
 2. The description of managing users (http://cldr.unicode.org/index/survey-tool/managing-users) has not yet been updated for the new UI.

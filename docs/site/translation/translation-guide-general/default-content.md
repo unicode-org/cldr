@@ -12,7 +12,7 @@ Each language \+ script combination is treated as a unit. (i.e. People do not mi
 
 If a language is ***not*** typically written in multiple scripts, then the script sub\-tag is omitted. For example, en\_US or ko\_KR.
 
-Locales may also have regional variants. For example, English (US) \[en\_US] vs English (UK) \[en\_GB], or Serbian (Cyrillic, Montenegro) \[sr\_Cyrl\_ME] vs Serbian (Cyrillic, Serbia) \[sr\_Cyrl\_RS]. Regions may be countries such as China \[CN], parts of countries such as Hong Kong \[HK] or multi\-country regions such as Latin America \[419]. Also see [Regional Variants](http://cldr.unicode.org/translation/getting-started/guide#TOC-Regional-Variants-also-known-as-Sub-locales-).
+Locales may also have regional variants. For example, English (US) \[en\_US] vs English (UK) \[en\_GB], or Serbian (Cyrillic, Montenegro) \[sr\_Cyrl\_ME] vs Serbian (Cyrillic, Serbia) \[sr\_Cyrl\_RS]. Regions may be countries such as China \[CN], parts of countries such as Hong Kong \[HK] or multi\-country regions such as Latin America \[419]. Also see [Regional Variants](/translation/getting-started/guide#TOC-Regional-Variants-also-known-as-Sub-locales-).
 
 The contents for the base language should be as widely usable (neutral) as possible, but **must be** usable without modification for its *default content locale;* this is the locale for the language’s *default region,* which is typically the region with the most speakers of the language. A default content locale has no data other than identity information, it inherits all data from its parent.
 

@@ -6,16 +6,16 @@ title: CLDR 43 Release Note
 
 | No. | Date | Rel. Note | Data | Charts | Spec | Delta Tickets | GitHub Tag | Delta DTD | CLDR JSON |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| 43 | 2023-04-12 | [v43](http://cldr.unicode.org/index/downloads/cldr-43) | [CLDR43](http://unicode.org/Public/cldr/43/) | [Charts43](https://unicode.org/cldr/charts/43#h.bzf6i36qsctj) | [LDML43](https://www.unicode.org/reports/tr35/tr35-68/tr35.html) | [ΔV43](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20in%20(Fixed%2C%20%22Fix%20in%20Survey%20Tool%20(CLDR)%22%2C%20%22Fixed%20non-repo%22)%20AND%20fixVersion%20%3D%20%2243%22%20ORDER%20BY%20resolution%20ASC%2C%20component%20ASC%2C%20priority%20DESC%2C%20created%20ASC) | [release-43](https://github.com/unicode-org/cldr/tree/release-43) | [ΔDtd43](https://cldr-smoke.unicode.org/staging-dev/charts/43/supplemental/dtd_deltas.html) | [43.0.0](https://github.com/unicode-org/cldr-json/releases/tag/43.0.0) |
-| 43.1 | 2023-06-15 | [v43.1](https://cldr.unicode.org/index/downloads/cldr-43#h.qobmda543waj) | n/a | n/a | [LDML43.1](https://www.unicode.org/reports/tr35/tr35-69/tr35.html) | [ΔV43.1](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20in%20(Fixed%2C%20%22Fix%20in%20Survey%20Tool%20(CLDR)%22%2C%20%22Fixed%20non-repo%22)%20AND%20fixVersion%20%3D%2043.1%20ORDER%20BY%20resolution%20ASC%2C%20component%20ASC%2C%20priority%20DESC%2C%20created%20ASC) | [release-43-1](https://github.com/unicode-org/cldr/tree/release-43-1) | See note in [43.1 Changes](https://cldr.unicode.org/index/downloads/cldr-43#h.qobmda543waj) | [43.1.0](https://github.com/unicode-org/cldr-json/releases/tag/43.1.0) |
+| 43 | 2023-04-12 | [v43](/index/downloads/cldr-43) | [CLDR43](http://unicode.org/Public/cldr/43/) | [Charts43](https://unicode.org/cldr/charts/43#h.bzf6i36qsctj) | [LDML43](https://www.unicode.org/reports/tr35/tr35-68/tr35.html) | [ΔV43](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20in%20(Fixed%2C%20%22Fix%20in%20Survey%20Tool%20(CLDR)%22%2C%20%22Fixed%20non-repo%22)%20AND%20fixVersion%20%3D%20%2243%22%20ORDER%20BY%20resolution%20ASC%2C%20component%20ASC%2C%20priority%20DESC%2C%20created%20ASC) | [release-43](https://github.com/unicode-org/cldr/tree/release-43) | [ΔDtd43](https://www.unicode.org/cldr/charts/43/supplemental/dtd_deltas.html) | [43.0.0](https://github.com/unicode-org/cldr-json/releases/tag/43.0.0) |
+| 43.1 | 2023-06-15 | [v43.1](/index/downloads/cldr-43#h.qobmda543waj) | n/a | n/a | [LDML43.1](https://www.unicode.org/reports/tr35/tr35-69/tr35.html) | [ΔV43.1](https://unicode-org.atlassian.net/issues/?jql=project%20%3D%20CLDR%20AND%20status%20%3D%20Done%20AND%20resolution%20in%20(Fixed%2C%20%22Fix%20in%20Survey%20Tool%20(CLDR)%22%2C%20%22Fixed%20non-repo%22)%20AND%20fixVersion%20%3D%2043.1%20ORDER%20BY%20resolution%20ASC%2C%20component%20ASC%2C%20priority%20DESC%2C%20created%20ASC) | [release-43-1](https://github.com/unicode-org/cldr/tree/release-43-1) | See note in [43.1 Changes](/index/downloads/cldr-43#h.qobmda543waj) | [43.1.0](https://github.com/unicode-org/cldr-json/releases/tag/43.1.0) |
 
-See [Key to Header Links](https://cldr.unicode.org/index/downloads#h.xq13gabuoy9w)
+See [Key to Header Links](/index/downloads#h.xq13gabuoy9w)
 
 ## Overview
 
-Unicode CLDR provides key building blocks for software supporting the world's languages. CLDR data is used by all [major software systems](https://cldr.unicode.org/index#TOC-Who-uses-CLDR-) (including all mobile phones) for their software internationalization and localization, adapting software to the conventions of different languages. *It is important to review the [Migration](https://cldr.unicode.org/index/downloads/cldr-43#h.7s25aqdv767e) section for changes that might require action by implementations using CLDR directly or indirectly (eg, via ICU).*
+Unicode CLDR provides key building blocks for software supporting the world's languages. CLDR data is used by all [major software systems](/index#TOC-Who-uses-CLDR-) (including all mobile phones) for their software internationalization and localization, adapting software to the conventions of different languages. *It is important to review the [Migration](/index/downloads/cldr-43#h.7s25aqdv767e) section for changes that might require action by implementations using CLDR directly or indirectly (eg, via ICU).*
 
-CLDR 43\.1 is a **dot release** focused on fixing specific issues. For more details for see [Version 43\.1 Changes.](https://cldr.unicode.org/index/downloads/cldr-43#h.qobmda543waj)
+CLDR 43\.1 is a **dot release** focused on fixing specific issues. For more details for see [Version 43\.1 Changes.](/index/downloads/cldr-43#h.qobmda543waj)
 
 CLDR 43 is a **limited\-submission release**, focusing on just a few areas:
 
@@ -97,10 +97,10 @@ The only **DTD change** is the additional of alt\="ascii" for time formats:
 
 - **Units**
 	- A new unit was added for the Beaufort scale. Translations are only provided for a few locales that are known to use it.
-	- Unit preferences were added for floor area, rainfall speed, and snowfall speed. See [Units](https://cldr-smoke.unicode.org/staging-dev/charts/43/delta/supplemental-data.html#Units) for differences.
+	- Unit preferences were added for floor area, rainfall speed, and snowfall speed. See [Units](https://www.unicode.org/cldr/charts/43/delta/supplemental-data.html#Units) for differences.
 - **Locales**
-	- Special parentLocales are added for collations and segmentations.  See [Locale \> Parent…](https://cldr-smoke.unicode.org/staging-dev/charts/43/delta/supplemental-data.html#Locale) for the differences.
-	- Many new likely subtag mappings were added, thanks to contributions from SIL. See [Likely \> Subtag](https://cldr-smoke.unicode.org/staging-dev/charts/43/delta/supplemental-data.html#Likely) for differences.
+	- Special parentLocales are added for collations and segmentations.  See [Locale \> Parent…](https://www.unicode.org/cldr/charts/43/delta/supplemental-data.html#Locale) for the differences.
+	- Many new likely subtag mappings were added, thanks to contributions from SIL. See [Likely \> Subtag](https://www.unicode.org/cldr/charts/43/delta/supplemental-data.html#Likely) for differences.
 - **Transforms**
 	- Aliases for certain Ethiopic transliterators were added.
 	- New **test** transliterators for Jpan, Khmr, Laoo, and Sinh scripts were added. These are intended for testing, not for production (especially for Jpan scripts, which requires NLP for acceptable results).
@@ -108,7 +108,7 @@ The only **DTD change** is the additional of alt\="ascii" for time formats:
 - **Language Info**
 	- Preferred hours were changed for CW (Curaçao).
 - **Metazones**
-	- Data was changed for 3 zones, and added new metazone for Ciudad Juárez. See [Metazone](https://cldr-smoke.unicode.org/staging-dev/charts/43/delta/supplemental-data.html#Metazone).
+	- Data was changed for 3 zones, and added new metazone for Ciudad Juárez. See [Metazone](https://www.unicode.org/cldr/charts/43/delta/supplemental-data.html#Metazone).
 
 ### Locale Changes
 
@@ -227,7 +227,7 @@ The CLDR language matching data can *and should* be overridden whenever there is
 
 - **Seed has been merged into Common ([CLDR\-6396](https://unicode-org.atlassian.net/browse/CLDR-6396))**
 	- All files have been moved from the **seed/** to the **common/** subdirectory.
-	- Implementations should make use of the **common/properties/coverageLevels.txt** file (added in CLDR v41\) to filter locale files appropriately, in place of depending on incomplete files being in seed. This file and its usage is documented at [Coverage Levels](https://cldr.unicode.org/index/cldr-spec/coverage-levels). ([CLDR\-16420](https://unicode-org.atlassian.net/browse/CLDR-16420)).
+	- Implementations should make use of the **common/properties/coverageLevels.txt** file (added in CLDR v41\) to filter locale files appropriately, in place of depending on incomplete files being in seed. This file and its usage is documented at [Coverage Levels](/index/cldr-spec/coverage-levels). ([CLDR\-16420](https://unicode-org.atlassian.net/browse/CLDR-16420)).
 		- Background: Older versions of CLDR separated some locale files into a 'seed' directory, which some implementations used for filtering, but the criteria for moving from seed to common were not rigorous. To maintain compatibility with its set of locales used from previous versions, an implementation may use the **coverageLevels.txt** file filtering for Basic and above, but then also add locales that were previously included.
 - **Interval Formats**
 	- A small number of interval formats (like “Dec 2 – 3”) have their spacing changed for consistency. This is unlikely to cause problems, as they are similar to a large number of similar changes in v42\.
@@ -254,7 +254,7 @@ None currently.
 
 ## Acknowledgments
 
-Many people have made significant contributions to CLDR and LDML; see the [Acknowledgments](https://cldr.unicode.org/index/acknowledgments) page for a full listing.
+Many people have made significant contributions to CLDR and LDML; see the [Acknowledgments](/index/acknowledgments) page for a full listing.
 
 
 The Unicode [Terms of Use](https://unicode.org/copyright.html) apply to CLDR data; in particular, see [Exhibit 1](https://unicode.org/copyright.html#Exhibit1).

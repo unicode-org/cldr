@@ -1,5 +1,5 @@
 ---
-title: Delimiter (Quotation Mark) Proposal
+title: 'Delimiter (Quotation Mark) Proposal'
 ---
 
 # Delimiter (Quotation Mark) Proposal

@@ -23,13 +23,13 @@ In the above case, it is a pretty clear mistake. It is not as simple in other ca
 
 You can find some guidance under "Unique Names" in the following pages:
 
-- [Country/Region Names](https://cldr.unicode.org/translation/displaynames/countryregion-territory-names),
-- [City Names](https://cldr.unicode.org/translation/timezones#TOC-City-Names),
-- [Currency Symbols & Names](https://cldr.unicode.org/translation/currency-names-and-symbols/currency-names)
+- [Country/Region Names](/translation/displaynames/countryregion-territory-names),
+- [City Names](/translation/timezones#TOC-City-Names),
+- [Currency Symbols & Names](/translation/currency-names-and-symbols/currency-names)
 
 **The characters ‎\[…\]‎ should not be used (Must fix)**
 
-For what to do, see [Characters](https://cldr.unicode.org/translation/-core-data/exemplars#TOC-Handing-Warnings-in-Exemplar-characters), in the section Handling Warnings. _While these are categorized as warnings, every effort should be made to fix them._
+For what to do, see [Characters](/translation/-core-data/exemplars#TOC-Handing-Warnings-in-Exemplar-characters), in the section Handling Warnings. _While these are categorized as warnings, every effort should be made to fix them._
 
 **Unquoted special character '.' in pattern (Must fix)**
 
@@ -38,7 +38,7 @@ Number patterns can only contain an unquoted . when it is the decimal separator.
 
 In other cases, such as to finish an abbreviation, it must be quoted, as in: 000 tūkst'.'
 
-For more information, see [Number Patterns](https://cldr.unicode.org/translation/number-currency-formats/number-and-currency-patterns).
+For more information, see [Number Patterns](/translation/number-currency-formats/number-and-currency-patterns).
 
 - Errors in Others column can be ignored. For example, this is an example of an Inheritance value in the Others column where the Language (Country/region) names have a collision issue. Do not vote on values that have errors.
 

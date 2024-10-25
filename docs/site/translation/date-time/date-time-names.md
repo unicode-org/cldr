@@ -4,7 +4,7 @@ title: Date/Time Names
 
 # Date/Time Names
 
-Date/Time names is required topic to work in [Date/Time Patterns](https://cldr.unicode.org/translation/date-time/date-time-patterns).
+Date/Time names is required topic to work in [Date/Time Patterns](/translation/date-time/date-time-patterns).
 
 ## Textual Fields
 
@@ -14,12 +14,12 @@ Certain calendar fields can have both numeric and textual forms. **Textual forms
 	- Wide (e.g. Sunday)
 	- Abbreviated (e.g Sun)
 	- Narrow (e.g. S)
-	- There are two styles. For more information, see [When to use standalone vs. formatting](https://cldr.unicode.org/translation/date-time-1/date-time-patterns#TOC-When-to-use-Standalone-vs.-Formatting) in Date/Time patterns.
+	- There are two styles. For more information, see [When to use standalone vs. formatting](/translation/date-time/date-time-patterns#when-to-use-standalone-vs-formatting) in Date/Time patterns.
 		- Formatting
 		- Standalone
-- Capitalization should follow the middle of a sentence rule. For more information, see [Capitalization](https://cldr.unicode.org/translation/translation-guide-general/capitalization).  
+- Capitalization should follow the middle of a sentence rule. For more information, see [Capitalization](/translation/translation-guide-general/capitalization).  
 	- \<contextTransforms> data can specify the capitalization for other contexts; currently this is not available in the Survey Tool, so you must file a CLDR JIRA ticket to request a change.
-	- Most sets of names form [Logical Groups](https://cldr.unicode.org/translation/getting-started/resolving-errors), and you need to make sure they have the same contribution status (e.g. Status: Approved) or you will get error messages. See [Logical Groups](https://cldr.unicode.org/translation/getting-started/resolving-errors) for more information.
+	- Most sets of names form [Logical Groups](/translation/getting-started/resolving-errors), and you need to make sure they have the same contribution status (e.g. Status: Approved) or you will get error messages. See [Logical Groups](/translation/getting-started/resolving-errors) for more information.
 
 ## Date Field Names
 
@@ -31,7 +31,7 @@ The date field _names_ are used in user interfaces on computer systems as labels
 | Month | ... |
 | Day | ... |
 
-The grammatical form should be whatever is typical for such isolated or stand-alone cases: generally it will be nominative singular. The letter casing should be appropriate for middle-of-sentence use, since there is now separate capitalization context data that can specify how these should be capitalized for use in a label. Also see the translation guide on [Capitalization](https://cldr.unicode.org/translation/translation-guide-general/capitalization). 
+The grammatical form should be whatever is typical for such isolated or stand-alone cases: generally it will be nominative singular. The letter casing should be appropriate for middle-of-sentence use, since there is now separate capitalization context data that can specify how these should be capitalized for use in a label. Also see the translation guide on [Capitalization](/translation/translation-guide-general/capitalization). 
 
 There are three lengths: full, short, and narrow. They are listed below along with English examples and explanations (a few of the fields are not straightforward).
 
@@ -60,7 +60,7 @@ Era names are in Gregorian Calendar and other calendars:
 - There are only two values for an era in a Gregorian calendar.
 	- The common use of these era names in English are more for religious forms. "BC" (Before Christ) and AD (Anno Domini)" - from the Latin for "The year of our Lord".
 	- The secular equivalents of these two era names are "BCE" (Before Common Era) and "CE" (Common Era).
-- Other calendars (see [Different calendars in Date/Time patterns](https://cldr.unicode.org/translation/date-time-1/date-time-patterns#TOC-Different-Calendars-)) have a different numbers of eras.
+- Other calendars (see [Different calendars in Date/Time patterns](/translation/date-time/date-time-patterns#different-calendars)) have a different numbers of eras.
 	- The names for eras are often specific to the given calendar, such as the Japanese era names.
 	- If other calendars are in common use in one of the countries/regions that use your language, other calendars will show under the modern coverage level.
 
@@ -77,7 +77,7 @@ In the Gregorian calendar, these designate the four three-month periods often us
 
 This field is one of the months of the year, such as January or February. 
 
- In many languages, it is not common to use abbreviated months. The preferred way to address this is using date/time patterns that never use the abbreviated months MMM or LLL, as explained in [Patterns without abbreviated months](https://cldr.unicode.org/translation/date-time/date-time-patterns). 
+ In many languages, it is not common to use abbreviated months. The preferred way to address this is using date/time patterns that never use the abbreviated months MMM or LLL, as explained in [Patterns without abbreviated months](/translation/date-time/date-time-patterns). 
 
 💡 **Translation Tips**
 
@@ -86,7 +86,7 @@ This field is one of the months of the year, such as January or February. 
 	- Used in patterns with a day number. (e.g. Finnish, and many Slavic languages distinguish between nominative and genitive/related)
 - Use the type such as the nominative case for **Standalone** month names.
 	- Used in pattern without a day number.
-- The specific values that are used in the format and stand-alone names need to be closely co-ordinated with the date patterns that will use them. See [When to use standalone vs. format names](https://cldr.unicode.org/translation/date-time-1/date-time-patterns#TOC-When-to-use-Standalone-vs.-Formatting) in Date/Time patterns.
+- The specific values that are used in the format and stand-alone names need to be closely co-ordinated with the date patterns that will use them. See [When to use standalone vs. format names](/translation/date-time/date-time-patterns#when-to-use-standalone-vs-formatting) in Date/Time patterns.
 	- Some languages (for example, Catalan) use a preposition to combine the month and day number like in the format “11 de setembre” (11 of September). If the month name begins with a vowel, the preposition is contracted, for example, “12 d’octubre
 		- Include the preposition in its correct form (contracted or not) for formatting month names
 		- DO NOT include the preposition for standalone month names and in patterns that use standalone month names
@@ -95,7 +95,7 @@ This field is one of the months of the year, such as January or February. 
 
 This field is one of the days of the week: Monday, Tuesday, Wednesday, etc...
 
-Same as month names, you need to use different symbols to coordinate use of standalone (e.g. cccc) and format names (e.g. EEEE) in patterns. See [When to use standalone vs. format names](https://cldr.unicode.org/translation/date-time-1/date-time-patterns#TOC-When-to-use-Standalone-vs.-Formatting) in Date/Time patterns.
+Same as month names, you need to use different symbols to coordinate use of standalone (e.g. cccc) and format names (e.g. EEEE) in patterns. See [When to use standalone vs. format names](/translation/date-time/date-time-patterns#when-to-use-standalone-vs-formatting) in Date/Time patterns.
 
 💡 **Translation Tips**
 
@@ -107,7 +107,7 @@ Same as month names, you need to use different symbols to coordinate use of stan
 
 AM/PM (special handling for locales using 24 hrs)
 
-Also see [Additional Date/time formats](https://cldr.unicode.org/translation/date-time-1/date-time-patterns#TOC-Additional-Date-Time-Formats). 
+Also see [Additional Date/time formats](/translation/date-time/date-time-patterns#additional-date-time-formats). 
 
 💡 **Translation Tips**
 
@@ -169,7 +169,7 @@ In formatting, where your language has a term for midnight, it is used instead o
 
 These mark approximate periods in the day, _and those periods differ between languages_. The codes are arbitrary, and don't have to match the English meaning for your language: the important feature is the time span. The spans are approximate; in reality they may vary with the time of year (they might be dependent on sunrise), or context (someone might say they went to bed at 2 at night, and later one say that they woke up at 2 in the morning). 
 
-**For a list of the day period IDs defined in CLDR for your language, see [Day Periods](https://www.unicode.org/cldr/charts/45/supplemental/day_periods.html)**. If you think the rules are wrong (or missing) for your language, please [file a ticket](https://cldr.unicode.org/index/bug-reports#TOC-Filing-a-Ticket) and supply the missing information. Here are examples for English and Chinese.
+**For a list of the day period IDs defined in CLDR for your language, see [Day Periods](https://www.unicode.org/cldr/charts/45/supplemental/day_periods.html)**. If you think the rules are wrong (or missing) for your language, please [file a ticket](/requesting_changes#how-to-file-a-ticket) and supply the missing information. Here are examples for English and Chinese.
 
 | Code | English | Span | Chinese | Span |
 |---|---|---|---|---|
@@ -234,7 +234,7 @@ These relative names can be programmatically capitalized (using the contextTrans
 
 💡 **Translation Tips**
 
-- There is a difference between unit patterns (_see [Plurals](https://cldr.unicode.org/translation/getting-started/plurals)_) such as "1 year ago" and relative names such as "Last Year".
+- There is a difference between unit patterns (_see [Plurals](/translation/getting-started/plurals)_) such as "1 year ago" and relative names such as "Last Year".
 - Consider:
 	- The phrase "1 year ago" has more of sense of a _duration_.
 	- The phrase "last year" is more sense of relativity to current (For example, on January 2nd, 2019, to refer to an event on December 30th, 2018, you would refer to it as "last year", but NOT "1 year ago."
@@ -244,7 +244,7 @@ These relative names can be programmatically capitalized (using the contextTrans
 
 ### Week of
 
-There are a number of patterns like “the week of {0}” used for constructions such as “the week of April 11, 2016” or “the week of April 11–15”. The placeholder can be a full or partial date. There are related week-of date pattern that it should be as consistent with as possible, described [here](https://cldr.unicode.org/translation/date-time/date-time-patterns).
+There are a number of patterns like “the week of {0}” used for constructions such as “the week of April 11, 2016” or “the week of April 11–15”. The placeholder can be a full or partial date. There are related week-of date pattern that it should be as consistent with as possible, described [here](/translation/date-time/date-time-patterns).
 
 \<dateFormatItem id="MMMMW" count="one">'week' W 'of' MMM\</dateFormatItem>
 

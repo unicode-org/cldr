@@ -9,9 +9,9 @@ Here are the instructions for a bulk upload (of an XML file in LDML format) to t
 1. Prepare your xml files \- one per locale. Each file must be valid XML and LDML for a single file. The file doesn't have to be "complete": it might contain only translations of territories, for example.
 	- *(Note: There is a new option that allows you to download from the Dashboard as a spreadsheet, modify the spreadsheet, and then convert that spreadsheet into an XML.  To access this option:<br> In the menu, choose **Upload(Bulk Import)** and then **Convert XLSX to XML**. Follow the steps from there.)*
 2. The locale must exist. 
-	- If not, see [Adding New Locales](https://cldr.unicode.org/index/bug-reports#New_Locales).
+	- If not, see [Adding New Locales](/index/bug-reports#New_Locales).
 3. You must be logged in, and under an account with permission to write to it.
-	- If you don't have an account, see [Survey Tool Accounts](http://cldr.unicode.org/index/survey-tool/accounts).
+	- If you don't have an account, see [Survey Tool Accounts](/index/survey-tool/accounts).
 	- Managers and TC Members can submit on behalf of another user.
 4. Go to the menu, under the **Upload ( Bulk Import)**  section. Choose **Upload XML as your Vote**.
 5. Put in your email address to submit as yourself. If you manage other users, you may put the email address associated with their survey tool account in to submit a vote as that user.
@@ -24,7 +24,7 @@ Here are the instructions for a bulk upload (of an XML file in LDML format) to t
 10. You will see a detailed list of the test results for the items you're submitting.
 	- You can click on an item's path link (left hand side) to view that item in the surveytool
 	- Any items with an error icon  will not be submitted.
-	- If the message is "Item is not writable in the Survey Tool. Please file a ticket." then you will need to [file a ticket](https://cldr.unicode.org/index/bug-reports#TOC-Filing-a-Ticket) instead. These can be filed in a single ticket. Include all the paths and the respective values.
+	- If the message is "Item is not writable in the Survey Tool. Please file a ticket." then you will need to [file a ticket](/index/bug-reports#TOC-Filing-a-Ticket) instead. These can be filed in a single ticket. Include all the paths and the respective values.
 	1. Press "Really Submit As My Vote" to submit all passing items as your vote, or revise the file and start back at Step 4.
 
 ### Example XML:

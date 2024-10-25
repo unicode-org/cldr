@@ -1,5 +1,5 @@
 ---
-title: Locale Option Names (Key)
+title: 'Locale Option Names (Key)'
 ---
 
 # Locale Option Names (Key)
@@ -20,7 +20,7 @@ Here are the names of Options to be translated.
 
 ## Locale Option Value Names
 
-The following are some examples of Option+Value combinations that need translation. Where the Value for the Option is not from a small set (Currency and Private Use), then the Locale Option Pattern is used (see [Language/Locale Name Patterns](https://cldr.unicode.org/translation/displaynames/languagelocale-name-patterns).
+The following are some examples of Option+Value combinations that need translation. Where the Value for the Option is not from a small set (Currency and Private Use), then the Locale Option Pattern is used (see [Language/Locale Name Patterns](/translation/displaynames/languagelocale-name-patterns).
 
 | Option | Value | English Name | Meaning |
 |---|---|---|---|
@@ -38,6 +38,6 @@ The following are some examples of Option+Value combinations that need translati
 | Collation  | big5han | Traditional Sort Order - Big5 | An ordering based on the character encoding Big5 (for Chinese)  |
 | Numbers | armn | Armenian Numerals | The numbering system that uses Armenian digits. |
 
-For transform names (BGN, Numeric, Tone, UNGEGN, x-Accents, x-Fullwidth, x-Halfwidth, x-Jamo, x-Pinyin, x-Publishing), see [Transforms](https://cldr.unicode.org/translation/transforms).
+For transform names (BGN, Numeric, Tone, UNGEGN, x-Accents, x-Fullwidth, x-Halfwidth, x-Jamo, x-Pinyin, x-Publishing), see [Transforms](/translation/transforms).
 
 

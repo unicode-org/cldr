@@ -6,15 +6,15 @@ title: Collation Guidelines
 
 Collation sequences can be quite tricky to specify.
 
-The locale\-based collation rules in Unicode CLDR specify customizations of the standard data for [UTS \#10: Unicode Collation Algorithm](http://www.unicode.org/reports/tr10/#Introduction) (UCA). Requests to change the collation order for a given locale, or to supply additional variants, need to follow the guidelines in this document.
+The locale\-based collation rules in Unicode CLDR specify customizations of the standard data for [UTS \#10: Unicode Collation Algorithm](https://www.unicode.org/reports/tr10/#Introduction) (UCA). Requests to change the collation order for a given locale, or to supply additional variants, need to follow the guidelines in this document.
 
 ## Filing a Request
 
-Requests to change the collation order for a given locale, or to supply additional variants should be filed as CLDR bug tickets. See [CLDR Change Requests](https://cldr.unicode.org/index/bug-reports)
+Requests to change the collation order for a given locale, or to supply additional variants should be reported by [requesting changes](/requesting_changes).
 
 ### Rules
 
-The request should present the precise change expressed as rules. The rules must be supplied in the syntax as specified in [http://www.unicode.org/reports/tr35/tr35\-collation.html\#Rules](http://www.unicode.org/reports/tr35/tr35-collation.html#Rules). (This used to be called the "basic syntax".) The rules must also be [Minimal Rules](https://cldr.unicode.org/index/cldr-spec/collation-guidelines) as described below: *only* differences from [http://unicode.org/charts/uca/](http://unicode.org/charts/uca/) should be specified.
+The request should present the precise change expressed as rules. The rules must be supplied in the syntax as specified in [https://www.unicode.org/reports/tr35/tr35\-collation.html\#Rules](https://www.unicode.org/reports/tr35/tr35-collation.html#Rules). (This used to be called the "basic syntax".) The rules must also be [Minimal Rules](#minimal-rules) as described below: *only* differences from [https://www.unicode.org/charts/collation](https://www.unicode.org/charts/collation/) should be specified.
 
 *\& c \< cs*
 
@@ -52,7 +52,7 @@ Provide justification for your change. Citations should be to authoritative page
 
 Please test out any suggested rules before filing a bug.
 
-1. Go to the [ICU Collation Demo](http://demo.icu-project.org/icu-bin/collation.html).
+1. Go to the [ICU Collation Demo](https://demo.icu-project.org/icu-bin/collation.html).
 2. Pick the language for which you want to change the rules, or keep it on "und" (root) if you want to start from the Unicode/CLDR default sort order.
 3. Put your rules into the "Append rules" box.
 4. Put an interesting list of strings into the Input box.
@@ -60,7 +60,7 @@ Please test out any suggested rules before filing a bug.
 
 Or
 
-1. Go to the [ICU Locale Explorer](http://demo.icu-project.org/icu-bin/locexp).
+1. Go to the [ICU Locale Explorer](https://demo.icu-project.org/icu-bin/locexp).
 2. Pick the appropriate locale.
 3. Follow the instructions at the bottom to use your suggested rules on your suggested test data.
 4. Verify that the proper order results.
@@ -71,7 +71,7 @@ The exact collation sequence for a given language may be difficult to determine.
 
 Most standards that specify collation, such as DIN or CS, are not targeted at algorithmic sorting, and are not complete algorithmic specifications. For example, CSN 97 6030 requires transliteration of foreign scripts, but there are many choices as to how to transliterate, and the exact mechanism is not specified. It also specifies that geometric shapes are sorted by the number of vertices and edges, which is, at a minimum, difficult to determine; and are subject to variation in glyphs.
 
-The CLDR goals are to match the sorting of exemplar letters and common punctuation and leave everything else to the standard UCA ordering. For more information, see [UTS \#10: Unicode Collation Algorithm](http://www.unicode.org/reports/tr10/#Introduction) (UCA).
+The CLDR goals are to match the sorting of exemplar letters and common punctuation and leave everything else to the standard UCA ordering. For more information, see [UTS \#10: Unicode Collation Algorithm](https://www.unicode.org/reports/tr10/#Introduction) (UCA).
 
 ### Determining Level Differences
 
@@ -192,7 +192,7 @@ It would be possible instead to have rules that list every letter used by Slovak
 1. Every time a character is tailored, the data for that character takes up more room in typical implementations. That means that the data for collation is larger, downloads of collation libraries with that data are slower, sort keys are longer, and performance is slower; sometimes very much so.
 2. Related characters in the same script are in a peculiar order. For example, if the Slovak tailoring omits ƀ, then it would show up as after z.
 
-You can see what the UCA currently does with a given script by looking at the charts at [Unicode Collation Charts](http://www.unicode.org/charts/collation/), or at the [UCA in ICU\-style rules](http://unicode.org/cldr/data/diff/collation/UCA.txt). For example, suppose that U\+0D89 SINHALA LETTER IYANNA and U\+0D8A SINHALA LETTER IIYANNA needed to come after U\+0D96 SINHALA LETTER AUYANNA, in primary order, and that otherwise DUCET was ok. Then you would give the following rules:
+You can see what the UCA currently does with a given script by looking at the charts at [Unicode Collation Charts](https://www.unicode.org/charts/collation/). For example, suppose that U\+0D89 SINHALA LETTER IYANNA and U\+0D8A SINHALA LETTER IIYANNA needed to come after U\+0D96 SINHALA LETTER AUYANNA, in primary order, and that otherwise DUCET was ok. Then you would give the following rules:
 
 \& ඖ \# U\+0D96 SINHALA LETTER AUYANNA
 
@@ -242,6 +242,6 @@ There are a number of pitfalls with collation, so be careful. In some cases, suc
 	6. The correct rules should be the minimal ones.
 	7. \& \[before 1] c \< ċ \<\<\< Ċ
 	8. This finds the highest primary (that's what the 1 is for) character less than c, and uses that as the reset point. For Maltese, the same technique needs to be used for ġ and ż.
-2. **Blocking Contractions.** Contractions can be blocked with CGJ, as described in the Unicode Standard and in the [Characters and Combining Marks FAQ](http://www.unicode.org/faq/char_combmark.html).
-3. **Case Combinations.** The lowercase, titlecase, and uppercase variants of contractions need to be supplied, with tertiary differences in that order (regardless of the caseFirst setting). That is, if *ch* is a contraction, then you would have the rules `... ch <<< Ch <<< CH`. Other case variants such as *cH* are excluded because they are unlikely to represent the contraction, for example in *McHugh*. (Therefore, *mchugh* and *McHugh* will be primary different if *ch* adds a primary difference.) \[[\#8248](http://unicode.org/cldr/trac/ticket/8248)]
+2. **Blocking Contractions.** Contractions can be blocked with CGJ, as described in the Unicode Standard and in the [Characters and Combining Marks FAQ](https://www.unicode.org/faq/char_combmark.html).
+3. **Case Combinations.** The lowercase, titlecase, and uppercase variants of contractions need to be supplied, with tertiary differences in that order (regardless of the caseFirst setting). That is, if *ch* is a contraction, then you would have the rules `... ch <<< Ch <<< CH`. Other case variants such as *cH* are excluded because they are unlikely to represent the contraction, for example in *McHugh*. (Therefore, *mchugh* and *McHugh* will be primary different if *ch* adds a primary difference.) \[[\#8248](https://unicode.org/cldr/trac/ticket/8248)]
 

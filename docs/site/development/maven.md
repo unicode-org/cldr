@@ -75,7 +75,7 @@ In the CLDR repo root, go into the tools directory and run:
 
 ```mvn package```
 
-This will run all tests and create the all\-in\-one **tools/cldr\-code/target/cldr\-code.jar**. See [CLDR Tools](https://cldr.unicode.org/development/cldr-tools) for details on how to use this jar file.
+This will run all tests and create the all\-in\-one **tools/cldr\-code/target/cldr\-code.jar**. See [CLDR Tools](/development/cldr-tools) for details on how to use this jar file.
 
 ### More details
 
@@ -112,7 +112,7 @@ mvn -DCLDR_DIR=$HOME/src/cldr exec:java -pl cldr-code -Dexec.mainClass=org.unico
 
 1. See also “[Set up Eclipse for Survey Tool](https://docs.google.com/document/d/1wkJsoQXPcGN_dlCzXzwhfjQoq9Mes7VezIRmNrHWV8c/edit)”
 2. To run the SurveyTool components you will need the IDE for Enterprise Developers, you can download this from https://www.eclipse.org/downloads/packages/
-3. Make sure the config files are set up first ([**3.2** Configuring Maven](https://cldr.unicode.org/development/maven)), and that CLDR is checked out locally from git in some directory.
+3. Make sure the config files are set up first ([**3.2** Configuring Maven](/development/maven)), and that CLDR is checked out locally from git in some directory.
 4. Go to File \-\> Import, choose Maven and import Existing Maven Projects (see image at right)
 
 ![image](../images/development/maven1.png)

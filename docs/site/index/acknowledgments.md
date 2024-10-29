@@ -12,8 +12,10 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Aamir Raz Soomro (عامر راز سومرو)
 - Aarni Koskela
 - Aarón Cózar González
+- Abdihakim Farah Dubad
 - Abdirahman Ali Mohamed
 - Abdoulaye Barry (𞤀𞤦𞤣𞤵𞤤𞥆𞤢𞥄𞤸𞤭 𞤄𞤢𞤪𞤭)
+- Abdul Haque (عبد الحق)
 - Abdullah Hassaan Al-Anssary (عبدالله حسان الأنصاري)
 - Abduqadir Abliz (ئابدۇقادىر ئابلىز)
 - Abhishek Bhardwaj (अभिषेक भारद्वाज)
@@ -33,6 +35,8 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Ahmed Gad (أحمد جاد)
 - Ahmed Najib Biabani (احمد نجيب بياباني)
 - Ainuru Bulekbaeva (Айнуру Булекбаева)
+- Ajiniyaz Nurniyazov
+- Ajit Kulkarni (ಅಜಿತ ಕುಲಕರ್ಣಿ)
 - Åke Persson
 - Akhil Kumar (ਅਖਿਲ ਕੁਮਾਰ)
 - Akhilesh Kumar (अखिलेश कुमार)
@@ -55,9 +59,11 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Alexandre Moréteau
 - Alexey Proskuryakov (Алексей Проскуряков)
 - Alexis Cheng (鄭宗堯)
+- Ali Zhumagaliev (Али Жумагалиев)
 - Alina Korshunova (Алина Коршунова)
 - Alla Shashkina (Алла Шашкина)
 - Allen Su (蘇威圖)
+- Almaz Mingaleev
 - Alper Sari
 - Amandeep Singh Saini (ਅਮਨਦੀਪ ਸਿੰਘ ਸੈਣੀ)
 - Amir E. Aharoni (אמיר א׳ אהרוני)
@@ -76,6 +82,7 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Andreas L Johnsen
 - Andreas Nieckele
 - Andreea Dumitrescu
+- Andrei Cipu
 - Andrés Cubero Muñoz
 - Andrew Zhygmanovsky (Андрій Жигмановський)
 - Andrii Pertsiukh
@@ -119,6 +126,7 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Aurelian George Dumanovschi
 - Avery Chan
 - Aviah Morag (אביה מורג)
+- Ayda Tolaymat
 - Ayka Agayeva
 - Ayman Tayseer (أيمن تيسير)
 - Ayushya Kishorbhai Devmurari (આયુષ્ય કિશોરભાઇ દેવમુરારી)
@@ -178,7 +186,9 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Charles Pau (鲍景超)
 - Charles Riley
 - Charlotta af Hällström-Reijonen
+- Charu Chandra Pathak (चारु चन्द्र पाठक)
 - Chiemerie Ogenyi-Benjamin
+- Chinedu John Onyekachi
 - Chloe Chan (陳浩敏)
 - Chloé Hibon
 - Cho Akum Ndi
@@ -203,6 +213,7 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Claire Ho (賀靜蘭)
 - Clara Bozzo Closas
 - Coleman Donaldson (ߊߘߡߊ߫ ߖߊߟߏ߫)
+- Conrad Arcturus Nied
 - Constantina Yiokari
 - Craig Cornelius (ᏇᎩ)
 - Craig Cummings
@@ -232,6 +243,7 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - David Beaumont
 - David Corbett
 - David Korczynski
+- David Lucien
 - David Luo (罗凌)
 - David Paleino
 - David Petit
@@ -247,6 +259,7 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Dennis Fluttershy
 - Dennis Sixkiller
 - Dennis Walters
+- Denzil Simoes
 - Dewi Bryn Jones
 - Dharma Adhivijaya Gapin
 - Dian Embarsari
@@ -280,6 +293,7 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Dr. Solomon Gizaw (ሰለሞን ግዛው)
 - Dragan Bešević (Драган Бешевић)
 - Dwayne Bailey
+- Ebunoluwa Felicia Agbabiaka
 - Ed Jumper
 - Eddy Petrișor
 - Edward Welbourne
@@ -357,6 +371,7 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Gion-Andri Cantieni
 - Girish G (ಗಿರೀಶ್ ಜಿ)
 - Godwin
+- Gomaa Abdelhady (جمعة عبد الهادي)
 - Gomathi Shankar (கோமதி சங்கர்)
 - Goun Lee (이고운)
 - Gregory Huczynski
@@ -406,6 +421,7 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Iñigo Varela
 - Irina Bortoi
 - Irina Chausova
+- Irina Iacovescu
 - Irina Parshina
 - Irina Popova (Ирина Попова)
 - Iroro Orife
@@ -446,14 +462,17 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Jason Currie
 - Javier Sola
 - Javier Torres Fernández
+- Jayaseelan Samuel (ஜெயசீலன் சாமுவேல்)
 - Jean-Jacques Enser
 - Jean-Michel Gillion
 - Jeff Davis
 - Jeff Edwards
 - Jefferson Bien-Aime
+- Jeffrey Wajsberg
 - Jehan
 - Jelena Oertel
 - Jelena Pjesivac-Grbovic (Јелена Пјешивац-Грбовић)
+- Jenil Nandu (જેનીલ નંદુ)
 - Jennifer Chye
 - Jeno Demeczky
 - Jens Jessen
@@ -462,6 +481,7 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Jeran Richardson
 - Jérémy Escassut
 - Jeroen Ruigrok van der Werven
+- Jessa Ann Malquisto
 - Jessica Schumann
 - Jinia Dutta (জিনিয়া দত্ত)
 - Joan Banach Cañís
@@ -515,8 +535,10 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Kip Cole
 - Kirill A. Korinsky
 - Kirill Buryak
+- Kishore Kumar (కిషోర్ కుమార్)
 - Klaas Ruppel
 - Klean Xhelilaj
+- Konstantin Glukharev
 - Konstantinos Stampoulis (Κωνσταντίνος Σταμπουλής)
 - Kornelija Antolin
 - Kozlov Ilia (Козлов Илья)
@@ -524,8 +546,10 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Kristi Lee
 - Kritika Jhano Mardi (ᱠᱨᱤᱛᱤᱠᱟ ᱡᱷᱟᱱᱚ ᱢᱟᱨᱰᱤ)
 - Kudzanai Chitsungo
+- Kumar Chezhiyan (குமார் செழியன்)
 - Kumar Prabhat Ranjan (कुमार प्रभात रंजन)
 - Kurdish Crowdsource
+- Kyaw Kyaw Zin (ကျော်ကျော်ဇင်)
 - Kyle Morain
 - Kyoung-Jun Min (민경준)
 - L. E. Segovia (amyspark)
@@ -539,6 +563,7 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Leila Nayernia (لیلا نیّرنیا)
 - Leo Hanuš
 - Leonardo Brondani Schenkel
+- Leonardo Taglialegne
 - Li Ming Yeung (李名揚)
 - Li Xianxiang (黎先翔)
 - Liath Noy (ליאת נוי)
@@ -579,6 +604,7 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Marcellus van Lohuizen
 - Márcio Ferreira
 - Marco Ceragioli
+- María Inés Estrada
 - Maria Karagianni
 - Maria Luna
 - Mariela Foumi (Μαριέλα Φούμη)
@@ -625,12 +651,14 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Mícheál John Ó Meachair
 - Michele Bradbury
 - Michele Locati
+- Michelle Perham
 - Miguel A. Jimenez
 - Miguel da Fonseca
 - Miguel Sousa
 - Miha Rus
 - Mihai Niță
 - Miika Brenna Jarsve
+- Mike Chen (陈子宁)
 - Mike Tardif
 - Miklós Surján
 - Mikołaj Zalewski
@@ -651,6 +679,8 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Mortéza Yazdanikarizi (مرتضی یزدانی کریزی)
 - Mthokozisi Moses Dlalisa
 - Muhammad Noor (𐴔𐴟𐴇𐴝𐴔𐴝𐴊 𐴕𐴦𐴟𐴌)
+- Murat Karibay (Мұрат Кәрібай)
+- Musa Abubakar
 - Muthu Nedumaran (முத்து நெடுமாறன்)
 - Myriam Bedmar Martín
 - Myron Nechypor
@@ -662,6 +692,7 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Naila Noah (نائلة نوح)
 - Najaf Raza (نجف رضا)
 - Namgay Thinley (རྣམ་རྒྱལ་འཕྲིན་ལས།)
+- Nandini Desai (नंदिनी देसाई)
 - Nanette Stensholt
 - Naoto Sato (佐藤直人)
 - Nart Tlishe
@@ -680,6 +711,7 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Neil Shadrach
 - Nemo Semret (ነሞ ሥምረት)
 - Nguyễn Quốc Hoàng (David Nguyen)
+- Nguyễn Thị Hương
 - Ngwe TUN (ငွေထွန်း)
 - Nicha Kumchokpattaraporn (ณิชชา กำโชคภัทรพร)
 - Nicholas Shanks
@@ -688,6 +720,7 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Nigel Rodgers
 - Nijolė Miknevičienė
 - Nik Kalach
+- Nikhil Naik
 - Niklas Laxström
 - Nikola Bogdanović
 - Nina Åberg
@@ -714,6 +747,7 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Oscar D.P. Triscon
 - Oscar Hernandez Quiles
 - Ouchene‌ Merzouk (Uccen marzuq)
+- Öznur Gezer Uz
 - P Mett (פרץ מעטט)
 - Pablo Muñoz Sánchez
 - Pablo R. Estrada
@@ -755,6 +789,7 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Priya Bhawalkar (प्रिया भवाळकर)
 - Puri Rodríguez Díaz
 - Purodha Blissenbach
+- Qhawekazi Phelakho
 - Quentin PAGÈS
 - Rachael Ndichu
 - Rachel Kremer (רחלי קרמר)
@@ -799,6 +834,7 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Robert Muir
 - Robert Ribnitz
 - Roberto Bahamonde A.
+- Robin K George (റോബിൻ കെ. ജോർജ്ജ്)
 - Robin Leroy
 - Robin van der Vliet
 - Rocío Román López
@@ -831,6 +867,7 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Sameer Ranjan (समीर रंजन)
 - Samir Kumar Mondal (সমীর কুমার মন্ডল)
 - Samphan Raruenrom (สัมพันธ์ ระรื่ืนรมย์)
+- Samuel Frontull
 - Samuel Murray
 - Sandra O'Donnell
 - Sangeetha George (സംഗീത ജോർജ്)
@@ -840,6 +877,7 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Sara Migliori
 - Sara Santa Clara
 - Sara Sjölin
+- Sarah Hodkinson
 - Saran Mahasupap (ศรัณย์ มหาสุภาพ)
 - Saravanan (ശരവണന്)
 - Sargis Yonan (ܣܪܓܝܤ ܝܘܢܢ)
@@ -851,6 +889,7 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Sasha Maric (Саша Марић)
 - Satoshi Nakamoto (Mehdi Mehrabi)
 - Saurabh Kudesia (सौरभ कुदेशिया)
+- Saurmanđal (सौरमंडल)
 - Scott Hopwood
 - Séamus Ó Ciardhuáin
 - Seanghay Yath (យ៉ាត់ សៀងហៃ)
@@ -859,6 +898,7 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Seeun Lee (이세은)
 - Semir Mehadzic
 - Seonghyup Park (박성협)
+- Serena Salvatori
 - Serena Xiao (肖顺敏)
 - Sergei Astrashevsky
 - Sergey Karavay (Сергей Каравай)
@@ -919,6 +959,7 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Suresh Chandrasekharan (സുരേഷ് ചന്ദ്രശേഖരന്)
 - Susan Maria Howard
 - Susanne Christensen
+- Sushil Garg (सुशील गर्ग)
 - Sushil Kahat (सुशील कहात)
 - Sushrut Jalukar (सुश्रुत जळूकर)
 - Sussu Laaksonen
@@ -927,8 +968,10 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Suzy Wang
 - Svanhvít Lilja Ingólfsdóttir
 - Sverrir Á. Berg
+- Svetlana Belova (Светлана Белова)
 - Swaran Lata
 - Szabolcs Blaga (子伯)
+- Táj Balóch
 - Tamazight Tutlayt
 - Tarek Abou Aly (طارق أبو على)
 - Tatevik Kolarski (Տաթեւիկ Կոլարսկի, Татевик Коларски)
@@ -999,6 +1042,7 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Vytautas Rekus
 - Wahyu Dahana Murti
 - Waldir Pimenta
+- Waleed Abdelghany (وليد عبد الغني)
 - Walter Keutgen
 - Wanwara Chairoek (วัลย์วรา ไชยฤกษ์)
 - Waris Abdukerim Janbaz (ۋارىس ئابدۇكېرىم جانباز)
@@ -1008,6 +1052,8 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - William Gozali
 - William J. Sullivan
 - William R.M. Bartlett
+- Wim Benes
+- Wisnu Hesti Barata
 - Wito Boehmak
 - Witold Jarnicki
 - Xuacu Saturio
@@ -1015,6 +1061,7 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Yannick Stucki
 - Yannis Haralambous (Γιάννης Χαραλάμπους)
 - Yaron Shahrabani (ירון שהרבני)
+- Yasmin Fong
 - Yasuyuki Kagawa (香川 康之)
 - Yehuda Deutsch (יהודה דויטש)
 - Yi-Ting Chen (陳薏婷)
@@ -1022,6 +1069,7 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Yoshito Umaoka (馬岡 由人)
 - Younies Mahmoud
 - Yukari Takayashiki (高屋敷 ゆかり)
+- Yuko Katabami (方波見 裕子)
 - Yun Fang Ge (葛云芳)
 - Yunisa Kusuma Dewi Edy Gunawan
 - Yuri Kirghisov

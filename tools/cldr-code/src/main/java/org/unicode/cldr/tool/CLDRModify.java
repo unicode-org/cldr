@@ -3012,7 +3012,7 @@ public class CLDRModify {
 
         fixList.add(
                 'E',
-                "Fix null/blank/inherited values in en.xml",
+                "Fix null/inherited values in en.xml",
                 new CLDRFilter() {
                     final SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
                     final String LOCALE_ID = "en";
@@ -3036,10 +3036,6 @@ public class CLDRModify {
                         String message;
                         if (value == null) {
                             message = "fix null";
-                        } else if (value.isBlank()
-                                && !DisplayAndInputProcessor.FSR_START_PATH.equals(xpath)
-                                && !DisplayAndInputProcessor.NSR_START_PATH.equals(xpath)) {
-                            message = "fix blank";
                         } else if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
                             message = "fix inheritance marker";
                         } else {

@@ -8,7 +8,7 @@ import org.unicode.cldr.unittest.TestPaths;
 import org.unicode.cldr.util.*;
 
 /**
- * Check modern coverage inherited values in en that are marked with up arrows or are blank; all
+ * Check modern coverage inherited values in en that are marked with up arrows or are null; all
  * values should be explicit in en
  */
 public class TestEnInheritance {
@@ -25,7 +25,7 @@ public class TestEnInheritance {
     void testInheritance() {
         final SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
         final CoverageLevel2 coverageLevel = CoverageLevel2.getInstance(sdi, LOCALE_ID);
-        int pathsWithNullValue = 0, pathsWithBlankValue = 0, pathsWithMarkerValue = 0;
+        int pathsWithNullValue = 0, pathsWithMarkerValue = 0;
         for (final String path : cldrFile.fullIterable()) {
             if (coverageLevel.getLevel(path).getLevel() <= Level.MODERN.getLevel()) {
                 String value = cldrFile.getStringValue(path);
@@ -36,17 +36,12 @@ public class TestEnInheritance {
                             || !TestPaths.extraPathAllowsNullValue(path)) {
                         complain("null value", ++pathsWithNullValue, path);
                     }
-                } else if (value.isBlank()
-                        && !DisplayAndInputProcessor.FSR_START_PATH.equals(path)
-                        && !DisplayAndInputProcessor.NSR_START_PATH.equals(path)) {
-                    complain("blank value", ++pathsWithBlankValue, path);
                 } else if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
                     complain("inheritance marker", ++pathsWithMarkerValue, path);
                 }
             }
         }
-        assertEquals(
-                0, pathsWithNullValue + pathsWithBlankValue + pathsWithMarkerValue, "failures");
+        assertEquals(0, pathsWithNullValue + pathsWithMarkerValue, "failures");
     }
 
     private void complain(String description, int count, String path) {

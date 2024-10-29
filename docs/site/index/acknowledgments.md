@@ -23,6 +23,7 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Adam Richeimer
 - Addison Phillips
 - Addisu Alemneh Tesfaye
+- Dr. Adebisi Aromolaran
 - Adélaïde Bodson
 - Adham Kurbanov
 - Admir Qose
@@ -73,6 +74,7 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Amra Đapo
 - Amy Kilby
 - Ana Kušen
+- Dr. Anaha Hiini
 - Anastasia Golikova (Анастасия Голикова)
 - Andra Artemova
 - André de Souza Mucciolo
@@ -84,6 +86,7 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Andreea Dumitrescu
 - Andrei Cipu
 - Andrés Cubero Muñoz
+- Dr. Andrew Glass (𐨀𐨎𐨡𐨿𐨪𐨂 𐨒𐨿𐨫𐨯)
 - Andrew Zhygmanovsky (Андрій Жигмановський)
 - Andrii Pertsiukh
 - Andy Heninger
@@ -282,15 +285,6 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Doug Ewell
 - Doug Felt
 - Dov Pearl
-- Dr Kipkoeech araap Sambu
-- Dr. Adebisi Aromolaran
-- Dr. Anaha Hiini
-- Dr. Andrew Glass (𐨀𐨎𐨡𐨿𐨪𐨂 𐨒𐨿𐨫𐨯)
-- Dr. Frans Wijma
-- Dr. Neil Morton
-- Dr. Rajesh Kumar (डॉ. राजेश कुमार)
-- Dr. Sarmad Hussain \[CRULP (مرکز تحقیقات اردو)\]
-- Dr. Solomon Gizaw (ሰለሞን ግዛው)
 - Dragan Bešević (Драган Бешевић)
 - Dwayne Bailey
 - Ebunoluwa Felicia Agbabiaka
@@ -352,6 +346,7 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Francis Tyers (Францис Таерз)
 - Francisco Javier Rodríguez Arias
 - Frank Yung-Fong Tang (譚永鋒)
+- Dr. Frans Wijma
 - Fredrik Roubert
 - Fredrik Stenshamn
 - Friedel Wolff
@@ -533,6 +528,7 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Kiala Ntona
 - Kiki Wong (黃詠琪)
 - Kip Cole
+- Dr. Kipkoeech araap Sambu
 - Kirill A. Korinsky
 - Kirill Buryak
 - Kishore Kumar (కిషోర్ కుమార్)
@@ -707,6 +703,7 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Neel Kamal Thakur (नील कमल ठाकुर)
 - Neelima Talwar (నీలిమా తల్వార్)
 - Neha Kumari (नेहा कुमारी)
+- Dr. Neil Morton
 - Neil S Patel
 - Neil Shadrach
 - Nemo Semret (ነሞ ሥምረት)
@@ -808,6 +805,7 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Ragland Inbaraj
 - Raimund Bauer
 - Raj Neettiyath (രാജ് നീട്ടിയത്ത്)
+- Dr. Rajesh Kumar (डॉ. राजेश कुमार)
 - Rajesh Ranjan (राजेश रंजन)
 - Rajinder Singh Padda (ਰਾਜਿੰਦਰ ਸਿੰਘ ਪੱਡਾ )
 - Rakib Farooq Matta (راقب فاروق مٹہ)
@@ -882,6 +880,7 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Saravanan (ശരവണന്)
 - Sargis Yonan (ܣܪܓܝܤ ܝܘܢܢ)
 - Sarika Nene (सारिका नेने)
+- Dr. Sarmad Hussain \[CRULP (مرکز تحقیقات اردو)\]
 - Saroj Kumar Dhakal (सरोज कुमार ढकाल)
 - Sasan Banava (ساسان بانوا)
 - Sascha Brawer
@@ -927,6 +926,7 @@ Many other people have made significant contributions to CLDR and LDML, includin
 - Slimane Amiri (Sliman Ɛmiri)
 - Soe Min Mark
 - Solo Farabado Cisse (ߛߏ߬ߟߏ ߝߙߊ߬ߓߊ-ߘߐ߫ ߛߌ߬ߛߋ߫)
+- Dr. Solomon Gizaw (ሰለሞን ግዛው)
 - Somil Mishra (सोमिल मिश्रा)
 - Somnath Chandra
 - Sonia Mokrani

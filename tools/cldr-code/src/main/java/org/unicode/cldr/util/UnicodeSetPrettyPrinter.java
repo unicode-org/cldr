@@ -316,6 +316,7 @@ public class UnicodeSetPrettyPrinter implements FormatterParser<UnicodeSet> {
         UTF16.append(target, codePoint);
         return this;
     }
+
     //  Appender append(String s) {
     //  target.append(s);
     //  return this;

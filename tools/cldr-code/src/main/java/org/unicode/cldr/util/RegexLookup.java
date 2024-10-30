@@ -357,6 +357,7 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
             //            T _val;
             List<RTNode> _children = new ArrayList<>();
             int _rank = -1; // rank -1 means the node was not inserted, but only used for structural
+
             // purposes
 
             // constructor for regular nodes with a Finder

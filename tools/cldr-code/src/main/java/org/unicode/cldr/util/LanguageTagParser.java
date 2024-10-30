@@ -907,6 +907,7 @@ public class LanguageTagParser {
             }
         }
     }
+
     /**
      * Return the script of the locale (without creating a CLDRFile). Note that for ja, the script
      * is Jpan; for ko, Kore; and zh/yue, either Hant or Hans. <br>

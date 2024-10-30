@@ -27,10 +27,13 @@ public class Announcements {
     public static final String AUDIENCE_EVERYONE = "Everyone";
 
     public static final String ORGS_MINE = "Mine";
+
     /** all TC orgs, as defined by {@link Organization#isTCOrg()} */
     public static final String ORGS_TC = "TC";
+
     /** excluding TC orgs, as defined by {@link Organization#isTCOrg()} */
     public static final String ORGS_NON_TC = "NonTC";
+
     /** All organizations */
     public static final String ORGS_ALL = "All";
 

@@ -96,6 +96,7 @@ public class TablePrinter {
         private boolean repeatHeader = false;
         private boolean hidden = false;
         private boolean isHeader = false;
+
         //        private boolean divider = false;
 
         public Column(String header) {

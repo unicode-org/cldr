@@ -94,6 +94,7 @@ public class UserRegistry {
     }
 
     private static final java.util.logging.Logger logger = SurveyLog.forClass(UserRegistry.class);
+
     // user levels
 
     /** Administrator */

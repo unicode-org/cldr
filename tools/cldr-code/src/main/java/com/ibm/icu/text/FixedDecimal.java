@@ -226,6 +226,7 @@ public class FixedDecimal extends Number implements Comparable<FixedDecimal>, IF
     }
 
     private static final long MAX_INTEGER_PART = 1000000000;
+
     /**
      * Return a guess as to the number of decimals that would be displayed. This is only a guess;
      * callers should always supply the decimals explicitly if possible. Currently, it is up to 6

@@ -398,6 +398,7 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
             }
         }
     }
+
     /** DAIP can add characters to UnicodeSets, so remove them for a clean test. Could optimize */
     UnicodeSet suppressAdditions(UnicodeSet value, UnicodeSet input_value) {
         for (UnicodeSetIterator usi = new UnicodeSetIterator(value); usi.next(); ) {

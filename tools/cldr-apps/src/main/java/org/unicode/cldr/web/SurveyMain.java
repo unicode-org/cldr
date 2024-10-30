@@ -210,6 +210,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     // ===== Configuration state
     private static Phase currentPhase = Phase.VETTING;
     private static Phase currentExtendedPhase = Phase.VETTING;
+
     /** set by CLDR_PHASE property. * */
     private static String oldVersion = "OLDVERSION";
 
@@ -357,6 +358,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     private static boolean initCalled = false;
+
     /**
      * Was init() called on the servlet? This is called very early in server startup,
      * but should be noted here.
@@ -368,6 +370,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     private static boolean didTryToStartUp = false;
+
     /**
      * Did SurveyMain try to startup? Need to call GET /cldr-apps/survey for this to happen
      * if GET has not been called, then we don't have a SurveyMain instance yet and getInstance() will fail.
@@ -453,6 +456,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     public static String defaultServletPath = null;
+
     /** IP exclusion list */
     public static Hashtable<String, Object> BAD_IPS = new Hashtable<>();
 
@@ -1460,6 +1464,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     static final Pattern HASH_PATTERN = Pattern.compile("^CLDR_([A-Z]+)_HASH$");
+
     /**
      * Get the current source revision
      *
@@ -3362,6 +3367,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     private static long shortN = 0;
+
     /** Only used by about.jsp to know whether it's safe to call DBUtils.getInstance() */
     public static boolean isDbSetup = false;
 

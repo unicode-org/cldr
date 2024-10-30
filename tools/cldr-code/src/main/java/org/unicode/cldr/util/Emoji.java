@@ -128,11 +128,13 @@ public class Emoji {
         emojiToMinorCategory.setErrorOnReset(true);
         toName.setErrorOnReset(true);
     }
+
     /**
      * A mapping from a majorCategory to a unique ordering number, based on the first time it is
      * encountered.
      */
     static final Map<String, Long> majorToOrder = new HashMap<>();
+
     /**
      * A mapping from a minorCategory to a unique ordering number, based on the first time it is
      * encountered.
@@ -146,6 +148,7 @@ public class Emoji {
 
     static final UnicodeMap<String> restoreVariants = new UnicodeMap<>();
     static final Set<Set<String>> genderSets;
+
     // ߘ E1.0 grinning face
     static {
         /*

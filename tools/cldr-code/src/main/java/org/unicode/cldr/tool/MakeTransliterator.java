@@ -540,6 +540,7 @@ public class MakeTransliterator {
 
     public static UnicodeSet vowels = new UnicodeSet("[aeiou æ ɑ ə ɛ ɪ ʊ â î ô]").freeze();
     public static UnicodeSet short_vowels = new UnicodeSet("[ɑ æ ə ɛ ɪ ʊ]").freeze();
+
     /**
      * Return true if the strings are essentially the same. Differences between schwas and short
      * vowels are counted in certain cases

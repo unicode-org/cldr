@@ -999,6 +999,7 @@ annotations.
 			<territory type="BZ">Belize</territory>
 			<territory type="CA">Canada</territory>
 			<territory type="CC">Cocos (Keeling) Islands</territory>
+			<territory type="CC" alt="short">Cocos Islands</territory>
 			<territory type="CD">Congo - Kinshasa</territory>
 			<territory type="CD" alt="variant">Congo (DRC)</territory>
 			<territory type="CF">Central African Republic</territory>
@@ -3935,6 +3936,12 @@ annotations.
 			<zone type="Asia/Qostanay">
 				<exemplarCity>Kostanay</exemplarCity>
 			</zone>
+			<zone type="Pacific/Easter">
+				<exemplarCity>Easter Island</exemplarCity>
+			</zone>
+			<zone type="Pacific/Wake">
+				<exemplarCity>Wake Island</exemplarCity>
+			</zone>
 			<zone type="Pacific/Honolulu">
 				<short>
 					<generic>HST</generic>
@@ -3969,7 +3976,7 @@ annotations.
 			</metazone>
 			<metazone type="Africa_Southern">
 				<long>
-					<standard>South Africa Standard Time</standard>
+					<standard>South Africa Time</standard>
 				</long>
 			</metazone>
 			<metazone type="Africa_Western">
@@ -4062,9 +4069,9 @@ annotations.
 			</metazone>
 			<metazone type="Apia">
 				<long>
-					<generic>Apia Time</generic>
-					<standard>Apia Standard Time</standard>
-					<daylight>Apia Daylight Time</daylight>
+					<generic>Samoa Time</generic>
+					<standard>Samoa Standard Time</standard>
+					<daylight>Samoa Daylight Time</daylight>
 				</long>
 			</metazone>
 			<metazone type="Aqtau">
@@ -4189,7 +4196,7 @@ annotations.
 			</metazone>
 			<metazone type="Brunei">
 				<long>
-					<standard>Brunei Darussalam Time</standard>
+					<standard>Brunei Time</standard>
 				</long>
 			</metazone>
 			<metazone type="Cape_Verde">
@@ -4268,12 +4275,12 @@ annotations.
 			</metazone>
 			<metazone type="DumontDUrville">
 				<long>
-					<standard>Dumont-d’Urville Time</standard>
+					<standard>Dumont d’Urville Time</standard>
 				</long>
 			</metazone>
 			<metazone type="East_Timor">
 				<long>
-					<standard>East Timor Time</standard>
+					<standard>Timor-Leste Time</standard>
 				</long>
 			</metazone>
 			<metazone type="Easter">
@@ -4391,12 +4398,12 @@ annotations.
 			</metazone>
 			<metazone type="Guam">
 				<long>
-					<standard>Guam Standard Time</standard>
+					<standard>Guam Time</standard>
 				</long>
 			</metazone>
 			<metazone type="Gulf">
 				<long>
-					<standard>Gulf Standard Time</standard>
+					<standard>Gulf Time</standard>
 				</long>
 			</metazone>
 			<metazone type="Guyana">
@@ -4432,7 +4439,7 @@ annotations.
 			</metazone>
 			<metazone type="India">
 				<long>
-					<standard>India Standard Time</standard>
+					<standard>India Time</standard>
 				</long>
 			</metazone>
 			<metazone type="Indian_Ocean">
@@ -4490,9 +4497,9 @@ annotations.
 			</metazone>
 			<metazone type="Kamchatka">
 				<long>
-					<generic>Petropavlovsk-Kamchatski Time</generic>
-					<standard>Petropavlovsk-Kamchatski Standard Time</standard>
-					<daylight>Petropavlovsk-Kamchatski Summer Time</daylight>
+					<generic>Kamchatka Time</generic>
+					<standard>Kamchatka Standard Time</standard>
+					<daylight>Kamchatka Summer Time</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kazakhstan">
@@ -4675,7 +4682,7 @@ annotations.
 			</metazone>
 			<metazone type="North_Mariana">
 				<long>
-					<standard>North Mariana Islands Time</standard>
+					<standard>Northern Mariana Islands Time</standard>
 				</long>
 			</metazone>
 			<metazone type="Novosibirsk">
@@ -4744,17 +4751,17 @@ annotations.
 			</metazone>
 			<metazone type="Pitcairn">
 				<long>
-					<standard>Pitcairn Time</standard>
+					<standard>Pitcairn Islands Time</standard>
 				</long>
 			</metazone>
 			<metazone type="Ponape">
 				<long>
-					<standard>Ponape Time</standard>
+					<standard>Pohnpei Time</standard>
 				</long>
 			</metazone>
 			<metazone type="Pyongyang">
 				<long>
-					<standard>Pyongyang Time</standard>
+					<standard>North Korea Time</standard>
 				</long>
 			</metazone>
 			<metazone type="Qyzylorda">
@@ -4790,9 +4797,9 @@ annotations.
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic>Samoa Time</generic>
-					<standard>Samoa Standard Time</standard>
-					<daylight>Samoa Daylight Time</daylight>
+					<generic>American Samoa Time</generic>
+					<standard>American Samoa Standard Time</standard>
+					<daylight>American Samoa Daylight Time</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
@@ -4802,7 +4809,7 @@ annotations.
 			</metazone>
 			<metazone type="Singapore">
 				<long>
-					<standard>Singapore Standard Time</standard>
+					<standard>Singapore Time</standard>
 				</long>
 			</metazone>
 			<metazone type="Solomon">
@@ -4832,9 +4839,9 @@ annotations.
 			</metazone>
 			<metazone type="Taipei">
 				<long>
-					<generic>Taipei Time</generic>
-					<standard>Taipei Standard Time</standard>
-					<daylight>Taipei Daylight Time</daylight>
+					<generic>Taiwan Time</generic>
+					<standard>Taiwan Standard Time</standard>
+					<daylight>Taiwan Daylight Time</daylight>
 				</long>
 			</metazone>
 			<metazone type="Tajikistan">

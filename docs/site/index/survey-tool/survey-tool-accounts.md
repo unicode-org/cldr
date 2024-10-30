@@ -8,7 +8,7 @@ title: Survey Tool Accounts
 
 Anyone is welcome to try out the [**Survey Tool**](http://st.unicode.org/cldr-apps/survey), although only those with accounts will be able to make changes. To get an account, or if you have forgotten your login ID or password, please contact your CLDR TC representative. If you don't belong to a Unicode member organization, and are a native speaker of a language other than American English, you can obtain a guest account.
 
-To determine whether you need an account for what you want to do, see [When Do You Need a Survey Tool Account?](https://github.com/unicode-org/cldr/blob/main/docs/requesting_changes.md#when-to-fix-in-survey-tool) If you only wish to report a bug, you may be able to simply [file a ticket](http://unicode.org/cldr/trac/newticket).
+To determine whether you need an account for what you want to do, see [When Do You Need a Survey Tool Account?](https://github.com/unicode-org/cldr/blob/main/docs/requesting_changes.md#when-to-fix-in-survey-tool) If you only wish to report a bug, you may be able to simply [file a ticket](/requesting_changes#how-to-file-a-ticket).
 
 There are three types of accounts:
 

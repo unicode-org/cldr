@@ -20,7 +20,7 @@ A. You need to remove "(other)" or the equivalent from language names. In genera
 
 A. The performance of the Survey Tool has been greatly improved compared to previous versions. However, we are constantly striving to improve performance and our ability to accommodate a larger user base.
 
-If you feel a task is taking an unusual amount of time, and it is a consistent problem, please please file a bug at [newticket](http://unicode.org/cldr/trac/newticket). In the ticket, describe exactly what operation is being attempted and approximately how long it is taking to receive a response.
+If you feel a task is taking an unusual amount of time, and it is a consistent problem, please [file a ticket](/requesting_changes#how-to-file-a-ticket). In the ticket, describe exactly what operation is being attempted and approximately how long it is taking to receive a response.
 
 ***Q. How are votes weighted and the "best" item picked?***
 
@@ -67,5 +67,5 @@ The following are general known bugs and issues. For known issues in the current
 1. The description of bulk uploading (http://cldr.unicode.org/index/survey-tool/upload) has not yet been updated for the new UI.
 2. The description of managing users (http://cldr.unicode.org/index/survey-tool/managing-users) has not yet been updated for the new UI.
 
-If you find additional problems, please [file a ticket](http://unicode.org/cldr/trac/newticket).
+If you find additional problems, please [file a ticket](/requesting_changes#how-to-file-a-ticket).
 

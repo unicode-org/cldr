@@ -13,6 +13,7 @@ Transliteration is the general process of converting characters from one script 
 Transliteration is *not* translation. Rather, transliteration is the conversion of letters from one script to another without translating the underlying words. The following shows a sample of transliteration systems:
 
 Sample Transliteration Systems
+
 | Source | Translation | Transliteration | System |
 |:---:|:---:|:---:|:---:|
 | Αλφαβητικός | Alphabetic | Alphabētikós | Classic |
@@ -32,6 +33,7 @@ While an English speaker may not recognize that the Japanese word kyanpasu is eq
 - When a service engineer is sent a program dump that is filled with characters from foreign scripts, it is much easier to diagnose the problem when the text is transliterated and the service engineer can recognize the characters.
 
 Sample Transliterations
+
 | Source | Transliteration |
 |---|---|
 | 김, 국삼 | Gim, Gugsam |
@@ -322,7 +324,7 @@ If you are interested in providing transliterations for one or more scripts, fil
 
 For submission to CLDR, the data needs to supplied in the correct XML format or in the ICU format, and should follow an accepted standard (like UNGEGN, BGN, or others).
 
-- The format for rules is specified in [Transform\_Rules](http://www.unicode.org/reports/tr35/#Transform_Rules). It is best if the results are tested using the [ICU Transform Demo](https://icu4c-demos.unicode.org/icu-bin/translit) first, since if the data doesn't validate it would not be accepted into CLDR.
+- The format for rules is specified in [Transform\_Rules](https://www.unicode.org/reports/tr35/#Transform_Rules). It is best if the results are tested using the [ICU Transform Demo](https://icu4c-demos.unicode.org/icu-bin/translit) first, since if the data doesn't validate it would not be accepted into CLDR.
 - As mentioned above, even if a transliteration is only used in certain countries or contexts CLDR can provide for them with different variant tags.
 - For comparison, you can see what is currently in CLDR in the [transforms]() folder online. For example, see [Hebrew\-Latin.xml]().
 - Script transliterators should cover every character in the exemplar sets for the CLDR locales using that script.
@@ -331,10 +333,10 @@ For submission to CLDR, the data needs to supplied in the correct XML format or 
 
 | Shavian |  Relation | Latin | Comments |
 |:---:|:---:|:---:|---|
-| \&#x10450; | ↔ | p | Map all uppercase to lowercase first |
-| \&#x1045a; | ↔ | b |   |
-| \&#x10451; | ↔ | t |   |
-| \&#x10452;\&#x10455; | ← | x | fallback |
+| &#x10450; | ↔ | p | Map all uppercase to lowercase first |
+| &#x1045a; | ↔ | b |   |
+| &#x10451; | ↔ | t |   |
+| &#x10452;&#x10455; | ← | x | fallback |
 |  ... |   |   |   |
 
 ## More Information
@@ -349,5 +351,5 @@ For more information, see:
 - [ISO\-15915 (Gujarati)](http://transliteration.eki.ee/pdf/Gujarati.pdf)
 - [ISO\-15915 (Kannada)](http://transliteration.eki.ee/pdf/Kannada.pdf)
 - [ISCII\-91](http://www.cdacindia.com/html/gist/down/iscii_d.asp)
-- [UTS \#35: Locale Data Markup Language (LDML)](http://www.unicode.org/reports/tr35/)
+- [UTS \#35: Locale Data Markup Language (LDML)](https://www.unicode.org/reports/tr35/)
 

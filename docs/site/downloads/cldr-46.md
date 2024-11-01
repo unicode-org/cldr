@@ -112,10 +112,10 @@ As a result of this change, when the primary and secondary languages are not ava
         - Missing names have been added (from Wikidata).
     - The language subtags, script subtags, and variant subtags have been updated to the latest from IANA.
        - Some codes have been deprecated.
-    4. Territory Info (GDP, population, languages) has been updated from World Bank and other sources.
-    5. LanguageGroup info has been updated from Wikidata.
-    6. Plural rules have been added for some new locales.
-    7. Week data
+    - Territory Info (GDP, population, languages) has been updated from World Bank and other sources.
+    - LanguageGroup info has been updated from Wikidata.
+    - Plural rules have been added for some new locales.
+    - Week data
         - The first day of the week has been changed for `AE`.
         - Hour preferences (12 v 24) have been added for English as used in Hong Kong, Malaysia, and Israel (`en_HK`, `en_MY`, `en_IL`).
 

@@ -88,25 +88,25 @@ For the reason why, see the algorithm in [Likely Subtags](https://www.unicode.or
     - The regions have been cleaned up: there are no entries with `ZZ`, and `001` is limited to artifical languages such as Interlingua. The only other macroregion code is in `und_419 → es_Latn_419` (Spanish‧Latin‧Latin America)
 5. Macrolanguage mapping / locale canonicalization
    - Parent and defaultContent mappings have been added for Kara-Kalpak (`kaa`) and Konkani (`kok`); defaultContent mappings have been added for Kazakh (`kk`), Ladin (`lld`), Latgalian (`ltg`), Mócheno (`mhn`), and Chinese (Latin, China) (`zh_Latn_CN`).
-   - The predominant language encompassed by "kok" (Konkani macrolanguage) has been changed from "knn" (Konkani / individual language) to "gom" (Goan Konkani) in [CLDR-17121](https://unicode-org.atlassian.net/issues/CLDR-17724)
+   - The predominant language encompassed by "kok" (Konkani macrolanguage) has been changed from "knn" (Konkani / individual language) to "gom" (Goan Konkani) in [CLDR-17121](https://unicode-org.atlassian.net/browse/CLDR-17121)
    		- The TC found that the predominant encompassed language is "gom" according to local governments and also industry practice; and the CLDR data in the "kok" locale has really been "gom" not "knn".
    		- As a result, "knn" no longer canonicalizes to "kok"; instead, "gom" now canonicalizes to "kok".
-(CLDR follows long-standing industry practice in using a macrolanguage subtag instead of the predominant encompassed language. Other examples include the use of "zh" for Mandarin ("cmn") and the use of "ar" for Standard Arabic ("arb").)
+        - CLDR follows long-standing industry practice in using a macrolanguage subtag instead of the predominant encompassed language. Other examples include the use of "zh" for Mandarin ("cmn") and the use of "ar" for Standard Arabic ("arb").
 6. Language matching
     - Dropped the fallback mapping `desired="uk" → supported="ru"` (so that Ukrainian (`uk`) doesn't fall back to Russian (`ru`)).
         - Note: A fallback language is used when the user's primary language is unavailable,
 and either the user does not have a secondary language in their settings (as on Android or iOS) or the secondary languages are also not available.
 As a result of this change, when the primary and secondary languages are not available, the fallback language for Ukrainian would be the system default instead of Russian.
     - Added the mapping `desired="scn" → supported="it"` (Sicilian → Italian).
-    - Added the mapping (`gom`) to Konkani (`kok`) and `knn` to Konkani (`kok`)
-8. Transforms
+    - Changed the mapping `gom` → `kok` to `knn` → `kok` (Konkani); see also the Macrolanguage mapping change above.
+7. Transforms
     - Major update to `Han → Latn`, reflecting new data in Unicode 16.0
     - Fixes for Arabic numbers and a Farsi vowel
-9. Other Unicode 16.0 changes
+8. Other Unicode 16.0 changes
     - Additional numbering systems
     - Additional scripts and script identifiers
     - ScriptMeta has been expanded for Unicode 16.0
-10. Other updates
+9. Other updates
     - The subdivision identifiers have been updated to the latest available from ISO.
         - The removed identifiers have been deprecated.
         - Missing names have been added (from Wikidata).

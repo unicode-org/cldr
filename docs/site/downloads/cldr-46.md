@@ -69,48 +69,53 @@ For a full listing, see [Delta DTDs](https://unicode.org/cldr/charts/46/suppleme
 ### Supplemental Data Changes
 
 1. Currency
-    1. New currency code `ZWG` added — because it was late in the cycle, many locales will just support the code (no symbol or name).
+    - New currency code `ZWG` added — because it was late in the cycle, many locales will just support the code (no symbol or name).
 2. Dates & Times
-    1. Added a new calendar type, `iso8601`.
+    - Added a new calendar type, `iso8601`.
 This is not the same as the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) standard format, which is designed just for data interchange:
 it is all ASCII, does not have all the options for fields (like "Sunday", "BC", or "AM"), and does not contain spaces.
 The CLDR `iso8601` calendar uses patterns in the order: era, year, month, day, day-of-week, hour, minute, second, day-period, timezone.
-	2. Changed the metazone for Kazakhstan to reflect removal of Asia/Almaty, thus dropping the distinction among different regions in Kazakhstan.
-    3. Added support for deprecated timezone codes by remapping: `CST6CDT → America/Chicago`, `EST → America/Panama`, `EST5EDT → America/New_York`, `MST7MDT → America/Denver`, `PST8PDT → America/Los_Angeles`.
+	- Changed the metazone for Kazakhstan to reflect removal of Asia/Almaty, thus dropping the distinction among different regions in Kazakhstan.
+    - Added support for deprecated timezone codes by remapping: `CST6CDT → America/Chicago`, `EST → America/Panama`, `EST5EDT → America/New_York`, `MST7MDT → America/Denver`, `PST8PDT → America/Los_Angeles`.
 3. Units
-    1. Added units: `portion-per-1e9` (aka per-billion), `night` (for hotel stays), `light-speed` (as an internal prefix for **light-second**, **light-minute**, etc.)
-    2. Changed preferred wind speed preference for some locales to `meter-per-second`.
+    - Added units: `portion-per-1e9` (aka per-billion), `night` (for hotel stays), `light-speed` (as an internal prefix for **light-second**, **light-minute**, etc.)
+    - Changed preferred wind speed preference for some locales to `meter-per-second`.
 More preference changes are planned for the next release.
 4. Minimization for likelySubtags removes many additional redundant mappings.
     - For example, the mapping `acy_Grek → acy_Grek_CY` is unnecessary, because the mapping `acy → acy_Latn_CY` is sufficient.
 For the reason why, see the algorithm in [Likely Subtags](https://www.unicode.org/reports/tr35/tr35-73/tr35.html#likely-subtags).
     - The ordering in the file is more consistent: first the main mappings, then the mapping from region and/or script to likely language, then the data contributed by SIL.
     - The regions have been cleaned up: there are no entries with `ZZ`, and `001` is limited to artifical languages such as Interlingua. The only other macroregion code is in `und_419 → es_Latn_419` (Spanish‧Latin‧Latin America)
-5. Language matching
+5. Macrolanguage mapping / locale canonicalization
+   - Parent and defaultContent mappings have been added for Kara-Kalpak (`kaa`) and Konkani (`kok`); defaultContent mappings have been added for Kazakh (`kk`), Ladin (`lld`), Latgalian (`ltg`), Mócheno (`mhn`), and Chinese (Latin, China) (`zh_Latn_CN`).
+   - The predominant language encompassed by "kok" (Konkani macrolanguage) has been changed from "knn" (Konkani / individual language) to "gom" (Goan Konkani) in [CLDR-17121](https://unicode-org.atlassian.net/browse/CLDR-17121)
+     - The TC found that the predominant encompassed language is "gom" according to local governments and also industry practice; and the CLDR data in the "kok" locale has really been "gom" not "knn".
+     - As a result, "knn" no longer canonicalizes to "kok"; instead, "gom" now canonicalizes to "kok".
+     - CLDR follows long-standing industry practice in using a macrolanguage subtag instead of the predominant encompassed language. Other examples include the use of "zh" for Mandarin ("cmn") and the use of "ar" for Standard Arabic ("arb").
+6. Language matching
     - Dropped the fallback mapping `desired="uk" → supported="ru"` (so that Ukrainian (`uk`) doesn't fall back to Russian (`ru`)).
         - Note: A fallback language is used when the user's primary language is unavailable,
 and either the user does not have a secondary language in their settings (as on Android or iOS) or the secondary languages are also not available.
 As a result of this change, when the primary and secondary languages are not available, the fallback language for Ukrainian would be the system default instead of Russian.
     - Added the mapping `desired="scn" → supported="it"` (Sicilian → Italian).
-    - Changed the deprecated code Goan Konkani (`gom`) to Konkani (`kok`).
-6. Transforms
-    1. Major update to `Han → Latn`, reflecting new data in Unicode 16.0
-    2. Fixes for Arabic numbers and a Farsi vowel
-7. Other Unicode 16.0 changes
-    1. Additional numbering systems
-    2. Additional scripts and script identifiers
-    3. ScriptMeta has been expanded for Unicode 16.0
-8. Other updates
-    1. The subdivision identifiers have been updated to the latest available from ISO.
+    - Changed the mapping `gom` → `kok` to `knn` → `kok` (Konkani); see also the Macrolanguage mapping change above.
+7. Transforms
+    - Major update to `Han → Latn`, reflecting new data in Unicode 16.0
+    - Fixes for Arabic numbers and a Farsi vowel
+8. Other Unicode 16.0 changes
+    - Additional numbering systems
+    - Additional scripts and script identifiers
+    - ScriptMeta has been expanded for Unicode 16.0
+9. Other updates
+    - The subdivision identifiers have been updated to the latest available from ISO.
         - The removed identifiers have been deprecated.
         - Missing names have been added (from Wikidata).
-    2. The language subtags, script subtags, and variant subtags have been updated to the latest from IANA.
+    - The language subtags, script subtags, and variant subtags have been updated to the latest from IANA.
        - Some codes have been deprecated.
-    3. Parent and defaultContent mappings have been added for Kara-Kalpak (`kaa`) and Konkani (`kok`); defaultContent mappings have bee added for Kazakh (`kk`), Ladin (`lld`), Latgalian (`ltg`), Mócheno (`mhn`), and Chinese (Latin, China) (`zh_Latn_CN`).
-    4. Territory Info (GDP, population, languages) has been updated from World Bank and other sources.
-    5. LanguageGroup info has been updated from Wikidata.
-    6. Plural rules have been added for some new locales.
-    7. Week data
+    - Territory Info (GDP, population, languages) has been updated from World Bank and other sources.
+    - LanguageGroup info has been updated from Wikidata.
+    - Plural rules have been added for some new locales.
+    - Week data
         - The first day of the week has been changed for `AE`.
         - Hour preferences (12 v 24) have been added for English as used in Hong Kong, Malaysia, and Israel (`en_HK`, `en_MY`, `en_IL`).
 

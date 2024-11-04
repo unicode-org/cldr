@@ -10,7 +10,7 @@ In CLDR, Plurals are used for localized Units and Compact numbers (under Numbers
 
 In the Survey Tool for translation purpose, plural forms shown per language will differ as only those that are relevant to that language are shown.
 
-For example, in French, the distinction of the One and Other are available. Please see [Plural Rules](/index/cldr-spec/plural-rules), and [file a ticket](https://github.com/unicode-org/cldr/blob/main/docs/requesting_changes.md) if you see a form in the Survey Tool that is not expected in your language.
+For example, in French, the distinction of the One and Other are available. Please see [Plural Rules](/index/cldr-spec/plural-rules), and [file a ticket](/requesting_changes) if you see a form in the Survey Tool that is not expected in your language.
 
 ![image](../../images/French-plural.PNG)
 

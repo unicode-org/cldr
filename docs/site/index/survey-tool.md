@@ -20,7 +20,7 @@ For the Milestone schedule, see the navigation bar on the left.
 
 ### Accounts
 
-You don't need an account to view data for a particular language. If you wish to propose changes or additions, you will need an account. For how to get one, see [Survey Tool Accounts](/index/survey-tool/survey-tool-accounts). If you would like to add data for a new locale, see [Adding New Locales](https://github.com/unicode-org/cldr/blob/main/docs/requesting_changes.md#adding-new-locales).
+You don't need an account to view data for a particular language. If you wish to propose changes or additions, you will need an account. For how to get one, see [Survey Tool Accounts](/index/survey-tool/survey-tool-accounts). If you would like to add data for a new locale, see [Adding New Locales](/requesting_changes/adding-new-locales).
 
 ### Guide
 

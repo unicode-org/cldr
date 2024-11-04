@@ -26,9 +26,9 @@ Requests to add or change language/population data must provide the following ba
 - links to reliable sources for population/literacy data
 
 
-Reliable sources for population data and official status are required for population updates and additions. While [Ethnologue](https://www.google.com/url?q=https%3A%2F%2Fwww.ethnologue.com%2F&sa=D&sntz=1&usg=AOvVaw02Rajsyksb8nOu8MESVtKi) may be a good source for "mother tongue" or native speaker data for more common languages, it is not a sufficient source on its own for population data on most languages. Recent government or NGO-sponsored census data are typically better sources.
+Reliable sources for population data and official status are required for population updates and additions. While [Ethnologue](https://www.ethnologue.com/) may be a good source for "mother tongue" or native speaker data for more common languages, it is not a sufficient source on its own for population data on most languages. Recent government or NGO-sponsored census data are typically better sources.
 
-For language names and codes, some resources are: [Unicode CLDR charts](http://www.google.com/url?q=http%3A%2F%2Fwww.unicode.org%2Fcldr%2Fcharts%2Flatest%2F&sa=D&sntz=1&usg=AOvVaw0IfeZJzXzVdSLQDbkyoE4x), [IANA Language Subtag Registry](https://www.google.com/url?q=https%3A%2F%2Fwww.iana.org%2Fassignments%2Flanguage-subtag-registry%2Flanguage-subtag-registry&sa=D&sntz=1&usg=AOvVaw0KaE5Pb3Bfy7xyMSIiNrbi), and [Wikipedia](https://www.google.com/url?q=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FMain_Page&sa=D&sntz=1&usg=AOvVaw1NobdoSkQ4MRb3AWb_nNp3) articles on individual languages.
+For language names and codes, some resources are: [Unicode CLDR charts](https://www.unicode.org/cldr/charts/46/), [IANA Language Subtag Registry](https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry), and [Wikipedia](https://en.wikipedia.org/wiki/Main_Page) articles on individual languages.
 
 Also for new additions, the request must include a rationale for inclusion and discuss the importance of the addition.
 

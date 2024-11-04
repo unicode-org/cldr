@@ -6,7 +6,7 @@ title: Locale Coverage Special Data
 
 ## Missing Features
 
-The following may be listed as Missing features in a Locale Coverage chart, such as [v45 Locale Coverage](https://www.unicode.org/cldr/charts/45/supplemental/locale_coverage.html).
+The following may be listed as Missing features in a Locale Coverage chart, such as [Latest Locale Coverage](https://www.unicode.org/cldr/charts/latest/supplemental/locale_coverage.html).
 
 ### Core
 

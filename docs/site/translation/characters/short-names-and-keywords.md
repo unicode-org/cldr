@@ -47,11 +47,11 @@ Many of the emoji names are constructed, which means that in implementations emo
 	2. Hover over the ⓔ to see how some sample constructed emoji would look in English.
 	![image](../../images/Screenshot-2024-06-21-at-7.38.34.png)
 3. **Characters\Category** contain terms like “flag” (used in constructing flag names). These 3 terms are also marked with ⓔ, so make sure to review each of the examples in English and your language.
-4. **Blond/Bearded.** The people with blond hair or beards need to have names consistent with those used for hair styles (see [dark skin tone examples](https://cldr-smoke.unicode.org/cldr-apps/v#/USER/Component/4da6f737d7901c30)), such as:
-	1. [🧔 — man: beard](https://cldr-smoke.unicode.org/cldr-apps/v#/fr/People/20a49c6ad428d880)
-	2. [👱 — person: blond hair](https://cldr-smoke.unicode.org/cldr-apps/v#/fr/People/5cae8a8d1de49cd9)
-	3. [👱‍♂️ — man: blond hair](https://cldr-smoke.unicode.org/cldr-apps/v#/fr/People/532f430d6e2a26f)
-	4. [👱‍♀️ — woman: blond hair](https://cldr-smoke.unicode.org/cldr-apps/v#/fr/People/3f3d3e9ef4f5768b)
+4. **Blond/Bearded.** The people with blond hair or beards need to have names consistent with those used for hair styles (see [dark skin tone examples](https://st.unicode.org/cldr-apps/v#/USER/Component/4da6f737d7901c30)), such as:
+	1. [🧔 — man: beard](https://st.unicode.org/cldr-apps/v#/fr/People/20a49c6ad428d880)
+	2. [👱 — person: blond hair](https://st.unicode.org/cldr-apps/v#/fr/People/5cae8a8d1de49cd9)
+	3. [👱‍♂️ — man: blond hair](https://st.unicode.org/cldr-apps/v#/fr/People/532f430d6e2a26f)
+	4. [👱‍♀️ — woman: blond hair](https://st.unicode.org/cldr-apps/v#/fr/People/3f3d3e9ef4f5768b)
 
 ## FAQ Tips for character names and keywords
 

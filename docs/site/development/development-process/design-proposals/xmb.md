@@ -1,6 +1,8 @@
 ---
-title: XMB
+title: XMB (OBSOLETE)
 ---
+
+# OBSOLETE
 
 # XMB
 
@@ -170,5 +172,3 @@ other {# weeks}}}}</msg>
 - Do the conversion from xtb into cldr format to make sure we roundtrip.
 - Figure out how to do the differences between HH and hh, etc.
     - Current thoughts: don't let the translator choose, but make it part of the xtb-cldr processing.
-
-

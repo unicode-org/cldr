@@ -30,8 +30,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 #{ ( $consonant ) } [^$vowel \uE000] → | $1 \uE000 ;
 #\uE000 → ọ ;
 # ← ọ ;
-$notAbove = [^\p{ccc=0}\p{ccc=above}] ;
-$notBelow = [^\p{ccc=0}\p{ccc=below}] ;
+$notAbove = [^\p{ccc=0}\p{ccc=Above}] ;
+$notBelow = [^\p{ccc=0}\p{ccc=Below}] ;
 # Consonants
 # Warning: the 'h's need to be handled carefully!
 # What we really want to say is the following, but we can't

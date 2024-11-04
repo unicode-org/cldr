@@ -18,8 +18,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 :: [[[:Greek:][:Mn:][:Me:]] [\:-;?·;·]] ;
 ::NFD (NFC) ;
 # Useful variables
-$lower = [[:latin:][:greek:] & [:Ll:]] ;
-$upper = [[:latin:][:greek:] & [:Lu:]] ;
+$lower = [[:Latin:][:Greek:] & [:Ll:]] ;
+$upper = [[:Latin:][:Greek:] & [:Lu:]] ;
 $accent = [[:Mn:][:Me:]] ;
 $macron = ̄ ;
 $ddot = ̈ ;

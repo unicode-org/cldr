@@ -1573,8 +1573,8 @@ XXX Code for transations where no currency is involved
 		<language type="fo" scripts="Latn" territories="FO"/>
 		<language type="fon" scripts="Latn"/>
 		<language type="fon" territories="BJ" alt="secondary"/>
-		<language type="fr" scripts="Latn" territories="BE BF BI BJ BL CA CD CF CG CH CI CM DJ DZ FR GA GF GN GP GQ GW HT KM LU MA MC MF MG ML MQ MU NC NE PF PM RE RW SC SN TD TG TN VU WF YT"/>
-		<language type="fr" scripts="Dupl" territories="AT DE GB IT LB NL PT RO SY TF US" alt="secondary"/>
+		<language type="fr" scripts="Latn" territories="BE BF BI BJ BL CA CD CF CG CH CI CM DJ DZ FR GA GF GN GP GQ HT KM LU MA MC MF MG ML MQ MU NC NE PF PM RE RW SC SN TD TG TN VU WF YT"/>
+		<language type="fr" scripts="Dupl" territories="AT DE GB IT LB NL PT RO ST SY TF US" alt="secondary"/>
 		<language type="frc" scripts="Latn"/>
 		<language type="frm" scripts="Latn" alt="secondary"/>
 		<language type="fro" scripts="Latn" alt="secondary"/>
@@ -3161,7 +3161,7 @@ XXX Code for transations where no currency is involved
 		</territory>
 		<territory type="GW" gdp="5099000000" literacyPercent="55.3" population="2132330">	<!--Guinea-Bissau-->
 			<languagePopulation type="pt" populationPercent="100" officialStatus="official" references="R1027"/>	<!--Portuguese-->
-			<languagePopulation type="fr" populationPercent="15" officialStatus="official" references="R1354"/>	<!--French-->
+			<languagePopulation type="fr" populationPercent="15" references="R1354"/>	<!--French-->
 			<languagePopulation type="knf" populationPercent="2.6" references="R1220"/>	<!--Mankanya-->
 			<languagePopulation type="ff" populationPercent="0" references="R1150"/>	<!--Fula-->
 			<languagePopulation type="ff_Adlm" populationPercent="0" references="R1150"/>	<!--Fula (Adlam)-->
@@ -4141,7 +4141,7 @@ XXX Code for transations where no currency is involved
 		</territory>
 		<territory type="ST" gdp="1267000000" literacyPercent="69.5" population="223561">	<!--São Tomé & Príncipe-->
 			<languagePopulation type="pt" populationPercent="85" officialStatus="official"/>	<!--Portuguese-->
-			<languagePopulation type="pt" populationPercent="20" officialStatus="official" references="R1368"/>	<!--Portuguese-->
+			<languagePopulation type="fr" populationPercent="20" references="R1368"/>	<!--French-->
 		</territory>
 		<territory type="SV" gdp="71960000000" literacyPercent="84.5" population="6628700">	<!--El Salvador-->
 			<languagePopulation type="es" populationPercent="89" officialStatus="official"/>	<!--Spanish-->

@@ -274,10 +274,16 @@ These matched the ordering of two legacy character encodings. [CLDR-16062][]
 
 ## Known Issues
 
-1. [CLDR-17095] The region-based firstDay value (see weekData) is currently used for several different purposes. In the future, some of these functions will be separated out:
+1. [CLDR-17095][] The region-based firstDay value (see weekData) is currently used for several different purposes. In the future, some of these functions will be separated out:
     - The day that should be shown as the first day of the week in a calendar view.
     - The first day of the week (day 1) for weekday numbering.
     - The first day of the week for week-of-year calendar calculations.
+1. [CLDR-18056][] “facing right” emojis are missing the skin tone in annotationsDerived
+1. [CLDR-18080][] Han-Latin transform worse due to a change for 著 in Unicode 16
+
+### Fixed Issues
+
+1. [CLDR-17610][] Updated zip to include LICENSE file following file renaming
 
 ## Acknowledgments
 
@@ -295,3 +301,6 @@ For web pages with different views of CLDR data, see [http://cldr.unicode.org/in
 [CLDR-16720]: https://unicode-org.atlassian.net/browse/CLDR-16720
 [CLDR-17095]: https://unicode-org.atlassian.net/browse/CLDR-17095
 [CLDR-17948]: https://unicode-org.atlassian.net/browse/CLDR-17948
+[CLDR-18056]: https://unicode-org.atlassian.net/browse/CLDR-18056
+[CLDR-17610]: https://unicode-org.atlassian.net/browse/CLDR-17610
+[CLDR-18080]: https://unicode-org.atlassian.net/browse/CLDR-18080

@@ -1531,6 +1531,7 @@ XXX Code for transations where no currency is involved
 		<language type="dyu" territories="BF" alt="secondary"/>
 		<language type="dz" scripts="Tibt" territories="BT"/>
 		<language type="ebu" scripts="Latn"/>
+		<language type="ecy" scripts="Cprt" alt="secondary"/>
 		<language type="ee" scripts="Latn"/>
 		<language type="ee" territories="GH TG" alt="secondary"/>
 		<language type="efi" scripts="Latn"/>
@@ -1620,6 +1621,7 @@ XXX Code for transations where no currency is involved
 		<language type="glk" scripts="Arab"/>
 		<language type="glk" territories="IR" alt="secondary"/>
 		<language type="gmh" scripts="Latn" alt="secondary"/>
+		<language type="gmy" scripts="Linb" alt="secondary"/>
 		<language type="gn" scripts="Latn" territories="PY"/>
 		<language type="goh" scripts="Latn" alt="secondary"/>
 		<language type="gon" scripts="Deva Telu"/>
@@ -1629,7 +1631,7 @@ XXX Code for transations where no currency is involved
 		<language type="gos" scripts="Latn"/>
 		<language type="got" scripts="Goth" alt="secondary"/>
 		<language type="grb" scripts="Latn"/>
-		<language type="grc" scripts="Cprt Grek Linb" alt="secondary"/>
+		<language type="grc" scripts="Grek" alt="secondary"/>
 		<language type="grt" scripts="Beng"/>
 		<language type="gsw" scripts="Latn" territories="CH LI"/>
 		<language type="gsw" territories="DE" alt="secondary"/>
@@ -2861,6 +2863,7 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="fr" populationPercent="6.6" references="R1132"/>	<!--French-->
 			<languagePopulation type="hy" populationPercent="0.21"/>	<!--Armenian-->
 			<languagePopulation type="ar" populationPercent="0.098"/>	<!--Arabic-->
+			<languagePopulation type="ecy" populationPercent="0.0001"/>	<!--Eteocypriot-->
 		</territory>
 		<territory type="CZ" gdp="519000000000" literacyPercent="99" population="10837900">	<!--Czechia-->
 			<languagePopulation type="cs" populationPercent="98" officialStatus="official"/>	<!--Czech-->
@@ -3147,6 +3150,8 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="bg" populationPercent="0.27"/>	<!--Bulgarian-->
 			<languagePopulation type="sq" populationPercent="0.096"/>	<!--Albanian-->
 			<languagePopulation type="tsd" populationPercent="0.0019"/>	<!--Tsakonian-->
+			<languagePopulation type="gmy" populationPercent="0"/>	<!--Mycenaean Greek-->
+			<languagePopulation type="grc" populationPercent="0"/>	<!--Ancient Greek-->
 		</territory>
 		<territory type="GS" gdp="1081000" literacyPercent="99" population="20">	<!--South Georgia & South Sandwich Islands-->
 			<languagePopulation type="en" populationPercent="100" officialStatus="official" references="R1338"/>	<!--English-->

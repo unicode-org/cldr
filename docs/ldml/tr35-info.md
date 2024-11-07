@@ -1208,9 +1208,19 @@ Instructions for use are supplied in the header of the file.
 
 Different locales have different preferences for which unit or combination of units is used for a particular usage, such as measuring a person’s height. This is more fine-grained than merely a preference for metric versus US or UK measurement systems. For example, one locale may use meters alone, while another may use centimeters alone or a combination of meters and centimeters; a third may use inches alone, or (informally) a combination of feet and inches.
 
+The determination of preferred units uses the user preference data in [units.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/units.xml) together with **input unit**, the **input unit usage**, and the **input locale identifer**.
+  * The _well-formed_ and _valid_ **units** are defined according to [Unit Syntax](tr35-general.html#unit-syntax).
+  * The _well-formed_ **unit usages** are of the form [a-z0-9]{3-8}("-" [a-z0-9]{3-8})*.
+The _valid_ **unit usages** are the union of the set of `NMTOKENS` in the `usage` attribute value for the `unitPreferences` element in [units.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/units.xml).
+For example, the following `unitPreferences` elements produce the set {default, floor, geograph, land}.
+    * \<unitPreferences category="area" usage="default">
+    * \<unitPreferences category="area" usage="geograph land">
+    * \<unitPreferences category="area" usage="floor">
+  * There are currently no deprecated **unit usages**.
+Should there be any in the future, for backwards compatibility the above definition would be expanded to include unitUsageAlias elements.
+
 ### <a name="Unit_Preferences_Overrides" href="#Unit_Preferences_Overrides">Unit Preferences Overrides</a>
 
-The determination of preferred units uses the user preference data together with **input unit**, the **input usage**, and the **input locale identifer**.
 Within the locale identifier, the subtags that can affect the result are:
   * the value of the keys mu, ms, and rg
   * the region in the locale identifier (if there is one)

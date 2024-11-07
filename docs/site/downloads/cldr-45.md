@@ -10,7 +10,7 @@ title: CLDR 45 Release Note
 
 ## Overview
 
-Unicode CLDR provides key building blocks for software supporting the world's languages. CLDR data is used by all [major software systems](https://www.google.com/url?q=http://cldr.unicode.org/index%23TOC-Who-uses-CLDR-&sa=D&source=editors&ust=1713652058779208&usg=AOvVaw3r8kLAP0U8srdRrX-YUWlu) (including all mobile phones) for their software internationalization and localization, adapting software to the conventions of different languages.
+Unicode CLDR provides key building blocks for software supporting the world's languages. CLDR data is used by all [major software systems](/index#who-uses-cldr) (including all mobile phones) for their software internationalization and localization, adapting software to the conventions of different languages.
 
 CLDR 45 is a closed release with no submission period, focusing on just a few areas:
 
@@ -65,7 +65,7 @@ For a full listing, see [Delta DTDs](https://unicode.org/cldr/charts/45/suppleme
 -   Metazone changes
     -   For deprecations and Greenland changes, see the supplemental data delta chart.
 
-For a full listing, see [¤¤BCP47 Delta](https://www.google.com/url?q=https://unicode.org/cldr/charts/45/delta/bcp47.html&sa=D&source=editors&ust=1713652058784981&usg=AOvVaw02X97tSG45_oChn55f3Gjw) and [¤¤Supplemental Delta](https://www.google.com/url?q=https://unicode.org/cldr/charts/45/delta/supplemental-data.html&sa=D&source=editors&ust=1713652058785221&usg=AOvVaw2OKxgUzfQepGGrI7DGbMFt)
+For a full listing, see [¤¤BCP47 Delta](https://unicode.org/cldr/charts/45/delta/bcp47.html) and [¤¤Supplemental Delta](https://unicode.org/cldr/charts/45/delta/supplemental-data.html)
 
 ### [Locale Changes](https://unicode.org/cldr/charts/45/delta/index.html)
 

@@ -6,7 +6,7 @@ title: Unicode Transliteration Guidelines
 
 ## Introduction
 
-*This document describes guidelines for the creation and use of CLDR transliterations. Please file any feedback on this document or those charts at [Locale Bugs](https://github.com/unicode-org/cldr/blob/main/docs/requesting_changes.md).*
+*This document describes guidelines for the creation and use of CLDR transliterations. Please file any feedback on this document or those charts at [Locale Bugs](/requesting_changes).*
 
 Transliteration is the general process of converting characters from one script to another, where the result is roughly phonetic for languages in the target script. For example, "Phobos" and "Deimos" are transliterations of Greek mythological "Φόβος" and "Δεῖμος" into Latin letters, used to name the moons of Mars.
 

@@ -8,7 +8,7 @@ There are four main coverage levels as defined in the [UTS \#35: Unicode Locale 
 
 ## Usage
 
-You can use the file **common/properties/coverageLevels.txt** (added in v41\) for a given release to filter the locales that they support. For example, see [coverageLevels.txt](https://github.com/unicode-org/cldr/blob/main/common/properties/coverageLevels.txt). (This and other links to data files are to the development versions; see the specific version for the release you are working with.) For a detailed chart of the coverage levels, see the [locale\_coverage.html](https://unicode-org.github.io/cldr-staging/charts/43/supplemental/locale_coverage.html) file for the respective release.
+You can use the file **common/properties/coverageLevels.txt** (added in v41\) for a given release to filter the locales that they support. For example, see [coverageLevels.txt](https://github.com/unicode-org/cldr/blob/main/common/properties/coverageLevels.txt). (This and other links to data files are to the development versions; see the specific version for the release you are working with.) For a detailed chart of the coverage levels, see the [locale\_coverage.html](https://www.unicode.org/cldr/charts/latest/supplemental/locale_coverage.html) file for the respective release.
 
 The file format is semicolon delimited, with 3 fields per line.
 
@@ -101,7 +101,7 @@ The data for the Modern Level includes:
 
 ## References
 
-For the coverage in the latest released version of CLDR, see [Locale Coverage Chart](https://unicode-org.github.io/cldr-staging/charts/latest/supplemental/locale_coverage.html).
+For the coverage in the latest released version of CLDR, see [Locale Coverage Chart](https://www.unicode.org/cldr/charts/latest/supplemental/locale_coverage.html).
 
 To see the development version of the rules used to determine coverage, see [coverageLevels.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/coverageLevels.xml). For a list of the locales at a given level, see [coverageLevels.txt](https://github.com/unicode-org/cldr/blob/main/common/properties/coverageLevels.txt). 
 

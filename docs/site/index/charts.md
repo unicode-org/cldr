@@ -38,5 +38,5 @@ Other Data
 -   **Transform** - (Disabled temporarily) Some of the transforms in CLDR: the transliterations between different scripts. For more on transliterations, see [Transliteration Guidelines](/index/cldr-spec/transliteration-guidelines).
 -   [**Keyboards**](https://www.unicode.org/cldr/charts/latest/keyboards/index.html) - Provides a view of keyboard data: layouts for different locales, mappings from characters to keyboards, and from keyboards to characters.
 
-For more details on the locale data collection process, please see the [CLDR process](/index/process). For filing or viewing bug reports, see [CLDR Bug Reports](https://github.com/unicode-org/cldr/blob/main/docs/requesting_changes.md).
+For more details on the locale data collection process, please see the [CLDR process](/index/process). For filing or viewing bug reports, see [CLDR Bug Reports](/requesting_changes).
 

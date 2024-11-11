@@ -1738,6 +1738,7 @@ XXX Code for transations where no currency is involved
 		<language type="kam" scripts="Latn"/>
 		<language type="kam" territories="KE" alt="secondary"/>
 		<language type="kao" scripts="Latn"/>
+		<language type="kaw" scripts="Bali Java Kawi" alt="secondary"/>
 		<language type="kbd" scripts="Cyrl"/>
 		<language type="kbd" territories="RU" alt="secondary"/>
 		<language type="kca" scripts="Cyrl"/>
@@ -3241,6 +3242,8 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="sxn" populationPercent="0.092"/>	<!--Sangir-->
 			<languagePopulation type="sly" populationPercent="0.054"/>	<!--Selayar-->
 			<languagePopulation type="mwv" populationPercent="0.024"/>	<!--Mentawai-->
+			<languagePopulation type="ban_Bali" populationPercent="0" references="R1002"/>	<!--Balinese (Balinese)-->
+			<languagePopulation type="kaw" populationPercent="0" references="R1006"/>	<!--Kawi-->
 		</territory>
 		<territory type="IE" gdp="608500000000" literacyPercent="99" population="5233460">	<!--Ireland-->
 			<languagePopulation type="en" populationPercent="98" officialStatus="official" references="R1202"/>	<!--English-->
@@ -5497,9 +5500,11 @@ XXX Code for transations where no currency is involved
 	<references>
 		<reference type="R1000" uri="https://www.cia.gov/cia/publications/factbook/geos/aa.html">Dutch official</reference>
 		<reference type="R1001" uri="http://www.migrationinformation.org/Feature/display.cfm?ID=72">At most 6% are not fluent in English</reference>
+		<reference type="R1002">Precise data not available, added so Balinese script defaults to Balinese</reference>
 		<reference type="R1003">While Cyrillic is customary, the vast majority of the population can read both.For languages not customarily written, the writing populiation is artificially set to 5% in the absence of better information.</reference>
 		<reference type="R1004" uri="http://www.ethnologue.com/show_country.asp?name=NL">The figure includes 'Vlaams' population from Ethnologue</reference>
 		<reference type="R1005" uri="http://www.orbilat.com/Languages/Walloon/Walloon.htm">It is estimated that Walloon is used actively by 10-20% of the total population of Wallonia or between 300,000 and 600,000 people. For languages not customarily written, the writing population is artificially set to 5% in the absence of better information.</reference>
+		<reference type="R1006">Precise data not available</reference>
 		<reference type="R1007" uri="http://www.ethnologue.com/show_country.asp?name=Bahrain">Arabic official, the figure is derived from literacy * lang pop</reference>
 		<reference type="R1008" uri="http://lanic.utexas.edu/project/tilan/reports/rtf359/bolivia1.html">Spanish is the official language, only about 60-70% of the population speaks it at all ;</reference>
 		<reference type="R1009" uri="https://www.cia.gov/cia/publications/factbook/geos/bc.html">English official, 81% literacy; the figure is derived from literacy * lang pop</reference>

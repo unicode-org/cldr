@@ -456,8 +456,6 @@ public class GenerateDateTimeTestData {
         String length = null;
         if (optionsMap.containsKey("dateLength")) {
             length = (String) optionsMap.get("dateLength");
-        } else if (optionsMap.containsKey("timeLength")) {
-            length = (String) optionsMap.get("timeLength");
         }
 
         return length;
@@ -467,8 +465,6 @@ public class GenerateDateTimeTestData {
         String length = null;
         if (optionsMap.containsKey("timeLength")) {
             length = (String) optionsMap.get("timeLength");
-        } else if (optionsMap.containsKey("dateLength")) {
-            length = (String) optionsMap.get("dateLength");
         }
 
         return length;
@@ -499,19 +495,25 @@ public class GenerateDateTimeTestData {
             SimpleDateFormat dateFormatter,
             SimpleDateFormat timeFormatter,
             String dateLength) {
-
+        String formattedDateTime;
         // After all the options configuration, finally construct the formatted DateTime
-        String formattedDate = dateFormatter.format(zdt);
-        String formattedTime = timeFormatter.format(zdt);
-        String dateTimeGluePatternFormatType = "standard";
-        String formattedDateTime =
+        if (dateFormatter == null) {
+            formattedDateTime = timeFormatter.format(zdt);
+        } else if (timeFormatter == null) {
+            formattedDateTime = dateFormatter.format(zdt);
+        } else {
+            String formattedDate = dateFormatter.format(zdt);
+            String formattedTime = timeFormatter.format(zdt);
+            String dateTimeGluePatternFormatType = "standard";
+            formattedDateTime =
                 localeCldrFile.glueDateTimeFormat(
-                        formattedDate,
-                        formattedTime,
-                        calendar,
-                        dateLength,
-                        dateTimeGluePatternFormatType,
-                        icuServiceBuilder);
+                    formattedDate,
+                    formattedTime,
+                    calendar,
+                    dateLength,
+                    dateTimeGluePatternFormatType,
+                    icuServiceBuilder);
+        }
 
         // "input" = the ISO 18601 UTC time zone formatted string of the zoned date time
         optionsBuilder.put("input", zdt.toString());
@@ -591,13 +593,17 @@ public class GenerateDateTimeTestData {
                         SimpleDateFormat dateFormatter =
                                 localeCldrFile.getDateFormat(
                                         calendar, dateLength, icuServiceBuilder);
-                        dateFormatter.setTimeZone(icuTimeZone);
+                        if (dateFormatter != null) {
+                            dateFormatter.setTimeZone(icuTimeZone);
+                        }
 
                         String timeLength = getTimeLength(options);
                         SimpleDateFormat timeFormatter =
                                 localeCldrFile.getTimeFormat(
                                         calendar, timeLength, icuServiceBuilder);
-                        timeFormatter.setTimeZone(icuTimeZone);
+                        if (timeFormatter != null) {
+                            timeFormatter.setTimeZone(icuTimeZone);
+                        }
 
                         // iterate over all dates and format the date time
 

@@ -7,7 +7,6 @@
 #	If an item has 'sub items' it becomes a directory parent.		
 #	There must be a single 'index' entry here at the root.		
 index			
-	requesting_changes		
 	index/downloads		
 		downloads/cldr-47	
 		downloads/cldr-46	
@@ -40,6 +39,8 @@ index
 		index/cldr-spec/definitions	
 		index/bcp47-extension	
 	index/charts		
+	requesting_changes		
+	index/acknowledgments		
 	general-information		
 		index/language-support-levels	
 		index/locale-coverage	
@@ -48,14 +49,6 @@ index
 		index/requesting-additionsupdates-to-cldr-languagepopulation-data	
 		covered-by-other-projects	
 	index/draft-schedule		
-	index/acknowledgments		
-	cldr-tc		
-		cldr-tc/design-wg	
-		cldr-tc/message-format-wg	
-		cldr-tc/person-name-wg	
-		cldr-tc/infrastructure-wg	
-		index/keyboard-workgroup	
-		ddl	
 	translation		
 		translation/getting-started	
 			translation/getting-started/data-stability
@@ -119,6 +112,13 @@ index
 			translation/units
 			translation/units/measurement-systems
 			translation/units/unit-names-and-patterns
+	cldr-tc		
+		cldr-tc/design-wg	
+		cldr-tc/message-format-wg	
+		cldr-tc/person-name-wg	
+		cldr-tc/infrastructure-wg	
+		index/keyboard-workgroup	
+		ddl	
 	development		
 		development/getting-started	
 			development/cldr-development-site

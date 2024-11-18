@@ -905,7 +905,7 @@ As with other identifiers in CLDR, the American English spelling is used for uni
 <a name="syntax"></a>
 #### Unit Syntax
 
-The formal syntax for identifiers is provided below, in [EBNF](tr35.md#ebnf). 
+The formal [EBNF](tr35.md#ebnf) syntax for identifiers is provided below.
 Some of the constraints reference data from various elements in the unit conversion data [units.xml](https://github.com/unicode-org/cldr/blob/main/common/supplemental/units.xml). 
 These may be either element values or element attribute values. 
 See [Unit_Conversion](tr35-info.md#Unit_Conversion).

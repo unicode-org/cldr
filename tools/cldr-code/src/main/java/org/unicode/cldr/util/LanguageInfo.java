@@ -73,6 +73,8 @@ public class LanguageInfo {
                 + (statusToRegions.isEmpty() ? "" : statusToRegions.toString());
     }
 
+    // Build a static map of all languages to their language info so it can be re-queried without
+    // re-fetching the data
     static final Map<String, LanguageInfo> languageCodeToInfo;
 
     static {

@@ -751,7 +751,6 @@ public class CLDRTest extends TestFmwk {
     }
 
     // <territoryContainment><group type="001" contains="002 009 019 142 150"/>
-    // <languageData><language type="af" scripts="Latn" territories="ZA"/>
     void getSupplementalData(
             Map<String, Set<String>> language_scripts,
             Map<String, Set<String>> language_territories,

@@ -45,6 +45,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CollatorHelper;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.IsoCurrencyParser;
@@ -318,8 +319,7 @@ public class CountItems {
     }
 
     public static void genSupplementalZoneData(boolean skipUnaliased) throws IOException {
-        RuleBasedCollator col = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT).freeze();
-        col.setNumericCollation(true);
+        RuleBasedCollator col = (RuleBasedCollator) CollatorHelper.ROOT_NUMERIC;
         StandardCodes sc = StandardCodes.make();
         Map<String, String> zone_country = sc.getZoneToCounty();
         Map<String, Set<String>> country_zone = sc.getCountryToZoneSet();

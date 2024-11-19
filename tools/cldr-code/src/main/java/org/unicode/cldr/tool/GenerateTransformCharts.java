@@ -515,9 +515,11 @@ public class GenerateTransformCharts {
     static Comparator<String> UCA;
 
     static {
-        RuleBasedCollator UCA2 = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT).freeze();
+        RuleBasedCollator UCA2 =
+                (RuleBasedCollator) Collator.getInstance(ULocale.ROOT); // freeze below
         UCA2.setNumericCollation(true);
         UCA2.setStrength(Collator.IDENTICAL);
+        UCA2 = (RuleBasedCollator) UCA2.freeze();
         UCA =
                 new org.unicode.cldr.util.MultiComparator(
                         UCA2, new UTF16.StringComparator(true, false, 0));

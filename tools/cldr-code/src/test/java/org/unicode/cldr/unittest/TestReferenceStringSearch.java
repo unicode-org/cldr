@@ -37,11 +37,12 @@ public class TestReferenceStringSearch {
     }
 
     static final RuleBasedCollator TEST_COLLATOR =
-            (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
+            (RuleBasedCollator) Collator.getInstance(ULocale.ROOT); // freeze below
 
     static {
         TEST_COLLATOR.setStrength(Collator.PRIMARY);
         TEST_COLLATOR.setAlternateHandlingShifted(true); // ignore puncuation
+        TEST_COLLATOR.freeze();
     }
 
     static final BreakIterator TEST_BREAKER = BreakIterator.getCharacterInstance();

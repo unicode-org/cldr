@@ -4,7 +4,6 @@ import com.google.common.base.Objects;
 import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.util.Output;
-import com.ibm.icu.util.ULocale;
 import java.sql.Timestamp;
 import java.util.*;
 import java.util.Map.Entry;
@@ -926,7 +925,7 @@ public class VoteResolver<T> {
     private CLDRLocale locale;
     private PathHeader pathHeader;
 
-    private static final Collator englishCollator = Collator.getInstance(ULocale.ROOT).freeze();
+    private static final Collator englishCollator = CollatorHelper.ROOT_ORDER;
 
     /** Used for comparing objects of type T */
     private final Comparator<T> objectCollator =

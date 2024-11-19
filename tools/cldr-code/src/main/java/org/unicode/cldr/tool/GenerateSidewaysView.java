@@ -141,9 +141,11 @@ public class GenerateSidewaysView {
     static Comparator<Object> UCA;
 
     static {
-        RuleBasedCollator UCA2 = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
+        RuleBasedCollator UCA2 =
+                (RuleBasedCollator) Collator.getInstance(ULocale.ROOT); // freeze below
         UCA2.setNumericCollation(true);
         UCA2.setStrength(Collator.IDENTICAL);
+        UCA2 = (RuleBasedCollator) UCA2.freeze();
         UCA =
                 new org.unicode.cldr.util.MultiComparator(
                         UCA2, new UTF16.StringComparator(true, false, 0));
@@ -153,11 +155,12 @@ public class GenerateSidewaysView {
     private static long startTime = System.currentTimeMillis();
 
     static RuleBasedCollator standardCollation =
-            (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
+            (RuleBasedCollator) Collator.getInstance(ULocale.ROOT); // freeze below
 
     static {
         standardCollation.setStrength(Collator.IDENTICAL);
         standardCollation.setNumericCollation(true);
+        standardCollation = (RuleBasedCollator) standardCollation.freeze();
     }
 
     private static CLDRFile english;
@@ -678,7 +681,7 @@ public class GenerateSidewaysView {
     // .setCompressRanges(true)
     // .setToQuote(ALL_CHARS)
     // .setQuoter(MyTransform)
-    // .format(lastChars);
+    // .format(lastChars).freeze();
     // exemplarsWithoutBrackets = exemplarsWithoutBrackets.substring(1,
     // exemplarsWithoutBrackets.length() - 1);
     // return exemplarsWithoutBrackets;

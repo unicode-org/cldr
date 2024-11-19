@@ -33,7 +33,8 @@ public class MapComparator<K> implements Comparator<K>, Freezable<MapComparator<
          * @return
          */
         private static Collator getUCA() {
-            final RuleBasedCollator newUca = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
+            final RuleBasedCollator newUca =
+                    (RuleBasedCollator) Collator.getInstance(ULocale.ROOT); // freeze below
             newUca.setNumericCollation(true);
             return newUca.freeze();
         }

@@ -9,12 +9,11 @@ import com.ibm.icu.dev.test.TestFmwk.TestGroup;
 import com.ibm.icu.dev.test.TestLog;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.RuleBasedCollator;
+import com.ibm.icu.util.ULocale;
 import java.io.File;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Logger;
-
-import com.ibm.icu.util.ULocale;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRConfig.Environment;

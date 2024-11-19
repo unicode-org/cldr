@@ -258,7 +258,7 @@ public class ChartCollation extends Chart {
         dataItem.collator = col;
     }
 
-    // RuleBasedCollator ROOT = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
+    // RuleBasedCollator ROOT = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT).freeze();
 
     private class Subchart extends Chart {
         private static final String HIGH_COLLATION_PRIMARY = "\uFFFF";

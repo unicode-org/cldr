@@ -411,8 +411,9 @@ public class ExtractICUData {
             {UProperty.DOUBLE_START, UProperty.DOUBLE_START},
             {UProperty.STRING_START, UProperty.STRING_LIMIT},
         };
-        Collator col = Collator.getInstance(ULocale.ROOT);
+        Collator col = Collator.getInstance(ULocale.ROOT); // freeze below
         ((RuleBasedCollator) col).setNumericCollation(true);
+        col = col.freeze();
         Map<String, Set<String>> alpha = new TreeMap<>(col);
 
         for (int range = 0; range < ranges.length; ++range) {
@@ -465,8 +466,9 @@ public class ExtractICUData {
             }
             out.println("</table></td></tr>");
         }
-        Collator c = Collator.getInstance(ULocale.ROOT);
+        Collator c = Collator.getInstance(ULocale.ROOT); // freeze below
         ((RuleBasedCollator) c).setNumericCollation(true);
+        c = c.freeze();
 
         // int enumValue = UCharacter.getIntPropertyValue(codePoint, propEnum);
         // return UCharacter.getPropertyValueName(propEnum,enumValue, (int)nameChoice);

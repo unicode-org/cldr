@@ -5,6 +5,7 @@ import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.UTF16;
+import com.ibm.icu.util.ULocale;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,8 +13,6 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
-
-import com.ibm.icu.util.ULocale;
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
@@ -31,7 +30,7 @@ public class GenerateComparison {
 
     private static PrettyPath prettyPathMaker;
 
-    private static Collator collator = Collator.getInstance(ULocale.ROOT);
+    private static Collator collator = Collator.getInstance(ULocale.ROOT).freeze();
 
     static class EnglishRowComparator implements Comparator<R2<String, String>> {
         private static Comparator<String> unicode = new UTF16.StringComparator(true, false, 0);

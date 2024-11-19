@@ -375,7 +375,8 @@ public class CLDRConfig extends Properties {
         static final Collator ROOT_NUMERIC = makeRootNumeric();
 
         private static final Collator makeRootNumeric() {
-            RuleBasedCollator _ROOT_COL = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
+            RuleBasedCollator _ROOT_COL =
+                    (RuleBasedCollator) Collator.getInstance(ULocale.ROOT); // freeze below
             _ROOT_COL.setNumericCollation(true);
             _ROOT_COL.freeze();
             return _ROOT_COL;

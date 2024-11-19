@@ -233,9 +233,10 @@ public class TestUtilities {
             if (maxNumeric < numeric) maxNumeric = numeric;
         }
         // get the differences (and sort them)
-        RuleBasedCollator eng = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
+        RuleBasedCollator eng =
+                (RuleBasedCollator) Collator.getInstance(ULocale.ROOT); // freeze below
         eng.setNumericCollation(true);
-
+        eng = (RuleBasedCollator) eng.freeze();
         Set<String> extra = new TreeSet<>(eng);
         extra.addAll(map_timezone_integer.keySet());
         extra.removeAll(timezones);

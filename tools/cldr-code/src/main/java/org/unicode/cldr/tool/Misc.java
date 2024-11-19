@@ -466,7 +466,7 @@ public class Misc {
     }
 
     static void printZoneAliases() {
-        RuleBasedCollator col = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
+        RuleBasedCollator col = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT).freeze();
         col.setNumericCollation(true);
         StandardCodes sc = StandardCodes.make();
         Map<String, String> zone_countries = sc.getZoneToCounty();

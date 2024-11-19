@@ -143,6 +143,8 @@ public class Misc {
 
     private static void showSortKey() {
         String[] tests = "a ä A ぁ あ ァ ｧ ア ｱ ㋐".split(" ");
+        // TODO: freeze the Collator; problematic since changed in innermost for loop below
+        // Reference: https://unicode-org.atlassian.net/browse/CLDR-7428
         RuleBasedCollator c = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
         c.setStrength(RuleBasedCollator.QUATERNARY);
         c.setCaseLevel(true);

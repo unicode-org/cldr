@@ -67,7 +67,7 @@ import org.unicode.cldr.util.props.ICUPropertyFactory;
 public class CountItems {
 
     private static final Collator ROOT_PRIMARY_COLLATOR =
-            Collator.getInstance(ULocale.ROOT).setStrength2(Collator.PRIMARY);
+            Collator.getInstance(ULocale.ROOT).setStrength2(Collator.PRIMARY).freeze();
 
     static final String needsTranslationString =
             "America/Buenos_Aires " // America/Rio_Branco
@@ -318,7 +318,7 @@ public class CountItems {
     }
 
     public static void genSupplementalZoneData(boolean skipUnaliased) throws IOException {
-        RuleBasedCollator col = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
+        RuleBasedCollator col = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT).freeze();
         col.setNumericCollation(true);
         StandardCodes sc = StandardCodes.make();
         Map<String, String> zone_country = sc.getZoneToCounty();

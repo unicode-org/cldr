@@ -115,9 +115,11 @@ public class LDMLComparator {
 
     static Collator getDefaultCollation() {
         // if (DEFAULT_COLLATION != null) return DEFAULT_COLLATION;
-        RuleBasedCollator temp = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
+        RuleBasedCollator temp =
+                (RuleBasedCollator) Collator.getInstance(ULocale.ROOT); // freeze below
         temp.setStrength(Collator.IDENTICAL);
         temp.setNumericCollation(true);
+        temp = (RuleBasedCollator) temp.freeze();
         // DEFAULT_COLLATION = temp;
         return temp;
     }

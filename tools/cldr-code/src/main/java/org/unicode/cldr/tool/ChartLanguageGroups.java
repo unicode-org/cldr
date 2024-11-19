@@ -76,7 +76,7 @@ public class ChartLanguageGroups extends Chart {
                 + "The data doesn't completely match wikipedia’s; there are some patches for CLDR languages.</p>\n";
     }
 
-    Collator ENGLISH_ORDER = Collator.getInstance(ULocale.ROOT);
+    Collator ENGLISH_ORDER = Collator.getInstance(ULocale.ROOT).freeze();
 
     @Override
     public void writeContents(FormattedFileWriter pw) throws IOException {

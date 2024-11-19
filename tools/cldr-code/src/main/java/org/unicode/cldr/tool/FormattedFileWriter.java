@@ -20,7 +20,7 @@ import org.unicode.cldr.util.CldrUtility;
 public class FormattedFileWriter extends java.io.Writer {
     public static final String CHART_TARGET_DIR = CLDRPaths.CHART_DIRECTORY + "/supplemental/";
     public static final Collator COL =
-            Collator.getInstance(ULocale.ROOT).setStrength2(Collator.IDENTICAL);
+            Collator.getInstance(ULocale.ROOT).setStrength2(Collator.IDENTICAL).freeze();
     // public static final PairComparator<String,String> PC = new PairComparator(COL, null);
     public static final ArrayComparator PC = new ArrayComparator(COL);
 

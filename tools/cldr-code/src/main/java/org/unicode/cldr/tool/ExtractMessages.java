@@ -205,10 +205,11 @@ class ExtractMessages {
         }
     }
 
-    public static Collator col = Collator.getInstance(ULocale.ROOT);
+    public static Collator col = Collator.getInstance(ULocale.ROOT); // freeze below
 
     static {
         col.setStrength(Collator.SECONDARY);
+        col = col.freeze();
     }
 
     private static OtherHandler otherHandler = new OtherHandler();

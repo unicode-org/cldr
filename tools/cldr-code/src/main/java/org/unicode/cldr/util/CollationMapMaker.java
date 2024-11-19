@@ -199,7 +199,8 @@ public class CollationMapMaker {
     }
 
     static final boolean showDetails = false;
-    static final RuleBasedCollator uca = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
+    static final RuleBasedCollator uca =
+            (RuleBasedCollator) Collator.getInstance(ULocale.ROOT).freeze();
     static final UnicodeSet filteredChars =
             new UnicodeSet(
                             "[{ss}[^[:Co:][:Cf:][:Cc:][:Cn:][:Cs:][:script=Han:][:script=Hangul:]-[:nfkcquickcheck=no:]]]")

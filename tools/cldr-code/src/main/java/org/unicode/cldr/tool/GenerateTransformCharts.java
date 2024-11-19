@@ -119,7 +119,7 @@ public class GenerateTransformCharts {
     // Transliterator anyToLatin = Transliterator.getInstance("any-latin");
     //
     // UnicodeSet failNorm = new UnicodeSet();
-    // // Collator sc = Collator.getInstance(ULocale.ROOT);
+    // // Collator sc = Collator.getInstance(ULocale.ROOT).freeze();
     // // sc.setStrength(Collator.IDENTICAL);
     // Comparator sc = new UTF16.StringComparator(true, false, 0);
     // Set latinFail = new TreeSet(new ArrayComparator(new Comparator[] { sc, sc, sc }));
@@ -515,7 +515,7 @@ public class GenerateTransformCharts {
     static Comparator<String> UCA;
 
     static {
-        RuleBasedCollator UCA2 = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
+        RuleBasedCollator UCA2 = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT).freeze();
         UCA2.setNumericCollation(true);
         UCA2.setStrength(Collator.IDENTICAL);
         UCA =

@@ -1924,7 +1924,8 @@ public class ConvertLanguageData {
 
     public static class GeneralCollator implements Comparator<String> {
         static UTF16.StringComparator cpCompare = new UTF16.StringComparator(true, false, 0);
-        static RuleBasedCollator UCA = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
+        static RuleBasedCollator UCA =
+                (RuleBasedCollator) Collator.getInstance(ULocale.ROOT).freeze();
 
         static {
             UCA.setNumericCollation(true);

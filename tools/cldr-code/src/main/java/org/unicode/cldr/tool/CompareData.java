@@ -30,10 +30,12 @@ public class CompareData {
 
     String[] directoryList = {"main", "collation", "segmentations"};
 
-    static RuleBasedCollator uca = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
+    static RuleBasedCollator uca =
+            (RuleBasedCollator) Collator.getInstance(ULocale.ROOT); // freeze below
 
     {
         uca.setNumericCollation(true);
+        uca = (RuleBasedCollator) uca.freeze();
     }
 
     static PrettyPath prettyPathMaker = new PrettyPath();

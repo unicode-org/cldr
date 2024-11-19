@@ -276,7 +276,7 @@ public class TablePrinter {
     static class ColumnSorter<T extends Comparable> implements Comparator<T[]> {
         private int[] sortPriorities = new int[0];
         private BitSet ascending = new BitSet();
-        Collator englishCollator = Collator.getInstance(ULocale.ROOT);
+        Collator englishCollator = Collator.getInstance(ULocale.ROOT).freeze();
 
         @Override
         @SuppressWarnings("unchecked")

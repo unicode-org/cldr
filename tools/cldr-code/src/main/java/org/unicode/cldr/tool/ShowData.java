@@ -79,10 +79,12 @@ public class ShowData {
                 + System.lineSeparator();
     }
 
-    static RuleBasedCollator uca = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
+    static RuleBasedCollator uca =
+            (RuleBasedCollator) Collator.getInstance(ULocale.ROOT); // freeze below
 
     {
         uca.setNumericCollation(true);
+        uca = (RuleBasedCollator) uca.freeze();
     }
 
     static PathHeader.Factory prettyPathMaker =

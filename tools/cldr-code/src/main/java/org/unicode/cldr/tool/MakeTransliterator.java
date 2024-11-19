@@ -49,7 +49,7 @@ public class MakeTransliterator {
 
     static NumberFormat nf = NumberFormat.getInstance(ULocale.ENGLISH);
 
-    static Collator col = Collator.getInstance(ULocale.ROOT);
+    static Collator col = Collator.getInstance(ULocale.ROOT).freeze();
 
     static String cldrDataDir =
             "C:\\cvsdata\\unicode\\cldr\\tools\\java\\org\\unicode\\cldr\\util\\data\\transforms\\";

@@ -3309,7 +3309,7 @@ public class CLDRModify {
 
     /** Internal */
     public static void testJavaSemantics() {
-        Collator caseInsensitive = Collator.getInstance(ULocale.ROOT);
+        Collator caseInsensitive = Collator.getInstance(ULocale.ROOT).freeze();
         caseInsensitive.setStrength(Collator.SECONDARY);
         Set<String> setWithCaseInsensitive = new TreeSet<>(caseInsensitive);
         setWithCaseInsensitive.addAll(Arrays.asList(new String[] {"a", "b", "c"}));

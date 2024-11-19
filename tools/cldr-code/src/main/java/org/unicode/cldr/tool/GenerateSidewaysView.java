@@ -153,7 +153,7 @@ public class GenerateSidewaysView {
     private static long startTime = System.currentTimeMillis();
 
     static RuleBasedCollator standardCollation =
-            (RuleBasedCollator) Collator.getInstance(ULocale.ENGLISH);
+            (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
 
     static {
         standardCollation.setStrength(Collator.IDENTICAL);

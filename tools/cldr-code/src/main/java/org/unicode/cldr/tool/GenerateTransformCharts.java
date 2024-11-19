@@ -119,7 +119,7 @@ public class GenerateTransformCharts {
     // Transliterator anyToLatin = Transliterator.getInstance("any-latin");
     //
     // UnicodeSet failNorm = new UnicodeSet();
-    // // Collator sc = Collator.getInstance(ULocale.ENGLISH);
+    // // Collator sc = Collator.getInstance(ULocale.ROOT);
     // // sc.setStrength(Collator.IDENTICAL);
     // Comparator sc = new UTF16.StringComparator(true, false, 0);
     // Set latinFail = new TreeSet(new ArrayComparator(new Comparator[] { sc, sc, sc }));

@@ -211,7 +211,7 @@ public class TestHelper extends TestFmwkPlus {
         Counter<String> counter = new Counter<>(true);
         Comparator<String> uca =
                 new Comparator<>() {
-                    Collator col = Collator.getInstance(ULocale.ENGLISH);
+                    Collator col = Collator.getInstance(ULocale.ROOT);
 
                     @Override
                     public int compare(String o1, String o2) {

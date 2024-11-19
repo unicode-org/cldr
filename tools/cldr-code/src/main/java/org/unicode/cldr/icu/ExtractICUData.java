@@ -465,7 +465,7 @@ public class ExtractICUData {
             }
             out.println("</table></td></tr>");
         }
-        Collator c = Collator.getInstance(ULocale.ENGLISH);
+        Collator c = Collator.getInstance(ULocale.ROOT);
         ((RuleBasedCollator) c).setNumericCollation(true);
 
         // int enumValue = UCharacter.getIntPropertyValue(codePoint, propEnum);

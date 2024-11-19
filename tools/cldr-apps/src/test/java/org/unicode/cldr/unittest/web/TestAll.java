@@ -13,6 +13,8 @@ import java.io.File;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Logger;
+
+import com.ibm.icu.util.ULocale;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRConfig.Environment;
@@ -195,7 +197,7 @@ public class TestAll extends TestGroup {
         public Collator getCollator() {
             synchronized (this) {
                 if (col == null) {
-                    col = (RuleBasedCollator) Collator.getInstance();
+                    col = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
                     col.setNumericCollation(true);
                 }
             }

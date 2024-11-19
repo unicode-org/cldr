@@ -37,7 +37,7 @@ public class TestReferenceStringSearch {
     }
 
     static final RuleBasedCollator TEST_COLLATOR =
-            (RuleBasedCollator) Collator.getInstance(ULocale.ENGLISH);
+            (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
 
     static {
         TEST_COLLATOR.setStrength(Collator.PRIMARY);

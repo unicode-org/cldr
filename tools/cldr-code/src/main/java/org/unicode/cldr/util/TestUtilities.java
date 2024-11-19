@@ -233,7 +233,7 @@ public class TestUtilities {
             if (maxNumeric < numeric) maxNumeric = numeric;
         }
         // get the differences (and sort them)
-        RuleBasedCollator eng = (RuleBasedCollator) Collator.getInstance();
+        RuleBasedCollator eng = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
         eng.setNumericCollation(true);
 
         Set<String> extra = new TreeSet<>(eng);

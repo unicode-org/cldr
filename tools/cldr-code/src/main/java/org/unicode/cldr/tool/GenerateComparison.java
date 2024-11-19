@@ -12,6 +12,8 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
+
+import com.ibm.icu.util.ULocale;
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
@@ -29,7 +31,7 @@ public class GenerateComparison {
 
     private static PrettyPath prettyPathMaker;
 
-    private static Collator collator = Collator.getInstance();
+    private static Collator collator = Collator.getInstance(ULocale.ROOT);
 
     static class EnglishRowComparator implements Comparator<R2<String, String>> {
         private static Comparator<String> unicode = new UTF16.StringComparator(true, false, 0);

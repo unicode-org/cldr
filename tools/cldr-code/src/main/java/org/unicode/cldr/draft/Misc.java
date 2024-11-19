@@ -143,7 +143,7 @@ public class Misc {
 
     private static void showSortKey() {
         String[] tests = "a ä A ぁ あ ァ ｧ ア ｱ ㋐".split(" ");
-        RuleBasedCollator c = (RuleBasedCollator) Collator.getInstance(ULocale.ENGLISH);
+        RuleBasedCollator c = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
         c.setStrength(RuleBasedCollator.QUATERNARY);
         c.setCaseLevel(true);
         c.setHiraganaQuaternary(true);

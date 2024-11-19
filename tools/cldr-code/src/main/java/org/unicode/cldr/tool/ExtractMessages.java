@@ -205,7 +205,7 @@ class ExtractMessages {
         }
     }
 
-    public static Collator col = Collator.getInstance(ULocale.ENGLISH);
+    public static Collator col = Collator.getInstance(ULocale.ROOT);
 
     static {
         col.setStrength(Collator.SECONDARY);

@@ -318,7 +318,7 @@ public class CountItems {
     }
 
     public static void genSupplementalZoneData(boolean skipUnaliased) throws IOException {
-        RuleBasedCollator col = (RuleBasedCollator) Collator.getInstance();
+        RuleBasedCollator col = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
         col.setNumericCollation(true);
         StandardCodes sc = StandardCodes.make();
         Map<String, String> zone_country = sc.getZoneToCounty();

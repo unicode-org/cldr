@@ -335,7 +335,7 @@ public class TestCollationStringByteConverter {
     }
 
     public static void check() throws Exception {
-        final RuleBasedCollator col = (RuleBasedCollator) Collator.getInstance(ULocale.ENGLISH);
+        final RuleBasedCollator col = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
         col.setStrength(Collator.PRIMARY);
         col.setAlternateHandlingShifted(true);
         CollationStringByteConverter converter =

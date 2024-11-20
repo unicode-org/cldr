@@ -820,7 +820,7 @@ public class TestInheritance extends TestFmwk {
                                 + ","
                                 + " but "
                                 + language
-                                + " is missing in language_script.txt");
+                                + " is missing in language_script.tsv");
                 continue;
             }
             for (BasicLanguageData entry : data.values()) {
@@ -839,7 +839,7 @@ public class TestInheritance extends TestFmwk {
                             + language
                             + " doesn't have "
                             + script
-                            + " in language_script.txt");
+                            + " in language_script.tsv");
         }
     }
 

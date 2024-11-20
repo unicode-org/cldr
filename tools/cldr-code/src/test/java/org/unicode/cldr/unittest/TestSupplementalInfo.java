@@ -1881,6 +1881,9 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                 }
             } else {
                 BasicLanguageData data = scriptInfo.get(Type.primary);
+
+                // TODO CLDR-18102 change what primary and secondary scripts are handled
+
                 if (data == null) {
                     data = scriptInfo.get(Type.secondary);
                 }
@@ -2173,7 +2176,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                 SUPPLEMENTAL.getLanguageAndTerritoryPopulationData(b ? "zh" : "zh_Hans", "CN");
         PopulationData yueCNData =
                 SUPPLEMENTAL.getLanguageAndTerritoryPopulationData("yue_Hans", "CN");
-        assertTrue("yue*10 < zh", yueCNData.getPopulation() < zhCNData.getPopulation());
+        assertTrue("yue < zh", yueCNData.getPopulation() < zhCNData.getPopulation());
     }
 
     public void Test10765() { //

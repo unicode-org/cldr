@@ -8,7 +8,6 @@ import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.test.TestLog;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.RuleBasedCollator;
-import com.ibm.icu.util.ULocale;
 import com.ibm.icu.util.VersionInfo;
 import java.io.File;
 import java.io.FilenameFilter;
@@ -340,8 +339,7 @@ public class CLDRConfig extends Properties {
             try {
                 colRoot = new RuleBasedCollator(rules);
             } catch (Exception e) {
-                colRoot = (RuleBasedCollator) getInstance().getCollator();
-                return colRoot;
+                return CollatorHelper.EMOJI_COLLATOR;
             }
             colRoot.setStrength(Collator.IDENTICAL);
             colRoot.setNumericCollation(true);
@@ -357,37 +355,6 @@ public class CLDRConfig extends Properties {
     @SuppressWarnings("unchecked")
     public final Comparator<String> getComparatorRoot() {
         return (Comparator) (getCollatorRoot());
-    }
-
-    private static final class CollatorHelper {
-        static final Collator EMOJI_COLLATOR = makeEmojiCollator();
-
-        private static final Collator makeEmojiCollator() {
-            final RuleBasedCollator col =
-                    (RuleBasedCollator)
-                            Collator.getInstance(ULocale.forLanguageTag("en-u-co-emoji"));
-            col.setStrength(Collator.IDENTICAL);
-            col.setNumericCollation(true);
-            col.freeze();
-            return col;
-        }
-
-        static final Collator ROOT_NUMERIC = makeRootNumeric();
-
-        private static final Collator makeRootNumeric() {
-            RuleBasedCollator _ROOT_COL = (RuleBasedCollator) Collator.getInstance(ULocale.ENGLISH);
-            _ROOT_COL.setNumericCollation(true);
-            _ROOT_COL.freeze();
-            return _ROOT_COL;
-        }
-    }
-
-    public Collator getCollator() {
-        return CollatorHelper.EMOJI_COLLATOR;
-    }
-
-    public Collator getRootNumeric() {
-        return CollatorHelper.ROOT_NUMERIC;
     }
 
     public synchronized Phase getPhase() {

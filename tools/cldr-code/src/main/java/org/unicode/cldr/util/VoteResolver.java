@@ -4,7 +4,6 @@ import com.google.common.base.Objects;
 import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.util.Output;
-import com.ibm.icu.util.ULocale;
 import java.sql.Timestamp;
 import java.util.*;
 import java.util.Map.Entry;
@@ -926,7 +925,7 @@ public class VoteResolver<T> {
     private CLDRLocale locale;
     private PathHeader pathHeader;
 
-    private static final Collator englishCollator = Collator.getInstance(ULocale.ENGLISH).freeze();
+    private static final Collator englishCollator = CollatorHelper.ROOT_COLLATOR;
 
     /** Used for comparing objects of type T */
     private final Comparator<T> objectCollator =
@@ -1335,7 +1334,7 @@ public class VoteResolver<T> {
      * be symmetrical in its handling of hard and soft votes.
      *
      * <p>Note: now that "↑↑↑" is permitted to participate directly in voting resolution, it becomes
-     * significant that with Collator.getInstance(ULocale.ENGLISH), "↑↑↑" sorts before "AAA" just as
+     * significant that with Collator.getInstance(ULocale.ROOT), "↑↑↑" sorts before "AAA" just as
      * "AAA" sorts before "BBB".
      *
      * @param sortedValues the set of sorted values, possibly to be modified

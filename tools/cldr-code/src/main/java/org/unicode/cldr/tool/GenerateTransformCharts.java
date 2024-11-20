@@ -10,14 +10,11 @@ import com.google.common.collect.Multimap;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UScript;
-import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.Normalizer;
-import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
-import com.ibm.icu.util.ULocale;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -38,6 +35,7 @@ import org.unicode.cldr.util.CLDRTransforms;
 import org.unicode.cldr.util.CLDRTransforms.ParsedTransformID;
 import org.unicode.cldr.util.CLDRURLS;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CollatorHelper;
 import org.unicode.cldr.util.FileCopier;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.TransliteratorUtilities;
@@ -119,7 +117,7 @@ public class GenerateTransformCharts {
     // Transliterator anyToLatin = Transliterator.getInstance("any-latin");
     //
     // UnicodeSet failNorm = new UnicodeSet();
-    // // Collator sc = Collator.getInstance(ULocale.ENGLISH);
+    // // Collator sc = Collator.getInstance(ULocale.ROOT).freeze();
     // // sc.setStrength(Collator.IDENTICAL);
     // Comparator sc = new UTF16.StringComparator(true, false, 0);
     // Set latinFail = new TreeSet(new ArrayComparator(new Comparator[] { sc, sc, sc }));
@@ -515,12 +513,10 @@ public class GenerateTransformCharts {
     static Comparator<String> UCA;
 
     static {
-        RuleBasedCollator UCA2 = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
-        UCA2.setNumericCollation(true);
-        UCA2.setStrength(Collator.IDENTICAL);
         UCA =
                 new org.unicode.cldr.util.MultiComparator(
-                        UCA2, new UTF16.StringComparator(true, false, 0));
+                        CollatorHelper.ROOT_NUMERIC_IDENTICAL,
+                        new UTF16.StringComparator(true, false, 0));
     }
 
     private static void showLatin(Pair<String, String> scriptChoice, Set<String> targetVariant)

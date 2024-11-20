@@ -33,7 +33,7 @@ import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.PathHeader.PageId;
 
 public class Emoji {
-    public static final Collator COLLATOR = CLDRConfig.getInstance().getCollator();
+    public static final Collator COLLATOR = CollatorHelper.EMOJI_COLLATOR;
     public static final String EMOJI_VARIANT = "\uFE0F";
     public static final char JOINER = '\u200D';
     public static final String JOINER_STR = "\u200D";

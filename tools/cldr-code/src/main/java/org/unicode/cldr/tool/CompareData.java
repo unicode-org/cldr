@@ -1,9 +1,6 @@
 package org.unicode.cldr.tool;
 
 import com.ibm.icu.dev.util.UOption;
-import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.RuleBasedCollator;
-import com.ibm.icu.util.ULocale;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
@@ -29,12 +26,6 @@ public class CompareData {
     };
 
     String[] directoryList = {"main", "collation", "segmentations"};
-
-    static RuleBasedCollator uca = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
-
-    {
-        uca.setNumericCollation(true);
-    }
 
     static PrettyPath prettyPathMaker = new PrettyPath();
     static CLDRFile english;

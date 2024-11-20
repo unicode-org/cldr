@@ -8,11 +8,8 @@
  */
 package org.unicode.cldr.util;
 
-import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Freezable;
-import com.ibm.icu.util.ULocale;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -24,20 +21,6 @@ import java.util.TreeMap;
 import java.util.function.Function;
 
 public class MapComparator<K> implements Comparator<K>, Freezable<MapComparator<K>> {
-    private static final class CollatorHelper {
-        public static final Collator UCA = getUCA();
-
-        /**
-         * This does not change, so we can create one and freeze it.
-         *
-         * @return
-         */
-        private static Collator getUCA() {
-            final RuleBasedCollator newUca = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
-            newUca.setNumericCollation(true);
-            return newUca.freeze();
-        }
-    }
 
     // initialize this once
     private Map<K, Integer> ordering = new TreeMap<>(); // maps from name to rank
@@ -200,7 +183,7 @@ public class MapComparator<K> implements Comparator<K>, Freezable<MapComparator<
 
         if (a instanceof CharSequence) {
             if (b instanceof CharSequence) {
-                int result = CollatorHelper.UCA.compare(a.toString(), b.toString());
+                int result = CollatorHelper.ROOT_NUMERIC.compare(a.toString(), b.toString());
                 if (result != 0) {
                     return result;
                 }

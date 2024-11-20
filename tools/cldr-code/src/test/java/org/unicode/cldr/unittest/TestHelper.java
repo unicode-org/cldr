@@ -7,9 +7,7 @@ import com.ibm.icu.impl.UnicodeMap;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
-import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.ULocale;
 import java.io.StringWriter;
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -211,11 +209,9 @@ public class TestHelper extends TestFmwkPlus {
         Counter<String> counter = new Counter<>(true);
         Comparator<String> uca =
                 new Comparator<>() {
-                    Collator col = Collator.getInstance(ULocale.ENGLISH);
-
                     @Override
                     public int compare(String o1, String o2) {
-                        return col.compare(o1, o2);
+                        return CollatorHelper.ROOT_COLLATOR.compare(o1, o2);
                     }
                 };
         InverseComparator ucaDown = new InverseComparator(uca);

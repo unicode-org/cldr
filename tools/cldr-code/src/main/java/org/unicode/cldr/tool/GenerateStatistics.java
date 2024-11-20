@@ -26,6 +26,7 @@ import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.ArrayComparator;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CollatorHelper;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Log;
@@ -40,7 +41,7 @@ class GenerateStatistics {
     static CLDRFile english;
     static Factory factory;
     static LanguageTagParser ltp = new LanguageTagParser();
-    static Collator col = Collator.getInstance(ULocale.ENGLISH);
+    static Collator col = CollatorHelper.ROOT_COLLATOR;
     static boolean notitlecase = true;
 
     public static void generateSize(
@@ -344,7 +345,7 @@ class GenerateStatistics {
 
     private static class LanguageList implements Comparable<Object> {
         Object[] contents;
-        static Collator col = Collator.getInstance(ULocale.ENGLISH);
+        static Collator col = CollatorHelper.ROOT_COLLATOR;
         static Comparator<Object[]> comp = new ArrayComparator(new Collator[] {col, col, null});
 
         LanguageList(String locale, String englishName, String localName) {

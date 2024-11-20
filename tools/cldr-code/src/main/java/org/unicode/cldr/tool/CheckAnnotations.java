@@ -4,14 +4,12 @@ import java.util.Set;
 import java.util.TreeSet;
 import org.unicode.cldr.util.Annotations;
 import org.unicode.cldr.util.Annotations.AnnotationSet;
-import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CollatorHelper;
 
 public class CheckAnnotations {
     public static void main(String[] args) {
         AnnotationSet data = Annotations.getDataSet("en");
-        CLDRConfig config = CLDRConfig.getInstance();
-        // UnicodeMap<Annotations> data2 = Annotations.getData("de");
-        Set<String> sorted = new TreeSet<>(config.getCollator());
+        Set<String> sorted = new TreeSet<>(CollatorHelper.EMOJI_COLLATOR);
 
         int i = 0;
         boolean needMore = true;

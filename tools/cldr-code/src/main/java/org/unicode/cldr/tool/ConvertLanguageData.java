@@ -6,9 +6,7 @@ import com.google.common.math.DoubleMath;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
-import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.NumberFormat;
-import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.util.ULocale;
 import java.io.BufferedReader;
@@ -42,6 +40,7 @@ import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CollatorHelper;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.Iso639Data.Scope;
@@ -1924,11 +1923,6 @@ public class ConvertLanguageData {
 
     public static class GeneralCollator implements Comparator<String> {
         static UTF16.StringComparator cpCompare = new UTF16.StringComparator(true, false, 0);
-        static RuleBasedCollator UCA = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
-
-        static {
-            UCA.setNumericCollation(true);
-        }
 
         @Override
         public int compare(String s1, String s2) {
@@ -1937,7 +1931,7 @@ public class ConvertLanguageData {
             } else if (s2 == null) {
                 return 1;
             }
-            int result = UCA.compare(s1, s2);
+            int result = CollatorHelper.ROOT_NUMERIC.compare(s1, s2);
             if (result != 0) return result;
             return cpCompare.compare(s1, s2);
         }

@@ -3,8 +3,6 @@ package org.unicode.cldr.tool;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSet.Builder;
 import com.google.common.collect.Multimap;
-import com.ibm.icu.text.Collator;
-import com.ibm.icu.util.ULocale;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.Comparator;
@@ -76,8 +74,6 @@ public class ChartLanguageGroups extends Chart {
                 + "The data doesn't completely match wikipedia’s; there are some patches for CLDR languages.</p>\n";
     }
 
-    Collator ENGLISH_ORDER = Collator.getInstance(ULocale.ENGLISH);
-
     @Override
     public void writeContents(FormattedFileWriter pw) throws IOException {
 
@@ -112,7 +108,9 @@ public class ChartLanguageGroups extends Chart {
                         new Comparator<Pair<String, String>>() {
                             @Override
                             public int compare(Pair<String, String> o1, Pair<String, String> o2) {
-                                int diff = ENGLISH_ORDER.compare(o1.getFirst(), o2.getFirst());
+                                int diff =
+                                        CollatorHelper.ROOT_COLLATOR.compare(
+                                                o1.getFirst(), o2.getFirst());
                                 if (diff != 0) {
                                     return diff;
                                 }

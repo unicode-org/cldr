@@ -19,7 +19,6 @@ import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.Transform;
 import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.ULocale;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -45,6 +44,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CollatorHelper;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.IsoCurrencyParser;
@@ -66,8 +66,7 @@ import org.unicode.cldr.util.props.ICUPropertyFactory;
 /** Simple program to count the amount of data in CLDR. Internal Use. */
 public class CountItems {
 
-    private static final Collator ROOT_PRIMARY_COLLATOR =
-            Collator.getInstance(ULocale.ROOT).setStrength2(Collator.PRIMARY);
+    private static final Collator ROOT_PRIMARY_COLLATOR = CollatorHelper.ROOT_PRIMARY;
 
     static final String needsTranslationString =
             "America/Buenos_Aires " // America/Rio_Branco
@@ -318,8 +317,7 @@ public class CountItems {
     }
 
     public static void genSupplementalZoneData(boolean skipUnaliased) throws IOException {
-        RuleBasedCollator col = (RuleBasedCollator) Collator.getInstance();
-        col.setNumericCollation(true);
+        RuleBasedCollator col = CollatorHelper.ROOT_NUMERIC;
         StandardCodes sc = StandardCodes.make();
         Map<String, String> zone_country = sc.getZoneToCounty();
         Map<String, Set<String>> country_zone = sc.getCountryToZoneSet();

@@ -7,8 +7,6 @@ import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 import com.ibm.icu.dev.test.TestFmwk.TestGroup;
 import com.ibm.icu.dev.test.TestLog;
-import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.RuleBasedCollator;
 import java.io.File;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -16,12 +14,8 @@ import java.util.logging.Logger;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRConfig.Environment;
-import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.Factory;
-import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.web.CLDRProgressIndicator;
 import org.unicode.cldr.web.DBUtils;
 import org.unicode.cldr.web.SurveyLog;
@@ -128,13 +122,6 @@ public class TestAll extends TestGroup {
     public static class WebTestInfo {
         private static WebTestInfo INSTANCE = null;
 
-        private SupplementalDataInfo supplementalDataInfo;
-        private StandardCodes sc;
-        private Factory cldrFactory;
-        private CLDRFile english;
-        private CLDRFile root;
-        private RuleBasedCollator col;
-
         public static WebTestInfo getInstance() {
             synchronized (WebTestInfo.class) {
                 if (INSTANCE == null) {
@@ -145,62 +132,6 @@ public class TestAll extends TestGroup {
         }
 
         private WebTestInfo() {}
-
-        public SupplementalDataInfo getSupplementalDataInfo() {
-            synchronized (this) {
-                if (supplementalDataInfo == null) {
-                    supplementalDataInfo =
-                            SupplementalDataInfo.getInstance(CLDRPaths.SUPPLEMENTAL_DIRECTORY);
-                }
-            }
-            return supplementalDataInfo;
-        }
-
-        public StandardCodes getStandardCodes() {
-            synchronized (this) {
-                if (sc == null) {
-                    sc = StandardCodes.make();
-                }
-            }
-            return sc;
-        }
-
-        public Factory getCldrFactory() {
-            synchronized (this) {
-                if (cldrFactory == null) {
-                    cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
-                }
-            }
-            return cldrFactory;
-        }
-
-        public CLDRFile getEnglish() {
-            synchronized (this) {
-                if (english == null) {
-                    english = getCldrFactory().make("en", true);
-                }
-            }
-            return english;
-        }
-
-        public CLDRFile getRoot() {
-            synchronized (this) {
-                if (root == null) {
-                    root = getCldrFactory().make("root", true);
-                }
-            }
-            return root;
-        }
-
-        public Collator getCollator() {
-            synchronized (this) {
-                if (col == null) {
-                    col = (RuleBasedCollator) Collator.getInstance();
-                    col.setNumericCollation(true);
-                }
-            }
-            return col;
-        }
     }
 
     static boolean dbSetup = false;

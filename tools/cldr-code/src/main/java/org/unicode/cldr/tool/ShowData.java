@@ -10,12 +10,9 @@ import com.google.common.base.Joiner;
 import com.ibm.icu.dev.util.UOption;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.lang.UScript;
-import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
-import com.ibm.icu.util.ULocale;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -77,12 +74,6 @@ public class ShowData {
                 + CldrUtility.isoFormatDateOnly(new java.util.Date())
                 + "</p>"
                 + System.lineSeparator();
-    }
-
-    static RuleBasedCollator uca = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
-
-    {
-        uca.setNumericCollation(true);
     }
 
     static PathHeader.Factory prettyPathMaker =

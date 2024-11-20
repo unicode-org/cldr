@@ -17,7 +17,6 @@ import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.BreakIterator;
-import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.RuleBasedNumberFormat;
@@ -48,6 +47,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CollatorHelper;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdData.Attribute;
 import org.unicode.cldr.util.DtdData.AttributeStatus;
@@ -141,24 +141,16 @@ public class GenerateSidewaysView {
     static Comparator<Object> UCA;
 
     static {
-        RuleBasedCollator UCA2 = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
-        UCA2.setNumericCollation(true);
-        UCA2.setStrength(Collator.IDENTICAL);
         UCA =
                 new org.unicode.cldr.util.MultiComparator(
-                        UCA2, new UTF16.StringComparator(true, false, 0));
+                        CollatorHelper.ROOT_NUMERIC_IDENTICAL,
+                        new UTF16.StringComparator(true, false, 0));
     }
 
     private static Map<PathHeader, Map<String, Set<String>>> path_value_locales = new TreeMap<>();
     private static long startTime = System.currentTimeMillis();
 
-    static RuleBasedCollator standardCollation =
-            (RuleBasedCollator) Collator.getInstance(ULocale.ENGLISH);
-
-    static {
-        standardCollation.setStrength(Collator.IDENTICAL);
-        standardCollation.setNumericCollation(true);
-    }
+    static RuleBasedCollator standardCollation = CollatorHelper.ROOT_NUMERIC_IDENTICAL;
 
     private static CLDRFile english;
     // private static DataShower dataShower = new DataShower();
@@ -678,7 +670,7 @@ public class GenerateSidewaysView {
     // .setCompressRanges(true)
     // .setToQuote(ALL_CHARS)
     // .setQuoter(MyTransform)
-    // .format(lastChars);
+    // .format(lastChars).freeze();
     // exemplarsWithoutBrackets = exemplarsWithoutBrackets.substring(1,
     // exemplarsWithoutBrackets.length() - 1);
     // return exemplarsWithoutBrackets;

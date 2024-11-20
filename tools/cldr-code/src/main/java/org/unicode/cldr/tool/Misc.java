@@ -39,6 +39,7 @@ import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CollatorHelper;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Iso3166Data;
 import org.unicode.cldr.util.LanguageTagParser;
@@ -466,8 +467,7 @@ public class Misc {
     }
 
     static void printZoneAliases() {
-        RuleBasedCollator col = (RuleBasedCollator) Collator.getInstance(ULocale.ENGLISH);
-        col.setNumericCollation(true);
+        RuleBasedCollator col = CollatorHelper.ROOT_NUMERIC;
         StandardCodes sc = StandardCodes.make();
         Map<String, String> zone_countries = sc.getZoneToCounty();
         Map<String, String> old_new = sc.getZoneLinkold_new();

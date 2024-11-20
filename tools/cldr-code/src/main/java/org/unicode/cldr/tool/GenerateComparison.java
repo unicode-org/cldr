@@ -17,6 +17,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CollatorHelper;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.EscapingUtilities;
 import org.unicode.cldr.util.Factory;
@@ -29,7 +30,7 @@ public class GenerateComparison {
 
     private static PrettyPath prettyPathMaker;
 
-    private static Collator collator = Collator.getInstance();
+    private static Collator collator = CollatorHelper.ROOT_COLLATOR;
 
     static class EnglishRowComparator implements Comparator<R2<String, String>> {
         private static Comparator<String> unicode = new UTF16.StringComparator(true, false, 0);

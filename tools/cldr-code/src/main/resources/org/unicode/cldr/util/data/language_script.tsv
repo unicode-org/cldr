@@ -54,9 +54,9 @@ av	Avaric	primary	Cyrl	Cyrillic
 avk	Kotava	primary	Latn	Latin
 awa	Awadhi	primary	Deva	Devanagari
 ay	Aymara	primary	Latn	Latin
-az	Azerbaijani	primary	Arab	Arabic
-az	Azerbaijani	primary	Cyrl	Cyrillic
 az	Azerbaijani	primary	Latn	Latin
+az	Azerbaijani	secondary	Arab	Arabic
+az	Azerbaijani	secondary	Cyrl	Cyrillic
 ba	Bashkir	primary	Cyrl	Cyrillic
 bal	Baluchi	primary	Arab	Arabic
 bal	Baluchi	secondary	Latn	Latin
@@ -307,7 +307,7 @@ ha	Hausa	primary	Arab	Arabic
 ha	Hausa	primary	Latn	Latin
 hai	Haida	primary	Latn	Latin
 hak	Hakka Chinese	primary	Hans	Simplified
-hak	Hakka Chinese	primary	Hant	Traditional
+hak	Hakka Chinese	secondary	Hant	Traditional
 haw	Hawaiian	primary	Latn	Latin
 haz	Hazaragi	primary	Arab	Arabic
 he	Hebrew	primary	Hebr	Hebrew
@@ -441,9 +441,9 @@ ks	Kashmiri	primary	Deva	Devanagari
 ksb	Shambala	primary	Latn	Latin
 ksf	Bafia	primary	Latn	Latin
 ksh	Colognian	primary	Latn	Latin
-ku	Kurdish	primary	Arab	Arabic
-ku	Kurdish	primary	Cyrl	Cyrillic
 ku	Kurdish	primary	Latn	Latin
+ku	Kurdish	secondary	Arab	Arabic
+ku	Kurdish	secondary	Cyrl	Cyrillic
 kum	Kumyk	primary	Cyrl	Cyrillic
 kut	Kutenai	primary	Latn	Latin
 kv	Komi	primary	Cyrl	Cyrillic
@@ -533,6 +533,8 @@ mdt	Mbere	primary	Latn	Latin
 men	Mende	primary	Latn	Latin
 men	Mende	secondary	Mend	Mende
 mer	Meru	primary	Latn	Latin
+mey	Hassaniyya	primary	Arab	Arabic
+mey	Hassaniyya	secondary	Latn	Latin
 mfa	Pattani Malay	primary	Arab	Arabic
 mfe	Morisyen	primary	Latn	Latin
 mfv	Mandjak	primary	Latn	Latin
@@ -585,7 +587,7 @@ myz	Classical Mandaic	primary	Mand	Mandaean
 mzn	Mazanderani	primary	Arab	Arabic
 na	Nauru	primary	Latn	Latin
 nan	Min Nan Chinese	primary	Hans	Simplified
-nan	Min Nan Chinese	primary	Hant	Traditional
+nan	Min Nan Chinese	secondary	Hant	Traditional
 nap	Neapolitan	primary	Latn	Latin
 naq	Nama	primary	Latn	Latin
 nb	Norwegian (Bokmål)	primary	Latn	Latin
@@ -641,8 +643,8 @@ osa	Osage	secondary	Latn	Latin
 osc	Oscan	secondary	Ital	Old Italic
 osc	Oscan	secondary	Latn	Latin
 otk	Old Turkish	primary	Orkh	Orkhon
-pa	Punjabi	primary	Arab	Arabic
 pa	Punjabi	primary	Guru	Gurmukhi
+pa	Punjabi	secondary	Arab	Arabic
 pag	Pangasinan	primary	Latn	Latin
 pal	Pahlavi	secondary	Phli	Inscriptional Pahlavi
 pal	Pahlavi	secondary	Phlp	Psalter Pahlavi
@@ -952,8 +954,8 @@ yo	Yoruba	primary	Latn	Latin
 yrk	Nenets	primary	Cyrl	Cyrillic
 yrl	Nheengatu	primary	Latn	Latin
 yua	Yucateco	primary	Latn	Latin
-yue	Cantonese	primary	Hans	Simplified
 yue	Cantonese	primary	Hant	Traditional
+yue	Cantonese	secondary	Hans	Simplified
 za	Zhuang	primary	Latn	Latin
 za	Zhuang	secondary	Hans	Simplified
 zag	Zaghawa	primary	Latn	Latin
@@ -963,7 +965,7 @@ zea	Zeelandic	primary	Latn	Latin
 zen	Zenaga	primary	Tfng	Tifinagh
 zgh	Standard Moroccan Tamazight	primary	Tfng	Tifinagh
 zh	Chinese	primary	Hans	Simplified
-zh	Chinese	primary	Hant	Traditional
+zh	Chinese	secondary	Hant	Traditional
 zh	Chinese	secondary	Bopo	Bopomofo
 zh	Chinese	secondary	Latn	Latin
 zh	Chinese	secondary	Phag	Phags-pa

@@ -582,6 +582,7 @@ public class ConvertLanguageData {
             ltp.set(rawLocale);
             String locale =
                     ltp.getLanguage()
+                            + (ltp.getScript().length() == 0 ? "" : "_" + ltp.getScript())
                             + (ltp.getRegion().length() == 0 ? "" : "_" + ltp.getRegion());
             population.add(locale);
             RowData rowData = localeToRowData.get(rawLocale);

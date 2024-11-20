@@ -399,8 +399,13 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<likelySubtag from="ksh" to="ksh_Latn_DE"/>		<!--Colognian‧?‧?	➡ Colognian‧Latin‧Germany-->
 		<likelySubtag from="kss" to="kss_Latn_LR"/>		<!--Southern Kisi‧?‧?	➡ Southern Kisi‧Latin‧Liberia-->
 		<likelySubtag from="ku" to="ku_Latn_TR"/>		<!--Kurdish‧?‧?	➡ Kurdish‧Latin‧Türkiye-->
+		<likelySubtag from="ku_AM" to="ku_Cyrl_AM"/>		<!--Kurdish‧?‧Armenia	➡ Kurdish‧Cyrillic‧Armenia-->
+		<likelySubtag from="ku_AZ" to="ku_Cyrl_AZ"/>		<!--Kurdish‧?‧Azerbaijan	➡ Kurdish‧Cyrillic‧Azerbaijan-->
+		<likelySubtag from="ku_GE" to="ku_Cyrl_GE"/>		<!--Kurdish‧?‧Georgia	➡ Kurdish‧Cyrillic‧Georgia-->
 		<likelySubtag from="ku_LB" to="ku_Arab_LB"/>		<!--Kurdish‧?‧Lebanon	➡ Kurdish‧Arabic‧Lebanon-->
+		<likelySubtag from="ku_TM" to="ku_Cyrl_TM"/>		<!--Kurdish‧?‧Turkmenistan	➡ Kurdish‧Cyrillic‧Turkmenistan-->
 		<likelySubtag from="ku_Arab" to="ku_Arab_IQ"/>		<!--Kurdish‧Arabic‧?	➡ Kurdish‧Arabic‧Iraq-->
+		<likelySubtag from="ku_Cyrl" to="ku_Cyrl_AM"/>		<!--Kurdish‧Cyrillic‧?	➡ Kurdish‧Cyrillic‧Armenia-->
 		<likelySubtag from="ku_Yezi" to="ku_Yezi_GE"/>		<!--Kurdish‧Yezidi‧?	➡ Kurdish‧Yezidi‧Georgia-->
 		<likelySubtag from="kum" to="kum_Cyrl_RU"/>		<!--Kumyk‧?‧?	➡ Kumyk‧Cyrillic‧Russia-->
 		<likelySubtag from="kv" to="kv_Cyrl_RU"/>		<!--Komi‧?‧?	➡ Komi‧Cyrillic‧Russia-->
@@ -481,7 +486,9 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<likelySubtag from="men" to="men_Latn_SL"/>		<!--Mende‧?‧?	➡ Mende‧Latin‧Sierra Leone-->
 		<likelySubtag from="mer" to="mer_Latn_KE"/>		<!--Meru‧?‧?	➡ Meru‧Latin‧Kenya-->
 		<likelySubtag from="mev" to="mev_Latn_LR"/>		<!--Mano‧?‧?	➡ Mano‧Latin‧Liberia-->
-		<likelySubtag from="mey" to="mey_Latn_SN"/>		<!--Hassaniyya‧?‧?	➡ Hassaniyya‧Latin‧Senegal-->
+		<likelySubtag from="mey" to="mey_Arab_DZ"/>		<!--Hassaniyya‧?‧?	➡ Hassaniyya‧Arabic‧Algeria-->
+		<likelySubtag from="mey_SN" to="mey_Latn_SN"/>		<!--Hassaniyya‧?‧Senegal	➡ Hassaniyya‧Latin‧Senegal-->
+		<likelySubtag from="mey_Latn" to="mey_Latn_SN"/>		<!--Hassaniyya‧Latin‧?	➡ Hassaniyya‧Latin‧Senegal-->
 		<likelySubtag from="mfa" to="mfa_Arab_TH"/>		<!--Pattani Malay‧?‧?	➡ Pattani Malay‧Arabic‧Thailand-->
 		<likelySubtag from="mfe" to="mfe_Latn_MU"/>		<!--Morisyen‧?‧?	➡ Morisyen‧Latin‧Mauritius-->
 		<likelySubtag from="mfv" to="mfv_Latn_SN"/>		<!--Mandjak‧?‧?	➡ Mandjak‧Latin‧Senegal-->
@@ -531,6 +538,7 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<likelySubtag from="mzn" to="mzn_Arab_IR"/>		<!--Mazanderani‧?‧?	➡ Mazanderani‧Arabic‧Iran-->
 		<likelySubtag from="na" to="na_Latn_NR"/>		<!--Nauru‧?‧?	➡ Nauru‧Latin‧Nauru-->
 		<likelySubtag from="nan" to="nan_Hans_CN"/>		<!--Min Nan Chinese‧?‧?	➡ Min Nan Chinese‧Simplified‧China-->
+		<likelySubtag from="nan_MO" to="nan_Hant_MO"/>		<!--Min Nan Chinese‧?‧Macao SAR China	➡ Min Nan Chinese‧Traditional‧Macao SAR China-->
 		<likelySubtag from="nan_TW" to="nan_Hant_TW"/>		<!--Min Nan Chinese‧?‧Taiwan	➡ Min Nan Chinese‧Traditional‧Taiwan-->
 		<likelySubtag from="nan_Hant" to="nan_Hant_TW"/>		<!--Min Nan Chinese‧Traditional‧?	➡ Min Nan Chinese‧Traditional‧Taiwan-->
 		<likelySubtag from="nap" to="nap_Latn_IT"/>		<!--Neapolitan‧?‧?	➡ Neapolitan‧Latin‧Italy-->
@@ -1227,7 +1235,6 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<likelySubtag from="und_Latn_EG" to="en_Latn_EG"/>		<!--?‧Latin‧Egypt	➡ English‧Latin‧Egypt-->
 		<likelySubtag from="und_Latn_ER" to="en_Latn_ER"/>		<!--?‧Latin‧Eritrea	➡ English‧Latin‧Eritrea-->
 		<likelySubtag from="und_Latn_ET" to="en_Latn_ET"/>		<!--?‧Latin‧Ethiopia	➡ English‧Latin‧Ethiopia-->
-		<likelySubtag from="und_Latn_GE" to="ku_Latn_GE"/>		<!--?‧Latin‧Georgia	➡ Kurdish‧Latin‧Georgia-->
 		<likelySubtag from="und_Latn_GR" to="en_Latn_GR"/>		<!--?‧Latin‧Greece	➡ English‧Latin‧Greece-->
 		<likelySubtag from="und_Latn_HK" to="en_Latn_HK"/>		<!--?‧Latin‧Hong Kong SAR China	➡ English‧Latin‧Hong Kong SAR China-->
 		<likelySubtag from="und_Latn_IL" to="en_Latn_IL"/>		<!--?‧Latin‧Israel	➡ English‧Latin‧Israel-->

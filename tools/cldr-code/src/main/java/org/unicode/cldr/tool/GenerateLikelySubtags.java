@@ -495,7 +495,6 @@ public class GenerateLikelySubtags {
                                 {"und_Cyrl_RS", "sr_Cyrl_RS"},
                                 {"und_Cyrl_TJ", "tg_Cyrl_TJ"},
                                 {"und_Cyrl_UA", "uk_Cyrl_UA"},
-                                {"und_Hans_TW", "zh_Hans_TW"},
                                 {"arc_Hatr", "arc_Hatr_IQ"},
                                 {"hnj_Hmng", "hnj_Hmng_LA"},
                                 {"bap_Krai", "bap_Krai_IN"},

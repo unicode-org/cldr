@@ -40,7 +40,7 @@ public class SimpleUnicodeSetFormatter implements FormatterParser<UnicodeSet> {
     public static Normalizer2 nfc = Normalizer2.getNFCInstance();
 
     public static final Comparator<String> BASIC_COLLATOR =
-            (Comparator) CLDRConfig.getInstance().getCollator();
+            (Comparator) CollatorHelper.EMOJI_COLLATOR;
 
     public static final int DEFAULT_RANGES_ABOVE = 1024;
 

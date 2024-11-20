@@ -339,8 +339,7 @@ public class CLDRConfig extends Properties {
             try {
                 colRoot = new RuleBasedCollator(rules);
             } catch (Exception e) {
-                colRoot = (RuleBasedCollator) getInstance().getCollator();
-                return colRoot;
+                return CollatorHelper.EMOJI_COLLATOR;
             }
             colRoot.setStrength(Collator.IDENTICAL);
             colRoot.setNumericCollation(true);
@@ -356,14 +355,6 @@ public class CLDRConfig extends Properties {
     @SuppressWarnings("unchecked")
     public final Comparator<String> getComparatorRoot() {
         return (Comparator) (getCollatorRoot());
-    }
-
-    public Collator getCollator() {
-        return CollatorHelper.EMOJI_COLLATOR;
-    }
-
-    public Collator getRootNumeric() {
-        return CollatorHelper.ROOT_NUMERIC;
     }
 
     public synchronized Phase getPhase() {

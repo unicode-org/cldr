@@ -41,7 +41,7 @@ class GenerateStatistics {
     static CLDRFile english;
     static Factory factory;
     static LanguageTagParser ltp = new LanguageTagParser();
-    static Collator col = CollatorHelper.ROOT_ORDER;
+    static Collator col = CollatorHelper.ROOT_COLLATOR;
     static boolean notitlecase = true;
 
     public static void generateSize(
@@ -345,7 +345,7 @@ class GenerateStatistics {
 
     private static class LanguageList implements Comparable<Object> {
         Object[] contents;
-        static Collator col = CollatorHelper.ROOT_ORDER;
+        static Collator col = CollatorHelper.ROOT_COLLATOR;
         static Comparator<Object[]> comp = new ArrayComparator(new Collator[] {col, col, null});
 
         LanguageList(String locale, String englishName, String localName) {

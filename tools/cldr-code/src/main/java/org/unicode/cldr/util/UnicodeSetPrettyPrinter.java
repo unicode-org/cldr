@@ -15,7 +15,6 @@ import com.ibm.icu.text.UTF16.StringComparator;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.util.ICUUncheckedIOException;
-import com.ibm.icu.util.ULocale;
 import java.io.IOException;
 import java.text.FieldPosition;
 import java.util.Comparator;
@@ -52,11 +51,8 @@ public class UnicodeSetPrettyPrinter implements FormatterParser<UnicodeSet> {
     /** Make from root collator obtained from ICU */
     public static final UnicodeSetPrettyPrinter ROOT_ICU =
             from(
-                    (Comparator) Collator.getInstance(ULocale.ROOT).freeze(),
-                    (Comparator)
-                            Collator.getInstance(ULocale.ROOT)
-                                    .setStrength2(Collator.PRIMARY)
-                                    .freeze());
+                    (Comparator) CollatorHelper.ROOT_COLLATOR,
+                    (Comparator) CollatorHelper.ROOT_PRIMARY);
 
     /** Make from ICU Locale */
     public static UnicodeSetPrettyPrinter fromIcuLocale(String localeId) {

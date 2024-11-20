@@ -467,7 +467,7 @@ public class Misc {
     }
 
     static void printZoneAliases() {
-        RuleBasedCollator col = (RuleBasedCollator) CollatorHelper.ROOT_NUMERIC;
+        RuleBasedCollator col = CollatorHelper.ROOT_NUMERIC;
         StandardCodes sc = StandardCodes.make();
         Map<String, String> zone_countries = sc.getZoneToCounty();
         Map<String, String> old_new = sc.getZoneLinkold_new();

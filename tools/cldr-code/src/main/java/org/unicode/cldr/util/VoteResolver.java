@@ -925,7 +925,7 @@ public class VoteResolver<T> {
     private CLDRLocale locale;
     private PathHeader pathHeader;
 
-    private static final Collator englishCollator = CollatorHelper.ROOT_ORDER;
+    private static final Collator englishCollator = CollatorHelper.ROOT_COLLATOR;
 
     /** Used for comparing objects of type T */
     private final Comparator<T> objectCollator =

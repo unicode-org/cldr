@@ -198,7 +198,7 @@ public class CollationMapMaker {
     }
 
     static final boolean showDetails = false;
-    static final RuleBasedCollator uca = (RuleBasedCollator) CollatorHelper.ROOT_ORDER;
+    static final RuleBasedCollator uca = CollatorHelper.ROOT_COLLATOR;
     static final UnicodeSet filteredChars =
             new UnicodeSet(
                             "[{ss}[^[:Co:][:Cf:][:Cc:][:Cn:][:Cs:][:script=Han:][:script=Hangul:]-[:nfkcquickcheck=no:]]]")

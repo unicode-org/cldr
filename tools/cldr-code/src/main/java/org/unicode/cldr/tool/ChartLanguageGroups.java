@@ -109,7 +109,7 @@ public class ChartLanguageGroups extends Chart {
                             @Override
                             public int compare(Pair<String, String> o1, Pair<String, String> o2) {
                                 int diff =
-                                        CollatorHelper.ROOT_ORDER.compare(
+                                        CollatorHelper.ROOT_COLLATOR.compare(
                                                 o1.getFirst(), o2.getFirst());
                                 if (diff != 0) {
                                     return diff;

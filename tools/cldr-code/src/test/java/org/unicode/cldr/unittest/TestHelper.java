@@ -211,7 +211,7 @@ public class TestHelper extends TestFmwkPlus {
                 new Comparator<>() {
                     @Override
                     public int compare(String o1, String o2) {
-                        return CollatorHelper.ROOT_ORDER.compare(o1, o2);
+                        return CollatorHelper.ROOT_COLLATOR.compare(o1, o2);
                     }
                 };
         InverseComparator ucaDown = new InverseComparator(uca);

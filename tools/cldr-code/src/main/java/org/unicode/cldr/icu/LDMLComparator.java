@@ -13,7 +13,6 @@ import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.Normalizer;
-import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.util.ULocale;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -28,6 +27,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.Vector;
+import org.unicode.cldr.util.CollatorHelper;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
@@ -114,14 +114,7 @@ public class LDMLComparator {
     }
 
     static Collator getDefaultCollation() {
-        // if (DEFAULT_COLLATION != null) return DEFAULT_COLLATION;
-        RuleBasedCollator temp =
-                (RuleBasedCollator) Collator.getInstance(ULocale.ROOT); // freeze below
-        temp.setStrength(Collator.IDENTICAL);
-        temp.setNumericCollation(true);
-        temp = (RuleBasedCollator) temp.freeze();
-        // DEFAULT_COLLATION = temp;
-        return temp;
+        return CollatorHelper.ROOT_NUMERIC_IDENTICAL;
     }
 
     Hashtable<String, String> optionTable = new Hashtable<>();

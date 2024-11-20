@@ -30,7 +30,7 @@ public class GenerateComparison {
 
     private static PrettyPath prettyPathMaker;
 
-    private static Collator collator = CollatorHelper.ROOT_ORDER;
+    private static Collator collator = CollatorHelper.ROOT_COLLATOR;
 
     static class EnglishRowComparator implements Comparator<R2<String, String>> {
         private static Comparator<String> unicode = new UTF16.StringComparator(true, false, 0);

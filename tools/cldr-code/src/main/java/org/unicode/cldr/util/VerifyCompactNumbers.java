@@ -100,7 +100,7 @@ public class VerifyCompactNumbers {
         DateTimeFormats.writeCss(DIR);
         final CLDRFile english = CLDR_CONFIG.getEnglish();
 
-        Map<String, String> indexMap = new TreeMap<>(CLDR_CONFIG.getCollator());
+        Map<String, String> indexMap = new TreeMap<>(CollatorHelper.EMOJI_COLLATOR);
 
         for (String locale : availableLanguages) {
             if (defaultContentLocales.contains(locale)) {

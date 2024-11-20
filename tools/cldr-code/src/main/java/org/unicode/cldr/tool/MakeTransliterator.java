@@ -50,7 +50,7 @@ public class MakeTransliterator {
 
     static NumberFormat nf = NumberFormat.getInstance(ULocale.ENGLISH);
 
-    static Collator col = CollatorHelper.ROOT_ORDER;
+    static Collator col = CollatorHelper.ROOT_COLLATOR;
 
     static String cldrDataDir =
             "C:\\cvsdata\\unicode\\cldr\\tools\\java\\org\\unicode\\cldr\\util\\data\\transforms\\";

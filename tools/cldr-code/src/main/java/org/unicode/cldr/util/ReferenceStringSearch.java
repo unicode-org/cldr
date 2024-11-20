@@ -27,7 +27,7 @@ import java.util.ArrayList;
 public class ReferenceStringSearch {
     private static final int PADDING = 3;
 
-    private RuleBasedCollator collator = (RuleBasedCollator) CollatorHelper.ROOT_ORDER;
+    private RuleBasedCollator collator = CollatorHelper.ROOT_COLLATOR;
 
     private BreakIterator breaker;
 

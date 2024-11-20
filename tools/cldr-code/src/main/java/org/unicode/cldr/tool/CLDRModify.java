@@ -2102,7 +2102,7 @@ public class CLDRModify {
                 "add annotation names to keywords",
                 new CLDRFilter() {
                     Set<String> available = Annotations.getAllAvailable();
-                    TreeSet<String> sorted = new TreeSet<>(Collator.getInstance(ULocale.ROOT));
+                    TreeSet<String> sorted = new TreeSet<>(CollatorHelper.ROOT_COLLATOR);
                     CLDRFile resolved;
                     Set<String> handledCharacters = new HashSet<>();
                     boolean isTop;

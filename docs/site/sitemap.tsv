@@ -7,15 +7,6 @@
 #	If an item has 'sub items' it becomes a directory parent.		
 #	There must be a single 'index' entry here at the root.		
 index			
-	index/cldr-spec		
-		index/cldr-spec/core-data-for-new-locales	
-		index/cldr-spec/coverage-levels	
-		index/cldr-spec/collation-guidelines	
-		index/cldr-spec/picking-the-right-language-code	
-		index/cldr-spec/plural-rules	
-		index/cldr-spec/transliteration-guidelines	
-		index/cldr-spec/definitions	
-		index/bcp47-extension	
 	index/downloads		
 		downloads/cldr-47	
 		downloads/cldr-46	
@@ -38,17 +29,18 @@ index
 			downloads/cldr-33
 			downloads/cldr-32
 			downloads/cldr-31
-	index/draft-schedule		
-	requesting_changes		
+	index/cldr-spec		
+		index/cldr-spec/core-data-for-new-locales	
+		index/cldr-spec/coverage-levels	
+		index/cldr-spec/collation-guidelines	
+		index/cldr-spec/picking-the-right-language-code	
+		index/cldr-spec/plural-rules	
+		index/cldr-spec/transliteration-guidelines	
+		index/cldr-spec/definitions	
+		index/bcp47-extension	
 	index/charts		
+	requesting_changes		
 	index/acknowledgments		
-	cldr-tc		
-		cldr-tc/design-wg	
-		cldr-tc/message-format-wg	
-		cldr-tc/person-name-wg	
-		cldr-tc/infrastructure-wg	
-		index/keyboard-workgroup	
-		ddl	
 	general-information		
 		index/language-support-levels	
 		index/locale-coverage	
@@ -56,8 +48,7 @@ index
 		index/process/cldr-data-retention-policy	
 		index/requesting-additionsupdates-to-cldr-languagepopulation-data	
 		covered-by-other-projects	
-			
-			
+	index/draft-schedule		
 	translation		
 		translation/getting-started	
 			translation/getting-started/data-stability
@@ -121,6 +112,13 @@ index
 			translation/units
 			translation/units/measurement-systems
 			translation/units/unit-names-and-patterns
+	cldr-tc		
+		cldr-tc/design-wg	
+		cldr-tc/message-format-wg	
+		cldr-tc/person-name-wg	
+		cldr-tc/infrastructure-wg	
+		index/keyboard-workgroup	
+		ddl	
 	development		
 		development/getting-started	
 			development/cldr-development-site

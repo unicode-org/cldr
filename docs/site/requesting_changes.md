@@ -41,7 +41,7 @@ Note: If you are a regular user of that language you can also contribute directl
 
 ### How to File a Ticket
 
-The CLDR tickets are located at: https://unicode-org.atlassian.net/projects/CLDR/.
+The CLDR tickets are located at: [https://unicode-org.atlassian.net/projects/CLDR/](https://unicode-org.atlassian.net/projects/CLDR/).
 
 To file a ticket, click the red "Create" button on the top navigation bar. See [Jira documentation](https://support.atlassian.com/jira-work-management/docs/create-issues-and-subtasks/)
 for additional details on how to create an issue.

@@ -82,7 +82,7 @@ Unicode language identifiers do not allow the "extlang" form defined in BCP 47\.
 
 ### Ethnologue
 
-*When searching, such as* [*site:ethnologue.com ganda*](http://www.google.com/search?q=site%3Aethnologue.com+ganda)*, be sure to completely disregard matches in* [*Ethnologue 14*](http://www.ethnologue.com/14/) *\-\- these are out of date, and do not have the right codes!*
+*When searching, such as* [*site:ethnologue.com ganda*](https://www.ethnologue.com/search/?q=ganda)*, be sure to completely disregard matches in* [*Ethnologue 14*](http://www.ethnologue.com/14/) *\-\- these are out of date, and do not have the right codes!*
 
 The Ethnologue is a great source of information, but it must be approached with a certain degree of caution. Many of the population figures are far out of date, or not well substantiated. The Ethnologue also focus on native, spoken languages, whereas CLDR and many other systems are focused on written language, for computer UI and document translation, and on fluent speakers (not necessarily native speakers). So, for example, it would be a mistake to look at http://www.ethnologue.com/show_country.asp?name=EG and conclude that the right language subtag for the Arabic used in Egypt was "arz", which has the largest population. Instead, the right code is "ar", Standard Arabic, which would be the one used for document and UI translation.
 

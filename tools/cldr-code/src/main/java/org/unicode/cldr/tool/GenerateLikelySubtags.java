@@ -516,6 +516,10 @@ public class GenerateLikelySubtags {
                                 {"arc_Hatr", "arc_Hatr_IQ"},
                                 {"hnj_Hmng", "hnj_Hmng_LA"},
                                 {"bap_Krai", "bap_Krai_IN"},
+
+                                // Cree (macrolanguage) [cr] is spoken by more people than Inukitut [iu]
+                                {"und_Cans", "cr_Cans_CA"},
+                                {"und_Cans_CA", "cr_Cans_CA"},
                             });
 
     /**

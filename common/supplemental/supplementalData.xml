@@ -1475,12 +1475,12 @@ XXX Code for transations where no currency is involved
 		<language type="cop" scripts="Arab Copt Grek" territories="EG" alt="secondary"/>
 		<language type="cps" scripts="Latn"/>
 		<language type="cr" scripts="Cans Latn"/>
-		<language type="cr" territories="CA" alt="secondary"/>
 		<language type="crg" scripts="Latn"/>
 		<language type="crh" scripts="Cyrl"/>
 		<language type="crj" scripts="Cans"/>
 		<language type="crj" scripts="Latn" alt="secondary"/>
 		<language type="crk" scripts="Cans"/>
+		<language type="crk" territories="CA" alt="secondary"/>
 		<language type="crl" scripts="Cans"/>
 		<language type="crl" scripts="Latn" alt="secondary"/>
 		<language type="crm" scripts="Cans"/>
@@ -2047,6 +2047,7 @@ XXX Code for transations where no currency is involved
 		<language type="oj" scripts="Cans"/>
 		<language type="oj" scripts="Latn" alt="secondary"/>
 		<language type="ojs" scripts="Cans"/>
+		<language type="ojw" scripts="Latn"/>
 		<language type="oka" scripts="Latn"/>
 		<language type="om" scripts="Latn"/>
 		<language type="om" scripts="Ethi" territories="ET" alt="secondary"/>
@@ -2686,7 +2687,6 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="ro" populationPercent="0.32" references="R1019"/>	<!--Romanian-->
 			<languagePopulation type="nl" populationPercent="0.3" references="R1019"/>	<!--Dutch-->
 			<languagePopulation type="ja" populationPercent="0.27" references="R1019"/>	<!--Japanese-->
-			<languagePopulation type="cr" populationPercent="0.24" officialStatus="official_regional" references="R1019"/>	<!--Cree-->
 			<languagePopulation type="sr" populationPercent="0.23" references="R1019"/>	<!--Serbian-->
 			<languagePopulation type="tr" populationPercent="0.22" references="R1019"/>	<!--Turkish-->
 			<languagePopulation type="hr" populationPercent="0.2" references="R1019"/>	<!--Croatian-->
@@ -2697,13 +2697,13 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="pdt" populationPercent="0.11" references="R1019"/>	<!--Plautdietsch-->
 			<languagePopulation type="oj" populationPercent="0.072" references="R1019"/>	<!--Ojibwa-->
 			<languagePopulation type="ojs" populationPercent="0.042" references="R1019"/>	<!--Oji-Cree-->
-			<languagePopulation type="crk" populationPercent="0.033" references="R1019"/>	<!--Plains Cree-->
+			<languagePopulation type="crk" populationPercent="0.033" officialStatus="official_regional" references="R1019"/>	<!--Plains Cree-->
 			<languagePopulation type="chp" populationPercent="0.032" officialStatus="official_regional" references="R1019"/>	<!--Chipewyan-->
 			<languagePopulation type="moe" populationPercent="0.03" references="R1019"/>	<!--Innu-aimun-->
 			<languagePopulation type="mic" populationPercent="0.024" references="R1019"/>	<!--Mi'kmaw-->
 			<languagePopulation type="atj" populationPercent="0.018" references="R1019"/>	<!--Atikamekw-->
 			<languagePopulation type="bla" populationPercent="0.017" references="R1019"/>	<!--Siksiká-->
-			<languagePopulation type="cwd" populationPercent="0.013" references="R1019"/>	<!--Woods Cree-->
+			<languagePopulation type="cr" populationPercent="0.013" references="R1019"/>	<!--Cree-->
 			<languagePopulation type="crl" populationPercent="0.013" references="R1019"/>	<!--Northern East Cree-->
 			<languagePopulation type="csw" populationPercent="0.012" references="R1019"/>	<!--Swampy Cree-->
 			<languagePopulation type="war" populationPercent="0.012" references="R1019"/>	<!--Waray-->

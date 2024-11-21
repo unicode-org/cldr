@@ -34,7 +34,6 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.draft.ScriptMetadata;
-import org.unicode.cldr.draft.ScriptMetadata.IdUsage;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
@@ -2049,7 +2048,7 @@ public class ConvertLanguageData {
                                 row);
                         continue;
                     }
-                    
+
                     addLanguage2Script(language, status, script);
                     if (row.size() > 5) {
                         String reference = row.get(5);

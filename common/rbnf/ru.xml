@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2014 Unicode, Inc.
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+Copyright © 1991-2024 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
+SPDX-License-Identifier: Unicode-DFS-2016
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
     <identity>
@@ -21,7 +22,7 @@ For terms of use, see http://www.unicode.org/copyright.html
             </ruleset>
             <ruleset type="spellout-cardinal-masculine">
                 <rbnfrule value="-x">минус →→;</rbnfrule>
-                <rbnfrule value="x.x">[←%spellout-cardinal-feminine← $(cardinal,one{целый}other{целых})$ ]→%%fractions-feminine→;</rbnfrule>
+                <rbnfrule value="x.x">=%spellout-cardinal-feminine=;</rbnfrule>
                 <rbnfrule value="0">ноль;</rbnfrule>
                 <rbnfrule value="1">один;</rbnfrule>
                 <rbnfrule value="2">два;</rbnfrule>
@@ -63,7 +64,7 @@ For terms of use, see http://www.unicode.org/copyright.html
             </ruleset>
             <ruleset type="spellout-cardinal-neuter">
                 <rbnfrule value="-x">минус →→;</rbnfrule>
-                <rbnfrule value="x.x">[←%spellout-cardinal-feminine← $(cardinal,one{целая}other{целых})$ ]→%%fractions-feminine→;</rbnfrule>
+                <rbnfrule value="x.x">=%spellout-cardinal-feminine=;</rbnfrule>
                 <rbnfrule value="0">ноль;</rbnfrule>
                 <rbnfrule value="1">одно;</rbnfrule>
                 <rbnfrule value="2">=%spellout-cardinal-masculine=;</rbnfrule>
@@ -491,9 +492,9 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="100000000000">←%spellout-cardinal-feminine-accusative← $(cardinal,one{стомиллиардную}other{стомиллиардных})$;</rbnfrule>
                 <rbnfrule value="1000000000000">←0←;</rbnfrule>
             </ruleset>
-            <ruleset type="spellout-cardinal-masculine-locative">
+            <ruleset type="spellout-cardinal-masculine-prepositional">
                 <rbnfrule value="-x">минус →→;</rbnfrule>
-                <rbnfrule value="x.x">[←%spellout-cardinal-feminine-locative← $(cardinal,one{целой}other{целых})$ ]→%%fractions-feminine-locative→;</rbnfrule>
+                <rbnfrule value="x.x">[←%spellout-cardinal-feminine-prepositional← $(cardinal,one{целой}other{целых})$ ]→%%fractions-feminine-prepositional→;</rbnfrule>
                 <rbnfrule value="0">нуле;</rbnfrule>
                 <rbnfrule value="1">одном;</rbnfrule>
                 <rbnfrule value="2">двух;</rbnfrule>
@@ -523,20 +524,20 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="80">восьмидесяти[ →→];</rbnfrule>
                 <rbnfrule value="90">девяноста[ →→];</rbnfrule>
                 <rbnfrule value="100">ста[ →→];</rbnfrule>
-                <rbnfrule value="200">←%spellout-cardinal-feminine-locative←стах[ →→];</rbnfrule>
-                <rbnfrule value="1000">←%spellout-cardinal-feminine-locative← $(cardinal,one{тысяче}other{тысячах})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000">←%spellout-cardinal-masculine-locative← $(cardinal,one{миллионе}other{миллионах})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">←%spellout-cardinal-masculine-locative← $(cardinal,one{миллиарде}other{миллиардах})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine-locative← $(cardinal,one{триллионе}other{триллионах})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine-locative← $(cardinal,one{квадриллионе}other{квадриллионах})$[ →→];</rbnfrule>
+                <rbnfrule value="200">←%spellout-cardinal-feminine-prepositional←стах[ →→];</rbnfrule>
+                <rbnfrule value="1000">←%spellout-cardinal-feminine-prepositional← $(cardinal,one{тысяче}other{тысячах})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000">←%spellout-cardinal-masculine-prepositional← $(cardinal,one{миллионе}other{миллионах})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">←%spellout-cardinal-masculine-prepositional← $(cardinal,one{миллиарде}other{миллиардах})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine-prepositional← $(cardinal,one{триллионе}other{триллионах})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine-prepositional← $(cardinal,one{квадриллионе}other{квадриллионах})$[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
-            <ruleset type="spellout-cardinal-neuter-locative">
+            <ruleset type="spellout-cardinal-neuter-prepositional">
                 <rbnfrule value="-x">минус →→;</rbnfrule>
-                <rbnfrule value="x.x">[←%spellout-cardinal-feminine-locative← $(cardinal,one{целой}other{целых})$ ]→%%fractions-feminine-locative→;</rbnfrule>
+                <rbnfrule value="x.x">[←%spellout-cardinal-feminine-prepositional← $(cardinal,one{целой}other{целых})$ ]→%%fractions-feminine-prepositional→;</rbnfrule>
                 <rbnfrule value="0">нуле;</rbnfrule>
                 <rbnfrule value="1">одном;</rbnfrule>
-                <rbnfrule value="2">=%spellout-cardinal-masculine-locative=;</rbnfrule>
+                <rbnfrule value="2">=%spellout-cardinal-masculine-prepositional=;</rbnfrule>
                 <rbnfrule value="20">двадцати[ →→];</rbnfrule>
                 <rbnfrule value="30">тридцати[ →→];</rbnfrule>
                 <rbnfrule value="40">сорока[ →→];</rbnfrule>
@@ -546,20 +547,20 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="80">восьмидесяти[ →→];</rbnfrule>
                 <rbnfrule value="90">девяноста[ →→];</rbnfrule>
                 <rbnfrule value="100">ста[ →→];</rbnfrule>
-                <rbnfrule value="200">←%spellout-cardinal-feminine-locative←стах[ →→];</rbnfrule>
-                <rbnfrule value="1000">←%spellout-cardinal-feminine-locative← $(cardinal,one{тысяче}other{тысячах})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000">←%spellout-cardinal-masculine-locative← $(cardinal,one{миллионе}other{миллионах})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">←%spellout-cardinal-masculine-locative← $(cardinal,one{миллиарде}other{миллиардах})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine-locative← $(cardinal,one{триллионе}other{триллионах})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine-locative← $(cardinal,one{квадриллионе}other{квадриллионах})$[ →→];</rbnfrule>
+                <rbnfrule value="200">←%spellout-cardinal-feminine-prepositional←стах[ →→];</rbnfrule>
+                <rbnfrule value="1000">←%spellout-cardinal-feminine-prepositional← $(cardinal,one{тысяче}other{тысячах})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000">←%spellout-cardinal-masculine-prepositional← $(cardinal,one{миллионе}other{миллионах})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">←%spellout-cardinal-masculine-prepositional← $(cardinal,one{миллиарде}other{миллиардах})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine-prepositional← $(cardinal,one{триллионе}other{триллионах})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine-prepositional← $(cardinal,one{квадриллионе}other{квадриллионах})$[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
-            <ruleset type="spellout-cardinal-feminine-locative">
+            <ruleset type="spellout-cardinal-feminine-prepositional">
                 <rbnfrule value="-x">минус →→;</rbnfrule>
-                <rbnfrule value="x.x">[←← $(cardinal,one{целой}other{целых})$ ]→%%fractions-feminine-locative→;</rbnfrule>
+                <rbnfrule value="x.x">[←← $(cardinal,one{целой}other{целых})$ ]→%%fractions-feminine-prepositional→;</rbnfrule>
                 <rbnfrule value="0">нуле;</rbnfrule>
                 <rbnfrule value="1">одной;</rbnfrule>
-                <rbnfrule value="2">=%spellout-cardinal-masculine-locative=;</rbnfrule>
+                <rbnfrule value="2">=%spellout-cardinal-masculine-prepositional=;</rbnfrule>
                 <rbnfrule value="20">двадцати[ →→];</rbnfrule>
                 <rbnfrule value="30">тридцати[ →→];</rbnfrule>
                 <rbnfrule value="40">сорока[ →→];</rbnfrule>
@@ -569,20 +570,20 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="80">восьмидесяти[ →→];</rbnfrule>
                 <rbnfrule value="90">девяноста[ →→];</rbnfrule>
                 <rbnfrule value="100">ста[ →→];</rbnfrule>
-                <rbnfrule value="200">←%spellout-cardinal-feminine-locative←стах[ →→];</rbnfrule>
-                <rbnfrule value="1000">←%spellout-cardinal-feminine-locative← $(cardinal,one{тысяче}other{тысячах})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000">←%spellout-cardinal-masculine-locative← $(cardinal,one{миллионе}other{миллионах})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">←%spellout-cardinal-masculine-locative← $(cardinal,one{миллиарде}other{миллиардах})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine-locative← $(cardinal,one{триллионе}other{триллионах})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine-locative← $(cardinal,one{квадриллионе}other{квадриллионах})$[ →→];</rbnfrule>
+                <rbnfrule value="200">←%spellout-cardinal-feminine-prepositional←стах[ →→];</rbnfrule>
+                <rbnfrule value="1000">←%spellout-cardinal-feminine-prepositional← $(cardinal,one{тысяче}other{тысячах})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000">←%spellout-cardinal-masculine-prepositional← $(cardinal,one{миллионе}other{миллионах})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">←%spellout-cardinal-masculine-prepositional← $(cardinal,one{миллиарде}other{миллиардах})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine-prepositional← $(cardinal,one{триллионе}other{триллионах})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine-prepositional← $(cardinal,one{квадриллионе}other{квадриллионах})$[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
-            <ruleset type="spellout-cardinal-plural-locative">
+            <ruleset type="spellout-cardinal-plural-prepositional">
                 <rbnfrule value="-x">минус →→;</rbnfrule>
                 <rbnfrule value="x.x">←← запятая →→;</rbnfrule>
                 <rbnfrule value="0">нуле;</rbnfrule>
                 <rbnfrule value="1">одних;</rbnfrule>
-                <rbnfrule value="2">=%spellout-cardinal-masculine-locative=;</rbnfrule>
+                <rbnfrule value="2">=%spellout-cardinal-masculine-prepositional=;</rbnfrule>
                 <rbnfrule value="20">двадцати[ →→];</rbnfrule>
                 <rbnfrule value="30">тридцати[ →→];</rbnfrule>
                 <rbnfrule value="40">сорока[ →→];</rbnfrule>
@@ -592,31 +593,44 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="80">восьмидесяти[ →→];</rbnfrule>
                 <rbnfrule value="90">девяноста[ →→];</rbnfrule>
                 <rbnfrule value="100">ста[ →→];</rbnfrule>
-                <rbnfrule value="200">←%spellout-cardinal-feminine-locative←стах[ →→];</rbnfrule>
-                <rbnfrule value="1000">←%spellout-cardinal-feminine-locative← $(cardinal,one{тысяче}other{тысячах})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000">←%spellout-cardinal-masculine-locative← $(cardinal,one{миллионе}other{миллионах})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">←%spellout-cardinal-masculine-locative← $(cardinal,one{миллиарде}other{миллиардах})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine-locative← $(cardinal,one{триллионе}other{триллионах})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine-locative← $(cardinal,one{квадриллионе}other{квадриллионах})$[ →→];</rbnfrule>
+                <rbnfrule value="200">←%spellout-cardinal-feminine-prepositional←стах[ →→];</rbnfrule>
+                <rbnfrule value="1000">←%spellout-cardinal-feminine-prepositional← $(cardinal,one{тысяче}other{тысячах})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000">←%spellout-cardinal-masculine-prepositional← $(cardinal,one{миллионе}other{миллионах})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">←%spellout-cardinal-masculine-prepositional← $(cardinal,one{миллиарде}other{миллиардах})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine-prepositional← $(cardinal,one{триллионе}other{триллионах})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine-prepositional← $(cardinal,one{квадриллионе}other{квадриллионах})$[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
-            <ruleset type="fractions-feminine-locative" access="private">
-                <rbnfrule value="10">←%spellout-cardinal-feminine-locative← $(cardinal,one{десятой}other{десятых})$;</rbnfrule>
-                <rbnfrule value="100">←%spellout-cardinal-feminine-locative← $(cardinal,one{сотой}other{сотых})$;</rbnfrule>
-                <rbnfrule value="1000">←%spellout-cardinal-feminine-locative← $(cardinal,one{тысячной}other{тысячных})$;</rbnfrule>
-                <rbnfrule value="10000">←%spellout-cardinal-feminine-locative← $(cardinal,one{десятитысячной}other{десятитысячных})$;</rbnfrule>
-                <rbnfrule value="100000">←%spellout-cardinal-feminine-locative← $(cardinal,one{стотысячной}other{стотысячных})$;</rbnfrule>
-                <rbnfrule value="1000000">←%spellout-cardinal-feminine-locative← $(cardinal,one{миллионной}other{миллионных})$;</rbnfrule>
-                <rbnfrule value="10000000">←%spellout-cardinal-feminine-locative← $(cardinal,one{десятимиллионной}other{десятимиллионных})$;</rbnfrule>
-                <rbnfrule value="100000000">←%spellout-cardinal-feminine-locative← $(cardinal,one{стомиллионной}other{стомиллионных})$;</rbnfrule>
-                <rbnfrule value="1000000000">←%spellout-cardinal-feminine-locative← $(cardinal,one{миллиардной}other{миллиардных})$;</rbnfrule>
-                <rbnfrule value="10000000000">←%spellout-cardinal-feminine-locative← $(cardinal,one{десятимиллиардной}other{десятимиллиардных})$;</rbnfrule>
-                <rbnfrule value="100000000000">←%spellout-cardinal-feminine-locative← $(cardinal,one{стомиллиардной}other{стомиллиардных})$;</rbnfrule>
+            <ruleset type="fractions-feminine-prepositional" access="private">
+                <rbnfrule value="10">←%spellout-cardinal-feminine-prepositional← $(cardinal,one{десятой}other{десятых})$;</rbnfrule>
+                <rbnfrule value="100">←%spellout-cardinal-feminine-prepositional← $(cardinal,one{сотой}other{сотых})$;</rbnfrule>
+                <rbnfrule value="1000">←%spellout-cardinal-feminine-prepositional← $(cardinal,one{тысячной}other{тысячных})$;</rbnfrule>
+                <rbnfrule value="10000">←%spellout-cardinal-feminine-prepositional← $(cardinal,one{десятитысячной}other{десятитысячных})$;</rbnfrule>
+                <rbnfrule value="100000">←%spellout-cardinal-feminine-prepositional← $(cardinal,one{стотысячной}other{стотысячных})$;</rbnfrule>
+                <rbnfrule value="1000000">←%spellout-cardinal-feminine-prepositional← $(cardinal,one{миллионной}other{миллионных})$;</rbnfrule>
+                <rbnfrule value="10000000">←%spellout-cardinal-feminine-prepositional← $(cardinal,one{десятимиллионной}other{десятимиллионных})$;</rbnfrule>
+                <rbnfrule value="100000000">←%spellout-cardinal-feminine-prepositional← $(cardinal,one{стомиллионной}other{стомиллионных})$;</rbnfrule>
+                <rbnfrule value="1000000000">←%spellout-cardinal-feminine-prepositional← $(cardinal,one{миллиардной}other{миллиардных})$;</rbnfrule>
+                <rbnfrule value="10000000000">←%spellout-cardinal-feminine-prepositional← $(cardinal,one{десятимиллиардной}other{десятимиллиардных})$;</rbnfrule>
+                <rbnfrule value="100000000000">←%spellout-cardinal-feminine-prepositional← $(cardinal,one{стомиллиардной}other{стомиллиардных})$;</rbnfrule>
                 <rbnfrule value="1000000000000">←0←;</rbnfrule>
             </ruleset>
-            <ruleset type="spellout-cardinal-masculine-ablative">
+            <!-- These are deprecated locative rule names that incorrectly chose the wrong names for the prepositional grammatical case. -->
+            <ruleset type="spellout-cardinal-masculine-locative">
+                <rbnfrule value="0">=%spellout-cardinal-masculine-prepositional=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-cardinal-neuter-locative">
+                <rbnfrule value="0">=%spellout-cardinal-neuter-prepositional=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-cardinal-feminine-locative">
+                <rbnfrule value="0">=%spellout-cardinal-feminine-prepositional=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-cardinal-plural-locative">
+                <rbnfrule value="0">=%spellout-cardinal-plural-prepositional=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-cardinal-masculine-instrumental">
                 <rbnfrule value="-x">минус →→;</rbnfrule>
-                <rbnfrule value="x.x">[←%spellout-cardinal-feminine-ablative← $(cardinal,one{целой}other{целыми})$ ]→%%fractions-feminine-ablative→;</rbnfrule>
+                <rbnfrule value="x.x">[←%spellout-cardinal-feminine-instrumental← $(cardinal,one{целой}other{целыми})$ ]→%%fractions-feminine-instrumental→;</rbnfrule>
                 <rbnfrule value="0">нулем;</rbnfrule>
                 <rbnfrule value="1">одним;</rbnfrule>
                 <rbnfrule value="2">двумя;</rbnfrule>
@@ -646,23 +660,23 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="80">восемьюдесятью[ →→];</rbnfrule>
                 <rbnfrule value="90">девяноста[ →→];</rbnfrule>
                 <rbnfrule value="100">ста[ →→];</rbnfrule>
-                <rbnfrule value="200">←%spellout-cardinal-feminine-ablative←стами[ →→];</rbnfrule>
-                <rbnfrule value="1000">←%spellout-cardinal-feminine-ablative← $(cardinal,one{тысячей}other{тысячами})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000">←%spellout-cardinal-masculine-ablative← $(cardinal,one{миллионом}other{миллионами})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">←%spellout-cardinal-masculine-ablative← $(cardinal,one{миллиардом}other{миллиардами})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine-ablative← $(cardinal,one{триллионом}other{триллионами})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine-ablative← $(cardinal,one{квадриллионом}other{квадриллионами})$[ →→];</rbnfrule>
+                <rbnfrule value="200">←%spellout-cardinal-feminine-instrumental←стами[ →→];</rbnfrule>
+                <rbnfrule value="1000">←%spellout-cardinal-feminine-instrumental← $(cardinal,one{тысячей}other{тысячами})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000">←%spellout-cardinal-masculine-instrumental← $(cardinal,one{миллионом}other{миллионами})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">←%spellout-cardinal-masculine-instrumental← $(cardinal,one{миллиардом}other{миллиардами})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine-instrumental← $(cardinal,one{триллионом}other{триллионами})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine-instrumental← $(cardinal,one{квадриллионом}other{квадриллионами})$[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
-            <ruleset type="spellout-cardinal-neuter-ablative">
-                <rbnfrule value="0">=%spellout-cardinal-masculine-ablative=;</rbnfrule>
+            <ruleset type="spellout-cardinal-neuter-instrumental">
+                <rbnfrule value="0">=%spellout-cardinal-masculine-instrumental=;</rbnfrule>
             </ruleset>
-            <ruleset type="spellout-cardinal-feminine-ablative">
+            <ruleset type="spellout-cardinal-feminine-instrumental">
                 <rbnfrule value="-x">минус →→;</rbnfrule>
-                <rbnfrule value="x.x">[←%spellout-cardinal-feminine-ablative← $(cardinal,one{целой}other{целыми})$ ]→%%fractions-feminine-ablative→;</rbnfrule>
+                <rbnfrule value="x.x">[←%spellout-cardinal-feminine-instrumental← $(cardinal,one{целой}other{целыми})$ ]→%%fractions-feminine-instrumental→;</rbnfrule>
                 <rbnfrule value="0">нулем;</rbnfrule>
                 <rbnfrule value="1">одной;</rbnfrule>
-                <rbnfrule value="2">=%spellout-cardinal-masculine-ablative=;</rbnfrule>
+                <rbnfrule value="2">=%spellout-cardinal-masculine-instrumental=;</rbnfrule>
                 <rbnfrule value="20">двадцатью[ →→];</rbnfrule>
                 <rbnfrule value="30">тридцатью[ →→];</rbnfrule>
                 <rbnfrule value="40">сорока[ →→];</rbnfrule>
@@ -672,20 +686,20 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="80">восемьюдесятью[ →→];</rbnfrule>
                 <rbnfrule value="90">девяноста[ →→];</rbnfrule>
                 <rbnfrule value="100">ста[ →→];</rbnfrule>
-                <rbnfrule value="200">←%spellout-cardinal-feminine-ablative←стами[ →→];</rbnfrule>
-                <rbnfrule value="1000">←%spellout-cardinal-feminine-ablative← $(cardinal,one{тысячей}other{тысячами})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000">←%spellout-cardinal-masculine-ablative← $(cardinal,one{миллионом}other{миллионами})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">←%spellout-cardinal-masculine-ablative← $(cardinal,one{миллиардом}other{миллиардами})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine-ablative← $(cardinal,one{триллионом}other{триллионами})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine-ablative← $(cardinal,one{квадриллионом}other{квадриллионами})$[ →→];</rbnfrule>
+                <rbnfrule value="200">←%spellout-cardinal-feminine-instrumental←стами[ →→];</rbnfrule>
+                <rbnfrule value="1000">←%spellout-cardinal-feminine-instrumental← $(cardinal,one{тысячей}other{тысячами})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000">←%spellout-cardinal-masculine-instrumental← $(cardinal,one{миллионом}other{миллионами})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">←%spellout-cardinal-masculine-instrumental← $(cardinal,one{миллиардом}other{миллиардами})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine-instrumental← $(cardinal,one{триллионом}other{триллионами})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine-instrumental← $(cardinal,one{квадриллионом}other{квадриллионами})$[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
-            <ruleset type="spellout-cardinal-plural-ablative">
+            <ruleset type="spellout-cardinal-plural-instrumental">
                 <rbnfrule value="-x">минус →→;</rbnfrule>
                 <rbnfrule value="x.x">←← запятая →→;</rbnfrule>
                 <rbnfrule value="0">нулем;</rbnfrule>
                 <rbnfrule value="1">одними;</rbnfrule>
-                <rbnfrule value="2">=%spellout-cardinal-masculine-ablative=;</rbnfrule>
+                <rbnfrule value="2">=%spellout-cardinal-masculine-instrumental=;</rbnfrule>
                 <rbnfrule value="20">двадцатью[ →→];</rbnfrule>
                 <rbnfrule value="30">тридцатью[ →→];</rbnfrule>
                 <rbnfrule value="40">сорока[ →→];</rbnfrule>
@@ -695,27 +709,40 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="80">восемьюдесятью[ →→];</rbnfrule>
                 <rbnfrule value="90">девяноста[ →→];</rbnfrule>
                 <rbnfrule value="100">ста[ →→];</rbnfrule>
-                <rbnfrule value="200">←%spellout-cardinal-feminine-ablative←стами[ →→];</rbnfrule>
-                <rbnfrule value="1000">←%spellout-cardinal-feminine-ablative← $(cardinal,one{тысячей}other{тысячами})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000">←%spellout-cardinal-masculine-ablative← $(cardinal,one{миллионом}other{миллионами})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">←%spellout-cardinal-masculine-ablative← $(cardinal,one{миллиардом}other{миллиардами})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine-ablative← $(cardinal,one{триллионом}other{триллионами})$[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine-ablative← $(cardinal,one{квадриллионом}other{квадриллионами})$[ →→];</rbnfrule>
+                <rbnfrule value="200">←%spellout-cardinal-feminine-instrumental←стами[ →→];</rbnfrule>
+                <rbnfrule value="1000">←%spellout-cardinal-feminine-instrumental← $(cardinal,one{тысячей}other{тысячами})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000">←%spellout-cardinal-masculine-instrumental← $(cardinal,one{миллионом}other{миллионами})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">←%spellout-cardinal-masculine-instrumental← $(cardinal,one{миллиардом}other{миллиардами})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine-instrumental← $(cardinal,one{триллионом}other{триллионами})$[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine-instrumental← $(cardinal,one{квадриллионом}other{квадриллионами})$[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
-            <ruleset type="fractions-feminine-ablative" access="private">
-                <rbnfrule value="10">←%spellout-cardinal-feminine-ablative← $(cardinal,one{десятой}other{десятыми})$;</rbnfrule>
-                <rbnfrule value="100">←%spellout-cardinal-feminine-ablative← $(cardinal,one{сотой}other{сотыми})$;</rbnfrule>
-                <rbnfrule value="1000">←%spellout-cardinal-feminine-ablative← $(cardinal,one{тысячной}other{тысячными})$;</rbnfrule>
-                <rbnfrule value="10000">←%spellout-cardinal-feminine-ablative← $(cardinal,one{десятитысячной}other{десятитысячными})$;</rbnfrule>
-                <rbnfrule value="100000">←%spellout-cardinal-feminine-ablative← $(cardinal,one{стотысячной}other{стотысячными})$;</rbnfrule>
-                <rbnfrule value="1000000">←%spellout-cardinal-feminine-ablative← $(cardinal,one{миллионной}other{миллионными})$;</rbnfrule>
-                <rbnfrule value="10000000">←%spellout-cardinal-feminine-ablative← $(cardinal,one{десятимиллионной}other{десятимиллионными})$;</rbnfrule>
-                <rbnfrule value="100000000">←%spellout-cardinal-feminine-ablative← $(cardinal,one{стомиллионной}other{стомиллионными})$;</rbnfrule>
-                <rbnfrule value="1000000000">←%spellout-cardinal-feminine-ablative← $(cardinal,one{миллиардной}other{миллиардными})$;</rbnfrule>
-                <rbnfrule value="10000000000">←%spellout-cardinal-feminine-ablative← $(cardinal,one{десятимиллиардной}other{десятимиллиардными})$;</rbnfrule>
-                <rbnfrule value="100000000000">←%spellout-cardinal-feminine-ablative← $(cardinal,one{стомиллиардной}other{стомиллиардными})$;</rbnfrule>
+            <ruleset type="fractions-feminine-instrumental" access="private">
+                <rbnfrule value="10">←%spellout-cardinal-feminine-instrumental← $(cardinal,one{десятой}other{десятыми})$;</rbnfrule>
+                <rbnfrule value="100">←%spellout-cardinal-feminine-instrumental← $(cardinal,one{сотой}other{сотыми})$;</rbnfrule>
+                <rbnfrule value="1000">←%spellout-cardinal-feminine-instrumental← $(cardinal,one{тысячной}other{тысячными})$;</rbnfrule>
+                <rbnfrule value="10000">←%spellout-cardinal-feminine-instrumental← $(cardinal,one{десятитысячной}other{десятитысячными})$;</rbnfrule>
+                <rbnfrule value="100000">←%spellout-cardinal-feminine-instrumental← $(cardinal,one{стотысячной}other{стотысячными})$;</rbnfrule>
+                <rbnfrule value="1000000">←%spellout-cardinal-feminine-instrumental← $(cardinal,one{миллионной}other{миллионными})$;</rbnfrule>
+                <rbnfrule value="10000000">←%spellout-cardinal-feminine-instrumental← $(cardinal,one{десятимиллионной}other{десятимиллионными})$;</rbnfrule>
+                <rbnfrule value="100000000">←%spellout-cardinal-feminine-instrumental← $(cardinal,one{стомиллионной}other{стомиллионными})$;</rbnfrule>
+                <rbnfrule value="1000000000">←%spellout-cardinal-feminine-instrumental← $(cardinal,one{миллиардной}other{миллиардными})$;</rbnfrule>
+                <rbnfrule value="10000000000">←%spellout-cardinal-feminine-instrumental← $(cardinal,one{десятимиллиардной}other{десятимиллиардными})$;</rbnfrule>
+                <rbnfrule value="100000000000">←%spellout-cardinal-feminine-instrumental← $(cardinal,one{стомиллиардной}other{стомиллиардными})$;</rbnfrule>
                 <rbnfrule value="1000000000000">←0←;</rbnfrule>
+            </ruleset>
+            <!-- These are deprecated ablative rule names that incorrectly chose the wrong names for the instrumental grammatical case. -->
+            <ruleset type="spellout-cardinal-masculine-ablative">
+                <rbnfrule value="0">=%spellout-cardinal-masculine-instrumental=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-cardinal-neuter-ablative">
+                <rbnfrule value="0">=%spellout-cardinal-neuter-instrumental=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-cardinal-feminine-ablative">
+                <rbnfrule value="0">=%spellout-cardinal-feminine-instrumental=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-cardinal-plural-ablative">
+                <rbnfrule value="0">=%spellout-cardinal-plural-instrumental=;</rbnfrule>
             </ruleset>
             <ruleset type="yj" access="private">
                 <rbnfrule value="0">ный;</rbnfrule>
@@ -1287,7 +1314,7 @@ For terms of use, see http://www.unicode.org/copyright.html
             <ruleset type="spellout-ordinal-plural-accusative">
                 <rbnfrule value="0">=%spellout-ordinal-plural=;</rbnfrule>
             </ruleset>
-            <ruleset type="spellout-ordinal-masculine-locative">
+            <ruleset type="spellout-ordinal-masculine-prepositional">
                 <rbnfrule value="-x">минус →→;</rbnfrule>
                 <rbnfrule value="x.x">=0.#=;</rbnfrule>
                 <rbnfrule value="0">нулевом;</rbnfrule>
@@ -1339,8 +1366,20 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="5001" radix="1000">←%%thousandsprefixseparate←тысяч[ →→];</rbnfrule>
                 <rbnfrule value="21001">=0=-м;</rbnfrule>
             </ruleset>
+            <ruleset type="spellout-ordinal-neuter-prepositional">
+                <rbnfrule value="0">=%spellout-ordinal-masculine-prepositional=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-feminine-prepositional">
+                <rbnfrule value="0">=%spellout-ordinal-feminine-genitive=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-plural-prepositional">
+                <rbnfrule value="0">=%spellout-ordinal-plural-genitive=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-masculine-locative">
+                <rbnfrule value="0">=%spellout-ordinal-masculine-prepositional=;</rbnfrule>
+            </ruleset>
             <ruleset type="spellout-ordinal-neuter-locative">
-                <rbnfrule value="0">=%spellout-ordinal-masculine-locative=;</rbnfrule>
+                <rbnfrule value="0">=%spellout-ordinal-masculine-prepositional=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal-feminine-locative">
                 <rbnfrule value="0">=%spellout-ordinal-feminine-genitive=;</rbnfrule>
@@ -1348,7 +1387,7 @@ For terms of use, see http://www.unicode.org/copyright.html
             <ruleset type="spellout-ordinal-plural-locative">
                 <rbnfrule value="0">=%spellout-ordinal-plural-genitive=;</rbnfrule>
             </ruleset>
-            <ruleset type="spellout-ordinal-masculine-ablative">
+            <ruleset type="spellout-ordinal-masculine-instrumental">
                 <rbnfrule value="-x">минус →→;</rbnfrule>
                 <rbnfrule value="x.x">=0.#=;</rbnfrule>
                 <rbnfrule value="0">нулевым;</rbnfrule>
@@ -1400,13 +1439,13 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="5001" radix="1000">←%%thousandsprefixseparate←тысяч[ →→];</rbnfrule>
                 <rbnfrule value="21001">=0=-м;</rbnfrule>
             </ruleset>
-            <ruleset type="spellout-ordinal-neuter-ablative">
-                <rbnfrule value="0">=%spellout-ordinal-masculine-ablative=;</rbnfrule>
+            <ruleset type="spellout-ordinal-neuter-instrumental">
+                <rbnfrule value="0">=%spellout-ordinal-masculine-instrumental=;</rbnfrule>
             </ruleset>
-            <ruleset type="spellout-ordinal-feminine-ablative">
+            <ruleset type="spellout-ordinal-feminine-instrumental">
                 <rbnfrule value="0">=%spellout-ordinal-feminine-genitive=;</rbnfrule>
             </ruleset>
-            <ruleset type="spellout-ordinal-plural-ablative">
+            <ruleset type="spellout-ordinal-plural-instrumental">
                 <rbnfrule value="-x">минус →→;</rbnfrule>
                 <rbnfrule value="x.x">=0.#=;</rbnfrule>
                 <rbnfrule value="0">нулевыми;</rbnfrule>
@@ -1457,6 +1496,18 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="5000" radix="1000">←%%thousandsprefixconjoined←тысячными;</rbnfrule>
                 <rbnfrule value="5001" radix="1000">←%%thousandsprefixseparate←тысяч[ →→];</rbnfrule>
                 <rbnfrule value="21001">=0=-ми;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-masculine-ablative">
+                <rbnfrule value="0">=%spellout-ordinal-masculine-instrumental=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-neuter-ablative">
+                <rbnfrule value="0">=%spellout-ordinal-masculine-instrumental=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-feminine-ablative">
+                <rbnfrule value="0">=%spellout-ordinal-feminine-genitive=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-plural-ablative">
+                <rbnfrule value="0">=%spellout-ordinal-plural-instrumental=;</rbnfrule>
             </ruleset>
         </rulesetGrouping>
         <rulesetGrouping type="OrdinalRules">
@@ -1528,37 +1579,61 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="-x">−→→;</rbnfrule>
                 <rbnfrule value="0">=#,##0=-e;</rbnfrule>
             </ruleset>
-            <ruleset type="digits-ordinal-masculine-locative">
+            <ruleset type="digits-ordinal-masculine-prepositional">
                 <rbnfrule value="-x">−→→;</rbnfrule>
                 <rbnfrule value="0">=#,##0=-м;</rbnfrule>
             </ruleset>
-            <ruleset type="digits-ordinal-neuter-locative">
+            <ruleset type="digits-ordinal-neuter-prepositional">
                 <rbnfrule value="-x">−→→;</rbnfrule>
                 <rbnfrule value="0">=#,##0=-м;</rbnfrule>
             </ruleset>
-            <ruleset type="digits-ordinal-feminine-locative">
+            <ruleset type="digits-ordinal-feminine-prepositional">
                 <rbnfrule value="-x">−→→;</rbnfrule>
                 <rbnfrule value="0">=#,##0=-й;</rbnfrule>
             </ruleset>
-            <ruleset type="digits-ordinal-plural-locative">
+            <ruleset type="digits-ordinal-plural-prepositional">
                 <rbnfrule value="-x">−→→;</rbnfrule>
                 <rbnfrule value="0">=#,##0=-х;</rbnfrule>
             </ruleset>
-            <ruleset type="digits-ordinal-masculine-ablative">
+            <ruleset type="digits-ordinal-masculine-locative">
+                <rbnfrule value="0">=%digits-ordinal-masculine-prepositional=;</rbnfrule>
+            </ruleset>
+            <ruleset type="digits-ordinal-neuter-locative">
+                <rbnfrule value="0">=%digits-ordinal-neuter-prepositional=;</rbnfrule>
+            </ruleset>
+            <ruleset type="digits-ordinal-feminine-locative">
+                <rbnfrule value="0">=%digits-ordinal-feminine-prepositional=;</rbnfrule>
+            </ruleset>
+            <ruleset type="digits-ordinal-plural-locative">
+                <rbnfrule value="0">=%digits-ordinal-plural-prepositional=;</rbnfrule>
+            </ruleset>
+            <ruleset type="digits-ordinal-masculine-instrumental">
                 <rbnfrule value="-x">−→→;</rbnfrule>
                 <rbnfrule value="0">=#,##0=-м;</rbnfrule>
             </ruleset>
-            <ruleset type="digits-ordinal-neuter-ablative">
+            <ruleset type="digits-ordinal-neuter-instrumental">
                 <rbnfrule value="-x">−→→;</rbnfrule>
                 <rbnfrule value="0">=#,##0=-м;</rbnfrule>
             </ruleset>
-            <ruleset type="digits-ordinal-feminine-ablative">
+            <ruleset type="digits-ordinal-feminine-instrumental">
                 <rbnfrule value="-x">−→→;</rbnfrule>
                 <rbnfrule value="0">=#,##0=-й;</rbnfrule>
             </ruleset>
-            <ruleset type="digits-ordinal-plural-ablative">
+            <ruleset type="digits-ordinal-plural-instrumental">
                 <rbnfrule value="-x">−→→;</rbnfrule>
                 <rbnfrule value="0">=#,##0=-ми;</rbnfrule>
+            </ruleset>
+            <ruleset type="digits-ordinal-masculine-ablative">
+                <rbnfrule value="0">=%digits-ordinal-masculine-instrumental=;</rbnfrule>
+            </ruleset>
+            <ruleset type="digits-ordinal-neuter-ablative">
+                <rbnfrule value="0">=%digits-ordinal-neuter-instrumental=;</rbnfrule>
+            </ruleset>
+            <ruleset type="digits-ordinal-feminine-ablative">
+                <rbnfrule value="0">=%digits-ordinal-feminine-instrumental=;</rbnfrule>
+            </ruleset>
+            <ruleset type="digits-ordinal-plural-ablative">
+                <rbnfrule value="0">=%digits-ordinal-plural-instrumental=;</rbnfrule>
             </ruleset>
         </rulesetGrouping>
     </rbnf>

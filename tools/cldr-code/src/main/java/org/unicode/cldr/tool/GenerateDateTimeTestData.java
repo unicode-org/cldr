@@ -53,9 +53,13 @@ public class GenerateDateTimeTestData {
 
     /**
      * The known set of values used to indicate the type of "glue pattern" aka the dateTimeFormat
-     * type. atTime = the word "at" is inserted between the date and time when formatting both date
-     * &time together standard = do not insert the word "at". (ex: in `en`, there may or may not be
-     * a comma instead to separate)
+     * type.
+     *
+     * <p>atTime = the word "at" is inserted between the date and time when formatting both date &
+     * time together.
+     *
+     * <p>standard = do not insert the word "at". (ex: in `en`, there may or may not be a comma
+     * instead to separate)
      */
     private static final Set<String> CLDR_DATE_TIME_FORMAT_TYPES =
             ImmutableSet.of("standard", "atTime");

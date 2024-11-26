@@ -15,6 +15,7 @@ import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.UnicodeSet;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
@@ -22,6 +23,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -46,12 +48,14 @@ import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XListFormatter;
 import org.unicode.cldr.util.XListFormatter.ListTypeLength;
+import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 
 public class TestAnnotations extends TestFmwkPlus {
     private static final String APPS_EMOJI_DIRECTORY =
             CLDRPaths.BASE_DIRECTORY + "/tools/cldr-apps/src/main/webapp/images/emoji";
     private static final boolean DEBUG = false;
+    private static final boolean TEST_ONLY_ENGLISH_UNIQUENESS = false;
 
     public static void main(String[] args) {
         new TestAnnotations().run(args);
@@ -277,14 +281,17 @@ public class TestAnnotations extends TestFmwkPlus {
     }
 
     public void TestUniqueness() {
-        if (logKnownIssue(
-                "CLDR-16947", "skip duplicate TestUniqueness in favor of CheckDisplayCollisions")) {
-            return;
-        }
+        //        if (logKnownIssue(
+        //                "CLDR-16947", "skip duplicate TestUniqueness in favor of
+        // CheckDisplayCollisions")) {
+        //            return;
+        //        }
         Set<String> locales = new TreeSet<>();
         locales.add("en");
-        locales.addAll(Annotations.getAvailable());
-        locales.remove("root");
+        if (!TEST_ONLY_ENGLISH_UNIQUENESS) {
+            locales.addAll(Annotations.getAvailable());
+            locales.remove("root");
+        }
         /*
          * Note: "problems" here is a work-around for what appears to be a deficiency
          * in the function sourceLocation, involving the call stack. Seemingly sourceLocation
@@ -681,5 +688,80 @@ public class TestAnnotations extends TestFmwkPlus {
                                 + uset.toPattern(false));
             }
         }
+    }
+
+    /**
+     * We test that all emoji have English annotations. This may fail when the emoji are updated for
+     * a new version of Unicode, if the algorithm for computing derived annotations needs updating.
+     *
+     * <pre>
+     * <annotation cp="👋🏻">bye | cya | g2g | greetings | gtg | hand | hello</annotation>
+     * <annotation cp="👋🏻" type="tts">waving hand: light skin tone</annotation>
+     * </pre>
+     */
+    public void testCompleteness() {
+        UnicodeSet allRgiNoEs = Emoji.getAllRgiNoES();
+        UnicodeSet namesFound = new UnicodeSet();
+        UnicodeSet searchKeywordsFound = new UnicodeSet();
+
+        // get both regular and derived emoji
+        List<Pair<String, String>> listXmlEmoji = new ArrayList<>();
+        XMLFileReader.loadPathValues(
+                CLDRPaths.ANNOTATIONS_DERIVED_DIRECTORY + "en.xml", listXmlEmoji, false);
+        XMLFileReader.loadPathValues(
+                CLDRPaths.ANNOTATIONS_DIRECTORY + "en.xml", listXmlEmoji, false);
+
+        // pull out the ones that are handled by English
+
+        for (Pair<String, String> pathAndValue : listXmlEmoji) {
+            XPathParts parts = XPathParts.getFrozenInstance(pathAndValue.getFirst());
+            if (!"annotation".equals(parts.getElement(-1))) {
+                continue;
+            }
+            String cp = parts.getAttributeValue(-1, "cp");
+            boolean isTts = parts.getAttributeValue(-1, "type") != null;
+            UnicodeSet set = isTts ? namesFound : searchKeywordsFound;
+            set.add(cp);
+        }
+        namesFound.freeze();
+        searchKeywordsFound.freeze();
+        logln(
+                Joiner.on('\t')
+                        .join(
+                                "RGI:",
+                                allRgiNoEs.size(),
+                                "namesFound:",
+                                namesFound.size(),
+                                "searchKeywordsFound:",
+                                searchKeywordsFound.size()));
+        assertEquals(
+                "RGI - en.xml name annotations",
+                "[]",
+                new UnicodeSet(allRgiNoEs).removeAll(namesFound).toPattern(false));
+        assertEquals(
+                "RGI - en.xml search key annotations",
+                "[]",
+                new UnicodeSet(allRgiNoEs).removeAll(searchKeywordsFound).toPattern(false));
+    }
+
+    public void testRightFacing() {
+        AnnotationSet aset = Annotations.getDataSet("en");
+
+        for (String item : new UnicodeSet("[{🚶🏻‍♂️‍➡️}{🚶🏼‍♂️‍➡️}{🚶🏽‍♂️‍➡️}{🚶🏾‍♂️‍➡️}]")) {
+            Annotations annotations = aset.synthesize(item, null);
+            Set<String> keywords = annotations.getKeywords();
+            String shortName = annotations.getShortName();
+
+            assertTrue(
+                    item + ", " + keywords,
+                    contains(keywords, "skin") && contains(keywords, "facing"));
+            assertTrue(
+                    item + ", " + shortName,
+                    shortName.contains("skin") && shortName.contains("facing"));
+        }
+    }
+
+    private boolean contains(Set<String> keywords, String string) {
+        return keywords.stream().anyMatch(x -> x.contains(string));
     }
 }

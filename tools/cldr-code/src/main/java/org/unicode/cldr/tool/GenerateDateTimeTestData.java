@@ -51,12 +51,14 @@ public class GenerateDateTimeTestData {
 
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
 
-    /** The known set of values used to indicate the type of "glue pattern" aka the
-     * dateTimeFormat type.
-     * atTime = the word "at" is inserted between the date and time when formatting both date &time together
-     * standard = do not insert the word "at". (ex: in `en`, there may or may not be a comma instead to separate)
+    /**
+     * The known set of values used to indicate the type of "glue pattern" aka the dateTimeFormat
+     * type. atTime = the word "at" is inserted between the date and time when formatting both date
+     * &time together standard = do not insert the word "at". (ex: in `en`, there may or may not be
+     * a comma instead to separate)
      */
-    private static final Set<String> CLDR_DATE_TIME_FORMAT_TYPES = ImmutableSet.of("standard", "atTime");
+    private static final Set<String> CLDR_DATE_TIME_FORMAT_TYPES =
+            ImmutableSet.of("standard", "atTime");
 
     private static final ImmutableSet<String> NUMBERING_SYSTEMS =
             ImmutableSet.of("latn", "arab", "beng");
@@ -533,13 +535,13 @@ public class GenerateDateTimeTestData {
             // that is used to combine the date and time formatted values together.
             for (String dateTimeGluePatternFormatType : CLDR_DATE_TIME_FORMAT_TYPES) {
                 formattedDateTime =
-                    localeCldrFile.glueDateTimeFormat(
-                        formattedDate,
-                        formattedTime,
-                        calendar,
-                        dateLength,
-                        dateTimeGluePatternFormatType,
-                        icuServiceBuilder);
+                        localeCldrFile.glueDateTimeFormat(
+                                formattedDate,
+                                formattedTime,
+                                calendar,
+                                dateLength,
+                                dateTimeGluePatternFormatType,
+                                icuServiceBuilder);
                 optionsBuilder.put("dateTimeFormatType", dateTimeGluePatternFormatType);
                 // Reuse and update the optionsBuilder to insert the expected value according to
                 // the result of the CLDR formatter

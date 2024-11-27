@@ -157,14 +157,22 @@ public abstract class MatchValue implements Predicate<String> {
         private final Predicate<String> variant;
 
         public LocaleMatchValue() {
-            this(null);
+            this(Set.of(Status.regular, Status.special, Status.unknown, Status.macroregion));
         }
 
         public LocaleMatchValue(Set<Status> statuses) {
-            lang = new ValidityMatchValue(LstrType.language, statuses, false);
-            script = new ValidityMatchValue(LstrType.script, statuses, false);
-            region = new ValidityMatchValue(LstrType.region, statuses, false);
-            variant = new ValidityMatchValue(LstrType.variant, statuses, false);
+            this(statuses, statuses, statuses, statuses);
+        }
+
+        public LocaleMatchValue(
+                Set<Status> langStatus,
+                Set<Status> scriptStatus,
+                Set<Status> regionStatus,
+                Set<Status> variantStatus) {
+            lang = new ValidityMatchValue(LstrType.language, langStatus, false);
+            script = new ValidityMatchValue(LstrType.script, scriptStatus, false);
+            region = new ValidityMatchValue(LstrType.region, regionStatus, false);
+            variant = new ValidityMatchValue(LstrType.variant, variantStatus, false);
         }
 
         @Override
@@ -174,8 +182,11 @@ public abstract class MatchValue implements Predicate<String> {
 
         @Override
         public boolean is(String item) {
+            if (item.equals("root")) {
+                item = "und";
+            }
             if (!item.contains("_")) {
-                return lang.is(item);
+                return checkLang(item);
             }
             LanguageTagParser ltp;
             try {
@@ -183,7 +194,7 @@ public abstract class MatchValue implements Predicate<String> {
             } catch (Exception e) {
                 return false;
             }
-            return lang.is(ltp.getLanguage())
+            return checkLang(ltp.getLanguage())
                     && (ltp.getScript().isEmpty() || script.is(ltp.getScript()))
                     && (ltp.getRegion().isEmpty() || region.is(ltp.getRegion()))
                     && (ltp.getVariants().isEmpty() || and(variant, ltp.getVariants()))
@@ -191,9 +202,51 @@ public abstract class MatchValue implements Predicate<String> {
                     && ltp.getLocaleExtensions().isEmpty();
         }
 
+        public boolean checkLang(String language) {
+            return lang.is(language);
+        }
+
         @Override
         public String getSample() {
             return "de";
+        }
+    }
+
+    /**
+     * Check for the language OR certain backwards-compatible exceptions for data to support
+     * retaining variants, namely plural rules and likelySubtags: "in","iw","ji","jw","mo","tl"
+     */
+    public static class XLocaleMatchValue extends LocaleMatchValue {
+        static final Set<String> exceptions = Set.of("in", "iw", "ji", "jw", "mo", "tl");
+
+        @Override
+        public boolean checkLang(String language) {
+            return super.checkLang(language) // first check normal
+                    || exceptions.contains(language);
+        }
+
+        @Override
+        public String getName() {
+            return "validity/xlocale";
+        }
+    }
+
+    /**
+     * Check for the language OR certain backwards-compatible exceptions for language names: "fat",
+     * "sh", "tl", "tw"
+     */
+    public static class NLocaleMatchValue extends LocaleMatchValue {
+        static final Set<String> exceptions = Set.of("fat", "sh", "tl", "tw");
+
+        @Override
+        public boolean checkLang(String language) {
+            return super.checkLang(language) // first check normal
+                    || exceptions.contains(language);
+        }
+
+        @Override
+        public String getName() {
+            return "validity/nlocale";
         }
     }
 
@@ -324,6 +377,12 @@ public abstract class MatchValue implements Predicate<String> {
         public static MatchValue of(String typeName) {
             if (typeName.equals("locale")) {
                 return new LocaleMatchValue();
+            }
+            if (typeName.equals("xlocale")) {
+                return new XLocaleMatchValue();
+            }
+            if (typeName.equals("nlocale")) {
+                return new NLocaleMatchValue();
             }
             if (typeName.equals("bcp47-wellformed")) {
                 return new BCP47LocaleWellFormedMatchValue();

@@ -1312,7 +1312,7 @@ public class SupplementalDataInfo {
         if (unitAliases != null) { // don't load unless the information is there (for old releases);
             unitConverter.addAliases(unitAliases);
         }
-        unitConverter.freeze();
+        unitConverter.freeze(new File(directory, "../validity").toString());
         rationalParser.freeze();
         unitPreferences.freeze();
 

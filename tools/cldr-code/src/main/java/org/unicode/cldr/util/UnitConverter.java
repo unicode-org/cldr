@@ -168,6 +168,10 @@ public class UnitConverter implements Freezable<UnitConverter> {
 
     @Override
     public UnitConverter freeze() {
+        return freeze(CLDRPaths.VALIDITY_DIRECTORY);
+    }
+
+    public UnitConverter freeze(String validityDirectory) {
         if (!frozen) {
             frozen = true;
             rationalParser.freeze();
@@ -185,7 +189,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
             baseUnits = builder.build();
             targetInfoComparator = new TargetInfoComparator();
 
-            buildMapComparators();
+            buildMapComparators(validityDirectory);
 
             // must be after building comparators
             idToUnitId = ImmutableMap.copyOf(buildIdToUnitId());
@@ -194,14 +198,19 @@ public class UnitConverter implements Freezable<UnitConverter> {
     }
 
     public void buildMapComparators() {
+        buildMapComparators(CLDRPaths.VALIDITY_DIRECTORY);
+    }
+
+    public void buildMapComparators(String validityDirectory) {
         Set<R4<Integer, UnitSystem, Rational, String>> all = new TreeSet<>();
+        final Validity validity = Validity.getInstance(validityDirectory);
         Set<String> baseSeen = new HashSet<>();
+
         if (DEBUG) {
             UnitParser up = new UnitParser(componentTypeData);
             Output<UnitIdComponentType> uict = new Output<>();
 
-            for (String longUnit :
-                    Validity.getInstance().getStatusToCodes(LstrType.unit).get(Status.regular)) {
+            for (String longUnit : validity.getStatusToCodes(LstrType.unit).get(Status.regular)) {
                 String shortUnit = getShortId(longUnit);
                 up.set(shortUnit);
                 List<String> items = new ArrayList<>();
@@ -219,8 +228,7 @@ public class UnitConverter implements Freezable<UnitConverter> {
                 System.out.println(shortUnit + "\t" + Joiner.on('\t').join(items));
             }
         }
-        for (String longUnit :
-                Validity.getInstance().getStatusToCodes(LstrType.unit).get(Status.regular)) {
+        for (String longUnit : validity.getStatusToCodes(LstrType.unit).get(Status.regular)) {
             Output<String> base = new Output<>();
             String shortUnit = getShortId(longUnit);
             ConversionInfo conversionInfo = parseUnitId(shortUnit, base, false);

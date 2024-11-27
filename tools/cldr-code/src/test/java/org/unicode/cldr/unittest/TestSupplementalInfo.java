@@ -78,6 +78,7 @@ import org.unicode.cldr.util.PreferredAndAllowedHour;
 import org.unicode.cldr.util.PreferredAndAllowedHour.HourStyle;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.CodeType;
+import org.unicode.cldr.util.StandardCodes.LstrField;
 import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
@@ -2175,5 +2176,49 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                 logger.fine(entry.getKey() + "\t" + Joiner.on(", ").join(entry.getValue()));
             }
         }
+    }
+
+    public void testPredominantEncompassed() {
+        // maybe check with lstreg instead? They should be in sync.
+        Map<LstrType, Map<String, Map<LstrField, String>>> lstreg = StandardCodes.getEnumLstreg();
+
+        SupplementalDataInfo supp = SupplementalDataInfo.getInstance();
+        // Returns type -> tag -> , like "language" -> "sh" -> <{"sr_Latn"}, reason>
+        Map<String, Map<String, R2<List<String>, String>>> locAliases = supp.getLocaleAliasInfo();
+        Map<String, R2<List<String>, String>> langAliases = locAliases.get("language");
+        Set<String> skip = Set.of("no", "sh");
+
+        Iso639Data.getNames("a"); // init (need to fix)
+
+        Set<String> macros = Iso639Data.getMacros();
+        main:
+        for (String macro : macros) {
+            if (skip.contains(macro)) {
+                continue;
+            }
+            Set<String> encompasseds = Iso639Data.getEncompassedForMacro(macro);
+            final List<String> encompassedNames =
+                    encompasseds.stream().map(x -> codeAndName(x)).collect(Collectors.toList());
+            for (String encompassed : encompasseds) {
+                R2<List<String>, String> data = langAliases.get(encompassed);
+                if (data != null) {
+                    if (data.get0().contains(macro)) {
+                        logln(
+                                codeAndName(macro)
+                                        + "has predominant "
+                                        + codeAndName(encompassed)
+                                        + " in encompassed: "
+                                        + encompassedNames);
+                        continue main;
+                    }
+                }
+            }
+            errln("ERROR " + codeAndName(macro) + " missing predominent from " + encompassedNames);
+        }
+    }
+
+    private String codeAndName(String macro) {
+        // TODO Auto-generated method stub
+        return CLDRConfig.getInstance().getEnglish().getName(macro) + " (" + macro + ")";
     }
 }

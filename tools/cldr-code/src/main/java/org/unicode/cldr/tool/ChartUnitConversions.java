@@ -1,15 +1,14 @@
 package org.unicode.cldr.tool;
 
 import com.google.common.base.Joiner;
-import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R4;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.EnumSet;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeSet;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.MapComparator;
 import org.unicode.cldr.util.Rational;
 import org.unicode.cldr.util.Rational.FormatStyle;
 import org.unicode.cldr.util.UnitConverter;
@@ -111,35 +110,15 @@ public class ChartUnitConversions extends Chart {
         UnitConverter converter = SDI.getUnitConverter();
         converter.getSourceToSystems();
 
-        Set<R4<UnitId, UnitSystem, Rational, String>> all = new TreeSet<>();
+        Set<R4<UnitId, UnitSystem, Rational, Integer>> all = new TreeSet<>();
+        MapComparator<String> shortIdUnicodeComparator = converter.getShortUnitIdComparator();
 
         for (Entry<String, TargetInfo> entry : converter.getInternalConversionData().entrySet()) {
             String sourceUnit = entry.getKey();
             String quantity = converter.getQuantityFromUnit(sourceUnit, false);
             TargetInfo targetInfo = entry.getValue();
 
-            final EnumSet<UnitSystem> systems =
-                    EnumSet.copyOf(converter.getSystemsEnum(sourceUnit));
-
-            // to sort the right items together items together, put together a sort key
-            UnitSystem sortingSystem = systems.iterator().next();
-            switch (sortingSystem) {
-                case si:
-                case si_acceptable:
-                    sortingSystem = UnitSystem.metric;
-                    break;
-                case uksystem:
-                    sortingSystem = UnitSystem.ussystem;
-                    break;
-                default:
-            }
-            UnitId targetUnitId = converter.createUnitId(targetInfo.target);
-            R4<UnitId, UnitSystem, Rational, String> sortKey =
-                    Row.of(targetUnitId, sortingSystem, targetInfo.unitInfo.factor, sourceUnit);
-            all.add(sortKey);
-
-            // get some formatted strings
-            // TODO: handle specials here, CLDR-16329 additional PR or follow-on ticket
+            final Set<UnitSystem> systems = converter.getSystemsEnum(sourceUnit);
 
             final String repeatingFactor =
                     targetInfo.unitInfo.factor.toString(FormatStyle.repeating);
@@ -159,7 +138,7 @@ public class ChartUnitConversions extends Chart {
 
             tablePrinter
                     .addRow()
-                    .addCell(sortKey)
+                    .addCell(shortIdUnicodeComparator.getOrdering(sourceUnit))
                     .addCell(quantity)
                     .addCell(targetDisplay)
                     .addCell(Joiner.on(", ").join(systems))

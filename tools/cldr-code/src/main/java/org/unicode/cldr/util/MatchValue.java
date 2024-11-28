@@ -4,7 +4,10 @@ import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
@@ -17,6 +20,7 @@ import com.vdurmont.semver4j.Semver;
 import com.vdurmont.semver4j.Semver.SemverType;
 import com.vdurmont.semver4j.SemverException;
 import java.text.ParseException;
+import java.util.Collections;
 import java.util.Date;
 import java.util.EnumSet;
 import java.util.HashMap;
@@ -157,7 +161,7 @@ public abstract class MatchValue implements Predicate<String> {
         private final Predicate<String> variant;
 
         public LocaleMatchValue() {
-            this(Set.of(Status.regular, Status.special, Status.unknown, Status.macroregion));
+            this(null, null, null, null); // use default status
         }
 
         public LocaleMatchValue(Set<Status> statuses) {
@@ -306,6 +310,9 @@ public abstract class MatchValue implements Predicate<String> {
         }
 
         public Set<T> parse(String text) {
+            if (text == null) {
+                return null;
+            }
             Set<T> statuses = EnumSet.noneOf(aClass);
             boolean negative = text.startsWith("!");
             if (negative) {
@@ -346,18 +353,59 @@ public abstract class MatchValue implements Predicate<String> {
     }
 
     public static class ValidityMatchValue extends MatchValue {
+        private static final Validity VALIDITY = Validity.getInstance();
+        public static final Multimap<LstrType, Status> DEFAULT_STATUS;
+
+        static {
+            Multimap<LstrType, Status> DEFAULT_STATUS_ = TreeMultimap.create();
+            for (LstrType lstrType : LstrType.values()) {
+                switch (lstrType) {
+                    case region:
+                        DEFAULT_STATUS_.putAll(
+                                lstrType,
+                                Set.of(
+                                        Status.regular,
+                                        Status.unknown,
+                                        Status.macroregion,
+                                        Status.special));
+                        break;
+                    case language:
+                    case script:
+                        DEFAULT_STATUS_.putAll(
+                                lstrType, Set.of(Status.regular, Status.unknown, Status.special));
+                        break;
+                    case subdivision:
+                    case currency:
+                        DEFAULT_STATUS_.putAll(
+                                lstrType,
+                                Set.of(Status.regular, Status.unknown, Status.deprecated));
+                        break;
+                    default:
+                        DEFAULT_STATUS_.putAll(lstrType, Set.of(Status.regular, Status.unknown));
+                        break;
+                }
+            }
+            DEFAULT_STATUS = ImmutableMultimap.copyOf(DEFAULT_STATUS_);
+        }
+
+        private static Map<String, Status> shortCodeToStatus;
+        private static final EnumParser<Status> validityStatusParser = EnumParser.of(Status.class);
+
         private final LstrType type;
         private final boolean shortId;
         private final Set<Status> statuses;
-        private static Map<String, Status> shortCodeToStatus;
-        private static final EnumParser<Status> enumParser = EnumParser.of(Status.class);
 
         @Override
         public String getName() {
+            Collections a;
             return "validity/"
                     + (shortId ? "short-" : "")
                     + type.toString()
-                    + (enumParser.isAll(statuses) ? "" : "/" + enumParser.format(statuses));
+                    + (statuses.equals(Set.copyOf(DEFAULT_STATUS.get(type)))
+                            ? ""
+                            : statuses.equals(VALIDITY.getStatusToCodes(type).keySet())
+                                    ? "/all"
+                                    : "/" + validityStatusParser.format(statuses));
         }
 
         private ValidityMatchValue(LstrType type) {
@@ -370,8 +418,9 @@ public abstract class MatchValue implements Predicate<String> {
                 throw new IllegalArgumentException("short- not supported except for units");
             }
             this.shortId = shortId;
+            // validForType = Validity.getInstance().getStatusToCodes(type).keySet();
             this.statuses =
-                    statuses == null ? EnumSet.allOf(Status.class) : ImmutableSet.copyOf(statuses);
+                    ImmutableSet.copyOf(statuses == null ? DEFAULT_STATUS.get(type) : statuses);
         }
 
         public static MatchValue of(String typeName) {
@@ -387,10 +436,10 @@ public abstract class MatchValue implements Predicate<String> {
             if (typeName.equals("bcp47-wellformed")) {
                 return new BCP47LocaleWellFormedMatchValue();
             }
+            String statusPart = null;
             int slashPos = typeName.indexOf('/');
-            Set<Status> statuses = null;
             if (slashPos > 0) {
-                statuses = enumParser.parse(typeName.substring(slashPos + 1));
+                statusPart = typeName.substring(slashPos + 1);
                 typeName = typeName.substring(0, slashPos);
             }
             boolean shortId = typeName.startsWith("short-");
@@ -398,6 +447,10 @@ public abstract class MatchValue implements Predicate<String> {
                 typeName = typeName.substring(6);
             }
             LstrType type = LstrType.fromString(typeName);
+            Set<Status> statuses =
+                    "all".equals(statusPart)
+                            ? VALIDITY.getStatusToCodes(type).keySet()
+                            : validityStatusParser.parse(statusPart);
             return new ValidityMatchValue(type, statuses, shortId);
         }
 
@@ -425,9 +478,7 @@ public abstract class MatchValue implements Predicate<String> {
                                 == null) { // lazy evaluation to avoid circular dependencies
                             Map<String, Status> _shortCodeToStatus = new TreeMap<>();
                             for (Entry<String, Status> entry :
-                                    Validity.getInstance()
-                                            .getCodeToStatus(LstrType.unit)
-                                            .entrySet()) {
+                                    VALIDITY.getCodeToStatus(LstrType.unit).entrySet()) {
                                 String key = entry.getKey();
                                 Status status = entry.getValue();
                                 final String shortKey = key.substring(key.indexOf('-') + 1);
@@ -448,13 +499,13 @@ public abstract class MatchValue implements Predicate<String> {
                 default:
                     break;
             }
-            final Status status = Validity.getInstance().getCodeToStatus(type).get(item);
+            final Status status = VALIDITY.getCodeToStatus(type).get(item);
             return status != null && statuses.contains(status);
         }
 
         @Override
         public String getSample() {
-            return Validity.getInstance().getCodeToStatus(type).keySet().iterator().next();
+            return VALIDITY.getCodeToStatus(type).keySet().iterator().next();
         }
     }
 

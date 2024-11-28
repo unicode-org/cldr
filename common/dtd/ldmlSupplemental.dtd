@@ -65,7 +65,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 
 <!ELEMENT region ( currency* ) >
 <!ATTLIST region iso3166 NMTOKEN #REQUIRED >
-    <!--@MATCH:validity/region-->
+    <!--@MATCH:validity/region/all-->
 <!ATTLIST region draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->
@@ -113,7 +113,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!ATTLIST group type NMTOKEN #REQUIRED >
     <!--@MATCH:validity/region-->
 <!ATTLIST group contains NMTOKENS #IMPLIED >
-    <!--@MATCH:set/validity/region-->
+    <!--@MATCH:set/validity/region/all-->
     <!--@VALUE-->
 <!ATTLIST group grouping (true | false) #IMPLIED >
     <!--@VALUE-->
@@ -284,7 +284,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!ELEMENT minDays EMPTY >
 <!ATTLIST minDays count (1 | 2 | 3 | 4 | 5 | 6 | 7) #REQUIRED >
 <!ATTLIST minDays territories NMTOKENS #REQUIRED >
-    <!--@MATCH:set/validity/region-->
+    <!--@MATCH:set/validity/region/all-->
     <!--@VALUE-->
 <!ATTLIST minDays draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
@@ -297,7 +297,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!ELEMENT firstDay EMPTY >
 <!ATTLIST firstDay day (sun | mon | tue | wed | thu | fri | sat) #REQUIRED >
 <!ATTLIST firstDay territories NMTOKENS #REQUIRED >
-    <!--@MATCH:set/validity/region-->
+    <!--@MATCH:set/validity/region/all-->
     <!--@VALUE-->
 <!ATTLIST firstDay draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->
@@ -711,7 +711,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 
 <!ELEMENT scriptAlias EMPTY >
 <!ATTLIST scriptAlias type NMTOKEN #REQUIRED >
-    <!--@MATCH:validity/script-->
+    <!--@MATCH:validity/script/all-->
 <!ATTLIST scriptAlias replacement NMTOKEN #REQUIRED >
     <!--@MATCH:validity/script-->
     <!--@VALUE-->
@@ -720,9 +720,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 
 <!ELEMENT territoryAlias EMPTY >
 <!ATTLIST territoryAlias type NMTOKEN #REQUIRED >
-    <!--@MATCH:set/or/validity/region||regex/[0-9]{3}|[A-Z]{3}||literal/CT, DY, FQ, HV, JT, MI, NH, NQ, PC, PU, PZ, RH, UK, VD, WK-->
+    <!--@MATCH:set/or/validity/region/all||regex/[0-9]{3}|[A-Z]{3}||literal/CT, DY, FQ, HV, JT, MI, NH, NQ, PC, PU, PZ, RH, UK, VD, WK-->
 <!ATTLIST territoryAlias replacement NMTOKENS #REQUIRED >
-    <!--@MATCH:set/validity/region-->
+    <!--@MATCH:set/validity/region/all-->
     <!--@VALUE-->
 <!ATTLIST territoryAlias reason (deprecated | overlong) #IMPLIED >
     <!--@VALUE-->
@@ -738,7 +738,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 
 <!ELEMENT variantAlias EMPTY >
 <!ATTLIST variantAlias type NMTOKEN #REQUIRED >
-    <!--@MATCH:or/validity/variant||literal/aaland, polytoni-->
+    <!--@MATCH:or/validity/variant/all||literal/aaland, polytoni-->
 <!ATTLIST variantAlias replacement NMTOKEN #REQUIRED >
     <!--@MATCH:or/validity/variant||validity/region||literal/hy, hyw-->
     <!--@VALUE-->
@@ -914,7 +914,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 
 <!ELEMENT territoryCodes EMPTY >
 <!ATTLIST territoryCodes type NMTOKEN #REQUIRED >
-    <!--@MATCH:validity/region-->
+    <!--@MATCH:validity/region/all-->
 <!ATTLIST territoryCodes numeric NMTOKEN #IMPLIED >
     <!--@MATCH:range/1~999-->
     <!--@VALUE-->

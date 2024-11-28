@@ -2166,8 +2166,13 @@ public class SupplementalDataInfo {
                     }
                     return true;
                 } else if (level3.equals("attributeValues")) {
-                    AttributeValidityInfo.add(
-                            parts.getAttributes(-1), value, attributeValidityInfo);
+                    // the keyboard directory disappeared in new versions.
+                    // supplementalData/metadata/validity/attributeValues[@dtds="keyboard"][@elements="keyMap"][@attributes="modifiers"][@type="TODO"]
+                    final String dtdsValue = parts.getAttributeValue(-1, "dtds");
+                    if (!"keyboard".equals(dtdsValue) && !"platform".equals(dtdsValue)) {
+                        AttributeValidityInfo.add(
+                                parts.getAttributes(-1), value, attributeValidityInfo);
+                    }
                     return true;
                 }
             } else if (level2.equals("serialElements")) {

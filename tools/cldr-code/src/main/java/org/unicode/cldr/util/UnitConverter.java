@@ -240,17 +240,22 @@ public class UnitConverter implements Freezable<UnitConverter> {
                     conversionInfo = parseUnitId("kelvin", base, false);
                 }
             }
-            String quantity;
+            String quantity = null;
             Integer quantityNumericOrder = null;
             try {
                 quantity = getQuantityFromUnit(base.value, false);
+                if (quantity == null && "beaufort".equals(shortUnit)) {
+                    quantity = "speed";
+                }
                 quantityNumericOrder = quantityComparator.getNumericOrder(quantity);
             } catch (Exception e) {
                 System.out.println(
-                        "Failed "
+                        "Failed to build unit comparator for "
                                 + shortUnit
                                 + ", "
                                 + base
+                                + ", "
+                                + quantity
                                 + ", "
                                 + quantityNumericOrder
                                 + ", "
@@ -292,7 +297,11 @@ public class UnitConverter implements Freezable<UnitConverter> {
                             "Add new unitSystem to a grouping: " + sortingSystem);
             }
             R4<Integer, UnitSystem, Rational, String> sortKey =
-                    Row.of(quantityNumericOrder, sortingSystem, conversionInfo.factor, shortUnit);
+                    Row.of(
+                            quantityNumericOrder,
+                            sortingSystem,
+                            conversionInfo == null ? Rational.INFINITY : conversionInfo.factor,
+                            shortUnit);
             all.add(sortKey);
         }
         LongUnitIdOrder.setErrorOnMissing(true);
@@ -1890,16 +1899,16 @@ public class UnitConverter implements Freezable<UnitConverter> {
         return (BiMap<String, String>) baseUnitToQuantity;
     }
 
+    /** Returns null if unit can't be parsed */
     public String getQuantityFromUnit(String unit, boolean showYourWork) {
         Output<String> metricUnit = new Output<>();
         unit = fixDenormalized(unit);
         try {
             ConversionInfo unitInfo = parseUnitId(unit, metricUnit, showYourWork);
-            return metricUnit.value == null ? null : getQuantityFromBaseUnit(metricUnit.value);
         } catch (Exception e) {
-            System.out.println("Failed with " + unit + ", " + metricUnit + "\t" + e);
             return null;
         }
+        return metricUnit.value == null ? null : getQuantityFromBaseUnit(metricUnit.value);
     }
 
     public String getQuantityFromBaseUnit(String baseUnit) {

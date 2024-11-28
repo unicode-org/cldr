@@ -1664,18 +1664,33 @@ public class TestBasic extends TestFmwkPlus {
         }
         final File ARCHIVE = new File(CLDRPaths.ARCHIVE_DIRECTORY);
         Set<Pair<String, String>> seen = new LinkedHashSet<>();
-        TreeSet<File> sorted = new TreeSet<>(Collections.reverseOrder());
-        sorted.addAll(Arrays.asList(ARCHIVE.listFiles()));
+
+        // get the archive directories in reverse order (latest first)
+
+        TreeSet<File> sortedArchiveDirectories = new TreeSet<>(Collections.reverseOrder());
+        sortedArchiveDirectories.addAll(Arrays.asList(ARCHIVE.listFiles()));
+
+        // get the BCP 47 keys to test against
+
         Set<Pair<String, String>> newKeys = pairs(SUPPLEMENTAL_DATA_INFO.getBcp47Keys());
 
-        for (File file : sorted) {
+        for (File file : sortedArchiveDirectories) {
             if (!file.getName().startsWith("cldr-")) {
                 continue;
             }
-            System.out.println(file);
+            if (file.getName().compareTo("cldr-44.0") < 0) {
+                break;
+            }
+            logln(file.toString());
             File supplementalDir = new File(file, "common/supplemental");
-            SupplementalDataInfo otherSupplementalData =
-                    SupplementalDataInfo.getInstance(supplementalDir);
+            SupplementalDataInfo otherSupplementalData;
+            try {
+                otherSupplementalData = SupplementalDataInfo.getInstance(supplementalDir);
+            } catch (RuntimeException e) {
+                errln("Can't create SupplementalDataInfo for " + supplementalDir);
+                throw e;
+                // continue;
+            }
             Set<Pair<String, String>> oldKeys = pairs(otherSupplementalData.getBcp47Keys());
             if (!newKeys.containsAll(oldKeys)) {
                 SetView<Pair<String, String>> oldButNotNew = Sets.difference(oldKeys, newKeys);

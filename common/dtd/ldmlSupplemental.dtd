@@ -962,9 +962,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 
 <!ELEMENT likelySubtag EMPTY >
 <!ATTLIST likelySubtag from NMTOKEN #REQUIRED >
-    <!--@MATCH:validity/xlocale-->
+    <!--@MATCH:validity/locale-for-likely-->
 <!ATTLIST likelySubtag to NMTOKEN #REQUIRED >
-    <!--@MATCH:validity/xlocale-->
+    <!--@MATCH:validity/locale-for-likely-->
     <!--@VALUE-->
 <!ATTLIST likelySubtag origin NMTOKENS #IMPLIED >
     <!--@MATCH:set/literal/sil1, wikidata, special-->
@@ -996,7 +996,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 
 <!ELEMENT pluralRules ( pluralRule* ) >
 <!ATTLIST pluralRules locales NMTOKENS #REQUIRED >
-    <!--@MATCH:set/or/validity/xlocale||literal/sh-->
+    <!--@MATCH:set/or/validity/locale-for-likely||literal/sh-->
 <!ATTLIST pluralRules draft (approved | contributed | provisional | unconfirmed) #IMPLIED >
     <!--@METADATA-->
     <!--@DEPRECATED-->

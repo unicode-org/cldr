@@ -108,8 +108,9 @@ public abstract class MatchValue implements Predicate<String> {
                     throw new IllegalArgumentException(
                             "Illegal/Unimplemented match type: " + originalArg);
             }
+            // check for errors in the MatchValue functions
             if (!originalArg.equals(result.getName())) {
-                System.err.println(
+                throw new IllegalArgumentException(
                         "Non-standard form or error: " + originalArg + " ==> " + result.getName());
             }
             return result;
@@ -218,7 +219,7 @@ public abstract class MatchValue implements Predicate<String> {
 
     /**
      * Check for the language OR certain backwards-compatible exceptions for data to support
-     * retaining variants, namely plural rules and likelySubtags: "in","iw","ji","jw","mo","tl"
+     * retaining variants, namely likelySubtags: "in","iw","ji","jw","mo","tl"
      */
     public static class XLocaleMatchValue extends LocaleMatchValue {
         static final Set<String> exceptions = Set.of("in", "iw", "ji", "jw", "mo", "tl");
@@ -231,7 +232,7 @@ public abstract class MatchValue implements Predicate<String> {
 
         @Override
         public String getName() {
-            return "validity/xlocale";
+            return "validity/locale-for-likely";
         }
     }
 
@@ -250,7 +251,7 @@ public abstract class MatchValue implements Predicate<String> {
 
         @Override
         public String getName() {
-            return "validity/nlocale";
+            return "validity/locale-for-names";
         }
     }
 
@@ -427,10 +428,10 @@ public abstract class MatchValue implements Predicate<String> {
             if (typeName.equals("locale")) {
                 return new LocaleMatchValue();
             }
-            if (typeName.equals("xlocale")) {
+            if (typeName.equals("locale-for-likely")) {
                 return new XLocaleMatchValue();
             }
-            if (typeName.equals("nlocale")) {
+            if (typeName.equals("locale-for-names")) {
                 return new NLocaleMatchValue();
             }
             if (typeName.equals("bcp47-wellformed")) {

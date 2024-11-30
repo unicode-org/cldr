@@ -80,7 +80,6 @@ class LdmlConvertRules {
                     "pluralRanges:pluralRange:start",
                     "pluralRanges:pluralRange:end",
                     "pluralRules:pluralRule:count",
-                    "languageMatches:languageMatch:desired",
                     "styleNames:styleName:subtype",
                     "styleNames:styleName:alt");
 
@@ -157,12 +156,14 @@ class LdmlConvertRules {
                     "keyword:key:name",
 
                     // transforms
-
-                    // transforms
                     "transforms:transform:source",
                     "transforms:transform:target",
                     "transforms:transform:direction",
-                    "transforms:transform:variant");
+                    "transforms:transform:variant",
+
+                    // in common/supplemental/languageInfo.xml
+                    "languageMatches:languageMatch:desired",
+                    "languageMatches:languageMatch:supported");
 
     /**
      * The set of element:attribute pair in which the attribute should be treated as value. All the

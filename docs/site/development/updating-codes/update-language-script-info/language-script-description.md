@@ -13,4 +13,4 @@ The [`language\_script.tsv`](https://github.com/unicode-org/cldr/blob/main/tools
 
 Languages with multiple ambiguous scripts should have that reflected in their CLDR structure (eg. `sr_Cyrl_RS`), with aliases for the language\-region combinations.
 
-In order to re-generate the XML data use ConvertLanguageData as written about in [the article about updating the language scripts](.../update-language-script-info.md).
+In order to re-generate the XML data use ConvertLanguageData as written about in [the article about updating the language scripts](/development/update-language-script-info.md).

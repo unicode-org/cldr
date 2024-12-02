@@ -1466,13 +1466,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>GGGGy年M月d日EEEE</pattern>
-							<datetimeSkeleton>GGGGyMEEEEd</datetimeSkeleton>
+							<datetimeSkeleton>GGGGyMMMEEEEd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
 							<pattern>GGGGy年M月d日</pattern>
-							<datetimeSkeleton>GGGGyMd</datetimeSkeleton>
+							<datetimeSkeleton>GGGGyMMMd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
@@ -2406,13 +2406,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>Gy年M月d日(EEEE)</pattern>
-							<datetimeSkeleton>GyMEEEEd</datetimeSkeleton>
+							<datetimeSkeleton>GyMMMEEEEd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
 							<pattern>Gy年M月d日</pattern>
-							<datetimeSkeleton>GyMd</datetimeSkeleton>
+							<datetimeSkeleton>GyMMMd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
@@ -2980,13 +2980,13 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<dateFormatLength type="full">
 						<dateFormat>
 							<pattern>y年M月d日EEEE</pattern>
-							<datetimeSkeleton>yMEEEEd</datetimeSkeleton>
+							<datetimeSkeleton>yMMMEEEEd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
 							<pattern>y年M月d日</pattern>
-							<datetimeSkeleton>yMd</datetimeSkeleton>
+							<datetimeSkeleton>yMMMd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
@@ -4150,7 +4150,7 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern numbers="y=jpanyear">Gy年M月d日</pattern>
-							<datetimeSkeleton numbers="y=jpanyear">GyMd</datetimeSkeleton>
+							<datetimeSkeleton numbers="y=jpanyear">GyMMMd</datetimeSkeleton>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">

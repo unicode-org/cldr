@@ -5,6 +5,8 @@ import com.google.common.base.Objects;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Multimap;
+import com.google.common.collect.Sets;
+import com.google.common.collect.Sets.SetView;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
@@ -41,6 +43,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.tool.CldrVersion;
 import org.unicode.cldr.tool.LikelySubtags;
@@ -195,7 +198,7 @@ public class TestBasic extends TestFmwkPlus {
             } else if (fileName.getPath().contains("/keyboards/3.0/")
                     && logKnownIssue(
                             "CLDR-17574", "With v46, parsing issues for keyboard xml files")) {
-                ; // do nothing, skip test
+                // do nothing, skip test
             } else if (name.endsWith(".xml")) {
                 data.add(check(fileName));
                 if (deepCheck // takes too long to do all the time
@@ -1652,5 +1655,57 @@ public class TestBasic extends TestFmwkPlus {
     public void sortPaths(Comparator<String> dc, String... array) {
         Arrays.sort(array, 0, array.length, dc);
     }
+
     // public void TestNewDtdData() moved to TestDtdData
+
+    public void testBcp47Ids() {
+        if (!TestCLDRPaths.canUseArchiveDirectory()) {
+            return;
+        }
+        final File ARCHIVE = new File(CLDRPaths.ARCHIVE_DIRECTORY);
+        Set<Pair<String, String>> seen = new LinkedHashSet<>();
+
+        // get the archive directories in reverse order (latest first)
+
+        TreeSet<File> sortedArchiveDirectories = new TreeSet<>(Collections.reverseOrder());
+        sortedArchiveDirectories.addAll(Arrays.asList(ARCHIVE.listFiles()));
+
+        // get the BCP 47 keys to test against
+
+        Set<Pair<String, String>> newKeys = pairs(SUPPLEMENTAL_DATA_INFO.getBcp47Keys());
+
+        for (File file : sortedArchiveDirectories) {
+            if (!file.getName().startsWith("cldr-")) {
+                continue;
+            }
+            if (file.getName().compareTo("cldr-44.0") < 0) {
+                break;
+            }
+            logln(file.toString());
+            File supplementalDir = new File(file, "common/supplemental");
+            SupplementalDataInfo otherSupplementalData;
+            try {
+                otherSupplementalData = SupplementalDataInfo.getInstance(supplementalDir);
+            } catch (RuntimeException e) {
+                errln("Can't create SupplementalDataInfo for " + supplementalDir);
+                throw e;
+                // continue;
+            }
+            Set<Pair<String, String>> oldKeys = pairs(otherSupplementalData.getBcp47Keys());
+            if (!newKeys.containsAll(oldKeys)) {
+                SetView<Pair<String, String>> oldButNotNew = Sets.difference(oldKeys, newKeys);
+                SetView<Pair<String, String>> oldButNotNewMinusSeen =
+                        Sets.difference(oldButNotNew, seen);
+                if (!assertEquals(file.toString(), Collections.emptySet(), oldButNotNewMinusSeen)) {
+                    seen.addAll(oldButNotNewMinusSeen);
+                }
+            }
+        }
+    }
+
+    private Set<Pair<String, String>> pairs(Relation<String, String> bcp47Keys) {
+        return bcp47Keys.entrySet().stream()
+                .map(x -> Pair.of(x.getKey(), x.getValue()))
+                .collect(Collectors.toCollection(TreeSet::new));
+    }
 }

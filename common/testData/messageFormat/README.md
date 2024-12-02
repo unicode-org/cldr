@@ -1,7 +1,3 @@
-# Test Data for CLDR MessageFormat 2.0 Tech Preview
-
-For information about MessageFormat 2.0, see [Unicode Locale Data Markup Language (LDML): Part 9: Message Format](../../../docs/ldml/tr35-messageFormat.md)
-
 The tests in the `./tests/` directory were originally copied from the [messageformat project](https://github.com/messageformat/messageformat/tree/11c95dab2b25db8454e49ff4daadb817e1d5b770/packages/mf2-messageformat/src/__fixtures)
 and are here relicensed by their original author (Eemeli Aro) under the Unicode License.
 
@@ -14,6 +10,8 @@ These test files are intended to be useful for testing multiple different messag
 - `data-model-errors.json` - Strings that should produce a Data Model Error when processed.
   Error names are defined in ["MessageFormat 2.0 Errors"](../spec/errors.md) in the spec.
 
+- `u-options.json` — Test cases for the `u:` options, using built-in functions.
+
 - `functions/` — Test cases that correspond to built-in functions.
   The behaviour of the built-in formatters is implementation-specific so the `exp` field is often
   omitted and assertions are made on error cases.
@@ -25,6 +23,7 @@ Some examples of test harnesses using these tests, from the source repository:
 - [Formatting tests](https://github.com/messageformat/messageformat/blob/11c95dab2b25db8454e49ff4daadb817e1d5b770/packages/mf2-messageformat/src/messageformat.test.ts)
 
 A [JSON schema](./schemas/) is included for the test files in this repository.
+
 ## Error Codes
 
 The following table relates the error names used in the [JSON schema](./schemas/)
@@ -88,8 +87,8 @@ its `Input`, `DecimalPlaces`, `FailsFormat`, and `FailsSelect` values are determ
 1. Let `DecimalPlaces` be 0.
 1. Let `FailsFormat` be `false`.
 1. Let `FailsSelect` be `false`.
-1. Let `arg` be the resolved value of the _expression_ _operand_.
-1. If `arg` is the resolved value of an _expression_
+1. Let `arg` be the _resolved value_ of the _expression_ _operand_.
+1. If `arg` is the _resolved value_ of an _expression_
    with a `:test:function`, `:test:select`, or `:test:format` _annotation_
    for which resolution has succeeded, then
    1. Let `Input` be the `Input` value of `arg`.
@@ -101,7 +100,7 @@ its `Input`, `DecimalPlaces`, `FailsFormat`, and `FailsSelect` values are determ
    1. Let `Input` be the numerical value of `arg`.
 1. Else,
    1. Emit "bad-input" _Resolution Error_.
-   1. Use a _fallback value_ as the resolved value of the _expression_.
+   1. Use a _fallback value_ as the _resolved value_ of the _expression_.
       Further steps of this algorithm are not followed.
 1. If the `decimalPlaces` _option_ is set, then
    1. If its value resolves to a numerical integer value 0 or 1
@@ -109,7 +108,7 @@ its `Input`, `DecimalPlaces`, `FailsFormat`, and `FailsSelect` values are determ
       1. Set `DecimalPlaces` to be the numerical value of the _option_.
    1. Else if its value is not an unresolved value set by _option resolution_,
       1. Emit "bad-option" _Resolution Error_.
-      1. Use a _fallback value_ as the resolved value of the _expression_.
+      1. Use a _fallback value_ as the _resolved value_ of the _expression_.
 1. If the `fails` _option_ is set, then
    1. If its value resolves to the string `'always'`, then
       1. Set `FailsFormat` to be `true`.
@@ -137,7 +136,7 @@ depends on its `Input`, `DecimalPlaces` and `FailsSelect` values.
 
 When an _expression_ with a `:test:function` _annotation_ is assigned to a _variable_ by a _declaration_
 and that _variable_ is used as an _option_ value,
-its resolved value is the `Input` value.
+its _resolved value_ is the `Input` value.
 
 When `:test:function` is used as a _formatter_,
 a _placeholder_ resolving to a value with a `:test:function` _expression_

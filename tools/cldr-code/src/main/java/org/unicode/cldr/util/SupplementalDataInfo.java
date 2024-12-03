@@ -333,6 +333,8 @@ public class SupplementalDataInfo {
 
         private Set<String> scripts = Collections.emptySet();
 
+        private Map<String, Integer> scriptsByPopulation = new TreeMap<>();
+
         private Set<String> territories = Collections.emptySet();
 
         public Type getType() {
@@ -344,11 +346,23 @@ public class SupplementalDataInfo {
             return this;
         }
 
-        public BasicLanguageData setScripts(String scriptTokens) {
-            return setScripts(
-                    scriptTokens == null
-                            ? null
-                            : Arrays.asList(WHITESPACE_PATTERN.split(scriptTokens)));
+        // Adding scripts but leaving 0 as a placeholder when there is no population data
+        // input: a whitespace-separated list of scripts
+        public BasicLanguageData setScriptsWithoutPopulation(String scriptTokens) {
+            List<String> scripts = new ArrayList<>();
+            if (scriptTokens != null) {
+                scripts = Arrays.asList(WHITESPACE_PATTERN.split(scriptTokens));
+            }
+            return setScriptsWithoutPopulation(scripts);
+        }
+
+        // Adding scripts but leaving 0 as a placeholder when there is no population data
+        public BasicLanguageData setScriptsWithoutPopulation(Collection<String> scripts) {
+            Map<String, Integer> scriptsByPopulation = new TreeMap<>();
+            for (String script : scripts) {
+                scriptsByPopulation.put(script, 0);
+            }
+            return setScripts(scriptsByPopulation);
         }
 
         public BasicLanguageData setTerritories(String territoryTokens) {
@@ -358,17 +372,14 @@ public class SupplementalDataInfo {
                             : Arrays.asList(WHITESPACE_PATTERN.split(territoryTokens)));
         }
 
-        public BasicLanguageData setScripts(Collection<String> scriptTokens) {
+        public BasicLanguageData setScripts(Map<String, Integer> newScripts) {
             if (frozen) {
                 throw new UnsupportedOperationException();
             }
             // TODO add error checking
             scripts = Collections.emptySet();
-            if (scriptTokens != null) {
-                for (String script : scriptTokens) {
-                    addScript(script);
-                }
-            }
+            scriptsByPopulation = new TreeMap<>();
+            addScripts(newScripts);
             return this;
         }
 
@@ -401,12 +412,18 @@ public class SupplementalDataInfo {
 
         public String toString(String languageSubtag) {
             if (scripts.size() == 0 && territories.size() == 0) return "";
+            List<String> sortedScripts =
+                    scriptsByPopulation.entrySet().stream()
+                            .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+                            .map(Map.Entry::getKey)
+                            .collect(Collectors.toList());
             return "\t\t<language type=\""
                     + languageSubtag
                     + "\""
                     + (scripts.size() == 0
                             ? ""
-                            : " scripts=\"" + CldrUtility.join(scripts, " ") + "\"")
+                            : " scripts=\"" + CldrUtility.join(sortedScripts, " ") + "\"")
+                    // TODO (CLDR-5708) remove territory data
                     + (territories.size() == 0
                             ? ""
                             : " territories=\"" + CldrUtility.join(territories, " ") + "\"")
@@ -445,15 +462,25 @@ public class SupplementalDataInfo {
             return ((type.ordinal() * 37 + scripts.hashCode()) * 37) + territories.hashCode();
         }
 
-        public BasicLanguageData addScript(String script) {
+        public BasicLanguageData addScript(String script, Integer population) {
             // simple error checking
             if (script.length() != 4) {
                 throw new IllegalArgumentException("Illegal Script: " + script);
             }
             if (scripts == Collections.EMPTY_SET) {
                 scripts = new LinkedHashSet<>(); // retain order
+                scriptsByPopulation = new TreeMap<>();
             }
             scripts.add(script);
+
+            // Add population data
+            Integer currentPopulation = scriptsByPopulation.get(script);
+            if (currentPopulation == null) {
+                scriptsByPopulation.put(script, population);
+            } else if (population > 0) {
+                // TODO CLDR-18087 maybe do some ambiguity testing
+                scriptsByPopulation.put(script, population);
+            } // Ignore 0 population if we already have a script entry
             return this;
         }
 
@@ -496,9 +523,9 @@ public class SupplementalDataInfo {
             return this;
         }
 
-        public void addScripts(Set<String> scripts2) {
-            for (String script : scripts2) {
-                addScript(script);
+        private void addScripts(Map<String, Integer> newScripts) {
+            for (Map.Entry<String, Integer> entry : newScripts.entrySet()) {
+                addScript(entry.getKey(), entry.getValue());
             }
         }
     }
@@ -2424,7 +2451,7 @@ public class SupplementalDataInfo {
                             ? BasicLanguageData.Type.primary
                             : BasicLanguageData.Type.secondary);
             languageData
-                    .setScripts(parts.getAttributeValue(2, "scripts"))
+                    .setScriptsWithoutPopulation(parts.getAttributeValue(2, "scripts"))
                     .setTerritories(parts.getAttributeValue(2, "territories"));
             Map<Type, BasicLanguageData> map = languageToBasicLanguageData.get(language);
             if (map == null) {
@@ -3046,7 +3073,7 @@ public class SupplementalDataInfo {
             }
             String script = locale.getScript();
             if (script.length() > 0) {
-                scriptsAndRegions.addScript(script);
+                scriptsAndRegions.addScript(script, 0 /* 0 = no population data yet */);
             }
             String region = locale.getCountry();
             if (region.length() > 0

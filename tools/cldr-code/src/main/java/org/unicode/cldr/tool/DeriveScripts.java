@@ -150,7 +150,7 @@ public class DeriveScripts {
                         + ";\t"
                         + scriptField
                         + "\t# "
-                        + english.getName(CLDRFile.LANGUAGE_NAME, language)
+                        + english.nameGetter().getName(CLDRFile.LANGUAGE_NAME, language)
                         + ";\t"
                         + status
                         + ";\t"
@@ -205,13 +205,13 @@ public class DeriveScripts {
                                 + "\t"
                                 + lang
                                 + "\t"
-                                + english.getName(lang)
+                                + english.nameGetter().getName(lang)
                                 + "\t"
                                 + scripts
                                 + "\t"
                                 + likelyScript
                         //                + "\t" + script + "\t" +
-                        // english.getName(CLDRFile.SCRIPT_NAME, script)
+                        // english.nameGetter().getName(CLDRFile.SCRIPT_NAME, script)
                         );
             }
             System.out.println("#total:\t" + i);

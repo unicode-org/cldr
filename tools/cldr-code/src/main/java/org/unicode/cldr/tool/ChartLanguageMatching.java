@@ -63,7 +63,7 @@ public class ChartLanguageMatching extends Chart {
 
                 tablePrinter
                         .addRow()
-                        // .addCell(ENGLISH.getName(locale))
+                        // .addCell(ENGLISH.nameGetter().getName(locale))
                         .addCell(getName(row.get0(), true))
                         .addCell(getName(row.get1(), false))
                         .addCell(row.get0())
@@ -79,7 +79,7 @@ public class ChartLanguageMatching extends Chart {
 
     private String getName(String codeWithStars, boolean user) {
         if (!codeWithStars.contains("*") && !codeWithStars.contains("$")) {
-            return ENGLISH.getName(codeWithStars, true, CLDRFile.SHORT_ALTS);
+            return ENGLISH.nameGetter().getName(codeWithStars, true, CLDRFile.SHORT_ALTS);
         }
         String[] parts = codeWithStars.split("_");
         if (parts[0].equals("*")) {
@@ -97,7 +97,7 @@ public class ChartLanguageMatching extends Chart {
                 parts[2] = "XY";
             }
         }
-        String result = ENGLISH.getName(String.join("_", parts), true, CLDRFile.SHORT_ALTS);
+        String result = ENGLISH.nameGetter().getName(String.join("_", parts), true, CLDRFile.SHORT_ALTS);
         if (user) {
             result =
                     result.replace("Xxxx", "any-script")

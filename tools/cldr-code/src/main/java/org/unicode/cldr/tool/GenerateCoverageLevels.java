@@ -340,7 +340,7 @@ public class GenerateCoverageLevels {
         localesFound.clear();
         for (String locale : rbnfFactory.getAvailable()) {
             if (localeFilter.skipLocale(locale, null)) continue;
-            System.out.println(locale + "\t" + english.getName(locale));
+            System.out.println(locale + "\t" + english.nameGetter().getName(locale));
             getRBNFData(locale, rbnfFactory.make(locale, true), ordinals, spellout, localesFound);
         }
         markData(
@@ -378,7 +378,7 @@ public class GenerateCoverageLevels {
         localesFound.clear();
         for (String locale : collationFactory.getAvailable()) {
             if (localeFilter.skipLocale(locale, null)) continue;
-            System.out.println(locale + "\t" + english.getName(locale));
+            System.out.println(locale + "\t" + english.nameGetter().getName(locale));
             getCollationData(locale, collationFactory.make(locale, true), localesFound);
         }
         markData(
@@ -392,7 +392,7 @@ public class GenerateCoverageLevels {
 
         System.out.println("gathering main data");
         for (String locale : mainAvailable) {
-            System.out.println(locale + "\t" + english.getName(locale));
+            System.out.println(locale + "\t" + english.nameGetter().getName(locale));
             LevelData levelData = mapLevelData.get(locale);
             getMainData(locale, levelData, cldrFactory.make(locale, true));
         }
@@ -418,17 +418,17 @@ public class GenerateCoverageLevels {
                     new StringBuilder(
                             script
                                     + "\t"
-                                    + english.getName(CLDRFile.SCRIPT_NAME, script)
+                                    + english.nameGetter().getName(CLDRFile.SCRIPT_NAME, script)
                                     + "\t"
                                     + lang
                                     + "\t"
-                                    + english.getName(CLDRFile.LANGUAGE_NAME, lang));
+                                    + english.nameGetter().getName(CLDRFile.LANGUAGE_NAME, lang));
             if (header != null) {
                 header.append("Code\tScript\tCode\tLocale");
             }
             // Now print the information
             samples2.println();
-            samples2.println(locale + "\t" + english.getName(locale));
+            samples2.println(locale + "\t" + english.nameGetter().getName(locale));
             double weightedFound = 0;
             double weightedMissing = 0;
             long missingCountTotal = 0;
@@ -492,7 +492,7 @@ public class GenerateCoverageLevels {
                             + "\t"
                             + percent.format(foundCount / (foundCount + missingCount));
             samples2.println(summaryLine);
-            summary.println(locale + "\t" + english.getName(locale) + "\t" + summaryLine2);
+            summary.println(locale + "\t" + english.nameGetter().getName(locale) + "\t" + summaryLine2);
             if (header != null) {
                 counts.println(header);
                 header = null;
@@ -552,7 +552,7 @@ public class GenerateCoverageLevels {
                 mapLevelData.get(locale).found.add(level, weight);
             } else {
                 System.out.println(
-                        locale + "\t" + english.getName(locale) + "\t" + "missing " + title);
+                        locale + "\t" + english.nameGetter().getName(locale) + "\t" + "missing " + title);
                 mapLevelData.get(locale).missing.add(level, weight);
                 mapLevelData.get(locale).samples.put(level, samples);
             }

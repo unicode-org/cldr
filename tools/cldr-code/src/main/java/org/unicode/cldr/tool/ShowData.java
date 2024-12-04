@@ -517,15 +517,15 @@ public class ShowData {
             System.out.println(locale);
             CLDRFile file = cldrFactory.make(locale, false);
             if (file.isNonInheriting()) continue;
-            String localeName = file.getName(locale);
+            String localeName = file.nameGetter().getName(locale);
             getScripts(localeName, scripts);
             if (!scripts.contains("Latn")) {
-                out.println(locale + "\t" + english.getName(locale) + "\t" + localeName);
+                out.println(locale + "\t" + english.nameGetter().getName(locale) + "\t" + localeName);
             }
             for (Iterator<String> it2 = UnicodeScripts.iterator(); it2.hasNext(); ) {
                 String script = it2.next();
                 if (script.equals("Latn")) continue;
-                String name = file.getName(CLDRFile.SCRIPT_NAME, script);
+                String name = file.nameGetter().getName(CLDRFile.SCRIPT_NAME, script);
                 if (getScripts(name, scripts).contains(script)) {
                     Map<String, Set<String>> names_locales = script_name_locales.get(script);
                     if (names_locales == null)
@@ -540,7 +540,7 @@ public class ShowData {
             String script = it2.next();
             Object names = script_name_locales.get(script);
             out.println(
-                    script + "\t(" + english.getName(CLDRFile.SCRIPT_NAME, script) + ")\t" + names);
+                    script + "\t(" + english.nameGetter().getName(CLDRFile.SCRIPT_NAME, script) + ")\t" + names);
         }
         out.close();
     }
@@ -746,7 +746,7 @@ public class ShowData {
     }
 
     public static String getEnglishLocaleName(String locale) {
-        return english.getName(locale, true, CLDRFile.SHORT_ALTS);
+        return english.nameGetter().getName(locale, true, CLDRFile.SHORT_ALTS);
     }
 
     private static String getLocaleNameAndCode(String locale) {

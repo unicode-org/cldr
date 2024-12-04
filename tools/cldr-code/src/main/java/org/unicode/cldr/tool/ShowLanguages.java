@@ -623,19 +623,19 @@ public class ShowLanguages {
                 }
             }
         }
-        String languageName = english.getName(CLDRFile.LANGUAGE_NAME, language);
+        String languageName = english.nameGetter().getName(CLDRFile.LANGUAGE_NAME, language);
         if (languageName == null) languageName = "???";
         String isLanguageTranslated = "";
         String nativeLanguageName =
                 nativeLanguage == null
                         ? null
-                        : nativeLanguage.getName(CLDRFile.LANGUAGE_NAME, language);
+                        : nativeLanguage.nameGetter().getName(CLDRFile.LANGUAGE_NAME, language);
         if (nativeLanguageName == null || nativeLanguageName.equals(language)) {
             nativeLanguageName = "<i>n/a</i>";
             isLanguageTranslated = "n";
         }
 
-        String scriptName = english.getName(CLDRFile.SCRIPT_NAME, script);
+        String scriptName = english.nameGetter().getName(CLDRFile.SCRIPT_NAME, script);
         // String nativeScriptName = nativeLanguage == null ? null :
         // nativeLanguage.getName(CLDRFile.SCRIPT_NAME,script);
         // if (nativeScriptName != null && !nativeScriptName.equals(script)) {
@@ -643,11 +643,11 @@ public class ShowLanguages {
         // }
 
         String isTerritoryTranslated = "";
-        String territoryName = english.getName(CLDRFile.TERRITORY_NAME, territory);
+        String territoryName = english.nameGetter().getName(CLDRFile.TERRITORY_NAME, territory);
         String nativeTerritoryName =
                 nativeLanguage == null
                         ? null
-                        : nativeLanguage.getName(CLDRFile.TERRITORY_NAME, territory);
+                        : nativeLanguage.nameGetter().getName(CLDRFile.TERRITORY_NAME, territory);
         if (nativeTerritoryName == null || nativeTerritoryName.equals(territory)) {
             nativeTerritoryName = "<i>n/a</i>";
             isTerritoryTranslated = "n";
@@ -694,7 +694,7 @@ public class ShowLanguages {
         if (temp != null) {
             return temp;
         }
-        String scriptName = english.getName(CLDRFile.SCRIPT_NAME, script);
+        String scriptName = english.nameGetter().getName(CLDRFile.SCRIPT_NAME, script);
         scriptName = scriptName.toLowerCase(Locale.ENGLISH);
         temp = fixScriptGif.get(scriptName);
         if (temp != null) {
@@ -714,12 +714,12 @@ public class ShowLanguages {
             String script,
             String secondary) {
         try {
-            String languageName = english.getName(CLDRFile.LANGUAGE_NAME, language);
+            String languageName = english.nameGetter().getName(CLDRFile.LANGUAGE_NAME, language);
             if (languageName == null) {
                 languageName = "¿" + language + "?";
                 System.err.println("No English Language Name for:" + language);
             }
-            String scriptName = english.getName(CLDRFile.SCRIPT_NAME, script);
+            String scriptName = english.nameGetter().getName(CLDRFile.SCRIPT_NAME, script);
             if (scriptName == null) {
                 scriptName = "¿" + script + "?";
                 System.err.println("No English Language Name for:" + script);
@@ -1139,7 +1139,7 @@ public class ShowLanguages {
             if (value == null || value.equals("") || value.equals("und")) {
                 return "\u00A0";
             }
-            String result = english.getName(type, value);
+            String result = english.nameGetter().getName(type, value);
             if (result == null) {
                 result = value;
             }
@@ -1270,7 +1270,7 @@ public class ShowLanguages {
             for (String territoryCode : supplementalDataInfo.getTerritoriesWithPopulationData()) {
                 // PopulationData territoryData =
                 // supplementalDataInfo.getPopulationDataForTerritory(territoryCode);
-                String territoryName = english.getName(CLDRFile.TERRITORY_NAME, territoryCode);
+                String territoryName = english.nameGetter().getName(CLDRFile.TERRITORY_NAME, territoryCode);
                 for (String languageCode :
                         supplementalDataInfo.getLanguagesForTerritoryWithPopulationData(
                                 territoryCode)) {
@@ -1362,7 +1362,7 @@ public class ShowLanguages {
         }
 
         private String getLanguageName(String languageCode) {
-            String result = english.getName(languageCode, true, CLDRFile.SHORT_ALTS);
+            String result = english.nameGetter().getName(languageCode, true, CLDRFile.SHORT_ALTS);
             if (!result.equals(languageCode)) return result;
             Set<String> names = Iso639Data.getNames(languageCode);
             if (names != null && names.size() != 0) {
@@ -1550,7 +1550,7 @@ public class ShowLanguages {
                 final String name =
                         locale.equals("*")
                                 ? "ALL"
-                                : english.getName(locale, true, CLDRFile.SHORT_ALTS);
+                                : english.nameGetter().getName(locale, true, CLDRFile.SHORT_ALTS);
                 coverageGoalsTsv.println(
                         String.format(
                                 "%s\t;\t%s\t;\t%s\t;\t%s", organization, locale, level, name));
@@ -1677,7 +1677,7 @@ public class ShowLanguages {
                     .addColumn("Report Bug", "class='target'", null, "class='target'", false);
 
             for (String territoryCode : supplementalDataInfo.getTerritoriesWithPopulationData()) {
-                String territoryName = english.getName(CLDRFile.TERRITORY_NAME, territoryCode);
+                String territoryName = english.nameGetter().getName(CLDRFile.TERRITORY_NAME, territoryCode);
                 PopulationData territoryData2 =
                         supplementalDataInfo.getPopulationDataForTerritory(territoryCode);
                 double territoryLiteracy = territoryData2.getLiteratePopulationPercent();
@@ -1816,7 +1816,7 @@ public class ShowLanguages {
             tablePrinter.addColumn("Report Bug", "class='target'", null, "class='target'", false);
 
             for (String territoryCode : supplementalDataInfo.getTerritoriesWithPopulationData()) {
-                String territoryName = english.getName(CLDRFile.TERRITORY_NAME, territoryCode);
+                String territoryName = english.nameGetter().getName(CLDRFile.TERRITORY_NAME, territoryCode);
                 PopulationData territoryData2 =
                         supplementalDataInfo.getPopulationDataForTerritory(territoryCode);
                 double population = territoryData2.getPopulation() / 1000000;
@@ -1945,8 +1945,8 @@ public class ShowLanguages {
         //                String territory = (String) it.next();
         //                String parent = (String) territory_parent.get(territory);
         //                System.out.println(territory + "\t" +
-        // english.getName(english.TERRITORY_NAME, territory) + "\t"
-        //                    + parent + "\t" + english.getName(english.TERRITORY_NAME, parent));
+        // english.nameGetter().getName(english.TERRITORY_NAME, territory) + "\t"
+        //                    + parent + "\t" + english.nameGetter().getName(english.TERRITORY_NAME, parent));
         //            }
         //        }
 
@@ -2040,7 +2040,7 @@ public class ShowLanguages {
             Map<String, String> name_script = new TreeMap<>();
             for (Iterator<String> it = sc.getAvailableCodes("script").iterator(); it.hasNext(); ) {
                 String script = it.next();
-                String name = english.getName(CLDRFile.SCRIPT_NAME, script);
+                String name = english.nameGetter().getName(CLDRFile.SCRIPT_NAME, script);
                 if (name == null) name = script;
                 name_script.put(name, script);
                 /*
@@ -2054,14 +2054,14 @@ public class ShowLanguages {
             for (Iterator<String> it = sc.getAvailableCodes("language").iterator();
                     it.hasNext(); ) {
                 String language = it.next();
-                String names = english.getName(CLDRFile.LANGUAGE_NAME, language);
+                String names = english.nameGetter().getName(CLDRFile.LANGUAGE_NAME, language);
                 if (names == null) names = language;
                 name_language.put(names, language);
             }
             for (Iterator<String> it = sc.getAvailableCodes("language").iterator();
                     it.hasNext(); ) {
                 String language = it.next();
-                String names = english.getName(CLDRFile.LANGUAGE_NAME, language);
+                String names = english.nameGetter().getName(CLDRFile.LANGUAGE_NAME, language);
                 if (names == null) names = language;
                 String[] words = names.split(delimiter);
                 if (words.length > 1) {
@@ -2208,7 +2208,7 @@ public class ShowLanguages {
                                     + infoItem.getCurrency()
                                     + "</td>"
                                     + "<td class='target'>"
-                                    + english.getName("currency", infoItem.getCurrency())
+                                    + english.nameGetter().getName("currency", infoItem.getCurrency())
                                     + "</td>"
                                     + "</tr>");
                 }
@@ -2263,7 +2263,7 @@ public class ShowLanguages {
                         "<tr>"
                                 + "<td class='source nowrap'>"
                                 + TransliteratorUtilities.toHTML.transform(
-                                        english.getName("currency", currency))
+                                        english.nameGetter().getName("currency", currency))
                                 + "</td>"
                                 + "<td class='source'>"
                                 + CldrUtility.getDoubleLinkedText(currency)
@@ -2323,7 +2323,7 @@ public class ShowLanguages {
             // for (Iterator it = territoriesWithoutCurrencies.iterator(); it.hasNext();) {
             // if (first) first = false;
             // else pw.print(", ");
-            // pw.print(english.getName(CLDRFile.TERRITORY_NAME, it.next().toString(), false));
+            // pw.print(english.nameGetter().getName(CLDRFile.TERRITORY_NAME, it.next().toString(), false));
             // }
             // pw.println("</td><td class='target'>");
             // Set currenciesWithoutTerritories = new TreeSet();
@@ -2333,7 +2333,7 @@ public class ShowLanguages {
             // for (Iterator it = currenciesWithoutTerritories.iterator(); it.hasNext();) {
             // if (first) first = false;
             // else pw.print(", ");
-            // pw.print(english.getName(CLDRFile.CURRENCY_NAME, it.next().toString(), false));
+            // pw.print(english.nameGetter().getName(CLDRFile.CURRENCY_NAME, it.next().toString(), false));
             // }
             // pw.println("</td></tr>");
             // doFooter(pw);
@@ -2342,7 +2342,7 @@ public class ShowLanguages {
 
         private String getTerritoryName(String territory) {
             String name;
-            name = english.getName("territory", territory);
+            name = english.nameGetter().getName("territory", territory);
             if (name == null) {
                 name = sc.getData("territory", territory);
             }
@@ -2736,7 +2736,7 @@ public class ShowLanguages {
             } else {
                 int pos = oldcode.indexOf('*');
                 String code = pos < 0 ? oldcode : oldcode.substring(0, pos);
-                String ename = english.getName(type, code);
+                String ename = english.nameGetter().getName(type, code);
                 String nameString = ename == null ? code : ename;
                 return nameString.equals(oldcode)
                         ? nameString
@@ -2945,7 +2945,7 @@ public class ShowLanguages {
     private static SortedMap<String, String> getNameToCode(CodeType codeType, String cldrCodeType) {
         SortedMap<String, String> temp = new TreeMap<String, String>(col);
         for (String territory : StandardCodes.make().getAvailableCodes(codeType)) {
-            String name = english.getName(cldrCodeType, territory);
+            String name = english.nameGetter().getName(cldrCodeType, territory);
             temp.put(name == null ? territory : name, territory);
         }
         temp = Collections.unmodifiableSortedMap(temp);

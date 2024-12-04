@@ -63,9 +63,9 @@ public class ScriptPopulations {
                             + "\t"
                             + langScriptLitPop.getCount(lang)
                             + "\t"
-                            + english.getName(baseLanguage)
+                            + english.nameGetter().getName(baseLanguage)
                             + "\t"
-                            + english.getName(CLDRFile.SCRIPT_NAME, script)
+                            + english.nameGetter().getName(CLDRFile.SCRIPT_NAME, script)
                             + "\t"
                             + officialStatus
                             + "\t"

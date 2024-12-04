@@ -128,7 +128,7 @@ public class TestUtilities {
             "zh_Hans_US_SAAHO"
         };
         for (String test : tests) {
-            System.out.println(test + "\t" + english.getName(test) + "\t" + french.getName(test));
+            System.out.println(test + "\t" + english.nameGetter().getName(test) + "\t" + french.nameGetter().getName(test));
         }
     }
 
@@ -1016,18 +1016,18 @@ public class TestUtilities {
         for (Iterator<String> it = sc.getGoodAvailableCodes("language").iterator();
                 it.hasNext(); ) {
             String code = it.next();
-            out.println(code + "\t" + english.getName(CLDRFile.LANGUAGE_NAME, code));
+            out.println(code + "\t" + english.nameGetter().getName(CLDRFile.LANGUAGE_NAME, code));
         }
         out.println("****");
         for (Iterator<String> it = sc.getGoodAvailableCodes("territory").iterator();
                 it.hasNext(); ) {
             String code = it.next();
-            out.println(code + "\t" + english.getName(CLDRFile.TERRITORY_NAME, code));
+            out.println(code + "\t" + english.nameGetter().getName(CLDRFile.TERRITORY_NAME, code));
         }
         out.println("****");
         for (Iterator<String> it = sc.getGoodAvailableCodes("script").iterator(); it.hasNext(); ) {
             String code = it.next();
-            out.println(code + "\t" + english.getName(CLDRFile.SCRIPT_NAME, code));
+            out.println(code + "\t" + english.nameGetter().getName(CLDRFile.SCRIPT_NAME, code));
         }
         out.close();
     }

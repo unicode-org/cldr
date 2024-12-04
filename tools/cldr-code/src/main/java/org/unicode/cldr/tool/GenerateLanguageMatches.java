@@ -113,6 +113,6 @@ public class GenerateLanguageMatches {
             };
 
     private static String getName(String lang) {
-        return ENGLISH.getName(CLDRFile.LANGUAGE_NAME, lang, MENU);
+        return ENGLISH.nameGetter().getName(CLDRFile.LANGUAGE_NAME, lang, MENU);
     }
 }

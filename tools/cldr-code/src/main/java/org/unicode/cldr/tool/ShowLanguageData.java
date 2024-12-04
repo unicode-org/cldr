@@ -50,11 +50,11 @@ public class ShowLanguageData {
                 System.out.println(
                         language
                                 + "\t"
-                                + english.getName(language)
+                                + english.nameGetter().getName(language)
                                 + "\t"
                                 + territory
                                 + "\t"
-                                + english.getName(CLDRFile.TERRITORY_NAME, territory)
+                                + english.nameGetter().getName(CLDRFile.TERRITORY_NAME, territory)
                                 + "\t"
                                 + litPop / (double) total);
             }

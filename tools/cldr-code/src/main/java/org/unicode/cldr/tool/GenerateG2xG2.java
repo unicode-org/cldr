@@ -219,7 +219,7 @@ public class GenerateG2xG2 {
                 String territory = it.next();
                 if (territory.charAt(0) < 'A') continue;
                 String locale = "haw-" + territory;
-                System.out.print(locale + ": " + english.getName(locale) + ", ");
+                System.out.print(locale + ": " + english.nameGetter().getName(locale) + ", ");
             }
             if (true) return true;
         }
@@ -232,7 +232,7 @@ public class GenerateG2xG2 {
             for (Iterator it = testSet.iterator(); it.hasNext(); ) {
                 String country = (String) it.next();
                 System.out.println(
-                        country + "\t" + english.getName(CLDRFile.CURRENCY_NAME, country));
+                        country + "\t" + english.nameGetter().getName(CLDRFile.CURRENCY_NAME, country));
             }
             return true;
         } else if (choice == 0) { // get available
@@ -335,9 +335,9 @@ public class GenerateG2xG2 {
                                 + "\t"
                                 + sourceLocale
                                 + "\t("
-                                + english.getName(sourceLocale)
+                                + english.nameGetter().getName(sourceLocale)
                                 + ": "
-                                + sourceData.getName(sourceLocale)
+                                + sourceData.nameGetter().getName(sourceLocale)
                                 + ")"
                                 + "\t"
                                 + priorityMap.get(item)
@@ -385,9 +385,9 @@ public class GenerateG2xG2 {
     private static String getItemName(CLDRFile data, int type, String item) {
         String result;
         if (type == CLDRFile.LANGUAGE_NAME) {
-            result = data.getName(item);
+            result = data.nameGetter().getName(item);
         } else if (type != CLDRFile.TZ_EXEMPLAR) {
-            result = data.getName(type, item);
+            result = data.nameGetter().getName(type, item);
         } else {
             String prefix = "//ldml/dates/timeZoneNames/zone[@type=\"" + item + "\"]/exemplarCity";
             result = data.getStringValue(prefix);

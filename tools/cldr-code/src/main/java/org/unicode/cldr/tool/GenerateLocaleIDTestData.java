@@ -230,7 +230,7 @@ public class GenerateLocaleIDTestData {
             CLDRFile formattingLocaleFile, boolean onlyConstructCompound, String... locales) {
         Map<String, String> displayNames = new TreeMap<>();
         for (String locale : locales) {
-            String name = formattingLocaleFile.getName(locale, onlyConstructCompound);
+            String name = formattingLocaleFile.nameGetter().getName(locale, onlyConstructCompound);
             if (name.contains("null")) {
                 System.err.println("** REPLACE: " + locale + "; " + name);
             } else {

@@ -1,23 +1,10 @@
 <template>
   <div>
-    <a-alert
-      v-if="needCla"
-      type="warning"
-      message="Please read and sign the below CLA to begin contributing."
-      show-icon
-    />
-    <a-alert
-      v-else-if="readonlyCla"
-      type="info"
-      message="Your organization has signed the CLA, it may not be modified."
-      show-icon
-    />
-    <a-alert
-      v-else
-      type="success"
-      message="The CLA has been signed"
-      show-icon
-    />
+    <a-alert v-if="needCla" type="warning" message="Please read and sign the below CLA to begin contributing."
+      show-icon />
+    <a-alert v-else-if="readonlyCla" type="info" message="Your organization has signed the CLA, it may not be modified."
+      show-icon />
+    <a-alert v-else type="success" message="The CLA has been signed" show-icon />
 
     <!-- CLA text -->
     <a-spin v-if="loading" />
@@ -36,59 +23,60 @@
           <i class="glyphicon glyphicon-envelope" />
         </template>
       </a-input>
-      Your Employer (or 'none'):<a-input
-        :disabled="!needCla"
-        v-model:value="userEmployer"
-      >
+      Your Employer (or 'none'):<a-input :disabled="!needCla" v-model:value="userEmployer">
         <template #prefix>
           <i class="glyphicon glyphicon-briefcase" />
         </template>
       </a-input>
-      <i class="pleaseChoose" v-if="needCla && userSign == 0"
-        >Please choose one:</i
-      ><br />
+      <i class="pleaseChoose" v-if="needCla && userSign == 0">Please check the applicable box below (only one) to
+        indicate your agreement.</i><br />
       <a-radio-group :disabled="!needCla" v-model:value="userSign">
+        <a-radio :style="radioStyle" :value="2">
+          I am contributing as an individual because I am self-employed or unemployed. I have read and agree to the
+          foregoing terms.
+        </a-radio>
+        <a-radio :style="radioStyle" :value="3">
+          I am contributing as an individual because, even though I am employed, my employer has no rights and claims no
+          rights to my contributions. I have read and agree to the foregoing terms.
+        </a-radio>
+        <a-radio :style="radioStyle" :value="4">
+          I am employed and my employer has or may have rights in my contributions under my employment agreement and/or
+          the work for hire doctrine or similar legal principles.
+        </a-radio>
         <a-radio :style="radioStyle" :value="1">
           My employer has already signed the CLA and is listed on Unicode’s
-          <a href="https://www.unicode.org/policies/corporate-cla-list/"
-            >List of Corporate CLAs</a
-          >.
-        </a-radio>
-        <a-radio :style="radioStyle" :value="2">
-          I am a self-employed or unemployed individual and I have read and
-          agree to the CLA.
+          <a href="https://www.unicode.org/policies/corporate-cla-list/">List of Corporate CLAs</a>.
         </a-radio>
       </a-radio-group>
       <br />
-      <button
-        @click="sign"
-        v-if="
+      <button @click="sign" v-if="
           needCla &&
           userSign != 0 &&
+          userSign != 4 &&
           userName &&
           userEmail &&
           userEmployer &&
           !readonlyCla
-        "
-      >
+        ">
         Sign
       </button>
-      <a-alert
-        type="info"
-        v-else-if="needCla"
-        message="Please fill in the above fields."
-      />
+      <div v-else-if="userSign == 4">
+        <a-alert type="error" message="Please request that your employer sign the Unicode Corporate CLA." />
+        &nbsp;<a href="https://www.unicode.org/policies/licensing_policy.html#signing">How to sign the Corporate CLA…</a>
+      </div>
+      <a-alert type="info" v-else-if="needCla" message="Please fill in the above fields." />
       <hr />
     </div>
-    <div v-if="!needCla">
-      <a-alert
-        v-if="!readonlyCla"
-        type="warning"
-        message="If the CLA is revoked, you will not be able to continue contributing to CLDR. You will have an opportunity to re-sign if corrections are needed."
-      />
+    <div v-if="false && !needCla"> <!-- revocation is not allowed at present -->
+      <a-alert v-if="!readonlyCla" type="warning"
+        message="If the CLA is revoked, you will not be able to continue contributing to CLDR. You will have an opportunity to re-sign if corrections are needed." />
       <button v-if="!readonlyCla" @click="revoke">Revoke</button>
     </div>
     <a-spin v-if="loading" />
+  </div>
+  <div>
+    <p>If you would like further information regarding contributing to Unicode, please see our <a target="_blank" href="https://www.unicode.org/policies/licensing_policy.html">IP Policies</a>. </p>
+    <p>If you believe you are already under a Unicode CLA and are seeing this message in error, or if you have further questions, please contact <a target="_blank" href="mailto:cldr-cla@unicode.org"><code>cldr-cla@unicode.org</code></a>.</p>
   </div>
 </template>
 

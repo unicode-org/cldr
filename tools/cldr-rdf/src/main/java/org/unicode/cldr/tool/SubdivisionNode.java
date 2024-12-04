@@ -263,7 +263,7 @@ public class SubdivisionNode {
                     SubdivisionInfo.SUBDIVISION_ALIASES_FORMER.get(value);
             if (subdivisionAlias != null) {
                 String country = subdivisionAlias.get0().get(0);
-                cldrName = ENGLISH_CLDR.nameGetter().getName(CLDRFile.TERRITORY_NAME, country);
+                cldrName = ENGLISH_CLDR.nameGetter().getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, country);
                 if (cldrName != null) {
                     return fixName(cldrName);
                 }
@@ -612,7 +612,7 @@ public class SubdivisionNode {
                     result.append(", ");
                 }
                 if (SubdivisionNames.isRegionCode(s)) {
-                    result.append(ENGLISH_CLDR.nameGetter().getName(CLDRFile.TERRITORY_NAME, s));
+                    result.append(ENGLISH_CLDR.nameGetter().getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, s));
                 } else {
                     result.append(sdset.getBestName(s, useIso));
                 }

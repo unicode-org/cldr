@@ -71,7 +71,7 @@ public class ListGrammarInfo {
 
     private static String format(
             String locale, Collection<String> genders, Collection<String> rawCases) {
-        return english.nameGetter().getName(locale)
+        return english.nameGetter().getNameFromLocaleOrTZID(locale)
                 + " ("
                 + locale
                 + "/"
@@ -82,6 +82,6 @@ public class ListGrammarInfo {
     }
 
     public static String format(String locale, Collection<String> genders) {
-        return english.nameGetter().getName(locale) + " (" + locale + "/" + genders.size() + ")";
+        return english.nameGetter().getNameFromLocaleOrTZID(locale) + " (" + locale + "/" + genders.size() + ")";
     }
 }

@@ -32,7 +32,7 @@ public class StandardCodesTest extends TestFmwk {
                 String name =
                         locale.equals("*")
                                 ? "ALL"
-                                : testInfo.getEnglish().nameGetter().getName(locale);
+                                : testInfo.getEnglish().nameGetter().getNameFromLocaleOrTZID(locale);
                 logln(
                         org
                                 + "\t;\t"

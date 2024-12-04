@@ -413,7 +413,7 @@ public class CLDRTest extends TestFmwk {
         String name = localeNameCache.get(locale);
         if (name != null) return name;
         if (english == null) english = cldrFactory.make("en", true);
-        String result = english.nameGetter().getName(locale);
+        String result = english.nameGetter().getNameFromLocaleOrTZID(locale);
         /*
          * Collection c = Utility.splitList(locale, '_', false, null);
          * String[] pieces = new String[c.size()];
@@ -1047,7 +1047,7 @@ public class CLDRTest extends TestFmwk {
                 @Override
                 public Object transform(Object source) {
                     if (english == null) english = cldrFactory.make("en", true);
-                    return english.nameGetter().getName("currency", source.toString())
+                    return english.nameGetter().getNameFromTypestrCode("currency", source.toString())
                             + " ("
                             + source
                             + ")";
@@ -1192,7 +1192,7 @@ public class CLDRTest extends TestFmwk {
         logln("Missing English currency names");
         for (Iterator<String> it = legalCurrencies.iterator(); it.hasNext(); ) {
             String currency = it.next();
-            String name = english.nameGetter().getName("currency", currency);
+            String name = english.nameGetter().getNameFromTypestrCode("currency", currency);
             if (name == null) {
                 String standardName = sc.getFullData("currency", currency).get(0);
                 logln("\t\t\t<currency type=\"" + currency + "\">");

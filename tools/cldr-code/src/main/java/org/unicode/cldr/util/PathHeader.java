@@ -1418,7 +1418,7 @@ public class PathHeader implements Comparable<PathHeader> {
 
                             return englishFile
                                             .nameGetter()
-                                            .getName(CLDRFile.LANGUAGE_NAME, languageOnlyPart)
+                                            .getNameFromTypenumCode(CLDRFile.LANGUAGE_NAME, languageOnlyPart)
                                     + " \u25BA "
                                     + source0;
                         }
@@ -1434,7 +1434,7 @@ public class PathHeader implements Comparable<PathHeader> {
                                 script = likelySubtags.getLikelyScript(language);
                             }
                             String scriptName =
-                                    englishFile.nameGetter().getName(CLDRFile.SCRIPT_NAME, script);
+                                    englishFile.nameGetter().getNameFromTypenumCode(CLDRFile.SCRIPT_NAME, script);
                             return "Languages in "
                                     + (script.equals("Hans") || script.equals("Hant")
                                             ? "Han Script"
@@ -1454,7 +1454,7 @@ public class PathHeader implements Comparable<PathHeader> {
                                     order = Containment.getOrder(territory);
                                     return englishFile
                                             .nameGetter()
-                                            .getName(CLDRFile.TERRITORY_NAME, container);
+                                            .getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, container);
                                 }
                             });
             functionMap.put(
@@ -1490,7 +1490,7 @@ public class PathHeader implements Comparable<PathHeader> {
                                     return "Territories ("
                                             + englishFile
                                                     .nameGetter()
-                                                    .getName(
+                                                    .getNameFromTypenumCode(
                                                             CLDRFile.TERRITORY_NAME,
                                                             theSubContinent)
                                             + ")";
@@ -1501,7 +1501,7 @@ public class PathHeader implements Comparable<PathHeader> {
                                     return "Territories ("
                                             + englishFile
                                                     .nameGetter()
-                                                    .getName(CLDRFile.TERRITORY_NAME, theContinent)
+                                                    .getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, theContinent)
                                             + ")";
                             }
                         }
@@ -1544,7 +1544,7 @@ public class PathHeader implements Comparable<PathHeader> {
                             if (singlePageTerritories.contains(theTerritory)) {
                                 return englishFile
                                         .nameGetter()
-                                        .getName(CLDRFile.TERRITORY_NAME, theTerritory);
+                                        .getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, theTerritory);
                             }
                             String theContinent = Containment.getContinent(theTerritory);
                             final String subcontinent = Containment.getSubcontinent(theTerritory);
@@ -1562,22 +1562,22 @@ public class PathHeader implements Comparable<PathHeader> {
                                     }
                                     return englishFile
                                             .nameGetter()
-                                            .getName(CLDRFile.TERRITORY_NAME, theSubContinent);
+                                            .getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, theSubContinent);
                                 case 19: // Americas - For the timeZonePage, we just group North
                                     // America & South America
                                     theSubContinent =
                                             Integer.parseInt(subcontinent) == 5 ? "005" : "003";
                                     return englishFile
                                             .nameGetter()
-                                            .getName(CLDRFile.TERRITORY_NAME, theSubContinent);
+                                            .getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, theSubContinent);
                                 case 142: // Asia
                                     return englishFile
                                             .nameGetter()
-                                            .getName(CLDRFile.TERRITORY_NAME, subcontinent);
+                                            .getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, subcontinent);
                                 default:
                                     return englishFile
                                             .nameGetter()
-                                            .getName(CLDRFile.TERRITORY_NAME, theContinent);
+                                            .getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, theContinent);
                             }
                         }
                     });
@@ -1677,7 +1677,7 @@ public class PathHeader implements Comparable<PathHeader> {
                                 order = Containment.getOrder(container);
                                 return englishFile
                                         .nameGetter()
-                                        .getName(CLDRFile.TERRITORY_NAME, container);
+                                        .getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, container);
                             } else {
                                 String continent = metazoneToContinent.get(source);
                                 if (continent == null) {
@@ -1789,7 +1789,7 @@ public class PathHeader implements Comparable<PathHeader> {
                                 order = 999;
                                 return englishFile
                                                 .nameGetter()
-                                                .getName(CLDRFile.TERRITORY_NAME, territory)
+                                                .getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, territory)
                                         + ": "
                                         + source0;
                             } else {
@@ -1797,7 +1797,7 @@ public class PathHeader implements Comparable<PathHeader> {
                                         + ": "
                                         + englishFile
                                                 .nameGetter()
-                                                .getName(CLDRFile.TERRITORY_NAME, territory)
+                                                .getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, territory)
                                         + tenderOrNot;
                             }
                         }
@@ -1821,7 +1821,7 @@ public class PathHeader implements Comparable<PathHeader> {
                                 subContinent =
                                         englishFile
                                                 .nameGetter()
-                                                .getName(CLDRFile.TERRITORY_NAME, territory);
+                                                .getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, territory);
                             } else {
                                 subContinent = catFromTerritory.transform(territory);
                             }
@@ -2212,7 +2212,7 @@ public class PathHeader implements Comparable<PathHeader> {
                 languageOnlyPart = s;
             }
             final String name =
-                    englishFile.nameGetter().getName(CLDRFile.LANGUAGE_NAME, languageOnlyPart);
+                    englishFile.nameGetter().getNameFromTypenumCode(CLDRFile.LANGUAGE_NAME, languageOnlyPart);
             return name == null ? "?" : name.substring(0, 1).toUpperCase();
         }
 

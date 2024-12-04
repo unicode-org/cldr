@@ -101,7 +101,7 @@ public class ChartSubdivisionNames extends Chart {
             if (locale.startsWith("en")) {
                 int debug = 0;
             }
-            String name = ENGLISH.nameGetter().getName(locale, true);
+            String name = ENGLISH.nameGetter().getNameFromLocaleOrTZBool(locale, true);
             int baseEnd = locale.indexOf('_');
             ULocale loc = new ULocale(baseEnd < 0 ? locale : locale.substring(0, baseEnd));
             LanguageGroup group = LanguageGroup.get(loc);
@@ -112,7 +112,7 @@ public class ChartSubdivisionNames extends Chart {
         for (Entry<LanguageGroup, Set<R3<Integer, String, String>>> groupPairs :
                 groupToNameAndCodeSorted.keyValuesSet()) {
             LanguageGroup group = groupPairs.getKey();
-            String ename = ENGLISH.nameGetter().getName("en", true);
+            String ename = ENGLISH.nameGetter().getNameFromLocaleOrTZBool("en", true);
             nameToCode.clear();
             nameToCode.put(ename, "en"); // always have english first
 
@@ -166,7 +166,7 @@ public class ChartSubdivisionNames extends Chart {
                         .addRow()
                         .addCell(
                                 english.nameGetter()
-                                        .getName(
+                                        .getNameFromTypenumCode(
                                                 CLDRFile.TERRITORY_NAME,
                                                 code.substring(0, 2).toUpperCase(Locale.ENGLISH)))
                         .addCell(code);

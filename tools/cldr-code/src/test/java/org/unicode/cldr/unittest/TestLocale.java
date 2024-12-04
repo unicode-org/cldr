@@ -477,11 +477,11 @@ public class TestLocale extends TestFmwkPlus {
         for (String[] row : tests) {
             if (row[0] != null) {
                 int typeCode = CLDRFile.typeNameToCode(row[0]);
-                String standAlone = f.nameGetter().getName(typeCode, row[1]);
+                String standAlone = f.nameGetter().getNameFromTypenumCode(typeCode, row[1]);
                 logln(typeCode + ": " + standAlone);
                 if (!assertEquals("stand-alone " + row[3], row[2], standAlone)) {
                     typeCode = CLDRFile.typeNameToCode(row[0]);
-                    standAlone = f.nameGetter().getName(typeCode, row[1]);
+                    standAlone = f.nameGetter().getNameFromTypenumCode(typeCode, row[1]);
                 }
 
                 if (row[5] != null) {
@@ -491,28 +491,28 @@ public class TestLocale extends TestFmwkPlus {
                 }
             }
             String displayName =
-                    f.nameGetter().getName(row[3], true, "{0}={1}", "{0} ({1})", "{0}, {1}");
+                    f.nameGetter().getNameFromLocaleOrTZBoolEtc(row[3], true, "{0}={1}", "{0} ({1})", "{0}, {1}");
             assertEquals("locale " + row[3], row[4], displayName);
         }
     }
 
     public void TestLocaleNamePattern() {
-        assertEquals("Locale name", "Chinese", testInfo.getEnglish().nameGetter().getName("zh"));
+        assertEquals("Locale name", "Chinese", testInfo.getEnglish().nameGetter().getNameFromLocaleOrTZID("zh"));
         assertEquals(
                 "Locale name",
                 "Chinese (United States)",
-                testInfo.getEnglish().nameGetter().getName("zh-US"));
+                testInfo.getEnglish().nameGetter().getNameFromLocaleOrTZID("zh-US"));
         assertEquals(
                 "Locale name",
                 "Chinese (Arabic, United States)",
-                testInfo.getEnglish().nameGetter().getName("zh-Arab-US"));
+                testInfo.getEnglish().nameGetter().getNameFromLocaleOrTZID("zh-Arab-US"));
         CLDRFile japanese = testInfo.getCLDRFile("ja", true);
-        assertEquals("Locale name", "中国語", japanese.nameGetter().getName("zh"));
-        assertEquals("Locale name", "中国語 (アメリカ合衆国)", japanese.nameGetter().getName("zh-US"));
+        assertEquals("Locale name", "中国語", japanese.nameGetter().getNameFromLocaleOrTZID("zh"));
+        assertEquals("Locale name", "中国語 (アメリカ合衆国)", japanese.nameGetter().getNameFromLocaleOrTZID("zh-US"));
         assertEquals(
                 "Locale name",
                 "中国語 (アラビア文字\u3001アメリカ合衆国)",
-                japanese.nameGetter().getName("zh-Arab-US"));
+                japanese.nameGetter().getNameFromLocaleOrTZID("zh-Arab-US"));
     }
 
     public void TestLocaleDisplay() {
@@ -589,7 +589,7 @@ public class TestLocale extends TestFmwkPlus {
                 //                assertEquals("LTP(BCP47)=>ICU=>BCP47", bcp47, roundTripId);
 
                 canonicalizer.transform(ltp);
-                String name = cldrFile.nameGetter().getName(ltp, compound, null);
+                String name = cldrFile.nameGetter().getNameFromParserBoolAltPicker(ltp, compound, null);
                 if (assertEquals(cldrFile.getLocaleID() + "; " + localeId, expected, name)) {
                     formattedExamplesForSpec
                             .append("<tr><td>")
@@ -668,7 +668,7 @@ public class TestLocale extends TestFmwkPlus {
         if (locale.equals("en-t-d0-accents")) {
             int debug = 0;
         }
-        String name = cldrFile.nameGetter().getName(locale, true, null);
+        String name = cldrFile.nameGetter().getNameFromLocaleOrTZBoolAltpicker(locale, true, null);
         if (isVerbose()) {
             System.out.println(locale + "; " + name);
         }
@@ -688,19 +688,19 @@ public class TestLocale extends TestFmwkPlus {
         assertEquals(
                 "Extended language translation",
                 "Simplified Chinese",
-                testInfo.getEnglish().nameGetter().getName("zh_Hans"));
+                testInfo.getEnglish().nameGetter().getNameFromLocaleOrTZID("zh_Hans"));
         assertEquals(
                 "Extended language translation",
                 "Simplified Chinese (Singapore)",
-                testInfo.getEnglish().nameGetter().getName("zh_Hans_SG"));
+                testInfo.getEnglish().nameGetter().getNameFromLocaleOrTZID("zh_Hans_SG"));
         assertEquals(
                 "Extended language translation",
                 "American English",
-                testInfo.getEnglish().nameGetter().getName("en-US"));
+                testInfo.getEnglish().nameGetter().getNameFromLocaleOrTZID("en-US"));
         assertEquals(
                 "Extended language translation",
                 "American English (Arabic)",
-                testInfo.getEnglish().nameGetter().getName("en-Arab-US"));
+                testInfo.getEnglish().nameGetter().getNameFromLocaleOrTZID("en-Arab-US"));
     }
 
     public void testAllVariants() {
@@ -854,7 +854,7 @@ public class TestLocale extends TestFmwkPlus {
                         + "\n\t\tstructure:\t"
                         + ltp.toString(Format.structure));
         try {
-            String name = testInfo.getEnglish().nameGetter().getName(locale);
+            String name = testInfo.getEnglish().nameGetter().getNameFromLocaleOrTZID(locale);
             logln("\tname:\t" + name);
         } catch (Exception e) {
             errln("Name for " + locale + "; " + e.getMessage());

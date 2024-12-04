@@ -214,7 +214,7 @@ public class TimezoneFormatter extends UFormat {
 
     private String getName(int territory_name, String country, boolean skipDraft2) {
         checkForDraft(CLDRFile.getKey(territory_name, country));
-        return desiredLocaleFile.nameGetter().getName(territory_name, country);
+        return desiredLocaleFile.nameGetter().getNameFromTypenumCode(territory_name, country);
     }
 
     private void checkForDraft(String cleanPath) {
@@ -614,7 +614,7 @@ public class TimezoneFormatter extends UFormat {
 
     private String getLocalizedCountryName(String zoneIdsCountry) {
         String countryName =
-                desiredLocaleFile.nameGetter().getName(CLDRFile.TERRITORY_NAME, zoneIdsCountry);
+                desiredLocaleFile.nameGetter().getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, zoneIdsCountry);
         if (countryName == null) {
             countryName = zoneIdsCountry;
         }

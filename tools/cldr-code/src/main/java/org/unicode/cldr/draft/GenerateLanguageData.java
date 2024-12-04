@@ -45,7 +45,7 @@ public class GenerateLanguageData {
             LanguageTagParser ltp = new LanguageTagParser();
             Map<String, String> languageNameToCode = new TreeMap<>();
             for (String languageCode : info.getLanguages()) {
-                languageNameToCode.put(english.nameGetter().getName(languageCode), languageCode);
+                languageNameToCode.put(english.nameGetter().getNameFromLocaleOrTZID(languageCode), languageCode);
             }
             out.println("\n@sheet:CLDR County Data");
             out.println("code\tgdp\tlit-pop\tpopulation\tliteracy");
@@ -71,7 +71,7 @@ public class GenerateLanguageData {
             Map<String, Counter2<String>> langToCountriesOfficial = new TreeMap<>();
 
             for (String languageCode : info.getLanguages()) {
-                String languageName = english.nameGetter().getName(languageCode);
+                String languageName = english.nameGetter().getNameFromLocaleOrTZID(languageCode);
 
                 String baseLanguage = languageCode;
                 ltp.set(languageCode);
@@ -91,7 +91,7 @@ public class GenerateLanguageData {
                 for (String territory : territories) {
                     PopulationData terrData = info.getPopulationDataForTerritory(territory);
                     String territoryName =
-                            english.nameGetter().getName(CLDRFile.TERRITORY_NAME, territory);
+                            english.nameGetter().getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, territory);
 
                     PopulationData data =
                             info.getLanguageAndTerritoryPopulationData(languageCode, territory);

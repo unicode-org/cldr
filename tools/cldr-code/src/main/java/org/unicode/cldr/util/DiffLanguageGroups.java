@@ -284,7 +284,7 @@ public class DiffLanguageGroups {
     }
 
     public static String getName(String languageCode) {
-        String result = ENGLISH.nameGetter().getName(CLDRFile.LANGUAGE_NAME, languageCode);
+        String result = ENGLISH.nameGetter().getNameFromTypenumCode(CLDRFile.LANGUAGE_NAME, languageCode);
         return result == null ? "(no name)" : result.replace(" (Other)", "");
     }
 

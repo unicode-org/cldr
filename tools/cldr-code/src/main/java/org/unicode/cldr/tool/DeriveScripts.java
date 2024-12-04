@@ -150,7 +150,7 @@ public class DeriveScripts {
                         + ";\t"
                         + scriptField
                         + "\t# "
-                        + english.nameGetter().getName(CLDRFile.LANGUAGE_NAME, language)
+                        + english.nameGetter().getNameFromTypenumCode(CLDRFile.LANGUAGE_NAME, language)
                         + ";\t"
                         + status
                         + ";\t"
@@ -205,7 +205,7 @@ public class DeriveScripts {
                                 + "\t"
                                 + lang
                                 + "\t"
-                                + english.nameGetter().getName(lang)
+                                + english.nameGetter().getNameFromLocaleOrTZID(lang)
                                 + "\t"
                                 + scripts
                                 + "\t"

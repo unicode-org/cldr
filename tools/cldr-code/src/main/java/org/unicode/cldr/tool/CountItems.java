@@ -486,7 +486,7 @@ public class CountItems {
             results.put(
                     item,
                     english.nameGetter()
-                            .getName(CLDRFile.TERRITORY_NAME, containees.iterator().next()));
+                            .getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, containees.iterator().next()));
         }
         return results;
     }
@@ -559,7 +559,7 @@ public class CountItems {
                             "# "
                                     + newCountry
                                     + "\t"
-                                    + english.nameGetter().getName("territory", newCountry));
+                                    + english.nameGetter().getNameFromTypestrCode("territory", newCountry));
                     lastCountry = newCountry;
                 }
                 Log.println("\t'" + oldName + "'\t>\t'" + newName + "';");
@@ -1002,7 +1002,7 @@ public class CountItems {
             } else {
                 result = region;
             }
-            String name = english.nameGetter().getName(CLDRFile.TERRITORY_NAME, result);
+            String name = english.nameGetter().getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, result);
             if (!(duplicateDestroyer.contains(alpha3 + result + name))) {
                 duplicateDestroyer.add(alpha3 + result + name);
                 System.out.println(
@@ -1016,7 +1016,7 @@ public class CountItems {
             }
         }
         for (String region : missingRegions) {
-            String name = english.nameGetter().getName(CLDRFile.TERRITORY_NAME, region);
+            String name = english.nameGetter().getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, region);
             System.err.println("ERROR: Missing " + codeType + " code for " + region + "\t" + name);
         }
     }
@@ -1098,7 +1098,7 @@ public class CountItems {
             System.out.println(
                     locale
                             + "\t"
-                            + english.nameGetter().getName(locale)
+                            + english.nameGetter().getNameFromLocaleOrTZID(locale)
                             + "\t"
                             + onlyLocales.get(locale));
         }

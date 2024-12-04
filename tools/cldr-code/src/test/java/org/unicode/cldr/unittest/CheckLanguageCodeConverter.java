@@ -159,7 +159,7 @@ public class CheckLanguageCodeConverter {
         if (goodCode.startsWith("x_")) {
             return "Private use: " + goodCode.substring(2);
         }
-        return english.nameGetter().getName(goodCode);
+        return english.nameGetter().getNameFromLocaleOrTZID(goodCode);
     }
 
     public static void printLine(LanguageLine entry) {

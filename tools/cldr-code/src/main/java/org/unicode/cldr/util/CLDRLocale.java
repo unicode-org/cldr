@@ -151,14 +151,14 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
 
         @Override
         public String getDisplayVariant(CLDRLocale cldrLocale) {
-            if (file != null) return file.nameGetter().getName("variant", cldrLocale.getVariant());
+            if (file != null) return file.nameGetter().getNameFromTypestrCode("variant", cldrLocale.getVariant());
             return tryForBetter(super.getDisplayVariant(cldrLocale), cldrLocale.getVariant());
         }
 
         @Override
         public String getDisplayName(CLDRLocale cldrLocale) {
             if (file != null)
-                return file.nameGetter().getName(cldrLocale.toDisplayLanguageTag(), true, null);
+                return file.nameGetter().getNameFromLocaleOrTZBoolAltpicker(cldrLocale.toDisplayLanguageTag(), true, null);
             return super.getDisplayName(cldrLocale);
         }
 
@@ -169,7 +169,7 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
                 Transform<String, String> altPicker) {
             if (file != null)
                 return file.nameGetter()
-                        .getName(
+                        .getNameFromLocaleOrTZBoolAltpicker(
                                 cldrLocale.toDisplayLanguageTag(),
                                 onlyConstructCompound,
                                 altPicker);
@@ -178,21 +178,21 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
 
         @Override
         public String getDisplayScript(CLDRLocale cldrLocale) {
-            if (file != null) return file.nameGetter().getName("script", cldrLocale.getScript());
+            if (file != null) return file.nameGetter().getNameFromTypestrCode("script", cldrLocale.getScript());
             return tryForBetter(super.getDisplayScript(cldrLocale), cldrLocale.getScript());
         }
 
         @Override
         public String getDisplayLanguage(CLDRLocale cldrLocale) {
             if (file != null)
-                return file.nameGetter().getName("language", cldrLocale.getLanguage());
+                return file.nameGetter().getNameFromTypestrCode("language", cldrLocale.getLanguage());
             return tryForBetter(super.getDisplayLanguage(cldrLocale), cldrLocale.getLanguage());
         }
 
         @Override
         public String getDisplayCountry(CLDRLocale cldrLocale) {
             if (file != null)
-                return file.nameGetter().getName("territory", cldrLocale.getCountry());
+                return file.nameGetter().getNameFromTypestrCode("territory", cldrLocale.getCountry());
             return tryForBetter(super.getDisplayLanguage(cldrLocale), cldrLocale.getLanguage());
         }
 

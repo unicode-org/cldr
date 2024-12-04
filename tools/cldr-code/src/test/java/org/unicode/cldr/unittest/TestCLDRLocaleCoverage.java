@@ -162,7 +162,7 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
                     && CLDRLocale.getInstance(locale).getParent().equals(CLDRLocale.ROOT)) {
                 official1MSetNames.put(
                         localeAndSize.getValue(),
-                        "\t" + locale + "\t" + ENGLISH.nameGetter().getName(locale));
+                        "\t" + locale + "\t" + ENGLISH.nameGetter().getNameFromLocaleOrTZID(locale));
             }
         }
         if (!official1MSetNames.isEmpty()) {
@@ -180,7 +180,7 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
         coverageLocales.removeAll(additionsToTranslate);
 
         for (String locale : localesForNames) {
-            logln("\n" + locale + "\t" + ENGLISH.nameGetter().getName(locale));
+            logln("\n" + locale + "\t" + ENGLISH.nameGetter().getNameFromLocaleOrTZID(locale));
         }
 
         logln("\nmainLocales:" + composeList(mainLocales, "\n\t", new StringBuilder()));
@@ -243,7 +243,7 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
             temp.removeAll(set);
             Set<String> temp2 = new TreeSet<>();
             for (String locale : temp) {
-                temp2.add(locale + "\t" + ENGLISH.nameGetter().getName(locale));
+                temp2.add(locale + "\t" + ENGLISH.nameGetter().getNameFromLocaleOrTZID(locale));
             }
             errln(title + ": Missing:\t" + temp.size() + "\n\t" + Joiner.on("\n\t").join(temp2));
         }
@@ -344,7 +344,7 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
                     "cldr level = max for "
                             + locale
                             + " ("
-                            + ENGLISH.nameGetter().getName(locale)
+                            + ENGLISH.nameGetter().getNameFromLocaleOrTZID(locale)
                             + ")",
                     cldrLevel,
                     maxLevel);

@@ -38,20 +38,20 @@ public class NameGetter {
     private static final Joiner JOIN_UNDERBAR = Joiner.on('_');
 
     /** Utility for getting a name, given a type and code. */
-    public String getName(String type, String code) {
-        return getName(CLDRFile.typeNameToCode(type), code);
+    public String getNameFromTypestrCode(String type, String code) {
+        return getNameFromTypenumCode(CLDRFile.typeNameToCode(type), code);
     }
 
-    public String getName(int type, String code) {
-        return getName(type, code, null, null);
+    public String getNameFromTypenumCode(int type, String code) {
+        return getNameFromTypeCodeTransformPaths(type, code, null, null);
     }
 
-    public String getName(int type, String code, Set<String> paths) {
-        return getName(type, code, null, paths);
+    public String getNameFromTypeCodePaths(int type, String code, Set<String> paths) {
+        return getNameFromTypeCodeTransformPaths(type, code, null, paths);
     }
 
-    public String getName(int type, String code, Transform<String, String> altPicker) {
-        return getName(type, code, altPicker, null);
+    public String getNameFromTypeCodeAltpicker(int type, String code, Transform<String, String> altPicker) {
+        return getNameFromTypeCodeTransformPaths(type, code, altPicker, null);
     }
 
     /**
@@ -61,26 +61,26 @@ public class NameGetter {
      * @param localeOrTZID
      * @return
      */
-    public synchronized String getName(String localeOrTZID) {
-        return getName(localeOrTZID, false);
+    public synchronized String getNameFromLocaleOrTZID(String localeOrTZID) {
+        return getNameFromLocaleOrTZBool(localeOrTZID, false);
     }
 
-    public String getName(
+    public String getNameFromParserBoolAltPicker(
             LanguageTagParser lparser,
             boolean onlyConstructCompound,
             Transform<String, String> altPicker) {
-        return getName(lparser, onlyConstructCompound, altPicker, null);
+        return getNameFromParserBooleanAltpickerPaths(lparser, onlyConstructCompound, altPicker, null);
     }
 
     /**
      * @param paths if non-null, will contain contributory paths on return
      */
-    public String getName(
+    public String getNameFromParserBooleanAltpickerPaths(
             LanguageTagParser lparser,
             boolean onlyConstructCompound,
             Transform<String, String> altPicker,
             Set<String> paths) {
-        return getName(
+        return getNameFromOtherThings(
                 lparser,
                 onlyConstructCompound,
                 altPicker,
@@ -90,13 +90,13 @@ public class NameGetter {
                 paths);
     }
 
-    public synchronized String getName(
+    public synchronized String getNameFromLocaleOrTZBoolEtc(
             String localeOrTZID,
             boolean onlyConstructCompound,
             String localeKeyTypePattern,
             String localePattern,
             String localeSeparator) {
-        return getName(
+        return getNameFrom7Things(
                 localeOrTZID,
                 onlyConstructCompound,
                 localeKeyTypePattern,
@@ -114,8 +114,8 @@ public class NameGetter {
      * @param onlyConstructCompound
      * @return
      */
-    public synchronized String getName(String localeOrTZID, boolean onlyConstructCompound) {
-        return getName(localeOrTZID, onlyConstructCompound, null);
+    public synchronized String getNameFromLocaleOrTZBool(String localeOrTZID, boolean onlyConstructCompound) {
+        return getNameFromLocaleOrTZBoolAltpicker(localeOrTZID, onlyConstructCompound, null);
     }
 
     /**
@@ -129,11 +129,11 @@ public class NameGetter {
      *     "English (U.K.)" instead of "English (United Kingdom)"
      * @return
      */
-    public synchronized String getName(
+    public synchronized String getNameFromLocaleOrTZBoolAltpicker(
             String localeOrTZID,
             boolean onlyConstructCompound,
             Transform<String, String> altPicker) {
-        return getName(localeOrTZID, onlyConstructCompound, altPicker, null);
+        return getNameFromLocaleTZBoolAltpickerPaths(localeOrTZID, onlyConstructCompound, altPicker, null);
     }
 
     /**
@@ -147,12 +147,12 @@ public class NameGetter {
      *     "English (U.K.)" instead of "English (United Kingdom)"
      * @return
      */
-    public synchronized String getName(
+    public synchronized String getNameFromLocaleTZBoolAltpickerPaths(
             String localeOrTZID,
             boolean onlyConstructCompound,
             Transform<String, String> altPicker,
             Set<String> paths) {
-        return getName(
+        return getNameFrom7Things(
                 localeOrTZID,
                 onlyConstructCompound,
                 cldrFile.getWinningValueWithBailey(GETNAME_LOCALE_KEY_TYPE_PATTERN),
@@ -174,7 +174,7 @@ public class NameGetter {
      * @param paths if non-null, fillin with contributory paths
      * @return
      */
-    public synchronized String getName(
+    public synchronized String getNameFrom7Things(
             String localeOrTZID,
             boolean onlyConstructCompound,
             String localeKeyTypePattern,
@@ -190,7 +190,7 @@ public class NameGetter {
         String name =
                 isCompound && onlyConstructCompound
                         ? null
-                        : getName(CLDRFile.LANGUAGE_NAME, localeOrTZID, altPicker, paths);
+                        : getNameFromTypeCodeTransformPaths(CLDRFile.LANGUAGE_NAME, localeOrTZID, altPicker, paths);
 
         // TODO - handle arbitrary combinations
         if (name != null && !name.contains("_") && !name.contains("-")) {
@@ -198,7 +198,7 @@ public class NameGetter {
             return name;
         }
         LanguageTagParser lparser = new LanguageTagParser().set(localeOrTZID);
-        return getName(
+        return getNameFromOtherThings(
                 lparser,
                 onlyConstructCompound,
                 altPicker,
@@ -208,7 +208,7 @@ public class NameGetter {
                 paths);
     }
 
-    public String getName(
+    public String getNameFromOtherThings(
             LanguageTagParser lparser,
             boolean onlyConstructCompound,
             Transform<String, String> altPicker,
@@ -225,7 +225,7 @@ public class NameGetter {
         // try lang+script
         if (onlyConstructCompound) {
             name =
-                    getName(
+                    getNameFromTypeCodeTransformPaths(
                             CLDRFile.LANGUAGE_NAME,
                             original = lparser.getLanguage(),
                             altPicker,
@@ -233,12 +233,12 @@ public class NameGetter {
             if (name == null) name = original;
         } else {
             String x = lparser.toString(LanguageTagParser.LANGUAGE_SCRIPT_REGION);
-            name = getName(CLDRFile.LANGUAGE_NAME, x, altPicker, paths);
+            name = getNameFromTypeCodeTransformPaths(CLDRFile.LANGUAGE_NAME, x, altPicker, paths);
             if (name != null) {
                 haveScript = haveRegion = true;
             } else {
                 name =
-                        getName(
+                        getNameFromTypeCodeTransformPaths(
                                 CLDRFile.LANGUAGE_NAME,
                                 lparser.toString(LanguageTagParser.LANGUAGE_SCRIPT),
                                 altPicker,
@@ -247,7 +247,7 @@ public class NameGetter {
                     haveScript = true;
                 } else {
                     name =
-                            getName(
+                            getNameFromTypeCodeTransformPaths(
                                     CLDRFile.LANGUAGE_NAME,
                                     lparser.toString(LanguageTagParser.LANGUAGE_REGION),
                                     altPicker,
@@ -256,7 +256,7 @@ public class NameGetter {
                         haveRegion = true;
                     } else {
                         name =
-                                getName(
+                                getNameFromTypeCodeTransformPaths(
                                         CLDRFile.LANGUAGE_NAME,
                                         original = lparser.getLanguage(),
                                         altPicker,
@@ -322,11 +322,11 @@ public class NameGetter {
                         if (hybrid != null) {
                             kname = cldrFile.getKeyValueName("h0", JOIN_UNDERBAR.join(hybrid));
                         }
-                        oldFormatType = getName(oldFormatType);
+                        oldFormatType = getNameFromLocaleOrTZID(oldFormatType);
                         break;
                     case "cu":
                         oldFormatType =
-                                getName(
+                                getNameFromTypeCodePaths(
                                         CLDRFile.CURRENCY_SYMBOL,
                                         oldFormatType.toUpperCase(Locale.ROOT),
                                         paths);
@@ -345,7 +345,7 @@ public class NameGetter {
                         break;
                     case "rg":
                     case "sd":
-                        oldFormatType = getName(CLDRFile.SUBDIVISION_NAME, oldFormatType, paths);
+                        oldFormatType = getNameFromTypeCodePaths(CLDRFile.SUBDIVISION_NAME, oldFormatType, paths);
                         break;
                     default:
                         oldFormatType = JOIN_HYPHEN.join(keyValue);
@@ -387,8 +387,7 @@ public class NameGetter {
     }
 
     private static String replaceBracketsForName(String value) {
-        value = value.replace('(', '[').replace(')', ']').replace('（', '［').replace('）', '］');
-        return value;
+        return value.replace('(', '[').replace(')', ']').replace('（', '［').replace('）', '］');
     }
 
     /**
@@ -403,7 +402,7 @@ public class NameGetter {
      * @param paths if non-null, will have contributory paths on return
      * @return
      */
-    public String getName(
+    public String getNameFromTypeCodeTransformPaths(
             int type, String code, Transform<String, String> codeToAlt, Set<String> paths) {
         String path = CLDRFile.getKey(type, code);
         String result = null;
@@ -488,7 +487,7 @@ public class NameGetter {
         String result = null;
         for (String value : keyValues) {
             String name =
-                    getName(
+                    getNameFromTypeCodePaths(
                             CLDRFile.SCRIPT_NAME,
                             Character.toUpperCase(value.charAt(0)) + value.substring(1),
                             paths);
@@ -523,7 +522,7 @@ public class NameGetter {
         if (subtag.isEmpty()) {
             return extras;
         }
-        String sname = getName(type, subtag, altPicker, paths);
+        String sname = getNameFromTypeCodeTransformPaths(type, subtag, altPicker, paths);
         if (sname == null) {
             sname = subtag;
         }

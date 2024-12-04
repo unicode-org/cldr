@@ -891,8 +891,8 @@ public class ShowLocaleCoverage {
                             .addCell(language)
                             .addCell(
                                     ENGLISH.nameGetter()
-                                            .getName(language, true, CLDRFile.SHORT_ALTS))
-                            .addCell(file.nameGetter().getName(language))
+                                            .getNameFromLocaleOrTZBoolAltpicker(language, true, CLDRFile.SHORT_ALTS))
+                            .addCell(file.nameGetter().getNameFromLocaleOrTZID(language))
                             .addCell(script)
                             .addCell(defRegion)
                             .addCell(sublocales.size())
@@ -918,7 +918,7 @@ public class ShowLocaleCoverage {
                                         + " ;\t"
                                         + visibleLevelComputed
                                         + " ;\t"
-                                        + ENGLISH.nameGetter().getName(locale));
+                                        + ENGLISH.nameGetter().getNameFromLocaleOrTZID(locale));
                         // TODO decide whether to restore this
                         //                        Level higher = Level.UNDETERMINED;
                         //                        switch (computed) {
@@ -1177,9 +1177,9 @@ public class ShowLocaleCoverage {
                 specialFlag
                         + language
                         + "\t"
-                        + ENGLISH.nameGetter().getName(language)
+                        + ENGLISH.nameGetter().getNameFromLocaleOrTZID(language)
                         + "\t"
-                        + ENGLISH.nameGetter().getName("script", script)
+                        + ENGLISH.nameGetter().getNameFromTypestrCode("script", script)
                         + "\t"
                         + cldrLocaleLevelGoal
                         + "\t"

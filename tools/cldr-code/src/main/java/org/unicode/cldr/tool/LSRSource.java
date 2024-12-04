@@ -88,9 +88,9 @@ public class LSRSource implements Comparable<LSRSource> {
                         + (getSources().isEmpty() ? "" : "\" origin=\"" + getSourceString())
                         + "\"/>"
                         + "\t<!-- "
-                        + english.nameGetter().getName(source)
+                        + english.nameGetter().getNameFromLocaleOrTZID(source)
                         + " ➡︎ "
-                        + english.nameGetter().getName(target)
+                        + english.nameGetter().getNameFromLocaleOrTZID(target)
                         + " -->";
         return result;
     }

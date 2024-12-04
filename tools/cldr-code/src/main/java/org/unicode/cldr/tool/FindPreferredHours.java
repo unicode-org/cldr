@@ -267,15 +267,15 @@ public class FindPreferredHours {
                             + "\t"
                             + region
                             + "\t"
-                            + ENGLISH.nameGetter().getName("territory", region)
+                            + ENGLISH.nameGetter().getNameFromTypestrCode("territory", region)
                             + "\t"
                             + subcontinent
                             + "\t"
-                            + ENGLISH.nameGetter().getName("territory", subcontinent)
+                            + ENGLISH.nameGetter().getNameFromTypestrCode("territory", subcontinent)
                             + "\t"
                             + continent
                             + "\t"
-                            + ENGLISH.nameGetter().getName("territory", continent)
+                            + ENGLISH.nameGetter().getNameFromTypestrCode("territory", continent)
                             + "\t"
                             + showInfo(preferredSet));
         }

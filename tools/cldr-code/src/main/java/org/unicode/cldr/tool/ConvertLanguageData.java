@@ -260,7 +260,7 @@ public class ConvertLanguageData {
 
     public static String getLanguageCodeAndName(String code) {
         if (code == null) return null;
-        return english.nameGetter().getName(code) + " [" + code + "]";
+        return english.nameGetter().getNameFromLocaleOrTZID(code) + " [" + code + "]";
     }
 
     private static String getReplacement(String oldDefault, Set<String> defaultLocaleContent) {
@@ -382,7 +382,7 @@ public class ConvertLanguageData {
                                     "changing <languageData>",
                                     languageSubtag
                                             + "\t"
-                                            + english.nameGetter().getName(languageSubtag),
+                                            + english.nameGetter().getNameFromLocaleOrTZID(languageSubtag),
                                     problem));
                 }
             }
@@ -443,7 +443,7 @@ public class ConvertLanguageData {
                         .append(":")
                         .append(
                                 english.nameGetter()
-                                        .getName(s.length() == 4 ? "script" : "region", s))
+                                        .getNameFromTypestrCode(s.length() == 4 ? "script" : "region", s))
                         .append("] ");
                 if (oldValue == null) {
                     temp.append(" added as ").append(newValue);
@@ -992,7 +992,7 @@ public class ConvertLanguageData {
         static Map<String, String> oldToFixed = new HashMap<>();
 
         public String getLanguageName() {
-            String cldrResult = getExcelQuote(english.nameGetter().getName(languageCode, true));
+            String cldrResult = getExcelQuote(english.nameGetter().getNameFromLocaleOrTZBool(languageCode, true));
             //            String result = getLanguageName2();
             //            if (!result.equalsIgnoreCase(cldrResult)) {
             //                if (null == oldToFixed.put(result, cldrResult)) {
@@ -1066,7 +1066,7 @@ public class ConvertLanguageData {
 
     public static String getCountryCodeAndName(String code) {
         if (code == null) return null;
-        return english.nameGetter().getName(CLDRFile.TERRITORY_NAME, code) + " [" + code + "]";
+        return english.nameGetter().getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, code) + " [" + code + "]";
     }
 
     static class RowComparator implements Comparator<RowData> {
@@ -2580,17 +2580,17 @@ public class ConvertLanguageData {
     }
 
     private static String getULocaleLocaleName(String languageCode) {
-        return english.nameGetter().getName(languageCode, true);
+        return english.nameGetter().getNameFromLocaleOrTZBool(languageCode, true);
         // return new ULocale(languageCode).getDisplayName();
     }
 
     private static String getULocaleScriptName(String scriptCode) {
-        return english.nameGetter().getName(CLDRFile.SCRIPT_NAME, scriptCode);
+        return english.nameGetter().getNameFromTypenumCode(CLDRFile.SCRIPT_NAME, scriptCode);
         // return ULocale.getDisplayScript("und_" + scriptCode, ULocale.ENGLISH);
     }
 
     private static String getULocaleCountryName(String countryCode) {
-        return english.nameGetter().getName(CLDRFile.TERRITORY_NAME, countryCode);
+        return english.nameGetter().getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, countryCode);
         // return ULocale.getDisplayCountry("und_" + countryCode, ULocale.ENGLISH);
     }
 }

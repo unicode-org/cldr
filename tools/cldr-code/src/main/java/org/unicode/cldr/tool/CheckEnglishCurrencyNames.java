@@ -64,7 +64,7 @@ public class CheckEnglishCurrencyNames {
         System.out.println("Modern Codes: " + modernCurrencyCodes2territory);
         for (String currency : modernCurrencyCodes2territory.keySet()) {
             final String name =
-                    english.nameGetter().getName(CLDRFile.CURRENCY_NAME, currency).toLowerCase();
+                    english.nameGetter().getNameFromTypenumCode(CLDRFile.CURRENCY_NAME, currency).toLowerCase();
             if (name.contains("new") || name.contains("old")) {
                 System.out.println(currency + "\t" + name);
             }
@@ -72,7 +72,7 @@ public class CheckEnglishCurrencyNames {
         System.out.println("Non-Modern Codes (with dates): " + currencyCodesWithDates);
         for (String currency : currencyCodesWithDates.keySet()) {
             final String name =
-                    english.nameGetter().getName(CLDRFile.CURRENCY_NAME, currency).toLowerCase();
+                    english.nameGetter().getNameFromTypenumCode(CLDRFile.CURRENCY_NAME, currency).toLowerCase();
             if (name.contains("new") || name.contains("old")) {
                 System.out.println(currency + "\t" + name);
             }
@@ -135,20 +135,20 @@ public class CheckEnglishCurrencyNames {
                                     ? "N/A"
                                     : nativeLanguage
                                             .nameGetter()
-                                            .getName(CLDRFile.CURRENCY_SYMBOL, currency);
+                                            .getNameFromTypenumCode(CLDRFile.CURRENCY_SYMBOL, currency);
                     System.out.println(
                             currency
                                     + "\t"
-                                    + english.nameGetter().getName(CLDRFile.CURRENCY_NAME, currency)
+                                    + english.nameGetter().getNameFromTypenumCode(CLDRFile.CURRENCY_NAME, currency)
                                     + "\t"
                                     + territory
                                     + "\t"
                                     + english.nameGetter()
-                                            .getName(CLDRFile.TERRITORY_NAME, territory)
+                                            .getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, territory)
                                     + "\t"
                                     + language
                                     + "\t"
-                                    + english.nameGetter().getName(language)
+                                    + english.nameGetter().getNameFromLocaleOrTZID(language)
                                     + "\t"
                                     + symbol);
                     // TODO add script
@@ -173,7 +173,7 @@ public class CheckEnglishCurrencyNames {
             System.out.println(
                     territory
                             + "\t"
-                            + english.nameGetter().getName(CLDRFile.TERRITORY_NAME, territory));
+                            + english.nameGetter().getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, territory));
         }
         System.out.format("Collected usage data\n");
         for (Entry<String, Set<String>> currencyAndSymbols : currency2symbols.keyValuesSet()) {
@@ -182,7 +182,7 @@ public class CheckEnglishCurrencyNames {
             System.out.println(
                     currency
                             + "\t"
-                            + english.nameGetter().getName(CLDRFile.CURRENCY_NAME, currency)
+                            + english.nameGetter().getNameFromTypenumCode(CLDRFile.CURRENCY_NAME, currency)
                             + "\t"
                             + symbols.size()
                             + "\t"

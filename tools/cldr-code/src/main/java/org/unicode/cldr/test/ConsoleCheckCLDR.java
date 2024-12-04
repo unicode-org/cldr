@@ -1985,7 +1985,7 @@ public class ConsoleCheckCLDR {
      * @return
      */
     private static String getLocaleAndName(String locale) {
-        String localizedName = CheckCLDR.getDisplayInformation().nameGetter().getName(locale);
+        String localizedName = CheckCLDR.getDisplayInformation().nameGetter().getNameFromLocaleOrTZID(locale);
         if (localizedName == null || localizedName.equals(locale)) return locale;
         return locale + " [" + localizedName + "]";
     }
@@ -1998,7 +1998,7 @@ public class ConsoleCheckCLDR {
      * @return
      */
     private static String getNameAndLocale(String locale, boolean linkToXml) {
-        String localizedName = CheckCLDR.getDisplayInformation().nameGetter().getName(locale);
+        String localizedName = CheckCLDR.getDisplayInformation().nameGetter().getNameFromLocaleOrTZID(locale);
         if (localizedName == null || localizedName.equals(locale)) return locale;
         if (linkToXml) {
             locale =
@@ -2012,7 +2012,7 @@ public class ConsoleCheckCLDR {
     }
 
     private static String getLocaleName(String locale) {
-        String localizedName = CheckCLDR.getDisplayInformation().nameGetter().getName(locale);
+        String localizedName = CheckCLDR.getDisplayInformation().nameGetter().getNameFromLocaleOrTZID(locale);
         if (localizedName == null || localizedName.equals(locale)) return locale;
         return localizedName;
     }

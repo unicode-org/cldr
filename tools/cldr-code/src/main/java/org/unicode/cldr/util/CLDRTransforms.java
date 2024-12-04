@@ -601,7 +601,7 @@ public class CLDRTransforms {
             }
             try {
                 String name =
-                        CLDRConfig.getInstance().getEnglish().nameGetter().getName(sourceOrTarget);
+                        CLDRConfig.getInstance().getEnglish().nameGetter().getNameFromLocaleOrTZID(sourceOrTarget);
                 return name;
             } catch (Exception e) {
                 return sourceOrTarget;

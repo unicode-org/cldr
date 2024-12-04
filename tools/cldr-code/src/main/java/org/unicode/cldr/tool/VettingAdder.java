@@ -292,7 +292,7 @@ public class VettingAdder {
                     Log.logln(
                             locale
                                     + " \t"
-                                    + english.nameGetter().getName(locale)
+                                    + english.nameGetter().getNameFromLocaleOrTZID(locale)
                                     + "\texample: "
                                     + fullPath);
                     break;

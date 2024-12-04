@@ -430,7 +430,7 @@ public class TestAttributeValues extends TestFmwk {
         logln(
                 language
                         + "\t"
-                        + config.getEnglish().nameGetter().getName(CLDRFile.LANGUAGE_NAME, language)
+                        + config.getEnglish().nameGetter().getNameFromTypenumCode(CLDRFile.LANGUAGE_NAME, language)
                         + "\t"
                         + languageInfo);
     }

@@ -92,7 +92,7 @@ public class ChartDayPeriods extends Chart {
                     tablePrinter
                             .addRow()
                             .addCell(group)
-                            .addCell(ENGLISH.nameGetter().getName(locale))
+                            .addCell(ENGLISH.nameGetter().getNameFromLocaleOrTZID(locale))
                             .addCell(locale)
                             // .addCell(type)
                             .addCell(df.format(time))

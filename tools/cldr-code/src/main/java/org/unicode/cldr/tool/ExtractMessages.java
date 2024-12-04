@@ -90,7 +90,7 @@ class ExtractMessages {
                             "Skipping, no CLDR locale file: "
                                     + name
                                     + "\t"
-                                    + english.nameGetter().getName(name)
+                                    + english.nameGetter().getNameFromLocaleOrTZID(name)
                                     + "\t"
                                     + e1.getClass().getName()
                                     + "\t"
@@ -161,7 +161,7 @@ class ExtractMessages {
                         "\tSkipping, no CLDR locale file: "
                                 + name
                                 + "\t"
-                                + english.nameGetter().getName(name));
+                                + english.nameGetter().getNameFromLocaleOrTZID(name));
             }
             double deltaTime = System.currentTimeMillis() - startTime;
             System.out.println("Elapsed: " + deltaTime / 1000.0 + " seconds");
@@ -451,7 +451,7 @@ class ExtractMessages {
             switch (type) {
                 case LANGUAGE:
                     for (String code : sc.getAvailableCodes("language")) {
-                        String name = english.nameGetter().getName("language", code);
+                        String name = english.nameGetter().getNameFromTypestrCode("language", code);
                         if (name == null) {
                             // System.out.println("Missing name for: " + code);
                             continue;
@@ -492,7 +492,7 @@ class ExtractMessages {
                     break;
                 case REGION:
                     for (String code : sc.getAvailableCodes("territory")) {
-                        String name = english.nameGetter().getName("territory", code);
+                        String name = english.nameGetter().getNameFromTypestrCode("territory", code);
                         if (name == null) {
                             // System.out.println("Missing name for: " + code);
                             continue;
@@ -531,7 +531,7 @@ class ExtractMessages {
                     break;
                 case CURRENCY:
                     for (String code : sc.getAvailableCodes("currency")) {
-                        String name = english.nameGetter().getName("currency", code);
+                        String name = english.nameGetter().getNameFromTypestrCode("currency", code);
                         if (name == null) {
                             // System.out.println("Missing name for: " + code);
                             continue;

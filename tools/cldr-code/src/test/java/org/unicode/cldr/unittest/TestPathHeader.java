@@ -857,7 +857,7 @@ public class TestPathHeader extends TestFmwkPlus {
     private String getNameAndOrder(String territory) {
         return territory
                 + "\t"
-                + english.nameGetter().getName(CLDRFile.TERRITORY_NAME, territory)
+                + english.nameGetter().getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, territory)
                 + "\t"
                 + Containment.getOrder(territory);
     }
@@ -976,10 +976,10 @@ public class TestPathHeader extends TestFmwkPlus {
                 assertEquals("S. America special case", "005", revision);
             }
             if (isVerbose()) {
-                String name = english.nameGetter().getName(CLDRFile.TERRITORY_NAME, cont);
-                String name2 = english.nameGetter().getName(CLDRFile.TERRITORY_NAME, sub);
-                String name3 = english.nameGetter().getName(CLDRFile.TERRITORY_NAME, territory);
-                String name4 = english.nameGetter().getName(CLDRFile.TERRITORY_NAME, revision);
+                String name = english.nameGetter().getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, cont);
+                String name2 = english.nameGetter().getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, sub);
+                String name3 = english.nameGetter().getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, territory);
+                String name4 = english.nameGetter().getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, revision);
 
                 logln(
                         metazone + "\t" + continent + "\t" + name + "\t" + name2 + "\t" + name3

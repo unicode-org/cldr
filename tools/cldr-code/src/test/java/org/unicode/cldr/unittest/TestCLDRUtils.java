@@ -97,7 +97,7 @@ public class TestCLDRUtils extends TestFmwk {
         assertEquals(
                 "Test variant formatting combinedLong " + locale,
                 combinedLong,
-                french.nameGetter().getName(locale));
+                french.nameGetter().getNameFromLocaleOrTZID(locale));
         String combinedShort = otherNames.length > 0 ? otherNames[0] : combinedLong;
         String uncombinedLong = otherNames.length > 1 ? otherNames[1] : combinedLong;
         String uncombinedShort = otherNames.length > 2 ? otherNames[2] : uncombinedLong;
@@ -105,15 +105,15 @@ public class TestCLDRUtils extends TestFmwk {
         assertEquals(
                 "Test variant formatting combinedShort " + locale,
                 combinedShort,
-                french.nameGetter().getName(locale, false, SHORT_ALT_PICKER));
+                french.nameGetter().getNameFromLocaleOrTZBoolAltpicker(locale, false, SHORT_ALT_PICKER));
         assertEquals(
                 "Test variant formatting uncombinedLong " + locale,
                 uncombinedLong,
-                french.nameGetter().getName(locale, true));
+                french.nameGetter().getNameFromLocaleOrTZBool(locale, true));
         assertEquals(
                 "Test variant formatting uncombinedShort " + locale,
                 uncombinedShort,
-                french.nameGetter().getName(locale, true, SHORT_ALT_PICKER));
+                french.nameGetter().getNameFromLocaleOrTZBoolAltpicker(locale, true, SHORT_ALT_PICKER));
     }
 
     public void TestEmptyCLDRFile() {

@@ -135,7 +135,7 @@ public class TestCoverage extends TestFmwkPlus {
     }
 
     private String getLocaleAndName(String locale) {
-        return locale + "\t" + testInfo.getEnglish().nameGetter().getName(locale);
+        return locale + "\t" + testInfo.getEnglish().nameGetter().getNameFromLocaleOrTZID(locale);
     }
 
     private String showColumn(Set items) {

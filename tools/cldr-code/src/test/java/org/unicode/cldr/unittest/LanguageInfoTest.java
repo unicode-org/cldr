@@ -85,7 +85,7 @@ public class LanguageInfoTest extends TestFmwk {
     public static String getName(String item) {
         return item.contains("*")
                 ? "n/a"
-                : item.contains("$") ? item : testInfo.getEnglish().nameGetter().getName(item);
+                : item.contains("$") ? item : testInfo.getEnglish().nameGetter().getNameFromLocaleOrTZID(item);
     }
 
     public static void main(String[] args) {

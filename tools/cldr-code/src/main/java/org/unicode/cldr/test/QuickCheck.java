@@ -208,7 +208,7 @@ public class QuickCheck {
             DisplayAndInputProcessor displayAndInputProcessor =
                     new DisplayAndInputProcessor(file, false);
 
-            System.out.println(locale + "\t-\t" + english.nameGetter().getName(locale));
+            System.out.println(locale + "\t-\t" + english.nameGetter().getNameFromLocaleOrTZID(locale));
             DtdType dtdType = null;
 
             for (Iterator<String> it = file.iterator(); it.hasNext(); ) {

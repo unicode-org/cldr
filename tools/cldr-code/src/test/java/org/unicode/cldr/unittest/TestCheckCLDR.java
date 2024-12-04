@@ -1385,7 +1385,7 @@ public class TestCheckCLDR extends TestFmwk {
                     }
                 }
                 System.out.print(
-                        locale + "\t" + english.nameGetter().getName(locale) + "\t" + cldrLevel);
+                        locale + "\t" + english.nameGetter().getNameFromLocaleOrTZID(locale) + "\t" + cldrLevel);
                 for (LimitedStatus limitedStatus : LimitedStatus.values()) {
                     System.out.print("\t" + limitedStatus + ":\t" + counter.get(limitedStatus));
                 }

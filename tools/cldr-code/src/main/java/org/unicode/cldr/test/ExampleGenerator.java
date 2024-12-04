@@ -756,7 +756,7 @@ public class ExampleGenerator {
                         final String name =
                                 localeId.equals("und")
                                         ? "«any other»"
-                                        : cldrFile2.nameGetter().getName(localeId);
+                                        : cldrFile2.nameGetter().getNameFromLocaleOrTZID(localeId);
                         examples.add(localeId + " = " + name);
                     }
                     break;
@@ -2411,7 +2411,7 @@ public class ExampleGenerator {
                 result =
                         setBackground(
                                 cldrFile.nameGetter()
-                                        .getName(CLDRFile.TERRITORY_NAME, countryCode));
+                                        .getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, countryCode));
             }
         } else if (parts.contains("zone")) { // {0} Time
             result = value; // trivial -- is this beneficial?
@@ -2420,7 +2420,7 @@ public class ExampleGenerator {
                     format(
                             value,
                             setBackground(
-                                    cldrFile.nameGetter().getName(CLDRFile.TERRITORY_NAME, "JP")));
+                                    cldrFile.nameGetter().getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, "JP")));
             result =
                     addExampleResult(
                             format(
@@ -3112,7 +3112,7 @@ public class ExampleGenerator {
                 examples.add(
                         invertBackground(
                                 cldrFile.nameGetter()
-                                        .getName(
+                                        .getNameFromLocaleOrTZBoolEtc(
                                                 locales.get(i),
                                                 false,
                                                 localeKeyTypePattern,

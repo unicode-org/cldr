@@ -581,11 +581,11 @@ public class ShowStarredCoverage {
         }
 
         public String getName(final String written) {
-            String result = CldrConfig.getEnglish().nameGetter().getName(written);
+            String result = CldrConfig.getEnglish().nameGetter().getNameFromLocaleOrTZID(written);
             if (result.equals(written)) {
                 R2<List<String>, String> alias = languageFix.get(written);
                 if (alias != null) {
-                    result = CldrConfig.getEnglish().nameGetter().getName(alias.get0().get(0));
+                    result = CldrConfig.getEnglish().nameGetter().getNameFromLocaleOrTZID(alias.get0().get(0));
                 }
             }
             return result;

@@ -44,7 +44,7 @@ public class GenerateSeedDurations {
         for (String locale : cldrFactory.getAvailableLanguages()) {
             CLDRFile cldrFile = cldrFactory.make(locale, true);
             String localeString =
-                    locale + "\t" + testInfo.getEnglish().nameGetter().getName(locale);
+                    locale + "\t" + testInfo.getEnglish().nameGetter().getNameFromLocaleOrTZID(locale);
             System.out.println("\n" + localeString);
 
             DateTimeFormats formats = new DateTimeFormats().set(cldrFile, "gregorian");

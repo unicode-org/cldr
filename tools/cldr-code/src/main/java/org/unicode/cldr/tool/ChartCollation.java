@@ -229,7 +229,7 @@ public class ChartCollation extends Chart {
                 addCollator(data, "standard", (RuleBasedCollator) null);
             }
             new Subchart(
-                            ENGLISH.nameGetter().getName(locale, true, CLDRFile.SHORT_ALTS),
+                            ENGLISH.nameGetter().getNameFromLocaleOrTZBoolAltpicker(locale, true, CLDRFile.SHORT_ALTS),
                             locale,
                             data)
                     .writeChart(anchors);

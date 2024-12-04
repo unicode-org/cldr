@@ -870,7 +870,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         if (code.isEmpty()) {
             return;
         }
-        String name = testInfo.getEnglish().nameGetter().getName(languageName, code);
+        String name = testInfo.getEnglish().nameGetter().getNameFromTypenumCode(languageName, code);
         if (!code.equals(name)) {
             b.add(code + "=" + name);
         }
@@ -1070,7 +1070,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
 
         @Override
         public String transform(String code) {
-            return file.nameGetter().getName(codeType, code) + " [" + code + "]";
+            return file.nameGetter().getNameFromTypenumCode(codeType, code) + " [" + code + "]";
         }
     }
 
@@ -1238,7 +1238,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
     }
 
     private String getRegionName(String region) {
-        return testInfo.getEnglish().nameGetter().getName(CLDRFile.TERRITORY_NAME, region);
+        return testInfo.getEnglish().nameGetter().getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, region);
     }
 
     private Map<String, Integer> getRecursiveContainment(
@@ -1316,7 +1316,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         // now show the items we found
         for (Scope scope : scopeToCodes.keySet()) {
             for (String language : scopeToCodes.getAll(scope)) {
-                String name = testInfo.getEnglish().nameGetter().getName(language);
+                String name = testInfo.getEnglish().nameGetter().getNameFromLocaleOrTZID(language);
                 if (name == null || name.equals(language)) {
                     Set<String> set = Iso639Data.getNames(language);
                     if (set != null) {
@@ -1537,7 +1537,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                                 + "\t"
                                 + testInfo.getEnglish()
                                         .nameGetter()
-                                        .getName(CLDRFile.CURRENCY_NAME, currency));
+                                        .getNameFromTypenumCode(CLDRFile.CURRENCY_NAME, currency));
             }
         }
         // fix up
@@ -1574,7 +1574,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         for (String currency : modernCurrencyCodes.keySet()) {
             Set<Pair<String, CurrencyDateInfo>> data = modernCurrencyCodes.getAll(currency);
             final String name =
-                    testInfo.getEnglish().nameGetter().getName(CLDRFile.CURRENCY_NAME, currency);
+                    testInfo.getEnglish().nameGetter().getNameFromTypenumCode(CLDRFile.CURRENCY_NAME, currency);
 
             Set<String> isoCountries = isoCurrenciesToCountries.getAll(currency);
             if (isoCountries == null) {
@@ -1649,7 +1649,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                         + nonModernCurrencyCodes);
         for (String currency : nonModernCurrencyCodes.keySet()) {
             final String name =
-                    testInfo.getEnglish().nameGetter().getName(CLDRFile.CURRENCY_NAME, currency);
+                    testInfo.getEnglish().nameGetter().getNameFromTypenumCode(CLDRFile.CURRENCY_NAME, currency);
             if (name == null) {
                 errln("No English name for currency " + currency);
                 continue;
@@ -1692,7 +1692,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                                         + "\t"
                                         + testInfo.getEnglish()
                                                 .nameGetter()
-                                                .getName(
+                                                .getNameFromTypenumCode(
                                                         CLDRFile.CURRENCY_NAME,
                                                         dateInfo.getCurrency()));
                     }
@@ -2142,7 +2142,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         Set<String> tempNames = new TreeSet<>();
         for (String langCode : temp) {
             tempNames.add(
-                    testInfo.getEnglish().nameGetter().getName(CLDRFile.LANGUAGE_NAME, langCode)
+                    testInfo.getEnglish().nameGetter().getNameFromTypenumCode(CLDRFile.LANGUAGE_NAME, langCode)
                             + " ("
                             + langCode
                             + ")");
@@ -2224,7 +2224,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
 
     private String codeAndName(String macro) {
         // TODO Auto-generated method stub
-        return CLDRConfig.getInstance().getEnglish().nameGetter().getName(macro)
+        return CLDRConfig.getInstance().getEnglish().nameGetter().getNameFromLocaleOrTZID(macro)
                 + " ("
                 + macro
                 + ")";

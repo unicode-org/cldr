@@ -236,7 +236,7 @@ public class LanguageTest extends TestFmwk {
                         ? "?"
                         : testInfo.getEnglish()
                                 .nameGetter()
-                                .getName(CLDRFile.TERRITORY_NAME, parser.getRegion()));
+                                .getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, parser.getRegion()));
     }
 
     Set<String> getUnicodeScripts() {
@@ -259,7 +259,7 @@ public class LanguageTest extends TestFmwk {
     }
 
     private String getScriptName(String script) {
-        String name = testInfo.getEnglish().nameGetter().getName("script", script);
+        String name = testInfo.getEnglish().nameGetter().getNameFromTypestrCode("script", script);
         if (name != null && !name.equals(script)) {
             return name;
         }
@@ -278,7 +278,7 @@ public class LanguageTest extends TestFmwk {
     }
 
     private String getLanguageName(String language) {
-        String name = testInfo.getEnglish().nameGetter().getName("language", language);
+        String name = testInfo.getEnglish().nameGetter().getNameFromTypestrCode("language", language);
         if (name != null && !name.equals(language)) {
             return name;
         }

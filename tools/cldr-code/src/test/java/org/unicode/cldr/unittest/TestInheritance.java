@@ -168,7 +168,9 @@ public class TestInheritance extends TestFmwk {
                     continue;
                 }
                 System.out.print(
-                        language + "\t" + testInfo.getEnglish().nameGetter().getNameFromLocaleOrTZID(language));
+                        language
+                                + "\t"
+                                + testInfo.getEnglish().nameGetter().getNameFromBCP47(language));
 
                 M3<OfficialStatus, String, Boolean> officialChildren =
                         languageToOfficialChildren.get(language);
@@ -195,7 +197,10 @@ public class TestInheritance extends TestFmwk {
             LanguageTagParser ltp = new LanguageTagParser().set(s);
             String script = ltp.getScript();
             if (script.length() != 0) {
-                b.append(testInfo.getEnglish().nameGetter().getNameFromTypenumCode(CLDRFile.SCRIPT_NAME, script));
+                b.append(
+                        testInfo.getEnglish()
+                                .nameGetter()
+                                .getNameFromTypenumCode(CLDRFile.SCRIPT_NAME, script));
             }
             String region = ltp.getRegion();
             if (region.length() != 0) {

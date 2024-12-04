@@ -33,7 +33,7 @@ public class DayPeriodsCheck {
                 case "groups":
                     StandardCodes sc = StandardCodes.make();
                     CLDRFile english = CLDRConfig.getInstance().getEnglish();
-                    english.nameGetter().getNameFromLocaleOrTZID(LanguageGroup.uralic.iso);
+                    english.nameGetter().getNameFromBCP47(LanguageGroup.uralic.iso);
 
                     for (LanguageGroup group : LanguageGroup.values()) {
                         System.out.println(
@@ -41,7 +41,7 @@ public class DayPeriodsCheck {
                                         + "\t"
                                         + group.iso
                                         + "\t"
-                                        + english.nameGetter().getNameFromLocaleOrTZID(group.iso));
+                                        + english.nameGetter().getNameFromBCP47(group.iso));
                     }
 
                     for (LanguageGroup group : LanguageGroup.values()) {

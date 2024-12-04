@@ -891,8 +891,9 @@ public class ShowLocaleCoverage {
                             .addCell(language)
                             .addCell(
                                     ENGLISH.nameGetter()
-                                            .getNameFromLocaleOrTZBoolAltpicker(language, true, CLDRFile.SHORT_ALTS))
-                            .addCell(file.nameGetter().getNameFromLocaleOrTZID(language))
+                                            .getNameFromBCP47BoolAlt(
+                                                    language, true, CLDRFile.SHORT_ALTS))
+                            .addCell(file.nameGetter().getNameFromBCP47(language))
                             .addCell(script)
                             .addCell(defRegion)
                             .addCell(sublocales.size())
@@ -918,7 +919,7 @@ public class ShowLocaleCoverage {
                                         + " ;\t"
                                         + visibleLevelComputed
                                         + " ;\t"
-                                        + ENGLISH.nameGetter().getNameFromLocaleOrTZID(locale));
+                                        + ENGLISH.nameGetter().getNameFromBCP47(locale));
                         // TODO decide whether to restore this
                         //                        Level higher = Level.UNDETERMINED;
                         //                        switch (computed) {
@@ -1177,7 +1178,7 @@ public class ShowLocaleCoverage {
                 specialFlag
                         + language
                         + "\t"
-                        + ENGLISH.nameGetter().getNameFromLocaleOrTZID(language)
+                        + ENGLISH.nameGetter().getNameFromBCP47(language)
                         + "\t"
                         + ENGLISH.nameGetter().getNameFromTypestrCode("script", script)
                         + "\t"

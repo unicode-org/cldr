@@ -139,7 +139,7 @@ public class Misc {
                 }
             }
             System.out.println(
-                    string + "\t" + defCon + "\t" + english.nameGetter().getNameFromLocaleOrTZID(defCon));
+                    string + "\t" + defCon + "\t" + english.nameGetter().getNameFromBCP47(defCon));
         }
     }
 
@@ -329,7 +329,7 @@ public class Misc {
             if (temp != null) {
                 baseLanguage = temp.get0().get(0);
             }
-            String englishName = english.nameGetter().getNameFromLocaleOrTZID(baseLanguage);
+            String englishName = english.nameGetter().getNameFromBCP47(baseLanguage);
             CLDRFile cldrFile = factory.make(baseLanguage, false);
             UnicodeSet set = cldrFile.getExemplarSet("", WinningChoice.WINNING);
             int script = -1;
@@ -340,7 +340,7 @@ public class Misc {
                     break;
                 }
             }
-            String nativeName = cldrFile.nameGetter().getNameFromLocaleOrTZID(baseLanguage);
+            String nativeName = cldrFile.nameGetter().getNameFromBCP47(baseLanguage);
             nameAndInfo.add(
                     englishName
                             + "\t"

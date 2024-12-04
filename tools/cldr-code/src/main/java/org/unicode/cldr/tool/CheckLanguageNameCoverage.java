@@ -41,7 +41,7 @@ public class CheckLanguageNameCoverage {
                             + "\t"
                             + level
                             + "\t"
-                            + config.getEnglish().nameGetter().getNameFromLocaleOrTZID(langCode));
+                            + config.getEnglish().nameGetter().getNameFromBCP47(langCode));
         }
         for (String langCode : map.keySet()) {
             String path = CLDRFile.getKey(CLDRFile.LANGUAGE_NAME, langCode);

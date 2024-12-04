@@ -340,7 +340,7 @@ public class GetChanges {
                                 + "\t"
                                 + locale
                                 + "\t"
-                                + english.nameGetter().getNameFromLocaleOrTZID(locale)
+                                + english.nameGetter().getNameFromBCP47(locale)
                                 + "\t"
                                 + ph
                                 + "\t«"

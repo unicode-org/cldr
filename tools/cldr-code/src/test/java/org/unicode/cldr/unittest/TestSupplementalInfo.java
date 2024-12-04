@@ -71,6 +71,7 @@ import org.unicode.cldr.util.LanguageTagCanonicalizer;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleNames;
+import org.unicode.cldr.util.NameGetter;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PluralRanges;
@@ -99,6 +100,7 @@ import org.unicode.cldr.util.Validity.Status;
 
 public class TestSupplementalInfo extends TestFmwkPlus {
     static CLDRConfig testInfo = CLDRConfig.getInstance();
+    private static NameGetter englishNameGetter = testInfo.getEnglish().nameGetter();
 
     private static final StandardCodes STANDARD_CODES = StandardCodes.make();
 
@@ -870,7 +872,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         if (code.isEmpty()) {
             return;
         }
-        String name = testInfo.getEnglish().nameGetter().getNameFromTypenumCode(languageName, code);
+        String name = englishNameGetter.getNameFromTypenumCode(languageName, code);
         if (!code.equals(name)) {
             b.add(code + "=" + name);
         }
@@ -1238,7 +1240,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
     }
 
     private String getRegionName(String region) {
-        return testInfo.getEnglish().nameGetter().getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, region);
+        return englishNameGetter.getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, region);
     }
 
     private Map<String, Integer> getRecursiveContainment(
@@ -1316,7 +1318,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         // now show the items we found
         for (Scope scope : scopeToCodes.keySet()) {
             for (String language : scopeToCodes.getAll(scope)) {
-                String name = testInfo.getEnglish().nameGetter().getNameFromLocaleOrTZID(language);
+                String name = englishNameGetter.getNameFromBCP47(language);
                 if (name == null || name.equals(language)) {
                     Set<String> set = Iso639Data.getNames(language);
                     if (set != null) {
@@ -1535,9 +1537,8 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                                 + "\t"
                                 + dateInfo.toString()
                                 + "\t"
-                                + testInfo.getEnglish()
-                                        .nameGetter()
-                                        .getNameFromTypenumCode(CLDRFile.CURRENCY_NAME, currency));
+                                + englishNameGetter.getNameFromTypenumCode(
+                                        CLDRFile.CURRENCY_NAME, currency));
             }
         }
         // fix up
@@ -1574,7 +1575,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         for (String currency : modernCurrencyCodes.keySet()) {
             Set<Pair<String, CurrencyDateInfo>> data = modernCurrencyCodes.getAll(currency);
             final String name =
-                    testInfo.getEnglish().nameGetter().getNameFromTypenumCode(CLDRFile.CURRENCY_NAME, currency);
+                    englishNameGetter.getNameFromTypenumCode(CLDRFile.CURRENCY_NAME, currency);
 
             Set<String> isoCountries = isoCurrenciesToCountries.getAll(currency);
             if (isoCountries == null) {
@@ -1649,7 +1650,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                         + nonModernCurrencyCodes);
         for (String currency : nonModernCurrencyCodes.keySet()) {
             final String name =
-                    testInfo.getEnglish().nameGetter().getNameFromTypenumCode(CLDRFile.CURRENCY_NAME, currency);
+                    englishNameGetter.getNameFromTypenumCode(CLDRFile.CURRENCY_NAME, currency);
             if (name == null) {
                 errln("No English name for currency " + currency);
                 continue;
@@ -1690,11 +1691,8 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                                         + "\t"
                                         + dateInfo
                                         + "\t"
-                                        + testInfo.getEnglish()
-                                                .nameGetter()
-                                                .getNameFromTypenumCode(
-                                                        CLDRFile.CURRENCY_NAME,
-                                                        dateInfo.getCurrency()));
+                                        + englishNameGetter.getNameFromTypenumCode(
+                                                CLDRFile.CURRENCY_NAME, dateInfo.getCurrency()));
                     }
                 }
             }
@@ -2142,7 +2140,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         Set<String> tempNames = new TreeSet<>();
         for (String langCode : temp) {
             tempNames.add(
-                    testInfo.getEnglish().nameGetter().getNameFromTypenumCode(CLDRFile.LANGUAGE_NAME, langCode)
+                    englishNameGetter.getNameFromTypenumCode(CLDRFile.LANGUAGE_NAME, langCode)
                             + " ("
                             + langCode
                             + ")");
@@ -2224,7 +2222,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
 
     private String codeAndName(String macro) {
         // TODO Auto-generated method stub
-        return CLDRConfig.getInstance().getEnglish().nameGetter().getNameFromLocaleOrTZID(macro)
+        return CLDRConfig.getInstance().getEnglish().nameGetter().getNameFromBCP47(macro)
                 + " ("
                 + macro
                 + ")";

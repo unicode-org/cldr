@@ -50,11 +50,12 @@ public class ShowLanguageData {
                 System.out.println(
                         language
                                 + "\t"
-                                + english.nameGetter().getNameFromLocaleOrTZID(language)
+                                + english.nameGetter().getNameFromBCP47(language)
                                 + "\t"
                                 + territory
                                 + "\t"
-                                + english.nameGetter().getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, territory)
+                                + english.nameGetter()
+                                        .getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, territory)
                                 + "\t"
                                 + litPop / (double) total);
             }

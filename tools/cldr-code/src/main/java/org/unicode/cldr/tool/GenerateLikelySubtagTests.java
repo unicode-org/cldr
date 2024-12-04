@@ -210,7 +210,8 @@ public class GenerateLikelySubtagTests {
                 + spacing
                 + (region == null || region.equals("")
                         ? "?"
-                        : ENGLISH.nameGetter().getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, region))
+                        : ENGLISH.nameGetter()
+                                .getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, region))
                 + spacing
                 + "}";
     }

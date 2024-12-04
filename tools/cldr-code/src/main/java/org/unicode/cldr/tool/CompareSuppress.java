@@ -107,7 +107,7 @@ public class CompareSuppress {
     }
 
     public static String langAndName(CLDRFile english, String base) {
-        return base + "\t" + english.nameGetter().getNameFromLocaleOrTZID(base);
+        return base + "\t" + english.nameGetter().getNameFromBCP47(base);
     }
 
     public static String scriptAndName(CLDRFile english, String suppressScript) {

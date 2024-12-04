@@ -105,7 +105,11 @@ public class GenerateChangeChart {
                     counter.add(ph.getSectionId(), 1);
                 }
                 final String summaryLine =
-                        locale + "\t" + ENGLISH.nameGetter().getNameFromLocaleOrTZID(locale) + "\t" + counter;
+                        locale
+                                + "\t"
+                                + ENGLISH.nameGetter().getNameFromBCP47(locale)
+                                + "\t"
+                                + counter;
                 System.out.println(summaryLine);
                 out.println(summaryLine);
             }
@@ -226,7 +230,7 @@ public class GenerateChangeChart {
                 String newValue,
                 String engValue,
                 int votes) {
-            final String name = ENGLISH.nameGetter().getNameFromLocaleOrTZID(locale.toString());
+            final String name = ENGLISH.nameGetter().getNameFromBCP47(locale.toString());
             PageId pageId = pathHeader.getPageId();
             String header = pathHeader.getHeader();
             String code = pathHeader.getCode();
@@ -297,7 +301,7 @@ public class GenerateChangeChart {
                 String newValue,
                 String engValue,
                 int votes) {
-            final String name = ENGLISH.nameGetter().getNameFromLocaleOrTZID(locale.toString());
+            final String name = ENGLISH.nameGetter().getNameFromBCP47(locale.toString());
             PageId pageId = pathHeader.getPageId();
             String header = pathHeader.getHeader();
             String code = pathHeader.getCode();

@@ -1196,7 +1196,8 @@ public class TestCoverageLevel extends TestFmwkPlus {
                     typeAndInfo.getValue().get3(); // it looks like the targetLevel is ignored
 
             for (String code : Sets.union(idPartMap.keySet(), setRoot)) {
-                String displayName = testInfo.getEnglish().nameGetter().getNameFromTypenumCode(type, code);
+                String displayName =
+                        testInfo.getEnglish().nameGetter().getNameFromTypenumCode(type, code);
                 String path = CLDRFile.getKey(type, code);
                 Level level = coverageLevel.getLevel(path);
                 data.put(

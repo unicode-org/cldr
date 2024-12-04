@@ -969,14 +969,19 @@ public class XLocaleDistance {
                 if (region.equals("*") || region.startsWith("$")) {
                     result.append(region);
                 } else {
-                    result.append(english.nameGetter().getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, region));
+                    result.append(
+                            english.nameGetter()
+                                    .getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, region));
                 }
             case 2:
                 String script = alt.get(1);
                 if (script.equals("*")) {
                     result.insert(0, script);
                 } else {
-                    result.insert(0, english.nameGetter().getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, script));
+                    result.insert(
+                            0,
+                            english.nameGetter()
+                                    .getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, script));
                 }
             case 1:
                 String language = alt.get(0);
@@ -984,7 +989,9 @@ public class XLocaleDistance {
                     result.insert(0, language);
                 } else {
                     result.insert(
-                            0, english.nameGetter().getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, language));
+                            0,
+                            english.nameGetter()
+                                    .getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, language));
                 }
         }
         return Joiner.on("; ").join(alt);

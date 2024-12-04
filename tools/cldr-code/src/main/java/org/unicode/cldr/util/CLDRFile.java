@@ -2382,6 +2382,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         }
     }
 
+    /** Why isn't this an enum? */
     public static final int NO_NAME = -1,
             LANGUAGE_NAME = 0,
             SCRIPT_NAME = 1,

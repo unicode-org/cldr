@@ -1314,7 +1314,7 @@ public class TestPersonNameFormatter extends TestFmwk {
                     "Checking\t"
                             + locale
                             + "\t"
-                            + ENGLISH.nameGetter().getNameFromLocaleOrTZID(locale)
+                            + ENGLISH.nameGetter().getNameFromBCP47(locale)
                             + "\t"
                             + order
                             + "\t"

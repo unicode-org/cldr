@@ -309,7 +309,7 @@ class GenerateStatistics {
         String nativeName, englishName;
         draftLanguages.add(lang);
         nativeName = getFixedLanguageName(localeID, langScript);
-        englishName = english.nameGetter().getNameFromLocaleOrTZID(langScript);
+        englishName = english.nameGetter().getNameFromBCP47(langScript);
         if (!lang.equals("en") && nativeName.equals(englishName)) {
             Log.logln(
                     (isDraft ? "D" : "")
@@ -399,7 +399,7 @@ class GenerateStatistics {
             }
         }
         CLDRFile cldr = factory.make(localeID, true);
-        return cldr.nameGetter().getNameFromLocaleOrTZID(lang);
+        return cldr.nameGetter().getNameFromBCP47(lang);
     }
 
     /**

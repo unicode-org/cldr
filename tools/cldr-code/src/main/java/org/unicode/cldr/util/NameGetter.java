@@ -37,11 +37,28 @@ public class NameGetter {
     private static final Joiner JOIN_HYPHEN = Joiner.on('-');
     private static final Joiner JOIN_UNDERBAR = Joiner.on('_');
 
-    /** Utility for getting a name, given a type and code. */
+    /**
+     * Get a name, given a type (as a String) and a code.
+     *
+     * <p>Ideally getNameFromTypestrCode and getNameFromTypenumCode should be replaced by a method
+     * that takes an enum rather than String or int. Compare StandardCodes.CodeType, and the
+     * integers defined in the vicinity of CLDRFile.TERRITORY_NAME
+     *
+     * @param type a string such as "currency", "language", "region", "script", "territory", ...
+     * @param code a code such as "JP"
+     * @return the name
+     */
     public String getNameFromTypestrCode(String type, String code) {
         return getNameFromTypenumCode(CLDRFile.typeNameToCode(type), code);
     }
 
+    /**
+     * Get a name, given a type (as a int) and a code.
+     *
+     * @param type the type such as CLDRFile.TERRITORY_NAME
+     * @param code a code such as "JP"
+     * @return the name
+     */
     public String getNameFromTypenumCode(int type, String code) {
         return getNameFromTypeCodeTransformPaths(type, code, null, null);
     }
@@ -50,7 +67,8 @@ public class NameGetter {
         return getNameFromTypeCodeTransformPaths(type, code, null, paths);
     }
 
-    public String getNameFromTypeCodeAltpicker(int type, String code, Transform<String, String> altPicker) {
+    public String getNameFromTypeCodeAltpicker(
+            int type, String code, Transform<String, String> altPicker) {
         return getNameFromTypeCodeTransformPaths(type, code, altPicker, null);
     }
 
@@ -58,45 +76,45 @@ public class NameGetter {
      * Returns the name of the given bcp47 identifier. Note that extensions must be specified using
      * the old "\@key=type" syntax.
      *
-     * @param localeOrTZID
-     * @return
+     * @param localeOrTZID the bcp47 identifier (locale or timezone ID)
+     * @return the name of the given bcp47 identifier
      */
-    public synchronized String getNameFromLocaleOrTZID(String localeOrTZID) {
-        return getNameFromLocaleOrTZBool(localeOrTZID, false);
-    }
-
-    public String getNameFromParserBoolAltPicker(
-            LanguageTagParser lparser,
-            boolean onlyConstructCompound,
-            Transform<String, String> altPicker) {
-        return getNameFromParserBooleanAltpickerPaths(lparser, onlyConstructCompound, altPicker, null);
+    public synchronized String getNameFromBCP47(String localeOrTZID) {
+        return getNameFromBCP47Bool(localeOrTZID, false);
     }
 
     /**
-     * @param paths if non-null, will contain contributory paths on return
+     * Returns the name of the given bcp47 identifier. Note that extensions must be specified using
+     * the old "\@key=type" syntax.
+     *
+     * @param localeOrTZID the bcp47 identifier (locale or timezone ID)
+     * @param onlyConstructCompound if true, returns "English (United Kingdom)" instead of "British
+     *     English"
+     * @return the name of the given bcp47 identifier
      */
-    public String getNameFromParserBooleanAltpickerPaths(
-            LanguageTagParser lparser,
-            boolean onlyConstructCompound,
-            Transform<String, String> altPicker,
-            Set<String> paths) {
+    public synchronized String getNameFromBCP47Bool(
+            String localeOrTZID, boolean onlyConstructCompound) {
+        return getNameFromBCP47BoolAlt(localeOrTZID, onlyConstructCompound, null);
+    }
+
+    public String getNameFromParserBool(LanguageTagParser lparser, boolean onlyConstructCompound) {
         return getNameFromOtherThings(
                 lparser,
                 onlyConstructCompound,
-                altPicker,
+                null,
                 cldrFile.getWinningValueWithBailey(GETNAME_LOCALE_KEY_TYPE_PATTERN),
                 cldrFile.getWinningValueWithBailey(GETNAME_LOCALE_PATTERN),
                 cldrFile.getWinningValueWithBailey(GETNAME_LOCALE_SEPARATOR),
-                paths);
+                null);
     }
 
-    public synchronized String getNameFromLocaleOrTZBoolEtc(
+    public synchronized String getNameFromBCP47Etc(
             String localeOrTZID,
             boolean onlyConstructCompound,
             String localeKeyTypePattern,
             String localePattern,
             String localeSeparator) {
-        return getNameFrom7Things(
+        return getNameFromManyThings(
                 localeOrTZID,
                 onlyConstructCompound,
                 localeKeyTypePattern,
@@ -110,49 +128,37 @@ public class NameGetter {
      * Returns the name of the given bcp47 identifier. Note that extensions must be specified using
      * the old "\@key=type" syntax.
      *
-     * @param localeOrTZID the locale or timezone ID
-     * @param onlyConstructCompound
-     * @return
-     */
-    public synchronized String getNameFromLocaleOrTZBool(String localeOrTZID, boolean onlyConstructCompound) {
-        return getNameFromLocaleOrTZBoolAltpicker(localeOrTZID, onlyConstructCompound, null);
-    }
-
-    /**
-     * Returns the name of the given bcp47 identifier. Note that extensions must be specified using
-     * the old "\@key=type" syntax.
-     *
-     * @param localeOrTZID the locale or timezone ID
+     * @param localeOrTZID the bcp47 identifier (locale or timezone ID)
      * @param onlyConstructCompound if true, returns "English (United Kingdom)" instead of "British
      *     English"
      * @param altPicker Used to select particular alts. For example, SHORT_ALTS can be used to get
      *     "English (U.K.)" instead of "English (United Kingdom)"
-     * @return
+     * @return the name of the given bcp47 identifier
      */
-    public synchronized String getNameFromLocaleOrTZBoolAltpicker(
+    public synchronized String getNameFromBCP47BoolAlt(
             String localeOrTZID,
             boolean onlyConstructCompound,
             Transform<String, String> altPicker) {
-        return getNameFromLocaleTZBoolAltpickerPaths(localeOrTZID, onlyConstructCompound, altPicker, null);
+        return getNameFromBCP47BoolAltPaths(localeOrTZID, onlyConstructCompound, altPicker, null);
     }
 
     /**
      * Returns the name of the given bcp47 identifier. Note that extensions must be specified using
      * the old "\@key=type" syntax.
      *
-     * @param localeOrTZID the locale or timezone ID
+     * @param localeOrTZID the bcp47 identifier (locale or timezone ID)
      * @param onlyConstructCompound if true, returns "English (United Kingdom)" instead of "British
      *     English"
      * @param altPicker Used to select particular alts. For example, SHORT_ALTS can be used to get
      *     "English (U.K.)" instead of "English (United Kingdom)"
-     * @return
+     * @return the name of the given bcp47 identifier
      */
-    public synchronized String getNameFromLocaleTZBoolAltpickerPaths(
+    public synchronized String getNameFromBCP47BoolAltPaths(
             String localeOrTZID,
             boolean onlyConstructCompound,
             Transform<String, String> altPicker,
             Set<String> paths) {
-        return getNameFrom7Things(
+        return getNameFromManyThings(
                 localeOrTZID,
                 onlyConstructCompound,
                 cldrFile.getWinningValueWithBailey(GETNAME_LOCALE_KEY_TYPE_PATTERN),
@@ -166,15 +172,16 @@ public class NameGetter {
      * Returns the name of the given bcp47 identifier. Note that extensions must be specified using
      * the old "\@key=type" syntax. Only used by ExampleGenerator.
      *
-     * @param localeOrTZID the locale or timezone ID
-     * @param onlyConstructCompound
+     * @param localeOrTZID the bcp47 identifier (locale or timezone ID)
+     * @param onlyConstructCompound if true, returns "English (United Kingdom)" instead of "British
+     *     English"
      * @param localeKeyTypePattern the pattern used to format key-type pairs
      * @param localePattern the pattern used to format primary/secondary subtags
      * @param localeSeparator the list separator for secondary subtags
      * @param paths if non-null, fillin with contributory paths
-     * @return
+     * @return the name of the given bcp47 identifier
      */
-    public synchronized String getNameFrom7Things(
+    private synchronized String getNameFromManyThings(
             String localeOrTZID,
             boolean onlyConstructCompound,
             String localeKeyTypePattern,
@@ -190,7 +197,8 @@ public class NameGetter {
         String name =
                 isCompound && onlyConstructCompound
                         ? null
-                        : getNameFromTypeCodeTransformPaths(CLDRFile.LANGUAGE_NAME, localeOrTZID, altPicker, paths);
+                        : getNameFromTypeCodeTransformPaths(
+                                CLDRFile.LANGUAGE_NAME, localeOrTZID, altPicker, paths);
 
         // TODO - handle arbitrary combinations
         if (name != null && !name.contains("_") && !name.contains("-")) {
@@ -208,7 +216,7 @@ public class NameGetter {
                 paths);
     }
 
-    public String getNameFromOtherThings(
+    private String getNameFromOtherThings(
             LanguageTagParser lparser,
             boolean onlyConstructCompound,
             Transform<String, String> altPicker,
@@ -322,7 +330,7 @@ public class NameGetter {
                         if (hybrid != null) {
                             kname = cldrFile.getKeyValueName("h0", JOIN_UNDERBAR.join(hybrid));
                         }
-                        oldFormatType = getNameFromLocaleOrTZID(oldFormatType);
+                        oldFormatType = getNameFromBCP47(oldFormatType);
                         break;
                     case "cu":
                         oldFormatType =
@@ -337,15 +345,16 @@ public class NameGetter {
                                     "Error: getName(…) with paths doesn't handle timezones.");
                         }
                         oldFormatType =
-                                getTZName(
-                                        oldFormatType, "VVVV"); // TODO: paths not handled here, yet
+                                getTZName(oldFormatType); // TODO: paths not handled here, yet
                         break;
                     case "kr":
                         oldFormatType = getReorderName(localeSeparator, keyValue, paths);
                         break;
                     case "rg":
                     case "sd":
-                        oldFormatType = getNameFromTypeCodePaths(CLDRFile.SUBDIVISION_NAME, oldFormatType, paths);
+                        oldFormatType =
+                                getNameFromTypeCodePaths(
+                                        CLDRFile.SUBDIVISION_NAME, oldFormatType, paths);
                         break;
                     default:
                         oldFormatType = JOIN_HYPHEN.join(keyValue);
@@ -393,16 +402,16 @@ public class NameGetter {
     /**
      * Utility for getting the name, given a code.
      *
-     * @param type
-     * @param code
+     * @param type the type such as CLDRFile.TERRITORY_NAME
+     * @param code the code such as "JP"
      * @param codeToAlt - if not null, is called on the code. If the result is not null, then that
      *     is used for an alt value. If the alt path has a value it is used, otherwise the normal
      *     one is used. For example, the transform could return "short" for PS or HK or MO, but not
      *     US or GB.
      * @param paths if non-null, will have contributory paths on return
-     * @return
+     * @return the name
      */
-    public String getNameFromTypeCodeTransformPaths(
+    private String getNameFromTypeCodeTransformPaths(
             int type, String code, Transform<String, String> codeToAlt, Set<String> paths) {
         String path = CLDRFile.getKey(type, code);
         String result = null;
@@ -447,7 +456,7 @@ public class NameGetter {
         return result;
     }
 
-    static final Pattern CLEAN_DESCRIPTION = Pattern.compile("([^\\(\\[]*)[\\(\\[].*");
+    static final Pattern CLEAN_DESCRIPTION = Pattern.compile("([^(\\[]*)[(\\[].*");
     static final Splitter DESCRIPTION_SEP = Splitter.on('▪');
 
     private String getLstrFallback(String codeType, String code) {
@@ -470,16 +479,16 @@ public class NameGetter {
     /**
      * Gets timezone name. Not optimized.
      *
-     * @param tzcode
-     * @return
+     * @param tzcode the code such as "gaza"
+     * @return timezone name
      */
-    private String getTZName(String tzcode, String format) {
+    private String getTZName(String tzcode) {
         String longid = CLDRFile.getLongTzid(tzcode);
         if (tzcode.length() == 4 && !tzcode.equals("gaza")) {
             return longid;
         }
         TimezoneFormatter tzf = new TimezoneFormatter(cldrFile);
-        return tzf.getFormattedZone(longid, format, 0);
+        return tzf.getFormattedZone(longid, "VVVV", 0);
     }
 
     private String getReorderName(

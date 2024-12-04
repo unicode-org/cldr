@@ -21,6 +21,7 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.EmojiConstants;
 import org.unicode.cldr.util.LanguageGroup;
 import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.NameGetter;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.StandardCodes;
 
@@ -130,6 +131,7 @@ public class EmojiSubdivisionNames {
         System.out.println();
         CLDRFile english = CLDRConfig.getInstance().getEnglish();
         Set<String> locales = new HashSet<>();
+        NameGetter nameGetter = english.nameGetter();
         for (String filename : SUBDIVISION_FILE_NAMES) {
             if (filename.endsWith(".xml")) {
                 String locale = filename.substring(0, filename.length() - 4);
@@ -144,7 +146,7 @@ public class EmojiSubdivisionNames {
                                     + "\t"
                                     + rank
                                     + "\t"
-                                    + english.nameGetter().getNameFromLocaleOrTZID(locale)
+                                    + nameGetter.getNameFromBCP47(locale)
                                     + "\t"
                                     + locale);
                     for (String sd : SUBDIVISIONS) {
@@ -171,7 +173,7 @@ public class EmojiSubdivisionNames {
                             + "\t"
                             + rank
                             + "\t"
-                            + english.nameGetter().getNameFromLocaleOrTZID(locale)
+                            + english.nameGetter().getNameFromBCP47(locale)
                             + "\t"
                             + locale);
         }

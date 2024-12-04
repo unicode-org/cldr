@@ -79,7 +79,8 @@ public class ChartLanguageMatching extends Chart {
 
     private String getName(String codeWithStars, boolean user) {
         if (!codeWithStars.contains("*") && !codeWithStars.contains("$")) {
-            return ENGLISH.nameGetter().getNameFromLocaleOrTZBoolAltpicker(codeWithStars, true, CLDRFile.SHORT_ALTS);
+            return ENGLISH.nameGetter()
+                    .getNameFromBCP47BoolAlt(codeWithStars, true, CLDRFile.SHORT_ALTS);
         }
         String[] parts = codeWithStars.split("_");
         if (parts[0].equals("*")) {
@@ -98,7 +99,9 @@ public class ChartLanguageMatching extends Chart {
             }
         }
         String result =
-                ENGLISH.nameGetter().getNameFromLocaleOrTZBoolAltpicker(String.join("_", parts), true, CLDRFile.SHORT_ALTS);
+                ENGLISH.nameGetter()
+                        .getNameFromBCP47BoolAlt(
+                                String.join("_", parts), true, CLDRFile.SHORT_ALTS);
         if (user) {
             result =
                     result.replace("Xxxx", "any-script")

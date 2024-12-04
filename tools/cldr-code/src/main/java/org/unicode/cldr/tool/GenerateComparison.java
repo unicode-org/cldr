@@ -106,7 +106,7 @@ public class GenerateComparison {
         unifiedList.addAll(newList);
         Set<R2<String, String>> pairs = new TreeSet<>();
         for (String code : unifiedList) {
-            pairs.add(Row.of(english.nameGetter().getNameFromLocaleOrTZID(code), code));
+            pairs.add(Row.of(english.nameGetter().getNameFromBCP47(code), code));
         }
 
         prettyPathMaker = new PrettyPath();
@@ -205,7 +205,7 @@ public class GenerateComparison {
             // href='likely_subtags.html#und_{0}'>{0}</a>",
             // "class='source'", true)
 
-            final String localeDisplayName = english.nameGetter().getNameFromLocaleOrTZID(locale);
+            final String localeDisplayName = english.nameGetter().getNameFromBCP47(locale);
             TablePrinter table =
                     new TablePrinter()
                             .setCaption("Changes in " + localeDisplayName + " (" + locale + ")")

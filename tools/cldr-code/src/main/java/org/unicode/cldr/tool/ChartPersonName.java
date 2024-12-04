@@ -34,7 +34,7 @@ public class ChartPersonName extends Chart {
 
     @Override
     public String getTitle() {
-        return ENGLISH.nameGetter().getNameFromLocaleOrTZID(locale) + ": Person Names";
+        return ENGLISH.nameGetter().getNameFromBCP47(locale) + ": Person Names";
     }
 
     @Override

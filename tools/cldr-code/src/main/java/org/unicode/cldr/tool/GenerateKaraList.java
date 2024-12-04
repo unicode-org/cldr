@@ -115,7 +115,8 @@ public class GenerateKaraList {
             log.println("\t\t\t<epos>n</epos>"); // this is the part of speech value. It is fixed.
             log.println("\t\t\t<sense>");
             if (hasAbbreviation) { // only applicable for the currency entries
-                String aename = english.nameGetter().getNameFromTypenumCode(CLDRFile.CURRENCY_SYMBOL, id);
+                String aename =
+                        english.nameGetter().getNameFromTypenumCode(CLDRFile.CURRENCY_SYMBOL, id);
                 if (aename != null) {
                     log.println(
                             "\t\t\t\t<eabbr>"
@@ -136,7 +137,7 @@ public class GenerateKaraList {
                                     + locale
                                     + "</tlanguage>\t<!-- "
                                     + TransliteratorUtilities.toXML.transliterate(
-                                            english.nameGetter().getNameFromLocaleOrTZID(locale))
+                                            english.nameGetter().getNameFromBCP47(locale))
                                     + " -->"); // We do use
                     // non-ISO
                     // values but
@@ -158,7 +159,9 @@ public class GenerateKaraList {
                                     + TransliteratorUtilities.toXML.transliterate(trans)
                                     + "</trans>");
                     if (hasAbbreviation) {
-                        String aename = cldrfile.nameGetter().getNameFromTypenumCode(CLDRFile.CURRENCY_SYMBOL, id);
+                        String aename =
+                                cldrfile.nameGetter()
+                                        .getNameFromTypenumCode(CLDRFile.CURRENCY_SYMBOL, id);
                         if (aename != null && !aename.equals(id)) {
                             log.println(
                                     "\t\t\t\t\t<tabbr>"

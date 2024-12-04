@@ -104,7 +104,11 @@ public class GenerateDayPeriodChart {
             for (String locale : dayPeriodLocales) { // SC.getLocaleCoverageLocales("cldr",
                 // EnumSet.of(Level.MODERN))) {
                 System.out.print(
-                        type + "\t" + locale + "\t" + ENGLISH.nameGetter().getNameFromLocaleOrTZID(locale));
+                        type
+                                + "\t"
+                                + locale
+                                + "\t"
+                                + ENGLISH.nameGetter().getNameFromBCP47(locale));
                 DayPeriodInfo dayPeriod = getFixedDayPeriodInfo(type, locale);
                 doRow(dayPeriod);
             }

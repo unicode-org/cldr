@@ -131,9 +131,9 @@ public class TestUtilities {
             System.out.println(
                     test
                             + "\t"
-                            + english.nameGetter().getNameFromLocaleOrTZID(test)
+                            + english.nameGetter().getNameFromBCP47(test)
                             + "\t"
-                            + french.nameGetter().getNameFromLocaleOrTZID(test));
+                            + french.nameGetter().getNameFromBCP47(test));
         }
     }
 
@@ -1021,18 +1021,30 @@ public class TestUtilities {
         for (Iterator<String> it = sc.getGoodAvailableCodes("language").iterator();
                 it.hasNext(); ) {
             String code = it.next();
-            out.println(code + "\t" + english.nameGetter().getNameFromTypenumCode(CLDRFile.LANGUAGE_NAME, code));
+            out.println(
+                    code
+                            + "\t"
+                            + english.nameGetter()
+                                    .getNameFromTypenumCode(CLDRFile.LANGUAGE_NAME, code));
         }
         out.println("****");
         for (Iterator<String> it = sc.getGoodAvailableCodes("territory").iterator();
                 it.hasNext(); ) {
             String code = it.next();
-            out.println(code + "\t" + english.nameGetter().getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, code));
+            out.println(
+                    code
+                            + "\t"
+                            + english.nameGetter()
+                                    .getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, code));
         }
         out.println("****");
         for (Iterator<String> it = sc.getGoodAvailableCodes("script").iterator(); it.hasNext(); ) {
             String code = it.next();
-            out.println(code + "\t" + english.nameGetter().getNameFromTypenumCode(CLDRFile.SCRIPT_NAME, code));
+            out.println(
+                    code
+                            + "\t"
+                            + english.nameGetter()
+                                    .getNameFromTypenumCode(CLDRFile.SCRIPT_NAME, code));
         }
         out.close();
     }

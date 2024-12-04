@@ -323,6 +323,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      * @param minimalDraftStatus
      */
     public CLDRFile(String localeId, List<File> dirs, DraftStatus minimalDraftStatus) {
+        this.nameGetter = new NameGetter(this);
         // order matters
         this.dataSource = XMLSource.getFrozenInstance(localeId, dirs, minimalDraftStatus);
         this.dtdType = dataSource.getXMLNormalizingDtdType();
@@ -330,6 +331,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
     }
 
     public CLDRFile(XMLSource dataSource, XMLSource... resolvingParents) {
+        this.nameGetter = new NameGetter(this);
         List<XMLSource> sourceList = new ArrayList<>();
         sourceList.add(dataSource);
         sourceList.addAll(Arrays.asList(resolvingParents));

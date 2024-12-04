@@ -1121,7 +1121,11 @@ public class TestBasic extends TestFmwkPlus {
             warnings.clear();
 
             String name =
-                    "Locale:" + localeID + " (" + testInfo.getEnglish().nameGetter().getName(localeID) + ")";
+                    "Locale:"
+                            + localeID
+                            + " ("
+                            + testInfo.getEnglish().nameGetter().getName(localeID)
+                            + ")";
 
             if (!collations.contains(localeID)) {
                 warnings.put(MissingType.collation, "missing");

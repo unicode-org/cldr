@@ -74,7 +74,11 @@ public class DiffWithParent {
                     PrintWriter out =
                             FileUtilities.openUTF8Writer(
                                     CLDRPaths.GEN_DIRECTORY, locale + "_diff.html");
-                    String title = locale + " " + english.nameGetter().getName(locale) + " Diff with Parent";
+                    String title =
+                            locale
+                                    + " "
+                                    + english.nameGetter().getName(locale)
+                                    + " Diff with Parent";
                     out.println(
                             "<!doctype HTML PUBLIC '-//W3C//DTD HTML 4.0 Transitional//EN'><html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'><title>"
                                     + title

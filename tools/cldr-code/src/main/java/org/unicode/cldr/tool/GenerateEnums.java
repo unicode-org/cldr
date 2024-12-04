@@ -733,7 +733,8 @@ public class GenerateEnums {
             // dumb
             // octal
             // syntax
-            System.out.println(un + "\t" + region + "\t" + english.nameGetter().getName("territory", region));
+            System.out.println(
+                    un + "\t" + region + "\t" + english.nameGetter().getName("territory", region));
         }
 
         showGeneratedCommentEnd(DATA_INDENT);
@@ -873,7 +874,8 @@ public class GenerateEnums {
                                 ? getEnglishName(codeName)
                                 : type.equals("currency")
                                         ? getName(codeName)
-                                        : english.nameGetter().getName(CLDRFile.SCRIPT_NAME, codeName);
+                                        : english.nameGetter()
+                                                .getName(CLDRFile.SCRIPT_NAME, codeName);
         resolvedEnglishName = doFallbacks.transliterate(resolvedEnglishName);
 
         String prefix = CODE_INDENT + "/** " + resolvedEnglishName; // + " - " +

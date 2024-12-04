@@ -232,7 +232,9 @@ public class GenerateG2xG2 {
             for (Iterator it = testSet.iterator(); it.hasNext(); ) {
                 String country = (String) it.next();
                 System.out.println(
-                        country + "\t" + english.nameGetter().getName(CLDRFile.CURRENCY_NAME, country));
+                        country
+                                + "\t"
+                                + english.nameGetter().getName(CLDRFile.CURRENCY_NAME, country));
             }
             return true;
         } else if (choice == 0) { // get available

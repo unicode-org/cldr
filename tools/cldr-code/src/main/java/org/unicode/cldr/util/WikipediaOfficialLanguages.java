@@ -299,7 +299,10 @@ public class WikipediaOfficialLanguages {
                         sInfo == null ? OfficialStatus.unknown : sInfo.getOfficialStatus();
                 if (!areCompatible(info.status, cldrStatus)) {
                     System.out.print(
-                            region + "\t" + english.nameGetter().getName(CLDRFile.TERRITORY_NAME, region));
+                            region
+                                    + "\t"
+                                    + english.nameGetter()
+                                            .getName(CLDRFile.TERRITORY_NAME, region));
 
                     System.out.println(
                             "\t"
@@ -322,7 +325,10 @@ public class WikipediaOfficialLanguages {
                     OfficialStatus officialStatus = sInfo.getOfficialStatus();
                     if (OfficialStatus.unknown != officialStatus) {
                         System.out.print(
-                                region + "\t" + english.nameGetter().getName(CLDRFile.TERRITORY_NAME, region));
+                                region
+                                        + "\t"
+                                        + english.nameGetter()
+                                                .getName(CLDRFile.TERRITORY_NAME, region));
 
                         System.out.println(
                                 "\t"

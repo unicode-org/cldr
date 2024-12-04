@@ -90,7 +90,8 @@ public class GenerateLanguageData {
                 //                );
                 for (String territory : territories) {
                     PopulationData terrData = info.getPopulationDataForTerritory(territory);
-                    String territoryName = english.nameGetter().getName(CLDRFile.TERRITORY_NAME, territory);
+                    String territoryName =
+                            english.nameGetter().getName(CLDRFile.TERRITORY_NAME, territory);
 
                     PopulationData data =
                             info.getLanguageAndTerritoryPopulationData(languageCode, territory);

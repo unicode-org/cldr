@@ -613,7 +613,8 @@ public class TimezoneFormatter extends UFormat {
     }
 
     private String getLocalizedCountryName(String zoneIdsCountry) {
-        String countryName = desiredLocaleFile.nameGetter().getName(CLDRFile.TERRITORY_NAME, zoneIdsCountry);
+        String countryName =
+                desiredLocaleFile.nameGetter().getName(CLDRFile.TERRITORY_NAME, zoneIdsCountry);
         if (countryName == null) {
             countryName = zoneIdsCountry;
         }

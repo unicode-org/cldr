@@ -300,7 +300,8 @@ public class ChartAnnotations extends Chart {
     //        int ri1 = getRegionalIndicator(cp.codePointAt(0));
     //        if (ri1 >= 0) {
     //            int ri2 = getRegionalIndicator(cp.codePointAt(2));
-    //            return ENGLISH.nameGetter().getName(CLDRFile.TERRITORY_NAME, String.valueOf((char) ri1) +
+    //            return ENGLISH.nameGetter().getName(CLDRFile.TERRITORY_NAME, String.valueOf((char)
+    // ri1) +
     // String.valueOf((char) ri2));
     //        }
     //        String result = NAMES80.get(cp);

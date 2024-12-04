@@ -299,15 +299,15 @@ public class NameGetter {
 
         // Look for key-type pairs.
         for (Map.Entry<String, List<String>> extension :
-            lparser.getLocaleExtensionsDetailed().entrySet()) {
+                lparser.getLocaleExtensionsDetailed().entrySet()) {
             String key = extension.getKey();
             if (key.equals("h0")) {
                 continue;
             }
             List<String> keyValue = extension.getValue();
             String oldFormatType =
-                (key.equals("ca") ? JOIN_HYPHEN : JOIN_UNDERBAR)
-                    .join(keyValue); // default value
+                    (key.equals("ca") ? JOIN_HYPHEN : JOIN_UNDERBAR)
+                            .join(keyValue); // default value
             // Check if key/type pairs exist in the CLDRFile first.
             String value = cldrFile.getKeyValueName(key, oldFormatType);
             if (value == null) {
@@ -326,19 +326,19 @@ public class NameGetter {
                         break;
                     case "cu":
                         oldFormatType =
-                            getName(
-                                CLDRFile.CURRENCY_SYMBOL,
-                                oldFormatType.toUpperCase(Locale.ROOT),
-                                paths);
+                                getName(
+                                        CLDRFile.CURRENCY_SYMBOL,
+                                        oldFormatType.toUpperCase(Locale.ROOT),
+                                        paths);
                         break;
                     case "tz":
                         if (paths != null) {
                             throw new IllegalArgumentException(
-                                "Error: getName(…) with paths doesn't handle timezones.");
+                                    "Error: getName(…) with paths doesn't handle timezones.");
                         }
                         oldFormatType =
-                            getTZName(
-                                oldFormatType, "VVVV"); // TODO: paths not handled here, yet
+                                getTZName(
+                                        oldFormatType, "VVVV"); // TODO: paths not handled here, yet
                         break;
                     case "kr":
                         oldFormatType = getReorderName(localeSeparator, keyValue, paths);
@@ -350,9 +350,7 @@ public class NameGetter {
                     default:
                         oldFormatType = JOIN_HYPHEN.join(keyValue);
                 }
-                value =
-                    MessageFormat.format(
-                        localeKeyTypePattern, kname, oldFormatType);
+                value = MessageFormat.format(localeKeyTypePattern, kname, oldFormatType);
                 if (paths != null) {
                     paths.add(GETNAME_LOCALE_KEY_TYPE_PATTERN);
                 }
@@ -362,9 +360,7 @@ public class NameGetter {
                 paths.add(GETNAME_LOCALE_SEPARATOR);
             }
             extras =
-                extras.isEmpty()
-                    ? value
-                    : MessageFormat.format(localeSeparator, extras, value);
+                    extras.isEmpty() ? value : MessageFormat.format(localeSeparator, extras, value);
         }
         // now handle stray extensions
         for (Map.Entry<String, List<String>> extension :
@@ -372,14 +368,13 @@ public class NameGetter {
             String value =
                     MessageFormat.format(
                             localeKeyTypePattern,
-                        extension.getKey(), JOIN_HYPHEN.join(extension.getValue()));
+                            extension.getKey(),
+                            JOIN_HYPHEN.join(extension.getValue()));
             if (paths != null) {
                 paths.add(GETNAME_LOCALE_KEY_TYPE_PATTERN);
             }
             extras =
-                    extras.isEmpty()
-                            ? value
-                            : MessageFormat.format(localeSeparator, extras, value);
+                    extras.isEmpty() ? value : MessageFormat.format(localeSeparator, extras, value);
         }
         // fix this -- shouldn't be hardcoded!
         if (extras.isEmpty()) {
@@ -503,10 +498,7 @@ public class NameGetter {
                     name = value;
                 }
             }
-            result =
-                    result == null
-                            ? name
-                            : MessageFormat.format(localeSeparator, result, name);
+            result = result == null ? name : MessageFormat.format(localeSeparator, result, name);
         }
         return result;
     }

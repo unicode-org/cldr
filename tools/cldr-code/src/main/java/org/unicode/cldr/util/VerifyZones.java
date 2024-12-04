@@ -452,7 +452,8 @@ public class VerifyZones {
             String grouping = row.getContainer();
             TimeZone currentZone = TimeZone.getTimeZone(tzid);
             TimeZone tz = currentZone;
-            String englishGrouping = englishCldrFile.nameGetter().getName(CLDRFile.TERRITORY_NAME, grouping);
+            String englishGrouping =
+                    englishCldrFile.nameGetter().getName(CLDRFile.TERRITORY_NAME, grouping);
 
             String metazoneInfo =
                     englishGrouping

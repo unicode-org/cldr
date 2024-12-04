@@ -104,7 +104,8 @@ public class GenerateChangeChart {
                     data.add(key);
                     counter.add(ph.getSectionId(), 1);
                 }
-                final String summaryLine = locale + "\t" + ENGLISH.nameGetter().getName(locale) + "\t" + counter;
+                final String summaryLine =
+                        locale + "\t" + ENGLISH.nameGetter().getName(locale) + "\t" + counter;
                 System.out.println(summaryLine);
                 out.println(summaryLine);
             }

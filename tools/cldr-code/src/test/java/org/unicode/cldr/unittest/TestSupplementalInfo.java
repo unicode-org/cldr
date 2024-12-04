@@ -1535,7 +1535,9 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                                 + "\t"
                                 + dateInfo.toString()
                                 + "\t"
-                                + testInfo.getEnglish().nameGetter().getName(CLDRFile.CURRENCY_NAME, currency));
+                                + testInfo.getEnglish()
+                                        .nameGetter()
+                                        .getName(CLDRFile.CURRENCY_NAME, currency));
             }
         }
         // fix up
@@ -1571,7 +1573,8 @@ public class TestSupplementalInfo extends TestFmwkPlus {
 
         for (String currency : modernCurrencyCodes.keySet()) {
             Set<Pair<String, CurrencyDateInfo>> data = modernCurrencyCodes.getAll(currency);
-            final String name = testInfo.getEnglish().nameGetter().getName(CLDRFile.CURRENCY_NAME, currency);
+            final String name =
+                    testInfo.getEnglish().nameGetter().getName(CLDRFile.CURRENCY_NAME, currency);
 
             Set<String> isoCountries = isoCurrenciesToCountries.getAll(currency);
             if (isoCountries == null) {
@@ -1645,7 +1648,8 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                         + "\t"
                         + nonModernCurrencyCodes);
         for (String currency : nonModernCurrencyCodes.keySet()) {
-            final String name = testInfo.getEnglish().nameGetter().getName(CLDRFile.CURRENCY_NAME, currency);
+            final String name =
+                    testInfo.getEnglish().nameGetter().getName(CLDRFile.CURRENCY_NAME, currency);
             if (name == null) {
                 errln("No English name for currency " + currency);
                 continue;
@@ -1687,7 +1691,8 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                                         + dateInfo
                                         + "\t"
                                         + testInfo.getEnglish()
-                                                .nameGetter().getName(
+                                                .nameGetter()
+                                                .getName(
                                                         CLDRFile.CURRENCY_NAME,
                                                         dateInfo.getCurrency()));
                     }
@@ -2219,6 +2224,9 @@ public class TestSupplementalInfo extends TestFmwkPlus {
 
     private String codeAndName(String macro) {
         // TODO Auto-generated method stub
-        return CLDRConfig.getInstance().getEnglish().nameGetter().getName(macro) + " (" + macro + ")";
+        return CLDRConfig.getInstance().getEnglish().nameGetter().getName(macro)
+                + " ("
+                + macro
+                + ")";
     }
 }

@@ -484,7 +484,9 @@ public class CountItems {
                 throw new IllegalArgumentException(item + "\t" + containees);
             }
             results.put(
-                    item, english.nameGetter().getName(CLDRFile.TERRITORY_NAME, containees.iterator().next()));
+                    item,
+                    english.nameGetter()
+                            .getName(CLDRFile.TERRITORY_NAME, containees.iterator().next()));
         }
         return results;
     }
@@ -499,7 +501,8 @@ public class CountItems {
         for (String zone : new TreeSet<>(zone_country.keySet())) {
             String[] parts = zone.split("/");
             String newPrefix =
-                    zone_country.get(zone); // english.nameGetter().getName("tzid", zone_country.get(zone),
+                    zone_country.get(
+                            zone); // english.nameGetter().getName("tzid", zone_country.get(zone),
             // false).replace(' ', '_');
             if (newPrefix.equals("001")) {
                 newPrefix = "ZZ";
@@ -553,7 +556,10 @@ public class CountItems {
                 String newCountry = newName.split("/")[0];
                 if (!newCountry.equals(lastCountry)) {
                     Log.println(
-                            "# " + newCountry + "\t" + english.nameGetter().getName("territory", newCountry));
+                            "# "
+                                    + newCountry
+                                    + "\t"
+                                    + english.nameGetter().getName("territory", newCountry));
                     lastCountry = newCountry;
                 }
                 Log.println("\t'" + oldName + "'\t>\t'" + newName + "';");
@@ -821,7 +827,10 @@ public class CountItems {
             String tech = row.get0();
             String bib = row.get1();
             String lang = row.get2();
-            String name = Iso639Data.getNames(lang).iterator().next(); // english.nameGetter().getName(lang);
+            String name =
+                    Iso639Data.getNames(lang)
+                            .iterator()
+                            .next(); // english.nameGetter().getName(lang);
             if ((bib != null && !lang.equals(bib)) || (tech != null && !lang.equals(tech))) {
                 System.out.println(
                         "  { \"" + bib + "\", \"" + tech + "\", \"" + lang + "\" },  // " + name);
@@ -1087,7 +1096,11 @@ public class CountItems {
         for (Iterator<String> it = locales.iterator(); it.hasNext(); ) {
             String locale = it.next();
             System.out.println(
-                    locale + "\t" + english.nameGetter().getName(locale) + "\t" + onlyLocales.get(locale));
+                    locale
+                            + "\t"
+                            + english.nameGetter().getName(locale)
+                            + "\t"
+                            + onlyLocales.get(locale));
         }
     }
 

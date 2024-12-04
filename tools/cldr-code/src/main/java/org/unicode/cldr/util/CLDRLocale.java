@@ -157,7 +157,8 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
 
         @Override
         public String getDisplayName(CLDRLocale cldrLocale) {
-            if (file != null) return file.nameGetter().getName(cldrLocale.toDisplayLanguageTag(), true, null);
+            if (file != null)
+                return file.nameGetter().getName(cldrLocale.toDisplayLanguageTag(), true, null);
             return super.getDisplayName(cldrLocale);
         }
 
@@ -167,8 +168,11 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
                 boolean onlyConstructCompound,
                 Transform<String, String> altPicker) {
             if (file != null)
-                return file.nameGetter().getName(
-                        cldrLocale.toDisplayLanguageTag(), onlyConstructCompound, altPicker);
+                return file.nameGetter()
+                        .getName(
+                                cldrLocale.toDisplayLanguageTag(),
+                                onlyConstructCompound,
+                                altPicker);
             return super.getDisplayName(cldrLocale);
         }
 
@@ -180,13 +184,15 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
 
         @Override
         public String getDisplayLanguage(CLDRLocale cldrLocale) {
-            if (file != null) return file.nameGetter().getName("language", cldrLocale.getLanguage());
+            if (file != null)
+                return file.nameGetter().getName("language", cldrLocale.getLanguage());
             return tryForBetter(super.getDisplayLanguage(cldrLocale), cldrLocale.getLanguage());
         }
 
         @Override
         public String getDisplayCountry(CLDRLocale cldrLocale) {
-            if (file != null) return file.nameGetter().getName("territory", cldrLocale.getCountry());
+            if (file != null)
+                return file.nameGetter().getName("territory", cldrLocale.getCountry());
             return tryForBetter(super.getDisplayLanguage(cldrLocale), cldrLocale.getLanguage());
         }
 

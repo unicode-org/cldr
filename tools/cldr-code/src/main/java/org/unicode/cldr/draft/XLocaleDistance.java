@@ -983,7 +983,8 @@ public class XLocaleDistance {
                 if (language.equals("*")) {
                     result.insert(0, language);
                 } else {
-                    result.insert(0, english.nameGetter().getName(CLDRFile.TERRITORY_NAME, language));
+                    result.insert(
+                            0, english.nameGetter().getName(CLDRFile.TERRITORY_NAME, language));
                 }
         }
         return Joiner.on("; ").join(alt);

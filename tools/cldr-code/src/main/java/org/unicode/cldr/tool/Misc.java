@@ -651,7 +651,8 @@ public class Misc {
         for (Iterator<String> it = zone_countries.keySet().iterator(); it.hasNext(); ) {
             String zoneID = it.next();
             String country = zone_countries.get(zoneID);
-            String countryName = desiredLocaleFile.nameGetter().getName(CLDRFile.TERRITORY_NAME, country);
+            String countryName =
+                    desiredLocaleFile.nameGetter().getName(CLDRFile.TERRITORY_NAME, country);
             if (countryName == null) countryName = UTF16.valueOf(0x10FFFD) + country;
             reordered.put(countryName + "0" + zoneID, zoneID);
         }
@@ -663,7 +664,8 @@ public class Misc {
             String key = it.next();
             String zoneID = reordered.get(key);
             String country = zone_countries.get(zoneID);
-            String countryName = desiredLocaleFile.nameGetter().getName(CLDRFile.TERRITORY_NAME, country);
+            String countryName =
+                    desiredLocaleFile.nameGetter().getName(CLDRFile.TERRITORY_NAME, country);
             if (countryName == null) countryName = country;
             log.println(
                     "<tr><th class='ID' colspan=\"4\"><table><tr><th class='I'>"
@@ -1198,7 +1200,9 @@ public class Misc {
                                 + key
                                 + "\" draft=\"unconfirmed\">"
                                 + TransliteratorUtilities.toXML.transliterate(
-                                        "TODO " + english.nameGetter().getName(CLDRFile.TERRITORY_NAME, key))
+                                        "TODO "
+                                                + english.nameGetter()
+                                                        .getName(CLDRFile.TERRITORY_NAME, key))
                                 + "</territory>");
             }
             log2.println("</territories></localeDisplayNames>");

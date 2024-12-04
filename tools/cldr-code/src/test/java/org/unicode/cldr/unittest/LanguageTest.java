@@ -234,8 +234,9 @@ public class LanguageTest extends TestFmwk {
                 + "; "
                 + (parser.getRegion().isEmpty()
                         ? "?"
-                        : testInfo.getEnglish().
-                                nameGetter().getName(CLDRFile.TERRITORY_NAME, parser.getRegion()));
+                        : testInfo.getEnglish()
+                                .nameGetter()
+                                .getName(CLDRFile.TERRITORY_NAME, parser.getRegion()));
     }
 
     Set<String> getUnicodeScripts() {

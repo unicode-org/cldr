@@ -492,7 +492,8 @@ public class GenerateCoverageLevels {
                             + "\t"
                             + percent.format(foundCount / (foundCount + missingCount));
             samples2.println(summaryLine);
-            summary.println(locale + "\t" + english.nameGetter().getName(locale) + "\t" + summaryLine2);
+            summary.println(
+                    locale + "\t" + english.nameGetter().getName(locale) + "\t" + summaryLine2);
             if (header != null) {
                 counts.println(header);
                 header = null;
@@ -552,7 +553,12 @@ public class GenerateCoverageLevels {
                 mapLevelData.get(locale).found.add(level, weight);
             } else {
                 System.out.println(
-                        locale + "\t" + english.nameGetter().getName(locale) + "\t" + "missing " + title);
+                        locale
+                                + "\t"
+                                + english.nameGetter().getName(locale)
+                                + "\t"
+                                + "missing "
+                                + title);
                 mapLevelData.get(locale).missing.add(level, weight);
                 mapLevelData.get(locale).samples.put(level, samples);
             }

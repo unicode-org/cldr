@@ -302,7 +302,8 @@ public enum LanguageGroup {
                 throw new IllegalArgumentException("Need to fix code: " + ltp.getScript());
         }
         return prefix
-                + cldrFile.nameGetter().getName(ltp.getLanguage())
+                + cldrFile.nameGetter()
+                        .getName(ltp.getLanguage())
                         .replace(" [Other]", "")
                         .replace(" languages", "");
     }

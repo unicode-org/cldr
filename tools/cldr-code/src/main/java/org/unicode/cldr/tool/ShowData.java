@@ -520,7 +520,8 @@ public class ShowData {
             String localeName = file.nameGetter().getName(locale);
             getScripts(localeName, scripts);
             if (!scripts.contains("Latn")) {
-                out.println(locale + "\t" + english.nameGetter().getName(locale) + "\t" + localeName);
+                out.println(
+                        locale + "\t" + english.nameGetter().getName(locale) + "\t" + localeName);
             }
             for (Iterator<String> it2 = UnicodeScripts.iterator(); it2.hasNext(); ) {
                 String script = it2.next();
@@ -540,7 +541,11 @@ public class ShowData {
             String script = it2.next();
             Object names = script_name_locales.get(script);
             out.println(
-                    script + "\t(" + english.nameGetter().getName(CLDRFile.SCRIPT_NAME, script) + ")\t" + names);
+                    script
+                            + "\t("
+                            + english.nameGetter().getName(CLDRFile.SCRIPT_NAME, script)
+                            + ")\t"
+                            + names);
         }
         out.close();
     }

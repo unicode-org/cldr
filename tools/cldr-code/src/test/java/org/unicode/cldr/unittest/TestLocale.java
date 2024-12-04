@@ -490,7 +490,8 @@ public class TestLocale extends TestFmwkPlus {
                     assertEquals("example " + row[3], row[5], ExampleGenerator.simplify(example));
                 }
             }
-            String displayName = f.nameGetter().getName(row[3], true, "{0}={1}", "{0} ({1})", "{0}, {1}");
+            String displayName =
+                    f.nameGetter().getName(row[3], true, "{0}={1}", "{0} ({1})", "{0}, {1}");
             assertEquals("locale " + row[3], row[4], displayName);
         }
     }
@@ -498,7 +499,9 @@ public class TestLocale extends TestFmwkPlus {
     public void TestLocaleNamePattern() {
         assertEquals("Locale name", "Chinese", testInfo.getEnglish().nameGetter().getName("zh"));
         assertEquals(
-                "Locale name", "Chinese (United States)", testInfo.getEnglish().nameGetter().getName("zh-US"));
+                "Locale name",
+                "Chinese (United States)",
+                testInfo.getEnglish().nameGetter().getName("zh-US"));
         assertEquals(
                 "Locale name",
                 "Chinese (Arabic, United States)",
@@ -506,7 +509,10 @@ public class TestLocale extends TestFmwkPlus {
         CLDRFile japanese = testInfo.getCLDRFile("ja", true);
         assertEquals("Locale name", "中国語", japanese.nameGetter().getName("zh"));
         assertEquals("Locale name", "中国語 (アメリカ合衆国)", japanese.nameGetter().getName("zh-US"));
-        assertEquals("Locale name", "中国語 (アラビア文字\u3001アメリカ合衆国)", japanese.nameGetter().getName("zh-Arab-US"));
+        assertEquals(
+                "Locale name",
+                "中国語 (アラビア文字\u3001アメリカ合衆国)",
+                japanese.nameGetter().getName("zh-Arab-US"));
     }
 
     public void TestLocaleDisplay() {

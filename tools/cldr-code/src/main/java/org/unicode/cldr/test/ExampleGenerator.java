@@ -2408,12 +2408,19 @@ public class ExampleGenerator {
                     return; // fail, skip
                 }
             } else {
-                result = setBackground(cldrFile.nameGetter().getName(CLDRFile.TERRITORY_NAME, countryCode));
+                result =
+                        setBackground(
+                                cldrFile.nameGetter()
+                                        .getName(CLDRFile.TERRITORY_NAME, countryCode));
             }
         } else if (parts.contains("zone")) { // {0} Time
             result = value; // trivial -- is this beneficial?
         } else if (parts.contains("regionFormat")) { // {0} Time
-            result = format(value, setBackground(cldrFile.nameGetter().getName(CLDRFile.TERRITORY_NAME, "JP")));
+            result =
+                    format(
+                            value,
+                            setBackground(
+                                    cldrFile.nameGetter().getName(CLDRFile.TERRITORY_NAME, "JP")));
             result =
                     addExampleResult(
                             format(
@@ -3104,12 +3111,13 @@ public class ExampleGenerator {
             for (int i = 0; i < locales.size(); i++) {
                 examples.add(
                         invertBackground(
-                                cldrFile.nameGetter().getName(
-                                        locales.get(i),
-                                        false,
-                                        localeKeyTypePattern,
-                                        localePattern,
-                                        localeSeparator)));
+                                cldrFile.nameGetter()
+                                        .getName(
+                                                locales.get(i),
+                                                false,
+                                                localeKeyTypePattern,
+                                                localePattern,
+                                                localeSeparator)));
             }
             return;
         } else if (parts.contains("languages")

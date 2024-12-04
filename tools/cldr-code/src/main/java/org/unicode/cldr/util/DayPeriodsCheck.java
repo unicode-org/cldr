@@ -37,7 +37,11 @@ public class DayPeriodsCheck {
 
                     for (LanguageGroup group : LanguageGroup.values()) {
                         System.out.println(
-                                group + "\t" + group.iso + "\t" + english.nameGetter().getName(group.iso));
+                                group
+                                        + "\t"
+                                        + group.iso
+                                        + "\t"
+                                        + english.nameGetter().getName(group.iso));
                     }
 
                     for (LanguageGroup group : LanguageGroup.values()) {

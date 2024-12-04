@@ -158,7 +158,10 @@ class ExtractMessages {
 
             for (String name : skipped) {
                 System.out.println(
-                        "\tSkipping, no CLDR locale file: " + name + "\t" + english.nameGetter().getName(name));
+                        "\tSkipping, no CLDR locale file: "
+                                + name
+                                + "\t"
+                                + english.nameGetter().getName(name));
             }
             double deltaTime = System.currentTimeMillis() - startTime;
             System.out.println("Elapsed: " + deltaTime / 1000.0 + " seconds");

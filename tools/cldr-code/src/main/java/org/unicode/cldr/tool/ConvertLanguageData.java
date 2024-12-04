@@ -380,7 +380,9 @@ public class ConvertLanguageData {
                     warnings.add(
                             BadItem.DETAIL.toString(
                                     "changing <languageData>",
-                                    languageSubtag + "\t" + english.nameGetter().getName(languageSubtag),
+                                    languageSubtag
+                                            + "\t"
+                                            + english.nameGetter().getName(languageSubtag),
                                     problem));
                 }
             }
@@ -439,7 +441,9 @@ public class ConvertLanguageData {
                 temp.append("[")
                         .append(s)
                         .append(":")
-                        .append(english.nameGetter().getName(s.length() == 4 ? "script" : "region", s))
+                        .append(
+                                english.nameGetter()
+                                        .getName(s.length() == 4 ? "script" : "region", s))
                         .append("] ");
                 if (oldValue == null) {
                     temp.append(" added as ").append(newValue);

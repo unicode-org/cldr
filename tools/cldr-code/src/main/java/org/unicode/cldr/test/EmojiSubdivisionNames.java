@@ -140,7 +140,13 @@ public class EmojiSubdivisionNames {
                     LanguageGroup group = LanguageGroup.get(ulocale);
                     int rank = LanguageGroup.rankInGroup(ulocale);
                     System.out.print(
-                            group + "\t" + rank + "\t" + english.nameGetter().getName(locale) + "\t" + locale);
+                            group
+                                    + "\t"
+                                    + rank
+                                    + "\t"
+                                    + english.nameGetter().getName(locale)
+                                    + "\t"
+                                    + locale);
                     for (String sd : SUBDIVISIONS) {
                         System.out.print('\t');
                         System.out.print(map.get(sd));
@@ -161,7 +167,13 @@ public class EmojiSubdivisionNames {
             LanguageGroup group = LanguageGroup.get(ulocale);
             int rank = LanguageGroup.rankInGroup(ulocale);
             System.out.println(
-                    group + "\t" + rank + "\t" + english.nameGetter().getName(locale) + "\t" + locale);
+                    group
+                            + "\t"
+                            + rank
+                            + "\t"
+                            + english.nameGetter().getName(locale)
+                            + "\t"
+                            + locale);
         }
 
         //        System.out.println(getSubdivisionIdToName("fr"));

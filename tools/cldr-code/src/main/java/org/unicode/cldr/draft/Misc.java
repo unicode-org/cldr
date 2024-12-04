@@ -138,7 +138,8 @@ public class Misc {
                     break;
                 }
             }
-            System.out.println(string + "\t" + defCon + "\t" + english.nameGetter().getName(defCon));
+            System.out.println(
+                    string + "\t" + defCon + "\t" + english.nameGetter().getName(defCon));
         }
     }
 

@@ -128,7 +128,12 @@ public class TestUtilities {
             "zh_Hans_US_SAAHO"
         };
         for (String test : tests) {
-            System.out.println(test + "\t" + english.nameGetter().getName(test) + "\t" + french.nameGetter().getName(test));
+            System.out.println(
+                    test
+                            + "\t"
+                            + english.nameGetter().getName(test)
+                            + "\t"
+                            + french.nameGetter().getName(test));
         }
     }
 

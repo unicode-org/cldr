@@ -1012,7 +1012,8 @@ public class PathDescription {
                     MessageFormat.format(MessageFormat.autoQuoteApostrophe(description), code);
         } else if (path.contains("exemplarCity")) {
             String regionCode = ZONE2COUNTRY.get(attributes.get(0));
-            String englishRegionName = english.nameGetter().getName(CLDRFile.TERRITORY_NAME, regionCode);
+            String englishRegionName =
+                    english.nameGetter().getName(CLDRFile.TERRITORY_NAME, regionCode);
             description =
                     MessageFormat.format(
                             MessageFormat.autoQuoteApostrophe(description), englishRegionName);

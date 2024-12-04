@@ -161,7 +161,8 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
             if (!localesForNames.contains(locale)
                     && CLDRLocale.getInstance(locale).getParent().equals(CLDRLocale.ROOT)) {
                 official1MSetNames.put(
-                        localeAndSize.getValue(), "\t" + locale + "\t" + ENGLISH.nameGetter().getName(locale));
+                        localeAndSize.getValue(),
+                        "\t" + locale + "\t" + ENGLISH.nameGetter().getName(locale));
             }
         }
         if (!official1MSetNames.isEmpty()) {
@@ -340,7 +341,11 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
             Level maxLevel =
                     Level.max(specialLevel, Level.max(orgToLevel.values().toArray(new Level[0])));
             assertEquals(
-                    "cldr level = max for " + locale + " (" + ENGLISH.nameGetter().getName(locale) + ")",
+                    "cldr level = max for "
+                            + locale
+                            + " ("
+                            + ENGLISH.nameGetter().getName(locale)
+                            + ")",
                     cldrLevel,
                     maxLevel);
         }

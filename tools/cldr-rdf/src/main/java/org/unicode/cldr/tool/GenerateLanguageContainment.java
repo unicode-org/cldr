@@ -400,7 +400,8 @@ public class GenerateLanguageContainment {
         if (true) {
             // check on items
             for (String check : Arrays.asList("sw", "km", "ksh", "wae", "kea", "mfe", "th", "lo")) {
-                System.out.println("Checking " + ENGLISH.nameGetter().getName(check) + "[" + check + "]");
+                System.out.println(
+                        "Checking " + ENGLISH.nameGetter().getName(check) + "[" + check + "]");
                 Collection<String> entities = QUERY_HELPER.codeToEntity.get(check);
                 if (entities.isEmpty()) {
                     System.out.println("no code for " + check + ": " + entities);

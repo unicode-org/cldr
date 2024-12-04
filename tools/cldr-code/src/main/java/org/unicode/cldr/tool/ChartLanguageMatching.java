@@ -97,7 +97,8 @@ public class ChartLanguageMatching extends Chart {
                 parts[2] = "XY";
             }
         }
-        String result = ENGLISH.nameGetter().getName(String.join("_", parts), true, CLDRFile.SHORT_ALTS);
+        String result =
+                ENGLISH.nameGetter().getName(String.join("_", parts), true, CLDRFile.SHORT_ALTS);
         if (user) {
             result =
                     result.replace("Xxxx", "any-script")

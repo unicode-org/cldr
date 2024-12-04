@@ -167,7 +167,8 @@ public class TestInheritance extends TestFmwk {
                 if (!testOrg.contains(language)) {
                     continue;
                 }
-                System.out.print(language + "\t" + testInfo.getEnglish().nameGetter().getName(language));
+                System.out.print(
+                        language + "\t" + testInfo.getEnglish().nameGetter().getName(language));
 
                 M3<OfficialStatus, String, Boolean> officialChildren =
                         languageToOfficialChildren.get(language);
@@ -201,7 +202,10 @@ public class TestInheritance extends TestFmwk {
                 if (script.length() != 0) {
                     b.append("-");
                 }
-                b.append(testInfo.getEnglish().nameGetter().getName(CLDRFile.TERRITORY_NAME, region));
+                b.append(
+                        testInfo.getEnglish()
+                                .nameGetter()
+                                .getName(CLDRFile.TERRITORY_NAME, region));
             }
             b.append(" [").append(s);
             if (showStatus) {

@@ -1270,7 +1270,8 @@ public class ShowLanguages {
             for (String territoryCode : supplementalDataInfo.getTerritoriesWithPopulationData()) {
                 // PopulationData territoryData =
                 // supplementalDataInfo.getPopulationDataForTerritory(territoryCode);
-                String territoryName = english.nameGetter().getName(CLDRFile.TERRITORY_NAME, territoryCode);
+                String territoryName =
+                        english.nameGetter().getName(CLDRFile.TERRITORY_NAME, territoryCode);
                 for (String languageCode :
                         supplementalDataInfo.getLanguagesForTerritoryWithPopulationData(
                                 territoryCode)) {
@@ -1677,7 +1678,8 @@ public class ShowLanguages {
                     .addColumn("Report Bug", "class='target'", null, "class='target'", false);
 
             for (String territoryCode : supplementalDataInfo.getTerritoriesWithPopulationData()) {
-                String territoryName = english.nameGetter().getName(CLDRFile.TERRITORY_NAME, territoryCode);
+                String territoryName =
+                        english.nameGetter().getName(CLDRFile.TERRITORY_NAME, territoryCode);
                 PopulationData territoryData2 =
                         supplementalDataInfo.getPopulationDataForTerritory(territoryCode);
                 double territoryLiteracy = territoryData2.getLiteratePopulationPercent();
@@ -1816,7 +1818,8 @@ public class ShowLanguages {
             tablePrinter.addColumn("Report Bug", "class='target'", null, "class='target'", false);
 
             for (String territoryCode : supplementalDataInfo.getTerritoriesWithPopulationData()) {
-                String territoryName = english.nameGetter().getName(CLDRFile.TERRITORY_NAME, territoryCode);
+                String territoryName =
+                        english.nameGetter().getName(CLDRFile.TERRITORY_NAME, territoryCode);
                 PopulationData territoryData2 =
                         supplementalDataInfo.getPopulationDataForTerritory(territoryCode);
                 double population = territoryData2.getPopulation() / 1000000;
@@ -1946,7 +1949,8 @@ public class ShowLanguages {
         //                String parent = (String) territory_parent.get(territory);
         //                System.out.println(territory + "\t" +
         // english.nameGetter().getName(english.TERRITORY_NAME, territory) + "\t"
-        //                    + parent + "\t" + english.nameGetter().getName(english.TERRITORY_NAME, parent));
+        //                    + parent + "\t" + english.nameGetter().getName(english.TERRITORY_NAME,
+        // parent));
         //            }
         //        }
 
@@ -2208,7 +2212,8 @@ public class ShowLanguages {
                                     + infoItem.getCurrency()
                                     + "</td>"
                                     + "<td class='target'>"
-                                    + english.nameGetter().getName("currency", infoItem.getCurrency())
+                                    + english.nameGetter()
+                                            .getName("currency", infoItem.getCurrency())
                                     + "</td>"
                                     + "</tr>");
                 }
@@ -2323,7 +2328,8 @@ public class ShowLanguages {
             // for (Iterator it = territoriesWithoutCurrencies.iterator(); it.hasNext();) {
             // if (first) first = false;
             // else pw.print(", ");
-            // pw.print(english.nameGetter().getName(CLDRFile.TERRITORY_NAME, it.next().toString(), false));
+            // pw.print(english.nameGetter().getName(CLDRFile.TERRITORY_NAME, it.next().toString(),
+            // false));
             // }
             // pw.println("</td><td class='target'>");
             // Set currenciesWithoutTerritories = new TreeSet();
@@ -2333,7 +2339,8 @@ public class ShowLanguages {
             // for (Iterator it = currenciesWithoutTerritories.iterator(); it.hasNext();) {
             // if (first) first = false;
             // else pw.print(", ");
-            // pw.print(english.nameGetter().getName(CLDRFile.CURRENCY_NAME, it.next().toString(), false));
+            // pw.print(english.nameGetter().getName(CLDRFile.CURRENCY_NAME, it.next().toString(),
+            // false));
             // }
             // pw.println("</td></tr>");
             // doFooter(pw);

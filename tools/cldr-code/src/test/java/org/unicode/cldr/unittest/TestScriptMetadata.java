@@ -204,11 +204,13 @@ public class TestScriptMetadata extends TestFmwkPlus {
                             english.nameGetter().getName(CLDRFile.TERRITORY_NAME, continent),
                             info.idUsage
                                     + "\t"
-                                    + english.nameGetter().getName(CLDRFile.TERRITORY_NAME, container)
+                                    + english.nameGetter()
+                                            .getName(CLDRFile.TERRITORY_NAME, container)
                                     + "\t"
                                     + scriptCode
                                     + "\t"
-                                    + english.nameGetter().getName(CLDRFile.SCRIPT_NAME, scriptCode)));
+                                    + english.nameGetter()
+                                            .getName(CLDRFile.SCRIPT_NAME, scriptCode)));
         }
         for (Row.R3<IdUsage, String, String> s : lines) {
             logln(s.get2());

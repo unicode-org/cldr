@@ -135,27 +135,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
     <!--@MATCH:set/or/validity/subdivision||literal/itca, itnu, itor, itsd, itss, no01, no02, no03, no04, no05, no06, no07, no08, no09, no10, no11, no12, no14, no15, no18, no19, no20, no21, no22, no50-->
     <!--@VALUE-->
 
-<!ELEMENT languageData ( language* ) >
-
-<!ELEMENT language EMPTY >
-<!ATTLIST language type NMTOKEN #REQUIRED >
-    <!--@MATCH:set/validity/language-->
-<!ATTLIST language scripts NMTOKENS #IMPLIED >
-    <!--@MATCH:set/validity/script-->
-    <!--@VALUE-->
-<!ATTLIST language territories NMTOKENS #IMPLIED >
-    <!--@MATCH:set/validity/region-->
-    <!--@VALUE-->
-<!ATTLIST language variants NMTOKENS #IMPLIED >
-    <!--@VALUE-->
-<!ATTLIST language draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
-    <!--@METADATA-->
-    <!--@DEPRECATED:true, false-->
-<!ATTLIST language references CDATA #IMPLIED >
-    <!--@METADATA-->
-<!ATTLIST language alt NMTOKENS #IMPLIED >
-    <!--@MATCH:literal/secondary, variant-->
-
 <!ELEMENT territoryInfo ( territory* ) >
 <!ATTLIST territoryInfo draft (approved | contributed | provisional | unconfirmed | true | false) #IMPLIED >
     <!--@METADATA-->

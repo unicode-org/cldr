@@ -1411,9 +1411,6 @@ public class SupplementalDataInfo {
                 } else if (level1.equals("calendarPreferenceData")) {
                     handleCalendarPreferenceData(parts);
                     return;
-                } else if (level1.equals("languageData")) {
-                    handleLanguageData(parts);
-                    return;
                 } else if (level1.equals("territoryContainment")) {
                     handleTerritoryContainment(parts);
                     return;
@@ -2034,6 +2031,28 @@ public class SupplementalDataInfo {
                     likelyOrigins.put(from, origin);
                 }
             }
+
+            // Now we are building BasicLanguageData from likely subtags
+            if(from.contains("_")) { // Making sure we're only checking a language
+                String language = parts.getAttributeValue(2, "type");
+                BasicLanguageData languageData = new BasicLanguageData();
+                languageData.setType(BasicLanguageData.Type.primary);
+                languageData.addScript(to);
+                // languageData.setType(
+                //         parts.getAttributeValue(2, "alt") == null
+                //                 ? BasicLanguageData.Type.primary
+                //                 : BasicLanguageData.Type.secondary);
+                languageData.setScripts(parts.getAttributeValue(2, "scripts")));
+                Map<Type, BasicLanguageData> map = languageToBasicLanguageData.get(language);
+                if (map == null) {
+                    languageToBasicLanguageData.put(
+                            language, map = new EnumMap<>(BasicLanguageData.Type.class));
+                }
+                if (map.containsKey(languageData.type)) {
+                    throw new IllegalArgumentException("Duplicate value:\t" + parts);
+                }
+                map.put(languageData.type, languageData);
+            }
         }
 
         /**
@@ -2409,32 +2428,6 @@ public class SupplementalDataInfo {
                                 : (country + contained).toLowerCase(Locale.ROOT);
                 containerToSubdivision.put(container, newContained);
             }
-        }
-
-        private void handleLanguageData(XPathValue parts) {
-            // <languageData>
-            // <language type="aa" scripts="Latn" territories="DJ ER ET"/> <!--
-            // Reflecting submitted data, cldrbug #1013 -->
-            // <language type="ab" scripts="Cyrl" territories="GE"
-            // alt="secondary"/>
-            String language = parts.getAttributeValue(2, "type");
-            BasicLanguageData languageData = new BasicLanguageData();
-            languageData.setType(
-                    parts.getAttributeValue(2, "alt") == null
-                            ? BasicLanguageData.Type.primary
-                            : BasicLanguageData.Type.secondary);
-            languageData
-                    .setScripts(parts.getAttributeValue(2, "scripts"))
-                    .setTerritories(parts.getAttributeValue(2, "territories"));
-            Map<Type, BasicLanguageData> map = languageToBasicLanguageData.get(language);
-            if (map == null) {
-                languageToBasicLanguageData.put(
-                        language, map = new EnumMap<>(BasicLanguageData.Type.class));
-            }
-            if (map.containsKey(languageData.type)) {
-                throw new IllegalArgumentException("Duplicate value:\t" + parts);
-            }
-            map.put(languageData.type, languageData);
         }
 
         private boolean failsRangeCheck(String path, double input, double min, double max) {

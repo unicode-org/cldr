@@ -109,7 +109,7 @@ The LDML specification is divided into the following parts:
 The following represents the format for additional supplemental information. This is information that is important for internationalization and proper use of CLDR, but is not contained in the locale hierarchy. It is not localizable, nor is it overridden by locale data. The current CLDR data can be viewed in the [Supplemental Charts](https://www.unicode.org/cldr/charts/46/supplemental/index.html).
 
 ```xml
-<!ELEMENT supplementalData (version, generation?, cldrVersion?, currencyData?, territoryContainment?, subdivisionContainment?, languageData?, territoryInfo?, postalCodeData?, calendarData?, calendarPreferenceData?, weekData?, timeData?, measurementData?, unitPreferenceData?, timezoneData?, characters?, transforms?, metadata?, codeMappings?, parentLocales?, likelySubtags?, metazoneInfo?, plurals?, telephoneCodeData?, numberingSystems?, bcp47KeywordMappings?, gender?, references?, languageMatching?, dayPeriodRuleSet*, metaZones?, primaryZones?, windowsZones?, coverageLevels?, idValidity?, rgScope?) >
+<!ELEMENT supplementalData (version, generation?, cldrVersion?, currencyData?, territoryContainment?, subdivisionContainment?, territoryInfo?, postalCodeData?, calendarData?, calendarPreferenceData?, weekData?, timeData?, measurementData?, unitPreferenceData?, timezoneData?, characters?, transforms?, metadata?, codeMappings?, parentLocales?, likelySubtags?, metazoneInfo?, plurals?, telephoneCodeData?, numberingSystems?, bcp47KeywordMappings?, gender?, references?, languageMatching?, dayPeriodRuleSet*, metaZones?, primaryZones?, windowsZones?, coverageLevels?, idValidity?, rgScope?) >
 ```
 
 The data in CLDR is presently split into multiple files: supplementalData.xml, supplementalMetadata.xml, characters.xml, likelySubtags.xml, ordinals.xml, plurals.xml, telephoneCodeData.xml, genderList.xml, plus transforms (see _Part 2 [Transforms](tr35-general.md#Transforms)_ and _Part 2 [Transform Rule Syntax](tr35-general.md#Transform_Rules_Syntax)_). The split is just for convenience: logically, they are treated as though they were a single file. Future versions of CLDR may split the data in a different fashion. Do not depend on any specific XML filename or path for supplemental data.
@@ -306,35 +306,6 @@ The exact format of the path is provisional in CLDR 29, but as currently shown:
 
 *   An attribute value of `'*'` indicates that the path applies regardless of the value of the attribute.
 *   Each path must have exactly one attribute whose value is marked here as `'#'`; in actual data items with this path, the corresponding value is a list of region codes. It is the region codes in this list that are compared with the region specified by the “rg” key to determine which data item to use for this path.
-
-## <a name="Supplemental_Language_Data" href="#Supplemental_Language_Data">Supplemental Language Data</a>
-
-```xml
-<!ELEMENT languageData ( language* ) >
-<!ELEMENT language EMPTY >
-<!ATTLIST language type NMTOKEN #REQUIRED >
-<!ATTLIST language scripts NMTOKENS #IMPLIED >
-<!ATTLIST language territories NMTOKENS #IMPLIED >
-<!ATTLIST language variants NMTOKENS #IMPLIED >
-<!ATTLIST language alt NMTOKENS #IMPLIED >
-```
-
-The language data is used for consistency checking and testing. It provides a list of which languages are used with which scripts and in which countries. To a large extent, however, the territory list has been superseded by the data in _[Supplemental Territory Information](#Supplemental_Territory_Information)_ .
-
-```xml
-<languageData>
-    <language type="af" scripts="Latn" territories="ZA" />
-    <language type="am" scripts="Ethi" territories="ET" />
-    <language type="ar" scripts="Arab" territories="AE BH DZ EG IN IQ JO KW LB LY MA OM PS QA SA SD SY TN YE" />
-    ...
-```
-
-If the language is not a modern language, or the script is not a modern script, or the language not a major language of the territory, then the `alt` attribute is set to secondary.
-
-```xml
-    <language type="fr" scripts="Latn" territories="IT US" alt="secondary" />
-    ...
-```
 
 ## <a name="Supplemental_Language_Grouping" href="#Supplemental_Language_Grouping">Supplemental Language Grouping</a>
 

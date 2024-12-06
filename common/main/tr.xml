@@ -3507,6 +3507,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<regionFormat type="daylight">{0} Yaz Saati</regionFormat>
 			<regionFormat type="standard">{0} Standart Saati</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>Honolulu</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>Eş Güdümlü Evrensel Zaman</standard>
@@ -4642,9 +4645,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="America/Nome">
 				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>Honolulu</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>↑↑↑</exemplarCity>

@@ -8366,6 +8366,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="daylight">Ora legale: {0}</regionFormat>
 			<regionFormat type="standard">Ora istandard: {0}</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<short>
+					<generic>OIH</generic>
+					<standard>OIH</standard>
+					<daylight>OLH</daylight>
+				</short>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>Tempus coordinadu universale</standard>
@@ -9504,13 +9511,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="America/Nome">
 				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
-			<zone type="Pacific/Honolulu">
-				<short>
-					<generic>OIH</generic>
-					<standard>OIH</standard>
-					<daylight>OLH</daylight>
-				</short>
 			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>↑↑↑</exemplarCity>

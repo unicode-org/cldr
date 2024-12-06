@@ -2164,6 +2164,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="daylight">↑↑↑</regionFormat>
 			<regionFormat type="standard">{0} Ħin Standard</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>Honolulu</exemplarCity>
+			</zone>
 			<zone type="Etc/Unknown">
 				<exemplarCity>Belt Mhux Magħruf</exemplarCity>
 			</zone>
@@ -3174,9 +3177,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="America/Nome">
 				<exemplarCity>↑↑↑</exemplarCity>
-			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>Honolulu</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>↑↑↑</exemplarCity>

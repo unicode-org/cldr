@@ -3089,6 +3089,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<regionFormat type="daylight">{0} Isikhathi sasemini</regionFormat>
 			<regionFormat type="standard">{0} isikhathi esivamile</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>i-Honolulu</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>isikhathi somhlaba esididiyelwe</standard>
@@ -4224,9 +4227,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="America/Nome">
 				<exemplarCity>i-Nome</exemplarCity>
-			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>i-Honolulu</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>i-Anchorage</exemplarCity>

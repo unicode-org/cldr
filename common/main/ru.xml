@@ -4128,6 +4128,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<regionFormat type="daylight">{0}, летнее время</regionFormat>
 			<regionFormat type="standard">{0}, стандартное время</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>Гонолулу</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>Всемирное координированное время</standard>
@@ -5263,9 +5266,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="America/Nome">
 				<exemplarCity>Ном</exemplarCity>
-			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>Гонолулу</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>Анкоридж</exemplarCity>

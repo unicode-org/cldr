@@ -3418,6 +3418,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<regionFormat type="daylight">{0} పగటి వెలుతురు సమయం</regionFormat>
 			<regionFormat type="standard">{0} ప్రామాణిక సమయం</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>హోనోలులు</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>సమన్వయ సార్వజనీన సమయం</standard>
@@ -4553,9 +4556,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="America/Nome">
 				<exemplarCity>నోమ్</exemplarCity>
-			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>హోనోలులు</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>యాంకరేజ్</exemplarCity>

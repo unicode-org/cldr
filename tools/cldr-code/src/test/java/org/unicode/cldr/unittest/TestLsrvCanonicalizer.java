@@ -18,6 +18,7 @@ import org.unicode.cldr.util.LsrvCanonicalizer;
 import org.unicode.cldr.util.LsrvCanonicalizer.ReplacementRule;
 import org.unicode.cldr.util.LsrvCanonicalizer.TestDataTypes;
 import org.unicode.cldr.util.LsrvCanonicalizer.XLanguageTag;
+import org.unicode.cldr.util.NameGetter;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.LstrField;
 import org.unicode.cldr.util.StandardCodes.LstrType;
@@ -295,13 +296,18 @@ public class TestLsrvCanonicalizer extends TestFmwk {
                         continue;
                     }
                     CLDRFile english = CLDRConfig.getInstance().getEnglish();
-                    String typeName =
-                            english.nameGetter().getNameFromTypestrCode(typeCompat, subtag);
+                    NameGetter englishNameGetter = english.nameGetter();
+                    /*
+                     * TODO: use getNameFromTypenumCode instead of getNameFromTypestrCode here (twice).
+                     * Reference: https://unicode-org.atlassian.net/browse/CLDR-15830
+                     * typeCompat is derived from StandardCodes.LstrType.toCompatString
+                     */
+                    String typeName = englishNameGetter.getNameFromTypestrCode(typeCompat, subtag);
                     String replacementName =
                             preferredValueCompat == null
                                     ? "???"
-                                    : english.nameGetter()
-                                            .getNameFromTypestrCode(typeCompat, replacementString);
+                                    : englishNameGetter.getNameFromTypestrCode(
+                                            typeCompat, replacementString);
                     addExceptions.add(
                             ".put(\""
                                     + subtag

@@ -562,7 +562,8 @@ public class CountItems {
                             "# "
                                     + newCountry
                                     + "\t"
-                                    + nameGetter.getNameFromTypestrCode("territory", newCountry));
+                                    + nameGetter.getNameFromTypenumCode(
+                                            CLDRFile.TERRITORY_NAME, newCountry));
                     lastCountry = newCountry;
                 }
                 Log.println("\t'" + oldName + "'\t>\t'" + newName + "';");

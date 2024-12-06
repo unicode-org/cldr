@@ -376,7 +376,8 @@ public class LikelySubtagsTest extends TestFmwk {
                                         + region
                                         + "\t"
                                         + english.nameGetter()
-                                                .getNameFromTypestrCode("territory", region));
+                                                .getNameFromTypenumCode(
+                                                        CLDRFile.TERRITORY_NAME, region));
                     }
                 } else { // container
                     logln(
@@ -384,7 +385,8 @@ public class LikelySubtagsTest extends TestFmwk {
                                     + region
                                     + "\t"
                                     + english.nameGetter()
-                                            .getNameFromTypestrCode("territory", region));
+                                            .getNameFromTypenumCode(
+                                                    CLDRFile.TERRITORY_NAME, region));
                 }
             } else {
                 logln("Likely subtags for region: " + region + ":\t " + likely);

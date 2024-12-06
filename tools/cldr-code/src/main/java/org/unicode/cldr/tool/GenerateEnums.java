@@ -644,7 +644,7 @@ public class GenerateEnums {
                     format(popData.getPopulation()),
                     format(popData.getLiteratePopulation() / popData.getPopulation()),
                     format(popData.getGdp()),
-                    englishNameGetter.getNameFromTypestrCode("territory", territory));
+                    englishNameGetter.getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, territory));
             // remove all the ISO 639-3 until they are part of BCP 47
             // we need to remove in earlier pass so we have the count
             Set<String> languages = new TreeSet<>();
@@ -742,7 +742,8 @@ public class GenerateEnums {
                             + "\t"
                             + region
                             + "\t"
-                            + englishNameGetter.getNameFromTypestrCode("territory", region));
+                            + englishNameGetter.getNameFromTypenumCode(
+                                    CLDRFile.TERRITORY_NAME, region));
         }
 
         showGeneratedCommentEnd(DATA_INDENT);

@@ -2813,6 +2813,9 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="daylight">ናይ {0} መዓልቲ ግዘ</regionFormat>
 			<regionFormat type="standard">ናይ መደበኛ ጊዜ {0} ግዘ</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>ሆኖሉሉ</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>ዝተሳነየ ኣድማሳዊ ግዜ</standard>
@@ -3948,9 +3951,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="America/Nome">
 				<exemplarCity>ነውም</exemplarCity>
-			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>ሆኖሉሉ</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>ኣንኮረጅ</exemplarCity>

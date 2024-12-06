@@ -4584,6 +4584,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<regionFormat type="daylight">שעון {0} (קיץ)</regionFormat>
 			<regionFormat type="standard">שעון {0} (חורף)</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>הונולולו</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>זמן אוניברסלי מתואם</standard>
@@ -5722,9 +5725,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="America/Nome">
 				<exemplarCity>נום</exemplarCity>
-			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>הונולולו</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>אנקורג׳</exemplarCity>

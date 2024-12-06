@@ -8099,6 +8099,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="daylight">{0} 𞤐𞤶𞤢𞤥𞤲𞤣𞤭 𞤕𞤫𞥅𞤯𞤵</regionFormat>
 			<regionFormat type="standard">{0} 𞤑𞤭𞤶𞤮𞥅𞤪𞤫 𞤖𞤢𞤱𞤪𞤵𞤲𞥋𞤣𞤫</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<short>
+					<generic>𞤑𞤖𞤖</generic>
+					<standard>𞤑𞤖𞤖</standard>
+					<daylight>𞤑𞤕𞤖</daylight>
+				</short>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>𞤑𞤭𞤶𞤮𞥅𞤪𞤫 𞤖𞤭𞤤𞥆𞤢𞤲𞤳𞤮𞥅𞤪𞤫 𞤊𞤮𞤲𞤣𞤢𞥄𞤲𞤣𞤫</standard>
@@ -9234,13 +9241,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="America/Nome">
 				<exemplarCity>𞤐𞤮𞤱𞤥𞤵</exemplarCity>
-			</zone>
-			<zone type="Pacific/Honolulu">
-				<short>
-					<generic>𞤑𞤖𞤖</generic>
-					<standard>𞤑𞤖𞤖</standard>
-					<daylight>𞤑𞤕𞤖</daylight>
-				</short>
 			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>𞤀𞤲𞤧𞤮𞤪𞤢𞥄𞤶𞤵</exemplarCity>

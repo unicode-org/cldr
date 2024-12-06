@@ -3825,6 +3825,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<regionFormat type="daylight">توقيت {0} الصيفي</regionFormat>
 			<regionFormat type="standard">توقيت {0} الرسمي</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>هونولولو</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>التوقيت العالمي المنسق</standard>
@@ -4960,9 +4963,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="America/Nome">
 				<exemplarCity>نوم</exemplarCity>
-			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>هونولولو</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>أنشوراج</exemplarCity>

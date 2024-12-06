@@ -8144,6 +8144,13 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			<regionFormat type="daylight">{0} ҫуллахи вӑхӑчӗ</regionFormat>
 			<regionFormat type="standard">{0} стандартлӑ вӑхӑчӗ</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<short>
+					<generic draft="unconfirmed">Гавай стандартлӑ вӑхӑчӗ</generic>
+					<standard draft="unconfirmed">Гавай стандартлӑ вӑхӑчӗ</standard>
+					<daylight draft="unconfirmed">Гавай ҫуллахи вӑхӑчӗ</daylight>
+				</short>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>Пӗтӗм тӗнчери координацилене вӑхӑчӗ</standard>
@@ -9279,13 +9286,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 			</zone>
 			<zone type="America/Nome">
 				<exemplarCity>Ном</exemplarCity>
-			</zone>
-			<zone type="Pacific/Honolulu">
-				<short>
-					<generic draft="unconfirmed">Гавай стандартлӑ вӑхӑчӗ</generic>
-					<standard draft="unconfirmed">Гавай стандартлӑ вӑхӑчӗ</standard>
-					<daylight draft="unconfirmed">Гавай ҫуллахи вӑхӑчӗ</daylight>
-				</short>
 			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>Анкоридж</exemplarCity>

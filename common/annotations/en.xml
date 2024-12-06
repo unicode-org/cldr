@@ -718,20 +718,6 @@ annotations.
 		<annotation cp="♭" type="tts">flat</annotation>
 		<annotation cp="♯">dièse | diesis | music | note | sharp</annotation>
 		<annotation cp="♯" type="tts">sharp</annotation>
-		<annotation cp="🪉">cupid | harp | instrument | love | music | orchestra</annotation>
-		<annotation cp="🪉" type="tts">harp</annotation>
-		<annotation cp="🪏">bury | dig | garden | hole | plant | scoop | shovel | snow | spade</annotation>
-		<annotation cp="🪏" type="tts">shovel</annotation>
-		<annotation cp="🪾">bare | barren | branches | dead | drought | leafless | tree | trunk | winter | wood</annotation>
-		<annotation cp="🪾" type="tts">leafless tree</annotation>
-		<annotation cp="🫆">clue | crime | detective | fingerprint | forensics | identity | mystery | print | safety | trace</annotation>
-		<annotation cp="🫆" type="tts">fingerprint</annotation>
-		<annotation cp="🫜">beet | food | garden | radish | root | salad | turnip | vegetable | vegetarian</annotation>
-		<annotation cp="🫜" type="tts">root vegetable</annotation>
-		<annotation cp="🫟">drip | holi | ink | liquid | mess | paint | spill | splatter | stain</annotation>
-		<annotation cp="🫟" type="tts">splatter</annotation>
-		<annotation cp="🫩">bags | bored | exhausted | eyes | face | fatigued | late | sleepy | tired | weary</annotation>
-		<annotation cp="🫩" type="tts">face with bags under eyes</annotation>
 		<annotation cp="😀">cheerful | cheery | face | grin | grinning | happy | laugh | nice | smile | smiling | teeth</annotation>
 		<annotation cp="😀" type="tts">grinning face</annotation>
 		<annotation cp="😃">awesome | big | eyes | face | grin | grinning | happy | mouth | open | smile | smiling | teeth | yay</annotation>
@@ -846,6 +832,8 @@ annotations.
 		<annotation cp="🤤" type="tts">drooling face</annotation>
 		<annotation cp="😴">bed | bedtime | face | good | goodnight | nap | night | sleep | sleeping | tired | whatever | yawn | zzz</annotation>
 		<annotation cp="😴" type="tts">sleeping face</annotation>
+		<annotation cp="🫩">bags | bored | exhausted | eyes | face | fatigued | late | sleepy | tired | weary</annotation>
+		<annotation cp="🫩" type="tts">face with bags under eyes</annotation>
 		<annotation cp="😷">cold | dentist | dermatologist | doctor | dr | face | germs | mask | medical | medicine | sick</annotation>
 		<annotation cp="😷" type="tts">face with medical mask</annotation>
 		<annotation cp="🤒">face | ill | sick | thermometer</annotation>
@@ -1716,6 +1704,8 @@ annotations.
 		<annotation cp="🧑‍🧒‍🧒" type="tts">family: adult, child, child</annotation>
 		<annotation cp="👣">barefoot | clothing | footprint | footprints | omw | print | walk</annotation>
 		<annotation cp="👣" type="tts">footprints</annotation>
+		<annotation cp="🫆">clue | crime | detective | fingerprint | forensics | identity | mystery | print | safety | trace</annotation>
+		<annotation cp="🫆" type="tts">fingerprint</annotation>
 		<annotation cp="🦰">ginger | hair | red | redhead</annotation>
 		<annotation cp="🦰" type="tts">red hair</annotation>
 		<annotation cp="🦱">afro | curly | hair | ringlets</annotation>
@@ -1942,6 +1932,16 @@ annotations.
 		<annotation cp="🪸" type="tts">coral</annotation>
 		<annotation cp="🪼">animal | aquarium | burn | invertebrate | jelly | jellyfish | life | marine | ocean | ouch | plankton | sea | sting | stinger | tentacles</annotation> <!-- 1FABC -->
 		<annotation cp="🪼" type="tts">jellyfish</annotation>
+		<annotation cp="🦀">Cancer | crab | zodiac</annotation>
+		<annotation cp="🦀" type="tts">crab</annotation>
+		<annotation cp="🦞">animal | bisque | claws | lobster | seafood</annotation>
+		<annotation cp="🦞" type="tts">lobster</annotation>
+		<annotation cp="🦐">food | shellfish | shrimp | small</annotation>
+		<annotation cp="🦐" type="tts">shrimp</annotation>
+		<annotation cp="🦑">animal | food | mollusk | squid</annotation>
+		<annotation cp="🦑" type="tts">squid</annotation>
+		<annotation cp="🦪">diving | oyster | pearl</annotation>
+		<annotation cp="🦪" type="tts">oyster</annotation>
 		<annotation cp="🐌">animal | escargot | garden | nature | slug | snail</annotation>
 		<annotation cp="🐌" type="tts">snail</annotation>
 		<annotation cp="🦋">butterfly | insect | pretty</annotation>
@@ -2030,6 +2030,8 @@ annotations.
 		<annotation cp="🪺" type="tts">nest with eggs</annotation>
 		<annotation cp="🍄">fungus | mushroom | toadstool</annotation>
 		<annotation cp="🍄" type="tts">mushroom</annotation>
+		<annotation cp="🪾">bare | barren | branches | dead | drought | leafless | tree | trunk | winter | wood</annotation>
+		<annotation cp="🪾" type="tts">leafless tree</annotation>
 		<annotation cp="🍇">Dionysus | fruit | grape | grapes</annotation>
 		<annotation cp="🍇" type="tts">grapes</annotation>
 		<annotation cp="🍈">cantaloupe | fruit | melon</annotation>
@@ -2106,6 +2108,8 @@ annotations.
 		<annotation cp="🫛" type="tts">pea pod</annotation>
 		<annotation cp="🍄‍🟫">food | fungi | fungus | mushroom | nature | pizza | portobello | shiitake | shroom | spore | sprout | toppings | truffle | vegetable | vegetarian | veggie</annotation> <!-- 1F344 200D 1F7EB -->
 		<annotation cp="🍄‍🟫" type="tts">brown mushroom</annotation>
+		<annotation cp="🫜">beet | food | garden | radish | root | salad | turnip | vegetable | vegetarian</annotation>
+		<annotation cp="🫜" type="tts">root vegetable</annotation>
 		<annotation cp="🍞">bread | carbs | food | grain | loaf | restaurant | toast | wheat</annotation>
 		<annotation cp="🍞" type="tts">bread</annotation>
 		<annotation cp="🥐">bread | breakfast | crescent | croissant | food | french | roll</annotation>
@@ -2208,16 +2212,6 @@ annotations.
 		<annotation cp="🥠" type="tts">fortune cookie</annotation>
 		<annotation cp="🥡">box | chopsticks | delivery | food | oyster | pail | takeout</annotation>
 		<annotation cp="🥡" type="tts">takeout box</annotation>
-		<annotation cp="🦀">Cancer | crab | zodiac</annotation>
-		<annotation cp="🦀" type="tts">crab</annotation>
-		<annotation cp="🦞">animal | bisque | claws | lobster | seafood</annotation>
-		<annotation cp="🦞" type="tts">lobster</annotation>
-		<annotation cp="🦐">food | shellfish | shrimp | small</annotation>
-		<annotation cp="🦐" type="tts">shrimp</annotation>
-		<annotation cp="🦑">animal | food | mollusk | squid</annotation>
-		<annotation cp="🦑" type="tts">squid</annotation>
-		<annotation cp="🦪">diving | oyster | pearl</annotation>
-		<annotation cp="🦪" type="tts">oyster</annotation>
 		<annotation cp="🍦">cream | dessert | food | ice | icecream | restaurant | serve | soft | sweet</annotation>
 		<annotation cp="🍦" type="tts">soft ice cream</annotation>
 		<annotation cp="🍧">dessert | ice | restaurant | shaved | sweet</annotation>
@@ -3058,6 +3052,8 @@ annotations.
 		<annotation cp="🪇" type="tts">maracas</annotation>
 		<annotation cp="🪈">band | fife | flautist | flute | instrument | marching | music | orchestra | piccolo | pipe | recorder | woodwind</annotation> <!-- 1FA88 -->
 		<annotation cp="🪈" type="tts">flute</annotation>
+		<annotation cp="🪉">cupid | harp | instrument | love | music | orchestra</annotation>
+		<annotation cp="🪉" type="tts">harp</annotation>
 		<annotation cp="📱">cell | communication | mobile | phone | telephone</annotation>
 		<annotation cp="📱" type="tts">mobile phone</annotation>
 		<annotation cp="📲">arrow | build | call | cell | communication | mobile | phone | receive | telephone</annotation>
@@ -3334,6 +3330,8 @@ annotations.
 		<annotation cp="🧲" type="tts">magnet</annotation>
 		<annotation cp="🪜">climb | ladder | rung | step</annotation>
 		<annotation cp="🪜" type="tts">ladder</annotation>
+		<annotation cp="🪏">bury | dig | garden | hole | plant | scoop | shovel | snow | spade</annotation>
+		<annotation cp="🪏" type="tts">shovel</annotation>
 		<annotation cp="⚗">alembic | chemistry | tool</annotation>
 		<annotation cp="⚗" type="tts">alembic</annotation>
 		<annotation cp="🧪">chemist | chemistry | experiment | lab | science | test | tube</annotation>
@@ -3706,6 +3704,8 @@ annotations.
 		<annotation cp="®" type="tts">registered</annotation>
 		<annotation cp="™">mark | TM | trade | trademark</annotation>
 		<annotation cp="™" type="tts">trade mark</annotation>
+		<annotation cp="🫟">drip | holi | ink | liquid | mess | paint | spill | splatter | stain</annotation>
+		<annotation cp="🫟" type="tts">splatter</annotation>
 		<annotation cp="🔠">ABCD | input | latin | letters | uppercase</annotation>
 		<annotation cp="🔠" type="tts">input latin uppercase</annotation>
 		<annotation cp="🔡">abcd | input | latin | letters | lowercase</annotation>

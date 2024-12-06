@@ -711,20 +711,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="♭" type="tts">bé</annotation>
 		<annotation cp="♯">diesis | hangjegy | kereszt | zene</annotation>
 		<annotation cp="♯" type="tts">kereszt</annotation>
-		<annotation cp="🪉">Ámor | hangszer | hárfa | szerelem | zene | zenekar</annotation>
-		<annotation cp="🪉" type="tts">hárfa</annotation>
-		<annotation cp="🪏">ás | ásó | elás | hó | kert | lapát | lyuk | ültet</annotation>
-		<annotation cp="🪏" type="tts">ásó</annotation>
-		<annotation cp="🪾">ágak | csupasz | fa | faanyag | halott | kiszáradt | levél nélküli | tél | terméketlen | törzs</annotation>
-		<annotation cp="🪾" type="tts">levél nélküli fa</annotation>
-		<annotation cp="🫆">biztonság | bűncselekmény | lenyomat | nyom | nyomozó | nyomravezető jel | rejtély | személyazonosság | törvényszék | ujjlenyomat</annotation>
-		<annotation cp="🫆" type="tts">ujjlenyomat</annotation>
-		<annotation cp="🫜">cékla | étel | fehérrépa | gyökér | kert | retek | saláta | vegetáriánus | zöldség</annotation>
-		<annotation cp="🫜" type="tts">gyökérzöldség</annotation>
-		<annotation cp="🫟">csepp | festék | folt | folyadék | fröccsenés | kiömlik | rendetlenség | tinta</annotation>
-		<annotation cp="🫟" type="tts">fröccsenés</annotation>
-		<annotation cp="🫩">álmos | arc | elnyűtt | fáradt | késő | kifáradt | kimerült | szemek | táskás | unatkozik</annotation>
-		<annotation cp="🫩" type="tts">arc táskás szemekkel</annotation>
 		<annotation cp="😀" draft="contributed">arc | boldog | fogak | nevetés | nevető arc | szmájli | vidám</annotation>
 		<annotation cp="😀" type="tts">nevető arc</annotation>
 		<annotation cp="😃" draft="contributed">arc | boldog | fogak | mosoly | nagyra nyílt szemmel mosolygó arc | nevet | nevetés | nyitott száj | nyitott szájjal mosolygó arc | szmájli | vidámság</annotation>
@@ -839,6 +825,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤤" type="tts">nyáladzó fej</annotation>
 		<annotation cp="😴" draft="contributed">álmos | alszik | alvás | alvó arc | arc | fáradt | jó éjszakát | jó éjt | lefekvés | lefekvés ideje | szmájli | szundi | zzz</annotation>
 		<annotation cp="😴" type="tts">alvó arc</annotation>
+		<annotation cp="🫩">álmos | arc | elnyűtt | fáradt | késő | kifáradt | kimerült | szemek | táskás | unatkozik</annotation>
+		<annotation cp="🫩" type="tts">arc táskás szemekkel</annotation>
 		<annotation cp="😷" draft="contributed">arc | arc egészségügyi maszkkal | beteg | betegség | egészségügyi maszk | gyógyszer | maszk | orvos | szmájli</annotation>
 		<annotation cp="😷" type="tts">arc egészségügyi maszkkal</annotation>
 		<annotation cp="🤒" draft="contributed">arc | arc lázmérővel | beteg | láza van | lázas | lázmérő | szmájli</annotation>
@@ -1709,6 +1697,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑‍🧒‍🧒" type="tts">család: felnőtt, gyerek, gyerek</annotation>
 		<annotation cp="👣" draft="contributed">lábnyom | lábnyomok | mezítláb | nyom | nyomok | úton</annotation>
 		<annotation cp="👣" type="tts">lábnyomok</annotation>
+		<annotation cp="🫆">biztonság | bűncselekmény | lenyomat | nyom | nyomozó | nyomravezető jel | rejtély | személyazonosság | törvényszék | ujjlenyomat</annotation>
+		<annotation cp="🫆" type="tts">ujjlenyomat</annotation>
 		<annotation cp="🦰">vörös haj | vöröshajú</annotation>
 		<annotation cp="🦰" type="tts">vörös haj</annotation>
 		<annotation cp="🦱">afro | göndör | göndör haj | loknis</annotation>
@@ -1935,6 +1925,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪸" type="tts">korall</annotation>
 		<annotation cp="🪼">csíp | gerinctelen | jaj | kocsonyás | medúza | szúrószerv | tengeri</annotation>
 		<annotation cp="🪼" type="tts">medúza</annotation>
+		<annotation cp="🦀">állatöv | csillagjegy | rák</annotation>
+		<annotation cp="🦀" type="tts">rák</annotation>
+		<annotation cp="🦞" draft="contributed">állat | homár | ollók | rák | rákleves | tenger gyümölcsei | tengeri étel</annotation>
+		<annotation cp="🦞" type="tts">homár</annotation>
+		<annotation cp="🦐" draft="contributed">étel | garnélarák | kicsi | rák | tengeri</annotation>
+		<annotation cp="🦐" type="tts">garnélarák</annotation>
+		<annotation cp="🦑" draft="contributed">állat | étel | tintahal</annotation>
+		<annotation cp="🦑" type="tts">tintahal</annotation>
+		<annotation cp="🦪">búvárkodás | gyöngy | osztriga</annotation>
+		<annotation cp="🦪" type="tts">osztriga</annotation>
 		<annotation cp="🐌" draft="contributed">állat | csiga | lassú</annotation>
 		<annotation cp="🐌" type="tts">csiga</annotation>
 		<annotation cp="🦋" draft="contributed">állat | lepke | pillangó | rovar | szép</annotation>
@@ -2023,6 +2023,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪺" type="tts">fészek tojásokkal</annotation>
 		<annotation cp="🍄">gomba | növény</annotation>
 		<annotation cp="🍄" type="tts">gomba</annotation>
+		<annotation cp="🪾">ágak | csupasz | fa | faanyag | halott | kiszáradt | levél nélküli | tél | terméketlen | törzs</annotation>
+		<annotation cp="🪾" type="tts">levél nélküli fa</annotation>
 		<annotation cp="🍇" draft="contributed">étel | gyümölcs | növény | szőlő</annotation>
 		<annotation cp="🍇" type="tts">szőlő</annotation>
 		<annotation cp="🍈" draft="contributed">étel | gyümölcs | növény | sárgadinnye</annotation>
@@ -2099,6 +2101,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫛" type="tts">borsóhüvely</annotation>
 		<annotation cp="🍄‍🟫" draft="contributed">barna gomba | étel | gomba | portobello | szarvasgomba | természet | vega | vegán | vegetariánus</annotation>
 		<annotation cp="🍄‍🟫" type="tts">barna gomba</annotation>
+		<annotation cp="🫜">cékla | étel | fehérrépa | gyökér | kert | retek | saláta | vegetáriánus | zöldség</annotation>
+		<annotation cp="🫜" type="tts">gyökérzöldség</annotation>
 		<annotation cp="🍞" draft="contributed">étel | kenyér | vekni</annotation>
 		<annotation cp="🍞" type="tts">kenyér</annotation>
 		<annotation cp="🥐" draft="contributed">croissant | étel | francia | kifli | péksütemény | péksüti | reggeli</annotation>
@@ -2201,16 +2205,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥠" type="tts">szerencsesüti</annotation>
 		<annotation cp="🥡" draft="contributed">doboz | elviteles doboz | elviteles papírdoboz | elvitelre | étel | étel házhozszállítás | evőpálcika | kínai | pálcika</annotation>
 		<annotation cp="🥡" type="tts">elviteles doboz</annotation>
-		<annotation cp="🦀">állatöv | csillagjegy | rák</annotation>
-		<annotation cp="🦀" type="tts">rák</annotation>
-		<annotation cp="🦞" draft="contributed">állat | homár | ollók | rák | rákleves | tenger gyümölcsei | tengeri étel</annotation>
-		<annotation cp="🦞" type="tts">homár</annotation>
-		<annotation cp="🦐" draft="contributed">étel | garnélarák | kicsi | rák | tengeri</annotation>
-		<annotation cp="🦐" type="tts">garnélarák</annotation>
-		<annotation cp="🦑" draft="contributed">állat | étel | tintahal</annotation>
-		<annotation cp="🦑" type="tts">tintahal</annotation>
-		<annotation cp="🦪">búvárkodás | gyöngy | osztriga</annotation>
-		<annotation cp="🦪" type="tts">osztriga</annotation>
 		<annotation cp="🍦" draft="contributed">desszert | édesség | étel | fagyi | fagylalt | gépi fagylalt | lágyfagylalt | tölcséres fagylalt</annotation>
 		<annotation cp="🍦" type="tts">lágyfagylalt</annotation>
 		<annotation cp="🍧" draft="contributed">desszert | édesség | étel | fagyi | fagylalt | fagylalt öntettel | öntet</annotation>
@@ -3051,6 +3045,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪇" type="tts">rumbatök</annotation>
 		<annotation cp="🪈">blockflöte | fafúvós | fife | furulya | fuvola | zene</annotation>
 		<annotation cp="🪈" type="tts">fuvola</annotation>
+		<annotation cp="🪉">Ámor | hangszer | hárfa | szerelem | zene | zenekar</annotation>
+		<annotation cp="🪉" type="tts">hárfa</annotation>
 		<annotation cp="📱" draft="contributed">kommunikáció | mobil | mobiltelefon | rádiótelefon | telefon</annotation>
 		<annotation cp="📱" type="tts">mobiltelefon</annotation>
 		<annotation cp="📲" draft="contributed">hívás | kommunikáció, hívásfogadás | mobil | mobiltelefon | mobiltelefon nyíllal | nyíl | rádiótelefon | telefon</annotation>
@@ -3327,6 +3323,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧲" type="tts">mágnes</annotation>
 		<annotation cp="🪜">fok | létra | létrafok | mászás</annotation>
 		<annotation cp="🪜" type="tts">létra</annotation>
+		<annotation cp="🪏">ás | ásó | elás | hó | kert | lapát | lyuk | ültet</annotation>
+		<annotation cp="🪏" type="tts">ásó</annotation>
 		<annotation cp="⚗">eszköz | felszerelés | kémia | lombik</annotation>
 		<annotation cp="⚗" type="tts">lombik</annotation>
 		<annotation cp="🧪" draft="contributed">kémcső | kémia | kísérlet | labor | laboratórium | tudomány | vegyész | vegyészet | vegyi anyag | vegyipar</annotation>
@@ -3699,6 +3697,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="®" type="tts">registered (bejegyzett)</annotation>
 		<annotation cp="™" draft="contributed">bejegyzett védjegy | tm | védjegy</annotation>
 		<annotation cp="™" type="tts">védjegy</annotation>
+		<annotation cp="🫟">csepp | festék | folt | folyadék | fröccsenés | kiömlik | rendetlenség | tinta</annotation>
+		<annotation cp="🫟" type="tts">fröccsenés</annotation>
 		<annotation cp="🔠" draft="contributed">abcd | ABCD | betűk | bevitel | latin | nagybetűs</annotation>
 		<annotation cp="🔠" type="tts">latin nagybetűs bevitel</annotation>
 		<annotation cp="🔡">abcd | betűk | bevitel | kisbetűs | latin</annotation>

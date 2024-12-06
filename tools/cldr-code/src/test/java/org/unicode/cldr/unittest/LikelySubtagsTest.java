@@ -375,14 +375,16 @@ public class LikelySubtagsTest extends TestFmwk {
                                 "Missing likely subtags for region: "
                                         + region
                                         + "\t"
-                                        + english.getName("territory", region));
+                                        + english.nameGetter()
+                                                .getNameFromTypestrCode("territory", region));
                     }
                 } else { // container
                     logln(
                             "Missing likely subtags for macroregion (fix to exclude regions having 'en'): "
                                     + region
                                     + "\t"
-                                    + english.getName("territory", region));
+                                    + english.nameGetter()
+                                            .getNameFromTypestrCode("territory", region));
                 }
             } else {
                 logln("Likely subtags for region: " + region + ":\t " + likely);

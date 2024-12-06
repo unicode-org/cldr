@@ -29,7 +29,10 @@ public class StandardCodesTest extends TestFmwk {
                 continue;
             }
             for (String locale : sc.getLocaleCoverageLocales(org)) {
-                String name = locale.equals("*") ? "ALL" : testInfo.getEnglish().getName(locale);
+                String name =
+                        locale.equals("*")
+                                ? "ALL"
+                                : testInfo.getEnglish().nameGetter().getNameFromBCP47(locale);
                 logln(
                         org
                                 + "\t;\t"

@@ -889,8 +889,11 @@ public class ShowLocaleCoverage {
                     tablePrinter
                             .addRow()
                             .addCell(language)
-                            .addCell(ENGLISH.getName(language, true, CLDRFile.SHORT_ALTS))
-                            .addCell(file.getName(language))
+                            .addCell(
+                                    ENGLISH.nameGetter()
+                                            .getNameFromBCP47BoolAlt(
+                                                    language, true, CLDRFile.SHORT_ALTS))
+                            .addCell(file.nameGetter().getNameFromBCP47(language))
                             .addCell(script)
                             .addCell(defRegion)
                             .addCell(sublocales.size())
@@ -916,7 +919,7 @@ public class ShowLocaleCoverage {
                                         + " ;\t"
                                         + visibleLevelComputed
                                         + " ;\t"
-                                        + ENGLISH.getName(locale));
+                                        + ENGLISH.nameGetter().getNameFromBCP47(locale));
                         // TODO decide whether to restore this
                         //                        Level higher = Level.UNDETERMINED;
                         //                        switch (computed) {
@@ -1175,9 +1178,9 @@ public class ShowLocaleCoverage {
                 specialFlag
                         + language
                         + "\t"
-                        + ENGLISH.getName(language)
+                        + ENGLISH.nameGetter().getNameFromBCP47(language)
                         + "\t"
-                        + ENGLISH.getName("script", script)
+                        + ENGLISH.nameGetter().getNameFromTypestrCode("script", script)
                         + "\t"
                         + cldrLocaleLevelGoal
                         + "\t"

@@ -291,7 +291,7 @@ public class CheckYear {
                 System.out.println("Skipping default content: " + localeID);
                 continue;
             }
-            sorted.put(englishFile.getName(localeID, true), localeID);
+            sorted.put(englishFile.nameGetter().getNameFromBCP47Bool(localeID, true), localeID);
             data.put(localeID, new LocaleInfo());
         }
 

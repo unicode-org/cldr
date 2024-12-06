@@ -23,7 +23,8 @@ public class CompareOyster {
                             + "\t"
                             + itemRegion
                             + "\t"
-                            + file.getName(CLDRFile.TERRITORY_NAME, itemRegion));
+                            + file.nameGetter()
+                                    .getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, itemRegion));
         }
     }
 

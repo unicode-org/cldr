@@ -50,6 +50,7 @@ import org.unicode.cldr.util.LanguageTagCanonicalizer;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.LocaleIDParser.Level;
+import org.unicode.cldr.util.NameGetter;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SpreadSheet;
@@ -119,6 +120,7 @@ public class ConvertLanguageData {
 
     static Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
     static CLDRFile english = cldrFactory.make("en", true);
+    static final NameGetter englishNameGetter = english.nameGetter();
 
     static SupplementalDataInfo supplementalData =
             SupplementalDataInfo.getInstance(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
@@ -260,7 +262,7 @@ public class ConvertLanguageData {
 
     public static String getLanguageCodeAndName(String code) {
         if (code == null) return null;
-        return english.getName(code) + " [" + code + "]";
+        return englishNameGetter.getNameFromBCP47(code) + " [" + code + "]";
     }
 
     private static String getReplacement(String oldDefault, Set<String> defaultLocaleContent) {
@@ -380,7 +382,9 @@ public class ConvertLanguageData {
                     warnings.add(
                             BadItem.DETAIL.toString(
                                     "changing <languageData>",
-                                    languageSubtag + "\t" + english.getName(languageSubtag),
+                                    languageSubtag
+                                            + "\t"
+                                            + englishNameGetter.getNameFromBCP47(languageSubtag),
                                     problem));
                 }
             }
@@ -439,7 +443,9 @@ public class ConvertLanguageData {
                 temp.append("[")
                         .append(s)
                         .append(":")
-                        .append(english.getName(s.length() == 4 ? "script" : "region", s))
+                        .append(
+                                englishNameGetter.getNameFromTypestrCode(
+                                        s.length() == 4 ? "script" : "region", s))
                         .append("] ");
                 if (oldValue == null) {
                     temp.append(" added as ").append(newValue);
@@ -988,7 +994,8 @@ public class ConvertLanguageData {
         static Map<String, String> oldToFixed = new HashMap<>();
 
         public String getLanguageName() {
-            String cldrResult = getExcelQuote(english.getName(languageCode, true));
+            String cldrResult =
+                    getExcelQuote(englishNameGetter.getNameFromBCP47Bool(languageCode, true));
             //            String result = getLanguageName2();
             //            if (!result.equalsIgnoreCase(cldrResult)) {
             //                if (null == oldToFixed.put(result, cldrResult)) {
@@ -1062,7 +1069,10 @@ public class ConvertLanguageData {
 
     public static String getCountryCodeAndName(String code) {
         if (code == null) return null;
-        return english.getName(CLDRFile.TERRITORY_NAME, code) + " [" + code + "]";
+        return englishNameGetter.getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, code)
+                + " ["
+                + code
+                + "]";
     }
 
     static class RowComparator implements Comparator<RowData> {
@@ -2576,17 +2586,17 @@ public class ConvertLanguageData {
     }
 
     private static String getULocaleLocaleName(String languageCode) {
-        return english.getName(languageCode, true);
+        return englishNameGetter.getNameFromBCP47Bool(languageCode, true);
         // return new ULocale(languageCode).getDisplayName();
     }
 
     private static String getULocaleScriptName(String scriptCode) {
-        return english.getName(CLDRFile.SCRIPT_NAME, scriptCode);
+        return englishNameGetter.getNameFromTypenumCode(CLDRFile.SCRIPT_NAME, scriptCode);
         // return ULocale.getDisplayScript("und_" + scriptCode, ULocale.ENGLISH);
     }
 
     private static String getULocaleCountryName(String countryCode) {
-        return english.getName(CLDRFile.TERRITORY_NAME, countryCode);
+        return englishNameGetter.getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, countryCode);
         // return ULocale.getDisplayCountry("und_" + countryCode, ULocale.ENGLISH);
     }
 }

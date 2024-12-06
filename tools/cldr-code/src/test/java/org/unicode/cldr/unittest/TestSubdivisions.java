@@ -100,7 +100,7 @@ public class TestSubdivisions extends TestFmwkPlus {
             R2<List<String>, String> subdivisionAlias = subdivisionAliases.get(subdivision);
             if (subdivisionAlias != null) {
                 // String countryName =
-                // CLDRConfig.getInstance().getEnglish().getName(CLDRFile.TERRITORY_NAME, country);
+                // CLDRConfig.getInstance().getEnglish().nameGetter().getName(CLDRFile.TERRITORY_NAME, country);
                 // assertEquals("country " + country + " = subdivision " + subdivision, countryName,
                 // value);
                 continue;

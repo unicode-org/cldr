@@ -43,6 +43,7 @@ import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.LocaleValidator;
 import org.unicode.cldr.util.LocaleValidator.AllowedMatch;
 import org.unicode.cldr.util.LocaleValidator.AllowedValid;
+import org.unicode.cldr.util.NameGetter;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.StandardCodes;
@@ -474,14 +475,15 @@ public class TestLocale extends TestFmwkPlus {
                 "Territorie: {0}");
         CLDRFile f = new CLDRFile(dxs, root);
         ExampleGenerator eg = new ExampleGenerator(f, testInfo.getEnglish());
+        NameGetter nameGetter = f.nameGetter();
         for (String[] row : tests) {
             if (row[0] != null) {
                 int typeCode = CLDRFile.typeNameToCode(row[0]);
-                String standAlone = f.getName(typeCode, row[1]);
+                String standAlone = nameGetter.getNameFromTypenumCode(typeCode, row[1]);
                 logln(typeCode + ": " + standAlone);
                 if (!assertEquals("stand-alone " + row[3], row[2], standAlone)) {
                     typeCode = CLDRFile.typeNameToCode(row[0]);
-                    standAlone = f.getName(typeCode, row[1]);
+                    standAlone = nameGetter.getNameFromTypenumCode(typeCode, row[1]);
                 }
 
                 if (row[5] != null) {
@@ -490,23 +492,32 @@ public class TestLocale extends TestFmwkPlus {
                     assertEquals("example " + row[3], row[5], ExampleGenerator.simplify(example));
                 }
             }
-            String displayName = f.getName(row[3], true, "{0}={1}", "{0} ({1})", "{0}, {1}");
+            String displayName =
+                    nameGetter.getNameFromBCP47Etc(
+                            row[3], true, "{0}={1}", "{0} ({1})", "{0}, {1}");
             assertEquals("locale " + row[3], row[4], displayName);
         }
     }
 
     public void TestLocaleNamePattern() {
-        assertEquals("Locale name", "Chinese", testInfo.getEnglish().getName("zh"));
+        NameGetter englishNameGetter = testInfo.getEnglish().nameGetter();
+        assertEquals("Locale name", "Chinese", englishNameGetter.getNameFromBCP47("zh"));
         assertEquals(
-                "Locale name", "Chinese (United States)", testInfo.getEnglish().getName("zh-US"));
+                "Locale name",
+                "Chinese (United States)",
+                englishNameGetter.getNameFromBCP47("zh-US"));
         assertEquals(
                 "Locale name",
                 "Chinese (Arabic, United States)",
-                testInfo.getEnglish().getName("zh-Arab-US"));
+                englishNameGetter.getNameFromBCP47("zh-Arab-US"));
         CLDRFile japanese = testInfo.getCLDRFile("ja", true);
-        assertEquals("Locale name", "中国語", japanese.getName("zh"));
-        assertEquals("Locale name", "中国語 (アメリカ合衆国)", japanese.getName("zh-US"));
-        assertEquals("Locale name", "中国語 (アラビア文字\u3001アメリカ合衆国)", japanese.getName("zh-Arab-US"));
+        NameGetter japaneseNameGetter = japanese.nameGetter();
+        assertEquals("Locale name", "中国語", japaneseNameGetter.getNameFromBCP47("zh"));
+        assertEquals("Locale name", "中国語 (アメリカ合衆国)", japaneseNameGetter.getNameFromBCP47("zh-US"));
+        assertEquals(
+                "Locale name",
+                "中国語 (アラビア文字\u3001アメリカ合衆国)",
+                japaneseNameGetter.getNameFromBCP47("zh-Arab-US"));
     }
 
     public void TestLocaleDisplay() {
@@ -583,7 +594,7 @@ public class TestLocale extends TestFmwkPlus {
                 //                assertEquals("LTP(BCP47)=>ICU=>BCP47", bcp47, roundTripId);
 
                 canonicalizer.transform(ltp);
-                String name = cldrFile.getName(ltp, compound, null);
+                String name = cldrFile.nameGetter().getNameFromParserBool(ltp, compound);
                 if (assertEquals(cldrFile.getLocaleID() + "; " + localeId, expected, name)) {
                     formattedExamplesForSpec
                             .append("<tr><td>")
@@ -662,7 +673,7 @@ public class TestLocale extends TestFmwkPlus {
         if (locale.equals("en-t-d0-accents")) {
             int debug = 0;
         }
-        String name = cldrFile.getName(locale, true, null);
+        String name = cldrFile.nameGetter().getNameFromBCP47BoolAlt(locale, true, null);
         if (isVerbose()) {
             System.out.println(locale + "; " + name);
         }
@@ -679,22 +690,23 @@ public class TestLocale extends TestFmwkPlus {
     }
 
     public void TestExtendedLanguage() {
+        NameGetter englishNameGetter = testInfo.getEnglish().nameGetter();
         assertEquals(
                 "Extended language translation",
                 "Simplified Chinese",
-                testInfo.getEnglish().getName("zh_Hans"));
+                englishNameGetter.getNameFromBCP47("zh_Hans"));
         assertEquals(
                 "Extended language translation",
                 "Simplified Chinese (Singapore)",
-                testInfo.getEnglish().getName("zh_Hans_SG"));
+                englishNameGetter.getNameFromBCP47("zh_Hans_SG"));
         assertEquals(
                 "Extended language translation",
                 "American English",
-                testInfo.getEnglish().getName("en-US"));
+                englishNameGetter.getNameFromBCP47("en-US"));
         assertEquals(
                 "Extended language translation",
                 "American English (Arabic)",
-                testInfo.getEnglish().getName("en-Arab-US"));
+                englishNameGetter.getNameFromBCP47("en-Arab-US"));
     }
 
     public void testAllVariants() {
@@ -848,7 +860,7 @@ public class TestLocale extends TestFmwkPlus {
                         + "\n\t\tstructure:\t"
                         + ltp.toString(Format.structure));
         try {
-            String name = testInfo.getEnglish().getName(locale);
+            String name = testInfo.getEnglish().nameGetter().getNameFromBCP47(locale);
             logln("\tname:\t" + name);
         } catch (Exception e) {
             errln("Name for " + locale + "; " + e.getMessage());

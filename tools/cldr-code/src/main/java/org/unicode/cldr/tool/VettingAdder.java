@@ -289,7 +289,12 @@ public class VettingAdder {
                 String path = it2.next();
                 String fullPath = cldr.getFullXPath(path);
                 if (fullPath.indexOf("[@draft=") >= 0) {
-                    Log.logln(locale + " \t" + english.getName(locale) + "\texample: " + fullPath);
+                    Log.logln(
+                            locale
+                                    + " \t"
+                                    + english.nameGetter().getNameFromBCP47(locale)
+                                    + "\texample: "
+                                    + fullPath);
                     break;
                 }
             }

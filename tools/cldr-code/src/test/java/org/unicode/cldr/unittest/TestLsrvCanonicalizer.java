@@ -295,11 +295,13 @@ public class TestLsrvCanonicalizer extends TestFmwk {
                         continue;
                     }
                     CLDRFile english = CLDRConfig.getInstance().getEnglish();
-                    String typeName = english.getName(typeCompat, subtag);
+                    String typeName =
+                            english.nameGetter().getNameFromTypestrCode(typeCompat, subtag);
                     String replacementName =
                             preferredValueCompat == null
                                     ? "???"
-                                    : english.getName(typeCompat, replacementString);
+                                    : english.nameGetter()
+                                            .getNameFromTypestrCode(typeCompat, replacementString);
                     addExceptions.add(
                             ".put(\""
                                     + subtag

@@ -334,7 +334,7 @@ public class PluralSnapshot implements Comparable<PluralSnapshot> {
                     // }
                     Map<String, String> fullLocales = new TreeMap<>();
                     for (String localeId : locales) {
-                        String name = english.getName(localeId);
+                        String name = english.nameGetter().getNameFromBCP47(localeId);
                         fullLocales.put(name, localeId);
                     }
                     out.print(

@@ -600,7 +600,11 @@ public class CLDRTransforms {
                 return "Indic";
             }
             try {
-                String name = CLDRConfig.getInstance().getEnglish().getName(sourceOrTarget);
+                String name =
+                        CLDRConfig.getInstance()
+                                .getEnglish()
+                                .nameGetter()
+                                .getNameFromBCP47(sourceOrTarget);
                 return name;
             } catch (Exception e) {
                 return sourceOrTarget;

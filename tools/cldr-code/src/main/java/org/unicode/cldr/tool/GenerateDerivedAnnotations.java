@@ -176,7 +176,10 @@ public class GenerateDerivedAnnotations {
                         if (main == null) {
                             main = cldrFactory.make(locale, true);
                         }
-                        shortName = main.getName(CLDRFile.CURRENCY_NAME, currencyCode);
+                        shortName =
+                                main.nameGetter()
+                                        .getNameFromTypenumCode(
+                                                CLDRFile.CURRENCY_NAME, currencyCode);
                         if (shortName.contentEquals(currencyCode)) {
                             shortName = null; // don't want fallback raw code
                         }
@@ -216,7 +219,7 @@ public class GenerateDerivedAnnotations {
                                 + "\t"
                                 + level
                                 + "\t"
-                                + english.getName(locale)
+                                + english.nameGetter().getNameFromBCP47(locale)
                                 + "\t"
                                 + failures.size()
                                 + "\t"

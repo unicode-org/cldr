@@ -71,7 +71,7 @@ public class GenerateLanguageData {
                 xpp.setAttribute(-1, LDMLConstants.TYPE, languageCode);
                 String xpath = xpp.toString();
 
-                newEn.add(xpp.toString(), oldEn.getName(languageCode));
+                newEn.add(xpp.toString(), oldEn.nameGetter().getNameFromBCP47(languageCode));
 
                 String oldValue = oldEn.getStringValue(xpath);
 

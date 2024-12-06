@@ -82,7 +82,10 @@ public class TestUnContainment extends TestFmwkPlus {
     }
 
     private String name(String code) {
-        String name = testInfo.getEnglish().getName(CLDRFile.TERRITORY_NAME, code);
+        String name =
+                testInfo.getEnglish()
+                        .nameGetter()
+                        .getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, code);
         return name + " (" + code + ")";
     }
 

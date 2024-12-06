@@ -22,16 +22,16 @@ public class NameGetter {
      */
     public NameGetter(CLDRFile cldrFile) {
         if (cldrFile == null) {
-            throw new RuntimeException("NameGetter must have non-null CLDRFile");
+            throw new IllegalArgumentException("NameGetter must have non-null CLDRFile");
         }
         this.cldrFile = cldrFile;
     }
 
-    private static final String GETNAME_LOCALE_SEPARATOR =
+    private static final String GETNAME_LOCALE_SEPARATOR_PATH =
             "//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator";
-    private static final String GETNAME_LOCALE_PATTERN =
+    private static final String GETNAME_LOCALE_PATTERN_PATH =
             "//ldml/localeDisplayNames/localeDisplayPattern/localePattern";
-    private static final String GETNAME_LOCALE_KEY_TYPE_PATTERN =
+    private static final String GETNAME_LOCALE_KEY_TYPE_PATTERN_PATH =
             "//ldml/localeDisplayNames/localeDisplayPattern/localeKeyTypePattern";
 
     private static final Joiner JOIN_HYPHEN = Joiner.on('-');
@@ -102,9 +102,9 @@ public class NameGetter {
                 lparser,
                 onlyConstructCompound,
                 null,
-                cldrFile.getWinningValueWithBailey(GETNAME_LOCALE_KEY_TYPE_PATTERN),
-                cldrFile.getWinningValueWithBailey(GETNAME_LOCALE_PATTERN),
-                cldrFile.getWinningValueWithBailey(GETNAME_LOCALE_SEPARATOR),
+                cldrFile.getWinningValueWithBailey(GETNAME_LOCALE_KEY_TYPE_PATTERN_PATH),
+                cldrFile.getWinningValueWithBailey(GETNAME_LOCALE_PATTERN_PATH),
+                cldrFile.getWinningValueWithBailey(GETNAME_LOCALE_SEPARATOR_PATH),
                 null);
     }
 
@@ -161,9 +161,9 @@ public class NameGetter {
         return getNameFromManyThings(
                 localeOrTZID,
                 onlyConstructCompound,
-                cldrFile.getWinningValueWithBailey(GETNAME_LOCALE_KEY_TYPE_PATTERN),
-                cldrFile.getWinningValueWithBailey(GETNAME_LOCALE_PATTERN),
-                cldrFile.getWinningValueWithBailey(GETNAME_LOCALE_SEPARATOR),
+                cldrFile.getWinningValueWithBailey(GETNAME_LOCALE_KEY_TYPE_PATTERN_PATH),
+                cldrFile.getWinningValueWithBailey(GETNAME_LOCALE_PATTERN_PATH),
+                cldrFile.getWinningValueWithBailey(GETNAME_LOCALE_SEPARATOR_PATH),
                 altPicker,
                 paths);
     }
@@ -361,12 +361,12 @@ public class NameGetter {
                 }
                 value = MessageFormat.format(localeKeyTypePattern, kname, oldFormatType);
                 if (paths != null) {
-                    paths.add(GETNAME_LOCALE_KEY_TYPE_PATTERN);
+                    paths.add(GETNAME_LOCALE_KEY_TYPE_PATTERN_PATH);
                 }
             }
             value = replaceBracketsForName(value);
             if (paths != null && !extras.isEmpty()) {
-                paths.add(GETNAME_LOCALE_SEPARATOR);
+                paths.add(GETNAME_LOCALE_SEPARATOR_PATH);
             }
             extras =
                     extras.isEmpty() ? value : MessageFormat.format(localeSeparator, extras, value);
@@ -380,7 +380,7 @@ public class NameGetter {
                             extension.getKey(),
                             JOIN_HYPHEN.join(extension.getValue()));
             if (paths != null) {
-                paths.add(GETNAME_LOCALE_KEY_TYPE_PATTERN);
+                paths.add(GETNAME_LOCALE_KEY_TYPE_PATTERN_PATH);
             }
             extras =
                     extras.isEmpty() ? value : MessageFormat.format(localeSeparator, extras, value);
@@ -390,7 +390,7 @@ public class NameGetter {
             return name;
         }
         if (paths != null) {
-            paths.add(GETNAME_LOCALE_PATTERN);
+            paths.add(GETNAME_LOCALE_PATTERN_PATH);
         }
         return MessageFormat.format(localePattern, name, extras);
     }

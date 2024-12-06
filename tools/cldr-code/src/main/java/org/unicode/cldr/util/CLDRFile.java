@@ -125,8 +125,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
     private static boolean DEBUG_LOGGING = false;
 
     public static final String SUPPLEMENTAL_NAME = "supplementalData";
-    public static final String SUPPLEMENTAL_METADATA = "supplementalMetadata";
-    public static final String SUPPLEMENTAL_PREFIX = "supplemental";
+
     public static final String GEN_VERSION = "47";
     public static final List<String> SUPPLEMENTAL_NAMES =
             Arrays.asList(
@@ -293,7 +292,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         return dataSource.isNonInheriting();
     }
 
-    private NameGetter nameGetter;
+    private final NameGetter nameGetter;
 
     private static final boolean DEBUG_CLDR_FILE = false;
     private String creationTime = null; // only used if DEBUG_CLDR_FILE

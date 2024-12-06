@@ -1015,6 +1015,7 @@ public class TestUtilities {
         Factory mainCldrFactory =
                 Factory.make(CLDRPaths.COMMON_DIRECTORY + "main" + File.separator, ".*");
         CLDRFile english = mainCldrFactory.make("en", true);
+        NameGetter englishNameGetter = english.nameGetter();
         PrintWriter out =
                 FileUtilities.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "country_language_names.txt");
         StandardCodes sc = StandardCodes.make();
@@ -1024,8 +1025,8 @@ public class TestUtilities {
             out.println(
                     code
                             + "\t"
-                            + english.nameGetter()
-                                    .getNameFromTypenumCode(CLDRFile.LANGUAGE_NAME, code));
+                            + englishNameGetter.getNameFromTypenumCode(
+                                    CLDRFile.LANGUAGE_NAME, code));
         }
         out.println("****");
         for (Iterator<String> it = sc.getGoodAvailableCodes("territory").iterator();
@@ -1034,8 +1035,8 @@ public class TestUtilities {
             out.println(
                     code
                             + "\t"
-                            + english.nameGetter()
-                                    .getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, code));
+                            + englishNameGetter.getNameFromTypenumCode(
+                                    CLDRFile.TERRITORY_NAME, code));
         }
         out.println("****");
         for (Iterator<String> it = sc.getGoodAvailableCodes("script").iterator(); it.hasNext(); ) {
@@ -1043,8 +1044,7 @@ public class TestUtilities {
             out.println(
                     code
                             + "\t"
-                            + english.nameGetter()
-                                    .getNameFromTypenumCode(CLDRFile.SCRIPT_NAME, code));
+                            + englishNameGetter.getNameFromTypenumCode(CLDRFile.SCRIPT_NAME, code));
         }
         out.close();
     }

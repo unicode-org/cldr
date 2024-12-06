@@ -943,10 +943,9 @@ per
     * 100
 
 <a name='pu_single_unit' href='#pu_single_unit'>pu_single_unit</a> 
-<br/>:= "xxx-" single_unit 
-<br/>   | "x-" single_unit
+<br/>:= := ("xxx-" | "x-") [a-z0-9]{3,8}
 * *Examples:*
-    * xxx-square-knuts (a Harry Potter unit)  
+    * square-xxx-knuts (a Harry Potter unit)  
 * *Notes:*
     * "x-" is only for backwards compatibility; it is deprecated and should not be generated
     * See [Private-Use Units](https://github.com/unicode-org/cldr/edit/main/docs/ldml/tr35-general.md#Private_Use_Units)

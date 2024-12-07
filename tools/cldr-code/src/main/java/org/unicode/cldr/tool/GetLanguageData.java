@@ -71,7 +71,8 @@ public class GetLanguageData {
                         territory //
                                 + "\t"
                                 + english.nameGetter()
-                                        .getNameFromTypestrCode("territory", territory) //
+                                        .getNameFromTypenumCode(
+                                                CLDRFile.TERRITORY_NAME, territory) //
                                 + "\t"
                                 + territoryPop //
                                 + "\t"

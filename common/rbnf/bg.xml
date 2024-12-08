@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2022 Unicode, Inc.
+Copyright © 1991-2024 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
+SPDX-License-Identifier: Unicode-DFS-2016
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
@@ -54,8 +55,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-cardinal-masculine-and" access="private">
-                <rbnfrule value="0">'и =%spellout-cardinal-masculine=;</rbnfrule>
-                <rbnfrule value="10">=%spellout-cardinal-masculine=;</rbnfrule>
+                <rbnfrule value="0">и =%spellout-cardinal-masculine=;</rbnfrule>
+                <rbnfrule value="20">и ←%spellout-cardinal-masculine←йсет;</rbnfrule>
+                <rbnfrule value="21">←%spellout-cardinal-masculine←йсет →→;</rbnfrule>
+                <rbnfrule value="40">и четиресет;</rbnfrule>
+                <rbnfrule value="41">четиресет →→;</rbnfrule>
+                <rbnfrule value="50">и ←%spellout-cardinal-masculine←десет;</rbnfrule>
+                <rbnfrule value="51">←%spellout-cardinal-masculine←десет →→;</rbnfrule>
+                <rbnfrule value="60">и шейсет;</rbnfrule>
+                <rbnfrule value="61">шейсет →→;</rbnfrule>
+                <rbnfrule value="70">и ←%spellout-cardinal-masculine←десет;</rbnfrule>
+                <rbnfrule value="71">←%spellout-cardinal-masculine←десет →→;</rbnfrule>
+                <rbnfrule value="100">=%spellout-cardinal-masculine=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-cardinal-feminine">
                 <rbnfrule value="-x">минус →→;</rbnfrule>
@@ -82,8 +93,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-cardinal-feminine-and" access="private">
-                <rbnfrule value="0">'и =%spellout-cardinal-feminine=;</rbnfrule>
-                <rbnfrule value="10">=%spellout-cardinal-feminine=;</rbnfrule>
+                <rbnfrule value="0">и =%spellout-cardinal-feminine=;</rbnfrule>
+                <rbnfrule value="20">и ←%spellout-cardinal-masculine←йсет;</rbnfrule>
+                <rbnfrule value="21">←%spellout-cardinal-masculine←йсет →→;</rbnfrule>
+                <rbnfrule value="40">и четиресет;</rbnfrule>
+                <rbnfrule value="41">четиресет →→;</rbnfrule>
+                <rbnfrule value="50">и ←%spellout-cardinal-masculine←десет;</rbnfrule>
+                <rbnfrule value="51">←%spellout-cardinal-masculine←десет →→;</rbnfrule>
+                <rbnfrule value="60">и шейсет;</rbnfrule>
+                <rbnfrule value="61">шейсет →→;</rbnfrule>
+                <rbnfrule value="70">и ←%spellout-cardinal-masculine←десет;</rbnfrule>
+                <rbnfrule value="71">←%spellout-cardinal-masculine←десет →→;</rbnfrule>
+                <rbnfrule value="100">=%spellout-cardinal-feminine=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-cardinal-neuter">
                 <rbnfrule value="-x">минус →→;</rbnfrule>
@@ -110,8 +131,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-cardinal-neuter-and" access="private">
-                <rbnfrule value="0">'и =%spellout-cardinal-neuter=;</rbnfrule>
-                <rbnfrule value="10">=%spellout-cardinal-neuter=;</rbnfrule>
+                <rbnfrule value="0">и =%spellout-cardinal-neuter=;</rbnfrule>
+                <rbnfrule value="20">и ←%spellout-cardinal-masculine←йсет;</rbnfrule>
+                <rbnfrule value="21">←%spellout-cardinal-masculine←йсет →→;</rbnfrule>
+                <rbnfrule value="40">и четиресет;</rbnfrule>
+                <rbnfrule value="41">четиресет →→;</rbnfrule>
+                <rbnfrule value="50">и ←%spellout-cardinal-masculine←десет;</rbnfrule>
+                <rbnfrule value="51">←%spellout-cardinal-masculine←десет →→;</rbnfrule>
+                <rbnfrule value="60">и шейсет;</rbnfrule>
+                <rbnfrule value="61">шейсет →→;</rbnfrule>
+                <rbnfrule value="70">и ←%spellout-cardinal-masculine←десет;</rbnfrule>
+                <rbnfrule value="71">←%spellout-cardinal-masculine←десет →→;</rbnfrule>
+                <rbnfrule value="100">=%spellout-cardinal-neuter=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-cardinal-masculine-personal">
                 <rbnfrule value="-x">минус →→;</rbnfrule>
@@ -142,8 +173,18 @@ CLDR data files are interpreted according to the LDML specification (http://unic
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-cardinal-masculine-personal-and" access="private">
-                <rbnfrule value="0">'и =%spellout-cardinal-masculine-personal=;</rbnfrule>
-                <rbnfrule value="10">=%spellout-cardinal-masculine-personal=;</rbnfrule>
+                <rbnfrule value="0">и =%spellout-cardinal-masculine-personal=;</rbnfrule>
+                <rbnfrule value="20">и ←%spellout-cardinal-masculine-personal←йсет;</rbnfrule>
+                <rbnfrule value="21">←%spellout-cardinal-masculine←йсет →→;</rbnfrule>
+                <rbnfrule value="40">и четиресет;</rbnfrule>
+                <rbnfrule value="41">четиресет →→;</rbnfrule>
+                <rbnfrule value="50">и ←%spellout-cardinal-masculine←десет;</rbnfrule>
+                <rbnfrule value="51">←%spellout-cardinal-masculine←десет →→;</rbnfrule>
+                <rbnfrule value="60">и шейсет;</rbnfrule>
+                <rbnfrule value="61">шейсет →→;</rbnfrule>
+                <rbnfrule value="70">и ←%spellout-cardinal-masculine←десет;</rbnfrule>
+                <rbnfrule value="71">←%spellout-cardinal-masculine←десет →→;</rbnfrule>
+                <rbnfrule value="100">=%spellout-cardinal-masculine-personal=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-cardinal-masculine-personal-financial">
                 <rbnfrule value="-x">минус →→;</rbnfrule>
@@ -170,8 +211,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-cardinal-masculine-personal-financial-and" access="private">
-                <rbnfrule value="0">'и =%spellout-cardinal-masculine-personal-financial=;</rbnfrule>
-                <rbnfrule value="10">=%spellout-cardinal-masculine-personal-financial=;</rbnfrule>
+                <rbnfrule value="0">и =%spellout-cardinal-masculine-personal-financial=;</rbnfrule>
+                <rbnfrule value="20">и ←%spellout-cardinal-masculine-personal-financial←десет;</rbnfrule>
+                <rbnfrule value="21">←%spellout-cardinal-masculine-personal-financial←десет →→;</rbnfrule>
+                <rbnfrule value="100">=%spellout-cardinal-masculine-personal-financial=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-cardinal-masculine-financial">
                 <rbnfrule value="-x">минус →→;</rbnfrule>
@@ -205,8 +248,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-cardinal-masculine-financial-and" access="private">
-                <rbnfrule value="0">'и =%spellout-cardinal-masculine-financial=;</rbnfrule>
-                <rbnfrule value="10">=%spellout-cardinal-masculine-financial=;</rbnfrule>
+                <rbnfrule value="0">и =%spellout-cardinal-masculine-financial=;</rbnfrule>
+                <rbnfrule value="20">и ←%spellout-cardinal-masculine-financial←десет;</rbnfrule>
+                <rbnfrule value="21">←%spellout-cardinal-masculine-financial←десет →→;</rbnfrule>
+                <rbnfrule value="100">=%spellout-cardinal-masculine-financial=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-cardinal-feminine-financial">
                 <rbnfrule value="-x">минус →→;</rbnfrule>
@@ -230,8 +275,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-cardinal-feminine-financial-and" access="private">
-                <rbnfrule value="0">'и =%spellout-cardinal-feminine-financial=;</rbnfrule>
-                <rbnfrule value="10">=%spellout-cardinal-feminine-financial=;</rbnfrule>
+                <rbnfrule value="0">и =%spellout-cardinal-feminine-financial=;</rbnfrule>
+                <rbnfrule value="20">и ←%spellout-cardinal-masculine-financial←десет;</rbnfrule>
+                <rbnfrule value="21">←%spellout-cardinal-masculine-financial←десет →→;</rbnfrule>
+                <rbnfrule value="100">=%spellout-cardinal-feminine-financial=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-cardinal-neuter-financial">
                 <rbnfrule value="-x">минус →→;</rbnfrule>
@@ -255,8 +302,10 @@ CLDR data files are interpreted according to the LDML specification (http://unic
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-cardinal-neuter-financial-and" access="private">
-                <rbnfrule value="0">'и =%spellout-cardinal-neuter-financial=;</rbnfrule>
-                <rbnfrule value="10">=%spellout-cardinal-neuter-financial=;</rbnfrule>
+                <rbnfrule value="0">и =%spellout-cardinal-neuter-financial=;</rbnfrule>
+                <rbnfrule value="20">и ←%spellout-cardinal-masculine-financial←десет;</rbnfrule>
+                <rbnfrule value="21">←%spellout-cardinal-masculine-financial←десет →→;</rbnfrule>
+                <rbnfrule value="100">=%spellout-cardinal-neuter-financial=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal-masculine">
                 <rbnfrule value="-x">минус →→;</rbnfrule>
@@ -281,9 +330,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
                 <rbnfrule value="60">шейсет→%%spellout-ordinal-masculine-and-suffix→;</rbnfrule>
                 <rbnfrule value="70">←%spellout-cardinal-masculine←десет→%%spellout-ordinal-masculine-and-suffix→;</rbnfrule>
                 <rbnfrule value="100">сто→%%spellout-ordinal-masculine-hundreds-and-suffix→;</rbnfrule>
-                <rbnfrule value="200">двеста→%%spellout-ordinal-masculine-hundreds-and-suffix→;</rbnfrule>
-                <rbnfrule value="300">триста→%%spellout-ordinal-masculine-hundreds-and-suffix→;</rbnfrule>
-                <rbnfrule value="400">←%spellout-cardinal-masculine←стотин→%%spellout-ordinal-masculine-hundreds-and-suffix→;</rbnfrule>
+                <rbnfrule value="200">←%spellout-cardinal-masculine←сто→%%spellout-ordinal-masculine-hundreds-and-suffix→;</rbnfrule>
                 <rbnfrule value="1000">хиляд→%%spellout-ordinal-masculine-thousand-and-suffix→;</rbnfrule>
                 <rbnfrule value="2000">←%spellout-cardinal-feminine← хиляд→%%spellout-ordinal-masculine-thousands-and-suffix→;</rbnfrule>
                 <rbnfrule value="1000000">←%spellout-cardinal-masculine← милион→%%spellout-ordinal-masculine-million-and-suffix→;</rbnfrule>
@@ -303,7 +350,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
             <ruleset type="spellout-ordinal-masculine-hundreds-and-suffix" access="private">
                 <rbnfrule value="0">тен;</rbnfrule>
                 <rbnfrule value="1">' и =%spellout-ordinal-masculine=;</rbnfrule>
-                <rbnfrule value="10">' =%spellout-ordinal-masculine=;</rbnfrule>
+                <rbnfrule value="20">' и =%spellout-ordinal-masculine=;</rbnfrule>
+                <rbnfrule value="21">' =%spellout-ordinal-masculine=;</rbnfrule>
+                <rbnfrule value="30">' и =%spellout-ordinal-masculine=;</rbnfrule>
+                <rbnfrule value="31">' =%spellout-ordinal-masculine=;</rbnfrule>
+                <rbnfrule value="40">' и =%spellout-ordinal-masculine=;</rbnfrule>
+                <rbnfrule value="41">' =%spellout-ordinal-masculine=;</rbnfrule>
+                <rbnfrule value="50">' и =%spellout-ordinal-masculine=;</rbnfrule>
+                <rbnfrule value="51">' =%spellout-ordinal-masculine=;</rbnfrule>
+                <rbnfrule value="60">' и =%spellout-ordinal-masculine=;</rbnfrule>
+                <rbnfrule value="61">' =%spellout-ordinal-masculine=;</rbnfrule>
+                <rbnfrule value="70">' и =%spellout-ordinal-masculine=;</rbnfrule>
+                <rbnfrule value="71">' =%spellout-ordinal-masculine=;</rbnfrule>
+                <rbnfrule value="80">' и =%spellout-ordinal-masculine=;</rbnfrule>
+                <rbnfrule value="81">' =%spellout-ordinal-masculine=;</rbnfrule>
+                <rbnfrule value="90">' и =%spellout-ordinal-masculine=;</rbnfrule>
+                <rbnfrule value="91">' =%spellout-ordinal-masculine=;</rbnfrule>
+                <rbnfrule value="100">' =%spellout-ordinal-masculine=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal-masculine-thousand-and-suffix" access="private">
                 <rbnfrule value="0">ен;</rbnfrule>
@@ -343,9 +406,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
                 <rbnfrule value="60">шейсет→%%spellout-ordinal-feminine-and-suffix→;</rbnfrule>
                 <rbnfrule value="70">←%spellout-cardinal-masculine←десет→%%spellout-ordinal-feminine-and-suffix→;</rbnfrule>
                 <rbnfrule value="100">сто→%%spellout-ordinal-feminine-hundreds-and-suffix→;</rbnfrule>
-                <rbnfrule value="200">двеста→%%spellout-ordinal-feminine-hundreds-and-suffix→;</rbnfrule>
-                <rbnfrule value="300">триста→%%spellout-ordinal-feminine-hundreds-and-suffix→;</rbnfrule>
-                <rbnfrule value="400">←%spellout-cardinal-masculine←стотин→%%spellout-ordinal-feminine-hundreds-and-suffix→;</rbnfrule>
+                <rbnfrule value="200">←%spellout-cardinal-masculine←сто→%%spellout-ordinal-feminine-hundreds-and-suffix→;</rbnfrule>
                 <rbnfrule value="1000">хиляд→%%spellout-ordinal-feminine-thousand-and-suffix→;</rbnfrule>
                 <rbnfrule value="2000">←%spellout-cardinal-feminine← хиляд→%%spellout-ordinal-feminine-thousands-and-suffix→;</rbnfrule>
                 <rbnfrule value="1000000">←%spellout-cardinal-masculine← милион→%%spellout-ordinal-feminine-million-and-suffix→;</rbnfrule>
@@ -365,7 +426,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
             <ruleset type="spellout-ordinal-feminine-hundreds-and-suffix" access="private">
                 <rbnfrule value="0">тна;</rbnfrule>
                 <rbnfrule value="1">' и =%spellout-ordinal-feminine=;</rbnfrule>
-                <rbnfrule value="10">' =%spellout-ordinal-feminine=;</rbnfrule>
+                <rbnfrule value="20">' и =%spellout-ordinal-feminine=;</rbnfrule>
+                <rbnfrule value="21">' =%spellout-ordinal-feminine=;</rbnfrule>
+                <rbnfrule value="30">' и =%spellout-ordinal-feminine=;</rbnfrule>
+                <rbnfrule value="31">' =%spellout-ordinal-feminine=;</rbnfrule>
+                <rbnfrule value="40">' и =%spellout-ordinal-feminine=;</rbnfrule>
+                <rbnfrule value="41">' =%spellout-ordinal-feminine=;</rbnfrule>
+                <rbnfrule value="50">' и =%spellout-ordinal-feminine=;</rbnfrule>
+                <rbnfrule value="51">' =%spellout-ordinal-feminine=;</rbnfrule>
+                <rbnfrule value="60">' и =%spellout-ordinal-feminine=;</rbnfrule>
+                <rbnfrule value="61">' =%spellout-ordinal-feminine=;</rbnfrule>
+                <rbnfrule value="70">' и =%spellout-ordinal-feminine=;</rbnfrule>
+                <rbnfrule value="71">' =%spellout-ordinal-feminine=;</rbnfrule>
+                <rbnfrule value="80">' и =%spellout-ordinal-feminine=;</rbnfrule>
+                <rbnfrule value="81">' =%spellout-ordinal-feminine=;</rbnfrule>
+                <rbnfrule value="90">' и =%spellout-ordinal-feminine=;</rbnfrule>
+                <rbnfrule value="91">' =%spellout-ordinal-feminine=;</rbnfrule>
+                <rbnfrule value="100">' =%spellout-ordinal-feminine=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal-feminine-thousand-and-suffix" access="private">
                 <rbnfrule value="0">на;</rbnfrule>
@@ -405,9 +482,7 @@ CLDR data files are interpreted according to the LDML specification (http://unic
                 <rbnfrule value="60">шейсет→%%spellout-ordinal-neuter-and-suffix→;</rbnfrule>
                 <rbnfrule value="70">←%spellout-cardinal-masculine←десет→%%spellout-ordinal-neuter-and-suffix→;</rbnfrule>
                 <rbnfrule value="100">сто→%%spellout-ordinal-neuter-hundreds-and-suffix→;</rbnfrule>
-                <rbnfrule value="200">двеста→%%spellout-ordinal-neuter-hundreds-and-suffix→;</rbnfrule>
-                <rbnfrule value="300">триста→%%spellout-ordinal-neuter-hundreds-and-suffix→;</rbnfrule>
-                <rbnfrule value="400">←%spellout-cardinal-masculine←стотин→%%spellout-ordinal-neuter-hundreds-and-suffix→;</rbnfrule>
+                <rbnfrule value="200">←%spellout-cardinal-masculine←сто→%%spellout-ordinal-neuter-hundreds-and-suffix→;</rbnfrule>
                 <rbnfrule value="1000">хиляд→%%spellout-ordinal-neuter-thousand-and-suffix→;</rbnfrule>
                 <rbnfrule value="2000">←%spellout-cardinal-feminine← хиляд→%%spellout-ordinal-neuter-thousands-and-suffix→;</rbnfrule>
                 <rbnfrule value="1000000">←%spellout-cardinal-masculine← милион→%%spellout-ordinal-neuter-million-and-suffix→;</rbnfrule>
@@ -427,7 +502,23 @@ CLDR data files are interpreted according to the LDML specification (http://unic
             <ruleset type="spellout-ordinal-neuter-hundreds-and-suffix" access="private">
                 <rbnfrule value="0">тно;</rbnfrule>
                 <rbnfrule value="1">' и =%spellout-ordinal-neuter=;</rbnfrule>
-                <rbnfrule value="10">' =%spellout-ordinal-neuter=;</rbnfrule>
+                <rbnfrule value="20">' и =%spellout-ordinal-neuter=;</rbnfrule>
+                <rbnfrule value="21">' =%spellout-ordinal-neuter=;</rbnfrule>
+                <rbnfrule value="30">' и =%spellout-ordinal-neuter=;</rbnfrule>
+                <rbnfrule value="31">' =%spellout-ordinal-neuter=;</rbnfrule>
+                <rbnfrule value="40">' и =%spellout-ordinal-neuter=;</rbnfrule>
+                <rbnfrule value="41">' =%spellout-ordinal-neuter=;</rbnfrule>
+                <rbnfrule value="50">' и =%spellout-ordinal-neuter=;</rbnfrule>
+                <rbnfrule value="51">' =%spellout-ordinal-neuter=;</rbnfrule>
+                <rbnfrule value="60">' и =%spellout-ordinal-neuter=;</rbnfrule>
+                <rbnfrule value="61">' =%spellout-ordinal-neuter=;</rbnfrule>
+                <rbnfrule value="70">' и =%spellout-ordinal-neuter=;</rbnfrule>
+                <rbnfrule value="71">' =%spellout-ordinal-neuter=;</rbnfrule>
+                <rbnfrule value="80">' и =%spellout-ordinal-neuter=;</rbnfrule>
+                <rbnfrule value="81">' =%spellout-ordinal-neuter=;</rbnfrule>
+                <rbnfrule value="90">' и =%spellout-ordinal-neuter=;</rbnfrule>
+                <rbnfrule value="91">' =%spellout-ordinal-neuter=;</rbnfrule>
+                <rbnfrule value="100">' =%spellout-ordinal-neuter=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal-neuter-thousand-and-suffix" access="private">
                 <rbnfrule value="0">но;</rbnfrule>

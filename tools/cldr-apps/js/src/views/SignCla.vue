@@ -134,14 +134,6 @@
         >IP Policies</a
       >.
     </p>
-    <p>
-      If you believe you are already under a Unicode CLA (either your own or
-      your employer’s) and are seeing this message in error, or if you have
-      further questions, please contact
-      <a target="_blank" href="mailto:cldr-cla@unicode.org"
-        ><code>cldr-cla@unicode.org</code></a
-      >.
-    </p>
   </div>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="clapage">
     <a-alert
       v-if="needCla"
       type="warning"
@@ -22,86 +22,98 @@
     <!-- CLA text -->
     <a-spin v-if="loading" />
     <div class="cla" v-html="claHtml" />
-    <hr />
-    <div>
-      Your Name:
-      <a-input :disabled="!needCla" v-model:value="userName">
-        <template #prefix>
-          <i class="glyphicon glyphicon-user" />
-        </template>
-      </a-input>
-      Your Email:
-      <a-input :disabled="!needCla" v-model:value="userEmail">
-        <template #prefix>
-          <i class="glyphicon glyphicon-envelope" />
-        </template>
-      </a-input>
-      Your Employer (or 'none'):<a-input
-        :disabled="!needCla"
-        v-model:value="userEmployer"
-      >
-        <template #prefix>
-          <i class="glyphicon glyphicon-briefcase" />
-        </template>
-      </a-input>
+
+    <a-form
+      name="claform"
+      :label-col="{ span: 6 }"
+      :wrapper-col="{ span: 19 }"
+      autocomplete="off"
+    >
+      <a-form-item label="Your Name">
+        <a-input :disabled="!needCla" v-model:value="userName">
+          <template #prefix>
+            <i class="glyphicon glyphicon-user" />
+          </template>
+        </a-input>
+      </a-form-item>
+      <a-form-item label="Your Email">
+        <a-input :disabled="!needCla" v-model:value="userEmail">
+          <template #prefix>
+            <i class="glyphicon glyphicon-envelope" />
+          </template>
+        </a-input>
+      </a-form-item>
+      <a-form-item label="Your Employer (or 'none')">
+        <a-input :disabled="!needCla" v-model:value="userEmployer">
+          <template #prefix>
+            <i class="glyphicon glyphicon-briefcase" />
+          </template>
+        </a-input>
+      </a-form-item>
+
+      <!-- non form item -->
       <i class="pleaseChoose" v-if="needCla && userSign == 0"
         >Please check the applicable box below (only one) to indicate your
         agreement.</i
-      ><br />
-      <a-radio-group :disabled="!needCla" v-model:value="userSign">
-        <a-radio :style="radioStyle" :value="2">
-          I am contributing as an individual because I am self-employed or
-          unemployed. I have read and agree to the foregoing terms.
-        </a-radio>
-        <a-radio :style="radioStyle" :value="3">
-          I am contributing as an individual because, even though I am employed,
-          my employer has no rights and claims no rights to my contributions. I
-          have read and agree to the foregoing terms.
-        </a-radio>
-        <a-radio :style="radioStyle" :value="4">
-          I am employed and my employer has or may have rights in my
-          contributions under my employment agreement and/or the work for hire
-          doctrine or similar legal principles.
-        </a-radio>
-        <a-radio v-if="false" :style="radioStyle" :value="1">
-          My employer has already signed the CLA and is listed on Unicode’s
-          <a href="https://www.unicode.org/policies/corporate-cla-list/"
-            >List of Corporate CLAs</a
-          >.
-        </a-radio>
-      </a-radio-group>
-      <br />
-      <button
-        @click="sign"
-        v-if="
-          needCla &&
-          userSign != 0 &&
-          userSign != 4 &&
-          userName &&
-          userEmail &&
-          userEmployer &&
-          !readonlyCla
-        "
       >
-        Sign
-      </button>
-      <div v-else-if="userSign == 4">
-        <a-alert
-          type="error"
-          message="Please request that your employer sign the Unicode Corporate CLA."
-        />
-        &nbsp;<a
-          href="https://www.unicode.org/policies/licensing_policy.html#signing"
-          >How to sign the Corporate CLA…</a
+
+      <a-form-item>
+        <a-radio-group :disabled="!needCla" v-model:value="userSign">
+          <a-radio :style="radioStyle" :value="2">
+            I am contributing as an individual because I am self-employed or
+            unemployed. I have read and agree to the foregoing terms.
+          </a-radio>
+          <a-radio :style="radioStyle" :value="3">
+            I am contributing as an individual because, even though I am
+            employed, my employer has no rights and claims no rights to my
+            contributions. I have read and agree to the foregoing terms.
+          </a-radio>
+          <a-radio :style="radioStyle" :value="4">
+            I am employed and my employer has or may have rights in my
+            contributions under my employment agreement and/or the work for hire
+            doctrine or similar legal principles.
+          </a-radio>
+          <a-radio v-if="false" :style="radioStyle" :value="1">
+            My employer has already signed the CLA and is listed on Unicode’s
+            <a href="https://www.unicode.org/policies/corporate-cla-list/"
+              >List of Corporate CLAs</a
+            >.
+          </a-radio>
+        </a-radio-group>
+      </a-form-item>
+      <a-form-item>
+        <button
+          @click="sign"
+          v-if="
+            needCla &&
+            userSign != 0 &&
+            userSign != 4 &&
+            userName &&
+            userEmail &&
+            userEmployer &&
+            !readonlyCla
+          "
         >
-      </div>
-      <a-alert
-        type="info"
-        v-else-if="needCla"
-        message="Please fill in the above fields."
-      />
-      <hr />
-    </div>
+          Sign
+        </button>
+        <div v-else-if="userSign == 4">
+          <a-alert
+            type="error"
+            message="Please request that your employer sign the Unicode Corporate CLA."
+          />
+          &nbsp;<a
+            href="https://www.unicode.org/policies/licensing_policy.html#signing"
+            >How to sign the Corporate CLA…</a
+          >
+        </div>
+        <a-alert
+          type="info"
+          v-else-if="needCla"
+          message="Please fill in the above fields."
+        />
+      </a-form-item>
+    </a-form>
+    <hr />
     <div v-if="false && !needCla">
       <!-- revocation is not allowed at present -->
       <a-alert
@@ -112,8 +124,7 @@
       <button v-if="!readonlyCla" @click="revoke">Revoke</button>
     </div>
     <a-spin v-if="loading" />
-  </div>
-  <div>
+
     <p>
       If you would like further information regarding contributing to Unicode,
       please see our
@@ -124,8 +135,9 @@
       >.
     </p>
     <p>
-      If you believe you are already under a Unicode CLA and are seeing this
-      message in error, or if you have further questions, please contact
+      If you believe you are already under a Unicode CLA (either your own or
+      your employer’s) and are seeing this message in error, or if you have
+      further questions, please contact
       <a target="_blank" href="mailto:cldr-cla@unicode.org"
         ><code>cldr-cla@unicode.org</code></a
       >.
@@ -157,6 +169,7 @@ let userEmployer = ref(user?.org);
 let userSign = ref(0);
 const radioStyle = {
   display: "flex",
+  "padding-bottom": "1em",
 };
 
 async function loadData() {
@@ -251,5 +264,10 @@ async function revoke() {
   margin: 0.5em;
   background-color: bisque;
   font-size: small;
+}
+
+.clapage {
+  padding-left: 2em;
+  padding-right: 2em;
 }
 </style>

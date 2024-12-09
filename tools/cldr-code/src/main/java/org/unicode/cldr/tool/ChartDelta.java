@@ -1011,7 +1011,7 @@ public class ChartDelta extends Chart {
                     .addCell(coverageLevel)
                     .finishRow();
         }
-        String title = ENGLISH.getName(file) + " " + chartNameCap;
+        String title = ENGLISH.nameGetter().getNameFromBCP47(file) + " " + chartNameCap;
         writeTable(anchors, file, tablePrinter, title, tsvFile);
 
         diff.clear();

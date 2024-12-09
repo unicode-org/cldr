@@ -200,17 +200,18 @@ public class GenerateLikelySubtagTests {
                 + spacing
                 + (lang.equals(LocaleNames.UND)
                         ? "?"
-                        : ENGLISH.getName(CLDRFile.LANGUAGE_NAME, lang))
+                        : ENGLISH.nameGetter().getNameFromTypenumCode(CLDRFile.LANGUAGE_NAME, lang))
                 + ";"
                 + spacing
                 + (script == null || script.equals("")
                         ? "?"
-                        : ENGLISH.getName(CLDRFile.SCRIPT_NAME, script))
+                        : ENGLISH.nameGetter().getNameFromTypenumCode(CLDRFile.SCRIPT_NAME, script))
                 + ";"
                 + spacing
                 + (region == null || region.equals("")
                         ? "?"
-                        : ENGLISH.getName(CLDRFile.TERRITORY_NAME, region))
+                        : ENGLISH.nameGetter()
+                                .getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, region))
                 + spacing
                 + "}";
     }

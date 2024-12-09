@@ -3414,6 +3414,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<regionFormat type="daylight">{0} ದಿನದ ಸಮಯ</regionFormat>
 			<regionFormat type="standard">{0} ಪ್ರಮಾಣಿತ ಸಮಯ</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>ಹೊನಲುಲು</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>ಸಂಘಟಿತ ಸಾರ್ವತ್ರಿಕ ಸಮಯ</standard>
@@ -4549,9 +4552,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="America/Nome">
 				<exemplarCity>ನೋಮ್</exemplarCity>
-			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>ಹೊನಲುಲು</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>ಆಂಕರೋಜ್</exemplarCity>

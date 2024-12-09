@@ -68,6 +68,7 @@ import org.unicode.cldr.util.GrammarInfo.GrammaticalTarget;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.NameGetter;
 import org.unicode.cldr.util.PathDescription;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.PluralSamples;
@@ -752,11 +753,12 @@ public class ExampleGenerator {
             final CLDRFile cldrFile2 = getCldrFile();
             switch (parts.getElement(2)) {
                 case "nameOrderLocales":
+                    NameGetter nameGetter2 = cldrFile2.nameGetter();
                     for (String localeId : PersonNameFormatter.SPLIT_SPACE.split(value)) {
                         final String name =
                                 localeId.equals("und")
                                         ? "«any other»"
-                                        : cldrFile2.getName(localeId);
+                                        : nameGetter2.getNameFromBCP47(localeId);
                         examples.add(localeId + " = " + name);
                     }
                     break;
@@ -2408,12 +2410,22 @@ public class ExampleGenerator {
                     return; // fail, skip
                 }
             } else {
-                result = setBackground(cldrFile.getName(CLDRFile.TERRITORY_NAME, countryCode));
+                result =
+                        setBackground(
+                                cldrFile.nameGetter()
+                                        .getNameFromTypenumCode(
+                                                CLDRFile.TERRITORY_NAME, countryCode));
             }
         } else if (parts.contains("zone")) { // {0} Time
             result = value; // trivial -- is this beneficial?
         } else if (parts.contains("regionFormat")) { // {0} Time
-            result = format(value, setBackground(cldrFile.getName(CLDRFile.TERRITORY_NAME, "JP")));
+            result =
+                    format(
+                            value,
+                            setBackground(
+                                    cldrFile.nameGetter()
+                                            .getNameFromTypenumCode(
+                                                    CLDRFile.TERRITORY_NAME, "JP")));
             result =
                     addExampleResult(
                             format(
@@ -3101,10 +3113,11 @@ public class ExampleGenerator {
                     element.equals("localeKeyTypePattern") ? "uz-Arab-u-tz-etadd" : "uz-Arab-AF");
             locales.add("uz-Arab-AF-u-tz-etadd-nu-arab");
             // String[] examples = new String[locales.size()];
+            NameGetter nameGetter = cldrFile.nameGetter();
             for (int i = 0; i < locales.size(); i++) {
                 examples.add(
                         invertBackground(
-                                cldrFile.getName(
+                                nameGetter.getNameFromBCP47Etc(
                                         locales.get(i),
                                         false,
                                         localeKeyTypePattern,

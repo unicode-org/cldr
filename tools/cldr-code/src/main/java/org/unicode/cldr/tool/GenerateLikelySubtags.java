@@ -666,7 +666,7 @@ public class GenerateLikelySubtags {
     public static String getNameSafe(String oldValue) {
         try {
             if (oldValue != null) {
-                String result = english.getName(oldValue);
+                String result = english.nameGetter().getNameFromBCP47(oldValue);
                 if (result.startsWith("Unknown language ")) {
                     result = result.substring("Unknown language ".length());
                 }
@@ -739,7 +739,7 @@ public class GenerateLikelySubtags {
                     //                        // if (SHOW_ADD)
                     //                        // System.out.println("Skipping:\t" + writtenLanguage
                     // + "\t" + region + "\t"
-                    //                        // + english.getName(locale)
+                    //                        // + english.nameGetter().getName(locale)
                     //                        // + "\t-- too small:\t" +
                     // number.format(literatePopulation));
                     //                        // continue;
@@ -1691,13 +1691,16 @@ public class GenerateLikelySubtags {
         return spacing.join(
                 (lang.equals(LocaleNames.UND)
                         ? "?"
-                        : english.getName(CLDRFile.LANGUAGE_NAME, lang)),
+                        : english.nameGetter()
+                                .getNameFromTypenumCode(CLDRFile.LANGUAGE_NAME, lang)),
                 (script == null || script.equals("")
                         ? "?"
-                        : english.getName(CLDRFile.SCRIPT_NAME, script)),
+                        : english.nameGetter()
+                                .getNameFromTypenumCode(CLDRFile.SCRIPT_NAME, script)),
                 (region == null || region.equals("")
                         ? "?"
-                        : english.getName(CLDRFile.TERRITORY_NAME, region)));
+                        : english.nameGetter()
+                                .getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, region)));
     }
 
     static final String SEPARATOR =

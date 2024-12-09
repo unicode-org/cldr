@@ -17,6 +17,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Counter2;
 import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.NameGetter;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
@@ -228,14 +229,15 @@ public class LanguageTest extends TestFmwk {
 
     private String getLocaleName(String input) {
         LanguageTagParser parser = new LanguageTagParser().set(input);
+        NameGetter nameGetter = testInfo.getEnglish().nameGetter();
         return (parser.getLanguage().isEmpty() ? "?" : getLanguageName(parser.getLanguage()))
                 + "; "
                 + (parser.getScript().isEmpty() ? "?" : getScriptName(parser.getScript()))
                 + "; "
                 + (parser.getRegion().isEmpty()
                         ? "?"
-                        : testInfo.getEnglish()
-                                .getName(CLDRFile.TERRITORY_NAME, parser.getRegion()));
+                        : nameGetter.getNameFromTypenumCode(
+                                CLDRFile.TERRITORY_NAME, parser.getRegion()));
     }
 
     Set<String> getUnicodeScripts() {
@@ -258,7 +260,8 @@ public class LanguageTest extends TestFmwk {
     }
 
     private String getScriptName(String script) {
-        String name = testInfo.getEnglish().getName("script", script);
+        NameGetter nameGetter = testInfo.getEnglish().nameGetter();
+        String name = nameGetter.getNameFromTypestrCode("script", script);
         if (name != null && !name.equals(script)) {
             return name;
         }
@@ -277,7 +280,8 @@ public class LanguageTest extends TestFmwk {
     }
 
     private String getLanguageName(String language) {
-        String name = testInfo.getEnglish().getName("language", language);
+        NameGetter nameGetter = testInfo.getEnglish().nameGetter();
+        String name = nameGetter.getNameFromTypestrCode("language", language);
         if (name != null && !name.equals(language)) {
             return name;
         }

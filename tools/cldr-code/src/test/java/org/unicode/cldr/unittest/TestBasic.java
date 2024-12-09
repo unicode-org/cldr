@@ -543,7 +543,7 @@ public class TestBasic extends TestFmwkPlus {
         for (String locale : getInclusion() <= 5 ? eightPointLocales : cldrFactory.getAvailable()) {
             CLDRFile file = testInfo.getCLDRFile(locale, resolved);
             if (file.isNonInheriting()) continue;
-            logln(locale + "\t-\t" + english.getName(locale));
+            logln(locale + "\t-\t" + english.nameGetter().getNameFromBCP47(locale));
 
             for (Iterator<String> it = file.iterator(); it.hasNext(); ) {
                 String path = it.next();
@@ -619,7 +619,7 @@ public class TestBasic extends TestFmwkPlus {
             DisplayAndInputProcessor displayAndInputProcessor =
                     new DisplayAndInputProcessor(file, false);
 
-            logln(locale + "\t-\t" + english.getName(locale));
+            logln(locale + "\t-\t" + english.nameGetter().getNameFromBCP47(locale));
 
             for (Iterator<String> it = file.iterator(); it.hasNext(); ) {
                 String path = it.next();
@@ -1121,7 +1121,11 @@ public class TestBasic extends TestFmwkPlus {
             warnings.clear();
 
             String name =
-                    "Locale:" + localeID + " (" + testInfo.getEnglish().getName(localeID) + ")";
+                    "Locale:"
+                            + localeID
+                            + " ("
+                            + testInfo.getEnglish().nameGetter().getNameFromBCP47(localeID)
+                            + ")";
 
             if (!collations.contains(localeID)) {
                 warnings.put(MissingType.collation, "missing");

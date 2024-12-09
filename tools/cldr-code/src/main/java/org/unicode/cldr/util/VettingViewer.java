@@ -1335,7 +1335,7 @@ public class VettingViewer<T> {
     private String getName(String localeID) {
         Set<String> contents = supplementalDataInfo.getEquivalentsForLocale(localeID);
         // put in special character that can be split on later
-        return englishFile.getName(localeID, true, CLDRFile.SHORT_ALTS)
+        return englishFile.nameGetter().getNameFromBCP47BoolAlt(localeID, true, CLDRFile.SHORT_ALTS)
                 + SPLIT_CHAR
                 + gatherCodes(contents);
     }

@@ -35,7 +35,8 @@ public class DiffWithParent {
             PrettyPath pp = new PrettyPath();
             for (String locale : cldrFactory.getAvailable()) {
                 if (fileMatcher.reset(locale).matches()) {
-                    System.out.println(locale + "\t" + english.getName(locale));
+                    System.out.println(
+                            locale + "\t" + english.nameGetter().getNameFromBCP47(locale));
                     CLDRFile file = cldrFactory.make(locale, false);
                     String parentLocale = LocaleIDParser.getParent(locale);
                     CLDRFile parent = cldrFactory.make(parentLocale, true); // use
@@ -74,7 +75,11 @@ public class DiffWithParent {
                     PrintWriter out =
                             FileUtilities.openUTF8Writer(
                                     CLDRPaths.GEN_DIRECTORY, locale + "_diff.html");
-                    String title = locale + " " + english.getName(locale) + " Diff with Parent";
+                    String title =
+                            locale
+                                    + " "
+                                    + english.nameGetter().getNameFromBCP47(locale)
+                                    + " Diff with Parent";
                     out.println(
                             "<!doctype HTML PUBLIC '-//W3C//DTD HTML 4.0 Transitional//EN'><html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'><title>"
                                     + title

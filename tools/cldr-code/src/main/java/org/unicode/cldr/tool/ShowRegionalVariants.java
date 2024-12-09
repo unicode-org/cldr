@@ -200,7 +200,7 @@ public class ShowRegionalVariants {
                 grandSummary.println(
                         parent
                                 + "\t"
-                                + ENGLISH.getName(parent.toString())
+                                + ENGLISH.nameGetter().getNameFromBCP47(parent.toString())
                                 + "\t"
                                 + totalChildDiffs
                                 + "\t"
@@ -213,13 +213,13 @@ public class ShowRegionalVariants {
                     summary.println(
                             parent
                                     + "\t"
-                                    + ENGLISH.getName(parent.toString())
+                                    + ENGLISH.nameGetter().getNameFromBCP47(parent.toString())
                                     + "\t"
                                     + childDiffValue
                                     + "\t"
                                     + s
                                     + "\t"
-                                    + ENGLISH.getName(s.toString()));
+                                    + ENGLISH.nameGetter().getNameFromBCP47(s.toString()));
                 }
 
                 ArrayList<CLDRFile> parentChain = new ArrayList<>();
@@ -324,7 +324,8 @@ public class ShowRegionalVariants {
             LanguageTagParser ltp = new LanguageTagParser().set(max);
             country = "(" + ltp.getRegion() + ")";
         }
-        return ENGLISH.getName(key.toString(), false, CLDRFile.SHORT_ALTS)
+        return ENGLISH.nameGetter()
+                        .getNameFromBCP47BoolAlt(key.toString(), false, CLDRFile.SHORT_ALTS)
                 + "\t"
                 + key
                 + "\t"

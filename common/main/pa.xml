@@ -3299,6 +3299,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<regionFormat type="daylight">{0} ਪ੍ਰਕਾਸ਼ ਵੇਲਾ</regionFormat>
 			<regionFormat type="standard">{0} ਮਿਆਰੀ ਵੇਲਾ</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>ਹੋਨੋਲੁਲੂ</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>ਕੋਔਰਡੀਨੇਟੇਡ ਵਿਆਪਕ ਵੇਲਾ</standard>
@@ -4434,9 +4437,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="America/Nome">
 				<exemplarCity>ਨੋਮ</exemplarCity>
-			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>ਹੋਨੋਲੁਲੂ</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>ਐਂਕਰੇਜ</exemplarCity>

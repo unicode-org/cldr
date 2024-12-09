@@ -237,7 +237,7 @@ public class FindPreferredHours {
                 // else {
                 // if (!haveFirst) {
                 // System.out.print("*** Conflict in\t" + region + "\t" +
-                // ENGLISH.getName("territory", region) +
+                // ENGLISH.nameGetter().getName("territory", region) +
                 // "\twith\t");
                 // System.out.println(preferred + "\t" + locales);
                 // haveFirst = true;
@@ -267,15 +267,15 @@ public class FindPreferredHours {
                             + "\t"
                             + region
                             + "\t"
-                            + ENGLISH.getName("territory", region)
+                            + ENGLISH.nameGetter().getNameFromTypestrCode("territory", region)
                             + "\t"
                             + subcontinent
                             + "\t"
-                            + ENGLISH.getName("territory", subcontinent)
+                            + ENGLISH.nameGetter().getNameFromTypestrCode("territory", subcontinent)
                             + "\t"
                             + continent
                             + "\t"
-                            + ENGLISH.getName("territory", continent)
+                            + ENGLISH.nameGetter().getNameFromTypestrCode("territory", continent)
                             + "\t"
                             + showInfo(preferredSet));
         }

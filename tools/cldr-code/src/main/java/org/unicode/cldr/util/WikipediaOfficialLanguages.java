@@ -299,13 +299,17 @@ public class WikipediaOfficialLanguages {
                         sInfo == null ? OfficialStatus.unknown : sInfo.getOfficialStatus();
                 if (!areCompatible(info.status, cldrStatus)) {
                     System.out.print(
-                            region + "\t" + english.getName(CLDRFile.TERRITORY_NAME, region));
+                            region
+                                    + "\t"
+                                    + english.nameGetter()
+                                            .getNameFromTypenumCode(
+                                                    CLDRFile.TERRITORY_NAME, region));
 
                     System.out.println(
                             "\t"
                                     + info.language
                                     + "\t"
-                                    + english.getName(info.language)
+                                    + english.nameGetter().getNameFromBCP47(info.language)
                                     + "\t"
                                     + info.status
                                     + "\t"
@@ -322,13 +326,17 @@ public class WikipediaOfficialLanguages {
                     OfficialStatus officialStatus = sInfo.getOfficialStatus();
                     if (OfficialStatus.unknown != officialStatus) {
                         System.out.print(
-                                region + "\t" + english.getName(CLDRFile.TERRITORY_NAME, region));
+                                region
+                                        + "\t"
+                                        + english.nameGetter()
+                                                .getNameFromTypenumCode(
+                                                        CLDRFile.TERRITORY_NAME, region));
 
                         System.out.println(
                                 "\t"
                                         + r2
                                         + "\t"
-                                        + english.getName(r2)
+                                        + english.nameGetter().getNameFromBCP47(r2)
                                         + "\t"
                                         + "CLDR-ONLY"
                                         + "\t"

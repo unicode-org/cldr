@@ -709,20 +709,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="♭" type="tts">降號</annotation>
 		<annotation cp="♯">升號 | 音樂 | 音符</annotation>
 		<annotation cp="♯" type="tts">升號</annotation>
-		<annotation cp="🪉">愛 | 愛神 | 樂器 | 管弦樂隊 | 豎琴 | 邱比特 | 音樂</annotation>
-		<annotation cp="🪉" type="tts">豎琴</annotation>
-		<annotation cp="🪏">埋藏 | 挖 | 掘 | 種植 | 窿 | 花園 | 鋤 | 鏟 | 雪</annotation>
-		<annotation cp="🪏" type="tts">鏟</annotation>
-		<annotation cp="🪾">乾旱 | 冇樹葉 | 冬天 | 樹 | 樹幹 | 樹枝 | 禿樹 | 貧瘠</annotation>
-		<annotation cp="🪾" type="tts">禿樹</annotation>
-		<annotation cp="🫆">偵探 | 安全 | 懸疑 | 指紋 | 法證 | 線索 | 罪案 | 身份</annotation>
-		<annotation cp="🫆" type="tts">指紋</annotation>
-		<annotation cp="🫜">根 | 沙律 | 甜菜 | 素食 | 菜園 | 蔬菜 | 蘿蔔 | 食物</annotation>
-		<annotation cp="🫜" type="tts">根莖類蔬菜</annotation>
-		<annotation cp="🫟">一團糟 | 污漬 | 油漆 | 液體 | 潑濺 | 潑墨 | 色彩節 | 顏料 | 墨水</annotation>
-		<annotation cp="🫟" type="tts">潑濺</annotation>
-		<annotation cp="🫩">冇精神 | 好攰 | 悶 | 散哂 | 眼 | 眼瞓 | 眼袋 | 臉 | 面</annotation>
-		<annotation cp="🫩" type="tts">有眼袋嘅臉</annotation>
 		<annotation cp="😀">微笑 | 笑臉 | 臉</annotation>
 		<annotation cp="😀" type="tts">笑臉</annotation>
 		<annotation cp="😃">嘴 | 大眼睛笑臉 | 微笑 | 打開 | 臉</annotation>
@@ -837,6 +823,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🤤" type="tts">流口水嘅臉</annotation>
 		<annotation cp="😴">臉 | 訓緊覺 | 訓緊覺嘅臉 | 訓覺</annotation>
 		<annotation cp="😴" type="tts">訓緊覺嘅臉</annotation>
+		<annotation cp="🫩">冇精神 | 好攰 | 悶 | 散哂 | 眼 | 眼瞓 | 眼袋 | 臉 | 面</annotation>
+		<annotation cp="🫩" type="tts">有眼袋嘅臉</annotation>
 		<annotation cp="😷">凍 | 口罩 | 戴口罩嘅臉 | 病 | 臉 | 藥 | 醫生</annotation>
 		<annotation cp="😷" type="tts">戴口罩嘅臉</annotation>
 		<annotation cp="🤒">探熱針 | 探緊熱嘅臉 | 生病 | 病 | 臉</annotation>
@@ -1707,6 +1695,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧑‍🧒‍🧒" type="tts">家庭：一大兩細</annotation>
 		<annotation cp="👣">印 | 服裝 | 腳印</annotation>
 		<annotation cp="👣" type="tts">腳印</annotation>
+		<annotation cp="🫆">偵探 | 安全 | 懸疑 | 指紋 | 法證 | 線索 | 罪案 | 身份</annotation>
+		<annotation cp="🫆" type="tts">指紋</annotation>
 		<annotation cp="🦰">生薑 | 紅色嘅頭 | 紅色頭髮</annotation>
 		<annotation cp="🦰" type="tts">紅色頭髮</annotation>
 		<annotation cp="🦱">捲曲 | 捲髮 | 曲髮 | 非洲</annotation>
@@ -1933,6 +1923,16 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪸" type="tts">珊瑚</annotation>
 		<annotation cp="🪼">刺 | 哎喲 | 啫喱 | 水母 | 海洋 | 無脊椎動物 | 燒傷</annotation>
 		<annotation cp="🪼" type="tts">水母</annotation>
+		<annotation cp="🦀">巨蟹座 | 星座 | 蟹</annotation>
+		<annotation cp="🦀" type="tts">蟹</annotation>
+		<annotation cp="🦞">海鮮 | 濃湯 | 爪 | 龍蝦</annotation>
+		<annotation cp="🦞" type="tts">龍蝦</annotation>
+		<annotation cp="🦐">小 | 甲殼類動物 | 蝦 | 食物</annotation>
+		<annotation cp="🦐" type="tts">蝦</annotation>
+		<annotation cp="🦑">軟體動物 | 食物 | 魷魚</annotation>
+		<annotation cp="🦑" type="tts">魷魚</annotation>
+		<annotation cp="🦪">潛水 | 珍珠 | 生蠔</annotation>
+		<annotation cp="🦪" type="tts">生蠔</annotation>
 		<annotation cp="🐌">蝸牛</annotation>
 		<annotation cp="🐌" type="tts">蝸牛</annotation>
 		<annotation cp="🦋">昆蟲 | 蝴蝶 | 靚</annotation>
@@ -2021,6 +2021,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪺" type="tts">有蛋嘅雀巢</annotation>
 		<annotation cp="🍄">毒菌 | 蘑菇</annotation>
 		<annotation cp="🍄" type="tts">蘑菇</annotation>
+		<annotation cp="🪾">乾旱 | 冇樹葉 | 冬天 | 樹 | 樹幹 | 樹枝 | 禿樹 | 貧瘠</annotation>
+		<annotation cp="🪾" type="tts">禿樹</annotation>
 		<annotation cp="🍇">提子 | 生果</annotation>
 		<annotation cp="🍇" type="tts">提子</annotation>
 		<annotation cp="🍈">生果 | 蜜瓜</annotation>
@@ -2097,6 +2099,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🫛" type="tts">豌豆莢</annotation>
 		<annotation cp="🍄‍🟫">啡色蘑菇 | 食物、真菌、自然、蔬菜</annotation>
 		<annotation cp="🍄‍🟫" type="tts">啡色蘑菇</annotation>
+		<annotation cp="🫜">根 | 沙律 | 甜菜 | 素食 | 菜園 | 蔬菜 | 蘿蔔 | 食物</annotation>
+		<annotation cp="🫜" type="tts">根莖類蔬菜</annotation>
 		<annotation cp="🍞">麵包</annotation>
 		<annotation cp="🍞" type="tts">麵包</annotation>
 		<annotation cp="🥐">法國 | 牛角包 | 牛角卷 | 食物 | 麵包</annotation>
@@ -2199,16 +2203,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🥠" type="tts">幸運曲奇</annotation>
 		<annotation cp="🥡">外賣盒 | 蠔桶</annotation>
 		<annotation cp="🥡" type="tts">外賣盒</annotation>
-		<annotation cp="🦀">巨蟹座 | 星座 | 蟹</annotation>
-		<annotation cp="🦀" type="tts">蟹</annotation>
-		<annotation cp="🦞">海鮮 | 濃湯 | 爪 | 龍蝦</annotation>
-		<annotation cp="🦞" type="tts">龍蝦</annotation>
-		<annotation cp="🦐">小 | 甲殼類動物 | 蝦 | 食物</annotation>
-		<annotation cp="🦐" type="tts">蝦</annotation>
-		<annotation cp="🦑">軟體動物 | 食物 | 魷魚</annotation>
-		<annotation cp="🦑" type="tts">魷魚</annotation>
-		<annotation cp="🦪">潛水 | 珍珠 | 生蠔</annotation>
-		<annotation cp="🦪" type="tts">生蠔</annotation>
 		<annotation cp="🍦">冰 | 忌廉 | 甜 | 甜品 | 軟 | 軟雪糕 | 雪糕</annotation>
 		<annotation cp="🍦" type="tts">軟雪糕</annotation>
 		<annotation cp="🍧">冰 | 刨 | 刨冰 | 甜 | 甜品</annotation>
@@ -3049,6 +3043,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🪇" type="tts">沙槌</annotation>
 		<annotation cp="🪈">木管樂器 | 笛子 | 管樂 | 錄音機 | 長笛 | 音樂</annotation>
 		<annotation cp="🪈" type="tts">長笛</annotation>
+		<annotation cp="🪉">愛 | 愛神 | 樂器 | 管弦樂隊 | 豎琴 | 邱比特 | 音樂</annotation>
+		<annotation cp="🪉" type="tts">豎琴</annotation>
 		<annotation cp="📱">手提電話 | 手機 | 流動 | 電話</annotation>
 		<annotation cp="📱" type="tts">手提電話</annotation>
 		<annotation cp="📲">手提電話 | 手機 | 收到 | 有箭咀嘅手提電話 | 箭咀</annotation>
@@ -3325,6 +3321,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="🧲" type="tts">磁石</annotation>
 		<annotation cp="🪜">梯 | 梯級 | 步 | 爬</annotation>
 		<annotation cp="🪜" type="tts">梯</annotation>
+		<annotation cp="🪏">埋藏 | 挖 | 掘 | 種植 | 窿 | 花園 | 鋤 | 鏟 | 雪</annotation>
+		<annotation cp="🪏" type="tts">鏟</annotation>
 		<annotation cp="⚗">化學 | 工具 | 蒸餾器</annotation>
 		<annotation cp="⚗" type="tts">蒸餾器</annotation>
 		<annotation cp="🧪">化學 | 化學家 | 實驗 | 實驗室 | 科學 | 試管</annotation>
@@ -3697,6 +3695,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<annotation cp="®" type="tts">註冊</annotation>
 		<annotation cp="™">tm | 商標 | 標記</annotation>
 		<annotation cp="™" type="tts">商標</annotation>
+		<annotation cp="🫟">一團糟 | 污漬 | 油漆 | 液體 | 潑濺 | 潑墨 | 色彩節 | 顏料 | 墨水</annotation>
+		<annotation cp="🫟" type="tts">潑濺</annotation>
 		<annotation cp="🔠">ABCD | 大階 | 字母 | 拉丁 | 輸入 | 輸入拉丁大階字母</annotation>
 		<annotation cp="🔠" type="tts">輸入拉丁大階字母</annotation>
 		<annotation cp="🔡">abcd | 字母 | 小階 | 拉丁 | 輸入 | 輸入拉丁細階字母</annotation>

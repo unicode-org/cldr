@@ -112,7 +112,8 @@ public class LocaleMatcherTest extends TestFmwk {
     // {
     //                continue;
     //            }
-    //            System.out.println(locale + "\t" + CONFIG.getEnglish().getName(locale) + "\t" +
+    //            System.out.println(locale + "\t" +
+    // CONFIG.getEnglish().nameGetter().getName(locale) + "\t" +
     // parentId + "\t" + parentIdSimple);
     //        }
     //    }

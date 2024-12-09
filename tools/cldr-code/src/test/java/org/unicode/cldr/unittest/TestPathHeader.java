@@ -48,6 +48,7 @@ import org.unicode.cldr.util.GrammarInfo.GenderValues;
 import org.unicode.cldr.util.Iso3166Data;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.NameGetter;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathDescription;
@@ -82,6 +83,7 @@ public class TestPathHeader extends TestFmwkPlus {
     static final CLDRConfig info = CLDRConfig.getInstance();
     static final Factory factory = info.getCommonAndSeedAndMainAndAnnotationsFactory();
     static final CLDRFile english = factory.make("en", true);
+    static final NameGetter englishNameGetter = english.nameGetter();
     static final SupplementalDataInfo supplemental = info.getSupplementalDataInfo();
     static PathHeader.Factory pathHeaderFactory = PathHeader.getFactory(english);
     private EnumSet<PageId> badZonePages = EnumSet.of(PageId.UnknownT);
@@ -857,7 +859,7 @@ public class TestPathHeader extends TestFmwkPlus {
     private String getNameAndOrder(String territory) {
         return territory
                 + "\t"
-                + english.getName(CLDRFile.TERRITORY_NAME, territory)
+                + englishNameGetter.getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, territory)
                 + "\t"
                 + Containment.getOrder(territory);
     }
@@ -976,10 +978,15 @@ public class TestPathHeader extends TestFmwkPlus {
                 assertEquals("S. America special case", "005", revision);
             }
             if (isVerbose()) {
-                String name = english.getName(CLDRFile.TERRITORY_NAME, cont);
-                String name2 = english.getName(CLDRFile.TERRITORY_NAME, sub);
-                String name3 = english.getName(CLDRFile.TERRITORY_NAME, territory);
-                String name4 = english.getName(CLDRFile.TERRITORY_NAME, revision);
+                String name =
+                        englishNameGetter.getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, cont);
+                String name2 =
+                        englishNameGetter.getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, sub);
+                String name3 =
+                        englishNameGetter.getNameFromTypenumCode(
+                                CLDRFile.TERRITORY_NAME, territory);
+                String name4 =
+                        englishNameGetter.getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, revision);
 
                 logln(
                         metazone + "\t" + continent + "\t" + name + "\t" + name2 + "\t" + name3

@@ -15,6 +15,7 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Counter2;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.NameGetter;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
@@ -44,8 +45,9 @@ public class GenerateLanguageData {
             // Counter2<String> langToGDP = new Counter2<String>();
             LanguageTagParser ltp = new LanguageTagParser();
             Map<String, String> languageNameToCode = new TreeMap<>();
+            NameGetter nameGetter = english.nameGetter();
             for (String languageCode : info.getLanguages()) {
-                languageNameToCode.put(english.getName(languageCode), languageCode);
+                languageNameToCode.put(nameGetter.getNameFromBCP47(languageCode), languageCode);
             }
             out.println("\n@sheet:CLDR County Data");
             out.println("code\tgdp\tlit-pop\tpopulation\tliteracy");
@@ -71,7 +73,7 @@ public class GenerateLanguageData {
             Map<String, Counter2<String>> langToCountriesOfficial = new TreeMap<>();
 
             for (String languageCode : info.getLanguages()) {
-                String languageName = english.getName(languageCode);
+                String languageName = nameGetter.getNameFromBCP47(languageCode);
 
                 String baseLanguage = languageCode;
                 ltp.set(languageCode);
@@ -90,7 +92,8 @@ public class GenerateLanguageData {
                 //                );
                 for (String territory : territories) {
                     PopulationData terrData = info.getPopulationDataForTerritory(territory);
-                    String territoryName = english.getName(CLDRFile.TERRITORY_NAME, territory);
+                    String territoryName =
+                            nameGetter.getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, territory);
 
                     PopulationData data =
                             info.getLanguageAndTerritoryPopulationData(languageCode, territory);
@@ -156,7 +159,7 @@ public class GenerateLanguageData {
             }
             // for (String language :langToPopulation.keySet()) {
             // out.println(
-            // english.getName(language)
+            // english.nameGetter().getName(language)
             // + "\t" + language
             // + "\t" + langToPopulation.getCount(language)
             // + "\t" + langToGDP.getCount(language)

@@ -711,20 +711,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="♭" type="tts">フラット</annotation>
 		<annotation cp="♯">シャープ | 記号 | 音楽 | 音符</annotation>
 		<annotation cp="♯" type="tts">シャープ</annotation>
-		<annotation cp="🪉">オーケストラ | キューピッド | ハープ | 弦楽器 | 愛 | 楽器 | 音楽</annotation>
-		<annotation cp="🪉" type="tts">ハープ</annotation>
-		<annotation cp="🪏">シャベル | ショベル | スコップ | 掘る | 穴 | 鋤</annotation>
-		<annotation cp="🪏" type="tts">シャベル</annotation>
-		<annotation cp="🪾">不毛｜干ばつ｜葉のない木｜冬</annotation>
-		<annotation cp="🪾" type="tts">枯れ木</annotation>
-		<annotation cp="🫆">指紋｜鑑識｜生体認証｜セキュリティ</annotation>
-		<annotation cp="🫆" type="tts">指紋</annotation>
-		<annotation cp="🫜">ビーツ｜庭｜根｜カブ｜野菜</annotation>
-		<annotation cp="🫜" type="tts">根菜</annotation>
-		<annotation cp="🫟">しぶき｜ペンキ｜飛沫｜飛び散り｜スプラッシュ</annotation>
-		<annotation cp="🫟" type="tts">飛び散ったペンキ</annotation>
-		<annotation cp="🫩">クマ | 徹夜 | 疲れた | 眠い | 顔</annotation>
-		<annotation cp="🫩" type="tts">目にクマがある顔</annotation>
 		<annotation cp="😀">スマイル | ナイス | にっこり | にっこり笑う | ハッピー | 笑う | 笑顔 | 顔</annotation>
 		<annotation cp="😀" type="tts">にっこり笑う</annotation>
 		<annotation cp="😃">スマイル | ハッピー | わーい | 口を開けた笑顔 | 笑顔 | 顔</annotation>
@@ -839,6 +825,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤤" type="tts">よだれを垂らした顔</annotation>
 		<annotation cp="😴">zzz | おやすみ | グーグー | 寝る | 寝顔 | 眠い | 眠る | 顔</annotation>
 		<annotation cp="😴" type="tts">寝る</annotation>
+		<annotation cp="🫩">クマ | 徹夜 | 疲れた | 眠い | 顔</annotation>
+		<annotation cp="🫩" type="tts">目にクマがある顔</annotation>
 		<annotation cp="😷">ドクター | マスク | マスク顔 | 医師 | 歯科医 | 病気 | 花粉症 | 顔 | 風邪</annotation>
 		<annotation cp="😷" type="tts">マスク顔</annotation>
 		<annotation cp="🤒">体温計 | 熱がある顔 | 熱を測る | 病気 | 顔 | 風邪</annotation>
@@ -1709,6 +1697,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑‍🧒‍🧒" type="tts">家族: 大人一人と子供二人</annotation>
 		<annotation cp="👣" draft="contributed">裸足 | 足 | 足あと</annotation>
 		<annotation cp="👣" type="tts">足あと</annotation>
+		<annotation cp="🫆">指紋｜鑑識｜生体認証｜セキュリティ</annotation>
+		<annotation cp="🫆" type="tts">指紋</annotation>
 		<annotation cp="🦰">赤毛 | 赤毛の人 | 赤茶</annotation>
 		<annotation cp="🦰" type="tts">赤毛</annotation>
 		<annotation cp="🦱">アフロ | カール | くせ毛 | パンチパーマ | 巻き毛</annotation>
@@ -1935,6 +1925,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪸" type="tts">サンゴ</annotation>
 		<annotation cp="🪼">クラゲ | プランクトン | 刺す | 毒 | 水族館 | 海 | 海洋生物 | 無脊椎動物 | 触手 | 針</annotation>
 		<annotation cp="🪼" type="tts">クラゲ</annotation>
+		<annotation cp="🦀">カニ | 動物 | 星座</annotation>
+		<annotation cp="🦀" type="tts">カニ</annotation>
+		<annotation cp="🦞">ザリガニ | シーフード | はさみ | ビスク | レッドロブスター | ロブスター | 動物</annotation>
+		<annotation cp="🦞" type="tts">ザリガニ</annotation>
+		<annotation cp="🦐">エビ | シーフード | シュリンプ | 動物 | 小エビ</annotation>
+		<annotation cp="🦐" type="tts">エビ</annotation>
+		<annotation cp="🦑">イカ | シーフード | 動物 | 軟体動物</annotation>
+		<annotation cp="🦑" type="tts">イカ</annotation>
+		<annotation cp="🦪">オイスター | カキ | シーフード | ダイビング | 牡蠣 | 生ガキ | 真珠 | 貝 | 魚介</annotation>
+		<annotation cp="🦪" type="tts">牡蠣</annotation>
 		<annotation cp="🐌">エスカルゴ | かたつむり | カタツムリ | でんでん虫 | 虫</annotation>
 		<annotation cp="🐌" type="tts">かたつむり</annotation>
 		<annotation cp="🦋">チョウ | バタフライ | 昆虫 | 虫 | 蝶</annotation>
@@ -2023,6 +2023,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪺" type="tts">鳥の卵と巣</annotation>
 		<annotation cp="🍄">きのこ | キノコ | マッシュルーム | 毒 | 菌類 | 野菜</annotation>
 		<annotation cp="🍄" type="tts">キノコ</annotation>
+		<annotation cp="🪾">不毛｜干ばつ｜葉のない木｜冬</annotation>
+		<annotation cp="🪾" type="tts">枯れ木</annotation>
 		<annotation cp="🍇">グレープ | ぶどう | ブドウ | 果物</annotation>
 		<annotation cp="🍇" type="tts">ぶどう</annotation>
 		<annotation cp="🍈">マスクメロン | メロン | 果物 | 野菜</annotation>
@@ -2099,6 +2101,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫛" type="tts">エンドウ豆</annotation>
 		<annotation cp="🍄‍🟫">きのこ | キノコ | しいたけ | トリュフ | ブラウンマッシュルーム | ポートベロー | マッシュルーム | 椎茸 | 茸 | 菌類</annotation>
 		<annotation cp="🍄‍🟫" type="tts">きのこ</annotation>
+		<annotation cp="🫜">ビーツ｜庭｜根｜カブ｜野菜</annotation>
+		<annotation cp="🫜" type="tts">根菜</annotation>
 		<annotation cp="🍞">パン | ベーカリー | 小麦 | 食パン</annotation>
 		<annotation cp="🍞" type="tts">食パン</annotation>
 		<annotation cp="🥐">クロワッサン | パン | フランス | ベーカリー</annotation>
@@ -2201,16 +2205,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥠" type="tts">フォーチュンクッキー</annotation>
 		<annotation cp="🥡">テイクアウト弁当 | デリバリー | 中華 | 弁当 | 持ち帰り | 箸</annotation>
 		<annotation cp="🥡" type="tts">テイクアウト弁当</annotation>
-		<annotation cp="🦀">カニ | 動物 | 星座</annotation>
-		<annotation cp="🦀" type="tts">カニ</annotation>
-		<annotation cp="🦞">ザリガニ | シーフード | はさみ | ビスク | レッドロブスター | ロブスター | 動物</annotation>
-		<annotation cp="🦞" type="tts">ザリガニ</annotation>
-		<annotation cp="🦐">エビ | シーフード | シュリンプ | 動物 | 小エビ</annotation>
-		<annotation cp="🦐" type="tts">エビ</annotation>
-		<annotation cp="🦑">イカ | シーフード | 動物 | 軟体動物</annotation>
-		<annotation cp="🦑" type="tts">イカ</annotation>
-		<annotation cp="🦪">オイスター | カキ | シーフード | ダイビング | 牡蠣 | 生ガキ | 真珠 | 貝 | 魚介</annotation>
-		<annotation cp="🦪" type="tts">牡蠣</annotation>
 		<annotation cp="🍦">アイス | スイーツ | ソフト | ソフトクリーム | デザート</annotation>
 		<annotation cp="🍦" type="tts">ソフトクリーム</annotation>
 		<annotation cp="🍧">アイス | かき氷 | シェイブアイス | スイーツ | デザート | 氷</annotation>
@@ -3051,6 +3045,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪇" type="tts">マラカス</annotation>
 		<annotation cp="🪈">オーケストラ | バンド | ピッコロ | フルート | フルート奏者 | リコーダー | 楽器 | 横笛 | 管楽器 | 音楽</annotation>
 		<annotation cp="🪈" type="tts">笛</annotation>
+		<annotation cp="🪉">オーケストラ | キューピッド | ハープ | 弦楽器 | 愛 | 楽器 | 音楽</annotation>
+		<annotation cp="🪉" type="tts">ハープ</annotation>
 		<annotation cp="📱">スマートフォン | スマホ | モバイル | 携帯 | 携帯電話</annotation>
 		<annotation cp="📱" type="tts">携帯電話</annotation>
 		<annotation cp="📲">スマートフォン | スマホ | モバイル | 受信 | 携帯受信 | 携帯電話 | 着信中 | 電話</annotation>
@@ -3327,6 +3323,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧲" type="tts">U字型磁石</annotation>
 		<annotation cp="🪜">ステッパー | はしご | 梯子 | 登る | 高所作業</annotation>
 		<annotation cp="🪜" type="tts">はしご</annotation>
+		<annotation cp="🪏">シャベル | ショベル | スコップ | 掘る | 穴 | 鋤</annotation>
+		<annotation cp="🪏" type="tts">シャベル</annotation>
 		<annotation cp="⚗">化学 | 実験 | 蒸留器</annotation>
 		<annotation cp="⚗" type="tts">蒸留器</annotation>
 		<annotation cp="🧪">ラボ | 化学 | 化学者 | 実験 | 科学 | 試験管</annotation>
@@ -3699,6 +3697,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="®" type="tts">登録商標マーク</annotation>
 		<annotation cp="™">TMマーク | トレードマーク | 商標 | 商標マーク | 記号</annotation>
 		<annotation cp="™" type="tts">商標マーク</annotation>
+		<annotation cp="🫟">しぶき｜ペンキ｜飛沫｜飛び散り｜スプラッシュ</annotation>
+		<annotation cp="🫟" type="tts">飛び散ったペンキ</annotation>
 		<annotation cp="🔠">ABCD | アルファベット | ローマ字 | 入力 | 大文字 | 英大文字の入力 | 英字</annotation>
 		<annotation cp="🔠" type="tts">英大文字の入力</annotation>
 		<annotation cp="🔡">abcd | アルファベット | ローマ字 | 入力 | 小文字 | 英字 | 英小文字の入力</annotation>

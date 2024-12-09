@@ -3844,6 +3844,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<regionFormat type="daylight">{0} দিবালোক সময়</regionFormat>
 			<regionFormat type="standard">{0} মানক সময়</regionFormat>
 			<fallbackFormat>↑↑↑</fallbackFormat>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>হনোলুলু</exemplarCity>
+			</zone>
 			<zone type="Etc/UTC">
 				<long>
 					<standard>স্থানাংকিত আন্তর্জাতিক সময়</standard>
@@ -4979,9 +4982,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			</zone>
 			<zone type="America/Nome">
 				<exemplarCity>নোম</exemplarCity>
-			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>হনোলুলু</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>এনকোরেজ</exemplarCity>

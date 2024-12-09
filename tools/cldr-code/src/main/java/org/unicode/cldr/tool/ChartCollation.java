@@ -228,7 +228,11 @@ public class ChartCollation extends Chart {
             if (!data.containsKey("standard")) {
                 addCollator(data, "standard", (RuleBasedCollator) null);
             }
-            new Subchart(ENGLISH.getName(locale, true, CLDRFile.SHORT_ALTS), locale, data)
+            new Subchart(
+                            ENGLISH.nameGetter()
+                                    .getNameFromBCP47BoolAlt(locale, true, CLDRFile.SHORT_ALTS),
+                            locale,
+                            data)
                     .writeChart(anchors);
         }
     }

@@ -711,20 +711,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="♭" type="tts">bemolle</annotation>
 		<annotation cp="♯">diesis | musica | nota</annotation>
 		<annotation cp="♯" type="tts">diesis</annotation>
-		<annotation cp="🪉">amore | arpa | cupido | musica | orchestra | strumento</annotation>
-		<annotation cp="🪉" type="tts">arpa</annotation>
-		<annotation cp="🪏">buco | pala | scavare | spalare | vanga</annotation>
-		<annotation cp="🪏" type="tts">vanga</annotation>
-		<annotation cp="🪾">inverno | senza foglie | siccità</annotation>
-		<annotation cp="🪾" type="tts">albero spoglio</annotation>
-		<annotation cp="🫆">identità | impronta digitale | indizio | riconoscimento biometrico | scienza forense | sicurezza | traccia</annotation>
-		<annotation cp="🫆" type="tts">impronta digitale</annotation>
-		<annotation cp="🫜">barbabietola | orto | radice | rapa | vegetale</annotation>
-		<annotation cp="🫜" type="tts">ortaggio da radice</annotation>
-		<annotation cp="🫟">chiazza | holi | pittura | rovesciare | schizzo | vernice</annotation>
-		<annotation cp="🫟" type="tts">spruzzo</annotation>
-		<annotation cp="🫩">assonnato | borse | esausto | occhiaie | sfinito | sonno | stanchezza | stanco</annotation>
-		<annotation cp="🫩" type="tts">faccina con borse sotto gli occhi</annotation>
 		<annotation cp="😀">allegria | allegro | denti | faccina | faccina che ride | faccina che sogghigna | faccina con un gran sorriso | felice | molto felice | risata | sogghignare | sogghigno | sorriso</annotation>
 		<annotation cp="😀" type="tts">faccina con un gran sorriso</annotation>
 		<annotation cp="😃">bocca | bocca aperta | che bello | contento | denti | evvai | faccina | faccina che ride | faccina con un gran sorriso e occhi spalancati | faccina sorridente | felice | felicità | ottimo | ridere | risata | sorridere | sorriso | sorriso a bocca aperta | urrà</annotation>
@@ -839,6 +825,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🤤" type="tts">faccina che sbava</annotation>
 		<annotation cp="😴">assonnato | buona notte | dormire | faccina | faccina che dorme | pisolino | sonno | stanco | zzz</annotation>
 		<annotation cp="😴" type="tts">faccina che dorme</annotation>
+		<annotation cp="🫩">assonnato | borse | esausto | occhiaie | sfinito | sonno | stanchezza | stanco</annotation>
+		<annotation cp="🫩" type="tts">faccina con borse sotto gli occhi</annotation>
 		<annotation cp="😷">dentista | dottore | faccia | faccina | faccina con mascherina | germi | infermiera | infermiere | malato | maschera | mascherina | medicina | raffreddato | raffreddore | smog</annotation>
 		<annotation cp="😷" type="tts">faccina con mascherina</annotation>
 		<annotation cp="🤒">ammalato | faccina | faccina con termometro | faccina malata | febbre | influenza | malato | mutua | raffreddore | termometro</annotation>
@@ -1709,6 +1697,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧑‍🧒‍🧒" type="tts">famiglia: persona adulta, minore, minore</annotation>
 		<annotation cp="👣">camminare | corpo | impronta | impronta di piedi | impronte | passi | passo | piede | piedi | piedi nudi</annotation>
 		<annotation cp="👣" type="tts">impronta di piedi</annotation>
+		<annotation cp="🫆">identità | impronta digitale | indizio | riconoscimento biometrico | scienza forense | sicurezza | traccia</annotation>
+		<annotation cp="🫆" type="tts">impronta digitale</annotation>
 		<annotation cp="🦰">capelli rossi | pel di carota | rosso</annotation>
 		<annotation cp="🦰" type="tts">capelli rossi</annotation>
 		<annotation cp="🦱">afro | boccoli | capelli ricci | ricci</annotation>
@@ -1935,6 +1925,16 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪸" type="tts">corallo</annotation>
 		<annotation cp="🪼">animale | bruciatura | dolore | invertebrato | mare | medusa | puntura | trasparente | urticante</annotation>
 		<annotation cp="🪼" type="tts">medusa</annotation>
+		<annotation cp="🦀" draft="contributed">cancro | granchio | mare | mollusco | oceano | segno zodiacale</annotation>
+		<annotation cp="🦀" type="tts">granchio</annotation>
+		<annotation cp="🦞" draft="contributed">animale | aragosta | aragosta rossa | astice | chele | crostacei | frutti di mare | zuppa</annotation>
+		<annotation cp="🦞" type="tts">aragosta</annotation>
+		<annotation cp="🦐" draft="contributed">animale | animali | cibo | crostaceo | gamberetto | gambero | mare | oceano</annotation>
+		<annotation cp="🦐" type="tts">gamberetto</annotation>
+		<annotation cp="🦑" draft="contributed">animale | animali | calamaro | cibo | mare | mollusco | oceano | polipo | polpo | totano</annotation>
+		<annotation cp="🦑" type="tts">calamaro</annotation>
+		<annotation cp="🦪">alimento | cibo | mollusco | ostrea | ostrica | perla</annotation>
+		<annotation cp="🦪" type="tts">ostrica</annotation>
 		<annotation cp="🐌">animale | giardino | lentezza | lento | lumachina | lumacone | natura</annotation>
 		<annotation cp="🐌" type="tts">lumaca</annotation>
 		<annotation cp="🦋">ali | animale | colorata | insetto</annotation>
@@ -2023,6 +2023,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪺" type="tts">nido con uova</annotation>
 		<annotation cp="🍄">amanita | autunno | biancaneve | bosco | favola | fiaba | funghetto | fungo | natura | velenoso</annotation>
 		<annotation cp="🍄" type="tts">fungo</annotation>
+		<annotation cp="🪾">inverno | senza foglie | siccità</annotation>
+		<annotation cp="🪾" type="tts">albero spoglio</annotation>
 		<annotation cp="🍇">cibo | dioniso | frutta | frutto | grappolo | grappolo d’uva | uva | vino | viola</annotation>
 		<annotation cp="🍇" type="tts">uva</annotation>
 		<annotation cp="🍈" draft="contributed">cantaloupe | cibo | frutta | frutto | melone | oliva</annotation>
@@ -2099,6 +2101,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🫛" type="tts">baccello di piselli</annotation>
 		<annotation cp="🍄‍🟫">autunno | bosco | champignon | cibo | fungo | fungo marrone | natura | porcino | vegano | vegetale | vegetariano</annotation>
 		<annotation cp="🍄‍🟫" type="tts">fungo marrone</annotation>
+		<annotation cp="🫜">barbabietola | orto | radice | rapa | vegetale</annotation>
+		<annotation cp="🫜" type="tts">ortaggio da radice</annotation>
 		<annotation cp="🍞">carboidrati | cereali | cibo | pancarré | pane | pane a cassetta | pane in cassetta | ristorante | toast</annotation>
 		<annotation cp="🍞" type="tts">pane in cassetta</annotation>
 		<annotation cp="🥐">bar | cibo | colazione | cornetto | croissant | dolce | francese | zucchero</annotation>
@@ -2201,16 +2205,6 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🥠" type="tts">biscotto della fortuna</annotation>
 		<annotation cp="🥡">asporto | bacchette | bastoncini | cibo | cibo a domicilio | cibo cinese | cibo da asporto | confezione da asporto | consegna | scatola d’asporto</annotation>
 		<annotation cp="🥡" type="tts">confezione da asporto</annotation>
-		<annotation cp="🦀" draft="contributed">cancro | granchio | mare | mollusco | oceano | segno zodiacale</annotation>
-		<annotation cp="🦀" type="tts">granchio</annotation>
-		<annotation cp="🦞" draft="contributed">animale | aragosta | aragosta rossa | astice | chele | crostacei | frutti di mare | zuppa</annotation>
-		<annotation cp="🦞" type="tts">aragosta</annotation>
-		<annotation cp="🦐" draft="contributed">animale | animali | cibo | crostaceo | gamberetto | gambero | mare | oceano</annotation>
-		<annotation cp="🦐" type="tts">gamberetto</annotation>
-		<annotation cp="🦑" draft="contributed">animale | animali | calamaro | cibo | mare | mollusco | oceano | polipo | polpo | totano</annotation>
-		<annotation cp="🦑" type="tts">calamaro</annotation>
-		<annotation cp="🦪">alimento | cibo | mollusco | ostrea | ostrica | perla</annotation>
-		<annotation cp="🦪" type="tts">ostrica</annotation>
 		<annotation cp="🍦">bar | cono | crema | dessert | dolce | estate | gelateria | gelato | ristorante | zucchero</annotation>
 		<annotation cp="🍦" type="tts">cono gelato</annotation>
 		<annotation cp="🍧">cibo | estate | ghiaccio | granita | granita siciliana | Sicilia</annotation>
@@ -3051,6 +3045,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🪇" type="tts">maracas</annotation>
 		<annotation cp="🪈">fiati | fiato | flautista | flauto | legno | musica | pifferaio | piffero | strumento | zufolo</annotation>
 		<annotation cp="🪈" type="tts">flauto</annotation>
+		<annotation cp="🪉">amore | arpa | cupido | musica | orchestra | strumento</annotation>
+		<annotation cp="🪉" type="tts">arpa</annotation>
 		<annotation cp="📱">cellulare | chiamare | comunicare | smartphone | telefono</annotation>
 		<annotation cp="📱" type="tts">telefono cellulare</annotation>
 		<annotation cp="📲">cellulare | cellulare con freccia | chiamami | chiamare | ricevere | smartphone | telefonare | telefono | telefono cellulare con freccia</annotation>
@@ -3327,6 +3323,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="🧲" type="tts">calamita</annotation>
 		<annotation cp="🪜" draft="contributed">arrampicarsi | oggetto | piolo | scala | scala a pioli | scalino</annotation>
 		<annotation cp="🪜" type="tts">scala</annotation>
+		<annotation cp="🪏">buco | pala | scavare | spalare | vanga</annotation>
+		<annotation cp="🪏" type="tts">vanga</annotation>
 		<annotation cp="⚗">alambicco | chimica | esperimento | strumento</annotation>
 		<annotation cp="⚗" type="tts">alambicco</annotation>
 		<annotation cp="🧪" draft="contributed">chimica | chimico | esperimenti | esperimento | laboratorio | provetta | scienza</annotation>
@@ -3699,6 +3697,8 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<annotation cp="®" type="tts">marchio registrato</annotation>
 		<annotation cp="™" draft="contributed">marchio | marchio commerciale | marchio di fabbrica | marchio registrato | simbolo | tm | TM | trademark</annotation>
 		<annotation cp="™" type="tts">marchio</annotation>
+		<annotation cp="🫟">chiazza | holi | pittura | rovesciare | schizzo | vernice</annotation>
+		<annotation cp="🫟" type="tts">spruzzo</annotation>
 		<annotation cp="🔠" draft="contributed">abcd | caratteri latini | inserire | lettere | maiuscole | pulsante | pulsante con lettere latine maiuscole | tasto</annotation>
 		<annotation cp="🔠" type="tts">pulsante con lettere latine maiuscole</annotation>
 		<annotation cp="🔡" draft="contributed">caratteri latini | inserire | lettere | minuscole | pulsante | pulsante con lettere latine minuscole | tasto</annotation>

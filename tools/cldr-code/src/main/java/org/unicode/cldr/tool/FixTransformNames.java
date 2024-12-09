@@ -41,7 +41,7 @@ public class FixTransformNames {
     private void run(String[] args) {
         CLDRFile file = testInfo.getEnglish();
         for (String lang : StandardCodes.make().getAvailableCodes(CodeType.language)) {
-            String name = file.getName(lang);
+            String name = file.nameGetter().getNameFromBCP47(lang);
             if (!name.equals(lang)) {
                 fieldToCode.put(name, lang);
                 languageCodes.add(lang);
@@ -251,7 +251,7 @@ public class FixTransformNames {
             }
             return result;
         }
-        return english.getName(target.replace('-', '_'));
+        return english.nameGetter().getNameFromBCP47(target.replace('-', '_'));
     }
 
     private String add(String result, int type, String code) {
@@ -261,7 +261,7 @@ public class FixTransformNames {
         if (result.length() != 0) {
             result += ", ";
         }
-        String temp = english.getName(type, code);
+        String temp = english.nameGetter().getNameFromTypenumCode(type, code);
         if (type == CLDRFile.SCRIPT_NAME && fieldToCode.containsKey(temp)) {
             temp += "*";
         }

@@ -38,6 +38,7 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.Iso639Data.Scope;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.NameGetter;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleFactory;
@@ -236,8 +237,9 @@ public class TestMisc {
             int vote = Level.getDefaultWeight("google", desiredLocale);
             rel.add(new Pair<>(vote, desiredLocale));
         }
+        NameGetter nameGetter = english.nameGetter();
         for (Pair<Integer, String> p : rel) {
-            System.out.println(p + "\t" + english.getName(p.getSecond()));
+            System.out.println(p + "\t" + nameGetter.getNameFromBCP47(p.getSecond()));
         }
     }
 

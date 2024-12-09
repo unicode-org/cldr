@@ -392,7 +392,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
 
         @Override
         public String transform(String source) {
-            String result = ENGLISH.getName(field, source);
+            String result = ENGLISH.nameGetter().getNameFromTypenumCode(field, source);
             String extra = "";
             if (field == CLDRFile.LANGUAGE_NAME) {
                 String lang = isBigLanguage(source);
@@ -1196,7 +1196,8 @@ public class TestCoverageLevel extends TestFmwkPlus {
                     typeAndInfo.getValue().get3(); // it looks like the targetLevel is ignored
 
             for (String code : Sets.union(idPartMap.keySet(), setRoot)) {
-                String displayName = testInfo.getEnglish().getName(type, code);
+                String displayName =
+                        testInfo.getEnglish().nameGetter().getNameFromTypenumCode(type, code);
                 String path = CLDRFile.getKey(type, code);
                 Level level = coverageLevel.getLevel(path);
                 data.put(

@@ -525,7 +525,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
                                 + "gara|gong|gonm|gukh|hanidays|hmng|hmnp|java|jpanyear|kali|kawi|krai|lana(tham)?|lepc|limb|"
                                 + "math(bold|dbl|mono|san[bs])|modi|mong|mroo|mtei|mymr(epka|pao|shan|tlng)|"
                                 + "nagm|newa|nkoo|olck|onao|osma|outlined|rohg|saur|segment|shrd|sin[dh]|sora|sund|sunu|"
-                                + "takr|talu|tirh|tnsa|vaii|wara|wcho)");
+                                + "takr|talu|tirh|tnsa|vaii|wara|wcho|yiii)");
 
         final Pattern collation100 =
                 PatternCache.get(

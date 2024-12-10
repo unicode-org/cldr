@@ -995,7 +995,8 @@ public class PathDescription {
                     found = true;
                 } else if (country != null) {
                     String countryName =
-                            english.nameGetter().getNameFromTypestrCode("territory", country);
+                            english.nameGetter()
+                                    .getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, country);
                     if (countryName != null) {
                         if (!codeName.equals(countryName)) {
                             code = "the city “" + codeName + "” (in " + countryName + ")";

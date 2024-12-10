@@ -438,14 +438,10 @@ public class ConvertLanguageData {
             BasicLanguageData.Type oldValue = oldDataToType.get(s);
             BasicLanguageData.Type newValue = newDataToType.get(s);
             if (!CldrUtility.equals(oldValue, newValue)) {
+                int code = s.length() == 4 ? CLDRFile.SCRIPT_NAME : CLDRFile.TERRITORY_NAME;
+                String name = englishNameGetter.getNameFromTypenumCode(code, s);
                 temp.setLength(0);
-                temp.append("[")
-                        .append(s)
-                        .append(":")
-                        .append(
-                                englishNameGetter.getNameFromTypestrCode(
-                                        s.length() == 4 ? "script" : "region", s))
-                        .append("] ");
+                temp.append("[").append(s).append(":").append(name).append("] ");
                 if (oldValue == null) {
                     temp.append(" added as ").append(newValue);
                 } else if (newValue == null) {

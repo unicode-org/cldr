@@ -1180,7 +1180,7 @@ public class ShowLocaleCoverage {
                         + "\t"
                         + ENGLISH.nameGetter().getNameFromBCP47(language)
                         + "\t"
-                        + ENGLISH.nameGetter().getNameFromTypestrCode("script", script)
+                        + ENGLISH.nameGetter().getNameFromTypenumCode(CLDRFile.SCRIPT_NAME, script)
                         + "\t"
                         + cldrLocaleLevelGoal
                         + "\t"

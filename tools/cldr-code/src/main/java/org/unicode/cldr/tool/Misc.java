@@ -43,6 +43,7 @@ import org.unicode.cldr.util.CollatorHelper;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Iso3166Data;
 import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.NameGetter;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.StandardCodes;
@@ -266,6 +267,7 @@ public class Misc {
     private static void listObsoletes() {
         // java.util.TimeZone t;
         StandardCodes sc = StandardCodes.make();
+        NameGetter englishNameGetter = english.nameGetter();
         for (Iterator<String> typeIt = sc.getAvailableTypes().iterator(); typeIt.hasNext(); ) {
             String type = typeIt.next();
             System.out.println(type);
@@ -276,13 +278,13 @@ public class Misc {
                 if (list.size() < 3) continue;
                 String replacementCode = list.get(2);
                 if (replacementCode.length() == 0) continue;
-                System.out.println(
-                        code
-                                + " => "
-                                + replacementCode
-                                + "; "
-                                + english.nameGetter()
-                                        .getNameFromTypestrCode(type, replacementCode));
+                /*
+                 * TODO: use getNameFromTypenumCode instead of getNameFromTypestrCode here.
+                 * Reference: https://unicode-org.atlassian.net/browse/CLDR-15830
+                 * type is derived from sc.getAvailableTypes()
+                 */
+                String name = englishNameGetter.getNameFromTypestrCode(type, replacementCode);
+                System.out.println(code + " => " + replacementCode + "; " + name);
             }
         }
     }
@@ -481,7 +483,7 @@ public class Misc {
             new_old.put(zone, new TreeSet<String>(col));
             String country = zone_countries.get(zone);
             String name =
-                    english.nameGetter().getNameFromTypestrCode("territory", country)
+                    english.nameGetter().getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, country)
                             + " ("
                             + country
                             + ")";

@@ -21,6 +21,7 @@ import org.unicode.cldr.util.Containment;
 import org.unicode.cldr.util.DateTimeCanonicalizer.DateTimePatternType;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.NameGetter;
 import org.unicode.cldr.util.PreferredAndAllowedHour;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
@@ -261,21 +262,24 @@ public class FindPreferredHours {
             if (tag.equals("h")) {
                 tag += "*";
             }
-
+            NameGetter englishNameGetter = ENGLISH.nameGetter();
             System.out.println(
                     tag
                             + "\t"
                             + region
                             + "\t"
-                            + ENGLISH.nameGetter().getNameFromTypestrCode("territory", region)
+                            + englishNameGetter.getNameFromTypenumCode(
+                                    CLDRFile.TERRITORY_NAME, region)
                             + "\t"
                             + subcontinent
                             + "\t"
-                            + ENGLISH.nameGetter().getNameFromTypestrCode("territory", subcontinent)
+                            + englishNameGetter.getNameFromTypenumCode(
+                                    CLDRFile.TERRITORY_NAME, subcontinent)
                             + "\t"
                             + continent
                             + "\t"
-                            + ENGLISH.nameGetter().getNameFromTypestrCode("territory", continent)
+                            + englishNameGetter.getNameFromTypenumCode(
+                                    CLDRFile.TERRITORY_NAME, continent)
                             + "\t"
                             + showInfo(preferredSet));
         }

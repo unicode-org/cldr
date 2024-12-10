@@ -261,7 +261,7 @@ public class LanguageTest extends TestFmwk {
 
     private String getScriptName(String script) {
         NameGetter nameGetter = testInfo.getEnglish().nameGetter();
-        String name = nameGetter.getNameFromTypestrCode("script", script);
+        String name = nameGetter.getNameFromTypenumCode(CLDRFile.SCRIPT_NAME, script);
         if (name != null && !name.equals(script)) {
             return name;
         }
@@ -281,7 +281,7 @@ public class LanguageTest extends TestFmwk {
 
     private String getLanguageName(String language) {
         NameGetter nameGetter = testInfo.getEnglish().nameGetter();
-        String name = nameGetter.getNameFromTypestrCode("language", language);
+        String name = nameGetter.getNameFromTypenumCode(CLDRFile.LANGUAGE_NAME, language);
         if (name != null && !name.equals(language)) {
             return name;
         }

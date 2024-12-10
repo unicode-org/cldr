@@ -34,7 +34,6 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.draft.ScriptMetadata;
-import org.unicode.cldr.draft.ScriptMetadata.IdUsage;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
@@ -2036,7 +2035,8 @@ public class ConvertLanguageData {
                 if (!checkCode(LstrType.language, language, row)) continue;
                 for (String script : scripts.split("\\s+")) {
                     if (!checkCode(LstrType.script, script, row)) continue;
-                    // if the script is not modern, demote
+
+                    // Make sure the script has information
                     Info scriptInfo = ScriptMetadata.getInfo(script);
                     if (scriptInfo == null) {
                         BadItem.ERROR.toString(
@@ -2045,24 +2045,8 @@ public class ConvertLanguageData {
                                 row);
                         continue;
                     }
-                    IdUsage idUsage = scriptInfo.idUsage;
-                    if (status == BasicLanguageData.Type.primary
-                            && idUsage != IdUsage.RECOMMENDED) {
-                        if (idUsage == IdUsage.ASPIRATIONAL || idUsage == IdUsage.LIMITED_USE) {
-                            BadItem.WARNING.toString(
-                                    "Script has unexpected usage; make secondary if a Recommended script is used widely for the langauge",
-                                    idUsage + ", " + script + "=" + getULocaleScriptName(script),
-                                    row);
-                        } else {
-                            BadItem.ERROR.toString(
-                                    "Script is not modern; make secondary",
-                                    idUsage + ", " + script + "=" + getULocaleScriptName(script),
-                                    row);
-                            status = BasicLanguageData.Type.secondary;
-                        }
-                    }
 
-                    // if the language is not modern, demote
+                    // Make sure the language code is valid
                     if (LOCALE_ALIAS_INFO.get("language").containsKey(language)) {
                         BadItem.ERROR.toString(
                                 "Remove/Change deprecated language",
@@ -2073,14 +2057,6 @@ public class ConvertLanguageData {
                                         + LOCALE_ALIAS_INFO.get("language").get(language),
                                 row);
                         continue;
-                    }
-                    if (status == BasicLanguageData.Type.primary
-                            && !sc.isModernLanguage(language)) {
-                        BadItem.ERROR.toString(
-                                "Should be secondary, language is not modern",
-                                language + " " + getLanguageName(language),
-                                row);
-                        status = BasicLanguageData.Type.secondary;
                     }
 
                     addLanguage2Script(language, status, script);

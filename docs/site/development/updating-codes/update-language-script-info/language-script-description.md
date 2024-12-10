@@ -4,19 +4,13 @@ title: Language Script Description
 
 # Language Script Description
 
-The language\_script spreadsheet should list all of the language / script combinations that are in common modern use. The countries are not important, since their function has been overtaken by the country\_language\_population spreadsheet.
+The [`language\_script.tsv`](https://github.com/unicode-org/cldr/blob/main/tools/cldr-code/src/main/resources/org/unicode/cldr/util/data/language_script.tsv) data file should list all of the language / script combinations that are in common use. Usage by country is indicated in the [`country\_language\_population.tsv`](https://github.com/unicode-org/cldr/blob/main/tools/cldr-code/src/main/resources/org/unicode/cldr/util/data/country_language_population.tsv) spreadsheet.
 
-1. If the language and script are both modern, and the script is a major way to write the language in some country, then we should see that line marked as **primary**.
-2. Otherwise it should be marked **secondary**.
+1. Every language should have 1 script considered the **primary** script.
+    1. This data is currently used to determine [the likely script for a language](/development/updating-codes/likelysubtags-and-default-content) so there needs to be at least 1 primary value. Because it is the default, it determines the script of locales without language codes in the `<territoryInfo>`. 
+    2. __Changed in v47__ Include a primary script for historical languages (eg. Ancient Greek, Coptic). The primary script should reflect where the majority of the written corpus originates from.
+2. Other scripts used for a language should be marked **secondary**.
 
-Every language that is in official use in any country according to country\_language\_population  should have at least one primary script in the language\_script spreadsheet.
+Languages with multiple ambiguous scripts should have that reflected in their CLDR structure (eg. `sr_Cyrl_RS`), with aliases for the language\-region combinations.
 
-If a language has multiple primary scripts, then it should not appear without the script tag in the country\_language\_population.tsv. For example, we should not see "az", but rather "az\_Cyrl", "az\_Latn", and so on. For each country where the language is used, we should see figures on the script\-specific values. The values may overlap, that is, we may see az\_Cyrl at 60% and az\_Latn at 55%. However, the combination with the predominantly used script **must** have a larger figure than the others.
-
-This is also reflected in CLDR main: languages with multiple scripts will have that reflected in their structure (eg sr\-Cyrl\-RS), with aliases for the language\-region combinations.
-
-Files in https://github.com/unicode-org/cldr/tree/main/tools/cldr-code/src/main/resources/org/unicode/cldr/util/data
-
-1. country\_language\_population.tsv
-2. language\_script.tsv
-
+In order to re-generate the XML data use ConvertLanguageData as written about in [the article about updating the language scripts](/development/updating-codes/update-language-script-info).

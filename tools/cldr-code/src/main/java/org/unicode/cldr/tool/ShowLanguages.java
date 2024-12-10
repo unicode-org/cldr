@@ -2231,8 +2231,8 @@ public class ShowLanguages {
                                     + infoItem.getCurrency()
                                     + "</td>"
                                     + "<td class='target'>"
-                                    + englishNameGetter.getNameFromTypestrCode(
-                                            "currency", infoItem.getCurrency())
+                                    + englishNameGetter.getNameFromTypenumCode(
+                                            CLDRFile.CURRENCY_NAME, infoItem.getCurrency())
                                     + "</td>"
                                     + "</tr>");
                 }
@@ -2287,8 +2287,8 @@ public class ShowLanguages {
                         "<tr>"
                                 + "<td class='source nowrap'>"
                                 + TransliteratorUtilities.toHTML.transform(
-                                        englishNameGetter.getNameFromTypestrCode(
-                                                "currency", currency))
+                                        englishNameGetter.getNameFromTypenumCode(
+                                                CLDRFile.CURRENCY_NAME, currency))
                                 + "</td>"
                                 + "<td class='source'>"
                                 + CldrUtility.getDoubleLinkedText(currency)
@@ -2369,7 +2369,7 @@ public class ShowLanguages {
 
         private String getTerritoryName(String territory) {
             String name;
-            name = englishNameGetter.getNameFromTypestrCode("territory", territory);
+            name = englishNameGetter.getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, territory);
             if (name == null) {
                 name = sc.getData("territory", territory);
             }
@@ -2972,6 +2972,12 @@ public class ShowLanguages {
     private static SortedMap<String, String> getNameToCode(CodeType codeType, String cldrCodeType) {
         SortedMap<String, String> temp = new TreeMap<String, String>(col);
         for (String territory : StandardCodes.make().getAvailableCodes(codeType)) {
+            /*
+             * TODO: use getNameFromTypenumCode instead of getNameFromTypestrCode here.
+             * Reference: https://unicode-org.atlassian.net/browse/CLDR-15830
+             * codeType is either CodeType.territory or CodeType.currency
+             * cldrCodeType is either "region" or "currency"
+             */
             String name = englishNameGetter.getNameFromTypestrCode(cldrCodeType, territory);
             temp.put(name == null ? territory : name, territory);
         }

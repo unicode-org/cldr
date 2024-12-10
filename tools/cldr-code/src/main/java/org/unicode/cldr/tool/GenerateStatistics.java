@@ -414,7 +414,7 @@ class GenerateStatistics {
             }
         }
         CLDRFile cldr = factory.make(localeID, true);
-        String name = cldr.nameGetter().getNameFromTypestrCode("territory", country);
+        String name = cldr.nameGetter().getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, country);
         if (false && HACK) {
             Object trial = fixCountryNames.get(name);
             if (trial != null) {

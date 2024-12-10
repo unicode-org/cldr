@@ -12,7 +12,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.*;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.TreeSet;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.json.JSONException;
@@ -568,6 +576,7 @@ public class UserRegistry {
             }
             if (!cla.valid()) throw new IllegalArgumentException("Invalid CLA");
             cla.signed = new Date();
+            cla.version = SurveyMain.getNewVersion();
             settings().setJson(ClaSignature.CLA_KEY, cla);
             claSigned = true;
         }

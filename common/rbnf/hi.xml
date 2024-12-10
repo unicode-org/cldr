@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2013 Unicode, Inc.
-CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+Copyright © 1991-2024 Unicode, Inc.
 For terms of use, see http://www.unicode.org/copyright.html
+SPDX-License-Identifier: Unicode-DFS-2016
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 -->
 <ldml>
     <identity>
@@ -142,6 +143,18 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="6">छठा;</rbnfrule>
                 <rbnfrule value="7">=%spellout-cardinal=वाँ;</rbnfrule>
             </ruleset>
+            <ruleset type="spellout-ordinal-masculine-oblique">
+                <rbnfrule value="-x">ऋण →→;</rbnfrule>
+                <rbnfrule value="x.x">=#,##,##0.0=;</rbnfrule>
+                <rbnfrule value="0">शून्यवें;</rbnfrule>
+                <rbnfrule value="1">पहले;</rbnfrule>
+                <rbnfrule value="2">दूसरे;</rbnfrule>
+                <rbnfrule value="3">तीसरे;</rbnfrule>
+                <rbnfrule value="4">चौथे;</rbnfrule>
+                <rbnfrule value="5">पाँचवें;</rbnfrule>
+                <rbnfrule value="6">छठे;</rbnfrule>
+                <rbnfrule value="7">=%spellout-cardinal=वें;</rbnfrule>
+            </ruleset>
             <ruleset type="spellout-ordinal-feminine">
                 <rbnfrule value="-x">ऋण →→;</rbnfrule>
                 <rbnfrule value="x.x">=#,##,##0.0=;</rbnfrule>
@@ -159,35 +172,17 @@ For terms of use, see http://www.unicode.org/copyright.html
             <ruleset type="digits-ordinal-masculine">
                 <rbnfrule value="-x">−→→;</rbnfrule>
                 <rbnfrule value="x.x">=#,##,##0.0=;</rbnfrule>
-                <rbnfrule value="0">0;</rbnfrule>
-                <rbnfrule value="1">=0=ला;</rbnfrule>
-                <rbnfrule value="2">=0=रा;</rbnfrule>
-                <rbnfrule value="4">=0=था;</rbnfrule>
-                <rbnfrule value="5">=0=वाँ;</rbnfrule>
-                <rbnfrule value="6">=0=ठा;</rbnfrule>
-                <rbnfrule value="7">=#,##,##0=वाँ;</rbnfrule>
+                <rbnfrule value="0">=#,##,##0=$(ordinal,one{ला}two{रा}few{था}many{ठा}other{वाँ})$;</rbnfrule>
             </ruleset>
             <ruleset type="digits-ordinal-masculine-oblique">
                 <rbnfrule value="-x">−→→;</rbnfrule>
                 <rbnfrule value="x.x">=#,##,##0.0=;</rbnfrule>
-                <rbnfrule value="0">0;</rbnfrule>
-                <rbnfrule value="1">=0=ले;</rbnfrule>
-                <rbnfrule value="2">=0=रे;</rbnfrule>
-                <rbnfrule value="4">=0=थे;</rbnfrule>
-                <rbnfrule value="5">=0=वें;</rbnfrule>
-                <rbnfrule value="6">=0=ठे;</rbnfrule>
-                <rbnfrule value="7">=#,##,##0=वें;</rbnfrule>
+                <rbnfrule value="0">=#,##,##0=$(ordinal,one{ले}two{रे}few{थे}many{ठे}other{वें})$;</rbnfrule>
             </ruleset>
             <ruleset type="digits-ordinal-feminine">
                 <rbnfrule value="-x">−→→;</rbnfrule>
                 <rbnfrule value="x.x">=#,##,##0.0=;</rbnfrule>
-                <rbnfrule value="0">0;</rbnfrule>
-                <rbnfrule value="1">=0=ली;</rbnfrule>
-                <rbnfrule value="2">=0=री;</rbnfrule>
-                <rbnfrule value="4">=0=थी;</rbnfrule>
-                <rbnfrule value="5">=0=वीँ;</rbnfrule>
-                <rbnfrule value="6">=0=ठी;</rbnfrule>
-                <rbnfrule value="7">=#,##,##0=वीँ;</rbnfrule>
+                <rbnfrule value="0">=#,##,##0=$(ordinal,one{ली}two{री}few{थी}many{ठी}other{वीँ})$;</rbnfrule>
             </ruleset>
             <ruleset type="digits-ordinal">
                 <rbnfrule value="0">=%digits-ordinal-masculine=;</rbnfrule>

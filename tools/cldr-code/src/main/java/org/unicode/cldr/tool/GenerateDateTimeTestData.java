@@ -5,7 +5,13 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.ibm.icu.impl.Pair;
 import com.ibm.icu.text.SimpleDateFormat;
+import com.ibm.icu.util.BuddhistCalendar;
+import com.ibm.icu.util.Calendar;
+import com.ibm.icu.util.GregorianCalendar;
+import com.ibm.icu.util.IslamicCalendar;
+import com.ibm.icu.util.JapaneseCalendar;
 import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
 import java.io.IOException;
@@ -736,7 +742,7 @@ public class GenerateDateTimeTestData {
      * the test space without having to compute the full Cartesian product of all values of all
      * dimensions possible.
      */
-    class FieldStyleCombo {
+    static class FieldStyleCombo {
         SemanticSkeleton semanticSkeleton;
         SemanticSkeletonLength semanticSkeletonLength;
         DateStyle dateStyle;
@@ -746,18 +752,17 @@ public class GenerateDateTimeTestData {
         YearStyle yearStyle;
     }
 
-
     /**
      * A struct to contain the data to be used to generate combinations of datetime fields & styles
      * and whether to combine (obtain the Cartesian product of) them by other dimensions
      */
-    class FieldStyleComboInput {
+    static class FieldStyleComboInput {
         FieldStyleCombo fieldStyleCombo;
         boolean shouldMultiplyByTimeZone;
         boolean shouldMultiplyByDateTime;
     }
 
-    ImmutableSet<FieldStyleComboInput> getFieldStyleComboInputs() {
+    private static ImmutableSet<FieldStyleComboInput> getFieldStyleComboInputs() {
         ImmutableSet.Builder<FieldStyleComboInput> builder = ImmutableSet.builder();
 
         FieldStyleComboInput elem;
@@ -985,6 +990,88 @@ public class GenerateDateTimeTestData {
         return builder.build();
     }
 
+    static class FieldStyleComboWithTZAndDateTime {
+        FieldStyleCombo fieldStyleCombo;
+        LocalDateTime dateTime;
+        TimeZone timeZone;
+    }
+
+    static class TestCase {
+        ULocale locale;
+        Calendar calendar;
+        FieldStyleComboWithTZAndDateTime fieldStyleComboWithTZAndDateTime;
+    }
+
+    public static ImmutableSet<TestCase> getKernelTestCases() {
+
+        // more manually defined inputs
+
+        List<Pair<ULocale, Calendar>> LOCALE_CALENDAR_PAIRS = List.of(
+            Pair.of(ULocale.ENGLISH, GregorianCalendar.getInstance()),
+            Pair.of(ULocale.forLanguageTag("ar-SA"), IslamicCalendar.getInstance()),
+            Pair.of(ULocale.forLanguageTag("th-TH"), BuddhistCalendar.getInstance()),
+            Pair.of(ULocale.forLanguageTag("ja-JP"), JapaneseCalendar.getInstance())
+        );
+
+        List<LocalDateTime> DATE_TIMES = List.of(
+            LocalDateTime.of(2024, 7, 1, 8, 50, 7),
+            LocalDateTime.of(2000, 1, 1, 0, 0, 0),
+            LocalDateTime.of(2014, 7, 15, 12, 0, 0)
+        );
+
+        // An extra time zone that should be added dynamically is the default for the locale
+        // visited during the iteration over locales
+        List<TimeZone> STATIC_TIME_ZONES = List.of(
+            TimeZone.GMT_ZONE,
+            TimeZone.getTimeZone("Australia/Adelaide")
+        );
+
+        // setup of return value
+
+        ImmutableSet.Builder<TestCase> builder = ImmutableSet.builder();
+
+        // iteration to add to return value
+
+        for (Pair<ULocale,Calendar> localeCalendarPair : LOCALE_CALENDAR_PAIRS) {
+            ULocale locale = localeCalendarPair.first;
+            Calendar calendar = localeCalendarPair.second;
+
+            for (FieldStyleComboInput input : getFieldStyleComboInputs()) {
+                assert input.shouldMultiplyByDateTime || input.shouldMultiplyByTimeZone;
+
+                FieldStyleCombo fieldStyleCombo = input.fieldStyleCombo;
+
+                List<LocalDateTime> dateTimeIterationColl = List.of();
+                if (input.shouldMultiplyByDateTime) {
+                    dateTimeIterationColl = DATE_TIMES;
+                }
+
+                List<TimeZone> timeZoneIterationColl = List.of();
+                if (input.shouldMultiplyByTimeZone) {
+                    timeZoneIterationColl = STATIC_TIME_ZONES;
+                    // TODO: add a TimeZone from the region of the locale to the list of time zones to iterate over
+                }
+
+                for (LocalDateTime localDateTime : dateTimeIterationColl) {
+                    for (TimeZone timeZone : timeZoneIterationColl) {
+                        FieldStyleComboWithTZAndDateTime fieldStyleComboWithTZAndDateTime = new FieldStyleComboWithTZAndDateTime();
+                        fieldStyleComboWithTZAndDateTime.fieldStyleCombo = fieldStyleCombo;
+                        fieldStyleComboWithTZAndDateTime.dateTime = localDateTime;
+                        fieldStyleComboWithTZAndDateTime.timeZone = timeZone;
+
+                        TestCase testCase = new TestCase();
+                        testCase.locale = locale;
+                        testCase.calendar = calendar;
+                        testCase.fieldStyleComboWithTZAndDateTime = fieldStyleComboWithTZAndDateTime;
+
+                        builder.add(testCase);
+                    }
+                }
+            }
+        }
+
+        return builder.build();
+    }
 
     public static void main(String[] args) throws IOException {
         try (TempPrintWriter pw =

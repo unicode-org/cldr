@@ -7,6 +7,7 @@ title: CLDR 46 Release Note
 | No. |    Date    | Rel. Note |  Data  |  Charts  | Spec |   Delta  | GitHub Tag | Delta DTD | CLDR JSON |
 |:---:|:----------:|:---------:|:------:|:--------:|:------------:|:---:|:----------:|:---------:|:---------:|
 |  46 | 2024-10-24 | [v46](/index/downloads/cldr-46) | [CLDR46](https://unicode.org/Public/cldr/46/) | [Charts46](https://unicode.org/cldr/charts/46/) | [LDML46](https://www.unicode.org/reports/tr35/tr35-73/tr35.html) | [Δ46](https://unicode-org.atlassian.net/issues/?jql=project+%3D+CLDR+AND+status+%3D+Done+AND+resolution+%3D+Fixed+AND+fixVersion+%3D+%2246%22+ORDER+BY+priority+DESC) | [release-46](https://github.com/unicode-org/cldr/releases/tag/release-46) | [ΔDtd46](https://www.unicode.org/cldr/charts/46/supplemental/dtd_deltas.html) | [46.0.0](https://github.com/unicode-org/cldr-json/releases/tag/46.0.0) |
+| 46.1 | 2024-12-18 | [v46.1](/index/downloads/cldr-46#461-changes) | n/a | [Charts46.1](https://unicode.org/cldr/charts/46.1/) | [LDML46.1](https://www.unicode.org/reports/tr35/proposed.html) | [Δ46.1](https://unicode-org.atlassian.net/issues/?jql=project+%3D+CLDR+AND+status+%3D+Done+AND+resolution+%3D+Fixed+AND+fixVersion+%3D+%2246.1%22+ORDER+BY+priority+DESC) | [release-46-1-beta2](https://github.com/unicode-org/cldr/releases/tag/release-46-1-beta2) | [ΔDtd46.1](https://www.unicode.org/cldr/charts/46.1/supplemental/dtd_deltas.html) | [46.1.0-BETA1](https://github.com/unicode-org/cldr-json/releases/tag/46.1.0-BETA1) |
 
 ## Overview
 
@@ -43,6 +44,23 @@ Count | Level | Usage | Examples
 \* Note: The number of items needed for Modern and Moderate increases every release. Therefore, locales without active contributors may drop in coverage level.
 
 For a full listing, see [Coverage Levels](https://unicode.org/cldr/charts/46/supplemental/locale_coverage.html).
+
+## 46.1 Changes
+Version 46.1 is a dot release.
+The major change is to bring the Message Format 2.0 specification in Part 9 to Final Candidate status.
+The most significant changes to Message Format 2.0 are:
+- [TBD1]
+- …
+- [TBDn]
+- Updated Message Format test data
+
+Other changes include
+- More explicit well-formedness and validity constraints for unit of measurement identifiers
+- Addition of emoji annotations that were missing: skintones with emoji facing right
+- Fixes to ja, ko, zh, yue datetimeSkeletons
+- Improved datetime date time test data
+
+For a full listing, see [Δ46.1](https://unicode-org.atlassian.net/issues/?jql=project+%3D+CLDR+AND+status+%3D+Done+AND+resolution+%3D+Fixed+AND+fixVersion+%3D+%2246.1%22+ORDER+BY+priority+DESC)
 
 ## [Specification Changes](https://www.unicode.org/reports/tr35/proposed.html)
 

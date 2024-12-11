@@ -683,6 +683,309 @@ public class GenerateDateTimeTestData {
         return result;
     }
 
+
+    enum DateStyle {
+        SHORT,
+        MEDIUM,
+        LONG,
+        FULL
+    }
+
+    enum TimeStyle {
+        SHORT,
+        MEDIUM,
+        LONG,
+        FULL
+    }
+
+    enum SemanticSkeletonLength {
+        SHORT,
+        MEDIUM,
+        LONG
+    }
+
+    enum SemanticSkeleton {
+        YMDE,
+        MDTZ,
+        M,
+        T,
+        Z
+    }
+
+    enum HourCycle {
+        H12,
+        H23
+    }
+
+    enum YearStyle {
+        AUTO,
+        WITH_ERA,
+    }
+
+    enum ZoneStyle {
+        SPECIFIC,
+        GENERIC,
+        LOCATION,
+        OFFSET,
+    }
+
+
+    /**
+     * A struct to contain combinations of datetime fields & styles, mainly to allow an enumeration
+     * of combinations of values for these fields that yields a similarly thorough coverage of
+     * the test space without having to compute the full Cartesian product of all values of all
+     * dimensions possible.
+     */
+    class FieldStyleCombo {
+        SemanticSkeleton semanticSkeleton;
+        SemanticSkeletonLength semanticSkeletonLength;
+        DateStyle dateStyle;
+        TimeStyle timeStyle;
+        HourCycle hourCycle;
+        ZoneStyle zoneStyle;
+        YearStyle yearStyle;
+    }
+
+
+    /**
+     * A struct to contain the data to be used to generate combinations of datetime fields & styles
+     * and whether to combine (obtain the Cartesian product of) them by other dimensions
+     */
+    class FieldStyleComboInput {
+        FieldStyleCombo fieldStyleCombo;
+        boolean shouldMultiplyByTimeZone;
+        boolean shouldMultiplyByDateTime;
+    }
+
+    ImmutableSet<FieldStyleComboInput> getFieldStyleComboInputs() {
+        ImmutableSet.Builder<FieldStyleComboInput> builder = ImmutableSet.builder();
+
+        FieldStyleComboInput elem;
+
+        // 1 (Row 2)
+        elem = new FieldStyleComboInput();
+        elem.fieldStyleCombo.timeStyle = TimeStyle.SHORT;
+        elem.shouldMultiplyByDateTime = true;
+        builder.add(elem);
+
+        // 2 (Row 3)
+        elem = new FieldStyleComboInput();
+        elem.fieldStyleCombo = new FieldStyleCombo();
+        elem.fieldStyleCombo.dateStyle = DateStyle.MEDIUM;
+        elem.shouldMultiplyByDateTime = true;
+        builder.add(elem);
+
+        // 3
+        elem = new FieldStyleComboInput();
+        elem.fieldStyleCombo = new FieldStyleCombo();
+        elem.fieldStyleCombo.dateStyle = DateStyle.FULL;
+        elem.fieldStyleCombo.timeStyle = TimeStyle.SHORT;
+        elem.shouldMultiplyByDateTime = true;
+        builder.add(elem);
+
+        // 4
+        elem = new FieldStyleComboInput();
+        elem.fieldStyleCombo = new FieldStyleCombo();
+        elem.fieldStyleCombo.dateStyle = DateStyle.SHORT;
+        elem.fieldStyleCombo.timeStyle = TimeStyle.FULL;
+        elem.shouldMultiplyByTimeZone = true;
+        elem.shouldMultiplyByDateTime = true;
+        builder.add(elem);
+
+        // 5 (Row 6)
+        elem = new FieldStyleComboInput();
+        elem.fieldStyleCombo = new FieldStyleCombo();
+        elem.fieldStyleCombo.semanticSkeleton = SemanticSkeleton.YMDE;
+        elem.fieldStyleCombo.semanticSkeletonLength = SemanticSkeletonLength.SHORT;
+        builder.add(elem);
+
+        elem = new FieldStyleComboInput();
+        elem.fieldStyleCombo = new FieldStyleCombo();
+        elem.fieldStyleCombo.semanticSkeleton = SemanticSkeleton.YMDE;
+        elem.fieldStyleCombo.semanticSkeletonLength = SemanticSkeletonLength.MEDIUM;
+        elem.shouldMultiplyByDateTime = true;
+        builder.add(elem);
+
+        elem = new FieldStyleComboInput();
+        elem.fieldStyleCombo = new FieldStyleCombo();
+        elem.fieldStyleCombo.semanticSkeleton = SemanticSkeleton.YMDE;
+        elem.fieldStyleCombo.semanticSkeletonLength = SemanticSkeletonLength.LONG;
+        elem.shouldMultiplyByDateTime = true;
+        builder.add(elem);
+
+        elem = new FieldStyleComboInput();
+        elem.fieldStyleCombo = new FieldStyleCombo();
+        elem.fieldStyleCombo.semanticSkeleton = SemanticSkeleton.YMDE;
+        elem.fieldStyleCombo.yearStyle = YearStyle.WITH_ERA;
+        elem.fieldStyleCombo.semanticSkeletonLength = SemanticSkeletonLength.SHORT;
+        elem.shouldMultiplyByDateTime = true;
+        builder.add(elem);
+
+        elem = new FieldStyleComboInput();
+        elem.fieldStyleCombo = new FieldStyleCombo();
+        elem.fieldStyleCombo.semanticSkeleton = SemanticSkeleton.YMDE;
+        elem.fieldStyleCombo.yearStyle = YearStyle.WITH_ERA;
+        elem.fieldStyleCombo.semanticSkeletonLength = SemanticSkeletonLength.MEDIUM;
+        elem.shouldMultiplyByDateTime = true;
+        builder.add(elem);
+
+        // 10 (Row 11)
+        elem = new FieldStyleComboInput();
+        elem.fieldStyleCombo = new FieldStyleCombo();
+        elem.fieldStyleCombo.semanticSkeleton = SemanticSkeleton.YMDE;
+        elem.fieldStyleCombo.yearStyle = YearStyle.WITH_ERA;
+        elem.fieldStyleCombo.semanticSkeletonLength = SemanticSkeletonLength.LONG;
+        elem.shouldMultiplyByDateTime = true;
+        builder.add(elem);
+
+        elem = new FieldStyleComboInput();
+        elem.fieldStyleCombo = new FieldStyleCombo();
+        elem.fieldStyleCombo.zoneStyle = ZoneStyle.SPECIFIC;
+        elem.fieldStyleCombo.semanticSkeleton = SemanticSkeleton.Z;
+        elem.fieldStyleCombo.semanticSkeletonLength = SemanticSkeletonLength.LONG;
+        elem.shouldMultiplyByTimeZone = true;
+        builder.add(elem);
+
+        elem = new FieldStyleComboInput();
+        elem.fieldStyleCombo = new FieldStyleCombo();
+        elem.fieldStyleCombo.zoneStyle = ZoneStyle.LOCATION;
+        elem.fieldStyleCombo.semanticSkeleton = SemanticSkeleton.Z;
+        elem.fieldStyleCombo.semanticSkeletonLength = SemanticSkeletonLength.LONG;
+        elem.shouldMultiplyByTimeZone = true;
+        builder.add(elem);
+
+        elem = new FieldStyleComboInput();
+        elem.fieldStyleCombo = new FieldStyleCombo();
+        elem.fieldStyleCombo.zoneStyle = ZoneStyle.GENERIC;
+        elem.fieldStyleCombo.semanticSkeleton = SemanticSkeleton.Z;
+        elem.shouldMultiplyByTimeZone = true;
+        builder.add(elem);
+
+        elem = new FieldStyleComboInput();
+        elem.fieldStyleCombo = new FieldStyleCombo();
+        elem.fieldStyleCombo.zoneStyle = ZoneStyle.OFFSET;
+        elem.fieldStyleCombo.semanticSkeleton = SemanticSkeleton.Z;
+        elem.shouldMultiplyByTimeZone = true;
+        builder.add(elem);
+
+        // 15 (Row 16)
+        elem = new FieldStyleComboInput();
+        elem.fieldStyleCombo = new FieldStyleCombo();
+        elem.fieldStyleCombo.semanticSkeleton = SemanticSkeleton.MDTZ;
+        elem.fieldStyleCombo.zoneStyle = ZoneStyle.SPECIFIC;
+        elem.fieldStyleCombo.semanticSkeletonLength = SemanticSkeletonLength.SHORT;
+        elem.shouldMultiplyByTimeZone = true;
+        builder.add(elem);
+
+        elem = new FieldStyleComboInput();
+        elem.fieldStyleCombo = new FieldStyleCombo();
+        elem.fieldStyleCombo.semanticSkeleton = SemanticSkeleton.MDTZ;
+        elem.fieldStyleCombo.zoneStyle = ZoneStyle.SPECIFIC;
+        elem.fieldStyleCombo.semanticSkeletonLength = SemanticSkeletonLength.LONG;
+        elem.shouldMultiplyByTimeZone = true;
+        builder.add(elem);
+
+        elem = new FieldStyleComboInput();
+        elem.fieldStyleCombo = new FieldStyleCombo();
+        elem.fieldStyleCombo.semanticSkeleton = SemanticSkeleton.MDTZ;
+        elem.fieldStyleCombo.zoneStyle = ZoneStyle.LOCATION;
+        elem.fieldStyleCombo.semanticSkeletonLength = SemanticSkeletonLength.SHORT;
+        elem.shouldMultiplyByTimeZone = true;
+        builder.add(elem);
+
+        elem = new FieldStyleComboInput();
+        elem.fieldStyleCombo = new FieldStyleCombo();
+        elem.fieldStyleCombo.semanticSkeleton = SemanticSkeleton.MDTZ;
+        elem.fieldStyleCombo.zoneStyle = ZoneStyle.LOCATION;
+        elem.fieldStyleCombo.semanticSkeletonLength = SemanticSkeletonLength.LONG;
+        elem.shouldMultiplyByTimeZone = true;
+        builder.add(elem);
+
+        elem = new FieldStyleComboInput();
+        elem.fieldStyleCombo = new FieldStyleCombo();
+        elem.fieldStyleCombo.semanticSkeleton = SemanticSkeleton.MDTZ;
+        elem.fieldStyleCombo.zoneStyle = ZoneStyle.GENERIC;
+        elem.fieldStyleCombo.semanticSkeletonLength = SemanticSkeletonLength.SHORT;
+        elem.shouldMultiplyByTimeZone = true;
+        builder.add(elem);
+
+        // 20 (Row 21)
+        elem = new FieldStyleComboInput();
+        elem.fieldStyleCombo = new FieldStyleCombo();
+        elem.fieldStyleCombo.semanticSkeleton = SemanticSkeleton.MDTZ;
+        elem.fieldStyleCombo.zoneStyle = ZoneStyle.GENERIC;
+        elem.fieldStyleCombo.semanticSkeletonLength = SemanticSkeletonLength.LONG;
+        elem.shouldMultiplyByTimeZone = true;
+        builder.add(elem);
+
+        elem = new FieldStyleComboInput();
+        elem.fieldStyleCombo = new FieldStyleCombo();
+        elem.fieldStyleCombo.semanticSkeleton = SemanticSkeleton.MDTZ;
+        elem.fieldStyleCombo.zoneStyle = ZoneStyle.OFFSET;
+        elem.fieldStyleCombo.semanticSkeletonLength = SemanticSkeletonLength.SHORT;
+        elem.shouldMultiplyByTimeZone = true;
+        builder.add(elem);
+
+        elem = new FieldStyleComboInput();
+        elem.fieldStyleCombo = new FieldStyleCombo();
+        elem.fieldStyleCombo.semanticSkeleton = SemanticSkeleton.MDTZ;
+        elem.fieldStyleCombo.zoneStyle = ZoneStyle.OFFSET;
+        elem.fieldStyleCombo.semanticSkeletonLength = SemanticSkeletonLength.LONG;
+        elem.shouldMultiplyByTimeZone = true;
+        builder.add(elem);
+
+        elem = new FieldStyleComboInput();
+        elem.fieldStyleCombo = new FieldStyleCombo();
+        elem.fieldStyleCombo.semanticSkeleton = SemanticSkeleton.M;
+        elem.fieldStyleCombo.semanticSkeletonLength = SemanticSkeletonLength.LONG;
+        elem.shouldMultiplyByDateTime = true;
+        builder.add(elem);
+
+        elem = new FieldStyleComboInput();
+        elem.fieldStyleCombo = new FieldStyleCombo();
+        elem.fieldStyleCombo.semanticSkeleton = SemanticSkeleton.T;
+        elem.fieldStyleCombo.semanticSkeletonLength = SemanticSkeletonLength.SHORT;
+        elem.shouldMultiplyByDateTime = true;
+        builder.add(elem);
+
+        // 25 (Row 26)
+        elem = new FieldStyleComboInput();
+        elem.fieldStyleCombo = new FieldStyleCombo();
+        elem.fieldStyleCombo.semanticSkeleton = SemanticSkeleton.T;
+        elem.fieldStyleCombo.hourCycle = HourCycle.H12;
+        elem.fieldStyleCombo.semanticSkeletonLength = SemanticSkeletonLength.SHORT;
+        elem.shouldMultiplyByDateTime = true;
+        builder.add(elem);
+
+        elem = new FieldStyleComboInput();
+        elem.fieldStyleCombo = new FieldStyleCombo();
+        elem.fieldStyleCombo.semanticSkeleton = SemanticSkeleton.T;
+        elem.fieldStyleCombo.hourCycle = HourCycle.H12;
+        elem.fieldStyleCombo.semanticSkeletonLength = SemanticSkeletonLength.MEDIUM;
+        elem.shouldMultiplyByDateTime = true;
+        builder.add(elem);
+
+        elem = new FieldStyleComboInput();
+        elem.fieldStyleCombo = new FieldStyleCombo();
+        elem.fieldStyleCombo.semanticSkeleton = SemanticSkeleton.T;
+        elem.fieldStyleCombo.hourCycle = HourCycle.H12;
+        elem.fieldStyleCombo.semanticSkeletonLength = SemanticSkeletonLength.LONG;
+        elem.shouldMultiplyByDateTime = true;
+        builder.add(elem);
+
+        // 28 (Row 29)
+        elem = new FieldStyleComboInput();
+        elem.fieldStyleCombo = new FieldStyleCombo();
+        elem.fieldStyleCombo.semanticSkeleton = SemanticSkeleton.T;
+        elem.fieldStyleCombo.hourCycle = HourCycle.H23;
+        elem.fieldStyleCombo.semanticSkeletonLength = SemanticSkeletonLength.LONG;
+        elem.shouldMultiplyByDateTime = true;
+        builder.add(elem);
+
+        return builder.build();
+    }
+
+
     public static void main(String[] args) throws IOException {
         try (TempPrintWriter pw =
                 TempPrintWriter.openUTF8Writer(

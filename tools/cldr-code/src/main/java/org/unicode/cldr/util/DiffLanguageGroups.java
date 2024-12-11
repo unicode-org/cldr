@@ -356,7 +356,7 @@ public class DiffLanguageGroups {
     private static boolean handleLanguageGroups(
             String value, XPathParts parts, Multimap<String, String> languageGroups) {
         String parent = parts.getAttributeValue(-1, "parent");
-        List<String> children = SupplementalDataInfo.WHITESPACE_SPLTTER.splitToList(value);
+        List<String> children = SupplementalDataInfo.WHITESPACE_SPLITTER.splitToList(value);
         languageGroups.putAll(parent, children);
         return true;
     }

@@ -1918,7 +1918,7 @@ XXX Code for transations where no currency is involved
 		<language type="mai" scripts="Tirh" territories="IN NP" alt="secondary"/>
 		<language type="mak" scripts="Latn"/>
 		<language type="mak" scripts="Bugi" territories="ID" alt="secondary"/>
-		<language type="man" scripts="Nkoo Latn"/>
+		<language type="man" scripts="Latn Nkoo"/>
 		<language type="man" territories="GM GN" alt="secondary"/>
 		<language type="mas" scripts="Latn"/>
 		<language type="maz" scripts="Latn"/>
@@ -3147,7 +3147,8 @@ XXX Code for transations where no currency is involved
 		<territory type="GN" gdp="56660000000" literacyPercent="41" population="13986200">	<!--Guinea-->
 			<languagePopulation type="fr" populationPercent="27" officialStatus="official" references="R1352"/>	<!--French-->
 			<languagePopulation type="ff" populationPercent="26"/>	<!--Fula-->
-			<languagePopulation type="man_Nkoo" populationPercent="23"/>	<!--Mandingo (N’Ko)-->
+			<languagePopulation type="man" populationPercent="23"/>	<!--Mandingo-->
+			<languagePopulation type="man_Nkoo" writingPercent="5" populationPercent="23" references="R1021"/>	<!--Mandingo (N’Ko)-->
 			<languagePopulation type="sus" populationPercent="11"/>	<!--Susu-->
 			<languagePopulation type="nqo" populationPercent="5" references="R1286"/>	<!--N’Ko-->
 			<languagePopulation type="kpe" populationPercent="3.8"/>	<!--Kpelle-->

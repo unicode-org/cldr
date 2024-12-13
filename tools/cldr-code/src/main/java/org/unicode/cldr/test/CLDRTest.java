@@ -1048,7 +1048,8 @@ public class CLDRTest extends TestFmwk {
                 public Object transform(Object source) {
                     if (english == null) english = cldrFactory.make("en", true);
                     return english.nameGetter()
-                                    .getNameFromTypestrCode("currency", source.toString())
+                                    .getNameFromTypenumCode(
+                                            CLDRFile.CURRENCY_NAME, source.toString())
                             + " ("
                             + source
                             + ")";
@@ -1191,9 +1192,11 @@ public class CLDRTest extends TestFmwk {
             }
         }
         logln("Missing English currency names");
+        NameGetter englishNameGetter = english.nameGetter();
         for (Iterator<String> it = legalCurrencies.iterator(); it.hasNext(); ) {
             String currency = it.next();
-            String name = english.nameGetter().getNameFromTypestrCode("currency", currency);
+            String name =
+                    englishNameGetter.getNameFromTypenumCode(CLDRFile.CURRENCY_NAME, currency);
             if (name == null) {
                 String standardName = sc.getFullData("currency", currency).get(0);
                 logln("\t\t\t<currency type=\"" + currency + "\">");

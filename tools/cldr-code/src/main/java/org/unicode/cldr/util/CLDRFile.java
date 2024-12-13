@@ -2531,7 +2531,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         if (type.equalsIgnoreCase("region")) {
             type = "territory";
         }
-        for (int i = 0; i < LIMIT_TYPES; ++i) {
+        for (int i = 0; i <= LIMIT_TYPES; ++i) {
             if (type.equalsIgnoreCase(getNameName(i))) {
                 return i;
             }

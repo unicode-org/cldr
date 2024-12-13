@@ -152,7 +152,8 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
         @Override
         public String getDisplayVariant(CLDRLocale cldrLocale) {
             if (file != null)
-                return file.nameGetter().getNameFromTypestrCode("variant", cldrLocale.getVariant());
+                return file.nameGetter()
+                        .getNameFromTypenumCode(CLDRFile.VARIANT_NAME, cldrLocale.getVariant());
             return tryForBetter(super.getDisplayVariant(cldrLocale), cldrLocale.getVariant());
         }
 
@@ -181,7 +182,8 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
         @Override
         public String getDisplayScript(CLDRLocale cldrLocale) {
             if (file != null)
-                return file.nameGetter().getNameFromTypestrCode("script", cldrLocale.getScript());
+                return file.nameGetter()
+                        .getNameFromTypenumCode(CLDRFile.SCRIPT_NAME, cldrLocale.getScript());
             return tryForBetter(super.getDisplayScript(cldrLocale), cldrLocale.getScript());
         }
 
@@ -189,7 +191,7 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
         public String getDisplayLanguage(CLDRLocale cldrLocale) {
             if (file != null)
                 return file.nameGetter()
-                        .getNameFromTypestrCode("language", cldrLocale.getLanguage());
+                        .getNameFromTypenumCode(CLDRFile.LANGUAGE_NAME, cldrLocale.getLanguage());
             return tryForBetter(super.getDisplayLanguage(cldrLocale), cldrLocale.getLanguage());
         }
 
@@ -197,7 +199,7 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
         public String getDisplayCountry(CLDRLocale cldrLocale) {
             if (file != null)
                 return file.nameGetter()
-                        .getNameFromTypestrCode("territory", cldrLocale.getCountry());
+                        .getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, cldrLocale.getCountry());
             return tryForBetter(super.getDisplayLanguage(cldrLocale), cldrLocale.getLanguage());
         }
 

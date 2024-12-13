@@ -389,4 +389,23 @@ public class TestCLDRFile {
             baselineFactory.make("es_MX".toString(), true);
         }
     }
+
+    @Test
+    public void TestTypeNameToCode() {
+        assertEquals(CLDRFile.LANGUAGE_NAME, CLDRFile.typeNameToCode("language"));
+        assertEquals(CLDRFile.TERRITORY_NAME, CLDRFile.typeNameToCode("territory"));
+        assertEquals(CLDRFile.VARIANT_NAME, CLDRFile.typeNameToCode("variant"));
+        assertEquals(CLDRFile.CURRENCY_NAME, CLDRFile.typeNameToCode("currency"));
+        assertEquals(CLDRFile.CURRENCY_SYMBOL, CLDRFile.typeNameToCode("currency-symbol"));
+        assertEquals(CLDRFile.TZ_EXEMPLAR, CLDRFile.typeNameToCode("exemplar-city"));
+        assertEquals(CLDRFile.TZ_GENERIC_LONG, CLDRFile.typeNameToCode("tz-generic-long"));
+        assertEquals(CLDRFile.TZ_GENERIC_SHORT, CLDRFile.typeNameToCode("tz-generic-short"));
+        assertEquals(CLDRFile.TZ_STANDARD_LONG, CLDRFile.typeNameToCode("tz-standard-long"));
+        assertEquals(CLDRFile.TZ_STANDARD_SHORT, CLDRFile.typeNameToCode("tz-standard-short"));
+        assertEquals(CLDRFile.TZ_DAYLIGHT_LONG, CLDRFile.typeNameToCode("tz-daylight-long"));
+        assertEquals(CLDRFile.TZ_DAYLIGHT_SHORT, CLDRFile.typeNameToCode("tz-daylight-short"));
+        assertEquals(CLDRFile.KEY_NAME, CLDRFile.typeNameToCode("key"));
+        assertEquals(CLDRFile.KEY_TYPE_NAME, CLDRFile.typeNameToCode("key|type"));
+        assertEquals(CLDRFile.SUBDIVISION_NAME, CLDRFile.typeNameToCode("subdivision"));
+    }
 }

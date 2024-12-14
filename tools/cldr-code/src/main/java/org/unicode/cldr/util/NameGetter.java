@@ -38,21 +38,6 @@ public class NameGetter {
     private static final Joiner JOIN_UNDERBAR = Joiner.on('_');
 
     /**
-     * Get a name, given a type (as a String) and a code.
-     *
-     * <p>Ideally getNameFromTypestrCode and getNameFromTypenumCode should be replaced by a method
-     * that takes an enum rather than String or int. Compare StandardCodes.CodeType, and the
-     * integers defined in the vicinity of CLDRFile.TERRITORY_NAME
-     *
-     * @param type a string such as "currency", "language", "region", "script", "territory", ...
-     * @param code a code such as "JP"
-     * @return the name
-     */
-    public String getNameFromTypestrCode(String type, String code) {
-        return getNameFromTypenumCode(CLDRFile.typeNameToCode(type), code);
-    }
-
-    /**
      * Get a name, given a type (as a int) and a code.
      *
      * @param type the type such as CLDRFile.TERRITORY_NAME

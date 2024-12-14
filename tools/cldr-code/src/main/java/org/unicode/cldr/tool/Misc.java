@@ -268,8 +268,14 @@ public class Misc {
         // java.util.TimeZone t;
         StandardCodes sc = StandardCodes.make();
         NameGetter englishNameGetter = english.nameGetter();
-        for (Iterator<String> typeIt = sc.getAvailableTypes().iterator(); typeIt.hasNext(); ) {
-            String type = typeIt.next();
+        for (Iterator<StandardCodes.CodeType> typeIt = sc.getAvailableTypesEnum().iterator();
+                typeIt.hasNext(); ) {
+            StandardCodes.CodeType type = typeIt.next();
+            int typeNum = type.toCldrTypeNum();
+            if (typeNum == CLDRFile.NO_NAME) {
+                System.out.println("listObsoletes skipping " + type);
+                continue;
+            }
             System.out.println(type);
             for (Iterator<String> codeIt = sc.getAvailableCodes(type).iterator();
                     codeIt.hasNext(); ) {
@@ -277,13 +283,8 @@ public class Misc {
                 List<String> list = sc.getFullData(type, code);
                 if (list.size() < 3) continue;
                 String replacementCode = list.get(2);
-                if (replacementCode.length() == 0) continue;
-                /*
-                 * TODO: use getNameFromTypenumCode instead of getNameFromTypestrCode here.
-                 * Reference: https://unicode-org.atlassian.net/browse/CLDR-15830
-                 * type is derived from sc.getAvailableTypes()
-                 */
-                String name = englishNameGetter.getNameFromTypestrCode(type, replacementCode);
+                if (replacementCode == null || replacementCode.length() == 0) continue;
+                String name = englishNameGetter.getNameFromTypenumCode(typeNum, replacementCode);
                 System.out.println(code + " => " + replacementCode + "; " + name);
             }
         }

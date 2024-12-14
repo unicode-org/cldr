@@ -67,6 +67,23 @@ public class StandardCodes {
             }
             return CodeType.valueOf(name);
         }
+
+        public int toCldrTypeNum() {
+            switch (this) {
+                case language:
+                    return CLDRFile.LANGUAGE_NAME;
+                case script:
+                    return CLDRFile.SCRIPT_NAME;
+                case territory:
+                    return CLDRFile.TERRITORY_NAME;
+                case variant:
+                    return CLDRFile.VARIANT_NAME;
+                case currency:
+                    return CLDRFile.CURRENCY_NAME;
+                default:
+                    return CLDRFile.NO_NAME;
+            }
+        }
     }
 
     private static final Set<CodeType> TypeSet =
@@ -1022,6 +1039,27 @@ public class StandardCodes {
                     return "language";
                 default:
                     return toString();
+            }
+        }
+
+        public int toCldrTypeNum() {
+            switch (this) {
+                case region:
+                    return CLDRFile.TERRITORY_NAME;
+                case language:
+                case legacy:
+                case redundant:
+                    return CLDRFile.LANGUAGE_NAME;
+                case script:
+                    return CLDRFile.SCRIPT_NAME;
+                case variant:
+                    return CLDRFile.VARIANT_NAME;
+                case currency:
+                    return CLDRFile.CURRENCY_NAME;
+                case subdivision:
+                    return CLDRFile.SUBDIVISION_NAME;
+                default:
+                    return CLDRFile.NO_NAME;
             }
         }
 

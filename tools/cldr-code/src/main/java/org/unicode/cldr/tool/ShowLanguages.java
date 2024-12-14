@@ -2965,20 +2965,15 @@ public class ShowLanguages {
         return territory_languages;
     }
 
-    static final Map<String, String> NAME_TO_REGION = getNameToCode(CodeType.territory, "region");
+    static final Map<String, String> NAME_TO_REGION =
+            getNameToCode(CodeType.territory, CLDRFile.TERRITORY_NAME);
     static final Map<String, String> NAME_TO_CURRENCY =
-            getNameToCode(CodeType.currency, "currency");
+            getNameToCode(CodeType.currency, CLDRFile.CURRENCY_NAME);
 
-    private static SortedMap<String, String> getNameToCode(CodeType codeType, String cldrCodeType) {
+    private static SortedMap<String, String> getNameToCode(CodeType codeType, int cldrCodeType) {
         SortedMap<String, String> temp = new TreeMap<String, String>(col);
         for (String territory : StandardCodes.make().getAvailableCodes(codeType)) {
-            /*
-             * TODO: use getNameFromTypenumCode instead of getNameFromTypestrCode here.
-             * Reference: https://unicode-org.atlassian.net/browse/CLDR-15830
-             * codeType is either CodeType.territory or CodeType.currency
-             * cldrCodeType is either "region" or "currency"
-             */
-            String name = englishNameGetter.getNameFromTypestrCode(cldrCodeType, territory);
+            String name = englishNameGetter.getNameFromTypenumCode(cldrCodeType, territory);
             temp.put(name == null ? territory : name, territory);
         }
         temp = Collections.unmodifiableSortedMap(temp);

@@ -297,17 +297,18 @@ public class TestLsrvCanonicalizer extends TestFmwk {
                     }
                     CLDRFile english = CLDRConfig.getInstance().getEnglish();
                     NameGetter englishNameGetter = english.nameGetter();
-                    /*
-                     * TODO: use getNameFromTypenumCode instead of getNameFromTypestrCode here (twice).
-                     * Reference: https://unicode-org.atlassian.net/browse/CLDR-15830
-                     * typeCompat is derived from StandardCodes.LstrType.toCompatString
-                     */
-                    String typeName = englishNameGetter.getNameFromTypestrCode(typeCompat, subtag);
+                    int typeNum = type.toCldrTypeNum();
+                    if (typeNum == CLDRFile.NO_NAME) {
+                        System.out.println(
+                                "TestAgainstLanguageSubtagRegistry skipping type " + type);
+                        continue;
+                    }
+                    String typeName = englishNameGetter.getNameFromTypenumCode(typeNum, subtag);
                     String replacementName =
                             preferredValueCompat == null
                                     ? "???"
-                                    : englishNameGetter.getNameFromTypestrCode(
-                                            typeCompat, replacementString);
+                                    : englishNameGetter.getNameFromTypenumCode(
+                                            typeNum, replacementString);
                     addExceptions.add(
                             ".put(\""
                                     + subtag

@@ -1058,7 +1058,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                                     missing24only,
                                     "\n\t\t",
                                     new NameCodeTransform(
-                                            testInfo.getEnglish(), CLDRFile.TERRITORY_NAME)));
+                                            testInfo.getEnglish(), NameType.TERRITORY)));
         }
     }
 

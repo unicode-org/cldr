@@ -21,7 +21,8 @@ public enum NameType {
     KEY_TYPE,
     SUBDIVISION;
 
-    // Caution: the presence of "key|type" presents difficulties for refactoring.
+    // The order of rows must correspond to INDEX_LANGUAGE, INDEX_SCRIPT, etc.
+    // Caution: the presence of "key|type" presents complications for refactoring.
     // The row with "key|type" has four strings, while the others have three.
     private static final String[][] NameTable = {
         {"//ldml/localeDisplayNames/languages/language[@type=\"", "\"]", "language"},
@@ -42,91 +43,120 @@ public enum NameType {
         {"//ldml/localeDisplayNames/subdivisions/subdivision[@type=\"", "\"]", "subdivision"},
     };
 
-    public static NameType fromPath(String xpath) {
-        int cldrInt = getNameTypeFromTable(xpath);
-        return fromCldrInt(cldrInt);
-    }
+    /**
+     * The numeric values of these constants must correspond to the order of rows in NameTable. For
+     * example, the first row is for "language", which must match INDEX_LANGUAGE = 0. The second row
+     * is for "script", which must match INDEX_SCRIPT = 1. As a special case, the row for "key|type"
+     * must match INDEX_KEY_TYPE.
+     */
+    private static final int INDEX_NONE = -1,
+            INDEX_LANGUAGE = 0,
+            INDEX_SCRIPT = 1,
+            INDEX_TERRITORY = 2,
+            INDEX_VARIANT = 3,
+            INDEX_CURRENCY = 4,
+            INDEX_CURRENCY_SYMBOL = 5,
+            INDEX_TZ_EXEMPLAR = 6,
+            INDEX_TZ_GENERIC_LONG = 7,
+            INDEX_TZ_GENERIC_SHORT = 8,
+            INDEX_TZ_STANDARD_LONG = 9,
+            INDEX_TZ_STANDARD_SHORT = 10,
+            INDEX_TZ_DAYLIGHT_LONG = 11,
+            INDEX_TZ_DAYLIGHT_SHORT = 12,
+            INDEX_KEY = 13,
+            INDEX_KEY_TYPE = 14,
+            INDEX_SUBDIVISION = 15,
+            INDEX_MAX = 15;
 
-    @Deprecated
-    private int toCldrInt() {
+    private int nameTableIndex() {
         switch (this) {
             case NONE:
-                return CLDRFile.NO_NAME;
+                return INDEX_NONE;
             case LANGUAGE:
-                return CLDRFile.LANGUAGE_NAME;
+                return INDEX_LANGUAGE;
             case SCRIPT:
-                return CLDRFile.SCRIPT_NAME;
+                return INDEX_SCRIPT;
             case TERRITORY:
-                return CLDRFile.TERRITORY_NAME;
+                return INDEX_TERRITORY;
             case VARIANT:
-                return CLDRFile.VARIANT_NAME;
+                return INDEX_VARIANT;
             case CURRENCY:
-                return CLDRFile.CURRENCY_NAME;
+                return INDEX_CURRENCY;
             case CURRENCY_SYMBOL:
-                return CLDRFile.CURRENCY_SYMBOL;
+                return INDEX_CURRENCY_SYMBOL;
             case TZ_EXEMPLAR:
-                return CLDRFile.TZ_EXEMPLAR;
+                return INDEX_TZ_EXEMPLAR;
             case TZ_GENERIC_LONG:
-                return CLDRFile.TZ_GENERIC_LONG;
+                return INDEX_TZ_GENERIC_LONG;
             case TZ_GENERIC_SHORT:
-                return CLDRFile.TZ_GENERIC_SHORT;
+                return INDEX_TZ_GENERIC_SHORT;
             case TZ_STANDARD_LONG:
-                return CLDRFile.TZ_STANDARD_LONG;
+                return INDEX_TZ_STANDARD_LONG;
             case TZ_STANDARD_SHORT:
-                return CLDRFile.TZ_STANDARD_SHORT;
+                return INDEX_TZ_STANDARD_SHORT;
             case TZ_DAYLIGHT_LONG:
-                return CLDRFile.TZ_DAYLIGHT_LONG;
+                return INDEX_TZ_DAYLIGHT_LONG;
             case TZ_DAYLIGHT_SHORT:
-                return CLDRFile.TZ_DAYLIGHT_SHORT;
+                return INDEX_TZ_DAYLIGHT_SHORT;
             case KEY:
-                return CLDRFile.KEY_NAME;
+                return INDEX_KEY;
             case KEY_TYPE:
-                return CLDRFile.KEY_TYPE_NAME;
+                return INDEX_KEY_TYPE;
             case SUBDIVISION:
-                return CLDRFile.SUBDIVISION_NAME;
+                return INDEX_SUBDIVISION;
         }
-        throw new RuntimeException("Unrecognized NameType in toCldrInt: " + this);
+        throw new RuntimeException("Unrecognized NameType in nameTableIndex: " + this);
     }
 
-    @Deprecated
-    public static NameType fromCldrInt(int typeNum) {
-        switch (typeNum) {
-            case CLDRFile.NO_NAME:
+    private static NameType fromNameTableIndex(int index) {
+        switch (index) {
+            case INDEX_NONE:
                 return NONE;
-            case CLDRFile.LANGUAGE_NAME:
+            case INDEX_LANGUAGE:
                 return LANGUAGE;
-            case CLDRFile.SCRIPT_NAME:
+            case INDEX_SCRIPT:
                 return SCRIPT;
-            case CLDRFile.TERRITORY_NAME:
+            case INDEX_TERRITORY:
                 return TERRITORY;
-            case CLDRFile.VARIANT_NAME:
+            case INDEX_VARIANT:
                 return VARIANT;
-            case CLDRFile.CURRENCY_NAME:
+            case INDEX_CURRENCY:
                 return CURRENCY;
-            case CLDRFile.CURRENCY_SYMBOL:
+            case INDEX_CURRENCY_SYMBOL:
                 return CURRENCY_SYMBOL;
-            case CLDRFile.TZ_EXEMPLAR:
+            case INDEX_TZ_EXEMPLAR:
                 return TZ_EXEMPLAR;
-            case CLDRFile.TZ_GENERIC_LONG:
+            case INDEX_TZ_GENERIC_LONG:
                 return TZ_GENERIC_LONG;
-            case CLDRFile.TZ_GENERIC_SHORT:
+            case INDEX_TZ_GENERIC_SHORT:
                 return TZ_GENERIC_SHORT;
-            case CLDRFile.TZ_STANDARD_LONG:
+            case INDEX_TZ_STANDARD_LONG:
                 return TZ_STANDARD_LONG;
-            case CLDRFile.TZ_STANDARD_SHORT:
+            case INDEX_TZ_STANDARD_SHORT:
                 return TZ_STANDARD_SHORT;
-            case CLDRFile.TZ_DAYLIGHT_LONG:
+            case INDEX_TZ_DAYLIGHT_LONG:
                 return TZ_DAYLIGHT_LONG;
-            case CLDRFile.TZ_DAYLIGHT_SHORT:
+            case INDEX_TZ_DAYLIGHT_SHORT:
                 return TZ_DAYLIGHT_SHORT;
-            case CLDRFile.KEY_NAME:
+            case INDEX_KEY:
                 return KEY;
-            case CLDRFile.KEY_TYPE_NAME:
+            case INDEX_KEY_TYPE:
                 return KEY_TYPE;
-            case CLDRFile.SUBDIVISION_NAME:
+            case INDEX_SUBDIVISION:
                 return SUBDIVISION;
         }
-        throw new RuntimeException("Unrecognized typeNum in fromCldrInt: " + typeNum);
+        throw new RuntimeException("Unrecognized index in fromNameTableIndex: " + index);
+    }
+
+    /**
+     * Get the NameType corresponding to the given path.
+     *
+     * @param xpath the given path, such as "//ldml/localeDisplayNames/scripts/script[@type=\""
+     * @return the NameType, such as SCRIPT
+     */
+    public static NameType fromPath(String xpath) {
+        int index = getIndexFromTable(xpath);
+        return fromNameTableIndex(index);
     }
 
     /**
@@ -150,8 +180,9 @@ public enum NameType {
                 code = CLDRFile.getLongTzid(code);
                 break;
         }
-        String[] nameTableRow = NameTable[this.toCldrInt()];
+        String[] nameTableRow = NameTable[this.nameTableIndex()];
         if (code.contains("|")) {
+            // Special handling for "key|type" for KEY_TYPE
             String[] codes = code.split("\\|");
             return nameTableRow[0]
                     + CLDRFile.fixKeyName(codes[0])
@@ -164,14 +195,14 @@ public enum NameType {
     }
 
     public String getNameName() {
-        int index = this.toCldrInt();
+        int index = this.nameTableIndex();
         String[] nameTableRow = NameTable[index];
         return nameTableRow[nameTableRow.length - 1];
     }
 
     /** Gets the display name for a type */
     public String getNameTypeName() {
-        int index = this.toCldrInt();
+        int index = this.nameTableIndex();
         try {
             String[] nameTableRow = NameTable[index];
             return nameTableRow[nameTableRow.length - 1];
@@ -189,11 +220,11 @@ public enum NameType {
      * @return the code, or null if not found
      */
     public static String getCode(String path) {
-        int type = getNameTypeFromTable(path);
-        if (type == CLDRFile.NO_NAME) {
+        int index = getIndexFromTable(path);
+        if (index == INDEX_NONE) {
             throw new IllegalArgumentException("Illegal type in path: " + path);
         }
-        String[] nameTableRow = NameTable[type];
+        String[] nameTableRow = NameTable[index];
         int start = nameTableRow[0].length();
         int end = path.indexOf(nameTableRow[1], start);
         return path.substring(start, end);
@@ -207,19 +238,19 @@ public enum NameType {
         if (typeString.equalsIgnoreCase("region")) {
             typeString = "territory";
         }
-        int cldrInt = -1;
-        for (int i = 0; i <= CLDRFile.LIMIT_TYPES; ++i) {
+        int index = INDEX_NONE;
+        for (int i = 0; i <= INDEX_MAX; ++i) {
             String[] nameTableRow = NameTable[i];
             String s = nameTableRow[nameTableRow.length - 1];
             if (typeString.equalsIgnoreCase(s)) {
-                cldrInt = i;
+                index = i;
                 break;
             }
         }
-        if (cldrInt == -1) {
+        if (index == INDEX_NONE) {
             return NONE;
         }
-        return fromCldrInt(cldrInt);
+        return fromNameTableIndex(index);
     }
 
     /**
@@ -230,15 +261,15 @@ public enum NameType {
      * @return the string
      */
     public String getPathStart() {
-        int index = this.toCldrInt();
+        int index = this.nameTableIndex();
         return NameTable[index][0];
     }
 
-    private static int getNameTypeFromTable(String xpath) {
+    private static int getIndexFromTable(String xpath) {
         for (int i = 0; i < NameTable.length; ++i) {
             if (!xpath.startsWith(NameTable[i][0])) continue;
             if (xpath.indexOf(NameTable[i][1], NameTable[i][0].length()) >= 0) return i;
         }
-        return CLDRFile.NO_NAME;
+        return INDEX_NONE;
     }
 }

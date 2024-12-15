@@ -22,6 +22,7 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.PluralRulesUtil;
@@ -577,7 +578,7 @@ public class CheckNumbers extends FactoryCheckCLDR {
     private void checkCurrencyFormats(
             String path, String fullPath, String value, List result, boolean generateExamples)
             throws ParseException {
-        DecimalFormat x = icuServiceBuilder.getCurrencyFormat(CLDRFile.getCode(path));
+        DecimalFormat x = icuServiceBuilder.getCurrencyFormat(NameType.getCode(path));
         addOrTestSamples(x, x.toPattern(), value, result, generateExamples);
     }
 

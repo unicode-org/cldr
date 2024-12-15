@@ -2502,7 +2502,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      */
     public static String getCode(String path) {
         int type = getNameType(path);
-        if (type < 0) {
+        if (type == NO_NAME) {
             throw new IllegalArgumentException("Illegal type in path: " + path);
         }
         String[] nameTableRow = NameTable[type];

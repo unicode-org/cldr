@@ -212,11 +212,6 @@ public class TimezoneFormatter extends UFormat {
         return desiredLocaleFile.getWinningValue(cleanPath);
     }
 
-    private String getName(int territory_name, String country, boolean skipDraft2) {
-        checkForDraft(CLDRFile.getKey(territory_name, country));
-        return desiredLocaleFile.nameGetter().getNameFromTypenumCode(territory_name, country);
-    }
-
     private void checkForDraft(String cleanPath) {
         String xpath = desiredLocaleFile.getFullXPath(cleanPath);
 

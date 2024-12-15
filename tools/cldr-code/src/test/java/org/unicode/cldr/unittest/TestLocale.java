@@ -44,6 +44,7 @@ import org.unicode.cldr.util.LocaleValidator;
 import org.unicode.cldr.util.LocaleValidator.AllowedMatch;
 import org.unicode.cldr.util.LocaleValidator.AllowedValid;
 import org.unicode.cldr.util.NameGetter;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.StandardCodes;
@@ -238,15 +239,15 @@ public class TestLocale extends TestFmwkPlus {
             if (!xpath.startsWith("//ldml/localeDisplayNames/")) {
                 continue;
             }
-            switch (CLDRFile.getNameType(xpath)) {
-                case 0:
-                    checkLocale("English xpath", CLDRFile.getCode(xpath), ltp);
+            switch (NameType.getNameType(xpath)) {
+                case LANGUAGE:
+                    checkLocale("English xpath", NameType.getCode(xpath), ltp);
                     break;
-                case 1:
-                    checkScript("English xpath", CLDRFile.getCode(xpath));
+                case SCRIPT:
+                    checkScript("English xpath", NameType.getCode(xpath));
                     break;
-                case 2:
-                    checkRegion("English xpath", CLDRFile.getCode(xpath));
+                case TERRITORY:
+                    checkRegion("English xpath", NameType.getCode(xpath));
                     break;
             }
         }
@@ -455,7 +456,8 @@ public class TestLocale extends TestFmwkPlus {
                 continue;
             }
             int typeCode = CLDRFile.typeNameToCode(row[0]);
-            String path = CLDRFile.getKey(typeCode, row[1]);
+            NameType nameType = NameType.fromCldrInt(typeCode);
+            String path = nameType.getKeyPath(row[1]);
             dxs.putValueAtDPath(path, row[2]);
         }
         // create a cldrfile from it and test
@@ -479,15 +481,17 @@ public class TestLocale extends TestFmwkPlus {
         for (String[] row : tests) {
             if (row[0] != null) {
                 int typeCode = CLDRFile.typeNameToCode(row[0]);
-                String standAlone = nameGetter.getNameFromTypenumCode(typeCode, row[1]);
+                NameType nameType = NameType.fromCldrInt(typeCode);
+                String standAlone = nameGetter.getNameFromTypeEnumCode(nameType, row[1]);
                 logln(typeCode + ": " + standAlone);
                 if (!assertEquals("stand-alone " + row[3], row[2], standAlone)) {
                     typeCode = CLDRFile.typeNameToCode(row[0]);
-                    standAlone = nameGetter.getNameFromTypenumCode(typeCode, row[1]);
+                    nameType = NameType.fromCldrInt(typeCode);
+                    standAlone = nameGetter.getNameFromTypeEnumCode(nameType, row[1]);
                 }
 
                 if (row[5] != null) {
-                    String path = CLDRFile.getKey(typeCode, row[1]);
+                    String path = nameType.getKeyPath(row[1]);
                     String example = eg.getExampleHtml(path, "?" + row[2] + "?");
                     assertEquals("example " + row[3], row[5], ExampleGenerator.simplify(example));
                 }

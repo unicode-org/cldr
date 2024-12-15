@@ -117,4 +117,13 @@ public enum NameType {
     public String getNameTypeName() {
         return CLDRFile.getNameTypeName(this.toCldrInt());
     }
+
+    public static String getCode(String path) {
+        return CLDRFile.getCode(path);
+    }
+
+    public static NameType getNameType(String xpath) {
+        int cldrInt = CLDRFile.getNameType(xpath);
+        return fromCldrInt(cldrInt);
+    }
 }

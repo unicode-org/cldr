@@ -112,7 +112,7 @@ public class TestCLDRUtils extends TestFmwk {
         assertEquals(
                 "Test variant formatting uncombinedLong " + locale,
                 uncombinedLong,
-                frenchNameGetter.getNameFromIndentifierCompoundOnly(locale));
+                frenchNameGetter.getNameFromIdentifierCompoundOnly(locale));
         assertEquals(
                 "Test variant formatting uncombinedShort " + locale,
                 uncombinedShort,

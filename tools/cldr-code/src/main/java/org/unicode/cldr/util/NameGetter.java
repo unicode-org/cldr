@@ -67,11 +67,11 @@ public class NameGetter {
      * @return the name of the given identifier
      */
     public synchronized String getNameFromIdentifier(String localeOrTZID) {
-        return getNameFromIndentifierOpt(localeOrTZID, NameOpt.DEFAULT);
+        return getNameFromIdentifierOpt(localeOrTZID, NameOpt.DEFAULT);
     }
 
-    public String getNameFromIndentifierCompoundOnly(String localeOrTZID) {
-        return getNameFromIndentifierOpt(localeOrTZID, NameOpt.COMPOUND_ONLY);
+    public String getNameFromIdentifierCompoundOnly(String localeOrTZID) {
+        return getNameFromIdentifierOpt(localeOrTZID, NameOpt.COMPOUND_ONLY);
     }
 
     /**
@@ -84,7 +84,7 @@ public class NameGetter {
      *     English"
      * @return the name of the given identifier
      */
-    public synchronized String getNameFromIndentifierOpt(String localeOrTZID, NameOpt nameOpt) {
+    public synchronized String getNameFromIdentifierOpt(String localeOrTZID, NameOpt nameOpt) {
         return getNameFromIdentifierOptAlt(localeOrTZID, nameOpt, null);
     }
 

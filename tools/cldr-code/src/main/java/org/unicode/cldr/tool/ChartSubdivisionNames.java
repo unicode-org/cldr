@@ -102,7 +102,7 @@ public class ChartSubdivisionNames extends Chart {
             if (locale.startsWith("en")) {
                 int debug = 0;
             }
-            String name = ENGLISH.nameGetter().getNameFromIndentifierCompoundOnly(locale);
+            String name = ENGLISH.nameGetter().getNameFromIdentifierCompoundOnly(locale);
             int baseEnd = locale.indexOf('_');
             ULocale loc = new ULocale(baseEnd < 0 ? locale : locale.substring(0, baseEnd));
             LanguageGroup group = LanguageGroup.get(loc);
@@ -113,7 +113,7 @@ public class ChartSubdivisionNames extends Chart {
         for (Entry<LanguageGroup, Set<R3<Integer, String, String>>> groupPairs :
                 groupToNameAndCodeSorted.keyValuesSet()) {
             LanguageGroup group = groupPairs.getKey();
-            String ename = ENGLISH.nameGetter().getNameFromIndentifierCompoundOnly("en");
+            String ename = ENGLISH.nameGetter().getNameFromIdentifierCompoundOnly("en");
             nameToCode.clear();
             nameToCode.put(ename, "en"); // always have english first
 

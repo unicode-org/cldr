@@ -236,7 +236,7 @@ public class GenerateLocaleIDTestData {
         Map<String, String> displayNames = new TreeMap<>();
         for (String locale : locales) {
             String name =
-                    formattingLocaleFile.nameGetter().getNameFromIndentifierOpt(locale, nameOpt);
+                    formattingLocaleFile.nameGetter().getNameFromIdentifierOpt(locale, nameOpt);
             if (name.contains("null")) {
                 System.err.println("** REPLACE: " + locale + "; " + name);
             } else {

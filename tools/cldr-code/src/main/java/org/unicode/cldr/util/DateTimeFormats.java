@@ -1101,8 +1101,7 @@ public class DateTimeFormats {
                 continue;
             }
             sorted.put(
-                    englishFile.nameGetter().getNameFromIndentifierCompoundOnly(localeID),
-                    localeID);
+                    englishFile.nameGetter().getNameFromIdentifierCompoundOnly(localeID), localeID);
         }
 
         writeCss(DIR);

@@ -292,8 +292,7 @@ public class CheckYear {
                 continue;
             }
             sorted.put(
-                    englishFile.nameGetter().getNameFromIndentifierCompoundOnly(localeID),
-                    localeID);
+                    englishFile.nameGetter().getNameFromIdentifierCompoundOnly(localeID), localeID);
             data.put(localeID, new LocaleInfo());
         }
 

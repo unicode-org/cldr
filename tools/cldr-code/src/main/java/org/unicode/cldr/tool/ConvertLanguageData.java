@@ -993,7 +993,7 @@ public class ConvertLanguageData {
         public String getLanguageName() {
             String cldrResult =
                     getExcelQuote(
-                            englishNameGetter.getNameFromIndentifierCompoundOnly(languageCode));
+                            englishNameGetter.getNameFromIdentifierCompoundOnly(languageCode));
             //            String result = getLanguageName2();
             //            if (!result.equalsIgnoreCase(cldrResult)) {
             //                if (null == oldToFixed.put(result, cldrResult)) {
@@ -2561,7 +2561,7 @@ public class ConvertLanguageData {
     }
 
     private static String getULocaleLocaleName(String languageCode) {
-        return englishNameGetter.getNameFromIndentifierCompoundOnly(languageCode);
+        return englishNameGetter.getNameFromIdentifierCompoundOnly(languageCode);
         // return new ULocale(languageCode).getDisplayName();
     }
 

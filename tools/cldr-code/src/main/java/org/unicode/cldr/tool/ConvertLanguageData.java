@@ -439,8 +439,8 @@ public class ConvertLanguageData {
             BasicLanguageData.Type oldValue = oldDataToType.get(s);
             BasicLanguageData.Type newValue = newDataToType.get(s);
             if (!CldrUtility.equals(oldValue, newValue)) {
-                int code = s.length() == 4 ? CLDRFile.SCRIPT_NAME : CLDRFile.TERRITORY_NAME;
-                String name = englishNameGetter.getNameFromTypenumCode(code, s);
+                NameType nameType = s.length() == 4 ? NameType.SCRIPT : NameType.TERRITORY;
+                String name = englishNameGetter.getNameFromTypeEnumCode(nameType, s);
                 temp.setLength(0);
                 temp.append("[").append(s).append(":").append(name).append("] ");
                 if (oldValue == null) {

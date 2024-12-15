@@ -272,8 +272,8 @@ public class Misc {
         for (Iterator<StandardCodes.CodeType> typeIt = sc.getAvailableTypesEnum().iterator();
                 typeIt.hasNext(); ) {
             StandardCodes.CodeType type = typeIt.next();
-            int typeNum = type.toCldrTypeNum();
-            if (typeNum == CLDRFile.NO_NAME) {
+            NameType nameType = type.toNameType();
+            if (nameType == NameType.NONE) {
                 System.out.println("listObsoletes skipping " + type);
                 continue;
             }
@@ -285,7 +285,7 @@ public class Misc {
                 if (list.size() < 3) continue;
                 String replacementCode = list.get(2);
                 if (replacementCode == null || replacementCode.length() == 0) continue;
-                String name = englishNameGetter.getNameFromTypenumCode(typeNum, replacementCode);
+                String name = englishNameGetter.getNameFromTypeEnumCode(nameType, replacementCode);
                 System.out.println(code + " => " + replacementCode + "; " + name);
             }
         }

@@ -2655,97 +2655,6 @@ public class ShowLanguages {
             return contains;
         }
 
-        /**
-         * @param table TODO
-         */
-        public void printMissing(PrintWriter pw, int source, int table) {
-            Set<String> missingItems = new HashSet<>();
-            String type = null;
-            if (source == CLDRFile.TERRITORY_NAME) {
-                type = "territory";
-                missingItems.addAll(sc.getAvailableCodes(type));
-                missingItems.removeAll(territory_languages.keySet());
-                missingItems.removeAll(supplementalDataInfo.getContainmentCore().keySet());
-                missingItems.remove("200"); // czechoslovakia
-            } else if (source == CLDRFile.SCRIPT_NAME) {
-                type = "script";
-                missingItems.addAll(sc.getAvailableCodes(type));
-                missingItems.removeAll(script_languages.keySet());
-            } else if (source == CLDRFile.LANGUAGE_NAME) {
-                type = "language";
-                missingItems.addAll(sc.getAvailableCodes(type));
-                if (table == CLDRFile.SCRIPT_NAME)
-                    missingItems.removeAll(language_scripts.keySet());
-                if (table == CLDRFile.TERRITORY_NAME)
-                    missingItems.removeAll(language_territories.keySet());
-            } else {
-                throw new IllegalArgumentException("Illegal code");
-            }
-            Set<String> missingItemsNamed = new TreeSet<String>(col);
-            for (Iterator<String> it = missingItems.iterator(); it.hasNext(); ) {
-                String item = it.next();
-                List<String> data = sc.getFullData(type, item);
-                if (data.get(0).equals("PRIVATE USE")) continue;
-                if (data.size() < 3) continue;
-                if (!"".equals(data.get(2))) continue;
-                NameType nameType = NameType.fromCldrInt(source);
-                String itemName = getName(nameType, item, true);
-                missingItemsNamed.add(itemName);
-            }
-            pw.println("<div align='center'><table>");
-            for (Iterator<String> it = missingItemsNamed.iterator(); it.hasNext(); ) {
-                pw.println("<tr><td class='target'>" + it.next() + "</td></tr>");
-            }
-            pw.println("</table></div>");
-        }
-
-        // source, eg english.TERRITORY_NAME
-        // target, eg english.LANGUAGE_NAME
-        public void print(PrintWriter pw, int source, int target) {
-            Multimap<String, String> data =
-                    source == CLDRFile.TERRITORY_NAME && target == CLDRFile.LANGUAGE_NAME
-                            ? territory_languages
-                            : source == CLDRFile.LANGUAGE_NAME && target == CLDRFile.TERRITORY_NAME
-                                    ? language_territories
-                                    : source == CLDRFile.SCRIPT_NAME
-                                                    && target == CLDRFile.LANGUAGE_NAME
-                                            ? script_languages
-                                            : source == CLDRFile.LANGUAGE_NAME
-                                                            && target == CLDRFile.SCRIPT_NAME
-                                                    ? language_scripts
-                                                    : null;
-            // transform into names, and sort
-            Map<String, Set<String>> territory_languageNames =
-                    new TreeMap<String, Set<String>>(col);
-            for (Iterator<String> it = data.keySet().iterator(); it.hasNext(); ) {
-                String territory = it.next();
-                String territoryName = getName(NameType.fromCldrInt(source), territory, true);
-                Set<String> s = territory_languageNames.get(territoryName);
-                if (s == null)
-                    territory_languageNames.put(territoryName, s = new TreeSet<String>(col));
-                for (Iterator<String> it2 = data.get(territory).iterator(); it2.hasNext(); ) {
-                    String language = it2.next();
-                    String languageName = getName(NameType.fromCldrInt(target), language, true);
-                    s.add(languageName);
-                }
-            }
-
-            pw.println("<div align='center'><table>");
-
-            for (Iterator<String> it = territory_languageNames.keySet().iterator();
-                    it.hasNext(); ) {
-                String territoryName = it.next();
-                pw.println("<tr><td class='source' colspan='2'>" + territoryName + "</td></tr>");
-                Set<String> s = territory_languageNames.get(territoryName);
-                for (Iterator<String> it2 = s.iterator(); it2.hasNext(); ) {
-                    String languageName = it2.next();
-                    pw.println(
-                            "<tr><td>&nbsp;</td><td class='target'>" + languageName + "</td></tr>");
-                }
-            }
-            pw.println("</table></div>");
-        }
-
         private String getName(NameType nameType, String oldcode, boolean codeFirst) {
             if (oldcode.contains(" ")) {
                 String[] result = oldcode.split("\\s+");
@@ -2957,14 +2866,14 @@ public class ShowLanguages {
     }
 
     static final Map<String, String> NAME_TO_REGION =
-            getNameToCode(CodeType.territory, CLDRFile.TERRITORY_NAME);
+            getNameToCode(CodeType.territory, NameType.TERRITORY);
     static final Map<String, String> NAME_TO_CURRENCY =
-            getNameToCode(CodeType.currency, CLDRFile.CURRENCY_NAME);
+            getNameToCode(CodeType.currency, NameType.CURRENCY);
 
-    private static SortedMap<String, String> getNameToCode(CodeType codeType, int cldrCodeType) {
+    private static SortedMap<String, String> getNameToCode(CodeType codeType, NameType nameType) {
         SortedMap<String, String> temp = new TreeMap<String, String>(col);
         for (String territory : StandardCodes.make().getAvailableCodes(codeType)) {
-            String name = englishNameGetter.getNameFromTypenumCode(cldrCodeType, territory);
+            String name = englishNameGetter.getNameFromTypeEnumCode(nameType, territory);
             temp.put(name == null ? territory : name, territory);
         }
         temp = Collections.unmodifiableSortedMap(temp);

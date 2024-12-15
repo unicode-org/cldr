@@ -19,6 +19,7 @@ import org.unicode.cldr.util.LsrvCanonicalizer.ReplacementRule;
 import org.unicode.cldr.util.LsrvCanonicalizer.TestDataTypes;
 import org.unicode.cldr.util.LsrvCanonicalizer.XLanguageTag;
 import org.unicode.cldr.util.NameGetter;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.LstrField;
 import org.unicode.cldr.util.StandardCodes.LstrType;
@@ -297,18 +298,18 @@ public class TestLsrvCanonicalizer extends TestFmwk {
                     }
                     CLDRFile english = CLDRConfig.getInstance().getEnglish();
                     NameGetter englishNameGetter = english.nameGetter();
-                    int typeNum = type.toCldrTypeNum();
-                    if (typeNum == CLDRFile.NO_NAME) {
+                    NameType nameType = type.toNameType();
+                    if (nameType == NameType.NONE) {
                         System.out.println(
                                 "TestAgainstLanguageSubtagRegistry skipping type " + type);
                         continue;
                     }
-                    String typeName = englishNameGetter.getNameFromTypenumCode(typeNum, subtag);
+                    String typeName = englishNameGetter.getNameFromTypeEnumCode(nameType, subtag);
                     String replacementName =
                             preferredValueCompat == null
                                     ? "???"
-                                    : englishNameGetter.getNameFromTypenumCode(
-                                            typeNum, replacementString);
+                                    : englishNameGetter.getNameFromTypeEnumCode(
+                                            nameType, replacementString);
                     addExceptions.add(
                             ".put(\""
                                     + subtag

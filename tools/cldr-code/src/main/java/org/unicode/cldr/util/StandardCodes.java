@@ -68,20 +68,20 @@ public class StandardCodes {
             return CodeType.valueOf(name);
         }
 
-        public int toCldrTypeNum() {
+        public NameType toNameType() {
             switch (this) {
                 case language:
-                    return CLDRFile.LANGUAGE_NAME;
+                    return NameType.LANGUAGE;
                 case script:
-                    return CLDRFile.SCRIPT_NAME;
+                    return NameType.SCRIPT;
                 case territory:
-                    return CLDRFile.TERRITORY_NAME;
+                    return NameType.TERRITORY;
                 case variant:
-                    return CLDRFile.VARIANT_NAME;
+                    return NameType.VARIANT;
                 case currency:
-                    return CLDRFile.CURRENCY_NAME;
+                    return NameType.CURRENCY;
                 default:
-                    return CLDRFile.NO_NAME;
+                    return NameType.NONE;
             }
         }
     }
@@ -1042,24 +1042,24 @@ public class StandardCodes {
             }
         }
 
-        public int toCldrTypeNum() {
+        public NameType toNameType() {
             switch (this) {
                 case region:
-                    return CLDRFile.TERRITORY_NAME;
+                    return NameType.TERRITORY;
                 case language:
                 case legacy:
                 case redundant:
-                    return CLDRFile.LANGUAGE_NAME;
+                    return NameType.LANGUAGE;
                 case script:
-                    return CLDRFile.SCRIPT_NAME;
+                    return NameType.SCRIPT;
                 case variant:
-                    return CLDRFile.VARIANT_NAME;
+                    return NameType.VARIANT;
                 case currency:
-                    return CLDRFile.CURRENCY_NAME;
+                    return NameType.CURRENCY;
                 case subdivision:
-                    return CLDRFile.SUBDIVISION_NAME;
+                    return NameType.SUBDIVISION;
                 default:
-                    return CLDRFile.NO_NAME;
+                    return NameType.NONE;
             }
         }
 

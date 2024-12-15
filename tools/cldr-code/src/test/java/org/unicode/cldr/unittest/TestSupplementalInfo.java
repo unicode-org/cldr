@@ -1064,16 +1064,16 @@ public class TestSupplementalInfo extends TestFmwkPlus {
 
     public static class NameCodeTransform implements StringTransform {
         private final CLDRFile file;
-        private final int codeType;
+        private final NameType nameType;
 
-        public NameCodeTransform(CLDRFile file, int code) {
+        public NameCodeTransform(CLDRFile file, NameType nameType) {
             this.file = file;
-            this.codeType = code;
+            this.nameType = nameType;
         }
 
         @Override
         public String transform(String code) {
-            return file.nameGetter().getNameFromTypenumCode(codeType, code) + " [" + code + "]";
+            return file.nameGetter().getNameFromTypeEnumCode(nameType, code) + " [" + code + "]";
         }
     }
 

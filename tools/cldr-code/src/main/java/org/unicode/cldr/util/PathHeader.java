@@ -2200,8 +2200,7 @@ public class PathHeader implements Comparable<PathHeader> {
                 languageOnlyPart = s;
             }
             final String name =
-                    englishNameGetter.getNameFromTypenumCode(
-                            CLDRFile.LANGUAGE_NAME, languageOnlyPart);
+                    englishNameGetter.getNameFromTypeEnumCode(NameType.LANGUAGE, languageOnlyPart);
             return name == null ? "?" : name.substring(0, 1).toUpperCase();
         }
 

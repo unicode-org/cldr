@@ -10,7 +10,6 @@ import com.google.common.collect.Sets;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
-import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R4;
 import com.ibm.icu.text.CompactDecimalFormat;
 import com.ibm.icu.text.CompactDecimalFormat.CompactStyle;
@@ -368,48 +367,6 @@ public class TestCoverageLevel extends TestFmwkPlus {
     static final Date NOW = new Date();
 
     private static final boolean DEBUG = false;
-
-    static class TypeName implements Transform<String, String> {
-        private final int field;
-        private final Map<String, R2<List<String>, String>> dep;
-
-        public TypeName(int field) {
-            this.field = field;
-            switch (field) {
-                case CLDRFile.LANGUAGE_NAME:
-                    dep = SDI.getLocaleAliasInfo().get("language");
-                    break;
-                case CLDRFile.TERRITORY_NAME:
-                    dep = SDI.getLocaleAliasInfo().get("territory");
-                    break;
-                case CLDRFile.SCRIPT_NAME:
-                    dep = SDI.getLocaleAliasInfo().get("script");
-                    break;
-                default:
-                    dep = null;
-                    break;
-            }
-        }
-
-        @Override
-        public String transform(String source) {
-            String result = ENGLISH.nameGetter().getNameFromTypenumCode(field, source);
-            String extra = "";
-            if (field == CLDRFile.LANGUAGE_NAME) {
-                String lang = isBigLanguage(source);
-                extra = lang == null ? "X" : lang;
-            } else if (field == CLDRFile.CURRENCY_NAME) {
-                Date last = currencyToLast.get(source);
-                extra = last == null ? "?" : last.compareTo(NOW) < 0 ? "old" : "";
-            }
-            R2<List<String>, String> depValue = dep == null ? null : dep.get(source);
-            if (depValue != null) {
-                extra += extra.isEmpty() ? "" : "-";
-                extra += depValue.get1();
-            }
-            return result + (extra.isEmpty() ? "" : "\t" + extra);
-        }
-    }
 
     RegexLookup<Level> exceptions =
             RegexLookup.of(

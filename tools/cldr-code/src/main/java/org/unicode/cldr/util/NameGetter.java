@@ -48,19 +48,6 @@ public class NameGetter {
         return getNameFromTypeCodeTransformPaths(type, code, null, null);
     }
 
-    /**
-     * Get a name, given a type (as a int) and a code.
-     *
-     * @param type the type (integer) such as CLDRFile.TERRITORY_NAME
-     * @param code a code such as "JP"
-     * @return the name
-     */
-    @Deprecated
-    public String getNameFromTypenumCode(int type, String code) {
-        NameType nameType = NameType.fromCldrInt(type);
-        return getNameFromTypeCodeTransformPaths(nameType, code, null, null);
-    }
-
     public String getNameFromTypeCodeAltpicker(
             NameType type, String code, Transform<String, String> altPicker) {
         return getNameFromTypeCodeTransformPaths(type, code, altPicker, null);

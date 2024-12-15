@@ -144,10 +144,11 @@ public class TestScriptMetadata extends TestFmwkPlus {
 
     // lifted from ShowLanguages
     private static Set<String> getEnglishTypes(
-            String type, int code, StandardCodes sc, CLDRFile english) {
+            String type, NameType nameType, StandardCodes sc, CLDRFile english) {
         Set<String> result = new HashSet<>(sc.getSurveyToolDisplayCodes(type));
-        for (Iterator<String> it = english.getAvailableIterator(code); it.hasNext(); ) {
-            XPathParts parts = XPathParts.getFrozenInstance(it.next());
+        for (Iterator<String> it = english.getAvailableIterator(nameType); it.hasNext(); ) {
+            String xpath = it.next();
+            XPathParts parts = XPathParts.getFrozenInstance(xpath);
             String newType = parts.getAttributeValue(-1, "type");
             if (!result.contains(newType)) {
                 result.add(newType);
@@ -158,7 +159,7 @@ public class TestScriptMetadata extends TestFmwkPlus {
 
     // lifted from ShowLanguages
     private static Set<String> getScriptsToShow(StandardCodes sc, CLDRFile english) {
-        return getEnglishTypes("script", CLDRFile.SCRIPT_NAME, sc, english);
+        return getEnglishTypes("script", NameType.SCRIPT, sc, english);
     }
 
     public void TestShowLanguages() {

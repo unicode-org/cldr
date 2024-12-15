@@ -399,12 +399,12 @@ public class ShowLanguages {
     }
 
     private static Set<String> getLanguagesToShow() {
-        return getEnglishTypes("language", CLDRFile.LANGUAGE_NAME);
+        return getEnglishTypes("language", NameType.LANGUAGE);
     }
 
-    private static Set<String> getEnglishTypes(String type, int code) {
+    private static Set<String> getEnglishTypes(String type, NameType nameType) {
         Set<String> result = new HashSet<>(sc.getSurveyToolDisplayCodes(type));
-        for (Iterator<String> it = english.getAvailableIterator(code); it.hasNext(); ) {
+        for (Iterator<String> it = english.getAvailableIterator(nameType); it.hasNext(); ) {
             XPathParts parts = XPathParts.getFrozenInstance(it.next());
             String newType = parts.getAttributeValue(-1, "type");
             if (!result.contains(newType)) {
@@ -415,7 +415,7 @@ public class ShowLanguages {
     }
 
     private static Set<String> getScriptsToShow() {
-        return getEnglishTypes("script", CLDRFile.SCRIPT_NAME);
+        return getEnglishTypes("script", NameType.SCRIPT);
     }
 
     private static void printScriptLanguageTerritory(LanguageInfo linfo, PrintWriter pw)

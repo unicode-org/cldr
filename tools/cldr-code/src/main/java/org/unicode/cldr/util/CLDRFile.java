@@ -2420,8 +2420,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         {"//ldml/localeDisplayNames/subdivisions/subdivision[@type=\"", "\"]", "subdivision"},
     };
 
-    public Iterator<String> getAvailableIterator(int type) {
-        return iterator(NameTable[type][0]);
+    public Iterator<String> getAvailableIterator(NameType type) {
+        int cldrInt = type.toCldrInt();
+        return iterator(NameTable[cldrInt][0]);
     }
 
     /**

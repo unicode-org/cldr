@@ -860,7 +860,7 @@ public class PathDescription {
 
     private static final StandardCodes STANDARD_CODES = StandardCodes.make();
     private static final Map<String, String> ZONE2COUNTRY =
-            STANDARD_CODES.zoneParser.getZoneToCounty();
+            STANDARD_CODES.zoneParser.getZoneToCountry();
 
     static RegexLookup<String> parseLookupString() {
         return new RegexLookup<String>().loadFromString(pathDescriptionString);

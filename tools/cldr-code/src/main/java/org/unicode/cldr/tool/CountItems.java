@@ -321,7 +321,7 @@ public class CountItems {
     public static void genSupplementalZoneData(boolean skipUnaliased) throws IOException {
         RuleBasedCollator col = CollatorHelper.ROOT_NUMERIC;
         StandardCodes sc = StandardCodes.make();
-        Map<String, String> zone_country = sc.getZoneToCounty();
+        Map<String, String> zone_country = sc.getZoneToCountry();
         Map<String, Set<String>> country_zone = sc.getCountryToZoneSet();
         Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
         CLDRFile english = cldrFactory.make("en", true);
@@ -433,7 +433,7 @@ public class CountItems {
         CLDRConfig testInfo = ToolConfig.getToolInstance();
         Map<String, Map<String, String>> map =
                 testInfo.getSupplementalDataInfo().getMetazoneToRegionToZone();
-        Map zoneToCountry = StandardCodes.make().getZoneToCounty();
+        Map zoneToCountry = StandardCodes.make().getZoneToCountry();
         Set<Pair<String, String>> results = new TreeSet<>();
         Map<String, String> countryToContinent =
                 getCountryToContinent(testInfo.getSupplementalDataInfo(), testInfo.getEnglish());
@@ -1075,7 +1075,7 @@ public class CountItems {
         Set<String> singleCountriesSet =
                 new TreeSet<>(CldrUtility.splitList(singleCountriesList, ' '));
 
-        Map<String, String> zone_countries = StandardCodes.make().getZoneToCounty();
+        Map<String, String> zone_countries = StandardCodes.make().getZoneToCountry();
         Map<String, Set<String>> countries_zoneSet = StandardCodes.make().getCountryToZoneSet();
         System.out.println();
         i = 0;

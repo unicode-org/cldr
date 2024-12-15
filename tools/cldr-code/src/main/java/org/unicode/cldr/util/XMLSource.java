@@ -1601,7 +1601,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
         static {
             StandardCodes sc = StandardCodes.make();
             Map<String, Set<String>> countries_zoneSet = sc.getCountryToZoneSet();
-            Map<String, String> zone_countries = sc.getZoneToCounty();
+            Map<String, String> zone_countries = sc.getZoneToCountry();
             List<NameType> nameTypeList =
                     List.of(
                             NameType.LANGUAGE,

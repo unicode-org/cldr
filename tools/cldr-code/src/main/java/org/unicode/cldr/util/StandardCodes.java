@@ -1452,8 +1452,8 @@ public class StandardCodes {
      * @deprecated
      */
     @Deprecated
-    public Map<String, String> getZoneToCounty() {
-        return zoneParser.getZoneToCounty();
+    public Map<String, String> getZoneToCountry() {
+        return zoneParser.getZoneToCountry();
     }
 
     /**

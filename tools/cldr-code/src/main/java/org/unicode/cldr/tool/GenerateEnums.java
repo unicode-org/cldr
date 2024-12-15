@@ -674,7 +674,7 @@ public class GenerateEnums {
                         format(popData.getPopulation()),
                         format(popData.getLiteratePopulation() / popData.getPopulation()),
                         (count == 0 ? ";" : ""),
-                        englishNameGetter.getNameFromBCP47(language));
+                        englishNameGetter.getNameFromIdentifier(language));
             }
         }
         Log.close();

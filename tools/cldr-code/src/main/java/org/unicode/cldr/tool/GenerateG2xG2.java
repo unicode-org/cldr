@@ -220,7 +220,7 @@ public class GenerateG2xG2 {
                 if (territory.charAt(0) < 'A') continue;
                 String locale = "haw-" + territory;
                 System.out.print(
-                        locale + ": " + english.nameGetter().getNameFromBCP47(locale) + ", ");
+                        locale + ": " + english.nameGetter().getNameFromIdentifier(locale) + ", ");
             }
             if (true) return true;
         }
@@ -339,9 +339,9 @@ public class GenerateG2xG2 {
                                 + "\t"
                                 + sourceLocale
                                 + "\t("
-                                + english.nameGetter().getNameFromBCP47(sourceLocale)
+                                + english.nameGetter().getNameFromIdentifier(sourceLocale)
                                 + ": "
-                                + sourceData.nameGetter().getNameFromBCP47(sourceLocale)
+                                + sourceData.nameGetter().getNameFromIdentifier(sourceLocale)
                                 + ")"
                                 + "\t"
                                 + priorityMap.get(item)
@@ -389,7 +389,7 @@ public class GenerateG2xG2 {
     private static String getItemName(CLDRFile data, NameType type, String item) {
         String result;
         if (type == NameType.LANGUAGE) {
-            result = data.nameGetter().getNameFromBCP47(item);
+            result = data.nameGetter().getNameFromIdentifier(item);
         } else if (type != NameType.TZ_EXEMPLAR) {
             result = data.nameGetter().getNameFromTypeEnumCode(type, item);
         } else {

@@ -262,7 +262,7 @@ public class ConvertLanguageData {
 
     public static String getLanguageCodeAndName(String code) {
         if (code == null) return null;
-        return englishNameGetter.getNameFromBCP47(code) + " [" + code + "]";
+        return englishNameGetter.getNameFromIdentifier(code) + " [" + code + "]";
     }
 
     private static String getReplacement(String oldDefault, Set<String> defaultLocaleContent) {
@@ -384,7 +384,8 @@ public class ConvertLanguageData {
                                     "changing <languageData>",
                                     languageSubtag
                                             + "\t"
-                                            + englishNameGetter.getNameFromBCP47(languageSubtag),
+                                            + englishNameGetter.getNameFromIdentifier(
+                                                    languageSubtag),
                                     problem));
                 }
             }
@@ -991,7 +992,8 @@ public class ConvertLanguageData {
 
         public String getLanguageName() {
             String cldrResult =
-                    getExcelQuote(englishNameGetter.getNameFromBCP47Bool(languageCode, true));
+                    getExcelQuote(
+                            englishNameGetter.getNameFromIndentifierCompoundOnly(languageCode));
             //            String result = getLanguageName2();
             //            if (!result.equalsIgnoreCase(cldrResult)) {
             //                if (null == oldToFixed.put(result, cldrResult)) {
@@ -2559,7 +2561,7 @@ public class ConvertLanguageData {
     }
 
     private static String getULocaleLocaleName(String languageCode) {
-        return englishNameGetter.getNameFromBCP47Bool(languageCode, true);
+        return englishNameGetter.getNameFromIndentifierCompoundOnly(languageCode);
         // return new ULocale(languageCode).getDisplayName();
     }
 

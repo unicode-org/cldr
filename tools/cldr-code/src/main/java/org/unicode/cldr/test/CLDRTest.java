@@ -413,7 +413,7 @@ public class CLDRTest extends TestFmwk {
         String name = localeNameCache.get(locale);
         if (name != null) return name;
         if (english == null) english = cldrFactory.make("en", true);
-        String result = english.nameGetter().getNameFromBCP47(locale);
+        String result = english.nameGetter().getNameFromIdentifier(locale);
         /*
          * Collection c = Utility.splitList(locale, '_', false, null);
          * String[] pieces = new String[c.size()];

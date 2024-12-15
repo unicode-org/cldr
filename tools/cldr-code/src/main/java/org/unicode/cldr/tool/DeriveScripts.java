@@ -206,7 +206,7 @@ public class DeriveScripts {
                                 + "\t"
                                 + lang
                                 + "\t"
-                                + english.nameGetter().getNameFromBCP47(lang)
+                                + english.nameGetter().getNameFromIdentifier(lang)
                                 + "\t"
                                 + scripts
                                 + "\t"

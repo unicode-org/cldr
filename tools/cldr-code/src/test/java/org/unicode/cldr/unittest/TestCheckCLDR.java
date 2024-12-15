@@ -1387,7 +1387,7 @@ public class TestCheckCLDR extends TestFmwk {
                 System.out.print(
                         locale
                                 + "\t"
-                                + english.nameGetter().getNameFromBCP47(locale)
+                                + english.nameGetter().getNameFromIdentifier(locale)
                                 + "\t"
                                 + cldrLevel);
                 for (LimitedStatus limitedStatus : LimitedStatus.values()) {

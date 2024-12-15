@@ -1105,7 +1105,7 @@ public class CountItems {
             System.out.println(
                     locale
                             + "\t"
-                            + nameGetter.getNameFromBCP47(locale)
+                            + nameGetter.getNameFromIdentifier(locale)
                             + "\t"
                             + onlyLocales.get(locale));
         }

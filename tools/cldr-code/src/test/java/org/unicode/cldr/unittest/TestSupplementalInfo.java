@@ -1319,7 +1319,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
         // now show the items we found
         for (Scope scope : scopeToCodes.keySet()) {
             for (String language : scopeToCodes.getAll(scope)) {
-                String name = englishNameGetter.getNameFromBCP47(language);
+                String name = englishNameGetter.getNameFromIdentifier(language);
                 if (name == null || name.equals(language)) {
                     Set<String> set = Iso639Data.getNames(language);
                     if (set != null) {
@@ -2223,7 +2223,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
 
     private String codeAndName(String macro) {
         // TODO Auto-generated method stub
-        return CLDRConfig.getInstance().getEnglish().nameGetter().getNameFromBCP47(macro)
+        return CLDRConfig.getInstance().getEnglish().nameGetter().getNameFromIdentifier(macro)
                 + " ("
                 + macro
                 + ")";

@@ -304,7 +304,7 @@ public enum LanguageGroup {
         }
         return prefix
                 + cldrFile.nameGetter()
-                        .getNameFromBCP47(ltp.getLanguage())
+                        .getNameFromIdentifier(ltp.getLanguage())
                         .replace(" [Other]", "")
                         .replace(" languages", "");
     }

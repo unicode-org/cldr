@@ -667,7 +667,7 @@ public class GenerateLikelySubtags {
     public static String getNameSafe(String oldValue) {
         try {
             if (oldValue != null) {
-                String result = english.nameGetter().getNameFromBCP47(oldValue);
+                String result = english.nameGetter().getNameFromIdentifier(oldValue);
                 if (result.startsWith("Unknown language ")) {
                     result = result.substring("Unknown language ".length());
                 }

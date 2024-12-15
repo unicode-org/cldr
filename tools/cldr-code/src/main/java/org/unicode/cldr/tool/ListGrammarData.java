@@ -124,7 +124,7 @@ public class ListGrammarData {
                 continue;
             }
             // System.out.println(locale);
-            final String names = locale + "\t" + ENGLISH.nameGetter().getNameFromBCP47(locale);
+            final String names = locale + "\t" + ENGLISH.nameGetter().getNameFromIdentifier(locale);
             for (Entry<PathHeader, String> entry : pathHeaderToValue.entrySet()) {
 
                 final PathHeader ph = entry.getKey();

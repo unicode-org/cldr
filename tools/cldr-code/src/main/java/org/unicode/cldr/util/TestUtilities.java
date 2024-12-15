@@ -131,9 +131,9 @@ public class TestUtilities {
             System.out.println(
                     test
                             + "\t"
-                            + english.nameGetter().getNameFromBCP47(test)
+                            + english.nameGetter().getNameFromIdentifier(test)
                             + "\t"
-                            + french.nameGetter().getNameFromBCP47(test));
+                            + french.nameGetter().getNameFromIdentifier(test));
         }
     }
 

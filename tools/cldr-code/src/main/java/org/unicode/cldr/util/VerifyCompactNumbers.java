@@ -118,7 +118,7 @@ public class VerifyCompactNumbers {
             PrintWriter out = FileUtilities.openUTF8Writer(DIR, locale + ".html");
             String title =
                     "Verify Number Formats: "
-                            + englishCldrFile.nameGetter().getNameFromBCP47(locale);
+                            + englishCldrFile.nameGetter().getNameFromIdentifier(locale);
             out.println(
                     "<!doctype HTML PUBLIC '-//W3C//DTD HTML 4.0 Transitional//EN'><html><head>\n"
                             + "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>\n"
@@ -137,7 +137,7 @@ public class VerifyCompactNumbers {
 
             out.println("</body></html>");
             out.close();
-            indexMap.put(english.nameGetter().getNameFromBCP47(locale), locale + ".html");
+            indexMap.put(english.nameGetter().getNameFromIdentifier(locale), locale + ".html");
         }
         try (PrintWriter index = DateTimeFormats.openIndex(DIR, "Numbers")) {
             DateTimeFormats.writeIndexMap(indexMap, index);

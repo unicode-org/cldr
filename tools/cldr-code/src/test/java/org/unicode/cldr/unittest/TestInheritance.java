@@ -171,7 +171,9 @@ public class TestInheritance extends TestFmwk {
                 System.out.print(
                         language
                                 + "\t"
-                                + testInfo.getEnglish().nameGetter().getNameFromBCP47(language));
+                                + testInfo.getEnglish()
+                                        .nameGetter()
+                                        .getNameFromIdentifier(language));
 
                 M3<OfficialStatus, String, Boolean> officialChildren =
                         languageToOfficialChildren.get(language);

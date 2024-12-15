@@ -51,7 +51,7 @@ public class ShowLanguageData {
                 System.out.println(
                         language
                                 + "\t"
-                                + english.nameGetter().getNameFromBCP47(language)
+                                + english.nameGetter().getNameFromIdentifier(language)
                                 + "\t"
                                 + territory
                                 + "\t"

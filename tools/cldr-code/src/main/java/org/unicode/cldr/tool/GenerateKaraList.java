@@ -132,7 +132,7 @@ public class GenerateKaraList {
                                     + locale
                                     + "</tlanguage>\t<!-- "
                                     + TransliteratorUtilities.toXML.transliterate(
-                                            english.nameGetter().getNameFromBCP47(locale))
+                                            english.nameGetter().getNameFromIdentifier(locale))
                                     + " -->"); // We do use
                     // non-ISO
                     // values but

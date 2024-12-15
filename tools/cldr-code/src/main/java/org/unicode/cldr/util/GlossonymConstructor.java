@@ -116,7 +116,9 @@ public class GlossonymConstructor {
             final CLDRFile.SimpleAltPicker altPicker =
                     (alt == null) ? null : new CLDRFile.SimpleAltPicker(alt);
             final String value =
-                    cldrFile.nameGetter().getNameFromBCP47BoolAlt(type, true, altPicker);
+                    cldrFile.nameGetter()
+                            .getNameFromIdentifierOptAlt(
+                                    type, NameGetter.NameOpt.COMPOUND_ONLY, altPicker);
             if (!valueIsBogus(value)) {
                 return value;
             }
@@ -133,7 +135,8 @@ public class GlossonymConstructor {
                     (alt == null) ? null : new CLDRFile.SimpleAltPicker(alt);
             final String value =
                     cldrFile.nameGetter()
-                            .getNameFromBCP47BoolAltPaths(type, true, altPicker, paths);
+                            .getNameFromIdentifierOptAltPaths(
+                                    type, NameGetter.NameOpt.COMPOUND_ONLY, altPicker, paths);
             if (!valueIsBogus(value)) {
                 return paths;
             }

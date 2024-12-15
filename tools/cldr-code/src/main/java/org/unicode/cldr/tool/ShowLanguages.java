@@ -1372,8 +1372,8 @@ public class ShowLanguages {
 
         private String getLanguageName(String languageCode) {
             String result =
-                    englishNameGetter.getNameFromBCP47BoolAlt(
-                            languageCode, true, CLDRFile.SHORT_ALTS);
+                    englishNameGetter.getNameFromIdentifierOptAlt(
+                            languageCode, NameGetter.NameOpt.COMPOUND_ONLY, CLDRFile.SHORT_ALTS);
             if (!result.equals(languageCode)) return result;
             Set<String> names = Iso639Data.getNames(languageCode);
             if (names != null && names.size() != 0) {
@@ -1561,8 +1561,10 @@ public class ShowLanguages {
                 final String name =
                         locale.equals("*")
                                 ? "ALL"
-                                : englishNameGetter.getNameFromBCP47BoolAlt(
-                                        locale, true, CLDRFile.SHORT_ALTS);
+                                : englishNameGetter.getNameFromIdentifierOptAlt(
+                                        locale,
+                                        NameGetter.NameOpt.COMPOUND_ONLY,
+                                        CLDRFile.SHORT_ALTS);
                 coverageGoalsTsv.println(
                         String.format(
                                 "%s\t;\t%s\t;\t%s\t;\t%s", organization, locale, level, name));

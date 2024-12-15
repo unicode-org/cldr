@@ -48,7 +48,8 @@ public class GenerateLanguageData {
             Map<String, String> languageNameToCode = new TreeMap<>();
             NameGetter nameGetter = english.nameGetter();
             for (String languageCode : info.getLanguages()) {
-                languageNameToCode.put(nameGetter.getNameFromBCP47(languageCode), languageCode);
+                languageNameToCode.put(
+                        nameGetter.getNameFromIdentifier(languageCode), languageCode);
             }
             out.println("\n@sheet:CLDR County Data");
             out.println("code\tgdp\tlit-pop\tpopulation\tliteracy");
@@ -74,7 +75,7 @@ public class GenerateLanguageData {
             Map<String, Counter2<String>> langToCountriesOfficial = new TreeMap<>();
 
             for (String languageCode : info.getLanguages()) {
-                String languageName = nameGetter.getNameFromBCP47(languageCode);
+                String languageName = nameGetter.getNameFromIdentifier(languageCode);
 
                 String baseLanguage = languageCode;
                 ltp.set(languageCode);

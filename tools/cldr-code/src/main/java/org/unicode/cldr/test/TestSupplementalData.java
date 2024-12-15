@@ -168,7 +168,7 @@ public class TestSupplementalData {
                         nameGetter.getNameFromTypeEnumCode(NameType.TERRITORY, territory);
                 if (otherLanguagesLeftover.size() != 0) {
                     for (String other : otherLanguagesLeftover) {
-                        String name = nameGetter.getNameFromBCP47(other);
+                        String name = nameGetter.getNameFromIdentifier(other);
                         System.out.println(
                                 territoryString + "\t" + territory + "\t" + name + "\t" + other);
                     }

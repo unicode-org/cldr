@@ -612,7 +612,7 @@ public class GenerateSidewaysView {
         String core = item;
         item = toHTML.transform(item);
         if (name) {
-            item = english.nameGetter().getNameFromBCP47(core);
+            item = english.nameGetter().getNameFromIdentifier(core);
             item = item == null ? "<i>null</i>" : toHTML.transform(item);
         }
         if (draft) {

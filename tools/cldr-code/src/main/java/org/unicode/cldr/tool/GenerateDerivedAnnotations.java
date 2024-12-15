@@ -219,7 +219,7 @@ public class GenerateDerivedAnnotations {
                                 + "\t"
                                 + level
                                 + "\t"
-                                + english.nameGetter().getNameFromBCP47(locale)
+                                + english.nameGetter().getNameFromIdentifier(locale)
                                 + "\t"
                                 + failures.size()
                                 + "\t"

@@ -92,7 +92,7 @@ class ExtractMessages {
                             "Skipping, no CLDR locale file: "
                                     + name
                                     + "\t"
-                                    + english.nameGetter().getNameFromBCP47(name)
+                                    + english.nameGetter().getNameFromIdentifier(name)
                                     + "\t"
                                     + e1.getClass().getName()
                                     + "\t"
@@ -163,7 +163,7 @@ class ExtractMessages {
                         "\tSkipping, no CLDR locale file: "
                                 + name
                                 + "\t"
-                                + englishNameGetter.getNameFromBCP47(name));
+                                + englishNameGetter.getNameFromIdentifier(name));
             }
             double deltaTime = System.currentTimeMillis() - startTime;
             System.out.println("Elapsed: " + deltaTime / 1000.0 + " seconds");

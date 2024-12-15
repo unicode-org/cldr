@@ -357,7 +357,7 @@ public class Misc {
         // do the header
         for (Iterator<String> it2 = priorities.iterator(); it2.hasNext(); ) {
             String locale = it2.next();
-            String englishLocaleName = english.nameGetter().getNameFromBCP47(locale);
+            String englishLocaleName = english.nameGetter().getNameFromIdentifier(locale);
             out.println("<th>" + locale + " (" + englishLocaleName + ")" + "</th>");
         }
 

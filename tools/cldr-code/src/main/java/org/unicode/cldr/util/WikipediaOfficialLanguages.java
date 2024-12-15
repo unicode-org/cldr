@@ -308,7 +308,7 @@ public class WikipediaOfficialLanguages {
                             "\t"
                                     + info.language
                                     + "\t"
-                                    + english.nameGetter().getNameFromBCP47(info.language)
+                                    + english.nameGetter().getNameFromIdentifier(info.language)
                                     + "\t"
                                     + info.status
                                     + "\t"
@@ -335,7 +335,7 @@ public class WikipediaOfficialLanguages {
                                 "\t"
                                         + r2
                                         + "\t"
-                                        + english.nameGetter().getNameFromBCP47(r2)
+                                        + english.nameGetter().getNameFromIdentifier(r2)
                                         + "\t"
                                         + "CLDR-ONLY"
                                         + "\t"

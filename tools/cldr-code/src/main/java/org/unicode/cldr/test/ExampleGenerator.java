@@ -759,7 +759,7 @@ public class ExampleGenerator {
                         final String name =
                                 localeId.equals("und")
                                         ? "«any other»"
-                                        : nameGetter2.getNameFromBCP47(localeId);
+                                        : nameGetter2.getNameFromIdentifier(localeId);
                         examples.add(localeId + " = " + name);
                     }
                     break;
@@ -3116,9 +3116,9 @@ public class ExampleGenerator {
             for (int i = 0; i < locales.size(); i++) {
                 examples.add(
                         invertBackground(
-                                nameGetter.getNameFromBCP47Etc(
+                                nameGetter.getNameFromIdentifierEtc(
                                         locales.get(i),
-                                        false,
+                                        NameGetter.NameOpt.DEFAULT,
                                         localeKeyTypePattern,
                                         localePattern,
                                         localeSeparator)));

@@ -237,7 +237,7 @@ public class GenerateLanguageContainment {
             code ->
                     code.equals(LocaleNames.MUL)
                             ? LocaleNames.ROOT
-                            : ENGLISH.nameGetter().getNameFromBCP47(code) + " (" + code + ")";
+                            : ENGLISH.nameGetter().getNameFromIdentifier(code) + " (" + code + ")";
 
     static final Set<String> COLLECTIONS;
 
@@ -402,7 +402,7 @@ public class GenerateLanguageContainment {
             for (String check : Arrays.asList("sw", "km", "ksh", "wae", "kea", "mfe", "th", "lo")) {
                 System.out.println(
                         "Checking "
-                                + ENGLISH.nameGetter().getNameFromBCP47(check)
+                                + ENGLISH.nameGetter().getNameFromIdentifier(check)
                                 + "["
                                 + check
                                 + "]");

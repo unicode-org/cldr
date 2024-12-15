@@ -157,7 +157,7 @@ public class CheckEnglishCurrencyNames {
                                     + "\t"
                                     + language
                                     + "\t"
-                                    + englishNameGetter.getNameFromBCP47(language)
+                                    + englishNameGetter.getNameFromIdentifier(language)
                                     + "\t"
                                     + symbol);
                     // TODO add script

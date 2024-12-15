@@ -27,6 +27,11 @@ public class NameGetter {
         this.cldrFile = cldrFile;
     }
 
+    public enum NameOpt {
+        DEFAULT,
+        COMPOUND_ONLY
+    }
+
     private static final String GETNAME_LOCALE_SEPARATOR_PATH =
             "//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator";
     private static final String GETNAME_LOCALE_PATTERN_PATH =
@@ -54,34 +59,39 @@ public class NameGetter {
     }
 
     /**
-     * Returns the name of the given bcp47 identifier. Note that extensions must be specified using
-     * the old "\@key=type" syntax.
+     * Returns the name of the given identifier. Note that extensions must be specified using the
+     * old "\@key=type" syntax.
      *
-     * @param localeOrTZID the bcp47 identifier (locale or timezone ID)
-     * @return the name of the given bcp47 identifier
+     * @param localeOrTZID the identifier, BCP47 or extension thereof, such as for locale or
+     *     timezone ID
+     * @return the name of the given identifier
      */
-    public synchronized String getNameFromBCP47(String localeOrTZID) {
-        return getNameFromBCP47Bool(localeOrTZID, false);
+    public synchronized String getNameFromIdentifier(String localeOrTZID) {
+        return getNameFromIndentifierOpt(localeOrTZID, NameOpt.DEFAULT);
+    }
+
+    public String getNameFromIndentifierCompoundOnly(String localeOrTZID) {
+        return getNameFromIndentifierOpt(localeOrTZID, NameOpt.COMPOUND_ONLY);
     }
 
     /**
-     * Returns the name of the given bcp47 identifier. Note that extensions must be specified using
-     * the old "\@key=type" syntax.
+     * Returns the name of the given identifier. Note that extensions must be specified using the
+     * old "\@key=type" syntax.
      *
-     * @param localeOrTZID the bcp47 identifier (locale or timezone ID)
-     * @param onlyConstructCompound if true, returns "English (United Kingdom)" instead of "British
+     * @param localeOrTZID the identifier, BCP47 or extension thereof, such as for locale or
+     *     timezone ID
+     * @param nameOpt if COMPOUND_ONLY, returns "English (United Kingdom)" instead of "British
      *     English"
-     * @return the name of the given bcp47 identifier
+     * @return the name of the given identifier
      */
-    public synchronized String getNameFromBCP47Bool(
-            String localeOrTZID, boolean onlyConstructCompound) {
-        return getNameFromBCP47BoolAlt(localeOrTZID, onlyConstructCompound, null);
+    public synchronized String getNameFromIndentifierOpt(String localeOrTZID, NameOpt nameOpt) {
+        return getNameFromIdentifierOptAlt(localeOrTZID, nameOpt, null);
     }
 
-    public String getNameFromParserBool(LanguageTagParser lparser, boolean onlyConstructCompound) {
+    public String getNameFromParserOpt(LanguageTagParser lparser, NameOpt nameOpt) {
         return getNameFromOtherThings(
                 lparser,
-                onlyConstructCompound,
+                nameOpt,
                 null,
                 cldrFile.getWinningValueWithBailey(GETNAME_LOCALE_KEY_TYPE_PATTERN_PATH),
                 cldrFile.getWinningValueWithBailey(GETNAME_LOCALE_PATTERN_PATH),
@@ -89,15 +99,15 @@ public class NameGetter {
                 null);
     }
 
-    public synchronized String getNameFromBCP47Etc(
+    public synchronized String getNameFromIdentifierEtc(
             String localeOrTZID,
-            boolean onlyConstructCompound,
+            NameOpt nameOpt,
             String localeKeyTypePattern,
             String localePattern,
             String localeSeparator) {
         return getNameFromManyThings(
                 localeOrTZID,
-                onlyConstructCompound,
+                nameOpt,
                 localeKeyTypePattern,
                 localePattern,
                 localeSeparator,
@@ -106,42 +116,42 @@ public class NameGetter {
     }
 
     /**
-     * Returns the name of the given bcp47 identifier. Note that extensions must be specified using
-     * the old "\@key=type" syntax.
+     * Returns the name of the given identifier. Note that extensions must be specified using the
+     * old "\@key=type" syntax.
      *
-     * @param localeOrTZID the bcp47 identifier (locale or timezone ID)
-     * @param onlyConstructCompound if true, returns "English (United Kingdom)" instead of "British
+     * @param localeOrTZID the identifier, BCP47 or extension thereof, such as for locale or
+     *     timezone ID
+     * @param nameOpt if COMPOUND_ONLY, returns "English (United Kingdom)" instead of "British
      *     English"
      * @param altPicker Used to select particular alts. For example, SHORT_ALTS can be used to get
      *     "English (U.K.)" instead of "English (United Kingdom)"
-     * @return the name of the given bcp47 identifier
+     * @return the name of the given identifier
      */
-    public synchronized String getNameFromBCP47BoolAlt(
-            String localeOrTZID,
-            boolean onlyConstructCompound,
-            Transform<String, String> altPicker) {
-        return getNameFromBCP47BoolAltPaths(localeOrTZID, onlyConstructCompound, altPicker, null);
+    public synchronized String getNameFromIdentifierOptAlt(
+            String localeOrTZID, NameOpt nameOpt, Transform<String, String> altPicker) {
+        return getNameFromIdentifierOptAltPaths(localeOrTZID, nameOpt, altPicker, null);
     }
 
     /**
-     * Returns the name of the given bcp47 identifier. Note that extensions must be specified using
-     * the old "\@key=type" syntax.
+     * Returns the name of the given identifier. Note that extensions must be specified using the
+     * old "\@key=type" syntax.
      *
-     * @param localeOrTZID the bcp47 identifier (locale or timezone ID)
-     * @param onlyConstructCompound if true, returns "English (United Kingdom)" instead of "British
+     * @param localeOrTZID the identifier, BCP47 or extension thereof, such as for locale or
+     *     timezone ID
+     * @param nameOpt if COMPOUND_ONLY, returns "English (United Kingdom)" instead of "British
      *     English"
      * @param altPicker Used to select particular alts. For example, SHORT_ALTS can be used to get
      *     "English (U.K.)" instead of "English (United Kingdom)"
-     * @return the name of the given bcp47 identifier
+     * @return the name of the given identifier
      */
-    public synchronized String getNameFromBCP47BoolAltPaths(
+    public synchronized String getNameFromIdentifierOptAltPaths(
             String localeOrTZID,
-            boolean onlyConstructCompound,
+            NameOpt nameOpt,
             Transform<String, String> altPicker,
             Set<String> paths) {
         return getNameFromManyThings(
                 localeOrTZID,
-                onlyConstructCompound,
+                nameOpt,
                 cldrFile.getWinningValueWithBailey(GETNAME_LOCALE_KEY_TYPE_PATTERN_PATH),
                 cldrFile.getWinningValueWithBailey(GETNAME_LOCALE_PATTERN_PATH),
                 cldrFile.getWinningValueWithBailey(GETNAME_LOCALE_SEPARATOR_PATH),
@@ -150,21 +160,22 @@ public class NameGetter {
     }
 
     /**
-     * Returns the name of the given bcp47 identifier. Note that extensions must be specified using
-     * the old "\@key=type" syntax. Only used by ExampleGenerator.
+     * Returns the name of the given identifier. Note that extensions must be specified using the
+     * old "\@key=type" syntax. Only used by ExampleGenerator.
      *
-     * @param localeOrTZID the bcp47 identifier (locale or timezone ID)
-     * @param onlyConstructCompound if true, returns "English (United Kingdom)" instead of "British
+     * @param localeOrTZID the identifier, BCP47 or extension thereof, such as for locale or
+     *     timezone ID
+     * @param nameOpt if COMPOUND_ONLY, returns "English (United Kingdom)" instead of "British
      *     English"
      * @param localeKeyTypePattern the pattern used to format key-type pairs
      * @param localePattern the pattern used to format primary/secondary subtags
      * @param localeSeparator the list separator for secondary subtags
      * @param paths if non-null, fillin with contributory paths
-     * @return the name of the given bcp47 identifier
+     * @return the name of the given identifier
      */
     private synchronized String getNameFromManyThings(
             String localeOrTZID,
-            boolean onlyConstructCompound,
+            NameOpt nameOpt,
             String localeKeyTypePattern,
             String localePattern,
             String localeSeparator,
@@ -176,7 +187,7 @@ public class NameGetter {
         }
         boolean isCompound = localeOrTZID.contains("_");
         String name =
-                isCompound && onlyConstructCompound
+                isCompound && nameOpt == NameOpt.COMPOUND_ONLY
                         ? null
                         : getNameFromTypeCodeTransformPaths(
                                 NameType.LANGUAGE, localeOrTZID, altPicker, paths);
@@ -189,7 +200,7 @@ public class NameGetter {
         LanguageTagParser lparser = new LanguageTagParser().set(localeOrTZID);
         return getNameFromOtherThings(
                 lparser,
-                onlyConstructCompound,
+                nameOpt,
                 altPicker,
                 localeKeyTypePattern,
                 localePattern,
@@ -199,7 +210,7 @@ public class NameGetter {
 
     private String getNameFromOtherThings(
             LanguageTagParser lparser,
-            boolean onlyConstructCompound,
+            NameOpt nameOpt,
             Transform<String, String> altPicker,
             String localeKeyTypePattern,
             String localePattern,
@@ -212,12 +223,12 @@ public class NameGetter {
         boolean haveScript = false;
         boolean haveRegion = false;
         // try lang+script
-        if (onlyConstructCompound) {
+        if (nameOpt == NameOpt.COMPOUND_ONLY) {
             name =
                     getNameFromTypeCodeTransformPaths(
                             NameType.LANGUAGE, original = lparser.getLanguage(), altPicker, paths);
             if (name == null) name = original;
-        } else {
+        } else { // nameOpt == NameOpt.DEFAULT
             String x = lparser.toString(LanguageTagParser.LANGUAGE_SCRIPT_REGION);
             name = getNameFromTypeCodeTransformPaths(NameType.LANGUAGE, x, altPicker, paths);
             if (name != null) {
@@ -308,7 +319,7 @@ public class NameGetter {
                         if (hybrid != null) {
                             kname = cldrFile.getKeyValueName("h0", JOIN_UNDERBAR.join(hybrid));
                         }
-                        oldFormatType = getNameFromBCP47(oldFormatType);
+                        oldFormatType = getNameFromIdentifier(oldFormatType);
                         break;
                     case "cu":
                         oldFormatType =

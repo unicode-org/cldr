@@ -64,7 +64,7 @@ public class ScriptPopulations {
                             + "\t"
                             + langScriptLitPop.getCount(lang)
                             + "\t"
-                            + english.nameGetter().getNameFromBCP47(baseLanguage)
+                            + english.nameGetter().getNameFromIdentifier(baseLanguage)
                             + "\t"
                             + english.nameGetter().getNameFromTypeEnumCode(NameType.SCRIPT, script)
                             + "\t"

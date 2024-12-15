@@ -40,6 +40,7 @@ import org.unicode.cldr.util.FileCopier;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.NameGetter;
 import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.SectionId;
@@ -518,13 +519,13 @@ public class ShowData {
             System.out.println(locale);
             CLDRFile file = cldrFactory.make(locale, false);
             if (file.isNonInheriting()) continue;
-            String localeName = file.nameGetter().getNameFromBCP47(locale);
+            String localeName = file.nameGetter().getNameFromIdentifier(locale);
             getScripts(localeName, scripts);
             if (!scripts.contains("Latn")) {
                 out.println(
                         locale
                                 + "\t"
-                                + english.nameGetter().getNameFromBCP47(locale)
+                                + english.nameGetter().getNameFromIdentifier(locale)
                                 + "\t"
                                 + localeName);
             }
@@ -756,7 +757,9 @@ public class ShowData {
     }
 
     public static String getEnglishLocaleName(String locale) {
-        return english.nameGetter().getNameFromBCP47BoolAlt(locale, true, CLDRFile.SHORT_ALTS);
+        return english.nameGetter()
+                .getNameFromIdentifierOptAlt(
+                        locale, NameGetter.NameOpt.COMPOUND_ONLY, CLDRFile.SHORT_ALTS);
     }
 
     private static String getLocaleNameAndCode(String locale) {

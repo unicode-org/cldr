@@ -41,7 +41,7 @@ public class CheckLanguageNameCoverage {
                             + "\t"
                             + level
                             + "\t"
-                            + config.getEnglish().nameGetter().getNameFromBCP47(langCode));
+                            + config.getEnglish().nameGetter().getNameFromIdentifier(langCode));
         }
         for (String langCode : map.keySet()) {
             String path = NameType.LANGUAGE.getKeyPath(langCode);

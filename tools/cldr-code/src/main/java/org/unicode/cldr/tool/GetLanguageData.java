@@ -28,7 +28,8 @@ public class GetLanguageData {
         System.out.println("Code\tLang\tLpop\tApprox. Gdp");
         for (String language : sdata.getLanguages()) {
             final long pop = languageToPop.getCount(language);
-            System.out.print(language + "\t" + english.nameGetter().getNameFromBCP47(language));
+            System.out.print(
+                    language + "\t" + english.nameGetter().getNameFromIdentifier(language));
             if (pop > 0) {
                 Pair<OfficialStatus, String> status = isOfficialLanguageOfEUCountry(language);
                 System.out.print(

@@ -18,6 +18,7 @@ import com.ibm.icu.util.ULocale;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.security.InvalidParameterException;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collection;
@@ -78,8 +79,6 @@ public class CLDRTest extends TestFmwk {
     private CLDRFile resolvedEnglish;
     private final UnicodeSet commonAndInherited =
             new UnicodeSet("[[:script=common:][:script=inherited:][:alphabetic=false:]]");
-    private static final String[] WIDTHS = {"narrow", "wide", "abbreviated", "short"};
-    private static final String[] MONTHORDAYS = {"day", "month"};
     private Map<String, String> localeNameCache = new HashMap<>();
     private CLDRFile english = null;
 
@@ -844,6 +843,12 @@ public class CLDRTest extends TestFmwk {
         }
     }
 
+    /** Settings for checkForItems behavior */
+    private enum KeyOpt {
+        DEFAULT,
+        DATE
+    };
+
     /** Verify that the minimal localizations are present. */
     public void TestMinimalLocalization() throws IOException {
         if (disableUntilLater("TestMinimalLocalization")) return;
@@ -877,10 +882,7 @@ public class CLDRTest extends TestFmwk {
             // languages
             Set<String> languages = new TreeSet<>(CldrUtility.MINIMUM_LANGUAGES);
             languages.add(language);
-            // LANGUAGE_NAME = 0, SCRIPT_NAME = 1, TERRITORY_NAME = 2, VARIANT_NAME = 3,
-            // CURRENCY_NAME = 4, CURRENCY_SYMBOL = 5, TZID = 6
-
-            checkForItems(item, languages, CLDRFile.LANGUAGE_NAME, missing, failureCount, null);
+            checkForItems(item, languages, NameType.LANGUAGE, missing, failureCount);
 
             /*
              * checkTranslatedCode(cldrfile, codes, "currency", "//ldml/numbers/currencies/currency");
@@ -892,12 +894,12 @@ public class CLDRTest extends TestFmwk {
             scripts.add("Latn");
             Set<String> others = language_scripts.get(language);
             if (others != null) scripts.addAll(others);
-            checkForItems(item, scripts, CLDRFile.SCRIPT_NAME, missing, failureCount, null);
+            checkForItems(item, scripts, NameType.SCRIPT, missing, failureCount);
 
             Set<String> countries = new TreeSet<>(CldrUtility.MINIMUM_TERRITORIES);
             others = language_territories.get(language);
             if (others != null) countries.addAll(others);
-            checkForItems(item, countries, CLDRFile.TERRITORY_NAME, missing, failureCount, null);
+            checkForItems(item, countries, NameType.TERRITORY, missing, failureCount);
 
             Set<String> currencies = new TreeSet<>();
             StandardCodes sc = StandardCodes.make();
@@ -910,9 +912,9 @@ public class CLDRTest extends TestFmwk {
                     currencies.addAll(countryCurrencies);
                 }
             }
-            checkForItems(item, currencies, CLDRFile.CURRENCY_NAME, missing, failureCount, null);
+            checkForItems(item, currencies, NameType.CURRENCY, missing, failureCount);
             checkForItems(
-                    item, currencies, CLDRFile.CURRENCY_SYMBOL, missing, failureCount, exemplars);
+                    item, currencies, NameType.CURRENCY_SYMBOL, missing, failureCount, exemplars);
 
             // context=format and width=wide; context=stand-alone & width=abbreviated
             Set<String> months = new TreeSet<>();
@@ -923,27 +925,13 @@ public class CLDRTest extends TestFmwk {
                                     new String[] {
                                         "sun", "mon", "tue", "wed", "thu", "fri", "sat"
                                     }));
-            /*
-             * TODO: avoid magic numbers here!
-             *  Currently:
-             *  i = -7 means checkForItems should call getDateKey(6 = CLDRFile.TZ_EXEMPLAR, code) instead of CLDRFile.getKey
-             *  i = -6 means checkForItems should call getDateKey(5 = CLDRFile.CURRENCY_SYMBOL, code) instead of CLDRFile.getKey
-             * and so forth.
-             * Instead, checkForItems should have an additional parameter, an enum with one of two values:
-             * GET_ORDINARY_KEY or GET_DATE_KEY.
-             * CLDRFile.TZ_EXEMPLAR, etc., will be replaced by NameType.TZ_EXEMPLAR, etc., and their numeric values
-             * will not be involved in any numeric computation whatsoever.
-             * Instead of a loop, do something like this:
-             * checkForItems(..., NameType.TZ_EXEMPLAR, ..., GET_DATE_KEY)
-             * checkForItems(..., NameType.CURRENCY_SYMBOL, ..., GET_DATE_KEY)
-             * checkForItems(..., NameType.CURRENCY_NAME, ..., GET_DATE_KEY)
-             * ...
-             * Reference: https://unicode-org.atlassian.net/browse/CLDR-15830
-             */
-            for (int i = -7; i < 0; ++i) {
-                checkForItems(item, (i < -4 ? months : days), i, missing, failureCount, null);
-            }
-
+            checkForItemsDate(item, months, NameType.TZ_EXEMPLAR, missing, failureCount);
+            checkForItemsDate(item, months, NameType.CURRENCY_SYMBOL, missing, failureCount);
+            checkForItemsDate(item, months, NameType.CURRENCY, missing, failureCount);
+            checkForItemsDate(item, days, NameType.VARIANT, missing, failureCount);
+            checkForItemsDate(item, days, NameType.TERRITORY, missing, failureCount);
+            checkForItemsDate(item, days, NameType.SCRIPT, missing, failureCount);
+            checkForItemsDate(item, days, NameType.LANGUAGE, missing, failureCount);
             String filename = "missing_" + locale + ".xml";
             if (failureCount[0] > 0 || warningCount[0] > 0) {
                 PrintWriter out =
@@ -982,37 +970,70 @@ public class CLDRTest extends TestFmwk {
     }
 
     /** Internal */
-    private String getDateKey(int type, String code) {
-        // type is 6..4 for months abbrev..narrow, 3..0 for days short..narrow
-        int monthOrDayType = 0, widthType = type;
-        if (type >= 4) {
-            monthOrDayType = 1;
-            widthType -= 4;
+    private String getDateKey(NameType type, String code) {
+        switch (type) {
+            case TZ_EXEMPLAR:
+                return getDateKey("month", "abbreviated", code);
+            case CURRENCY_SYMBOL:
+                return getDateKey("month", "wide", code);
+            case CURRENCY:
+                return getDateKey("month", "narrow", code);
+            case VARIANT:
+                return getDateKey("day", "short", code);
+            case TERRITORY:
+                return getDateKey("day", "abbreviated", code);
+            case SCRIPT:
+                return getDateKey("day", "wide", code);
+            case LANGUAGE:
+                return getDateKey("day", "narrow", code);
+            default:
+                throw new InvalidParameterException("getDateKey: " + type);
         }
-        return getDateKey(MONTHORDAYS[monthOrDayType], WIDTHS[widthType], code);
     }
 
     private void checkForItems(
             CLDRFile item,
             Set<String> codes,
-            int type,
+            NameType nameType,
             CLDRFile missing,
-            int failureCount[],
+            int[] failureCount) {
+        checkForItems(item, codes, nameType, KeyOpt.DEFAULT, missing, failureCount, null);
+    }
+
+    private void checkForItems(
+            CLDRFile item,
+            Set<String> codes,
+            NameType nameType,
+            CLDRFile missing,
+            int[] failureCount,
+            UnicodeSet exemplarTest) {
+        checkForItems(item, codes, nameType, KeyOpt.DEFAULT, missing, failureCount, exemplarTest);
+    }
+
+    private void checkForItemsDate(
+            CLDRFile item,
+            Set<String> codes,
+            NameType nameType,
+            CLDRFile missing,
+            int[] failureCount) {
+        checkForItems(item, codes, nameType, KeyOpt.DATE, missing, failureCount, null);
+    }
+
+    private void checkForItems(
+            CLDRFile item,
+            Set<String> codes,
+            NameType nameType,
+            KeyOpt keyOpt,
+            CLDRFile missing,
+            int[] failureCount,
             UnicodeSet exemplarTest) {
         // check codes
         for (Iterator<String> it2 = codes.iterator(); it2.hasNext(); ) {
             String code = it2.next();
-            String key;
-            /*
-             * TODO: see TODO comment above; reference GET_ORDINARY_KEY or GET_DATE_KEY here.
-             * type will be NameType, not int.
-             * Reference: https://unicode-org.atlassian.net/browse/CLDR-15830
-             */
-            if (type >= 0) { // if (...GET_ORDINARY_KEY)
-                key = CLDRFile.getKey(type, code);
-            } else { // if (... GET_DATE_KEY)
-                key = getDateKey(-type - 1, code);
-            }
+            String key =
+                    (keyOpt == KeyOpt.DATE)
+                            ? getDateKey(nameType, code)
+                            : nameType.getKeyPath(code);
             String v = item.getStringValue(key);
             String rootValue = resolvedRoot.getStringValue(key);
             if (v == null

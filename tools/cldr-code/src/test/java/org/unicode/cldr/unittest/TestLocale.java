@@ -239,7 +239,7 @@ public class TestLocale extends TestFmwkPlus {
             if (!xpath.startsWith("//ldml/localeDisplayNames/")) {
                 continue;
             }
-            switch (NameType.getNameType(xpath)) {
+            switch (NameType.fromPath(xpath)) {
                 case LANGUAGE:
                     checkLocale("English xpath", NameType.getCode(xpath), ltp);
                     break;
@@ -455,8 +455,7 @@ public class TestLocale extends TestFmwkPlus {
             if (row[0] == null) {
                 continue;
             }
-            int typeCode = CLDRFile.typeNameToCode(row[0]);
-            NameType nameType = NameType.fromCldrInt(typeCode);
+            NameType nameType = NameType.typeNameToCode(row[0]);
             String path = nameType.getKeyPath(row[1]);
             dxs.putValueAtDPath(path, row[2]);
         }
@@ -480,13 +479,11 @@ public class TestLocale extends TestFmwkPlus {
         NameGetter nameGetter = f.nameGetter();
         for (String[] row : tests) {
             if (row[0] != null) {
-                int typeCode = CLDRFile.typeNameToCode(row[0]);
-                NameType nameType = NameType.fromCldrInt(typeCode);
+                NameType nameType = NameType.typeNameToCode(row[0]);
                 String standAlone = nameGetter.getNameFromTypeEnumCode(nameType, row[1]);
-                logln(typeCode + ": " + standAlone);
+                logln(nameType + ": " + standAlone);
                 if (!assertEquals("stand-alone " + row[3], row[2], standAlone)) {
-                    typeCode = CLDRFile.typeNameToCode(row[0]);
-                    nameType = NameType.fromCldrInt(typeCode);
+                    nameType = NameType.typeNameToCode(row[0]);
                     standAlone = nameGetter.getNameFromTypeEnumCode(nameType, row[1]);
                 }
 

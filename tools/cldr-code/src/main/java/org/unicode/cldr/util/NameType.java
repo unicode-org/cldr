@@ -122,8 +122,12 @@ public enum NameType {
         return CLDRFile.getCode(path);
     }
 
-    public static NameType getNameType(String xpath) {
-        int cldrInt = CLDRFile.getNameType(xpath);
+    /**
+     * @param typeString a string such as "language", "script", "territory", "region", ...
+     * @return the corresponding NameType
+     */
+    public static NameType typeNameToCode(String typeString) {
+        int cldrInt = CLDRFile.typeNameToCode(typeString);
         return fromCldrInt(cldrInt);
     }
 }

@@ -1051,9 +1051,8 @@ public class ShowLanguages {
                         element = "timezone";
                         name = replacement + "*";
                     } else {
-                        int typeCode = CLDRFile.typeNameToCode(element);
-                        if (typeCode != CLDRFile.NO_NAME) {
-                            NameType nameType = NameType.fromCldrInt(typeCode);
+                        NameType nameType = NameType.typeNameToCode(element);
+                        if (nameType != NameType.NONE) {
                             name = getName(nameType, replacement, false);
                         } else {
                             name = "*" + replacement;

@@ -29,6 +29,7 @@ import org.unicode.cldr.draft.ScriptMetadata.Trinary;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Containment;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.XPathParts;
@@ -202,18 +203,16 @@ public class TestScriptMetadata extends TestFmwkPlus {
                     Row.of(
                             info.idUsage,
                             english.nameGetter()
-                                    .getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, continent),
+                                    .getNameFromTypeEnumCode(NameType.TERRITORY, continent),
                             info.idUsage
                                     + "\t"
                                     + english.nameGetter()
-                                            .getNameFromTypenumCode(
-                                                    CLDRFile.TERRITORY_NAME, container)
+                                            .getNameFromTypeEnumCode(NameType.TERRITORY, container)
                                     + "\t"
                                     + scriptCode
                                     + "\t"
                                     + english.nameGetter()
-                                            .getNameFromTypenumCode(
-                                                    CLDRFile.SCRIPT_NAME, scriptCode)));
+                                            .getNameFromTypeEnumCode(NameType.SCRIPT, scriptCode)));
         }
         for (Row.R3<IdUsage, String, String> s : lines) {
             logln(s.get2());

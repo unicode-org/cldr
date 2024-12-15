@@ -5,6 +5,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
@@ -71,8 +72,7 @@ public class GetLanguageData {
                         territory //
                                 + "\t"
                                 + english.nameGetter()
-                                        .getNameFromTypenumCode(
-                                                CLDRFile.TERRITORY_NAME, territory) //
+                                        .getNameFromTypeEnumCode(NameType.TERRITORY, territory) //
                                 + "\t"
                                 + territoryPop //
                                 + "\t"

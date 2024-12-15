@@ -49,6 +49,7 @@ import org.unicode.cldr.util.Iso3166Data;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.NameGetter;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathDescription;
@@ -859,7 +860,7 @@ public class TestPathHeader extends TestFmwkPlus {
     private String getNameAndOrder(String territory) {
         return territory
                 + "\t"
-                + englishNameGetter.getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, territory)
+                + englishNameGetter.getNameFromTypeEnumCode(NameType.TERRITORY, territory)
                 + "\t"
                 + Containment.getOrder(territory);
     }
@@ -978,15 +979,12 @@ public class TestPathHeader extends TestFmwkPlus {
                 assertEquals("S. America special case", "005", revision);
             }
             if (isVerbose()) {
-                String name =
-                        englishNameGetter.getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, cont);
-                String name2 =
-                        englishNameGetter.getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, sub);
+                String name = englishNameGetter.getNameFromTypeEnumCode(NameType.TERRITORY, cont);
+                String name2 = englishNameGetter.getNameFromTypeEnumCode(NameType.TERRITORY, sub);
                 String name3 =
-                        englishNameGetter.getNameFromTypenumCode(
-                                CLDRFile.TERRITORY_NAME, territory);
+                        englishNameGetter.getNameFromTypeEnumCode(NameType.TERRITORY, territory);
                 String name4 =
-                        englishNameGetter.getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, revision);
+                        englishNameGetter.getNameFromTypeEnumCode(NameType.TERRITORY, revision);
 
                 logln(
                         metazone + "\t" + continent + "\t" + name + "\t" + name2 + "\t" + name3

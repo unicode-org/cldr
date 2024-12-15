@@ -2390,14 +2390,12 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
             CURRENCY_NAME = 4,
             CURRENCY_SYMBOL = 5,
             TZ_EXEMPLAR = 6,
-            TZ_START = TZ_EXEMPLAR,
             TZ_GENERIC_LONG = 7,
             TZ_GENERIC_SHORT = 8,
             TZ_STANDARD_LONG = 9,
             TZ_STANDARD_SHORT = 10,
             TZ_DAYLIGHT_LONG = 11,
             TZ_DAYLIGHT_SHORT = 12,
-            TZ_LIMIT = 13,
             KEY_NAME = 13,
             KEY_TYPE_NAME = 14,
             SUBDIVISION_NAME = 15,
@@ -2441,6 +2439,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
     /**
      * @return the xpath used to access data of a given type
      */
+    @Deprecated
     public static String getKey(int type, String code) {
         switch (type) {
             case VARIANT_NAME:

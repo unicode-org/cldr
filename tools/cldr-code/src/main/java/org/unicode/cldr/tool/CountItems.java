@@ -53,6 +53,7 @@ import org.unicode.cldr.util.IsoRegionData;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.NameGetter;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PatternCache;
@@ -487,8 +488,8 @@ public class CountItems {
             }
             results.put(
                     item,
-                    nameGetter.getNameFromTypenumCode(
-                            CLDRFile.TERRITORY_NAME, containees.iterator().next()));
+                    nameGetter.getNameFromTypeEnumCode(
+                            NameType.TERRITORY, containees.iterator().next()));
         }
         return results;
     }
@@ -562,8 +563,8 @@ public class CountItems {
                             "# "
                                     + newCountry
                                     + "\t"
-                                    + nameGetter.getNameFromTypenumCode(
-                                            CLDRFile.TERRITORY_NAME, newCountry));
+                                    + nameGetter.getNameFromTypeEnumCode(
+                                            NameType.TERRITORY, newCountry));
                     lastCountry = newCountry;
                 }
                 Log.println("\t'" + oldName + "'\t>\t'" + newName + "';");
@@ -1007,7 +1008,7 @@ public class CountItems {
             } else {
                 result = region;
             }
-            String name = nameGetter.getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, result);
+            String name = nameGetter.getNameFromTypeEnumCode(NameType.TERRITORY, result);
             if (!(duplicateDestroyer.contains(alpha3 + result + name))) {
                 duplicateDestroyer.add(alpha3 + result + name);
                 System.out.println(
@@ -1021,7 +1022,7 @@ public class CountItems {
             }
         }
         for (String region : missingRegions) {
-            String name = nameGetter.getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, region);
+            String name = nameGetter.getNameFromTypeEnumCode(NameType.TERRITORY, region);
             System.err.println("ERROR: Missing " + codeType + " code for " + region + "\t" + name);
         }
     }

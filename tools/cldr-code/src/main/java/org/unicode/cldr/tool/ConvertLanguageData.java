@@ -50,6 +50,7 @@ import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.LocaleIDParser.Level;
 import org.unicode.cldr.util.NameGetter;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SpreadSheet;
@@ -1064,7 +1065,7 @@ public class ConvertLanguageData {
 
     public static String getCountryCodeAndName(String code) {
         if (code == null) return null;
-        return englishNameGetter.getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, code)
+        return englishNameGetter.getNameFromTypeEnumCode(NameType.TERRITORY, code)
                 + " ["
                 + code
                 + "]";
@@ -2563,12 +2564,12 @@ public class ConvertLanguageData {
     }
 
     private static String getULocaleScriptName(String scriptCode) {
-        return englishNameGetter.getNameFromTypenumCode(CLDRFile.SCRIPT_NAME, scriptCode);
+        return englishNameGetter.getNameFromTypeEnumCode(NameType.SCRIPT, scriptCode);
         // return ULocale.getDisplayScript("und_" + scriptCode, ULocale.ENGLISH);
     }
 
     private static String getULocaleCountryName(String countryCode) {
-        return englishNameGetter.getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, countryCode);
+        return englishNameGetter.getNameFromTypeEnumCode(NameType.TERRITORY, countryCode);
         // return ULocale.getDisplayCountry("und_" + countryCode, ULocale.ENGLISH);
     }
 }

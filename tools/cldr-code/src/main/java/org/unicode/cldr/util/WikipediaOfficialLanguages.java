@@ -302,8 +302,7 @@ public class WikipediaOfficialLanguages {
                             region
                                     + "\t"
                                     + english.nameGetter()
-                                            .getNameFromTypenumCode(
-                                                    CLDRFile.TERRITORY_NAME, region));
+                                            .getNameFromTypeEnumCode(NameType.TERRITORY, region));
 
                     System.out.println(
                             "\t"
@@ -329,8 +328,8 @@ public class WikipediaOfficialLanguages {
                                 region
                                         + "\t"
                                         + english.nameGetter()
-                                                .getNameFromTypenumCode(
-                                                        CLDRFile.TERRITORY_NAME, region));
+                                                .getNameFromTypeEnumCode(
+                                                        NameType.TERRITORY, region));
 
                         System.out.println(
                                 "\t"

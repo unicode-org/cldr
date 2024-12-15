@@ -616,7 +616,7 @@ public class TimezoneFormatter extends UFormat {
         String countryName =
                 desiredLocaleFile
                         .nameGetter()
-                        .getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, zoneIdsCountry);
+                        .getNameFromTypeEnumCode(NameType.TERRITORY, zoneIdsCountry);
         if (countryName == null) {
             countryName = zoneIdsCountry;
         }

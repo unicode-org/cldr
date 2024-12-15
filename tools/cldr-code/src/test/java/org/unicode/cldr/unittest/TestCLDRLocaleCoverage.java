@@ -30,6 +30,7 @@ import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.LocaleNames;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.LstrType;
@@ -95,7 +96,7 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
         CoverageLevel2 coverageLeveler = CoverageLevel2.getInstance(LocaleNames.UND);
         Multimap<Level, String> levelToLanguage = TreeMultimap.create();
         for (String locale : valid) {
-            String path = CLDRFile.getKey(CLDRFile.LANGUAGE_NAME, locale);
+            String path = NameType.LANGUAGE.getKeyPath(locale);
             Level level = coverageLeveler.getLevel(path);
             levelToLanguage.put(level, locale);
         }

@@ -16,6 +16,7 @@ import org.unicode.cldr.util.Counter2;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.NameGetter;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
@@ -93,7 +94,7 @@ public class GenerateLanguageData {
                 for (String territory : territories) {
                     PopulationData terrData = info.getPopulationDataForTerritory(territory);
                     String territoryName =
-                            nameGetter.getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, territory);
+                            nameGetter.getNameFromTypeEnumCode(NameType.TERRITORY, territory);
 
                     PopulationData data =
                             info.getLanguageAndTerritoryPopulationData(languageCode, territory);

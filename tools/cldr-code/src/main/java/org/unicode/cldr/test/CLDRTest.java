@@ -922,6 +922,23 @@ public class CLDRTest extends TestFmwk {
                                     new String[] {
                                         "sun", "mon", "tue", "wed", "thu", "fri", "sat"
                                     }));
+            /*
+             * TODO: avoid magic numbers here!
+             *  Currently:
+             *  i = -7 means checkForItems should call getDateKey(6 = CLDRFile.TZ_EXEMPLAR, code) instead of CLDRFile.getKey
+             *  i = -6 means checkForItems should call getDateKey(5 = CLDRFile.CURRENCY_SYMBOL, code) instead of CLDRFile.getKey
+             * and so forth.
+             * Instead, checkForItems should have an additional parameter, an enum with one of two values:
+             * GET_ORDINARY_KEY or GET_DATE_KEY.
+             * CLDRFile.TZ_EXEMPLAR, etc., will be replaced by NameType.TZ_EXEMPLAR, etc., and their numeric values
+             * will not be involved in any numeric computation whatsoever.
+             * Instead of a loop, do something like this:
+             * checkForItems(..., NameType.TZ_EXEMPLAR, ..., GET_DATE_KEY)
+             * checkForItems(..., NameType.CURRENCY_SYMBOL, ..., GET_DATE_KEY)
+             * checkForItems(..., NameType.CURRENCY_NAME, ..., GET_DATE_KEY)
+             * ...
+             * Reference: https://unicode-org.atlassian.net/browse/CLDR-15830
+             */
             for (int i = -7; i < 0; ++i) {
                 checkForItems(item, (i < -4 ? months : days), i, missing, failureCount, null);
             }
@@ -974,12 +991,6 @@ public class CLDRTest extends TestFmwk {
         return getDateKey(MONTHORDAYS[monthOrDayType], WIDTHS[widthType], code);
     }
 
-    /**
-     * @param item
-     * @param codes
-     * @param missing
-     * @param exemplarTest TODO TODO
-     */
     private void checkForItems(
             CLDRFile item,
             Set<String> codes,
@@ -991,9 +1002,14 @@ public class CLDRTest extends TestFmwk {
         for (Iterator<String> it2 = codes.iterator(); it2.hasNext(); ) {
             String code = it2.next();
             String key;
-            if (type >= 0) {
+            /*
+             * TODO: see TODO comment above; reference GET_ORDINARY_KEY or GET_DATE_KEY here.
+             * type will be NameType, not int.
+             * Reference: https://unicode-org.atlassian.net/browse/CLDR-15830
+             */
+            if (type >= 0) { // if (...GET_ORDINARY_KEY)
                 key = CLDRFile.getKey(type, code);
-            } else {
+            } else { // if (... GET_DATE_KEY)
                 key = getDateKey(-type - 1, code);
             }
             String v = item.getStringValue(key);
@@ -1048,8 +1064,7 @@ public class CLDRTest extends TestFmwk {
                 public Object transform(Object source) {
                     if (english == null) english = cldrFactory.make("en", true);
                     return english.nameGetter()
-                                    .getNameFromTypenumCode(
-                                            CLDRFile.CURRENCY_NAME, source.toString())
+                                    .getNameFromTypeEnumCode(NameType.CURRENCY, source.toString())
                             + " ("
                             + source
                             + ")";
@@ -1195,8 +1210,7 @@ public class CLDRTest extends TestFmwk {
         NameGetter englishNameGetter = english.nameGetter();
         for (Iterator<String> it = legalCurrencies.iterator(); it.hasNext(); ) {
             String currency = it.next();
-            String name =
-                    englishNameGetter.getNameFromTypenumCode(CLDRFile.CURRENCY_NAME, currency);
+            String name = englishNameGetter.getNameFromTypeEnumCode(NameType.CURRENCY, currency);
             if (name == null) {
                 String standardName = sc.getFullData("currency", currency).get(0);
                 logln("\t\t\t<currency type=\"" + currency + "\">");

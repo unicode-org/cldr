@@ -22,6 +22,7 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.FileCopier;
 import org.unicode.cldr.util.LanguageGroup;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.Validity;
@@ -166,8 +167,8 @@ public class ChartSubdivisionNames extends Chart {
                         .addRow()
                         .addCell(
                                 english.nameGetter()
-                                        .getNameFromTypenumCode(
-                                                CLDRFile.TERRITORY_NAME,
+                                        .getNameFromTypeEnumCode(
+                                                NameType.TERRITORY,
                                                 code.substring(0, 2).toUpperCase(Locale.ENGLISH)))
                         .addCell(code);
                 for (Entry<String, String> nameAndLocale : nameToCode.entrySet()) {

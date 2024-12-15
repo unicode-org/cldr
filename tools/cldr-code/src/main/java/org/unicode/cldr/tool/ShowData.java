@@ -40,6 +40,7 @@ import org.unicode.cldr.util.FileCopier;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.StringId;
@@ -530,8 +531,7 @@ public class ShowData {
             for (Iterator<String> it2 = UnicodeScripts.iterator(); it2.hasNext(); ) {
                 String script = it2.next();
                 if (script.equals("Latn")) continue;
-                String name =
-                        file.nameGetter().getNameFromTypenumCode(CLDRFile.SCRIPT_NAME, script);
+                String name = file.nameGetter().getNameFromTypeEnumCode(NameType.SCRIPT, script);
                 if (getScripts(name, scripts).contains(script)) {
                     Map<String, Set<String>> names_locales = script_name_locales.get(script);
                     if (names_locales == null)
@@ -548,8 +548,7 @@ public class ShowData {
             out.println(
                     script
                             + "\t("
-                            + english.nameGetter()
-                                    .getNameFromTypenumCode(CLDRFile.SCRIPT_NAME, script)
+                            + english.nameGetter().getNameFromTypeEnumCode(NameType.SCRIPT, script)
                             + ")\t"
                             + names);
         }

@@ -38,22 +38,31 @@ public class NameGetter {
     private static final Joiner JOIN_UNDERBAR = Joiner.on('_');
 
     /**
-     * Get a name, given a type (as a int) and a code.
+     * Get a name, given a NameType and a code.
      *
-     * @param type the type such as CLDRFile.TERRITORY_NAME
+     * @param type the NameType such as NameType.TERRITORY
      * @param code a code such as "JP"
      * @return the name
      */
-    public String getNameFromTypenumCode(int type, String code) {
+    public String getNameFromTypeEnumCode(NameType type, String code) {
         return getNameFromTypeCodeTransformPaths(type, code, null, null);
     }
 
-    public String getNameFromTypeCodePaths(int type, String code, Set<String> paths) {
-        return getNameFromTypeCodeTransformPaths(type, code, null, paths);
+    /**
+     * Get a name, given a type (as a int) and a code.
+     *
+     * @param type the type (integer) such as CLDRFile.TERRITORY_NAME
+     * @param code a code such as "JP"
+     * @return the name
+     */
+    @Deprecated
+    public String getNameFromTypenumCode(int type, String code) {
+        NameType nameType = NameType.fromCldrInt(type);
+        return getNameFromTypeCodeTransformPaths(nameType, code, null, null);
     }
 
     public String getNameFromTypeCodeAltpicker(
-            int type, String code, Transform<String, String> altPicker) {
+            NameType type, String code, Transform<String, String> altPicker) {
         return getNameFromTypeCodeTransformPaths(type, code, altPicker, null);
     }
 
@@ -183,7 +192,7 @@ public class NameGetter {
                 isCompound && onlyConstructCompound
                         ? null
                         : getNameFromTypeCodeTransformPaths(
-                                CLDRFile.LANGUAGE_NAME, localeOrTZID, altPicker, paths);
+                                NameType.LANGUAGE, localeOrTZID, altPicker, paths);
 
         // TODO - handle arbitrary combinations
         if (name != null && !name.contains("_") && !name.contains("-")) {
@@ -219,20 +228,17 @@ public class NameGetter {
         if (onlyConstructCompound) {
             name =
                     getNameFromTypeCodeTransformPaths(
-                            CLDRFile.LANGUAGE_NAME,
-                            original = lparser.getLanguage(),
-                            altPicker,
-                            paths);
+                            NameType.LANGUAGE, original = lparser.getLanguage(), altPicker, paths);
             if (name == null) name = original;
         } else {
             String x = lparser.toString(LanguageTagParser.LANGUAGE_SCRIPT_REGION);
-            name = getNameFromTypeCodeTransformPaths(CLDRFile.LANGUAGE_NAME, x, altPicker, paths);
+            name = getNameFromTypeCodeTransformPaths(NameType.LANGUAGE, x, altPicker, paths);
             if (name != null) {
                 haveScript = haveRegion = true;
             } else {
                 name =
                         getNameFromTypeCodeTransformPaths(
-                                CLDRFile.LANGUAGE_NAME,
+                                NameType.LANGUAGE,
                                 lparser.toString(LanguageTagParser.LANGUAGE_SCRIPT),
                                 altPicker,
                                 paths);
@@ -241,7 +247,7 @@ public class NameGetter {
                 } else {
                     name =
                             getNameFromTypeCodeTransformPaths(
-                                    CLDRFile.LANGUAGE_NAME,
+                                    NameType.LANGUAGE,
                                     lparser.toString(LanguageTagParser.LANGUAGE_REGION),
                                     altPicker,
                                     paths);
@@ -250,7 +256,7 @@ public class NameGetter {
                     } else {
                         name =
                                 getNameFromTypeCodeTransformPaths(
-                                        CLDRFile.LANGUAGE_NAME,
+                                        NameType.LANGUAGE,
                                         original = lparser.getLanguage(),
                                         altPicker,
                                         paths);
@@ -267,7 +273,7 @@ public class NameGetter {
             extras =
                     addDisplayName(
                             lparser.getScript(),
-                            CLDRFile.SCRIPT_NAME,
+                            NameType.SCRIPT,
                             localeSeparator,
                             extras,
                             altPicker,
@@ -277,7 +283,7 @@ public class NameGetter {
             extras =
                     addDisplayName(
                             lparser.getRegion(),
-                            CLDRFile.TERRITORY_NAME,
+                            NameType.TERRITORY,
                             localeSeparator,
                             extras,
                             altPicker,
@@ -287,7 +293,7 @@ public class NameGetter {
         for (String orig : variants) {
             extras =
                     addDisplayName(
-                            orig, CLDRFile.VARIANT_NAME, localeSeparator, extras, altPicker, paths);
+                            orig, NameType.VARIANT, localeSeparator, extras, altPicker, paths);
         }
 
         // Look for key-type pairs.
@@ -319,9 +325,10 @@ public class NameGetter {
                         break;
                     case "cu":
                         oldFormatType =
-                                getNameFromTypeCodePaths(
-                                        CLDRFile.CURRENCY_SYMBOL,
+                                getNameFromTypeCodeTransformPaths(
+                                        NameType.CURRENCY_SYMBOL,
                                         oldFormatType.toUpperCase(Locale.ROOT),
+                                        null,
                                         paths);
                         break;
                     case "tz":
@@ -338,8 +345,8 @@ public class NameGetter {
                     case "rg":
                     case "sd":
                         oldFormatType =
-                                getNameFromTypeCodePaths(
-                                        CLDRFile.SUBDIVISION_NAME, oldFormatType, paths);
+                                getNameFromTypeCodeTransformPaths(
+                                        NameType.SUBDIVISION, oldFormatType, null, paths);
                         break;
                     default:
                         oldFormatType = JOIN_HYPHEN.join(keyValue);
@@ -387,7 +394,7 @@ public class NameGetter {
     /**
      * Utility for getting the name, given a code.
      *
-     * @param type the type such as CLDRFile.TERRITORY_NAME
+     * @param nameType the NameType
      * @param code the code such as "JP"
      * @param codeToAlt - if not null, is called on the code. If the result is not null, then that
      *     is used for an alt value. If the alt path has a value it is used, otherwise the normal
@@ -397,8 +404,11 @@ public class NameGetter {
      * @return the name
      */
     private String getNameFromTypeCodeTransformPaths(
-            int type, String code, Transform<String, String> codeToAlt, Set<String> paths) {
-        String path = CLDRFile.getKey(type, code);
+            NameType nameType,
+            String code,
+            Transform<String, String> codeToAlt,
+            Set<String> paths) {
+        String path = nameType.getKeyPath(code);
         String result = null;
         if (codeToAlt != null) {
             String alt = codeToAlt.transform(code);
@@ -420,7 +430,7 @@ public class NameGetter {
             CLDRFile.Status status = new CLDRFile.Status();
             String sourceLocale = cldrFile.getSourceLocaleID(path, status);
             if (result == null || !sourceLocale.equals("en")) {
-                if (type == CLDRFile.LANGUAGE_NAME) {
+                if (nameType == NameType.LANGUAGE) {
                     Set<String> set = Iso639Data.getNames(code);
                     if (set != null) {
                         return set.iterator().next();
@@ -431,9 +441,9 @@ public class NameGetter {
                     if (info != null) {
                         result = info.get("Description");
                     }
-                } else if (type == CLDRFile.TERRITORY_NAME) {
+                } else if (nameType == NameType.TERRITORY) {
                     result = getLstrFallback("region", code);
-                } else if (type == CLDRFile.SCRIPT_NAME) {
+                } else if (nameType == NameType.SCRIPT) {
                     result = getLstrFallback("script", code);
                 }
             }
@@ -481,9 +491,10 @@ public class NameGetter {
         String result = null;
         for (String value : keyValues) {
             String name =
-                    getNameFromTypeCodePaths(
-                            CLDRFile.SCRIPT_NAME,
+                    getNameFromTypeCodeTransformPaths(
+                            NameType.SCRIPT,
                             Character.toUpperCase(value.charAt(0)) + value.substring(1),
+                            null,
                             paths);
             if (name == null) {
                 name = cldrFile.getKeyValueName("kr", value);
@@ -508,7 +519,7 @@ public class NameGetter {
      */
     private String addDisplayName(
             String subtag,
-            int type,
+            NameType type,
             String separatorPattern,
             String extras,
             Transform<String, String> altPicker,

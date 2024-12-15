@@ -456,7 +456,7 @@ public class VerifyZones {
             String englishGrouping =
                     englishCldrFile
                             .nameGetter()
-                            .getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, grouping);
+                            .getNameFromTypeEnumCode(NameType.TERRITORY, grouping);
 
             String metazoneInfo =
                     englishGrouping
@@ -474,7 +474,7 @@ public class VerifyZones {
             String englishTerritory =
                     englishCldrFile
                             .nameGetter()
-                            .getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, countryCode2);
+                            .getNameFromTypeEnumCode(NameType.TERRITORY, countryCode2);
             output.addRow()
                     .addCell(metazoneInfo)
                     .addCell(englishTerritory + ": " + tzid.replace("/", "/\u200B"));

@@ -44,6 +44,7 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Iso3166Data;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.NameGetter;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.StandardCodes;
@@ -375,8 +376,7 @@ public class Misc {
                 out.println("<th>" + zone + "</th>");
                 String country = zone_country.get(zone);
                 String countryName =
-                        english.nameGetter()
-                                .getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, country);
+                        english.nameGetter().getNameFromTypeEnumCode(NameType.TERRITORY, country);
                 out.println("<td>" + country + " (" + countryName + ")" + "</td>");
                 TimeZone tzone = TimeZone.getTimeZone(zone);
                 out.println("<td>" + offsetString(tzone) + "</td>");
@@ -484,7 +484,7 @@ public class Misc {
             new_old.put(zone, new TreeSet<String>(col));
             String country = zone_countries.get(zone);
             String name =
-                    english.nameGetter().getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, country)
+                    english.nameGetter().getNameFromTypeEnumCode(NameType.TERRITORY, country)
                             + " ("
                             + country
                             + ")";
@@ -664,7 +664,7 @@ public class Misc {
             String countryName =
                     desiredLocaleFile
                             .nameGetter()
-                            .getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, country);
+                            .getNameFromTypeEnumCode(NameType.TERRITORY, country);
             if (countryName == null) countryName = UTF16.valueOf(0x10FFFD) + country;
             reordered.put(countryName + "0" + zoneID, zoneID);
         }
@@ -679,7 +679,7 @@ public class Misc {
             String countryName =
                     desiredLocaleFile
                             .nameGetter()
-                            .getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, country);
+                            .getNameFromTypeEnumCode(NameType.TERRITORY, country);
             if (countryName == null) countryName = country;
             log.println(
                     "<tr><th class='ID' colspan=\"4\"><table><tr><th class='I'>"
@@ -1216,8 +1216,8 @@ public class Misc {
                                 + TransliteratorUtilities.toXML.transliterate(
                                         "TODO "
                                                 + english.nameGetter()
-                                                        .getNameFromTypenumCode(
-                                                                CLDRFile.TERRITORY_NAME, key))
+                                                        .getNameFromTypeEnumCode(
+                                                                NameType.TERRITORY, key))
                                 + "</territory>");
             }
             log2.println("</territories></localeDisplayNames>");
@@ -1236,7 +1236,7 @@ public class Misc {
                 String countryCode = data.get(2);
                 String country =
                         english.nameGetter()
-                                .getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, countryCode);
+                                .getNameFromTypeEnumCode(NameType.TERRITORY, countryCode);
                 if (!country.equals(lastCountry)) {
                     lastCountry = country;
                     log2.println("\t<!-- " + country + "-->");
@@ -1345,7 +1345,7 @@ public class Misc {
                 name = name.replace('_', ' ');
             }
         } else {
-            name = localization.nameGetter().getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, key);
+            name = localization.nameGetter().getNameFromTypeEnumCode(NameType.TERRITORY, key);
             if (name == null) {
                 if (missing != null) missing[0].add(key);
                 name = key;

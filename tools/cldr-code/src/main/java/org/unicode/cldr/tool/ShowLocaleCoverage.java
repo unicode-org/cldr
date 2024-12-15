@@ -51,6 +51,7 @@ import org.unicode.cldr.util.LanguageTagCanonicalizer;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleNames;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.Factory;
@@ -1180,7 +1181,7 @@ public class ShowLocaleCoverage {
                         + "\t"
                         + ENGLISH.nameGetter().getNameFromBCP47(language)
                         + "\t"
-                        + ENGLISH.nameGetter().getNameFromTypenumCode(CLDRFile.SCRIPT_NAME, script)
+                        + ENGLISH.nameGetter().getNameFromTypeEnumCode(NameType.SCRIPT, script)
                         + "\t"
                         + cldrLocaleLevelGoal
                         + "\t"

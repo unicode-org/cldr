@@ -11,6 +11,7 @@ import java.util.TreeSet;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.LstrField;
 import org.unicode.cldr.util.StandardCodes.LstrType;
@@ -113,6 +114,6 @@ public class CompareSuppress {
     public static String scriptAndName(CLDRFile english, String suppressScript) {
         return suppressScript
                 + "\t"
-                + english.nameGetter().getNameFromTypenumCode(CLDRFile.SCRIPT_NAME, suppressScript);
+                + english.nameGetter().getNameFromTypeEnumCode(NameType.SCRIPT, suppressScript);
     }
 }

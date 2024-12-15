@@ -34,6 +34,7 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.NameGetter;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.XPathParts;
@@ -420,13 +421,13 @@ public class GenerateCoverageLevels {
                     new StringBuilder(
                             script
                                     + "\t"
-                                    + englishNameGetter.getNameFromTypenumCode(
-                                            CLDRFile.SCRIPT_NAME, script)
+                                    + englishNameGetter.getNameFromTypeEnumCode(
+                                            NameType.SCRIPT, script)
                                     + "\t"
                                     + lang
                                     + "\t"
-                                    + englishNameGetter.getNameFromTypenumCode(
-                                            CLDRFile.LANGUAGE_NAME, lang));
+                                    + englishNameGetter.getNameFromTypeEnumCode(
+                                            NameType.LANGUAGE, lang));
             if (header != null) {
                 header.append("Code\tScript\tCode\tLocale");
             }

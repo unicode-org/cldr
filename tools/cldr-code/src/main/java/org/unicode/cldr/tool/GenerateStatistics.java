@@ -30,6 +30,7 @@ import org.unicode.cldr.util.CollatorHelper;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Log;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.TransliteratorUtilities;
 
@@ -414,7 +415,7 @@ class GenerateStatistics {
             }
         }
         CLDRFile cldr = factory.make(localeID, true);
-        String name = cldr.nameGetter().getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, country);
+        String name = cldr.nameGetter().getNameFromTypeEnumCode(NameType.TERRITORY, country);
         if (false && HACK) {
             Object trial = fixCountryNames.get(name);
             if (trial != null) {

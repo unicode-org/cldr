@@ -25,6 +25,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -236,7 +237,7 @@ public class GenerateG2xG2 {
                         country
                                 + "\t"
                                 + english.nameGetter()
-                                        .getNameFromTypenumCode(CLDRFile.CURRENCY_NAME, country));
+                                        .getNameFromTypeEnumCode(NameType.CURRENCY, country));
             }
             return true;
         } else if (choice == 0) { // get available

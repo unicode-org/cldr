@@ -2369,7 +2369,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
             if (!xpath.startsWith(NameTable[i][0])) continue;
             if (xpath.indexOf(NameTable[i][1], NameTable[i][0].length()) >= 0) return i;
         }
-        return -1;
+        return NO_NAME;
     }
 
     /** Gets the display name for a type */
@@ -2418,19 +2418,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         {"//ldml/localeDisplayNames/keys/key[@type=\"", "\"]", "key"},
         {"//ldml/localeDisplayNames/types/type[@key=\"", "\"][@type=\"", "\"]", "key|type"},
         {"//ldml/localeDisplayNames/subdivisions/subdivision[@type=\"", "\"]", "subdivision"},
-
-        /**
-         * <long> <generic>Newfoundland Time</generic> <standard>Newfoundland Standard
-         * Time</standard> <daylight>Newfoundland Daylight Time</daylight> </long> - <short>
-         * <generic>NT</generic> <standard>NST</standard> <daylight>NDT</daylight> </short>
-         */
     };
-
-    // private static final String[] TYPE_NAME = {"language", "script", "territory", "variant",
-    // "currency",
-    // "currency-symbol",
-    // "tz-exemplar",
-    // "tz-generic-long", "tz-generic-short"};
 
     public Iterator<String> getAvailableIterator(int type) {
         return iterator(NameTable[type][0]);

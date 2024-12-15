@@ -1,6 +1,7 @@
 package org.unicode.cldr.util;
 
 public enum NameType {
+    NONE,
     LANGUAGE,
     SCRIPT,
     TERRITORY,
@@ -18,9 +19,16 @@ public enum NameType {
     KEY_TYPE,
     SUBDIVISION;
 
+    public static NameType fromPath(String xpath) {
+        int cldrInt = CLDRFile.getNameType(xpath);
+        return fromCldrInt(cldrInt);
+    }
+
     @Deprecated
     public int toCldrInt() {
         switch (this) {
+            case NONE:
+                return CLDRFile.NO_NAME;
             case LANGUAGE:
                 return CLDRFile.LANGUAGE_NAME;
             case SCRIPT:
@@ -54,12 +62,14 @@ public enum NameType {
             case SUBDIVISION:
                 return CLDRFile.SUBDIVISION_NAME;
         }
-        return CLDRFile.NO_NAME;
+        throw new RuntimeException("Unrecognized NameType in toCldrInt: " + this);
     }
 
     @Deprecated
     public static NameType fromCldrInt(int typeNum) {
         switch (typeNum) {
+            case CLDRFile.NO_NAME:
+                return NONE;
             case CLDRFile.LANGUAGE_NAME:
                 return LANGUAGE;
             case CLDRFile.SCRIPT_NAME:
@@ -102,5 +112,9 @@ public enum NameType {
 
     public String getNameName() {
         return CLDRFile.getNameName(this.toCldrInt());
+    }
+
+    public String getNameTypeName() {
+        return CLDRFile.getNameTypeName(this.toCldrInt());
     }
 }

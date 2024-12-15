@@ -22,6 +22,7 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
+import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -494,9 +495,14 @@ public class CLDRTest extends TestFmwk {
     public void TestDisplayNameCollisions() {
         if (disableUntilLater("TestDisplayNameCollisions")) return;
 
-        Map<String, String>[] maps = new HashMap[CLDRFile.LIMIT_TYPES];
-        for (int i = 0; i < maps.length; ++i) {
-            maps[i] = new HashMap<>();
+        Set<NameType> nameTypeSet = EnumSet.allOf(NameType.class);
+        Map<String, String>[] maps = new HashMap[nameTypeSet.size()];
+        Map<NameType, Integer> nameTypeIntegerMap = new HashMap();
+        int j = 0;
+        for (NameType nameType : NameType.values()) {
+            maps[j] = new HashMap<>();
+            nameTypeIntegerMap.put(nameType, j);
+            ++j;
         }
         Set<String> collisions = new TreeSet<>();
         for (Iterator<String> it = locales.iterator(); it.hasNext(); ) {
@@ -509,22 +515,17 @@ public class CLDRTest extends TestFmwk {
 
             for (Iterator<String> it2 = item.iterator(); it2.hasNext(); ) {
                 String xpath = it2.next();
-                int nameType = CLDRFile.getNameType(xpath);
-                if (nameType < 0) continue;
+                NameType nameType = NameType.fromPath(xpath);
+                if (nameType == NameType.NONE) continue;
                 String value = item.getStringValue(xpath);
-                String xpath2 = maps[nameType].get(value);
+                int nameTypeIndex = nameTypeIntegerMap.get(nameType);
+                String xpath2 = maps[nameTypeIndex].get(value);
                 if (xpath2 == null) {
-                    maps[nameType].put(value, xpath);
+                    maps[nameTypeIndex].put(value, xpath);
                     continue;
                 }
-                collisions.add(
-                        CLDRFile.getNameTypeName(nameType)
-                                + "\t"
-                                + value
-                                + "\t"
-                                + xpath
-                                + "\t"
-                                + xpath2);
+                String theName = nameType.getNameTypeName();
+                collisions.add(theName + "\t" + value + "\t" + xpath + "\t" + xpath2);
                 surveyInfo.add(
                         locale
                                 + "\t"

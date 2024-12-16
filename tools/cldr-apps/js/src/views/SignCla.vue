@@ -13,10 +13,11 @@
       <p>
         Your GitHub account, @{{ githubSessionId }}, was not detected as signing
         the <a href="https://cla-assistant.io/unicode-org/.github">CLA</a>.
-        </p>
+      </p>
 
-        <p>Note that it
-        is possible that you have signed, but that our records are out of date.
+      <p>
+        Note that it is possible that you have signed, but that our records are
+        out of date.
       </p>
       <a-row>
         <a-col :span="8">
@@ -66,7 +67,7 @@
       <a-alert
         v-else-if="readonlyCla"
         type="info"
-        message="Your organization has signed the CLA, it may not be modified."
+        message="Your organization has signed a Unicode Corporate CLA."
         show-icon
       />
       <a-alert
@@ -82,8 +83,14 @@
         show-icon
       />
 
-      <!-- CLA text -->
-      <div class="cla" v-html="claHtml" />
+      <!-- CLA text. Hide it if a github or corp cla -->
+      <div
+        v-if="!userGithubSign && !readonlyCla"
+        class="cla"
+        v-html="claHtml"
+      />
+
+      <br />
 
       <a-form
         name="claform"
@@ -119,7 +126,14 @@
           agreement.</i
         >
 
-        <a-form-item>
+        <p v-if="userGithubSign">
+          To view the CLA signed via GitHub, click
+          <a href="https://cla-assistant.io/unicode-org/.github">here</a> and
+          choose the Login with GitHub button at the bottom.
+        </p>
+
+        <!-- don't show the radio button for github or corp -->
+        <a-form-item v-if="!userGithubSign && !readonlyCla">
           <a-radio-group :disabled="!needCla" v-model:value="userSign">
             <a-radio :style="radioStyle" :value="2">
               I am contributing as an individual because I am self-employed or
@@ -175,8 +189,8 @@
           />
         </a-form-item>
       </a-form>
-      <hr />
       <div v-if="false && !needCla">
+        <hr />
         <!-- revocation is not allowed at present -->
         <a-alert
           v-if="!readonlyCla"

@@ -19,6 +19,7 @@ public class GithubLoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
         final String code = request.getParameter("code");
+        // TODO: getParameter("state")
         if (code != null && !code.isBlank()) {
             final LoginSession ls = GithubLoginFactory.getInstance().forCode(code);
             if (ls != null && ls.isValid()) {
@@ -34,7 +35,7 @@ public class GithubLoginServlet extends HttpServlet {
                     if (updateSignatoryStatus(cs, ls)) {
                         response.sendRedirect("v?signed=github&github=" + ls.getId() + "#cla");
                     } else {
-                        response.sendRedirect("v?error=nogithub&github=" + ls.getId() + "#cla");
+                        response.sendRedirect("v#cla"); // FE will detect this case
                     }
                 }
             } else {
@@ -79,7 +80,7 @@ public class GithubLoginServlet extends HttpServlet {
             return false;
         }
 
-        if (e.getSignStatus() != SignStatus.signed) {
+        if (e == null || e.getSignStatus() != SignStatus.signed) {
             return false; // not signed, so nothing to update
         }
 

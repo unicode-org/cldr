@@ -2,52 +2,60 @@
   <div class="clapage">
     <a-spin v-if="loading" :delay="500" />
 
-    <!-- try GitHub first -->
+    <!-- First, an exception case: logged in with GitHub but the CLA isn't signed! -->
     <template
       v-if="
         !loading && needCla && githubLoginUrl && !skipGithub && githubSessionId
       "
     >
+      <h3>CLA Signature Not Found</h3>
+
       <p>
-        .. we see you are github user @{{ githubSessionId }} .. BUT did not
-        detect CLA
+        Your GitHub account, @{{ githubSessionId }}, was not detected as signing
+        the <a href="https://cla-assistant.io/unicode-org/.github">CLA</a>.
+        </p>
+
+        <p>Note that it
+        is possible that you have signed, but that our records are out of date.
       </p>
-      <p>
-        You can Sign the CLA by
-        <a href="https://cla-assistant.io/unicode-org/.github">Clicking here</a>
-      </p>
-      <p>
-        Don't have a GitHub account or want to sign the CLA manually?
-        <a-button @click="doSkipGitHub">Sign Manually</a-button>
-      </p>
-      <p>
-        If this is the wrong account, you can
-        <a :href="githubReloginUrl">Login w/ Github</a> to login with a
-        different id.
-      </p>
-    </template>
-    <template v-else-if="!loading && needCla && githubLoginUrl && !skipGithub">
-      <p>
-        ... offer to sign w/ github ..
-        <a :href="githubLoginUrl">Login w/ Github</a>
-      </p>
-      <p>If you dont have a github login you can:</p>
-      <ol>
-        <li>
-          Sign up at
-          <a href="https://github.com/signup">https://github.com/signup</a>
-        </li>
-        <li>
-          Sign the CLA by
-          <a href="https://cla-assistant.io/unicode-org/.github"
-            >Clicking here</a
-          >
-        </li>
-        <li>It will take us some time</li>
-      </ol>
+      <a-row>
+        <a-col :span="8">
+          <a-button :href="githubReloginUrl">Change GitHub account</a-button>
+        </a-col>
+        <a-col :span="8">
+          <a-button @click="doSkipGitHub">Sign Manually</a-button>
+        </a-col>
+        <a-col :span="8">
+          <a-button href="mailto:cldr-cla@unicode.org">Contact Us</a-button>
+        </a-col>
+      </a-row>
     </template>
 
-    <!-- "manual" sign -->
+    <!-- try GitHub first: This is the FIRST panel people will see -->
+    <template v-else-if="!loading && needCla && githubLoginUrl && !skipGithub">
+      <a-row>
+        <a-col :span="12">
+          <p>
+            Have you already
+            <a href="https://cla-assistant.io/unicode-org/.github"
+              >signed the CLA</a
+            >
+            with your GitHub account? <br />
+            If so, simply click this button so we can check it:
+          </p>
+          <a-button :href="githubLoginUrl"> Log in with GitHub</a-button>
+        </a-col>
+        <a-col :span="12">
+          <p>
+            Don't have a GitHub account or want to sign the CLA manually?
+            <br />Click this button instead:
+          </p>
+          <a-button @click="doSkipGitHub">Sign Manually</a-button>
+        </a-col>
+      </a-row>
+    </template>
+
+    <!-- "Manual" sign (or successful sign) - this is the "details" page. -->
     <template v-else-if="!loading">
       <a-alert
         v-if="needCla"

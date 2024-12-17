@@ -2,7 +2,7 @@ import * as cldrClient from "../esm/cldrClient.mjs";
 import * as cldrStatus from "../esm/cldrStatus.mjs";
 
 /**
- * Get the oauth login URL
+ * Get the oauth login URL. See GithubLoginFactory#getLoginUrl()
  * @param {object} o options bag
  * @param {string} o.service which service, currently only 'github' is accepted
  * @param {string} o.intent what the login URL is used for, currently only 'cla'
@@ -17,7 +17,6 @@ export async function getLoginUrl(o) {
   const client = await cldrClient.getClient();
   const { url } = (await client.apis.auth.oauthUrl()).body;
   const u = new URL(url);
-  // TODO: may move this into the GithubLoginFactory#getLoginUrl()
   const redir = new URL(window.location);
   redir.search = "";
   redir.hash = "";

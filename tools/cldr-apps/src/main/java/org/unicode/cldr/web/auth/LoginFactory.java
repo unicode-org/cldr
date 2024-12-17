@@ -15,7 +15,7 @@ public abstract class LoginFactory {
     public abstract boolean valid();
 
     /**
-     * Get the URL for the login link. TODO: Probably need more context here eventually.
+     * Get the URL for the login link.
      *
      * @param intent what type of login link to generate.
      */

@@ -135,21 +135,21 @@
         <!-- don't show the radio button for github or corp -->
         <a-form-item v-if="!userGithubSign && !readonlyCla">
           <a-radio-group :disabled="!needCla" v-model:value="userSign">
-            <a-radio :style="radioStyle" :value="2">
+            <a-radio :style="radioStyle" :value="RADIO_ASSERT_INDIVIDUAL">
               I am contributing as an individual because I am self-employed or
               unemployed. I have read and agree to the foregoing terms.
             </a-radio>
-            <a-radio :style="radioStyle" :value="3">
+            <a-radio :style="radioStyle" :value="RADIO_ASSERT_EMPLOYER_NORIGHTS">
               I am contributing as an individual because, even though I am
               employed, my employer has no rights and claims no rights to my
               contributions. I have read and agree to the foregoing terms.
             </a-radio>
-            <a-radio :style="radioStyle" :value="4">
+            <a-radio :style="radioStyle" :value="RADIO_ASSERT_EMPLOYER_RIGHTS">
               I am employed and my employer has or may have rights in my
               contributions under my employment agreement and/or the work for
               hire doctrine or similar legal principles.
             </a-radio>
-            <a-radio v-if="false" :style="radioStyle" :value="1">
+            <a-radio v-if="false" :style="radioStyle" :value="RADIO_ASSERT_CORP">
               My employer has already signed the CLA and is listed on Unicode’s
               <a href="https://www.unicode.org/policies/corporate-cla-list/"
                 >List of Corporate CLAs</a
@@ -162,8 +162,8 @@
             @click="sign"
             v-if="
               needCla &&
-              userSign != 0 &&
-              userSign != 4 &&
+              userSign != RADIO_UNSET &&
+              userSign != RADIO_ASSERT_EMPLOYER_RIGHTS &&
               userName &&
               userEmail &&
               userEmployer &&
@@ -172,7 +172,7 @@
           >
             Sign
           </button>
-          <div v-else-if="userSign == 4">
+          <div v-else-if="userSign == RADIO_ASSERT_EMPLOYER_RIGHTS">
             <a-alert
               type="error"
               message="Please request that your employer sign the Unicode Corporate CLA."
@@ -227,6 +227,13 @@ import * as cldrStatus from "../esm/cldrStatus.mjs";
 import { ref } from "vue";
 import claMd from "../md/cla.md";
 
+const RADIO_UNSET = 0;
+const RADIO_ASSERT_CORP = 1;
+const RADIO_ASSERT_EMPLOYER_RIGHTS = 4; // not allowed for signing.
+const RADIO_ASSERT_EMPLOYER_NORIGHTS = 3;
+const RADIO_ASSERT_INDIVIDUAL = 2;
+
+
 const claHtml = marked(claMd);
 
 const user = cldrStatus.getSurveyUser();
@@ -273,6 +280,7 @@ async function loadData() {
   const githubSessionLoad = cldrAuth.getGithubIdFromSession();
   const {
     corporate,
+    noRights,
     email,
     employer,
     name,
@@ -300,7 +308,13 @@ async function loadData() {
   userName.value = name;
   userEmail.value = email;
   userEmployer.value = employer;
-  userSign.value = corporate ? 1 : 2;
+  if (corporate) {
+    userSign.value = RADIO_ASSERT_CORP;
+  } else if(noRights) {
+    userSign.value = RADIO_ASSERT_NORIGHTS;
+  } else {
+    userSign.value = RADIO_ASSERT_INDIVIDUAL;
+  }
   userGithubSign = github;
 }
 
@@ -317,7 +331,8 @@ async function sign() {
       email: userEmail.value, // unwrap refs
       name: userName.value,
       employer: userEmployer.value,
-      corporate: userSign == 1,
+      corporate: userSign == RADIO_ASSERT_CORP,
+      noRights: userSign == RADIO_ASSERT_EMPLOYER_NORIGHTS,
     });
     user.claSigned = true; // update global user obj
     needCla.value = false;

@@ -17,6 +17,7 @@ public final class ClaSignature {
     public String name;
     public String employer; // May be different than org!
     public boolean corporate; // signed as corporate
+    public boolean noRights; // employer claims no rights
     public String github; // set if a Github id
 
     @Schema(required = false, description = "Version of CLDR signed in, or * for n/a")

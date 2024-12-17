@@ -127,25 +127,13 @@ public class GithubLoginFactory extends OAuthLoginFactory {
         return true;
     }
 
-    // /** Construct the JWT identifying as the client */
-    // private String getClientJwt() {
-    //     final long now = System.currentTimeMillis();
-    //     return Jwts.builder()
-    //             .setSubject("CLDR SurveyTool")
-    //             .signWith(privateKey)
-    //             .setIssuedAt(new Date(now - (60 * 1000)))
-    //             .setExpiration(new Date(now + (10 * 60 * 1000)))
-    //             .setIssuer(GITHUB_CLIENT_ID)
-    //             .compact();
-    // }
-
     @Override
     public String getLoginUrl(LoginIntent intent) {
         if (intent != LoginIntent.cla) {
             throw new IllegalArgumentException("LoginIntent must be cla but got " + intent);
         }
         // Note: does not set redirect URI, that can be done on the front end.
-        // TODO: add 'state=…' to a temporary token.
+        // TODO CLDR-18165: add 'state=…' to a temporary token.
         return String.format(
                 "https://github.com/login/oauth/authorize?client_id=%s", GITHUB_CLIENT_ID);
     }

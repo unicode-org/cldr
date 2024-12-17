@@ -56,7 +56,7 @@ public class TestClaGithubList {
                 () ->
                         assertThat(s.keySet())
                                 .containsExactlyInAnyOrder(
-                                        "TEST$ind-signer", "TEST$revokr", "TEST$corp-signer"),
+                                        "TEST$ind-signer", "TEST$revoker", "TEST$corp-signer"),
                 () -> assertEquals(SignStatus.signed, s.get("TEST$ind-signer").getSignStatus()),
                 () -> assertEquals(SignStatus.signed, s.get("TEST$corp-signer").getSignStatus()),
                 () -> assertEquals(SignStatus.revoked, s.get("TEST$revoker").getSignStatus()));

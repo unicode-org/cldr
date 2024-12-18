@@ -25,6 +25,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
+import org.unicode.cldr.test.SubmissionLocales;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -36,6 +37,7 @@ import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.ChainedMap.M3;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Containment;
+import org.unicode.cldr.util.CoverageInfo;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
@@ -332,10 +334,14 @@ public class LikelySubtagsTest extends TestFmwk {
     public void TestMissingInfoForLanguage() {
         CLDRFile english = CLDR_CONFIG.getEnglish().getUnresolved();
 
+        // this is the calculated coverage - coverageLevels.txt
         CalculatedCoverageLevels ccl = CalculatedCoverageLevels.getInstance();
+
+        CoverageInfo covInfo = CLDR_CONFIG.getCoverageInfo();
 
         for (String language : CLDR_CONFIG.getCldrFactory().getAvailableLanguages()) {
             if (language.contains("_") || language.equals("root")) {
+                // skip root and any sublocales (scripts, regions, variants, etc.)
                 continue;
             }
             String likelyExpansion = likely.get(language);
@@ -344,6 +350,7 @@ public class LikelySubtagsTest extends TestFmwk {
             } else {
                 logln("Likely subtags for " + language + ":\t " + likely);
             }
+            // path for the name
             String path = CLDRFile.getKey(CLDRFile.LANGUAGE_NAME, language);
             String englishName = english.getStringValue(path);
             if (englishName == null) {
@@ -357,6 +364,30 @@ public class LikelySubtagsTest extends TestFmwk {
                     }
                 }
                 errln("Missing English translation for: " + language + " which is at " + covLevel);
+            }
+            // now, check general coverage level. Use "und" so it is neutral.
+            Level undCovLevel = covInfo.getCoverageLevel(path, "und");
+            if (undCovLevel == null || undCovLevel.isAbove(Level.MODERN)) {
+                // What is the coverage level of the language?
+                final Level langCovLevel = ccl.getEffectiveCoverageLevel(language);
+                // Is it a TC org locale?
+                final boolean isTcLocale =
+                        SubmissionLocales.isTcLocale(CLDRLocale.getInstance(language));
+
+                if (!isTcLocale && (langCovLevel == null || !langCovLevel.isAtLeast(Level.BASIC))) {
+                    continue; // skip: Neither a TC locale nor at least BASIC.
+                }
+                errln(
+                        "Language "
+                                + language
+                                + ": fix coverageLevels.txt: Expected MODERN but got "
+                                + undCovLevel
+                                + " for "
+                                + path
+                                + " - tcLocale:"
+                                + isTcLocale
+                                + ", locale calculated coverage:"
+                                + langCovLevel);
             }
         }
     }

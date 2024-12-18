@@ -27,6 +27,7 @@ import org.unicode.cldr.util.ChainedMap.M4;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.NameGetter;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.StandardCodes;
@@ -200,7 +201,7 @@ public class ShowRegionalVariants {
                 grandSummary.println(
                         parent
                                 + "\t"
-                                + ENGLISH.nameGetter().getNameFromBCP47(parent.toString())
+                                + ENGLISH.nameGetter().getNameFromIdentifier(parent.toString())
                                 + "\t"
                                 + totalChildDiffs
                                 + "\t"
@@ -213,13 +214,13 @@ public class ShowRegionalVariants {
                     summary.println(
                             parent
                                     + "\t"
-                                    + ENGLISH.nameGetter().getNameFromBCP47(parent.toString())
+                                    + ENGLISH.nameGetter().getNameFromIdentifier(parent.toString())
                                     + "\t"
                                     + childDiffValue
                                     + "\t"
                                     + s
                                     + "\t"
-                                    + ENGLISH.nameGetter().getNameFromBCP47(s.toString()));
+                                    + ENGLISH.nameGetter().getNameFromIdentifier(s.toString()));
                 }
 
                 ArrayList<CLDRFile> parentChain = new ArrayList<>();
@@ -325,7 +326,8 @@ public class ShowRegionalVariants {
             country = "(" + ltp.getRegion() + ")";
         }
         return ENGLISH.nameGetter()
-                        .getNameFromBCP47BoolAlt(key.toString(), false, CLDRFile.SHORT_ALTS)
+                        .getNameFromIdentifierOptAlt(
+                                key.toString(), NameGetter.NameOpt.DEFAULT, CLDRFile.SHORT_ALTS)
                 + "\t"
                 + key
                 + "\t"

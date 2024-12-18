@@ -17,6 +17,7 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.NameGetter;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.StandardCodes;
@@ -164,10 +165,10 @@ public class TestSupplementalData {
                 Set<String> otherLanguagesLeftover = new TreeSet<>(otherLanguages);
                 otherLanguagesLeftover.removeAll(languages);
                 String territoryString =
-                        nameGetter.getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, territory);
+                        nameGetter.getNameFromTypeEnumCode(NameType.TERRITORY, territory);
                 if (otherLanguagesLeftover.size() != 0) {
                     for (String other : otherLanguagesLeftover) {
-                        String name = nameGetter.getNameFromBCP47(other);
+                        String name = nameGetter.getNameFromIdentifier(other);
                         System.out.println(
                                 territoryString + "\t" + territory + "\t" + name + "\t" + other);
                     }

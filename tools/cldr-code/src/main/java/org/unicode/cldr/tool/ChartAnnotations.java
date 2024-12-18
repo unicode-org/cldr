@@ -178,7 +178,7 @@ public class ChartAnnotations extends Chart {
             if (locale.startsWith("en")) {
                 int debug = 0;
             }
-            String name = nameGetter.getNameFromBCP47Bool(locale, true);
+            String name = nameGetter.getNameFromIdentifierCompoundOnly(locale);
             int baseEnd = locale.indexOf('_');
             ULocale loc = new ULocale(baseEnd < 0 ? locale : locale.substring(0, baseEnd));
             LanguageGroup group = LanguageGroup.get(loc);
@@ -189,7 +189,7 @@ public class ChartAnnotations extends Chart {
         for (Entry<LanguageGroup, Set<R3<Integer, String, String>>> groupPairs :
                 groupToNameAndCodeSorted.keyValuesSet()) {
             LanguageGroup group = groupPairs.getKey();
-            String ename = nameGetter.getNameFromBCP47Bool("en", true);
+            String ename = nameGetter.getNameFromIdentifierCompoundOnly("en");
             nameToCode.clear();
             nameToCode.put(ename, "en"); // always have english first
 

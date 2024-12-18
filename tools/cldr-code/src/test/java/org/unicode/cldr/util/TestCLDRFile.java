@@ -392,20 +392,20 @@ public class TestCLDRFile {
 
     @Test
     public void TestTypeNameToCode() {
-        assertEquals(CLDRFile.LANGUAGE_NAME, CLDRFile.typeNameToCode("language"));
-        assertEquals(CLDRFile.TERRITORY_NAME, CLDRFile.typeNameToCode("territory"));
-        assertEquals(CLDRFile.VARIANT_NAME, CLDRFile.typeNameToCode("variant"));
-        assertEquals(CLDRFile.CURRENCY_NAME, CLDRFile.typeNameToCode("currency"));
-        assertEquals(CLDRFile.CURRENCY_SYMBOL, CLDRFile.typeNameToCode("currency-symbol"));
-        assertEquals(CLDRFile.TZ_EXEMPLAR, CLDRFile.typeNameToCode("exemplar-city"));
-        assertEquals(CLDRFile.TZ_GENERIC_LONG, CLDRFile.typeNameToCode("tz-generic-long"));
-        assertEquals(CLDRFile.TZ_GENERIC_SHORT, CLDRFile.typeNameToCode("tz-generic-short"));
-        assertEquals(CLDRFile.TZ_STANDARD_LONG, CLDRFile.typeNameToCode("tz-standard-long"));
-        assertEquals(CLDRFile.TZ_STANDARD_SHORT, CLDRFile.typeNameToCode("tz-standard-short"));
-        assertEquals(CLDRFile.TZ_DAYLIGHT_LONG, CLDRFile.typeNameToCode("tz-daylight-long"));
-        assertEquals(CLDRFile.TZ_DAYLIGHT_SHORT, CLDRFile.typeNameToCode("tz-daylight-short"));
-        assertEquals(CLDRFile.KEY_NAME, CLDRFile.typeNameToCode("key"));
-        assertEquals(CLDRFile.KEY_TYPE_NAME, CLDRFile.typeNameToCode("key|type"));
-        assertEquals(CLDRFile.SUBDIVISION_NAME, CLDRFile.typeNameToCode("subdivision"));
+        assertEquals(NameType.LANGUAGE, NameType.typeNameToCode("language"));
+        assertEquals(NameType.TERRITORY, NameType.typeNameToCode("territory"));
+        assertEquals(NameType.VARIANT, NameType.typeNameToCode("variant"));
+        assertEquals(NameType.CURRENCY, NameType.typeNameToCode("currency"));
+        assertEquals(NameType.CURRENCY_SYMBOL, NameType.typeNameToCode("currency-symbol"));
+        assertEquals(NameType.TZ_EXEMPLAR, NameType.typeNameToCode("exemplar-city"));
+        assertEquals(NameType.TZ_GENERIC_LONG, NameType.typeNameToCode("tz-generic-long"));
+        assertEquals(NameType.TZ_GENERIC_SHORT, NameType.typeNameToCode("tz-generic-short"));
+        assertEquals(NameType.TZ_STANDARD_LONG, NameType.typeNameToCode("tz-standard-long"));
+        assertEquals(NameType.TZ_STANDARD_SHORT, NameType.typeNameToCode("tz-standard-short"));
+        assertEquals(NameType.TZ_DAYLIGHT_LONG, NameType.typeNameToCode("tz-daylight-long"));
+        assertEquals(NameType.TZ_DAYLIGHT_SHORT, NameType.typeNameToCode("tz-daylight-short"));
+        assertEquals(NameType.KEY, NameType.typeNameToCode("key"));
+        assertEquals(NameType.KEY_TYPE, NameType.typeNameToCode("key|type"));
+        assertEquals(NameType.SUBDIVISION, NameType.typeNameToCode("subdivision"));
     }
 }

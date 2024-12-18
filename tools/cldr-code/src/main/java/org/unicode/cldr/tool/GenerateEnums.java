@@ -35,6 +35,7 @@ import org.unicode.cldr.util.Iso639Data.Scope;
 import org.unicode.cldr.util.Iso639Data.Type;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.NameGetter;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -137,7 +138,7 @@ public class GenerateEnums {
     }
 
     private String getName(String code) {
-        String result = englishNameGetter.getNameFromTypenumCode(CLDRFile.CURRENCY_NAME, code);
+        String result = englishNameGetter.getNameFromTypeEnumCode(NameType.CURRENCY, code);
         if (result == null) {
             result = code;
             System.out.println("Failed to find: " + code);
@@ -176,8 +177,7 @@ public class GenerateEnums {
         int len = "  /** Arabic */                                        Arab,".length();
         for (Iterator<String> it = scripts.iterator(); it.hasNext(); ) {
             String code = it.next();
-            String englishName =
-                    englishNameGetter.getNameFromTypenumCode(CLDRFile.SCRIPT_NAME, code);
+            String englishName = englishNameGetter.getNameFromTypeEnumCode(NameType.SCRIPT, code);
             if (englishName == null) continue;
             printRow(Log.getLog(), code, null, "script", code_replacements, len);
             // Log.println(" /**" + englishName + "*/ " + code + ",");
@@ -225,8 +225,7 @@ public class GenerateEnums {
 
         for (Iterator<String> it = languages.iterator(); it.hasNext(); ) {
             String code = it.next();
-            String englishName =
-                    englishNameGetter.getNameFromTypenumCode(CLDRFile.LANGUAGE_NAME, code);
+            String englishName = englishNameGetter.getNameFromTypeEnumCode(NameType.LANGUAGE, code);
             if (englishName == null) continue;
             System.out.println("     /**" + englishName + "*/    " + code + ",");
         }
@@ -644,7 +643,7 @@ public class GenerateEnums {
                     format(popData.getPopulation()),
                     format(popData.getLiteratePopulation() / popData.getPopulation()),
                     format(popData.getGdp()),
-                    englishNameGetter.getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, territory));
+                    englishNameGetter.getNameFromTypeEnumCode(NameType.TERRITORY, territory));
             // remove all the ISO 639-3 until they are part of BCP 47
             // we need to remove in earlier pass so we have the count
             Set<String> languages = new TreeSet<>();
@@ -675,7 +674,7 @@ public class GenerateEnums {
                         format(popData.getPopulation()),
                         format(popData.getLiteratePopulation() / popData.getPopulation()),
                         (count == 0 ? ";" : ""),
-                        englishNameGetter.getNameFromBCP47(language));
+                        englishNameGetter.getNameFromIdentifier(language));
             }
         }
         Log.close();
@@ -742,8 +741,8 @@ public class GenerateEnums {
                             + "\t"
                             + region
                             + "\t"
-                            + englishNameGetter.getNameFromTypenumCode(
-                                    CLDRFile.TERRITORY_NAME, region));
+                            + englishNameGetter.getNameFromTypeEnumCode(
+                                    NameType.TERRITORY, region));
         }
 
         showGeneratedCommentEnd(DATA_INDENT);
@@ -883,8 +882,8 @@ public class GenerateEnums {
                                 ? getEnglishName(codeName)
                                 : type.equals("currency")
                                         ? getName(codeName)
-                                        : englishNameGetter.getNameFromTypenumCode(
-                                                CLDRFile.SCRIPT_NAME, codeName);
+                                        : englishNameGetter.getNameFromTypeEnumCode(
+                                                NameType.SCRIPT, codeName);
         resolvedEnglishName = doFallbacks.transliterate(resolvedEnglishName);
 
         String prefix = CODE_INDENT + "/** " + resolvedEnglishName; // + " - " +
@@ -921,7 +920,7 @@ public class GenerateEnums {
         if (codeName.length() > 3) codeName = codeName.substring(2); // fix UN name
         String name = extraNames.get(codeName);
         if (name != null) return name;
-        name = englishNameGetter.getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, codeName);
+        name = englishNameGetter.getNameFromTypeEnumCode(NameType.TERRITORY, codeName);
         if (name != null) return name;
         return codeName;
     }

@@ -568,12 +568,15 @@ public class TestValidity extends TestFmwkPlus {
                 + "\"/>"
                 + " <!-- "
                 + TransliteratorUtilities.toXML.transform(
-                        CLDRConfig.getInstance().getEnglish().nameGetter().getNameFromBCP47(code)
+                        CLDRConfig.getInstance()
+                                        .getEnglish()
+                                        .nameGetter()
+                                        .getNameFromIdentifier(code)
                                 + " ⇒ "
                                 + CLDRConfig.getInstance()
                                         .getEnglish()
                                         .nameGetter()
-                                        .getNameFromBCP47(lstrReplacement))
+                                        .getNameFromIdentifier(lstrReplacement))
                 + " -->";
     }
 

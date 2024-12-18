@@ -16,8 +16,8 @@ import java.util.Map.Entry;
 import java.util.Set;
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
 public class TestUnContainment extends TestFmwkPlus {
@@ -85,7 +85,7 @@ public class TestUnContainment extends TestFmwkPlus {
         String name =
                 testInfo.getEnglish()
                         .nameGetter()
-                        .getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, code);
+                        .getNameFromTypeEnumCode(NameType.TERRITORY, code);
         return name + " (" + code + ")";
     }
 

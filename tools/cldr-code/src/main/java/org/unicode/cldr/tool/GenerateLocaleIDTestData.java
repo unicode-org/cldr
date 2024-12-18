@@ -25,6 +25,7 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LsrvCanonicalizer;
 import org.unicode.cldr.util.LsrvCanonicalizer.TestDataTypes;
+import org.unicode.cldr.util.NameGetter;
 import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.TempPrintWriter;
@@ -116,15 +117,16 @@ public class GenerateLocaleIDTestData {
                             + "@locale=en\n"
                             + "@languageDisplay=standard\n");
             pw.println("\n# Simple cases: Language, script, region, variants\n");
-            showDisplayNames(pw, ENGLISH, true, testInputLocales);
+            showDisplayNames(pw, ENGLISH, NameGetter.NameOpt.COMPOUND_ONLY, testInputLocales);
             pw.println(
                     "\n#Note that the order of the variants is alphabetized before generating names\n");
-            showDisplayNames(pw, ENGLISH, true, "en-Latn-GB-scouse-fonipa");
+            showDisplayNames(
+                    pw, ENGLISH, NameGetter.NameOpt.COMPOUND_ONLY, "en-Latn-GB-scouse-fonipa");
             pw.println("\n# Add extensions, and verify their order\n");
             showDisplayNames(
                     pw,
                     ENGLISH,
-                    true,
+                    NameGetter.NameOpt.COMPOUND_ONLY,
                     "en-u-nu-thai-ca-islamic-civil",
                     "hi-u-nu-latn-t-en-h0-hybrid",
                     "en-u-nu-deva-t-de");
@@ -132,7 +134,7 @@ public class GenerateLocaleIDTestData {
             showDisplayNames(
                     pw,
                     ENGLISH,
-                    true,
+                    NameGetter.NameOpt.COMPOUND_ONLY,
                     "fr-z-zz-zzz-v-vv-vvv-u-uu-uuu-t-ru-Cyrl-s-ss-sss-a-aa-aaa-x-u-x");
 
             pw.println(
@@ -185,7 +187,8 @@ public class GenerateLocaleIDTestData {
                         if (upper.containsSome(value)) {
                             System.err.println("** FIX NAME: " + sampleLocale);
                         } else {
-                            showDisplayNames(pw, ENGLISH, true, sampleLocale);
+                            showDisplayNames(
+                                    pw, ENGLISH, NameGetter.NameOpt.COMPOUND_ONLY, sampleLocale);
                         }
                     }
                 }
@@ -196,7 +199,8 @@ public class GenerateLocaleIDTestData {
             Factory factory = CLDR_CONFIG.getCldrFactory();
             CoverageInfo coverageInfo = CLDR_CONFIG.getCoverageInfo();
             for (String locale : factory.getAvailableLanguages()) {
-                for (boolean onlyConstructCompound : List.of(true, false)) {
+                for (NameGetter.NameOpt nameOpt :
+                        List.of(NameGetter.NameOpt.COMPOUND_ONLY, NameGetter.NameOpt.DEFAULT)) {
                     CLDRFile cldrFile =
                             factory.make(
                                     locale,
@@ -213,10 +217,11 @@ public class GenerateLocaleIDTestData {
                     }
 
                     Map<String, String> displayNames =
-                            prepareDisplayNames(cldrFile, onlyConstructCompound, testInputLocales);
+                            prepareDisplayNames(cldrFile, nameOpt, testInputLocales);
 
                     pw.println("\n@locale=" + locale);
-                    String languageDisplayVal = onlyConstructCompound ? "standard" : "dialect";
+                    String languageDisplayVal =
+                            nameOpt == NameGetter.NameOpt.COMPOUND_ONLY ? "standard" : "dialect";
                     pw.println("@languageDisplay=" + languageDisplayVal + "\n");
 
                     showDisplayNames(pw, displayNames);
@@ -227,13 +232,11 @@ public class GenerateLocaleIDTestData {
     }
 
     private static Map<String, String> prepareDisplayNames(
-            CLDRFile formattingLocaleFile, boolean onlyConstructCompound, String... locales) {
+            CLDRFile formattingLocaleFile, NameGetter.NameOpt nameOpt, String... locales) {
         Map<String, String> displayNames = new TreeMap<>();
         for (String locale : locales) {
             String name =
-                    formattingLocaleFile
-                            .nameGetter()
-                            .getNameFromBCP47Bool(locale, onlyConstructCompound);
+                    formattingLocaleFile.nameGetter().getNameFromIdentifierOpt(locale, nameOpt);
             if (name.contains("null")) {
                 System.err.println("** REPLACE: " + locale + "; " + name);
             } else {
@@ -250,10 +253,9 @@ public class GenerateLocaleIDTestData {
     private static void showDisplayNames(
             TempPrintWriter pw,
             CLDRFile formattingLocaleFile,
-            boolean onlyConstructCompound,
+            NameGetter.NameOpt nameOpt,
             String... locales) {
-        showDisplayNames(
-                pw, prepareDisplayNames(formattingLocaleFile, onlyConstructCompound, locales));
+        showDisplayNames(pw, prepareDisplayNames(formattingLocaleFile, nameOpt, locales));
     }
 
     private static void showDisplayNames(TempPrintWriter pw, Map<String, String> displayNames) {

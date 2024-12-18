@@ -2343,133 +2343,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         return item.startsWith("//ldml[@draft=\"unconfirmed\"]");
     }
 
-    // public Collection keySet(Matcher regexMatcher, Collection output) {
-    // if (output == null) output = new ArrayList(0);
-    // for (Iterator it = keySet().iterator(); it.hasNext();) {
-    // String path = (String)it.next();
-    // if (regexMatcher.reset(path).matches()) {
-    // output.add(path);
-    // }
-    // }
-    // return output;
-    // }
-
-    // public Collection keySet(String regexPattern, Collection output) {
-    // return keySet(PatternCache.get(regexPattern).matcher(""), output);
-    // }
-
-    /**
-     * Gets the type of a given xpath, eg script, territory, ... TODO move to separate class
-     *
-     * @param xpath
-     * @return
-     */
-    public static int getNameType(String xpath) {
-        for (int i = 0; i < NameTable.length; ++i) {
-            if (!xpath.startsWith(NameTable[i][0])) continue;
-            if (xpath.indexOf(NameTable[i][1], NameTable[i][0].length()) >= 0) return i;
-        }
-        return -1;
-    }
-
-    /** Gets the display name for a type */
-    public static String getNameTypeName(int index) {
-        try {
-            return getNameName(index);
-        } catch (Exception e) {
-            return "Illegal Type Name: " + index;
-        }
-    }
-
-    /** Why isn't this an enum? */
-    public static final int NO_NAME = -1,
-            LANGUAGE_NAME = 0,
-            SCRIPT_NAME = 1,
-            TERRITORY_NAME = 2,
-            VARIANT_NAME = 3,
-            CURRENCY_NAME = 4,
-            CURRENCY_SYMBOL = 5,
-            TZ_EXEMPLAR = 6,
-            TZ_START = TZ_EXEMPLAR,
-            TZ_GENERIC_LONG = 7,
-            TZ_GENERIC_SHORT = 8,
-            TZ_STANDARD_LONG = 9,
-            TZ_STANDARD_SHORT = 10,
-            TZ_DAYLIGHT_LONG = 11,
-            TZ_DAYLIGHT_SHORT = 12,
-            TZ_LIMIT = 13,
-            KEY_NAME = 13,
-            KEY_TYPE_NAME = 14,
-            SUBDIVISION_NAME = 15,
-            LIMIT_TYPES = 15;
-
-    private static final String[][] NameTable = {
-        {"//ldml/localeDisplayNames/languages/language[@type=\"", "\"]", "language"},
-        {"//ldml/localeDisplayNames/scripts/script[@type=\"", "\"]", "script"},
-        {"//ldml/localeDisplayNames/territories/territory[@type=\"", "\"]", "territory"},
-        {"//ldml/localeDisplayNames/variants/variant[@type=\"", "\"]", "variant"},
-        {"//ldml/numbers/currencies/currency[@type=\"", "\"]/displayName", "currency"},
-        {"//ldml/numbers/currencies/currency[@type=\"", "\"]/symbol", "currency-symbol"},
-        {"//ldml/dates/timeZoneNames/zone[@type=\"", "\"]/exemplarCity", "exemplar-city"},
-        {"//ldml/dates/timeZoneNames/zone[@type=\"", "\"]/long/generic", "tz-generic-long"},
-        {"//ldml/dates/timeZoneNames/zone[@type=\"", "\"]/short/generic", "tz-generic-short"},
-        {"//ldml/dates/timeZoneNames/zone[@type=\"", "\"]/long/standard", "tz-standard-long"},
-        {"//ldml/dates/timeZoneNames/zone[@type=\"", "\"]/short/standard", "tz-standard-short"},
-        {"//ldml/dates/timeZoneNames/zone[@type=\"", "\"]/long/daylight", "tz-daylight-long"},
-        {"//ldml/dates/timeZoneNames/zone[@type=\"", "\"]/short/daylight", "tz-daylight-short"},
-        {"//ldml/localeDisplayNames/keys/key[@type=\"", "\"]", "key"},
-        {"//ldml/localeDisplayNames/types/type[@key=\"", "\"][@type=\"", "\"]", "key|type"},
-        {"//ldml/localeDisplayNames/subdivisions/subdivision[@type=\"", "\"]", "subdivision"},
-
-        /**
-         * <long> <generic>Newfoundland Time</generic> <standard>Newfoundland Standard
-         * Time</standard> <daylight>Newfoundland Daylight Time</daylight> </long> - <short>
-         * <generic>NT</generic> <standard>NST</standard> <daylight>NDT</daylight> </short>
-         */
-    };
-
-    // private static final String[] TYPE_NAME = {"language", "script", "territory", "variant",
-    // "currency",
-    // "currency-symbol",
-    // "tz-exemplar",
-    // "tz-generic-long", "tz-generic-short"};
-
-    public Iterator<String> getAvailableIterator(int type) {
-        return iterator(NameTable[type][0]);
-    }
-
-    /**
-     * @return the xpath used to access data of a given type
-     */
-    public static String getKey(int type, String code) {
-        switch (type) {
-            case VARIANT_NAME:
-                code = code.toUpperCase(Locale.ROOT);
-                break;
-            case KEY_NAME:
-                code = fixKeyName(code);
-                break;
-            case TZ_DAYLIGHT_LONG:
-            case TZ_DAYLIGHT_SHORT:
-            case TZ_EXEMPLAR:
-            case TZ_GENERIC_LONG:
-            case TZ_GENERIC_SHORT:
-            case TZ_STANDARD_LONG:
-            case TZ_STANDARD_SHORT:
-                code = getLongTzid(code);
-                break;
-        }
-        String[] nameTableRow = NameTable[type];
-        if (code.contains("|")) {
-            String[] codes = code.split("\\|");
-            return nameTableRow[0]
-                    + fixKeyName(codes[0])
-                    + nameTableRow[1]
-                    + codes[1]
-                    + nameTableRow[2];
-        } else {
-            return nameTableRow[0] + code + nameTableRow[1];
-        }
+    public Iterator<String> getAvailableIterator(NameType type) {
+        String s = type.getPathStart();
+        return iterator(s);
     }
 
     static final Relation<R2<String, String>, String> bcp47AliasMap =
@@ -2504,39 +2380,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         FIX_KEY_NAME = temp.build();
     }
 
-    private static String fixKeyName(String code) {
+    static String fixKeyName(String code) {
         String result = FIX_KEY_NAME.get(code);
         return result == null ? code : result;
-    }
-
-    /**
-     * @return the code used to access data of a given type from the path. Null if not found.
-     */
-    public static String getCode(String path) {
-        int type = getNameType(path);
-        if (type < 0) {
-            throw new IllegalArgumentException("Illegal type in path: " + path);
-        }
-        String[] nameTableRow = NameTable[type];
-        int start = nameTableRow[0].length();
-        int end = path.indexOf(nameTableRow[1], start);
-        return path.substring(start, end);
-    }
-
-    /**
-     * @param type a string such as "language", "script", "territory", "region", ...
-     * @return the corresponding integer
-     */
-    public static int typeNameToCode(String type) {
-        if (type.equalsIgnoreCase("region")) {
-            type = "territory";
-        }
-        for (int i = 0; i <= LIMIT_TYPES; ++i) {
-            if (type.equalsIgnoreCase(getNameName(i))) {
-                return i;
-            }
-        }
-        return -1;
     }
 
     /** For use in getting short names. */
@@ -2547,12 +2393,6 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
                     return "short";
                 }
             };
-
-    /** Returns the name of a type. */
-    public static String getNameName(int choice) {
-        String[] nameTableRow = NameTable[choice];
-        return nameTableRow[nameTableRow.length - 1];
-    }
 
     /**
      * Get standard ordering for elements.

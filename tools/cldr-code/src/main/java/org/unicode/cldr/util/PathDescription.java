@@ -860,7 +860,7 @@ public class PathDescription {
 
     private static final StandardCodes STANDARD_CODES = StandardCodes.make();
     private static final Map<String, String> ZONE2COUNTRY =
-            STANDARD_CODES.zoneParser.getZoneToCounty();
+            STANDARD_CODES.zoneParser.getZoneToCountry();
 
     static RegexLookup<String> parseLookupString() {
         return new RegexLookup<String>().loadFromString(pathDescriptionString);
@@ -996,7 +996,7 @@ public class PathDescription {
                 } else if (country != null) {
                     String countryName =
                             english.nameGetter()
-                                    .getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, country);
+                                    .getNameFromTypeEnumCode(NameType.TERRITORY, country);
                     if (countryName != null) {
                         if (!codeName.equals(countryName)) {
                             code = "the city “" + codeName + "” (in " + countryName + ")";
@@ -1015,8 +1015,7 @@ public class PathDescription {
         } else if (path.contains("exemplarCity")) {
             String regionCode = ZONE2COUNTRY.get(attributes.get(0));
             String englishRegionName =
-                    english.nameGetter()
-                            .getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, regionCode);
+                    english.nameGetter().getNameFromTypeEnumCode(NameType.TERRITORY, regionCode);
             description =
                     MessageFormat.format(
                             MessageFormat.autoQuoteApostrophe(description), englishRegionName);

@@ -146,7 +146,7 @@ public class EmojiSubdivisionNames {
                                     + "\t"
                                     + rank
                                     + "\t"
-                                    + nameGetter.getNameFromBCP47(locale)
+                                    + nameGetter.getNameFromIdentifier(locale)
                                     + "\t"
                                     + locale);
                     for (String sd : SUBDIVISIONS) {
@@ -173,7 +173,7 @@ public class EmojiSubdivisionNames {
                             + "\t"
                             + rank
                             + "\t"
-                            + english.nameGetter().getNameFromBCP47(locale)
+                            + english.nameGetter().getNameFromIdentifier(locale)
                             + "\t"
                             + locale);
         }

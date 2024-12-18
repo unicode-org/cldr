@@ -14,10 +14,10 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Counter2;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.NameGetter;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
@@ -236,8 +236,8 @@ public class LanguageTest extends TestFmwk {
                 + "; "
                 + (parser.getRegion().isEmpty()
                         ? "?"
-                        : nameGetter.getNameFromTypenumCode(
-                                CLDRFile.TERRITORY_NAME, parser.getRegion()));
+                        : nameGetter.getNameFromTypeEnumCode(
+                                NameType.TERRITORY, parser.getRegion()));
     }
 
     Set<String> getUnicodeScripts() {
@@ -261,7 +261,7 @@ public class LanguageTest extends TestFmwk {
 
     private String getScriptName(String script) {
         NameGetter nameGetter = testInfo.getEnglish().nameGetter();
-        String name = nameGetter.getNameFromTypenumCode(CLDRFile.SCRIPT_NAME, script);
+        String name = nameGetter.getNameFromTypeEnumCode(NameType.SCRIPT, script);
         if (name != null && !name.equals(script)) {
             return name;
         }
@@ -281,7 +281,7 @@ public class LanguageTest extends TestFmwk {
 
     private String getLanguageName(String language) {
         NameGetter nameGetter = testInfo.getEnglish().nameGetter();
-        String name = nameGetter.getNameFromTypenumCode(CLDRFile.LANGUAGE_NAME, language);
+        String name = nameGetter.getNameFromTypeEnumCode(NameType.LANGUAGE, language);
         if (name != null && !name.equals(language)) {
             return name;
         }

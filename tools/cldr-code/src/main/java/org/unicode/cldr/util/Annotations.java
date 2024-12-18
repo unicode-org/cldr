@@ -434,7 +434,7 @@ public class Annotations {
                 }
             } else if (EmojiConstants.REGIONAL_INDICATORS.containsAll(code)) {
                 String countryCode = EmojiConstants.getFlagCode(code);
-                String path = CLDRFile.getKey(CLDRFile.TERRITORY_NAME, countryCode);
+                String path = NameType.TERRITORY.getKeyPath(countryCode);
                 String regionName = getStringValue(path);
                 if (regionName == null) {
                     regionName = ENGLISH_MARKER + ENGLISH.getStringValueWithBailey(path);

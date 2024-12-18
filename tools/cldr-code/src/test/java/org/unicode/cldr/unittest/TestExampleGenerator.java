@@ -1551,7 +1551,10 @@ public class TestExampleGenerator extends TestFmwk {
                         Pair.of("gender", unitGender));
             }
             String localeName =
-                    CLDRConfig.getInstance().getEnglish().nameGetter().getNameFromBCP47(locale);
+                    CLDRConfig.getInstance()
+                            .getEnglish()
+                            .nameGetter()
+                            .getNameFromIdentifier(locale);
             boolean pluralOnly = true;
             if (paths.isEmpty()) {
                 pluralSheet.add(

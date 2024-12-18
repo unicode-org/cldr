@@ -604,7 +604,7 @@ public class CLDRTransforms {
                         CLDRConfig.getInstance()
                                 .getEnglish()
                                 .nameGetter()
-                                .getNameFromBCP47(sourceOrTarget);
+                                .getNameFromIdentifier(sourceOrTarget);
                 return name;
             } catch (Exception e) {
                 return sourceOrTarget;

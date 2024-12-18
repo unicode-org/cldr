@@ -253,7 +253,7 @@ public class WritePluralRulesSpreadsheets {
     private static String getName(String missing) {
         return missing
                 + "\t"
-                + CLDRConfig.getInstance().getEnglish().nameGetter().getNameFromBCP47(missing);
+                + CLDRConfig.getInstance().getEnglish().nameGetter().getNameFromIdentifier(missing);
     }
 
     private static String getSamplePattern(PluralMinimalPairs samplePatterns, String start) {

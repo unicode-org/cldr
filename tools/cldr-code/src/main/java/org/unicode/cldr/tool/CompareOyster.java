@@ -4,6 +4,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.NameType;
 
 public class CompareOyster {
 
@@ -24,7 +25,7 @@ public class CompareOyster {
                             + itemRegion
                             + "\t"
                             + file.nameGetter()
-                                    .getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, itemRegion));
+                                    .getNameFromTypeEnumCode(NameType.TERRITORY, itemRegion));
         }
     }
 

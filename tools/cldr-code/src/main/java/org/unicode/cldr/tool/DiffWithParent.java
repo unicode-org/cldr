@@ -36,7 +36,7 @@ public class DiffWithParent {
             for (String locale : cldrFactory.getAvailable()) {
                 if (fileMatcher.reset(locale).matches()) {
                     System.out.println(
-                            locale + "\t" + english.nameGetter().getNameFromBCP47(locale));
+                            locale + "\t" + english.nameGetter().getNameFromIdentifier(locale));
                     CLDRFile file = cldrFactory.make(locale, false);
                     String parentLocale = LocaleIDParser.getParent(locale);
                     CLDRFile parent = cldrFactory.make(parentLocale, true); // use
@@ -78,7 +78,7 @@ public class DiffWithParent {
                     String title =
                             locale
                                     + " "
-                                    + english.nameGetter().getNameFromBCP47(locale)
+                                    + english.nameGetter().getNameFromIdentifier(locale)
                                     + " Diff with Parent";
                     out.println(
                             "<!doctype HTML PUBLIC '-//W3C//DTD HTML 4.0 Transitional//EN'><html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8'><title>"

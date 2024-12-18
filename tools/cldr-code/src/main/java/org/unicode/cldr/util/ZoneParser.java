@@ -30,7 +30,7 @@ public class ZoneParser {
     /**
      * @return mapping from zone id to country. If a zone has no country, then XX is used.
      */
-    public Map<String, String> getZoneToCounty() {
+    public Map<String, String> getZoneToCountry() {
         if (zone_to_country == null) make_zone_to_country();
         return zone_to_country;
     }

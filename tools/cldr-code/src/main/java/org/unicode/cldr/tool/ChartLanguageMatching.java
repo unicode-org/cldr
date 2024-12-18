@@ -4,6 +4,7 @@ import com.ibm.icu.impl.Row.R4;
 import java.io.IOException;
 import java.util.List;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.NameGetter;
 
 public class ChartLanguageMatching extends Chart {
 
@@ -80,7 +81,8 @@ public class ChartLanguageMatching extends Chart {
     private String getName(String codeWithStars, boolean user) {
         if (!codeWithStars.contains("*") && !codeWithStars.contains("$")) {
             return ENGLISH.nameGetter()
-                    .getNameFromBCP47BoolAlt(codeWithStars, true, CLDRFile.SHORT_ALTS);
+                    .getNameFromIdentifierOptAlt(
+                            codeWithStars, NameGetter.NameOpt.COMPOUND_ONLY, CLDRFile.SHORT_ALTS);
         }
         String[] parts = codeWithStars.split("_");
         if (parts[0].equals("*")) {
@@ -100,8 +102,10 @@ public class ChartLanguageMatching extends Chart {
         }
         String result =
                 ENGLISH.nameGetter()
-                        .getNameFromBCP47BoolAlt(
-                                String.join("_", parts), true, CLDRFile.SHORT_ALTS);
+                        .getNameFromIdentifierOptAlt(
+                                String.join("_", parts),
+                                NameGetter.NameOpt.COMPOUND_ONLY,
+                                CLDRFile.SHORT_ALTS);
         if (user) {
             result =
                     result.replace("Xxxx", "any-script")

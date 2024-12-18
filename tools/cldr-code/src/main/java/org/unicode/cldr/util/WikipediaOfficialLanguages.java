@@ -302,14 +302,13 @@ public class WikipediaOfficialLanguages {
                             region
                                     + "\t"
                                     + english.nameGetter()
-                                            .getNameFromTypenumCode(
-                                                    CLDRFile.TERRITORY_NAME, region));
+                                            .getNameFromTypeEnumCode(NameType.TERRITORY, region));
 
                     System.out.println(
                             "\t"
                                     + info.language
                                     + "\t"
-                                    + english.nameGetter().getNameFromBCP47(info.language)
+                                    + english.nameGetter().getNameFromIdentifier(info.language)
                                     + "\t"
                                     + info.status
                                     + "\t"
@@ -329,14 +328,14 @@ public class WikipediaOfficialLanguages {
                                 region
                                         + "\t"
                                         + english.nameGetter()
-                                                .getNameFromTypenumCode(
-                                                        CLDRFile.TERRITORY_NAME, region));
+                                                .getNameFromTypeEnumCode(
+                                                        NameType.TERRITORY, region));
 
                         System.out.println(
                                 "\t"
                                         + r2
                                         + "\t"
-                                        + english.nameGetter().getNameFromBCP47(r2)
+                                        + english.nameGetter().getNameFromIdentifier(r2)
                                         + "\t"
                                         + "CLDR-ONLY"
                                         + "\t"

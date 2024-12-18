@@ -174,7 +174,7 @@ public class CoreCoverageInfo {
         String bestScript = script.isEmpty() ? maxScript : script;
         String bestRegion = region.isEmpty() ? maxRegion : region;
 
-        String languagePath = CLDRFile.getKey(CLDRFile.LANGUAGE_NAME, baseLanguage);
+        String languagePath = NameType.LANGUAGE.getKeyPath(baseLanguage);
         String languageName = resolvedFile.getStringValue(languagePath);
         if (languageName == null) {
             detailedErrors.put(CoreItems.own_language, languagePath);
@@ -188,7 +188,7 @@ public class CoreCoverageInfo {
         if (bestRegion.isEmpty()) {
             detailedErrors.put(CoreItems.own_regions, "//supplementalData/likelySubtags");
         } else {
-            String regionPath = CLDRFile.getKey(CLDRFile.TERRITORY_NAME, bestRegion);
+            String regionPath = NameType.TERRITORY.getKeyPath(bestRegion);
             String regionName = file.getStringValue(regionPath);
             if (regionName == null) {
                 detailedErrors.put(CoreItems.own_regions, regionPath);

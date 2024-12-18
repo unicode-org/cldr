@@ -39,7 +39,6 @@ import org.unicode.cldr.util.AttributeValueValidity.AttributeValueSpec;
 import org.unicode.cldr.util.AttributeValueValidity.MatcherPattern;
 import org.unicode.cldr.util.AttributeValueValidity.Status;
 import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.ChainedMap.M4;
@@ -47,6 +46,7 @@ import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdData.ValueStatus;
 import org.unicode.cldr.util.DtdType;
 import org.unicode.cldr.util.LanguageInfo;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.LstrField;
@@ -432,7 +432,7 @@ public class TestAttributeValues extends TestFmwk {
                         + "\t"
                         + config.getEnglish()
                                 .nameGetter()
-                                .getNameFromTypenumCode(CLDRFile.LANGUAGE_NAME, language)
+                                .getNameFromTypeEnumCode(NameType.LANGUAGE, language)
                         + "\t"
                         + languageInfo);
     }

@@ -32,6 +32,7 @@ import org.unicode.cldr.draft.XLikelySubtags.LSR;
 import org.unicode.cldr.draft.XLocaleDistance.RegionMapper.Builder;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
 public class XLocaleDistance {
@@ -971,7 +972,7 @@ public class XLocaleDistance {
                 } else {
                     result.append(
                             english.nameGetter()
-                                    .getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, region));
+                                    .getNameFromTypeEnumCode(NameType.TERRITORY, region));
                 }
             case 2:
                 String script = alt.get(1);
@@ -981,7 +982,7 @@ public class XLocaleDistance {
                     result.insert(
                             0,
                             english.nameGetter()
-                                    .getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, script));
+                                    .getNameFromTypeEnumCode(NameType.TERRITORY, script));
                 }
             case 1:
                 String language = alt.get(0);
@@ -991,7 +992,7 @@ public class XLocaleDistance {
                     result.insert(
                             0,
                             english.nameGetter()
-                                    .getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, language));
+                                    .getNameFromTypeEnumCode(NameType.TERRITORY, language));
                 }
         }
         return Joiner.on("; ").join(alt);

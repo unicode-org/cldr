@@ -107,7 +107,7 @@ public class GenerateChangeChart {
                 final String summaryLine =
                         locale
                                 + "\t"
-                                + ENGLISH.nameGetter().getNameFromBCP47(locale)
+                                + ENGLISH.nameGetter().getNameFromIdentifier(locale)
                                 + "\t"
                                 + counter;
                 System.out.println(summaryLine);
@@ -230,7 +230,7 @@ public class GenerateChangeChart {
                 String newValue,
                 String engValue,
                 int votes) {
-            final String name = ENGLISH.nameGetter().getNameFromBCP47(locale.toString());
+            final String name = ENGLISH.nameGetter().getNameFromIdentifier(locale.toString());
             PageId pageId = pathHeader.getPageId();
             String header = pathHeader.getHeader();
             String code = pathHeader.getCode();
@@ -301,7 +301,7 @@ public class GenerateChangeChart {
                 String newValue,
                 String engValue,
                 int votes) {
-            final String name = ENGLISH.nameGetter().getNameFromBCP47(locale.toString());
+            final String name = ENGLISH.nameGetter().getNameFromIdentifier(locale.toString());
             PageId pageId = pathHeader.getPageId();
             String header = pathHeader.getHeader();
             String code = pathHeader.getCode();

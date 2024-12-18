@@ -87,7 +87,7 @@ public class LanguageInfoTest extends TestFmwk {
                 ? "n/a"
                 : item.contains("$")
                         ? item
-                        : testInfo.getEnglish().nameGetter().getNameFromBCP47(item);
+                        : testInfo.getEnglish().nameGetter().getNameFromIdentifier(item);
     }
 
     public static void main(String[] args) {

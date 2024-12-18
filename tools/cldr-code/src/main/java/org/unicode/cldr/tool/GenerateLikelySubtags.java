@@ -46,6 +46,7 @@ import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.LocaleScriptInfo;
 import org.unicode.cldr.util.LocaleValidator;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.LstrType;
@@ -666,7 +667,7 @@ public class GenerateLikelySubtags {
     public static String getNameSafe(String oldValue) {
         try {
             if (oldValue != null) {
-                String result = english.nameGetter().getNameFromBCP47(oldValue);
+                String result = english.nameGetter().getNameFromIdentifier(oldValue);
                 if (result.startsWith("Unknown language ")) {
                     result = result.substring("Unknown language ".length());
                 }
@@ -1691,16 +1692,14 @@ public class GenerateLikelySubtags {
         return spacing.join(
                 (lang.equals(LocaleNames.UND)
                         ? "?"
-                        : english.nameGetter()
-                                .getNameFromTypenumCode(CLDRFile.LANGUAGE_NAME, lang)),
+                        : english.nameGetter().getNameFromTypeEnumCode(NameType.LANGUAGE, lang)),
                 (script == null || script.equals("")
                         ? "?"
-                        : english.nameGetter()
-                                .getNameFromTypenumCode(CLDRFile.SCRIPT_NAME, script)),
+                        : english.nameGetter().getNameFromTypeEnumCode(NameType.SCRIPT, script)),
                 (region == null || region.equals("")
                         ? "?"
                         : english.nameGetter()
-                                .getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, region)));
+                                .getNameFromTypeEnumCode(NameType.TERRITORY, region)));
     }
 
     static final String SEPARATOR =

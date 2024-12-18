@@ -131,9 +131,9 @@ public class TestUtilities {
             System.out.println(
                     test
                             + "\t"
-                            + english.nameGetter().getNameFromBCP47(test)
+                            + english.nameGetter().getNameFromIdentifier(test)
                             + "\t"
-                            + french.nameGetter().getNameFromBCP47(test));
+                            + french.nameGetter().getNameFromIdentifier(test));
         }
     }
 
@@ -1025,8 +1025,7 @@ public class TestUtilities {
             out.println(
                     code
                             + "\t"
-                            + englishNameGetter.getNameFromTypenumCode(
-                                    CLDRFile.LANGUAGE_NAME, code));
+                            + englishNameGetter.getNameFromTypeEnumCode(NameType.LANGUAGE, code));
         }
         out.println("****");
         for (Iterator<String> it = sc.getGoodAvailableCodes("territory").iterator();
@@ -1035,16 +1034,13 @@ public class TestUtilities {
             out.println(
                     code
                             + "\t"
-                            + englishNameGetter.getNameFromTypenumCode(
-                                    CLDRFile.TERRITORY_NAME, code));
+                            + englishNameGetter.getNameFromTypeEnumCode(NameType.TERRITORY, code));
         }
         out.println("****");
         for (Iterator<String> it = sc.getGoodAvailableCodes("script").iterator(); it.hasNext(); ) {
             String code = it.next();
             out.println(
-                    code
-                            + "\t"
-                            + englishNameGetter.getNameFromTypenumCode(CLDRFile.SCRIPT_NAME, code));
+                    code + "\t" + englishNameGetter.getNameFromTypeEnumCode(NameType.SCRIPT, code));
         }
         out.close();
     }

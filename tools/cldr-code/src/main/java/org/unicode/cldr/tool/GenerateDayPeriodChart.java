@@ -108,7 +108,7 @@ public class GenerateDayPeriodChart {
                                 + "\t"
                                 + locale
                                 + "\t"
-                                + ENGLISH.nameGetter().getNameFromBCP47(locale));
+                                + ENGLISH.nameGetter().getNameFromIdentifier(locale));
                 DayPeriodInfo dayPeriod = getFixedDayPeriodInfo(type, locale);
                 doRow(dayPeriod);
             }

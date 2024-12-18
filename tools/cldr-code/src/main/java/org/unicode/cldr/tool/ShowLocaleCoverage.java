@@ -51,6 +51,8 @@ import org.unicode.cldr.util.LanguageTagCanonicalizer;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleNames;
+import org.unicode.cldr.util.NameGetter;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.Factory;
@@ -891,9 +893,11 @@ public class ShowLocaleCoverage {
                             .addCell(language)
                             .addCell(
                                     ENGLISH.nameGetter()
-                                            .getNameFromBCP47BoolAlt(
-                                                    language, true, CLDRFile.SHORT_ALTS))
-                            .addCell(file.nameGetter().getNameFromBCP47(language))
+                                            .getNameFromIdentifierOptAlt(
+                                                    language,
+                                                    NameGetter.NameOpt.COMPOUND_ONLY,
+                                                    CLDRFile.SHORT_ALTS))
+                            .addCell(file.nameGetter().getNameFromIdentifier(language))
                             .addCell(script)
                             .addCell(defRegion)
                             .addCell(sublocales.size())
@@ -919,7 +923,7 @@ public class ShowLocaleCoverage {
                                         + " ;\t"
                                         + visibleLevelComputed
                                         + " ;\t"
-                                        + ENGLISH.nameGetter().getNameFromBCP47(locale));
+                                        + ENGLISH.nameGetter().getNameFromIdentifier(locale));
                         // TODO decide whether to restore this
                         //                        Level higher = Level.UNDETERMINED;
                         //                        switch (computed) {
@@ -1178,9 +1182,9 @@ public class ShowLocaleCoverage {
                 specialFlag
                         + language
                         + "\t"
-                        + ENGLISH.nameGetter().getNameFromBCP47(language)
+                        + ENGLISH.nameGetter().getNameFromIdentifier(language)
                         + "\t"
-                        + ENGLISH.nameGetter().getNameFromTypenumCode(CLDRFile.SCRIPT_NAME, script)
+                        + ENGLISH.nameGetter().getNameFromTypeEnumCode(NameType.SCRIPT, script)
                         + "\t"
                         + cldrLocaleLevelGoal
                         + "\t"

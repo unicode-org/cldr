@@ -239,7 +239,7 @@ public class TestMisc {
         }
         NameGetter nameGetter = english.nameGetter();
         for (Pair<Integer, String> p : rel) {
-            System.out.println(p + "\t" + nameGetter.getNameFromBCP47(p.getSecond()));
+            System.out.println(p + "\t" + nameGetter.getNameFromIdentifier(p.getSecond()));
         }
     }
 

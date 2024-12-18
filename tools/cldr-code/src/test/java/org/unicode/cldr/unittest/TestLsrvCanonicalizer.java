@@ -19,6 +19,7 @@ import org.unicode.cldr.util.LsrvCanonicalizer.ReplacementRule;
 import org.unicode.cldr.util.LsrvCanonicalizer.TestDataTypes;
 import org.unicode.cldr.util.LsrvCanonicalizer.XLanguageTag;
 import org.unicode.cldr.util.NameGetter;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.LstrField;
 import org.unicode.cldr.util.StandardCodes.LstrType;
@@ -297,17 +298,18 @@ public class TestLsrvCanonicalizer extends TestFmwk {
                     }
                     CLDRFile english = CLDRConfig.getInstance().getEnglish();
                     NameGetter englishNameGetter = english.nameGetter();
-                    /*
-                     * TODO: use getNameFromTypenumCode instead of getNameFromTypestrCode here (twice).
-                     * Reference: https://unicode-org.atlassian.net/browse/CLDR-15830
-                     * typeCompat is derived from StandardCodes.LstrType.toCompatString
-                     */
-                    String typeName = englishNameGetter.getNameFromTypestrCode(typeCompat, subtag);
+                    NameType nameType = type.toNameType();
+                    if (nameType == NameType.NONE) {
+                        System.out.println(
+                                "TestAgainstLanguageSubtagRegistry skipping type " + type);
+                        continue;
+                    }
+                    String typeName = englishNameGetter.getNameFromTypeEnumCode(nameType, subtag);
                     String replacementName =
                             preferredValueCompat == null
                                     ? "???"
-                                    : englishNameGetter.getNameFromTypestrCode(
-                                            typeCompat, replacementString);
+                                    : englishNameGetter.getNameFromTypeEnumCode(
+                                            nameType, replacementString);
                     addExceptions.add(
                             ".put(\""
                                     + subtag

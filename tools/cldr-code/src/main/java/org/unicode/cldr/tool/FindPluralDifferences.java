@@ -137,7 +137,7 @@ public class FindPluralDifferences {
                                     + ToolConfig.getToolInstance()
                                             .getEnglish()
                                             .nameGetter()
-                                            .getNameFromBCP47(locale)
+                                            .getNameFromIdentifier(locale)
                                     + "\t"
                                     + locale
                                     + "\t"

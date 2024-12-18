@@ -292,7 +292,7 @@ public enum LanguageGroup {
                 break;
             default:
                 return cldrFile.nameGetter()
-                        .getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, ltp.getRegion());
+                        .getNameFromTypeEnumCode(NameType.TERRITORY, ltp.getRegion());
         }
         switch (ltp.getScript()) {
             case "Hani":
@@ -304,7 +304,7 @@ public enum LanguageGroup {
         }
         return prefix
                 + cldrFile.nameGetter()
-                        .getNameFromBCP47(ltp.getLanguage())
+                        .getNameFromIdentifier(ltp.getLanguage())
                         .replace(" [Other]", "")
                         .replace(" languages", "");
     }

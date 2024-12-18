@@ -126,7 +126,7 @@ public class TestLanguageGroup extends TestFmwk {
             case "grk":
                 return "Hellenic";
             default:
-                return ENGLISH.nameGetter().getNameFromBCP47(code).replace(" [Other]", "");
+                return ENGLISH.nameGetter().getNameFromIdentifier(code).replace(" [Other]", "");
         }
     }
 

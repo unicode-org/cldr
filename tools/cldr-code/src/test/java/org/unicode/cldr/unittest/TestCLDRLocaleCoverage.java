@@ -30,6 +30,7 @@ import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.LocaleNames;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.LstrType;
@@ -95,7 +96,7 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
         CoverageLevel2 coverageLeveler = CoverageLevel2.getInstance(LocaleNames.UND);
         Multimap<Level, String> levelToLanguage = TreeMultimap.create();
         for (String locale : valid) {
-            String path = CLDRFile.getKey(CLDRFile.LANGUAGE_NAME, locale);
+            String path = NameType.LANGUAGE.getKeyPath(locale);
             Level level = coverageLeveler.getLevel(path);
             levelToLanguage.put(level, locale);
         }
@@ -162,7 +163,7 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
                     && CLDRLocale.getInstance(locale).getParent().equals(CLDRLocale.ROOT)) {
                 official1MSetNames.put(
                         localeAndSize.getValue(),
-                        "\t" + locale + "\t" + ENGLISH.nameGetter().getNameFromBCP47(locale));
+                        "\t" + locale + "\t" + ENGLISH.nameGetter().getNameFromIdentifier(locale));
             }
         }
         if (!official1MSetNames.isEmpty()) {
@@ -180,7 +181,7 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
         coverageLocales.removeAll(additionsToTranslate);
 
         for (String locale : localesForNames) {
-            logln("\n" + locale + "\t" + ENGLISH.nameGetter().getNameFromBCP47(locale));
+            logln("\n" + locale + "\t" + ENGLISH.nameGetter().getNameFromIdentifier(locale));
         }
 
         logln("\nmainLocales:" + composeList(mainLocales, "\n\t", new StringBuilder()));
@@ -243,7 +244,7 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
             temp.removeAll(set);
             Set<String> temp2 = new TreeSet<>();
             for (String locale : temp) {
-                temp2.add(locale + "\t" + ENGLISH.nameGetter().getNameFromBCP47(locale));
+                temp2.add(locale + "\t" + ENGLISH.nameGetter().getNameFromIdentifier(locale));
             }
             errln(title + ": Missing:\t" + temp.size() + "\n\t" + Joiner.on("\n\t").join(temp2));
         }
@@ -344,7 +345,7 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
                     "cldr level = max for "
                             + locale
                             + " ("
-                            + ENGLISH.nameGetter().getNameFromBCP47(locale)
+                            + ENGLISH.nameGetter().getNameFromIdentifier(locale)
                             + ")",
                     cldrLevel,
                     maxLevel);

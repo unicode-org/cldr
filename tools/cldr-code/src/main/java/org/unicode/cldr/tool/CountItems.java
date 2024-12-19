@@ -53,6 +53,7 @@ import org.unicode.cldr.util.IsoRegionData;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.NameGetter;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PatternCache;
@@ -320,7 +321,7 @@ public class CountItems {
     public static void genSupplementalZoneData(boolean skipUnaliased) throws IOException {
         RuleBasedCollator col = CollatorHelper.ROOT_NUMERIC;
         StandardCodes sc = StandardCodes.make();
-        Map<String, String> zone_country = sc.getZoneToCounty();
+        Map<String, String> zone_country = sc.getZoneToCountry();
         Map<String, Set<String>> country_zone = sc.getCountryToZoneSet();
         Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
         CLDRFile english = cldrFactory.make("en", true);
@@ -432,7 +433,7 @@ public class CountItems {
         CLDRConfig testInfo = ToolConfig.getToolInstance();
         Map<String, Map<String, String>> map =
                 testInfo.getSupplementalDataInfo().getMetazoneToRegionToZone();
-        Map zoneToCountry = StandardCodes.make().getZoneToCounty();
+        Map zoneToCountry = StandardCodes.make().getZoneToCountry();
         Set<Pair<String, String>> results = new TreeSet<>();
         Map<String, String> countryToContinent =
                 getCountryToContinent(testInfo.getSupplementalDataInfo(), testInfo.getEnglish());
@@ -487,8 +488,8 @@ public class CountItems {
             }
             results.put(
                     item,
-                    nameGetter.getNameFromTypenumCode(
-                            CLDRFile.TERRITORY_NAME, containees.iterator().next()));
+                    nameGetter.getNameFromTypeEnumCode(
+                            NameType.TERRITORY, containees.iterator().next()));
         }
         return results;
     }
@@ -562,8 +563,8 @@ public class CountItems {
                             "# "
                                     + newCountry
                                     + "\t"
-                                    + nameGetter.getNameFromTypenumCode(
-                                            CLDRFile.TERRITORY_NAME, newCountry));
+                                    + nameGetter.getNameFromTypeEnumCode(
+                                            NameType.TERRITORY, newCountry));
                     lastCountry = newCountry;
                 }
                 Log.println("\t'" + oldName + "'\t>\t'" + newName + "';");
@@ -1007,7 +1008,7 @@ public class CountItems {
             } else {
                 result = region;
             }
-            String name = nameGetter.getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, result);
+            String name = nameGetter.getNameFromTypeEnumCode(NameType.TERRITORY, result);
             if (!(duplicateDestroyer.contains(alpha3 + result + name))) {
                 duplicateDestroyer.add(alpha3 + result + name);
                 System.out.println(
@@ -1021,7 +1022,7 @@ public class CountItems {
             }
         }
         for (String region : missingRegions) {
-            String name = nameGetter.getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, region);
+            String name = nameGetter.getNameFromTypeEnumCode(NameType.TERRITORY, region);
             System.err.println("ERROR: Missing " + codeType + " code for " + region + "\t" + name);
         }
     }
@@ -1074,7 +1075,7 @@ public class CountItems {
         Set<String> singleCountriesSet =
                 new TreeSet<>(CldrUtility.splitList(singleCountriesList, ' '));
 
-        Map<String, String> zone_countries = StandardCodes.make().getZoneToCounty();
+        Map<String, String> zone_countries = StandardCodes.make().getZoneToCountry();
         Map<String, Set<String>> countries_zoneSet = StandardCodes.make().getCountryToZoneSet();
         System.out.println();
         i = 0;
@@ -1104,7 +1105,7 @@ public class CountItems {
             System.out.println(
                     locale
                             + "\t"
-                            + nameGetter.getNameFromBCP47(locale)
+                            + nameGetter.getNameFromIdentifier(locale)
                             + "\t"
                             + onlyLocales.get(locale));
         }

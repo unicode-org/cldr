@@ -85,7 +85,7 @@ public class TestCLDRFile extends TestFmwk {
         };
         CLDRFile english = testInfo.getEnglish();
         for (String[] test : tests) {
-            assertEquals("", test[1], english.nameGetter().getNameFromBCP47(test[0]));
+            assertEquals("", test[1], english.nameGetter().getNameFromIdentifier(test[0]));
         }
     }
 

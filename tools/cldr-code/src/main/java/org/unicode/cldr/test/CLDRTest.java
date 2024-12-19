@@ -18,10 +18,12 @@ import com.ibm.icu.util.ULocale;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.security.InvalidParameterException;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
+import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -77,8 +79,6 @@ public class CLDRTest extends TestFmwk {
     private CLDRFile resolvedEnglish;
     private final UnicodeSet commonAndInherited =
             new UnicodeSet("[[:script=common:][:script=inherited:][:alphabetic=false:]]");
-    private static final String[] WIDTHS = {"narrow", "wide", "abbreviated", "short"};
-    private static final String[] MONTHORDAYS = {"day", "month"};
     private Map<String, String> localeNameCache = new HashMap<>();
     private CLDRFile english = null;
 
@@ -413,7 +413,7 @@ public class CLDRTest extends TestFmwk {
         String name = localeNameCache.get(locale);
         if (name != null) return name;
         if (english == null) english = cldrFactory.make("en", true);
-        String result = english.nameGetter().getNameFromBCP47(locale);
+        String result = english.nameGetter().getNameFromIdentifier(locale);
         /*
          * Collection c = Utility.splitList(locale, '_', false, null);
          * String[] pieces = new String[c.size()];
@@ -494,9 +494,14 @@ public class CLDRTest extends TestFmwk {
     public void TestDisplayNameCollisions() {
         if (disableUntilLater("TestDisplayNameCollisions")) return;
 
-        Map<String, String>[] maps = new HashMap[CLDRFile.LIMIT_TYPES];
-        for (int i = 0; i < maps.length; ++i) {
-            maps[i] = new HashMap<>();
+        Set<NameType> nameTypeSet = EnumSet.allOf(NameType.class);
+        Map<String, String>[] maps = new HashMap[nameTypeSet.size()];
+        Map<NameType, Integer> nameTypeIntegerMap = new HashMap();
+        int j = 0;
+        for (NameType nameType : NameType.values()) {
+            maps[j] = new HashMap<>();
+            nameTypeIntegerMap.put(nameType, j);
+            ++j;
         }
         Set<String> collisions = new TreeSet<>();
         for (Iterator<String> it = locales.iterator(); it.hasNext(); ) {
@@ -509,22 +514,17 @@ public class CLDRTest extends TestFmwk {
 
             for (Iterator<String> it2 = item.iterator(); it2.hasNext(); ) {
                 String xpath = it2.next();
-                int nameType = CLDRFile.getNameType(xpath);
-                if (nameType < 0) continue;
+                NameType nameType = NameType.fromPath(xpath);
+                if (nameType == NameType.NONE) continue;
                 String value = item.getStringValue(xpath);
-                String xpath2 = maps[nameType].get(value);
+                int nameTypeIndex = nameTypeIntegerMap.get(nameType);
+                String xpath2 = maps[nameTypeIndex].get(value);
                 if (xpath2 == null) {
-                    maps[nameType].put(value, xpath);
+                    maps[nameTypeIndex].put(value, xpath);
                     continue;
                 }
-                collisions.add(
-                        CLDRFile.getNameTypeName(nameType)
-                                + "\t"
-                                + value
-                                + "\t"
-                                + xpath
-                                + "\t"
-                                + xpath2);
+                String theName = nameType.getNameTypeName();
+                collisions.add(theName + "\t" + value + "\t" + xpath + "\t" + xpath2);
                 surveyInfo.add(
                         locale
                                 + "\t"
@@ -843,6 +843,12 @@ public class CLDRTest extends TestFmwk {
         }
     }
 
+    /** Settings for checkForItems behavior */
+    private enum KeyOpt {
+        DEFAULT,
+        DATE
+    };
+
     /** Verify that the minimal localizations are present. */
     public void TestMinimalLocalization() throws IOException {
         if (disableUntilLater("TestMinimalLocalization")) return;
@@ -876,10 +882,7 @@ public class CLDRTest extends TestFmwk {
             // languages
             Set<String> languages = new TreeSet<>(CldrUtility.MINIMUM_LANGUAGES);
             languages.add(language);
-            // LANGUAGE_NAME = 0, SCRIPT_NAME = 1, TERRITORY_NAME = 2, VARIANT_NAME = 3,
-            // CURRENCY_NAME = 4, CURRENCY_SYMBOL = 5, TZID = 6
-
-            checkForItems(item, languages, CLDRFile.LANGUAGE_NAME, missing, failureCount, null);
+            checkForItems(item, languages, NameType.LANGUAGE, missing, failureCount);
 
             /*
              * checkTranslatedCode(cldrfile, codes, "currency", "//ldml/numbers/currencies/currency");
@@ -891,12 +894,12 @@ public class CLDRTest extends TestFmwk {
             scripts.add("Latn");
             Set<String> others = language_scripts.get(language);
             if (others != null) scripts.addAll(others);
-            checkForItems(item, scripts, CLDRFile.SCRIPT_NAME, missing, failureCount, null);
+            checkForItems(item, scripts, NameType.SCRIPT, missing, failureCount);
 
             Set<String> countries = new TreeSet<>(CldrUtility.MINIMUM_TERRITORIES);
             others = language_territories.get(language);
             if (others != null) countries.addAll(others);
-            checkForItems(item, countries, CLDRFile.TERRITORY_NAME, missing, failureCount, null);
+            checkForItems(item, countries, NameType.TERRITORY, missing, failureCount);
 
             Set<String> currencies = new TreeSet<>();
             StandardCodes sc = StandardCodes.make();
@@ -909,9 +912,9 @@ public class CLDRTest extends TestFmwk {
                     currencies.addAll(countryCurrencies);
                 }
             }
-            checkForItems(item, currencies, CLDRFile.CURRENCY_NAME, missing, failureCount, null);
+            checkForItems(item, currencies, NameType.CURRENCY, missing, failureCount);
             checkForItems(
-                    item, currencies, CLDRFile.CURRENCY_SYMBOL, missing, failureCount, exemplars);
+                    item, currencies, NameType.CURRENCY_SYMBOL, missing, failureCount, exemplars);
 
             // context=format and width=wide; context=stand-alone & width=abbreviated
             Set<String> months = new TreeSet<>();
@@ -922,10 +925,13 @@ public class CLDRTest extends TestFmwk {
                                     new String[] {
                                         "sun", "mon", "tue", "wed", "thu", "fri", "sat"
                                     }));
-            for (int i = -7; i < 0; ++i) {
-                checkForItems(item, (i < -4 ? months : days), i, missing, failureCount, null);
-            }
-
+            checkForItemsDate(item, months, NameType.TZ_EXEMPLAR, missing, failureCount);
+            checkForItemsDate(item, months, NameType.CURRENCY_SYMBOL, missing, failureCount);
+            checkForItemsDate(item, months, NameType.CURRENCY, missing, failureCount);
+            checkForItemsDate(item, days, NameType.VARIANT, missing, failureCount);
+            checkForItemsDate(item, days, NameType.TERRITORY, missing, failureCount);
+            checkForItemsDate(item, days, NameType.SCRIPT, missing, failureCount);
+            checkForItemsDate(item, days, NameType.LANGUAGE, missing, failureCount);
             String filename = "missing_" + locale + ".xml";
             if (failureCount[0] > 0 || warningCount[0] > 0) {
                 PrintWriter out =
@@ -964,38 +970,70 @@ public class CLDRTest extends TestFmwk {
     }
 
     /** Internal */
-    private String getDateKey(int type, String code) {
-        // type is 6..4 for months abbrev..narrow, 3..0 for days short..narrow
-        int monthOrDayType = 0, widthType = type;
-        if (type >= 4) {
-            monthOrDayType = 1;
-            widthType -= 4;
+    private String getDateKey(NameType type, String code) {
+        switch (type) {
+            case TZ_EXEMPLAR:
+                return getDateKey("month", "abbreviated", code);
+            case CURRENCY_SYMBOL:
+                return getDateKey("month", "wide", code);
+            case CURRENCY:
+                return getDateKey("month", "narrow", code);
+            case VARIANT:
+                return getDateKey("day", "short", code);
+            case TERRITORY:
+                return getDateKey("day", "abbreviated", code);
+            case SCRIPT:
+                return getDateKey("day", "wide", code);
+            case LANGUAGE:
+                return getDateKey("day", "narrow", code);
+            default:
+                throw new InvalidParameterException("getDateKey: " + type);
         }
-        return getDateKey(MONTHORDAYS[monthOrDayType], WIDTHS[widthType], code);
     }
 
-    /**
-     * @param item
-     * @param codes
-     * @param missing
-     * @param exemplarTest TODO TODO
-     */
     private void checkForItems(
             CLDRFile item,
             Set<String> codes,
-            int type,
+            NameType nameType,
             CLDRFile missing,
-            int failureCount[],
+            int[] failureCount) {
+        checkForItems(item, codes, nameType, KeyOpt.DEFAULT, missing, failureCount, null);
+    }
+
+    private void checkForItems(
+            CLDRFile item,
+            Set<String> codes,
+            NameType nameType,
+            CLDRFile missing,
+            int[] failureCount,
+            UnicodeSet exemplarTest) {
+        checkForItems(item, codes, nameType, KeyOpt.DEFAULT, missing, failureCount, exemplarTest);
+    }
+
+    private void checkForItemsDate(
+            CLDRFile item,
+            Set<String> codes,
+            NameType nameType,
+            CLDRFile missing,
+            int[] failureCount) {
+        checkForItems(item, codes, nameType, KeyOpt.DATE, missing, failureCount, null);
+    }
+
+    private void checkForItems(
+            CLDRFile item,
+            Set<String> codes,
+            NameType nameType,
+            KeyOpt keyOpt,
+            CLDRFile missing,
+            int[] failureCount,
             UnicodeSet exemplarTest) {
         // check codes
         for (Iterator<String> it2 = codes.iterator(); it2.hasNext(); ) {
             String code = it2.next();
-            String key;
-            if (type >= 0) {
-                key = CLDRFile.getKey(type, code);
-            } else {
-                key = getDateKey(-type - 1, code);
-            }
+            String key =
+                    (keyOpt == KeyOpt.DATE)
+                            ? getDateKey(nameType, code)
+                            : nameType.getKeyPath(code);
             String v = item.getStringValue(key);
             String rootValue = resolvedRoot.getStringValue(key);
             if (v == null
@@ -1048,8 +1086,7 @@ public class CLDRTest extends TestFmwk {
                 public Object transform(Object source) {
                     if (english == null) english = cldrFactory.make("en", true);
                     return english.nameGetter()
-                                    .getNameFromTypenumCode(
-                                            CLDRFile.CURRENCY_NAME, source.toString())
+                                    .getNameFromTypeEnumCode(NameType.CURRENCY, source.toString())
                             + " ("
                             + source
                             + ")";
@@ -1195,8 +1232,7 @@ public class CLDRTest extends TestFmwk {
         NameGetter englishNameGetter = english.nameGetter();
         for (Iterator<String> it = legalCurrencies.iterator(); it.hasNext(); ) {
             String currency = it.next();
-            String name =
-                    englishNameGetter.getNameFromTypenumCode(CLDRFile.CURRENCY_NAME, currency);
+            String name = englishNameGetter.getNameFromTypeEnumCode(NameType.CURRENCY, currency);
             if (name == null) {
                 String standardName = sc.getFullData("currency", currency).get(0);
                 logln("\t\t\t<currency type=\"" + currency + "\">");

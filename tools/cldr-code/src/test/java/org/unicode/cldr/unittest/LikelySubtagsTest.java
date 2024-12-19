@@ -40,6 +40,7 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleValidator;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.ScriptToExemplars;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.LstrType;
@@ -344,7 +345,7 @@ public class LikelySubtagsTest extends TestFmwk {
             } else {
                 logln("Likely subtags for " + language + ":\t " + likely);
             }
-            String path = CLDRFile.getKey(CLDRFile.LANGUAGE_NAME, language);
+            String path = NameType.LANGUAGE.getKeyPath(language);
             String englishName = english.getStringValue(path);
             if (englishName == null) {
                 Level covLevel = ccl.getEffectiveCoverageLevel(language);
@@ -376,8 +377,8 @@ public class LikelySubtagsTest extends TestFmwk {
                                         + region
                                         + "\t"
                                         + english.nameGetter()
-                                                .getNameFromTypenumCode(
-                                                        CLDRFile.TERRITORY_NAME, region));
+                                                .getNameFromTypeEnumCode(
+                                                        NameType.TERRITORY, region));
                     }
                 } else { // container
                     logln(
@@ -385,13 +386,12 @@ public class LikelySubtagsTest extends TestFmwk {
                                     + region
                                     + "\t"
                                     + english.nameGetter()
-                                            .getNameFromTypenumCode(
-                                                    CLDRFile.TERRITORY_NAME, region));
+                                            .getNameFromTypeEnumCode(NameType.TERRITORY, region));
                 }
             } else {
                 logln("Likely subtags for region: " + region + ":\t " + likely);
             }
-            String path = CLDRFile.getKey(CLDRFile.TERRITORY_NAME, region);
+            String path = NameType.TERRITORY.getKeyPath(region);
             String englishName = english.getStringValue(path);
             if (englishName == null) {
                 errln("Missing English translation for: " + region);

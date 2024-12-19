@@ -1418,8 +1418,8 @@ public class PathHeader implements Comparable<PathHeader> {
                                 languageOnlyPart = source0;
                             }
 
-                            return englishNameGetter.getNameFromTypenumCode(
-                                            CLDRFile.LANGUAGE_NAME, languageOnlyPart)
+                            return englishNameGetter.getNameFromTypeEnumCode(
+                                            NameType.LANGUAGE, languageOnlyPart)
                                     + " \u25BA "
                                     + source0;
                         }
@@ -1435,8 +1435,8 @@ public class PathHeader implements Comparable<PathHeader> {
                                 script = likelySubtags.getLikelyScript(language);
                             }
                             String scriptName =
-                                    englishNameGetter.getNameFromTypenumCode(
-                                            CLDRFile.SCRIPT_NAME, script);
+                                    englishNameGetter.getNameFromTypeEnumCode(
+                                            NameType.SCRIPT, script);
                             return "Languages in "
                                     + (script.equals("Hans") || script.equals("Hant")
                                             ? "Han Script"
@@ -1454,8 +1454,8 @@ public class PathHeader implements Comparable<PathHeader> {
                                     String territory = getSubdivisionsTerritory(source, null);
                                     String container = Containment.getContainer(territory);
                                     order = Containment.getOrder(territory);
-                                    return englishNameGetter.getNameFromTypenumCode(
-                                            CLDRFile.TERRITORY_NAME, container);
+                                    return englishNameGetter.getNameFromTypeEnumCode(
+                                            NameType.TERRITORY, container);
                                 }
                             });
             functionMap.put(
@@ -1489,16 +1489,16 @@ public class PathHeader implements Comparable<PathHeader> {
                                                     : "003"; // was Integer.valueOf(subcontinent) ==
                                     // 5
                                     return "Territories ("
-                                            + englishNameGetter.getNameFromTypenumCode(
-                                                    CLDRFile.TERRITORY_NAME, theSubContinent)
+                                            + englishNameGetter.getNameFromTypeEnumCode(
+                                                    NameType.TERRITORY, theSubContinent)
                                             + ")";
                                 case "001":
                                 case "ZZ":
                                     return "Geographic Regions"; // not in containment
                                 default:
                                     return "Territories ("
-                                            + englishNameGetter.getNameFromTypenumCode(
-                                                    CLDRFile.TERRITORY_NAME, theContinent)
+                                            + englishNameGetter.getNameFromTypeEnumCode(
+                                                    NameType.TERRITORY, theContinent)
                                             + ")";
                             }
                         }
@@ -1539,8 +1539,8 @@ public class PathHeader implements Comparable<PathHeader> {
                                 }
                             }
                             if (singlePageTerritories.contains(theTerritory)) {
-                                return englishNameGetter.getNameFromTypenumCode(
-                                        CLDRFile.TERRITORY_NAME, theTerritory);
+                                return englishNameGetter.getNameFromTypeEnumCode(
+                                        NameType.TERRITORY, theTerritory);
                             }
                             String theContinent = Containment.getContinent(theTerritory);
                             final String subcontinent = Containment.getSubcontinent(theTerritory);
@@ -1556,20 +1556,20 @@ public class PathHeader implements Comparable<PathHeader> {
                                     } catch (NumberFormatException ex) {
                                         theSubContinent = "009";
                                     }
-                                    return englishNameGetter.getNameFromTypenumCode(
-                                            CLDRFile.TERRITORY_NAME, theSubContinent);
+                                    return englishNameGetter.getNameFromTypeEnumCode(
+                                            NameType.TERRITORY, theSubContinent);
                                 case 19: // Americas - For the timeZonePage, we just group North
                                     // America & South America
                                     theSubContinent =
                                             Integer.parseInt(subcontinent) == 5 ? "005" : "003";
-                                    return englishNameGetter.getNameFromTypenumCode(
-                                            CLDRFile.TERRITORY_NAME, theSubContinent);
+                                    return englishNameGetter.getNameFromTypeEnumCode(
+                                            NameType.TERRITORY, theSubContinent);
                                 case 142: // Asia
-                                    return englishNameGetter.getNameFromTypenumCode(
-                                            CLDRFile.TERRITORY_NAME, subcontinent);
+                                    return englishNameGetter.getNameFromTypeEnumCode(
+                                            NameType.TERRITORY, subcontinent);
                                 default:
-                                    return englishNameGetter.getNameFromTypenumCode(
-                                            CLDRFile.TERRITORY_NAME, theContinent);
+                                    return englishNameGetter.getNameFromTypeEnumCode(
+                                            NameType.TERRITORY, theContinent);
                             }
                         }
                     });
@@ -1667,8 +1667,8 @@ public class PathHeader implements Comparable<PathHeader> {
                             if (PathHeader.UNIFORM_CONTINENTS) {
                                 String container = getMetazonePageTerritory(source);
                                 order = Containment.getOrder(container);
-                                return englishNameGetter.getNameFromTypenumCode(
-                                        CLDRFile.TERRITORY_NAME, container);
+                                return englishNameGetter.getNameFromTypeEnumCode(
+                                        NameType.TERRITORY, container);
                             } else {
                                 String continent = metazoneToContinent.get(source);
                                 if (continent == null) {
@@ -1778,15 +1778,15 @@ public class PathHeader implements Comparable<PathHeader> {
 
                             if (territory.equals("ZZ")) {
                                 order = 999;
-                                return englishNameGetter.getNameFromTypenumCode(
-                                                CLDRFile.TERRITORY_NAME, territory)
+                                return englishNameGetter.getNameFromTypeEnumCode(
+                                                NameType.TERRITORY, territory)
                                         + ": "
                                         + source0;
                             } else {
                                 return catFromTerritory.transform(territory)
                                         + ": "
-                                        + englishNameGetter.getNameFromTypenumCode(
-                                                CLDRFile.TERRITORY_NAME, territory)
+                                        + englishNameGetter.getNameFromTypeEnumCode(
+                                                NameType.TERRITORY, territory)
                                         + tenderOrNot;
                             }
                         }
@@ -1808,8 +1808,8 @@ public class PathHeader implements Comparable<PathHeader> {
                             if (territory.equals("ZZ")) {
                                 order = 999;
                                 subContinent =
-                                        englishNameGetter.getNameFromTypenumCode(
-                                                CLDRFile.TERRITORY_NAME, territory);
+                                        englishNameGetter.getNameFromTypeEnumCode(
+                                                NameType.TERRITORY, territory);
                             } else {
                                 subContinent = catFromTerritory.transform(territory);
                             }
@@ -2200,8 +2200,7 @@ public class PathHeader implements Comparable<PathHeader> {
                 languageOnlyPart = s;
             }
             final String name =
-                    englishNameGetter.getNameFromTypenumCode(
-                            CLDRFile.LANGUAGE_NAME, languageOnlyPart);
+                    englishNameGetter.getNameFromTypeEnumCode(NameType.LANGUAGE, languageOnlyPart);
             return name == null ? "?" : name.substring(0, 1).toUpperCase();
         }
 

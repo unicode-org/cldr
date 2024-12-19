@@ -10,7 +10,6 @@ import com.google.common.collect.Sets;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
-import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R4;
 import com.ibm.icu.text.CompactDecimalFormat;
 import com.ibm.icu.text.CompactDecimalFormat.CompactStyle;
@@ -52,6 +51,7 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.LogicalGrouping;
 import org.unicode.cldr.util.LogicalGrouping.PathType;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.Factory;
@@ -367,48 +367,6 @@ public class TestCoverageLevel extends TestFmwkPlus {
     static final Date NOW = new Date();
 
     private static final boolean DEBUG = false;
-
-    static class TypeName implements Transform<String, String> {
-        private final int field;
-        private final Map<String, R2<List<String>, String>> dep;
-
-        public TypeName(int field) {
-            this.field = field;
-            switch (field) {
-                case CLDRFile.LANGUAGE_NAME:
-                    dep = SDI.getLocaleAliasInfo().get("language");
-                    break;
-                case CLDRFile.TERRITORY_NAME:
-                    dep = SDI.getLocaleAliasInfo().get("territory");
-                    break;
-                case CLDRFile.SCRIPT_NAME:
-                    dep = SDI.getLocaleAliasInfo().get("script");
-                    break;
-                default:
-                    dep = null;
-                    break;
-            }
-        }
-
-        @Override
-        public String transform(String source) {
-            String result = ENGLISH.nameGetter().getNameFromTypenumCode(field, source);
-            String extra = "";
-            if (field == CLDRFile.LANGUAGE_NAME) {
-                String lang = isBigLanguage(source);
-                extra = lang == null ? "X" : lang;
-            } else if (field == CLDRFile.CURRENCY_NAME) {
-                Date last = currencyToLast.get(source);
-                extra = last == null ? "?" : last.compareTo(NOW) < 0 ? "old" : "";
-            }
-            R2<List<String>, String> depValue = dep == null ? null : dep.get(source);
-            if (depValue != null) {
-                extra += extra.isEmpty() ? "" : "-";
-                extra += depValue.get1();
-            }
-            return result + (extra.isEmpty() ? "" : "\t" + extra);
-        }
-    }
 
     RegexLookup<Level> exceptions =
             RegexLookup.of(
@@ -1167,27 +1125,25 @@ public class TestCoverageLevel extends TestFmwkPlus {
 
         Map<String, CoverageStatus> data = new TreeMap<>();
 
-        // This is a map from integers (representing language, script or region; should rewrite to
-        // use enums)
-        // to a row of data:
+        // This is a map from NameType to a row of data:
         //      name,
         //      map code => best cldr org level,
         //      codes in root
         //      expected coverage levels levels
         // should change the row of data into a class; would be much easier to understand
 
-        ImmutableMap<Integer, R4<String, Map<String, Level>, Set<String>, Level>> typeToInfo =
+        ImmutableMap<NameType, R4<String, Map<String, Level>, Set<String>, Level>> typeToInfo =
                 ImmutableMap.of(
-                        CLDRFile.LANGUAGE_NAME,
+                        NameType.LANGUAGE,
                         Row.of("language", langs, langsRoot, Level.MODERN),
-                        CLDRFile.SCRIPT_NAME,
+                        NameType.SCRIPT,
                         Row.of("script", scripts, scriptsRoot, Level.MODERATE),
-                        CLDRFile.TERRITORY_NAME,
+                        NameType.TERRITORY,
                         Row.of("region", regions, regionsRoot, Level.MODERATE));
 
-        for (Entry<Integer, R4<String, Map<String, Level>, Set<String>, Level>> typeAndInfo :
+        for (Entry<NameType, R4<String, Map<String, Level>, Set<String>, Level>> typeAndInfo :
                 typeToInfo.entrySet()) {
-            int type = typeAndInfo.getKey();
+            NameType type = typeAndInfo.getKey();
             String name = typeAndInfo.getValue().get0();
             Map<String, Level> idPartMap =
                     typeAndInfo.getValue().get1(); // map from code to best cldr level
@@ -1197,8 +1153,8 @@ public class TestCoverageLevel extends TestFmwkPlus {
 
             for (String code : Sets.union(idPartMap.keySet(), setRoot)) {
                 String displayName =
-                        testInfo.getEnglish().nameGetter().getNameFromTypenumCode(type, code);
-                String path = CLDRFile.getKey(type, code);
+                        testInfo.getEnglish().nameGetter().getNameFromTypeEnumCode(type, code);
+                String path = type.getKeyPath(code);
                 Level level = coverageLevel.getLevel(path);
                 data.put(
                         name + "\t" + code,

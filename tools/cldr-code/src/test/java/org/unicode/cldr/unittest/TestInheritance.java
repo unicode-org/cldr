@@ -32,6 +32,7 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Iso3166Data;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -170,7 +171,9 @@ public class TestInheritance extends TestFmwk {
                 System.out.print(
                         language
                                 + "\t"
-                                + testInfo.getEnglish().nameGetter().getNameFromBCP47(language));
+                                + testInfo.getEnglish()
+                                        .nameGetter()
+                                        .getNameFromIdentifier(language));
 
                 M3<OfficialStatus, String, Boolean> officialChildren =
                         languageToOfficialChildren.get(language);
@@ -200,7 +203,7 @@ public class TestInheritance extends TestFmwk {
                 b.append(
                         testInfo.getEnglish()
                                 .nameGetter()
-                                .getNameFromTypenumCode(CLDRFile.SCRIPT_NAME, script));
+                                .getNameFromTypeEnumCode(NameType.SCRIPT, script));
             }
             String region = ltp.getRegion();
             if (region.length() != 0) {
@@ -210,7 +213,7 @@ public class TestInheritance extends TestFmwk {
                 b.append(
                         testInfo.getEnglish()
                                 .nameGetter()
-                                .getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, region));
+                                .getNameFromTypeEnumCode(NameType.TERRITORY, region));
             }
             b.append(" [").append(s);
             if (showStatus) {

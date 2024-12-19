@@ -1601,31 +1601,39 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
         static {
             StandardCodes sc = StandardCodes.make();
             Map<String, Set<String>> countries_zoneSet = sc.getCountryToZoneSet();
-            Map<String, String> zone_countries = sc.getZoneToCounty();
-
-            for (int typeNo = 0; typeNo <= CLDRFile.TZ_START; ++typeNo) {
-                String type = CLDRFile.getNameName(typeNo);
+            Map<String, String> zone_countries = sc.getZoneToCountry();
+            List<NameType> nameTypeList =
+                    List.of(
+                            NameType.LANGUAGE,
+                            NameType.SCRIPT,
+                            NameType.TERRITORY,
+                            NameType.VARIANT,
+                            NameType.CURRENCY,
+                            NameType.CURRENCY_SYMBOL,
+                            NameType.TZ_EXEMPLAR);
+            for (NameType nameType : nameTypeList) {
+                String type = nameType.getNameName();
                 String type2 =
-                        (typeNo == CLDRFile.CURRENCY_SYMBOL)
-                                ? CLDRFile.getNameName(CLDRFile.CURRENCY_NAME)
-                                : (typeNo >= CLDRFile.TZ_START) ? "tzid" : type;
+                        (nameType == NameType.CURRENCY_SYMBOL)
+                                ? NameType.CURRENCY.getNameName()
+                                : (nameType == NameType.TZ_EXEMPLAR) ? "tzid" : type;
                 Set<String> codes = sc.getSurveyToolDisplayCodes(type2);
                 for (Iterator<String> codeIt = codes.iterator(); codeIt.hasNext(); ) {
                     String code = codeIt.next();
                     String value = code;
-                    if (typeNo == CLDRFile.TZ_EXEMPLAR) { // skip single-zone countries
+                    if (nameType == NameType.TZ_EXEMPLAR) { // skip single-zone countries
                         if (SKIP_SINGLEZONES) {
                             String country = zone_countries.get(code);
                             Set<String> s = countries_zoneSet.get(country);
                             if (s != null && s.size() == 1) continue;
                         }
                         value = TimezoneFormatter.getFallbackName(value);
-                    } else if (typeNo == CLDRFile.LANGUAGE_NAME) {
+                    } else if (nameType == NameType.LANGUAGE) {
                         if (ROOT_ID.equals(value)) {
                             continue;
                         }
                     }
-                    addFallbackCode(typeNo, code, value);
+                    addFallbackCode(nameType, code, value);
                 }
             }
 
@@ -1635,48 +1643,48 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                 "pt_BR", "pt_PT", "ro_MD", "sw_CD", "zh_Hans", "zh_Hant"
             };
             for (String extraCode : extraCodes) {
-                addFallbackCode(CLDRFile.LANGUAGE_NAME, extraCode, extraCode);
+                addFallbackCode(NameType.LANGUAGE, extraCode, extraCode);
             }
 
-            addFallbackCode(CLDRFile.LANGUAGE_NAME, "en_GB", "en_GB", "short");
-            addFallbackCode(CLDRFile.LANGUAGE_NAME, "en_US", "en_US", "short");
-            addFallbackCode(CLDRFile.LANGUAGE_NAME, "az", "az", "short");
+            addFallbackCode(NameType.LANGUAGE, "en_GB", "en_GB", "short");
+            addFallbackCode(NameType.LANGUAGE, "en_US", "en_US", "short");
+            addFallbackCode(NameType.LANGUAGE, "az", "az", "short");
 
-            addFallbackCode(CLDRFile.LANGUAGE_NAME, "ckb", "ckb", "menu");
-            addFallbackCode(CLDRFile.LANGUAGE_NAME, "ckb", "ckb", "variant");
-            addFallbackCode(CLDRFile.LANGUAGE_NAME, "hi_Latn", "hi_Latn", "variant");
-            addFallbackCode(CLDRFile.LANGUAGE_NAME, "yue", "yue", "menu");
-            addFallbackCode(CLDRFile.LANGUAGE_NAME, "zh", "zh", "menu");
-            addFallbackCode(CLDRFile.LANGUAGE_NAME, "zh_Hans", "zh", "long");
-            addFallbackCode(CLDRFile.LANGUAGE_NAME, "zh_Hant", "zh", "long");
+            addFallbackCode(NameType.LANGUAGE, "ckb", "ckb", "menu");
+            addFallbackCode(NameType.LANGUAGE, "ckb", "ckb", "variant");
+            addFallbackCode(NameType.LANGUAGE, "hi_Latn", "hi_Latn", "variant");
+            addFallbackCode(NameType.LANGUAGE, "yue", "yue", "menu");
+            addFallbackCode(NameType.LANGUAGE, "zh", "zh", "menu");
+            addFallbackCode(NameType.LANGUAGE, "zh_Hans", "zh", "long");
+            addFallbackCode(NameType.LANGUAGE, "zh_Hant", "zh", "long");
 
-            addFallbackCode(CLDRFile.SCRIPT_NAME, "Hans", "Hans", "stand-alone");
-            addFallbackCode(CLDRFile.SCRIPT_NAME, "Hant", "Hant", "stand-alone");
+            addFallbackCode(NameType.SCRIPT, "Hans", "Hans", "stand-alone");
+            addFallbackCode(NameType.SCRIPT, "Hant", "Hant", "stand-alone");
 
-            addFallbackCode(CLDRFile.TERRITORY_NAME, "GB", "GB", "short");
-            addFallbackCode(CLDRFile.TERRITORY_NAME, "HK", "HK", "short");
-            addFallbackCode(CLDRFile.TERRITORY_NAME, "MO", "MO", "short");
-            addFallbackCode(CLDRFile.TERRITORY_NAME, "PS", "PS", "short");
-            addFallbackCode(CLDRFile.TERRITORY_NAME, "US", "US", "short");
+            addFallbackCode(NameType.TERRITORY, "GB", "GB", "short");
+            addFallbackCode(NameType.TERRITORY, "HK", "HK", "short");
+            addFallbackCode(NameType.TERRITORY, "MO", "MO", "short");
+            addFallbackCode(NameType.TERRITORY, "PS", "PS", "short");
+            addFallbackCode(NameType.TERRITORY, "US", "US", "short");
 
             addFallbackCode(
-                    CLDRFile.TERRITORY_NAME, "CD", "CD", "variant"); // add other geopolitical items
-            addFallbackCode(CLDRFile.TERRITORY_NAME, "CG", "CG", "variant");
-            addFallbackCode(CLDRFile.TERRITORY_NAME, "CI", "CI", "variant");
-            addFallbackCode(CLDRFile.TERRITORY_NAME, "CZ", "CZ", "variant");
-            addFallbackCode(CLDRFile.TERRITORY_NAME, "FK", "FK", "variant");
-            addFallbackCode(CLDRFile.TERRITORY_NAME, "TL", "TL", "variant");
-            addFallbackCode(CLDRFile.TERRITORY_NAME, "SZ", "SZ", "variant");
-            addFallbackCode(CLDRFile.TERRITORY_NAME, "IO", "IO", "biot");
-            addFallbackCode(CLDRFile.TERRITORY_NAME, "IO", "IO", "chagos");
+                    NameType.TERRITORY, "CD", "CD", "variant"); // add other geopolitical items
+            addFallbackCode(NameType.TERRITORY, "CG", "CG", "variant");
+            addFallbackCode(NameType.TERRITORY, "CI", "CI", "variant");
+            addFallbackCode(NameType.TERRITORY, "CZ", "CZ", "variant");
+            addFallbackCode(NameType.TERRITORY, "FK", "FK", "variant");
+            addFallbackCode(NameType.TERRITORY, "TL", "TL", "variant");
+            addFallbackCode(NameType.TERRITORY, "SZ", "SZ", "variant");
+            addFallbackCode(NameType.TERRITORY, "IO", "IO", "biot");
+            addFallbackCode(NameType.TERRITORY, "IO", "IO", "chagos");
 
             // new alternate name
 
-            addFallbackCode(CLDRFile.TERRITORY_NAME, "NZ", "NZ", "variant");
-            addFallbackCode(CLDRFile.TERRITORY_NAME, "TR", "TR", "variant");
+            addFallbackCode(NameType.TERRITORY, "NZ", "NZ", "variant");
+            addFallbackCode(NameType.TERRITORY, "TR", "TR", "variant");
 
-            addFallbackCode(CLDRFile.TERRITORY_NAME, "XA", "XA");
-            addFallbackCode(CLDRFile.TERRITORY_NAME, "XB", "XB");
+            addFallbackCode(NameType.TERRITORY, "XA", "XA");
+            addFallbackCode(NameType.TERRITORY, "XB", "XB");
 
             addFallbackCode(
                     "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/eras/eraAbbr/era[@type=\"0\"]",
@@ -1726,16 +1734,17 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             allowDuplicates = Collections.unmodifiableMap(allowDuplicates);
         }
 
-        private static void addFallbackCode(int typeNo, String code, String value) {
-            addFallbackCode(typeNo, code, value, null);
+        private static void addFallbackCode(NameType nameType, String code, String value) {
+            addFallbackCode(nameType, code, value, null);
         }
 
-        private static void addFallbackCode(int typeNo, String code, String value, String alt) {
-            String fullpath = CLDRFile.getKey(typeNo, code);
+        private static void addFallbackCode(
+                NameType nameType, String code, String value, String alt) {
+            String fullpath = nameType.getKeyPath(code);
             String distinguishingPath = addFallbackCodeToConstructedItems(fullpath, value, alt);
-            if (typeNo == CLDRFile.LANGUAGE_NAME
-                    || typeNo == CLDRFile.SCRIPT_NAME
-                    || typeNo == CLDRFile.TERRITORY_NAME) {
+            if (nameType == NameType.LANGUAGE
+                    || nameType == NameType.SCRIPT
+                    || nameType == NameType.TERRITORY) {
                 allowDuplicates.put(distinguishingPath, code);
             }
         }

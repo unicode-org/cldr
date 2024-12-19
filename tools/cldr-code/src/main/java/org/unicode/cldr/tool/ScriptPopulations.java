@@ -7,6 +7,7 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
@@ -63,10 +64,9 @@ public class ScriptPopulations {
                             + "\t"
                             + langScriptLitPop.getCount(lang)
                             + "\t"
-                            + english.nameGetter().getNameFromBCP47(baseLanguage)
+                            + english.nameGetter().getNameFromIdentifier(baseLanguage)
                             + "\t"
-                            + english.nameGetter()
-                                    .getNameFromTypenumCode(CLDRFile.SCRIPT_NAME, script)
+                            + english.nameGetter().getNameFromTypeEnumCode(NameType.SCRIPT, script)
                             + "\t"
                             + officialStatus
                             + "\t"

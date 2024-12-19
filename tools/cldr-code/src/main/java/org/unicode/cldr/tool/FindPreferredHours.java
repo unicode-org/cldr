@@ -22,6 +22,7 @@ import org.unicode.cldr.util.DateTimeCanonicalizer.DateTimePatternType;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.NameGetter;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.PreferredAndAllowedHour;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
@@ -268,18 +269,17 @@ public class FindPreferredHours {
                             + "\t"
                             + region
                             + "\t"
-                            + englishNameGetter.getNameFromTypenumCode(
-                                    CLDRFile.TERRITORY_NAME, region)
+                            + englishNameGetter.getNameFromTypeEnumCode(NameType.TERRITORY, region)
                             + "\t"
                             + subcontinent
                             + "\t"
-                            + englishNameGetter.getNameFromTypenumCode(
-                                    CLDRFile.TERRITORY_NAME, subcontinent)
+                            + englishNameGetter.getNameFromTypeEnumCode(
+                                    NameType.TERRITORY, subcontinent)
                             + "\t"
                             + continent
                             + "\t"
-                            + englishNameGetter.getNameFromTypenumCode(
-                                    CLDRFile.TERRITORY_NAME, continent)
+                            + englishNameGetter.getNameFromTypeEnumCode(
+                                    NameType.TERRITORY, continent)
                             + "\t"
                             + showInfo(preferredSet));
         }

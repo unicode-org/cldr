@@ -11,6 +11,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.NameGetter;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.CurrencyDateInfo;
@@ -67,7 +68,7 @@ public class CheckEnglishCurrencyNames {
         for (String currency : modernCurrencyCodes2territory.keySet()) {
             final String name =
                     englishNameGetter
-                            .getNameFromTypenumCode(CLDRFile.CURRENCY_NAME, currency)
+                            .getNameFromTypeEnumCode(NameType.CURRENCY, currency)
                             .toLowerCase();
             if (name.contains("new") || name.contains("old")) {
                 System.out.println(currency + "\t" + name);
@@ -77,7 +78,7 @@ public class CheckEnglishCurrencyNames {
         for (String currency : currencyCodesWithDates.keySet()) {
             final String name =
                     englishNameGetter
-                            .getNameFromTypenumCode(CLDRFile.CURRENCY_NAME, currency)
+                            .getNameFromTypeEnumCode(NameType.CURRENCY, currency)
                             .toLowerCase();
             if (name.contains("new") || name.contains("old")) {
                 System.out.println(currency + "\t" + name);
@@ -141,22 +142,22 @@ public class CheckEnglishCurrencyNames {
                                     ? "N/A"
                                     : nativeLanguage
                                             .nameGetter()
-                                            .getNameFromTypenumCode(
-                                                    CLDRFile.CURRENCY_SYMBOL, currency);
+                                            .getNameFromTypeEnumCode(
+                                                    NameType.CURRENCY_SYMBOL, currency);
                     System.out.println(
                             currency
                                     + "\t"
-                                    + englishNameGetter.getNameFromTypenumCode(
-                                            CLDRFile.CURRENCY_NAME, currency)
+                                    + englishNameGetter.getNameFromTypeEnumCode(
+                                            NameType.CURRENCY, currency)
                                     + "\t"
                                     + territory
                                     + "\t"
-                                    + englishNameGetter.getNameFromTypenumCode(
-                                            CLDRFile.TERRITORY_NAME, territory)
+                                    + englishNameGetter.getNameFromTypeEnumCode(
+                                            NameType.TERRITORY, territory)
                                     + "\t"
                                     + language
                                     + "\t"
-                                    + englishNameGetter.getNameFromBCP47(language)
+                                    + englishNameGetter.getNameFromIdentifier(language)
                                     + "\t"
                                     + symbol);
                     // TODO add script
@@ -181,8 +182,8 @@ public class CheckEnglishCurrencyNames {
             System.out.println(
                     territory
                             + "\t"
-                            + englishNameGetter.getNameFromTypenumCode(
-                                    CLDRFile.TERRITORY_NAME, territory));
+                            + englishNameGetter.getNameFromTypeEnumCode(
+                                    NameType.TERRITORY, territory));
         }
         System.out.format("Collected usage data\n");
         for (Entry<String, Set<String>> currencyAndSymbols : currency2symbols.keyValuesSet()) {
@@ -191,8 +192,7 @@ public class CheckEnglishCurrencyNames {
             System.out.println(
                     currency
                             + "\t"
-                            + englishNameGetter.getNameFromTypenumCode(
-                                    CLDRFile.CURRENCY_NAME, currency)
+                            + englishNameGetter.getNameFromTypeEnumCode(NameType.CURRENCY, currency)
                             + "\t"
                             + symbols.size()
                             + "\t"

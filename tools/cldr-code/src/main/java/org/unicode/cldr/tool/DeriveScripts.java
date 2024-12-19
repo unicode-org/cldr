@@ -21,6 +21,7 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.LanguageTagCanonicalizer;
 import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.LstrField;
@@ -150,8 +151,7 @@ public class DeriveScripts {
                         + ";\t"
                         + scriptField
                         + "\t# "
-                        + english.nameGetter()
-                                .getNameFromTypenumCode(CLDRFile.LANGUAGE_NAME, language)
+                        + english.nameGetter().getNameFromTypeEnumCode(NameType.LANGUAGE, language)
                         + ";\t"
                         + status
                         + ";\t"
@@ -206,7 +206,7 @@ public class DeriveScripts {
                                 + "\t"
                                 + lang
                                 + "\t"
-                                + english.nameGetter().getNameFromBCP47(lang)
+                                + english.nameGetter().getNameFromIdentifier(lang)
                                 + "\t"
                                 + scripts
                                 + "\t"

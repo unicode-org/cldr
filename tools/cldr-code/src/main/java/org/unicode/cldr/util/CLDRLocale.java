@@ -31,7 +31,7 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
 
         String getDisplayName(
                 CLDRLocale cldrLocale,
-                boolean onlyConstructCompound,
+                NameGetter.NameOpt nameOpt,
                 Transform<String, String> altPicker);
 
         String getDisplayLanguage(CLDRLocale cldrLocale);
@@ -113,7 +113,7 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
         @Override
         public String getDisplayName(
                 CLDRLocale cldrLocale,
-                boolean onlyConstructCompound,
+                NameGetter.NameOpt nameOpt,
                 Transform<String, String> altPicker) {
             return getDisplayName(cldrLocale);
         }
@@ -153,7 +153,7 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
         public String getDisplayVariant(CLDRLocale cldrLocale) {
             if (file != null)
                 return file.nameGetter()
-                        .getNameFromTypenumCode(CLDRFile.VARIANT_NAME, cldrLocale.getVariant());
+                        .getNameFromTypeEnumCode(NameType.VARIANT, cldrLocale.getVariant());
             return tryForBetter(super.getDisplayVariant(cldrLocale), cldrLocale.getVariant());
         }
 
@@ -161,21 +161,22 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
         public String getDisplayName(CLDRLocale cldrLocale) {
             if (file != null)
                 return file.nameGetter()
-                        .getNameFromBCP47BoolAlt(cldrLocale.toDisplayLanguageTag(), true, null);
+                        .getNameFromIdentifierOptAlt(
+                                cldrLocale.toDisplayLanguageTag(),
+                                NameGetter.NameOpt.COMPOUND_ONLY,
+                                null);
             return super.getDisplayName(cldrLocale);
         }
 
         @Override
         public String getDisplayName(
                 CLDRLocale cldrLocale,
-                boolean onlyConstructCompound,
+                NameGetter.NameOpt nameOpt,
                 Transform<String, String> altPicker) {
             if (file != null)
                 return file.nameGetter()
-                        .getNameFromBCP47BoolAlt(
-                                cldrLocale.toDisplayLanguageTag(),
-                                onlyConstructCompound,
-                                altPicker);
+                        .getNameFromIdentifierOptAlt(
+                                cldrLocale.toDisplayLanguageTag(), nameOpt, altPicker);
             return super.getDisplayName(cldrLocale);
         }
 
@@ -183,7 +184,7 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
         public String getDisplayScript(CLDRLocale cldrLocale) {
             if (file != null)
                 return file.nameGetter()
-                        .getNameFromTypenumCode(CLDRFile.SCRIPT_NAME, cldrLocale.getScript());
+                        .getNameFromTypeEnumCode(NameType.SCRIPT, cldrLocale.getScript());
             return tryForBetter(super.getDisplayScript(cldrLocale), cldrLocale.getScript());
         }
 
@@ -191,7 +192,7 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
         public String getDisplayLanguage(CLDRLocale cldrLocale) {
             if (file != null)
                 return file.nameGetter()
-                        .getNameFromTypenumCode(CLDRFile.LANGUAGE_NAME, cldrLocale.getLanguage());
+                        .getNameFromTypeEnumCode(NameType.LANGUAGE, cldrLocale.getLanguage());
             return tryForBetter(super.getDisplayLanguage(cldrLocale), cldrLocale.getLanguage());
         }
 
@@ -199,7 +200,7 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
         public String getDisplayCountry(CLDRLocale cldrLocale) {
             if (file != null)
                 return file.nameGetter()
-                        .getNameFromTypenumCode(CLDRFile.TERRITORY_NAME, cldrLocale.getCountry());
+                        .getNameFromTypeEnumCode(NameType.TERRITORY, cldrLocale.getCountry());
             return tryForBetter(super.getDisplayLanguage(cldrLocale), cldrLocale.getLanguage());
         }
 
@@ -557,8 +558,8 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
         return getDisplayVariant(getDefaultFormatter());
     }
 
-    public String getDisplayName(boolean combined, Transform<String, String> picker) {
-        return getDisplayName(getDefaultFormatter(), combined, picker);
+    public String getDisplayName(NameGetter.NameOpt nameOpt, Transform<String, String> picker) {
+        return getDisplayName(getDefaultFormatter(), nameOpt, picker);
     }
 
     /**
@@ -659,8 +660,8 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
     }
 
     public String getDisplayName(
-            NameFormatter engFormat, boolean combined, Transform<String, String> picker) {
-        return engFormat.getDisplayName(this, combined, picker);
+            NameFormatter engFormat, NameGetter.NameOpt nameOpt, Transform<String, String> picker) {
+        return engFormat.getDisplayName(this, nameOpt, picker);
     }
 
     /**

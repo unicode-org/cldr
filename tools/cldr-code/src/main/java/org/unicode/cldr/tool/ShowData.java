@@ -40,6 +40,8 @@ import org.unicode.cldr.util.FileCopier;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.NameGetter;
+import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.StringId;
@@ -517,21 +519,20 @@ public class ShowData {
             System.out.println(locale);
             CLDRFile file = cldrFactory.make(locale, false);
             if (file.isNonInheriting()) continue;
-            String localeName = file.nameGetter().getNameFromBCP47(locale);
+            String localeName = file.nameGetter().getNameFromIdentifier(locale);
             getScripts(localeName, scripts);
             if (!scripts.contains("Latn")) {
                 out.println(
                         locale
                                 + "\t"
-                                + english.nameGetter().getNameFromBCP47(locale)
+                                + english.nameGetter().getNameFromIdentifier(locale)
                                 + "\t"
                                 + localeName);
             }
             for (Iterator<String> it2 = UnicodeScripts.iterator(); it2.hasNext(); ) {
                 String script = it2.next();
                 if (script.equals("Latn")) continue;
-                String name =
-                        file.nameGetter().getNameFromTypenumCode(CLDRFile.SCRIPT_NAME, script);
+                String name = file.nameGetter().getNameFromTypeEnumCode(NameType.SCRIPT, script);
                 if (getScripts(name, scripts).contains(script)) {
                     Map<String, Set<String>> names_locales = script_name_locales.get(script);
                     if (names_locales == null)
@@ -548,8 +549,7 @@ public class ShowData {
             out.println(
                     script
                             + "\t("
-                            + english.nameGetter()
-                                    .getNameFromTypenumCode(CLDRFile.SCRIPT_NAME, script)
+                            + english.nameGetter().getNameFromTypeEnumCode(NameType.SCRIPT, script)
                             + ")\t"
                             + names);
         }
@@ -757,7 +757,9 @@ public class ShowData {
     }
 
     public static String getEnglishLocaleName(String locale) {
-        return english.nameGetter().getNameFromBCP47BoolAlt(locale, true, CLDRFile.SHORT_ALTS);
+        return english.nameGetter()
+                .getNameFromIdentifierOptAlt(
+                        locale, NameGetter.NameOpt.COMPOUND_ONLY, CLDRFile.SHORT_ALTS);
     }
 
     private static String getLocaleNameAndCode(String locale) {

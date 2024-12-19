@@ -67,6 +67,23 @@ public class StandardCodes {
             }
             return CodeType.valueOf(name);
         }
+
+        public NameType toNameType() {
+            switch (this) {
+                case language:
+                    return NameType.LANGUAGE;
+                case script:
+                    return NameType.SCRIPT;
+                case territory:
+                    return NameType.TERRITORY;
+                case variant:
+                    return NameType.VARIANT;
+                case currency:
+                    return NameType.CURRENCY;
+                default:
+                    return NameType.NONE;
+            }
+        }
     }
 
     private static final Set<CodeType> TypeSet =
@@ -1025,6 +1042,27 @@ public class StandardCodes {
             }
         }
 
+        public NameType toNameType() {
+            switch (this) {
+                case region:
+                    return NameType.TERRITORY;
+                case language:
+                case legacy:
+                case redundant:
+                    return NameType.LANGUAGE;
+                case script:
+                    return NameType.SCRIPT;
+                case variant:
+                    return NameType.VARIANT;
+                case currency:
+                    return NameType.CURRENCY;
+                case subdivision:
+                    return NameType.SUBDIVISION;
+                default:
+                    return NameType.NONE;
+            }
+        }
+
         /** Create LstrType from string, allowing the compat string 'territory'. */
         public static LstrType fromString(String rawType) {
             try {
@@ -1414,8 +1452,8 @@ public class StandardCodes {
      * @deprecated
      */
     @Deprecated
-    public Map<String, String> getZoneToCounty() {
-        return zoneParser.getZoneToCounty();
+    public Map<String, String> getZoneToCountry() {
+        return zoneParser.getZoneToCountry();
     }
 
     /**

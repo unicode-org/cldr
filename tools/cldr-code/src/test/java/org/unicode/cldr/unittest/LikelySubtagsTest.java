@@ -1,5 +1,19 @@
 package org.unicode.cldr.unittest;
 
+import com.google.common.base.Joiner;
+import com.google.common.base.Objects;
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.Sets;
+import com.google.common.collect.TreeMultimap;
+import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.impl.UnicodeMap;
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.lang.UProperty;
+import com.ibm.icu.lang.UScript;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.VersionInfo;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
@@ -9,7 +23,6 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.tool.LikelySubtags;
@@ -35,21 +48,6 @@ import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
 import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
-
-import com.google.common.base.Joiner;
-import com.google.common.base.Objects;
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.Multimap;
-import com.google.common.collect.Sets;
-import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.impl.UnicodeMap;
-import com.ibm.icu.lang.UCharacter;
-import com.ibm.icu.lang.UProperty;
-import com.ibm.icu.lang.UScript;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.VersionInfo;
 
 public class LikelySubtagsTest extends TestFmwk {
 

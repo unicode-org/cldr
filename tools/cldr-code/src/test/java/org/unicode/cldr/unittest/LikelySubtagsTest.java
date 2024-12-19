@@ -1,19 +1,5 @@
 package org.unicode.cldr.unittest;
 
-import com.google.common.base.Joiner;
-import com.google.common.base.Objects;
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableSet;
-import com.google.common.collect.Multimap;
-import com.google.common.collect.Sets;
-import com.google.common.collect.TreeMultimap;
-import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.impl.UnicodeMap;
-import com.ibm.icu.lang.UCharacter;
-import com.ibm.icu.lang.UProperty;
-import com.ibm.icu.lang.UScript;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.VersionInfo;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
@@ -23,6 +9,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.tool.LikelySubtags;
@@ -44,8 +31,25 @@ import org.unicode.cldr.util.ScriptToExemplars;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.LstrType;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
+import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
 import org.unicode.cldr.util.Validity;
 import org.unicode.cldr.util.Validity.Status;
+
+import com.google.common.base.Joiner;
+import com.google.common.base.Objects;
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Multimap;
+import com.google.common.collect.Sets;
+import com.google.common.collect.TreeMultimap;
+import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.impl.UnicodeMap;
+import com.ibm.icu.lang.UCharacter;
+import com.ibm.icu.lang.UProperty;
+import com.ibm.icu.lang.UScript;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.VersionInfo;
 
 public class LikelySubtagsTest extends TestFmwk {
 
@@ -913,6 +917,114 @@ public class LikelySubtagsTest extends TestFmwk {
             if (!source.getRegion().isEmpty()) {
                 assertEquals("Region: " + info, source.getRegion(), target.getRegion());
             }
+        }
+    }
+
+    final Joiner JOIN = Joiner.on("").useForNull("null");
+
+    /**
+     * The first primary script in scripts must be the likely script for the language with no region.
+     * <pre>
+     *  &lt;languageData>
+     *    &lt;likelySubtag from="sr" to="sr_Cyrl_RS"/>
+     *    &lt;likelySubtag from="sr_ME" to="sr_Latn_ME"/>
+     * </pre>
+     * So because of the above, we should see Cyrl as the first in the scripts list in the following (which we do).
+     * <pre>
+     *      &lt;language type="sr" scripts="Cyrl Latn" territories="BA ME RS XK"/>
+     * <pre>
+     */
+    public void testBasicLanguageDataConsistency() {
+        Map<String, String> likelyData = SUPPLEMENTAL_DATA_INFO.getLikelySubtags();
+        Set<String> langOnlyLikelyFrom = new LinkedHashSet<>();
+
+        for (Entry<String, String> likelyEntry : likelyData.entrySet()) {
+            CLDRLocale from = CLDRLocale.getInstance(likelyEntry.getKey());
+            CLDRLocale to = CLDRLocale.getInstance(likelyEntry.getValue());
+            String fromLang = from.getLanguage();
+            if (fromLang.equals("und")) {
+                continue;
+            }
+            if (!from.getScript().isEmpty()) {
+                continue;
+            }
+            boolean noFromRegion = from.getRegion().isEmpty();
+            if (noFromRegion) {
+                langOnlyLikelyFrom.add(fromLang);
+            }
+            String toScript = to.getScript();
+
+            final Map<Type, BasicLanguageData> basicLanguageDataMap =
+                    SUPPLEMENTAL_DATA_INFO.getBasicLanguageDataMap(fromLang);
+            if (basicLanguageDataMap == null) {
+                continue;
+            }
+            for (Entry<Type, BasicLanguageData> entry : basicLanguageDataMap.entrySet()) {
+                if (entry.getKey() == Type.secondary) { // skip secondaries
+                    continue;
+                }
+                BasicLanguageData data = entry.getValue();
+                Set<String> scripts = data.getScripts();
+                // NOTE: this should be an immutable linked hash set to preserve order
+
+                String fromAndTo =
+                        JOIN.join(
+                                from.getDisplayName(),
+                                " (",
+                                from,
+                                ") ⇒ ",
+                                to.getDisplayName(),
+                                " (",
+                                to,
+                                ")");
+
+                if (noFromRegion) {
+                    // if there is no fromRegion, then it must match the *first* script.
+                    String first = scripts.isEmpty() ? "missing" : scripts.iterator().next();
+                    assertEquals(
+                            fromAndTo + ": first primary languageData script = likely ",
+                            toScript,
+                            first);
+                } else {
+                    // otherwise, the likely script must be somewhere in the list,
+                    // but doesn't need to be first
+                    assertTrue(
+                            JOIN.join(
+                                    fromAndTo,
+                                    ": primary languageData scripts ",
+                                    scripts,
+                                    " must contain ",
+                                    toScript),
+                            scripts.contains(toScript));
+                }
+            }
+        }
+
+        Set<String> basicDataLanguages = SUPPLEMENTAL_DATA_INFO.getBasicLanguageDataLanguages();
+        if (basicDataLanguages.contains("und")) {
+            errln(
+                    "NOTE: should not have 'und' in basic data, eg no:\n\t<language type='und' territories='AQ CP HM' alt='secondary'/>");
+            basicDataLanguages =
+                    Sets.difference(
+                            SUPPLEMENTAL_DATA_INFO.getBasicLanguageDataLanguages(), Set.of("und"));
+        }
+
+        Set<String> inBasicLanguageDataButNotLikely =
+                Sets.difference(basicDataLanguages, langOnlyLikelyFrom);
+        if (!inBasicLanguageDataButNotLikely.isEmpty()) {
+            errln(
+                    JOIN.join(
+                            "Basic data languages missing some from likely",
+                            inBasicLanguageDataButNotLikely));
+        }
+
+        Set<String> inLikelyButNotBasicLanguageData =
+                Sets.difference(langOnlyLikelyFrom, basicDataLanguages);
+        if (!inLikelyButNotBasicLanguageData.isEmpty()) {
+            warnln(
+                    JOIN.join(
+                            "Basic data languages missing some from likely (not serious issue)",
+                            inLikelyButNotBasicLanguageData));
         }
     }
 }

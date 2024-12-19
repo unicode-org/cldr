@@ -7,7 +7,7 @@ title: CLDR 46 Release Note
 | No. |    Date    | Rel. Note |  Data  |  Charts  | Spec |   Delta  | GitHub Tag | Delta DTD | CLDR JSON |
 |:---:|:----------:|:---------:|:------:|:--------:|:------------:|:---:|:----------:|:---------:|:---------:|
 |  46 | 2024-10-24 | [v46](/index/downloads/cldr-46) | [CLDR46](https://unicode.org/Public/cldr/46/) | [Charts46](https://unicode.org/cldr/charts/46/) | [LDML46](https://www.unicode.org/reports/tr35/tr35-73/tr35.html) | [Δ46](https://unicode-org.atlassian.net/issues/?jql=project+%3D+CLDR+AND+status+%3D+Done+AND+resolution+%3D+Fixed+AND+fixVersion+%3D+%2246%22+ORDER+BY+priority+DESC) | [release-46](https://github.com/unicode-org/cldr/releases/tag/release-46) | [ΔDtd46](https://www.unicode.org/cldr/charts/46/supplemental/dtd_deltas.html) | [46.0.0](https://github.com/unicode-org/cldr-json/releases/tag/46.0.0) |
-| 46.1 | 2024-12-18 | [v46.1](/index/downloads/cldr-46#461-changes) | n/a | [Charts46.1](https://unicode.org/cldr/charts/46.1/) | [LDML46.1](https://www.unicode.org/reports/tr35/proposed.html) | [Δ46.1](https://unicode-org.atlassian.net/issues/?jql=project+%3D+CLDR+AND+status+%3D+Done+AND+resolution+%3D+Fixed+AND+fixVersion+%3D+%2246.1%22+ORDER+BY+priority+DESC) | [release-46-1-beta2](https://github.com/unicode-org/cldr/releases/tag/release-46-1-beta2) | [ΔDtd46.1](https://www.unicode.org/cldr/charts/46.1/supplemental/dtd_deltas.html) | [46.1.0-BETA1](https://github.com/unicode-org/cldr-json/releases/tag/46.1.0-BETA1) |
+| 46.1 | 2024-12-18 | [v46.1](/index/downloads/cldr-46#461-changes) | n/a | [Charts46.1](https://unicode.org/cldr/charts/46.1/) | [LDML46.1](https://www.unicode.org/reports/tr35/tr35-74/tr35.html) | [Δ46.1](https://unicode-org.atlassian.net/issues/?jql=project+%3D+CLDR+AND+status+%3D+Done+AND+resolution+%3D+Fixed+AND+fixVersion+%3D+%2246.1%22+ORDER+BY+priority+DESC) | [release-46-1](https://github.com/unicode-org/cldr/releases/tag/release-46-1) | [ΔDtd46.1](https://www.unicode.org/cldr/charts/46.1/supplemental/dtd_deltas.html) | [46.1.0](https://github.com/unicode-org/cldr-json/releases/tag/46.1.0) |
 
 ## Overview
 
@@ -45,26 +45,10 @@ Count | Level | Usage | Examples
 
 For a full listing, see [Coverage Levels](https://unicode.org/cldr/charts/46/supplemental/locale_coverage.html).
 
-## 46.1 Changes
-Version 46.1 is a dot release.
-The major change is to bring the Message Format 2.0 specification in Part 9 to Final Candidate status.
-The most significant changes to Message Format 2.0 are:
-- [TBD1]
-- …
-- [TBDn]
-- Updated Message Format test data
 
-Other changes include
-- More explicit well-formedness and validity constraints for unit of measurement identifiers
-- Addition of emoji annotations that were missing: skintones with emoji facing right
-- Fixes to ja, ko, zh, yue datetimeSkeletons
-- Improved datetime date time test data
+## Specification Changes
 
-For a full listing, see [Δ46.1](https://unicode-org.atlassian.net/issues/?jql=project+%3D+CLDR+AND+status+%3D+Done+AND+resolution+%3D+Fixed+AND+fixVersion+%3D+%2246.1%22+ORDER+BY+priority+DESC)
-
-## [Specification Changes](https://www.unicode.org/reports/tr35/proposed.html)
-
-The following are the most significant changes to the specification (LDML):
+The following are the most significant changes to the [specification (LDML)](https://www.unicode.org/reports/tr35/tr35-73/tr35.html):
 
 1. [Message Format](https://www.unicode.org/reports/tr35/tr35-73/tr35-messageFormat.html#Contents) — see a summary [below](#message-format-specification)
 2. [LDML Conformance](https://www.unicode.org/reports/tr35/tr35-73/tr35.html#Conformance)
@@ -302,6 +286,36 @@ These matched the ordering of two legacy character encodings. [CLDR-16062][]
 ### Fixed Issues
 
 1. [CLDR-17610][] Updated zip to include LICENSE file following file renaming
+
+## 46.1 Changes
+Version 46.1 is a dot release.
+
+The major change is to bring the Message Format 2.0 specification in Part 9 to Final Candidate status.
+
+Addition standard functions and options are available:
+ - Define REQUIRED and RECOMMENDED functions and options in the function registry.
+ - Number, date/time, and string functions
+ - Add :u options to the :u namespace
+ - Add caledar and numberingSystem options to date/time functions.
+ - Add hour12 date/time override option
+ - Create timezone as a Proposed REQUIRED option for date/time functions.
+ - Add :unit as a Proposed RECOMMENDED function.
+There are 3 tech preview implementations available
+ - ICU4J: TBD
+ - ICU4C: TBD
+ - Javascript: TBD
+There is new test data available at: TBD
+
+There are many other spec changes; for a full list, see [Message Format Modifications](https://www.unicode.org/reports/tr35/tr35-74/tr35.html#message-format-modifications)
+The most significant changes to Message Format 2.0 are:
+
+Other changes include
+- More explicit well-formedness and validity constraints for unit of measurement identifiers
+- Addition of emoji annotations that were missing: skintones with emoji facing right
+- Fixes to ja, ko, zh, yue datetimeSkeletons
+- Improved datetime date time test data
+
+For a full listing, see [Δ46.1](https://unicode-org.atlassian.net/issues/?jql=project+%3D+CLDR+AND+status+%3D+Done+AND+resolution+%3D+Fixed+AND+fixVersion+%3D+%2246.1%22+ORDER+BY+priority+DESC)
 
 ## Acknowledgments
 

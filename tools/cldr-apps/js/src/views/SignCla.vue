@@ -2,6 +2,18 @@
   <div class="clapage">
     <a-spin v-if="loading" :delay="500" />
 
+    <a-card>
+      Hello. We need your permission to use the data and information that you
+      submit to the Unicode CLDR Survey Tool. To do this, we need a contributor
+      license agreement (CLA) on file for you or your employer so that Unicode
+      has the required permissions to use your contributions in our products and
+      services. If you are seeing this message, it means we do not have such a
+      CLA on file. If you believe you are already under a Unicode CLA (either
+      your own or your employer’s) and are seeing this message in error, or if
+      you have further questions, please contact
+      <a href="mailto:cldr-cla@unicode.org">cldr-cla@unicode.org</a>
+    </a-card>
+
     <!-- First, an exception case: logged in with GitHub but the CLA isn't signed! -->
     <template
       v-if="
@@ -20,13 +32,10 @@
         out of date.
       </p>
       <a-row>
-        <a-col :span="8">
+        <a-col :span="12">
           <a-button :href="githubReloginUrl">Change GitHub account</a-button>
         </a-col>
-        <a-col :span="8">
-          <a-button @click="doSkipGitHub">Sign Manually</a-button>
-        </a-col>
-        <a-col :span="8">
+        <a-col :span="12">
           <a-button href="mailto:cldr-cla@unicode.org">Contact Us</a-button>
         </a-col>
       </a-row>
@@ -51,7 +60,7 @@
             Don't have a GitHub account or want to sign the CLA manually?
             <br />Click this button instead:
           </p>
-          <a-button @click="doSkipGitHub">Sign Manually</a-button>
+          <a-button @click="doSkipGitHub">Sign Survey Tool only CLA</a-button>
         </a-col>
       </a-row>
     </template>
@@ -139,7 +148,10 @@
               I am contributing as an individual because I am self-employed or
               unemployed. I have read and agree to the foregoing terms.
             </a-radio>
-            <a-radio :style="radioStyle" :value="RADIO_ASSERT_EMPLOYER_NORIGHTS">
+            <a-radio
+              :style="radioStyle"
+              :value="RADIO_ASSERT_EMPLOYER_NORIGHTS"
+            >
               I am contributing as an individual because, even though I am
               employed, my employer has no rights and claims no rights to my
               contributions. I have read and agree to the foregoing terms.
@@ -149,7 +161,11 @@
               contributions under my employment agreement and/or the work for
               hire doctrine or similar legal principles.
             </a-radio>
-            <a-radio v-if="false" :style="radioStyle" :value="RADIO_ASSERT_CORP">
+            <a-radio
+              v-if="false"
+              :style="radioStyle"
+              :value="RADIO_ASSERT_CORP"
+            >
               My employer has already signed the CLA and is listed on Unicode’s
               <a href="https://www.unicode.org/policies/corporate-cla-list/"
                 >List of Corporate CLAs</a
@@ -233,7 +249,6 @@ const RADIO_ASSERT_EMPLOYER_RIGHTS = 4; // not allowed for signing.
 const RADIO_ASSERT_EMPLOYER_NORIGHTS = 3;
 const RADIO_ASSERT_INDIVIDUAL = 2;
 
-
 const claHtml = marked(claMd);
 
 const user = cldrStatus.getSurveyUser();
@@ -310,7 +325,7 @@ async function loadData() {
   userEmployer.value = employer;
   if (corporate) {
     userSign.value = RADIO_ASSERT_CORP;
-  } else if(noRights) {
+  } else if (noRights) {
     userSign.value = RADIO_ASSERT_NORIGHTS;
   } else {
     userSign.value = RADIO_ASSERT_INDIVIDUAL;

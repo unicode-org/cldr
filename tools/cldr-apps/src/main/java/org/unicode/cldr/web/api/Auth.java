@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.HeaderParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -26,6 +27,9 @@ import org.unicode.cldr.web.UserRegistry;
 import org.unicode.cldr.web.UserRegistry.LogoutException;
 import org.unicode.cldr.web.UserRegistry.User;
 import org.unicode.cldr.web.WebContext;
+import org.unicode.cldr.web.auth.LoginFactory.LoginIntent;
+import org.unicode.cldr.web.auth.LoginManager;
+import org.unicode.cldr.web.auth.LoginSession;
 
 @Path("/auth")
 @Tag(name = "auth", description = "APIs for authentication")
@@ -323,5 +327,63 @@ public class Auth {
      */
     public static Response noSessionResponse() {
         return Response.status(Status.UNAUTHORIZED).build();
+    }
+
+    @Path("/oauth/url")
+    @GET
+    @Operation(summary = "get login URL", description = "Get OAuth URL.")
+    @APIResponses(
+            value = {
+                @APIResponse(
+                        responseCode = "200",
+                        description = "OK",
+                        content =
+                                @Content(
+                                        mediaType = "application/json",
+                                        schema = @Schema(implementation = OAuthURL.class))),
+                @APIResponse(responseCode = "404", description = "Cannot auth"),
+                @APIResponse(responseCode = "417", description = "Invalid parameter"),
+            })
+    public Response oauthUrl() {
+        final String url = LoginManager.getInstance().getLoginString(LoginIntent.cla);
+        if (url == null) {
+            return Response.status(404).build();
+        } else {
+            OAuthURL u = new OAuthURL(url);
+            return Response.ok(u).build();
+        }
+    }
+
+    @Path("/oauth/session")
+    @GET
+    @Operation(summary = "get session detail")
+    @APIResponses(
+            value = {
+                @APIResponse(
+                        responseCode = "200",
+                        description = "OK",
+                        content =
+                                @Content(
+                                        mediaType = "application/json",
+                                        schema = @Schema(implementation = LoginSession.class))),
+                @APIResponse(responseCode = "404", description = "Cannot auth"),
+                @APIResponse(responseCode = "417", description = "Invalid parameter"),
+            })
+    public Response oauthSession(@HeaderParam(Auth.SESSION_HEADER) String session) {
+        final CookieSession s = Auth.getSession(session);
+        if (s == null) {
+            return Auth.noSessionResponse();
+        }
+        final LoginSession ls = LoginManager.getInstance().getLoginSession(s);
+        return Response.ok(ls).build();
+    }
+
+    public static final class OAuthURL {
+        @Schema(description = "URL for login")
+        public String url;
+
+        private OAuthURL(String url) {
+            this.url = url;
+        }
     }
 }

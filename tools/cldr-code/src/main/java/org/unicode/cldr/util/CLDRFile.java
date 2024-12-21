@@ -3148,6 +3148,10 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
     private List<String> getRawExtraPathsPrivate() {
         Set<String> toAddTo = new HashSet<>();
         SupplementalDataInfo supplementalData = CLDRConfig.getInstance().getSupplementalDataInfo();
+
+        // languages
+        getLanguageExtraPaths(toAddTo);
+
         // units
         PluralInfo plurals = supplementalData.getPlurals(PluralType.cardinal, getLocaleID());
         if (plurals == null && DEBUG) {
@@ -3337,6 +3341,42 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
             }
         }
         return toAddTo.stream().map(String::intern).collect(Collectors.toList());
+    }
+
+    private void getLanguageExtraPaths(Set<String> toAddTo) {
+        Set<String> codes =
+                StandardCodes.make().getSurveyToolDisplayCodes(NameType.LANGUAGE.getNameName());
+        codes.remove(XMLSource.ROOT_ID);
+        String[] extraCodes = {
+            "ar_001", "de_AT", "de_CH", "en_AU", "en_CA", "en_GB", "en_US", "es_419", "es_ES",
+            "es_MX", "fa_AF", "fr_CA", "fr_CH", "frc", "hi_Latn", "lou", "nds_NL", "nl_BE",
+            "pt_BR", "pt_PT", "ro_MD", "sw_CD", "zh_Hans", "zh_Hant"
+        };
+        codes.addAll(List.of(extraCodes));
+        for (Iterator<String> codeIt = codes.iterator(); codeIt.hasNext(); ) {
+            String code = codeIt.next();
+            String fullpath = NameType.LANGUAGE.getKeyPath(code);
+            toAddTo.add(fullpath);
+        }
+        toAddTo.add(languageAltPath("en_GB", "short"));
+        toAddTo.add(languageAltPath("en_US", "short"));
+        toAddTo.add(languageAltPath("az", "short"));
+        toAddTo.add(languageAltPath("ckb", "menu"));
+        toAddTo.add(languageAltPath("ckb", "variant"));
+        toAddTo.add(languageAltPath("hi_Latn", "variant"));
+        toAddTo.add(languageAltPath("yue", "menu"));
+        toAddTo.add(languageAltPath("zh", "menu"));
+        toAddTo.add(languageAltPath("zh_Hans", "long"));
+        toAddTo.add(languageAltPath("zh_Hant", "long"));
+    }
+
+    private String languageAltPath(String code, String alt) {
+        String fullpath = NameType.LANGUAGE.getKeyPath(code);
+        // Insert the @alt= string after the last occurrence of "]"
+        StringBuffer fullpathBuf = new StringBuffer(fullpath);
+        return fullpathBuf
+                .insert(fullpathBuf.lastIndexOf("]") + 1, "[@alt=\"" + alt + "\"]")
+                .toString();
     }
 
     private void addPluralCounts(

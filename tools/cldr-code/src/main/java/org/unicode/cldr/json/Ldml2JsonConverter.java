@@ -102,7 +102,8 @@ public class Ldml2JsonConverter {
         annotations,
         annotationsDerived,
         bcp47(false, false),
-        transforms(false, false);
+        transforms(false, false),
+        subdivisions(false, true);
 
         private final boolean isTiered;
         private final boolean hasLocales;
@@ -748,6 +749,8 @@ public class Ldml2JsonConverter {
                 outFilename = filename + ".json";
             } else if (type == RunType.transforms) {
                 outFilename = filename + ".json";
+            } else if (type == RunType.subdivisions) {
+                outFilename = filename + ".json";
             } else if (js.section.equals("other")) {
                 // If you see other-___.json, it means items that were missing from
                 // JSON_config_*.txt
@@ -786,7 +789,8 @@ public class Ldml2JsonConverter {
                         }
                     } else if (type == RunType.rbnf
                             || type == RunType.bcp47
-                            || type == RunType.transforms) {
+                            || type == RunType.transforms
+                            || type == RunType.subdivisions) {
                         // untiered, just use the name
                         js.packageName = type.name();
                         tier = "";

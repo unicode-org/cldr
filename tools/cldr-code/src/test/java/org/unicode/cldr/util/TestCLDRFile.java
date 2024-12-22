@@ -271,8 +271,6 @@ public class TestCLDRFile {
             assertEquals(
                     List.of(
                             new LocaleInheritanceInfo(
-                                    XMLSource.CODE_FALLBACK_ID, GERMAN, Reason.constructed),
-                            new LocaleInheritanceInfo(
                                     XMLSource.ROOT_ID,
                                     "//ldml/localeDisplayNames/localeDisplayPattern/localePattern",
                                     Reason.constructed),

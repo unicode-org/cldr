@@ -2,6 +2,16 @@ package org.unicode.cldr.util;
 
 import java.util.Locale;
 
+/**
+ * There are different types of name. This enum enumerates some of those types.
+ *
+ * <p>For example, "Sanskrit", "Devanagari", and "India" are names of a language, a script, and a
+ * territory, respectively. A generic method that works for languages, scripts, territories, etc.,
+ * may be called to get one of those names (or their equivalents for a locale other than English)
+ * with a NameType parameter set to NameType.LANGUAGE, NameType.SCRIPT, or NameType.TERRITORY,
+ * respectively, to indicate what type of name is requested (possibly with additional parameters
+ * like a code such as "sa" for "Sanskrit"). The values starting with TZ_ are for time zones.
+ */
 public enum NameType {
     NONE,
     LANGUAGE,
@@ -21,9 +31,15 @@ public enum NameType {
     KEY_TYPE,
     SUBDIVISION;
 
-    // The order of rows must correspond to INDEX_LANGUAGE, INDEX_SCRIPT, etc.
-    // Caution: the presence of "key|type" presents complications for refactoring.
-    // The row with "key|type" has four strings, while the others have three.
+    /**
+     * This data in NameTable is used for associating types of path with types of name. For legacy
+     * reasons it still contains strings like "language" rather than the corresponding enum values
+     * like NameType.LANGUAGE.
+     *
+     * <p>The order of rows must correspond to INDEX_LANGUAGE, INDEX_SCRIPT, etc. Caution: the
+     * presence of "key|type" presents complications for refactoring. The row with "key|type" has
+     * four strings, while the others have three.
+     */
     private static final String[][] NameTable = {
         {"//ldml/localeDisplayNames/languages/language[@type=\"", "\"]", "language"},
         {"//ldml/localeDisplayNames/scripts/script[@type=\"", "\"]", "script"},

@@ -3535,7 +3535,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
     public boolean isNotRoot(String distinguishedPath) {
         String source = getSourceLocaleID(distinguishedPath, null);
         return source != null
-                && !source.equals("root")
+                && !source.equals(LocaleNames.ROOT)
                 && !source.equals(XMLSource.CODE_FALLBACK_ID);
     }
 

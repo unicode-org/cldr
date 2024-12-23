@@ -1063,6 +1063,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
 
     public void testLSR() { // LSR = Language/Script/Region
         SupplementalDataInfo supplementalData = testInfo.getSupplementalDataInfo();
+
         org.unicode.cldr.util.Factory factory = testInfo.getCldrFactory();
         CLDRFile root = factory.make(LocaleNames.ROOT, true);
         CoverageLevel2 coverageLevel =
@@ -1074,7 +1075,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
 
         // Get root LSR codes
 
-        for (String path : root) {
+        for (String path : root.fullIterable()) {
             if (!path.startsWith("//ldml/localeDisplayNames/")) {
                 continue;
             }
@@ -1098,8 +1099,6 @@ public class TestCoverageLevel extends TestFmwkPlus {
         langsRoot = ImmutableSet.copyOf(langsRoot);
         scriptsRoot = ImmutableSet.copyOf(scriptsRoot);
         regionsRoot = ImmutableSet.copyOf(regionsRoot);
-
-        System.out.println("testLSR: langsRoot.size = " + langsRoot.size());
 
         // get CLDR locale IDs' codes
 

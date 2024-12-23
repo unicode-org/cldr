@@ -51,6 +51,7 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleNames;
 import org.unicode.cldr.util.LogicalGrouping;
 import org.unicode.cldr.util.LogicalGrouping.PathType;
+import org.unicode.cldr.util.NameGetter;
 import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.Organization;
 import org.unicode.cldr.util.PathHeader;
@@ -1098,6 +1099,8 @@ public class TestCoverageLevel extends TestFmwkPlus {
         scriptsRoot = ImmutableSet.copyOf(scriptsRoot);
         regionsRoot = ImmutableSet.copyOf(regionsRoot);
 
+        System.out.println("testLSR: langsRoot.size = " + langsRoot.size());
+
         // get CLDR locale IDs' codes
 
         // the maps are from codes (like en) to the best level in the CLDR Organization.
@@ -1141,6 +1144,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
                         NameType.TERRITORY,
                         Row.of("region", regions, regionsRoot, Level.MODERATE));
 
+        NameGetter englishNameGetter = testInfo.getEnglish().nameGetter();
         for (Entry<NameType, R4<String, Map<String, Level>, Set<String>, Level>> typeAndInfo :
                 typeToInfo.entrySet()) {
             NameType type = typeAndInfo.getKey();
@@ -1152,8 +1156,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
                     typeAndInfo.getValue().get3(); // it looks like the targetLevel is ignored
 
             for (String code : Sets.union(idPartMap.keySet(), setRoot)) {
-                String displayName =
-                        testInfo.getEnglish().nameGetter().getNameFromTypeEnumCode(type, code);
+                String displayName = englishNameGetter.getNameFromTypeEnumCode(type, code);
                 String path = type.getKeyPath(code);
                 Level level = coverageLevel.getLevel(path);
                 data.put(

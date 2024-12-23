@@ -1060,7 +1060,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
         }
     }
 
-    public void testLSR() {
+    public void testLSR() { // LSR = Language/Script/Region
         SupplementalDataInfo supplementalData = testInfo.getSupplementalDataInfo();
         org.unicode.cldr.util.Factory factory = testInfo.getCldrFactory();
         CLDRFile root = factory.make(LocaleNames.ROOT, true);

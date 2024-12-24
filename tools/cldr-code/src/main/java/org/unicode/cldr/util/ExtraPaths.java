@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class ExtraPaths {
 
@@ -17,8 +18,9 @@ public class ExtraPaths {
     }
 
     private static void populateLanguagePaths() {
+        Set<String> codes = new TreeSet<>();
         StandardCodes sc = StandardCodes.make();
-        Set<String> codes = sc.getGoodAvailableCodes(StandardCodes.CodeType.language);
+        codes.addAll(sc.getGoodAvailableCodes(StandardCodes.CodeType.language));
         codes.remove(LocaleNames.ROOT);
         codes.addAll(
                 List.of(

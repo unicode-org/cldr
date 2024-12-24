@@ -271,8 +271,6 @@ public class TestCLDRFile {
             assertEquals(
                     List.of(
                             new LocaleInheritanceInfo(
-                                    XMLSource.CODE_FALLBACK_ID, GERMAN, Reason.constructed),
-                            new LocaleInheritanceInfo(
                                     XMLSource.ROOT_ID,
                                     "//ldml/localeDisplayNames/localeDisplayPattern/localePattern",
                                     Reason.constructed),
@@ -321,8 +319,6 @@ public class TestCLDRFile {
             List<LocaleInheritanceInfo> pwf = f.getPathsWhereFound(p);
             assertEquals(
                     List.of(
-                            new LocaleInheritanceInfo(
-                                    XMLSource.CODE_FALLBACK_ID, GERMAN, Reason.constructed),
                             new LocaleInheritanceInfo(
                                     XMLSource
                                             .CODE_FALLBACK_ID /* test data does not have this in root */,

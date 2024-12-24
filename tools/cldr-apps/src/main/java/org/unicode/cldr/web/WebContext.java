@@ -1636,4 +1636,18 @@ public class WebContext implements Cloneable, Appendable {
             session.setMessage(s);
         }
     }
+
+    /** Get session if there is one, but don't create one */
+    public static CookieSession peekSession(HttpServletRequest request) {
+        String aNum = getCookieValue(request, Auth.SESSION_HEADER);
+        if (aNum != null) {
+            logger.info("peeked session ID from cookie" + aNum);
+            CookieSession session = CookieSession.retrieveWithoutTouch(aNum);
+            logger.fine("Peeked session From cookie " + Auth.SESSION_HEADER + " : " + session);
+            return session;
+        } else {
+            logger.info("NO SESSION ID in peeked cookie");
+        }
+        return null;
+    }
 }

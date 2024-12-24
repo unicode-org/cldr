@@ -18,7 +18,7 @@
 	<!-- tag::httpEndpoint[] -->
 	<httpEndpoint httpPort="9080" id="defaultHttpEndpoint"
 		host="*">
-		<samesite id="cldr" strict="*" />
+		<samesite id="cldr" lax="*" />
 	</httpEndpoint>
 	<!-- end::httpEndpoint[] -->
 

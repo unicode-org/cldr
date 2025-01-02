@@ -121,6 +121,10 @@ The LDML specification is divided into the following parts:
     * [Additional Features](#additional-features)
     * [Disallowed Regex Features](#disallowed-regex-features)
     * [Replacement syntax](#replacement-syntax)
+    * [Transform Grammar](#transform-grammar)
+      * [Transform From Grammar](#transform-from-grammar)
+      * [Transform To Grammar](#transform-to-grammar)
+      * [ABNF](#abnf)
   * [Element: reorder](#element-reorder)
     * [Using `<import>` with `<reorder>` elements](#using-import-with-reorder-elements)
     * [Example Post-reorder transforms](#example-post-reorder-transforms)
@@ -2412,6 +2416,287 @@ Used in the `to=`
 
     Emits the named mark. Also see [Markers](#markers).
 
+#### Transform Grammar
+
+##### Transform From Grammar
+
+The `from=` attribute MUST match the `from-match` rule in this grammar. Not all strings which match this grammar are valid:
+
+* It is an error if there are more than 9 capture groups
+* Unicode codepoints and escaped characters may not be invalid or unpaired surrogates
+* The CLDR repository may define additional requirements on the repertoire, such as requiring all characters to be in a published Unicode version and disallowing private-use characters.
+* It is an error to reference variables that are not defined.
+
+The following is the W3C EBNF format for the grammar:
+
+```ebnf
+
+from-match
+         ::= '^'? atoms
+atoms    ::= atom ( '|'? atom )*
+atom     ::= quark quantifier?
+quark    ::= non-group
+           | group
+non-group
+         ::= simple-matcher
+           | codepointseq
+           | variable
+variable ::= string-variable
+           | set-variable
+string-variable
+         ::= '${' var-id '}'
+set-variable
+         ::= '$[' var-id ']'
+group    ::= capturing-group
+           | non-capturing-group
+quantifier
+         ::= bounded-quantifier
+           | '?'
+codepointseq
+         ::= '\' 'u' '{' cphexseq '}'
+codepoint
+         ::= '\' 'u' '{' cphexseq '}'
+bounded-quantifier
+         ::= '{' DIGIT ',' DIGIT '}'
+non-capturing-group
+         ::= '(' '?' ':' atoms ')'
+capturing-group
+         ::= '(' catoms ')'
+catoms   ::= catom+
+catom    ::= cquark quantifier?
+cquark   ::= non-group
+cphexseq ::= cphex ( ' ' cphex )*
+cphex    ::= LHEXDIG ( LHEXDIG ( LHEXDIG ( LHEXDIG ( LHEXDIG LHEXDIG? )? )? )? )?
+simple-matcher
+         ::= text-char
+           | class
+           | '.'
+           | match-marker
+match-marker
+         ::= '\m{.}'
+           | match-named-marker
+match-named-marker
+         ::= '\m{' marker-id '}'
+marker-id
+         ::= NMTOKEN
+var-id   ::= IDCHAR+
+class    ::= fixed-class
+           | set-class
+fixed-class
+         ::= '\' fixed-class-char
+fixed-class-char
+         ::= 's'
+           | 'S'
+           | 't'
+           | 'r'
+           | 'n'
+           | 'f'
+           | 'v'
+           | '\'
+           | '$'
+           | 'd'
+           | 'w'
+           | 'D'
+           | 'W'
+           | '0'
+set-class
+         ::= '[' set-negator set-members ']'
+set-members
+         ::= set-member+
+set-member
+         ::= text-char
+           | char-range
+           | match-marker
+char-range
+         ::= range-edge '-' range-edge
+range-edge
+         ::= codepoint
+           | range-char
+set-negator
+         ::= '^'?
+text-char
+         ::= content-char
+           | ws
+           | escaped-char
+           | '-'
+           | ':'
+range-char
+         ::= content-char
+           | ws
+           | escaped-char
+           | '.'
+           | '|'
+           | '{'
+           | '}'
+content-char
+         ::= ASCII-CTRLS
+           | ASCII-PUNCT
+           | ALPHA
+           | DIGIT
+           | NON-ASCII
+escaped-char
+         ::= '\' ( '\' | '{' | '|' | '}' )
+ws       ::= [ #x3000]
+           | HTAB
+           | CR
+           | LF
+IDCHAR   ::= ALPHA
+           | DIGIT
+           | '_'
+ASCII-CTRLS
+         ::= [#x1-#x8#xB-#xC#xE-#x1F]
+ASCII-PUNCT
+         ::= [!-#%-',/;->_`#x7E-#x7F]
+NON-ASCII
+         ::= [#x7E-#xD7FF#xE000-#x10FFFF]
+DIGIT    ::= [0-9]
+ALPHA    ::= [A-Za-z]
+HTAB     ::= #xF900
+LF       ::= #xA
+CR       ::= #xD
+HEXDIG   ::= DIGIT
+           | 'A'
+           | 'B'
+           | 'C'
+           | 'D'
+           | 'E'
+           | 'F'
+LHEXDIG  ::= HEXDIG
+           | 'a'
+           | 'b'
+           | 'c'
+           | 'd'
+           | 'e'
+           | 'f'
+NAMESTARTCHAR
+         ::= [:_#xC0-#xD6#xD8-#xF6#xF8-#x2FF#x370-#x37D#x37F-#x1FFF#x200C-#x200D#x2070-#x218F#x2C00-#x2FEF#x3001-#xD7FF#xF900-#xFDCF#xFDF0-#xFFFD#x10000-#x10FFFF]
+           | ALPHA
+NAMECHAR ::= NAMESTARTCHAR
+           | [-.#xB7#x300-#x36F#x203F-#x2040]
+           | DIGIT
+NMTOKEN  ::= NAMECHAR+
+```
+
+##### Transform To Grammar
+
+This is the grammar for the `<transform to="…"/>` attribute.  The `to=` attribute MUST match the `to-replacement` rule in this grammar. Not all strings which match this grammar are valid:
+
+* It is an error if a capture group is referenced that is not present in the match string.
+* It is an error if the to= string has the `$[1:…]` set format but there is not exactly one capture group with a set variable on the from= side. See [Replacement syntax](#replacement-syntax).
+* Unicode codepoints and escaped characters may not be invalid or unpaired surrogates
+* The CLDR repository may define additional requirements on the repertoire, such as requiring all characters to be in a published Unicode version and disallowing private-use characters.
+* It is an error to reference variables that are not defined.
+
+The following is the W3C EBNF format for the grammar:
+
+```ebnf
+to-replacement
+         ::= atoms
+atoms    ::= atom*
+atom     ::= replacement-char
+           | escaped-char
+           | group-reference
+           | codepointseq
+           | named-marker
+           | string-variable
+           | mapped-set
+string-variable
+         ::= '${' var-id '}'
+group-reference
+         ::= '$' DIGIT
+mapped-set
+         ::= '$[1:' var-id ']'
+codepointseq
+         ::= '\' 'u' '{' cphexseq '}'
+cphexseq ::= cphex ( ' ' cphex )*
+cphex    ::= LHEXDIG ( LHEXDIG ( LHEXDIG ( LHEXDIG ( LHEXDIG LHEXDIG? )? )? )? )?
+named-marker
+         ::= '\m{' marker-id '}'
+marker-id
+         ::= NMTOKEN
+var-id   ::= IDCHAR+
+replacement-char
+         ::= content-char
+           | ws
+           | escaped-char
+           | '-'
+           | ':'
+           | '('
+           | ')'
+           | '.'
+           | '*'
+           | '+'
+           | '?'
+           | '['
+           | ']'
+           | '^'
+           | '{'
+           | '}'
+           | '|'
+content-char
+         ::= ASCII-CTRLS
+           | ASCII-PUNCT
+           | ALPHA
+           | DIGIT
+           | NON-ASCII
+escaped-char
+         ::= '\' ( '\' | '$' )
+           | '$$'
+ws       ::= [ #x3000]
+           | HTAB
+           | CR
+           | LF
+IDCHAR   ::= ALPHA
+           | DIGIT
+           | '_'
+ASCII-CTRLS
+         ::= [#x1-#x8#xB-#xC#xE-#x1F]
+ASCII-PUNCT
+         ::= [!-#%-',/;->_`#x7E-#x7F]
+NON-ASCII
+         ::= [#x7E-#xD7FF#xE000-#x10FFFF]
+DIGIT    ::= [0-9]
+ALPHA    ::= [A-Za-z]
+HTAB     ::= #xF900
+LF       ::= #xA
+CR       ::= #xD
+HEXDIG   ::= DIGIT
+           | 'A'
+           | 'B'
+           | 'C'
+           | 'D'
+           | 'E'
+           | 'F'
+LHEXDIG  ::= HEXDIG
+           | 'a'
+           | 'b'
+           | 'c'
+           | 'd'
+           | 'e'
+           | 'f'
+NAMESTARTCHAR
+         ::= [:_#xC0-#xD6#xD8-#xF6#xF8-#x2FF#x370-#x37D#x37F-#x1FFF#x200C-#x200D#x2070-#x218F#x2C00-#x2FEF#x3001-#xD7FF#xF900-#xFDCF#xFDF0-#xFFFD#x10000-#x10FFFF]
+           | ALPHA
+NAMECHAR ::= NAMESTARTCHAR
+           | [-.#xB7#x300-#x36F#x203F-#x2040]
+           | DIGIT
+NMTOKEN  ::= NAMECHAR+
+```
+
+##### ABNF
+
+The grammar for the transform rules is also available in ABNF notation [[STD68](https://www.rfc-editor.org/info/std68)],
+including the modifications found in [RFC 7405](https://www.rfc-editor.org/rfc/rfc7405).
+
+RFC7405 defines a variation of ABNF that is case-sensitive.
+Some ABNF tools are only compatible with the specification found in
+[RFC 5234](https://www.rfc-editor.org/rfc/rfc5234).
+
+The ABNF files are located in the `keyboards/abnf` directory in the CLDR source directory.  (The EBNF above was converted from the ABNF files.)
+
+ * `transform-from-required.abnf`
+ * `transform-to-required.abnf`
+
 * * *
 
 ### Element: reorder
@@ -2872,6 +3157,7 @@ The following are the design principles for the IDs.
 | Windows  | No output | No output | Both keys are output separately |
 
 * * *
+
 
 © 2024–2024 Unicode, Inc.
 This publication is protected by copyright, and permission must be obtained from Unicode, Inc.

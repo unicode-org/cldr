@@ -2427,7 +2427,7 @@ The `from=` attribute MUST match the `from-match` rule in this grammar. Not all 
 * The CLDR repository may define additional requirements on the repertoire, such as requiring all characters to be in a published Unicode version and disallowing private-use characters.
 * It is an error to reference variables that are not defined.
 
-The following is the W3C EBNF format for the grammar:
+The following is the [LDML EBNF](./tr35.md#ebnf) format for the grammar:
 
 ```ebnf
 
@@ -2587,7 +2587,7 @@ This is the grammar for the `<transform to="…"/>` attribute.  The `to=` attrib
 * The CLDR repository may define additional requirements on the repertoire, such as requiring all characters to be in a published Unicode version and disallowing private-use characters.
 * It is an error to reference variables that are not defined.
 
-The following is the W3C EBNF format for the grammar:
+The following is the [LDML EBNF](./tr35.md#ebnf) format for the grammar:
 
 ```ebnf
 to-replacement

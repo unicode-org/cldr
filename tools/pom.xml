@@ -18,8 +18,6 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<maven.compiler.source>11</maven.compiler.source>
-		<maven.compiler.target>11</maven.compiler.target>
 		<!-- Note: see https://github.com/unicode-org/icu/packages/1954682/versions
 			for the icu4j.version tag to use. In general we should just use the latest
 			SNAPSHOT for the ICU version that we want, so this should only need updating
@@ -36,6 +34,8 @@
 		<jjwt.version>0.11.5</jjwt.version>
         <spotless.version>2.43.0</spotless.version>
 		<google-java-style.version>1.22.0</google-java-style.version>
+		<!-- Note: java-release (applied in the compiler plugin) replaces maven.compiler.source and maven.compiler.target -->
+		<java-release>11</java-release>
 	</properties>
 
 	<modules>
@@ -239,6 +239,9 @@
 				<plugin>
 					<artifactId>maven-compiler-plugin</artifactId>
 					<version>3.11.0</version>
+					<configuration>
+						<release>${java-release}</release>
+					</configuration>
 				</plugin>
 				<plugin>
 					<artifactId>maven-surefire-plugin</artifactId>

@@ -2,7 +2,7 @@
 
 # Unicode Locale Data Markup Language (LDML)<br/>Part 9: Message Format
 
-|Version|46.1 (draft)            |
+|Version|47 (draft)              |
 |-------|------------------------|
 |Editors|Addison Phillips and [other CLDR committee members](tr35.md#Acknowledgments)|
 
@@ -4523,7 +4523,7 @@ Romulo Cintra chaired the chair group.
 
 * * *
 
-© 2024–2024 Unicode, Inc.
+© 2024–2025 Unicode, Inc.
 This publication is protected by copyright, and permission must be obtained from Unicode, Inc.
 prior to any reproduction, modification, or other use not permitted by the [Terms of Use](https://www.unicode.org/copyright.html).
 Specifically, you may make copies of this publication and may annotate and translate it solely for personal or internal business purposes and not for public distribution,

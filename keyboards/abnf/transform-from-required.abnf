@@ -12,30 +12,38 @@
 
 from-match        = start-context atoms / atoms
 
+; special marker anchoring to the start of context
 start-context  = "^"
 
-; an empty match is not allowed.
+; sequence of items for input match. note that empty is not allowed, must be at least one atom.
 atoms             = atom *(disjunction atom / atom)
 
+; for use with or
 disjunction = "|"
 
+; a 'quark' is the matching part of an atom, and then a quantifier
 atom = quark quantifier / quark
 
+; quark can be a grouping or non grouping
 quark  = non-group / group
 
-non-group = simple-matcher / codepointseq / variable
+non-group = simple-matcher / escaped-codepoints / variable
 
 variable = string-variable / set-variable
 
 string-variable = "${" var-id "}"
+
 set-variable = "$[" var-id "]"
+
+; variable ID
+var-id = 1*32IDCHAR
 
 group = capturing-group / non-capturing-group
 
 quantifier    =  bounded-quantifier / optional-quantifier
 
-codepointseq           = backslash "u" "{" cphexseq "}"
-codepoint           = backslash "u" "{" cphexseq "}"
+escaped-codepoints           = backslash "u" "{" codepoints-hex "}"
+escaped-codepoint           = backslash "u" "{" codepoint-hex "}"
 
 bounded-quantifier = "{" DIGIT "," DIGIT "}"
 optional-quantifier =  "?"
@@ -54,10 +62,10 @@ catom = cquark / cquark quantifier
 cquark = non-group
 
 ; multiple hex codepoints
-cphexseq = cphex *(SP cphex)
+codepoints-hex = codepoint-hex *(SP codepoint-hex)
 
 ; one hex codepoint (1-6 digits)
-cphex =  1*6LHEXDIG
+codepoint-hex =  1*6LHEXDIG
 
 simple-matcher      = text-char / class / match-any-codepoint / match-marker
 
@@ -66,11 +74,8 @@ match-any-codepoint = "."
 match-marker = match-any-marker / match-named-marker
 match-any-marker = "\m{.}"
 match-named-marker = "\m{" marker-id "}"
-
 ; marker id is nmtoken, but may be UAX31 in the future.
 marker-id = NMTOKEN
-; variable ID
-var-id = 1*32IDCHAR
 
 class = fixed-class / set-class
 
@@ -82,7 +87,7 @@ set-class = "[" set-negator set-members "]"
 set-members = set-member *(set-member)
 set-member = text-char / char-range / match-marker
 char-range = range-edge "-" range-edge
-range-edge = codepoint / range-char
+range-edge = escaped-codepoint / range-char
 set-negator = "^" / ""
 
 ; Restrictions on characters in various contexts
@@ -92,7 +97,7 @@ text-char         = content-char / ws / escaped-char / "-" / ":"
 ; text in a range sequence
 range-char        = content-char / ws / escaped-char / "."/ "|" / "{" / "}"
 ; group for everything BUT syntax chars.
-content-char      = ASCII-CTRLS / ASCII-PUNCT / ALPHA / DIGIT / NON-ASCII
+content-char      = ASCII-PUNCT / ALPHA / DIGIT / NON-ASCII
 
 ; Character escapes
 escaped-char = backslash ( backslash / "{" / "|" / "}" )
@@ -101,9 +106,9 @@ backslash    = %x5C ; U+005C REVERSE SOLIDUS "\"
 ws = SP / HTAB / CR / LF / %x3000
 
 IDCHAR = ALPHA / DIGIT / "_"
-ASCII-CTRLS        = %x01-08       ; omit NULL (%x00), HTAB (%x09) and LF (%x0A)
-                  / %x0B-0C        ; omit CR (%x0D)
-                  / %x0E-1F        ; omit SP (%x20)
+; ASCII-CTRLS        = %x01-08       ; omit NULL (%x00), HTAB (%x09) and LF (%x0A)
+;                   / %x0B-0C        ; omit CR (%x0D)
+;                   / %x0E-1F        ; omit SP (%x20)
 ASCII-PUNCT        = %x21-23       ; omit DOLLAR
                   / %x25-27        ; omit () * +
                   / %x2C           ; omit . (%x2E) and - (%x2D)
@@ -131,6 +136,4 @@ NAMESTARTCHAR   =   	":" / ALPHA / "_" / %xC0-D6 / %xD8-F6 / %xF8-2FF / %x370-37
 NAMESTARTCHAR   =/  %x10000-10FFFF    ; SKIP-NODE-ABNF: TODO: <https://github.com/hildjj/node-abnf/issues/25>
 
 NAMECHAR	   =   	NAMESTARTCHAR / "-" / "." / DIGIT / %xB7 / %x0300-036F / %x203F-2040
-; NAME	   =   	NAMESTARTCHAR *(NAMECHAR)
 NMTOKEN	   =   	1*NAMECHAR
-; NMTOKENS	   =   	NMTOKEN *(SP NMTOKEN)

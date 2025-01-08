@@ -2438,7 +2438,7 @@ quark    ::= non-group
            | group
 non-group
          ::= simple-matcher
-           | codepointseq
+           | escaped-codepoints
            | variable
 variable ::= string-variable
            | set-variable
@@ -2446,15 +2446,16 @@ string-variable
          ::= '${' var-id '}'
 set-variable
          ::= '$[' var-id ']'
+var-id   ::= IDCHAR+
 group    ::= capturing-group
            | non-capturing-group
 quantifier
          ::= bounded-quantifier
            | '?'
-codepointseq
-         ::= '\' 'u' '{' cphexseq '}'
-codepoint
-         ::= '\' 'u' '{' cphexseq '}'
+escaped-codepoints
+         ::= '\' 'u' '{' codepoints-hex '}'
+escaped-codepoint
+         ::= '\' 'u' '{' codepoint-hex '}'
 bounded-quantifier
          ::= '{' DIGIT ',' DIGIT '}'
 non-capturing-group
@@ -2464,8 +2465,10 @@ capturing-group
 catoms   ::= catom+
 catom    ::= cquark quantifier?
 cquark   ::= non-group
-cphexseq ::= cphex ( ' ' cphex )*
-cphex    ::= LHEXDIG ( LHEXDIG ( LHEXDIG ( LHEXDIG ( LHEXDIG LHEXDIG? )? )? )? )?
+codepoints-hex
+         ::= codepoint-hex ( ' ' codepoint-hex )*
+codepoint-hex
+         ::= LHEXDIG ( LHEXDIG ( LHEXDIG ( LHEXDIG ( LHEXDIG LHEXDIG? )? )? )? )?
 simple-matcher
          ::= text-char
            | class
@@ -2478,7 +2481,6 @@ match-named-marker
          ::= '\m{' marker-id '}'
 marker-id
          ::= NMTOKEN
-var-id   ::= IDCHAR+
 class    ::= fixed-class
            | set-class
 fixed-class
@@ -2509,7 +2511,7 @@ set-member
 char-range
          ::= range-edge '-' range-edge
 range-edge
-         ::= codepoint
+         ::= escaped-codepoint
            | range-char
 set-negator
          ::= '^'?
@@ -2528,8 +2530,7 @@ range-char
            | '{'
            | '}'
 content-char
-         ::= ASCII-CTRLS
-           | ASCII-PUNCT
+         ::= ASCII-PUNCT
            | ALPHA
            | DIGIT
            | NON-ASCII
@@ -2542,8 +2543,6 @@ ws       ::= [ #x3000]
 IDCHAR   ::= ALPHA
            | DIGIT
            | '_'
-ASCII-CTRLS
-         ::= [#x1-#x8#xB-#xC#xE-#x1F]
 ASCII-PUNCT
          ::= [!-#%-',/;->_`#x7E-#x7F]
 NON-ASCII
@@ -2594,29 +2593,13 @@ atoms    ::= atom*
 atom     ::= replacement-char
            | escaped-char
            | group-reference
-           | codepointseq
+           | escaped-codepoints
            | named-marker
            | string-variable
            | mapped-set
-string-variable
-         ::= '${' var-id '}'
-group-reference
-         ::= '$' DIGIT
-mapped-set
-         ::= '$[1:' var-id ']'
-codepointseq
-         ::= '\' 'u' '{' cphexseq '}'
-cphexseq ::= cphex ( ' ' cphex )*
-cphex    ::= LHEXDIG ( LHEXDIG ( LHEXDIG ( LHEXDIG ( LHEXDIG LHEXDIG? )? )? )? )?
-named-marker
-         ::= '\m{' marker-id '}'
-marker-id
-         ::= NMTOKEN
-var-id   ::= IDCHAR+
 replacement-char
          ::= content-char
            | ws
-           | escaped-char
            | '-'
            | ':'
            | '('
@@ -2631,15 +2614,31 @@ replacement-char
            | '{'
            | '}'
            | '|'
-content-char
-         ::= ASCII-CTRLS
-           | ASCII-PUNCT
-           | ALPHA
-           | DIGIT
-           | NON-ASCII
 escaped-char
          ::= '\' ( '\' | '$' )
            | '$$'
+group-reference
+         ::= '$' DIGIT
+escaped-codepoints
+         ::= '\' 'u' '{' codepoints-hex '}'
+codepoints-hex
+         ::= codepoint-hex ( ' ' codepoint-hex )*
+codepoint-hex
+         ::= LHEXDIG ( LHEXDIG ( LHEXDIG ( LHEXDIG ( LHEXDIG LHEXDIG? )? )? )? )?
+named-marker
+         ::= '\m{' marker-id '}'
+marker-id
+         ::= NMTOKEN
+string-variable
+         ::= '${' var-id '}'
+var-id   ::= IDCHAR+
+mapped-set
+         ::= '$[1:' var-id ']'
+content-char
+         ::= ASCII-PUNCT
+           | ALPHA
+           | DIGIT
+           | NON-ASCII
 ws       ::= [ #x3000]
            | HTAB
            | CR
@@ -2647,8 +2646,6 @@ ws       ::= [ #x3000]
 IDCHAR   ::= ALPHA
            | DIGIT
            | '_'
-ASCII-CTRLS
-         ::= [#x1-#x8#xB-#xC#xE-#x1F]
 ASCII-PUNCT
          ::= [!-#%-',/;->_`#x7E-#x7F]
 NON-ASCII

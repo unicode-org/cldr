@@ -404,6 +404,7 @@ public class ConvertLanguageData {
                 Set<String> territories =
                         status_territories == null ? null : status_territories.getAll(status);
                 Map<String, Integer> scriptsByPopulationAtThisLevel = new TreeMap<>();
+                String likelyScript = supplementalData.getDefaultScript(languageSubtag);
                 if (status_scripts != null) {
                     Set<String> scriptsAtThisLevel = status_scripts.getAll(status);
                     if (scriptsAtThisLevel != null) {
@@ -414,6 +415,16 @@ public class ConvertLanguageData {
                                 population = scriptsByPopulationAnyLevel.get(script);
                             }
                             scriptsByPopulationAtThisLevel.put(script, population);
+
+                            // Artifical add 1 billion population to the current likely subtag.
+                            // This overrides the order for a few languages where there is a good
+                            // reason for the likely subtag to not match the population. For
+                            // instance, Azeribaijani's online presence is focused in Latin. This
+                            // also orders the scripts when we don't have population data but have a
+                            // distinct likely subtag.
+                            if (script.equals(likelyScript)) {
+                                scriptsByPopulationAtThisLevel.put(script, 1000000000);
+                            }
                         }
                     }
                 }

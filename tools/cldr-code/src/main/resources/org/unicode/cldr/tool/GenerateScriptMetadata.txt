@@ -48,6 +48,12 @@
 #		and typical commercial products for those languages would need IME support in order to be competitive.
 # 10- Cased
 #		YES if in modern (or most recent) usage case distinctions are customary.
+# 11- Complex Segmentation Required:
+#		NO if UAX 14 and UAX 29 are sufficient for modern usage of this script.
+#		W if a complex break engine, such as a dictionary, is required for word segmentation.
+#			UAX 14 and UAX 29 can still be used for other segmentation types (line, grapheme, sentence).
+#		WL if a complex break engine is required for word and line segmentation.
+#			UAX 29 can still be used for sentence and grapheme segmentation.
 #
 # Sometimes a script is included here before it is added in the Unicode Standard.
 # Such scripts are marked with a "provisional" comment.

@@ -2420,16 +2420,15 @@ Used in the `to=`
 
 ##### Transform From Grammar
 
-The `from=` attribute MUST match the `from-match` rule in this grammar. Not all strings which match this grammar are valid:
-
-* It is an error if there are more than 9 capture groups
-* Unicode codepoints and escaped characters may not be invalid or unpaired surrogates
-* The CLDR repository may define additional requirements on the repertoire, such as requiring all characters to be in a published Unicode version and disallowing private-use characters.
-* It is an error to reference variables that are not defined.
+The `from=` attribute MUST match the `from-match` rule in this grammar. Not all strings which match this grammar are valid, specifically
 
 The following is the [LDML EBNF](./tr35.md#ebnf) format for the grammar:
 
+
 ```ebnf
+[ wfc: No more than 9 capture groups may be present. ]
+[ vc: all variables referenced must be defined in the <variables> element ]
+[ vc: The CLDR repository may define additional constraints on the repertoire, such as requiring all characters to be in a published Unicode version and disallowing private-use characters. ]
 
 from-match
          ::= '^'? atoms
@@ -2581,15 +2580,14 @@ NMTOKEN  ::= NAMECHAR+
 
 This is the grammar for the `<transform to="…"/>` attribute.  The `to=` attribute MUST match the `to-replacement` rule in this grammar. Not all strings which match this grammar are valid:
 
-* It is an error if a capture group is referenced that is not present in the match string.
-* It is an error if the to= string has the `$[1:…]` set format but there is not exactly one capture group with a set variable on the from= side. See [Replacement syntax](#replacement-syntax).
-* Unicode codepoints and escaped characters may not be invalid or unpaired surrogates
-* The CLDR repository may define additional requirements on the repertoire, such as requiring all characters to be in a published Unicode version and disallowing private-use characters.
-* It is an error to reference variables that are not defined.
-
 The following is the [LDML EBNF](./tr35.md#ebnf) format for the grammar:
 
 ```ebnf
+[ vc: A referenced capture group must be present in the from= match string. ]
+[ vc: The `$[1:…]` set format may only be used where there is exactly one capture group with a set variable on the from= match string. ]
+[ vc: all variables referenced must be defined in the <variables> element ]
+[ vc: The CLDR repository may define additional constraints on the repertoire, such as requiring all characters to be in a published Unicode version and disallowing private-use characters. ]
+
 to-replacement
          ::= atoms
 atoms    ::= atom*

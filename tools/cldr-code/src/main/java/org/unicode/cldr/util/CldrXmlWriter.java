@@ -35,7 +35,7 @@ public class CldrXmlWriter {
 
         xmlSource = cldrFile.dataSource;
         orderedSet = new TreeSet<>(cldrFile.getComparator());
-        xmlSource.forEach(orderedSet::add);
+        cldrFile.fullIterable().forEach(orderedSet::add);
         if (orderedSet.size() > 0) { // May not have any elements.
             final String firstPath = orderedSet.iterator().next();
             firstFullPath = cldrFile.getFullXPath(firstPath);

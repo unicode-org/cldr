@@ -2584,7 +2584,6 @@ The following is the [LDML EBNF](./tr35.md#ebnf) format for the grammar:
 [ vc: A referenced capture group must be present in the from= match string. ]
 [ vc: The `$[1:…]` set format may only be used where there is exactly one capture group with a set variable on the from= match string. ]
 [ vc: all variables referenced must be defined in the <variables> element ]
-[ vc: The CLDR repository may define additional constraints on the repertoire, such as requiring all characters to be in a published Unicode version and disallowing private-use characters. ]
 
 to-replacement
          ::= atoms

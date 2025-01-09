@@ -63,7 +63,7 @@ public class CookieSession {
      * "stuff" must be public since it is referenced by jsp for bulk upload Reference:
      * https://unicode-org.atlassian.net/browse/CLDR-15676
      */
-    public Hashtable<String, Object> stuff = new Hashtable<>(); // user data
+    public final Hashtable<String, Object> stuff = new Hashtable<>(); // user data
 
     public Hashtable<String, Comparable> prefs = new Hashtable<>(); // user prefs
     public UserRegistry.User user = null;
@@ -441,7 +441,7 @@ public class CookieSession {
      *
      * @param key the key to load
      */
-    Object get(String key) {
+    public Object get(String key) {
         synchronized (stuff) {
             return stuff.get(key);
         }
@@ -456,6 +456,17 @@ public class CookieSession {
     public void put(String key, Object value) {
         synchronized (stuff) {
             stuff.put(key, value);
+        }
+    }
+
+    /**
+     * Remove an object from the session
+     *
+     * @returns the previous object
+     */
+    public Object clear(String key) {
+        synchronized (stuff) {
+            return stuff.remove(key);
         }
     }
 

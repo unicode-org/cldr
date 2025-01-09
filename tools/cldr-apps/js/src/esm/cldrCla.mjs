@@ -4,6 +4,7 @@ import * as cldrNotify from "../esm/cldrNotify.mjs";
  * see ClaSignature.java
  * @typedef {Object} ClaSignature
  * @property {boolean} corporate true if a corporate signature
+ * @property {boolean} noRights true if employer asserts no rights
  * @property {string} email
  * @property {string} employer
  * @property {string} name

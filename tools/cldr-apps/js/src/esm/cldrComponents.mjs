@@ -24,6 +24,7 @@ import {
   Button,
   Card,
   Checkbox,
+  Col,
   Collapse,
   CollapsePanel,
   Form,
@@ -33,6 +34,7 @@ import {
   Popover,
   Progress,
   Radio,
+  Row,
   Select,
   Spin,
   Steps,
@@ -62,6 +64,7 @@ function setup(app) {
   app.component("a-button", Button);
   app.component("a-card", Card);
   app.component("a-checkbox", Checkbox);
+  app.component("a-col", Col);
   app.component("a-collapse-panel", CollapsePanel);
   app.component("a-collapse", Collapse);
   app.component("a-form-item", Form.Item);
@@ -77,6 +80,7 @@ function setup(app) {
   app.component("a-progress", Progress);
   app.component("a-radio-group", Radio.Group);
   app.component("a-radio", Radio);
+  app.component("a-row", Row);
   app.component("a-select", Select);
   app.component("a-spin", Spin);
   app.component("a-step", Steps.Step);

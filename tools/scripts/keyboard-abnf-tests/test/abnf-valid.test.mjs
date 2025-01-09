@@ -5,7 +5,7 @@
 import * as abnf from "abnf";
 import { test } from "node:test";
 import * as assert from "node:assert";
-import { forEachAbnf } from "./util.mjs";
+import { forEachAbnf } from "../lib/util.mjs";
 
 function check_refs(parsed) {
   const errs = abnf.checkRefs(parsed);

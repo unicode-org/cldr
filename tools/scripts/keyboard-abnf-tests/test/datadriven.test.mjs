@@ -2,32 +2,27 @@
 // For terms of use, see http://www.unicode.org/copyright.html
 // SPDX-License-Identifier: Unicode-3.0
 
-import * as abnf from "abnf";
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { test } from "node:test";
 import { basename, join } from "node:path";
 import * as assert from "node:assert";
-import { forEachAbnf } from "./util.mjs";
-import peggy from "peggy";
+import { forEachAbnf } from "../lib/util.mjs";
+import { getParseFunction } from "../lib/index.mjs";
 
 async function assertTest({ t, abnfPath, testText, expect }) {
-  const parsed = await abnf.parseFile(abnfPath);
-  const opts = {
-    grammarSource: abnfPath,
-    trace: false,
-  };
-  const text = parsed.toFormat({ format: "peggy" });
-  const parser = peggy.generate(text, opts);
+  const parser = await getParseFunction(abnfPath);
   for (const str of testText
     .trim()
     .split("\n")
     .filter((l) => !/^#/.test(l))) {
     await t.test(`"${str}"`, async (t) => {
-      const fn = () => parser.parse(str, opts);
       if (!expect) {
-        assert.throws(fn, `Expected this expression to fail parsing`);
+        assert.throws(
+          () => parser(str),
+          `Expected this expression to fail parsing`
+        );
       } else {
-        const results = fn();
+        const results = parser(str);
         assert.ok(results);
       }
     });
@@ -64,7 +59,5 @@ await forEachAbnf(async ({ abnfFile, abnfText, abnfPath }) => {
         });
       } else throw Error(`Unknown testFile ${testFile}`);
     }
-    // const parsed = await abnf.parseFile(abnfPath);
-    // assert.equal(check_refs(parsed), 0);
   });
 });

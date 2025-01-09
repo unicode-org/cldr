@@ -4,8 +4,7 @@
 
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
-
-export const ABNF_DIR = "../../../keyboards/abnf";
+import { ABNF_DIR } from "./index.mjs";
 
 /**
  *

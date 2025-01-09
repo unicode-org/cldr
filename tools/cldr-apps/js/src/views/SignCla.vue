@@ -24,7 +24,8 @@
 
       <p>
         Your GitHub account, @{{ githubSessionId }}, was not detected as signing
-        the <a href="https://cla-assistant.io/unicode-org/.github">CLA</a>.
+        the
+        <a href="https://cla-assistant.io/unicode-org/.github">Unicode CLA</a>.
       </p>
 
       <p>
@@ -33,10 +34,24 @@
       </p>
       <a-row>
         <a-col :span="12">
-          <a-button :href="githubReloginUrl">Change GitHub account</a-button>
+          <a-button :href="githubReloginUrl"
+            >Sign in with a different GitHub account</a-button
+          >
         </a-col>
         <a-col :span="12">
+          <a-button href="https://cla-assistant.io/unicode-org/.github"
+            >Sign the Unicode CLA</a-button
+          >
+        </a-col>
+      </a-row>
+      <a-row>
+        <a-col :span="12">
           <a-button href="mailto:cldr-cla@unicode.org">Contact Us</a-button>
+        </a-col>
+        <a-col :span="12">
+          <a-button @click="doSkipGitHub"
+            >Sign the Survey Tool-only CLA</a-button
+          >
         </a-col>
       </a-row>
     </template>
@@ -48,7 +63,7 @@
           <p>
             Have you already
             <a href="https://cla-assistant.io/unicode-org/.github"
-              >signed the CLA</a
+              >signed the Unicode CLA</a
             >
             with your GitHub account? <br />
             If so, simply click this button so we can check it:
@@ -57,7 +72,7 @@
         </a-col>
         <a-col :span="12">
           <p>
-            Don't have a GitHub account or want to sign the CLA manually?
+            If you haven't signed the Unicode CLA,
             <br />Click this button instead:
           </p>
           <a-button @click="doSkipGitHub">Sign Survey Tool only CLA</a-button>
@@ -82,7 +97,9 @@
       <a-alert
         v-else-if="userGithubSign"
         type="success"
-        :message="'The CLA was signed as the GitHub user @' + userGithubSign"
+        :message="
+          'The Unicode CLA was signed as the GitHub user @' + userGithubSign
+        "
         show-icon
       />
       <a-alert

@@ -1,0 +1,139 @@
+; Copyright (c) 2025 Unicode, Inc.
+; For terms of use, see http://www.unicode.org/copyright.html
+; SPDX-License-Identifier: Unicode-3.0
+; CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+
+; This is an ABNF grammar for the CLDR Keyboard spec transform match syntax.
+; Note that there are sample matching/failing data files in tools/scripts/keyboard-abnf-tests/
+
+; An entire <transform from="..." /> string.
+; Note that the empty string is not a match.
+; Also note that a string may match this ABNF but be invalid according to the spec - which see.
+
+from-match        = start-context atoms / atoms
+
+; special marker anchoring to the start of context
+start-context  = "^"
+
+; sequence of items for input match. note that empty is not allowed, must be at least one atom.
+atoms             = atom *(disjunction atom / atom)
+
+; for use with or
+disjunction = "|"
+
+; a 'quark' is the matching part of an atom, and then a quantifier
+atom = quark quantifier / quark
+
+; quark can be a grouping or non grouping
+quark  = non-group / group
+
+non-group = simple-matcher / escaped-codepoints / variable
+
+variable = string-variable / set-variable
+
+string-variable = "${" var-id "}"
+
+set-variable = "$[" var-id "]"
+
+; variable ID
+var-id = 1*32IDCHAR
+
+group = capturing-group / non-capturing-group
+
+quantifier    =  bounded-quantifier / optional-quantifier
+
+escaped-codepoints           = backslash "u" "{" codepoints-hex "}"
+escaped-codepoint           = backslash "u" "{" codepoint-hex "}"
+
+bounded-quantifier = "{" DIGIT "," DIGIT "}"
+optional-quantifier =  "?"
+
+non-capturing-group = "(" "?" ":" atoms ")"
+
+; a capturing group may not contain other capturing groups.
+capturing-group = "(" catoms ")"
+
+; capturing atoms can't include any groups
+catoms = catom *(catom)
+; capturing atoms can't include any groups
+catom = cquark / cquark quantifier
+
+; capturing atoms can't include groups
+cquark = non-group
+
+; multiple hex codepoints
+codepoints-hex = codepoint-hex *(SP codepoint-hex)
+
+; one hex codepoint (1-6 digits)
+codepoint-hex =  1*6LHEXDIG
+
+simple-matcher      = text-char / class / match-any-codepoint / match-marker
+
+match-any-codepoint = "."
+
+match-marker = match-any-marker / match-named-marker
+match-any-marker = "\m{.}"
+match-named-marker = "\m{" marker-id "}"
+; marker id is nmtoken, but may be UAX31 in the future.
+marker-id = NMTOKEN
+
+class = fixed-class / set-class
+
+fixed-class = backslash fixed-class-char
+
+fixed-class-char = "s" / "S" / "t" / "r" / "n" / "f" / "v" / backslash / "$" / "d" / "w" / "D" / "W" / "0"
+
+set-class = "[" set-negator set-members "]"
+set-members = set-member *(set-member)
+set-member = text-char / char-range / match-marker
+char-range = range-edge "-" range-edge
+range-edge = escaped-codepoint / range-char
+set-negator = "^" / ""
+
+; Restrictions on characters in various contexts
+
+; normal text
+text-char         = content-char / ws / escaped-char / "-" / ":"
+; text in a range sequence
+range-char        = content-char / ws / escaped-char / "."/ "|" / "{" / "}"
+; group for everything BUT syntax chars.
+content-char      = ASCII-PUNCT / ALPHA / DIGIT / NON-ASCII
+
+; Character escapes
+escaped-char = backslash ( backslash / "{" / "|" / "}" )
+
+backslash    = %x5C ; U+005C REVERSE SOLIDUS "\"
+ws = SP / HTAB / CR / LF / %x3000
+
+IDCHAR = ALPHA / DIGIT / "_"
+; ASCII-CTRLS        = %x01-08       ; omit NULL (%x00), HTAB (%x09) and LF (%x0A)
+;                   / %x0B-0C        ; omit CR (%x0D)
+;                   / %x0E-1F        ; omit SP (%x20)
+ASCII-PUNCT        = %x21-23       ; omit DOLLAR
+                  / %x25-27        ; omit () * +
+                  / %x2C           ; omit . (%x2E) and - (%x2D)
+                  / %x2F           ; skip over digits and :
+                  / %x3B-3E        ; omit ? 3f
+                  / %x5F           ; omit upper A-Z and [\]^
+                  / %x60           ; omit a-z {|}
+                  / %x7E-7F        ; just for completeness
+NON-ASCII =         %x7E-D7FF      ; omit surrogates
+                  / %xE000-10FFFF  ; that's the rest. (TODO: omit other non-characters)
+
+; from STD-68
+DIGIT          =  %x30-39             ; 0-9
+ALPHA          =  %x41-5A / %x61-7A   ; A-Z / a-z
+SP             =  %x20
+HTAB           =  %xF900              ; horizontal tab
+LF             =  %x0A                ; linefeed
+CR             =  %x0D                ; carriage return
+HEXDIG         =  DIGIT / "A" / "B" / "C" / "D" / "E" / "F"
+; like HEXDIG but lowercase also
+LHEXDIG         =  HEXDIG / "a" / "b" / "c" / "d" / "e" / "f"
+
+; from XML
+NAMESTARTCHAR   =   	":" / ALPHA / "_" / %xC0-D6 / %xD8-F6 / %xF8-2FF / %x370-37D / %x37F-1FFF / %x200C-200D / %x2070-218F / %x2C00-2FEF / %x3001-D7FF / %xF900-FDCF / %xFDF0-FFFD
+NAMESTARTCHAR   =/  %x10000-10FFFF    ; SKIP-NODE-ABNF: TODO: <https://github.com/hildjj/node-abnf/issues/25>
+
+NAMECHAR	   =   	NAMESTARTCHAR / "-" / "." / DIGIT / %xB7 / %x0300-036F / %x203F-2040
+NMTOKEN	   =   	1*NAMECHAR

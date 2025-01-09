@@ -121,6 +121,10 @@ The LDML specification is divided into the following parts:
     * [Additional Features](#additional-features)
     * [Disallowed Regex Features](#disallowed-regex-features)
     * [Replacement syntax](#replacement-syntax)
+    * [Transform Grammar](#transform-grammar)
+      * [Transform From Grammar](#transform-from-grammar)
+      * [Transform To Grammar](#transform-to-grammar)
+      * [ABNF](#abnf)
   * [Element: reorder](#element-reorder)
     * [Using `<import>` with `<reorder>` elements](#using-import-with-reorder-elements)
     * [Example Post-reorder transforms](#example-post-reorder-transforms)
@@ -2411,6 +2415,280 @@ Used in the `to=`
     `\m{Some_marker}`
 
     Emits the named mark. Also see [Markers](#markers).
+
+#### Transform Grammar
+
+##### Transform From Grammar
+
+The `from=` attribute MUST match the `from-match` rule in this grammar. Not all strings which match this grammar are valid, specifically
+
+The following is the [LDML EBNF](./tr35.md#ebnf) format for the grammar:
+
+
+```ebnf
+[ wfc: No more than 9 capture groups may be present. ]
+[ vc: all variables referenced must be defined in the <variables> element ]
+
+from-match
+         ::= '^'? atoms
+atoms    ::= atom ( '|'? atom )*
+atom     ::= quark quantifier?
+quark    ::= non-group
+           | group
+non-group
+         ::= simple-matcher
+           | escaped-codepoints
+           | variable
+variable ::= string-variable
+           | set-variable
+string-variable
+         ::= '${' var-id '}'
+set-variable
+         ::= '$[' var-id ']'
+var-id   ::= IDCHAR+
+group    ::= capturing-group
+           | non-capturing-group
+quantifier
+         ::= bounded-quantifier
+           | '?'
+escaped-codepoints
+         ::= '\' 'u' '{' codepoints-hex '}'
+escaped-codepoint
+         ::= '\' 'u' '{' codepoint-hex '}'
+bounded-quantifier
+         ::= '{' DIGIT ',' DIGIT '}'
+non-capturing-group
+         ::= '(' '?' ':' atoms ')'
+capturing-group
+         ::= '(' catoms ')'
+catoms   ::= catom+
+catom    ::= cquark quantifier?
+cquark   ::= non-group
+codepoints-hex
+         ::= codepoint-hex ( ' ' codepoint-hex )*
+codepoint-hex
+         ::= LHEXDIG ( LHEXDIG ( LHEXDIG ( LHEXDIG ( LHEXDIG LHEXDIG? )? )? )? )?
+simple-matcher
+         ::= text-char
+           | class
+           | '.'
+           | match-marker
+match-marker
+         ::= '\m{.}'
+           | match-named-marker
+match-named-marker
+         ::= '\m{' marker-id '}'
+marker-id
+         ::= NMTOKEN
+class    ::= fixed-class
+           | set-class
+fixed-class
+         ::= '\' fixed-class-char
+fixed-class-char
+         ::= 's'
+           | 'S'
+           | 't'
+           | 'r'
+           | 'n'
+           | 'f'
+           | 'v'
+           | '\'
+           | '$'
+           | 'd'
+           | 'w'
+           | 'D'
+           | 'W'
+           | '0'
+set-class
+         ::= '[' set-negator set-members ']'
+set-members
+         ::= set-member+
+set-member
+         ::= text-char
+           | char-range
+           | match-marker
+char-range
+         ::= range-edge '-' range-edge
+range-edge
+         ::= escaped-codepoint
+           | range-char
+set-negator
+         ::= '^'?
+text-char
+         ::= content-char
+           | ws
+           | escaped-char
+           | '-'
+           | ':'
+range-char
+         ::= content-char
+           | ws
+           | escaped-char
+           | '.'
+           | '|'
+           | '{'
+           | '}'
+content-char
+         ::= ASCII-PUNCT
+           | ALPHA
+           | DIGIT
+           | NON-ASCII
+escaped-char
+         ::= '\' ( '\' | '{' | '|' | '}' )
+ws       ::= [ #x3000]
+           | HTAB
+           | CR
+           | LF
+IDCHAR   ::= ALPHA
+           | DIGIT
+           | '_'
+ASCII-PUNCT
+         ::= [!-#%-',/;->_`#x7E-#x7F]
+NON-ASCII
+         ::= [#x7E-#xD7FF#xE000-#x10FFFF]
+DIGIT    ::= [0-9]
+ALPHA    ::= [A-Za-z]
+HTAB     ::= #xF900
+LF       ::= #xA
+CR       ::= #xD
+HEXDIG   ::= DIGIT
+           | 'A'
+           | 'B'
+           | 'C'
+           | 'D'
+           | 'E'
+           | 'F'
+LHEXDIG  ::= HEXDIG
+           | 'a'
+           | 'b'
+           | 'c'
+           | 'd'
+           | 'e'
+           | 'f'
+NAMESTARTCHAR
+         ::= [:_#xC0-#xD6#xD8-#xF6#xF8-#x2FF#x370-#x37D#x37F-#x1FFF#x200C-#x200D#x2070-#x218F#x2C00-#x2FEF#x3001-#xD7FF#xF900-#xFDCF#xFDF0-#xFFFD#x10000-#x10FFFF]
+           | ALPHA
+NAMECHAR ::= NAMESTARTCHAR
+           | [-.#xB7#x300-#x36F#x203F-#x2040]
+           | DIGIT
+NMTOKEN  ::= NAMECHAR+
+```
+
+##### Transform To Grammar
+
+This is the grammar for the `<transform to="…"/>` attribute.  The `to=` attribute MUST match the `to-replacement` rule in this grammar. Not all strings which match this grammar are valid:
+
+The following is the [LDML EBNF](./tr35.md#ebnf) format for the grammar:
+
+```ebnf
+[ vc: A referenced capture group must be present in the from= match string. ]
+[ vc: The `$[1:…]` set format may only be used where there is exactly one capture group with a set variable on the from= match string. ]
+[ vc: all variables referenced must be defined in the <variables> element ]
+
+to-replacement
+         ::= atoms
+atoms    ::= atom*
+atom     ::= replacement-char
+           | escaped-char
+           | group-reference
+           | escaped-codepoints
+           | named-marker
+           | string-variable
+           | mapped-set
+replacement-char
+         ::= content-char
+           | ws
+           | '-'
+           | ':'
+           | '('
+           | ')'
+           | '.'
+           | '*'
+           | '+'
+           | '?'
+           | '['
+           | ']'
+           | '^'
+           | '{'
+           | '}'
+           | '|'
+escaped-char
+         ::= '\' ( '\' | '$' )
+           | '$$'
+group-reference
+         ::= '$' DIGIT
+escaped-codepoints
+         ::= '\' 'u' '{' codepoints-hex '}'
+codepoints-hex
+         ::= codepoint-hex ( ' ' codepoint-hex )*
+codepoint-hex
+         ::= LHEXDIG ( LHEXDIG ( LHEXDIG ( LHEXDIG ( LHEXDIG LHEXDIG? )? )? )? )?
+named-marker
+         ::= '\m{' marker-id '}'
+marker-id
+         ::= NMTOKEN
+string-variable
+         ::= '${' var-id '}'
+var-id   ::= IDCHAR+
+mapped-set
+         ::= '$[1:' var-id ']'
+content-char
+         ::= ASCII-PUNCT
+           | ALPHA
+           | DIGIT
+           | NON-ASCII
+ws       ::= [ #x3000]
+           | HTAB
+           | CR
+           | LF
+IDCHAR   ::= ALPHA
+           | DIGIT
+           | '_'
+ASCII-PUNCT
+         ::= [!-#%-',/;->_`#x7E-#x7F]
+NON-ASCII
+         ::= [#x7E-#xD7FF#xE000-#x10FFFF]
+DIGIT    ::= [0-9]
+ALPHA    ::= [A-Za-z]
+HTAB     ::= #xF900
+LF       ::= #xA
+CR       ::= #xD
+HEXDIG   ::= DIGIT
+           | 'A'
+           | 'B'
+           | 'C'
+           | 'D'
+           | 'E'
+           | 'F'
+LHEXDIG  ::= HEXDIG
+           | 'a'
+           | 'b'
+           | 'c'
+           | 'd'
+           | 'e'
+           | 'f'
+NAMESTARTCHAR
+         ::= [:_#xC0-#xD6#xD8-#xF6#xF8-#x2FF#x370-#x37D#x37F-#x1FFF#x200C-#x200D#x2070-#x218F#x2C00-#x2FEF#x3001-#xD7FF#xF900-#xFDCF#xFDF0-#xFFFD#x10000-#x10FFFF]
+           | ALPHA
+NAMECHAR ::= NAMESTARTCHAR
+           | [-.#xB7#x300-#x36F#x203F-#x2040]
+           | DIGIT
+NMTOKEN  ::= NAMECHAR+
+```
+
+##### ABNF
+
+The grammar for the transform rules is also available in ABNF notation [[STD68](https://www.rfc-editor.org/info/std68)],
+including the modifications found in [RFC 7405](https://www.rfc-editor.org/rfc/rfc7405).
+
+RFC7405 defines a variation of ABNF that is case-sensitive.
+Some ABNF tools are only compatible with the specification found in
+[RFC 5234](https://www.rfc-editor.org/rfc/rfc5234).
+
+The ABNF files are located in the `keyboards/abnf` directory in the CLDR source directory.  (The EBNF above was converted from the ABNF files.)
+
+ * `transform-from-required.abnf`
+ * `transform-to-required.abnf`
 
 * * *
 

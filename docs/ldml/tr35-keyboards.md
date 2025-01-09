@@ -2428,7 +2428,6 @@ The following is the [LDML EBNF](./tr35.md#ebnf) format for the grammar:
 ```ebnf
 [ wfc: No more than 9 capture groups may be present. ]
 [ vc: all variables referenced must be defined in the <variables> element ]
-[ vc: The CLDR repository may define additional constraints on the repertoire, such as requiring all characters to be in a published Unicode version and disallowing private-use characters. ]
 
 from-match
          ::= '^'? atoms

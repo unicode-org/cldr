@@ -23,6 +23,7 @@ import java.time.ZoneId;
 import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -30,6 +31,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Collectors;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
@@ -67,8 +69,20 @@ public class GenerateDateTimeTestData {
      * <p>standard = do not insert the word "at". (ex: in `en`, there may or may not be a comma
      * instead to separate)
      */
-    private static final Set<String> CLDR_DATE_TIME_FORMAT_TYPES =
-            ImmutableSet.of("standard", "atTime");
+    enum DateTimeFormatType {
+        STANDARD("standard"),
+        AT_TIME("atTime");
+
+        public final String label;
+
+        String getLabel() {
+            return this.label;
+        }
+
+        DateTimeFormatType(String label) {
+            this.label = label;
+        }
+    }
 
     private static final ImmutableSet<String> NUMBERING_SYSTEMS =
             ImmutableSet.of("latn", "arab", "beng");
@@ -490,77 +504,125 @@ public class GenerateDateTimeTestData {
         return length;
     }
 
-    /**
-     * Take a map of test case inputs, compute the formatted datetime, and return a map that
-     * includes the formatted datetime as well as all of the test case inputs.
-     *
-     * @param icuServiceBuilder
-     * @param localeCldrFile
-     * @param options
-     * @param optionsBuilder
-     * @param zdt
-     * @param calendar
-     * @param dateFormatter
-     * @param timeFormatter
-     * @param dateLength
-     * @return
-     */
-    private static List<ImmutableMap<Object, Object>> getTestCasesForZonedDateTime(
-            ICUServiceBuilder icuServiceBuilder,
-            CLDRFile localeCldrFile,
-            ImmutableMap<Object, Object> options,
-            ImmutableMap.Builder<Object, Object> optionsBuilder,
-            ZonedDateTime zdt,
-            String calendar,
-            SimpleDateFormat dateFormatter,
-            SimpleDateFormat timeFormatter,
-            String dateLength) {
+    private static String getExpectedStringForTestCase(
+        ICUServiceBuilder icuServiceBuilder,
+        CLDRFile localeCldrFile,
+        String calendar,
+        TimeZone icuTimeZone,
+        ZonedDateTime zdt,
+        String timeLength,
+        String dateLength,
+        String dateTimeGluePatternFormatType
+    ) {
         String formattedDateTime;
+        SimpleDateFormat timeFormatter = null;
+        SimpleDateFormat dateFormatter = null;
 
-        // "input" = the ISO 18601 UTC time zone formatted string of the zoned date time
-        optionsBuilder.put("input", zdt.toString());
+        // properly initialize the time formatter
 
-        // After all the options configuration, finally construct the formatted DateTime
-        if (dateFormatter == null) {
+        if (timeLength != null) {
+            timeFormatter =
+                localeCldrFile.getTimeFormat(
+                    calendar, timeLength, icuServiceBuilder);
+            assert timeFormatter != null;
+            timeFormatter.setTimeZone(icuTimeZone);
+        }
+
+        // properly initialize the date formatter
+
+        if (dateLength != null) {
+            dateFormatter =
+                localeCldrFile.getDateFormat(
+                    calendar, dateLength, icuServiceBuilder);
+            assert dateFormatter != null;
+            dateFormatter.setTimeZone(icuTimeZone);
+        }
+
+        // compute the formatted date time string
+
+        if (dateLength == null) {
             formattedDateTime = timeFormatter.format(zdt);
-            // Reuse and update the optionsBuilder to insert the expected value according to
-            // the result of the CLDR formatter
-            optionsBuilder.put("expected", formattedDateTime);
-            return ImmutableList.of(optionsBuilder.buildKeepingLast());
-        } else if (timeFormatter == null) {
+        } else if (timeLength == null) {
             formattedDateTime = dateFormatter.format(zdt);
-            // Reuse and update the optionsBuilder to insert the expected value according to
-            // the result of the CLDR formatter
-            optionsBuilder.put("expected", formattedDateTime);
-            return ImmutableList.of(optionsBuilder.buildKeepingLast());
         } else {
+            assert(dateTimeGluePatternFormatType != null);
             String formattedDate = dateFormatter.format(zdt);
             String formattedTime = timeFormatter.format(zdt);
 
-            ImmutableList.Builder resultBuilder = ImmutableList.builder();
+            formattedDateTime =
+                localeCldrFile.glueDateTimeFormat(
+                    formattedDate,
+                    formattedTime,
+                    calendar,
+                    dateLength,
+                    dateTimeGluePatternFormatType,
+                    icuServiceBuilder);
+        }
 
-            // when we have date and time formatting information, then we also need to use
-            // the date time "glue pattern" aka dateTimeFormatType, which can vary over
-            // different values (ex: "standard", "atTime"), that indicates the style of pattern
-            // that is used to combine the date and time formatted values together.
-            for (String dateTimeGluePatternFormatType : CLDR_DATE_TIME_FORMAT_TYPES) {
-                formattedDateTime =
-                        localeCldrFile.glueDateTimeFormat(
-                                formattedDate,
-                                formattedTime,
-                                calendar,
-                                dateLength,
-                                dateTimeGluePatternFormatType,
-                                icuServiceBuilder);
-                optionsBuilder.put("dateTimeFormatType", dateTimeGluePatternFormatType);
+        return formattedDateTime;
+    }
+
+
+    /**
+     * Calls into getTestCasesForZonedDateTime() but manages the higher level logic that
+     * dictates that when we have both a date length and time length, we generate the dateTime
+     * for all glue pattern types available. When there is only a date length _or_ time length,
+     * then we only produce 1 formatted string
+     */
+    private static Collection<Map<Object, Object>> getTestCaseSubListFromDateTimeLengths(
+        ImmutableMap.Builder<Object, Object> optionsBuilder,
+        ICUServiceBuilder icuServiceBuilder,
+        CLDRFile localeCldrFile,
+        String calendar,
+        TimeZone icuTimeZone,
+        ZonedDateTime zdt,
+        String timeLength,
+        String dateLength
+    ) {
+        List<Map<Object, Object>> result = new LinkedList<>();
+
+        if (dateLength != null && timeLength != null) {
+            ImmutableList.Builder resultBuilder = ImmutableList.builder();
+            for (String dateTimeGluePatternFormatType : Arrays.stream(DateTimeFormatType.values())
+                .map(DateTimeFormatType::getLabel).collect(Collectors.toList())) {
+                String formattedDateTime =
+                    getExpectedStringForTestCase(
+                        icuServiceBuilder,
+                        localeCldrFile,
+                        calendar,
+                        icuTimeZone,
+                        zdt,
+                        timeLength,
+                        dateLength,
+                        dateTimeGluePatternFormatType);
                 // Reuse and update the optionsBuilder to insert the expected value according to
                 // the result of the CLDR formatter
+                // "input" = the ISO 18601 UTC time zone formatted string of the zoned date time
+                optionsBuilder.put("input", zdt.toString());
+                optionsBuilder.put("dateTimeFormatType", dateTimeGluePatternFormatType);
                 optionsBuilder.put("expected", formattedDateTime);
                 resultBuilder.add(optionsBuilder.buildKeepingLast());
             }
-
             return resultBuilder.build();
+        } else {
+            String formattedDateTime =
+                getExpectedStringForTestCase(
+                    icuServiceBuilder,
+                    localeCldrFile,
+                    calendar,
+                    icuTimeZone,
+                    zdt,
+                    timeLength,
+                    dateLength,
+                    null);  // dateTime glue pattern is unneeded
+            // Reuse and update the optionsBuilder to insert the expected value according to
+            // the result of the CLDR formatter
+            // "input" = the ISO 18601 UTC time zone formatted string of the zoned date time
+            optionsBuilder.put("input", zdt.toString());
+            optionsBuilder.put("expected", formattedDateTime);
+            return ImmutableList.of(optionsBuilder.buildKeepingLast());
         }
+
     }
 
     private static Collection<Map<Object, Object>> generateAllTestCases() {
@@ -629,20 +691,7 @@ public class GenerateDateTimeTestData {
                         TimeZone icuTimeZone = TimeZone.getTimeZone(timeZone);
 
                         String dateLength = getDateLength(options);
-                        SimpleDateFormat dateFormatter =
-                                localeCldrFile.getDateFormat(
-                                        calendar, dateLength, icuServiceBuilder);
-                        if (dateFormatter != null) {
-                            dateFormatter.setTimeZone(icuTimeZone);
-                        }
-
                         String timeLength = getTimeLength(options);
-                        SimpleDateFormat timeFormatter =
-                                localeCldrFile.getTimeFormat(
-                                        calendar, timeLength, icuServiceBuilder);
-                        if (timeFormatter != null) {
-                            timeFormatter.setTimeZone(icuTimeZone);
-                        }
 
                         // iterate over all dates and format the date time
 
@@ -650,17 +699,18 @@ public class GenerateDateTimeTestData {
 
                         for (ZonedDateTime zdt : JAVA_TIME_ZONED_DATE_TIMES) {
                             ZonedDateTime zdtNewTz = zdt.withZoneSameInstant(zoneId);
-                            List<ImmutableMap<Object, Object>> testCases =
-                                    getTestCasesForZonedDateTime(
-                                            icuServiceBuilder,
-                                            localeCldrFile,
-                                            options,
-                                            optionsBuilder,
-                                            zdtNewTz,
-                                            calendar,
-                                            dateFormatter,
-                                            timeFormatter,
-                                            dateLength);
+
+                            Collection<Map<Object, Object>> testCases =
+                                getTestCaseSubListFromDateTimeLengths(
+                                    optionsBuilder,
+                                    icuServiceBuilder,
+                                    localeCldrFile,
+                                    calendar,
+                                    icuTimeZone,
+                                    zdtNewTz,
+                                    timeLength,
+                                    dateLength);
+
                             result.addAll(testCases);
                         }
 
@@ -668,17 +718,18 @@ public class GenerateDateTimeTestData {
                             ZonedDateTime zdt =
                                     getZonedDateTimeFromTemporalDateInput(temporalDateInfo);
                             ZonedDateTime zdtNewTz = zdt.withZoneSameInstant(zoneId);
-                            List<ImmutableMap<Object, Object>> testCases =
-                                    getTestCasesForZonedDateTime(
-                                            icuServiceBuilder,
-                                            localeCldrFile,
-                                            options,
-                                            optionsBuilder,
-                                            zdtNewTz,
-                                            calendar,
-                                            dateFormatter,
-                                            timeFormatter,
-                                            dateLength);
+
+                            Collection<Map<Object, Object>> testCases =
+                                getTestCaseSubListFromDateTimeLengths(
+                                    optionsBuilder,
+                                    icuServiceBuilder,
+                                    localeCldrFile,
+                                    calendar,
+                                    icuTimeZone,
+                                    zdtNewTz,
+                                    timeLength,
+                                    dateLength);
+
                             result.addAll(testCases);
                         }
                     }
@@ -691,17 +742,29 @@ public class GenerateDateTimeTestData {
 
 
     enum DateStyle {
-        SHORT,
-        MEDIUM,
-        LONG,
-        FULL
+        SHORT("short"),
+        MEDIUM("medium"),
+        LONG("long"),
+        FULL("full");
+
+        public final String label;
+
+        DateStyle(String label) {
+            this.label = label;
+        }
     }
 
     enum TimeStyle {
-        SHORT,
-        MEDIUM,
-        LONG,
-        FULL
+        SHORT("short"),
+        MEDIUM("medium"),
+        LONG("long"),
+        FULL("full");
+
+        public final String label;
+
+        TimeStyle(String label) {
+            this.label = label;
+        }
     }
 
     enum SemanticSkeletonLength {
@@ -990,16 +1053,18 @@ public class GenerateDateTimeTestData {
         return builder.build();
     }
 
-    static class FieldStyleComboWithTZAndDateTime {
+    static class TestCaseInput {
         FieldStyleCombo fieldStyleCombo;
         LocalDateTime dateTime;
         TimeZone timeZone;
+        ULocale locale;
+        Calendar calendar;
+        DateTimeFormatType dateTimeFormatType;
     }
 
     static class TestCase {
-        ULocale locale;
-        Calendar calendar;
-        FieldStyleComboWithTZAndDateTime fieldStyleComboWithTZAndDateTime;
+        TestCaseInput testCaseInput;
+        String expected;
     }
 
     public static ImmutableSet<TestCase> getKernelTestCases() {
@@ -1014,17 +1079,22 @@ public class GenerateDateTimeTestData {
         );
 
         List<LocalDateTime> DATE_TIMES = List.of(
-            LocalDateTime.of(2024, 7, 1, 8, 50, 7),
             LocalDateTime.of(2000, 1, 1, 0, 0, 0),
+            LocalDateTime.of(2024, 7, 1, 8, 50, 7),
+            // Ramadan in Summer at 12:00 noon in the year 2014
             LocalDateTime.of(2014, 7, 15, 12, 0, 0)
         );
 
-        // An extra time zone that should be added dynamically is the default for the locale
-        // visited during the iteration over locales
+        List<LocalDateTime> DATE_TIME_ONE_ONLY = List.of(DATE_TIMES.get(0));
+
+        // TODO: add a 3rd time zone dynamically, which is the default time zone for the current
+        //    locale in question when iterating over all locales
         List<TimeZone> STATIC_TIME_ZONES = List.of(
             TimeZone.GMT_ZONE,
             TimeZone.getTimeZone("Australia/Adelaide")
         );
+
+        List<TimeZone> STATIC_TIME_ZONE_ONE_ONLY = List.of(STATIC_TIME_ZONES.get(0));
 
         // setup of return value
 
@@ -1036,17 +1106,31 @@ public class GenerateDateTimeTestData {
             ULocale locale = localeCalendarPair.first;
             Calendar calendar = localeCalendarPair.second;
 
+            // get the formatted version of the locale with underscores instead of BCP 47 dashes
+            // since this is what the CLDRFile constructor expects
+            String localeStr = locale.getName();
+
+            CLDRFile localeCldrFile = getCLDRFile(localeStr).orElse(null);
+
+            if (localeCldrFile == null) {
+                continue;
+            }
+
+            ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder();
+            icuServiceBuilder.clearCache();
+            icuServiceBuilder.setCldrFile(localeCldrFile);
+
             for (FieldStyleComboInput input : getFieldStyleComboInputs()) {
                 assert input.shouldMultiplyByDateTime || input.shouldMultiplyByTimeZone;
 
                 FieldStyleCombo fieldStyleCombo = input.fieldStyleCombo;
 
-                List<LocalDateTime> dateTimeIterationColl = List.of();
+                List<LocalDateTime> dateTimeIterationColl = DATE_TIME_ONE_ONLY;
                 if (input.shouldMultiplyByDateTime) {
                     dateTimeIterationColl = DATE_TIMES;
                 }
 
-                List<TimeZone> timeZoneIterationColl = List.of();
+                List<TimeZone> timeZoneIterationColl = STATIC_TIME_ZONE_ONE_ONLY;
                 if (input.shouldMultiplyByTimeZone) {
                     timeZoneIterationColl = STATIC_TIME_ZONES;
                     // TODO: add a TimeZone from the region of the locale to the list of time zones to iterate over
@@ -1054,15 +1138,14 @@ public class GenerateDateTimeTestData {
 
                 for (LocalDateTime localDateTime : dateTimeIterationColl) {
                     for (TimeZone timeZone : timeZoneIterationColl) {
-                        FieldStyleComboWithTZAndDateTime fieldStyleComboWithTZAndDateTime = new FieldStyleComboWithTZAndDateTime();
-                        fieldStyleComboWithTZAndDateTime.fieldStyleCombo = fieldStyleCombo;
-                        fieldStyleComboWithTZAndDateTime.dateTime = localDateTime;
-                        fieldStyleComboWithTZAndDateTime.timeZone = timeZone;
+                        TestCaseInput testCaseInput = new TestCaseInput();
+                        testCaseInput.fieldStyleCombo = fieldStyleCombo;
+                        testCaseInput.dateTime = localDateTime;
+                        testCaseInput.timeZone = timeZone;
+                        testCaseInput.locale = locale;
+                        testCaseInput.calendar = calendar;
 
-                        TestCase testCase = new TestCase();
-                        testCase.locale = locale;
-                        testCase.calendar = calendar;
-                        testCase.fieldStyleComboWithTZAndDateTime = fieldStyleComboWithTZAndDateTime;
+                        TestCase testCase = computeTestCase(localeCldrFile, testCaseInput);
 
                         builder.add(testCase);
                     }
@@ -1072,6 +1155,46 @@ public class GenerateDateTimeTestData {
 
         return builder.build();
     }
+
+    private static TestCase computeTestCase(
+        CLDRFile localeCldrFile,
+        TestCaseInput testCaseInput
+
+
+    ) {
+
+        if (testCaseInput.fieldStyleCombo.semanticSkeleton == null) {
+            Map<Object, Object> fieldStyleComboMap = convertTestCaseInputToComboMap(testCaseInput);
+
+        } else {
+            // TODO: implement logic for converting sematic skeleton -> string concatenation of
+            //  skeleton-per-field for all fields -> use datetimepatterngenerator to convert
+            //  skeleton string into pattern string
+
+            // TODO: implement me!
+            assert  false;
+        }
+
+
+
+
+
+        // TODO: implement me!
+        assert  false;
+
+
+
+        // return 57;
+        return null;
+    }
+
+    private static Map<Object, Object> convertTestCaseInputToComboMap(TestCaseInput testCaseInput) {
+        // TODO: implement me!
+        assert false;
+
+        return null;
+    }
+
 
     public static void main(String[] args) throws IOException {
         try (TempPrintWriter pw =

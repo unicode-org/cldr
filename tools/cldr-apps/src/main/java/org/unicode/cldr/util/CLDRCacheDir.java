@@ -21,7 +21,8 @@ public class CLDRCacheDir {
         xmlCache("Precomputed XML metadata and validity"),
         sandbox(
                 "Temporary locales that may be used for user experimentation, data may not be persisted."),
-        urlmap("URL-to-Subtype mapping");
+        urlmap("URL-to-Subtype mapping"),
+        claAssistant("CLA signatures from cla-assistant.io");
 
         private String description;
 

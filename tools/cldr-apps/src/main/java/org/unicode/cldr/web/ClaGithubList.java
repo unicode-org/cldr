@@ -6,8 +6,10 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
+import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
+import java.nio.file.Files;
 import java.time.Instant;
 import java.util.Date;
 import java.util.HashMap;
@@ -16,6 +18,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRConfigImpl;
+import org.unicode.cldr.web.util.STRestClient;
+import org.unicode.cldr.util.CLDRCacheDir;
 
 /**
  * Utility class for reading a signatures.json file This file can be downloaded from
@@ -107,23 +111,37 @@ public class ClaGithubList {
         static final ClaGithubList INSTANCE = new ClaGithubList();
     }
 
-    /** default file path, from configuration */
-    private final String CLA_FILE;
+    // /** default file path, from configuration */
+    // private final String CLA_FILE;
 
-    /** full path to .json file */
-    private final Path claFilePath;
+    // /** full path to .json file */
+    // private final Path claFilePath;
+
+    /** token */
+    private final String claToken;
+    private final String orgId;
+
+    /** cached JSON signatures */
+    private final CLDRCacheDir cacheDir;
+    private final File subDir;
 
     ClaGithubList() {
         final CLDRConfig instance = CLDRConfig.getInstance();
-        CLA_FILE = instance.getProperty("CLA_FILE", "./signatures.json");
-        if (instance instanceof CLDRConfigImpl) {
-            final File homeFile = ((CLDRConfigImpl) instance).getHomeFile();
-            claFilePath = new File(homeFile, CLA_FILE).toPath();
-            logger.fine("CLA_FILE=" + claFilePath.toString());
-        } else {
-            claFilePath = null;
-            logger.fine("claFile path not set, could not get CLDRConfigImpl");
-        }
+        claToken = instance.getProperty("GITHUB_CLA_TOKEN");
+        orgId = instance.getProperty("GITHUB_ORG_ID");
+
+        cacheDir = CLDRCacheDir.getInstance(CLDRCacheDir.CacheType.claAssistant);
+        subDir = cacheDir.getEmptyDir();
+
+        // CLA_FILE = instance.getProperty("CLA_FILE", "./signatures.json");
+        // if (instance instanceof CLDRConfigImpl) {
+        //     final File homeFile = ((CLDRConfigImpl) instance).getHomeFile();
+        //     claFilePath = new File(homeFile, CLA_FILE).toPath();
+        //     logger.fine("CLA_FILE=" + claFilePath.toString());
+        // } else {
+        //     claFilePath = null;
+        //     logger.fine("claFile path not set, could not get CLDRConfigImpl");
+        // }
     }
 
     /**
@@ -158,11 +176,12 @@ public class ClaGithubList {
 
     /** read the default .json file */
     Map<String, SignEntry> readSigners() throws IOException {
-        if (claFilePath == null) {
-            throw new NullPointerException(
-                    "CLA_FILE=" + CLA_FILE + " but could not find file path.");
-        }
-        return readSigners(claFilePath);
+        // if (claFilePath == null) {
+        //     throw new NullPointerException(
+        //             "CLA_FILE=" + CLA_FILE + " but could not find file path.");
+        // }
+        // return readSigners(claFilePath);
+        return downloadSigners();
     }
 
     /** read a specific path */
@@ -232,5 +251,70 @@ public class ClaGithubList {
         }
         jr.endObject();
         return e;
+    }
+
+    private final static class GetGistRequest {
+        public String orgId;
+        public GetGistRequest(final String orgId) {
+            this.orgId = orgId;
+        }
+    }
+
+    public final static class GetGistResponse {
+        public final static class GetGistHistory {
+            public String version;
+        }
+
+        public String html_url;
+        public GetGistHistory history[]; // array of versions
+    }
+
+    public final static class GetAllRequestGist {
+        public String gist_url;
+        public String gist_version;
+    }
+
+    public final static class GetAllRequest {
+        public String orgId;
+        public boolean sharedGist = false;
+        public GetAllRequestGist gist = new GetAllRequestGist();
+    }
+
+    public final static class GetAllResponse {
+    }
+
+    Map<String, SignEntry> downloadSigners() throws IOException{
+        final URL claEndpoint = new URL("https://cla-assistant.io/");
+        final Gson gson = new Gson();
+        STRestClient client = new STRestClient();
+        client.setXToken(claToken);
+
+        // get the list of gists
+        GetGistRequest getGistRequest = new GetGistRequest(orgId);
+
+                    // kind of a workaround
+            // see: https://github.com/cla-assistant/cla-assistant/issues/986
+            // we need to get a list of the gists used
+        final GetGistResponse getGistResponse = client.post(new URL(claEndpoint, "api/cla/getGist"), GetGistResponse.class, getGistRequest);
+
+        System.out.println("Got html_url = " + getGistResponse.html_url + " and " + getGistResponse.history.length + " gist versions");
+
+        final GetAllRequest getAllRequest = new GetAllRequest();
+        getAllRequest.orgId = this.orgId;
+        getAllRequest.gist.gist_url = getGistResponse.html_url;
+        for (final GetGistResponse.GetGistHistory gist : getGistResponse.history) {
+            getAllRequest.gist.gist_version = gist.version;
+            System.out.println("Requesting " + getAllRequest.gist.gist_version);
+            File outFile = new File(subDir, getAllRequest.gist.gist_version + ".json");
+            System.out.println("... requesting to " + outFile);
+            try {
+                client.postResultToFile(new URL(claEndpoint, "api/cla/getAll"), outFile, getAllRequest);
+            } catch(Throwable t) {
+                System.err.println("Could not write to " + outFile);
+                t.printStackTrace();
+            }
+        }
+        Map<String, SignEntry> allSigners = new HashMap<>(); // TODO
+        return allSigners; // TODO
     }
 }

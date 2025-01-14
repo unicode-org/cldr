@@ -7,10 +7,18 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.nio.charset.StandardCharsets;
+import java.util.function.Function;
 
 /** Generic REST API client. */
 public class STRestClient {
+
+    @FunctionalInterface
+    public static interface CheckedIOFunction<T, R> {
+       R apply(T t) throws IOException;
+    }
 
     public <T> T get(final URL url, Class<T> classOfT) throws IOException {
         return request(url, classOfT, null);
@@ -23,7 +31,19 @@ public class STRestClient {
         return request(url, classOfT, payload);
     }
 
-    private <T> T request(final URL url, Class<T> classOfT, Object payload) throws IOException {
+    public Long postResultToFile(final URL url, File resultFile, Object payload) throws IOException {
+        if (payload == null) {
+            throw new NullPointerException("payload cannot be null, use get()");
+        }
+        return request(url, (InputStream in) -> {
+            try (final FileOutputStream out = new FileOutputStream(resultFile)) {
+                return in.transferTo(out);
+            }
+        }, payload);
+    }
+
+    /** request, consuming an InputStream  */
+    private <T> T request(final URL url, CheckedIOFunction<InputStream, T> processor, Object payload) throws IOException {
         HttpURLConnection connection = null;
         try {
             connection = (HttpURLConnection) (url.openConnection());
@@ -42,6 +62,10 @@ public class STRestClient {
                 connection.setRequestProperty("Authorization", "Bearer " + bearer);
             }
 
+            if (xtoken != null) {
+                connection.setRequestProperty("x-token", xtoken);
+            }
+
             connection.connect();
 
             if (payload != null) {
@@ -55,10 +79,7 @@ public class STRestClient {
 
             // get the response
             final InputStream in = connection.getInputStream();
-            final T resp =
-                    gson.fromJson(new InputStreamReader(in, StandardCharsets.UTF_8), classOfT);
-            return resp;
-
+            return processor.apply(in);
         } finally {
             if (connection != null) {
                 connection.disconnect();
@@ -66,11 +87,22 @@ public class STRestClient {
         }
     }
 
+    /** request yielding a JSON-deserialized class */
+    private <T> T request(final URL url, Class<T> classOfT, Object payload) throws IOException {
+        return request(url, (InputStream in) -> gson.fromJson(new InputStreamReader(in, StandardCharsets.UTF_8), classOfT), payload);
+    }
+
     static final Gson gson = new Gson();
 
     String bearer = null;
 
+    String xtoken = null;
+
     public void setAuthBearer(String bearer) {
         this.bearer = bearer;
+    }
+
+    public void setXToken(String xtoken) {
+        this.xtoken = xtoken;
     }
 }

@@ -56,6 +56,7 @@
         </span>
         <span class="right-control">
           <span
+            title="Include ALL paths in selected coverage level. May be very large!"
             v-if="!includeOther"
             class="cldr-nav-btn"
             @click="reloadIncludeOther"

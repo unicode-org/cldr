@@ -561,7 +561,13 @@ public class Summary {
             coverageLevel = org.unicode.cldr.util.Level.fromString(level);
         }
         ReviewOutput reviewOutput =
-                new Dashboard().get(loc, target, coverageLevel, null /* xpath */, false);
+                new Dashboard()
+                        .get(
+                                loc,
+                                target,
+                                coverageLevel,
+                                null /* xpath */,
+                                false /* includeOther */);
         reviewOutput.coverageLevel = coverageLevel.name();
 
         ParticipationResults participationResults =

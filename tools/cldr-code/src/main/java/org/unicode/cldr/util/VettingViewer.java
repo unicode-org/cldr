@@ -480,37 +480,45 @@ public class VettingViewer<T> {
                     (baselineFileUnresolved == null)
                             ? null
                             : baselineFileUnresolved.getWinningValue(path);
-            if (skipForLimitedSubmission(path, errorStatus, oldValue)) {
-                return;
+            final boolean skip = skipForLimitedSubmission(path, errorStatus, oldValue);
+            if (!skip) {
+                if (!onlyRecordErrors
+                        && choices.contains(NotificationCategory.changedOldValue)
+                        && changedFromBaseline(path, value, oldValue, sourceFile)) {
+                    problems.add(NotificationCategory.changedOldValue);
+                    vc.problemCounter.increment(NotificationCategory.changedOldValue);
+                }
+                if (!onlyRecordErrors
+                        && choices.contains(NotificationCategory.inheritedChanged)
+                        && inheritedChangedFromBaseline(path, value, sourceFile)) {
+                    problems.add(NotificationCategory.inheritedChanged);
+                    vc.problemCounter.increment(NotificationCategory.inheritedChanged);
+                }
+                VoteResolver.VoteStatus voteStatus =
+                        userVoteStatus.getStatusForUsersOrganization(
+                                sourceFile, path, organization);
+                boolean itemsOkIfVoted = (voteStatus == VoteResolver.VoteStatus.ok);
+                MissingStatus missingStatus =
+                        onlyRecordErrors
+                                ? null
+                                : recordMissingChangedEtc(path, itemsOkIfVoted, value, oldValue);
+                recordChoice(errorStatus, itemsOkIfVoted, onlyRecordErrors);
+                if (!onlyRecordErrors) {
+                    recordLosingDisputedEtc(path, voteStatus, missingStatus);
+                }
             }
-            if (!onlyRecordErrors
-                    && choices.contains(NotificationCategory.changedOldValue)
-                    && changedFromBaseline(path, value, oldValue, sourceFile)) {
-                problems.add(NotificationCategory.changedOldValue);
-                vc.problemCounter.increment(NotificationCategory.changedOldValue);
-            }
-            if (!onlyRecordErrors
-                    && choices.contains(NotificationCategory.inheritedChanged)
-                    && inheritedChangedFromBaseline(path, value, sourceFile)) {
-                problems.add(NotificationCategory.inheritedChanged);
-                vc.problemCounter.increment(NotificationCategory.inheritedChanged);
-            }
-            VoteResolver.VoteStatus voteStatus =
-                    userVoteStatus.getStatusForUsersOrganization(sourceFile, path, organization);
-            boolean itemsOkIfVoted = (voteStatus == VoteResolver.VoteStatus.ok);
-            MissingStatus missingStatus =
-                    onlyRecordErrors
-                            ? null
-                            : recordMissingChangedEtc(path, itemsOkIfVoted, value, oldValue);
-            recordChoice(errorStatus, itemsOkIfVoted, onlyRecordErrors);
-            if (!onlyRecordErrors) {
-                recordLosingDisputedEtc(path, voteStatus, missingStatus);
+            // add the catch-all value
+            if (!pathLevelIsTooHigh
+                    && problems.isEmpty()
+                    && choices.contains(NotificationCategory.other)) {
+                problems.add(NotificationCategory.other);
             }
             if (pathLevelIsTooHigh && problems.isEmpty()) {
                 return;
             }
-            updateVotedOrAbstained(path);
-
+            if (!skip) {
+                updateVotedOrAbstained(path);
+            }
             if (!problems.isEmpty() && sorted != null) {
                 reasonsToPaths.clear();
                 R2<SectionId, PageId> group = Row.of(ph.getSectionId(), ph.getPageId());
@@ -1705,9 +1713,9 @@ public class VettingViewer<T> {
 
     public static EnumSet<NotificationCategory> getDashboardNotificationCategories(
             Organization usersOrg) {
-        EnumSet<NotificationCategory> choiceSet = EnumSet.allOf(NotificationCategory.class);
+        EnumSet<NotificationCategory> choices = EnumSet.allOf(NotificationCategory.class);
         if (orgIsNeutralForSummary(usersOrg)) {
-            choiceSet =
+            choices =
                     EnumSet.of(
                             NotificationCategory.error,
                             NotificationCategory.warning,
@@ -1716,14 +1724,16 @@ public class VettingViewer<T> {
                             NotificationCategory.missingCoverage);
             // skip weLost, englishChanged, changedOldValue, abstained
         }
-        return choiceSet;
+        choices.remove(NotificationCategory.other); // expect this one to be added explicitly
+        return choices;
     }
 
     public static EnumSet<NotificationCategory> getPriorityItemsSummaryCategories(
             Organization org) {
-        EnumSet<NotificationCategory> set = getDashboardNotificationCategories(org);
-        set.remove(NotificationCategory.abstained);
-        return set;
+        EnumSet<NotificationCategory> choices = getDashboardNotificationCategories(org);
+        choices.remove(NotificationCategory.abstained);
+        choices.remove(NotificationCategory.other); // expect this one to be added explicitly
+        return choices;
     }
 
     public static EnumSet<NotificationCategory> getLocaleCompletionCategories() {

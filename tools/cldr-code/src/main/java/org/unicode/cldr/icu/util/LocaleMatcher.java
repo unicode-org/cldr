@@ -18,7 +18,6 @@ import com.ibm.icu.util.LocalePriorityList;
 import com.ibm.icu.util.ULocale;
 import com.ibm.icu.util.UResourceBundle;
 import com.ibm.icu.util.UResourceBundleIterator;
-
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;

@@ -1,8 +1,8 @@
 package org.unicode.cldr.unittest.web;
 
+import java.sql.SQLException;
 import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.icu.dev.util.ElapsedTimer;
-import java.sql.SQLException;
 import org.unicode.cldr.web.UserSettings;
 import org.unicode.cldr.web.UserSettingsData;
 

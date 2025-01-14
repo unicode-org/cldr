@@ -1,7 +1,7 @@
 package org.unicode.cldr.unittest;
 
-import org.unicode.cldr.icu.dev.test.TestFmwk;
 import java.io.IOException;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 
 public class TestIcuPersonNames extends TestFmwk {
 

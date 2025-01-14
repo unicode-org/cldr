@@ -7,7 +7,6 @@
 package org.unicode.cldr.web;
 
 import com.google.common.base.Suppliers;
-import org.unicode.cldr.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.ListFormatter;
 import com.ibm.icu.text.UnicodeSet;
@@ -60,6 +59,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONString;
 import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.icu.dev.util.ElapsedTimer;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.test.HelpMessages;

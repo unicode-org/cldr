@@ -1,10 +1,10 @@
 package org.unicode.cldr.icu.dev.test;
 
-import org.unicode.cldr.icu.text.GenderInfo;
-import org.unicode.cldr.icu.text.GenderInfo.Gender;
 import com.ibm.icu.util.ULocale;
 import java.util.Arrays;
 import java.util.List;
+import org.unicode.cldr.icu.text.GenderInfo;
+import org.unicode.cldr.icu.text.GenderInfo.Gender;
 
 public class GenderInfoTest extends TestFmwk {
     public static void main(String[] args) {

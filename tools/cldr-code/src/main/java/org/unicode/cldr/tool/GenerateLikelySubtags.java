@@ -498,6 +498,10 @@ public class GenerateLikelySubtags {
                                 {"arc_Hatr", "arc_Hatr_IQ"},
                                 {"hnj_Hmng", "hnj_Hmng_LA"},
                                 {"bap_Krai", "bap_Krai_IN"},
+
+                                // Temporary additions to fix bad script mappings
+                                // See https://unicode-org.atlassian.net/browse/CLDR-18121
+                                {"sga", "sga_Latn_IE"},
                             });
 
     /**

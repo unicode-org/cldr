@@ -30,6 +30,8 @@ import java.util.TreeMap;
 import java.util.WeakHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.LocaleInheritanceInfo.Reason;
 import org.unicode.cldr.util.XPathParts.Comments;
@@ -57,7 +59,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
     /**
      * This class represents a source location of an XPath.
      *
-     * @see com.ibm.icu.dev.test.TestFmwk.SourceLocation
+     * @see TestFmwk.SourceLocation
      */
     public static class SourceLocation {
         static final String FILE_PREFIX = "file://";

@@ -2,7 +2,7 @@ package org.unicode.cldr.util;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
-import com.ibm.icu.dev.test.TestFmwk;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import com.ibm.icu.text.NumberFormat;
 import java.util.Arrays;
 import java.util.HashSet;

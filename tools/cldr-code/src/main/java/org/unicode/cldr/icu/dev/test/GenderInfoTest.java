@@ -1,7 +1,7 @@
-package com.ibm.icu.dev.test;
+package org.unicode.cldr.icu.dev.test;
 
-import com.ibm.icu.text.GenderInfo;
-import com.ibm.icu.text.GenderInfo.Gender;
+import org.unicode.cldr.icu.text.GenderInfo;
+import org.unicode.cldr.icu.text.GenderInfo.Gender;
 import com.ibm.icu.util.ULocale;
 import java.util.Arrays;
 import java.util.List;

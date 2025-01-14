@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
-import com.ibm.icu.dev.test.UnicodeKnownIssues;
+import org.unicode.cldr.icu.dev.test.UnicodeKnownIssues;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Collections;

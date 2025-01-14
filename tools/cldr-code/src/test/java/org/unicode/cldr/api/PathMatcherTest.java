@@ -5,7 +5,7 @@ package org.unicode.cldr.api;
 import static java.util.stream.Collectors.toList;
 import static org.unicode.cldr.api.CldrPath.parseDistinguishingPath;
 
-import com.ibm.icu.dev.test.TestFmwk;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import java.util.Arrays;
 import java.util.List;
 

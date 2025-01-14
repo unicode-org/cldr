@@ -1,7 +1,7 @@
 package org.unicode.cldr.unittest;
 
 import com.google.common.collect.ImmutableSet;
-import com.ibm.icu.util.MatchElementAttribute;
+import org.unicode.cldr.icu.util.MatchElementAttribute;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;

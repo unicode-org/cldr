@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
-import com.ibm.icu.dev.util.ElapsedTimer;
+import org.unicode.cldr.icu.dev.util.ElapsedTimer;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;

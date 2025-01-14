@@ -1,7 +1,7 @@
 /** Copyright (C) 2010-2014 IBM Corporation and Others. All Rights Reserved. */
 package org.unicode.cldr.web;
 
-import com.ibm.icu.dev.util.ElapsedTimer;
+import org.unicode.cldr.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.text.NumberFormat;
 import java.util.Comparator;
 import java.util.Deque;

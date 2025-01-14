@@ -1,4 +1,4 @@
-package com.ibm.icu.text;
+package org.unicode.cldr.icu.text;
 
 import com.ibm.icu.text.PluralRules.IFixedDecimal;
 import com.ibm.icu.text.PluralRules.Operand;

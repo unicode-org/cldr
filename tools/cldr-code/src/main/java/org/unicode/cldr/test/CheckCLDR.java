@@ -12,7 +12,7 @@ import com.google.common.base.Suppliers;
 import com.google.common.collect.ComparisonChain;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
-import com.ibm.icu.dev.util.ElapsedTimer;
+import org.unicode.cldr.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.text.ListFormatter;
 import com.ibm.icu.text.MessageFormat;

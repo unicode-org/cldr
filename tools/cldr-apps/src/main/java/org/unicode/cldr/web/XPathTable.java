@@ -9,7 +9,7 @@
 
 package org.unicode.cldr.web;
 
-import com.ibm.icu.dev.util.ElapsedTimer;
+import org.unicode.cldr.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.impl.Utility;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

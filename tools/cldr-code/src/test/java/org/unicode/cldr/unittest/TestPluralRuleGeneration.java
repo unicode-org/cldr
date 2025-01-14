@@ -10,7 +10,7 @@ import com.ibm.icu.number.NumberFormatter.UnitWidth;
 import com.ibm.icu.number.Precision;
 import com.ibm.icu.number.UnlocalizedNumberFormatter;
 import com.ibm.icu.text.DecimalFormat;
-import com.ibm.icu.text.FixedDecimal;
+import org.unicode.cldr.icu.text.FixedDecimal;
 import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.PluralRules.IFixedDecimal;
 import com.ibm.icu.text.PluralRules.Operand;

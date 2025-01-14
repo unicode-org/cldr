@@ -2,7 +2,7 @@ package org.unicode.cldr.web;
 
 import static org.unicode.cldr.web.SurveyForum.NO_PARENT;
 
-import com.ibm.icu.dev.util.ElapsedTimer;
+import org.unicode.cldr.icu.dev.util.ElapsedTimer;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

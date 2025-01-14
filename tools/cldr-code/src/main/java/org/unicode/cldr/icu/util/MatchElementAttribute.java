@@ -1,4 +1,4 @@
-package com.ibm.icu.util;
+package org.unicode.cldr.icu.util;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;

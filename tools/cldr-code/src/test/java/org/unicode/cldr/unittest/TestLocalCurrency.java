@@ -1,7 +1,7 @@
 package org.unicode.cldr.unittest;
 
 import com.google.common.collect.ImmutableSet;
-import com.ibm.icu.dev.test.TestFmwk;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;

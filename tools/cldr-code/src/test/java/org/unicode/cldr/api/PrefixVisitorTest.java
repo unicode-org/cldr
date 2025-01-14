@@ -4,7 +4,7 @@ import static org.unicode.cldr.api.CldrData.PathOrder.ARBITRARY;
 import static org.unicode.cldr.api.CldrData.PathOrder.DTD;
 
 import com.google.common.collect.ImmutableList;
-import com.ibm.icu.dev.test.TestFmwk;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import java.util.ArrayList;
 import java.util.List;
 import org.unicode.cldr.api.CldrData.PrefixVisitor;

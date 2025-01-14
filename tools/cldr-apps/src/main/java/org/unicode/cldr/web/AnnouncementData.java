@@ -1,6 +1,6 @@
 package org.unicode.cldr.web;
 
-import com.ibm.icu.dev.util.ElapsedTimer;
+import org.unicode.cldr.icu.dev.util.ElapsedTimer;
 import java.sql.*;
 import java.util.HashSet;
 import java.util.List;

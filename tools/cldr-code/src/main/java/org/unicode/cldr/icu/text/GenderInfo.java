@@ -1,4 +1,4 @@
-package com.ibm.icu.text;
+package org.unicode.cldr.icu.text;
 
 import com.ibm.icu.util.ULocale;
 import java.util.Arrays;

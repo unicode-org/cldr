@@ -1,6 +1,6 @@
 package org.unicode.cldr.tool;
 
-import com.ibm.icu.dev.util.UOption;
+import org.unicode.cldr.icu.dev.util.UOption;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;

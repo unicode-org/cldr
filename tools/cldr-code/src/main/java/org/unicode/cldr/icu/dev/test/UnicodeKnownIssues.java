@@ -1,4 +1,4 @@
-package com.ibm.icu.dev.test;
+package org.unicode.cldr.icu.dev.test;
 
 import java.util.ArrayList;
 import java.util.List;

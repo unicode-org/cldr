@@ -1,6 +1,6 @@
 package org.unicode.cldr.unittest.web;
 
-import com.ibm.icu.dev.test.TestFmwk;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import java.sql.SQLException;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Organization;

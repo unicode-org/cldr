@@ -1,6 +1,6 @@
 package org.unicode.cldr.unittest;
 
-import com.ibm.icu.dev.test.TestFmwk;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import java.util.EnumSet;
 import java.util.Set;
 import java.util.TreeSet;

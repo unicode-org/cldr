@@ -2,7 +2,7 @@
 
 package org.unicode.cldr.unittest;
 
-import com.ibm.icu.dev.test.TestFmwk.TestGroup;
+import org.unicode.cldr.icu.dev.test.TestFmwk.TestGroup;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.SimpleDateFormat;
 import java.io.OutputStream;

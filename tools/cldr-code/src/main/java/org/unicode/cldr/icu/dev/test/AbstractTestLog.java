@@ -4,7 +4,7 @@
  * 2003-2011, International Business Machines Corporation and others. All Rights Reserved.
  * ******************************************************************************
  */
-package com.ibm.icu.dev.test;
+package org.unicode.cldr.icu.dev.test;
 
 import com.ibm.icu.util.VersionInfo;
 import java.util.Calendar;

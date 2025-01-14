@@ -5,8 +5,8 @@ package org.unicode.cldr.unittest.web;
 
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
-import com.ibm.icu.dev.test.TestFmwk.TestGroup;
-import com.ibm.icu.dev.test.TestLog;
+import org.unicode.cldr.icu.dev.test.TestFmwk.TestGroup;
+import org.unicode.cldr.icu.dev.test.TestLog;
 import java.io.File;
 import java.io.PrintWriter;
 import java.sql.SQLException;

@@ -3,7 +3,7 @@ package org.unicode.cldr.tool;
 import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableSet;
 import com.ibm.icu.impl.Relation;
-import com.ibm.icu.text.FixedDecimal;
+import org.unicode.cldr.icu.text.FixedDecimal;
 import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.PluralRules.Operand;
 import java.util.Arrays;

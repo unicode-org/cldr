@@ -4,7 +4,7 @@
 package org.unicode.cldr.web;
 
 import com.google.common.io.CharStreams;
-import com.ibm.icu.dev.util.ElapsedTimer;
+import org.unicode.cldr.icu.dev.util.ElapsedTimer;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;

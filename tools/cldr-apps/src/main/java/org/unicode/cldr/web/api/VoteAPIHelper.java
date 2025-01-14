@@ -402,7 +402,13 @@ public class VoteAPIHelper {
             String baseXp, CLDRLocale locale, CookieSession mySession) {
         Level coverageLevel = Level.get(mySession.getEffectiveCoverageLevel(locale.toString()));
         Dashboard.ReviewOutput ro =
-                new Dashboard().get(locale, mySession.user, coverageLevel, baseXp, false);
+                new Dashboard()
+                        .get(
+                                locale,
+                                mySession.user,
+                                coverageLevel,
+                                baseXp,
+                                false /* includeOther */);
         return ro.getNotifications();
     }
 

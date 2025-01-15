@@ -88,7 +88,7 @@ public class TestCollators extends TestFmwk {
             CLDRFile cldrFile = cldrFactory.make(locale, false); // don't need resolved
             Set<String> results = new LinkedHashSet<>();
             Matcher m = TYPE.matcher("");
-            for (String path : cldrFile) {
+            for (String path : cldrFile.iterableDefault()) {
                 if (m.reset(path).matches()) {
                     String type = m.group(1);
                     boolean newOne = results.add(type);

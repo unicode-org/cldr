@@ -251,7 +251,7 @@ public class UnicodeSetPrettyPrinterTest extends TestFmwk {
                 localeNeedsEscape.addAll(source);
             }
             CLDRFile cldrFile2 = cldrFactory.make(locale, false); // just existing paths
-            for (String path : cldrFile2) {
+            for (String path : cldrFile2.iterableDefault()) {
                 String value = cldrFile2.getStringValue(path);
                 if (value.equals("↑↑↑")) {
                     continue;

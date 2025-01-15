@@ -138,7 +138,7 @@ public class CLDRTest extends TestFmwk {
             boolean isPOSIX = locale.indexOf("POSIX") >= 0;
             logln("Testing: " + locale);
             CLDRFile item = cldrFactory.make(locale, false);
-            for (String xpath : item) {
+            for (String xpath : item.iterableDefault()) {
                 NumericType type = NumericType.getNumericType(xpath);
                 if (type == NumericType.NOT_NUMERIC) continue;
                 String value = item.getStringValue(xpath);
@@ -186,7 +186,7 @@ public class CLDRTest extends TestFmwk {
                 // Whenever two values for the same xpath are different, we remove from
                 // currentValues, and add to
                 // okValues
-                for (String xpath : item) {
+                for (String xpath : item.iterableDefault()) {
                     if (okValues.contains(xpath)) continue;
                     if (xpath.startsWith("//ldml/identity/")) continue; // skip identity elements
                     String v = item.getStringValue(xpath);
@@ -255,7 +255,7 @@ public class CLDRTest extends TestFmwk {
             int count = 0;
             localeMissing.clear();
             file:
-            for (String xpath : plain) {
+            for (String xpath : plain.iterableDefault()) {
                 for (int i = 0; i < EXEMPLAR_SKIPS.length; ++i) {
                     if (xpath.indexOf(EXEMPLAR_SKIPS[i]) > 0) continue file; // skip some items.
                 }
@@ -512,7 +512,7 @@ public class CLDRTest extends TestFmwk {
             }
             collisions.clear();
 
-            for (Iterator<String> it2 = item.iterator(); it2.hasNext(); ) {
+            for (Iterator<String> it2 = item.iteratorWithoutExtras(); it2.hasNext(); ) {
                 String xpath = it2.next();
                 NameType nameType = NameType.fromPath(xpath);
                 if (nameType == NameType.NONE) continue;
@@ -551,7 +551,7 @@ public class CLDRTest extends TestFmwk {
      */
     public static void checkAttributeValidity(
             CLDRFile item, Map<String, Set<String>> badCodes, Set<String> xpathFailures) {
-        for (Iterator<String> it2 = item.iterator(); it2.hasNext(); ) {
+        for (Iterator<String> it2 = item.iteratorWithoutExtras(); it2.hasNext(); ) {
             String xpath = it2.next();
             XPathParts parts = XPathParts.getFrozenInstance(item.getFullXPath(xpath));
             for (int i = 0; i < parts.size(); ++i) {
@@ -762,7 +762,7 @@ public class CLDRTest extends TestFmwk {
         boolean SHOW = false;
         Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
         CLDRFile supp = cldrFactory.make(CLDRFile.SUPPLEMENTAL_NAME, false);
-        for (Iterator<String> it = supp.iterator(); it.hasNext(); ) {
+        for (Iterator<String> it = supp.iteratorWithoutExtras(); it.hasNext(); ) {
             String path = it.next();
             try {
                 XPathParts parts = XPathParts.getFrozenInstance(supp.getFullXPath(path));
@@ -1360,7 +1360,7 @@ public class CLDRTest extends TestFmwk {
             // Walk through all the xpaths, adding to currentValues
             // Whenever two values for the same xpath are different, we remove from currentValues,
             // and add to okValues
-            for (Iterator<String> it2 = item.iterator(); it2.hasNext(); ) {
+            for (Iterator<String> it2 = item.iteratorWithoutExtras(); it2.hasNext(); ) {
                 String xpath = it2.next();
                 if (xpath.indexOf("[@type=\"narrow\"]") >= 0) {
                     String value = item.getStringValue(xpath);

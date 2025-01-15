@@ -29,7 +29,7 @@ final class CldrFileDataSource implements CldrData {
         Iterator<String> paths;
         switch (order) {
             case ARBITRARY:
-                paths = source.iterator();
+                paths = source.iteratorWithoutExtras();
                 break;
 
             case NESTED_GROUPING:
@@ -42,11 +42,11 @@ final class CldrFileDataSource implements CldrData {
                 // visited
                 // consecutively. It also (like DTD ordering) greatly improves the performance when
                 // parsing paths because consecutive paths share common parent elements.
-                paths = source.iterator(null, Comparator.naturalOrder());
+                paths = source.iteratorWithoutExtras(null, Comparator.naturalOrder());
                 break;
 
             case DTD:
-                paths = source.iterator(null, source.getComparator());
+                paths = source.iteratorWithoutExtras(null, source.getComparator());
                 break;
 
             default:

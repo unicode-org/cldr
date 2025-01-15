@@ -113,7 +113,7 @@ public class FindFlipFlops {
         CLDRFile[] files = new CLDRFile[factories.length];
         DisplayAndInputProcessor[] processors = new DisplayAndInputProcessor[factories.length];
         setUpFilesAndProcessors(fileName, files, processors);
-        for (String xpath : files[0]) {
+        for (String xpath : files[0].iterableDefault()) {
             xpath = xpath.intern();
             final String base = getProcessedStringValue(xpath, files[0], processors[0]);
             final ArrayList<String> history = new ArrayList<>();

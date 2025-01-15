@@ -232,7 +232,7 @@ public class DateTimeFormats {
         // appendItems result.setAppendItemFormat(getAppendFormatNumber(formatName), value);
         for (String path :
                 With.in(
-                        file.iterator(
+                        file.iteratorWithoutExtras(
                                 "//ldml/dates/calendars/calendar[@type=\""
                                         + calendarID
                                         + "\"]/dateTimeFormats/appendItems/appendItem"))) {
@@ -248,7 +248,7 @@ public class DateTimeFormats {
 
         // field names result.setAppendItemName(i, value);
         // ldml/dates/fields/field[@type="day"]/displayName
-        for (String path : With.in(file.iterator("//ldml/dates/fields/field"))) {
+        for (String path : With.in(file.iteratorWithoutExtras("//ldml/dates/fields/field"))) {
             if (!path.contains("displayName")) {
                 continue;
             }
@@ -265,7 +265,7 @@ public class DateTimeFormats {
 
         for (String path :
                 With.in(
-                        file.iterator(
+                        file.iteratorWithoutExtras(
                                 "//ldml/dates/calendars/calendar[@type=\""
                                         + calendarID
                                         + "\"]/dateTimeFormats/availableFormats/dateFormatItem"))) {
@@ -288,7 +288,7 @@ public class DateTimeFormats {
         // ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"yMMMEd\"]/greatestDifference[@id=\"d\"]
         for (String path :
                 With.in(
-                        file.iterator(
+                        file.iteratorWithoutExtras(
                                 "//ldml/dates/calendars/calendar[@type=\""
                                         + calendarID
                                         + "\"]/dateTimeFormats/intervalFormats/intervalFormatItem"))) {

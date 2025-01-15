@@ -46,7 +46,7 @@ public class VettingViewerQueue {
      */
     private static int pathCount(CLDRFile f) {
         int jj = 0;
-        for (@SuppressWarnings("unused") String s : f) {
+        for (@SuppressWarnings("unused") String s : f.iterableDefault()) {
             jj++;
         }
         return jj;

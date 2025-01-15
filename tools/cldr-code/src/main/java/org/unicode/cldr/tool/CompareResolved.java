@@ -124,8 +124,8 @@ public class CompareResolved {
             // get the union of paths
 
             Set<String> sortedPaths = new TreeSet<>(); // could sort by PathHeader also
-            sortedPaths.addAll(Sets.newTreeSet(sourceFile));
-            sortedPaths.addAll(Sets.newTreeSet(compareFile));
+            sortedPaths.addAll(Sets.newTreeSet(sourceFile.iterableDefault()));
+            sortedPaths.addAll(Sets.newTreeSet(compareFile.iterableDefault()));
 
             // cycle over the union of paths
             int filterCount = 0;

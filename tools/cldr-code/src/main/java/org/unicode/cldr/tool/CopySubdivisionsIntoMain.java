@@ -102,7 +102,8 @@ public class CopySubdivisionsIntoMain {
             CLDRFile subdivisionFileOut = null;
 
             for (Iterator<String> subdivisionIterator =
-                            mainFile.iterator(SubdivisionNames.SUBDIVISION_PATH_PREFIX);
+                            mainFile.iteratorWithoutExtras(
+                                    SubdivisionNames.SUBDIVISION_PATH_PREFIX);
                     subdivisionIterator.hasNext(); ) {
                 String path = subdivisionIterator.next();
                 String value = mainFile.getStringValue(path);

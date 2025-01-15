@@ -520,11 +520,14 @@ public class TestAnnotations extends TestFmwkPlus {
         Factory factoryAnnotations = SimpleFactory.make(CLDRPaths.ANNOTATIONS_DIRECTORY, ".*");
         ImmutableSet<String> rootPaths =
                 ImmutableSortedSet.copyOf(
-                        factoryAnnotations.make("root", false).iterator("//ldml/annotations/"));
+                        factoryAnnotations
+                                .make("root", false)
+                                .iteratorWithoutExtras("//ldml/annotations/"));
 
         CLDRFile englishAnnotations = factoryAnnotations.make("en", false);
         ImmutableSet<String> englishPaths =
-                ImmutableSortedSet.copyOf(englishAnnotations.iterator("//ldml/annotations/"));
+                ImmutableSortedSet.copyOf(
+                        englishAnnotations.iteratorWithoutExtras("//ldml/annotations/"));
 
         Set<String> superfluous2 = setDifference(rootPaths, englishPaths);
         assertTrue("en contains root", superfluous2.isEmpty());
@@ -540,7 +543,9 @@ public class TestAnnotations extends TestFmwkPlus {
         for (String locale : factoryAnnotations.getAvailable()) {
             ImmutableSet<String> currentPaths =
                     ImmutableSortedSet.copyOf(
-                            factoryAnnotations.make(locale, false).iterator("//ldml/annotations/"));
+                            factoryAnnotations
+                                    .make(locale, false)
+                                    .iteratorWithoutExtras("//ldml/annotations/"));
             Set<String> superfluous = setDifference(currentPaths, rootPaths);
             if (!assertTrue("root contains " + locale, superfluous.isEmpty())) {
                 int debug = 0;
@@ -647,7 +652,7 @@ public class TestAnnotations extends TestFmwkPlus {
         Set<String> nonEmojiPages = expectedMap.values();
         UnicodeMap<Pair<String, String>> failures = new UnicodeMap<>();
         PathHeader.Factory phf = PathHeader.getFactory();
-        for (String path : root) {
+        for (String path : root.iterableDefault()) {
             XPathParts parts = XPathParts.getFrozenInstance(path);
             String cp = parts.getAttributeValue(-1, "cp");
             if (cp == null) {

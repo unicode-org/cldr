@@ -205,7 +205,8 @@ public class ListUnits {
                         + main.getFirst().toPattern(false)
                         + ", "
                         + main.getSecond().toPattern(false));
-        for (Iterator<String> it = cldrFile.iterator("//ldml/numbers/otherNumberingSystems");
+        for (Iterator<String> it =
+                        cldrFile.iteratorWithoutExtras("//ldml/numbers/otherNumberingSystems");
                 it.hasNext(); ) {
             String path = it.next();
             String otherNumberingSystem = cldrFile.getWinningValue(path);
@@ -286,7 +287,7 @@ public class ListUnits {
 
     private static Set<String> getUnits(CLDRFile cldrFile, Task task, Map<String, Data> extra) {
         Set<String> seen = new TreeSet<>();
-        for (String path : cldrFile) {
+        for (String path : cldrFile.iterableDefault()) {
             if (!path.contains("/unit")) {
                 continue;
             }

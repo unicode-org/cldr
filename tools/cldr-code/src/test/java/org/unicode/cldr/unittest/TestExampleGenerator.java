@@ -925,7 +925,7 @@ public class TestExampleGenerator extends TestFmwk {
         final CLDRFile cldrFile = exampleGenerator.getCldrFile();
         for (String xpath :
                 With.in(
-                        cldrFile.iterator(
+                        cldrFile.iteratorWithoutExtras(
                                 "//ldml/dates/timeZoneNames", cldrFile.getComparator()))) {
             String value = cldrFile.getStringValue(xpath);
             String actual = exampleGenerator.getExampleHtml(xpath, value);

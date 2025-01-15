@@ -77,7 +77,7 @@ public class TestCldrResolver extends TestFmwkPlus {
             // Resolve with the tool
             CLDRFile file = resolver.resolveLocale(locale);
             Map<String, String> values = new HashMap<String, String>();
-            for (String path : file) {
+            for (String path : file.iterableDefault()) {
                 values.put(path, file.getStringValue(path));
             }
             return values;

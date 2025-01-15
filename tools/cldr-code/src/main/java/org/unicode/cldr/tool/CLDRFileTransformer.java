@@ -239,7 +239,7 @@ public class CLDRFileTransformer {
         outputParent = factory.make(inputLocale, false);
         XMLSource outputSource = new SimpleXMLSource(localeTransform.toString());
         DisplayAndInputProcessor daip = new DisplayAndInputProcessor(output, true);
-        for (String xpath : input) {
+        for (String xpath : input.iterableDefault()) {
             String value = input.getStringValue(xpath);
             if (CldrUtility.INHERITANCE_MARKER.equals(value)) {
                 final String foundIn = input.getSourceLocaleID(xpath, null);

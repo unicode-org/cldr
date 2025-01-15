@@ -168,7 +168,8 @@ public class POSIXUtilities {
                             + "\"]/substitute";
 
             for (Iterator<String> it =
-                            char_fallbk.iterator(SearchLocation, char_fallbk.getComparator());
+                            char_fallbk.iteratorWithoutExtras(
+                                    SearchLocation, char_fallbk.getComparator());
                     it.hasNext() && !SubFound; ) {
                 String path = it.next();
                 substituteString = char_fallbk.getStringValue(path);

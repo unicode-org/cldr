@@ -42,7 +42,7 @@ public class DiffWithParent {
                     CLDRFile parent = cldrFactory.make(parentLocale, true); // use
                     // resolved
                     // parent
-                    for (Iterator<String> it = file.iterator(); it.hasNext(); ) {
+                    for (Iterator<String> it = file.iteratorWithoutExtras(); it.hasNext(); ) {
                         String path = it.next();
                         String value = file.getStringValue(path);
                         String fullPath = file.getFullXPath(path);

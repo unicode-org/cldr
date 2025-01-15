@@ -28,13 +28,13 @@ public class ResolverUtils {
      * Get the set of paths with non-null values from a CLDR file (including all extra paths).
      *
      * @param file the CLDRFile from which to extract paths
-     * @return a Set containing all the paths returned by {@link CLDRFile#iterator()}, plus those
-     *     from {@link CLDRFile#getExtraPaths(java.util.Collection)}
+     * @return a Set containing all the paths returned by {@link CLDRFile#iteratorWithoutExtras()},
+     *     plus those from {@link CLDRFile#getExtraPaths(java.util.Collection)}
      */
     public static Set<String> getAllPaths(CLDRFile file) {
         String locale = file.getLocaleID();
         Set<String> paths = new HashSet<>();
-        for (String path : file) {
+        for (String path : file.iterableDefault()) {
             paths.add(path);
         }
         for (String path : file.getExtraPaths()) {

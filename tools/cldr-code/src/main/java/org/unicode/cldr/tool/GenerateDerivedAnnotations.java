@@ -244,7 +244,7 @@ public class GenerateDerivedAnnotations {
             CLDRFile cldrFileResolved = factory.make(locale, true);
             Set<String> toRemove = new TreeSet<>(); // TreeSet just makes debugging easier
             boolean gotOne = false;
-            for (String xpath : cldrFileUnresolved) {
+            for (String xpath : cldrFileUnresolved.iterableDefault()) {
                 if (xpath.startsWith("//ldml/identity")) {
                     continue;
                 }

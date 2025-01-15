@@ -212,7 +212,8 @@ public class TestMisc {
         CLDRFile en = cldrFactory.make("root", true);
         Status status = new Status();
         Matcher m = PatternCache.get("gregorian.*dayPeriods").matcher("");
-        for (Iterator<String> it = en.iterator(null, en.getComparator()); it.hasNext(); ) {
+        for (Iterator<String> it = en.iteratorWithoutExtras(null, en.getComparator());
+                it.hasNext(); ) {
             String path = it.next();
             if (!m.reset(path).find()) {
                 continue;
@@ -564,7 +565,7 @@ public class TestMisc {
             if (cldrFile.isNonInheriting()) {
                 continue;
             }
-            for (Iterator<String> it2 = cldrFile.iterator(); it2.hasNext(); ) {
+            for (Iterator<String> it2 = cldrFile.iteratorWithoutExtras(); it2.hasNext(); ) {
                 String path = it2.next();
                 if (dtdType == null) {
                     dtdType = DtdType.fromPath(path);
@@ -607,7 +608,7 @@ public class TestMisc {
         String requestedLocale = "en";
         CLDRFile cldrFile = cldrFactory.make(requestedLocale, true);
         CLDRFile.Status status = new CLDRFile.Status();
-        for (Iterator<String> it = cldrFile.iterator(); it.hasNext(); ) {
+        for (Iterator<String> it = cldrFile.iteratorWithoutExtras(); it.hasNext(); ) {
             String requestedPath = it.next();
             String localeWhereFound = cldrFile.getSourceLocaleID(requestedPath, status);
             if (!localeWhereFound.equals(requestedLocale)
@@ -638,7 +639,8 @@ public class TestMisc {
         HashMap<String, Set<String>> foundItems = new HashMap<>();
         TreeSet<String> problems = new TreeSet<>();
         for (Iterator<String> it =
-                        cldrFile.iterator("", new UTF16.StringComparator(true, false, 0));
+                        cldrFile.iteratorWithoutExtras(
+                                "", new UTF16.StringComparator(true, false, 0));
                 it.hasNext(); ) {
             String requestedPath = it.next();
             XPathParts parts = XPathParts.getFrozenInstance(requestedPath);
@@ -714,7 +716,8 @@ public class TestMisc {
         CLDRFile supp = cldrFactory.make("supplementalData", false);
         CLDRFile temp = SimpleFactory.makeFile("supplemental");
         temp.setNonInheriting(true);
-        for (Iterator<String> it = supp.iterator(null, supp.getComparator()); it.hasNext(); ) {
+        for (Iterator<String> it = supp.iteratorWithoutExtras(null, supp.getComparator());
+                it.hasNext(); ) {
             String path = it.next();
             String value = supp.getStringValue(path);
             String fullPath = supp.getFullXPath(path);

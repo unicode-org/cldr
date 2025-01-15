@@ -659,7 +659,8 @@ public class ConvertLanguageData {
             // Set<String> available = cldrFactory.getAvailable();
             CLDRFile supplemental = cldrFactory.make("supplementalData", true);
             for (Iterator<String> it =
-                            supplemental.iterator("//supplementalData/languageData/language");
+                            supplemental.iteratorWithoutExtras(
+                                    "//supplementalData/languageData/language");
                     it.hasNext(); ) {
                 String xpath = it.next();
                 XPathParts parts = XPathParts.getFrozenInstance(xpath);

@@ -176,7 +176,7 @@ public class TestCheckAltOnly extends TestFmwk {
             possibleErrors.clear();
         }
         Map<String, List<CheckStatus>> found = new HashMap<>();
-        for (String path : cldrFile) {
+        for (String path : cldrFile.iterableDefault()) {
             String value = cldrFile.getStringValue(path);
             ch.check(path, path, value, options, possibleErrors);
             if (!possibleErrors.isEmpty()) {

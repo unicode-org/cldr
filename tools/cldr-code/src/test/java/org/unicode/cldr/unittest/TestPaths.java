@@ -53,9 +53,9 @@ public class TestPaths extends TestFmwkPlus {
 
     public void VerifyEnglishVsRoot() {
         HashSet<String> rootPaths = new HashSet<>();
-        testInfo.getRoot().forEach(rootPaths::add);
+        testInfo.getRoot().iterableDefault().forEach(rootPaths::add);
         HashSet<String> englishPaths = new HashSet<>();
-        testInfo.getEnglish().forEach(englishPaths::add);
+        testInfo.getEnglish().iterableDefault().forEach(englishPaths::add);
         englishPaths.removeAll(rootPaths);
         if (englishPaths.size() == 0) {
             return;
@@ -136,7 +136,7 @@ public class TestPaths extends TestFmwkPlus {
             logln("Testing path headers and values for locale => " + locale);
             final Collection<String> extraPaths = file.getExtraPaths();
 
-            for (Iterator<String> it = file.iterator(); it.hasNext(); ) {
+            for (Iterator<String> it = file.iteratorWithoutExtras(); it.hasNext(); ) {
                 String path = it.next();
                 if (isExemptLocale && path.equals(exemptPathIfLocale)) {
                     logKnownIssue("CLDR-17544", "Can't reproduce locally");

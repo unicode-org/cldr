@@ -25,7 +25,8 @@ public class CharacterFallbacks {
                 DtdData.getInstance(DtdType.supplementalData).getDtdComparator(null);
 
         for (Iterator<String> it =
-                        characterFallbacks.iterator("//supplementalData/characters/", comp);
+                        characterFallbacks.iteratorWithoutExtras(
+                                "//supplementalData/characters/", comp);
                 it.hasNext(); ) {
             String path = it.next();
             String fullPath = characterFallbacks.getFullXPath(path);

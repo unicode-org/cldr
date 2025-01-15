@@ -131,7 +131,7 @@ public class FilterFactory extends Factory {
                         .getLocaleCoverageLevel(organization, rawFile.getLocaleID())
                         .getLevel();
         CoverageInfo covInfo = CLDRConfig.getInstance().getCoverageInfo();
-        for (String xpath : rawFile) {
+        for (String xpath : rawFile.iterableDefault()) {
             // Locale metadata shouldn't be stripped.
             int level = covInfo.getCoverageValue(xpath, rawFile.getLocaleID());
             if (level > minLevel) {
@@ -151,7 +151,7 @@ public class FilterFactory extends Factory {
         String parent = LocaleIDParser.getParent(rawFile.getLocaleID());
         CLDRFile resolvedParent = rawFactory.make(parent, true);
         List<String> duplicatePaths = new ArrayList<>();
-        for (String xpath : rawFile) {
+        for (String xpath : rawFile.iterableDefault()) {
             if (xpath.startsWith("//ldml/identity")) {
                 continue;
             }
@@ -288,10 +288,10 @@ public class FilterFactory extends Factory {
                         file.add(filteringPath, value);
                     }
                 } else {
-                    Iterator<String> iterator = file.iterator();
+                    Iterator<String> iterator = file.iteratorWithoutExtras();
                     if (filteringPath != null) {
                         Matcher matcher = PatternCache.get(filteringPath).matcher("");
-                        iterator = file.iterator(matcher);
+                        iterator = file.iteratorWithoutExtras(matcher);
                     }
                     while (iterator.hasNext()) {
                         String xpath = iterator.next();
@@ -327,7 +327,7 @@ public class FilterFactory extends Factory {
         public void modifyFile(CLDRFile file) {
             if (xpathLookup.size() > 0) {
                 Output<String[]> arguments = new Output<>();
-                for (String xpath : file) {
+                for (String xpath : file.iterableDefault()) {
                     String newValue = xpathLookup.get(xpath, null, arguments, null, null);
                     if (newValue != null) {
                         String newPath = RegexLookup.replace(newValue, arguments.value);

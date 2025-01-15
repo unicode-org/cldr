@@ -48,7 +48,7 @@ public class FindWidths {
         Map<PathHeader, Data> maxWidths = new TreeMap<>();
         Set<String> sampleLocales = StandardCodes.make().getLocaleCoverageLocales("google");
 
-        for (String path : english) {
+        for (String path : english.iterableDefault()) {
             PathHeader ph = phf.fromPath(path);
             PageId pageId = ph.getPageId();
             SectionId sectionId = ph.getSectionId();
@@ -66,7 +66,7 @@ public class FindWidths {
             }
             System.out.println(locale);
             CLDRFile file = CLDR_FACTORY.make(locale, false);
-            for (String path : file) {
+            for (String path : file.iterableDefault()) {
                 PathHeader ph = phf.fromPath(path);
                 Integer englishWidth = englishWidths.get(ph);
                 if (englishWidth == null) {

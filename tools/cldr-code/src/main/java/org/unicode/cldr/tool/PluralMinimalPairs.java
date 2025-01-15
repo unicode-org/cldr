@@ -34,7 +34,8 @@ public class PluralMinimalPairs {
         try {
             samplePatterns = new PluralMinimalPairs();
             CLDRFile cldrFile = factory.make(ulocale, true);
-            for (Iterator<String> it = cldrFile.iterator("//ldml/numbers/minimalPairs/");
+            for (Iterator<String> it =
+                            cldrFile.iteratorWithoutExtras("//ldml/numbers/minimalPairs/");
                     it.hasNext(); ) {
                 String path = it.next();
                 String foundLocale = cldrFile.getSourceLocaleID(path, null);

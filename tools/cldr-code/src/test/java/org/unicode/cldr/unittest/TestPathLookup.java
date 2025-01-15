@@ -95,7 +95,7 @@ public class TestPathLookup extends TestFmwkPlus {
     public int countMatches(CLDRFile cldrFile) {
         String locale = cldrFile.getLocaleID();
         int count = 0;
-        for (String path : cldrFile) {
+        for (String path : cldrFile.iterableDefault()) {
             String value = cldrFile.getStringValue(path);
             if (DowngradePaths.lookingAt("en", path, value)) {
                 logln(String.format("%s\t%s\t%s", locale, path, value));

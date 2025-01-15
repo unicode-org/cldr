@@ -18,7 +18,7 @@ public class PrepareRootAnnotations {
         Factory factoryAnnotations = SimpleFactory.make(CLDRPaths.ANNOTATIONS_DIRECTORY, ".*");
         CLDRFile oldAnnotations = factoryAnnotations.make("root", false);
         UnicodeMap<String> oldValues = new UnicodeMap<>();
-        for (String path : oldAnnotations) {
+        for (String path : oldAnnotations.iterableDefault()) {
             XPathParts parts = XPathParts.getFrozenInstance(path);
             if (parts.getElement(1).equals("identity")) {
                 continue;

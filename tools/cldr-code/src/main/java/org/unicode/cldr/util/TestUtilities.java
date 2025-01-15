@@ -149,7 +149,7 @@ public class TestUtilities {
         StringBuilder result = new StringBuilder();
         Relation<String, String> message_paths =
                 Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
-        for (String path : english) {
+        for (String path : english.iterableDefault()) {
             String value = english.getStringValue(path);
             result.setLength(0);
             String examples = englishExampleGenerator.getExampleHtml(path, value);

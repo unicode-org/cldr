@@ -34,7 +34,7 @@ public class TestPUAs {
             CLDRFile cldrFile = INSTANCE.collatorFactory.make(locale, false); // don't need resolved
             Matcher m = INSTANCE.COLLATOR_TYPE.matcher("");
             Set<String> results = new LinkedHashSet<>();
-            for (String path : cldrFile) {
+            for (String path : cldrFile.iterableDefault()) {
                 if (m.reset(path).matches()) {
                     String type = m.group(1);
                     boolean newOne = results.add(type);

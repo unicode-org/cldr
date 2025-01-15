@@ -347,7 +347,8 @@ public class GenerateProductionData {
             boolean debugLocale = localeId.equals("pt");
 
             ImmutableSet<String> sortedPaths =
-                    ImmutableSortedSet.copyOf(cldrFileUnresolved); // sort for debugging
+                    ImmutableSortedSet.copyOf(
+                            cldrFileUnresolved.iterableDefault()); // sort for debugging
 
             for (String xpath : sortedPaths) {
                 if (xpath.startsWith("//ldml/identity")) {
@@ -511,7 +512,7 @@ public class GenerateProductionData {
 
                 // double-check results
                 int count = 0;
-                for (String xpath : outCldrFile) {
+                for (String xpath : outCldrFile.iterableDefault()) {
                     if (debugPath != null
                             && localeId.equals(debugLocale)
                             && xpath.equals(debugPath)) {

@@ -76,13 +76,13 @@ public class CLDRCompare {
                 CLDRFile newCldrFile = null;
                 try {
                     newCldrFile = cldrFactory.make(file, false);
-                    newCldrFile.forEach(paths::add);
+                    newCldrFile.iterableDefault().forEach(paths::add);
                 } catch (Exception e) {
                 }
                 CLDRFile oldCldrFile = null;
                 try {
                     oldCldrFile = oldFactory.make(file, false);
-                    oldCldrFile.forEach(paths::add);
+                    oldCldrFile.iterableDefault().forEach(paths::add);
                 } catch (Exception e1) {
                 }
 

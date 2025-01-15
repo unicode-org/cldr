@@ -489,7 +489,7 @@ public class TestPersonNameFormatter extends TestFmwk {
         for (String localeId : Arrays.asList("en")) {
             final CLDRFile cldrFile = factory.make(localeId, true);
             ExampleGenerator exampleGenerator2 = new ExampleGenerator(cldrFile, ENGLISH);
-            for (String path : cldrFile) {
+            for (String path : cldrFile.iterableDefault()) {
                 if (path.startsWith("//ldml/personNames") && !path.endsWith("/alias")) {
                     XPathParts parts = XPathParts.getFrozenInstance(path);
                     String value = ENGLISH.getStringValue(path);
@@ -573,7 +573,7 @@ public class TestPersonNameFormatter extends TestFmwk {
         // List all the paths that have dependencies, so we can verify they are ok
 
         PathStarrer ps = new PathStarrer().setSubstitutionPattern("*");
-        for (String path : resolved) {
+        for (String path : resolved.iterableDefault()) {
             if (path.startsWith("//ldml/personNames") && !path.endsWith("/alias")) {
                 logln(ps.set(path));
             }
@@ -1470,7 +1470,7 @@ public class TestPersonNameFormatter extends TestFmwk {
     public void showMissingGiven() {
         for (String locale : StandardCodes.make().getLocaleCoverageLocales(Organization.cldr)) {
             CLDRFile cldrFile = factory.make(locale, false);
-            for (String path : cldrFile) {
+            for (String path : cldrFile.iterableDefault()) {
                 if (!path.startsWith("//ldml/personNames/personName")) {
                     continue;
                 }
@@ -1509,7 +1509,7 @@ public class TestPersonNameFormatter extends TestFmwk {
             CLDRFile cldrFile = factory.make(locale, false);
             StringBuilder b = new StringBuilder();
 
-            for (String path : cldrFile) {
+            for (String path : cldrFile.iterableDefault()) {
                 if (!path.startsWith("//ldml/personNames/personName")) {
                     continue;
                 }

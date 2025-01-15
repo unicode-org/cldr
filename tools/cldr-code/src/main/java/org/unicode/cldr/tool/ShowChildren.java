@@ -48,7 +48,7 @@ public class ShowChildren {
             Set<String> children = entry.getValue();
             for (String child : children) {
                 CLDRFile file = cldrFactory.make(child, false);
-                for (String path : file) {
+                for (String path : file.iterableDefault()) {
                     if (path.startsWith("//ldml/identity")
                             || path.endsWith("/alias")
                             || path.endsWith("/commonlyUsed")) {

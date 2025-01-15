@@ -17,7 +17,7 @@ public class NumberingSystemsTest extends TestFmwk {
 
     public void TestFile() {
         CLDRFile file = testInfo.getSupplementalFactory().make("numberingSystems", false);
-        for (String path : file) {
+        for (String path : file.iterableDefault()) {
             XPathParts parts = XPathParts.getFrozenInstance(path);
             if (!"numberingSystems".equals(parts.getElement(1))) {
                 continue;

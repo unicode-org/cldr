@@ -45,7 +45,7 @@ public class TestAlt extends TestFmwk {
 
         for (String locale : available) {
             CLDRFile cldrFile = cldrFactory.make(locale, false);
-            for (String xpath : cldrFile) {
+            for (String xpath : cldrFile.iterableDefault()) {
                 if (altPaths.containsKey(xpath)) {
                     continue;
                 }

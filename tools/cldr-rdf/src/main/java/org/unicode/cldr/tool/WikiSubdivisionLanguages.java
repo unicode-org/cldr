@@ -387,7 +387,7 @@ public final class WikiSubdivisionLanguages {
         Set<String> toRemove = new HashSet<>();
         Map<String, String> toAdd = new HashMap<>();
 
-        for (String path : fileSubdivisions) {
+        for (String path : fileSubdivisions.iterableDefault()) {
             XPathParts parts = XPathParts.getFrozenInstance(path);
             if (!"subdivision".equals(parts.getElement(-1))) {
                 continue;

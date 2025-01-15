@@ -63,7 +63,7 @@ public class CompareData {
                 try {
                     CLDRFile oldFile = oldFactory.make(locale, false);
                     pathsSeen.clear();
-                    for (Iterator<String> it2 = file.iterator(); it2.hasNext(); ) {
+                    for (Iterator<String> it2 = file.iteratorWithoutExtras(); it2.hasNext(); ) {
                         String path = it2.next();
                         String value = file.getStringValue(path);
                         String oldValue = oldFile.getStringValue(path);
@@ -76,14 +76,14 @@ public class CompareData {
                         }
                         pathsSeen.add(path);
                     }
-                    for (Iterator<String> it2 = oldFile.iterator(); it2.hasNext(); ) {
+                    for (Iterator<String> it2 = oldFile.iteratorWithoutExtras(); it2.hasNext(); ) {
                         String path = it2.next();
                         if (!pathsSeen.contains(path)) {
                             deletedItems++;
                         }
                     }
                 } catch (Exception e) {
-                    newItems = size(file.iterator());
+                    newItems = size(file.iteratorWithoutExtras());
                 }
                 String langScript =
                         new LocaleIDParser().set(file.getLocaleID()).getLanguageScript();

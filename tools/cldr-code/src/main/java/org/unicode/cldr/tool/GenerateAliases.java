@@ -260,7 +260,7 @@ public class GenerateAliases {
                 wholeAliasCache.put(localeID, false);
                 return false;
             }
-            for (String path : cldrFile) {
+            for (String path : cldrFile.iterableDefault()) {
                 if (path.startsWith("//ldml/identity")) {
                     continue;
                 } else if (path.startsWith("//ldml/alias")) {

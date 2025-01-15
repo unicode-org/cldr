@@ -151,7 +151,7 @@ public class TestCLDRFile {
             /*final String value = */ file.getStringValue(xpath);
         }
 
-        for (Iterator<String> i = file.iterator(); i.hasNext(); ) {
+        for (Iterator<String> i = file.iteratorWithoutExtras(); i.hasNext(); ) {
             final String xpath = i.next();
             assertNotNull(xpath, subdir + ":" + id + " xpath");
             /*final String value = */ file.getStringValue(xpath);
@@ -159,7 +159,7 @@ public class TestCLDRFile {
         // This is to simulate what is in the LDML2JsonConverter
         final Comparator<String> comparator =
                 DtdData.getInstance(file.getDtdType()).getDtdComparator(null);
-        for (Iterator<String> it = file.iterator("", comparator); it.hasNext(); ) {
+        for (Iterator<String> it = file.iteratorWithoutExtras("", comparator); it.hasNext(); ) {
             final String xpath = it.next();
             assertNotNull(xpath, subdir + ":" + id + " xpath");
         }

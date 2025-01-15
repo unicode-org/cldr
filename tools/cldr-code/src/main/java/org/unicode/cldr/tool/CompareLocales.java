@@ -102,7 +102,7 @@ public class CompareLocales {
             prefix = "\t";
             CLDRFile cldrFile = factory.make(locale, true);
             files.add(cldrFile);
-            for (String path : cldrFile) {
+            for (String path : cldrFile.iterableDefault()) {
                 paths.add(path);
             }
         }

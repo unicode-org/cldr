@@ -122,7 +122,7 @@ public class TestCheckCLDR extends TestFmwk {
         List<CheckStatus> possibleErrors = new ArrayList<>();
         final CLDRFile english = testInfo.getEnglish();
         c.setCldrFileToCheck(english, new CheckCLDR.Options(options), possibleErrors);
-        for (String path : english) {
+        for (String path : english.iterableDefault()) {
             c.check(
                     path,
                     english.getFullXPath(path),
@@ -156,7 +156,7 @@ public class TestCheckCLDR extends TestFmwk {
             List<CheckStatus> possibleErrors = new ArrayList<>();
             int pathCount = 0;
             double startTime = System.currentTimeMillis();
-            for (String path : cldrFile) {
+            for (String path : cldrFile.iterableDefault()) {
                 String fullPath = cldrFile.getFullXPath(path);
                 String value = cldrFile.getStringValue(path);
                 bundle.check(fullPath, possibleErrors, value);
@@ -515,7 +515,7 @@ public class TestCheckCLDR extends TestFmwk {
         CLDRFile patched = nativeFile; // new CLDRFile(override);
         PathHeader.Factory pathHeaderFactory = PathHeader.getFactory(english);
         Set<PathHeader> sorted = new TreeSet<>();
-        for (String path : patched) {
+        for (String path : patched.iterableDefault()) {
             final PathHeader pathHeader = pathHeaderFactory.fromPath(path);
             if (pathHeader != null) {
                 sorted.add(pathHeader);
@@ -1073,7 +1073,7 @@ public class TestCheckCLDR extends TestFmwk {
             CLDRFile cldrFileUnresolved = testInfo.getCldrFactory().make(locale, false);
 
             Set<PathHeader> sorted = new TreeSet<>();
-            for (String path : cldrFile) {
+            for (String path : cldrFile.iterableDefault()) {
                 PathHeader ph = pathHeaderFactory.fromPath(path);
                 sorted.add(ph);
             }

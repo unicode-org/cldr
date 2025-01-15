@@ -30,7 +30,7 @@ public class TestPerf extends TestFmwkPlus {
 
     static {
         Set<String> testPaths_ = new HashSet<String>();
-        CLDRConfig.getInstance().getEnglish().forEach(testPaths_::add);
+        CLDRConfig.getInstance().getEnglish().iterableDefault().forEach(testPaths_::add);
         testPaths = Collections.unmodifiableSet(testPaths_);
         Set<String> sorted = new TreeSet<String>(CLDRFile.getComparator(DtdType.ldml));
         sorted.addAll(testPaths);

@@ -335,7 +335,7 @@ public class CheckYear {
             }
             for (String path :
                     With.in(
-                            file.iterator(
+                            file.iteratorWithoutExtras(
                                     "//ldml/dates/calendars/calendar[@type=\""
                                             + calendarID
                                             + "\"]/dateTimeFormats/availableFormats/dateFormatItem"))) {
@@ -346,7 +346,7 @@ public class CheckYear {
             }
             for (String path :
                     With.in(
-                            file.iterator(
+                            file.iteratorWithoutExtras(
                                     "//ldml/dates/calendars/calendar[@type=\""
                                             + calendarID
                                             + "\"]/dateTimeFormats/intervalFormats/intervalFormatItem"))) {

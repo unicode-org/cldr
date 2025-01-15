@@ -403,7 +403,7 @@ public class CLDRFilePseudolocalizer {
         // Create input CLDRFile object resolving inherited data.
         CLDRFile input = factory.make(ORIGINAL_LOCALE, false);
         XMLSource outputSource = new SimpleXMLSource(outputLocale);
-        for (String xpath : input) {
+        for (String xpath : input.iterableWithoutExtras()) {
             String fullPath = input.getFullXPath(xpath);
             String value = input.getStringValue(xpath);
             if (!value.isEmpty()) {

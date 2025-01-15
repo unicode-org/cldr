@@ -1144,7 +1144,7 @@ public class CountItems {
             CLDRFile item = cldrFactory.make(locale, false);
 
             temp.clear();
-            for (Iterator<String> it2 = item.iterator(); it2.hasNext(); ) {
+            for (Iterator<String> it2 = item.iteratorWithoutExtras(); it2.hasNext(); ) {
                 String path = it2.next();
                 if (alt.reset(path).matches()) {
                     continue;
@@ -1158,7 +1158,7 @@ public class CountItems {
 
             CLDRFile itemResolved = cldrFactory.make(locale, true);
             temp.clear();
-            itemResolved.forEach(temp::add);
+            itemResolved.iterableDefault().forEach(temp::add);
             int resolvedCurrent = temp.size();
 
             System.out.println(

@@ -564,7 +564,7 @@ public class GenerateDateTimeTestData {
 
 
     /**
-     * Calls into getTestCasesForZonedDateTime() but manages the higher level logic that
+     * Calls into getExpectedStringForTestCase() but manages the higher level logic that
      * dictates that when we have both a date length and time length, we generate the dateTime
      * for all glue pattern types available. When there is only a date length _or_ time length,
      * then we only produce 1 formatted string
@@ -749,6 +749,10 @@ public class GenerateDateTimeTestData {
 
         public final String label;
 
+        String getLabel() {
+            return this.label;
+        }
+
         DateStyle(String label) {
             this.label = label;
         }
@@ -761,6 +765,10 @@ public class GenerateDateTimeTestData {
         FULL("full");
 
         public final String label;
+
+        String getLabel() {
+            return this.label;
+        }
 
         TimeStyle(String label) {
             this.label = label;
@@ -1156,16 +1164,47 @@ public class GenerateDateTimeTestData {
         return builder.build();
     }
 
+    private static TestCase convertTestCaseInputToComboMap(TestCaseInput testCaseInput) {
+        String calendarStr = testCaseInput.calendar.getType();
+        String dateLength = testCaseInput.fieldStyleCombo.dateStyle.getLabel();
+        String timeLength = testCaseInput.fieldStyleCombo.dateStyle.getLabel();
+        LocalDateTime localDt = testCaseInput.dateTime;
+        TimeZone icuTimeZone = testCaseInput.timeZone;
+        ZoneId zoneId = ZoneId.of(icuTimeZone.getID());
+        ZonedDateTime zdt = ZonedDateTime.of(localDt, zoneId);
+        String dateTimeGluePatternFormatType = testCaseInput.dateTimeFormatType.getLabel();
+
+        ULocale locale = testCaseInput.locale;
+        CLDRFile localeCldrFile = getCLDRFile(locale.toString()).orElse(null);
+        ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder();
+        icuServiceBuilder.clearCache();
+        icuServiceBuilder.setCldrFile(localeCldrFile);
+
+        String expected = getExpectedStringForTestCase(
+            icuServiceBuilder,
+            localeCldrFile,
+            calendarStr,
+            icuTimeZone,
+            zdt,
+            timeLength,
+            dateLength,
+            dateTimeGluePatternFormatType
+        );
+
+        TestCase result = new TestCase();
+        result.testCaseInput = testCaseInput;
+        result.expected = expected;
+
+        return result;
+    }
+
     private static TestCase computeTestCase(
         CLDRFile localeCldrFile,
         TestCaseInput testCaseInput
-
-
     ) {
 
         if (testCaseInput.fieldStyleCombo.semanticSkeleton == null) {
-            Map<Object, Object> fieldStyleComboMap = convertTestCaseInputToComboMap(testCaseInput);
-
+            return convertTestCaseInputToComboMap(testCaseInput);
         } else {
             // TODO: implement logic for converting sematic skeleton -> string concatenation of
             //  skeleton-per-field for all fields -> use datetimepatterngenerator to convert
@@ -1187,14 +1226,6 @@ public class GenerateDateTimeTestData {
         // return 57;
         return null;
     }
-
-    private static Map<Object, Object> convertTestCaseInputToComboMap(TestCaseInput testCaseInput) {
-        // TODO: implement me!
-        assert false;
-
-        return null;
-    }
-
 
     public static void main(String[] args) throws IOException {
         try (TempPrintWriter pw =

@@ -3141,7 +3141,7 @@ XXX Code for transations where no currency is involved
 		<territory type="GM" gdp="7905000000" literacyPercent="51.1" population="2523330">	<!--Gambia-->
 			<languagePopulation type="en" populationPercent="40" officialStatus="official"/>	<!--English-->
 			<languagePopulation type="man" populationPercent="29"/>	<!--Mandingo-->
-			<languagePopulation type="man_Nkoo" writingPercent="5" populationPercent="29" references="R1021"/>	<!--Mandingo (N’Ko)-->
+			<languagePopulation type="man_Nkoo" writingPercent="5" populationPercent="29" references="R1023"/>	<!--Mandingo (N’Ko)-->
 			<languagePopulation type="ff" populationPercent="0"/>	<!--Fula-->
 			<languagePopulation type="ff_Adlm" populationPercent="0"/>	<!--Fula (Adlam)-->
 		</territory>
@@ -3149,7 +3149,7 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="fr" populationPercent="27" officialStatus="official" references="R1352"/>	<!--French-->
 			<languagePopulation type="ff" populationPercent="26"/>	<!--Fula-->
 			<languagePopulation type="man" populationPercent="23"/>	<!--Mandingo-->
-			<languagePopulation type="man_Nkoo" writingPercent="5" populationPercent="23" references="R1021"/>	<!--Mandingo (N’Ko)-->
+			<languagePopulation type="man_Nkoo" literacyPercent="50" populationPercent="23" references="R1021"/>	<!--Mandingo (N’Ko)-->
 			<languagePopulation type="sus" populationPercent="11"/>	<!--Susu-->
 			<languagePopulation type="nqo" populationPercent="5" references="R1286"/>	<!--N’Ko-->
 			<languagePopulation type="kpe" populationPercent="3.8"/>	<!--Kpelle-->
@@ -5557,6 +5557,7 @@ XXX Code for transations where no currency is involved
 		<reference type="R1020" uri="http://en.wikipedia.org/wiki/Ascension_Island">[missing]</reference>
 		<reference type="R1021">Actually literacy in Nko writing unknown but historically they used the Latin script</reference>
 		<reference type="R1022" uri="https://www.cia.gov/cia/publications/factbook/geos/gi.html">English official, the figure is derived from literacy * lang pop</reference>
+		<reference type="R1023">Actually literacy in Nko writing unknown</reference>
 		<reference type="R1024" uri="http://www.ethnologue.com/show_language.asp?code=ltz">Some 99% of users are literate in French or German. For languages not customarily written, the writing population is artificially set to 5% in the absence of better information.</reference>
 		<reference type="R1025" uri="http://www.ethnologue.com/language/ewo">2nd lang literacy 15-25%</reference>
 		<reference type="R1026" uri="http://www.ethnologue.com/show_language.asp?code=lim">Nearly all speakers are literate in a 2nd language. For languages not customarily written, the writing population is artificially set to 5%</reference>

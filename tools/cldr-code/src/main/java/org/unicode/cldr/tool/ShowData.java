@@ -7,7 +7,6 @@
 package org.unicode.cldr.tool;
 
 import com.google.common.base.Joiner;
-import com.ibm.icu.dev.util.UOption;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.Transliterator;
@@ -27,6 +26,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.icu.dev.util.UOption;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;

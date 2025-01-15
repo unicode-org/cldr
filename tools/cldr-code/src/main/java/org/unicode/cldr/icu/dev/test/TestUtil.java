@@ -4,7 +4,7 @@
  * 2001-2015, International Business Machines Corporation and others. All Rights Reserved.
  * ******************************************************************************
  */
-package com.ibm.icu.dev.test;
+package org.unicode.cldr.icu.dev.test;
 
 import java.io.BufferedReader;
 import java.io.File;

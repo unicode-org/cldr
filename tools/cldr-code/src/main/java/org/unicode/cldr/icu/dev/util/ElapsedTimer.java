@@ -5,7 +5,7 @@
 // Copyright © 2024 Unicode, Inc. Unicode and the Unicode Logo are registered trademarks of Unicode,
 // Inc. in the United States and other countries.
 
-package com.ibm.icu.dev.util;
+package org.unicode.cldr.icu.dev.util;
 
 import com.google.common.base.Stopwatch;
 import org.unicode.cldr.util.TimeDiff;

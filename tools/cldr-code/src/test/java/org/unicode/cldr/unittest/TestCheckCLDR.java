@@ -1,7 +1,6 @@
 package org.unicode.cldr.unittest;
 
 import com.google.common.collect.ImmutableList;
-import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R5;
 import com.ibm.icu.text.UnicodeSet;
@@ -19,6 +18,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;

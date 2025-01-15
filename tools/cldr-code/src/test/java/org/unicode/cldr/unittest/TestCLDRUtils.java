@@ -8,11 +8,11 @@
  */
 package org.unicode.cldr.unittest;
 
-import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.text.Transform;
 import com.ibm.icu.util.ULocale;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;

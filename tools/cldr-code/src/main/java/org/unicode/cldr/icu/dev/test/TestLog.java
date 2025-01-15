@@ -4,7 +4,7 @@
  * 2000-2004, International Business Machines Corporation and * others. All Rights Reserved. *
  * ******************************************************************************
  */
-package com.ibm.icu.dev.test;
+package org.unicode.cldr.icu.dev.test;
 
 public interface TestLog {
 

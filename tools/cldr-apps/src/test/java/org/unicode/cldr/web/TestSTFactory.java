@@ -6,7 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
-import com.ibm.icu.dev.util.ElapsedTimer;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -21,6 +20,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.icu.dev.util.ElapsedTimer;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.unittest.web.TestAll;
 import org.unicode.cldr.unittest.web.TestAll.WebTestInfo;

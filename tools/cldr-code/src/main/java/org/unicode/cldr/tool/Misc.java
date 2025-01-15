@@ -8,7 +8,6 @@
  */
 package org.unicode.cldr.tool;
 
-import com.ibm.icu.dev.util.UOption;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;
@@ -36,6 +35,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.icu.dev.util.UOption;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;

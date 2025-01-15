@@ -1,6 +1,5 @@
 package org.unicode.cldr.unittest;
 
-import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
 import com.ibm.icu.lang.UScript;
@@ -13,6 +12,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.Counter2;
 import org.unicode.cldr.util.LanguageTagParser;

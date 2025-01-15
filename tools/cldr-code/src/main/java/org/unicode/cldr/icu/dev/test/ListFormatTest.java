@@ -1,7 +1,7 @@
-package com.ibm.icu.dev.test;
+package org.unicode.cldr.icu.dev.test;
 
-import com.ibm.icu.text.ListFormat;
 import com.ibm.icu.util.ULocale;
+import org.unicode.cldr.icu.text.ListFormat;
 
 public class ListFormatTest extends TestFmwk {
     public static void main(String[] args) {

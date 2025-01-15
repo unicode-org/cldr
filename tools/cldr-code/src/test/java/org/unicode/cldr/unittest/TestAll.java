@@ -2,13 +2,13 @@
 
 package org.unicode.cldr.unittest;
 
-import com.ibm.icu.dev.test.TestFmwk.TestGroup;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.SimpleDateFormat;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.io.Writer;
 import java.util.Date;
+import org.unicode.cldr.icu.dev.test.TestFmwk.TestGroup;
 import org.unicode.cldr.util.CLDRConfig;
 
 /** Top level test used to run all other tests as a batch. */

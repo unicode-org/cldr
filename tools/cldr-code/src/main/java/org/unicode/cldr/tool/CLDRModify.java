@@ -8,7 +8,6 @@ package org.unicode.cldr.tool;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
-import com.ibm.icu.dev.util.UOption;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.DateTimePatternGenerator;
@@ -39,6 +38,7 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.icu.dev.util.UOption;
 import org.unicode.cldr.test.CLDRTest;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.test.DisplayAndInputProcessor;

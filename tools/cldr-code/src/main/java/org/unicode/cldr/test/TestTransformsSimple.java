@@ -1,6 +1,5 @@
 package org.unicode.cldr.test;
 
-import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.text.StringTransform;
 import com.ibm.icu.text.Transliterator;
@@ -9,6 +8,7 @@ import com.ibm.icu.text.UnicodeSetIterator;
 import java.io.IOException;
 import java.io.PrintWriter;
 import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.util.CLDRTransforms;
 import org.unicode.cldr.util.CldrUtility;
 

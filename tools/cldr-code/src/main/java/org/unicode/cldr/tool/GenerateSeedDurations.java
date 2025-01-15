@@ -1,9 +1,9 @@
 package org.unicode.cldr.tool;
 
-import com.ibm.icu.text.ListFormat;
 import com.ibm.icu.text.SimpleDateFormat;
 import java.util.LinkedHashSet;
 import java.util.Set;
+import org.unicode.cldr.icu.text.ListFormat;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.DateTimeFormats;

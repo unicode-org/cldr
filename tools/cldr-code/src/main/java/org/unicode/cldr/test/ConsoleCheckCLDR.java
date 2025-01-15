@@ -1,7 +1,5 @@
 package org.unicode.cldr.test;
 
-import com.ibm.icu.dev.util.ElapsedTimer;
-import com.ibm.icu.dev.util.UOption;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.lang.UCharacter;
@@ -27,6 +25,8 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.stream.Stream;
 import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.icu.dev.util.ElapsedTimer;
+import org.unicode.cldr.icu.dev.util.UOption;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.test.CheckCLDR.CompoundCheckCLDR;

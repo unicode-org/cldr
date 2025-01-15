@@ -6,7 +6,6 @@
 
 package org.unicode.cldr.web;
 
-import com.ibm.icu.dev.util.ElapsedTimer;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -26,6 +25,7 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONString;
+import org.unicode.cldr.icu.dev.util.ElapsedTimer;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRConfig.Environment;

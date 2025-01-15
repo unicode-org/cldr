@@ -2,7 +2,6 @@ package org.unicode.cldr.unittest;
 
 import com.google.common.base.Joiner;
 import com.google.common.collect.Sets;
-import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row.R2;
 import java.io.IOException;
@@ -21,6 +20,7 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRConfig;

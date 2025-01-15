@@ -2,7 +2,6 @@ package org.unicode.cldr.web;
 
 import static org.unicode.cldr.web.XPathTable.getStringIDString;
 
-import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.text.UnicodeSet;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -31,6 +30,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.unicode.cldr.icu.LDMLConstants;
+import org.unicode.cldr.icu.dev.util.ElapsedTimer;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckForCopy;

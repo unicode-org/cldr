@@ -10,7 +10,7 @@
  * Since: ICU 2.4
  **********************************************************************
  */
-package com.ibm.icu.dev.util;
+package org.unicode.cldr.icu.dev.util;
 
 // This file was migrated from the ICU4J repo,
 // path icu4j/tools/misc/src/main/java/com/ibm/icu/dev/tool/shared/UOption.java

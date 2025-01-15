@@ -4,13 +4,20 @@
  * and others. All Rights Reserved.                                                     *
  ****************************************************************************************
  */
-package com.ibm.icu.util;
+package org.unicode.cldr.icu.util;
 
 import com.ibm.icu.impl.ICUData;
 import com.ibm.icu.impl.ICUResourceBundle;
 import com.ibm.icu.impl.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R3;
+import com.ibm.icu.util.Freezable;
+import com.ibm.icu.util.ICUCloneNotSupportedException;
+import com.ibm.icu.util.ICUException;
+import com.ibm.icu.util.LocalePriorityList;
+import com.ibm.icu.util.ULocale;
+import com.ibm.icu.util.UResourceBundle;
+import com.ibm.icu.util.UResourceBundleIterator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;

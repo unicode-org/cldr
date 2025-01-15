@@ -1,7 +1,6 @@
 package org.unicode.cldr.unittest;
 
 import com.google.common.collect.ImmutableSet;
-import com.ibm.icu.util.MatchElementAttribute;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -15,6 +14,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.Stack;
 import java.util.TreeSet;
+import org.unicode.cldr.icu.util.MatchElementAttribute;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;

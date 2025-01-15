@@ -3,9 +3,9 @@ package org.unicode.cldr.api;
 import static com.google.common.collect.ImmutableList.toImmutableList;
 
 import com.google.common.collect.ImmutableList;
-import com.ibm.icu.dev.test.TestFmwk.TestGroup;
 import java.io.PrintWriter;
 import org.junit.jupiter.api.Test;
+import org.unicode.cldr.icu.dev.test.TestFmwk.TestGroup;
 import org.unicode.cldr.util.TestShimUtils;
 
 public class AllTests extends TestGroup {

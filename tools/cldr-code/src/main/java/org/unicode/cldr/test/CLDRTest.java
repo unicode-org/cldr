@@ -8,7 +8,6 @@ package org.unicode.cldr.test;
 
 import static org.unicode.cldr.util.PathUtilities.getNormalizedPath;
 
-import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.NumberFormat;
@@ -34,6 +33,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.test.DisplayAndInputProcessor.NumericType;
 import org.unicode.cldr.util.*;
 import org.xml.sax.SAXException;

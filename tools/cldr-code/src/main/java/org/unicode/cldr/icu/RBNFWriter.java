@@ -8,7 +8,6 @@
  */
 package org.unicode.cldr.icu;
 
-import com.ibm.icu.dev.util.UOption;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.util.Calendar;
@@ -21,6 +20,7 @@ import java.io.PrintWriter;
 import java.math.BigInteger;
 import java.util.Date;
 import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.icu.dev.util.UOption;
 import org.unicode.cldr.util.CldrUtility;
 
 /**

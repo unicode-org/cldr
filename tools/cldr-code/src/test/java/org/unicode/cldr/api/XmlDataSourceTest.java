@@ -11,7 +11,6 @@ import com.google.common.base.Joiner;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.LinkedListMultimap;
 import com.google.common.collect.ListMultimap;
-import com.ibm.icu.dev.test.TestFmwk;
 import java.io.Reader;
 import java.io.StringReader;
 import java.nio.file.Path;
@@ -20,6 +19,7 @@ import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.function.Function;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 
 /**
  * Tests XML file parsing and path/value generation. These focus on end-to-end parsing of fake data

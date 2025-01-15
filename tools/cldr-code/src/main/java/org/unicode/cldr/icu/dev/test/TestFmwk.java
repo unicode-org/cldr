@@ -5,7 +5,7 @@
  * others. All Rights Reserved.                                                *
  *******************************************************************************
  */
-package com.ibm.icu.dev.test;
+package org.unicode.cldr.icu.dev.test;
 
 import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
@@ -2105,11 +2105,11 @@ public class TestFmwk extends AbstractTestLog {
     // PrintWriter support
 
     public PrintWriter getErrorLogPrintWriter() {
-        return new PrintWriter(new TestLogWriter(this, TestLog.ERR));
+        return new PrintWriter(new TestLogWriter(this, ERR));
     }
 
     public PrintWriter getLogPrintWriter() {
-        return new PrintWriter(new TestLogWriter(this, TestLog.LOG));
+        return new PrintWriter(new TestLogWriter(this, LOG));
     }
 
     // end PrintWriter support

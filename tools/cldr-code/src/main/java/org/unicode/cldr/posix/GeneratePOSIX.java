@@ -8,12 +8,12 @@
  */
 package org.unicode.cldr.posix;
 
-import com.ibm.icu.dev.util.UOption;
 import com.ibm.icu.text.UnicodeSet;
 import java.io.File;
 import java.io.PrintWriter;
 import java.nio.charset.Charset;
 import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.icu.dev.util.UOption;
 
 /**
  * Class to generate POSIX format from CLDR.

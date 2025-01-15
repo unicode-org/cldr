@@ -1,12 +1,12 @@
 /** Copyright (C) 2012 */
 package org.unicode.cldr.unittest.web;
 
-import com.ibm.icu.dev.test.TestFmwk;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
+import org.unicode.cldr.icu.dev.test.TestFmwk;
 import org.unicode.cldr.web.CookieSession;
 import org.unicode.cldr.web.DBUtils;
 import org.unicode.cldr.web.XPathTable;

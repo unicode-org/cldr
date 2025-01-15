@@ -7,7 +7,6 @@
 //
 package org.unicode.cldr.web;
 
-import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 import java.io.IOException;
@@ -27,6 +26,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.unicode.cldr.icu.dev.util.ElapsedTimer;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRLocale;

@@ -395,9 +395,6 @@ public class GenerateLikelySubtags {
                                 {"rif_Latn", "rif_Latn_MA"},
                                 {"rif_Tfng", "rif_Tfng_MA"},
                                 {"rif_MA", "rif_Latn_MA"}, // Ibid
-                                {"shi", "shi_Tfng_MA"},
-                                {"shi_Tfng", "shi_Tfng_MA"},
-                                {"shi_MA", "shi_Tfng_MA"},
                                 {"sr_Latn", "sr_Latn_RS"},
                                 {"ss", "ss_Latn_ZA"},
                                 {"ss_Latn", "ss_Latn_ZA"},
@@ -432,12 +429,6 @@ public class GenerateLikelySubtags {
                                 {"und_SS", "en_Latn_SS"},
                                 {"vo", "vo_Latn_001"},
                                 {"vo_Latn", "vo_Latn_001"},
-                                //                                {"yi", "yi_Hebr_001"},
-                                //                                {"yi_Hebr", "yi_Hebr_001"},
-                                {"yue", "yue_Hant_HK"},
-                                {"yue_Hant", "yue_Hant_HK"},
-                                {"yue_Hans", "yue_Hans_CN"},
-                                {"yue_CN", "yue_Hans_CN"},
                                 {"zh_Hani", "zh_Hani_CN"},
                                 {"zh_Bopo", "zh_Bopo_TW"},
                                 {"ccp", "ccp_Cakm_BD"},
@@ -507,6 +498,10 @@ public class GenerateLikelySubtags {
                                 {"arc_Hatr", "arc_Hatr_IQ"},
                                 {"hnj_Hmng", "hnj_Hmng_LA"},
                                 {"bap_Krai", "bap_Krai_IN"},
+
+                                // Temporary additions to fix bad script mappings
+                                // See https://unicode-org.atlassian.net/browse/CLDR-18121
+                                {"sga", "sga_Latn_IE"},
                             });
 
     /**

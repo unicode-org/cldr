@@ -776,9 +776,19 @@ public class GenerateDateTimeTestData {
     }
 
     enum SemanticSkeletonLength {
-        SHORT,
-        MEDIUM,
-        LONG
+        SHORT("short"),
+        MEDIUM("medium"),
+        LONG("long");
+
+        public final String label;
+
+        String getLabel() {
+            return this.label;
+        }
+
+        SemanticSkeletonLength(String label) {
+            this.label = label;
+        }
     }
 
     enum SemanticSkeleton {
@@ -786,16 +796,46 @@ public class GenerateDateTimeTestData {
         MDTZ,
         M,
         T,
-        Z
+        Z;
+
+        public boolean hasYear() {
+            return this == SemanticSkeleton.YMDE;
+        }
+
+        public boolean hasMonth() {
+            return (this == SemanticSkeleton.YMDE || this == SemanticSkeleton.MDTZ || this == SemanticSkeleton.M);
+        }
+
+        public boolean hasDay() {
+            return (this == SemanticSkeleton.YMDE || this == SemanticSkeleton.MDTZ);
+        }
+
+        public boolean hasWeekday() {
+            return this == SemanticSkeleton.YMDE;
+        }
+
+        public boolean hasTime() {
+            return (this == SemanticSkeleton.MDTZ || this == SemanticSkeleton.T);
+        }
+
+        public boolean hasZone() {
+            return (this == SemanticSkeleton.MDTZ || this == SemanticSkeleton.Z);
+        }
+
+        public boolean isStandalone() {
+            return (this == SemanticSkeleton.M || this == SemanticSkeleton.T || this == SemanticSkeleton.Z);
+        }
     }
 
     enum HourCycle {
+        AUTO,
         H12,
         H23
     }
 
     enum YearStyle {
         AUTO,
+        FULL,
         WITH_ERA,
     }
 
@@ -805,6 +845,8 @@ public class GenerateDateTimeTestData {
         LOCATION,
         OFFSET,
     }
+
+    // private class SemanticSkeletonFieldSet()
 
 
     /**
@@ -1153,7 +1195,7 @@ public class GenerateDateTimeTestData {
                         testCaseInput.locale = locale;
                         testCaseInput.calendar = calendar;
 
-                        TestCase testCase = computeTestCase(localeCldrFile, testCaseInput);
+                        TestCase testCase = computeTestCase(icuServiceBuilder, localeCldrFile, testCaseInput);
 
                         builder.add(testCase);
                     }
@@ -1164,7 +1206,121 @@ public class GenerateDateTimeTestData {
         return builder.build();
     }
 
-    private static TestCase convertTestCaseInputToComboMap(TestCaseInput testCaseInput) {
+    private static String computeSkeletonFromSemanticSkeleton(ICUServiceBuilder icuServiceBuilder,
+        CLDRFile localeCldrFile, FieldStyleCombo fieldStyleCombo, String calendarStr) {
+        SemanticSkeleton skeleton = fieldStyleCombo.semanticSkeleton;
+        StringBuilder sb = new StringBuilder();
+
+        // Year
+        if (skeleton.hasYear()) {
+            // TODO
+        }
+
+        // Month
+        if (skeleton.hasMonth()) {
+            if (skeleton.isStandalone()) {
+                switch (fieldStyleCombo.semanticSkeletonLength) {
+                    case LONG:
+                        sb.append("LLLL");
+                        break;
+                    case MEDIUM:
+                        sb.append("LLL");
+                        break;
+                    case SHORT:
+                        sb.append("L");
+                        break;
+                    default:
+                        break;
+                }
+            } else {
+                String skeletonLength = fieldStyleCombo.semanticSkeletonLength.getLabel();
+                String dateTimeSkeleton = localeCldrFile.getDateSkeleton(calendarStr, skeletonLength);
+            }
+        }
+
+        // Day
+        if (skeleton.hasDay()) {
+            // TODO
+        }
+
+        if (skeleton.hasWeekday()) {
+            switch (fieldStyleCombo.semanticSkeletonLength) {
+                case LONG:
+                    sb.append("EEEE");
+                    break;
+                case MEDIUM:
+                    sb.append("EEE");
+                    break;
+                case SHORT:
+                    if (skeleton.isStandalone()) {
+                        sb.append("EEEEE");
+                    } else {
+                        sb.append("EEE");
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        if (skeleton.hasTime()) {
+            // H M S
+            switch (fieldStyleCombo.hourCycle) {
+                case AUTO:
+                    sb.append("C");
+                    break;
+                case H12:
+                    sb.append("h");
+                    break;
+                case H23:
+                    sb.append("H");
+                    break;
+                default:
+                    break;
+            }
+            sb.append("m");
+            sb.append("s");
+        }
+        if (skeleton.hasZone()) {
+            switch (fieldStyleCombo.zoneStyle) {
+                case GENERIC:
+                    if (skeleton.isStandalone()) {
+                        if (fieldStyleCombo.semanticSkeletonLength == SemanticSkeletonLength.SHORT) {
+                            sb.append("v");
+                        } else {
+                            sb.append("vvvv");
+                        }
+                    } else {
+                        sb.append("v");
+                    }
+                    break;
+                case SPECIFIC:
+                    if (skeleton.isStandalone()) {
+                        if (fieldStyleCombo.semanticSkeletonLength == SemanticSkeletonLength.SHORT) {
+                            sb.append("z");
+                        } else {
+                            sb.append("zzzz");
+                        }
+                    } else {
+                        sb.append("z");
+                    }
+                    break;
+                case LOCATION:
+                    sb.append("VVVV");
+                    break;
+                case OFFSET:
+                    sb.append("O");
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        return sb.toString();
+    }
+
+    private static TestCase convertTestCaseInputToComboMap(ICUServiceBuilder icuServiceBuilder,
+        CLDRFile localeCldrFile, TestCaseInput testCaseInput) {
         String calendarStr = testCaseInput.calendar.getType();
         String dateLength = testCaseInput.fieldStyleCombo.dateStyle.getLabel();
         String timeLength = testCaseInput.fieldStyleCombo.dateStyle.getLabel();
@@ -1173,12 +1329,6 @@ public class GenerateDateTimeTestData {
         ZoneId zoneId = ZoneId.of(icuTimeZone.getID());
         ZonedDateTime zdt = ZonedDateTime.of(localDt, zoneId);
         String dateTimeGluePatternFormatType = testCaseInput.dateTimeFormatType.getLabel();
-
-        ULocale locale = testCaseInput.locale;
-        CLDRFile localeCldrFile = getCLDRFile(locale.toString()).orElse(null);
-        ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder();
-        icuServiceBuilder.clearCache();
-        icuServiceBuilder.setCldrFile(localeCldrFile);
 
         String expected = getExpectedStringForTestCase(
             icuServiceBuilder,
@@ -1199,16 +1349,20 @@ public class GenerateDateTimeTestData {
     }
 
     private static TestCase computeTestCase(
+        ICUServiceBuilder icuServiceBuilder,
         CLDRFile localeCldrFile,
         TestCaseInput testCaseInput
     ) {
 
         if (testCaseInput.fieldStyleCombo.semanticSkeleton == null) {
-            return convertTestCaseInputToComboMap(testCaseInput);
+            return convertTestCaseInputToComboMap(icuServiceBuilder, localeCldrFile, testCaseInput);
         } else {
             // TODO: implement logic for converting sematic skeleton -> string concatenation of
             //  skeleton-per-field for all fields -> use datetimepatterngenerator to convert
             //  skeleton string into pattern string
+            String calendarStr = testCaseInput.calendar.getType();
+            String skeleton = computeSkeletonFromSemanticSkeleton(icuServiceBuilder, localeCldrFile,
+                testCaseInput.fieldStyleCombo, calendarStr);
 
             // TODO: implement me!
             assert  false;

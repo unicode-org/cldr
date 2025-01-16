@@ -1282,6 +1282,24 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
     }
 
     /**
+     * Create xpaths for DateFormat that look like
+     *
+     * <pre>
+     * //ldml/dates/calendars/calendar[@type="*"]/dateFormats/dateFormatLength[@type="*"]/dateFormat[@type="standard"]/skeleton[@type="standard"]
+     * //ldml/dates/calendars/calendar[@type="*"]/dateFormats/dateFormatLength[@type="*"]/dateFormat[@type="standard"]/skeleton[@type="standard"][@numbers="*"]
+     * </pre>
+     *
+     * @param calendar Calendar system identifier
+     * @param length full, long, medium, short. "*" is a wildcard selector for XPath
+     * @return
+     */
+    private String getDateSkeletonXpath(String calendar, String length) {
+        String formatPattern =
+            "//ldml/dates/calendars/calendar[@type=\"%s\"]/dateFormats/dateFormatLength[@type=\"%s\"]/dateFormat[@type=\"standard\"]/datetimeSkeleton[@type=\"standard\"]";
+        return String.format(formatPattern, calendar, length);
+    }
+
+    /**
      * Create xpaths for TimeFormat that look like
      *
      * <pre>
@@ -1379,6 +1397,14 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
 
         // uses MessageFormat to interpret the placeholders in the glue pattern
         return MessageFormat.format(gluePatternWithoutQuotes, (Object[]) new String[] {time, date});
+    }
+
+    public String getDateSkeleton(
+        String calendar, String length) {
+        String dateTimeSkeletonXPath = // Get standard dateTime skeleton for same calendar & length
+                                       // as this dateTimePattern
+            this.getDateSkeletonXpath(calendar, length);
+        return this.getWinningValue(dateTimeSkeletonXPath);
     }
 
     /**

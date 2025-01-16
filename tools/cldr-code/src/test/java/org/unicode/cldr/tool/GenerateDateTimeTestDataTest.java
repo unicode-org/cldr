@@ -17,12 +17,12 @@ public class GenerateDateTimeTestDataTest {
   public void testComputeSkeletonFromSemanticSkeleton() {
 
     Object[][] casesData = {
-        {"en", "gregorian",  SemanticSkeleton.YMDE, SemanticSkeletonLength.LONG,   "yMMMMd"},
-        {"en", "gregorian",  SemanticSkeleton.YMDE, SemanticSkeletonLength.MEDIUM, "yMMMd"},
-        {"en", "gregorian",  SemanticSkeleton.YMDE, SemanticSkeletonLength.SHORT,  "yyMd"},
-        {"en", "japanese", SemanticSkeleton.YMDE, SemanticSkeletonLength.LONG,   "GyMMMMd"},
-        {"en", "japanese", SemanticSkeleton.YMDE, SemanticSkeletonLength.MEDIUM, "GyMMMd"},
-        {"en", "japanese", SemanticSkeleton.YMDE, SemanticSkeletonLength.SHORT,  "GGGGGyMd"},
+        {"en", "gregorian",  SemanticSkeleton.YMDE, SemanticSkeletonLength.LONG,   "yMMMMdEEEE"},
+        {"en", "gregorian",  SemanticSkeleton.YMDE, SemanticSkeletonLength.MEDIUM, "yMMMdEEE"},
+        {"en", "gregorian",  SemanticSkeleton.YMDE, SemanticSkeletonLength.SHORT,  "yyMdEEE"},
+        {"en", "japanese",   SemanticSkeleton.YMDE, SemanticSkeletonLength.LONG,   "GyMMMMdEEEE"},
+        {"en", "japanese",   SemanticSkeleton.YMDE, SemanticSkeletonLength.MEDIUM, "GyMMMdEEE"},
+        {"en", "japanese",   SemanticSkeleton.YMDE, SemanticSkeletonLength.SHORT,  "GGGGGyMdEEE"},
     };
 
     for (Object[] caseDatum : casesData) {
@@ -47,7 +47,7 @@ public class GenerateDateTimeTestDataTest {
       String actual = GenerateDateTimeTestData.computeSkeletonFromSemanticSkeleton(
           icuServiceBuilder, localeCldrFile, fieldStyleCombo, calendarStr);
 
-      assertEquals(actual, expected);
+      assertEquals(expected, actual, "skeleton string for locale " + localeStr + ", calendar " + calendarStr + ", semantic skeleton " + semanticSkeleton.toString() + ", skeleton length " +semanticSkeletonLength.getLabel());
     }
   }
 

@@ -1285,8 +1285,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      * Create xpaths for DateFormat that look like
      *
      * <pre>
-     * //ldml/dates/calendars/calendar[@type="*"]/dateFormats/dateFormatLength[@type="*"]/dateFormat[@type="standard"]/skeleton[@type="standard"]
-     * //ldml/dates/calendars/calendar[@type="*"]/dateFormats/dateFormatLength[@type="*"]/dateFormat[@type="standard"]/skeleton[@type="standard"][@numbers="*"]
+     * //ldml/dates/calendars/calendar[@type="*"]/dateFormats/dateFormatLength[@type="*"]/dateFormat[@type="standard"]/datetimeSkeleton[@type="standard"]
+     * //ldml/dates/calendars/calendar[@type="*"]/dateFormats/dateFormatLength[@type="*"]/dateFormat[@type="standard"]/datetimeSkeleton[@type="standard"][@numbers="*"]
      * </pre>
      *
      * @param calendar Calendar system identifier
@@ -1295,7 +1295,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      */
     private String getDateSkeletonXpath(String calendar, String length) {
         String formatPattern =
-            "//ldml/dates/calendars/calendar[@type=\"%s\"]/dateFormats/dateFormatLength[@type=\"%s\"]/dateFormat[@type=\"standard\"]/datetimeSkeleton[@type=\"standard\"]";
+            "//ldml/dates/calendars/calendar[@type=\"%s\"]/dateFormats/dateFormatLength[@type=\"%s\"]/dateFormat[@type=\"standard\"]/datetimeSkeleton";
         return String.format(formatPattern, calendar, length);
     }
 

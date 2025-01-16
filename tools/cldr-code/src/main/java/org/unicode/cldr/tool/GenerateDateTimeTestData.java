@@ -1208,7 +1208,7 @@ public class GenerateDateTimeTestData {
         return builder.build();
     }
 
-    private static final Pattern SKELETON_YEAR_FIELD_PATTERN = Pattern.compile("(G+)?y+");
+    private static final Pattern SKELETON_YEAR_FIELD_PATTERN = Pattern.compile("G*y+");
 
     private static final Pattern SKELETON_MONTH_FIELD_PATTERN = Pattern.compile("M+");
 
@@ -1217,10 +1217,16 @@ public class GenerateDateTimeTestData {
     private static String getFieldFromDateTimeSkeleton(CLDRFile localeCldrFile, FieldStyleCombo fieldStyleCombo, String calendarStr, Pattern fieldPattern) {
         String skeletonLength = fieldStyleCombo.semanticSkeletonLength.getLabel();
         String dateTimeSkeleton = localeCldrFile.getDateSkeleton(calendarStr, skeletonLength);
-        Matcher monthFieldResult = fieldPattern.matcher(dateTimeSkeleton);
-        assert monthFieldResult.matches();
-        String monthField = monthFieldResult.group(1);
-        return monthField;
+        Matcher fieldMatchResult = fieldPattern.matcher(dateTimeSkeleton);
+
+        if (fieldMatchResult.find()) {
+            // take the first result, which assumes that there is only one unique place where a match can occur
+            // otherwise, we would need to get the group count and iterate over each match group
+            String field = fieldMatchResult.group();
+            return field;
+        } else {
+            return "";
+        }
     }
 
     public static String computeSkeletonFromSemanticSkeleton(ICUServiceBuilder icuServiceBuilder,
@@ -1230,8 +1236,9 @@ public class GenerateDateTimeTestData {
 
         // Year
         if (skeleton.hasYear()) {
-            return getFieldFromDateTimeSkeleton(localeCldrFile, fieldStyleCombo, calendarStr,
+            String yieldField = getFieldFromDateTimeSkeleton(localeCldrFile, fieldStyleCombo, calendarStr,
                 SKELETON_YEAR_FIELD_PATTERN);
+            sb.append(yieldField);
         }
 
         // Month
@@ -1251,15 +1258,15 @@ public class GenerateDateTimeTestData {
                         break;
                 }
             } else {
-                return getFieldFromDateTimeSkeleton(localeCldrFile, fieldStyleCombo, calendarStr,
-                    SKELETON_MONTH_FIELD_PATTERN);
+                sb.append(getFieldFromDateTimeSkeleton(localeCldrFile, fieldStyleCombo, calendarStr,
+                    SKELETON_MONTH_FIELD_PATTERN));
             }
         }
 
         // Day
         if (skeleton.hasDay()) {
-            return getFieldFromDateTimeSkeleton(localeCldrFile, fieldStyleCombo, calendarStr,
-                SKELETON_DAY_FIELD_PATTERN);
+            sb.append(getFieldFromDateTimeSkeleton(localeCldrFile, fieldStyleCombo, calendarStr,
+                SKELETON_DAY_FIELD_PATTERN));
         }
 
         if (skeleton.hasWeekday()) {

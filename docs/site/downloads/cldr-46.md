@@ -288,34 +288,38 @@ These matched the ordering of two legacy character encodings. [CLDR-16062][]
 1. [CLDR-17610][] Updated zip to include LICENSE file following file renaming
 
 ## 46.1 Changes
-Version 46.1 is a dot release.
+Version 46.1 is a dot release. The following summarizes the changes. For a full listing, see [Δ46.1](https://unicode-org.atlassian.net/issues/?jql=project+%3D+CLDR+AND+status+%3D+Done+AND+resolution+%3D+Fixed+AND+fixVersion+%3D+%2246.1%22+ORDER+BY+priority+DESC)
 
-The major change is to bring the Message Format 2.0 specification in Part 9 to Final Candidate status.
+### Message Format 2.0
+The main focus is to bring the [Message Format 2.0 specification in Part 9]((https://www.unicode.org/reports/tr35/tr35-74/tr35.html#message-format-modifications)) to Final Candidate status. The following summarizes changes from v46:
 
-Addition standard functions and options are available:
- - Define REQUIRED and RECOMMENDED functions and options in the function registry.
- - Number, date/time, and string functions
- - Add :u options to the :u namespace
- - Add caledar and numberingSystem options to date/time functions.
- - Add hour12 date/time override option
- - Create timezone as a Proposed REQUIRED option for date/time functions.
- - Add :unit as a Proposed RECOMMENDED function.
-There are 3 tech preview implementations available
- - ICU4J: TBD
- - ICU4C: TBD
- - Javascript: TBD
-There is new test data available at: TBD
+* Core Message Format Specification  
+  * Added ‘resolved values’ and ‘function handler’ sections to formatting
+  * Defined “option resolution” and required order of options to be insignificant
+  * Defined “implementation-defined” literal and type values more clearly
+  * Required bidi isolation when u:dir is set and provided for ignoring isolation
+* Default MessageFormat 2.0 function set and Unicode namespace  
+  * Provided normative conditions on function, option, and option-value implementation; specified which functions and options were REQUIRED vs RECOMMENDED
+  * Defined function composition for number, date/time, and string functions 
+  * Added functions: :currency, :math, and :unit (proposed)
+    * :math is to support the MessageFormat 1.0 ‘offset’
+  * Added options to date/time functions: calendar, numberingSystem, hour12, and timezone (proposed)
+  * Add various :u options to the :u namespace
+* General
+  * Provided general clarifications and reorganizations
+  
+There are 3 tech preview implementations available:
+ - ICU4J: Java: [com.ibm.icu.message2](https://unicode-org.github.io/icu-docs/apidoc/dev/icu4j/index.html?com/ibm/icu/message2/package-summary.html), part of ICU 76, is a tech preview implementation of the MessageFormat 2.0, together with a formatting API. See the [ICU User Guide](https://unicode-org.github.io/icu/userguide/format_parse/messages/mf2.html) for examples and a quickstart guide, and [Trying MF 2.0 Final Candidate](https://unicode-org.github.io/icu/userguide/format_parse/messages/try-mf2.html) to try a “Hello World”.
+ - ICU4C: [icu::message2::MessageFormatter](https://unicode-org.github.io/icu-docs/apidoc/released/icu4c/classicu_1_1message2_1_1MessageFormatter.html), part of ICU 76, is a tech preview implementation of MessageFormat 2.0, together with a formatting API. See the [ICU User Guide](https://unicode-org.github.io/icu/userguide/format_parse/messages/mf2.html) for examples and a quickstart guide, and [Trying MF 2.0 Final Candidate](https://unicode-org.github.io/icu/userguide/format_parse/messages/try-mf2.html) to try a “Hello World”.
+ - Javascript: [messageformat](https://github.com/messageformat/messageformat/tree/main/mf2/messageformat) 4.0 provides a formatter and conversion tools for the MessageFormat 2 syntax, together with a polyfill of the runtime API proposed for ECMA-402.
 
-There are many other spec changes; for a full list, see [Message Format Modifications](https://www.unicode.org/reports/tr35/tr35-74/tr35.html#message-format-modifications)
-The most significant changes to Message Format 2.0 are:
+### Other Changes
+Changes aside from Message Format 2.0 include:
 
-Other changes include
-- More explicit well-formedness and validity constraints for unit of measurement identifiers
-- Addition of emoji annotations that were missing: skintones with emoji facing right
-- Fixes to ja, ko, zh, yue datetimeSkeletons
-- Improved datetime date time test data
-
-For a full listing, see [Δ46.1](https://unicode-org.atlassian.net/issues/?jql=project+%3D+CLDR+AND+status+%3D+Done+AND+resolution+%3D+Fixed+AND+fixVersion+%3D+%2246.1%22+ORDER+BY+priority+DESC)
+ - More explicit well-formedness and validity constraints for unit of measurement identifiers
+ - Addition of derived emoji annotations that were missing: emoji with skin tones facing right
+ - Fixes to make the ja, ko, yue, zh datetimeSkeletons useful for generating the standard patterns
+ - Improved date/time test data
 
 ## Acknowledgments
 

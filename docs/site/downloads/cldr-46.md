@@ -291,7 +291,7 @@ These matched the ordering of two legacy character encodings. [CLDR-16062][]
 Version 46.1 is a dot release. The following summarizes the changes. For a full listing, see [Δ46.1](https://unicode-org.atlassian.net/issues/?jql=project+%3D+CLDR+AND+status+%3D+Done+AND+resolution+%3D+Fixed+AND+fixVersion+%3D+%2246.1%22+ORDER+BY+priority+DESC)
 
 ### Message Format 2.0
-The major change is to bring the [Message Format 2.0 specification in Part 9]((https://www.unicode.org/reports/tr35/tr35-74/tr35.html#message-format-modifications)) to Final Candidate status. The following summarizes changes from v46:
+The main focus is to bring the [Message Format 2.0 specification in Part 9]((https://www.unicode.org/reports/tr35/tr35-74/tr35.html#message-format-modifications)) to Final Candidate status. The following summarizes changes from v46:
 
 * Core Message Format Specification  
   * Added ‘resolved values’ and ‘function handler’ sections to formatting

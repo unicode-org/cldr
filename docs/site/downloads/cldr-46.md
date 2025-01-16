@@ -297,7 +297,7 @@ Addition standard functions and options are available:
  - Define REQUIRED and RECOMMENDED functions and options in the function registry.
  - Number, date/time, and string functions
  - Add :u options to the :u namespace
- - Add caledar and numberingSystem options to date/time functions.
+ - Add calendar and numberingSystem options to date/time functions.
  - Add hour12 date/time override option
  - Create timezone as a Proposed REQUIRED option for date/time functions.
  - Add :unit as a Proposed RECOMMENDED function.

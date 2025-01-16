@@ -22,7 +22,7 @@ public class CompareCLDRFile {
             this.file = f;
             this.title = t;
 
-            for (String s : f) {
+            for (String s : f.iterableDefault()) {
                 xpaths.add(s);
             }
 

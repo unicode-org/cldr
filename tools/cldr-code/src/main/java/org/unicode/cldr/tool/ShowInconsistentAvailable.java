@@ -160,7 +160,7 @@ public class ShowInconsistentAvailable {
         CLDRFile cldrFile = f.make(locale, false);
         DateIntervalInfo fInfo = new DateIntervalInfo(new ULocale(locale)).freeze();
 
-        for (String path : cldrFile) {
+        for (String path : cldrFile.iterableDefault()) {
             String value = cldrFile.getStringValue(path);
             if (value == null || value.isBlank() || value.equals("↑↑↑")) {
                 continue;
@@ -211,7 +211,7 @@ public class ShowInconsistentAvailable {
         Set<String> calendars = new TreeSet<>();
         final CLDRFile root = CONFIG.getRoot();
 
-        for (String path : root) {
+        for (String path : root.iterableDefault()) {
             XPathParts parts = XPathParts.getFrozenInstance(path);
             if (!parts.getElement(-1).equals("dateFormatItem")) {
                 continue;
@@ -276,7 +276,7 @@ public class ShowInconsistentAvailable {
 
         Multimap<String, PathHeader> sorted = TreeMultimap.create();
 
-        for (String path : cldrFile) {
+        for (String path : cldrFile.iterableDefault()) {
             XPathParts parts = XPathParts.getFrozenInstance(path);
             if (!parts.getElement(-1).equals("dateFormatItem")) {
                 continue;

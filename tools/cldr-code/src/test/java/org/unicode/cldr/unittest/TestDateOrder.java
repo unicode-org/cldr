@@ -116,7 +116,7 @@ public class TestDateOrder extends TestFmwk {
         Factory phf = PathHeader.getFactory();
 
         Set<PathHeader> paths = new TreeSet<>();
-        for (String path : english) {
+        for (String path : english.iterableDefault()) {
             if (!path.startsWith("//ldml/dates/calendars/calendar[@type=\"gregorian\"]")) {
                 continue;
             } else if (path.startsWith(stockTimePathPrefix)

@@ -106,7 +106,7 @@ public class GetChanges {
 
         int countNew = 0;
         int countChanged = 0;
-        for (String path : vxmlFileUnresolved) {
+        for (String path : vxmlFileUnresolved.iterableDefault()) {
             if (path.contains("/identity")) {
                 continue;
             }
@@ -240,7 +240,7 @@ public class GetChanges {
         Output<String> pathWhereFound = new Output<>();
 
         CLDRFile englishCldrFile = trunkFactory.make("en", false);
-        final Set<String> paths = ImmutableSet.copyOf(englishCldrFile.iterator());
+        final Set<String> paths = ImmutableSet.copyOf(englishCldrFile.iteratorDefault());
         System.out.println("english paths: " + paths.size());
 
         Multimap<String, PathHeader> missing = TreeMultimap.create();

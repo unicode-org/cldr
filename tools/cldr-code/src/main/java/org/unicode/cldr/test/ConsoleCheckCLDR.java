@@ -1686,7 +1686,7 @@ public class ConsoleCheckCLDR {
             boolean noaliases,
             boolean filterDraft,
             Collection<String> target) {
-        for (Iterator<String> pit = file.iterator(pathFilter); pit.hasNext(); ) {
+        for (Iterator<String> pit = file.iteratorDefault(pathFilter); pit.hasNext(); ) {
             String path = pit.next();
             addPrettyPath(file, pathHeaderFactory, noaliases, filterDraft, target, path);
         }

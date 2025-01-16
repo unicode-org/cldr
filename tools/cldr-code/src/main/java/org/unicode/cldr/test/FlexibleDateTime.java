@@ -132,7 +132,7 @@ public class FlexibleDateTime {
         {
             Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
             CLDRFile supp = cldrFactory.make(CLDRFile.SUPPLEMENTAL_NAME, false);
-            for (Iterator<String> it = supp.iterator("//supplementalData/metadata/alias/");
+            for (Iterator<String> it = supp.iteratorDefault("//supplementalData/metadata/alias/");
                     it.hasNext(); ) {
                 String path = it.next();
                 XPathParts parts = XPathParts.getFrozenInstance(supp.getFullXPath(path));
@@ -374,7 +374,7 @@ public class FlexibleDateTime {
                 System.out.println();
             }
             CLDRFile item = cldrFactory.make(locale, false);
-            for (String xpath : item) {
+            for (String xpath : item.iterableDefault()) {
                 if (!isGregorianPattern(xpath)) {
                     continue;
                 }

@@ -80,7 +80,7 @@ public class CompareEn {
             // walk through all the new paths and values to check them.
 
             TreeSet<String> paths = new TreeSet<>();
-            en_GB.forEach(paths::add);
+            en_GB.iterableDefault().forEach(paths::add);
 
             for (String path : paths) {
                 // skip certain paths
@@ -183,8 +183,8 @@ public class CompareEn {
                 // walk through all the new paths and values to check them.
 
                 TreeSet<PathHeader> paths = new TreeSet<>();
-                en_GB.forEach(x -> paths.add(phf.fromPath(x)));
-                en_001.forEach(x -> paths.add(phf.fromPath(x)));
+                en_GB.iterableDefault().forEach(x -> paths.add(phf.fromPath(x)));
+                en_001.iterableDefault().forEach(x -> paths.add(phf.fromPath(x)));
 
                 main:
                 for (PathHeader pathHeader : paths) {

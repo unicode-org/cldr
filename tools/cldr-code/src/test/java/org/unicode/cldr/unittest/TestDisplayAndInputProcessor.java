@@ -342,7 +342,7 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
     private void showCldrFile(final CLDRFile cldrFile) {
         DisplayAndInputProcessor daip = new DisplayAndInputProcessor(cldrFile, true);
         Exception[] internalException = new Exception[1];
-        for (String path : cldrFile) {
+        for (String path : cldrFile.iterableDefault()) {
             String value = cldrFile.getStringValue(path);
             if (value == null) {
                 continue; // values may be null, from extraPaths

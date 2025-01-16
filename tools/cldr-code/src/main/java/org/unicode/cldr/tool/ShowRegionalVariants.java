@@ -136,7 +136,7 @@ public class ShowRegionalVariants {
                     // childDiffs.add(child, 0); // make sure it shows up
                     String childString = child.toString();
                     CLDRFile childFile = FACTORY.make(childString, false, DraftStatus.contributed);
-                    for (String path : childFile) {
+                    for (String path : childFile.iterableDefault()) {
                         if (SKIP_SUPPRESSED_PATHS) {
                             if (path.contains("/currency") && path.contains("/symbol")) {
                                 continue;

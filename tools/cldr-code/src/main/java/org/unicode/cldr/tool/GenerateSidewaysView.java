@@ -720,7 +720,7 @@ public class GenerateSidewaysView {
                 continue;
             }
             if (cldrFile.isNonInheriting()) continue;
-            for (String path : cldrFile) {
+            for (String path : cldrFile.iterableDefault()) {
                 if (pathMatcher != null && !pathMatcher.reset(path).matches()) {
                     continue;
                 }

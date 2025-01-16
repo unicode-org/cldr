@@ -68,7 +68,7 @@ public class DateOrder implements Comparable<DateOrder> {
             Matcher typeMatcher = PatternCache.get("\\[@type=\"([^\"]*)\"]").matcher("");
             int[] soFar = new int[50];
             int lenSoFar = 0;
-            for (String path : resolved) {
+            for (String path : resolved.iterableDefault()) {
                 if (DateTimePatternType.STOCK_AVAILABLE_INTERVAL_PATTERNS.contains(
                         DateTimePatternType.fromPath(path))) {
                     if (path.contains("[@id=\"Ed\"]")) {

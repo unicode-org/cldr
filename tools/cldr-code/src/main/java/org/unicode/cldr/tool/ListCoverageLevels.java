@@ -68,7 +68,7 @@ public class ListCoverageLevels {
             CLDRFile file = mainAndAnnotationsFactory.make(locale, false);
             CoverageLevel2 coverageLeveler = CoverageLevel2.getInstance(locale);
             System.out.println(locale);
-            for (String path : file) {
+            for (String path : file.iterableDefault()) {
                 Level level = coverageLeveler.getLevel(path);
                 String skeleton = starrer.set(path);
                 levelToCounter.get(level).add(skeleton);

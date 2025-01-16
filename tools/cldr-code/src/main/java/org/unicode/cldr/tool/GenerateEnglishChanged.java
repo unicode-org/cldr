@@ -53,8 +53,8 @@ public class GenerateEnglishChanged {
         CLDRFile englishLastRelease = factoryLastRelease.make("en", true);
 
         Set<String> paths = new TreeSet<>();
-        With.in(englishTrunk).toCollection(paths);
-        With.in(englishLastRelease).toCollection(paths);
+        With.in(englishTrunk.iterableDefault()).toCollection(paths);
+        With.in(englishLastRelease.iterableDefault()).toCollection(paths);
         PathStarrer starrer = new PathStarrer();
         final String placeholder = "×";
         starrer.setSubstitutionPattern(placeholder);

@@ -255,7 +255,7 @@ class FlexibleDateFromCLDR {
         // ...dateTimeFormats/availableFormats/dateFormatItem[@id="..."][@count="..."][@draft="..."]
         // ...dateTimeFormats/availableFormats/dateFormatItem[@id="..."][@alt="variant"]
         boolean isRoot = file.getLocaleID().equals("root");
-        for (Iterator<String> it = file.iterator(toppath); it.hasNext(); ) {
+        for (Iterator<String> it = file.iteratorDefault(toppath); it.hasNext(); ) {
             String path = it.next();
             int startIndex = path.indexOf(DATE_FORMAT_ITEM_ID_PREFIX);
             if (startIndex < 0 || path.indexOf("[@alt=", startIndex) >= 0) {

@@ -776,7 +776,7 @@ public class TimezoneFormatter extends UFormat {
         String countryPrefix = "//ldml/localeDisplayNames/territories/territory[@type=\"";
         Map<String, Comparable> localizedNonWall = new HashMap<>();
         Set<String> skipDuplicates = new HashSet<>();
-        for (Iterator<String> it = desiredLocaleFile.iterator(); it.hasNext(); ) {
+        for (Iterator<String> it = desiredLocaleFile.iteratorDefault(); it.hasNext(); ) {
             String path = it.next();
             // dumb, simple implementation
             if (path.startsWith(prefix)) {

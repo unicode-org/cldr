@@ -439,7 +439,7 @@ public class GenerateEnums {
         unlimitedCurrencyCodes =
                 Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class, null);
         for (Iterator<String> it =
-                        supplementalData.iterator("//supplementalData/currencyData/region");
+                        supplementalData.iteratorDefault("//supplementalData/currencyData/region");
                 it.hasNext(); ) {
             String path = it.next();
             XPathParts parts = XPathParts.getFrozenInstance(path);
@@ -508,7 +508,8 @@ public class GenerateEnums {
     public void getContainment() {
         // <group type="001" contains="002 009 019 142 150"/> <!--World -->
         for (Iterator<String> it =
-                        supplementalData.iterator("//supplementalData/territoryContainment/group");
+                        supplementalData.iteratorDefault(
+                                "//supplementalData/territoryContainment/group");
                 it.hasNext(); ) {
             String path = it.next();
             String fullPath = supplementalData.getFullXPath(path);

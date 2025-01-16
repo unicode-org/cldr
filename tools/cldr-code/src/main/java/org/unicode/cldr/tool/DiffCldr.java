@@ -103,7 +103,7 @@ public class DiffCldr {
                 CLDRFile cldrFile = factory.make(locale, isBase);
                 DtdData dtdData = cldrFile.getDtdData();
                 CLDRFile cldrFileResolved = factory.make(locale, true);
-                for (String distinguishedPath : With.in(cldrFile.iterator())) {
+                for (String distinguishedPath : With.in(cldrFile.iteratorDefault())) {
                     String path = cldrFile.getFullXPath(distinguishedPath);
 
                     XPathParts pathPlain = XPathParts.getFrozenInstance(path);

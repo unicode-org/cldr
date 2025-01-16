@@ -855,7 +855,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         // Pick up all instances in English where the exemplarCity and territory match
         // and include them as exceptions.
         exceptions = new HashMap<>();
-        for (Iterator<String> it = english.iterator(Type.ZONE.getPrefix()); it.hasNext(); ) {
+        for (Iterator<String> it = english.iteratorDefault(Type.ZONE.getPrefix()); it.hasNext(); ) {
             String xpath = it.next();
             if (!xpath.endsWith("/exemplarCity")) continue;
             String value = english.getStringValue(xpath);

@@ -860,7 +860,7 @@ public class TestInheritance extends TestFmwk {
         for (String locale : testInfo.getCldrFactory().getAvailable()) {
             CLDRFile cldrFileToCheck = testInfo.getCLDRFile(locale, false);
             int errors = 0;
-            for (String path : cldrFileToCheck) {
+            for (String path : cldrFileToCheck.iterableDefault()) {
                 if (!pathMatcher.reset(path).find()) {
                     continue;
                 }

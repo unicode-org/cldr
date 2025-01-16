@@ -36,7 +36,8 @@ public class GenerateTempDateData {
             System.out.println(locale);
             boolean gotOne = false;
             for (Iterator<String> it2 =
-                            file.iterator("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/");
+                            file.iteratorDefault(
+                                    "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/");
                     it2.hasNext(); ) {
                 String path = it2.next();
                 if (path.indexOf("dateTimeFormats/availableFormats/dateFormatItem") >= 0) {

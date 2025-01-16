@@ -300,7 +300,7 @@ public class GenerateBirth {
             System.out.println(String.format("%s\tDone", file));
             birthToPaths = Relation.of(new TreeMap<CldrVersion, Set<String>>(), TreeSet.class);
             pathToBirthCurrentPrevious = new HashMap<>();
-            for (String xpath : files[0]) {
+            for (String xpath : files[0].iterableDefault()) {
                 xpath = xpath.intern();
                 if (xpath.contains("[@type=\"ar\"]")) {
                     int debug = 0;

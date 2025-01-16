@@ -26,7 +26,7 @@ public class RemoveEmptyCldrFiles {
     }
 
     private static boolean isEmpty(CLDRFile cldrFile) {
-        for (String path : cldrFile) {
+        for (String path : cldrFile.iterableDefault()) {
             if (!path.contains("/identity")) {
                 return false;
             }

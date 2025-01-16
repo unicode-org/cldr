@@ -212,7 +212,7 @@ public class QuickCheck {
                     locale + "\t-\t" + english.nameGetter().getNameFromIdentifier(locale));
             DtdType dtdType = null;
 
-            for (Iterator<String> it = file.iterator(); it.hasNext(); ) {
+            for (Iterator<String> it = file.iteratorDefault(); it.hasNext(); ) {
                 String path = it.next();
                 if (path.endsWith("/alias")) {
                     continue;
@@ -341,7 +341,7 @@ public class QuickCheck {
             }
 
             CLDRFile root = cldrFactory.make("root", true);
-            for (Iterator<String> it = root.iterator(); it.hasNext(); ) {
+            for (Iterator<String> it = root.iteratorDefault(); it.hasNext(); ) {
                 pathToLocale.removeAll(it.next());
             }
             if (showInfo)

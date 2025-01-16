@@ -220,7 +220,7 @@ public class DtdDataCheck {
                 Comparator<String> comp = dtdData.getDtdComparator(null);
                 CLDRFile test = ToolConfig.getToolInstance().getEnglish();
                 Set<String> sorted = new TreeSet(test.getComparator());
-                test.forEach(sorted::add);
+                test.iterableDefault().forEach(sorted::add);
                 String[] sortedArray = sorted.toArray(new String[sorted.size()]);
 
                 // compare for identity

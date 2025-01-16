@@ -119,7 +119,7 @@ public class CompareEmoji {
     }
 
     public static void getDataIn(CLDRFile cldrfile, Map<String, EmojiData> result, Status status) {
-        for (String path : cldrfile) {
+        for (String path : cldrfile.iterableDefault()) {
             XPathParts parts = XPathParts.getFrozenInstance(path);
             String cp = parts.getAttributeValue(-1, "cp");
             if (cp == null) {

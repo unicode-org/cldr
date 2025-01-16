@@ -80,7 +80,7 @@ public class TestDayPeriods extends TestFmwkPlus {
             List<DayPeriod> periods = periodInfo.getPeriods();
             CLDRFile cldrFile = CONFIG.getCLDRFile(locale, false);
             for (Iterator<String> it =
-                            cldrFile.iterator(
+                            cldrFile.iteratorDefault(
                                     "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/");
                     it.hasNext(); ) {
                 String path = it.next();

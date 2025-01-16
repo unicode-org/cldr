@@ -94,7 +94,7 @@ public class Whatis {
                 continue;
             }
             XpathResult r = null;
-            for (String xp : f) {
+            for (String xp : f.iterableDefault()) {
                 String str = f.getStringValue(xp);
                 what.pathsSearched++;
                 if (str.contains(q2)) {

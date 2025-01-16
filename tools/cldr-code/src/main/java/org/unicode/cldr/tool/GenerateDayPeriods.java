@@ -85,7 +85,7 @@ public class GenerateDayPeriods {
         Map<DayPeriod, String> result = new TreeMap<>();
         final String dayPeriodLocalization =
                 "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"stand-alone\"]/dayPeriodWidth[@type=\"wide\"]"; // [@type=\"stand-alone\"]/dayPeriodWidth[@type=\"wide\"]"
-        for (String path2 : With.in(localeFile.iterator())) {
+        for (String path2 : With.in(localeFile.iteratorDefault())) {
             if (!path2.startsWith(dayPeriodLocalization) || path2.endsWith("/alias")) {
                 continue;
             }

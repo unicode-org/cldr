@@ -76,7 +76,7 @@ public class GenerateChangeChart {
                     counter.add(s, 0); // just to have values
                 }
 
-                for (String path : oldFile) {
+                for (String path : oldFile.iterableDefault()) {
                     Level level = coverage.getCoverageLevel(path, locale);
                     if (level.compareTo(Level.MODERN) > 0) {
                         continue;

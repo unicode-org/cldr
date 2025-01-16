@@ -51,13 +51,14 @@ public class TestBCP47 extends TestFmwk {
                     new TreeMap<String, Object>(), new TreeMap<String, Object>(), String.class);
 
     static {
-        for (String path : With.in(ENGLISH.iterator("//ldml/localeDisplayNames/keys/key"))) {
+        for (String path : With.in(ENGLISH.iteratorDefault("//ldml/localeDisplayNames/keys/key"))) {
             XPathParts parts = XPathParts.getFrozenInstance(path);
             String value = ENGLISH.getStringValue(path);
             String key = parts.getAttributeValue(-1, "type");
             keyTypeTranslations.put(key, "", value);
         }
-        for (String path : With.in(ENGLISH.iterator("//ldml/localeDisplayNames/types/type"))) {
+        for (String path :
+                With.in(ENGLISH.iteratorDefault("//ldml/localeDisplayNames/types/type"))) {
             XPathParts parts = XPathParts.getFrozenInstance(path);
             String value = ENGLISH.getStringValue(path);
             String key = parts.getAttributeValue(-1, "key");
@@ -66,7 +67,7 @@ public class TestBCP47 extends TestFmwk {
         }
         for (String path :
                 With.in(
-                        ENGLISH.iterator(
+                        ENGLISH.iteratorDefault(
                                 "//ldml/localeDisplayNames/transformNames/transformName"))) {
             XPathParts parts = XPathParts.getFrozenInstance(path);
             String value = ENGLISH.getStringValue(path);

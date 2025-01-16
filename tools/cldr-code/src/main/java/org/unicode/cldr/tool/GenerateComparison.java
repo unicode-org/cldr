@@ -178,11 +178,11 @@ public class GenerateComparison {
             Set<String> paths;
             try {
                 paths = new HashSet<>();
-                oldFile.forEach(paths::add);
+                oldFile.iterableDefault().forEach(paths::add);
                 if (oldList.contains(locale)) {
                     paths.addAll(oldFile.getExtraPaths());
                 }
-                newFile.forEach(paths::add);
+                newFile.iterableDefault().forEach(paths::add);
                 if (newList.contains(locale)) {
                     paths.addAll(newFile.getExtraPaths());
                 }

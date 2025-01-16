@@ -406,7 +406,7 @@ public class GenerateG2xG2 {
             territory_currency = new TreeMap<>();
             Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
             CLDRFile supp = cldrFactory.make(CLDRFile.SUPPLEMENTAL_NAME, false);
-            for (String path : supp) {
+            for (String path : supp.iterableDefault()) {
                 if (path.indexOf("/currencyData") >= 0) {
                     // <region iso3166="AR">
                     // <currency iso4217="ARS" from="1992-01-01"/>

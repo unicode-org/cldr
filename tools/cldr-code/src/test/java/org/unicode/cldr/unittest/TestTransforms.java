@@ -211,7 +211,7 @@ public class TestTransforms extends TestFmwkPlus {
 
             Set<String> latinFromCyrillicSucceeds = new TreeSet<>();
             Set<String> latinFromCyrillicFails = new TreeSet<>();
-            for (String path : uzCyrl) {
+            for (String path : uzCyrl.iterableDefault()) {
                 String latnValue = uzLatn.getStringValue(path);
                 if (latnValue == null) {
                     continue;
@@ -885,7 +885,7 @@ public class TestTransforms extends TestFmwkPlus {
             }
             badPlusSample.clear();
             CLDRFile file = factory.make(locale, false);
-            for (String path : file) {
+            for (String path : file.iterableDefault()) {
                 if (path.contains("/exemplar") || path.contains("/parseLenients")) {
                     continue;
                 }

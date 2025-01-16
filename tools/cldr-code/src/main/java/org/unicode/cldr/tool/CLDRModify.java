@@ -516,11 +516,11 @@ public class CLDRModify {
                                 "//ldml/dates/calendars/calendar[@type=\"persian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"abbreviated\"]/alias";
                         System.out.println(k.getStringValue(testPath));
                         TreeSet s = new TreeSet();
-                        k.forEach(s::add);
+                        k.iterableDefault().forEach(s::add);
 
                         System.out.println(k.getStringValue(testPath));
                         Set orderedSet = new TreeSet(k.getComparator());
-                        k.forEach(orderedSet::add);
+                        k.iterableDefault().forEach(orderedSet::add);
                         for (Iterator it3 = orderedSet.iterator(); it3.hasNext(); ) {
                             String path = (String) it3.next();
                             if (path.equals(testPath)) {
@@ -665,7 +665,7 @@ public class CLDRModify {
 
     private static void removePosix(CLDRFile toMergeIn) {
         Set<String> toRemove = new HashSet<>();
-        for (String xpath : toMergeIn) {
+        for (String xpath : toMergeIn.iterableDefault()) {
             if (xpath.startsWith("//ldml/posix")) toRemove.add(xpath);
         }
         toMergeIn.removeAll(toRemove, false);
@@ -2532,7 +2532,7 @@ public class CLDRModify {
                             resolved = factory.make(cldrFileToFilter.getLocaleID(), true);
                         }
 
-                        for (String xpath : vxmlCommonMainFile) {
+                        for (String xpath : vxmlCommonMainFile.iterableDefault()) {
                             String vxmlValue = vxmlCommonMainFile.getStringValue(xpath);
                             if (vxmlValue == null) {
                                 continue;
@@ -3003,7 +3003,7 @@ public class CLDRModify {
                         String localeL1 =
                                 parentChain.get(parentChain.size() - 2); // get last before root
                         CLDRFile fileL1 = factory.make(localeL1, false); // only unresolved paths
-                        for (String path : fileL1) {
+                        for (String path : fileL1.iterableDefault()) {
                             if (!pathsHandled.contains(path)) {
                                 handlePath(path);
                             }
@@ -3195,13 +3195,13 @@ public class CLDRModify {
         Map<String, ValuePair> haveSameValues = new TreeMap<>();
         CLDRFile resolvedFile = cldrFactory.make(key, true);
         // get only those paths that are not in "root"
-        resolvedFile.forEach(skipPaths::add);
+        resolvedFile.iterableDefault().forEach(skipPaths::add);
 
         // first, collect all the paths
         for (String locale : availableChildren) {
             if (locale.indexOf("POSIX") >= 0) continue;
             CLDRFile item = cldrFactory.make(locale, false);
-            for (String xpath : item) {
+            for (String xpath : item.iterableDefault()) {
                 if (skipPaths.contains(xpath)) continue;
                 // skip certain elements
                 if (xpath.indexOf("/identity") >= 0) continue;
@@ -3248,7 +3248,7 @@ public class CLDRModify {
         CLDRFile replacements = SimpleFactory.makeFile("temp");
         fixList.setFile(k, inputOptions, cldrFactory, removal, replacements);
 
-        for (String xpath : k) {
+        for (String xpath : k.iterableDefault()) {
             fixList.handlePath(xpath);
         }
         fixList.handleEnd();

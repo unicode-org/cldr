@@ -103,7 +103,7 @@ public class VoteAPIHelper {
             resp.addAll(test.getPossibleProblems());
 
             // add all non-path status
-            for (final String x : cldrFile) {
+            for (final String x : cldrFile.iterableDefault()) {
                 List<CheckStatus> result = new ArrayList<CheckStatus>();
                 test.check(x, result, cldrFile.getStringValue(x));
                 for (final CheckStatus s : result) {

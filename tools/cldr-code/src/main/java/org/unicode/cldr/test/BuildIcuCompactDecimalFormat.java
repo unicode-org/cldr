@@ -141,7 +141,7 @@ public class BuildIcuCompactDecimalFormat {
                         ? "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength"
                         : "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength";
 
-        Iterator<String> it = resolvedCldrFile.iterator(prefix);
+        Iterator<String> it = resolvedCldrFile.iteratorDefault(prefix);
 
         String styleString = style.toString().toLowerCase(Locale.ENGLISH);
         while (it.hasNext()) {

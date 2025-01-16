@@ -73,7 +73,7 @@ public class TestSTFactory {
         STFactory fac = getFactory();
         CLDRFile mt = fac.make(locale, false);
         BallotBox<User> box = fac.ballotBoxForLocale(locale);
-        mt.iterator();
+        mt.iteratorDefault();
         final String somePath = "//ldml/localeDisplayNames/keys/key[@type=\"collation\"]";
         box.getValues(somePath);
     }

@@ -140,7 +140,7 @@ public class VettingAdder {
             fixXML(dir, locale + ".xml", dir, fixedLocale);
             CLDRFile cldr =
                     SimpleFactory.makeFromFile(dir + fixedLocale, locale, DraftStatus.approved);
-            for (Iterator<String> it3 = cldr.iterator(); it3.hasNext(); ) {
+            for (Iterator<String> it3 = cldr.iteratorDefault(); it3.hasNext(); ) {
                 String path = it3.next();
                 String value = cldr.getStringValue(path);
                 String fullPath = cldr.getFullXPath(path);
@@ -285,7 +285,7 @@ public class VettingAdder {
         for (Iterator<String> it = availableLocales.iterator(); it.hasNext(); ) {
             String locale = it.next();
             CLDRFile cldr = cldrFactory.make(locale, false);
-            for (Iterator<String> it2 = cldr.iterator(); it2.hasNext(); ) {
+            for (Iterator<String> it2 = cldr.iteratorDefault(); it2.hasNext(); ) {
                 String path = it2.next();
                 String fullPath = cldr.getFullXPath(path);
                 if (fullPath.indexOf("[@draft=") >= 0) {

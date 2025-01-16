@@ -28,7 +28,7 @@ public class CheckEmojiAnnotations {
         UnicodeSet rgiNoVariant = Emoji.getAllRgiNoES();
         CLDRFile root = CLDRConfig.getInstance().getAnnotationsFactory().make("en", false);
         UnicodeSet rootEmoji = new UnicodeSet();
-        for (String path : root) {
+        for (String path : root.iterableDefault()) {
             XPathParts parts = XPathParts.getFrozenInstance(path);
             String cp = parts.getAttributeValue(-1, "cp");
             if (cp != null && rgiNoVariant.contains(cp) == chooseEmoji) {

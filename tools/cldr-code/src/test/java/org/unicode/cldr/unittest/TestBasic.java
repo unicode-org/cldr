@@ -205,7 +205,7 @@ public class TestBasic extends TestFmwkPlus {
                 ) {
                     CLDRFile cldrfile =
                             CLDRFile.loadFromFile(fileName, "temp", DraftStatus.unconfirmed);
-                    for (String xpath : cldrfile) {
+                    for (String xpath : cldrfile.iterableDefault()) {
                         String fullPath = cldrfile.getFullXPath(xpath);
                         if (fullPath == null) {
                             fullPath = cldrfile.getFullXPath(xpath);
@@ -426,7 +426,7 @@ public class TestBasic extends TestFmwkPlus {
                             .freeze();
             UnicodeSet badSoFar = new UnicodeSet();
 
-            for (Iterator<String> it = file.iterator(); it.hasNext(); ) {
+            for (Iterator<String> it = file.iteratorDefault(); it.hasNext(); ) {
                 String path = it.next();
                 if (path.endsWith("/alias")) {
                     continue;
@@ -545,7 +545,7 @@ public class TestBasic extends TestFmwkPlus {
             if (file.isNonInheriting()) continue;
             logln(locale + "\t-\t" + english.nameGetter().getNameFromIdentifier(locale));
 
-            for (Iterator<String> it = file.iterator(); it.hasNext(); ) {
+            for (Iterator<String> it = file.iteratorDefault(); it.hasNext(); ) {
                 String path = it.next();
                 if (path.endsWith("/alias")) {
                     continue;
@@ -621,7 +621,7 @@ public class TestBasic extends TestFmwkPlus {
 
             logln(locale + "\t-\t" + english.nameGetter().getNameFromIdentifier(locale));
 
-            for (Iterator<String> it = file.iterator(); it.hasNext(); ) {
+            for (Iterator<String> it = file.iteratorDefault(); it.hasNext(); ) {
                 String path = it.next();
                 if (dtdType == null) {
                     dtdType = DtdType.fromPath(path);
@@ -805,7 +805,7 @@ public class TestBasic extends TestFmwkPlus {
                 continue;
             }
             // we check that the default content locale is always empty
-            for (Iterator<String> it = cldrFile.iterator(); it.hasNext(); ) {
+            for (Iterator<String> it = cldrFile.iteratorDefault(); it.hasNext(); ) {
                 String path = it.next();
                 if (path.contains("/identity")) {
                     continue;
@@ -907,7 +907,7 @@ public class TestBasic extends TestFmwkPlus {
         PathHeader.Factory phf = PathHeader.getFactory(testInfo.getEnglish());
         for (String child : children) {
             CLDRFile cldrFile = testInfo.getCLDRFile(child, false);
-            for (String path : cldrFile) {
+            for (String path : cldrFile.iterableDefault()) {
                 if (path.contains("/identity")) {
                     continue;
                 }
@@ -1047,7 +1047,7 @@ public class TestBasic extends TestFmwkPlus {
         final String localeParent = LocaleIDParser.getParent(locale);
         CLDRFile parentFile = testInfo.getCLDRFile(localeParent, true);
         int funnyCount = 0;
-        for (Iterator<String> it = cldrFile.iterator("", cldrFile.getComparator());
+        for (Iterator<String> it = cldrFile.iteratorDefault("", cldrFile.getComparator());
                 it.hasNext(); ) {
             String path = it.next();
             if (path.contains("/identity")) {

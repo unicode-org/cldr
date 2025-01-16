@@ -561,7 +561,7 @@ public class TestDTDAttributes extends TestFmwkPlus {
             for (String locale : testInfo.getCldrFactory().getAvailable()) {
                 CLDRFile file = testInfo.getCLDRFile(locale, false);
                 NodeData nodeData = null;
-                for (String xpath : file) {
+                for (String xpath : file.iterableDefault()) {
                     String value = file.getStringValue(xpath);
                     String fullXpath = file.getFullXPath(xpath);
                     XPathParts parts = XPathParts.getFrozenInstance(fullXpath);

@@ -68,7 +68,7 @@ public class PivotData {
             throws IOException {
         CLDRFile supplementalMetadata = cldrFactory.make("supplementalMetadata", false);
         if (false)
-            for (Iterator<String> it = supplementalMetadata.iterator(); it.hasNext(); ) {
+            for (Iterator<String> it = supplementalMetadata.iteratorDefault(); it.hasNext(); ) {
                 System.out.println(it.next());
             }
         String defaultContentList =
@@ -131,7 +131,7 @@ public class PivotData {
             throw new IllegalArgumentException("File cannot be completely aliased: " + localeID);
         }
 
-        for (Iterator<String> it = me.iterator(); it.hasNext(); ) {
+        for (Iterator<String> it = me.iteratorDefault(); it.hasNext(); ) {
             String path = it.next();
             if (path.startsWith("//ldml/identity")) continue;
             String fullPath = me.getFullXPath(path);

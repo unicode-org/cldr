@@ -1073,7 +1073,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
 
         // Get root LSR codes
 
-        for (String path : root) {
+        for (String path : root.iterableDefault()) {
             if (!path.startsWith("//ldml/localeDisplayNames/")) {
                 continue;
             }
@@ -1269,7 +1269,7 @@ public class TestCoverageLevel extends TestFmwkPlus {
         Output<String> pathWhereFound = new Output<>();
         Output<String> localeWhereFound = new Output<>();
         Set<Row.R5<String, String, Boolean, Boolean, Level>> inherited = new TreeSet<>();
-        for (String path : ENGLISH) {
+        for (String path : ENGLISH.iterableDefault()) {
             String value = ENGLISH.getStringValueWithBailey(path, pathWhereFound, localeWhereFound);
             final boolean samePath = path.equals(pathWhereFound.value);
             final boolean sameLocale = "en".equals(localeWhereFound.value);

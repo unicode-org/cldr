@@ -127,7 +127,7 @@ public class FindHardInheritance {
         CLDRFile cldrFile = factory.make(localeId, true, DraftStatus.contributed);
         CLDRFile unresolvedCldrFile = factory.make(localeId, false, DraftStatus.contributed);
 
-        for (String path : cldrFile) {
+        for (String path : cldrFile.iterableDefault()) {
             if (path.startsWith("//ldml/identity/")) {
                 continue;
             }

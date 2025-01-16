@@ -94,7 +94,7 @@ public class ShowPathHeaderDescriptions {
 
         Set<String> urls = new TreeSet<>();
 
-        for (String path : english) {
+        for (String path : english.iterableDefault()) {
             PathHeader pathHeader = phf.fromPath(path);
             String pdx = pathDescriptionFactory.getRawDescription(path, null);
             String url;

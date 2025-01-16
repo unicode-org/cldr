@@ -305,7 +305,7 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
         boolean isRoot = "root".equals(resolved.getLocaleID());
         Set<String> missing = !DEBUG ? null : new TreeSet<>();
 
-        for (String path : resolved) {
+        for (String path : resolved.iterableDefault()) {
             if (!isRoot) {
                 String locale2 = resolved.getSourceLocaleID(path, null);
                 if (locale2.equals("root") || locale2.equals("code-fallback")) {

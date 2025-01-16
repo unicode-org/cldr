@@ -98,8 +98,8 @@ public class CLDRFormat {
     private static String findFirstDifference(CLDRFile cldrFile, CLDRFile regenFile) {
         keys1.clear();
         keys2.clear();
-        cldrFile.forEach(keys1::add);
-        regenFile.forEach(keys2::add);
+        cldrFile.iterableDefault().forEach(keys1::add);
+        regenFile.iterableDefault().forEach(keys2::add);
         if (!keys1.equals(keys2)) {
             Set<String> missing = new TreeSet<>(keys1);
             missing.removeAll(keys2);

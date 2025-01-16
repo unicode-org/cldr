@@ -1916,7 +1916,7 @@ public class PersonNameFormatter {
         Map<ULocale, Order> _localeToOrder = new TreeMap<>();
 
         // read out the data and order it properly
-        for (String path : cldrFile) {
+        for (String path : cldrFile.iterableDefault()) {
             if (path.startsWith("//ldml/personNames") && !path.endsWith("/alias")) {
                 String value = cldrFile.getStringValue(path);
                 // System.out.println(path + ",\t" + value);
@@ -2130,7 +2130,7 @@ public class PersonNameFormatter {
                         new TreeMap<SampleType, Object>(),
                         new TreeMap<ModifiedField, Object>(),
                         String.class);
-        for (String path : cldrFile) {
+        for (String path : cldrFile.iterableDefault()) {
             if (path.startsWith("//ldml/personNames/sampleName")) {
                 // ldml/personNames/sampleName[@item="full"]/nameField[@type="prefix"]
                 String value = cldrFile.getStringValue(path);

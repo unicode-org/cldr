@@ -166,7 +166,7 @@ public class TestCheckDisplayCollisions extends TestFmwkPlus {
             possibleErrors.clear();
         }
         Map<String, List<CheckStatus>> found = new HashMap<>();
-        for (String path : cldrFileResolved) {
+        for (String path : cldrFileResolved.iterableDefault()) {
             String value = cldrFileResolved.getStringValue(path);
             // System.out.println(path + "\t" + value);
             if (path.equals(deciLong)) {

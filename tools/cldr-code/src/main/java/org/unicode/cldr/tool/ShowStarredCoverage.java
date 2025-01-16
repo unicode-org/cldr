@@ -386,7 +386,7 @@ public class ShowStarredCoverage {
 
         Counter<Level> counter = new Counter<>();
         TreeSet<PathHeader> pathHeaders = new TreeSet<>();
-        for (String path : file) {
+        for (String path : file.iterableDefault()) {
             if (path.endsWith("/alias") || path.startsWith("//ldml/identity")) {
                 continue;
             }

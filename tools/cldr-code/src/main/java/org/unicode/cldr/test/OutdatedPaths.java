@@ -166,7 +166,7 @@ public class OutdatedPaths {
         Map<Long, PathHeader> result = new HashMap<>();
         CLDRFile english = factory.make("en", true);
         PathHeader.Factory pathHeaders = PathHeader.getFactory(english);
-        for (String s : english) {
+        for (String s : english.iterableDefault()) {
             long id = StringId.getId(s);
             PathHeader pathHeader = pathHeaders.fromPath(s);
             result.put(id, pathHeader);

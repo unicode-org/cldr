@@ -235,7 +235,7 @@ public class TestLocale extends TestFmwkPlus {
         }
         // now check English-resolved
         CLDRFile english = testInfo.getEnglish();
-        for (String xpath : english) {
+        for (String xpath : english.iterableDefault()) {
             if (!xpath.startsWith("//ldml/localeDisplayNames/")) {
                 continue;
             }

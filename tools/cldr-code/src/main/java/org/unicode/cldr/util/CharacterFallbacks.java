@@ -25,7 +25,7 @@ public class CharacterFallbacks {
                 DtdData.getInstance(DtdType.supplementalData).getDtdComparator(null);
 
         for (Iterator<String> it =
-                        characterFallbacks.iterator("//supplementalData/characters/", comp);
+                        characterFallbacks.iteratorDefault("//supplementalData/characters/", comp);
                 it.hasNext(); ) {
             String path = it.next();
             String fullPath = characterFallbacks.getFullXPath(path);
@@ -36,6 +36,9 @@ public class CharacterFallbacks {
              * <substitute>-</substitute>
              */
             String value = parts.getAttributeValue(-2, "value");
+            if (value == null) {
+                throw new IllegalArgumentException("Null value in " + fullPath);
+            }
             if (value.codePointCount(0, value.length()) != 1) {
                 throw new IllegalArgumentException("Illegal value in " + fullPath);
             }

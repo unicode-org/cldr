@@ -24,7 +24,7 @@ public class TestOutdatedPaths extends TestFmwkPlus {
 
     public void TestBirths() {
         Multimap<CldrVersion, String> birthToPaths = TreeMultimap.create();
-        for (String path : testInfo.getEnglish()) {
+        for (String path : testInfo.getEnglish().iterableDefault()) {
             CldrVersion birth = outdatedPaths.getEnglishBirth(path);
             if (birth == null) birth = CldrVersion.unknown;
             birthToPaths.put(birth, path);
@@ -67,7 +67,7 @@ public class TestOutdatedPaths extends TestFmwkPlus {
 
         Map<PathHeader, String> sorted = new TreeMap<PathHeader, String>();
         logln(locale + " total outdated:\t" + outdatedPaths.countOutdated(locale));
-        for (String spath : cldrFile) {
+        for (String spath : cldrFile.iterableDefault()) {
             if (outdatedPaths.isOutdated(locale, spath)) {
                 sorted.put(pathHeaders.fromPath(spath), "");
             }

@@ -447,7 +447,7 @@ public class TestCLDRFile extends TestFmwk {
 
     public void checkLocale(CLDRFile cldr) {
         Matcher m = PatternCache.get("gregorian.*eras").matcher("");
-        for (Iterator<String> it = cldr.iterator("", new UTF16.StringComparator());
+        for (Iterator<String> it = cldr.iteratorDefault("", new UTF16.StringComparator());
                 it.hasNext(); ) {
             String path = it.next();
             if (m.reset(path).find() && !path.contains("alias")) {
@@ -496,7 +496,7 @@ public class TestCLDRFile extends TestFmwk {
 
         deltaTime = System.currentTimeMillis();
         for (int j = 0; j < 2; ++j) {
-            for (Iterator<String> it = english.iterator(); it.hasNext(); ) {
+            for (Iterator<String> it = english.iteratorDefault(); it.hasNext(); ) {
                 String dpath = it.next();
                 String value = english.getStringValue(dpath);
                 Set<String> paths = english.getPathsWithValue(value, "", null, null);
@@ -908,7 +908,7 @@ public class TestCLDRFile extends TestFmwk {
 
     public void TestSwissHighGerman() {
         CLDRFile swissHighGerman = testInfo.getCommonSeedExemplarsFactory().make("de_CH", true);
-        for (String xpath : swissHighGerman) {
+        for (String xpath : swissHighGerman.iterableDefault()) {
             if (xpath.equals("//ldml/characters/exemplarCharacters[@type=\"auxiliary\"]")) {
                 continue;
             }
@@ -930,7 +930,7 @@ public class TestCLDRFile extends TestFmwk {
         PathHeader.Factory pathHeaderFactory = PathHeader.getFactory(testInfo.getEnglish());
         Status status = new Status();
 
-        for (String xpath : af) {
+        for (String xpath : af.iterableDefault()) {
             if (missing.contains(xpath)) {
                 String value = af.getStringValue(xpath);
                 String source = af.getSourceLocaleID(xpath, status);

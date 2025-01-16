@@ -779,7 +779,8 @@ public class GrammarInfo implements Freezable<GrammarInfo> {
             for (String path :
                     With.in(
                             config.getRoot()
-                                    .iterator("//ldml/units/unitLength[@type=\"short\"]/unit"))) {
+                                    .iteratorDefault(
+                                            "//ldml/units/unitLength[@type=\"short\"]/unit"))) {
                 XPathParts parts = XPathParts.getFrozenInstance(path);
                 String unit = parts.getAttributeValue(3, "type");
                 // Add simple units

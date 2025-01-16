@@ -2604,7 +2604,7 @@ public class SurveyAjax extends HttpServlet {
         CLDRFile baseFile = stf.make(loc.getBaseName(), false);
 
         Set<String> all = new TreeSet<>();
-        for (String x : cf) {
+        for (String x : cf.iterableDefault()) {
             if (x.startsWith("//ldml/identity")) {
                 continue;
             }

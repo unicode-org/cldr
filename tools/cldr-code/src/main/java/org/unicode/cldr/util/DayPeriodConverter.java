@@ -159,7 +159,7 @@ public class DayPeriodConverter {
                 // System.out.println("\t<dayPeriodContext type=\"stand-alone\">");
                 // System.out.println("\t\t<dayPeriodWidth type=\"wide\">");
                 CLDRFile cldrFile = factory.make(locale, false);
-                for (String path : cldrFile) {
+                for (String path : cldrFile.iterableDefault()) {
                     if (path.endsWith("/alias")) {
                         continue;
                     }

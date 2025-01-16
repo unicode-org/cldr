@@ -463,7 +463,7 @@ public class ChartGrammaticalForms extends Chart {
             Set<String> unitsToAddGrammar = new TreeSet<>(rawUnitsToAddGrammar);
             Map<PathHeader, String> minimalInfo = new TreeMap<>();
             PathHeader.Factory phf = PathHeader.getFactory();
-            for (String path : cldrFile) {
+            for (String path : cldrFile.iterableDefault()) {
                 if (!path.startsWith("//ldml/units/unitLength[@type=\"long\"]/unit")) {
                     if (path.startsWith("//ldml/numbers/minimalPairs/")) {
                         if (!path.contains("ordinal")) {

@@ -141,7 +141,7 @@ public class TestMetazones {
             CLDRFile file,
             Relation<String, DateRangeAndZone> mzoneToData,
             Relation<String, DateRangeAndZone> zoneToDateRanges) {
-        for (String path : file) {
+        for (String path : file.iterableDefault()) {
             if (path.contains("/usesMetazone")) {
                 /*
                  * Sample: <zone type="Asia/Yerevan"> <usesMetazone to="1991-09-23"
@@ -787,7 +787,7 @@ public class TestMetazones {
     }
 
     boolean fileHasMetazones(CLDRFile file) {
-        for (String path : file) {
+        for (String path : file.iterableDefault()) {
             if (path.contains("usesMetazone")) return true;
         }
         return false;

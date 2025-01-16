@@ -92,7 +92,7 @@ public class TestCldrFactory extends TestFmwkPlus {
 
     private Status checkAnnotations(CLDRFile cldrFile) {
         Status status = Status.none;
-        for (String xpath : cldrFile) {
+        for (String xpath : cldrFile.iterableDefault()) {
             if (xpath.startsWith("//ldml/identity")) continue;
             boolean isAnnotation = xpath.startsWith("//ldml/annotation");
             if (isAnnotation) {
@@ -125,7 +125,7 @@ public class TestCldrFactory extends TestFmwkPlus {
      */
     private String getUncontainedPath(CLDRFile subset, CLDRFile superset) {
         int debugCount = 0;
-        for (String xpath : subset) {
+        for (String xpath : subset.iterableDefault()) {
             if (++debugCount < 100) {
                 logln(debugCount + "\t" + xpath);
             }
@@ -148,8 +148,8 @@ public class TestCldrFactory extends TestFmwkPlus {
     private String differentPathValue(CLDRFile a, CLDRFile b) {
         int debugCount = 0;
         Set<String> paths = new TreeSet<>();
-        a.forEach(paths::add);
-        b.forEach(paths::add);
+        a.iterableDefault().forEach(paths::add);
+        b.iterableDefault().forEach(paths::add);
         for (String xpath : paths) {
             if (++debugCount < 100) {
                 logln(debugCount + "\t" + xpath);

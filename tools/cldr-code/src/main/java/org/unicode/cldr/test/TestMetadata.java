@@ -209,7 +209,7 @@ public class TestMetadata {
 
     private static void testZones(CLDRFile metadata) {
         String zoneList = null;
-        for (Iterator<String> it = metadata.iterator(); it.hasNext(); ) {
+        for (Iterator<String> it = metadata.iteratorDefault(); it.hasNext(); ) {
             String key = it.next();
             if (key.indexOf("\"$tzid\"") >= 0) {
                 zoneList = metadata.getStringValue(key);

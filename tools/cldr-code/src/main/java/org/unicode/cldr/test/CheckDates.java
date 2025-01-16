@@ -220,7 +220,8 @@ public class CheckDates extends FactoryCheckCLDR {
 
         // load gregorian appendItems
         for (Iterator<String> it =
-                        resolved.iterator("//ldml/dates/calendars/calendar[@type=\"gregorian\"]");
+                        resolved.iteratorDefault(
+                                "//ldml/dates/calendars/calendar[@type=\"gregorian\"]");
                 it.hasNext(); ) {
             String path = it.next();
             String value = resolved.getWinningValue(path);

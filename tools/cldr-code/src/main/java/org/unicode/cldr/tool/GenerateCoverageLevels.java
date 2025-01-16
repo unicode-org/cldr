@@ -105,7 +105,7 @@ public class GenerateCoverageLevels {
         String locale = "en";
         Set<String> sorted =
                 Builder.with(new TreeSet<String>())
-                        .addAll(cldrFile.iterator())
+                        .addAll(cldrFile.iteratorDefault())
                         .addAll(cldrFile.getExtraPaths())
                         .get();
         Set<R3<Level, String, Inheritance>> items = new TreeSet<>(new RowComparator());
@@ -517,7 +517,7 @@ public class GenerateCoverageLevels {
             Set<String> ordinals,
             Set<String> spellout,
             Set<String> others) {
-        for (String path : cldrFile) {
+        for (String path : cldrFile.iterableDefault()) {
             if (path.endsWith("/alias")) {
                 continue;
             }
@@ -628,7 +628,7 @@ public class GenerateCoverageLevels {
 
     private static void getCollationData(
             String locale, CLDRFile cldrFile, Set<String> localesFound) {
-        for (String path : cldrFile) {
+        for (String path : cldrFile.iterableDefault()) {
             if (path.endsWith("/alias")) {
                 continue;
             }
@@ -665,7 +665,7 @@ public class GenerateCoverageLevels {
         Status status = new Status();
         Set<String> sorted =
                 Builder.with(new TreeSet<String>())
-                        .addAll(cldrFile.iterator())
+                        .addAll(cldrFile.iteratorDefault())
                         .addAll(cldrFile.getExtraPaths())
                         .get();
         CoverageInfo coverageInfo = CLDRConfig.getInstance().getCoverageInfo();

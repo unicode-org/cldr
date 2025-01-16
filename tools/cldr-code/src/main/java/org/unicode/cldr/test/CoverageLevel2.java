@@ -392,7 +392,8 @@ public class CoverageLevel2 {
                         CLDRPaths.COMMON_DIRECTORY + "supplemental-temp/coverageLevels2.xml");
 
         CLDRFile cldrFile = testInfo.getCldrFactory().make(locale, true);
-        Set<String> paths = Builder.with(new TreeSet<String>()).addAll(cldrFile).get();
+        Set<String> paths =
+                Builder.with(new TreeSet<String>()).addAll(cldrFile.iterableDefault()).get();
         PathHeader.Factory phf = PathHeader.getFactory();
         Map<PathHeader, String> diff = new TreeMap<>();
         Map<PathHeader, String> same = new TreeMap<>();

@@ -79,7 +79,7 @@ public class GenerateNumberingSystemAliases {
                 xpp.setElement(-1, element);
                 xpp.setAttribute(-1, "numberSystem", ns);
                 final String basePath = xpp.toString();
-                if (!root.iterator(basePath).hasNext()) {
+                if (!root.iteratorDefault(basePath).hasNext()) {
                     missing.put(Pair.of(ns, element), basePath);
                 }
             }

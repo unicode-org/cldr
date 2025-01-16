@@ -887,7 +887,7 @@ public class TestPathHeader extends TestFmwkPlus {
             Set<String> alreadySeen) {
         CLDRFile nativeFile = info.getCLDRFile(localeID, resolved);
         int count = 0;
-        for (String path : nativeFile) {
+        for (String path : nativeFile.iterableDefault()) {
             if (alreadySeen.contains(path)) {
                 continue;
             }
@@ -1003,7 +1003,7 @@ public class TestPathHeader extends TestFmwkPlus {
         Map<String, String> collide = new TreeMap<>();
 
         logln("Traversing Paths");
-        for (String path : english) {
+        for (String path : english.iterableDefault()) {
             PathHeader pathHeader = pathHeaderFactory.fromPath(path);
             String value = english.getStringValue(path);
             if (pathHeader == null) {
@@ -1416,7 +1416,8 @@ public class TestPathHeader extends TestFmwkPlus {
                 CLDRConfig.getInstance().getSupplementalFactory().make("supplementalData", false);
         List<String> failures = new ArrayList<>();
         Multimap<String, String> pathValuePairs = LinkedListMultimap.create();
-        for (String test : With.in(supplementalFile.iterator("//supplementalData/weekData"))) {
+        for (String test :
+                With.in(supplementalFile.iteratorDefault("//supplementalData/weekData"))) {
             failures.clear();
             XPathParts parts = XPathParts.getFrozenInstance(supplementalFile.getFullXPath(test));
             supplementalFile.getDtdData().getRegularizedPaths(parts, pathValuePairs);
@@ -1475,7 +1476,7 @@ public class TestPathHeader extends TestFmwkPlus {
         PathHeader.Factory phf = PathHeader.getFactory(CLDRConfig.getInstance().getEnglish());
         Counter<PageId> counterPageId = new Counter<>();
         Counter<PageId> counterPageIdAll = new Counter<>();
-        for (String path : english) {
+        for (String path : english.iterableDefault()) {
             Level level =
                     CLDRConfig.getInstance()
                             .getSupplementalDataInfo()
@@ -1704,7 +1705,7 @@ public class TestPathHeader extends TestFmwkPlus {
             PathHeader.Factory phf = PathHeader.getFactory();
             Counter<PageId> c = new Counter<>();
             counters.add(c);
-            for (String path : cldrFile) {
+            for (String path : cldrFile.iterableDefault()) {
                 PathHeader ph = phf.fromPath(path);
                 c.add(ph.getPageId(), 1);
             }

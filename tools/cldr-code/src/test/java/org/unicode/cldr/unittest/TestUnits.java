@@ -189,7 +189,7 @@ public class TestUnits extends TestFmwk {
     public void TestSpaceInNarrowUnits() {
         final CLDRFile english = CLDR_CONFIG.getEnglish();
         final Matcher m = Pattern.compile("narrow.*unitPattern").matcher("");
-        for (String path : english) {
+        for (String path : english.iterableDefault()) {
             if (m.reset(path).find()) {
                 String value = english.getStringValue(path);
                 if (value.contains("} ")) {
@@ -2460,7 +2460,7 @@ public class TestUnits extends TestFmwk {
     }
 
     public Set<String> getUnits(CLDRFile root, Set<String> unitLongIds) {
-        for (String path : root) {
+        for (String path : root.iterableDefault()) {
             XPathParts parts = XPathParts.getFrozenInstance(path);
             int item = parts.findElement("unit");
             if (item == -1) {
@@ -2831,7 +2831,7 @@ public class TestUnits extends TestFmwk {
             checkUnits.setCldrFileToCheck(cldrFile, options, possibleErrors);
 
             for (String path :
-                    StreamSupport.stream(cldrFile.spliterator(), false)
+                    StreamSupport.stream(cldrFile.iterableDefault().spliterator(), false)
                             .sorted()
                             .collect(Collectors.toList())) {
                 UnitPathType pathType =
@@ -3018,7 +3018,7 @@ public class TestUnits extends TestFmwk {
                             new TreeMap<String, Object>(),
                             Boolean.class);
 
-            for (String path : cldrFile) {
+            for (String path : cldrFile.iterableDefault()) {
                 if (!path.startsWith("//ldml/units/unitLength[@type=\"long\"]/unit[@type=")) {
                     continue;
                 }
@@ -3242,7 +3242,7 @@ public class TestUnits extends TestFmwk {
      */
     public Set<String> checkCldrFileUnits(String title, final CLDRFile cldrFile) {
         Set<String> shortUnitsFound = new TreeSet<>();
-        for (String path : cldrFile) {
+        for (String path : cldrFile.iterableDefault()) {
             if (!path.startsWith("//ldml/units/unitLength")) {
                 continue;
             }
@@ -3294,7 +3294,7 @@ public class TestUnits extends TestFmwk {
     public void TestEnglishDisplayNames() {
         CLDRFile en = CLDRConfig.getInstance().getEnglish();
         ImmutableSet<String> unitSkips = ImmutableSet.of("temperature-generic", "graphics-em");
-        for (String path : en) {
+        for (String path : en.iterableDefault()) {
             if (path.startsWith("//ldml/units/unitLength[@type=\"long\"]")
                     && path.endsWith("/displayName")) {
                 if (path.contains("coordinateUnit")) {
@@ -3371,7 +3371,8 @@ public class TestUnits extends TestFmwk {
         for (String path :
                 With.in(
                         config.getRoot()
-                                .iterator("//ldml/units/unitLength[@type=\"short\"]/unit"))) {
+                                .iteratorDefault(
+                                        "//ldml/units/unitLength[@type=\"short\"]/unit"))) {
             XPathParts parts = XPathParts.getFrozenInstance(path);
             String longUnit = parts.getAttributeValue(3, "type");
             // Add simple units

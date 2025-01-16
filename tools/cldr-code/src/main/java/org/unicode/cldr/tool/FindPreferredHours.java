@@ -124,7 +124,7 @@ public class FindPreferredHours {
             // continue;
             // }
             final CLDRFile cldrFile = factory.make(locale, true);
-            for (String path : With.in(cldrFile)) {
+            for (String path : With.in(cldrFile.iterableDefault())) {
                 // if (path.contains("/timeFormats")) {
                 // System.out.println(path);
                 // }

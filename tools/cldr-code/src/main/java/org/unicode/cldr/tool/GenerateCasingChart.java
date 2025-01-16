@@ -114,7 +114,7 @@ public class GenerateCasingChart {
             Level level = StandardCodes.make().getLocaleCoverageLevel("cldr", locale);
             boolean hasCasedLetters = changesUpper.containsSome(exemplars);
             Set<String> items = new LinkedHashSet<>();
-            cldrFile.iterator("//ldml/contextTransforms").forEachRemaining(items::add);
+            cldrFile.iteratorDefault("//ldml/contextTransforms").forEachRemaining(items::add);
             if (!hasCasedLetters) {
                 if (items.size() != 0) {
                     System.out.println(locale + "Uncased language has context!!!");

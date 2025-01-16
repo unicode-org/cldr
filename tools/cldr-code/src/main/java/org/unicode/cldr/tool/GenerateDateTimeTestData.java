@@ -31,6 +31,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -470,7 +472,7 @@ public class GenerateDateTimeTestData {
         return ZonedDateTime.of(localDt, timeZoneId);
     }
 
-    private static final Optional<CLDRFile> getCLDRFile(String locale) {
+    public static final Optional<CLDRFile> getCLDRFile(String locale) {
         CLDRFile cldrFile =
                 CLDR_FACTORY.make(
                         locale, true, DraftStatus.contributed); // don't include provisional data
@@ -1206,14 +1208,30 @@ public class GenerateDateTimeTestData {
         return builder.build();
     }
 
-    private static String computeSkeletonFromSemanticSkeleton(ICUServiceBuilder icuServiceBuilder,
+    private static final Pattern SKELETON_YEAR_FIELD_PATTERN = Pattern.compile("(G+)?y+");
+
+    private static final Pattern SKELETON_MONTH_FIELD_PATTERN = Pattern.compile("M+");
+
+    private static final Pattern SKELETON_DAY_FIELD_PATTERN = Pattern.compile("d+");
+
+    private static String getFieldFromDateTimeSkeleton(CLDRFile localeCldrFile, FieldStyleCombo fieldStyleCombo, String calendarStr, Pattern fieldPattern) {
+        String skeletonLength = fieldStyleCombo.semanticSkeletonLength.getLabel();
+        String dateTimeSkeleton = localeCldrFile.getDateSkeleton(calendarStr, skeletonLength);
+        Matcher monthFieldResult = fieldPattern.matcher(dateTimeSkeleton);
+        assert monthFieldResult.matches();
+        String monthField = monthFieldResult.group(1);
+        return monthField;
+    }
+
+    public static String computeSkeletonFromSemanticSkeleton(ICUServiceBuilder icuServiceBuilder,
         CLDRFile localeCldrFile, FieldStyleCombo fieldStyleCombo, String calendarStr) {
         SemanticSkeleton skeleton = fieldStyleCombo.semanticSkeleton;
         StringBuilder sb = new StringBuilder();
 
         // Year
         if (skeleton.hasYear()) {
-            // TODO
+            return getFieldFromDateTimeSkeleton(localeCldrFile, fieldStyleCombo, calendarStr,
+                SKELETON_YEAR_FIELD_PATTERN);
         }
 
         // Month
@@ -1233,14 +1251,15 @@ public class GenerateDateTimeTestData {
                         break;
                 }
             } else {
-                String skeletonLength = fieldStyleCombo.semanticSkeletonLength.getLabel();
-                String dateTimeSkeleton = localeCldrFile.getDateSkeleton(calendarStr, skeletonLength);
+                return getFieldFromDateTimeSkeleton(localeCldrFile, fieldStyleCombo, calendarStr,
+                    SKELETON_MONTH_FIELD_PATTERN);
             }
         }
 
         // Day
         if (skeleton.hasDay()) {
-            // TODO
+            return getFieldFromDateTimeSkeleton(localeCldrFile, fieldStyleCombo, calendarStr,
+                SKELETON_DAY_FIELD_PATTERN);
         }
 
         if (skeleton.hasWeekday()) {

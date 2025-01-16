@@ -290,23 +290,24 @@ These matched the ordering of two legacy character encodings. [CLDR-16062][]
 ## 46.1 Changes
 Version 46.1 is a dot release.
 
+### Message Format 2.0
 The major change is to bring the [Message Format 2.0 specification in Part 9]((https://www.unicode.org/reports/tr35/tr35-74/tr35.html#message-format-modifications)) to Final Candidate status.
 
 Addition standard functions and options are available:
 
- - Define REQUIRED and RECOMMENDED functions and options in the function registry.
- - Number, date/time, and string functions
- - Add :u options to the :u namespace
- - Add calendar and numberingSystem options to date/time functions.
- - Add hour12 date/time override option
- - Create timezone as a Proposed REQUIRED option for date/time functions.
- - Add :unit as a Proposed RECOMMENDED function.
+ - Included number, date/time, and string functions
+ - Each function and option is REQUIRED or RECOMMENDED. It may also be **Proposed** for a future release.
+ - Added :u options to the :u namespace
+ - Added options calendar, numberingSystem, and hour12 options to date/time functions.
+ - Added timezone as a Proposed REQUIRED option for date/time functions.
+ - Added :unit as a Proposed RECOMMENDED function.
 
 There are 3 tech preview implementations available
  - ICU4J: Java: [com.ibm.icu.message2](https://unicode-org.github.io/icu-docs/apidoc/dev/icu4j/index.html?com/ibm/icu/message2/package-summary.html), part of ICU 76, is a tech preview implementation of the MessageFormat 2.0, together with a formatting API. See the [ICU User Guide](https://unicode-org.github.io/icu/userguide/format_parse/messages/mf2.html) for examples and a quickstart guide, and [Trying MF 2.0 Final Candidate](https://unicode-org.github.io/icu/userguide/format_parse/messages/try-mf2.html) to try a “Hello World”.
  - ICU4C: [icu::message2::MessageFormatter](https://unicode-org.github.io/icu-docs/apidoc/released/icu4c/classicu_1_1message2_1_1MessageFormatter.html), part of ICU 76, is a tech preview implementation of MessageFormat 2.0, together with a formatting API. See the [ICU User Guide](https://unicode-org.github.io/icu/userguide/format_parse/messages/mf2.html) for examples and a quickstart guide, and [Trying MF 2.0 Final Candidate](https://unicode-org.github.io/icu/userguide/format_parse/messages/try-mf2.html) to try a “Hello World”.
  - Javascript: [messageformat](https://github.com/messageformat/messageformat/tree/main/mf2/messageformat) 4.0 provides a formatter and conversion tools for the MessageFormat 2 syntax, together with a polyfill of the runtime API proposed for ECMA-402.
 
+### Other Changes
 Other changes include:
 
  - More explicit well-formedness and validity constraints for unit of measurement identifiers

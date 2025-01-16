@@ -1545,7 +1545,7 @@ public class CLDRFile implements Freezable<CLDRFile>, LocaleStringProvider {
         }
     }
 
-    public Iterable<String> iterableWithoutExtras() {
+    private Iterable<String> iterableWithoutExtras() {
         return this::iteratorWithoutExtras;
     }
 

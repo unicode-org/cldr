@@ -373,10 +373,7 @@ public class TestInheritance extends TestFmwk {
                             "nn",
                             "nb",
                             // Per CLDR-15276 hi-Latn can have an explicit parent
-                            "hi_Latn",
-                            // Per CLDR-17587 Haitian Creole is largely influenced by French and is
-                            // best boot-strapped by French
-                            "ht"));
+                            "hi_Latn"));
 
     public void TestParentLocaleInvariants() {
         // Testing invariant relationships in parent locales - See

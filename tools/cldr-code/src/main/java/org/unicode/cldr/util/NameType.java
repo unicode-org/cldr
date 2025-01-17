@@ -37,6 +37,11 @@ public enum NameType {
     KEY("//ldml/localeDisplayNames/keys/key[@type=\"", "\"]"),
     KEY_TYPE("//ldml/localeDisplayNames/types/type[@key=\"", "\"][@type=\"", "\"]"),
     SUBDIVISION("//ldml/localeDisplayNames/subdivisions/subdivision[@type=\"", "\"]");
+
+    /**
+     * The first, second, and (where applicable) third fragments comprising the pattern for the
+     * category of xpaths corresponding to this NameType
+     */
     private final String first, second, third;
 
     NameType(String first, String second) {
@@ -160,12 +165,13 @@ public enum NameType {
         try {
             return NameType.valueOf(s);
         } catch (IllegalArgumentException e) {
-            if ("EXEMPLAR_CITY".equals(s)) {
-                return TZ_EXEMPLAR;
-            } else if ("KEY|TYPE".equals(s)) {
-                return KEY_TYPE;
-            } else if ("REGION".equals(s)) {
-                return TERRITORY;
+            switch (s) {
+                case "EXEMPLAR_CITY":
+                    return TZ_EXEMPLAR;
+                case "KEY|TYPE":
+                    return KEY_TYPE;
+                case "REGION":
+                    return TERRITORY;
             }
         }
         return NONE;

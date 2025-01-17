@@ -4402,13 +4402,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 		<symbols numberSystem="vaii">
 			<timeSeparator draft="unconfirmed">↑↑↑</timeSeparator>
 		</symbols>
-		<decimalFormats>
-			<decimalFormatLength>
-				<decimalFormat>
-					<pattern draft="unconfirmed">#,##0.###;#,##0.###-</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-		</decimalFormats>
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength>
 				<decimalFormat>
@@ -4430,13 +4423,6 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 				</percentFormat>
 			</percentFormatLength>
 		</percentFormats>
-		<currencyFormats>
-			<currencyFormatLength>
-				<currencyFormat type="standard">
-					<pattern draft="unconfirmed">¤ #,##0.00;¤ #,##0.00-</pattern>
-				</currencyFormat>
-			</currencyFormatLength>
-		</currencyFormats>
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
 				<currencyFormat type="standard">

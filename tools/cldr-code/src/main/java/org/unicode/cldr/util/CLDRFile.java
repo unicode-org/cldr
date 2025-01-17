@@ -595,6 +595,10 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
                     result = dataSource.getValueAtPath(fallbackPath);
                 }
             }
+            // Note: the following can occur even when result != null at this point, and it can
+            // improve the result.For example, the code above may give "zh_Hans (FONIPA)", while the
+            // constructed value gotten below is "xitoy [soddalashgan] (FONIPA)" (in locale uz),
+            // which is expected by TestLocaleDisplay.
             if (isResolved()
                     && GlossonymConstructor.valueIsBogus(result)
                     && GlossonymConstructor.pathIsEligible(xpath)) {
@@ -3148,6 +3152,10 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
     private List<String> getRawExtraPathsPrivate() {
         Set<String> toAddTo = new HashSet<>();
         SupplementalDataInfo supplementalData = CLDRConfig.getInstance().getSupplementalDataInfo();
+
+        ExtraPaths.getInstance(NameType.LANGUAGE).append(toAddTo);
+        ExtraPaths.getInstance(NameType.SCRIPT).append(toAddTo);
+
         // units
         PluralInfo plurals = supplementalData.getPlurals(PluralType.cardinal, getLocaleID());
         if (plurals == null && DEBUG) {
@@ -3527,7 +3535,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
     public boolean isNotRoot(String distinguishedPath) {
         String source = getSourceLocaleID(distinguishedPath, null);
         return source != null
-                && !source.equals("root")
+                && !source.equals(LocaleNames.ROOT)
                 && !source.equals(XMLSource.CODE_FALLBACK_ID);
     }
 

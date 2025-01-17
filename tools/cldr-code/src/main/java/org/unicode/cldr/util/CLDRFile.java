@@ -8,8 +8,6 @@
  */
 package org.unicode.cldr.util;
 
-import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableMap.Builder;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.util.concurrent.UncheckedExecutionException;
 import com.ibm.icu.impl.Relation;
@@ -2359,30 +2357,6 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
             }
         }
         return code;
-    }
-
-    static final ImmutableMap<String, String> FIX_KEY_NAME;
-
-    static {
-        Builder<String, String> temp = ImmutableMap.builder();
-        for (String s :
-                Arrays.asList(
-                        "colAlternate",
-                        "colBackwards",
-                        "colCaseFirst",
-                        "colCaseLevel",
-                        "colNormalization",
-                        "colNumeric",
-                        "colReorder",
-                        "colStrength")) {
-            temp.put(s.toLowerCase(Locale.ROOT), s);
-        }
-        FIX_KEY_NAME = temp.build();
-    }
-
-    static String fixKeyName(String code) {
-        String result = FIX_KEY_NAME.get(code);
-        return result == null ? code : result;
     }
 
     /** For use in getting short names. */

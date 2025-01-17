@@ -523,8 +523,7 @@ public class CLDRTest extends TestFmwk {
                     maps[nameTypeIndex].put(value, xpath);
                     continue;
                 }
-                String theName = nameType.getNameTypeName();
-                collisions.add(theName + "\t" + value + "\t" + xpath + "\t" + xpath2);
+                collisions.add(nameType + "\t" + value + "\t" + xpath + "\t" + xpath2);
                 surveyInfo.add(
                         locale
                                 + "\t"

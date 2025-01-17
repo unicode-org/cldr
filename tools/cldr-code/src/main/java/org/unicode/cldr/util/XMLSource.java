@@ -1613,12 +1613,8 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                             NameType.CURRENCY_SYMBOL,
                             NameType.TZ_EXEMPLAR);
             for (NameType nameType : nameTypeList) {
-                String type = nameType.getNameName();
-                String type2 =
-                        (nameType == NameType.CURRENCY_SYMBOL)
-                                ? NameType.CURRENCY.getNameName()
-                                : (nameType == NameType.TZ_EXEMPLAR) ? "tzid" : type;
-                Set<String> codes = sc.getSurveyToolDisplayCodes(type2);
+                StandardCodes.CodeType codeType = StandardCodes.CodeType.fromNameType(nameType);
+                Set<String> codes = sc.getGoodAvailableCodes(codeType);
                 for (Iterator<String> codeIt = codes.iterator(); codeIt.hasNext(); ) {
                     String code = codeIt.next();
                     String value = code;

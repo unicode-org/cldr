@@ -580,6 +580,7 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<likelySubtag from="pdt" to="pdt_Latn_CA"/>		<!--Plautdietsch‧?‧?	➡ Plautdietsch‧Latin‧Canada-->
 		<likelySubtag from="peo" to="peo_Xpeo_IR"/>		<!--Old Persian‧?‧?	➡ Old Persian‧Old Persian‧Iran-->
 		<likelySubtag from="pfl" to="pfl_Latn_DE"/>		<!--Palatine German‧?‧?	➡ Palatine German‧Latin‧Germany-->
+		<likelySubtag from="pgd" to="pgd_Khar_PK"/>		<!--Gāndhārī‧?‧?	➡ Gāndhārī‧Kharoshthi‧Pakistan-->
 		<likelySubtag from="phn" to="phn_Phnx_LB"/>		<!--Phoenician‧?‧?	➡ Phoenician‧Phoenician‧Lebanon-->
 		<likelySubtag from="pis" to="pis_Latn_SB"/>		<!--Pijin‧?‧?	➡ Pijin‧Latin‧Solomon Islands-->
 		<likelySubtag from="pka" to="pka_Brah_IN"/>		<!--Ardhamāgadhī Prākrit‧?‧?	➡ Ardhamāgadhī Prākrit‧Brahmi‧India-->
@@ -594,7 +595,6 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<likelySubtag from="pon" to="pon_Latn_FM"/>		<!--Pohnpeian‧?‧?	➡ Pohnpeian‧Latin‧Micronesia-->
 		<likelySubtag from="ppl" to="ppl_Latn_SV"/>		<!--Pipil‧?‧?	➡ Pipil‧Latin‧El Salvador-->
 		<likelySubtag from="pqm" to="pqm_Latn_CA"/>		<!--Maliseet-Passamaquoddy‧?‧?	➡ Maliseet-Passamaquoddy‧Latin‧Canada-->
-		<likelySubtag from="pra" to="pra_Khar_PK"/>		<!--Prakrit languages‧?‧?	➡ Prakrit languages‧Kharoshthi‧Pakistan-->
 		<likelySubtag from="prd" to="prd_Arab_IR"/>		<!--Parsi-Dari‧?‧?	➡ Parsi-Dari‧Arabic‧Iran-->
 		<likelySubtag from="prg" to="prg_Latn_PL"/>		<!--Prussian‧?‧?	➡ Prussian‧Latin‧Poland-->
 		<likelySubtag from="ps" to="ps_Arab_AF"/>		<!--Pashto‧?‧?	➡ Pashto‧Arabic‧Afghanistan-->
@@ -1174,7 +1174,7 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<likelySubtag from="und_Kali" to="eky_Kali_MM"/>		<!--?‧Kayah Li‧?	➡ Eastern Kayah‧Kayah Li‧Myanmar (Burma)-->
 		<likelySubtag from="und_Kana" to="ja_Kana_JP"/>		<!--?‧Katakana‧?	➡ Japanese‧Katakana‧Japan-->
 		<likelySubtag from="und_Kawi" to="kaw_Kawi_ID"/>		<!--?‧Kawi‧?	➡ Kawi‧Kawi‧Indonesia-->
-		<likelySubtag from="und_Khar" to="pra_Khar_PK"/>		<!--?‧Kharoshthi‧?	➡ Prakrit languages‧Kharoshthi‧Pakistan-->
+		<likelySubtag from="und_Khar" to="pgd_Khar_PK"/>		<!--?‧Kharoshthi‧?	➡ Gāndhārī‧Kharoshthi‧Pakistan-->
 		<likelySubtag from="und_Khmr" to="km_Khmr_KH"/>		<!--?‧Khmer‧?	➡ Khmer‧Khmer‧Cambodia-->
 		<likelySubtag from="und_Khoj" to="sd_Khoj_IN"/>		<!--?‧Khojki‧?	➡ Sindhi‧Khojki‧India-->
 		<likelySubtag from="und_Kits" to="zkt_Kits_CN"/>		<!--?‧Khitan small script‧?	➡ Kitan‧Khitan small script‧China-->
@@ -5649,7 +5649,6 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<likelySubtag from="pfa" to="pfa_Latn_FM" origin="sil1"/>		<!--Pááfang‧?‧?	➡ Pááfang‧Latin‧Micronesia-->
 		<likelySubtag from="pfe" to="pfe_Latn_CM" origin="sil1"/>		<!--Pere‧?‧?	➡ Pere‧Latin‧Cameroon-->
 		<likelySubtag from="pga" to="pga_Latn_SS" origin="sil1"/>		<!--Sudanese Creole Arabic‧?‧?	➡ Sudanese Creole Arabic‧Latin‧South Sudan-->
-		<likelySubtag from="pgd" to="pgd_Khar_PK" origin="sil1"/>		<!--Gāndhārī‧?‧?	➡ Gāndhārī‧Kharoshthi‧Pakistan-->
 		<likelySubtag from="pgg" to="pgg_Deva_IN" origin="sil1"/>		<!--Pangwali‧?‧?	➡ Pangwali‧Devanagari‧India-->
 		<likelySubtag from="pgi" to="pgi_Latn_PG" origin="sil1"/>		<!--Pagi‧?‧?	➡ Pagi‧Latin‧Papua New Guinea-->
 		<likelySubtag from="pgk" to="pgk_Latn_VU" origin="sil1"/>		<!--Rerep‧?‧?	➡ Rerep‧Latin‧Vanuatu-->
@@ -5783,6 +5782,7 @@ not be patched by hand, as any changes made in that fashion may be lost.
 		<likelySubtag from="pps" to="pps_Latn_MX" origin="sil1"/>		<!--San Luís Temalacayuca Popoloca‧?‧?	➡ San Luís Temalacayuca Popoloca‧Latin‧Mexico-->
 		<likelySubtag from="ppt" to="ppt_Latn_PG" origin="sil1"/>		<!--Pare‧?‧?	➡ Pare‧Latin‧Papua New Guinea-->
 		<likelySubtag from="pqa" to="pqa_Latn_NG" origin="sil1"/>		<!--Pa'a‧?‧?	➡ Pa'a‧Latin‧Nigeria-->
+		<likelySubtag from="pra" to="pra_Khar_PK" origin="sil1"/>		<!--Prakrit languages‧?‧?	➡ Prakrit languages‧Kharoshthi‧Pakistan-->
 		<likelySubtag from="prc" to="prc_Arab_AF" origin="sil1"/>		<!--Parachi‧?‧?	➡ Parachi‧Arabic‧Afghanistan-->
 		<likelySubtag from="pre" to="pre_Latn_ST" origin="sil1"/>		<!--Principense‧?‧?	➡ Principense‧Latin‧São Tomé & Príncipe-->
 		<likelySubtag from="prf" to="prf_Latn_PH" origin="sil1"/>		<!--Paranan‧?‧?	➡ Paranan‧Latin‧Philippines-->

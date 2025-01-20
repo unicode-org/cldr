@@ -1613,6 +1613,7 @@ public class PathHeader implements Comparable<PathHeader> {
                                             .put("gmtFormat", "GMT Format")
                                             .put("hourFormat", "GMT Hours/Minutes Format")
                                             .put("gmtZeroFormat", "GMT Zero Format")
+                                            .put("gmtUnknownFormat", "GMT Unknown Format")
                                             .put("fallbackFormat", "Location Fallback Format")
                                             .freeze();
                             final List<String> fieldOrder =
@@ -1623,6 +1624,7 @@ public class PathHeader implements Comparable<PathHeader> {
                                             "gmtFormat",
                                             "hourFormat",
                                             "gmtZeroFormat",
+                                            "gmtUnknownFormat",
                                             "fallbackFormat");
 
                             if (fieldOrder.contains(source)) {

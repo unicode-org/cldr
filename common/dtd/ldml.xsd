@@ -4512,6 +4512,7 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
           <xs:element maxOccurs="unbounded" minOccurs="0" ref="hoursFormat"/>
           <xs:element maxOccurs="unbounded" minOccurs="0" ref="gmtFormat"/>
           <xs:element maxOccurs="unbounded" minOccurs="0" ref="gmtZeroFormat"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" ref="gmtUnknownFormat"/>
           <xs:element maxOccurs="unbounded" minOccurs="0" ref="regionFormat"/>
           <xs:element maxOccurs="unbounded" minOccurs="0" ref="fallbackFormat"/>
           <xs:element maxOccurs="unbounded" minOccurs="0" ref="fallbackRegionFormat"/>

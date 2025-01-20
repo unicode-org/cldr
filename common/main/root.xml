@@ -3602,6 +3602,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<symbols numberSystem="wcho">
 			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
 		</symbols>
+		<symbols numberSystem="yiii">
+			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
+		</symbols>
 		<decimalFormats>
 			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
 		</decimalFormats>
@@ -3859,6 +3862,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 		<decimalFormats numberSystem="wcho">
 			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
 		</decimalFormats>
+		<decimalFormats numberSystem="yiii">
+			<alias source="locale" path="../decimalFormats[@numberSystem='latn']"/>
+		</decimalFormats>
 		<scientificFormats>
 			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
 		</scientificFormats>
@@ -4095,6 +4101,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
 		</scientificFormats>
 		<scientificFormats numberSystem="wcho">
+			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
+		</scientificFormats>
+		<scientificFormats numberSystem="yiii">
 			<alias source="locale" path="../scientificFormats[@numberSystem='latn']"/>
 		</scientificFormats>
 		<percentFormats>
@@ -4337,6 +4346,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
 		</percentFormats>
 		<percentFormats numberSystem="wcho">
+			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
+		</percentFormats>
+		<percentFormats numberSystem="yiii">
 			<alias source="locale" path="../percentFormats[@numberSystem='latn']"/>
 		</percentFormats>
 		<currencyFormats>
@@ -4620,6 +4632,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
 		</currencyFormats>
 		<currencyFormats numberSystem="wcho">
+			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
+		</currencyFormats>
+		<currencyFormats numberSystem="yiii">
 			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
 		</currencyFormats>
 		<currencies>
@@ -5193,6 +5208,9 @@ Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/
 			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
 		</miscPatterns>
 		<miscPatterns numberSystem="wcho">
+			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
+		</miscPatterns>
+		<miscPatterns numberSystem="yiii">
 			<alias source="locale" path="../miscPatterns[@numberSystem='latn']"/>
 		</miscPatterns>
 		<minimalPairs>

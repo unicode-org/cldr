@@ -1593,6 +1593,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             {"vaii", "numbers"},
             {"wara", "numbers"},
             {"wcho", "numbers"},
+            {"yiii", "numbers"},
             {"zhuyin", "collation"}
         };
 

@@ -72,6 +72,36 @@ public class TestCoverage extends TestFmwkPlus {
                 Level.MODERATE,
                 20
             },
+            {
+                "en",
+                "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@alt=\"alphaNextToNumber\"]",
+                Level.MODERATE,
+                8
+            },
+            {
+                "en",
+                "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength[@type=\"short\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"other\"][@alt=\"alphaNextToNumber\"]",
+                Level.MODERN,
+                8
+            },
+            {
+                "en",
+                "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength[@type=\"short\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"other\"]",
+                Level.MODERATE,
+                8
+            },
+            {
+                "ar",
+                "//ldml/numbers/currencyFormats[@numberSystem=\"arab\"]/currencyFormatLength[@type=\"short\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"other\"][@alt=\"alphaNextToNumber\"]",
+                Level.MODERN,
+                8
+            },
+            {
+                "ar",
+                "//ldml/numbers/currencyFormats[@numberSystem=\"arab\"]/currencyFormatLength[@type=\"short\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"1000\"][@count=\"other\"]",
+                Level.MODERATE,
+                8
+            },
         };
         PathHeader.Factory phf = PathHeader.getFactory(testInfo.getEnglish());
         for (Object[] test : tests) {

@@ -8,6 +8,7 @@ import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
 import com.google.common.collect.TreeMultimap;
 import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.impl.Row.R4;
 import com.ibm.icu.impl.UnicodeMap;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
@@ -24,6 +25,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import org.unicode.cldr.draft.ScriptMetadata;
+import org.unicode.cldr.draft.ScriptMetadata.IdUsage;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.CLDRConfig;
@@ -34,12 +36,16 @@ import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CalculatedCoverageLevels;
 import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.ChainedMap.M3;
+import org.unicode.cldr.util.ChainedMap.M4;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Containment;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.Iso639Data;
+import org.unicode.cldr.util.Iso639Data.Type;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleValidator;
+import org.unicode.cldr.util.NameGetter;
 import org.unicode.cldr.util.NameType;
 import org.unicode.cldr.util.ScriptToExemplars;
 import org.unicode.cldr.util.StandardCodes;
@@ -913,6 +919,74 @@ public class LikelySubtagsTest extends TestFmwk {
             if (!source.getRegion().isEmpty()) {
                 assertEquals("Region: " + info, source.getRegion(), target.getRegion());
             }
+        }
+    }
+
+    @SuppressWarnings("incomplete-switch")
+    public void testScriptStatus() {
+        SupplementalDataInfo SDI = CLDRConfig.getInstance().getSupplementalDataInfo();
+        Map<String, String> likely = SDI.getLikelySubtags();
+
+        // set up rows of data, in sort order
+        M4<IdUsage, Type, String, CLDRLocale> data =
+                ChainedMap.of(
+                        new TreeMap<IdUsage, Object>(),
+                        new TreeMap<Type, Object>(),
+                        new TreeMap<String, Object>(),
+                        CLDRLocale.class);
+        for (Entry<String, String> entry : likely.entrySet()) {
+            CLDRLocale key = CLDRLocale.getInstance(entry.getKey());
+            // skip cases where we are not adding a script
+            if (!key.getScript().isEmpty() || key.getLanguage().equals("und")) {
+                continue;
+            }
+            Type type = Iso639Data.getType(key.getLanguage());
+
+            CLDRLocale max = CLDRLocale.getInstance(entry.getValue());
+            String addedScript = max.getScript();
+            Info scriptInfo = ScriptMetadata.getInfo(addedScript);
+            if (scriptInfo == null) {
+                data.put(IdUsage.UNKNOWN, type, addedScript, max);
+                continue;
+            }
+            switch (scriptInfo.idUsage) {
+                case EXCLUSION:
+                case UNKNOWN:
+                    data.put(scriptInfo.idUsage, type, addedScript, max);
+                    break;
+            }
+        }
+        //
+        NameGetter namer = new NameGetter(CLDRConfig.getInstance().getEnglish());
+        Joiner TAB = Joiner.on('\t');
+        Boolean noHeader = true;
+        for (R4<IdUsage, Type, String, CLDRLocale> entry : data.rows()) {
+            IdUsage idUsage = entry.get0();
+            Type type = entry.get1();
+            String script = entry.get2();
+            CLDRLocale max = entry.get3();
+            // Scope scope = Iso639Data.getScope(source.getLanguage()); not interesting
+            if (noHeader) {
+                warnln(
+                        TAB.join(
+                                "",
+                                "Script",
+                                "-IdUsage",
+                                "Language",
+                                "-Type",
+                                "Maximized",
+                                "Name"));
+                noHeader = false;
+            }
+            warnln(
+                    TAB.join(
+                            "Suspect script into: ",
+                            script,
+                            idUsage,
+                            max.getLanguage(),
+                            type,
+                            max.toString(),
+                            namer.getNameFromIdentifier(max.toString())));
         }
     }
 }

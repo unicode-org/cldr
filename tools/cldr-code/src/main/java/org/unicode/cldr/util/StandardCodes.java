@@ -84,26 +84,6 @@ public class StandardCodes {
                     return NameType.NONE;
             }
         }
-
-        public static CodeType fromNameType(NameType nameType) {
-            switch (nameType) {
-                case LANGUAGE:
-                    return language;
-                case SCRIPT:
-                    return script;
-                case TERRITORY:
-                    return territory;
-                case VARIANT:
-                    return variant;
-                case CURRENCY:
-                case CURRENCY_SYMBOL:
-                    return currency;
-                case TZ_EXEMPLAR:
-                    return tzid;
-                default:
-                    throw new IllegalArgumentException("Unsupported name type");
-            }
-        }
     }
 
     private static final Set<CodeType> TypeSet =

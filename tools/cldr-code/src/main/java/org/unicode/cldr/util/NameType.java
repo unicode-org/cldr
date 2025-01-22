@@ -1,5 +1,7 @@
 package org.unicode.cldr.util;
 
+import static org.unicode.cldr.util.StandardCodes.CodeType.*;
+
 import com.google.common.collect.ImmutableMap;
 import java.util.Arrays;
 import java.util.Locale;
@@ -52,6 +54,26 @@ public enum NameType {
         this.first = first;
         this.second = second;
         this.third = third;
+    }
+
+    public StandardCodes.CodeType toCodeType() {
+        switch (this) {
+            case LANGUAGE:
+                return language;
+            case SCRIPT:
+                return script;
+            case TERRITORY:
+                return territory;
+            case VARIANT:
+                return variant;
+            case CURRENCY:
+            case CURRENCY_SYMBOL:
+                return currency;
+            case TZ_EXEMPLAR:
+                return tzid;
+            default:
+                throw new IllegalArgumentException("Unsupported name type");
+        }
     }
 
     /**

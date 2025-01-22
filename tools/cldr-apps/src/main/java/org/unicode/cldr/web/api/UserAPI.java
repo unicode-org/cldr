@@ -10,6 +10,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import org.apache.ibatis.annotations.DeleteProvider;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
@@ -22,6 +23,7 @@ import org.unicode.cldr.web.ClaSignature;
 import org.unicode.cldr.web.CookieSession;
 import org.unicode.cldr.web.UserRegistry;
 import org.unicode.cldr.web.UserRegistry.User;
+import org.unicode.cldr.web.UserSettings;
 
 @Path("/users")
 @Tag(name = "user", description = "APIs for user management")
@@ -170,5 +172,59 @@ public class UserAPI {
             return Response.status(404, "not found").build();
         }
         return Response.ok(cla).build();
+    }
+
+    @PUT
+    @Operation(summary = "Update Settings", description = "set a settings field")
+    @APIResponses(
+            value = {
+                @APIResponse(responseCode = "202", description = "Set OK"),
+                @APIResponse(responseCode = "401", description = "Unauthorized"),
+                @APIResponse(responseCode = "406", description = "Parameter error"),
+            })
+    @Path("/settings/{setting}/true")
+    public Response setSetting(
+            @HeaderParam(Auth.SESSION_HEADER) String session,
+            @PathParam("setting") String setting) {
+        final CookieSession mySession = Auth.getSession(session);
+        if (mySession == null || mySession.user == null) {
+            return Response.status(401).build();
+        }
+
+        try {
+            final UserSettings.ClientVisibleSettings settingEnum =
+                    UserSettings.ClientVisibleSettings.valueOf(setting);
+            mySession.user.settings().set(settingEnum.name(), true);
+            return Response.status(202, "ok").build();
+        } catch (Throwable t) {
+            return Response.status(406).build();
+        }
+    }
+
+    @DeleteProvider
+    @Operation(summary = "Remove Settings", description = "remove a settings field")
+    @APIResponses(
+            value = {
+                @APIResponse(responseCode = "202", description = "Set OK"),
+                @APIResponse(responseCode = "401", description = "Unauthorized"),
+                @APIResponse(responseCode = "406", description = "Parameter error"),
+            })
+    @Path("/settings/{setting}")
+    public Response removeSetting(
+            @HeaderParam(Auth.SESSION_HEADER) String session,
+            @PathParam("setting") String setting) {
+        final CookieSession mySession = Auth.getSession(session);
+        if (mySession == null || mySession.user == null) {
+            return Response.status(401).build();
+        }
+
+        try {
+            final UserSettings.ClientVisibleSettings settingEnum =
+                    UserSettings.ClientVisibleSettings.valueOf(setting);
+            mySession.user.settings().set(settingEnum.name(), false);
+            return Response.status(202, "ok").build();
+        } catch (Throwable t) {
+            return Response.status(406).build();
+        }
     }
 }

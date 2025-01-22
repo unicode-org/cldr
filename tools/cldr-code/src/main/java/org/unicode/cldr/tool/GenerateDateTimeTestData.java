@@ -669,7 +669,7 @@ public class GenerateDateTimeTestData {
                     if (fieldStyleCombo.containsKey("era") && calendar.equals("chinese")) {
                         continue;
                     }
-                    // TODO: support test cases with skeletons or semantic skeletons
+
                     if (!fieldStyleCombo.containsKey("dateLength")
                             && !fieldStyleCombo.containsKey("timeLength")) {
                         continue;
@@ -795,11 +795,21 @@ public class GenerateDateTimeTestData {
     }
 
     enum SemanticSkeleton {
-        YMDE,
-        MDTZ,
-        M,
-        T,
-        Z;
+        YMDE("YMDE"),
+        MDTZ("MDTZ"),
+        M("M"),
+        T("T"),
+        Z("Z");
+
+        public final String label;
+
+        String getLabel() {
+            return this.label;
+        }
+
+        SemanticSkeleton(String label) {
+            this.label = label;
+        }
 
         public boolean hasYear() {
             return this == SemanticSkeleton.YMDE;
@@ -831,21 +841,51 @@ public class GenerateDateTimeTestData {
     }
 
     enum HourCycle {
-        H12,
-        H23
+        H12("H12"),
+        H23("H23");
+
+        public final String label;
+
+        String getLabel() {
+            return this.label;
+        }
+
+        HourCycle(String label) {
+            this.label = label;
+        }
     }
 
     enum YearStyle {
-        AUTO,
-        FULL,
-        WITH_ERA,
+        AUTO("auto"),
+        FULL("full"),
+        WITH_ERA("with_era");
+
+        public final String label;
+
+        String getLabel() {
+            return this.label;
+        }
+
+        YearStyle(String label) {
+            this.label = label;
+        }
     }
 
     enum ZoneStyle {
-        SPECIFIC,
-        GENERIC,
-        LOCATION,
-        OFFSET,
+        SPECIFIC("specific"),
+        GENERIC("generic"),
+        LOCATION("location"),
+        OFFSET("offset");
+
+        public final String label;
+
+        String getLabel() {
+            return this.label;
+        }
+
+        ZoneStyle(String label) {
+            this.label = label;
+        }
     }
 
     // private class SemanticSkeletonFieldSet()
@@ -1309,9 +1349,6 @@ public class GenerateDateTimeTestData {
         if (testCaseInput.fieldStyleCombo.semanticSkeleton == null) {
             return convertTestCaseInputToTestCase(icuServiceBuilder, localeCldrFile, testCaseInput);
         } else {
-            // TODO: implement logic for converting sematic skeleton -> string concatenation of
-            //  skeleton-per-field for all fields -> use datetimepatterngenerator to convert
-            //  skeleton string into pattern string
             String calendarStr = testCaseInput.calendar.getType();
             String skeleton = computeSkeletonFromSemanticSkeleton(icuServiceBuilder, localeCldrFile,
                 testCaseInput.fieldStyleCombo, calendarStr);
@@ -1319,6 +1356,7 @@ public class GenerateDateTimeTestData {
             //   glue pattern rather than use ICU to get it
             DateTimeFormats formats = new DateTimeFormats().set(localeCldrFile, calendarStr);
             SimpleDateFormat formatterForSkeleton = formats.getDateFormatFromSkeleton(skeleton);
+            formatterForSkeleton.setCalendar(testCaseInput.calendar);
             formatterForSkeleton.setTimeZone(testCaseInput.timeZone);
             String timeZoneIdStr = testCaseInput.timeZone.getID();
             ZoneId timeZoneId = ZoneId.of(timeZoneIdStr);
@@ -1338,10 +1376,10 @@ public class GenerateDateTimeTestData {
         // more manually defined inputs
 
         List<Pair<ULocale, Calendar>> LOCALE_CALENDAR_PAIRS = List.of(
-            Pair.of(ULocale.ENGLISH, GregorianCalendar.getInstance()),
-            Pair.of(ULocale.forLanguageTag("ar-SA"), IslamicCalendar.getInstance()),
-            Pair.of(ULocale.forLanguageTag("th-TH"), BuddhistCalendar.getInstance()),
-            Pair.of(ULocale.forLanguageTag("ja-JP"), JapaneseCalendar.getInstance())
+            Pair.of(ULocale.ENGLISH, new GregorianCalendar()),
+            Pair.of(ULocale.forLanguageTag("ar-SA"), new IslamicCalendar()),
+            Pair.of(ULocale.forLanguageTag("th-TH"), new BuddhistCalendar()),
+            Pair.of(ULocale.forLanguageTag("ja-JP"), new JapaneseCalendar())
         );
 
         List<LocalDateTime> DATE_TIMES = List.of(
@@ -1422,13 +1460,85 @@ public class GenerateDateTimeTestData {
         return builder.build();
     }
 
+    /**
+     * This struct class exists specifically to convert from the structured {@code TestCase} struct
+     * class to one that is appropriate for de-/serializing (formatting & parsing), ex:
+     * to give it a flat structure that makes it easier for downstream consumers of the formatted
+     * output.
+     */
+    static class TestCaseSerde {
+        String dateLength = null;
+        String timeLength = null;
+        String semanticSkeleton = null;
+        String semanticSkeletonLength = null;
+        String dateTimeFormatType = null;
+        String hourCycle = null;
+        String zoneStyle = null;
+        String yearStyle = null;
+        String calendar = null;
+        String locale = null;
+        String input = null;
+        String expected = null;
+    }
+
+    private static TestCaseSerde convertTestCaseToSerialize(TestCase testCase) {
+        TestCaseSerde result = new TestCaseSerde();
+
+        result.dateLength =
+            Optional.ofNullable(testCase.testCaseInput.fieldStyleCombo.dateStyle)
+                .map(DateStyle::getLabel)
+                .orElse(null);
+        result.timeLength =
+            Optional.ofNullable(testCase.testCaseInput.fieldStyleCombo.timeStyle)
+                .map(TimeStyle::getLabel)
+                .orElse(null);
+        result.semanticSkeleton =
+            Optional.ofNullable(testCase.testCaseInput.fieldStyleCombo.semanticSkeleton)
+                .map(SemanticSkeleton::getLabel)
+                .orElse(null);
+        result.semanticSkeletonLength =
+            Optional.ofNullable(testCase.testCaseInput.fieldStyleCombo.semanticSkeletonLength)
+                .map(SemanticSkeletonLength::getLabel)
+                .orElse(null);
+        result.dateTimeFormatType =
+            Optional.ofNullable(testCase.testCaseInput.fieldStyleCombo.dateTimeFormatType)
+                .map(DateTimeFormatType::getLabel)
+                .orElse(null);
+        result.hourCycle =
+            Optional.ofNullable(testCase.testCaseInput.fieldStyleCombo.hourCycle)
+                .map(HourCycle::getLabel)
+                .orElse(null);
+        result.zoneStyle =
+            Optional.ofNullable(testCase.testCaseInput.fieldStyleCombo.zoneStyle)
+                .map(ZoneStyle::getLabel)
+                .orElse(null);
+        result.yearStyle =
+            Optional.ofNullable(testCase.testCaseInput.fieldStyleCombo.yearStyle)
+                .map(YearStyle::getLabel)
+                .orElse(null);
+        result.calendar = testCase.testCaseInput.calendar.getType();
+        result.locale = testCase.testCaseInput.locale.toLanguageTag();
+
+        LocalDateTime localDt = testCase.testCaseInput.dateTime;
+        TimeZone icuTimeZone = testCase.testCaseInput.timeZone;
+        ZoneId zoneId = ZoneId.of(icuTimeZone.getID());
+        ZonedDateTime zdt = ZonedDateTime.of(localDt, zoneId);
+        result.input = zdt.toString();
+
+        result.expected = testCase.expected;
+
+        return result;
+    }
+
     public static void main(String[] args) throws IOException {
         try (TempPrintWriter pw =
                 TempPrintWriter.openUTF8Writer(
                         CLDRPaths.TEST_DATA + OUTPUT_SUBDIR, OUTPUT_FILENAME)) {
-            // TODO: customize GSON output format for timezone, calendar, etc. fields
             ImmutableSet<TestCase> testCases = getKernelTestCases();
-            pw.println(GSON.toJson(testCases));
+            List<TestCaseSerde> testCaseSerdes = testCases.stream()
+                .map(GenerateDateTimeTestData::convertTestCaseToSerialize)
+                .collect(Collectors.toList());
+            pw.println(GSON.toJson(testCaseSerdes));
         }
     }
 }

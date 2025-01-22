@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2025 Unicode, Inc.
+For terms of use, see http://www.unicode.org/copyright.html
+SPDX-License-Identifier: Unicode-3.0
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+
+Warnings: All cp values have U+FE0F characters removed. See /annotationsDerived/ for derived annotations.
+-->
+<ldml>
+	<identity>
+		<version number="$Revision$"/>
+		<language type="en"/>
+		<territory type="030"/>
+	</identity>
+	<dates>
+		<calendars>
+			<calendar type="chinese">
+				<dateFormats>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>r/MM/dd</pattern>
+							<datetimeSkeleton>rMMdd</datetimeSkeleton>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="M">LL</dateFormatItem>
+						<dateFormatItem id="Md">MM/dd</dateFormatItem>
+						<dateFormatItem id="MEd">E, MM/dd</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
+			</calendar>
+			<calendar type="generic">
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>y/MM/dd GGGGG</pattern>
+							<datetimeSkeleton>GGGGGyMMdd</datetimeSkeleton>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="GyMd">y/MM/d GGGGG</dateFormatItem>
+						<dateFormatItem id="M">LL</dateFormatItem>
+						<dateFormatItem id="Md">MM/dd</dateFormatItem>
+						<dateFormatItem id="MEd">E, MM/dd</dateFormatItem>
+						<dateFormatItem id="yyyyM">y/MM GGGGG</dateFormatItem>
+						<dateFormatItem id="yyyyMd">y/MM/dd GGGGG</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">E, y/MM/dd GGGGG</dateFormatItem>
+					</availableFormats>
+					<intervalFormats>
+						<intervalFormatItem id="GyMd">
+							<greatestDifference id="d">y/MM/dd – y/MM/dd GGGGG</greatestDifference>
+							<greatestDifference id="G">y/MM/dd GGGGG – y/MM/dd GGGGG</greatestDifference>
+							<greatestDifference id="M">y/MM/dd – y/MM/dd GGGGG</greatestDifference>
+							<greatestDifference id="y">y/MM/dd – y/MM/dd GGGGG</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMEd">
+							<greatestDifference id="d">E, y/MM/dd – E, y/MM/dd GGGGG</greatestDifference>
+							<greatestDifference id="G">E, y/MM/dd GGGGG – E, y/MM/dd GGGGG</greatestDifference>
+							<greatestDifference id="M">E, y/MM/dd – E, y/MM/dd GGGGG</greatestDifference>
+							<greatestDifference id="y">E, y/MM/dd – E, y/MM/dd GGGGG</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Md">
+							<greatestDifference id="d">MM/dd – MM/dd</greatestDifference>
+							<greatestDifference id="M">MM/dd – MM/dd</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MEd">
+							<greatestDifference id="d">E MM/dd – E MM/dd</greatestDifference>
+							<greatestDifference id="M">E MM/dd – E MM/dd</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yM">
+							<greatestDifference id="M">y/MM – y/MM GGGGG</greatestDifference>
+							<greatestDifference id="y">y/MM – y/MM GGGGG</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMd">
+							<greatestDifference id="d">y/MM/dd – y/MM/dd GGGGG</greatestDifference>
+							<greatestDifference id="M">y/MM/dd – y/MM/dd GGGGG</greatestDifference>
+							<greatestDifference id="y">y/MM/dd – y/MM/dd GGGGG</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMEd">
+							<greatestDifference id="d">E, y/MM/dd – E, y/MM/dd GGGGG</greatestDifference>
+							<greatestDifference id="M">E, y/MM/dd – E, y/MM/dd GGGGG</greatestDifference>
+							<greatestDifference id="y">E, y/MM/dd – E, y/MM/dd GGGGG</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
+			</calendar>
+			<calendar type="gregorian">
+				<dateFormats>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>y/MM/dd</pattern>
+							<datetimeSkeleton>yMMdd</datetimeSkeleton>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="GyMd">y/MM/dd G</dateFormatItem>
+						<dateFormatItem id="Md">MM/dd</dateFormatItem>
+						<dateFormatItem id="MEd">E, MM/dd</dateFormatItem>
+						<dateFormatItem id="MMdd">MM/dd</dateFormatItem>
+						<dateFormatItem id="yM">y/MM</dateFormatItem>
+						<dateFormatItem id="yMd">y/MM/dd</dateFormatItem>
+						<dateFormatItem id="yMEd">E, y/MM/dd</dateFormatItem>
+					</availableFormats>
+					<intervalFormats>
+						<intervalFormatItem id="GyMd">
+							<greatestDifference id="d">y/MM/dd – y/MM/dd G</greatestDifference>
+							<greatestDifference id="G">y/MM/dd G – y/MM/dd G</greatestDifference>
+							<greatestDifference id="M">y/MM/dd – y/MM/dd G</greatestDifference>
+							<greatestDifference id="y">y/MM/dd – y/MM/dd G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="GyMEd">
+							<greatestDifference id="d">E, y/MM/dd – E, y/MM/dd G</greatestDifference>
+							<greatestDifference id="G">E, y/MM/dd G – E, y/MM/dd G</greatestDifference>
+							<greatestDifference id="M">E, y/MM/dd – E, y/MM/dd G</greatestDifference>
+							<greatestDifference id="y">E, y/MM/dd – E, y/MM/dd G</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="Md">
+							<greatestDifference id="d">MM/dd – MM/dd</greatestDifference>
+							<greatestDifference id="M">MM/dd – MM/dd</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="MEd">
+							<greatestDifference id="d">E MM/dd – E MM/dd</greatestDifference>
+							<greatestDifference id="M">E MM/dd – E MM/dd</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yM">
+							<greatestDifference id="M">y/MM – y/MM</greatestDifference>
+							<greatestDifference id="y">y/MM – y/MM</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMd">
+							<greatestDifference id="d">y/MM/dd – y/MM/dd</greatestDifference>
+							<greatestDifference id="M">y/MM/dd – y/MM/dd</greatestDifference>
+							<greatestDifference id="y">y/MM/dd – y/MM/dd</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="yMEd">
+							<greatestDifference id="d">E, y/MM/dd – E, y/MM/dd</greatestDifference>
+							<greatestDifference id="M">E, y/MM/dd – E, y/MM/dd</greatestDifference>
+							<greatestDifference id="y">E, y/MM/dd – E, y/MM/dd</greatestDifference>
+						</intervalFormatItem>
+					</intervalFormats>
+				</dateTimeFormats>
+			</calendar>
+			<calendar type="islamic">
+				<dateFormats>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>y/MM/dd GGGGG</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="GyMd">y/MM/dd GGGGG</dateFormatItem>
+						<dateFormatItem id="yyyyMd">y/MM/dd GGGGG</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">E, y/MM/dd GGGGG</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
+			</calendar>
+		</calendars>
+		<timeZoneNames>
+			<zone type="Pacific/Honolulu">
+				<short>
+					<generic>∅∅∅</generic>
+					<standard>∅∅∅</standard>
+					<daylight>∅∅∅</daylight>
+				</short>
+			</zone>
+			<metazone type="Alaska">
+				<short>
+					<generic>∅∅∅</generic>
+					<standard>∅∅∅</standard>
+					<daylight>∅∅∅</daylight>
+				</short>
+			</metazone>
+			<metazone type="America_Central">
+				<short>
+					<generic>∅∅∅</generic>
+					<standard>∅∅∅</standard>
+					<daylight>∅∅∅</daylight>
+				</short>
+			</metazone>
+			<metazone type="America_Eastern">
+				<short>
+					<generic>∅∅∅</generic>
+					<standard>∅∅∅</standard>
+					<daylight>∅∅∅</daylight>
+				</short>
+			</metazone>
+			<metazone type="America_Mountain">
+				<short>
+					<generic>∅∅∅</generic>
+					<standard>∅∅∅</standard>
+					<daylight>∅∅∅</daylight>
+				</short>
+			</metazone>
+			<metazone type="America_Pacific">
+				<short>
+					<generic>∅∅∅</generic>
+					<standard>∅∅∅</standard>
+					<daylight>∅∅∅</daylight>
+				</short>
+			</metazone>
+			<metazone type="Atlantic">
+				<short>
+					<generic>∅∅∅</generic>
+					<standard>∅∅∅</standard>
+					<daylight>∅∅∅</daylight>
+				</short>
+			</metazone>
+			<metazone type="Hawaii_Aleutian">
+				<short>
+					<generic>∅∅∅</generic>
+					<standard>∅∅∅</standard>
+					<daylight>∅∅∅</daylight>
+				</short>
+			</metazone>
+			<metazone type="Hong_Kong">
+				<short>
+					<generic>HKT</generic>
+					<standard>HKT</standard>
+					<daylight>HKST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Macau">
+				<short>
+					<generic>MST</generic>
+					<standard>MST</standard>
+					<daylight>MDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Malaysia">
+				<short>
+					<standard>MYT</standard>
+				</short>
+			</metazone>
+			<metazone type="Singapore">
+				<short>
+					<standard>SGT</standard>
+				</short>
+			</metazone>
+		</timeZoneNames>
+	</dates>
+	<numbers>
+		<currencies>
+			<currency type="USD">
+				<symbol>US$</symbol>
+			</currency>
+		</currencies>
+	</numbers>
+</ldml>

@@ -40,6 +40,7 @@ import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRFile.NumberingSystem;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CalculatedCoverageLevels;
+import org.unicode.cldr.util.DateTimeFormats;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.Level;
@@ -830,7 +831,6 @@ public class GenerateDateTimeTestData {
     }
 
     enum HourCycle {
-        AUTO,
         H12,
         H23
     }
@@ -865,6 +865,7 @@ public class GenerateDateTimeTestData {
         HourCycle hourCycle;
         ZoneStyle zoneStyle;
         YearStyle yearStyle;
+        DateTimeFormatType dateTimeFormatType;
     }
 
     /**
@@ -872,7 +873,7 @@ public class GenerateDateTimeTestData {
      * and whether to combine (obtain the Cartesian product of) them by other dimensions
      */
     static class FieldStyleComboInput {
-        FieldStyleCombo fieldStyleCombo;
+        FieldStyleCombo fieldStyleCombo = new FieldStyleCombo();
         boolean shouldMultiplyByTimeZone;
         boolean shouldMultiplyByDateTime;
     }
@@ -900,6 +901,16 @@ public class GenerateDateTimeTestData {
         elem.fieldStyleCombo = new FieldStyleCombo();
         elem.fieldStyleCombo.dateStyle = DateStyle.FULL;
         elem.fieldStyleCombo.timeStyle = TimeStyle.SHORT;
+        elem.fieldStyleCombo.dateTimeFormatType = DateTimeFormatType.AT_TIME;
+        elem.shouldMultiplyByDateTime = true;
+        builder.add(elem);
+
+        // 3a
+        elem = new FieldStyleComboInput();
+        elem.fieldStyleCombo = new FieldStyleCombo();
+        elem.fieldStyleCombo.dateStyle = DateStyle.FULL;
+        elem.fieldStyleCombo.timeStyle = TimeStyle.SHORT;
+        elem.fieldStyleCombo.dateTimeFormatType = DateTimeFormatType.STANDARD;
         elem.shouldMultiplyByDateTime = true;
         builder.add(elem);
 
@@ -908,6 +919,7 @@ public class GenerateDateTimeTestData {
         elem.fieldStyleCombo = new FieldStyleCombo();
         elem.fieldStyleCombo.dateStyle = DateStyle.SHORT;
         elem.fieldStyleCombo.timeStyle = TimeStyle.FULL;
+        elem.fieldStyleCombo.dateTimeFormatType = DateTimeFormatType.AT_TIME;
         elem.shouldMultiplyByTimeZone = true;
         elem.shouldMultiplyByDateTime = true;
         builder.add(elem);
@@ -917,6 +929,7 @@ public class GenerateDateTimeTestData {
         elem.fieldStyleCombo = new FieldStyleCombo();
         elem.fieldStyleCombo.semanticSkeleton = SemanticSkeleton.YMDE;
         elem.fieldStyleCombo.semanticSkeletonLength = SemanticSkeletonLength.SHORT;
+        elem.shouldMultiplyByDateTime = true;
         builder.add(elem);
 
         elem = new FieldStyleComboInput();
@@ -1111,7 +1124,6 @@ public class GenerateDateTimeTestData {
         TimeZone timeZone;
         ULocale locale;
         Calendar calendar;
-        DateTimeFormatType dateTimeFormatType;
     }
 
     static class TestCase {
@@ -1290,19 +1302,20 @@ public class GenerateDateTimeTestData {
         }
 
         if (skeleton.hasTime()) {
-            // H M S
-            switch (fieldStyleCombo.hourCycle) {
-                case AUTO:
-                    sb.append("C");
-                    break;
-                case H12:
-                    sb.append("h");
-                    break;
-                case H23:
-                    sb.append("H");
-                    break;
-                default:
-                    break;
+            if (fieldStyleCombo.hourCycle == null) {
+                // TODO: use "C" instead of "j" by fixing NullPointerException in ICU4J
+                //  DateTimePatternGenerator.mapSkeletonMetacharacters
+                sb.append("j");
+            } else {
+                // H M S
+                switch (fieldStyleCombo.hourCycle) {
+                    case H12:
+                        sb.append("h");
+                        break;
+                    case H23:
+                        sb.append("H");
+                        break;
+                }
             }
             sb.append("m");
             sb.append("s");
@@ -1342,19 +1355,21 @@ public class GenerateDateTimeTestData {
             }
         }
 
+        // TODO: Resolve the yearStyle as described in the spec
+
         return sb.toString();
     }
 
-    private static TestCase convertTestCaseInputToComboMap(ICUServiceBuilder icuServiceBuilder,
+    private static TestCase convertTestCaseInputToTestCase(ICUServiceBuilder icuServiceBuilder,
         CLDRFile localeCldrFile, TestCaseInput testCaseInput) {
         String calendarStr = testCaseInput.calendar.getType();
-        String dateLength = testCaseInput.fieldStyleCombo.dateStyle.getLabel();
-        String timeLength = testCaseInput.fieldStyleCombo.dateStyle.getLabel();
+        String dateLength = testCaseInput.fieldStyleCombo.dateStyle == null ? null : testCaseInput.fieldStyleCombo.dateStyle.getLabel();
+        String timeLength = testCaseInput.fieldStyleCombo.timeStyle == null ? null : testCaseInput.fieldStyleCombo.timeStyle.getLabel();
         LocalDateTime localDt = testCaseInput.dateTime;
         TimeZone icuTimeZone = testCaseInput.timeZone;
         ZoneId zoneId = ZoneId.of(icuTimeZone.getID());
         ZonedDateTime zdt = ZonedDateTime.of(localDt, zoneId);
-        String dateTimeGluePatternFormatType = testCaseInput.dateTimeFormatType.getLabel();
+        String dateTimeGluePatternFormatType = testCaseInput.fieldStyleCombo.dateTimeFormatType == null ? null : testCaseInput.fieldStyleCombo.dateTimeFormatType.getLabel();
 
         String expected = getExpectedStringForTestCase(
             icuServiceBuilder,
@@ -1381,7 +1396,7 @@ public class GenerateDateTimeTestData {
     ) {
 
         if (testCaseInput.fieldStyleCombo.semanticSkeleton == null) {
-            return convertTestCaseInputToComboMap(icuServiceBuilder, localeCldrFile, testCaseInput);
+            return convertTestCaseInputToTestCase(icuServiceBuilder, localeCldrFile, testCaseInput);
         } else {
             // TODO: implement logic for converting sematic skeleton -> string concatenation of
             //  skeleton-per-field for all fields -> use datetimepatterngenerator to convert
@@ -1389,30 +1404,30 @@ public class GenerateDateTimeTestData {
             String calendarStr = testCaseInput.calendar.getType();
             String skeleton = computeSkeletonFromSemanticSkeleton(icuServiceBuilder, localeCldrFile,
                 testCaseInput.fieldStyleCombo, calendarStr);
+            // TODO: fix CLDR DateTimeFormats constructor to use CLDRFile to get the dateTimeFormat
+            //   glue pattern rather than use ICU to get it
+            DateTimeFormats formats = new DateTimeFormats().set(localeCldrFile, calendarStr);
+            SimpleDateFormat formatterForSkeleton = formats.getDateFormatFromSkeleton(skeleton);
+            formatterForSkeleton.setTimeZone(testCaseInput.timeZone);
+            String timeZoneIdStr = testCaseInput.timeZone.getID();
+            ZoneId timeZoneId = ZoneId.of(timeZoneIdStr);
+            ZonedDateTime zdt = ZonedDateTime.of(testCaseInput.dateTime, timeZoneId);
+            String formattedDateTime = formatterForSkeleton.format(zdt);
 
-            // TODO: implement me!
-            assert  false;
+            TestCase result = new TestCase();
+            result.testCaseInput = testCaseInput;
+            result.expected = formattedDateTime;
+
+            return result;
         }
-
-
-
-
-
-        // TODO: implement me!
-        assert  false;
-
-
-
-        // return 57;
-        return null;
     }
 
     public static void main(String[] args) throws IOException {
         try (TempPrintWriter pw =
                 TempPrintWriter.openUTF8Writer(
                         CLDRPaths.TEST_DATA + OUTPUT_SUBDIR, OUTPUT_FILENAME)) {
-
-            Collection<Map<Object, Object>> testCases = generateAllTestCases();
+            // TODO: customize GSON output format for timezone, calendar, etc. fields
+            ImmutableSet<TestCase> testCases = getKernelTestCases();
             pw.println(GSON.toJson(testCases));
         }
     }

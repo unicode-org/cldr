@@ -190,6 +190,9 @@ public class TestCLDRFile extends TestFmwk {
                     path.contains("/metazone")
                                     || path.contains("/timeZoneNames")
                                     || path.contains("/gender")
+                                    || path.startsWith(
+                                            "//ldml/localeDisplayNames/languages/language")
+                                    || path.startsWith("//ldml/localeDisplayNames/scripts/script")
                                     || path.startsWith("//ldml/numbers/currencies/currency")
                                     || path.startsWith("//ldml/personNames/sampleName")
                                     || path.contains("/availableFormats")

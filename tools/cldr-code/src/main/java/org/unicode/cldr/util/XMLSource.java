@@ -1605,8 +1605,6 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             Map<String, String> zone_countries = sc.getZoneToCountry();
             List<NameType> nameTypeList =
                     List.of(
-                            NameType.LANGUAGE,
-                            NameType.SCRIPT,
                             NameType.TERRITORY,
                             NameType.VARIANT,
                             NameType.CURRENCY,
@@ -1629,39 +1627,10 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                             if (s != null && s.size() == 1) continue;
                         }
                         value = TimezoneFormatter.getFallbackName(value);
-                    } else if (nameType == NameType.LANGUAGE) {
-                        if (ROOT_ID.equals(value)) {
-                            continue;
-                        }
                     }
                     addFallbackCode(nameType, code, value);
                 }
             }
-
-            String[] extraCodes = {
-                "ar_001", "de_AT", "de_CH", "en_AU", "en_CA", "en_GB", "en_US", "es_419", "es_ES",
-                "es_MX", "fa_AF", "fr_CA", "fr_CH", "frc", "hi_Latn", "lou", "nds_NL", "nl_BE",
-                "pt_BR", "pt_PT", "ro_MD", "sw_CD", "zh_Hans", "zh_Hant"
-            };
-            for (String extraCode : extraCodes) {
-                addFallbackCode(NameType.LANGUAGE, extraCode, extraCode);
-            }
-
-            addFallbackCode(NameType.LANGUAGE, "en_GB", "en_GB", "short");
-            addFallbackCode(NameType.LANGUAGE, "en_US", "en_US", "short");
-            addFallbackCode(NameType.LANGUAGE, "az", "az", "short");
-
-            addFallbackCode(NameType.LANGUAGE, "ckb", "ckb", "menu");
-            addFallbackCode(NameType.LANGUAGE, "ckb", "ckb", "variant");
-            addFallbackCode(NameType.LANGUAGE, "hi_Latn", "hi_Latn", "variant");
-            addFallbackCode(NameType.LANGUAGE, "yue", "yue", "menu");
-            addFallbackCode(NameType.LANGUAGE, "zh", "zh", "menu");
-            addFallbackCode(NameType.LANGUAGE, "zh_Hans", "zh", "long");
-            addFallbackCode(NameType.LANGUAGE, "zh_Hant", "zh", "long");
-
-            addFallbackCode(NameType.SCRIPT, "Hans", "Hans", "stand-alone");
-            addFallbackCode(NameType.SCRIPT, "Hant", "Hant", "stand-alone");
-
             addFallbackCode(NameType.TERRITORY, "GB", "GB", "short");
             addFallbackCode(NameType.TERRITORY, "HK", "HK", "short");
             addFallbackCode(NameType.TERRITORY, "MO", "MO", "short");
@@ -1743,9 +1712,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                 NameType nameType, String code, String value, String alt) {
             String fullpath = nameType.getKeyPath(code);
             String distinguishingPath = addFallbackCodeToConstructedItems(fullpath, value, alt);
-            if (nameType == NameType.LANGUAGE
-                    || nameType == NameType.SCRIPT
-                    || nameType == NameType.TERRITORY) {
+            if (nameType == NameType.SCRIPT || nameType == NameType.TERRITORY) {
                 allowDuplicates.put(distinguishingPath, code);
             }
         }

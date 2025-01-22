@@ -1131,95 +1131,6 @@ public class GenerateDateTimeTestData {
         String expected;
     }
 
-    public static ImmutableSet<TestCase> getKernelTestCases() {
-
-        // more manually defined inputs
-
-        List<Pair<ULocale, Calendar>> LOCALE_CALENDAR_PAIRS = List.of(
-            Pair.of(ULocale.ENGLISH, GregorianCalendar.getInstance()),
-            Pair.of(ULocale.forLanguageTag("ar-SA"), IslamicCalendar.getInstance()),
-            Pair.of(ULocale.forLanguageTag("th-TH"), BuddhistCalendar.getInstance()),
-            Pair.of(ULocale.forLanguageTag("ja-JP"), JapaneseCalendar.getInstance())
-        );
-
-        List<LocalDateTime> DATE_TIMES = List.of(
-            LocalDateTime.of(2000, 1, 1, 0, 0, 0),
-            LocalDateTime.of(2024, 7, 1, 8, 50, 7),
-            // Ramadan in Summer at 12:00 noon in the year 2014
-            LocalDateTime.of(2014, 7, 15, 12, 0, 0)
-        );
-
-        List<LocalDateTime> DATE_TIME_ONE_ONLY = List.of(DATE_TIMES.get(0));
-
-        // TODO: add a 3rd time zone dynamically, which is the default time zone for the current
-        //    locale in question when iterating over all locales
-        List<TimeZone> STATIC_TIME_ZONES = List.of(
-            TimeZone.GMT_ZONE,
-            TimeZone.getTimeZone("Australia/Adelaide")
-        );
-
-        List<TimeZone> STATIC_TIME_ZONE_ONE_ONLY = List.of(STATIC_TIME_ZONES.get(0));
-
-        // setup of return value
-
-        ImmutableSet.Builder<TestCase> builder = ImmutableSet.builder();
-
-        // iteration to add to return value
-
-        for (Pair<ULocale,Calendar> localeCalendarPair : LOCALE_CALENDAR_PAIRS) {
-            ULocale locale = localeCalendarPair.first;
-            Calendar calendar = localeCalendarPair.second;
-
-            // get the formatted version of the locale with underscores instead of BCP 47 dashes
-            // since this is what the CLDRFile constructor expects
-            String localeStr = locale.getName();
-
-            CLDRFile localeCldrFile = getCLDRFile(localeStr).orElse(null);
-
-            if (localeCldrFile == null) {
-                continue;
-            }
-
-            ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder();
-            icuServiceBuilder.clearCache();
-            icuServiceBuilder.setCldrFile(localeCldrFile);
-
-            for (FieldStyleComboInput input : getFieldStyleComboInputs()) {
-                assert input.shouldMultiplyByDateTime || input.shouldMultiplyByTimeZone;
-
-                FieldStyleCombo fieldStyleCombo = input.fieldStyleCombo;
-
-                List<LocalDateTime> dateTimeIterationColl = DATE_TIME_ONE_ONLY;
-                if (input.shouldMultiplyByDateTime) {
-                    dateTimeIterationColl = DATE_TIMES;
-                }
-
-                List<TimeZone> timeZoneIterationColl = STATIC_TIME_ZONE_ONE_ONLY;
-                if (input.shouldMultiplyByTimeZone) {
-                    timeZoneIterationColl = STATIC_TIME_ZONES;
-                    // TODO: add a TimeZone from the region of the locale to the list of time zones to iterate over
-                }
-
-                for (LocalDateTime localDateTime : dateTimeIterationColl) {
-                    for (TimeZone timeZone : timeZoneIterationColl) {
-                        TestCaseInput testCaseInput = new TestCaseInput();
-                        testCaseInput.fieldStyleCombo = fieldStyleCombo;
-                        testCaseInput.dateTime = localDateTime;
-                        testCaseInput.timeZone = timeZone;
-                        testCaseInput.locale = locale;
-                        testCaseInput.calendar = calendar;
-
-                        TestCase testCase = computeTestCase(icuServiceBuilder, localeCldrFile, testCaseInput);
-
-                        builder.add(testCase);
-                    }
-                }
-            }
-        }
-
-        return builder.build();
-    }
-
     private static final Pattern SKELETON_YEAR_FIELD_PATTERN = Pattern.compile("G*y+");
 
     private static final Pattern SKELETON_MONTH_FIELD_PATTERN = Pattern.compile("M+");
@@ -1420,6 +1331,95 @@ public class GenerateDateTimeTestData {
 
             return result;
         }
+    }
+
+    public static ImmutableSet<TestCase> getKernelTestCases() {
+
+        // more manually defined inputs
+
+        List<Pair<ULocale, Calendar>> LOCALE_CALENDAR_PAIRS = List.of(
+            Pair.of(ULocale.ENGLISH, GregorianCalendar.getInstance()),
+            Pair.of(ULocale.forLanguageTag("ar-SA"), IslamicCalendar.getInstance()),
+            Pair.of(ULocale.forLanguageTag("th-TH"), BuddhistCalendar.getInstance()),
+            Pair.of(ULocale.forLanguageTag("ja-JP"), JapaneseCalendar.getInstance())
+        );
+
+        List<LocalDateTime> DATE_TIMES = List.of(
+            LocalDateTime.of(2000, 1, 1, 0, 0, 0),
+            LocalDateTime.of(2024, 7, 1, 8, 50, 7),
+            // Ramadan in Summer at 12:00 noon in the year 2014
+            LocalDateTime.of(2014, 7, 15, 12, 0, 0)
+        );
+
+        List<LocalDateTime> DATE_TIME_ONE_ONLY = List.of(DATE_TIMES.get(0));
+
+        // TODO: add a 3rd time zone dynamically, which is the default time zone for the current
+        //    locale in question when iterating over all locales
+        List<TimeZone> STATIC_TIME_ZONES = List.of(
+            TimeZone.GMT_ZONE,
+            TimeZone.getTimeZone("Australia/Adelaide")
+        );
+
+        List<TimeZone> STATIC_TIME_ZONE_ONE_ONLY = List.of(STATIC_TIME_ZONES.get(0));
+
+        // setup of return value
+
+        ImmutableSet.Builder<TestCase> builder = ImmutableSet.builder();
+
+        // iteration to add to return value
+
+        for (Pair<ULocale,Calendar> localeCalendarPair : LOCALE_CALENDAR_PAIRS) {
+            ULocale locale = localeCalendarPair.first;
+            Calendar calendar = localeCalendarPair.second;
+
+            // get the formatted version of the locale with underscores instead of BCP 47 dashes
+            // since this is what the CLDRFile constructor expects
+            String localeStr = locale.getName();
+
+            CLDRFile localeCldrFile = getCLDRFile(localeStr).orElse(null);
+
+            if (localeCldrFile == null) {
+                continue;
+            }
+
+            ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder();
+            icuServiceBuilder.clearCache();
+            icuServiceBuilder.setCldrFile(localeCldrFile);
+
+            for (FieldStyleComboInput input : getFieldStyleComboInputs()) {
+                assert input.shouldMultiplyByDateTime || input.shouldMultiplyByTimeZone;
+
+                FieldStyleCombo fieldStyleCombo = input.fieldStyleCombo;
+
+                List<LocalDateTime> dateTimeIterationColl = DATE_TIME_ONE_ONLY;
+                if (input.shouldMultiplyByDateTime) {
+                    dateTimeIterationColl = DATE_TIMES;
+                }
+
+                List<TimeZone> timeZoneIterationColl = STATIC_TIME_ZONE_ONE_ONLY;
+                if (input.shouldMultiplyByTimeZone) {
+                    timeZoneIterationColl = STATIC_TIME_ZONES;
+                    // TODO: add a TimeZone from the region of the locale to the list of time zones to iterate over
+                }
+
+                for (LocalDateTime localDateTime : dateTimeIterationColl) {
+                    for (TimeZone timeZone : timeZoneIterationColl) {
+                        TestCaseInput testCaseInput = new TestCaseInput();
+                        testCaseInput.fieldStyleCombo = fieldStyleCombo;
+                        testCaseInput.dateTime = localDateTime;
+                        testCaseInput.timeZone = timeZone;
+                        testCaseInput.locale = locale;
+                        testCaseInput.calendar = calendar;
+
+                        TestCase testCase = computeTestCase(icuServiceBuilder, localeCldrFile, testCaseInput);
+
+                        builder.add(testCase);
+                    }
+                }
+            }
+        }
+
+        return builder.build();
     }
 
     public static void main(String[] args) throws IOException {

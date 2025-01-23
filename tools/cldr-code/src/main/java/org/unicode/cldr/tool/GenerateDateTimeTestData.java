@@ -1,6 +1,5 @@
 package org.unicode.cldr.tool;
 
-import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.gson.Gson;
@@ -22,11 +21,7 @@ import java.time.Month;
 import java.time.ZoneId;
 import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -106,110 +101,6 @@ public class GenerateDateTimeTestData {
             newMapStringToMapBuilder() {
         return ImmutableMap.builder();
     }
-
-    private static final ImmutableSet<ImmutableMap<Object, Object>> FIELD_STYLE_COMBINATIONS =
-            ImmutableSet.of(
-                    newMapStringToObjectBuilder()
-                            .put("dateLength", "short")
-                            .put("timeLength", "short")
-                            .build(),
-                    newMapStringToObjectBuilder()
-                            .put("dateLength", "medium")
-                            .put("timeLength", "medium")
-                            .build(),
-                    newMapStringToObjectBuilder()
-                            .put("dateLength", "long")
-                            .put("timeLength", "long")
-                            .build(),
-                    newMapStringToObjectBuilder()
-                            .put("dateLength", "full")
-                            .put("timeLength", "full")
-                            .build(),
-                    newMapStringToObjectBuilder()
-                            .put("dateLength", "full")
-                            .put("timeLength", "short")
-                            .build(),
-                    newMapStringToObjectBuilder().put("dateLength", "long").build(),
-                    newMapStringToObjectBuilder().put("timeLength", "long").build(),
-                    newMapStringToObjectBuilder().put("hour", "numeric").build(),
-                    newMapStringToObjectBuilder()
-                            .put("hour", "numeric")
-                            .put("minute", "numeric")
-                            .build(),
-                    newMapStringToObjectBuilder()
-                            .put("hour", "numeric")
-                            .put("minute", "numeric")
-                            .put("second", "numeric")
-                            .build(),
-                    newMapStringToObjectBuilder()
-                            .put("hour", "numeric")
-                            .put("minute", "numeric")
-                            .put("second", "numeric")
-                            .put("fractionalSecondDigits", 1)
-                            .build(),
-                    newMapStringToObjectBuilder()
-                            .put("hour", "numeric")
-                            .put("minute", "numeric")
-                            .put("second", "numeric")
-                            .put("fractionalSecondDigits", 2)
-                            .build(),
-                    newMapStringToObjectBuilder()
-                            .put("hour", "numeric")
-                            .put("minute", "numeric")
-                            .put("second", "numeric")
-                            .put("fractionalSecondDigits", 3)
-                            .build(),
-                    newMapStringToObjectBuilder()
-                            .put("hour", "numeric")
-                            .put("minute", "numeric")
-                            .put("second", "numeric")
-                            .build(),
-                    newMapStringToObjectBuilder()
-                            .put("month", "numeric")
-                            .put("weekday", "long")
-                            .put("day", "numeric")
-                            .build(),
-                    newMapStringToObjectBuilder()
-                            .put("month", "2-digit")
-                            .put("weekday", "long")
-                            .put("day", "numeric")
-                            .build(),
-                    newMapStringToObjectBuilder()
-                            .put("month", "long")
-                            .put("weekday", "long")
-                            .put("day", "numeric")
-                            .build(),
-                    newMapStringToObjectBuilder()
-                            .put("month", "short")
-                            .put("weekday", "long")
-                            .put("day", "numeric")
-                            .build(),
-                    newMapStringToObjectBuilder()
-                            .put("month", "narrow")
-                            .put("weekday", "long")
-                            .put("day", "numeric")
-                            .build(),
-                    newMapStringToObjectBuilder()
-                            .put("month", "short")
-                            .put("weekday", "short")
-                            .put("day", "numeric")
-                            .build(),
-                    newMapStringToObjectBuilder()
-                            .put("month", "short")
-                            .put("weekday", "narrow")
-                            .put("day", "numeric")
-                            .build(),
-
-                    // TODO: remove non-semantic skeletons
-                    newMapStringToObjectBuilder().put("era", "long").build(),
-                    newMapStringToObjectBuilder().put("era", "short").build(),
-                    newMapStringToObjectBuilder().put("era", "narrow").build(),
-                    newMapStringToObjectBuilder().put("timeZoneName", "long").build(),
-                    newMapStringToObjectBuilder().put("timeZoneName", "short").build(),
-                    newMapStringToObjectBuilder().put("timeZoneName", "shortOffset").build(),
-                    newMapStringToObjectBuilder().put("timeZoneName", "longOffset").build(),
-                    newMapStringToObjectBuilder().put("timeZoneName", "shortGeneric").build(),
-                    newMapStringToObjectBuilder().put("timeZoneName", "longGeneric").build());
 
     // Note: CLDR uses the identifier "gregorian", although BCP-47 which came later specifies
     // "gregory" as the calendar identifier.
@@ -339,91 +230,6 @@ public class GenerateDateTimeTestData {
                             .put("nanosecond", 0)
                             .build());
 
-    private static final ImmutableMap<Object, ImmutableMap<Object, Object>>
-            FIELD_STYLE_TO_SKELETON =
-                    newMapStringToMapBuilder()
-                            .put(
-                                    "era",
-                                    newMapStringToObjectBuilder()
-                                            .put("long", "GGGG")
-                                            .put("short", "GG")
-                                            .put("narrow", "GGGGG")
-                                            .build())
-                            .put(
-                                    "year",
-                                    newMapStringToObjectBuilder()
-                                            .put("numeric", "y")
-                                            .put("2-digit", "yy")
-                                            .build())
-                            .put(
-                                    "quarter",
-                                    newMapStringToObjectBuilder().put("numeric", "q").build())
-                            .put(
-                                    "month",
-                                    newMapStringToObjectBuilder()
-                                            .put("numeric", "M")
-                                            .put("2-digit", "MM")
-                                            .put("long", "MMMM")
-                                            .put("short", "MMM")
-                                            .put("narrow", "MMMMM")
-                                            .build())
-                            .put(
-                                    "weekday",
-                                    newMapStringToObjectBuilder()
-                                            .put("long", "EEEE")
-                                            .put("short", "E")
-                                            .put("narrow", "EEEEE")
-                                            .build())
-                            .put(
-                                    "day",
-                                    newMapStringToObjectBuilder()
-                                            .put("numeric", "d")
-                                            .put("2-digit", "dd")
-                                            .build())
-                            .put("hour", newMapStringToObjectBuilder().put("numeric", "j").build())
-                            .put(
-                                    "minute",
-                                    newMapStringToObjectBuilder().put("numeric", "m").build())
-                            .put(
-                                    "second",
-                                    newMapStringToObjectBuilder().put("numeric", "s").build())
-                            .put(
-                                    "fractionalSecondDigits",
-                                    newMapStringToObjectBuilder()
-                                            .put(1, "S")
-                                            .put(2, "SS")
-                                            .put(3, "SSS")
-                                            .build())
-                            .put(
-                                    "timeZoneName",
-                                    newMapStringToObjectBuilder()
-                                            .put("short", "z")
-                                            .put("long", "zzzz")
-                                            .put("shortOffset", "O")
-                                            .put("longOffset", "OOOO")
-                                            .put("shortGeneric", "v")
-                                            .put("longGeneric", "vvvv")
-                                            .build())
-                            .build();
-
-    private static String fieldStyleCombinationToSkeleton(Map<Object, Object> styleCombination) {
-        List<String> skeletonArray = new ArrayList<>();
-
-        for (Object dtField : styleCombination.keySet()) {
-            if (dtField.equals("dateLength") || dtField.equals("timeLength")) {
-                continue;
-            }
-            if (FIELD_STYLE_TO_SKELETON.containsKey(dtField)) {
-                String styleValue = (String) styleCombination.get(dtField);
-                Map<Object, Object> styleToSkeleton = FIELD_STYLE_TO_SKELETON.get(dtField);
-                if (styleToSkeleton.containsKey(styleValue)) {
-                    skeletonArray.add(styleValue);
-                }
-            }
-        }
-
-        return String.join("", skeletonArray);
-    }
 
     private static Set<String> getLocaleNumberingSystems(CLDRFile localeFile) {
         Set<String> result = new HashSet<>();
@@ -566,182 +372,13 @@ public class GenerateDateTimeTestData {
     }
 
 
-    /**
-     * Calls into getExpectedStringForTestCase() but manages the higher level logic that
-     * dictates that when we have both a date length and time length, we generate the dateTime
-     * for all glue pattern types available. When there is only a date length _or_ time length,
-     * then we only produce 1 formatted string
-     */
-    private static Collection<Map<Object, Object>> getTestCaseSubListFromDateTimeLengths(
-        ImmutableMap.Builder<Object, Object> optionsBuilder,
-        ICUServiceBuilder icuServiceBuilder,
-        CLDRFile localeCldrFile,
-        String calendar,
-        TimeZone icuTimeZone,
-        ZonedDateTime zdt,
-        String timeLength,
-        String dateLength
-    ) {
-        List<Map<Object, Object>> result = new LinkedList<>();
+    /* TODO: Expand the kernel over all locale-preferred calendars:
 
-        if (dateLength != null && timeLength != null) {
-            ImmutableList.Builder resultBuilder = ImmutableList.builder();
-            for (String dateTimeGluePatternFormatType : Arrays.stream(DateTimeFormatType.values())
-                .map(DateTimeFormatType::getLabel).collect(Collectors.toList())) {
-                String formattedDateTime =
-                    getExpectedStringForTestCase(
-                        icuServiceBuilder,
-                        localeCldrFile,
-                        calendar,
-                        icuTimeZone,
-                        zdt,
-                        timeLength,
-                        dateLength,
-                        dateTimeGluePatternFormatType);
-                // Reuse and update the optionsBuilder to insert the expected value according to
-                // the result of the CLDR formatter
-                // "input" = the ISO 18601 UTC time zone formatted string of the zoned date time
-                optionsBuilder.put("input", zdt.toString());
-                optionsBuilder.put("dateTimeFormatType", dateTimeGluePatternFormatType);
-                optionsBuilder.put("expected", formattedDateTime);
-                resultBuilder.add(optionsBuilder.buildKeepingLast());
-            }
-            return resultBuilder.build();
-        } else {
-            String formattedDateTime =
-                getExpectedStringForTestCase(
-                    icuServiceBuilder,
-                    localeCldrFile,
-                    calendar,
-                    icuTimeZone,
-                    zdt,
-                    timeLength,
-                    dateLength,
-                    null);  // dateTime glue pattern is unneeded
-            // Reuse and update the optionsBuilder to insert the expected value according to
-            // the result of the CLDR formatter
-            // "input" = the ISO 18601 UTC time zone formatted string of the zoned date time
-            optionsBuilder.put("input", zdt.toString());
-            optionsBuilder.put("expected", formattedDateTime);
-            return ImmutableList.of(optionsBuilder.buildKeepingLast());
-        }
-
-    }
-
-    private static Collection<Map<Object, Object>> generateAllTestCases() {
-
-        List<Map<Object, Object>> result = new LinkedList<>();
-
-        // locale iteration
-
-        for (String localeStr : LOCALES) {
-            ULocale locale =
-                    new ULocale(localeStr); // constructor that uses underscores for locale id
-            CLDRFile localeCldrFile = getCLDRFile(localeStr).orElse(null);
-
-            if (localeCldrFile == null) {
-                continue;
-            }
-
-            ICUServiceBuilder icuServiceBuilder = new ICUServiceBuilder();
-            icuServiceBuilder.clearCache();
-            icuServiceBuilder.setCldrFile(localeCldrFile);
-
-            // calendar iteration
-
-            ULocale maximizedLoc = ULocale.addLikelySubtags(locale);
-            String region = maximizedLoc.getCountry();
             List<String> localePreferredCalendars = SUPPLEMENTAL_DATA_INFO.getCalendars(region);
-
             if (localePreferredCalendars == null) {
                 localePreferredCalendars = SUPPLEMENTAL_DATA_INFO.getCalendars("001");
             }
-
-            for (String calendar : CALENDARS) {
-                if (!localePreferredCalendars.contains(calendar)) {
-                    continue;
-                }
-
-                // field style combinations iterations
-
-                for (Map<Object, Object> fieldStyleCombo : FIELD_STYLE_COMBINATIONS) {
-                    // Chinese calendar doesn't have era.
-                    if (fieldStyleCombo.containsKey("era") && calendar.equals("chinese")) {
-                        continue;
-                    }
-
-                    if (!fieldStyleCombo.containsKey("dateLength")
-                            && !fieldStyleCombo.containsKey("timeLength")) {
-                        continue;
-                    }
-
-                    // time zone iteration
-
-                    for (String timeZone : TIME_ZONES) {
-
-                        String skeleton = fieldStyleCombinationToSkeleton(fieldStyleCombo);
-
-                        // construct the final set of formatter options
-
-                        ImmutableMap.Builder<Object, Object> optionsBuilder =
-                                ImmutableMap.builder().putAll(fieldStyleCombo);
-                        if (!calendar.isEmpty()) {
-                            optionsBuilder.put("calendar", calendar);
-                        }
-                        optionsBuilder.put("locale", locale.toLanguageTag());
-                        ImmutableMap<Object, Object> options = optionsBuilder.build();
-
-                        TimeZone icuTimeZone = TimeZone.getTimeZone(timeZone);
-
-                        String dateLength = getDateLength(options);
-                        String timeLength = getTimeLength(options);
-
-                        // iterate over all dates and format the date time
-
-                        ZoneId zoneId = ZoneId.of(timeZone);
-
-                        for (ZonedDateTime zdt : JAVA_TIME_ZONED_DATE_TIMES) {
-                            ZonedDateTime zdtNewTz = zdt.withZoneSameInstant(zoneId);
-
-                            Collection<Map<Object, Object>> testCases =
-                                getTestCaseSubListFromDateTimeLengths(
-                                    optionsBuilder,
-                                    icuServiceBuilder,
-                                    localeCldrFile,
-                                    calendar,
-                                    icuTimeZone,
-                                    zdtNewTz,
-                                    timeLength,
-                                    dateLength);
-
-                            result.addAll(testCases);
-                        }
-
-                        for (Map<Object, Object> temporalDateInfo : TEMPORAL_DATES) {
-                            ZonedDateTime zdt =
-                                    getZonedDateTimeFromTemporalDateInput(temporalDateInfo);
-                            ZonedDateTime zdtNewTz = zdt.withZoneSameInstant(zoneId);
-
-                            Collection<Map<Object, Object>> testCases =
-                                getTestCaseSubListFromDateTimeLengths(
-                                    optionsBuilder,
-                                    icuServiceBuilder,
-                                    localeCldrFile,
-                                    calendar,
-                                    icuTimeZone,
-                                    zdtNewTz,
-                                    timeLength,
-                                    dateLength);
-
-                            result.addAll(testCases);
-                        }
-                    }
-                }
-            }
-        }
-
-        return result;
-    }
+     */
 
 
     enum DateStyle {
@@ -922,6 +559,11 @@ public class GenerateDateTimeTestData {
         ImmutableSet.Builder<FieldStyleComboInput> builder = ImmutableSet.builder();
 
         FieldStyleComboInput elem;
+
+        // TODO: Add to the kernel:
+        //  - fractional second digits
+        //  - column alignment
+        //  - time precision
 
         // 1 (Row 2)
         elem = new FieldStyleComboInput();
@@ -1306,7 +948,7 @@ public class GenerateDateTimeTestData {
             }
         }
 
-        // TODO: Resolve the yearStyle as described in the spec
+        // FIXME: Resolve the yearStyle as described in the spec
 
         return sb.toString();
     }

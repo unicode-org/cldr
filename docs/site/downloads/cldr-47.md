@@ -102,7 +102,11 @@ For a full listing, see [Delta Data](https://unicode.org/cldr/charts/dev/delta/i
 
 ## Migration
 
-- TBD
+- Number `<symbols>` elements and format elements (`<currencyFormats>`, `<decimalFormats>`, `<percentFormats>`, `<scientificFormats>`)
+  should all have a `numberSystem` attribute. In CLDR v48 such elements without a `numberSystem` attribute will be deprecated, and the
+  corresponding entries in root will be removed; these were only intended as a long-ago migration aid. See the relevant sections of the
+  LDML specification: [Number Symbols](https://www.unicode.org/reports/tr35/dev/tr35-numbers.html#Number_Symbols) and
+  [Number Formats](https://www.unicode.org/reports/tr35/dev/tr35-numbers.html#number-formats).
 
 ## Known Issues
 

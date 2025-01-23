@@ -813,7 +813,9 @@ public class GenerateDateTimeTestData {
         String expected;
     }
 
-    private static final Pattern SKELETON_YEAR_FIELD_PATTERN = Pattern.compile("G*y+");
+    private static final Pattern SKELETON_YEAR_FIELD_PATTERN = Pattern.compile("y+");
+
+    private static final Pattern SKELETON_ERA_FIELD_PATTERN = Pattern.compile("G+");
 
     private static final Pattern SKELETON_MONTH_FIELD_PATTERN = Pattern.compile("M+");
 
@@ -841,9 +843,39 @@ public class GenerateDateTimeTestData {
 
         // Year
         if (skeleton.hasYear()) {
-            String yieldField = getFieldFromDateTimeSkeleton(localeCldrFile, fieldStyleCombo, calendarStr,
+            final String year = getFieldFromDateTimeSkeleton(localeCldrFile, fieldStyleCombo, calendarStr,
                 SKELETON_YEAR_FIELD_PATTERN);
-            sb.append(yieldField);
+
+            final String era = getFieldFromDateTimeSkeleton(localeCldrFile, fieldStyleCombo, calendarStr,
+                SKELETON_ERA_FIELD_PATTERN);
+
+            // Compute the final form of the year field according to the year style
+            String updatedYear = year;
+            String updatedEra = era;
+            YearStyle yearStyle = fieldStyleCombo.yearStyle;
+            if (yearStyle != null) {
+                switch (yearStyle) {
+                    case AUTO:
+                        updatedYear = year;
+                        updatedEra = era;
+                        break;
+                    case FULL:
+                        updatedYear = year.replace("yy", "y");
+                        updatedEra = era;
+                        break;
+                    case WITH_ERA:
+                        updatedYear = year.replace("yy", "y");
+                        if (era.isEmpty()) {
+                            updatedEra = "G";
+                        } else {
+                            updatedEra = era;
+                        }
+                        break;
+                }
+            }
+            String updatedYearEra = updatedEra + updatedYear;
+
+            sb.append(updatedYearEra);
         }
 
         // Month
@@ -874,6 +906,7 @@ public class GenerateDateTimeTestData {
                 SKELETON_DAY_FIELD_PATTERN));
         }
 
+        // Weekday
         if (skeleton.hasWeekday()) {
             switch (fieldStyleCombo.semanticSkeletonLength) {
                 case LONG:
@@ -894,6 +927,7 @@ public class GenerateDateTimeTestData {
             }
         }
 
+        // Time
         if (skeleton.hasTime()) {
             if (fieldStyleCombo.hourCycle == null) {
                 // TODO: use "C" instead of "j" by fixing NullPointerException in ICU4J
@@ -913,6 +947,8 @@ public class GenerateDateTimeTestData {
             sb.append("m");
             sb.append("s");
         }
+
+        // Time Zone
         if (skeleton.hasZone()) {
             switch (fieldStyleCombo.zoneStyle) {
                 case GENERIC:
@@ -947,8 +983,6 @@ public class GenerateDateTimeTestData {
                     break;
             }
         }
-
-        // FIXME: Resolve the yearStyle as described in the spec
 
         return sb.toString();
     }

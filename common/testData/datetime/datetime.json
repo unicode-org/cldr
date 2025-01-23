@@ -228,7 +228,7 @@
     "calendar": "gregorian",
     "locale": "en",
     "input": "2000-01-01T00:00Z[Etc/GMT]",
-    "expected": "Sat, 1/1/00"
+    "expected": "Sat, 1 1, 2000 AD"
   },
   {
     "semanticSkeleton": "YMDE",
@@ -237,7 +237,7 @@
     "calendar": "gregorian",
     "locale": "en",
     "input": "2024-07-01T08:50:07Z[Etc/GMT]",
-    "expected": "Mon, 7/1/24"
+    "expected": "Mon, 7 1, 2024 AD"
   },
   {
     "semanticSkeleton": "YMDE",
@@ -246,7 +246,7 @@
     "calendar": "gregorian",
     "locale": "en",
     "input": "2014-07-15T12:00Z[Etc/GMT]",
-    "expected": "Tue, 7/15/14"
+    "expected": "Tue, 7 15, 2014 AD"
   },
   {
     "semanticSkeleton": "YMDE",
@@ -255,7 +255,7 @@
     "calendar": "gregorian",
     "locale": "en",
     "input": "2000-01-01T00:00Z[Etc/GMT]",
-    "expected": "Sat, Jan 1, 2000"
+    "expected": "Sat, Jan 1, 2000 AD"
   },
   {
     "semanticSkeleton": "YMDE",
@@ -264,7 +264,7 @@
     "calendar": "gregorian",
     "locale": "en",
     "input": "2024-07-01T08:50:07Z[Etc/GMT]",
-    "expected": "Mon, Jul 1, 2024"
+    "expected": "Mon, Jul 1, 2024 AD"
   },
   {
     "semanticSkeleton": "YMDE",
@@ -273,7 +273,7 @@
     "calendar": "gregorian",
     "locale": "en",
     "input": "2014-07-15T12:00Z[Etc/GMT]",
-    "expected": "Tue, Jul 15, 2014"
+    "expected": "Tue, Jul 15, 2014 AD"
   },
   {
     "semanticSkeleton": "YMDE",
@@ -282,7 +282,7 @@
     "calendar": "gregorian",
     "locale": "en",
     "input": "2000-01-01T00:00Z[Etc/GMT]",
-    "expected": "Saturday, January 1, 2000"
+    "expected": "Saturday, January 1, 2000 AD"
   },
   {
     "semanticSkeleton": "YMDE",
@@ -291,7 +291,7 @@
     "calendar": "gregorian",
     "locale": "en",
     "input": "2024-07-01T08:50:07Z[Etc/GMT]",
-    "expected": "Monday, July 1, 2024"
+    "expected": "Monday, July 1, 2024 AD"
   },
   {
     "semanticSkeleton": "YMDE",
@@ -300,7 +300,7 @@
     "calendar": "gregorian",
     "locale": "en",
     "input": "2014-07-15T12:00Z[Etc/GMT]",
-    "expected": "Tuesday, July 15, 2014"
+    "expected": "Tuesday, July 15, 2014 AD"
   },
   {
     "semanticSkeleton": "Z",
@@ -1570,7 +1570,7 @@
     "calendar": "buddhist",
     "locale": "th-TH",
     "input": "2000-01-01T00:00Z[Etc/GMT]",
-    "expected": "ส. 1/1/43"
+    "expected": "ส. 1 1 พ.ศ. 2543"
   },
   {
     "semanticSkeleton": "YMDE",
@@ -1579,7 +1579,7 @@
     "calendar": "buddhist",
     "locale": "th-TH",
     "input": "2024-07-01T08:50:07Z[Etc/GMT]",
-    "expected": "จ. 1/7/67"
+    "expected": "จ. 1 7 พ.ศ. 2567"
   },
   {
     "semanticSkeleton": "YMDE",
@@ -1588,7 +1588,7 @@
     "calendar": "buddhist",
     "locale": "th-TH",
     "input": "2014-07-15T12:00Z[Etc/GMT]",
-    "expected": "อ. 15/7/57"
+    "expected": "อ. 15 7 พ.ศ. 2557"
   },
   {
     "semanticSkeleton": "YMDE",
@@ -1597,7 +1597,7 @@
     "calendar": "buddhist",
     "locale": "th-TH",
     "input": "2000-01-01T00:00Z[Etc/GMT]",
-    "expected": "ส. 1 ม.ค. 2543"
+    "expected": "ส. 1 ม.ค. พ.ศ. 2543"
   },
   {
     "semanticSkeleton": "YMDE",
@@ -1606,7 +1606,7 @@
     "calendar": "buddhist",
     "locale": "th-TH",
     "input": "2024-07-01T08:50:07Z[Etc/GMT]",
-    "expected": "จ. 1 ก.ค. 2567"
+    "expected": "จ. 1 ก.ค. พ.ศ. 2567"
   },
   {
     "semanticSkeleton": "YMDE",
@@ -1615,7 +1615,7 @@
     "calendar": "buddhist",
     "locale": "th-TH",
     "input": "2014-07-15T12:00Z[Etc/GMT]",
-    "expected": "อ. 15 ก.ค. 2557"
+    "expected": "อ. 15 ก.ค. พ.ศ. 2557"
   },
   {
     "semanticSkeleton": "YMDE",
@@ -1624,7 +1624,7 @@
     "calendar": "buddhist",
     "locale": "th-TH",
     "input": "2000-01-01T00:00Z[Etc/GMT]",
-    "expected": "วันเสาร์ที่ 1 มกราคม 2543"
+    "expected": "วันเสาร์ที่ 1 มกราคม พ.ศ. 2543"
   },
   {
     "semanticSkeleton": "YMDE",
@@ -1633,7 +1633,7 @@
     "calendar": "buddhist",
     "locale": "th-TH",
     "input": "2024-07-01T08:50:07Z[Etc/GMT]",
-    "expected": "วันจันทร์ที่ 1 กรกฎาคม 2567"
+    "expected": "วันจันทร์ที่ 1 กรกฎาคม พ.ศ. 2567"
   },
   {
     "semanticSkeleton": "YMDE",
@@ -1642,7 +1642,7 @@
     "calendar": "buddhist",
     "locale": "th-TH",
     "input": "2014-07-15T12:00Z[Etc/GMT]",
-    "expected": "วันอังคารที่ 15 กรกฎาคม 2557"
+    "expected": "วันอังคารที่ 15 กรกฎาคม พ.ศ. 2557"
   },
   {
     "semanticSkeleton": "Z",

@@ -1832,13 +1832,16 @@ The following process is used for the particular formats, with the fallback rule
 Some of the examples are drawn from real data, while others are for illustration. For illustration the region format is "Hora de {0}". The fallback format in the examples is "{1} ({0})", which is what is in root.
 
 1. In **all** cases, first canonicalize the _TZ_ ID according to the Unicode Locale Extension _type_ mapping data (see [Time Zone Identifiers](tr35.md#Time_Zone_Identifiers) for more details). Use that canonical TZID in each of the following steps.
-   * America/Atka → America/Adak
-   * Australia/ACT → Australia/Sydney
+    1. If the canonicalization fails (i.e. `Etc/Unknown` is returned), skip non-location and location formats and fall back to localized offset format
+        * America/Atka → America/Adak
+        * Australia/ACT → Australia/Sydney
+        * Australia/Ulladulla -> Etc/Unknown // format as localized offset
 
 2. For the localized GMT format, use the gmtFormat (such as "GMT{0}" or "HMG{0}") with the hourFormat (such as "+HH:mm;-HH:mm" or "+HH.mm;-HH.mm").
    * America/Los_Angeles → "GMT-08:00" // standard time
    * America/Los_Angeles → "HMG-07:00" // daylight time
    * Etc/GMT+3 → "GMT-03.00" // note that _TZ_ TZIDs have inverse polarity!
+   * Etc/Unknown → "GMT+07:00" // if the offset is known
 
     **Note:** The digits should be whatever are appropriate for the locale used to format the time zone, not necessarily from the western digits, 0..9. For example, they might be from ०..९.
 

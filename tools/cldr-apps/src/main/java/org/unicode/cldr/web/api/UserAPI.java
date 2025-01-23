@@ -201,7 +201,7 @@ public class UserAPI {
         }
     }
 
-    @DeleteProvider
+    @DELETE
     @Operation(summary = "Remove Settings", description = "remove a settings field")
     @APIResponses(
             value = {

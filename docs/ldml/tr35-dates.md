@@ -1696,6 +1696,8 @@ Note: A generic location format is constructed by a part of time zone ID represe
 * "Pacific Daylight Time" (long)
 * "PDT" (short)
 
+**Specific location format:** This format does not have a symbol, but is used in the fallback chain for the _specific non-location format_. Like the _generic location format_ it uses time zone locations, but formats these in a zone-variant aware way, e.g. "France Summer Time".
+
 **Localized GMT format:** A constant, specific offset from GMT (or UTC), which may be in a translated form. There are two styles for this. The first is used when there is an explicit non-zero offset from GMT; this style is specified by the `<gmtFormat>` element and `<hourFormat>` element. The long format always uses 2-digit hours field and minutes field, with optional 2-digit seconds field. The short format is intended for the shortest representation and uses hour fields without leading zero, with optional 2-digit minutes and seconds fields. The digits used for hours, minutes and seconds fields in this format are the locale's default decimal digits:
 
 * "GMT+03:30" (long)
@@ -1880,15 +1882,18 @@ Some of the examples are drawn from real data, while others are for illustration
            * "Pacific Time (Canada)" // for the zone Vancouver in the locale en_MX.
            * "Mountain Time (Phoenix)"
            * "Pacific Time (Whitehorse)"
-5. For the generic location format:
-   1. From the TZDB get the country code for the zone, and determine whether there is only one timezone in the country. If there is only one timezone or if the zone id is in the `<primaryZones>` list, format the country name with the _regionFormat_, and return it.
+5. For the location formats (generic or specific):
+   1. Get the _regionFormat_ format according to type (generic, standard, or daylight).
+   2. From the TZDB get the country code for the zone, and determine whether there is only one timezone in the country. 
+      1. If there is only one timezone or if the zone id is in the `<primaryZones>` list, continue with short country name, if it exists, otherwise the country name.
+      2. Otherwise, continue with the localized name of the exemplar city for the zone.
+   3. Format the region format obtained in step 1 with the location obtained in step 2.
       * Examples:
-        * Europe/Rome → IT → "Italy Time" // for English
-        * Asia/Shanghai → CN → "China Time" // Asia/Shanghai is the _primaryZone_ for China
-        * Africa/Monrovia → LR → "Hora de Liberja"
-        * America/Havana → CU → "Hora de CU" // if CU is not localized
-   2. Otherwise format the exemplar city with the _regionFormat_, and return it.
-      1. America/Buenos_Aires → "Buenos Aires Time"
+        * America/Buenos_Aires, generic → "Buenos Aires Time" // multiple zones in AR
+        * Asia/Shanghai, standard → "China Standard Time" // Asia/Shanghai is the _primaryZone_ for CN
+        * Europe/Rome, daylight → "Italy Summer Time" // Europe/Rome is the only zone in IT
+        * Africa/Monrovia, generic → "Hora de Liberja"
+        * America/Havana, generic → "Hora de CU" // if CU is not localized
 
 > **Note:** If a language does require grammatical changes when composing strings, then the _regionFormat_ should either use a neutral format such as "Heure: {0}", or put all exceptional cases in explicitly translated strings.
 
@@ -2267,7 +2272,7 @@ Notes for the table below:
         <td colspan="2">The <i>short specific non-location format</i>. Where that is unavailable, falls back to the <i>short localized GMT format</i> ("O").</td></tr>
     <tr><td>zzzz</td><td>Pacific Daylight Time</td>
         <td colspan="2">The <i>long specific non-location format</i>.
-                        Where that is unavailable, falls back to the <i>long localized GMT format</i> ("OOOO").</td></tr>
+                        Where that is unavailable, falls back to the <i>specific location format</i>, then the <i>short localized GMT format</i> as the final fallback.</td></tr>
     <!--  Z  -->
     <tr><td rowspan="3">Z</td><td>Z..ZZZ</td><td>-0800</td>
         <td colspan="2">The <i>ISO8601 basic format</i> with hours, minutes and optional seconds fields.

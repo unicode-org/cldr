@@ -431,6 +431,10 @@ public class GenerateDateTimeTestData {
         }
     }
 
+    /**
+     * Semantic Skeletons and related DateTime fields, etc. are defined in LDML / UTS 35.
+     * Ex: See: https://www.unicode.org/reports/tr35/tr35-dates.html#Generating_Patterns_for_Semantic_Skeletons
+     */
     enum SemanticSkeleton {
         YMDE("YMDE"),
         MDTZ("MDTZ"),
@@ -555,6 +559,10 @@ public class GenerateDateTimeTestData {
         boolean shouldMultiplyByDateTime;
     }
 
+    /**
+     * @return The manually created collection of field input value combinatinos that characterize
+     * the test cases of the kernel.
+     */
     private static ImmutableSet<FieldStyleComboInput> getFieldStyleComboInputs() {
         ImmutableSet.Builder<FieldStyleComboInput> builder = ImmutableSet.builder();
 
@@ -800,6 +808,12 @@ public class GenerateDateTimeTestData {
         return builder.build();
     }
 
+    /**
+     * A struct used to represent and store the manually created test case inputs that constitute
+     * the "kernel" of test cases. The kernel of test cases exist to create a minimal set of
+     * combinations / variations of values for the date time fields that exercise a fairly thorough
+     * coverage of functionality & corner cases for date time formatting.
+     */
     static class TestCaseInput {
         FieldStyleCombo fieldStyleCombo;
         LocalDateTime dateTime;
@@ -821,6 +835,16 @@ public class GenerateDateTimeTestData {
 
     private static final Pattern SKELETON_DAY_FIELD_PATTERN = Pattern.compile("d+");
 
+    /**
+     * Get the locale default date time skeleton for the given semantic skeleton length, and then
+     * return the skeleton substring that represents a particular date time field according to
+     * {@code fieldPattern}.
+     * @param localeCldrFile
+     * @param fieldStyleCombo
+     * @param calendarStr
+     * @param fieldPattern
+     * @return
+     */
     private static String getFieldFromDateTimeSkeleton(CLDRFile localeCldrFile, FieldStyleCombo fieldStyleCombo, String calendarStr, Pattern fieldPattern) {
         String skeletonLength = fieldStyleCombo.semanticSkeletonLength.getLabel();
         String dateTimeSkeleton = localeCldrFile.getDateSkeleton(calendarStr, skeletonLength);

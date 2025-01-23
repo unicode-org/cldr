@@ -768,16 +768,16 @@ $wordBoundary{ኦ → $ኦ ; # ETHIOPIC SYLLABLE GLOTTAL O
 # Convert to dot to dot if dot is followed by a number, ellipsis, or another dot.
 \. $1 ← \.([0-9….]) ;
 # Convert to Ethiopic Fullstop if dot is not followed by a number or another dot.
-። $1 ↔ \.([^0-9.]) ;
+። $1 ← \.([^0-9.]) ;
 \, $1 ← \,([0-9]) ;
-# ፣ $1 ↔ \,([^0-9]) ;
+# ፣ $1 ← \,([^0-9]) ;
 ፤ ↔ \;    ;
 ፦ ↔ \:\-  ;
 # ፥ ↔ \:  ;
 # ፨ → "#" ;
 # ፠ → \+  ;
 ፧ → \?  ;
-፡ $1 ↔ \,([^0-9])   ;
+፡ $1 ← \,([^0-9])   ;
 
 ::Null ;
 $1 $ጥበቅ ← $ጥበቅ ([ሀ-ፖ]) ;

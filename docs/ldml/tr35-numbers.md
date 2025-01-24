@@ -260,7 +260,7 @@ The available number symbols are as follows:
 Example:
 
 ```xml
-<symbols>
+<symbols numberSystem="latn>
     <decimal>.</decimal>
     <group>,</group>
     <list>;</list>
@@ -281,7 +281,7 @@ Example:
 ```xml
 <!ATTLIST symbols numberSystem CDATA #IMPLIED >
 ```
-The `numberSystem` attribute is used to specify that the given number symbols are to be used when the given numbering system is active. Number symbols can only be defined for numbering systems of the "numeric" type, since any special symbols required for an algorithmic numbering system should be specified by the RBNF formatting rules used for that numbering system. By default, number symbols without a specific `numberSystem` attribute are assumed to be used for the "latn" numbering system, which is western (ASCII) digits. Locales that specify a numbering system other than "latn" as the default should also specify number formatting symbols that are appropriate for use within the context of the given numbering system. For example, a locale that uses the Arabic-Indic digits as its default would likely use an Arabic comma for the grouping separator rather than the ASCII comma.
+The `numberSystem` attribute is used to specify that the given number symbols are to be used when the given numbering system is active. Number symbols can only be defined for numbering systems of the "numeric" type, since any special symbols required for an algorithmic numbering system should be specified by the RBNF formatting rules used for that numbering system. By default, number symbols without a specific `numberSystem` attribute are assumed to be used for the "latn" numbering system, which is western (ASCII) digits; however, number symbols without a specific `numberSystem` attribute should not be used and will be deprecated in CLDR v48. Locales that specify a numbering system other than "latn" as the default should also specify number formatting symbols that are appropriate for use within the context of the given numbering system. For example, a locale that uses the Arabic-Indic digits as its default would likely use an Arabic comma for the grouping separator rather than the ASCII comma.
 For more information on numbering systems and their definitions, see _[Section 1: Numbering Systems](#Numbering_Systems)_.
 
 ### <a name="Number_Formats" href="#Number_Formats">Number Formats</a>
@@ -314,7 +314,7 @@ Different formats are provided for different contexts, as follows:
 Example:
 
 ```xml
-<decimalFormats>
+<decimalFormats numberSystem="latn">
   <decimalFormatLength type="long">
     <decimalFormat>
       <pattern>#,##0.###</pattern>
@@ -322,7 +322,7 @@ Example:
   </decimalFormatLength>
 </decimalFormats>
 
-<scientificFormats>
+<scientificFormats numberSystem="latn">
   <default type="long"/>
   <scientificFormatLength type="long">
     <scientificFormat>
@@ -336,7 +336,7 @@ Example:
   </scientificFormatLength>
 </scientificFormats>
 
-<percentFormats>
+<percentFormats numberSystem="latn">
   <percentFormatLength type="long">
     <percentFormat>
       <pattern>#,##0%</pattern>
@@ -349,7 +349,7 @@ Example:
 <!ATTLIST symbols numberSystem CDATA #IMPLIED >
 ```
 
-The `numberSystem` attribute is used to specify that the given number formatting pattern(s) are to be used when the given numbering system is active. By default, number formatting patterns without a specific `numberSystem` attribute are assumed to be used for the "latn" numbering system, which is western (ASCII) digits. Locales that specify a numbering system other than "latn" as the default should also specify number formatting patterns that are appropriate for use within the context of the given numbering system.
+The `numberSystem` attribute is used to specify that the given number formatting pattern(s) are to be used when the given numbering system is active. By default, number formatting patterns without a specific `numberSystem` attribute are assumed to be used for the "latn" numbering system, which is western (ASCII) digits; however, number formatting patterns without a specific `numberSystem` attribute should not be used and will be deprecated in CLDR v48. Locales that specify a numbering system other than "latn" as the default should also specify number formatting patterns that are appropriate for use within the context of the given numbering system.
 For more information on numbering systems and their definitions, see _[Section 1: Numbering Systems](#Numbering_Systems)_.
 
 #### <a name="Compact_Number_Formats" href="#Compact_Number_Formats">Compact Number Formats</a>

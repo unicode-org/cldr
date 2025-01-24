@@ -1295,7 +1295,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
      */
     private String getDateSkeletonXpath(String calendar, String length) {
         String formatPattern =
-            "//ldml/dates/calendars/calendar[@type=\"%s\"]/dateFormats/dateFormatLength[@type=\"%s\"]/dateFormat[@type=\"standard\"]/datetimeSkeleton";
+                "//ldml/dates/calendars/calendar[@type=\"%s\"]/dateFormats/dateFormatLength[@type=\"%s\"]/dateFormat[@type=\"standard\"]/datetimeSkeleton";
         return String.format(formatPattern, calendar, length);
     }
 
@@ -1399,11 +1399,10 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         return MessageFormat.format(gluePatternWithoutQuotes, (Object[]) new String[] {time, date});
     }
 
-    public String getDateSkeleton(
-        String calendar, String length) {
+    public String getDateSkeleton(String calendar, String length) {
         String dateTimeSkeletonXPath = // Get standard dateTime skeleton for same calendar & length
-                                       // as this dateTimePattern
-            this.getDateSkeletonXpath(calendar, length);
+                // as this dateTimePattern
+                this.getDateSkeletonXpath(calendar, length);
         return this.getWinningValue(dateTimeSkeletonXPath);
     }
 

@@ -5,12 +5,10 @@ title: Update Currency Codes
 # Update Currency Codes
 
 - Go to https://www.six-group.com/en/products-services/financial-information/data-standards.html#scrollTo=currency-codes
-- Take the link for "Current Currency and Funds": ["List one (XML)"](https://www.six-group.com/dam/download/financial-information/data-center/iso-currrency/amendments/lists/list_one.xml)
+- Take the link for "Current Currency and Funds": ["List one (XML)"](https://www.six-group.com/dam/download/financial-information/data-center/iso-currrency/lists/list-one.xml)
 - Save the page as {cldr}/tools/cldr\-code/src/main/resources/org/unicode/cldr/util/data/dl\_iso\_table\_a1\.xml
-- ```curl 'https://www.six-group.com/dam/download/financial-information/data-center/iso-currrency/lists/list_one.xml' > tools/cldr-code/src/main/resources/org/unicode/cldr/util/data/dl_iso_table_a1.xml```
-- Take the link for "Historic denominations": "[List three (XML)](https://www.six-group.com/dam/download/financial-information/data-center/iso-currrency/amendments/lists/list_three.xml)"
+- Take the link for "Historic denominations": "[List three (XML)](https://www.six-group.com/dam/download/financial-information/data-center/iso-currrency/lists/list-three.xml)"
 - Save the page as {cldr}/tools/cldr\-code/src/main/resources/org/unicode/cldr/util/data/dl\_iso\_table\_a3\.xml
-- ```curl 'https://www.six-group.com/dam/download/financial-information/data-center/iso-currrency/lists/list_three.xml' > tools/cldr-code/src/main/resources/org/unicode/cldr/util/data/dl_iso_table_a3.xml```
 - **Use git diff to sanity check the two XML files against the old, and check them in.**
     - **"git diff \-w" is helpful to ignore whitespace. If there are only whitespace changes, there's no need to check them in.**
 - **Check the** [**ISO amendments**](https://www.six-group.com/en/products-services/financial-information/data-standards.html#scrollTo=amendments) **to get changes that will happen during the current cycle.**

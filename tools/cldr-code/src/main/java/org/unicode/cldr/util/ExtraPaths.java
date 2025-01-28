@@ -12,7 +12,7 @@ public class ExtraPaths {
 
     private static final Map<NameType, ExtraPaths> instances = new HashMap<>();
 
-    public static ExtraPaths getInstance(NameType nameType) {
+    public static synchronized ExtraPaths getInstance(NameType nameType) {
         return instances.computeIfAbsent(nameType, ExtraPaths::new);
     }
 

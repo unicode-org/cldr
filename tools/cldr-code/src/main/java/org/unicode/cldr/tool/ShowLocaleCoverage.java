@@ -67,6 +67,10 @@ import org.unicode.cldr.util.TempPrintWriter;
 import org.unicode.cldr.util.VettingViewer;
 import org.unicode.cldr.util.VettingViewer.MissingStatus;
 
+/**
+ * This produces the cldr-staging file charts/47/supplemental/locale_coverage.html eg.
+ * https://www.unicode.org/cldr/charts/47/supplemental/locale_coverage.html
+ */
 public class ShowLocaleCoverage {
 
     private static final String TSV_BASE =

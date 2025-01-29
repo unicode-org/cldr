@@ -103,7 +103,8 @@ public class TestLevel {
                 code.equals("ZWL") && CLDRFile.GEN_VERSION.equals("46"),
                 "Skipping ZWL for CLDR 46");
         assumeFalse(
-                code.equals("ZWG") && (CLDRFile.GEN_VERSION.equals("46") || CLDRFile.GEN_VERSION.equals("47")),
+                code.equals("ZWG")
+                        && (CLDRFile.GEN_VERSION.equals("46") || CLDRFile.GEN_VERSION.equals("47")),
                 "Skipping ZWG for CLDR 46 & 47");
         assertTrue(
                 expect.isAtLeast(l),

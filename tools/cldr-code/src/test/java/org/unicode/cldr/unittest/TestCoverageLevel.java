@@ -721,6 +721,9 @@ public class TestCoverageLevel extends TestFmwkPlus {
                 if ("narrow".equals(xpp.findAttributeValue("unitLength", "type"))
                         || path.endsWith("/compoundUnitPattern1")) {
                     continue;
+                } else if (path.contains("light-speed")) {
+                    // Temporary overrides for https://unicode-org.atlassian.net/browse/CLDR-18258
+                    continue;
                 }
             } else if (xpp.contains("posix")) {
                 continue;

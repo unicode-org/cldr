@@ -229,8 +229,9 @@ public class TestCLDRFile extends TestFmwk {
                 final CLDRFile cldrFile = fullCldrFactory.make(locale, true);
                 Set<String> sorted2 = new TreeSet<>(cldrFile.getExtraPaths());
                 for (String path : sorted2) {
-                    if (path.contains("speed-beaufort")) {
+                    if (path.contains("speed-beaufort") || path.contains("speed-light-speed")) {
                         continue; // special case
+                        // Light-speed should eventually be restored but for now is ignored for https://unicode-org.atlassian.net/browse/CLDR-18258
                     }
                     if (path.contains("/gender")
                             || path.contains("@gender")

@@ -50,15 +50,10 @@ Note: DTD @-annotations are not currently converted to .xsd. For full CLDR file 
   <xs:element name="import">
     <xs:complexType>
       <xs:attribute name="path" use="required"/>
-      <xs:attribute name="base">
-        <xs:simpleType>
-          <xs:restriction base="xs:token">
-            <xs:enumeration value="cldr"/>
-          </xs:restriction>
-        </xs:simpleType>
-      </xs:attribute>
+      <xs:attribute name="base" type="xs:NMTOKEN"/>
     </xs:complexType>
   </xs:element>
+  
   
   <xs:element name="locales">
     <xs:complexType>

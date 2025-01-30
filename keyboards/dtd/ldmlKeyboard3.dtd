@@ -20,7 +20,8 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 <!ELEMENT import EMPTY >
 <!ATTLIST import path CDATA #REQUIRED >
     <!--@MATCH:any-->
-<!ATTLIST import base (cldr) #IMPLIED >
+<!ATTLIST import base NMTOKEN #IMPLIED >
+    <!--@MATCH:literal/cldr-->
 
 <!ELEMENT locales ( locale* ) >
 

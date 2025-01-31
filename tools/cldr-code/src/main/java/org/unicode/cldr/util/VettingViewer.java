@@ -1428,6 +1428,12 @@ public class VettingViewer<T> {
          */
         ALIASED,
 
+        /**
+         * The value is not from a different path -- but it is from a different locale
+         * specification, eg. from `fr` instead of `ht`.
+         */
+        FROM_RELATED_LANGUAGE,
+
         /** See ABSENT */
         MISSING_OK,
 
@@ -1467,6 +1473,11 @@ public class VettingViewer<T> {
                         path, status, false); // does not skip inheritance marker
 
         boolean isAliased = !path.equals(status.pathWhereFound);
+
+        boolean isSourceLocaleDifferent =
+                !sourceLocale.equals(sourceLocaleID)
+                        && !sourceLocale.equals(
+                                "no") /* Norwegian has multiple ISO codes even though its practically the same locale */;
         if (DEBUG) {
             if (path.equals("//ldml/characterLabels/characterLabelPattern[@type=\"subscript\"]")) {
                 int debug = 0;
@@ -1508,7 +1519,11 @@ public class VettingViewer<T> {
                                 ? MissingStatus.ROOT_OK
                                 : isParentRoot ? MissingStatus.ABSENT : MissingStatus.ALIASED;
             } else if (!isAliased) {
-                result = MissingStatus.PRESENT;
+                if (isSourceLocaleDifferent) {
+                    result = MissingStatus.FROM_RELATED_LANGUAGE;
+                } else {
+                    result = MissingStatus.PRESENT;
+                }
             } else if (isParentRoot) { // We handle ALIASED specially, depending on whether the
                 // parent is root or not.
                 result =
@@ -1678,6 +1693,7 @@ public class VettingViewer<T> {
 
             switch (missingStatus) {
                 case ABSENT:
+                case FROM_RELATED_LANGUAGE:
                     missingCounter.add(level, 1);
                     if (missingPaths != null) {
                         missingPaths.put(missingStatus, path);

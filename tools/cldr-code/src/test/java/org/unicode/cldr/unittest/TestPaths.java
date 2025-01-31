@@ -139,7 +139,7 @@ public class TestPaths extends TestFmwkPlus {
             for (Iterator<String> it = file.iterator(); it.hasNext(); ) {
                 String path = it.next();
                 if (isExemptLocale && path.equals(exemptPathIfLocale)) {
-                    logKnownIssue("CLDR-17544", "Can't reproduce locally");
+                    logKnownIssue("CLDR-17849", "Can't reproduce locally");
                     continue;
                 }
                 if (extraPaths.contains(path)) {

@@ -407,7 +407,7 @@ public class TestLocale extends TestFmwkPlus {
     public void TestBrackets() {
         String[][] tests = {
             {
-                "language",
+                NameType.LANGUAGE.toString(),
                 "en",
                 "Anglish (abc)",
                 "en",
@@ -415,7 +415,7 @@ public class TestLocale extends TestFmwkPlus {
                 "〖?Anglish [abc]?❬ (U.S. [ghi])❭〗〖?Anglish [abc]?❬ (Latine [def])❭〗〖?Anglish [abc]?❬ (Latine [def], U.S. [ghi])❭〗〖❬Langue: ❭?Anglish (abc)?〗"
             },
             {
-                "script",
+                NameType.SCRIPT.toString(),
                 "Latn",
                 "Latine (def)",
                 "en_Latn",
@@ -423,17 +423,24 @@ public class TestLocale extends TestFmwkPlus {
                 "〖❬Anglish [abc] (❭?Latine [def]?❬)❭〗〖❬Anglish [abc] (❭?Latine [def]?❬, U.S. [ghi])❭〗〖❬Scripte: ❭?Latine (def)?〗"
             },
             {
-                "territory",
+                NameType.TERRITORY.toString(),
                 "US",
                 "U.S. (ghi)",
                 "en_Latn_US",
                 "Anglish [abc] (Latine [def], U.S. [ghi])",
                 "〖❬Anglish [abc] (❭?U.S. [ghi]?❬)❭〗〖❬Anglish [abc] (Latine [def], ❭?U.S. [ghi]?❬)❭〗〖❬Territorie: ❭?U.S. (ghi)?〗"
             },
-            {null, null, null, "en_US", "Anglish [abc] (U.S. [ghi])", null},
-            {"variant", "FOOBAR", "foo (jkl)", "en_foobar", "Anglish [abc] (foo [jkl])", null},
+            {NameType.NONE.toString(), null, null, "en_US", "Anglish [abc] (U.S. [ghi])", null},
             {
-                "key",
+                NameType.VARIANT.toString(),
+                "FOOBAR",
+                "foo (jkl)",
+                "en_foobar",
+                "Anglish [abc] (foo [jkl])",
+                null
+            },
+            {
+                NameType.KEY.toString(),
                 "co",
                 "sort (mno)",
                 "en_foobar@co=FOO",
@@ -441,7 +448,7 @@ public class TestLocale extends TestFmwkPlus {
                 null
             },
             {
-                "key|type",
+                NameType.KEY_TYPE.toString(),
                 "co|fii",
                 "sortfii (mno)",
                 "en_foobar@co=FII",
@@ -452,10 +459,10 @@ public class TestLocale extends TestFmwkPlus {
         // load up a dummy source
         SimpleXMLSource dxs = new SimpleXMLSource("xx");
         for (String[] row : tests) {
-            if (row[0] == null) {
+            NameType nameType = NameType.valueOf(row[0]);
+            if (nameType == NameType.NONE) {
                 continue;
             }
-            NameType nameType = NameType.typeNameToCode(row[0]);
             String path = nameType.getKeyPath(row[1]);
             dxs.putValueAtDPath(path, row[2]);
         }
@@ -478,14 +485,11 @@ public class TestLocale extends TestFmwkPlus {
         ExampleGenerator eg = new ExampleGenerator(f, testInfo.getEnglish());
         NameGetter nameGetter = f.nameGetter();
         for (String[] row : tests) {
-            if (row[0] != null) {
-                NameType nameType = NameType.typeNameToCode(row[0]);
+            NameType nameType = NameType.valueOf(row[0]);
+            if (nameType != NameType.NONE) {
                 String standAlone = nameGetter.getNameFromTypeEnumCode(nameType, row[1]);
                 logln(nameType + ": " + standAlone);
-                if (!assertEquals("stand-alone " + row[3], row[2], standAlone)) {
-                    nameType = NameType.typeNameToCode(row[0]);
-                    standAlone = nameGetter.getNameFromTypeEnumCode(nameType, row[1]);
-                }
+                assertEquals("stand-alone " + row[3], row[2], standAlone);
 
                 if (row[5] != null) {
                     String path = nameType.getKeyPath(row[1]);

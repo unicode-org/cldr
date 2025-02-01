@@ -3127,8 +3127,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
         Set<String> toAddTo = new HashSet<>();
         SupplementalDataInfo supplementalData = CLDRConfig.getInstance().getSupplementalDataInfo();
 
-        ExtraPaths.getInstance(NameType.LANGUAGE).append(toAddTo);
-        ExtraPaths.getInstance(NameType.SCRIPT).append(toAddTo);
+        ExtraPaths.add(toAddTo);
 
         // units
         PluralInfo plurals = supplementalData.getPlurals(PluralType.cardinal, getLocaleID());

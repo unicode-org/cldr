@@ -1,7 +1,7 @@
 package org.unicode.cldr.util;
 
+import com.google.common.collect.ImmutableSet;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
@@ -18,11 +18,14 @@ public class ExtraPaths {
 
     private static class Singleton {
         private final Collection<String> paths;
+        private Collection<String> pathsTemp;
 
         Singleton() {
-            paths = new HashSet<>();
+            pathsTemp = new TreeSet<>();
             addPaths(NameType.SCRIPT);
             addPaths(NameType.LANGUAGE);
+            paths = ImmutableSet.copyOf(pathsTemp); // preserves order (Sets.copyOf doesn't)
+            pathsTemp = null;
         }
 
         private void addPaths(NameType nameType) {
@@ -31,7 +34,7 @@ public class ExtraPaths {
             Set<String> codes = new TreeSet<>(sc.getGoodAvailableCodes(codeType));
             adjustCodeSet(codes, nameType);
             for (String code : codes) {
-                paths.add(nameType.getKeyPath(code));
+                pathsTemp.add(nameType.getKeyPath(code));
             }
             addAltPaths(nameType);
         }
@@ -76,7 +79,7 @@ public class ExtraPaths {
                     fullpathBuf
                             .insert(fullpathBuf.lastIndexOf("]") + 1, "[@alt=\"" + alt + "\"]")
                             .toString();
-            paths.add(altPath);
+            pathsTemp.add(altPath);
         }
     }
 }

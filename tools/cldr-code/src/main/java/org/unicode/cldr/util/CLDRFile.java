@@ -1158,12 +1158,6 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String>, LocaleSt
                                         continue;
                                     }
                                 }
-                                String keepValue =
-                                        XMLSource.getPathsAllowingDuplicates().get(xpath);
-                                if (keepValue != null && keepValue.equals(currentValue)) {
-                                    logicDuplicate = false;
-                                    continue;
-                                }
                                 // we've now established that the values are the same
                                 String currentFullXPath = dataSource.getFullPath(xpath);
                                 String otherFullXPath = other.dataSource.getFullPath(otherXpath);

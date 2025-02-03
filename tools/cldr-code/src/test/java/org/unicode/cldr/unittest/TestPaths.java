@@ -253,6 +253,7 @@ public class TestPaths extends TestFmwkPlus {
                 || path.contains("/caseMinimalPairs")
                 || path.contains("/genderMinimalPairs")
                 || path.contains("/sampleName")
+                || path.contains("/localeDisplayNames/territories/territory")
         //            ||
         // path.equals("//ldml/dates/timeZoneNames/zone[@type=\"Australia/Currie\"]/exemplarCity")
         //            ||

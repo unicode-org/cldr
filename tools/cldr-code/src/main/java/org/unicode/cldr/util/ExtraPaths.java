@@ -23,10 +23,10 @@ public class ExtraPaths {
      * values in root. NOTE: if this is changed, you'll need to modify
      * TestPaths.extraPathAllowsNullValue
      */
-    static final Set<String> CONST_EXTRA_PATHS =
+    private static final Set<String> CONST_EXTRA_PATHS =
             CharUtilities.internImmutableSet(
                     Set.of(
-                            // Individual zone overrides — were in getRawExtraPaths
+                            // Individual zone overrides
                             "//ldml/dates/timeZoneNames/zone[@type=\"Pacific/Honolulu\"]/short/generic",
                             "//ldml/dates/timeZoneNames/zone[@type=\"Pacific/Honolulu\"]/short/standard",
                             "//ldml/dates/timeZoneNames/zone[@type=\"Pacific/Honolulu\"]/short/daylight",

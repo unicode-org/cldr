@@ -157,7 +157,7 @@ public class VoteAPIHelper {
         try {
             /** if true, hide emails. TODO: CLDR-16829 remove this parameter */
             final boolean redacted =
-                    ((mySession.user == null) || (!mySession.user.getLevel().isGuest()));
+                    ((mySession.user == null) || (!mySession.user.getLevel().isGuestOrStronger()));
             final RowResponse r = getRowsResponse(args, sm, locale, mySession, redacted);
             return Response.ok(r).build();
         } catch (Throwable t) {

@@ -330,14 +330,11 @@ public class VoteResolver<T> {
                             PERMANENT_VOTES);
         }
 
-        // The following methods were moved here from UserRegistry
-        // TODO: remove this todo notice
-
         public boolean isAdmin() {
             return stlevel <= admin.stlevel;
         }
 
-        public boolean isTC() {
+        public boolean isTCOrStronger() {
             return stlevel <= tc.stlevel;
         }
 
@@ -349,11 +346,11 @@ public class VoteResolver<T> {
             return stlevel <= manager.stlevel;
         }
 
-        public boolean isVetter() {
+        public boolean isVetterOrStronger() {
             return stlevel <= vetter.stlevel;
         }
 
-        public boolean isGuest() {
+        public boolean isGuestOrStronger() {
             return stlevel <= guest.stlevel;
         }
 
@@ -372,11 +369,11 @@ public class VoteResolver<T> {
          * @param myOrg
          */
         public boolean isAdminForOrg(Organization myOrg, Organization target) {
-            return isAdmin() || ((isTC() || stlevel == manager.stlevel) && (myOrg == target));
+            return isAdmin() || (isManagerOrStronger() && (myOrg == target));
         }
 
         public boolean canImportOldVotes(CheckCLDR.Phase inPhase) {
-            return isVetter() && (inPhase == Phase.SUBMISSION);
+            return isVetterOrStronger() && (inPhase == Phase.SUBMISSION);
         }
 
         public boolean canListUsers() {
@@ -384,15 +381,15 @@ public class VoteResolver<T> {
         }
 
         public boolean canCreateUsers() {
-            return isTC() || isExactlyManager();
+            return isManagerOrStronger();
         }
 
         public boolean canEmailUsers() {
-            return isTC() || isExactlyManager();
+            return isManagerOrStronger();
         }
 
         public boolean canModifyUsers() {
-            return isTC() || isExactlyManager();
+            return isManagerOrStronger();
         }
 
         public boolean canCreateOtherOrgs() {
@@ -410,7 +407,7 @@ public class VoteResolver<T> {
                 // false here.
                 // This is probably desired!
             }
-            return isGuest();
+            return isGuestOrStronger();
         }
 
         public boolean canCreateSummarySnapshot() {
@@ -418,7 +415,7 @@ public class VoteResolver<T> {
         }
 
         public boolean canMonitorForum() {
-            return isTC() || isExactlyManager();
+            return isManagerOrStronger();
         }
 
         public boolean canSetInterestLocales() {

@@ -47,7 +47,7 @@ public class GenerateVxml {
             if (cs == null) {
                 return Auth.noSessionResponse();
             }
-            if (!UserRegistry.userIsAdmin(cs.user)) {
+            if (!UserRegistry.userIsTCOrStronger(cs.user)) {
                 return Response.status(Response.Status.FORBIDDEN).build();
             }
             if (SurveyMain.isBusted()

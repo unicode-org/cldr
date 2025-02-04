@@ -82,7 +82,35 @@ For a full listing, see [Delta Data](https://unicode.org/cldr/charts/dev/delta/i
 
 ### Collation Data Changes
 
-- TBD
+- Two old `zh` collation variants are removed: big5han and gb2312.
+([CLDR-16062](https://unicode-org.atlassian.net/browse/CLDR-16062))
+
+### Number Spellout Data Changes
+
+- Number spellout rules are added for Gujarati.
+([CLDR-18111](https://unicode-org.atlassian.net/browse/CLDR-18111))
+- Number spellout rules are improved for several other languages:
+    - Bulgarian: Improve usage of ‘и’ (“and”). ([CLDR-17818](https://unicode-org.atlassian.net/browse/CLDR-17818))
+    - Catalan: ... ([CLDR-15972](https://unicode-org.atlassian.net/browse/CLDR-15972))
+    - Dutch: ... ([CLDR-17187](https://unicode-org.atlassian.net/browse/CLDR-17187))
+    - Hindi: ... ([CLDR-15278](https://unicode-org.atlassian.net/browse/CLDR-15278))
+    - Indonesian: ... ([CLDR-17730](https://unicode-org.atlassian.net/browse/CLDR-17730))
+    - Lithuanian: Add all of the grammatical cases, genders and grammatical numbers for cardinals and ordinals (no  pronomial forms, and only the positive degree). ([CLDR-18110](https://unicode-org.atlassian.net/browse/CLDR-18110))
+    - Russian: ... ([CLDR-17386](https://unicode-org.atlassian.net/browse/CLDR-17386))
+    - Ukrainian: ... ([CLDR-16096](https://unicode-org.atlassian.net/browse/CLDR-16096))
+
+### Segmentation Data Changes
+
+- The word break tailorings for `fi` and `sv` are removed to align with recent discussions in the UTC
+and recent changes to ICU behavior. ([CLDR-18272](https://unicode-org.atlassian.net/browse/CLDR-18272))
+
+### Transform Data Changes
+
+- A new `Hant-Latn` transform is added, and `Hans-Latn` is added as an alias for the existing `Hani-Latn`
+transform. When the Unihan data `kMandarin` field has two values, the first is preferred for a `CN`/`Hans`
+context, and is used by the `Hani-Latn`/`Hans-Latn` transform; the second is preferred for a `TW`/`Hant`
+context, and is now used by the new `Hant-Latn` transform.
+([CLDR-18080](https://unicode-org.atlassian.net/browse/CLDR-18080))
 
 ### JSON Data Changes
 

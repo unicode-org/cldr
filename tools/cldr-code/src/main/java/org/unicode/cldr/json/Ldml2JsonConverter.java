@@ -966,6 +966,7 @@ public class Ldml2JsonConverter {
                                 }
                             }
                         }
+                        postprocessAfterAdd(out, item);
                     }
 
                     resolveSortingItems(out, nodesForLastItem, sortingItems);
@@ -1043,6 +1044,43 @@ public class Ldml2JsonConverter {
             System.out.print(outStr);
         }
         return totalItemsInFile;
+    }
+
+    /**
+     * Provide an opportunity to fix up the JsonObject before write, after items were added.
+     *
+     * @param out the JsonObject which already reflects 'item'
+     * @param item the original CLDR item
+     */
+    private void postprocessAfterAdd(JsonObject out, CldrItem item) {
+        if (item.getUntransformedPath().contains("timeZoneNames/zone")) {
+            // add _type values into the time zone tree
+            try {
+                JsonObject sub = out;
+                for (final CldrNode n : item.getNodesInPath()) {
+                    if (n.getNodeKeyName().equals("cldr")) {
+                        continue; // skip the top 'cldr' node
+                    }
+                    if (!n.getName().equals("zone") && n.getParent().equals("zone")) {
+                        // child of zone, but not a zone - add the type.
+                        sub.addProperty("_type", "zone");
+                        break;
+                    } else {
+                        JsonElement je = sub.get(n.getNodeKeyName());
+                        if (je == null) {
+                            // then add it! Because we run before the sorting,
+                            // we can run where the parent isn't added yet.
+                            je = new JsonObject();
+                            sub.add(n.getNodeKeyName(), je);
+                        }
+                        sub = je.getAsJsonObject(); // traverse into the JSON DOM..
+                    }
+                }
+            } catch (ParseException e) {
+                System.err.println("Error adding _type in tree for " + item.getUntransformedPath());
+                e.printStackTrace();
+            }
+        }
     }
 
     /**

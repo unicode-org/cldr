@@ -1,6 +1,7 @@
 package org.unicode.cldr.util;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
@@ -13,6 +14,7 @@ import java.io.File;
 import java.nio.file.Path;
 import java.util.Comparator;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 import org.junit.jupiter.api.BeforeAll;
@@ -403,5 +405,25 @@ public class TestCLDRFile {
         assertEquals(NameType.KEY, NameType.typeNameToCode("key"));
         assertEquals(NameType.KEY_TYPE, NameType.typeNameToCode("key|type"));
         assertEquals(NameType.SUBDIVISION, NameType.typeNameToCode("subdivision"));
+    }
+
+    @Test
+    public void TestDTDOrder() {
+        CLDRFile file = factory.make("supplementalData", false);
+
+        // This is to simulate what is in the LDML2JsonConverter
+        final Comparator<String> comparator =
+                DtdData.getInstance(file.getDtdType()).getDtdComparator(null);
+        final List<String> curr = new LinkedList<>();
+        for (Iterator<String> it = file.iterator("//supplementalData/currencyData/region[@iso3166=\"BY\"]", comparator); it.hasNext(); ) {
+            final String xpath = it.next();
+            final XPathParts xpp = XPathParts.getFrozenInstance(xpath);
+            final String iso4217 = xpp.getAttributeValue(-1, "iso4217");
+            curr.add(iso4217);
+        }
+        final String expect[] = {
+            "BYN", "BYR", "BYB", "RUR", "SUR"
+        };
+        assertArrayEquals(expect, curr.toArray(new String[0]), "Expected currencies in XML order (will break if BY's currency changes)");
     }
 }

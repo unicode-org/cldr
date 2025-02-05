@@ -926,7 +926,7 @@ public class TestCLDRFile extends TestFmwk {
         }
     }
 
-    public void TestExtraPathsCapitalT() { // CapitalT to distinguish from testExtraPaths above
+    public void testExtraPaths2() {
         List<String> testCases =
                 Arrays.asList(
                         "//ldml/localeDisplayNames/languages/language[@type=\"ccp\"]",
